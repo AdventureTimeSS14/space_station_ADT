@@ -1,5 +1,7 @@
 using System.Linq;
+using Content.Shared.ADT.Grab;
 using Content.Shared.ADT.MartialArts;
+using Content.Shared.ADT.Grab;
 using Content.Shared.Alert;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Components;
@@ -10,7 +12,6 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Projectiles;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Standing;
 using Content.Shared.Weapons.Melee;
@@ -22,6 +23,8 @@ namespace Content.Shared.ADT.Grab;
 
 public sealed partial class GrabIntentSystem
 {
+    #region Stage Initialization
+
     private void InitializeGrabStageEvents()
     {
         SubscribeLocalEvent<GrabbableComponent, DownedEvent>(OnDowned);
@@ -30,6 +33,10 @@ public sealed partial class GrabIntentSystem
         SubscribeLocalEvent<GrabIntentComponent, AttackedEvent>(OnAttacked);
         SubscribeLocalEvent<GrabIntentComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
     }
+
+    #endregion
+
+    #region Stage Events
 
     private void OnDowned(Entity<GrabbableComponent> ent, ref DownedEvent args)
     {
@@ -107,6 +114,10 @@ public sealed partial class GrabIntentSystem
         args.ModifySpeed(multiplier, multiplier);
     }
 
+    #endregion
+
+    #region Stage Logic
+
     public bool TrySetGrabStages(
         Entity<PullerComponent, GrabIntentComponent> puller,
         Entity<PullableComponent, GrabbableComponent> pullable,
@@ -129,7 +140,7 @@ public sealed partial class GrabIntentSystem
         _modifierSystem.RefreshMovementSpeedModifiers(puller.Owner);
         GrabStagePopup(puller, pullable, popupType);
 
-        var comboEv = new Content.Shared.ADT.MartialArts.ComboAttackPerformedEvent(puller.Owner, pullable.Owner, puller.Owner, Content.Shared.ADT.MartialArts.ComboAttackType.Grab);
+        var comboEv = new ComboAttackPerformedEvent(puller.Owner, pullable.Owner, puller.Owner, ComboAttackType.Grab);
         RaiseLocalEvent(puller.Owner, comboEv);
 
         Dirty(pullable.Owner, pullable.Comp2);
@@ -139,13 +150,14 @@ public sealed partial class GrabIntentSystem
 
     private static PopupType GetPopupType(GrabStage stage)
     {
-        return stage switch
+        var popupType = stage switch
         {
             GrabStage.No or GrabStage.Soft => PopupType.Small,
             GrabStage.Hard => PopupType.MediumCaution,
             GrabStage.Suffocate => PopupType.LargeCaution,
             _ => throw new ArgumentOutOfRangeException(),
         };
+        return popupType;
     }
 
     private void GrabStagePopup(
@@ -221,13 +233,19 @@ public sealed partial class GrabIntentSystem
         meleeWeaponComponent.NextAttack = grabIntentComp.StageChangeCooldown * attackRateEv.Multipliers + max;
         Dirty(pullerUid, meleeWeaponComponent);
 
+        var beforeEvent = new BeforeHarmfulActionEvent(pullerUid, HarmfulActionType.Grab);
+        RaiseLocalEvent(pullable.Owner, beforeEvent);
+        if (beforeEvent.Cancelled)
+            return false;
+
         if (grabIntentComp.GrabStage == GrabStage.Suffocate)
         {
             _stamina.TakeStaminaDamage(pullable.Owner,
                 grabIntentComp.SuffocateGrabStaminaDamage,
                 applyResistances: true);
 
-            var comboEv = new Content.Shared.ADT.MartialArts.ComboAttackPerformedEvent(pullerUid, pullable.Owner, pullerUid, Content.Shared.ADT.MartialArts.ComboAttackType.Grab);
+            var comboEv =
+                new ComboAttackPerformedEvent(pullerUid, pullable.Owner, pullerUid, ComboAttackType.Grab);
             RaiseLocalEvent(pullerUid, comboEv);
             _audio.PlayPredicted(_thudswoosh, pullable.Owner, pullerUid);
             return true;
@@ -284,8 +302,7 @@ public sealed partial class GrabIntentSystem
             return;
         }
 
-        // No ContestsSystem in ADT — use neutral multiplier
-        var massMultiplier = 1f;
+        var massMultiplier = Math.Clamp(_contests.MassContest(pullable.Owner, puller.Owner, true) * 2f, 0.5f, 2f);
         var extraMultiplier = 1f;
         if (_standing.IsDown(pullable.Owner))
             extraMultiplier *= puller.Comp2.DownedEscapeChanceMultiplier;
@@ -390,4 +407,6 @@ public sealed partial class GrabIntentSystem
             newStage);
         return true;
     }
+
+    #endregion
 }
