@@ -1,15 +1,34 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.ADT.Grab;
+using Content.Shared.ADT.MartialArts;
+using Content.Shared.ADT.Grab;
+using Content.Shared.ADT.MartialArts;
+using Content.Shared.ADT.MartialArts;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
+using Robust.Shared.Audio;
 
 namespace Content.Shared.ADT.MartialArts;
 
@@ -38,7 +57,8 @@ public partial class SharedMartialArtsSystem
         if (!_netManager.IsServer)
             return;
 
-        TryGrantMartialArt(args.Wearer, ent.Comp);
+        var user = args.Wearer;
+        TryGrantMartialArt(user, ent.Comp);
     }
 
     private void OnRemoveCorporateJudo(Entity<GrantCorporateJudoComponent> ent, ref ClothingGotUnequippedEvent args)
@@ -69,7 +89,8 @@ public partial class SharedMartialArtsSystem
     private void OnJudoDiscombobulate(Entity<CanPerformComboComponent> ent, ref JudoDiscombobulatePerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out _))
+            || !TryUseMartialArt(ent, proto, out var target, out _)
+            || !TryComp(target, out StatusEffectsComponent? status))
             return;
 
         _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow, TimeSpan.FromSeconds(5), 0.5f, 0.5f);
@@ -87,6 +108,12 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out _)
             || !TryComp(target, out StatusEffectsComponent? status))
             return;
+
+        _status.TryAddStatusEffect<TemporaryBlindnessComponent>(target,
+            "TemporaryBlindness",
+            TimeSpan.FromSeconds(2),
+            true,
+            status);
 
         _status.TryAddStatusEffect<BlurryVisionComponent>(target,
             "BlurryVision",
@@ -151,9 +178,10 @@ public partial class SharedMartialArtsSystem
             AddComp<ArmbarredComponent>(target).Puller = ent;
         }
 
+        // Taking someone in an armbar is an equivalent of taking them in a choke grab
         if (grabIntent.GrabStage != GrabStage.Suffocate
             || grabbable.GrabStage != GrabStage.Suffocate)
-            _grabIntent.TrySetGrabStages((ent.Owner, puller, grabIntent), (target, pullable, grabbable), GrabStage.Suffocate);
+            _grab.TrySetGrabStages((ent, puller, grabIntent), (target, pullable, grabbable), GrabStage.Suffocate);
 
         _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropItems);
 
@@ -178,7 +206,7 @@ public partial class SharedMartialArtsSystem
         _grabThrown.Throw(target,
             ent,
             _transform.GetMapCoordinates(ent).Position - _transform.GetMapCoordinates(target).Position,
-            5f,
+            5,
             behavior: proto.DropItems);
 
         _status.TryRemoveStatusEffect(ent, "KnockedDown");
@@ -189,10 +217,12 @@ public partial class SharedMartialArtsSystem
         ent.Comp.LastAttacks.Clear();
     }
 
+    // Not implemented yet, but I'll leave it here
     private void OnJudoGoldenBlast(Entity<CanPerformComboComponent> ent, ref JudoGoldenBlastPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out _)
+            || !TryUseMartialArt(ent, proto, out var target, out var _)
+            || !TryComp(target, out StatusEffectsComponent? status)
             || !TryComp<PullableComponent>(target, out var pullable))
             return;
 
