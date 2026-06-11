@@ -10,6 +10,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Effects;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
@@ -47,6 +48,7 @@ public sealed partial class GrabIntentSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly GrabThrownSystem _grabThrown = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     private readonly SoundPathSpecifier _thudswoosh = new("/Audio/Effects/thudswoosh.ogg");
 

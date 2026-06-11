@@ -951,6 +951,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return true;
         }
 
+        var comboDisarmEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Disarm);
+        RaiseLocalEvent(user, comboDisarmEv);
+
         if (_random.Prob(chance))
         {
             return false;
@@ -994,9 +997,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
             AdminLogger.Add(LogType.DisarmedKnockdown, LogImpact.Medium, $"{ToPrettyString(user):user} knocked down {ToPrettyString(target):target}");
         }
-
-        var comboDisarmEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Disarm);
-        RaiseLocalEvent(user, comboDisarmEv);
 
         return true;
     }

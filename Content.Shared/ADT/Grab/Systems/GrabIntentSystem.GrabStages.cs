@@ -229,7 +229,8 @@ public sealed partial class GrabIntentSystem
         var max = meleeWeaponComponent.NextAttack > _timing.CurTime ? meleeWeaponComponent.NextAttack : _timing.CurTime;
         var attackRateEv = new GetMeleeAttackRateEvent(pullerUid, meleeWeaponComponent.AttackRate, 1, pullerUid);
         RaiseLocalEvent(pullerUid, ref attackRateEv);
-        meleeWeaponComponent.NextAttack = grabIntentComp.StageChangeCooldown * attackRateEv.Multipliers + max;
+        var stageTimeMultiplier = GetGrabStageTimeMultiplier(pullable.Owner, (int) grabIntentComp.GrabStage + 1);
+        meleeWeaponComponent.NextAttack = grabIntentComp.StageChangeCooldown * attackRateEv.Multipliers * stageTimeMultiplier + max;
         Dirty(pullerUid, meleeWeaponComponent);
 
         var beforeEvent = new BeforeHarmfulActionEvent(pullerUid, HarmfulActionType.Grab);
@@ -413,4 +414,22 @@ public sealed partial class GrabIntentSystem
     }
 
     #endregion
+
+    private float GetGrabStageTimeMultiplier(EntityUid target, int nextStage)
+    {
+        if (!_inventory.TryGetContainerSlotEnumerator(target, out var enumerator))
+            return 1f;
+
+        var stage = (GrabStage) Math.Clamp(nextStage, 0, (int) GrabStage.Suffocate);
+        var multiplier = 1f;
+        while (enumerator.MoveNext(out var slot))
+        {
+            if (slot.ContainedEntity is not { } item)
+                continue;
+            if (TryComp<ModifyGrabStageTimeComponent>(item, out var mod)
+                && mod.Modifiers.TryGetValue(stage, out var value))
+                multiplier *= value;
+        }
+        return multiplier;
+    }
 }

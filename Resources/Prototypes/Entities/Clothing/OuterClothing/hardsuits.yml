@@ -660,7 +660,7 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 2.25
-      Choke: 2
+      Suffocate: 2
   # ADT Grab end
 
 # Syndicate Medic Hardsuit
@@ -735,7 +735,7 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 1.5
-      Choke: 2
+      Suffocate: 2
   # ADT-Tweak-End
   - type: DNALocker # ADT-Tweak
 
@@ -784,7 +784,7 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 2.25
-      Choke: 2
+      Suffocate: 2
   - type: DNALocker
   # ADT-Tweak-End
 

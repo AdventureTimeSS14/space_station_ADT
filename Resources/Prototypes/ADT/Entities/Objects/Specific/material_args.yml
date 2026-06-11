@@ -50,3 +50,45 @@
     sprite: ADT/Objects/Specific/material_art_book.rsi
     state: cookbook
   - type: GrantCqc
+
+- type: entity
+  id: ADTScrollCapoeira
+  name: capoeira scroll
+  description: A scroll that teaches the user the art of Capoeira.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/martial_arts.rsi
+    state: capoeira
+  - type: GuideHelp
+    guides:
+    - ADTMartialArts
+  - type: GrantCapoeira
+
+- type: entity
+  id: ADTScrollNinjutsu
+  name: ninjutsu scroll
+  description: A scroll containing the secret techniques of Ninjutsu.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/martial_arts.rsi
+    state: ninjutsu
+  - type: GuideHelp
+    guides:
+    - ADTMartialArts
+  - type: GrantNinjutsu
+
+- type: entity
+  id: ADTScrollDragonKungFu
+  name: dragon kung fu scroll
+  description: An ancient scroll that teaches the mystical art of Dragon Kung Fu.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/martial_arts.rsi
+    state: dragon
+  - type: GuideHelp
+    guides:
+    - ADTMartialArts
+  - type: GrantKungFuDragon

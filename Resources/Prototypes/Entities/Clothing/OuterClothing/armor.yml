@@ -399,7 +399,7 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 1.3
-      Choke: 1.5
+      Suffocate: 1.5
   # ADT Grab end
 
 - type: entity
@@ -478,7 +478,7 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 1.75
-      Choke: 1.5
+      Suffocate: 1.5
   # ADT Grab end
 
 - type: entity
@@ -534,7 +534,7 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 1.25
-      Choke: 1.25
+      Suffocate: 1.25
   # ADT Grab end
 
 - type: entity
