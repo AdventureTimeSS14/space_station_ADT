@@ -1,5 +1,33 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+Baptr0b0t@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+baptr0b0t@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
+using Content.Shared.ADT.Grab;
+using Content.Shared.ADT.MartialArts;
+using Content.Shared.ADT.Grab;
+using Content.Shared.ADT.MartialArts;
+using Content.Shared.ADT.MartialArts;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Body.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
@@ -7,6 +35,8 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
+using Robust.Shared.Audio;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.ADT.MartialArts;
 
@@ -23,7 +53,7 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, CanDoCQCEvent>(OnCQCCheck);
 
         SubscribeLocalEvent<GrantCqcComponent, UseInHandEvent>(OnGrantCQCUse);
-        SubscribeLocalEvent<GrantCqcComponent, MapInitEvent>(OnCQCMapInitEvent);
+        SubscribeLocalEvent<GrantCqcComponent, MapInitEvent>(OnMapInitEvent);
     }
 
     #region Generic Methods
@@ -49,7 +79,7 @@ public partial class SharedMartialArtsSystem
         }
     }
 
-    private void OnCQCMapInitEvent(Entity<GrantCqcComponent> ent, ref MapInitEvent args)
+    private void OnMapInitEvent(Entity<GrantCqcComponent> ent, ref MapInitEvent args)
     {
         if (!HasComp<MobStateComponent>(ent))
             return;
@@ -97,13 +127,45 @@ public partial class SharedMartialArtsSystem
                 _stamina.TakeStaminaDamage(args.Target, 25f, applyResistances: true);
                 break;
             case ComboAttackType.Harm:
-                // Leg sweep when user is downed
-                if (!TryComp<StandingStateComponent>(ent.Owner, out var standing)
-                    || standing.Standing
-                    || !TryComp<StandingStateComponent>(args.Target, out var targetStanding)
-                    || !targetStanding.Standing)
-                    break;
+                // Snap neck
+                if (!_mobState.IsDead(args.Target) && !HasComp<GodmodeComponent>(args.Target) &&
+                    TryComp(ent, out PullerComponent? puller) && puller.Pulling == args.Target &&
+                    TryComp(ent, out GrabIntentComponent? grabIntent) &&
+                    TryComp(args.Target, out PullableComponent? pullable) &&
+                    TryComp(args.Target, out BodyComponent? body) &&
+                    TryComp(args.Target, out StaminaComponent? stamina) && stamina.Critical &&
+                    grabIntent.GrabStage == GrabStage.Suffocate && TryComp(ent, out TargetingComponent? targeting) &&
+                    targeting.Target == TargetBodyPart.Head
+                    && _mobThreshold.TryGetDeadThreshold(args.Target, out var damageToKill))
+                {
+                    _pulling.TryStopPull(args.Target, pullable);
 
+                    var blunt = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), damageToKill.Value);
+                    _damageable.TryChangeDamage(args.Target, blunt, true, targetPart: TargetBodyPart.Chest);
+
+                    var (partType, symmetry) = _body.ConvertTargetBodyPart(targeting.Target);
+                    var targetedBodyPart = _body.GetBodyChildrenOfType(args.Target, partType, body, symmetry)
+                        .ToList()
+                        .FirstOrNull();
+
+                    if (targetedBodyPart == null ||
+                        !TryComp(targetedBodyPart.Value.Id, out WoundableComponent? woundable) ||
+                        woundable.Bone.ContainedEntities.FirstOrNull() is not { } bone ||
+                        !TryComp(bone, out BoneComponent? boneComp) || boneComp.BoneSeverity == BoneSeverity.Broken)
+                        break;
+
+                    _trauma.ApplyDamageToBone(bone, boneComp.BoneIntegrity, boneComp);
+                    ComboPopup(ent, args.Target, "Neck Snap");
+                    break;
+                }
+
+                // Leg sweep
+                 if (!TryComp<StandingStateComponent>(ent.Owner, out var standing)
+                     || standing.Standing
+                     || !TryComp<StandingStateComponent>(args.Target, out var targetStanding)
+                     || !targetStanding.Standing
+                     )
+                     break;
                 if (HasComp<KnockedDownComponent>(ent.Owner))
                     RemComp<KnockedDownComponent>(ent.Owner);
 
@@ -147,10 +209,9 @@ public partial class SharedMartialArtsSystem
 
         if (downed)
         {
-            if (TryComp<StatusEffectsComponent>(target, out var status))
-                _status.TryAddStatusEffect<Content.Shared.Bed.Sleep.ForcedSleepingStatusEffectComponent>(
-                    target, "ForcedSleep", TimeSpan.FromSeconds(10), true, status);
-            DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
+            if (TryComp<StaminaComponent>(target, out var stamina) && stamina.Critical)
+                _newStatus.TryAddStatusEffectDuration(target, "StatusEffectForcedSleeping", out _, TimeSpan.FromSeconds(10));
+            DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Head);
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage * 2 + 5, source: ent, applyResistances: true);
         }
         else
@@ -191,11 +252,11 @@ public partial class SharedMartialArtsSystem
 
         if (!_hands.TryGetActiveItem(target, out var activeItem))
             return;
-        if (!_hands.TryDrop(target, activeItem.Value))
+        if(!_hands.TryDrop(target, activeItem.Value))
             return;
         if (!_hands.TryGetEmptyHand(ent.Owner, out var emptyHand))
             return;
-        if (!_hands.TryPickup(ent, activeItem.Value, emptyHand))
+        if(!_hands.TryPickup(ent, activeItem.Value, emptyHand))
             return;
         _hands.SetActiveHand(ent.Owner, emptyHand);
     }
