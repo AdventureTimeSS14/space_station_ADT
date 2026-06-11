@@ -1,4 +1,23 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Bokser815 <70928915+Bokser815@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.ADT.MartialArts;
 using Content.Shared.NPC.Prototypes;
+using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -74,6 +93,9 @@ public sealed partial class GrantSleepingCarpComponent : GrantMartialArtKnowledg
     [DataField]
     public int MaximumUses = 1;
     public int CurrentUses = 0;
+
+    [DataField]
+    public ProtoId<FactionIconPrototype> IconToAdd = "SleepingCarpFaction";
 
     [DataField]
     public ProtoId<NpcFactionPrototype> FactionToAdd = "Dragon";
