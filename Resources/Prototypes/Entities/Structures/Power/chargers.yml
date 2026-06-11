@@ -13,6 +13,8 @@
   - type: Appearance
   - type: Charger
     slotId: charger_slot
+  - type: ApcPowerReceiver
+    powerLoad: 1 # same as draw given in ChargerComponent.PassiveDraw; increased when it is actually charging something
   - type: Anchorable
     delay: 1
   - type: Destructible
@@ -110,6 +112,9 @@
           tags:
           - PotatoBattery
           - ADTMegaCell #ADT-tweak
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
 
 - type: entity
   parent: [ BaseItemRecharger, ConstructibleMachine ]
@@ -168,8 +173,7 @@
         ejectOnInteract: true
         whitelist:
           components:
-          - HitscanBatteryAmmoProvider
-          - ProjectileBatteryAmmoProvider
+          - BatteryAmmoProvider
           - Stunbaton
         #ADT-Tweak-Start
         #  - PowerCell
@@ -179,6 +183,9 @@
         blacklist:
           tags:
           - PotatoBattery
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
 
 - type: entity
   parent: BaseItemRecharger
@@ -198,8 +205,7 @@
         ejectOnInteract: true
         whitelist:
           components:
-          - HitscanBatteryAmmoProvider
-          - ProjectileBatteryAmmoProvider
+          - BatteryAmmoProvider
           - Stunbaton
           - PowerCell
         blacklist:
@@ -208,6 +214,10 @@
           - ADTMegaCell # ADT-Tweak
           components: # ADT plasmacutters
           - BatteryRecharge # ADT plasmacutters
+          - BatterySelfRecharger # ADT-tweak
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
 
 - type: entity
   parent: [ BaseItemRecharger, BaseWallmount ]
@@ -233,8 +243,7 @@
         ejectOnInteract: true
         whitelist:
           components:
-          - HitscanBatteryAmmoProvider
-          - ProjectileBatteryAmmoProvider
+          - BatteryAmmoProvider
           - Stunbaton
           - ADTEnergyShield # ADT-Tweak
         blacklist:
@@ -251,6 +260,7 @@
   components:
   - type: Sprite
     sprite: Structures/Power/borg_charger.rsi
+    noRot: True
     layers:
       - state: borgcharger-u1
         map: ["base"]
@@ -323,3 +333,23 @@
       entity_storage: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.48
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: BorgCharger
+  id: BorgChargerXenoborg
+  name: xenoborg recharging station
+  description: A stationary charger for xenoborgs. Feels claustrophobic.
+  components:
+  - type: Sprite
+    sprite: Structures/Power/xenoborg_charger.rsi

@@ -13,8 +13,6 @@ using Content.Shared.Radio;
 using Content.Shared.Speech;
 using Robust.Shared.Timing;
 using Content.Shared.Audio;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.ADT.Supermatter.Systems;
 
@@ -131,7 +129,7 @@ public sealed partial class SupermatterSystem
         bool TypeCascade = _config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1;
 
         if (sm.Damage >= sm.DamageWarningThreshold)
-        {   
+        {
             message = TypeCascade
                 ? Loc.GetString("supermatter-warning-cascade", ("integrity", integrity))
                 : Loc.GetString("supermatter-warning", ("integrity", integrity));
@@ -144,7 +142,7 @@ public sealed partial class SupermatterSystem
 
                 global = true;
             }
-        
+
             SendSupermatterAnnouncement(uid, sm, message, global);
             global = false;
 

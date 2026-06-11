@@ -1,8 +1,7 @@
 - type: marking
   id: ADTArmTwistingLeft
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -11,8 +10,7 @@
 - type: marking
   id: ADTArmTwistingRight
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -21,8 +19,7 @@
 - type: marking
   id: ADTChestBackstabbed
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -31,8 +28,7 @@
 - type: marking
   id: ADTChestTwistingLeft
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -41,8 +37,7 @@
 - type: marking
   id: ADTChestTwistingRight
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -51,8 +46,7 @@
 - type: marking
   id: ADTChestStar
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -61,8 +55,7 @@
 - type: marking
   id: ADTHandTwistingLeft
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -71,8 +64,7 @@
 - type: marking
   id: ADTHandTwistingRight
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -81,8 +73,7 @@
 - type: marking
   id: ADTSmileScars
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -91,8 +82,7 @@
 - type: marking
   id: ADTHeadTwisting
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -101,8 +91,7 @@
 - type: marking
   id: ADTLegTwistingLeft
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -111,8 +100,7 @@
 - type: marking
   id: ADTLegTwistingRight
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -121,8 +109,7 @@
 - type: marking
   id: ADTTorsoIncision
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi

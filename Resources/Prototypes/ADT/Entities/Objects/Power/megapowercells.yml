@@ -33,7 +33,13 @@
       - ADTMegaCell
       - PowerCell
   - type: Appearance
-  - type: PowerCellVisuals
+  - type: GenericVisualizer
+    visuals:
+      enum.BatteryVisuals.State:
+        enum.PowerCellVisualLayers.Unshaded:
+          Full: {visible: true, state: o2}
+          Neither: {visible: true, state: o1}
+          Empty: {visible: true, state: o0}
   - type: Riggable
 
 - type: entity

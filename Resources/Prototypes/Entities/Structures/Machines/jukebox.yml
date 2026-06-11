@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: Jukebox
   name: jukebox
   parent: [ BaseMachinePowered, ConstructibleMachine ]
@@ -36,8 +36,9 @@
     boardName: wires-board-name-jukebox
     layoutId: Jukebox
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

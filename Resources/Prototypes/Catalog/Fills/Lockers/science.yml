@@ -24,3 +24,5 @@
     - id: ADTRNDInducerBattery
       prob: 0.3
     # ADT-Tweak-End
+    - id: PlushieLizardJobResearchassistant
+    - id: PlushieLizardJobScientist

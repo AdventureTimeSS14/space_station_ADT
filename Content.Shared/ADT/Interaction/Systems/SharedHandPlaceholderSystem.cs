@@ -20,8 +20,6 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedItemSystem _item = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;

@@ -4,8 +4,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Throwing; 
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -137,6 +135,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         if (component.EmbeddedIntoUid == null)
             return; // the entity is not embedded, so do nothing
 
+        var embeddedInto = component.EmbeddedIntoUid;
         if (TryComp<EmbeddedContainerComponent>(component.EmbeddedIntoUid.Value, out var embeddedContainer))
         {
             embeddedContainer.EmbeddedObjects.Remove(uid);
@@ -169,6 +168,9 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
             Dirty(uid, projectile);
         }
+
+        var ev = new EmbedDetachEvent(user, embeddedInto.Value);
+        RaiseLocalEvent(uid, ref ev);
 
         if (user != null)
         {

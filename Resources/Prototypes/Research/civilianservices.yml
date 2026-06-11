@@ -176,6 +176,9 @@
   - FloorTileItemShuttlePurple
   - FloorTileItemShuttleBlack
   - FloorTileItemShuttleRed
+  - FauxTileAstroAsteroidSandBorderless
+  - FauxTileAstroIronsand
+  - FauxTileAstroIronsandBorderless
   # ADT-tweak end
   # ADT Research Console Rework start
   position: 4,0

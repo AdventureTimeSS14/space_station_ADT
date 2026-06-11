@@ -22,17 +22,6 @@
 - type: Tag
   id: RPD
 
-- type: Tag
-  id: PhantomEctoplasm
-
-- type: Tag
-  id: PhantomEctoplasmBattery
-
-- type: Tag
-  id: PhantomEctoplasmPistolBattery
-
-- type: Tag
-  id: PhantomFreedom
 
 - type: Tag
   id: IgnoreBalanceChecks
@@ -761,6 +750,9 @@
   id: SyndicateSegwayKeys
 
 - type: Tag
+  id: SkeletonMotorcycleKeys
+
+- type: Tag
   id: GunUpgradeVampirism
 
 - type: Tag
@@ -771,3 +763,6 @@
 
 - type: Tag
   id: ADTEnergyShield
+
+- type: Tag
+  id: ADTSvet217KnifeKS43Cherry

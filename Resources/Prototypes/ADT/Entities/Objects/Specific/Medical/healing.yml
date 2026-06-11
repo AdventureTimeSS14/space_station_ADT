@@ -30,9 +30,13 @@
     damageContainers:
       - Biological
     damage:
-      groups:
-        Brute: -9 #по 3 в каждом уроне.
-        Burn: -12 #по 3 в каждом уроне. даже кислотных.
+      types:
+        Blunt: -3
+        Slash: -3
+        Piercing: -3
+        Heat: -3
+        Radiation: -3
+        Caustic: -3
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
     healingEndSound:
@@ -129,7 +133,9 @@
   components:
   - type: Label
     currentLabel: Амбузол+ 5u
-  - type: StorageFill
-    contents:
-    - id: PillAmbuzolPlus
-      amount: 5
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PillAmbuzolPlus
+          amount: 5

@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: BaseTarget
   parent: BaseStructureDynamic
   abstract: true
@@ -25,6 +25,7 @@
   - type: InteractionOutline
   - type: Physics
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:

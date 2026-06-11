@@ -18,7 +18,7 @@
   boilingPoint: 55.5
   meltingPoint: -50.0
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -35,7 +35,7 @@
   boilingPoint: 4200.0
   meltingPoint: 3550.0
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -60,7 +60,7 @@
   physicalDesc: reagent-physical-desc-alkaline
   color: "#e5420b"
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -87,7 +87,7 @@
         emote: Scream
         probability: 0.3
   metabolisms:
-    Poison:
+    Digestion:
       effects:
       - !type:HealthChange
         damage:
@@ -105,7 +105,7 @@
   - Science
   color: "#776291"
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -144,7 +144,7 @@
   boilingPoint: 353.2
   meltingPoint: 278.7
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -173,7 +173,7 @@
         emote: Scream
         probability: 0.3
   metabolisms:
-    Poison:
+    Digestion:
       effects:
       - !type:HealthChange
         damage:
@@ -204,7 +204,7 @@
         probability: 0.3
   #ADT-tweak-end
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -213,8 +213,6 @@
             #Heat: 1.5
             Caustic: 1.2
             #ADT-tweak-end
-    Medicine:
-      effects:
       - !type:Vomit
         conditions:
         - !type:ReagentCondition
@@ -240,7 +238,7 @@
   physicalDesc: reagent-physical-desc-grainy
   color: "#F0F0F0"
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:SatiateThirst
         factor: -5 # This is basically industrial dessicant
@@ -268,13 +266,11 @@
   physicalDesc: reagent-physical-desc-refreshing
   color: "#bf1365"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
-      # ADT-Tweak start
-      - !type:EvenHealthChange 
+      - !type:EvenHealthChange
         damage:
           Brute: -4
-      # ADT-Tweak end
       - !type:GenericStatusEffect
         key: Adrenaline
         component: IgnoreSlowOnDamage

@@ -52,7 +52,7 @@ public sealed partial class ScopeComponent : Component
 }
 
 [DataRecord, Serializable, NetSerializable]
-public record struct ScopeZoomLevel(
+public partial record struct ScopeZoomLevel(
     /// <summary>
     /// This is used in the popup when cycling through zoom levels.
     /// </summary>
