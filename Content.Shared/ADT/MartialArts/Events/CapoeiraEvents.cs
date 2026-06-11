@@ -1,4 +1,14 @@
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Chat.Prototypes;
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.MartialArts;
@@ -34,6 +44,12 @@ public abstract partial class BaseCapoeiraEvent : EntityEventArgs
 public sealed partial class PushKickPerformedEvent : BaseCapoeiraEvent
 {
     [DataField]
+    public EntProtoId StatusEffectProto = "StatusEffectMeleeVulnerability";
+
+    [DataField]
+    public DamageModifierSet ModifierSet = default!;
+
+    [DataField]
     public float ThrowRange = 1f;
 }
 
@@ -45,6 +61,10 @@ public sealed partial class CircleKickPerformedEvent : BaseCapoeiraEvent
     public TimeSpan SlowDownTime = TimeSpan.FromSeconds(2);
 }
 
-public sealed partial class SpinKickPerformedEvent : BaseCapoeiraEvent;
+public sealed partial class SpinKickPerformedEvent : BaseCapoeiraEvent
+{
+    [DataField]
+    public ProtoId<EmotePrototype>? Emote = "Flip";
+}
 
 public sealed partial class KickUpPerformedEvent : BaseCapoeiraEvent;
