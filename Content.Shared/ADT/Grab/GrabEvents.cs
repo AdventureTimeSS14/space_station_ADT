@@ -1,16 +1,6 @@
 namespace Content.Shared.ADT.Grab;
 
-public sealed class BeforeHarmfulActionEvent(EntityUid user, HarmfulActionType type) : CancellableEntityEventArgs
-{
-    public EntityUid User = user;
-    public HarmfulActionType Type = type;
-}
-
-public enum HarmfulActionType
-{
-    Grab,
-}
-
+// Can't have inventory relays because it must be in common...
 [ByRefEvent]
 public record struct GrabAttemptEvent(
     EntityUid Puller,
