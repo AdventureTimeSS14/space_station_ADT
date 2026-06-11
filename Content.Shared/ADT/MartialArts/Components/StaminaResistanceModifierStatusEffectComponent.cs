@@ -2,9 +2,9 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.MartialArts;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class StaminaResistanceModifierStatusEffectComponent : Component
 {
-    [DataField]
-    public float Modifier = 0.5f;
+    [DataField, AutoNetworkedField]
+    public float Modifier = 1f;
 }
