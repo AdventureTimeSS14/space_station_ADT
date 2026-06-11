@@ -492,13 +492,13 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
     private bool GrantMartialArt(GrantMartialArtKnowledgeComponent comp, EntityUid user)
     {
-        var canPerformComboComponent = EnsureComp<CanPerformComboComponent>(user);
-        var martialArtsKnowledgeComponent = EnsureComp<MartialArtsKnowledgeComponent>(user);
-        var pullerComponent = EnsureComp<PullerComponent>(user);
-
         if (!_proto.TryIndex<MartialArtPrototype>(comp.MartialArtsForm.ToString(), out var martialArtsPrototype)
             || !TryComp<MeleeWeaponComponent>(user, out var meleeWeaponComponent))
             return false;
+
+        var canPerformComboComponent = EnsureComp<CanPerformComboComponent>(user);
+        var martialArtsKnowledgeComponent = EnsureComp<MartialArtsKnowledgeComponent>(user);
+        var pullerComponent = EnsureComp<PullerComponent>(user);
 
         if (comp.LearnMessage != null)
             _popupSystem.PopupEntity(Loc.GetString(comp.LearnMessage), user, user);
