@@ -166,7 +166,7 @@ public sealed class BubblegumBloodAttackSystem : EntitySystem
         if (TerminatingOrDeleted(hit.Target))
             return;
 
-        if (!_mobState.IsIncapacitated(hit.Target))
+        if (_mobState.IsAlive(hit.Target))
             return;
 
         if (_npcFaction.IsEntityFriendly(boss, hit.Target))

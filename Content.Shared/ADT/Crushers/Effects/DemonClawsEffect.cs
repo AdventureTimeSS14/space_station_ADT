@@ -35,18 +35,27 @@ public sealed partial class DemonClawsEffect : TrophyEffect
 
         var totalWeaponDamage = 0f;
         foreach (var (_, val) in weaponDamage.DamageDict)
-            totalWeaponDamage += (float) val;
+        {
+            if (val > 0)
+                totalWeaponDamage += (float) val;
+        }
 
         if (totalWeaponDamage <= 0f)
             return;
 
         var bonusSpecifier = new DamageSpecifier();
-        foreach (var (type, val) in weaponDamage.DamageDict)
-            bonusSpecifier.DamageDict[type] = (float) val / totalWeaponDamage * BonusDamage;
-
         var healSpecifier = new DamageSpecifier();
+
         foreach (var (type, val) in weaponDamage.DamageDict)
-            healSpecifier.DamageDict[type] = -(float) val / totalWeaponDamage * HealOnHit;
+        {
+            var floatVal = (float) val;
+            if (floatVal <= 0f)
+                continue;
+
+            var ratio = floatVal / totalWeaponDamage;
+            bonusSpecifier.DamageDict[type] = ratio * BonusDamage;
+            healSpecifier.DamageDict[type] = -ratio * HealOnHit;
+        }
 
         var damageable = entManager.System<DamageableSystem>();
         var detonated = false;

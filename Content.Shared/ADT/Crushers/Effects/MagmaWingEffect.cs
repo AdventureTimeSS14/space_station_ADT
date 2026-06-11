@@ -13,8 +13,6 @@ public sealed partial class MagmaWingEffect : TrophyEffect
     [DataField]
     public DamageSpecifier BonusDamage = new DamageSpecifier();
 
-    private DamageableSystem _damageable = default!;
-
     public override void OnMeleeHit(
         Entity<TrophyComponent> trophy,
         Entity<TrophyHolderComponent> holder,

@@ -37,6 +37,9 @@ public sealed class TrophySystem : EntitySystem
                 if (!_useDelay.TryGetDelayInfo((args.Holder, useDelay), out var delayInfo))
                     return;
 
+                if (ent.Comp.Coefficient <= 0f)
+                    return;
+
                 ent.Comp.OriginalDelay = delayInfo.Length;
                 Dirty(ent);
 

@@ -36,6 +36,9 @@ public sealed class BubblegumLootSystem : EntitySystem
         if (args.NewMobState != MobState.Dead)
             return;
 
+        if (TerminatingOrDeleted(ent.Owner))
+            return;
+
         if (ent.Comp.LootDropped || ent.Comp.DespawnAt != null)
             return;
 

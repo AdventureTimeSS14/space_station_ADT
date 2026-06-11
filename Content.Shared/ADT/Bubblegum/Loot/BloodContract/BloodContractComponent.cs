@@ -17,4 +17,7 @@ public sealed partial class BloodContractComponent : Component
 
     [DataField]
     public EntProtoId? HunterObjective = "ADTBloodContractKillObjective";
+
+    [DataField]
+    public HashSet<NetEntity> ValidTargets = new();
 }

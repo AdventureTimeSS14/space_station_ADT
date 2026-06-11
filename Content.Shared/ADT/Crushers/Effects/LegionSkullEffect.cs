@@ -15,6 +15,9 @@ public sealed partial class LegionSkullEffect : TrophyEffect
         EntityManager entManager,
         ref GunRefreshModifiersEvent args)
     {
+        if (Coefficient <= 0f)
+            return;
+
         args.FireRate /= Coefficient;
     }
 }

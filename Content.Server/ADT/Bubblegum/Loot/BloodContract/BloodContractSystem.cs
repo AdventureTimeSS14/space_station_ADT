@@ -37,12 +37,14 @@ public sealed class BloodContractSystem : EntitySystem
 
         SubscribeLocalEvent<BloodContractComponent, BoundUIOpenedEvent>(OnUiOpened);
         SubscribeLocalEvent<BloodContractComponent, BloodContractSelectMessage>(OnSelect);
+        SubscribeLocalEvent<BloodContractComponent, BoundUIClosedEvent>(OnUiClosed);
         SubscribeLocalEvent<BloodContractVictimComponent, MobStateChangedEvent>(OnVictimStateChanged);
     }
 
     private void OnUiOpened(Entity<BloodContractComponent> ent, ref BoundUIOpenedEvent args)
     {
         var targets = new List<BloodContractTargetInfo>();
+        ent.Comp.ValidTargets.Clear();
 
         var query = EntityQueryEnumerator<ActorComponent, MobStateComponent, MetaDataComponent>();
         while (query.MoveNext(out var uid, out _, out _, out var meta))
@@ -56,9 +58,12 @@ public sealed class BloodContractSystem : EntitySystem
             if (_station.GetOwningStation(uid) == null)
                 continue;
 
+            var netEntity = GetNetEntity(uid);
+            ent.Comp.ValidTargets.Add(netEntity);
+
             targets.Add(new BloodContractTargetInfo
             {
-                Entity = GetNetEntity(uid),
+                Entity = netEntity,
                 Name = meta.EntityName,
             });
         }
@@ -71,6 +76,9 @@ public sealed class BloodContractSystem : EntitySystem
         if (ent.Comp.Used)
             return;
 
+        if (!ent.Comp.ValidTargets.Contains(args.Target))
+            return;
+
         var victim = GetEntity(args.Target);
         if (!Exists(victim) || victim == args.Actor)
             return;
@@ -79,6 +87,9 @@ public sealed class BloodContractSystem : EntitySystem
             return;
 
         ent.Comp.Used = true;
+        
+        ent.Comp.ValidTargets.Clear();
+        
         _ui.CloseUi(ent.Owner, BloodContractUiKey.Key);
 
         var pending = EnsureComp<BloodContractPendingComponent>(victim);
@@ -89,6 +100,11 @@ public sealed class BloodContractSystem : EntitySystem
         AnnounceFrenzy();
 
         QueueDel(ent.Owner);
+    }
+
+    private void OnUiClosed(Entity<BloodContractComponent> ent, ref BoundUIClosedEvent args)
+    {
+        ent.Comp.ValidTargets.Clear();
     }
 
     public override void Update(float frameTime)

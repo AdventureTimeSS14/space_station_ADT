@@ -69,9 +69,13 @@ public sealed class TrophyHolderSystem : EntitySystem
             return;
         }
 
+        if (!_container.Insert(args.Used, _container.GetContainer(ent, ent.Comp.TrophyContainerId)))
+            return;
+
+        args.Handled = true;
+
         _audio.PlayPredicted(ent.Comp.InsertSound, ent, args.User);
         _popup.PopupClient(Loc.GetString("crusher-upgrade-popup-insert", ("upgrade", args.Used), ("crusher", ent.Owner)), args.User);
-        args.Handled = _container.Insert(args.Used, _container.GetContainer(ent, ent.Comp.TrophyContainerId));
         _gun.RefreshModifiers(ent.Owner);
 
         _adminLog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):player} inserted crusher upgrade {ToPrettyString(args.Used)} into {ToPrettyString(ent.Owner)}.");
@@ -85,7 +89,7 @@ public sealed class TrophyHolderSystem : EntitySystem
         {
             if (_tag.HasTag(trophy, used.Comp.TrophyTag))
             {
-                reason = Loc.GetString("crusher-upgrade-popup-already-present");
+                reason = "crusher-upgrade-popup-already-present";
                 return false;
             }
         }
