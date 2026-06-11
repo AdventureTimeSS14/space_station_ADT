@@ -1,7 +1,19 @@
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.ADT.MartialArts;
+using Content.Shared.ADT.MartialArts;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.MartialArts;
 
@@ -20,12 +32,13 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnAttacked(Entity<DragonPowerBuffComponent> ent, ref AttackedEvent args)
     {
-        if (_hands.TryGetActiveItem(ent.Owner, out _)
-            || !_blocker.CanInteract(ent, null))
+        if (_hands.TryGetActiveItem(ent.Owner, out _) // Only unarmed
+            || !_blocker.CanInteract(ent, null)) // Should be able to interact
             return;
 
         args.ModifiersList.Add(ent.Comp.ModifierSet);
 
+        // Works for both armed and unarmed attacks
         ApplyMultiplier(ent,
             ent.Comp.DamageMultiplier,
             0f,
@@ -45,6 +58,7 @@ public abstract partial class SharedMartialArtsSystem
             return;
         }
 
+        // Paralyze, not knockdown
         _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(proto.ParalyzeTime));
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(args.Sound, target);
@@ -62,7 +76,7 @@ public abstract partial class SharedMartialArtsSystem
             _pulling.TryStopPull(target, pullable, ent, true);
 
         if (downed)
-            _stun.TryUpdateStunDuration(target, args.DownedParalyzeTime);
+            _stun.TryUpdateStunDuration(target, args.DownedParalyzeTime); // No stunlocks
         else
         {
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
@@ -75,12 +89,12 @@ public abstract partial class SharedMartialArtsSystem
         ent.Comp.LastAttacks.Clear();
     }
 
+
     private void OnDragonClaw(Entity<CanPerformComboComponent> ent, ref DragonClawPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
-
         _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow, args.SlowdownTime, args.WalkSpeedModifier, args.SprintSpeedModifier);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
