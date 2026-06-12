@@ -60,7 +60,7 @@
   name: loadout-group-medical-doctor-head
   minLimit: 0
   loadouts:
-  - SeniorPhysicianBeret
+  - MedicalBeret
   - MedicalHeadMirror
   - NurseHat
 

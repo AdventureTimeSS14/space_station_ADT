@@ -43,6 +43,7 @@
   - type: Tag
     tags:
     - ForceNoFixRotations # Don't want the fixrotations command to target these
+    - DoorRemoteWhitelist # ADT-Tweak
   - type: Door
     openDrawDepth: BlastDoors
     closedDrawDepth: BlastDoors

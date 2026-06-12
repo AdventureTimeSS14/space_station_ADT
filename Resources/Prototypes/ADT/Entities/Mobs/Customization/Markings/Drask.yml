@@ -76,7 +76,7 @@
 
 - type: marking
   id: FaceDraskBase
-  bodyPart: Snout
+  bodyPart: HeadSide
   followSkinColor: true
   forcedColoring: true
   groupWhitelist: [Drask]
@@ -86,7 +86,7 @@
 
 - type: marking
   id: FaceDrask
-  bodyPart: Snout
+  bodyPart: HeadSide
   followSkinColor: true
   forcedColoring: true
   groupWhitelist: [Drask]
@@ -96,7 +96,7 @@
 
 - type: marking
   id: FaceDraskBig
-  bodyPart: Snout
+  bodyPart: HeadSide
   followSkinColor: true
   forcedColoring: true
   groupWhitelist: [Drask]
@@ -106,7 +106,7 @@
 
 - type: marking
   id: FaceDraskDouble
-  bodyPart: Snout
+  bodyPart: HeadSide
   followSkinColor: true
   forcedColoring: true
   groupWhitelist: [Drask]

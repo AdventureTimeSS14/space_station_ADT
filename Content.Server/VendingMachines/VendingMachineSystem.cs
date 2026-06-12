@@ -35,6 +35,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.Store.Components;
 
 namespace Content.Server.VendingMachines
 {

@@ -117,8 +117,18 @@
     state: voxchestplumage
 
 - type: marking
-  id: ADTVoxFootSpines
-  bodyPart: Tail
+  id: ADTVoxFootSpinesLeft
+  bodyPart: LFoot
+  groupWhitelist: [Vox]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxfootspines
+
+- type: marking
+  id: ADTVoxFootSpinesRight
+  bodyPart: RFoot
   groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
@@ -210,7 +220,7 @@
 
 - type: marking
   id: ADTVoxTailBell
-  bodyPart: Tail
+  bodyPart: TailOverlay
   groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
@@ -222,7 +232,7 @@
 
 - type: marking
   id: ADTVoxTailLantern
-  bodyPart: Tail
+  bodyPart: TailOverlay
   groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
@@ -243,7 +253,7 @@
 
 - type: marking
   id: ADTVoxTailSmallPlume
-  bodyPart: Tail
+  bodyPart: TailOverlay
   groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
@@ -253,7 +263,7 @@
 
 - type: marking
   id: ADTVoxTailSpines
-  bodyPart: Tail
+  bodyPart: TailOverlay
   groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
@@ -303,7 +313,7 @@
 
 - type: marking
   id: ADTVoxChains
-  bodyPart: Tail
+  bodyPart: TailOverlay
   groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
@@ -313,7 +323,7 @@
 
 - type: marking
   id: ADTVoxSunAndMoon
-  bodyPart: Tail
+  bodyPart: TailOverlay
   groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
