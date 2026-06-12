@@ -18,7 +18,7 @@
   - Disarm
   - Grab
   event: !type:PtsdLegSweepComboPerformedEvent
-    dropItems: false
+  dropItems: false
   paralyzeTime: 4
 
 - type: combo
