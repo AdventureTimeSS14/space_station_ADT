@@ -159,7 +159,7 @@ public sealed partial class BlockingSystem
         if (!entity.Comp.IsCharging)
             return;
 
-        if (!TryComp<BatteryComponent>(entity, out var battery) && _batterySystem.GetCharge((entity, battery)) >= 0)
+        if (!TryComp<BatteryComponent>(entity, out var battery) || _batterySystem.GetCharge((entity, battery)) > 0)
             return;
 
         if (TryComp<ItemToggleComponent>(entity, out var itemToggle))
