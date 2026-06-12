@@ -120,4 +120,8 @@
 
 - type: entity
   parent: [ OrganBaseLungs, OrganNovakidMetabolizer ]
-  id: OrganNovakidLungs
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Drask/organs.rsi
+    layers:
+    - state: lungs
