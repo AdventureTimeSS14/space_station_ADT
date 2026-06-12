@@ -51,9 +51,6 @@ ent-ADTClothingOuterHardsuitHECK = костюм H.E.C.K.
 ent-ADTClothingHeadHelmetHardsuitHECK = шлем H.E.C.K.
     .desc = Hostile Environment Cross-Kinetic — шлем, созданный, чтобы выдержать все опасности Лавалэнда.
 
-ent-ADTKineticTrophyDemonClaws = когти демона
-    .desc = Набор окровавленных когтей с руки огромного демона. Подходит как трофей для кинетического крушителя.
-
 ent-ADTMayhemBottle = хаос в бутылочке
     .desc = Магически насыщенная бутылочка крови, запах которой вгоняет всех вокруг в кровавое безумие.
 
