@@ -170,3 +170,9 @@
     - AnomalyHost
     - ChangelingBlacklist
     - ADTNovakidEmotes
+  - type: ItemToggle
+    activated: true
+    onActivate: false
+    onUse: false
+    predictable: false
+  - type: ItemToggleHot
