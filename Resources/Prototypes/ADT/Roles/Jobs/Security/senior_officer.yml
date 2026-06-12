@@ -52,7 +52,6 @@
     pocket1: WeaponRevolverDeckard
     pocket2: SpeedLoaderMagnum
 
-
 - type: chameleonOutfit
   id: ADTSeniorOfficerChameleonOutfit
   job: ADTSeniorOfficer
