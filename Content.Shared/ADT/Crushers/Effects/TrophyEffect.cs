@@ -7,7 +7,7 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.GameObjects;
 
 namespace Content.Shared.ADT.Crushers.Effects;
-
+// TODO: autogen desc, rename to be more consistent
 [ImplicitDataDefinitionForInheritors]
 public abstract partial class TrophyEffect
 {
