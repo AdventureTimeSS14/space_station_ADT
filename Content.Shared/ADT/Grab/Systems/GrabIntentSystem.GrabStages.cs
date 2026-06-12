@@ -137,6 +137,7 @@ public sealed partial class GrabIntentSystem
             pullable.Comp2.PulledAlertAlertSeverity[stage]);
         _blocker.UpdateCanMove(pullable.Owner);
         _modifierSystem.RefreshMovementSpeedModifiers(puller.Owner);
+        _modifierSystem.RefreshMovementSpeedModifiers(pullable.Owner);
         GrabStagePopup(puller, pullable, popupType);
 
         var comboEv = new ComboAttackPerformedEvent(puller.Owner, pullable.Owner, puller.Owner, ComboAttackType.Grab);

@@ -84,6 +84,7 @@ public sealed partial class GrabIntentSystem : EntitySystem
         component.EscapeAttemptModifier = 1f;
         _blocker.UpdateCanMove(uid);
         _alertsSystem.ClearAlert(uid, component.PulledAlert);
+        _modifierSystem.RefreshMovementSpeedModifiers(uid);
         Dirty(uid, component);
     }
 
@@ -102,6 +103,7 @@ public sealed partial class GrabIntentSystem : EntitySystem
                 QueueDel(item);
         }
 
+        _modifierSystem.RefreshMovementSpeedModifiers(uid);
         Dirty(uid, component);
     }
 
