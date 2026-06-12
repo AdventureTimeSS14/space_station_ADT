@@ -88,6 +88,7 @@
       NavInteract: !type:Bool "true"
       ADTBubblegumKeepDistance: !type:Single "5"
       ADTBubblegumRetreatTrigger: !type:Single "4"
+      MeleeMissChance: !type:Single "0"
     rootTask:
       task: ADTBubblegumCompound
   - type: Megafauna
@@ -111,9 +112,10 @@
     randomLoot:
     - ADTMayhemBottle
     - ADTBloodContract
-    # todo make 3 
+    - ADTWeaponExperimentalProtoKineticAcellerator
     guaranteedLoot:
     - ADTClothingOuterHardsuitHECK
+    - ADTClothingHeadHelmetHardsuitHECK
     - ADTKineticTrophyDemonClaws
     deathThemeSound:
       path: /Audio/ADT/Phantom/Sounds/psycho.ogg

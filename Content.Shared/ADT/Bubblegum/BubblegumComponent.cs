@@ -55,7 +55,7 @@ public sealed partial class BubblegumComponent : Component
     public SoundSpecifier StepSound = new SoundPathSpecifier("/Audio/ADT/Bubblegum/meteorimpact.ogg");
 
     [DataField]
-    public TimeSpan StepSoundCooldown = TimeSpan.FromSeconds(0.5);
+    public TimeSpan StepSoundCooldown = TimeSpan.FromSeconds(1);
 
     [DataField]
     public TimeSpan LastStepSound;

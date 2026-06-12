@@ -45,11 +45,11 @@ ent-ActionADTBubblegumSummonNarsi = Призвать Нар'Си
 ent-ADTCrateBubblegumLoot = гротескный сундук
     .desc = Сундук из плоти и пропитанных кровью внутренностей, оставленный королём демонов бойни.
 
-ent-ADTClothingOuterHardsuitHECK = костюм H.E.C.K.
-    .desc = Hostile Environment Cross-Kinetic — костюм, способный выдержать любую опасность Лавалэнда. Его прошлому владельцу этого не хватило.
+ent-ADTClothingOuterHardsuitHECK = скафандр П.Е.К.Л.О.
+    .desc = Тяжелый бронекостюм, созданный специально для выживания в филиале ада на лаваленде. Предыдущему владельцу, правда, это не помогло.
 
-ent-ADTClothingHeadHelmetHardsuitHECK = шлем H.E.C.K.
-    .desc = Hostile Environment Cross-Kinetic — шлем, созданный, чтобы выдержать все опасности Лавалэнда.
+ent-ADTClothingHeadHelmetHardsuitHECK = шлем П.Е.К.Л.О.
+    .desc = Шлем от тяжелого бронекостюма. Защитит голову от летящих камней, фауны лаваленда и глупых мыслей.
 
 ent-ADTMayhemBottle = хаос в бутылочке
     .desc = Магически насыщенная бутылочка крови, запах которой вгоняет всех вокруг в кровавое безумие.

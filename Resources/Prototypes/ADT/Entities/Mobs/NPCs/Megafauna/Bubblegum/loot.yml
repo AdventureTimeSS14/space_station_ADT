@@ -61,7 +61,7 @@
     lifetime: 3
 
 - type: entity
-  parent: CrateGenericSteel
+  parent: ADTCrateNecropolis
   id: ADTCrateBubblegumLoot
   name: grotesque chest
   description: A chest of fleshy, blood-soaked viscera left behind by the slaughter demon king.
@@ -70,7 +70,7 @@
     color: "#a01010"
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ClothingOuterEVASuitBase
   id: ADTClothingOuterHardsuitHECK
   name: H.E.C.K. suit
   description: Hostile Environment Cross-Kinetic Suit. Designed to shrug off every hazard Lavaland can throw at it. It wasn't enough for its last owner.
@@ -99,15 +99,16 @@
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1
-  - type: ToggleableClothing
-    clothingPrototype: ADTClothingHeadHelmetHardsuitHECK
+  - type: ClothingGrantComponent
+    component:
+    - type: AshStormImmune
   - type: Tag
     tags:
     - Hardsuit
     - WhitelistChameleon
 
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: ClothingHeadEVAHelmetBase
   id: ADTClothingHeadHelmetHardsuitHECK
   name: H.E.C.K. helmet
   description: Hostile Environment Cross-Kinetic Helmet. Built to withstand the wide variety of hazards from Lavaland.
