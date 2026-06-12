@@ -119,6 +119,7 @@
     metabolizerTypes: [ Novakid ]
 
 - type: entity
+  id: OrganNovakidLungs
   parent: [ OrganBaseLungs, OrganNovakidMetabolizer ]
   components:
   - type: Sprite
