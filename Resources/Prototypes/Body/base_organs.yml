@@ -48,8 +48,8 @@
       - Tail
       - Overlay
       - TailOverlay
-      - UndergarmentTop
-      - UndergarmentBottom
+#      - UndergarmentTop # ADT-Tweak
+#      - UndergarmentBottom # ADT-Tweak
       - Special
 
 - type: entity
