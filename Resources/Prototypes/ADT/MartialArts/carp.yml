@@ -27,8 +27,8 @@
   id: SleepingCarpMoves
   combos:
   - SleepingCarpGnashingTeeth
-  - SleepingCarpKneeHaul
   - SleepingCarpCrashingWaves
+  - SleepingCarpIntercept
 
 - type: combo
   id: SleepingCarpGnashingTeeth
@@ -39,19 +39,7 @@
   - Harm
   event: !type:SleepingCarpGnashingTeethPerformedEvent {}
   damageType: Slash
-  extraDamage: 20
-
-- type: combo
-  id: SleepingCarpKneeHaul
-  name: Knee Haul
-  martialArtsForm: SleepingCarp
-  attacks:
-  - Harm
-  - Grab
-  event: !type:SleepingCarpKneeHaulPerformedEvent {}
   extraDamage: 10
-  paralyzeTime: 6
-  staminaDamage: 60
 
 - type: combo
   id: SleepingCarpCrashingWaves
@@ -61,4 +49,17 @@
   - Harm
   - Disarm
   event: !type:SleepingCarpCrashingWavesPerformedEvent {}
+  damageType: Slash
+  extraDamage: 15
   staminaDamage: 25
+
+- type: combo
+  id: SleepingCarpIntercept
+  name: Intercept
+  martialArtsForm: SleepingCarp
+  attacks:
+  - Disarm
+  - Disarm
+  event: !type:SleepingCarpInterceptPerformedEvent {}
+  damageType: Blunt
+  extraDamage: 10

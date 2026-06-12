@@ -14,7 +14,7 @@ namespace Content.Shared.ADT.MartialArts;
 public sealed partial class SleepingCarpGnashingTeethPerformedEvent : EntityEventArgs;
 
 [Serializable, NetSerializable, DataDefinition]
-public sealed partial class SleepingCarpKneeHaulPerformedEvent : EntityEventArgs;
+public sealed partial class SleepingCarpInterceptPerformedEvent : EntityEventArgs;
 
 [Serializable, NetSerializable, DataDefinition]
 public sealed partial class SleepingCarpCrashingWavesPerformedEvent : EntityEventArgs;

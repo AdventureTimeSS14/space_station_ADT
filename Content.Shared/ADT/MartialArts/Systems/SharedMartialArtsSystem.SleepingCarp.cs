@@ -32,7 +32,7 @@ public partial class SharedMartialArtsSystem
     private void InitializeSleepingCarp()
     {
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpGnashingTeethPerformedEvent>(OnSleepingCarpGnashing);
-        SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpKneeHaulPerformedEvent>(OnSleepingCarpKneeHaul);
+        SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpInterceptPerformedEvent>(OnSleepingCarpIntercept);
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpCrashingWavesPerformedEvent>(OnSleepingCarpCrashingWaves);
 
         SubscribeLocalEvent<GrantSleepingCarpComponent, UseInHandEvent>(OnGrantSleepingCarp);
@@ -129,7 +129,7 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
 
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage + ent.Comp.ConsecutiveGnashes * 5, out _);
+        DoDamage(ent, target, proto.DamageType, Math.Min(proto.ExtraDamage + ent.Comp.ConsecutiveGnashes * 20, 80), out _);
         ent.Comp.ConsecutiveGnashes++;
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
         if (!downed)
@@ -149,28 +149,34 @@ public partial class SharedMartialArtsSystem
         ent.Comp.LastAttacks.Clear();
     }
 
-    private void OnSleepingCarpKneeHaul(Entity<CanPerformComboComponent> ent,
-        ref SleepingCarpKneeHaulPerformedEvent args)
+    private void OnSleepingCarpIntercept(Entity<CanPerformComboComponent> ent,
+        ref SleepingCarpInterceptPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out var downed))
+            || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
-        if (!downed)
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
+
+        if (!_hands.TryGetActiveItem(target, out var activeItem))
         {
-            DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
+            ComboPopup(ent, target, proto.Name);
+            ent.Comp.LastAttacks.Clear();
+            return;
         }
-        else
+        if (!_hands.TryDrop(target, activeItem.Value))
         {
-            DoDamage(ent, target, proto.DamageType, proto.ExtraDamage / 2, out _);
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage - 20);
-            _hands.TryDrop(target);
+            ComboPopup(ent, target, proto.Name);
+            ent.Comp.LastAttacks.Clear();
+            return;
         }
-        if (TryComp<PullableComponent>(target, out var pullable))
-            _pulling.TryStopPull(target, pullable, ent, true);
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
+        if (_hands.TryGetEmptyHand(ent.Owner, out var emptyHand))
+        {
+            _hands.TryPickup(ent, activeItem.Value, emptyHand);
+            _hands.SetActiveHand(ent.Owner, emptyHand);
+        }
+
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
     }
@@ -179,8 +185,7 @@ public partial class SharedMartialArtsSystem
         ref SleepingCarpCrashingWavesPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out var downed)
-            || downed)
+            || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out var damage);
@@ -190,6 +195,7 @@ public partial class SharedMartialArtsSystem
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _grabThrown.Throw(target, ent, dir, proto.ThrownSpeed, damage, proto.DropItems);
+        _newStatus.TryAddStatusEffectDuration(target, "StatusEffectForcedSleeping", out _, TimeSpan.FromSeconds(2));
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
