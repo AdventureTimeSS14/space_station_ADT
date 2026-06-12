@@ -1,48 +1,31 @@
 using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
-using Content.Server.ADT.Store; // ADT-Changeling-Tweak
-using Content.Server.Botany.Components; // ADT-Changeling-Tweak
-using Content.Server.Heretic.EntitySystems;
-using Content.Server.PDA.Ringer;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
 using Content.Shared.Actions;
 using Content.Shared.Database;
-using Content.Shared.ADT.ManifestListings;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Heretic;
-using Content.Shared.Heretic.Prototypes;
-using Content.Shared.Mind;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.NPC.Systems;
-using Content.Shared.PDA.Ringer;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Content.Shared.UserInterface;
-using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Store.Systems;
 
 public sealed partial class StoreSystem
 {
     [Dependency] private readonly IAdminLogManager _admin = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly ActionUpgradeSystem _actionUpgrade = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-
-    // goobstation - heretics
-    [Dependency] private readonly HereticKnowledgeSystem _heretic = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly StackSystem _stack = default!;
 
     private void InitializeUi()
     {
@@ -74,98 +57,6 @@ public sealed partial class StoreSystem
             return;
 
         RaiseLocalEvent(entity.Comp.Store.Value, ev);
-    }
-
-    /// <summary>
-    /// Toggles the store Ui open and closed
-    /// </summary>
-    /// <param name="user">the person doing the toggling</param>
-    /// <param name="storeEnt">the store being toggled</param>
-    /// <param name="component"></param>
-    /// <param name="remoteAccess">The entity remotely accessing the store, if any.</param>
-    /// <param name="remoteComponent">The remote access component, if any.</param>
-    public void ToggleUi(EntityUid user, EntityUid storeEnt, StoreComponent? component = null, EntityUid? remoteAccess = null, RemoteStoreComponent? remoteComponent = null)
-    {
-        if (!Resolve(storeEnt, ref component))
-            return;
-
-        if (remoteAccess != null && !Resolve(remoteAccess.Value, ref remoteComponent) && remoteComponent!.Store != storeEnt)
-            return;
-
-        if (!TryComp<ActorComponent>(user, out var actor))
-            return;
-
-        if (!_ui.TryToggleUi(remoteAccess != null ? remoteAccess.Value : storeEnt, StoreUiKey.Key, actor.PlayerSession))
-            return;
-
-        UpdateUserInterface(user, storeEnt, component);
-    }
-
-    /// <summary>
-    /// Closes the store UI for everyone, if it's open
-    /// </summary>
-    public void CloseUi(EntityUid uid, StoreComponent? component = null)
-    {
-        if (!Resolve(uid, ref component))
-            return;
-
-        _ui.CloseUi(uid, StoreUiKey.Key);
-    }
-
-    /// <summary>
-    /// Updates the user interface for a store and refreshes the listings
-    /// </summary>
-    /// <param name="user">The person who if opening the store ui. Listings are filtered based on this.</param>
-    /// <param name="store">The store entity itself</param>
-    /// <param name="component">The store component being refreshed.</param>
-    public void UpdateUserInterface(EntityUid? user, EntityUid store, StoreComponent? component = null)
-    {
-        if (!Resolve(store, ref component))
-            return;
-
-        //this is the person who will be passed into logic for all listing filtering.
-        if (user != null) //if we have no "buyer" for this update, then don't update the listings
-        {
-            component.LastAvailableListings = GetAvailableListings(component.AccountOwner ?? user.Value, store, component)
-                .ToHashSet();
-        }
-
-        //dictionary for all currencies, including 0 values for currencies on the whitelist
-        Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> allCurrency = new();
-        foreach (var supported in component.CurrencyWhitelist)
-        {
-            allCurrency.Add(supported, FixedPoint2.Zero);
-
-            if (component.Balance.TryGetValue(supported, out var value))
-                allCurrency[supported] = value;
-        }
-
-        // TODO: if multiple users are supposed to be able to interact with a single BUI & see different
-        // stores/listings, this needs to use session specific BUI states.
-
-        // only tell operatives to lock their uplink if it can be locked
-        var showFooter = HasComp<RingerUplinkComponent>(store);
-
-        var state = new StoreUpdateState(component.LastAvailableListings, allCurrency, showFooter, component.RefundAllowed);
-        UpdateRemoteStores(store, state);
-        _ui.SetUiState(store, StoreUiKey.Key, state);
-    }
-
-    /// <summary>
-    /// Updates any remote store connections to a specific store.
-    /// </summary>
-    /// <param name="store">The store being updated.</param>
-    /// <param name="state">The state being applied.</param>
-    public void UpdateRemoteStores(EntityUid store, StoreUpdateState state)
-    {
-        var query = EntityQueryEnumerator<RemoteStoreComponent, UserInterfaceComponent>();
-        while (query.MoveNext(out var uid, out var remote, out var ui))
-        {
-            if (remote.Store != store)
-                continue;
-
-            _ui.SetUiState((uid, ui), StoreUiKey.Key, state);
-        }
     }
 
     private void OnRequestUpdate(EntityUid uid, StoreComponent component, StoreRequestUpdateInterfaceMessage args)
@@ -200,7 +91,7 @@ public sealed partial class StoreSystem
         //condition checking because why not
         if (listing.Conditions != null)
         {
-            var args = new ListingConditionArgs(component.AccountOwner ?? buyer, uid, listing, EntityManager); // ADT-Revert-Buyer-Check
+            var args = new ListingConditionArgs(component.AccountOwner ?? GetBuyerMind(buyer), uid, listing, EntityManager);
             var conditionsMet = listing.Conditions.All(condition => condition.Condition(args));
 
             if (!conditionsMet)
@@ -217,16 +108,9 @@ public sealed partial class StoreSystem
             }
         }
 
-        // ADT-tweak-start
-        if (_mind.TryGetMind(buyer, out var mindId, out _))
-        {
-            var ev = new ListingPurchasedEvent(buyer, uid, listing);
-            RaiseLocalEvent(mindId, ref ev);
-        }
+        if (!IsOnStartingMap(uid, component))
+            DisableRefund(uid, component);
 
-        // if (!IsOnStartingMap(uid, component))
-        //     component.RefundAllowed = false;
-        // ADT-tweak-end
         //subtract the cash
         foreach (var (currency, amount) in cost)
         {
@@ -235,16 +119,6 @@ public sealed partial class StoreSystem
             component.BalanceSpent.TryAdd(currency, FixedPoint2.Zero);
 
             component.BalanceSpent[currency] += amount;
-        }
-
-        // goobstation - heretics
-        // i am too tired of making separate systems for knowledge adding
-        // and all that shit. i've had like 4 failed attempts
-        // so i'm just gonna shitcode my way out of my misery
-        if (listing.ProductHereticKnowledge != null)
-        {
-            if (TryComp<HereticComponent>(buyer, out var heretic))
-                _heretic.AddKnowledge(buyer, heretic, (ProtoId<HereticKnowledgePrototype>) listing.ProductHereticKnowledge);
         }
 
         //spawn entity
@@ -273,18 +147,10 @@ public sealed partial class StoreSystem
             EntityUid? actionId;
             // I guess we just allow duplicate actions?
             // Allow duplicate actions and just have a single list buy for the buy-once ones.
-            if (listing.ApplyToMob || !_mind.TryGetMind(buyer, out var mind, out _))
+            if (listing.ApplyToMob || !Mind.TryGetMind(buyer, out var mind, out _))
                 actionId = _actions.AddAction(buyer, listing.ProductAction);
             else
                 actionId = _actionContainer.AddAction(mind, listing.ProductAction);
-
-            // ADT start
-            if (actionId.HasValue)
-            {
-                var actionEv = new ActionBoughtEvent(actionId.Value);
-                RaiseLocalEvent(buyer, ref actionEv);
-            }
-            // ADT end
 
             // Add the newly bought action entity to the list of bought entities
             // And then add that action entity to the relevant product upgrade listing, if applicable
@@ -357,7 +223,7 @@ public sealed partial class StoreSystem
 
         _admin.Add(LogType.StorePurchase,
             logImpact,
-            $"{ToPrettyString(buyer):player} purchased listing \"{ListingLocalisationHelpers.GetLocalisedNameOrEntityName(listing, _proto)}\" from {ToPrettyString(uid)}{logExtraInfo}.");
+            $"{ToPrettyString(buyer):player} purchased listing \"{ListingLocalisationHelpers.GetLocalisedNameOrEntityName(listing, Proto)}\" from {ToPrettyString(uid)}{logExtraInfo}.");
 
         listing.PurchaseAmount++; //track how many times something has been purchased
         if (msg.SoundSource != null && GetEntity(msg.SoundSource) != null)
@@ -390,7 +256,7 @@ public sealed partial class StoreSystem
             return;
 
         //make sure a malicious client didn't send us random shit
-        if (!_proto.TryIndex<CurrencyPrototype>(msg.Currency, out var proto))
+        if (!Proto.TryIndex<CurrencyPrototype>(msg.Currency, out var proto))
             return;
 
         //we need an actually valid entity to spawn. This check has been done earlier, but just in case.
