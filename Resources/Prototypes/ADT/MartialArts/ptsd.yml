@@ -1,0 +1,43 @@
+- type: martialArt
+  id: PTSD
+  martialArtsForm: PTSD
+  roundstartCombos: PTSDMoves
+
+- type: comboList
+  id: PTSDMoves
+  combos:
+  - PTSDLegSweepCombo
+  - PTSDArmLockBehindBackCombo
+  - PTSDBootKickCombo
+
+- type: combo
+  id: PTSDLegSweepCombo
+  name: Leg Sweep
+  martialArtsForm: PTSD
+  attacks:
+  - Disarm
+  - Grab
+  event: !type:PtsdLegSweepComboPerformedEvent
+    dropItems: false
+  paralyzeTime: 4
+
+- type: combo
+  id: PTSDArmLockBehindBackCombo
+  name: Arm Lock Behind Back
+  martialArtsForm: PTSD
+  attacks:
+  - Harm
+  - Disarm
+  - Disarm
+  event: !type:PtsdArmLockBehindBackComboPerformedEvent {}
+  staminaDamage: 60
+
+- type: combo
+  id: PTSDBootKickCombo
+  name: Boot Kick
+  martialArtsForm: PTSD
+  attacks:
+  - Disarm
+  - Harm
+  - Grab
+  event: !type:PtsdBootKickComboPerformedEvent {}

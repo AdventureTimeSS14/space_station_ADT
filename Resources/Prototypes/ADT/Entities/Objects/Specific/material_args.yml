@@ -27,7 +27,7 @@
   - type: GrantSleepingCarp
 
 - type: entity
-  id: ADTBookPTCR
+  id: ADTBookPTSD
   name: how to get P.T.S.D.
   description: A complete compilation of all the features, rules and techniques of Robast's Police Self-Defense Technique. Robasta. The Thousand Yard Stare is not included and must be purchased separately.
   parent: BaseItem
@@ -38,7 +38,7 @@
   - type: GuideHelp
     guides:
     - ADTMartialArts
-  - type: GrantCqc
+  - type: GrantPtsd
 
 - type: entity
   id: ADTCookbookManual

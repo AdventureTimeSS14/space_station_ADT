@@ -30,6 +30,12 @@ carp-saying-see = ВЫ МЕНЯ НЕ ВИДИТЕ!
 carp-saying-time = МОЁ ВРЕМЯ ПРИШЛО!!
 carp-saying-cowabunga = КОВАБУНГА!
 
+ptsd-success-learned = Вы освоили ПТСР. Руководство сгорает у вас в руках...
+
+ptsd-combo-leg-sweep = Подсечка
+ptsd-combo-arm-lock = Завод руки за спину
+ptsd-combo-boot-kick = Пинок сапогом
+
 krav-maga-ready = Вы готовитесь применить { $action }
 
 martial-arts-action-sender = Вы ударили { $name } приёмом { $move }
