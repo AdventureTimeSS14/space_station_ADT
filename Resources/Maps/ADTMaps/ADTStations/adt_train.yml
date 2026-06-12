@@ -31473,75 +31473,6 @@ entities:
     - type: Transform
       pos: 1.5,-102.5
       parent: 2
-- proto: Bible
-  entities:
-  - uid: 258
-    components:
-    - type: Transform
-      parent: 257
-    - type: Storage
-      storedItems:
-        259:
-          position: 0,0
-          _rotation: South
-        260:
-          position: 0,1
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 259
-          - 260
-    - type: Physics
-      canCollide: False
-  - uid: 2013
-    components:
-    - type: Transform
-      parent: 2012
-    - type: Storage
-      storedItems:
-        2014:
-          position: 0,1
-          _rotation: South
-        2015:
-          position: 0,0
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 2014
-          - 2015
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 18000
-    components:
-    - type: Transform
-      parent: 17999
-    - type: Storage
-      storedItems:
-        18001:
-          position: 0,1
-          _rotation: South
-        18002:
-          position: 0,0
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 18001
-          - 18002
-    - type: Physics
-      canCollide: False
 - proto: BigBox
   entities:
   - uid: 2016
@@ -128272,11 +128203,11 @@ entities:
       parent: 25648
     - type: Paper
       content: >+
-        Мунси лох
+        Мунси лох 
 
         обьелся блох
 
-        сел на лавочку и сдох
+        сел на лавочку и сдох 
 
         а под лавочкой змея откусила полх х.. КХМ КХМ пляжа
 
