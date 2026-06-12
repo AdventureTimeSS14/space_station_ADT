@@ -1,7 +1,6 @@
-
 - type: marking
   id: BodyShadekinGauzeLowArmR
-  bodyPart: Overlay
+  bodyPart: RArm
   groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
@@ -9,7 +8,7 @@
 
 - type: marking
   id: BodyShadekinGauzeUpArmL
-  bodyPart: Overlay
+  bodyPart: LArm
   groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
@@ -17,7 +16,7 @@
 
 - type: marking
   id: BodyShadekinGauzeUpArmR
-  bodyPart: Overlay
+  bodyPart: RArm
   groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
@@ -25,7 +24,7 @@
 
 - type: marking
   id: BodyShadekinGauzeUpLegL
-  bodyPart: Overlay
+  bodyPart: LLeg
   groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
@@ -33,7 +32,7 @@
 
 - type: marking
   id: BodyShadekinGauzeUpLegR
-  bodyPart: Overlay
+  bodyPart: RLeg
   groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
@@ -41,7 +40,7 @@
 
 - type: marking
   id: BodyShadekinGauzeShoulder
-  bodyPart: Overlay
+  bodyPart: Chest
   groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi

@@ -35,6 +35,14 @@
     enum.HumanoidVisualLayers.RFoot:
       limit: 1
       required: false
+    # Corvax-Sponsors-start
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+    # Corvax-Sponsors-end
   appearances:
     enum.HumanoidVisualLayers.Hair:
       layerAlpha: 0.72
@@ -115,7 +123,7 @@
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
-    allowedEmotes: ['Squish']
+    allowedEmotes: ['Squish', 'Pop', 'Bubbles'] # ADT-Tweak: Добавил 'Pop', 'Bubbles'
   - type: TypingIndicator
     proto: slime
   - type: Vocal
@@ -186,6 +194,13 @@
       types:
         Asphyxiation: -1.0
     maxSaturation: 15
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - ADTSlimeEmotes
+    - DoorBumpOpener
+    - FootstepSound
+  # ADT-Tweak end
 
 - type: entity
   parent: OrganBase

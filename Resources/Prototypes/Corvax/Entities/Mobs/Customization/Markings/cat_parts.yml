@@ -67,7 +67,7 @@
 - type: marking
   id: CatTailStripes
   bodyPart: Tail
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   coloring:
     default:
       type:

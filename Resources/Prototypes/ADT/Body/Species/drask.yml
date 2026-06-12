@@ -71,6 +71,7 @@
     - enum.HumanoidVisualLayers.Hair
     - enum.HumanoidVisualLayers.Snout
     - enum.HumanoidVisualLayers.SnoutOverlay
+    - enum.HumanoidVisualLayers.SnoutCover
     - enum.HumanoidVisualLayers.HeadTop
     - enum.HumanoidVisualLayers.HeadSide
 

@@ -98,11 +98,11 @@
       required: false
     enum.HumanoidVisualLayers.Snout:
       limit: 1
-      required: true
-      default: [ FaceDraskBase ]
+      required: false
     enum.HumanoidVisualLayers.SnoutCover:
       limit: 3
-      required: false
+      required: true
+      default: [ FaceDraskBase ]
     enum.HumanoidVisualLayers.SnoutOverlay:
       limit: 3
       required: false
