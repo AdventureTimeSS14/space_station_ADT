@@ -131,27 +131,6 @@
         Caustic: 0.0
 
 - type: entity
-  id: ADTKineticTrophyDemonClaws
-  name: demon claws
-  description: A set of blood-drenched claws from a massive demon's hand. Suitable as a trophy for a kinetic crusher.
-  parent: BaseItem
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Specific/Lavaland/loot.rsi
-    state: demon_claws
-  - type: Trophy
-    effects:
-    - !type:DemonClawsEffect
-    examineText: adt-kinetic-trophy-demon-claws
-    trophyTag: ADTKineticTrophyDemonClaws
-  - type: Tag
-    tags:
-    - ADTKineticTrophyDemonClaws
-
-- type: Tag
-  id: ADTKineticTrophyDemonClaws
-
-- type: entity
   parent: Chainsaw
   id: ADTChainsawDoomslayer
   name: OOOH BABY

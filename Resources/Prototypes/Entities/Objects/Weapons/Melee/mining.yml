@@ -144,10 +144,10 @@
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 0.9
-  # - type: LeechOnMarker ADT tweak
-  #   leech:
-  #     groups:
-  #       Brute: -10
+  - type: LeechOnMarker # ADT Tweak
+    leech:
+      groups:
+        Brute: -5
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
@@ -251,10 +251,10 @@
     proto: BulletChargeGlaive
     capacity: 1
     count: 1
-  # - type: LeechOnMarker ADT crusher reskin
-  #   leech:
-  #     groups:
-  #       Brute: -21
+  - type: LeechOnMarker # ADT Tweak
+    leech:
+      groups:
+        Brute: -9
   - type: Tag
     tags:
       - Pickaxe

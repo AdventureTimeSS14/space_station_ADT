@@ -160,6 +160,27 @@
       tags:
         - ADTKineticTrophyGoliathTentacle
 
+- type: entity
+  id: ADTKineticTrophyDemonClaws
+  name: demon claws
+  description: Increases base damage and heals you when hitting targets, with increased healing upon mark detonation.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+    state: demon_claws
+  - type: Trophy
+    effects:
+    - !type:DemonClawsEffect
+    examineText: adt-kinetic-trophy-demon-claws
+    trophyTag: ADTKineticTrophyDemonClaws
+  - type: Tag
+    tags:
+    - ADTKineticTrophyDemonClaws
+
+- type: Tag
+  id: ADTKineticTrophyDemonClaws
+
 - type: Tag
   id: ADTKineticTrophyGoliathTentacle
 
@@ -181,6 +202,3 @@
 - type: Tag
   id: ADTKineticTrophyAshDrakeSpike
 
-# TODO
-# ФИКС БЕКСТЕБА
-# ВОЗРАЩЕНИЕ ХИЛА ОТ КРАШЕРОВ

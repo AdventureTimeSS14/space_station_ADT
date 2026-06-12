@@ -16,8 +16,6 @@ adt-blood-frenzy-announcement =
     Голос вещает из тёмного края:
     Рви и терзай! — в диком гневе сгорая.
 
-adt-kinetic-trophy-demon-claws = удары в ближнем бою наносят больше урона и лечат вас, с пятикратным эффектом при детонации метки.
-
 objective-issuer-bubblegum = [color=red]Бубльгум[/color]
 objective-rip-and-tear-title = Рви и терзай
 objective-rip-and-tear-desc = Поддайтесь кровавому безумию. Убивайте всё, что движется.

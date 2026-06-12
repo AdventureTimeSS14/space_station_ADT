@@ -44,6 +44,10 @@
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 0.9
+  - type: LeechOnMarker
+    leech:
+      groups:
+        Brute: -4
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
@@ -123,6 +127,10 @@
     state: icon
   - type: UseDelay
     delay: 1
+  - type: LeechOnMarker
+    leech:
+      groups:
+        Brute: -6
   - type: MeleeWeapon
     attackRate: 0.75
     wideAnimationRotation: -135
@@ -176,6 +184,10 @@
     state: icon
   - type: UseDelay
     delay: 1
+  - type: LeechOnMarker
+    leech:
+      groups:
+        Brute: -2
   - type: MeleeWeapon
     attackRate: 1.5
     wideAnimationRotation: -135
@@ -241,6 +253,10 @@
     state: icon
   - type: UseDelay
     delay: 1
+  - type: LeechOnMarker
+    leech:
+      groups:
+        Brute: -3
   - type: MeleeWeapon
     attackRate: 1.5
     damage:
