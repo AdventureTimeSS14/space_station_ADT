@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseAction
+  id: ActionWeaponPull
+  name: weapon-pull-action-name
+  description: weapon-pull-action-desc
+  components:
+  - type: Action
+    useDelay: 3
+    icon:
+      sprite: Objects/Weapons/Melee/katana.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:WeaponPullActionEvent {}

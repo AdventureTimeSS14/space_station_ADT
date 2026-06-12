@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingHandsGlovesCombat
+  id: ADTClothingHandsPullingGloves
+  name: pulling gloves
+  description: Combat gloves with embedded magnetic emitters that can pull weapons into your hands.
+  components:
+  - type: PullingGloves
+  - type: ActionGrant
+    actions:
+    - ActionWeaponPull
+  - type: ItemActionGrant
+    actions:
+    - ActionWeaponPull
+    activeIfWorn: true

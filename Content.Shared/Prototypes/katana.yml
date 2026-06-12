@@ -1,0 +1,33 @@
+- type: entity
+  name: katana
+  parent: [ BaseSword, BaseMajorContraband ]
+  id: ADTStryzAniKatana
+  description: Ancient craftwork made with not so ancient plasteel.
+  components:
+  - type: Sprite
+    # sprite: Objects/Weapons/Melee/katana.rsi
+  - type: MeleeWeapon
+    attackRate: 1.2
+    damage:
+      types:
+        Slash: 14
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    shape:
+    - 0,0,0,3
+  - type: Clothing
+    # sprite: Objects/Weapons/Melee/katana.rsi
+    slots:
+    - Back
+    - Belt
+  - type: ThrowingAngle
+    angle: 225
+  - type: DamageOtherOnHit
+    ignoreResistances: true
+    damage:
+      types:
+        Slash: 12
+        Piercing: 15
+  - type: DisarmMalus
+  - type: PickableWeapon
