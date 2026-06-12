@@ -6,6 +6,11 @@
   baseDamageModifier: 5
   damageModifierType: Slash
   randomSayings:
+  - speech-carp-wrench
+  - speech-carp-stomach
+  - speech-carp-headkick
+  - speech-carp-elbow
+  - speech-carp-backhit
   - carp-saying-huah
   - carp-saying-hya
   - carp-saying-choo
@@ -32,7 +37,7 @@
 
 - type: combo
   id: SleepingCarpGnashingTeeth
-  name: Gnashing Teeth
+  name: carp-combo-gnashing-teeth
   martialArtsForm: SleepingCarp
   attacks:
   - Harm
@@ -43,7 +48,7 @@
 
 - type: combo
   id: SleepingCarpCrashingWaves
-  name: Crashing Waves
+  name: carp-combo-crashing-waves
   martialArtsForm: SleepingCarp
   attacks:
   - Harm
@@ -56,7 +61,7 @@
 
 - type: combo
   id: SleepingCarpIntercept
-  name: Intercept
+  name: carp-combo-intercept
   martialArtsForm: SleepingCarp
   attacks:
   - Disarm

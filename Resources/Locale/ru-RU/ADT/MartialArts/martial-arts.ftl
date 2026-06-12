@@ -22,6 +22,12 @@ carp-saying-huh = ХА!
 carp-saying-hiyoh = ХИЙО!
 carp-saying-strike = УДАР КАРПА!
 carp-saying-bite = УКУС КАРПА!
+speech-carp-wrench = Не так быстро.
+speech-carp-stomach = Отдохни.
+speech-carp-headkick = Ты джи тубо я ну фу де хуанъю цзяоцзу!
+speech-carp-elbow = Лежать!
+speech-carp-backhit = Прямо позади тебя...
+speech-carp-throw = Приятного полёта.
 
 carp-saying-banzai = БАНЗААААЙ!
 carp-saying-kiya = КИЙААААА!
@@ -42,6 +48,40 @@ cookbook-technique-combo-squeeze = Выжимание
 ptsd-combo-leg-sweep = Подсечка
 ptsd-combo-arm-lock = Завод руки за спину
 ptsd-combo-boot-kick = Пинок сапогом
+
+cqc-combo-slam = слэм
+cqc-combo-kick = удар ногой
+cqc-combo-restrain = захват
+cqc-combo-pressure = давление
+cqc-combo-consecutive = серия ударов
+
+capoeira-combo-push-kick = толчковый удар
+capoeira-combo-circle-kick = круговой удар
+capoeira-combo-sweep-kick = подсечка
+capoeira-combo-spin-kick = вращательный удар
+capoeira-combo-kick-up = подъём ногой
+
+dragon-combo-dragon-claw = коготь Дракона
+dragon-combo-dragon-tail = хвост Дракона
+dragon-combo-dragon-strike = удар Дракона
+
+ninjutsu-combo-bite-the-dust = укус Земли
+ninjutsu-combo-dirty-kill = грязное убийство
+
+hellrip-combo-flying-dropkick = детящий дропкик
+hellrip-combo-head-rip = отрывание головы
+hellrip-combo-tear-down = разрыв
+hellrip-combo-hellish-slam = адский удар
+
+judo-combo-discombobulate = дезориентация
+judo-combo-eye-poke = тычок в глаз
+judo-combo-judo-throw = дзюдо-бросок
+judo-combo-armbar = рычаг на руку
+judo-combo-wheel-throw = бросок колесом
+
+carp-combo-gnashing-teeth = зубовный скрежет
+carp-combo-crashing-waves = разбивающиеся волны
+carp-combo-intercept = перехват
 
 krav-maga-ready = Вы готовитесь применить { $action }
 

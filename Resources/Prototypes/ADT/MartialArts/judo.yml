@@ -15,7 +15,7 @@
 
 - type: combo
   id: JudoDiscombobulate
-  name: Discombobulate
+  name: judo-combo-discombobulate
   martialArtsForm: CorporateJudo
   attacks:
   - Disarm
@@ -24,7 +24,7 @@
 
 - type: combo
   id: JudoEyePoke
-  name: Eye Poke
+  name: judo-combo-eye-poke
   martialArtsForm: CorporateJudo
   attacks:
   - Disarm
@@ -34,7 +34,7 @@
 
 - type: combo
   id: JudoThrow
-  name: Judo Throw
+  name: judo-combo-judo-throw
   martialArtsForm: CorporateJudo
   attacks:
   - Grab
@@ -47,7 +47,7 @@
 
 - type: combo
   id: JudoArmbar
-  name: Armbar
+  name: judo-combo-armbar
   martialArtsForm: CorporateJudo
   attacks:
   - Disarm
@@ -60,7 +60,7 @@
 
 - type: combo
   id: JudoWheelThrow
-  name: Wheel Throw
+  name: judo-combo-wheel-throw
   martialArtsForm: CorporateJudo
   attacks:
   - Grab

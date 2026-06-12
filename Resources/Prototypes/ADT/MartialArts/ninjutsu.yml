@@ -11,7 +11,7 @@
 
 - type: combo
   id: BiteTheDust
-  name: Bite The Dust
+  name: ninjutsu-combo-bite-the-dust
   martialArtsForm: Ninjutsu
   attacks:
   - Harm
@@ -24,7 +24,7 @@
 
 - type: combo
   id: DirtyKill
-  name: Dirty Kill
+  name: ninjutsu-combo-dirty-kill
   martialArtsForm: Ninjutsu
   attacks:
   - Disarm

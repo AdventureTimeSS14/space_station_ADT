@@ -12,7 +12,7 @@
 
 - type: combo
   id: PTSDLegSweepCombo
-  name: Leg Sweep
+  name: ptsd-combo-leg-sweep
   martialArtsForm: PTSD
   attacks:
   - Disarm
@@ -23,7 +23,7 @@
 
 - type: combo
   id: PTSDArmLockBehindBackCombo
-  name: Arm Lock Behind Back
+  name: ptsd-combo-arm-lock
   martialArtsForm: PTSD
   attacks:
   - Harm
@@ -34,7 +34,7 @@
 
 - type: combo
   id: PTSDBootKickCombo
-  name: Boot Kick
+  name: ptsd-combo-boot-kick
   martialArtsForm: PTSD
   attacks:
   - Disarm

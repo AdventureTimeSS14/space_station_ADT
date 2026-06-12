@@ -431,14 +431,15 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             return;
         var userName = Identity.Entity(user, EntityManager);
         var targetName = Identity.Entity(target, EntityManager);
+        var localizedMove = Loc.GetString(comboName);
         _popupSystem.PopupEntity(Loc.GetString("martial-arts-action-sender",
             ("name", targetName),
-            ("move", comboName)),
+            ("move", localizedMove)),
             user,
             user);
         _popupSystem.PopupEntity(Loc.GetString("martial-arts-action-receiver",
             ("name", userName),
-            ("move", comboName)),
+            ("move", localizedMove)),
             target,
             target);
     }

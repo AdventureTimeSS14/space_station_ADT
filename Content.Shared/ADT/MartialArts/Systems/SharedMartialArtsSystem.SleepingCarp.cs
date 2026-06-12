@@ -146,6 +146,7 @@ public partial class SharedMartialArtsSystem
             var ev = new SleepingCarpSaying(saying);
             RaiseLocalEvent(ent, ev);
         }
+        NarrativeComboPopup(ent, target, "combo-gnashingteeth-end");
         ent.Comp.LastAttacks.Clear();
     }
 
@@ -161,13 +162,13 @@ public partial class SharedMartialArtsSystem
 
         if (!_hands.TryGetActiveItem(target, out var activeItem))
         {
-            ComboPopup(ent, target, proto.Name);
+            NarrativeComboPopup(ent, target, "combo-twisthand-end");
             ent.Comp.LastAttacks.Clear();
             return;
         }
         if (!_hands.TryDrop(target, activeItem.Value))
         {
-            ComboPopup(ent, target, proto.Name);
+            NarrativeComboPopup(ent, target, "combo-twisthand-end");
             ent.Comp.LastAttacks.Clear();
             return;
         }
@@ -177,7 +178,7 @@ public partial class SharedMartialArtsSystem
             _hands.SetActiveHand(ent.Owner, emptyHand);
         }
 
-        ComboPopup(ent, target, proto.Name);
+        NarrativeComboPopup(ent, target, "combo-twisthand-end");
         ent.Comp.LastAttacks.Clear();
     }
 
@@ -197,7 +198,8 @@ public partial class SharedMartialArtsSystem
         _grabThrown.Throw(target, ent, dir, proto.ThrownSpeed, damage, proto.DropItems);
         _newStatus.TryAddStatusEffectDuration(target, "StatusEffectForcedSleeping", out _, TimeSpan.FromSeconds(2));
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
-        ComboPopup(ent, target, proto.Name);
+        RaiseLocalEvent(ent, new SleepingCarpSaying("speech-carp-throw"));
+        NarrativeComboPopup(ent, target, "combo-crashingwave-end");
         ent.Comp.LastAttacks.Clear();
     }
 

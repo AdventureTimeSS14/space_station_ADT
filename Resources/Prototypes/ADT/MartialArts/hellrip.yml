@@ -15,7 +15,7 @@
 
 - type: combo
   id: DropKick
-  name: Flying DropKick
+  name: hellrip-combo-flying-dropkick
   martialArtsForm: HellRip
   attacks:
   - Disarm
@@ -28,7 +28,7 @@
 
 - type: combo
   id: HeadRip
-  name: Head Rip
+  name: hellrip-combo-head-rip
   martialArtsForm: HellRip
   attacks:
   - Harm
@@ -42,7 +42,7 @@
 
 - type: combo
   id: TearDown
-  name: Tear Down
+  name: hellrip-combo-tear-down
   martialArtsForm: HellRip
   attacks:
   - Harm
@@ -54,7 +54,7 @@
 
 - type: combo
   id: Slam
-  name: Hellish Slam
+  name: hellrip-combo-hellish-slam
   martialArtsForm: HellRip
   attacks:
   - Disarm

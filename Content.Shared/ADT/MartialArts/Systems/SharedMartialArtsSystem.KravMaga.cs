@@ -65,7 +65,7 @@ public abstract partial class SharedMartialArtsSystem
 
                 if (_standingState.IsDown(hitEntity))
                     break;
-                _stun.TryKnockdown(hitEntity, TimeSpan.FromSeconds(4), true); // okay buddy
+                _stun.TryKnockdown(hitEntity, TimeSpan.FromSeconds(4), drop: false); // okay buddy
                 // _stamina.TakeStaminaDamage(hitEntity, moveComp.StaminaDamage);
                 break;
             case KravMagaMoves.NeckChop:

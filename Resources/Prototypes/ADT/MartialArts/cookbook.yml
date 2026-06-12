@@ -13,7 +13,7 @@
 
 - type: combo
   id: CookbookChopCombo
-  name: Chop
+  name: cookbook-technique-combo-chop
   martialArtsForm: CookbookTechnique
   attacks:
   - Grab
@@ -26,7 +26,7 @@
 
 - type: combo
   id: CookbookSpinCombo
-  name: Spin
+  name: cookbook-technique-combo-spin
   martialArtsForm: CookbookTechnique
   attacks:
   - Disarm
@@ -37,7 +37,7 @@
 
 - type: combo
   id: CookbookRollCombo
-  name: Roll
+  name: cookbook-technique-combo-roll
   martialArtsForm: CookbookTechnique
   attacks:
   - Grab
@@ -47,7 +47,7 @@
 
 - type: combo
   id: CookbookSqueezeCombo
-  name: Squeeze
+  name: cookbook-technique-combo-squeeze
   martialArtsForm: CookbookTechnique
   attacks:
   - Grab
