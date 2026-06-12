@@ -26,14 +26,25 @@ public sealed partial class BlockingComponent : Component
     public bool IsBlocking;
 
     //ADT-Tweak-Start
+
+    /// <summary>
+    /// Is the shield working on a charge or not? If so, it will discharge from the damage received.
+    /// </summary>
     [DataField, AutoNetworkedField]
-    public bool IsCharging = false;
+    public bool IsCharging;
+
+    /// <summary>
+    /// Is the shield have a button to switch IsBlocking?
+    /// </summary>
 
     [DataField, AutoNetworkedField]
     public bool IsHasBlockingToggle = true;
 
+    /// <summary>
+    /// Is the shield collapsible?
+    /// </summary>
     [DataField, AutoNetworkedField]
-    public bool IsToggle = false;
+    public bool IsToggle;
 
     [DataField, AutoNetworkedField]
     public float EnergyCostPerHit = 10f;

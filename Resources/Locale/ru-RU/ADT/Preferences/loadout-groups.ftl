@@ -14,7 +14,6 @@ loadout-group-blueshield-neck = ОСЩ, шея
 loadout-blueshield-ears-adt = ОСЩ, ухо
 loadout-group-blueshield-back = ОСЩ, рюкзак
 loadout-group-blueshield-outer-clothing = ОСЩ, верхняя одежда
-loadout-group-blueshield-trinkets = ОСЩ, безделушки
 
 # Civilian
 loadout-chef-pocket1-adt = Шеф-повар, карман 1

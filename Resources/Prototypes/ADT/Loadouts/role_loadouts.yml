@@ -84,7 +84,6 @@
   - ADTBottomBlueshield
   - ADTSocksBlueshield
   # ADT underwear tweak end
-  - ADTBlueshieldTrinkets # ADT tweak
 
 - type: roleLoadout
   id: JobADTCentcomConsultant
