@@ -49,7 +49,7 @@
   - type: Sprite
     sprite: ADT/Objects/Specific/material_art_book.rsi
     state: cookbook
-  - type: GrantCqc
+  - type: GrantCookbookTechnique
 
 - type: entity
   id: ADTScrollCapoeira

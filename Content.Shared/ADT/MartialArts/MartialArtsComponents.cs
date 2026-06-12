@@ -63,4 +63,5 @@ public enum MartialArtsForms
     Ninjutsu,
     HellRip,
     PTSD,
+    CookbookTechnique,
 }

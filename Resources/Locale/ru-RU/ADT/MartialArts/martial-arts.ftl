@@ -32,6 +32,13 @@ carp-saying-cowabunga = КОВАБУНГА!
 
 ptsd-success-learned = Вы освоили ПТСР. Руководство сгорает у вас в руках...
 
+cookbook-technic-success-learned = Вы освоили Кулинарную Книгу Приёмов. Руководство сгорает у вас в руках...
+
+cookbook-technique-combo-chop = Отбивание
+cookbook-technique-combo-spin = Раскручивание
+cookbook-technique-combo-roll = Раскатывание
+cookbook-technique-combo-squeeze = Выжимание
+
 ptsd-combo-leg-sweep = Подсечка
 ptsd-combo-arm-lock = Завод руки за спину
 ptsd-combo-boot-kick = Пинок сапогом
