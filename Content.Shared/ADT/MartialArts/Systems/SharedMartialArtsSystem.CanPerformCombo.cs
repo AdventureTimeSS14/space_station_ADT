@@ -71,7 +71,10 @@ public partial class SharedMartialArtsSystem
             return;
 
         if (component.CurrentTarget != null && args.Target != component.CurrentTarget.Value)
+        {
             component.LastAttacks.Clear();
+            component.ConsecutiveGnashes = 0;
+        }
 
         var afterEv = new AfterComboCheckEvent(uid, args.Target, args.Weapon, args.Type);
 

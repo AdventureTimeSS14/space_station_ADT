@@ -890,8 +890,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return false;
         }
 
-
-        if (MobState.IsIncapacitated(target.Value))
+        if (!InRange(user, target.Value, component.Range, session))
         {
             return false;
         }
@@ -914,11 +913,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
                 return false;
             }
-        }
-
-        if (!InRange(user, target.Value, component.Range, session))
-        {
-            return false;
         }
 
         EntityUid? inTargetHand = null;
