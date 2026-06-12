@@ -24,6 +24,7 @@
         Cellular: 0.05
   - type: Thirst
     baseDecayRate: 0
+    updateRate: 0
   - type: Damageable
     damageModifierSet: ADTNovakid
   - type: Injurable

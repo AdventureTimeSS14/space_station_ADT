@@ -23,7 +23,7 @@
       Tongue: OrganHumanTongue
       Appendix: OrganHumanAppendix
       Ears: OrganHumanEars
-      Lungs: OrganHumanLungs
+      Lungs: OrganNovakidLungs
       Heart: OrganHumanHeart
       Stomach: OrganHumanStomach
       Liver: OrganHumanLiver
@@ -110,3 +110,14 @@
 - type: entity
   parent: [ OrganBaseFootRight, OrganNovakidExternal ]
   id: OrganNovakidFootRight
+
+- type: entity
+  id: OrganNovakidMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Novakid ]
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganNovakidMetabolizer ]
+  id: OrganNovakidLungs
