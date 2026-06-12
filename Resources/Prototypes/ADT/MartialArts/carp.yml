@@ -52,6 +52,7 @@
   damageType: Slash
   extraDamage: 15
   staminaDamage: 25
+  thrownSpeed: 14
 
 - type: combo
   id: SleepingCarpIntercept
