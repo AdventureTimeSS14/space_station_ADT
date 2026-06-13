@@ -237,9 +237,7 @@
         children:
         - id: ADTWeaponLauncherChinaLake
         - id: ADT40mmGrenadeBlast
-          amount: 4
-        - id: ADT40mmGrenadeHEAT
-          amount: 8
+          amount: 11
         - id: ADT40mmGrenadeSmoke
           amount: 4
 - type: entity
