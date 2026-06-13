@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseObjective
   id: ADTRipAndTearObjective
-  name: objective-rip-and-tear-title
-  description: objective-rip-and-tear-desc
+  name: Rip and Tear
+  description: Rip and Tear
   components:
   - type: Objective
     difficulty: 1.5
@@ -15,7 +15,7 @@
 - type: entity
   parent: BaseKillObjective
   id: ADTBloodContractKillObjective
-  name: objective-blood-contract-kill-title
+  name: bebebebebebebebebe
   components:
   - type: Objective
     difficulty: 2

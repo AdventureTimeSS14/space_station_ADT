@@ -14,12 +14,14 @@ adt-blood-frenzy-announcement =
     Взоры застлало кровавым туманом,
     Разум угас пред безумным обманом.
     Голос вещает из тёмного края:
-    Рви и терзай! — в диком гневе сгорая.
+    Рви и терзай! в диком гневе сгорая.
 
 objective-issuer-bubblegum = [color=red]Бубльгум[/color]
-objective-rip-and-tear-title = Рви и терзай
-objective-rip-and-tear-desc = Поддайтесь кровавому безумию. Убивайте всё, что движется.
-objective-blood-contract-kill-title = Убейте { $targetName }, { $job }.
+
+ent-ADTRipAndTearObjective = Рви и терзай
+    .desc = Поддайтесь кровавому безумию. Убивайте всё, что движется.
+
+ent-ADTBloodContractKillObjective = Убейте { $targetName }, { $job }.
 
 reagent-name-adminordrazine = админордразин
 reagent-desc-adminordrazine = Чудодейственное вещество, исцеляющее почти любые недуги.
