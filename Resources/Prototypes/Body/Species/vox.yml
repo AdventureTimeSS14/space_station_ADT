@@ -404,6 +404,7 @@
     specialDigestible:
       tags:
       - Trash
+      - VoxFood
     isSpecialDigestibleExclusive: false
 
 - type: entity
