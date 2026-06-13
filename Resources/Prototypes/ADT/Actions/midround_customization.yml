@@ -1,12 +1,12 @@
 - type: entity
-  id: ActionIpcScreen
+  id: ActionMidroundCustomization
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
     icon:
-      sprite: ADT/Interface/Actions/actions_ipc.rsi
-      state: screen
+      sprite: ADT/Interface/Actions/actions_slime.rsi
+      state: hair
     itemIconStyle: BigAction
     useDelay: 1
   - type: InstantAction
-    event: !type:IpcScreenActionEvent
+    event: !type:MidroundCustomizationActionEvent

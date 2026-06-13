@@ -1,19 +1,19 @@
 using Content.Client.Humanoid;
-using Content.Shared.ADT.IpcScreen;
+using Content.Shared.ADT.MidroundCustomization;
 using Content.Shared.Body;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client.ADT.IpcScreen;
+namespace Content.Client.ADT.MidroundCustomization;
 
-public sealed class IpcScreenBoundUserInterface : BoundUserInterface
+public sealed class MidroundCustomizationBoundUserInterface : BoundUserInterface
 {
     [ViewVariables]
-    private IpcScreenWindow? _window;
+    private MidroundCustomizationWindow? _window;
     private MarkingsViewModel _markingsModel = new();
 
-    public IpcScreenBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+    public MidroundCustomizationBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
     }
 
@@ -22,7 +22,7 @@ public sealed class IpcScreenBoundUserInterface : BoundUserInterface
         base.Open();
 
         _markingsModel = new MarkingsViewModel();
-        _window = this.CreateWindow<IpcScreenWindow>();
+        _window = this.CreateWindow<MidroundCustomizationWindow>();
         _window.MarkingsPicker.SetModel(_markingsModel);
         _markingsModel.MarkingsChanged += (_, _) => SendMarkingSet();
     }
@@ -31,7 +31,7 @@ public sealed class IpcScreenBoundUserInterface : BoundUserInterface
     {
         base.UpdateState(state);
 
-        if (state is not IpcScreenUiState data || _window == null)
+        if (state is not MidroundCustomizationUiState data || _window == null)
         {
             return;
         }
@@ -79,6 +79,6 @@ public sealed class IpcScreenBoundUserInterface : BoundUserInterface
 
     private void SendMarkingSet()
     {
-        SendMessage(new IpcScreenSelectMessage(_markingsModel.Markings));
+        SendMessage(new MidroundCustomizationSelectMessage(_markingsModel.Markings));
     }
 }
