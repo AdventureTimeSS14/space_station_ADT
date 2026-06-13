@@ -17,7 +17,7 @@
       FootLeft: OrganTajaranFootLeft
       FootRight: OrganTajaranFootRight
       Brain: OrganHumanBrain
-      Eyes: OrganHumanEyes
+      Eyes: OrganTajaranEyes
       Tongue: OrganHumanTongue
       Appendix: OrganHumanAppendix
       Ears: OrganHumanEars
@@ -136,3 +136,18 @@
 - type: entity
   parent: [ OrganBaseFootRight, OrganTajaranExternal ]
   id: OrganTajaranFootRight
+
+- type: entity
+  parent: OrganHumanEyes
+  id: OrganTajaranEyes
+  suffix: tajaran
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+      state: tajaran_eyes
+  - type: VisualOrganMarkings
+    markingData:
+      group: Tajaran
+      layers:
+      - Eyes

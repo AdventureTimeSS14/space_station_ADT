@@ -177,3 +177,21 @@
     onUse: false
     predictable: false
   - type: ItemToggleHot
+  - type: MidroundCustomization
+    changeHairSound: /Audio/ADT/slime-hair.ogg
+    allowedLayers:
+    - Hair
+    - FacialHair
+  - type: UserInterface
+    interfaces:
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      # Goobstation - changelings & heretics
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.HereticLivingHeartKey.Key: # goob edit - heretics
+        type: LivingHeartMenuBoundUserInterface
+      enum.MidroundCustomizationUiKey.Key:
+        type: MidroundCustomizationBoundUserInterface

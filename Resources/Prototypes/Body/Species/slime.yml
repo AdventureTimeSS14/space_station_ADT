@@ -108,6 +108,10 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      # ADT-Tweak-Start
+      enum.MidroundCustomizationUiKey.Key:
+        type: MidroundCustomizationBoundUserInterface
+      # ADT-Tweak-End
   - type: UseDelay
     delay: 0.5
   # ADT-Tweak end
@@ -201,6 +205,11 @@
     - ADTSlimeEmotes
     - DoorBumpOpener
     - FootstepSound
+  - type: MidroundCustomization
+    changeHairSound: /Audio/ADT/slime-hair.ogg
+    allowedLayers:
+    - Hair
+    - FacialHair
   # ADT-Tweak end
 
 - type: entity

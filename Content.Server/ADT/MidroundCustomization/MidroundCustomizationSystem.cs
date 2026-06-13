@@ -1,25 +1,21 @@
 using System.Linq;
 using Content.Server.DoAfter;
+using Content.Shared.ADT.MidroundCustomization;
 using Content.Shared.Body;
 using Content.Shared.UserInterface;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Interaction;
-using Content.Shared.ADT.SlimeHair;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Content.Server.Actions;
+using Robust.Shared.Player;
 
-namespace Content.Server.ADT.SlimeHair;
+namespace Content.Server.ADT.MidroundCustomization;
 
-/// <summary>
-/// Allows humanoids to change their appearance mid-round.
-/// </summary>
-
-// TODO: Исправить проблему с генокрадом
-public sealed partial class SlimeHairSystem : EntitySystem
+public sealed class MidroundCustomizationSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
@@ -27,39 +23,45 @@ public sealed partial class SlimeHairSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
 
-    private static readonly HashSet<HumanoidVisualLayers> AllowedLayers = new()
-    {
-        HumanoidVisualLayers.Hair,
-        HumanoidVisualLayers.FacialHair,
-    };
-
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SlimeHairComponent, ActivatableUIOpenAttemptEvent>(OnOpenUIAttempt);
+        SubscribeLocalEvent<MidroundCustomizationComponent, ActivatableUIOpenAttemptEvent>(OnOpenUIAttempt);
 
-        Subs.BuiEvents<SlimeHairComponent>(SlimeHairUiKey.Key, subs =>
+        Subs.BuiEvents<MidroundCustomizationComponent>(MidroundCustomizationUiKey.Key, subs =>
         {
+            subs.Event<BoundUIOpenedEvent>(OnUIOpened);
             subs.Event<BoundUIClosedEvent>(OnUIClosed);
-            subs.Event<SlimeHairSelectMessage>(OnSlimeHairSelect);
+            subs.Event<MidroundCustomizationSelectMessage>(OnMidroundCustomizationSelect);
         });
 
-        SubscribeLocalEvent<SlimeHairComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<SlimeHairComponent, ComponentShutdown>(OnShutdown);
-
-        SubscribeLocalEvent<SlimeHairComponent, SlimeHairSelectDoAfterEvent>(OnSelectSlotDoAfter);
-
-        InitializeSlimeAbilities();
-
+        SubscribeLocalEvent<MidroundCustomizationComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<MidroundCustomizationComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<MidroundCustomizationComponent, MidroundCustomizationSelectDoAfterEvent>(OnSelectSlotDoAfter);
+        
+        SubscribeLocalEvent<MidroundCustomizationComponent, MidroundCustomizationActionEvent>(OnMidroundCustomizationAction);
     }
 
-    private void OnOpenUIAttempt(EntityUid uid, SlimeHairComponent mirror, ActivatableUIOpenAttemptEvent args)
+    private void OnOpenUIAttempt(EntityUid uid, MidroundCustomizationComponent mirror, ActivatableUIOpenAttemptEvent args)
     {
         if (!HasComp<VisualBodyComponent>(uid))
             args.Cancel();
     }
 
-    private void OnSlimeHairSelect(Entity<SlimeHairComponent> ent, ref SlimeHairSelectMessage args)
+    private void OnMidroundCustomizationAction(EntityUid uid, MidroundCustomizationComponent comp, MidroundCustomizationActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!TryComp<ActorComponent>(uid, out var actor))
+            return;
+
+        _uiSystem.TryOpenUi(uid, MidroundCustomizationUiKey.Key, actor.Owner);
+        UpdateInterface(uid, comp);
+        args.Handled = true;
+    }
+
+    private void OnMidroundCustomizationSelect(Entity<MidroundCustomizationComponent> ent, ref MidroundCustomizationSelectMessage args)
     {
         if (ent.Comp.Target is not { } target)
             return;
@@ -67,7 +69,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
         _doAfterSystem.Cancel(ent.Comp.DoAfter);
         ent.Comp.DoAfter = null;
 
-        var doAfter = new SlimeHairSelectDoAfterEvent()
+        var doAfter = new MidroundCustomizationSelectDoAfterEvent()
         {
             Markings = args.Markings,
         };
@@ -76,15 +78,13 @@ public sealed partial class SlimeHairSystem : EntitySystem
         {
             DistanceThreshold = SharedInteractionSystem.InteractionRange,
             BreakOnDamage = true,
-            BreakOnMove = true,
+            BreakOnMove = false,
             NeedHand = true,
         },
-            out var doAfterId);
-
-        ent.Comp.DoAfter = doAfterId;
+            out ent.Comp.DoAfter);
     }
 
-    private void OnSelectSlotDoAfter(EntityUid uid, SlimeHairComponent component, SlimeHairSelectDoAfterEvent args)
+    private void OnSelectSlotDoAfter(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationSelectDoAfterEvent args)
     {
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
@@ -97,31 +97,37 @@ public sealed partial class SlimeHairSystem : EntitySystem
         UpdateInterface(uid, component);
     }
 
-    private void UpdateInterface(EntityUid uid, SlimeHairComponent component)
+    private void UpdateInterface(EntityUid uid, MidroundCustomizationComponent component)
     {
-        if (!_visualBody.TryGatherMarkingsData(uid, AllowedLayers, out var profiles, out var markings, out var applied))
+        if (!_visualBody.TryGatherMarkingsData(uid, component.AllowedLayers, out var profiles, out var markings, out var applied))
             return;
 
-        var filteredMarkings = FilterMarkingData(markings, AllowedLayers);
+        var filteredMarkings = FilterMarkingData(markings, component.AllowedLayers);
         var filteredProfiles = FilterProfiles(profiles, filteredMarkings.Keys);
         var filteredApplied = FilterAppliedMarkings(applied, filteredMarkings.Keys);
 
-        var state = new SlimeHairUiState(filteredProfiles, filteredMarkings, filteredApplied);
+        var state = new MidroundCustomizationUiState(filteredProfiles, filteredMarkings, filteredApplied);
 
         component.Target = uid;
-        _uiSystem.SetUiState(uid, SlimeHairUiKey.Key, state);
+        _uiSystem.SetUiState(uid, MidroundCustomizationUiKey.Key, state);
     }
 
-    private void OnUIClosed(Entity<SlimeHairComponent> ent, ref BoundUIClosedEvent args)
+    private void OnUIOpened(Entity<MidroundCustomizationComponent> ent, ref BoundUIOpenedEvent args)
+    {
+        UpdateInterface(ent.Owner, ent.Comp);
+    }
+
+    private void OnUIClosed(Entity<MidroundCustomizationComponent> ent, ref BoundUIClosedEvent args)
     {
         ent.Comp.Target = null;
     }
 
-    private void OnMapInit(EntityUid uid, SlimeHairComponent component, MapInitEvent args)
+    private void OnMapInit(EntityUid uid, MidroundCustomizationComponent component, MapInitEvent args)
     {
         _action.AddAction(uid, ref component.ActionEntity, component.Action);
     }
-    private void OnShutdown(EntityUid uid, SlimeHairComponent component, ComponentShutdown args)
+
+    private void OnShutdown(EntityUid uid, MidroundCustomizationComponent component, ComponentShutdown args)
     {
         _action.RemoveAction(uid, component.ActionEntity);
     }
