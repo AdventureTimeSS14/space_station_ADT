@@ -1,9 +1,8 @@
-using Content.Shared.Heretic;
 using Content.Shared.Mind;
 using Content.Shared.Store;
 using System.Linq;
 
-namespace Content.Server.Store.Conditions;
+namespace Content.Shared.Heretic;
 
 public sealed partial class HereticPathCondition : ListingCondition
 {
@@ -14,12 +13,14 @@ public sealed partial class HereticPathCondition : ListingCondition
     public override bool Condition(ListingConditionArgs args)
     {
         var ent = args.EntityManager;
-        var minds = ent.System<SharedMindSystem>();
 
-        if (!minds.TryGetMind(args.Buyer, out var mindId, out var mind))
-            return false;
+        var buyerEntity = args.Buyer;
+        if (ent.TryGetComponent<MindComponent>(args.Buyer, out var mindComp) && mindComp.OwnedEntity is { } owned)
+        {
+            buyerEntity = owned;
+        }
 
-        if (!ent.TryGetComponent<HereticComponent>(args.Buyer, out var hereticComp))
+        if (!ent.TryGetComponent<HereticComponent>(buyerEntity, out var hereticComp))
             return false;
 
         if (Stage > hereticComp.PathStage)
@@ -44,3 +45,4 @@ public sealed partial class HereticPathCondition : ListingCondition
         return true;
     }
 }
+

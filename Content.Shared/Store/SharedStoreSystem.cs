@@ -219,6 +219,43 @@ public abstract partial class SharedStoreSystem : EntitySystem
         return true;
     }
 
+    // ADT-Tweak start: heretic
+    public bool TrySetCurrency(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> currency, EntityUid uid, StoreComponent? store = null)
+    {
+        if (!Resolve(uid, ref store))
+            return false;
+
+        foreach (var type in currency)
+        {
+            if (!store.CurrencyWhitelist.Contains(type.Key))
+                return false;
+        }
+
+        foreach (var type in currency)
+        {
+            if (!store.Balance.TryAdd(type.Key, type.Value))
+                store.Balance[type.Key] = type.Value;
+        }
+
+        UpdateUserInterface(null, uid, store);
+        return true;
+    }
+
+    public bool TryRefreshStoreStock(EntityUid uid, StoreComponent? store = null)
+    {
+        if (!Resolve(uid, ref store))
+            return false;
+
+        foreach (var item in store.FullListingsCatalog)
+        {
+            item.PurchaseAmount = 0;
+        }
+
+        UpdateUserInterface(null, uid, store);
+        return true;
+    }
+    // ADT-Tweak end: heretic
+
     private void OnIntrinsicStoreAction(Entity<StoreComponent> ent, ref IntrinsicStoreActionEvent args)
     {
         ToggleUi(args.Performer, ent.Owner, ent.Comp);
@@ -231,6 +268,7 @@ public record struct GetStoreEvent
     public readonly bool Handled => Store != null;
     public Entity<StoreComponent>? Store;
 }
+
 
 public sealed class CurrencyInsertAttemptEvent : CancellableEntityEventArgs
 {
