@@ -4,6 +4,7 @@ using Content.Shared.Bed.Sleep;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Systems;
 using Content.Shared.Buckle.Components;
+using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
@@ -34,6 +35,7 @@ public abstract class SharedBedSystem : EntitySystem
         SubscribeLocalEvent<StasisBedComponent, UnstrappedEvent>(OnStasisUnstrapped);
         SubscribeLocalEvent<StasisBedComponent, GotEmaggedEvent>(OnStasisEmagged);
         SubscribeLocalEvent<StasisBedComponent, PowerChangedEvent>(OnPowerChanged);
+        SubscribeLocalEvent<StasisBedComponent, SignalReceivedEvent>(OnCryoPodSignalReceived); // ADT-Tweak
         SubscribeLocalEvent<StasisBedBuckledComponent, GetMetabolicMultiplierEvent>(OnStasisGetMetabolicMultiplier);
     }
 
@@ -117,6 +119,18 @@ public abstract class SharedBedSystem : EntitySystem
 
         args.Multiplier *= stasis.Multiplier;
     }
+
+    // ADT-Tweak-start
+    private void OnCryoPodSignalReceived(Entity<StasisBedComponent> ent, ref SignalReceivedEvent args)
+    {
+        if (args.Port == "On")
+            _powerReceiver.SetPowerDisabled(ent, false);
+        else if (args.Port == "Off")
+            _powerReceiver.SetPowerDisabled(ent, true);
+        else if (args.Port == "Toggle")
+            _powerReceiver.TogglePower(ent);
+    }
+    // ADT-Tweak-end
 
     protected void UpdateMetabolisms(Entity<StrapComponent?> ent)
     {
