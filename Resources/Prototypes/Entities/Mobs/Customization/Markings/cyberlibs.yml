@@ -53,7 +53,7 @@
 
 - type: marking
   id: CyberlimbRLegBishop
-  bodyPart: LLeg # ADT-Tweak RLeg -> LLeg
+  bodyPart: RLeg
   groupWhitelist: [ Human, Arachnid ]
   coloring:
     default:
@@ -79,7 +79,7 @@
 
 - type: marking
   id: CyberlimbLFootBishop
-  bodyPart: RFoot # ADT-Tweak LFoot -> RFoot
+  bodyPart: LFoot
   groupWhitelist: [ Human, Arachnid ]
   coloring:
     default:
@@ -171,7 +171,7 @@
 
 - type: marking
   id: CyberlimbRLegHephaestus
-  bodyPart: LLeg # ADT-Tweak RLeg -> LLeg
+  bodyPart: RLeg
   groupWhitelist: [ Human, Arachnid ]
   coloring:
     default:
@@ -197,7 +197,7 @@
 
 - type: marking
   id: CyberlimbLFootHephaestus
-  bodyPart: RFoot # ADT-Tweak LFoot -> RFoot
+  bodyPart: LFoot
   groupWhitelist: [ Human, Arachnid ]
   coloring:
     default:
@@ -289,7 +289,7 @@
 
 - type: marking
   id: CyberlimbRLegHephaestusTitan
-  bodyPart: LLeg # ADT-Tweak RLeg -> LLeg
+  bodyPart: RLeg
   groupWhitelist: [ Human, Arachnid ]
   coloring:
     default:
@@ -315,7 +315,7 @@
 
 - type: marking
   id: CyberlimbLFootHephaestusTitan
-  bodyPart: RFoot # ADT-Tweak LFoot -> RFoot
+  bodyPart: LFoot
   groupWhitelist: [ Human, Arachnid ]
   coloring:
     default:
@@ -407,7 +407,7 @@
 
 - type: marking
   id: CyberlimbRLegMorpheus
-  bodyPart: LLeg # ADT-Tweak RLeg -> LLeg
+  bodyPart: RLeg
   groupWhitelist: [ Human, Arachnid ]
   coloring:
     default:
@@ -433,7 +433,7 @@
 
 - type: marking
   id: CyberlimbLFootMorpheus
-  bodyPart: RFoot # ADT-Tweak LFoot -> RFoot
+  bodyPart: LFoot
   groupWhitelist: [ Human, Arachnid ]
   coloring:
     default:
@@ -526,7 +526,7 @@
 
 - type: marking
   id: CyberlimbRLegWardtakahashi
-  bodyPart: LLeg # ADT-Tweak RLeg -> LLeg
+  bodyPart: RLeg
   groupWhitelist: [ Human, Arachnid ]
   coloring:
     default:
@@ -552,7 +552,7 @@
 
 - type: marking
   id: CyberlimbLFootWardtakahashi
-  bodyPart: RFoot # ADT-Tweak LFoot -> RFoot
+  bodyPart: LFoot
   groupWhitelist: [ Human, Arachnid ]
   coloring:
     default:
@@ -659,7 +659,7 @@
 
 - type: marking
   id: CyberlimbRLegZenghu
-  bodyPart: LLeg # ADT-Tweak RLeg -> LLeg
+  bodyPart: RLeg
   groupWhitelist: [ Human, Arachnid ]
   coloring:
     default:
@@ -685,7 +685,7 @@
 
 - type: marking
   id: CyberlimbLFootZenghu
-  bodyPart: RFoot # ADT-Tweak LFoot -> RFoot
+  bodyPart: LFoot
   groupWhitelist: [ Human, Arachnid ]
   coloring:
     default:
@@ -777,7 +777,7 @@
 
 - type: marking
   id: CyberlimbRLegNanotrasen
-  bodyPart: LLeg # ADT-Tweak RLeg -> LLeg
+  bodyPart: RLeg
   groupWhitelist: [ Human, Arachnid ]
   coloring:
     default:
@@ -803,7 +803,7 @@
 
 - type: marking
   id: CyberlimbLFootNanotrasen
-  bodyPart: RFoot # ADT-Tweak LFoot -> RFoot
+  bodyPart: LFoot
   groupWhitelist: [ Human, Arachnid ]
   coloring:
     default:
@@ -895,7 +895,7 @@
 
 - type: marking
   id: CyberlimbRLegXion
-  bodyPart: LLeg # ADT-Tweak RLeg -> LLeg
+  bodyPart: RLeg
   groupWhitelist: [ Human, Arachnid ]
   coloring:
     default:
@@ -921,7 +921,7 @@
 
 - type: marking
   id: CyberlimbLFootXion
-  bodyPart: RFoot # ADT-Tweak LFoot -> RFoot
+  bodyPart: LFoot
   groupWhitelist: [ Human, Arachnid ]
   coloring:
     default:
