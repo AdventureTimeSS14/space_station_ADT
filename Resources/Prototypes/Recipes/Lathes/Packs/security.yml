@@ -29,6 +29,10 @@
   - SpeedLoaderMagnumPractice
   - MagazinePistolSubMachineGunPractice
   - WeaponFlareGunSecurity
+  #ADT-Tweak-Start
+  - WeaponLaserSvalinn 
+  - ADTWeaponLaserSvalinnRifle
+  #ADT-Tweak-End
 
 # Shared between secfab and emagged autolathe
 - type: latheRecipePack

@@ -88,6 +88,11 @@
           tags:
             - PowerCell
             - PowerCellSmall
+        #ADT-Tweak-Start
+        blacklist:
+          tags:
+          - ADTMegaCell
+        #ADT-Tweak-End
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: Appearance
@@ -157,6 +162,11 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  #ADT-Tweak-Start
+  - type: HitscanBatteryAmmoProvider
+    proto: YellowLightLaser
+    fireCost: 50
+  #ADT-Tweak-End
 
 - type: entity
   name: retro laser blaster
