@@ -27,9 +27,9 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
       # ADT-tweak-start
-        blacklist:
-          tags:
-          - ADTMegaCell
+        #blacklist:
+        #  tags:
+        #  - ADTMegaCell
       # ADT-tweak-end
   - type: Lock
     locked: true
