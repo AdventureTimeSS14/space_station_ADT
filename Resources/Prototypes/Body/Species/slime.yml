@@ -68,6 +68,7 @@
     organs:
       Torso: OrganSlimePersonTorso
       Head: OrganSlimePersonHead
+      Eyes: OrganSlimeEyes
       ArmLeft: OrganSlimePersonArmLeft
       ArmRight: OrganSlimePersonArmRight
       HandRight: OrganSlimePersonHandRight
@@ -236,6 +237,16 @@
   - type: VisualOrganMarkings
     markingData:
       group: Slime
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganSlimePersonInternal, OrganSlimePersonExternal ]
+  id: OrganSlimeEyes
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+  - type: VisualOrgan
+    data:
+      sprite: Mobs/Customization/eyes.rsi
 
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganSlimePersonExternal ]
