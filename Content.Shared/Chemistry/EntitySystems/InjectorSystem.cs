@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.ADT.Chemistry.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
@@ -194,6 +195,16 @@ public sealed partial class InjectorSystem : EntitySystem
     /// </summary>
     private bool TryMobsDoAfter(Entity<InjectorComponent> injector, EntityUid user, EntityUid target)
     {
+        // ADT-Tweak start
+        if (HasComp<InjectorsBlockerComponent>(target))
+        {
+            var userMessage = Loc.GetString("injector-blocked-user");
+            var otherMessage = Loc.GetString("injector-blocked-other", ("target", target), ("user", user));
+            _popup.PopupPredicted(userMessage, otherMessage, target, user, PopupType.SmallCaution);
+            return false;
+        }
+        // ADT-Tweak end
+
         if (_useDelay.IsDelayed(injector.Owner) // Check for Delay.
             || !GetMobsDoAfterTime(injector, user, target, out var doAfterTime, out var amount)) // Get the DoAfter time.
             return false;
@@ -383,6 +394,16 @@ public sealed partial class InjectorSystem : EntitySystem
     {
         if (!_prototypeManager.Resolve(injector.Comp.ActiveModeProtoId, out var activeMode))
             return false;
+
+        // ADT-Tweak start
+        if (HasComp<InjectorsBlockerComponent>(target))
+        {
+            var userMessage = Loc.GetString("injector-blocked-user");
+            var otherMessage = Loc.GetString("injector-blocked-other", ("target", target), ("user", user));
+            _popup.PopupPredicted(userMessage, otherMessage, target, user, PopupType.SmallCaution);
+            return false;
+        }
+        // ADT-Tweak end
 
         var isOpenOrIgnored = injector.Comp.IgnoreClosed || !_openable.IsClosed(target);
 
