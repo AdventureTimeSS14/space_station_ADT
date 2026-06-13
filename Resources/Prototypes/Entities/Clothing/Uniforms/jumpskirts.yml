@@ -54,7 +54,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/ce_turtle.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtChaplain
   name: chaplain's jumpskirt
   description: It's a black jumpskirt, often worn by religious folk.
@@ -65,7 +65,7 @@
       sprite: Clothing/Uniforms/Jumpskirt/chaplain.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtChef
   name: chef uniform
   description: Can't cook without this.
@@ -87,7 +87,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/chemistry.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtVirology
   name: virology jumpskirt
   description: It's made of a special fiber that gives special protection against biohazards. It has a virologist rank stripe on it.
@@ -98,7 +98,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/virology.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtGenetics
   name: genetics jumpskirt
   description: It's made of a special fiber that gives special protection against biohazards. It has a geneticist rank stripe on it.
@@ -131,7 +131,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/cmo_turtle.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtDetective
   name: hard-worn suitskirt
   description: Someone who wears this means business.
@@ -142,7 +142,7 @@
       sprite: Clothing/Uniforms/Jumpskirt/detective.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtDetectiveGrey
   name: noir suitskirt
   description: A hard-boiled private investigator's grey suit, complete with tie clip.
@@ -255,7 +255,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/janitor.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtMedicalDoctor
   name: medical doctor jumpskirt
   description: It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel.
@@ -277,7 +277,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/mime.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtParamedic
   name: paramedic jumpskirt
   description: It's got a plus on it, that's a good thing right?
@@ -288,7 +288,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/paramedic.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtBrigmedic
   name: brigmedic jumpskirt
   description: This uniform is issued to qualified personnel who have been trained. No one cares that the training took half a day.
@@ -299,7 +299,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/brigmedic.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase #ADT-Tweak
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtPrisoner
   name: prisoner jumpskirt
   description: A jumpskirt used for prisoners. It has suit sensors automatically enabled at all times.
@@ -426,7 +426,7 @@
 
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
+  parent: [ClothingUniformSkirtBase, BaseSecurityContraband, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtWarden
   name: warden's uniform
   description: A formal security suit for officers complete with Nanotrasen belt buckle.
@@ -579,7 +579,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/janimaidmini.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtLawyerRed
   name: red lawyer suitskirt
   description: A flashy red suitskirt worn by lawyers and show-offs.
@@ -590,7 +590,7 @@
       sprite: Clothing/Uniforms/Jumpskirt/lawyerred.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtLawyerBlue
   name: blue lawyer suitskirt
   description: A flashy blue suitskirt worn by lawyers and show-offs.
@@ -601,7 +601,7 @@
       sprite: Clothing/Uniforms/Jumpskirt/lawyerblue.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtLawyerBlack
   name: black lawyer suitskirt
   description: A subtle black suitskirt worn by lawyers and gangsters.
@@ -623,7 +623,7 @@
       sprite: Clothing/Uniforms/Jumpskirt/lawyerpurple.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtLawyerGood
   name: good lawyer's suitskirt
   description: A tacky suitskirt perfect for a CRIMINAL lawyer!
@@ -667,7 +667,7 @@
       sprite: Clothing/Uniforms/Jumpskirt/skirtoflife.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtSeniorEngineer
   name: senior engineer jumpskirt
   description: A sign of skill and prestige within the engineering department.
@@ -678,7 +678,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/senior_engineer.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtSeniorResearcher
   name: senior researcher jumpskirt
   description: A sign of skill and prestige within the science department.
@@ -689,7 +689,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/senior_researcher.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtSeniorPhysician
   name: senior physician jumpskirt
   description: A sign of skill and prestige within the medical department.
@@ -700,7 +700,7 @@
     sprite: Clothing/Uniforms/Jumpskirt/senior_physician.rsi
 
 - type: entity
-  parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
+  parent: [ClothingUniformSkirtBase, BaseSecurityContraband, ClothingUniformFoldableBase] #ADT-Tweak: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtSeniorOfficer
   name: senior officer jumpskirt
   description: A sign of skill and prestige within the security department.
