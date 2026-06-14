@@ -747,7 +747,7 @@
         maxVol: 15 #ADT Tweak 10>15
   - type: RefillableSolution
     solution: hypospray
-    refillTime: 0.75
+    refillTime: 0 # ADT-Tweak 0.75 -> 0
     maxRefill: 5
   - type: ExaminableSolution
     solution: hypospray

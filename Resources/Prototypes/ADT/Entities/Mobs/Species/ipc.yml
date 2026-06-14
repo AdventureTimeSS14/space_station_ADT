@@ -179,8 +179,8 @@
   - type: OfferItem
   - type: UserInterface
     interfaces:
-      enum.IpcScreenUiKey.Key:
-        type: IpcScreenBoundUserInterface
+      enum.MidroundCustomizationUiKey.Key:
+        type: MidroundCustomizationBoundUserInterface
       enum.VoiceMaskUIKey.Key:
         type: VoiceMaskBoundUserInterface
       enum.HumanoidMarkingModifierKey.Key:
@@ -189,9 +189,11 @@
         type: StrippableBoundUserInterface
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-  - type: IpcScreen
+  - type: MidroundCustomization
     selectSlotTime: 0
     changeSlotTime: 0
+    allowedLayers:
+    - FacialHair
   - type: AnimatedEmotes
   - type: Posing
   - type: SoftWalk

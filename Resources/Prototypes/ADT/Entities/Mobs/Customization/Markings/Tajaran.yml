@@ -806,7 +806,7 @@
 
 - type: marking
   id: ADTTajaranEyeGlow
-  bodyPart: LLeg
+  bodyPart: Eyes
   groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi

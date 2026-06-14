@@ -956,5 +956,25 @@ ADTEctoplasmicPistol: null
 ADTEctoplasmicRifle: null
 SentientSlimesCore: null
 
+# ADT 2026-01-06
+ADTSpawnMobXenoBurrower: SpawnMobXenoBurrower
+ADTSpawnMobXenoDrone: SpawnMobXenoDrone
+ADTSpawnMobXenoQueen: SpawnMobXenoQueen
+ADTSpawnMobXenoRavager: SpawnMobXenoRavager
+
+# ADT 2026-03-02
+Bloodpack: ADTBloodPackTransfusionFull
+
+# ADT 2026-02-27
+BoozeDispenserMachineCircuitboard: ADTEnergyBoozeDispenserMachineCircuitboard
+BoozeDispenser: ADTEnergyBoozeDispenser
+BoozeDispenserEmpty: ADTEnergyBoozeDispenser
+SodaDispenserMachineCircuitboard: ADTEnergySodaDispenserMachineCircuitboard
+SodaDispenser: ADTEnergySodaDispenser
+SodaDispenserEmpty: ADTEnergySodaDispenser
+
+# ADT 2026-05-21
+ADTSpawnMobAbominationDeath: null
+
 # 2026-06-12 ADT
 ADTBookPTCR: ADTBookPTSD
