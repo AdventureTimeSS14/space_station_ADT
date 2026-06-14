@@ -91,6 +91,7 @@
     - ADTBlockGameArcadeComputerCircuitboard
     - ADTSpaceVillainArcadeComputerCircuitboard
     - ADTMinesweeperCircuitboard
+    - ADTJukeBoxPlayerVintage
     # ADT tweak end
   position: 3,0 # ADT Research Console Rework
 

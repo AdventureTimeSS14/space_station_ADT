@@ -231,6 +231,8 @@
     - id: HandLabeler
     - id: PlushieLizardJobDetective
       prob: 0.02
+    - id: ADTJukeBoxPlayerVintage #ADT-Tweak
+    - id: ADTMusicDiskMix #ADT-Tweak
 
 - type: entity
   id: ClosetBombFilled
