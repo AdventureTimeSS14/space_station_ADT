@@ -76,7 +76,7 @@
 
 - type: marking
   id: FaceDraskBase
-  bodyPart: HeadSide
+  bodyPart: SnoutCover
   followSkinColor: true
   forcedColoring: true
   groupWhitelist: [Drask]
