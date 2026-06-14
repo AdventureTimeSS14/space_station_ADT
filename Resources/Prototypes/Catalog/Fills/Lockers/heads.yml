@@ -215,7 +215,7 @@
     - id: ADTClothingMaskGasCE
     - id: ADTUniversalPipeDispenserCircuitboard
     - id: ADTRPD
-    - id: ADTEngiInducerBattery
+    #- id: ADTEngiInducerBattery # ADT-REMOVED
     - id: ADTBookSRPcmd
     - id: ADTBookSRPeng
     - id: ADTBookPCDcmd
@@ -378,7 +378,7 @@
     - id: ADTBoxAICircuitBoard
     - id: ADTScienceBudgetCard
     - id: ADTScienceBudgetPinPaper
-    - id: ADTRNDInducerBattery
+    #- id: ADTRNDInducerBattery # ADT-REMOVED
     # ADT-Tweak-End
     - id: PlushieLizardJobResearchdirector
       prob: 0.02

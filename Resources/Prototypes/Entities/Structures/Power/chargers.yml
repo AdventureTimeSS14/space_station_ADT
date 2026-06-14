@@ -111,7 +111,7 @@
         blacklist:
           tags:
           - PotatoBattery
-          - ADTMegaCell #ADT-tweak
+          #- ADTMegaCell #ADT-tweak
   - type: Item
     size: Ginormous
   - type: MultiHandedItem
@@ -211,7 +211,7 @@
         blacklist:
           tags:
           - PotatoBattery
-          - ADTMegaCell # ADT-Tweak
+          #- ADTMegaCell # ADT-Tweak
           components: # ADT plasmacutters
           - BatteryRecharge # ADT plasmacutters
           - BatterySelfRecharger # ADT-tweak

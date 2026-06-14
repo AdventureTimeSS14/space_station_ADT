@@ -668,8 +668,8 @@
 - type: Tag
   id: ADTFullRiotShieldSyndi
 
-- type: Tag
-  id: ADTMegaCell
+#- type: Tag
+#  id: ADTMegaCell
 
 - type: Tag
   id: ADTSheet
