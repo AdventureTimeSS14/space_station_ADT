@@ -55,7 +55,6 @@
   - Disarm
   event: !type:SleepingCarpCrashingWavesPerformedEvent
   extraDamage: 15
-  sleepTime: 2
 
 - type: combo
   id: SleepingCarpDisarmCatch
