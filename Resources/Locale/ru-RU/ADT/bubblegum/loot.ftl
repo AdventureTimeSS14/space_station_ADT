@@ -21,7 +21,7 @@ objective-issuer-bubblegum = [color=red]Бубльгум[/color]
 ent-ADTRipAndTearObjective = Рви и терзай
     .desc = Поддайтесь кровавому безумию. Убивайте всё, что движется.
 
-ent-ADTBloodContractKillObjective = Убейте { $targetName }, { $job }.
+objective-blood-contract-kill-title = Убейте { $targetName }, { $job }.
 
 reagent-name-adminordrazine = админордразин
 reagent-desc-adminordrazine = Чудодейственное вещество, исцеляющее почти любые недуги.
