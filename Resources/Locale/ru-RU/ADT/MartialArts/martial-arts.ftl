@@ -1,5 +1,6 @@
 cqc-fail-used = Вы не можете никого обучить с помощью { CAPITALIZE(THE($manual)) }.
 cqc-fail-changeling = Нам это уже не нужно.
+cqc-necksnap-popup = { $target } ломает шею { $attacker }.
 cqc-fail-knowanother = Вы уже знаете другое боевое искусство.
 cqc-fail-already = Вы уже знаете боевое искусство.
 cqc-success-unblocked = Ваши навыки рукопашного боя больше не ограничены кухней.
