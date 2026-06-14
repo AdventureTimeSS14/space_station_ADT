@@ -225,6 +225,9 @@
     - id: ClosetMaintenanceFilledRandom
       prob: 0.01
     #ADT tweak start
+    - !type:NestedSelector
+      tableId: ADTMusicDiskMaintenance
+      prob: 0.05
     - id: DeathPaint
       prob: 0.05
     - id: DeathPaintTwo
@@ -234,7 +237,7 @@
     - id: ADTToyBlasterGunRed
       prob: 0.013
     - id: ADTToyBlasterGunBlue
-      prob: 0.011
+      prob: 0.006
     - id: ADTToyBlasterGunGreen
       prob: 0.008
     #ADT tweak end

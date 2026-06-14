@@ -34,3 +34,21 @@
   cost: 2000
   category: Fun
   group: market
+
+- type: cargoProduct
+  id: ADTFunBoxMusicDisks
+  icon:
+    sprite: Objects/Storage/boxes.rsi
+    state: box
+  product: ADTBoxMusicDisks
+  category: cargoproduct-category-name-fun
+  cost: 400
+
+- type: cargoProduct
+  id: ADTFunJukeBoxPlayer
+  icon:
+    sprite: ADT/Objects/Devices/music_player.rsi
+    state: icon
+  product: ADTJukeBoxPlayer
+  category: cargoproduct-category-name-fun
+  cost: 500
