@@ -3,7 +3,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAnnouncement: station-event-vent-creatures-start-horde-announcement
     startAudio:
       path: /Audio/ADT/Announcements/announce_dig.ogg
     earliestStart: 20
@@ -62,7 +62,7 @@
       max: 1
       pickPlayer: false
       mindRoles:
-      - MindRoleMorph
+      - MindRoleGhostRoleNeutral
   - type: DragonRule #чтобы отдельный рул не писать
 
 - type: entity

@@ -31,7 +31,8 @@ public sealed partial class JukeboxMenu : FancyWindow
     public event Action? OnLoopToggled; // ADT-Tweak
     public event Action<ProtoId<JukeboxPrototype>>? OnSongSelected;
     public event Action<float>? SetTime;
-    public event Action<float>? SetVolume; /// ADT-Tweak
+    public event Action<float>? SetVolume; // ADT-Tweak
+    public event Action? OnEjectPressed; // ADT-Tweak
 
     private EntityUid? _audio;
 
@@ -69,6 +70,10 @@ public sealed partial class JukeboxMenu : FancyWindow
         LoopButton.OnPressed += args =>
         {
             OnLoopToggled?.Invoke();
+        };
+        EjectButton.OnPressed += args =>
+        {
+            OnEjectPressed?.Invoke();
         };
         // ADT-Tweak end
 
@@ -166,6 +171,24 @@ public sealed partial class JukeboxMenu : FancyWindow
     {
         VolumeSlider.Value = volume;
     }
+
+    public void SetDiskName(string? diskName)
+    {
+        if (!string.IsNullOrEmpty(diskName))
+        {
+            DiskNameLabel.Text = diskName;
+        }
+        else
+        {
+            DiskNameLabel.Text = Loc.GetString("jukebox-menu-no-disk");
+        }
+    }
+
+    public void SetEjectButtonEnabled(bool enabled)
+    {
+        EjectButton.Disabled = !enabled;
+    }
+
     /// ADT-Tweak end
 
     protected override void FrameUpdate(FrameEventArgs args)

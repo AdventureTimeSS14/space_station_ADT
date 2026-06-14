@@ -1,4 +1,4 @@
-#ADT-TEAM-ITEMS-START
+﻿#ADT-TEAM-ITEMS-START
 
 # Ale_xan_der
 - type: entity
@@ -147,7 +147,7 @@
     fuelConsumption: 0.01
     fuelLitCost: 0.1
     tankSafe: true
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: lighter_flame
     inhandVisuals:
       left:
@@ -497,7 +497,7 @@
     fuelConsumption: 0.01
     fuelLitCost: 0.1
     tankSafe: true
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: lighter_flame
     inhandVisuals:
       left:
@@ -523,10 +523,12 @@
   name: case Melnicov
   description: Case
   components:
-  - type: StorageFill
-    contents:
-    - id: ADTSchrodingerCigar
-      amount: 8
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTSchrodingerCigar
+          amount: 8
   - type: Sprite
     sprite: ADT/Personalization/melnikov_case.rsi
 
@@ -559,20 +561,21 @@
   #  maxItemSize: Ginormous
   #  maxTotalWeight: 0
   #  maxSlots: 50 #By this ignore maxTotalWeight
-  - type: StorageFill
-    contents:
-      - id: ClothingShoesBootsLaceup
-      - id: ClothingHandsGlovesCombat
-      - id: ClothingEyesGlassesSunglasses
-      - id: ClothingMaskGasCentcom
-      - id: ClothingUniformJumpsuitCentcomAgent
-      - id: ADTWeaponRevolverDeckardGold
-      - id: CentcomPDA
-      # - id: ADTClothingNeckMantleCentComm # TODO: Добавить мантию ЦентКом
-      - id: ClothingHeadsetAltCentCom
-      - id: ADTClothingOuterCoatSchroCoat
-      # - id: ADTClothingNeckNanoTrasenPinSchrodinger # TODO: Добавить пин
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingShoesBootsLaceup
+        - id: ClothingHandsGlovesCombat
+        - id: ClothingEyesGlassesSunglasses
+        - id: ClothingMaskGasCentcom
+        - id: ClothingUniformJumpsuitCentcomAgent
+        - id: ADTWeaponRevolverDeckardGold
+        - id: CentcomPDA
+          # - id: ADTClothingNeckMantleCentComm # TODO: Добавить мантию ЦентКом
+        - id: ClothingHeadsetAltCentCom
+        - id: ADTClothingOuterCoatSchroCoat
+          # - id: ADTClothingNeckNanoTrasenPinSchrodinger # TODO: Добавить пин
 - type: entity
   name: Deckard
   parent: BaseWeaponRevolver
@@ -1607,12 +1610,14 @@
     grid:
     - 0,0,4,2
     maxItemSize: Small
-  - type: StorageFill
-    contents:
-     - id: ADTWeaponPistolPrazatHawk
-     - id: ADTWeaponPistolMaria
-     - id: MagazineMagnum
-     - id: MagazineMagnum
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTWeaponPistolPrazatHawk
+        - id: ADTWeaponPistolMaria
+        - id: MagazineMagnum
+        - id: MagazineMagnum
   - type: MeleeWeapon
     damage:
       types:
@@ -1732,7 +1737,7 @@
         Slash: 15
         Piercing: 2.5
         Structural: 30
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: chainsword
     inhandVisuals:
       left:
@@ -2067,7 +2072,7 @@
     blacklist:
       tags:
       - ADTBatonBlocker
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: light
     inhandVisuals:
       left:
@@ -2272,14 +2277,15 @@
   description: bag of kringe personal clothes
   suffix: Personal, kringe
   components:
-    - type: StorageFill
-      contents:
-        - id: ADTClothingOuterHardsuitKringe
-        - id: ADTClothingHandsKringeGloves
-        - id: ADTClothingShoesBootsMagKringe
-        - id: ADTClothingUniformJumpsuitKringeClothing
-        - id: ADTWhistleKringe
-
+    - type: EntityTableContainerFill
+      containers:
+        storagebase: !type:AllSelector
+          children:
+          - id: ADTClothingOuterHardsuitKringe
+          - id: ADTClothingHandsKringeGloves
+          - id: ADTClothingShoesBootsMagKringe
+          - id: ADTClothingUniformJumpsuitKringeClothing
+          - id: ADTWhistleKringe
 #Couatl
 - type: entity
   parent: BasePlushie
@@ -2419,7 +2425,7 @@
       fireRate: 0.8
       soundGunshot:
         path: /Audio/Weapons/plasma_cutter.ogg
-    - type: ProjectileBatteryAmmoProvider
+    - type: BatteryAmmoProvider
       proto: ADTBulletCutter
       fireCost: 100
     - type: BatteryWeaponFireModes
@@ -2516,7 +2522,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBulletDisabler
     fireCost: 150
   - type: BatteryWeaponFireModes
@@ -2564,7 +2570,7 @@
   # - type: PowerChargerVisuals
   - type: ApcPowerReceiver
     needsPower: false
-    powerLoad: 0
+    powerLoad: 1
   - type: StaticPrice
     price: 500
   - type: Tag
@@ -2959,12 +2965,14 @@
     grid:
     - 0,0,4,2
     maxItemSize: Small
-  - type: StorageFill
-    contents:
-     - id: ADTGoldPlatedDrinkJigger
-     - id: ADTGoldPlatedDrinkJigger
-     - id: ADTGoldPlatedBarSpoon
-     - id: ADTGoldPlatedDrinkShaker
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTGoldPlatedDrinkJigger
+        - id: ADTGoldPlatedDrinkJigger
+        - id: ADTGoldPlatedBarSpoon
+        - id: ADTGoldPlatedDrinkShaker
   - type: MeleeWeapon
     damage:
       types:
@@ -3116,7 +3124,7 @@
   flavor: adtfleche
   color: "#d2b48c"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 5
@@ -3232,7 +3240,7 @@
       path: /Audio/ADT/Weapons/Guns/Gunshots/laser_gun_type.ogg
     soundEmpty:
       path: /Audio/ADT/Weapons/Guns/Gunshots/laser_gun_type_empty.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: PulseType
     fireCost: 100 # ADT tweak 200 -> 100
   - type: Battery
@@ -3464,7 +3472,7 @@
     - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTFamilyBusinessPinkProjectile
     fireCost: 100
   - type: Appearance
@@ -3506,7 +3514,7 @@
       - state: purple_inhand-left
       right:
       - state: purple_inhand-right
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTFamilyBusinessPurpleProjectile
     fireCost: 100
 
@@ -3534,7 +3542,7 @@
       - state: red_inhand-left
       right:
       - state: red_inhand-right
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTFamilyBusinessRedProjectile
     fireCost: 100
 

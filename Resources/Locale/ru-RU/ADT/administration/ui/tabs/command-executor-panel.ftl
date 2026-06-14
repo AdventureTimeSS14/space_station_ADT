@@ -8,6 +8,5 @@ admin-command-executor-ready = Готов к выполнению команд
 admin-command-executor-cleared = Поле очищено
 admin-command-executor-empty = Нет команд для выполнения
 admin-command-executor-executed = Выполнено команд: { $count }
-
 # Футер
 admin-panel-footer-powered = Powered by Schrödinger

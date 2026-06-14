@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: BaseKudzu
   abstract: true
   placement:
@@ -47,6 +47,7 @@
           - MidImpassable
     - type: Damageable
       damageModifierSet: Wood
+    - type: Injurable
     - type: Destructible
       thresholds:
       - trigger:
@@ -56,6 +57,7 @@
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
     - type: Temperature
+    - type: TemperatureDamage
       heatDamage:
         types:
           Heat: 5
@@ -199,6 +201,7 @@
           layer:
           - MidImpassable
     - type: Damageable
+    - type: Injurable
     - type: Destructible
       thresholds:
       - trigger:
@@ -226,6 +229,7 @@
           Cold: -1.0
           Blunt: -0.5 # Needs to be balanced (approx 3x) with vacuum damage to stall but not kill Kudzu
     - type: Temperature
+    - type: TemperatureDamage
       heatDamage:
         types:
           Heat: 10

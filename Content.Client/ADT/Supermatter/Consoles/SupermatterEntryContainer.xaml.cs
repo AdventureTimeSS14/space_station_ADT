@@ -10,7 +10,6 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
 using System.Linq;
 using System.Numerics;
-using Content.Shared.ADT.CCVar;
 
 namespace Content.Client.ADT.Supermatter.Consoles;
 

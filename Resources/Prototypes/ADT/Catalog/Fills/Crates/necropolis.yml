@@ -3,111 +3,124 @@
   parent: ADTCrateNecropolis
   suffix: Heart
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTCursedHeart
-
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTCursedHeart
 - type: entity
   id: ADTCrateNecropolisVavilon
   parent: ADTCrateNecropolis
   suffix: Vavilon
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTVavilonBook
-
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTVavilonBook
 - type: entity
   id: ADTCrateNecropolisVampirismCrystal
   parent: ADTCrateNecropolis
   suffix: Vampirism Crystal
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTVampirismCrystal
-
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTVampirismCrystal
 - type: entity
   id: ADTCrateNecropolisCursedKatana
   parent: ADTCrateNecropolis
   suffix: CursedKatanaShard
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTKatanacursedShard
-
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTKatanacursedShard
 - type: entity
   id: ADTCrateNecropolisVehicleLavabike
   parent: ADTCrateNecropolis
   suffix: Lavabike
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTVehicleLavabike
-
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTVehicleLavabike
 - type: entity
   id: ADTCrateNecropolisMjollnir
   parent: ADTCrateNecropolis
   suffix: Mjollnir
   components:
-  - type: StorageFill
-    contents:
-      - id: Mjollnir
-
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: Mjollnir
 - type: entity
   id: ADTCrateNecropolisStaffHealingWeak
   parent: ADTCrateNecropolis
   suffix: HealingStaff
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTWeaponStaffHealingWeak
-
-- type: entity
-  id: ADTCrateNecropolisMegaCellMedium
-  parent: ADTCrateNecropolis
-  suffix: MegaCellMedium
-  components:
-  - type: StorageFill
-    contents:
-      - id: ADTMegaCellMedium
-
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTWeaponStaffHealingWeak
+#- type: entity
+#  id: ADTCrateNecropolisMegaCellMedium
+#  parent: ADTCrateNecropolis
+#  suffix: MegaCellMedium
+#  components:
+#  - type: EntityTableContainerFill
+#    containers:
+#      entity_storage: !type:AllSelector
+#        children:
+#        - id: ADTMegaCellMedium
 - type: entity
   id: ADTCrateNecropolisAdvancedEquipment
   parent: ADTCrateNecropolis
   suffix: AdvancedEquipment
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTWeaponCutterAdv
-      - id: SheetPlasma
-      - id: AdvancedMineralScanner
-    #  - id: OreBagOfHolding # Жирно лучше пусть ждут нио или ищут обломок.
-
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTWeaponCutterAdv
+        - id: SheetPlasma
+        - id: AdvancedMineralScanner
+          #  - id: OreBagOfHolding # Жирно лучше пусть ждут нио или ищут обломок.
 - type: entity
   id: ADTCrateNecropolisArmorMinerLight
   parent: ADTCrateNecropolis
   suffix: ArmorMinerLight
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTClothingOuterArmorMinerLight
-
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTClothingOuterArmorMinerLight
 - type: entity
   id: ADTCrateNecropolisModsuitMods
   parent: ADTCrateNecropolis
   suffix: ModsuitMods
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTModsuitModAntigrav
-      - id: ADTModsuitModNightVision
-      - id: ADTModsuitModJump
-      - id: ADTModsuitModDrill
-
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTModsuitModAntigrav
+        - id: ADTModsuitModNightVision
+        - id: ADTModsuitModJump
+        - id: ADTModsuitModDrill
 - type: entity
   id: ADTCrateNecropolisSuperSynthesizer
   parent: ADTCrateNecropolis
   suffix: SuperSynthesizer
   components:
-  - type: StorageFill
-    contents:
-      - id: SuperSynthesizerInstrument
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: SuperSynthesizerInstrument

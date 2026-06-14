@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseItem
   id: BaseLightbulb
   abstract: true
@@ -14,6 +14,7 @@
         state: normal
   - type: LightBulb
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: DamageOnLand
     damage:

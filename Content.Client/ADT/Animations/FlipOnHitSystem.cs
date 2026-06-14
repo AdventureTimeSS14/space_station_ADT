@@ -44,7 +44,7 @@ public sealed class FlipOnHitSystem : SharedFlipOnHitSystem
         RemComp<FlippingComponent>(user);
 
         var baseAngle = Angle.Zero;
-        if (EntityManager.TryGetComponent(user, out SpriteComponent? sprite))
+        if (TryComp(user, out SpriteComponent? sprite))
             baseAngle = sprite.Rotation;
 
         var degrees = baseAngle.Degrees;

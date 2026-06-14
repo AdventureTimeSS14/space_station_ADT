@@ -26,7 +26,7 @@ public sealed class ChangeDamageContainerSystem : EntitySystem
         if (!TryComp<DamageableComponent>(uid, out var damageable))
             return;
 
-        component.OriginalContainerId = damageable.DamageContainerID?.Id;
+        component.OriginalContainerId = component.ContainerId; // Сохраняем текущий контейнер как оригинал
         ChangeDamageContainer(uid, component.ContainerId, damageable);
     }
 
@@ -40,10 +40,9 @@ public sealed class ChangeDamageContainerSystem : EntitySystem
 
     private void ChangeDamageContainer(EntityUid uid, string? containerId, DamageableComponent damageable)
     {
-        // Сохраняем текущее состояние
-        var oldDamage = damageable.Damage;
+        // Сохраняем текущее состояние через публичные методы
+        var oldDamage = _damageableSystem.GetAllDamage((uid, damageable));
         var oldModifierSetId = damageable.DamageModifierSetId;
-        var oldHealthBarThreshold = damageable.HealthBarThreshold;
 
         // Полностью удаляем компонент
         RemComp<DamageableComponent>(uid);
@@ -51,33 +50,10 @@ public sealed class ChangeDamageContainerSystem : EntitySystem
         // Создаем новый компонент через EntityManager
         var newComponent = EntityManager.AddComponent<DamageableComponent>(uid);
 
-        // Используем рефлексию для установки DamageContainerID
-        if (containerId != null)
-        {
-            var damageContainerIdProperty = typeof(DamageableComponent)
-                .GetProperty("DamageContainerID",
-                    System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
-
-            if (damageContainerIdProperty != null && damageContainerIdProperty.CanWrite)
-            {
-                damageContainerIdProperty.SetValue(newComponent,
-                    new ProtoId<DamageContainerPrototype>(containerId));
-            }
-        }
-
-        // Используем публичные методы для установки остальных свойств
+        // Используем публичные методы для установки свойств
         if (oldModifierSetId != null)
         {
             _damageableSystem.SetDamageModifierSetId((uid, newComponent), oldModifierSetId);
-        }
-
-        // HealthBarThreshold - возможно, нужно установить через рефлексию, если нет публичного метода
-        var healthBarThresholdProperty = typeof(DamageableComponent)
-            .GetProperty("HealthBarThreshold",
-                System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
-        if (healthBarThresholdProperty != null && healthBarThresholdProperty.CanWrite)
-        {
-            healthBarThresholdProperty.SetValue(newComponent, oldHealthBarThreshold);
         }
 
         // Устанавливаем отфильтрованный урон

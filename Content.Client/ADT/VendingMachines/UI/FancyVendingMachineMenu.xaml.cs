@@ -18,7 +18,6 @@ namespace Content.Client.ADT.VendingMachines.UI;
 [GenerateTypedNameReferences]
 public sealed partial class FancyVendingMachineMenu : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
     private readonly Dictionary<EntProtoId, EntityUid> _dummies = [];

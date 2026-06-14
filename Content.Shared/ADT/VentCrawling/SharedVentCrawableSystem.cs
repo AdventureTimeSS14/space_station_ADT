@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Tools.Components;
 using Content.Shared.Item;
@@ -74,7 +75,7 @@ public sealed class SharedVentCrawableSystem : EntitySystem
     private void OnMoveInput(EntityUid uid, VentCrawlerHolderComponent holder, ref MoveInputEvent args)
     {
 
-        if (!EntityManager.EntityExists(holder.CurrentTube))
+        if (!Exists(holder.CurrentTube))
         {
             var ev = new VentCrawlingExitEvent();
             RaiseLocalEvent(uid, ref ev);
@@ -198,7 +199,7 @@ public sealed class SharedVentCrawableSystem : EntitySystem
         var query = EntityQueryEnumerator<VentCrawlerHolderComponent>();
         while (query.MoveNext(out var uid, out var holder))
         {
-            if (holder.CurrentTube == null || !EntityManager.EntityExists(holder.CurrentTube.Value))
+            if (holder.CurrentTube == null || !Exists(holder.CurrentTube.Value))
             {
                 var exitEv = new VentCrawlingExitEvent();
                 RaiseLocalEvent(uid, ref exitEv);
@@ -251,7 +252,7 @@ public sealed class SharedVentCrawableSystem : EntitySystem
                 var target = Transform(holder.NextTube.Value).Coordinates;
                 var newPosition = (target.Position - origin.Position) * progress;
 
-                _xformSystem.SetCoordinates(uid, origin.Offset(newPosition).WithEntityId(currentTube));
+                _xformSystem.SetCoordinates(uid, _xformSystem.WithEntityId(origin.Offset(newPosition), currentTube));
 
                 holder.TimeLeft -= time;
                 frameTime -= time;
