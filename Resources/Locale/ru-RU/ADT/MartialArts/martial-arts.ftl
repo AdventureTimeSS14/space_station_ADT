@@ -80,9 +80,9 @@ judo-combo-judo-throw = дзюдо-бросок
 judo-combo-armbar = рычаг на руку
 judo-combo-wheel-throw = бросок колесом
 
-carp-combo-gnashing-teeth = зубовный скрежет
-carp-combo-crashing-waves = разбивающиеся волны
-carp-combo-intercept = перехват
+carp-combo-gnashing-teeth = карпьи зубы
+carp-combo-crashing-waves = удар волны
+carp-combo-disarm-catch = перехват
 
 krav-maga-ready = Вы готовитесь применить { $action }
 

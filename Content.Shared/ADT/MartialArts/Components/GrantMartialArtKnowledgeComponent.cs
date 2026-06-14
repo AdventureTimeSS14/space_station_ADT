@@ -99,6 +99,8 @@ public sealed partial class GrantSleepingCarpComponent : GrantMartialArtKnowledg
 
     [DataField]
     public ProtoId<NpcFactionPrototype> FactionToAdd = "Dragon";
+
+    public override LocId? LearnMessage { get; set; } = "carp-scroll-complete";
 }
 
 [RegisterComponent]

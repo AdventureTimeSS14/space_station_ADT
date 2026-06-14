@@ -14,10 +14,10 @@ namespace Content.Shared.ADT.MartialArts;
 public sealed partial class SleepingCarpGnashingTeethPerformedEvent : EntityEventArgs;
 
 [Serializable, NetSerializable, DataDefinition]
-public sealed partial class SleepingCarpInterceptPerformedEvent : EntityEventArgs;
+public sealed partial class SleepingCarpCrashingWavesPerformedEvent : EntityEventArgs;
 
 [Serializable, NetSerializable, DataDefinition]
-public sealed partial class SleepingCarpCrashingWavesPerformedEvent : EntityEventArgs;
+public sealed partial class SleepingCarpDisarmCatchPerformedEvent : EntityEventArgs;
 
 [Serializable,NetSerializable]
 public sealed class SleepingCarpSaying(LocId saying) : EntityEventArgs

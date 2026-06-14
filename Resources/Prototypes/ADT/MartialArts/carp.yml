@@ -2,8 +2,8 @@
   id: SleepingCarp
   martialArtsForm: SleepingCarp
   roundstartCombos: SleepingCarpMoves
-  randomDamageModifier: true
-  baseDamageModifier: 5
+  randomDamageModifier: False
+  baseDamageModifier: 0
   damageModifierType: Slash
   randomSayings:
   - speech-carp-wrench
@@ -33,7 +33,7 @@
   combos:
   - SleepingCarpGnashingTeeth
   - SleepingCarpCrashingWaves
-  - SleepingCarpIntercept
+  - SleepingCarpDisarmCatch
 
 - type: combo
   id: SleepingCarpGnashingTeeth
@@ -42,7 +42,7 @@
   attacks:
   - Harm
   - Harm
-  event: !type:SleepingCarpGnashingTeethPerformedEvent {}
+  event: !type:SleepingCarpGnashingTeethPerformedEvent
   damageType: Slash
   extraDamage: 10
 
@@ -53,19 +53,17 @@
   attacks:
   - Harm
   - Disarm
-  event: !type:SleepingCarpCrashingWavesPerformedEvent {}
-  damageType: Slash
+  event: !type:SleepingCarpCrashingWavesPerformedEvent
   extraDamage: 15
-  staminaDamage: 25
-  thrownSpeed: 14
+  sleepTime: 2
 
 - type: combo
-  id: SleepingCarpIntercept
-  name: carp-combo-intercept
+  id: SleepingCarpDisarmCatch
+  name: carp-combo-disarm-catch
   martialArtsForm: SleepingCarp
   attacks:
   - Disarm
   - Disarm
-  event: !type:SleepingCarpInterceptPerformedEvent {}
+  event: !type:SleepingCarpDisarmCatchPerformedEvent
   damageType: Blunt
   extraDamage: 10
