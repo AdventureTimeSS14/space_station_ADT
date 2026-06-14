@@ -1,5 +1,3 @@
-#Base
-
 - type: jukeboxList
   id: Standard
   jukeboxes:
@@ -19,7 +17,7 @@
   - ESCPNeonscapes
   - TheFallOfTheCorporation
   - WaitingForTheMeeting
-  - ThroughPatches
+  - ADTThroughPatches
 
 - type: jukeboxList
   id: Rock
@@ -30,8 +28,8 @@
   - MJB
   - EOFTTS
   - EWTRTWTFF
-  - YARARARA
-  - Godish
+  - ADTYARARARA
+  - ADTGodish
 
 - type: jukeboxList
   id: Sonic
@@ -78,30 +76,30 @@
 - type: jukeboxList
   id: Va11Hall
   jukeboxes:
-  - GaroadNeonGlow
-  - GaroadEveryDay
-  - GaroadGoodHealth
-  - GaroadYourLove
-  - GaroadUmemoto
-  - GaroadDigitalDrive
-  - GaroadWhereDoGo
+  - ADTGaroadNeonGlow
+  - ADTGaroadEveryDay
+  - ADTGaroadGoodHealth
+  - ADTGaroadYourLove
+  - ADTGaroadUmemoto
+  - ADTGaroadDigitalDrive
+  - ADTGaroadWhereDoGo
 
 - type: jukeboxList
   id: Celeste
   jukeboxes:
-  - LenaRaineFirstSteps
-  - LenaRaineSpiritOfHospitality
-  - LenaRaineConfrontingMyself
-  - LenaRaineExhale
+  - ADTLenaRaineFirstSteps
+  - ADTLenaRaineSpiritOfHospitality
+  - ADTLenaRaineConfrontingMyself
+  - ADTLenaRaineExhale
 
 - type: jukeboxList
   id: Mix
   jukeboxes:
-  - ExecutionClap
-  - NeverFadeAway
-  - LuchNadezhdy
-  - ElevatorMusic
-  - FNB
-  - Godish
-  - TheOnlyThing
-  - YARARARA
+  - ADTExecutionClap
+  - ADTNeverFadeAway
+  - ADTLuchNadezhdy
+  - ADTElevatorMusic
+  - ADTFNB
+  - ADTGodish
+  - ADTTheOnlyThing
+  - ADTYARARARA

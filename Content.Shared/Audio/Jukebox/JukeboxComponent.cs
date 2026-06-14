@@ -110,7 +110,7 @@ public enum JukeboxVolumeLevel : byte
 public enum JukeboxVisuals : byte
 {
     VisualState,
-    HasDisk,
+    HasDisk, //ADT-Tweak
     VolumeLevel //ADT-Tweak
 }
 

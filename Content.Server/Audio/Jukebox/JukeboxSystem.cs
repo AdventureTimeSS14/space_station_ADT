@@ -234,10 +234,12 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
     {
         var ent = (uid, component);
 
+        // ADT-Tweak start
         if (!IsSongAvailable(ent, args.SongId))
         {
             return;
         }
+        // ADT-Tweak end
 
         SetSelectedTrack(ent, args.SongId);
     }
