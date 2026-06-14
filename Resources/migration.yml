@@ -976,5 +976,24 @@ SodaDispenserEmpty: ADTEnergySodaDispenser
 # ADT 2026-05-21
 ADTSpawnMobAbominationDeath: null
 
-# 2026-06-12 ADT
+# ADT 2026-06-12 ADT
 ADTBookPTCR: ADTBookPTSD
+
+# ADT 2026-06-13: Удаление мегабатарей и индукторов
+ADTMegaCellSmall: null
+ADTMegaCellSmallPrinted: null
+ADTMegaCellMedium: null
+ADTMegaCellMediumPrinted: null
+ADTMegaCellHigh: null
+ADTMegaCellHighPrinted: null
+ADTMegaCellHyper: null
+ADTMegaCellHyperPrinted: null
+ADTMegaCellInfinite: null
+ADTMegaCellRecharger: null
+ADTMegaCellRechargerCircuitboard: null
+ADTEngiInducer: null
+ADTEngiInducerBattery: null
+ADTRNDInducer: null
+ADTRNDInducerBattery: null
+ADTCrateNecropolisMegaCellMedium: null
+
