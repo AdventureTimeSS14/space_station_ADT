@@ -19,7 +19,7 @@
   - Grab
   event: !type:PtsdLegSweepComboPerformedEvent
   dropItems: false
-  paralyzeTime: 4
+  paralyzeTime: 2
 
 - type: combo
   id: PTSDArmLockBehindBackCombo
@@ -27,7 +27,7 @@
   martialArtsForm: PTSD
   attacks:
   - Harm
-  - Disarm
+  - Grab
   - Disarm
   event: !type:PtsdArmLockBehindBackComboPerformedEvent {}
   staminaDamage: 60
@@ -37,7 +37,7 @@
   name: ptsd-combo-boot-kick
   martialArtsForm: PTSD
   attacks:
-  - Disarm
   - Harm
-  - Grab
+  - Disarm
+  - Disarm
   event: !type:PtsdBootKickComboPerformedEvent {}
