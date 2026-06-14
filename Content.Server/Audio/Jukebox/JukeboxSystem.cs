@@ -190,16 +190,18 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
     /// ADT-Tweak start
     private void OnJukeboxEject(EntityUid uid, JukeboxComponent component, JukeboxEjectMessage args)
     {
-        if (HasComp<ActorComponent>(args.Actor))
-        {
-            if (!TryComp<ItemSlotsComponent>(uid, out var itemSlots))
-                return;
-            if (!_itemSlots.TryGetSlot(uid, DiskSlotId, out var slot, itemSlots))
-                return;
+        if (!HasComp<ActorComponent>(args.Actor))
+            return;
 
-            _itemSlots.TryEjectToHands(uid, slot, args.Actor);
-            Dirty(uid, component);
-        }
+        if (!TryComp<ItemSlotsComponent>(uid, out var itemSlots))
+            return;
+
+        if (!_itemSlots.TryGetSlot(uid, DiskSlotId, out var slot, itemSlots))
+            return;
+
+        _itemSlots.TryEjectToHands(uid, slot, args.Actor);
+        Dirty(uid, component);
+
     }
     /// ADT-Tweak end
 
@@ -236,9 +238,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
 
         // ADT-Tweak start
         if (!IsSongAvailable(ent, args.SongId))
-        {
             return;
-        }
         // ADT-Tweak end
 
         SetSelectedTrack(ent, args.SongId);
