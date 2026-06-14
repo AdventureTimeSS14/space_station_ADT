@@ -241,7 +241,7 @@
     #- ADTPhantomPack
     - ADTWeaponLauncherHydraPack
     - ADTPowerPack
-    - ADTMegaCellPack
+    #- ADTMegaCellPack
     - ADTBeltManipulatorPack
     #ADT-tweak-end
     - ADTBluespaceCrystalTech #ADT Tweak
@@ -322,7 +322,7 @@
     - ADTArcade
     - ADTIndustrialCharger
     - ADTAdvancedThruster
-    - ADTMegaCharger
+    #- ADTMegaCharger
     - ADTChemDisp
     - ADTAdvancedMedical
     - ADTCryoPodMachineCircuitboard

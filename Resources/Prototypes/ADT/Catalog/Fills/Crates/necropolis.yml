@@ -68,16 +68,16 @@
       entity_storage: !type:AllSelector
         children:
         - id: ADTWeaponStaffHealingWeak
-- type: entity
-  id: ADTCrateNecropolisMegaCellMedium
-  parent: ADTCrateNecropolis
-  suffix: MegaCellMedium
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: ADTMegaCellMedium
+#- type: entity
+#  id: ADTCrateNecropolisMegaCellMedium
+#  parent: ADTCrateNecropolis
+#  suffix: MegaCellMedium
+#  components:
+#  - type: EntityTableContainerFill
+#    containers:
+#      entity_storage: !type:AllSelector
+#        children:
+#        - id: ADTMegaCellMedium
 - type: entity
   id: ADTCrateNecropolisAdvancedEquipment
   parent: ADTCrateNecropolis
