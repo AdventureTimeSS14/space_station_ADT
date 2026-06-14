@@ -3,13 +3,13 @@ using Content.Server.Flash;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.SMES;
+using Content.Server.Radiation.Systems;
 using Content.Server.Stack;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
-using Content.Shared.Radiation.Components;
 using Content.Shared.Stacks;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged;
@@ -24,6 +24,7 @@ using Robust.Shared.Timing;
 using System.Numerics;
 using System.Text;
 using Content.Shared.Power.Components;
+using Content.Shared.Radiation.Components;
 
 namespace Content.Server.ADT.Power.PTL;
 
@@ -39,6 +40,7 @@ public sealed partial class PTLSystem : EntitySystem
     [Dependency] private readonly AudioSystem _aud = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly SharedBatterySystem _batterySystem = default!;
+    [Dependency] private readonly RadiationSystem _radiation = default!;
 
     [ValidatePrototypeId<StackPrototype>] private readonly string _stackCredits = "Credit";
     [ValidatePrototypeId<TagPrototype>] private readonly string _tagScrewdriver = "Screwdriver";
@@ -88,7 +90,7 @@ public sealed partial class PTLSystem : EntitySystem
     {
         if (TryComp<RadiationSourceComponent>(ent, out var rad)
             && rad.Intensity > 0)
-            rad.Intensity -= rad.Intensity * 0.2f + .1f;
+            _radiation.SetIntensity(ent.Owner, rad.Intensity - rad.Intensity * 0.2f - .1f);
     }
 
     private void Tick(Entity<PowerTransmissionLaserComponent> ent)
@@ -137,8 +139,7 @@ public sealed partial class PTLSystem : EntitySystem
         // EVIL behavior......
         var evil = (float) (charge * ent.Comp1.EvilMultiplier);
 
-        if (TryComp<RadiationSourceComponent>(ent, out var rad))
-            rad.Intensity = evil/8;
+        _radiation.SetIntensity(ent.Owner, evil/8);
 
         _flash.FlashArea(ent.Owner, ent.Owner, evil/2, TimeSpan.FromMilliseconds(evil/2));
 
