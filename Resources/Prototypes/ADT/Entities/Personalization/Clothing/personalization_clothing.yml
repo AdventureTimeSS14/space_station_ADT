@@ -1887,3 +1887,60 @@
       collection: FootstepJester
       params:
         variation: 0.07
+
+# stryz_ani
+- type: entity
+  parent: ClothingHandsGlovesCombat
+  id: ADTClothingHandsStryzAniPullingGloves
+  name: magnetic gloves
+  description: Combat gloves with embedded magnetic emitters that can pull weapons into your hands.
+  suffix: Personal, stryz_ani
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/stryz_ani/gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/stryz_ani/gloves.rsi
+  - type: PullingGloves
+  - type: ActionGrant
+    actions:
+    - ActionWeaponPull
+  - type: ItemActionGrant
+    actions:
+    - ActionWeaponPull
+    activeIfWorn: true
+
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ADTClothingBeltStryzAniSheath
+  name: the scabbard of an ancient katana
+  description: Specially made for the ancient katana.
+  suffix: Personal, stryz_ani
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/stryz_ani/sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/stryz_ani/sheath.rsi
+    quickEquip: false
+    slots:
+    - belt
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Katana
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - ADTStryzAniKatana
+  - type: ItemMapper
+    mapLayers:
+      sheath-katana:
+        whitelist:
+          tags:
+          - ADTStryzAniKatana
+  - type: Appearance

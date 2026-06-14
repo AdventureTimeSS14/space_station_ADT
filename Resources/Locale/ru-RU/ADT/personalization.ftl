@@ -1030,3 +1030,15 @@ ent-ADTPosterContrabandAria = Ария советует - Охладись!
 ent-ADTClothingNeckHonelin111Choker = чокер с колокольчиком
     .desc = Чокер с золотистым колокольчиком, который звенит при ходьбе.
     .suffix = { "Именное, honelin111" }
+
+ent-ADTClothingHandsStryzAniPullingGloves = магнитные перчатки
+    .desc = Боевые перчатки со встроенными магнитными излучателями, которые могут притягивать оружие к вашим рукам.
+    .suffix = { "Спонсорское, stryz_ani" }
+
+ent-ADTClothingBeltStryzAniSheath = ножны древней катаны
+    .desc = Специально сделанные под древнюю катану.
+    .suffix = { "Спонсорское, stryz_ani" }
+
+ent-ADTStryzAniKatana = чокер с колокольчиком
+    .desc = Древняя ручная работа, выполненная из не такой уж древней пластали.
+    .suffix = { "Спонсорское, stryz_ani" }
