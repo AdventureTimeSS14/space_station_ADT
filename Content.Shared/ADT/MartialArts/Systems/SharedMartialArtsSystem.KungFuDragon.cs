@@ -34,6 +34,8 @@ public abstract partial class SharedMartialArtsSystem
             || !_blocker.CanInteract(ent, null)) // Should be able to interact
             return;
 
+        args.ModifiersList.Add(ent.Comp.ModifierSet);
+
         // Works for both armed and unarmed attacks
         ApplyMultiplier(ent,
             ent.Comp.DamageMultiplier,

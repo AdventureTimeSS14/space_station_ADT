@@ -24,9 +24,14 @@
     staminaToHeal: -30
     sound:
       path: /Audio/Weapons/genhit3.ogg
-  paralyzeTime: 2
+  modifierSet:
+      coefficients:
+        Blunt: 1.25
+        Slash: 1.25
+        Piercing: 1.25
+      ignoreArmorPierceFlags: All
+  paralyzeTime: 2 # this is further multiplied by your movespeed, about 6 seconds if you're running
   dropItems: true
-  canDoWhileProne: false
 
 - type: combo
   id: CircleKick
