@@ -5,7 +5,7 @@ namespace Content.Shared.ADT.Crushers.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SlowDebuffMarkerComponent : Component
 {
-    [ViewVariables]
+    [DataField, AutoNetworkedField, ViewVariables]
     public TimeSpan ExpireTime;
 
     [DataField, AutoNetworkedField]
