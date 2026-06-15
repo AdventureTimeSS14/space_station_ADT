@@ -27,6 +27,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedStrippableSystem _strippable = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -288,11 +289,19 @@ public sealed class ToggleableClothingSystem : EntitySystem
         {
             var xform = Transform(uid);
             component.ClothingUid = Spawn(component.ClothingPrototype, xform.Coordinates);
-            var attachedClothing = EnsureComp<AttachedClothingComponent>(component.ClothingUid.Value);
-            attachedClothing.AttachedUid = uid;
-            Dirty(component.ClothingUid.Value, attachedClothing);
-            _containerSystem.Insert(component.ClothingUid.Value, component.Container, containerXform: xform);
-            Dirty(uid, component);
+
+            // ADT-Tweak start
+            if (component.ClothingUid is { Valid: true } clothing)
+            {
+                _transform.AttachToGridOrMap(clothing);
+
+                var attachedClothing = EnsureComp<AttachedClothingComponent>(clothing);
+                attachedClothing.AttachedUid = uid;
+                Dirty(clothing, attachedClothing);
+                _containerSystem.Insert(clothing, component.Container, containerXform: xform);
+                Dirty(uid, component);
+            }
+            // ADT-Tweak end
         }
 
         if (_actionContainer.EnsureAction(uid, ref component.ActionEntity, out var action, component.Action))
