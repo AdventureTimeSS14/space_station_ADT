@@ -3,12 +3,11 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.ADT.Crushers.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class BloodDrunkMinerEyeActiveComponent : Component
+public sealed partial class SlowDebuffMarkerComponent : Component
 {
     [ViewVariables]
     public TimeSpan ExpireTime;
 
     [DataField, AutoNetworkedField]
-    public float DamageReductionMultiplier = 0.1f;
+    public float DamageMultiplier = 0.9f;
 }
-

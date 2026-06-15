@@ -6,11 +6,12 @@ using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.ADT.Crushers.Effects;
 
 [Serializable, NetSerializable]
-public sealed partial class DemonClawsEffect : TrophyEffect
+public sealed partial class LifestealOnHitEffect : TrophyEffect
 {
     [DataField]
     public float BonusDamage = 2f;
@@ -20,6 +21,14 @@ public sealed partial class DemonClawsEffect : TrophyEffect
 
     [DataField]
     public float MarkDetonationMultiplier = 5f;
+
+    public override FormattedMessage GetDescription()
+    {
+        return FormattedMessage.FromMarkup(Loc.GetString("crusher-effect-lifesteal",
+            ("damage", BonusDamage.ToString("F1")),
+            ("heal", HealOnHit.ToString("F1")),
+            ("multiplier", ((MarkDetonationMultiplier - 1f) * 100f).ToString("F0"))));
+    }
 
     public override void OnMeleeHit(
         Entity<TrophyComponent> trophy,

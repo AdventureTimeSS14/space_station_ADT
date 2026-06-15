@@ -12,4 +12,7 @@ public sealed partial class TrophyHolderComponent : Component
 
     [DataField]
     public SoundSpecifier? InsertSound = new SoundPathSpecifier("/Audio/Effects/thunk.ogg");
+
+    [DataField]
+    public string ToolQuality = "Prying";
 }

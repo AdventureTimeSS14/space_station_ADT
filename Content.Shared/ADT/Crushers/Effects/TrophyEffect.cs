@@ -6,13 +6,16 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.ADT.Crushers.Effects;
-// TODO: autogen desc, rename to be more consistent
+
 [ImplicitDataDefinitionForInheritors]
 [Serializable, NetSerializable]
 public abstract partial class TrophyEffect
 {
+    public abstract FormattedMessage GetDescription();
+
     public virtual void OnMeleeHit(
         Entity<TrophyComponent> trophy,
         Entity<TrophyHolderComponent> holder,

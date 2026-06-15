@@ -1,12 +1,13 @@
-using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.Crushers.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class MagmaWingActiveComponent : Component
+public sealed partial class DamageShieldActiveEffectComponent : Component
 {
-    [DataField, AutoNetworkedField]
-    public DamageSpecifier BonusDamage = new();
-}
+    [ViewVariables]
+    public TimeSpan ExpireTime;
 
+    [DataField, AutoNetworkedField]
+    public float DamageReductionMultiplier = 0.1f;
+}

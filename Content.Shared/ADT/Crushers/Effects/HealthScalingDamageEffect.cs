@@ -8,11 +8,12 @@ using Robust.Shared.GameObjects;
 using Content.Shared.Damage.Components;
 using Content.Shared.Weapons.Marker;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.ADT.Crushers.Effects;
 
 [Serializable, NetSerializable]
-public sealed partial class ScalingDamageEffect : TrophyEffect
+public sealed partial class HealthScalingDamageEffect : TrophyEffect
 {
     [DataField]
     public float Multiplier = 0.1f;
@@ -25,6 +26,13 @@ public sealed partial class ScalingDamageEffect : TrophyEffect
     {
         DamageDict = { { "Blunt", 0 } }
     };
+
+    public override FormattedMessage GetDescription()
+    {
+        var scalingPercent = (Multiplier * ScalingFactor * 100f).ToString("F0");
+        return FormattedMessage.FromMarkup(Loc.GetString("crusher-effect-health-scaling",
+            ("percent", scalingPercent)));
+    }
 
     public override void OnMeleeHit(
         Entity<TrophyComponent> trophy,

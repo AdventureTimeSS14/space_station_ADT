@@ -8,13 +8,19 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Tag;
+using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Weapons.Ranged.Upgrades.Components;
 using Content.Shared.Whitelist;
+using Content.Shared.Tools.Systems;
+using Content.Shared.Hands;
+using Content.Shared.Hands.EntitySystems;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.ADT.Crushers.Systems;
 
@@ -27,13 +33,18 @@ public sealed class TrophyHolderSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SharedToolSystem _tool = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<TrophyHolderComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<TrophyHolderComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<TrophyHolderComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
-        SubscribeLocalEvent<TrophyHolderComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<TrophyHolderComponent, GetVerbsEvent<ExamineVerb>>(OnTrophyVerbExamine);
 
         SubscribeLocalEvent<TrophyHolderComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<TrophyHolderComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
@@ -44,14 +55,57 @@ public sealed class TrophyHolderSystem : EntitySystem
         _container.EnsureContainer<Container>(ent, ent.Comp.TrophyContainerId);
     }
 
-    private void OnExamine(Entity<TrophyHolderComponent> ent, ref ExaminedEvent args)
+    private void OnTrophyVerbExamine(Entity<TrophyHolderComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
     {
-        using (args.PushGroup(nameof(TrophyHolderComponent)))
-        {
-            foreach (var trophy in GetCurrentTrophies(ent))
+        if (!args.CanInteract || !args.CanAccess)
+            return;
+
+        var trophies = GetCurrentTrophies(ent);
+        if (trophies.Count == 0)
+            return;
+
+        var examineMarkup = new FormattedMessage();
+
+        foreach (var trophy in trophies)
+        {   
+            foreach (var effect in trophy.Comp.Effects)
             {
-                args.PushMarkup(Loc.GetString(trophy.Comp.ExamineText));
+                var description = effect.GetDescription();
+                examineMarkup.AddMessage(description);
+                examineMarkup.PushNewline();
+                examineMarkup.PushNewline();
             }
+        }
+
+        _examine.AddDetailedExamineVerb(args, ent.Comp, examineMarkup,
+            Loc.GetString("trophy-examinable-verb-text"), "/Textures/Interface/VerbIcons/dot.svg.192dpi.png",
+            Loc.GetString("trophy-examinable-verb-message"));
+    }
+
+    private void OnInteractUsing(Entity<TrophyHolderComponent> ent, ref InteractUsingEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (_tool.HasQuality(args.Used, ent.Comp.ToolQuality))
+        {
+            if (!_container.TryGetContainer(ent, ent.Comp.TrophyContainerId, out var container) || container.ContainedEntities.Count == 0)
+                return;
+
+            var lastTrophy = container.ContainedEntities[^1];
+
+            if (!_container.Remove(lastTrophy, container))
+                return;
+
+            _transform.SetCoordinates(lastTrophy, _transform.GetMoverCoordinates(args.User));
+            _hands.TryPickupAnyHand(args.User, lastTrophy);
+
+            _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Items/crowbar.ogg"), ent, args.User);
+            _popup.PopupClient(Loc.GetString("crusher-upgrade-popup-extracted", ("upgrade", lastTrophy), ("crusher", ent.Owner)), args.User);
+            
+            _adminLog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):player} extracted crusher upgrade {ToPrettyString(lastTrophy)} from {ToPrettyString(ent.Owner)}.");
+
+            args.Handled = true;
         }
     }
 

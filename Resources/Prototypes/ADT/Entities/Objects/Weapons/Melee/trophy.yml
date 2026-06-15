@@ -9,7 +9,7 @@
       state: legion_skull
     - type: Trophy
       effects:
-        - !type:LegionSkullEffect
+        - !type:FireRateBoostEffect
           coefficient: 0.769
       examineText: adt-kinetic-trophy-legion-skull
       trophyTag: ADTKineticTrophyLegionSkull
@@ -30,7 +30,7 @@
       state: magma_wing
     - type: Trophy
       effects:
-        - !type:MagmaWingEffect
+        - !type:MeleeChargeProjectileEffect
           bonusDamage:
             groups: null
             types:
@@ -52,7 +52,7 @@
       state: adv-o
     - type: Trophy
       effects:
-        - !type:PoisonFangEffect
+        - !type:DamageAmplifyOnHitEffect
       examineText: adt-kinetic-trophy-poison-fang
       trophyTag: ADTKineticTrophyPoisonFang
     - type: Tag
@@ -70,7 +70,7 @@
       state: adv-o
     - type: Trophy
       effects:
-        - !type:FrostGlandEffect
+        - !type:SlowDebuffOnHitEffect
       examineText: adt-kinetic-trophy-frost-gland
       trophyTag: ADTKineticTrophyFrostGland
     - type: Tag
@@ -88,7 +88,7 @@
       state: hunter_eye
     - type: Trophy
       effects:
-        - !type:BloodDrunkMinerEyeEffect
+        - !type:DamageShieldOnHitEffect
       examineText: adt-kinetic-trophy-blood-drunk-miner
       trophyTag: ADTKineticTrophyBloodDrunkMiner
     - type: Tag
@@ -106,7 +106,7 @@
       state: tail_spike
     - type: Trophy
       effects:
-        - !type:AshDrakeSpikeEffect
+        - !type:AreaPushbackOnHitEffect
           pushbackForce: 700
       examineText: adt-kinetic-trophy-ash-drake-spike
       trophyTag: ADTKineticTrophyAshDrakeSpike
@@ -125,7 +125,7 @@
       state: goliath_tentacle
     - type: Trophy
       effects:
-        - !type:ScalingDamageEffect
+        - !type:HealthScalingDamageEffect
           multiplier: 0.1
           scalingFactor: 2.0
           bonusDamage:
@@ -148,7 +148,7 @@
       state: ancient_goliath_tentacle
     - type: Trophy
       effects:
-        - !type:ScalingDamageEffect
+        - !type:HealthScalingDamageEffect
           multiplier: 0.1
           scalingFactor: 4.0
           bonusDamage:
@@ -171,7 +171,7 @@
     state: demon_claws
   - type: Trophy
     effects:
-    - !type:DemonClawsEffect
+    - !type:LifestealOnHitEffect
     examineText: adt-kinetic-trophy-demon-claws
     trophyTag: ADTKineticTrophyDemonClaws
   - type: Tag
@@ -201,4 +201,3 @@
 
 - type: Tag
   id: ADTKineticTrophyAshDrakeSpike
-

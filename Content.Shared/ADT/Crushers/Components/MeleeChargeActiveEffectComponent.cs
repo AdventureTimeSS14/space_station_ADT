@@ -1,13 +1,11 @@
+using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.Crushers.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class FrostGlandMarkerComponent : Component
+public sealed partial class MeleeChargeActiveEffectComponent : Component
 {
-    [ViewVariables]
-    public TimeSpan ExpireTime;
-
     [DataField, AutoNetworkedField]
-    public float DamageMultiplier = 0.9f;
+    public DamageSpecifier BonusDamage = new();
 }

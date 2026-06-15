@@ -18,9 +18,9 @@ public sealed class TrophyEffectsSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PoisonFangActiveComponent, DamageModifyEvent>(OnPoisonFangDamageModify);
-        SubscribeLocalEvent<FrostGlandMarkerComponent, MeleeHitEvent>(OnFrostGlandMeleeHit);
-        SubscribeLocalEvent<BloodDrunkMinerEyeActiveComponent, DamageModifyEvent>(OnBloodDrunkDamageModify);
+        SubscribeLocalEvent<DamageAmplifyActiveEffectComponent, DamageModifyEvent>(OnDamageAmplifyModify);
+        SubscribeLocalEvent<SlowDebuffMarkerComponent, MeleeHitEvent>(OnSlowDebuffMeleeHit);
+        SubscribeLocalEvent<DamageShieldActiveEffectComponent, DamageModifyEvent>(OnDamageShieldModify);
 
     }
 
@@ -30,54 +30,51 @@ public sealed class TrophyEffectsSystem : EntitySystem
 
         var now = _timing.CurTime;
 
-        var poisonQuery = EntityQueryEnumerator<PoisonFangActiveComponent>();
-        while (poisonQuery.MoveNext(out var uid, out var comp))
+        var amplifyQuery = EntityQueryEnumerator<DamageAmplifyActiveEffectComponent>();
+        while (amplifyQuery.MoveNext(out var uid, out var comp))
         {
             if (comp.ExpireTime != TimeSpan.Zero && comp.ExpireTime < now)
-                RemCompDeferred<PoisonFangActiveComponent>(uid);
+                RemCompDeferred<DamageAmplifyActiveEffectComponent>(uid);
         }
 
-        var bloodDrunkQuery = EntityQueryEnumerator<BloodDrunkMinerEyeActiveComponent>();
-        while (bloodDrunkQuery.MoveNext(out var uid, out var comp))
+        var shieldQuery = EntityQueryEnumerator<DamageShieldActiveEffectComponent>();
+        while (shieldQuery.MoveNext(out var uid, out var comp))
         {
             if (comp.ExpireTime != TimeSpan.Zero && comp.ExpireTime < now)
-                RemCompDeferred<BloodDrunkMinerEyeActiveComponent>(uid);
+                RemCompDeferred<DamageShieldActiveEffectComponent>(uid);
         }
 
-        var frostGlandQuery = EntityQueryEnumerator<FrostGlandMarkerComponent>();
-        while (frostGlandQuery.MoveNext(out var uid, out var comp))
+        var debuffQuery = EntityQueryEnumerator<SlowDebuffMarkerComponent>();
+        while (debuffQuery.MoveNext(out var uid, out var comp))
         {
             if (comp.ExpireTime != TimeSpan.Zero && comp.ExpireTime < now)
-                RemCompDeferred<FrostGlandMarkerComponent>(uid);
+                RemCompDeferred<SlowDebuffMarkerComponent>(uid);
         }
     }
 
-    private void OnPoisonFangDamageModify(Entity<PoisonFangActiveComponent> ent, ref DamageModifyEvent args)
+    private void OnDamageAmplifyModify(Entity<DamageAmplifyActiveEffectComponent> ent, ref DamageModifyEvent args)
     {
         var keys = args.Damage.DamageDict.Keys.ToList();
         foreach (var type in keys)
         {
-            var before = args.Damage.DamageDict[type];
             args.Damage.DamageDict[type] *= ent.Comp.DamageMult;
         }
     }
 
-    private void OnFrostGlandMeleeHit(Entity<FrostGlandMarkerComponent> ent, ref MeleeHitEvent args)
+    private void OnSlowDebuffMeleeHit(Entity<SlowDebuffMarkerComponent> ent, ref MeleeHitEvent args)
     {
         var keys = args.BaseDamage.DamageDict.Keys.ToList();
         foreach (var type in keys)
         {
-            var before = args.BaseDamage.DamageDict[type];
             args.BaseDamage.DamageDict[type] *= ent.Comp.DamageMultiplier;
         }
     }
 
-    private void OnBloodDrunkDamageModify(Entity<BloodDrunkMinerEyeActiveComponent> ent, ref DamageModifyEvent args)
+    private void OnDamageShieldModify(Entity<DamageShieldActiveEffectComponent> ent, ref DamageModifyEvent args)
     {
         var keys = args.Damage.DamageDict.Keys.ToList();
         foreach (var type in keys)
         {
-            var before = args.Damage.DamageDict[type];
             args.Damage.DamageDict[type] *= ent.Comp.DamageReductionMultiplier;
         }
     }

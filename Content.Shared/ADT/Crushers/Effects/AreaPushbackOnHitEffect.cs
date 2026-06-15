@@ -10,11 +10,12 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.ADT.Crushers.Effects;
 
 [Serializable, NetSerializable]
-public sealed partial class AshDrakeSpikeEffect : TrophyEffect
+public sealed partial class AreaPushbackOnHitEffect : TrophyEffect
 {
     [DataField]
     public float Range = 2f;
@@ -27,6 +28,12 @@ public sealed partial class AshDrakeSpikeEffect : TrophyEffect
 
     [DataField]
     public float PushbackForce = 200f;
+
+    public override FormattedMessage GetDescription()
+    {
+        return FormattedMessage.FromMarkup(Loc.GetString("crusher-effect-area-pushback",
+            ("range", Range.ToString("F1"))));
+    }
 
     public override void OnMeleeHit(
         Entity<TrophyComponent> trophy,
@@ -85,7 +92,7 @@ public sealed partial class AshDrakeSpikeEffect : TrophyEffect
 
             if (direction.LengthSquared() < 0.0001f)
                 continue;
-            // TODO: red overlay
+            
             var impulse = direction.Normalized() * PushbackForce;
             physicsSystem.ApplyLinearImpulse(ent, impulse, body: physics);
         }
