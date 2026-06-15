@@ -202,9 +202,11 @@
   # ADT-Tweak start
   - type: Tag
     tags:
-    - ADTSlimeEmotes
+    - ADTSlimeEmotessdsd
     - DoorBumpOpener
     - FootstepSound
+    - CanPilot
+    - AnomalyHost
   - type: MidroundCustomization
     changeHairSound: /Audio/ADT/slime-hair.ogg
     allowedLayers:
