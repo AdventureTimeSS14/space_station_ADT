@@ -47,7 +47,7 @@ public sealed partial class PushKickPerformedEvent : BaseCapoeiraEvent
     public EntProtoId StatusEffectProto = "StatusEffectMeleeVulnerability";
 
     [DataField]
-    public DamageModifierSet ModifierSet = default!;
+    public DamageModifierSet? ModifierSet;
 
     [DataField]
     public float ThrowRange = 1f;
