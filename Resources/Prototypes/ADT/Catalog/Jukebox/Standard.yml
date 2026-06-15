@@ -262,60 +262,6 @@
   path:
     path: /Audio/ADT/Jukebox/ACDCHTH.ogg
 
-- type: jukebox
-  id: ADTExecutionClap
-  name: TRAP CHICK - Execution Clap
-  path:
-    path: /Audio/ADT/Jukebox/Execution_Clap.ogg
-
-- type: jukebox
-  id: ADTNeverFadeAway
-  name: Refused - Never Fade Away
-  path:
-    path: /Audio/ADT/Jukebox/Never_Fade_Away.ogg
-
-- type: jukebox
-  id: ADTElevatorMusic
-  name: Elevator music
-  path:
-    path: /Audio/ADT/Jukebox/Elevator_music.ogg
-
-- type: jukebox
-  id: ADTLuchNadezhdy
-  name: Луч надежды
-  path:
-    path: /Audio/ADT/Jukebox/metro_2033_luch_nadezhdy.ogg
-
-- type: jukebox
-  id: ADTFNB
-  name: BUslacker - factory newgrounds boss
-  path:
-    path: /Audio/ADT/Event_Musics/factory_newgrounds_boss.ogg
-
-- type: jukebox
-  id: ADTGodish
-  name: PinocchioP - God-ish
-  path:
-    path: /Audio/ADT/Jukebox/God-ish.ogg
-
-- type: jukebox
-  id: ADTYARARARA
-  name: AnythingBecomeMoe - YARARARA
-  path:
-    path: /Audio/ADT/Jukebox/YARARARA.ogg
-
-- type: jukebox
-  id: ADTTheOnlyThing
-  name: Jamie Christopherson - The Only Thing I Know For Real
-  path:
-    path: /Audio/ADT/Jukebox/The_Only_Thing_I_Know_For_Real.ogg
-
-- type: jukebox
-  id: ADTThroughPatches
-  name: Cassie Wei - Through Patches of Violet
-  path:
-    path: /Audio/ADT/Jukebox/Mili-Through-Patches-of-Violet.ogg
-
 # START 9 МАЯ
 # - type: jukebox
 #   id: may_day-pobedy

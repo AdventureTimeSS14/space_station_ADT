@@ -2,7 +2,6 @@ using Content.Shared.Audio.Jukebox;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
-using Content.Shared.Containers.ItemSlots;
 
 namespace Content.Client.Audio.Jukebox;
 
@@ -144,15 +143,4 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         _sprite.LayerSetAutoAnimated(sprite.AsNullable(), layer, true);
         _sprite.LayerSetRsiState(sprite.AsNullable(), layer, state);
     }
-
-    // ADT-Tweak-Start
-    protected override void UpdateMusicList(Entity<JukeboxComponent> ent)
-    {
-        if (!_uiSystem.TryGetOpenUi<JukeboxBoundUserInterface>(ent.Owner, JukeboxUiKey.Key, out var bui))
-            return;
-
-        bui.PopulateMusic();
-        bui.UpdateDiskInfo();
-    }
-    // ADT-Tweak-End
 }

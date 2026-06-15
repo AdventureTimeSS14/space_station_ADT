@@ -54,9 +54,6 @@ public sealed partial class JukeboxComponent : Component
 
     [DataField]
     public float CurrentPlaybackOffset = 0f;
-
-    [DataField, AutoNetworkedField]
-    public JukeboxVolumeLevel CurrentVolumeLevel = JukeboxVolumeLevel.Level3;
     /// ADT-Tweak end
 }
 
@@ -91,27 +88,12 @@ public sealed class JukeboxSetVolumeMessage(float volume) : BoundUserInterfaceMe
 
 [Serializable, NetSerializable]
 public sealed class JukeboxToggleLoopMessage : BoundUserInterfaceMessage;
-
-[Serializable, NetSerializable]
-public sealed class JukeboxEjectMessage : BoundUserInterfaceMessage;
-
-[Serializable, NetSerializable]
-public enum JukeboxVolumeLevel : byte
-{
-    Level0 = 0,
-    Level1 = 1,
-    Level2 = 2,
-    Level3 = 3,
-    Level4 = 4
-}
 /// ADT-Tweak end
 
 [Serializable, NetSerializable]
 public enum JukeboxVisuals : byte
 {
-    VisualState,
-    HasDisk, //ADT-Tweak
-    VolumeLevel //ADT-Tweak
+    VisualState
 }
 
 [Serializable, NetSerializable]

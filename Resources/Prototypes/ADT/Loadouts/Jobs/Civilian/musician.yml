@@ -51,9 +51,3 @@
   id: ADTClothingUniformJumpsuitTuxedoHell
   equipment:
     jumpsuit: ADTClothingUniformJumpsuitTuxedoHell
-
-- type: loadout
-  id: ADTBoxJukeBoxPlayer
-  storage:
-    back:
-    - ADTBoxJukeBoxPlayer
