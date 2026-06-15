@@ -119,6 +119,12 @@
   - type: Prying 
     useSound:
       path: /Audio/Items/crowbar.ogg
+# ADT-Tweak Start
+  - type: TrophyHolder
+  - type: ContainerContainer
+    containers:
+      upgrades: !type:Container
+# ADT-Tweak End
 
 # Very high burst damage if you land a mark, while also providing a small amount of healing.
 - type: entity

@@ -27,6 +27,9 @@
     count: 1
   - type: DisarmMalus
   - type: TrophyHolder
+  - type: ContainerContainer
+    containers:
+      upgrades: !type:Container
 
 - type: entity
   parent: [WeaponKineticBase, BaseSecurityCargoContraband]
