@@ -879,3 +879,6 @@ BoozeDispenserEmpty: ADTEnergyBoozeDispenser
 SodaDispenserMachineCircuitboard: ADTEnergySodaDispenserMachineCircuitboard
 SodaDispenser: ADTEnergySodaDispenser
 SodaDispenserEmpty: ADTEnergySodaDispenser
+
+# ADT 2026-05-21
+ADTSpawnMobAbominationDeath: null

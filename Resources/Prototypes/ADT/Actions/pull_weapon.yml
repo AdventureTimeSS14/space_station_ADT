@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionWeaponPull
-  name: weapon-pull-action-name
-  description: weapon-pull-action-desc
+  name: Draw the weapon
+  description: Telekinetically pulls the nearest weapon on the station into your hands.
   components:
   - type: Action
     useDelay: 3

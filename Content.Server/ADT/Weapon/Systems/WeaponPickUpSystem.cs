@@ -54,6 +54,7 @@ public sealed class WeaponPickUpSystem : EntitySystem
         if (nearestWeapon == null)
         {
             _popup.PopupEntity(Loc.GetString("weapon-pickup-failed"), user, user);
+            args.Handled = true;
             return;
         }
 
@@ -64,6 +65,7 @@ public sealed class WeaponPickUpSystem : EntitySystem
         {
             Transform(nearestWeapon.Value).Coordinates = weaponCoords;
             _popup.PopupEntity(Loc.GetString("weapon-pickup-no-hands"), user, user);
+            args.Handled = true;
             return;
         }
 
