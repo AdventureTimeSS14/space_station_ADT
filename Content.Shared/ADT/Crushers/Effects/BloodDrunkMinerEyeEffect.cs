@@ -5,9 +5,11 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Timing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Damage.Components;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Crushers.Effects;
 
+[Serializable, NetSerializable]
 public sealed partial class BloodDrunkMinerEyeEffect : TrophyEffect
 {
     [DataField]

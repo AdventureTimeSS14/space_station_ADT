@@ -9,9 +9,11 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Crushers.Effects;
 
+[Serializable, NetSerializable]
 public sealed partial class AshDrakeSpikeEffect : TrophyEffect
 {
     [DataField]

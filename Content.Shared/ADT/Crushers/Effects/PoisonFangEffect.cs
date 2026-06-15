@@ -3,9 +3,11 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Marker;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Timing;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Crushers.Effects;
 
+[Serializable, NetSerializable]
 public sealed partial class PoisonFangEffect : TrophyEffect
 {
     [DataField]

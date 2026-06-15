@@ -7,9 +7,11 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.GameObjects;
 using Content.Shared.Damage.Components;
 using Content.Shared.Weapons.Marker;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Crushers.Effects;
 
+[Serializable, NetSerializable]
 public sealed partial class ScalingDamageEffect : TrophyEffect
 {
     [DataField]

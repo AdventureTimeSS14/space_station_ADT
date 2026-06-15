@@ -5,9 +5,11 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Marker;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Crushers.Effects;
 
+[Serializable, NetSerializable]
 public sealed partial class MagmaWingEffect : TrophyEffect
 {
     [DataField]

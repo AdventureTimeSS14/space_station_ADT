@@ -5,9 +5,11 @@ using Content.Shared.Weapons.Marker;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Crushers.Effects;
 
+[Serializable, NetSerializable]
 public sealed partial class DemonClawsEffect : TrophyEffect
 {
     [DataField]
