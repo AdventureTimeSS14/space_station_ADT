@@ -10,13 +10,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Prototypes;
+using Content.Shared.Damage;
 
 namespace Content.Shared.ADT.MartialArts;
 
 [Prototype("combo")]
 public sealed partial class ComboPrototype : IPrototype
 {
-    [IdDataField] public string ID { get; private set; } = default!;
+    [IdDataField] public string ID { get; set; } = default!;
 
     [DataField(required: true)]
     public MartialArtsForms MartialArtsForm;
@@ -72,6 +73,12 @@ public sealed partial class ComboPrototype : IPrototype
     public float ThrownSpeed = 7f;
 
     /// <summary>
+    /// Damage modifier set applied by this combo.
+    /// </summary>
+    [DataField]
+    public DamageModifierSet? ModifierSet;
+
+    /// <summary>
     /// Name of the move
     /// </summary>
     [DataField(required: true)]
@@ -87,7 +94,7 @@ public sealed partial class ComboPrototype : IPrototype
 [Prototype("comboList")]
 public sealed partial class ComboListPrototype : IPrototype
 {
-    [IdDataField] public string ID { get; private set; } = default!;
+    [IdDataField] public string ID { get; set; } = default!;
 
     [DataField( required: true)]
     public List<ProtoId<ComboPrototype>> Combos = new();
