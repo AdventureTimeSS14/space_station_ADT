@@ -5,10 +5,12 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Crushers.Effects;
 // TODO: autogen desc, rename to be more consistent
 [ImplicitDataDefinitionForInheritors]
+[Serializable, NetSerializable]
 public abstract partial class TrophyEffect
 {
     public virtual void OnMeleeHit(
