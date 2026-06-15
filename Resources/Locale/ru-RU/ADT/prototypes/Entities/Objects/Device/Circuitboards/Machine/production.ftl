@@ -1,7 +1,7 @@
 ent-ADTUniversalPipeDispenserCircuitboard = универсальный раздатчик труб (машинная плата)
     .desc = Машинная плата, используемая для создания универсального раздатчика труб. Существует в единственном экземпляре.
-ent-ADTAdvancedMicrowaveMachineCircuitBoard = Крупноволновка 2000 (машинная плата)
-    .desc = Машинная плата, используемая для создания Крупноволновки 2000.
+ent-ADTAdvancedMicrowaveMachineCircuitBoard = крупноволновка 2000 (машинная плата)
+    .desc = Машинная плата, используемая для создания крупноволновки 2000.
 ent-ADTCoffeeMachineCircuitboard = кофемашина (машинная плата)
     .desc = Машинная плата, используемая для создания кофейной машины.
 ent-ADTCoffeeMachineBluespaceCircuitboard = блюспейс кофемашина (машинная плата)

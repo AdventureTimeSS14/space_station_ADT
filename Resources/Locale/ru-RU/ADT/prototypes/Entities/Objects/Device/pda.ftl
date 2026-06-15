@@ -1,4 +1,4 @@
-ent-MagistratPDA = КПК Магистрата
+ent-MagistratPDA = КПК магистрата
     .desc = В заметках данного КПК можно найти компромат на каждого из глав.
 
 ent-ADTPathologistPDA = КПК патологоанатома
@@ -7,7 +7,7 @@ ent-ADTPathologistPDA = КПК патологоанатома
 ent-ADTRoboticistPDA = КПК робототехника
     .desc = Почему это всё ещё не робот?!
 
-ent-ADTBlueshieldOfficerPDA = КПК офицера синего щита
+ent-ADTBlueshieldOfficerPDA = КПК офицера Синего Щита
     .desc = Покажи им, какой он стильный, как он прочен, ведь в нём вся сила NT.
 
 ent-ADTCentcomConsultantPDA = КПК консультанта Центком

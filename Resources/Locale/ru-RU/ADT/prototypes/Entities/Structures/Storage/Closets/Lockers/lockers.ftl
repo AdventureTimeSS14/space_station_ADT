@@ -1,16 +1,16 @@
-ent-ADTLockerBlueshield = шкаф офицера синего щита
+ent-ADTLockerBlueshield = шкаф офицера Синего Щита
     .desc = { ent-LockerBaseSecure.desc }
 
-ent-ADTLockerBlueshieldFilledHardsuit = шкаф офицера синего щита
+ent-ADTLockerBlueshieldFilledHardsuit = шкаф офицера Синего Щита
     .suffix = Заполненный, Скафандр
     .desc = { ent-LockerBaseSecure.desc }
 
-ent-ADTLockerBlueshieldFilled = шкаф офицера синего щита
+ent-ADTLockerBlueshieldFilled = шкаф офицера Синего Щита
     .suffix = Заполненный
     .desc = { ent-LockerBaseSecure.desc }
 
 ent-ADTSuitStorageBlueshield = хранилище скафандра
-    .suffix = Офицер синего щита
+    .suffix = офицер Синего Щита
     .desc = { ent-SuitStorageBase.desc }
 
 ent-ADTLockerPathologistFilled = шкаф патологоанатома

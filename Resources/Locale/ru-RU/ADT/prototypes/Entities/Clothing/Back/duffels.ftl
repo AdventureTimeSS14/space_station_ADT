@@ -1,4 +1,4 @@
-ent-ADTClothingBackpackDuffelBlueshield = вещмешок офицера синего щита
+ent-ADTClothingBackpackDuffelBlueshield = вещмешок офицера Синего Щита
     .desc = Крайне вместительный вещмешок с яркой эмблемой щита, предназначенный для хранения охранного и медицинского арсенала офицеров "Синего Щита".
 
 ent-ADTClothingBackpackDuffelCentcom = вещмешок Центком

@@ -5,4 +5,4 @@ ent-ADTClothingHeadZeroHairstyle = парик Змея
     .desc = Парик, сделанный для фанатов довольно популярного самурая-киллера.
 
 ent-ADTClothingHeadRobotnikHead = шляпа роботника
-    .desc = В ней хранится мастерплан.
+    .desc = В ней хранится мастер-план.

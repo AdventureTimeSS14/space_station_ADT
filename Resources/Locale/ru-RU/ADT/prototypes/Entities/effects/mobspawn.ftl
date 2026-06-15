@@ -1,6 +1,7 @@
 ent-MobSpawnQuartzCrabFriendly = спавнер моб рудокраб кварц
     .desc = Вот ведь тут жопа.
     .suffix = Дружелюбный
+# локали пишут психи
 ent-MobSpawnIronCrabFriendly = спавнер моб рудокраб железо
     .desc = { ent-MobSpawnCrabQuartz.desc }
     .suffix = Дружелюбный

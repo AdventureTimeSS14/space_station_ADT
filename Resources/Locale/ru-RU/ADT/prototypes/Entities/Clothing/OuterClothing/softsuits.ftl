@@ -1,2 +1,2 @@
-ent-ClothingOuterEVASuitSyndicate = скафандр EVA синдиката
+ent-ClothingOuterEVASuitSyndicate = скафандр EVA Синдиката
     .desc = На обороте имеется бирка с надписью: «Это не собственность вражеской корпорации, честно!»

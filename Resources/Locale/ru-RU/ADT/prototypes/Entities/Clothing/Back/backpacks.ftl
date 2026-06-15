@@ -5,7 +5,7 @@ ent-ADTClothingBackpackPathologist = рюкзак патологоанатома
 ent-ADTClothingBackpackSatchelPathologist = сумка патологоанатома
     .desc = Сумка для хранения инструментов и бумаг.
 
-ent-ADTClothingBlueshieldBackpack = рюкзак офицера синего щита
+ent-ADTClothingBlueshieldBackpack = рюкзак офицера Синего Щита
     .desc = Крайне вместительный рюкзак с яркой эмблемой щита, предназначенный для хранения охранного и медицинского арсенала офицеров "Синего Щита".
 
 ent-ADTClothingCentcomBackpack = рюкзак Центком

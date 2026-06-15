@@ -1,2 +1,2 @@
-ent-ADTMobHermit = Отшельник
+ent-ADTMobHermit = отшельник
     .desc = Выглядит потрёпанно.

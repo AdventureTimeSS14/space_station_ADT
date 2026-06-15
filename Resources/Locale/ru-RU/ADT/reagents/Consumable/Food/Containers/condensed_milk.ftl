@@ -1,2 +1,2 @@
 reagent-name-condensedmilk = сгущенное молоко
-reagent-desc-condensedmilk = белая густая и очень сладкая жидкость
+reagent-desc-condensedmilk = Белая, густая и очень сладкая жидкость.

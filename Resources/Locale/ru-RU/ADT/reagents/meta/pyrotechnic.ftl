@@ -1,4 +1,4 @@
-reagent-name-liquiddarkmatter = Жидкая тёмная материя
+reagent-name-liquiddarkmatter = жидкая тёмная материя
 reagent-desc-liquiddarkmatter = Концентрированная гипотетическая и нестабильная смесь. Активируется без стабилизирующего агента при температуре выше 290 кельвинов.
 reagent-name-stabilizing-agent = Стабилизирующий агент
 reagent-desc-stabilizing-agent = Важный компонент в пиротехнике для создания гранат.

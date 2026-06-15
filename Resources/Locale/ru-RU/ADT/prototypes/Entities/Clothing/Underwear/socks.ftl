@@ -28,10 +28,10 @@ ent-ADTClothingUnderwearSocksRabbit = носки с кроликами
 ent-ADTClothingUnderwearSocksBee = носочки с пчёлами
     .desc = Заставь их загудеть от волнения.
 
-ent-ADTClothingUnderwearSocksBlueshield = носки офицера "Синего Щита"
-    .desc = Тёплые носочки Для самого лучшего защитника.
-ent-ADTClothingUnderwearSocksStockingsBlueshield = чулки офицера "Синего Щита"
-    .desc = Тёплые чулочки Для самой лучшей защитницы.
+ent-ADTClothingUnderwearSocksBlueshield = носки офицера Синего Щита
+    .desc = Тёплые носочки для самого лучшего защитника.
+ent-ADTClothingUnderwearSocksStockingsBlueshield = чулки офицера Синего Щита
+    .desc = Тёплые чулочки для самой лучшей защитницы.
 
 ent-ADTClothingUnderwearSocksComfyBlue = синие носки
     .desc = Комфортные синие носочки.
@@ -122,18 +122,18 @@ ent-ADTClothingUnderwearSocksKneeHomelander = гольфы патриота
 ent-ADTClothingUnderwearSocksThighHomelander = чулки патриота
     .desc = Обычные... Патриотичные?.. Чулки.
 
-ent-ADTClothingUnderwearSocksHop = носки Главы Персонала
-    .desc = Обычные носки для Глав Персонала станций НТ.
-ent-ADTClothingUnderwearSocksKneeHop = гольфы Главы Персонала
-    .desc = Обычные гольфы для Глав Персонала станций НТ.
-ent-ADTClothingUnderwearSocksThighHop = чулки Главы Персонала
-    .desc = Обычные чулки для Глав Персонала станций НТ.
+ent-ADTClothingUnderwearSocksHop = носки главы персонала
+    .desc = Обычные носки для глав персонала станций НТ.
+ent-ADTClothingUnderwearSocksKneeHop = гольфы главы персонала
+    .desc = Обычные гольфы для Глав персонала станций НТ.
+ent-ADTClothingUnderwearSocksThighHop = чулки главы персонала
+    .desc = Обычные чулки для Глав персонала станций НТ.
 
-ent-ADTClothingUnderwearSocksHos= носки Главы Службы Безопасности
+ent-ADTClothingUnderwearSocksHos= носки главы Службы Безопасности
     .desc = Обычные носки для Глав Службы Безопасности станций НТ.
-ent-ADTClothingUnderwearSocksKneeHos = гольфы Главы Службы Безопасности
+ent-ADTClothingUnderwearSocksKneeHos = гольфы главы Службы Безопасности
     .desc = Обычные гольфы для Глав Службы Безопасности станций НТ.
-ent-ADTClothingUnderwearSocksThighHos = чулки Главы Службы Безопасности
+ent-ADTClothingUnderwearSocksThighHos = чулки главы Службы Безопасности
     .desc = Обычные чулки для Глав Службы Безопасности станций НТ.
 
 ent-ADTClothingUnderwearSocksHotpink = ярко-розовые носки
@@ -153,19 +153,19 @@ ent-ADTClothingUnderwearSocksThighOrange = оранжевые чулки
 ent-ADTClothingUnderwearSocksThighMonochrome = монохромные чулки
     .desc = Обычные монохромные чулки. Для самых молчаливых.
 
-ent-ADTClothingUnderwearSocksSyndieGreen = зелёные носки синдиката
-    .desc = Чёрная полоса... И зеленая... Прочные и надёжные носки синдиката.
-ent-ADTClothingUnderwearSocksKneeSyndieGreen = зелёные гольфы синдиката
-    .desc = Чёрная полоса... И зеленая... Прочные и надёжные гольфы синдиката.
-ent-ADTClothingUnderwearSocksThighSyndieGreen = зелёные чулки синдиката
-    .desc = Чёрная полоса... И зеленая... Прочные и надёжные чулки синдиката.
+ent-ADTClothingUnderwearSocksSyndieGreen = зелёные носки Синдиката
+    .desc = Чёрная полоса... И зеленая... Прочные и надёжные носки Синдиката.
+ent-ADTClothingUnderwearSocksKneeSyndieGreen = зелёные гольфы Синдиката
+    .desc = Чёрная полоса... И зеленая... Прочные и надёжные гольфы Синдиката.
+ent-ADTClothingUnderwearSocksThighSyndieGreen = зелёные чулки Синдиката
+    .desc = Чёрная полоса... И зеленая... Прочные и надёжные чулки Синдиката.
 
-ent-ADTClothingUnderwearSocksSyndieRed = красные носки синдиката
-    .desc = Чёрная полоса... И красная... Прочные и надёжные носки синдиката.
-ent-ADTClothingUnderwearSocksKneeSyndieRed = красные гольфы синдиката
-    .desc = Чёрная полоса... И красная... Прочные и надёжные гольфы синдиката.
-ent-ADTClothingUnderwearSocksThighSyndieRed = красные чулки синдиката
-    .desc = Чёрная полоса... И красная... Прочные и надёжные чулки синдиката.
+ent-ADTClothingUnderwearSocksSyndieRed = красные носки Синдиката
+    .desc = Чёрная полоса... И красная... Прочные и надёжные носки Синдиката.
+ent-ADTClothingUnderwearSocksKneeSyndieRed = красные гольфы Синдиката
+    .desc = Чёрная полоса... И красная... Прочные и надёжные гольфы Синдиката.
+ent-ADTClothingUnderwearSocksThighSyndieRed = красные чулки Синдиката
+    .desc = Чёрная полоса... И красная... Прочные и надёжные чулки Синдиката.
 
 ent-ADTClothingUnderwearSocksYellow = жёлтые носки
     .desc = Обычные жёлтые носки.
@@ -202,3 +202,6 @@ ent-ADTClothingUnderwearSocksThighPurple = фиолетовые чулки
 
 ent-ADTClothingUnderwearSocksThighCreepy = жуткие чулки
     .desc = Чулки для самых страшных на станции.
+
+ent-ADTClothingUnderwearSocksCow = коровьи носки
+    .desc = Милые коровьи носки. Му-у-у!

@@ -1,7 +1,7 @@
 ent-ADTClothingNeckWhiteTie = белый галстук
     .desc = Обычный галстук, который идеально подойдёт для офисного планктона.
 ent-ADTClothingNeckBlueTie = синий галстук с зажимом
-    .desc = Имей CEO MINDSET
+    .desc = Имей CEO MINDSET.
 ent-ADTClothingNeckAquamarineTie = аквамариновый галстук
     .desc = { ent-ADTClothingNeckWhiteTie.desc }
 ent-ADTClothingNeckAzureTie = голубой галстук

@@ -1,7 +1,7 @@
 ent-ADTAdvancedHolosignForcefield = Голобарьер
-    .desc = Сдерживающие поле
+    .desc = Сдерживающее поле.
     .suffix = { "ОБР" }
 
 ent-ADTSyndiHolosignForcefield = Голобарьер
-    .desc = Сдерживающие поле
+    .desc = Сдерживающее поле.
     .suffix = { "Синдикат" }
