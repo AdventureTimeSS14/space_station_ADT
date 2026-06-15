@@ -187,6 +187,7 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullableComponent, StrappedEvent>(OnBuckled);
         SubscribeLocalEvent<PullableComponent, BuckledEvent>(OnGotBuckled);
         SubscribeLocalEvent<ActivePullerComponent, TargetHandcuffedEvent>(OnTargetHandcuffed);
+        SubscribeLocalEvent<GetInteractingEntitiesEvent>(OnGetInteractingEntities); // ADT-Tweak
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.ReleasePulledObject, InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))
@@ -209,6 +210,20 @@ public sealed class PullingSystem : EntitySystem
 
         TryStopPull(comp.Pulling.Value, pullableComp);
     }
+
+    // ADT-Tweak start
+    private void OnGetInteractingEntities(ref GetInteractingEntitiesEvent args)
+    {
+        var enumerator = EntityQueryEnumerator<PullerComponent>();
+        while (enumerator.MoveNext(out var uid, out var pullerComp))
+        {
+            if (pullerComp.Pulling == args.Target)
+            {
+                args.InteractingEntities.Add(uid);
+            }
+        }
+    }
+    // ADT-Tweak end
 
     private void HandlePullStarted(EntityUid uid, HandsComponent component, PullStartedMessage args)
     {
