@@ -40,6 +40,9 @@ public sealed partial class JukeboxMenu : FancyWindow
 
     private bool _loopState; // ADT-Tweak
 
+    private int _lastSeconds = -1;
+    private float _lastVolume = -1f;
+
     public JukeboxMenu()
     {
         RobustXamlLoader.Load(this);
@@ -205,14 +208,27 @@ public sealed partial class JukeboxMenu : FancyWindow
 
         if (_entManager.TryGetComponent(_audio, out AudioComponent? audio))
         {
-            DurationLabel.Text = $@"{TimeSpan.FromSeconds(audio.PlaybackPosition):mm\:ss} / {_audioSystem.GetAudioLength(audio.FileName):mm\:ss}";
+            var currentSeconds = (int)audio.PlaybackPosition;
+            if (currentSeconds != _lastSeconds)
+            {
+                DurationLabel.Text = $@"{TimeSpan.FromSeconds(audio.PlaybackPosition):mm\:ss} / {_audioSystem.GetAudioLength(audio.FileName):mm\:ss}";
+                _lastSeconds = currentSeconds;
+            }
         }
         else
         {
-            DurationLabel.Text = $"00:00 / 00:00";
+            if (_lastSeconds != 0)
+            {
+                DurationLabel.Text = "00:00 / 00:00";
+                _lastSeconds = 0;
+            }
         }
 
-        VolumeNumberLabel.Text = $"{VolumeSlider.Value.ToString("0.##")} %"; /// ADT-Tweak
+        if (Math.Abs(VolumeSlider.Value - _lastVolume) > 0.01f)
+        {
+            VolumeNumberLabel.Text = $"{VolumeSlider.Value:0.##} %";
+            _lastVolume = VolumeSlider.Value;
+        }
 
         if (PlaybackSlider.Grabbed)
             return;
