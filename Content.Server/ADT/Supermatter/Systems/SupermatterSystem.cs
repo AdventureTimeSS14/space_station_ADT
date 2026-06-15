@@ -332,8 +332,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         sm.HasBeenPowered = false;
 
-        if (TryComp<RadiationSourceComponent>(uid, out var rad))
-            rad.Intensity = 1;
+        _radiation.SetIntensity(uid, 1);
 
         _popup.PopupClient(Loc.GetString("supermatter-inert-end"), uid, args.User);
     }

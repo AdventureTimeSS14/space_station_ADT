@@ -1,6 +1,7 @@
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Audio.Jukebox;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Power;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -17,6 +18,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!; // ADT-Tweak
+    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -28,6 +30,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         SubscribeLocalEvent<JukeboxComponent, JukeboxSetTimeMessage>(OnJukeboxSetTime);
         SubscribeLocalEvent<JukeboxComponent, JukeboxSetVolumeMessage>(OnJukeboxSetVolume); // ADT-Tweak
         SubscribeLocalEvent<JukeboxComponent, JukeboxToggleLoopMessage>(OnJukeboxToggleLoop); // ADT-Tweak
+        SubscribeLocalEvent<JukeboxComponent, JukeboxEjectMessage>(OnJukeboxEject); // ADT-Tweak
         SubscribeLocalEvent<JukeboxComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<JukeboxComponent, ComponentShutdown>(OnComponentShutdown);
 
@@ -72,6 +75,13 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
             return;
         }
 
+        if (!IsSongAvailable(ent, ent.Comp.SelectedSongId.Value))
+        {
+            ent.Comp.SelectedSongId = null;
+            Dirty(ent, ent.Comp);
+            return;
+        }
+
         var audioParams = AudioParams.Default
             .WithMaxDistance(10f)
             .WithVolume(MapToRange(ent.Comp.Volume, ent.Comp.MinSlider, ent.Comp.MaxSlider, ent.Comp.MinVolume, ent.Comp.MaxVolume))
@@ -81,6 +91,11 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         ent.Comp.PlaybackStartTime = _gameTiming.CurTime;
         ent.Comp.CurrentPlaybackOffset = 0f;
         Dirty(ent);
+    }
+
+    protected override void StopJukebox(Entity<JukeboxComponent> ent)
+    {
+        Stop(ent.AsNullable());
     }
     // ADT-Tweak end
 
@@ -148,6 +163,13 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
             Dirty(uid, component);
         }
 
+        var volumeLevel = GetVolumeLevel(args.Volume, component.MinSlider, component.MaxSlider);
+        if (component.CurrentVolumeLevel != volumeLevel)
+        {
+            component.CurrentVolumeLevel = volumeLevel;
+            _appearanceSystem.SetData(uid, JukeboxVisuals.VolumeLevel, volumeLevel);
+        }
+
         SetJukeboxVolume(uid, component, args.Volume);
 
         if (!component.AudioStream.HasValue || TerminatingOrDeleted(component.AudioStream.Value))
@@ -164,6 +186,24 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         ToggleLoop(uid, component);
     }
     // ADT-Tweak end
+
+    /// ADT-Tweak start
+    private void OnJukeboxEject(EntityUid uid, JukeboxComponent component, JukeboxEjectMessage args)
+    {
+        if (!HasComp<ActorComponent>(args.Actor))
+            return;
+
+        if (!TryComp<ItemSlotsComponent>(uid, out var itemSlots))
+            return;
+
+        if (!_itemSlots.TryGetSlot(uid, DiskSlotId, out var slot, itemSlots))
+            return;
+
+        _itemSlots.TryEjectToHands(uid, slot, args.Actor);
+        Dirty(uid, component);
+
+    }
+    /// ADT-Tweak end
 
     private void OnPowerChanged(Entity<JukeboxComponent> entity, ref PowerChangedEvent args)
     {
@@ -194,7 +234,14 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
 
     private void OnJukeboxSelected(EntityUid uid, JukeboxComponent component, JukeboxSelectedMessage args)
     {
-        SetSelectedTrack((uid, component), args.SongId);
+        var ent = (uid, component);
+
+        // ADT-Tweak start
+        if (!IsSongAvailable(ent, args.SongId))
+            return;
+        // ADT-Tweak end
+
+        SetSelectedTrack(ent, args.SongId);
     }
 
     public override void Update(float frameTime)

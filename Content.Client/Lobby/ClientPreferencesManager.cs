@@ -105,8 +105,21 @@ namespace Content.Client.Lobby
 
         public void DeleteCharacter(int slot)
         {
-            var characters = Preferences.Characters.Where(p => p.Key != slot);
-            Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor, Preferences.ConstructionFavorites);
+            // ADT-Tweak start
+            var characters = Preferences.Characters.Where(p => p.Key != slot).ToDictionary(p => p.Key, p => p.Value);
+
+            int newSelectedIndex = Preferences.SelectedCharacterIndex;
+            if (Preferences.SelectedCharacterIndex == slot && characters.Count > 0)
+            {
+                newSelectedIndex = characters.Keys.Min();
+            }
+            else if (!characters.ContainsKey(Preferences.SelectedCharacterIndex))
+            {
+                newSelectedIndex = characters.Keys.Min();
+            }
+
+            Preferences = new PlayerPreferences(characters, newSelectedIndex, Preferences.AdminOOCColor, Preferences.ConstructionFavorites);
+            // ADT-Tweak end
             var msg = new MsgDeleteCharacter
             {
                 Slot = slot
