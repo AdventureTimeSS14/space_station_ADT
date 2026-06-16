@@ -55,6 +55,11 @@ blueshield-voucher-tonfa-description =
     Набор ближнего боя.
     Включает в себя усиленный набор брони, тонфу, а также фаворитный щит корпуса синих щитов.
 
+blueshield-voucher-kereznikov-name = набор с имплантами и дезерт иглом
+blueshield-voucher-kereznikov-description =
+    Кибер-набор.
+    Включает в себя САПО.Г'и Керезников и Спасезников, а также Desert Eagle с тремя магазинами.
+
 blueshield-voucher-saber-rev-name = набор с энергетическим мечом-револьвером
 blueshield-voucher-saber-rev-description =
     Прототип энергетического меча-револьвера.

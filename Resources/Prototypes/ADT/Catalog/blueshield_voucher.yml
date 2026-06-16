@@ -27,3 +27,13 @@
     state: icon-of
   content:
   - ADTBaseWeaponCaseNTTonfaBlueshield
+
+- type: thiefBackpackSet
+  id: WeaponKereznikovBlueshield
+  name: blueshield-voucher-kereznikov-name
+  description: blueshield-voucher-kereznikov-description
+  sprite:
+    sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
+    state: icon
+  content:
+  - ADTBaseWeaponCaseNTKereznikovBlueshield

@@ -86,6 +86,35 @@
      - id: ADTClothingHeadHelmetBlueShield
 
 - type: entity
+  id: ADTBaseWeaponCaseNTKereznikovBlueshield
+  name: weapon case
+  description: Weapon case, special designed for sophisticated and expensive weapons.
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/weaponcase.rsi
+    layers:
+    - state: closed
+    - state: open
+      map: ["openLayer"]
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Objects/Storage/weaponcase.rsi
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,5,3
+  - type: StorageFill
+    contents:
+     - id: ADTKereznikovAutoSurgeon
+     - id: ADTSpasezhnikovAutoSurgeon
+     - id: ADTWeaponPistolDesertEagle
+     - id: MagazineMagnum
+     - id: MagazineMagnum
+     - id: MagazineMagnum
+
+- type: entity
   id: ADTBaseWeaponCaseNT
   name: weapon case
   description: Weapon case, special designed for sophisticated and expensive weapons.
