@@ -10,6 +10,9 @@ using Content.Shared.Popups;
 
 namespace Content.Server.ADT.MindSlave;
 
+/// <summary>
+/// Handles removal of the MindSlave implant and cleans up associated components and roles.
+/// </summary>
 public sealed class MindSlaveImplantSystem : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
@@ -17,6 +20,9 @@ public sealed class MindSlaveImplantSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RoleSystem _roleSystem = default!;
 
+    /// <summary>
+    /// Subscribes to <see cref="ImplantRemovedEvent"/> for <see cref="MindSlaveImplantComponent"/>.
+    /// </summary>
     public override void Initialize()
     {
         base.Initialize();
@@ -59,6 +65,6 @@ public sealed class MindSlaveImplantSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("mindslave-implant-removed"), implanted, implanted, PopupType.Large);
 
         _adminLog.Add(LogType.Mind, LogImpact.Medium,
-            Loc.GetString("mindslave-implant-removed-log", ("target", ToPrettyString(implanted))));
+            $"{ToPrettyString(implanted)} is no longer a mindslave (implant removed)");
     }
 }

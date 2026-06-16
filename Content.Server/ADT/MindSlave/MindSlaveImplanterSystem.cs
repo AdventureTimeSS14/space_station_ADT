@@ -23,6 +23,9 @@ using Robust.Shared.Player;
 
 namespace Content.Server.ADT.MindSlave;
 
+/// <summary>
+/// Handles the MindSlave implanter item — interaction, do-after, implanting, and visual state.
+/// </summary>
 public sealed class MindSlaveImplanterSystem : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
@@ -38,6 +41,9 @@ public sealed class MindSlaveImplanterSystem : EntitySystem
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly SharedSubdermalImplantSystem _subdermalImplant = default!;
 
+    /// <summary>
+    /// Subscribes to <see cref="AfterInteractEvent"/> and <see cref="MindSlaveImplantDoAfterEvent"/>.
+    /// </summary>
     public override void Initialize()
     {
         base.Initialize();
@@ -167,7 +173,7 @@ public sealed class MindSlaveImplanterSystem : EntitySystem
         }
 
         _adminLog.Add(LogType.Mind, LogImpact.Extreme,
-            Loc.GetString("mindslave-implant-success-log", ("target", ToPrettyString(target)), ("user", ToPrettyString(user))));
+            $"{ToPrettyString(target)} was mindslaved by {ToPrettyString(user)}");
         _chat.SendAdminAlert(Loc.GetString("mindslave-implant-success-log", ("target", ToPrettyString(target)), ("user", ToPrettyString(user))));
 
         args.Handled = true;

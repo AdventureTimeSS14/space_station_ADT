@@ -7,7 +7,6 @@ mindslave-implant-removed = You are no longer a mind slave!
 mindslave-break-control = Mindshield has freed { $name } from mind control!
 mindslave-implant-success-chat = You have been mindslaved by { $master }!
 mindslave-memory = You were made a mind slave by { $master }.
-mindslave-implant-removed-log = { $target } is no longer a mindslave (implant removed)
 mindslave-break-control-log = { $name } was freed from mindslave control by a mindshield
 mindslave-implant-spawn-fail = MindSlaveImplant was spawned without SubdermalImplantComponent
 mindslave-implant-success-log = { $target } was mindslaved by { $user }

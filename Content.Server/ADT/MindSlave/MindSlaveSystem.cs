@@ -19,6 +19,9 @@ using Robust.Shared.Player;
 
 namespace Content.Server.ADT.MindSlave;
 
+/// <summary>
+/// Manages the MindSlaveComponent lifecycle — startup, shutdown, and mindshield-based freedom.
+/// </summary>
 public sealed class MindSlaveSystem : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
@@ -30,6 +33,9 @@ public sealed class MindSlaveSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
 
+    /// <summary>
+    /// Subscribes to <see cref="ComponentStartup"/>, <see cref="ComponentShutdown"/>, and <see cref="EntGotInsertedIntoContainerMessage"/> for <see cref="MindSlaveComponent"/>.
+    /// </summary>
     public override void Initialize()
     {
         base.Initialize();
@@ -106,7 +112,7 @@ public sealed class MindSlaveSystem : EntitySystem
         _audio.PlayGlobal("/Audio/ADT/MindSlave/alarm4.ogg", filter, true);
 
         _adminLog.Add(LogType.Mind, LogImpact.Extreme,
-            Loc.GetString("mindslave-break-control-log", ("name", ToPrettyString(ent))));
+            $"{ToPrettyString(ent)} was freed from mindslave control by a mindshield");
         _chat.SendAdminAlert(Loc.GetString("mindslave-break-control-log", ("name", ToPrettyString(ent))));
     }
 }
