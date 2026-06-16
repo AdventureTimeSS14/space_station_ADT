@@ -96,3 +96,20 @@
   position: 0,2
   requiredTech:
   - SalvageWeapons
+
+- type: technology
+  id: ADTNetrunnerSuit
+  name: research-technology-netrunner-suit
+  icon:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/netrunner_suit.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+    - ADTClothingUniformJumpsuitNetrunnerRecipe
+  technologyPrerequisites:
+    - DualWieldingTechnology
+  position: 5,-3
+  requiredTech:
+  - DualWieldingTechnology
