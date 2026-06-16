@@ -22,8 +22,6 @@
       state: eyes
 
     # Limbs
-    - map: [ "enum.HumanoidVisualLayers.RArm" ]
-    - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
 
@@ -34,6 +32,9 @@
     - map: [ "socks" ]
     - map: ["underweart"]
     - map: ["jumpsuit"]
+
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
 
     # Extremities
     - map: ["enum.HumanoidVisualLayers.LFoot"]
