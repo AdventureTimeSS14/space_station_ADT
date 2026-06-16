@@ -1,7 +1,6 @@
 using Content.Shared.ADT.Implants.Sandevistan;
 using Content.Shared.ADT.Trail;
 using Content.Shared.ADT.Glitch;
-using Content.Shared.ADT.Implants.Sandevistan;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Damage;

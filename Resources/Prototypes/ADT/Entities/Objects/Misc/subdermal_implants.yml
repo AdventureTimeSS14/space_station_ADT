@@ -328,6 +328,7 @@
   components:
     - type: SubdermalImplant
     - type: StatvekaSandevistanImplant
+    - type: SubdermalImplantEmp
     - type: CyberneticLoad
       implantLoad: 70
 
@@ -428,5 +429,6 @@
   components:
     - type: SubdermalImplant
     - type: MantisDaggersImplant
+    - type: SubdermalImplantEmp
     - type: CyberneticLoad
       implantLoad: 50

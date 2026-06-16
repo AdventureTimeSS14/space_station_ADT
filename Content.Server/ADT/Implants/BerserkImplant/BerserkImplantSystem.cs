@@ -35,8 +35,8 @@ public sealed class BerserkImplantSystem : SharedBerserkImplantSystem
     private void OnRemove(Entity<BerserkImplantActiveComponent> ent, ref ComponentRemove args)
     {
         Damageable.TryChangeDamage(ent.Owner, ent.Comp.DelayedDamage * ent.Comp.DelayedDamageModifier, true);
-        RemComp<BerserkVisionComponent>(ent.Owner);
-        RemComp<TrailComponent>(ent.Owner);
+        RemCompDeferred<BerserkVisionComponent>(ent.Owner);
+        RemCompDeferred<TrailComponent>(ent.Owner);
     }
 
     private void OnEmp(Entity<BerserkImplantActiveComponent> ent, ref ImplantEmpAffectedEvent args)
@@ -51,9 +51,9 @@ public sealed class BerserkImplantSystem : SharedBerserkImplantSystem
         var curTime = Timing.CurTime;
         var query = EntityQueryEnumerator<BerserkImplantActiveComponent>();
 
-        while (query.MoveNext(out var ent, out var Berserk))
+        while (query.MoveNext(out var ent, out var berserk))
         {
-            if (Berserk.EndTime > curTime)
+            if (berserk.EndTime > curTime)
                 continue;
 
             RemCompDeferred<BerserkImplantActiveComponent>(ent);
