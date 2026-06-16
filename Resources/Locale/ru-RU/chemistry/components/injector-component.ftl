@@ -34,9 +34,5 @@ injector-component-cannot-toggle-inject-message = Нечего вводить!
 
 injector-component-drawing-user = Вы начинаете набирать шприц.
 injector-component-injecting-user = Вы начинаете вводить содержимое шприца.
-injector-component-needle-injecting-user = Вы начинаете вводить содержимое шприца.
-injector-component-needle-injecting-target = { CAPITALIZE($user) } начинает вводить содержимое шприца в вас!
-injector-component-needle-drawing-user = Вы начинаете набирать шприц.
-injector-component-needle-drawing-target = { CAPITALIZE($user) } начинает набирать шприц из вас!
 injector-component-drawing-target = { CAPITALIZE($user) } начинает набирать шприц из вас!
 injector-component-injecting-target = { CAPITALIZE($user) } начинает вводить содержимое шприца в вас!

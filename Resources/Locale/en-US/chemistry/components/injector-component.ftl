@@ -33,9 +33,5 @@ injector-component-cannot-toggle-inject-message = Nothing to inject!
 
 injector-component-drawing-user = You start drawing the needle.
 injector-component-injecting-user = You start injecting the needle.
-injector-component-needle-injecting-user = You start injecting the needle.
-injector-component-needle-injecting-target = {CAPITALIZE(THE($user))} is trying to inject a needle into you!
-injector-component-needle-drawing-user = You start drawing the needle.
-injector-component-needle-drawing-target = {CAPITALIZE(THE($user))} is trying to use a needle to draw from you!
 injector-component-drawing-target = {CAPITALIZE(THE($user))} is trying to use a needle to draw from you!
 injector-component-injecting-target = {CAPITALIZE(THE($user))} is trying to inject a needle into you!

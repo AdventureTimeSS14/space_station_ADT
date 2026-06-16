@@ -97,7 +97,7 @@ public sealed class MindSlaveImplanterSystem : EntitySystem
         if (!_doAfter.TryStartDoAfter(doAfterArgs))
             return;
 
-        _popup.PopupEntity(Loc.GetString("injector-component-needle-injecting-user"), target, user);
+        _popup.PopupEntity(Loc.GetString("injector-component-injecting-user"), target, user);
         var userName = Identity.Entity(user, EntityManager);
         _popup.PopupEntity(Loc.GetString("implanter-component-implanting-target", ("user", userName)), user, target, PopupType.LargeCaution);
 
