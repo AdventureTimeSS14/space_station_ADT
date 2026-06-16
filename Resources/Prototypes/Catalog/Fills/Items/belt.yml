@@ -128,8 +128,8 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: Bloodpack
-          amount: 2
+       # - id: Bloodpack
+       #   amount: 2
         - id: Gauze
         # Reagents focused on emergency response rather than outright healing
         - id: ChemistryBottleInaprovaline
@@ -139,6 +139,7 @@
         - id: ChemistryBottleIpecac
         - id: ChemistryBottleCharcoal
         - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
+          amount: 2
 
 - type: entity
   id: ClothingBeltPlantFilled

@@ -481,6 +481,7 @@
 
 - type: marking
   id: TajaranTailM
+  groupWhitelist: [Human, Felinid]
   bodyPart: Tail
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi

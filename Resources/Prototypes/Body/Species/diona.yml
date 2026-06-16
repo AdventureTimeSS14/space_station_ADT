@@ -154,6 +154,19 @@
   - type: Speech
     speechVerb: Plant
     allowedEmotes: ['Chirp']
+  # ADT-Tweak end
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      RootSpeak: Speak
+      DionaCollectiveMind: Speak
+  - type: SizeAttributeWhitelist
+    tall: true
+    tallscale: 1.08
+    short: true
+    shortscale: 0.92
+  - type: CollectiveMindRank
+  # ADT-Tweak end
   - type: Vocal
     sounds:
       Male: UnisexDiona

@@ -252,11 +252,11 @@ public sealed partial class ChangelingSystem : EntitySystem
         RemoveActions(uid, component);
 
         component.BoughtActions.Clear();
-
+/*
         _store.TrySetCurrency(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> { { "EvolutionPoints", 10 + (5 * component.ChangelingsAbsorbed) } }, uid);
         _store.TryRefreshStoreStock(uid);
+*/
         component.CanRefresh = false;
-
         _store.UpdateUserInterface(uid, uid);
     }
 

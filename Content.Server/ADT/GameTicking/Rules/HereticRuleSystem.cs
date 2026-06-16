@@ -1,6 +1,7 @@
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
+using Content.Server.Store.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Objectives;
 using Content.Server.Objectives.Components;
@@ -30,6 +31,7 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
     [Dependency] private readonly ObjectivesSystem _objective = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] private readonly StoreSystem _store = default!;
 
 
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/ADT/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
@@ -92,12 +94,15 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
             store.Categories.Add(category);
         store.CurrencyWhitelist.Add(Currency);
         store.Balance.Add(Currency, 2);
+        _store.RefreshAllListings(store);
 
         var uiComp = EnsureComp<UserInterfaceComponent>(target);
         if (!_userInterfaceSystem.HasUi(target, StoreUiKey.Key, uiComp))
         {
             _userInterfaceSystem.SetUi(target, StoreUiKey.Key, new InterfaceData("StoreBoundUserInterface"));
         }
+        
+        _store.UpdateUserInterface(target, target, store);
 
         rule.Minds.Add(mindId);
 

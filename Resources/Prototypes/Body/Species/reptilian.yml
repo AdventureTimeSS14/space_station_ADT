@@ -132,6 +132,53 @@
     allowedEmotes: ['Thump']
   - type: TypingIndicator
     proto: lizard
+  # ADT-Tweak start
+  - type: InjectorsBlocker
+  - type: SizeAttributeWhitelist
+    tall: true
+    tallscale: 1.12
+    short: true
+    shortscale: 0.98
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      Draconic: Speak
+      CintaTaj: Speak
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#800000"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Cold: -0.05
+        Blunt: -0.05
+        Piercing: -0.05
+        Slash: -0.05
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      55: 0.8
+      75: 0.7
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 215 #weighs more than humans
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Sprite
+    scale: 1.05, 1.05
+  # ADT-Tweak end
   - type: CreamPied
     sprite:
       sprite: Effects/creampie.rsi

@@ -530,6 +530,7 @@
       reflects:
         - Energy
     - type: Blocking
+      isToggle: true #ADT-Tweak
       passiveBlockModifier:
         coefficients:
           Blunt: 1.0
@@ -631,6 +632,33 @@
           - state: inhand-left-shield
         right:
           - state: inhand-right-shield
+#ADT-Tweak-Start
+    - type: PointLight
+      netsync: false
+      enabled: false
+      radius: 0
+      energy: 2
+      color: blue
+    - type: ItemTogglePointLight
+    - type: Blocking
+      isToggle: true
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.9
+          Slash: 0.9
+          Piercing: 3.5
+          Heat: 3.5
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.8
+          Slash: 0.8
+          Piercing: 3.5
+          Heat: 3.5
+        flatReductions:
+          Slash: 1
+          Piercing: 1
+          Heat: 1
+#ADT-Tweak-End
     - type: Appearance
     - type: Destructible
       thresholds:

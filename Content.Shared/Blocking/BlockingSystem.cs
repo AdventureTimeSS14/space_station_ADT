@@ -17,6 +17,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Utility;
+using Content.Shared.Item.ItemToggle.Components; //ADT-Tweak
 
 namespace Content.Shared.Blocking;
 
@@ -53,7 +54,8 @@ public sealed partial class BlockingSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, BlockingComponent component, MapInitEvent args)
     {
-        _actionContainer.EnsureAction(uid, ref component.BlockingToggleActionEntity, component.BlockingToggleAction);
+        if (component.IsHasBlockingToggle) //ADT-Tweak
+            _actionContainer.EnsureAction(uid, ref component.BlockingToggleActionEntity, component.BlockingToggleAction);
         Dirty(uid, component);
     }
 
@@ -83,13 +85,19 @@ public sealed partial class BlockingSystem : EntitySystem
 
     private void OnGetActions(EntityUid uid, BlockingComponent component, GetItemActionsEvent args)
     {
-        args.AddAction(ref component.BlockingToggleActionEntity, component.BlockingToggleAction);
+        if (component.IsHasBlockingToggle) //ADT-Tweak
+            args.AddAction(ref component.BlockingToggleActionEntity, component.BlockingToggleAction);
     }
 
     private void OnToggleAction(EntityUid uid, BlockingComponent component, ToggleActionEvent args)
     {
         if (args.Handled)
             return;
+
+        //ADT-Tweak-Start
+        if (!component.IsHasBlockingToggle)
+            return;
+        //ADT-Tweak-End
 
         var blockQuery = GetEntityQuery<BlockingComponent>();
         var handQuery = GetEntityQuery<HandsComponent>();
@@ -297,6 +305,16 @@ public sealed partial class BlockingSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess)
             return;
 
+        //ADT-Tweak-Start
+        if (component.IsToggle)
+        {
+            if (TryComp<ItemToggleComponent>(uid, out var itemToggle) && !itemToggle.Activated)
+            {
+                return;
+            }
+        }
+        //ADT-Tweak-End
+
         var fraction = component.IsBlocking ? component.ActiveBlockFraction : component.PassiveBlockFraction;
         var modifier = component.IsBlocking ? component.ActiveBlockDamageModifier : component.PassiveBlockDamageModifer;
 
@@ -314,6 +332,11 @@ public sealed partial class BlockingSystem : EntitySystem
 
     private void AppendCoefficients(DamageModifierSet modifiers, FormattedMessage msg)
     {
+        //ADT-Tweak-Start
+        if (modifiers == null)
+            return;
+        //ADT-Tweak-End
+
         foreach (var coefficient in modifiers.Coefficients)
         {
             msg.PushNewline();

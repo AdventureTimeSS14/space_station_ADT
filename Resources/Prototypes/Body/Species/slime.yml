@@ -35,6 +35,14 @@
     enum.HumanoidVisualLayers.RFoot:
       limit: 1
       required: false
+    # Corvax-Sponsors-start
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+    # Corvax-Sponsors-end
   appearances:
     enum.HumanoidVisualLayers.Hair:
       layerAlpha: 0.72
@@ -60,6 +68,7 @@
     organs:
       Torso: OrganSlimePersonTorso
       Head: OrganSlimePersonHead
+      Eyes: OrganSlimeEyes
       ArmLeft: OrganSlimePersonArmLeft
       ArmRight: OrganSlimePersonArmRight
       HandRight: OrganSlimePersonHandRight
@@ -99,12 +108,27 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      # ADT-Tweak-Start
+      enum.MidroundCustomizationUiKey.Key:
+        type: MidroundCustomizationBoundUserInterface
+      # ADT-Tweak-End
   - type: UseDelay
     delay: 0.5
+  # ADT-Tweak end
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      Bubblish: Speak
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.05
+    short: true
+    shortscale: 0.95
+  # ADT-Tweak end
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
-    allowedEmotes: ['Squish']
+    allowedEmotes: ['Squish', 'Pop', 'Bubbles'] # ADT-Tweak: Добавил 'Pop', 'Bubbles'
   - type: TypingIndicator
     proto: slime
   - type: Vocal
@@ -175,6 +199,20 @@
       types:
         Asphyxiation: -1.0
     maxSaturation: 15
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - ADTSlimeEmotes
+    - DoorBumpOpener
+    - FootstepSound
+    - CanPilot
+    - AnomalyHost
+  - type: MidroundCustomization
+    changeHairSound: /Audio/ADT/slime-hair.ogg
+    allowedLayers:
+    - Hair
+    - FacialHair
+  # ADT-Tweak end
 
 - type: entity
   parent: OrganBase
@@ -210,6 +248,16 @@
   - type: VisualOrganMarkings
     markingData:
       group: Slime
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganSlimePersonInternal, OrganSlimePersonExternal ]
+  id: OrganSlimeEyes
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+  - type: VisualOrgan
+    data:
+      sprite: Mobs/Customization/eyes.rsi
 
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganSlimePersonExternal ]

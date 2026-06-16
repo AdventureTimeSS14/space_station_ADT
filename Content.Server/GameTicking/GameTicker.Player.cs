@@ -138,7 +138,7 @@ namespace Content.Server.GameTicking
                         await _discord.CreateMessage(identifier, payload);
                     }
                     // ADT-Tweak-end
-                        RaiseNetworkEvent(GetConnectionStatusMsg(), session.Channel);
+                    // RaiseNetworkEvent(GetConnectionStatusMsg(), session.Channel); // ADT-Tweak
 
                     if (firstConnection && _cfg.GetCVar(CCVars.AdminNewPlayerJoinSound))
                         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/Effects/newplayerping.ogg"),
@@ -151,6 +151,10 @@ namespace Content.Server.GameTicking
                         _roundStartTime = _gameTiming.CurTime + LobbyDuration;
                     }
 
+                    // ADT-Tweak start
+                    if (session.Channel.IsConnected)
+                        RaiseNetworkEvent(GetConnectionStatusMsg(), session.Channel);
+                    // ADT-Tweak end
                     break;
                 }
 

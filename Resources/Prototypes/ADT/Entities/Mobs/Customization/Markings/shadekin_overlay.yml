@@ -1,6 +1,6 @@
 - type: marking
   id: BodyShadekinArrow
-  bodyPart: Overlay
+  bodyPart: Chest
   groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
@@ -8,7 +8,7 @@
 
 - type: marking
   id: BodyShadekinBrawly
-  bodyPart: Overlay
+  bodyPart: Chest
   groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
@@ -16,7 +16,7 @@
 
 - type: marking
   id: BodyShadekinHeart
-  bodyPart: Overlay
+  bodyPart: Chest
   groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
@@ -24,7 +24,7 @@
 
 - type: marking
   id: BodyShadekinInk5
-  bodyPart: Overlay
+  bodyPart: Chest
   groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
@@ -32,7 +32,7 @@
 
 - type: marking
   id: BodyShadekinInk6
-  bodyPart: Overlay
+  bodyPart: Chest
   groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
@@ -40,7 +40,7 @@
 
 - type: marking
   id: BodyShadekinInkAnim
-  bodyPart: Overlay
+  bodyPart: Chest
   groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
@@ -48,7 +48,7 @@
 
 - type: marking
   id: BodyShadekinLines
-  bodyPart: Overlay
+  bodyPart: Chest
   groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
@@ -56,7 +56,7 @@
 
 - type: marking
   id: BodyShadekinNeck
-  bodyPart: Overlay
+  bodyPart: Chest
   groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
@@ -64,7 +64,7 @@
 
 - type: marking
   id: BodyShadekinShield
-  bodyPart: Overlay
+  bodyPart: Chest
   groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
@@ -72,7 +72,7 @@
 
 - type: marking
   id: BodyShadekinVacuum
-  bodyPart: Overlay
+  bodyPart: Chest
   groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi

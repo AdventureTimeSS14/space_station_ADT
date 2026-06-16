@@ -138,4 +138,4 @@
       storagebase: !type:AllSelector
         children:
         - id: PillAmbuzolPlus
-          amount: 5
+          amount: 5

@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Construction.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -41,7 +42,20 @@ namespace Content.Shared.Preferences
         /// <summary>
         ///     The currently selected character.
         /// </summary>
-        public HumanoidCharacterProfile SelectedCharacter => Characters[SelectedCharacterIndex];
+        public HumanoidCharacterProfile SelectedCharacter
+        // ADT-Tweak start
+        {
+            get
+            {
+                if (!Characters.TryGetValue(SelectedCharacterIndex, out var profile))
+                {
+
+                    profile = Characters.Values.FirstOrDefault() ?? HumanoidCharacterProfile.Random();
+                }
+                return profile;
+            }
+        }
+        // ADT-Tweak end
 
         public Color AdminOOCColor { get; set; }
 

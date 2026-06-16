@@ -955,3 +955,42 @@ XenoborgLaserGun: null
 ADTEctoplasmicPistol: null
 ADTEctoplasmicRifle: null
 SentientSlimesCore: null
+
+# ADT 2026-01-06
+ADTSpawnMobXenoBurrower: SpawnMobXenoBurrower
+ADTSpawnMobXenoDrone: SpawnMobXenoDrone
+ADTSpawnMobXenoQueen: SpawnMobXenoQueen
+ADTSpawnMobXenoRavager: SpawnMobXenoRavager
+
+# ADT 2026-03-02
+Bloodpack: ADTBloodPackTransfusionFull
+
+# ADT 2026-02-27
+BoozeDispenserMachineCircuitboard: ADTEnergyBoozeDispenserMachineCircuitboard
+BoozeDispenser: ADTEnergyBoozeDispenser
+BoozeDispenserEmpty: ADTEnergyBoozeDispenser
+SodaDispenserMachineCircuitboard: ADTEnergySodaDispenserMachineCircuitboard
+SodaDispenser: ADTEnergySodaDispenser
+SodaDispenserEmpty: ADTEnergySodaDispenser
+
+# ADT 2026-05-21
+ADTSpawnMobAbominationDeath: null
+
+# ADT 2026-06-13: Удаление мегабатарей и индукторов
+ADTMegaCellSmall: null
+ADTMegaCellSmallPrinted: null
+ADTMegaCellMedium: null
+ADTMegaCellMediumPrinted: null
+ADTMegaCellHigh: null
+ADTMegaCellHighPrinted: null
+ADTMegaCellHyper: null
+ADTMegaCellHyperPrinted: null
+ADTMegaCellInfinite: null
+ADTMegaCellRecharger: null
+ADTMegaCellRechargerCircuitboard: null
+ADTEngiInducer: null
+ADTEngiInducerBattery: null
+ADTRNDInducer: null
+ADTRNDInducerBattery: null
+ADTCrateNecropolisMegaCellMedium: null
+

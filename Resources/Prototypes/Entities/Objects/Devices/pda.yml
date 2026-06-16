@@ -427,6 +427,8 @@
     preinstalled:
     - CrewManifestCartridge
     - NewsReaderCartridge
+    - NanoChatCartridge # ADT-tweak: Наночат
+    - ADTWalletCartridge # ADT-Economy
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -437,7 +439,7 @@
     accentHColor: "#333333"
   - type: Icon
     state: pda-mime
-  - type: Muted # for random sentience event
+  - type: Muted # for random sentience eventывыв
 
 - type: entity
   name: chaplain PDA

@@ -138,6 +138,17 @@
       Unsexed: UnisexArachnid
   - type: TypingIndicator
     proto: spider
+  # ADT-Tweak start
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      Arachnid: Speak
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.15
+    short: true
+    shortscale: 0.98
+  # ADT-Tweak end
   - type: CreamPied
     sprite:
       sprite: Effects/creampie.rsi

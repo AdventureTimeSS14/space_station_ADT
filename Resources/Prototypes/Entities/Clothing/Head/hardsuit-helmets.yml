@@ -323,8 +323,6 @@
     clothingVisuals:
       head:
       - state: equipped-head
-      - state: equipped-head-unshaded
-        shader: unshaded
 # ADT Tweak END
   - type: PointLight
     color: "#ffeead"
@@ -900,9 +898,6 @@
     spriteLayer: light
     clothingVisuals:
       head:
-      - state: equipped-HELMET
-      - state: equipped-HELMET-unshaded
-        shader: unshaded
       - state: equipped-HELMET-light
         shader: unshaded
   - type: Clothing
@@ -945,7 +940,7 @@
     spriteLayer: light
     clothingVisuals:
       head:
-      - state: equipped-head-light
+      - state: equipped-HELMET-light
         shader: unshaded
   - type: Clothing
     clothingVisuals:
@@ -984,7 +979,7 @@
     spriteLayer: light
     clothingVisuals:
       head:
-      - state: equipped-head-light
+      - state: equipped-HELMET-light
         shader: unshaded
   - type: Clothing
     clothingVisuals:
@@ -1008,7 +1003,7 @@
     spriteLayer: light
     clothingVisuals:
       head:
-      - state: equipped-head-light
+      - state: equipped-HELMET-light
         shader: unshaded
   - type: Clothing
     clothingVisuals:
@@ -1032,7 +1027,7 @@
     spriteLayer: light
     clothingVisuals:
       head:
-      - state: equipped-head-light
+      - state: equipped-HELMET-light
         shader: unshaded
   - type: Clothing
     clothingVisuals:

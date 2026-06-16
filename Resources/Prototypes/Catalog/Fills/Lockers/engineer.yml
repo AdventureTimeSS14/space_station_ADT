@@ -228,8 +228,8 @@
     - id: MetalFoamGrenade
     # ADT-Tweak-Start
     - id: ADTBookSRPeng
-    - id: ADTEngiInducerBattery
-      prob: 0.3
+    #- id: ADTEngiInducerBattery # ADT-REMOVED
+    #  prob: 0.3
     # ADT-Tweak-End
     - id: PlushieLizardJobTechnicalassistant
     - id: PlushieLizardJobStationengineer

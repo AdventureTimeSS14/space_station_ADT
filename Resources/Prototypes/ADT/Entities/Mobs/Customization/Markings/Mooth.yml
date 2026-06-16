@@ -503,7 +503,7 @@
 
 - type: marking
   id: ADTMothFireflyOverlay
-  bodyPart: Tail
+  bodyPart: Overlay
   groupWhitelist: [Moth]
   forcedColoring: false
   followSkinColor: false

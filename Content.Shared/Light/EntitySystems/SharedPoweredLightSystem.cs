@@ -15,6 +15,7 @@ using Content.Shared.Power;
 using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Storage.EntitySystems;
+using Content.Shared.ADT.Paint; // ADT-Tweak
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
@@ -287,12 +288,23 @@ public abstract class SharedPoweredLightSystem : EntitySystem
             return;
         }
 
+        // ADT-Tweak start
+        Color? paintedColor = null;
+        if (TryComp<ColorPaintedComponent>(uid, out var painted) && painted.Enabled)
+        {
+            paintedColor = painted.Color;
+        }
+        // ADT-Tweak end
+
         switch (lightBulb.State)
         {
             case LightBulbState.Normal:
                 if (powerReceiver.Powered && light.On)
                 {
-                    SetLight(uid, true, lightBulb.Color, light, lightBulb.LightRadius, lightBulb.LightEnergy, lightBulb.LightSoftness);
+                    // ADT-Tweak start
+                    var finalColor = paintedColor ?? lightBulb.Color;
+                    SetLight(uid, true, finalColor, light, lightBulb.LightRadius, lightBulb.LightEnergy, lightBulb.LightSoftness);
+                    // ADT-Tweak end
                     _appearance.SetData(uid, PoweredLightVisuals.BulbState, PoweredLightState.On, appearance);
                     var time = GameTiming.CurTime;
                     if (time > light.LastThunk + ThunkDelay)

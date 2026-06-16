@@ -111,7 +111,7 @@
         blacklist:
           tags:
           - PotatoBattery
-          - ADTMegaCell #ADT-tweak
+          #- ADTMegaCell #ADT-tweak
   - type: Item
     size: Ginormous
   - type: MultiHandedItem
@@ -175,7 +175,11 @@
           components:
           - BatteryAmmoProvider
           - Stunbaton
-        #  - PowerCell #ADT-Tweak
+        #ADT-Tweak-Start
+        #  - PowerCell
+          tags:
+            - ADTEnergyShield
+        #ADT-Tweak-End
         blacklist:
           tags:
           - PotatoBattery
@@ -207,7 +211,7 @@
         blacklist:
           tags:
           - PotatoBattery
-          - ADTMegaCell # ADT-Tweak
+          #- ADTMegaCell # ADT-Tweak
           components: # ADT plasmacutters
           - BatteryRecharge # ADT plasmacutters
           - BatterySelfRecharger # ADT-tweak
@@ -238,6 +242,8 @@
       charger_slot:
         ejectOnInteract: true
         whitelist:
+          tags:
+          - ADTEnergyShield # ADT-Tweak
           components:
           - BatteryAmmoProvider
           - Stunbaton

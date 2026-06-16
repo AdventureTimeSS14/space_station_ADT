@@ -159,13 +159,32 @@
 - type: entity
   parent:
   - AppearanceVox
-  - BaseSpeciesMobOrganic
+  - ADTBaseMobSpeciesOrganicUnRotting # ADT-Tweak
   id: MobVox
   name: Urist McVox
   components:
   - type: Damageable
     damageModifierSet: Vox
   - type: Injurable
+  # ADT-Tweak start
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      VoxPidgin: Speak
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.05
+    short: true
+    shortscale: 0.95
+  - type: PriceExaminer
+  - type: Uncloneable
+  - type: VoxAccent
+  - type: Tag
+    tags:
+      - ADTVoxEmotes
+      - CanPilot
+      - DoorBumpOpener
+  # ADT-Tweak end
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox
@@ -385,6 +404,7 @@
     specialDigestible:
       tags:
       - Trash
+      - VoxFood
     isSpecialDigestibleExclusive: false
 
 - type: entity

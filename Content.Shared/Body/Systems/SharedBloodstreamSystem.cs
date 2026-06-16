@@ -79,7 +79,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
             // Blood level regulation. Must be alive.
             if (!_mobStateSystem.IsDead(uid))
             {
-                TryRegulateBloodLevel(uid, bloodstream.BloodRefreshAmount);
+                TryRegenerateBlood((uid, bloodstream)); // ADT-Tweak 
 
                 TickBleed((uid, bloodstream));
 
@@ -531,6 +531,41 @@ public abstract class SharedBloodstreamSystem : EntitySystem
 
         _puddle.TrySpillAt(ent, tempSol, out _);
     }
+
+    // ADT-Tweak start
+    public void TryRegenerateBlood(Entity<BloodstreamComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp, logMissing: false)
+            || !SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution, out var bloodSolution))
+            return;
+
+        var amountToAdd = ent.Comp.BloodRefreshAmount;
+        var currentVolume = bloodSolution.Volume;
+        var referenceVolume = ent.Comp.BloodReferenceSolution.Volume;
+
+
+        if (currentVolume >= referenceVolume)
+            return;
+
+        var availableSpace = referenceVolume - currentVolume;
+        if (availableSpace <= 0)
+            return;
+
+        foreach (var (referenceReagent, referenceQuantity) in ent.Comp.BloodReferenceSolution)
+        {
+            var currentAmount = bloodSolution.GetTotalPrototypeQuantity(referenceReagent.Prototype);
+            var toAdd = FixedPoint2.Min(amountToAdd, availableSpace);
+
+            if (toAdd > 0)
+            {
+                bloodSolution.AddReagent(referenceReagent, toAdd);
+                availableSpace -= toAdd;
+                if (availableSpace <= 0)
+                    break;
+            }
+        }
+    }
+    // ADT-Tweak end
 
     /// <summary>
     /// Change what someone's blood is made of, on the fly.

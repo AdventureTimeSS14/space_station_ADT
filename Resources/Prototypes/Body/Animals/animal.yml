@@ -39,6 +39,29 @@
   parent: [ OrganBaseKidneys, OrganAnimalInternal, OrganAnimalMetabolizer ]
   id: OrganAnimalKidneys
 
+ # ADT-Tweak start
+- type: entity
+  parent: [ OrganBaseAnimalEyes, OrganAnimalInternal, OrganAnimalMetabolizer  ]
+  id: OrganAnimalEyes
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseAnimalEyes
+  name: eyes
+  abstract: true
+  components:
+  - type: GibbableOrgan
+  - type: Organ
+    category: Eyes
+  - type: Sprite
+    layers:
+    - state: eyeball-l
+    - state: eyeball-r
+  - type: Tag
+    tags:
+    - Eyes
+# ADT-Tweak end
+
 - type: entity
   id: BaseMobAnimal
   abstract: true
@@ -53,3 +76,4 @@
         - id: OrganAnimalStomach
         - id: OrganAnimalLiver
         - id: OrganAnimalKidneys
+        - id: OrganAnimalEyes

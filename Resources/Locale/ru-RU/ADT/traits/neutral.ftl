@@ -41,7 +41,7 @@ trait-chav-accent-name = Кокни
 trait-chav-accent-desc = Эй, приятель, что ты там сказал про мою бабушку? (Вы будете только мычать, как в наморднике)
 
 trait-archaic-accent-name = Архаичный
-trait-archaic-accent-desc = Вы говорите так, как многие считают устаревшим.
+trait-archaic-accent-desc = Вы говорите задом наперёд! 
 
 trait-scottish-accent-name = Шотландский акцент
 trait-scottish-accent-desc = Вы говорите, словно собираетесь отправиться к Лох-Несс!
@@ -50,10 +50,10 @@ trait-echolalia-name = Эхолалия
 trait-echolalia-desc = Вы непроизвольно повторяете слова и фразы, произнесённые другими.
 
 trait-soft-walk-name = Мягкая походка
-trait-soft-walk-desc = Вы ходите очень тихо, ваши шаги почти не слышны.
+trait-soft-walk-desc = Вы достаточно осторожны, чтобы не наступать на опасные места даже без обуви.
 
 trait-freerunning-name = Фрираннинг
-trait-freerunning-desc = Вы умеете эффективно перемещаться по городской среде, перепрыгивая препятствия.
+trait-freerunning-desc = Вы умеете эффективно и более быстро заползать на столы, и перепрыгивать препятствие.
 
 trait-sprinter-name = Спринтер
 trait-sprinter-desc = Вы можете бегать немного быстрее остальных.

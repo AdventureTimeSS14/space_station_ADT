@@ -11,7 +11,7 @@
 
 # Blueshield
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpsuitBlueshield
   name: blueshield's jumpsuit
   description: blueshield's jumpsuit
@@ -312,7 +312,7 @@
 #Стильномат
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpsuitAnarchyTshirt
   name: black anarchy t-shirt
   description: black anarchy t-shirt
@@ -390,7 +390,7 @@
     price: 40
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpsuitDenim
   name: denim jumpsuit
   description: denim jumpsuit
@@ -403,7 +403,7 @@
     price: 40
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpsuitCamouflageTshirt
   name: camouflage suit
   description: camouflage suit
@@ -416,7 +416,7 @@
     price: 40
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpsuitCamouflageTshirtDesert
   name: desert camouflage suit
   description: desert camouflage suit
@@ -429,7 +429,7 @@
     price: 40
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpsuitSerious
   name: serious suit
   description: serious suit
@@ -442,7 +442,7 @@
     price: 40
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpsuitBlackShirt
   name: black shirt
   description: An usual black shirt. Made by company "Modeling Agency Dar-Vaxed".
@@ -455,7 +455,7 @@
     price: 45
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpsuitBlueShirt
   name: blue shirt
   description: An usual blue shirt with brown pants. Made by company "Modeling Agency Dar-Vaxed".
@@ -468,7 +468,7 @@
     price: 45
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpsuitPurpleShirt
   name: purple shirt
   description: An usual purple shirt. Made by company "Modeling Agency Dar-Vaxed".
@@ -481,7 +481,7 @@
     price: 45
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpsuitRedShirt
   name: red shirt
   description: An usual red shirt. Made by company "Modeling Agency Dar-Vaxed".
@@ -494,7 +494,7 @@
     price: 45
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpsuitWhiteShirt
   name: white shirt
   description: An usual white shirt. Made by company "Modeling Agency Dar-Vaxed".
@@ -507,7 +507,7 @@
     price: 45
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpsuitFancyShirt
   name: fancy shirt
   description: I don't know how he got there...
@@ -520,7 +520,7 @@
     price: 55
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpsuitRedPlaidShirt
   name: red plaid shirt
   description: Smells like barbecue... Made by company "Modeling Agency Dar-Vaxed".
@@ -533,7 +533,7 @@
     price: 55
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpsuitHawaiiShirt
   name: hawaiian shirt
   description: An ideal variant for those, who wants to look serious, but still lively as a cricket. Made by company "Modeling Agency Dar-Vaxed".
@@ -704,7 +704,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/investigator_suit.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformBlackWeddingSuit
   name: Black Wedding Suit
   description: A black suit for a significant event.
@@ -715,7 +715,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/black_wedding_suit_male.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformBlueWeddingSuit
   name: Blue Wedding suit
   description: A blue suit for a significant event.
@@ -726,7 +726,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/blue_wedding_suit_male.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformBrownWeddingSuit
   name: Brown Wedding suit
   description: A brown suit for a significant event.
@@ -899,7 +899,7 @@
 
 # Униформа надзирателя
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformCorrectionsOfficer
   name: uniform corrections officer
   description: uniform corrections officer
@@ -921,7 +921,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/corrections_officer_light.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformCorrectionsOfficerGrey
   name: grey uniform corrections officer
   description: grey uniform corrections officer
@@ -1212,7 +1212,7 @@
 # И ещё один комбез для детектива
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpsuitDetectiveOld
   name: detective old jumpsuit
   description: Decy jumpsuit, ok da?
@@ -1308,7 +1308,7 @@
 # Полевой комбез парамедика
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingJumpsuitParamedicFieldSuit
   name: paramedic field suit
   description: Clothing designed with the wearers complete comfort in mind.
@@ -1351,7 +1351,7 @@
 # Бармен
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpsuitBartenderRed
   name: red bartender's uniform
   description: A nice and tidy uniform. Shame about the bar though.
@@ -1362,7 +1362,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/bartender_red.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpsuitBartenderGreen
   name: green bartender's uniform
   description: A nice and tidy uniform. Shame about the bar though.
