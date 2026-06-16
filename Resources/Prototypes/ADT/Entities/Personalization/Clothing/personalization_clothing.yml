@@ -1892,8 +1892,8 @@
 - type: entity
   parent: ClothingHandsGlovesCombat
   id: ADTClothingHandsStryzAniPullingGloves
-  name: magnetic gloves
-  description: Combat gloves with embedded magnetic emitters that can pull weapons into your hands.
+  name: cyber combat gloves
+  description: Gloves with blood-red metal plates on the wrist, the first phalanx of the index finger, and the base of the thumb. The gloves feature a mechanism that allows the katana to be returned to the user's hands.
   suffix: Personal, stryz_ani
   components:
   - type: Sprite
@@ -1912,8 +1912,8 @@
 - type: entity
   parent: [ClothingBeltBase, ClothingSlotBase]
   id: ADTClothingBeltStryzAniSheath
-  name: the scabbard of an ancient katana
-  description: Specially made for the ancient katana.
+  name: cyber sheath
+  description: The scabbard is so electrified that it can explode and tear the wearer apart at the slightest touch, but it is still the perfect holder for your katana.
   suffix: Personal, stryz_ani
   components:
   - type: Sprite

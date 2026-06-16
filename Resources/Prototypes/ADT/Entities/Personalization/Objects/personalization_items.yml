@@ -3728,8 +3728,8 @@
 - type: entity
   parent: [ BaseSword, BaseMajorContraband ]
   id: ADTStryzAniKatana
-  name: katana
-  description: Ancient craftwork made with not so ancient plasteel.
+  name: cyber katana
+  description: A new branch in the creation of katanas from the best masters this katana is made to order from the Syndicates cursed katana. Upon inspection, it contains a strange mechanism related to gloves
   suffix: Personal, stryz_ani
   components:
   - type: Tag
