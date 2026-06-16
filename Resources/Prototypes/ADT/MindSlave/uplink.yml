@@ -1,0 +1,10 @@
+- type: listing
+  id: ADTUplinkMindSlaveImplanter
+  name: uplink-mindslave-implanter-name
+  description: uplink-mindslave-implanter-desc
+  icon: { sprite: Objects/Specific/Medical/syndi_implanter.rsi, state: implanter1 }
+  productEntity: MindSlaveImplanter
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkImplants

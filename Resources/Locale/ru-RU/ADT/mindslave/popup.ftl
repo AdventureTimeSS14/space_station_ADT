@@ -1,0 +1,9 @@
+mindslave-self-use-fail = Вы не можете поработить сами себя!
+mindslave-already-enslaved = Цель уже является чьим-то рабом разума!
+mindslave-mindshield-block = Майндшилд цели блокирует имплант!
+mindslave-no-mind = У цели нет разума, но имплант всё равно внедрён.
+mindslave-implant-success = Вы теперь полностью лояльны { $master }!
+mindslave-implant-removed = Вы больше не раб разума!
+mindslave-break-control = Майндшилд освободил { $name } от контроля разума!
+mindslave-implant-success-chat = Вы были порабощены { $master }!
+mindslave-memory = Вы стали рабом разума { $master }.

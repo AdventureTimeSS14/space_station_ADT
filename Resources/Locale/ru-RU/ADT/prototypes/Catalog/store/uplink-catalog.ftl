@@ -293,3 +293,7 @@ uplink-clothing-super-shoes-desc = Ботинки-хамелеоны, обесп
 
 uplink-ehack-name = Криптографический модулятор
 uplink-ehack-desc = Он же EHACK. Младший брат EMAG. Устройство, способное взламывать различные станционные устройства. Перезаряжается автоматически.
+
+# Dead-Space14 MindSlave
+uplink-mindslave-implanter-name = Имплантер Подчинения
+uplink-mindslave-implanter-desc = Одноразовый шприц, заряженный био-чипом Подчинения. Используйте на цели, чтобы сделать её полностью лояльной вам.
