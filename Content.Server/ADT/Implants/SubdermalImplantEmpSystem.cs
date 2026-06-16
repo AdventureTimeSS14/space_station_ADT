@@ -1,5 +1,7 @@
-using Content.Shared.ADT.Implants;
+﻿using Content.Shared.ADT.Implants;
 using Content.Shared.Actions;
+using Content.Shared.Charges.Components;
+using Content.Shared.Charges.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Emp;
@@ -15,6 +17,7 @@ public sealed class SubdermalImplantEmpSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly ServerInventorySystem _inventory = default!;
+    [Dependency] private readonly SharedChargesSystem _charges = default!;
 
     public override void Initialize()
     {
@@ -58,8 +61,18 @@ public sealed class SubdermalImplantEmpSystem : EntitySystem
         var slots = _inventory.GetHandOrInventoryEntities(mob);
         foreach (var item in slots)
         {
-            if (HasComp<ImplantEmpProtectionComponent>(item))
+            if (!HasComp<ImplantEmpProtectionComponent>(item))
+                continue;
+
+            if (TryComp<LimitedChargesComponent>(item, out _))
+            {
+                if (_charges.TryUseCharge(item))
+                    return true;
+            }
+            else
+            {
                 return true;
+            }
         }
         return false;
     }

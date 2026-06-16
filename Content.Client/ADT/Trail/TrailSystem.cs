@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Client.ADT.Implants.Sandevistan;
 using Content.Shared.ADT.Trail;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -11,7 +12,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+
 namespace Content.Client.ADT.Trail;
+
 public sealed class TrailSystem : EntitySystem
 {
     [Dependency] private readonly IOverlayManager _overlay = default!;

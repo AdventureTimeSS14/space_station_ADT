@@ -408,3 +408,6 @@ ent-ADTClothingUniformJumpsuitRedVictorianSuit = красный викториа
 
 ent-ADTClothingUniformJumpsuitBlackVictorianSuit = черный викторианский костюм
     .desc = Элегантный костюм, создающий образ аристократичной роскоши.
+
+ent-ADTClothingUniformJumpsuitNetrunner = комбинезон нетраннера
+    .desc = Облегающий комбинезон с использованием БС кристаллов для защиты от воздействия ЭМИ на импланты. Не делает тебя нетраннером, но выглядит убедительно.

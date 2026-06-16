@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client.ADT.Trail;
 using Content.Shared.ADT.Implants.Sandevistan;
 using Content.Shared.ADT.Trail;
 using Content.Shared.DrawDepth;
@@ -13,6 +14,7 @@ using Robust.Shared.Timing;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Client.ADT.Implants.Sandevistan;
+
 public sealed class SandevistanTrailOverlay : Overlay
 {
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
@@ -120,7 +122,7 @@ public sealed class SandevistanTrailOverlay : Overlay
                         var originalScale = sprite.Scale;
                         sprite.Color = trailColor;
                         sprite.Scale *= scale;
-                        sprite.Render(handle, eyeRot, rot, direction, worldPosition);
+                        _sprite.RenderSprite((trail.RenderedEntity.Value, sprite), handle, eyeRot, rot, worldPosition, direction);
                         sprite.Color = originalColor;
                         sprite.Scale = originalScale;
                     }
