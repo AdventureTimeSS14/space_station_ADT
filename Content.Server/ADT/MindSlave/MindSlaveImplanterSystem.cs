@@ -3,10 +3,10 @@ using Content.Server.Chat.Managers;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Roles;
-using Content.Shared.Chat;
-using Content.Shared.Database;
 using Content.Shared.ADT.MindSlave;
 using Content.Shared.ADT.MindSlave.Components;
+using Content.Shared.Chat;
+using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Implants;
@@ -113,7 +113,7 @@ public sealed class MindSlaveImplanterSystem : EntitySystem
 
         if (!TryComp<SubdermalImplantComponent>(implant, out var implantComp))
         {
-            Log.Warning($"MindSlaveImplant was spawned without SubdermalImplantComponent");
+            Log.Warning(Loc.GetString("mindslave-implant-spawn-fail"));
             Del(implant);
             return;
         }
@@ -167,8 +167,8 @@ public sealed class MindSlaveImplanterSystem : EntitySystem
         }
 
         _adminLog.Add(LogType.Mind, LogImpact.Extreme,
-            $"{ToPrettyString(target)} was mindslaved by {ToPrettyString(user)}");
-        _chat.SendAdminAlert($"{ToPrettyString(target)} was mindslaved by {ToPrettyString(user)}");
+            Loc.GetString("mindslave-implant-success-log", ("target", ToPrettyString(target)), ("user", ToPrettyString(user))));
+        _chat.SendAdminAlert(Loc.GetString("mindslave-implant-success-log", ("target", ToPrettyString(target)), ("user", ToPrettyString(user))));
 
         args.Handled = true;
     }

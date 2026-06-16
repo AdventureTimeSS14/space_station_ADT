@@ -2,8 +2,8 @@ using Content.Server.Administration.Logs;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Roles;
-using Content.Shared.Database;
 using Content.Shared.ADT.MindSlave.Components;
+using Content.Shared.Database;
 using Content.Shared.Implants;
 using Content.Shared.Mind;
 using Content.Shared.Popups;
@@ -59,6 +59,6 @@ public sealed class MindSlaveImplantSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("mindslave-implant-removed"), implanted, implanted, PopupType.Large);
 
         _adminLog.Add(LogType.Mind, LogImpact.Medium,
-            $"{ToPrettyString(implanted)} is no longer a mindslave (implant removed)");
+            Loc.GetString("mindslave-implant-removed-log", ("target", ToPrettyString(implanted))));
     }
 }

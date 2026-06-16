@@ -47,7 +47,7 @@
     - FakeMindShieldImplant
     - RadioImplant
     - ChameleonControllerImplant
-    - MindSlaveImplant
+    - MindSlaveImplant # ADT-Tweak
     deimplantFailureDamage:
       types:
         Cellular: 50

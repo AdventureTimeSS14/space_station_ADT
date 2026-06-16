@@ -10,9 +10,6 @@ public sealed partial class MindSlaveComponent : Component
     [DataField, AutoNetworkedField]
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "MindSlaveFaction";
 
-    [DataField, AutoNetworkedField]
-    public ProtoId<FactionIconPrototype> MasterStatusIcon { get; set; } = "MindSlaveMasterFaction";
-
     [ViewVariables(VVAccess.ReadOnly)]
     [AutoNetworkedField]
     public EntityUid Master;

@@ -2,9 +2,9 @@ using Content.Server.Administration.Logs;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Roles;
+using Content.Shared.ADT.MindSlave.Components;
 using Content.Shared.Chat;
 using Content.Shared.Database;
-using Content.Shared.ADT.MindSlave.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
@@ -106,7 +106,7 @@ public sealed class MindSlaveSystem : EntitySystem
         _audio.PlayGlobal("/Audio/ADT/MindSlave/alarm4.ogg", filter, true);
 
         _adminLog.Add(LogType.Mind, LogImpact.Extreme,
-            $"{ToPrettyString(ent)} was freed from mindslave control by a mindshield");
-        _chat.SendAdminAlert($"{ToPrettyString(ent)} was freed from mindslave control by a mindshield");
+            Loc.GetString("mindslave-break-control-log", ("name", ToPrettyString(ent))));
+        _chat.SendAdminAlert(Loc.GetString("mindslave-break-control-log", ("name", ToPrettyString(ent))));
     }
 }
