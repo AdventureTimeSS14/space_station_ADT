@@ -41,7 +41,7 @@ public sealed partial class CyberpsychosisComponent : Component
     public float MinDuration = 5f;
 
     [DataField]
-    public float DurationPerOverflowUnit = 1f;
+    public float DurationPerOverflowUnit = 0.1f;
 
     [DataField]
     public string MildHallucinationPack = "CyberpsychosisHallucinationsMild";
