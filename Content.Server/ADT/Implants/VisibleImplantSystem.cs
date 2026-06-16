@@ -22,13 +22,11 @@ using Content.Shared.Interaction.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Prototypes;
-using Content.Server.Emp;
 using Content.Shared.Stunnable;
 using Content.Shared.Jittering;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Weapons.Reflect;
 using Content.Shared.ADT.CantShoot;
-using Content.Shared.Emp;
 
 namespace Content.Server.ADT.Implants;
 
@@ -57,7 +55,7 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
         SubscribeLocalEvent<MantisDaggersComponent, MapInitEvent>(InitDaggers);
         SubscribeLocalEvent<MantisDaggersComponent, ComponentShutdown>(ShutdownDaggers);
         SubscribeLocalEvent<MantisDaggersComponent, ToggleMantisDaggersEvent>(OnToggleDaggers);
-        SubscribeLocalEvent<MantisDaggersComponent, EmpPulseEvent>(OnEmpPulse);
+        SubscribeLocalEvent<MantisDaggersComponent, ImplantEmpAffectedEvent>(OnEmpPulse);
 
         SubscribeLocalEvent<MistralFistsComponent, MapInitEvent>(InitFists);
         SubscribeLocalEvent<MistralFistsComponent, ComponentShutdown>(ShutdownFists);
@@ -140,7 +138,7 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
         Dirty(uid, comp);
     }
 
-    private void OnEmpPulse(Entity<MantisDaggersComponent> ent, ref EmpPulseEvent args)
+    private void OnEmpPulse(Entity<MantisDaggersComponent> ent, ref ImplantEmpAffectedEvent args)
     {
         ent.Comp.EmpLastPulse = _timing.CurTime;
         var uid = ent.Owner;
