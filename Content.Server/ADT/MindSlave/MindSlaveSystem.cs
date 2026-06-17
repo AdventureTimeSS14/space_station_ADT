@@ -69,7 +69,7 @@ public sealed class MindSlaveSystem : EntitySystem
         }
     }
 
-    private void OnImplantInserted(ref EntGotInsertedIntoContainerMessage args)
+    private void OnImplantInserted(EntGotInsertedIntoContainerMessage args)
     {
         if (args.Container.ID != ImplanterComponent.ImplantSlotId)
             return;
