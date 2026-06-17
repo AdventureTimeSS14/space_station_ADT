@@ -3756,7 +3756,6 @@
   - type: ThrowingAngle
     angle: 225
   - type: DamageOtherOnHit
-    ignoreResistances: true
     damage:
       types:
         Slash: 12
