@@ -54,10 +54,31 @@ public sealed class DropPodConsoleSystem : EntitySystem
         SubscribeLocalEvent<DropPodConsoleComponent, AfterActivatableUIOpenEvent>(OnConsoleOpened);
         SubscribeLocalEvent<DropPodComponent, FTLCompletedEvent>(OnDropPodArrived);
 
+
         Subs.BuiEvents<DropPodConsoleComponent>(DropPodConsoleUiKey.Key, subs =>
         {
             subs.Event<DropPodConsoleDeployMessage>(OnDeployMessage);
         });
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<DropPodComponent>();
+        while (query.MoveNext(out var uid, out var pod))
+        {
+            if (pod.PendingSpawnAt == null || pod.PendingSpawnCoords == null)
+                continue;
+            if (_timing.CurTime < pod.PendingSpawnAt.Value)
+                continue;
+
+            if (pod.PendingSpawnPrototype != null)
+                Spawn(pod.PendingSpawnPrototype, pod.PendingSpawnCoords.Value);
+            pod.PendingSpawnAt = null;
+            pod.PendingSpawnCoords = null;
+            pod.PendingSpawnPrototype = null;
+        }
     }
 
     private void OnDropPodArrived(Entity<DropPodComponent> ent, ref FTLCompletedEvent args)
@@ -66,7 +87,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
         if (!TryComp<MapGridComponent>(podGrid, out var podGridComp))
             return;
 
-        // Freeze physics immediately so Smimsh forces can't further move/rotate the pod
+        // Freeze physics immediately so impact forces can't further move/rotate the pod
         _shuttle.Disable(podGrid);
         // Do NOT zero the rotation here — MergeIntoStation reads pod-local coords before reparenting
 
@@ -230,40 +251,52 @@ public sealed class DropPodConsoleSystem : EntitySystem
         var alreadyLaunched = xform.GridUid != null
             && TryComp<DropPodComponent>(xform.GridUid.Value, out var dropPod)
             && dropPod.Launched;
-        var canLaunch = onDropPod
-            && !alreadyLaunched
-            && (_timing.CurTime - comp.LastLaunchTime) >= comp.Cooldown;
+        var elapsed = _timing.CurTime - comp.LastLaunchTime;
+        var canLaunch = onDropPod && !alreadyLaunched && elapsed >= comp.Cooldown;
+        var cooldownRemaining = canLaunch ? 0 : (int)Math.Ceiling((comp.Cooldown - elapsed).TotalSeconds);
 
         // Gather ALL beacons (including blacklisted) to compute centroid and find station grid
+        var validBeacons = new List<DropPodBeaconInfo>();
         var allBeacons = new List<(EntityUid uid, Vector2 worldPos)>();
+
         var beaconQuery = AllEntityQuery<WarpPointComponent, MetaDataComponent>();
         while (beaconQuery.MoveNext(out var beaconUid, out var warp, out var meta))
         {
-            allBeacons.Add((beaconUid, _transform.GetWorldPosition(beaconUid)));
+            var name = warp.Location ?? meta.EntityName;
+            var worldPos = _transform.GetWorldPosition(beaconUid);
+            allBeacons.Add((beaconUid, worldPos));
+
+            if (!string.IsNullOrEmpty(name) && !IsBlacklisted(name, comp.BeaconBlacklist))
+            {
+                validBeacons.Add(new DropPodBeaconInfo
+                {
+                    Uid = GetNetEntity(beaconUid),
+                    Name = name,
+                    WorldPos = worldPos,
+                });
+            }
         }
 
-        var available = new HashSet<DropPodDirection> { DropPodDirection.North, DropPodDirection.East, DropPodDirection.South, DropPodDirection.West };
         var stationCenter = Vector2.Zero;
         NetEntity? stationGrid = null;
         if (allBeacons.Count > 0)
         {
-            var center = Vector2.Zero;
             foreach (var (_, pos) in allBeacons)
-                center += pos;
-            center /= allBeacons.Count;
-            stationCenter = center;
+                stationCenter += pos;
+            stationCenter /= allBeacons.Count;
 
             // Find station grid from the first beacon's grid
-            var firstBeaconXform = Transform(allBeacons[0].uid);
-            if (firstBeaconXform.GridUid.HasValue)
-                stationGrid = GetNetEntity(firstBeaconXform.GridUid.Value);
+            var firstXform = Transform(allBeacons[0].uid);
+            if (firstXform.GridUid.HasValue)
+                stationGrid = GetNetEntity(firstXform.GridUid.Value);
         }
 
         _ui.SetUiState(uid, DropPodConsoleUiKey.Key, new DropPodConsoleBuiState
         {
-            AvailableDirections = available,
+            ValidBeacons = validBeacons,
             CanLaunch = canLaunch,
             AlreadyLaunched = alreadyLaunched,
+            CooldownRemaining = cooldownRemaining,
             StationGrid = stationGrid,
             StationWorldCenter = stationCenter,
         });
@@ -286,45 +319,16 @@ public sealed class DropPodConsoleSystem : EntitySystem
         if ((_timing.CurTime - comp.LastLaunchTime) < comp.Cooldown)
             return;
 
-        // Gather all beacons for centroid; valid (non-blacklisted) beacons for landing candidates
-        var allBeaconsList = new List<(EntityUid uid, Vector2 worldPos)>();
-        var validBeacons = new List<(EntityUid uid, Vector2 worldPos, string name)>();
-        var blacklistedPositions = new List<Vector2>();
-        var beaconQuery = AllEntityQuery<WarpPointComponent, MetaDataComponent>();
-        while (beaconQuery.MoveNext(out var beaconUid, out var warp, out var meta))
-        {
-            var name = warp.Location ?? meta.EntityName;
-            var worldPos = _transform.GetWorldPosition(beaconUid);
-            allBeaconsList.Add((beaconUid, worldPos));
-            if (!string.IsNullOrEmpty(name) && IsBlacklisted(name, comp.BeaconBlacklist))
-                blacklistedPositions.Add(worldPos);
-            else if (!string.IsNullOrEmpty(name))
-                validBeacons.Add((beaconUid, worldPos, name));
-        }
-
-        if (validBeacons.Count == 0)
+        var targetBeaconEnt = GetEntity(args.TargetBeacon);
+        if (!TryComp<WarpPointComponent>(targetBeaconEnt, out var warpPoint))
             return;
 
-        // Compute centroid from all beacons
-        var center = Vector2.Zero;
-        foreach (var (_, pos) in allBeaconsList)
-            center += pos;
-        center /= allBeaconsList.Count;
+        var beaconName = warpPoint.Location ?? MetaData(targetBeaconEnt).EntityName;
+        if (string.IsNullOrEmpty(beaconName) || IsBlacklisted(beaconName, comp.BeaconBlacklist))
+            return;
 
-        // Copy direction to a local so it can be captured in a lambda (args is ref)
-        var chosenDir = args.Direction;
-        var candidates = validBeacons
-            .Where(b => ClassifyDirection(b.worldPos - center) == chosenDir)
-            .ToList();
-
-        // Fallback: if direction has no candidates (stale state), pick any
-        if (candidates.Count == 0)
-            candidates = validBeacons;
-
-        var picked = _random.Pick(candidates);
-        var targetBeacon = picked.uid;
-        var targetWorldPos = picked.worldPos;
-        var beaconXform = Transform(targetBeacon);
+        var targetWorldPos = _transform.GetWorldPosition(targetBeaconEnt);
+        var beaconXform = Transform(targetBeaconEnt);
         if (beaconXform.MapUid == null)
             return;
 
@@ -335,18 +339,20 @@ public sealed class DropPodConsoleSystem : EntitySystem
             return;
         }
 
-        // Announce the general direction — never the specific beacon name
-        var dirStr = args.Direction switch
+        // Gather all beacons for valid (non-blacklisted) beacons for landing candidates
+        var blacklistedPositions = new List<Vector2>();
+        var blacklistQuery = AllEntityQuery<WarpPointComponent, MetaDataComponent>();
+        while (blacklistQuery.MoveNext(out var bUid, out var bWarp, out var bMeta))
         {
-            DropPodDirection.North => Loc.GetString("drop-pod-direction-north"),
-            DropPodDirection.East  => Loc.GetString("drop-pod-direction-east"),
-            DropPodDirection.South => Loc.GetString("drop-pod-direction-south"),
-            DropPodDirection.West  => Loc.GetString("drop-pod-direction-west"),
-            _                      => Loc.GetString("drop-pod-direction-north"),
-        };
+            var bName = bWarp.Location ?? bMeta.EntityName;
+            if (!string.IsNullOrEmpty(bName) && IsBlacklisted(bName, comp.BeaconBlacklist))
+                blacklistedPositions.Add(_transform.GetWorldPosition(bUid));
+        }
+
+        // Announce the chosen beacon — the exact tile is still randomised by GetDropPodTargetCoords
         var announcement = Loc.GetString("drop-pod-console-launch-announcement",
-            ("direction", dirStr),
-            ("seconds", (int)comp.AnnouncementLeadTime));
+            ("beacon", beaconName),
+            ("seconds", (int)comp.FlightTime));
         _chat.DispatchGlobalAnnouncement(
             announcement,
             sender: Loc.GetString("drop-pod-console-sender"),
@@ -356,26 +362,27 @@ public sealed class DropPodConsoleSystem : EntitySystem
         comp.LastLaunchTime = _timing.CurTime;
         dropPod.TargetStationGrid = beaconXform.GridUid;
 
-        // Exact landing coords — random 20-45 tile offset, kept away from blacklisted beacons
-        var targetCoords = GetDropPodTargetCoords(targetBeacon, targetWorldPos, blacklistedPositions);
+        // Exact landing coords — random 3-8 tile offset, kept away from blacklisted beacons
+        var targetCoords = GetDropPodTargetCoords(targetBeaconEnt, targetWorldPos, blacklistedPositions);
+
+        // Schedule the pre-landing effect prototype at the configured lead time
+        if (comp.PreLandingSpawnPrototype != null)
+        {
+            var spawnDelay = Math.Max(0f, comp.FlightTime - comp.PreLandingSpawnLeadTime);
+            dropPod.PendingSpawnAt = _timing.CurTime + TimeSpan.FromSeconds(spawnDelay);
+            dropPod.PendingSpawnCoords = targetCoords;
+            dropPod.PendingSpawnPrototype = comp.PreLandingSpawnPrototype;
+        }
 
         _shuttle.FTLToCoordinates(
             podGrid,
             shuttle,
             targetCoords,
             Angle.Zero,
-            startupTime: comp.AnnouncementLeadTime,
+            startupTime: comp.FlightTime,
             hyperspaceTime: 0f);
 
         UpdateUiState(ent);
-    }
-
-    private static DropPodDirection ClassifyDirection(Vector2 delta)
-    {
-        // Classify into N/E/S/W based on which axis dominates
-        if (MathF.Abs(delta.Y) >= MathF.Abs(delta.X))
-            return delta.Y >= 0 ? DropPodDirection.North : DropPodDirection.South;
-        return delta.X >= 0 ? DropPodDirection.East : DropPodDirection.West;
     }
 
     private EntityCoordinates GetDropPodTargetCoords(EntityUid beaconEnt, Vector2 beaconWorldPos, List<Vector2> blacklistedPositions)
@@ -385,7 +392,6 @@ public sealed class DropPodConsoleSystem : EntitySystem
         var beaconMapCoords = new MapCoordinates(beaconWorldPos, beaconXform.MapID);
 
         const float MinBlacklistDist = 20f;
-        const float MaxBlacklistDist = 45f;
 
         if (_mapManager.TryFindGridAt(beaconMapCoords, out var gridUid, out var gridComp))
         {

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Numerics;
+using Content.Client.Administration.UI.CustomControls;
 using Content.Shared.ADT.Shuttles.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
@@ -12,14 +13,15 @@ namespace Content.Client.ADT.Shuttles;
 public sealed class DropPodConsoleBui(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
     private DefaultWindow? _window;
-    private Button? _deployButton;
     private Label? _statusLabel;
     private Label? _selectedLabel;
-    private readonly Dictionary<DropPodDirection, Button> _dirButtons = new();
+    private Button? _deployButton;
+    private BoxContainer? _beaconList;
     private DropPodNavMapControl? _mapControl;
 
-    private DropPodDirection? _selectedDirection;
-    private HashSet<DropPodDirection> _available = new();
+    private NetEntity? _selectedBeacon;
+    private string? _selectedBeaconName;
+    private List<DropPodBeaconInfo> _beacons = new();
     private bool _canLaunch;
     private bool _alreadyLaunched;
 
@@ -37,40 +39,30 @@ public sealed class DropPodConsoleBui(EntityUid owner, Enum uiKey) : BoundUserIn
 
         TryInitWindow();
 
-        _available = s.AvailableDirections;
+        _beacons = s.ValidBeacons;
         _canLaunch = s.CanLaunch;
         _alreadyLaunched = s.AlreadyLaunched;
 
-        // Push station map data to the map control
-        if (_mapControl != null)
+        if (_mapControl != null && s.StationGrid.HasValue)
         {
-            if (s.StationGrid.HasValue)
+            var stationUid = IoCManager.Resolve<IEntityManager>().GetEntity(s.StationGrid.Value);
+            if (_mapControl.MapUid != stationUid)
             {
-                var stationUid = IoCManager.Resolve<IEntityManager>().GetEntity(s.StationGrid.Value);
-                if (_mapControl.MapUid != stationUid)
-                {
-                    _mapControl.MapUid = stationUid;
-                    _mapControl.ForceNavMapUpdate();
-                    _mapControl.CenterOnWorldPos(stationUid, s.StationWorldCenter);
-                }
+                _mapControl.MapUid = stationUid;
+                _mapControl.ForceNavMapUpdate();
+                _mapControl.CenterOnWorldPos(stationUid, s.StationWorldCenter);
             }
         }
 
-        // Deselect if chosen sector is no longer available
-        if (_selectedDirection.HasValue && !_available.Contains(_selectedDirection.Value))
-            _selectedDirection = null;
+        if (_selectedBeacon.HasValue && !_beacons.Exists(b => b.Uid == _selectedBeacon.Value))
+        {
+            _selectedBeacon = null;
+            _selectedBeaconName = null;
+            _mapControl?.SetSelectedBeacon(null);
+        }
 
+        RebuildBeaconList();
         RefreshState();
-
-        _statusLabel!.Text = _alreadyLaunched
-            ? Loc.GetString("drop-pod-console-status-launched")
-            : !_canLaunch
-                ? Loc.GetString("drop-pod-console-status-not-ready")
-                : Loc.GetString("drop-pod-console-status-ready");
-
-        _selectedLabel!.Text = _selectedDirection.HasValue
-            ? DirectionLabel(_selectedDirection.Value)
-            : Loc.GetString("drop-pod-console-sector-none");
 
         if (!_window!.IsOpen)
             _window.OpenCentered();
@@ -84,22 +76,29 @@ public sealed class DropPodConsoleBui(EntityUid owner, Enum uiKey) : BoundUserIn
         _window = new DefaultWindow
         {
             Title = Loc.GetString("drop-pod-console-title"),
-            MinSize = new Vector2(620, 400),
+            MinSize = new Vector2(680, 420),
             Resizable = false,
         };
 
-        // Main layout: left controls | right map
-        var main = new BoxContainer
+        var root = new BoxContainer
         {
             Orientation = BoxContainer.LayoutOrientation.Horizontal,
             Margin = new Thickness(8),
         };
 
-        // ---- Left panel ----
-        var left = new BoxContainer
+        root.AddChild(BuildLeftPanel());
+        root.AddChild(BuildRightPanel());
+
+        _window.Contents.AddChild(root);
+        _window.OnClose += Close;
+    }
+
+    private Control BuildLeftPanel()
+    {
+        var panel = new BoxContainer
         {
             Orientation = BoxContainer.LayoutOrientation.Vertical,
-            MinSize = new Vector2(185, 0),
+            MinSize = new Vector2(220, 0),
             Margin = new Thickness(0, 0, 10, 0),
         };
 
@@ -107,46 +106,54 @@ public sealed class DropPodConsoleBui(EntityUid owner, Enum uiKey) : BoundUserIn
         {
             Margin = new Thickness(0, 0, 0, 8),
         };
+        panel.AddChild(_statusLabel);
 
-        // Compass 3x3 grid: [  ][N][  ] / [W][  ][E] / [  ][S][  ]
-        _dirButtons[DropPodDirection.North] = MakeDirButton("N", DropPodDirection.North);
-        _dirButtons[DropPodDirection.East]  = MakeDirButton("E", DropPodDirection.East);
-        _dirButtons[DropPodDirection.South] = MakeDirButton("S", DropPodDirection.South);
-        _dirButtons[DropPodDirection.West]  = MakeDirButton("W", DropPodDirection.West);
-
-        var compass = new GridContainer
+        panel.AddChild(new Label
         {
-            Columns = 3,
-            Margin = new Thickness(0, 0, 0, 8),
-        };
-        compass.AddChild(new Control { MinSize = new Vector2(55, 55) });
-        compass.AddChild(_dirButtons[DropPodDirection.North]);
-        compass.AddChild(new Control { MinSize = new Vector2(55, 55) });
-        compass.AddChild(_dirButtons[DropPodDirection.West]);
-        compass.AddChild(new Control { MinSize = new Vector2(55, 55) }); // center gap
-        compass.AddChild(_dirButtons[DropPodDirection.East]);
-        compass.AddChild(new Control { MinSize = new Vector2(55, 55) });
-        compass.AddChild(_dirButtons[DropPodDirection.South]);
-        compass.AddChild(new Control { MinSize = new Vector2(55, 55) });
+            Text = Loc.GetString("drop-pod-console-beacon-list-header"),
+            FontColorOverride = Color.FromHex("#aaaaaa"),
+            Margin = new Thickness(0, 0, 0, 4),
+        });
 
-        var sectorHeader = new Label
+        var scrollBox = new ScrollContainer
         {
-            Text = "CURRENT SELECTED SECTOR",
-            Margin = new Thickness(0, 0, 0, 2),
-        };
-
-        _selectedLabel = new Label
-        {
-            Margin = new Thickness(0, 0, 0, 6),
-        };
-
-        var notice = new Label
-        {
-            Text = Loc.GetString("drop-pod-console-notice"),
-            FontColorOverride = Color.Yellow,
+            VerticalExpand = true,
             HorizontalExpand = true,
             Margin = new Thickness(0, 0, 0, 8),
         };
+
+        _beaconList = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+        };
+        scrollBox.AddChild(_beaconList);
+        panel.AddChild(scrollBox);
+
+        panel.AddChild(new HSeparator { Margin = new Thickness(0, 0, 0, 6) });
+
+        var selectedHeader = new Label
+        {
+            Text = Loc.GetString("drop-pod-console-selected-header"),
+            FontColorOverride = Color.FromHex("#aaaaaa"),
+            Margin = new Thickness(0, 0, 0, 2),
+        };
+        panel.AddChild(selectedHeader);
+
+        _selectedLabel = new Label
+        {
+            Margin = new Thickness(0, 0, 0, 8),
+        };
+        panel.AddChild(_selectedLabel);
+
+        panel.AddChild(new HSeparator { Margin = new Thickness(0, 0, 0, 6) });
+
+        panel.AddChild(new Label
+        {
+            Text = Loc.GetString("drop-pod-console-notice"),
+            FontColorOverride = Color.FromHex("#ddaa00"),
+            HorizontalExpand = true,
+            Margin = new Thickness(0, 0, 0, 8),
+        });
 
         _deployButton = new Button
         {
@@ -156,80 +163,96 @@ public sealed class DropPodConsoleBui(EntityUid owner, Enum uiKey) : BoundUserIn
             ModulateSelfOverride = Color.Red,
         };
         _deployButton.OnPressed += _ => OnDeployPressed();
+        panel.AddChild(_deployButton);
 
-        left.AddChild(_statusLabel);
-        left.AddChild(compass);
-        left.AddChild(sectorHeader);
-        left.AddChild(_selectedLabel);
-        left.AddChild(new Control { VerticalExpand = true }); // spacer
-        left.AddChild(notice);
-        left.AddChild(_deployButton);
+        return panel;
+    }
 
-        // ---- Right panel: interactive station map ----
+    private Control BuildRightPanel()
+    {
         _mapControl = new DropPodNavMapControl
         {
-            SetWidth = 400,
-            SetHeight = 350,
+            SetWidth = 420,
+            SetHeight = 370,
             RectClipContent = true,
         };
-
-        main.AddChild(left);
-        main.AddChild(_mapControl);
-
-        _window.Contents.AddChild(main);
-        _window.OnClose += Close;
+        return _mapControl;
     }
 
-    private Button MakeDirButton(string text, DropPodDirection dir)
+    private void RebuildBeaconList()
     {
-        var btn = new Button
-        {
-            Text = text,
-            MinSize = new Vector2(55, 55),
-            Disabled = true,
-        };
-        btn.OnPressed += _ => SelectDirection(dir);
-        return btn;
-    }
-
-    private void SelectDirection(DropPodDirection dir)
-    {
-        if (!_available.Contains(dir) || !_canLaunch || _alreadyLaunched)
+        if (_beaconList == null)
             return;
-        _selectedDirection = dir;
-        RefreshState();
 
-        _selectedLabel!.Text = DirectionLabel(dir);
+        _beaconList.RemoveAllChildren();
+
+        foreach (var beacon in _beacons)
+        {
+            var b = beacon;
+            var btn = new Button
+            {
+                Text = b.Name,
+                HorizontalExpand = true,
+                Margin = new Thickness(0, 0, 0, 2),
+                Disabled = !_canLaunch || _alreadyLaunched,
+                ModulateSelfOverride = _selectedBeacon == b.Uid ? Color.OrangeRed : null,
+            };
+            btn.OnPressed += _ => SelectBeacon(b.Uid, b.Name, b.WorldPos);
+            _beaconList.AddChild(btn);
+        }
+    }
+
+    private void SelectBeacon(NetEntity uid, string name, Vector2 worldPos)
+    {
+        if (!_canLaunch || _alreadyLaunched)
+            return;
+
+        _selectedBeacon = uid;
+        _selectedBeaconName = name;
+        _mapControl?.SetSelectedBeacon(worldPos);
+        RefreshState();
     }
 
     private void RefreshState()
     {
-        if (_mapControl != null)
-            _mapControl.SelectedDirection = _selectedDirection;
-
-        foreach (var (d, btn) in _dirButtons)
+        if (_statusLabel != null)
         {
-            btn.Disabled = !_available.Contains(d) || !_canLaunch || _alreadyLaunched;
-            btn.ModulateSelfOverride = _selectedDirection == d ? Color.OrangeRed : null;
+            if (_alreadyLaunched)
+            {
+                _statusLabel.Text = Loc.GetString("drop-pod-console-status-launched");
+                _statusLabel.FontColorOverride = Color.Gray;
+            }
+            else if (!_canLaunch)
+            {
+                _statusLabel.Text = Loc.GetString("drop-pod-console-status-not-ready");
+                _statusLabel.FontColorOverride = Color.Yellow;
+            }
+            else
+            {
+                _statusLabel.Text = Loc.GetString("drop-pod-console-status-ready");
+                _statusLabel.FontColorOverride = Color.LimeGreen;
+            }
         }
 
-        _deployButton!.Disabled = _selectedDirection == null || !_canLaunch || _alreadyLaunched;
-    }
+        if (_selectedLabel != null)
+        {
+            _selectedLabel.Text = _selectedBeaconName != null
+                ? _selectedBeaconName
+                : Loc.GetString("drop-pod-console-sector-none");
+            _selectedLabel.FontColorOverride = _selectedBeaconName != null ? Color.OrangeRed : Color.Gray;
+        }
 
-    private static string DirectionLabel(DropPodDirection dir) => dir switch
-    {
-        DropPodDirection.North => "NORTH",
-        DropPodDirection.East  => "EAST",
-        DropPodDirection.South => "SOUTH",
-        DropPodDirection.West  => "WEST",
-        _                      => "UNKNOWN",
-    };
+        if (_deployButton != null)
+            _deployButton.Disabled = _selectedBeacon == null || !_canLaunch || _alreadyLaunched;
+
+        RebuildBeaconList();
+    }
 
     private void OnDeployPressed()
     {
-        if (_selectedDirection == null)
+        if (_selectedBeacon == null)
             return;
-        SendMessage(new DropPodConsoleDeployMessage { Direction = _selectedDirection.Value });
+        SendMessage(new DropPodConsoleDeployMessage { TargetBeacon = _selectedBeacon.Value });
     }
 
     protected override void Dispose(bool disposing)

@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Map;
 
 namespace Content.Shared.ADT.Shuttles.Components;
 
@@ -20,4 +21,20 @@ public sealed partial class DropPodComponent : Component
     /// Set by DropPodConsoleSystem at launch time (server-only, not networked).
     /// </summary>
     public EntityUid? TargetStationGrid;
+
+    /// <summary>
+    /// Game-time at which to spawn the pre-landing effect prototype (server-only).
+    /// Null when no spawn is pending.
+    /// </summary>
+    public TimeSpan? PendingSpawnAt;
+
+    /// <summary>
+    /// Coordinates at which to spawn the pre-landing effect (server-only).
+    /// </summary>
+    public EntityCoordinates? PendingSpawnCoords;
+
+    /// <summary>
+    /// Prototype ID to spawn at <see cref="PendingSpawnCoords"/> when <see cref="PendingSpawnAt"/> is reached (server-only).
+    /// </summary>
+    public string? PendingSpawnPrototype;
 }
