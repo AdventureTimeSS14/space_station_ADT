@@ -3,6 +3,9 @@
   parent: BaseItem
   id: BaseHypospray
   components:
+  - type: Spillable
+    solution: hypospray
+    spillWhenThrown: false
   - type: Injector
     solutionName: hypospray
     ignoreClosed: false
@@ -14,15 +17,6 @@
     solution: hypospray
     exactVolume: true
   - type: Appearance
-
-- type: entity
-  abstract: true
-  parent: BaseHypoInjector
-  id: BaseHypospray
-  components:
-  - type: Spillable
-    solution: hypospray
-    spillWhenThrown: false
 
 - type: entity
   parent: [BaseHypospray, BaseGrandTheftContraband]
@@ -193,7 +187,7 @@
 
 - type: entity
   id: ChemicalMedipen
-  parent: BaseHypoInjector # I plan to resize medipens to 1x2 eventually:tm:
+  parent: BaseHypospray
   name: chemical medipen
   description: A single-dose, non-refillable medipen.
   components:
