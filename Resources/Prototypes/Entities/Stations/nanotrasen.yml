@@ -28,6 +28,7 @@
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
     - BaseStationDeliveries
+    - BaseDropPodTarget # ADT
     - BaseStationLavaland # ADT
   categories: [ HideSpawnMenu ]
   components:

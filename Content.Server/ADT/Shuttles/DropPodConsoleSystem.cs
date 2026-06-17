@@ -3,6 +3,7 @@ using Content.Server.Power.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.ADT.Shuttles.Components;
+using Content.Shared.Station.Components;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Camera;
 using Content.Shared.Damage;
@@ -255,16 +256,31 @@ public sealed class DropPodConsoleSystem : EntitySystem
         var canLaunch = onDropPod && !alreadyLaunched && elapsed >= comp.Cooldown;
         var cooldownRemaining = canLaunch ? 0 : (int)Math.Ceiling((comp.Cooldown - elapsed).TotalSeconds);
 
-        // Gather ALL beacons (including blacklisted) to compute centroid and find station grid
+        // Find all grids that belong to stations marked with DropPodTargetStationComponent
+        var validStationGrids = new HashSet<EntityUid>();
+
+        var targetStationQuery = EntityQueryEnumerator<DropPodTargetStationComponent, StationDataComponent>();
+        while (targetStationQuery.MoveNext(out _, out var stationData))
+        {
+            foreach (var gridUid in stationData.Grids)
+            {
+                if (!TerminatingOrDeleted(gridUid) && HasComp<MapGridComponent>(gridUid))
+                    validStationGrids.Add(gridUid);
+            }
+        }
+
         var validBeacons = new List<DropPodBeaconInfo>();
-        var allBeacons = new List<(EntityUid uid, Vector2 worldPos)>();
+        var stationBeacons = new List<Vector2>();
 
         var beaconQuery = AllEntityQuery<WarpPointComponent, MetaDataComponent>();
         while (beaconQuery.MoveNext(out var beaconUid, out var warp, out var meta))
         {
+            var beaconXform = Transform(beaconUid);
             var name = warp.Location ?? meta.EntityName;
             var worldPos = _transform.GetWorldPosition(beaconUid);
-            allBeacons.Add((beaconUid, worldPos));
+
+            if (beaconXform.GridUid is null || !validStationGrids.Contains(beaconXform.GridUid.Value))
+                continue;
 
             if (!string.IsNullOrEmpty(name) && !IsBlacklisted(name, comp.BeaconBlacklist))
             {
@@ -275,21 +291,17 @@ public sealed class DropPodConsoleSystem : EntitySystem
                     WorldPos = worldPos,
                 });
             }
+
+            stationBeacons.Add(worldPos);
         }
 
-        var stationCenter = Vector2.Zero;
-        NetEntity? stationGrid = null;
-        if (allBeacons.Count > 0)
-        {
-            foreach (var (_, pos) in allBeacons)
-                stationCenter += pos;
-            stationCenter /= allBeacons.Count;
+        var stationCenter = stationBeacons.Count > 0
+            ? stationBeacons.Aggregate(Vector2.Zero, (a, b) => a + b) / stationBeacons.Count
+            : Vector2.Zero;
 
-            // Find station grid from the first beacon's grid
-            var firstXform = Transform(allBeacons[0].uid);
-            if (firstXform.GridUid.HasValue)
-                stationGrid = GetNetEntity(firstXform.GridUid.Value);
-        }
+        var stationGrid = validStationGrids.Count > 0
+            ? GetNetEntity(validStationGrids.First())
+            : (NetEntity?) null;
 
         _ui.SetUiState(uid, DropPodConsoleUiKey.Key, new DropPodConsoleBuiState
         {
