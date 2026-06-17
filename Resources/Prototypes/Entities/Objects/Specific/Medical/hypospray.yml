@@ -192,7 +192,7 @@
       delay: 0.0
 
 - type: entity
-  parent: BaseHypospray
+  id: BaseHypospray
   parent: BaseHypoInjector # I plan to resize medipens to 1x2 eventually:tm:
   name: chemical medipen
   description: A single-dose, non-refillable medipen.
