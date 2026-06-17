@@ -34,7 +34,7 @@ public sealed class MindSlaveSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
 
     /// <summary>
-    /// Subscribes to <see cref="ComponentStartup"/>, <see cref="ComponentShutdown"/>, and <see cref="EntGotInsertedIntoContainerMessage"/> for <see cref="MindSlaveComponent"/>.
+    /// Subscribes to <see cref="ComponentStartup"/>, <see cref="ComponentShutdown"/>, and <see cref="EntGotInsertedIntoContainerMessage"/> for mindshield detection.
     /// </summary>
     public override void Initialize()
     {
@@ -42,7 +42,7 @@ public sealed class MindSlaveSystem : EntitySystem
 
         SubscribeLocalEvent<MindSlaveComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<MindSlaveComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<MindSlaveComponent, EntGotInsertedIntoContainerMessage>(OnContainerInserted);
+        SubscribeLocalEvent<EntGotInsertedIntoContainerMessage>(OnImplantInserted, before: new[] { typeof(SharedSubdermalImplantSystem) });
     }
 
     private void OnStartup(Entity<MindSlaveComponent> ent, ref ComponentStartup args)
@@ -69,14 +69,20 @@ public sealed class MindSlaveSystem : EntitySystem
         }
     }
 
-    private void OnContainerInserted(Entity<MindSlaveComponent> ent, ref EntGotInsertedIntoContainerMessage args)
+    private void OnImplantInserted(ref EntGotInsertedIntoContainerMessage args)
     {
         if (args.Container.ID != ImplanterComponent.ImplantSlotId)
+            return;
+
+        var target = args.Container.Owner;
+
+        if (!HasComp<MindSlaveComponent>(target))
             return;
 
         if (!HasComp<MindShieldImplantComponent>(args.Entity))
             return;
 
+        Entity<MindSlaveComponent> ent = (target, Comp<MindSlaveComponent>(target));
         var mindSlave = ent.Comp;
         var name = Identity.Entity(ent, EntityManager);
         var stunTime = TimeSpan.FromSeconds(10);
