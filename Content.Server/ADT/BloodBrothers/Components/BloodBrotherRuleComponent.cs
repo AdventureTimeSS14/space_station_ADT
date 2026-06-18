@@ -26,7 +26,6 @@ public sealed partial class BloodBrotherRuleComponent : Component
         "blood-brothers-meeting-dorms",
         "blood-brothers-meeting-arrivals",
         "blood-brothers-meeting-cargo",
-        "blood-brothers-meeting-holodeck",
         "blood-brothers-meeting-assistant",
         "blood-brothers-meeting-chapel",
         "blood-brothers-meeting-library",
