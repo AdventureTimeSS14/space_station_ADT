@@ -615,25 +615,6 @@
   - type: Clothing
     sprite: ADT/Personalization/pangaari_jacket.rsi
 
-- type: entity
-  parent: Clothing
-  id: ADTClothingGoldenEarringPangaari
-  name: gold earring
-  description: A piece of jewelry made of a dark gold alloy, with a history that is far from simple—just like the person who wears it.
-  suffix: Pangaari
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/pangaari_golden_earrings.rsi
-    state: icon
-  - type: Item
-    size: Small
-  - type: Clothing
-    sprite: ADT/Personalization/pangaari_golden_earrings.rsi
-    slots:
-    - ears
-    - ears2
-
-
 #Rip_Zoro
 - type: entity
   parent: ADTSponsorClothingNeckBase
@@ -1905,3 +1886,21 @@
       collection: FootstepJester
       params:
         variation: 0.07
+
+- type: entity
+  parent: Clothing
+  id: ADTClothingEarHonelin111GoldenEarring
+  name: gold earring
+  description: A piece of jewelry made of a dark gold alloy, with a history that is far from simple—just like the person who wears it.
+  suffix: Pangaari
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/pangaari_golden_earrings.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/pangaari_golden_earrings.rsi
+    slots:
+    - ears
+    - ears2
