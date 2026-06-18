@@ -1,0 +1,8 @@
+- type: speechSounds
+  id: Combine
+  saySound:
+    collection: CombineStatements
+  askSound:
+    collection: CombineQuestions
+  exclaimSound:
+    collection: CombineExclaims

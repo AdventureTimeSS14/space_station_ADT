@@ -1,0 +1,23 @@
+- type: soundCollection
+  id: CombineStatements
+  files:
+    - /Audio/_TSF/Voice/Talk/Combine/statement1.ogg
+    - /Audio/_TSF/Voice/Talk/Combine/statement2.ogg
+    - /Audio/_TSF/Voice/Talk/Combine/statement3.ogg
+    - /Audio/_TSF/Voice/Talk/Combine/statement4.ogg
+    - /Audio/_TSF/Voice/Talk/Combine/statement5.ogg
+
+- type: soundCollection
+  id: CombineQuestions
+  files:
+    - /Audio/_TSF/Voice/Talk/Combine/question1.ogg
+    - /Audio/_TSF/Voice/Talk/Combine/question2.ogg
+    - /Audio/_TSF/Voice/Talk/Combine/question3.ogg
+
+- type: soundCollection
+  id: CombineExclaims
+  files:
+    - /Audio/_TSF/Voice/Talk/Combine/exclaim1.ogg
+    - /Audio/_TSF/Voice/Talk/Combine/exclaim2.ogg
+    - /Audio/_TSF/Voice/Talk/Combine/exclaim3.ogg
+    - /Audio/_TSF/Voice/Talk/Combine/exclaim4.ogg
