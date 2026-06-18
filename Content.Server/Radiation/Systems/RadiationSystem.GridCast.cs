@@ -23,8 +23,8 @@ public partial class RadiationSystem
     {
         public EntityUid? GridUid => Entity.Comp2.GridUid;
         public float Slope => Entity.Comp1.Slope;
-        public float TerminalDecayDistance => Entity.Comp1.TerminalDecayDistance;
-        public float TerminalDecaySlope => Entity.Comp1.TerminalDecaySlope;
+        public float TerminalDecayDistance => Entity.Comp1.TerminalDecayDistance; // ADT-Tweak
+        public float TerminalDecaySlope => Entity.Comp1.TerminalDecaySlope; // ADT-Tweak
         public TransformComponent Transform => Entity.Comp2;
     }
 
