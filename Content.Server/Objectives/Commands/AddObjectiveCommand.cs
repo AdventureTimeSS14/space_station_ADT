@@ -1,9 +1,12 @@
 ﻿using System.Linq;
+using Content.Server.ADT.BloodBrothers.Components;
 using Content.Server.Administration;
+using Content.Shared.ADT.BloodBrothers.Components;
 using Content.Shared.Administration;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Prototypes;
+using Content.Shared.Roles;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
@@ -17,6 +20,8 @@ public sealed class AddObjectiveCommand : LocalizedEntityCommands
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly ObjectivesSystem _objectives = default!;
+    [Dependency] private readonly IEntityManager _entities = default!;
+    [Dependency] private readonly SharedRoleSystem _role = default!;
 
     public override string Command => "addobjective";
 
@@ -24,7 +29,7 @@ public sealed class AddObjectiveCommand : LocalizedEntityCommands
     {
         if (args.Length != 2)
         {
-            shell.WriteError(Loc.GetString(Loc.GetString("cmd-addobjective-invalid-args")));
+            shell.WriteError(Loc.GetString("cmd-addobjective-invalid-args"));
             return;
         }
 
@@ -52,6 +57,41 @@ public sealed class AddObjectiveCommand : LocalizedEntityCommands
             // can fail for other reasons so dont pretend to be right
             shell.WriteError(Loc.GetString("cmd-addobjective-adding-failed"));
         }
+
+        // ADT-Tweak: also add objective to blood brother partner
+        if (_role.MindHasRole<BloodBrotherRoleComponent>(mindId))
+        {
+            AddObjectiveToBrother(shell, mindId, args[1]);
+        }
+    }
+
+    private void AddObjectiveToBrother(IConsoleShell shell, EntityUid mindId, string objectiveId)
+    {
+        var query = _entities.EntityQueryEnumerator<BloodBrotherRuleComponent>();
+        while (query.MoveNext(out var uid, out var ruleComp))
+        {
+            foreach (var team in ruleComp.Teams)
+            {
+                if (!team.MemberMinds.Contains(mindId))
+                    continue;
+
+                foreach (var partnerMind in team.MemberMinds)
+                {
+                    if (partnerMind == mindId)
+                        continue;
+
+                    if (!_entities.TryGetComponent(partnerMind, out MindComponent? partnerMindComp))
+                        continue;
+
+                    if (_mind.TryAddObjective(partnerMind, partnerMindComp, objectiveId))
+                        shell.WriteLine(Loc.GetString("cmd-addobjective-brother-success"));
+                    else
+                        shell.WriteError(Loc.GetString("cmd-addobjective-brother-failed"));
+                }
+
+                return;
+            }
+        }
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
@@ -68,6 +108,6 @@ public sealed class AddObjectiveCommand : LocalizedEntityCommands
 
         return CompletionResult.FromHintOptions(
             _objectives.Objectives(),
-            Loc.GetString(Loc.GetString("cmd-add-objective-obj-completion")));
+            Loc.GetString("cmd-add-objective-obj-completion"));
     }
 }

@@ -40,6 +40,7 @@
   rules:
     - Nukeops
     - Traitor
+    - BloodBrothers
     - Revolutionary
     - Zombie
     - Wizard
@@ -63,6 +64,7 @@
   rules:
     - Nukeops
     - Traitor
+    - BloodBrothers
     - Revolutionary
     - Zombie
     - Wizard

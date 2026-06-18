@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2026 Kirill Golubenko
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
+#
+# Author: Kirill Golubenko
+# Discord: golub4ik
+# Ckey: WikiHampter
+
+# Blood Brothers base rule
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseBloodBrotherRule
+  components:
+  - type: BloodBrotherRule
+  - type: AntagSelection
+    agentName: blood-brother-roundend-name
+
+# Blood Brothers game rule (2 players, one pair)
+- type: entity
+  parent: BaseBloodBrotherRule
+  id: BloodBrothers
+  components:
+  - type: GameRule
+    minPlayers: 20
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ BloodBrother ]
+      max: 6
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+      lateJoinAdditional: false
+      mindRoles:
+      - MindRoleBloodBrother

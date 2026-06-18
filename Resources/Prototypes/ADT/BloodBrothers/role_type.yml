@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2026 Kirill Golubenko
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
+#
+# Author: Kirill Golubenko
+# Discord: golub4ik
+# Ckey: WikiHampter
+
+- type: roleType
+  id: BloodBrotherTeam
+  name: role-type-blood-brother-team-name
+  color: '#d82000'
+  symbol: "⚔"

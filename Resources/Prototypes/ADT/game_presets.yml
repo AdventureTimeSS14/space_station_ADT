@@ -113,6 +113,21 @@
   bannedRound: 1
 
 - type: gamePreset
+  id: BloodBrothers
+  alias:
+    - bloodbrothers
+  name: blood-brothers-title
+  description: blood-brothers-description
+  showInVote: false
+  rules:
+    - BloodBrothers
+    - BasicRoundstartVariation
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - CrewTransferScheduler
+
+- type: gamePreset
   id: DynamicRandom
   alias:
     - dynamicrandom
