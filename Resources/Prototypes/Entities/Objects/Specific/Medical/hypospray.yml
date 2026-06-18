@@ -760,8 +760,8 @@
     allowedModes:
     - HyposprayInjectMode
     - HypopenDynamicMode
-  - type: UseDelay
-    delay: 0.25 #ADT Tweak 0.5>0.25
+  # - type: UseDelay # ADT Tweak
+  #   delay: 0.25 #ADT Tweak 0.5>0.25
   - type: StaticPrice # A new shitcurity meta
     price: 75
   - type: EmitSoundOnUse
