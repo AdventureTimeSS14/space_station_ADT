@@ -105,18 +105,10 @@
           tags:
           - PKA
           - PKAUpgrade
-    - item: null
-      hand:
-        emptyLabel: borg-slot-pka-empty
-        emptyRepresentative: WeaponProtoKineticAccelerator
-        whitelist:
-          tags:
-          - PKA
-          - PKAUpgrade
     - item: WeaponGrapplingGun
     - item: BorgHandheldGPSBasic
     - item: HandHeldMassScannerBorg
-    - item: MaterialBag
+    - item: BorgOreBagOfHolding
   - type: BorgModuleIcon
     icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: salvage-module }
 

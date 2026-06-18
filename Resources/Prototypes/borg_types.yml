@@ -87,7 +87,7 @@
   defaultModules:
 #  - BorgModulePrying
   - BorgModuleTool
-  - BorgModuleMining
+#  - BorgModuleMining
   #- BorgModuleTraversal #ADT tweak: MineBorgModulesUpdate
   - BorgModuleAppraisal
   - ADTBorgModuleSalvage #ADT tweak: MineBorgModulesUpdate
