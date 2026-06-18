@@ -2,7 +2,9 @@ using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
+using Content.Server.Stack;
 using Content.Shared.ADT.Shuttles.Components;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Station.Components;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Camera;
@@ -11,6 +13,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Server.Shuttles.Components;
+using Content.Shared.Stacks;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Content.Shared.Warps;
@@ -45,6 +48,8 @@ public sealed class DropPodConsoleSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
 
@@ -253,8 +258,11 @@ public sealed class DropPodConsoleSystem : EntitySystem
             && TryComp<DropPodComponent>(xform.GridUid.Value, out var dropPod)
             && dropPod.Launched;
         var elapsed = _timing.CurTime - comp.LastLaunchTime;
-        var canLaunch = onDropPod && !alreadyLaunched && elapsed >= comp.Cooldown;
-        var cooldownRemaining = canLaunch ? 0 : (int)Math.Ceiling((comp.Cooldown - elapsed).TotalSeconds);
+        var cooldownReady = onDropPod && !alreadyLaunched && elapsed >= comp.Cooldown;
+        var cooldownRemaining = cooldownReady ? 0 : (int)Math.Ceiling((comp.Cooldown - elapsed).TotalSeconds);
+
+        var tcCount = GetTcInSlot(uid);
+        var canLaunch = cooldownReady && tcCount >= comp.TcCost;
 
         // Find all grids that belong to stations marked with DropPodTargetStationComponent
         var validStationGrids = new HashSet<EntityUid>();
@@ -311,7 +319,21 @@ public sealed class DropPodConsoleSystem : EntitySystem
             CooldownRemaining = cooldownRemaining,
             StationGrid = stationGrid,
             StationWorldCenter = stationCenter,
+            TcBalance = tcCount,
+            TcCost = comp.TcCost,
         });
+    }
+
+    private int GetTcInSlot(EntityUid uid)
+    {
+        if (!TryComp<ItemSlotsComponent>(uid, out var slots))
+            return 0;
+        var item = _itemSlots.GetItemOrNull(uid, "tcSlot", slots);
+        if (item is not { } tcEnt)
+            return 0;
+        if (!TryComp<StackComponent>(tcEnt, out var stack) || stack.StackTypeId != "Telecrystal")
+            return 0;
+        return stack.Count;
     }
 
     private void OnDeployMessage(Entity<DropPodConsoleComponent> ent, ref DropPodConsoleDeployMessage args)
@@ -329,6 +351,10 @@ public sealed class DropPodConsoleSystem : EntitySystem
             return;
 
         if ((_timing.CurTime - comp.LastLaunchTime) < comp.Cooldown)
+            return;
+
+        var tcCount = GetTcInSlot(uid);
+        if (tcCount < comp.TcCost)
             return;
 
         var targetBeaconEnt = GetEntity(args.TargetBeacon);
@@ -369,6 +395,13 @@ public sealed class DropPodConsoleSystem : EntitySystem
             announcement,
             sender: Loc.GetString("drop-pod-console-sender"),
             colorOverride: Color.Red);
+
+        if (TryComp<ItemSlotsComponent>(uid, out var slots))
+        {
+            var tcEnt = _itemSlots.GetItemOrNull(uid, "tcSlot", slots);
+            if (tcEnt is { } tcItem && TryComp<StackComponent>(tcItem, out var stack))
+                _stack.TryUse((tcItem, stack), comp.TcCost);
+        }
 
         dropPod.Launched = true;
         comp.LastLaunchTime = _timing.CurTime;

@@ -19,11 +19,15 @@ public sealed class DropPodConsoleBui(EntityUid owner, Enum uiKey) : BoundUserIn
     private BoxContainer? _beaconList;
     private DropPodNavMapControl? _mapControl;
 
+    private Label? _tcLabel;
+
     private NetEntity? _selectedBeacon;
     private string? _selectedBeaconName;
     private List<DropPodBeaconInfo> _beacons = new();
     private bool _canLaunch;
     private bool _alreadyLaunched;
+    private int _tcBalance;
+    private int _tcCost;
 
     protected override void Open()
     {
@@ -42,6 +46,8 @@ public sealed class DropPodConsoleBui(EntityUid owner, Enum uiKey) : BoundUserIn
         _beacons = s.ValidBeacons;
         _canLaunch = s.CanLaunch;
         _alreadyLaunched = s.AlreadyLaunched;
+        _tcBalance = s.TcBalance;
+        _tcCost = s.TcCost;
 
         if (_mapControl != null && s.StationGrid.HasValue)
         {
@@ -104,9 +110,15 @@ public sealed class DropPodConsoleBui(EntityUid owner, Enum uiKey) : BoundUserIn
 
         _statusLabel = new Label
         {
-            Margin = new Thickness(0, 0, 0, 8),
+            Margin = new Thickness(0, 0, 0, 4),
         };
         panel.AddChild(_statusLabel);
+
+        _tcLabel = new Label
+        {
+            Margin = new Thickness(0, 0, 0, 8),
+        };
+        panel.AddChild(_tcLabel);
 
         panel.AddChild(new Label
         {
@@ -240,6 +252,12 @@ public sealed class DropPodConsoleBui(EntityUid owner, Enum uiKey) : BoundUserIn
                 ? _selectedBeaconName
                 : Loc.GetString("drop-pod-console-sector-none");
             _selectedLabel.FontColorOverride = _selectedBeaconName != null ? Color.OrangeRed : Color.Gray;
+        }
+
+        if (_tcLabel != null)
+        {
+            _tcLabel.Text = Loc.GetString("drop-pod-console-tc-label", ("balance", _tcBalance), ("cost", _tcCost));
+            _tcLabel.FontColorOverride = _tcBalance >= _tcCost ? Color.LimeGreen : Color.Red;
         }
 
         if (_deployButton != null)

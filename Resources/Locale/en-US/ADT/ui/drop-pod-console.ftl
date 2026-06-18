@@ -13,6 +13,9 @@ drop-pod-console-status-ready = Status: Ready to launch.
 drop-pod-console-status-not-ready = Status: System recharging. Please wait.
 drop-pod-console-status-launched = Status: Drop pod already deployed.
 
+drop-pod-console-tc-label = Telecrystals: { $balance } / { $cost } TC
+drop-pod-console-tc-slot-name = Telecrystal slot
+
 drop-pod-console-notice = WARNING: Operatives not seated during landing will sustain injuries.
 
 ## Announcement sent when a launch is initiated

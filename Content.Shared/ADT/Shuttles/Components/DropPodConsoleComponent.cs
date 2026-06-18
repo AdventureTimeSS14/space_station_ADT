@@ -69,10 +69,10 @@ public sealed partial class DropPodConsoleComponent : Component
     /// Total flight time in seconds from launch to impact. Also used as the announcement lead time.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float FlightTime = 60f;
+    public float FlightTime = 30f;
 
     [DataField]
-    public TimeSpan Cooldown = TimeSpan.FromSeconds(60);
+    public TimeSpan Cooldown = TimeSpan.FromSeconds(120);
 
     [DataField]
     public TimeSpan LastLaunchTime = TimeSpan.Zero;
@@ -89,6 +89,9 @@ public sealed partial class DropPodConsoleComponent : Component
     /// </summary>
     [DataField]
     public float PreLandingSpawnLeadTime = 15f;
+
+    [DataField]
+    public int TcCost = 35;
 }
 
 [Serializable, NetSerializable]
@@ -122,6 +125,8 @@ public sealed class DropPodConsoleBuiState : BoundUserInterfaceState
     public NetEntity? StationGrid { get; init; }
     /// <summary>World-space centroid of all beacons, used to centre the nav map view.</summary>
     public Vector2 StationWorldCenter { get; init; }
+    public int TcBalance { get; init; }
+    public int TcCost { get; init; }
 }
 
 /// <summary>

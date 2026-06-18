@@ -25,6 +25,16 @@
       state: syndie_generic_keys
     - map: ["enum.WiresVisualLayers.MaintenancePanel"]
       state: generic_panel_open
+  - type: ItemSlots
+    slots:
+      tcSlot:
+        name: drop-pod-tc-slot-name
+        whitelist:
+          components:
+          - Currency
+  - type: ContainerContainer
+    containers:
+      tcSlot: !type:ContainerSlot {}
   - type: PointLight
     radius: 1.5
     energy: 1.6
