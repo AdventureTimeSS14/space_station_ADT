@@ -10,8 +10,12 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Physics;
 using Content.Shared.Throwing;
 using Robust.Shared.Map;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Events;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
@@ -24,6 +28,7 @@ public sealed class BubblegumChargeSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
 
@@ -35,6 +40,7 @@ public sealed class BubblegumChargeSystem : EntitySystem
         SubscribeLocalEvent<BubblegumActiveChargeComponent, ComponentShutdown>(OnActiveShutdown);
         SubscribeLocalEvent<BubblegumActiveChargeComponent, ThrowDoHitEvent>(OnChargeHit);
         SubscribeLocalEvent<BubblegumActiveChargeComponent, LandEvent>(OnChargeLand);
+        SubscribeLocalEvent<BubblegumActiveChargeComponent, PreventCollideEvent>(OnChargePreventCollide);
     }
 
     private void OnActiveStart(Entity<BubblegumActiveChargeComponent> ent, ref ComponentStartup args)
@@ -131,6 +137,23 @@ public sealed class BubblegumChargeSystem : EntitySystem
         active.Direction = direction;
         active.TrampleDamage = charge.TrampleDamage;
         active.ExpireOnHit = charge.ExpireOnHit;
+        active.AlreadySmashed.Clear();
+
+        // Damage all smashable structures on the planned path up front, but do not shorten
+        // the throw vector. Actual collision with those structures is cancelled in
+        // OnChargePreventCollide, otherwise physics can deflect Bubblegum and alter the charge.
+        var ray = new CollisionRay(userMap.Position, direction, (int) CollisionGroup.Impassable);
+        var rayResults = _physics.IntersectRay(userMap.MapId, ray, distance, user, false);
+        foreach (var result in rayResults)
+        {
+            var hit = result.HitEntity;
+            if (!IsSmashableStructure(hit))
+                continue;
+
+            if (active.AlreadySmashed.Add(hit))
+                TrySmashStructure(user, active, hit);
+        }
+
         active.EndsAt = _timing.CurTime + TimeSpan.FromSeconds(MathF.Max(0.4f, distance / MathF.Max(1f, charge.Speed)) + 0.5f);
         Dirty(user, active);
 
@@ -138,7 +161,7 @@ public sealed class BubblegumChargeSystem : EntitySystem
         var gridRot = _transform.GetWorldRotation(userXform.ParentUid);
         _transform.SetLocalRotation(user, direction.ToWorldAngle() - gridRot);
 
-        _throwing.TryThrow(user, diff, charge.Speed, animated: false, playSound: false, doSpin: false);
+        _throwing.TryThrow(user, diff, charge.Speed, animated: false, playSound: false, doSpin: false, compensateFriction: true);
         return true;
     }
 
@@ -190,13 +213,35 @@ public sealed class BubblegumChargeSystem : EntitySystem
             return;
         }
 
-        if (IsSmashableStructure(target))
-        {
-            var smash = new DamageSpecifier();
-            smash.DamageDict.Add("Blunt", ent.Comp.SmashBlunt);
-            smash.DamageDict.Add("Structural", ent.Comp.SmashStructural);
-            _damageable.TryChangeDamage(target, smash, true, origin: ent.Owner);
-        }
+        if (IsSmashableStructure(target) && ent.Comp.AlreadySmashed.Add(target))
+            TrySmashStructure(ent.Owner, ent.Comp, target);
+    }
+
+    private void OnChargePreventCollide(Entity<BubblegumActiveChargeComponent> ent, ref PreventCollideEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (!IsSmashableStructure(args.OtherEntity))
+            return;
+
+        if (ent.Comp.AlreadySmashed.Add(args.OtherEntity))
+            TrySmashStructure(ent.Owner, ent.Comp, args.OtherEntity);
+
+        // Structures are handled by charge damage, not by physics collision. Letting the
+        // hard collision resolve can stop the throw or rotate its velocity away from the
+        // originally planned charge direction.
+        args.Cancelled = true;
+    }
+
+    private bool TrySmashStructure(EntityUid user, BubblegumActiveChargeComponent component, EntityUid target)
+    {
+        var smash = new DamageSpecifier();
+        smash.DamageDict.Add("Blunt", component.SmashBlunt);
+        smash.DamageDict.Add("Structural", component.SmashStructural);
+        _damageable.TryChangeDamage(target, smash, true, origin: user);
+
+        return TerminatingOrDeleted(target) || EntityManager.IsQueuedForDeletion(target);
     }
 
     private bool IsSmashableStructure(EntityUid uid)
