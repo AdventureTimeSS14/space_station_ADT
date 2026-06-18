@@ -2,6 +2,7 @@ using Content.Shared.ADT.Crushers.Components;
 using Content.Shared.ADT.Crawling;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Effects;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Marker;
@@ -9,6 +10,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics;
+using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
@@ -49,7 +51,7 @@ public sealed partial class AreaPushbackOnHitEffect : TrophyEffect
             if (!entManager.HasComponent<DamageMarkerComponent>(target))
                 continue;
 
-            DoAreaEffect(holder, entManager, args.User);
+            DoAreaEffect(holder, entManager, args.User, target);
             break;
         }
     }
@@ -57,9 +59,11 @@ public sealed partial class AreaPushbackOnHitEffect : TrophyEffect
     private void DoAreaEffect(
         Entity<TrophyHolderComponent> holder,
         EntityManager entManager,
-        EntityUid user)
+        EntityUid user,
+        EntityUid directHit)
     {
         var damageableSystem = entManager.System<DamageableSystem>();
+        var colorFlash = entManager.System<SharedColorFlashEffectSystem>();
         var transformSystem = entManager.System<SharedTransformSystem>();
         var physicsSystem = entManager.System<SharedPhysicsSystem>();
         var lookupSystem = entManager.System<EntityLookupSystem>();
@@ -78,7 +82,13 @@ public sealed partial class AreaPushbackOnHitEffect : TrophyEffect
             if (!entManager.HasComponent<FaunaComponent>(ent))
                 continue;
 
-            damageableSystem.TryChangeDamage(ent, Damage, origin: user);
+            var damaged = damageableSystem.TryChangeDamage(ent, Damage, origin: user);
+            if (ent != directHit && damaged && !entManager.IsQueuedForDeletion(ent))
+            {
+                var filter = Filter.Pvs(ent, entityManager: entManager)
+                    .RemoveWhereAttachedEntity(o => o == user);
+                colorFlash.RaiseEffect(Color.Red, new List<EntityUid> { ent }, filter);
+            }
 
             if (!entManager.TryGetComponent<PhysicsComponent>(ent, out var physics))
                 continue;
@@ -92,7 +102,7 @@ public sealed partial class AreaPushbackOnHitEffect : TrophyEffect
 
             if (direction.LengthSquared() < 0.0001f)
                 continue;
-            
+
             var impulse = direction.Normalized() * PushbackForce;
             physicsSystem.ApplyLinearImpulse(ent, impulse, body: physics);
         }
