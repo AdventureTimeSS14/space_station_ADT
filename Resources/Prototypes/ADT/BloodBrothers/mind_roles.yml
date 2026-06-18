@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2026 Kirill Golubenko
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
+#
+# Author: Kirill Golubenko
+# Discord: golub4ik
+# Ckey: WikiHampter
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleBloodBrother
+  name: Blood Brother Role
+  components:
+  - type: MindRole
+    antagPrototype: BloodBrother
+    exclusiveAntag: true
+    roleType: BloodBrotherTeam
+  - type: BloodBrotherRole

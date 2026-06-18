@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2026 Kirill Golubenko
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
+#
+# Author: Kirill Golubenko
+# Discord: golub4ik
+# Ckey: WikiHampter
+
+- type: antag
+  id: BloodBrother
+  name: roles-antag-blood-brother-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-blood-brother-objective

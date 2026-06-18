@@ -64,7 +64,14 @@
           conditions:
           - !type:HasBudgetCondition
           - !type:MaxRuleOccurenceCondition
-      # Midround rules
+        - id: BloodBrothers
+          weight: 10
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 15
+       # Midround rules
       - !type:GroupSelector
         conditions:
         - !type:RoundDurationCondition

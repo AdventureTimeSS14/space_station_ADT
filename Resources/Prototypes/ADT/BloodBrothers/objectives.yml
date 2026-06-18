@@ -1,0 +1,269 @@
+# SPDX-FileCopyrightText: 2026 Kirill Golubenko
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
+#
+# Author: Kirill Golubenko
+# Discord: golub4ik
+# Ckey: WikiHampter
+
+# Blood Brothers objectives
+
+# Base for blood brother objectives
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseBloodBrotherObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-syndicate
+
+# Both brothers escape together (always assigned)
+- type: entity
+  parent: [BaseBloodBrotherObjective, BaseLivingObjective]
+  id: BothBrothersEscapeObjective
+  name: Сбежать на Центком живыми и без наручников вместе с братом.
+  description: Один из наших агентов встретит вас по прибытии. Не показывайтесь в наручниках. Ваш брат тоже должен сбежать живым и свободным.
+  components:
+  - type: Objective
+    difficulty: 1.3
+    unique: true
+    icon:
+      sprite: Structures/Furniture/chairs.rsi
+      state: shuttle
+  - type: BothBrothersEscapeCondition
+
+# Kill a random person
+- type: entity
+  parent: [BaseBloodBrotherObjective, BaseKillObjective]
+  id: BloodBrotherKillObjective
+  description: Сделайте это как вам удобнее, главное — не дайте им покинуть станцию.
+  components:
+  - type: Objective
+    difficulty: 1.75
+    unique: false
+  - type: TargetObjective
+    title: objective-condition-maroon-person-title
+  - type: PickRandomPerson
+    filters:
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
+    - !type:ADT.BloodBrothers.Filters.FilterOutOwnBloodBrotherTeam
+  - type: KillPersonCondition
+    requireMaroon: true
+
+# Kill a random head of staff
+- type: entity
+  parent: [BaseBloodBrotherObjective, BaseKillObjective]
+  id: BloodBrotherKillHeadObjective
+  description: Убейте главу отдела и убедитесь, что он не сбежит на Центком.
+  components:
+  - type: Objective
+    difficulty: 3.0
+    unique: true
+  - type: TargetObjective
+    title: objective-condition-kill-maroon-title
+  - type: PickRandomPerson
+    filters:
+    - !type:BodyMindFilter
+      whitelist:
+        components:
+        - CommandStaff
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
+    - !type:ADT.BloodBrothers.Filters.FilterOutOwnBloodBrotherTeam
+  - type: KillPersonCondition
+    requireDead: true
+    requireMaroon: true
+
+# Steal objectives
+- type: entity
+  abstract: true
+  parent: [BaseBloodBrotherObjective, BaseStealObjective]
+  id: BaseBloodBrotherStealObjective
+  components:
+  - type: StealCondition
+    verifyMapExistence: false
+  - type: Objective
+    difficulty: 2.75
+  - type: ObjectiveLimit
+    limit: 2
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBloodBrotherStealObjective
+  id: BloodBrotherStealCaptainIDObjective
+  components:
+  - type: StealCondition
+    stealGroup: CaptainIDCard
+  - type: NotJobRequirement
+    jobs: [ Captain ]
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBloodBrotherStealObjective
+  id: BloodBrotherStealCaptainGunObjective
+  components:
+  - type: StealCondition
+    stealGroup: WeaponAntiqueLaser
+    owner: job-name-captain
+  - type: NotJobRequirement
+    jobs: [ Captain ]
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBloodBrotherStealObjective
+  id: BloodBrotherStealRDHardsuitObjective
+  components:
+  - type: StealCondition
+    stealGroup: ClothingOuterHardsuitRd
+    owner: job-name-rd
+  - type: NotJobRequirement
+    jobs: [ ResearchDirector ]
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBloodBrotherStealObjective
+  id: BloodBrotherStealHyposprayObjective
+  components:
+  - type: StealCondition
+    stealGroup: Hypospray
+    owner: job-name-cmo
+  - type: NotJobRequirement
+    jobs: [ ChiefMedicalOfficer ]
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBloodBrotherStealObjective
+  id: BloodBrotherStealMagbootsObjective
+  components:
+  - type: StealCondition
+    stealGroup: ClothingShoesBootsMagAdv
+    owner: job-name-ce
+  - type: NotJobRequirement
+    jobs: [ ChiefEngineer ]
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBloodBrotherStealObjective
+  id: BloodBrotherStealKravMagaObjective
+  components:
+  - type: Objective
+    difficulty: 4.0
+  - type: StealCondition
+    stealGroup: ClothingHandsGlovesKravMaga
+    owner: job-name-warden
+  - type: NotJobRequirement
+    jobs: [ Warden ]
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBloodBrotherStealObjective
+  id: BloodBrotherStealHandTeleporterObjective
+  components:
+  - type: StealCondition
+    stealGroup: HandTeleporter
+    owner: job-name-rd
+  - type: NotJobRequirement
+    jobs: [ ResearchDirector ]
+
+# Protect a random person
+- type: entity
+  parent: [BaseBloodBrotherObjective, BaseTargetObjective, BaseKeepAliveObjective]
+  id: BloodBrotherProtectObjective
+  description: Этот человек полезен нашему делу. Проследите, чтобы он остался жив.
+  components:
+  - type: Objective
+    difficulty: 1.75
+    unique: false
+    icon:
+      sprite: Objects/Misc/folders.rsi
+      state: folder-colormap
+  - type: TargetObjective
+    title: objective-condition-other-traitor-alive-title
+  - type: PickRandomPerson
+    filters:
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KeepAliveCondition
+    - !type:ADT.BloodBrothers.Filters.FilterOutOwnBloodBrotherTeam
+
+# Document objectives (team vs team)
+- type: entity
+  parent: [BaseBloodBrotherObjective]
+  id: BloodBrotherDocumentsExchangeObjective
+  name: blood-brother-documents-exchange-title
+  description: blood-brother-documents-exchange-desc
+  components:
+  - type: Objective
+    difficulty: 3.0
+    unique: true
+    icon:
+      sprite: Objects/Misc/folders.rsi
+      state: folder-colormap
+  - type: BloodBrotherDocumentsCondition
+    variant: 0
+
+- type: entity
+  parent: [BaseBloodBrotherObjective]
+  id: BloodBrotherDocumentsCaptureObjective
+  name: blood-brother-documents-capture-title
+  description: blood-brother-documents-capture-desc
+  components:
+  - type: Objective
+    difficulty: 2.5
+    unique: true
+    icon:
+      sprite: Objects/Misc/folders.rsi
+      state: folder-colormap
+  - type: BloodBrotherDocumentsCondition
+    variant: 1
+
+- type: entity
+  parent: [BaseBloodBrotherObjective]
+  id: BloodBrotherDocumentsProtectObjective
+  name: blood-brother-documents-protect-title
+  description: blood-brother-documents-protect-desc
+  components:
+  - type: Objective
+    difficulty: 2.0
+    unique: true
+    icon:
+      sprite: Objects/Misc/folders.rsi
+      state: folder-colormap
+  - type: BloodBrotherDocumentsCondition
+    variant: 2
+
+- type: entity
+  parent: [BaseBloodBrotherObjective]
+  id: BloodBrotherDocumentsGiveObjective
+  name: blood-brother-documents-give-title
+  description: blood-brother-documents-give-desc
+  components:
+  - type: Objective
+    difficulty: 2.0
+    unique: true
+    icon:
+      sprite: Objects/Misc/folders.rsi
+      state: folder-colormap
+  - type: BloodBrotherDocumentsCondition
+    variant: 3
+
+- type: entity
+  parent: [BaseBloodBrotherObjective]
+  id: BloodBrotherDocumentsReceiveObjective
+  name: blood-brother-documents-receive-title
+  description: blood-brother-documents-receive-desc
+  components:
+  - type: Objective
+    difficulty: 2.0
+    unique: true
+    icon:
+      sprite: Objects/Misc/folders.rsi
+      state: folder-colormap
+  - type: BloodBrotherDocumentsCondition
+    variant: 4

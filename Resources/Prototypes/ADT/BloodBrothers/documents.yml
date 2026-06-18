@@ -1,0 +1,50 @@
+# SPDX-FileCopyrightText: 2026 Kirill Golubenko
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
+#
+# Author: Kirill Golubenko
+# Discord: golub4ik
+# Ckey: WikiHampter
+
+- type: stealTargetGroup
+  id: BloodBrotherSecretDocuments
+  name: blood-brother-documents-steal-group
+  sprite:
+    sprite: Objects/Misc/folders.rsi
+    state: folder-colormap
+
+- type: entity
+  parent: BaseItem
+  id: BloodBrotherDocumentsRed
+  suffix: BloodBrother, Red
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/folders.rsi
+    layers:
+    - state: folder-colormap
+      color: "#cc2323"
+    - state: folder-base
+  - type: Item
+    sprite: Objects/Misc/folders.rsi
+    size: Small
+  - type: StealTarget
+    stealGroup: BloodBrotherSecretDocuments
+  - type: BloodBrotherDocuments
+
+- type: entity
+  parent: BaseItem
+  id: BloodBrotherDocumentsBlue
+  suffix: BloodBrother, Blue
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/folders.rsi
+    layers:
+    - state: folder-colormap
+      color: "#355d99"
+    - state: folder-base
+  - type: Item
+    sprite: Objects/Misc/folders.rsi
+    size: Small
+  - type: StealTarget
+    stealGroup: BloodBrotherSecretDocuments
+  - type: BloodBrotherDocuments
