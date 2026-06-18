@@ -197,9 +197,16 @@ public sealed class VisualBodySystem : SharedVisualBodySystem
 
                 if (!_sprite.LayerMapTryGet(target, layerId, out _, false))
                 {
-                    var spriteLayer = _sprite.AddLayer(target, sprite, index + i + 1);
-                    _sprite.LayerMapSet(target, layerId, spriteLayer);
-                    _sprite.LayerSetSprite(target, layerId, rsi);
+                    // ADT-Tweak-Start: wizden nubody refactor dropped applying MarkingPrototype.Shader
+                    var layerData = new PrototypeLayerData
+                    {
+                        RsiPath = rsi.RsiPath.ToString(),
+                        State = rsi.RsiState,
+                        Shader = proto.Shader,
+                    };
+                    var layer = _sprite.AddLayer(target, layerData, index + i + 1);
+                    _sprite.LayerMapSet(target, layerId, layer);
+                    // ADT-Tweak-End
                 }
 
                 if (marking.MarkingColors is not null && i < marking.MarkingColors.Count)
