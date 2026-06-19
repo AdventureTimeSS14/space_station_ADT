@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "sprite by M1and1B (discord: m1and1b)",
+    "copyright": "sprite by M1and1B (discord: m1and1b), modified by maksim21612 (discoed)",
     "size": {
         "x": 32,
         "y": 32
@@ -9,6 +9,9 @@
     "states": [
         {
             "name": "icon"
+        },
+        {
+            "name": "storage"
         }
     ]
 }

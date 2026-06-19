@@ -3777,6 +3777,7 @@
     storedSprite:
       sprite: ADT/Personalization/not_pou_sharp_crowbar.rsi
       state: storage
+    storedRotation: -90
   - type: MeleeWeapon
     wideAnimationRotation: 65
     damage:
