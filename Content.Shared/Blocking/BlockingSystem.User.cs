@@ -94,7 +94,7 @@ public sealed partial class BlockingSystem
         }
 
         //ADT-Tweak-Start
-        if (HasEnoughBatteryCharge(item, blocking))
+        if (blocking.IsCharging && HasEnoughBatteryCharge(item, blocking))
         {
             UserStopBlocking(uid, component);
             return;
