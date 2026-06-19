@@ -1,8 +1,10 @@
 using Content.Server.ADT.Hallucinations;
 using Content.Server.Administration.Logs;
+using Content.Server.Chat.Systems;
 using Content.Server.ForceAttack;
 using Content.Shared.ADT.Cyberpsychosis;
 using Content.Shared.ADT.Traits.Assorted;
+using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
@@ -23,6 +25,15 @@ public sealed class CyberpsychosisSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+
+    private static readonly string[] ModerateVocalizations =
+    [
+        "ГРРРРР!!", "РРРА!!", "ГРР!", "РРРААА!!", "ХРРРР...", "ГРА!!",
+        "ААААА!!", "РРРР...", "ГАА!!", "РРААА!!", "ХРР!", "ГРАА!",
+        "АРРР!!", "ГРААА!!", "ХРРАА!", "РРА!", "ГРРААА!!", "ХРР...",
+        "АААРР!!", "ГРРРААА!!", "РРР...", "ГА!!", "ХРРААА!", "РААА!!",
+    ];
 
     private const string HallucinationsKey = "ADTHallucinations";
     private const string RageFaction = "SimpleHostile";
@@ -110,7 +121,20 @@ public sealed class CyberpsychosisSystem : EntitySystem
         if (comp.InEpisode)
         {
             if (now >= comp.EpisodeEnd)
+            {
                 EndEpisode(uid, comp);
+                return;
+            }
+
+            if ((comp.CurrentState == CyberpsychosisState.Moderate || comp.CurrentState == CyberpsychosisState.Severe)
+                && now >= comp.NextVocalizationTime)
+            {
+                var delay = TimeSpan.FromSeconds(4.0 + _random.NextDouble() * 8.0);
+                comp.NextVocalizationTime = now + delay;
+                var phrase = ModerateVocalizations[_random.Next(ModerateVocalizations.Length)];
+                _chat.TrySendInGameICMessage(uid, phrase, InGameICChatType.Speak, true, true, checkRadioPrefix: false);
+            }
+
             return;
         }
 

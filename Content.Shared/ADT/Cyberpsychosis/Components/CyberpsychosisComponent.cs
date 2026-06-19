@@ -52,4 +52,6 @@ public sealed partial class CyberpsychosisComponent : Component
     public float SevereParalyzeChance = 1f;
 
     public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(10);
+
+    public TimeSpan NextVocalizationTime = TimeSpan.Zero;
 }

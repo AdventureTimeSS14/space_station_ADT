@@ -33,3 +33,13 @@
   id: SecondHeartVision
   kind: source
   path: "/Textures/ADT/Shaders/second_heart_vision.swsl"
+
+- type: shader
+  id: BlackwallGlitch
+  kind: source
+  path: "/Textures/ADT/Shaders/blackwall_glitch.swsl"
+
+- type: shader
+  id: BlackwallInversion
+  kind: source
+  path: "/Textures/ADT/Shaders/blackwall_inversion.swsl"

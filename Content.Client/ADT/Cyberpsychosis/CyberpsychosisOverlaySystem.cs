@@ -12,6 +12,8 @@ public sealed class CyberpsychosisOverlaySystem : EntitySystem
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
 
     private CyberpsychosisGlitchOverlay _overlay = default!;
+    private BlackwallVisionOverlay _blackwallVision = default!;
+    private BlackwallFlashOverlay _blackwallFlash = default!;
 
     public override void Initialize()
     {
@@ -23,6 +25,8 @@ public sealed class CyberpsychosisOverlaySystem : EntitySystem
         SubscribeLocalEvent<ActiveCyberpsychosisComponent, LocalPlayerDetachedEvent>(OnDetached);
 
         _overlay = new();
+        _blackwallVision = new();
+        _blackwallFlash = new();
     }
 
     private void OnInit(EntityUid uid, ActiveCyberpsychosisComponent comp, ComponentInit args)
@@ -31,6 +35,8 @@ public sealed class CyberpsychosisOverlaySystem : EntitySystem
             return;
 
         _overlayMan.AddOverlay(_overlay);
+        _overlayMan.AddOverlay(_blackwallVision);
+        _overlayMan.AddOverlay(_blackwallFlash);
     }
 
     private void OnShutdown(EntityUid uid, ActiveCyberpsychosisComponent comp, ComponentShutdown args)
@@ -39,15 +45,21 @@ public sealed class CyberpsychosisOverlaySystem : EntitySystem
             return;
 
         _overlayMan.RemoveOverlay(_overlay);
+        _overlayMan.RemoveOverlay(_blackwallVision);
+        _overlayMan.RemoveOverlay(_blackwallFlash);
     }
 
     private void OnAttached(EntityUid uid, ActiveCyberpsychosisComponent comp, LocalPlayerAttachedEvent args)
     {
         _overlayMan.AddOverlay(_overlay);
+        _overlayMan.AddOverlay(_blackwallVision);
+        _overlayMan.AddOverlay(_blackwallFlash);
     }
 
     private void OnDetached(EntityUid uid, ActiveCyberpsychosisComponent comp, LocalPlayerDetachedEvent args)
     {
         _overlayMan.RemoveOverlay(_overlay);
+        _overlayMan.RemoveOverlay(_blackwallVision);
+        _overlayMan.RemoveOverlay(_blackwallFlash);
     }
 }

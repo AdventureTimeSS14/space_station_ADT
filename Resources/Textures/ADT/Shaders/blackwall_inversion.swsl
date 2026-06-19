@@ -1,0 +1,9 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float alpha;
+
+void fragment() {
+    highp vec2 uv = FRAGCOORD.xy * SCREEN_PIXEL_SIZE;
+    highp vec4 original = zTextureSpec(SCREEN_TEXTURE, uv);
+    highp vec3 inverted = vec3(1.0) - original.rgb;
+    COLOR = vec4(inverted, alpha);
+}
