@@ -5,7 +5,7 @@
   description: Telekinetically pulls the nearest weapon on the station into your hands.
   components:
   - type: Action
-    useDelay: 3
+    useDelay: 240
     icon:
       sprite: ADT/Personalization/stryz_ani/katana.rsi
       state: icon
