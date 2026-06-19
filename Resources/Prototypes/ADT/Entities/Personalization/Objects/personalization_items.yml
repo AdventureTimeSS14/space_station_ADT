@@ -3758,8 +3758,8 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 12
-        Piercing: 15
+        Slash: 10
+        Piercing: 12
   - type: DisarmMalus
   - type: PickableWeapon
 
