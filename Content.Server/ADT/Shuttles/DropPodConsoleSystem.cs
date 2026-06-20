@@ -1,4 +1,5 @@
 using Content.Server.Chat.Systems;
+using Content.Server.Decals;
 using Content.Server.Power.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
@@ -30,6 +31,7 @@ using Robust.Shared.Timing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using Content.Shared.Decals;
 
 namespace Content.Server.ADT.Shuttles;
 
@@ -52,6 +54,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly DecalSystem _decalSystem = default!;
 
     public override void Initialize()
     {
@@ -156,6 +159,8 @@ public sealed class DropPodConsoleSystem : EntitySystem
                     continue;
                 _damageable.TryChangeDamage(target, structuralDamage, ignoreResistances: true);
             }
+            // Note: entities on the pod grid are intentionally skipped to prevent
+            // destructible thresholds from triggering (wire breaking, scrap spawning, etc.)
         }
 
         // Merge pod into station grid so tiles and walls become part of the station
@@ -206,6 +211,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
             tilesToSet.Add((stationTileIdx, tileRef.Tile));
         }
         _mapSystem.SetTiles((stationGrid, stationComp), tilesToSet);
+        RemoveDecalsInTileArea(stationGrid, stationComp, tilesToSet);
 
         // 2. Reparent pod children, correcting for any pod rotation.
         var podXform = Transform(podGrid);
@@ -526,5 +532,30 @@ public sealed class DropPodConsoleSystem : EntitySystem
                 return true;
         }
         return false;
+    }
+
+    private void RemoveDecalsInTileArea(
+        EntityUid stationGrid,
+        MapGridComponent stationComp,
+        List<(Vector2i GridIndices, Tile Tile)> tilesToSet)
+    {
+        if (!HasComp<DecalGridComponent>(stationGrid))
+            return;
+
+        if (tilesToSet.Count == 0)
+            return;
+
+        var tileSize = stationComp.TileSize;
+        float minX = tilesToSet.Min(t => t.GridIndices.X) * tileSize;
+        float minY = tilesToSet.Min(t => t.GridIndices.Y) * tileSize;
+        float maxX = (tilesToSet.Max(t => t.GridIndices.X) + 1) * tileSize;
+        float maxY = (tilesToSet.Max(t => t.GridIndices.Y) + 1) * tileSize;
+        var bounds = new Box2(minX, minY, maxX, maxY);
+
+        var decals = _decalSystem.GetDecalsIntersecting(stationGrid, bounds);
+        foreach (var (decalId, _) in decals)
+        {
+            _decalSystem.RemoveDecal(stationGrid, decalId);
+        }
     }
 }
