@@ -424,8 +424,8 @@ public sealed class DropPodConsoleSystem : EntitySystem
             shuttle,
             targetCoords,
             Angle.Zero,
-            startupTime: comp.FlightTime,
-            hyperspaceTime: 0f);
+            startupTime: 5f,
+            hyperspaceTime: comp.FlightTime);
 
         UpdateUiState(ent);
     }
