@@ -1539,15 +1539,15 @@
 
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
-  id: ADTClothingOuterCoatJacketShipTestAltiusRedLis
+  id: ADTClothingOuterCoatJacketShipTestRedLis
   name: jacket
   description: The jacket, made of high-strength materials, is dark in color and features a prominent emblem on the back.
   suffix: Personal, Altius, RedLis
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Altius_RedLis/shiptest_jacket.rsi
+    sprite: ADT/Personalization/RedLis/shiptest_jacket.rsi
   - type: Clothing
-    sprite: ADT/Personalization/Altius_RedLis/shiptest_jacket.rsi
+    sprite: ADT/Personalization/RedLis/shiptest_jacket.rsi
   - type: Storage
     grid:
     - 0,0,4,2
