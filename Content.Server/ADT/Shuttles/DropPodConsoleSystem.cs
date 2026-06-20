@@ -201,9 +201,6 @@ public sealed class DropPodConsoleSystem : EntitySystem
             }
             else
             {
-                // Skip cables and wires — they have very low HP and shouldn't be destroyed by impact
-                if (HasComp<CableComponent>(target))
-                    continue;
                 _damageable.TryChangeDamage(target, structuralDamage, ignoreResistances: true);
             }
         }
