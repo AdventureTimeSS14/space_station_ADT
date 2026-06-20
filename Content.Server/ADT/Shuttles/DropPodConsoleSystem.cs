@@ -11,6 +11,7 @@ using Content.Shared.Buckle.Components;
 using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Destructible;
 using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Server.Shuttles.Components;
@@ -131,6 +132,36 @@ public sealed class DropPodConsoleSystem : EntitySystem
         var structuralDamage = new DamageSpecifier();
         structuralDamage.DamageDict.Add("Blunt", 500);
 
+        // Pre-calculate which station tiles the pod will cover, so we can mark entities
+        // for suppressed scrap spawning.
+        var coveredStationTiles = new HashSet<Vector2i>();
+        EntityUid? stationGridForCover = null;
+        MapGridComponent? stationCompForCover = null;
+
+        var podTargetGrid = ent.Comp.TargetStationGrid;
+        if (podTargetGrid != null && !TerminatingOrDeleted(podTargetGrid.Value) && TryComp<MapGridComponent>(podTargetGrid.Value, out var sgc))
+        {
+            stationGridForCover = podTargetGrid.Value;
+            stationCompForCover = sgc;
+
+            var podWorldMatrix = _transform.GetWorldMatrix(podGrid);
+            Matrix3x2.Invert(podWorldMatrix, out var podInvMatrix);
+            var stationWorldMatrix = _transform.GetWorldMatrix(stationGridForCover.Value);
+            Matrix3x2.Invert(stationWorldMatrix, out var stationInvMatrix);
+
+            var podOriginWorld = _transform.GetWorldPosition(podGrid);
+            var podOriginStation = Vector2.Transform(podOriginWorld, stationInvMatrix);
+            var baseTile = new Vector2i(
+                (int)Math.Round(podOriginStation.X / sgc.TileSize),
+                (int)Math.Round(podOriginStation.Y / sgc.TileSize));
+
+            foreach (var tileRef in _mapSystem.GetAllTiles(podGrid, podGridComp))
+            {
+                var stationTileIdx = baseTile + tileRef.GridIndices;
+                coveredStationTiles.Add(stationTileIdx);
+            }
+        }
+
         var nearby = _lookup.GetEntitiesInRange(podCoords, 6f,
             LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Sundries);
         foreach (var target in nearby)
@@ -138,11 +169,27 @@ public sealed class DropPodConsoleSystem : EntitySystem
             if (target == podGrid) continue;
             var targetXform = Transform(target);
 
+            if (targetXform.GridUid == podGrid)
+                continue;
+
+            if (stationGridForCover is { } stationGridCov && stationCompForCover is { } stationCompCov)
+            {
+                if (targetXform.GridUid == stationGridCov)
+                {
+                    var tileRef = _mapSystem.GetTileRef(stationGridCov, stationCompCov, targetXform.Coordinates);
+                    if (coveredStationTiles.Contains(tileRef.GridIndices))
+                    {
+                        // Mark for suppressed scrap - entity still destroyed via damage, but no scrap spawns
+                        EnsureComp<DroppodSuppressedComponent>(target);
+                        _damageable.TryChangeDamage(target, structuralDamage, ignoreResistances: true);
+                        continue;
+                    }
+                }
+            }
+
             if (HasComp<HumanoidProfileComponent>(target))
             {
-                // People inside the pod (on the pod grid) or buckled to a seat are protected
-                if (targetXform.GridUid == podGrid)
-                    continue;
+                // People buckled to a seat are protected
                 if (TryComp<BuckleComponent>(target, out var buckle) && buckle.Buckled)
                     continue;
 
@@ -152,15 +199,13 @@ public sealed class DropPodConsoleSystem : EntitySystem
                     dir = new Vector2(_random.NextFloat(-1f, 1f), _random.NextFloat(-1f, 1f));
                 _throwing.TryThrow(target, Vector2.Normalize(dir), 8f);
             }
-            else if (targetXform.GridUid != podGrid)
+            else
             {
                 // Skip cables and wires — they have very low HP and shouldn't be destroyed by impact
                 if (HasComp<CableComponent>(target))
                     continue;
                 _damageable.TryChangeDamage(target, structuralDamage, ignoreResistances: true);
             }
-            // Note: entities on the pod grid are intentionally skipped to prevent
-            // destructible thresholds from triggering (wire breaking, scrap spawning, etc.)
         }
 
         // Merge pod into station grid so tiles and walls become part of the station
