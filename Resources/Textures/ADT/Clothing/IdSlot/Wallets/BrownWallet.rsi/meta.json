@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "git - MrJohnCooper",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "brown-close-wallet"
+    },
+    {
+      "name": "brown-open-wallet"
+    },
+    {
+      "name": "brown-wallet-left",
+      "directions": 4
+    },
+    {
+      "name": "brown-wallet-right",
+      "directions": 4
+    }
+  ]
+}

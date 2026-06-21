@@ -1,0 +1,81 @@
+- type: entity
+  id: ADTBaseWallet
+  name: Base Wallet
+  parent: [ BaseStorageItem, Clothing ]
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+    storedRotation: -90
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - idcard
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    maxItemSize: Small
+    whitelist:
+      components:
+      - BankCard
+      - DnaDisk
+      - IdCard
+      - NukeDisk
+      - TechnologyDisk
+      - Matchbox
+      - EncryptionKey
+      - Emag
+      - Paper
+      tags:
+      - ADTSyndieThingies
+      - ADTBadge
+      - ADTCardPlay
+      - ADTLighter
+      - ADTMedipen
+      - Brutepack
+      - Cigarette
+      - CoordinatesDisk
+      - FakeNukeDisk
+      - Matchstick
+      - Medal
+      - Ointment
+      - Pill
+      - SpaceCash
+      - Write
+      - CigFilter
+      - RollingPaper
+      - FoodSnack
+      - Gauze
+      - VehicleKey
+      - Ring
+    blacklist:
+      tags:
+      - Book
+  - type: Wallet
+  - type: Appearance
+  - type: Access
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+
+- type: entity
+  id: ADTBrownWallet
+  name: Brown Wallet
+  description: A leather wallet with a tin clasp. Simplicity and charm in every detail.
+  parent: ADTBaseWallet
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/IdSlot/Wallets/BrownWallet.rsi
+    layers:
+    - map: [ "enum.WalletVisualLayers.Closed" ]
+      state: brown-close-wallet
+    - map: [ "enum.WalletVisualLayers.Open" ]
+      state: brown-open-wallet
+      visible: false
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: brown-wallet-left
+      right:
+      - state: brown-wallet-right
+  - type: WalletVisuals

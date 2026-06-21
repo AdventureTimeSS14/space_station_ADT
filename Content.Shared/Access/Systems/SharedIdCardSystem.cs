@@ -1,6 +1,8 @@
 using System.Globalization;
+using System.Linq; // //ADT-Tweak-Wallet
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
+using Content.Shared.ADT.Clothing.Wallet; // //ADT-Tweak-Wallet
 using Content.Shared.ADT.Radio.EntitySystems;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -10,6 +12,7 @@ using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Roles;
 using Content.Shared.StatusIcon;
+using Content.Shared.Storage; // //ADT-Tweak-Wallet
 using Robust.Shared.Configuration;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
@@ -122,6 +125,24 @@ public abstract class SharedIdCardSystem : EntitySystem
             idCard = (pda.ContainedId.Value, idCardComp);
             return true;
         }
+
+        //ADT-Tweak-Wallet-Start
+        if (TryComp<WalletComponent>(uid, out _)
+            && TryComp(uid, out StorageComponent? storage))
+        {
+            foreach (var entity in storage.StoredItems
+                         .OrderBy(x => x.Value.Position.X)
+                         .ThenBy(x => x.Value.Position.Y)
+                         .Select(x => x.Key))
+            {
+                if (TryComp(entity, out IdCardComponent? walletId))
+                {
+                    idCard = (entity, walletId);
+                    return true;
+                }
+            }
+        }
+        //ADT-Tweak-Wallet-End
 
         idCard = default;
         return false;

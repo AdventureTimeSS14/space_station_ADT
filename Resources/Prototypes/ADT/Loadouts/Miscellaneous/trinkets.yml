@@ -115,3 +115,10 @@
     back:
     - ADTClothingHeadHatDandelionFlowerWreath
   groupBy: "flowerwreath"
+
+#  # Wallets
+- type: loadout
+  id: ADTBrownWallet
+  storage:
+    back:
+    - ADTBrownWallet
