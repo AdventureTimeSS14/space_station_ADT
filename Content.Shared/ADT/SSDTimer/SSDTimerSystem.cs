@@ -1,16 +1,16 @@
-using Content.Shared.Examine;
 using Content.Shared.CCVar;
+using Content.Shared.Examine;
 using Content.Shared.SSDIndicator;
-using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
+using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.SSDTimer;
+namespace Content.Shared.ADT.SSDTimer;
 
 public sealed class SSDTimerSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-	
+
 	private float _icSsdSleepTime;
 
     public override void Initialize()
@@ -18,11 +18,11 @@ public sealed class SSDTimerSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SSDIndicatorComponent, ExaminedEvent>(OnExamined);
-		
+
         _cfg.OnValueChanged(CCVars.ICSSDSleepTime, obj => _icSsdSleepTime = obj, true);
 
     }
-	
+
     private void OnExamined(EntityUid uid, SSDIndicatorComponent component, ExaminedEvent args)
     {
         if (!args.IsInDetailsRange || !component.IsSSD)
