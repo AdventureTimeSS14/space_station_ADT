@@ -87,7 +87,6 @@ namespace Content.Server.Administration.Systems
             AddAntagVerbs(ev);
             AddAdminTimeOperSpawnVerbs(ev); // ADT-Tweak
             AdminTestArenaVariableVerbs(ev); // ADT-Tweak
-            AddAdminADTSmitesVerbs(ev); // ADT-Tweak
             AddADTTricksVerbs(ev); // ADT-Tweak
         }
 

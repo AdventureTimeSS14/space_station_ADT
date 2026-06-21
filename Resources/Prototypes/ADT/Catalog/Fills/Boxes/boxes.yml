@@ -1,4 +1,376 @@
 ﻿- type: entity
+  parent: ADTFoodPackGummies
+  id: ADTFoodPackGummiesFilled
+  name: pack of gummies
+  components:
+  - type: StaticPrice
+    price: 48
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - !type:GroupSelector
+          children:
+          - !type:EntSelector
+            id: ADTFoodGummyArachnid
+          - !type:EntSelector
+            id: ADTFoodGummyArkana
+          - !type:EntSelector
+            id: ADTFoodGummyCischi
+          - !type:EntSelector
+            id: ADTFoodGummyDrask
+          - !type:EntSelector
+            id: ADTFoodGummyFelinid
+          - !type:EntSelector
+            id: ADTFoodGummyHuman
+          - !type:EntSelector
+            id: ADTFoodGummyIPC
+          - !type:EntSelector
+            id: ADTFoodGummyKidan
+          - !type:EntSelector
+            id: ADTFoodGummyMoth
+          - !type:EntSelector
+            id: ADTFoodGummyMurine
+          - !type:EntSelector
+            id: ADTFoodGummyNovakid
+          - !type:EntSelector
+            id: ADTFoodGummyResomi
+          - !type:EntSelector
+            id: ADTFoodGummySareng
+          - !type:EntSelector
+            id: ADTFoodGummyShadekin
+          - !type:EntSelector
+            id: ADTFoodGummySlime
+          - !type:EntSelector
+            id: ADTFoodGummyTayaran
+          - !type:EntSelector
+            id: ADTFoodGummyUnath
+          - !type:EntSelector
+            id: ADTFoodGummyUrsus
+          - !type:EntSelector
+            id: ADTFoodGummyVox
+          - !type:EntSelector
+            id: ADTFoodGummyVulpkanin
+          - !type:EntSelector
+            id: ADTFoodGummySlimeGolden
+            prob: 0.02
+        - !type:GroupSelector
+          children:
+          - !type:EntSelector
+            id: ADTFoodGummyArachnid
+          - !type:EntSelector
+            id: ADTFoodGummyArkana
+          - !type:EntSelector
+            id: ADTFoodGummyCischi
+          - !type:EntSelector
+            id: ADTFoodGummyDrask
+          - !type:EntSelector
+            id: ADTFoodGummyFelinid
+          - !type:EntSelector
+            id: ADTFoodGummyHuman
+          - !type:EntSelector
+            id: ADTFoodGummyIPC
+          - !type:EntSelector
+            id: ADTFoodGummyKidan
+          - !type:EntSelector
+            id: ADTFoodGummyMoth
+          - !type:EntSelector
+            id: ADTFoodGummyMurine
+          - !type:EntSelector
+            id: ADTFoodGummyNovakid
+          - !type:EntSelector
+            id: ADTFoodGummyResomi
+          - !type:EntSelector
+            id: ADTFoodGummySareng
+          - !type:EntSelector
+            id: ADTFoodGummyShadekin
+          - !type:EntSelector
+            id: ADTFoodGummySlime
+          - !type:EntSelector
+            id: ADTFoodGummyTayaran
+          - !type:EntSelector
+            id: ADTFoodGummyUnath
+          - !type:EntSelector
+            id: ADTFoodGummyUrsus
+          - !type:EntSelector
+            id: ADTFoodGummyVox
+          - !type:EntSelector
+            id: ADTFoodGummyVulpkanin
+          - !type:EntSelector
+            id: ADTFoodGummySlimeGolden
+            prob: 0.02
+        - !type:GroupSelector
+          children:
+          - !type:EntSelector
+            id: ADTFoodGummyArachnid
+          - !type:EntSelector
+            id: ADTFoodGummyArkana
+          - !type:EntSelector
+            id: ADTFoodGummyCischi
+          - !type:EntSelector
+            id: ADTFoodGummyDrask
+          - !type:EntSelector
+            id: ADTFoodGummyFelinid
+          - !type:EntSelector
+            id: ADTFoodGummyHuman
+          - !type:EntSelector
+            id: ADTFoodGummyIPC
+          - !type:EntSelector
+            id: ADTFoodGummyKidan
+          - !type:EntSelector
+            id: ADTFoodGummyMoth
+          - !type:EntSelector
+            id: ADTFoodGummyMurine
+          - !type:EntSelector
+            id: ADTFoodGummyNovakid
+          - !type:EntSelector
+            id: ADTFoodGummyResomi
+          - !type:EntSelector
+            id: ADTFoodGummySareng
+          - !type:EntSelector
+            id: ADTFoodGummyShadekin
+          - !type:EntSelector
+            id: ADTFoodGummySlime
+          - !type:EntSelector
+            id: ADTFoodGummyTayaran
+          - !type:EntSelector
+            id: ADTFoodGummyUnath
+          - !type:EntSelector
+            id: ADTFoodGummyUrsus
+          - !type:EntSelector
+            id: ADTFoodGummyVox
+          - !type:EntSelector
+            id: ADTFoodGummyVulpkanin
+          - !type:EntSelector
+            id: ADTFoodGummySlimeGolden
+            prob: 0.02
+        - !type:GroupSelector
+          children:
+          - !type:EntSelector
+            id: ADTFoodGummyArachnid
+          - !type:EntSelector
+            id: ADTFoodGummyArkana
+          - !type:EntSelector
+            id: ADTFoodGummyCischi
+          - !type:EntSelector
+            id: ADTFoodGummyDrask
+          - !type:EntSelector
+            id: ADTFoodGummyFelinid
+          - !type:EntSelector
+            id: ADTFoodGummyHuman
+          - !type:EntSelector
+            id: ADTFoodGummyIPC
+          - !type:EntSelector
+            id: ADTFoodGummyKidan
+          - !type:EntSelector
+            id: ADTFoodGummyMoth
+          - !type:EntSelector
+            id: ADTFoodGummyMurine
+          - !type:EntSelector
+            id: ADTFoodGummyNovakid
+          - !type:EntSelector
+            id: ADTFoodGummyResomi
+          - !type:EntSelector
+            id: ADTFoodGummySareng
+          - !type:EntSelector
+            id: ADTFoodGummyShadekin
+          - !type:EntSelector
+            id: ADTFoodGummySlime
+          - !type:EntSelector
+            id: ADTFoodGummyTayaran
+          - !type:EntSelector
+            id: ADTFoodGummyUnath
+          - !type:EntSelector
+            id: ADTFoodGummyUrsus
+          - !type:EntSelector
+            id: ADTFoodGummyVox
+          - !type:EntSelector
+            id: ADTFoodGummyVulpkanin
+          - !type:EntSelector
+            id: ADTFoodGummySlimeGolden
+            prob: 0.02
+        - !type:GroupSelector
+          children:
+          - !type:EntSelector
+            id: ADTFoodGummyArachnid
+          - !type:EntSelector
+            id: ADTFoodGummyArkana
+          - !type:EntSelector
+            id: ADTFoodGummyCischi
+          - !type:EntSelector
+            id: ADTFoodGummyDrask
+          - !type:EntSelector
+            id: ADTFoodGummyFelinid
+          - !type:EntSelector
+            id: ADTFoodGummyHuman
+          - !type:EntSelector
+            id: ADTFoodGummyIPC
+          - !type:EntSelector
+            id: ADTFoodGummyKidan
+          - !type:EntSelector
+            id: ADTFoodGummyMoth
+          - !type:EntSelector
+            id: ADTFoodGummyMurine
+          - !type:EntSelector
+            id: ADTFoodGummyNovakid
+          - !type:EntSelector
+            id: ADTFoodGummyResomi
+          - !type:EntSelector
+            id: ADTFoodGummySareng
+          - !type:EntSelector
+            id: ADTFoodGummyShadekin
+          - !type:EntSelector
+            id: ADTFoodGummySlime
+          - !type:EntSelector
+            id: ADTFoodGummyTayaran
+          - !type:EntSelector
+            id: ADTFoodGummyUnath
+          - !type:EntSelector
+            id: ADTFoodGummyUrsus
+          - !type:EntSelector
+            id: ADTFoodGummyVox
+          - !type:EntSelector
+            id: ADTFoodGummyVulpkanin
+          - !type:EntSelector
+            id: ADTFoodGummySlimeGolden
+            prob: 0.02
+        - !type:GroupSelector
+          children:
+          - !type:EntSelector
+            id: ADTFoodGummyArachnid
+          - !type:EntSelector
+            id: ADTFoodGummyArkana
+          - !type:EntSelector
+            id: ADTFoodGummyCischi
+          - !type:EntSelector
+            id: ADTFoodGummyDrask
+          - !type:EntSelector
+            id: ADTFoodGummyFelinid
+          - !type:EntSelector
+            id: ADTFoodGummyHuman
+          - !type:EntSelector
+            id: ADTFoodGummyIPC
+          - !type:EntSelector
+            id: ADTFoodGummyKidan
+          - !type:EntSelector
+            id: ADTFoodGummyMoth
+          - !type:EntSelector
+            id: ADTFoodGummyMurine
+          - !type:EntSelector
+            id: ADTFoodGummyNovakid
+          - !type:EntSelector
+            id: ADTFoodGummyResomi
+          - !type:EntSelector
+            id: ADTFoodGummySareng
+          - !type:EntSelector
+            id: ADTFoodGummyShadekin
+          - !type:EntSelector
+            id: ADTFoodGummySlime
+          - !type:EntSelector
+            id: ADTFoodGummyTayaran
+          - !type:EntSelector
+            id: ADTFoodGummyUnath
+          - !type:EntSelector
+            id: ADTFoodGummyUrsus
+          - !type:EntSelector
+            id: ADTFoodGummyVox
+          - !type:EntSelector
+            id: ADTFoodGummyVulpkanin
+          - !type:EntSelector
+            id: ADTFoodGummySlimeGolden
+            prob: 0.02
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTDrinksPackYupi
+  name: pack of yupi's
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/yupi.rsi
+    drawdepth: SmallObjects
+    state: box
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    maxItemSize: Tiny
+    whitelist:
+      tags:
+      - ADTYupiPack
+    hideStackVisualsWhenClosed: false
+  - type: Item
+    sprite: ADT/Objects/Consumable/Drinks/yupi.rsi
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Appearance
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: ADTDrinksPackYupi
+  id: ADTDrinksPackYupiFilled
+  name: pack of yupi's
+  components:
+  - type: StaticPrice
+    price: 48
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - !type:GroupSelector
+          children:
+          - !type:EntSelector
+            id: ADTYupiPacketApple
+          - !type:EntSelector
+            id: ADTYupiPacketBerries
+          - !type:EntSelector
+            id: ADTYupiPacketCherry
+          - !type:EntSelector
+            id: ADTYupiPacketMango
+          - !type:EntSelector
+            id: ADTYupiPacketOrange
+          - !type:EntSelector
+            id: ADTYupiPacketPeach
+          - !type:EntSelector
+            id: ADTYupiPacketPineapple
+          - !type:EntSelector
+            id: ADTYupiPacketRaspberry
+          - !type:EntSelector
+            id: ADTYupiPacketStrawberry
+          - !type:EntSelector
+            id: ADTYupiPacketWatermelon
+        - !type:GroupSelector
+          children:
+          - !type:EntSelector
+            id: ADTYupiPacketApple
+          - !type:EntSelector
+            id: ADTYupiPacketBerries
+        - !type:GroupSelector
+          children:
+          - !type:EntSelector
+            id: ADTYupiPacketCherry
+          - !type:EntSelector
+            id: ADTYupiPacketMango
+        - !type:GroupSelector
+          children:
+          - !type:EntSelector
+            id: ADTYupiPacketOrange
+          - !type:EntSelector
+            id: ADTYupiPacketPeach
+        - !type:GroupSelector
+          children:
+          - !type:EntSelector
+            id: ADTYupiPacketPineapple
+          - !type:EntSelector
+            id: ADTYupiPacketRaspberry
+        - !type:GroupSelector
+          children:
+          - !type:EntSelector
+            id: ADTYupiPacketStrawberry
+          - !type:EntSelector
+            id: ADTYupiPacketWatermelon
+
+- type: entity
   parent: BoxCardboard
   name: box Stimulant
   id: ADTStimulantBox

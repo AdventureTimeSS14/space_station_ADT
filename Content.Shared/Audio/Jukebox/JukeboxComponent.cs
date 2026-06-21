@@ -37,13 +37,21 @@ public sealed partial class JukeboxComponent : Component
 
     [ViewVariables]
     public float SelectAccumulator;
+
     /// ADT-Tweak start
-    [ViewVariables, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float Volume = 50f;
 
+    [DataField]
     public float MinVolume = -30f;
+
+    [DataField]
     public float MaxVolume = 0f;
+
+    [DataField]
     public float MinSlider = 0f;
+
+    [DataField]
     public float MaxSlider = 100f;
 
     [DataField, AutoNetworkedField]
@@ -57,6 +65,10 @@ public sealed partial class JukeboxComponent : Component
 
     [DataField, AutoNetworkedField]
     public JukeboxVolumeLevel CurrentVolumeLevel = JukeboxVolumeLevel.Level3;
+
+    [DataField]
+    public double TrackLengthCache;
+
     /// ADT-Tweak end
 }
 

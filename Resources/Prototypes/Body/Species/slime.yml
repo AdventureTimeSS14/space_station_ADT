@@ -205,6 +205,8 @@
     - ADTSlimeEmotes
     - DoorBumpOpener
     - FootstepSound
+    - CanPilot
+    - AnomalyHost
   - type: MidroundCustomization
     changeHairSound: /Audio/ADT/slime-hair.ogg
     allowedLayers:

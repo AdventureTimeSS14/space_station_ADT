@@ -25,7 +25,7 @@
       Ears: OrganHumanEars
       Lungs: OrganHumanLungs
       Heart: OrganHumanHeart
-      Stomach: OrganHumanStomach
+      Stomach: OrganFelinidStomach
       Liver: OrganHumanLiver
       Kidneys: OrganHumanKidneys
 
@@ -37,3 +37,13 @@
   - type: VisualOrganMarkings
     markingData:
       group: Felinid
+
+- type: entity
+  parent: OrganHumanStomach
+  id: OrganFelinidStomach
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - Meat
+    isSpecialDigestibleExclusive: false

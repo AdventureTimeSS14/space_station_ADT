@@ -7,6 +7,9 @@
   - type: MovementIgnoreGravity
   - type: MovementAlwaysTouching
   - type: CanMoveInAir
+  - type: Physics
+    bodyType: KinematicController
+    bodyStatus: InAir
   - type: AmbientSound
     sound: /Audio/Effects/shuttle_thruster.ogg
     range: 8

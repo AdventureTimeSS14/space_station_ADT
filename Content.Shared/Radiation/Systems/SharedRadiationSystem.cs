@@ -17,7 +17,6 @@ public abstract partial class SharedRadiationSystem : EntitySystem
             return;
 
         entity.Comp.Intensity = intensity;
-        UpdateSource((entity, entity.Comp));
     }
 
     // ADT-Tweak start
@@ -29,6 +28,5 @@ public abstract partial class SharedRadiationSystem : EntitySystem
         entity.Comp.Slope = slope;
     }
 
-    protected virtual void UpdateSource(Entity<RadiationSourceComponent> entity) { }
     // ADT-Tweak end
 }

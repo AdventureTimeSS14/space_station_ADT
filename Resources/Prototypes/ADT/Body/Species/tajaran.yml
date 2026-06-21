@@ -23,7 +23,7 @@
       Ears: OrganHumanEars
       Lungs: OrganHumanLungs
       Heart: OrganHumanHeart
-      Stomach: OrganHumanStomach
+      Stomach: OrganFelinidStomach
       Liver: OrganHumanLiver
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile

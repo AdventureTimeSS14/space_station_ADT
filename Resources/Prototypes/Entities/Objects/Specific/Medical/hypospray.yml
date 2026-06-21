@@ -3,6 +3,9 @@
   parent: BaseItem
   id: BaseHypospray
   components:
+  - type: Spillable
+    solution: hypospray
+    spillWhenThrown: false
   - type: Injector
     solutionName: hypospray
     ignoreClosed: false
@@ -10,8 +13,6 @@
     allowedModes:
     - HyposprayDynamicMode
     - HyposprayInjectMode
-  - type: Spillable
-    solution: hypospray
   - type: ExaminableSolution
     solution: hypospray
     exactVolume: true
@@ -185,8 +186,8 @@
       delay: 0.0
 
 - type: entity
-  parent: BaseHypospray
   id: ChemicalMedipen
+  parent: BaseHypospray
   name: chemical medipen
   description: A single-dose, non-refillable medipen.
   components:
@@ -759,8 +760,8 @@
     allowedModes:
     - HyposprayInjectMode
     - HypopenDynamicMode
-  - type: UseDelay
-    delay: 0.25 #ADT Tweak 0.5>0.25
+  # - type: UseDelay # ADT Tweak
+  #   delay: 0.25 #ADT Tweak 0.5>0.25
   - type: StaticPrice # A new shitcurity meta
     price: 75
   - type: EmitSoundOnUse

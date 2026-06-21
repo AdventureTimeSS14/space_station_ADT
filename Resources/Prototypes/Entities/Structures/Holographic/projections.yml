@@ -15,7 +15,6 @@
     state: icon
   - type: TimedDespawn
     lifetime: 90
-  - type: Clickable
   - type: Damageable
   - type: Injurable
     damageContainer: Inorganic
@@ -88,6 +87,7 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Clickable
 
 - type: entity
   id: HolosignSecurity
@@ -118,6 +118,7 @@
       radius: 3
       color: red
     - type: Climbable
+    - type: Clickable
 
 - type: entity
   id: HolosignForcefield
@@ -157,3 +158,4 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Clickable

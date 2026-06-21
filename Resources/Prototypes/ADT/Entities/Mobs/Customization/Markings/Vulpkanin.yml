@@ -94,7 +94,7 @@
 - type: marking
   id: ADTVulpkanintail1Animated
   bodyPart: Tail
-  groupWhitelist: [Vulpkanin]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: tail_m_wagging
@@ -104,7 +104,7 @@
 - type: marking
   id: ADTVulpkanintail2Animated
   bodyPart: Tail
-  groupWhitelist: [Vulpkanin]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: tail_m_wagging
@@ -114,7 +114,7 @@
 - type: marking
   id: ADTVulpkanintailAllAnimated
   bodyPart: Tail
-  groupWhitelist: [Vulpkanin]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: tail_m_wagging
@@ -122,7 +122,7 @@
 - type: marking
   id: ADTVulpTailFluffyAnimated
   bodyPart: Tail
-  groupWhitelist: [Vulpkanin]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: fluffy_wagging
@@ -671,7 +671,7 @@
 - type: marking
   id: ADTVulpTailAnimated
   bodyPart: Tail
-  groupWhitelist: [Vulpkanin]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: vulp_wag
@@ -681,7 +681,7 @@
 - type: marking
   id: ADTVulpTailTipAnimated
   bodyPart: Tail
-  groupWhitelist: [Vulpkanin]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: vulp_wag
@@ -741,7 +741,7 @@
 - type: marking
   id: ADTVulpTailFoxAnimated
   bodyPart: Tail
-  groupWhitelist: [Vulpkanin]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: fox_wag
@@ -751,7 +751,7 @@
 - type: marking
   id: ADTVulpTailFoxTipAnimated
   bodyPart: Tail
-  groupWhitelist: [Vulpkanin]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: fox_wag
@@ -769,7 +769,7 @@
 - type: marking
   id: ADTVulpTailCoyoteAnimated
   bodyPart: Tail
-  groupWhitelist: [Vulpkanin]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: coyote_wag
@@ -777,7 +777,7 @@
 - type: marking
   id: ADTVulpTailCorgiAnimated
   bodyPart: Tail
-  groupWhitelist: [Vulpkanin]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: corgi_wag
@@ -835,7 +835,7 @@
 - type: marking
   id: ADTVulpTailDalmatianAnimated
   bodyPart: Tail
-  groupWhitelist: [Vulpkanin]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: dalmatian_wag

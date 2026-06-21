@@ -15,7 +15,6 @@ public sealed class InjectorsBlockerSystem : EntitySystem
         SubscribeLocalEvent<InjectorsBlockerComponent, InjectAttemptEvent>(OnInjectAttempt);
         SubscribeLocalEvent<InjectorsBlockerComponent, InventoryRelayedEvent<InjectAttemptEvent>>(OnInjectRelayAttempt);
         SubscribeLocalEvent<InjectorsBlockerComponent, TargetBeforeInjectEvent>(OnTargetBeforeInject);
-        SubscribeLocalEvent<InjectorsBlockerComponent, SelfBeforeInjectEvent>(OnSelfBeforeInject);
     }
 
     private void OnInjectAttempt(EntityUid uid, InjectorsBlockerComponent comp, InjectAttemptEvent args)
@@ -28,18 +27,9 @@ public sealed class InjectorsBlockerSystem : EntitySystem
         args.Args.Cancel();
     }
 
-    private void OnHealAttempt(EntityUid uid, InjectorsBlockerComponent comp, InventoryRelayedEvent<InjectAttemptEvent> args)
-    {
-        args.Args.Cancel();
-    }
-
     private void OnTargetBeforeInject(EntityUid uid, InjectorsBlockerComponent comp, TargetBeforeInjectEvent args)
     {
         args.Cancel();
     }
-
-    private void OnSelfBeforeInject(EntityUid uid, InjectorsBlockerComponent comp, SelfBeforeInjectEvent args)
-    {
-        args.Cancel();
-    }
 }
+
