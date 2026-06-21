@@ -1,4 +1,5 @@
 using Content.Shared.Gravity;
+using Content.Shared.Movement.Components;
 using Content.Shared.StepTrigger.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map.Components;
@@ -139,7 +140,7 @@ public sealed class StepTriggerSystem : EntitySystem
         // and the entity is flying or currently weightless
         // Makes sense simulation wise to have this be part of steptrigger directly IMO
         if (!component.IgnoreWeightless && TryComp<PhysicsComponent>(otherUid, out var physics) &&
-            (physics.BodyStatus == BodyStatus.InAir || _gravity.IsWeightless(otherUid)))
+            (physics.BodyStatus == BodyStatus.InAir || _gravity.IsWeightless(otherUid) || HasComp<CanMoveInAirComponent>(otherUid)))
             return false;
 
         var msg = new StepTriggerAttemptEvent { Source = uid, Tripper = otherUid };
