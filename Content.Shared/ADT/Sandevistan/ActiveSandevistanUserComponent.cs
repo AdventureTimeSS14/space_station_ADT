@@ -1,4 +1,4 @@
-namespace Content.Server.ADT.Sandevistan;
+namespace Content.Shared.ADT.Sandevistan;
 
 /// <summary>
 /// Marker component for currently enabled Sandevistan users, optimizing query.
