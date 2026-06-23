@@ -29,12 +29,6 @@
   - type: Injurable
   - type: Destructible
     thresholds:
-    - trigger: # Excess damage, don't spawn entities
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -53,22 +47,21 @@
     flavors:
     - paper
   - type: BadFood
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 1
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 2.5 # I consider paper to be like material sheets, so we divide their capacity by 12
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 1.25
   - type: Item
     size: Tiny
   - type: PhysicalComposition
 
 - type: entity
-  name: paper
   parent: BasePaper
   id: Paper
-  description: 'A piece of white paper.'
+  name: paper
+  description: A piece of white paper.
   components:
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
@@ -76,16 +69,15 @@
     - state: paper
     - state: paper_words
       map: ["enum.PaperVisualLayers.Writing"]
-      color: "#cccccc" #ADT CHANGE
       visible: false
     - state: paper_stamp-generic
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
-    # ADT-Tweak start. Оригами для бумаги
+    # ADT-Tweak start
     - state: paperairplane
       map: ["enum.PaperOrigamiState.State"]
       visible: false
-    # ADT-Tweak end.
+    # ADT-Tweak end
   - type: Paper
   - type: PaperLabelType
   - type: ActivatableUI
@@ -96,54 +88,8 @@
       enum.PaperUiKey.Key:
         type: PaperBoundUserInterface
   - type: FaxableObject
-  - type: PaperVisuals
-    backgroundModulate: "#cccccc" # ADT CHANGES START --->
-    contentImageModulate: "#cccccc"
-    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0 #Уголки бумаги
-    contentMargin: 16.0, 16.0, 16.0, 16.0 # ADT CHANGES END <--
-  - type: Flammable
-    fireSpread: true
-    alwaysCombustible: true
-    damage:
-      types:
-        Heat: 1
-  - type: FireVisuals
-    sprite: Effects/fire.rsi
-    normalState: fire
-  - type: Damageable
-    damageModifierSet: Wood
-  - type: Injurable
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 15
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-            Ash:
-              min: 1
-              max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: Edible
-    solution: food
-    delay: 7
-    forceFeedDelay: 7
-    utensilRequired: true # ADT-Tweak. Чтобы при открытии бумаги не могли её скушать
-    showUtensilPopup: false # ADT-Tweak
-  - type: FlavorProfile
-    flavors:
-    - paper
-  - type: BadFood
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 1
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 1
-# Corvax-Printer-Start
+  - type: StationAiWhitelist
+  # ADT-Tweak start
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -151,16 +97,18 @@
   - type: Stack
     stackType: ADTPaper
     count: 1
-# Corvax-Printer-End
-  # ADT Start
+  - type: PaperVisuals
+    backgroundModulate: "#cccccc" # ADT CHANGES START --->
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0 #Уголки бумаги
+    contentMargin: 16.0, 16.0, 16.0, 16.0 # ADT CHANGES END <--
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/ADT/Entities/paper_pickup.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/ADT/Entities/paper_drop.ogg
-  # ADT End
-  - type: StationAiWhitelist
+  # ADT-Tweak end
 
 - type: entity
   name: paper scrap
