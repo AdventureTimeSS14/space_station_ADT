@@ -1,5 +1,4 @@
 using System.Globalization;
-using System.Linq; // //ADT-Tweak-Wallet
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.ADT.Clothing.Wallet; // //ADT-Tweak-Wallet
@@ -130,16 +129,13 @@ public abstract class SharedIdCardSystem : EntitySystem
         if (TryComp<WalletComponent>(uid, out _)
             && TryComp(uid, out StorageComponent? storage))
         {
-            foreach (var entity in storage.StoredItems
-                         .OrderBy(x => x.Value.Position.X)
-                         .ThenBy(x => x.Value.Position.Y)
-                         .Select(x => x.Key))
+            if (WalletIdCardFinder.TryGetFirstIdCard(
+                    EntityManager,
+                    storage,
+                    out var walletId))
             {
-                if (TryComp(entity, out IdCardComponent? walletId))
-                {
-                    idCard = (entity, walletId);
-                    return true;
-                }
+                idCard = walletId;
+                return true;
             }
         }
         //ADT-Tweak-Wallet-End

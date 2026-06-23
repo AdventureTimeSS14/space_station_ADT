@@ -1,4 +1,3 @@
-using System.Linq; //ADT-Tweak-Wallet
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.ADT.Clothing.Wallet; //ADT-Tweak-Wallet
@@ -54,24 +53,14 @@ public sealed class ShowJobIconsSystem : EquipmentHudSystem<ShowJobIconsComponen
 
                 //ADT-Tweak-Wallet-Start
                 if (TryComp<WalletComponent>(item, out var _)
-                    && TryComp<StorageComponent>(item, out var storage))
+                    && TryComp<StorageComponent>(item, out var storage)
+                    && WalletIdCardFinder.TryGetFirstIdCard(
+                        EntityManager,
+                        storage,
+                        out var walletId))
                 {
-                    var found = false;
-
-                    foreach (var entity in storage.StoredItems
-                                 .OrderBy(x => x.Value.Position.X)
-                                 .ThenBy(x => x.Value.Position.Y)
-                                 .Select((x => x.Key)))
-                    {
-                        if (TryComp<IdCardComponent>(entity, out var walletId))
-                        {
-                            iconId = walletId.JobIcon;
-                            found = true;
-                            break;
-                        }
-                    }
-                    if (found)
-                        break;
+                    iconId = walletId.Comp.JobIcon;
+                    break;
                 }
                 //ADT-Tweak-Wallet-End
             }

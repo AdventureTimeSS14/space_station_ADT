@@ -1,4 +1,3 @@
-using System.Linq; ////ADT-Tweak-Wallet
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.ADT.Clothing.Wallet; ////ADT-Tweak-Wallet
@@ -123,25 +122,15 @@ public abstract class SharedRadioJobIconSystem : EntitySystem
 
                 //ADT-Tweak-Wallet-Start
                 if (TryComp<WalletComponent>(item, out _)
-                    && TryComp<StorageComponent>(item, out var storage))
+                    && TryComp<StorageComponent>(item, out var storage)
+                    && WalletIdCardFinder.TryGetFirstIdCard(
+                        EntityManager,
+                        storage,
+                        out var walletId))
                 {
-                    var found = false;
-
-                    foreach (var entityInWallet in storage.StoredItems
-                                 .OrderBy(x => x.Value.Position.X)
-                                 .ThenBy(x => x.Value.Position.Y)
-                                 .Select(x => x.Key))
-                    {
-                        if (TryComp<IdCardComponent>(entityInWallet, out var walletId))
-                        {
-                            iconId = walletId.JobIcon;
-                            jobName = walletId.LocalizedJobTitle;
-                            found = true;
-                            break;
-                        }
-                    }
-                    if (found)
-                        break;
+                    iconId = walletId.Comp.JobIcon;
+                    jobName = walletId.Comp.LocalizedJobTitle;
+                    break;
                 }
                 //ADT-Tweak-Wallet-End
             }

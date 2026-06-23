@@ -1,4 +1,3 @@
-using System.Linq; //ADT-Tweak-Wallet
 using Content.Shared.Access.Components;
 using Content.Shared.ADT.Clothing.Wallet; //ADT-Tweak-Wallet
 using Content.Shared.Examine;
@@ -67,18 +66,13 @@ public sealed class IdExaminableSystem : EntitySystem
 
             //ADT-Tweak-Wallet-Start
             if (TryComp<WalletComponent>(idUid, out _) &&
-                TryComp<StorageComponent>(idUid, out var storage))
+                TryComp<StorageComponent>(idUid, out var storage) &&
+                WalletIdCardFinder.TryGetFirstIdCard(
+                    EntityManager,
+                    storage,
+                    out var walletId))
             {
-                foreach (var entity in storage.StoredItems
-                             .OrderBy(x => x.Value.Position.X)
-                             .ThenBy(x => x.Value.Position.Y)
-                             .Select(x => x.Key))
-                {
-                    if (TryComp<IdCardComponent>(entity, out var walletId))
-                    {
-                        return GetNameAndJob(walletId);
-                    }
-                }
+                return GetNameAndJob(walletId.Comp);
             }
             //ADT-Tweak-Wallet-End
         }

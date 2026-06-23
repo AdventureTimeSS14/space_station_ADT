@@ -16,7 +16,6 @@ public sealed class WalletSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<WalletComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
-
         SubscribeLocalEvent<WalletComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<WalletComponent, EntInsertedIntoContainerMessage>(OnInserted);
         SubscribeLocalEvent<WalletComponent, EntRemovedFromContainerMessage>(OnRemoved);
@@ -85,9 +84,12 @@ public sealed class WalletSystem : EntitySystem
         if (!HasComp<IdCardComponent>(args.Entity))
             return;
 
-        component.IdCardsInside--;
+        component.IdCardsInside = Math.Max(0, component.IdCardsInside - 1);
 
-        _appearance.SetData(uid, WalletVisuals.StatusWallet, component.IdCardsInside > 0);
+        _appearance.SetData(
+            uid,
+            WalletVisuals.StatusWallet,
+            component.IdCardsInside > 0);
     }
 
 }
