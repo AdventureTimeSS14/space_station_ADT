@@ -32,7 +32,7 @@ public sealed partial class BlockingSystem
 
         SubscribeLocalEvent<BlockingComponent, ItemToggleActivateAttemptEvent>(OnItemToggleAttempt); //ADT-Tweak
         SubscribeLocalEvent<BlockingComponent, ChargeChangedEvent>(OnChargeChanged); //ADT-Tweak
-        SubscribeLocalEvent<BlockingComponent, ExaminedEvent>(OnCellSlotExamined); //ADT-Tweak
+        SubscribeLocalEvent<BlockingComponent, ExaminedEvent>(OnBatteryExamined); //ADT-Tweak
     }
 
     private void OnParentChanged(EntityUid uid, BlockingUserComponent component, ref EntParentChangedMessage args)
@@ -214,7 +214,7 @@ public sealed partial class BlockingSystem
         }
     }
 
-    private void OnCellSlotExamined(Entity<BlockingComponent> ent, ref ExaminedEvent args)
+    private void OnBatteryExamined(Entity<BlockingComponent> ent, ref ExaminedEvent args)
     {
         if (!TryComp<BatteryComponent>(ent, out var battery))
             return;
@@ -222,15 +222,9 @@ public sealed partial class BlockingSystem
         if (!ent.Comp.IsCharging)
             return;
 
-        OnBatteryExamined((ent.Owner, battery), ref args);
-    }
-
-    private void OnBatteryExamined(Entity<BatteryComponent> ent, ref ExaminedEvent args)
-    {
-        var chargePercent = _batterySystem.GetChargeLevel(ent.AsNullable()) * 100;
+        var chargePercent = _batterySystem.GetChargeLevel((ent.Owner, battery)) * 100;
         args.PushMarkup(Loc.GetString("power-cell-component-examine-details", ("currentCharge", $"{chargePercent:F0}")));
     }
-
     //ADT-Tweak-End
 
     /// <summary>
