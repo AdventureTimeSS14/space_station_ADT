@@ -126,7 +126,7 @@
 
 - type: entity
   id: ADTComputerPalletConsolePirate
-  parent: BaseComputerAiAccess
+  parent: [ BaseComputer, BaseComputerAiAccess ]
   name: pirate sale computer
   description: Used to sell goods loaded onto cargo pallets.
   components:
@@ -201,7 +201,7 @@
 
 ## Supermatter
 - type: entity
-  parent: [ BaseComputerAiAccess, BaseEngineeringContraband ]
+  parent: [ BaseComputer, BaseComputerAiAccess, BaseEngineeringContraband ]
   id: ComputerSupermatter
   name: supermatter monitoring console
   description: Used to monitor the status of supermatter crystals.
