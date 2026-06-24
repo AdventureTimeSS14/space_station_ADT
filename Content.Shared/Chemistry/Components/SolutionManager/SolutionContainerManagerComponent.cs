@@ -32,5 +32,5 @@ public sealed partial class SolutionContainerManagerComponent : Component
     /// Should be null after mapinit.
     /// </remarks>
     [DataField, AutoNetworkedField]
-    public Dictionary<string, Solution>? Solutions = null;
+    public Dictionary<string, Solution>? Solutions; // ADT-Tweak
 }
