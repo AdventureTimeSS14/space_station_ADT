@@ -108,7 +108,7 @@
             state: belt
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent: OrganBase
   id: OrganResomi
   abstract: true
   suffix: resomi

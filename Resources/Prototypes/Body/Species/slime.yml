@@ -215,7 +215,7 @@
   # ADT-Tweak end
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent: OrganBase
   id: OrganSlimePerson
   abstract: true
   suffix: slime person

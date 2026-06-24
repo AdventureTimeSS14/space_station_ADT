@@ -98,7 +98,7 @@
             state: shoes
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent: OrganBase
   id: OrganVulpkaninADT
   abstract: true
   suffix: vulpkanin-adt

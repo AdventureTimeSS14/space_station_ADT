@@ -43,7 +43,7 @@
             state: jumpsuit-female
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent: OrganBase
   id: OrganUrsus
   abstract: true
   suffix: ursus

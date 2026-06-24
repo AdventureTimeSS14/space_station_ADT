@@ -115,7 +115,7 @@
             state: socks
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent: OrganBase
   id: OrganShadekin
   abstract: true
   suffix: shadekin
