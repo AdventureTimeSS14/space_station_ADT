@@ -164,6 +164,9 @@ public sealed partial class ModSuitSystem
     /// </summary>
     private void OnModSuitUnequip(Entity<ModSuitComponent> ent, ref GotUnequippedEvent args)
     {
+        if (_timing.ApplyingState)
+            return;
+
         ent.Comp.TempUser = null;
 
         foreach (var part in ent.Comp.ClothingUids)
