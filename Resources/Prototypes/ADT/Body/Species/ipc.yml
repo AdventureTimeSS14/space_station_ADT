@@ -36,7 +36,7 @@
             state: jumpsuit-female
 
 - type: entity
-  parent: OrganBase
+  parent: OrganBaseOrganic
   id: OrganIPC
   abstract: true
   suffix: ipc
