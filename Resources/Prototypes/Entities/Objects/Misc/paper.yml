@@ -31,6 +31,12 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
         damage: 15
       behaviors:
       - !type:SpawnEntitiesBehavior
@@ -47,12 +53,13 @@
     flavors:
     - paper
   - type: BadFood
-  - type: Solution
-    solution:
-      maxVol: 2.5 # I consider paper to be like material sheets, so we divide their capacity by 12
-      reagents:
-      - ReagentId: Fiber
-        Quantity: 1.25
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 2.5 # I consider paper to be like material sheets, so we divide their capacity by 12
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 1
   - type: Item
     size: Tiny
   - type: PhysicalComposition
@@ -88,6 +95,7 @@
       enum.PaperUiKey.Key:
         type: PaperBoundUserInterface
   - type: FaxableObject
+  - type: PaperVisuals
   - type: StationAiWhitelist
   # ADT-Tweak start
   - type: Material
