@@ -563,7 +563,7 @@
   - type: RunAndGunSpreadModifier
     modifier: 0.1
   - type: Gun
-    fireRate: 1
+    fireRate: 3
     projectileSpeed: 45
     selectedMode: SemiAuto
     availableModes:

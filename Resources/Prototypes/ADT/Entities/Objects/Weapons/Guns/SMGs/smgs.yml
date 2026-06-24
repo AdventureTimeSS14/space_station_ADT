@@ -104,7 +104,7 @@
       zeroVisible: true
     - type: Gun
       minAngle: 18
-      maxAngle: 29
+      maxAngle: 22
       fireRate: 7
       burstFireRate: 8
       soundGunshot:
