@@ -9,6 +9,7 @@
   - type: Injector
     solutionName: hypospray
     ignoreClosed: false
+    ignoreBlockers: true # ADT-Tweak
     activeModeProtoId: HyposprayDynamicMode
     allowedModes:
     - HyposprayDynamicMode
@@ -166,6 +167,7 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 4
   - type: Injector
+    ignoreBlockers: true # ADT-Tweak
     activeModeProtoId: AdvancedJetInjectorDynamicMode
     allowedModes:
     - AdvancedJetInjectorDynamicMode
@@ -219,6 +221,7 @@
   - type: Injector
     solutionName: pen
     currentTransferAmount: null
+    ignoreBlockers: true # ADT-Tweak
     activeModeProtoId: HyposprayInjectMode
     allowedModes:
     - HyposprayInjectMode
@@ -756,6 +759,7 @@
     exactVolume: true
   - type: Injector
     solutionName: hypospray
+    ignoreBlockers: true # ADT-Tweak
     activeModeProtoId: HypopenDynamicMode
     allowedModes:
     - HyposprayInjectMode

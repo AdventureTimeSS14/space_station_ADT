@@ -196,7 +196,7 @@ public sealed partial class InjectorSystem : EntitySystem
     private bool TryMobsDoAfter(Entity<InjectorComponent> injector, EntityUid user, EntityUid target)
     {
         // ADT-Tweak start
-        if (HasComp<InjectorsBlockerComponent>(target))
+        if (!injector.Comp.IgnoreBlockers && HasComp<InjectorsBlockerComponent>(target))
         {
             var userMessage = Loc.GetString("injector-blocked-user");
             var otherMessage = Loc.GetString("injector-blocked-other", ("target", target), ("user", user));
@@ -396,7 +396,7 @@ public sealed partial class InjectorSystem : EntitySystem
             return false;
 
         // ADT-Tweak start
-        if (HasComp<InjectorsBlockerComponent>(target))
+        if (!injector.Comp.IgnoreBlockers && HasComp<InjectorsBlockerComponent>(target))
         {
             var userMessage = Loc.GetString("injector-blocked-user");
             var otherMessage = Loc.GetString("injector-blocked-other", ("target", target), ("user", user));
