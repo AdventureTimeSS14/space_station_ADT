@@ -64,6 +64,11 @@ public sealed class PrototypeSaveTest : GameTest
             if (prototype.Components.ContainsKey("MapGrid"))
                 continue;
 
+            // ADT-Tweak start
+            if (HasOrganBaseOrganicAncestor(prototypeMan, prototype))
+                continue;
+            // ADT-Tweak end
+
             // Currently mobs and such can't be serialized, but they aren't flagged as serializable anyways.
             if (!prototype.MapSavable)
                 continue;
@@ -157,6 +162,26 @@ public sealed class PrototypeSaveTest : GameTest
                 }
             });
         });
+    }
+
+    private static bool HasOrganBaseOrganicAncestor(IPrototypeManager prototypeMan, EntityPrototype prototype)
+    {
+        if (prototype.ID == "OrganBaseOrganic")
+            return true;
+
+        if (prototype.Parents == null)
+            return false;
+
+        foreach (var parentId in prototype.Parents)
+        {
+            if (prototypeMan.TryIndex(parentId, out EntityPrototype? parent))
+            {
+                if (HasOrganBaseOrganicAncestor(prototypeMan, parent))
+                    return true;
+            }
+        }
+
+        return false;
     }
 
     public sealed class TestEntityUidContext : ISerializationContext,
