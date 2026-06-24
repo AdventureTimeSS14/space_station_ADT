@@ -95,7 +95,6 @@
       enum.PaperUiKey.Key:
         type: PaperBoundUserInterface
   - type: FaxableObject
-  - type: PaperVisuals
   - type: StationAiWhitelist
   # ADT-Tweak start
   - type: Material
