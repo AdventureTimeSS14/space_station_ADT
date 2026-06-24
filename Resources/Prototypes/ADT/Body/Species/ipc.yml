@@ -22,6 +22,8 @@
       LegRight: OrganIPCLegRight
       FootLeft: OrganIPCFootLeft
       FootRight: OrganIPCFootRight
+      Brain: OrganIPCBrain
+      Eyes: OrganIPCEyes
   - type: HumanoidProfile
     species: IPC
   - type: Inventory
@@ -40,9 +42,13 @@
   suffix: ipc
 
 - type: entity
-  id: OrganIPCVisual
+  parent: OrganIPC
+  id: OrganIPCExternal
   abstract: true
   components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+  - type: GibbableOrgan
   - type: VisualOrgan
     data:
       sprite: ADT/Mobs/Species/IPC/parts.rsi
@@ -51,19 +57,11 @@
       group: Ipc
 
 - type: entity
-  parent: [ OrganIPC, OrganIPCVisual ]
-  id: OrganIPCExternal
-  abstract: true
-  components:
-  - type: Sprite
-    sprite: ADT/Mobs/Species/IPC/parts.rsi
-
-- type: entity
-  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganIPCExternal ]
+  parent: [ OrganBaseTorso, OrganIPCExternal ]
   id: OrganIPCTorso
 
 - type: entity
-  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganIPCExternal ]
+  parent: [ OrganBaseHead, OrganIPCExternal ]
   id: OrganIPCHead
   components:
   - type: VisualOrganMarkings
@@ -105,3 +103,21 @@
 - type: entity
   parent: [ OrganBaseFootRight, OrganIPCExternal ]
   id: OrganIPCFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganIPC ]
+  id: OrganIPCBrain
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Robotics/mmi.rsi
+    layers:
+    - state: posibrain
+      map: ["base"]
+
+- type: entity
+  parent: [ OrganBase ]
+  id: OrganIPCEyes
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/proximity_sensor.rsi
+    state: icon
