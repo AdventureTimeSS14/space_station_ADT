@@ -10,10 +10,12 @@
     minimumPlayers: 15
     weight: 5
     duration: 60
-  - type: VentCrittersRule
-    entries:
-    - id: ADTMobMiniSpider
-      prob: 0.01
+  - type: VentHordeRule
+    table: !type:GroupSelector
+      rolls: 4, 8
+      children:
+      - id: ADTMobMiniSpider
+        prob: 0.01
 
 - type: entity
   id: Pirates
