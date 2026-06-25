@@ -65,7 +65,7 @@
             state: jumpsuit
 
 - type: entity
-  parent: OrganBase
+  parent: OrganBaseOrganic
   id: OrganTajaran
   abstract: true
   suffix: tajaran

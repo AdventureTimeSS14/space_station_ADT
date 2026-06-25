@@ -36,7 +36,7 @@
             state: jumpsuit-female
 
 - type: entity
-  parent: OrganBase
+  parent: OrganBaseOrganic
   id: OrganIPC
   abstract: true
   suffix: ipc
@@ -67,8 +67,6 @@
   - type: VisualOrganMarkings
     hideableLayers:
     - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.Snout
-    - enum.HumanoidVisualLayers.SnoutOverlay
     - enum.HumanoidVisualLayers.HeadTop
     - enum.HumanoidVisualLayers.HeadSide
 

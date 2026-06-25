@@ -39,7 +39,7 @@
             state: jumpsuit-female
 
 - type: entity
-  parent: OrganBase
+  parent: OrganBaseOrganic
   id: OrganNovakid
   abstract: true
   suffix: novakid

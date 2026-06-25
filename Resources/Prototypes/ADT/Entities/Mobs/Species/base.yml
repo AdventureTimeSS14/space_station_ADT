@@ -63,3 +63,4 @@
   - type: BloodCough
     postingSayDamage: blood-cough
   - type: TimeDespawnDamage
+  - type: Embalmed

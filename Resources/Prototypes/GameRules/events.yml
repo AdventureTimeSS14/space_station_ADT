@@ -536,20 +536,16 @@
     minimumPlayers: 15
     weight: 5
     duration: 60
-  - type: VentCrittersRule
-    entries:
-# ADT tweak start Разные пауки
-#    - id: MobGiantSpiderAngry
-#      prob: 0.05
-    - id: ADTMobHunterSpiderAngry
-      prob: 0.02
-    - id: ADTMobGuardSpiderAngry
-      prob: 0.02
-    - id: ADTMobTarantulaSpiderAngry
-      prob: 0.005
-    - id: ADTMobViperSpiderAngry
-      prob: 0.005
-# ADT tweak end Разные пауки
+  # ADT tweak start Разные пауки
+  - type: VentHordeRule
+    table: !type:GroupSelector
+      rolls: 4, 8
+      children:
+      - id: ADTMobHunterSpiderAngry
+      - id: ADTMobGuardSpiderAngry
+      - id: ADTMobTarantulaSpiderAngry
+      - id: ADTMobViperSpiderAngry
+  # ADT tweak end Разные пауки
 
 - type: entity
   id: SpiderClownSpawnHorde
@@ -563,10 +559,11 @@
     minimumPlayers: 20
     weight: 1.5
     duration: 60
-  - type: VentCrittersRule
-    entries:
-    - id: ADTMobClownSpider # ADT tweak
-      prob: 0.05
+  - type: VentHordeRule
+    table: !type:GroupSelector
+      rolls: 4, 8
+      children:
+      - id: ADTMobClownSpider # ADT tweak
 
 # ADT zombie remove
 # - type: entity
