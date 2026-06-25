@@ -147,7 +147,7 @@ public sealed partial class BlockingSystem
         if (!TryComp<BatteryComponent>(entity, out var battery))
             return;
 
-        if (_batterySystem.GetCharge((entity, battery)) <= 0)
+        if (_batterySystem.GetCharge((entity, battery)) <= 0.1f)
         {
             args.Cancelled = true;
             args.Popup = Loc.GetString("handheld-light-component-cell-dead-message");
@@ -159,7 +159,7 @@ public sealed partial class BlockingSystem
         if (!entity.Comp.IsCharging)
             return;
 
-        if (!TryComp<BatteryComponent>(entity, out var battery) || _batterySystem.GetCharge((entity, battery)) > 0)
+        if (!TryComp<BatteryComponent>(entity, out var battery) || _batterySystem.GetCharge((entity, battery)) > 0.1f)
             return;
 
         if (TryComp<ItemToggleComponent>(entity, out var itemToggle))
@@ -201,7 +201,7 @@ public sealed partial class BlockingSystem
         if (!TryComp<BatteryComponent>(uid, out var battery))
             return true;
 
-        return _batterySystem.GetCharge((uid, battery)) <= 0;
+        return _batterySystem.GetCharge((uid, battery)) <= 0.1f;
     }
 
     private void ConsumeBatteryCharge(EntityUid uid, BlockingComponent component, float damage)
