@@ -3389,6 +3389,15 @@
     layers:
     - state: pink
       shader: unshaded
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Opaque
   - type: Projectile
     damage:
       types:
@@ -3476,6 +3485,15 @@
     proto: ADTFamilyBusinessPinkProjectile
     fireCost: 100
   - type: Appearance
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
   - type: Battery
     maxCharge: 1500
     startingCharge: 1500
