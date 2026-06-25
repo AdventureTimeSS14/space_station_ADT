@@ -15,7 +15,6 @@
       rolls: 4, 8
       children:
       - id: ADTMobMiniSpider
-        prob: 0.01
 
 - type: entity
   id: Pirates
