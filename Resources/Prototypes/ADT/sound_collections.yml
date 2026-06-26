@@ -14,3 +14,12 @@
   - "/Audio/Animals/cat_meow.ogg"
   - "/Audio/Animals/cat_meow2.ogg"
   - "/Audio/Animals/cat_hiss.ogg"
+
+- type: soundCollection
+  id: ADTNovakidToySounds
+  files:
+  - "/Audio/ADT/Novakid/novakid_laugh01.ogg"
+  - "/Audio/ADT/Novakid/novakid_laugh02.ogg"
+  - "/Audio/ADT/Novakid/novakid_laugh03.ogg"
+  - "/Audio/ADT/Novakid/novakid_laugh04.ogg"
+  - "/Audio/ADT/Novakid/novakid_laugh05.ogg"
