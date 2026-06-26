@@ -1,4 +1,4 @@
-ent-ADTClothingBackpackSatchelBlueshield = сумка Офицера "Синий щит"
+ent-ADTClothingBackpackSatchelBlueshield = сумка офицера Синего Щита
     .desc = Крайне вместительная черно-синяя сумка с яркой эмблемой щита, предназначенная для хранения охранного и медицинского арсенала офицеров "Синего Щита".
 
 ent-ADTClothingBackpackSatchelCentcom = сумка Центком

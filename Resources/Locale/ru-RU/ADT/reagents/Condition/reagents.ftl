@@ -1,1 +1,1 @@
-reagent-comp-condition-speedbust-sandevistan = носитель сандевиндстана
+reagent-comp-condition-speedbust-sandevistan = носитель сандевистана

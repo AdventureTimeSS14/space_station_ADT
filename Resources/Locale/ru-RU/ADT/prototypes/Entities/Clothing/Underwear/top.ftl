@@ -39,10 +39,10 @@ ent-ADTClothingUnderwearTopBraLace = кружевной лифчик
     .desc = Красивое кружевное нижнее бельё
 
 ent-ADTClothingUnderwearTopBraSportsBlack = спортивный черный топик
-    .desc = Для любителей спорта и стиля. Производство компании  "Modeling Agency Dar-Vaxed".
+    .desc = Для любителей спорта и стиля. Производство компании "Modeling Agency Dar-Vaxed".
 
 ent-ADTClothingUnderwearTopBraPea = топик в горошек
-    .desc = Легкая и короткая женская блузка без рукавов. Производство компании  "Modeling Agency Dar-Vaxed".
+    .desc = Легкая и короткая женская блузка без рукавов. Производство компании "Modeling Agency Dar-Vaxed".
 
 ent-ADTClothingUnderwearTopBraLaceBlueAlternative = шелковый лифчик
     .desc = Синий, приятный на ощупь лифчик, сделанный из чистого шелка по эскизам семьи Ноло.
@@ -52,11 +52,14 @@ ent-ADTClothingUnderwearTopBraLaceRedAlternative = шелковый лифчик
     .desc = Красный, приятный на ощупь лифчик, сделанный из чистого шелка по эскизам семьи Ноло.
     .suffix = { "" }
 
-ent-ADTClothingUnderwearTopBraBlueshield = лифчик офицера "Синего Щита"
-    .desc = Стандартное белье NanoTrasen для офицеров "Синего Щита" женского пола
+ent-ADTClothingUnderwearTopBraBlueshield = лифчик офицера Синего Щита
+    .desc = Стандартное белье NanoTrasen для офицеров Синего Щита женского пола.
 
 ent-ADTClothingUnderwearTopMonokiniWhite = верх белого монокини
-    .desc = верх монокини, белого цвета
+    .desc = Верх монокини, белого цвета.
 
 ent-ADTClothingUnderwearTopMonokiniBlack = верх черного монокини
-    .desc = верх монокини, черного цвета
+    .desc = Верх монокини, черного цвета.
+
+ent-ADTClothingUnderwearTopBraCow = коровий лифчик
+    .desc = Милый коровий лифчик. Му-у-у!

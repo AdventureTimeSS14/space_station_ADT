@@ -1,2 +1,2 @@
-chatsan-claps = хлопает
-chatsan-snaps = щёлкает
+chatsan-claps = хлопает.
+chatsan-snaps = щёлкает.

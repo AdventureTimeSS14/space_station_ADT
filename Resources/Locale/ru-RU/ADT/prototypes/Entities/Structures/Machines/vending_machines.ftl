@@ -15,7 +15,7 @@ ent-ADTVendingMachinePatholoDrobe = ПатологоШкаф
 ent-ADTVendingMachineCiviMedVend = ГраждоМед
     .desc = Создан специально чтобы облегчить ваш бала.. боль.
 
-ent-ADTIceCreamVendInventory = Морожемат
+ent-ADTIceCreamVendInventory = МорожеМат
     .desc = Смотри, смотри! Это мороженщик!
 
 ent-ADTVendingMachineSnackFree = Getmore Chocolate Corp

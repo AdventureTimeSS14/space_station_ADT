@@ -58,11 +58,13 @@ accent-dwarf-words-replace-26 = громадный
 accent-dwarf-words-27 = сука
 accent-dwarf-words-replace-27 = кнурла
 accent-dwarf-words-28 = даа
-accent-dwarf-words-replace-28 = Ойии
+accent-dwarf-words-replace-28 = ойии
+# с большой
 accent-dwarf-words-29 = конечно
 accent-dwarf-words-replace-29 = конэчшно
 accent-dwarf-words-30 = да
-accent-dwarf-words-replace-30 = Ойи
+accent-dwarf-words-replace-30 = ойи
+# с большой
 accent-dwarf-words-31 = тоже
 accent-dwarf-words-replace-31 = тожэ
 accent-dwarf-words-32 = мой
@@ -224,7 +226,8 @@ accent-dwarf-words-replace-112 = грызун
 accent-dwarf-words-113 = нюкер
 accent-dwarf-words-replace-113 = красношлемый
 accent-dwarf-words-114 = нюкеры
-accent-dwarf-words-replace-114 = карсношлемые
+accent-dwarf-words-replace-114 = красношлемые
+# карсношлемые
 accent-dwarf-words-115 = ядерный оперативник
 accent-dwarf-words-replace-115 = красношлемый
 accent-dwarf-words-116 = ядерные оперативники

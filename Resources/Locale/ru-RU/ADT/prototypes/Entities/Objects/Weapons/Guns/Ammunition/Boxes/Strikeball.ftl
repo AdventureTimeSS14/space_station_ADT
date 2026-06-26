@@ -1,5 +1,5 @@
-ent-MagazineBoxLightRiflePracticeBibis = коробка укреплённых шариков.
-    .desc = ДА НЕ ЗАСУНУТЬ СУДА НАСТОЯЩИЙ ПАТРОН!
+ent-MagazineBoxLightRiflePracticeBibis = коробка укреплённых шариков
+    .desc = ДА НЕ ЗАСУНУТЬ СЮДА НАСТОЯЩИЙ ПАТРОН!
     .suffix = { "Страйкбол" }
 
 ent-MagazineBoxPistolPracticeBibis = коробка мягких шариков

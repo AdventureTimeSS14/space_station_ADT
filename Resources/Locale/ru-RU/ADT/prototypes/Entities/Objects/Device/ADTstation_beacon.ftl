@@ -35,7 +35,7 @@ ent-ADTDefaultStationBeaconShootingRange = { ent-DefaultStationBeaconSecurity }
     .desc = { ent-DefaultStationBeaconSecurity.desc }
 
 ent-ADTDefaultStationBeaconRecreationRoomRND = { ent-DefaultStationBeaconScience }
-    .suffix = Комната отдыха РНД
+    .suffix = Комната отдыха НИО
     .desc = { ent-DefaultStationBeaconScience.desc }
 
 ent-ADTDefaultStationBeaconRecreationRoomSecurity = { ent-DefaultStationBeaconSecurity }
@@ -43,7 +43,7 @@ ent-ADTDefaultStationBeaconRecreationRoomSecurity = { ent-DefaultStationBeaconSe
     .desc = { ent-DefaultStationBeaconSecurity.desc }
 
 ent-ADTDefaultStationBeaconRecreationRoomMedbay = { ent-DefaultStationBeaconMedbay }
-    .suffix = Комната отдыха МедБея
+    .suffix = Комната отдыха Медицинского отдела
     .desc = { ent-DefaultStationBeaconMedbay.desc }
 
 ent-ADTDefaultStationBeaconStorageEng = { ent-DefaultStationBeaconEngineering }

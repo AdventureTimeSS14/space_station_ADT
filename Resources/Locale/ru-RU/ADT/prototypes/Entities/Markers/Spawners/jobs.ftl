@@ -4,10 +4,10 @@ ent-SpawnPointMagistrat = магистрат
 ent-ADTSpawnPointRoboticist = робототехник
     .desc = { ent-SpawnPointJobBase.desc }
 
-ent-SpawnADTBlueShieldOfficer = офицер синего щита
+ent-SpawnADTBlueShieldOfficer = офицер Синего Щита
     .desc = { ent-SpawnPointJobBase.desc }
 
-ent-SpawnADTCentcomConsultant = консультант центком
+ent-SpawnADTCentcomConsultant = консультант Центком
     .desc = { ent-SpawnPointJobBase.desc }
 
 ent-SpawnADTBrigMedic = бригмедик

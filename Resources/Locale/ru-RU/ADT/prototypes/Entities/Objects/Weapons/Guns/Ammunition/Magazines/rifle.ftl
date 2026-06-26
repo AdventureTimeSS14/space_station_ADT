@@ -1,5 +1,5 @@
 ent-ADTMagazineRifleExtended = расширенный магазин (6.5 мм ТСФ)
-.desc = Увеличенный магазин под патрон 6.5 мм ТСФ, с вместимостью в 45 единиц
+.desc = Увеличенный магазин под патрон 6.5 мм ТСФ, с вместимостью в 45 единиц.
     .suffix = { "" }
 
 ent-ADTMagazineRifleBibis = магазин от страйкбольного автомата
@@ -14,5 +14,5 @@ ent-ADTMagazineRifleBibisSoft = магазин от страйкбольного
     .suffix = { ent-ADTMagazineRifleBibis.suffix }
 
 ent-MagazineLightRifleBoxBibis = магазин для страйбольного L6
-    .desc = Ха-Ха-Ха-Ха-Ха! Бегите, Я конченный!
+    .desc = Ха-ха-ха! Бегите, я конченный!
     .suffix = { ent-ADTMagazineRifleBibis.suffix }

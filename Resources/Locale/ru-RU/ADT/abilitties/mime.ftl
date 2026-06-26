@@ -5,5 +5,5 @@ mime-finger-gun-popup-2 = Пау!
 mime-finger-gun-popup-3 = Бах!
 mime-finger-gun-popup-4 = Бдыщ!
 mime-finger-gun-no-hands = У вас нет свободных рук!
-mime-silence-emote = прикладывает палец к губам
-mime-silence-target = Вы не можете говорить в течение {$duration} секунд!
+mime-silence-emote = прикладывает палец к губам.
+mime-silence-target = Вы не можете говорить в течение { $duration } секунд!

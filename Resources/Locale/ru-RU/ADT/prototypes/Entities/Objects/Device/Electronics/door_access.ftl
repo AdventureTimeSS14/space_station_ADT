@@ -23,7 +23,7 @@ ent-ADTDoorElectronicsSpaceSecExternal = { ent-DoorElectronics }
     .desc = { ent-DoorElectronics.desc }
 
 ent-ADTDoorElectronicsBlueShield = { ent-DoorElectronics }
-    .suffix = Синий щит
+    .suffix = Синий Щит
     .desc = { ent-DoorElectronics.desc }
 
 ent-ADTDoorElectronicsLibrary = { ent-DoorElectronics }
