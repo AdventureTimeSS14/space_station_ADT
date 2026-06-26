@@ -3750,7 +3750,7 @@
   parent: BasePlushie
   id: ADTPlushieSupernova
   name: plush Supernova
-  description: A hastily made novakida toy in an Atmos uniform, smelling of freon and plasma.
+  description: A hastily made novakid toy in an Atmos uniform, smelling of freon and plasma.
   suffix: Personal, alivepillow
   components:
   - type: Sprite
@@ -3778,7 +3778,7 @@
 - type: entity
   parent: BaseCrowbar
   id: ADTSharpCrowbar
-  name: side crowbar with engraving
+  name: shipboard crowbar with engraving
   description: This crowbar has a pointed tail, perfect for protection. It has an engraving of I. M.
   suffix: Personal, not_pou
   components:
