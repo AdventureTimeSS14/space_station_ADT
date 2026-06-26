@@ -16,8 +16,8 @@ guidebook-food-output = [bold]{ $name }[/bold] \[{ $number }\]
 # ADT-Tweak: processing types
 guidebook-food-processing-type-microwave = Микроволновка
 guidebook-food-processing-type-oven = Печь
-guidebook-food-processing-type-assembler = Ассемлер
-guidebook-food-processing-type-medical-assembler = Медицинский ассемлер
+guidebook-food-processing-type-assembler = Ассемблер
+guidebook-food-processing-type-medical-assembler = Медицинский ассемблер
 guidebook-food-processing-type-medical-generic = Жарить
 
 # End ADT-Tweak: processing types

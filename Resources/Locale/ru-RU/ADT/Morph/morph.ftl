@@ -5,5 +5,5 @@ morphs-into-ambush = Вы входите в состояние засады.
 morph-round-end-agent-name = морф
 morph-unable-to-remember = Вы не можете запомнить это.
 morph-mimicry-invalid = Вы не можете замимикрироваться под это.
-morph-mimicry-container = Вы не можете замимикрироваться находясь в контейнере.
+morph-mimicry-container = Вы не можете замимикрироваться, находясь в контейнере.
 morph-mimicry-success = Вы мимикрируетесь под цель.

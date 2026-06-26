@@ -18,4 +18,4 @@ ent-ActionSpawnMobXenoQueen = Призвать [color=violet]Королеву[/c
     .desc = [color=red]Новое потомство! Новое поколение! Эволюция![/color]
 queen-no-bloob-count = Недостаточно { $CountBloob } очков.
 alerts-xeno-queen-bloob-count-name = [color=green]Bloob Canister[/color]
-alerts-xeno-queen-bloob-count-desc = Кто то скажет, что это батарея, а я отвечу - канистра крови.
+alerts-xeno-queen-bloob-count-desc = Кто-то скажет, что это батарея, а я отвечу - канистра крови.
