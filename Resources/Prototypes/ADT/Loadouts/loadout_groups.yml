@@ -678,6 +678,8 @@
   loadouts:
   - ADTHeadHatBeretBrigmedic
   - ADTHeadHelmetSecurityMedic
+  - ADTClothingHeadHatBeretSecurityMedic
+  - ADTClothingHeadHatBeretMedic
 
   #neck
 - type: loadoutGroup
@@ -740,8 +742,8 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - ADTOuterCoatBrigmedicWB
-  - ADTOuterVestSecurityMedic
+  - ADTClothingOuterCoatAMG
+  - ADTClothingOuterVestArmorMedSec
   - ADTOuterCoatLabSecurityMedic
 
 ## повар
