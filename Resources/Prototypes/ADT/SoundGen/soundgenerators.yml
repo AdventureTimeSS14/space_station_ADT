@@ -170,7 +170,7 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/scary_laugh.ogg
-    
+
 
 
 
@@ -505,19 +505,6 @@
     sound:
       path: /Audio/Items/Geiger/ext.ogg
 
-- type: entity
-  parent: ADTSoundGenBaseAmbient
-  id: ADTSoundGenWhistleInTheDark
-  name: ADTSoundGenWhistleInTheDark
-  abstract: false
-  components:
-  - type: TimedDespawn
-    lifetime: 9
-  - type: EmitSoundOnSpawn
-    sound:
-      path: /Audio/ADT/Phantom/Hallucinations/WhistlingInTheDark.ogg
-
-
 # Новые Ambient от eddiemercury
 
 
@@ -560,7 +547,6 @@
         - sprite: ADT/Objects/Misc/soundgen.rsi
           state: icon
         - state: timed
-    - type: Timer
     - type: TimedSpawner
       prototypes:
         - ADTSoundGenDestruction1
@@ -580,7 +566,6 @@
         - sprite: ADT/Objects/Misc/soundgen.rsi
           state: icon
         - state: timed
-    - type: Timer
     - type: TimedSpawner
       prototypes:
         - ADTSoundGenDestruction2
@@ -600,7 +585,6 @@
         - sprite: ADT/Objects/Misc/soundgen.rsi
           state: icon
         - state: timed
-    - type: Timer
     - type: TimedSpawner
       prototypes:
         - ADTSoundGenDestruction3
@@ -620,7 +604,6 @@
         - sprite: ADT/Objects/Misc/soundgen.rsi
           state: icon
         - state: timed
-    - type: Timer
     - type: TimedSpawner
       prototypes:
         - ADTSoundGenAlarm
@@ -640,7 +623,6 @@
         - sprite: ADT/Objects/Misc/soundgen.rsi
           state: icon
         - state: timed
-    - type: Timer
     - type: TimedSpawner
       prototypes:
         - ADTSoundGenHit
@@ -660,7 +642,6 @@
         - sprite: ADT/Objects/Misc/soundgen.rsi
           state: icon
         - state: timed
-    - type: Timer
     - type: TimedSpawner
       prototypes:
         - ADTSoundGenSuddenChord
@@ -680,7 +661,6 @@
         - sprite: ADT/Objects/Misc/soundgen.rsi
           state: icon
         - state: timed
-    - type: Timer
     - type: TimedSpawner
       prototypes:
         - ADTSoundGenReverseDissolveScary
@@ -703,7 +683,6 @@
         - sprite: ADT/Objects/Misc/soundgen.rsi
           state: icon
         - state: timed
-    - type: Timer
     - type: TimedSpawner
       prototypes:
         - ADTSoundGenMovingObjects
@@ -723,7 +702,6 @@
         - sprite: ADT/Objects/Misc/soundgen.rsi
           state: icon
         - state: timed
-    - type: Timer
     - type: TimedSpawner
       prototypes:
         - ADTSoundGenFactory
@@ -743,7 +721,6 @@
         - sprite: ADT/Objects/Misc/soundgen.rsi
           state: icon
         - state: timed
-    - type: Timer
     - type: TimedSpawner
       prototypes:
         - ADTSoundGenShaftWater
@@ -763,7 +740,6 @@
         - sprite: ADT/Objects/Misc/soundgen.rsi
           state: icon
         - state: timed
-    - type: Timer
     - type: TimedSpawner
       prototypes:
         - ADTSoundGenShortScaryAmbient
@@ -783,7 +759,6 @@
         - sprite: ADT/Objects/Misc/soundgen.rsi
           state: icon
         - state: timed
-    - type: Timer
     - type: TimedSpawner
       prototypes:
         - ADTSoundGenDungeonAmbientScary

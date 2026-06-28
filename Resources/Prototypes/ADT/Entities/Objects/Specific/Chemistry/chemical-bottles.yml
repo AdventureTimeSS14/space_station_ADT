@@ -1,4 +1,4 @@
-# бутылочки
+﻿# бутылочки
 
 ##пластиковая
 
@@ -68,6 +68,7 @@
       types:
         Blunt: 0
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:

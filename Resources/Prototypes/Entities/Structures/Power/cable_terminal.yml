@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: CableTerminal
   name: cable terminal
   description: You see a small warning on the red cables in grungy black ink. "CONNECT RED TO BATTERY FOR CHARGE."
@@ -15,8 +15,9 @@
     - type: Transform
       anchored: true
     - type: Damageable
-      damageContainer: StructuralInorganic
       damageModifierSet: Metallic
+    - type: Injurable
+      damageContainer: StructuralInorganic
     - type: RCDDeconstructable
       cost: 2
       delay: 0

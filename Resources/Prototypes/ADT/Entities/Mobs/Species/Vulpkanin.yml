@@ -1,7 +1,11 @@
+﻿# ADT Vulpkanin mob (upstream PR#42476). Body/sprite/inventory come from AppearanceVulpkaninADT.
+# This MobVulpkanin (via Player/Vulpkanin.yml) intentionally overrides the official MobVulpkanin.
 - type: entity
   save: false
   name: Vulpkanin McHands
-  parent: BaseMobSpeciesOrganic
+  parent:
+  - AppearanceVulpkaninADT
+  - BaseSpeciesMobOrganic
   id: BaseMobVulpkanin
   abstract: true
   components:
@@ -28,19 +32,10 @@
         Male: NesMaleVulpa
         Female: NesFemaleVulpa
         Unsexed: NesFemaleVulpa
-    - type: Icon
-      sprite: ADT/Mobs/Species/Vulpkanin/parts.rsi
-      state: vulpkanin_m
     - type: Damageable
-      damageContainer: Biological
       damageModifierSet: ADTVulpkanin
-    - type: HumanoidAppearance
-      species: VulpkaninSpecies
-      hideLayersOnEquip:
-      - SnoutOverlay
-    - type: Body
-      prototype: VulpkaninBody
-      requiredLegs: 2
+    - type: Injurable
+      damageContainer: Biological
     - type: RoarAccent
     - type: MeleeWeapon
       hidden: true
@@ -52,10 +47,11 @@
         types:
           Piercing: 5
     - type: Temperature
-      heatDamageThreshold: 325
-      coldDamageThreshold: 230
       currentTemperature: 310.15
       specificHeat: 46
+    - type: TemperatureDamage
+      heatDamageThreshold: 325
+      coldDamageThreshold: 230
       coldDamage:
         types:
           Cold : 0.1 #per second, scales with temperature & other constants
@@ -70,130 +66,12 @@
     - type: MovementSpeedModifier
       baseWalkSpeed : 2.7
       baseSprintSpeed : 4.6
-    - type: Sprite
-      netsync: false
-      noRot: true
-      drawdepth: Mobs
-      scale: 0.95, 0.95
-      layers:
-      - map: [ "enum.HumanoidVisualLayers.Chest" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-      - map: [ "enum.HumanoidVisualLayers.Head" ]
-      - map: [ "enum.HumanoidVisualLayers.Snout" ]
-      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      - map: [ "enum.HumanoidVisualLayers.RArm" ]
-      - map: [ "enum.HumanoidVisualLayers.LArm" ]
-      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      - map: [ "underwearb" ]
-      - map: [ "underweart" ]
-      - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-      - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-      - map: [ "socks" ]
-      - map: [ "jumpsuit" ]
-      - map: [ "enum.HumanoidVisualLayers.LHand" ]
-      - map: [ "enum.HumanoidVisualLayers.RHand" ]
-      - map: [ "gloves" ]
-      - map: [ "shoes" ]
-      - map: [ "ears" ]
-      - map: [ "eyes" ]
-      - map: [ "belt" ]
-      - map: [ "id" ]
-      - map: [ "outerClothing" ]
-      - map: [ "back" ]
-      - map: [ "neck" ]
-      - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
-      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-      - map: [ "enum.HumanoidVisualLayers.Hair" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ]
-      - map: [ "mask" ]
-      - map: [ "head" ]
-      - map: [ "pocket1" ]
-      - map: [ "pocket2" ]
-      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-        color: "#ffffff"
-        sprite: Objects/Misc/handcuffs.rsi
-        state: body-overlay-2
-        visible: false
-      - map: [ "clownedon" ]
-        sprite: "Effects/creampie.rsi"
-        state: "creampie_human"
-        visible: false
     - type: Wagging
-    - type: Inventory
-      speciesId: vulp
-
-      maleDisplacements:
-        jumpsuit:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: jumpsuit
-        head:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: head
-        mask:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: head
-        shoes:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: shoes
-        outerClothing:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: jumpsuit
-        socks:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: shoes
-      femaleDisplacements:
-        jumpsuit:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: jumpsuit-female
-        head:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: head
-        mask:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: head
-        shoes:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: shoes
-        outerClothing:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: jumpsuit
-        socks:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: shoes
     - type: InteractionPopup
       successChance: 1
       interactSuccessString: hugging-success-generic
       interactSuccessSound: /Audio/Effects/thudswoosh.ogg
       messagePerceivedByOthers: hugging-success-generic-others
-    #- type: Vocal
-     # maleScream: /Audio/Voice/Human/malescream_1.ogg
-      #femaleScream: /Audio/Voice/Human/femalescream_2.ogg
     - type: LanguageSpeaker
       languages:
         GalacticCommon: Speak
@@ -210,129 +88,3 @@
       - DoorBumpOpener
       - AnomalyHost
       - ADTDogEmotes
-
-- type: entity
-  save: false
-  name: Vulpkanin McHands
-  parent: MobHumanDummy
-  id: MobVulpkaninDummy
-  categories: [ HideSpawnMenu ]
-  description: A dummy vulpkanin meant to be used in character setup.
-  components:
-    - type: HumanoidAppearance
-      species: VulpkaninSpecies
-      hideLayersOnEquip:
-      - SnoutOverlay
-    - type: Sprite
-      netsync: false
-      noRot: true
-      drawdepth: Mobs
-      scale: 0.95, 0.95
-      layers:
-      - map: [ "enum.HumanoidVisualLayers.Chest" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-      - map: [ "enum.HumanoidVisualLayers.Head" ]
-      - map: [ "enum.HumanoidVisualLayers.Snout" ]
-      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      - map: [ "enum.HumanoidVisualLayers.RArm" ]
-      - map: [ "enum.HumanoidVisualLayers.LArm" ]
-      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      - map: [ "underwearb" ]
-      - map: [ "underweart" ]
-      - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-      - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-      - map: [ "socks" ]
-      - map: [ "jumpsuit" ]
-      - map: [ "enum.HumanoidVisualLayers.LHand" ]
-      - map: [ "enum.HumanoidVisualLayers.RHand" ]
-      - map: [ "gloves" ]
-      - map: [ "shoes" ]
-      - map: [ "ears" ]
-      - map: [ "eyes" ]
-      - map: [ "belt" ]
-      - map: [ "id" ]
-      - map: [ "outerClothing" ]
-      - map: [ "back" ]
-      - map: [ "neck" ]
-      - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
-      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-      - map: [ "enum.HumanoidVisualLayers.Hair" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ]
-      - map: [ "mask" ]
-      - map: [ "head" ]
-      - map: [ "pocket1" ]
-      - map: [ "pocket2" ]
-      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-        color: "#ffffff"
-        sprite: Objects/Misc/handcuffs.rsi
-        state: body-overlay-2
-        visible: false
-      - map: [ "clownedon" ]
-        sprite: "Effects/creampie.rsi"
-        state: "creampie_human"
-        visible: false
-    - type: Inventory
-      maleDisplacements:
-        jumpsuit:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: jumpsuit
-        head:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: head
-        mask:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: head
-        shoes:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: shoes
-        outerClothing:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: jumpsuit
-        socks:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: shoes
-      femaleDisplacements:
-        jumpsuit:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: jumpsuit-female
-        head:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: head
-        mask:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: head
-        shoes:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: shoes
-        outerClothing:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: jumpsuit
-        socks:
-          sizeMaps:
-            32:
-              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
-              state: shoes

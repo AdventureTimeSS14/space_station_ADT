@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTShipBattleShellRack
   parent: BaseStructure
   name: shell rack
@@ -23,6 +23,7 @@
     fillBaseName: base
   - type: Damageable
     damageModifierSet: Metallic
+  - type: Injurable
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
@@ -95,6 +96,7 @@
     fillBaseName: rack
   - type: Damageable
     damageModifierSet: Metallic
+  - type: Injurable
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:

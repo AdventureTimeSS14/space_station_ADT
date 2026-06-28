@@ -1,4 +1,4 @@
-using Content.Shared.Body.Components; //ADT-Tweak
+using Content.Shared.Body;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;

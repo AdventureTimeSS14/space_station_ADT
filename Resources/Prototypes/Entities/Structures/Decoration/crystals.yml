@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: CrystalGreen
   parent: BaseStructure
   suffix: green
@@ -38,8 +38,9 @@
       energy: 3
       color: "#52ff39"
     - type: Damageable
-      damageContainer: StructuralInorganic
       damageModifierSet: Glass
+    - type: Injurable
+      damageContainer: StructuralInorganic
     - type: Destructible
       thresholds:
         - trigger:

@@ -65,7 +65,6 @@
     Steel: 100
     Plastic: 200
     Glass: 100
-    Copper: 200  #ADT-BFUU-Tweak
 
 - type: latheRecipe
   parent: BasePartRecipe

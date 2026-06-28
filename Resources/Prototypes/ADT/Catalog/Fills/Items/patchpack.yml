@@ -4,13 +4,15 @@
   suffix: Filled
   parent: ADTPatchPack
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTPatchHealing
-        amount: 1
-      - id: ADTPatchBurn
-        amount: 1
-      - id: ADTPatchHealingMini
-        amount: 2
-      - id: ADTPatchBurnMini
-        amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTPatchHealing
+          amount: 1
+        - id: ADTPatchBurn
+          amount: 1
+        - id: ADTPatchHealingMini
+          amount: 2
+        - id: ADTPatchBurnMini
+          amount: 2
