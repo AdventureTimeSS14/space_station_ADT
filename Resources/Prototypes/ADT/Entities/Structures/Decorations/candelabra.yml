@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTBaseCandelabra
   parent: BaseStructure
   name: candelabra
@@ -19,8 +19,9 @@
           !type:PhysShapeCircle
           radius: 0
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:

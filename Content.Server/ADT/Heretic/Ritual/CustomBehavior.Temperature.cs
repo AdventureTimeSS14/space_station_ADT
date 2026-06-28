@@ -4,7 +4,7 @@ using Content.Shared.Heretic.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
-[Virtual] public sealed partial class RitualTemperatureBehavior : RitualCustomBehavior
+[Virtual] public partial class RitualTemperatureBehavior : RitualCustomBehavior
 {
     /// <summary>
     ///     Min temp in celsius

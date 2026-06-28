@@ -6,7 +6,7 @@ namespace Content.Shared.Weapons.Melee.Backstab;
 
 public sealed class BackstabDamageMultipilierSystem : EntitySystem
 {
-    [Dependency] protected readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<BackstabDamageMultipilierComponent, MeleeHitEvent>(OnMeleeHit);
