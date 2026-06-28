@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: GarlandsOff
   name: garlands
   description: "Non-working danglers. Maybe they will turn on when something happens?"
@@ -19,6 +19,7 @@
     state: base
   - type: SpriteFade
   - type: Damageable
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:

@@ -3,10 +3,11 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 using System.Collections.Generic;
 using Robust.Shared.Audio;
 using Content.Shared.FixedPoint;
+using Robust.Shared.GameObjects;
 
 namespace Content.ADT.Shared.Chaplain.Sacrifice;
 
-[RegisterComponent]
+ [RegisterComponent]
 public sealed partial class SacrificeComponent : Component
 {
     /// <summary>
@@ -14,6 +15,9 @@ public sealed partial class SacrificeComponent : Component
     /// </summary>
     [DataField("possibleTransformations")]
     public List<TransformationData> PossibleTransformations = new();
+
+    [DataField("baseAltarProto")]
+    public string? BaseAltarProto = "AltarConvert";
 }
 
 [DataDefinition]

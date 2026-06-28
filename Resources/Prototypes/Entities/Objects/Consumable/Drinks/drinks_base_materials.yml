@@ -1,4 +1,4 @@
-## Material costs to apply to a drink
+﻿## Material costs to apply to a drink
 # These bases should always be the parented before DrinkBase, or before a prototype inheriting DrinkBase.
 # - That way they override any previously inherited material, and material specific sounds aren't overridden by BaseItem.
 
@@ -8,8 +8,9 @@
   id: DrinkBaseMaterialGlass
   components:
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: FlimsyGlass
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger: # Overkill threshold
@@ -84,8 +85,8 @@
   id: DrinkBaseMaterialPlastic
   components:
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
-#    damageModifierSet: FlimsyPlastic TODO
   - type: Destructible
     thresholds:
     - trigger: # Overkill threshold
@@ -151,8 +152,9 @@
   id: DrinkBaseMaterialCardboard
   components:
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Card
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger: # Overkill threshold
@@ -190,8 +192,9 @@
   id: DrinkBaseMaterialMetal
   components:
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: FlimsyMetallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger: # Overkill threshold
@@ -231,6 +234,7 @@
   components:
   - type: Damageable
     damageModifierSet: Metallic
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger: # Overkill threshold
@@ -259,8 +263,9 @@
   id: DrinkBaseMaterialGold
   components:
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: FlimsyMetallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger: # Overkill threshold

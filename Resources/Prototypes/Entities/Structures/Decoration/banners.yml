@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: BannerBase
   parent: BaseStructureDynamic
   name: base banner
@@ -27,6 +27,7 @@
         - BulletImpassable
   - type: InteractionOutline
   - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
@@ -438,5 +439,4 @@
     graph: BannerGreen
     node: banner
 #ADT-Tweak End
-
 

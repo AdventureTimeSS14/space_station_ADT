@@ -15,13 +15,15 @@
     whitelist:
       tags:
         - ADTTeaPack
-  - type: StorageFill
-    contents:
-    - id: ADTOrangeTeapack
-    - id: ADTOrangeTeapack
-    - id: ADTEmptyTeaPack
-    - id: ADTEmptyTeaPack
-    - id: ADTCherryTeapack
-    - id: ADTCherryTeapack
-    - id: ADTWatermelonTeapack
-    - id: ADTWatermelonTeapack
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTOrangeTeapack
+        - id: ADTOrangeTeapack
+        - id: ADTEmptyTeaPack
+        - id: ADTEmptyTeaPack
+        - id: ADTCherryTeapack
+        - id: ADTCherryTeapack
+        - id: ADTWatermelonTeapack
+        - id: ADTWatermelonTeapack

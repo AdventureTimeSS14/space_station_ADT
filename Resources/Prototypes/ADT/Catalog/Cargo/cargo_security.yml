@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: ADTSecurityReflecArmor
+  icon:
+    sprite: Clothing/OuterClothing/Armor/armor_reflec.rsi
+    state: icon
+  product: ADTCrateSecurityReflecArmor
+  cost: 1500
+  category: cargoproduct-category-name-security
+  group: market

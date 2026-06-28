@@ -1,49 +1,51 @@
-- type: body
-  id: Felinid
-  name: "felinid"
-  root: torso
-  slots:
-    head:
-      part: HeadHuman
-      connections:
-      - torso
-      organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
-    torso:
-      part: TorsoHuman
-      connections:
-      - right arm
-      - left arm
-      - left leg
-      - right leg
-      organs:
-        heart: ADTOrganFelinidHeart
-        lungs: OrganHumanLungs
-        stomach: ADTOrganFelinidStomach
-        liver: ADTOrganFelinidLiver
-        kidneys: OrganHumanKidneys
-    right arm:
-      part: RightArmHuman
-      connections:
-      - right hand
-    left arm:
-      part: LeftArmHuman
-      connections:
-      - left hand
-    right hand:
-      part: RightHandHuman
-    left hand:
-      part: LeftHandHuman
-    right leg:
-      part: RightLegHuman
-      connections:
-      - right foot
-    left leg:
-      part: LeftLegHuman
-      connections:
-      - left foot
-    right foot:
-      part: RightFootHuman
-    left foot:
-      part: LeftFootHuman
+# DEPRECATED: type:body prototype system removed in upstream PR#42476
+# This data is preserved for reference when creating InitialBody entries (task 8)
+# - type: body
+#   id: Felinid
+#   name: "felinid"
+#   root: torso
+#   slots:
+#     head:
+#       part: HeadHuman
+#       connections:
+#       - torso
+#       organs:
+#         brain: OrganHumanBrain
+#         eyes: OrganHumanEyes
+#     torso:
+#       part: TorsoHuman
+#       connections:
+#       - right arm
+#       - left arm
+#       - left leg
+#       - right leg
+#       organs:
+#         heart: ADTOrganFelinidHeart
+#         lungs: OrganHumanLungs
+#         stomach: ADTOrganFelinidStomach
+#         liver: ADTOrganFelinidLiver
+#         kidneys: OrganHumanKidneys
+#     right arm:
+#       part: RightArmHuman
+#       connections:
+#       - right hand
+#     left arm:
+#       part: LeftArmHuman
+#       connections:
+#       - left hand
+#     right hand:
+#       part: RightHandHuman
+#     left hand:
+#       part: LeftHandHuman
+#     right leg:
+#       part: RightLegHuman
+#       connections:
+#       - right foot
+#     left leg:
+#       part: LeftLegHuman
+#       connections:
+#       - left foot
+#     right foot:
+#       part: RightFootHuman
+#     left foot:
+#       part: LeftFootHuman

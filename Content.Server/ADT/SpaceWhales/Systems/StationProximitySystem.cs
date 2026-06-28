@@ -119,7 +119,7 @@ public sealed class StationProximitySystem : EntitySystem
         if (stations.Count == 0)
             return;
 
-        var humanoidQuery = EntityQueryEnumerator<HumanoidAppearanceComponent, MobStateComponent, TransformComponent>();
+        var humanoidQuery = EntityQueryEnumerator<HumanoidProfileComponent, MobStateComponent, TransformComponent>();
         while (humanoidQuery.MoveNext(out var uid, out _, out var mobState, out var humanoidXform))
         {
             if (mobState.CurrentState != MobState.Alive)

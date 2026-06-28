@@ -1,4 +1,4 @@
-# Base
+﻿# Base
 
 # uses "icon" and "icon-open" states for the main item.
 # trash prototypes use "trash" state
@@ -47,6 +47,7 @@
       types:
         Blunt: 3
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: StaticPrice
     price: 50

@@ -3,6 +3,7 @@ using Content.Server.Administration;
 using Content.Server.Maps;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
+using Content.Shared.Maps;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
@@ -29,6 +30,8 @@ namespace Content.Server.GameTicking.Commands
 
             if (args.Length != 1)
             {
+                shell.WriteLine(Loc.GetString("shell-need-exactly-one-argument"));
+
                 // ADT-Tweak start
                 _adminLogger.Add(LogType.AdminCommands,
                     LogImpact.Low,

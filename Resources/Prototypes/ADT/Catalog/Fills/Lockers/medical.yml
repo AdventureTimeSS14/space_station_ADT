@@ -1,37 +1,40 @@
-- type: entity
+﻿- type: entity
   id: ADTLockerPathologistFilled
   suffix: Filled
   parent: ADTLockerPathologist
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingBackpackDuffelSurgeryFilled
-    - id: BoxFolderBlack
-    - id: Paper
-    - id: BoxBodyBag
-    - id: ClothingMaskSterile
-    - id: ADTRubberStampPathologist
-    - id: BriefcaseBrown
-
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingBackpackDuffelSurgeryFilled
+        - id: BoxFolderBlack
+        - id: Paper
+        - id: BoxBodyBag
+        - id: ClothingMaskSterile
+        - id: ADTRubberStampPathologist
+        - id: BriefcaseBrown
 - type: entity
   id: ADTLockerParamedicFilledNoMod
   suffix: Filled
   parent: LockerParamedic
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterCoatParamedicWB
-      - id: ClothingHeadHatParamedicsoft
-      - id: ADTClothingHeadHatsParamedicBeret 
-      - id: ADTHighVoltageDefibrillator 
-      - id: ClothingOuterWinterPara
-      - id: ClothingUniformJumpsuitParamedic
-      - id: ClothingUniformJumpskirtParamedic
-      - id: ClothingEyesHudMedical
-      - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
-      - id: ClothingMaskSterile
-      - id: HandheldGPSBasic
-      - id: MedkitFilled
-        prob: 0.3
-      - id: ADTBookSRPmed
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingOuterCoatParamedicWB
+        - id: ClothingHeadHatParamedicsoft
+        - id: ADTClothingHeadHatsParamedicBeret 
+        - id: ADTHighVoltageDefibrillator 
+        - id: ClothingOuterWinterPara
+        - id: ClothingUniformJumpsuitParamedic
+        - id: ClothingUniformJumpskirtParamedic
+        - id: ClothingEyesHudMedical
+        - id: ClothingHandsGlovesLatex
+        - id: ClothingHeadsetMedical
+        - id: ClothingMaskSterile
+        - id: HandheldGPSBasic
+        - id: MedkitFilled
+          prob: 0.3
+        - id: ADTBookSRPmed

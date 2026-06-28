@@ -5,6 +5,7 @@ using Content.Server.Popups;
 using Content.Shared.ADT.Geras;
 using Robust.Shared.Player;
 using Content.Shared.Humanoid;
+using Content.Shared.Body;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.ActionBlocker;
@@ -60,9 +61,9 @@ public sealed class GerasSystem : SharedGerasSystem
 
         var skinColor = Color.Green;
 
-        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanComp))
+        if (TryComp<VisualOrganComponent>(uid, out var organComp))
         {
-            skinColor = humanComp.SkinColor;
+            skinColor = organComp.Profile.SkinColor;
         }
 
         if (TryComp<AppearanceComponent>(ent, out var appearanceComp))
