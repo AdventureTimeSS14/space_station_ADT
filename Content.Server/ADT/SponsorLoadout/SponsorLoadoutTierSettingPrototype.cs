@@ -5,11 +5,11 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Server.ADT.SponsorLoadout;
 
 [Prototype("sponsorLoadoutTierSetting")]
-public sealed class SponsorLoadoutTierSettingPrototype : IPrototype
+public sealed partial class SponsorLoadoutTierSettingPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     [DataField("tiers", required: true)]
-    public Dictionary<int, ProtoId<StartingGearPrototype>> Tiers { get; } = new();
+    public Dictionary<int, ProtoId<StartingGearPrototype>> Tiers { get; private set;} = new();
 }

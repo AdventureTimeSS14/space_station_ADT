@@ -1,8 +1,7 @@
 - type: marking
   id: DemonCowHorns
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: cow_horns
@@ -10,8 +9,7 @@
 - type: marking
   id: DemonHornsDeer
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: deer_antlers_horns
@@ -19,8 +17,7 @@
 - type: marking
   id: DemonHornsSmall
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: small_horns
@@ -28,8 +25,7 @@
 - type: marking
   id: DemonHornsBuffalo
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: horns_buffalo
@@ -37,8 +33,7 @@
 - type: marking
   id: DemonHornsCarpicorn
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: horns_capricorn
@@ -46,8 +41,6 @@
 - type: marking
   id: DemonHornsDevilOne
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: []
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: horns_devil_one
@@ -55,8 +48,7 @@
 - type: marking
   id: DemonHornsDevil
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: horns_devil
@@ -64,8 +56,7 @@
 - type: marking
   id: DemonHornsDevil2
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: horns_devil2
@@ -73,8 +64,7 @@
 - type: marking
   id: DemonHornsDevil3
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: horns_devil3
@@ -82,8 +72,7 @@
 - type: marking
   id: DemonHornsDevil4
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: horns_devil4
@@ -91,8 +80,7 @@
 - type: marking
   id: DemonHornsRam
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: horns_ram
@@ -100,8 +88,7 @@
 - type: marking
   id: DemonHornsUnicorn
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: horns_unicorn
@@ -110,8 +97,7 @@
 - type: marking
   id: DemonHornsBackwardHorns
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
     state: backward_horns
@@ -119,8 +105,7 @@
 - type: marking
   id: DemonHornsDarkCrown
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
     state: dark_crown
@@ -128,8 +113,7 @@
 - type: marking
   id: DemonHornsDevilPrimeSi1
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
     state: devil_prime1_s
@@ -137,8 +121,7 @@
 - type: marking
   id: DemonHornsDevilPrime1
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
     state: devil_prime1
@@ -146,8 +129,7 @@
 - type: marking
   id: DemonHornsDevilPrime2
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
     state: devil_prime2
@@ -155,8 +137,7 @@
 - type: marking
   id: DemonHornsFat_Horn
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
     state: fat_horn

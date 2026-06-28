@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTTendrilBase
   parent: BaseStructure
   name: tendrыl
@@ -12,8 +12,9 @@
     drawdepth: Mobs
   - type: Tendril
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Skeleton
+  - type: Injurable
+    damageContainer: Biological
   - type: Destructible
     thresholds:
     - trigger:
