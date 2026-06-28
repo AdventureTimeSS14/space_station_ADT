@@ -1,4 +1,4 @@
-##ADT Sponsor Base for clothing
+﻿##ADT Sponsor Base for clothing
 ##Sponsor Gloves
 - type: entity
   abstract: true
@@ -265,11 +265,13 @@
     sprite: ADT/Personalization/schrodinger_coat.rsi
   - type: Clothing
     sprite: ADT/Personalization/schrodinger_coat.rsi
-  - type: StorageFill
-    contents:
-    - id: ADTCigarSchrodingerCase
-    - id: FlippoSchrodingerLighter
-    - id: SpeedLoaderMagnum
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTCigarSchrodingerCase
+        - id: FlippoSchrodingerLighter
+        - id: SpeedLoaderMagnum
   - type: Armor
     modifiers:
       coefficients:
@@ -317,10 +319,12 @@
     sprite: ADT/Personalization/pyotr_coat.rsi
   - type: Clothing
     sprite: ADT/Personalization/pyotr_coat.rsi
-  - type: StorageFill
-    contents:
-    - id: CigarGoldCase
-    - id: Lighter
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CigarGoldCase
+        - id: Lighter
   - type: Armor
     modifiers:
       coefficients:
@@ -1086,7 +1090,7 @@
       map: [ "light" ]
   - type: HandheldLight
     addPrefix: false
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     clothingVisuals:
       head:
       - state: equipped-head-light
@@ -1865,3 +1869,25 @@
   - type: TemperatureProtection ##ADT-Tweak start
     heatingCoefficient: 1.025
     coolingCoefficient: 0.5 ##ADT-Tweak end
+
+# honelin111
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckHonelin111Choker
+  suffix: honelin111
+  name: choker with a bell
+  description: A choker with a golden bell that jingles as you walk
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/honelin111_choker.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/honelin111_choker.rsi
+  - type: Item
+    size: Small
+  - type: FootstepModifier
+    slots: NECK
+    footstepSoundCollection:
+      collection: FootstepJester
+      params:
+        variation: 0.07

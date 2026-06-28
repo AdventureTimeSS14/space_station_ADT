@@ -1,318 +1,338 @@
-- type: entity
+﻿- type: entity
   id: BrigmedicDuffelbagClothing
   suffix: Filled
   parent: ClothingBackpackDuffelSecurity
   name: brimedic duffelbag
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingHeadHatBeretMedic
-      - id: ClothingOuterCoatAMG
-      - id: ADTClothingOuterCoatBrigmedicWB
-      - id: ClothingUniformJumpsuitBrigmedic
-      - id: ClothingUniformJumpskirtBrigmedic
-      - id: ADTClothingUniformJumpsuitBrigmedicTurtleneck
-      - id: ADTClothingUniformJumpskirtBrigmedicTurtleneck
-      - id: ClothingHeadHelmetSecurityMedic # Corvax-Resprite
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatBeretMedic
+        - id: ClothingHeadHatBeretSecurityMedic
+        - id: ClothingHeadHelmetSecurityMedic
+        - id: ClothingUniformJumpsuitBrigmedic
+        - id: ClothingUniformJumpskirtBrigmedic
+        - id: ADTClothingUniformJumpsuitBrigmedicTurtleneck
+        - id: ADTClothingUniformJumpskirtBrigmedicTurtleneck
+        - id: ClothingOuterCoatAMG
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateFilledAKMS
   name: AKMS bundle
   description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponRifleAk
-      - id: MagazineLightRifle
-        amount: 4
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleAk
+        - id: MagazineLightRifle
+          amount: 4
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateFilledHristov
   name: Hristov bundle
   description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTWeaponSniperHristovAdvanced
-      - id: ADTMagazineHristovAdvanced
-        amount: 4
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTWeaponSniperHristovAdvanced
+        - id: ADTMagazineHristovAdvanced
+          amount: 4
 - type: entity
   parent: ClothingBackpackDuffelSyndicateAmmoBundle
   id: ADTClothingBackpackDuffelSyndicateFilledC20Ammo
   name: C20 Ammo Bundle
   description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazinePistolSubMachineGun
-        amount: 4
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MagazinePistolSubMachineGun
+          amount: 4
 - type: entity
   parent: ClothingBackpackDuffelSyndicateAmmoBundle
   id: ADTClothingBackpackDuffelSyndicateFilledBuldogAmmo
   name: Buldog Ammo Bundle
   description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazineShotgunSlug
-      - id: MagazineShotgunSlug
-      - id: MagazineShotgun
-      - id: MagazineShotgun
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MagazineShotgunSlug
+        - id: MagazineShotgunSlug
+        - id: MagazineShotgun
+        - id: MagazineShotgun
 - type: entity
   parent: ClothingBackpackDuffelSyndicateAmmoBundle
   id: ADTClothingBackpackDuffelSyndicateFilledBuldogAmmoXL
   name: Buldog XL Ammo Bundle
   description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTMagazineShotgunSlugXL
-      - id: ADTMagazineShotgunSlugXL
-      - id: ADTMagazineShotgunXL
-        amount: 2
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTMagazineShotgunSlugXL
+        - id: ADTMagazineShotgunSlugXL
+        - id: ADTMagazineShotgunXL
+          amount: 2
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateFilledXC67
   name: xC-67 rifle bundle
   description: bundle with a prototype xC-67 assault fifle and two mags #, and a Suppressor.
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTWeaponRifleXC67
-      - id: ADTMagazineRifleExtended
-        amount: 2
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTWeaponRifleXC67
+        - id: ADTMagazineRifleExtended
+          amount: 2
 - type: entity
   parent: ClothingBackpackDuffelSyndicateAmmoBundle
   id: ADTClothingBackpackDuffelSyndicateFilledXC67Ammo
   name: xC-67 extended magazine bundle
   description: Duffelbag with a three extended 6.5 mm mag for xC-67
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTMagazineRifleExtended
-        amount: 3
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTMagazineRifleExtended
+          amount: 3
 - type: entity
   parent: ClothingBackpackDuffelSyndicateAmmoBundle
   id: ADTClothingBackpackDuffelSyndicateFilledSmokeGrenade
   name: набор дымовых гранат синдиката
   description: Набор из шести дымовых гранат синдиката
   components:
-  - type: StorageFill
-    contents:
-      - id: SmokeGrenade
-        amount: 6
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SmokeGrenade
+          amount: 6
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateFilledMaid # 20 TC
   name: Maid bundle
   description: Good syndie.
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingHeadHatCatEars
-      - id: ClothingUniformJumpskirtElegantMaid
-      - id: ClothingUnderSocksCoder
-      - id: ADTChokerWithHeart
-      - id: ADTClothingHandsCatPawsBlackCombat # ADT Tweak
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatCatEars
+        - id: ClothingUniformJumpskirtElegantMaid
+        - id: ClothingUnderSocksCoder
+        - id: ADTChokerWithHeart
+        - id: ADTClothingHandsCatPawsBlackCombat # ADT Tweak
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateFilledStealth # 12 TC
   name: Stealth bundle
   description: I'm tired of creating descs
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponPistolCobra
-      - id: Fulton
-      - id: FultonBeacon
-      - id: ADTStealthBoxBox
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPistolCobra
+        - id: Fulton
+        - id: FultonBeacon
+        - id: ADTStealthBoxBox
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateFilledIntruder # 20 TC
   name: Intruder bundle
   description: I'm tired of creating descs
   components:
-  - type: StorageFill
-    contents:
-      - id: Emag
-      - id: SyndicateJawsOfLife
-      - id: C4
-      - id: C4
-      - id: Flash
-      - id: ClothingEyesGlassesSunglasses
-      - id: AgentIDCard
-      - id: RadioJammer
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Emag
+        - id: SyndicateJawsOfLife
+        - id: C4
+        - id: C4
+        - id: Flash
+        - id: ClothingEyesGlassesSunglasses
+        - id: AgentIDCard
+        - id: RadioJammer
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateFilledBlackmail # 15 TC
   name: Blackmail bundle
   description: I'm tired of creating descs
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingMaskGasVoiceChameleon
-      - id: RemoteSignallerAdvanced
-      - id: RemoteSignallerAdvanced
-      - id: C4
-      - id: C4
-      - id: C4
-      - id: AgentIDCard
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskGasVoiceChameleon
+        - id: RemoteSignallerAdvanced
+        - id: RemoteSignallerAdvanced
+        - id: C4
+        - id: C4
+        - id: C4
+        - id: AgentIDCard
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateFilledElite
   name: Syndicate elite bundle
   description: "For those who knows at armor." #, and a Suppressor.
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterHardsuitSyndieElite
-      - id: ADTClothingShoesBootsMagAdvSynd
-      - id: EnergyShield
-      - id: EnergySword
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingOuterHardsuitSyndieElite
+        - id: ADTClothingShoesBootsMagAdvSynd
+        - id: EnergyShield
+        - id: EnergySword
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateModuleGrenade
   name: module grenade bundle
   description: bundle with a materials for module grenade
   components:
-  - type: StorageFill
-    contents:
-      - id: SheetSteel
-      - id: BoxBeaker
-      - id: RemoteSignaller
-      - id: CableApcStack10
-      - id: ADTObjectsSpecificFluorosurfactantChemistryBottle
-        amount: 4
-      - id: DrinkWaterBottleFull
-        amount: 2
-      - id: ChemicalPayload
-        amount: 4
-      # - id: ModularGrenade
-      #   amount: 2
-      - id: TimerTrigger
-        amount: 2
-      - id: SignalTrigger
-        amount: 2
-      - id: VoiceTrigger
-        amount: 2
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SheetSteel
+        - id: BoxBeaker
+        - id: RemoteSignaller
+        - id: CableApcStack10
+        - id: ADTObjectsSpecificFluorosurfactantChemistryBottle
+          amount: 4
+        - id: DrinkWaterBottleFull
+          amount: 2
+        - id: ChemicalPayload
+          amount: 4
+          # - id: ModularGrenade
+          #   amount: 2
+        - id: TimerTrigger
+          amount: 2
+        - id: SignalTrigger
+          amount: 2
+        - id: VoiceTrigger
+          amount: 2
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateFilledChinaLikeGrenadeLauncher
   name: China-Lake bundle
   description: "An old China-Lake grenade launcher bundled with 11 rounds of various destruction capability."
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTWeaponLauncherChinaLake
-      - id: ADT40mmGrenadeBlast
-        amount: 4
-      - id: ADT40mmGrenadeHEAT
-        amount: 8
-      - id: ADT40mmGrenadeSmoke
-        amount: 4
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTWeaponLauncherChinaLake
+        - id: ADT40mmGrenadeBlast
+          amount: 11
+        - id: ADT40mmGrenadeSmoke
+          amount: 4
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateFilledGrenadeLauncher
   name: Rocket Launcher bundle
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTWeaponLauncherRocket
-      - id: ADTCartridgeFragRocket
-        amount: 4
-      - id: ADTCartridgeBlastRocket
-        amount: 4
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTWeaponLauncherRocket
+        - id: ADTCartridgeFragRocket
+          amount: 4
+        - id: ADTCartridgeBlastRocket
+          amount: 4
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateFilledWeaponAttachments
   name: weapon attachments bundle
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTAttachmentVerticalGrip
-      - id: ADTAttachmentLaserSight
-      - id: ADTAttachmentReflexSight
-      - id: ADTAttachmentT2Miniscope
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTAttachmentVerticalGrip
+        - id: ADTAttachmentLaserSight
+        - id: ADTAttachmentReflexSight
+        - id: ADTAttachmentT2Miniscope
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndieMod
   name: Syndicate MOD bundle
   description: MODules and MOD.
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTModsuitModAntigrav
-      - id: ADTModsuitModApparatus
-      - id: ADTModsuitModDrill
-      - id: ADTModsuitModMagboot
-      - id: ADTModsuitModNightVision
-      - id: ADTModsuitModStun
-      - id: ADTModsuitModNoslip
-      - id: ADTModsuitModPowerKick
-      - id: ADTModsuitModSechud
-      - id: ADTModsuitModTray
-      - id: ADTModsuitModIsulation
-      - id: ADTModsuitModJump
-      - id: ADTModsuitModOrebag
-      - id: ADTModsuitModRadiationProtection
-      - id: ADTModsuitModStorage
-      - id: ADTModsuitModWelding
-      - id: ADTModsuitModLight
-      - id: ADTModsuitModJetpack
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTModsuitModAntigrav
+        - id: ADTModsuitModApparatus
+        - id: ADTModsuitModDrill
+        - id: ADTModsuitModMagboot
+        - id: ADTModsuitModNightVision
+        - id: ADTModsuitModStun
+        - id: ADTModsuitModNoslip
+        - id: ADTModsuitModPowerKick
+        - id: ADTModsuitModSechud
+        - id: ADTModsuitModTray
+        - id: ADTModsuitModIsulation
+        - id: ADTModsuitModJump
+        - id: ADTModsuitModOrebag
+        - id: ADTModsuitModRadiationProtection
+        - id: ADTModsuitModStorage
+        - id: ADTModsuitModWelding
+        - id: ADTModsuitModLight
+        - id: ADTModsuitModJetpack
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateCascade
   name: syndicate cascade duffel bag
   description: write here something yeee cool again i think.
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTUsedPlutoniumCore
-      - id: ADTHyperNobliumTankFilled
-      - id: ADTHyperNobliumTankFilled
-      - id: Screwdriver
-      - id: Screwdriver
-      - id: PillCanisterPotassiumIodide
-      - id: LargeBeaker
-      - id: ClothingHandsGlovesLatex
-      - id: ClothingOuterCoatLab
-      - id: GeigerCounter
-      - id: ADTAntiNobliumPaper
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTUsedPlutoniumCore
+        - id: ADTHyperNobliumTankFilled
+        - id: ADTHyperNobliumTankFilled
+        - id: Screwdriver
+        - id: Screwdriver
+        - id: PillCanisterPotassiumIodide
+        - id: LargeBeaker
+        - id: ClothingHandsGlovesLatex
+        - id: ClothingOuterCoatLab
+        - id: GeigerCounter
+        - id: ADTAntiNobliumPaper
 - type: entity
   parent: ClothingBackpackChameleon
   id: ADTClothingBackpackChameleonThiefFill
   suffix: Fill, Chameleon, Thief
   components:
-    - type: StorageFill
-      contents:
-        - id: ChameleonPDA
-        - id: ClothingUniformJumpsuitChameleon
-        - id: ClothingOuterChameleon
-        - id: ClothingNeckChameleon
-        - id: ClothingMaskGasChameleon
-        - id: ClothingHeadHatChameleon
-        - id: ClothingHandsChameleon
-        - id: ClothingEyesChameleon
-        - id: ClothingHeadsetChameleon
-        - id: ADTSyndicateShoesVoucher
-        - id: ChameleonControllerImplanter
+    - type: EntityTableContainerFill
+      containers:
+        storagebase: !type:AllSelector
+          children:
+          - id: ChameleonPDA
+          - id: ClothingUniformJumpsuitChameleon
+          - id: ClothingOuterChameleon
+          - id: ClothingNeckChameleon
+          - id: ClothingMaskGasChameleon
+          - id: ClothingHeadHatChameleon
+          - id: ClothingHandsChameleon
+          - id: ClothingEyesChameleon
+          - id: ClothingHeadsetChameleon
+          - id: ADTSyndicateShoesVoucher
+          - id: ChameleonControllerImplanter

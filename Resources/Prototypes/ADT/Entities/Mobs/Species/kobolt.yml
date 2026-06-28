@@ -1,27 +1,14 @@
+# Kobolt mob (upstream PR#42476). Reuses Reptilian flavor (MobReptilian) + AppearanceKobolt body.
+# AppearanceKobolt is listed last so KoboltSpecies overrides Reptilian on HumanoidProfile.
 - type: entity
   save: false
   name: Urisst' Mzhand
-  parent: BaseMobReptilian
+  parent:
+  - MobReptilian
+  - AppearanceKobolt
   id: BaseMobKobolt
   abstract: true
   components:
-  - type: HumanoidAppearance
-    species: KoboltSpecies
-    hideLayersOnEquip:
-    - SnoutOverlay
-  - type: Hunger
-  - type: Thirst
-  - type: Icon
-    sprite: Mobs/Species/Reptilian/parts.rsi
-    state: full
-  - type: Sprite
-    netsync: false
-    noRot: true
-    drawdepth: Mobs
-    scale: 0.85, 0.85
-  - type: Body
-    prototype: Kobolt
-    requiredLegs: 2
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -30,16 +17,18 @@
   - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
     allowedStates:
     - Alive
-    damageCap: 40
     damage:
       types:
         Heat: -0.06
         Cold: -0.04
-      groups:
-        Brute: -0.08
+        Blunt: -0.08
+        Slash: -0.08
+        Piercing: -0.08
   - type: Bloodstream
-    bloodMaxVolume: 175
-    bloodReagent: ADTCorelanderBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ADTCorelanderBlood
+        Quantity: 175
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -50,10 +39,11 @@
       types:
         Piercing: 5
   - type: Temperature
-    heatDamageThreshold: 380
-    coldDamageThreshold: 260  #starting temperature damage treshold
     currentTemperature: 310.15
     specificHeat: 46
+  - type: TemperatureDamage
+    heatDamageThreshold: 380
+    coldDamageThreshold: 260  #starting temperature damage treshold
     coldDamage:
       types:
         Cold : 0.2 #per second, scales with temperature & other constants
@@ -103,19 +93,4 @@
     shortscale: 0.8
   - type: Thieving
     stealthy: false
-
-- type: entity
-  parent: BaseSpeciesDummy
-  id: MobKoboltDummy
-  categories: [ HideSpawnMenu ]
-  description: A dummy reptilian meant to be used in character setup.
-  components:
-  - type: HumanoidAppearance
-    species: KoboltSpecies
-    hideLayersOnEquip:
-    - SnoutOverlay
-  - type: Sprite
-    netsync: false
-    noRot: true
-    drawdepth: Mobs
-    scale: 0.85, 0.85
+    hideStealthyAlert: true

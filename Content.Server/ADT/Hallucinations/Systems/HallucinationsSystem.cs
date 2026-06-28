@@ -160,7 +160,7 @@ public sealed partial class HallucinationsSystem : EntitySystem
 
         foreach (var ent in _lookup.GetEntitiesInRange(uid, 7f))
         {
-            if (!HasComp<HumanoidAppearanceComponent>(ent))
+            if (!HasComp<HumanoidProfileComponent>(ent))
                 continue;
 
             StartEpidemicHallucinations(ent, component.Proto.ID);
@@ -191,7 +191,7 @@ public sealed partial class HallucinationsSystem : EntitySystem
             var range = stat.Range * 4;
             UpdatePreset(stat);
 
-            foreach (var (ent, comp) in _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(xform.MapPosition, range))
+            foreach (var (ent, comp) in _lookup.GetEntitiesInRange<HumanoidProfileComponent>(xform.MapPosition, range))
             {
                 var newCoords = Transform(ent).MapPosition.Offset(_random.NextVector2(stat.Range));
 
@@ -245,7 +245,7 @@ public sealed partial class HallucinationsSystem : EntitySystem
 
             var range = stat.Range * 4;
 
-            foreach (var (ent, comp) in _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(xform.MapPosition, range))
+            foreach (var (ent, comp) in _lookup.GetEntitiesInRange<HumanoidProfileComponent>(xform.MapPosition, range))
             {
                 var newCoords = Transform(ent).MapPosition.Offset(_random.NextVector2(stat.Range));
 

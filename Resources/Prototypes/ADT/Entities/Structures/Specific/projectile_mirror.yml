@@ -1,4 +1,4 @@
-## Если кто-то сюда решил залезть за примером использования компонентов, смотреть ADTTrinaryProjectileMirror и ADTBinaryProjectileMirror
+﻿## Если кто-то сюда решил залезть за примером использования компонентов, смотреть ADTTrinaryProjectileMirror и ADTBinaryProjectileMirror
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ADTBaseProjectileMirror
@@ -27,6 +27,7 @@
   - type: Transform
     noRot: false
   - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:

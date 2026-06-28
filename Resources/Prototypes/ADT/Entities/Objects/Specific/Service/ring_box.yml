@@ -23,10 +23,12 @@
     - 0,0,0,0
     size: Small
     heldPrefix: box
-  - type: StorageFill
-    contents:
-    - id: ADTClothingHandsRingPlazma
-      amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingHandsRingPlazma
+          amount: 1
   - type: StaticPrice
     price: 500
 
@@ -44,11 +46,12 @@
     - state: box-open
       map: ["openLayer"]
       color: "#42ff78"
-  - type: StorageFill
-    contents:
-    - id: ADTClothingHandsRingEmerald
-      amount: 1
-      
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingHandsRingEmerald
+          amount: 1
 - type: entity
   parent: ADTRingBoxPlazma
   id: ADTRingBoxBlood
@@ -63,11 +66,12 @@
     - state: box-open
       map: ["openLayer"]
       color: "#d90101"
-  - type: StorageFill
-    contents:
-    - id: ADTClothingHandsRingBlood
-      amount: 1
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingHandsRingBlood
+          amount: 1
 - type: entity
   parent: ADTRingBoxPlazma
   id: ADTRingBoxTurk
@@ -82,7 +86,9 @@
     - state: box-open
       map: ["openLayer"]
       color: "#61caff"
-  - type: StorageFill
-    contents:
-    - id: ADTClothingHandsRingTurk
-      amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingHandsRingTurk
+          amount: 1

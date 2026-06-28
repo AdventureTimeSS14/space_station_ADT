@@ -18,7 +18,6 @@ namespace Content.Client.ADT.Traits.UI;
 public sealed partial class TraitEntry : PanelContainer
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly ILocalizationManager _loc = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly JobRequirementsManager _requirementsManager = default!;
 
