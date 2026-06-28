@@ -5,7 +5,10 @@
     Human: 5
     Reptilian: 4
     SlimePerson: 4
-    #Vulpkanin: 4 # Corvax-Vulp
-    VulpkaninSpecies: 4
+    Moth: 4
+    Dwarf: 2
     Diona: 2
-    TajaranSpecies: 3
+    Vox: 1
+    # Vulpkanin: 4 # ADT Tweak
+    VulpkaninSpecies: 4 # ADT Tweak
+    TajaranSpecies: 3 # ADT Tweak

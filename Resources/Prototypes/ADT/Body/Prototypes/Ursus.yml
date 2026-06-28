@@ -1,49 +1,51 @@
-- type: body
-  id: Ursus
-  name: "Ursus"
-  root: torso
-  slots:
-    head:
-      part: ADTHeadUrsus
-      connections:
-      - torso
-      organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
-    torso:
-      part: ADTTorsoUrsus
-      connections:
-      - right_arm
-      - left_arm
-      - right_leg
-      - left_leg
-      organs:
-        heart: ADTOrganUrsusHeart
-        lungs: OrganHumanLungs
-        stomach: ADTOrganUrsusStomach
-        liver: ADTOrganUrsusLiver
-        kidneys: OrganHumanKidneys
-    right_arm:
-      part: ADTRightArmUrsus
-      connections:
-      - right_hand
-    left_arm:
-      part: ADTLeftArmUrsus
-      connections:
-      - left_hand
-    right_hand:
-      part: ADTRightHandUrsus
-    left_hand:
-      part: ADTLeftHandUrsus
-    right_leg:
-      part: ADTRightLegUrsus
-      connections:
-      - right_foot
-    left_leg:
-      part: ADTLeftLegUrsus
-      connections:
-      - left_foot
-    right_foot:
-      part: ADTRightFootUrsus
-    left_foot:
-      part: ADTLeftFootUrsus
+# DEPRECATED: type:body prototype system removed in upstream PR#42476
+# This data is preserved for reference when creating InitialBody entries (task 8)
+# - type: body
+#   id: Ursus
+#   name: "Ursus"
+#   root: torso
+#   slots:
+#     head:
+#       part: ADTHeadUrsus
+#       connections:
+#       - torso
+#       organs:
+#         brain: OrganHumanBrain
+#         eyes: OrganHumanEyes
+#     torso:
+#       part: ADTTorsoUrsus
+#       connections:
+#       - right_arm
+#       - left_arm
+#       - right_leg
+#       - left_leg
+#       organs:
+#         heart: ADTOrganUrsusHeart
+#         lungs: OrganHumanLungs
+#         stomach: ADTOrganUrsusStomach
+#         liver: ADTOrganUrsusLiver
+#         kidneys: OrganHumanKidneys
+#     right_arm:
+#       part: ADTRightArmUrsus
+#       connections:
+#       - right_hand
+#     left_arm:
+#       part: ADTLeftArmUrsus
+#       connections:
+#       - left_hand
+#     right_hand:
+#       part: ADTRightHandUrsus
+#     left_hand:
+#       part: ADTLeftHandUrsus
+#     right_leg:
+#       part: ADTRightLegUrsus
+#       connections:
+#       - right_foot
+#     left_leg:
+#       part: ADTLeftLegUrsus
+#       connections:
+#       - left_foot
+#     right_foot:
+#       part: ADTRightFootUrsus
+#     left_foot:
+#       part: ADTLeftFootUrsus

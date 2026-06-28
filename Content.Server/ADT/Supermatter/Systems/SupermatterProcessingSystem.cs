@@ -154,15 +154,13 @@ public sealed partial class SupermatterSystem
         var integrityRatio = Math.Clamp(integrity / 100f, 0f, 1f);
         var integrityRadModificator = MathF.Pow(1f - integrityRatio, 2f) * 5f;
 
-        if (TryComp<RadiationSourceComponent>(uid, out var rad))
-        {
-            rad.Intensity =
-                _config.GetCVar(ADTCCVars.SupermatterRadsBase) +
-                (sm.Power * Math.Max(0, 1f + transmissionBonus / 10f) * 0.003f + integrityRadModificator)
-                * _config.GetCVar(ADTCCVars.SupermatterRadsModifier);
+        var radIntensity =
+            _config.GetCVar(ADTCCVars.SupermatterRadsBase) +
+            (sm.Power * Math.Max(0, 1f + transmissionBonus / 10f) * 0.003f + integrityRadModificator)
+            * _config.GetCVar(ADTCCVars.SupermatterRadsModifier);
 
-            rad.Slope = Math.Clamp(rad.Intensity / 15, 0.2f, 1f);
-        }
+        _radiation.SetIntensity(uid, radIntensity);
+        _radiation.SetSlope(uid, Math.Clamp(radIntensity / 15, 0.2f, 1f));
 
         var energy = sm.Power * _config.GetCVar(ADTCCVars.SupermatterReactionPowerModifier) * 1.6f * frameTime;
         var gasReleased = sm.GasStorage.Clone();

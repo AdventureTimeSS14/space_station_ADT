@@ -1,4 +1,4 @@
-#==Suffix Guide==
+﻿#==Suffix Guide==
 
 #Always Powered - light doesn't need power to give off life
 #Empty - on map init, light spawns without bulb
@@ -46,8 +46,9 @@
     offset: "0, -0.9"
   - type: Appearance
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: RCDDeconstructable
     cost: 4
     delay: 2

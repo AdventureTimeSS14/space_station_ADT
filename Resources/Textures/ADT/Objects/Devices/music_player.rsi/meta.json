@@ -1,0 +1,40 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord: max_gab2",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "icon_inserted"
+        },
+        {
+            "name": "volume_0"
+        },
+        {
+            "name": "volume_1"
+        },
+        {
+            "name": "volume_2"
+        },
+        {
+            "name": "volume_3"
+        },
+        {
+            "name": "volume_4"
+        }
+    ]
+}

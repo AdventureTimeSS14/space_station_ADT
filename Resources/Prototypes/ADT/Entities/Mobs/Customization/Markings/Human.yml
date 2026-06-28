@@ -2,8 +2,7 @@
 - type: marking
   id: ADTFoxTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Human, Felinid]
+  groupWhitelist: [Human, Felinid]
   #sponsorOnly: false # AdventureTime-Sponsors
   coloring:
     default:
@@ -25,8 +24,7 @@
 - type: marking
   id: ADTMilkyTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Human, Felinid]
+  groupWhitelist: [Human]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/demon.rsi
     state: milky_tail
@@ -36,8 +34,7 @@
 - type: marking
   id: ADTMilkyEars
   bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [Human, Felinid]
+  groupWhitelist: [Human]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/demon.rsi
     state: milky_ears
@@ -45,8 +42,7 @@
 - type: marking
   id: ADTMilkyHorns
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Human, Felinid]
+  groupWhitelist: [Human]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/demon.rsi
     state: milky_horns
@@ -56,8 +52,7 @@
 - type: marking
   id: ADTHorseEars
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Human]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -85,8 +80,7 @@
 - type: marking
   id: ADTHorseTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Human]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:

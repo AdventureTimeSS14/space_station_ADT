@@ -68,8 +68,7 @@
   - type: PowerCellDraw
     enabled: false
     drawRate: 1
-    useRate: 1
-    delay: 50
+    useCharge: 1
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: false
@@ -382,6 +381,7 @@
       - ADTModsuitModLight
       - ADTModsuitModJetpack
       - ADTModsuitModIsulation
+    requiresBattery: false
   - type: UserInterface
     interfaces:
       enum.ModSuitUiKey.Key:
@@ -397,9 +397,6 @@
   - type: WiresPanel
   - type: ActivatableUIRequiresPanel
     requireOpen: false
-  - type: ItemSlotsRequirePanel
-    slots:
-      cell_slot: true
   - type: DNALocker
   - type: ContainerContainer
     containers:
@@ -575,6 +572,7 @@
     sprite: ADT/Clothing/Back/Modsuit/warden.rsi
     state: icon
   - type: ModSuit
+    maxComplexity: 10
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
@@ -597,6 +595,7 @@
     sprite: ADT/Clothing/Back/Modsuit/brigmedic.rsi
     state: icon
   - type: ModSuit
+    maxComplexity: 10
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:

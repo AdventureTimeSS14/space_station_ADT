@@ -151,7 +151,7 @@ public sealed class CursedHeartSystem : EntitySystem
 
     private void OnUseInHand(EntityUid uid, CursedHeartGrantComponent comp, UseInHandEvent args)
     {
-        if (!HasComp<BloodstreamComponent>(args.User) || !HasComp<HumanoidAppearanceComponent>(args.User) || HasComp<MobIpcComponent>(args.User))
+        if (!HasComp<BloodstreamComponent>(args.User) || !HasComp<HumanoidProfileComponent>(args.User) || HasComp<MobIpcComponent>(args.User))
         {
             _popup.PopupEntity(Loc.GetString("popup-cursed-heart-bloodstream"), args.User, args.User, PopupType.Medium);
             return;
