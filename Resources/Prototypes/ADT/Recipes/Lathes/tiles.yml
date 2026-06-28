@@ -1,0 +1,67 @@
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemClown
+  result: FloorTileItemClown
+  materials:
+    Steel: 25
+    Cloth: 25
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemMime
+  result: FloorTileItemMime
+  materials:
+    Steel: 25
+    Cloth: 25
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemKitchen
+  result: FloorTileItemKitchen
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemLime
+  result: FloorTileItemLime
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemMono
+  result: FloorTileItemMono
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemLaundry
+  result: FloorTileItemLaundry
+  materials:
+    Steel: 25
+    Cloth: 25
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemBlue
+  result: FloorTileItemBlue
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemHydro
+  result: FloorTileItemHydro
+  materials:
+    Steel: 25
+    Glass: 25
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemBar
+  result: FloorTileItemBar
+  materials:
+    Steel: 25
+    Wood: 25

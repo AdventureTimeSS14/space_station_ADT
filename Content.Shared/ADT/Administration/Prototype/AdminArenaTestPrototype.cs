@@ -5,7 +5,7 @@ namespace Content.Shared.ADT.Administration
     /// <summary>
     ///     Describes information for a single admin test arena.
     /// </summary>
-    [Prototype("adminArenaVerb")]
+    [Prototype]
     public sealed partial class AdminArenaVerbPrototype : IPrototype
     {
         [ViewVariables]

@@ -425,16 +425,8 @@
       Dead: 0
     baseDecayRate: 0.04
   - type: Temperature
-    heatDamageThreshold: 325
-    coldDamageThreshold: 0
     currentTemperature: 310.15
-    coldDamage:
-      types:
-        Cold : 0
     specificHeat: 42
-    heatDamage:
-      types:
-        Heat : 0
   - type: StatusEffects
     allowed:
     - KnockedDown
@@ -442,11 +434,9 @@
     - Stutter
     - Weakness
     - Electrocution
-    - ForcedSleep
-    - TemporaryBlindness
+    - ForcedSleep 
     - Pacified
     - StaminaModifier
-    - RadiationProtection
     - Drowsiness
     - Adrenaline #ADT-Medicine
   - type: MobPrice

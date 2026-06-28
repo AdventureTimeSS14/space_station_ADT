@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: OreBase
   id: ADTBSore
   suffix: Full
@@ -66,6 +66,7 @@
     heldPrefix: ADTBSore
   - type: MultiHandedItem
   - type: Damageable
+  - type: Injurable
   - type: RequireProjectileTarget
   - type: Gibtonite
     extracted: true

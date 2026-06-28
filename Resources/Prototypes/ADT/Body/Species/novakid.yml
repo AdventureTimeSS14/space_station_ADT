@@ -1,0 +1,128 @@
+# Novakid appearance + visual organs (upstream PR#42476). parts.rsi sexed; internals reused from Human.
+# markingsGroup "Novakid" defined in ADT/Body/markingsGroups.yml
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceNovakid
+  categories: [ HideSpawnMenu ]
+  name: novakid appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganNovakidTorso
+      Head: OrganNovakidHead
+      ArmLeft: OrganNovakidArmLeft
+      ArmRight: OrganNovakidArmRight
+      HandRight: OrganNovakidHandRight
+      HandLeft: OrganNovakidHandLeft
+      LegLeft: OrganNovakidLegLeft
+      LegRight: OrganNovakidLegRight
+      FootLeft: OrganNovakidFootLeft
+      FootRight: OrganNovakidFootRight
+      Brain: OrganHumanBrain
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganNovakidLungs
+      Heart: OrganHumanHeart
+      Stomach: OrganHumanStomach
+      Liver: OrganHumanLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: NovakidSpecies
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganNovakid
+  abstract: true
+  suffix: novakid
+
+- type: entity
+  id: OrganNovakidVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/Novakid/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Novakid
+
+- type: entity
+  parent: [ OrganNovakid, OrganNovakidVisual ]
+  id: OrganNovakidExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Novakid/parts.rsi
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganNovakidExternal ]
+  id: OrganNovakidTorso
+
+- type: entity
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganNovakidExternal ]
+  id: OrganNovakidHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.SnoutOverlay
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganNovakidExternal ]
+  id: OrganNovakidArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganNovakidExternal ]
+  id: OrganNovakidArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganNovakidExternal ]
+  id: OrganNovakidHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganNovakidExternal ]
+  id: OrganNovakidHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganNovakidExternal ]
+  id: OrganNovakidLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganNovakidExternal ]
+  id: OrganNovakidLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganNovakidExternal ]
+  id: OrganNovakidFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganNovakidExternal ]
+  id: OrganNovakidFootRight
+
+- type: entity
+  id: OrganNovakidMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Novakid ]
+
+- type: entity
+  id: OrganNovakidLungs
+  parent: [ OrganBaseLungs, OrganNovakidMetabolizer ]
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Drask/organs.rsi
+    layers:
+    - state: lungs

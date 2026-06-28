@@ -5,8 +5,6 @@
   name: arcade
   parent: BaseComputer
   components:
-  - type: ApcPowerReceiver
-    powerLoad: 350
   - type: ExtensionCableReceiver
   - type: PointLight
     radius: 1.8
@@ -101,7 +99,7 @@
     - FoamBlade
     - FoamCutlass
     - Football
-    - GlowstickBase #green
+    - GlowstickGreen
     - GlowstickBlue
     - GlowstickYellow
     - GlowstickPurple

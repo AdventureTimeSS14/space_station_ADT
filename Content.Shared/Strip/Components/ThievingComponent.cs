@@ -29,6 +29,11 @@ public sealed partial class ThievingComponent : Component
     [DataField]
     public ProtoId<AlertPrototype> StealthyAlertProtoId = "Stealthy";
 
+    // ADT-Tweak start
+    [DataField]
+    public bool HideStealthyAlert = false;
+    // ADT-Tweak end
+
     /// <summary>
     /// Prevent component replication to clients other than the owner,
     /// doesn't affect prediction.

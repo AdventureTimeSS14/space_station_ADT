@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: Emitter
   name: emitter
   parent: SmallConstructibleMachine
@@ -36,6 +36,7 @@
       # visible: false # Corvax-Resprite
       map: ["enum.LockVisualLayers.Lock"]
   - type: Emitter
+    alertRadio: true
   - type: Gun
     showExamineText: false
     fireRate: 10 #just has to be fast enough to keep up with upgrades
@@ -53,8 +54,12 @@
         !type:CableDeviceNode
         nodeGroupID: MVPower
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: ActiveRadio
+    channels:
+    - Engineering
   - type: Destructible
     thresholds:
       - trigger:

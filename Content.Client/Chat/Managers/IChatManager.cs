@@ -4,7 +4,7 @@ namespace Content.Client.Chat.Managers
 {
     public interface IChatManager : ISharedChatManager
     {
-        void Initialize(); // ADT-CollectiveMind-Tweak
+        new void Initialize(); // ADT-CollectiveMind-Tweak
         /// <summary>
         ///     Will refresh perms.
         /// </summary>

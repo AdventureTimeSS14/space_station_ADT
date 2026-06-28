@@ -1,0 +1,153 @@
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceTajaran
+  categories: [ HideSpawnMenu ]
+  name: tajaran appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganTajaranTorso
+      Head: OrganTajaranHead
+      ArmLeft: OrganTajaranArmLeft
+      ArmRight: OrganTajaranArmRight
+      HandRight: OrganTajaranHandRight
+      HandLeft: OrganTajaranHandLeft
+      LegLeft: OrganTajaranLegLeft
+      LegRight: OrganTajaranLegRight
+      FootLeft: OrganTajaranFootLeft
+      FootRight: OrganTajaranFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganTajaranEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: OrganHumanHeart
+      Stomach: OrganFelinidStomach
+      Liver: OrganHumanLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: TajaranSpecies
+  - type: ScaleVisuals
+    scale: 0.9, 0.9
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: jumpsuit
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: jumpsuit
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganTajaran
+  abstract: true
+  suffix: tajaran
+
+- type: entity
+  id: OrganTajaranVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Tajaran
+
+- type: entity
+  parent: [ OrganTajaran, OrganTajaranVisual ]
+  id: OrganTajaranExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganTajaranExternal ]
+  id: OrganTajaranTorso
+
+- type: entity
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganTajaranExternal ]
+  id: OrganTajaranHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.SnoutOverlay
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganTajaranExternal ]
+  id: OrganTajaranArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganTajaranExternal ]
+  id: OrganTajaranArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganTajaranExternal ]
+  id: OrganTajaranHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganTajaranExternal ]
+  id: OrganTajaranHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganTajaranExternal ]
+  id: OrganTajaranLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganTajaranExternal ]
+  id: OrganTajaranLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganTajaranExternal ]
+  id: OrganTajaranFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganTajaranExternal ]
+  id: OrganTajaranFootRight
+
+- type: entity
+  parent: OrganHumanEyes
+  id: OrganTajaranEyes
+  suffix: tajaran
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+      state: tajaran_eyes
+  - type: VisualOrganMarkings
+    markingData:
+      group: Tajaran
+      layers:
+      - Eyes

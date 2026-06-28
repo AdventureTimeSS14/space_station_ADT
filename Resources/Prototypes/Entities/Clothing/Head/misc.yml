@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunny
   name: bunny ears
@@ -346,6 +346,7 @@
       types:
         Blunt: 1
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: Destructible
     thresholds:

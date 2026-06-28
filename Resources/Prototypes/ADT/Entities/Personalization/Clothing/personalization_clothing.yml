@@ -1,4 +1,4 @@
-##ADT Sponsor Base for clothing
+﻿##ADT Sponsor Base for clothing
 ##Sponsor Gloves
 - type: entity
   abstract: true
@@ -265,11 +265,13 @@
     sprite: ADT/Personalization/schrodinger_coat.rsi
   - type: Clothing
     sprite: ADT/Personalization/schrodinger_coat.rsi
-  - type: StorageFill
-    contents:
-    - id: ADTCigarSchrodingerCase
-    - id: FlippoSchrodingerLighter
-    - id: SpeedLoaderMagnum
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTCigarSchrodingerCase
+        - id: FlippoSchrodingerLighter
+        - id: SpeedLoaderMagnum
   - type: Armor
     modifiers:
       coefficients:
@@ -317,10 +319,12 @@
     sprite: ADT/Personalization/pyotr_coat.rsi
   - type: Clothing
     sprite: ADT/Personalization/pyotr_coat.rsi
-  - type: StorageFill
-    contents:
-    - id: CigarGoldCase
-    - id: Lighter
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CigarGoldCase
+        - id: Lighter
   - type: Armor
     modifiers:
       coefficients:
@@ -1086,7 +1090,7 @@
       map: [ "light" ]
   - type: HandheldLight
     addPrefix: false
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     clothingVisuals:
       head:
       - state: equipped-head-light
