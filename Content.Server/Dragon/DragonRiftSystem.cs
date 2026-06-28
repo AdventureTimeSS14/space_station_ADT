@@ -9,6 +9,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization.Manager;
 using System.Numerics;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
@@ -55,7 +56,6 @@ public sealed class DragonRiftSystem : EntitySystem
         var query = EntityQueryEnumerator<DragonRiftComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var comp, out var xform))
         {
-            // Handle full rift charge completion
             if (comp.State != DragonRiftState.Finished && comp.Accumulator >= comp.MaxAccumulator)
             {
                 if (comp.Dragon != null)
@@ -71,7 +71,6 @@ public sealed class DragonRiftSystem : EntitySystem
                 comp.Accumulator += frameTime;
             }
 
-            // Trigger warning when rift is half-charged
             if (comp.State < DragonRiftState.AlmostFinished && comp.Accumulator > comp.MaxAccumulator / 2f)
             {
                 comp.State = DragonRiftState.AlmostFinished;
@@ -84,27 +83,52 @@ public sealed class DragonRiftSystem : EntitySystem
                 _navMap.SetBeaconEnabled(uid, true);
             }
 
-            // Handle mob spawning
             comp.SpawnAccumulator += frameTime;
-            if (comp.SpawnAccumulator > comp.SpawnCooldown && comp.SpawnPrototypes.Count > 0)
+            if (comp.SpawnAccumulator > comp.SpawnCooldown)
             {
-                comp.SpawnAccumulator -= comp.SpawnCooldown;
+                string? proto = null;
 
-                // Pick a random mob prototype from the list
-                var proto = _random.Pick(comp.SpawnPrototypes);
-                var ent = Spawn(proto, xform.Coordinates);
-
-                // Copy random sprite from the dragon to the spawned mob (if any)
-                if (TryComp<RandomSpriteComponent>(comp.Dragon, out var randomSprite))
+                if (!string.IsNullOrEmpty(comp.SpawnPrototypeStrong) && _random.Prob(comp.StrongSpawnChance))
                 {
-                    var spawnedSprite = EnsureComp<RandomSpriteComponent>(ent);
-                    _serManager.CopyTo(randomSprite, ref spawnedSprite, notNullableOverride: true);
-                    Dirty(ent, spawnedSprite);
+                    proto = comp.SpawnPrototypeStrong;
+                }
+                else if (!string.IsNullOrEmpty(comp.SpawnPrototype))
+                {
+                    proto = comp.SpawnPrototype;
+                }
+                else if (comp.SpawnPrototypes is { Count: > 0 })
+                {
+                    proto = _random.Pick(comp.SpawnPrototypes);
                 }
 
-                // Set mob's follow target to the dragon
-                if (comp.Dragon != null)
-                    _npc.SetBlackboard(ent, NPCBlackboard.FollowTarget, new EntityCoordinates(comp.Dragon.Value, Vector2.Zero));
+                if (proto != null)
+                {
+                    var lowerProto = proto.ToLower();
+                    if (lowerProto.Contains("carp"))
+                    {
+                        if (_random.Prob(0.35f))
+                        {
+                            proto = "MobSharkDragon";
+                        }
+                    }
+                }
+                // ------------------------------------------
+
+                if (proto != null)
+                {
+                    comp.SpawnAccumulator -= comp.SpawnCooldown;
+                    var ent = Spawn(proto, xform.Coordinates);
+
+                    if (TryComp<RandomSpriteComponent>(comp.Dragon, out var randomSprite))
+                    {
+                        var spawnedSprite = EnsureComp<RandomSpriteComponent>(ent);
+                        _serManager.CopyTo(randomSprite, ref spawnedSprite, notNullableOverride: true);
+                        Dirty(ent, spawnedSprite);
+                    }
+
+                    if (comp.Dragon != null)
+                        _npc.SetBlackboard(ent, NPCBlackboard.FollowTarget, new EntityCoordinates(comp.Dragon.Value, Vector2.Zero));
+                }
             }
         }
     }

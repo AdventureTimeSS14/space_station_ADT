@@ -35,6 +35,19 @@ public sealed partial class DragonRiftComponent : SharedDragonRiftComponent
     [ViewVariables(VVAccess.ReadWrite), DataField("spawnCooldown")]
     public float SpawnCooldown = 30f;
 
+
     [DataField("spawns")]
     public List<string> SpawnPrototypes = new() { };
+
+
+    [DataField("spawnPrototype")]
+    public string? SpawnPrototype;
+
+
+    [DataField("spawnPrototypeStrong")]
+    public string? SpawnPrototypeStrong;
+
+
+    [DataField("strongSpawnChance")]
+    public float StrongSpawnChance = 0.2f;
 }

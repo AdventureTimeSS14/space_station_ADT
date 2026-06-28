@@ -1,3 +1,5 @@
+using Content.Server.NPC;
+using Content.Server.NPC.Systems;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Server.Popups;
@@ -8,6 +10,7 @@ using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.NPC.Systems;
@@ -16,7 +19,13 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Systems; // ADT-Tweak
+using Content.Shared.Damage.Systems;
+using Content.Shared.Sprite;
+using Content.Server.Stunnable;
+using Content.Shared.NPC.Components;
+using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Random;
+using System.Numerics;
 
 namespace Content.Server.Dragon;
 
@@ -32,20 +41,17 @@ public sealed partial class DragonSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!; // ADT-Tweak
+    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly ISerializationManager _serManager = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly NPCSystem _npc = default!;
 
     private EntityQuery<CarpRiftsConditionComponent> _objQuery;
 
-    /// <summary>
-    /// Minimum distance between 2 rifts allowed.
-    /// </summary>
     private const int RiftRange = 15;
-
-    /// <summary>
-    /// Radius of tiles
-    /// </summary>
     private const int RiftTileRadius = 2;
-
     private const int RiftsAllowed = 3;
 
     public override void Initialize()
@@ -60,20 +66,27 @@ public sealed partial class DragonSystem : EntitySystem
         SubscribeLocalEvent<DragonComponent, RefreshMovementSpeedModifiersEvent>(OnDragonMove);
         SubscribeLocalEvent<DragonComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<DragonComponent, EntityZombifiedEvent>(OnZombified);
+        // абилки с губов
+        SubscribeLocalEvent<DragonComponent, DragonRoarActionEvent>(OnDragonRoar);
+        SubscribeLocalEvent<DragonComponent, DragonSpawnCarpHordeActionEvent>(OnRiseFish);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<DragonComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        var query = EntityQueryEnumerator<DragonComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var xform))
         {
+            if (_lookup.GetEntitiesInRange<DragonRiftComponent>(xform.Coordinates, comp.CarpRiftHealingRange).Count > 0)
+            {
+                _damage.TryChangeDamage(uid, comp.CarpRiftHealing * frameTime, true, false);
+            }
+
             if (comp.WeakenedAccumulator > 0f)
             {
                 comp.WeakenedAccumulator -= frameTime;
 
-                // No longer weakened.
                 if (comp.WeakenedAccumulator < 0f)
                 {
                     comp.WeakenedAccumulator = 0f;
@@ -81,11 +94,9 @@ public sealed partial class DragonSystem : EntitySystem
                 }
             }
 
-            // At max rifts
             if (comp.Rifts.Count >= RiftsAllowed)
                 continue;
 
-            // If there's an active rift don't accumulate.
             if (comp.Rifts.Count > 0)
             {
                 var lastRift = comp.Rifts[^1];
@@ -100,8 +111,6 @@ public sealed partial class DragonSystem : EntitySystem
             if (!_mobState.IsDead(uid))
                 comp.RiftAccumulator += frameTime;
 
-            // ADT-Tweak start
-            // TODO: сделать анимированную смерть, где дракон лопается, после чего трупы разлетяться в разные стороны.
             if (comp.RiftAccumulator >= comp.RiftMaxAccumulator)
             {
                 Roar(uid, comp);
@@ -111,7 +120,6 @@ public sealed partial class DragonSystem : EntitySystem
 
                 _damage.TryChangeDamage(uid, damage, true);
             }
-            // ADT-Tweak end
         }
     }
 
@@ -119,6 +127,9 @@ public sealed partial class DragonSystem : EntitySystem
     {
         Roar(uid, component);
         _actions.AddAction(uid, ref component.SpawnRiftActionEntity, component.SpawnRiftAction);
+
+        _actions.AddAction(uid, ref component.SpawnCarpsActionEntity, component.SpawnCarpsAction);
+        _actions.AddAction(uid, ref component.RoarActionEntity, component.RoarAction);
     }
 
     private void OnShutdown(EntityUid uid, DragonComponent component, ComponentShutdown args)
@@ -148,14 +159,12 @@ public sealed partial class DragonSystem : EntitySystem
 
         var xform = Transform(uid);
 
-        // Have to be on a grid fam
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
         {
             _popup.PopupEntity(Loc.GetString("carp-rift-anchor"), uid, uid);
             return;
         }
 
-        // cant stack rifts near eachother
         foreach (var (_, riftXform) in EntityQuery<DragonRiftComponent, TransformComponent>(true))
         {
             if (_transform.InRange(riftXform.Coordinates, xform.Coordinates, RiftRange))
@@ -165,7 +174,6 @@ public sealed partial class DragonSystem : EntitySystem
             }
         }
 
-        // cant put a rift on solars
         foreach (var tile in _map.GetTilesIntersecting(xform.GridUid.Value, grid, new Circle(_transform.GetWorldPosition(xform), RiftTileRadius), false))
         {
             if (!_turf.IsSpace(tile))
@@ -180,7 +188,6 @@ public sealed partial class DragonSystem : EntitySystem
         Comp<DragonRiftComponent>(carpUid).Dragon = uid;
     }
 
-    // TODO: just make this a move speed modifier component???
     private void OnDragonMove(EntityUid uid, DragonComponent component, RefreshMovementSpeedModifiersEvent args)
     {
         if (component.Weakened)
@@ -191,20 +198,17 @@ public sealed partial class DragonSystem : EntitySystem
 
     private void OnMobStateChanged(EntityUid uid, DragonComponent component, MobStateChangedEvent args)
     {
-        // Deletes all rifts after dying
         if (args.NewMobState != MobState.Dead)
             return;
 
         if (component.SoundDeath != null)
             _audio.PlayPvs(component.SoundDeath, uid);
 
-        // objective is explicitly not reset so that it will show how many you got before dying in round end text
         DeleteRifts(uid, false, component);
     }
 
     private void OnZombified(Entity<DragonComponent> ent, ref EntityZombifiedEvent args)
     {
-        // prevent carp attacking zombie dragon
         _faction.AddFaction(ent.Owner, ent.Comp.Faction);
     }
 
@@ -214,12 +218,6 @@ public sealed partial class DragonSystem : EntitySystem
             _audio.PlayPvs(comp.SoundRoar, uid);
     }
 
-    /// <summary>
-    /// Delete all rifts this dragon made.
-    /// </summary>
-    /// <param name="uid">Entity id of the dragon</param>
-    /// <param name="resetRole">If true, the role's rift count will be reset too</param>
-    /// <param name="comp">The dragon component</param>
     public void DeleteRifts(EntityUid uid, bool resetRole, DragonComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
@@ -232,7 +230,6 @@ public sealed partial class DragonSystem : EntitySystem
 
         comp.Rifts.Clear();
 
-        // stop here if not trying to reset the objective's rift count
         if (!resetRole || !TryComp<MindContainerComponent>(uid, out var mindContainer) || !mindContainer.HasMind)
             return;
 
@@ -247,9 +244,6 @@ public sealed partial class DragonSystem : EntitySystem
         }
     }
 
-    /// <summary>
-    /// Increment the dragon role's charged rift count.
-    /// </summary>
     public void RiftCharged(EntityUid uid, DragonComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
@@ -269,20 +263,64 @@ public sealed partial class DragonSystem : EntitySystem
         }
     }
 
-    /// <summary>
-    /// Do everything that needs to happen when a rift gets destroyed by the crew.
-    /// </summary>
     public void RiftDestroyed(EntityUid uid, DragonComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
             return;
 
-        // do reset the rift count since crew destroyed the rift, not deleted by the dragon dying.
         DeleteRifts(uid, true, comp);
 
-        // We can't predict the rift being destroyed anyway so no point adding weakened to shared.
         comp.WeakenedAccumulator = comp.WeakenedDuration;
         _movement.RefreshMovementSpeedModifiers(uid);
         _popup.PopupEntity(Loc.GetString("carp-rift-destroyed"), uid, uid);
     }
+
+    #region Goobstation Способности
+
+    private void OnRiseFish(EntityUid uid, DragonComponent component, DragonSpawnCarpHordeActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        Roar(uid, component);
+        var xform = Transform(uid);
+
+        const int amount = 3;
+
+        for (int i = 0; i < amount; i++)
+        {
+            var protoId = "MobCarpDragon";
+
+            var ent = Spawn(protoId, xform.Coordinates);
+
+            _npc.SetBlackboard(ent, NPCBlackboard.FollowTarget, new EntityCoordinates(uid, Vector2.Zero));
+        }
+
+        args.Handled = true;
+    }
+
+    private void OnDragonRoar(EntityUid uid, DragonComponent component, DragonRoarActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        Roar(uid, component);
+
+        var xform = Transform(uid);
+        var nearMobs = _lookup.GetEntitiesInRange<MobStateComponent>(xform.Coordinates, component.RoarRange, LookupFlags.Uncontained);
+        foreach (var mob in nearMobs)
+        {
+            if (mob.Owner == uid)
+                continue;
+
+            if (TryComp<NpcFactionMemberComponent>(mob.Owner, out var factionComp) && _faction.IsEntityFriendly(uid, (mob.Owner, factionComp)))
+                continue;
+
+            _stun.TryUpdateStunDuration(mob.Owner, TimeSpan.FromSeconds(component.RoarStunTime));
+        }
+
+        args.Handled = true;
+    }
+
+    #endregion
 }

@@ -1,3 +1,4 @@
+using Content.Shared.Damage;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -65,5 +66,36 @@ namespace Content.Server.Dragon
         /// </summary>
         [DataField]
         public ProtoId<NpcFactionPrototype> Faction = "Dragon";
+
+
+        [DataField("carpRiftHealingRange")]
+        public float CarpRiftHealingRange = 5f;
+
+        [DataField("carpRiftHealing")]
+        public DamageSpecifier CarpRiftHealing = default!;
+
+        [DataField("spawnCarpsActionEntity")]
+        public EntityUid? SpawnCarpsActionEntity;
+
+        [DataField("spawnCarpsAction")]
+        public string SpawnCarpsAction = "ActionDragonSpawnCarp";
+
+        [DataField("roarActionEntity")]
+        public EntityUid? RoarActionEntity;
+
+        [DataField("roarAction")]
+        public string RoarAction = "ActionDragonRoar";
+
+        [DataField("carpAmount")]
+        public int CarpAmount = 3;
+
+        [DataField("carpProtoId")]
+        public string CarpProtoId = "MobSpaceCarpDragon";
+
+        [DataField("roarRange")]
+        public float RoarRange = 10f;
+
+        [DataField("roarStunTime")]
+        public float RoarStunTime = 2.5f;
     }
 }

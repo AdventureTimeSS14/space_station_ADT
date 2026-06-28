@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2022 Aerocrux <69610864+Aerocrux@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 CommieFlowers <rasmus.cedergren@hotmail.com>
+# SPDX-FileCopyrightText: 2022 CrudeWax <75271456+CrudeWax@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
   id: BaseMobDragon
@@ -99,7 +110,6 @@
       350: 0.7 # ADT-Tweak (add new threshold)
       430: 0.5 # ADT-Tweak (higher threshold 400: 0.5 ---> 430: 0.5)
 # ADT-Tweak-start
-# disable taking damage from fire, since its a fire breathing dragon. # also it can't be lit on fire
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: Flammable
@@ -120,16 +130,11 @@
   - type: Stamina
     critThreshold: 350
 # ADT-Tweak-end
-  - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
+  - type: StatusEffects
     allowed:
     - Stutter
     - Weakness #ADT-Weakness-Tweak
-    # - Electrocution # ADT-Tweak - ъуъ
-    # - ForcedSleep # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE PUT TO SLEEP???
-    # - TemporaryBlindness # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE BLINDED???
-    # - Pacified # ADT-Tweak - это чудище не обосрется от пакса
     - RadiationProtection
-    # - Drowsiness # ADT-Tweak - НЕ СПАТЬ
     - Adrenaline #ADT-Medicine
   - type: Metabolizer
     solutionOnBody: false
@@ -143,12 +148,12 @@
     - id: FoodMeatDragon
       amount: 2
   - type: InteractionPopup
-    successChance: 0.25 # It's no goose, but you better smell like carp.
+    successChance: 0.25
     interactSuccessString: petting-success-dragon
     interactFailureString: petting-failure-dragon
     interactFailureSound:
       path: /Audio/Animals/space_dragon_roar.ogg
-    soundPerceivedByOthers: false # A 75% chance for a loud roar would get old fast.
+    soundPerceivedByOthers: false
   - type: MeleeWeapon
     altDisarm: false
     soundHit:
@@ -200,7 +205,7 @@
   - type: Prying
     pryPowered: true
     force: true
-    speedModifier: 2.5 # fast because dragon strong
+    speedModifier: 2.5
     useSound:
       path: /Audio/Items/crowbar.ogg
 # ADT-Tweak start
@@ -220,10 +225,18 @@
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
+    spawnCarpsAction: ActionRiseFish
+    roarAction: ActionDragonRoar
+    carpRiftHealing:
+      groups:
+        Brute: -4
+        Burn: -4
+        Airloss: -3
+    # ===============================
   - type: GhostRole
     mindRoles:
     - MindRoleDragon
-  - type: ActionGun
+  - type: ActionGun 
     action: ActionDragonsBreath
     gunProto: DragonsBreathGun
   - type: GuideHelp
@@ -267,7 +280,6 @@
     thresholds:
       0: Alive
       200: Dead
-  # less meat spawned since it's a lot easier to kill
   - type: Butcherable
     spawned:
     - id: FoodMeatDragon
@@ -321,7 +333,6 @@
   description: Spew out flames at anyone foolish enough to attack you!
   components:
   - type: Action
-    # TODO: actual sprite and iconOn
     icon: { sprite : Objects/Weapons/Guns/Projectiles/magic.rsi, state: fireball }
     itemIconStyle: BigAction
     priority: 2
@@ -330,3 +341,33 @@
     range: 0
   - type: WorldTargetAction
     event: !type:ActionGunShootEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionRiseFish
+  name: Summon Carp Horde
+  description: Summons 3 carps on the spot to protect you from danger!
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Interface/Actions/dragon.rsi
+      state: carp_horde
+    useDelay: 120
+    priority: 4
+  - type: InstantAction
+    event: !type:DragonSpawnCarpHordeActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionDragonRoar
+  name: Wing flap
+  description: Flap your wings to stun all enemies around you!
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Interface/Actions/dragon.rsi
+      state: wing_flap
+    useDelay: 55
+    priority: 5
+  - type: InstantAction
+    event: !type:DragonRoarActionEvent
