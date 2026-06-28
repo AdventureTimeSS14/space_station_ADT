@@ -1908,3 +1908,18 @@
     slots:
     - ears
     - ears2
+   
+# SikRit
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckSikRitDemonicWings
+  suffix: Personal, SikRit
+  name: demonic wings
+  description: Small wings that seem to have no use for the wearer. You can see that they tremble depending on the wearer's desire. You can feel a strange aura coming from the wearer of these wings.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/SikRi_demonic_wings.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/SikRi_demonic_wings.rsi
+  - type: Item
+    size: Normal
