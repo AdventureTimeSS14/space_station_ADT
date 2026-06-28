@@ -6,7 +6,7 @@
   playTimeTracker: JobERTLeader
   setPreference: false
   startingGear: ADTERTLeaderGearEVA
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTLeader"
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -104,7 +104,7 @@
   playTimeTracker: JobERTChaplain
   setPreference: false
   startingGear: ERTChaplainGear
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTChaplain"
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -114,71 +114,55 @@
   special:
   - !type:AddComponentSpecial
     components:
-    - type: BibleUser #Lets them heal with bibles
+    - type: BibleUser #Lets them heal with
+    - type: MagicImmunity # ADT-Tweak
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
+  parent: ERTChaplainGearEVA
   id: ERTChaplainGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitERTChaplain
-    back: ClothingBackpackERTChaplain
-    shoes: ClothingShoesLeather
+    shoes: ClothingShoesBootsJackFilled
     head: ClothingHeadHatFez
-    eyes: ClothingEyesGlasses
     neck: ClothingNeckStoleChaplain
-    gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterArmorBasicSlim
-    id: ERTChaplainPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltStorageWaistbag
-    pocket1: Flare
-    pocket2: DrinkWaterBottleFull
-  storage:
-    back:
-    - BoxCandle
-    - BoxBodyBag
-    - DrinkWaterMelonJuiceJug
-    - Lantern
-    - Lantern
-    - Bible
-    - CrowbarRed
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - Lighter
+    outerClothing: ClothingOuterArmorBasic
+    pocket2: FlashlightSeclite
 
 - type: startingGear
   id: ERTChaplainGearEVA
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTChaplain
     back: ClothingBackpackERTChaplain
-    shoes: ClothingShoesBootsMagAdv
+    shoes: ClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlasses
-    neck: ClothingNeckStoleChaplain
+    eyes: ClothingEyesHudMedical
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTChaplain
     id: ERTChaplainPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltStorageWaistbag
-    pocket1: Flare
-    pocket2: DrinkWaterBottleFull
+    belt: ClothingBeltMilitaryWebbingERT
+    pocket2: CombatKnife
   storage:
     back:
     - BoxCandle
-    - BoxBodyBag
-    - DrinkWaterMelonJuiceJug
-    - Lantern
-    - Lantern
+    - BodyBagFolded
+    - BodyBagFolded
+    - JugWater
+    - JugBlood # End of first row
+    - FoodBakedBunHotX
+    - FoodBakedBunHotX
+    - FoodBakedBunHotX
+    - FoodBakedBunHotX
+    belt:
     - Bible
+    - Lantern
+    - Lantern
+    - Lantern
     - CrowbarRed
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - Lighter
+    - WeaponPistolMk58
+    - MagazinePistol
+    - FlippoEngravedLighter
 
 - type: chameleonOutfit
   id: ERTChaplainChameleonOutfit
@@ -198,7 +182,7 @@
   playTimeTracker: JobERTEngineer
   setPreference: false
   startingGear: ADTERTEngineerGearEVA # ADT-Tweak
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTEngineer"
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -281,7 +265,7 @@
   playTimeTracker: JobERTSecurity
   setPreference: false
   startingGear: ADTERTSecurityGearEVA # ADT-Tweak
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTSecurity"
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -382,7 +366,7 @@
   playTimeTracker: JobERTMedical
   setPreference: false
   startingGear: ADTERTMedicalGearEVA # ADT-Tweak
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTMedic"
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -457,7 +441,7 @@
   playTimeTracker: JobERTJanitor
   setPreference: false
   startingGear: ADTERTJanitorGearEVA # ADT-Tweak
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTJanitor"
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:

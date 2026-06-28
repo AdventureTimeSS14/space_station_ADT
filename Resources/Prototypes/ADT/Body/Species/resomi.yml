@@ -1,0 +1,190 @@
+# Resomi appearance + visual organs (upstream PR#42476). parts.rsi sexed; internals reused from Human.
+# markingsGroup "Resomi" defined in ADT/Body/markingsGroups.yml
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceResomi
+  categories: [ HideSpawnMenu ]
+  name: resomi appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganResomiTorso
+      Head: OrganResomiHead
+      ArmLeft: OrganResomiArmLeft
+      ArmRight: OrganResomiArmRight
+      HandRight: OrganResomiHandRight
+      HandLeft: OrganResomiHandLeft
+      LegLeft: OrganResomiLegLeft
+      LegRight: OrganResomiLegRight
+      FootLeft: OrganResomiFootLeft
+      FootRight: OrganResomiFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganResomiEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: OrganHumanHeart
+      Stomach: OrganHumanStomach
+      Liver: OrganHumanLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: Resomi
+  - type: Hands
+    inHandItemScale: 0.85, 0.85
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+          state: inHand
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+          state: inHand
+  - type: Inventory
+    speciesId: resomi
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: jumpsuit
+      eyes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: eyes
+      gloves:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: hands
+      head:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: head
+      back:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: back
+      ears:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: ears
+      shoes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: feet
+      neck:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: neck
+      mask:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: mask
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: suitStorage
+      belt:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: belt
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganResomi
+  abstract: true
+  suffix: resomi
+
+- type: entity
+  id: OrganResomiVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/Resomi/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Resomi
+
+- type: entity
+  parent: [ OrganResomiVisual, OrganBaseEyes, OrganHumanInternal ]
+  id: OrganResomiEyes
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Customization/Resomi/eyes.rsi
+      state: resomi
+
+- type: entity
+  parent: [ OrganResomi, OrganResomiVisual ]
+  id: OrganResomiExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Resomi/parts.rsi
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganResomiExternal ]
+  id: OrganResomiTorso
+
+- type: entity
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganResomiExternal ]
+  id: OrganResomiHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.SnoutOverlay
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganResomiExternal ]
+  id: OrganResomiArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganResomiExternal ]
+  id: OrganResomiArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganResomiExternal ]
+  id: OrganResomiHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganResomiExternal ]
+  id: OrganResomiHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganResomiExternal ]
+  id: OrganResomiLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganResomiExternal ]
+  id: OrganResomiLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganResomiExternal ]
+  id: OrganResomiFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganResomiExternal ]
+  id: OrganResomiFootRight

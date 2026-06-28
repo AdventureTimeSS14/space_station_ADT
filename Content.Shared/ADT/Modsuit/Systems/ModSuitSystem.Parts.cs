@@ -28,10 +28,16 @@ public sealed partial class ModSuitSystem
 
     private void OnRemoveAttached(Entity<ModPartComponent> ent, ref ComponentRemove args)
     {
+        if (Terminating(ent.Owner))
+            return;
+
         // if the attached component is being removed (maybe entity is being deleted?) we will just remove the
         // modsuit component. This means if you had a hard-suit helmet that took too much damage, you would
         // still be left with a suit that was simply missing a helmet. There is currently no way to fix a partially
         // broken suit like this.
+
+        if (!TryGetEntityData(ent.Comp.AttachedUid, out var attachedUid, out _) || !Exists(attachedUid.Value))
+            return;
 
         var suit = GetEntity(ent.Comp.AttachedUid);
 
@@ -57,9 +63,15 @@ public sealed partial class ModSuitSystem
         if (_timing.ApplyingState)
             return;
 
+        if (Terminating(ent.Owner))
+            return;
+
+        if (!TryGetEntityData(ent.Comp.AttachedUid, out var attachedUid, out _) || !Exists(attachedUid.Value))
+            return;
+
         var suit = GetEntity(ent.Comp.AttachedUid);
 
-        if (!TryComp(suit, out ModSuitComponent? modSuitComp))
+        if (!TryComp(suit, out ModSuitComponent? modSuitComp) || Terminating(suit))
             return;
 
         // As unequipped gets called in the middle of container removal, we cannot call a container-insert without causing issues.
@@ -83,6 +95,12 @@ public sealed partial class ModSuitSystem
         if (_timing.ApplyingState)
             return;
 
+        if (Terminating(ent.Owner))
+            return;
+
+        if (!TryGetEntityData(ent.Comp.AttachedUid, out var attachedUid, out _) || !Exists(attachedUid.Value))
+            return;
+
         var suit = GetEntity(ent.Comp.AttachedUid);
 
         if (!TryComp(suit, out ModSuitComponent? modSuitComp) || !modSuitComp.TempUser.HasValue)
@@ -101,6 +119,12 @@ public sealed partial class ModSuitSystem
 
     private void OnGetAttachedStripVerbsEvent(Entity<ModPartComponent> ent, ref GetVerbsEvent<EquipmentVerb> args)
     {
+        if (Terminating(ent.Owner))
+            return;
+
+        if (!TryGetEntityData(ent.Comp.AttachedUid, out var attachedUid, out _) || !Exists(attachedUid.Value))
+            return;
+
         var suit = GetEntity(ent.Comp.AttachedUid);
 
         if (!TryComp<ModSuitComponent>(suit, out var modSuitComp))

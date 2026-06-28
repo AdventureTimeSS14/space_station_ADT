@@ -1,4 +1,4 @@
-#==Suffix Guide==
+﻿#==Suffix Guide==
 #Always Powered - light doesn't need power to give off life
 #Empty - on map init, light spawns without bulb
 #Blue/Sodium/etc. - the color of the light
@@ -40,8 +40,9 @@
     # ADT-Sound-Update-End
     offset: "0, -0.5"
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: RCDDeconstructable
     cost: 4
     delay: 2
@@ -286,6 +287,7 @@
           layer:
           - TabletopMachineLayer
     - type: Damageable
+    - type: Injurable
       damageContainer: Inorganic
     - type: Destructible
       thresholds:
@@ -455,6 +457,11 @@
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: Battery
+    # Very important:
+    # Disable networking to prevent the battery getting continuously dirtied every tick as it interacts with the power network.
+    # This can not be done by changing the charge rate as the power supply ramps up over time.
+    # This disables prediction for this battery.
+    netsync: false
     maxCharge: 30000
     startingCharge: 0
   - type: EmergencyLight

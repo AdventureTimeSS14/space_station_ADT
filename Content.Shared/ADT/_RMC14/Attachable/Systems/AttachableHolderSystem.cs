@@ -207,8 +207,7 @@ public sealed class AttachableHolderSystem : EntitySystem
         }
 
         _gun.AttemptShoot(args.User,
-            holder.Comp.SupercedingAttachable.Value,
-            attachableGunComponent,
+            (holder.Comp.SupercedingAttachable.Value, attachableGunComponent),
             holderGunComponent.ShootCoordinates.Value);
     }
 
@@ -753,7 +752,7 @@ public sealed class AttachableHolderSystem : EntitySystem
     public void RelayEvent<T>(Entity<AttachableHolderComponent> holder, ref T args) where T : notnull
     {
         EntityUid user = default;
-        
+
         if (args is GotEquippedHandEvent equippedEvent)
             user = equippedEvent.User;
         else if (args is GotUnequippedHandEvent unequippedEvent)

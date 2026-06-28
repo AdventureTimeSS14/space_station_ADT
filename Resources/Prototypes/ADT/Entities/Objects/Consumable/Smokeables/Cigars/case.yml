@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: CigarCase
   id: ADTCigarCase
   name: cigar case
@@ -39,10 +39,12 @@
       tags:
       - Cigar
       - ADTMedipen
-  - type: StorageFill
-    contents:
-    - id: Cigar
-      amount: 7
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Cigar
+          amount: 7
   - type: ItemCounter
     count:
       tags: [Cigar]
@@ -92,10 +94,12 @@
     whitelist:
       tags:
       - Cigar
-  - type: StorageFill
-    contents:
-    - id: ADTTarbackCigar
-      amount: 5
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTTarbackCigar
+          amount: 5
   - type: ItemCounter
     count:
       tags: [Cigar]

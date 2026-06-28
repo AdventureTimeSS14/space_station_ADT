@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseStructure
   id: ADTWoodenTradeRack
   name: wooden trade rack
@@ -32,8 +32,9 @@
         layer:
         - TableMask
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -93,6 +94,7 @@
     anchored: false
     noRot: true
   - type: Damageable
+  - type: Injurable
     damageContainer: Box
   - type: Destructible
     thresholds:

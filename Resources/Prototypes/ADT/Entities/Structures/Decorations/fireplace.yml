@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTFireplaceWhite
   parent: BaseStructure
   name: белый камин
@@ -23,8 +23,9 @@
     energy: 3
     color: "#FF6F00"
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -63,8 +64,9 @@
     energy: 3
     color: "#FF6F00"
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -77,4 +79,3 @@
   - type: Construction
     graph: ADTFireplaceWooden
     node: fireplace
-

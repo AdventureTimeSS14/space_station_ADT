@@ -22,4 +22,4 @@ station-beacon-docking-area-sec = Стыковочная зона СБ
 station-beacon-execution = Казнь
 station-beacon-crematorium = Крематорий
 station-beacon-shuttle-area = Зона для постройки шаттлов
-station-beacon-park = Парк 
+station-beacon-park = Парк
