@@ -1,14 +1,15 @@
-# Оригинал данного прототипа был сделан @temporaldarkness (discord). Прототип был взят с https://github.com/ss14-ganimed/ENT14-Master.
+﻿# Оригинал данного прототипа был сделан @temporaldarkness (discord). Прототип был взят с https://github.com/ss14-ganimed/ENT14-Master.
 # Ganimed-Proto-Start
 
 - type: entity
   id: ADTCrateServicePrinterInkCartridge
   parent: CratePlastic
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTBookPrinterInkCartridge
-
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTBookPrinterInkCartridge
 # Ganimed-Proto-End
 
 - type: entity
@@ -17,9 +18,11 @@
   name: fishing goodies crate
   description: A couple of fishing rods, a bear, and a hat. Everything you need to catch all fish on the station!
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTFishingRod
-      - id: ADTFishingRodGoon
-      - id: ClothingHeadFishCap
-      - id: ADTDrinkBeerCanPack
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTFishingRod
+        - id: ADTFishingRodGoon
+        - id: ClothingHeadFishCap
+        - id: ADTDrinkBeerCanPack

@@ -3,6 +3,7 @@ using Content.Shared.Clothing;
 using Content.Server.Hands.Systems;
 using Robust.Shared.Prototypes;
 using Content.Server.Body.Systems;
+using Content.Shared.Body;
 using Robust.Shared.Audio.Systems;
 using Content.Server.Emp;
 using Content.Shared.DoAfter;

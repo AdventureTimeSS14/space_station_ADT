@@ -303,7 +303,7 @@ public sealed class TraitSystem : EntitySystem
     private void ApplyTrait(EntityUid player, TraitPrototype trait)
     {
         if (_whitelistSystem.IsWhitelistFail(trait.Whitelist, player) ||
-            _whitelistSystem.IsBlacklistPass(trait.Blacklist, player))
+            _whitelistSystem.IsWhitelistPass(trait.Blacklist, player))
             return;
 
         var transform = Transform(player);

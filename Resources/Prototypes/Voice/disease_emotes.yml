@@ -2,7 +2,6 @@
   id: Sneeze
   name: chat-emote-name-sneeze
   category: Vocal
-  chatMessages: ["chat-emote-msg-sneeze"]
   # ADT tweak start
   icon: ADT/Interface/Emotes/sneeze.png
   whitelist:

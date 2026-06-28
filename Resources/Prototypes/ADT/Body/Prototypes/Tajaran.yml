@@ -1,53 +1,55 @@
-﻿- type: body
-  id: Tajaran
-  name: "tajaran"
-  root: torso
-  slots:
-    head:
-      part: ADTHeadTajaran
-      connections:
-        - torso
-      organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
-    torso:
-      part: ADTTorsoTajaran
-      organs:
-        heart: ADTOrganTajaranHeart
-        lungs: OrganHumanLungs
-        stomach: ADTOrganTajaranStomach
-        liver: ADTOrganTajaranLiver
-        kidneys: OrganHumanKidneys
-      connections:
-        - right arm
-        - left arm
-        - left leg
-        - right leg
-        - tail
-    right arm:
-      part: ADTRightArmTajaran
-      connections:
-        - right hand
-    left arm:
-      part: ADTLeftArmTajaran
-      connections:
-        - left hand
-    right hand:
-      part: ADTRightHandTajaran
-    left hand:
-      part: ADTLeftHandTajaran
-    right leg:
-      part: ADTRightLegTajaran
-      connections:
-        - right foot
-    left leg:
-      part: ADTLeftLegTajaran
-      connections:
-        - left foot
-    right foot:
-      part: ADTRightFootTajaran
-    left foot:
-      part: ADTLeftFootTajaran
-    tail:
-      part: ADTTailTajaran
+# DEPRECATED: type:body prototype system removed in upstream PR#42476
+# This data is preserved for reference when creating InitialBody entries (task 8)
+# ﻿- type: body
+#   id: Tajaran
+#   name: "tajaran"
+#   root: torso
+#   slots:
+#     head:
+#       part: ADTHeadTajaran
+#       connections:
+#         - torso
+#       organs:
+#         brain: OrganHumanBrain
+#         eyes: OrganHumanEyes
+#     torso:
+#       part: ADTTorsoTajaran
+#       organs:
+#         heart: ADTOrganTajaranHeart
+#         lungs: OrganHumanLungs
+#         stomach: ADTOrganTajaranStomach
+#         liver: ADTOrganTajaranLiver
+#         kidneys: OrganHumanKidneys
+#       connections:
+#         - right arm
+#         - left arm
+#         - left leg
+#         - right leg
+#         - tail
+#     right arm:
+#       part: ADTRightArmTajaran
+#       connections:
+#         - right hand
+#     left arm:
+#       part: ADTLeftArmTajaran
+#       connections:
+#         - left hand
+#     right hand:
+#       part: ADTRightHandTajaran
+#     left hand:
+#       part: ADTLeftHandTajaran
+#     right leg:
+#       part: ADTRightLegTajaran
+#       connections:
+#         - right foot
+#     left leg:
+#       part: ADTLeftLegTajaran
+#       connections:
+#         - left foot
+#     right foot:
+#       part: ADTRightFootTajaran
+#     left foot:
+#       part: ADTLeftFootTajaran
+#     tail:
+#       part: ADTTailTajaran
 

@@ -4,7 +4,6 @@ ADT-ShipBattle-Channel-GunnerTSF = ТСФ-КАНОНИР
 ADT-ShipBattle-Channel-PilotTSF = ТСФ-ПИЛОТ
 ADT-ShipBattle-Channel-MarineTSF = ТСФ-КОСМОПЕХ
 ADT-ShipBattle-Channel-MedEngiTSF = ТСФ-МЕДИНЖ
-
 ADT-ShipBattle-Channel-CommonKMT = КМТ-ОБЩ
 ADT-ShipBattle-Channel-CommandKMT = КМТ-КОМ
 ADT-ShipBattle-Channel-GunnerKMT = КМТ-КАНОНИР

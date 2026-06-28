@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: [BaseWeaponBallisticTurret, BaseSyndicateContraband]
   id: WeaponTurretSyndicate
   suffix: Syndicate
@@ -112,6 +112,7 @@
       SoundTargetInLOS: !type:SoundPathSpecifier
         path: /Audio/Animals/snake_hiss.ogg
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: Destructible
     thresholds:

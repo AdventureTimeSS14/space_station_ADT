@@ -9,8 +9,8 @@ public sealed partial class TransformAnimationSystem : EntitySystem
 {
     #region Dependency
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;
-    [Dependency] protected readonly IGameTiming GameTiming = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
     #endregion
 
     public override void Initialize()
@@ -23,7 +23,7 @@ public sealed partial class TransformAnimationSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, TransformAnimationComponent component, MapInitEvent args)
     {
-        component.TransformTime = GameTiming.CurTime + TimeSpan.FromSeconds(component.Duration);
+        component.TransformTime = _gameTiming.CurTime + TimeSpan.FromSeconds(component.Duration);
     }
 
     public override void Update(float frameTime)
@@ -33,7 +33,7 @@ public sealed partial class TransformAnimationSystem : EntitySystem
         var query = EntityQueryEnumerator<TransformAnimationComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (GameTiming.CurTime >= comp.TransformTime && comp.TransformTime != TimeSpan.Zero)
+            if (_gameTiming.CurTime >= comp.TransformTime && comp.TransformTime != TimeSpan.Zero)
                 Transform(uid, comp);
         }
     }
