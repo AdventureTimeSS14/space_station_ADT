@@ -225,6 +225,7 @@
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
+    # ADT-Tweak-Start
     spawnCarpsAction: ActionRiseFish
     roarAction: ActionDragonRoar
     carpRiftHealing:
@@ -232,7 +233,7 @@
         Brute: -4
         Burn: -4
         Airloss: -3
-    # ===============================
+# ADT-Tweak-End
   - type: GhostRole
     mindRoles:
     - MindRoleDragon
@@ -342,6 +343,7 @@
   - type: WorldTargetAction
     event: !type:ActionGunShootEvent
 
+- # ADT-Tweak-Start
 - type: entity
   parent: BaseAction
   id: ActionRiseFish
@@ -371,3 +373,4 @@
     priority: 5
   - type: InstantAction
     event: !type:DragonRoarActionEvent
+# ADT-Tweak-End

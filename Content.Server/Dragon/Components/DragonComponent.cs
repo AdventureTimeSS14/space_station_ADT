@@ -68,6 +68,7 @@ namespace Content.Server.Dragon
         public ProtoId<NpcFactionPrototype> Faction = "Dragon";
 
 
+        // ADT-Tweak-Start
         [DataField("carpRiftHealingRange")]
         public float CarpRiftHealingRange = 5f;
 
@@ -97,5 +98,6 @@ namespace Content.Server.Dragon
 
         [DataField("roarStunTime")]
         public float RoarStunTime = 2.5f;
+        // ADT-Tweak-End
     }
 }

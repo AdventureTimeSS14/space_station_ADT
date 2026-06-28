@@ -11,12 +11,12 @@ public sealed partial class DragonSpawnRiftActionEvent : InstantActionEvent
 }
 
 
-
+// ADT-Tweak-Start
 public sealed partial class DragonRoarActionEvent : InstantActionEvent
 {
 }
 
-
 public sealed partial class DragonSpawnCarpHordeActionEvent : InstantActionEvent
 {
 }
+// ADT-Tweak-End

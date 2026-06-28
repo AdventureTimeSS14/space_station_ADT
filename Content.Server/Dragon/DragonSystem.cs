@@ -66,11 +66,11 @@ public sealed partial class DragonSystem : EntitySystem
         SubscribeLocalEvent<DragonComponent, RefreshMovementSpeedModifiersEvent>(OnDragonMove);
         SubscribeLocalEvent<DragonComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<DragonComponent, EntityZombifiedEvent>(OnZombified);
-        // абилки с губов
+        // ADT-Tweak-Start
         SubscribeLocalEvent<DragonComponent, DragonRoarActionEvent>(OnDragonRoar);
         SubscribeLocalEvent<DragonComponent, DragonSpawnCarpHordeActionEvent>(OnRiseFish);
+        // ADT-Tweak-End
     }
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -78,10 +78,12 @@ public sealed partial class DragonSystem : EntitySystem
         var query = EntityQueryEnumerator<DragonComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var comp, out var xform))
         {
+            // ADT-Tweak-Start
             if (_lookup.GetEntitiesInRange<DragonRiftComponent>(xform.Coordinates, comp.CarpRiftHealingRange).Count > 0)
             {
                 _damage.TryChangeDamage(uid, comp.CarpRiftHealing * frameTime, true, false);
             }
+            // ADT-Tweak-End
 
             if (comp.WeakenedAccumulator > 0f)
             {
@@ -128,8 +130,10 @@ public sealed partial class DragonSystem : EntitySystem
         Roar(uid, component);
         _actions.AddAction(uid, ref component.SpawnRiftActionEntity, component.SpawnRiftAction);
 
+        // ADT-Tweak-Start
         _actions.AddAction(uid, ref component.SpawnCarpsActionEntity, component.SpawnCarpsAction);
         _actions.AddAction(uid, ref component.RoarActionEntity, component.RoarAction);
+        // ADT-Tweak-End
     }
 
     private void OnShutdown(EntityUid uid, DragonComponent component, ComponentShutdown args)
@@ -275,7 +279,9 @@ public sealed partial class DragonSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("carp-rift-destroyed"), uid, uid);
     }
 
+    // ADT-Tweak-Start
     #region Goobstation Способности
+
 
     private void OnRiseFish(EntityUid uid, DragonComponent component, DragonSpawnCarpHordeActionEvent args)
     {
@@ -285,13 +291,9 @@ public sealed partial class DragonSystem : EntitySystem
         Roar(uid, component);
         var xform = Transform(uid);
 
-        const int amount = 3;
-
-        for (int i = 0; i < amount; i++)
+        for (int i = 0; i < component.CarpAmount; i++)
         {
-            var protoId = "MobCarpDragon";
-
-            var ent = Spawn(protoId, xform.Coordinates);
+            var ent = Spawn(component.CarpProtoId, xform.Coordinates);
 
             _npc.SetBlackboard(ent, NPCBlackboard.FollowTarget, new EntityCoordinates(uid, Vector2.Zero));
         }
@@ -322,5 +324,6 @@ public sealed partial class DragonSystem : EntitySystem
         args.Handled = true;
     }
 
+    // ADT-Tweak-End
     #endregion
 }

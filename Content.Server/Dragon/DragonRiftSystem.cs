@@ -84,6 +84,7 @@ public sealed class DragonRiftSystem : EntitySystem
             }
 
             comp.SpawnAccumulator += frameTime;
+            // ADT-Tweak-Start
             if (comp.SpawnAccumulator > comp.SpawnCooldown)
             {
                 string? proto = null;
@@ -112,7 +113,6 @@ public sealed class DragonRiftSystem : EntitySystem
                         }
                     }
                 }
-                // ------------------------------------------
 
                 if (proto != null)
                 {
@@ -130,6 +130,7 @@ public sealed class DragonRiftSystem : EntitySystem
                         _npc.SetBlackboard(ent, NPCBlackboard.FollowTarget, new EntityCoordinates(comp.Dragon.Value, Vector2.Zero));
                 }
             }
+            // ADT-Tweak-End
         }
     }
 

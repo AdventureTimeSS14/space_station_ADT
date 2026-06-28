@@ -297,6 +297,7 @@
   components:
     - type: SalvageMobRestrictions
 
+# ADT-tweak-start
 - type: entity
   id: MobSharkDragon
   parent: MobShark  
@@ -322,3 +323,5 @@
   - type: Temperature
     currentTemperature: 310.15
     specificHeat: 999999
+    # ADT-tweak-end
+    

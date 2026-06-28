@@ -39,7 +39,7 @@ public sealed partial class DragonRiftComponent : SharedDragonRiftComponent
     [DataField("spawns")]
     public List<string> SpawnPrototypes = new() { };
 
-
+    // ADT-Tweak-Start
     [DataField("spawnPrototype")]
     public string? SpawnPrototype;
 
@@ -50,4 +50,5 @@ public sealed partial class DragonRiftComponent : SharedDragonRiftComponent
 
     [DataField("strongSpawnChance")]
     public float StrongSpawnChance = 0.2f;
+    // ADT-Tweak-End
 }
