@@ -32,19 +32,19 @@
   suffix: Filled
   parent: BoozeDispenserEmpty
   components:
-  - type: StorageFill
-    contents:
-    # ADT-Tweak-Start Вернул на места бутылки. Ничего не менял
-    - id: DrinkAleBottleFullGrowler
-    - id: DrinkBeerGrowler
-    - id: DrinkCoffeeLiqueurBottleFull
-    - id: DrinkCognacBottleFull
-    - id: DrinkGinBottleFull
-    - id: DrinkMeadJug
-    - id: DrinkRumBottleFull
-    - id: DrinkTequilaBottleFull
-    - id: DrinkVermouthBottleFull
-    - id: DrinkVodkaBottleFull
-    - id: DrinkWhiskeyBottleFull
-    - id: DrinkWineBottleFull
-    # ADT-Tweak-End
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: DrinkAleBottleFullGrowler
+        - id: DrinkBeerGrowler
+        - id: DrinkCoffeeLiqueurBottleFull
+        - id: DrinkCognacBottleFull
+        - id: DrinkGinBottleFull
+        - id: DrinkMeadJug
+        - id: DrinkRumBottleFull
+        - id: DrinkTequilaBottleFull
+        - id: DrinkVermouthBottleFull
+        - id: DrinkVodkaBottleFull
+        - id: DrinkWhiskeyBottleFull
+        - id: DrinkWineBottleFull

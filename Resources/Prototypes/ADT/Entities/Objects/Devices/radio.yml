@@ -77,3 +77,119 @@
   - type: Tag
     tags:
     - ADTClosedRadio
+
+- type: entity
+  name: music player
+  description: A modern turntable with a bright and sonorous sound. Supports most media formats.
+  parent: BaseItem
+  id: ADTJukeBoxPlayer
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/music_player.rsi
+    layers:
+    - state: icon
+    - state: icon_inserted
+      map: ["disk"]
+      visible: false
+    - state: volume_3
+      map: ["volume"]
+      visible: true
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,1
+  - type: Construction
+    graph: BroadcastRadio
+    node: oldRadio
+  - type: ActivatableUI
+    key: enum.JukeboxUiKey.Key
+  - type: ContainerContainer
+    containers:
+      music_disk: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      music_disk:
+        whitelist:
+          components:
+          - JukeboxDisk
+  - type: Jukebox
+  - type: Transform
+    anchored: false
+    noRot: false
+  - type: Anchorable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.JukeboxVisuals.HasDisk:
+        disk:
+          True: { visible: true }
+          False: { visible: false }
+      enum.JukeboxVisuals.VolumeLevel:
+        volume:
+          Level0: { state: "volume_0" }
+          Level1: { state: "volume_1" }
+          Level2: { state: "volume_2" }
+          Level3: { state: "volume_3" }
+          Level4: { state: "volume_4" }
+  - type: UserInterface
+    interfaces:
+        enum.JukeboxUiKey.Key:
+          type: JukeboxBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
+
+- type: entity
+  name: blood-red music player
+  description: A modern record player with a bright and sonorous sound. Supports most media formats. It's painted red, like blood paint.
+  parent: ADTJukeBoxPlayer
+  id: ADTJukeBoxPlayerSyndicate
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/music_player_syndicate.rsi
+    layers:
+    - state: icon
+    - state: icon_inserted
+      map: ["disk"]
+      visible: false
+    - state: volume_3
+      map: ["volume"]
+      visible: true
+      shader: unshaded
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/smash.ogg
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+
+- type: entity
+  name: vintage music player
+  description: Retro turntable with warm tube sound. Supports most media formats.
+  parent: ADTJukeBoxPlayer
+  id: ADTJukeBoxPlayerVintage
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/music_player_vintage.rsi
+    layers:
+    - state: icon
+    - state: volume_3
+      map: ["volume"]
+      visible: true
+  - type: GenericVisualizer
+    visuals:
+      enum.JukeboxVisuals.VolumeLevel:
+        volume:
+          Level0: { state: "volume_0" }
+          Level1: { state: "volume_1" }
+          Level2: { state: "volume_2" }
+          Level3: { state: "volume_3" }
+          Level4: { state: "volume_4" }
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1

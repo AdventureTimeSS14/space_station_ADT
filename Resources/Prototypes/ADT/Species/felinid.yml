@@ -1,11 +1,9 @@
 - type: species
   id: Felinid
-  name: Фелинид
+  name: species-name-felinid
   roundStart: true
   prototype: MobFelinid
-  sprites: MobHumanSprites
-  markingLimits: MobFelinidMarkingLimits
-  dollPrototype: MobFelinidDummy
+  dollPrototype: AppearanceFelinid
   skinColoration: HumanToned
   category: Unusual
   pros:
@@ -17,32 +15,3 @@
   maxAge: 50
   oldAge: 26
   youngAge: 18
-
-
-
-- type: markingPoints
-  id: MobFelinidMarkingLimits
-  points:
-    Hair:
-      points: 1
-      required: false
-    FacialHair:
-      points: 1
-      required: false
-    Tail:
-      points: 1
-      required: true
-      defaultMarkings: [ CatTail ]
-    HeadTop:
-      points: 1
-      required: true
-      defaultMarkings: [ CatEars ]
-    Chest:
-      points: 4
-      required: false
-    Legs:
-      points: 8
-      required: false
-    Arms:
-      points: 8
-      required: false

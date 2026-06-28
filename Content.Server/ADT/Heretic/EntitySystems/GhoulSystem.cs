@@ -1,20 +1,17 @@
-using Content.Server.Administration.Systems;
 using Content.Server.Antag;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Ghost.Roles.Components;
-using Content.Server.Humanoid;
 using Content.Server.Mind.Commands;
 using Content.Server.Roles;
 using Content.Server.Temperature.Components;
-using Content.Shared.Temperature.Components;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
-using Content.Shared.FixedPoint;
 using Content.Shared.Ghost.Roles.Components;
+using Content.Shared.Gibbing;
 using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
@@ -24,52 +21,29 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
-using Content.Shared.NPC.Components;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
-using Content.Shared.Storage;
-using Content.Shared.Tag;
-using Content.Shared.Whitelist;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
-using System.Linq;
-using Content.Shared.Popups;
-using Robust.Shared.Log;
 
 namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class GhoulSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+[Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-
-    private readonly Dictionary<EntityUid, GhoulStoredComponents> _storedComponents = new();
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     public void GhoulifyEntity(Entity<GhoulComponent> ent)
     {
-        // Защита от повторного вызова
-        if (_storedComponents.ContainsKey(ent))
-        {
-            Log.Warning($"[GhoulSystem] GhoulifyEntity вызван повторно для {ToPrettyString(ent)}! Пропускаем.");
-            return;
-        }
-
-        // Сохраняем компоненты
-        var stored = SaveComponents(ent);
-        _storedComponents[ent] = stored;
-
-        // Удаляем компоненты
         RemComp<RespiratorComponent>(ent);
         RemComp<BarotraumaComponent>(ent);
         RemComp<HungerComponent>(ent);
@@ -78,24 +52,9 @@ public sealed partial class GhoulSystem : EntitySystem
         RemComp<ReproductivePartnerComponent>(ent);
         RemComp<TemperatureComponent>(ent);
 
-        // Сохраняем оригинальные фракции перед заменой
-        if (TryComp<NpcFactionMemberComponent>(ent, out var factionComp))
-        {
-            ent.Comp.OriginalFactions = factionComp.Factions.Select(f => f.Id).ToList();
-        }
-
         var hasMind = _mind.TryGetMind(ent, out var mindId, out var mind);
         if (hasMind && ent.Comp.BoundHeretic != null)
             SendBriefing(ent, mindId, mind);
-
-        if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
-        {
-            // make them "have no eyes" and grey
-            // this is clearly a reference to grey tide
-            var greycolor = Color.FromHex("#505050");
-            _humanoid.SetSkinColor(ent, greycolor, true, false, humanoid);
-            _humanoid.SetBaseLayerColor(ent, HumanoidVisualLayers.Eyes, greycolor, true, humanoid);
-        }
 
         _rejuvenate.PerformRejuvenate(ent);
         if (TryComp<MobThresholdsComponent>(ent, out var th))
@@ -185,33 +144,6 @@ public sealed partial class GhoulSystem : EntitySystem
     private void OnMobStateChange(Entity<GhoulComponent> ent, ref MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead)
-            RevertFromGhoul(ent);
-    }
-
-    public void RevertFromGhoul(Entity<GhoulComponent> ent)
-    {
-        var originalFactions = new List<string>(ent.Comp.OriginalFactions);
-
-        // Восстанавливаем сохранённые компоненты
-        if (_storedComponents.TryGetValue(ent, out var stored))
-        {
-            RestoreComponents(ent, stored);
-            _storedComponents.Remove(ent);
-        }
-
-        RemComp<GhoulComponent>(ent);
-
-        if (_mind.TryGetMind(ent, out var mindId, out _))
-        {
-            RemComp<GhoulRoleComponent>(mindId);
-        }
-
-        _faction.ClearFactions((ent, null));
-        foreach (var faction in originalFactions)
-        {
-            _faction.AddFaction((ent, null), faction);
-        }
-
-        _popup.PopupEntity(Loc.GetString("ghoul-death-revert"), ent, PopupType.LargeCaution);
+            _gibbing.Gib(ent);
     }
 }

@@ -1,8 +1,7 @@
 - type: marking
   id: ADTDemonHairBubbleGum
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-bubble_gum
@@ -10,8 +9,7 @@
 - type: marking
   id: ADTDemonHairGorgona
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-gorgona
@@ -19,8 +17,7 @@
 - type: marking
   id: ADTDemonHairGorgona2
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-gorgona_2
@@ -28,8 +25,7 @@
 - type: marking
   id: ADTDemonHairMorningHairStyle
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-morning_hairstyle
@@ -37,8 +33,7 @@
 - type: marking
   id: ADTDemonHairMorningHairStyle2
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-morning_hairstyle_2
@@ -46,8 +41,7 @@
 - type: marking
   id: ADTDemonHairMorningHairStyle3
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-morning_hairstyle_3
@@ -55,8 +49,7 @@
 - type: marking
   id: ADTDemonHairPonyTail
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-ponytail
@@ -65,8 +58,7 @@
 - type: marking
   id: ADTDemonHairShavedFemale
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-shaved_female
@@ -74,8 +66,7 @@
 - type: marking
   id: ADTDemonHairShavedUnisex
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-shaved_unisex
@@ -83,8 +74,7 @@
 - type: marking
   id: ADTDemonHairValkyrieScythe
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-valkyrie_scythe
@@ -92,8 +82,7 @@
 - type: marking
   id: ADTDemonHairValkyrieScythe2
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-valkyrie_scythe_2
@@ -101,8 +90,7 @@
 - type: marking
   id: ADTDemonHairValkyrieScythe3
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-valkyrie_scythe_3

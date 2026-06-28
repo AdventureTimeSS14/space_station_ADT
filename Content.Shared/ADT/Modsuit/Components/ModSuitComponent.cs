@@ -155,6 +155,12 @@ public sealed partial class ModSuitComponent : Component
 
     [AutoNetworkedField]
     public EntityUid? TempUser = null;
+
+    /// <summary>
+    ///     If true, this MOD suit requires a battery to function. If false, it has infinite power.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool RequiresBattery = true;
 }
 
 [Serializable, NetSerializable]

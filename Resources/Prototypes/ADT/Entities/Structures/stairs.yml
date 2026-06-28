@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTSteelDarkCenterStairs
   name: stairs
   suffix: Steel , center
@@ -14,8 +14,9 @@
   - type: Transform
     anchored: true
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepTile
@@ -55,8 +56,9 @@
   - type: Transform
     anchored: true
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepWood

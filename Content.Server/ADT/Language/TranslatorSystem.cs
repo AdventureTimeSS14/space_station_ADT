@@ -1,8 +1,7 @@
 using Content.Server.Popups;
-using Content.Server.PowerCell;
+using Content.Shared.PowerCell;
 using Content.Shared.Interaction;
 using Content.Shared.ADT.Language;
-using Content.Shared.PowerCell;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Hands;
 

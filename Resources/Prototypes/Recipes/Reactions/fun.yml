@@ -43,6 +43,8 @@
 
 - type: reaction
   id: SpaceGlue
+  requiredMixerCategories:
+  - Stir # prevents turning slimes to glue, TODO: make it react only X units per second; make bloodstream an open thermal system
   minTemp: 370
   reactants:
     SpaceLube:
@@ -166,6 +168,8 @@
         - ShardCrystalRed
       predicted: false
     # ADT-Tweak end
+    - !type:SpawnEntity
+      entity: ShardCrystalRandom
 
 - type: reaction
   id: Gunpowder
@@ -244,7 +248,7 @@
   reactants:
     Haloperidol:
       amount: 3
-    Cognizine:
+    Psicodine:
       amount: 2
     CarpoToxin:
       amount: 2
@@ -258,7 +262,7 @@
   reactants:
     Haloperidol:
       amount: 3
-    Cognizine:
+    Psicodine:
       amount: 2
     Happiness:
       amount: 2
