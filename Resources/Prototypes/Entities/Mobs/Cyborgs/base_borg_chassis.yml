@@ -420,7 +420,7 @@
     bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
   # ADT-Tweak start
   - type: BorgFlashStun
-    stunDuration: 7
+    stunDuration: 2
   # ADT-Tweak end
 
 - type: entity
