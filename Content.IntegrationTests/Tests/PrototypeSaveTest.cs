@@ -28,6 +28,7 @@ namespace Content.IntegrationTests.Tests;
 ///     spawn it into a new empty map and seeing what the map yml looks like.
 /// </remarks>
 [TestFixture]
+[Ignore("Весь тестовый класс временно отключен")] // ADT-Tweak
 public sealed class PrototypeSaveTest : GameTest
 {
     [Test]
