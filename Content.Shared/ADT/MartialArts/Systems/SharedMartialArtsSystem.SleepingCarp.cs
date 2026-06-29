@@ -121,8 +121,7 @@ public partial class SharedMartialArtsSystem
         ref SleepingCarpCrashingWavesPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out var downed)
-            || downed)
+            || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
@@ -134,7 +133,7 @@ public partial class SharedMartialArtsSystem
 
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrown.Throw(target, ent, dir, 50f, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), FixedPoint2.Zero));
+        _grabThrown.Throw(target, ent, dir, 25f, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), FixedPoint2.Zero));
         _newStatus.TryAddStatusEffectDuration(target, "StatusEffectForcedSleeping", out _, TimeSpan.FromSeconds(2));
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
         ComboPopup(ent, target, proto.Name);
