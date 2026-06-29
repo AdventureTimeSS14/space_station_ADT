@@ -50,10 +50,10 @@ blueshield-voucher-smg-description =
     Стандартное вооружение офицеров "Синий Щит".
     Включает в себя UTAP МК.1, уникальный лазерный пистолет, два расширенных магазина и коробку патрон.
 
-blueshield-voucher-tonfa-name = набор с тонфой
+blueshield-voucher-tonfa-name = набор с кунг-фу дракона
 blueshield-voucher-tonfa-description =
     Набор ближнего боя.
-    Включает в себя усиленный набор брони, тонфу, а также фаворитный щит корпуса синих щитов.
+    Включает в себя усиленный набор брони, свиток Кунг-фу Дракона, а также фаворитный щит корпуса синих щитов.
 
 blueshield-voucher-saber-rev-name = набор с энергетическим мечом-револьвером
 blueshield-voucher-saber-rev-description =

@@ -12,7 +12,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.ADT.Grab;
 using Content.Shared.ADT.MartialArts;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
@@ -20,7 +19,6 @@ using Content.Shared.Damage.Events;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
@@ -33,21 +31,14 @@ public partial class SharedMartialArtsSystem
 {
     private void InitializeCorporateJudo()
     {
-        SubscribeLocalEvent<CanPerformComboComponent, JudoDiscombobulatePerformedEvent>(OnJudoDiscombobulate);
-        SubscribeLocalEvent<CanPerformComboComponent, JudoEyePokePerformedEvent>(OnJudoEyePoke);
-        SubscribeLocalEvent<CanPerformComboComponent, JudoThrowPerformedEvent>(OnJudoThrow);
-        SubscribeLocalEvent<CanPerformComboComponent, JudoArmbarPerformedEvent>(OnJudoArmbar);
-        SubscribeLocalEvent<CanPerformComboComponent, JudoWheelThrowPerformedEvent>(OnJudoWheelThrow);
-        SubscribeLocalEvent<CanPerformComboComponent, JudoGoldenBlastPerformedEvent>(OnJudoGoldenBlast);
+        SubscribeLocalEvent<CanPerformComboComponent, JudoLegSweepPerformedEvent>(OnJudoLegSweep);
+        SubscribeLocalEvent<CanPerformComboComponent, JudoCombatGrabPerformedEvent>(OnJudoCombatGrab);
+        SubscribeLocalEvent<CanPerformComboComponent, JudoEyeGougePerformedEvent>(OnJudoEyeGouge);
+        SubscribeLocalEvent<CanPerformComboComponent, JudoNageWazaPerformedEvent>(OnJudoNageWaza);
 
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotEquippedEvent>(OnGrantCorporateJudo);
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotUnequippedEvent>(OnRemoveCorporateJudo);
-
-        SubscribeLocalEvent<ArmbarredComponent, StoodEvent>(OnArmbarredStood);
-        SubscribeLocalEvent<ArmbarredComponent, PullStoppedMessage>(OnArmbarStopped);
     }
-
-    #region Generic Methods
 
     private void OnGrantCorporateJudo(Entity<GrantCorporateJudoComponent> ent, ref ClothingGotEquippedEvent args)
     {
@@ -79,27 +70,53 @@ public partial class SharedMartialArtsSystem
         RemComp<CanPerformComboComponent>(user);
     }
 
-    #endregion
-
-    #region Combo Methods
-
-    private void OnJudoDiscombobulate(Entity<CanPerformComboComponent> ent, ref JudoDiscombobulatePerformedEvent args)
+    private void OnJudoLegSweep(Entity<CanPerformComboComponent> ent, ref JudoLegSweepPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out _)
-            || !TryComp(target, out StatusEffectsComponent? status))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed)
+            || downed)
             return;
 
-        _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow, TimeSpan.FromSeconds(5), 0.5f, 0.5f);
+        var knockdownTime = TimeSpan.FromSeconds(proto.ParalyzeTime);
 
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
+        var ev = new BeforeStaminaDamageEvent(1f);
+        RaiseLocalEvent(target, ref ev);
+
+        knockdownTime *= ev.Value;
+
+        _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropItems);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
+
+        if (TryComp<PullableComponent>(target, out var pullable))
+            _pulling.TryStopPull(target, pullable, ent, true);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
     }
 
-    private void OnJudoEyePoke(Entity<CanPerformComboComponent> ent, ref JudoEyePokePerformedEvent args)
+    private void OnJudoCombatGrab(Entity<CanPerformComboComponent> ent, ref JudoCombatGrabPerformedEvent args)
+    {
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto, out var target, out var downed))
+            return;
+
+        if (!downed)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-target-standing"), ent, ent);
+            ent.Comp.LastAttacks.Clear();
+            return;
+        }
+
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
+
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
+        ComboPopup(ent, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
+    }
+
+    private void OnJudoEyeGouge(Entity<CanPerformComboComponent> ent, ref JudoEyeGougePerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !TryUseMartialArt(ent, proto, out var target, out _)
@@ -108,147 +125,46 @@ public partial class SharedMartialArtsSystem
 
         _status.TryAddStatusEffect<BlurryVisionComponent>(target,
             "BlurryVision",
-            TimeSpan.FromSeconds(5),
+            TimeSpan.FromSeconds(args.BlindDuration),
             true,
             status);
 
+        _blindable.AdjustEyeDamage((target, null), args.EyeDamageAmount);
+
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
+        ComboPopup(ent, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
+    }
+
+    private void OnJudoNageWaza(Entity<CanPerformComboComponent> ent, ref JudoNageWazaPerformedEvent args)
+    {
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto, out var target, out _))
+            return;
+
+        if (!TryComp<PullerComponent>(target, out var targetPuller)
+            || targetPuller.Pulling != ent.Owner)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-not-grabbed"), ent, ent);
+            ent.Comp.LastAttacks.Clear();
+            return;
+        }
+
+        if (TryComp<PullableComponent>(ent, out var selfPullable))
+            _pulling.TryStopPull(ent, selfPullable, target, true);
+
+        var mapPos = _transform.GetMapCoordinates(ent).Position;
+        var hitPos = _transform.GetMapCoordinates(target).Position;
+        var dir = hitPos - mapPos;
+
+        if (TryComp<PullableComponent>(target, out var targetPullable))
+            _pulling.TryStopPull(target, targetPullable, ent, true);
+
+        _grabThrown.Throw(target, ent, dir, proto.ThrownSpeed, behavior: proto.DropItems);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
     }
-
-    private void OnJudoThrow(Entity<CanPerformComboComponent> ent, ref JudoThrowPerformedEvent args)
-    {
-        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out var downed)
-            || downed
-            || !TryComp<PullableComponent>(target, out var pullable))
-            return;
-
-        var knockdownTime = TimeSpan.FromSeconds(proto.ParalyzeTime);
-
-        var ev = new BeforeStaminaDamageEvent(1f);
-        RaiseLocalEvent(target, ref ev);
-
-        knockdownTime *= ev.Value;
-
-        _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropItems);
-
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
-
-        _pulling.TryStopPull(target, pullable, ent, true);
-
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
-        ComboPopup(ent, target, proto.Name);
-        ent.Comp.LastAttacks.Clear();
-    }
-
-    private void OnJudoArmbar(Entity<CanPerformComboComponent> ent, ref JudoArmbarPerformedEvent args)
-    {
-        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out var downed)
-            || !downed
-            || !TryComp<PullerComponent>(ent, out var puller)
-            || !TryComp<GrabIntentComponent>(ent, out var grabIntent)
-            || !TryComp<PullableComponent>(target, out var pullable)
-            || !TryComp<GrabbableComponent>(target, out var grabbable))
-            return;
-
-        var knockdownTime = TimeSpan.FromSeconds(proto.ParalyzeTime);
-
-        var ev = new BeforeStaminaDamageEvent(1f);
-        RaiseLocalEvent(target, ref ev);
-
-        knockdownTime *= ev.Value;
-
-        if (!HasComp<ArmbarredComponent>(target))
-        {
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
-            AddComp<ArmbarredComponent>(target).Puller = ent;
-        }
-
-        // Taking someone in an armbar is an equivalent of taking them in a choke grab
-        if (grabIntent.GrabStage != GrabStage.Suffocate
-            || grabbable.GrabStage != GrabStage.Suffocate)
-            _grab.TrySetGrabStages((ent, puller, grabIntent), (target, pullable, grabbable), GrabStage.Suffocate);
-
-        _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropItems);
-
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
-        ComboPopup(ent, target, proto.Name);
-        ent.Comp.LastAttacks.Clear();
-    }
-
-    private void OnJudoWheelThrow(Entity<CanPerformComboComponent> ent, ref JudoWheelThrowPerformedEvent args)
-    {
-        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out var downed)
-            || !downed
-            || !TryComp<PullableComponent>(target, out var pullable)
-            || !TryComp<ArmbarredComponent>(target, out var armbarred)
-            || armbarred.Puller != ent.Owner)
-            return;
-
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
-
-        _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrown.Throw(target,
-            ent,
-            _transform.GetMapCoordinates(ent).Position - _transform.GetMapCoordinates(target).Position,
-            5,
-            behavior: proto.DropItems);
-
-        _status.TryRemoveStatusEffect(ent, "KnockedDown");
-        _standingState.Stand(ent);
-
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
-        ComboPopup(ent, target, proto.Name);
-        ent.Comp.LastAttacks.Clear();
-    }
-
-    // Not implemented yet, but I'll leave it here
-    private void OnJudoGoldenBlast(Entity<CanPerformComboComponent> ent, ref JudoGoldenBlastPerformedEvent args)
-    {
-        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out var _)
-            || !TryComp(target, out StatusEffectsComponent? status)
-            || !TryComp<PullableComponent>(target, out var pullable))
-            return;
-
-        _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(proto.ParalyzeTime));
-
-        _pulling.TryStopPull(target, pullable, ent, true);
-
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
-        ComboPopup(ent, target, proto.Name);
-        ent.Comp.LastAttacks.Clear();
-    }
-
-    #endregion
-
-    #region Armbar
-
-    private void OnArmbarredStood(Entity<ArmbarredComponent> ent, ref StoodEvent args)
-    {
-        if (!TryComp<PullableComponent>(ent, out var pullable))
-            return;
-
-        _pulling.TryStopPull(ent, pullable, ent.Comp.Puller, true);
-        RemComp<ArmbarredComponent>(ent);
-    }
-
-    private void OnArmbarStopped(Entity<ArmbarredComponent> ent, ref PullStoppedMessage args)
-    {
-        if (args.PullerUid != ent.Comp.Puller)
-            return;
-
-        if (!_status.HasStatusEffect(ent, "Stun"))
-            _status.TryRemoveStatusEffect(ent, "KnockedDown");
-
-        RemComp<ArmbarredComponent>(ent);
-    }
-
-    #endregion
 }

@@ -47,16 +47,11 @@ public abstract partial class SharedMartialArtsSystem
     private void OnDragonStrike(Entity<CanPerformComboComponent> ent, ref DragonStrikePerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out var downed))
+            || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
-
-        if (downed)
-            _stun.TryUpdateStunDuration(target, TimeSpan.FromSeconds(proto.ParalyzeTime));
-        else
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(args.Sound, target);

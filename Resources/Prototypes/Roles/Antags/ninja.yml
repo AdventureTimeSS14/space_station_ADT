@@ -25,7 +25,6 @@
     belt: EnergyKatana
   inhand:
     - JetpackBlackFilled
-    - ADTScrollNinjutsu # ADT-Tweak
   storage:
     back: # belt holds katana so satchel has the tools for sabotaging things
     - Crowbar

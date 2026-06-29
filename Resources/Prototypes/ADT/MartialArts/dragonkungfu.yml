@@ -2,6 +2,7 @@
   id: KungFuDragon
   martialArtsForm: KungFuDragon
   roundstartCombos: KungFuDragonMoves
+  baseDamageModifier: 4
 
 - type: comboList
   id: KungFuDragonMoves
@@ -49,4 +50,3 @@
     sound:
       path: /Audio/Weapons/genhit1.ogg
   extraDamage: 30
-  paralyzeTime: 2

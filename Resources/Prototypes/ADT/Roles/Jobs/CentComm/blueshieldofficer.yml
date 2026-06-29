@@ -46,7 +46,6 @@
   - !type:AddComponentSpecial
       components:
         - type: Necksnap
-        - type: GrantKungFuDragon
 
 - type: startingGear
   id: ADTBlueShieldOfficerGear

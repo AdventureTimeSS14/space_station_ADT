@@ -266,6 +266,7 @@
       components:
       - type: EmpProtection # ADT TWEAK
       - type: SpaceNinja
+      - type: GrantNinjutsu
       - type: NpcFactionMember
         factions:
         - Syndicate

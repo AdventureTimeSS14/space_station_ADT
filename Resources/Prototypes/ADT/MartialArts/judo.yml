@@ -7,64 +7,52 @@
 - type: comboList
   id: CorporateJudoMoves
   combos:
-  - JudoThrow
-  - JudoArmbar
-  - JudoDiscombobulate
-  - JudoWheelThrow
-  - JudoEyePoke
+  - JudoLegSweep
+  - JudoCombatGrab
+  - JudoEyeGouge
+  - JudoNageWaza
 
 - type: combo
-  id: JudoDiscombobulate
-  name: judo-combo-discombobulate
+  id: JudoLegSweep
+  name: judo-combo-leg-sweep
   martialArtsForm: CorporateJudo
   attacks:
-  - Disarm
   - Grab
-  event: !type:JudoDiscombobulatePerformedEvent {}
-
-- type: combo
-  id: JudoEyePoke
-  name: judo-combo-eye-poke
-  martialArtsForm: CorporateJudo
-  attacks:
   - Disarm
-  - Harm
-  event: !type:JudoEyePokePerformedEvent {}
+  event: !type:JudoLegSweepPerformedEvent {}
+  paralyzeTime: 1
   extraDamage: 5
-
-- type: combo
-  id: JudoThrow
-  name: judo-combo-judo-throw
-  martialArtsForm: CorporateJudo
-  attacks:
-  - Grab
-  - Disarm
-  event: !type:JudoThrowPerformedEvent {}
-  paralyzeTime: 4
-  staminaDamage: 5
   dropItems: false
   canDoWhileProne: false
 
 - type: combo
-  id: JudoArmbar
-  name: judo-combo-armbar
+  id: JudoCombatGrab
+  name: judo-combo-combat-grab
   martialArtsForm: CorporateJudo
   attacks:
   - Disarm
   - Disarm
   - Grab
-  event: !type:JudoArmbarPerformedEvent {}
-  paralyzeTime: 5
-  staminaDamage: 10
-  dropItems: true
+  event: !type:JudoCombatGrabPerformedEvent {}
+  staminaDamage: 45
+  extraDamage: 10
 
 - type: combo
-  id: JudoWheelThrow
-  name: judo-combo-wheel-throw
+  id: JudoEyeGouge
+  name: judo-combo-eye-gouge
   martialArtsForm: CorporateJudo
   attacks:
+  - Harm
   - Grab
   - Disarm
+  event: !type:JudoEyeGougePerformedEvent {}
+
+- type: combo
+  id: JudoNageWaza
+  name: judo-combo-nage-waza
+  martialArtsForm: CorporateJudo
+  attacks:
+  - Disarm
   - Harm
-  event: !type:JudoWheelThrowPerformedEvent {}
-  staminaDamage: 120
+  event: !type:JudoNageWazaPerformedEvent {}
+  extraDamage: 10

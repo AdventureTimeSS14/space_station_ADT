@@ -74,11 +74,10 @@ hellrip-combo-head-rip = отрывание головы
 hellrip-combo-tear-down = разрыв
 hellrip-combo-hellish-slam = адский удар
 
-judo-combo-discombobulate = дезориентация
-judo-combo-eye-poke = тычок в глаз
-judo-combo-judo-throw = дзюдо-бросок
-judo-combo-armbar = рычаг на руку
-judo-combo-wheel-throw = бросок колесом
+judo-combo-leg-sweep = проход в ноги
+judo-combo-combat-grab = боевой захват
+judo-combo-eye-gouge = вдавливание глаз
+judo-combo-nage-waza = нагэ-вадза
 
 carp-combo-gnashing-teeth = карпьи зубы
 carp-combo-crashing-waves = удар волны
@@ -92,6 +91,7 @@ martial-arts-action-receiver = { $name } ударил вас приёмом { $m
 martial-arts-fail-prone = Нельзя использовать этот приём лёжа!
 martial-arts-fail-target-down = Нельзя использовать этот приём на лежащей цели!
 martial-arts-fail-target-standing = Нельзя использовать этот приём на стоящей цели!
+martial-arts-fail-not-grabbed = Нельзя использовать этот приём, если вас не удерживают!
 capoeira-fail-low-velocity = Вы двигаетесь слишком медленно для этого приёма!
 ninjutsu-fail-loss-of-surprise = Ваши намерения раскрыты! Этот приём сейчас недоступен!
 
