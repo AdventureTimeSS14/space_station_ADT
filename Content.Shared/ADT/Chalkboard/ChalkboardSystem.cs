@@ -18,7 +18,7 @@ public sealed class ChalkboardSystem : EntitySystem
 
     private void OnInit(Entity<ChalkboardComponent> ent, ref ComponentInit args)
     {
-        if (!TryComp<MetaDataComponent>(ent, out var meta))
+        if (!TryComp(ent, out MetaDataComponent? meta))
             return;
 
         if (string.IsNullOrWhiteSpace(ent.Comp.BaseDescription))
@@ -40,7 +40,7 @@ public sealed class ChalkboardSystem : EntitySystem
         if (!TryComp<PaperComponent>(ent, out var paper))
             return;
 
-        if (!TryComp<MetaDataComponent>(ent, out var meta))
+        if (!TryComp(ent, out MetaDataComponent? meta))
             return;
 
         var baseDesc = ent.Comp.BaseDescription ?? meta.EntityDescription;

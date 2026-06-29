@@ -9,7 +9,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
-using Robust.Server.Containers;
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -30,8 +29,7 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
     private HereticSystem _heretic = default!;
     private ContainerSystem _container = default!;
 
-    [ValidatePrototypeId<DatasetPrototype>]
-    public const string EligibleTagsDataset = "EligibleTags";
+    private static readonly ProtoId<DatasetPrototype> EligibleTagsDataset = "EligibleTags";
 
     public static Dictionary<ProtoId<TagPrototype>, int> GetRequiredTags()
     {

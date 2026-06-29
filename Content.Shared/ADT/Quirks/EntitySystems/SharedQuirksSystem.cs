@@ -1,58 +1,29 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Climbing.Events;
-using Robust.Shared.Network;
 using Content.Shared.Throwing;
-using Content.Shared.Verbs;
-using Content.Shared.Tools.Components;
-using Content.Shared.StepTrigger.Systems;
-using Content.Shared.Storage.EntitySystems;
-using Content.Shared.Popups;
-using Content.Shared.Tag;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Damage.Systems;
-using Content.Shared.StepTrigger.Components;
 using Content.Shared.Damage;
-using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.Traits;
 
 public abstract class SharedQuirksSystem : EntitySystem
 {
-    [Dependency] private readonly SharedEntityStorageSystem _storage = default!;
     [Dependency] protected readonly IRobustRandom _random = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<FreerunningComponent, CheckClimbSpeedModifiersEvent>(OnFreerunningClimbTimeModify);
 
-        SubscribeLocalEvent<SprinterComponent, MapInitEvent>(OnSprinterMapInit);
+        SubscribeLocalEvent<SprinterComponent, ComponentInit>(OnSprinterComponentInit);
         SubscribeLocalEvent<SprinterComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
 
         SubscribeLocalEvent<HardThrowerComponent, CheckThrowRangeModifiersEvent>(OnThrowerRangeModify);
 
         SubscribeLocalEvent<FrailComponent, DamageModifyEvent>(OnFrailDamaged);
-    }
-
-    public void TryHide(EntityUid uid, EntityUid closet)
-    {
-        if (_storage.Insert(uid, closet))
-        {
-            _popup.PopupClient(Loc.GetString("quirk-fast-locker-hide-success"), uid);
-
-            if (TryComp<FastLockersComponent>(uid, out var fastLockers))
-            {
-                fastLockers.CooldownEnd = _timing.CurTime + TimeSpan.FromSeconds(FastLockersComponent.CooldownTime);
-                Dirty(uid, fastLockers);
-            }
-        }
-        else
-            _popup.PopupCursor(Loc.GetString("quirk-fast-locker-hide-fail"), uid);
     }
 
     private void OnFreerunningClimbTimeModify(EntityUid uid, FreerunningComponent comp, ref CheckClimbSpeedModifiersEvent args)
@@ -61,7 +32,7 @@ public abstract class SharedQuirksSystem : EntitySystem
             args.Time *= comp.Modifier;
     }
 
-    private void OnSprinterMapInit(EntityUid uid, SprinterComponent comp, MapInitEvent args)
+    private void OnSprinterComponentInit(EntityUid uid, SprinterComponent comp, ComponentInit args)
     {
         if (!TryComp<MovementSpeedModifierComponent>(uid, out var move))
             return;
@@ -74,8 +45,8 @@ public abstract class SharedQuirksSystem : EntitySystem
 
     private void OnThrowerRangeModify(EntityUid uid, HardThrowerComponent component, ref CheckThrowRangeModifiersEvent args)
     {
-        args.SpeedMod = component.Modifier;
-        args.VectorMod = component.Modifier;
+        args.SpeedMod *= component.Modifier;
+        args.VectorMod *= component.Modifier;
     }
 
     private void OnFrailDamaged(EntityUid uid, FrailComponent comp, DamageModifyEvent args)

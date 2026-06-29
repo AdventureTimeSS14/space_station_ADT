@@ -1,8 +1,7 @@
 - type: marking
   id: ADTSpiderMirror
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Arachnid ]
+  groupWhitelist: [Arachnid]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -13,8 +12,7 @@
 - type: marking
   id: ADTSpiderGlowEyes
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [ Arachnid ]
+  groupWhitelist: [Arachnid]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -25,8 +23,7 @@
 - type: marking
   id: ADTSpiderEyesMulti
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [ Arachnid ]
+  groupWhitelist: [Arachnid]
   forcedColoring: false
   followSkinColor: false
   sprites:

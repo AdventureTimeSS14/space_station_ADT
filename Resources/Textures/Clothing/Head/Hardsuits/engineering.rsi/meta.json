@@ -1,11 +1,11 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from shiptest at commit https://github.com/shiptest-ss13/Shiptest/pull/1933/commits/c83640f260c822b4e5f6dfad19906df233f80fa7. Vox states by Flareguy for Space Station 14",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from shiptest at commit https://github.com/shiptest-ss13/Shiptest/pull/1933/commits/c83640f260c822b4e5f6dfad19906df233f80fa7. Vox states by Flareguy for Space Station 14. Vulpkanin and Reptilian states by TiniestShark (github).",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
     "states": [
         {
             "name": "icon"
@@ -56,15 +56,7 @@
             "directions": 4
         },
         {
-            "name": "equipped-head-dog",
-            "directions": 4
-        },
-        {
-            "name": "equipped-head-light-dog",
-            "directions": 4
-        },
-        {
-            "name": "equipped-head-unshaded-dog",
+            "name": "equipped-head-vulpkanin",
             "directions": 4
         },
         {
@@ -76,7 +68,7 @@
             "directions": 4
         },
         {
-            "name": "equipped-head-vulpkanin",
+            "name": "equipped-head-dog",
             "directions": 4
         }
     ]

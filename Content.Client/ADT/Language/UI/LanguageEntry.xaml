@@ -9,7 +9,7 @@
                 HorizontalExpand="True"
                 SeparationOverride="2"
                 Margin="4">
-                <Label Name="Name"
+                <Label Name="NameLabel"
                     MinWidth="50"
                     HorizontalExpand="True"/>
                 <Button Name="SelectButton"

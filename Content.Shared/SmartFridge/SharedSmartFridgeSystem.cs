@@ -1,0 +1,291 @@
+using Content.Shared.Access.Systems;
+using Content.Shared.Construction.EntitySystems;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction;
+using Content.Shared.Lock; //ADT-Tweak
+using Content.Shared.Popups;
+using Content.Shared.Storage.Components;
+using Content.Shared.Verbs;
+using Content.Shared.Whitelist;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
+using Robust.Shared.Timing;
+//ADT-Tweak-Start
+using Content.Shared.Storage;
+using System.Linq;
+//ADT-Tweak-End
+using Robust.Shared.Utility;
+
+namespace Content.Shared.SmartFridge;
+
+public abstract class SharedSmartFridgeSystem : EntitySystem
+{
+    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<SmartFridgeComponent, InteractUsingEvent>(OnInteractUsing, after: [typeof(AnchorableSystem)]);
+        SubscribeLocalEvent<SmartFridgeComponent, EntInsertedIntoContainerMessage>(OnItemInserted);
+        SubscribeLocalEvent<SmartFridgeComponent, EntRemovedFromContainerMessage>(OnItemRemoved);
+        SubscribeLocalEvent<SmartFridgeComponent, AfterAutoHandleStateEvent>((ent, ref _) => UpdateUI(ent));
+
+        SubscribeLocalEvent<SmartFridgeComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerb);
+        SubscribeLocalEvent<SmartFridgeComponent, GetDumpableVerbEvent>(OnGetDumpableVerb);
+        SubscribeLocalEvent<SmartFridgeComponent, DumpEvent>(OnDump);
+
+        SubscribeLocalEvent<SmartFridgeComponent, GetVerbsEvent<UtilityVerb>>(OnGetTransferVerb); //ADT-Tweak
+
+        Subs.BuiEvents<SmartFridgeComponent>(SmartFridgeUiKey.Key,
+            sub =>
+            {
+                sub.Event<SmartFridgeDispenseItemMessage>(OnDispenseItem);
+                sub.Event<SmartFridgeDeleteEmptyMessage>(OnDeleteEmpty); // ADt-Tweak - Delete Unnessesary entries
+            });
+    }
+
+    //ADT-Tweak-Start
+    private void OnGetTransferVerb(Entity<SmartFridgeComponent> ent, ref GetVerbsEvent<UtilityVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || args.Hands == null || args.Using == null)
+            return;
+
+        if (!TryComp<StorageComponent>(args.Using, out var sourceStorage))
+            return;
+
+        if (TryComp<LockComponent>(args.Using.Value, out var sourceLock) && sourceLock.Locked)
+            return;
+
+        var sourceUid = args.Using.Value;
+        var userUid = args.User;
+
+        UtilityVerb verb = new()
+        {
+            Text = Loc.GetString("storage-component-transfer-verb"),
+            IconEntity = GetNetEntity(args.Using),
+            Act = () => TransferFromStorage(ent, (sourceUid, sourceStorage), userUid)
+        };
+
+        args.Verbs.Add(verb);
+    }
+
+    private void TransferFromStorage(Entity<SmartFridgeComponent> target, Entity<StorageComponent> source, EntityUid user)
+    {
+        var entities = source.Comp.Container.ContainedEntities.ToArray();
+        DoInsert(target, user, entities, true);
+    }
+    //ADT-Tweak-End
+
+    private bool DoInsert(Entity<SmartFridgeComponent> ent, EntityUid user, IEnumerable<EntityUid> usedItems, bool playSound)
+    {
+        if (!_container.TryGetContainer(ent, ent.Comp.Container, out var container))
+            return false;
+
+        if (!Allowed(ent, user))
+            return true;
+
+        bool anyInserted = false;
+        foreach (var used in usedItems)
+        {
+            if (!_whitelist.CheckBoth(used, ent.Comp.Blacklist, ent.Comp.Whitelist))
+                continue;
+            anyInserted = true;
+
+            _container.Insert(used, container);
+        }
+
+        if (anyInserted && playSound)
+        {
+            _audio.PlayPredicted(ent.Comp.InsertSound, ent, user);
+        }
+
+        return anyInserted;
+    }
+
+    private void OnInteractUsing(Entity<SmartFridgeComponent> ent, ref InteractUsingEvent args)
+    {
+        if (args.Handled || !_hands.CanDrop(args.User, args.Used))
+            return;
+
+        args.Handled = DoInsert(ent, args.User, [args.Used], true);
+    }
+
+    private void OnItemInserted(Entity<SmartFridgeComponent> ent, ref EntInsertedIntoContainerMessage args)
+    {
+        if (args.Container.ID != ent.Comp.Container || _timing.ApplyingState)
+            return;
+
+        var key = new SmartFridgeEntry(Identity.Name(args.Entity, EntityManager));
+        if (!ent.Comp.Entries.Contains(key))
+            ent.Comp.Entries.Add(key);
+
+        ent.Comp.ContainedEntries.TryAdd(key, new());
+        var entries = ent.Comp.ContainedEntries[key];
+        if (!entries.Contains(GetNetEntity(args.Entity)))
+            entries.Add(GetNetEntity(args.Entity));
+
+        Dirty(ent);
+        UpdateUI(ent);
+    }
+
+    private void OnItemRemoved(Entity<SmartFridgeComponent> ent, ref EntRemovedFromContainerMessage args)
+    {
+        var key = new SmartFridgeEntry(Identity.Name(args.Entity, EntityManager));
+
+        if (ent.Comp.ContainedEntries.TryGetValue(key, out var contained))
+        {
+            contained.Remove(GetNetEntity(args.Entity));
+        }
+
+        Dirty(ent);
+        UpdateUI(ent);
+    }
+
+    private bool Allowed(Entity<SmartFridgeComponent> machine, EntityUid user)
+    {
+        if (_accessReader.IsAllowed(user, machine))
+            return true;
+
+        // ADT-Tweak Start: Predicted -> Server
+        _popup.PopupEntity(Loc.GetString("smart-fridge-component-try-eject-access-denied"), machine, user);
+        _audio.PlayPvs(machine.Comp.SoundDeny, machine);
+        // ADT-Tweak End
+        return false;
+    }
+
+    private void OnDispenseItem(Entity<SmartFridgeComponent> ent, ref SmartFridgeDispenseItemMessage args)
+    {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        if (!Allowed(ent, args.Actor))
+            return;
+
+        if (!ent.Comp.ContainedEntries.TryGetValue(args.Entry, out var contained))
+        {
+            // ADT-Tweak Start: Predicted -> Server
+            _popup.PopupEntity(Loc.GetString("smart-fridge-component-try-eject-unknown-entry"), ent, args.Actor);
+             _audio.PlayPvs(ent.Comp.SoundDeny, ent);
+            return;
+            // ADT-Tweak End
+        }
+
+        //ADT-Tweak-Start
+        bool dispensed = false;
+        var toRemove = new List<NetEntity>();
+
+        foreach (var item in contained)
+        {
+            var entity = GetEntity(item);
+            if (!_container.TryRemoveFromContainer(entity))
+            {
+                toRemove.Add(item);
+                continue;
+            }
+
+            _audio.PlayPvs(ent.Comp.SoundVend, ent); //ADT-Tweak
+            contained.Remove(item);
+            dispensed = true;
+            Dirty(ent);
+            break;
+        }
+
+        foreach (var item in toRemove)
+        {
+            contained.Remove(item);
+        }
+
+        if (!dispensed)
+        {
+            // ADT-Tweak Start: Predicted -> Server
+            _popup.PopupEntity(Loc.GetString("smart-fridge-component-try-eject-out-of-stock"), ent, args.Actor);
+            _audio.PlayPvs(ent.Comp.SoundDeny, ent);
+            // ADT-Tweak End
+
+        }
+        //ADT-Tweak-End
+    }
+
+    //ADT-Tweak Start: Delete Unnessesary entries
+    private void OnDeleteEmpty(Entity<SmartFridgeComponent> ent, ref SmartFridgeDeleteEmptyMessage args)
+    {
+
+        if (ent.Comp.ContainedEntries.TryGetValue(args.Entry, out var contained) &&
+            contained.Count > 0)
+        {
+            return;
+        }
+
+        ent.Comp.ContainedEntries.Remove(args.Entry);
+        ent.Comp.Entries.Remove(args.Entry);
+
+        Dirty(ent);
+    }
+    //ADT-Tweak End
+
+    private void OnGetAltVerb(Entity<SmartFridgeComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        var user = args.User;
+
+        if (!args.CanInteract
+            || args.Using is not { } item
+            || !_hands.CanDrop(user, item)
+            || !_whitelist.CheckBoth(item, ent.Comp.Blacklist, ent.Comp.Whitelist))
+            return;
+
+        args.Verbs.Add(new AlternativeVerb
+        {
+            Act = () => DoInsert(ent, user, [item], true),
+            Text = Loc.GetString("verb-categories-insert"),
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/insert.svg.192dpi.png")),
+        });
+    }
+
+    private void OnRemoveEntry(Entity<SmartFridgeComponent> ent, ref SmartFridgeRemoveEntryMessage args)
+    {
+        if (!Allowed(ent, args.Actor))
+            return;
+
+        if (!ent.Comp.ContainedEntries.TryGetValue(args.Entry, out var contained)
+            || contained.Count > 0
+            || !ent.Comp.Entries.Contains(args.Entry))
+            return;
+
+        ent.Comp.Entries.Remove(args.Entry);
+        ent.Comp.ContainedEntries.Remove(args.Entry);
+        Dirty(ent);
+        UpdateUI(ent);
+    }
+
+    private void OnGetDumpableVerb(Entity<SmartFridgeComponent> ent, ref GetDumpableVerbEvent args)
+    {
+        if (_accessReader.IsAllowed(args.User, ent))
+        {
+            args.Verb = Loc.GetString("dump-smartfridge-verb-name", ("unit", ent));
+        }
+    }
+
+    private void OnDump(Entity<SmartFridgeComponent> ent, ref DumpEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+        args.PlaySound = true;
+
+        DoInsert(ent, args.User, args.DumpQueue, false);
+    }
+
+    protected virtual void UpdateUI(Entity<SmartFridgeComponent> ent)
+    {
+
+    }
+}

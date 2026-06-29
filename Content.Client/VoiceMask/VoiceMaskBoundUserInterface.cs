@@ -31,11 +31,23 @@ public sealed class VoiceMaskBoundUserInterface : BoundUserInterface
         _window.OnBarkChange += bark => SendMessage(new VoiceMaskChangeBarkMessage(bark)); // ADT Barks
         _window.OnPitchChange += pitch => SendMessage(new VoiceMaskChangeBarkPitchMessage(pitch)); // ADT Barks
         _window.OnJobIconChange += jobIconId => SendMessage(new VoiceMaskChangeJobIconMessage(jobIconId)); // ADT-Tweak
+        _window.OnToggle += OnToggle;
+        _window.OnAccentToggle += OnAccentToggle;
     }
 
     private void OnNameSelected(string name)
     {
         SendMessage(new VoiceMaskChangeNameMessage(name));
+    }
+
+    private void OnToggle()
+    {
+        SendMessage(new VoiceMaskToggleMessage());
+    }
+
+    private void OnAccentToggle()
+    {
+        SendMessage(new VoiceMaskAccentToggleMessage());
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -44,7 +56,8 @@ public sealed class VoiceMaskBoundUserInterface : BoundUserInterface
         {
             return;
         }
-         _window.UpdateState(cast.Name, cast.Voice, cast.Bark, cast.Pitch, cast.Verb, cast.JobIconId); // ADT-Tweak
+
+        _window.UpdateState(cast.Name, cast.Voice, cast.Bark, cast.Pitch, cast.Verb, cast.JobIconId, cast.Active, cast.AccentHide);
     }
 
     protected override void Dispose(bool disposing)

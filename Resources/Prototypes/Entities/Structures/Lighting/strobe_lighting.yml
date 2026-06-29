@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: AlwaysPoweredStrobeLight
   name: strobe
   description: "UH?! Sorry, all I can hear is WEE-OOO-WEE-OOO!"
@@ -52,8 +52,9 @@
         layer:
         - TabletopMachineLayer
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
