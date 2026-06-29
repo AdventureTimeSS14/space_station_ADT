@@ -504,7 +504,7 @@
 - type: marking
   id: ADTMothFireflyOverlay
   bodyPart: Overlay
-  groupWhitelist: [Moth]
+  groupWhitelist: []
   forcedColoring: false
   followSkinColor: false
   sprites:

@@ -167,11 +167,13 @@
         Burn:
           sprite: Mobs/Effects/burn_damage.rsi
     - type: MothAccent
+    # ADT-Tweak start
     - type: Vocal
       sounds:
-        Male: UnisexMoth
-        Female: UnisexMoth
-        Unsexed: UnisexMoth
+        Male: MaleMoth
+        Female: FemaleMoth
+        Unsexed: MaleMoth
+    # ADT-Twean end
     - type: BodyEmotes
       soundsId: MothBodyEmotes
     - type: MovementSpeedModifier
@@ -210,7 +212,7 @@
   # ADT-tweak-end
 
 - type: entity
-  parent: OrganBase
+  parent: OrganBaseOrganic
   id: OrganMoth
   abstract: true
   suffix: Moth

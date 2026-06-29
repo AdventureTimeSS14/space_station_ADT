@@ -1,6 +1,6 @@
 - type: marking
   id: DemonChestCowSpots
-  bodyPart: Chest
+  bodyPart: Special
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
@@ -8,7 +8,7 @@
 
 - type: marking
   id: DemonChestGuard
-  bodyPart: Chest
+  bodyPart: Special
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
@@ -16,7 +16,7 @@
 
 - type: marking
   id: DemonChestLinesEmperos
-  bodyPart: Chest
+  bodyPart: Special
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
@@ -24,7 +24,7 @@
 
 - type: marking
   id: DemonChestQueenLines
-  bodyPart: Chest
+  bodyPart: Special
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
@@ -32,7 +32,7 @@
 
 - type: marking
   id: DemonChestTreeLines
-  bodyPart: Chest
+  bodyPart: Special
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
@@ -40,7 +40,7 @@
 
 - type: marking
   id: DemonChestTrinitySpots
-  bodyPart: Chest
+  bodyPart: Special
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi

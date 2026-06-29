@@ -9,13 +9,13 @@
       storagebase: !type:AllSelector
         children:
         - id: ClothingHeadHatBeretMedic
-        - id: ClothingOuterCoatAMG
-        - id: ADTClothingOuterCoatBrigmedicWB
+        - id: ClothingHeadHatBeretSecurityMedic
+        - id: ClothingHeadHelmetSecurityMedic
         - id: ClothingUniformJumpsuitBrigmedic
         - id: ClothingUniformJumpskirtBrigmedic
         - id: ADTClothingUniformJumpsuitBrigmedicTurtleneck
         - id: ADTClothingUniformJumpskirtBrigmedicTurtleneck
-        - id: ClothingHeadHelmetSecurityMedic # Corvax-Resprite
+        - id: ClothingOuterCoatAMG
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateFilledAKMS

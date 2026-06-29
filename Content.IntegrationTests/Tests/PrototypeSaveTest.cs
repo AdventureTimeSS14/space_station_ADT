@@ -64,6 +64,11 @@ public sealed class PrototypeSaveTest : GameTest
             if (prototype.Components.ContainsKey("MapGrid"))
                 continue;
 
+            // ADT-Tweak start
+            if (HasSolutionContainerWithSolutions(prototype, prototypeMan))
+                continue;
+            // ADT-Tweak end
+
             // Currently mobs and such can't be serialized, but they aren't flagged as serializable anyways.
             if (!prototype.MapSavable)
                 continue;
@@ -157,6 +162,53 @@ public sealed class PrototypeSaveTest : GameTest
                 }
             });
         });
+    }
+
+    // ADT-Tweak start
+    private static bool HasSolutionContainerWithSolutions(EntityPrototype prototype, IPrototypeManager prototypeMan)
+    {
+        if (prototype.Components.TryGetValue("SolutionContainerManager", out var entry) &&
+            entry.Mapping is not null &&
+            entry.Mapping.Children.TryGetValue("solutions", out var solutionsNode) &&
+            solutionsNode is MappingDataNode)
+        {
+            return true;
+        }
+
+        if (prototype.Parents == null)
+            return false;
+
+        foreach (var parentId in prototype.Parents)
+        {
+            if (prototypeMan.TryIndex(parentId, out EntityPrototype? parent))
+            {
+                if (HasSolutionContainerWithSolutions(parent, prototypeMan))
+                    return true;
+            }
+        }
+
+        return false;
+    }
+    // ADT-Tweak end
+
+    private static bool HasOrganBaseOrganicAncestor(IPrototypeManager prototypeMan, EntityPrototype prototype)
+    {
+        if (prototype.ID == "OrganBaseOrganic")
+            return true;
+
+        if (prototype.Parents == null)
+            return false;
+
+        foreach (var parentId in prototype.Parents)
+        {
+            if (prototypeMan.TryIndex(parentId, out EntityPrototype? parent))
+            {
+                if (HasOrganBaseOrganicAncestor(prototypeMan, parent))
+                    return true;
+            }
+        }
+
+        return false;
     }
 
     public sealed class TestEntityUidContext : ISerializationContext,

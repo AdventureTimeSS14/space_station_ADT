@@ -1,22 +1,10 @@
 - type: entity
   id: BaseMobIPC
-  parent: PlayerSiliconHumanoidBase
+  parent: [ PlayerSiliconHumanoidBase, AppearanceIPC ]
   name: Урист МакПозитроник
   abstract: true
   components:
   - type: VisualBody
-  - type: InitialBody
-    organs:
-      Torso: OrganIPCTorso
-      Head: OrganIPCHead
-      ArmLeft: OrganIPCArmLeft
-      ArmRight: OrganIPCArmRight
-      HandRight: OrganIPCHandRight
-      HandLeft: OrganIPCHandLeft
-      LegLeft: OrganIPCLegLeft
-      LegRight: OrganIPCLegRight
-      FootLeft: OrganIPCFootLeft
-      FootRight: OrganIPCFootRight
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true
@@ -52,6 +40,23 @@
     minInterval: 8
     maxInterval: 12
     popUp: silicon-power-low
+  - type: ZombieImmune
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: radiating
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      startValue: 0.1
+      endValue: 2.0
+      isLooped: true
   - type: MobState
     allowedStates:
       - Alive

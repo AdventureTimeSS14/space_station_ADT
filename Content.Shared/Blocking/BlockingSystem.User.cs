@@ -4,14 +4,12 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-//ADT-Tweak-Start
 using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Power;
-//ADT-Tweak-End
-
+using Content.Shared.Examine;
 
 namespace Content.Shared.Blocking;
 
@@ -34,6 +32,7 @@ public sealed partial class BlockingSystem
 
         SubscribeLocalEvent<BlockingComponent, ItemToggleActivateAttemptEvent>(OnItemToggleAttempt); //ADT-Tweak
         SubscribeLocalEvent<BlockingComponent, ChargeChangedEvent>(OnChargeChanged); //ADT-Tweak
+        SubscribeLocalEvent<BlockingComponent, ExaminedEvent>(OnBatteryExamined); //ADT-Tweak
     }
 
     private void OnParentChanged(EntityUid uid, BlockingUserComponent component, ref EntParentChangedMessage args)
@@ -94,7 +93,7 @@ public sealed partial class BlockingSystem
         }
 
         //ADT-Tweak-Start
-        if (HasEnoughBatteryCharge(item, blocking))
+        if (blocking.IsCharging && HasEnoughBatteryCharge(item, blocking))
         {
             UserStopBlocking(uid, component);
             return;
@@ -147,7 +146,7 @@ public sealed partial class BlockingSystem
         if (!TryComp<BatteryComponent>(entity, out var battery))
             return;
 
-        if (_batterySystem.GetCharge((entity, battery)) <= 0)
+        if (_batterySystem.GetCharge((entity, battery)) <= 0.1f)
         {
             args.Cancelled = true;
             args.Popup = Loc.GetString("handheld-light-component-cell-dead-message");
@@ -159,7 +158,7 @@ public sealed partial class BlockingSystem
         if (!entity.Comp.IsCharging)
             return;
 
-        if (!TryComp<BatteryComponent>(entity, out var battery) || _batterySystem.GetCharge((entity, battery)) > 0)
+        if (!TryComp<BatteryComponent>(entity, out var battery) || _batterySystem.GetCharge((entity, battery)) > 0.1f)
             return;
 
         if (TryComp<ItemToggleComponent>(entity, out var itemToggle))
@@ -201,7 +200,7 @@ public sealed partial class BlockingSystem
         if (!TryComp<BatteryComponent>(uid, out var battery))
             return true;
 
-        return _batterySystem.GetCharge((uid, battery)) <= 0;
+        return _batterySystem.GetCharge((uid, battery)) <= 0.1f;
     }
 
     private void ConsumeBatteryCharge(EntityUid uid, BlockingComponent component, float damage)
@@ -213,6 +212,18 @@ public sealed partial class BlockingSystem
 
             _batterySystem.SetCharge(uid, newCharge);
         }
+    }
+
+    private void OnBatteryExamined(Entity<BlockingComponent> ent, ref ExaminedEvent args)
+    {
+        if (!TryComp<BatteryComponent>(ent, out var battery))
+            return;
+
+        if (!ent.Comp.IsCharging)
+            return;
+
+        var chargePercent = _batterySystem.GetChargeLevel((ent.Owner, battery)) * 100;
+        args.PushMarkup(Loc.GetString("power-cell-component-examine-details", ("currentCharge", $"{chargePercent:F0}")));
     }
     //ADT-Tweak-End
 

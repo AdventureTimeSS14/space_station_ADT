@@ -572,6 +572,7 @@
     sprite: ADT/Clothing/Back/Modsuit/warden.rsi
     state: icon
   - type: ModSuit
+    maxComplexity: 10
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
@@ -594,6 +595,7 @@
     sprite: ADT/Clothing/Back/Modsuit/brigmedic.rsi
     state: icon
   - type: ModSuit
+    maxComplexity: 10
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:

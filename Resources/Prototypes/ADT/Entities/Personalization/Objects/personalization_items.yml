@@ -187,8 +187,8 @@
     - Back
     - suitStorage
   - type: ChamberMagazineAmmoProvider
-  - type: RunAndGunSpreadModifier
-    modifier: 0.1
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.1
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -3389,6 +3389,15 @@
     layers:
     - state: pink
       shader: unshaded
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Opaque
   - type: Projectile
     damage:
       types:
@@ -3476,6 +3485,15 @@
     proto: ADTFamilyBusinessPinkProjectile
     fireCost: 100
   - type: Appearance
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
   - type: Battery
     maxCharge: 1500
     startingCharge: 1500
@@ -3731,5 +3749,97 @@
     angle: 90
   - type: Item
     sprite: ADT/Personalization/svet217_KS-43_Cherry.rsi
+
+- type: entity
+  parent: PlushieMoth
+  id: ADTPlushieDreamer
+  name: plush Dreamer
+  description: A plush toy of the azure louam, the size of two slightly large apples. It smells like a mixture of all kinds of fruits, as well as the scent of lily buds. If you were allergic, you would have been sneezing for a long time, as if you had inhaled flower pollen.
+  suffix: Personal, Mintal1t
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_dreamer
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMilkyWay
+  name: plush Milky Way
+  description: A cute luam toy that resembles... What was his name?
+  suffix: Personal, Wollfee
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_milky_way
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSupernova
+  name: plush Supernova
+  description: A hastily made novakid toy in an Atmos uniform, smelling of freon and plasma.
+  suffix: Personal, alivepillow
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_supernova
+  - type: EmitSoundOnUse
+    sound: &PlushieNovakidSound
+      collection: ADTNovakidToySounds
+      params:
+        volume: 5
+  - type: EmitSoundOnLand
+    sound: *PlushieNovakidSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieNovakidSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieNovakidSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieNovakidSound
+  - type: Edible
+    useSound: *PlushieNovakidSound
+  - type: MeleeWeapon
+    soundHit: &PlushieNovakidMeleeWeaponSound
+      path: /Audio/ADT/Novakid/novakid_scream04.ogg
+
+- type: entity
+  parent: BaseCrowbar
+  id: ADTSharpCrowbar
+  name: shipboard crowbar with engraving
+  description: This crowbar has a pointed tail, perfect for protection. It has an engraving of I. M.
+  suffix: Personal, not_pou
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/not_pou_sharp_crowbar.rsi
+    state: icon
+  - type: Item
+    storedSprite:
+      sprite: ADT/Personalization/not_pou_sharp_crowbar.rsi
+      state: storage
+    storedRotation: -90
+  - type: MeleeWeapon
+    wideAnimationRotation: 65
+    damage:
+      types:
+        Piercing: 10
+    angle: 0
+    animation: WeaponArcThrust
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          vertices:
+            - -0.40,-0.30
+            - -0.30,-0.40
+            - 0.40,0.30
+            - 0.30,0.40
+        density: 20
+        mask:
+          - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 12
 
 #SPONSOR-ITEMS-END

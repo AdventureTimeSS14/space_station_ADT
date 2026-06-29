@@ -23,7 +23,7 @@
       Ears: OrganHumanEars
       Lungs: OrganHumanLungs
       Heart: OrganHumanHeart
-      Stomach: OrganHumanStomach
+      Stomach: OrganFelinidStomach
       Liver: OrganHumanLiver
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
@@ -65,7 +65,7 @@
             state: jumpsuit
 
 - type: entity
-  parent: OrganBase
+  parent: OrganBaseOrganic
   id: OrganTajaran
   abstract: true
   suffix: tajaran

@@ -88,8 +88,13 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
             .WithPlayOffset(ent.Comp.CurrentPlaybackOffset);
 
         ent.Comp.AudioStream = Audio.PlayPvs(jukeboxProto.Path, ent.Owner, audioParams)?.Entity;
+
         ent.Comp.PlaybackStartTime = _gameTiming.CurTime;
         ent.Comp.CurrentPlaybackOffset = 0f;
+
+        if (TryComp<AudioComponent>(ent.Comp.AudioStream, out var audioComp))
+            ent.Comp.TrackLengthCache = Audio.GetAudioLength(audioComp.FileName).TotalSeconds;
+
         Dirty(ent);
     }
 
@@ -220,8 +225,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         // ADT-Tweak start: Validate AudioStream before using
         if (entity.Comp.AudioStream.HasValue && !TerminatingOrDeleted(entity.Comp.AudioStream.Value))
         {
-            Audio.SetState(entity.Comp.AudioStream, AudioState.Stopped);
-            entity.Comp.AudioStream = null;
+            entity.Comp.AudioStream = Audio.Stop(entity.Comp.AudioStream);
         }
         // ADT-Tweak end
 
@@ -279,10 +283,9 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
             var elapsed = (float)(_gameTiming.CurTime - comp.PlaybackStartTime.Value).TotalSeconds;
             var currentPosition = comp.CurrentPlaybackOffset + elapsed;
 
-            if (!TryComp<AudioComponent>(comp.AudioStream, out var audioComp))
+            var audioLength = comp.TrackLengthCache;
+            if (audioLength <= 0f)
                 continue;
-
-            var audioLength = Audio.GetAudioLength(audioComp.FileName).TotalSeconds;
 
             if (currentPosition < audioLength)
                 continue;

@@ -1,29 +1,23 @@
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server.Botany.Components; // This is how it supposed to be
+namespace Content.Server.ADT.Botany.Components;
 
-/// <summary>
-///    After scanning, retrieves the target Uid to use with its related UI.
-/// </summary>
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class PlantAnalyzerComponent : Component
 {
-    [DataDefinition]
-    public partial struct PlantAnalyzerSettings
-    {
-        [DataField]
-        public bool AdvancedScan;
+    [DataField]
+    public TimeSpan ScanDelay = TimeSpan.FromSeconds(5);
 
-        [DataField]
-        public float ScanDelay;
+    [DataField]
+    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(2);
 
-        [DataField]
-        public float AdvScanDelay;
-    }
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan NextUpdate = TimeSpan.Zero;
 
-    [DataField, ViewVariables]
-    public PlantAnalyzerSettings Settings = new();
+    [DataField]
+    public EntityUid? ScannedEntity;
 
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public DoAfterId? DoAfter;

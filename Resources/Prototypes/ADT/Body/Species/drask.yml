@@ -34,7 +34,7 @@
     speciesId: drask
 
 - type: entity
-  parent: OrganBase
+  parent: OrganBaseOrganic
   id: OrganDrask
   abstract: true
   suffix: drask
