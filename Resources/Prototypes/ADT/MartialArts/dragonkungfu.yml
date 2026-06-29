@@ -20,7 +20,7 @@
   event: !type:DragonClawPerformedEvent
     sound:
       path: /Audio/Weapons/genhit3.ogg
-  staminaDamage: 50
+  staminaDamage: 45
 
 - type: combo
   id: DragonTail
@@ -33,8 +33,8 @@
   event: !type:DragonTailPerformedEvent
     sound:
       path: /Audio/Weapons/genhit2.ogg
-  extraDamage: 15
-  staminaDamage: 30
+  extraDamage: 10
+  staminaDamage: 15
   paralyzeTime: 6
 
 - type: combo
@@ -48,5 +48,5 @@
   event: !type:DragonStrikePerformedEvent
     sound:
       path: /Audio/Weapons/genhit1.ogg
-  extraDamage: 40
+  extraDamage: 30
   paralyzeTime: 2

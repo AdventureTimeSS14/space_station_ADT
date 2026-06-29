@@ -151,17 +151,17 @@
 
   - [bold]Коготь дракона[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"]
   <Box>
-  Наносит [color=Cyan]50[/color] урона по выносливости и замедляет цель.
+  Наносит [color=Cyan]45[/color] урона по выносливости и замедляет цель на [color=Orange]2 секунды[/color].
   </Box>
 
   - [bold]Хвост дракона[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="grab" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"]
   <Box>
-  Наносит [color=Red]15[/color] урона и [color=Cyan]30[/color] урона по выносливости. Роняет цель на пол на [color=Orange]6 секунд[/color].
+  Наносит [color=Red]10[/color] урона и [color=Cyan]15[/color] урона по выносливости. Роняет стоячую цель на пол на [color=Orange]6 секунд[/color].
   </Box>
 
   - [bold]Удар дракона[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"]
   <Box>
-  Наносит [color=Red]40[/color] урона. Роняет цель на пол на [color=Orange]2 секунды[/color].
+  Наносит [color=Red]30[/color] урона. Роняет стоячую цель на пол на [color=Orange]2 секунды[/color].
   </Box>
 
   ## Ниндзюцу
