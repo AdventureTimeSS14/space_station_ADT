@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: PlasmaWindow
   name: plasma window
   parent: [BaseDeltaPressurePlasma, WindowRCDResistant]
@@ -9,8 +9,9 @@
   - type: Icon
     sprite: Structures/Windows/plasma_window.rsi
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

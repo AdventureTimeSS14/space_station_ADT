@@ -50,7 +50,7 @@
     doAfterDuration: 1
   - type: MultiHandedItem
   - type: PowerCellDraw
-    useRate: 200
+    useCharge: 200
 
 - type: entity
   id: ADTHighVoltageDefibrillator
@@ -61,7 +61,7 @@
   - type: MultiHandedItem #новую текстурку.
   - type: ToggleCellDraw
   - type: PowerCellDraw
-    useRate: 222 #~3 использования
+    useCharge: 222 #~3 использования
   - type: Sprite
     sprite: ADT/Objects/Specific/Medical/high-volt_defib.rsi
     layers:

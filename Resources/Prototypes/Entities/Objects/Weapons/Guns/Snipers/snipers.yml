@@ -125,7 +125,7 @@
   - type: AttachableHolder # ADT-Tweak
     slots:
       rmc-aslot-rail:
-        locked: false # ADT-Tweak true -> false 
+        locked: false # ADT-Tweak true -> false
         startingAttachable: ADTAttachmentHristovScope
         whitelist:
             tags:
