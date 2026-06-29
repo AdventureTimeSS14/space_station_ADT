@@ -20,11 +20,11 @@ public sealed class StampHitSystem : EntitySystem
     {
         foreach (var i in args.HitEntities)
         {
-            if (!TryComp<HumanoidAppearanceComponent>(i, out var speciesComp))
+            if (!TryComp<HumanoidProfileComponent>(i, out var speciesComp))
                 continue;
             if (speciesComp.Species != default && speciesComp.Species == "SlimePerson" || speciesComp.Species == "NovakidSpecies")
                 continue;
-            if (HasComp<HumanoidAppearanceComponent>(i))
+            if (HasComp<HumanoidProfileComponent>(i))
             {
                 if (!HasComp<StampedEntityComponent>(i))
                 {

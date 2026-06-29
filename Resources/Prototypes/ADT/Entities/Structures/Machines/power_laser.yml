@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTMachinePowerTransmissionLaser
   parent: [ BaseMachine ]
   name: power transmission laser
@@ -31,6 +31,7 @@
   - type: Battery
     startingCharge: 0
     maxCharge: 100000000 # 100MJ
+    netsync: false
   - type: ExaminableBattery
   - type: BatteryCharger
     voltage: High
@@ -43,8 +44,9 @@
         nodeGroupID: HVPower
   - type: StationInfiniteBatteryTarget
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: BatterySensor
   - type: Gun
     showExamineText: false
@@ -54,7 +56,7 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     examinable: false
     proto: ADTPTL
     fireCost: 1000

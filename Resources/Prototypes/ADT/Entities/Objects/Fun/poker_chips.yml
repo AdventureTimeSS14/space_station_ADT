@@ -343,19 +343,21 @@
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
-  - type: StorageFill
-    contents:
-    - id: ADTFunCasinoChip1stack
-      amount: 4
-    - id: ADTFunCasinoChip5stack
-      amount: 4
-    - id: ADTFunCasinoChip10stack
-      amount: 4
-    - id: ADTFunCasinoChip50stack
-      amount: 4
-    - id: ADTFunCasinoChip100stack
-      amount: 4
-    - id: ADTFunDealerChip
-      amount: 1
-    - id: ADTCardBoxBlack
-      amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTFunCasinoChip1stack
+          amount: 4
+        - id: ADTFunCasinoChip5stack
+          amount: 4
+        - id: ADTFunCasinoChip10stack
+          amount: 4
+        - id: ADTFunCasinoChip50stack
+          amount: 4
+        - id: ADTFunCasinoChip100stack
+          amount: 4
+        - id: ADTFunDealerChip
+          amount: 1
+        - id: ADTCardBoxBlack
+          amount: 1

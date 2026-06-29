@@ -64,6 +64,8 @@
   suffix: Paramedic,Filled
   description: A large duffel bag to hold paramedical equipment
   components:
-  - type: StorageFill
-    contents:
-      - id: JawsOfLife
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: JawsOfLife

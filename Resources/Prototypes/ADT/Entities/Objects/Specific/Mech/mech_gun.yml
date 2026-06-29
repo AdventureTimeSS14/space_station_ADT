@@ -411,7 +411,7 @@
 #     fireRate: 5
 #     soundGunshot:
 #       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-#   - type: HitscanBatteryAmmoProvider
+#   - type: BatteryAmmoProvider
 #     proto: ADTHealMechGun
 #     fireCost: 5
 #   - type: Battery
