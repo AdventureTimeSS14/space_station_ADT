@@ -97,7 +97,7 @@
   effects:
     - !type:AddCompsEffect
       components:
-        - type: LegsParalyzedCrawlyng # ADT-Tweak
+        - type: LegsParalyzed
     - !type:SpawnItemInHandEffect
       item: ADTVehicleWheelchairFolded
 
