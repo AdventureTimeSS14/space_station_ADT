@@ -196,14 +196,11 @@ public sealed class PaperSystem : EntitySystem
         {
             // successfully stamped, play popup
             var stampPaperOtherMessage = Loc.GetString("paper-component-action-stamp-paper-other",
-                ("user", args.User),
-                ("target", args.Target),
-                ("stamp", args.Used));
+                    ("user", args.User),
+                    ("target", args.Target),
+                    ("stamp", args.Used));
 
-            _popupSystem.PopupEntity(stampPaperOtherMessage,
-                args.User,
-                Filter.PvsExcept(args.User, entityManager: EntityManager),
-                true);
+            _popupSystem.PopupEntity(stampPaperOtherMessage, args.User, Filter.PvsExcept(args.User, entityManager: EntityManager), true);
             var stampPaperSelfMessage = Loc.GetString("paper-component-action-stamp-paper-self",
                 ("target", args.Target),
                 ("stamp", args.Used));
