@@ -135,6 +135,7 @@
 - type: latheRecipePack
   id: ADTBorgModules
   recipes:
+  - ADTAiRemoteBrain
   - BorgModuleTopicals
   - ADTBorgModuleRescue
   - ADTBorgModuleAdvancedChemical

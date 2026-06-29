@@ -62,6 +62,8 @@
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
     # ADT Start
+      enum.RemoteDevicesUiKey.Key:
+        type: RemoteDevicesBoundUserInterface
       enum.AtmosAlertsComputerUiKey.Key:
         type: AtmosAlertsComputerBoundUserInterface
       enum.StationAiInfoUiKey.Key:
@@ -80,6 +82,8 @@
         toggleAction: ActionStationAiCommunications
       enum.AtmosAlertsComputerUiKey.Key:
         toggleAction: ActionStationAiAtmosphericAlerts
+      enum.RemoteDevicesUiKey.Key:
+        toggleAction: ADTActionOpenRemoteDevicesMenu
   - type: AtmosAlertsComputer
     # ADT End
   - type: CrewMonitoringConsole
