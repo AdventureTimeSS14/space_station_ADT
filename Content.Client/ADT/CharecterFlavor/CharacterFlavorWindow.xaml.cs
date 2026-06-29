@@ -40,7 +40,7 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
         if (!_entityManager.TryGetComponent<MetaDataComponent>(uid, out var metaData))
             return;
 
-        if (_entityManager.TryGetComponent<HumanoidAppearanceComponent>(uid, out var humanoid)
+        if (_entityManager.TryGetComponent<HumanoidProfileComponent>(uid, out var humanoid)
         && _proto.Index(humanoid.Species).ShortDesc != string.Empty)
         {
             CustomSpeciesLabel.Text = Loc.GetString(_proto.Index(humanoid.Species).ShortDesc);

@@ -1,4 +1,4 @@
-# Simple Station
+﻿# Simple Station
 
 - type: entity
   save: false
@@ -26,6 +26,7 @@
         path: /Audio/Effects/hit_kick.ogg
     - type: Clickable
     - type: Damageable
+    - type: Injurable
       damageContainer: Inorganic # Note that for dumb reasons, this essentially makes them a wall.
     - type: InteractionOutline
     - type: Fixtures
@@ -51,7 +52,6 @@
     - type: Physics
       bodyType: KinematicController
     - type: Body
-      prototype: Drone
     - type: DoAfter
     - type: Examiner
     # - type: Recyclable
@@ -75,17 +75,18 @@
     - type: RadiationReceiver
     - type: AtmosExposed
     - type: Temperature
-      heatDamageThreshold: 700
-      coldDamageThreshold: 0
       currentTemperature: 400
       specificHeat: 24
+      atmosTemperatureTransferEfficiency: 0.05
+    - type: TemperatureDamage
+      heatDamageThreshold: 700
+      coldDamageThreshold: 0
       coldDamage:
         types:
           Cold: 0.1 # Per second, scales with temperature & other constants.
       heatDamage:
         types:
           Heat: 0.25 # Per second, scales with temperature & other constants.
-      atmosTemperatureTransferEfficiency: 0.05
     - type: ThermalRegulator
       metabolismHeat: 600
       radiatedHeat: 350
@@ -115,9 +116,10 @@
         0: Alive
         165: Dead
     - type: Damageable
+    - type: Injurable
       damageContainer: ADTSiliconDamageContainer # Not a wall.
     - type: Stamina
-      critThreshold: 200
+      baseCritThreshold: 200
     - type: Destructible
       thresholds:
         - trigger: !type:DamageTrigger
@@ -128,7 +130,6 @@
       sprite: ADT/Mobs/Species/IPC/parts.rsi
       state: full
     - type: MindContainer
-      showExamineInfo: true
     - type: Sprite
       noRot: true
       drawdepth: Mobs
@@ -152,8 +153,8 @@
         - map: ["enum.HumanoidVisualLayers.LFoot"]
         - map: ["enum.HumanoidVisualLayers.RFoot"]
         - map: ["socks"]
-        - map: ["underpants"]
-        - map: ["undershirt"]
+        - map: ["underwearb"]
+        - map: ["underweart"]
         - map: ["jumpsuit"]
         - map: ["enum.HumanoidVisualLayers.LHand"]
         - map: ["enum.HumanoidVisualLayers.RHand"]
@@ -199,20 +200,19 @@
 # чтобы хилиться с помощью CableStack. Дело в том, что HealingSystem использует проверку на наличие BloodstreamComponent.
 # В любом случае Bloodstream здесь является костылём, чтобы не лезть в код. В будущем можно зделать для IPC нормальную bloodstream систему.
       damageBleedModifiers: BloodlossIPC
-      bloodReagent: Water
       bleedReductionAmount: 0
-      bloodMaxVolume: 0
-      chemicalMaxVolume: 0
+      bloodReferenceSolution:
+        reagents: []
       bleedPuddleThreshold: 3
       bloodRefreshAmount: 0
       bloodlossThreshold: 0
       maxBleedAmount: 0
       bloodlossDamage:
         types:
-          Burn: 1.5
+          Heat: 1.5
       bloodlossHealDamage:
         types:
-          Burn: 0
+          Heat: 0
     - type: Flammable
       fireSpread: true
       canResistFire: true
@@ -220,17 +220,18 @@
         types:
           Heat: 0.75
     - type: Temperature
-      heatDamageThreshold: 320
-      coldDamageThreshold: 255
       currentTemperature: 280
       specificHeat: 50
+      atmosTemperatureTransferEfficiency: 0.4
+    - type: TemperatureDamage
+      heatDamageThreshold: 320
+      coldDamageThreshold: 255
       coldDamage:
         types:
           Cold: 0.1 #per second, scales with temperature & other constants
       heatDamage:
         types:
           Heat: 0.15 #per second, scales with temperature & other constants
-      atmosTemperatureTransferEfficiency: 0.4
     - type: ThermalRegulator
       metabolismHeat: 1000 # Increase once we have more ways to regulate temperature
       radiatedHeat: 800
@@ -266,12 +267,6 @@
       templateId: human
     - type: InventorySlots
     - type: Appearance
-    - type: GenericVisualizer
-      visuals:
-        enum.CreamPiedVisuals.Creamed:
-          clownedon:
-            True: { visible: true }
-            False: { visible: false }
     - type: RotationVisuals
     - type: FloatingVisuals
     - type: FireVisuals
@@ -286,6 +281,9 @@
     - type: AnimationPlayer
     - type: Buckle
     - type: CreamPied
+      sprite:
+        sprite: Effects/creampie.rsi
+        state: creampie_human
     - type: Stripping
     - type: Strippable
     - type: UserInterface
@@ -304,11 +302,8 @@
         proper: true
     - type: StandingState
     - type: CanEscapeInventory
-    - type: HumanoidAppearance
-      species: IPC
+    - type: HumanoidProfile
     - type: Body
-      prototype: IPC
-      requiredLegs: 2
     - type: Ensnareable
       sprite: Objects/Misc/ensnare.rsi
     - type: Speech
@@ -383,7 +378,6 @@
         # - PressureImmunity
         - Muted
         # - ForcedSleep
-        - TemporaryBlindness
         - Pacified
         # - PsionicsDisabled
         # - PsionicallyInsulated

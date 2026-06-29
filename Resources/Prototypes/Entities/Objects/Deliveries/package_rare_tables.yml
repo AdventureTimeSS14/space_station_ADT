@@ -39,9 +39,10 @@
     - id: Brutepack1
       amount: !type:RangeNumberSelector
         range: 1, 4
-    - id: Bloodpack1
-      amount: !type:RangeNumberSelector
-        range: 1, 4
+    - !type:GroupSelector
+      children:
+      - id: ADTBloodPackTransfusionFull
+      - id: ADTBloodPackTransfusionFull
     - id: Ointment1
       amount: !type:RangeNumberSelector
         range: 1, 4
@@ -60,7 +61,10 @@
     - id: Syringe
       amount: !type:RangeNumberSelector
         range: 1, 2
-    - id: BaseChemistryEmptyVial
+    - id: ChemistryEmptyVial
+      amount: !type:RangeNumberSelector
+        range: 0, 2
+    - id: ChemistryEmptyVialSmall
       amount: !type:RangeNumberSelector
         range: 0, 2
 

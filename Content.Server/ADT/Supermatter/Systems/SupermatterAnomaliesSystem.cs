@@ -7,7 +7,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
 using Robust.Shared.Physics;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
@@ -36,9 +35,9 @@ public sealed partial class SupermatterSystem
     {
         if (!sm.HasBeenPowered)
             return;
-        
+
         sm.PreferredAnomalyMode = ChooseAnomalyType(uid, sm);
-        
+
         var xform = Transform(uid);
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;

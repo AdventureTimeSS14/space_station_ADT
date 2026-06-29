@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTBasePack
   parent: BaseStorageItem
   description: Holds up to 10 pills.
@@ -47,11 +47,12 @@
     state: sodiumizole
   - type: Item
     sprite: ADT/Objects/Specific/Chemistry/packs.rsi
-  - type: StorageFill
-    contents:
-      - id: ADTSodiumizolePill
-        amount: 10
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTSodiumizolePill
+          amount: 10
 - type: entity
   name: nitrofurfoll pack
   id: ADTNitrofurfollPack
@@ -62,11 +63,12 @@
     state: nitrofurfoll
   - type: Item
     sprite: ADT/Objects/Specific/Chemistry/packs.rsi
-  - type: StorageFill
-    contents:
-      - id: ADTNitrofurfollPill
-        amount: 10
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTNitrofurfollPill
+          amount: 10
 - type: entity
   name: anelgesin pack
   id: ADTAnelgesinPack
@@ -77,11 +79,12 @@
     state: anelgesin
   - type: Item
     sprite: ADT/Objects/Specific/Chemistry/packs.rsi
-  - type: StorageFill
-    contents:
-      - id: ADTAnelgesinPill
-        amount: 10
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTAnelgesinPill
+          amount: 10
 - type: entity
   name: minoxide pack
   id: ADTMinoxidePack
@@ -92,11 +95,12 @@
     state: minoxide
   - type: Item
     sprite: ADT/Objects/Specific/Chemistry/packs.rsi
-  - type: StorageFill
-    contents:
-      - id: ADTMinoxidePill
-        amount: 10
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTMinoxidePill
+          amount: 10
 - type: entity
   name: diethamilate pack
   id: ADTDiethamilatePack
@@ -107,11 +111,12 @@
     state: diethamilate
   - type: Item
     sprite: ADT/Objects/Specific/Chemistry/packs.rsi
-  - type: StorageFill
-    contents:
-      - id: ADTDiethamilatePill
-        amount: 10
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTDiethamilatePill
+          amount: 10
 - type: entity
   name: haloperidol pack
   id: ADTHaloperidolPack
@@ -122,11 +127,12 @@
     state: haloperidol
   - type: Item
     sprite: ADT/Objects/Specific/Chemistry/packs.rsi
-  - type: StorageFill
-    contents:
-      - id: ADTHaloperidolPill
-        amount: 10
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTHaloperidolPill
+          amount: 10
 - type: entity
   name: charcoal pack
   id: ADTCharcoalPack
@@ -137,11 +143,12 @@
     state: charcoal
   - type: Item
     sprite: ADT/Objects/Specific/Chemistry/packs.rsi
-  - type: StorageFill
-    contents:
-      - id: PillCharcoal
-        amount: 10
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PillCharcoal
+          amount: 10
 - type: entity
   name: ethylredoxrazine pack
   id: ADTEthylredoxrazinePack
@@ -152,11 +159,12 @@
     state: ethylredoxrazine
   - type: Item
     sprite: ADT/Objects/Specific/Chemistry/packs.rsi
-  - type: StorageFill
-    contents:
-      - id: ADTEthylredoxrazinePill
-        amount: 10
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTEthylredoxrazinePill
+          amount: 10
 - type: entity
   name: ethyloxyephedrine pack
   id: ADTEthyloxyephedrinePack
@@ -167,11 +175,12 @@
     state: ethyloxyephedrine
   - type: Item
     sprite: ADT/Objects/Specific/Chemistry/packs.rsi
-  - type: StorageFill
-    contents:
-      - id: ADTEthyloxyephedrinePill
-        amount: 10
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTEthyloxyephedrinePill
+          amount: 10
 #баночка
 - type: entity
   name: vitamin canister
@@ -184,11 +193,12 @@
     state: vitamin-canister
   - type: Item
     sprite: ADT/Objects/Specific/Chemistry/pills.rsi
-  - type: StorageFill
-    contents:
-      - id: ADTVitaminPill
-        amount: 10
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTVitaminPill
+          amount: 10
 # пиллюли.
 - type: entity
   name: pill

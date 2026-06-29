@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprites made by @prazat911",
+  "copyright": "Sprites made by @prazat911, folded-equipped-INNERCLOTHING by discord:prazat911",
   "size": {
     "x": 32,
     "y": 32
@@ -15,9 +15,13 @@
       "directions": 4
     },
     {
+      "name": "folded-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
       "name": "equipped-INNERCLOTHING-monkey",
       "directions": 4
-    },    
+    },
     {
       "name": "equipped-INNERCLOTHING-reptilian",
       "directions": 4
