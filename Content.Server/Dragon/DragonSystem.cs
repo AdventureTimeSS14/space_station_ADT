@@ -87,7 +87,7 @@ public sealed partial class DragonSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        // ADT-Tweak: Изменено на получение еще и TransformComponent для работы хила у рифтов
+        // ADT-Tweak
         var query = EntityQueryEnumerator<DragonComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var comp, out var xform))
         {
