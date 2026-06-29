@@ -32,7 +32,7 @@ public sealed class ThermalCloakSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidSystem = default!;
+    [Dependency] private readonly SharedHideableHumanoidLayersSystem _humanoidLayers = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -62,7 +62,7 @@ public sealed class ThermalCloakSystem : EntitySystem
     {
         var comp = ent.Comp;
 
-        if (comp.HandsBlock && _hands.IsHolding(ent.Owner, comp.Owner))
+        if (comp.HandsBlock && _hands.IsHolding(ent.Owner, ent.Owner))
             return;
 
         if (comp.NinjaSuit && _ninja.IsNinja(ent))
@@ -252,11 +252,11 @@ public sealed class ThermalCloakSystem : EntitySystem
         return null;
     }
 
-    private void ToggleLayers(EntityUid equipee, HashSet<HumanoidVisualLayers> layers, bool showLayers)
+    private void ToggleLayers(EntityUid uid, HashSet<HumanoidVisualLayers> layers, bool showLayers)
     {
         foreach (HumanoidVisualLayers layer in layers)
         {
-            _humanoidSystem.SetLayerVisibility(equipee, layer, showLayers);
+            _humanoidLayers.SetLayerOcclusion((uid, null), layer, !showLayers, SlotFlags.INNERCLOTHING | SlotFlags.OUTERCLOTHING);
         }
     }
 

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Tamioki(discord). Vox states by Flareguy for Space Station 14",
+  "copyright": "Made by Tamioki(discord). Vox states by Flareguy for Space Station 14. Vulpkanin and Reptilian states by TiniestShark (Github), taken from paradisestation at commit https://github.com/ParadiseSS13/Paradise/commit/f09526480788c2e18fff8c16c4318fd6b4272c10.",
   "size": {
     "x": 32,
     "y": 32
@@ -42,11 +42,11 @@
       "directions": 4
     },
     {
-      "name": "off-equipped-HELMET-vulpkanin",
+      "name": "on-equipped-HELMET-vulpkanin",
       "directions": 4
     },
     {
-      "name": "on-equipped-HELMET-vulpkanin",
+      "name": "off-equipped-HELMET-vulpkanin",
       "directions": 4
     }
   ]

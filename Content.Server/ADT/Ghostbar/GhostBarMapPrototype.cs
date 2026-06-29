@@ -51,7 +51,7 @@ public sealed partial class GhostBarMapPrototype : IPrototype
     /// погода на карте. если не заполнять строку - её не будет.
     /// </summary>
     [DataField("weather")]
-    public ProtoId<WeatherPrototype>? Weather = null;
+    public EntProtoId? Weather = null;
 
     /// <summary>
     /// компоненты, добавляемые при заходе в гостбар человека(ТОЛЬКО КАСТОМНЫЕ, все компоненты туда лучше не добавлять)

@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: RollerBed
   parent: [BaseItem, BaseDeployFoldable]
   name: rollerbed
@@ -38,6 +38,7 @@
           - MobMask
     - type: InjectorBoost # ADT-Tweak (P4A) Ускорение Шприцов на койках и каталках
     - type: Damageable
+    - type: Injurable
     - type: Destructible
       thresholds:
         - trigger: # Excess damage, don't spawn entities

@@ -1,4 +1,4 @@
-# Праздничный Диско-шар
+﻿# Праздничный Диско-шар
 
 - type: entity
   id: ADTDiscoBall
@@ -35,6 +35,7 @@
     layers: [ 0 ]
   - type: Pullable
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic # The pot. Not the plant. Or is it plastic?
   - type: Destructible
     thresholds:
@@ -80,6 +81,7 @@
         mask:
         - TableMask
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -144,8 +146,9 @@
           True: {state: clock-on}
           False: {state: clock-off}
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -342,8 +345,9 @@
     delay: 1
     utensil: None
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -408,8 +412,9 @@
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -477,8 +482,9 @@
     sprite: ADT/Structures/Furniture/floor_globus.rsi
     state: floor_globus
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -568,8 +574,9 @@
   components:
   - type: Animateable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -670,8 +677,9 @@
   - type: InteractionOutline
   - type: Anchorable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
