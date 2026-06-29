@@ -17,14 +17,15 @@
   - type: ActivatableUI
     key: enum.PlantAnalyzerUiKey.Key
     inHandsOnly: true
+    requireActiveHand: false
   - type: UserInterface
     interfaces:
       enum.PlantAnalyzerUiKey.Key:
         type: PlantAnalyzerBoundUserInterface
+        interactionRange: 5
   - type: PlantAnalyzer
-    settings:
-      scanDelay: 5
-      advScanDelay: 10
+    scanDelay: 3
+    updateInterval: 1
     scanningEndSound:
       path: "/Audio/Items/Medical/healthscanner.ogg"
   - type: Appearance
@@ -62,9 +63,8 @@
   suffix: Debug
   components:
   - type: PlantAnalyzer
-    settings:
-      scanDelay: 0.1
-      advScanDelay: 0.5
+    scanDelay: 0.5
+    updateInterval: 1
 
 - type: entity
   id: ADTAdvancedPlantAnalyzer
@@ -76,9 +76,8 @@
     useCharge: 10
   - type: ActivatableUIRequiresPowerCell
   - type: PlantAnalyzer
-    settings:
-      scanDelay: 1.5
-      advScanDelay: 3
+    scanDelay: 0.5
+    updateInterval: 1
   - type: Sprite
     sprite: ADT/Objects/Devices/plant_analyzerT2.rsi
     layers:
@@ -87,7 +86,6 @@
       map: [ "enum.PowerDeviceVisualLayers.Powered" ]
       shader: unshaded
 
-  
 - type: entity
   id: ADTAdvancedPlantAnalyzerEmpty
   parent: ADTAdvancedPlantAnalyzer

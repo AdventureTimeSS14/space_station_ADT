@@ -18,3 +18,10 @@
   icon: { sprite: /Textures/ADT/Objects/Materials/ore.rsi, state: lead }
   spawn: ADTLeadOre1
   maxCount: 30
+
+- type: stack
+  id: ADTBSoreStack
+  name: bluespace-ore
+  icon: { sprite: ADT/Objects/Materials/BS_ore.rsi, state: BS_ore }
+  spawn: ADTBSore1
+  maxCount: 30
