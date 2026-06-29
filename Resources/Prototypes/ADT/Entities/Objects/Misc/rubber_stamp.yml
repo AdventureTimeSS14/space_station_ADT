@@ -16,7 +16,7 @@
   name: Centcomm consultant rubber stamp
   parent: RubberStampBaseAlt
   id: RubberStampCCC
-  categories: [ DoNotMap ]
+  # categories: [ DoNotMap ]
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-CCC

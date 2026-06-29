@@ -119,7 +119,7 @@
   id: ClosetLibrary
   parent: ClosetSteelBase
   description: It's a storage unit for janitorial explosion-protective suits.
-  categories: [ DoNotMap ]
+#  categories: [ DoNotMap ] # ADT-Tweak
   suffix: DO NOT MAP # ADT-Tweak
   components:
   - type: Appearance

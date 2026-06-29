@@ -259,7 +259,7 @@
 - type: entity
   parent: BoxFolderBaseEmpty
   id: BoxFolderCentComEmpty
-  categories: [ DoNotMap ]
+  # categories: [ DoNotMap ] # ADT-Tweak
   name: CentComm folder
   description: CentComm's miserable little pile of secrets!
   components:

@@ -50,6 +50,7 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] Grids =
         {
             "/Maps/centcomm.yml",
+            "/Maps/ADTMaps/Shuttles/pirate.yml", //ADT-tweak
             AdminTestArenaSystem.ArenaMapPath
         };
 
@@ -81,6 +82,7 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] DoNotMapWhitelist =
         {
             "/Maps/centcomm.yml",
+            "/Maps/ADTMaps/Shuttles/pirate.yml", //ADT-tweak
             "/Maps/Shuttles/AdminSpawn/**" // admin gaming
         };
 

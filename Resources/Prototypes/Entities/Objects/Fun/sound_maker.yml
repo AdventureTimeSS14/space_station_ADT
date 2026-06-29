@@ -95,7 +95,7 @@
   id: GoldenBikeHorn
   name: golden honker
   description: A happy honk prize, pray to the gods for your reward.
-  categories: [ DoNotMap ]
+  # categories: [ DoNotMap ] # ADT-Tweak
   components:
   - type: Sprite
     sprite: Objects/Fun/goldbikehorn.rsi
