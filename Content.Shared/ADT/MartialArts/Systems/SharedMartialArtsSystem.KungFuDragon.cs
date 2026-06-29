@@ -50,14 +50,14 @@ public abstract partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
 
-        if (!downed)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-target-standing"), ent, ent);
-            return;
-        }
+        if (TryComp<PullableComponent>(target, out var pullable))
+            _pulling.TryStopPull(target, pullable, ent, true);
 
-        // Paralyze, not knockdown
-        _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(proto.ParalyzeTime));
+        if (downed)
+            _stun.TryUpdateStunDuration(target, TimeSpan.FromSeconds(proto.ParalyzeTime));
+        else
+            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
+
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);

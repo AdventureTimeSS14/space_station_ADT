@@ -13,7 +13,6 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Standing;
-using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -214,8 +213,7 @@ public sealed partial class GrabIntentSystem
             || !TryComp<GrabIntentComponent>(pullerUid, out var grabIntentComp)
             || !CanGrab(pullerUid, pullable.Owner)
             || pullable.Comp1.Puller != pullerUid
-            || pullerComp.Pulling != pullable.Owner
-            || !TryComp<MeleeWeaponComponent>(pullerUid, out var meleeWeaponComponent))
+            || pullerComp.Pulling != pullable.Owner)
             return false;
 
         if (TryComp<PullableComponent>(pullerUid, out var pullerAsPullable) && pullerAsPullable.Puller != null)
@@ -224,15 +222,12 @@ public sealed partial class GrabIntentSystem
         if (!ignoreCombatMode && !_combatMode.IsInCombatMode(pullerUid))
             return false;
 
-        if (_timing.CurTime < meleeWeaponComponent.NextAttack)
+        if (_timing.CurTime < grabIntentComp.NextStageChange)
             return true;
 
-        var max = meleeWeaponComponent.NextAttack > _timing.CurTime ? meleeWeaponComponent.NextAttack : _timing.CurTime;
-        var attackRateEv = new GetMeleeAttackRateEvent(pullerUid, meleeWeaponComponent.AttackRate, 1, pullerUid);
-        RaiseLocalEvent(pullerUid, ref attackRateEv);
         var stageTimeMultiplier = GetGrabStageTimeMultiplier(pullable.Owner, (int) grabIntentComp.GrabStage + 1);
-        meleeWeaponComponent.NextAttack = grabIntentComp.StageChangeCooldown * attackRateEv.Multipliers * stageTimeMultiplier + max;
-        Dirty(pullerUid, meleeWeaponComponent);
+        grabIntentComp.NextStageChange = _timing.CurTime + grabIntentComp.StageChangeCooldown * stageTimeMultiplier;
+        Dirty(pullerUid, grabIntentComp);
 
         var beforeEvent = new BeforeHarmfulActionEvent(pullerUid, HarmfulActionType.Grab);
         RaiseLocalEvent(pullable.Owner, beforeEvent);
