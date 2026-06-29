@@ -44,7 +44,9 @@ public sealed class ServerDiscordIdManager : EntitySystem
         try
         {
             if (args.NewStatus != SessionStatus.InGame)
+            {
                 return;
+            }
 
             var session = args.Session;
             var userId = session.UserId;
