@@ -137,3 +137,12 @@
   parent: ClothingHeadHatHardhatWhite
   id: ClothingHeadHatHardhatYellowDark
   result: ClothingHeadHatHardhatYellowDarkEmpty
+
+- type: latheRecipe
+  id: ADTJukeBoxPlayerVintage
+  result: ADTJukeBoxPlayerVintage
+  completetime: 4
+  materials:
+    Steel: 300
+    Glass: 100
+    Copper: 100

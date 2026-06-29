@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: HereticRuneRitual
   name: transmutation rune
   description: An ancient drawing used by sinister individuals for sacrifices.
@@ -17,6 +17,7 @@
         type: HereticRitualRuneBoundUserInterface
   - type: IgnoresFingerprints
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:

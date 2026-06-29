@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseWallmountMachine
   id: FireAlarm
   name: fire alarm
@@ -82,8 +82,9 @@
     graph: FireAlarm
     node: fire_alarm
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: GuideHelp
     guides:
     - Networking

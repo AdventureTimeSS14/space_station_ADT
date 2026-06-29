@@ -113,7 +113,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                 continue;
 
             // total damage + power divided by all damage types.
-            var damage = (dmgComp.TotalDamage + power) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
+            var damage = (_damageable.GetTotalDamage((pookie, dmgComp)) + power) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
 
             // apply gaming.
             _damageable.SetAllDamage((pookie, dmgComp), damage);

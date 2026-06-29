@@ -9,7 +9,6 @@ namespace Content.Shared.ADT.Traits.Assorted;
 public sealed class PainNumbnessStatusEffectSystem : EntitySystem
 {
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
 
     public override void Initialize()
     {

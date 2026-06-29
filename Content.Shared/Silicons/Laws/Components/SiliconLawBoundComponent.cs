@@ -64,6 +64,7 @@ public sealed class SiliconLawBuiState : BoundUserInterfaceState
     public HashSet<ProtoId<RadioChannelPrototype>>? RadioChannels;
 
     public SiliconLawBuiState(List<SiliconLawData> laws, HashSet<ProtoId<RadioChannelPrototype>>? radioChannels) // ADT-Tweak
+
     {
         Laws = laws;
         RadioChannels = radioChannels;
