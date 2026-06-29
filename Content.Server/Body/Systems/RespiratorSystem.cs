@@ -26,6 +26,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.ADT.Grab;
+using Content.Shared.ADT.MartialArts;
 using Content.Shared.Movement.Pulling.Components;
 
 namespace Content.Server.Body.Systems;
@@ -118,7 +119,9 @@ public sealed class RespiratorSystem : EntitySystem
                 }
             }
 
-            if (respirator.Saturation < respirator.SuffocationThreshold)
+            if (respirator.Saturation < respirator.SuffocationThreshold
+                || (TryComp<GrabbableComponent>(uid, out var grabbable) && grabbable.GrabStage == GrabStage.Suffocate)
+                || HasComp<KravMagaBlockedBreathingComponent>(uid)) // ADT tweak
             {
                 if (_gameTiming.CurTime >= respirator.LastGaspEmoteTime + respirator.GaspEmoteCooldown && respirator.GaspEmote != null) // ADT tweak
                 {
