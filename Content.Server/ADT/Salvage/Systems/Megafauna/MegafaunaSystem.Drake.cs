@@ -40,9 +40,15 @@ public sealed partial class MegafaunaSystem
         var uid = args.Performer;
         var randVector = _random.NextVector2(6);
 
-        var pseudoGun = Spawn("WeaponDragonMeteorites", Transform(uid).Coordinates);
-        _gun.AttemptShoot(uid, pseudoGun, Comp<GunComponent>(pseudoGun), new(Transform(uid).ParentUid, randVector.X, randVector.Y));
-        QueueDel(pseudoGun);
+        var gunEntity = Spawn("WeaponDragonMeteorites", Transform(uid).Coordinates);
+        if (!TryComp<GunComponent>(gunEntity, out var gunComp))
+        {
+            QueueDel(gunEntity);
+            return;
+        }
+
+        _gun.AttemptShoot(uid, (gunEntity, gunComp), new(Transform(uid).ParentUid, randVector.X, randVector.Y));
+        QueueDel(gunEntity);
         _stun.TryUpdateStunDuration(uid, TimeSpan.FromSeconds(0.5f));
     }
 
@@ -51,9 +57,15 @@ public sealed partial class MegafaunaSystem
         var uid = args.Performer;
         var coords = args.Target;
 
-        var pseudoGun = Spawn("WeaponDragonFire", Transform(uid).Coordinates);
-        _gun.AttemptShoot(uid, pseudoGun, Comp<GunComponent>(pseudoGun), coords);
-        QueueDel(pseudoGun);
+        var gunEntity = Spawn("WeaponDragonFire", Transform(uid).Coordinates);
+        if (!TryComp<GunComponent>(gunEntity, out var gunComp))
+        {
+            QueueDel(gunEntity);
+            return;
+        }
+
+        _gun.AttemptShoot(uid, (gunEntity, gunComp), coords);
+        QueueDel(gunEntity);
         _stun.TryUpdateStunDuration(uid, TimeSpan.FromSeconds(0.5f));
     }
 
@@ -62,9 +74,15 @@ public sealed partial class MegafaunaSystem
         var uid = args.Performer;
         var coords = args.Target;
 
-        var pseudoGun = Spawn("WeaponDragonBreath", Transform(uid).Coordinates);
-        _gun.AttemptShoot(uid, pseudoGun, Comp<GunComponent>(pseudoGun), coords);
-        QueueDel(pseudoGun);
+        var gunEntity = Spawn("WeaponDragonBreath", Transform(uid).Coordinates);
+        if (!TryComp<GunComponent>(gunEntity, out var gunComp))
+        {
+            QueueDel(gunEntity);
+            return;
+        }
+
+        _gun.AttemptShoot(uid, (gunEntity, gunComp), coords);
+        QueueDel(gunEntity);
         _stun.TryUpdateStunDuration(uid, TimeSpan.FromSeconds(0.5f));
     }
 

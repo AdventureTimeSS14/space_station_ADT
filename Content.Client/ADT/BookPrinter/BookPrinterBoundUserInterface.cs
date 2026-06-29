@@ -64,7 +64,6 @@ namespace Content.Client.ADT.BookPrinter
             _window?.ShowBookInfo(entry);
         }
 
-        [Obsolete]
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);

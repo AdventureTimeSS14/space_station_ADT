@@ -468,8 +468,6 @@ public sealed class AttachableToggleableSystem : EntitySystem
                 if (attachable.Comp.Active || transformComponent.ParentUid != userUid || !TryComp(userUid, out TransformComponent? userTransform))
                     break;
 
-                TimeSpan? doAfter;
-
                 var coords = userTransform.Coordinates;
 
                 Func<EntityCoordinates, EntityCoordinates, bool> comparer = (EntityCoordinates userCoords, EntityCoordinates entCoords) => { return false; };

@@ -104,13 +104,14 @@
   components:
   - type: Sprite
     state: command
-  - type: StorageFill
-    contents:
-    - id: DrinkCoffeeJug
-    - id: ADTMilkJug
-    - id: DrinkCreamCartonXL
-    - id: DrinkCognacBottleFull
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: DrinkCoffeeJug
+        - id: ADTMilkJug
+        - id: DrinkCreamCartonXL
+        - id: DrinkCognacBottleFull
 - type: entity
   parent: ADTCoffeeMachine
   name: bluespace coffee machine
@@ -127,9 +128,11 @@
       - ADTBluespaceCoffeine
     grid:
     - 0,0,1,1
-  - type: StorageFill
-    contents:
-    - id: DrinkCoffeeBluespaceJug
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: DrinkCoffeeBluespaceJug
   - type: Machine
     board: ADTCoffeeMachineBluespaceCircuitboard
 
@@ -138,8 +141,10 @@
   id: ADTCoffeeMachine
   suffix: Filled, Common
   components:
-  - type: StorageFill
-    contents:
-    - id: DrinkCoffeeJug
-    - id: ADTMilkJug
-    - id: DrinkCreamCartonXL
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: DrinkCoffeeJug
+        - id: ADTMilkJug
+        - id: DrinkCreamCartonXL

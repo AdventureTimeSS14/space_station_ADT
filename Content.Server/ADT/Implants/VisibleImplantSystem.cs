@@ -25,7 +25,6 @@ using Content.Shared.Damage.Prototypes;
 using Content.Server.Emp;
 using Content.Shared.Stunnable;
 using Content.Shared.Jittering;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Weapons.Reflect;
 using Content.Shared.ADT.CantShoot;

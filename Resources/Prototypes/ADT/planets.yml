@@ -45,17 +45,17 @@
     - duration: # 5-10 minutes of calm
         min: 400
         max: 600
-    - weather: AshfallLight # ash starts to fall, 30 second warning
+    - weather: ADTLavalandWeatherAshfallLight # ash starts to fall, 30 second warning
       message: ash-storm-telegraph
       duration:
         min: 30
         max: 30
-    - weather: Ashfall # 1-2 minutes of damaging storm
+    - weather: ADTLavalandWeatherAshfall # 1-2 minutes of damaging storm
       message: ash-storm-alert
       duration:
         min: 60
         max: 120
-    - weather: AshfallLight # ash clears away for 30 seconds
+    - weather: ADTLavalandWeatherAshfallLight # ash clears away for 30 seconds
       message: ash-storm-clearing
       duration:
         min: 30

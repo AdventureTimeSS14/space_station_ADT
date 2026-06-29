@@ -24,8 +24,11 @@ public abstract class SharedTranslatorSystem : EntitySystem
     {
         foreach (var (name, hand) in comp.Hands)
         {
-            if (_hands.TryGetHeldItem(uid, name, out var heldEntity))
+            if (_hands.TryGetHeldItem(uid, name, out var heldEntity) && 
+                TryComp<HandheldTranslatorComponent>(heldEntity, out var translator))
+            {
                 RaiseLocalEvent(heldEntity.Value, ref args);
+            }
         }
     }
 
