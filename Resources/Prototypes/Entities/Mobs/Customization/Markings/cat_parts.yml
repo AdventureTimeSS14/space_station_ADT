@@ -1,8 +1,7 @@
 - type: marking
   id: CatEars
-  bodyPart: HeadTop # Corvax-Sponsors
-  markingCategory: HeadTop # Corvax-Sponsors
-  speciesRestriction: [Human]
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Felinid] # ADT: Felinid reuses the human body but renders cat ears/tail via its own group
   coloring:
     default:
       type:
@@ -24,8 +23,7 @@
 - type: marking
   id: CatTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Human]
+  groupWhitelist: [Human, Felinid] # ADT: Felinid reuses the human body but renders cat ears/tail via its own group
   coloring:
     default:
       type:

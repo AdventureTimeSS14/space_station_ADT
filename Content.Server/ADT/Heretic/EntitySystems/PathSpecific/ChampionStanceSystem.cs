@@ -1,5 +1,5 @@
 using Content.Server.Heretic.Components.PathSpecific;
-using Content.Shared.Body.Part;
+using Content.Shared.Body;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -8,6 +8,7 @@ namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 
 public sealed partial class ChampionStanceSystem : EntitySystem
 {
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -20,7 +21,7 @@ public sealed partial class ChampionStanceSystem : EntitySystem
     private bool Condition(Entity<ChampionStanceComponent> ent)
     {
         if (!TryComp<DamageableComponent>(ent, out var dmg)
-        || dmg.TotalDamage < 50f) // taken that humanoids have 100 damage before critting
+        || _damageable.GetTotalDamage((ent, dmg)) < 50f) // taken that humanoids have 100 damage before critting
             return false;
         return true;
     }

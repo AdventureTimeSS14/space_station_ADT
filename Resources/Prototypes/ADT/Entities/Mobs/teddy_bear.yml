@@ -22,20 +22,21 @@
     displayName: Pocket 2
     stripHidden: true
 
-- type: body
-  id: ADTTeddyBear
-  name: "teddy bear"
-  root: torso
-  slots:
-    torso:
-      part: TorsoAnimal
-      connections:
-      - right_hand
-      - left_hand
-    right_hand:
-      part: RightHandHuman
-    left_hand:
-      part: LeftHandHuman
+# DEPRECATED: type:body removed in upstream PR#42476
+# - type: body
+#   id: ADTTeddyBear
+#   name: "teddy bear"
+#   root: torso
+#   slots:
+#     torso:
+#       part: TorsoAnimal
+#       connections:
+#       - right_hand
+#       - left_hand
+#     right_hand:
+#       part: RightHandHuman
+#     left_hand:
+#       part: LeftHandHuman
 
 - type: entity
   id: ADTActionTeddySpawnGun
@@ -105,7 +106,6 @@
       Dead:
         Base: monocuma
   - type: Body
-    prototype: ADTTeddyBear
   - type: Hands
     showInHands: true
     leftHandDisplacement:

@@ -33,7 +33,6 @@
         layer:
         - MobLayer
   - type: Body
-    prototype: AnimalHemocyanin
   - type: DamageStateVisuals
     states:
       Alive:
@@ -81,8 +80,10 @@
   - type: Spider
   - type: IgnoreSpiderWeb
   - type: Bloodstream
-    bloodMaxVolume: 150
-    bloodReagent: CopperBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 150
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
@@ -107,13 +108,14 @@
   - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute from base.yml.
     allowedStates:
     - Alive
-    damageCap: 89
     damage:
       types:
         Poison: -0.07
-      groups:
-        Brute: -0.07
-        Burn: -0.07
+        Blunt: -0.07
+        Slash: -0.07
+        Piercing: -0.07
+        Heat: -0.07
+        Caustic: -0.07
   - type: LanguageSpeaker
     languages:
       Arachnid: Speak
@@ -260,8 +262,10 @@
     - id: ADTViperChelicerae
       amount: 1
   - type: Bloodstream
-    bloodMaxVolume: 75
-    bloodReagent: ADTLatrotoxin
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ADTLatrotoxin
+        Quantity: 75
   - type: MeleeWeapon
     damage:
       types:
@@ -312,7 +316,7 @@
       Dead:
         Base: tarantula_dead
   - type: Stamina
-    critThreshold: 200
+    baseCritThreshold: 200
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.7
     baseSprintSpeed : 2.7
@@ -386,7 +390,10 @@
     sprite: ADT/Mobs/Animals/minispider.rsi
     size: Huge
   - type: Bloodstream
-    bloodMaxVolume: 25
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 25
   - type: Clothing
     quickEquip: false
     sprite: ADT/Mobs/Animals/minispider.rsi
@@ -491,8 +498,10 @@
     - type: Speech
       speechVerb: Cluwne
     - type: Bloodstream
-      bloodMaxVolume: 150
-      bloodReagent: Laughter
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: Laughter
+          Quantity: 150
     - type: SolutionContainerManager
       solutions:
         melee:

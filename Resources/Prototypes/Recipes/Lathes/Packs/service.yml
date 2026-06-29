@@ -4,7 +4,7 @@
   id: ServiceStatic
   recipes:
   #ADT-Tweak-Start
-  - ADTWateringCan 
+  - ADTWateringCan
   - Mousetrap
   - ADTPlantAnalyzer
   - ADTBotanicalSeedDNADisk
@@ -64,6 +64,7 @@
   recipes:
   - SynthesizerInstrument
   - PushHorn
+  - ADTJukeBoxPlayerVintage #ADT-Tweak
 
 - type: latheRecipePack
   id: ServiceBoards

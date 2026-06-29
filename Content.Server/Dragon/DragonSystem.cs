@@ -1,11 +1,13 @@
 using Content.Server.NPC;
 using Content.Server.NPC.Systems;
+using Content.Server.Fluids.EntitySystems;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Server.Popups;
-using Content.Server.Roles;
 using Content.Shared.Actions;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Dragon;
+using Content.Shared.Gibbing;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -32,6 +34,7 @@ namespace Content.Server.Dragon;
 public sealed partial class DragonSystem : EntitySystem
 {
     [Dependency] private readonly CarpRiftsConditionSystem _carpRifts = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -47,6 +50,8 @@ public sealed partial class DragonSystem : EntitySystem
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
+    [Dependency] private readonly SmokeSystem _smoke = default!;
 
     private EntityQuery<CarpRiftsConditionComponent> _objQuery;
 
@@ -113,14 +118,14 @@ public sealed partial class DragonSystem : EntitySystem
             if (!_mobState.IsDead(uid))
                 comp.RiftAccumulator += frameTime;
 
+            // Gib it, naughty dragon!
             if (comp.RiftAccumulator >= comp.RiftMaxAccumulator)
             {
-                Roar(uid, comp);
-
-                var damage = new DamageSpecifier();
-                damage.DamageDict["Blunt"] = 10000;
-
-                _damage.TryChangeDamage(uid, damage, true);
+                Roar(uid, comp, Transform(uid).Coordinates);
+                var smoke = Spawn(comp.SmokePrototype, Transform(uid).Coordinates);
+                if (TryComp<SmokeComponent>(smoke, out var smokeComp))
+                    _smoke.StartSmoke(smoke, comp.SmokeSolution, smokeComp.Duration, smokeComp.SpreadAmount, smokeComp);
+                _gibbing.Gib(uid);
             }
         }
     }
@@ -188,6 +193,8 @@ public sealed partial class DragonSystem : EntitySystem
         }
 
         var carpUid = Spawn(component.RiftPrototype, _transform.GetMapCoordinates(uid, xform: xform));
+        Transform(carpUid).LocalRotation = Angle.Zero;
+
         component.Rifts.Add(carpUid);
         Comp<DragonRiftComponent>(carpUid).Dragon = uid;
     }
@@ -216,10 +223,15 @@ public sealed partial class DragonSystem : EntitySystem
         _faction.AddFaction(ent.Owner, ent.Comp.Faction);
     }
 
-    private void Roar(EntityUid uid, DragonComponent comp)
+    private void Roar(EntityUid uid, DragonComponent comp, EntityCoordinates? coords = null)
     {
         if (comp.SoundRoar != null)
-            _audio.PlayPvs(comp.SoundRoar, uid);
+        {
+            if (coords != null)
+                _audio.PlayPvs(comp.SoundRoar, coords.Value);
+            else
+                _audio.PlayPvs(comp.SoundRoar, uid);
+        }
     }
 
     public void DeleteRifts(EntityUid uid, bool resetRole, DragonComponent? comp = null)
@@ -234,10 +246,10 @@ public sealed partial class DragonSystem : EntitySystem
 
         comp.Rifts.Clear();
 
-        if (!resetRole || !TryComp<MindContainerComponent>(uid, out var mindContainer) || !mindContainer.HasMind)
+        // stop here if not trying to reset the objective's rift count
+        if (!resetRole || !_mind.TryGetMind(uid, out _, out var mind))
             return;
 
-        var mind = Comp<MindComponent>(mindContainer.Mind.Value);
         foreach (var objId in mind.Objectives)
         {
             if (_objQuery.TryGetComponent(objId, out var obj))
@@ -253,10 +265,9 @@ public sealed partial class DragonSystem : EntitySystem
         if (!Resolve(uid, ref comp))
             return;
 
-        if (!TryComp<MindContainerComponent>(uid, out var mindContainer) || !mindContainer.HasMind)
+        if (!_mind.TryGetMind(uid, out _, out var mind))
             return;
 
-        var mind = Comp<MindComponent>(mindContainer.Mind.Value);
         foreach (var objId in mind.Objectives)
         {
             if (_objQuery.TryGetComponent(objId, out var obj))
@@ -272,8 +283,7 @@ public sealed partial class DragonSystem : EntitySystem
         if (!Resolve(uid, ref comp))
             return;
 
-        DeleteRifts(uid, true, comp);
-
+        // We can't predict the rift being destroyed anyway so no point adding weakened to shared.
         comp.WeakenedAccumulator = comp.WeakenedDuration;
         _movement.RefreshMovementSpeedModifiers(uid);
         _popup.PopupEntity(Loc.GetString("carp-rift-destroyed"), uid, uid);

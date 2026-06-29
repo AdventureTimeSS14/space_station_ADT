@@ -68,7 +68,7 @@ public sealed class SiliconEmpSystem : EntitySystem
             _status.TryAddStatusEffect<MutedComponent>(uid, "Muted", duration * 0.5, true, statusComp);
 
         if (_random.Prob(0.3f))
-            _status.TryAddStatusEffect<TemporaryBlindnessComponent>(uid, TemporaryBlindnessSystem.BlindingStatusEffect, duration * 0.5, true, statusComp);
+            _status.TryAddStatusEffect<BlindnessStatusEffectComponent>(uid, BlindnessSystem.BlindingStatusEffect, duration * 0.5, true, statusComp);
 
         _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Shock"), _random.Next(20, 40)));
 

@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: ClothingOuterStorageBase
   id: ADTClothingOuterCoatUrs
   name: Urs outercoat.
@@ -126,10 +126,12 @@
     sprite: ADT/Clothing/OuterClothing/Coats/investigator_coat.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/investigator_coat.rsi
-  - type: StorageFill
-    contents:
-    - id: CigarGoldCase
-    - id: Lighter
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CigarGoldCase
+        - id: Lighter
   - type: Armor
     modifiers:
       coefficients:

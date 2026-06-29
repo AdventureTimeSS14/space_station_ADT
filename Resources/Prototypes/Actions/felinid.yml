@@ -10,5 +10,5 @@
   - type: TargetAction
     interactOnMiss: false
   - type: EntityTargetAction
-    whitelist: { components: [ HumanoidAppearance ] }
+    whitelist: { components: [ HumanoidProfile ] }
     event: !type:WoundLickingActionEvent

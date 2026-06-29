@@ -1,4 +1,5 @@
 using Content.Server.Administration.Logs;
+using Content.Server.Radiation.Systems;
 using Content.Server.ADT.Hallucinations;
 using Content.Server.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
@@ -19,6 +20,7 @@ using Content.Server.Traits.Assorted;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Supermatter.Components;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Audio;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
@@ -52,6 +54,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly AlertLevelSystem _alert = default!;
+    [Dependency] private readonly RadiationSystem _radiation = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
@@ -329,8 +332,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         sm.HasBeenPowered = false;
 
-        if (TryComp<RadiationSourceComponent>(uid, out var rad))
-            rad.Intensity = 1;
+        _radiation.SetIntensity(uid, 1);
 
         _popup.PopupClient(Loc.GetString("supermatter-inert-end"), uid, args.User);
     }

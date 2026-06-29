@@ -42,7 +42,6 @@ public sealed class SharedExecutionSystem : EntitySystem
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     //ADT-tweak-start
     [Dependency] private readonly SharedGunSystem _gunSystem = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
