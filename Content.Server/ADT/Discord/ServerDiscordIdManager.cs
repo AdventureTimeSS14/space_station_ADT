@@ -41,44 +41,54 @@ public sealed class ServerDiscordIdManager : EntitySystem
 
     private async void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs args)
     {
-        if (args.NewStatus != SessionStatus.InGame)
-            return;
-
-        var session = args.Session;
-        var userId = session.UserId;
-
-        if (_cachedDiscordIds.ContainsKey(userId))
+        try
         {
-            _sawmill.Warning($"Discord ID for {userId} already cached at InGame. Overwriting.");
-        }
+            if (args.NewStatus != SessionStatus.InGame)
+                return;
 
-        var discordId = await LoadDiscordId(userId);
-        _cachedDiscordIds[userId] = discordId;
+            var session = args.Session;
+            var userId = session.UserId;
 
-        string? discordUsername = null;
-
-        if (discordId != null && ulong.TryParse(discordId, out var discordUlong))
-        {
-            try
+            if (_cachedDiscordIds.ContainsKey(userId))
             {
-                var cfg = IoCManager.Resolve<IConfigurationManager>();
-                var botToken = cfg.GetCVar(ADTCCVars.DiscordTokenBot);
-                discordUsername = await AuthApiHelper.GetAccountDiscord(discordUlong, botToken);
+                _sawmill.Warning($"Discord ID for {userId} already cached at InGame. Overwriting.");
             }
-            catch (Exception ex)
+
+            var discordId = await LoadDiscordId(userId);
+            _cachedDiscordIds[userId] = discordId;
+
+            string? discordUsername = null;
+
+            if (discordId != null && ulong.TryParse(discordId, out var discordUlong))
             {
-                _sawmill.Error($"Failed to fetch Discord username for {discordId}: {ex}");
+                try
+                {
+                    var cfg = IoCManager.Resolve<IConfigurationManager>();
+                    var botToken = cfg.GetCVar(ADTCCVars.DiscordTokenBot);
+                    discordUsername = await AuthApiHelper.GetAccountDiscord(discordUlong, botToken);
+                }
+                catch (Exception ex)
+                {
+                    _sawmill.Warning($"Failed to fetch Discord username for {discordId}: {ex.Message}");
+                }
             }
+
+            if (session.Status != SessionStatus.InGame)
+                return;
+
+            var msg = new MsgDiscordIdInfo
+            {
+                UserId = userId,
+                DiscordId = discordId,
+                DiscordUsername = discordUsername
+            };
+
+            _net.ServerSendMessage(msg, session.Channel);
         }
-
-        var msg = new MsgDiscordIdInfo
+        catch (Exception e)
         {
-            UserId = userId,
-            DiscordId = discordId,
-            DiscordUsername = discordUsername
-        };
-
-        _net.ServerSendMessage(msg, session.Channel);
+            _sawmill.Error($"Unhandled error in OnPlayerStatusChanged: {e.Message}");
+        }
     }
 
     private async Task<string?> LoadDiscordId(NetUserId userId)
