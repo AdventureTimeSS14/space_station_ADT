@@ -310,7 +310,7 @@
   - type: WorldTargetAction
     event: !type:ActionGunShootEvent
 
-- # ADT-Tweak-Start
+# ADT-Tweak-Start
 - type: entity
   parent: BaseAction
   id: ActionRiseFish
@@ -341,6 +341,7 @@
   - type: InstantAction
     event: !type:DragonRoarActionEvent
 # ADT-Tweak-End
+
 - type: entity
   parent: Smoke
   id: BloodSmoke
