@@ -21,15 +21,15 @@ namespace Content.Server.Dragon;
 /// <summary>
 /// Handles events for rift entities and rift updating.
 /// </summary>
-public sealed partial class DragonRiftSystem : EntitySystem
+public sealed class DragonRiftSystem : EntitySystem
 {
-    [Dependency] private ChatSystem _chat = default!;
-    [Dependency] private DragonSystem _dragon = default!;
-    [Dependency] private ISerializationManager _serManager = default!;
-    [Dependency] private NavMapSystem _navMap = default!;
-    [Dependency] private NPCSystem _npc = default!;
-    [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly DragonSystem _dragon = default!;
+    [Dependency] private readonly ISerializationManager _serManager = default!;
+    [Dependency] private readonly NavMapSystem _navMap = default!;
+    [Dependency] private readonly NPCSystem _npc = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -119,7 +119,7 @@ public sealed partial class DragonRiftSystem : EntitySystem
                     comp.SpawnAccumulator -= comp.SpawnCooldown;
                     var ent = Spawn(proto, xform.Coordinates);
 
-                    if (TryComp<RandomSpriteComponent>(comp.Dragon, out var randomSprite))
+                    if (comp.Dragon != null && TryComp<RandomSpriteComponent>(comp.Dragon.Value, out var randomSprite))
                     {
                         var spawnedSprite = EnsureComp<RandomSpriteComponent>(ent);
                         _serManager.CopyTo(randomSprite, ref spawnedSprite, notNullableOverride: true);
@@ -149,7 +149,7 @@ public sealed partial class DragonRiftSystem : EntitySystem
 
     private void OnShutdown(EntityUid uid, DragonRiftComponent comp, ComponentShutdown args)
     {
-        if (!TryComp<DragonComponent>(comp.Dragon, out var dragon) || dragon.Weakened)
+        if (comp.Dragon == null || !TryComp<DragonComponent>(comp.Dragon.Value, out var dragon) || dragon.Weakened)
             return;
 
         _dragon.RiftDestroyed(comp.Dragon.Value, dragon);

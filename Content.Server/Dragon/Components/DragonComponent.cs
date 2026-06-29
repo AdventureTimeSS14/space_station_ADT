@@ -101,6 +101,7 @@ namespace Content.Server.Dragon
         [DataField("roarStunTime")]
         public float RoarStunTime = 2.5f;
         // ADT-Tweak-End
+
         /// <summary>
         /// The smoke to spawn upon rift timeout death.
         /// </summary>

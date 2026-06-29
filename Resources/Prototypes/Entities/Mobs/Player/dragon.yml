@@ -27,12 +27,9 @@
     rootTask:
       task: XenoCompound
     blackboard:
-      NavInteract: !type:Bool
-        true
-      NavPry: !type:Bool
-        true
-      NavSmash: !type:Bool
-        true
+      NavInteract: !type:Bool true
+      NavPry: !type:Bool true
+      NavSmash: !type:Bool true
   - type: NpcFactionMember
     factions:
     - Dragon
@@ -283,7 +280,6 @@
     iconOn: { sprite : Interface/Actions/devour.rsi, state: icon-on }
     itemIconStyle: BigAction
     priority: 1
-  - type: TargetAction
   - type: EntityTargetAction
     canTargetSelf: false
     whitelist:
@@ -304,10 +300,9 @@
     icon: { sprite : Objects/Weapons/Guns/Projectiles/magic.rsi, state: fireball }
     itemIconStyle: BigAction
     priority: 2
-  - type: TargetAction
+  - type: WorldTargetAction
     checkCanAccess: false
     range: 0
-  - type: WorldTargetAction
     event: !type:ActionGunShootEvent
 
 # ADT-Tweak-Start
