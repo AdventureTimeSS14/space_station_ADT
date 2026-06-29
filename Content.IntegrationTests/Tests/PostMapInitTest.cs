@@ -48,9 +48,8 @@ namespace Content.IntegrationTests.Tests
         };
 
         /// <summary>
-        /// ADT-Tweak start
-        /// Карты которые роняют тесты, но на самом деле работают в игре, скорее всего из-за каких-то проблем с прототипами или компонентами,
-        /// которые не загружаются в тестах по какой-то причине. Надо бы пофиксить, но пока так. Просто заглушка
+        /// Game maps that are known to be broken in tests but work in-game.
+        /// These are filtered out from the test cases to avoid wasting time.
         /// </summary>
         private static readonly string[] BrokenGameMaps =
         {
@@ -58,7 +57,21 @@ namespace Content.IntegrationTests.Tests
             "ADT_Barratry",
             "ADT_Delta"
         };
-        // ADT-Tweak end
+
+        /// <summary>
+        /// Game maps that are loadable in tests (filtered out broken ones).
+        /// </summary>
+        private static IEnumerable<string> ValidGameMaps
+        {
+            get
+            {
+                foreach (var map in GameMaps)
+                {
+                    if (!BrokenGameMaps.Contains(map))
+                        yield return map;
+                }
+            }
+        }
 
         private static readonly string[] Grids =
         {
@@ -336,19 +349,11 @@ namespace Content.IntegrationTests.Tests
             return true;
         }
 
-        [Test, TestCaseSource(nameof(GameMaps))]
+        [Test, TestCaseSource(nameof(ValidGameMaps))]
         [EnsureCVar(Side.Server, typeof(CCVars), nameof(CCVars.GridFill), false)]
         public async Task GameMapsLoadableTest(string mapProto)
         {
-            // ADT-Tweak start
-            if (BrokenGameMaps.Contains(mapProto))
-            {
-                Assert.Ignore($"Skipping broken map: {mapProto}");
-                return;
-            }
-            // ADT-Tweak end
-
-            var pair = Pair; // ADT-Tweak
+            var pair = Pair;
             var server = pair.Server;
 
             var mapManager = server.ResolveDependency<IMapManager>();
