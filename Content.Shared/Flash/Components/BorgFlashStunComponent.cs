@@ -8,3 +8,4 @@ public sealed partial class BorgFlashStunComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan StunDuration = TimeSpan.FromSeconds(1);
 }
+
