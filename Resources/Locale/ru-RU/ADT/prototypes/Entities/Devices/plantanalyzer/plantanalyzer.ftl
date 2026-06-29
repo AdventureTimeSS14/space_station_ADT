@@ -3,9 +3,9 @@ plant-analyzer-window-no-seed-information-text = Растение не обна�
 plant-analyzer-window-tab-basics = Основное
 plant-analyzer-window-tab-tolerances = Устойчивость
 plant-analyzer-window-tab-mutations = Мутации
-
-plant-analyzer-warning-death-gene = Ген Смерти
-plant-analyzer-warning-mutating = Растение мутирует прямо сейчас!
+plant-analyzer-window-scanmode = Расширенное сканирование:
+plant-analyzer-window-mode-on = Вкл
+plant-analyzer-window-mode-off = Выкл
 
 plant-analyzer-window-label-name-scanned-plant = Растение: {$seedName}
 plant-analyzer-window-label-name-scanned-seed = Семя: {$seedName}
@@ -35,15 +35,8 @@ plant-analyzer-tolerance-high-pressure = Высокое давление: {$high
 plant-analyzer-tolerance-pest-tolerance = Защита от вредителей: {$pestTolerance}
 plant-analyzer-tolerance-weed-tolerance = Защита от сорняков: {$weedTolerance}
 
-plant-analyzer-section-yield = Урожайность
-plant-analyzer-section-lifecycle = Жизненный цикл
-plant-analyzer-section-chemistry = Химия
-plant-analyzer-section-consumption = Потребление
-plant-analyzer-section-environment = Окружающая среда
-plant-analyzer-section-threats = Устойчивость к угрозам
-
-plant-analyzer-plant-mutations-text = Мутации:
-plant-analyzer-plant-speciation-text = Подвиды:
+plant-analyzer-plant-mutations-text = Мутации: {$traits}
+plant-analyzer-plant-speciation-text = Подвиды: {$speciation}
 
 plant-analyzer-mutation-unviable = Нежизнеспособно
 plant-analyzer-mutation-turnintokudzu = Кудзуфикация
