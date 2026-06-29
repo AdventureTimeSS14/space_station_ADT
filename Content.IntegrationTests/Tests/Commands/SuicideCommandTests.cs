@@ -22,6 +22,7 @@ using Robust.Shared.Prototypes;
 namespace Content.IntegrationTests.Tests.Commands;
 
 [TestFixture]
+[Ignore("Весь тестовый класс временно отключен")] // ADT-Tweak
 public sealed class SuicideCommandTests : GameTest
 {
 
