@@ -198,6 +198,7 @@
     # ADT-Tweak-End
   - type: LockedWiresPanel
   - type: Damageable
+    damageModifierSet: ADTBorgChassis # ADT-Tweak
   - type: Injurable
     damageContainer: Silicon
   - type: Destructible
