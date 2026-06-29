@@ -1,4 +1,5 @@
 using System.Threading;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.ADT.BloodCough;
 
@@ -22,6 +23,12 @@ public sealed partial class BloodCoughComponent : Component
     /// Token source for managing the timer cancellation
     /// </summary>
     public CancellationTokenSource? TokenSource;
+
+    /// <summary>
+    /// The time at which the next cough will occur
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan NextCough = TimeSpan.Zero;
 }
 
 /*

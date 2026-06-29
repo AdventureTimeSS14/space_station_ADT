@@ -3,8 +3,8 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Heretic.Prototypes;
 
-[Serializable, NetSerializable, DataDefinition]
-[Prototype("hereticKnowledge")]
+[DataDefinition]
+[Prototype]
 public sealed partial class HereticKnowledgePrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;

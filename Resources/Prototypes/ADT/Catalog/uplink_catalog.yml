@@ -984,3 +984,14 @@
     Telecrystal: 3 # ADT-Tweak
   categories:
   - UplinkDisruption
+
+- type: listing
+  id: UplinkBoxMusicDisks
+  name: uplink-box-music-disks-name
+  description: uplink-box-music-disks-desc
+  productEntity: ADTBoxMusicDisksSyndicate
+  categories:
+    - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

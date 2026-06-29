@@ -11,7 +11,6 @@ namespace Content.Server.GameTicking.Rules;
 
 public sealed class AntagSpawnEntityRuleSystem : GameRuleSystem<AntagSpawnEntityRuleComponent>
 {
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
 

@@ -237,9 +237,9 @@
 # Syndicate
 - type: entity
   id: LockerSyndicate
-  name: syndicate closet
+  name: blood-red closet
   parent: ClosetSteelBase
-  description: It's a storage unit.
+  description: It's a storage unit with a blood-red design.
   components:
   - type: Appearance
   - type: EntityStorageVisuals

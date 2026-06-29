@@ -7,3 +7,23 @@
     state: base
   content:
   - ADTBaseWeaponCaseNTBS
+
+- type: thiefBackpackSet
+  id: WeaponDrozdBlueshield
+  name: blueshield-voucher-smg-name
+  description: blueshield-voucher-smg-description
+  sprite:
+    sprite: ADT/Objects/Weapons/Guns/SMGs/blueshield_drozd.rsi
+    state: icon
+  content:
+  - ADTBaseWeaponCaseNTSMGBlueshield
+
+- type: thiefBackpackSet
+  id: WeaponTonfaBlueshield
+  name: blueshield-voucher-tonfa-name
+  description: blueshield-voucher-tonfa-description
+  sprite:
+    sprite: ADT/Objects/Weapons/Melee/steel_tonfa.rsi
+    state: icon-of
+  content:
+  - ADTBaseWeaponCaseNTTonfaBlueshield
