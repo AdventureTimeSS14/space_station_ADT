@@ -22,17 +22,6 @@
 - type: Tag
   id: RPD
 
-- type: Tag
-  id: PhantomEctoplasm
-
-- type: Tag
-  id: PhantomEctoplasmBattery
-
-- type: Tag
-  id: PhantomEctoplasmPistolBattery
-
-- type: Tag
-  id: PhantomFreedom
 
 - type: Tag
   id: IgnoreBalanceChecks
@@ -129,6 +118,9 @@
 
 - type: Tag
   id: Mask
+
+- type: Tag
+  id: MesonVisible
 
 - type: Tag
   id: Organ
@@ -679,8 +671,8 @@
 - type: Tag
   id: ADTFullRiotShieldSyndi
 
-- type: Tag
-  id: ADTMegaCell
+#- type: Tag
+#  id: ADTMegaCell
 
 - type: Tag
   id: ADTSheet
@@ -744,7 +736,7 @@
 
 - type: Tag
   id: ADTDrill
-  
+
 - type: Tag
   id: Katana
 
@@ -761,6 +753,9 @@
   id: SyndicateSegwayKeys
 
 - type: Tag
+  id: SkeletonMotorcycleKeys
+
+- type: Tag
   id: GunUpgradeVampirism
 
 - type: Tag
@@ -768,3 +763,9 @@
 
 - type: Tag
   id: SiliconFootstepSound
+
+- type: Tag
+  id: ADTSvet217KnifeKS43Cherry
+
+- type: Tag
+  id: ADTEnergyShield

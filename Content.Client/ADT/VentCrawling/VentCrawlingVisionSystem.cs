@@ -1,13 +1,11 @@
 using Content.Client.SubFloor;
 using Content.Shared.ADT.VentCrawling;
 using Robust.Client.Player;
-using Robust.Shared.Timing;
 
 namespace Content.Client.ADT.VentCrawling;
 
 public sealed class VentCrawlingSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly SubFloorHideSystem _subFloorHideSystem = default!;
 
@@ -15,7 +13,7 @@ public sealed class VentCrawlingSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var player = _player.LocalPlayer?.ControlledEntity;
+        var player = _player.LocalSession?.AttachedEntity;
 
         var ventCrawlerQuery = GetEntityQuery<VentCrawlerComponent>();
 

@@ -6,6 +6,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Construction;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Construction.Steps;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Coordinates;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -31,6 +32,8 @@ namespace Content.Server.Construction
         [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+        [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!; // ADT-Tweak
+        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;  // ADT-Tweak
 
         // --- WARNING! LEGACY CODE AHEAD! ---
         // This entire file contains the legacy code for initial construction.
@@ -185,6 +188,9 @@ namespace Content.Server.Construction
                             if (used.Contains(entity))
                                 continue;
 
+                            if (IsItemInLockedSlot(entity))  // ADT-Tweak
+                                continue;
+
                             // TODO allow taking from several stacks.
                             // Also update crafting steps to check if it works.
                             var splitStack = _stackSystem.Split((entity, stack), materialStep.Amount, user.ToCoordinates(0, 0));
@@ -213,6 +219,9 @@ namespace Content.Server.Construction
                                 continue;
 
                             if (used.Contains(entity))
+                                continue;
+
+                            if (IsItemInLockedSlot(entity))  // ADT-Tweak
                                 continue;
 
                             // Dump out any stored entities in used entity
@@ -542,5 +551,29 @@ namespace Content.Server.Construction
             _adminLogger.Add(LogType.Construction, LogImpact.Low, $"{ToPrettyString(user):player} has turned a {ev.PrototypeName} construction ghost into {ToPrettyString(structure)} at {Transform(structure).Coordinates}");
             Cleanup();
         }
+
+        /// <summary>
+        /// ADT-Tweak: Check if an entity is inside a locked item slot.
+        /// This prevents crafting from extracting items from locked slots (e.g., IPC battery slots).
+        /// </summary>
+        private bool IsItemInLockedSlot(EntityUid entity)
+        {
+            if (!_containerSystem.TryGetContainingContainer((entity, null, null), out var container))
+                return false;
+
+            if (!TryComp<ItemSlotsComponent>(container.Owner, out var itemSlots))
+                return false;
+
+            foreach (var slot in itemSlots.Slots.Values)
+            {
+                if (slot.ContainerSlot == container && slot.Locked)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        // ADT-Tweak end
     }
 }

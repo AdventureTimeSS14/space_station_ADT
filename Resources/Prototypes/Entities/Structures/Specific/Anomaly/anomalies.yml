@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   abstract: true
   id: BaseAnomaly
   name: anomaly
@@ -38,6 +38,7 @@
   - type: InteractionOutline
   - type: Clickable
   - type: Damageable
+  - type: Injurable
   - type: Appearance
   - type: AnimationPlayer
   - type: GuideHelp
@@ -845,8 +846,9 @@
           radius: 0.2
   - type: InteractionOutline
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Diona
+  - type: Injurable
+    damageContainer: Biological
   - type: Destructible
     thresholds:
       - trigger:

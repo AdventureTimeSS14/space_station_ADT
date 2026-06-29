@@ -18,8 +18,9 @@
       time: 5
     - !type:HealthChange
         damage:
-          groups:
-            Airloss: -3
+          types:
+            Asphyxiation: -1.5
+            Bloodloss: -1.5
         probability: 0.5
     - !type:Emote
       emote: Cough
@@ -34,8 +35,9 @@
       time: 5
     - !type:HealthChange
         damage:
-          groups:
-            Airloss: -5
+          types:
+            Asphyxiation: -2.5
+            Bloodloss: -2.5
     - !type:Emote
       emote: Cough
       showInChat: true
@@ -48,8 +50,9 @@
       time: 5
     - !type:HealthChange
         damage:
-          groups:
-            Airloss: -10
+          types:
+            Asphyxiation: -5
+            Bloodloss: -5
     - !type:Emote
       emote: Cough
       showInChat: true

@@ -9,7 +9,6 @@
   - ADTClothingBackpackChameleonThiefFill # ADT-Tweak: ClothingBackpackChameleonFill --> ADTClothingBackpackChameleonThiefFill
   - ChameleonProjector
   - FakeMindShieldImplanter
-  - AgentIDCard
 
 - type: thiefBackpackSet
   id: ToolsSet
@@ -84,7 +83,7 @@
   - EncryptionKeyStationMaster
   - CyberPen
   - BriefcaseThiefBribingBundleFilled
-  - ClothingMaskGasVoiceChameleon
+  - VoiceMaskImplanter
   #- todo Chameleon Stamp
 
 - type: thiefBackpackSet

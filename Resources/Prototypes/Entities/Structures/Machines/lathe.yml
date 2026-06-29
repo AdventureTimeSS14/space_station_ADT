@@ -49,6 +49,13 @@
     price: 800
   - type: ResearchClient
   - type: TechnologyDatabase
+  - type: ApcPowerReceiver
+    powerLoad: 150
+  - type: PowerState
+    idlePowerDraw: 150
+    workingPowerDraw: 1000
+  - type: RadioJobIconOverride # ADT-Tweak
+    iconId: JobIconMachine
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -114,7 +121,6 @@
         - Ingot
         # ADT-Tweak start. Разрешаем блюспейс кристаллы и фантомным кристаллам пихать в автолат
         - ADTBSCrystal
-        - PhantomEctoplasm
         #ADT-Tweak end
   - type: StationAiWhitelist
   - type: OreSiloClient
@@ -235,7 +241,7 @@
     #- ADTPhantomPack
     - ADTWeaponLauncherHydraPack
     - ADTPowerPack
-    - ADTMegaCellPack
+    #- ADTMegaCellPack
     - ADTBeltManipulatorPack
     #ADT-tweak-end
     - ADTBluespaceCrystalTech #ADT Tweak
@@ -316,7 +322,7 @@
     - ADTArcade
     - ADTIndustrialCharger
     - ADTAdvancedThruster
-    - ADTMegaCharger
+    #- ADTMegaCharger
     - ADTChemDisp
     - ADTAdvancedMedical
     - ADTCryoPodMachineCircuitboard
@@ -461,6 +467,8 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
     staticPacks:
     - SecurityEquipmentStatic
     - SecurityPracticeStatic
@@ -515,6 +523,8 @@
     - type: Lathe
       idleState: icon
       runningState: icon
+      unlitIdleState: unlit
+      unlitRunningState: unlit-building
       staticPacks:
       - SecurityAmmoStatic
     - type: EmagLatheRecipes
@@ -546,6 +556,8 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
     staticPacks:
     - TopicalsStatic
     - ChemistryStatic
@@ -799,10 +811,15 @@
     - FloorSteelTilesStatic
     - FloorWhiteTilesStatic
     - FloorMaintsTilesStatic
+    - FloorIndustrialTilesStatic
     - FloorWoodTilesStatic
     - FloorConcreteTilesStatic
     - CircuitFloorsStatic
     - FloorMarbleTilesStatic
+    - FloorShuttleTilesStatic
+    - PlasticTilesStatic
+    - CarpetTilesStatic
+    - PreciousTilesStatic
     dynamicPacks:
     - FauxTiles
   - type: MaterialStorage

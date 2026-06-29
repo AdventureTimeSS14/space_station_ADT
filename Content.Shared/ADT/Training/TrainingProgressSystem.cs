@@ -8,7 +8,6 @@ namespace Content.Shared.ADT.Training;
 public sealed class TrainingProgressSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
 
     private const float Tier1Threshold = 0.40f;
     private const float Tier2Threshold = 0.70f;

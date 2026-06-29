@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: BaseMech
   save: false
   abstract: true
@@ -38,7 +38,7 @@
     requireAnchored: false
     joinSystem: true
   - type: DoAfter
-  - type: Repairable 
+  - type: Repairable
     fuelCost: 60 # ADT-Tweak 25 to 75 -> 60
     doAfterDelay: 30 # ADT-tweak 10 to 30
   - type: UserInterface
@@ -94,8 +94,9 @@
       storagebase: !type:Container #ADT edit
         ents: []
   - type: Damageable
-    damageContainer: StructuralInorganic #ADT tweak - чтобы мехи получали и структурный урон
     damageModifierSet: ADTMechDamageModifierSet  # ADT tweak mech rebalance
+  - type: Injurable
+    damageContainer: StructuralInorganic #ADT tweak - чтобы мехи получали и структурный урон
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/mechmove03.ogg
@@ -124,6 +125,7 @@
       1000: Critical
   - type: MobState
   - type: GrabProtection # ADT-tweak-end
+  - type: ZombieImmune # ADT-Tweak
 
 - type: entity
   id: MechRipley
@@ -164,7 +166,7 @@
     mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
     pilotWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -228,7 +230,7 @@
     mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
     pilotWhitelist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
     # ADT Start
     equipmentWhitelist:
       tags:
@@ -238,6 +240,7 @@
     baseWalkSpeed: 1.875
     baseSprintSpeed: 3.375
     # ADT End
+
 
 - type: entity
   parent: MechHonker
