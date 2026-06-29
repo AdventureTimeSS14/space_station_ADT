@@ -1,4 +1,3 @@
-using Content.Shared.Atmos;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.PlantAnalyzer;
@@ -11,13 +10,12 @@ public sealed class PlantAnalyzerScannedSeedPlantInformation : BoundUserInterfac
 {
     public NetEntity? TargetEntity;
     public bool IsTray;
-    public bool IsMutating;
 
     public string? SeedName;
     public string[]? SeedChem;
     public AnalyzerHarvestType HarvestType;
-    public Gas[] ExudeGases = [];
-    public Gas[] ConsumeGases = [];
+    public GasFlags ExudeGases;
+    public GasFlags ConsumeGases;
     public float Endurance;
     public int SeedYield;
     public float Lifespan;
@@ -25,12 +23,12 @@ public sealed class PlantAnalyzerScannedSeedPlantInformation : BoundUserInterfac
     public float Production;
     public int GrowthStages;
     public float SeedPotency;
-    public string[]? Speciation;
-    public AdvancedScanInfo AdvancedInfo;
+    public string[]? Speciation; // Currently only available on server, we need to send strings to the client.
+    public AdvancedScanInfo? AdvancedInfo;
 }
 
 /// <summary>
-///     Information gathered during a scan (always included).
+///     Information gathered in an advanced scan.
 /// </summary>
 [Serializable, NetSerializable]
 public struct AdvancedScanInfo
@@ -47,9 +45,9 @@ public struct AdvancedScanInfo
     public float PestTolerance;
     public float WeedTolerance;
     public MutationFlags Mutations;
-    public bool Viable;
 }
 
+// Note: currently leaving out Viable.
 [Flags]
 public enum MutationFlags : byte
 {
@@ -60,10 +58,36 @@ public enum MutationFlags : byte
     CanScream = 8,
 }
 
+[Flags]
+public enum GasFlags : short
+{
+    None = 0,
+    Nitrogen = 1,
+    Oxygen = 2,
+    CarbonDioxide = 4,
+    Plasma = 8,
+    Tritium = 16,
+    WaterVapor = 32,
+    Ammonia = 64,
+    NitrousOxide = 128,
+    Frezon = 256,
+}
+
 public enum AnalyzerHarvestType : byte
 {
-    Unknown,
+    Unknown, // Just in case the backing enum type changes and we haven't caught it.
     Repeat,
     NoRepeat,
-    SelfHarvest,
+    SelfHarvest
+}
+
+
+[Serializable, NetSerializable]
+public sealed class PlantAnalyzerSetMode : BoundUserInterfaceMessage
+{
+    public bool AdvancedScan { get; }
+    public PlantAnalyzerSetMode(bool advancedScan)
+    {
+        AdvancedScan = advancedScan;
+    }
 }
