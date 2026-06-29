@@ -131,6 +131,10 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
         SubscribeLocalEvent<StatusEffectContainerComponent, BeforeStaminaDamageEvent>(OnBeforeStatusStamina);
 
+        SubscribeLocalEvent<GrantKungFuDragonComponent, MapInitEvent>(OnGrantMobMapInit);
+        SubscribeLocalEvent<GrantCapoeiraComponent, MapInitEvent>(OnGrantMobMapInit);
+        SubscribeLocalEvent<GrantNinjutsuComponent, MapInitEvent>(OnGrantMobMapInit);
+
         SubscribeLocalEvent<MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<InteractHandEvent>(OnInteract);
     }
@@ -630,4 +634,12 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     }
 
     #endregion
+
+    private void OnGrantMobMapInit<T>(Entity<T> ent, ref MapInitEvent args) where T : GrantMartialArtKnowledgeComponent
+    {
+        if (!HasComp<MobStateComponent>(ent))
+            return;
+
+        TryGrantMartialArt(ent, ent.Comp);
+    }
 }
