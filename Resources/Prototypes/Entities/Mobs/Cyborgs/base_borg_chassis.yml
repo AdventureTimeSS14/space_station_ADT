@@ -375,6 +375,10 @@
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+  # ADT-Tweak start
+  - type: BorgFlashStun
+    stunDuration: 7
+  # ADT-Tweak end
 
 - type: entity
   id: BaseBorgChassisSyndicate
@@ -414,6 +418,10 @@
     color: "#dd200b"
   - type: BypassLock
     bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
+  # ADT-Tweak start
+  - type: BorgFlashStun
+    stunDuration: 7
+  # ADT-Tweak end
 
 - type: entity
   id: BaseBorgChassisDerelict
