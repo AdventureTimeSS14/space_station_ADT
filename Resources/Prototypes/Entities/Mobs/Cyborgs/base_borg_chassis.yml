@@ -377,7 +377,7 @@
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   # ADT-Tweak start
   - type: BorgFlashStun
-    stunDuration: 7
+    stunDuration: 4
   # ADT-Tweak end
 
 - type: entity
