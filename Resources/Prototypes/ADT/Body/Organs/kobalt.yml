@@ -1,4 +1,0 @@
-- type: entity
-  id: ADTOrganKoboltStomach
-  parent: OrganReptilianStomach
-  categories: [ HideSpawnMenu ]

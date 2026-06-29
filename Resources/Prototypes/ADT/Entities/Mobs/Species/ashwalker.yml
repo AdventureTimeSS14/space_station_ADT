@@ -6,6 +6,5 @@
   suffix: ""
   components:
   - type: Body
-    prototype: AshWalker
   - type: AshStormImmune
   # TODO: shitmed stuff so you can steal ashwalker lungs

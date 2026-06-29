@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: ADTArmoryHeavySMG
+  icon:
+    sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
+    state: icon
+  product: ADTCrateArmoryHeavySMG
+  cost: 7500
+  category: cargoproduct-category-name-armory
+  group: market

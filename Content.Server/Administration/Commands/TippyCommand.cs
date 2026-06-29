@@ -26,13 +26,12 @@ public sealed class TippyCommand : LocalizedEntityCommands
             shell.WriteLine(Loc.GetString("cmd-tippy-help"));
             return;
         }
-        // ADT-Tweak-Start Логируем сообщение
+        // ADT-Tweak: Логируем сообщение
         _adminLogger.Add(
             LogType.AdminMessage,
             LogImpact.Low,
             $"[АДМИНАБУЗ] {shell.Player?.Name} used the command tippy. EntityPrototype: {args[2]}"
         );
-        // ADT-Tweak-End
 
         ICommonSession? targetSession = null;
         if (args[0] != "all")
@@ -108,13 +107,12 @@ public sealed class TipCommand : LocalizedEntityCommands
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        // ADT-Tweak-Start Логируем сообщение
+        // ADT-Tweak: Логируем сообщение
         _adminLogger.Add(
             LogType.AdminMessage,
             LogImpact.Low,
             $"[АДМИНАБУЗ] {shell.Player?.Name} used the command tip"
         );
-        // ADT-Tweak-End
         _tips.AnnounceRandomTip();
         _tips.RecalculateNextTipTime();
     }

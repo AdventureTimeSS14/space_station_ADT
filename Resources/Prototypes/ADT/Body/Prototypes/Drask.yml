@@ -1,49 +1,51 @@
-- type: body
-  name: "drask"
-  id: Drask
-  root: torso
-  slots:
-    head:
-      part: ADTHeadDrask
-      connections:
-      - torso
-      organs:
-        brain: OrganHumanBrain
-        eyes: ADTOrganDraskEyes
-        heart: ADTOrganDraskHeart
-    torso:
-      part: ADTTorsoDrask
-      organs:
-        lungs: ADTOrganDraskLungs
-        stomach: ADTOrganDraskInnards
-        liver: ADTOrganDraskLiver
-        kidneys: ADTOrganDraskKidneys
-      connections:
-      - right arm
-      - left arm
-      - left leg
-      - right leg
-    right arm:
-      part: ADTRightArmDrask
-      connections:
-      - right hand
-    left arm:
-      part: ADTLeftArmDrask
-      connections:
-      - left hand
-    right hand:
-      part: ADTRightHandDrask
-    left hand:
-      part: ADTLeftHandDrask
-    right leg:
-      part: ADTRightLegDrask
-      connections:
-      - right foot
-    left leg:
-      part: ADTLeftLegDrask
-      connections:
-      - left foot
-    right foot:
-      part: ADTRightFootDrask
-    left foot:
-      part: ADTLeftFootDrask
+# DEPRECATED: type:body prototype system removed in upstream PR#42476
+# This data is preserved for reference when creating InitialBody entries (task 8)
+# - type: body
+#   name: "drask"
+#   id: Drask
+#   root: torso
+#   slots:
+#     head:
+#       part: ADTHeadDrask
+#       connections:
+#       - torso
+#       organs:
+#         brain: OrganHumanBrain
+#         eyes: ADTOrganDraskEyes
+#         heart: ADTOrganDraskHeart
+#     torso:
+#       part: ADTTorsoDrask
+#       organs:
+#         lungs: ADTOrganDraskLungs
+#         stomach: ADTOrganDraskInnards
+#         liver: ADTOrganDraskLiver
+#         kidneys: ADTOrganDraskKidneys
+#       connections:
+#       - right arm
+#       - left arm
+#       - left leg
+#       - right leg
+#     right arm:
+#       part: ADTRightArmDrask
+#       connections:
+#       - right hand
+#     left arm:
+#       part: ADTLeftArmDrask
+#       connections:
+#       - left hand
+#     right hand:
+#       part: ADTRightHandDrask
+#     left hand:
+#       part: ADTLeftHandDrask
+#     right leg:
+#       part: ADTRightLegDrask
+#       connections:
+#       - right foot
+#     left leg:
+#       part: ADTLeftLegDrask
+#       connections:
+#       - left foot
+#     right foot:
+#       part: ADTRightFootDrask
+#     left foot:
+#       part: ADTLeftFootDrask

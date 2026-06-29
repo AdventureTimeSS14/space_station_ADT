@@ -202,3 +202,6 @@ ent-ADTClothingUnderwearSocksThighPurple = фиолетовые чулки
 
 ent-ADTClothingUnderwearSocksThighCreepy = жуткие чулки
     .desc = Чулки для самых страшных на станции.
+
+ent-ADTClothingUnderwearSocksCow = коровьи носки
+    .desc = Милые коровьи носки. Му-у-у!

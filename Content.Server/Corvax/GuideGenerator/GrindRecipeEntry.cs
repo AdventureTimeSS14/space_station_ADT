@@ -58,7 +58,7 @@ public sealed class GrindRecipeEntry
         {
             var extractable = (ExtractableComponent) extractableComp;
             var solutionComp = (SolutionContainerManagerComponent) solutionCompRaw;
-            foodSolutionName = extractable.GrindableSolution;
+            foodSolutionName = extractable.GrindableSolutionName;
 
             if (solutionComp.Solutions != null && foodSolutionName != null)
             {

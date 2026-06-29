@@ -70,7 +70,7 @@ public sealed class ParrotSpeechSystem : EntitySystem
     }
     private void CanListen(EntityUid uid, ParrotSpeechComponent component, ref ListenAttemptEvent args)
     {
-        if (_whitelistSystem.IsBlacklistPass(component.Blacklist, args.Source))
+        if (_whitelistSystem.IsWhitelistPass(component.Blacklist, args.Source))
             args.Cancel();
     }
 }

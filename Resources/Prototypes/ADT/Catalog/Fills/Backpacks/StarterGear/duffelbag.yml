@@ -1,34 +1,38 @@
-- type: entity
+﻿- type: entity
   categories: [ HideSpawnMenu ]
   parent: ADTClothingBackpackDuffelPathologist
   id: ADTClothingBackpackDuffelPathologistFilled
   components:
-  - type: StorageFill
-    contents:
-      # - id: BoxSurvivalMedical
-      - id: BodyBagFolded
-      # До добавления слота носков- id: ADTFootTag
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+          # - id: BoxSurvivalMedical
+        - id: BodyBagFolded
+          # До добавления слота носков- id: ADTFootTag
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelFilled
   components:
-  - type: StorageFill
-    contents:
-      - id: BoxSurvival
-      - id: SpaceCash500
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: BoxSurvival
+        - id: SpaceCash500
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingBackpackDuffelBrigmedic
   id: ClothingBackpackDuffelBrigmedicFilled
   components:
-  - type: StorageFill
-    contents:
-      # - id: BoxSurvivalBrigmedic
-      - id: Flash
-      - id: MagazinePistol
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+          # - id: BoxSurvivalBrigmedic
+        - id: Flash
+        - id: MagazinePistol
 #      - id: ADTSpaceLaw
       # - id: SpaceCash500
 
@@ -37,10 +41,12 @@
   parent: ADTClothingBackpackDuffelCentcom
   id: ADTClothingBackpackDuffelCentcomFilled
   components:
-  - type: StorageFill
-    contents:
-    # - id: BoxSurvival
-      - id: Flash
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+          # - id: BoxSurvival
+        - id: Flash
  #    - id: ADTSpaceLaw
 
 - type: entity
@@ -48,8 +54,10 @@
   parent: ClothingBackpackDuffelSecurity
   id: ADTClothingBackpackDuffelSeniorSecurityFilled
   components:
-  - type: StorageFill
-    contents:
-      - id: SpeedLoaderMagnum
-      - id: SmokeGrenade
-      - id: SmokeGrenade
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SpeedLoaderMagnum
+        - id: SmokeGrenade
+        - id: SmokeGrenade
