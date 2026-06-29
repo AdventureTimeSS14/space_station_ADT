@@ -1,3 +1,4 @@
+using Content.Shared.FixedPoint;
 using Content.Shared.Damage;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.NPC.Prototypes;
@@ -110,6 +111,6 @@ namespace Content.Server.Dragon
         /// The solution to place into the smoke (mostly just needed for color)
         /// </summary>
         [DataField]
-        public Solution SmokeSolution = new([new("Blood", 1)]);
+        public Solution SmokeSolution = new([new("Blood", FixedPoint2.New(1))]);
     }
 }
