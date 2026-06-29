@@ -9,3 +9,4 @@ public sealed partial class BorgFlashStunComponent : Component
     public TimeSpan StunDuration = TimeSpan.FromSeconds(1);
 }
 
+
