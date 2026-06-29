@@ -47,32 +47,6 @@ namespace Content.IntegrationTests.Tests
             "Dart"
         };
 
-        /// <summary>
-        /// Game maps that are known to be broken in tests but work in-game.
-        /// These are filtered out from the test cases to avoid wasting time.
-        /// </summary>
-        private static readonly string[] BrokenGameMaps =
-        {
-            "ADT_kilo",
-            "ADT_Barratry",
-            "ADT_Delta"
-        };
-
-        /// <summary>
-        /// Game maps that are loadable in tests (filtered out broken ones).
-        /// </summary>
-        private static IEnumerable<string> ValidGameMaps
-        {
-            get
-            {
-                foreach (var map in GameMaps)
-                {
-                    if (!BrokenGameMaps.Contains(map))
-                        yield return map;
-                }
-            }
-        }
-
         private static readonly string[] Grids =
         {
             "/Maps/centcomm.yml",
@@ -107,8 +81,7 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] DoNotMapWhitelist =
         {
             "/Maps/centcomm.yml",
-            "/Maps/Shuttles/AdminSpawn/**", // admin gaming
-            "/Maps/ADTMaps/Shuttles/pirate.yml", //ADT-tweak
+            "/Maps/Shuttles/AdminSpawn/**" // admin gaming
         };
 
         /// <summary>
@@ -229,7 +202,7 @@ namespace Content.IntegrationTests.Tests
 
             // TODO MAP TESTS
             // Move this to some separate test?
-            // CheckDoNotMap(map, root, protoManager); ADT отключен по неизвестной причине.
+            CheckDoNotMap(map, root, protoManager);
 
             if (version >= 7)
             {
@@ -349,7 +322,7 @@ namespace Content.IntegrationTests.Tests
             return true;
         }
 
-        [Test, TestCaseSource(nameof(ValidGameMaps))]
+        [Test, TestCaseSource(nameof(GameMaps))]
         [EnsureCVar(Side.Server, typeof(CCVars), nameof(CCVars.GridFill), false)]
         public async Task GameMapsLoadableTest(string mapProto)
         {
