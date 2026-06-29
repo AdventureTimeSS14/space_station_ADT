@@ -189,10 +189,8 @@ public sealed class PaperSystem : EntitySystem
             args.Handled = true;
             return;
         }
-        // ADT-Tweak: Start
         // If a stamp, attempt to stamp paper
-        if (TryComp<StampComponent>(args.Used, out var stampComp) &&
-            TryStamp(entity, GetStampInfo(stampComp), stampComp.StampState))
+        if (TryComp<StampComponent>(args.Used, out var stampComp) && TryStamp(entity, GetStampInfo(stampComp), stampComp.StampState))
         {
             // successfully stamped, play popup
             var stampPaperOtherMessage = Loc.GetString("paper-component-action-stamp-paper-other",
@@ -202,15 +200,14 @@ public sealed class PaperSystem : EntitySystem
 
             _popupSystem.PopupEntity(stampPaperOtherMessage, args.User, Filter.PvsExcept(args.User, entityManager: EntityManager), true);
             var stampPaperSelfMessage = Loc.GetString("paper-component-action-stamp-paper-self",
-                ("target", args.Target),
-                ("stamp", args.Used));
+                    ("target", args.Target),
+                    ("stamp", args.Used));
             _popupSystem.PopupClient(stampPaperSelfMessage, args.User, args.User);
 
             _audio.PlayPredicted(stampComp.Sound, entity, args.User);
 
             UpdateUserInterface(entity);
         }
-        // ADT-Tweak: End
     }
 
     private static StampDisplayInfo GetStampInfo(StampComponent stamp)
