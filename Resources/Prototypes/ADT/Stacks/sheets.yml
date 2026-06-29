@@ -18,3 +18,10 @@
   icon: { sprite: /Textures/ADT/Objects/Materials/Sheets/metal.rsi, state: lead }
   spawn: ADTSheetLead1
   maxCount: 30
+
+- type: stack
+  id: ADTBScrystal
+  name: materials-bluespace
+  icon: { sprite: ADT/Objects/Materials/crystal.rsi, state: crystal }
+  spawn: ADTMaterialBScrystal1
+  maxCount: 10
