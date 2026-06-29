@@ -1,50 +1,105 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-   Title="{Loc 'plant-analyzer-interface-title'}">
-    <!-- Margin="left,top,right,bottom" -->
-    <GridContainer Rows="3" Name ="GridCont" Margin="10 5 10 5" VerticalAlignment="Stretch" HorizontalExpand="True">
-        <BoxContainer Name="Toggle">
-            <Label Name="AdvMode" Text="{Loc 'plant-analyzer-window-scanmode'}" Margin="5 0 5 0"/>
-            <Button Name="OnButton" Text="{Loc 'plant-analyzer-window-mode-on'}" StyleClasses="OpenRight"/>
-            <Button Name="OffButton" Text="{Loc 'plant-analyzer-window-mode-off'}" StyleClasses="OpenLeft"/>
-        </BoxContainer>
-        <BoxContainer Name="Top">
-            <Label Name="NoData" Text="{Loc 'plant-analyzer-window-no-seed-information-text'}" Margin="10 0 0 0"/>
-        </BoxContainer>
-        <TabContainer Name="Tabs" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalExpand="True">
-            <BoxContainer Name ="{Loc 'plant-analyzer-window-tab-basics'}" Orientation="Vertical" VerticalAlignment="Stretch" Margin="10 0 5 0">
-                <Label Name="PlantName" Margin="0 5 0 5"/>
-                <Label Name="PlantYield" Margin="0 5 0 5"/>
-                <Label Name="Potency" Margin="0 5 0 5"/>
-                <Label Name="Repeat" Margin="0 5 0 5"/>
-                <Label Name="Chemicals" Margin="0 5 0 5"/>
-                <Label Name="ConsumeGases" Margin="0 5 0 5" />
-                <Label Name="ExudeGases" Margin="0 5 0 5" />
-                <Label Name="Lifespan" Margin="0 5 0 5"/>
-                <Label Name="Maturation" Margin="0 5 0 5"/>
-                <Label Name="Production" Margin="0 5 0 5"/>
-                <Label Name="GrowthStages" Margin="0 5 0 5"/>
-                <Label Name="Endurance" Margin="0 5 0 5"/>
+   xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+   Title="{Loc 'plant-analyzer-interface-title'}"
+   MinSize="400 480">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+        <PanelContainer StyleClasses="PanelBackgroundBaseDark" Margin="4">
+            <BoxContainer Orientation="Vertical" Margin="6" HorizontalAlignment="Center">
+                <Label Name="PlantName" StyleClasses="LabelHeading" HorizontalAlignment="Center"/>
+                <Label Name="Repeat" StyleClasses="LabelSubText" HorizontalAlignment="Center"/>
+                <BoxContainer Name="WarningsContainer" Orientation="Vertical" Margin="0 4 0 0" Visible="False">
+                    <Label Name="DeathGeneWarning" Visible="False" HorizontalAlignment="Center" StyleClasses="LabelKeyText"/>
+                    <Label Name="MutatingLabel" Visible="False" HorizontalAlignment="Center" StyleClasses="LabelKeyText"/>
+                </BoxContainer>
             </BoxContainer>
-            <BoxContainer Name="{Loc 'plant-analyzer-window-tab-tolerances'}" Orientation="Vertical"  VerticalAlignment="Stretch" Margin="10 0 5 0">
-                <Label Name="NutrientUsage" Margin="0 5 0 5"/>
-                <Label Name="WaterUsage" Margin="0 5 0 5"/>
-                <Label Name="IdealHeat" Margin="0 5 0 5"/>
-                <Label Name="HeatTolerance" Margin="0 5 0 5"/>
-                <Label Name="IdealLight" Margin="0 5 0 5"/>
-                <Label Name="LightTolerance" Margin="0 5 0 5"/>
-                <Label Name="ToxinsTolerance" Margin="0 5 0 5"/>
-                <Label Name="LowPressureTolerance" Margin="0 5 0 5"/>
-                <Label Name="HighPressureTolerance" Margin="0 5 0 5"/>
-                <Label Name="PestTolerance" Margin="0 5 0 5"/>
-                <Label Name="WeedTolerance" Margin="0 5 0 5"/>
-            </BoxContainer>
-            <BoxContainer Name="{Loc 'plant-analyzer-window-tab-mutations'}" Orientation="Vertical"  VerticalAlignment="Stretch" Margin="10 0 5 0">
-                <Label Name="PlantSpeciation" Margin="0 5 0 5"/>
-                <Label Name="Traits" Margin="0 5 0 5"/>
-                <Label Name="ExtraInfo" Margin="0 5 0 5"/>
-            </BoxContainer>
+        </PanelContainer>
+        <Label Name="NoData" Text="{Loc 'plant-analyzer-window-no-seed-information-text'}" Margin="0 16 0 0" HorizontalAlignment="Center" Visible="False"/>
+        <TabContainer Name="Tabs" Visible="False" VerticalExpand="True" HorizontalExpand="True" Margin="4 0 4 4">
+            <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                <BoxContainer Orientation="Vertical" Margin="2 4 2 2" SeparationOverride="6" HorizontalExpand="True">
+                    <PanelContainer StyleClasses="BorderedWindowPanel">
+                        <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="2">
+                            <Label Text="{Loc 'plant-analyzer-section-yield'}" StyleClasses="LabelKeyText"/>
+                            <cc:HSeparator Margin="0 2 0 4"/>
+                            <Label Name="PlantYield"/>
+                            <Label Name="Potency"/>
+                            <Label Name="Endurance"/>
+                        </BoxContainer>
+                    </PanelContainer>
+                    <PanelContainer StyleClasses="BorderedWindowPanel">
+                        <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="2">
+                            <Label Text="{Loc 'plant-analyzer-section-lifecycle'}" StyleClasses="LabelKeyText"/>
+                            <cc:HSeparator Margin="0 2 0 4"/>
+                            <Label Name="Lifespan"/>
+                            <Label Name="Maturation"/>
+                            <Label Name="Production"/>
+                            <Label Name="GrowthStages"/>
+                        </BoxContainer>
+                    </PanelContainer>
+                    <PanelContainer StyleClasses="BorderedWindowPanel">
+                        <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="2">
+                            <Label Text="{Loc 'plant-analyzer-section-chemistry'}" StyleClasses="LabelKeyText"/>
+                            <cc:HSeparator Margin="0 2 0 4"/>
+                            <Label Name="Chemicals"/>
+                            <Label Name="ExudeGases"/>
+                            <Label Name="ConsumeGases"/>
+                        </BoxContainer>
+                    </PanelContainer>
+                </BoxContainer>
+            </ScrollContainer>
+            <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                <BoxContainer Orientation="Vertical" Margin="2 4 2 2" SeparationOverride="6" HorizontalExpand="True">
+                    <PanelContainer StyleClasses="BorderedWindowPanel">
+                        <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="2">
+                            <Label Text="{Loc 'plant-analyzer-section-consumption'}" StyleClasses="LabelKeyText"/>
+                            <cc:HSeparator Margin="0 2 0 4"/>
+                            <Label Name="NutrientUsage"/>
+                            <Label Name="WaterUsage"/>
+                        </BoxContainer>
+                    </PanelContainer>
+                    <PanelContainer StyleClasses="BorderedWindowPanel">
+                        <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="2">
+                            <Label Text="{Loc 'plant-analyzer-section-environment'}" StyleClasses="LabelKeyText"/>
+                            <cc:HSeparator Margin="0 2 0 4"/>
+                            <Label Name="IdealHeat"/>
+                            <Label Name="HeatTolerance"/>
+                            <Label Name="IdealLight"/>
+                            <Label Name="LightTolerance"/>
+                            <Label Name="LowPressureTolerance"/>
+                            <Label Name="HighPressureTolerance"/>
+                        </BoxContainer>
+                    </PanelContainer>
+                    <PanelContainer StyleClasses="BorderedWindowPanel">
+                        <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="2">
+                            <Label Text="{Loc 'plant-analyzer-section-threats'}" StyleClasses="LabelKeyText"/>
+                            <cc:HSeparator Margin="0 2 0 4"/>
+                            <Label Name="ToxinsTolerance"/>
+                            <Label Name="PestTolerance"/>
+                            <Label Name="WeedTolerance"/>
+                        </BoxContainer>
+                    </PanelContainer>
+                </BoxContainer>
+            </ScrollContainer>
+            <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                <BoxContainer Orientation="Vertical" Margin="2 4 2 2" SeparationOverride="6" HorizontalExpand="True">
+                    <PanelContainer StyleClasses="BorderedWindowPanel">
+                        <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="2">
+                            <Label Text="{Loc 'plant-analyzer-plant-mutations-text'}" StyleClasses="LabelKeyText"/>
+                            <cc:HSeparator Margin="0 2 0 4"/>
+                            <Label Name="PlantTraits" Margin="3 0 0 0"/>
+                        </BoxContainer>
+                    </PanelContainer>
+                    <PanelContainer StyleClasses="BorderedWindowPanel">
+                        <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="2">
+                            <Label Text="{Loc 'plant-analyzer-plant-speciation-text'}" StyleClasses="LabelKeyText"/>
+                            <cc:HSeparator Margin="0 2 0 4"/>
+                            <Label Name="PlantSpeciation" Margin="3 0 0 0"/>
+                        </BoxContainer>
+                    </PanelContainer>
+                </BoxContainer>
+            </ScrollContainer>
         </TabContainer>
-    </GridContainer>
+    </BoxContainer>
 </controls:FancyWindow>
