@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 using Content.Shared.Damage;
-=======
 using Content.Shared.Chemistry.Components;
->>>>>>> eff5f90285eb6d1b5ba70690f9a2cd46f97993b4
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -71,7 +68,6 @@ namespace Content.Server.Dragon
         [DataField]
         public ProtoId<NpcFactionPrototype> Faction = "Dragon";
 
-<<<<<<< HEAD
 
         // ADT-Tweak-Start
         [DataField("carpRiftHealingRange")]
@@ -104,7 +100,6 @@ namespace Content.Server.Dragon
         [DataField("roarStunTime")]
         public float RoarStunTime = 2.5f;
         // ADT-Tweak-End
-=======
         /// <summary>
         /// The smoke to spawn upon rift timeout death.
         /// </summary>
@@ -115,7 +110,6 @@ namespace Content.Server.Dragon
         /// The solution to place into the smoke (mostly just needed for color)
         /// </summary>
         [DataField]
-        public Solution SmokeSolution = new ([new("Blood", 1)]);
->>>>>>> eff5f90285eb6d1b5ba70690f9a2cd46f97993b4
+        public Solution SmokeSolution = new([new("Blood", 1)]);
     }
 }
