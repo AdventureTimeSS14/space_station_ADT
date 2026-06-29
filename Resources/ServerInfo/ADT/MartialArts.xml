@@ -151,7 +151,7 @@
 
   - [bold]Коготь дракона[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"]
   <Box>
-  Наносит [color=Cyan]45[/color] урона по выносливости и замедляет цель на [color=Orange]2 секунды[/color].
+  Наносит [color=Cyan]25[/color] урона по выносливости и незначительно замедляет цель на [color=Orange]2 секунды[/color].
   </Box>
 
   - [bold]Хвост дракона[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="grab" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"]
