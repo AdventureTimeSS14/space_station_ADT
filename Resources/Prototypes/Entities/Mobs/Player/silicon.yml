@@ -29,8 +29,20 @@
     - Supply
   - type: IgnoreUIRange
   - type: StationAiHeld
-  - type: RadioJobIconOverride # ADT-Tweak
+  # ADT-Tweak start
+  - type: RadioJobIconOverride
     iconId: JobIconStationAi
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Silicon
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+    - Silicon
+  - type: SolutionScanner
+  - type: ShowCriminalRecordIcons
+  # ADT-Tweak end
   - type: StationAiOverlay
   - type: ShowElectrocutionHUD
   - type: ActionGrant
