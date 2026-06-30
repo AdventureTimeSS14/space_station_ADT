@@ -1,5 +1,5 @@
-- type: entity
-  parent: BaseStructureDynamic
+﻿- type: entity
+  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
   id: CrateGeneric
   categories: [ HideSpawnMenu ]
   name: crate
@@ -42,8 +42,9 @@
   - type: PlaceableSurface
     isPlaceable: false # defaults to closed.
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -55,7 +56,6 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-  - type: Appearance
   - type: EntityStorageVisuals
     stateDoorOpen: open
     stateDoorClosed: closed
@@ -85,7 +85,6 @@
     containers:
       entity_storage: !type:Container
       paper_label: !type:ContainerSlot
-  - type: ItemSlots
   - type: StaticPrice
     price: 75
   - type: Construction
@@ -131,8 +130,9 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic #ADT_Tweak - чтобы их можно было в принципе сломать ломиком
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

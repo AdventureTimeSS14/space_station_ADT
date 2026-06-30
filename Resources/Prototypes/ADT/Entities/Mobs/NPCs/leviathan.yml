@@ -112,8 +112,10 @@
     maxBleedAmount: 5
     bloodRefreshAmount: 300
     bleedReductionAmount: 2
-    bloodMaxVolume: 5000
-    bloodReagent: ADTCursedBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ADTCursedBlood
+        Quantity: 5000
     bloodlossDamage:
       types:
         Bloodloss: 0

@@ -28,6 +28,8 @@ public abstract class SharedNecksnapSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
 
+    private static readonly ProtoId<DamageTypePrototype> BluntDamageType = "Blunt";
+
     public override void Initialize()
     {
         base.Initialize();
@@ -56,7 +58,7 @@ public abstract class SharedNecksnapSystem : EntitySystem
             {
                 combo.CurrestActions.Clear(); // мы очищаем комбо список чтобы не было конфликтов, прежде чем сделать попап.
             }
-            var blunt = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), damageToKill.Value);
+            var blunt = new DamageSpecifier(_proto.Index(BluntDamageType), damageToKill.Value);
             _damageable.TryChangeDamage(target, blunt, true);
             _audio.PlayPvs(comp.Sound, target);
             if (comp.Popup != null)

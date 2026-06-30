@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: Paper
   id: TapeRecorderTranscript
   name: record transcript
@@ -81,10 +81,12 @@
     whitelist:
       tags:
       - Paper
-  - type: StorageFill
-    contents:
-    - id: Paper
-      amount: 10
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Paper
+          amount: 10
   - type: ItemCounter
     count:
       tags: [Paper]
@@ -113,6 +115,7 @@
     normalState: fire
   - type: Damageable
     damageModifierSet: Wood
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:

@@ -21,7 +21,6 @@ public abstract class SharedJetpackSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
 
     public override void Initialize()
     {
@@ -58,7 +57,7 @@ public abstract class SharedJetpackSystem : EntitySystem
     //ADT tweak end
     private void OnMapInit(EntityUid uid, JetpackComponent component, MapInitEvent args)
     {
-        if (component.ToggleActionEntity != null && EntityManager.EntityExists(component.ToggleActionEntity.Value)) //ADT-tweak
+        if (component.ToggleActionEntity != null && Exists(component.ToggleActionEntity.Value)) //ADT-tweak
             return; //ADT-tweak
         _actionContainer.EnsureAction(uid, ref component.ToggleActionEntity, component.ToggleAction);
         Dirty(uid, component);
@@ -191,6 +190,14 @@ public abstract class SharedJetpackSystem : EntitySystem
 
         if (enabled)
         {
+            // If the user is already using another jetpack, disable it first
+            if (TryComp<JetpackUserComponent>(user, out var userComp) &&
+                userComp.Jetpack != uid &&
+                TryComp<JetpackComponent>(userComp.Jetpack, out var oldJetpack))
+            {
+                SetEnabled(userComp.Jetpack, oldJetpack, false, user);
+            }
+
             SetupUser(user.Value, uid, component);
             EnsureComp<ActiveJetpackComponent>(uid);
         }

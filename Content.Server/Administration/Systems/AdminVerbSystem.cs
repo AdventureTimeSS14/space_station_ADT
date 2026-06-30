@@ -87,7 +87,6 @@ namespace Content.Server.Administration.Systems
             AddAntagVerbs(ev);
             AddAdminTimeOperSpawnVerbs(ev); // ADT-Tweak
             AdminTestArenaVariableVerbs(ev); // ADT-Tweak
-            AddAdminADTSmitesVerbs(ev); // ADT-Tweak
             AddADTTricksVerbs(ev); // ADT-Tweak
         }
 
@@ -346,7 +345,8 @@ namespace Content.Server.Administration.Systems
                                     mapPos = mapPos.Offset(-offset);
                                 }
 
-                                _console.ExecuteCommand(player, $"tpgrid {GetNetEntity(args.Target)} {mapPos.X} {mapPos.Y} {mapPos.MapId}");
+                                var cmd = "tpgrid " + GetNetEntity(args.Target) + " " + mapPos.X + " " + mapPos.Y + " " + mapPos.MapId; // ADT-Tweak-Fix
+                                _console.ExecuteCommand(player, cmd);
                             }
                         }
                         else
@@ -455,7 +455,7 @@ namespace Content.Server.Administration.Systems
             }
 
             // Control mob verb
-            if (_toolshed.ActivePermissionController?.CheckInvokable(new CommandSpec(_toolshed.DefaultEnvironment.GetCommand("mind"), "control"), player, out _) ?? false &&
+            if ((_toolshed.ActivePermissionController?.CheckInvokable(new CommandSpec(_toolshed.DefaultEnvironment.GetCommand("mind"), "control"), player, out _) ?? false) &&
                 args.User != args.Target)
             {
                 Verb verb = new()

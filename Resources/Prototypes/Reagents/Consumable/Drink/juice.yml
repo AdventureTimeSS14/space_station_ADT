@@ -53,16 +53,10 @@
   flavor: carrot
   color: "#FF8820"
   metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Oculine
-        amount: 0.5
-      - !type:AdjustReagent
-        reagent: Nutriment
-        amount: 0.5
+    Digestion:
+      metabolites:
+        Oculine: 1
+        Nutriment: 1
 
 - type: reagent
   id: JuiceGrape
@@ -130,15 +124,6 @@
   color: yellow
 
 - type: reagent
-  id: JuicePotato
-  name: reagent-name-juice-potato
-  parent: BaseJuice
-  desc: reagent-desc-juice-potato
-  physicalDesc: reagent-physical-desc-starchy
-  flavor: potatoes
-  color: "#302000"
-
-- type: reagent
   id: JuiceTomato
   name: reagent-name-juice-tomato
   parent: BaseJuice
@@ -148,7 +133,7 @@
   color: "#731008"
       # Start ADT tweak
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:HealthChange
         damage:

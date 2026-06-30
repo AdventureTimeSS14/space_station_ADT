@@ -20,12 +20,10 @@ namespace Content.Client.ADT.Weather;
 public sealed partial class HeavyWindVisualsSystem : VirtualController
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedWeatherSystem _weather = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
     private TimeSpan _lastEffect = TimeSpan.Zero;
@@ -44,13 +42,14 @@ public sealed partial class HeavyWindVisualsSystem : VirtualController
 
         if (!_player.LocalEntity.HasValue)
             return;
-        if (!_windQuery.TryComp(Transform(_player.LocalEntity.Value).MapUid, out var wind))
+        var mapUid = Transform(_player.LocalEntity.Value).MapUid;
+        if (!_windQuery.TryComp(mapUid, out var wind))
             return;
         if (_timing.CurTime < _lastEffect + TimeSpan.FromSeconds(wind.Speed * 3))
             return;
-        CreateEffect(wind);
+        CreateEffect(mapUid.Value, wind);
     }
-    private void CreateEffect(HeavyWindComponent comp)
+    private void CreateEffect(EntityUid windEnt, HeavyWindComponent comp)
     {
         if (!_player.LocalEntity.HasValue)
             return;
@@ -59,14 +58,14 @@ public sealed partial class HeavyWindVisualsSystem : VirtualController
         var uid = _player.LocalEntity.Value;
         var map = _transform.GetMap(uid);
         var xform = Transform(uid);
-        if (!map.HasValue || map.Value != comp.Owner)
+        if (!map.HasValue || map.Value != windEnt)
             return;
 
         if (xform.GridUid is not { } gridUid || !_gridQuery.TryComp(gridUid, out var gridComp))
             return;
 
         var tile = _map.GetTileRef((gridUid, gridComp), xform.Coordinates);
-        if (!_weather.CanWeatherAffect(gridUid, gridComp, tile))
+        if (!_weather.CanWeatherAffect((gridUid, gridComp), tile))
             return;
 
         var coords = xform.Coordinates;

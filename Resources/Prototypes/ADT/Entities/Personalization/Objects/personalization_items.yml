@@ -1,4 +1,4 @@
-#ADT-TEAM-ITEMS-START
+﻿#ADT-TEAM-ITEMS-START
 
 # Ale_xan_der
 - type: entity
@@ -147,7 +147,7 @@
     fuelConsumption: 0.01
     fuelLitCost: 0.1
     tankSafe: true
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: lighter_flame
     inhandVisuals:
       left:
@@ -187,8 +187,8 @@
     - Back
     - suitStorage
   - type: ChamberMagazineAmmoProvider
-  - type: RunAndGunSpreadModifier
-    modifier: 0.1
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.1
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -497,7 +497,7 @@
     fuelConsumption: 0.01
     fuelLitCost: 0.1
     tankSafe: true
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: lighter_flame
     inhandVisuals:
       left:
@@ -523,10 +523,12 @@
   name: case Melnicov
   description: Case
   components:
-  - type: StorageFill
-    contents:
-    - id: ADTSchrodingerCigar
-      amount: 8
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTSchrodingerCigar
+          amount: 8
   - type: Sprite
     sprite: ADT/Personalization/melnikov_case.rsi
 
@@ -559,20 +561,21 @@
   #  maxItemSize: Ginormous
   #  maxTotalWeight: 0
   #  maxSlots: 50 #By this ignore maxTotalWeight
-  - type: StorageFill
-    contents:
-      - id: ClothingShoesBootsLaceup
-      - id: ClothingHandsGlovesCombat
-      - id: ClothingEyesGlassesSunglasses
-      - id: ClothingMaskGasCentcom
-      - id: ClothingUniformJumpsuitCentcomAgent
-      - id: ADTWeaponRevolverDeckardGold
-      - id: CentcomPDA
-      # - id: ADTClothingNeckMantleCentComm # TODO: Добавить мантию ЦентКом
-      - id: ClothingHeadsetAltCentCom
-      - id: ADTClothingOuterCoatSchroCoat
-      # - id: ADTClothingNeckNanoTrasenPinSchrodinger # TODO: Добавить пин
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingShoesBootsLaceup
+        - id: ClothingHandsGlovesCombat
+        - id: ClothingEyesGlassesSunglasses
+        - id: ClothingMaskGasCentcom
+        - id: ClothingUniformJumpsuitCentcomAgent
+        - id: ADTWeaponRevolverDeckardGold
+        - id: CentcomPDA
+          # - id: ADTClothingNeckMantleCentComm # TODO: Добавить мантию ЦентКом
+        - id: ClothingHeadsetAltCentCom
+        - id: ADTClothingOuterCoatSchroCoat
+          # - id: ADTClothingNeckNanoTrasenPinSchrodinger # TODO: Добавить пин
 - type: entity
   name: Deckard
   parent: BaseWeaponRevolver
@@ -1607,12 +1610,14 @@
     grid:
     - 0,0,4,2
     maxItemSize: Small
-  - type: StorageFill
-    contents:
-     - id: ADTWeaponPistolPrazatHawk
-     - id: ADTWeaponPistolMaria
-     - id: MagazineMagnum
-     - id: MagazineMagnum
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTWeaponPistolPrazatHawk
+        - id: ADTWeaponPistolMaria
+        - id: MagazineMagnum
+        - id: MagazineMagnum
   - type: MeleeWeapon
     damage:
       types:
@@ -1732,7 +1737,7 @@
         Slash: 15
         Piercing: 2.5
         Structural: 30
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: chainsword
     inhandVisuals:
       left:
@@ -2067,7 +2072,7 @@
     blacklist:
       tags:
       - ADTBatonBlocker
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: light
     inhandVisuals:
       left:
@@ -2272,14 +2277,15 @@
   description: bag of kringe personal clothes
   suffix: Personal, kringe
   components:
-    - type: StorageFill
-      contents:
-        - id: ADTClothingOuterHardsuitKringe
-        - id: ADTClothingHandsKringeGloves
-        - id: ADTClothingShoesBootsMagKringe
-        - id: ADTClothingUniformJumpsuitKringeClothing
-        - id: ADTWhistleKringe
-
+    - type: EntityTableContainerFill
+      containers:
+        storagebase: !type:AllSelector
+          children:
+          - id: ADTClothingOuterHardsuitKringe
+          - id: ADTClothingHandsKringeGloves
+          - id: ADTClothingShoesBootsMagKringe
+          - id: ADTClothingUniformJumpsuitKringeClothing
+          - id: ADTWhistleKringe
 #Couatl
 - type: entity
   parent: BasePlushie
@@ -2419,7 +2425,7 @@
       fireRate: 0.8
       soundGunshot:
         path: /Audio/Weapons/plasma_cutter.ogg
-    - type: ProjectileBatteryAmmoProvider
+    - type: BatteryAmmoProvider
       proto: ADTBulletCutter
       fireCost: 100
     - type: BatteryWeaponFireModes
@@ -2516,7 +2522,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBulletDisabler
     fireCost: 150
   - type: BatteryWeaponFireModes
@@ -2564,7 +2570,7 @@
   # - type: PowerChargerVisuals
   - type: ApcPowerReceiver
     needsPower: false
-    powerLoad: 0
+    powerLoad: 1
   - type: StaticPrice
     price: 500
   - type: Tag
@@ -2959,12 +2965,14 @@
     grid:
     - 0,0,4,2
     maxItemSize: Small
-  - type: StorageFill
-    contents:
-     - id: ADTGoldPlatedDrinkJigger
-     - id: ADTGoldPlatedDrinkJigger
-     - id: ADTGoldPlatedBarSpoon
-     - id: ADTGoldPlatedDrinkShaker
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTGoldPlatedDrinkJigger
+        - id: ADTGoldPlatedDrinkJigger
+        - id: ADTGoldPlatedBarSpoon
+        - id: ADTGoldPlatedDrinkShaker
   - type: MeleeWeapon
     damage:
       types:
@@ -3116,7 +3124,7 @@
   flavor: adtfleche
   color: "#d2b48c"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 5
@@ -3232,7 +3240,7 @@
       path: /Audio/ADT/Weapons/Guns/Gunshots/laser_gun_type.ogg
     soundEmpty:
       path: /Audio/ADT/Weapons/Guns/Gunshots/laser_gun_type_empty.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: PulseType
     fireCost: 100 # ADT tweak 200 -> 100
   - type: Battery
@@ -3381,6 +3389,15 @@
     layers:
     - state: pink
       shader: unshaded
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Opaque
   - type: Projectile
     damage:
       types:
@@ -3464,10 +3481,19 @@
     - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTFamilyBusinessPinkProjectile
     fireCost: 100
   - type: Appearance
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
   - type: Battery
     maxCharge: 1500
     startingCharge: 1500
@@ -3506,7 +3532,7 @@
       - state: purple_inhand-left
       right:
       - state: purple_inhand-right
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTFamilyBusinessPurpleProjectile
     fireCost: 100
 
@@ -3534,7 +3560,7 @@
       - state: red_inhand-left
       right:
       - state: red_inhand-right
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTFamilyBusinessRedProjectile
     fireCost: 100
 
@@ -3762,5 +3788,97 @@
         Piercing: 12
   - type: DisarmMalus
   - type: PickableWeapon
+
+- type: entity
+  parent: PlushieMoth
+  id: ADTPlushieDreamer
+  name: plush Dreamer
+  description: A plush toy of the azure louam, the size of two slightly large apples. It smells like a mixture of all kinds of fruits, as well as the scent of lily buds. If you were allergic, you would have been sneezing for a long time, as if you had inhaled flower pollen.
+  suffix: Personal, Mintal1t
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_dreamer
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMilkyWay
+  name: plush Milky Way
+  description: A cute luam toy that resembles... What was his name?
+  suffix: Personal, Wollfee
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_milky_way
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSupernova
+  name: plush Supernova
+  description: A hastily made novakid toy in an Atmos uniform, smelling of freon and plasma.
+  suffix: Personal, alivepillow
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_supernova
+  - type: EmitSoundOnUse
+    sound: &PlushieNovakidSound
+      collection: ADTNovakidToySounds
+      params:
+        volume: 5
+  - type: EmitSoundOnLand
+    sound: *PlushieNovakidSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieNovakidSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieNovakidSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieNovakidSound
+  - type: Edible
+    useSound: *PlushieNovakidSound
+  - type: MeleeWeapon
+    soundHit: &PlushieNovakidMeleeWeaponSound
+      path: /Audio/ADT/Novakid/novakid_scream04.ogg
+
+- type: entity
+  parent: BaseCrowbar
+  id: ADTSharpCrowbar
+  name: shipboard crowbar with engraving
+  description: This crowbar has a pointed tail, perfect for protection. It has an engraving of I. M.
+  suffix: Personal, not_pou
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/not_pou_sharp_crowbar.rsi
+    state: icon
+  - type: Item
+    storedSprite:
+      sprite: ADT/Personalization/not_pou_sharp_crowbar.rsi
+      state: storage
+    storedRotation: -90
+  - type: MeleeWeapon
+    wideAnimationRotation: 65
+    damage:
+      types:
+        Piercing: 10
+    angle: 0
+    animation: WeaponArcThrust
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          vertices:
+            - -0.40,-0.30
+            - -0.30,-0.40
+            - 0.40,0.30
+            - 0.30,0.40
+        density: 20
+        mask:
+          - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 12
 
 #SPONSOR-ITEMS-END

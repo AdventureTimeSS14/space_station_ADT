@@ -3,12 +3,15 @@ using Content.Shared.ADT.Sandevistan;
 using Content.Shared.Humanoid;
 using Content.Server.Humanoid;
 using Content.Shared.GrabProtection;
+using Content.Shared.Body;
+using Robust.Shared;
 
 namespace Content.Server.ADT.Sandevistan;
 
 public sealed class SandevistanImplantSystem : EntitySystem
 {
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
+    // коммент до почина
+    // [UISystemDependency] private readonly VisualBodySystem _visualBody = default!;
 
     public override void Initialize()
     {
@@ -25,10 +28,11 @@ public sealed class SandevistanImplantSystem : EntitySystem
         EnsureComp<SandevistanUserComponent>(owner);
         EnsureComp<GrabProtectionComponent>(owner);
 
-        if (!string.IsNullOrEmpty(comp.MarkingId) && TryComp<HumanoidAppearanceComponent>(owner, out _))
-        {
-            _humanoidSystem.AddMarking(owner, comp.MarkingId, comp.MarkingColor, sync: true, forced: comp.ForcedMarking);
-        }
+        // коммент до почина
+        // if (!string.IsNullOrEmpty(comp.MarkingId) && TryComp<HumanoidProfileComponent>(owner, out var visualOrganMarkingsComponent))
+        // {
+        //     _visualBody.AddMarking(owner, comp.MarkingId, comp.MarkingColor, sync: true, forced: comp.ForcedMarking);
+        // }
     }
 
     private void OnRemoved(EntityUid uid, SandevistanImplantComponent comp, ref ImplantRemovedEvent args)
@@ -39,10 +43,12 @@ public sealed class SandevistanImplantSystem : EntitySystem
         {
             RemComp<SandevistanUserComponent>(owner);
             RemComp<GrabProtectionComponent>(owner);
-            if (!string.IsNullOrEmpty(comp.MarkingId) && TryComp<HumanoidAppearanceComponent>(owner, out _))
-            {
-                _humanoidSystem.RemoveMarking(owner, comp.MarkingId, sync: true);
-            }
+
+            // коммент до почина
+            // if (!string.IsNullOrEmpty(comp.MarkingId) && TryComp<HumanoidProfileComponent>(owner, out var visualOrganMarkingsComponent))
+            // {
+            //     _visualBody.RemoveMarking(owner, comp.MarkingId, sync: true);
+            // }
         }
     }
 }
