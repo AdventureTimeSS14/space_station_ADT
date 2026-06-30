@@ -1,4 +1,5 @@
 using Content.Shared.Access.Systems;
+using Content.Shared.ADT.Silicons.Borgs.Components; // ADT-Tweak
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Events;
@@ -33,7 +34,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.Examine; // ADT-Tweak
+using Content.Shared.Examine;
+using Content.Shared.StationAi; // ADT-Tweak
 
 namespace Content.Shared.Silicons.Borgs;
 
@@ -192,6 +194,14 @@ public abstract partial class SharedBorgSystem : EntitySystem
         {
             _mind.TransferTo(mindId, args.Entity, mind: mind);
         }
+
+        // ADT-Tweak-AiRemoteControl-Start
+        if (!HasComp<AiRemoteBrainComponent>(args.Entity))
+            return;
+
+        RemComp<AiRemoteControllerComponent>(chassis.Owner);
+        RemComp<StationAiVisionComponent>(chassis.Owner);
+        // ADT-Tweak-AiRemoteControl-End
     }
 
     private void OnMindAdded(Entity<BorgChassisComponent> chassis, ref MindAddedMessage args)
@@ -227,6 +237,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
         var used = args.Used;
         TryComp<BorgBrainComponent>(used, out var brain);
         TryComp<BorgModuleComponent>(used, out var module);
+        TryComp<AiRemoteBrainComponent>(used, out var aiBrain); // ADT-Tweak-AiRemoteControl
 
         if (TryComp<WiresPanelComponent>(chassis, out var panel) && !panel.Open)
         {
@@ -261,6 +272,19 @@ public abstract partial class SharedBorgSystem : EntitySystem
                 $"{args.User} installed module {used} into borg {chassis.Owner}");
             args.Handled = true;
         }
+
+        // ADT-Tweak-AiRemoteControl-Start
+        if (chassis.Comp.BrainEntity != null
+            || aiBrain == null
+            || !_whitelist.IsWhitelistPassOrNull(chassis.Comp.BrainWhitelist, used))
+            return;
+
+        AddComp<AiRemoteControllerComponent>(chassis.Owner);
+        _container.Insert(used, chassis.Comp.BrainContainer);
+        _adminLog.Add(LogType.Action, LogImpact.Medium,
+            $"{args.User} installed ai remote brain {used} into borg {chassis.Owner}");
+        args.Handled = true;
+        // ADT-Tweak-AiRemoteControl-End
     }
 
     // Make the borg slower without power.
