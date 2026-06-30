@@ -18,6 +18,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.FixedPoint;
+using Content.Shared.Flash;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
@@ -123,13 +124,19 @@ public partial class SharedMartialArtsSystem
             || !TryComp(target, out StatusEffectsComponent? status))
             return;
 
-        _status.TryAddStatusEffect<BlurryVisionComponent>(target,
-            "BlurryVision",
-            TimeSpan.FromSeconds(args.BlindDuration),
-            true,
-            status);
+        var flashAttempt = new FlashAttemptEvent(target, ent.Owner, null);
+        RaiseLocalEvent(target, ref flashAttempt, true);
 
-        _blindable.AdjustEyeDamage((target, null), args.EyeDamageAmount);
+        if (!flashAttempt.Cancelled)
+        {
+            _status.TryAddStatusEffect<BlurryVisionComponent>(target,
+                "BlurryVision",
+                TimeSpan.FromSeconds(args.BlindDuration),
+                true,
+                status);
+
+            _blindable.AdjustEyeDamage((target, null), args.EyeDamageAmount);
+        }
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.Name);
