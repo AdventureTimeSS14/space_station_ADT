@@ -143,7 +143,6 @@ public sealed partial class DragonSystem : EntitySystem
     private void OnInit(EntityUid uid, DragonComponent component, MapInitEvent args)
     {
         Roar(uid, component);
-        
         _actions.AddAction(uid, ref component.SpawnRiftActionEntity, component.SpawnRiftAction);
         // ADT-Tweak-Start
         _actions.AddAction(uid, ref component.SpawnCarpsActionEntity, component.SpawnCarpsAction);
@@ -154,7 +153,6 @@ public sealed partial class DragonSystem : EntitySystem
     private void OnShutdown(EntityUid uid, DragonComponent component, ComponentShutdown args)
     {
         DeleteRifts(uid, false, component);
-        
         _actions.RemoveAction(uid, component.SpawnRiftActionEntity);
         // ADT-Tweak-Start
         _actions.RemoveAction(uid, component.SpawnCarpsActionEntity);
@@ -337,9 +335,17 @@ public sealed partial class DragonSystem : EntitySystem
 
         Roar(uid, component);
         var xform = Transform(uid);
+
+        var proto = component.CarpProtoId;
+        if (proto == "MobSpaceCarpDragon")
+        {
+            proto = "MobCarpDragon";
+        }
+        // ADT-Tweak-End
+
         for (int i = 0; i < component.CarpAmount; i++)
         {
-            var ent = Spawn(component.CarpProtoId, xform.Coordinates);
+            var ent = Spawn(proto, xform.Coordinates);
 
             // Update their look to match the leader.
             if (TryComp<RandomSpriteComponent>(uid, out var randomSprite))
