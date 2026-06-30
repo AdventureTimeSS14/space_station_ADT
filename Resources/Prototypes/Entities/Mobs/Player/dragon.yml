@@ -333,7 +333,7 @@
   components:
   - type: Action
     icon:
-      sprite: _Goobstation/Actions/dragon.rsi
+      sprite: ADT/Interface/Actions/dragon.rsi
       state: carp_horde
     useDelay: 120 #ADT-Tweak (90 ---> 120)
     priority: 4
@@ -348,7 +348,7 @@
   components:
   - type: Action
     icon:
-      sprite: _Goobstation/Actions/dragon.rsi
+      sprite: ADT/Interface/Actions/dragon.rsi
       state: wing_flap
     useDelay: 60 #ADT-Tweak (45 ---> 60)
     priority: 5
