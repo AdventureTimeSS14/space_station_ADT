@@ -96,7 +96,7 @@ namespace Content.Server.Dragon
 
         // Добавлен сериализатор, так как карп — это EntityPrototype
         [DataField("carpProtoId", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string CarpProtoId = "MobSpaceCarpDragon";
+        public string CarpProtoId = "MobCarpDragon";
 
         [DataField("roarRange")]
         public float RoarRange = 10f;

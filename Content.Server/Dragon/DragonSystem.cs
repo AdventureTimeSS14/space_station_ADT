@@ -349,7 +349,7 @@ public sealed partial class DragonSystem : EntitySystem
         var xform = Transform(uid);
 
         var proto = component.CarpProtoId;
-        if (proto == "MobSpaceCarpDragon")
+        if (proto == "MobCarpDragon")
         {
             proto = "MobCarpDragon";
         }
