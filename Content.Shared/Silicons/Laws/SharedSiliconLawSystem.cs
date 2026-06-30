@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Silicons.Borgs.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Overlays;
@@ -28,6 +29,11 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
 
     private void OnGotEmagged(EntityUid uid, EmagSiliconLawComponent component, ref GotEmaggedEvent args)
     {
+        // ADT-Tweak-AiRemoteControl-Start
+        if (HasComp<AiRemoteControllerComponent>(uid))
+            return;
+        // ADT-Tweak-AiRemoteControl-End
+
         if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
             return;
 
