@@ -14,6 +14,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 using Robust.Shared.Random;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Dragon;
 
@@ -86,12 +87,12 @@ public sealed class DragonRiftSystem : EntitySystem
 
             // Handle mob spawning
             comp.SpawnAccumulator += frameTime;
-            // ADT-Tweak-Start: Интеграция механики спавна усиленных карпов из Goob вместе со списком ADT
+            // ADT-Tweak-Start
             if (comp.SpawnAccumulator > comp.SpawnCooldown)
             {
                 comp.SpawnAccumulator -= comp.SpawnCooldown;
 
-                string proto;
+                EntProtoId proto;
                 if (_random.Prob(comp.StrongSpawnChance))
                 {
                     proto = comp.SpawnPrototypeStrong;
@@ -111,7 +112,7 @@ public sealed class DragonRiftSystem : EntitySystem
                 // ADT-Tweak-End
 
                 // Copy random sprite from the dragon to the spawned mob (if any)
-                if (TryComp<RandomSpriteComponent>(comp.Dragon, out var randomSprite))
+                if (comp.Dragon != null && TryComp<RandomSpriteComponent>(comp.Dragon.Value, out var randomSprite))
                 {
                     var spawnedSprite = EnsureComp<RandomSpriteComponent>(ent);
                     _serManager.CopyTo(randomSprite, ref spawnedSprite, notNullableOverride: true);
@@ -140,7 +141,7 @@ public sealed class DragonRiftSystem : EntitySystem
 
     private void OnShutdown(EntityUid uid, DragonRiftComponent comp, ComponentShutdown args)
     {
-        if (!TryComp<DragonComponent>(comp.Dragon, out var dragon) || dragon.Weakened)
+        if (comp.Dragon == null || !TryComp<DragonComponent>(comp.Dragon.Value, out var dragon) || dragon.Weakened)
             return;
 
         _dragon.RiftDestroyed(comp.Dragon.Value, dragon);

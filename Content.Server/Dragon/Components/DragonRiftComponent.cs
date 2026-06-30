@@ -21,7 +21,7 @@ public sealed partial class DragonRiftComponent : SharedDragonRiftComponent
     /// <summary>
     /// The maximum amount we can accumulate before becoming impervious.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("maxAccumuluator")] public float MaxAccumulator = 300f;
+    [ViewVariables(VVAccess.ReadWrite), DataField("maxAccumulator")] public float MaxAccumulator = 300f;
 
     /// <summary>
     /// Accumulation of the spawn timer.
@@ -34,14 +34,13 @@ public sealed partial class DragonRiftComponent : SharedDragonRiftComponent
     /// </summary>
     // ADT-Tweak-Start
     [ViewVariables(VVAccess.ReadWrite), DataField("spawnCooldown")]
-    public float SpawnCooldown = 24f; // Изменено с 30f до 24f по балансу Goob
+    public float SpawnCooldown = 24f; // изменено с 30f до 24f по балансу Goob
     // ADT-Tweak-End
 
     [DataField("spawns")]
-    public List<string> SpawnPrototypes = new() { };
+    public List<EntProtoId> SpawnPrototypes = new();
 
     // ADT-Tweak-Start
-    // Механика улучшения разлома из Goobstation
     [DataField("spawn")]
     public EntProtoId SpawnPrototype = "MobCarpDragon";
 

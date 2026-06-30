@@ -80,19 +80,22 @@ namespace Content.Server.Dragon
         [DataField("spawnCarpsActionEntity")]
         public EntityUid? SpawnCarpsActionEntity;
 
-        [DataField("spawnCarpsAction")]
+        // Добавлен сериализатор для корректного чтения прототипа экшена из YAML
+        [DataField("spawnCarpsAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string SpawnCarpsAction = "ActionDragonSpawnCarp";
 
         [DataField("roarActionEntity")]
         public EntityUid? RoarActionEntity;
 
-        [DataField("roarAction")]
+        // Добавлен сериализатор для корректного чтения прототипа экшена из YAML
+        [DataField("roarAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string RoarAction = "ActionDragonRoar";
 
         [DataField("carpAmount")]
         public int CarpAmount = 3;
 
-        [DataField("carpProtoId")]
+        // Добавлен сериализатор, так как карп — это EntityPrototype
+        [DataField("carpProtoId", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string CarpProtoId = "MobSpaceCarpDragon";
 
         [DataField("roarRange")]

@@ -143,20 +143,32 @@ public sealed partial class DragonSystem : EntitySystem
     private void OnInit(EntityUid uid, DragonComponent component, MapInitEvent args)
     {
         Roar(uid, component);
-        _actions.AddAction(uid, ref component.SpawnRiftActionEntity, component.SpawnRiftAction);
+
+        if (component.SpawnRiftAction != default)
+            _actions.AddAction(uid, ref component.SpawnRiftActionEntity, component.SpawnRiftAction);
+
         // ADT-Tweak-Start
-        _actions.AddAction(uid, ref component.SpawnCarpsActionEntity, component.SpawnCarpsAction);
-        _actions.AddAction(uid, ref component.RoarActionEntity, component.RoarAction);
+        if (component.SpawnCarpsAction != default)
+            _actions.AddAction(uid, ref component.SpawnCarpsActionEntity, component.SpawnCarpsAction);
+
+        if (component.RoarAction != default)
+            _actions.AddAction(uid, ref component.RoarActionEntity, component.RoarAction);
         // ADT-Tweak-End
     }
 
     private void OnShutdown(EntityUid uid, DragonComponent component, ComponentShutdown args)
     {
         DeleteRifts(uid, false, component);
-        _actions.RemoveAction(uid, component.SpawnRiftActionEntity);
+
+        if (component.SpawnRiftActionEntity != null)
+            _actions.RemoveAction(uid, component.SpawnRiftActionEntity);
+
         // ADT-Tweak-Start
-        _actions.RemoveAction(uid, component.SpawnCarpsActionEntity);
-        _actions.RemoveAction(uid, component.RoarActionEntity);
+        if (component.SpawnCarpsActionEntity != null)
+            _actions.RemoveAction(uid, component.SpawnCarpsActionEntity);
+
+        if (component.RoarActionEntity != null)
+            _actions.RemoveAction(uid, component.RoarActionEntity);
         // ADT-Tweak-End
     }
 
