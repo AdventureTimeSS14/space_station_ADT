@@ -30,7 +30,7 @@ using Content.Server.Body.Systems;
 
 namespace Content.Server.Dragon;
 
-public sealed class DragonSystem : EntitySystem
+public sealed partial class DragonSystem : EntitySystem
 {
     [Dependency] private readonly CarpRiftsConditionSystem _carpRifts = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
