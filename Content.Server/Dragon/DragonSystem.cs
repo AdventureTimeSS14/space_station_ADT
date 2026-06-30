@@ -143,6 +143,7 @@ public sealed class DragonSystem : EntitySystem
     private void OnInit(EntityUid uid, DragonComponent component, MapInitEvent args)
     {
         Roar(uid, component);
+        
         _actions.AddAction(uid, ref component.SpawnRiftActionEntity, component.SpawnRiftAction);
         // ADT-Tweak-Start
         _actions.AddAction(uid, ref component.SpawnCarpsActionEntity, component.SpawnCarpsAction);
@@ -153,6 +154,12 @@ public sealed class DragonSystem : EntitySystem
     private void OnShutdown(EntityUid uid, DragonComponent component, ComponentShutdown args)
     {
         DeleteRifts(uid, false, component);
+        
+        _actions.RemoveAction(uid, component.SpawnRiftActionEntity);
+        // ADT-Tweak-Start
+        _actions.RemoveAction(uid, component.SpawnCarpsActionEntity);
+        _actions.RemoveAction(uid, component.RoarActionEntity);
+        // ADT-Tweak-End
     }
 
     private void OnSpawnRift(EntityUid uid, DragonComponent component, DragonSpawnRiftActionEvent args)
@@ -239,7 +246,6 @@ public sealed class DragonSystem : EntitySystem
         _faction.AddFaction(ent.Owner, ent.Comp.Faction);
     }
 
-    // ИСПРАВЛЕННЫЙ МЕТОД ROAR ЗДЕСЬ
     private void Roar(EntityUid uid, DragonComponent comp, EntityCoordinates? coords = null)
     {
         if (comp.SoundRoar != null)
