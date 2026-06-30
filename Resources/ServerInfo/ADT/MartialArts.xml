@@ -62,7 +62,7 @@
 
   - [bold]Слэм[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="grab" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"]
   <Box>
-  Роняет цель на пол на [color=Orange]12 секунд[/color], наносит [color=Red]10[/color] урона и выбивает вещи из рук.
+  Роняет цель на пол на [color=Orange]12 секунд[/color] и наносит [color=Red]10[/color] урона.
   </Box>
 
   - [bold]Пинок[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"]
@@ -100,7 +100,7 @@
 
   - [bold]Удар волны[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"]
   <Box>
-  Наносит [color=Red]15[/color] Slash-урона и [color=Cyan]25[/color] урона по выносливости, отбрасывает цель. Погружает цель в [color=#87CEEB]сон[/color] на [color=Orange]2 секунды[/color].
+  Наносит [color=Red]15[/color] Slash-урона, отбрасывает цель. Погружает цель в [color=#87CEEB]сон[/color] на [color=Orange]2 секунды[/color].
   </Box>
 
   - [bold]Перехват[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"]
@@ -184,7 +184,7 @@
 
   - [bold]Хвост дракона[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="grab" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"]
   <Box>
-  Наносит [color=Red]10[/color] урона и [color=Cyan]15[/color] урона по выносливости. Роняет стоячую цель на пол.
+  Наносит [color=Red]10[/color] урона и [color=Cyan]15[/color] урона по выносливости. Роняет стоячую цель на пол на [color=Orange]6 секунд[/color]. Если цель уже лежит — продлевает оглушение на [color=Orange]1 секунду[/color].
   </Box>
 
   - [bold]Удар дракона[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"]
@@ -210,7 +210,7 @@
 
   - [bold]Укусить пыль[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="grab" scale="2"]
   <Box>
-  Наносит [color=Red]10[/color] урона и роняет цель на пол на [color=Orange]9 секунд[/color].
+  Только на стоячих целях. Наносит [color=Red]10[/color] урона и роняет цель на пол на [color=Orange]9 секунд[/color].
   </Box>
 
   - [bold]Грязное убийство[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"]
@@ -224,22 +224,22 @@
 
   - [bold]Летящий дроп-кик[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"]
   <Box>
-  Наносит [color=Cyan]80[/color] урона по выносливости Slash-типа. Роняет цель на пол на [color=Orange]6 секунд[/color].
+  Только по лежачей цели. Наносит [color=Cyan]80[/color] урона по выносливости и отбрасывает цель.
   </Box>
 
   - [bold]Срывание головы[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="grab" scale="2"]
   <Box>
-  Наносит [color=Red]100[/color] Slash-урона.
+  Только по мёртвой цели, которую вы удерживаете. Наносит [color=Red]100[/color] Slash-урона и [color=Red]300[/color] Blunt-урона.
   </Box>
 
   - [bold]Снос[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="grab" scale="2"]
   <Box>
-  Наносит [color=Red]60[/color] урона и [color=Cyan]50[/color] урона по выносливости.
+  Наносит [color=Red]60[/color] урона.
   </Box>
 
   - [bold]Адский слэм[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"]
   <Box>
-  Роняет цель на пол на [color=Orange]8 секунд[/color] и наносит [color=Cyan]100[/color] урона по выносливости.
+  Только на стоячих целях. Роняет цель на пол на [color=Orange]8 секунд[/color] и наносит [color=Cyan]100[/color] урона по выносливости. Поднимает исполнителя с пола.
   </Box>
 
   ## Корпоративное Дзюдо
@@ -282,17 +282,17 @@
 
   - [bold]Подсечка в ноги[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="grab" scale="2"]
   <Box>
-  Роняет цель на пол на [color=Orange]4 секунды[/color]. НЕ выбивает вещи из рук.
+  Роняет цель на пол на [color=Orange]2 секунды[/color]. НЕ выбивает вещи из рук.
   </Box>
 
-  - [bold]Завод руки за спину[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"]
+  - [bold]Завод руки за спину[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="grab" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"]
   <Box>
   Наносит [color=Cyan]60[/color] урона по выносливости.
   </Box>
 
   - [bold]Пинок сапогом[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="grab" scale="2"]
   <Box>
-  Только по лежачей цели. Отбрасывает цель и наносит [color=Cyan]30[/color] урона по выносливости.
+  Только по лежачей цели. Отбрасывает цель.
   </Box>
 
   ## Кулинарная книга приёмов
