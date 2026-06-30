@@ -20,7 +20,6 @@ using Content.Shared.ADT.MartialArts;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -119,24 +118,6 @@ public partial class SharedMartialArtsSystem
                 _stamina.TakeStaminaDamage(args.Target, 25f);
                 break;
             case ComboAttackType.Harm:
-                // Snap neck
-                if (!_mobState.IsDead(args.Target) && !HasComp<GodmodeComponent>(args.Target) &&
-                    TryComp(ent, out PullerComponent? puller) && puller.Pulling == args.Target &&
-                    TryComp(ent, out GrabIntentComponent? grabIntent) &&
-                    TryComp(args.Target, out PullableComponent? pullable) &&
-                    TryComp(args.Target, out StaminaComponent? stamina) && stamina.Critical &&
-                    grabIntent.GrabStage == GrabStage.Suffocate
-                    && _mobThreshold.TryGetDeadThreshold(args.Target, out var damageToKill))
-                {
-                    _pulling.TryStopPull(args.Target, pullable);
-
-                    var blunt = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), damageToKill.Value);
-                    _damageable.TryChangeDamage(args.Target, blunt, true);
-
-                    ComboPopup(ent, args.Target, "Neck Snap");
-                    break;
-                }
-
                 // Leg sweep
                  if (!TryComp<StandingStateComponent>(ent.Owner, out var standing)
                      || standing.Standing
