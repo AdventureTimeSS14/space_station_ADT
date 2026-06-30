@@ -239,13 +239,14 @@ public sealed class DragonSystem : EntitySystem
         _faction.AddFaction(ent.Owner, ent.Comp.Faction);
     }
 
+    // ИСПРАВЛЕННЫЙ МЕТОД ROAR ЗДЕСЬ
     private void Roar(EntityUid uid, DragonComponent comp, EntityCoordinates? coords = null)
     {
         if (comp.SoundRoar != null)
         {
             if (coords != null)
                 _audio.PlayPvs(comp.SoundRoar, coords.Value);
-            else
+            else if (HasComp<TransformComponent>(uid))
                 _audio.PlayPvs(comp.SoundRoar, uid);
         }
     }
