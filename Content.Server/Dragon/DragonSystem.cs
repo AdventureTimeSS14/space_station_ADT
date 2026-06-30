@@ -1,5 +1,3 @@
-using Content.Server.NPC;
-using Content.Server.NPC.Systems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
@@ -12,23 +10,27 @@ using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
-using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Zombies;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Systems; // ADT-Tweak
+// ADT-Tweak-Start
+using Content.Shared.Sprite;
 using Content.Server.Stunnable;
-using System.Numerics;
+using Content.Shared.Devour.Components;
+using Content.Shared.NPC.Components;
+using Robust.Shared.Serialization.Manager;
+using Content.Server.Body.Systems;
+// ADT-Tweak-End
 
 namespace Content.Server.Dragon;
 
-public sealed partial class DragonSystem : EntitySystem
+public sealed class DragonSystem : EntitySystem
 {
     [Dependency] private readonly CarpRiftsConditionSystem _carpRifts = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -43,12 +45,12 @@ public sealed partial class DragonSystem : EntitySystem
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly SmokeSystem _smoke = default!;
-
-    // ADT-Tweaks Dependencies
+    // ADT-Tweak-Start
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
+    [Dependency] private readonly ISerializationManager _serManager = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
+    // ADT-Tweak-End
 
     private EntityQuery<CarpRiftsConditionComponent> _objQuery;
 
@@ -76,7 +78,6 @@ public sealed partial class DragonSystem : EntitySystem
         SubscribeLocalEvent<DragonComponent, RefreshMovementSpeedModifiersEvent>(OnDragonMove);
         SubscribeLocalEvent<DragonComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<DragonComponent, EntityZombifiedEvent>(OnZombified);
-
         // ADT-Tweak-Start
         SubscribeLocalEvent<DragonComponent, DragonRoarActionEvent>(OnDragonRoar);
         SubscribeLocalEvent<DragonComponent, DragonSpawnCarpHordeActionEvent>(OnRiseFish);
@@ -87,15 +88,13 @@ public sealed partial class DragonSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        // ADT-Tweak
+        // ADT-Tweak-Start
         var query = EntityQueryEnumerator<DragonComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var comp, out var xform))
         {
-            // ADT-Tweak-Start: Хил дракона, если он находится рядом с рифтом карпов
+            // Heal the dragon a bit if it's near the carp rift.
             if (_lookup.GetEntitiesInRange<DragonRiftComponent>(xform.Coordinates, comp.CarpRiftHealingRange).Count > 0)
-            {
                 _damage.TryChangeDamage(uid, comp.CarpRiftHealing * frameTime, true, false);
-            }
             // ADT-Tweak-End
 
             if (comp.WeakenedAccumulator > 0f)
@@ -145,7 +144,6 @@ public sealed partial class DragonSystem : EntitySystem
     {
         Roar(uid, component);
         _actions.AddAction(uid, ref component.SpawnRiftActionEntity, component.SpawnRiftAction);
-
         // ADT-Tweak-Start
         _actions.AddAction(uid, ref component.SpawnCarpsActionEntity, component.SpawnCarpsAction);
         _actions.AddAction(uid, ref component.RoarActionEntity, component.RoarAction);
@@ -213,6 +211,7 @@ public sealed partial class DragonSystem : EntitySystem
         Comp<DragonRiftComponent>(carpUid).Dragon = uid;
     }
 
+    // TODO: just make this a move speed modifier component???
     private void OnDragonMove(EntityUid uid, DragonComponent component, RefreshMovementSpeedModifiersEvent args)
     {
         if (component.Weakened)
@@ -254,6 +253,9 @@ public sealed partial class DragonSystem : EntitySystem
     /// <summary>
     /// Delete all rifts this dragon made.
     /// </summary>
+    /// <param name="uid">Entity id of the dragon</param>
+    /// <param name="resetRole">If true, the role's rift count will be reset too</param>
+    /// <param name="comp">The dragon component</param>
     public void DeleteRifts(EntityUid uid, bool resetRole, DragonComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
@@ -309,14 +311,18 @@ public sealed partial class DragonSystem : EntitySystem
         if (!Resolve(uid, ref comp))
             return;
 
+        // ADT-Tweak-Start
+        // do reset the rift count since crew destroyed the rift, not deleted by the dragon dying.
+        DeleteRifts(uid, true, comp);
+        // ADT-Tweak-End
+
+        // We can't predict the rift being destroyed anyway so no point adding weakened to shared.
         comp.WeakenedAccumulator = comp.WeakenedDuration;
         _movement.RefreshMovementSpeedModifiers(uid);
         _popup.PopupEntity(Loc.GetString("carp-rift-destroyed"), uid, uid);
     }
 
     // ADT-Tweak-Start
-    #region Способности Дракона
-
     private void OnRiseFish(EntityUid uid, DragonComponent component, DragonSpawnCarpHordeActionEvent args)
     {
         if (args.Handled)
@@ -324,11 +330,17 @@ public sealed partial class DragonSystem : EntitySystem
 
         Roar(uid, component);
         var xform = Transform(uid);
-
         for (int i = 0; i < component.CarpAmount; i++)
         {
             var ent = Spawn(component.CarpProtoId, xform.Coordinates);
-            _npc.SetBlackboard(ent, NPCBlackboard.FollowTarget, new EntityCoordinates(uid, Vector2.Zero));
+
+            // Update their look to match the leader.
+            if (TryComp<RandomSpriteComponent>(uid, out var randomSprite))
+            {
+                var spawnedSprite = EnsureComp<RandomSpriteComponent>(ent);
+                _serManager.CopyTo(randomSprite, ref spawnedSprite, notNullableOverride: true);
+                Dirty(ent, spawnedSprite);
+            }
         }
 
         args.Handled = true;
@@ -341,22 +353,19 @@ public sealed partial class DragonSystem : EntitySystem
 
         Roar(uid, component);
 
+        // TODO: add pushing (like from push horn but stronger) after upstream is merged
+
         var xform = Transform(uid);
-        var nearMobs = _lookup.GetEntitiesInRange<MobStateComponent>(xform.Coordinates, component.RoarRange, LookupFlags.Uncontained);
+        var nearMobs = _lookup.GetEntitiesInRange<NpcFactionMemberComponent>(xform.Coordinates, component.RoarRange, LookupFlags.Uncontained);
         foreach (var mob in nearMobs)
         {
-            if (mob.Owner == uid)
+            if (_faction.IsEntityFriendly(uid, (mob.Owner, mob.Comp)))
                 continue;
 
-            if (TryComp<NpcFactionMemberComponent>(mob.Owner, out var factionComp) && _faction.IsEntityFriendly(uid, (mob.Owner, factionComp)))
-                continue;
-
-            _stun.TryUpdateStunDuration(mob.Owner, TimeSpan.FromSeconds(component.RoarStunTime));
+            _stun.TryUpdateStunDuration (mob, TimeSpan.FromSeconds(component.RoarStunTime));
         }
 
         args.Handled = true;
     }
-
-    #endregion
     // ADT-Tweak-End
 }

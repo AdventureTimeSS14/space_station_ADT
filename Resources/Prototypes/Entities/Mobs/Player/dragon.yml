@@ -27,9 +27,12 @@
     rootTask:
       task: XenoCompound
     blackboard:
-      NavInteract: !type:Bool true
-      NavPry: !type:Bool true
-      NavSmash: !type:Bool true
+      NavInteract: !type:Bool 
+        true
+      NavPry: !type:Bool 
+        true
+      NavSmash: !type:Bool
+        true
   - type: NpcFactionMember
     factions:
     - Dragon
@@ -95,10 +98,10 @@
       250: 0.85 # ADT-Tweak (less slow 250: 0.7 ---> 250: 0.85)
       350: 0.7 # ADT-Tweak (add new threshold)
       430: 0.5 # ADT-Tweak (higher threshold 400: 0.5 ---> 430: 0.5)
-# ADT-Tweak-start
+    # ADT-Tweak-start
   - type: ExplosionResistance
     damageCoefficient: 0.2
-  # disable taking damage from fire, since its a fire breathing dragon
+    # disable taking damage from fire, since its a fire breathing dragon
   - type: Flammable
     damage:
       types: {}
@@ -127,7 +130,7 @@
     interactFailureString: petting-failure-dragon
     interactFailureSound:
       path: /Audio/Animals/space_dragon_roar.ogg
-    soundPerceivedByOthers: false
+    soundPerceivedByOthers: false # A 75% chance for a loud roar would get old fast.
   - type: MeleeWeapon
     altDisarm: false
     soundHit:
@@ -179,7 +182,7 @@
   - type: Prying
     pryPowered: true
     force: true
-    speedModifier: 2.5
+    speedModifier: 2.5 # fast because dragon strong
     useSound:
       path: /Audio/Items/crowbar.ogg
 
@@ -189,15 +192,15 @@
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
-    # ADT-Tweak-Start
-    spawnCarpsAction: ActionRiseFish
-    roarAction: ActionDragonRoar
+# ADT-Tweak-Start
     carpRiftHealing:
       groups:
         Brute: -4
         Burn: -4
         Airloss: -3
-    # ADT-Tweak-End
+    spawnCarpsAction: ActionRiseFish
+    roarAction: ActionDragonRoar
+# ADT-Tweak-End
   - type: GhostRole
     mindRoles:
     - MindRoleDragon
@@ -280,6 +283,7 @@
     iconOn: { sprite : Interface/Actions/devour.rsi, state: icon-on }
     itemIconStyle: BigAction
     priority: 1
+  - type: TargetAction
   - type: EntityTargetAction
     canTargetSelf: false
     whitelist:
@@ -297,45 +301,15 @@
   description: Spew out flames at anyone foolish enough to attack you!
   components:
   - type: Action
+    # TODO: actual sprite and iconOn
     icon: { sprite : Objects/Weapons/Guns/Projectiles/magic.rsi, state: fireball }
     itemIconStyle: BigAction
     priority: 2
-  - type: WorldTargetAction
+  - type: TargetAction
     checkCanAccess: false
     range: 0
+  - type: WorldTargetAction
     event: !type:ActionGunShootEvent
-
-# ADT-Tweak-Start
-- type: entity
-  parent: BaseAction
-  id: ActionRiseFish
-  name: Summon Carp Horde
-  description: Summons 3 carps on the spot to protect you from danger!
-  components:
-  - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/dragon.rsi
-      state: carp_horde
-    useDelay: 120
-    priority: 4
-  - type: InstantAction
-    event: !type:DragonSpawnCarpHordeActionEvent
-
-- type: entity
-  parent: BaseAction
-  id: ActionDragonRoar
-  name: Wing flap
-  description: Flap your wings to stun all enemies around you!
-  components:
-  - type: Action
-    icon:
-      sprite: ADT/Interface/Actions/dragon.rsi
-      state: wing_flap
-    useDelay: 55
-    priority: 5
-  - type: InstantAction
-    event: !type:DragonRoarActionEvent
-# ADT-Tweak-End
 
 - type: entity
   parent: Smoke
@@ -349,3 +323,35 @@
   - type: Sprite
     sprite: Effects/chemsmoke.rsi
     state: chemsmoke_white
+
+# ADT-Tweak-Start
+- type: entity
+  parent: BaseAction
+  id: ActionRiseFish
+  name: "[color=cyan]Summon Carp-sharks[/color]"
+  description: Summons 3 carp-sharks on the spot to protect you from danger!
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Actions/dragon.rsi
+      state: carp_horde
+    useDelay: 120 #ADT-Tweak (90 ---> 120)
+    priority: 4
+  - type: InstantAction
+    event: !type:DragonSpawnCarpHordeActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionDragonRoar
+  name: "[color=yellow]Dragon Roar[/color]"
+  description: Flap your wings and roar to stun all enemies around you!
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Actions/dragon.rsi
+      state: wing_flap
+    useDelay: 60 #ADT-Tweak (45 ---> 60)
+    priority: 5
+  - type: InstantAction
+    event: !type:DragonRoarActionEvent
+# ADT-Tweak-End

@@ -99,7 +99,7 @@ namespace Content.Server.Dragon
         public float RoarRange = 10f;
 
         [DataField("roarStunTime")]
-        public float RoarStunTime = 2.5f;
+        public float RoarStunTime = 2.5f; // ADT-Tweak (3 ---> 2.5)
         // ADT-Tweak-End
 
         /// <summary>

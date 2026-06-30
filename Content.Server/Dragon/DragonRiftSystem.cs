@@ -9,7 +9,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization.Manager;
 using System.Numerics;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
@@ -56,6 +55,7 @@ public sealed class DragonRiftSystem : EntitySystem
         var query = EntityQueryEnumerator<DragonRiftComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var comp, out var xform))
         {
+            // Handle full rift charge completion
             if (comp.State != DragonRiftState.Finished && comp.Accumulator >= comp.MaxAccumulator)
             {
                 if (comp.Dragon != null)
@@ -71,6 +71,7 @@ public sealed class DragonRiftSystem : EntitySystem
                 comp.Accumulator += frameTime;
             }
 
+            // Trigger warning when rift is half-charged
             if (comp.State < DragonRiftState.AlmostFinished && comp.Accumulator > comp.MaxAccumulator / 2f)
             {
                 comp.State = DragonRiftState.AlmostFinished;
@@ -83,54 +84,44 @@ public sealed class DragonRiftSystem : EntitySystem
                 _navMap.SetBeaconEnabled(uid, true);
             }
 
+            // Handle mob spawning
             comp.SpawnAccumulator += frameTime;
-            // ADT-Tweak-Start
+            // ADT-Tweak-Start: Интеграция механики спавна усиленных карпов из Goob вместе со списком ADT
             if (comp.SpawnAccumulator > comp.SpawnCooldown)
             {
-                string? proto = null;
+                comp.SpawnAccumulator -= comp.SpawnCooldown;
 
-                if (!string.IsNullOrEmpty(comp.SpawnPrototypeStrong) && _random.Prob(comp.StrongSpawnChance))
+                string proto;
+                if (_random.Prob(comp.StrongSpawnChance))
                 {
                     proto = comp.SpawnPrototypeStrong;
                 }
-                else if (!string.IsNullOrEmpty(comp.SpawnPrototype))
+                else if (comp.SpawnPrototypes.Count > 0)
                 {
-                    proto = comp.SpawnPrototype;
-                }
-                else if (comp.SpawnPrototypes is { Count: > 0 })
-                {
+                    // Pick a random mob prototype from the ADT list
                     proto = _random.Pick(comp.SpawnPrototypes);
                 }
-
-                if (proto != null)
+                else
                 {
-                    var lowerProto = proto.ToLower();
-                    if (lowerProto.Contains("carp"))
-                    {
-                        if (_random.Prob(0.35f))
-                        {
-                            proto = "MobSharkDragon";
-                        }
-                    }
+                    // Fallback to Goob's base spawn if the list is empty
+                    proto = comp.SpawnPrototype;
                 }
 
-                if (proto != null)
+                var ent = Spawn(proto, xform.Coordinates);
+                // ADT-Tweak-End
+
+                // Copy random sprite from the dragon to the spawned mob (if any)
+                if (TryComp<RandomSpriteComponent>(comp.Dragon, out var randomSprite))
                 {
-                    comp.SpawnAccumulator -= comp.SpawnCooldown;
-                    var ent = Spawn(proto, xform.Coordinates);
-
-                    if (comp.Dragon != null && TryComp<RandomSpriteComponent>(comp.Dragon.Value, out var randomSprite))
-                    {
-                        var spawnedSprite = EnsureComp<RandomSpriteComponent>(ent);
-                        _serManager.CopyTo(randomSprite, ref spawnedSprite, notNullableOverride: true);
-                        Dirty(ent, spawnedSprite);
-                    }
-
-                    if (comp.Dragon != null)
-                        _npc.SetBlackboard(ent, NPCBlackboard.FollowTarget, new EntityCoordinates(comp.Dragon.Value, Vector2.Zero));
+                    var spawnedSprite = EnsureComp<RandomSpriteComponent>(ent);
+                    _serManager.CopyTo(randomSprite, ref spawnedSprite, notNullableOverride: true);
+                    Dirty(ent, spawnedSprite);
                 }
+
+                // Set mob's follow target to the dragon
+                if (comp.Dragon != null)
+                    _npc.SetBlackboard(ent, NPCBlackboard.FollowTarget, new EntityCoordinates(comp.Dragon.Value, Vector2.Zero));
             }
-            // ADT-Tweak-End
         }
     }
 
@@ -149,7 +140,7 @@ public sealed class DragonRiftSystem : EntitySystem
 
     private void OnShutdown(EntityUid uid, DragonRiftComponent comp, ComponentShutdown args)
     {
-        if (comp.Dragon == null || !TryComp<DragonComponent>(comp.Dragon.Value, out var dragon) || dragon.Weakened)
+        if (!TryComp<DragonComponent>(comp.Dragon, out var dragon) || dragon.Weakened)
             return;
 
         _dragon.RiftDestroyed(comp.Dragon.Value, dragon);
