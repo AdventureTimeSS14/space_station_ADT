@@ -115,7 +115,7 @@
   </Box>
 
   <Box>
-  Сила капоэйры зависит от скорости движения. Все комбо требуют минимального движения и масштабируют урон, время сбития и дальность броска по скорости (коэффициент мощи от [color=Cyan]×1[/color] до [color=Cyan]×4[/color]). При успешном комбо восстанавливается [color=Cyan]20[/color] единиц выносливости.
+  Сила капоэйры зависит от скорости движения. Все комбо масштабируют урон, время сбития и дальность броска по скорости (коэффициент мощи от [color=Cyan]×1[/color] до [color=Cyan]×4[/color]). При успешном комбо восстанавливается выносливость.
   </Box>
 
   <Box>
@@ -132,24 +132,31 @@
 
   Комбо-приёмы:
 
-  - [bold]Толчковый пинок[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="grab" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"]
+  - [bold]Толчковый пинок[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="grab" scale="2"]
   <Box>
-  Роняет цель на пол на [color=Orange]2 секунды[/color] и выбивает вещи из рук.
+  Только на стоячих целях.
+  Роняет цель на пол на [color=Orange]2–8 секунд[/color], выбивает вещи из рук и отбрасывает.
+  Цель становится уязвима к ударам.
   </Box>
 
   - [bold]Круговой пинок[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"]
   <Box>
-  Наносит [color=Red]15[/color] урона и отбрасывает цель.
+  Наносит от [color=Red]15[/color] до [color=Red]60[/color] Blunt-урона (зависит от скорости).
+  Замедляет цель на [color=Orange]2–8 секунд[/color].
   </Box>
 
   - [bold]Подсекающий пинок[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"]
   <Box>
-  Наносит [color=Red]10[/color] урона и [color=Cyan]10[/color] урона по выносливости. Роняет цель на пол на [color=Orange]1 секунду[/color].
+  Требует минимальной скорости движения.
+  Наносит от [color=Red]10[/color] до [color=Red]40[/color] Blunt-урона. Роняет цель на пол на [color=Orange]1–4 секунды[/color].
+  Ускоряет атаки на [color=Cyan]×1.5[/color] на [color=Orange]5 секунд[/color].
   </Box>
 
-  - [bold]Вращательный пинок[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="grab" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"]
+  - [bold]Вращательный пинок[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="harm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="grab" scale="2"]
   <Box>
-  Наносит [color=Red]25[/color] урона и [color=Cyan]15[/color] урона по выносливости. Роняет цель на пол на [color=Orange]2 секунды[/color].
+  Только на стоячих целях. Требует минимальной скорости движения.
+  Наносит от [color=Red]25[/color] до [color=Red]100[/color] Blunt-урона. Роняет цель на пол на [color=Orange]2–8 секунд[/color].
+  Ускоряет атаки на [color=Cyan]×1.5[/color] на [color=Orange]5 секунд[/color].
   </Box>
 
   - [bold]Подъём[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] + [tex path="/Textures/ADT/Interface/Misc/intents.rsi" state="disarm" scale="2"] [color=#888888](на себя)[/color]

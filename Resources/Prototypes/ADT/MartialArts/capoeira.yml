@@ -6,20 +6,20 @@
 - type: comboList
   id: CapoeiraMoves
   combos:
-  - PushKick
-  - SweepKick
   - CircleKick
-  - SpinKick
+  - SweepKick
   - KickUp
+  - PushKick
+  - SpinKick
 
 - type: combo
   id: PushKick
   name: capoeira-combo-push-kick
   martialArtsForm: Capoeira
   attacks:
+  - Harm
+  - Harm
   - Grab
-  - Harm
-  - Harm
   event: !type:PushKickPerformedEvent
     staminaToHeal: -30
     sound:
@@ -72,10 +72,10 @@
   name: capoeira-combo-spin-kick
   martialArtsForm: Capoeira
   attacks:
-  - Grab
   - Harm
   - Disarm
   - Harm
+  - Grab
   event: !type:SpinKickPerformedEvent
     staminaToHeal: -100
     attackSpeedMultiplier: 1.5
