@@ -636,20 +636,6 @@
   - type: Clothing
     sprite: ADT/Personalization/pushnoY_jumpsuit.rsi
 
-#Maki_gg
-- type: entity
-  parent: ADTSponsorClothingOuterStorageBase
-  id: ADTClothingOuterCoatMaki
-  name: Maki coat
-  description: Maki coat.
-  suffix: Personal
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/maki_coat.rsi
-  - type: Clothing
-    sprite: ADT/Personalization/maki_coat.rsi
-
-
 # Moon_so_red
 - type: entity
   parent: ADTSponsorClothingHeadBase
