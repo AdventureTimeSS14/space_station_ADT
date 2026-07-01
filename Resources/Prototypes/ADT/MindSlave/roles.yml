@@ -1,9 +1,6 @@
 - type: entity
-  parent: BaseMindRole
+  parent: BaseMindRoleAntag
   id: MindSlaveRole
   name: Mind Slave Role
   components:
   - type: MindSlaveRole
-  - type: MindRole
-    antag: true
-    roleType: SoloAntagonist
