@@ -1,4 +1,4 @@
-# TODO RMC14 different light/burn chances per matchbook
+﻿# TODO RMC14 different light/burn chances per matchbook
 - type: entity
   parent: Matchbox
   id: ADTLuckySlothsMatchBook
@@ -39,10 +39,12 @@
     whitelist:
       tags:
       - Matchstick
-  - type: StorageFill
-    contents:
-    - id: Matchstick
-      amount: 6
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Matchstick
+          amount: 6
   - type: ItemCounter
     count:
       tags: [Matchstick]

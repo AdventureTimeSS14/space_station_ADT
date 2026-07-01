@@ -51,8 +51,6 @@ public sealed partial class RevenantSystem : EntitySystem
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly ExplosionSystem _explotions = default!;
 
-    private static readonly EntProtoId RevenantShopId = "ActionRevenantShop";
-
     public override void Initialize()
     {
         base.Initialize();

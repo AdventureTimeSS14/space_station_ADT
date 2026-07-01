@@ -10,7 +10,6 @@ using Robust.Shared.Physics.Controllers;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Weather;
 
@@ -18,7 +17,6 @@ public sealed partial class HeavyWindSystem : VirtualController
 {
     private EntityQuery<MapGridComponent> _gridQuery;
 
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedWeatherSystem _weather = default!;
@@ -68,7 +66,7 @@ public sealed partial class HeavyWindSystem : VirtualController
             if (xform.GridUid is { } gridUid && _gridQuery.TryComp(gridUid, out var grid))
             {
                 var tile = _map.GetTileRef((gridUid, grid), xform.Coordinates);
-                if (!_weather.CanWeatherAffect(gridUid, grid, tile))
+                if (!_weather.CanWeatherAffect((gridUid, (MapGridComponent?)grid, null), tile))
                     continue;
             }
 

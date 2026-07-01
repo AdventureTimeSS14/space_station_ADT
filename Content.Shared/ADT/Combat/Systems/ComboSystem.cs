@@ -59,7 +59,7 @@ public abstract class SharedComboSystem : EntitySystem
     {
         if (!args.IsHit || !args.HitEntities.Any())
             return;
-        if (!HasComp<HumanoidAppearanceComponent>(args.HitEntities[0]))
+        if (!HasComp<HumanoidProfileComponent>(args.HitEntities[0]))
             return;
         comp.CurrestActions.Add(CombatAction.Hit);
 

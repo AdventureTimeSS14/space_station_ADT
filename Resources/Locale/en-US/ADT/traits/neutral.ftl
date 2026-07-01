@@ -49,3 +49,21 @@ trait-echolalia-desc = You involuntarily repeat words and phrases spoken by othe
 
 trait-touchy-name = Tactile
 trait-touchy-desc = You determine things and their appearance by touch. (examine only works with items within your reach)
+
+trait-soft-walk-name = Soft Walk
+trait-soft-walk-desc = You walk very quietly, your footsteps are barely audible.
+
+trait-freerunning-name = Freerunning
+trait-freerunning-desc = You can efficiently navigate urban environments, jumping over obstacles.
+
+trait-sprinter-name = Sprinter
+trait-sprinter-desc = You can run slightly faster than others.
+
+trait-hard-thrower-name = Hard Thrower
+trait-hard-thrower-desc = You can throw objects further and with greater force.
+
+trait-voracious-name = Voracious
+trait-voracious-desc = You eat faster than others, your metabolism is accelerated.
+
+trait-drunk-tolerance-name = Alcohol Tolerance
+trait-drunk-tolerance-desc = You are less affected by alcohol, you need more to get drunk.

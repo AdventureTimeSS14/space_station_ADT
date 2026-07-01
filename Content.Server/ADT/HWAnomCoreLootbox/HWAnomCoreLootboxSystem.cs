@@ -3,7 +3,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Cargo.Systems;
 using Content.Server.Popups;
 using Content.Shared.Body.Systems;
-using Content.Shared.Body.Part;
+using Content.Shared.Body;
 using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Cargo;
@@ -35,7 +35,7 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly StatusEffectsSystem _status = default!;
-        [Dependency] private readonly SharedBodySystem _bodySystem = default!;
+        [Dependency] private readonly BodySystem _bodySystem = default!;
         [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
         public override void Initialize()
         {
@@ -107,7 +107,7 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
                 return;
             var msg = Loc.GetString("anombook-blind-popup",("player", user));
             _popupSystem.PopupEntity(msg, user, user);
-            _status.TryAddStatusEffect<TemporaryBlindnessComponent>(user, TemporaryBlindnessSystem.BlindingStatusEffect, TimeSpan.FromSeconds(comp.Settings.Duration), true);
+            _status.TryAddStatusEffect<BlindnessStatusEffectComponent>(user, BlindnessSystem.BlindingStatusEffect, TimeSpan.FromSeconds(comp.Settings.Duration), true);
         }
 
         private void Hemophilia(EntityUid uid)
@@ -146,10 +146,10 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
 
             Timer.Spawn(0, () =>
             {
-                foreach (var part in _bodySystem.GetBodyChildrenOfType(uid, BodyPartType.Hand))
-                {
-                    _transformSystem.AttachToGridOrMap(part.Id);
-                }
+                // foreach (var part in _bodySystem.GetBodyChildrenOfType(uid, BodyPartType.Hand))
+                // {
+                //     _transformSystem.AttachToGridOrMap(part.Id);
+                // }
 
                 _popupSystem.PopupEntity(
                     Loc.GetString("admin-smite-remove-hands-self"),

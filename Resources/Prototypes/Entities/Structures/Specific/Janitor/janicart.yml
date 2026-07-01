@@ -1,4 +1,4 @@
-# Mop Bucket
+﻿# Mop Bucket
 - type: entity
   name: mop bucket
   id: MopBucket
@@ -96,6 +96,7 @@
     guides:
     - Janitorial
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -268,8 +269,9 @@
     - type: ExaminableSolution
       solution: bucket
     - type: Damageable
-      damageContainer: Inorganic
       damageModifierSet: Metallic
+    - type: Injurable
+      damageContainer: Inorganic
     - type: Destructible
       thresholds:
         - trigger:

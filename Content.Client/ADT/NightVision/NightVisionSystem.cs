@@ -8,7 +8,6 @@ namespace Content.Client.ADT.NightVision;
 public sealed class NightVisionSystem : SharedNightVisionSystem
 {
     [Dependency] private readonly ILightManager _light = default!;
-    [Dependency] private readonly IOverlayManager _overlay = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
     public override void Initialize()

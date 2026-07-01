@@ -8,7 +8,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Mobs.Components;
 
 [RegisterComponent, NetworkedComponent]
-// [Access(typeof(MobThresholdSystem))] // ADT-Tweak: Убрана защита для работы AdminADTSmitesVerbs.cs
+[Access(typeof(MobThresholdSystem))]
 public sealed partial class MobThresholdsComponent : Component
 {
     [DataField("thresholds", required: true)]

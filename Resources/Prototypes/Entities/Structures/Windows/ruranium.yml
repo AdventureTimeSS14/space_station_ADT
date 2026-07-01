@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ReinforcedUraniumWindow
   name: reinforced uranium window
   parent: [BaseDeltaPressureReinforcedPlasma, WindowRCDResistant]
@@ -9,8 +9,9 @@
   - type: Icon
     sprite: Structures/Windows/reinforced_uranium_window.rsi
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: RGlass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -81,6 +82,7 @@
       sprite: Structures/Windows/cracks_directional.rsi
   - type: Damageable
     damageModifierSet: RGlass
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:
