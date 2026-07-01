@@ -1,17 +1,15 @@
-using Content.Shared.FixedPoint;
-using Content.Shared.Damage;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Content.Shared.Damage;
 
 namespace Content.Server.Dragon
 {
     [RegisterComponent]
     public sealed partial class DragonComponent : Component
     {
-
         /// <summary>
         /// If we have active rifts.
         /// </summary>
@@ -69,42 +67,6 @@ namespace Content.Server.Dragon
         [DataField]
         public ProtoId<NpcFactionPrototype> Faction = "Dragon";
 
-
-        // ADT-Tweak-Start
-        [DataField("carpRiftHealingRange")]
-        public float CarpRiftHealingRange = 5f;
-
-        [DataField("carpRiftHealing")]
-        public DamageSpecifier CarpRiftHealing = default!;
-
-        [DataField("spawnCarpsActionEntity")]
-        public EntityUid? SpawnCarpsActionEntity;
-
-        // Добавлен сериализатор для корректного чтения прототипа экшена из YAML
-        [DataField("spawnCarpsAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string SpawnCarpsAction = "ActionDragonSpawnCarp";
-
-        [DataField("roarActionEntity")]
-        public EntityUid? RoarActionEntity;
-
-        // Добавлен сериализатор для корректного чтения прототипа экшена из YAML
-        [DataField("roarAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string RoarAction = "ActionDragonRoar";
-
-        [DataField("carpAmount")]
-        public int CarpAmount = 3;
-
-        // Добавлен сериализатор, так как карп — это EntityPrototype
-        [DataField("carpProtoId", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string CarpProtoId = "MobCarpDragon";
-
-        [DataField("roarRange")]
-        public float RoarRange = 10f;
-
-        [DataField("roarStunTime")]
-        public float RoarStunTime = 2.5f; // ADT-Tweak (3 ---> 2.5)
-        // ADT-Tweak-End
-
         /// <summary>
         /// The smoke to spawn upon rift timeout death.
         /// </summary>
@@ -115,6 +77,44 @@ namespace Content.Server.Dragon
         /// The solution to place into the smoke (mostly just needed for color)
         /// </summary>
         [DataField]
-        public Solution SmokeSolution = new([new("Blood", FixedPoint2.New(1))]);
+        public Solution SmokeSolution = new ([new("Blood", 1)]);
+
+        // ADT-Tweak-start
+        [DataField]
+        public EntityUid? SpawnCarpsActionEntity;
+
+        [DataField]
+        public EntProtoId SpawnCarpsAction = "ActionRiseFish";
+
+        [DataField]
+        public EntProtoId CarpProtoId = "MobCarpDragon";
+
+        [DataField]
+        public int CarpAmount = 3;
+
+        [DataField]
+        public EntityUid? RoarActionEntity;
+
+        [DataField]
+        public EntProtoId RoarAction = "ActionDragonRoar";
+
+        [DataField]
+        public float RoarRange = 3f;
+
+        [DataField]
+        public float RoarStunTime = 2.5f; // ADT-tweak (3 ---> 2.5)
+
+        [DataField]
+        public float CarpRiftHealingRange = 7f;
+
+        /// <summary>
+        /// Amount of healing the dragon receives when standing near a carp rift per second.
+        /// </summary>
+        [DataField]
+        public DamageSpecifier CarpRiftHealing = default!;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float RiftHealTimer = 0f;
+        // ADT-Tweak-end
     }
 }

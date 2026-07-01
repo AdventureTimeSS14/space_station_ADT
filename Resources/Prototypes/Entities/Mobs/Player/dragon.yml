@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: [ SimpleSpaceMobBase, FlyingMobBase, BaseSlicingRefinable ]
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ] # Убрано BaseSlicingRefinable
   id: BaseMobDragon
   suffix: ""
   name: space dragon
@@ -11,6 +11,7 @@
       reagents:
       - ReagentId: Blood
         Quantity: 650
+      bleedReductionAmount: 5 # Из Goobstation
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -22,6 +23,9 @@
     - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
+    requirements: # Из Goobstation
+    - !type:OverallPlaytimeRequirement
+      time: 18000 # 5 часов
   - type: GhostTakeoverAvailable
   - type: HTN
     rootTask:
@@ -95,42 +99,42 @@
       500: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      250: 0.85 # ADT-Tweak (less slow 250: 0.7 ---> 250: 0.85)
-      350: 0.7 # ADT-Tweak (add new threshold)
-      430: 0.5 # ADT-Tweak (higher threshold 400: 0.5 ---> 430: 0.5)
-    # ADT-Tweak-start
+      250: 0.85 # ADT-Tweak
+      350: 0.7 # ADT-Tweak
+      430: 0.5 # ADT-Tweak
   - type: ExplosionResistance
     damageCoefficient: 0.2
-    # disable taking damage from fire, since its a fire breathing dragon
   - type: Flammable
     damage:
       types: {}
-  - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
+  - type: StatusEffects
     allowed:
     - Electrocution
     - Pacified
     - Adrenaline
     - Stutter
-    - Weakness #ADT-Weakness-Tweak
+    - Weakness # ADT-Weakness-Tweak
+    - TemporaryBlindness # Из Goobstation
+    - RadiationProtection # Из Goobstation
   - type: Temperature
   - type: TemperatureDamage
-    heatDamageThreshold: 2400
+    heatDamageThreshold: 2400 # ADT-Tweak
   - type: Metabolizer
     solutionOnBody: false
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
     stages: [ Digestion, Bloodstream ]
-  - type: ToolRefinable
-    refineResult:
+  - type: Butcherable
+    spawned:
     - id: FoodMeatDragon
-      amount: 2
+      amount: 4
   - type: InteractionPopup
     successChance: 0.25
     interactSuccessString: petting-success-dragon
     interactFailureString: petting-failure-dragon
     interactFailureSound:
       path: /Audio/Animals/space_dragon_roar.ogg
-    soundPerceivedByOthers: false # A 75% chance for a loud roar would get old fast.
+    soundPerceivedByOthers: false
   - type: MeleeWeapon
     altDisarm: false
     soundHit:
@@ -147,12 +151,14 @@
     stomachStorageWhitelist:
       components:
       - MobState
+      - Item # Из Goobstation
     chemical: Ichor
     healRate: 7.5
     whitelist:
       components:
       - MobState
       - Door
+      - Item # Из Goobstation
       tags:
       - Wall
   - type: Tag
@@ -162,10 +168,10 @@
     - StunImmune
   - type: Puller
     needsHands: false
-  - type: ThermalVision #ADT tweak start
+  - type: ThermalVision # ADT tweak
     color: Purple
-  - type: MesonVision
-    color: Purple #ADT tweak end
+  - type: MesonVision # ADT tweak
+    color: Purple
 # ADT-CollectiveMind-Tweak-Start
   - type: CollectiveMindRank
     rankName: collective-mind-dragon-rank
@@ -182,7 +188,7 @@
   - type: Prying
     pryPowered: true
     force: true
-    speedModifier: 2.5 # fast because dragon strong
+    speedModifier: 2.5
     useSound:
       path: /Audio/Items/crowbar.ogg
 
@@ -194,10 +200,12 @@
     spawnRiftAction: ActionSpawnRift
 # ADT-Tweak-Start
     carpRiftHealing:
-      groups:
-        Brute: -4
-        Burn: -4
-        Airloss: -3
+      types:
+        Blunt: -2
+        Slash: -2
+        Piercing: -2
+        Heat: -2
+        Cold: -2
     spawnCarpsAction: ActionRiseFish
     roarAction: ActionDragonRoar
 # ADT-Tweak-End
@@ -226,7 +234,7 @@
     capacity: 1
     count: 1
   - type: Gun
-    soundGunshot:
+    soundShot:
       path: /Audio/Animals/space_dragon_roar.ogg
     soundEmpty: null
     projectileSpeed: 5
@@ -248,10 +256,10 @@
     thresholds:
       0: Alive
       200: Dead
-  # less meat spawned since it's a lot easier to kill
-  - type: ToolRefinable
-    refineResult:
+  - type: Butcherable
+    spawned:
     - id: FoodMeatDragon
+      amount: 2
   - type: MeleeWeapon
     damage:
       types:
@@ -290,6 +298,7 @@
       components:
       - MobState
       - Door
+      - Item
       tags:
       - Wall
     event: !type:DevourActionEvent
@@ -301,7 +310,6 @@
   description: Spew out flames at anyone foolish enough to attack you!
   components:
   - type: Action
-    # TODO: actual sprite and iconOn
     icon: { sprite : Objects/Weapons/Guns/Projectiles/magic.rsi, state: fireball }
     itemIconStyle: BigAction
     priority: 2
@@ -335,7 +343,7 @@
     icon:
       sprite: ADT/Interface/Actions/dragon.rsi
       state: carp_horde
-    useDelay: 120 #ADT-Tweak (90 ---> 120)
+    useDelay: 120 # ADT-Tweak(90 ---> 120)
     priority: 4
   - type: InstantAction
     event: !type:DragonSpawnCarpHordeActionEvent
@@ -350,7 +358,7 @@
     icon:
       sprite: ADT/Interface/Actions/dragon.rsi
       state: wing_flap
-    useDelay: 60 #ADT-Tweak (45 ---> 60)
+    useDelay: 60 # ADT-Tweak (45 ---> 60)
     priority: 5
   - type: InstantAction
     event: !type:DragonRoarActionEvent

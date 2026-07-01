@@ -2,19 +2,18 @@ using Content.Server.Chat.Systems;
 using Content.Server.NPC;
 using Content.Server.NPC.Systems;
 using Content.Server.Pinpointer;
+using Content.Shared.Damage.Components;
 using Content.Shared.Dragon;
 using Content.Shared.Examine;
 using Content.Shared.Sprite;
-using Robust.Shared.Map;
-using Robust.Shared.Player;
-using Robust.Shared.Serialization.Manager;
-using System.Numerics;
-using Content.Shared.Damage.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
-using Robust.Shared.Utility;
+using Robust.Shared.Map;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Utility;
+using System.Numerics;
 
 namespace Content.Server.Dragon;
 
@@ -87,32 +86,16 @@ public sealed class DragonRiftSystem : EntitySystem
 
             // Handle mob spawning
             comp.SpawnAccumulator += frameTime;
-            // ADT-Tweak-Start
             if (comp.SpawnAccumulator > comp.SpawnCooldown)
             {
                 comp.SpawnAccumulator -= comp.SpawnCooldown;
 
-                EntProtoId proto;
-                if (_random.Prob(comp.StrongSpawnChance))
-                {
-                    proto = comp.SpawnPrototypeStrong;
-                }
-                else if (comp.SpawnPrototypes.Count > 0)
-                {
-                    // Pick a random mob prototype from the ADT list
-                    proto = _random.Pick(comp.SpawnPrototypes);
-                }
-                else
-                {
-                    // Fallback to Goob's base spawn if the list is empty
-                    proto = comp.SpawnPrototype;
-                }
-
+                // Goobstation - Buff carp rift (Шанс 35% на карпоакулу, 65% на обычного карпа)
+                var proto = _random.Prob(comp.StrongSpawnChance) ? comp.SpawnPrototypeStrong : comp.SpawnPrototype;
                 var ent = Spawn(proto, xform.Coordinates);
-                // ADT-Tweak-End
 
                 // Copy random sprite from the dragon to the spawned mob (if any)
-                if (comp.Dragon != null && TryComp<RandomSpriteComponent>(comp.Dragon.Value, out var randomSprite))
+                if (TryComp<RandomSpriteComponent>(comp.Dragon, out var randomSprite))
                 {
                     var spawnedSprite = EnsureComp<RandomSpriteComponent>(ent);
                     _serManager.CopyTo(randomSprite, ref spawnedSprite, notNullableOverride: true);
@@ -141,7 +124,7 @@ public sealed class DragonRiftSystem : EntitySystem
 
     private void OnShutdown(EntityUid uid, DragonRiftComponent comp, ComponentShutdown args)
     {
-        if (comp.Dragon == null || !TryComp<DragonComponent>(comp.Dragon.Value, out var dragon) || dragon.Weakened)
+        if (!TryComp<DragonComponent>(comp.Dragon, out var dragon) || dragon.Weakened)
             return;
 
         _dragon.RiftDestroyed(comp.Dragon.Value, dragon);
