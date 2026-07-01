@@ -18517,13 +18517,6 @@ entities:
     - type: Transform
       pos: -53.5,11.5
       parent: 2
-- proto: ADTSoundGenWhistleInTheDark
-  entities:
-  - uid: 467
-    components:
-    - type: Transform
-      pos: -56.5,5.5
-      parent: 2
 - proto: ADTSpawnMechPaddy
   entities:
   - uid: 468
