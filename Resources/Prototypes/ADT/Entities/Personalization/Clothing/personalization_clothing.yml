@@ -532,18 +532,6 @@
   - type: Clothing
     sprite: ADT/Personalization/pangaari_bracelet.rsi
 
-- type: entity
-  parent: ADTSponsorClothingOuterStorageBase
-  id: ADTClothingUniformPanjaariJacket
-  name: Cropped leather jacket
-  description: A short leather jacket with studs on the shoulders. It doesn't look like something that will keep you warm, but its appearance speaks of the wearer's excellent sense of style.
-  suffix: Pangaari
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/pangaari_jacket.rsi
-  - type: Clothing
-    sprite: ADT/Personalization/pangaari_jacket.rsi
-
 #Rip_Zoro
 - type: entity
   parent: [ClothingBeltBase, ClothingSlotBase]
@@ -635,20 +623,6 @@
     sprite: ADT/Personalization/pushnoY_jumpsuit.rsi
   - type: Clothing
     sprite: ADT/Personalization/pushnoY_jumpsuit.rsi
-
-#Maki_gg
-- type: entity
-  parent: ADTSponsorClothingOuterStorageBase
-  id: ADTClothingOuterCoatMaki
-  name: Maki coat
-  description: Maki coat.
-  suffix: Personal
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/maki_coat.rsi
-  - type: Clothing
-    sprite: ADT/Personalization/maki_coat.rsi
-
 
 # Moon_so_red
 - type: entity
