@@ -59,8 +59,8 @@
     offsets:
       rmc-aslot-barrel: 0.59375, 0
       # rmc-aslot-barrel: 0.59375, -0.15625
-  - type: RunAndGunSpreadModifier
-    modifier: 1
+  # - type: RunAndGunSpreadModifier
+    # modifier: 1
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -101,8 +101,8 @@
     capacity: 5
     proto: CartridgeAntiMateriel
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifier: 3
+  # - type: RunAndGunSpreadModifier
+    # modifier: 3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 0.65
@@ -125,7 +125,7 @@
   - type: AttachableHolder # ADT-Tweak
     slots:
       rmc-aslot-rail:
-        locked: false # ADT-Tweak true -> false 
+        locked: false # ADT-Tweak true -> false
         startingAttachable: ADTAttachmentHristovScope
         whitelist:
             tags:
@@ -161,8 +161,8 @@
         whitelist:
           tags:
           - ADTMosinBayonetAttachment
-  - type: RunAndGunSpreadModifier
-    modifier: 3
+  # - type: RunAndGunSpreadModifier
+    # modifier: 3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -211,8 +211,8 @@
     - 0,1,0,1
     storedOffset: 0,-5
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifier: 3
+  # - type: RunAndGunSpreadModifier
+    # modifier: 3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1

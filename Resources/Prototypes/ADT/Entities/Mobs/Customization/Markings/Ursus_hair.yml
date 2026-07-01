@@ -1,8 +1,7 @@
 - type: marking
   id: ADTUrsusNeat
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: neat
@@ -10,8 +9,7 @@
 - type: marking
   id: ADTUrsusWarrior
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: warrior
@@ -19,8 +17,7 @@
 - type: marking
   id: ADTUrsusWarrior2
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: warrior2
@@ -28,8 +25,7 @@
 - type: marking
   id: ADTUrsusSurfaceRiver
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: surface_river
@@ -37,8 +33,7 @@
 - type: marking
   id: ADTUrsusGorgon
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: gorgon
@@ -46,8 +41,7 @@
 - type: marking
   id: ADTUrsusBreadwinner
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: breadwinner
@@ -55,8 +49,7 @@
 - type: marking
   id: ADTUrsusWhip
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: whip
@@ -64,8 +57,7 @@
 - type: marking
   id: ADTUrsusWhip2
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: whip2
@@ -73,8 +65,7 @@
 - type: marking
   id: ADTUrsusShorthedgehog
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: short_hedgehog
@@ -82,8 +73,7 @@
 - type: marking
   id: ADTUrsusShorthedgehog2
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: short_hedgehog2
@@ -91,8 +81,7 @@
 - type: marking
   id: ADTUrsusValkyriesscythe
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: valkyries_scythe
@@ -100,8 +89,7 @@
 - type: marking
   id: ADTUrsusValkyriesscythe2
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: valkyries_scythe2
@@ -109,16 +97,14 @@
 - type: marking
   id: ADTUrsusWarriorsscythe
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: warriors_scythe
 - type: marking
   id: ADTUrsusBraidsontheside
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: braids_on_the_side
@@ -126,8 +112,7 @@
 - type: marking
   id: ADTUrsusBraidsontheside2
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: braids_on_the_side2
@@ -135,8 +120,7 @@
 - type: marking
   id: ADTUrsusForeststyle
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: forest_style
@@ -144,8 +128,7 @@
 - type: marking
   id: ADTUrsusForeststyle2
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: forest_style2
@@ -153,8 +136,7 @@
 - type: marking
   id: ADTUrsusSoftwaves
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: soft_waves
@@ -162,8 +144,7 @@
 - type: marking
   id: ADTUrsusSoftwaves2
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: soft_waves2
@@ -171,8 +152,7 @@
 - type: marking
   id: ADTUrsusBraidedcone
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: braided_cone
@@ -180,8 +160,7 @@
 - type: marking
   id: ADTUrsusBraidedside
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: braided_side
@@ -189,8 +168,7 @@
 - type: marking
   id: ADTUrsusBraidedside2
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: braided_side2
@@ -198,8 +176,7 @@
 - type: marking
   id: ADTUrsusCollector
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: collector
@@ -207,8 +184,7 @@
 - type: marking
   id: ADTUrsusFallencone
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: fallen_cone
@@ -216,8 +192,7 @@
 - type: marking
   id: ADTUrsusTailbigdipper
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: tail_big_dipper
@@ -225,8 +200,7 @@
 - type: marking
   id: ADTUrsusCone
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: cone
@@ -234,8 +208,7 @@
 - type: marking
   id: ADTUrsusYoungboy
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: young_boy

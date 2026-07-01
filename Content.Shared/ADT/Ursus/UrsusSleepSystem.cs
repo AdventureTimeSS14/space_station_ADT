@@ -10,6 +10,7 @@ using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.Ursus;
@@ -19,10 +20,11 @@ public sealed class UrsusSleepSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+
+    private static readonly EntProtoId UrsusSleepActionId = "ActionUrsusSleep";
 
     public override void Initialize()
     {
@@ -42,7 +44,7 @@ public sealed class UrsusSleepSystem : EntitySystem
     private void OnMapInit(Entity<UrsusSleepComponent> ent, ref MapInitEvent args)
     {
         if (_net.IsServer)
-            _actions.AddAction(ent.Owner, ref ent.Comp.Action, "ActionUrsusSleep");
+            _actions.AddAction(ent.Owner, ref ent.Comp.Action, UrsusSleepActionId);
     }
 
     private void OnAction(Entity<UrsusSleepComponent> ent, ref UrsusSleepEvent args)

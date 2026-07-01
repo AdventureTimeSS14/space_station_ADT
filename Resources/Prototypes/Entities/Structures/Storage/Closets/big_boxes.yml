@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: BaseBigBox
   name: cardboard box #it's still just a box
   description: Huh? Just a box...
@@ -34,6 +34,7 @@
       containers:
         entity_storage: !type:Container
     - type: Damageable
+    - type: Injurable
       damageContainer: Box
     - type: Sprite
       noRot: true
@@ -65,12 +66,13 @@
   components:
     - type: Damageable
       damageModifierSet: FlimsyMetallic #Syndicate boxes should have a bit of protection
+    - type: Injurable
     - type: CardboardBox
       quiet: true
     - type: Stealth
       hadOutline: true
     - type: StealthOnMove
-      passiveVisibilityRate: -0.37
+      passiveVisibilityRate: -1 # very useful for going around the station concealed, if you start jitterstrafing you get seen
       movementVisibilityRate: 0.20
 
 - type: entity

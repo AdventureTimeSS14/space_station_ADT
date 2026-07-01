@@ -1,8 +1,7 @@
 - type: marking
   id: DemonTail1
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: tail
@@ -12,8 +11,7 @@
 - type: marking
   id: DemonTailLong
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: tail
@@ -23,8 +21,7 @@
 - type: marking
   id: DemonTailUp
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: tail
@@ -34,8 +31,7 @@
 - type: marking
   id: MobDemonTailColor
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
     - sprite: ADT/Mobs/Species/Demon/parts.rsi
       state: tail
@@ -44,8 +40,7 @@
 - type: marking
   id: DemonTail1Animated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
   - sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: tail_waggin
@@ -55,8 +50,7 @@
 - type: marking
   id: DemonTailLongAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
   - sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: tail_waggin
@@ -66,8 +60,7 @@
 - type: marking
   id: DemonTailUpAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
   - sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: tail_waggin
@@ -77,8 +70,7 @@
 - type: marking
   id: MobDemonTailColorAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
   - sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: tail_waggin

@@ -3,11 +3,12 @@ using Robust.Server.GameObjects;
 using Content.Server.Actions;
 using Robust.Shared.Player;
 using Content.Server.AlertLevel;
+using Content.Server.Silicons.Borgs;
 using Content.Server.Station.Systems;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.PowerCell.Components;
-using Content.Server.PowerCell;
-using Content.Shared.Item.ItemToggle;
 using Content.Shared.PowerCell;
+using Content.Shared.Power.EntitySystems;
 
 namespace Content.Server.ADT.Silicons.Borgs;
 
@@ -17,8 +18,9 @@ public sealed partial class BorgInfoSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
+    [Dependency] private readonly BorgSystem _borg = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
 
     public override void Initialize()
     {
@@ -58,7 +60,7 @@ public sealed partial class BorgInfoSystem : EntitySystem
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
 
-        _uiSystem.TryOpenUi(uid, BorgInfoUiKey.BorgInfo, actor.Owner);
+        _uiSystem.TryOpenUi(uid, BorgInfoUiKey.BorgInfo, uid);
 
         args.Handled = true;
     }
@@ -85,15 +87,19 @@ public sealed partial class BorgInfoSystem : EntitySystem
         if (!Resolve(uid, ref component, false))
             return;
 
+        UpdateStationName(uid, component);
+        UpdateAlertLevel(uid, component);
+
         if (!_uiSystem.HasUi(uid, BorgInfoUiKey.BorgInfo))
             return;
 
         var chargePercent = 0f;
         var hasBattery = false;
 
-        if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
+        if (_powerCell.TryGetBatteryFromSlot(uid, out var battery) && battery is { } batteryEntity)
         {
-            chargePercent = battery.CurrentCharge / battery.MaxCharge;
+            var currentCharge = _battery.GetCharge(batteryEntity.Owner);
+            chargePercent = currentCharge / batteryEntity.Comp.MaxCharge;
             hasBattery = true;
         }
         var borgName = _entity.GetComponent<MetaDataComponent>(uid).EntityName;
@@ -112,22 +118,25 @@ public sealed partial class BorgInfoSystem : EntitySystem
                 );
 
         _uiSystem.SetUiState(uid, BorgInfoUiKey.BorgInfo, state);
-        UpdateStationName(uid, component);
-        UpdateAlertLevel(uid, component);
     }
+
     private void OnPowerCellChanged(EntityUid uid, BorgInfoComponent component, PowerCellChangedEvent args)
     {
-
-        if (_powerCell.HasDrawCharge(uid))
+        if (TryComp<BorgChassisComponent>(uid, out var chassis))
         {
-            _toggle.TryActivate(uid);
+            _borg.TryActivate((uid, chassis));
         }
 
         UpdateWindow(uid, component);
     }
+
     private void OnPowerCellSlotEmpty(EntityUid uid, BorgInfoComponent component, ref PowerCellSlotEmptyEvent args)
     {
-        _toggle.TryDeactivate(uid);
+        if (TryComp<BorgChassisComponent>(uid, out var chassis))
+        {
+            _borg.SetActive((uid, chassis), false);
+        }
+
         UpdateWindow(uid, component);
     }
 

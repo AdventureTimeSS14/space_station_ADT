@@ -78,6 +78,24 @@ public sealed class TraitSystem : EntitySystem
     }
 
     /// <summary>
+    /// ADT-Tweak start
+    /// Applies traits to an entity without requiring a player session (for admin spawning).
+    /// </summary>
+    public void ApplyTraits(EntityUid mob, HumanoidCharacterProfile profile, ProtoId<JobPrototype>? jobId = null)
+    {
+        var validTraits = ValidateTraits(mob, profile.TraitPreferences, null, profile, jobId);
+
+        foreach (var traitId in validTraits)
+        {
+            if (!_prototype.TryIndex(traitId, out var trait))
+                continue;
+
+            ApplyTrait(mob, trait);
+        }
+    }
+     /// ADT-Tweak end
+
+    /// <summary>
     /// Validates a set of trait selections against all rules and returns the valid subset.
     /// </summary>
     private HashSet<ProtoId<TraitPrototype>> ValidateTraits(
@@ -285,7 +303,7 @@ public sealed class TraitSystem : EntitySystem
     private void ApplyTrait(EntityUid player, TraitPrototype trait)
     {
         if (_whitelistSystem.IsWhitelistFail(trait.Whitelist, player) ||
-            _whitelistSystem.IsBlacklistPass(trait.Blacklist, player))
+            _whitelistSystem.IsWhitelistPass(trait.Blacklist, player))
             return;
 
         var transform = Transform(player);

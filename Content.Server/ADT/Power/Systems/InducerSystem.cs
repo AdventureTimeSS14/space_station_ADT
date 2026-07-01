@@ -5,6 +5,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 
@@ -13,6 +14,7 @@ namespace Content.Server.Power.EntitySystems;
 public sealed class InducerSystem : EntitySystem
 {
     [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private readonly SharedBatterySystem _batterySystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -46,7 +48,7 @@ public sealed class InducerSystem : EntitySystem
             return;
         }
 
-        if (sourceBattery.CurrentCharge <= 0)
+        if (_batterySystem.GetCharge((slot.Item.Value, sourceBattery)) <= 0)
         {
             _popup.PopupEntity(Loc.GetString("inducer-empty"), uid, args.User);
             return;
@@ -88,9 +90,9 @@ public sealed class InducerSystem : EntitySystem
             return;
 
         var energyToTransfer = component.TransferRate * component.TransferDelay;
-        energyToTransfer = Math.Min(energyToTransfer, sourceBattery.CurrentCharge);
+        energyToTransfer = Math.Min(energyToTransfer, _batterySystem.GetCharge((slot.Item.Value, sourceBattery)));
 
-        var freeSpace = targetBattery.MaxCharge - targetBattery.CurrentCharge;
+        var freeSpace = targetBattery.MaxCharge - _batterySystem.GetCharge((target, targetBattery));
         energyToTransfer = Math.Min(energyToTransfer, freeSpace);
 
         if (energyToTransfer <= 0)
@@ -99,10 +101,10 @@ public sealed class InducerSystem : EntitySystem
         if (_battery.TryUseCharge((slot.Item.Value, sourceBattery), energyToTransfer))
         {
             _battery.ChangeCharge((target, targetBattery), energyToTransfer);
-            var percent = (int)(targetBattery.CurrentCharge / targetBattery.MaxCharge * 100);
+            var percent = (int)(_batterySystem.GetChargeLevel((target, targetBattery)) * 100);
             _popup.PopupEntity(Loc.GetString("inducer-success", ("percent", percent)), uid, args.User);
 
-            if (targetBattery.CurrentCharge < targetBattery.MaxCharge * 0.95f)
+            if (_batterySystem.GetCharge((target, targetBattery)) < targetBattery.MaxCharge * 0.95f)
             {
                 args.Repeat = true;
             }
@@ -113,8 +115,8 @@ public sealed class InducerSystem : EntitySystem
         }
         else
         {
-            _battery.SetCharge((target, targetBattery), targetBattery.CurrentCharge + energyToTransfer);
-            _battery.SetCharge((slot.Item.Value, sourceBattery), sourceBattery.CurrentCharge - energyToTransfer);
+            _battery.ChangeCharge((target, targetBattery), energyToTransfer);
+            _battery.ChangeCharge((slot.Item.Value, sourceBattery), -energyToTransfer);
             args.Repeat = false;
         }
     }

@@ -66,7 +66,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             var batteryMaxCharge = 0f;
             if (TryComp<BatteryComponent>(reagentDispenser, out var battery))
             {
-                batteryCharge = battery.CurrentCharge;
+                batteryCharge = _battery.GetCharge((reagentDispenser.Owner, battery));
                 batteryMaxCharge = battery.MaxCharge;
             }
 
@@ -146,7 +146,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             var amount = (int)reagentDispenser.Comp.DispenseAmount;
             var powerRequired = GetPowerCostForReagent(message.ReagentId, amount, reagentDispenser.Comp);
 
-            if (battery.CurrentCharge < powerRequired)
+            if (_battery.GetCharge((reagentDispenser.Owner, battery)) < powerRequired)
             {
                 _audioSystem.PlayPvs(reagentDispenser.Comp.PowerSound, reagentDispenser, AudioParams.Default.WithVolume(-2f));
                 return;
@@ -157,7 +157,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             if (!_solutionContainerSystem.TryAddSolution(solution.Value, sol))
                 return;
 
-            _battery.SetCharge(reagentDispenser.Owner, battery.CurrentCharge - powerRequired);
+            _battery.ChangeCharge(reagentDispenser.Owner, -powerRequired);
             ClickSound(reagentDispenser);
             UpdateUiState(reagentDispenser);
         }

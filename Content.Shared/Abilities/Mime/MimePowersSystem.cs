@@ -118,12 +118,12 @@ public sealed class MimePowersSystem : EntitySystem
             var offset = isVertical ? (i, 0) : (0, i);
             var targetIndex = tileIndex + offset;
 
-            var targetTile = mapGrid.GetTileRef(targetIndex);
+            var targetTile = _mapSystem.GetTileRef(gridUid, mapGrid, targetIndex);
 
             if (targetTile.Tile.IsEmpty)
                 continue;
 
-            if (_turf.IsTileBlocked(tile.Value, CollisionGroup.Impassable | CollisionGroup.Opaque))
+            if (_turf.IsTileBlocked(targetTile, CollisionGroup.Impassable | CollisionGroup.Opaque))
                 continue;
 
             var coords = _mapSystem.GridTileToLocal(gridUid, mapGrid, targetIndex);

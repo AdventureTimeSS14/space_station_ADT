@@ -9,3 +9,6 @@ ent-WeaponEnergyTurretSecurity = { ent-WeaponEnergyTurretStationBase }
 ent-WeaponEnergyTurretCommand = { ent-WeaponEnergyTurretStationBase }
     .suffix = Командование
     .desc = { ent-WeaponEnergyTurretStationBase.desc }
+ent-ADTWeaponEnergyTurretCentralCommand = { ent-WeaponEnergyTurretStationBase }
+    .suffix = Центральное командование
+    .desc = { ent-WeaponEnergyTurretStationBase.desc }

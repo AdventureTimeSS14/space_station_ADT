@@ -8,7 +8,7 @@
   color: "#fcfcf2"
   recognizable: true
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:AdjustReagent
         reagent: Sugar

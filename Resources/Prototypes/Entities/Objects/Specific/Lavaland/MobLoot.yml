@@ -11,9 +11,13 @@
     damageContainers:
     - Biological
     damage:
-      groups: # these are all split across multiple types
-        Brute: -100
-        Burn: -100
+      types: # these are all split across multiple types
+        Blunt: -33
+        Slash: -33
+        Piercing: -33
+        Heat: -33
+        Cold: -33
+        Shock: -33
     delay: 0.1
     selfHealPenaltyMultiplier: 0
     healingBeginSound:

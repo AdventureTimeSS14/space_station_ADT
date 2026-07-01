@@ -223,6 +223,50 @@
         },
         {
             "name": "plushie_dell"
+        },
+        {
+            "name": "plushie_tajaran"
+        },
+        {
+            "name": "tajaran-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "tajaran-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "plushie_rykoslave"
+        },
+        {
+            "name": "rykoslave-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "rykoslave-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "rykoslave-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "plushie_kramol"
+        },
+        {
+            "name": "plushie_krosh"
+        },
+        {
+            "name": "plushie_til"
+        },
+        {
+            "name": "plushie_dreamer"
+        },
+        {
+            "name": "plushie_milky_way"
+        },
+        {
+            "name": "plushie_supernova"
         }
     ]
 }
