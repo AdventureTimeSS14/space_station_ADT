@@ -45,7 +45,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
+      125: Critical # ADT-Tweak
       300: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
     stateAlertDict:
       Alive: BorgHealth
@@ -169,7 +169,7 @@
       collection: FootstepBorg
       params:
         variation: 0.07
-        volume: -5
+        volume: -9
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
@@ -198,6 +198,7 @@
     # ADT-Tweak-End
   - type: LockedWiresPanel
   - type: Damageable
+    damageModifierSet: ADTBorgChassis # ADT-Tweak
   - type: Injurable
     damageContainer: Silicon
   - type: Destructible
@@ -375,6 +376,10 @@
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+  # ADT-Tweak start
+  - type: BorgFlashStun
+    stunDuration: 4
+  # ADT-Tweak end
 
 - type: entity
   id: BaseBorgChassisSyndicate
@@ -414,6 +419,10 @@
     color: "#dd200b"
   - type: BypassLock
     bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
+  # ADT-Tweak start
+  - type: BorgFlashStun
+    stunDuration: 1
+  # ADT-Tweak end
 
 - type: entity
   id: BaseBorgChassisDerelict
