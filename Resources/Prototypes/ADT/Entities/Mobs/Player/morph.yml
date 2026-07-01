@@ -108,7 +108,6 @@
     useSound:
       path: /Audio/Machines/airlock_creaking.ogg
   - type: Body
-    prototype: Animal
   - type: Puller
     needsHands: false
   - type: DamageStateVisuals

@@ -25,6 +25,31 @@ public sealed partial class BlockingComponent : Component
     [DataField, AutoNetworkedField]
     public bool IsBlocking;
 
+    //ADT-Tweak-Start
+
+    /// <summary>
+    /// Is the shield working on a charge or not? If so, it will discharge from the damage received.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool IsCharging;
+
+    /// <summary>
+    /// Is the shield have a button to switch IsBlocking?
+    /// </summary>
+
+    [DataField, AutoNetworkedField]
+    public bool IsHasBlockingToggle = true;
+
+    /// <summary>
+    /// Is the shield collapsible?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool IsToggle;
+
+    [DataField, AutoNetworkedField]
+    public float EnergyCostPerHit = 10f;
+    //ADT-Tweak-End
+
     /// <summary>
     /// The ID for the fixture that's dynamically created when blocking
     /// </summary>

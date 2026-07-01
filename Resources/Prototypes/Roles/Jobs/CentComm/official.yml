@@ -1,25 +1,26 @@
 - type: job
   id: CentralCommandOfficial
-  name: job-name-centcomoff
-  description: job-description-centcomoff
+  name: job-name-centcommoff
+  description: job-description-centcommoff
   playTimeTracker: JobCentralCommandOfficial
   setPreference: false
-  startingGear: CentcomGear
+  startingGear: CentcommGear
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom # Corvax-JobSupervisors
   canBeAntag: false
   accessGroups:
   - AllAccess
-  access:
-  - CentralCommand
   # Start ADT Tweak
+  - CentralCommand
+  # access:
+  # - CentralCommand
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   # End ADT Tweak
 
 - type: startingGear
-  id: CentcomGear
+  id: CentcommGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomOfficial
     shoes: ClothingShoesBootsCombatFilled

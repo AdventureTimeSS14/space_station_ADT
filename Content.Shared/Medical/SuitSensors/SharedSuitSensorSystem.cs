@@ -3,6 +3,7 @@ using Content.Shared.Access.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Clothing;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DoAfter;
 using Content.Shared.Emp;
@@ -40,6 +41,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
     private EntityQuery<SuitSensorComponent> _sensorQuery;
     public override void Initialize()
@@ -405,7 +407,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         // check if sensor is not on a mob but has a user, ensure no OnMob sensor exists for the same user
         if (!sensor.OnMob && sensor.User != null)
         {
-            var query = EntityManager.EntityQuery<SuitSensorComponent>();
+            var query = EntityQuery<SuitSensorComponent>();
             foreach (var other in query)
             {
                 if (other.User == sensor.User && other.OnMob)
@@ -444,7 +446,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         // get mob total damage
         var totalDamage = 0;
         if (TryComp<DamageableComponent>(sensor.User.Value, out var damageable))
-            totalDamage = damageable.TotalDamage.Int();
+            totalDamage = _damageableSystem.GetTotalDamage((sensor.User.Value, damageable)).Int();
 
         // Get mob total damage crit threshold
         int? totalDamageThreshold = null;

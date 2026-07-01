@@ -42053,25 +42053,27 @@ entities:
     - type: Transform
       pos: -50.5,38.5
       parent: 2
-    - type: StorageFill
-      contents:
-      - prob: 0.01
-        id: WeaponPistolMk58
-      - amount: 2
-        id: MopItem
-      - amount: 2
-        id: BoxMousetrap
-      - amount: 3
-        id: WetFloorSign
-      - amount: 2
-        id: TrashBag
-      - id: LightReplacer
-      - id: BoxLightMixed
-      - id: Holoprojector
-      - amount: 2
-        id: SoapNT
-      - amount: 2
-        id: FlashlightLantern
+    - type: EntityTableContainerFill
+      containers:
+        entity_storage: !type:AllSelector
+          children:
+          - prob: 0.01
+            id: WeaponPistolMk58
+          - amount: 2
+            id: MopItem
+          - amount: 2
+            id: BoxMousetrap
+          - amount: 3
+            id: WetFloorSign
+          - amount: 2
+            id: TrashBag
+          - id: LightReplacer
+          - id: BoxLightMixed
+          - id: Holoprojector
+          - amount: 2
+            id: SoapNT
+          - amount: 2
+            id: FlashlightLantern
     - type: EntityStorage
       air:
         volume: 200

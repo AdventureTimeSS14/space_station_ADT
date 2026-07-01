@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTBaseVehicle
   save: false
   abstract: true
@@ -17,8 +17,9 @@
     fuelCost: 20
     doAfterDelay: 20
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
