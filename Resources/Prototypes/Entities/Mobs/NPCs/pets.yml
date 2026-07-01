@@ -1,4 +1,4 @@
-# Bounds Guide
+﻿# Bounds Guide
 #1D2L3U4R
 
 - type: entity
@@ -872,12 +872,14 @@
       amount: 1
   - type: Damageable
     damageModifierSet: SlimePet
+  - type: Injurable
   - type: Bloodstream
     bloodlossHealDamage:
       types:
         Bloodloss:
           -0.8
   - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 800
     coldDamageThreshold: 0
   - type: MeleeWeapon
@@ -1000,4 +1002,3 @@
       gender: male
   - type: Loadout
     prototypes: [ MobPollyGear ]
-

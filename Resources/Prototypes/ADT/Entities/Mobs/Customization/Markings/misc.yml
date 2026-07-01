@@ -2,7 +2,6 @@
 - type: marking
   id: AugmentsAugArmRight
   bodyPart: RArm
-  markingCategory: Arms
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
@@ -11,7 +10,6 @@
 - type: marking
   id: AugmentsAugHandRigh
   bodyPart: RHand
-  markingCategory: Arms
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
@@ -20,7 +18,6 @@
 - type: marking
   id: AugmentsAugArmLeft
   bodyPart: LArm
-  markingCategory: Arms
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
@@ -29,7 +26,6 @@
 - type: marking
   id: AugmentsAugHandLeft
   bodyPart: LHand
-  markingCategory: Arms
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
@@ -38,7 +34,6 @@
 - type: marking
   id: AugmentsAugTorso
   bodyPart: Chest
-  markingCategory: Chest
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
@@ -47,7 +42,6 @@
 - type: marking
   id: AugmentsAugLegRight
   bodyPart: RLeg
-  markingCategory: Legs
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
@@ -56,7 +50,6 @@
 - type: marking
   id: AugmentsAugFootRight
   bodyPart: RFoot
-  markingCategory: Legs
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
@@ -65,7 +58,6 @@
 - type: marking
   id: AugmentsAugLegLeft
   bodyPart: LLeg
-  markingCategory: Legs
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
@@ -74,7 +66,6 @@
 - type: marking
   id: AugmentsAugFootLeft
   bodyPart: LFoot
-  markingCategory: Legs
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
@@ -84,7 +75,6 @@
 - type: marking
   id: AugmentsRoboticArmRight
   bodyPart: RArm
-  markingCategory: Arms
   sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
@@ -93,7 +83,6 @@
 - type: marking
   id: AugmentsRoboticHandRigh
   bodyPart: RHand
-  markingCategory: Arms
   sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
@@ -102,7 +91,6 @@
 - type: marking
   id: AugmentsRoboticArmLeft
   bodyPart: LArm
-  markingCategory: Arms
   sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
@@ -111,7 +99,6 @@
 - type: marking
   id: AugmentsRoboticHandLeft
   bodyPart: LHand
-  markingCategory: Arms
   sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
@@ -120,7 +107,6 @@
 - type: marking
   id: AugmentsRoboticTorso
   bodyPart: Chest
-  markingCategory: Chest
   sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
@@ -129,7 +115,6 @@
 - type: marking
   id: AugmentsRoboticLegRight
   bodyPart: RLeg
-  markingCategory: Legs
   sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
@@ -138,7 +123,6 @@
 - type: marking
   id: AugmentsRoboticFootRight
   bodyPart: RFoot
-  markingCategory: Legs
   sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
@@ -147,7 +131,6 @@
 - type: marking
   id: AugmentsRoboticLegLeft
   bodyPart: LLeg
-  markingCategory: Legs
   sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
@@ -156,7 +139,6 @@
 - type: marking
   id: AugmentsRoboticFootLeft
   bodyPart: LFoot
-  markingCategory: Legs
   sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
@@ -166,7 +148,6 @@
 - type: marking
   id: Malstrem
   bodyPart: Eyes
-  markingCategory: Head
   sponsorOnly: true
   coloring:
     default:
@@ -180,7 +161,6 @@
 - type: marking
   id: Beholder
   bodyPart: Eyes
-  markingCategory: Head
   coloring:
     default:
       type:
@@ -193,7 +173,6 @@
 - type: marking
   id: Terminator
   bodyPart: Eyes
-  markingCategory: Head
   sponsorOnly: true
   coloring:
     default:
@@ -207,7 +186,6 @@
 - type: marking
   id: Iron_jaw
   bodyPart: Eyes
-  markingCategory: Head
   coloring:
     default:
       type:
@@ -222,8 +200,7 @@
 - type: marking
   id: ADTVitiligoHeadL
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  groupWhitelist: [Human]
   forcedColoring: true
   coloring:
     default:
@@ -237,8 +214,7 @@
 - type: marking
   id: ADTVitiligoHeadR
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  groupWhitelist: [Human]
   forcedColoring: true
   coloring:
     default:
@@ -252,8 +228,7 @@
 - type: marking
   id: ADTVitiligoHeadJaw
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  groupWhitelist: [Human]
   forcedColoring: true
   coloring:
     default:
@@ -267,8 +242,7 @@
 - type: marking
   id: ADTVitiligoChestF
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  groupWhitelist: [Human]
   forcedColoring: true
   coloring:
     default:
@@ -282,8 +256,7 @@
 - type: marking
   id: ADTVitiligoChestSpots
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  groupWhitelist: [Human]
   forcedColoring: true
   coloring:
     default:
@@ -297,8 +270,7 @@
 - type: marking
   id: ADTVitiligoArmR
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  groupWhitelist: [Human]
   forcedColoring: true
   coloring:
     default:
@@ -312,8 +284,7 @@
 - type: marking
   id: ADTVitiligoArmL
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  groupWhitelist: [Human]
   forcedColoring: true
   coloring:
     default:
@@ -327,8 +298,7 @@
 - type: marking
   id: ADTVitiligoHandR
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  groupWhitelist: [Human]
   forcedColoring: true
   coloring:
     default:
@@ -342,8 +312,7 @@
 - type: marking
   id: ADTVitiligoHandL
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  groupWhitelist: [Human]
   forcedColoring: true
   coloring:
     default:
@@ -357,8 +326,7 @@
 - type: marking
   id: ADTVitiligoLegR
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  groupWhitelist: [Human]
   forcedColoring: true
   coloring:
     default:
@@ -372,8 +340,7 @@
 - type: marking
   id: ADTVitiligoLegL
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  groupWhitelist: [Human]
   forcedColoring: true
   coloring:
     default:
@@ -389,8 +356,7 @@
 - type: marking
   id: HumanPiercingEarL
   bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [Human, Felinid]
+  groupWhitelist: [Human]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_ear_l
@@ -398,8 +364,7 @@
 - type: marking
   id: HumanPiercingEarR
   bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [Human, Felinid]
+  groupWhitelist: [Human]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_ear_r
@@ -407,8 +372,7 @@
 - type: marking
   id: HumanPiercingNavel
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Human, Felinid, DemonSpecies]
+  groupWhitelist: [Human, Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_navel
@@ -416,8 +380,7 @@
 - type: marking
   id: HumanPiercingNippleL
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Human, Felinid, DemonSpecies]
+  groupWhitelist: [Human, Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_nipple_l
@@ -425,8 +388,7 @@
 - type: marking
   id: HumanPiercingNippleR
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Human, Felinid, DemonSpecies]
+  groupWhitelist: [Human, Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_nipple_r
@@ -434,8 +396,7 @@
 - type: marking
   id: HumanPiercingNipple
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Human, Felinid, DemonSpecies]
+  groupWhitelist: [Human, Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_nipple

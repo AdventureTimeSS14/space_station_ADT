@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   abstract: true
   parent: BaseItem
   id: MaterialBase
@@ -14,6 +14,7 @@
       - RawMaterial
       - NoPaint #ADT tweak
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:

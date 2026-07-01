@@ -24,7 +24,6 @@
     tags:
     - Chapel
   - type: MindContainer
-    showExamineInfo: true
   - type: NpcFactionMember
     factions:
     - PetsNT
@@ -63,7 +62,6 @@
     tags:
     - Chapel
   - type: MindContainer
-    showExamineInfo: true
   - type: NpcFactionMember
     factions:
     - PetsNT
@@ -103,7 +101,6 @@
     tags:
     - Chapel
   - type: MindContainer
-    showExamineInfo: true
   - type: NpcFactionMember
     factions:
     - PetsNT
@@ -148,7 +145,6 @@
     tags:
     - Chapel
   - type: MindContainer
-    showExamineInfo: true
   - type: NpcFactionMember
     factions:
     - PetsNT
@@ -187,7 +183,6 @@
     tags:
     - Chapel
   - type: MindContainer
-    showExamineInfo: true
   - type: NpcFactionMember
     factions:
     - PetsNT
@@ -227,7 +222,6 @@
     tags:
     - Chapel
   - type: MindContainer
-    showExamineInfo: true
   - type: NpcFactionMember
     factions:
     - PetsNT
@@ -266,7 +260,6 @@
     tags:
     - Chapel
   - type: MindContainer
-    showExamineInfo: true
   - type: NpcFactionMember
     factions:
     - PetsNT
@@ -308,7 +301,6 @@
     tags:
     - Chapel
   - type: MindContainer
-    showExamineInfo: true
   - type: NpcFactionMember
     factions:
     - PetsNT

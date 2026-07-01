@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: spear
   parent: [BaseItem, BaseMinorContraband]
   id: Spear
@@ -44,6 +44,7 @@
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+    range: 2.1 #ADT-Tweak
   - type: DamageOtherOnHit
     damage:
       types:
@@ -79,6 +80,7 @@
       types:
         Piercing: 4
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:

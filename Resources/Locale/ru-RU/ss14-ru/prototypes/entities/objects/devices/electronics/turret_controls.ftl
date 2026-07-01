@@ -9,3 +9,6 @@ ent-WeaponEnergyTurretAIControlPanelElectronics = { ent-WeaponEnergyTurretStatio
 ent-WeaponEnergyTurretCommandControlPanelElectronics = { ent-WeaponEnergyTurretStationControlPanelElectronicsBase }
     .suffix = Командование
     .desc = { ent-WeaponEnergyTurretStationControlPanelElectronicsBase.desc }
+ent-ADTWeaponEnergyTurretCentralCommandControlPanelElectronics = { ent-WeaponEnergyTurretStationControlPanelElectronicsBase }
+    .suffix = Центральное командование
+    .desc = { ent-WeaponEnergyTurretStationControlPanelElectronicsBase.desc }

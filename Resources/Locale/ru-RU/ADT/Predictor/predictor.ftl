@@ -2,7 +2,6 @@
 
 ent-ADTPredictorMachine = машина предсказаний
     .desc = Будьте осторожны в своих желаниях, ибо то, что вы услышите, может вам не понравиться!
-
 predictor-machine-no-power = Машина не имеет питания!
 predictor-machine-no-id = Вам нужна ID-карта с банковским счётом!
 predictor-machine-insufficient-funds = Недостаточно средств на счёте!

@@ -14,6 +14,21 @@
   - AlternativeResearch
 
 - type: technology
+  id: ADTAiRemoteBrain
+  name: research-technology-airemotebrain
+  icon:
+    sprite: ADT/Objects/Misc/module.rsi
+    state: boris
+  discipline: Experimental
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - ADTAiRemoteBrain
+  position: 2,-3
+  requiredTech:
+  - CrystalManipulation
+
+- type: technology
   id: ADTModsuitBase
   name: research-technology-basic-modsuit
   icon:

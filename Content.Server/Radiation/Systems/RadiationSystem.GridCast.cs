@@ -7,6 +7,7 @@ using Content.Shared.Singularity.Components; // ADT-Tweak
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Radiation.Systems;
 
@@ -21,8 +22,9 @@ public partial class RadiationSystem
         Vector2 WorldPosition)
     {
         public EntityUid? GridUid => Entity.Comp2.GridUid;
-        public float TerminalDecaySlope => Entity.Comp1.TerminalDecaySlope; // ADT-Tweak
+        public float Slope => Entity.Comp1.Slope;
         public float TerminalDecayDistance => Entity.Comp1.TerminalDecayDistance; // ADT-Tweak
+        public float TerminalDecaySlope => Entity.Comp1.TerminalDecaySlope; // ADT-Tweak
         public TransformComponent Transform => Entity.Comp2;
     }
 
@@ -138,21 +140,30 @@ public partial class RadiationSystem
 
         // get direction from rad source to destination and its distance
         var dir = destWorld - source.WorldPosition;
+        var dist = dir.Length();
 
         // ADT-Tweak start
-        var dist = Math.Max(dir.Length(), 0.5f);
-        if (TryComp(source.Entity.Owner, out EventHorizonComponent? horizon)) // if we have a horizon emit radiation from the horizon,
+        // EventHorizon: radiation originates from the event horizon boundary, not center
+        if (TryComp(source.Entity.Owner, out EventHorizonComponent? horizon))
+        {
             dist = Math.Max(dist - horizon.Radius, 0.5f);
-        // Ray enters terminal decay if the distance between source->receiver >TerminalDecayDistance.
-        // Decays at an additional linear rate of TerminalDecaySlope rads per tile past TerminalDecayDistance ontop of the existing hyperbolic function.
-        // Hyperbolic function
-        var rads = source.Intensity / (dist)
-        // Terminal decay function
-        - (dist - source.TerminalDecayDistance > 0 ? (source.TerminalDecaySlope * (dist - source.TerminalDecayDistance)) : 0);
-
-        if (rads < 0.01)
-            return null;
+        }
         // ADT-Tweak end
+
+        // check if receiver is too far away
+        if (dist > GridcastMaxDistance)
+            return null;
+
+        // will it even reach destination considering distance penalty
+        // ADT-Tweak start
+        var rads = dist > 0 ? source.Intensity / dist : source.Intensity;
+        if (dist > source.TerminalDecayDistance)
+        {
+            rads -= source.TerminalDecaySlope * (dist - source.TerminalDecayDistance);
+        }
+        // ADT-Tweak end
+        if (rads < MinIntensity)
+            return null;
 
         // create a new radiation ray from source to destination
         // at first we assume that it doesn't hit any radiation blockers
@@ -277,18 +288,17 @@ public partial class RadiationSystem
             return ray;
         var resistanceMap = resistance.ResistancePerTile;
 
-        // ADT-Tweak start
-
         // get coordinate of source and destination in grid coordinates
 
         // TODO Grid overlap. This currently assumes the grid is always parented directly to the map (local matrix == world matrix).
         // If ever grids are allowed to overlap, this might no longer be true. In that case, this should precompute and cache
         // inverse world matrices.
-        var srcLocal = sourceTrs.ParentUid == grid.Owner
+
+        Vector2 srcLocal = sourceTrs.ParentUid == grid.Owner
             ? sourceTrs.LocalPosition
             : Vector2.Transform(ray.Source, grid.Comp2.InvLocalMatrix);
 
-        var dstLocal = destTrs.ParentUid == grid.Owner
+        Vector2 dstLocal = destTrs.ParentUid == grid.Owner
             ? destTrs.LocalPosition
             : Vector2.Transform(ray.Destination, grid.Comp2.InvLocalMatrix);
 
@@ -300,29 +310,30 @@ public partial class RadiationSystem
             (int)Math.Floor(dstLocal.X / grid.Comp1.TileSize),
             (int)Math.Floor(dstLocal.Y / grid.Comp1.TileSize));
 
-        foreach (var (point,dist) in AdvancedGridRaycast(sourceGrid,destGrid))
+        // iterate tiles in grid line from source to destination
+        // ADT-Tweak start
+        // Use AdvancedGridRaycast for multiplicative resistance calculation
+        foreach (var (point, distInCell) in AdvancedGridRaycast(sourceGrid, destGrid))
         {
-            if (resistanceMap.TryGetValue(point, out var resData))
+            if (!resistanceMap.TryGetValue(point, out var resData))
+                continue;
+
+            var passRatioFromRadResistance = 1f / (resData > 1 ? (resData / 2) : 1);
+            var passthroughRatio = MathF.Pow(passRatioFromRadResistance, distInCell);
+            ray.Rads *= passthroughRatio;
+
+            // save data for debug
+            if (saveVisitedTiles)
+                blockers!.Add((point, ray.Rads));
+
+            // no intensity left after blocker
+            if (ray.Rads <= MinIntensity)
             {
-                var passRatioFromRadResistance = (1 / (resData > 1 ? (resData / 2) : 1));
-
-                var passthroughRatio = MathF.Pow(passRatioFromRadResistance, dist);
-                ray.Rads *= passthroughRatio;
-
-                // save data for debug
-                if (saveVisitedTiles)
-                    blockers!.Add((point, ray.Rads));
-
-                // no intensity left after blocker
-                if (ray.Rads <= MinIntensity)
-                {
-                    ray.Rads = 0;
-                    break;
-                }
+                ray.Rads = 0;
+                break;
             }
-        // ADT-Tweak end
         }
-
+        // ADT-Tweak end
 
         if (!saveVisitedTiles || blockers!.Count <= 0)
             return ray;

@@ -1,5 +1,4 @@
-using Robust.Shared.GameStates;
-using System.Threading;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.ADT.AutoPostingChat;
 
@@ -25,10 +24,10 @@ public sealed partial class AutoSpeakPostingChatComponent : Component
     public int IntervalRandomSpeakMin = 2;
 
     /// <summary>
-    /// Token source for managing the timer cancellation
+    /// The time at which the next emote will be sent.
     /// </summary>
-    public CancellationTokenSource? TokenSource;
-
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan NextFire = TimeSpan.Zero;
 }
 
 /*

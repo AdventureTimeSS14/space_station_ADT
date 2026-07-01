@@ -49,7 +49,7 @@ public sealed partial class SupermatterSystem
             if (HasComp<SupermatterHallucinationImmuneComponent>(mob) ||
                 HasComp<SiliconLawBoundComponent>(mob) ||
                 HasComp<PermanentBlindnessComponent>(mob) ||
-                HasComp<TemporaryBlindnessComponent>(mob))
+                HasComp<BlindnessStatusEffectComponent>(mob))
                 continue;
 
             var paracusiaSounds = new SoundCollectionSpecifier("Paracusia");

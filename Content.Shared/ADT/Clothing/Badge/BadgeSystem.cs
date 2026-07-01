@@ -7,8 +7,8 @@ namespace Content.Shared.ADT.Clothing.Badge;
 
 public sealed class BadgeSystem : EntitySystem
 {
-    [Dependency] protected readonly ExamineSystemShared ExamineSystem = default!;
-    [Dependency] protected readonly IRobustRandom Random = default!;
+    [Dependency] private readonly ExamineSystemShared ExamineSystem = default!;
+    [Dependency] private readonly IRobustRandom Random = default!;
     [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()

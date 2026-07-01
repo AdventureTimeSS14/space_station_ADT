@@ -71,6 +71,8 @@
     - id: ADTSecShuttleConsoleCircuitboard
     - id: BoxTapeRecorder
     # ADT-Tweak-End
+    - id: PlushieLizardJobWarden
+      prob: 0.02
 
 - type: entityTable
   id: FillLockerWardenHarduit
@@ -117,6 +119,10 @@
       prob: 0.5
     - id: ClothingOuterCoatSecurityOvercoat # Corvax-SecFashion
       prob: 0.2
+    - id: PlushieLizardJobSecuritycadet
+      prob: 0.02
+    - id: PlushieLizardJobSecurityofficer
+      prob: 0.02
 
 # moved to ADT
 # - type: entity
@@ -223,6 +229,10 @@
     - id: HoloprojectorSecurity
     - id: BoxEvidenceMarkers
     - id: HandLabeler
+    - id: PlushieLizardJobDetective
+      prob: 0.02
+    - id: ADTJukeBoxPlayerVintage #ADT-Tweak
+    - id: ADTMusicDiskMix #ADT-Tweak
 
 - type: entity
   id: ClosetBombFilled

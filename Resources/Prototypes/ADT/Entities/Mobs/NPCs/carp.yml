@@ -19,8 +19,6 @@
         settings: short
     - type: GhostTakeoverAvailable
     - type: Body
-      prototype: Bloodsucker
-      requiredLegs: 1
     - type: NpcFactionMember
       factions:
         - Syndicate
