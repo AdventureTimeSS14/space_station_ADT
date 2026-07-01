@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Created by ADT team",
+  "license": "CC0-1.0",
+  "copyright": "Created by EmoGarbage404 (github) for Space Staiton 14 and modified by alzore_(Discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -19,14 +19,11 @@
       "directions": 4
     },
     {
-      "name": "ready"
-    },
-    {
       "name": "screen"
     },
     {
-        "name": "equipped-SUITSTORAGE",
-        "directions": 4
+      "name": "equipped-SUITSTORAGE",
+      "directions": 4
     }
   ]
 }
