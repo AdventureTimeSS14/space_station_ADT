@@ -225,7 +225,8 @@ public abstract partial class SharedStackSystem : EntitySystem
             Text = Loc.GetString("comp-stack-split-custom"),
             Category = VerbCategory.Split,
             Act = () => RequestCustomSplit(ent, user),
-            Priority = int.MinValue
+            Priority = int.MinValue,
+            CloseMenu = true
         };
         args.Verbs.Add(custom);
         // ADT-Tweak end

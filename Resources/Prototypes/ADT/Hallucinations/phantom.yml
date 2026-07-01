@@ -1,7 +1,0 @@
-- type: hallucinationsPack
-  id: Phantom
-  entities:
-  - ADTPhantomHallucinationPhantom
-  - ADTPhantomHallucinationMedical
-  - ADTPhantomHallucinationHellspawn
-  - ADTPhantomHallucinationPoltergeist

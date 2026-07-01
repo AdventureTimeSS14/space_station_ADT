@@ -56,8 +56,8 @@ public sealed partial class LingRegenerateActionEvent : BaseInstantChangelingAct
             {"Piercing", -70},
             {"Slash", -70},
             {"Heat", -50},
-            {"Cold", -30},
-            {"Burn", -30}
+            {"Shock", -30},
+            {"Cold", -30}
         },
     };
 
@@ -131,8 +131,8 @@ public sealed partial class FleshmendActionEvent : BaseInstantChangelingActionEv
             {"Piercing", -30},
             {"Slash", -30},
             {"Heat", -30},
-            {"Cold", -30},
-            {"Burn", -30}
+            {"Shock", -30},
+            {"Cold", -30}
         },
     };
 

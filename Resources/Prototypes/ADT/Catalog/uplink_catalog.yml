@@ -157,17 +157,6 @@
       - NukeOpsUplink
 
 - type: listing
-  id: ADTUplinkMagazineShotgun
-  name: uplink-Shotgun-magazine-name
-  description: uplink-Shotgun-magazine-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: base }
-  productEntity: MagazineShotgun
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkAmmo
-
-- type: listing
   id: ADTUplinkMagazineCaselessRifle
   name: uplink-Caseless-box-rifle-name
   description: uplink-Caseless-box-rifle-desc
@@ -984,3 +973,14 @@
     Telecrystal: 3 # ADT-Tweak
   categories:
   - UplinkDisruption
+
+- type: listing
+  id: UplinkBoxMusicDisks
+  name: uplink-box-music-disks-name
+  description: uplink-box-music-disks-desc
+  productEntity: ADTBoxMusicDisksSyndicate
+  categories:
+    - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

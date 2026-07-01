@@ -6,7 +6,7 @@
   abstract: true
   components:
     - type: Sprite
-      sprite: Objects/Specific/Medical/defib.rsi
+      sprite: ADT/Objects/Specific/Medical/defib.rsi #ADT-Tweak
       layers:
         - state: icon
         - state: screen
@@ -49,11 +49,16 @@
   - type: Tag
     tags:
     - Defibrillator
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Objects/Specific/Medical/defib.rsi
+    slots:
+    - suitStorage
   # ADT-Tweak-End
   - type: MultiHandedItem
   - type: ToggleCellDraw
   - type: PowerCellDraw
-    useRate: 100
+    useCharge: 100
 
 - type: entity
   id: DefibrillatorEmpty
@@ -96,12 +101,7 @@
     size: Normal
   - type: ToggleCellDraw
   - type: PowerCellDraw
-    useRate: 100
-  # ADT-Tweak-Start
-  - type: Tag
-    tags:
-    - Defibrillator
-  # ADT-Tweak-End 
+    useCharge: 100
   - type: Defibrillator
     zapHeal:
       types:
@@ -109,6 +109,11 @@
     doAfterDuration: 6
   - type: DoAfter
   - type: UseDelay
+   # ADT-Tweak-Start
+  - type: Tag
+    tags:
+    - Defibrillator
+  # ADT-Tweak-End
 
 - type: entity
   id: DefibrillatorSyndicate

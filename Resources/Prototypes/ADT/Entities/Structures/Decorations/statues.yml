@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTStatueCryingAngel
   parent: BaseStructureDynamic
   name: crying angel
@@ -25,8 +25,9 @@
         - LowImpassable
   - type: Rotatable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -114,8 +115,9 @@
         - MidImpassable
         - LowImpassable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -153,8 +155,9 @@
         - MidImpassable
         - LowImpassable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -192,8 +195,9 @@
         - MidImpassable
         - LowImpassable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -231,8 +235,9 @@
         - MidImpassable
         - LowImpassable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -272,8 +277,9 @@
         - MidImpassable
         - LowImpassable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -311,8 +317,9 @@
         - MidImpassable
         - LowImpassable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -350,8 +357,9 @@
         - MidImpassable
         - LowImpassable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -389,8 +397,9 @@
         - MidImpassable
         - LowImpassable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:

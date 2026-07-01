@@ -9,10 +9,10 @@ namespace Content.Shared.ADT.Silicon.Components;
 /// <summary>
 ///     Component for defining a mob as a robot.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SiliconComponent : Component
 {
-    [ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public short ChargeState = 10;
 
     [ViewVariables(VVAccess.ReadOnly)]

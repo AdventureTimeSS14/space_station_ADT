@@ -2,10 +2,10 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Weather;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Weather;
@@ -18,7 +18,6 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedWeatherSystem _weather = default!;
 
@@ -36,31 +35,31 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
         base.Update(frameTime);
 
         var now = _timing.CurTime;
-        var query = EntityQueryEnumerator<WeatherComponent>();
-        while (query.MoveNext(out var map, out var weather))
+
+        var query = EntityQueryEnumerator<WeatherStatusEffectComponent, StatusEffectComponent>();
+        while (query.MoveNext(out var uid, out var weatherComp, out var statusComp))
         {
-            if (now < weather.NextUpdate)
+            if (now < weatherComp.NextUpdate)
                 continue;
 
-            weather.NextUpdate = now + weather.UpdateDelay;
+            weatherComp.NextUpdate = now + weatherComp.UpdateDelay;
+            Dirty(uid, weatherComp);
 
-            foreach (var (id, data) in weather.Weather)
-            {
-                // start and end do no damage
-                if (data.State != WeatherState.Running)
-                    continue;
+            if (weatherComp.Damage is not { } damage)
+                continue;
 
-                UpdateDamage(map, id);
-            }
+            // start and end do no damage
+            var percent = _weather.GetWeatherPercent((uid, statusComp));
+            if (percent < 1f)
+                continue;
+
+            var mapEnt = statusComp.AppliedTo ?? uid;
+            UpdateDamage(mapEnt, damage, weatherComp.DamageBlacklist);
         }
     }
 
-    private void UpdateDamage(EntityUid map, ProtoId<WeatherPrototype> id)
+    private void UpdateDamage(EntityUid map, DamageSpecifier damage, EntityWhitelist? damageBlacklist)
     {
-        var weather = _proto.Index(id);
-        if (weather.Damage is not {} damage)
-            return;
-
         var query = EntityQueryEnumerator<MobStateComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var mob, out var xform))
         {
@@ -69,15 +68,17 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
                 continue;
 
             // if not in space, check for being indoors
-            if (xform.GridUid is {} gridUid && _gridQuery.TryComp(gridUid, out var grid))
+            if (xform.GridUid is { } gridUid && _gridQuery.TryComp(gridUid, out var grid))
             {
                 var tile = _map.GetTileRef((gridUid, grid), xform.Coordinates);
-                if (!_weather.CanWeatherAffect(gridUid, grid, tile))
+                if (!_weather.CanWeatherAffect((gridUid, (MapGridComponent?)grid, null), tile))
                     continue;
             }
 
-            if (_whitelist.IsBlacklistFailOrNull(weather.DamageBlacklist, uid))
-                _damageable.TryChangeDamage(uid, damage, interruptsDoAfters: false);
+            if (!_whitelist.IsWhitelistFailOrNull(damageBlacklist, uid))
+                continue;
+
+            _damageable.TryChangeDamage(uid, damage, interruptsDoAfters: false);
         }
     }
 }

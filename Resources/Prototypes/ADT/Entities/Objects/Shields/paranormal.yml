@@ -47,5 +47,3 @@
               SheetGlass:
                 min: 2
                 max: 2
-  - type: GrantPhantomProtection
-    workInHand: true

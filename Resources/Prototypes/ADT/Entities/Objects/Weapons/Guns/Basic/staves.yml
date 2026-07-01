@@ -18,6 +18,8 @@
     count: 10
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 90
+  - type: PacifismAllowedGun
+  - type: GunExecutionBlacklist
 
 - type: entity
   name: staff of healing
@@ -41,3 +43,5 @@
     rechargeCooldown: 7
   - type: TimedDespawn
     lifetime: 10
+  - type: PacifismAllowedGun
+  - type: GunExecutionBlacklist

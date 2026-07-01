@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: стойка свидетеля
   id: ADTWitnessStand
   parent: UnanchoredChairBase
@@ -29,6 +29,7 @@
     buckleOffset: "0,0"
   - type: Damageable
     damageModifierSet: Wood
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:

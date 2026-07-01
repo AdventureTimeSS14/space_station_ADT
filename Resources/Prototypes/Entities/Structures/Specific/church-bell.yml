@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ChurchBell
   name: church bell
   description: You feel your soul grow ever closer to the realms beyond for every chime this bell tolls...
@@ -27,6 +27,7 @@
   - type: Fixtures
   - type: InteractionOutline
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:

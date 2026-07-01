@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Atmos.Prototypes;
-using Content.Shared.Body.Part;
+using Content.Shared.Body;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -109,7 +109,7 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
             if (!entProto.TryGetComponent<ExtractableComponent>(out var extractableComponent, EntityManager.ComponentFactory))
                 continue;
 
-            if (entProto.HasComponent<BodyPartComponent>() || entProto.HasComponent<PillComponent>()) // ADT-Tweak
+            if (entProto.HasComponent<OrganComponent>() || entProto.HasComponent<PillComponent>()) // ADT-Tweak
                 continue;
 
             if (extractableComponent.JuiceSolution is { } juiceSolution)
@@ -134,7 +134,7 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
             }
 
 
-            if (extractableComponent.GrindableSolution is { } grindableSolutionId &&
+            if (extractableComponent.GrindableSolutionName is { } grindableSolutionId &&
                 entProto.TryGetComponent<SolutionContainerManagerComponent>(out var manager, EntityManager.ComponentFactory) &&
                 _solutionContainer.TryGetSolution(manager, grindableSolutionId, out var grindableSolution))
             {
@@ -251,4 +251,3 @@ public sealed class ReagentGasSourceData : ReagentSourceData
         GasPrototype = gasPrototype;
     }
 }
-

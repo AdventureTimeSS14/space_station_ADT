@@ -16,11 +16,11 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTProjectileIonRifle
     fireCost: 125
-  - type: RunAndGunSpreadModifier
-    modifier: 0.1
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.1
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -71,7 +71,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
   - type: StaticPrice
@@ -118,7 +118,7 @@
       fireRate: 1.5
       soundGunshot:
         path: /Audio/ADT/Weapons/Guns/Gunshots/gunshot_tsd.ogg
-    - type: ProjectileBatteryAmmoProvider
+    - type: BatteryAmmoProvider
       proto: ADTADTBulletMagnumHighVelocityTranquilizer
       fireCost: 150
     - type: MagazineVisuals
@@ -157,7 +157,7 @@
       fireRate: 0.6
       soundGunshot:
         path: /Audio/Weapons/plasma_cutter.ogg
-    - type: ProjectileBatteryAmmoProvider
+    - type: BatteryAmmoProvider
       proto: ADTBulletCutter
       fireCost: 100
     - type: Battery
@@ -178,7 +178,7 @@
       fireRate: 1
       soundGunshot:
         path: /Audio/Weapons/plasma_cutter.ogg
-    - type: ProjectileBatteryAmmoProvider
+    - type: BatteryAmmoProvider
       proto: ADTBulletCutterAdv
       fireCost: 75
     - type: Appearance
@@ -214,8 +214,8 @@
     soundHit:
       collection: GenericHit
   - type: AltFireMelee
-  - type: RunAndGunSpreadModifier
-    modifier: 0.1
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.1
   - type: Gun
     fireRate: 3
     projectileSpeed: 60
@@ -225,7 +225,7 @@
     - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBulletDisabler
     fireCost: 30
   - type: BatteryWeaponFireModes
@@ -268,7 +268,7 @@
       path: /Audio/ADT/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
       params:
         volume: -5
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBulletMic
     fireCost: 900
   - type: BatterySelfRecharger
@@ -293,7 +293,7 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBulletEnergyCrossbow
     fireCost: 900
   - type: Item
@@ -358,11 +358,11 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTProjectileIonRifle
     fireCost: 150
-  - type: RunAndGunSpreadModifier
-    modifier: 0.1
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.1
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -419,7 +419,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
       params:
         pitch: 2
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedLaserBlaster
     fireCost: 125
   - type: StaticPrice
@@ -501,7 +501,7 @@
     fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBulletYellowLaser
     fireCost: 125
   - type: BatteryWeaponFireModes
@@ -528,3 +528,61 @@
   - type: Battery
     maxCharge: 1625
     startingCharge: 1625
+
+- type: entity
+  name: X-02 multiphas laser pistol
+  parent: BaseWeaponBatterySmall
+  id: ADTWeaponPistolNTX02
+  description: A multiphase energy gun. This version was developed specifically for Blue Shield officers. This weapon has two fire modes, but there is no way to recharge itself over time.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Battery/x02.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      visible: false
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Battery/x02.rsi
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  - type: RunAndGunSpreadModifier
+    modifier: 0.1
+  - type: Gun
+    fireRate: 3
+    projectileSpeed: 45
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+  - type: BatteryAmmoProvider
+    proto: ADTBulletLaser
+    fireCost: 75
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: ADTBulletLaser
+      fireCost: 75
+    - proto: ADTBulletDisabler
+      fireCost: 75
+  - type: Battery
+    maxCharge: 900
+    startingCharge: 900
+  - type: StaticPrice
+    price: 5500
+  - type: Item
+    size: Small
