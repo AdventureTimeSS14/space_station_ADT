@@ -2,7 +2,7 @@
   id: ADTUplinkMindSlaveImplanter
   name: uplink-mindslave-implanter-name
   description: uplink-mindslave-implanter-desc
-  icon: { sprite: Objects/Specific/Medical/syndi_implanter.rsi, state: implanter1 }
+  icon: { sprite: Mobs/Species/Human/organs.rsi, state: brain }
   productEntity: MindSlaveImplanter
   cost:
     Telecrystal: 12
