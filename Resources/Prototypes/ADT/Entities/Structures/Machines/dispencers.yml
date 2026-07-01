@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: EnergyChemDispenser
   parent: SmallConstructibleMachine
   name: energy chemical dispenser
@@ -21,6 +21,7 @@
   - type: Battery
     maxCharge: 1500
     startingCharge: 0
+    netsync: false
   - type: ApcPowerReceiverBattery
     idleLoad: 65
     batteryRechargeRate: 30
@@ -31,8 +32,9 @@
   - type: Anchorable
   - type: Pullable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Fixtures
     fixtures:
       fix1:
@@ -133,6 +135,7 @@
   - type: Battery
     maxCharge: 15000
     startingCharge: 15000
+    netsync: false
   - type: ApcPowerReceiverBattery
     idleLoad: 150
     batteryRechargeRate: 60

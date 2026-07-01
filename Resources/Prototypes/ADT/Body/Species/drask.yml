@@ -1,0 +1,119 @@
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceDrask
+  categories: [ HideSpawnMenu ]
+  name: drask appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganDraskTorso
+      Head: OrganDraskHead
+      ArmLeft: OrganDraskArmLeft
+      ArmRight: OrganDraskArmRight
+      HandRight: OrganDraskHandRight
+      HandLeft: OrganDraskHandLeft
+      LegLeft: OrganDraskLegLeft
+      LegRight: OrganDraskLegRight
+      FootLeft: OrganDraskFootLeft
+      FootRight: OrganDraskFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganDraskEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: OrganHumanHeart
+      Stomach: OrganHumanStomach
+      Liver: OrganHumanLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: DraskSpecies
+  - type: ScaleVisuals
+    scale: 1.07, 1.07
+  - type: Inventory
+    speciesId: drask
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganDrask
+  abstract: true
+  suffix: drask
+
+- type: entity
+  id: OrganDraskVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/Drask/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Drask
+
+- type: entity
+  parent: [ OrganDrask, OrganDraskVisual ]
+  id: OrganDraskExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Drask/parts.rsi
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganDraskExternal ]
+  id: OrganDraskTorso
+
+- type: entity
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganDraskExternal ]
+  id: OrganDraskHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.SnoutOverlay
+    - enum.HumanoidVisualLayers.SnoutCover
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganDraskExternal ]
+  id: OrganDraskArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganDraskExternal ]
+  id: OrganDraskArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganDraskExternal ]
+  id: OrganDraskHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganDraskExternal ]
+  id: OrganDraskHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganDraskExternal ]
+  id: OrganDraskLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganDraskExternal ]
+  id: OrganDraskLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganDraskExternal ]
+  id: OrganDraskFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganDraskExternal ]
+  id: OrganDraskFootRight
+
+# Drask have glowing (unshaded) eyes drawn from the dedicated "eyes" state in parts.rsi.
+- type: entity
+  parent: OrganHumanEyes
+  id: OrganDraskEyes
+  suffix: drask
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/Drask/parts.rsi
+      state: eyes
+      shader: unshaded

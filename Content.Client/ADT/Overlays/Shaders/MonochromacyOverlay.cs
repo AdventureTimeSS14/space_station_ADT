@@ -11,6 +11,8 @@ namespace Content.Client.ADT.Overlays
 {
     public sealed partial class MonochromacyOverlay : Overlay
     {
+        private static readonly ProtoId<ShaderPrototype> GreyscaleFullscreenShader = "GreyscaleFullscreen";
+
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] IEntityManager _entityManager = default!;
@@ -23,14 +25,14 @@ namespace Content.Client.ADT.Overlays
         public MonochromacyOverlay()
         {
             IoCManager.InjectDependencies(this);
-            _greyscaleShader = _prototypeManager.Index<ShaderPrototype>("GreyscaleFullscreen").InstanceUnique();
+            _greyscaleShader = _prototypeManager.Index(GreyscaleFullscreenShader).InstanceUnique();
         }
 
-        protected override void Draw(in OverlayDrawArgs args)
-        {
-            if (ScreenTexture == null) return;
-            if (_playerManager.LocalPlayer?.ControlledEntity is not { Valid: true } player) return;
-            if (!_entityManager.HasComponent<MonochromacyComponent>(player)) return;
+    protected override void Draw(in OverlayDrawArgs args)
+    {
+        if (ScreenTexture == null) return;
+        if (_playerManager.LocalSession?.AttachedEntity is not { Valid: true } player) return;
+        if (!_entityManager.HasComponent<MonochromacyComponent>(player)) return;
 
             _greyscaleShader?.SetParameter("SCREEN_TEXTURE", ScreenTexture);
 

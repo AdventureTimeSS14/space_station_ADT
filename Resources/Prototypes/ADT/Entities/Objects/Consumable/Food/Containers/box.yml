@@ -35,7 +35,9 @@
     stateDoorClosed: boxclosed
   - type: StaticPrice
     price: 0
-  - type: StorageFill
-    contents:
-    - id: KnifePlastic
-    - id: ADRFoodPizzaSindi
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: KnifePlastic
+        - id: ADTFoodPizzaSindi

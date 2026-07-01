@@ -9,7 +9,6 @@ namespace Content.Client.ADT.Modsuits.UI;
 [GenerateTypedNameReferences]
 public sealed partial class ModuleControl : Control
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
     public event Action? OnRemoveButtonPressed;
     public event Action? OnActivateButtonPressed;
     public event Action? OnDeactivateButtonPressed;

@@ -1,8 +1,7 @@
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCHeadDefault
   bodyPart: Head
-  markingCategory: Head
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_default.rsi
       state: head_prime
@@ -10,10 +9,9 @@
       state: head_second
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCChestDefault
   bodyPart: Chest
-  markingCategory: Chest
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_default.rsi
       state: chest_prime
@@ -23,10 +21,9 @@
       state: chest_third
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCLArmDefault
   bodyPart: LArm
-  markingCategory: Arms
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_default.rsi
       state: l_arm_prime
@@ -36,10 +33,9 @@
       state: l_arm_third
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCRArmDefault
   bodyPart: RArm
-  markingCategory: Arms
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_default.rsi
       state: r_arm_prime
@@ -49,10 +45,9 @@
       state: r_arm_third
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCLHandDefault
   bodyPart: LHand
-  markingCategory: Arms
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_default.rsi
       state: l_hand_prime
@@ -60,10 +55,9 @@
       state: l_hand_second
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCRHandDefault
   bodyPart: RHand
-  markingCategory: Arms
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_default.rsi
       state: r_hand_prime
@@ -71,10 +65,9 @@
       state: r_hand_second
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCLLegDefault
   bodyPart: LLeg
-  markingCategory: Legs
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_default.rsi
       state: l_leg_prime
@@ -84,10 +77,9 @@
       state: l_leg_third
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCRLegDefault
   bodyPart: RLeg
-  markingCategory: Legs
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_default.rsi
       state: r_leg_prime
@@ -97,10 +89,9 @@
       state: r_leg_third
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCLFootDefault
   bodyPart: LFoot
-  markingCategory: Legs
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_default.rsi
       state: l_foot_prime
@@ -108,10 +99,9 @@
       state: l_foot_second
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCRFootDefault
   bodyPart: RFoot
-  markingCategory: Legs
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_default.rsi
       state: r_foot_prime

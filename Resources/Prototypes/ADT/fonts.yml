@@ -37,3 +37,7 @@
 - type: font
   id: Airfool
   path: /Fonts/ADT/Airfool.ttf
+
+- type: font
+  id: SignatureFont
+  path: /Fonts/ADT/GoodVibesCyr.ttf

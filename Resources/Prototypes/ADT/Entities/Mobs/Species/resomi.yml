@@ -1,11 +1,13 @@
+﻿# Resomi mob (upstream PR#42476). Appearance/body/sprite/hands/inventory come from AppearanceResomi.
 - type: entity
   save: false
   name: Urist McRaptor
-  parent: BaseMobSpeciesOrganic
+  parent:
+  - AppearanceResomi
+  - BaseSpeciesMobOrganic
   id: BaseMobResomi
   abstract: true
   components:
-  # Tags
   - type: Tag
     tags:
     - ADTResomiEmotes
@@ -13,12 +15,6 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-  # Visuals
-  - type: Icon
-    sprite: ADT/Mobs/Species/Resomi/parts.rsi
-    state: full
-  - type: HumanoidAppearance
-    species: Resomi
   - type: DamageVisuals
     thresholds: [ 10, 30, 50, 70]
     targetLayers:
@@ -38,8 +34,6 @@
     sprite: ADT/Mobs/Effects/onfire.rsi
     normalState: resomi-minor-burning
     alternateState: resomi-burning
-
-  # Mob
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -51,15 +45,20 @@
     - id: FoodMeatChicken
       amount: 5
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Resomi
+  - type: Injurable
+    damageContainer: Biological
   - type: Bloodstream
-    bloodReagent: ResomiBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ResomiBlood
+        Quantity: 250
   - type: Temperature
-    heatDamageThreshold: 308 # 35°C 
-    coldDamageThreshold: 210 # -63°C
-    currentTemperature: 296.15 # 23°C 
+    currentTemperature: 296.15 # 23°C
     specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 308 # 35°C
+    coldDamageThreshold: 210 # -63°C
     coldDamage:
       types:
         Cold : 0.1 #per second, scales with temperature & other constants
@@ -70,15 +69,13 @@
     thresholds:
       220: 0.8 # При 220K (-53°C) скорость снижается до 80%
       210: 0.7 # При 210K (-63°C) скорость снижается до 70%
-      200: 0.6 # При 200K (-73°C) скорость снижается до 60% 
+      200: 0.6 # При 200K (-73°C) скорость снижается до 60%
   - type: ThermalRegulator
-    normalBodyTemperature: 296.15 # 23°C - целевая температура тела резоми 
+    normalBodyTemperature: 296.15 # 23°C - целевая температура тела резоми
     thermalRegulationTemperatureThreshold: 6  # Диапазон активации: 276K-306K (17°C до 29°C)
   - type: TemperatureProtection
     heatingCoefficient: 1.2  # На 20% быстрее нагреваются
     coolingCoefficient: 0.8  # На 20% медленнее охлаждаются
-
-  # Fixtures
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -92,8 +89,6 @@
         - MobMask
         layer:
         - MobLayer
-
-  # Melee
   - type: MeleeWeapon
     soundHit:
       collection: AlienClaw
@@ -104,8 +99,6 @@
         Slash: 5
   - type: Puller
     needsHands: false
-
-  # Resomi
   - type: WeaponsUseInability
   - type: AgillitySkill
   - type: ChatModifier
@@ -116,13 +109,6 @@
   - type: ResomiAccent
   - type: FlashModifier
     modifier: 2
-
-  # Body
-  - type: Body
-    prototype: Resomi
-    requiredLegs: 2
-  - type: Hunger
-  - type: Thirst
   - type: Vocal
     sounds:
       Male: MaleResomi
@@ -141,161 +127,3 @@
     tallscale: 1.1
     short: true
     shortscale: 0.9
-  - type: Hands
-    inHandItemScale: 0.85, 0.85
-    leftHandDisplacement:
-      sizeMaps:
-        32:
-          sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-          state: inHand
-    rightHandDisplacement:
-      sizeMaps:
-        32:
-          sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-          state: inHand
-  - type: Inventory
-    speciesId: resomi
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: jumpsuit
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: jumpsuit
-      eyes:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: eyes
-      gloves:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: hands
-      head:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: head
-      back:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: back
-      ears:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: ears
-      shoes:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: feet
-      neck:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: neck
-      mask:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: mask
-      suitstorage:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: suitStorage
-      belt:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: belt
-
-- type: entity
-  parent: BaseSpeciesDummy
-  id: MobResomiDummy
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: HumanoidAppearance
-    species: Resomi
-  - type: Hands
-    inHandItemScale: 0.85, 0.85
-    leftHandDisplacement:
-      sizeMaps:
-        32:
-          sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-          state: inHand
-    rightHandDisplacement:
-      sizeMaps:
-        32:
-          sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-          state: inHand
-  - type: Inventory
-    speciesId: resomi
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: jumpsuit
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: jumpsuit
-      eyes:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: eyes
-      gloves:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: hands
-      head:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: head
-      back:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: back
-      ears:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: ears
-      shoes:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: feet
-      neck:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: neck
-      mask:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: mask
-      suitstorage:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: suitStorage
-      belt:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
-            state: belt

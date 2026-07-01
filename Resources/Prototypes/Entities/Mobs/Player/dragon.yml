@@ -1,5 +1,5 @@
-- type: entity
-  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+﻿- type: entity
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, BaseSlicingRefinable ]
   id: BaseMobDragon
   suffix: ""
   name: space dragon
@@ -7,10 +7,10 @@
   abstract: true
   components:
   - type: Bloodstream
-    bloodlossThreshold: 0.8 # ADT-Tweak
-    bloodRefreshAmount: 2 # ADT-Tweak
-    bloodMaxVolume: 650
-    damageBleedModifiers: ADTBloodlossDragon # ADT-Tweak
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 650
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -44,7 +44,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5 # ADT-Tweak 3 -> 3.5
     baseSprintSpeed: 5.5 # ADT-Tweak 5 -> 5.5
-    weightlessModifier: 1.5
+    baseWeightlessModifier: 1.5
   - type: RandomSprite
     available:
     - enum.DamageStateVisualLayers.Base:
@@ -98,48 +98,25 @@
       250: 0.85 # ADT-Tweak (less slow 250: 0.7 ---> 250: 0.85)
       350: 0.7 # ADT-Tweak (add new threshold)
       430: 0.5 # ADT-Tweak (higher threshold 400: 0.5 ---> 430: 0.5)
-# ADT-Tweak-start
-# disable taking damage from fire, since its a fire breathing dragon. # also it can't be lit on fire
-  - type: ExplosionResistance
-    damageCoefficient: 0.2
+  # disable taking damage from fire, since its a fire breathing dragon
   - type: Flammable
-    fireSpread: false
-    canResistFire: true
-    alwaysCombustible: false
-    canExtinguish: true
-    resisting: false
     damage:
       types: {}
-  - type: Temperature
-    heatDamageThreshold: 800
-    coldDamageThreshold: -800
-  - type: FlashImmunity
-  - type: EyeProtection
-  - type: Damageable
-    damageModifierSet: ADTDragonDamageSet
-  - type: Stamina
-    critThreshold: 350
-# ADT-Tweak-end
   - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
     allowed:
-    - Stutter
-    - Weakness #ADT-Weakness-Tweak
-    # - Electrocution # ADT-Tweak - ъуъ
-    # - ForcedSleep # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE PUT TO SLEEP???
-    # - TemporaryBlindness # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE BLINDED???
-    # - Pacified # ADT-Tweak - это чудище не обосрется от пакса
-    - RadiationProtection
-    # - Drowsiness # ADT-Tweak - НЕ СПАТЬ
-    - Adrenaline #ADT-Medicine
+    - Electrocution
+    - Pacified
+    - Adrenaline
+  - type: Temperature
+  - type: TemperatureDamage
+    heatDamageThreshold: 2400
   - type: Metabolizer
     solutionOnBody: false
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
-    groups:
-    - id: Medicine
-    - id: Poison
-  - type: Butcherable
-    spawned:
+    stages: [ Digestion, Bloodstream ]
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatDragon
       amount: 2
   - type: InteractionPopup
@@ -161,7 +138,7 @@
   - type: Devourer
     foodPreferenceWhitelist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
     stomachStorageWhitelist:
       components:
       - MobState
@@ -203,16 +180,6 @@
     speedModifier: 2.5 # fast because dragon strong
     useSound:
       path: /Audio/Items/crowbar.ogg
-# ADT-Tweak start
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 1000
-      behaviors:
-      - !type:GibBehavior { }
-# ADT-Tweak end
 
 - type: entity
   parent: BaseMobDragon
@@ -268,14 +235,13 @@
       0: Alive
       200: Dead
   # less meat spawned since it's a lot easier to kill
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatDragon
-      amount: 1
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 12
+      types:
+        Piercing: 12
 
 - type: entity
   parent: BaseAction
@@ -330,3 +296,16 @@
     range: 0
   - type: WorldTargetAction
     event: !type:ActionGunShootEvent
+
+- type: entity
+  parent: Smoke
+  id: BloodSmoke
+  name: smoke
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Smoke
+    spreadAmount: 3
+    duration: 2
+  - type: Sprite
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke_white

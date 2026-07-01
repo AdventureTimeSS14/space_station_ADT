@@ -1,7 +1,6 @@
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Drugs;
-using Content.Shared.Drugs;
 using Content.Shared.Heretic;
 using Content.Shared.Jittering;
 using Content.Shared.StatusEffect;
