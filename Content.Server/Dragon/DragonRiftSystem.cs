@@ -90,7 +90,7 @@ public sealed class DragonRiftSystem : EntitySystem
             {
                 comp.SpawnAccumulator -= comp.SpawnCooldown;
 
-                // Goobstation - Buff carp rift (Шанс 35% на карпоакулу, 65% на обычного карпа)
+                // ADT-Tweak-start
                 var proto = _random.Prob(comp.StrongSpawnChance) ? comp.SpawnPrototypeStrong : comp.SpawnPrototype;
                 var ent = Spawn(proto, xform.Coordinates);
 
@@ -129,4 +129,5 @@ public sealed class DragonRiftSystem : EntitySystem
 
         _dragon.RiftDestroyed(comp.Dragon.Value, dragon);
     }
+    //ADT-Tweak-end
 }

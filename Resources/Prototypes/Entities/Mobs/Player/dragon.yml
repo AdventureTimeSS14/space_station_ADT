@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: [ SimpleSpaceMobBase, FlyingMobBase ] 
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, BaseSlicingRefinable ]
   id: BaseMobDragon
   suffix: ""
   name: space dragon
@@ -11,7 +11,7 @@
       reagents:
       - ReagentId: Blood
         Quantity: 650
-    bleedReductionAmount: 5 # Из Goobstation
+    bleedReductionAmount: 5 # ADT
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -23,7 +23,7 @@
     - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
-    requirements: # Из Goobstation
+    requirements: # ADT
     - !type:OverallPlaytimeRequirement
       time: 18000 # 5 часов
   - type: GhostTakeoverAvailable
@@ -46,8 +46,8 @@
   - type: MobMover
   - type: InputMover
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.5 # ADT-Tweak 3 -> 3.5
-    baseSprintSpeed: 5.5 # ADT-Tweak 5 -> 5.5
+    baseWalkSpeed: 3.5 # ADT-Tweak
+    baseSprintSpeed: 5.5 # ADT-Tweak
     baseWeightlessModifier: 1.5
   - type: RandomSprite
     available:
@@ -99,23 +99,24 @@
       500: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      250: 0.85 # ADT-Tweak
-      350: 0.7 # ADT-Tweak
-      430: 0.5 # ADT-Tweak
+      250: 0.85 # ADT-Tweak (less slow 250: 0.7 ---> 250: 0.85)
+      350: 0.7 # ADT-Tweak (add new threshold)
+      430: 0.5 # ADT-Tweak (higher threshold 400: 0.5 ---> 430: 0.5)
+  # disable taking damage from fire, since its a fire breathing dragon
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: Flammable
     damage:
       types: {}
-  - type: StatusEffects
+  - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
     allowed:
     - Electrocution
     - Pacified
     - Adrenaline
     - Stutter
     - Weakness # ADT-Weakness-Tweak
-    - TemporaryBlindness # Из Goobstation
-    - RadiationProtection # Из Goobstation
+    - TemporaryBlindness # ADT
+    - RadiationProtection # ADT
   - type: Temperature
   - type: TemperatureDamage
     heatDamageThreshold: 2400 # ADT-Tweak
@@ -124,17 +125,17 @@
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
     stages: [ Digestion, Bloodstream ]
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatDragon
-      amount: 4
+      amount: 4 # ADT-Tweak
   - type: InteractionPopup
-    successChance: 0.25
+    successChance: 0.25 # It's no goose, but you better smell like carp.
     interactSuccessString: petting-success-dragon
     interactFailureString: petting-failure-dragon
     interactFailureSound:
       path: /Audio/Animals/space_dragon_roar.ogg
-    soundPerceivedByOthers: false
+    soundPerceivedByOthers: false # A 75% chance for a loud roar would get old fast.
   - type: MeleeWeapon
     altDisarm: false
     soundHit:
@@ -151,14 +152,14 @@
     stomachStorageWhitelist:
       components:
       - MobState
-      - Item # Из Goobstation
+      - Item # ADT
     chemical: Ichor
     healRate: 7.5
     whitelist:
       components:
       - MobState
       - Door
-      - Item # Из Goobstation
+      - Item # ADT
       tags:
       - Wall
   - type: Tag
@@ -168,10 +169,10 @@
     - StunImmune
   - type: Puller
     needsHands: false
-  - type: ThermalVision # ADT tweak
+  - type: ThermalVision #ADT tweak start
     color: Purple
-  - type: MesonVision # ADT tweak
-    color: Purple
+  - type: MesonVision
+    color: Purple #ADT tweak end
 # ADT-CollectiveMind-Tweak-Start
   - type: CollectiveMindRank
     rankName: collective-mind-dragon-rank
@@ -188,7 +189,7 @@
   - type: Prying
     pryPowered: true
     force: true
-    speedModifier: 2.5
+    speedModifier: 2.5 # fast because dragon strong
     useSound:
       path: /Audio/Items/crowbar.ogg
 
@@ -256,10 +257,11 @@
     thresholds:
       0: Alive
       200: Dead
-  - type: Butcherable
-    spawned:
+  # less meat spawned since it's a lot easier to kill
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatDragon
-      amount: 2
+      amount: 2 # ADT-Tweak
   - type: MeleeWeapon
     damage:
       types:
@@ -310,6 +312,7 @@
   description: Spew out flames at anyone foolish enough to attack you!
   components:
   - type: Action
+    # TODO: actual sprite and iconOn
     icon: { sprite : Objects/Weapons/Guns/Projectiles/magic.rsi, state: fireball }
     itemIconStyle: BigAction
     priority: 2
