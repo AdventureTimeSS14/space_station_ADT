@@ -26,36 +26,40 @@
   #  maxItemSize: Ginormous
   #  maxTotalWeight: 0
   #  maxSlots: 50 #By this ignore maxTotalWeight
-  - type: StorageFill
-    contents:
-      #- id: ADTClothingBeltPyotrSheath
-      - id: ADTClothingHeadHatsPyotrCap
-      - id: ADTClothingNeckPyotrCloak
-      - id: ADTClothingOuterCoatPyotrCoat
-      - id: ADTClothingUniformPyotrOfficialSuit
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+          #- id: ADTClothingBeltPyotrSheath
+        - id: ADTClothingHeadHatsPyotrCap
+        - id: ADTClothingNeckPyotrCloak
+        - id: ADTClothingOuterCoatPyotrCoat
+        - id: ADTClothingUniformPyotrOfficialSuit
 - type: entity
   name: box of medical treatment
   parent: ADTBriefcaseMedical
   id: ADTBriefcaseMedicalFilled
   description: A plastic a box with bottles with medicaments.
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTMorphineBottle
-      - id: ADTDyloveneBiomicineBottle
-      - id: ChemistryBottleEpinephrine
-      - id: ADTOmnizineBottle
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTMorphineBottle
+        - id: ADTDyloveneBiomicineBottle
+        - id: ChemistryBottleEpinephrine
+        - id: ADTOmnizineBottle
 - type: entity
   id: ADTBriefcaseBrownHikingCmoFilled
   name: Chief medical officer's hiking briefcase
   parent: BriefcaseBrown
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTClothingOuterCoatLabcoatCMOHike
-      - id: ADTClothingUniformJumpskirtCMOHike
-      - id: ADTClothingUniformJumpsuitCMOHike
-      - id: ADTClothingShoesHighboots
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingOuterCoatLabcoatCMOHike
+        - id: ADTClothingUniformJumpskirtCMOHike
+        - id: ADTClothingUniformJumpsuitCMOHike
+        - id: ADTClothingShoesHighboots

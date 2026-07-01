@@ -1,16 +1,17 @@
-- type: entity
+﻿- type: entity
   id: WeaponCaseNTM90
   name: weapon Case
   suffix: M-90gl
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponRifleM90GrenadeLauncher
-    - id: MagazineRifle
-      amount: 5
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleM90GrenadeLauncher
+        - id: MagazineRifle
+          amount: 5
 - type: entity
   id: WeaponCaseNTM90GrenadeLauncherAttachment
   name: weapon Case
@@ -18,41 +19,43 @@
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: ADTAttachmentM90GrenadeLauncher
-    - id: ADT40mmGrenadeBlast
-      amount: 6
-    - id: ADT40mmGrenadeBlast
-      amount: 4
-    - id: ADT40mmGrenadeBaton
-      amount: 4
-    - id: ADT40mmGrenadeEMP
-      amount: 4
-    - id: ADT40mmGrenadeFlash
-      amount: 4
-    - id: ADT40mmGrenadeSmoke
-      amount: 4
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTAttachmentM90GrenadeLauncher
+        - id: ADT40mmGrenadeBlast
+          amount: 6
+        - id: ADT40mmGrenadeBlast
+          amount: 4
+        - id: ADT40mmGrenadeBaton
+          amount: 4
+        - id: ADT40mmGrenadeEMP
+          amount: 4
+        - id: ADT40mmGrenadeFlash
+          amount: 4
+        - id: ADT40mmGrenadeSmoke
+          amount: 4
 - type: entity
   id: WeaponCaseNTM90UnderBarrelShotGunAttachment
   suffix: M-90gl
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: ADTAttachmentM90UnderbarrelShotgun
-    - id: MagazineShotgun
-      amount: 2
-    - id: MagazineShotgunBeanbag
-      amount: 1
-    - id: MagazineShotgunIncendiary
-      amount: 1
-    - id: MagazineShotgunSlug
-      amount: 1
-    - id: MagazineShotgunUranium
-      amount: 1
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTAttachmentM90UnderbarrelShotgun
+        - id: MagazineShotgun
+          amount: 2
+        - id: MagazineShotgunBeanbag
+          amount: 1
+        - id: MagazineShotgunIncendiary
+          amount: 1
+        - id: MagazineShotgunSlug
+          amount: 1
+        - id: MagazineShotgunUranium
+          amount: 1
 - type: entity
   id: WeaponCaseNTGunsModules
   name: weapon Case
@@ -60,13 +63,14 @@
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: ADTAttachmentVerticalGrip
-    - id: ADTAttachmentLaserSight
-    - id: ADTAttachmentReflexSight
-    - id: ADTAttachmentT2Miniscope
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTAttachmentVerticalGrip
+        - id: ADTAttachmentLaserSight
+        - id: ADTAttachmentReflexSight
+        - id: ADTAttachmentT2Miniscope
 - type: entity
   id: WeaponCaseNTLecter
   name: weapon case
@@ -74,226 +78,246 @@
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponRifleLecter
-    - id: MagazineRifle
-      amount: 5
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleLecter
+        - id: MagazineRifle
+          amount: 5
 - type: entity
   id: WeaponCaseNTnPulseCarbine
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponPulseCarbine
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPulseCarbine
 - type: entity
   id: WeaponCaseNTMateba
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponRevolverMateba
-    - id: SpeedLoaderMagnum
-      amount: 3
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRevolverMateba
+        - id: SpeedLoaderMagnum
+          amount: 3
 - type: entity
   id: WeaponCaseNTAPAmmo
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: SpeedLoaderMagnumAP
-      amount: 2
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SpeedLoaderMagnumAP
+          amount: 2
 - type: entity
   id: WeaponCaseNTDisabler
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponDisablerSMG
-    - id: WeaponDisabler
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponDisablerSMG
+        - id: WeaponDisabler
 - type: entity
   id: WeaponCaseNTDeagle
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: MagazineMagnum
-      amount: 3
-    - id: ADTWeaponPistolDesertEagle
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MagazineMagnum
+          amount: 3
+        - id: ADTWeaponPistolDesertEagle
 - type: entity
   id: WeaponCaseNTIonRifle
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: ADTWeaponIonRifle
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTWeaponIonRifle
 - type: entity
   id: WeaponCaseNTDrozd
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponSubMachineGunDrozd
-    - id: MagazinePistolSubMachineGun
-      amount: 5
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponSubMachineGunDrozd
+        - id: MagazinePistolSubMachineGun
+          amount: 5
 - type: entity
   id: WeaponCaseBulldog
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponShotgunBulldog
-    - id: MagazineShotgun
-      amount: 2
-    - id: MagazineShotgunSlug
-      amount: 2
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponShotgunBulldog
+        - id: MagazineShotgun
+          amount: 2
+        - id: MagazineShotgunSlug
+          amount: 2
 - type: entity
   id: ADTWeaponCaseAR12
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: ADTWeaponRifleAR12
-    - id: ADTMagazineRifleAR12
-      amount: 4
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTWeaponRifleAR12
+        - id: ADTMagazineRifleAR12
+          amount: 4
 - type: entity
   id: ADTWeaponCasePistolet
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: SpeedLoaderMagnum
-      amount: 4
-    - id: MagazineMagnum
-      amount: 4
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SpeedLoaderMagnum
+          amount: 4
+        - id: MagazineMagnum
+          amount: 4
 - type: entity
   id: ADTWeaponCaseShotgunAmmo
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: MagazineShotgun
-      amount: 2
-    - id: MagazineShotgunSlug
-      amount: 2
-    - id: MagazineShotgunIncendiary
-      amount: 2
-    - id: MagazineShotgunBeanbag
-      amount: 2
-    - id: MagazineShotgunUranium
-      amount: 2
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MagazineShotgun
+          amount: 2
+        - id: MagazineShotgunSlug
+          amount: 2
+        - id: MagazineShotgunIncendiary
+          amount: 2
+        - id: MagazineShotgunBeanbag
+          amount: 2
+        - id: MagazineShotgunUranium
+          amount: 2
 - type: entity
   id: ADTWeaponCaseMagazine
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: ADTMagazineRifleAR12
-      amount: 4
-    - id: MagazinePistolSubMachineGun
-      amount: 4
-    - id: MagazineRifle
-      amount: 4
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTMagazineRifleAR12
+          amount: 4
+        - id: MagazinePistolSubMachineGun
+          amount: 4
+        - id: MagazineRifle
+          amount: 4
 - type: entity
   id: ADTWeaponCaseAR12Magazine
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: ADTMagazineRifleAR12
-      amount: 3
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTMagazineRifleAR12
+          amount: 3
 - type: entity
   id: ADTWeaponCaseDrozdMagazine
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: MagazinePistolSubMachineGun
-      amount: 3
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MagazinePistolSubMachineGun
+          amount: 3
 - type: entity
   id: ADTWeaponCaseM90Magazine
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: MagazineRifle
-      amount: 3
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MagazineRifle
+          amount: 3
 - type: entity
   id: ADTWeaponCaseAmmoBulldogX4
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: MagazineShotgun
-      amount: 4
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MagazineShotgun
+          amount: 4
 - type: entity
   id: ADTWeaponCasePulsePistolet
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponPulsePistol
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPulsePistol
 - type: entity
   id: ADTMeleeWeaponCase
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
   components:
-  - type: StorageFill
-    contents:
-    - id: Truncheon
-      amount: 5
-    - id: ADTCqcManual
-      amount: 5
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Truncheon
+          amount: 5
+        - id: ADTCqcManual
+          amount: 5

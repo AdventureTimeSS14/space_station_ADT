@@ -1,4 +1,4 @@
-#Yagoda
+﻿#Yagoda
 
 - type: entity
   name: cactusberry
@@ -70,8 +70,9 @@
           - id: ADTFoodCactusBerry
           - id: ADTLavaCactusOneEmpty
     - type: Damageable
-      damageContainer: StructuralInorganic
       damageModifierSet: Wood
+    - type: Injurable
+      damageContainer: StructuralInorganic
     - type: Destructible
       thresholds:
         - trigger:
@@ -155,8 +156,9 @@
             radius: 0.2
     - type: InteractionOutline
     - type: Damageable
-      damageContainer: StructuralInorganic
       damageModifierSet: Wood
+    - type: Injurable
+      damageContainer: StructuralInorganic
     - type: Destructible
       thresholds:
         - trigger:

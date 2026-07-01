@@ -1,11 +1,14 @@
+using Content.Server.Radiation.Systems;
 using Content.Shared.ADT.Radiation;
 using Content.Shared.Radiation.Components;
+using Content.Shared.Radiation.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Radiation;
 
 public sealed partial class RadiationEvent : EntitySystem
 {
+    [Dependency] private readonly RadiationSystem _radiation = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     /// <summary>
@@ -26,18 +29,16 @@ public sealed partial class RadiationEvent : EntitySystem
 
             if (!TryComp<RadiationSourceComponent>(uid, out var radiation))
             {
-                radiation = AddComp<RadiationSourceComponent>(uid);
-                radiation.Intensity = comp.InitialIntensity;
-                radiation.Slope = 0;
-                radiation.Enabled = true;
+                AddComp<RadiationSourceComponent>(uid);
+                _radiation.SetIntensity(uid, comp.InitialIntensity);
+                _radiation.SetSlope(uid, 0);
                 continue;
             }
 
             if (!comp.Decaying && !radiation.Enabled)
             {
-                radiation.Intensity = comp.InitialIntensity;
-                radiation.Slope = 0;
-                radiation.Enabled = true;
+                _radiation.SetIntensity(uid, comp.InitialIntensity);
+                _radiation.SetSlope(uid, 0);
             }
 
             if (!comp.Decaying && comp.TimeSinceStart >= comp.DecayDelay)
@@ -55,12 +56,10 @@ public sealed partial class RadiationEvent : EntitySystem
                 continue;
 
             comp.TimeSinceLastDecay -= comp.DecayRateInterval;
-            radiation.Intensity -= comp.DecayRate;
+            _radiation.SetIntensity(uid, Math.Max(0, radiation.Intensity - comp.DecayRate));
 
             if (radiation.Intensity <= 0f)
             {
-                radiation.Intensity = 0f;
-                radiation.Enabled = false;
                 RemCompDeferred<RadiationEventComponent>(uid);
             }
         }

@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: bed
   id: Bed
   parent: BaseStructure
@@ -37,8 +37,9 @@
   - type: PlaceableSurface
     placeCentered: true
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger: # Excess damage, don't spawn entities
@@ -103,6 +104,7 @@
     node: dogbed
   - type: Damageable
     damageModifierSet: Wood
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger: # Excess damage, don't spawn entities
@@ -139,7 +141,7 @@
     state: mattress
   - type: Damageable
     damageModifierSet: Inflatable
-  # ADT-Tweak-Start
+  - type: Injurable
   - type: Construction
     graph: adt_mattress
     node: mattress
@@ -153,6 +155,7 @@
   components:
   - type: Damageable
     damageModifierSet: Web
+  - type: Injurable
   - type: Sprite
     sprite: Structures/Web/bed.rsi
     state: icon

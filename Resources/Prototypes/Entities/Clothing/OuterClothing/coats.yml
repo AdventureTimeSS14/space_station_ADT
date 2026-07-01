@@ -10,23 +10,22 @@
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, ClothingOuterArmorBasic, BadgeOnClothingWithContainer] #ADT-Tweak
+  parent: [ ClothingOuterArmorBase, ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband, BadgeOnClothingWithContainer ] # ADT-Tweak - BadgeOnClothingWithContainer
   id: ClothingOuterCoatDetective
-  name: detective trenchcoat
+  name: detective armored trenchcoat
   description: An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/detective.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/detective.rsi
-  - type: StorageFill
-    contents:
-    - id: SmokingPipeFilledTobacco
-    - id: FlippoEngravedLighter
-# ADT tweak start
-#  - type: ExplosionResistance
-#    damageCoefficient: 1 #its a coat. it doesnt do shit / im say its do shit
-# ADT tweak end
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SmokingPipeFilledTobacco
+        - id: FlippoEngravedLighter
+  # ADT-Tweak start
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -37,12 +36,12 @@
         showEnts: False
         occludes: True
         ent: null
-   #ADT-Tweak-End
+  # ADT-Tweak end
 
 - type: entity
   parent: ClothingOuterCoatDetectiveLoadout
   id: ClothingOuterCoatDetectiveLoadoutGrey
-  name: noir trenchcoat
+  name: noir armored trenchcoat
   description: Ah, your trusty coat. There's a few tears here and there, giving it a more timely look. Or at least, that's what you told yourself when you found out gettin' it repaired would set you back 200 spesos.
   components:
   - type: Sprite
@@ -55,10 +54,12 @@
   parent: ClothingOuterCoatDetective
   id: ClothingOuterCoatDetectiveLoadout
   components:
-  - type: StorageFill
-    contents:
-    - id: SmokingPipeFilledTobacco
-    - id: FlippoLighter #Not the steal objective, only difference from normal detective trenchcoat
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SmokingPipeFilledTobacco
+        - id: FlippoLighter #Not the steal objective, only difference from normal detective trenchcoat
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -73,7 +74,7 @@
 
 - type: entity
   abstract: true
-  parent: AllowSuitStorageClothing
+  parent: [ ClothingOuterArmorBase, ClothingOuterStorageBase ]
   id: ClothingOuterArmorHoS
   components:
   - type: Armor
@@ -89,7 +90,7 @@
 
 - type: entity
   abstract: true
-  parent: AllowSuitStorageClothing
+  parent: [ ClothingOuterArmorBase, ClothingOuterStorageBase ]
   id: ClothingOuterArmorWarden
   components:
   - type: Armor
@@ -100,11 +101,9 @@
         Piercing: 0.6 # ADT tweak 0.7 > 0.6
         Heat: 0.7
         Caustic: 0.9
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
 
 - type: entity
-  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband, BadgeOnClothingWithContainer] # ADT add BadgeOnClothingWithContainer
+  parent: [BaseSecurityCommandContraband, ClothingOuterArmorHoS, BadgeOnClothingWithContainer] # ADT-Tweak - BadgeOnClothingWithContainer
   id: ClothingOuterCoatHoSTrench
   name: head of security's armored trenchcoat
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
@@ -138,6 +137,16 @@
     sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodChaplainHood
+
+- type: entity
+  parent: ClothingOuterCoatJensen
+  id: ClothingOuterCoatJensenSyndie
+  suffix: Syndie
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: SyndieHandyFlag
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -341,7 +350,7 @@
     sprite: Clothing/OuterClothing/Coats/pirate.rsi
 
 - type: entity
-  parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase, BaseSecurityContraband, BadgeOnClothingWithContainer] # ADT add BadgeOnClothingWithContainer
+  parent: [ClothingOuterArmorWarden, BaseSecurityContraband, BadgeOnClothingWithContainer] # ADT add BadgeOnClothingWithContainer
   id: ClothingOuterCoatWarden
   name: warden's armored jacket
   description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats.
@@ -377,7 +386,7 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterClownPriest
-  name: robes of the honkmother
+  name: honkmother coat
   description: Meant for a clown of the cloth.
   components:
   - type: Sprite
@@ -464,7 +473,7 @@
         Slash: 0.85
         Piercing: 0.65
         Heat: 0.85
-        Caustic: 0.75
+        Caustic: 0.70 #ADT-Tweak -> 0.75
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase

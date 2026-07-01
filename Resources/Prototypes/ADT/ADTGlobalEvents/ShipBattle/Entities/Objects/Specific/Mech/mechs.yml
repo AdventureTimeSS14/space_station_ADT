@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTMechTSFOneStar
   parent: ADTMechDurand
   name: TSF One Star
@@ -28,7 +28,7 @@
     mechToPilotDamageMultiplier: 0.0
     pilotWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
@@ -69,9 +69,10 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: null
-  - type: FootstepModifier
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: FootstepModifier  
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/mechstep.ogg
 

@@ -38,7 +38,8 @@ public abstract partial class GameRuleSystem<T> : EntitySystem where T : ICompon
         while (query.MoveNext(out var uid, out _, out var gameRule))
         {
             var minPlayers = gameRule.MinPlayers;
-            var name = ToPrettyString(uid);
+            var name = ToPrettyString((uid, MetaData(uid))); // ADT-Tweak-Fix
+            // var name = ToPrettyString(uid);
 
             if (args.Players.Length >= minPlayers)
                 continue;

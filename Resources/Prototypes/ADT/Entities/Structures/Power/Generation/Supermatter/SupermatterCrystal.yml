@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   abstract: true
   id: BaseSupermatter
   placement:
@@ -284,8 +284,9 @@
     energy: 5.0
     netsync: false
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
