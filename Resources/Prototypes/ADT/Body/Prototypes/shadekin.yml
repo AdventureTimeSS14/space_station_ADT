@@ -1,49 +1,51 @@
-- type: body
-  id: Shadekin
-  name: Shadekin
-  root: torso
-  slots:
-    head:
-      part: ADTHeadShadekin
-      connections:
-      - torso
-      organs:
-        brain: ADTOrganShadekinBrain
-        eyes: ADTOrganShadekinEyes
-    torso:
-      part: ADTTorsoShadekin
-      connections:
-      - right arm
-      - left arm
-      - left leg
-      - right leg
-      organs:
-        heart: ADTOrganShadekinHeart
-        lungs: ADTOrganShadekinLungs
-        stomach: ADTOrganShadekinStomach
-        liver: ADTOrganShadekinLiver
-        kidneys: ADTOrganShadekinKidneys
-    right arm:
-      part: ADTRightArmShadekin
-      connections:
-      - right hand
-    left arm:
-      part: ADTLeftArmShadekin
-      connections:
-      - left hand
-    right hand:
-      part: ADTRightHandShadekin
-    left hand:
-      part: ADTLeftHandShadekin
-    right leg:
-      part: ADTRightLegShadekin
-      connections:
-      - right foot
-    left leg:
-      part: ADTLeftLegShadekin
-      connections:
-      - left foot
-    right foot:
-      part: ADTRightFootShadekin
-    left foot:
-      part: ADTLeftFootShadekin
+# DEPRECATED: type:body prototype system removed in upstream PR#42476
+# This data is preserved for reference when creating InitialBody entries (task 8)
+# - type: body
+#   id: Shadekin
+#   name: Shadekin
+#   root: torso
+#   slots:
+#     head:
+#       part: ADTHeadShadekin
+#       connections:
+#       - torso
+#       organs:
+#         brain: ADTOrganShadekinBrain
+#         eyes: ADTOrganShadekinEyes
+#     torso:
+#       part: ADTTorsoShadekin
+#       connections:
+#       - right arm
+#       - left arm
+#       - left leg
+#       - right leg
+#       organs:
+#         heart: ADTOrganShadekinHeart
+#         lungs: ADTOrganShadekinLungs
+#         stomach: ADTOrganShadekinStomach
+#         liver: ADTOrganShadekinLiver
+#         kidneys: ADTOrganShadekinKidneys
+#     right arm:
+#       part: ADTRightArmShadekin
+#       connections:
+#       - right hand
+#     left arm:
+#       part: ADTLeftArmShadekin
+#       connections:
+#       - left hand
+#     right hand:
+#       part: ADTRightHandShadekin
+#     left hand:
+#       part: ADTLeftHandShadekin
+#     right leg:
+#       part: ADTRightLegShadekin
+#       connections:
+#       - right foot
+#     left leg:
+#       part: ADTLeftLegShadekin
+#       connections:
+#       - left foot
+#     right foot:
+#       part: ADTRightFootShadekin
+#     left foot:
+#       part: ADTLeftFootShadekin

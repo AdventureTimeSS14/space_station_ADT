@@ -3,6 +3,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Radio.Components;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.ADT.Silicons.Borgs.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -27,6 +28,23 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
 
         if (TryComp(ent, out ActiveRadioComponent? activeRadio))
             activeRadio.Channels = [.. radioChannels];
+
+        // ADT-Tweak-AiRemoteControl-Start
+        if (TryComp(ent, out AiRemoteControllerComponent? aiRemoteComp))
+        {
+            if (TryComp(aiRemoteComp.AiHolder, out IntrinsicRadioTransmitterComponent? stationAiTransmitter) && transmitter != null)
+            {
+                aiRemoteComp.PreviouslyTransmitterChannels = [.. radioChannels, ];
+                transmitter.Channels = [.. stationAiTransmitter.Channels, ];
+            }
+
+            if (TryComp(aiRemoteComp.AiHolder, out ActiveRadioComponent? stationAiActiveRadio) && activeRadio != null)
+            {
+                aiRemoteComp.PreviouslyActiveRadioChannels = [.. radioChannels, ];
+                activeRadio.Channels = [.. stationAiActiveRadio.Channels, ];
+            }
+        }
+        // ADT-Tweak-AiRemoteControl-End
 
         // Borg transponder for the robotics console
         if (TryComp(ent, out BorgTransponderComponent? transponder))

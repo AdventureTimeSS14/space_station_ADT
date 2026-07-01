@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: BaseShutter
   parent: BaseStructure
   name: shutter
@@ -43,6 +43,7 @@
   - type: Tag
     tags:
     - ForceNoFixRotations # Don't want the fixrotations command to target these
+    - DoorRemoteWhitelist # ADT-Tweak
   - type: Door
     openDrawDepth: BlastDoors
     closedDrawDepth: BlastDoors
@@ -72,8 +73,9 @@
 ###  - type: RadiationBlocker #ADT
 ###    resistance: 2 #ADT
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -222,8 +224,9 @@
     - board
   - type: InteractionOutline
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

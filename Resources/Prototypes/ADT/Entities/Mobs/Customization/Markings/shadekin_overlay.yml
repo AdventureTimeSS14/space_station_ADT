@@ -1,89 +1,79 @@
 - type: marking
   id: BodyShadekinArrow
-  bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [Shadekin]
+  bodyPart: Special
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
       state: body_arrow
 
 - type: marking
   id: BodyShadekinBrawly
-  bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [Shadekin]
+  bodyPart: Special
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
       state: body_brawly
 
 - type: marking
   id: BodyShadekinHeart
-  bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [Shadekin]
+  bodyPart: Special
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
       state: body_heart
 
 - type: marking
   id: BodyShadekinInk5
-  bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [Shadekin]
+  bodyPart: Special
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
       state: body_ink5
 
 - type: marking
   id: BodyShadekinInk6
-  bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [Shadekin]
+  bodyPart: Special
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
       state: body_ink6
 
 - type: marking
   id: BodyShadekinInkAnim
-  bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [Shadekin]
+  bodyPart: Special
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
       state: body_ink_anim
 
 - type: marking
   id: BodyShadekinLines
-  bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [Shadekin]
+  bodyPart: Special
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
       state: body_lines
 
 - type: marking
   id: BodyShadekinNeck
-  bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [Shadekin]
+  bodyPart: Special
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
       state: body_neck
 
 - type: marking
   id: BodyShadekinShield
-  bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [Shadekin]
+  bodyPart: Special
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
       state: body_shield
 
 - type: marking
   id: BodyShadekinVacuum
-  bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [Shadekin]
+  bodyPart: Special
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
       state: body_vacuum

@@ -31,7 +31,7 @@ public sealed class BatteryElectrocuteChargeSystem : EntitySystem
         var damage = args.ShockDamage.Value * args.SiemensCoefficient;
         var charge = Math.Min(damage / damagePerWatt, battery.MaxCharge * 0.25f) * _random.NextFloat(0.75f, 1.25f);
 
-        _battery.SetCharge(uid, battery.CurrentCharge + charge);
+        _battery.ChangeCharge((uid, battery), charge);
 
         _popup.PopupEntity(Loc.GetString("battery-electrocute-charge"), uid, uid);
     }

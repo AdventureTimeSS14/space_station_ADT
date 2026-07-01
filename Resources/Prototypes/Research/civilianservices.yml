@@ -91,6 +91,7 @@
     - ADTBlockGameArcadeComputerCircuitboard
     - ADTSpaceVillainArcadeComputerCircuitboard
     - ADTMinesweeperCircuitboard
+    - ADTJukeBoxPlayerVintage
     # ADT tweak end
   position: 3,0 # ADT Research Console Rework
 
@@ -176,6 +177,9 @@
   - FloorTileItemShuttlePurple
   - FloorTileItemShuttleBlack
   - FloorTileItemShuttleRed
+  - FauxTileAstroAsteroidSandBorderless
+  - FauxTileAstroIronsand
+  - FauxTileAstroIronsandBorderless
   # ADT-tweak end
   # ADT Research Console Rework start
   position: 4,0

@@ -9,7 +9,6 @@
       - sprite: Mobs/Aliens/Xenos/burrower.rsi
         state: crit
       - state: ai
-    - type: Timer
     - type: TimedSpawner
       prototypes:
       - ADTMobXenoNoGhost

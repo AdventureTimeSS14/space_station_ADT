@@ -16,6 +16,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Content.Shared.Medical;
+using Content.Shared.Body;
 
 namespace Content.Server.ADT.Salvage.Systems;
 
@@ -83,7 +84,7 @@ public sealed class JaunterSystem : EntitySystem
                     _stamina.TakeStaminaDamage(args.Entity, need, stam);
                 }
 
-                if (HasComp<BodyComponent>(args.Entity) && HasComp<HungerComponent>(args.Entity))
+                if (HasComp<OrganComponent>(args.Entity) && HasComp<HungerComponent>(args.Entity))
                 {
                     _vomit.Vomit(args.Entity);
                 }
