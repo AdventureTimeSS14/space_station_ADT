@@ -192409,6 +192409,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+
 - proto: ZiptiesBroken
   entities:
   - uid: 28285
