@@ -1,0 +1,139 @@
+# Demon appearance + visual organs (upstream PR#42476). parts.rsi sexed; internals reused from Human.
+# markingsGroup "Demon" defined in ADT/Body/markingsGroups.yml
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceDemon
+  categories: [ HideSpawnMenu ]
+  name: demon appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganDemonTorso
+      Head: OrganDemonHead
+      ArmLeft: OrganDemonArmLeft
+      ArmRight: OrganDemonArmRight
+      HandRight: OrganDemonHandRight
+      HandLeft: OrganDemonHandLeft
+      LegLeft: OrganDemonLegLeft
+      LegRight: OrganDemonLegRight
+      FootLeft: OrganDemonFootLeft
+      FootRight: OrganDemonFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganHumanEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: ADTOrganDemonHeart
+      Stomach: ADTOrganDemonStomach
+      Liver: OrganAnimalLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: DemonSpecies
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Demon/displacement.rsi
+            state: jumpsuit-female
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganDemon
+  abstract: true
+  suffix: demon
+
+- type: entity
+  id: OrganDemonVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/Demon/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Demon
+
+- type: entity
+  parent: [ OrganDemon, OrganDemonVisual ]
+  id: OrganDemonExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganDemonExternal ]
+  id: OrganDemonTorso
+
+- type: entity
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganDemonExternal ]
+  id: OrganDemonHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.SnoutOverlay
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganDemonExternal ]
+  id: OrganDemonArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganDemonExternal ]
+  id: OrganDemonArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganDemonExternal ]
+  id: OrganDemonHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganDemonExternal ]
+  id: OrganDemonHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganDemonExternal ]
+  id: OrganDemonLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganDemonExternal ]
+  id: OrganDemonLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganDemonExternal ]
+  id: OrganDemonFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganDemonExternal ]
+  id: OrganDemonFootRight
+
+- type: entity
+  id: OrganDemonMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Demon ]
+
+- type: entity
+  parent: [ OrganAnimalStomach ]
+  id: ADTOrganDemonStomach
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganDemonMetabolizer ]
+  id: ADTOrganDemonHeart
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Metabolizer
+    maxReagents: 2
+    metabolizerTypes: [ Demon ]

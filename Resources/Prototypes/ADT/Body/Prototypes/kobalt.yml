@@ -1,49 +1,51 @@
-- type: body
-  name: "kobolt"
-  id: Kobolt
-  root: torso
-  slots:
-    head:
-      part: ADTHeadKobolt
-      connections:
-      - torso
-      organs:
-        brain: OrganHumanBrain #как у reptilian
-        eyes: OrganHumanEyes #как у reptilian
-    torso:
-      part: ADTTorsoKobolt
-      organs:
-        heart: ADTOrganReptilianHeart #как у reptilian
-        lungs: OrganHumanLungs #как у reptilian
-        stomach: ADTOrganKoboltStomach #как у reptilian
-        liver: OrganAnimalLiver #как у reptilian
-        kidneys: OrganHumanKidneys #как у reptilian
-      connections:
-      - right arm
-      - left arm
-      - right leg
-      - left leg
-    right arm:
-      part: ADTRightArmKobolt
-      connections:
-      - right hand
-    left arm:
-      part: ADTLeftArmKobolt
-      connections:
-      - left hand
-    right hand:
-      part: ADTRightHandKobolt
-    left hand:
-      part: ADTLeftHandKobolt
-    right leg:
-      part: ADTRightLegKobolt
-      connections:
-      - right foot
-    left leg:
-      part: ADTLeftLegKobolt
-      connections:
-      - left foot
-    right foot:
-      part: ADTRightFootKobolt
-    left foot:
-      part: ADTLeftFootKobolt
+# DEPRECATED: type:body prototype system removed in upstream PR#42476
+# This data is preserved for reference when creating InitialBody entries (task 8)
+# - type: body
+#   name: "kobolt"
+#   id: Kobolt
+#   root: torso
+#   slots:
+#     head:
+#       part: ADTHeadKobolt
+#       connections:
+#       - torso
+#       organs:
+#         brain: OrganHumanBrain #как у reptilian
+#         eyes: OrganHumanEyes #как у reptilian
+#     torso:
+#       part: ADTTorsoKobolt
+#       organs:
+#         heart: ADTOrganReptilianHeart #как у reptilian
+#         lungs: OrganHumanLungs #как у reptilian
+#         stomach: ADTOrganKoboltStomach #как у reptilian
+#         liver: OrganAnimalLiver #как у reptilian
+#         kidneys: OrganHumanKidneys #как у reptilian
+#       connections:
+#       - right arm
+#       - left arm
+#       - right leg
+#       - left leg
+#     right arm:
+#       part: ADTRightArmKobolt
+#       connections:
+#       - right hand
+#     left arm:
+#       part: ADTLeftArmKobolt
+#       connections:
+#       - left hand
+#     right hand:
+#       part: ADTRightHandKobolt
+#     left hand:
+#       part: ADTLeftHandKobolt
+#     right leg:
+#       part: ADTRightLegKobolt
+#       connections:
+#       - right foot
+#     left leg:
+#       part: ADTLeftLegKobolt
+#       connections:
+#       - left foot
+#     right foot:
+#       part: ADTRightFootKobolt
+#     left foot:
+#       part: ADTLeftFootKobolt

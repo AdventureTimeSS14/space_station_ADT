@@ -237,7 +237,12 @@ namespace Content.Server.Construction
             if (ev is ConstructionInteractDoAfterEvent interactDoAfter)
             {
                 if (interactDoAfter.Cancelled)
+                // ADT-Tweak start
+                {
+                    ResetEdge(uid, construction);
                     return HandleResult.False;
+                }
+                // ADT-Tweak end
 
                 ev = new InteractUsingEvent(
                     interactDoAfter.User,
@@ -410,7 +415,7 @@ namespace Content.Server.Construction
                     if ((!temperatureChangeStep.MinTemperature.HasValue || temp >= temperatureChangeStep.MinTemperature.Value) &&
                         (!temperatureChangeStep.MaxTemperature.HasValue || temp <= temperatureChangeStep.MaxTemperature.Value))
                     {
-                        return HandleResult.True;
+                        return validation ? HandleResult.Validated : HandleResult.True;
                     }
 
                     return HandleResult.False;
@@ -422,7 +427,7 @@ namespace Content.Server.Construction
                         break;
 
                     if (partAssemblyStep.Condition(uid, EntityManager))
-                        return HandleResult.True;
+                        return validation ? HandleResult.Validated : HandleResult.True;
                     return HandleResult.False;
                 }
 

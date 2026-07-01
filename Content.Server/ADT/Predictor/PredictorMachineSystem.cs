@@ -202,7 +202,7 @@ public sealed class PredictorMachineSystem : EntitySystem
         {
             var solution = new Solution();
             solution.AddReagent(new ReagentId("Omnizine", null), FixedPoint2.New(10));
-            _bloodstream.TryAddToChemicals((user, bloodstream), solution);
+            _bloodstream.TryAddToBloodstream((user, bloodstream), solution);
         }
         else if (prediction == dylovenePrediction)
         {
@@ -210,7 +210,7 @@ public sealed class PredictorMachineSystem : EntitySystem
             {
                 var solution = new Solution();
                 solution.AddReagent(new ReagentId("Dylovene", null), FixedPoint2.New(5));
-                _bloodstream.TryAddToChemicals((user, bloodstream), solution);
+                _bloodstream.TryAddToBloodstream((user, bloodstream), solution);
             }
             else
             {

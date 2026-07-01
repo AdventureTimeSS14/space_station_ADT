@@ -1,26 +1,49 @@
-using System.Threading;
 using Content.Server.Chat.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Mobs;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.AutoPostingChat;
 public sealed class AutoSpeakPostingChatSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<AutoSpeakPostingChatComponent, MobStateChangedEvent>(OnMobState);
-        SubscribeLocalEvent<AutoSpeakPostingChatComponent, ComponentShutdown>(OnComponentShutdown);
-        SubscribeLocalEvent<AutoSpeakPostingChatComponent, ComponentStartup>(OnComponentStartup);
+        SubscribeLocalEvent<AutoSpeakPostingChatComponent, MapInitEvent>(OnMapInit);
     }
 
-    /// <summary>
-    /// On death removes active comps and gives genetic damage to prevent cloning, reduce this to allow cloning.
-    /// </summary>
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        var curTime = _timing.CurTime;
+        var query = EntityQueryEnumerator<AutoSpeakPostingChatComponent>();
+
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.NextFire > curTime)
+                continue;
+
+            if (!string.IsNullOrEmpty(comp.PostingMessageSpeak))
+            {
+                _chat.TrySendInGameICMessage(uid, comp.PostingMessageSpeak, InGameICChatType.Speak, ChatTransmitRange.Normal);
+            }
+
+            var nextInterval = comp.SpeakTimerRead;
+            if (comp.RandomIntervalSpeak)
+            {
+                nextInterval = _random.Next(comp.IntervalRandomSpeakMin, comp.IntervalRandomSpeakMax);
+            }
+
+            comp.NextFire += TimeSpan.FromSeconds(nextInterval);
+        }
+    }
+
     private void OnMobState(EntityUid uid, AutoSpeakPostingChatComponent component, MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead)
@@ -29,57 +52,15 @@ public sealed class AutoSpeakPostingChatSystem : EntitySystem
         }
     }
 
-    private void OnComponentStartup(EntityUid uid, AutoSpeakPostingChatComponent component, ComponentStartup args)
+    private void OnMapInit(EntityUid uid, AutoSpeakPostingChatComponent component, MapInitEvent args)
     {
-        // Перезапускаем таймер при старте компонента (например, при десериализации)
-        StartSpeakTimer(uid, component);
-    }
-
-    private void OnComponentShutdown(EntityUid uid, AutoSpeakPostingChatComponent component, ComponentShutdown args)
-    {
-        // Отменяем таймер при удалении компонента
-        if (component.TokenSource != null)
-        {
-            component.TokenSource.Cancel();
-            component.TokenSource.Dispose();
-            component.TokenSource = null;
-        }
-    }
-
-    private void StartSpeakTimer(EntityUid uid, AutoSpeakPostingChatComponent component)
-    {
-        // Отменяем предыдущий таймер если он существует
-        component.TokenSource?.Cancel();
-        component.TokenSource?.Dispose();
-        component.TokenSource = new CancellationTokenSource();
-
-        var delay = component.SpeakTimerRead;
+        var initialDelay = component.SpeakTimerRead;
         if (component.RandomIntervalSpeak)
         {
-            delay = _random.Next(component.IntervalRandomSpeakMin, component.IntervalRandomSpeakMax);
+            initialDelay = _random.Next(component.IntervalRandomSpeakMin, component.IntervalRandomSpeakMax);
         }
 
-        // Запускаем повторяющийся таймер
-        uid.SpawnRepeatingTimer(TimeSpan.FromSeconds(delay), () => OnSpeakTimerFired(uid, component), component.TokenSource.Token);
-    }
-
-    private void OnSpeakTimerFired(EntityUid uid, AutoSpeakPostingChatComponent component)
-    {
-        // Проверяем, что компонент все еще существует
-        if (!HasComp<AutoSpeakPostingChatComponent>(uid))
-            return;
-
-        // Отправляем сообщение
-        if (component.PostingMessageSpeak != null)
-        {
-            _chat.TrySendInGameICMessage(uid, component.PostingMessageSpeak, InGameICChatType.Speak, ChatTransmitRange.Normal);
-        }
-
-        // Если используется случайный интервал, перезапускаем таймер с новым случайным значением
-        if (component.RandomIntervalSpeak)
-        {
-            StartSpeakTimer(uid, component);
-        }
+        component.NextFire = _timing.CurTime + TimeSpan.FromSeconds(initialDelay);
     }
 }
 

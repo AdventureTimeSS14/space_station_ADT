@@ -507,7 +507,7 @@
     sprite: ADT/Clothing/Mask/mfdoom.rsi
 
 - type: entity
-  parent: ClothingMaskClown
+  parent: ClothingMaskClownBase
   id: ADTClothingMaskClownAbyss
   name: clown mask from abyss
   components:

@@ -46,7 +46,10 @@
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -122,7 +125,6 @@
   description: Even a flying leviathan starts off small and from an egg.
   components:
   - type: Body
-    prototype: Animal
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
@@ -158,13 +160,15 @@
       - Weakness
       - Electrocution
       - ForcedSleep
-      - TemporaryBlindness
       - Pacified
       - StaminaModifier
       - Drowsiness
       - Adrenaline
   - type: Bloodstream
-    bloodMaxVolume: 650
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 650
   - type: FloatingVisuals
   - type: NpcFactionMember
     factions:
@@ -233,9 +237,6 @@
   - type: Metabolizer
     solutionOnBody: false
     metabolizerTypes: [ Dragon ]
-    groups:
-    - id: Medicine
-    - id: Poison
   - type: Butcherable
     spawned:
     - id: FoodMeatDragon
@@ -394,7 +395,6 @@
     factions:
     - Passive
   - type: Body
-    prototype: AnimalRuminant
   - type: FactionException
   - type: HTN
     rootTask:
@@ -462,7 +462,10 @@
       - ReagentId: Rewriter
         Quantity: 2
   - type: Bloodstream
-    bloodMaxVolume: 25
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 25
   - type: MeleeChemicalInjector
     transferAmount: 8
     solution: melee
@@ -524,6 +527,7 @@
         Base: dead_and_splat_mousespace
   - type: PressureImmunity
   - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 423
     coldDamageThreshold: 0
   - type: Respirator
