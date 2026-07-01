@@ -86,3 +86,21 @@ ent-ADTClothingUnderwearBottomMonokiniWhite = низ белого монокин
 
 ent-ADTClothingUnderwearBottomPantiesCow = коровьи трусики
     .desc = Милые коровьи трусики. Му-у-у!
+
+ent-ADTClothingUnderwearBottomBoxersBlack = черные трусы
+    .desc = Стандартное белье NanoTrasen для работников станции. Окрашены в черный цвет.
+
+ent-ADTClothingUnderwearBottomBoxersBlue = синие трусы
+    .desc = Стандартное белье NanoTrasen для работников станции. Окрашены в синий цвет.
+
+ent-ADTClothingUnderwearBottomBoxersRed = красные трусы
+    .desc = Стандартное белье NanoTrasen для работников станции. Окрашены в красный цвет.
+
+ent-ADTClothingUnderwearBottomPantiesBlack = черные трусики
+    .desc = Стандартное белье NanoTrasen для работниц станции. Окрашены в черный цвет.
+
+ent-ADTClothingUnderwearBottomPantiesBlue = синие трусики
+    .desc = Стандартное белье NanoTrasen для работниц станции. Окрашены в синий цвет.
+
+ent-ADTClothingUnderwearBottomPantiesRed = красные трусики
+    .desc = Стандартное белье NanoTrasen для работниц станции. Окрашены в красный цвет.
