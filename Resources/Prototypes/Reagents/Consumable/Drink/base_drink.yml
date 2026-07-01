@@ -5,7 +5,7 @@
   slipData:
     requiredSlipSpeed: 3.5
   metabolisms:
-    Digestion:
+    Drink: # ADT-Tweak: Digestion
       effects:
       - !type:SatiateThirst
         factor: 3
@@ -26,7 +26,7 @@
   parent: BaseDrink
   abstract: true
   metabolisms:
-    Digestion:
+    Drink:
       effects:
       - !type:SatiateThirst
         factor: 2
