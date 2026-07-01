@@ -22,3 +22,13 @@
         - id: WeaponDisabler
         - id: MedkitCombatFilled
         - id: MedkitAdvancedFilled
+
+- type: entity
+  id: ADTCrateSecurityReflecArmor
+  parent: CrateSecgear
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterArmorReflective
+        amount: 2
+ 

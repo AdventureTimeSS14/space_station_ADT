@@ -1,7 +1,7 @@
 - type: entity
   name: small syringe
   description: A small syringe to take.. you guessed it, small samples of liquid.
-  parent: BaseItem
+  parent: BaseSyringe
   id: ADTSmallSyringe
   components:
   - type: Sprite

@@ -150,7 +150,6 @@
     - type: Battery
       maxCharge: 1200
       startingCharge: 1200
-    - type: PowerCell
     - type: BatterySelfRecharger
       autoRecharge: true
       autoRechargeRate: 10
