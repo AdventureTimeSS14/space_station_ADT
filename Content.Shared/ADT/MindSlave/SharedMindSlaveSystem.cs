@@ -3,6 +3,9 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.MindSlave;
 
+/// <summary>
+/// Shared server/client base for MindSlave systems.
+/// </summary>
 public abstract class SharedMindSlaveSystem : EntitySystem
 {
 }

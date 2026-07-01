@@ -521,7 +521,6 @@ uplink-briefcase-gun-desc = An indistinct briefcase with a highly compact C-20K 
 uplink-energycrossbow-name = Mini Energy Crossbow
 uplink-energycrossbow-desc = The go-to sidearm of any operative who prefers their victims not to be moving. Fires regenerating toxic arrows that floors victims in an instant.
 
-# MindSlave
 uplink-mindslave-implanter-name = MindSlave Implanter
 uplink-mindslave-implanter-desc = A disposable syringe loaded with a MindSlave bio-chip. Use on a target to make them completely loyal to you.
 

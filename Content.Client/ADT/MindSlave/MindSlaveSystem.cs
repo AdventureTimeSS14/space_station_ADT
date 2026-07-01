@@ -7,6 +7,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.ADT.MindSlave;
 
+/// <summary>
+/// Handles client-side MindSlave status icon visibility for masters and enslaved characters.
+/// </summary>
 public sealed class MindSlaveSystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _player = default!;
