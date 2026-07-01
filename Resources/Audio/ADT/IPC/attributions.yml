@@ -2,3 +2,8 @@
   license: "CC0-1.0"
   copyright: "Original sound by https://github.com/ss220-space/Paradise"
   source: "https://github.com/ss220-space/Paradise"
+
+- files: ["startup.ogg"]
+  license: "CC0-1.0"
+  copyright: "Original sound by NazarHK"
+  source: "https://freesound.org/people/NazarHK/sounds/787576/"
