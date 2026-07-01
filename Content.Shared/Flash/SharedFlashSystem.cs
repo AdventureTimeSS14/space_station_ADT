@@ -83,7 +83,15 @@ public abstract class SharedFlashSystem : EntitySystem
         args.Handled = true;
         foreach (var target in args.HitEntities)
         {
-            Flash(target, args.User, ent.Owner, ent.Comp.MeleeDuration, ent.Comp.SlowTo, melee: true, stunDuration: ent.Comp.MeleeStunDuration);
+            // ADT-Tweak start
+            var stunDuration = ent.Comp.MeleeStunDuration;
+            if (TryComp<BorgFlashStunComponent>(target, out var borgFlashStun))
+            {
+                stunDuration = borgFlashStun.StunDuration;
+            }
+            // ADT-Tweak end
+
+            Flash(target, args.User, ent.Owner, ent.Comp.MeleeDuration, ent.Comp.SlowTo, melee: true, stunDuration: stunDuration);
         }
     }
 
