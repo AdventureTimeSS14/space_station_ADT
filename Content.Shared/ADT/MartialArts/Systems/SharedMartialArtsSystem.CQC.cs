@@ -170,12 +170,12 @@ public partial class SharedMartialArtsSystem
         {
             if (TryComp<StaminaComponent>(target, out var stamina) && stamina.Critical)
                 _newStatus.TryAddStatusEffectDuration(target, "StatusEffectForcedSleeping", out _, TimeSpan.FromSeconds(10));
-            DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage * 2 + 5, source: ent);
+            var downedDmg = proto.DownedExtraDamage > 0 ? proto.DownedExtraDamage : proto.ExtraDamage;
+            DoDamage(ent, target, proto.DamageType, downedDmg, out _);
         }
         else
         {
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
+            DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         }
 
         if (TryComp<PullableComponent>(target, out var pullable))

@@ -37,6 +37,12 @@ public sealed partial class ComboPrototype : IPrototype
     public float ExtraDamage;
 
     /// <summary>
+    /// Extra damage applied when the target is downed. Falls back to ExtraDamage if zero.
+    /// </summary>
+    [DataField]
+    public float DownedExtraDamage;
+
+    /// <summary>
     /// Stun time in seconds
     /// </summary>
     [DataField]

@@ -20,8 +20,8 @@
   - Grab
   - Harm
   event: !type:CqcSlamPerformedEvent {}
-  extraDamage: 10
-  paralyzeTime: 12
+  extraDamage: 15
+  paralyzeTime: 2
 
 - type: combo
   id: CQCKick
@@ -31,8 +31,8 @@
   - Harm
   - Harm
   event: !type:CqcKickPerformedEvent {}
-  extraDamage: 10
-  staminaDamage: 25
+  extraDamage: 20
+  downedExtraDamage: 30
 
 - type: combo
   id: CQCRestrain
@@ -42,8 +42,8 @@
   - Grab
   - Grab
   event: !type:CqcRestrainPerformedEvent {}
-  paralyzeTime: 10
-  staminaDamage: 30
+  paralyzeTime: 3
+  staminaDamage: 55
 
 - type: combo
   id: CQCPressure
@@ -53,7 +53,6 @@
   - Disarm
   - Grab
   event: !type:CqcPressurePerformedEvent {}
-  staminaDamage: 65
 
 - type: combo
   id: CQCConsecutive
@@ -65,4 +64,4 @@
   - Harm
   event: !type:CqcConsecutivePerformedEvent {}
   extraDamage: 10
-  staminaDamage: 70
+  staminaDamage: 45
