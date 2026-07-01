@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: [ SimpleSpaceMobBase, FlyingMobBase ] # Убрано BaseSlicingRefinable
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ] 
   id: BaseMobDragon
   suffix: ""
   name: space dragon
@@ -11,7 +11,7 @@
       reagents:
       - ReagentId: Blood
         Quantity: 650
-      bleedReductionAmount: 5 # Из Goobstation
+    bleedReductionAmount: 5 # Из Goobstation
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -234,7 +234,7 @@
     capacity: 1
     count: 1
   - type: Gun
-    soundShot:
+    soundGunshot:
       path: /Audio/Animals/space_dragon_roar.ogg
     soundEmpty: null
     projectileSpeed: 5
