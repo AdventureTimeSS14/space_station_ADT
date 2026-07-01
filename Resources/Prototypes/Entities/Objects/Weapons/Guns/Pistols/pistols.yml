@@ -108,8 +108,8 @@
           tags:
             - CartridgePistol
   # ADT-Tweak-Start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.1
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.1
   # ADT-Tweak-End
   - type: ContainerContainer
     containers:
@@ -160,8 +160,8 @@
     containers:
       ballistic-ammo: !type:Container
   # ADT-Tweak-Start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.1
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.1
   # ADT-Tweak-End
   - type: BallisticAmmoProvider
     whitelist:
@@ -192,8 +192,8 @@
     sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
-  - type: RunAndGunSpreadModifier
-    modifier: 0.07
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.07
   - type: Gun
     fireRate: 4
     soundGunshot:
@@ -263,8 +263,8 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   # ADT-Tweak-Start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.07
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.07
   # ADT-Tweak-End
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
@@ -320,8 +320,8 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
   # ADT-Tweak-Start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.1
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.1
   # ADT-Tweak-End
   - type: Gun
     minAngle: 1

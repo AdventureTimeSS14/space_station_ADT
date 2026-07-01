@@ -22,7 +22,8 @@ language-Nian-name = Ткачий
 language-Nian-description = Язык, состоящий из жужжащих звуков, на котором говорят и используют нианы.
 language-Fire-name = Огненный
 language-Fire-description = Звуки огня, что каким-то образом складываются в осмысленную речь.
-language-SolCommon-name = Солнечный язык
+
+language-SolCommon-name = Солнечный
 language-SolCommon-description = Общий язык, на котором говорят обитатели солнечной системы.
 language-Cat-name = Животный кошачий
 language-Cat-description = Примитивные звуки, издаваемые кошками. Каким-то образом они передают смысл!
@@ -83,7 +84,8 @@ language-Clownish-name = Хихич
 language-Clownish-description = Клоунский язык! Хонк!
 language-Scratches-name = Скретчи
 language-Scratches-description = Язык резоми, состоящий из различных хрипов, тресков и писков, которые нетренированным ухом часто воспринимается, как какофония.
-language-SignLanguage-name = Жестовый язык
+
+language-SignLanguage-name = Жестовый
 language-SignLanguage-description = Язык, что позволяет глухим представителям всевозможных рас контактировать между собой.
 language-DionaCollectiveMind-name = Колл. разум дион
 language-DionaCollectiveMind-description = Коллективный разум, с которым с рождения связаны все дионы.
