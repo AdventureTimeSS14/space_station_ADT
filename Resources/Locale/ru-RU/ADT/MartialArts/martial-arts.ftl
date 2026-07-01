@@ -88,6 +88,7 @@ martial-arts-action-sender = Вы ударили { $name } приёмом { $mov
 martial-arts-action-receiver = { $name } ударил вас приёмом { $move }
 
 martial-arts-fail-prone = Нельзя использовать этот приём лёжа!
+martial-arts-fail-not-prone = Нельзя использовать этот приём стоя!
 martial-arts-fail-target-down = Нельзя использовать этот приём на лежащей цели!
 martial-arts-fail-target-standing = Нельзя использовать этот приём на стоящей цели!
 martial-arts-fail-not-grabbed = Нельзя использовать этот приём, если вас не удерживают!
