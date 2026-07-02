@@ -44,13 +44,21 @@
 
 #Basic Helmet (Security Helmet)
 - type: entity
-  parent: [ClothingHeadHelmetArmoredBase, BaseSecurityContraband]
+  parent: [ClothingHeadHelmetArmoredBase, BaseSecurityContraband, BaseFoldable] #ADT-Tweak
   id: ClothingHeadHelmetBasic
   name: helmet
   description: Standard security gear. Protects the head from impacts.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/security.rsi
+  #ADT-Tweak-Start
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-open
+      map: ["foldedLayer"]
+      visible: false
+  #ADT-Tweak-End
   - type: Clothing
     sprite: Clothing/Head/Helmets/security.rsi
   - type: Tag
@@ -63,6 +71,14 @@
   #    Hair: HEAD
   #ADT-Tweak-End
   #ADT-Tweak-Start
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: verb-common-close
+    foldVerbText: verb-common-open
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
+  - type: Appearance
   - type: CoveredSlot
     slots: [eyes]
   #ADT-Tweak-End
@@ -591,7 +607,7 @@
 
 #Justice Helmet
 - type: entity
-  parent: ClothingHeadHelmetBasic
+  parent: [ClothingHeadHelmetArmoredBase, BaseSecurityContraband] #ADT-Tweak
   id: ClothingHeadHelmetJustice
   name: justice helm
   description: Advanced security gear. Protects the station from ne'er-do-wells.
@@ -667,6 +683,10 @@
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes]
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - SecurityHelmet
   #ADT-Tweak-End
 
 - type: entity

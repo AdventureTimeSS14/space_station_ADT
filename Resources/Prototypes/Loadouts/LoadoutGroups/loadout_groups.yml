@@ -1459,6 +1459,7 @@
   - SecurityBeret
   - SecurityHat
   - TrooperHat
+  - ADTPilotSecurityBeret #ADT-Tweak
 
 - type: loadoutGroup
   id: SecurityJumpsuit

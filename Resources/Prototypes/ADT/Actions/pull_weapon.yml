@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseAction
+  id: ActionWeaponPull
+  name: Draw the weapon
+  description: Telekinetically pulls the nearest weapon on the station into your hands.
+  components:
+  - type: Action
+    useDelay: 240
+    icon:
+      sprite: ADT/Personalization/stryz_ani/katana.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:WeaponPullActionEvent {}
