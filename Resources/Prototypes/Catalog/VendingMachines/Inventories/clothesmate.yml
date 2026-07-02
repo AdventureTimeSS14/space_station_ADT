@@ -152,70 +152,18 @@
     ClothingUniformRandomShorts: 3 #ADT-tweak 4>3
     #ADT-Tweak-Move-End
     #ADT-Tweak-Underwear-Start
-    ADTClothingUnderwearBottomBoxersWhite: 3
-    ADTClothingUnderwearBottomBriefsWhite: 3
-    ADTClothingUnderwearBottomBoxersAmerica: 2
-    ADTClothingUnderwearBottomBoxersBoom: 2
-    ADTClothingUnderwearBottomPantiesComfyWhite: 3
-    ADTClothingUnderwearTopBraWhite: 3
-    ADTClothingUnderwearTopBraComfyWhite: 3
+    ADTClothingVoucherUnderwearBoxers: 8
+    ADTClothingVoucherUnderwearBriefs: 8
+    ADTClothingVoucherUnderwearPanties: 8
+    ADTClothingVoucherUnderwearMonokiniBottom: 8
+    ADTClothingVoucherUnderwearBra: 8
+    ADTClothingVoucherUnderwearMonokiniTop: 8
+    ADTClothingVoucherUnderwearTShirt: 8
     #ADT-Tweak-Underwear-End
     #ADT-Tweak-Socks-Start
-    ADTClothingUnderwearSocksShort: 2
-    ADTClothingUnderwearSocksHigh: 2
-    ADTClothingUnderwearSocksThigh: 2
-    ADTClothingUnderwearSocksStockingsWhite: 2
-    ADTClothingUnderwearSocksComfyBlue: 2
-    ADTClothingUnderwearSocksComfyGrey: 2
-    ADTClothingUnderwearSocksComfyRed: 2
-    ADTClothingUnderwearSocksComfyViolet: 2
-    ADTClothingUnderwearSocksKneeComfyBlue: 2
-    ADTClothingUnderwearSocksKneeComfyGrey: 2
-    ADTClothingUnderwearSocksKneeComfyRed: 2
-    ADTClothingUnderwearSocksKneeComfyViolet: 2
-    ADTClothingUnderwearSocksBee: 2
-    ClothingUnderSocksBee: 2
-    ClothingUnderSocksCoder: 1
-    ADTClothingUnderwearSocksAzure: 2
-    ADTClothingUnderwearSocksKneeAzure: 2
-    ADTClothingUnderwearSocksThighAzure: 2
-    ADTClothingUnderwearSocksBlack: 2
-    ADTClothingUnderwearSocksKneeBlack: 2
-    ADTClothingUnderwearSocksThighBlack: 2
-    ADTClothingUnderwearSocksCyan: 2
-    ADTClothingUnderwearSocksKneeCyan: 2
-    ADTClothingUnderwearSocksThighCyan: 2
-    ADTClothingUnderwearSocksFurr: 2
-    ADTClothingUnderwearSocksKneeFurr: 2
-    ADTClothingUnderwearSocksThighFurr: 2
-    ADTClothingUnderwearSocksGreen: 2
-    ADTClothingUnderwearSocksKneeGreen: 2
-    ADTClothingUnderwearSocksThighGreen: 2
-    ADTClothingUnderwearSocksHomelander: 2
-    ADTClothingUnderwearSocksKneeHomelander: 2
-    ADTClothingUnderwearSocksThighHomelander: 2
-    ADTClothingUnderwearSocksHotpink: 2
-    ADTClothingUnderwearSocksKneeHotpink: 2
-    ADTClothingUnderwearSocksThighHotpink: 2
-    ADTClothingUnderwearSocksOrange: 2
-    ADTClothingUnderwearSocksKneeOrange: 2
-    ADTClothingUnderwearSocksThighOrange: 2
-    ADTClothingUnderwearSocksPink: 2
-    ADTClothingUnderwearSocksKneePink: 2
-    ADTClothingUnderwearSocksThighCreepy: 2
-    ADTClothingUnderwearSocksKneeFishnet: 2
-    ADTClothingUnderwearSocksFullFishnet: 2
-    ADTClothingUnderwearSocksKneeThin: 2
-    ADTClothingUnderwearSocksThighThin: 2
-    ADTClothingUnderwearSocksThighBlue: 2
-    ADTClothingUnderwearSocksThighFishnet: 2
-    ADTClothingUnderwearSocksThighGrey: 2
-    ADTClothingUnderwearSocksThighPantyhose: 2
-    ADTClothingUnderwearSocksThighPurple: 2
-    ADTClothingUnderwearSocksThighRed: 2
-    ADTClothingUnderwearSocksYellow: 2
-    ADTClothingUnderwearSocksKneeYellow: 2
-    ADTClothingUnderwearSocksThighYellow: 2
+    ADTClothingVoucherUnderwearSocks: 8
+    ADTClothingVoucherUnderwearSocksKnee: 8
+    ADTClothingVoucherUnderwearStockings: 8
     #ADT-Tweak-Socks-End
 
 # DO NOT ADD MORE, USE UNIFORM DYING
