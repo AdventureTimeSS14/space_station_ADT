@@ -15,13 +15,17 @@
                         <Control Name="TextAlignmentPadding" VerticalAlignment="Top"/>
                         <RichTextLabel Name="BlankPaperIndicator" StyleClasses="LabelWeak" VerticalAlignment="Top" HorizontalAlignment="Center"/>
                         <RichTextLabel StyleClasses="PaperWrittenText" Name="WrittenTextLabel" VerticalAlignment="Top"/>
-                        <BoxContainer Name="InputContainer" StyleIdentifier="PaperContainer" Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Stretch">
-                            <PanelContainer StyleIdentifier="PaperEditBackground" MinHeight="100"
-                                VerticalAlignment="Stretch" VerticalExpand="True" HorizontalExpand="True">
-                                <TextEdit Name="Input" StyleClasses="PaperLineEdit" Access="Public" />
-                            </PanelContainer>
-                            <Label Name="FillStatus" StyleClasses="LabelSecondaryColor"/>
-                        </BoxContainer>
+                            <BoxContainer Name="InputContainer" StyleIdentifier="PaperContainer" Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Stretch">
+                                <PanelContainer StyleIdentifier="PaperEditBackground" MinHeight="100"
+                                    VerticalAlignment="Stretch" VerticalExpand="True" HorizontalExpand="True">
+                                    <TextEdit Name="Input" StyleClasses="PaperLineEdit" Access="Public" />
+                                </PanelContainer>
+                                <!-- ADT-Tweak Start: Paper field tag -->
+                                <BoxContainer Name="FieldButtonsContainer" Orientation="Horizontal" Visible="False" Margin="2 4 2 2">
+                                </BoxContainer>
+                                <!-- ADT-Tweak End -->
+                                <Label Name="FillStatus" StyleClasses="LabelSecondaryColor"/>
+                            </BoxContainer>
                         <TextureButton Name="FooterImage" HorizontalAlignment="Center" VerticalAlignment="Top" MouseFilter="Ignore"/>
                     </BoxContainer>
                     <paper:StampCollection Name="StampDisplay" VerticalAlignment="Bottom" Margin="6"/>
