@@ -373,14 +373,13 @@ namespace Content.Client.Paper.UI
         }
 
         // ADT-Tweak Start: Paper field tag
+        private const string FieldTagText = "[field]";
         private PaperFieldContext? _fieldContext;
-        private string _currentText = string.Empty;
         private Popup? _currentPopup;
 
         private void SetupFieldButtons(string text, PaperFieldContext? context)
         {
             _fieldContext = context;
-            _currentText = text;
             FieldButtonsContainer.RemoveAllChildren();
             FieldButtonsContainer.Visible = false;
 
@@ -428,7 +427,7 @@ namespace Content.Client.Paper.UI
             {
                 var posInLine = fieldPos - lineStart;
                 var snippetStart = Math.Max(0, posInLine - 25);
-                var snippetEnd = Math.Min(line.Length, posInLine + "[field]".Length + 25);
+                var snippetEnd = Math.Min(line.Length, posInLine + FieldTagText.Length + 25);
                 var snippet = line[snippetStart..snippetEnd];
                 if (snippetStart > 0) snippet = "..." + snippet;
                 if (snippetEnd < line.Length) snippet += "...";
@@ -454,10 +453,10 @@ namespace Content.Client.Paper.UI
         {
             var positions = new List<int>();
             int pos = 0;
-            while ((pos = text.IndexOf("[field]", pos, StringComparison.Ordinal)) != -1)
+            while ((pos = text.IndexOf(FieldTagText, pos, StringComparison.Ordinal)) != -1)
             {
                 positions.Add(pos);
-                pos += "[field]".Length;
+                pos += FieldTagText.Length;
             }
             return positions;
         }
@@ -506,8 +505,10 @@ namespace Content.Client.Paper.UI
             popup.AddChild(vbox);
             UserInterfaceManager.ModalRoot.AddChild(popup);
 
+            var optionCount = vbox.ChildCount;
+            var popupHeight = Math.Clamp(optionCount * 28 + 8, 100, 400);
             var globalPos = anchor.GlobalPosition + new Vector2(0, anchor.Height);
-            popup.Open(UIBox2.FromDimensions(globalPos, new Vector2(200, 220)));
+            popup.Open(UIBox2.FromDimensions(globalPos, new Vector2(200, popupHeight)));
             _currentPopup = popup;
         }
 
@@ -541,7 +542,7 @@ namespace Content.Client.Paper.UI
                 return;
 
             var pos = positions[fieldIndex];
-            var newText = text.Remove(pos, "[field]".Length).Insert(pos, value);
+            var newText = text.Remove(pos, FieldTagText.Length).Insert(pos, value);
             Input.TextRope = Rope.Leaf.Empty;
             Input.CursorPosition = new TextEdit.CursorPos(0, TextEdit.LineBreakBias.Top);
             Input.InsertAtCursor(newText);

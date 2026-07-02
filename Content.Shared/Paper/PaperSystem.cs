@@ -44,8 +44,9 @@ public sealed class PaperSystem : EntitySystem
     // ADT-Tweak End
 
     private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
-    private static readonly ProtoId<TagPrototype> WriteTag = "Write";
+    private static readonly ProtoId<TagPrototype> WriteTag = "Write"; // ADT-Tweak
     private static readonly ProtoId<TagPrototype> CrayonTag = "Crayon"; // ADT-Tweak: Chalkboard
+    private const string InGameYear = "2570"; // ADT-Tweak: Paper field tag
 
     private EntityQuery<PaperComponent> _paperQuery;
 
@@ -159,7 +160,7 @@ public sealed class PaperSystem : EntitySystem
     {
         // only allow editing if there are no stamps or when using a cyberpen
         var editable = entity.Comp.StampedBy.Count == 0 || _tagSystem.HasTag(args.Used, WriteIgnoreStampsTag);
-        if (_tagSystem.HasTag(args.Used, WriteTag))
+        if (_tagSystem.HasTag(args.Used, WriteTag)) // ADT-Tweak: using WriteTag constant
         {
             // ADT-Tweak Start: Chalkboard
             if (HasComp<ChalkboardComponent>(entity) && !_tagSystem.HasTag(args.Used, CrayonTag))
@@ -200,7 +201,7 @@ public sealed class PaperSystem : EntitySystem
 
                 entity.Comp.Mode = PaperAction.Write;
                 _uiSystem.OpenUi(entity.Owner, PaperUiKey.Key, args.User);
-                UpdateUserInterface(entity, args.User);
+                UpdateUserInterface(entity, args.User); // ADT-Tweak: passing user for field context
             }
             args.Handled = true;
             return;
@@ -469,22 +470,22 @@ public sealed class PaperSystem : EntitySystem
     // ADT-Tweak Start: Paper field tag
     private PaperFieldContext? GetFieldContext(EntityUid user)
     {
-        if (!_mind.TryGetMind(user, out var mindId, out var mindComp))
-            return null;
-
         var context = new PaperFieldContext();
-
-        context.CharacterName = mindComp.CharacterName ?? Loc.GetString("paper-field-unknown");
-
-        context.Job = _job.MindTryGetJobName(mindId);
 
         var roundTime = _gameTicker.RoundDuration();
         context.CurrentTime = $"{roundTime.Hours:D2}:{roundTime.Minutes:D2}:{roundTime.Seconds:D2}";
-        context.CurrentDate = $"{DateTime.Now:dd.MM}.2570";
+        context.CurrentDate = $"{DateTime.UtcNow:dd.MM}.{InGameYear}";
         context.CurrentDateTime = $"{context.CurrentTime} {context.CurrentDate}";
 
         var stationEnt = _station.GetOwningStation(user);
         context.StationName = stationEnt != null ? Name(stationEnt.Value) : Loc.GetString("paper-field-unknown");
+
+        if (!_mind.TryGetMind(user, out var mindId, out var mindComp))
+            return context;
+
+        context.CharacterName = mindComp.CharacterName ?? Loc.GetString("paper-field-unknown");
+
+        context.Job = _job.MindTryGetJobName(mindId);
 
         if (TryComp<HumanoidProfileComponent>(user, out var profile))
         {
