@@ -68,6 +68,7 @@
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
             # ADTCentcomConsultant: [ 1, 1 ] #ADT-Roles # Убрано по голосованию
             ADTCorrectionsOfficer: [ 1, 1 ] # ADT-Roles
+            ADTMiner: [ 3, 4 ]
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]
