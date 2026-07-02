@@ -45,6 +45,7 @@
   - ADTPassagerRDIDCard
   - ADTCustomLawCircuitBoard
   - HandheldCrewMonitor
+  - Multitool
 
 - type: thiefBackpackSet
   id: ADTGunsmith
@@ -57,14 +58,15 @@
   - WeaponShotgunSawn
   - WeaponShotgunSawn
   - BoxLethalshot
+  - BoxLethalshot
   - WeaponRevolverInspector
   - WeaponRevolverInspector
   - WeaponRevolverPirate
   - WeaponRifleAk
   - ADTAttachmentSuppressor
   - ADTAttachmentSuppressor
-  - ADTAttachmentSuppressor
-  - ADTAttachmentSuppressor
+  - WeaponLaserGun
+  - WeaponLaserGun
   - ADTAttachmentLaserSight
   - ADTAttachmentLaserSight
   - Chainsaw
