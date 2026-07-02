@@ -33,8 +33,16 @@ public sealed partial class DragonRiftComponent : SharedDragonRiftComponent
     /// How long it takes for a new spawn to be added.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("spawnCooldown")]
-    public float SpawnCooldown = 30f;
+    public float SpawnCooldown = 24f; // ADT-Tweak
 
-    [DataField("spawns")]
-    public List<string> SpawnPrototypes = new() { };
+    // ADT-Tweak-start
+    [DataField("spawn")]
+    public EntProtoId SpawnPrototype = "MobCarpDragon";
+
+    [DataField]
+    public float StrongSpawnChance = 0.35f;
+
+    [DataField("spawnStrong")]
+    public EntProtoId SpawnPrototypeStrong = "MobSharkDragon";
+    // ADT-Tweak-end
 }

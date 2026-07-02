@@ -4,3 +4,8 @@ ent-ADTMobCarpNukie = Карпкат
 ent-ADTMobCarpPirate = Костлявая рыба
     .desc = Склеен из костей своих товарищей
     .suffix = Пират
+    
+ent-MobSharkDragon = карпоакула
+    .suffix = ВыводокДракона
+    .desc = Опасная акула из черноты бесконечного космоса, которая любит пить кровь
+    
