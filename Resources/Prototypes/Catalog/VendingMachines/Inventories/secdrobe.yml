@@ -26,7 +26,7 @@
     ClothingShoesBootsCombat: 1
     ClothingShoesBootsWinterSec: 2
     ClothingHeadHelmetJustice: 1
-    #ADT Clothing 
+    #ADT Clothing
     ADTClothingOuterCoatSecurity: 1
     ADTClothingKadet: 4
     ADTClothingUniformSecurityCadetLight: 2
@@ -41,6 +41,7 @@
     ClothingHeadHatCowboyWhite: 1
     ADTClothingShoesJackbootsCowboyWhite: 1
     ADTClothingShoesJackbootsCowboyFancy: 1
+    ADTMaskCoif: 2
     #ADT Clothing end
   contrabandInventory:
     ClothingMaskClownSecurity: 1

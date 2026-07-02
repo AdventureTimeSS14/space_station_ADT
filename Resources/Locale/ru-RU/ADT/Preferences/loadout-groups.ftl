@@ -99,6 +99,7 @@ loadout-corrections-officer-jumpsuit-adt = Надзиратель СБ, комб
 loadout-corrections-officer-outerclothing-adt = Надзиратель СБ, верхняя одежда
 loadout-group-detective-id-adt = Детектив, ID
 loadout-security-officer-neck-adt = Офицер СБ, шея
+loadout-security-officer-glasses-adt = Офицер СБ, очки
 loadout-security-cadet-neck-adt = Кадет СБ, шея
 # Brigmedic
 loadout-brigmedic-jumpsuit-adt = Бригмедик, комбинезон

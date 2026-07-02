@@ -21,6 +21,7 @@
         - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
         - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
         - id: ADTClothingNeckCloakSecondBlueshield
+        - id: MedkitBurnFilled
           #- id: ADTCqcManualWeak
   - type: UserInterface
     interfaces:
@@ -52,6 +53,7 @@
         - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
         - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
         - id: ADTClothingNeckCloakSecondBlueshield
+        - id: MedkitBurnFilled
           # - id: ADTCqcManualWeak
 # Centcom Consultant
 - type: entity
@@ -63,7 +65,7 @@
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: ADTClothingUniformJumpskirtCCCFormal 
+        - id: ADTClothingUniformJumpskirtCCCFormal
         - id: ADTClothingUniformJumpsuitCCCFormal
         - id: ADTClothingUniformJumpskirtCCC
         - id: ADTClothingUniformJumpsuitConsultantCentcom
@@ -90,7 +92,7 @@
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: ADTClothingUniformJumpskirtCCCFormal 
+        - id: ADTClothingUniformJumpskirtCCCFormal
         - id: ADTClothingUniformJumpsuitCCCFormal
         - id: ADTClothingUniformJumpskirtCCC
         - id: ADTClothingUniformJumpsuitConsultantCentcom

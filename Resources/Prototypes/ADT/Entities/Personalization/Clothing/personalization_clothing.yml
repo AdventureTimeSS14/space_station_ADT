@@ -600,7 +600,7 @@
         Piercing: 0.75
         Heat: 0.65
   - type: ExplosionResistance
-    damageCoefficient: 0.9 
+    damageCoefficient: 0.9
 
 
 #PushnoY
@@ -1799,7 +1799,7 @@
 
 # stryz_ani
 - type: entity
-  parent: ClothingHandsGlovesCombat
+  parent: ClothingHandsGlovesSyntheticBase
   id: ADTClothingHandsStryzAniPullingGloves
   name: cyber combat gloves
   description: Gloves with blood-red metal plates on the wrist, the first phalanx of the index finger, and the base of the thumb. The gloves feature a mechanism that allows the katana to be returned to the user's hands.
@@ -1871,7 +1871,7 @@
     slots:
     - ears
     - ears2
-   
+
 # SikRit
 - type: entity
   parent: ADTSponsorClothingNeckBase
