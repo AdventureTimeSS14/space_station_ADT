@@ -75158,7 +75158,6 @@ entities:
   - uid: 10596
     components:
     - type: Transform
-      anchored: True
       pos: -47.5,-41.5
       parent: 2
     - type: Physics
