@@ -14,10 +14,12 @@ using Content.Shared.Verbs;
 using Content.Shared.Destructible;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Shared.Mobs.Systems;
+using Robust.Shared.Containers;
 
 namespace Content.Server.ADT.Silicons.Borgs;
 
@@ -32,6 +34,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly SharedContainerSystem _containers = default!;
 
     public override void Initialize()
     {
@@ -43,6 +46,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         SubscribeLocalEvent<AiRemoteControllerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
         SubscribeLocalEvent<AiRemoteControllerComponent, DestructionEventArgs>(OnBorgDestroyed);
         SubscribeLocalEvent<AiRemoteControllerComponent, MobStateChangedEvent>(OnBorgMobStateChanged);
+        SubscribeLocalEvent<StationAiBrainComponent, MobStateChangedEvent>(OnAiMobStateChanged);
         SubscribeLocalEvent<StationAiHeldComponent, RemoteDeviceActionMessage>(OnUiRemoteAction);
         SubscribeLocalEvent<StationAiHeldComponent, ToggleRemoteDevicesScreenEvent>(OnToggleRemoteDevicesScreen);
     }
@@ -171,6 +175,21 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
             var returnEvent = new ReturnMindIntoAiEvent { Key = RemoteDevicesUiKey.Key };
             RaiseLocalEvent(entity.Owner, returnEvent, true);
         }
+    }
+
+    private void OnAiMobStateChanged(Entity<StationAiBrainComponent> ai, ref MobStateChangedEvent args)
+    {
+        if (!_mobState.IsIncapacitated(ai.Owner, args.Component))
+            return;
+
+        if (!TryComp<StationAiHeldComponent>(ai.Owner, out var heldComp) || heldComp.CurrentConnectedEntity == null)
+            return;
+
+        var borg = heldComp.CurrentConnectedEntity.Value;
+        if (!TryComp<AiRemoteControllerComponent>(borg, out _))
+            return;
+
+        RaiseLocalEvent(borg, new ReturnMindIntoAiEvent { Key = RemoteDevicesUiKey.Key }, true);
     }
 
     private void OnToggleRemoteDevicesScreen(EntityUid uid, StationAiHeldComponent component, ToggleRemoteDevicesScreenEvent args)

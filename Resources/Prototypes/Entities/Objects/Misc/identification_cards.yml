@@ -268,7 +268,7 @@
     job: AtmosphericTechnician
 
 - type: entity
-  parent: EngineeringIDCard
+  parent: IDCardStandard # ADT-Tweak
   id: SeniorEngineerIDCard
   name: senior engineer ID card
   components:
@@ -282,6 +282,10 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SeniorEngineer
+   # ADT-Tweak-Start: Senior roles
+  - type: PresetIdCard
+    job: ADTSeniorEngineer
+   # ADT-Tweak-End
 
 #Medical
 
@@ -376,7 +380,7 @@
     job: Psychologist
 
 - type: entity
-  parent: MedicalIDCard
+  parent: IDCardStandard # ADT-Tweak
   id: SeniorPhysicianIDCard
   name: senior physician ID card
   components:
@@ -390,6 +394,10 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SeniorPhysician
+   # ADT-Tweak-Start: Senior roles
+  - type: PresetIdCard
+    job: ADTSeniorPhysician
+   # ADT-Tweak-End: Senior roles
 
 #Science
 
@@ -430,7 +438,7 @@
     job: Scientist
 
 - type: entity
-  parent: ResearchIDCard
+  parent: IDCardStandard # ADT-Tweak
   id: SeniorResearcherIDCard
   name: senior researcher ID card
   components:
@@ -444,6 +452,10 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SeniorResearcher
+   # ADT-Tweak-Start: Senior roles
+  - type: PresetIdCard
+    job: ADTSeniorResearcher
+   # ADT-Tweak-End: Senior roles
 
 #Security
 
@@ -538,7 +550,7 @@
     job: Brigmedic
 
 - type: entity
-  parent: SecurityIDCard
+  parent: IDCardStandard # ADT-Tweak
   id: SeniorOfficerIDCard
   name: senior officer ID card
   components:
@@ -552,6 +564,10 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SeniorOfficer
+   # ADT-Tweak-Start: Senior roles
+  - type: PresetIdCard
+    job: ADTSeniorOfficer
+   # ADT-Tweak-End: Senior roles
 
 #Service
 

@@ -521,6 +521,9 @@ uplink-briefcase-gun-desc = An indistinct briefcase with a highly compact C-20K 
 uplink-energycrossbow-name = Mini Energy Crossbow
 uplink-energycrossbow-desc = The go-to sidearm of any operative who prefers their victims not to be moving. Fires regenerating toxic arrows that floors victims in an instant.
 
+uplink-mindslave-implanter-name = MindSlave Implanter
+uplink-mindslave-implanter-desc = A disposable syringe loaded with a MindSlave bio-chip. Use on a target to make them completely loyal to you.
+
 #Objective items
 uplink-hijack-beacon-name = Hijack Beacon
 uplink-hijack-beacon-desc = A syndicate-brand hijack beacon designed to get around the firewalls of Nanotrasen-brand Automated Trade Stations. They take 200 seconds to work and Trade Stations will announce they are being hacked, so prepare accordingly.

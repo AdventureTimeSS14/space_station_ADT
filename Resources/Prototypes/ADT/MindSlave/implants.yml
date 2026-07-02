@@ -1,0 +1,47 @@
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MindSlaveImplant
+  name: имплант Подчинения
+  description: Био-чип Синдиката, который делает носителя полностью лояльным имплантеру.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    whitelist:
+      components:
+      - MobState
+      - Hands
+  - type: MindSlaveImplant
+
+- type: entity
+  id: MindSlaveImplanter
+  parent: [BaseItem, BaseSyndicateContraband]
+  name: имплантер Подчинения
+  description: Одноразовый шприц, заряженный био-чипом Подчинения. Используйте на цели, чтобы сделать её полностью лояльной вам.
+  components:
+  - type: MindSlaveImplanter
+  - type: Item
+    sprite: Objects/Specific/Medical/syndi_implanter.rsi
+    heldPrefix: implanter
+    size: Small
+  - type: Sprite
+    sprite: Objects/Specific/Medical/syndi_implanter.rsi
+    state: implanter1
+    layers:
+    - state: implanter0
+      map: [ "implantFull" ]
+      visible: true
+    - state: implanter1
+      map: [ "implantOnly" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ImplanterVisuals.Full:
+        implantFull:
+          True: {visible: true}
+          False: {visible: false}
+      enum.ImplanterImplantOnlyVisuals.ImplantOnly:
+        implantOnly:
+          True: {state: broken}
+          False: {state: implanter1}
+  - type: Tag
+    tags: []

@@ -12,7 +12,7 @@
 
 - type: jukebox
   id: SpaceAsshole
-  name: Space Asshole - Chris Remo
+  name: Chris Remo - Space Asshole
   path:
     path: /Audio/ADT/Jukebox/space_asshole_mono_jukebox.ogg
 
@@ -126,7 +126,7 @@
 
 - type: jukebox
   id: Oh_Its_You
-  name: Oh Its You - Pascal Michael Stiefel
+  name: Pascal Michael Stiefel - Oh Its You
   path:
     path: /Audio/ADT/Lobby/Oh_Its_You.ogg
 
@@ -138,13 +138,13 @@
 
 - type: jukebox
   id: EOFTTS
-  name: Eye Of The Tiger - Survivor
+  name: Survivor - Eye Of The Tiger
   path:
     path: /Audio/ADT/Jukebox/EOFTTS.ogg
 
 - type: jukebox
   id: EWTRTWTFF
-  name: Everybody Wants To Rule The World - Tears For Fears
+  name: Tears For Fears - Everybody Wants To Rule The World
   path:
     path: /Audio/ADT/Jukebox/EWTRTWTFF.ogg
 
