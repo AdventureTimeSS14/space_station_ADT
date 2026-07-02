@@ -38,7 +38,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: ADTBlueShieldOfficer
+      role: JobADTBlueShieldOfficer
       time: 54000 #15 hrs
 
 # Neck
