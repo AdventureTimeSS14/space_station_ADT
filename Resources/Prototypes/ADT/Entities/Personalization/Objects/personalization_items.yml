@@ -669,16 +669,6 @@
 # Pangaari
 - type: entity
   parent: BasePlushie
-  id: ADTPlushieTeo
-  name: Djessie plushie
-  description: It looks like a soft and cute blondie.
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
-    state: plushie_teo
-
-- type: entity
-  parent: BasePlushie
   id: ADTPlushiePochita
   name: Plush pochita
   description: A plush dog toy with a chainsaw blade sticking out of its head
