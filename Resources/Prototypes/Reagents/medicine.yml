@@ -791,16 +791,10 @@
   metabolisms:
     Bloodstream:
       effects:
-      - !type:HealthChange
-      # Start ADT tweak
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-          inverted: true
-      # End ADT tweak
+      - !type:EvenHealthChange
         damage:
-          types:
-            Cold: -4
+          Brute: -3.5 # ADT-Tweak
+          Airloss: -1
       - !type:HealthChange
         conditions:
       # Start ADT tweak
@@ -815,16 +809,13 @@
           types:
             Asphyxiation: 3.5
       # Start ADT tweak
-      - !type:HealthChange
+      - !type:EvenHealthChange
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
         damage:
-          types:
-            Blunt: -3
-            Piercing: -3
-            Slash: -3
-            Bloodloss: -1
+            Brute: -4
+            Airloss: -0.5
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
