@@ -445,7 +445,6 @@
 #    - ADTVehicleKeyPangaariBike
 #    - ADTVehiclePangaariBike
 #    - ADTClothingHandsPangaariBracelet
-#    - ADTClothingUniformPanjaariJacket
 #    - ADTClothingUniformPangaariAmericanSleeveless
 #
 ### Syrel
@@ -461,17 +460,6 @@
 #    - ADTPlushieAyus
 #    - ADTSyrelClothingBeltSheath
 #    - ADTClothingUniformSensors
-#
-### Maki_gg
-#- type: sponsorPersonalLoadout
-#  id: SponsorPersonalLoadoutMaki_gg
-#  userName: Maki_gg
-#  equipment: SponsorPersonalLoadoutMaki_gg
-#
-#- type: startingGear
-#  id: SponsorPersonalLoadoutMaki_gg
-#  equipment:
-#    outerClothing: ADTClothingOuterCoatMaki
 #
 ### Levontiy
 #- type: sponsorPersonalLoadout

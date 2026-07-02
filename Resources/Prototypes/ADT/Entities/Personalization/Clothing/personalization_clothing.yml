@@ -624,20 +624,6 @@
   - type: Clothing
     sprite: ADT/Personalization/pushnoY_jumpsuit.rsi
 
-#Maki_gg
-- type: entity
-  parent: ADTSponsorClothingOuterStorageBase
-  id: ADTClothingOuterCoatMaki
-  name: Maki coat
-  description: Maki coat.
-  suffix: Personal
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/maki_coat.rsi
-  - type: Clothing
-    sprite: ADT/Personalization/maki_coat.rsi
-
-
 # Moon_so_red
 - type: entity
   parent: ADTSponsorClothingHeadBase
@@ -1811,6 +1797,25 @@
       params:
         variation: 0.07
 
+- type: entity
+  parent: Clothing
+  id: ADTClothingEarHonelin111GoldenEarring
+  name: gold earring
+  description: A piece of jewelry made of a dark gold alloy, with a history that is far from simple—just like the person who wears it.
+  suffix: Honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/honelin111_golden_earrings.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/honelin111_golden_earrings.rsi
+    slots:
+    - ears
+    - ears2
+   
+# SikRit
 - type: entity
   parent: ADTSponsorClothingNeckBase
   id: ADTClothingNeckSikRitDemonicWings

@@ -6,8 +6,14 @@ public sealed class InjectAttemptEvent : CancellableEntityEventArgs, IInventoryR
 {
     // Whenever locational damage is a thing, this should just check only that bit of armour.
     public SlotFlags TargetSlots { get; } = ~SlotFlags.POCKET;
+    public EntityUid UsedInjector = EntityUid.Invalid;
 
     public InjectAttemptEvent()
     {
+    }
+
+    public InjectAttemptEvent(EntityUid usedInjector)
+    {
+        UsedInjector = usedInjector;
     }
 }
