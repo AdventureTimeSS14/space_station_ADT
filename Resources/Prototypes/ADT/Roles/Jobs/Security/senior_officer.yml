@@ -46,7 +46,6 @@
 - type: startingGear
   id: SeniorOfficerGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
     id: SeniorOfficerPDA
     ears: ClothingHeadsetSecurity
     pocket1: WeaponRevolverDeckard
