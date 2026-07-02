@@ -10,10 +10,10 @@ public sealed class DroppodSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DroppodComponent, TimedDespawnEvent>(OnDespawn);
+        SubscribeLocalEvent<DroppodRemainderComponent, TimedDespawnEvent>(OnDespawn);
     }
 
-    private void OnDespawn(EntityUid uid, DroppodComponent comp, ref TimedDespawnEvent args)
+    private void OnDespawn(EntityUid uid, DroppodRemainderComponent comp, ref TimedDespawnEvent args)
     {
         if (!TryComp(uid, out TransformComponent? xform))
             return;
@@ -30,7 +30,7 @@ public sealed class DroppodSystem : EntitySystem
     public void CreateDroppod(EntityCoordinates coords, List<EntProtoId> spawns)
     {
         var droppod = Spawn("ADTDroppodDropping", coords);
-        if (!TryComp<DroppodComponent>(droppod, out var pod))
+        if (!TryComp<DroppodRemainderComponent>(droppod, out var pod))
             return;
         foreach (var proto in spawns)
         {

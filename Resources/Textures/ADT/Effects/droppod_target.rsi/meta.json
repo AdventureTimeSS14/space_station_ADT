@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "sprited by Minokaa",
+  "size": {
+    "x": 288,
+    "y": 288
+  },
+  "states": [
+    {
+      "name": "targeting",
+      "directions": 1
+    }
+  ]
+}

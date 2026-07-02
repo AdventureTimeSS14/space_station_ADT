@@ -3,7 +3,7 @@
   id: ADTAngrySyndieDroppod
   categories: [HideSpawnMenu]
   components:
-  - type: Droppod
+  - type: DroppodRemainder
     prototypes:
       - ADTSyndieSurpricePerson
 
@@ -12,7 +12,7 @@
   id: ADTGamblingNotesDroppod
   categories: [HideSpawnMenu]
   components:
-  - type: Droppod
+  - type: DroppodRemainder
     prototypes:
       - ADTGamblingNotesSpawn
 
@@ -21,7 +21,7 @@
   id: ADTClarkeKitDroppod
   categories: [HideSpawnMenu]
   components:
-  - type: Droppod
+  - type: DroppodRemainder
     prototypes:
       - ADTMechClarkeBattery
       - MechEquipmentDiamondDrill
@@ -31,7 +31,7 @@
   id: ADTOdysseusKitDroppod
   categories: [HideSpawnMenu]
   components:
-  - type: Droppod
+  - type: DroppodRemainder
     prototypes:
       - MechEquipmentHumanSleeper
       - MechEquipmentHumanGrabber
@@ -42,7 +42,7 @@
   id: ADTSeraphKitDroppod
   categories: [HideSpawnMenu]
   components:
-  - type: Droppod
+  - type: DroppodRemainder
     prototypes:
       - ADTMechSeraphBattery
       - ADTMechGunScattershotCrate

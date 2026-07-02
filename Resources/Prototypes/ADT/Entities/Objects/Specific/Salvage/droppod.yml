@@ -11,7 +11,7 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/Misc/droppod_landing.ogg
-  - type: Droppod
+  - type: DroppodRemainder
   - type: StaticPrice
     price: 14
 

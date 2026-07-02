@@ -6,7 +6,7 @@ namespace Content.Shared.ADT.Droppods.Components;
 /// When a <c>TimedDespawnComponent"</c> despawns, another one will be spawned in its place.
 /// </summary>
 [RegisterComponent] //ADT Tweak no access
-public sealed partial class DroppodComponent : Component
+public sealed partial class DroppodRemainderComponent : Component
 {
     /// <summary>
     /// protos to spawn
