@@ -29,8 +29,20 @@
     - Supply
   - type: IgnoreUIRange
   - type: StationAiHeld
-  - type: RadioJobIconOverride # ADT-Tweak
+  # ADT-Tweak start
+  - type: RadioJobIconOverride
     iconId: JobIconStationAi
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Silicon
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+    - Silicon
+  - type: SolutionScanner
+  - type: ShowCriminalRecordIcons
+  # ADT-Tweak end
   - type: StationAiOverlay
   - type: ShowElectrocutionHUD
   - type: ActionGrant
@@ -50,6 +62,8 @@
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
     # ADT Start
+      enum.RemoteDevicesUiKey.Key:
+        type: RemoteDevicesBoundUserInterface
       enum.AtmosAlertsComputerUiKey.Key:
         type: AtmosAlertsComputerBoundUserInterface
       enum.StationAiInfoUiKey.Key:
@@ -68,6 +82,8 @@
         toggleAction: ActionStationAiCommunications
       enum.AtmosAlertsComputerUiKey.Key:
         toggleAction: ActionStationAiAtmosphericAlerts
+      enum.RemoteDevicesUiKey.Key:
+        toggleAction: ADTActionOpenRemoteDevicesMenu
   - type: AtmosAlertsComputer
   - type: StationAiInfo
   - type: CrewManifestViewer

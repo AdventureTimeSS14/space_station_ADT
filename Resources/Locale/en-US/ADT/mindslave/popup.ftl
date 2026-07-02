@@ -1,0 +1,12 @@
+mindslave-self-use-fail = You cannot enslave yourself!
+mindslave-already-enslaved = Target is already a mind slave!
+mindslave-mindshield-block = Target's mindshield is blocking the implant!
+mindslave-no-mind = Target has no mind, but the implant is still embedded.
+mindslave-implant-success = You are now completely loyal to { $master }!
+mindslave-implant-removed = You are no longer a mind slave!
+mindslave-break-control = Mindshield has freed { $name } from mind control!
+mindslave-implant-success-chat = You have been mindslaved by { $master }!
+mindslave-memory = You were made a mind slave by { $master }.
+mindslave-break-control-log = { $name } was freed from mindslave control by a mindshield
+mindslave-implant-spawn-fail = MindSlaveImplant was spawned without SubdermalImplantComponent
+mindslave-implant-success-log = { $target } was mindslaved by { $user }

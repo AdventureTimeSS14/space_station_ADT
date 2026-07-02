@@ -97,8 +97,8 @@
     price: 10000
 # ADT TWEAK START
   - type: GunRequiresWield
-  - type: RunAndGunSpreadModifier
-    modifier: 0.2
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.2
   - type: AttachableHolder
     slots:
       rmc-aslot-rail:

@@ -1,0 +1,23 @@
+- type: factionIcon
+  id: MindSlaveFaction
+  priority: 11
+  showTo:
+    components:
+    - ShowAntagIcons
+    - MindSlaveMaster
+    - MindSlave
+  icon:
+    sprite: /Textures/ADT/MindSlave/antaghud.rsi
+    state: hudmindslave
+
+- type: factionIcon
+  id: MindSlaveMasterFaction
+  priority: 11
+  showTo:
+    components:
+    - ShowAntagIcons
+    - MindSlave
+    - MindSlaveMaster
+  icon:
+    sprite: /Textures/ADT/MindSlave/antaghud.rsi
+    state: hudmaster
