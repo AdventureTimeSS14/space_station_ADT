@@ -1,11 +1,18 @@
 using System.Linq;
+using Content.Shared.ADT.Paper; // ADT-Tweak: Paper field tag
 using Content.Shared.Administration.Logs;
 using Content.Shared.UserInterface;
 using Content.Shared.Database;
 using Content.Shared.Examine;
+using Content.Shared.GameTicking; // ADT-Tweak: Paper field tag
+using Content.Shared.Humanoid; // ADT-Tweak: Paper field tag
+using Content.Shared.Humanoid.Prototypes; // ADT-Tweak: Paper field tag
 using Content.Shared.Interaction;
+using Content.Shared.Mind; // ADT-Tweak: Paper field tag
 using Content.Shared.Random.Helpers;
 using Content.Shared.Popups;
+using Content.Shared.Roles.Jobs; // ADT-Tweak: Paper field tag
+using Content.Shared.Station; // ADT-Tweak: Paper field tag
 using Content.Shared.Tag;
 using Content.Shared.Verbs; // ADT-Tweak: Pen signing
 using Content.Shared.ADT.Chalkboard; // ADT-Tweak: Chalkboard
@@ -29,10 +36,17 @@ public sealed class PaperSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    // ADT-Tweak Start: Paper field tag
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SharedJobSystem _job = default!;
+    [Dependency] private readonly SharedStationSystem _station = default!;
+    [Dependency] private readonly SharedGameTicker _gameTicker = default!;
+    // ADT-Tweak End
 
     private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
-    private static readonly ProtoId<TagPrototype> WriteTag = "Write";
+    private static readonly ProtoId<TagPrototype> WriteTag = "Write"; // ADT-Tweak
     private static readonly ProtoId<TagPrototype> CrayonTag = "Crayon"; // ADT-Tweak: Chalkboard
+    private const string InGameYear = "2570"; // ADT-Tweak: Paper field tag
 
     private EntityQuery<PaperComponent> _paperQuery;
 
@@ -60,7 +74,10 @@ public sealed class PaperSystem : EntitySystem
     {
         if (!string.IsNullOrEmpty(entity.Comp.Content))
         {
-            SetContent(entity, Loc.GetString(entity.Comp.Content));
+            var text = Loc.GetString(entity.Comp.Content);
+            // ADT-Tweak: Convert $field$ to [field] for field tag system
+            text = text.Replace("$field$", "[field]");
+            SetContent(entity, text);
         }
     }
 
@@ -143,7 +160,7 @@ public sealed class PaperSystem : EntitySystem
     {
         // only allow editing if there are no stamps or when using a cyberpen
         var editable = entity.Comp.StampedBy.Count == 0 || _tagSystem.HasTag(args.Used, WriteIgnoreStampsTag);
-        if (_tagSystem.HasTag(args.Used, WriteTag))
+        if (_tagSystem.HasTag(args.Used, WriteTag)) // ADT-Tweak: using WriteTag constant
         {
             // ADT-Tweak Start: Chalkboard
             if (HasComp<ChalkboardComponent>(entity) && !_tagSystem.HasTag(args.Used, CrayonTag))
@@ -184,7 +201,7 @@ public sealed class PaperSystem : EntitySystem
 
                 entity.Comp.Mode = PaperAction.Write;
                 _uiSystem.OpenUi(entity.Owner, PaperUiKey.Key, args.User);
-                UpdateUserInterface(entity);
+                UpdateUserInterface(entity, args.User); // ADT-Tweak: passing user for field context
             }
             args.Handled = true;
             return;
@@ -306,7 +323,7 @@ public sealed class PaperSystem : EntitySystem
             return;
 
         // Pens have a `Write` tag.
-        if (!args.Using.HasValue || !_tagSystem.HasTag(args.Using.Value, "Write"))
+        if (!args.Using.HasValue || !_tagSystem.HasTag(args.Using.Value, WriteTag))
             return;
 
         EntityUid user = args.User;
@@ -433,14 +450,61 @@ public sealed class PaperSystem : EntitySystem
         _appearance.SetData(entity, PaperVisuals.Status, status, appearance);
     }
 
-    private void UpdateUserInterface(Entity<PaperComponent> entity)
+    private void UpdateUserInterface(Entity<PaperComponent> entity, EntityUid? user = null)
     {
+        // ADT-Tweak Start: Paper field tag
+        PaperFieldContext? fieldContext = null;
+        if (user != null && entity.Comp.Content.Contains("[field]"))
+        {
+            fieldContext = GetFieldContext(user.Value);
+        }
+        // ADT-Tweak End
+
         // ADT-Tweak: Start
         _uiSystem.SetUiState(entity.Owner,
             PaperUiKey.Key,
-            new PaperBoundUserInterfaceState(entity.Comp.Content, entity.Comp.StampedBy, entity.Comp.Mode));
+            new PaperBoundUserInterfaceState(entity.Comp.Content, entity.Comp.StampedBy, entity.Comp.Mode, fieldContext));
         // ADT-Tweak: End
     }
+
+    // ADT-Tweak Start: Paper field tag
+    private PaperFieldContext? GetFieldContext(EntityUid user)
+    {
+        var context = new PaperFieldContext();
+
+        var roundTime = _gameTicker.RoundDuration();
+        context.CurrentTime = $"{roundTime.Hours:D2}:{roundTime.Minutes:D2}:{roundTime.Seconds:D2}";
+        context.CurrentDate = $"{DateTime.UtcNow:dd.MM}.{InGameYear}";
+        context.CurrentDateTime = $"{context.CurrentTime} {context.CurrentDate}";
+
+        var stationEnt = _station.GetOwningStation(user);
+        context.StationName = stationEnt != null ? Name(stationEnt.Value) : Loc.GetString("paper-field-unknown");
+
+        if (!_mind.TryGetMind(user, out var mindId, out var mindComp))
+            return context;
+
+        context.CharacterName = mindComp.CharacterName ?? Loc.GetString("paper-field-unknown");
+
+        context.Job = _job.MindTryGetJobName(mindId);
+
+        if (TryComp<HumanoidProfileComponent>(user, out var profile))
+        {
+            context.Gender = profile.Sex switch
+            {
+                Sex.Male => Loc.GetString("paper-field-sex-male"),
+                Sex.Female => Loc.GetString("paper-field-sex-female"),
+                _ => Loc.GetString("paper-field-sex-unsexed")
+            };
+
+            if (_protoMan.TryIndex<SpeciesPrototype>(profile.Species, out var speciesProto))
+                context.Race = Loc.GetString(speciesProto.Name);
+            else
+                context.Race = profile.Species;
+        }
+
+        return context;
+    }
+    // ADT-Tweak End
 }
 
 /// <summary>

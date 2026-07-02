@@ -1,0 +1,15 @@
+paper-field-unknown = Неизвестно
+paper-field-sex-male = Мужской
+paper-field-sex-female = Женский
+paper-field-sex-unsexed = Отсутствует
+paper-field-character-name = Имя
+paper-field-job = Должность
+paper-field-time = Время
+paper-field-date = Дата
+paper-field-station = Станция
+paper-field-gender = Пол
+paper-field-race = Раса
+paper-field-select-hint = Заполнить поле
+paper-field-placeholder = [____]
+paper-field-menu-header = Поле #{$index}
+paper-field-tooltip = Поле #{$index} | Строка {$line} | {$snippet}

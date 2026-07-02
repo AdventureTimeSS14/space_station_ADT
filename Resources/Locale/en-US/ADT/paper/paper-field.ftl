@@ -1,0 +1,15 @@
+paper-field-unknown = Unknown
+paper-field-sex-male = Male
+paper-field-sex-female = Female
+paper-field-sex-unsexed = None
+paper-field-character-name = Name
+paper-field-job = Job
+paper-field-time = Time
+paper-field-date = Date
+paper-field-station = Station
+paper-field-gender = Gender
+paper-field-race = Race
+paper-field-select-hint = Fill field
+paper-field-placeholder = [____]
+paper-field-menu-header = Field #{$index}
+paper-field-tooltip = Field #{$index} | Line {$line} | {$snippet}

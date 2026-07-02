@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Paper; // ADT-Tweak: Paper field tag
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -38,12 +39,18 @@ public sealed partial class PaperComponent : Component
         public readonly string Text;
         public readonly List<StampDisplayInfo> StampedBy;
         public readonly PaperAction Mode;
+        // ADT-Tweak Start: Paper field tag
+        public readonly PaperFieldContext? FieldContext;
+        // ADT-Tweak End
 
-        public PaperBoundUserInterfaceState(string text, List<StampDisplayInfo> stampedBy, PaperAction mode = PaperAction.Read)
+        public PaperBoundUserInterfaceState(string text, List<StampDisplayInfo> stampedBy, PaperAction mode = PaperAction.Read, PaperFieldContext? fieldContext = null)
         {
             Text = text;
             StampedBy = stampedBy;
             Mode = mode;
+            // ADT-Tweak Start: Paper field tag
+            FieldContext = fieldContext;
+            // ADT-Tweak End
         }
     }
 

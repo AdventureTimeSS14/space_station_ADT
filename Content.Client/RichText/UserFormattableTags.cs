@@ -1,4 +1,5 @@
-﻿using Content.Client.UserInterface.RichText;
+﻿using Content.Client.ADT.Paper; // ADT-Tweak: Paper field tag
+using Content.Client.UserInterface.RichText;
 using Robust.Client.UserInterface.RichText;
 
 namespace Content.Client.RichText;
@@ -22,6 +23,17 @@ public static class UserFormattableTags
         typeof(ItalicTag),
         typeof(MonoTag),
     ];
+
+    // ADT-Tweak Start: Paper field tag
+    /// <summary>
+    /// Tags allowed on paper, including the [field] tag.
+    /// </summary>
+    public static readonly Type[] PaperAllowedTags =
+    [
+        ..BaseAllowedTags,
+        typeof(FieldTag),
+    ];
+    // ADT-Tweak End
 
     /// <summary>
     /// Tags allowed in Silicon UIs. Extends from BaseAllowedTags.
