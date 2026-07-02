@@ -24,6 +24,15 @@
   objectType: Structure
 
 - type: construction
+  id: ClosetMiniFreezer
+  name: construction-recipe-closet-minifreezer
+  graph: ClosetMiniFreezer
+  startNode: start
+  targetNode: done
+  category: construction-category-storage
+  objectType: Structure
+
+- type: construction
   id: GunSafe
   graph: GunSafe
   startNode: start
