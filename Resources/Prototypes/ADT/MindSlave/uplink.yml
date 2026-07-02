@@ -1,0 +1,10 @@
+- type: listing
+  id: ADTUplinkMindSlaveImplanter
+  name: uplink-mindslave-implanter-name
+  description: uplink-mindslave-implanter-desc
+  icon: { sprite: Mobs/Species/Human/organs.rsi, state: brain }
+  productEntity: MindSlaveImplanter
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkImplants
