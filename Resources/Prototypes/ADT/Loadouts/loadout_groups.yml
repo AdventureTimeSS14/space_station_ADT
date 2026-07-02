@@ -401,6 +401,7 @@
   - ADTBlueshieldJumpskirt
   - ADTBlueshieldJumpsuitTurtleneck
   - ADTBlueshieldJumpskirtTurtleneck
+  - ADTBlueshieldJumpskirtTacticalMaid
 
 - type: loadoutGroup
   id: ADTBlueshieldHead
@@ -600,6 +601,16 @@
   - ADTNeckSecBadgeBronze
   - ADTNeckSecBadgeSilver
   - ADTNeckSecBadgeGold
+
+- type: loadoutGroup
+  id: SecurityOfficerGlassesADT
+  name: loadout-security-officer-glasses-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTClothingEyesGlassesSecurity
+  - ADTClothingEyesHudSecurity
+  - ADTClothingEyesHudAlt
 
 # CADET
 

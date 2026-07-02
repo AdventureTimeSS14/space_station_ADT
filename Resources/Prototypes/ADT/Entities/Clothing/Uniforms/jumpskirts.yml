@@ -21,6 +21,17 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_blueshield_woman.rsi
 
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtBlueshieldTacticalMaid
+  name: tactical maid suitskirt
+  description: It is assumed that the best maids should have designer suits.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Uniforms/Jumpskirt/blueshield_tacticalmaid.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Uniforms/Jumpskirt/blueshield_tacticalmaid.rsi
+
 # Centcom consultant
 - type: entity
   parent: ClothingUniformSkirtBase

@@ -60,7 +60,7 @@
 - type: startingGear
   id: HoSGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+    # eyes: ClothingEyesGlassesSecurity ADT-Tweak
     # id: HoSPDA ADT: different PDAs in loadouts
     gloves: ClothingHandsGlovesCombat
     ears: ClothingHeadsetAltSecurity
