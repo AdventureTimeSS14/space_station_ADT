@@ -1,0 +1,190 @@
+- type: entity
+  id: ADTBubblegumDeathGlow
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+  - type: PointLight
+    color: "#a01010"
+    radius: 6
+    energy: 4
+    castShadows: false
+  - type: TimedDespawn
+    lifetime: 5
+
+- type: entity
+  id: ADTBubblegumDeathFlash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+  - type: PointLight
+    color: "#ffffff"
+    radius: 12
+    energy: 12
+    castShadows: false
+  - type: TimedDespawn
+    lifetime: 0.6
+
+- type: entity
+  id: ADTBubblegumDemonSoul
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/bubblegum.rsi
+    drawdepth: Ghosts
+    #scale: 0.75
+    noRot: true
+    layers:
+    - state: bubblegum
+      shader: unshaded
+    color: "#ff404070"
+  - type: BubblegumSoulRise
+  - type: PointLight
+    color: "#ff202070"
+    radius: 5
+    energy: 5
+    castShadows: false
+  - type: TimedDespawn
+    lifetime: 2.5
+
+- type: entity
+  id: ADTBubblegumChestGlow
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+  - type: PointLight
+    color: "#ffd27f"
+    radius: 4
+    energy: 3
+    castShadows: false
+  - type: TimedDespawn
+    lifetime: 3
+
+- type: entity
+  parent: ADTCrateNecropolis
+  id: ADTCrateBubblegumLoot
+  name: grotesque chest
+  description: A chest of fleshy, blood-soaked viscera left behind by the slaughter demon king.
+  components:
+  - type: Sprite
+    color: "#a01010"
+
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: ADTClothingOuterHardsuitHECK
+  name: H.E.C.K. suit
+  description: Hostile Environment Cross-Kinetic Suit. Designed to shrug off every hazard Lavaland can throw at it. It wasn't enough for its last owner.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/heck.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/heck.rsi
+  - type: Item
+    size: Huge
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.25
+        Slash: 0.25
+        Piercing: 0.5
+        Heat: 0.1
+        Radiation: 0.0
+        Caustic: 0.0
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: ClothingGrantComponent
+    component:
+    - type: AshStormImmune
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: ADTClothingHeadHelmetHardsuitHECK
+  name: H.E.C.K. helmet
+  description: Hostile Environment Cross-Kinetic Helmet. Built to withstand the wide variety of hazards from Lavaland.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/heck.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/heck.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.25
+        Slash: 0.25
+        Piercing: 0.5
+        Heat: 0.1
+        Radiation: 0.0
+        Caustic: 0.0
+
+- type: entity
+  parent: Chainsaw
+  id: ADTChainsawDoomslayer
+  name: OOOH BABY
+  description: VRRRRRRR!!!
+  components:
+  - type: MeleeWeapon
+    autoAttack: true
+    angle: 0
+    wideAnimationRotation: -135
+    attackRate: 4
+    damage:
+      types:
+        Slash: 25
+        Structural: 10
+    soundHit:
+      path: /Audio/Weapons/chainsaw.ogg
+  - type: ArmorPenetration
+    penetration: 1
+  - type: Reflect
+    reflects:
+    - Energy
+    - NonEnergy
+    reflectProb: 0.75
+
+- type: entity
+  parent: BaseItem
+  id: ADTMayhemBottle
+  name: mayhem in a bottle
+  description: A magically infused bottle of blood, the scent of which will drive anyone nearby into a murderous frenzy.
+  components:
+  - type: Sprite
+    sprite: ADT/Effects/bubblegum_mayhem.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Effects/bubblegum_mayhem.rsi
+  - type: Mayhem
+
+- type: entity
+  parent: BaseItem
+  id: ADTBloodContract
+  name: blood contract
+  description: Mark your target for death. Use it on a living victim.
+  components:
+  - type: Sprite
+    sprite: ADT/Effects/bubblegum_blood_contract.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Effects/bubblegum_blood_contract.rsi
+  - type: BloodContract
+  - type: ActivatableUI
+    key: enum.BloodContractUiKey.Key
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.BloodContractUiKey.Key:
+        type: BloodContractBoundUserInterface

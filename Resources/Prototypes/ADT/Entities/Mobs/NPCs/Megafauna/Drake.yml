@@ -284,7 +284,8 @@
   - type: Butcherable
     butcheringType: Knife
     spawned:
-    - id: Ash
+    - id: ADTKineticTrophyAshDrakeSpike
+
 - type: entity
   id: MobDrake
   parent: [ BaseMobDrake, BaseMobAsteroid ]

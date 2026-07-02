@@ -1,0 +1,19 @@
+- type: damageModifierSet
+  id: Bubblegum
+  coefficients:
+    Heat: 0.5
+
+- type: entity
+  name: bubblegum spawner
+  id: ADTSpawnMobBubblegum
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - state: ai
+  - type: RandomSpawner
+    prototypes:
+    - ADTMegaFaunaBubblegum
+  - type: TimedDespawn
+    lifetime: 1

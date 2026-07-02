@@ -1,0 +1,19 @@
+- type: reagent
+  id: Adminordrazine
+  name: reagent-name-adminordrazine
+  group: Medicine
+  desc: reagent-desc-adminordrazine
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: medicine
+  color: "#d4af37"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -10
+            Burn: -10
+            Toxin: -10
+            Airloss: -10
+            Genetic: -10

@@ -157,11 +157,11 @@ public sealed class MiningShopBui : BoundUserInterface
             if (name != null)
                 names.Add(name);
         }
-        var orders = string.Join(", ", names);
+        var orders = string.Join("\n", names.Select(n => $"{n}"));
 
         var userpoints = _miningPoints.TryFindIdCard(_player.LocalEntity.Value)?.Comp?.Points ?? 0;
 
-        _window.YourPurchases.Text = $"Заказы: {orders}";
+        _window.YourPurchases.Text = $"Заказы: \n{orders}";
 
         _window.Express.Text = $"Экспресс доставка";
 
