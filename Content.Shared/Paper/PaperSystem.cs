@@ -73,7 +73,10 @@ public sealed class PaperSystem : EntitySystem
     {
         if (!string.IsNullOrEmpty(entity.Comp.Content))
         {
-            SetContent(entity, Loc.GetString(entity.Comp.Content));
+            var text = Loc.GetString(entity.Comp.Content);
+            // ADT-Tweak: Convert $field$ to [field] for field tag system
+            text = text.Replace("$field$", "[field]");
+            SetContent(entity, text);
         }
     }
 
