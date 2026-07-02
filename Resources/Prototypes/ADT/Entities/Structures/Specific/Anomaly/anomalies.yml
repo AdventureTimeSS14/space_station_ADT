@@ -65,6 +65,20 @@
     entries:
     - settings:
         spawnOnPulse: true
+        minAmount: 15
+        maxAmount: 20
+        maxRange: 7.5
+      spawns:
+      - ADTSandFloor
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 30
+        maxAmount: 50
+        maxRange: 12
+      spawns:
+      - ADTSandFloor
+    - settings:
+        spawnOnPulse: true
         minAmount: 8
         maxAmount: 15
         minRange: 4.5
@@ -114,6 +128,20 @@
     color: "#c46333"
   - type: EntitySpawnAnomaly
     entries:
+    - settings:
+        spawnOnPulse: true
+        minAmount: 15
+        maxAmount: 20
+        maxRange: 7.5
+      spawns:
+      - ADTSandFloor
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 30
+        maxAmount: 50
+        maxRange: 12
+      spawns:
+      - ADTSandFloor
     - settings:
         spawnOnPulse: true
         minAmount: 8
@@ -166,6 +194,20 @@
     entries:
     - settings:
         spawnOnPulse: true
+        minAmount: 15
+        maxAmount: 20
+        maxRange: 7.5
+      spawns:
+      - ADTSandFloor
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 30
+        maxAmount: 50
+        maxRange: 12
+      spawns:
+      - ADTSandFloor
+    - settings:
+        spawnOnPulse: true
         minAmount: 8
         maxAmount: 15
         minRange: 4.5
@@ -214,6 +256,20 @@
     color: "#64c4a1"
   - type: EntitySpawnAnomaly
     entries:
+    - settings:
+        spawnOnPulse: true
+        minAmount: 15
+        maxAmount: 20
+        maxRange: 7.5
+      spawns:
+      - ADTSandFloor
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 30
+        maxAmount: 50
+        maxRange: 12
+      spawns:
+      - ADTSandFloor
     - settings:
         spawnOnPulse: true
         minAmount: 8
