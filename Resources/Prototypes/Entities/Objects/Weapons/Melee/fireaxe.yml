@@ -66,9 +66,6 @@
     sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
     state: icon
     # ADT-Tweak-Start
-    layers:
-    - state: icon
-      map: [ "enum.ComboWeaponState.State" ]
     # ADT-Tweak-End
   - type: Clothing
     sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
@@ -79,39 +76,4 @@
 # ADT-Tweak-Start
   - type: Item
     sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
-  - type: ComboWeapon
-    swapSound: /Audio/ADT/Entities/skin_drop.ogg #ADT-tweak
-    availableMoves:
-      - actionsNeeds:
-          - ProtectiveWideHit
-          - OffensiveHit
-        comboEvent:
-          - !type:ComboEffectToStanding
-            comboEvents:
-            - !type:ComboFallEffect
-            # replace it with firestack-to-stamina damage combo effect later
-            - !type:ComboAudioEffect
-              sound:
-                path: /Audio/Effects/hit_kick.ogg
-      - actionsNeeds:
-          - ProtectiveWideHit
-          - OffensiveWideHit
-        comboEvent:
-          - !type:ComboEffectToUserPuller
-            comboEvents:
-            - !type:ComboStopTargetGrabEffect
-            - !type:ComboAudioEffect
-              sound:
-                path: /Audio/Effects/hit_kick.ogg
-            - !type:ComboTrowTargetEffect
-              thrownSpeed: 8
-            - !type:ComboSlowdownEffect
-              time: 3
-  - type: GenericVisualizer
-    visuals:
-      enum.ComboWeaponState.State:
-        enum.ComboWeaponState.State:
-          True: {state: icon}
-          False: {state: icon-prot}
-  - type: Appearance
 # ADT-Tweak-End

@@ -403,7 +403,7 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 2.25
-      Choke: 2
+      Suffocate: 2
 
 - type: entity
   parent: ADTClothingOuterModsuitBodySyndicate
@@ -444,7 +444,7 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 1.5
-      Choke: 2
+      Suffocate: 2
 
 - type: entity
   parent: ADTClothingOuterModsuitBodySyndicate
@@ -485,7 +485,7 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 2.25
-      Choke: 2
+      Suffocate: 2
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase

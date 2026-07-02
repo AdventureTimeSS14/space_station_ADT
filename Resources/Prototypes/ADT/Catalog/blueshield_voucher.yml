@@ -23,7 +23,7 @@
   name: blueshield-voucher-tonfa-name
   description: blueshield-voucher-tonfa-description
   sprite:
-    sprite: ADT/Objects/Weapons/Melee/steel_tonfa.rsi
-    state: icon-of
+    sprite: ADT/Objects/Misc/martial_arts.rsi
+    state: dragon
   content:
   - ADTBaseWeaponCaseNTTonfaBlueshield

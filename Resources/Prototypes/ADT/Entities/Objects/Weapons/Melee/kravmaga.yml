@@ -16,7 +16,7 @@
     - ADTMartialArts
   - type: ClothingGrantComponent
     component:
-    - type: PrepareAction
+    - type: KravMaga
   - type: StealTarget
     stealGroup: ClothingHandsGlovesKravMaga
 
@@ -27,4 +27,4 @@
   - type: Item
   - type: ClothingGrantComponent
     component:
-    - type: PrepareAction
+    - type: KravMaga

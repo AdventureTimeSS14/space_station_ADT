@@ -20,6 +20,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.ADT.Grab;
 using Content.Shared.ADT.Hands;
 using Content.Shared.Inventory.VirtualItem;
 
@@ -34,6 +35,7 @@ namespace Content.Server.Hands.Systems
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly PullingSystem _pullingSystem = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
+        [Dependency] private readonly GrabThrownSystem _grabThrown = default!; // ADT Grab
 
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -134,14 +136,20 @@ namespace Content.Server.Hands.Systems
             // ADT Grab start
             if (TryComp<VirtualItemComponent>(throwEnt, out var virtualItem))
             {
-                var userEv = new BeforeVirtualItemThrownEvent(virtualItem.BlockingEntity, player, coordinates);
-                RaiseLocalEvent(player, userEv);
+                var beforeUserEv = new BeforeVirtualItemThrownEvent(virtualItem.BlockingEntity, player, coordinates);
+                RaiseLocalEvent(player, beforeUserEv);
 
-                var targEv = new BeforeVirtualItemThrownEvent(virtualItem.BlockingEntity, player, coordinates);
-                RaiseLocalEvent(virtualItem.BlockingEntity, targEv);
+                var beforeTargEv = new BeforeVirtualItemThrownEvent(virtualItem.BlockingEntity, player, coordinates);
+                RaiseLocalEvent(virtualItem.BlockingEntity, beforeTargEv);
 
-                if (userEv.Cancelled || targEv.Cancelled)
+                if (beforeUserEv.Cancelled || beforeTargEv.Cancelled)
                     return false;
+
+                var dir = _transformSystem.ToMapCoordinates(coordinates).Position - _transformSystem.GetWorldPosition(player);
+                var userEv = new VirtualItemThrownEvent(virtualItem.BlockingEntity, player, throwEnt.Value, dir);
+                RaiseLocalEvent(player, ref userEv);
+                var targEv = new VirtualItemThrownEvent(virtualItem.BlockingEntity, player, throwEnt.Value, dir);
+                RaiseLocalEvent(virtualItem.BlockingEntity, ref targEv);
             }
             // ADT Grab end
 
@@ -177,7 +185,11 @@ namespace Content.Server.Hands.Systems
             if (IsHolding((player, hands), throwEnt, out _) && !TryDrop(player, throwEnt.Value))
                 return false;
 
-            _throwingSystem.TryThrow(ev.ItemUid, ev.Direction, ev.ThrowSpeed, ev.PlayerUid, compensateFriction: !HasComp<LandAtCursorComponent>(ev.ItemUid));
+            // ADT Grab - use grab throw system if flagged, otherwise regular throw
+            if (!ev.GrabThrow)
+                _throwingSystem.TryThrow(ev.ItemUid, ev.Direction, ev.ThrowSpeed, ev.PlayerUid, compensateFriction: !HasComp<LandAtCursorComponent>(ev.ItemUid));
+            else
+                _grabThrown.Throw(ev.ItemUid, player, ev.Direction, ev.ThrowSpeed);
 
             return true;
         }
