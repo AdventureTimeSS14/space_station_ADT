@@ -105,6 +105,7 @@ public sealed class DragonRiftSystem : EntitySystem
                 // Set mob's follow target to the dragon
                 if (comp.Dragon != null)
                     _npc.SetBlackboard(ent, NPCBlackboard.FollowTarget, new EntityCoordinates(comp.Dragon.Value, Vector2.Zero));
+                // ADT-Tweak-end
             }
         }
     }
@@ -129,5 +130,4 @@ public sealed class DragonRiftSystem : EntitySystem
 
         _dragon.RiftDestroyed(comp.Dragon.Value, dragon);
     }
-    //ADT-Tweak-end
 }

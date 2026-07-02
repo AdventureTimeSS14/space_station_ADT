@@ -95,12 +95,13 @@ public sealed partial class DragonSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<DragonComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var comp, out var xform))
+        var query = EntityQueryEnumerator<DragonComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
             // ADT-Tweak-start
             if (!_mobState.IsDead(uid))
             {
+                var xform = Transform(uid);
                 comp.RiftHealTimer += frameTime;
                 if (comp.RiftHealTimer >= 1.0f)
                 {
@@ -171,6 +172,7 @@ public sealed partial class DragonSystem : EntitySystem
     {
         DeleteRifts(uid, false, component);
 
+        // ADT-Tweak-start
         if (TryComp<ContainerManagerComponent>(uid, out var containerManager))
         {
             foreach (var container in containerManager.Containers.Values)
@@ -178,6 +180,7 @@ public sealed partial class DragonSystem : EntitySystem
                 _container.EmptyContainer(container, true);
             }
         }
+        // ADT-Tweak-end
     }
 
     private void OnSpawnRift(EntityUid uid, DragonComponent component, DragonSpawnRiftActionEvent args)
@@ -277,6 +280,9 @@ public sealed partial class DragonSystem : EntitySystem
     /// <summary>
     /// Delete all rifts this dragon made.
     /// </summary>
+    /// <param name="uid">Entity id of the dragon</param>
+    /// <param name="resetRole">If true, the role's rift count will be reset too</param>
+    /// <param name="comp">The dragon component</param>
     public void DeleteRifts(EntityUid uid, bool resetRole, DragonComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))

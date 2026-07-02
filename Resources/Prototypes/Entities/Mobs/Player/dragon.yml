@@ -23,9 +23,6 @@
     - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
-    requirements: # ADT
-    - !type:OverallPlaytimeRequirement
-      time: 18000 # 5 часов
   - type: GhostTakeoverAvailable
   - type: HTN
     rootTask:
