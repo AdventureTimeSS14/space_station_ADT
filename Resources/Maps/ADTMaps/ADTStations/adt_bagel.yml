@@ -16080,20 +16080,6 @@ entities:
     - type: Action
       originalIconColor: '#FFFFFFFF'
       container: 95
-- proto: ActionToggleBlock
-  entities:
-  - uid: 98
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 97
-  - uid: 100
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 99
 - proto: ActionToggleInternals
   entities:
   - uid: 83
@@ -143721,7 +143707,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 35.5,-31.5
       parent: 2
-    - type: Timer
   - uid: 20140
     components:
     - type: Transform
@@ -144659,7 +144644,6 @@ entities:
     - type: PoweredLight
       isBlinking: True
       lastGhostBlink: 11205.3030804
-    - type: Timer
   - uid: 20273
     components:
     - type: Transform
@@ -144749,7 +144733,6 @@ entities:
     - type: PoweredLight
       isBlinking: True
       lastGhostBlink: 11205.3030804
-    - type: Timer
   - uid: 20288
     components:
     - type: Transform
@@ -154526,27 +154509,11 @@ entities:
     - type: Transform
       pos: -32.414898,-63.487125
       parent: 2
-    - type: Blocking
-      blockingToggleActionEntity: 98
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 98
   - uid: 99
     components:
     - type: Transform
       pos: -32.292007,-63.399677
       parent: 2
-    - type: Blocking
-      blockingToggleActionEntity: 100
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 100
 - proto: RiotShield
   entities:
   - uid: 21968
