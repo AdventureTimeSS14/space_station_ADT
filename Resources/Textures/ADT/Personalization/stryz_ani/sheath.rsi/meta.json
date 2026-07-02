@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "sprite by M1and1B (discord: m1and1b)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+        "name": "equipped-BELT",
+        "directions": 4
+    },
+    {
+        "name": "sheath-katana-equipped-BELT",
+        "directions": 4
+    },
+    {
+        "name": "sheath-katana"
+    },
+    {
+        "name": "sheath"
+    }
+  ]
+}

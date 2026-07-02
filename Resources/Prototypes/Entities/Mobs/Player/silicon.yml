@@ -85,6 +85,9 @@
       enum.RemoteDevicesUiKey.Key:
         toggleAction: ADTActionOpenRemoteDevicesMenu
   - type: AtmosAlertsComputer
+  - type: StationAiInfo
+  - type: CrewManifestViewer
+    ownerKey: enum.StationAiInfoUiKey.Key
     # ADT End
   - type: CrewMonitoringConsole
   - type: GeneralStationRecordConsole
