@@ -3727,6 +3727,45 @@
   - type: Item
     sprite: ADT/Personalization/svet217_KS-43_Cherry.rsi
 
+# stryz_ani
+- type: entity
+  parent: [ BaseSword, BaseMajorContraband ]
+  id: ADTStryzAniKatana
+  name: cyber katana
+  description: A new branch in the creation of katanas from the best masters this katana is made to order from the Syndicates cursed katana. Upon inspection, it contains a strange mechanism related to gloves
+  suffix: Personal, stryz_ani
+  components:
+  - type: Tag
+    tags:
+    - ADTStryzAniKatana
+  - type: Sprite
+    sprite: ADT/Personalization/stryz_ani/katana.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -65
+    attackRate: 1.2
+    damage:
+      types:
+        Slash: 14
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    shape:
+    - 0,0,0,3
+  - type: Clothing
+    sprite: ADT/Personalization/stryz_ani/katana.rsi
+    slots:
+    - Back
+    - Belt
+  - type: ThrowingAngle
+    angle: 225
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 10
+        Piercing: 12
+  - type: DisarmMalus
+  - type: PickableWeapon
+
 - type: entity
   parent: PlushieMoth
   id: ADTPlushieDreamer

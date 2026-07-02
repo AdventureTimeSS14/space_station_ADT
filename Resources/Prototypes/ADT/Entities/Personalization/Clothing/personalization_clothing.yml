@@ -1797,6 +1797,63 @@
       params:
         variation: 0.07
 
+# stryz_ani
+- type: entity
+  parent: ClothingHandsGlovesCombat
+  id: ADTClothingHandsStryzAniPullingGloves
+  name: cyber combat gloves
+  description: Gloves with blood-red metal plates on the wrist, the first phalanx of the index finger, and the base of the thumb. The gloves feature a mechanism that allows the katana to be returned to the user's hands.
+  suffix: Personal, stryz_ani
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/stryz_ani/gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/stryz_ani/gloves.rsi
+  - type: PullingGloves
+  - type: ActionGrant
+    actions:
+    - ActionWeaponPull
+  - type: ItemActionGrant
+    actions:
+    - ActionWeaponPull
+    activeIfWorn: true
+
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ADTClothingBeltStryzAniSheath
+  name: cyber sheath
+  description: The scabbard is so electrified that it can explode and tear the wearer apart at the slightest touch, but it is still the perfect holder for your katana.
+  suffix: Personal, stryz_ani
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/stryz_ani/sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/stryz_ani/sheath.rsi
+    quickEquip: false
+    slots:
+    - belt
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Katana
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - ADTStryzAniKatana
+  - type: ItemMapper
+    mapLayers:
+      sheath-katana:
+        whitelist:
+          tags:
+          - ADTStryzAniKatana
+  - type: Appearance
+
 - type: entity
   parent: Clothing
   id: ADTClothingEarHonelin111GoldenEarring
