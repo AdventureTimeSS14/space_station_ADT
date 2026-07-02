@@ -247,6 +247,11 @@
     stateDoorClosed: minifreezer_door
   - type: AccessReader
     access: [ [ "Bar" ] ]
+  - type: Construction
+    graph: ClosetMiniFreezer
+    node: done
+    containers:
+    - entity_storage
 
 # Botanist
 - type: entity
