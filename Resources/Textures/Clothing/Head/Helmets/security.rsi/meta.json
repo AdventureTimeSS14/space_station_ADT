@@ -25,6 +25,25 @@
     {
       "name": "inhand-right",
       "directions": 4
+    },
+    {
+      "name": "icon-open"
+    },
+    {
+      "name": "open-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "open-equipped-HELMET-vox",
+      "directions": 4
+    },
+    {
+      "name": "open-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "open-inhand-right",
+      "directions": 4
     }
   ]
 }

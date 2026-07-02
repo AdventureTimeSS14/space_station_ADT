@@ -14,3 +14,14 @@
   - type: ShowCriminalRecordIcons
   - type: FlashImmunity
 
+- type: entity
+  parent: ClothingEyesHudSecurity
+  id: ADTClothingEyesHudAltSecurity
+  name: security hud
+  description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/security.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/security.rsi
+  - type: FlashImmunity
