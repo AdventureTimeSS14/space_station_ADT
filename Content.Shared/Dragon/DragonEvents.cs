@@ -11,7 +11,7 @@ public sealed partial class DragonSpawnRiftActionEvent : InstantActionEvent
 }
 
 
-// ADT-Tweak-Start
+// ADT-Tweak-start
 public sealed partial class DragonRoarActionEvent : InstantActionEvent
 {
 }
@@ -19,4 +19,4 @@ public sealed partial class DragonRoarActionEvent : InstantActionEvent
 public sealed partial class DragonSpawnCarpHordeActionEvent : InstantActionEvent
 {
 }
-// ADT-Tweak-End
+// ADT-Tweak-end

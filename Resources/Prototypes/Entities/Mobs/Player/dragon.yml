@@ -112,8 +112,8 @@
     - Adrenaline
     - Stutter
     - Weakness # ADT-Weakness-Tweak
-    - TemporaryBlindness # ADT
-    - RadiationProtection # ADT
+    - TemporaryBlindness # ADT-Tweak
+    - RadiationProtection # ADT-Tweak
   - type: Temperature
   - type: TemperatureDamage
     heatDamageThreshold: 2400 # ADT-Tweak
@@ -149,14 +149,14 @@
     stomachStorageWhitelist:
       components:
       - MobState
-      - Item # ADT
+      - Item # ADT-Tweak
     chemical: Ichor
     healRate: 7.5
     whitelist:
       components:
       - MobState
       - Door
-      - Item # ADT
+      - Item # ADT-Tweak
       tags:
       - Wall
   - type: Tag
@@ -166,10 +166,10 @@
     - StunImmune
   - type: Puller
     needsHands: false
-  - type: ThermalVision #ADT tweak start
+  - type: ThermalVision #ADT-Tweak-start
     color: Purple
   - type: MesonVision
-    color: Purple #ADT tweak end
+    color: Purple #ADT-Tweak-end
 # ADT-CollectiveMind-Tweak-Start
   - type: CollectiveMindRank
     rankName: collective-mind-dragon-rank
@@ -196,7 +196,7 @@
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
-# ADT-Tweak-Start
+# ADT-Tweak-start
     carpRiftHealing:
       types:
         Blunt: -2
@@ -206,7 +206,7 @@
         Cold: -2
     spawnCarpsAction: ActionRiseFish
     roarAction: ActionDragonRoar
-# ADT-Tweak-End
+# ADT-Tweak-end
   - type: GhostRole
     mindRoles:
     - MindRoleDragon
@@ -332,7 +332,7 @@
     sprite: Effects/chemsmoke.rsi
     state: chemsmoke_white
 
-# ADT-Tweak-Start
+# ADT-Tweak-start
 - type: entity
   parent: BaseAction
   id: ActionRiseFish
@@ -362,4 +362,4 @@
     priority: 5
   - type: InstantAction
     event: !type:DragonRoarActionEvent
-# ADT-Tweak-End
+# ADT-Tweak-end
