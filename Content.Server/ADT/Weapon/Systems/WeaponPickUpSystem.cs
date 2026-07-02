@@ -58,6 +58,14 @@ public sealed class WeaponPickUpSystem : EntitySystem
             return;
         }
 
+        var maxDistance = ent.Comp.MaxDistance;
+        if (nearestDistanceSq > maxDistance * maxDistance)
+        {
+            _popup.PopupEntity(Loc.GetString("weapon-pickup-too-far"), user, user);
+            args.Handled = true;
+            return;
+        }
+
         var weaponCoords = Transform(nearestWeapon.Value).Coordinates;
         Transform(nearestWeapon.Value).Coordinates = userCoords;
 

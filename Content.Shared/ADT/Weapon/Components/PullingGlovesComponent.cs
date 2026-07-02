@@ -12,4 +12,7 @@ public sealed partial class PullingGlovesComponent : Component
 
     [DataField]
     public EntityUid? ActionEntity;
+
+    [DataField]
+    public float MaxDistance = 4f;
 }
