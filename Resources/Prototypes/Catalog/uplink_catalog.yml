@@ -185,12 +185,12 @@
   name: uplink-hushpup-name
   description: uplink-hushpup-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/hushpup.rsi, state: icon }
-  productEntity: BriefcaseWeaponHushpupFilled
+  productEntity: ClothingBackpackDuffelSyndicateFilledHushpup # ADT Tweak BriefcaseWeaponHushpupFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 8
+    Telecrystal: 5 # ADT Tweak 8 -> 5
   cost:
-    Telecrystal: 10
+    Telecrystal: 7 # ADT Tweak 10 -> 7
   categories:
   - UplinkWeaponry
 

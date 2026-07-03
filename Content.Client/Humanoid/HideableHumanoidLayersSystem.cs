@@ -48,7 +48,7 @@ public sealed class HideableHumanoidLayersSystem : SharedHideableHumanoidLayersS
             var evt = new HumanoidLayerVisibilityChangedEvent(item, true);
             RaiseLocalEvent(ent, ref evt);
 
-            if (!_sprite.LayerMapTryGet(ent.Owner, item, out var index, true))
+            if (!_sprite.LayerMapTryGet(ent.Owner, item, out var index, false))
                 continue;
 
             _sprite.LayerSetVisible(ent.Owner, index, true);
@@ -62,7 +62,7 @@ public sealed class HideableHumanoidLayersSystem : SharedHideableHumanoidLayersS
             var evt = new HumanoidLayerVisibilityChangedEvent(item, false);
             RaiseLocalEvent(ent, ref evt);
 
-            if (!_sprite.LayerMapTryGet(ent.Owner, item, out var index, true))
+            if (!_sprite.LayerMapTryGet(ent.Owner, item, out var index, false))
                 continue;
 
             _sprite.LayerSetVisible(ent.Owner, index, false);
