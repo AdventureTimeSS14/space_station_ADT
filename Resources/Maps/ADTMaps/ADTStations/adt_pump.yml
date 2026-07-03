@@ -53807,7 +53807,6 @@ entities:
     - type: PoweredLight
       isBlinking: True
       lastGhostBlink: 7701.7256316
-    - type: Timer
   - uid: 6339
     components:
     - type: Transform
@@ -53921,7 +53920,6 @@ entities:
     - type: PoweredLight
       isBlinking: True
       lastGhostBlink: 7701.7256316
-    - type: Timer
   - uid: 6031
     components:
     - type: Transform
@@ -63032,61 +63030,12 @@ entities:
     - type: Transform
       pos: -63.47461,39.4049
       parent: 9169
-- proto: TowelColorBlack
-  entities:
-  - uid: 424
-    components:
-    - type: Transform
-      pos: -53.47903,35.250816
-      parent: 2
-- proto: TowelColorBrown
-  entities:
-  - uid: 9145
-    components:
-    - type: Transform
-      pos: -53.498688,35.663795
-      parent: 2
-- proto: TowelColorGreen
-  entities:
-  - uid: 497
-    components:
-    - type: Transform
-      pos: -53.465923,35.11316
-      parent: 2
-- proto: TowelColorLightBlue
-  entities:
-  - uid: 6437
-    components:
-    - type: Transform
-      pos: -53.465923,34.98861
-      parent: 2
-- proto: TowelColorOrange
-  entities:
-  - uid: 7452
-    components:
-    - type: Transform
-      pos: -53.498688,35.388477
-      parent: 2
-- proto: TowelColorRed
-  entities:
-  - uid: 7453
-    components:
-    - type: Transform
-      pos: -53.498688,35.52614
-      parent: 2
 - proto: TowelColorWhite
   entities:
   - uid: 7444
     components:
     - type: Transform
       pos: -53.485584,35.788345
-      parent: 2
-- proto: TowelColorYellow
-  entities:
-  - uid: 763
-    components:
-    - type: Transform
-      pos: -53.465923,34.87717
       parent: 2
 - proto: TreasureCoinGold
   entities:
