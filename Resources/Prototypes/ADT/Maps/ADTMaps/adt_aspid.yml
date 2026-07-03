@@ -72,7 +72,7 @@
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
-            Boxer: [ 2, 2 ]
+#            Boxer: [ 2, 2 ] removed at commit 58f884133b 
             # juridical
             Lawyer: [ 1, 1 ]
             IAA: [ 1, 1 ]

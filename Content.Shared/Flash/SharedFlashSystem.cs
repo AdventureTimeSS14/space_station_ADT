@@ -63,7 +63,6 @@ public abstract class SharedFlashSystem : EntitySystem
         SubscribeLocalEvent<FlashComponent, UseInHandEvent>(OnFlashUseInHand);
         SubscribeLocalEvent<FlashComponent, LightToggleEvent>(OnLightToggle);
         SubscribeLocalEvent<PermanentBlindnessComponent, FlashAttemptEvent>(OnPermanentBlindnessFlashAttempt);
-        SubscribeLocalEvent<TemporaryBlindnessComponent, FlashAttemptEvent>(OnTemporaryBlindnessFlashAttempt);
         Subs.SubscribeWithRelay<FlashImmunityComponent, FlashAttemptEvent>(OnFlashImmunityFlashAttempt, held: false);
         SubscribeLocalEvent<FlashImmunityComponent, ExaminedEvent>(OnExamine);
 
@@ -84,7 +83,15 @@ public abstract class SharedFlashSystem : EntitySystem
         args.Handled = true;
         foreach (var target in args.HitEntities)
         {
-            Flash(target, args.User, ent.Owner, ent.Comp.MeleeDuration, ent.Comp.SlowTo, melee: true, stunDuration: ent.Comp.MeleeStunDuration);
+            // ADT-Tweak start
+            var stunDuration = ent.Comp.MeleeStunDuration;
+            if (TryComp<BorgFlashStunComponent>(target, out var borgFlashStun))
+            {
+                stunDuration = borgFlashStun.StunDuration;
+            }
+            // ADT-Tweak end
+
+            Flash(target, args.User, ent.Owner, ent.Comp.MeleeDuration, ent.Comp.SlowTo, melee: true, stunDuration: stunDuration);
         }
     }
 
@@ -216,10 +223,7 @@ public abstract class SharedFlashSystem : EntitySystem
         _entityLookup.GetEntitiesInRange(transform.Coordinates, range, _entSet);
         foreach (var entity in _entSet)
         {
-            // TODO: Use RandomPredicted https://github.com/space-wizards/RobustToolbox/pull/5849
-            var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(entity).Id);
-            var rand = new System.Random(seed);
-            if (!rand.Prob(probability))
+            if (!SharedRandomExtensions.PredictedProb(_timing, probability, GetNetEntity(entity)))
                 continue;
 
             // Is the entity affected by the flash either through status effects or by taking damage?
@@ -262,12 +266,6 @@ public abstract class SharedFlashSystem : EntitySystem
         if (ent.Comp.Blindness == 0)
             args.Cancelled = true;
     }
-
-    private void OnTemporaryBlindnessFlashAttempt(Entity<TemporaryBlindnessComponent> ent, ref FlashAttemptEvent args)
-    {
-        args.Cancelled = true;
-    }
-
     private void OnFlashImmunityFlashAttempt(Entity<FlashImmunityComponent> ent, ref FlashAttemptEvent args)
     {
         if (TryComp<MaskComponent>(ent, out var mask) && mask.IsToggled)

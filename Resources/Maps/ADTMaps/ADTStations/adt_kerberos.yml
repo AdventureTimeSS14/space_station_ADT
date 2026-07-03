@@ -211758,7 +211758,6 @@ entities:
       parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
-    - type: Timer
   - uid: 25637
     components:
     - type: Transform
@@ -214048,7 +214047,6 @@ entities:
     - type: Transform
       pos: -49.5,50.5
       parent: 2
-    - type: Timer
   - uid: 34116
     components:
     - type: Transform
@@ -216183,7 +216181,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -50.5,52.5
       parent: 2
-    - type: Timer
   - uid: 34564
     components:
     - type: Transform

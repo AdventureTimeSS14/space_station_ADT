@@ -1,4 +1,5 @@
 using Content.Shared.Doors.Components;
+using Content.Shared.Emag.Components;
 using Content.Shared.Prying.Components;
 
 namespace Content.Shared.Doors.Systems;
@@ -31,6 +32,11 @@ public abstract partial class SharedDoorSystem
 
     private void OnBeforeDoorOpened(EntityUid uid, DoorBoltComponent component, BeforeDoorOpenedEvent args)
     {
+        // ADT-Tweak start
+        if (component.BoltsDown && HasComp<EmaggedComponent>(uid))
+            return;
+        // ADT-Tweak end
+
         if (component.BoltsDown)
             args.Cancel();
     }

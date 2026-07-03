@@ -32,7 +32,6 @@ namespace Content.Shared.ADT.RPD.Systems;
 [Virtual]
 public class RPDSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -459,23 +458,21 @@ public class RPDSystem : EntitySystem
     public bool TryGetMapGridData(EntityCoordinates location, [NotNullWhen(true)] out MapGridData? mapGridData)
     {
         mapGridData = null;
-        var gridUid = location.GetGridUid(EntityManager);
+        var gridUid = _transform.GetGrid(location);
 
         if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
         {
             location = location.AlignWithClosestGridTile(1.75f, EntityManager);
-            gridUid = location.GetGridUid(EntityManager);
+            gridUid = _transform.GetGrid(location);
 
             // Check if we got a grid ID the second time round
             if (!TryComp(gridUid, out mapGrid))
                 return false;
         }
 
-        gridUid = mapGrid.Owner;
-
-        var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
-        var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
-        mapGridData = new MapGridData(gridUid.Value, mapGrid, location, tile, position);
+        var tile = _mapSystem.GetTileRef(gridUid!.Value, mapGrid, location);
+        var position = _mapSystem.TileIndicesFor(gridUid!.Value, mapGrid, location);
+        mapGridData = new MapGridData(gridUid!.Value, mapGrid, location, tile, position);
 
         return true;
     }

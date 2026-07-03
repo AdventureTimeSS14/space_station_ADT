@@ -22,6 +22,7 @@ namespace Content.Server.Heretic.EntitySystems;
 public sealed partial class AristocratSystem : EntitySystem
 {
     [Dependency] private readonly TileSystem _tile = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
@@ -91,7 +92,7 @@ public sealed partial class AristocratSystem : EntitySystem
 
         var pos = xform.Coordinates.Position;
         var box = new Box2(pos + new Vector2(-ent.Comp.Range, -ent.Comp.Range), pos + new Vector2(ent.Comp.Range, ent.Comp.Range));
-        var tilerefs = grid.GetLocalTilesIntersecting(box).ToList();
+        var tilerefs = _map.GetLocalTilesIntersecting(xform.GridUid.Value, grid, box).ToList();
 
         if (tilerefs.Count == 0)
             return;

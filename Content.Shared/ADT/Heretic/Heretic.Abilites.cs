@@ -36,7 +36,7 @@ public sealed partial class HereticActionComponent : Component
 }
 [Serializable, NetSerializable] public sealed partial class HereticMansusLinkDoAfter : SimpleDoAfterEvent
 {
-    [NonSerialized] public EntityUid Target;
+    [NonSerialized] public new EntityUid Target;
 
     public HereticMansusLinkDoAfter(EntityUid target)
     {

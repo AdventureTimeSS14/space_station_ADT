@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseItem
   id: CandyBowl
   name: "candy bowl"
@@ -21,6 +21,7 @@
     containers:
       bin-container: !type:Container
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: DamageOnLand
     damage:

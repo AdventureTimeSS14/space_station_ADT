@@ -33,12 +33,11 @@
     rotation: 0 # ADT CHANGE sleep
     whitelist:
       components:
-      - HumanoidAppearance
-    forceBuckle: false
+      - HumanoidProfile
   - type: DisposalUnit
     blacklist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
       - Plunger
       - SolutionTransfer
       - EntityStorage

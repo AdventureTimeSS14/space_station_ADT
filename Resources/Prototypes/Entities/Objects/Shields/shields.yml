@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: base shield
   parent: BaseItem
   id: BaseShield
@@ -31,7 +31,10 @@
           Piercing: 1
           Heat: 1
     - type: Damageable
+    - type: Injurable
       damageContainer: Shield
+    - type: ExaminableDamage
+      messages: ShieldMessages
     - type: Destructible
       thresholds:
         - trigger:
@@ -60,11 +63,29 @@
     - type: StaticPrice
       price: 100
 
+- type: entity
+  name: base repairable shield
+  parent: BaseShield
+  id: BaseRepairableShield
+  description: A repairable shield!
+  abstract: true
+  components:
+  - type: Repairable # Negative values represent healing
+    damage:
+      types:
+        Blunt: -20
+        Slash: -20
+        Piercing: -20
+        Heat: -20
+    fuelCost: 10 # 1/2 of a Welder for a full repair
+    doAfterDelay: 5
+    allowSelfRepair: false
+
 #Security Shields
 
 - type: entity
   name: riot shield
-  parent: [ BaseShield, BaseSecurityContraband ]
+  parent: [ BaseRepairableShield, BaseSecurityContraband ]
   id: RiotShield
   description: A large tower shield. Good for controlling crowds.
   components:
@@ -89,7 +110,7 @@
 
 - type: entity
   name: laser shield
-  parent: [ BaseShield, BaseSecurityContraband ]
+  parent: [ BaseRepairableShield, BaseSecurityContraband ]
   id: RiotLaserShield
   description: A shield built for withstanding lasers, but not much else.
   components:
@@ -100,22 +121,22 @@
     - type: Blocking
       passiveBlockModifier:
         coefficients:
-          Blunt: 2 # ADT shieldnerf
-          Slash: 2 # ADT shieldnerf
-          Piercing: 2 # ADT shieldnerf
-          Heat: 0.7
+         Blunt: 2 # ADT shieldnerf
+         Slash: 2 # ADT shieldnerf
+         Piercing: 2 # ADT shieldnerf
+         Heat: 0.7
       activeBlockModifier:
         coefficients:
-          Blunt: 2 # ADT shieldnerf
-          Slash: 2 # ADT shieldnerf
-          Piercing: 2 # ADT shieldnerf
-          Heat: 0.5
+         Blunt: 2 # ADT shieldnerf
+         Slash: 2 # ADT shieldnerf
+         Piercing: 2 # ADT shieldnerf
+         Heat: 0.5
         flatReductions:
           Heat: 1
 
 - type: entity
   name: ballistic shield
-  parent: [ BaseShield, BaseSecurityContraband ]
+  parent: [ BaseRepairableShield, BaseSecurityContraband ]
   id: RiotBulletShield
   description: A shield built for protecting against ballistics, but not much else.
   components:
@@ -257,7 +278,7 @@
 
 - type: entity
   name: makeshift shield
-  parent: BaseShield
+  parent: BaseRepairableShield
   id: MakeshiftShield
   description: A rundown looking shield, not good for much.
   components:
@@ -378,7 +399,7 @@
 
 - type: entity
   name: clockwork shield
-  parent: BaseShield
+  parent: BaseRepairableShield
   id: ClockworkShield
   description: Ratvar oyrffrf lbh jvgu uvf cebgrpgvba.
   components:
@@ -509,6 +530,7 @@
       reflects:
         - Energy
     - type: Blocking
+      isToggle: true #ADT-Tweak
       passiveBlockModifier:
         coefficients:
           Blunt: 1.0
@@ -526,7 +548,10 @@
           Piercing: 1
     - type: Appearance
     - type: Damageable
+    - type: Injurable
       damageContainer: Shield
+    - type: ExaminableDamage
+      messages: EnergyShieldMessages
     - type: Destructible
       thresholds:
         - trigger:
@@ -568,7 +593,7 @@
 
 - type: entity
   name: telescopic shield
-  parent: BaseShield
+  parent: BaseRepairableShield
   id: TelescopicShield
   description: An advanced riot shield made of lightweight materials that collapses for easy storage.
   components:
@@ -607,13 +632,33 @@
           - state: inhand-left-shield
         right:
           - state: inhand-right-shield
-    - type: PointLight # ADT  START CHANGES
+#ADT-Tweak-Start
+    - type: PointLight
       netsync: false
       enabled: false
       radius: 0
       energy: 2
       color: blue
-    - type: ItemTogglePointLight # ADT END CHANGES
+    - type: ItemTogglePointLight
+    - type: Blocking
+      isToggle: true
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.9
+          Slash: 0.9
+          Piercing: 3.5
+          Heat: 3.5
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.8
+          Slash: 0.8
+          Piercing: 3.5
+          Heat: 3.5
+        flatReductions:
+          Slash: 1
+          Piercing: 1
+          Heat: 1
+#ADT-Tweak-End
     - type: Appearance
     - type: Destructible
       thresholds:

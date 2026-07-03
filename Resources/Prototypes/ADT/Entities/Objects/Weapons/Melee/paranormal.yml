@@ -329,9 +329,12 @@
   - type: Wieldable
   - type: LeechOnMarker
     leech:
-      groups:
-        Brute: -3
-        Airloss: -2
+      types:
+        Blunt: -3
+        Slash: -3
+        Piercing: -3
+        Asphyxiation: -2
+        Bloodloss: -2
   - type: Clothing
     sprite: ADT/Objects/Weapons/Melee/holyclaymore.rsi
     slots:
@@ -521,7 +524,7 @@
       params:
         variation: 0.2
         pitch: 0.75
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBoltHoly
     fireCost: 300
   - type: MagazineVisuals

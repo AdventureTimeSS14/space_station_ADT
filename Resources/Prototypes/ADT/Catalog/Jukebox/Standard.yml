@@ -12,7 +12,7 @@
 
 - type: jukebox
   id: SpaceAsshole
-  name: Space Asshole - Chris Remo
+  name: Chris Remo - Space Asshole
   path:
     path: /Audio/ADT/Jukebox/space_asshole_mono_jukebox.ogg
 
@@ -126,7 +126,7 @@
 
 - type: jukebox
   id: Oh_Its_You
-  name: Oh Its You - Pascal Michael Stiefel
+  name: Pascal Michael Stiefel - Oh Its You
   path:
     path: /Audio/ADT/Lobby/Oh_Its_You.ogg
 
@@ -138,13 +138,13 @@
 
 - type: jukebox
   id: EOFTTS
-  name: Eye Of The Tiger - Survivor
+  name: Survivor - Eye Of The Tiger
   path:
     path: /Audio/ADT/Jukebox/EOFTTS.ogg
 
 - type: jukebox
   id: EWTRTWTFF
-  name: Everybody Wants To Rule The World - Tears For Fears
+  name: Tears For Fears - Everybody Wants To Rule The World
   path:
     path: /Audio/ADT/Jukebox/EWTRTWTFF.ogg
 
@@ -261,6 +261,60 @@
   name: "AC/DC - Highway To Hell"
   path:
     path: /Audio/ADT/Jukebox/ACDCHTH.ogg
+
+- type: jukebox
+  id: ADTExecutionClap
+  name: TRAP CHICK - Execution Clap
+  path:
+    path: /Audio/ADT/Jukebox/Execution_Clap.ogg
+
+- type: jukebox
+  id: ADTNeverFadeAway
+  name: Refused - Never Fade Away
+  path:
+    path: /Audio/ADT/Jukebox/Never_Fade_Away.ogg
+
+- type: jukebox
+  id: ADTElevatorMusic
+  name: Elevator music
+  path:
+    path: /Audio/ADT/Jukebox/Elevator_music.ogg
+
+- type: jukebox
+  id: ADTLuchNadezhdy
+  name: Луч надежды
+  path:
+    path: /Audio/ADT/Jukebox/metro_2033_luch_nadezhdy.ogg
+
+- type: jukebox
+  id: ADTFNB
+  name: BUslacker - factory newgrounds boss
+  path:
+    path: /Audio/ADT/Event_Musics/factory_newgrounds_boss.ogg
+
+- type: jukebox
+  id: ADTGodish
+  name: PinocchioP - God-ish
+  path:
+    path: /Audio/ADT/Jukebox/God-ish.ogg
+
+- type: jukebox
+  id: ADTYARARARA
+  name: AnythingBecomeMoe - YARARARA
+  path:
+    path: /Audio/ADT/Jukebox/YARARARA.ogg
+
+- type: jukebox
+  id: ADTTheOnlyThing
+  name: Jamie Christopherson - The Only Thing I Know For Real
+  path:
+    path: /Audio/ADT/Jukebox/The_Only_Thing_I_Know_For_Real.ogg
+
+- type: jukebox
+  id: ADTThroughPatches
+  name: Cassie Wei - Through Patches of Violet
+  path:
+    path: /Audio/ADT/Jukebox/Mili-Through-Patches-of-Violet.ogg
 
 # START 9 МАЯ
 # - type: jukebox

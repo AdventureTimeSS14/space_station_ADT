@@ -1,27 +1,19 @@
 ent-ADTClothingVoucherJumpsuitTurtleneck = автопокрасчик водолазки
     .desc = Устройство, любезно окрашивающее вашу одежду в любимые цвета. К сожалению одноразовое.
-
 ent-ADTClothingVoucherJumpskirtTurtleneck = автопокрасчик водолазки с юбкой
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
-
 ent-ADTClothingVoucherHatsoft = автопокрасчик кепки
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
-
 ent-ADTClothingVoucherScarfStriped = автопокрасчик шарфа
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
-
 ent-ADTClothingVoucherFacescarf = автопокрасчик лицевого шарфа
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
-
 ent-ADTClothingVoucherWinterCoatLight = автопокрасчик лёгкой куртки
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
-
 ent-ADTClothingVoucherScarfLong = автопокрасчик длинного шарфа
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
-
 ent-ADTClothingVoucherTie = автопокрасчик галстука
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
-
 clothing-voucher-jumpsuit-turtleneck-white = { ent-ADTClothingUniformJumpsuitTurtleneckWhite }
 clothing-voucher-jumpsuit-turtleneck-aquamarine = { ent-ADTClothingUniformJumpsuitTurtleneckAquamarine }
 clothing-voucher-jumpsuit-turtleneck-azure = { ent-ADTClothingUniformJumpsuitTurtleneckAzure }
@@ -36,7 +28,6 @@ clothing-voucher-jumpsuit-turtleneck-blue = { ent-ADTClothingUniformJumpsuitTurt
 clothing-voucher-jumpsuit-turtleneck-purple = { ent-ADTClothingUniformJumpsuitTurtleneckPurple }
 clothing-voucher-jumpsuit-turtleneck-black = { ent-ADTClothingUniformJumpsuitTurtleneckBlack }
 clothing-voucher-jumpsuit-turtleneck-darkblue = { ent-ADTClothingUniformJumpsuitTurtleneckDarkBlue }
-
 clothing-voucher-jumpskirt-turtleneck-white = { ent-ADTClothingUniformJumpskirtTurtleneckWhite }
 clothing-voucher-jumpskirt-turtleneck-aquamarine = { ent-ADTClothingUniformJumpskirtTurtleneckAquamarine }
 clothing-voucher-jumpskirt-turtleneck-azure = { ent-ADTClothingUniformJumpskirtTurtleneckAzure }
@@ -51,7 +42,6 @@ clothing-voucher-jumpskirt-turtleneck-blue = { ent-ADTClothingUniformJumpskirtTu
 clothing-voucher-jumpskirt-turtleneck-purple = { ent-ADTClothingUniformJumpskirtTurtleneckPurple }
 clothing-voucher-jumpskirt-turtleneck-black = { ent-ADTClothingUniformJumpskirtTurtleneckBlack }
 clothing-voucher-jumpskirt-turtleneck-darkblue = { ent-ADTClothingUniformJumpskirtTurtleneckDarkBlue }
-
 clothing-voucher-hatsoft-white = { ent-ClothingHeadHatMimesoft }
 clothing-voucher-hatsoft-blue = { ent-ClothingHeadHatBluesoft }
 clothing-voucher-hatsoft-green = { ent-ClothingHeadHatGreensoft }
@@ -61,7 +51,6 @@ clothing-voucher-hatsoft-orange = { ent-ClothingHeadHatOrangesoft }
 clothing-voucher-hatsoft-purple = { ent-ClothingHeadHatPurplesoft }
 clothing-voucher-hatsoft-red = { ent-ClothingHeadHatRedsoft }
 clothing-voucher-hatsoft-yellow = { ent-ClothingHeadHatYellowsoft }
-
 clothing-voucher-scarf-striped-white = { ent-ADTClothingNeckScarfStripedWhite }
 clothing-voucher-scarf-striped-green = { ent-ClothingNeckScarfStripedGreen }
 clothing-voucher-scarf-striped-brown = { ent-ClothingNeckScarfStripedBrown }
@@ -71,7 +60,6 @@ clothing-voucher-scarf-striped-purple = { ent-ClothingNeckScarfStripedPurple }
 clothing-voucher-scarf-striped-blue = { ent-ClothingNeckScarfStripedBlue }
 clothing-voucher-scarf-striped-lightblue = { ent-ClothingNeckScarfStripedLightBlue }
 clothing-voucher-scarf-striped-black = { ent-ClothingNeckScarfStripedBlack }
-
 clothing-voucher-facescarf-white = { ent-ADTClothingNeckFacescarfWhite }
 clothing-voucher-facescarf-green = { ent-ADTClothingNeckFacescarfGreen }
 clothing-voucher-facescarf-red = { ent-ADTClothingNeckFacescarfRed }
@@ -80,7 +68,6 @@ clothing-voucher-facescarf-grey = { ent-ADTClothingNeckFacescarfGrey }
 clothing-voucher-facescarf-blue = { ent-ADTClothingNeckFacescarfBlue }
 clothing-voucher-facescarf-purple = { ent-ADTClothingNeckFacescarfPurple }
 clothing-voucher-facescarf-black = { ent-ADTClothingNeckFacescarfBlack }
-
 clothing-voucher-winter-coat-light-white = { ent-ADTClothingOuterWinterCoatLightColorWhite }
 clothing-voucher-winter-coat-light-aquamarine = { ent-ADTClothingOuterWinterCoatLightColorAquamarine }
 clothing-voucher-winter-coat-light-azure = { ent-ADTClothingOuterWinterCoatLightColorAzure }
@@ -95,7 +82,6 @@ clothing-voucher-winter-coat-light-blue = { ent-ADTClothingOuterWinterCoatLightC
 clothing-voucher-winter-coat-light-darkblue = { ent-ADTClothingOuterWinterCoatLightColorDarkBlue }
 clothing-voucher-winter-coat-light-purple = { ent-ADTClothingOuterWinterCoatLightColorPurple }
 clothing-voucher-winter-coat-light-black = { ent-ADTClothingOuterWinterCoatLightColorBlack }
-
 clothing-voucher-scarf-long-white = { ent-ADTClothingNeckScarfLongWhite }
 clothing-voucher-scarf-long-yellow = { ent-ADTClothingNeckScarfLongYellow }
 clothing-voucher-scarf-long-green = { ent-ADTClothingNeckScarfLongGreen }
@@ -105,7 +91,6 @@ clothing-voucher-scarf-long-purple = { ent-ADTClothingNeckScarfLongPurple }
 clothing-voucher-scarf-long-pink = { ent-ADTClothingNeckScarfLongPink }
 clothing-voucher-scarf-long-blue = { ent-ADTClothingNeckScarfLongBlue }
 clothing-voucher-scarf-long-black = { ent-ADTClothingNeckScarfLongBlack }
-
 clothing-voucher-tie-white = { ent-ADTClothingNeckWhiteTie }
 clothing-voucher-tie-blue = { ent-ADTClothingNeckBlueTie }
 clothing-voucher-tie-aquamarine = { ent-ADTClothingNeckAquamarineTie }

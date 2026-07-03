@@ -1,0 +1,14 @@
+# Kobolt appearance (upstream PR#42476). Kobolt fully reuses Reptilian sprites/organs.
+# Inherits AppearanceReptilian, only overrides species id + scale. markingsGroup "Kobalt" in
+# ADT/Body/markingsGroups.yml (kobolt markings whitelisted [Reptilian, Kobalt] show via Reptilian group).
+
+- type: entity
+  parent: AppearanceReptilian
+  id: AppearanceKobolt
+  categories: [ HideSpawnMenu ]
+  name: kobolt appearance
+  components:
+  - type: HumanoidProfile
+    species: KoboltSpecies
+  - type: ScaleVisuals
+    scale: 0.85, 0.85

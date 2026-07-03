@@ -1,47 +1,49 @@
+# DEPRECATED: type:body prototype system removed in upstream PR#42476
+# This data is preserved for reference when creating InitialBody entries (task 8)
 # Simple Station
 
-- type: body
-  id: IPC
-  name: "ipc"
-  root: torso
-  slots:
-    head:
-      part: ADTHeadIPC
-      connections:
-      - torso
-      organs:
-        eyes: ADTOrganIPCEyes
-    torso:
-      part: ADTTorsoIPC
-      connections:
-      - right arm
-      - left arm
-      - left leg
-      - right leg
-      organs:
-        brain: ADTOrganIPCBrain
-        heart: ADTOrganIPCPump
-    right arm:
-      part: ADTRightArmIPC
-      connections:
-      - right hand
-    left arm:
-      part: ADTLeftArmIPC
-      connections:
-      - left hand
-    right hand:
-      part: ADTRightHandIPC
-    left hand:
-      part: ADTLeftHandIPC
-    right leg:
-      part: ADTRightLegIPC
-      connections:
-      - right foot
-    left leg:
-      part: ADTLeftLegIPC
-      connections:
-      - left foot
-    right foot:
-      part: ADTRightFootIPC
-    left foot:
-      part: ADTLeftFootIPC
+# - type: body
+#   id: IPC
+#   name: "ipc"
+#   root: torso
+#   slots:
+#     head:
+#       part: ADTHeadIPC
+#       connections:
+#       - torso
+#       organs:
+#         eyes: ADTOrganIPCEyes
+#     torso:
+#       part: ADTTorsoIPC
+#       connections:
+#       - right arm
+#       - left arm
+#       - left leg
+#       - right leg
+#       organs:
+#         brain: ADTOrganIPCBrain
+#         heart: ADTOrganIPCPump
+#     right arm:
+#       part: ADTRightArmIPC
+#       connections:
+#       - right hand
+#     left arm:
+#       part: ADTLeftArmIPC
+#       connections:
+#       - left hand
+#     right hand:
+#       part: ADTRightHandIPC
+#     left hand:
+#       part: ADTLeftHandIPC
+#     right leg:
+#       part: ADTRightLegIPC
+#       connections:
+#       - right foot
+#     left leg:
+#       part: ADTLeftLegIPC
+#       connections:
+#       - left foot
+#     right foot:
+#       part: ADTRightFootIPC
+#     left foot:
+#       part: ADTLeftFootIPC

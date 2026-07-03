@@ -1,4 +1,5 @@
 using Content.Shared.ADT.Body.Allergies;
+using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
@@ -25,7 +26,7 @@ public sealed partial class PurgeAllergiesEntityEffectSystem : EntityEffectSyste
         (EntityUid uid, _) = entity;
         ref List<ProtoId<ReagentPrototype>> allergicTriggers = ref entity.Comp.Triggers;
 
-        if (_solutionContainerSystem.TryGetSolution((uid, solMan), BloodstreamComponent.DefaultChemicalsSolutionName, out _, out var chemicalsSolution))
+        if (_solutionContainerSystem.TryGetSolution((uid, solMan), BloodstreamComponent.DefaultBloodSolutionName, out _, out var chemicalsSolution))
         {
             foreach (var (reagent, _) in chemicalsSolution.Contents)
             {

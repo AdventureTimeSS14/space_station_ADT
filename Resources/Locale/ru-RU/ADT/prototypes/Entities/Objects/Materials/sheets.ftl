@@ -13,6 +13,7 @@ ent-ADTSheetCopper10 = медь
 ent-ADTSheetCopper1 = медь
     .suffix = Один
     .desc = { ent-ADTSheetCopper.desc }
+
 ent-ADTSheetZinc = цинк
     .suffix = Полный
     .desc = Цинк, материал, применяемый для защиты металлов от коррозии.
@@ -32,3 +33,10 @@ ent-ADTSheetLead10 = свинец
 ent-ADTSheetLead1 = свинец
     .suffix = Один
     .desc = { ent-ADTSheetLead.desc }
+
+ent-ADTMaterialBScrystal = блюспейс кристалл
+    .suffix = 10
+    .desc = Кристалл блюспейса, малоизученный, но очень ценный материал.
+ent-ADTMaterialBScrystal1 = блюспейс кристалл
+    .suffix = Один
+    .desc = { ent-ADTMaterialBScrystal.desc }

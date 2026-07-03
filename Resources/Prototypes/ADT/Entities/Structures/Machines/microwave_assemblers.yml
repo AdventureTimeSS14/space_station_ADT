@@ -63,7 +63,7 @@
       map: ["scan"]
       visible: false
   - type: ApcPowerReceiver
-    powerLoad: 400
+    powerLoad: 5
   - type: Machine
     board: ADTKitchenAssemblerMachineCircuitBoard
   - type: ActivatableUI
@@ -111,7 +111,7 @@
       map: ["enum.MicrowaveVisualizerLayers.BaseUnlit"]
       visible: false
   - type: ApcPowerReceiver
-    powerLoad: 500
+    powerLoad: 5
   - type: Machine
     board: ADTMedicalAssemblerMachineCircuitBoard
   - type: ActivatableUI

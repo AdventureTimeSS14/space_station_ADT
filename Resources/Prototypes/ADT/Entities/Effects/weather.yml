@@ -204,3 +204,37 @@
   - type: Tag
     tags:
       - HideContextMenu
+
+- type: entity
+  parent: WeatherBase
+  id: ADTLavalandWeatherAshfall
+  components:
+  - type: WeatherStatusEffect
+    damage:
+      types:
+        Heat: 4
+    damageBlacklist: # ADT
+      components:
+      - AshStormImmune
+    sprite:
+      sprite: /Textures/Effects/weather.rsi
+      state: ashfall
+    sound:
+      path: /Audio/Effects/Weather/snowstorm_weak.ogg
+      params:
+        loop: true
+        volume: -6
+
+- type: entity
+  parent: WeatherBase
+  id: ADTLavalandWeatherAshfallLight
+  components:
+  - type: WeatherStatusEffect
+    sprite:
+      sprite: /Textures/Effects/weather.rsi
+      state: ashfall_light
+    sound:
+      path: /Audio/Effects/Weather/snowstorm_weak.ogg
+      params:
+        loop: true
+        volume: -6

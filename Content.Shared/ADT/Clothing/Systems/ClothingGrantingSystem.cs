@@ -2,6 +2,7 @@ using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Tag;
+using Robust.Shared.Log;
 
 namespace Content.Shared.ADT.Clothing;
 
@@ -10,6 +11,7 @@ public sealed class ClothingGrantingSystem : EntitySystem
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly ISerializationManager _serializationManager = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly ILogManager _logManager = default!;
 
     public override void Initialize()
     {
@@ -30,7 +32,7 @@ public sealed class ClothingGrantingSystem : EntitySystem
 
         if (component.Components.Count > 1)
         {
-            Logger.Error("Although a component registry supports multiple components, we cannot bookkeep more than 1 component for ClothingGrantComponent at this time.");
+            _logManager.GetSawmill("clothing.granting").Error("Although a component registry supports multiple components, we cannot bookkeep more than 1 component for ClothingGrantComponent at this time.");
             return;
         }
 
@@ -41,11 +43,9 @@ public sealed class ClothingGrantingSystem : EntitySystem
             if (HasComp(args.Equipee, newComp.GetType()))
                 continue;
 
-            newComp.Owner = args.Equipee;
-
             var temp = (object) newComp;
             _serializationManager.CopyTo(data.Component, ref temp);
-            EntityManager.AddComponent(args.Equipee, (Component)temp!);
+            AddComp(args.Equipee, (Component)temp!);
 
             component.IsActive = true;
         }

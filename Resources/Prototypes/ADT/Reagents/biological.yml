@@ -23,7 +23,7 @@
   flavor: metallic
   color: "#800000"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.25
       effects:
       - !type:HealthChange
@@ -31,9 +31,10 @@
         - !type:MetabolizerTypeCondition
           type: [ Reptilian ]
         damage:
-          groups:
-            Brute: -0.2
           types:
+            Blunt: -0.067
+            Slash: -0.067
+            Piercing: -0.067
             Cold: -0.2
             Poison: 0.4
       - !type:AdjustTemperature
@@ -55,7 +56,7 @@
   flavor: metallic
   color: "#801900"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.5
       effects:
       - !type:HealthChange
@@ -63,9 +64,10 @@
         - !type:MetabolizerTypeCondition
           type: [ Reptilian ]
         damage:
-          groups:
-            Brute: -0.4
           types:
+            Blunt: -0.133
+            Slash: -0.133
+            Piercing: -0.133
             Cold: -0.15
             Poison: 0.6
       - !type:AdjustTemperature
@@ -102,11 +104,11 @@
   slipData:
     requiredSlipSpeed: 3.5
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateHunger
         factor: 1.5
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:

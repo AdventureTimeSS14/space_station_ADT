@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: SpiderWebBase
   abstract: true
   placement:
@@ -23,7 +23,9 @@
   - type: Physics
   - type: Damageable
     damageModifierSet: Wood
+  - type: Injurable
   - type: Temperature
+  - type: TemperatureDamage
     heatDamage:
       types:
         Heat: 5
@@ -102,20 +104,14 @@
     intersectRatio: 0.2
   - type: Fixtures
     fixtures:
-      slips:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.4,-0.4,0.4,0.4"
-        hard: false
-        layer:
-        - SlipLayer
       fix1:
+        hard: false
+        density: 7
         shape:
           !type:PhysShapeAabb
           bounds: "-0.4,-0.4,0.4,0.4"
-        density: 1000
-        mask:
-        - ItemMask
+        layer:
+        - MidImpassable
   - type: Destructible
     thresholds:
     - trigger:

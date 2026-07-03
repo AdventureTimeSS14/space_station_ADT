@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseStructure
   id: ADTBarberPole
   name: barber pole
@@ -35,8 +35,9 @@
   - type: Anchorable
   - type: InteractionOutline
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:

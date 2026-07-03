@@ -1,5 +1,7 @@
 using Content.Shared.Anomaly.Effects;
-using Content.Shared.Body.Prototypes;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Events;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;

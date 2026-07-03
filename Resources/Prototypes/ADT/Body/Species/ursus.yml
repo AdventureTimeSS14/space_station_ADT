@@ -1,0 +1,115 @@
+# Ursus appearance + visual organs (upstream PR#42476). parts.rsi only (sexed); internals reused from Human.
+# markingsGroup "Ursus" defined in ADT/Body/markingsGroups.yml
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceUrsus
+  categories: [ HideSpawnMenu ]
+  name: ursus appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganUrsusTorso
+      Head: OrganUrsusHead
+      ArmLeft: OrganUrsusArmLeft
+      ArmRight: OrganUrsusArmRight
+      HandRight: OrganUrsusHandRight
+      HandLeft: OrganUrsusHandLeft
+      LegLeft: OrganUrsusLegLeft
+      LegRight: OrganUrsusLegRight
+      FootLeft: OrganUrsusFootLeft
+      FootRight: OrganUrsusFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganHumanEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: OrganHumanHeart
+      Stomach: OrganHumanStomach
+      Liver: OrganHumanLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: UrsusSpecies
+  - type: ScaleVisuals
+    scale: 1.03, 1.03
+  - type: Inventory
+    speciesId: urs
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganUrsus
+  abstract: true
+  suffix: ursus
+
+- type: entity
+  id: OrganUrsusVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/Ursus/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Ursus
+
+- type: entity
+  parent: [ OrganUrsus, OrganUrsusVisual ]
+  id: OrganUrsusExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Ursus/parts.rsi
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganUrsusExternal ]
+  id: OrganUrsusTorso
+
+- type: entity
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganUrsusExternal ]
+  id: OrganUrsusHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganUrsusExternal ]
+  id: OrganUrsusArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganUrsusExternal ]
+  id: OrganUrsusArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganUrsusExternal ]
+  id: OrganUrsusHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganUrsusExternal ]
+  id: OrganUrsusHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganUrsusExternal ]
+  id: OrganUrsusLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganUrsusExternal ]
+  id: OrganUrsusLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganUrsusExternal ]
+  id: OrganUrsusFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganUrsusExternal ]
+  id: OrganUrsusFootRight

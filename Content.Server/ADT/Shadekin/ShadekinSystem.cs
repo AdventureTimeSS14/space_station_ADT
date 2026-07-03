@@ -4,7 +4,7 @@ using Content.Shared.ADT.Shadekin.Components;
 using Robust.Shared.Timing;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Humanoid;
-using Content.Server.Humanoid;
+using Content.Shared.Body;
 using Content.Shared.ADT.Shadekin;
 using System.Numerics;
 using Content.Shared.FixedPoint;
@@ -57,6 +57,7 @@ public sealed partial class ShadekinSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly CuffableSystem _cuffable = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
 
     public override void Initialize()
     {
@@ -117,15 +118,17 @@ public sealed partial class ShadekinSystem : EntitySystem
             if (!HasComp<TakenHumansComponent>(uid) && comp.MaxedPowerAccumulator >= comp.MaxedPowerRoof)
                 TeleportRandomly(uid, comp);
 
-            if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+            if (_visualBody.TryGatherMarkingsData(uid, null, out var profiles, out _, out _))
             {
-                var eye = humanoid.EyeColor;
-                if ((eye.R * 255f <= 30f && eye.G * 255f <= 30f && eye.B * 255f <= 30f) && !(comp.Blackeye))
+                var isBlackEye = profiles.Values.Any(p =>
+                    p.EyeColor.R * 255f <= 30f &&
+                    p.EyeColor.G * 255f <= 30f &&
+                    p.EyeColor.B * 255f <= 30f);
+                if (isBlackEye && !comp.Blackeye)
                 {
                     comp.Blackeye = true;
                     comp.PowerLevelGainEnabled = false;
                     comp.PowerLevel = 0f;
-                    Dirty(uid, humanoid);
                     _action.RemoveAction(comp.ActionEntity);
                     _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), 0);
                 }
@@ -302,10 +305,10 @@ public sealed partial class ShadekinSystem : EntitySystem
         Dirty(uid, comp);
         _stamina.TakeStaminaDamage(uid, 150f);
 
-        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+        if (_visualBody.TryGatherMarkingsData(uid, null, out var profiles, out _, out _))
         {
-            humanoid.EyeColor = Color.Black;
-            Dirty(uid, humanoid);
+            var blackProfiles = profiles.ToDictionary(pair => pair.Key, pair => pair.Value with { EyeColor = Color.Black });
+            _visualBody.ApplyProfiles(uid, blackProfiles);
         }
 
         _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short)Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 5));

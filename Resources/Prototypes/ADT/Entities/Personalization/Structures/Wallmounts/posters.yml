@@ -1,0 +1,15 @@
+#легальные постеры
+
+#контрабандные постеры
+
+#Syrel
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandAria
+  name: Aria advises - Cool down!
+  description: "A poster depicting an arcana advertising ice cream produced by NanoTrasen stations."
+  suffix: Personal, Syrel
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/syrel_aria_poster.rsi
+    state: aria

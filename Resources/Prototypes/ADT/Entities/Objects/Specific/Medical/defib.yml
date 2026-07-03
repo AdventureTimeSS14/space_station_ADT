@@ -36,7 +36,9 @@
     size: Normal
   - type: Clothing
     quickEquip: false
+    sprite: ADT/Objects/Specific/Medical/defibsyndi.rsi
     slots:
+    - suitStorage
     - neck
   - type: Sprite
     sprite: ADT/Objects/Specific/Medical/defibsyndi.rsi
@@ -50,7 +52,7 @@
     doAfterDuration: 1
   - type: MultiHandedItem
   - type: PowerCellDraw
-    useRate: 200
+    useCharge: 200
 
 - type: entity
   id: ADTHighVoltageDefibrillator
@@ -61,7 +63,7 @@
   - type: MultiHandedItem #новую текстурку.
   - type: ToggleCellDraw
   - type: PowerCellDraw
-    useRate: 222 #~3 использования
+    useCharge: 222 #~3 использования
   - type: Sprite
     sprite: ADT/Objects/Specific/Medical/high-volt_defib.rsi
     layers:
@@ -92,6 +94,11 @@
       path: /Audio/ADT/Items/Defib/highvolt-defib_ready.ogg
     zapDamage: 15
     writheDuration: 10
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Objects/Specific/Medical/high-volt_defib.rsi
+    slots:
+    - suitStorage
 
 - type: entity
   id: ADTHighVoltageDefibrillatorEmpty

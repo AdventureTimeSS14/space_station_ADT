@@ -1,8 +1,9 @@
 using Content.Shared.Actions;
+using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.PowerCell;
 using Content.Shared.Alert;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
@@ -14,6 +15,7 @@ public sealed class ShowEnergyAlarmSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly PowerCellSystem _powerCellSystem = default!;
+    [Dependency] private readonly SharedBatterySystem _batterySystem = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<ShowEnergyAlarmComponent, PowerCellChangedEvent>(OnPowerCellUpdate);
@@ -35,13 +37,18 @@ public sealed class ShowEnergyAlarmSystem : EntitySystem
         if (!TryComp<PowerCellDrawComponent>(uid, out var drawComp) || entity.Comp.User == null)
             return;
 
-        if (!_powerCellSystem.TryGetBatteryFromSlot(entity, out var battery) || !drawComp.Enabled)
+        if (!TryComp<PowerCellSlotComponent>(uid, out var cellSlot)
+            || !_powerCellSystem.TryGetBatteryFromSlot((uid, cellSlot), out var battery)
+            || !drawComp.Enabled)
         {
             _alertsSystem.ClearAlert(entity.Comp.User.Value, comp.PowerAlert);
             return;
         }
 
-        var severity = ContentHelpers.RoundToLevels(MathF.Max(0f, battery.CurrentCharge), battery.MaxCharge, 6);
+        if (!TryComp<BatteryComponent>(battery!.Value, out var batteryComp))
+            return;
+
+        var severity = ContentHelpers.RoundToLevels(MathF.Max(0f, _batterySystem.GetCharge(battery.Value.AsNullable())), batteryComp.MaxCharge, 6);
         _alertsSystem.ShowAlert(entity.Comp.User.Value, comp.PowerAlert, (short) severity);
     }
 }

@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTMobBloodMiner
   parent: BaseMobAsteroid
   name: blood miner
@@ -47,6 +47,7 @@
     - DoorBumpOpener
   - type: NoSlip
   - type: Damageable
+  - type: Injurable
     damageContainer: BloodMiner
   - type: ExplosionResistance
     damageCoefficient: 0

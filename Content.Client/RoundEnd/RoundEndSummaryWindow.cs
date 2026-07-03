@@ -82,7 +82,7 @@ namespace Content.Client.RoundEnd
             if (!string.IsNullOrEmpty(roundEnd))
             {
                 var roundEndLabel = new RichTextLabel();
-                roundEndLabel.SetMarkup(roundEnd);
+                roundEndLabel.SetMessage(FormattedMessage.FromMarkupPermissive(roundEnd), tagsAllowed: null);
                 roundEndSummaryContainer.AddChild(roundEndLabel);
             }
 
@@ -94,6 +94,7 @@ namespace Content.Client.RoundEnd
 
         //ADT-tweak-start
         //всё в этом регионе сильно модифицировано
+        [Obsolete("This is only used for the end of round summary, and is not intended to be used for anything else. It will be removed once we have a better way to track this information.")]
         private BoxContainer MakePlayerManifestTab(RoundEndMessageEvent.RoundEndPlayerInfo[] playersInfo)
         {
             var playerManifestTab = new BoxContainer
@@ -232,7 +233,7 @@ namespace Content.Client.RoundEnd
                 if (playerInfo.EntMobState == MobState.Dead
                     && playerInfo.DamagePerGroup.Values.Any(v => v > 0))
                 {
-                    var totalDamage = playerInfo.DamagePerGroup.Values.Sum(static v => (decimal) v);
+                    var totalDamage = playerInfo.DamagePerGroup.Values.Sum(static v => (decimal)v);
                     var severityAdj = totalDamage switch
                     {
                         >= 1000 => Loc.GetString("brutal-damage-death-round-end"),
@@ -246,7 +247,8 @@ namespace Content.Client.RoundEnd
                     var highestDamage = playerInfo.DamagePerGroup
                         .OrderByDescending(kvp => kvp.Value)
                         .First();
-                    var typeAdj = highestDamage.Key switch
+
+                    var typeAdj = highestDamage.Key.Id switch
                     {
                         "Burn" => Loc.GetString("burn-death-round-end"),
                         "Brute" => Loc.GetString("brute-death-round-end"),
@@ -273,7 +275,7 @@ namespace Content.Client.RoundEnd
                         if (damage.Value <= 0)
                             continue;
 
-                        var color = damage.Key switch
+                        var color = damage.Key.Id switch
                         {
                             "Burn" => Color.Orange,
                             "Brute" => Color.Red,
@@ -296,7 +298,7 @@ namespace Content.Client.RoundEnd
                         };
                         var valueLabel = new Label
                         {
-                            Text = Math.Round((float) damage.Value).ToString(),
+                            Text = Math.Round((float)damage.Value).ToString(),
                             FontColorOverride = color,
                             HorizontalAlignment = HAlignment.Center,
                             VerticalAlignment = VAlignment.Center,

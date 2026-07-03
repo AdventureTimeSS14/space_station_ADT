@@ -11,6 +11,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using System.Numerics;
+using Robust.Shared.Random;
 
 namespace Content.Server.ADT.Salvage.Systems;
 
@@ -23,7 +24,7 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SmokeSystem _smoke = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
-
+    [Dependency] private readonly IRobustRandom _random = default!;
     public EntProtoId SmokePrototype = "Smoke";
 
     private HashSet<Entity<TransformComponent>> _entities = new();
@@ -62,7 +63,7 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
             grid,
             origin,
             room,
-            new Random(),
+            _random,
             null,
             clearExisting: true); // already checked for mobs and structures here
 

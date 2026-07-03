@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BasePlushie
   id: ADTPlushieUrs
   name: Djessie plushie
@@ -84,6 +84,7 @@
     sprite: ADT/Objects/Fun/Balloon.rsi
     heldPrefix: icon
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Tag
     tags:

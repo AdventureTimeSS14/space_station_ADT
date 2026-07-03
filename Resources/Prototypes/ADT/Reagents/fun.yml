@@ -7,7 +7,7 @@
   flavor: tingly
   color: "#b26de3"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:PopupMessage #прелюдии до полиморфа.
         conditions:
@@ -376,7 +376,7 @@
   flavor: magical
   color: "#62278c"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange #прелюдии до полиморфа.
         conditions:
@@ -515,7 +515,7 @@
   flavor: tingly
   color: "#059fb39d"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:PopupMessage  ### прелюдии до полиморфа.
         conditions:

@@ -65,6 +65,10 @@
   <Box>
     <GuideEntityEmbed Entity="HandTeleporter" Caption="Ручной Телепорт"/>
   </Box>
+  - Stealing the [color=#cb0000]Head of Security[/color]'s [bold]energy magnum[/bold].
+  <Box>
+    <GuideEntityEmbed Entity="WeaponEnergyMagnum" Caption=""/>
+  </Box>
   - Украсть [color=#a4885c]ID карту главы персонала[/color].
   <Box>
     <GuideEntityEmbed Entity="HoPIDCard" Caption="ID карта главы персонала"/>

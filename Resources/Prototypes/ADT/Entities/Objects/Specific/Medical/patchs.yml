@@ -42,11 +42,13 @@
         maxVol: 20
   - type: DeleteOnSolutionEmpty
     solution: pen
-  - type: Hypospray
-    onlyAffectsMobs: true
+  - type: Injector
+    activeModeProtoId: ADTPatchInject
+    allowedModes:
+    - ADTPatchInject
+    ignoreClosed: true
     solutionName: pen
-    transferAmount: 20
-    injectSound: /Audio/Items/Medical/brutepack_end.ogg
+    currentTransferAmount: 20
   - type: Extractable
     grindableSolutionName: pen
   - type: Appearance
@@ -215,3 +217,14 @@
         reagents:
         - ReagentId: Leporazine
           Quantity: 8
+
+- type: injectorMode
+  id: ADTPatchInject
+  name: injector-component-inject-mode-name
+  injectOnUse: true
+  transferAmounts: [20]
+  mobTime: 0
+  downedModifier: 0.5
+  selfModifier: 0.5
+  behavior: Inject
+  injectSound: /Audio/Items/Medical/brutepack_end.ogg

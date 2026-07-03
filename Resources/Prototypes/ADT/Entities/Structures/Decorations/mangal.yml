@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTMangal
   parent: BaseStructure
   name: mangal
@@ -81,8 +81,9 @@
     sound:
       path: /Audio/Ambience/Objects/fireplace.ogg
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:

@@ -27,7 +27,7 @@
   storage:
     back:
     - RubberStampChaplain
-    - ADTEctoSword  # ADT Phantom
+    - ADTEctoSword  # ADT-Tweak
 
 - type: chameleonOutfit
   id: ChaplainChameleonOutfit

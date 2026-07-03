@@ -369,7 +369,7 @@ entities:
     - type: Transform
       pos: 5.5,5.5
       parent: 1
-- proto: ADTClothingEyesHudPhantom
+- proto: ClothingEyesGlassesGar
   entities:
   - uid: 12
     components:

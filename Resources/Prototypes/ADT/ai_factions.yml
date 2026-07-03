@@ -8,7 +8,6 @@
   - Xeno
   - Zombie
   - Revolutionary
-  - DroneAntag
 
 - type: npcFaction
   id: ADTSpaceMobs
@@ -24,27 +23,9 @@
   - Heretic
   - AllHostile
   - Wizard
-  - DroneAntag
   - Xeno
   - Xenoborg
   - SimpleHostile
-
-- type: npcFaction
-  id: DroneAntag
-  hostile:
-  - SimpleHostile
-  - Passive
-  - SimpleNeutral
-  - Mouse
-  - Syndicate
-  - Xeno
-  - Zombie
-  - Revolutionary
-  - NanoTrasen
-  - PetsNT
-  - Dragon
-  - Ursus
-  - SpaceSecFaction
 
 - type: npcFaction
   id: SpaceSecFaction
@@ -53,7 +34,6 @@
   - Xeno
   - Zombie
   - Dragon
-  - DroneAntag
 
 - type: npcFaction
   id: Pirate

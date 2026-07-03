@@ -1,9 +1,7 @@
 // Simple Station
 
-using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
-using Robust.Shared.Network;
 using Content.Shared.ADT.Traits;
 using Robust.Shared.Player;
 
@@ -12,8 +10,6 @@ public sealed class MonochromacySystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     private MonochromacyOverlay _overlay = default!;
 
@@ -32,13 +28,13 @@ public sealed class MonochromacySystem : EntitySystem
 
     private void OnMonochromacyStartup(EntityUid uid, MonochromacyComponent component, ComponentStartup args)
     {
-        if (_player.LocalPlayer?.ControlledEntity == uid)
+        if (_player.LocalSession?.AttachedEntity == uid)
             _overlayMan.AddOverlay(_overlay);
     }
 
     private void OnMonochromacyShutdown(EntityUid uid, MonochromacyComponent component, ComponentShutdown args)
     {
-        if (_player.LocalPlayer?.ControlledEntity == uid)
+        if (_player.LocalSession?.AttachedEntity == uid)
         {
             _overlayMan.RemoveOverlay(_overlay);
         }

@@ -5,11 +5,11 @@ namespace Content.Shared.ADT.Body.Allergies.Prototypes;
 
 /// <summary>
 /// Прототип аллергической реакции.
-/// 
+///
 /// Определяет, какие эффекты будут назначены при наступлении события аллергического шока,
 /// если стак аллергической реакции у энтити >= StackThreshold.
 /// </summary>
-[Prototype("allergicReaction")]
+[Prototype]
 public sealed partial class AllergicReactionPrototype : IPrototype
 {
     [IdDataField]

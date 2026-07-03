@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: bola
   parent: [BaseItem, BaseSecurityContraband]
   id: Bola
@@ -17,6 +17,7 @@
     graph: Bola
     node: bola
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:

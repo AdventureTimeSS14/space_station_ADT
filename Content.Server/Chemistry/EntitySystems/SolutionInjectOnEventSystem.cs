@@ -42,7 +42,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         // ADT Injector blocking start
         if (!entity.Comp.IgnoreBlockers)
         {
-            var ev = new InjectAttemptEvent();
+            var ev = new InjectAttemptEvent(entity.Owner);
             RaiseLocalEvent(args.Target, ev);
             if (ev.Cancelled)
                 return;
@@ -57,7 +57,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         // ADT Injector blocking start
         if (!entity.Comp.IgnoreBlockers)
         {
-            var ev = new InjectAttemptEvent();
+            var ev = new InjectAttemptEvent(entity.Owner);
             RaiseLocalEvent(args.Embedded, ev);
             if (ev.Cancelled)
                 return;
@@ -79,7 +79,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
                 // ADT Injector blocking start
                 if (!entity.Comp.IgnoreBlockers)
                 {
-                    var ev = new InjectAttemptEvent();
+                    var ev = new InjectAttemptEvent(entity.Owner);
                     RaiseLocalEvent(ent, ev);
                     if (ev.Cancelled)
                         continue;
@@ -185,7 +185,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             // Take our portion of the adjusted solution for this target
             var individualInjection = solutionToInject.SplitSolution(volumePerBloodstream);
             // Inject our portion into the target's bloodstream
-            if (_bloodstream.TryAddToChemicals(targetBloodstream.AsNullable(), individualInjection))
+            if (_bloodstream.TryAddToBloodstream(targetBloodstream.AsNullable(), individualInjection))
                 anySuccess = true;
         }
 

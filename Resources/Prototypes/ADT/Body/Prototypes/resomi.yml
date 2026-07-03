@@ -1,50 +1,52 @@
-- type: body
-  id: Resomi
-  name: "resomi"
-  root: torso
-  slots:
-    head:
-      part: ADTHeadResomi
-      connections:
-      - torso
-      organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
-    torso:
-      part: ADTTorsoResomi
-      connections:
-      - right arm
-      - left arm
-      - right leg
-      - left leg
-      - head
-      organs:
-        heart: OrganHumanHeart
-        lungs: ADTOrganResomiLungs
-        stomach: ADTOrganResomiStomach
-        liver: ADTOrganResomiLiver
-        kidneys: ADTOrganResomiKidneys
-    right arm:
-      part: ADTRightArmResomi
-      connections:
-      - right hand
-    left arm:
-      part: ADTLeftArmResomi
-      connections:
-      - left hand
-    right hand:
-      part: ADTRightHandResomi
-    left hand:
-      part: ADTLeftHandResomi
-    right leg:
-      part: ADTRightLegResomi
-      connections:
-      - right foot
-    left leg:
-      part: ADTLeftLegResomi
-      connections:
-      - left foot
-    right foot:
-      part: ADTRightFootResomi
-    left foot:
-      part: ADTLeftFootResomi
+# DEPRECATED: type:body prototype system removed in upstream PR#42476
+# This data is preserved for reference when creating InitialBody entries (task 8)
+# - type: body
+#   id: Resomi
+#   name: "resomi"
+#   root: torso
+#   slots:
+#     head:
+#       part: ADTHeadResomi
+#       connections:
+#       - torso
+#       organs:
+#         brain: OrganHumanBrain
+#         eyes: OrganHumanEyes
+#     torso:
+#       part: ADTTorsoResomi
+#       connections:
+#       - right arm
+#       - left arm
+#       - right leg
+#       - left leg
+#       - head
+#       organs:
+#         heart: OrganHumanHeart
+#         lungs: ADTOrganResomiLungs
+#         stomach: ADTOrganResomiStomach
+#         liver: ADTOrganResomiLiver
+#         kidneys: ADTOrganResomiKidneys
+#     right arm:
+#       part: ADTRightArmResomi
+#       connections:
+#       - right hand
+#     left arm:
+#       part: ADTLeftArmResomi
+#       connections:
+#       - left hand
+#     right hand:
+#       part: ADTRightHandResomi
+#     left hand:
+#       part: ADTLeftHandResomi
+#     right leg:
+#       part: ADTRightLegResomi
+#       connections:
+#       - right foot
+#     left leg:
+#       part: ADTLeftLegResomi
+#       connections:
+#       - left foot
+#     right foot:
+#       part: ADTRightFootResomi
+#     left foot:
+#       part: ADTLeftFootResomi

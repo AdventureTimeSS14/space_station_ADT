@@ -1,8 +1,7 @@
 - type: marking
   id: EarsSylveon
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Reptilian, KoboltSpecies]
+  groupWhitelist: [Reptilian, Kobalt]
   sprites:
     - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: sylveon_primary
@@ -14,8 +13,7 @@
 - type: marking
   id: EarsResomi
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
+  groupWhitelist: [Reptilian]
   sprites:
     - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: avali_inner
@@ -25,8 +23,7 @@
 - type: marking
   id: EarsChemlight
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Reptilian, KoboltSpecies]
+  groupWhitelist: [Reptilian, Kobalt]
   sprites:
     - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: chemlight_outer
@@ -36,8 +33,7 @@
 - type: marking
   id: EarsDragonLong
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Reptilian, KoboltSpecies]
+  groupWhitelist: [Reptilian, Kobalt]
   sprites:
     - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: dragonlong
@@ -45,8 +41,7 @@
 - type: marking
   id: EarsEasternD
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Reptilian, KoboltSpecies]
+  groupWhitelist: [Reptilian, Kobalt]
   sprites:
     - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: easternd_ears
@@ -56,8 +51,7 @@
 - type: marking
   id: EarsMagus
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Reptilian, KoboltSpecies]
+  groupWhitelist: [Reptilian, Kobalt]
   sprites:
     - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: magus_ears

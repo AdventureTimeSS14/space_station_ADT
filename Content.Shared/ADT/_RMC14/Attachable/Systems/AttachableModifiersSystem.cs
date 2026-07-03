@@ -18,7 +18,6 @@ public sealed partial class AttachableModifiersSystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
     [Dependency] private readonly RMCSelectiveFireSystem _rmcSelectiveFireSystem = default!;
     [Dependency] private readonly RMCWieldableSystem _wieldableSystem = default!;
-    [Dependency] private readonly SharedGunSystem _gunSystem = default!;
 
     private const string modifierExamineColour = "yellow";
 

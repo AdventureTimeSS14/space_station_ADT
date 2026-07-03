@@ -16,6 +16,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly IMapManager _map = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly IEntityManager _ent = default!;
@@ -39,7 +40,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
             if (!TryComp<MapGridComponent>(trans.GridUid, out var grid))
                 continue;
 
-            var tileref = grid.GetTileRef(trans.Coordinates);
+            var tileref = _mapSystem.GetTileRef(trans.GridUid.Value, grid, trans.Coordinates);
             var tile = _prot.Index<ContentTileDefinition>("FloorAstroSnow");
             _tile.ReplaceTile(tileref, tile);
         }

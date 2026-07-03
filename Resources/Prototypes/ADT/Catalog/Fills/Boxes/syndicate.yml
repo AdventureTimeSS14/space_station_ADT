@@ -4,12 +4,13 @@
   name: Escapist bundle
   description: For those who already got in or afraid of troubles.
   components:
-  - type: StorageFill
-    contents:
-      - id: EmpImplanter
-      - id: FreedomImplanter
-      - id: DnaScramblerImplanter
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: EmpImplanter
+        - id: FreedomImplanter
+        - id: DnaScramblerImplanter
 - type: entity
   parent: BoxCardboard
   id: ADTBoxSyndicateCyberpsycho
@@ -24,8 +25,10 @@
     maxItemSize: Huge
     grid:
     - 0,0,3,3
-  - type: StorageFill
-    contents:
-      - id: ADTSandevistanAutoSurgeon
-      - id: ADTMantisDaggersAutoSurgeon
-      - id: ADTClothingOuterDavidsJacketValid
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTSandevistanAutoSurgeon
+        - id: ADTMantisDaggersAutoSurgeon
+        - id: ADTClothingOuterDavidsJacketValid

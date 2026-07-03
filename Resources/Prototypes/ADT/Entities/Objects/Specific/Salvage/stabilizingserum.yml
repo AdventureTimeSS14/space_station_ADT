@@ -26,9 +26,13 @@
     damageContainers:
     - Biological
     damage:
-      groups:
-        Brute: -100
-        Burn: -100
+      types:
+        Blunt: -100
+        Slash: -100
+        Piercing: -100
+        Heat: -100
+        Radiation: -100
+        Caustic: -100
     delay: 0.1
     selfHealPenaltyMultiplier: 0
     healingBeginSound:

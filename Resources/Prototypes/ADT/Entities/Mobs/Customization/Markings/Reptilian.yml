@@ -1,8 +1,7 @@
 - type: marking
   id: ReptilianDrawingKhar
   bodyPart: Chest
-  markingCategory: Overlay
-  speciesRestriction: [Reptilian, KoboltSpecies]
+  groupWhitelist: [Reptilian, Kobalt]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: drawing_khar
@@ -10,8 +9,7 @@
 - type: marking
   id: ReptilianDrawingSkeletBody
   bodyPart: Chest
-  markingCategory: Overlay
-  speciesRestriction: [Reptilian, KoboltSpecies]
+  groupWhitelist: [Reptilian, Kobalt]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: drawing_skelet_body
@@ -19,8 +17,7 @@
 - type: marking
   id: ReptilianDrawingSkeleton
   bodyPart: Chest
-  markingCategory: Overlay
-  speciesRestriction: [Reptilian, KoboltSpecies]
+  groupWhitelist: [Reptilian, Kobalt]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: drawing_skeleton
@@ -28,8 +25,7 @@
 - type: marking
   id: ReptilianDrawingSun
   bodyPart: Chest
-  markingCategory: Overlay
-  speciesRestriction: [Reptilian, KoboltSpecies]
+  groupWhitelist: [Reptilian, Kobalt]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: drawing_sun
@@ -37,8 +33,7 @@
 - type: marking
   id: ReptilianDrawingWarpaint
   bodyPart: Chest
-  markingCategory: Overlay
-  speciesRestriction: [Reptilian, KoboltSpecies]
+  groupWhitelist: [Reptilian, Kobalt]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: drawing_warpaint
@@ -46,8 +41,7 @@
 - type: marking
   id: ReptilianLineEyes
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [Reptilian, KoboltSpecies]
+  groupWhitelist: [Reptilian, Kobalt]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: lineeyes
@@ -55,8 +49,7 @@
 - type: marking
   id: SnoutEasternDNW
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [Reptilian, KoboltSpecies]
+  groupWhitelist: [Reptilian, Kobalt]
   sprites:
     - sprite: ADT/Mobs/Customization/Reptilian/reptilian_snouts.rsi
       state: easterndnw_primary
@@ -66,8 +59,7 @@
 - type: marking
   id: SnoutEasternDW
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [Reptilian, KoboltSpecies]
+  groupWhitelist: [Reptilian, Kobalt]
   sprites:
     - sprite: ADT/Mobs/Customization/Reptilian/reptilian_snouts.rsi
       state: easterndw_primary

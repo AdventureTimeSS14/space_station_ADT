@@ -1,0 +1,49 @@
+- type: entity
+  parent: AppearanceHuman
+  id: AppearanceFelinid
+  categories: [ HideSpawnMenu ]
+  name: felinid appearance
+  components:
+  - type: HumanoidProfile
+    species: Felinid
+  - type: InitialBody
+    organs:
+      Torso: OrganFelinidTorso
+      Head: OrganHumanHead
+      ArmLeft: OrganHumanArmLeft
+      ArmRight: OrganHumanArmRight
+      HandRight: OrganHumanHandRight
+      HandLeft: OrganHumanHandLeft
+      LegLeft: OrganHumanLegLeft
+      LegRight: OrganHumanLegRight
+      FootLeft: OrganHumanFootLeft
+      FootRight: OrganHumanFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganHumanEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: OrganHumanHeart
+      Stomach: OrganFelinidStomach
+      Liver: OrganHumanLiver
+      Kidneys: OrganHumanKidneys
+
+- type: entity
+  parent: OrganHumanTorso
+  id: OrganFelinidTorso
+  suffix: felinid
+  components:
+  - type: VisualOrganMarkings
+    markingData:
+      group: Felinid
+
+- type: entity
+  parent: OrganHumanStomach
+  id: OrganFelinidStomach
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - Meat
+    isSpecialDigestibleExclusive: false

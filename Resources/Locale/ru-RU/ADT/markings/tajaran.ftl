@@ -6,6 +6,7 @@ marking-ADTTajaranTongueSlow = Язык кошки (медленный)
 marking-ADTTajaranTongueSlow-tajaran_cat_tongue_slow = Язык
 marking-ADTTajaranTongueBreath = Язык тахипноэ
 marking-ADTTajaranTongueBreath-tajaran_cat_tongue_breath = Язык
+marking-TajaranTailM = Обычный хвост
 marking-ADTTajaranTongueBreathFast = Язык тахипноэ (Быстрый)
 marking-ADTTajaranTongueBreathFast-tajaran_cat_tongue_breath_fast = Язык
 marking-ADTTajaranTongueBreathSlow = Язык тахипноэ (медленный)

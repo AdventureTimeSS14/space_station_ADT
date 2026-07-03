@@ -9,7 +9,7 @@
   flavor: medicine
   color: "#081a80"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectScrambled
@@ -27,7 +27,7 @@
   flavor: medicine
   color: "#3a1d8a"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -39,8 +39,8 @@
           reagent: Dylovene
           min: 20
         damage:
-          groups:
-            Brute: 2
+          types:
+            Blunt: 2
       - !type:Jitter
         conditions:
         - !type:ReagentCondition
@@ -81,7 +81,7 @@
   flavor: medicine
   color: "#64ffe6"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:AdjustReagent
         reagent: Histamine
@@ -111,12 +111,24 @@
   flavor: medicine
   color: "#2d5708"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrunk
         time: 6.0
         type: Remove
+      # ADT-Tweak start
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 10
+        type: Remove
+      - !type:ResetNarcolepsy
+        TimerReset: 600
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ethylredoxrazine
+          min: 5
+      # ADT-Tweak end
       - !type:HealthChange
         damage:
           types:
@@ -131,14 +143,13 @@
   flavor: medicine
   color: "#bd5902"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
           types:
             Radiation: -3
-          groups:
-            Brute: 1.5
+            Blunt: 1.5
 
 - type: reagent
   id: Bicaridine
@@ -149,7 +160,7 @@
   flavor: medicine
   color: "#ffaa00"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:EvenHealthChange
         damage:
@@ -168,7 +179,7 @@
           types:
             Asphyxiation: 0.5
             Poison: 1.5
-      # Start ADT tweak
+        # Start ADT tweak
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
@@ -201,7 +212,6 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: medicine
   color: "#0091ff"
-  worksOnTheDead: true
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: -5
@@ -209,41 +219,19 @@
     amount: 5
   - !type:PlantCryoxadone {}
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
-        - !type:EvenHealthChange # ADT-Tweak
+        - !type:EvenHealthChange
           conditions:
-      # Start ADT tweak
-          - !type:MetabolizerTypeCondition
-            type: [ Shadekin ]
-            inverted: true
-      # End ADT tweak
           - !type:TemperatureCondition
             # this is a little arbitrary but they gotta be pretty cold
             max: 213.0
           damage:
           # todo scale with temp like SS13
-          # ADT-Tweak start (made HealthChange even)
-            Airloss: -1
-            Brute: -1
-            Burn: -1.2
-            Toxin: -0.8
-          # ADT-Tweak end
-        # Start ADT tweak
-        - !type:HealthChange
-          conditions:
-          - !type:MetabolizerTypeCondition
-            type: [ Shadekin ]
-          - !type:TemperatureCondition
-            max: 213.0
-          damage:
-            groups:
-              Brute: -3 # ADT-Tweak ## Лечит механические повреждение на 1 (3/3)
-              Burn: -4.8 # ADT-Tweak ## Лечит физические повреждение на 1.2 (4.8/4)
-              Toxin: -1.6 # ADT-Tweak ## Лечит яды на 0.8 (1.6/2)
-            types:
-              Bloodloss: -1
-        # End ADT tweak
+            Airloss: -3
+            Brute: -2
+            Burn: -2
+            Toxin: -2
 
 - type: reagent
   id: Doxarubixadone
@@ -253,9 +241,8 @@
   physicalDesc: reagent-physical-desc-bubbling
   flavor: medicine
   color: "#32cd32"
-  worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
         - !type:HealthChange
           conditions:
@@ -274,7 +261,7 @@
   flavor: medicine
   color: "#215263"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -296,8 +283,6 @@
           types:
             Asphyxiation: 1
             Cold: 2
-          groups:
-            Brute: 0.5
       # Start ADT tweak
       - !type:HealthChange
         conditions:
@@ -308,9 +293,9 @@
           min: 10
         damage:
           types:
-            Cold: 2.5
-          groups:
-            Brute: 1
+            Asphyxiation: 1
+            Cold: 2
+            Blunt: 0.5
       # End ADT tweak
       - !type:Jitter
         conditions:
@@ -327,7 +312,7 @@
   flavor: medicine
   color: "#0041a8"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -336,9 +321,9 @@
             Bloodloss: -0.5
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: Dexalin
-          min: 20
+          - !type:ReagentCondition
+            reagent: Dexalin
+            min: 20
         damage:
           types:
             Asphyxiation: 3
@@ -363,6 +348,7 @@
             Cold: 1.5
             Poison: 2
       # End ADT tweak
+
 - type: reagent
   id: DexalinPlus
   name: reagent-name-dexalin-plus
@@ -372,7 +358,7 @@
   flavor: medicine
   color: "#4da0bd"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
       # Start ADT tweak
@@ -438,7 +424,7 @@
   flavor: medicine
   color: "#d2fffa"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:AdjustReagent
         conditions:
@@ -464,9 +450,17 @@
           types:
             Asphyxiation: -3
             Poison: -0.5
-          groups:
-            Brute: -0.5
-            Burn: -0.5
+      - !type:EvenHealthChange
+        conditions:
+          # they gotta be in crit first
+        - !type:MobStateCondition
+          mobstate: Critical
+        - !type:ReagentCondition
+          reagent: Epinephrine
+          max: 20
+        damage:
+          Brute: -0.5
+          Burn: -0.5
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
@@ -489,10 +483,11 @@
           max: 20
         damage:
           types:
-            Poison: -0.75
-          groups:
-            Brute: -0.75
-            Burn: -0.75
+            Blunt: -0.5
+            Caustic: -0.5
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
@@ -501,9 +496,8 @@
           reagent: Epinephrine
           min: 20
         damage:
-          groups:
-            Brute: 2
           types:
+            Asphyxiation: 1
             Poison: 1
       # End ADT tweak
       - !type:AdjustReagent
@@ -545,7 +539,7 @@
   flavor: medicine
   color: "#4cb580"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -578,7 +572,7 @@
   flavor: medicine
   color: "#422912"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:Vomit
         conditions:
@@ -596,7 +590,7 @@
   flavor: medicine
   color: "#731024"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.1 # Smaller doses stabilize critical people for longer. Gives it a specific usecase as to not be entirely outclassed by dex+
       effects:
       - !type:HealthChange
@@ -640,7 +634,7 @@
   flavor: medicine
   color: "#bf3d19"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -675,7 +669,7 @@
   flavor: medicine
   color: "#ff7db5"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -709,7 +703,7 @@
   flavor: medicine
   color: "#ff867d"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         probability: 0.3
@@ -760,7 +754,7 @@
     - !type:PlantPhalanximine
       minScale: 4
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.1
       effects:
       - !type:HealthChange
@@ -795,20 +789,12 @@
   flavor: violets
   color: "#9423FF"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
-      - !type:HealthChange
-      # Start ADT tweak
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-          inverted: true
-      # End ADT tweak
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Brute: -10.5 # ADT-Tweak ## Лечит механические повреждения на 3.5 (10.5/3)
-          types:
-            Asphyxiation: -2.5
+          Brute: -3.5 # ADT-Tweak
+          Airloss: -1
       - !type:HealthChange
         conditions:
       # Start ADT tweak
@@ -823,15 +809,13 @@
           types:
             Asphyxiation: 3.5
       # Start ADT tweak
-      - !type:HealthChange
+      - !type:EvenHealthChange
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
         damage:
-          groups:
-            Brute: -12 # ADT-Tweak ## Лечит механические повреждения на 4 (12/3)
-          types:
-            Bloodloss: -1
+            Brute: -4
+            Airloss: -0.5
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
@@ -855,7 +839,14 @@
   flavor: medicine
   color: "#86caf7"
   metabolisms:
-    Medicine:
+    Bloodstream:
+      effects:
+        - !type:CureZombieInfection
+          conditions:
+            - !type:ReagentCondition
+              reagent: Ambuzol
+              min: 10
+    Digestion:
       effects:
         - !type:CureZombieInfection
           conditions:
@@ -872,7 +863,7 @@
   flavor: medicine
   color: "#1274b5"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
         - !type:CureZombieInfection
           innoculate: true
@@ -880,6 +871,14 @@
             - !type:ReagentCondition
               reagent: AmbuzolPlus
               min: 5
+    Digestion:
+      effects:
+      - !type:CureZombieInfection
+        innoculate: true
+        conditions:
+        - !type:ReagentCondition
+          reagent: AmbuzolPlus
+          min: 5
 
 - type: reagent
   id: PulpedBananaPeel
@@ -890,7 +889,7 @@
   flavor: medicine
   color: "#FFE774"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:ModifyBleed
         amount: -0.5
@@ -904,12 +903,12 @@
   flavor: salty
   color: "#0064C8"
   metabolisms:
-    Drink:
+    Bloodstream:
       effects:
         - !type:SatiateThirst
           factor: 6
         - !type:ModifyBloodLevel
-          amount: 1.2 # ADT-Tweak 6 -> 1.2
+          amount: 6
 
 - type: reagent
   id: Siderlac
@@ -920,7 +919,7 @@
   flavor: medicine
   color: "#f4dab8"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -935,8 +934,11 @@
   physicalDesc: reagent-physical-desc-starry
   flavor: medicine
   color: "#2b2f77"
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: -5
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -959,7 +961,7 @@
   flavor: medicine
   color: "#d49a2f"
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -986,7 +988,7 @@
   flavor: medicine
   color: "#ba7d7d"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       # Medium-large quantities can hurt you instead,
       # but still technically stop your bleeding.
@@ -1010,20 +1012,22 @@
   flavor: medicine
   color: "#00e5ff"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
+      - !type:EvenHealthChange
+        conditions:
+        - !type:MobStateCondition # no healing in crit so that dedicated single damage type meds can still have a niche.
+          mobstate: Alive
+        damage:
+          Brute: -1
+          Burn: -1
       - !type:HealthChange
         conditions:
-        - !type:TotalDamageCondition
-          max: 50
+        - !type:MobStateCondition
+          mobstate: Alive
         damage:
-          groups:
-            Brute: -1
           types:
-            Poison: -0.5 ##Should be about what it was when it healed the toxin group
-            Heat: -0.33
-            Shock: -0.33
-            Cold: -0.33
+            Poison: -0.5 # Same as what it was before the second coming of offmed
 
 - type: reagent
   id: Lipozine
@@ -1036,12 +1040,13 @@
   flavor: medicine
   color: "#2690b5"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       # what the hell, this isn't satiating at all!!
       - !type:SatiateHunger
         factor: -1
 
+  # Should heal quite literally everything, use in very small amounts
 - type: reagent
   id: Omnizine
   name: reagent-name-omnizine
@@ -1051,7 +1056,7 @@
   flavor: medicine
   color: "#fcf7f9"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:EvenHealthChange
         damage:
@@ -1069,7 +1074,7 @@
   flavor: medicine
   color: "#520e30"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:EvenHealthChange
         conditions:
@@ -1086,8 +1091,8 @@
           min: 0
           max: 20
         damage:
-          groups:
-            Brute: 1.5
+          types:
+            Blunt: 1.5
       - !type:EvenHealthChange
         conditions:
         - !type:ReagentCondition
@@ -1101,8 +1106,8 @@
           reagent: Ultravasculine
           min: 20
         damage:
-          groups:
-            Brute: 6
+          types:
+            Blunt: 6
       - !type:AdjustReagent
         conditions:
         - !type:ReagentCondition
@@ -1127,7 +1132,7 @@
   flavor: medicine
   color: "#404040"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:EyeDamage
 
@@ -1140,7 +1145,7 @@
   flavor: magical
   color: "#b50ee8"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:MakeSentient
         conditions:
@@ -1157,7 +1162,7 @@
   flavor: medicine
   color: "#d5d5e4"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:Jitter
       - !type:GenericStatusEffect
@@ -1187,7 +1192,7 @@
   flavor: medicine
   color: "#b0abaa"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrowsiness
@@ -1213,7 +1218,7 @@
   flavor: sweet
   color: "#e0a5b9"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.25
       effects:
       - !type:HealthChange
@@ -1273,7 +1278,7 @@
   flavor: syrupy
   color: "#283332"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.1 # ADT-Tweak 0.25 -> 0.1
       effects:
       - !type:HealthChange
@@ -1299,15 +1304,15 @@
   flavor: fizzy
   color: "#b9bf93"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.1 # ADT-Tweak 0.25 -> 0.1
       effects:
       - !type:HealthChange
         damage:
           types:
-      # ADT-Tweak-Start
-            Piercing: -0.8
-            Blunt: 0.15
+            Piercing: -2.5 # 10 per u
+            Radiation: 0.05 # 0.2 per u, 3 for 15u
+        # ADT-Tweak-Start
       - !type:Vomit
         conditions:
         - !type:ReagentCondition
@@ -1333,15 +1338,14 @@
   flavor: sour
   color: "#ff3636"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.1 # ADT-Tweak 0.25 -> 0.1
       effects:
       - !type:HealthChange
         damage:
           types:
+            Blunt: -2.25 # 9 per u
       # ADT-Tweak-Start
-            Blunt: -1.4
-            Piercing: 0.15
       - !type:Vomit
         conditions:
         - !type:ReagentCondition
@@ -1349,6 +1353,8 @@
           min: 21
         probability: 0.4
       # ADT-Tweak-End
+      - !type:SatiateHunger
+        factor: -1
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
@@ -1368,14 +1374,12 @@
   flavor: holy
   color: "#91C3F7"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 3
       - !type:HealthChange
         conditions:
-        - !type:TotalDamageCondition
-          min: 50
         damage:
           types:
             Blunt: -0.2
@@ -1412,7 +1416,7 @@
   flavor: syrupy
   color: "#aa4308"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.1 # slow metabolism to not be a godly combat med, its for treating burn victims efficiently
       effects:
       - !type:HealthChange
@@ -1453,7 +1457,7 @@
   flavor: metallic
   color: "#8147ff"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.25
       effects:
       # heals shocks and removes shock chems
@@ -1501,7 +1505,7 @@
   color: "#b5e36d"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
         - !type:ReduceRotting
           seconds: 20
@@ -1513,34 +1517,24 @@
             mobstate: Dead
 
 - type: reagent
-  id: Necrosol
-  name: reagent-name-necrosol
+  id: Arcryox
+  name: reagent-name-arcryox
   group: Medicine
-  desc: reagent-desc-necrosol
-  physicalDesc: reagent-physical-desc-necrotic
+  desc: reagent-desc-arcryox
+  physicalDesc: reagent-physical-desc-arcryox
   flavor: medicine
-  color: "#86a5bd"
+  color: "#0cbfe9"
   worksOnTheDead: true
-  plantMetabolism:
-  - !type:PlantAdjustToxins
-    amount: -5
-  - !type:PlantAdjustHealth
-    amount: 5
-  - !type:PlantCryoxadone {}
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
-        - !type:EvenHealthChange # ADT-Tweak
-          conditions:
-          - !type:TemperatureCondition
-            max: 213.0
-          damage:
-          # ADT-Tweak start (made HealthChange even)
-            Brute: -7
-            Burn: -6
-            Airloss: -3
-            Toxin: -4
-          # ADT-Tweak end
+      - !type:EvenHealthChange
+        conditions:
+        - !type:TemperatureCondition
+          max: 213.0
+        damage:
+          Brute: -3
+          Burn: -3
 
 - type: reagent
   id : Aloxadone
@@ -1552,18 +1546,14 @@
   color: "#89f77f"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         conditions:
         - !type:TemperatureCondition
           max: 213.0
         damage:
-          types:
-            Cold: -4.0
-            Heat: -4.0
-            Shock: -4.0
-            Caustic: -1.5
+          Burn: -4.5
 
 - type: reagent
   id : Mannitol # currently this is just a way to create psicodine
@@ -1574,7 +1564,7 @@
   flavor: sweet
   color: "#A0A0A0"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:PopupMessage
         conditions:
@@ -1595,7 +1585,7 @@
   flavor: bitter
   color: "#07E79E"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         conditions:
@@ -1639,11 +1629,10 @@
   flavor: medicine
   color: "#baa15d"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
-      - !type:GenericStatusEffect
-        key: RadiationProtection
-        component: RadiationProtection
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectRadiationProtection
         time: 2
         type: Add
       - !type:HealthChange
@@ -1664,7 +1653,7 @@
   flavor: medicine
   color: "#27870a"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:Emote
         emote: Yawn
@@ -1706,3 +1695,27 @@
       - !type:AdjustReagent
         reagent: MindbreakerToxin
         amount: -3.0
+
+- type: reagent
+  id: Heparin
+  name: reagent-name-heparin
+  group: Medicine
+  desc: reagent-desc-heparin
+  physicalDesc: reagent-physical-desc-thin
+  allowedDepartments:
+  - Medical
+  flavor: medicine
+  color: "#d0e21b"
+  metabolisms:
+    Bloodstream:
+      effects: # One day this could be useful for treating blood clots, if we get those
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAnticoagulant
+        time: 30 # 10 bleed ticks, you bleed every 3 seconds by default.
+        type: Update
+      - !type:ModifyBleed
+        conditions:
+        - !type:ReagentCondition
+          reagent: Heparin
+          min: 15
+        amount: 0.25

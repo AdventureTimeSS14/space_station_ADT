@@ -1,49 +1,51 @@
-- type: body
-  name: "demon"
-  id: Demon
-  root: torso
-  slots:
-    head:
-      part: ADTHeadDemon
-      connections:
-      - torso
-      organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
-    torso:
-      part: ADTTorsoDemon
-      organs:
-        heart: ADTOrganDemonHeart
-        lungs: OrganHumanLungs
-        stomach: ADTOrganDemonStomach
-        liver: OrganAnimalLiver
-        kidneys: OrganHumanKidneys
-      connections:
-      - right arm
-      - left arm
-      - left leg
-      - right leg
-    right arm:
-      part: ADTRightArmDemon
-      connections:
-      - right hand
-    left arm:
-      part: ADTLeftArmDemon
-      connections:
-      - left hand
-    right hand:
-      part: ADTRightHandDemon
-    left hand:
-      part: ADTLeftHandDemon
-    right leg:
-      part: ADTRightLegDemon
-      connections:
-      - right foot
-    left leg:
-      part: ADTLeftLegDemon
-      connections:
-      - left foot
-    right foot:
-      part: ADTRightFootDemon
-    left foot:
-      part: ADTLeftFootDemon
+# DEPRECATED: type:body prototype system removed in upstream PR#42476
+# This data is preserved for reference when creating InitialBody entries (task 8)
+# - type: body
+#   name: "demon"
+#   id: Demon
+#   root: torso
+#   slots:
+#     head:
+#       part: ADTHeadDemon
+#       connections:
+#       - torso
+#       organs:
+#         brain: OrganHumanBrain
+#         eyes: OrganHumanEyes
+#     torso:
+#       part: ADTTorsoDemon
+#       organs:
+#         heart: ADTOrganDemonHeart
+#         lungs: OrganHumanLungs
+#         stomach: ADTOrganDemonStomach
+#         liver: OrganAnimalLiver
+#         kidneys: OrganHumanKidneys
+#       connections:
+#       - right arm
+#       - left arm
+#       - left leg
+#       - right leg
+#     right arm:
+#       part: ADTRightArmDemon
+#       connections:
+#       - right hand
+#     left arm:
+#       part: ADTLeftArmDemon
+#       connections:
+#       - left hand
+#     right hand:
+#       part: ADTRightHandDemon
+#     left hand:
+#       part: ADTLeftHandDemon
+#     right leg:
+#       part: ADTRightLegDemon
+#       connections:
+#       - right foot
+#     left leg:
+#       part: ADTLeftLegDemon
+#       connections:
+#       - left foot
+#     right foot:
+#       part: ADTRightFootDemon
+#     left foot:
+#       part: ADTLeftFootDemon

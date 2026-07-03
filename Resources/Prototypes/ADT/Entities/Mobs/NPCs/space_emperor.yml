@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
   id: ADTMobSpaceEmperor
   name: ADTMobSpaceEmperor-name
@@ -34,8 +34,10 @@
     position: Stand
     buckleOffset: "0, 0.5"
   - type: Bloodstream
-    bloodMaxVolume: 250
-    bloodReagent: Cryoxadone
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Cryoxadone
+        Quantity: 250
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -107,31 +109,28 @@
     canResistFire: true
     alwaysCombustible: false
     canExtinguish: true
-    resisting: false
     damage:
       types: {}
   - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 800
     coldDamageThreshold: -800
   - type: FlashImmunity
   - type: EyeProtection
   - type: Damageable
     damageModifierSet: ADTDragonDamageSet
+  - type: Injurable
   - type: Stamina
-    critThreshold: 350
+    baseCritThreshold: 350
   - type: StatusEffects
     allowed:
     - Stutter
     - Weakness
-    - RadiationProtection
     - Adrenaline #ADT-Medicine
   - type: Metabolizer
     solutionOnBody: false
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
-    groups:
-    - id: Medicine
-    - id: Poison
   - type: Butcherable
     spawned:
     - id: FoodMeatDragon
@@ -148,8 +147,8 @@
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     damage:
-      groups:
-        Brute: 4
+      types:
+        Blunt: 4
   - type: Tag
     tags:
     - CannotSuicide

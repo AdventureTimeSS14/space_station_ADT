@@ -61,8 +61,8 @@ construction-graph-tag-paper = бумага
 
 # Одежда
 construction-graph-tag-miner-armor = костюм исследователя
-construction-graph-tag-reinforced-explorer-suit =  пластинчатый костюм исследователя
-construction-graph-tag-reinforced-explorer-suit-two = взрывозащитный костюм
+construction-graph-tag-reinforced-explorer-suit =  частично усиленный костюм исследователя
+construction-graph-tag-reinforced-explorer-suit-two = усиленный костюм исследователя
 construction-graph-gas-mask = противогаз
 
 # Тайлы

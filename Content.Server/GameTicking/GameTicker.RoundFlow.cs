@@ -8,6 +8,7 @@ using Content.Server.Roles;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
+using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Damage.Components;
 using Content.Shared.Players;
@@ -35,6 +36,8 @@ using Content.Server.Voting.Managers;
 using Content.Shared.Voting;
 using Content.Shared.FixedPoint;
 using Content.Shared.ADT.LastWords;
+using Content.Shared.Damage.Prototypes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking
 {
@@ -414,7 +417,9 @@ namespace Content.Server.GameTicking
                 }
                 else
                 {
-                    profile = HumanoidCharacterProfile.Random();
+                    var speciesToBlacklist =
+                        new HashSet<string>(_cfg.GetCVar(CCVars.ICNewAccountSpeciesBlacklist).Split(","));
+                    profile = HumanoidCharacterProfile.Random(speciesToBlacklist);
                 }
                 readyPlayerProfiles.Add(userId, profile);
             }
@@ -606,7 +611,7 @@ namespace Content.Server.GameTicking
 
                 var lastWords = "";
                 var mobState = MobState.Invalid;
-                var damagePerGroup = new Dictionary<string, FixedPoint2>();
+                var damagePerGroup = new Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2>();
                 var lastMob = mind.LastMob;
                 if (TryComp<LastWordsComponent>(mindId, out var lastWordsComponent)
                     && !TerminatingOrDeleted(lastMob))
@@ -616,8 +621,12 @@ namespace Content.Server.GameTicking
                     if (TryComp<MobStateComponent>(lastMob, out var mobStateComp))
                         mobState = mobStateComp.CurrentState;
 
-                    if (TryComp<DamageableComponent>(lastMob, out var damageableComp))
-                        damagePerGroup = damageableComp.DamagePerGroup;
+                    if (lastMob.HasValue && TryComp<DamageableComponent>(lastMob.Value, out var damageableComp))
+                    {
+                        var readOnlyDict = _damageable.GetDamagePerGroup(new(lastMob.Value, damageableComp));
+                        foreach (var kvp in readOnlyDict)
+                            damagePerGroup[kvp.Key] = kvp.Value;
+                    }
                 }
 
                 // ADT-tweak-end
