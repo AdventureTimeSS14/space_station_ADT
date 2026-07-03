@@ -30,6 +30,17 @@
   equipment:
     jumpsuit: ADTClothingUniformJumpskirtTurtleneckBlueshield
 
+- type: loadout
+  id: ADTBlueshieldJumpskirtTacticalMaid
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtBlueshieldTacticalMaid
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobADTBlueShieldOfficer
+      time: 54000 #15 hrs
+
 # Neck
 - type: loadout
   id: ADTBlueshieldCloak
@@ -78,4 +89,3 @@
   id: ADTClothingBlueshieldArmor
   equipment:
     outerClothing: ADTClothingBlueshieldArmor
-

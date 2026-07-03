@@ -23105,13 +23105,6 @@ entities:
     - type: Action
       originalIconColor: '#FFFFFFFF'
       container: 27
-- proto: ADTFoodPizzaSindi
-  entities:
-  - uid: 29
-    components:
-    - type: Transform
-      pos: 59.361855,38.7325
-      parent: 2
 - proto: ADTAltarClockwork
   entities:
   - uid: 30
@@ -237210,6 +237203,7 @@ entities:
     - type: Transform
       pos: 22.565756,-47.432816
       parent: 2
+
 - proto: ZiptiesBroken
   entities:
   - uid: 35100
