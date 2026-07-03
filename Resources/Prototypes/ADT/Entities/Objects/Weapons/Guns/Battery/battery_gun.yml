@@ -588,23 +588,41 @@
     size: Small
 
 - type: entity
-  name: svalinn laser pistol
+  name: svalinn laser rifle
   parent: [BaseItem, BaseGunWieldable, BaseSecurityContraband]
   id: ADTWeaponLaserSvalinnRifle
-  description: A cheap and widely used laser pistol.
+  description: A cheap and widely used laser rifle.
   components:
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/Battery/svalinn.rsi
     layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Item
-    size: Large
+    size: Huge
+    shape:
+    - 0,0,4,1
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
   - type: BatteryAmmoProvider
     proto: YellowLightLaser
     fireCost: 50
   - type: RunAndGunSpreadModifier
     modifier: 0.1
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
   - type: Appearance
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Battery/svalinn.rsi
