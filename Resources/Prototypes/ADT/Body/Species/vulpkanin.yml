@@ -1,0 +1,181 @@
+# ADT Vulpkanin (VulpkaninSpecies) appearance + visual organs (upstream PR#42476).
+# ADT custom vulpkanin uses ADT/Mobs/Species/Vulpkanin/parts.rsi (overrides official MobVulpkanin).
+# parts.rsi sexed; internals reused from Human. Uses the Vulpkanin markingsGroup.
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceVulpkaninADT
+  categories: [ HideSpawnMenu ]
+  name: vulpkanin appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganVulpkaninADTTorso
+      Head: OrganVulpkaninADTHead
+      ArmLeft: OrganVulpkaninADTArmLeft
+      ArmRight: OrganVulpkaninADTArmRight
+      HandRight: OrganVulpkaninADTHandRight
+      HandLeft: OrganVulpkaninADTHandLeft
+      LegLeft: OrganVulpkaninADTLegLeft
+      LegRight: OrganVulpkaninADTLegRight
+      FootLeft: OrganVulpkaninADTFootLeft
+      FootRight: OrganVulpkaninADTFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganHumanEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: OrganHumanHeart
+      Stomach: OrganHumanStomach
+      Liver: OrganHumanLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: VulpkaninSpecies
+  - type: Inventory
+    speciesId: vulp
+    maleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+            state: head
+      shoes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit
+      socks:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+            state: shoes
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit-female
+      head:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+            state: head
+      shoes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit
+      socks:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+            state: shoes
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganVulpkaninADT
+  abstract: true
+  suffix: vulpkanin-adt
+
+- type: entity
+  id: OrganVulpkaninADTVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/Vulpkanin/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Vulpkanin
+
+- type: entity
+  parent: [ OrganVulpkaninADT, OrganVulpkaninADTVisual ]
+  id: OrganVulpkaninADTExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Vulpkanin/parts.rsi
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganVulpkaninADTExternal ]
+  id: OrganVulpkaninADTTorso
+
+- type: entity
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganVulpkaninADTExternal ]
+  id: OrganVulpkaninADTHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.SnoutOverlay # ADT-Tweak
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.FacialHair
+    dependentHidingLayers:
+      enum.HumanoidVisualLayers.Snout:
+      - enum.HumanoidVisualLayers.SnoutCover
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: hair
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganVulpkaninADTExternal ]
+  id: OrganVulpkaninADTArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganVulpkaninADTExternal ]
+  id: OrganVulpkaninADTArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganVulpkaninADTExternal ]
+  id: OrganVulpkaninADTHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganVulpkaninADTExternal ]
+  id: OrganVulpkaninADTHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganVulpkaninADTExternal ]
+  id: OrganVulpkaninADTLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganVulpkaninADTExternal ]
+  id: OrganVulpkaninADTLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganVulpkaninADTExternal ]
+  id: OrganVulpkaninADTFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganVulpkaninADTExternal ]
+  id: OrganVulpkaninADTFootRight

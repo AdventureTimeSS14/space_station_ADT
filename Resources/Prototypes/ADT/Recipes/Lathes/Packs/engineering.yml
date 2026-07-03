@@ -58,16 +58,16 @@
   - ADTMachineBigThrusterCircuitboard
   - ADTMachineMediumLongThrusterCircuitboard
 
-- type: latheRecipePack
-  id: ADTMegaCellPack
-  recipes:
-  - ADTMegaCellSmallRecipe
-  - ADTMegaCellMediumRecipe
-  - ADTMegaCellHighRecipe
-  - ADTMegaCellHyperRecipe
-  - RNDInducerRecipe
-
-- type: latheRecipePack
-  id: ADTMegaCharger
-  recipes:
-  - ADTMegaCellRechargerCircuitboardRecipe
+#- type: latheRecipePack
+#  id: ADTMegaCellPack
+#  recipes:
+#  - ADTMegaCellSmallRecipe
+#  - ADTMegaCellMediumRecipe
+#  - ADTMegaCellHighRecipe
+#  - ADTMegaCellHyperRecipe
+#  - RNDInducerRecipe
+#
+#- type: latheRecipePack
+#  id: ADTMegaCharger
+#  recipes:
+#  - ADTMegaCellRechargerCircuitboardRecipe

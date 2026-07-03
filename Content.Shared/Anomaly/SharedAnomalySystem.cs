@@ -37,7 +37,6 @@ public abstract class SharedAnomalySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly IComponentFactory _comp = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
 
     public override void Initialize()
@@ -461,6 +460,9 @@ public abstract class SharedAnomalySystem : EntitySystem
 
             if (!settings.CanSpawnOnEntities)
             {
+                // If it can't spawn on entities, ensure that maximum one entity will be spawned here this pulse.
+                tilerefs.Remove(tileref);
+
                 var valid = true;
                 foreach (var ent in _map.GetAnchoredEntities(gridUid.Value, grid, tileref.GridIndices)) // ADT-Tweak
                 {
@@ -477,7 +479,6 @@ public abstract class SharedAnomalySystem : EntitySystem
                 }
                 if (!valid)
                 {
-                    tilerefs.Remove(tileref);
                     continue;
                 }
             }

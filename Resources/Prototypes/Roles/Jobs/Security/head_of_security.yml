@@ -42,17 +42,17 @@
   - External
   - Detective
   - Cryogenics
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      # - type: PhantomTyranyTarget # ADT Phantom
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      # - type: PhantomTyranyTarget # ADT Phantom
       # ADT-Tweak-Start: метка персонала службы безопасности
       - type: SecurityStaff
       # ADT-Tweak-End
@@ -60,7 +60,7 @@
 - type: startingGear
   id: HoSGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+    # eyes: ClothingEyesGlassesSecurity ADT-Tweak
     # id: HoSPDA ADT: different PDAs in loadouts
     gloves: ClothingHandsGlovesCombat
     ears: ClothingHeadsetAltSecurity

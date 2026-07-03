@@ -5,7 +5,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
-using Content.Shared.Hands.Components;
 using Content.Server.Hands.Systems;
 
 namespace Content.Server.ADT.Economy;

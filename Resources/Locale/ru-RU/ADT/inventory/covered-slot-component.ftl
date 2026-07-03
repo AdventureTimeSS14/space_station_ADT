@@ -1,1 +1,1 @@
-covered-slot-component-blocked = Слой одежды перекрыт {$item}!
+covered-slot-component-blocked = Слой одежды перекрыт { $item }!

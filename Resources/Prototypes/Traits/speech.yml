@@ -6,7 +6,7 @@
   name: trait-accentless-name
   description: trait-accentless-desc
   category: SpeechTraits
-  cost: 1
+  cost: 0
   effects:
     - !type:AddCompsEffect
       components:
@@ -22,8 +22,7 @@
             - type: VoxAccent
             - type: SkeletonAccent
             - type: DamagedSiliconAccent
-            - type: ReplacementAccent
-              accent: dwarf
+#            - type: ReplacementAccent
 
 # 1 Cost
 
@@ -32,7 +31,7 @@
   name: trait-southern-name
   description: trait-southern-desc
   category: SpeechTraits
-  cost: 1
+  cost: 0
   effects:
     - !type:AddCompsEffect
       components:
@@ -43,7 +42,7 @@
   name: trait-pirate-accent-name
   description: trait-pirate-accent-desc
   category: SpeechTraits
-  cost: 1
+  cost: 0
   effects:
     - !type:AddCompsEffect
       components:
@@ -54,7 +53,7 @@
   name: trait-cowboy-name
   description: trait-cowboy-desc
   category: SpeechTraits
-  cost: 1
+  cost: 0
   effects:
     - !type:AddCompsEffect
       components:
@@ -66,7 +65,7 @@
   name: trait-german-name
   description: trait-german-desc
   category: SpeechTraits
-  cost: 1
+  cost: 0
   effects:
     - !type:AddCompsEffect
       components:
@@ -77,7 +76,7 @@
   name: trait-italian-name
   description: trait-italian-desc
   category: SpeechTraits
-  cost: 1
+  cost: 0
   effects:
     - !type:AddCompsEffect
       components:
@@ -89,7 +88,7 @@
   name: trait-french-name
   description: trait-french-desc
   category: SpeechTraits
-  cost: 1
+  cost: 0
   effects:
     - !type:AddCompsEffect
       components:
@@ -100,7 +99,7 @@
   name: trait-spanish-name
   description: trait-spanish-desc
   category: SpeechTraits
-  cost: 1
+  cost: 0
   effects:
     - !type:AddCompsEffect
       components:
@@ -111,12 +110,22 @@
   name: trait-liar-name
   description: trait-liar-desc
   category: SpeechTraits
-  cost: 1
+  cost: 0
   effects:
     - !type:AddCompsEffect
       components:
         - type: ReplacementAccent
           accent: mobster
+
+# - type: trait # ADT-Tweak. ScottishAccent now defined in /Prototypes/ADT/Traits/speech.yml
+#   id: ScottishAccent
+#   name: trait-scottish-name
+#   description: trait-scottish-desc
+#   category: SpeechTraits
+#   cost: 1
+#   components:
+#   - type: ReplacementAccent
+#     accent: scottish
 
 # 2 Cost
 
@@ -125,7 +134,7 @@
   name: trait-socialanxiety-name
   description: trait-socialanxiety-desc
   category: SpeechTraits
-  cost: 2
+  cost: 0
   effects:
     - !type:AddCompsEffect
       components:
@@ -140,7 +149,7 @@
   name: trait-frontal-lisp-name
   description: trait-frontal-lisp-desc
   category: SpeechTraits
-  cost: 2
+  cost: 0
   effects:
     - !type:AddCompsEffect
       components:

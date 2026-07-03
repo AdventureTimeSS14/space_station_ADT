@@ -1,0 +1,41 @@
+- type: jukebox
+  id: ADTGaroadNeonGlow
+  name: Garoad - A Neon Glow Lights the Way
+  path:
+    path: /Audio/ADT/Jukebox/Va11Hall/02.-A-Neon-Glow-Lights-the-Way.ogg
+
+- type: jukebox
+  id: ADTGaroadEveryDay
+  name: Garoad - Every Day Is Night
+  path:
+    path: /Audio/ADT/Jukebox/Va11Hall/04.-Every-Day-Is-Night.ogg
+
+- type: jukebox
+  id: ADTGaroadGoodHealth
+  name: Garoad - Good for Health, Bad for Education
+  path:
+    path: /Audio/ADT/Jukebox/Va11Hall/07.-Good-for-Health_-Bad-for-Education.ogg
+
+- type: jukebox
+  id: ADTGaroadYourLove
+  name: Garoad - Your Love Is a Drug
+  path:
+    path: /Audio/ADT/Jukebox/Va11Hall/32.-Your-Love-Is-a-Drug.ogg
+
+- type: jukebox
+  id: ADTGaroadUmemoto
+  name: Garoad - Umemoto
+  path:
+    path: /Audio/ADT/Jukebox/Va11Hall/15.-Umemoto.ogg
+
+- type: jukebox
+  id: ADTGaroadDigitalDrive
+  name: Garoad - Digital Drive
+  path:
+    path: /Audio/ADT/Jukebox/Va11Hall/44.-Digital-Drive.ogg
+
+- type: jukebox
+  id: ADTGaroadWhereDoGo
+  name: Garoad - Where Do I Go From Here
+  path:
+    path: /Audio/ADT/Jukebox/Va11Hall/19.-Where-Do-I-Go-From-Here.ogg

@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: WindoorAssembly
   name: windoor assembly
   description: It opens, it closes, and you can see through it!
@@ -24,8 +24,9 @@
   - type: Pullable
   - type: Rotatable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -227,4 +228,3 @@
   - type: Construction
     graph: Windoor
     node: uglassSecure
-

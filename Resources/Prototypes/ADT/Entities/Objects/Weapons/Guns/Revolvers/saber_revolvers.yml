@@ -28,8 +28,8 @@
      - state: mag-0
        map: ["enum.GunVisualLayers.Mag"]
   - type: AmmoCounter
-  - type: RunAndGunSpreadModifier
-    modifier: 0.1
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.1
   - type: PointLight
     enabled: false
     radius: 2
@@ -67,7 +67,7 @@
             Slash: 10
             Heat: 10
             Structural: 25
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: blade
     inhandVisuals:
       left:
@@ -112,6 +112,9 @@
     cellSlotId: cell_slot
   - type: StaticPrice
     price: 500
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBulletLaserMK2
     fireCost: 100
+  - type: EnergySword
+    colorOptions: [ "#1E90FFFF" ]
+

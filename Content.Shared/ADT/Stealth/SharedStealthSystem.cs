@@ -1,12 +1,15 @@
 using Content.Shared.ADT.Stealth.Components;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Stealth;
 
 public abstract partial class SharedStealthSystem
 {
     [Dependency] private readonly TagSystem _tag = default!;
+
+    private static readonly ProtoId<TagPrototype> ADTSiliconStealthWhitelistTag = "ADTSiliconStealthWhitelist";
 
     private void InitializeADT()
     {
@@ -18,7 +21,7 @@ public abstract partial class SharedStealthSystem
         if (!args.User.HasValue)
             return;
 
-        if (!_tag.HasTag(args.User.Value, "ADTSiliconStealthWhitelist"))
+        if (!_tag.HasTag(args.User.Value, ADTSiliconStealthWhitelistTag))
             args.Cancelled = true;
     }
 

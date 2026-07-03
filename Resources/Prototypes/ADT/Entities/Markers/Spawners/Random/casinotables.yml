@@ -2,7 +2,6 @@
   id: ADTChaosPetitDepositWin
   table: !type:GroupSelector
     children:
-      - id: ToySpawner
       - id: LootSpawnerIndustrial
       - id: ClothingBeltUtility
       - id: ClothingHandsGlovesColorYellowBudget

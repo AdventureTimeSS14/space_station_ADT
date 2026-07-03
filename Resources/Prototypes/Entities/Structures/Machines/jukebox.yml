@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: Jukebox
   name: jukebox
   parent: [ BaseMachinePowered, ConstructibleMachine ]
@@ -36,8 +36,23 @@
     boardName: wires-board-name-jukebox
     layoutId: Jukebox
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  #ADT-Tweak-Start
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      music_disk: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      music_disk:
+        startingItem: ADTMusicDiskStandard
+        whitelist:
+          components:
+          - JukeboxDisk
+  #ADT-Tweak-End
   - type: Destructible
     thresholds:
     - trigger:

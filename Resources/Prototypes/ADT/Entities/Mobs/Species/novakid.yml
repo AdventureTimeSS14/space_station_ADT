@@ -1,12 +1,13 @@
+﻿# Novakid mob (upstream PR#42476). Appearance/body/sprite come from AppearanceNovakid.
 - type: entity
   save: false
   name: Urisst' Mzhand Novakid
-  parent: BaseMobSpeciesOrganic
+  parent:
+  - AppearanceNovakid
+  - BaseSpeciesMobOrganic
   id: BaseMobNovakid
   abstract: true
   components:
-  - type: HumanoidAppearance
-    species: NovakidSpecies
   - type: Hunger
     baseDecayRate: 0.025
     lastAuthoritativeHungerValue: 400
@@ -21,9 +22,13 @@
         Cold: 0.12
         Caustic: 0.08
         Cellular: 0.05
+  - type: Thirst
+    baseDecayRate: 0
+    updateRate: 0
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: ADTNovakid
+  - type: Injurable
+    damageContainer: Biological
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -57,23 +62,15 @@
       types:
         Asphyxiation: -0.5
   - type: Bloodstream
-    bloodMaxVolume: 300
-    bloodReagent: Plasma
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 300
   - type: ZombieImmune
   - type: NovakidGlowing # see NovakidFeaturesSystem.cs
   - type: PointLight
     color: "#ffffff"
     energy: 0.6
-  - type: Icon
-    sprite: ADT/Mobs/Species/Novakid/parts.rsi
-    state: full_m
-  - type: Sprite
-    netsync: false
-    noRot: true
-    drawdepth: Mobs
-  - type: Body
-    prototype: Novakid
-    requiredLegs: 2
   - type: Speech
     speechSounds: Lizard
   - type: Vocal
@@ -91,10 +88,11 @@
       types:
         Heat: 5
   - type: Temperature
-    heatDamageThreshold: 650
-    coldDamageThreshold: 193  #starting temperature damage treshold
     currentTemperature: 410.15
     specificHeat: 46
+  - type: TemperatureDamage
+    heatDamageThreshold: 650
+    coldDamageThreshold: 193  #starting temperature damage treshold
     coldDamage:
       types:
         Cold : 0.5 #per second, scales with temperature & other constants
@@ -154,13 +152,6 @@
     interactSuccessString: hugging-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
-  - type: Inventory
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
@@ -180,41 +171,27 @@
     - AnomalyHost
     - ChangelingBlacklist
     - ADTNovakidEmotes
-  - type: MidroundCustomization
-    customizableCategories:
-    - Hair
-    changeMarkingSound: /Audio/ADT/Novakid/novakid_laugh01.ogg
-  - type: UserInterface
-    interfaces:
-      enum.HumanoidMarkingModifierKey.Key:
-        type: HumanoidMarkingModifierBoundUserInterface
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
-      enum.MidroundCustomizationUiKey.Key:
-        type: MidroundCustomizationBoundUserInterface
-      enum.StoreUiKey.Key: # Чтобы не ломался генокрад
-        type: StoreBoundUserInterface # Чтобы не ломался генокрад
   - type: ItemToggle
     activated: true
     onActivate: false
     onUse: false
     predictable: false
   - type: ItemToggleHot
-
-- type: entity
-  save: false
-  name: Urist McHands
-  parent: MobHumanDummy
-  id: MobNovakidDummy
-  categories: [ HideSpawnMenu ]
-  description: A dummy reptilian meant to be used in character setup.
-  components:
-  - type: HumanoidAppearance
-    species: NovakidSpecies
-  - type: Inventory
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
+  - type: MidroundCustomization
+    changeHairSound: /Audio/ADT/slime-hair.ogg
+    allowedLayers:
+    - Hair
+    - FacialHair
+  - type: UserInterface
+    interfaces:
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      # Goobstation - changelings & heretics
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.HereticLivingHeartKey.Key: # goob edit - heretics
+        type: LivingHeartMenuBoundUserInterface
+      enum.MidroundCustomizationUiKey.Key:
+        type: MidroundCustomizationBoundUserInterface

@@ -49,6 +49,8 @@
     { "name": "genpop_door_7"},
     { "name": "genpop_door_8"},
     { "name": "eng_evac_door"},
+    { "name": "syndicate_closed"},
+    { "name": "syndicate_open"},
     { "name": "eng"},
     { "name": "eng_open"}
   ]

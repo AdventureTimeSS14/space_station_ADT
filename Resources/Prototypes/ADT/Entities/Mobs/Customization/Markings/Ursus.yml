@@ -2,8 +2,7 @@
 - type: marking
   id: ADTUrsusfluffiness
   bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: fluffiness
@@ -11,8 +10,7 @@
 - type: marking
   id: ADTUrsusfluffiness2
   bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: fluffiness2
@@ -20,8 +18,7 @@
 - type: marking
   id: ADTUrsusfluffiness3
   bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: fluffiness3
@@ -29,8 +26,7 @@
 - type: marking
   id: ADTUrsuspanda
   bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: panda
@@ -38,8 +34,7 @@
 - type: marking
   id: ADTUrsusspace_bear
   bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: space_bear
@@ -47,8 +42,7 @@
 - type: marking
   id: ADTUrsustattoo_leader
   bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: tattoo_leader
@@ -72,8 +66,7 @@
 - type: marking
   id: ADTUrsusbig_heart
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: big_heart
@@ -81,8 +74,7 @@
 - type: marking
   id: ADTUrsussoft_belly
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: soft_belly
@@ -90,8 +82,7 @@
 - type: marking
   id: ADTUrsussoft_belly2
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: soft_belly2
@@ -99,8 +90,7 @@
 - type: marking
   id: ADTUrsusgrizzly_necklace
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: grizzly_necklace
@@ -108,8 +98,7 @@
 - type: marking
   id: ADTUrsusgrizzly_necklace2
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: grizzly_necklace2
@@ -117,8 +106,7 @@
 - type: marking
   id: ADTUrsusgrizzly_necklace3
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: grizzly_necklace3
@@ -128,8 +116,7 @@
 - type: marking
   id: ADTUrsusMuzzle
   bodyPart: Head
-  markingCategory: Snout
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: Muzzle
@@ -137,8 +124,7 @@
 - type: marking
   id: ADTUrsusMuzzle2
   bodyPart: Head
-  markingCategory: Snout
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: Muzzle2
@@ -146,8 +132,7 @@
 - type: marking
   id: ADTUrsusnose
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: nose
@@ -155,8 +140,7 @@
 - type: marking
   id: ADTUrsusears
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: ears
@@ -164,8 +148,7 @@
 - type: marking
   id: ADTUrsusears2
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: ears2
@@ -173,8 +156,7 @@
 - type: marking
   id: ADTUrsusthird_eye
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: third_eye
@@ -182,8 +164,7 @@
 - type: marking
   id: ADTUrsusarrow
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: arrow
@@ -191,8 +172,7 @@
 - type: marking
   id: ADTUrsusembarrassment
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: embarrassment
@@ -200,8 +180,7 @@
 - type: marking
   id: ADTUrsusspots
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: spots
@@ -209,8 +188,7 @@
 - type: marking
   id: ADTUrsusspots_left
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: spots_left
@@ -218,8 +196,7 @@
 - type: marking
   id: ADTUrsusspots_right
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: spots_right
@@ -227,8 +204,7 @@
 - type: marking
   id: ADTUrsusrigth_eye
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: rigth_eye
@@ -236,8 +212,7 @@
 - type: marking
   id: ADTUrsusleft_eye
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: left_eye
@@ -245,8 +220,7 @@
 - type: marking
   id: ADTUrsusstar
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: star
@@ -254,8 +228,7 @@
 - type: marking
   id: ADTUrsuskiss
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: kiss
@@ -263,8 +236,7 @@
 - type: marking
   id: ADTUrsuseyeliner
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: eyeliner
@@ -273,8 +245,7 @@
 - type: marking
   id: ADTUrsushand_left
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: hand_left
@@ -282,8 +253,7 @@
 - type: marking
   id: ADTUrsusgradienthand_left
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: gradienthand_left
@@ -291,8 +261,7 @@
 - type: marking
   id: ADTUrsusgradienthand_left2
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: gradienthand_left2
@@ -300,8 +269,7 @@
 - type: marking
   id: ADTUrsushand_right
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: hand_right
@@ -309,8 +277,7 @@
 - type: marking
   id: ADTUrsusgradienthand_right
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: gradienthand_right
@@ -318,8 +285,7 @@
 - type: marking
   id: ADTUrsusgradienthand_right2
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: gradienthand_right2
@@ -327,8 +293,7 @@
 - type: marking
   id: ADTUrsusfoot_left
   bodyPart: LFoot
-  markingCategory: Legs
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: foot_left
@@ -336,8 +301,7 @@
 - type: marking
   id: ADTUrsusgradientfoot_left
   bodyPart: LFoot
-  markingCategory: Legs
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: gradientfoot_left
@@ -345,8 +309,7 @@
 - type: marking
   id: ADTUrsusgradientfoot_left2
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: gradientfoot_left2
@@ -354,8 +317,7 @@
 - type: marking
   id: ADTUrsusfoot_right
   bodyPart: RFoot
-  markingCategory: Legs
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: foot_right
@@ -363,8 +325,7 @@
 - type: marking
   id: ADTUrsusgradientfoot_right
   bodyPart: RFoot
-  markingCategory: Legs
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: gradientfoot_right
@@ -372,8 +333,7 @@
 - type: marking
   id: ADTUrsusgradientfoot_right2
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: gradientfoot_right2
@@ -383,8 +343,7 @@
 - type: marking
   id: ADTUrsuscardigan
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: cardigan
@@ -392,8 +351,7 @@
 - type: marking
   id: ADTUrsuscardigan2
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [UrsusSpecies]
+  groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: cardigan2

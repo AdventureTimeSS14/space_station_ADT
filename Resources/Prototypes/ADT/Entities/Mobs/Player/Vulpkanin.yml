@@ -1,8 +1,10 @@
-- type: entity
-  save: false
-  name: "Вульпканин"
-  parent: BaseMobVulpkanin
-  id: MobVulpkanin
+# ADT-Tweak: MobVulpkanin now defined in /Prototypes/Body/Species/vulpkanin.yml
+# under new wizden body system (UPSTREAM_PORT_PROGRESS.md).
+# - type: entity
+#   save: false
+#   name: "Вульпканин"
+#   parent: BaseMobVulpkanin
+#   id: MobVulpkanin
 
 - type: entity
   parent: MobVulpkanin

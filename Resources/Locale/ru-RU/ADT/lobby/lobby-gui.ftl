@@ -24,12 +24,10 @@ ui-sponsor-info-tier-none = [color=yellow]Уровень спонсорства:
 ui-sponsor-info-ooc-color-none = [color=yellow]Цвет OOC:[/color] Не задано
 ui-sponsor-info-priority-none = [color=yellow]Приоритетный вход:[/color] Нет
 ui-sponsor-info-allow-job-none = [color=yellow]Игнор времени ролей:[/color] Нет
-
 ui-lobby-discord-link-success-line1 = [color=green]✓ Вы успешно привязали Discord![/color]
 ui-lobby-discord-link-success-line2 = Discord: [color=lightblue]{ $username }[/color] ([color=gray]{ $discordId }[/color])
 ui-lobby-discord-link-success-line3 = UID: [color=yellow]{ $uid }[/color]
 ui-lobby-discord-link-success-line4 = Никнейм: [color=orange]{ $icName }[/color]
-
 ui-lobby-discord-link-instructions-line1 = [color=white]Чтобы привязать Discord:[/color]
 ui-lobby-discord-link-instructions-line2 = 1. Скопируйте ваш UID.
 ui-lobby-discord-link-instructions-line3 = 2. Перейдите в канал Discord: [color=yellow]{ $channelLink }[/color].

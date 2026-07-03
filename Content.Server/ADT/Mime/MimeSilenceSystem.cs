@@ -53,7 +53,7 @@ public sealed class MimeSilenceSystem : EntitySystem
 
         foreach (var entity in _lookup.GetEntitiesInRange(uid, args.Range, LookupFlags.Dynamic | LookupFlags.Static))
         {
-            if (entity == uid || !HasComp<HumanoidAppearanceComponent>(entity))
+            if (entity == uid || !HasComp<HumanoidProfileComponent>(entity))
                 continue;
 
             EnsureComp<MutedComponent>(entity);

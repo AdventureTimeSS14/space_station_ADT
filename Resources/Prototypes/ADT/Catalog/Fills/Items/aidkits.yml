@@ -7,27 +7,29 @@
   - type: Storage
     grid:
     - 0,0,8,2
-  - type: StorageFill
-    contents:
-      - id: ADTObjectsSpecificBicaridineChemistryBottle
-      - id: ADTObjectsSpecificDexalinPlusChemistryBottle
-      - id: ADTObjectsSpecificDermalineChemistryBottle
-      - id: ADTObjectsSpecificArithrazineChemistryBottle
-      - id: ChemistryBottleEpinephrine
-      - id: ADTLacerinolChemistryBottle
-      - id: ADTLacerinolChemistryBottle
-      - id: ADTLacerinolChemistryBottle
-      - id: ADTBruizineChemistryBottle
-      - id: ADTBruizineChemistryBottle
-      - id: ADTBruizineChemistryBottle
-      - id: ADTPuncturaseChemistryBottle
-      - id: ADTPuncturaseChemistryBottle
-      - id: ADTPuncturaseChemistryBottle
-      - id: ADTDyloveneChemistryBottle
-      - id: BruteAutoInjector
-      - id: BurnAutoInjector
-      - id: RadAutoInjector
-      - id: AntiPoisonMedipen
-      - id: RegenerativeMesh
-      - id: MedicatedSuture
-      - id: ADTBloodPackTransfusionFull # ADT Tweak: Blood IV
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTObjectsSpecificBicaridineChemistryBottle
+        - id: ADTObjectsSpecificDexalinPlusChemistryBottle
+        - id: ADTObjectsSpecificDermalineChemistryBottle
+        - id: ADTObjectsSpecificArithrazineChemistryBottle
+        - id: ChemistryBottleEpinephrine
+        - id: ADTLacerinolChemistryBottle
+        - id: ADTLacerinolChemistryBottle
+        - id: ADTLacerinolChemistryBottle
+        - id: ADTBruizineChemistryBottle
+        - id: ADTBruizineChemistryBottle
+        - id: ADTBruizineChemistryBottle
+        - id: ADTPuncturaseChemistryBottle
+        - id: ADTPuncturaseChemistryBottle
+        - id: ADTPuncturaseChemistryBottle
+        - id: ADTDyloveneChemistryBottle
+        - id: BruteAutoInjector
+        - id: BurnAutoInjector
+        - id: RadAutoInjector
+        - id: AntiPoisonMedipen
+        - id: RegenerativeMesh
+        - id: MedicatedSuture
+        - id: ADTBloodPackTransfusionFull # ADT Tweak: Blood IV

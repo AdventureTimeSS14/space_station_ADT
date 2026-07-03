@@ -21,6 +21,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Vehicle;
@@ -45,16 +46,12 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     [Dependency] private readonly SharedJointSystem _joints = default!;
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
-    [Dependency] private readonly FoldableSystem _foldable = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
 
     private const string KeySlot = "key_slot";
 
-    [ValidatePrototypeId<TagPrototype>]
-    private const string DoorDump = "DoorBumpOpener";
-
-    [ValidatePrototypeId<TagPrototype>]
-    private const string Key = "VehicleKey";
+    private static readonly ProtoId<TagPrototype> DoorDumpTag = "DoorBumpOpener";
+    private static readonly ProtoId<TagPrototype> KeyTag = "VehicleKey";
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -187,7 +184,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         _joints.ClearJoints(rider);
 
-        _tagSystem.AddTag(uid, DoorDump);
+        _tagSystem.AddTag(uid, DoorDumpTag);
     }
 
     private void OnUnBuckled(EntityUid uid, VehicleComponent component, ref UnstrappedEvent args)
@@ -204,7 +201,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         RemComp<RelayInputMoverComponent>(rider);
 
         RemComp<RiderComponent>(rider);
-        _tagSystem.RemoveTag(uid, DoorDump);
+        _tagSystem.RemoveTag(uid, DoorDumpTag);
 
         Appearance.SetData(uid, VehicleVisuals.HideRider, false);
 
@@ -266,7 +263,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     private void OnEntInserted(EntityUid uid, VehicleComponent component, EntInsertedIntoContainerMessage args)
     {
         if (args.Container.ID != KeySlot ||
-            !_tagSystem.HasTag(args.Entity, Key))
+            !_tagSystem.HasTag(args.Entity, KeyTag))
             return;
 
         // Enable vehicle

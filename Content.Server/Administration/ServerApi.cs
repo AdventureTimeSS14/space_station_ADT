@@ -6,7 +6,9 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
+using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
+using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Presets;
 using Content.Server.GameTicking.Rules.Components;
@@ -14,6 +16,7 @@ using Content.Server.Maps;
 using Content.Server.RoundEnd;
 using Content.Shared.Administration.Managers;
 using Content.Shared.CCVar;
+using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Prototypes;
 using Robust.Server.ServerStatus;
@@ -94,6 +97,7 @@ public sealed partial class ServerApi : IPostInjectInit
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/round/end", ActionRoundEnd);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/round/restartnow", ActionRoundRestartNow);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/kick", ActionKick);
+        RegisterActorHandler(HttpMethod.Post, "/admin/actions/ban", ActionBan);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/add_game_rule", ActionAddGameRule);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/end_game_rule", ActionEndGameRule);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/force_preset", ActionForcePreset);
@@ -325,6 +329,75 @@ public sealed partial class ServerApi : IPostInjectInit
             }
 
             await RespondOk(context);
+        });
+    }
+
+    /// <summary>
+    ///     Bans a player.
+    /// </summary>
+    private async Task ActionBan(IStatusHandlerContext context, Actor actor)
+    {
+        var body = await ReadJson<BanActionBody>(context);
+        if (body == null)
+            return;
+
+        await RunOnMainThread(async () =>
+        {
+            var located = await _playerLocator.LookupIdByNameOrIdAsync(body.Guid.ToString());
+
+            if (located == null)
+            {
+                await RespondError(
+                    context,
+                    ErrorCode.PlayerNotFound,
+                    HttpStatusCode.UnprocessableContent,
+                    "Player not found");
+                return;
+            }
+
+            var bans = await _dbManager.GetBansAsync(userId: located.UserId,
+                address: null,
+                hwId: null,
+                modernHWIds: null,
+                includeUnbanned: false);
+            if (bans.Count > 0)
+            {
+                await RespondError(
+                    context,
+                    ErrorCode.PlayerAlreadyBanned,
+                    HttpStatusCode.Conflict,
+                    "Player is already banned.");
+                return;
+            }
+
+            var reason = body.Reason ?? "No reason supplied";
+            var info = new CreateServerBanInfo(reason);
+
+            info.AddHWId(located.LastHWId);
+            info.AddUser(located.UserId, located.Username);
+            info.WithSeverity(body.Severity);
+            if (body.Minutes != null && body.Minutes != 0)
+            {
+                info.WithMinutes(body.Minutes.Value);
+            }
+
+            info.WithBanningAdmin(new NetUserId(actor.Guid));
+
+            // Add the ip if the user is currently connected.
+            if (_playerManager.TryGetSessionById(new NetUserId(body.Guid), out var player))
+            {
+                info.AddAddress(player.Channel.RemoteEndPoint.Address);
+            }
+            else
+            {
+                // We fallback into using the located player ip.
+                info.AddAddress(located.LastAddress);
+            }
+
+            _bans.CreateServerBan(info);
+            await RespondOk(context);
+
+            _sawmill.Info($"Banned player {located.Username} ({located.UserId}) for {reason} lasting {body.Minutes ?? 0} minutes by {FormatLogActor(actor)}");
         });
     }
 
@@ -639,6 +712,14 @@ public sealed partial class ServerApi : IPostInjectInit
         public string? Reason { get; init; }
     }
 
+    private sealed class BanActionBody
+    {
+        public required Guid Guid { get; init; }
+        public string? Reason { get; init; }
+        public NoteSeverity Severity { get; init; }
+        public uint? Minutes { get; init; }
+    }
+
     private sealed class GameRuleActionBody
     {
         public required string GameRuleId { get; init; }
@@ -680,6 +761,7 @@ public sealed partial class ServerApi : IPostInjectInit
         PlayerNotFound = 4,
         GameRuleNotFound = 5,
         BadRequest = 6,
+        PlayerAlreadyBanned = 7,
     }
 
     #endregion
@@ -853,7 +935,7 @@ public sealed partial class ServerApi : IPostInjectInit
             }
 
             var lastServerBan = await _dbManager.GetLastServerBanAsync();
-            var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
+            var newServerBanId = lastServerBan is not null ? lastServerBan + 1 : 1;
 
             try
             {

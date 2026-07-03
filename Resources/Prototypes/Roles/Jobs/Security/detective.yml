@@ -44,7 +44,7 @@
 - type: startingGear
   id: DetectiveGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+    # eyes: ClothingEyesGlassesSecurity ADT-Tweak
     #id: DetectivePDA ADT: different PDAs in loadouts
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltHolsterFilled

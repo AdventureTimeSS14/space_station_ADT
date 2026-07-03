@@ -1,44 +1,46 @@
-﻿- type: body
-  name: "Ipc"
-  id: Ipc
-  root: torso
-  slots:
-    head:
-      part: HeadIpc
-      connections:
-      - torso
-      organs:
-        eyes: OrganIpcEyes
-    torso:
-      part: TorsoIpc
-      connections:
-      - right_arm
-      - left_arm
-      - right_leg
-      - left_leg
-      organs:
-        brain: OrganIPCBrain
-    right_arm:
-      part: RightArmIpc
-      connections:
-      - right_hand
-    left_arm:
-      part: LeftArmIpc
-      connections:
-      - left_hand
-    right_hand:
-      part: RightHandIpc
-    left_hand:
-      part: LeftHandIpc
-    right_leg:
-      part: RightLegIpc
-      connections:
-      - right_foot
-    left_leg:
-      part: LeftLegIpc
-      connections:
-      - left_foot
-    right_foot:
-      part: RightFootIpc
-    left_foot:
-      part: LeftFootIpc
+# DEPRECATED: type:body prototype system removed in upstream PR#42476
+# This data is preserved for reference when creating InitialBody entries (task 8)
+# ﻿- type: body
+#   name: "Ipc"
+#   id: Ipc
+#   root: torso
+#   slots:
+#     head:
+#       part: HeadIpc
+#       connections:
+#       - torso
+#       organs:
+#         eyes: OrganIpcEyes
+#     torso:
+#       part: TorsoIpc
+#       connections:
+#       - right_arm
+#       - left_arm
+#       - right_leg
+#       - left_leg
+#       organs:
+#         brain: OrganIPCBrain
+#     right_arm:
+#       part: RightArmIpc
+#       connections:
+#       - right_hand
+#     left_arm:
+#       part: LeftArmIpc
+#       connections:
+#       - left_hand
+#     right_hand:
+#       part: RightHandIpc
+#     left_hand:
+#       part: LeftHandIpc
+#     right_leg:
+#       part: RightLegIpc
+#       connections:
+#       - right_foot
+#     left_leg:
+#       part: LeftLegIpc
+#       connections:
+#       - left_foot
+#     right_foot:
+#       part: RightFootIpc
+#     left_foot:
+#       part: LeftFootIpc

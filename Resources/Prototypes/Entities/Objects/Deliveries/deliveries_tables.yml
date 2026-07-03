@@ -105,6 +105,7 @@
       - id: Ointment
       - id: Gauze
       - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
+    #  - id: Bloodpack
     - id: SyndicateBusinessCard
       weight: 0.5
 
@@ -162,4 +163,4 @@
     - !type:NestedSelector
       tableId: SyndieMaintLoot
       weight: 0.5
-
+      

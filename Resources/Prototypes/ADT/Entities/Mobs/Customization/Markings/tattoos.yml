@@ -1,8 +1,7 @@
 - type: marking
   id: ADTChestCutHere
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:
@@ -15,8 +14,7 @@
 - type: marking
   id: ADTArmDollJointsTattooLeft
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:
@@ -29,8 +27,7 @@
 - type: marking
   id: ADTArmDollJointsTattooRight
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:
@@ -43,8 +40,7 @@
 - type: marking
   id: ADTHandDollJointsTattooLeft
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:
@@ -57,8 +53,7 @@
 - type: marking
   id: ADTHandDollJointsTattooRight
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:
@@ -71,8 +66,7 @@
 - type: marking
   id: ADTLegDollJointsTattooLeft
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:
@@ -85,8 +79,7 @@
 - type: marking
   id: ADTLegDollJointsTattooRight
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:
@@ -99,8 +92,7 @@
 - type: marking
   id: ADTFootDollJointsTattooLeft
   bodyPart: LFoot
-  markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:
@@ -113,8 +105,7 @@
 - type: marking
   id: ADTFootDollJointsTattooRight
   bodyPart: RFoot
-  markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:

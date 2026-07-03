@@ -7,11 +7,11 @@
     Plastic: 300
     Copper: 200
 
-- type: latheRecipe
-  id: RNDInducerRecipe
-  result: ADTRNDInducer
-  completetime: 8
-  materials:
-    Steel: 500
-    Plastic: 100
-    Copper: 100
+#- type: latheRecipe
+#  id: RNDInducerRecipe
+#  result: ADTRNDInducer
+#  completetime: 8
+#  materials:
+#    Steel: 500
+#    Plastic: 100
+#    Copper: 100

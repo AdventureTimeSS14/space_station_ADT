@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: OreBase
   id: ADTBSore
   suffix: Full
@@ -15,7 +15,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      ADTRawBSore: 800
+      ADTRawBSore: 300
   - type: Extractable
     grindableSolutionName: ADTBSore
   - type: Item
@@ -34,13 +34,6 @@
   components:
   - type: Stack
     count: 1
-
-- type: stack
-  id: ADTBSoreStack
-  name: stack-BSore
-  icon: { sprite: ADT/Objects/Materials/BS_ore.rsi, state: BS_ore }
-  spawn: ADTBSore1
-  maxCount: 30
 
 ## NewBFUU by M&B (еблан какой-то)
 - type: entity
@@ -66,6 +59,7 @@
     heldPrefix: ADTBSore
   - type: MultiHandedItem
   - type: Damageable
+  - type: Injurable
   - type: RequireProjectileTarget
   - type: Gibtonite
     extracted: true

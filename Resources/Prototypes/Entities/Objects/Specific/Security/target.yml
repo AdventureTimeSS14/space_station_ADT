@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: BaseTarget
   parent: BaseStructureDynamic
   abstract: true
@@ -8,6 +8,9 @@
     state: target_stake
     noRot: true
   - type: Repairable
+  - type: Construction # ADT-Tweak
+    graph: ShootingTarget
+    node: target
   - type: DamagePopup
     allowTypeChange: true
     damagePopupType: Combined
@@ -25,6 +28,7 @@
   - type: InteractionOutline
   - type: Physics
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:

@@ -1,25 +1,28 @@
-# Blueshield
+﻿# Blueshield
 - type: entity
   id: ADTLockerBlueshieldFilledHardsuit
   suffix: Filled, Hardsuit
   parent: LockerBlueshield
   components:
-  - type: StorageFill
-    contents:
-    #- id: ADTClothingModsuitBackBlueShield
-    - id: MedkitCombatFilled
-    - id: MedkitBruteFilled
-    - id: WeaponDisabler
-    #- id: ADTUnderwearBoxBlueshield
-    - id: ADTClothingHeadsetAltBlueshield
-    - id: ADTClothingHeadHatBeretBlueshield
-    - id: ADTClothingNeckCloakBlueshield
-    - id: ADTClothingOuterWinterBlueshield
-    - id: ClothingShoesBootsJack
-    - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
-    - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
-    - id: ADTClothingNeckCloakSecondBlueshield
-    #- id: ADTCqcManualWeak
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+          #- id: ADTClothingModsuitBackBlueShield
+        - id: MedkitCombatFilled
+        - id: MedkitBruteFilled
+        - id: WeaponDisabler
+          #- id: ADTUnderwearBoxBlueshield
+        - id: ADTClothingHeadsetAltBlueshield
+        - id: ADTClothingHeadHatBeretBlueshield
+        - id: ADTClothingNeckCloakBlueshield
+        - id: ADTClothingOuterWinterBlueshield
+        - id: ClothingShoesBootsJack
+        - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
+        - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
+        - id: ADTClothingNeckCloakSecondBlueshield
+        - id: MedkitBurnFilled
+          #- id: ADTCqcManualWeak
   - type: UserInterface
     interfaces:
       enum.SuitStorageUiKey.Key:
@@ -34,69 +37,74 @@
   suffix: Filled
   parent: LockerBlueshield
   components:
-  - type: StorageFill
-    contents:
-    - id: MedkitCombatFilled
-    - id: MedkitBruteFilled
-    - id: WeaponDisabler
-    # - id: ADTUnderwearBoxBlueshield
-    - id: ADTClothingHeadsetAltBlueshield
-    - id: ADTClothingHeadHatBeretBlueshield
-    - id: ADTClothingNeckCloakBlueshield
-    - id: ADTClothingOuterWinterBlueshield
-    - id: ClothingShoesBootsJack
-    - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
-    - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
-    - id: ADTClothingNeckCloakSecondBlueshield
-    # - id: ADTCqcManualWeak
-
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MedkitCombatFilled
+        - id: MedkitBruteFilled
+        - id: WeaponDisabler
+          # - id: ADTUnderwearBoxBlueshield
+        - id: ADTClothingHeadsetAltBlueshield
+        - id: ADTClothingHeadHatBeretBlueshield
+        - id: ADTClothingNeckCloakBlueshield
+        - id: ADTClothingOuterWinterBlueshield
+        - id: ClothingShoesBootsJack
+        - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
+        - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
+        - id: ADTClothingNeckCloakSecondBlueshield
+        - id: MedkitBurnFilled
+          # - id: ADTCqcManualWeak
 # Centcom Consultant
 - type: entity
   id: ADTLockerCCCFilledMOD
   suffix: Filled, MOD
   parent: LockerCentComm
   components:
-  - type: StorageFill
-    contents:
-    - id: ADTClothingUniformJumpskirtCCCFormal 
-    - id: ADTClothingUniformJumpsuitCCCFormal
-    - id: ADTClothingUniformJumpskirtCCC
-    - id: ADTClothingUniformJumpsuitConsultantCentcom
-    - id: ADTBriefcaseCentcomm
-    - id: ClothingOuterWinterCentcom
-    - id: ClothingNeckCloakCentcom
-    - id: ClothingShoesBootsLaceup
-    - id: ClothingMaskGasCentcom
-    - id: ClothingEyesGlassesCommand
-    - id: ClothingHeadsetAltCentCom
-    - id: ClothingHeadsetCentCom
-    - id: BoxFolderCentCom
-    - id: ADTCigarCase
-    - id: CentCommFlippo
-    - id: ADTClothingModsuitBackCCC
-    - id: ADTCCCVoucher
-    - id: RubberStampCCC
-
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTClothingUniformJumpskirtCCCFormal
+        - id: ADTClothingUniformJumpsuitCCCFormal
+        - id: ADTClothingUniformJumpskirtCCC
+        - id: ADTClothingUniformJumpsuitConsultantCentcom
+        - id: ADTBriefcaseCentcomm
+        - id: ClothingOuterWinterCentcom
+        - id: ClothingNeckCloakCentcom
+        - id: ClothingShoesBootsLaceup
+        - id: ClothingMaskGasCentcom
+        - id: ClothingEyesGlassesCommand
+        - id: ClothingHeadsetAltCentCom
+        - id: ClothingHeadsetCentCom
+        - id: BoxFolderCentCom
+        - id: ADTCigarCase
+        - id: CentCommFlippo
+        - id: ADTClothingModsuitBackCCC
+        - id: ADTCCCVoucher
+        - id: RubberStampCCC
 - type: entity
   id: ADTLockerCCCFilled
   suffix: Filled
   parent: LockerCentComm
   components:
-  - type: StorageFill
-    contents:
-    - id: ADTClothingUniformJumpskirtCCCFormal 
-    - id: ADTClothingUniformJumpsuitCCCFormal
-    - id: ADTClothingUniformJumpskirtCCC
-    - id: ADTClothingUniformJumpsuitConsultantCentcom
-    - id: ADTBriefcaseCentcomm
-    - id: ClothingOuterWinterCentcom
-    - id: ClothingNeckCloakCentcom
-    - id: ClothingShoesBootsLaceup
-    - id: ClothingEyesGlassesCommand
-    - id: ClothingHeadsetAltCentCom
-    - id: ClothingHeadsetCentCom
-    - id: BoxFolderCentCom
-    - id: ADTCigarCase
-    - id: CentCommFlippo
-    - id: ADTCCCVoucher
-    - id: RubberStampCCC
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTClothingUniformJumpskirtCCCFormal
+        - id: ADTClothingUniformJumpsuitCCCFormal
+        - id: ADTClothingUniformJumpskirtCCC
+        - id: ADTClothingUniformJumpsuitConsultantCentcom
+        - id: ADTBriefcaseCentcomm
+        - id: ClothingOuterWinterCentcom
+        - id: ClothingNeckCloakCentcom
+        - id: ClothingShoesBootsLaceup
+        - id: ClothingEyesGlassesCommand
+        - id: ClothingHeadsetAltCentCom
+        - id: ClothingHeadsetCentCom
+        - id: BoxFolderCentCom
+        - id: ADTCigarCase
+        - id: CentCommFlippo
+        - id: ADTCCCVoucher
+        - id: RubberStampCCC

@@ -2,11 +2,18 @@
 <ui:FancyWindow xmlns="https://spacestation14.io" xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
                 SetSize="600 500" Title="{Loc 'jukebox-menu-title'}"> <!-- ADT-Tweak -->
     <BoxContainer Margin="4 0" Orientation="Vertical">
+        <!-- ADT-Tweak start-->
+        <BoxContainer Orientation="Horizontal" Margin="3 3 5 3">
+            <Label Name="DiskLabel" Text="{Loc 'jukebox-menu-disk'}: " Margin="5 0 0 0"/>
+            <Label Name="DiskNameLabel" Text="{Loc 'jukebox-menu-no-disk'}" HorizontalExpand="True" Margin="5 0 0 0"/>
+            <Button Name="EjectButton" Text="{Loc 'jukebox-menu-eject'}" MinWidth="80" Margin="5 0 0 0"/>
+        </BoxContainer>
+        <!-- ADT-Tweak end-->
         <ItemList Name="MusicList" SelectMode="Button" Margin="3 3 3 3"
         HorizontalExpand="True" VerticalExpand="True" SizeFlagsStretchRatio="8"/>
         <BoxContainer Orientation="Vertical">
             <Label Name="SongSelected" Text="{Loc 'jukebox-menu-selectedsong'}" />
-            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" 
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
                           VerticalExpand="False" SizeFlagsStretchRatio="1"> <!-- ADT-Tweak -->
                 <Label Name="SongName" Text="---" />
                 <Label Name="DurationLabel" Text="00:00 / 00:00" HorizontalAlignment="Right" HorizontalExpand="True"/>

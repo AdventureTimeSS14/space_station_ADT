@@ -1,19 +1,17 @@
 # Simple Station
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCAntennaTv
   bodyPart: Hair
-  markingCategory: Hair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_tv
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCAntennaTesla
   bodyPart: Hair
-  markingCategory: Hair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_tesla
@@ -37,10 +35,9 @@
 #       state: ipc_antenna_light
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCAntennaCyberhead
   bodyPart: Hair
-  markingCategory: Hair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_cyberhead
@@ -55,37 +52,33 @@
 #       state: ipc_antenna_sidelights
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCAntennaAntlers
   bodyPart: Hair
-  markingCategory: Hair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_antlers
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCAntennaDroneeyes
   bodyPart: Hair
-  markingCategory: Hair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_droneeyes
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCAntennaCrowned
   bodyPart: Hair
-  markingCategory: Hair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_crowned
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCAntennaTowers
   bodyPart: Hair
-  markingCategory: Hair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_towers
@@ -93,55 +86,49 @@
 #Иллюми
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCAntennaDuality
   bodyPart: Hair
-  markingCategory: Hair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_duality
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCAntennaHoloaura
   bodyPart: Hair
-  markingCategory: Hair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_holo_aura
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCAntennaWireless
   bodyPart: Hair
-  markingCategory: Hair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_wireless_connection
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCAntennaSmallEye
   bodyPart: Hair
-  markingCategory: Hair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_eye
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCAntennaModule
   bodyPart: Hair
-  markingCategory: Hair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_module
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCAntennaFox
   bodyPart: Hair
-  markingCategory: Hair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_fox
@@ -149,19 +136,17 @@
 #Празат
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCAntennaCat
   bodyPart: Hair
-  markingCategory: Hair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_cat
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCAntennaTvAlt
   bodyPart: Hair
-  markingCategory: Hair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_tvalt

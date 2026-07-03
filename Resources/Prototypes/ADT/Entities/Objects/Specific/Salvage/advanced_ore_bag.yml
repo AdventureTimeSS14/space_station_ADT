@@ -12,4 +12,6 @@
     grid:
     - 0,0,11,5
   - type: MagnetPickup
-    range: 1.5
+    slotFlags: null
+    range: 2
+    requireActiveHand: false

@@ -203,7 +203,7 @@ public sealed partial class ChangelingSystem : EntitySystem
                 ev.HumanoidData.Add(new(
                     netEntity,
                     Name(item.EntityUid),
-                    item.HumanoidAppearanceComponent.Species.Id,
+                    item.Profile.Species.Id,
                     BuildProfile(item)));
             }
 
@@ -252,11 +252,11 @@ public sealed partial class ChangelingSystem : EntitySystem
         RemoveActions(uid, component);
 
         component.BoughtActions.Clear();
-
+/*
         _store.TrySetCurrency(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> { { "EvolutionPoints", 10 + (5 * component.ChangelingsAbsorbed) } }, uid);
         _store.TryRefreshStoreStock(uid);
+*/
         component.CanRefresh = false;
-
         _store.UpdateUserInterface(uid, uid);
     }
 
@@ -325,7 +325,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         {
             var copiedStoreComponent = (Component)_serialization.CreateCopy(storeComp, notNullableOverride: true);
             RemComp<StoreComponent>(to);
-            EntityManager.AddComponent(to, copiedStoreComponent);
+            AddComp(to, copiedStoreComponent);
         }
 
         if (TryComp(from, out StealthComponent? stealthComp)) // copy over stealth status
@@ -333,11 +333,11 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (TryComp(from, out StealthOnMoveComponent? stealthOnMoveComp))
             {
                 var copiedStealthComponent = (Component)_serialization.CreateCopy(stealthComp, notNullableOverride: true);
-                EntityManager.AddComponent(to, copiedStealthComponent);
+                AddComp(to, copiedStealthComponent);
                 RemComp(from, stealthComp);
 
                 var copiedStealthOnMoveComponent = (Component)_serialization.CreateCopy(stealthOnMoveComp, notNullableOverride: true);
-                EntityManager.AddComponent(to, copiedStealthOnMoveComponent);
+                AddComp(to, copiedStealthOnMoveComponent);
                 RemComp(from, stealthOnMoveComp);
             }
         }
@@ -355,48 +355,8 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private HumanoidCharacterProfile BuildProfile(PolymorphHumanoidData data)
     {
-        HumanoidCharacterAppearance hca = new();
-        var humanoid = data.HumanoidAppearanceComponent;
-
-        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.FacialHair, out var facialHair))
-            if (facialHair.TryGetValue(0, out var marking))
-            {
-                hca = hca.WithFacialHairStyleName(marking.MarkingId);
-                hca = hca.WithFacialHairColor(marking.MarkingColors.First());
-            }
-        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Hair, out var hair))
-            if (hair.TryGetValue(0, out var marking))
-            {
-                hca = hca.WithHairStyleName(marking.MarkingId);
-                hca = hca.WithHairColor(new List<Color>(marking.MarkingColors));
-            }
-        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Head, out var head))
-            hca = hca.WithMarkings(head);
-        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.HeadSide, out var headSide))
-            hca = hca.WithMarkings(headSide);
-        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.HeadTop, out var headTop))
-            hca = hca.WithMarkings(headTop);
-        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Snout, out var snout))
-            hca = hca.WithMarkings(snout);
-        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Chest, out var chest))
-            hca = hca.WithMarkings(chest);
-        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Arms, out var arms))
-            hca = hca.WithMarkings(arms);
-        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Legs, out var legs))
-            hca = hca.WithMarkings(legs);
-        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Tail, out var tail))
-            hca = hca.WithMarkings(tail);
-        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Overlay, out var overlay))
-            hca = hca.WithMarkings(overlay);
-
-        hca = hca.WithSkinColor(humanoid.SkinColor);
-        hca = hca.WithEyeColor(humanoid.EyeColor);
-
-        return new HumanoidCharacterProfile().
-                WithCharacterAppearance(hca).
-                WithSpecies(data.HumanoidAppearanceComponent.Species).
-                WithSex(data.HumanoidAppearanceComponent.Sex).
-                WithName(data.MetaDataComponent.EntityName);
+        var profile = new HumanoidCharacterProfile(data.Profile);
+        return profile.WithName(data.MetaDataComponent.EntityName);
     }
 
     public void TransformChangeling(EntityUid uid, ChangelingComponent component, SelectChangelingFormEvent ev)
@@ -490,7 +450,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             return false;
         }
 
-        if (!HasComp<HumanoidAppearanceComponent>(target))
+        if (!HasComp<HumanoidProfileComponent>(target))
         {
             var selfMessage = Loc.GetString("changeling-dna-fail-nohuman", ("target", Identity.Entity(target, EntityManager)));
             _popup.PopupEntity(selfMessage, uid, uid);
@@ -551,7 +511,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     public bool StealDNA(EntityUid uid, EntityUid target, ChangelingComponent component)
     {
-        if (!HasComp<HumanoidAppearanceComponent>(target))
+        if (!HasComp<HumanoidProfileComponent>(target))
             return false;
 
         var newHumanoidData = _polymorph.TryRegisterPolymorphHumanoidData(target);

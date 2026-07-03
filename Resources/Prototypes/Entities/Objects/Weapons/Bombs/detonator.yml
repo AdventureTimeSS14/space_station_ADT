@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: [ BaseItem, BaseSecurityContraband ]
   id: EmptyDetonator
   name: detonator cap
@@ -16,6 +16,7 @@
     graph: DetonatorGraph
     node: emptyDetonator
   - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:

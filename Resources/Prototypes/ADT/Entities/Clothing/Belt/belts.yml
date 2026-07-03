@@ -36,6 +36,7 @@
         - ADTLasgunRevolverCell
         - ADTTelescopicBaton
         - ADTBola
+        - Hypospray
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -44,7 +45,6 @@
         - Handcuff
         - BallisticAmmoProvider
         - Ammo
-        - Hypospray
         - Injector
         - Pill
         - HandLabeler
@@ -71,7 +71,7 @@
           - Bottle
       hypo:
         whitelist:
-          components:
+          tags:
           - Hypospray
       pill:
         whitelist:
@@ -247,7 +247,6 @@
         - Folder
         - ADTMobileDefibrillator #ADT_Tweak
       components:
-        - Hypospray
         - Injector
         - Pill
   - type: Appearance

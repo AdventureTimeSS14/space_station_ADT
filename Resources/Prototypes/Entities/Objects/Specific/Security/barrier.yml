@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: deployable barrier
   id: DeployableBarrier
   description: A deployable barrier. Swipe your ID card to lock/unlock it.
@@ -44,8 +44,9 @@
     lockTime: 5
     unlockTime: 5
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

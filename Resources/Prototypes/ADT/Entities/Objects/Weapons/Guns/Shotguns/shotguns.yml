@@ -15,8 +15,8 @@
     fireRate: 4
     soundGunshot: # Corvax-Guns
       path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_sawed.ogg
-  - type: RunAndGunSpreadModifier
-    modifier: 0.3
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.3
   - type: BallisticAmmoProvider
     capacity: 1
     proto: null
@@ -48,8 +48,8 @@
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: RunAndGunSpreadModifier
-    modifier: 0.2
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.2
   - type: BallisticAmmoProvider
     whitelist:
       tags:

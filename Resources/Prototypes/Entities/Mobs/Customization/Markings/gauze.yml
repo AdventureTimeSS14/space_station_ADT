@@ -1,9 +1,8 @@
-# Да тут везде нужно ставить ADT-Tweak.. Увы..
+# Generic Markings
 - type: marking
   id: GauzeLefteyePatch
   bodyPart: Eyes
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Dwarf, Human, Arachnid, VulpkaninSpecies] # ADT-Tweak
+  groupWhitelist: [Human, Arachnid]
   coloring:
     default:
       type:
@@ -16,8 +15,7 @@
 - type: marking
   id: GauzeLefteyePad
   bodyPart: Eyes
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
+  groupWhitelist: [Human, Reptilian, Arachnid, Vulpkanin]
   coloring:
     default:
       type:
@@ -30,8 +28,7 @@
 - type: marking
   id: GauzeRighteyePatch
   bodyPart: Eyes
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Dwarf, Human, Arachnid, VulpkaninSpecies] # ADT-Tweak
+  groupWhitelist: [Human, Arachnid]
   coloring:
     default:
       type:
@@ -44,8 +41,7 @@
 - type: marking
   id: GauzeRighteyePad
   bodyPart: Eyes
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
+  groupWhitelist: [Human, Reptilian, Arachnid, Vulpkanin]
   coloring:
     default:
       type:
@@ -58,8 +54,7 @@
 - type: marking
   id: GauzeBlindfold
   bodyPart: Eyes
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Dwarf, Human, Arachnid, VulpkaninSpecies] # ADT-Tweak
+  groupWhitelist: [Human, Arachnid]
   coloring:
     default:
       type:
@@ -72,8 +67,7 @@
 - type: marking
   id: GauzeShoulder
   bodyPart: Chest
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
+  groupWhitelist: [Human, Reptilian, Arachnid]
   coloring:
     default:
       type:
@@ -86,8 +80,7 @@
 - type: marking
   id: GauzeStomach
   bodyPart: Chest
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
+  groupWhitelist: [Human, Reptilian, Arachnid]
   coloring:
     default:
       type:
@@ -100,8 +93,7 @@
 - type: marking
   id: GauzeUpperArmRight
   bodyPart: RArm
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
+  groupWhitelist: [Human, Reptilian, Arachnid]
   coloring:
     default:
       type:
@@ -113,9 +105,8 @@
 
 - type: marking
   id: GauzeLowerArmRight
-  bodyPart: RArm, RHand
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
+  bodyPart: RHand
+  groupWhitelist: [Human, Reptilian, Arachnid]
   coloring:
     default:
       type:
@@ -127,9 +118,8 @@
 
 - type: marking
   id: GauzeLeftArm
-  bodyPart: LArm, LHand
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
+  bodyPart: LArm
+  groupWhitelist: [Human, Reptilian, Arachnid]
   coloring:
     default:
       type:
@@ -142,8 +132,7 @@
 - type: marking
   id: GauzeLowerLegLeft
   bodyPart: LFoot
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Dwarf, Human, Arachnid] # ADT-Tweak
+  groupWhitelist: [Human, Arachnid]
   coloring:
     default:
       type:
@@ -156,8 +145,7 @@
 - type: marking
   id: GauzeUpperLegLeft
   bodyPart: LLeg
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid] # ADT-Tweak
+  groupWhitelist: [Human, Reptilian, Arachnid]
   coloring:
     default:
       type:
@@ -170,8 +158,7 @@
 - type: marking
   id: GauzeUpperLegRight
   bodyPart: RLeg
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid] # ADT-Tweak
+  groupWhitelist: [Human, Reptilian, Arachnid]
   coloring:
     default:
       type:
@@ -184,8 +171,7 @@
 - type: marking
   id: GauzeLowerLegRight
   bodyPart: RFoot
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Dwarf, Human, Arachnid] # ADT-Tweak
+  groupWhitelist: [Human, Arachnid]
   coloring:
     default:
       type:
@@ -198,8 +184,7 @@
 - type: marking
   id: GauzeBoxerWrapRight
   bodyPart: RHand
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
+  groupWhitelist: [Human, Reptilian, Arachnid]
   coloring:
     default:
       type:
@@ -212,8 +197,7 @@
 - type: marking
   id: GauzeBoxerWrapLeft
   bodyPart: LHand
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
+  groupWhitelist: [Human, Reptilian, Arachnid]
   coloring:
     default:
       type:
@@ -226,8 +210,7 @@
 - type: marking
   id: GauzeHead
   bodyPart: Head
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, Moth, VulpkaninSpecies] # ADT-Tweak
+  groupWhitelist: [Human, Reptilian, Arachnid, Moth]
   coloring:
     default:
       type:
@@ -241,8 +224,7 @@
 - type: marking
   id: GauzeLizardLefteyePatch
   bodyPart: Eyes
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Reptilian, KoboltSpecies] #ADT везде добавил спешил кобальдов, т.к. все маркинги от унатхов им тоже подходят
+  groupWhitelist: [Reptilian]
   coloring:
     default:
       type:
@@ -255,8 +237,7 @@
 - type: marking
   id: GauzeLizardRighteyePatch
   bodyPart: Eyes
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Reptilian, KoboltSpecies] #ADT Tweak
+  groupWhitelist: [Reptilian]
   coloring:
     default:
       type:
@@ -269,8 +250,7 @@
 - type: marking
   id: GauzeLizardFootRight
   bodyPart: RFoot
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Reptilian, KoboltSpecies] #ADT Tweak
+  groupWhitelist: [Reptilian]
   coloring:
     default:
       type:
@@ -283,8 +263,7 @@
 - type: marking
   id: GauzeLizardFootLeft
   bodyPart: LFoot
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Reptilian, KoboltSpecies] #ADT Tweak
+  groupWhitelist: [Reptilian]
   coloring:
     default:
       type:
@@ -297,8 +276,7 @@
 - type: marking
   id: GauzeLizardBlindfold
   bodyPart: Eyes
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Reptilian, KoboltSpecies] #ADT Tweak
+  groupWhitelist: [Reptilian]
   coloring:
     default:
       type:
@@ -312,8 +290,7 @@
 - type: marking
   id: GauzeMothBlindfold
   bodyPart: Eyes
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   coloring:
     default:
       type:
@@ -326,8 +303,7 @@
 - type: marking
   id: GauzeMothShoulder
   bodyPart: Chest
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   coloring:
     default:
       type:
@@ -340,8 +316,7 @@
 - type: marking
   id: GauzeMothStomach
   bodyPart: Chest
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   coloring:
     default:
       type:
@@ -354,8 +329,7 @@
 - type: marking
   id: GauzeMothLeftEyePatch
   bodyPart: Eyes
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   coloring:
     default:
       type:
@@ -368,8 +342,7 @@
 - type: marking
   id: GauzeMothLeftEyePad
   bodyPart: Eyes
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   coloring:
     default:
       type:
@@ -382,8 +355,7 @@
 - type: marking
   id: GauzeMothRightEyePatch
   bodyPart: Eyes
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   coloring:
     default:
       type:
@@ -396,8 +368,7 @@
 - type: marking
   id: GauzeMothRightEyePad
   bodyPart: Eyes
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   coloring:
     default:
       type:
@@ -410,8 +381,7 @@
 - type: marking
   id: GauzeMothUpperArmRight
   bodyPart: RArm
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   coloring:
     default:
       type:
@@ -424,8 +394,7 @@
 - type: marking
   id: GauzeMothUpperArmLeft
   bodyPart: LArm
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   coloring:
     default:
       type:
@@ -438,8 +407,7 @@
 - type: marking
   id: GauzeMothUpperLegRight
   bodyPart: RLeg
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   coloring:
     default:
       type:
@@ -452,8 +420,7 @@
 - type: marking
   id: GauzeMothUpperLegLeft
   bodyPart: LLeg
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   coloring:
     default:
       type:
@@ -466,8 +433,7 @@
 - type: marking
   id: GauzeMothLowerLegRight
   bodyPart: RFoot
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   coloring:
     default:
       type:
@@ -480,8 +446,7 @@
 - type: marking
   id: GauzeMothLowerLegLeft
   bodyPart: LFoot
-  markingCategory: OverlayBandage # ADT-Tweak
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   coloring:
     default:
       type:
@@ -490,3 +455,186 @@
   sprites:
   - sprite: Mobs/Customization/gauze.rsi
     state: gauze_moth_lowerleg_l
+
+# Vulpkanin Specific Markings
+- type: marking
+  id: GauzeVulpStomach
+  bodyPart: Chest
+  groupWhitelist: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_vulp_abdomen
+
+- type: marking
+  id: GauzeVulpBlindfold
+  bodyPart: Eyes
+  groupWhitelist: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_vulp_blindfold
+
+- type: marking
+  id: GauzeVulpBoxerwrapLeft
+  bodyPart: LHand
+  groupWhitelist: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_vulp_boxerwrap_l
+
+- type: marking
+  id: GauzeVulpBoxerwrapRight
+  bodyPart: RHand
+  groupWhitelist: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_vulp_boxerwrap_r
+
+- type: marking
+  id: GauzeVulpHead
+  bodyPart: Head
+  groupWhitelist: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_vulp_head
+
+- type: marking
+  id: GauzeVulpLeftArm
+  bodyPart: LArm
+  groupWhitelist: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_vulp_leftarm
+
+- type: marking
+  id: GauzeVulpLefteyePatch
+  bodyPart: Eyes
+  groupWhitelist: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_vulp_lefteye_2
+
+- type: marking
+  id: GauzeVulpLowerArmRight
+  bodyPart: RHand
+  groupWhitelist: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_vulp_lowerarm_r
+
+- type: marking
+  id: GauzeVulpLowerLegLeft
+  bodyPart: LFoot
+  groupWhitelist: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_vulp_lowerleg_l
+
+- type: marking
+  id: GauzeVulpLowerLegRight
+  bodyPart: RFoot
+  groupWhitelist: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_vulp_lowerleg_r
+
+- type: marking
+  id: GauzeVulpRighteyePatch
+  bodyPart: Eyes
+  groupWhitelist: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_vulp_righteye_2
+
+- type: marking
+  id: GauzeVulpShoulder
+  bodyPart: Chest
+  groupWhitelist: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_vulp_shoulder
+
+- type: marking
+  id: GauzeVulpUpperLegLeft
+  bodyPart: LLeg
+  groupWhitelist: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_vulp_upperleg_l
+
+- type: marking
+  id: GauzeVulpUpperLegRight
+  bodyPart: RLeg
+  groupWhitelist: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_vulp_upperleg_r

@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTSpaceSecWindow
   name: space sec window
   parent: Window
@@ -19,8 +19,9 @@
     damageOverlay:
       sprite: ADT/Structures/Windows/cracks_adt.rsi
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: RGlass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

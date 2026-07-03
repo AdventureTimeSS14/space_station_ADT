@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Chemistry.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Explosion;
@@ -10,8 +11,6 @@ using Content.Shared.Verbs;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
-using System.Linq;
 
 namespace Content.Server.Storage.EntitySystems;
 

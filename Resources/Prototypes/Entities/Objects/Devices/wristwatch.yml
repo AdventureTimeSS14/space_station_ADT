@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: Wristwatch
   parent: BaseItem
   name: wristwatch
@@ -20,6 +20,7 @@
     - gloves
   - type: Appearance
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: StaticPrice
     price: 50

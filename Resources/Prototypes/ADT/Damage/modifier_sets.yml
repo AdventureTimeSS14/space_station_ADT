@@ -103,6 +103,7 @@
     Shock: 0.0
     Cold: 0.0
     Heat: 0 # heat damage doesn't cauterize metal!
+    Holy: 0
     Poison: 0.0
     Radiation: 0.0
     Asphyxiation: 0.0
@@ -280,6 +281,21 @@
     Slash: 0.2
     Piercing: 0.4
     Heat: 0.6
+    Cellular: 0
+    Bloodloss: 0
+    Asphyxiation: 0
+    Radiation: 0
+    Cold: 0
+    Poison: 0
+
+# Borg
+- type: damageModifierSet
+  id: ADTBorgChassis
+  coefficients:
+    Shock: 2.5
+    Slash: 0.7
+    Piercing: 0.7
+    Heat: 1
     Cellular: 0
     Bloodloss: 0
     Asphyxiation: 0

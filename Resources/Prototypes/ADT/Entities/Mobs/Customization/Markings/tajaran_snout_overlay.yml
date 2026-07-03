@@ -1,0 +1,47 @@
+- type: marking
+  id: ADTTajaranTongue
+  bodyPart: SnoutOverlay
+  groupWhitelist: [Tajaran]
+  sprites:
+    - sprite: /Textures/ADT/Mobs/Customization/Tajaran/tajaran_snout_overlay.rsi
+      state: tajaran_cat_tongue
+
+- type: marking
+  id: ADTTajaranTongueFast
+  bodyPart: SnoutOverlay
+  groupWhitelist: [Tajaran]
+  sprites:
+    - sprite: /Textures/ADT/Mobs/Customization/Tajaran/tajaran_snout_overlay.rsi
+      state: tajaran_cat_tongue_fast
+
+- type: marking
+  id: ADTTajaranTongueSlow
+  bodyPart: SnoutOverlay
+  groupWhitelist: [Tajaran]
+  sprites:
+    - sprite: /Textures/ADT/Mobs/Customization/Tajaran/tajaran_snout_overlay.rsi
+      state: tajaran_cat_tongue_slow
+
+- type: marking
+  id: ADTTajaranTongueBreath
+  bodyPart: SnoutOverlay
+  groupWhitelist: [Tajaran]
+  sprites:
+    - sprite: /Textures/ADT/Mobs/Customization/Tajaran/tajaran_snout_overlay.rsi
+      state: tajaran_cat_tongue_breath
+
+- type: marking
+  id: ADTTajaranTongueBreathFast
+  bodyPart: SnoutOverlay
+  groupWhitelist: [Tajaran]
+  sprites:
+    - sprite: /Textures/ADT/Mobs/Customization/Tajaran/tajaran_snout_overlay.rsi
+      state: tajaran_cat_tongue_breath_fast
+
+- type: marking
+  id: ADTTajaranTongueBreathSlow
+  bodyPart: SnoutOverlay
+  groupWhitelist: [Tajaran]
+  sprites:
+    - sprite: /Textures/ADT/Mobs/Customization/Tajaran/tajaran_snout_overlay.rsi
+      state: tajaran_cat_tongue_breath_slow

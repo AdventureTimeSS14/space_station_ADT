@@ -9,6 +9,16 @@
   equipment:
     head: ClothingHeadHelmetSecurityMedic
 
+- type: loadout
+  id: ADTClothingHeadHatBeretSecurityMedic
+  equipment:
+    head: ClothingHeadHatBeretSecurityMedic
+
+- type: loadout
+  id: ADTClothingHeadHatBeretMedic
+  equipment:
+    head: ClothingHeadHatBeretMedic
+
 # Jumpsuit
 - type: loadout
   id: ADTUniformJumpsuitBrigmedic
@@ -103,20 +113,19 @@
 
 # outerwear
 - type: loadout
-  id: ADTOuterCoatBrigmedicWB
-  equipment:
-    outerClothing: ADTClothingOuterCoatBrigmedicWB
-
-- type: loadout
-  id: ADTOuterVestSecurityMedic
-  equipment:
-    outerClothing: ClothingOuterVestSecurityMedic
-
-- type: loadout
   id: ADTOuterCoatLabSecurityMedic
   equipment:
     outerClothing: ClothingOuterCoatLabSecurityMedic
 
+- type: loadout
+  id: ADTClothingOuterVestArmorMedSec
+  equipment:
+    outerClothing: ClothingOuterVestArmorMedSec
+
+- type: loadout
+  id: ADTClothingOuterCoatAMG
+  equipment:
+    outerClothing: ClothingOuterCoatAMG
 
 # PDA
 

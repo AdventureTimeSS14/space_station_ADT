@@ -42,7 +42,6 @@
   id: ADTZillyhooSummon
   categories: [ HideSpawnMenu ]
   components:
-  - type: Timer
   - type: TimedDespawn
     lifetime: 5
   - type: TimedSpawner

@@ -3,7 +3,7 @@
   name: trait-chav-accent-name
   description: trait-chav-accent-desc
   category: SpeechTraits
-  cost: -2
+  cost: 0
   effects:
     - !type:AddCompsEffect
       components:
@@ -32,7 +32,7 @@
   name: trait-archaic-accent-name
   description: trait-archaic-accent-desc
   category: SpeechTraits
-  cost: 2
+  cost: 0
   effects:
     - !type:AddCompsEffect
       components:
@@ -43,7 +43,7 @@
   name: trait-scottish-accent-name
   description: trait-scottish-accent-desc
   category: SpeechTraits
-  cost: 2
+  cost: 0
   effects:
     - !type:AddCompsEffect
       components:
@@ -54,7 +54,7 @@
   name: trait-moth-accent-name
   description: trait-moth-accent-desc
   category: SpeechTraits
-  cost: 1
+  cost: 0
   effects:
     - !type:AddCompsEffect
       components:
@@ -67,7 +67,7 @@
   name: trait-sick-teeth-accent-name
   description: trait-sick-teeth-accent-desc
   category: SpeechTraits
-  cost: 1
+  cost: 0
   effects:
     - !type:AddCompsEffect
       components:
@@ -81,7 +81,7 @@
   name: trait-burriness-accent-name
   description: trait-burriness-accent-desc
   category: SpeechTraits
-  cost: 1
+  cost: 0
   effects:
     - !type:AddCompsEffect
       components:

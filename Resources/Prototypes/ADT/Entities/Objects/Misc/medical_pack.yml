@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseItem
   id: ADTBloodPackTransfusion
   name: blood pack
@@ -38,8 +38,9 @@
     maxFillLevels: 7
     fillBaseName: bloodpack
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -80,6 +81,9 @@
         reagents:
         - ReagentId: Blood
           Quantity: 100
+  - type: Tag
+    tags:
+    - Bloodpack
 
 #- type: entity
 #  parent: ADTBloodPackTransfusion

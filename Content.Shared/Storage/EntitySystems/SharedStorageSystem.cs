@@ -45,7 +45,6 @@ using Content.Shared.Rounding;
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Enumerators;
 using Content.Shared.Construction.Steps;
-using Content.Shared.Tag;
 
 namespace Content.Shared.Storage.EntitySystems;
 
@@ -109,6 +108,8 @@ public abstract class SharedStorageSystem : EntitySystem
 
     private const string QuickInsertUseDelayID = "quickInsert";
     private const string OpenUiUseDelayID = "storage";
+
+    private static readonly ProtoId<TagPrototype> ADTStorageBlacklistTag = "ADTStorageBlacklist";
 
     /// <summary>
     /// How many storage windows are allowed to be open at once.
@@ -210,8 +211,11 @@ public abstract class SharedStorageSystem : EntitySystem
     private void OnRemove(Entity<StorageComponent> entity, ref ComponentRemove args)
     {
         //ADT tweak start
-        var coordinates = TransformSystem.GetMoverCoordinates(entity);
-        ContainerSystem.EmptyContainer(entity.Comp.Container, destination: coordinates);
+        if (entity.Comp.Container != null)
+        {
+            var coordinates = TransformSystem.GetMoverCoordinates(entity);
+            ContainerSystem.EmptyContainer(entity.Comp.Container, destination: coordinates);
+        }
         //ADT tweak end
         UI.CloseUi(entity.Owner, StorageComponent.StorageUiKey.Key);
     }
@@ -1065,8 +1069,8 @@ public abstract class SharedStorageSystem : EntitySystem
         }
 
         if (_whitelistSystem.IsWhitelistFail(storageComp.Whitelist, insertEnt) ||
-            _whitelistSystem.IsBlacklistPass(storageComp.Blacklist, insertEnt) ||
-            _tag.HasTag(insertEnt, "ADTStorageBlacklist"))  // ADT tweak
+            _whitelistSystem.IsWhitelistPass(storageComp.Blacklist, insertEnt) ||
+            _tag.HasTag(insertEnt, ADTStorageBlacklistTag))  // ADT tweak
         {
             reason = "comp-storage-invalid-container";
             return false;

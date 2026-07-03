@@ -2,7 +2,6 @@ using Content.Server.Atmos.Commands;
 using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Heretic.Components;
-using Content.Server.Heretic.EntitySystems;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
@@ -35,6 +34,7 @@ using Robust.Shared.Audio.Systems;
 using Content.Server.Emp;
 using Content.Server.Actions;
 using Content.Shared.Standing;
+using Content.Shared.Eye.Blinding.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -188,7 +188,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
             case "Ash":
                 {
                     var timeSpan = TimeSpan.FromSeconds(5f);
-                    _statusEffect.TryAddStatusEffect(target, TemporaryBlindnessSystem.BlindingStatusEffect, timeSpan, false, TemporaryBlindnessSystem.BlindingStatusEffect);
+                    _statusEffect.TryAddStatusEffect<BlindnessStatusEffectComponent>(target, BlindnessSystem.BlindingStatusEffect, timeSpan, false);
                     break;
                 }
 
@@ -229,8 +229,6 @@ public sealed partial class MansusGraspSystem : EntitySystem
                     {
                         var ghoul = EnsureComp<GhoulComponent>(target);
                         ghoul.BoundHeretic = GetNetEntity(performer);
-                        if (TryComp<GhoulComponent>(target, out var ghoulComp))
-                            EntityManager.System<GhoulSystem>().GhoulifyEntity(new Entity<GhoulComponent>(target, ghoulComp));
                     }
                     break;
                 }

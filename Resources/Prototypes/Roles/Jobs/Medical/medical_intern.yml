@@ -26,9 +26,6 @@
     ears: ClothingHeadsetMedical
 #    belt: ClothingBeltMedicalFilled ADT tweak
     pocket2: BookMedicalReferenceBook
-  #storage:
-    #back:
-    #- Stuff
 
 - type: chameleonOutfit
   id: MedicalInternChameleonOutfit

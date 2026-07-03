@@ -28,8 +28,8 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     [Dependency] private readonly SponsorsManager _sponsorsManager = default!; //ADT-Sponsors-Job
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
-    private readonly List<string> _jobBans = new();
-    private readonly List<string> _antagBans = new();
+    private readonly List<ProtoId<JobPrototype>> _jobBans = new();
+    private readonly List<ProtoId<AntagPrototype>> _antagBans = new();
     private readonly List<string> _jobWhitelists = new();
 
     private ISawmill _sawmill = default!;
@@ -57,13 +57,20 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
             _jobWhitelists.Clear();
             _jobBans.Clear();
             _antagBans.Clear();
+            _jobBans.Clear();
+            _antagBans.Clear();
         }
     }
 
     private void RxRoleBans(MsgRoleBans message)
     {
         _sawmill.Debug($"Received role ban info: {message.JobBans.Count} job ban entries and {message.AntagBans.Count} antag ban entries.");
+        _sawmill.Debug($"Received role ban info: {message.JobBans.Count} job ban entries and {message.AntagBans.Count} antag ban entries.");
 
+        _jobBans.Clear();
+        _jobBans.AddRange(message.JobBans);
+        _antagBans.Clear();
+        _antagBans.AddRange(message.AntagBans);
         _jobBans.Clear();
         _jobBans.AddRange(message.JobBans);
         _antagBans.Clear();
@@ -96,7 +103,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         Updated?.Invoke();
     }
 
-    /// <summary>
+     /// <summary>
     /// Check a list of job- and antag prototypes against the current player, for requirements and bans.
     /// </summary>
     /// <returns>
@@ -139,7 +146,6 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         HumanoidCharacterProfile? profile,
         [NotNullWhen(false)] out FormattedMessage? reason)
     {
-        reason=null;
         // Check the player's bans
         if (_jobBans.Contains(job.ID))
         {
@@ -151,7 +157,10 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         if (_sponsorsManager.TryGetInfo(out var sponsorInfo))
         {
             if (sponsorInfo.AllowJob)
+            {
+                reason = null;
                 return true;
+            }
         }
         // ADT-Sponsors-Job-End
 

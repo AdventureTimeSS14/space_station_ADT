@@ -2,7 +2,7 @@ using System.Linq;
 using Content.Server.Botany.Components;
 using Content.Server.Popups;
 using Content.Shared.ADT.Body.Allergies;
-using Content.Shared.Body.Components;
+using Content.Shared.Body;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;

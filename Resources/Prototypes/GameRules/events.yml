@@ -20,11 +20,11 @@
     - id: PowerGridCheck
     - id: RandomSentience
     - id: ADTNeutralSpiderSpawn # ADT Tweak нейтральные паучки
-    - id: SlimesSpawn
+    - id: SlimesSpawnHorde
     - id: SolarFlare
-    - id: SnakeSpawn
-    - id: SpiderClownSpawn
-    - id: SpiderSpawn
+    - id: SnakeSpawnHorde
+    - id: SpiderClownSpawnHorde
+    - id: SpiderSpawnHorde
     - id: VentClog
     - id: WormholesSpawn # ADT-Tweak Wormholes Spawns now correctly without admin abuse
     - id: SpaceEmperorSpawn # ADT Tweak
@@ -47,9 +47,9 @@
     - id: NinjaSpawn
     - id: ParadoxCloneSpawn
     - id: SleeperAgents
-    # - id: ZombieOutbreak # ADT tweak
+  #  - id: ZombieOutbreak
+    - id: LoneOpsSpawn
     - id: WizardSpawn
-    - id: LoneOpsSpawn  # ADT tweak - вернул лон опса в список... АНТАГОВ
     - id: Pirates # ADT tweak pirates
     - id: MorphSpawn #ADT tweak morph
     - id: VoxRaidersEvent # ADT tweak vox-raiders
@@ -258,7 +258,7 @@
       pickPlayer: false
       startingGear: SpaceNinjaGear
       roleLoadout:
-      - RoleSurvivalEVA
+      - RoleSurvivalSpaceNinja
       briefing:
         text: ninja-role-greeting
         color: Green
@@ -291,7 +291,7 @@
     duration: null
     earliestStart: 20
     reoccurrenceDelay: 20
-    minimumPlayers: 15
+    minimumPlayers: 25 # ADT tweak 15 > 25
   - type: ParadoxCloneRule
     objectiveBlacklist:
       tags:
@@ -318,7 +318,7 @@
       mindRoles:
       - MindRoleParadoxClone
   - type: DynamicRuleCost
-    cost: 50
+    cost: 75 # ADT tweak 50 > 75
 
 - type: entity
   parent: BaseGameRule
@@ -480,91 +480,90 @@
     duration: 60
   - type: VentClogRule
 
+# Critters
+
 - type: entity
-  id: SlimesSpawn
+  id: SlimesSpawnHorde
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAnnouncement: station-event-vent-creatures-start-horde-announcement
+    startAudio:
+      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
+    earliestStart: 30 # Corax-MRP # 20
+    minimumPlayers: 15
+    weight: 5
+    duration: 5
+    maxDuration: 20
+  - type: VentHordeRule
+    table: !type:GroupSelector
+      rolls: 4, 8
+      children:
+      - id: MobAdultSlimesBlueAngry
+      - id: MobAdultSlimesGreenAngry
+      - id: MobAdultSlimesYellowAngry
+
+- type: entity
+  id: SnakeSpawnHorde
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-horde-announcement
+    startAudio:
+      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
+    earliestStart: 30 # Corax-MRP # 20
+    minimumPlayers: 15
+    weight: 5
+    duration: 5
+    maxDuration: 20
+  - type: VentHordeRule
+    table: !type:GroupSelector
+      rolls: 4, 8
+      children:
+      - id: MobPurpleSnake
+      - id: MobSmallPurpleSnake
+      - id: MobCobraSpace
+
+- type: entity
+  id: SpiderSpawnHorde
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-horde-announcement
     startAudio:
       path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
     earliestStart: 30 # Corax-MRP # 20
     minimumPlayers: 15
     weight: 5
     duration: 60
-  - type: VentCrittersRule
-    entries:
-    - id: MobAdultSlimesBlueAngry
-      prob: 0.02
-    - id: MobAdultSlimesGreenAngry
-      prob: 0.02
-    - id: MobAdultSlimesYellowAngry
-      prob: 0.02
+  # ADT tweak start Разные пауки
+  - type: VentHordeRule
+    table: !type:GroupSelector
+      rolls: 4, 8
+      children:
+      - id: ADTMobHunterSpiderAngry
+      - id: ADTMobGuardSpiderAngry
+      - id: ADTMobTarantulaSpiderAngry
+      - id: ADTMobViperSpiderAngry
+  # ADT tweak end Разные пауки
 
 - type: entity
-  id: SnakeSpawn
+  id: SpiderClownSpawnHorde
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
-    earliestStart: 30 # Corax-MRP # 20
-    minimumPlayers: 15
-    weight: 5
-    duration: 60
-  - type: VentCrittersRule
-    entries:
-    - id: MobPurpleSnake
-      prob: 0.02
-    - id: MobSmallPurpleSnake
-      prob: 0.02
-    - id: MobCobraSpace
-      prob: 0.02
-
-- type: entity
-  id: SpiderSpawn
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
-    earliestStart: 30 # Corax-MRP # 20
-    minimumPlayers: 15
-    weight: 5
-    duration: 60
-  - type: VentCrittersRule
-    entries:
-# ADT tweak start Разные пауки
-#    - id: MobGiantSpiderAngry
-#      prob: 0.05
-    - id: ADTMobHunterSpiderAngry
-      prob: 0.02
-    - id: ADTMobGuardSpiderAngry
-      prob: 0.02
-    - id: ADTMobTarantulaSpiderAngry
-      prob: 0.005
-    - id: ADTMobViperSpiderAngry
-      prob: 0.005
-# ADT tweak end Разные пауки
-
-- type: entity
-  id: SpiderClownSpawn
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAnnouncement: station-event-vent-creatures-start-horde-announcement
     startAudio:
       path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
     earliestStart: 30 # Corax-MRP # 20
     minimumPlayers: 20
     weight: 1.5
     duration: 60
-  - type: VentCrittersRule
-    entries:
-    - id: ADTMobClownSpider # ADT tweak
-      prob: 0.05
+  - type: VentHordeRule
+    table: !type:GroupSelector
+      rolls: 4, 8
+      children:
+      - id: ADTMobClownSpider # ADT tweak
 
 # ADT zombie remove
 # - type: entity

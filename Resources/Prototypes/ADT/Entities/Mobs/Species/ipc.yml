@@ -1,9 +1,10 @@
 - type: entity
   id: BaseMobIPC
-  parent: PlayerSiliconHumanoidBase
+  parent: [ PlayerSiliconHumanoidBase, AppearanceIPC ]
   name: Урист МакПозитроник
   abstract: true
   components:
+  - type: VisualBody
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true
@@ -14,9 +15,9 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
       # ADT-tweak-start
-        blacklist:
-          tags:
-          - ADTMegaCell
+        #blacklist:
+        #  tags:
+        #  - ADTMegaCell
       # ADT-tweak-end
   - type: Lock
     locked: true
@@ -39,6 +40,23 @@
     minInterval: 8
     maxInterval: 12
     popUp: silicon-power-low
+  - type: ZombieImmune
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: radiating
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      startValue: 0.1
+      endValue: 2.0
+      isLooped: true
   - type: MobState
     allowedStates:
       - Alive
@@ -57,6 +75,12 @@
     - NanoTrasen
   - type: TypingIndicator
     proto: robot
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: JobStatus
+  - type: RotationVisuals
+    defaultRotation: -90
+    horizontalRotation: -90
   - type: Destructible
     thresholds:
     - trigger:
@@ -171,44 +195,10 @@
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
   - type: MidroundCustomization
-    action: ActionIpcScreen
     selectSlotTime: 0
     changeSlotTime: 0
-    changeVoiceTime: 0
-    addSlotTime: 0
-    removeSlotTime: 0
-    changeMarkingSound:
-      path: /Audio/Machines/beep.ogg
-    playSoundForVoiceChange: false
-    customizableCategories:
+    allowedLayers:
     - FacialHair
-    defaultSkinColoring: false
-    changeSlotOnState:
-    - state: Dead
-      category: FacialHair
-      slot: 0
-      marking: ADTIPCScreenBroken
-      colors: ["#ffffff"]
-    pointLightColor: true
   - type: AnimatedEmotes
   - type: Posing
   - type: SoftWalk
-
-- type: entity
-  save: false
-  name: Urist McPositronic
-  parent: MobHumanDummy
-  id: MobIPCDummy
-  categories: [ HideSpawnMenu ]
-  description: A dummy IPC meant to be used in character setup.
-  components:
-  - type: HumanoidAppearance
-    species: IPC
-  - type: Inventory
-    templateId: ipc
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female

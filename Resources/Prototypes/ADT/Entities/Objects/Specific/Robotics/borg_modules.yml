@@ -18,9 +18,18 @@
     - state: icons-detentions
   - type: ItemBorgModule
     hands:
-    - item: ADTInfCablecuffs
+    - item: ADTWeaponDisablerBorg
+    - item: Handcuffs
+      hand:
+        emptyLabel: borg-slot-handcuff-empty
+        emptyRepresentative: Handcuffs
+        whitelist:
+          components:
+          - Handcuff
     - item: ADTtelescopicBaton
     - item: ADTBorgflash
+  - type: BorgModuleIcon
+    icon: { sprite: "/Textures/Objects/Misc/zipties.rsi", state: cuff }
 
 - type: entity
   id: ADTBorgModuleHarm
@@ -35,20 +44,6 @@
     hands:
     - item: Truncheon
     - item: ADTWeaponLaserCarbineBorg
-
-- type: entity
-  id: ADTBorgModuleDisabler
-  parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: disabler module
-  components:
-  - type: Sprite
-    layers:
-    - state: security
-    - state: icons-disabler
-  - type: ItemBorgModule
-    hands:
-    - item: ADTInfCablecuffs
-    - item: ADTWeaponDisablerBorg
 
 - type: entity
   id: ADTBorgModuleRPD
@@ -80,20 +75,21 @@
     - state: cargo
     - state: icon-pka
   - type: ItemBorgModule
-    droppableItems:
-    - id: WeaponProtoKineticAccelerator
-      whitelist:
-        tags:
-        - PKA
     hands:
+    - item: WeaponProtoKineticAccelerator
+      hand:
+        emptyLabel: borg-slot-pka-empty
+        emptyRepresentative: WeaponProtoKineticAccelerator
+        whitelist:
+          tags:
+          - PKA
+          - PKAUpgrade
     - item: WeaponGrapplingGun
     - item: BorgHandheldGPSBasic
     - item: HandHeldMassScannerBorg
-    - item: MaterialBag
+    - item: BorgOreBagOfHolding
   - type: BorgModuleIcon
     icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: salvage-module }
-
-# Borg Modules Update start
 
 - type: entity
   id: ADTBorgModuleChemical
@@ -106,7 +102,7 @@
     - state: icon-chem
   - type: ItemBorgModule
     hands:
-    - item: HandheldHealthAnalyzerUnpowered
+    - item: HandheldHealthAnalyzer
     - item: Syringe
     - item: Syringe
     - item: ADTBorgDrinkGlass
@@ -124,10 +120,10 @@
     - state: icon-chemist
   - type: ItemBorgModule
     hands:
-    - item: HandheldHealthAnalyzerUnpowered
+    - item: HandheldHealthAnalyzer
     - item: BorgHypo
     - item: BorgDropper
-    - item: BaseChemistryEmptyVial
+    - item: ChemistryEmptyVial
     - item: HandLabeler
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
@@ -143,11 +139,9 @@
     - state: medical
   - type: ItemBorgModule
     hands:
-    - item: HandheldHealthAnalyzerUnpowered
+    - item: HandheldHealthAnalyzer
     - item: BorgFireExtinguisher
     - item: BorgHandheldGPSBasic
     - item: HandheldStationMapUnpowered
     - item: WeaponGrapplingGun
     - item: DefibrillatorOneHandedUnpowered
-
-# Borg Modules Update End

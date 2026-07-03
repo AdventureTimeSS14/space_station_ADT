@@ -1,4 +1,4 @@
-# База
+﻿# База
 - type: entity
   id: ADTTableBase
   parent: TableBase
@@ -28,6 +28,7 @@
     sprite: ADT/Structures/Furniture/Tables/table_red_wood.rsi
   - type: Damageable
     damageModifierSet: Wood
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:
@@ -69,6 +70,7 @@
     sprite: ADT/Structures/Furniture/Tables/table_white_wood.rsi
   - type: Damageable
     damageModifierSet: Wood
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:
@@ -106,8 +108,9 @@
   components:
   - type: Animateable
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -173,8 +176,9 @@
   description: Do not apply fire to this. Rumour says it burns easily.
   components:
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -251,8 +255,9 @@
   components:
   - type: Animateable
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -341,6 +346,7 @@
     state: round_carpet
   - type: Damageable
     damageModifierSet: Wood
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:
@@ -468,8 +474,9 @@
   - type: Icon
     sprite: ADT/Structures/Furniture/Tables/table_rusty.rsi
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -512,8 +519,9 @@
   - type: Icon
     sprite: ADT/Structures/Furniture/Tables/plastic.rsi
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -716,4 +724,3 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepTile
-

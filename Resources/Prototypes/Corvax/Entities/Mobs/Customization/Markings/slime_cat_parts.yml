@@ -1,8 +1,7 @@
 - type: marking
   id: SlimeCatEars # Literally, why not?
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [SlimePerson]
+  groupWhitelist: [Slime]
   sprites:
   - sprite: Corvax/Mobs/Customization/slime_cat_parts.rsi
     state: ears_slime_cat_outer
@@ -12,8 +11,7 @@
 - type: marking
   id: SlimeCatTail # Again, why not?
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [SlimePerson]
+  groupWhitelist: [Slime]
   sprites:
   - sprite: Corvax/Mobs/Customization/slime_cat_parts.rsi
     state: slime_tail_cat_wag # Corvax-Sponsors
@@ -21,8 +19,7 @@
 - type: marking
   id: SlimeCatEarsStubby
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [SlimePerson]
+  groupWhitelist: [Slime]
   sprites:
   - sprite: Corvax/Mobs/Customization/slime_cat_parts.rsi
     state: ears_slime_stubby_outer
@@ -32,8 +29,7 @@
 - type: marking
   id: SlimeCatEarsCurled
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [SlimePerson]
+  groupWhitelist: [Slime]
   sprites:
   - sprite: Corvax/Mobs/Customization/slime_cat_parts.rsi
     state: ears_slime_curled_outer
@@ -43,8 +39,7 @@
 - type: marking
   id: SlimeCatEarsTorn
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [SlimePerson]
+  groupWhitelist: [Slime]
   sprites:
   - sprite: Corvax/Mobs/Customization/slime_cat_parts.rsi
     state: ears_slime_torn_outer
@@ -54,8 +49,7 @@
 - type: marking
   id: SlimeCatTailStripes
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [SlimePerson]
+  groupWhitelist: [Slime]
   sprites:
     - sprite: Corvax/Mobs/Customization/slime_cat_parts.rsi
       state: slime_tail_cat_wag_stripes_prime

@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTStandardFrame
   parent: BaseStructure
   name: standard frame
@@ -33,6 +33,7 @@
         type: AttachmentChooseSlotBui
   - type: InteractionOutline
   - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
@@ -42,4 +43,3 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-

@@ -69,7 +69,6 @@
   - type: Inventory
     templateId: ADTSlugCat
   - type: Body
-    prototype: Primate
   - type: Hands
     showInHands: true
   - type: Insulated
@@ -102,8 +101,7 @@
       types:
         Blunt: 20
         Piercing: 15
-      groups:
-        Burn: 15
+        Heat: 15
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: LanguageSpeaker

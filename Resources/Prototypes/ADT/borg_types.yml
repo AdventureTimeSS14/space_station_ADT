@@ -28,3 +28,9 @@
   # Pet
   petSuccessString: petting-success-generic-cyborg
   petFailureString: petting-failure-generic-cyborg
+
+  addComponents:
+  - type: ShowMindShieldIcons
+  - type: ShowJobIcons
+  - type: ShowCriminalRecordIcons
+  - type: ShowContrabandDetails

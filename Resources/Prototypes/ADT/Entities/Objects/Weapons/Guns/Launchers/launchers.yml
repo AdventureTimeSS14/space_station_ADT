@@ -16,8 +16,8 @@
     - Back
     - suitStorage
   - type: AmmoCounter
-  - type: RunAndGunBlocker
-    maxVelocity: 3
+  # - type: RunAndGunBlocker
+    # maxVelocity: 3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 0.75
@@ -64,8 +64,8 @@
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
-  - type: RunAndGunBlocker
-    maxVelocity: 3
+  # - type: RunAndGunBlocker
+    # maxVelocity: 3
   - type: Gun
     fireRate: 0.5
     projectileSpeed: 25

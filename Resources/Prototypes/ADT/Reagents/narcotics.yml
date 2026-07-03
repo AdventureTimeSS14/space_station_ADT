@@ -7,7 +7,7 @@
   flavor: bitter
   color: "#9c4008"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:GenericStatusEffect
         key: Adrenaline
@@ -21,8 +21,6 @@
         visualType: Small
         messages: [ "medicine-effect-pain" ]
         probability: 0.05
-    Narcotic:
-      effects:
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows
@@ -78,7 +76,7 @@
   boilingPoint: 212.0  # Dexosyephedrine vape when?
   meltingPoint: 170.0
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         conditions:
@@ -130,8 +128,6 @@
           components:
             - ActiveSandevistanUser
           guidebookComponentName: reagent-comp-condition-speedbust-sandevistan
-    Narcotic:
-      effects:
       - !type:MovementSpeedModifier
         walkSpeedModifier: 1.4
         sprintSpeedModifier: 1.4
@@ -159,8 +155,6 @@
         component: SeeingRainbows
         type: Add
         time: 16
-    Medicine:
-      effects:
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentCondition

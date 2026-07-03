@@ -1,6 +1,9 @@
 ﻿using Content.Shared.Anomaly.Effects;
-using Content.Shared.Body.Prototypes;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Events;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -49,7 +52,7 @@ public sealed partial class MantisDaggersComponent : Component
     [DataField]
     public DamageSpecifier EmpDamage = new()
     {
-        DamageDict = new Dictionary<string, FixedPoint2>
+        DamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>
         {
             { "Shock", 20 },
         },

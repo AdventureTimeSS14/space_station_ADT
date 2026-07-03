@@ -12,6 +12,8 @@ namespace Content.Client.ADT.Overlays.Shaders;
 /// </summary>
 public sealed class ColorTintOverlay : Overlay
 {
+    private static readonly ProtoId<ShaderPrototype> ColorTintShader = "ColorTint";
+
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
@@ -37,13 +39,13 @@ public sealed class ColorTintOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
 
-        _shader = _prototype.Index<ShaderPrototype>("ColorTint").InstanceUnique();
+        _shader = _prototype.Index(ColorTintShader).InstanceUnique();
     }
 
     protected override void Draw(in OverlayDrawArgs args)
     {
         if (ScreenTexture == null ||
-            _player.LocalPlayer?.ControlledEntity is not { Valid: true } player ||
+            _player.LocalSession?.AttachedEntity is not { Valid: true } player ||
             Comp != null && !_entity.HasComponent(player, Comp.GetType()))
             return;
 

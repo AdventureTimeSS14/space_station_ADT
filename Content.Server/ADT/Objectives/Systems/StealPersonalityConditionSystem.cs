@@ -30,8 +30,6 @@ public sealed class StealPersonalityConditionSystem : EntitySystem
         SubscribeLocalEvent<StealPersonalityConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
 
         SubscribeLocalEvent<PickRandomDnaComponent, ObjectiveAssignedEvent>(OnPersonAssigned);
-
-        SubscribeLocalEvent<PickRandomHeadDnaComponent, ObjectiveAssignedEvent>(OnHeadAssigned);
     }
 
     private void OnGetProgress(EntityUid uid, StealPersonalityConditionComponent comp, ref ObjectiveGetProgressEvent args)
@@ -72,48 +70,6 @@ public sealed class StealPersonalityConditionSystem : EntitySystem
         if (TryComp<StealPersonalityConditionComponent>(uid, out var pers))
             pers.ReqiredDNA = reqiredDna.DNA;
     }
-
-    private void OnHeadAssigned(EntityUid uid, PickRandomHeadDnaComponent comp, ref ObjectiveAssignedEvent args)
-    {
-        // invalid prototype
-        if (!TryComp<TargetObjectiveComponent>(uid, out var target))
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        // target already assigned
-        if (target.Target != null)
-            return;
-
-        // no other humans to kill
-        var allHumans = _mind.GetAliveHumans(args.MindId);
-        if (allHumans.Count == 0)
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        var allHeads = new HashSet<Entity<MindComponent>>();
-        foreach (var mind in allHumans)
-        {
-            // RequireAdminNotify used as a cheap way to check for command department
-            if (_job.MindTryGetJob(mind, out var prototype) && prototype.RequireAdminNotify)
-                allHeads.Add(mind);
-        }
-
-        if (allHeads.Count == 0)
-            allHeads = allHumans; // fallback to non-head target
-
-        if (!TryComp<DnaComponent>(uid, out var reqiredDna))
-        {
-            args.Cancelled = true;
-            return;
-        }
-        if (TryComp<StealPersonalityConditionComponent>(uid, out var pers))
-            pers.ReqiredDNA = reqiredDna.DNA;
-    }
-
     private float GetProgress(EntityUid mindId, MindComponent mind, EntityUid target, string targetDna, bool requireDead)
     {
         // Генокрада не существует?
@@ -144,3 +100,4 @@ public sealed class StealPersonalityConditionSystem : EntitySystem
         return _emergencyShuttle.EmergencyShuttleArrived ? 0.5f : 0f;
     }
 }
+

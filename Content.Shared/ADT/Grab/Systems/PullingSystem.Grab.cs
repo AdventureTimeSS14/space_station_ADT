@@ -59,6 +59,9 @@ public abstract partial class PullingSystem
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
 
+    private static readonly ProtoId<DamageTypePrototype> BluntDamageType = "Blunt";
+    private static readonly ProtoId<DamageTypePrototype> AsphyxiationDamageType = "Asphyxiation";
+
     private void InitializeGrab()
     {
         SubscribeLocalEvent<PullerComponent, GrabStageChangedEvent>(HandleGrabStageChanged);
@@ -232,12 +235,12 @@ public abstract partial class PullingSystem
         if (TryComp<ToiletComponent>(args.BeingClimbedOn, out var toilet) && toilet.ToggleSeat)
         {
             _audio.PlayPredicted(new SoundCollectionSpecifier("WaterSplashSounds"), uid, args.PuttingOnTable);
-            _damageable.TryChangeDamage(uid, new(_proto.Index<DamageTypePrototype>("Asphyxiation"), 5));
+            _damageable.TryChangeDamage(uid, new(_proto.Index(AsphyxiationDamageType), 5));
         }
         else
         {
             _audio.PlayPredicted(new SoundCollectionSpecifier("TrayHit"), uid, args.PuttingOnTable);
-            _damageable.TryChangeDamage(uid, new(_proto.Index<DamageTypePrototype>("Blunt"), 17));
+            _damageable.TryChangeDamage(uid, new(_proto.Index(BluntDamageType), 17));
         }
 
         _stun.TryUpdateParalyzeDuration(uid, stunTime);
@@ -355,7 +358,7 @@ public abstract partial class PullingSystem
         if (TryComp<PhysicsComponent>(args.Target, out var physics) && physics.BodyType == BodyType.Static)
         {
             var stunTime = TimeSpan.FromSeconds(1);
-            _damageable.TryChangeDamage(uid, new(_proto.Index<DamageTypePrototype>("Blunt"), 8));
+            _damageable.TryChangeDamage(uid, new(_proto.Index(BluntDamageType), 8));
             _stun.TryUpdateParalyzeDuration(uid, stunTime);
             _audio.PlayPredicted(new SoundCollectionSpecifier("MetalThud"), uid, uid);
         }

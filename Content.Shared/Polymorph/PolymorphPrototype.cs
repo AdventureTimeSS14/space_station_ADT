@@ -1,7 +1,8 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
-using Content.Shared.Humanoid; // ADT-Changeling-Tweak
+using Content.Shared.Humanoid;
+using Content.Shared.Preferences; // ADT-Changeling-Tweak
 
 namespace Content.Shared.Polymorph;
 
@@ -216,7 +217,7 @@ public struct PolymorphHumanoidData
 {
     public EntityPrototype EntityPrototype;
     public MetaDataComponent MetaDataComponent;
-    public HumanoidAppearanceComponent HumanoidAppearanceComponent;
+    public HumanoidCharacterProfile Profile;
     public string DNA;
     public EntityUid EntityUid;
 }

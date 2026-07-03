@@ -8,6 +8,7 @@ using Content.Server.Mind;
 using Content.Server.Prayer;
 using Content.Server.Silicons.Laws;
 using Content.Server.Station.Systems;
+using Content.Server.Traits;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -62,6 +63,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly StationSystem _stations = default!;
         [Dependency] private readonly StationSpawningSystem _spawning = default!;
+        [Dependency] private readonly TraitSystem _traits = default!; // ADT-Tweak
         [Dependency] private readonly ExamineSystemShared _examine = default!;
         [Dependency] private readonly AdminFrozenSystem _freeze = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -85,7 +87,6 @@ namespace Content.Server.Administration.Systems
             AddAntagVerbs(ev);
             AddAdminTimeOperSpawnVerbs(ev); // ADT-Tweak
             AdminTestArenaVariableVerbs(ev); // ADT-Tweak
-            AddAdminADTSmitesVerbs(ev); // ADT-Tweak
             AddADTTricksVerbs(ev); // ADT-Tweak
         }
 
@@ -152,6 +153,7 @@ namespace Content.Server.Administration.Systems
 
                             var profile = _gameTicker.GetPlayerProfile(targetActor.PlayerSession);
                             var mobUid = _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid);
+                            _traits.ApplyTraits(mobUid, profile);  // ADT-Tweak
 
                             if (_mindSystem.TryGetMind(args.Target, out var mindId, out var mindComp))
                                 _mindSystem.TransferTo(mindId, mobUid, true, mind: mindComp);
@@ -177,7 +179,8 @@ namespace Content.Server.Administration.Systems
                             var stationUid = _stations.GetOwningStation(args.Target);
 
                             var profile = _gameTicker.GetPlayerProfile(targetActor.PlayerSession);
-                            _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid);
+                            var mobUid = _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid);
+                            _traits.ApplyTraits(mobUid, profile); // ADT-Tweak
                         },
                         ConfirmationPopup = true,
                         Impact = LogImpact.High,
@@ -342,7 +345,8 @@ namespace Content.Server.Administration.Systems
                                     mapPos = mapPos.Offset(-offset);
                                 }
 
-                                _console.ExecuteCommand(player, $"tpgrid {GetNetEntity(args.Target)} {mapPos.X} {mapPos.Y} {mapPos.MapId}");
+                                var cmd = "tpgrid " + GetNetEntity(args.Target) + " " + mapPos.X + " " + mapPos.Y + " " + mapPos.MapId; // ADT-Tweak-Fix
+                                _console.ExecuteCommand(player, cmd);
                             }
                         }
                         else
@@ -451,7 +455,7 @@ namespace Content.Server.Administration.Systems
             }
 
             // Control mob verb
-            if (_toolshed.ActivePermissionController?.CheckInvokable(new CommandSpec(_toolshed.DefaultEnvironment.GetCommand("mind"), "control"), player, out _) ?? false &&
+            if ((_toolshed.ActivePermissionController?.CheckInvokable(new CommandSpec(_toolshed.DefaultEnvironment.GetCommand("mind"), "control"), player, out _) ?? false) &&
                 args.User != args.Target)
             {
                 Verb verb = new()

@@ -25,7 +25,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedChameleonProjectorSystem _chameleon = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly WeldableSystem _weldable = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
@@ -64,7 +63,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             _damageable.TryChangeDamage(ent.Owner, damage_brute);
             _damageable.TryChangeDamage(ent.Owner, damage_burn);
 
-            damage = (float)(dmgComp.TotalDamage + damage) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
+            damage = (float)(_damageable.GetTotalDamage((args.Target, dmgComp)) + damage) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
 
             _damageable.SetAllDamage(args.Target, damage);
             args.Handled = true;

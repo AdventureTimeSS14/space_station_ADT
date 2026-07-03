@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: PolymorphAshJauntAnimation
   name: Unknown
   description: You can't figure out what that is.
@@ -106,11 +106,11 @@
       0: Alive
       1500: Dead
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: StatusEffects
     allowed:
     - SlowedDown
-    - RadiationProtection
   - type: MeleeWeapon
     hidden: false
     altDisarm: false
@@ -126,7 +126,7 @@
   - type: Devourer
     foodPreferenceWhitelist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
     stomachStorageWhitelist:
       components:
       - MobState
@@ -142,9 +142,6 @@
     solutionOnBody: false
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
-    groups:
-    - id: Medicine
-    - id: Poison
   - type: Butcherable
     spawned:
     - id: RandomAnomalySpawner

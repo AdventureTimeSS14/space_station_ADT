@@ -75,7 +75,7 @@ public abstract partial class SharedZombieJumpSystem : EntitySystem
             return;
         }
 
-        if (!TryComp<TransformComponent>(args.Performer, out var xform))
+        if (!TryComp(args.Performer, out TransformComponent? xform))
             return;
 
         var throwing = xform.LocalRotation.ToWorldVec() * entity.Comp.JumpDistance;

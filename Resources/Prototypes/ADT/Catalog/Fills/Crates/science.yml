@@ -23,29 +23,31 @@
     sprite: ADT/Structures/Storage/Crates/scicrate_secure_ai_plates.rsi
   - type: AccessReader
     access: [["Research"]]
-  - type: StorageFill
-    contents:
-      - id: AsimovCircuitBoard
-        amount: 1
-      - id: CorporateCircuitBoard
-        amount: 1
-      - id: NTDefaultCircuitBoard
-        amount: 1
-      - id: CommandmentCircuitBoard
-        amount: 1
-      - id: PaladinCircuitBoard
-        amount: 1
-      - id: LiveLetLiveCircuitBoard
-        amount: 1
-      - id: StationEfficiencyCircuitBoard
-        amount: 1
-      - id: RobocopCircuitBoard
-        amount: 1
-      - id: OverlordCircuitBoard
-        amount: 1
-      - id: GameMasterCircuitBoard
-        amount: 1
-      - id: ArtistCircuitBoard
-        amount: 1
-      - id: NutimovCircuitBoard
-        amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: AsimovCircuitBoard
+          amount: 1
+        - id: CorporateCircuitBoard
+          amount: 1
+        - id: NTDefaultCircuitBoard
+          amount: 1
+        - id: CommandmentCircuitBoard
+          amount: 1
+        - id: PaladinCircuitBoard
+          amount: 1
+        - id: LiveLetLiveCircuitBoard
+          amount: 1
+        - id: StationEfficiencyCircuitBoard
+          amount: 1
+        - id: RobocopCircuitBoard
+          amount: 1
+        - id: OverlordCircuitBoard
+          amount: 1
+        - id: GameMasterCircuitBoard
+          amount: 1
+        - id: ArtistCircuitBoard
+          amount: 1
+        - id: NutimovCircuitBoard
+          amount: 1

@@ -160,7 +160,7 @@ public sealed class ObjectivePinpointerSystem : EntitySystem
 
         var targetEntity = GetEntity(args.Target);
 
-        _pinpointer.SetTarget(uid, targetEntity, pinpointer);
+        _pinpointer.SetTarget(uid, targetEntity);
 
         var targetName = Name(targetEntity);
         _popup.PopupEntity(

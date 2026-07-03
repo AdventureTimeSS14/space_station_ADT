@@ -1,4 +1,4 @@
-using Content.Server.VoiceMask;
+using Content.Shared.VoiceMask;
 using Content.Shared.Access.Components;
 using Content.Shared.ADT.Radio;
 using Content.Shared.ADT.Radio.Components;

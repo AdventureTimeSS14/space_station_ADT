@@ -13,7 +13,6 @@ namespace Content.Client.ADT.UserInterface.Controls;
 // condensed version of the original ColorSlider set
 public sealed class LegacyColorSelectorSliders : Control
 {
-    [Dependency] private readonly ILocalizationManager _localization = default!;
 
     public Color Color
     {

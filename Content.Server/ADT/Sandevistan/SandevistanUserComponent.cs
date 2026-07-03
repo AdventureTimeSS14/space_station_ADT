@@ -60,7 +60,7 @@ public sealed partial class SandevistanUserComponent : Component
     [DataField]
     public DamageSpecifier Damage = new()
     {
-        DamageDict = new Dictionary<string, FixedPoint2>
+        DamageDict = new()
         {
             { "Blunt", 10 },
         },
@@ -105,7 +105,7 @@ public sealed partial class SandevistanUserComponent : Component
     [DataField]
     public DamageSpecifier EmpDamage = new()
     {
-        DamageDict = new Dictionary<string, FixedPoint2>
+        DamageDict = new()
         {
             { "Shock", 30 },
         },
