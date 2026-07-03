@@ -91,11 +91,6 @@
           tags:
             - PowerCell
             - PowerCellSmall
-        #ADT-Tweak-Start
-        blacklist:
-          tags:
-          - ADTMegaCell
-        #ADT-Tweak-End
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: Appearance
