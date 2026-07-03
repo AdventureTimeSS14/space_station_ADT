@@ -610,10 +610,8 @@
     steps: 5
     zeroVisible: true
   - type: BatteryAmmoProvider
-    proto: YellowLightLaser
+    proto: ADTYellowLightLaser
     fireCost: 50
-  - type: RunAndGunSpreadModifier
-    modifier: 0.1
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -648,9 +646,6 @@
           tags:
             - PowerCell
             - PowerCellSmall
-        blacklist:
-          tags:
-          - ADTMegaCell
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: ContainerContainer

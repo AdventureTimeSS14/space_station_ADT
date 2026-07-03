@@ -166,7 +166,7 @@
     - LaserWeapon
   #ADT-Tweak-Start
   - type: BatteryAmmoProvider
-    proto: YellowLightLaser
+    proto: ADTYellowLightLaser
     fireCost: 50
   #ADT-Tweak-End
 
