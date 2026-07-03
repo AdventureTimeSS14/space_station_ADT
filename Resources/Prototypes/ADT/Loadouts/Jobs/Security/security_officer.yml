@@ -80,3 +80,29 @@
   id: ADTArmorVestHidden
   equipment:
     outerClothing: ADTClothingOuterArmorVestHidden
+
+- type: loadout
+  id: ADTPilotSecurityBeret
+  equipment:
+    head: ClothingHeadHatBeretSecurityPilot
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurity100hours
+
+- type: loadout
+  id: ADTClothingEyesGlassesSecurity
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+
+- type: loadout
+  id: ADTClothingEyesHudSecurity
+  equipment:
+    eyes: ClothingEyesHudSecurity
+
+- type: loadout
+  id: ADTClothingEyesHudAlt
+  equipment:
+    eyes: ADTClothingEyesHudAltSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurity100hours
