@@ -188,7 +188,7 @@
   productEntity: ClothingBackpackDuffelSyndicateFilledHushpup # ADT Tweak BriefcaseWeaponHushpupFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 6 # ADT Tweak 8 -> 6
+    Telecrystal: 5 # ADT Tweak 8 -> 5
   cost:
     Telecrystal: 7 # ADT Tweak 10 -> 7
   categories:
