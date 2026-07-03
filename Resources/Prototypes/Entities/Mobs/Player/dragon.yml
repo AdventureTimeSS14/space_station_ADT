@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: [ SimpleSpaceMobBase, FlyingMobBase, BaseSlicingRefinable ]
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ] # ADT-Tweak (removed BaseSlicingRefinable)
   id: BaseMobDragon
   suffix: ""
   name: space dragon
@@ -11,7 +11,7 @@
       reagents:
       - ReagentId: Blood
         Quantity: 650
-    bleedReductionAmount: 5 # ADT
+    bleedReductionAmount: 5 # ADT-Tweak
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -43,8 +43,8 @@
   - type: MobMover
   - type: InputMover
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.5 # ADT-Tweak
-    baseSprintSpeed: 5.5 # ADT-Tweak
+    baseWalkSpeed: 3.5 # ADT-Tweak (3 ---> 3.5)
+    baseSprintSpeed: 5.5 # ADT-Tweak (5 ---> 5.5)
     baseWeightlessModifier: 1.5
   - type: RandomSprite
     available:
@@ -122,10 +122,13 @@
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
     stages: [ Digestion, Bloodstream ]
-  - type: ToolRefinable
-    refineResult:
+# ADT-Tweak-start
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
     - id: FoodMeatDragon
       amount: 4 # ADT-Tweak
+# ADT-Tweak-end
   - type: InteractionPopup
     successChance: 0.25 # It's no goose, but you better smell like carp.
     interactSuccessString: petting-success-dragon
@@ -255,10 +258,13 @@
       0: Alive
       200: Dead
   # less meat spawned since it's a lot easier to kill
-  - type: ToolRefinable
-    refineResult:
+# ADT-Tweak-start
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
     - id: FoodMeatDragon
       amount: 2 # ADT-Tweak
+# ADT-Tweak-end
   - type: MeleeWeapon
     damage:
       types:
