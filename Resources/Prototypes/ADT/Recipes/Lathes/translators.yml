@@ -54,17 +54,6 @@
     Copper: 100
 
 - type: latheRecipe
-  id: VoxPidginTranslator
-  result: VoxPidginTranslator
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
-    Plastic: 50
-    Gold: 50
-    Copper: 100
-
-- type: latheRecipe
   id: RootSpeakTranslator
   result: RootSpeakTranslator
   completetime: 2
@@ -422,18 +411,6 @@
     Glass: 100
     Plastic: 50
     Gold: 50
-    Copper: 100
-
-- type: latheRecipe
-  id: VoxPidginTranslatorImplanter
-  result: VoxPidginTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
     Copper: 100
 
 - type: latheRecipe

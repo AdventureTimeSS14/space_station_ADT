@@ -23,7 +23,6 @@
   - BubblishTranslator
   - NekomimeticTranslator
   - DraconicTranslator
-  - VoxPidginTranslator
   - ScratchesTranslator
   - SolCommonTranslator
   - RootSpeakTranslator
@@ -37,7 +36,6 @@
   - NekomimeticTranslatorImplanter
   - DraconicTranslatorImplanter
   - CanilunztTranslatorImplanter
-  - VoxPidginTranslatorImplanter
   - ScratchesTranslatorImplanter
   - SolCommonTranslatorImplanter
   - RootSpeakTranslatorImplanter

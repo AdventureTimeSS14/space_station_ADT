@@ -163,19 +163,6 @@
   - type: StaticPrice
     price: 1500
 
-- type: entity
-  id: VoxPidginTranslator
-  parent: [ Translator ]
-  name: VoxPidgin translator
-  description: "Translates speech."
-  components:
-  - type: HandheldTranslator
-    languages:
-      GalacticCommon: BadSpeak
-      VoxPidgin: BadSpeak
-  - type: StaticPrice
-    price: 1500
-
 # - type: entity
 #   id: ArachnidTranslator
 #   parent: [ Translator ]

@@ -14,7 +14,6 @@
   - NekomimeticTranslator
   - DraconicTranslator
   - SolCommonTranslator
-  - VoxPidginTranslator
   - ScratchesTranslator
   - RootSpeakTranslator
   - GalacticCommonTranslatorImplanter
@@ -49,7 +48,6 @@
   - DraconicTranslatorImplanter
   - CanilunztTranslatorImplanter
   - SolCommonTranslatorImplanter
-  - VoxPidginTranslatorImplanter
   - ScratchesTranslatorImplanter
   - RootSpeakTranslatorImplanter
   - AnimalTranslator
