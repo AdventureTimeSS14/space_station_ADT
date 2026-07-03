@@ -4,9 +4,8 @@
   description: flavor-complex-eldritch
 
 - type: reagent
-  id: EldritchEssence
-  parent: BaseDrink
-  group: Unknown
+  id: EssenceEldritch
+  group: Medicine
   name: reagent-name-eldritch
   desc: reagent-desc-eldritch
   physicalDesc: reagent-physical-desc-eldritch
