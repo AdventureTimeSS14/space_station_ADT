@@ -19,6 +19,7 @@ using Content.Shared.Stacks;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Content.Shared.Warps;
+using Content.Shared.Pinpointer;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -328,11 +329,11 @@ public sealed class DropPodConsoleSystem : EntitySystem
         var validBeacons = new List<DropPodBeaconInfo>();
         var stationBeacons = new List<Vector2>();
 
-        var beaconQuery = AllEntityQuery<WarpPointComponent, MetaDataComponent>();
-        while (beaconQuery.MoveNext(out var beaconUid, out var warp, out var meta))
+        var beaconQuery = EntityQueryEnumerator<WarpPointComponent, NavMapBeaconComponent, MetaDataComponent>();
+        while (beaconQuery.MoveNext(out var beaconUid, out _, out var navMap, out var meta))
         {
             var beaconXform = Transform(beaconUid);
-            var name = warp.Location ?? meta.EntityName;
+            var name = navMap.Text ?? navMap.DefaultText ?? meta.EntityName;
             var worldPos = _transform.GetWorldPosition(beaconUid);
             var prototypeId = meta.EntityPrototype?.ID;
 
@@ -410,7 +411,10 @@ public sealed class DropPodConsoleSystem : EntitySystem
         if (!TryComp<WarpPointComponent>(targetBeaconEnt, out var warpPoint))
             return;
 
-        var beaconName = warpPoint.Location ?? MetaData(targetBeaconEnt).EntityName;
+        if (!TryComp<NavMapBeaconComponent>(targetBeaconEnt, out var navMap))
+            return;
+
+        var beaconName = navMap.Text ?? navMap.DefaultText ?? MetaData(targetBeaconEnt).EntityName;
         var beaconPrototypeId = MetaData(targetBeaconEnt).EntityPrototype?.ID;
         if (string.IsNullOrEmpty(beaconName) || IsBlacklisted(beaconPrototypeId, comp.BeaconBlacklist))
             return;
@@ -427,10 +431,10 @@ public sealed class DropPodConsoleSystem : EntitySystem
             return;
         }
 
-        // Gather all beacons for valid (non-blacklisted) beacons for landing candidates
+        // Gather all blacklisted beacon positions for landing offset avoidance
         var blacklistedPositions = new List<Vector2>();
-        var blacklistQuery = AllEntityQuery<WarpPointComponent, MetaDataComponent>();
-        while (blacklistQuery.MoveNext(out var bUid, out var bWarp, out var bMeta))
+        var blacklistQuery = EntityQueryEnumerator<WarpPointComponent, NavMapBeaconComponent, MetaDataComponent>();
+        while (blacklistQuery.MoveNext(out var bUid, out _, out _, out var bMeta))
         {
             var bPrototypeId = bMeta.EntityPrototype?.ID;
             if (IsBlacklisted(bPrototypeId, comp.BeaconBlacklist))
