@@ -172,6 +172,29 @@ public abstract partial class SharedHandsSystem
         return false;
     }
 
+    // ADT-Tweak start
+    public bool TryGetEmptyHandPreferInactive(Entity<HandsComponent?> ent, [NotNullWhen(true)] out string? emptyHand)
+    {
+        emptyHand = null;
+        if (!Resolve(ent, ref ent.Comp, false))
+            return false;
+
+        foreach (var hand in ent.Comp.SortedHands)
+        {
+            if (hand == ent.Comp.ActiveHandId)
+                continue;
+
+            if (HandIsEmpty(ent, hand))
+            {
+                emptyHand = hand;
+                return true;
+            }
+        }
+
+        return TryGetEmptyHand(ent, out emptyHand);
+    }
+    // ADT-Tweak end
+
     /// <summary>
     ///     Does this entity have any empty hands, and how many?
     /// </summary>
