@@ -61,6 +61,8 @@ using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -106,6 +108,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
     public static readonly EntProtoId MartsGenericSlow = "MartialArtsGenericSlowdownEffect";
 
@@ -451,6 +454,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             ("move", localizedMove)),
             target,
             target);
+        _adminLogger.Add(LogType.MeleeHit, LogImpact.Low,
+            $"{ToPrettyString(user):user} used martial arts combo {localizedMove} on {ToPrettyString(target):target}");
     }
 
     #endregion

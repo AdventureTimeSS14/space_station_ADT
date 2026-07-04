@@ -18,6 +18,7 @@
     - state: icons-detentions
   - type: ItemBorgModule
     hands:
+    - item: ADTWeaponDisablerBorg
     - item: Handcuffs
       hand:
         emptyLabel: borg-slot-handcuff-empty
@@ -43,28 +44,6 @@
     hands:
     - item: Truncheon
     - item: ADTWeaponLaserCarbineBorg
-
-- type: entity
-  id: ADTBorgModuleDisabler
-  parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: disabler module
-  components:
-  - type: Sprite
-    layers:
-    - state: security
-    - state: icons-disabler
-  - type: ItemBorgModule
-    hands:
-    - item: ADTWeaponDisablerBorg
-    - item: Handcuffs
-      hand:
-        emptyLabel: borg-slot-handcuff-empty
-        emptyRepresentative: Handcuffs
-        whitelist:
-          components:
-          - Handcuff
-  - type: BorgModuleIcon
-    icon: { sprite: "/Textures/Objects/Misc/zipties.rsi", state: cuff }
 
 - type: entity
   id: ADTBorgModuleRPD

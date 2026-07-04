@@ -25,6 +25,8 @@ using Robust.Shared.Audio;
 
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Standing;
+using Content.Shared.Stunnable;
 
 namespace Content.Shared.ADT.MartialArts;
 
@@ -91,9 +93,15 @@ public partial class SharedMartialArtsSystem
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !TryUseMartialArt(ent, proto, out var target, out var downed)
-            || downed
-            || !TryComp<PullableComponent>(target, out var pullable))
+            || downed)
             return;
+
+        if (!TryComp<StandingStateComponent>(ent, out var userStanding) || userStanding.Standing)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-not-prone"), ent, ent);
+            ent.Comp.LastAttacks.Clear();
+            return;
+        }
 
         var knockdownTime = TimeSpan.FromSeconds(proto.ParalyzeTime);
 
@@ -108,7 +116,8 @@ public partial class SharedMartialArtsSystem
 
         //_pulling.TryStopPull(target, pullable, ent, true);
 
-        _status.TryRemoveStatusEffect(ent, "KnockedDown");
+        if (HasComp<KnockedDownComponent>(ent.Owner))
+            RemComp<KnockedDownComponent>(ent.Owner);
         _standingState.Stand(ent);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg"), ent);
@@ -120,20 +129,24 @@ public partial class SharedMartialArtsSystem
     private void OnHellRipDropKick(Entity<CanPerformComboComponent> ent, ref HellRipDropKickPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out var downed)
-            || !downed
-            || !TryComp<PullableComponent>(target, out var pullable))
+            || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
+        if (TryComp<PullableComponent>(ent, out var selfPullable) && selfPullable.Puller != null)
+        {
+            var puller = selfPullable.Puller.Value;
+            _pulling.TryStopPull(ent, selfPullable, puller, true);
 
-        _pulling.TryStopPull(target, pullable, ent, true);
-        //_grabThrown.Throw(target, ent, _transform.GetMapCoordinates(ent).Position + _transform.GetMapCoordinates(target).Position, 50);
-        var entPos = _transform.GetMapCoordinates(ent).Position;
-        var targetPos = _transform.GetMapCoordinates(target).Position;
-        var direction = targetPos - entPos; // vector from ent to target
+            var entPos = _transform.GetMapCoordinates(ent).Position;
+            var pullerPos = _transform.GetMapCoordinates(puller).Position;
+            var direction = pullerPos - entPos;
+            _grabThrown.Throw(puller, ent, direction, 25, behavior: proto.DropItems);
+        }
 
-        _grabThrown.Throw(target, ent, direction, 25, behavior: proto.DropItems);
+        _stamina.TakeStaminaDamage(ent, -60f, ignoreResist: true);
+        if (HasComp<KnockedDownComponent>(ent.Owner))
+            RemComp<KnockedDownComponent>(ent.Owner);
+        _standingState.Stand(ent);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg"), ent);
         ComboPopup(ent, target, proto.Name);

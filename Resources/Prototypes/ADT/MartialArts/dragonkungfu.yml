@@ -36,7 +36,7 @@
       path: /Audio/Weapons/genhit2.ogg
   extraDamage: 10
   staminaDamage: 15
-  paralyzeTime: 6
+  paralyzeTime: 4
 
 - type: combo
   id: DragonStrike

@@ -22,9 +22,6 @@
   - Disarm
   event: !type:HellRipDropKickPerformedEvent {}
   damageType: Slash
-  paralyzeTime: 6
-  staminaDamage: 80
-  canDoWhileProne: false
 
 - type: combo
   id: HeadRip

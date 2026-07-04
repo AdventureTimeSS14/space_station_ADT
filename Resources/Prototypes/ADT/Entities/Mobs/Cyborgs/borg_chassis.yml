@@ -10,6 +10,10 @@
     voice: sentrybot
   - type: BorgSwitchableSubtype
     borgSubtype: default_security
+  - type: ShowMindShieldIcons
+  - type: ShowJobIcons
+  - type: ShowCriminalRecordIcons
+  - type: ShowContrabandDetails
 
 - type: entity
   id: ADTBorgChassisKerfusNT
