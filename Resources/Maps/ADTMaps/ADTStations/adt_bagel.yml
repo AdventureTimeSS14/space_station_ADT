@@ -18677,78 +18677,6 @@ entities:
     - type: Transform
       pos: 46.515064,10.527505
       parent: 2
-- proto: BoxLighttube
-  entities:
-  - uid: 1129
-    components:
-    - type: Transform
-      pos: 0.97444147,20.461615
-      parent: 2
-  - uid: 13513
-    components:
-    - type: MetaData
-      name: коробка натриевых лампочек-трубок
-    - type: Transform
-      pos: -19.5,18.5
-      parent: 2
-    - type: Storage
-      storedItems:
-        13514:
-          position: 0,0
-          _rotation: South
-        13515:
-          position: 1,0
-          _rotation: South
-        13516:
-          position: 2,0
-          _rotation: South
-        13517:
-          position: 3,0
-          _rotation: South
-        13518:
-          position: 4,0
-          _rotation: South
-        13519:
-          position: 5,0
-          _rotation: South
-        13520:
-          position: 0,2
-          _rotation: South
-        13521:
-          position: 1,2
-          _rotation: South
-        13522:
-          position: 2,2
-          _rotation: South
-        13523:
-          position: 3,2
-          _rotation: South
-        13524:
-          position: 4,2
-          _rotation: South
-        13525:
-          position: 5,2
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 13514
-          - 13515
-          - 13516
-          - 13517
-          - 13518
-          - 13519
-          - 13520
-          - 13521
-          - 13522
-          - 13523
-          - 13524
-          - 13525
-    missingComponents:
-    - StorageFill
 - proto: BoxMouthSwab
   entities:
   - uid: 1130
@@ -142080,13 +142008,6 @@ entities:
     - type: Transform
       pos: -107.64347,23.583275
       parent: 2
-- proto: TowelColorBlack
-  entities:
-  - uid: 20457
-    components:
-    - type: Transform
-      pos: 6.659372,-10.984488
-      parent: 2
 - proto: TowelColorCentcom
   entities:
   - uid: 21307
@@ -142094,63 +142015,6 @@ entities:
     - type: Transform
       rot: -6.283185307179586 rad
       pos: -39.114307,-29.224876
-      parent: 2
-- proto: TowelColorGold
-  entities:
-  - uid: 20458
-    components:
-    - type: Transform
-      pos: -46.516186,19.522345
-      parent: 2
-- proto: TowelColorGray
-  entities:
-  - uid: 13503
-    components:
-    - type: Transform
-      pos: -12.469747,-50.252922
-      parent: 2
-  - uid: 20459
-    components:
-    - type: Transform
-      pos: 9.373489,-36.656456
-      parent: 2
-- proto: TowelColorGreen
-  entities:
-  - uid: 20460
-    components:
-    - type: Transform
-      pos: -11.235952,-28.42701
-      parent: 2
-  - uid: 20461
-    components:
-    - type: Transform
-      pos: -6.520092,25.655102
-      parent: 2
-- proto: TowelColorLightBlue
-  entities:
-  - uid: 20462
-    components:
-    - type: Transform
-      pos: 36.63549,-13.122686
-      parent: 2
-- proto: TowelColorLightBrown
-  entities:
-  - uid: 20463
-    components:
-    - type: Transform
-      pos: 25.058973,-33.540516
-      parent: 2
-- proto: TowelColorMaroon
-  entities:
-  - uid: 20464
-    components:
-    - type: Transform
-      pos: -36.32993,19.451168
-      parent: 2
-  - uid: 20465
-    components:
-    - type: Transform
-      pos: -24.825321,-28.471256
       parent: 2
 - proto: TowelColorNT
   entities:
@@ -142163,51 +142027,6 @@ entities:
     components:
     - type: Transform
       pos: 8.475218,-32.22903
-      parent: 2
-- proto: TowelColorOrange
-  entities:
-  - uid: 20468
-    components:
-    - type: Transform
-      pos: 44.513313,13.476001
-      parent: 2
-- proto: TowelColorPurple
-  entities:
-  - uid: 20469
-    components:
-    - type: Transform
-      pos: -40.442497,9.838759
-      parent: 2
-- proto: TowelColorRed
-  entities:
-  - uid: 20470
-    components:
-    - type: Transform
-      pos: -21.728546,0.45167026
-      parent: 2
-- proto: TowelColorSilver
-  entities:
-  - uid: 20471
-    components:
-    - type: Transform
-      pos: 25.058973,-33.27489
-      parent: 2
-- proto: TowelColorTeal
-  entities:
-  - uid: 20472
-    components:
-    - type: Transform
-      pos: -47.547886,23.455593
-      parent: 2
-  - uid: 20473
-    components:
-    - type: Transform
-      pos: 35.375072,-26.823654
-      parent: 2
-  - uid: 20474
-    components:
-    - type: Transform
-      pos: -11.324457,-27.91816
       parent: 2
 - proto: TowelColorWhite
   entities:
@@ -142265,18 +142084,6 @@ entities:
     components:
     - type: Transform
       pos: -7.387008,-35.551994
-      parent: 2
-- proto: TowelColorYellow
-  entities:
-  - uid: 20477
-    components:
-    - type: Transform
-      pos: 40.797344,-32.56576
-      parent: 2
-  - uid: 20478
-    components:
-    - type: Transform
-      pos: 13.69038,20.59044
       parent: 2
 - proto: ToyFigurineCCC
   entities:
