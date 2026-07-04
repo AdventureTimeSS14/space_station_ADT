@@ -222,20 +222,16 @@ public abstract partial class SharedMartialArtsSystem
             return;
         }
 
-        // Paralyze, not knockdown
+        // Paralyze, not knockdown (avoid re-triggering knockdown stacking via TryKnockdown)
         var time = TimeSpan.FromSeconds(proto.ParalyzeTime);
         if (_status.TryGetTime(target, "KnockedDown", out var knockdownStartEnd))
         {
             var knockdownTime = knockdownStartEnd.Value.Item2 - _timing.CurTime;
-            if (knockdownTime > TimeSpan.Zero)
-            {
-                if (time > knockdownTime)
-                    time = knockdownTime;
-
-                // We do not want to knockdown because it will stunlock the target
-                _stun.TryUpdateStunDuration(target, time);
-            }
+            if (knockdownTime > time)
+                time = knockdownTime;
         }
+
+        _stun.TryUpdateStunDuration(target, time);
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * GetDamageMultiplier(ent), out _);
         _audio.PlayPvs(args.Sound, target);

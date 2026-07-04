@@ -44,12 +44,11 @@ public sealed partial class NinjutsuSneakAttackComponent : Component
     public SoundSpecifier AssassinateSoundArmed =
             new SoundPathSpecifier("/Audio/_Goobstation/Weapons/Effects/guillotine.ogg");
 
-    // This should be LocId but combos names don't use locale anyway
     [DataField]
-    public string AssassinateComboName = "Assassinate";
+    public LocId AssassinateComboName = "ninjutsu-combo-assassinate";
 
     [DataField]
-    public string TakedownComboName = "Ninjutsu Takedown";
+    public LocId TakedownComboName = "ninjutsu-combo-takedown";
 
     [DataField]
     public ProtoId<AlertPrototype> Alert = "SneakAttack";

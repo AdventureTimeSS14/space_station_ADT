@@ -114,9 +114,6 @@ public partial class SharedMartialArtsSystem
 
         switch (args.Type)
         {
-            case ComboAttackType.Disarm:
-                _stamina.TakeStaminaDamage(args.Target, 25f);
-                break;
             case ComboAttackType.Harm:
                 // Leg sweep
                  if (!TryComp<StandingStateComponent>(ent.Owner, out var standing)

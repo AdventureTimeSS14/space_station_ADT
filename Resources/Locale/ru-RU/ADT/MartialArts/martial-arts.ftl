@@ -67,6 +67,8 @@ dragon-combo-dragon-strike = удар Дракона
 
 ninjutsu-combo-bite-the-dust = укус Земли
 ninjutsu-combo-dirty-kill = грязное убийство
+ninjutsu-combo-takedown = удушающий захват
+ninjutsu-combo-assassinate = удар в спину
 
 hellrip-combo-flying-dropkick = детящий дропкик
 hellrip-combo-head-rip = отрывание головы
@@ -90,6 +92,7 @@ martial-arts-action-receiver = { $name } ударил вас приёмом { $m
 martial-arts-fail-prone = Нельзя использовать этот приём лёжа!
 martial-arts-fail-target-down = Нельзя использовать этот приём на лежащей цели!
 martial-arts-fail-target-standing = Нельзя использовать этот приём на стоящей цели!
+martial-arts-fail-blocking-gloves = Перчатки сковывают ваши движения, вы не можете использовать боевые искусства!
 martial-arts-fail-not-grabbed = Нельзя использовать этот приём, если вас не удерживают!
 capoeira-fail-low-velocity = Вы двигаетесь слишком медленно для этого приёма!
 ninjutsu-fail-loss-of-surprise = Ваши намерения раскрыты! Этот приём сейчас недоступен!

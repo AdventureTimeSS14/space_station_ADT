@@ -239,14 +239,11 @@ public sealed class PullingSystem : EntitySystem
 
         if (TryComp(args.PullerUid, out PullerComponent? pullerComp) && !pullerComp.NeedsHands)
             return;
-        // ADT-Tweak start
-        _handsSystem.TryGetEmptyHandPreferInactive(uid, out var preferredHand);
 
-        if (!_virtualSystem.TrySpawnVirtualItemInHand(args.PulledUid, uid, out _, empty: preferredHand))
+        if (!_virtualSystem.TrySpawnVirtualItemInHand(args.PulledUid, uid))
         {
             DebugTools.Assert("Unable to find available hand when starting pulling??");
         }
-        // ADT-Tweak end
     }
 
     private void HandlePullStopped(EntityUid uid, HandsComponent component, PullStoppedMessage args)

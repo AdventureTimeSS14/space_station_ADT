@@ -985,9 +985,11 @@
   name: uplink-guerrilla-gloves-name
   description: uplink-guerrilla-gloves-desc
   icon: { sprite: /Textures/ADT/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
-  productEntity: ClothingHandsGlovesGuerrilla
+  productEntity: ADTClothingHandsGlovesGuerrilla
+  discountDownTo:
+    Telecrystal: 2
   cost:
-    Telecrystal: 30
+    Telecrystal: 4
   categories:
   - UplinkWearables
   conditions:
@@ -1001,7 +1003,7 @@
   name: uplink-guerrilla-gloves-name
   description: uplink-guerrilla-gloves-desc
   icon: { sprite: /Textures/ADT/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
-  productEntity: ClothingHandsGlovesGuerrilla
+  productEntity: ADTClothingHandsGlovesGuerrilla
   cost:
     Telecrystal: 60
   categories:

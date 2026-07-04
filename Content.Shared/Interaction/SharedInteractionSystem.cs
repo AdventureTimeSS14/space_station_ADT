@@ -15,6 +15,7 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -368,7 +369,7 @@ namespace Content.Shared.Interaction
             // ADT-Tweak start
             if (_hands.GetActiveItem((user, hands)) is { } heldItem)
             {
-                if (HasComp<MeleeWeaponComponent>(heldItem))
+                if (HasComp<MeleeWeaponComponent>(heldItem) || HasComp<VirtualItemComponent>(heldItem))
                     return false;
 
                 return true;

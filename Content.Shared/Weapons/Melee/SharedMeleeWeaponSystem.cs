@@ -953,7 +953,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return false;
         }
 
-        var eventArgs = new DisarmedEvent(target.Value, user, 1 - chance);
+        var pushProbability = HasComp<MartialArtsKnowledgeComponent>(user) ? 0f : 1 - chance; // ADT tweak
+        var eventArgs = new DisarmedEvent(target.Value, user, pushProbability);
         RaiseLocalEvent(target.Value, ref eventArgs);
 
         // Nothing handled it so abort.

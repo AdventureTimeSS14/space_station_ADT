@@ -40,6 +40,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -104,6 +105,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly BlindableSystem _blindable = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     public static readonly EntProtoId MartsGenericSlow = "MartialArtsGenericSlowdownEffect";
 
@@ -592,6 +594,13 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
         if (knowledgeComponent.MartialArtsForm != proto.MartialArtsForm)
             return false;
+
+        if (_inventory.TryGetSlotEntity(ent.Owner, "gloves", out var gloves) &&
+            HasComp<MartialArtsBlockingComponent>(gloves))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-blocking-gloves"), ent, ent);
+            return false;
+        }
 
         if (!proto.CanDoWhileProne && IsDown(ent))
         {

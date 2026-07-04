@@ -18,7 +18,8 @@ public partial class SharedMartialArtsSystem
     private void OnPtsdLegSweepCombo(Entity<CanPerformComboComponent> ent, ref PtsdLegSweepComboPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out var downed))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed)
+            || downed)
             return;
 
         _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
