@@ -334,11 +334,12 @@ public sealed class DropPodConsoleSystem : EntitySystem
             var beaconXform = Transform(beaconUid);
             var name = warp.Location ?? meta.EntityName;
             var worldPos = _transform.GetWorldPosition(beaconUid);
+            var prototypeId = meta.EntityPrototype?.ID;
 
             if (beaconXform.GridUid is null || !validStationGrids.Contains(beaconXform.GridUid.Value))
                 continue;
 
-            if (!string.IsNullOrEmpty(name) && !IsBlacklisted(name, comp.BeaconBlacklist))
+            if (!string.IsNullOrEmpty(name) && !IsBlacklisted(prototypeId, comp.BeaconBlacklist))
             {
                 validBeacons.Add(new DropPodBeaconInfo
                 {
@@ -410,7 +411,8 @@ public sealed class DropPodConsoleSystem : EntitySystem
             return;
 
         var beaconName = warpPoint.Location ?? MetaData(targetBeaconEnt).EntityName;
-        if (string.IsNullOrEmpty(beaconName) || IsBlacklisted(beaconName, comp.BeaconBlacklist))
+        var beaconPrototypeId = MetaData(targetBeaconEnt).EntityPrototype?.ID;
+        if (string.IsNullOrEmpty(beaconName) || IsBlacklisted(beaconPrototypeId, comp.BeaconBlacklist))
             return;
 
         var targetWorldPos = _transform.GetWorldPosition(targetBeaconEnt);
@@ -430,8 +432,8 @@ public sealed class DropPodConsoleSystem : EntitySystem
         var blacklistQuery = AllEntityQuery<WarpPointComponent, MetaDataComponent>();
         while (blacklistQuery.MoveNext(out var bUid, out var bWarp, out var bMeta))
         {
-            var bName = bWarp.Location ?? bMeta.EntityName;
-            if (!string.IsNullOrEmpty(bName) && IsBlacklisted(bName, comp.BeaconBlacklist))
+            var bPrototypeId = bMeta.EntityPrototype?.ID;
+            if (IsBlacklisted(bPrototypeId, comp.BeaconBlacklist))
                 blacklistedPositions.Add(_transform.GetWorldPosition(bUid));
         }
 
@@ -566,14 +568,11 @@ public sealed class DropPodConsoleSystem : EntitySystem
         return true;
     }
 
-    private static bool IsBlacklisted(string beaconName, List<string> blacklist)
+    private static bool IsBlacklisted(string? prototypeId, List<string> blacklist)
     {
-        foreach (var entry in blacklist)
-        {
-            if (beaconName.Contains(entry, StringComparison.OrdinalIgnoreCase))
-                return true;
-        }
-        return false;
+        if (prototypeId == null)
+            return false;
+        return blacklist.Contains(prototypeId);
     }
 
     private void RemoveDecalsInTileArea(

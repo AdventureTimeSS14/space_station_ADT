@@ -13,57 +13,10 @@ namespace Content.Shared.ADT.Shuttles.Components;
 public sealed partial class DropPodConsoleComponent : Component
 {
     /// <summary>
-    /// Beacon names (case-insensitive substring match) that cannot be targeted.
+    /// Beacon prototype IDs that cannot be targeted.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public List<string> BeaconBlacklist = new()
-    {
-        // English
-        "Bridge",
-        "Vault",
-        "Armory",
-        "Security",
-        "Brig",
-        "Brigmedic",
-        "Warden",
-        "Genpop",
-        // Command
-        "Мостик",
-        "Хранилище",
-        "Кабинет Капитана",
-        "Каюта капитана",
-        "Кабинет ГВ",
-        "Кабинет ГП",
-        "Офис ГП",
-        "Кабинет НР",
-        "Кабинет СИ",
-        "Офис СИ",
-        "ОСЩ",
-        // Security
-        "Бриг",
-        "Бригмедик",
-        "Оружейная",
-        "Арсенал",
-        "Тюрьма",
-        "Смотритель",
-        "ГСБ",
-        "Надзиратель",
-        "Пермабриг",
-        "КПП СБ",
-        "Доки СБ",
-        "Порт СБ",
-        // AI
-        "ИИ",
-        // Dangerous engineering equipment
-        "суперматерия",
-        "Генератор теслы",
-        "Сингул",
-        "Ускоритель Частиц",
-        // Nuclear
-        "Ядерн",
-        "Nuclear",
-        "Nuke",
-    };
+    public List<string> BeaconBlacklist = new();
 
     /// <summary>
     /// Total flight time in seconds from launch to impact. Also used as the announcement lead time.
