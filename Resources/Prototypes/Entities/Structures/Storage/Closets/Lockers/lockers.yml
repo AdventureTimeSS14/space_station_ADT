@@ -247,6 +247,13 @@
     stateDoorClosed: minifreezer_door
   - type: AccessReader
     access: [ [ "Bar" ] ]
+# ADT-Tweak-Start: Construction компонент для крафта мини-холодильника
+  - type: Construction
+    graph: ClosetMiniFreezer
+    node: done
+    containers:
+    - entity_storage
+# ADT-Tweak-End
 
 # Botanist
 - type: entity
