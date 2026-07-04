@@ -30,7 +30,7 @@
   - Grab
   - Disarm
   event: !type:PtsdArmLockBehindBackComboPerformedEvent {}
-  staminaDamage: 60
+  staminaDamage: 40
 
 - type: combo
   id: PTSDBootKickCombo

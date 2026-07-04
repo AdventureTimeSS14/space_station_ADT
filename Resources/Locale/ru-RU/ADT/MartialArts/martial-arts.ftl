@@ -95,6 +95,11 @@ martial-arts-fail-target-down = Нельзя использовать этот �
 martial-arts-fail-target-standing = Нельзя использовать этот приём на стоящей цели!
 martial-arts-fail-blocking-gloves = Перчатки сковывают ваши движения, вы не можете использовать боевые искусства!
 martial-arts-fail-not-grabbed = Нельзя использовать этот приём, если вас не удерживают!
+martial-arts-fail-target-alive = Нельзя использовать этот приём на живой цели!
+
+judo-fail-stunbaton = Настоящий мастер корпоративного дзюдо не нуждается в станбатоне!
+
+backstab-message = Удар в спину!
 capoeira-fail-low-velocity = Вы двигаетесь слишком медленно для этого приёма!
 ninjutsu-fail-loss-of-surprise = Ваши намерения раскрыты! Этот приём сейчас недоступен!
 

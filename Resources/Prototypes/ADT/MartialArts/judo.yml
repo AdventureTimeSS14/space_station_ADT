@@ -34,7 +34,7 @@
   - Disarm
   - Grab
   event: !type:JudoCombatGrabPerformedEvent {}
-  staminaDamage: 45
+  staminaDamage: 55
   extraDamage: 10
 
 - type: combo
@@ -43,9 +43,11 @@
   martialArtsForm: CorporateJudo
   attacks:
   - Harm
-  - Grab
   - Disarm
+  - Grab
   event: !type:JudoEyeGougePerformedEvent {}
+  extraDamage: 8
+  damageType: Piercing
 
 - type: combo
   id: JudoNageWaza

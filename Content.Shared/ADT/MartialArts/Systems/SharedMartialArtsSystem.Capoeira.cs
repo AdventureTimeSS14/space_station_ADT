@@ -178,6 +178,9 @@ public abstract partial class SharedMartialArtsSystem
             return;
         }
 
+        if (TryComp<PullableComponent>(ent.Owner, out var selfPullable) && selfPullable.Puller != null)
+            _pulling.TryStopPull(ent.Owner, selfPullable, ent, true);
+
         var mapPos = _transform.GetMapCoordinates(ent).Position;
         var hitPos = _transform.GetMapCoordinates(target).Position;
         var dir = hitPos - mapPos;

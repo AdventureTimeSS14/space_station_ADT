@@ -70,9 +70,17 @@ public partial class SharedMartialArtsSystem
     private void OnHellRipHeadRip(Entity<CanPerformComboComponent> ent, ref HellRipHeadRipPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out var downed)
-            || !_mobState.IsDead(target)
-            || !TryComp<PullableComponent>(target, out var pullable))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed))
+            return;
+
+        if (!_mobState.IsDead(target))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-target-alive"), ent, ent);
+            ent.Comp.LastAttacks.Clear();
+            return;
+        }
+
+        if (!TryComp<PullableComponent>(target, out var pullable))
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
@@ -132,16 +140,20 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
-        if (TryComp<PullableComponent>(ent, out var selfPullable) && selfPullable.Puller != null)
+        if (!TryComp<PullableComponent>(ent, out var selfPullable) || selfPullable.Puller == null)
         {
-            var puller = selfPullable.Puller.Value;
-            _pulling.TryStopPull(ent, selfPullable, puller, true);
-
-            var entPos = _transform.GetMapCoordinates(ent).Position;
-            var pullerPos = _transform.GetMapCoordinates(puller).Position;
-            var direction = pullerPos - entPos;
-            _grabThrown.Throw(puller, ent, direction, 25, behavior: proto.DropItems);
+            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-not-grabbed"), ent, ent);
+            ent.Comp.LastAttacks.Clear();
+            return;
         }
+
+        var puller = selfPullable.Puller.Value;
+        _pulling.TryStopPull(ent, selfPullable, puller, true);
+
+        var entPos = _transform.GetMapCoordinates(ent).Position;
+        var pullerPos = _transform.GetMapCoordinates(puller).Position;
+        var direction = pullerPos - entPos;
+        _grabThrown.Throw(puller, ent, direction, 25, behavior: proto.DropItems);
 
         _stamina.TakeStaminaDamage(ent, -60f, ignoreResist: true);
         if (HasComp<KnockedDownComponent>(ent.Owner))

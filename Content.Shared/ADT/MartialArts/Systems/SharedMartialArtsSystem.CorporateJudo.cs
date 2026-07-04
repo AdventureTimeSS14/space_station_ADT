@@ -24,6 +24,7 @@ using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 
 namespace Content.Shared.ADT.MartialArts;
@@ -39,6 +40,19 @@ public partial class SharedMartialArtsSystem
 
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotEquippedEvent>(OnGrantCorporateJudo);
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotUnequippedEvent>(OnRemoveCorporateJudo);
+
+        SubscribeLocalEvent<StunbatonComponent, AttemptMeleeEvent>(OnStunbatonMeleeAttempt);
+    }
+
+    private void OnStunbatonMeleeAttempt(Entity<StunbatonComponent> ent, ref AttemptMeleeEvent args)
+    {
+        if (args.Cancelled
+            || !TryComp<MartialArtsKnowledgeComponent>(args.User, out var knowledge)
+            || knowledge.MartialArtsForm != MartialArtsForms.CorporateJudo)
+            return;
+
+        args.Cancelled = true;
+        args.Message = Loc.GetString("judo-fail-stunbaton");
     }
 
     private void OnGrantCorporateJudo(Entity<GrantCorporateJudoComponent> ent, ref ClothingGotEquippedEvent args)
@@ -74,9 +88,15 @@ public partial class SharedMartialArtsSystem
     private void OnJudoLegSweep(Entity<CanPerformComboComponent> ent, ref JudoLegSweepPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out var downed)
-            || downed)
+            || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
+
+        if (downed)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-target-down"), ent, ent);
+            ent.Comp.LastAttacks.Clear();
+            return;
+        }
 
         var knockdownTime = TimeSpan.FromSeconds(proto.ParalyzeTime);
 
@@ -123,6 +143,8 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out _)
             || !TryComp(target, out StatusEffectsComponent? status))
             return;
+
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
 
         var flashAttempt = new FlashAttemptEvent(target, ent.Owner, null);
         RaiseLocalEvent(target, ref flashAttempt, true);

@@ -222,13 +222,13 @@ public abstract partial class SharedMartialArtsSystem
             return;
         }
 
-        // Paralyze, not knockdown (avoid re-triggering knockdown stacking via TryKnockdown)
         var time = TimeSpan.FromSeconds(proto.ParalyzeTime);
         if (_status.TryGetTime(target, "KnockedDown", out var knockdownStartEnd))
         {
-            var knockdownTime = knockdownStartEnd.Value.Item2 - _timing.CurTime;
-            if (knockdownTime > time)
-                time = knockdownTime;
+            var alreadyDown = _timing.CurTime - knockdownStartEnd.Value.Item1;
+            time -= alreadyDown;
+            if (time < TimeSpan.Zero)
+                time = TimeSpan.Zero;
         }
 
         _stun.TryUpdateStunDuration(target, time);

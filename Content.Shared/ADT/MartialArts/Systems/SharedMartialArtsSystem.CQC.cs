@@ -173,6 +173,7 @@ public partial class SharedMartialArtsSystem
         else
         {
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
+            _stamina.TakeStaminaDamage(target, 15f);
         }
 
         if (TryComp<PullableComponent>(target, out var pullable))
