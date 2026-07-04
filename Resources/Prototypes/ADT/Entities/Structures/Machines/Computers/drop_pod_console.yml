@@ -25,6 +25,8 @@
       - DefaultStationBeaconCourtroom
       - DefaultStationBeaconLawOffice
       - DefaultStationBeaconSecurityCheckpoint
+      - ADTDefaultStationBeaconDockingAreaSec
+      - ADTDefaultStationBeaconSuitsSec
       # AI
       - DefaultStationBeaconAI
       - DefaultStationBeaconAISatellite
@@ -36,6 +38,10 @@
       # WTF Nuclear
       - DefaultStationBeaconNuclear
       - DefaultStationBeaconNukeOps
+      - NuclearBomb
+      # Special
+      - ADTBluespaceHarvesterRift
+      - DefaultStationBeaconNuclear
   - type: ActivatableUI
     key: enum.DropPodConsoleUiKey.Key
   - type: UserInterface
