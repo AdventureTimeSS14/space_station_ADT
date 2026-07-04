@@ -8,7 +8,7 @@
     icon:
       sprite: ADT/Interface/Actions/dragon.rsi
       state: carp_horde
-    useDelay: 120 
+    useDelay: 120 # ADT-Tweak(90 ---> 120)
     priority: 4
   - type: InstantAction
     event: !type:DragonSpawnCarpHordeActionEvent
@@ -23,8 +23,7 @@
     icon:
       sprite: ADT/Interface/Actions/dragon.rsi
       state: wing_flap
-    useDelay: 60 
+    useDelay: 60 # ADT-Tweak (45 ---> 60)
     priority: 5
   - type: InstantAction
     event: !type:DragonRoarActionEvent
-    
