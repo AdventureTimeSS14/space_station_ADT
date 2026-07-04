@@ -368,6 +368,7 @@
     - id: HandTeleporter
     - id: RubberStampRd
     # ADT-Tweak-Start
+    - id: ADTAiRemoteBrain
     - id: ADTBookSRPcmd
     - id: ADTBookSRPrnd
     - id: ADTBookPCDcmd

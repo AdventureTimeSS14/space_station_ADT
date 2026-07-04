@@ -164,6 +164,11 @@
     tags:
     - Sidearm
     - LaserWeapon
+  #ADT-Tweak-Start
+  - type: BatteryAmmoProvider
+    proto: ADTYellowLightLaser
+    fireCost: 50
+  #ADT-Tweak-End
 
 - type: entity
   name: retro laser blaster

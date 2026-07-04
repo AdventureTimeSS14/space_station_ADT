@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Space Station 14 server ADT",
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "hudmindslave"
+        },
+        {
+            "name": "hudmaster"
+        }
+    ]
+}

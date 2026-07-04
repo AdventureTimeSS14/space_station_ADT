@@ -28,9 +28,9 @@ uplink-syndiholoprojectorfield-desc = Устройство, создающее �
 uplink-estoc-ammo-name = Винтовочный магазин (6.5 мм ТСФ)
 uplink-estoc-ammo-desc = Винтовочный магазин на 25 патронов. Совместим с марксманской винтовкой Эсток.
 uplink-magazine-bulldog-slug-name = Барабанный магазин (12х70 пуля)
+uplink-magazine-bulldog-slug-desc = Магазин с патронами 12х70 пуля для дробовика "Бульдог"
 uplink-magazine-bulldog-pellet-name = Барабанный магазин (12х70 дробь)
-uplink-Shotgun-magazine-name = Магазин для дробовика (12х70 дробь)
-uplink-Shotgun-magazine-desc = Магазин с патронами 12х70 дробь для дробовика "Бульдог"
+uplink-magazine-bulldog-pellet-desc = Магазин с патронами 12х70 дробь для дробовика "Бульдог"
 uplink-MachineGun-magazine-name = Магазин для пистолета-пулемета (9х19 мм)
 uplink-MachineGun-magazine-desc = Магазин с патронами калибра 9х19 мм, совместим с пистолетом-пулеметом "C-20r"
 uplink-LightRifle-magazine-name = Магазин для штурмовой винтовки (7.62х39 мм)
@@ -213,6 +213,9 @@ uplink-clothing-super-shoes-name = Продвинутые ботинки-хам�
 uplink-clothing-super-shoes-desc = Ботинки-хамелеоны, обеспечивающие и бесшумную ходьбу, и защиту от поскальзывания.
 uplink-ehack-name = Криптографический модулятор
 uplink-ehack-desc = Он же EHACK. Младший брат EMAG. Устройство, способное взламывать различные станционные устройства. Перезаряжается автоматически.
+
+uplink-mindslave-implanter-name = Имплантер подчинения
+uplink-mindslave-implanter-desc = Одноразовый шприц, заряженный био-чипом подчинения. Используйте на цели, чтобы сделать её полностью лояльной вам.
 
 uplink-box-music-disks-name = Музыкальный набор Синдиката
 uplink-box-music-disks-desc = Тихо выполнять цели - не ваш выбор? Тогда этот набор отлично вам подойдет! Содержит в себе музыкальный проигрыватель и 3 диска содержащих хитовые треки.

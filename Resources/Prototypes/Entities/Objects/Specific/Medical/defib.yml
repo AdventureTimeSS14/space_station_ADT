@@ -6,7 +6,7 @@
   abstract: true
   components:
     - type: Sprite
-      sprite: Objects/Specific/Medical/defib.rsi
+      sprite: ADT/Objects/Specific/Medical/defib.rsi #ADT-Tweak
       layers:
         - state: icon
         - state: screen
@@ -49,6 +49,11 @@
   - type: Tag
     tags:
     - Defibrillator
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Objects/Specific/Medical/defib.rsi
+    slots:
+    - suitStorage
   # ADT-Tweak-End
   - type: MultiHandedItem
   - type: ToggleCellDraw

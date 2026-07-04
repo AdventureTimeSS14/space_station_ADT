@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: [ SimpleSpaceMobBase, FlyingMobBase, BaseSlicingRefinable ]
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ] # ADT-Tweak (removed BaseSlicingRefinable)
   id: BaseMobDragon
   suffix: ""
   name: space dragon
@@ -11,6 +11,7 @@
       reagents:
       - ReagentId: Blood
         Quantity: 650
+    bleedReductionAmount: 5 # ADT-Tweak
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -27,9 +28,9 @@
     rootTask:
       task: XenoCompound
     blackboard:
-      NavInteract: !type:Bool
+      NavInteract: !type:Bool 
         true
-      NavPry: !type:Bool
+      NavPry: !type:Bool 
         true
       NavSmash: !type:Bool
         true
@@ -42,8 +43,8 @@
   - type: MobMover
   - type: InputMover
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.5 # ADT-Tweak 3 -> 3.5
-    baseSprintSpeed: 5.5 # ADT-Tweak 5 -> 5.5
+    baseWalkSpeed: 3.5 # ADT-Tweak (3 ---> 3.5)
+    baseSprintSpeed: 5.5 # ADT-Tweak (5 ---> 5.5)
     baseWeightlessModifier: 1.5
   - type: RandomSprite
     available:
@@ -99,6 +100,8 @@
       350: 0.7 # ADT-Tweak (add new threshold)
       430: 0.5 # ADT-Tweak (higher threshold 400: 0.5 ---> 430: 0.5)
   # disable taking damage from fire, since its a fire breathing dragon
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
   - type: Flammable
     damage:
       types: {}
@@ -107,18 +110,25 @@
     - Electrocution
     - Pacified
     - Adrenaline
+    - Stutter
+    - Weakness # ADT-Weakness-Tweak
+    - TemporaryBlindness # ADT-Tweak
+    - RadiationProtection # ADT-Tweak
   - type: Temperature
   - type: TemperatureDamage
-    heatDamageThreshold: 2400
+    heatDamageThreshold: 2400 # ADT-Tweak
   - type: Metabolizer
     solutionOnBody: false
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
     stages: [ Digestion, Bloodstream ]
-  - type: ToolRefinable
-    refineResult:
+# ADT-Tweak-start
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
     - id: FoodMeatDragon
-      amount: 2
+      amount: 4 # ADT-Tweak
+# ADT-Tweak-end
   - type: InteractionPopup
     successChance: 0.25 # It's no goose, but you better smell like carp.
     interactSuccessString: petting-success-dragon
@@ -142,12 +152,14 @@
     stomachStorageWhitelist:
       components:
       - MobState
+      - Item # ADT-Tweak
     chemical: Ichor
     healRate: 7.5
     whitelist:
       components:
       - MobState
       - Door
+      - Item # ADT-Tweak
       tags:
       - Wall
   - type: Tag
@@ -157,10 +169,10 @@
     - StunImmune
   - type: Puller
     needsHands: false
-  - type: ThermalVision #ADT tweak start
+  - type: ThermalVision #ADT-Tweak-start
     color: Purple
   - type: MesonVision
-    color: Purple #ADT tweak end
+    color: Purple #ADT-Tweak-end
 # ADT-CollectiveMind-Tweak-Start
   - type: CollectiveMindRank
     rankName: collective-mind-dragon-rank
@@ -187,6 +199,17 @@
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
+# ADT-Tweak-start
+    carpRiftHealing:
+      types:
+        Blunt: -2
+        Slash: -2
+        Piercing: -2
+        Heat: -2
+        Cold: -2
+    spawnCarpsAction: ActionRiseFish
+    roarAction: ActionDragonRoar
+# ADT-Tweak-end
   - type: GhostRole
     mindRoles:
     - MindRoleDragon
@@ -235,9 +258,13 @@
       0: Alive
       200: Dead
   # less meat spawned since it's a lot easier to kill
-  - type: ToolRefinable
-    refineResult:
+# ADT-Tweak-start
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
     - id: FoodMeatDragon
+      amount: 2 # ADT-Tweak
+# ADT-Tweak-end
   - type: MeleeWeapon
     damage:
       types:
@@ -276,6 +303,7 @@
       components:
       - MobState
       - Door
+      - Item
       tags:
       - Wall
     event: !type:DevourActionEvent

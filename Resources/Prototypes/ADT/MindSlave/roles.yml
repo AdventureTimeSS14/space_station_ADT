@@ -1,0 +1,6 @@
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindSlaveRole
+  name: Mind Slave Role
+  components:
+  - type: MindSlaveRole

@@ -386,81 +386,6 @@
   - type: Clothing
     sprite: ADT/Personalization/pyotr_officialsuit.rsi
 
-# Altius
-- type: entity
-  parent: ADTSponsorClothingOuterStorageBase
-  id: ADTClothingOuterCoatAidan
-  name: Aidan coat
-  description: Aidan coat.
-  suffix: Personal
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/aidan_coat.rsi
-  - type: Clothing
-    sprite: ADT/Personalization/aidan_coat.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.70
-        Heat: 0.70
-  - type: ExplosionResistance
-    damageCoefficient: 0.90
-
-- type: entity
-  parent: ADTSponsorClothingUniformBase
-  id: ADTJumpsuitAidan
-  name: Aidan suit
-  description: Aidan suit
-  suffix: Personal
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/suit_aidan.rsi
-  - type: Clothing
-    sprite: ADT/Personalization/suit_aidan.rsi
-
-- type: entity
-  parent: ClothingNeckBase
-  id: ADTClothingNeckAidan
-  name: Aidan neck
-  description:
-  suffix: Personal, Aidan
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/aidan_neck.rsi
-    state: icon
-  - type: Clothing
-    sprite: ADT/Personalization/aidan_neck.rsi
-    equippedState: equipped-NECK
-
-- type: entity
-  parent: ClothingMaskBase
-  id: ADTClothingMaskAidan
-  name: Aidan mask
-  description:
-  suffix: Personal, Aidan
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/aidan_mask.rsi
-    state: icon
-  - type: Clothing
-    sprite: ADT/Personalization/aidan_mask.rsi
-    equippedState: equipped-MASK
-
-- type: entity
-  parent: ADTClothingSponsorHandsBase
-  id: ADTClothingHandsAidanWatch
-  name: Aidan Watch
-  description: Aidan Watch
-  suffix: Personal, Aidan
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/aidan_watch.rsi
-  - type: Clothing
-    sprite: ADT/Personalization/aidan_watch.rsi
-  - type: Clock
-
 # Bolper
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
@@ -607,35 +532,7 @@
   - type: Clothing
     sprite: ADT/Personalization/pangaari_bracelet.rsi
 
-#tweak
-- type: entity
-  parent: ADTSponsorClothingOuterStorageBase
-  id: ADTClothingUniformPanjaariJacket
-  name: Cropped leather jacket
-  description: A short leather jacket with studs on the shoulders. It doesn't look like something that will keep you warm, but its appearance speaks of the wearer's excellent sense of style.
-  suffix: Pangaari
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/pangaari_jacket.rsi
-  - type: Clothing
-    sprite: ADT/Personalization/pangaari_jacket.rsi
-
 #Rip_Zoro
-- type: entity
-  parent: ADTSponsorClothingNeckBase
-  id: ADTClothingNeckRipZoroMantle
-  suffix: Rip_Zoro
-  name: Mysterious shoulder mantle
-  description: A mantle that holds a secret...
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/rip_zoro_mantle.rsi
-    state: icon
-  - type: Clothing
-    sprite: ADT/Personalization/rip_zoro_mantle.rsi
-  - type: Item
-    size: Normal
-
 - type: entity
   parent: [ClothingBeltBase, ClothingSlotBase]
   id: ADTClothingBeltZoroSheath
@@ -673,16 +570,38 @@
   - type: Appearance
 
 - type: entity
-  parent: ADTSponsorClothingUniformBase
-  id: ADTClothingUniformZoroJumpsuit
-  suffix: Rip_Zoro
-  name: The legendary business suit
-  description: A legendary, worn-out suit. All white and gilded. He smells like vanilla...
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatsRipCap
+  name: the colonel's cap
+  description: An officer's cap custom-made by Colonel Anderson. A symbol of the highest officer rank and the pride of the Trans-Solar Federation.
+  suffix: Personal, Ripchik
   components:
   - type: Sprite
-    sprite: ADT/Personalization/rip_zoro_jumpsuit.rsi
+    sprite: ADT/Personalization/ripchik_cap.rsi
   - type: Clothing
-    sprite: ADT/Personalization/rip_zoro_jumpsuit.rsi
+    sprite: ADT/Personalization/ripchik_cap.rsi
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterRipCoat
+  name: TSF officer's tunic
+  description: The Trans-Solar Federation officer's tunic, tailor-made for Colonel Anderson. Worn and stiff, almost like a general's! It smells of expensive perfume.
+  suffix: Personal, Ripchik
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/ripchik_greatcoat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/ripchik_greatcoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.7
+        Piercing: 0.75
+        Heat: 0.65
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
 
 #PushnoY
 - type: entity
@@ -704,20 +623,6 @@
     sprite: ADT/Personalization/pushnoY_jumpsuit.rsi
   - type: Clothing
     sprite: ADT/Personalization/pushnoY_jumpsuit.rsi
-
-#Maki_gg
-- type: entity
-  parent: ADTSponsorClothingOuterStorageBase
-  id: ADTClothingOuterCoatMaki
-  name: Maki coat
-  description: Maki coat.
-  suffix: Personal
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/maki_coat.rsi
-  - type: Clothing
-    sprite: ADT/Personalization/maki_coat.rsi
-
 
 # Moon_so_red
 - type: entity
@@ -1544,66 +1449,66 @@
   - type: Clothing
     sprite: ADT/Personalization/WCTR829/WCTR829_suit.rsi
 
-# Altius and RedLis
+#RedLis
 
 - type: entity
   parent: ADTSponsorClothingUniformBase
-  id: ADTClothingUniformShipTestAltiusRedLis
+  id: ADTClothingUniformShipTestRedLis
   name: jumpsuit
   description: A military jumpsuit with multiple pockets and a solid color scheme consisting of a red top and a dark bottom.
-  suffix: Personal, Altius, RedLis
+  suffix: Personal, RedLis
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Altius_RedLis/shiptest_jumpsuit.rsi
+    sprite: ADT/Personalization/RedLis/shiptest_jumpsuit.rsi
   - type: Clothing
-    sprite: ADT/Personalization/Altius_RedLis/shiptest_jumpsuit.rsi
+    sprite: ADT/Personalization/RedLis/shiptest_jumpsuit.rsi
 
 - type: entity
   parent: ADTSponsorClothingNeckBase
-  id: ADTClothingNeckShipTestAltiusRedLis
+  id: ADTClothingNeckShipTestRedLis
   name: dark-red shamag
   description: A large square cotton handkerchief, dyed in a dark color, without any decorative elements such as a plaid or fringe.
-  suffix: Personal, Altius, RedLis
+  suffix: Personal, RedLis
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Altius_RedLis/shiptest_shamag.rsi
+    sprite: ADT/Personalization/RedLis/shiptest_shamag.rsi
 
 - type: entity
   parent: ADTSponsorClothingShoesBase
-  id: ADTClothingShoesShipTestAltiusRedLis
+  id: ADTClothingShoesShipTestRedLis
   name: army boots
   description: These boots have a high shaft and a thick tread, with reinforced toe and heel areas for added foot protection.
-  suffix: Personal, Altius, RedLis
+  suffix: Personal, RedLis
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Altius_RedLis/shiptest_boots.rsi
+    sprite: ADT/Personalization/RedLis/shiptest_boots.rsi
   - type: Clothing
-    sprite: ADT/Personalization/Altius_RedLis/shiptest_boots.rsi
+    sprite: ADT/Personalization/RedLis/shiptest_boots.rsi
   - type: Matchbox
 
 - type: entity
   parent: ADTSponsorClothingHeadBase
-  id: ADTClothingHeadHatsShipTestAltiusRedLis
+  id: ADTClothingHeadHatsShipTestRedLis
   name: beret
   description: A hat with a golden symbol, possibly belonging to a specific branch of the military.
-  suffix: Personal, Altius, RedLis
+  suffix: Personal, RedLis
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Altius_RedLis/shiptest_beret.rsi
+    sprite: ADT/Personalization/RedLis/shiptest_beret.rsi
   - type: Clothing
-    sprite: ADT/Personalization/Altius_RedLis/shiptest_beret.rsi
+    sprite: ADT/Personalization/RedLis/shiptest_beret.rsi
 
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
-  id: ADTClothingOuterCoatShipTestAltiusRedLis
+  id: ADTClothingOuterCoatShipTestRedLis
   name: trench coat
   description: A trench coat with a turn-down collar, a double-breasted closure, and a red belt that has no practical use.
-  suffix: Personal, Altius, RedLis
+  suffix: Personal, RedLis
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Altius_RedLis/shiptest_trenchcoat.rsi
+    sprite: ADT/Personalization/RedLis/shiptest_trenchcoat.rsi
   - type: Clothing
-    sprite: ADT/Personalization/Altius_RedLis/shiptest_trenchcoat.rsi
+    sprite: ADT/Personalization/RedLis/shiptest_trenchcoat.rsi
   - type: Storage
     grid:
     - 0,0,4,2
@@ -1611,15 +1516,15 @@
 
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
-  id: ADTClothingOuterCoatJacketShipTestAltiusRedLis
+  id: ADTClothingOuterCoatJacketShipTestRedLis
   name: jacket
   description: The jacket, made of high-strength materials, is dark in color and features a prominent emblem on the back.
   suffix: Personal, Altius, RedLis
   components:
   - type: Sprite
-    sprite: ADT/Personalization/Altius_RedLis/shiptest_jacket.rsi
+    sprite: ADT/Personalization/RedLis/shiptest_jacket.rsi
   - type: Clothing
-    sprite: ADT/Personalization/Altius_RedLis/shiptest_jacket.rsi
+    sprite: ADT/Personalization/RedLis/shiptest_jacket.rsi
   - type: Storage
     grid:
     - 0,0,4,2
@@ -1892,6 +1797,82 @@
       params:
         variation: 0.07
 
+# stryz_ani
+- type: entity
+  parent: ClothingHandsGlovesSyntheticBase
+  id: ADTClothingHandsStryzAniPullingGloves
+  name: cyber combat gloves
+  description: Gloves with blood-red metal plates on the wrist, the first phalanx of the index finger, and the base of the thumb. The gloves feature a mechanism that allows the katana to be returned to the user's hands.
+  suffix: Personal, stryz_ani
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/stryz_ani/gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/stryz_ani/gloves.rsi
+  - type: PullingGloves
+  - type: ActionGrant
+    actions:
+    - ActionWeaponPull
+  - type: ItemActionGrant
+    actions:
+    - ActionWeaponPull
+    activeIfWorn: true
+
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ADTClothingBeltStryzAniSheath
+  name: cyber sheath
+  description: The scabbard is so electrified that it can explode and tear the wearer apart at the slightest touch, but it is still the perfect holder for your katana.
+  suffix: Personal, stryz_ani
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/stryz_ani/sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/stryz_ani/sheath.rsi
+    quickEquip: false
+    slots:
+    - belt
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Katana
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - ADTStryzAniKatana
+  - type: ItemMapper
+    mapLayers:
+      sheath-katana:
+        whitelist:
+          tags:
+          - ADTStryzAniKatana
+  - type: Appearance
+
+- type: entity
+  parent: Clothing
+  id: ADTClothingEarHonelin111GoldenEarring
+  name: gold earring
+  description: A piece of jewelry made of a dark gold alloy, with a history that is far from simple—just like the person who wears it.
+  suffix: Honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/honelin111_golden_earrings.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/honelin111_golden_earrings.rsi
+    slots:
+    - ears
+    - ears2
+
+# SikRit
 - type: entity
   parent: ADTSponsorClothingNeckBase
   id: ADTClothingNeckSikRitDemonicWings
