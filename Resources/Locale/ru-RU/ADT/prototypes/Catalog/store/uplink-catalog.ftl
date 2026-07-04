@@ -48,11 +48,11 @@ uplink-Buldog-ammo-bundle-name = Набор магазинов для "Буль�
 uplink-Buldog-ammo-bundle-desc = Набор, содержащий 4 запасных магазина по цене 3. Имеет 2 барабана с дробью и 2 барабана с пулями
 uplink-BuldogXL-ammo-bundle-name = Набор XL-магазинов для "Бульдога""
 uplink-BuldogXL-ammo-bundle-desc = Набор, содержащий 4-XL магазина для дробовика "Бульдог". Имеет 2 барабана с дробью и 2 барабана с пулями
-uplink-xc67-name = Набор xC-67
+uplink-xc67-name = Набор "xC-67"
 uplink-xc67-description = Набор, содержащий штурмовую винтовку хС-67 и два магазина к ней.
 uplink-xc67ammo-name = Набор магазинов для xC-67
 uplink-xc67ammo-description = Набор, содержащий три расширенных магазина от хС-67 под патрон 6.5 мм ТСФ.
-uplink-AKMS-bundle-name = Набор АКМ
+uplink-AKMS-bundle-name = Набор "АКМ"
 uplink-AKMS-bundle-desc = Набор, содержащий АКМ и четыре магазина к нему.
 uplink-hristov-bundle-name = Набор модернизированного "Христова"
 uplink-hristov-bundle-desc = Содержит в себе Улучшенную винтовку "Христов" и три запасных магазина к нему.
@@ -219,3 +219,6 @@ uplink-mindslave-implanter-desc = Одноразовый шприц, заряж�
 
 uplink-box-music-disks-name = Музыкальный набор Синдиката
 uplink-box-music-disks-desc = Тихо выполнять цели - не ваш выбор? Тогда этот набор отлично вам подойдет! Содержит в себе музыкальный проигрыватель и 3 диска содержащих хитовые треки.
+
+uplink-code-speak-implanter-name = Имплантер Кодового языка
+uplink-code-speak-implanter-desc = Каждый уважающий себя ядерный оперативник знает этот язык. Имплантер замаскирован под обычный имплантер Общегалактического языка.

@@ -521,7 +521,7 @@ ent-ADTFoodKiwiTartaliokiwi_fruit = тарталетка с киви
     .suffix = { "Именное, kiwi_fruit" }
 
 ent-ADTPlushieDionaIneedPizza486 = плюшевая диона в шляпке
-    .desc = Плюшевая игрушка в виде Диона с красной шляпой!
+    .desc = Приятно шуршащая игрушка в виде дионы. Теперь со шляпой!
     .suffix = { "Спонсорское, ineedpizza486" }
 
 ent-ADTPlushieAnagiri = плюшевая Плейона
@@ -968,7 +968,7 @@ ent-ADTClothingNeckHonelin111Choker = чокер с колокольчиком
     .suffix = { "Именное, honelin111" }
 
 ent-ADTClothingEarHonelin111GoldenEarring = золотая серьга
-    .desc = Ювелирное изделие из сплава тёмного золота, имеющее далеко не простую историю, равно как и её носитель.
+    .desc = Минималистичная квадратная серьга из аврорного золота насыщенного жёлтого цвета с лёгким оранжевым оттенком. Эта серьга имеет непростую историю, как и её обладатель.
     .suffix = { "Именное, honelin111" }
 
 ent-ADTClothingBeltKnifeCase = ножны для ножа

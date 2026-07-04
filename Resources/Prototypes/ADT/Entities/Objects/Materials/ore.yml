@@ -56,6 +56,7 @@
         visible: false
         map: ["enum.GibtoniteVisuals.Active"]
   - type: Item
+    size: Ginormous
     heldPrefix: ADTBSore
   - type: MultiHandedItem
   - type: Damageable

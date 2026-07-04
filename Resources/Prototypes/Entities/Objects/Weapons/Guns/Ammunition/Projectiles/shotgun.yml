@@ -6,15 +6,18 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-#ADT tweak start
+    # ADT-Tweak-Start
     layers:
     - state: slug
-#ADT tweak end
+    # ADT-Tweak-End
   - type: Projectile
     damage:
       types:
-        Piercing: 40
-        Structural: 25 #ADT tweak 15 -> 25
+        # ADT-Tweak-Start
+        Piercing: 15 # 40 -> 15
+        Blunt: 25 # 0 -> 25
+        Structural: 25 # 0 -> 25
+        # ADT-Tweak-End
 
 
 - type: entity
