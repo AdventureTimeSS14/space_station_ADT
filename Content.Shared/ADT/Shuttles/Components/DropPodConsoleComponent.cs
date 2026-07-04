@@ -36,7 +36,7 @@ public sealed partial class DropPodConsoleComponent : Component
     /// Null disables the effect entirely.
     /// </summary>
     [DataField]
-    public string? PreLandingSpawnPrototype = "ADTDroppodTarget";
+    public string? PreLandingSpawnPrototype;
 
     /// <summary>
     /// How many seconds before landing to spawn <see cref="PreLandingSpawnPrototype"/>.

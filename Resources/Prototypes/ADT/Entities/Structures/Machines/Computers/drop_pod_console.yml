@@ -4,7 +4,7 @@
   parent: BaseComputer
   id: ComputerDropPodSyndicate
   name: drop pod deployment console
-  description: A hardened syndicate console for selecting an impact beacon and launching the drop pod at the station. [color=red]Restricted to authorised personnel.[/color]
+  description: A hardened syndicate console for selecting an impact beacon and launching the drop pod at the station.Restricted to authorised personnel.
   components:
   - type: DropPodConsole
     beaconBlacklist:
@@ -52,6 +52,7 @@
       - ADTBluespaceHarvesterRift
       - DefaultStationBeaconNuclear
       - DefaultStationBeaconCentComm
+    preLandingSpawnPrototype: ADTDroppodTarget
     flightTime: 90 # время полета
     preLandingSpawnLeadTime: 15 # момент когда появляется отображение приземление
     peaceCost: 60 # стоимость в мирное время
