@@ -12,13 +12,17 @@
       - DefaultStationBeaconBridge
       - DefaultStationBeaconVault
       - DefaultStationBeaconCaptainsQuarters
+      - DefaultStationBeaconHOPOffice
+      - DefaultStationBeaconHOSRoom
+      - DefaultStationBeaconCMORoom
+      - DefaultStationBeaconRDRoom
+      - DefaultStationBeaconQMRoom
+      - DefaultStationBeaconCERoom
       # Security
       - DefaultStationBeaconSecurity
       - DefaultStationBeaconBrig
       - DefaultStationBeaconBrigMed
       - DefaultStationBeaconWardensOffice
-      - DefaultStationBeaconHOPOffice
-      - DefaultStationBeaconHOSRoom
       - DefaultStationBeaconArmory
       - DefaultStationBeaconPermaBrig
       - DefaultStationBeaconDetectiveRoom
@@ -35,6 +39,11 @@
       - DefaultStationBeaconAIPower
       # Dangerous engineering
       - ADTDefaultStationBeaconSuperMatter
+      - DefaultStationBeaconGravGen
+      - DefaultStationBeaconAnchor
+      - DefaultStationBeaconSingularity
+      - DefaultStationBeaconTelecoms
+      - DefaultStationBeaconTEG
       # WTF Nuclear
       - DefaultStationBeaconNuclear
       - DefaultStationBeaconNukeOps
@@ -42,6 +51,7 @@
       # Special
       - ADTBluespaceHarvesterRift
       - DefaultStationBeaconNuclear
+      - DefaultStationBeaconCentComm
     flightTime: 90 # время полета
     preLandingSpawnLeadTime: 15 # момент когда появляется отображение приземление
     tcCost: 35 # стоимость
