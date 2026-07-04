@@ -20,6 +20,7 @@ public sealed class DropPodConsoleBui(EntityUid owner, Enum uiKey) : BoundUserIn
     private DropPodNavMapControl? _mapControl;
 
     private Label? _tcLabel;
+    private Label? _warStatusLabel;
 
     private NetEntity? _selectedBeacon;
     private string? _selectedBeaconName;
@@ -47,7 +48,20 @@ public sealed class DropPodConsoleBui(EntityUid owner, Enum uiKey) : BoundUserIn
         _canLaunch = s.CanLaunch;
         _alreadyLaunched = s.AlreadyLaunched;
         _tcBalance = s.TcBalance;
-        _tcCost = s.TcCost;
+        _tcCost = s.CurrentCost;
+
+        if (_warStatusLabel != null)
+        {
+            if (s.IsAtWar)
+            {
+                _warStatusLabel.Text = Loc.GetString("drop-pod-console-war-active", ("time", s.WarCooldownRemaining));
+                _warStatusLabel.FontColorOverride = Color.OrangeRed;
+            }
+            else
+            {
+                _warStatusLabel.Text = string.Empty;
+            }
+        }
 
         if (_mapControl != null && s.StationGrid.HasValue)
         {
@@ -119,6 +133,12 @@ public sealed class DropPodConsoleBui(EntityUid owner, Enum uiKey) : BoundUserIn
             Margin = new Thickness(0, 0, 0, 8),
         };
         panel.AddChild(_tcLabel);
+
+        _warStatusLabel = new Label
+        {
+            Margin = new Thickness(0, 0, 0, 8),
+        };
+        panel.AddChild(_warStatusLabel);
 
         panel.AddChild(new Label
         {

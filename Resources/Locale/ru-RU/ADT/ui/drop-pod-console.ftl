@@ -14,6 +14,7 @@ drop-pod-console-status-not-ready = Статус: Система остывае�
 drop-pod-console-status-launched = Статус: Капсула уже запущена.
 
 drop-pod-console-tc-label = Телекристаллы: { $balance } / { $cost } ТК
+drop-pod-console-war-active = ВОЙНА — Капсула недоступна ещё { $time } сек
 drop-pod-console-tc-slot-name = Слот телекристаллов
 
 drop-pod-console-notice = ВНИМАНИЕ: Оперативники, не пристёгнутые во время посадки, получат травмы.

@@ -54,7 +54,8 @@
       - DefaultStationBeaconCentComm
     flightTime: 90 # время полета
     preLandingSpawnLeadTime: 15 # момент когда появляется отображение приземление
-    tcCost: 35 # стоимость
+    peaceCost: 60 # стоимость в мирное время
+    warCost: 30 # стоимость при войне
   - type: ActivatableUI
     key: enum.DropPodConsoleUiKey.Key
   - type: UserInterface

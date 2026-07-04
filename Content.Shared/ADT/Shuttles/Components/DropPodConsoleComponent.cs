@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.ADT.Shuttles.Components;
 
@@ -43,9 +44,24 @@ public sealed partial class DropPodConsoleComponent : Component
     [DataField]
     public float PreLandingSpawnLeadTime = 15f;
 
-    [DataField]
-    public int TcCost = 35;
+    /// <summary>
+    /// Cost of launching the drop pod in peacetime.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int PeaceCost = 35;
+
+    /// <summary>
+    /// Cost of launching the drop pod during war (discounted).
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int WarCost = 15;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan? WarDeclaredTime;
 }
+
+[ByRefEvent]
+public record struct DropPodWarSyncEvent(TimeSpan? WarDeclaredTime);
 
 [Serializable, NetSerializable]
 public enum DropPodConsoleUiKey : byte { Key }
@@ -79,7 +95,9 @@ public sealed class DropPodConsoleBuiState : BoundUserInterfaceState
     /// <summary>World-space centroid of all beacons, used to centre the nav map view.</summary>
     public Vector2 StationWorldCenter { get; init; }
     public int TcBalance { get; init; }
-    public int TcCost { get; init; }
+    public int CurrentCost { get; init; }
+    public bool IsAtWar { get; init; }
+    public int WarCooldownRemaining { get; init; }
 }
 
 /// <summary>
