@@ -21,7 +21,7 @@ public sealed partial class DropPodConsoleComponent : Component
     /// <summary>
     /// Total flight time in seconds from launch to impact. Also used as the announcement lead time.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField("flighttime")]
     public float FlightTime = 30f;
 
     [DataField]
@@ -40,10 +40,10 @@ public sealed partial class DropPodConsoleComponent : Component
     /// <summary>
     /// How many seconds before landing to spawn <see cref="PreLandingSpawnPrototype"/>.
     /// </summary>
-    [DataField]
+    [DataField("prelandingspawnleadtime")]
     public float PreLandingSpawnLeadTime = 15f;
 
-    [DataField]
+    [DataField("tccost")]
     public int TcCost = 35;
 }
 

@@ -42,6 +42,9 @@
       # Special
       - ADTBluespaceHarvesterRift
       - DefaultStationBeaconNuclear
+    flighttime: 90 # время полета
+    prelandingspawnleadtime: 15 # момент когда появляется отображение приземление
+    tccost: 35 # стоимость
   - type: ActivatableUI
     key: enum.DropPodConsoleUiKey.Key
   - type: UserInterface
