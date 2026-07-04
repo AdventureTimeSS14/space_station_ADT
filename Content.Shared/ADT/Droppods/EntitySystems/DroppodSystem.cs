@@ -32,9 +32,6 @@ public sealed class DroppodSystem : EntitySystem
         var droppod = Spawn("ADTDroppodDropping", coords);
         if (!TryComp<DroppodRemainderComponent>(droppod, out var pod))
             return;
-        foreach (var proto in spawns)
-        {
-            pod.Prototypes.Add(proto);
-        }
+        pod.Prototypes = spawns;
     }
 }

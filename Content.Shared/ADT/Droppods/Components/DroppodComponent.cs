@@ -12,5 +12,5 @@ public sealed partial class DroppodRemainderComponent : Component
     /// protos to spawn
     /// </summary>
     [DataField]
-    public List<EntProtoId> Prototypes { get; set; } = new();
+    public List<EntProtoId>? Prototypes { get; set; }
 }

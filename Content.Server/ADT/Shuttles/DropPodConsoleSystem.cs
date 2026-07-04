@@ -572,9 +572,9 @@ public sealed class DropPodConsoleSystem : EntitySystem
         return true;
     }
 
-    private static bool IsBlacklisted(string? prototypeId, List<string> blacklist)
+    private static bool IsBlacklisted(string? prototypeId, List<string>? blacklist)
     {
-        if (prototypeId == null)
+        if (prototypeId == null || blacklist == null)
             return false;
         return blacklist.Contains(prototypeId);
     }
