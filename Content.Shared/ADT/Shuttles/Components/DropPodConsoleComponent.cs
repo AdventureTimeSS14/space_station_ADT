@@ -15,7 +15,7 @@ public sealed partial class DropPodConsoleComponent : Component
     /// <summary>
     /// Beacon prototype IDs that cannot be targeted.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField("blacklist"), AutoNetworkedField]
     public List<string> BeaconBlacklist = new();
 
     /// <summary>
