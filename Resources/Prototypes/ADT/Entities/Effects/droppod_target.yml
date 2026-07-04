@@ -1,6 +1,7 @@
 - type: entity
   id: ADTDroppodTarget
   name: drop pod targeting reticle
+  categories: [HideSpawnMenu]
   components:
   - type: Sprite
     noRot: true
