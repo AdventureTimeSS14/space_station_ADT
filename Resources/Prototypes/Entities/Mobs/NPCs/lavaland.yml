@@ -65,7 +65,7 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: Gun
-    fireRate: 0.5
+    fireRate: 0.3 # ADT-Tweak 0.5 -> 0.3
     useKey: false
     selectedMode: SemiAuto
     availableModes:
@@ -79,7 +79,7 @@
     interactSuccessSound:
       path: /Audio/Animals/lizard_happy.ogg
   - type: Fauna # ADT-Tweak start
-  - type: AshStormImmune 
+  - type: AshStormImmune
   # - type: GrabProtection # ADT-Tweak-Comment
   - type: HTN
     rootTask:
@@ -90,7 +90,7 @@
       AggroVisionRadius: !type:Single
         10
   # ADT-Tweak end
-  
+
 - type: entity
   id: MobWatcherLavaland
   parent: MobWatcherBase
@@ -197,4 +197,4 @@
     energy: 3
   - type: RgbLightController
     layers: [ 1 ]
-    
+

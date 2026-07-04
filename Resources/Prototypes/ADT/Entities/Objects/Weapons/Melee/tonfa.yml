@@ -123,7 +123,7 @@
   - type: MeleeWeapon
     wideAnimationRotation: -135
     angle: 10
-    attackRate: 2
+    attackRate: 1
     damage:
       types:
         Blunt: 13
@@ -180,7 +180,7 @@
           - OffensiveWideHit
         comboEvent:
           - !type:ComboStaminaDamageEffect
-            staminaDamage: 50
+            staminaDamage: 40
           - !type:ComboAudioEffect
             sound:
               collection: GenericHit

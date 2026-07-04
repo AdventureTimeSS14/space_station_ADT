@@ -8,13 +8,13 @@
           prototype: MaterialCardboard1
           amount: 3
         - !type:DeleteEntity
-        
+
     - node: ADTBoxMaintenance
       edges:
         - to: start
           steps:
             - tool: Cutting
-              doAfter: 5
+              doAfter: 2
           completed:
             - !type:SpawnPrototype
               prototype: MaterialCardboard1

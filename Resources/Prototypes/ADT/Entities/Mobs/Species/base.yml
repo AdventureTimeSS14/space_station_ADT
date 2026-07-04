@@ -10,6 +10,7 @@
   id: ADTBaseMobSpeciesOrganicUnRotting
   abstract: true
   components:
+  - type: UnRotting # ADT-Tweak
   - type: MobState # ADT-Tweak
   - type: OfferItem
   - type: PickupHumans
@@ -63,4 +64,3 @@
   - type: BloodCough
     postingSayDamage: blood-cough
   - type: TimeDespawnDamage
-  - type: Embalmed

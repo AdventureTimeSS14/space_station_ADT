@@ -32,9 +32,10 @@
   - type: MobIpc
     disablePointLightOnDeath: true
   - type: InteractionPopup
-    interactSuccessString: petting-success-ipc
-    interactSuccessSound:
-      path: /Audio/Ambience/Objects/periodic_beep.ogg
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
   - type: SiliconEmitSoundOnDrained
     sound: "/Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg"
     minInterval: 8
@@ -163,7 +164,6 @@
     - SiliconEmotes
     - ADTIgnoreChokeSpeechBlocking
     - Unimplantable
-    - AnomalyHost
   - type: Inventory
     templateId: ipc
     displacements:

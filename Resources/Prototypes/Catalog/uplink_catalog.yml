@@ -83,7 +83,7 @@
 #   conditions:
 #   - !type:ListingLimitedStockCondition
 #     stock: 1
-# ADT-Tweak end 
+# ADT-Tweak end
 
 - type: listing
   id: UplinkThrowingKnivesKit
@@ -185,12 +185,12 @@
   name: uplink-hushpup-name
   description: uplink-hushpup-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/hushpup.rsi, state: icon }
-  productEntity: BriefcaseWeaponHushpupFilled
+  productEntity: ClothingBackpackDuffelSyndicateFilledHushpup # ADT Tweak BriefcaseWeaponHushpupFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 8
+    Telecrystal: 5 # ADT Tweak 8 -> 5
   cost:
-    Telecrystal: 10
+    Telecrystal: 7 # ADT Tweak 10 -> 7
   categories:
   - UplinkWeaponry
 
@@ -2257,11 +2257,11 @@
   name: uplink-briefcase-gun-name
   description: uplink-briefcase-gun-desc
   productEntity: WeaponSubMachineGunBriefcase
-  discountCategory: veryRareDiscounts
+  discountCategory: rareDiscounts  # ADT-Tweak  veryRareDiscounts -> rareDiscounts
   discountDownTo:
-    Telecrystal: 10
+    Telecrystal: 7 # ADT-Tweak 7 -> 10
   cost:
-    Telecrystal: 14
+    Telecrystal: 12 # ADT-Tweak 15 -> 12
   categories:
   - UplinkJob
   conditions:

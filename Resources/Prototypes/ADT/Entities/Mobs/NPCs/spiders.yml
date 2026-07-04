@@ -162,7 +162,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 4.8
+        Piercing: 10
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -170,7 +170,7 @@
         - ReagentId: Toxin
           Quantity: 50
   - type: MeleeChemicalInjector
-    transferAmount: 1.5
+    transferAmount: 2
     solution: melee
 
 - type: entity
@@ -210,7 +210,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 6.4
+        Piercing: 15
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -218,7 +218,7 @@
         - ReagentId: Toxin
           Quantity: 50
   - type: MeleeChemicalInjector
-    transferAmount: 0.25
+    transferAmount: 0.5
     solution: melee
 
 - type: entity
@@ -260,7 +260,7 @@
     - id: FoodMeatSpider
       amount: 1
     - id: ADTViperChelicerae
-      amount: 1
+      amount: 2
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -269,7 +269,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 1.5
+        Piercing: 7
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -322,18 +322,18 @@
     baseSprintSpeed : 2.7
   - type: SlowOnDamage
     speedModifierThresholds:
-      200: 0.7
-      260: 0.5
+      280: 0.7
+      320: 0.5
   - type: MobThresholds
     thresholds:
       0: Alive
-      300: Dead
+      350: Dead
   - type: Prying # Open door from xeno.yml.
     speedModifier: 3
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 24
+        Piercing: 28
 
 - type: entity
   name: little spider
@@ -509,7 +509,7 @@
           - ReagentId: Laughter
             Quantity: 90
     - type: MeleeChemicalInjector
-      transferAmount: 1
+      transferAmount: 3
       solution: melee
     - type: NpcFactionMember
       factions:

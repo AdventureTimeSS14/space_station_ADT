@@ -3,6 +3,7 @@
   name: AR-12
   parent: [WeaponRifleAk, ADTBaseMagneticGun]
   id: ADTWeaponRifleAR12
+  suffix: Автомат
   description: AR-12
   components:
   - type: Sprite

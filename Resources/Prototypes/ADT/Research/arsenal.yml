@@ -28,7 +28,7 @@
   recipeUnlocks:
     - ADTModsuitModArmor
     - ADTModsuitModSechud
-    - ADTModsuitModPowerKick
+  #  - ADTModsuitModPowerKick
     - ADTModsuitModStun
   technologyPrerequisites:
     - ADTSecMODsuit
@@ -79,7 +79,7 @@
   requiredTech:
   - ADTArsenalBasicModules
 
-# Кинетики 
+# Кинетики
 - type: technology
   id: KineticModifications
   name: research-technology-kinetic-modifications

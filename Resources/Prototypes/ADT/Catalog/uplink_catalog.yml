@@ -770,6 +770,9 @@
   description: uplink-miniature-energy-crossbow-desc
   icon: { sprite:  /Textures/ADT/Objects/Weapons/Guns/Battery/miniature_ebow.rsi, state: icon }
   productEntity: ADTWeaponMiniatureEnergyCrossbow
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 6
   cost:
     Telecrystal: 9
   categories:
@@ -800,16 +803,11 @@
   productEntity: ADTCqcManual
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 10
+    Telecrystal: 5
   cost:
-    Telecrystal: 13
+    Telecrystal: 8
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink # Бана в сюрплюсах не будет. Если тритор получил сикуси - тритор радуется
 
 - type: listing
   id: ADTUplinkModulesMod
@@ -984,3 +982,15 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: ADTImplanterCodespeak
+  name: uplink-code-speak-implanter-name
+  description: uplink-code-speak-implanter-desc
+  icon: { sprite: Objects/Specific/Medical/implanter.rsi, state: implanter0}
+  productEntity: CodeSpeakImplanter
+  discountCategory: usualDiscounts
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkImplants
