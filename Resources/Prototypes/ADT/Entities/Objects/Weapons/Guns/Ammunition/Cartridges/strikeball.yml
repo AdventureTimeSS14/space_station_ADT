@@ -28,6 +28,7 @@
   components:
   - type: Tag
     tags:
+      - Trash
       - ADTCartridgeBibis
   - type: CartridgeAmmo
     proto: ADTBulletBibis
@@ -40,6 +41,7 @@
   components:
   - type: Tag
     tags:
+      - Trash
       - ADTCartridgeBibisReinforced
   - type: CartridgeAmmo
     proto: ADTBulletBibisReinforced
@@ -52,6 +54,7 @@
   components:
   - type: Tag
     tags:
+      - Trash
       - ADTCartridgeBibisSoft
   - type: CartridgeAmmo
     proto: ADTBulletBibisSoft
@@ -65,3 +68,7 @@
   - type: CartridgeAmmo
     proto: PelletShotgunSpreadBibis
     deleteOnSpawn: true
+  - type: Tag
+    tags:
+      - Trash
+      - ShellShotgun
