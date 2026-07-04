@@ -15,13 +15,13 @@ public sealed partial class DropPodConsoleComponent : Component
     /// <summary>
     /// Beacon prototype IDs that cannot be targeted.
     /// </summary>
-    [DataField("blacklist"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public List<string> BeaconBlacklist = new();
 
     /// <summary>
     /// Total flight time in seconds from launch to impact. Also used as the announcement lead time.
     /// </summary>
-    [DataField("flighttime")]
+    [DataField, AutoNetworkedField]
     public float FlightTime = 30f;
 
     [DataField]
@@ -40,10 +40,10 @@ public sealed partial class DropPodConsoleComponent : Component
     /// <summary>
     /// How many seconds before landing to spawn <see cref="PreLandingSpawnPrototype"/>.
     /// </summary>
-    [DataField("prelandingspawnleadtime")]
+    [DataField]
     public float PreLandingSpawnLeadTime = 15f;
 
-    [DataField("tccost")]
+    [DataField]
     public int TcCost = 35;
 }
 
