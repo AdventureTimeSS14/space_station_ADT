@@ -1,11 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
-using Content.Server.ADT.Administration;
 using Content.Server.Database;
-using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Discord;
 using Robust.Server.Player;
-using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -59,21 +56,8 @@ public sealed class ServerDiscordIdManager : EntitySystem
             var discordId = await LoadDiscordId(userId);
             _cachedDiscordIds[userId] = discordId;
 
-            string? discordUsername = null;
-
-            if (discordId != null && ulong.TryParse(discordId, out var discordUlong))
-            {
-                try
-                {
-                    var cfg = IoCManager.Resolve<IConfigurationManager>();
-                    var botToken = cfg.GetCVar(ADTCCVars.DiscordTokenBot);
-                    discordUsername = await AuthApiHelper.GetAccountDiscord(discordUlong, botToken);
-                }
-                catch (Exception ex)
-                {
-                    _sawmill.Warning($"Failed to fetch Discord username for {discordId}: {ex.Message}");
-                }
-            }
+            // апи ДС плохо работает в РФ, так что пишем просто ID аккаунта
+            var discordUsername = discordId;
 
             if (session.Status != SessionStatus.InGame)
                 return;
