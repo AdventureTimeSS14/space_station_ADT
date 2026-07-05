@@ -177,8 +177,11 @@ public partial class SharedMartialArtsSystem
         _pulling.TryStopPull(target, pullable, ent, true);
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/Fluids/blood1.ogg"), target);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg"), ent);
+        ComboPopup(ent, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
 
     }
     #endregion
