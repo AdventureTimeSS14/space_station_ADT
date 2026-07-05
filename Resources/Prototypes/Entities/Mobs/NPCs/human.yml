@@ -63,6 +63,11 @@
     - type: HTN
       rootTask:
         task: SimpleHumanoidHostileCompound
+    # ADT-Tweak-Start Почему то была убрана защита от оверлутинга.
+    - type: AutoImplant
+      implants:
+      - ADTCriticalAcidifierImplant
+    # ADT-Tweak-End
 
 - type: entity
   name: syndicate shuttle pilot

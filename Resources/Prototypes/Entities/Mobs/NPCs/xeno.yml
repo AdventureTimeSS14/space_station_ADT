@@ -207,7 +207,7 @@
   # ADT-Tweak start
       types:
         Blunt: 15
-        Structural: 100
+        Structural: 75
   # ADT-Tweak end
   - type: MovementSpeedModifier
     baseSprintSpeed: 4

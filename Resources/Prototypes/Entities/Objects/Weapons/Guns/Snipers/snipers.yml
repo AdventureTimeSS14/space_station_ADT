@@ -101,8 +101,8 @@
     capacity: 5
     proto: CartridgeAntiMateriel
   # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-    # modifier: 3
+  - type: RunAndGunSpreadModifier
+    modifier: 0.3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 0.65

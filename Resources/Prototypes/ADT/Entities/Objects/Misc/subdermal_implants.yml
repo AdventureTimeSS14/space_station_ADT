@@ -326,3 +326,28 @@
   components:
     - type: SubdermalImplant
     - type: MantisDaggersImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTCriticalAcidifierImplant
+  name: death-acidifier implant
+  description: This implant melts the user and their equipment upon death.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+    implantAction: ActionActivateDeathAcidifier
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Critical
+  - type: TriggerOnActivateImplant
+  - type: GibOnTrigger
+    targetUser: true
+    deleteItems: true
+  - type: SpawnOnTrigger
+    proto: Acidifier
+    predicted: true
+  - type: Tag
+    tags:
+    - SubdermalImplant
+    - HideContextMenu

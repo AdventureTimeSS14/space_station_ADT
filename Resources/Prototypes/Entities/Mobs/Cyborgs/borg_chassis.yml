@@ -161,7 +161,7 @@
     # ADT-Tweak-Start
     - type: MovementSpeedModifier
       baseWalkSpeed : 2
-      baseSprintSpeed : 4
+      baseSprintSpeed : 3.5
     - type: Destructible
       thresholds:
       - trigger:

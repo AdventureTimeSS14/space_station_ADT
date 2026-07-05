@@ -2156,7 +2156,7 @@
   parent: BasePlushie
   id: ADTPlushieDionaIneedPizza486
   name: Diona in red hat plushie
-  description: Diona in red hat plushie
+  description: A pleasantly rustling toy in the shape of Diona. Now with a hat!
   suffix: Personal, ineedpizza486
   components:
   - type: Sprite
