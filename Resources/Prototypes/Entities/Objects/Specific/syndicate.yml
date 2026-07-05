@@ -97,6 +97,19 @@
   suffix: 40 TC, NukeOps
   components:
   - type: Store
+    name: store-preset-name-uplink #ADT-Tweak-start
+    categories:
+    - UplinkWeaponry
+    - UplinkAmmo
+    - UplinkAttachments #ADT_Tweak
+    - UplinkExplosives
+    - UplinkChemicals
+    - UplinkDeception
+    - UplinkDisruption
+    - UplinkImplants
+    - UplinkWearables
+    - UplinkJob
+    - UplinkPointless #ADT-Tweak-end
     balance:
       Telecrystal: 40
   - type: Tag
@@ -127,6 +140,7 @@
   - type: Tag
     tags:
     - NukeOpsUplink
+    - LoneOpsUplink
 
 - type: entity
   parent: BaseUplinkRadio

@@ -8,6 +8,12 @@
   icon: "ADTJobIconDeathSquad" #ADT-Tweak
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 75h # adt tweak
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 40h # adt tweak
   accessGroups:
   - AllAccess
   access:

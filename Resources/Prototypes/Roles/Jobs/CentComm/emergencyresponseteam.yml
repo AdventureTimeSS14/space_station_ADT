@@ -9,6 +9,12 @@
   icon: "JobIconERTLeader"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 50h # ADT-tweak
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 20h # adt tweak
   accessGroups:
   - AllAccess
   access:
@@ -107,6 +113,12 @@
   icon: "JobIconERTChaplain"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 50h # ADT-tweak
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 20h # adt tweak
   accessGroups:
   - AllAccess
   access:
@@ -185,6 +197,12 @@
   icon: "JobIconERTEngineer"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 50h # ADT-tweak
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 20h # adt tweak
   accessGroups:
   - AllAccess
   access:
@@ -268,6 +286,12 @@
   icon: "JobIconERTSecurity"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 50h # ADT-tweak
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 20h # adt tweak
   accessGroups:
   - AllAccess
   access:
@@ -369,6 +393,12 @@
   icon: "JobIconERTMedic"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 50h # ADT-tweak
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 20h # adt tweak
   accessGroups:
   - AllAccess
   access:
@@ -444,6 +474,12 @@
   icon: "JobIconERTJanitor"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 50h # ADT-tweak
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 20h # adt tweak
   accessGroups:
   - AllAccess
   access:

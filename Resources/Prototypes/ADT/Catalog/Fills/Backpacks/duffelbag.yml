@@ -317,6 +317,22 @@
         - id: GeigerCounter
         - id: ADTAntiNobliumPaper
 - type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledAdvancedChemist # ADT-tweak
+  name: advanced chemist bundle
+  description: Everything a field chemist needs to set up shop anywhere - a flatpacked ChemMaster 4000, a flatpacked energy chem dispenser and a starter stock of reagents.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTChemMasterFlatpack
+        - id: ADTEnergyChemDispenserFlatpack
+        - id: VestineChemistryVial
+          amount: 2
+        - id: PlasmaChemistryVial
+
+- type: entity
   parent: ClothingBackpackChameleon
   id: ADTClothingBackpackChameleonThiefFill
   suffix: Fill, Chameleon, Thief
