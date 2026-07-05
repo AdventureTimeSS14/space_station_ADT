@@ -48,7 +48,7 @@
       enum.StorageUiKey.Key: # ADT edit
         type: StorageBoundUserInterface
   - type: MeleeWeapon
-    range: 1.0 # ADT-tweak 1.5 to 1.0
+    range: 1.2 # ADT-tweak 1.5 to 1.2
     hidden: true
     attackRate: 0.75
     damage:
@@ -116,7 +116,8 @@
         node: start
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  - type: NpcFactionMember # ADT-tweak-start
+  # ADT-tweak-Start
+  - type: NpcFactionMember
     factions:
     - NanoTrasen
   - type: MobThresholds
@@ -124,8 +125,11 @@
       0: Alive
       1000: Critical
   - type: MobState
-  - type: GrabProtection # ADT-tweak-end
-  - type: ZombieImmune # ADT-Tweak
+  - type: GrabProtection
+  - type: ZombieImmune
+  - type: NoSlip
+  - type: ProtectedFromStepTriggers
+  # ADT-tweak-End
 
 - type: entity
   id: MechRipley
@@ -151,10 +155,8 @@
         Slash: 0.5
         Piercing: 0.75
         Heat: 0.75
-        Radiation: 0
-        Caustic: 0.1
         Structural: 1.0
-    maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
+    maxintegrity: 170   # ADT-tweak. Правим очки здоровья меха
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
@@ -219,8 +221,6 @@
         Slash: 0.5
         Piercing: 0.75
         Heat: 0.75
-        Radiation: 0
-        Caustic: 0.1
         Structural: 1.0
     maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
     # ADT end
@@ -276,8 +276,6 @@
         Slash: 0.5
         Piercing: 0.75
         Heat: 0.75
-        Radiation: 0
-        Caustic: 0.1
         Structural: 1.0
     maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
     # ADT end
@@ -353,8 +351,6 @@
         Slash: 0.5
         Piercing: 0.75
         Heat: 0.75
-        Radiation: 0
-        Caustic: 0.1
         Structural: 1.0
     maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
     # ADT end

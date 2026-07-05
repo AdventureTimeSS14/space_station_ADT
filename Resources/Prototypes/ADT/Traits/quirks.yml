@@ -163,7 +163,6 @@
     - ADTSiliconEmotes
     - ADTIgnoreChokeSpeechBlocking
     - Unimplantable
-    - AnomalyHost
 
 - type: trait
   id: ADTMaleIPC
@@ -190,4 +189,3 @@
     - ADTSiliconEmotes
     - ADTIgnoreChokeSpeechBlocking
     - Unimplantable
-    - AnomalyHost
