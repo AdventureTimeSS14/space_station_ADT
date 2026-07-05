@@ -67,6 +67,9 @@ public sealed class PrototypeSaveTest : GameTest
             // ADT-Tweak start
             if (HasSolutionContainerWithSolutions(prototype, prototypeMan))
                 continue;
+
+            if (prototype.HideSpawnMenu)
+                continue;
             // ADT-Tweak end
 
             // Currently mobs and such can't be serialized, but they aren't flagged as serializable anyways.
