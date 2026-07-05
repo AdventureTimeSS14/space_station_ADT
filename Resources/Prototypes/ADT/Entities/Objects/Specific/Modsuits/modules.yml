@@ -180,7 +180,7 @@
 - type: entity
   parent: ADTModsuitModBase
   id: ADTModsuitModPowerKick
-  name: MOD power kick module
+  name: MOD power kick module # Закоментил крафт модуля из-за того как люди его применяют. В основном просто пинают людей и мехов в космос.
   description: Super mega power punch! Twowing back every punched.
   components:
   - type: Sprite
@@ -493,6 +493,8 @@
         grid:
         - 0,0,8,4
         maxItemSize: Huge
+      - type: ExplosionResistance # Очень плохое решение ибо добавляет резист к основным параметрам, но иначе сделать защиту содержимого у меня не выйдет.
+        damageCoefficient: 0.9
 
 - type: entity
   parent: ADTModsuitModBase

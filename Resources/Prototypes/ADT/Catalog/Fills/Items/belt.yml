@@ -12,6 +12,7 @@
         - id: Stunbaton
         - id: Handcuffs
         - id: Handcuffs
+
 #кобура следователя СБ
 - type: entity
   id: ADTClothingBeltInvestigatorHolsterFill
@@ -24,6 +25,7 @@
         children:
         - id: WeaponPistolMk58
         - id: MagazinePistol
+
 - type: entity
   id: ADTClothingBeltMedicalBagFilled
   parent: ADTClothingBeltMedicalBag
@@ -39,8 +41,11 @@
           amount: 1
         - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
           amount: 1
+        - id: ADTSalineChemistryBottle
+          amount: 2
         - id: Gauze
         - id: EmergencyMedipen
+
 - type: entity
   id: ADTClothingBeltMedicalBagEMTFilled
   parent: ADTClothingBeltMedicalBag
@@ -54,8 +59,11 @@
         - id: Ointment
         - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
         - id: Gauze
+        - id: ADTSalineChemistryBottle
+          amount: 2
         - id: EmergencyMedipen
           amount: 3
+
 - type: entity
   id: ADTClothingBeltMilitaryWebbingCBURNFilled
   parent: ClothingBeltMilitaryWebbing
@@ -71,6 +79,7 @@
         - id: MagazineShotgun
           amount: 2
         - id: MagazineShotgunSlug
+
 - type: entity
   id: ADTClothingBeltMedicalSecurityERTFilled
   parent: ADTClothingBeltMedicalSecurity
@@ -90,6 +99,7 @@
         - id: ADTSalineChemistryBottle
         - id: BruteAutoInjector
         - id: BurnAutoInjector
+
 - type: entity
   id: ADTClothingBeltSheathZeroFilled
   parent: ADTClothingBeltSheathZero

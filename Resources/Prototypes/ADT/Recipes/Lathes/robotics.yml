@@ -253,16 +253,16 @@
     Gold: 100
     Copper: 200
 
-- type: latheRecipe
-  id: ADTModsuitModPowerKick
-  result: ADTModsuitModPowerKick
-  completetime: 2
-  materials:
-    Steel: 1000
-    Plastic: 400
-    Gold: 500
-    Silver: 600
-    Copper: 200
+#- type: latheRecipe
+#  id: ADTModsuitModPowerKick
+#  result: ADTModsuitModPowerKick
+#  completetime: 2
+#  materials:
+#    Steel: 1000
+#    Plastic: 400
+#    Gold: 500
+#    Silver: 600
+#    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModSechud

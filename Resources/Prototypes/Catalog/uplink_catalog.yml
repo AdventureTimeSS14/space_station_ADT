@@ -83,7 +83,7 @@
 #   conditions:
 #   - !type:ListingLimitedStockCondition
 #     stock: 1
-# ADT-Tweak end 
+# ADT-Tweak end
 
 - type: listing
   id: UplinkThrowingKnivesKit
@@ -2257,11 +2257,11 @@
   name: uplink-briefcase-gun-name
   description: uplink-briefcase-gun-desc
   productEntity: WeaponSubMachineGunBriefcase
-  discountCategory: veryRareDiscounts
+  discountCategory: rareDiscounts  # ADT-Tweak  veryRareDiscounts -> rareDiscounts
   discountDownTo:
-    Telecrystal: 10
+    Telecrystal: 7 # ADT-Tweak 7 -> 10
   cost:
-    Telecrystal: 14
+    Telecrystal: 12 # ADT-Tweak 15 -> 12
   categories:
   - UplinkJob
   conditions:
