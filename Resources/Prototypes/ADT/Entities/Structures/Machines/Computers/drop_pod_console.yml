@@ -4,9 +4,54 @@
   parent: BaseComputer
   id: ComputerDropPodSyndicate
   name: drop pod deployment console
-  description: A hardened syndicate console for selecting an impact beacon and launching the drop pod at the station.Restricted to authorised personnel.
+  description: A hardened syndicate console for selecting an impact beacon and launching the drop pod at the station.
   components:
   - type: DropPodConsole
+    beaconBlacklist:
+      # Command
+      - DefaultStationBeaconBridge
+      - DefaultStationBeaconVault
+      - DefaultStationBeaconCaptainsQuarters
+      - DefaultStationBeaconHOPOffice
+      - DefaultStationBeaconHOSRoom
+      - DefaultStationBeaconCMORoom
+      - DefaultStationBeaconRDRoom
+      - DefaultStationBeaconQMRoom
+      - DefaultStationBeaconCERoom
+      # Security
+      - DefaultStationBeaconSecurity
+      - DefaultStationBeaconBrig
+      - DefaultStationBeaconBrigMed
+      - DefaultStationBeaconWardensOffice
+      - DefaultStationBeaconArmory
+      - DefaultStationBeaconPermaBrig
+      - DefaultStationBeaconDetectiveRoom
+      - DefaultStationBeaconCourtroom
+      - DefaultStationBeaconLawOffice
+      - DefaultStationBeaconSecurityCheckpoint
+      - ADTDefaultStationBeaconDockingAreaSec
+      - ADTDefaultStationBeaconSuitsSec
+      # AI
+      - DefaultStationBeaconAI
+      - DefaultStationBeaconAISatellite
+      - DefaultStationBeaconAICore
+      - DefaultStationBeaconAIUpload
+      - DefaultStationBeaconAIPower
+      # Dangerous engineering
+      - ADTDefaultStationBeaconSuperMatter
+      - DefaultStationBeaconGravGen
+      - DefaultStationBeaconAnchor
+      - DefaultStationBeaconSingularity
+      - DefaultStationBeaconTelecoms
+      - DefaultStationBeaconTEG
+      # WTF Nuclear
+      - DefaultStationBeaconNuclear
+      - DefaultStationBeaconNukeOps
+      - NuclearBomb
+      # Special
+      - ADTBluespaceHarvesterRift
+      - DefaultStationBeaconNuclear
+      - DefaultStationBeaconCentComm
   - type: ActivatableUI
     key: enum.DropPodConsoleUiKey.Key
   - type: UserInterface
@@ -30,7 +75,7 @@
   - type: ItemSlots
     slots:
       tcSlot:
-        name: drop-pod-tc-slot-name
+        name: drop-pod-console-tc-slot-name
         whitelist:
           components:
           - Currency

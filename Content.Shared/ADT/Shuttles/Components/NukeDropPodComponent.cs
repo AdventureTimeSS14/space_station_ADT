@@ -8,7 +8,7 @@ namespace Content.Shared.ADT.Shuttles.Components;
 /// Only grids with this component can be targeted and launched by <see cref="DropPodConsoleComponent"/>.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class DropPodComponent : Component
+public sealed partial class NukeDropPodComponent : Component
 {
     /// <summary>
     /// Whether this drop pod has already been launched and is unavailable for further launches.

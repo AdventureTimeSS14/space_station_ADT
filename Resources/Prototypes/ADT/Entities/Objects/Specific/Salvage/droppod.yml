@@ -12,13 +12,12 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/Misc/droppod_landing.ogg
-  - type: DroppodRemainder
+  - type: Droppod
   - type: StaticPrice
     price: 14
 
 - type: entity
   id: ADTDroppodOpened
-  categories: [HideSpawnMenu]
   components:
   - type: Sprite
     sprite: ADT/Objects/Specific/droppod_open.rsi

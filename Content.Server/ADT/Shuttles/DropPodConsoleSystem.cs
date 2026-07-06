@@ -66,7 +66,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<DropPodConsoleComponent, AfterActivatableUIOpenEvent>(OnConsoleOpened);
-        SubscribeLocalEvent<DropPodComponent, FTLCompletedEvent>(OnDropPodArrived);
+        SubscribeLocalEvent<NukeDropPodComponent, FTLCompletedEvent>(OnDropPodArrived);
         SubscribeLocalEvent<WarDeclaredEvent>(OnWarDeclared);
 
         Subs.BuiEvents<DropPodConsoleComponent>(DropPodConsoleUiKey.Key, subs =>
@@ -79,7 +79,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<DropPodComponent>();
+        var query = EntityQueryEnumerator<NukeDropPodComponent>();
         while (query.MoveNext(out var uid, out var pod))
         {
             if (pod.PendingSpawnAt == null || pod.PendingSpawnCoords == null)
@@ -97,17 +97,14 @@ public sealed class DropPodConsoleSystem : EntitySystem
 
     private void OnWarDeclared(ref WarDeclaredEvent ev)
     {
-        var declaratorMap = Transform(ev.DeclaratorEntity).MapID;
-        var query = EntityQueryEnumerator<DropPodConsoleComponent, TransformComponent>();
-        while (query.MoveNext(out _, out var comp, out var xform))
+        var query = EntityQueryEnumerator<DropPodConsoleComponent>();
+        while (query.MoveNext(out _, out var comp))
         {
-            if (xform.MapID != declaratorMap)
-                continue;
             comp.WarDeclaredTime = ev.Status == WarConditionStatus.WarReady ? _timing.CurTime : null;
         }
     }
 
-    private void OnDropPodArrived(Entity<DropPodComponent> ent, ref FTLCompletedEvent args)
+    private void OnDropPodArrived(Entity<NukeDropPodComponent> ent, ref FTLCompletedEvent args)
     {
         var podGrid = ent.Owner;
         if (!TryComp<MapGridComponent>(podGrid, out var podGridComp))
@@ -317,11 +314,13 @@ public sealed class DropPodConsoleSystem : EntitySystem
         var (uid, comp) = ent;
 
         var xform = Transform(uid);
-        var onDropPod = xform.GridUid != null && HasComp<DropPodComponent>(xform.GridUid.Value);
+        var onDropPod = xform.GridUid != null && HasComp<NukeDropPodComponent>(xform.GridUid.Value);
         var alreadyLaunched = xform.GridUid != null
-            && TryComp<DropPodComponent>(xform.GridUid.Value, out var dropPod)
+            && TryComp<NukeDropPodComponent>(xform.GridUid.Value, out var dropPod)
             && dropPod.Launched;
-        var elapsed = _timing.CurTime - comp.LastLaunchTime;
+
+        var cooldownPassed = comp.CooldownPassedOnStart || comp.LastLaunchTime == TimeSpan.Zero;
+        var elapsed = cooldownPassed ? comp.Cooldown : (_timing.CurTime - comp.LastLaunchTime);
         var cooldownReady = onDropPod && !alreadyLaunched && elapsed >= comp.Cooldown;
 
         var isAtWar = false;
@@ -432,7 +431,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
         var (uid, comp) = ent;
 
         var xform = Transform(uid);
-        if (xform.GridUid == null || !TryComp<DropPodComponent>(xform.GridUid.Value, out var dropPod))
+        if (xform.GridUid == null || !TryComp<NukeDropPodComponent>(xform.GridUid.Value, out var dropPod))
         {
             Log.Warning($"DropPodConsole {ToPrettyString(uid)} is not on a DropPod grid.");
             return;

@@ -68,7 +68,7 @@ entities:
         version: 2
         nodes: []
     - type: RadiationGridResistance
-    - type: DropPod
+    - type: NukeDropPod
     - type: ExplosionAirtightGrid
     - type: GridAtmosphere
       version: 2

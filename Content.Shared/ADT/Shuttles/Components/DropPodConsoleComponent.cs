@@ -7,7 +7,7 @@ namespace Content.Shared.ADT.Shuttles.Components;
 
 /// <summary>
 /// A console that allows launching a drop pod at a chosen beacon on the station.
-/// Must be placed on a grid that has <see cref="DropPodComponent"/>.
+/// Must be placed on a grid that has <see cref="NukeDropPodComponent"/>.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class DropPodConsoleComponent : Component
@@ -16,46 +16,7 @@ public sealed partial class DropPodConsoleComponent : Component
     /// Beacon prototype IDs that cannot be targeted.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public List<string> BeaconBlacklist = new()
-    {
-        "DefaultStationBeaconBridge",
-        "DefaultStationBeaconVault",
-        "DefaultStationBeaconCaptainsQuarters",
-        "DefaultStationBeaconHOPOffice",
-        "DefaultStationBeaconHOSRoom",
-        "DefaultStationBeaconCMORoom",
-        "DefaultStationBeaconRDRoom",
-        "DefaultStationBeaconQMRoom",
-        "DefaultStationBeaconCERoom",
-        "DefaultStationBeaconSecurity",
-        "DefaultStationBeaconBrig",
-        "DefaultStationBeaconBrigMed",
-        "DefaultStationBeaconWardensOffice",
-        "DefaultStationBeaconArmory",
-        "DefaultStationBeaconPermaBrig",
-        "DefaultStationBeaconDetectiveRoom",
-        "DefaultStationBeaconCourtroom",
-        "DefaultStationBeaconLawOffice",
-        "DefaultStationBeaconSecurityCheckpoint",
-        "ADTDefaultStationBeaconDockingAreaSec",
-        "ADTDefaultStationBeaconSuitsSec",
-        "DefaultStationBeaconAI",
-        "DefaultStationBeaconAISatellite",
-        "DefaultStationBeaconAICore",
-        "DefaultStationBeaconAIUpload",
-        "DefaultStationBeaconAIPower",
-        "ADTDefaultStationBeaconSuperMatter",
-        "DefaultStationBeaconGravGen",
-        "DefaultStationBeaconAnchor",
-        "DefaultStationBeaconSingularity",
-        "DefaultStationBeaconTelecoms",
-        "DefaultStationBeaconTEG",
-        "DefaultStationBeaconNuclear",
-        "DefaultStationBeaconNukeOps",
-        "NuclearBomb",
-        "ADTBluespaceHarvesterRift",
-        "DefaultStationBeaconCentComm",
-    };
+    public List<string> BeaconBlacklist = new();
 
     /// <summary>
     /// Total flight time in seconds from launch to impact. Also used as the announcement lead time.
@@ -66,7 +27,11 @@ public sealed partial class DropPodConsoleComponent : Component
     [DataField]
     public TimeSpan Cooldown = TimeSpan.FromSeconds(120);
 
+    [DataField]
     public TimeSpan LastLaunchTime = TimeSpan.Zero;
+
+    [DataField]
+    public bool CooldownPassedOnStart = true;
 
     /// <summary>
     /// Prototype spawned at the landing site before the pod arrives.
