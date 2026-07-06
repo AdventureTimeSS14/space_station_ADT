@@ -34,9 +34,6 @@
         whitelist:
           components:
           - Currency
-  - type: ContainerContainer
-    containers:
-      tcSlot: !type:ContainerSlot
   - type: PointLight
     radius: 1.5
     energy: 1.6
