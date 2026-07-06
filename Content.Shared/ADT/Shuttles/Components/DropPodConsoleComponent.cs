@@ -1,5 +1,4 @@
-using System.Collections.Generic;
-using System.Numerics;
+﻿using System.Collections.Generic;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -60,52 +59,5 @@ public sealed partial class DropPodConsoleComponent : Component
     public TimeSpan? WarDeclaredTime;
 }
 
-[ByRefEvent]
-public record struct DropPodWarSyncEvent(TimeSpan? WarDeclaredTime);
-
 [Serializable, NetSerializable]
 public enum DropPodConsoleUiKey : byte { Key }
-
-/// <summary>
-/// Identifies a valid (non-blacklisted) landing beacon sent to the client UI.
-/// </summary>
-[Serializable, NetSerializable]
-public sealed class DropPodBeaconInfo
-{
-    public NetEntity Uid { get; init; }
-    public string Name { get; init; } = string.Empty;
-    /// <summary>World-space position used to highlight this beacon on the nav map.</summary>
-    public Vector2 WorldPos { get; init; }
-}
-
-/// <summary>
-/// State sent to the client: the list of valid (non-blacklisted) landing beacons and launch readiness.
-/// </summary>
-[Serializable, NetSerializable]
-public sealed class DropPodConsoleBuiState : BoundUserInterfaceState
-{
-    /// <summary>Beacons available for targeting (blacklisted ones are excluded).</summary>
-    public List<DropPodBeaconInfo> ValidBeacons { get; init; } = new();
-    public bool CanLaunch { get; init; }
-    public bool AlreadyLaunched { get; init; }
-    /// <summary>Remaining cooldown in whole seconds; zero when ready.</summary>
-    public int CooldownRemaining { get; init; }
-    /// <summary>Station grid to display on the nav map.</summary>
-    public NetEntity? StationGrid { get; init; }
-    /// <summary>World-space centroid of all beacons, used to centre the nav map view.</summary>
-    public Vector2 StationWorldCenter { get; init; }
-    public int TcBalance { get; init; }
-    public int CurrentCost { get; init; }
-    public bool IsAtWar { get; init; }
-    public int WarCooldownRemaining { get; init; }
-}
-
-/// <summary>
-/// Sent by the client to request launching toward a specific beacon.
-/// The server applies a random offset so the exact tile is never revealed in advance.
-/// </summary>
-[Serializable, NetSerializable]
-public sealed class DropPodConsoleDeployMessage : BoundUserInterfaceMessage
-{
-    public NetEntity TargetBeacon { get; init; }
-}
