@@ -1,6 +1,5 @@
 - type: entity
   id: ADTDroppodDropping
-  categories: [HideSpawnMenu]
   components:
   - type: Sprite
     sprite: ADT/Objects/Specific/droppod.rsi
