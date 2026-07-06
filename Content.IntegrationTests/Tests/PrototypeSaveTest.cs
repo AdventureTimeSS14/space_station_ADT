@@ -189,7 +189,10 @@ public sealed class PrototypeSaveTest : GameTest
                     sb.AppendLine($"--- Error {i + 1} ---");
                     sb.AppendLine(errors[i]);
                 }
-                Assert.Fail(sb.ToString());
+
+                var message = sb.ToString();
+                TestContext.Progress.WriteLine(message);
+                Assert.Fail(message);
             }
         });
         // ADT-Tweak end
@@ -269,10 +272,9 @@ public sealed class PrototypeSaveTest : GameTest
         {
             if (WritingComponent != "Transform" && Prototype?.HideSpawnMenu == false)
             {
-                // Maybe this will be necessary in the future, but at the moment it just indicates that there is some
-                // issue, like a non-nullable entityUid data-field. If a component MUST have an entity uid to work with,
-                // then the prototype very likely has to be a no-spawn entity that is never meant to be directly spawned.
-                Assert.Fail($"Uninitialized entities should not be saving entity Uids. Component: {WritingComponent}. Prototype: {Prototype.ID}");
+                var msg = $"Uninitialized entities should not be saving entity Uids. Component: {WritingComponent}. Prototype: {Prototype?.ID}";
+                TestContext.Progress.WriteLine(msg);
+                Assert.Fail(msg);
             }
 
             return new ValueDataNode(value.ToString());
