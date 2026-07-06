@@ -27,18 +27,3 @@
       state: syndie_generic_keys
     - map: ["enum.WiresVisualLayers.MaintenancePanel"]
       state: generic_panel_open
-  - type: ItemSlots
-    slots:
-      tcSlot:
-        name: drop-pod-tc-slot-name
-        startingItem: Telecrystal
-        whitelist:
-          components:
-          - Currency
-  - type: PointLight
-    radius: 1.5
-    energy: 1.6
-    color: "#b01010"
-  - type: Tag
-    tags:
-    - EmagImmune
