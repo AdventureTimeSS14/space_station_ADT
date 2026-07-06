@@ -97,9 +97,12 @@ public sealed class DropPodConsoleSystem : EntitySystem
 
     private void OnWarDeclared(ref WarDeclaredEvent ev)
     {
-        var query = EntityQueryEnumerator<DropPodConsoleComponent>();
-        while (query.MoveNext(out _, out var comp))
+        var declaratorMap = Transform(ev.DeclaratorEntity).MapID;
+        var query = EntityQueryEnumerator<DropPodConsoleComponent, TransformComponent>();
+        while (query.MoveNext(out _, out var comp, out var xform))
         {
+            if (xform.MapID != declaratorMap)
+                continue;
             comp.WarDeclaredTime = ev.Status == WarConditionStatus.WarReady ? _timing.CurTime : null;
         }
     }
