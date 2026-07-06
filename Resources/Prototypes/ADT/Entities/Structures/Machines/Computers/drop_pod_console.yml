@@ -52,11 +52,6 @@
       - ADTBluespaceHarvesterRift
       - DefaultStationBeaconNuclear
       - DefaultStationBeaconCentComm
-    preLandingSpawnPrototype: ADTDroppodTarget
-    flightTime: 90 # время полета
-    preLandingSpawnLeadTime: 15 # момент когда появляется отображение приземление
-    peaceCost: 60 # стоимость в мирное время
-    warCost: 30 # стоимость при войне
   - type: ActivatableUI
     key: enum.DropPodConsoleUiKey.Key
   - type: UserInterface
