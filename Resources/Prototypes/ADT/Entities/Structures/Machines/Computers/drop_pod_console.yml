@@ -7,6 +7,26 @@
   description: A hardened syndicate console for selecting an impact beacon and launching the drop pod at the station.Restricted to authorised personnel.
   components:
   - type: DropPodConsole
+  - type: ActivatableUI
+    key: enum.DropPodConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.DropPodConsoleUiKey.Key:
+        type: DropPodConsoleBui
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: request-syndie
+    - map: ["computerLayerKeys"]
+      state: syndie_generic_keys
+    - map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      state: generic_panel_open
   - type: ItemSlots
     slots:
       tcSlot:
@@ -15,9 +35,6 @@
         whitelist:
           components:
           - Currency
-  - type: ContainerContainer
-    containers:
-      tcSlot: !type:ContainerSlot {}
   - type: PointLight
     radius: 1.5
     energy: 1.6
