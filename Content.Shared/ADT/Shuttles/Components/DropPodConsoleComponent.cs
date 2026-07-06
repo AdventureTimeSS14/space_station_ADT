@@ -17,7 +17,7 @@ public sealed partial class DropPodConsoleComponent : Component
     /// Beacon prototype IDs that cannot be targeted.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public List<string>? BeaconBlacklist;
+    public List<string> BeaconBlacklist = new();
 
     /// <summary>
     /// Total flight time in seconds from launch to impact. Also used as the announcement lead time.
