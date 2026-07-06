@@ -6,7 +6,6 @@
   name: drop pod deployment console
   description: A hardened syndicate console for selecting an impact beacon and launching the drop pod at the station.Restricted to authorised personnel.
   components:
-  - type: DropPodConsole
   - type: ActivatableUI
     key: enum.DropPodConsoleUiKey.Key
   - type: UserInterface
