@@ -16,7 +16,46 @@ public sealed partial class DropPodConsoleComponent : Component
     /// Beacon prototype IDs that cannot be targeted.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public List<string> BeaconBlacklist = new();
+    public List<string> BeaconBlacklist = new()
+    {
+        "DefaultStationBeaconBridge",
+        "DefaultStationBeaconVault",
+        "DefaultStationBeaconCaptainsQuarters",
+        "DefaultStationBeaconHOPOffice",
+        "DefaultStationBeaconHOSRoom",
+        "DefaultStationBeaconCMORoom",
+        "DefaultStationBeaconRDRoom",
+        "DefaultStationBeaconQMRoom",
+        "DefaultStationBeaconCERoom",
+        "DefaultStationBeaconSecurity",
+        "DefaultStationBeaconBrig",
+        "DefaultStationBeaconBrigMed",
+        "DefaultStationBeaconWardensOffice",
+        "DefaultStationBeaconArmory",
+        "DefaultStationBeaconPermaBrig",
+        "DefaultStationBeaconDetectiveRoom",
+        "DefaultStationBeaconCourtroom",
+        "DefaultStationBeaconLawOffice",
+        "DefaultStationBeaconSecurityCheckpoint",
+        "ADTDefaultStationBeaconDockingAreaSec",
+        "ADTDefaultStationBeaconSuitsSec",
+        "DefaultStationBeaconAI",
+        "DefaultStationBeaconAISatellite",
+        "DefaultStationBeaconAICore",
+        "DefaultStationBeaconAIUpload",
+        "DefaultStationBeaconAIPower",
+        "ADTDefaultStationBeaconSuperMatter",
+        "DefaultStationBeaconGravGen",
+        "DefaultStationBeaconAnchor",
+        "DefaultStationBeaconSingularity",
+        "DefaultStationBeaconTelecoms",
+        "DefaultStationBeaconTEG",
+        "DefaultStationBeaconNuclear",
+        "DefaultStationBeaconNukeOps",
+        "NuclearBomb",
+        "ADTBluespaceHarvesterRift",
+        "DefaultStationBeaconCentComm",
+    };
 
     /// <summary>
     /// Total flight time in seconds from launch to impact. Also used as the announcement lead time.

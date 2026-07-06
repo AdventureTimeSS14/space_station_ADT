@@ -7,57 +7,14 @@
   description: A hardened syndicate console for selecting an impact beacon and launching the drop pod at the station.Restricted to authorised personnel.
   components:
   - type: DropPodConsole
-    beaconBlacklist:
-      # Command
-      - DefaultStationBeaconBridge
-      - DefaultStationBeaconVault
-      - DefaultStationBeaconCaptainsQuarters
-      - DefaultStationBeaconHOPOffice
-      - DefaultStationBeaconHOSRoom
-      - DefaultStationBeaconCMORoom
-      - DefaultStationBeaconRDRoom
-      - DefaultStationBeaconQMRoom
-      - DefaultStationBeaconCERoom
-      # Security
-      - DefaultStationBeaconSecurity
-      - DefaultStationBeaconBrig
-      - DefaultStationBeaconBrigMed
-      - DefaultStationBeaconWardensOffice
-      - DefaultStationBeaconArmory
-      - DefaultStationBeaconPermaBrig
-      - DefaultStationBeaconDetectiveRoom
-      - DefaultStationBeaconCourtroom
-      - DefaultStationBeaconLawOffice
-      - DefaultStationBeaconSecurityCheckpoint
-      - ADTDefaultStationBeaconDockingAreaSec
-      - ADTDefaultStationBeaconSuitsSec
-      # AI
-      - DefaultStationBeaconAI
-      - DefaultStationBeaconAISatellite
-      - DefaultStationBeaconAICore
-      - DefaultStationBeaconAIUpload
-      - DefaultStationBeaconAIPower
-      # Dangerous engineering
-      - ADTDefaultStationBeaconSuperMatter
-      - DefaultStationBeaconGravGen
-      - DefaultStationBeaconAnchor
-      - DefaultStationBeaconSingularity
-      - DefaultStationBeaconTelecoms
-      - DefaultStationBeaconTEG
-      # WTF Nuclear
-      - DefaultStationBeaconNuclear
-      - DefaultStationBeaconNukeOps
-      - NuclearBomb
-      # Special
-      - ADTBluespaceHarvesterRift
-      - DefaultStationBeaconNuclear
-      - DefaultStationBeaconCentComm
   - type: ActivatableUI
     key: enum.DropPodConsoleUiKey.Key
   - type: UserInterface
     interfaces:
       enum.DropPodConsoleUiKey.Key:
         type: DropPodConsoleBui
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
