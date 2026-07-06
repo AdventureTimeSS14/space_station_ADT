@@ -6,26 +6,7 @@
   name: drop pod deployment console
   description: A hardened syndicate console for selecting an impact beacon and launching the drop pod at the station.Restricted to authorised personnel.
   components:
-  - type: ActivatableUI
-    key: enum.DropPodConsoleUiKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.DropPodConsoleUiKey.Key:
-        type: DropPodConsoleBui
-      enum.WiresUiKey.Key:
-        type: WiresBoundUserInterface
-  - type: Sprite
-    layers:
-    - map: ["computerLayerBody"]
-      state: computer
-    - map: ["computerLayerKeyboard"]
-      state: generic_keyboard
-    - map: ["computerLayerScreen"]
-      state: request-syndie
-    - map: ["computerLayerKeys"]
-      state: syndie_generic_keys
-    - map: ["enum.WiresVisualLayers.MaintenancePanel"]
-      state: generic_panel_open
+  - type: DropPodConsole
   - type: ItemSlots
     slots:
       tcSlot:
