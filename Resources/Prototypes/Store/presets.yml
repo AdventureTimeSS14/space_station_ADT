@@ -37,7 +37,11 @@
     - SpellbookDefensive    #Magic Missile, Wall of Force
     - SpellbookUtility      #Body Swap, Lich, Teleport, Knock, Polymorph
     - SpellbookEquipment    #Battlemage Robes, Staff of Locker
-    - SpellbookEvents       #Summon Weapons, Summon Ghosts
+    #ADT-Tweak-Start
+    # Слишком много случаев, когда ивентеры ненамеренно выдавали всей станции ПУШКИ.
+    # Раскомментить только если вы знаете ЧТО ДЕЛАЕТЕ.
+    #- SpellbookEvents       #Summon Weapons, Summon Ghosts
+    #ADT-Tweak-End
     currencyWhitelist:
     - WizCoin
     expectedFaction:
