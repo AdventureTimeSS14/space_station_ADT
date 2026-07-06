@@ -79,6 +79,10 @@
         whitelist:
           components:
           - Currency
+  - type: ContainerContainer
+    containers:
+      board: !type:Container # заглушка для теста, т.к это консоль и нужна плата
+      tcSlot: !type:ContainerSlot
   - type: PointLight
     radius: 1.5
     energy: 1.6
