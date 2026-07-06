@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 265.0.0
   forkId: ADT
   forkVersion: ddea013f8ecb044890d454235f3fc7423fa052ab
   time: 11/20/2025 16:31:57
   entityCount: 12147
-maps:
-- 1
+maps: []
 grids:
 - 1
-orphans: []
+orphans:
+- 1
 nullspace: []
 tilemap:
   0: Space
@@ -90,9 +90,6 @@ entities:
     components:
     - type: MetaData
     - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
     - type: Broadphase
     - type: OccluderTree
     - type: MapGrid
