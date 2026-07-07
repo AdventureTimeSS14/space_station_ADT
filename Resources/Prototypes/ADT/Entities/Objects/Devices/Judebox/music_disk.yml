@@ -169,6 +169,23 @@
 
 - type: entity
   parent: ADTMusicDiskStandard
+  id: ADTMusicDiskSome
+  name: music disk (xz)
+  description: Powerful guitar riffs and energetic drums. The neighbors will definitely appreciate the volume.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base
+      color: "#343434"
+    - state: disk_label_music
+  - type: JukeboxDisk
+    tracksCollection: myJBL
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ADTMusicDiskStandard
   id: ADTMusicDiskSonic
   name: music disk (Sonic)
   description: Nostalgic melodies from the last century.

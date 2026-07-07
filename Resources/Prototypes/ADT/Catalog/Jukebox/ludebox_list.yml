@@ -32,6 +32,11 @@
   - ADTGodish
 
 - type: jukeboxList
+  id: myJBL
+  jukeboxes:
+  - MyProto
+
+- type: jukeboxList
   id: Sonic
   jukeboxes:
   - TidalTempestPresent

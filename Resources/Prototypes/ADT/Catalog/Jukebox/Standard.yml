@@ -257,6 +257,12 @@
     path: /Audio/ADT/Jukebox/ACDCBIB.ogg
 
 - type: jukebox
+  id: MyProto
+  name: "AC/DC - Back In Black"
+  path:
+    path: /Audio/ADT/IPC/signal.ogg
+
+- type: jukebox
   id: ACDCHTH
   name: "AC/DC - Highway To Hell"
   path:

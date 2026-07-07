@@ -113,6 +113,7 @@
           components:
           - JukeboxDisk
   - type: Jukebox
+    volume: 100000000
   - type: Transform
     anchored: false
     noRot: false
