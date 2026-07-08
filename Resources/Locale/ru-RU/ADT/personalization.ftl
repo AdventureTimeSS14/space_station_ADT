@@ -1030,3 +1030,7 @@ ent-ADTClothingNeckSikRitDemonicWings = демонические крылья
 ent-ADTSharpCrowbar = бортовой ломик с гравировкой
     .desc = У этого лома заострённый "хвост", идеален для защиты. На нём имеется гравировка "И. М."
     .suffix = { "Именное, not_pou" }
+
+ent-ADTClothingNeckSentinel = плащ стража
+    .desc = Изящная мантия, врученная вечным стражам, что следят за порядком мира.
+    .suffix = { "Именное, NSFW" }

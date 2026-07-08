@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Making by prazat911 for Adventure Time Project",
+  "copyright": "Making by prazat911 for Adventure Time Project. 'standart' created by ihaveaeye",
   "size": {
     "x": 32,
     "y": 32
@@ -120,6 +120,9 @@
     },
     {
       "name": "gorlaxsanta_contraband"
+    },
+    {
+      "name": "standart"
     }
   ]
 }
