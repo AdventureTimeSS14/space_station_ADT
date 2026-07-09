@@ -229,12 +229,12 @@
       path: "/Audio/Weapons/Guns/Hits/taser_hit.ogg"
     forceSound: true
   - type: TimedDespawn
-    lifetime: 0.170 # Very short range
+    lifetime: 0.1 # ADT-Tweak 1.70 -> 1 # Very short range
   - type: StunOnCollide
     stunAmount: 0
-    knockdownAmount: 2.5 # Enough to subdue and follow up with a stun baton
+    knockdownAmount: 0.1 # ADT-Tweak 2.5 -> 0.1 # Enough to subdue and follow up with a stun baton
     drop: false #Ranged KD and item drop are too strong in one package
-    slowdownAmount: 2.5
+    slowdownAmount: 3.2 # ADT-Tweak 2.5 -> 3.2
     walkSpeedModifier: 0.5
     sprintSpeedModifier: 0.5
 
@@ -437,7 +437,7 @@
 # ADT-Tweak start
   - type: StunOnCollide
     stunAmount: 0
-    knockdownAmount: 1
+    knockdownAmount: 0.1
 # ADT-Tweak end
 
 - type: entity

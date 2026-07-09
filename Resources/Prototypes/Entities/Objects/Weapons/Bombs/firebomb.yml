@@ -27,12 +27,12 @@
         volume: 1
   - type: RandomTimerTrigger
     min: 0
-    max: 15
+    max: 10 # ADT-Tweak 15 -> 10
   - type: Explosive # Weak explosion in a very small radius. Ignites surrounding entities.
     explosionType: FireBomb
     totalIntensity: 25
     intensitySlope: 5
-    maxIntensity: 3
+    maxIntensity: 8 # ADT-Tweak 3 -> 8
     canCreateVacuum: false
   - type: ExplodeOnTrigger
     keysIn:

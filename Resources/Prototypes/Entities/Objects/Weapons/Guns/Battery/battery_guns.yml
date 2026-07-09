@@ -416,7 +416,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: BatteryAmmoProvider
-    proto: Pulse
+    proto: ADTPulsePistol # ADT-Tweak Pulse -> ADTPulsePistol
     fireCost: 100 # ADT tweak 200 -> 100
   - type: Battery
     maxCharge: 1000 # ADT tweak 2000->1000
@@ -906,6 +906,18 @@
     - state: mag-unshaded-0
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  # ADT-Tweak-Start
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  - type: GunExecutionBlacklist
+  # ADT-Tweak-End
   - type: Item
     heldPrefix: taser4
   - type: Clothing
@@ -913,7 +925,7 @@
     slots:
     - Belt
   - type: Gun
-    fireRate: 0.5
+    fireRate: 0.4 # ADT-Tweak 0.5 -> 0.4
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
     projectileSpeed: 25
@@ -1046,7 +1058,10 @@
     proto: RedMediumLaser
     fireCost: 100
   - type: BatterySelfRecharger
-    autoRechargeRate: 30
+    # ADT-Tweak-Start
+    autoRechargeRate: 20 # 30 -> 20
+    autoRechargePauseTime: 4 # ADT-Tweak
+    # ADT-Tweak-End
   - type: MagazineVisuals
     magState: mag
     steps: 5

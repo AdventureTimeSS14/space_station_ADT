@@ -62,6 +62,22 @@
   categories:
   - UplinkWeaponry
 
+- type: listing
+  id: ADTUplinkEnergySwordDouble
+  name: uplink-esword-double-name
+  description: uplink-esword-double-desc
+  icon: { sprite: Objects/Weapons/Melee/e_sword_double.rsi, state: e_sword_double }
+  productEntity: EnergySwordDouble
+  cost:
+    Telecrystal: 21
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - LoneOpsUplink
+
 #UplinkAttachments
 - type: listing
   id: ADTUplinkWeaponAttachmentsBundle
@@ -321,6 +337,37 @@
 #UplinkChemicals
 
 - type: listing
+  id: ADTUplinkAdvancedChemistBundle
+  name: uplink-advanced-chemist-bundle-name
+  description: uplink-advanced-chemist-bundle-desc
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledAdvancedChemist
+  cost:
+    Telecrystal: 17
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - LoneOpsUplink
+
+- type: listing
+  id: ADTUplinkSyndiHypo
+  name: uplink-syndihypo-name
+  description: uplink-syndihypo-desc
+  icon: { sprite: Objects/Specific/Medical/syndihypo.rsi, state: hypo }
+  productEntity: SyndiHypo
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
   id: UplinkADTHandDefibrillator
   name: uplink-ADTHandDefibrillator-name
   description: uplink-ADTHandDefibrillator-desc
@@ -343,7 +390,7 @@
   description: uplink-syndiholoprojectorfield-desc
   productEntity: ADTSyndiHoloprojectorField
   cost:
-    Telecrystal: 12
+    Telecrystal: 9 # adt tweak 12 > 9
   categories:
     - UplinkDeception
   conditions:
@@ -456,6 +503,22 @@
     - Bartender
 
 - type: listing
+  id: ADTUplinkAntagIronTrayNukeops
+  name: uplink-ADTAntagIronTray-name
+  description: uplink-ADTAntagIronTray-desc
+  icon: { sprite: ADT/Objects/Specific/Service/iron_tray.rsi, state: icon}
+  productEntity: ADTAntagIronTray
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
   id: ADTUplinkGameAntagCard
   name: uplink-agent-game-visit-card-name
   description: uplink-agent-game-visit-card-desc
@@ -482,6 +545,21 @@
       - ServiceWorker
 
 - type: listing
+  id: ADTuplinkExplosivePizzaboxNukeops
+  name: uplink-explosive-pizzabox-name
+  description: uplink-explosive-pizzabox-desc
+  productEntity: ADTExplosivePizzabox
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+        - NukeOpsUplink
+
+- type: listing
   id: ADTuplinkCaneShotgun
   name: uplink-cane-shotgun-name
   description: uplink-cane-shotgun-desc
@@ -495,6 +573,21 @@
     whitelist:
     - Mime
     - Passenger
+
+- type: listing
+  id: ADTuplinkCaneShotgunNukeops
+  name: uplink-cane-shotgun-name
+  description: uplink-cane-shotgun-desc
+  productEntity: ADTWhiteCaneShotgun
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 # - type: listing
 #   id: ADTuplinkStraightRazor
@@ -525,6 +618,21 @@
     - Mime
 
 - type: listing
+  id: ADTuplinkMuteToxinNukeops
+  name: uplink-mute-toxin-name
+  description: uplink-mute-toxin-desc
+  productEntity: ChemistryBottleMuteToxin
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
   id: ADTuplinkMimeEnhancedBook
   name: uplink-mime-enhanced-book-name
   description: uplink-mime-enhanced-book-desc
@@ -537,6 +645,21 @@
   - !type:BuyerJobCondition
     whitelist:
     - Mime
+
+- type: listing
+  id: ADTuplinkMimeEnhancedBookNukeops
+  name: uplink-mime-enhanced-book-name
+  description: uplink-mime-enhanced-book-desc
+  productEntity: ADTMimeEnhancedBook
+  cost:
+    Telecrystal: 7
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 #UplinkImplants
 
@@ -797,6 +920,19 @@
       - NukeOpsUplink
 
 - type: listing
+  id: ADTUplinkCapoeira
+  name: uplink-capoeira-name
+  description: uplink-capoeira-desc
+  productEntity: ADTScrollCapoeira
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 7
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: ADTUplinkcqc
   name: uplink-cqc-name
   description: uplink-cqc-desc
@@ -927,6 +1063,237 @@
     - AtmosphericTechnician
 
 - type: listing
+  id: uplinkContortionistJumpsuitAdvancedNukeops
+  name: uplink-contortionist-jumpsuit-advanced-name
+  description: uplink-contortionist-jumpsuit-advanced-desc
+  productEntity: ClothingUniformJumpsuitAtmosSyndieAdvanced
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkGatfruitSeedsNukeops
+  name: uplink-adt-gatfruit-seeds-name
+  description: uplink-adt-gatfruit-seeds-desc
+  productEntity: GatfruitSeeds
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkHolyHandGrenadeNukeops
+  name: uplink-adt-holy-hand-grenade-name
+  description: uplink-adt-holy-hand-grenade-desc
+  productEntity: HolyHandGrenade
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkRevolverCapGunFakeNukeops
+  name: uplink-adt-revolver-cap-gun-fake-name
+  description: uplink-adt-revolver-cap-gun-fake-desc
+  productEntity: RevolverCapGunFake
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkClusterBananaPeelNukeops
+  name: uplink-adt-cluster-banana-peel-name
+  description: uplink-adt-cluster-banana-peel-desc
+  productEntity: ClusterBananaPeel
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkHoloclownKitNukeops
+  name: uplink-adt-holoclown-kit-name
+  description: uplink-adt-holoclown-kit-desc
+  icon: { sprite: /Textures/Objects/Fun/figurines.rsi, state: holoclown }
+  productEntity: BoxHoloclown
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkHotPotatoNukeops
+  name: uplink-adt-hot-potato-name
+  description: uplink-adt-hot-potato-desc
+  productEntity: HotPotato
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkChimpUpgradeKitNukeops
+  name: uplink-adt-chimp-upgrade-kit-name
+  description: uplink-adt-chimp-upgrade-kit-desc
+  productEntity: WeaponPistolCHIMPUpgradeKit
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkProximityMineNukeops
+  name: uplink-adt-proximity-mine-name
+  description: uplink-adt-proximity-mine-desc
+  productEntity: WetFloorSignMineExplosive
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkSyndicateSpongeBoxNukeops
+  name: uplink-adt-syndicate-sponge-box-name
+  description: uplink-adt-syndicate-sponge-box-desc
+  icon: { sprite:  Objects/Misc/monkeycube.rsi, state: box}
+  productEntity: SyndicateSpongeBox
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkCaneBladeNukeops
+  name: uplink-adt-cane-blade-name
+  description: uplink-adt-cane-blade-desc
+  icon: { sprite:  Objects/Weapons/Melee/cane.rsi, state: cane}
+  productEntity: CaneSheathFilled
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkCombatBakeryNukeops
+  name: uplink-adt-combat-bakery-name
+  description: uplink-adt-combat-bakery-desc
+  icon: { sprite:  Objects/Consumable/Food/Baked/bread.rsi, state: baguette}
+  productEntity: CombatBakeryKit
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkAcolyteArmorNukeops
+  name: uplink-adt-acolyte-armor-name
+  description: uplink-adt-acolyte-armor-desc
+  icon: { sprite: Clothing/OuterClothing/Armor/cult_armour.rsi, state: icon}
+  productEntity: ClothingBackpackDuffelAcolyteBundle
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkSawAdvancedNukeops
+  name: uplink-adt-saw-advanced-name
+  description: uplink-adt-saw-advanced-desc
+  icon: { sprite:  Objects/Specific/Medical/Surgery/saw.rsi, state: advanced}
+  productEntity: SawAdvanced
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkBriefcaseGunNukeops
+  name: uplink-adt-briefcase-gun-name
+  description: uplink-adt-briefcase-gun-desc
+  productEntity: WeaponSubMachineGunBriefcase
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
   id: UplinkClothingNoSoundShoes
   name: uplink-clothing-no-sound-shoes-name
   description: uplink-clothing-no-sound-shoes-desc
@@ -958,6 +1325,40 @@
       blacklist:
         tags:
           - NukeOpsUplink
+
+- type: listing
+  id: UplinkClothingHandsGlovesGuerrilla
+  name: uplink-guerrilla-gloves-name
+  description: uplink-guerrilla-gloves-desc
+  icon: { sprite: /Textures/ADT/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
+  productEntity: ADTClothingHandsGlovesGuerrilla
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkClothingHandsGlovesGuerrillaOpsy
+  name: uplink-guerrilla-gloves-name
+  description: uplink-guerrilla-gloves-desc
+  icon: { sprite: /Textures/ADT/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
+  productEntity: ADTClothingHandsGlovesGuerrilla
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkEhack

@@ -6,6 +6,7 @@ using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.ADT.Implants;
+using Content.Shared.ADT.MartialArts;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -574,10 +575,14 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var attackedEvent = new AttackedEvent(meleeUid, user, targetXform.Coordinates);
         RaiseLocalEvent(target.Value, attackedEvent);
 
-        var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
+        // ADT tweak - AttackedEvent.ModifiersList (e.g. Dragon Power's resist) was never applied before
+        var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList.Concat(attackedEvent.ModifiersList));
 
         if (Damageable.TryChangeDamage(target.Value, modifiedDamage, out var damageResult, origin:user, ignoreResistances:resistanceBypass))
         {
+            var comboHarmEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Harm);
+            RaiseLocalEvent(user, comboHarmEv);
+
             // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
             if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
             {
@@ -734,9 +739,13 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
             var attackedEvent = new AttackedEvent(meleeUid, user, GetCoordinates(ev.Coordinates));
             RaiseLocalEvent(entity, attackedEvent);
-            var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
+            // ADT tweak - AttackedEvent.ModifiersList (e.g. Dragon Power's resist) was never applied before
+            var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList.Concat(attackedEvent.ModifiersList));
 
             var damageResult = Damageable.ChangeDamage(entity, modifiedDamage, origin: user, ignoreResistances: resistanceBypass);
+
+            var comboHarmLightEv = new ComboAttackPerformedEvent(user, entity, meleeUid, ComboAttackType.HarmLight);
+            RaiseLocalEvent(user, comboHarmLightEv);
 
             if (damageResult.GetTotal() > FixedPoint2.Zero)
             {
@@ -883,8 +892,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return false;
         }
 
-
-        if (MobState.IsIncapacitated(target.Value))
+        if (!InRange(user, target.Value, component.Range, session))
         {
             return false;
         }
@@ -907,11 +915,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
                 return false;
             }
-        }
-
-        if (!InRange(user, target.Value, component.Range, session))
-        {
-            return false;
         }
 
         EntityUid? inTargetHand = null;
@@ -944,12 +947,16 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return true;
         }
 
+        var comboDisarmEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Disarm);
+        RaiseLocalEvent(user, comboDisarmEv);
+
         if (_random.Prob(chance))
         {
             return false;
         }
 
-        var eventArgs = new DisarmedEvent(target.Value, user, 1 - chance);
+        var pushProbability = HasComp<MartialArtsKnowledgeComponent>(user) ? 0f : 1 - chance; // ADT tweak
+        var eventArgs = new DisarmedEvent(target.Value, user, pushProbability);
         RaiseLocalEvent(target.Value, ref eventArgs);
 
         // Nothing handled it so abort.

@@ -99,7 +99,7 @@
     fireRate: 2.5
   - type: HitscanMechAmmoProvider
     proto: RedLaser
-    fireCost: 10
+    fireCost: 15
   # - type: Battery
   #   maxCharge: 30
   #   startingCharge: 30
@@ -119,7 +119,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanMechAmmoProvider
     proto: RedHeavyLaser
-    fireCost: 20
+    fireCost: 30
   # - type: Battery
   #   maxCharge: 60
   #   startingCharge: 60
@@ -142,7 +142,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanMechAmmoProvider
     proto: Pulse
-    fireCost: 20
+    fireCost: 40
   # - type: Battery
   #   maxCharge: 200
   #   startingCharge: 200
@@ -160,11 +160,12 @@
     selectedMode: FullAuto
     availableModes:
     - FullAuto
-    fireRate: 1
+    fireRate: 0.6
+    projectileSpeed: 20
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: BatteryMechAmmoProvider
-    proto: BulletDisabler
+    proto: ADTMechDisabler
     fireCost: 10
 
 - type: entity
@@ -214,6 +215,7 @@
     shots: 20
     capacity: 20
     ammoType: shotgun
+    reloadTime: 6
   - type: UIFragment
     ui: !type:MechGunUi
   - type: StaticPrice
@@ -245,7 +247,7 @@
     shots: 60
     capacity: 60
     proto: BulletPistol
-    reloadTime: 5
+    reloadTime: 3
   - type: UIFragment
     ui: !type:MechGunUi
   # - type: RunAndGunSpreadModifier
@@ -278,7 +280,7 @@
     shots: 60
     capacity: 60
     ammoType: lightrifleincendiary
-    reloadTime: 5
+    reloadTime: 3
   - type: UIFragment
     ui: !type:MechGunUi
 
@@ -319,7 +321,7 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_grenadelnchr
   - type: Gun
-    fireRate: 1
+    fireRate: 0.7
     selectedMode: FullAuto
     availableModes:
       - FullAuto
@@ -347,7 +349,7 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_missilerack
   - type: Gun
-    fireRate: 1
+    fireRate: 0.7
     selectedMode: FullAuto
     availableModes:
       - FullAuto

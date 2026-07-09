@@ -1,0 +1,60 @@
+- type: martialArt
+  id: CorporateJudo
+  martialArtsForm: CorporateJudo
+  roundstartCombos: CorporateJudoMoves
+  baseDamageModifier: 5
+
+- type: comboList
+  id: CorporateJudoMoves
+  combos:
+  - JudoLegSweep
+  - JudoCombatGrab
+  - JudoEyeGouge
+  - JudoNageWaza
+
+- type: combo
+  id: JudoLegSweep
+  name: judo-combo-leg-sweep
+  martialArtsForm: CorporateJudo
+  attacks:
+  - Grab
+  - Disarm
+  event: !type:JudoLegSweepPerformedEvent {}
+  paralyzeTime: 1
+  extraDamage: 5
+  dropItems: false
+  canDoWhileProne: false
+
+- type: combo
+  id: JudoCombatGrab
+  name: judo-combo-combat-grab
+  martialArtsForm: CorporateJudo
+  attacks:
+  - Disarm
+  - Disarm
+  - Grab
+  event: !type:JudoCombatGrabPerformedEvent {}
+  staminaDamage: 55
+  extraDamage: 10
+
+- type: combo
+  id: JudoEyeGouge
+  name: judo-combo-eye-gouge
+  martialArtsForm: CorporateJudo
+  attacks:
+  - Harm
+  - Disarm
+  - Grab
+  event: !type:JudoEyeGougePerformedEvent {}
+  extraDamage: 8
+  damageType: Piercing
+
+- type: combo
+  id: JudoNageWaza
+  name: judo-combo-nage-waza
+  martialArtsForm: CorporateJudo
+  attacks:
+  - Disarm
+  - Harm
+  event: !type:JudoNageWazaPerformedEvent {}
+  extraDamage: 10

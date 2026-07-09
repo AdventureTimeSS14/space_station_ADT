@@ -218,7 +218,7 @@
     # modifier: 0.1
   - type: Gun
     fireRate: 3
-    projectileSpeed: 60
+    projectileSpeed: 40
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -263,6 +263,7 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
+    fireRate: 5
     resetOnHandSelected: false
     soundGunshot:
       path: /Audio/ADT/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
@@ -270,7 +271,10 @@
         volume: -5
   - type: BatteryAmmoProvider
     proto: ADTBulletMic
-    fireCost: 900
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 4
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/energycrossbow_reload.ogg
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 300
@@ -278,11 +282,12 @@
     magState: mag
     steps: 2
     zeroVisible: true
+  - type: AmmoCounter
   - type: Appearance
 
 - type: entity
   name: Energy Crossbow
-  parent: ADTWeaponMiniatureEnergyCrossbow
+  parent: BaseWeaponBatterySmall
   id: ADTWeaponEnergyCrossbow
   description: Energy crossbow, big, powerful and stily.
   components:
@@ -388,100 +393,6 @@
   - type: Tag
     tags:
     - ADTBsoWeapon
-
-- type: entity
-  name: toy blaster
-  parent: [BaseWeaponBatterySmall]
-  id: ADTToyBlasterGun
-  abstract: true
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: false
-  - type: Appearance
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
-  - type: Gun
-    selectedMode: SemiAuto
-    fireRate: 2
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-      params:
-        pitch: 2
-  - type: BatteryAmmoProvider
-    proto: RedLaserBlaster
-    fireCost: 125
-  - type: StaticPrice
-    price: 50
-  - type: GunExecutionBlacklist
-
-- type: entity
-  name: red toy blaster
-  parent: [ADTToyBlasterGun]
-  id: ADTToyBlasterGunRed
-  description: A hastily converted laser blaster shoots simple 30 watt lasers.
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Fun/toyweapon/redblaster.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: Tag
-    tags:
-    - ADTToyBlaster
-  - type: GunExecutionBlacklist
-
-- type: entity
-  name: blue toy blaster
-  parent: [ADTToyBlasterGun]
-  id: ADTToyBlasterGunBlue
-  description: A hastily converted laser blaster shoots simple 30 watt lasers.
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Fun/toyweapon/blueblaster.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: Tag
-    tags:
-    - ADTToyBlaster
-  - type: GunExecutionBlacklist
-
-- type: entity
-  name: green toy blaster
-  parent: [ADTToyBlasterGun]
-  id: ADTToyBlasterGunGreen
-  description: A hastily converted laser blaster shoots simple 30 watt lasers.
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Fun/toyweapon/greenblaster.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: Tag
-    tags:
-    - ADTToyBlaster
-  - type: GunExecutionBlacklist
 
 - type: entity
   name: CC-7 "Arbiter"

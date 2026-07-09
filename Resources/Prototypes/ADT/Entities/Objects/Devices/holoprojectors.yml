@@ -27,7 +27,7 @@
   components:
     - type: HolosignProjector
       signProto: ADTSyndiHolosignForcefield
-      chargeUse: 100
+      chargeUse: 45
     - type: Sprite
       sprite: ADT/Objects/Devices/Holoprojectors/field.rsi
       state: icon

@@ -181,6 +181,7 @@
     - id: ADTPosterLegitMissNT2
     - id: ADTPosterCalendarNT
     - id: ADTPosterLegitObjection
+    - id: ADTPosterStandard # Спрайт от мяукало
     #ADT tweak ^^^
     - id: PosterLegitOppenhopper
     - id: PosterLegitTyrone

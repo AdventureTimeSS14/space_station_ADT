@@ -1,3 +1,4 @@
+using System.Numerics;
 using Robust.Shared.Map;
 
 namespace Content.Shared.ADT.Hands;
@@ -24,4 +25,17 @@ public sealed class BeforeVirtualItemThrownEvent : CancellableEntityEventArgs
         User = user;
         Coords = coords;
     }
+}
+
+[ByRefEvent]
+public record struct VirtualItemThrownEvent(
+    EntityUid BlockingEntity,
+    EntityUid User,
+    EntityUid VirtualItem,
+    Vector2 Direction)
+{
+    public EntityUid BlockingEntity = BlockingEntity;
+    public EntityUid User = User;
+    public EntityUid VirtualItem = VirtualItem;
+    public Vector2 Direction = Direction;
 }

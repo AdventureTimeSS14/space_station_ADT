@@ -200,12 +200,6 @@ public sealed partial class HereticBladeSystem : EntitySystem
     private void OnPickUp(Entity<HereticBladeComponent> ent, ref PickupAttemptEvent args)
     {
         if (!TryComp<HereticComponent>(args.User, out var hereticComp) || hereticComp.CurrentPath != ent.Comp.Path)
-        {
-            foreach (var comboEvent in ent.Comp.EventsOnPickup)
-            {
-                comboEvent.DoEffect(args.Item, args.User, EntityManager);
-            }
             args.Cancel();
-        }
     }
 }

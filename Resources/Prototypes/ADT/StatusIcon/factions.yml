@@ -1,0 +1,9 @@
+- type: factionIcon
+  id: SleepingCarpFaction
+  priority: 7 # 6.5 rounded
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/faction_icons.rsi
+    state: carp
+  showTo:
+    components:
+    - ShowAntagIcons
