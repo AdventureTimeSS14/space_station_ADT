@@ -206,7 +206,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: HitscanMechAmmoProvider
     proto: ADTHealMechGun
-    fireCost: 12
+    fireCost: 40
   - type: Tag
     tags:
       - ADTMechEquipmentMed
@@ -230,6 +230,7 @@
         Structural: 70
         Slash: 30
         Piercing: 30
+    drillSpeedMultilire: 30
   - type: Tag
     tags:
       - ADTMechEquipmentIndustrial
@@ -246,10 +247,10 @@
   - type: MechDrill
     damage:
       types:
-        Structural: 80
+        Structural: 280
         Slash: 40
         Piercing: 30
-    drillSpeedMultilire: 80
+    drillSpeedMultilire: 60
   - type: Tag
     tags:
       - ADTMechEquipmentIndustrial

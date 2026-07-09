@@ -244,3 +244,274 @@
     - TieRed
     - TieYellow
     typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherUnderwearBoxers
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Underwear/Bottom/boxers.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - UnderwearBoxersWhite
+    - UnderwearBoxersBlack
+    - UnderwearBoxersBlue
+    - UnderwearBoxersRed
+    - UnderwearBoxersAmerica
+    - UnderwearBoxersBoom
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherUnderwearBriefs
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Underwear/Bottom/briefs.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - UnderwearBriefsWhite
+    - UnderwearBriefsMoth
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherUnderwearPanties
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Underwear/Bottom/panties.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - UnderwearPantiesWhite
+    - UnderwearPantiesBlack
+    - UnderwearPantiesBlue
+    - UnderwearPantiesRed
+    - UnderwearPantiesComfyWhite
+    - UnderwearPantiesLace
+    - UnderwearPantiesLaceRed
+    - UnderwearPantiesLaceBlack
+    - UnderwearPantiesSilkBlue
+    - UnderwearPantiesSilkRed
+    - UnderwearPantiesChristmas
+    - UnderwearPantiesCow
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherUnderwearMonokiniBottom
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Underwear/Bottom/monokini_bottom_white.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - UnderwearMonokiniBottomWhite
+    - UnderwearMonokiniBottomBlack
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherUnderwearBra
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Underwear/Top/bra.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - UnderwearBraWhite
+    - UnderwearBraBlack
+    - UnderwearBraBlue
+    - UnderwearBraRed
+    - UnderwearBraComfyWhite
+    - UnderwearBraSports
+    - UnderwearBraSportsAlternative
+    - UnderwearBraSportsBlack
+    - UnderwearBraPea
+    - UnderwearBraLace
+    - UnderwearBraLaceRed
+    - UnderwearBraLaceBlack
+    - UnderwearBraSilkBlue
+    - UnderwearBraSilkRed
+    - UnderwearBraCow
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherUnderwearMonokiniTop
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Underwear/Top/monokini_top_white.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - UnderwearMonokiniTopWhite
+    - UnderwearMonokiniTopBlack
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherUnderwearTShirt
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Underwear/Top/t_shirt.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - UnderwearTShirtWhite
+    - UnderwearTShirtBlack
+    - UnderwearTShirtTelnik
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherUnderwearSocks
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Underwear/Socks/socksnorm.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - SockHigh
+    - SockNormal
+    - SockShort
+    - SockBee
+    - SockRabbit
+    - SockComfyBlue
+    - SockComfyGrey
+    - SockComfyRed
+    - SockComfyViolet
+    - SockAzure
+    - SockBlack
+    - SockCyan
+    - SockFurr
+    - SockGreen
+    - SockHomelander
+    - SockHotpink
+    - SockOrange
+    - SockYellow
+    - SockPink
+    - SockCow
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherUnderwearSocksKnee
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Underwear/Socks/socksknee.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - SockKneeComfyBlue
+    - SockKneeComfyGrey
+    - SockKneeComfyRed
+    - SockKneeComfyViolet
+    - SockKneeAzure
+    - SockKneeBlack
+    - SockKneeCyan
+    - SockKneeFishnet
+    - SockKneeFurr
+    - SockKneeGreen
+    - SockKneeHomelander
+    - SockKneeHotpink
+    - SockKneeOrange
+    - SockKneePink
+    - SockKneeThin
+    - SockKneeYellow
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherUnderwearStockings
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Underwear/Socks/socksthigh.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - SockThigh
+    - SockLaceThigh
+    - SockStockingsRed
+    - SockStockingsBlack
+    - SockStockingsWhite
+    - SockThighAzure
+    - SockThighBlack
+    - SockThighBlue
+    - SockThighCreepy
+    - SockThighCyan
+    - SockThighFishnet
+    - SockThighFurr
+    - SockThighGreen
+    - SockThighGrey
+    - SockThighHomelander
+    - SockThighHotpink
+    - SockThighOrange
+    - SockThighPantyhose
+    - SockThighPurple
+    - SockThighRed
+    - SockThighThin
+    - SockThighYellow
+    - SockFullFishnet
+    typeDropPlace: InHands

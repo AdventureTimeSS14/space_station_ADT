@@ -18,5 +18,10 @@ public struct BeforeThrowEvent
     public float ThrowSpeed { get; set;}
     public EntityUid PlayerUid { get; }
 
+    /// <summary>
+    /// ADT Grab - whether it should use GrabThrownSystem to throw instead of regular throw.
+    /// </summary>
+    public bool GrabThrow { get; set; }
+
     public bool Cancelled = false;
 }

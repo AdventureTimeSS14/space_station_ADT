@@ -910,3 +910,13 @@
     radius: 3
     energy: 2
     color: "#283849"
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterStandard
+  name: "Standard"
+  description: 'An official NanoTrasen HR department poster. Above, the face of the Clown towers majestically, beneath which endless rows of station staff march methodically in step, merging into a single mass. Below, under the inscription "HONK," is a strict list of disciplinary rules. The fine print at the very bottom reads: "Any manifestation of unauthorized merriment is punishable by termination due to non-compliance with corporate interests"'
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: standart

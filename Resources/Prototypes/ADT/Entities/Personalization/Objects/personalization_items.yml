@@ -2500,11 +2500,11 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: BatteryAmmoProvider
-    proto: ADTBulletDisabler
+    proto: BulletDisabler
     fireCost: 150
   - type: BatteryWeaponFireModes
     fireModes:
-    - proto: ADTBulletDisablerStrong
+    - proto: BulletDisabler
       fireCost: 150
     - proto: ADTBulletLaser
       fireCost: 150
@@ -3209,7 +3209,7 @@
   - type: AltFireMelee
   # ADT-Tweak end
   - type: Gun
-    fireRate: 1 # ADT-Tweak 2 -> 1
+    fireRate: 1
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -3219,12 +3219,13 @@
       path: /Audio/ADT/Weapons/Guns/Gunshots/laser_gun_type_empty.ogg
   - type: BatteryAmmoProvider
     proto: PulseType
-    fireCost: 100 # ADT tweak 200 -> 100
+    fireCost: 100
   - type: Battery
-    maxCharge: 1000 # ADT tweak 2000->1000
-    startingCharge: 1000 # ADT tweak 2000 -> 1000
+    maxCharge: 1000
+    startingCharge: 1000
   - type: BatterySelfRecharger
     autoRechargeRate: 40
+    autoRechargePauseTime: 5
 
 - type: entity
   parent: BasicHitscan

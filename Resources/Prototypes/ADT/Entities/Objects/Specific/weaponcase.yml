@@ -81,7 +81,7 @@
   - type: StorageFill
     contents:
      - id: ADTClothingBlueshieldArmorElite
-     - id: ADTWeaponTonfaSteel
+     - id: ADTScrollDragonKungFu
      - id: ADTBlueShieldEnergyShield
      - id: ADTClothingHeadHelmetBlueShield
 

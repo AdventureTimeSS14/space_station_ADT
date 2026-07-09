@@ -13,6 +13,9 @@
       mask:
       - state: equipped-MASK
   - type: BreathMask
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingMaskBase
@@ -29,6 +32,9 @@
       mask:
       - state: equipped-MASK
   - type: BreathMask
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingMaskBase
@@ -45,6 +51,9 @@
       mask:
       - state: equipped-MASK
   - type: BreathMask
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 # - type: entity
 #   parent: WeldingMaskBase
@@ -158,7 +167,7 @@
 - type: entity
   parent: ClothingMaskGas
   id: ADTClothingMaskGasIlisium
-  name:  gas mask
+  name: gas mask
   description: A close-fitting tactical mask that can be connected to an air supply.
   components:
   - type: Sprite
@@ -249,6 +258,9 @@
     storedRotation: -90
     size: Small
   - type: Mask
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 # USSP USSP
 
@@ -290,6 +302,9 @@
   - type: Construction
     graph: ADTPaperMask
     node: CompletePaperMaskBlank
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
   parent: ADTClothingMaskPaperBlank
@@ -505,6 +520,9 @@
     sprite: ADT/Clothing/Mask/mfdoom.rsi
   - type: Clothing
     sprite: ADT/Clothing/Mask/mfdoom.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingMaskClownBase
@@ -515,3 +533,6 @@
     sprite: ADT/Clothing/Mask/clown_abyss.rsi
   - type: Clothing
     sprite: ADT/Clothing/Mask/clown_abyss.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
