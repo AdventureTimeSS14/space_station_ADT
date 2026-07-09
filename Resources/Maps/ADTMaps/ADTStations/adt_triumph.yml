@@ -127,6 +127,8 @@ entities:
     - type: Transform
       pos: -2.3924408,0.84319305
       parent: 1
+    - type: BecomesStation
+      id: ADT_Triumph
     - type: MapGrid
       chunks:
         0,0:
