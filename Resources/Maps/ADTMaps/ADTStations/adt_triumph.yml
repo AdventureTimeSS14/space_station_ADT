@@ -167805,7 +167805,6 @@ entities:
   - uid: 27524
     components:
     - type: Transform
-      anchored: True
       pos: -109.5,-30.5
       parent: 2
     - type: Physics
@@ -167817,7 +167816,6 @@ entities:
   - uid: 27525
     components:
     - type: Transform
-      anchored: True
       pos: -110.5,-30.5
       parent: 2
     - type: Physics
@@ -167829,7 +167827,6 @@ entities:
   - uid: 27526
     components:
     - type: Transform
-      anchored: True
       pos: -111.5,-30.5
       parent: 2
     - type: Physics
@@ -258963,7 +258960,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 24.5,-3.5
       parent: 2
-    - type: Timer
   - uid: 40489
     components:
     - type: Transform
@@ -259265,7 +259261,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -16.5,30.5
       parent: 2
-    - type: Timer
   - uid: 40542
     components:
     - type: Transform
@@ -259764,13 +259759,11 @@ entities:
     - type: Transform
       pos: -8.5,-65.5
       parent: 2
-    - type: Timer
   - uid: 40629
     components:
     - type: Transform
       pos: -2.5,-57.5
       parent: 2
-    - type: Timer
   - uid: 40630
     components:
     - type: Transform
@@ -259793,7 +259786,6 @@ entities:
     - type: Transform
       pos: -4.5,-53.5
       parent: 2
-    - type: Timer
   - uid: 40634
     components:
     - type: Transform
@@ -259914,7 +259906,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,-81.5
       parent: 2
-    - type: Timer
   - uid: 40655
     components:
     - type: Transform
@@ -260248,7 +260239,6 @@ entities:
     - type: Transform
       pos: 28.5,-4.5
       parent: 2
-    - type: Timer
   - uid: 40714
     components:
     - type: Transform
@@ -262294,7 +262284,6 @@ entities:
     - type: Transform
       pos: -12.5,-64.5
       parent: 2
-    - type: Timer
   - uid: 41066
     components:
     - type: Transform
