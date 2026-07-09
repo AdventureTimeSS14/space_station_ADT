@@ -146,7 +146,9 @@
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # ADT tweak
   - type: Item
-    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun_inhands_64x.rsi
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # ADT tweak
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # ADT tweak
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 3
