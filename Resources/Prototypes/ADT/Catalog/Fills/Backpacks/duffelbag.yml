@@ -229,6 +229,7 @@
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateFilledChinaLikeGrenadeLauncher
   name: China-Lake bundle
+  suffix: Actual
   description: "An old China-Lake grenade launcher bundled with 11 rounds of various destruction capability."
   components:
   - type: EntityTableContainerFill
@@ -316,6 +317,22 @@
         - id: ClothingOuterCoatLab
         - id: GeigerCounter
         - id: ADTAntiNobliumPaper
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledAdvancedChemist # ADT-tweak
+  name: advanced chemist bundle
+  description: Everything a field chemist needs to set up shop anywhere - a flatpacked ChemMaster 4000, a flatpacked energy chem dispenser and a starter stock of reagents.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTChemMasterFlatpack
+        - id: ADTEnergyChemDispenserFlatpack
+        - id: VestineChemistryVial
+          amount: 2
+        - id: PlasmaChemistryVial
+
 - type: entity
   parent: ClothingBackpackChameleon
   id: ADTClothingBackpackChameleonThiefFill

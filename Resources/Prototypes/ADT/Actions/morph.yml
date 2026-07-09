@@ -5,6 +5,7 @@
   description: Attempt to break a structure with your jaws or swallow a creature.
   components:
   - type: Action
+    itemIconStyle: BigAction
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: devour }
     priority: 1
   - type: TargetAction
@@ -17,6 +18,7 @@
   description: Remember enrity to mimicry in future
   components:
   - type: Action
+    itemIconStyle: BigAction
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: remember }
     priority: 2
   - type: TargetAction
@@ -65,6 +67,7 @@
   description: Open vent for a price
   components:
   - type: Action
+    itemIconStyle: BigAction
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: devour }
     priority: 6
   - type: TargetAction

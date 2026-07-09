@@ -44,6 +44,11 @@
     shape:
     - 0,0,0,2
   - type: DisarmMalus
+  # ADT-Tweak-Start
+  - type: Reflect
+    reflectProb: 0.15
+    spread: 90
+  # ADT-Tweak-End
 
 - type: entity
   name: machete

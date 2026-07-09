@@ -1,5 +1,5 @@
 - type: entity
-  name: semi-aito Hristov
+  name: semi-auto Hristov
   parent: BaseItem
   id: ADTWeaponSniperHristovAdvanced
   description: A portable anti-material rifle. Fires armor piercing 14.5mm shells. Uses .60 anti-material ammo upgraded by gorlax marodeurs.
@@ -21,9 +21,8 @@
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -44
-  # - type: RunAndGunSpreadModifier
-    # modifier: 1
-    # minVelocity: 3
+#- type: RunAndGunSpreadModifier
+#  modifier: 0.1
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 0.65

@@ -38,7 +38,7 @@
     netsync: false
   - type: Gun
     fireRate: 1.8
-    projectileSpeed: 60
+    projectileSpeed: 35
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     useKey: true
@@ -64,8 +64,7 @@
         variation: 0.125
     activatedDamage:
         types:
-            Slash: 10
-            Heat: 10
+            Heat: 20
             Structural: 25
   - type: ToggleableVisuals
     spriteLayer: blade

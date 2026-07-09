@@ -30,7 +30,7 @@
   - type: EmpOnCollide
     energyConsumption: 80000
   - type: StaminaDamageOnCollide
-    damage: 0 #ADT_Tweak с 33 до 30, возвращаем станнер к старым параметрам
+    damage: 0
 
 - type: entity
   name: Laser bolt
@@ -47,7 +47,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 25
+        Heat: 30
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -424,20 +424,21 @@
 
 - type: entity
   name: stanner bolt
-  id: ADTBulletDisablerStrong
+  id: ADTMechDisabler
   parent: BulletDisabler
   categories: [ HideSpawnMenu ]
   components:
   - type: StaminaDamageOnCollide
-    damage: 45
+    damage: 25
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
-    damage:
-      types:
-        Heat: 5
     soundHit:
       collection: WeakHit
     forceSound: true
+  - type: ProjectileSpread
+    proto: BulletDisabler
+    count: 3
+    spread: 20
 
 - type: entity
   name: electric laser bolt

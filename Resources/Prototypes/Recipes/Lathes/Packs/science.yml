@@ -23,7 +23,7 @@
   - SignallerAdvanced
   # - DeviceQuantumSpinInverter #ADT_Tweak - временно удалено до решения всех багов предмета
   - DeviceDesynchronizer
-  - ClothingBackpackHarmpack
+  # - ClothingBackpackHarmpack # ADT-Tweak
 
 - type: latheRecipePack
   id: ScienceClothing
@@ -56,20 +56,20 @@
   - PKAUpgradeFireRate
   - WeaponTetherGun
   - WeaponGauntletGorilla
-  #ADT-Tweak-Start
   - WeaponLaserSvalinn
-  - ADTWeaponLaserSvalinnRifle
-  #ADT-Tweak-End
+  #- ADTWeaponLaserSvalinnRifle Пулемёт в нио? нет спасибо.
 
 # Only contains parts for making basic modular grenades, no actual explosives
-- type: latheRecipePack
-  id: ScienceExplosives
-  recipes:
-  - ChemicalPayload
-  - FlashPayload
-  - TimerTrigger
-  - SignalTrigger
-  - VoiceTrigger
+# ADT-Tweak-Start
+#- type: latheRecipePack
+#  id: ScienceExplosives
+#  recipes:
+#  - ChemicalPayload
+#  - FlashPayload
+#  - TimerTrigger
+#  - SignalTrigger
+#  - VoiceTrigger
+# ADT-Tweak-End
 
 - type: latheRecipePack
   id: ScienceBoards

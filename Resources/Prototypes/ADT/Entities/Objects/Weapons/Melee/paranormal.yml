@@ -261,6 +261,7 @@
     - Prying
   - type: Prying
   - type: Unremoveable
+  - type: GrabbingItem
   - type: Clothing
     sprite: ADT/Objects/Weapons/Melee/godhand.rsi
     quickEquip: false

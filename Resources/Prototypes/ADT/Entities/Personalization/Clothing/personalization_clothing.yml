@@ -1887,3 +1887,16 @@
     sprite: ADT/Personalization/SikRi_demonic_wings.rsi
   - type: Item
     size: Normal
+
+# NSFW
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckSentinel
+  name: sentinel cloak
+  description: An elegant robe given to the eternal guardians who watch over the order of the world.
+  suffix: Personal, NSFW
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/nsfw_cloak.rsi
+  - type: StaticPrice
+    price: 1984

@@ -1,8 +1,110 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
+// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
+// SPDX-FileCopyrightText: 2024 IgorAnt028 <118114530+IgorAnt028@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <shadowjjt@gmail.com>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 YourUsername <you@example.com>
+// SPDX-FileCopyrightText: 2024 Zealith-Gamer <61980908+Zealith-Gamer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Hagvan <22118902+Hagvan@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+// SPDX-FileCopyrightText: 2025 Verm <32827189+Vermidia@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.ADT.Grab;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
-using Content.Shared.ADT.Hands;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
+using Content.Shared.CombatMode;
 using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
@@ -13,9 +115,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.VirtualItem;
-using Content.Shared.Item;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
@@ -25,6 +125,8 @@ using Content.Shared.Popups;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Standing;
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Containers;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Physics;
@@ -40,7 +142,7 @@ namespace Content.Shared.Movement.Pulling.Systems;
 /// <summary>
 /// Allows one entity to pull another behind them via a physics distance joint.
 /// </summary>
-public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak: Сделал класс абстрактным и partial, а так же переименовал в SharedPullingSystem
+public sealed class PullingSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -52,9 +154,9 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly HeldSpeedModifierSystem _clothingMoveSpeed = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
+    [Dependency] private readonly SharedVirtualItemSystem _virtualSystem = default!;
+    [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
 
     public override void Initialize()
     {
@@ -63,21 +165,19 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         UpdatesAfter.Add(typeof(SharedPhysicsSystem));
         UpdatesOutsidePrediction = true;
 
-        SubscribeLocalEvent<PullableComponent, MoveInputEvent>(OnPullableMoveInput);
         SubscribeLocalEvent<PullableComponent, CollisionChangeEvent>(OnPullableCollisionChange);
         SubscribeLocalEvent<PullableComponent, JointRemovedEvent>(OnJointRemoved);
         SubscribeLocalEvent<PullableComponent, GetVerbsEvent<Verb>>(AddPullVerbs);
         SubscribeLocalEvent<PullableComponent, EntGotInsertedIntoContainerMessage>(OnPullableContainerInsert);
         SubscribeLocalEvent<PullableComponent, ModifyUncuffDurationEvent>(OnModifyUncuffDuration);
         SubscribeLocalEvent<PullableComponent, StopBeingPulledAlertEvent>(OnStopBeingPulledAlert);
-        SubscribeLocalEvent<PullableComponent, GetInteractingEntitiesEvent>(OnGetInteractingEntities);
 
-        SubscribeLocalEvent<PullerComponent, MobStateChangedEvent>(OnStateChanged, after: [typeof(MobThresholdSystem)]);
+        SubscribeLocalEvent<PullerComponent, UpdateMobStateEvent>(OnStateChanged, after: [typeof(MobThresholdSystem)]);
         SubscribeLocalEvent<PullerComponent, AfterAutoHandleStateEvent>(OnAfterState);
         SubscribeLocalEvent<PullerComponent, EntGotInsertedIntoContainerMessage>(OnPullerContainerInsert);
         SubscribeLocalEvent<PullerComponent, EntityUnpausedEvent>(OnPullerUnpaused);
-        SubscribeLocalEvent<PullerComponent, BeforeVirtualItemDeletedEvent>(OnVirtualItemDeleted);  // ADT Grab tweaked
-        SubscribeLocalEvent<PullerComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
+        SubscribeLocalEvent<PullerComponent, AddCuffDoAfterEvent>(OnAddCuffDoAfterEvent);
+        SubscribeLocalEvent<PullerComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
         SubscribeLocalEvent<PullerComponent, DropHandItemsEvent>(OnDropHandItems);
         SubscribeLocalEvent<PullerComponent, StopPullingAlertEvent>(OnStopPullingAlert);
 
@@ -87,10 +187,7 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         SubscribeLocalEvent<PullableComponent, StrappedEvent>(OnBuckled);
         SubscribeLocalEvent<PullableComponent, BuckledEvent>(OnGotBuckled);
         SubscribeLocalEvent<ActivePullerComponent, TargetHandcuffedEvent>(OnTargetHandcuffed);
-
-        // ADT-Tweak-Start
-        InitializeGrab();
-        // ADT-Tweak-End
+        SubscribeLocalEvent<GetInteractingEntitiesEvent>(OnGetInteractingEntities); // ADT-Tweak
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.ReleasePulledObject, InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))
@@ -114,15 +211,36 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         TryStopPull(comp.Pulling.Value, pullableComp);
     }
 
+    // ADT-Tweak start
+    private void OnGetInteractingEntities(ref GetInteractingEntitiesEvent args)
+    {
+        var enumerator = EntityQueryEnumerator<PullerComponent>();
+        while (enumerator.MoveNext(out var uid, out var pullerComp))
+        {
+            if (pullerComp.Pulling == args.Target)
+            {
+                args.InteractingEntities.Add(uid);
+            }
+        }
+    }
+    // ADT-Tweak end
+
     private void HandlePullStarted(EntityUid uid, HandsComponent component, PullStartedMessage args)
     {
         if (args.PullerUid != uid)
             return;
 
+        // Goob edit start
+        var grabItemEv = new FindGrabbingItemEvent(args.PulledUid);
+        RaiseLocalEvent(uid, ref grabItemEv);
+        if (grabItemEv.GrabbingItem != null)
+            return;
+        // Goob edit end
+
         if (TryComp(args.PullerUid, out PullerComponent? pullerComp) && !pullerComp.NeedsHands)
             return;
 
-        if (!_virtual.TrySpawnVirtualItemInHand(args.PulledUid, uid))
+        if (!_virtualSystem.TrySpawnVirtualItemInHand(args.PulledUid, uid))
         {
             DebugTools.Assert("Unable to find available hand when starting pulling??");
         }
@@ -137,20 +255,25 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         // and clear it.
         foreach (var held in _handsSystem.EnumerateHeld((uid, component)))
         {
-            if (!TryComp(held, out VirtualItemComponent? virtualItem) || virtualItem.BlockingEntity != args.PulledUid)
+            if (!TryComp(held, out VirtualItemComponent? virtualItem) || GetRelayedEntity(virtualItem.BlockingEntity) != args.PulledUid) // Goob edit
                 continue;
 
             _handsSystem.TryDrop((args.PullerUid, component), held);
             break;
         }
+
+        // Goobstation start
+        var ev = new StopGrabbingItemPullEvent(args.PulledUid);
+        RaiseLocalEvent(uid, ref ev);
+        // Goobstation end
     }
 
-    private void OnStateChanged(EntityUid uid, PullerComponent component, ref MobStateChangedEvent args)
+    private void OnStateChanged(EntityUid uid, PullerComponent component, ref UpdateMobStateEvent args)
     {
         if (component.Pulling == null)
             return;
 
-        if (TryComp<PullableComponent>(component.Pulling, out var comp) && (args.NewMobState == MobState.Critical || args.NewMobState == MobState.Dead))
+        if (TryComp<PullableComponent>(component.Pulling, out var comp) && (args.State == MobState.Critical || args.State == MobState.Dead))
         {
             TryStopPull(component.Pulling.Value, comp);
         }
@@ -166,12 +289,6 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
     private void OnGotBuckled(Entity<PullableComponent> ent, ref BuckledEvent args)
     {
         StopPulling(ent, ent);
-    }
-
-    private void OnGetInteractingEntities(Entity<PullableComponent> ent, ref GetInteractingEntitiesEvent args)
-    {
-        if (ent.Comp.Puller != null)
-            args.InteractingEntities.Add(ent.Comp.Puller.Value);
     }
 
     private void OnAfterState(Entity<PullerComponent> ent, ref AfterAutoHandleStateEvent args)
@@ -193,13 +310,34 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         TryStopPull(pullerComp.Pulling.Value, pullableComp, uid);
     }
 
+    private void OnAddCuffDoAfterEvent(Entity<PullerComponent> ent, ref AddCuffDoAfterEvent args)
+    {
+        if (args.Handled
+            || args.Cancelled
+            || !TryComp<PullableComponent>(ent.Comp.Pulling, out var pullableComp)
+            || ent.Comp.Pulling == null)
+            return;
+
+        TryStopPull(ent.Comp.Pulling.Value, pullableComp);
+    }
+
+    private void OnVirtualItemDeleted(Entity<PullerComponent> ent, ref VirtualItemDeletedEvent args)
+    {
+        // If client deletes the virtual hand then stop the pull.
+        if (ent.Comp.Pulling == null || ent.Comp.Pulling != GetRelayedEntity(args.BlockingEntity)) // Goob edit
+            return;
+
+        if (TryComp(ent.Comp.Pulling, out PullableComponent? pullableComp)) // Goob edit
+            TryStopPull(ent.Comp.Pulling.Value, pullableComp, ent.Owner);
+    }
+
     private void OnStopPullingAlert(Entity<PullerComponent> ent, ref StopPullingAlertEvent args)
     {
         if (args.Handled)
             return;
         if (!TryComp<PullableComponent>(ent.Comp.Pulling, out var pullable))
             return;
-        args.Handled = TryLowerGrabStageOrStopPulling(ent, (ent.Comp.Pulling.Value, pullable)); // ADT Grab tweaked
+        args.Handled = TryStopPull(ent.Comp.Pulling.Value, pullable, ent);
     }
 
     private void OnPullerContainerInsert(Entity<PullerComponent> ent, ref EntGotInsertedIntoContainerMessage args)
@@ -210,12 +348,12 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         if (!TryComp(ent.Comp.Pulling.Value, out PullableComponent? pulling))
             return;
 
-        TryStopPull(ent.Comp.Pulling.Value, pulling, ent.Owner);
+        TryStopPull(ent.Comp.Pulling.Value, pulling, ent.Owner, true);
     }
 
     private void OnPullableContainerInsert(Entity<PullableComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
-        TryStopPull(ent.Owner, ent.Comp);
+        TryStopPull(ent.Owner, ent.Comp, ignoreGrab: true); // Goobstation
     }
 
     private void OnModifyUncuffDuration(Entity<PullableComponent> ent, ref ModifyUncuffDurationEvent args)
@@ -234,15 +372,11 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
     {
         if (args.Handled)
             return;
-        // ADT Grab start
-        if (!ent.Comp.Puller.HasValue)
-        {
-            TryStopPull(ent, ent);
-            return;
-        }
 
-        args.Handled = TryEscapeFromGrab(ent, ent.Comp.Puller.Value);
-        // ADT Grab end
+        if (!_blocker.CanInteract(ent, null))
+            return;
+
+        args.Handled = TryStopPull(ent, ent, ent);
     }
 
     public override void Shutdown()
@@ -256,32 +390,14 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         component.NextThrow += args.PausedTime;
     }
 
-    private void OnVirtualItemDeleted(EntityUid uid, PullerComponent component, BeforeVirtualItemDeletedEvent args) // ADT Grab tweaked
-    {
-        // If client deletes the virtual hand then stop the pull.
-        if (component.Pulling == null)
-            return;
-
-        if (component.Pulling != args.BlockingEntity)
-            return;
-
-        if (TryComp(args.BlockingEntity, out PullableComponent? comp))
-        {
-            // ADT Grab start
-            if (_combat.IsInCombatMode(uid))
-                args.Cancel();
-            TryLowerGrabStageOrStopPulling((uid, component), (args.BlockingEntity, comp));
-            // ADT Grab end
-        }
-    }
-
     private void AddPullVerbs(EntityUid uid, PullableComponent component, GetVerbsEvent<Verb> args)
     {
         if (!args.CanAccess || !args.CanInteract)
             return;
 
-        // Are they trying to pull themselves up by their bootstraps?
-        if (args.User == args.Target)
+        var target = GetRelayedEntity(args.Target); // Trauma
+
+        if (args.User == target) // Trama - args.Target -> target
             return;
 
         //TODO VERB ICONS add pulling icon
@@ -290,63 +406,21 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
             Verb verb = new()
             {
                 Text = Loc.GetString("pulling-verb-get-data-text-stop-pulling"),
-                Act = () => TryLowerGrabStageOrStopPulling((args.User, Comp<PullerComponent>(args.User)), (uid, component)),    // ADT Grab tweaked
+                Act = () => TryStopPull(uid, component, user: args.User),
                 DoContactInteraction = false // pulling handle its own contact interaction.
             };
             args.Verbs.Add(verb);
         }
-        else if (CanPull(args.User, args.Target))
+        else if (CanPull(args.User, target)) // Trauma - args.Target -> target
         {
             Verb verb = new()
             {
                 Text = Loc.GetString("pulling-verb-get-data-text"),
-                Act = () => TryStartPull(args.User, args.Target),
+                Act = () => TryStartPull(args.User, target), // Trauma - args.Target -> target
                 DoContactInteraction = false // pulling handle its own contact interaction.
             };
             args.Verbs.Add(verb);
         }
-    }
-
-    private void OnRefreshMovespeed(EntityUid uid, PullerComponent component, RefreshMovementSpeedModifiersEvent args)
-    {
-        // ADT Start
-        if (!component.Pulling.HasValue)
-            return;
-        // ADT End
-
-        if (TryComp<HeldSpeedModifierComponent>(component.Pulling, out var heldMoveSpeed) && component.Pulling.HasValue)
-        {
-            var (walkMod, sprintMod) =
-                _clothingMoveSpeed.GetHeldMovementSpeedModifiers(component.Pulling.Value, heldMoveSpeed);
-            args.ModifySpeed(walkMod, sprintMod);
-            return;
-        }
-
-        // ADT Grab start
-        int index = (int)component.Stage + component.GrabbingDirection;
-
-        args.ModifySpeed(component.WalkSpeedModifier, component.GrabStats[(GrabStage)index].MovementSpeedModifier);
-        component.GrabbingDirection = 0;
-        // ADT Grab end
-    }
-
-    private void OnPullableMoveInput(EntityUid uid, PullableComponent component, ref MoveInputEvent args)
-    {
-        // If someone moves then break their pulling.
-        if (!component.BeingPulled)
-            return;
-
-        var entity = args.Entity;
-
-        if (!_blocker.CanMove(entity))
-            return;
-        // ADT Grab start
-        if (!TryComp<PullerComponent>(component.Puller, out var puller))
-            return;
-
-        TryEscapeFromGrab((uid, component), (component.Puller.Value, puller));
-        //TryStopPull(uid, component, user: uid);
-        // ADT Grab end
     }
 
     private void OnPullableCollisionChange(EntityUid uid, PullableComponent component, ref CollisionChangeEvent args)
@@ -381,9 +455,6 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
     /// </summary>
     private void StopPulling(EntityUid pullableUid, PullableComponent pullableComp)
     {
-        if (pullableComp.Puller == null)
-            return;
-
         if (!_timing.ApplyingState)
         {
             // Joint shutdown
@@ -405,6 +476,7 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
 
         pullableComp.PullJointId = null;
         pullableComp.Puller = null;
+
         Dirty(pullableUid, pullableComp);
 
         // No more joints with puller -> force stop pull.
@@ -413,20 +485,7 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
             var pullerUid = oldPuller.Value;
             _alertsSystem.ClearAlert(pullerUid, pullerComp.PullingAlert);
             pullerComp.Pulling = null;
-            // ADT grab start
-            // Not the best way to do this, but idc
-            _doAfter.Cancel(pullerComp.StageIncreaseDoAfter);
-            _doAfter.Cancel(pullableComp.EscapeAttemptDoAfter);
-            pullerComp.VirtualItems.ForEach(x =>
-            {
-                var item = GetEntity(x);
-                if (Exists(item) && !Terminating(item))
-                    _virtual.DeleteVirtualItem((item, Comp<VirtualItemComponent>(item)), pullerUid);
-            });
-            pullerComp.VirtualItems.Clear();
-            // ADT Grab end
-            pullerComp.Stage = GrabStage.None;
-            Dirty(oldPuller.Value, pullerComp);
+            Dirty(pullerUid, pullerComp);
 
             // Messaging
             var message = new PullStoppedMessage(pullerUid, pullableUid);
@@ -436,9 +495,6 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
             RaiseLocalEvent(pullerUid, message);
             RaiseLocalEvent(pullableUid, message);
         }
-
-        _blocker.UpdateCanMove(pullableUid);    // ADT Grab
-        _alertsSystem.ClearAlert(pullableUid, pullableComp.PulledAlert);
     }
 
     public bool IsPulled(EntityUid uid, PullableComponent? component = null)
@@ -468,24 +524,13 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
             return;
         }
 
-        // ADT Grab start
-        if (TryComp<PullableComponent>(player, out var playerPullable) &&
-            TryComp<PullerComponent>(playerPullable.Puller, out var playerPuller) &&
-            playerPuller.Stage > GrabStage.None)
-        {
-            TryEscapeFromGrab((player, playerPullable), (playerPullable.Puller.Value, playerPuller));
-            return;
-        }
-        // ADT Grab end
-
         if (!TryComp(player, out PullerComponent? pullerComp) ||
             !TryComp(pullerComp.Pulling, out PullableComponent? pullableComp))
         {
             return;
         }
 
-        TryLowerGrabStageOrStopPulling((player, pullerComp), (pullerComp.Pulling.Value, pullableComp)); // ADT Grab
-        // TryStopPull(pullerComp.Pulling.Value, pullableComp, user: player);
+        TryStopPull(pullerComp.Pulling.Value, pullableComp, user: player, true); // Goob - Grab Intent
     }
 
     public bool CanPull(EntityUid puller, EntityUid pullableUid, PullerComponent? pullerComp = null)
@@ -499,7 +544,12 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
             && !_handsSystem.TryGetEmptyHand(puller, out _)
             && pullerComp.Pulling == null)
         {
-            return false;
+            // Goob edit start
+            var grabItemEv = new FindGrabbingItemEvent(pullableUid);
+            RaiseLocalEvent(puller, ref grabItemEv);
+            if (grabItemEv.GrabbingItem == null)
+                return false;
+            // Goob edit end
         }
 
         if (!_blocker.CanInteract(puller, pullableUid))
@@ -534,35 +584,35 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         return !startPull.Cancelled && !getPulled.Cancelled;
     }
 
+    // Goob - Grab Intent Start
+    public bool TogglePull(EntityUid pullerUid, PullerComponent puller)
+    {
+        return TryComp<PullableComponent>(puller.Pulling, out var pullable) && TogglePull((puller.Pulling.Value, pullable), pullerUid);
+    }
+
     public bool TogglePull(Entity<PullableComponent?> pullable, EntityUid pullerUid)
     {
         if (!Resolve(pullable, ref pullable.Comp, false))
             return false;
 
-        // ADT Grab start
-        if (!TryComp<PullerComponent>(pullerUid, out var puller))
-            return false;
+        if (pullable.Comp.Puller != pullerUid)
+            return TryStartPull(pullerUid, pullable, pullableComp: pullable.Comp);
 
-        return TryStartPullingOrGrab((pullerUid, puller), (pullable, pullable.Comp));
-        // if (pullable.Comp.Puller == pullerUid)
-        // {
-        //     return TryStopPull(pullable, pullable.Comp);
-        // }
-
-        // return TryStartPull(pullerUid, pullable, pullableComp: pullable);
-        // ADT Grab end
+        var grabAttemptEv = new GrabAttemptEvent( pullerUid);
+        RaiseLocalEvent(pullable, ref grabAttemptEv);
+        if (grabAttemptEv.Grabbed)
+            return true;
+        return !_combatMode.IsInCombatMode(pullable) && TryStopPull(pullable, pullable.Comp, ignoreGrab: true);
     }
+    // Goob - Grab Intent End
 
-    public bool TogglePull(EntityUid pullerUid, PullerComponent puller)
-    {
-        if (!TryComp<PullableComponent>(puller.Pulling, out var pullable))
-            return false;
-
-        return TogglePull((puller.Pulling.Value, pullable), pullerUid);
-    }
-
-    public bool TryStartPull(EntityUid pullerUid, EntityUid pullableUid,
-        PullerComponent? pullerComp = null, PullableComponent? pullableComp = null)
+    public bool TryStartPull(EntityUid pullerUid,
+        EntityUid pullableUid,
+        PullerComponent? pullerComp = null,
+        PullableComponent? pullableComp = null,
+        GrabStage? grabStageOverride = null,
+        float escapeAttemptModifier = 1.0f,
+        bool force = false) // Goob edit
     {
         if (!Resolve(pullerUid, ref pullerComp, false) ||
             !Resolve(pullableUid, ref pullableComp, false))
@@ -576,12 +626,17 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         if (!CanPull(pullerUid, pullableUid))
             return false;
 
-        if (!TryComp(pullerUid, out PhysicsComponent? pullerPhysics) || !TryComp(pullableUid, out PhysicsComponent? pullablePhysics))
+        if (!TryComp(pullerUid, out PhysicsComponent? pullerPhysics) ||
+            !TryComp(pullableUid, out PhysicsComponent? pullablePhysics))
+            return false;
+
+        if (!force && TryComp<MeleeWeaponComponent>(pullerUid, out var meleeWeaponComponent) // Goob edit
+                   && _timing.CurTime < meleeWeaponComponent.NextAttack)
             return false;
 
         // Ensure that the puller is not currently pulling anything.
         if (TryComp<PullableComponent>(pullerComp.Pulling, out var oldPullable)
-            && !TryStopPull(pullerComp.Pulling.Value, oldPullable, pullerUid))
+            && !TryStopPull(pullerComp.Pulling.Value, oldPullable, pullerUid, true)) // Goobstation
             return false;
 
         // Stop anyone else pulling the entity we want to pull
@@ -591,8 +646,41 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
             if (pullableComp.Puller == pullerUid)
                 return false;
 
-            if (!TryStopPull(pullableUid, pullableComp, pullableComp.Puller))
+            var currentPuller = pullableComp.Puller.Value;
+
+            // Goobstation - Grab Intent
+            if (!TryStopPull(pullableUid, pullableComp, currentPuller))
+            {
+                // Not succeed to retake grabbed entity
+                _popup.PopupPredicted(Loc.GetString("popup-grab-retake-fail",
+                        ("puller", Identity.Entity(currentPuller, EntityManager)),
+                        ("pulled", Identity.Entity(pullableUid, EntityManager))),
+                    pullerUid,
+                    pullerUid,
+                    PopupType.MediumCaution);
+                _popup.PopupPredicted(Loc.GetString("popup-grab-retake-fail-puller",
+                        ("puller", Identity.Entity(pullerUid, EntityManager)),
+                        ("pulled", Identity.Entity(pullableUid, EntityManager))),
+                    currentPuller,
+                    currentPuller,
+                    PopupType.MediumCaution);
                 return false;
+            }
+
+            // Successful retake
+            _popup.PopupPredicted(Loc.GetString("popup-grab-retake-success",
+                    ("puller", Identity.Entity(currentPuller, EntityManager)),
+                    ("pulled", Identity.Entity(pullableUid, EntityManager))),
+                pullerUid,
+                pullerUid,
+                PopupType.MediumCaution);
+            _popup.PopupPredicted(Loc.GetString("popup-grab-retake-success-puller",
+                    ("puller", Identity.Entity(pullerUid, EntityManager)),
+                    ("pulled", Identity.Entity(pullableUid, EntityManager))),
+                currentPuller,
+                currentPuller,
+                PopupType.MediumCaution);
+            // Goobstation
         }
 
         var pullAttempt = new PullAttemptEvent(pullerUid, pullableUid);
@@ -640,12 +728,10 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
             _physics.SetFixedRotation(pullableUid, pullableComp.FixedRotationOnPull, body: pullablePhysics);
         }
 
-        bool grab = _combat.IsInCombatMode(pullerUid) && HasComp<MobStateComponent>(pullableUid);   // ADT Grab
         // Messaging
         var message = new PullStartedMessage(pullerUid, pullableUid);
         _modifierSystem.RefreshMovementSpeedModifiers(pullerUid);
-        _alertsSystem.ShowAlert(pullerUid, pullerComp.PullingAlert, grab ? (short)1 : (short)0); // ADT Grab tweaked
-        _alertsSystem.ShowAlert(pullableUid, pullableComp.PulledAlert, grab ? (short)1 : (short)0);  // ADT Grab tweaked
+        _alertsSystem.ShowAlert(pullerUid, pullerComp.PullingAlert, 0); // Goobstation
 
         RaiseLocalEvent(pullerUid, message);
         RaiseLocalEvent(pullableUid, message);
@@ -653,25 +739,20 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         Dirty(pullerUid, pullerComp);
         Dirty(pullableUid, pullableComp);
 
-        // ADT Grab start
-        if (grab)
-        {
-            TryStartPullingOrGrab((pullerUid, pullerComp), (pullableUid, pullableComp));
-        }
-        else
-        {
-            var pullingMessage =
-                Loc.GetString("getting-pulled-popup", ("puller", Identity.Entity(pullerUid, EntityManager)));
-            _popup.PopupEntity(pullingMessage, pullableUid, pullableUid);
+        var pullingMessage =
+            Loc.GetString("getting-pulled-popup", ("puller", Identity.Entity(pullerUid, EntityManager)));
+        _popup.PopupEntity(pullingMessage, pullableUid, pullableUid);
 
-            _adminLogger.Add(LogType.Action, LogImpact.Low,
-                $"{ToPrettyString(pullerUid):user} started pulling {ToPrettyString(pullableUid):target}");
-        }
-        // ADT Grab end
+        _adminLogger.Add(LogType.Action,
+            LogImpact.Low,
+            $"{ToPrettyString(pullerUid):user} started pulling {ToPrettyString(pullableUid):target}");
+
+        var ev = new GrabAttemptEvent(pullerUid, GrabStageOverride: grabStageOverride, EscapeAttemptModifier: escapeAttemptModifier);
+        RaiseLocalEvent(pullableUid, ref ev);
         return true;
     }
 
-    public bool TryStopPull(EntityUid pullableUid, PullableComponent pullable, EntityUid? user = null)
+    public bool TryStopPull(EntityUid pullableUid, PullableComponent pullable, EntityUid? user = null, bool ignoreGrab = false)
     {
         var pullerUidNull = pullable.Puller;
 
@@ -684,7 +765,33 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         if (msg.Cancelled)
             return false;
 
+        // Goobstation - Grab Intent
+        if (!ignoreGrab)
+        {
+            var tryReleaseEv = new GrabAttemptReleaseEvent(user, pullerUidNull.Value);
+            RaiseLocalEvent(pullableUid, ref tryReleaseEv);
+            if (!tryReleaseEv.Released)
+                return false;
+        }
+
         StopPulling(pullableUid, pullable);
         return true;
+    }
+
+    // Goobstation - Helper
+    public void StopAllPulls(EntityUid uid, bool stopPullable = true, bool stopPuller = true) // Goobstation
+    {
+        if (stopPullable && TryComp<PullableComponent>(uid, out var pullable) && IsPulled(uid, pullable))
+            TryStopPull(uid, pullable);
+
+        if (stopPuller && TryComp<PullerComponent>(uid, out var puller) &&
+            TryComp(puller.Pulling, out PullableComponent? pullableEnt))
+            TryStopPull(puller.Pulling.Value, pullableEnt);
+    }
+
+    // Goobstation
+    public EntityUid GetRelayedEntity(EntityUid uid)
+    {
+        return uid;
     }
 }

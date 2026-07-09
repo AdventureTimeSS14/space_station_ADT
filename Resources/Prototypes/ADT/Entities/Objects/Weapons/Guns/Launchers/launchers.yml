@@ -60,12 +60,20 @@
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-0
-        map: ["enum.GunVisualLayers.Mag"]
+    #  - state: mag-0
+    #    map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
-  # - type: RunAndGunBlocker
-    # maxVelocity: 3
+  - type: RunAndGunBlocker
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.75
+    damage:
+      types:
+        Blunt: 14
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
   - type: Gun
     fireRate: 0.5
     projectileSpeed: 25
@@ -90,7 +98,7 @@
       offset: 12
       allowMovement: true
       doAfter: 0
-    requireWielding: false
+    requireWielding: true
     attachment: false
   - type: GunRequiresWield
   - type: Item

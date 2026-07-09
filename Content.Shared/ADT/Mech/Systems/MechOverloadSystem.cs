@@ -31,7 +31,7 @@ public sealed class MechOverloadSystem : EntitySystem
             return;
         if (comp.Overload == false)
         {
-            _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, 6, 6, 40, movementSpeed);
+            _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, 5, 5, 40, movementSpeed);
             mech.MechEnergyWaste += 20;
             comp.Overload = true;
             Spawn("EffectSparks", Transform(uid).Coordinates);
@@ -39,7 +39,7 @@ public sealed class MechOverloadSystem : EntitySystem
         }
         else
         {
-            _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, 3, 4, 40, movementSpeed);
+            _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, 3, 3, 40, movementSpeed);
             mech.MechEnergyWaste -= 20;
             comp.Overload = false;
         }
@@ -51,7 +51,7 @@ public sealed class MechOverloadSystem : EntitySystem
             return;
         if (mech.Integrity > component.MinIng)
             return;
-        _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, 3, 4, 40, movementSpeed);
+        _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, 3, 3, 40, movementSpeed);
         mech.MechEnergyWaste -= 20;
         component.Overload = false;
     }

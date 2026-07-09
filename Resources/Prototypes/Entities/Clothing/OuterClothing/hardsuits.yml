@@ -660,16 +660,18 @@
     - ScurretWearable
   - type: StaticPrice
     price: 5000
-  - type: DNALocker # ADT-Tweak
+  # ADT-Tweak start
+  - type: DNALocker
+  - type: ClothingGrantComponent 
+    component:
+    - type: SupermatterImmune
+  - type: SupermatterImmune
+  # ADT-Tweak end
   # ADT Grab start
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 2.25
-      Choke: 2
-  - type: ClothingGrantComponent
-    component:
-    - type: SupermatterImmune
-  - type: SupermatterImmune
+      Suffocate: 2
   # ADT Grab end
 
 # Syndicate Medic Hardsuit
@@ -754,7 +756,7 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 1.5
-      Choke: 2
+      Suffocate: 2
   - type: ClothingGrantComponent
     component:
     - type: SupermatterImmune
@@ -809,7 +811,7 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 2.25
-      Choke: 2
+      Suffocate: 2
   - type: DNALocker
   - type: ClothingGrantComponent
     component:

@@ -31,9 +31,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 10
+    maxIntensity: 6
     intensitySlope: 3
-    totalIntensity: 120 # about a ~4 tile radius
+    totalIntensity: 80 # about a ~4 tile radius
     canCreateVacuum: false
 
 - type: entity
@@ -66,16 +66,16 @@
   - type: ExplodeOnTrigger
   - type: Explosive # Powerful explosion in a very small radius. Doesn't break underplating.
     explosionType: DemolitionCharge
-    totalIntensity: 150
-    intensitySlope: 25
+    totalIntensity: 40
+    intensitySlope: 5
     maxIntensity: 50
     canCreateVacuum: false
   - type: Projectile
     deleteOnCollide: true
     damage:
       types:
-        Structural: 1000
-        Piercing: 75
+        Structural: 10
+        Piercing: 5
     soundHit:
       path: /Audio/Effects/gen_hit.ogg
 
@@ -123,15 +123,21 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/explosion/RPG.rsi
     layers:
-      - state: frag
+      - state: heat
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Default
-    totalIntensity: 175 # about a ~6 tile radius
-    intensitySlope: 1
-    maxIntensity: 10
+    explosionType: DemolitionCharge
+    totalIntensity: 190
+    intensitySlope: 2
+    maxIntensity: 110
+  - type: Projectile
+    deleteOnCollide: true
+    damage:
+      types:
+        Blunt: 25
+        Structural: 90
   - type: PointLight
     radius: 3.5
     color: orange
@@ -151,7 +157,7 @@
   - type: Explosive
     explosionType: Default
     totalIntensity: 150 # a ~2 tile radius
-    intensitySlope: 5
+    intensitySlope: 2
     maxIntensity: 10
   - type: PointLight
     radius: 3.5
@@ -168,7 +174,7 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Heat: 20
+        Heat: 17
   - type: HitscanBasicVisuals
     muzzleFlash:
       sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi

@@ -29,10 +29,6 @@
   - SpeedLoaderMagnumPractice
   - MagazinePistolSubMachineGunPractice
   - WeaponFlareGunSecurity
-  #ADT-Tweak-Start
-  - WeaponLaserSvalinn 
-  - ADTWeaponLaserSvalinnRifle
-  #ADT-Tweak-End
 
 # Shared between secfab and emagged autolathe
 - type: latheRecipePack
@@ -81,7 +77,7 @@
   - PowerCageMedium
   - PowerCageSmall
   - TelescopicShield
-  - ClothingBackpackHarmpack
+  # - ClothingBackpackHarmpack # ADT-Tweak
 
 - type: latheRecipePack
   id: SecurityBoards
@@ -92,8 +88,10 @@
   - ShuttleGunSvalinnMachineGunCircuitboard
 
 - type: latheRecipePack
-  parent:
-  - ScienceExplosives # sec gets everything for modular grenade making that sci does
+  # ADT-Tweak-Start
+  # parent:
+  # - ScienceExplosives # sec gets everything for modular grenade making that sci does
+  # ADT-Tweak-End
   id: SecurityExplosives
   recipes:
   - CableDetStack1
@@ -146,8 +144,12 @@
   - WeaponLaserCarbine
   - WeaponXrayCannon
   - WeaponTemperatureGun
-  - ADTWeaponIonRifle  #ADT tweak
-  - ADTWeaponIonCarbine #ADT tweak
+  # ADT-Tweak-Start
+  - ADTWeaponIonRifle
+  - ADTWeaponIonCarbine
+  - WeaponLaserSvalinn
+  - ADTWeaponLaserSvalinnRifle
+  # ADT-Tweak-End
 
 - type: latheRecipePack
   id: SecurityDisablers

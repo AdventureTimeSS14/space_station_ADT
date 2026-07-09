@@ -20,6 +20,11 @@ heretic-livingheart-offstation = { $state } в направлении к { $dire
 heretic-livingheart-onstation = { $state } в направелии к { $direction }у!
 heretic-livingheart-unknown = Он... не в этой реальности.
 
+ent-HereticProtectiveBlade = жуткий клинок
+    .desc = Ох еретик..
+ent-HereticProtectiveBladeProjectile = жуткий клинок
+    .desc = Эх еретик..
+
 ## speech
 
 heretic-speech-mansusgrasp = R'CH T'H TR'TH!
@@ -51,5 +56,6 @@ heretic-speech-blind = E'E'S
 heretic-speech-emp = E'P
 heretic-speech-shapeshift = SH'PE
 heretic-speech-link = PI'RC' TH' M'ND
-heretic-cant-shoot = Я не могу использовать { $entity } из-за моей священной приверженности пути клинка.
-heretic-ability-fail-lowhealth = Это заклинание наносит { $damage } урона, оно введёт вас в критическое состояние, если его использовать!
+
+heretic-cant-shoot = Я не могу использовать {$entity} из-за моей священной приверженности пути клинка.
+heretic-ability-fail-lowhealth = Это заклинание наносит {$damage} урона, оно введёт вас в критическое состояние, если его использовать!
