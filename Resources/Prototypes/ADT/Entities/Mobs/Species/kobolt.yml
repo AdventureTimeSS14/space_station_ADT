@@ -88,9 +88,9 @@
       CintaTaj: Speak
   - type: SizeAttributeWhitelist # Frontier
     tall: true
-    tallscale: 0.9
+    tallscale: 1.05
     short: true
-    shortscale: 0.8
+    shortscale: 0.98
   - type: Thieving
     stealthy: false
     hideStealthyAlert: true

@@ -206,10 +206,10 @@
       actionProto: ADTActionDashMoth
     - type: SizeAttributeWhitelist # Frontier
       tall: true
-      tallscale: 1
+      tallscale: 1.1
       short: true
-      shortscale: 0.85
-  # ADT-tweak-end
+      shortscale: 0.9
+    # ADT-tweak-end
 
 - type: entity
   parent: OrganBaseOrganic
