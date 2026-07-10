@@ -1,6 +1,6 @@
 - type: entity
   name: Cultist
-  parent: BaseMobHuman
+  parent: MobHuman # ADT-Tweak: BaseMobHuman removed by wizden Nubody (#42419)
   id: ADTTimePatrolSpawn
   suffix: "ОБВА"
   components:

@@ -1,6 +1,8 @@
 using System.Linq;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Climbing.Systems;
 using Content.Shared.Containers;
 using Content.Shared.Database;
@@ -88,6 +90,7 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
         SubscribeLocalEvent<DisposalUnitComponent, ComponentInit>(OnDisposalInit);
 
         SubscribeLocalEvent<DisposalUnitComponent, ActivateInWorldEvent>(OnActivate);
+        SubscribeLocalEvent<DisposalUnitComponent, InteractUsingEvent>(OnInteractUsing, before: new[] { typeof(InjectorSystem) }); // ADT-Tweak
         SubscribeLocalEvent<DisposalUnitComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<DisposalUnitComponent, DragDropTargetEvent>(OnDragDropOn);
         SubscribeLocalEvent<DisposalUnitComponent, ContainerRelayMovementEntityEvent>(OnMovement);
@@ -208,6 +211,20 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
         args.Handled = true;
         _ui.TryToggleUi(uid, DisposalUnitComponent.DisposalUnitUiKey.Key, args.User);
     }
+
+    // ADT-Tweak start
+    private void OnInteractUsing(EntityUid uid, DisposalUnitComponent component, InteractUsingEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (HasComp<InjectorComponent>(args.Used))
+        {
+            args.Handled = true;
+            AfterInsert(uid, component, args.Used, args.User, doInsert: true);
+        }
+    }
+    // ADT-Tweak end
 
     private void OnAfterInteractUsing(EntityUid uid, DisposalUnitComponent component, AfterInteractUsingEvent args)
     {
@@ -453,7 +470,7 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
         if (!storable && !HasComp<MobStateComponent>(entity))
             return false;
 
-        if (_whitelistSystem.IsBlacklistPass(component.Blacklist, entity) ||
+        if (_whitelistSystem.IsWhitelistPass(component.Blacklist, entity) ||
             _whitelistSystem.IsWhitelistFail(component.Whitelist, entity))
             return false;
 

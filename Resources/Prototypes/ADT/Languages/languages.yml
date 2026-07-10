@@ -13,24 +13,43 @@
   parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
-    color: Crimson
+    color: "#ff1212"
     whisperColor: Crimson
     replacement:
     - Белый русский
     - Представитель станции
     - Шериф
     - Депутат
+    - Продамся Сб
     - Хранилище
     - Фронтир
     - Станция
+    - Вода течёт
+    - Инженерный вход
+    - Ало капитан?
     - Безопасность
     - Кофе
     - Кола
+    - Атмос горит
+    - Робототехника убить бы
     - Вода
     - Инженерный
     - Капитан
     - Вызываю друга
     - Атмос
+    - Ты дурак?
+    - Офицер умер
+    - Погодитека..
+    - Где то я это уже слышал
+    - Чёрный офицер
+    - 12 Якорей
+    - Шпала
+    - Бетономешалка
+    - Продайте
+    - Используйте
+    - Человека
+    - Вульпканина
+    - Унатхов
     - Робототехника
     - Медицинский
     - ИИ
@@ -65,6 +84,7 @@
     - Дракон
     - Ниндзя
     - Секрет
+    - Говно
 
 # Languages spoken by various critters.
 - type: language
@@ -324,7 +344,7 @@
 
 - type: language
   id: SignLanguage
-  roundstart: true
+  roundstart: false
   uiColor: White
   parent: BaseEmoteLanguage
   speech: !type:Emotes

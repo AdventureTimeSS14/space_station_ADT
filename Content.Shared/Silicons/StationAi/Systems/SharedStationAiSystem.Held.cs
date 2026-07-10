@@ -2,6 +2,7 @@ using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -172,14 +173,14 @@ public abstract partial class SharedStationAiSystem
             return;
 
         if (!args.CanComplexInteract
-            || !HasComp<StationAiHeldComponent>(args.User)
+            || (!HasComp<StationAiHeldComponent>(args.User) && !HasComp<BorgChassisComponent>(args.User)) // ADT-Tweak
             || !args.CanInteract)
         {
             return;
         }
 
         var user = args.User;
-
+        
         var target = args.Target;
 
         var isOpen = _uiSystem.IsUiOpen(target, AiUi.Key, user);

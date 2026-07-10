@@ -63,7 +63,7 @@
       map: ["scan"]
       visible: false
   - type: ApcPowerReceiver
-    powerLoad: 400
+    powerLoad: 5
   - type: Machine
     board: ADTKitchenAssemblerMachineCircuitBoard
   - type: ActivatableUI
@@ -111,7 +111,7 @@
       map: ["enum.MicrowaveVisualizerLayers.BaseUnlit"]
       visible: false
   - type: ApcPowerReceiver
-    powerLoad: 500
+    powerLoad: 5
   - type: Machine
     board: ADTMedicalAssemblerMachineCircuitBoard
   - type: ActivatableUI
@@ -229,6 +229,9 @@
          acts: ["Breakage"]
    - type: ApcPowerReceiver
      powerLoad: 1000 # Assume the range is off.
+   - type: PowerState
+     idlePowerDraw: 1000
+     workingPowerDraw: 2000
    - type: Machine
      board: ADTElectricRangeMachineCircuitBoard
    - type: ContainerContainer

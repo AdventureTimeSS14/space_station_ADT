@@ -130,7 +130,7 @@ ent-ADTClothingUniformJumpsuitTurtleneckOrange = оранжевая водола
     .suffix = { "" }
 
 ent-ADTClothingUniformJumpsuitTurtleneckPurple = фиолетовая водолазка
-    .desc = Почувстсвуй себя учёным РНД.
+    .desc = Почувствуй себя учёным РНД.
     .suffix = { "" }
 
 ent-ADTClothingUniformJumpsuitTurtleneckRed = красная водолазка

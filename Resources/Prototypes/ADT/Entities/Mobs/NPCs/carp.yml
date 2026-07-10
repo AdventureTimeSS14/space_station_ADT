@@ -19,8 +19,6 @@
         settings: short
     - type: GhostTakeoverAvailable
     - type: Body
-      prototype: Bloodsucker
-      requiredLegs: 1
     - type: NpcFactionMember
       factions:
         - Syndicate
@@ -83,3 +81,30 @@
   - type: ConditionalSpawner
     prototypes:
     - ADTMobCarpPirate
+
+- type: entity
+  id: MobSharkDragon
+  parent: MobShark  
+  name: sharkminnow
+  suffix: DragonBrood
+  components:
+  - type: HTN
+    rootTask:
+      task: DragonCarpCompound
+  - type: NpcFactionMember
+    factions:
+    - Dragon
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-sentient-carp-name
+    description: ghost-role-information-sentient-carp-description
+    rules: ghost-role-information-space-dragon-summoned-carp-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonistFlock
+  - type: GhostTakeoverAvailable
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 999999
+    

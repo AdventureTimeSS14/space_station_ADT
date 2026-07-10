@@ -84,20 +84,21 @@
     sprite: Objects/Misc/nukedisk.rsi
     state: icon
 
-# ADT tweak start
+# ADT-Tweak-Start
 # - type: stealTargetGroup ADT tweak
 #   id: WeaponEnergyShotgun
 #   name: steal-target-groups-weapon-energy-shot-gun
 #   sprite:
 #     sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
 #     state: base
-# ADT tweak end
-- type: stealTargetGroup
-  id: WeaponEnergyMagnum
-  name: steal-target-groups-weapon-energy-magnum
-  sprite:
-    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
-    state: icon
+#
+# - type: stealTargetGroup
+#   id: WeaponEnergyMagnum
+#   name: steal-target-groups-weapon-energy-magnum
+#   sprite:
+#     sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
+#     state: icon
+# ADT-Tweak-End
 
 # Thief Collection
 
@@ -170,6 +171,13 @@
   sprite:
     sprite: Objects/Tools/lantern.rsi
     state: lantern
+
+- type: stealTargetGroup
+  id: ClothingEyesHuds
+  name: steal-target-groups-huds
+  sprite:
+    sprite: Clothing/Eyes/Hud/sec.rsi
+    state: icon
 
 # Thief single item
 
@@ -252,6 +260,13 @@
     sprite: Clothing/Belt/ce.rsi
     state: icon
 
+- type: stealTargetGroup
+  id: SalvageExpeditionsComputerCircuitboard
+  name: steal-target-groups-salvage-expeditions-computer-circuitboard
+  sprite:
+    sprite: Clothing/Belt/ce.rsi
+    state: icon
+
 # Corvax-StealTarget-start
 #- type: stealTargetGroup
 #  id: SalvageExpeditionsComputerCircuitboard
@@ -267,13 +282,6 @@
   sprite:
     sprite: Objects/Misc/module.rsi
     state: cpuboard
-
-- type: stealTargetGroup
-  id: ClothingEyesHudBeer
-  name: steal-target-groups-clothing-eyes-hud-beer
-  sprite:
-    sprite: Clothing/Eyes/Hud/beergoggles.rsi
-    state: icon
 
 - type: stealTargetGroup
   id: Bible

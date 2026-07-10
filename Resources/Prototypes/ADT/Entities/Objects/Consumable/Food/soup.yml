@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: FoodBase
   id: ADTFoodBowlBase
   abstract: true
@@ -36,6 +36,7 @@
       types:
         Blunt: 0
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Tag
     tags:

@@ -1,7 +1,6 @@
 - type: marking
   id: ADTAlldurak
   bodyPart: HeadTop
-  markingCategory: HeadTop
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -10,7 +9,6 @@
 - type: marking
   id: ADTAllhorn1
   bodyPart: HeadTop
-  markingCategory: HeadTop
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -19,7 +17,6 @@
 - type: marking
   id: ADTAllhorn2
   bodyPart: HeadTop
-  markingCategory: HeadTop
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -28,7 +25,6 @@
 - type: marking
   id: ADTAllhorn3
   bodyPart: HeadTop
-  markingCategory: HeadTop
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -37,7 +33,6 @@
 - type: marking
   id: ADTAllhorn4
   bodyPart: HeadTop
-  markingCategory: HeadTop
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -46,7 +41,6 @@
 - type: marking
   id: ADTAllhorn5
   bodyPart: HeadTop
-  markingCategory: HeadTop
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -55,7 +49,6 @@
 - type: marking
   id: ADTAllhorn6
   bodyPart: HeadTop
-  markingCategory: HeadTop
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -64,7 +57,6 @@
 - type: marking
   id: ADTAlllord
   bodyPart: HeadTop
-  markingCategory: HeadTop
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -73,7 +65,6 @@
 - type: marking
   id: ADTAlloldpain
   bodyPart: HeadTop
-  markingCategory: HeadTop
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -82,7 +73,6 @@
 - type: marking
   id: ADTAlltavrhorn
   bodyPart: HeadTop
-  markingCategory: HeadTop
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -91,7 +81,6 @@
 - type: marking
   id: ADTAlltelehorn
   bodyPart: HeadTop
-  markingCategory: HeadTop
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -100,7 +89,6 @@
 - type: marking
   id: ADTAllvampirehorn
   bodyPart: HeadTop
-  markingCategory: HeadTop
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi

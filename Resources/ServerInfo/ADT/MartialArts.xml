@@ -1,266 +1,304 @@
 <Document>
-# Боевые искусства
-Искусство ведения боя, так же известное как Робаст или Робастинг — жаргонное название владения и знания тонкостей системы ведения боя игры Space Station 14.
 
-В данном руководстве вы узнаете, что такое боевой режим, стамина, механики боя и БИ, также известные как боевые искусства.
+  # Боевые искусства
 
-## Захват
+  Боевые искусства — это стили боя, которым персонажи могут обучиться и применять в игре.
+  Они дают особые боевые способности, как правило выполняемые через определённые комбо-атаки,
+  а также пассивные умения или активные действия.
 
-[bold]Граб[/bold]
+  Умения могут варьироваться от защитных приёмов, таких как отклонение снарядов,
+  до комбо-атак, способных быстро обездвижить противника.
 
-Граб — механика боевого захвата. Всего есть три его стадии:
+  Персонаж может знать только одно боевое искусство. Если вы уже изучили одно,
+  вы не сможете изучить другое. Некоторые расы, например Изменники, не могут использовать боевые искусства.
 
-- [color=green]лёгкий[/color]
-- [color=#1e90ff]сильный[/color]
-- [color=red]удушающий[/color]
+  ## Режимы атаки
 
-## Использование захвата
+  Большинство боевых искусств требуют выполнения определённых комбо-атак на противника.
+  Существует 4 типа атак, которые используются в комбо.
 
-Захват активируется нажатием [bold][color=#38a838]Ctrl+ЛКМ[/color][/bold] по цели, находясь в [bold]боевом режиме[/bold].
+  ### Помощь
 
-Каждая стадия захвата ограничивает передвижение цели.
+  [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="help" scale="1"] Нажмите [bold]ЛКМ[/bold] на кого-то при [color=Red]выключенном режиме боя[/color].
 
-В [color=red]удушающем[/color] захвате цель теряет возможность говорить (только если расе цели нужен воздух).
+  Если ваш персонаж — гуманоид и руки пусты, вы обнимете цель. Если рука занята, вы взаимодействуете с целью предметом.
+  Редко используется в комбо.
 
-## Возможности
+  ### Атака
 
-Начиная с сильного захвата, цель можно:
+  [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] Нажмите [bold]ЛКМ[/bold] при [color=Red]включённом режиме боя[/color].
 
-- [bold]Ударить головой об стол[/bold]. Для этого нужно перетащить спрайт цели на стол.
+  Вы нанесёте удар кулаком или оружием в позицию курсора.
+  Удар оружием ближнего боя или выстрел не считается успешной атакой для целей комбо.
 
-- [bold]Окунуть в унитаз[/bold]. Для этого нужно перетащить спрайт цели на унитаз.
+  ### Обезоружить
 
-- [bold]Кинуть в сторону, сбивая с ног всех, кто попадётся на пути[/bold]. Чтобы кинуть свою цель, нужно использовать сочетание клавиш [bold][color=#38a838]Ctrl+Q[/color][/bold].
+  [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] Нажмите [bold]ПКМ[/bold] при [color=Red]включённом режиме боя[/color].
 
-## Как выбраться из захвата?
+  Вы попытаетесь оттолкнуть цель, нанеся [color=Cyan]урон по выносливости[/color] и имея шанс выбить предмет из рук.
+  Замах оружием ближнего боя не считается обезоруживанием для комбо.
 
-Для того, чтобы выбраться из захвата, нужно либо нажать на [bold]иконку[/bold] справа, либо на [bold]кнопку[/bold], которая отвечает за конец таскания (по умолчанию - H).
+  ### Захват
 
-[bold]Скафандр на цели замедляет усиление граба![/bold]
+  [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"] Нажмите [bold]ЛКМ[/bold] с зажатым [bold]CTRL[/bold] при [color=Red]включённом режиме боя[/color].
 
-## Способы выучить боевое искусство
+  При свободной руке вы начнёте захватывать цель. Повторный захват усилит его.
+  Шансы цели вырваться зависят от характеристик обоих персонажей. Стадии захвата:
 
-1. Каждый СБтех в бриге имеет в ассортименте книгу "Как получить ПТСР".
+  Мягкий захват — легко вырваться, схож с обычным притяжением.
 
-2. Синдикат продаёт "Сказ о спящем карпе" за 17 ТК с максимальной скидкой в 10 ТК.
+  Жёсткий захват — вырваться сложнее. Можно бросить удерживаемого, нанеся урон по выносливости.
+  Можно выполнить slam о стол, если нажать атаку на ближайший стол (доступно начиная с этой стадии).
 
-3. Синдикат продаёт "Мануал CQC" за 12 ТК, доступный только оперативникам.
+  Удушающий захват — занимает обе руки, не позволяет цели говорить и очень сложен для escape.
 
-## Мануал CQC
-<Box>
-<GuideEntityEmbed Entity="ADTCqcManual"/>
-</Box>
+  ## CQC
 
-[bold]Комбо-приёмы:[/bold]
+  <Box>
+    <GuideEntityEmbed Entity="ADTCqcManual" Caption="мануал CQC"/>
+  </Box>
 
-- [bold]Слэм[/bold] — [bold][color=#986f00]захват[/color][/bold] + [bold][color=#b50000]удар[/color][/bold]
+  Комбо-приёмы:
 
-Роняет цель на пол, нанося [color=red]20[/color] тупого урона и [color=#1e90ff]НЕ[/color] выбивая вещи из рук.
+  - [bold]Слэм[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"]
+  <Box>
+  Роняет цель на пол на [color=Orange]2 секунды[/color] и наносит [color=Red]15[/color] урона.
+  </Box>
 
-- [bold]Удар CQC[/bold] — [bold][color=#b50000]удар[/color][/bold] + [bold][color=#b50000]удар[/color][/bold]
+  - [bold]Пинок[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"]
+  <Box>
+  По стоячей цели наносит [color=Red]20[/color] урона и [color=Cyan]15[/color] урона по выносливости. По лежачей — [color=Red]30[/color] урона; если цель в критическом состоянии по выносливости — погружает в сон на 10 секунд. Отбрасывает цель.
+  </Box>
 
-Наносит [color=red]10[/color] урона по стоящим и [color=red]15[/color] по лежащим урон суммируется.
+  - [bold]Захват[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"]
+  <Box>
+  Роняет цель на пол на [color=Orange]3 секунды[/color] и наносит [color=Cyan]55[/color] урона по выносливости.
+  </Box>
 
-Если ударить цель в стаминакрите - она будет отправлена в [color=#1e90ff]Сон[/color] на [color=#1e90ff]5[/color] секунд.
+  - [bold]Давление[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"]
+  <Box>
+  Перехватывает предмет из активной руки цели в свою свободную руку.
+  </Box>
 
-- [bold]Перехват[/bold] — [bold][color=#1e90ff]обезоружить[/color][/bold] + [bold][color=#986f00]захват[/color][/bold]
+  - [bold]Последовательный[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"]
+  <Box>
+  Наносит [color=Red]10[/color] урона и [color=Cyan]45[/color] урона по выносливости.
+  </Box>
 
-Перехватывает предмет из [color=green]активной[/color] руки цели и забирает предмет вам в активную руку.
+  ## Путь Спящего Карпа
 
-- [bold]Захват[/bold] — [bold][color=#986f00]захват[/color][/bold] + [bold][color=#986f00]захват[/color][/bold]
+  <Box>
+    <GuideEntityEmbed Entity="ADTScrollSleepingCarp" Caption="сказ о спящем карпе"/>
+  </Box>
 
-Роняет цель на пол и наносит [color=#1e90ff]55[/color] урона по выносливости.
+  Комбо-приёмы:
 
-- [bold]Последовательные удары[/bold] — [bold][color=#1e90ff]обезоружить[/color][/bold] + [bold][color=#1e90ff]обезоружить[/color][/bold] + [bold][color=#b50000]удар[/color][/bold]
+  - [bold]Карпьи зубы[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"]
+  <Box>
+  Наносит [color=Red]10[/color] Slash-урона. Каждое последующее использование наносит на [color=Red]20[/color] больше. Максимальный урон — [color=Red]90[/color] Slash-урона.
+  </Box>
 
-Наносит [color=red]10[/color] тупого урона, роняет цель на землю и наносит [color=#1e90ff]60[/color] урона по выносливости. Если цель уже лежит, наносит дополнительно [color=red]25[/color] урона.
+  - [bold]Удар волны[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"]
+  <Box>
+  Наносит [color=Red]15[/color] Blunt-урона, отбрасывает цель. Погружает цель в [color=#87CEEB]сон[/color] на [color=Orange]2 секунды[/color].
+  </Box>
+
+  - [bold]Перехват[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"]
+  <Box>
+  Наносит [color=Red]10[/color] Blunt-урона и забирает предмет из активной руки цели в свою свободную руку.
+  </Box>
+
+  ## Капоэйра
+
+  <Box>
+    <GuideEntityEmbed Entity="ADTScrollCapoeira" Caption="свиток капоэйры"/>
+  </Box>
+
+  <Box>
+  Сила капоэйры зависит от скорости движения. Все комбо масштабируют урон, время сбития и дальность броска по скорости (коэффициент мощи от [color=Cyan]×1[/color] до [color=Cyan]×4[/color]). При успешном комбо восстанавливается выносливость.
+  </Box>
+
+  <Box>
+  При [bold]промахе[/bold] безоружной атакой: +[color=Red]2[/color] урона к следующим ударам на [color=Orange]3 секунды[/color] и ускоряется следующая атака.
+  </Box>
+
+  <Box>
+  При использовании [bold]интента захвата[/bold] в комбо: скорость движения растёт на [color=Cyan]20%[/color] на [color=Orange]4 секунды[/color].
+  </Box>
+
+  <Box>
+  При [bold]обезоруживании или атаке[/bold] безоружно: скорость атаки растёт пропорционально скорости движения (до [color=Cyan]×1.5[/color]) на [color=Orange]3 секунды[/color].
+  </Box>
+
+  Комбо-приёмы:
+
+  - [bold]Толчковый пинок[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"]
+  <Box>
+  Только на стоячих целях.
+  Роняет цель на пол на [color=Orange]2–8 секунд[/color], выбивает вещи из рук и отбрасывает.
+  Цель становится уязвима к ударам. Если вас в этот момент удерживают захватом — вырываетесь.
+  </Box>
+
+  - [bold]Круговой пинок[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"]
+  <Box>
+  Наносит от [color=Red]15[/color] до [color=Red]60[/color] Blunt-урона (зависит от скорости).
+  Замедляет цель на [color=Orange]2–8 секунд[/color].
+  </Box>
+
+  - [bold]Подсекающий пинок[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"]
+  <Box>
+  Требует минимальной скорости движения.
+  Наносит от [color=Red]10[/color] до [color=Red]40[/color] Blunt-урона. Роняет цель на пол на [color=Orange]1–4 секунды[/color].
+  Ускоряет атаки на [color=Cyan]×1.5[/color] на [color=Orange]5 секунд[/color].
+  </Box>
+
+  - [bold]Вращательный пинок[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"]
+  <Box>
+  Только на стоячих целях. Требует минимальной скорости движения.
+  Наносит от [color=Red]25[/color] до [color=Red]100[/color] Blunt-урона. Роняет цель на пол на [color=Orange]2–8 секунд[/color].
+  Ускоряет атаки на [color=Cyan]×1.5[/color] на [color=Orange]5 секунд[/color].
+  </Box>
+
+  - [bold]Подъём[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [color=#888888](на себя)[/color]
+  <Box>
+  Поднимает вас с пола, если вы лежите.
+  </Box>
+
+  ## Кунг-фу Дракона
+
+  <Box>
+    <GuideEntityEmbed Entity="ADTScrollDragonKungFu" Caption="свиток кунг-фу дракона"/>
+  </Box>
+
+  Пассивно: стоя на месте, боец накапливает силу дракона. Пока сила активна и боец [bold]безоружен[/bold], при получении удара:
+  <Box>
+  Урон от атаки снижается на [color=Cyan]40%[/color] (Blunt, Slash, Pierce, Heat). Собственные атаки в течение [color=Orange]5 секунд[/color] наносят на [color=Red]20%[/color] больше урона.
+  </Box>
+
+  Комбо-приёмы:
+
+  - [bold]Коготь дракона[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"]
+  <Box>
+  Наносит [color=Cyan]25[/color] урона по выносливости и замедляет цель на [color=Cyan]40%[/color] на [color=Orange]2 секунды[/color].
+  </Box>
+
+  - [bold]Хвост дракона[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"]
+  <Box>
+  Наносит [color=Red]10[/color] урона и [color=Cyan]15[/color] урона по выносливости. Роняет стоячую цель на пол на [color=Orange]4 секунды[/color]. Если цель уже лежит — продлевает оглушение на [color=Orange]1 секунду[/color].
+  </Box>
+
+  - [bold]Удар дракона[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"]
+  <Box>
+  Наносит [color=Red]30[/color] урона.
+  </Box>
+
+  ## Ниндзюцу
+
+  <Box>
+    <GuideEntityEmbed Entity="ADTScrollNinjutsu" Caption="свиток ниндзюцу"/>
+  </Box>
+
+  Пассивно: ниндзя всегда находится в состоянии скрытности (иконка оповещения). В этом состоянии все атаки наносят [color=Red]×2[/color] урона и дополнительно применяют [color=Red]115[/color] Blunt (безоружно) или [color=Red]180[/color] Slash (оружием) урона по цели. Скрытность теряется после любого действия на [color=Orange]5 секунд[/color].
+
+  [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="help" scale="1"] [bold]Интент помощи[/bold] (безоружно, без режима боя) — захват:
+  <Box>
+  Замедляет цель до [color=Cyan]20%[/color] скорости на [color=Orange]5 секунд[/color] и лишает речи на [color=Orange]10 секунд[/color].
+  С удара сзади (45°): [color=Orange]7.5 секунд[/color] замедления и [color=Orange]15 секунд[/color] немоты.
+  </Box>
+
+  Комбо-приёмы:
+
+  - [bold]Укусить пыль[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"]
+  <Box>
+  Только на стоячих целях. Наносит [color=Red]10[/color] урона и роняет цель на пол на [color=Orange]4 секунды[/color].
+  </Box>
+
+  - [bold]Грязное убийство[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"]
+  <Box>
+  Наносит [color=Red]20[/color] урона и роняет цель на пол на [color=Orange]7 секунд[/color]. Только по лежачей цели.
+  </Box>
+
+  ## Разрыв Ада
+
+  Комбо-приёмы:
+
+  - [bold]Летящий дроп-кик[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"]
+  <Box>
+  Разрывает захват, которым удерживают исполнителя, отбрасывая захватчика. Восстанавливает [color=Cyan]60[/color] выносливости и поднимает исполнителя с пола.
+  </Box>
+
+  - [bold]Срывание головы[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"]
+  <Box>
+  Только по мёртвой цели, которую вы удерживаете. Наносит [color=Red]100[/color] Slash-урона и [color=Red]300[/color] Blunt-урона.
+  </Box>
+
+  - [bold]Снос[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"]
+  <Box>
+  Наносит [color=Red]60[/color] урона и [color=Cyan]50[/color] урона по выносливости.
+  </Box>
+
+  - [bold]Адский слэм[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"]
+  <Box>
+  Только лёжа, против стоячей цели. Роняет цель на пол на [color=Orange]8 секунд[/color] и наносит [color=Cyan]100[/color] урона по выносливости. Поднимает исполнителя с пола.
+  </Box>
+
+  ## Корпоративное Дзюдо
+
+  <Box>
+    <GuideEntityEmbed Entity="ADTClothingBeltJudo" Caption="пояс дзюдо"/>
+  </Box>
+
+  <Box>
+  Настоящий мастер дзюдо не нуждается в станбатоне: попытка ударить им блокируется с предупреждающим попапом.
+  </Box>
+
+  Комбо-приёмы:
+
+  - [bold]Проход в ноги[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"]
+  <Box>
+  Роняет человека на пол, оглушая на [color=Orange]1 секунду[/color], нанося [color=Red]5[/color] Blunt-урона и НЕ выбивая вещи из рук.
+  </Box>
+
+  - [bold]Боевой захват[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"]
+  <Box>
+  Работает исключительно на лежачих противниках.
+  Пинает человека, наносит [color=Cyan]55[/color] урона по выносливости и [color=Red]10[/color] Blunt-урона.
+  </Box>
+
+  - [bold]Вдавливание глаз[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"]
+  <Box>
+  Наносит [color=Red]8[/color] Piercing-урона и [color=Red]2[/color] урона глазам, ослепляя на [color=Orange]10 секунд[/color]. Вылечить повреждение глаз можно только с помощью окулина.
+  </Box>
+
+  - [bold]Нагэ-вадза[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"]
+  <Box>
+  Работает исключительно на тех, кто вас удерживает.
+  Бросает человека в сторону, нанося [color=Red]10[/color] Blunt-урона.
+  </Box>
+
+  ## Как получить ПТСР
+
+  <Box>
+    <GuideEntityEmbed Entity="ADTBookPTSD" Caption="как получить ПТСР"/>
+  </Box>
+
+  Комбо-приёмы:
+
+  - [bold]Подсечка в ноги[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"]
+  <Box>
+  Только на стоячих целях.
+  Роняет цель на пол на [color=Orange]2 секунды[/color]. НЕ выбивает вещи из рук.
+  </Box>
+
+  - [bold]Завод руки за спину[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"]
+  <Box>
+  Наносит [color=Cyan]40[/color] урона по выносливости.
+  </Box>
+
+  - [bold]Пинок сапогом[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"]
+  <Box>
+  Только по лежачей цели. Отбрасывает цель.
+  </Box>
 
-- [bold]Хват за ногу[/bold] — [bold][color=#986f00]захват[/color][/bold] + [bold][color=#1e90ff]обезоружить[/color][/bold]
-
-Роняет цель на пол.
-
-## Сказ о спящем карпе
-<Box>
-<GuideEntityEmbed Entity="ADTScrollSleepingCarp"/>
-</Box>
-
-- 100% шанс отразить любой снаряд.
-- Полная невозможность стрелять.
-
-[bold]Комбо-приёмы:[/bold]
-
-- [bold]Карпьи зубы[/bold] — [bold][color=#b50000]удар[/color][/bold] + [bold][color=#b50000]удар[/color][/bold]
-
-Наносит цели [color=red]10[/color] режущего урона, каждое последующее комбо наносит на [color=red]20[/color] урона больше. Максимальный урон за комбо — [color=red]80[/color].
-
-- [bold]Удар волны[/bold] — [bold][color=#b50000]удар[/color][/bold] + [bold][color=#1e90ff]обезоружить[/color][/bold]
-
-Наносит [color=red]15[/color] режущего урона отправляя цель в полёт с ОЧЕНЬ большой силой, и погружает цель в [color=#1e90ff]Сон[/color] на [color=green]2[/color] секунды.
-
-- [bold]Перехват[/bold] — [bold][color=#1e90ff]обезоружить[/color][/bold] + [bold][color=#1e90ff]обезоружить[/color][/bold]
-
-Наносит [color=red]10[/color] тупого урона и забирает предмет из руки цели в свободную руку.
-
-## Как получить ПТСР
-<Box>
-<GuideEntityEmbed Entity="ADTBookPTCR"/>
-</Box>
-
-[bold]Комбо-приёмы:[/bold]
-
-- [bold]Завод руки за спину[/bold] — [bold][color=#b50000]удар[/color][/bold] + [bold][color=#986f00]захват[/color][/bold] + [bold][color=#1e90ff]обезоружить[/color][/bold]
-
-Наносит цели [color=#1e90ff]60[/color] урона по выносливости.
-
-- [bold]Подсечка в ноги[/bold] — [bold][color=#1e90ff]обезоружить[/color][/bold] + [bold][color=#986f00]захват[/color][/bold]
-
-Роняет цель на пол, [color=#1e90ff]НЕ[/color] выбивая вещи из рук.
-
-## Кулинарная книга приёмов
-<Box>
-<GuideEntityEmbed Entity="ADTCookbookManual"/>
-</Box>
-
-[bold]Комбо-приёмы:[/bold]
-
-- [bold]Отбивание[/bold] — [bold][color=#986f00]захват[/color][/bold] + [bold][color=#b50000]удар[/color][/bold]
-
-Роняет цель на пол, наносит [color=red]10[/color] тупого урона и [color=#1e90ff]НЕ[/color] выбивает вещи из рук.
-
-- [bold]Раскручивание[/bold] — [bold][color=#1e90ff]обезоружить[/color][/bold] + [bold][color=#986f00]захват[/color][/bold]
-
-Наносит цели [color=#1e90ff]35[/color] урона по выносливости.
-
-- [bold]Раскатывание[/bold] — [bold][color=#986f00]захват[/color][/bold] + [bold][color=#986f00]захват[/color][/bold]
-
-Роняет цель на пол, наносит [color=#1e90ff]35[/color] урона по выносливости и выбивает вещи из рук.
-
-- [bold]Выжимание[/bold] — [bold][color=#986f00]захват[/color][/bold] + [bold][color=#1e90ff]обезоружить[/color][/bold]
-
-Роняет цель на пол и выбивает вещи из рук.
-
-## Корпоративное дзюдо
-<Box>
-<GuideEntityEmbed Entity="ADTClothingBeltJudo"/>
-</Box>
-
-[bold]Комбо-приёмы:[/bold]
-
-- [bold]Проход в ноги[/bold] — [bold][color=#986f00]захват[/color][/bold] + [bold][color=#1e90ff]обезоружить[/color][/bold]
-
-Роняет цель на пол, оглушая на [color=#1e90ff]1[/color] секунду, нанося [color=red]5[/color] тупого урона и [color=#1e90ff]НЕ[/color] выбивая вещи из рук.
-
-- [bold]Боевой захват[/bold] — [bold][color=#1e90ff]обезоружить[/color][/bold] + [bold][color=#1e90ff]обезоружить[/color][/bold] + [bold][color=#986f00]захват[/color][/bold]
-
-Работает исключительно на лежачих противников. Пинает цель, нанося [color=#1e90ff]45[/color] урона по выносливости и [color=red]10[/color] тупого урона.
-
-- [bold]Вдавливание глаз[/bold] — [bold][color=#b50000]удар[/color][/bold] + [bold][color=#986f00]захват[/color][/bold] + [bold][color=#1e90ff]обезоружить[/color][/bold]
-
-Временно ослепляет противника и наносит урон глазам, который можно вылечить окулином.
-
-- [bold]Нагэ-вадза[/bold] — [bold][color=#1e90ff]обезоружить[/color][/bold] + [bold][color=#b50000]удар[/color][/bold]
-
-Работает только на тех, кто вас удерживает. Бросает цель в сторону, нанося [color=red]10[/color] тупого урона.
-
-## Крав-мага
-<Box>
-<GuideEntityEmbed Entity="ClothingHandsGlovesKravMaga"/>
-</Box>
-
-[bold]Комбо-приёмы:[/bold]
-
-- [bold]Подсечка[/bold]
-
-Роняет цель на пол, нанося [color=red]10[/color] тупого урона. Задержка использования - 2 секунды.
-
-- [bold]Удар в лёгкие[/bold]
-
-Наносит [color=red]20[/color] урона удушьем и блокирует лёгкие (пока не реализовано). Задержка использования - 3 секунды.
-
-- [bold]Отбивание горла[/bold]
-
-Наносит [color=red]5[/color] тупого урона и блокирует возможность говорить на 20 секунд. Задержка использования - 2 секунды.
-
-## Тонфа
-<Box>
-<GuideEntityEmbed Entity="ADTWeaponTonfa"/>
-</Box>
-
-Имеет два режима, сменяемые на [bold]пробел[/bold] (по умолчанию).
-
-- [bold][color=green]Защитный[/color][/bold] — ручка рукояти сверху справа.
-- [bold][color=red]Атакующий[/color][/bold] — ручка рукояти слева снизу.
-
-Режимы не отличаются друг от друга, но необходимы для приёмов.
-
-[bold]Комбо-приёмы:[/bold]
-
-- [bold]Удар в солнечное сплетение[/bold] — [bold][color=green]защитный[/color][/bold] [bold][color=#986f00]размашистый удар[/color][/bold] + [bold][color=#d81b60]атакующий[/color][/bold] [bold][color=#986f00]размашистый удар[/color][/bold]
-
-Наносит цели [color=#1e90ff]40[/color] урона по выносливости.
-
-- [bold]Удар в рёбра[/bold] — [bold][color=#d81b60]атакующий[/color][/bold] [bold][color=#b50000]точечный удар[/color][/bold] + [bold][color=green]защитный[/color][/bold] [bold][color=#b50000]точечный удар[/color][/bold]
-
-Наносит дополнительно [color=red]10[/color] тупого урона.
-
-- [bold]Удар по кисти[/bold] — [bold][color=#d81b60]атакующий[/color][/bold] [bold][color=#986f00]размашистый удар[/color][/bold] + [bold][color=#d81b60]атакующий[/color][/bold] [bold][color=#986f00]размашистый удар[/color][/bold] + [bold][color=#d81b60]атакующий[/color][/bold] [bold][color=#b50000]точечный удар[/color][/bold]
-
-Наносит дополнительно [color=red]5[/color] тупого урона и [color=#986f00]ВЫБИВАЕТ[/color] у цели вещь из активной руки.
-
-- [bold]Подсечка[/bold] — [bold][color=#d81b60]атакующий[/color][/bold] [bold][color=#986f00]размашистый удар[/color][/bold] + [bold][color=#d81b60]атакующий[/color][/bold] [bold][color=#986f00]размашистый удар[/color][/bold] + [bold][color=green]защитный[/color][/bold] [bold][color=#b50000]точечный удар[/color][/bold]
-
-Работает только на тех, кто вас удерживает. Заставляет цель упасть и замедляет на 10 секунд.
-
-## Топор синдиката
-<Box>
-<GuideEntityEmbed Entity="FireAxeFlaming"/>
-</Box>
-
-Имеет два режима, сменяемые на [bold]пробел[/bold] (по умолчанию).
-
-- [bold][color=red]Атакующий[/color][/bold] — лезвие топора сверху.
-- [bold][color=green]Защитный[/color][/bold] — лезвие топора снизу.
-
-Режимы не отличаются друг от друга, но необходимы для приёмов.
-
-[bold]Комбо-приёмы:[/bold]
-
-- [bold]Нокдаун[/bold] — [bold][color=green]защитный[/color][/bold] [bold][color=#986f00]размашистый удар[/color][/bold] + [bold][color=#d81b60]атакующий[/color] [bold][color=#b50000]точечный удар[/color][/bold]
-
-Работает исключительно на стоящих противников. Роняет цель на пол.
-
-- [bold]Отталкивание при захвате[/bold] — [bold][color=green]защитный[/color][/bold] [bold][color=#986f00]размашистый удар[/color][/bold] + [bold][color=#d81b60]атакующий[/color][/bold] [bold][color=#986f00]размашистый удар[/color][/bold]
-
-Работает только на тех, кто вас удерживает. Отталкивает и замедляет на три секунды.
-
-## Проклятая катана
-<Box>
-<GuideEntityEmbed Entity="ADTKatanacursed"/>
-</Box>
-
-Имеет два режима, сменяемые на [bold]пробел[/bold] (по умолчанию).
-
-- [bold][color=red]Атакующий[/color][/bold] — лезвие клинка смотрит вниз.
-- [bold][color=green]Защитный[/color][/bold] — лезвие клинка смотрит вверх.
-
-Режимы не отличаются друг от друга, но необходимы для приёмов.
-
-[bold]Комбо-приёмы:[/bold]
-
-- [bold]Изогнутый удар[/bold] — [bold][color=#d81b60]атакующий[/color][/bold] [bold][color=#986f00]размашистый удар[/color][/bold] + [bold][color=#d81b60]атакующий[/color][/bold] [bold][color=#986f00]размашистый удар[/color][/bold]
-
-Работает исключительно на стоящих противников. Наносит [color=red]10[/color] режущего урона, сбивает цель с ног.
-
-- [bold]Удар с отбрасыванием[/bold] — [bold][color=green]защитный[/color][/bold] [bold][color=#986f00]размашистый удар[/color][/bold] + [bold][color=#d81b60]атакующий[/color] [bold][color=#b50000]точечный удар[/color][/bold] + [bold][color=green]защитный[/color][/bold] [bold][color=#986f00]размашистый удар[/color][/bold]
-
-Работает исключительно на оглушённых противников. Наносит [color=red]25[/color] режущего урона, отбрасывает цель с завидной силой.
-
-- [bold]Удар в захвате[/bold] — [bold][color=green]защитный[/color][/bold] [bold][color=#986f00]размашистый удар[/color][/bold] + [bold][color=#d81b60]атакующий[/color] [bold][color=#b50000]точечный удар[/color][/bold] + [bold][color=green]защитный[/color][/bold] [bold][color=#b50000]точечный удар[/color][/bold]
-
-Работает исключительно на тех, кого вы тащите. Наносит [color=red]15[/color] режущего урона и оглушает на [color=#1e90ff]6[/color] секунд.
-
-- [bold]Режущий удар по лежачему[/bold] — [bold][color=green]защитный[/color][/bold] [bold][color=#986f00]размашистый удар[/color][/bold] + [bold][color=#d81b60]атакующий[/color][/bold] [bold][color=#986f00]размашистый удар[/color][/bold]
-
-Работает исключительно на лежачих противников. Наносит [color=red]20[/color] режущего урона и телепортирует пользователя на цель.
 
 </Document>

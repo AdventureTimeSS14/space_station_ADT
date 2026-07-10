@@ -1,0 +1,17 @@
+- type: latheRecipePack
+  id: ADTScienceTrigger
+  recipes:
+  - TimerTrigger
+  - SignalTrigger
+  - VoiceTrigger
+
+- type: latheRecipePack
+  id: ADTScienceExplosives
+  recipes:
+  - ChemicalPayload
+  - FlashPayload
+
+- type: latheRecipePack
+  id: ADTChemicalPayload
+  recipes:
+  - ChemicalPayload

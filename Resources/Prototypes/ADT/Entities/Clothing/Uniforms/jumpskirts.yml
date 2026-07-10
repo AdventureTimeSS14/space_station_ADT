@@ -1,6 +1,6 @@
 # Blueshield
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpskirtBlueshield
   name: blueshield's jumpskirt
   description: blueshield's jumpskirt
@@ -20,6 +20,17 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_blueshield_woman.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_blueshield_woman.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtBlueshieldTacticalMaid
+  name: tactical maid suitskirt
+  description: It is assumed that the best maids should have designer suits.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Uniforms/Jumpskirt/blueshield_tacticalmaid.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Uniforms/Jumpskirt/blueshield_tacticalmaid.rsi
 
 # Centcom consultant
 - type: entity
@@ -523,7 +534,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/hike_jumpskirt_cmo.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformPathologistSkirt
   name: pathologist jumpskirt
   description: A lightweight jumpskirt for a morgue worker
@@ -534,7 +545,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/pathologist.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformPathologistSkirtAlt
   name: pathologist jumpskirt
   description: A lightweight jumpskirt for a morgue worker. A darker version.
@@ -569,7 +580,7 @@
 # Юбка деку, ага
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpskirtDetectiveOld
   name: detective old jumpskirt
   description: Decy jimpskirt, ok da?
@@ -616,7 +627,7 @@
 
 # Corrections Officer
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpskirtCorrectionsOfficer
   name: skirt-uniform corrections officer
   description: skirt-uniform corrections officer
@@ -641,7 +652,7 @@
 # Бармен
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpskirtBartenderRed
   name: bartender's uniform
   description: A nice and tidy uniform. Shame about the bar though.
@@ -652,7 +663,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/bartender_red.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformJumpskirtBartenderGreen
   name: bartender's uniform
   description: A nice and tidy uniform. Shame about the bar though.

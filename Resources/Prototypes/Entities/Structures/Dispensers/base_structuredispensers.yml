@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   abstract: true
   id: ReagentDispenserBase
   parent: SmallConstructibleMachine
@@ -37,8 +37,9 @@
   - type: Anchorable
   - type: Pullable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -74,8 +75,6 @@
       machine_parts: !type:Container
       beakerSlot: !type:ContainerSlot
       storagebase: !type:Container
-  - type: StaticPrice
-    price: 1000
   - type: WiresPanel
   - type: EmptyOnMachineDeconstruct
     containers:

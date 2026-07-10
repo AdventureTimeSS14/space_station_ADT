@@ -1,4 +1,16 @@
 - type: latheRecipe
+  id: ADTAiRemoteBrain
+  result: ADTAiRemoteBrain
+  completetime: 4
+  materials:
+    Steel: 500
+    Plastic: 500
+    Gold: 100
+    Silver: 100
+    Plasma: 1000
+    Zinc: 200
+
+- type: latheRecipe
   id: ADTBorgModuleHarm
   result: ADTBorgModuleHarm
   completetime: 3
@@ -11,18 +23,6 @@
     Copper: 400
 
 - type: latheRecipe
-  id: ADTBorgModuleDisabler
-  result: ADTBorgModuleDisabler
-  completetime: 3
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 250
-    Gold: 50
-    Plasma: 50
-    Copper: 500
-
-- type: latheRecipe
   id: ADTBorgModuleDetention
   result: ADTBorgModuleDetention
   completetime: 3
@@ -30,6 +30,8 @@
     Steel: 500
     Glass: 500
     Plastic: 250
+    Gold: 50
+    Plasma: 50
     Copper: 500
 
 - type: latheRecipe
@@ -251,16 +253,16 @@
     Gold: 100
     Copper: 200
 
-- type: latheRecipe
-  id: ADTModsuitModPowerKick
-  result: ADTModsuitModPowerKick
-  completetime: 2
-  materials:
-    Steel: 1000
-    Plastic: 400
-    Gold: 500
-    Silver: 600
-    Copper: 200
+#- type: latheRecipe
+#  id: ADTModsuitModPowerKick
+#  result: ADTModsuitModPowerKick
+#  completetime: 2
+#  materials:
+#    Steel: 1000
+#    Plastic: 400
+#    Gold: 500
+#    Silver: 600
+#    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModSechud

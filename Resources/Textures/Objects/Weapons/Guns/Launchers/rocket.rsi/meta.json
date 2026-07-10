@@ -1,7 +1,7 @@
 {
-    "version": 1,
+    "version": 2,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken/modified from tgstation at https://github.com/tgstation/tgstation/pull/21818/commits/8959238828600d01ee7c8165a0dd29007570a454, backpack sprite by Peptide, backpack sling sprite edited by Boaz1111",
+    "copyright": "Taken/modified from tgstation at https://github.com/tgstation/tgstation/pull/21818/commits/8959238828600d01ee7c8165a0dd29007570a454, backpack sprite by Peptide, backpack sling sprite edited by Boaz1111, wielded-inhand-right and wielded-inhand-light made by egor2444 in Discord",
     "size": {
         "x": 32,
         "y": 32
@@ -34,6 +34,14 @@
 	},
     {
       "name": "equipped-BACKPACK",
+      "directions": 4
+    },
+    {
+      "name": "wielded-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "wielded-inhand-right",
       "directions": 4
     }
     ]

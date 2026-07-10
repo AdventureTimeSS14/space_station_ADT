@@ -7,7 +7,6 @@ using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared.Popups;
-using Content.Server.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Alert;
 using Content.Shared.ADT.Silicon.Systems;
@@ -24,6 +23,8 @@ using Robust.Shared.Physics.Components;
 using Content.Shared.Power.Components;
 using Content.Shared.Temperature.Components;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.PowerCell;
 
 namespace Content.Server.ADT.Silicon.Charge;
 
@@ -36,9 +37,10 @@ public sealed class SiliconChargeSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _moveMod = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
+    [Dependency] private readonly PowerCellSystem _powerCell = default!;
 
     public override void Initialize()
     {
@@ -50,15 +52,24 @@ public sealed class SiliconChargeSystem : EntitySystem
     public bool TryGetSiliconBattery(EntityUid silicon, [NotNullWhen(true)] out BatteryComponent? batteryComp, out EntityUid batteryUid)
     {
         batteryComp = null;
-        batteryUid = silicon;
+        batteryUid = EntityUid.Invalid;
 
         if (!HasComp<SiliconComponent>(silicon))
             return false;
 
         // try get a battery directly on the inserted entity
-        if (TryComp(silicon, out batteryComp)
-            || _powerCell.TryGetBatteryFromSlot(silicon, out batteryComp))
+        if (TryComp(silicon, out batteryComp))
+        {
+            batteryUid = silicon;
             return true;
+        }
+
+        if (_powerCell.TryGetBatteryFromSlot(silicon, out var battery) && battery.HasValue)
+        {
+            batteryComp = battery.Value.Comp;
+            batteryUid = battery.Value.Owner;
+            return true;
+        }
 
         return false;
     }
@@ -95,7 +106,7 @@ public sealed class SiliconChargeSystem : EntitySystem
             }
 
             // If you can't find a battery, set the indicator and skip it.
-            if (!TryGetSiliconBattery(silicon, out var batteryComp, out var _))
+            if (!TryGetSiliconBattery(silicon, out var batteryComp, out var batteryUid))
             {
                 UpdateChargeState(silicon, 0, siliconComp);
                 if (_alerts.IsShowingAlert(silicon, siliconComp.BatteryAlert))
@@ -134,7 +145,7 @@ public sealed class SiliconChargeSystem : EntitySystem
             _powerCell.TryUseCharge(silicon, frameTime * drainRate);
 
             // Figure out the current state of the Silicon.
-            var chargePercent = (short)MathF.Round(batteryComp.CurrentCharge / batteryComp.MaxCharge * 10f);
+            var chargePercent = (short)MathF.Round(_battery.GetChargeLevel((batteryUid, batteryComp)) * 10f);
 
             UpdateChargeState(silicon, chargePercent, siliconComp);
         }
@@ -145,7 +156,11 @@ public sealed class SiliconChargeSystem : EntitySystem
     /// </summary>
     public void UpdateChargeState(EntityUid uid, short chargePercent, SiliconComponent component)
     {
-        component.ChargeState = chargePercent;
+        if (component.ChargeState != chargePercent)
+        {
+            component.ChargeState = chargePercent;
+            Dirty(uid, component);
+        }
 
         RaiseLocalEvent(uid, new SiliconChargeStateUpdateEvent(chargePercent));
 
@@ -163,6 +178,9 @@ public sealed class SiliconChargeSystem : EntitySystem
     {
         if (!TryComp<TemperatureComponent>(silicon, out var temperComp)
             || !TryComp<ThermalRegulatorComponent>(silicon, out var thermalComp))
+            return 0;
+
+        if (!TryComp<TemperatureDamageComponent>(silicon, out var tempDamageComp))
             return 0;
 
         // If the Silicon is hot, drain the battery faster, if it's cold, drain it slower, capped.
@@ -183,9 +201,9 @@ public sealed class SiliconChargeSystem : EntitySystem
 
             siliconComp.OverheatAccumulator -= 5;
 
-            if (!EntityManager.TryGetComponent<FlammableComponent>(silicon, out var flamComp)
+            if (!TryComp<FlammableComponent>(silicon, out var flamComp)
                 || flamComp is { OnFire: true }
-                || !(temperComp.CurrentTemperature > temperComp.HeatDamageThreshold))
+                || !(temperComp.CurrentTemperature > tempDamageComp.HeatDamageThreshold))
                 return hotTempMulti;
 
             _popup.PopupEntity(Loc.GetString("silicon-overheating"), silicon, silicon, PopupType.MediumCaution);
@@ -213,9 +231,10 @@ public sealed class SiliconChargeSystem : EntitySystem
             return 0;
 
         if (input.HeldMoveButtons == MoveButtons.None || _jetpack.IsUserFlying(silicon)) // If nothing is being held or jet packing
-        {
             return siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction * (-1); // Reduces draw by idle drain reduction
-        }
+
+        if (movement.CurrentSprintSpeed <= 0f)
+            return siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction * -1;
 
         // LinearVelocity is relative to the parent
         return Math.Clamp(

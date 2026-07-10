@@ -1,6 +1,52 @@
+- type: entity
+  abstract: true
+  parent: [ClothingOuterBase, GeigerCounterClothing, AllowSuitStorageClothing]
+  id: ADTClothingOuterHardsuitBase # Используйте для ивентов, Нету в выборе хамелеона
+  name: base hardsuit
+  components:
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.01
+    coolingCoefficient: 0.01
+  - type: ClothingSpeedModifier
+    walkModifier: 0.6
+    sprintModifier: 0.6
+  - type: HeldSpeedModifier
+  - type: Item
+    size: Huge
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Heat: 0.90
+        Radiation: 0.25
+  - type: ToggleableClothing
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+  - type: GroupExamine
+  - type: Tag
+    tags:
+    - Hardsuit
+  - type: ProtectedFromStepTriggers
+    slots: WITHOUT_POCKET
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10 # the average lightbulb only does around four damage!
+    slots: OUTERCLOTHING
+  - type: CoveredSlot
+    slots: [innerclothing, gloves, feet, underwearb, underweart, socks]
+  - type: HidesSlots
+    hidesSlots: [ INNERCLOTHING, GLOVES, LEGS, FEET, SOCKS, UNDERWEART, UNDERWEARB, POCKET ]
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ADTClothingOuterHardsuitBase
   id: ADTSpaceSecPilotHardsuit
   name: space sec pilot hardsuit
   description: For the guardians of safety among the stars
@@ -33,7 +79,7 @@
     damageCoefficient: 0.6
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ADTClothingOuterHardsuitBase
   id: ADTSpaceSecOfficerHardsuit
   name: space sec officer hardsuit
   description: For the guardians of safety among the stars
@@ -67,7 +113,7 @@
     damageCoefficient: 0.5
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ADTClothingOuterHardsuitBase
   id: ADTSpaceSecCommanderHardsuit
   name: space sec commander hardsuit
   description: For the guardians of safety among the stars
@@ -161,7 +207,7 @@
     clothingPrototype: ADTClothingHeadHelmetHardsuitBlueshield
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ADTClothingOuterHardsuitBase
   id: ADTClothingOuterHardsuitIlisium
   name: hardsuit ilisium
   description: hardsuit ilisium
@@ -194,7 +240,7 @@
     clothingPrototype: ADTClothingHeadHelmetIlisium
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ADTClothingOuterHardsuitBase
   id: ADTClothingOuterHardsuitInquisitory
   name: inquisitory hardsuit
   description: Repent of your sins.
@@ -225,7 +271,7 @@
     clothingPrototype: ADTClothingHeadHelmetHardsuitInquisitory
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ADTClothingOuterHardsuitBase
   id: ADTClothingOuterHardsuitTimePatrol
   name: deathsquad hardsuit
   description: An advanced hardsuit favored by commandos for use in special operations.
@@ -263,7 +309,7 @@
 
 #Скафандры Киберсана
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ADTClothingOuterHardsuitBase
   id: ADTClothingOuterHardsuitCybersunBodyGuard
   name: cybersun bodyguard hardsuit
   description: An upgraded version of the blood red hardsuit that features enhanced fireproofing, pressure resist, and superior armor.
@@ -296,7 +342,7 @@
     clothingPrototype: ADTClothingHeadHelmetHardsuitCybersunBodyGuard
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ADTClothingOuterHardsuitBase
   id: ADTClothingOuterHardsuitCybersunCrysis
   name: cybersun supersoldier's hardsuit
   description: CyberSun's most advanced, secret security technology. It seems this development is leading to the creation of super soldiers. It smells of plastitan and dishonorable fight
@@ -329,7 +375,7 @@
     clothingPrototype: ADTClothingHeadHelmetHardsuitCybersunCrysis
 
 - type: entity
-  parent: ClothingOuterHardsuitSyndieCommander
+  parent: ADTClothingOuterHardsuitBase
   id: ADTClothingOuterHardsuitPioneerAgent
   name: agent "Pioneer" hardsuit
   description: agent "Pioneer" hardsuit
@@ -340,9 +386,35 @@
     sprite: ADT/Clothing/OuterClothing/Hardsuits/pioneeragent.rsi
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetHardsuitPioneerAgent
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: StaminaResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.3
+        Heat: 0.5
+        Radiation: 0.25
+        Caustic: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: FireProtection
+    reduction: 0.75
+  - type: HeldSpeedModifier
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ADTClothingOuterHardsuitBase
   id: ADTClothingOuterHardsuitSaibaSain
   name: Saiba Sain elite hardsuit
   description: Produced from plasmatic fibers, nanomachines and silicon. Smells like cherry blossom
@@ -377,7 +449,7 @@
 # USSP USSP USSP USSP USSP USSP USSP USSP USSP
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ADTClothingOuterHardsuitBase
   id: ADTClothingOuterHardsuitOBS7USSP
   name: USSP OBS-7 Konrad armor suit
   description: OBS-7 "Konrad", stands for, Combined-Arms Armor-Suit Model 7, is a single combined-arms armor suit of the Konrad series, designed to provide high protection and mobility. This armor suit surpasses its predecessor in terms of mobility and protection from laser weapons, although it is significantly inferior in armor protection from small arms and explosions.
@@ -408,7 +480,7 @@
     clothingPrototype: ADTClothingHeadHelmetHardsuitOBS7USSP
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ADTClothingOuterHardsuitBase
   id: ADTClothingOuterHardsuitOBS5USSP
   name: USSP OBS-5 Konrad armor suit
   description: OBS-5 "Konrad", also known as the Combined-Arms Armor Suit Model 5, is a morally intimidating model of a single combined-arms armor suit of the Konrad series. This spacesuit was designed with high protection against small arms and explosions in mind.
@@ -443,7 +515,7 @@
 # Ивентовый, ага
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ADTClothingOuterHardsuitBase
   id: ADTDigitalHardsuit
   name: digital hardsuit
   description: What do you even know about the matrix?
@@ -506,7 +578,7 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 1.75
-      Choke: 1.5
+      Suffocate: 1.5
 
 - type: entity
   parent: ClothingOuterHardsuitBase
@@ -543,7 +615,7 @@
     price: 0
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ADTClothingOuterHardsuitBase
   id: ADTIanHeroHardsuit
   name: ADTIanHeroHardsuit-name
   description: ADTIanHeroHardsuit-desc

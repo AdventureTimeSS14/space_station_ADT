@@ -43,7 +43,7 @@ public sealed partial class ChangelingSystem
             return;
 
         var target = args.Target;
-        if (!HasComp<HumanoidAppearanceComponent>(target))
+        if (!HasComp<HumanoidProfileComponent>(target))
             return;
 
         if (!TryStingTarget(uid, target) || !_mobState.IsDead(target) || HasComp<ChangelingHeadslugContainerComponent>(target))

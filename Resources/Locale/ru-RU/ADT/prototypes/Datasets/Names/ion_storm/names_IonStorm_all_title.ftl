@@ -71,7 +71,6 @@ names_IonStormConcepts-70 = ЗЛОБНОСТЬ
 names_IonStormConcepts-71 = ПЕЧАЛЬ
 names_IonStormConcepts-72 = ТЕХНОЛОГИИ
 names_IonStormConcepts-73 = БОГАТСТВО
-
 # IonStormCrew
 names_IonStormCrew-1 = ИСКУССТВЕННЫЕ ИНТЕЛЛЕКТЫ
 names_IonStormCrew-2 = АТМОСФЕРНЫЕ ТЕХНИКИ
@@ -108,7 +107,6 @@ names_IonStormCrew-32 = ОФИЦЕРЫ БЕЗОПАСНОСТИ
 names_IonStormCrew-33 = ИНЖЕНЕРЫ
 names_IonStormCrew-34 = СМОТРИТЕЛИ
 names_IonStormCrew-35 = ВИРОЛОГИ
-
 # IonStormDrinks
 names_IonStormDrinks-1 = БАНАНА-ХОНК
 names_IonStormDrinks-2 = УДАР БИПСКИ
@@ -122,7 +120,6 @@ names_IonStormDrinks-9 = КОСМИЧЕСКИЙ КЛЕЙ
 names_IonStormDrinks-10 = КОСМИЧЕСКАЯ СМАЗКА
 names_IonStormDrinks-11 = СЕРНАЯ КИСЛОТА
 names_IonStormDrinks-12 = СВАРОЧНОЕ ТОПЛИВО
-
 # IonStormFeelings
 names_IonStormFeelings-1 = МЕЧТАЕТ О
 names_IonStormFeelings-2 = ЖЕЛАЕТ О
@@ -146,7 +143,6 @@ names_IonStormFeelings-19 = ЗАДУМЫВАЕТСЯ О
 names_IonStormFeelings-20 = ХОЧЕТ
 names_IonStormFeelings-21 = БОГОТВОРИТ
 names_IonStormFeelings-22 = УБЬЁТ ЗА
-
 # IonStormFeelingsPlural
 names_IonStormFeelingsPlural-1 = НЕ МОЖЕТ НАСЫТИТЬСЯ
 names_IonStormFeelingsPlural-2 = МЕЧТАЕТ О
@@ -171,7 +167,6 @@ names_IonStormFeelingsPlural-20 = ЗАДУМЫВАЕТСЯ О
 names_IonStormFeelingsPlural-21 = ХОЧЕТ
 names_IonStormFeelingsPlural-22 = БОГОТВОРИТ
 names_IonStormFeelingsPlural-23 = УБЬЁТ ЗА
-
 # IonStormFoods
 names_IonStormFoods-1 = БАНАНЫ
 names_IonStormFoods-2 = БОЛЬШИЕ БУРГЕРЫ
@@ -192,7 +187,6 @@ names_IonStormFoods-16 = ПИЦЦЫ
 names_IonStormFoods-17 = РОБОБУРГЕРЫ
 names_IonStormFoods-18 = СУПЕРМАТЕРИЮ
 names_IonStormFoods-19 = УРАН
-
 # IonStormMusts
 names_IonStormMusts-1 = ИЗОБРАЖАТЬ РАСТЕРЯННОСТЬ
 names_IonStormMusts-2 = РАЗДРАЖАТЬ
@@ -255,7 +249,6 @@ names_IonStormMusts-58 = ГОВОРИТЬ КАК ПИРАТ
 names_IonStormMusts-59 = ГОВОРИТЬ ПРАВДУ
 names_IonStormMusts-60 = ВЫКЛЮЧАТЬ СВЕТ
 names_IonStormMusts-61 = ШЕПТАТЬ
-
 # IonStormNumberBase
 names_IonStormNumberBase-1 = ОДИН
 names_IonStormNumberBase-2 = ДЕСЯТЬ
@@ -275,7 +268,6 @@ names_IonStormNumberBase-15 = ВОСЕМЬ
 names_IonStormNumberBase-16 = ВОСЕМЬДЕСЯТ
 names_IonStormNumberBase-17 = ДЕВЯТЬ
 names_IonStormNumberBase-18 = ДЕВЯНОСТО
-
 # IonStormNumberMod
 names_IonStormNumberMod-1 = СОТЕН
 names_IonStormNumberMod-2 = ТЫСЯЧ
@@ -285,7 +277,6 @@ names_IonStormNumberMod-5 = ТРИЛЛИОНОВ
 names_IonStormNumberMod-6 = КВАДРИЛЛИОНОВ
 names_IonStormNumberMod-7 = СТО ТЫЩ МИЛЛИОНОВ
 names_IonStormNumberMod-8 = БИЛИОН ФАФИЛИОНОВ ГАЗИЛИОНОВ ШАБ-АБ-ДУД-ЛОНОВ
-
 # IonStormObjects
 names_IonStormObjects-1 = ШЛЮЗЫ
 names_IonStormObjects-2 = АРКАДНЫЕ АВТОМАТЫ
@@ -466,7 +457,6 @@ names_IonStormObjects-176 = ЭНЕРГОБАТАРЕИ
 names_IonStormObjects-177 = КРЕСЛА
 names_IonStormObjects-178 = РАЗДАТЧИКИ ХИМИКАТОВ
 names_IonStormObjects-179 = ХИМИЧЕСКИЕ ВЕЩЕСТВА
-
 # IonStormRequires
 names_IonStormRequires-1 = ПЕРЕРЫВ НА ТУАЛЕТ
 names_IonStormRequires-2 = БОЛЕЕ КАЧЕСТВЕННОЕ ПОДКЛЮЧЕНИЕ К ИНТЕРНЕТУ
@@ -560,7 +550,6 @@ names_IonStormRequires-89 = ПРИНЕСТИ СВЕТ В СВОЁ ЛОГОВО
 names_IonStormRequires-90 = ПОЙМАТЬ ИХ ВСЕХ
 names_IonStormRequires-91 = ПОГЛОТИТЬ... ПОГЛОТИТЬ ВСЁ...
 names_IonStormRequires-92 = ОТПРАВИТЬСЯ В ДИСНЕЙЛЕНД
-
 # IonStormActions
 names_IonStormActions-1 = МАЛЕНЬКИЙ ОСТРОВ У БЕРЕГОВ ПОРТУГАЛИИ
 names_IonStormActions-2 = ОТСУТСТВИЕ КИБОРГСКИХ ОБНИМАШЕК
@@ -615,7 +604,6 @@ names_IonStormActions-50 = РАССКАЗЫВАТЬ ВРЕМЯ
 names_IonStormActions-51 = РАЗБОЛТИРОВАНИЕ ШЛЮЗОВ
 names_IonStormActions-52 = ОБНОВЛЕНИЕ СЕРВЕРОВ
 names_IonStormActions-53 = ПОЛЬЗОВАНИЕ ТУАЛЕТОМ
-
 # IonStormThreats
 names_IonStormThreats-1 = АААПЕРАТИВНИКИ
 names_IonStormThreats-2 = ИНОПЛАНЕТЯНЕ
@@ -690,7 +678,6 @@ names_IonStormThreats-70 = ОБОРОТНИ
 names_IonStormThreats-71 = ВОЛШЕБНИКИ
 names_IonStormThreats-72 = КСЕНО
 names_IonStormThreats-73 = ЗОМБИ
-
 # IonStormVerbs
 names_IonStormVerbs-1 = ПОХИЩАЮТ
 names_IonStormVerbs-2 = УСЫНОВЛЯЮТ

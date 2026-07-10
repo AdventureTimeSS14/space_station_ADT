@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTDecorationTankETP145
   name: ETP-145
   description: Heavy as a really heavy thing.
@@ -30,8 +30,9 @@
         - MachineLayer
   - type: Climbable
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -80,7 +81,7 @@
     mechToPilotDamageMultiplier: 0.0 #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
     pilotWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral

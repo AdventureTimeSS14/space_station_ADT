@@ -13,7 +13,7 @@
   - !type:PlantAdjustHealth
     amount: -5
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -36,7 +36,7 @@
   - !type:PlantAdjustHealth
     amount: -5
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -58,10 +58,8 @@
   physicalDesc: reagent-physical-desc-nondescript
   allowedDepartments:
   - Medical
-  allowedJobs:
-  - Zookeeper
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:Emote
         emote: Yawn
@@ -92,19 +90,14 @@
   color: "#acc91a"
   physicalDesc: reagent-physical-desc-putrid
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
         - !type:HealthChange
-          conditions:
-          - !type:MetabolizerTypeCondition
-            type: [ Plant ]
           damage:
             types:
               Poison: 2
         - !type:Vomit
           conditions:
-          - !type:MetabolizerTypeCondition
-            type: [ Plant ]
           - !type:ReagentCondition
             reagent: GastroToxin
             min: 2
@@ -120,7 +113,7 @@
   recognizable: true
   physicalDesc: reagent-physical-desc-fuzzy
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -158,7 +151,7 @@
         emote: Scream
         probability: 0.3
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate : 3.00 # High damage, high metabolism rate. You need a lot of units to crit. Simulates acid burning through you fast.
       effects:
       - !type:HealthChange
@@ -183,7 +176,7 @@
   color: "#48b3b8"
   physicalDesc: reagent-physical-desc-ferrous
   metabolisms:
-    Drink:
+    Bloodstream:
       effects:
       - !type:SatiateThirst
         factor: -1.5
@@ -218,7 +211,7 @@
         emote: Scream
         probability: 0.2
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 3.00 # High damage, high metabolism rate. You need a lot of units to crit. Simulates acid burning through you fast.
       effects:
       - !type:HealthChange
@@ -267,7 +260,7 @@
         emote: Scream
         probability: 0.1
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 3.00 # Okay damage, high metabolism rate. You need a lot of units to crit. Simulates acid burning through you fast.
       effects:
       - !type:HealthChange
@@ -294,13 +287,13 @@
   - Botanist
   flavor: bitter
   color: "#00ff5f"
-  boilingPoint: 340282300000000000000000000000000000000 # Ethidium bromide, which doesn't boil.
+  boilingPoint: 340282300 # Ethidium bromide, which doesn't boil.
   meltingPoint: 261.0
   plantMetabolism:
   - !type:PlantAdjustMutationLevel
     amount: 1
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -316,7 +309,7 @@
   contrabandSeverity: Major
   color: "#5f959c"
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         conditions:
@@ -349,7 +342,7 @@
   contrabandSeverity: Syndicate
   color: "#6b0007"
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         # Start ADT tweak
@@ -359,8 +352,8 @@
           inverted: true
         # End ADT tweak
         damage:
-          groups:
-            Airloss: 10
+          types:
+            Asphyxiation: 10
       # Start ADT tweak
       - !type:HealthChange
         conditions:
@@ -385,7 +378,7 @@
   - !type:PlantAdjustToxins
     amount: 10
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
@@ -401,31 +394,28 @@
   physicalDesc: reagent-physical-desc-abrasive
   color: "#FA6464"
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         probability: 0.1
         damage:
-          groups:
-            Brute: 2
+          types:
+            Blunt: 2
       # todo: cough, sneeze
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
           reagent: Histamine
+          min: 45
         # Start ADT tweak
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
           inverted: true
         # End ADT tweak
-        - !type:ReagentCondition
-          reagent: Histamine
-          min: 45
         damage:
-          groups:
-            Brute: 2
-            Airloss: 2
           types:
+            Blunt: 2
+            Asphyxiation: 2
             Poison: 2
       # Start ADT tweak
       - !type:HealthChange
@@ -436,9 +426,10 @@
           reagent: Histamine
           min: 45
         damage:
-          groups:
-            Brute: 3
-            Toxin: 2
+          types:
+            Blunt: 2
+            Asphyxiation: 2
+            Poison: 2
       # End ADT tweak
       - !type:PopupMessage
         type: Local
@@ -464,7 +455,7 @@
   meltingPoint: 351
   boilingPoint: 554 # I'm not a chemist, but it boils at 295, lower than melting point, idk how it works so I gave it higher value
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.05
       effects:
       - !type:HealthChange
@@ -489,7 +480,7 @@
   contrabandSeverity: Major
   color: "#D6CE7B"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
@@ -506,7 +497,7 @@
   flavor: bitter
   color: "#000000"
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
         - !type:HealthChange
           damage:
@@ -524,7 +515,7 @@
   color: "#7e916e"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
         - !type:CauseZombieInfection
           conditions:
@@ -541,15 +532,13 @@
   flavor: bitter
   color: "#FFFFE5"
   metabolisms:
-    Food:
+    Bloodstream:
       effects:
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Animal, Vox, Vulpkanin, Ursus, Reptilian ] # ADT-Tweak
           inverted: true
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -570,13 +559,20 @@
         damage:
           types:
             Poison: 1
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Plant ]
+        damage:
+          types:
+            Poison: .25
       - !type:AdjustReagent
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Animal, Ursus, Reptilian ] # ADT-Tweak
 # ADT-Tweak-Start
         - !type:MetabolizerTypeCondition
-          type: [ Felinid ]
+          type: [ Felinid, Animal ]
 # ADT-Tweak-End
         reagent: Protein
         amount: 0.5
@@ -586,14 +582,6 @@
           type: [ Vox ]
         reagent: Protein
         amount: 0.25
-# ADT-Tweak-Start
-      - !type:AdjustReagent
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
-        reagent: Protein
-        amount: 0.20
-# ADT-Tweak-End
 
 - type: reagent
   id: Allicin
@@ -604,7 +592,7 @@
   flavor: bitter
   color: "#F2E9D2"
   metabolisms:
-    Poison:
+    Digestion:
       metabolismRate: 0.05
       effects:
       - !type:HealthChange
@@ -627,11 +615,9 @@
   allowedDepartments:
   - Security
   - Medical
-  allowedJobs:
-  - Zookeeper
   color: "#AAAAAA"
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:GenericStatusEffect
         key: Pacified
@@ -647,7 +633,7 @@
   flavor: bitter
   color: "#F2E9D2"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.05
       effects:
       - !type:Emote
@@ -677,7 +663,7 @@
   contrabandSeverity: Major
   color: "#5C6274"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.03 # Effectively once every 30 seconds.
       effects:
       - !type:HealthChange
@@ -694,7 +680,7 @@
   contrabandSeverity: Major
   color: "#EBFF8E"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
@@ -711,8 +697,13 @@
   contrabandSeverity: Syndicate
   flavor: medicine
   color: "#435166"
+  plantMetabolism:
+  - !type:PlantMutateChemicals
+    randomPickBotanyReagent: EvilRandomFillSolution
+  - !type:PlantAdjustToxins
+    amount: 10
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:Jitter
         conditions:
@@ -727,20 +718,10 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-        # End ADT tweak
-        damage:
-          groups:
-            Airloss: 2
-      # Start ADT tweak
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
         damage:
           types:
-            Poison: 1.25
-            Cold: 0.5
-      # End ADT tweak
+            Asphyxiation: 1
+            Bloodloss: 1
 
 - type: reagent
   id: Tazinide
@@ -752,10 +733,12 @@
   flavor: shocking
   color: "#FDD023"
   metabolisms:
-    Poison:
+    Bloodstream:
+      metabolismRate: 2.0
       effects:
       - !type:Electrocute
-        probability: 0.8
+        electrocuteTime: 1
+        probability: 0.5
 
 - type: reagent
   id: Lipolicide
@@ -768,7 +751,7 @@
   flavor: mothballs #why does weightloss juice taste like mothballs
   color: "#F0FFF0"
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         conditions:
@@ -791,7 +774,7 @@
   color: "#00b408"
   physicalDesc: reagent-physical-desc-nondescript
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.2 # Slower metabolism so it can build up over time for slowdown
       effects:
       - !type:HealthChange
@@ -831,10 +814,29 @@
   flavor: trashy
   physicalDesc: reagent-physical-desc-nondescript
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         factor: 1
         conditions:
         - !type:MetabolizerTypeCondition
           type: [Vox]
+
+- type: reagent
+  id: Hemorrhinol
+  name: reagent-name-hemorrhinol
+  group: Toxins
+  desc: reagent-desc-hemorrhinol
+  physicalDesc: reagent-physical-desc-thin
+  contrabandSeverity: Major
+  flavor: sharp
+  color: "#96424f"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectHemorrhage
+        time: 21 # 7 bleed ticks, you bleed every 3 seconds by default.
+        type: Update
+      - !type:ModifyBleed
+        amount: 0.5

@@ -110,8 +110,6 @@
     heldPrefix: silver
   - type: PresetIdCard
     job: HeadOfPersonnel
-  - type: StealTarget
-    stealGroup: CommandIDCard
 
 - type: entity
   parent: IDCardStandard
@@ -132,8 +130,6 @@
     heldPrefix: silver
   - type: PresetIdCard
     job: ChiefEngineer
-  - type: StealTarget
-    stealGroup: CommandIDCard
 
 - type: entity
   parent: IDCardStandard
@@ -154,8 +150,6 @@
     heldPrefix: silver
   - type: PresetIdCard
     job: ChiefMedicalOfficer
-  - type: StealTarget
-    stealGroup: CommandIDCard
 
 - type: entity
   parent: IDCardStandard
@@ -176,8 +170,6 @@
     heldPrefix: silver
   - type: PresetIdCard
     job: ResearchDirector
-  - type: StealTarget
-    stealGroup: CommandIDCard
 
 - type: entity
   parent: IDCardStandard
@@ -198,8 +190,6 @@
     heldPrefix: silver
   - type: PresetIdCard
     job: HeadOfSecurity
-  - type: StealTarget
-    stealGroup: CommandIDCard
 
 - type: entity
   parent: IDCardStandard
@@ -278,7 +268,7 @@
     job: AtmosphericTechnician
 
 - type: entity
-  parent: IDCardStandard
+  parent: IDCardStandard # ADT-Tweak
   id: SeniorEngineerIDCard
   name: senior engineer ID card
   components:
@@ -390,7 +380,7 @@
     job: Psychologist
 
 - type: entity
-  parent: IDCardStandard
+  parent: IDCardStandard # ADT-Tweak
   id: SeniorPhysicianIDCard
   name: senior physician ID card
   components:
@@ -448,7 +438,7 @@
     job: Scientist
 
 - type: entity
-  parent: IDCardStandard
+  parent: IDCardStandard # ADT-Tweak
   id: SeniorResearcherIDCard
   name: senior researcher ID card
   components:
@@ -556,11 +546,11 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Brigmedic
-  - type: PresetIdCard # ADT rework
-    job: Brigmedic     #
+  - type: PresetIdCard
+    job: Brigmedic
 
 - type: entity
-  parent: IDCardStandard
+  parent: IDCardStandard # ADT-Tweak
   id: SeniorOfficerIDCard
   name: senior officer ID card
   components:
@@ -831,8 +821,6 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Boxer
-  - type: PresetIdCard
-    job: Boxer
 
 - type: entity
   parent: IDCardStandard
@@ -849,8 +837,8 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Zookeeper
-  - type: PresetIdCard
-    job: Zookeeper
+
+#Supply
 
 #Supply
 
@@ -1025,6 +1013,8 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Syndicate
+  - type: IdCard
+    jobIcon: JobIconSyndicate
   - type: Item
     heldPrefix: black
   - type: Access
@@ -1048,6 +1038,8 @@
       offset: *icon-offset
       state: SyndicateOperative
   - type: AgentIDCard
+  - type: IdCard
+    jobIcon: JobIconSyndicateOperative
 
 - type: entity
   parent: [ SyndiOperativeIDCard, BaseSyndicateContraband ]
@@ -1064,6 +1056,8 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SyndicateCorpsman
+  - type: IdCard
+    jobIcon: JobIconSyndicateCorpsman
 
 - type: entity
   parent: [ SyndiOperativeIDCard, BaseSyndicateContraband ]
@@ -1080,6 +1074,33 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SyndicateCommander
+  - type: IdCard
+    jobIcon: JobIconSyndicateCommander
+
+- type: entity
+  parent: [ IDCardStandard, BaseHighlyIllegalContraband ]
+  id: NinjaIDCard
+  name: ninja ID card
+  suffix: Ninja
+  components:
+  - type: Sprite
+    layers:
+    - state: ninja
+    - state: stripe_top
+      color: "#38D848"
+    - state: stripe_bottom
+      color: "#309000"
+    - sprite: *icon-rsi
+      offset: *icon-offset
+      state: Ninja
+  - type: Item
+    heldPrefix: green
+  - type: AgentIDCard
+  - type: IdCard
+    jobIcon: JobIconNinja
+  - type: Access
+    tags:
+    - Maintenance
 
 - type: entity
   parent: [ IDCardStandard, BaseMajorContraband ]
@@ -1089,15 +1110,33 @@
   - type: Sprite
     layers:
     - state: pirate
+    - sprite: *icon-rsi
+      offset: *icon-offset
+      state: Pirate
   - type: Item
     heldPrefix: orange #this is close enough to the weird puce color pirate IDs have going on
+  - type: IdCard
+    jobIcon: JobIconPirate
+  # ADT-Tweak start
   - type: Access
     tags:
-    - NuclearOperative
     - SyndicateAgent
+  # ADT-Tweak end
 
 - type: entity
   parent: IDCardStandard
+  id: XenoborgIDCard
+  name: xenoborg ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+  - type: Access
+    tags:
+    - Xenoborg
+
+- type: entity
+  parent: [ IDCardStandard, BaseMagicalContraband ]
   id: WizardIDCard
   name: wizard ID card
   components:
@@ -1114,6 +1153,8 @@
     - Wizard
     - External
     - Maintenance
+  - type: IdCard
+    jobIcon: JobIconWizard
 
 #ERT/Centcomm
 
@@ -1357,7 +1398,7 @@
       enum.AgentIDCardUiKey.Key:
         type: AgentIDCardBoundUserInterface
   # ADT-Tweak-Start: Наночат
-  - type: NanoChatCard 
+  - type: NanoChatCard
     notificationsMuted: true
-    listNumber: false 
+    listNumber: false
   # ADT-Tweak-End

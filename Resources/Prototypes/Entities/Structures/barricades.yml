@@ -1,4 +1,4 @@
-#None of these besides the full barricade are constructible yet since I can't understand code, and they need to do stuff like go over airlocks / windows.
+﻿#None of these besides the full barricade are constructible yet since I can't understand code, and they need to do stuff like go over airlocks / windows.
 #Consider porting the barricade kit from /vg/ if you do make them constructible, along with their HP values. Or don't.
 
 #Base barricade
@@ -28,6 +28,7 @@
         - WallLayer
   - type: Damageable
     damageModifierSet: Wood
+  - type: Injurable
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:

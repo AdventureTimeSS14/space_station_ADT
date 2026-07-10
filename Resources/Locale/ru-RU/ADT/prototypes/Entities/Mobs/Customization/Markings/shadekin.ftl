@@ -127,6 +127,8 @@ marking-EarsShadekinAlphaTorch-alpha_torch = окраска
 marking-EarsShadekinAlphaTraced = Стройные Уши, Обведённые
 marking-EarsShadekinAlphaTraced-aqua_default = Уши
 marking-EarsShadekinAlphaTraced-alpha_traced = Обводка
+marking-ADTEarsShadekinExperiment = Уши, Экспериментальные
+marking-ADTEarsShadekinExperiment-experiment_default = Уши
 
 
 # Хвосты
@@ -200,6 +202,9 @@ marking-TailShadekinHookSpirals-hook_spirals = Узор
 marking-TailShadekinHookTraced = Хвост-хук, Обведённый
 marking-TailShadekinHookTraced-tail_hook = Хвост
 marking-TailShadekinHookTraced-hook_traced = Обводка
+marking-ADTTailShadekinExperiment = Хвост, Экспериментальный
+marking-ADTTailShadekinExperiment-default_experiment = Хвост
+marking-ADTTailShadekinExperiment-experiment_brush = Узор
 
 # Наложение
 marking-BodyShadekinArrow = Окрас, Стрела

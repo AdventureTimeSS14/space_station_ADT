@@ -3,17 +3,18 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAnnouncement: station-event-vent-creatures-start-horde-announcement
     startAudio:
       path: /Audio/ADT/Announcements/announce_dig.ogg
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
     duration: 60
-  - type: VentCrittersRule
-    entries:
-    - id: ADTMobMiniSpider
-      prob: 0.01
+  - type: VentHordeRule
+    table: !type:GroupSelector
+      rolls: 4, 8
+      children:
+      - id: ADTMobMiniSpider
 
 - type: entity
   id: Pirates
@@ -62,7 +63,7 @@
       max: 1
       pickPlayer: false
       mindRoles:
-      - MindRoleMorph
+      - MindRoleGhostRoleNeutral
   - type: DragonRule #чтобы отдельный рул не писать
 
 - type: entity

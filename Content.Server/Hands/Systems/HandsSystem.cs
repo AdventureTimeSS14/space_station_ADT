@@ -2,8 +2,6 @@ using System.Numerics;
 using Content.Server.Stack;
 using Content.Server.Stunnable;
 using Content.Shared.ActionBlocker;
-using Content.Shared.ADT.Hands;
-using Content.Shared.Body.Part;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Explosion;
@@ -22,8 +20,8 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.Movement.Pulling.Events;
-using Robust.Shared.Utility;
+using Content.Shared.ADT.Grab;
+using Content.Shared.ADT.Hands;
 using Content.Shared.Inventory.VirtualItem;
 
 namespace Content.Server.Hands.Systems
@@ -37,7 +35,8 @@ namespace Content.Server.Hands.Systems
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly PullingSystem _pullingSystem = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-        [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
+        [Dependency] private readonly GrabThrownSystem _grabThrown = default!; // ADT Grab
+
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
         /// <summary>
@@ -52,9 +51,6 @@ namespace Content.Server.Hands.Systems
             base.Initialize();
 
             SubscribeLocalEvent<HandsComponent, DisarmedEvent>(OnDisarmed, before: new[] {typeof(StunSystem), typeof(SharedStaminaSystem)});
-
-            SubscribeLocalEvent<HandsComponent, BodyPartAddedEvent>(HandleBodyPartAdded);
-            SubscribeLocalEvent<HandsComponent, BodyPartRemovedEvent>(HandleBodyPartRemoved);
 
             SubscribeLocalEvent<HandsComponent, ComponentGetState>(GetComponentState);
 
@@ -97,7 +93,7 @@ namespace Content.Server.Hands.Systems
         {
             if (args.Handled)
                 return;
-            if (args.Source == uid) ///ADT tweak
+            if (args.Source == uid) // ADT-Tweak
                 return;
             // Break any pulls
             if (TryComp(uid, out PullerComponent? puller) && TryComp(puller.Pulling, out PullableComponent? pullable))
@@ -111,79 +107,6 @@ namespace Content.Server.Hands.Systems
 
             args.Handled = true; // no shove/stun.
         }
-
-        private void HandleBodyPartAdded(Entity<HandsComponent> ent, ref BodyPartAddedEvent args)
-        {
-            if (args.Part.Comp.PartType != BodyPartType.Hand)
-                return;
-
-            // If this annoys you, which it should.
-            // Ping Smugleaf.
-            var location = args.Part.Comp.Symmetry switch
-            {
-                BodyPartSymmetry.None => HandLocation.Middle,
-                BodyPartSymmetry.Left => HandLocation.Left,
-                BodyPartSymmetry.Right => HandLocation.Right,
-                _ => throw new ArgumentOutOfRangeException(nameof(args.Part.Comp.Symmetry))
-            };
-
-            AddHand(ent.AsNullable(), args.Slot, location);
-        }
-
-        private void HandleBodyPartRemoved(EntityUid uid, HandsComponent component, ref BodyPartRemovedEvent args)
-        {
-            if (args.Part.Comp.PartType != BodyPartType.Hand)
-                return;
-
-            RemoveHand(uid, args.Slot);
-        }
-
-        #region pulling
-
-        private void HandlePullStarted(EntityUid uid, HandsComponent component, PullStartedMessage args)
-        {
-            if (args.PullerUid != uid)
-                return;
-
-            if (TryComp<PullerComponent>(args.PullerUid, out var pullerComp) && !pullerComp.NeedsHands)
-                return;
-
-            if (!_virtualItem.TrySpawnVirtualItemInHand(args.PulledUid, uid, out var virtualItem))    // ADT Grab tweaked
-            {
-                DebugTools.Assert("Unable to find available hand when starting pulling??");
-            }
-
-            // ADT Grab start
-            if (pullerComp != null)
-            {
-                pullerComp.VirtualItems.Add(GetNetEntity(virtualItem.Value));
-                Dirty(args.PullerUid, pullerComp);
-            }
-            // ADT Grab end
-        }
-
-        private void HandlePullStopped(EntityUid uid, HandsComponent component, PullStoppedMessage args)
-        {
-            if (args.PullerUid != uid)
-                return;
-
-            // Try find hand that is doing this pull.
-            // and clear it.
-            foreach (var hand in component.Hands)
-            {
-                if (TryGetHeldItem((uid, component), hand.Key, out var held)
-                    || !TryComp(held, out VirtualItemComponent? virtualItem)
-                    || virtualItem.BlockingEntity != args.PulledUid)
-                {
-                    continue;
-                }
-
-                TryDrop(args.PullerUid, held.Value);
-                break;
-            }
-        }
-
-        #endregion
 
         #region interactions
 
@@ -213,19 +136,24 @@ namespace Content.Server.Hands.Systems
             // ADT Grab start
             if (TryComp<VirtualItemComponent>(throwEnt, out var virtualItem))
             {
-                var userEv = new BeforeVirtualItemThrownEvent(virtualItem.BlockingEntity, player, coordinates);
-                RaiseLocalEvent(player, userEv);
+                var beforeUserEv = new BeforeVirtualItemThrownEvent(virtualItem.BlockingEntity, player, coordinates);
+                RaiseLocalEvent(player, beforeUserEv);
 
-                var targEv = new BeforeVirtualItemThrownEvent(virtualItem.BlockingEntity, player, coordinates);
-                RaiseLocalEvent(virtualItem.BlockingEntity, targEv);
+                var beforeTargEv = new BeforeVirtualItemThrownEvent(virtualItem.BlockingEntity, player, coordinates);
+                RaiseLocalEvent(virtualItem.BlockingEntity, beforeTargEv);
 
-                if (userEv.Cancelled || targEv.Cancelled)
+                if (beforeUserEv.Cancelled || beforeTargEv.Cancelled)
                     return false;
+
+                var dir = _transformSystem.ToMapCoordinates(coordinates).Position - _transformSystem.GetWorldPosition(player);
+                var userEv = new VirtualItemThrownEvent(virtualItem.BlockingEntity, player, throwEnt.Value, dir);
+                RaiseLocalEvent(player, ref userEv);
+                var targEv = new VirtualItemThrownEvent(virtualItem.BlockingEntity, player, throwEnt.Value, dir);
+                RaiseLocalEvent(virtualItem.BlockingEntity, ref targEv);
             }
             // ADT Grab end
 
-
-            if (EntityManager.TryGetComponent(throwEnt, out StackComponent? stack) && stack.Count > 1 && stack.ThrowIndividually)
+            if (TryComp(throwEnt, out StackComponent? stack) && stack.Count > 1 && stack.ThrowIndividually)
             {
                 var splitStack = _stackSystem.Split((throwEnt.Value, stack), 1, Comp<TransformComponent>(player).Coordinates);
 
@@ -257,7 +185,11 @@ namespace Content.Server.Hands.Systems
             if (IsHolding((player, hands), throwEnt, out _) && !TryDrop(player, throwEnt.Value))
                 return false;
 
-            _throwingSystem.TryThrow(ev.ItemUid, ev.Direction, ev.ThrowSpeed, ev.PlayerUid, compensateFriction: !HasComp<LandAtCursorComponent>(ev.ItemUid));
+            // ADT Grab - use grab throw system if flagged, otherwise regular throw
+            if (!ev.GrabThrow)
+                _throwingSystem.TryThrow(ev.ItemUid, ev.Direction, ev.ThrowSpeed, ev.PlayerUid, compensateFriction: !HasComp<LandAtCursorComponent>(ev.ItemUid));
+            else
+                _grabThrown.Throw(ev.ItemUid, player, ev.Direction, ev.ThrowSpeed);
 
             return true;
         }

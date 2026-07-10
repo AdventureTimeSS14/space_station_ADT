@@ -1,4 +1,4 @@
-# Hacky for the stress test so don't even consider adding to this
+﻿# Hacky for the stress test so don't even consider adding to this
 - type: entity
   name: burrower
   id: ADTMobXenoNoGhost
@@ -66,10 +66,12 @@
     speedModifierThresholds:
       25: 0.5
   - type: Stamina
-    critThreshold: 200
+    baseCritThreshold: 200
   - type: Bloodstream
-    bloodReagent: FluorosulfuricAcid
-    bloodMaxVolume: 650
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 650
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -87,6 +89,7 @@
   #  damage: 10
   - type: Damageable
     damageModifierSet: ADTXenoDamageSet
+  - type: Injurable
   - type: Fauna
   # End ADT
   - type: DamageStateVisuals
@@ -106,9 +109,10 @@
   - type: TypingIndicator
     proto: alien
   - type: Temperature
+    currentTemperature: 310.15
+  - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: -150
-    currentTemperature: 310.15
   - type: Tag
     tags:
       - CannotSuicide
@@ -146,15 +150,15 @@
       0: Alive
       350: Dead # ADT Tweak
   - type: Stamina
-    critThreshold: 300
+    baseCritThreshold: 300
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
   #ADT Start: Xeno baff
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 27
+      types:
+        Blunt: 27
   #- type: StaminaDamageOnHit
   #  damage: 12
   # ADT End
@@ -246,8 +250,8 @@
   - type: MovementSpeedModifier
   - type: MeleeWeapon
     damage:
-     groups:
-       Brute: 42 # ADT Tweak
+     types:
+       Blunt: 42 # ADT Tweak
   # Start ADT: Xeno Buff
   # - type: StaminaDamageOnHit
   #  damage: 35

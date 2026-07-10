@@ -39,7 +39,7 @@
     tags:
       - ADTLasgunRevolverCell
   - type: Appearance
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBulletLaserMK2
     fireCost: 100
   - type: PowerCell

@@ -28,6 +28,7 @@ internal sealed class GhoulStoredComponents
     public ReproductiveData? Reproductive;
     public bool HasReproductivePartner;
     public TemperatureData? Temperature;
+    public TemperatureDamageData? TemperatureDamage;
     public Color? StoredSkinColor;
     public Color? StoredEyeColor;
 }
@@ -185,22 +186,23 @@ internal sealed class EntityWhitelistData
 internal sealed class TemperatureData
 {
     public float CurrentTemperature;
+    public float SpecificHeat;
+    public float AtmosTemperatureTransferEfficiency;
+}
+
+public sealed class TemperatureDamageData
+{
     public float HeatDamageThreshold;
     public float ColdDamageThreshold;
     public float? ParentHeatDamageThreshold;
     public float? ParentColdDamageThreshold;
-    public float SpecificHeat;
-    public float AtmosTemperatureTransferEfficiency;
-    public DamageSpecifier ColdDamage;
-    public DamageSpecifier HeatDamage;
+
+    public DamageSpecifier ColdDamage = new();
+    public DamageSpecifier HeatDamage = new();
+
     public FixedPoint2 DamageCap;
     public bool TakingDamage;
+
     public ProtoId<AlertPrototype> HotAlert;
     public ProtoId<AlertPrototype> ColdAlert;
-
-    public TemperatureData()
-    {
-        ColdDamage = new();
-        HeatDamage = new();
-    }
 }

@@ -42,7 +42,8 @@ public partial class ListingData : IEquatable<ListingData>
         other.RestockTime,
         other.DiscountDownTo,
         other.DisableRefund,
-        other.ProductHereticKnowledge ///goob edit
+        other.ProductHereticKnowledge,
+        other.ApplyToMob
     )
     {
 
@@ -68,7 +69,8 @@ public partial class ListingData : IEquatable<ListingData>
         TimeSpan restockTime,
         Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> dataDiscountDownTo,
         bool disableRefund,
-        ProtoId<HereticKnowledgePrototype>? productHereticKnowledge ///goob edit
+        ProtoId<HereticKnowledgePrototype>? productHereticKnowledge,
+        bool applyToMob
     )
     {
         Name = name;
@@ -91,6 +93,7 @@ public partial class ListingData : IEquatable<ListingData>
         RestockTime = restockTime;
         DiscountDownTo = new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>(dataDiscountDownTo);
         DisableRefund = disableRefund;
+        ApplyToMob = applyToMob;
     }
 
     [ViewVariables]
@@ -217,6 +220,12 @@ public partial class ListingData : IEquatable<ListingData>
     [DataField]
     public bool DisableRefund = false;
 
+    /// <summary>
+    /// Whether or not to apply the store listing to the player mob rather than the player mind.
+    /// </summary>
+    [DataField]
+    public bool ApplyToMob = false;
+
     public bool Equals(ListingData? listing)
     {
         if (listing == null)
@@ -229,7 +238,9 @@ public partial class ListingData : IEquatable<ListingData>
             ProductEntity != listing.ProductEntity ||
             ProductAction != listing.ProductAction ||
             ProductEvent?.GetType() != listing.ProductEvent?.GetType() ||
-            RestockTime != listing.RestockTime)
+            RestockTime != listing.RestockTime ||
+            DisableRefund != listing.DisableRefund ||
+            ApplyToMob != listing.ApplyToMob)
             return false;
 
         if (Icon != null && !Icon.Equals(listing.Icon))
@@ -311,7 +322,8 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.RestockTime,
             listingData.DiscountDownTo,
             listingData.DisableRefund,
-            listingData.ProductHereticKnowledge  //goob edit
+            listingData.ProductHereticKnowledge,
+            listingData.ApplyToMob
         )
     {
     }

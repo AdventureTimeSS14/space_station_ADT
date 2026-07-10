@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTBaseVehicle
   save: false
   abstract: true
@@ -17,8 +17,9 @@
     fuelCost: 20
     doAfterDelay: 20
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -480,32 +481,3 @@
   components:
     - type: Foldable
       folded: true
-
-- type: entity
-  parent: [ ADTVehicleATV, FlyingMobBase ]
-  id: ADTReindeer
-  name: ADTReindeer
-  description: ADTReindeer
-  components:
-    - type: Vehicle
-      hasKey: true
-      southOver: true
-      northOver: true
-      northOverride: -0.1
-      southOverride: 0.1
-    - type: CanMoveInAir
-    - type: Sprite
-      sprite: ADT/Objects/Vehicles/reindeer.rsi
-      drawdepth: HighFloorObjects
-      layers: 
-      - state: deer2
-        map: ["enum.VehicleVisualLayers.AutoAnimate"]
-      noRot: true
-    - type: Strap
-      buckleOffset: "0.2, 0"
-      #maxBuckleDistance: 1
-    - type: MovementSpeedModifier
-      acceleration: 2
-      friction: 1.5
-      baseWalkSpeed: 4.5
-      baseSprintSpeed: 7

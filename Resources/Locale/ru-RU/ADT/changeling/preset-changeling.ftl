@@ -5,11 +5,11 @@ ling-round-end-name = генокрад
 objective-issuer-changeling = [color=red]Разум улья[/color]
 changelings-title = Генокрады
 changelings-description = дурацкие воришки ДНК
-changelings-not-enough-ready-players = Недостаточно игроков нажали "Готов"! Всего было {$readyPlayersCount} готовых игроков из {$minimumPlayers} нужных. Режим "Генокрады" не запустится.
+changelings-not-enough-ready-players = Недостаточно игроков нажали "Готов"! Всего было { $readyPlayersCount } готовых игроков из { $minimumPlayers } нужных. Режим "Генокрады" не запустится.
 changelings-no-one-ready = Никто не нажал "Готов"! Режим "Генокрады" начать нельзя.
 # Ling role
 changeling-role-greeting =
-    Вы являетесь Генокрадом, впитавшим форму {$character-name} и превратившимся в него.
+    Вы являетесь Генокрадом, впитавшим форму { $character-name } и превратившимся в него.
     Ваши цели перечислены в специальном меню, используйте ваши способности, чтобы выполнить их.
 changeling-role-greeting-short =
     Вы являетесь Генокрадом, впитавшим форму

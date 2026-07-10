@@ -1,58 +1,47 @@
 - type: entity
-  parent: BaseItem
-  id: ADTBaseFigurine
-  name: figurine
-  description: A small miniature.
-  abstract: true
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Fun/figurines.rsi
-  - type: PhysicalComposition
-    materialComposition:
-      Plastic: 100
-  - type: StaticPrice
-    price: 50
-  - type: Tag
-    tags:
-    - Figurine
-  # - type: StealTarget
-  #   stealGroup: Figurines
-
-- type: entity
   parent: BaseFigurine
   id: ADTToyFigurineBlueshieldOfficer
   name: blueshield officer figure
   description: A figurine depicting the blueshield officer, austere and blue, stands guard over the station government. I guess.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Fun/figurines.rsi
+    sprite: ADT/Objects/Fun/figurines.rsi # Для тех кто будет искать откуда же волшебным образом берутся in-handы они внутри rsi и выдаются всем в папке.
     state: blueshield
+  - type: SpeakOnTrigger
+    pack: FigurinesOBS
 
 - type: entity
-  parent: ADTBaseFigurine
+  parent: BaseFigurine
   id: ToyFigurineBrigmedic
   name: brigmedic figure
   description: AAA, MEDIC!
   components:
   - type: Sprite
+    sprite: ADT/Objects/Fun/figurines.rsi
     state: brigmedic
+  - type: SpeakOnTrigger
+    pack: Figurinesbrigmedic
 
 - type: entity
-  parent: ADTBaseFigurine
+  parent: BaseFigurine
   id: ToyFigurineCCC
   name: Centcom consultant figure
   description: A figurine of a sharply dressed consultant to the central command, monitoring the heads of the station, trying not to fire each of them in order to seize power.
   components:
   - type: Sprite
+    sprite: ADT/Objects/Fun/figurines.rsi
     state: consultant
+  - type: SpeakOnTrigger
+    pack: FigurinesCCC
 
 - type: entity
-  parent: ADTBaseFigurine
+  parent: BaseFigurine
   id: ToyFigurineCentcomOfficial
   name: Centcom official figure
   description: A figurine of a Centcom official, glowering at you and condemning you for your poor performance. You better hope his SHARP-HEAD WARHEAD isn't used on your station this time.
   components:
   - type: Sprite
+    sprite: ADT/Objects/Fun/figurines.rsi
     state: centcom_official
   - type: UseDelay
     delay: 180.0
@@ -64,12 +53,13 @@
         maxDistance: 10
 
 - type: entity
-  parent: ADTBaseFigurine
+  parent: BaseFigurine
   id: ToyFigurineCentcomIntern
   name: Centcom intern figure
   description: The figurine of the Centcom intern, looking at him, you are clearly sure that the name is Richard Richardson, and it is he who is interfering with your work with his senseless notifications.
   components:
   - type: Sprite
+    sprite: ADT/Objects/Fun/figurines.rsi
     state: intern_cc
   - type: UseDelay
     delay: 280.0

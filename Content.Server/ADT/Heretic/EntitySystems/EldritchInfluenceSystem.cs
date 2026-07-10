@@ -26,9 +26,9 @@ public sealed class EldritchInfluenceSystem : EntitySystem
         if (influence.Comp.Spent)
             return false;
 
-        var (time, hidden) = TryComp<EldritchInfluenceDrainerComponent>(used, out var drainer)
-            ? (drainer.Time, drainer.Hidden)
-            : (10f, true);
+        var time = TryComp<EldritchInfluenceDrainerComponent>(used, out var drainer)
+            ? drainer.Time
+            : 10f;
 
         var doAfter = new EldritchInfluenceDoAfterEvent();
         var dargs = new DoAfterArgs(EntityManager, user, time, doAfter, influence, influence, used)
@@ -38,7 +38,7 @@ public sealed class EldritchInfluenceSystem : EntitySystem
             BreakOnHandChange = true,
             BreakOnMove = true,
             BreakOnWeightlessMove = false,
-            Hidden = hidden
+            Hidden = true
         };
         _popup.PopupEntity(Loc.GetString("heretic-influence-start"), influence, user);
         return _doafter.TryStartDoAfter(dargs);

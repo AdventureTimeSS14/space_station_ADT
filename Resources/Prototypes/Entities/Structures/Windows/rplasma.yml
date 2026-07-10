@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ReinforcedPlasmaWindow
   name: reinforced plasma window
   parent: [BaseDeltaPressureReinforcedPlasma, WindowRCDResistant]
@@ -9,8 +9,9 @@
   - type: Icon
     sprite: Structures/Windows/reinforced_plasma_window.rsi
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: RGlass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: RadiationBlocker
     resistance: 6 # ADT tweak
   - type: Destructible
@@ -84,6 +85,7 @@
       sprite: Structures/Windows/cracks_directional.rsi
   - type: Damageable
     damageModifierSet: RGlass
+  - type: Injurable
   - type: RadiationBlocker
     resistance: 4 # ADT tweak
   - type: Destructible

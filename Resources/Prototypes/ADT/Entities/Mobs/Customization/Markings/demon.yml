@@ -1,53 +1,47 @@
 - type: marking
   id: DemonChestCowSpots
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [DemonSpecies]
+  bodyPart: Special
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: cow_spots
 
 - type: marking
   id: DemonChestGuard
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [DemonSpecies]
+  bodyPart: Special
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: guards_stripes
 
 - type: marking
   id: DemonChestLinesEmperos
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [DemonSpecies]
+  bodyPart: Special
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: lines_emperos
 
 - type: marking
   id: DemonChestQueenLines
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [DemonSpecies]
+  bodyPart: Special
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: queen_lines
 
 - type: marking
   id: DemonChestTreeLines
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [DemonSpecies]
+  bodyPart: Special
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: tree_lines
 
 - type: marking
   id: DemonChestTrinitySpots
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [DemonSpecies]
+  bodyPart: Special
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: trinity_spots
@@ -56,8 +50,7 @@
 - type: marking
   id: DemonGoatee
   bodyPart: FacialHair
-  markingCategory: FacialHair
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: goatee
@@ -67,8 +60,7 @@
 - type: marking
   id: ADTDemonrigth_eye
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   coloring:
     default:
       type:
@@ -81,8 +73,7 @@
 - type: marking
   id: ADTDemonleft_eye
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [DemonSpecies]
+  groupWhitelist: [Demon]
   coloring:
     default:
       type:

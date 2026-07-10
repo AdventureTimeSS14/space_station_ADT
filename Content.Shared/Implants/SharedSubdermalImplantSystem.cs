@@ -91,7 +91,7 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
     /// </summary>
     /// <returns>
     /// The implant, if it was successfully created. Otherwise, null.
-    /// </returns>>
+    /// </returns>
     public EntityUid? AddImplant(EntityUid target, EntProtoId implantId)
     {
         if (_net.IsClient)
@@ -169,7 +169,14 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
 [ByRefEvent]
 public readonly record struct ImplantImplantedEvent
 {
+    /// <summary>
+    /// The implant itself
+    /// </summary>
     public readonly EntityUid Implant;
+
+    /// <summary>
+    /// The entity getting implanted
+    /// </summary>
     public readonly EntityUid Implanted;
 
     public ImplantImplantedEvent(EntityUid implant, EntityUid implanted)

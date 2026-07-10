@@ -11,6 +11,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Materials;
+using Content.Shared.Tools.Systems;
 using System.Collections.Generic;
 using Robust.Shared.GameObjects;
 using Content.Shared.FixedPoint;
@@ -33,6 +34,7 @@ public sealed class SacrificeSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
+    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
 
     public override void Initialize()
     {
@@ -43,6 +45,9 @@ public sealed class SacrificeSystem : EntitySystem
     private void OnInteractUsing(EntityUid altar, SacrificeComponent component, InteractUsingEvent args)
     {
         if (args.Handled || _netManager.IsClient)
+            return;
+
+        if (IsConstructionTool(args.Used))
             return;
 
         if (!HasComp<ChaplainComponent>(args.User))
@@ -68,6 +73,11 @@ public sealed class SacrificeSystem : EntitySystem
         }
 
         args.Handled = true;
+    }
+
+    private bool IsConstructionTool(EntityUid item)
+    {
+        return _toolSystem.HasQuality(item, "Wrenching");
     }
 
     private SacrificeOption? FindBestSacrificeOption(EntityUid item, SacrificeComponent component)
@@ -217,6 +227,31 @@ public sealed class SacrificeSystem : EntitySystem
         {
             Spawn(transform.ResultProto, Transform(altar).Coordinates);
         }
+
+        ResetAltarToBase(altar);
+    }
+
+    private void ResetAltarToBase(EntityUid altar)
+    {
+        if (!TryComp<SacrificeComponent>(altar, out var sacrificeComp))
+            return;
+
+        if (string.IsNullOrEmpty(sacrificeComp.BaseAltarProto))
+            return;
+
+        var meta = MetaData(altar);
+        if (meta.EntityPrototype?.ID == sacrificeComp.BaseAltarProto)
+            return;
+
+        var xform = Transform(altar);
+        var coordinates = xform.Coordinates;
+        var rotation = xform.LocalRotation;
+
+        var newAltar = Spawn(sacrificeComp.BaseAltarProto, coordinates);
+        var newXform = Transform(newAltar);
+        newXform.LocalRotation = rotation;
+
+        QueueDel(altar);
     }
 
     private readonly struct SacrificeOption

@@ -33,7 +33,7 @@
 - type: entity
   name: Sindi pizza
   parent: ADTFoodPizzaSindiBase
-  id: ADRFoodPizzaSindi
+  id: ADTFoodPizzaSindi
   description: Red and scary pizza
   components:
   - type: FlavorProfile

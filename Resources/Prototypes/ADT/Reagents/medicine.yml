@@ -10,7 +10,7 @@
   flavor: medicine
   color: "#ba4d16"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:PopupMessage
         type: Local
@@ -39,7 +39,7 @@
   flavor: medicine
   color: "#fcf27c"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -79,7 +79,7 @@
           types:
             Piercing: -0.75
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -112,7 +112,7 @@
   flavor: medicine
   color: "#5b79ab"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:AdjustTemperature
         conditions:
@@ -142,7 +142,7 @@
   flavor: medicine
   color: "#e3fcff"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -186,7 +186,7 @@
   flavor: medicine
   color: "#d1d1d155"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         conditions:
@@ -223,7 +223,7 @@
   flavor: medicine
   color: "#c98928"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         # Start edit by Filo
@@ -290,7 +290,7 @@
       - !type:ModifyBleed
         amount: -1.5 #буквально как транексамовая, но надо плескать её.
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:ModifyBleed
         amount: -0.5
@@ -323,7 +323,7 @@
   color: "#ffd478"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:Embalm
          conditions:
@@ -346,7 +346,7 @@
   flavor: bitter
   color: "#c98928"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 1
       effects:
       - !type:GenericStatusEffect
@@ -409,9 +409,6 @@
         - !type:ReagentCondition
           reagent: ADTMorphine
           min: 30.05
-    Narcotic:
-      metabolismRate: 0.1
-      effects:
       - !type:GenericStatusEffect #не забываем, что морфин ещё и наркотик.
         key: SeeingRainbows
         component: SeeingRainbows
@@ -443,14 +440,14 @@
   color: "#c8a2c8"
   physicalDesc: reagent-physical-desc-powdery
   metabolisms:
-    Medicine:
-      metabolismRate : 0.75
+    Bloodstream:
+      metabolismRate : 0.3
       effects:
       - !type:EvenHealthChange
         damage:
-          Brute: -2.25
+          Brute: -0.825
       - !type:ModifyBleed
-        amount: -1 #почему кровоостанавливающая пудра не останавливала кровотечение?
+        amount: -0.3 #почему кровоостанавливающая пудра не останавливала кровотечение?
       - !type:PopupMessage
         conditions:
         - !type:TotalDamageCondition
@@ -459,6 +456,7 @@
         visualType: Small
         messages: [ "medicine-effect-usual" ]
         probability: 0.05
+
 #Сульфадиазин серебра
 - type: reagent
   id: ADTSilverSulfadiazine
@@ -469,12 +467,12 @@
   color: "#c8a2c8"
   physicalDesc: reagent-physical-desc-powdery
   metabolisms:
-    Medicine:
-      metabolismRate : 0.75
+    Bloodstream:
+      metabolismRate : 0.3
       effects:
       - !type:EvenHealthChange
         damage:
-          Burn: -3
+          Burn: -0.825
       - !type:PopupMessage
         conditions:
         - !type:TotalDamageCondition
@@ -494,7 +492,7 @@
   color: "#9575c7"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate : 0.75
       effects:
         - !type:HealthChange
@@ -521,7 +519,7 @@
   color: "#ff6d05"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate : 0.5
       effects:
         - !type:HealthChange
@@ -542,7 +540,7 @@
   color: "#47061a"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate : 0.5
       effects:
         - !type:HealthChange
@@ -550,9 +548,10 @@
           - !type:TemperatureCondition
             max: 173.0
           damage:
-            groups:
-              Brute: -28.8 # Лечит механические повреждения на 9.6 (28.8/3)
             types:
+              Blunt: -9.6
+              Slash: -9.6
+              Piercing: -9.6
               Caustic: 1.0
         - !type:GenericStatusEffect
           key: Stutter
@@ -570,7 +569,7 @@
   color: "#b315c2"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate : 0.5
       effects:
         - !type:HealthChange
@@ -597,7 +596,7 @@
   color: "#111b30"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate : 0.5
       effects:
         - !type:HealthChange
@@ -622,7 +621,7 @@
   flavor: medicine
   color: "#FF00FF"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate : 0.5
       effects:
         - !type:HealthChange
@@ -653,14 +652,14 @@
   color: "#7ba854"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:PurgeAllergies
          conditions:
           - !type:ReagentCondition
             reagent: ADTSanallergium
             min: 10
- 
+
 - type: reagent
   id: ADTDiphalazidone
   name: reagent-name-diphalazidone
@@ -671,7 +670,7 @@
   color: "#213200"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
         - !type:ReduceRotting
           seconds: 10

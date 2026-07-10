@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   abstract: true
   parent: BaseItem
   id: BaseDelivery
@@ -180,6 +180,7 @@
   components:
   - type: DeliveryFragile
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: DamageOnHighSpeedImpact
     minimumSpeed: 0.1

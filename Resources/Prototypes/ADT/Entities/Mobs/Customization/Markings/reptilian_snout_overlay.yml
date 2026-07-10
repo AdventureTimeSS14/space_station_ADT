@@ -1,0 +1,23 @@
+- type: marking
+  id: ADTReptilianTongue
+  bodyPart: SnoutOverlay
+  groupWhitelist: [Reptilian, Kobalt]
+  sprites:
+    - sprite: /Textures/ADT/Mobs/Customization/Reptilian/reptilian_snout_overlay.rsi
+      state: reptilian_tongue
+
+- type: marking
+  id: ADTReptilianTongueFast
+  bodyPart: SnoutOverlay
+  groupWhitelist: [Reptilian, Kobalt]
+  sprites:
+    - sprite: /Textures/ADT/Mobs/Customization/Reptilian/reptilian_snout_overlay.rsi
+      state: reptilian_tongue_fast
+
+- type: marking
+  id: ADTReptilianTongueSlow
+  bodyPart: SnoutOverlay
+  groupWhitelist: [Reptilian, Kobalt]
+  sprites:
+    - sprite: /Textures/ADT/Mobs/Customization/Reptilian/reptilian_snout_overlay.rsi
+      state: reptilian_tongue_slow

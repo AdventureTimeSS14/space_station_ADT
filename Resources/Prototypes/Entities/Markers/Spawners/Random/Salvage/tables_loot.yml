@@ -157,6 +157,7 @@
     - id: ResearchDisk
     - id: DrinkGoldenCup
     - id: TreasureSampleTube
+    - id: ADTMusicDiskRandom #ADT-Tweak
     - !type:NestedSelector
       tableId: TreasureCoinPile
       rolls: !type:RangeNumberSelector
@@ -188,6 +189,8 @@
     - id: WristwatchGold
     - !type:NestedSelector
       tableId: RingTableCommon
+    - !type:NestedSelector
+      tableId: ADTMusicDiskSalvage #ADT-Tweak
 
 - type: entityTable
   id: SalvageTreasureRare

@@ -58,7 +58,7 @@
         maxVol: 100
         canReact: false
         reagents:
-        - ReagentId: EldritchEssence
+        - ReagentId: EssenceEldritch
           Quantity: 100
 
 - type: entity

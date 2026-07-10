@@ -9,7 +9,10 @@
             - material: Gold
               amount: 5
               doAfter: 4
-        
+            - material: Plasteel
+              amount: 5
+              doAfter: 2
+
     - node: ADTincompleteGoldBat
       entity: ADTIncompleteGoldBaseBallBat
       edges:
@@ -17,6 +20,9 @@
           completed:
             - !type:SpawnPrototype
               prototype: IngotGold1
+              amount: 5
+            - !type:SpawnPrototype
+              prototype: SheetPlasteel1
               amount: 5
             - !type:DeleteEntity {}
           steps:

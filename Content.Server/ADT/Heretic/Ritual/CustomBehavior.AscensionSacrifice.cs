@@ -45,7 +45,7 @@ public sealed partial class RitualAscensionSacrificeBehavior : RitualCustomBehav
     [DataField]
     public float Max = 4;
 
-    protected List<EntityUid> uids = new();
+    private List<EntityUid> uids = new();
 
     public override bool Execute(RitualData args, out string? outstr)
     {
@@ -71,7 +71,7 @@ public sealed partial class RitualAscensionSacrificeBehavior : RitualCustomBehav
         foreach (var look in res)
         {
             if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate)
-                || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look)
+                || !args.EntityManager.HasComponent<HumanoidProfileComponent>(look)
                 || mobstate.CurrentState != Shared.Mobs.MobState.Dead)
                 continue;
 

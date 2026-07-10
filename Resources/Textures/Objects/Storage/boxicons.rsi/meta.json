@@ -8,6 +8,9 @@
   },
   "states": [
     {
+      "name": "syndicate_circuit"
+    },
+    {
       "name": "beaker"
     },
     {

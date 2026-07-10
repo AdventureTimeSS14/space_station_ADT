@@ -1,14 +1,15 @@
+using Content.Shared.Chemistry.Components;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Content.Shared.Damage;
 
 namespace Content.Server.Dragon
 {
     [RegisterComponent]
     public sealed partial class DragonComponent : Component
     {
-
         /// <summary>
         /// If we have active rifts.
         /// </summary>
@@ -65,5 +66,55 @@ namespace Content.Server.Dragon
         /// </summary>
         [DataField]
         public ProtoId<NpcFactionPrototype> Faction = "Dragon";
+
+        /// <summary>
+        /// The smoke to spawn upon rift timeout death.
+        /// </summary>
+        [DataField]
+        public EntProtoId SmokePrototype = "BloodSmoke";
+
+        /// <summary>
+        /// The solution to place into the smoke (mostly just needed for color)
+        /// </summary>
+        [DataField]
+        public Solution SmokeSolution = new ([new("Blood", 1)]);
+
+        // ADT-Tweak-start
+        [DataField]
+        public EntityUid? SpawnCarpsActionEntity;
+
+        [DataField]
+        public EntProtoId SpawnCarpsAction = "ActionRiseFish";
+
+        [DataField]
+        public EntProtoId CarpProtoId = "MobCarpDragon";
+
+        [DataField]
+        public int CarpAmount = 3;
+
+        [DataField]
+        public EntityUid? RoarActionEntity;
+
+        [DataField]
+        public EntProtoId RoarAction = "ActionDragonRoar";
+
+        [DataField]
+        public float RoarRange = 3f;
+
+        [DataField]
+        public float RoarStunTime = 2.5f; // ADT-tweak (3 ---> 2.5)
+
+        [DataField]
+        public float CarpRiftHealingRange = 7f;
+
+        /// <summary>
+        /// Amount of healing the dragon receives when standing near a carp rift per second.
+        /// </summary>
+        [DataField]
+        public DamageSpecifier CarpRiftHealing = default!;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float RiftHealTimer = 0f;
+        // ADT-Tweak-end
     }
 }

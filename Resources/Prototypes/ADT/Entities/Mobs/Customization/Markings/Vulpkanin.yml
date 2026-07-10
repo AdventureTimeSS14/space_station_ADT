@@ -1,8 +1,7 @@
 - type: marking
   id: ADTVulpkaninaltpointsfadebelly
   bodyPart: RHand
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_body.rsi
       state: altpointsfadebelly
@@ -10,8 +9,7 @@
 - type: marking
   id: ADTVulpkaninbellycrest
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_body.rsi
       state: bellycrest
@@ -19,8 +17,7 @@
 - type: marking
   id: ADTVulpkanincrestpoints
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_body.rsi
       state: crestpoints
@@ -28,8 +25,7 @@
 - type: marking
   id: ADTVulpkaninfoxbelly
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_body.rsi
       state: foxbelly
@@ -37,8 +33,7 @@
 - type: marking
   id: ADTVulpkaninfullbelly
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_body.rsi
       state: fullbelly
@@ -46,8 +41,7 @@
 - type: marking
   id: ADTVulpkaninpointsfade
   bodyPart: RHand
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_body.rsi
       state: pointsfade
@@ -55,8 +49,7 @@
 - type: marking
   id: ADTVulpkaninpointsfadebelly
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_body.rsi
       state: pointsfadebelly
@@ -64,8 +57,7 @@
 - type: marking
   id: ADTVulpkaninsharppoints
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_body.rsi
       state: sharppoints
@@ -73,8 +65,7 @@
 - type: marking
   id: ADTVulpkanintail1
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: tail_m
@@ -84,8 +75,7 @@
 - type: marking
   id: ADTVulpkanintail2
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: tail_m
@@ -95,8 +85,7 @@
 - type: marking
   id: ADTVulpkanintailAll
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: tail_m
@@ -105,8 +94,7 @@
 - type: marking
   id: ADTVulpkanintail1Animated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: tail_m_wagging
@@ -116,8 +104,7 @@
 - type: marking
   id: ADTVulpkanintail2Animated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: tail_m_wagging
@@ -127,8 +114,7 @@
 - type: marking
   id: ADTVulpkanintailAllAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: tail_m_wagging
@@ -136,8 +122,7 @@
 - type: marking
   id: ADTVulpTailFluffyAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: fluffy_wagging
@@ -154,8 +139,7 @@
 - type: marking
   id: ADTVulpkaninear
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: ear_back
@@ -165,8 +149,7 @@
 - type: marking
   id: ADTVulpkaninEyeGlow
   bodyPart: LLeg
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: eyesglow
@@ -184,8 +167,7 @@
 - type: marking
   id: ADTVulpkaninruff
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: ruff
@@ -193,8 +175,7 @@
 - type: marking
   id: ADTVulpkaninkita
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: kita
@@ -202,8 +183,7 @@
 - type: marking
   id: ADTVulpkaninoldchin
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: oldchin
@@ -211,8 +191,7 @@
 - type: marking
   id: ADTVulpkaninold
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: old
@@ -221,8 +200,7 @@
 - type: marking
   id: ADTVulpkaninmuzzle
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: muzzle
@@ -230,8 +208,7 @@
 - type: marking
   id: ADTVulpkaninmuzzleear
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: muzzle_ear
@@ -239,8 +216,7 @@
 - type: marking
   id: ADTVulpkaninnose
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: nose
@@ -248,8 +224,7 @@
 - type: marking
   id: ADTVulpkaninpoints_fade
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: points_fade
@@ -257,8 +232,7 @@
 - type: marking
   id: ADTVulpkaninpoints_sharp
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: points_sharp
@@ -266,8 +240,7 @@
 - type: marking
   id: ADTVulpkaninskull_sponsor
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
@@ -276,8 +249,7 @@
 - type: marking
   id: ADTVulpkanintiger_face
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: tiger_face
@@ -285,8 +257,7 @@
 - type: marking
   id: ADTVulpkanintiger_head
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: tiger_head
@@ -294,8 +265,7 @@
 - type: marking
   id: ADTVulpkaninDamage1
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: damage-1
@@ -303,8 +273,7 @@
 - type: marking
   id: ADTVulpkaninDamage2
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: damage-2
@@ -312,8 +281,7 @@
 - type: marking
   id: ADTVulpkaninDamage3
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: damage-3
@@ -321,8 +289,7 @@
 - type: marking
   id: ADTVulpkaninDamage4
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: damage-4
@@ -331,8 +298,7 @@
 - type: marking
   id: ADTVulpkanin_skullBreast
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_skull_breast
@@ -340,8 +306,7 @@
 - type: marking
   id: ADTVulpkanin_spots
   bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_spots
@@ -349,8 +314,7 @@
 - type: marking
   id: ADTVulpkanin_spots2
   bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_spots2
@@ -358,8 +322,7 @@
 - type: marking
   id: ADTVulpkanin_tattoo
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_tattoo
@@ -367,8 +330,7 @@
 - type: marking
   id: ADTVulpkanin_wingsBack
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_wings_back
@@ -376,8 +338,7 @@
 - type: marking
   id: ADTVulpkanin_bigscarRight
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_bigscar_right
@@ -385,8 +346,7 @@
 - type: marking
   id: ADTVulpkanin_binding
   bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_binding
@@ -394,8 +354,7 @@
 - type: marking
   id: ADTVulpkanin_braceletArmLeft
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_bracelet_arm_left
@@ -403,8 +362,7 @@
 - type: marking
   id: ADTVulpkanin_braceletArmRight
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_bracelet_arm_right
@@ -412,8 +370,7 @@
 - type: marking
   id: ADTVulpkanin_braceletLegLeft
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_bracelet_leg_left
@@ -421,8 +378,7 @@
 - type: marking
   id: ADTVulpkanin_braceletLegRight
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_bracelet_leg_right
@@ -430,8 +386,7 @@
 - type: marking
   id: ADTVulpkanin_lineLeft
   bodyPart: RHand
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_line_left
@@ -439,8 +394,7 @@
 - type: marking
   id: ADTVulpkanin_lineRight
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_line_right
@@ -448,8 +402,7 @@
 - type: marking
   id: ADTVulpkanin_ringArmLeft
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_ring_arm_left
@@ -457,8 +410,7 @@
 - type: marking
   id: ADTVulpkanin_ringArmRight
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_ring_arm_right
@@ -466,8 +418,7 @@
 - type: marking
   id: ADTVulpkanin_ringEarLeft
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_ring_ear_left
@@ -475,8 +426,7 @@
 - type: marking
   id: ADTVulpkanin_ringEarRight
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_ring_ear_right
@@ -484,8 +434,7 @@
 - type: marking
   id: ADTVulpkaninRingLegLeft
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_ring_leg_left
@@ -493,8 +442,7 @@
 - type: marking
   id: ADTVulpkaninRingLegRight
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_ring_leg_right
@@ -502,8 +450,7 @@
 - type: marking
   id: ADTVulpkaninRunes
   bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_runes
@@ -511,8 +458,7 @@
 - type: marking
   id: ADTVulpkaninScarRight
   bodyPart: RArm
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_scar_right
@@ -520,8 +466,7 @@
 - type: marking
   id: ADTVulpkaninScar2Left
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_scar2_left
@@ -529,8 +474,7 @@
 - type: marking
   id: ADTVulpkaninScar2Right
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_scar2_right
@@ -538,8 +482,7 @@
 - type: marking
   id: ADTVulpkaninScar3Left
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_scar3_left
@@ -547,8 +490,7 @@
 - type: marking
   id: ADTVulpkaninScar3Right
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_scar3_right
@@ -556,8 +498,7 @@
 - type: marking
   id: ADTVulpkaninScar4Left
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_scar4_left
@@ -565,8 +506,7 @@
 - type: marking
   id: ADTVulpkaninScar4Right
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_scar4_right
@@ -574,8 +514,7 @@
 - type: marking
   id: ADTVulpkaninSkeleton
   bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_skeleton
@@ -583,8 +522,7 @@
 - type: marking
   id: ADTVulpkaninSkull
   bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_skull
@@ -595,8 +533,7 @@
 - type: marking
   id: ADTVulpSnoutAlt
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
       state: muzzle_alt
@@ -606,8 +543,7 @@
 - type: marking
   id: ADTVulpSnout
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
       state: muzzle
@@ -617,8 +553,7 @@
 - type: marking
   id: ADTVulpSnoutSharp
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
       state: muzzle_sharp
@@ -628,8 +563,7 @@
 - type: marking
   id: ADTVulpSnoutFade
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
       state: muzzle_fade
@@ -639,8 +573,7 @@
 - type: marking
   id: ADTVulpSnoutNose
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
       state: nose
@@ -648,8 +581,7 @@
 - type: marking
   id: ADTVulpSnoutMask
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
       state: mask
@@ -659,8 +591,7 @@
 - type: marking
   id: ADTVulpSnoutVulpine
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
       state: vulpine
@@ -670,8 +601,7 @@
 - type: marking
   id: ADTVulpSnoutSwift
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
       state: vulpine-lines
@@ -679,8 +609,7 @@
 - type: marking
   id: ADTVulpSnoutBlaze
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
       state: blaze
@@ -688,8 +617,7 @@
 - type: marking
   id: ADTVulpSnoutPatch
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
       state: patch
@@ -698,8 +626,7 @@
 - type: marking
   id: ADTVulpHeadTiger
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
       state: tiger_head
@@ -707,8 +634,7 @@
 - type: marking
   id: ADTVulpHeadTigerFace
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
       state: tiger_face
@@ -716,8 +642,7 @@
 - type: marking
   id: ADTVulpHeadSlash
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
       state: slash
@@ -726,8 +651,7 @@
 - type: marking
   id: ADTVulpTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: vulp
@@ -737,8 +661,7 @@
 - type: marking
   id: ADTVulpTailTip
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: vulp
@@ -748,8 +671,7 @@
 - type: marking
   id: ADTVulpTailAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: vulp_wag
@@ -759,8 +681,7 @@
 - type: marking
   id: ADTVulpTailTipAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: vulp_wag
@@ -770,8 +691,7 @@
 - type: marking
   id: ADTVulpTailAlt
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: vulp_alt
@@ -781,8 +701,7 @@
 - type: marking
   id: ADTVulpTailAltTip
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: vulp_alt
@@ -792,8 +711,7 @@
 - type: marking
   id: ADTVulpTailLong
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: long
@@ -803,8 +721,7 @@
 - type: marking
   id: ADTVulpTailFox
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: fox
@@ -814,8 +731,7 @@
 - type: marking
   id: ADTVulpTailFoxTip
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: fox
@@ -825,8 +741,7 @@
 - type: marking
   id: ADTVulpTailFoxAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: fox_wag
@@ -836,8 +751,7 @@
 - type: marking
   id: ADTVulpTailFoxTipAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: fox_wag
@@ -847,8 +761,7 @@
 - type: marking
   id: ADTVulpTailCoyote
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: coyote
@@ -856,8 +769,7 @@
 - type: marking
   id: ADTVulpTailCoyoteAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: coyote_wag
@@ -865,8 +777,7 @@
 - type: marking
   id: ADTVulpTailCorgiAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: corgi_wag
@@ -874,8 +785,7 @@
 - type: marking
   id: ADTVulpTailHusky
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: husky-inner
@@ -885,8 +795,7 @@
 - type: marking
   id: ADTVulpTailHuskyAlt
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: husky
@@ -894,8 +803,7 @@
 - type: marking
   id: ADTVulpTailFox2
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: fox2
@@ -903,8 +811,7 @@
 - type: marking
   id: ADTVulpTailFennec
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: fennec
@@ -912,8 +819,7 @@
 - type: marking
   id: ADTVulpTailOtie
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: otie
@@ -921,8 +827,7 @@
 - type: marking
   id: ADTVulpTailFluffy
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: fluffy
@@ -930,8 +835,7 @@
 - type: marking
   id: ADTVulpTailDalmatianAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: []
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: dalmatian_wag
@@ -942,36 +846,32 @@
 # Leg Markings
 - type: marking
   id: ADTVulpPointsFeet
-  markingCategory: Legs
   bodyPart: RFoot
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
       state: points_feet
 
 - type: marking
   id: ADTVulpPointsCrestLegs
-  markingCategory: Legs
   bodyPart: LLeg
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
       state: points_crest-legs
 
 - type: marking
   id: ADTVulpPointsFadeLegs
-  markingCategory: Legs
   bodyPart: LLeg
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
       state: points_fade-legs
 
 - type: marking
   id: ADTVulpPointsSharpLegs
-  markingCategory: Legs
   bodyPart: LLeg
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
       state: points_sharp-legs
@@ -979,36 +879,32 @@
 # Arm Markings
 - type: marking
   id: ADTVulpPointsHands
-  markingCategory: Arms
   bodyPart: RHand
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
       state: points_hands
 
 - type: marking
   id: ADTVulpPointsCrestArms
-  markingCategory: Arms
   bodyPart: LArm
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
       state: points_crest-arms
 
 - type: marking
   id: ADTVulpPointsFadeArms
-  markingCategory: Arms
   bodyPart: LArm
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
       state: points_fade-arms
 
 - type: marking
   id: ADTVulpPointsSharpArms
-  markingCategory: Arms
   bodyPart: LArm
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
       state: points_sharp-arms
@@ -1017,8 +913,7 @@
 - type: marking
   id: ADTVulpkaninEarCat
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_ears.rsi
       state: cat
@@ -1026,8 +921,7 @@
 - type: marking
   id: ADTVulpkaninEarCat2
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_ears.rsi
       state: cat2
@@ -1035,8 +929,7 @@
 - type: marking
   id: ADTVulpkaninEarFinnik
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_ears.rsi
       state: finnik-1
@@ -1046,8 +939,7 @@
 - type: marking
   id: ADTVulpkaninEarSharp1
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_ears.rsi
       state: sharp1
@@ -1055,8 +947,7 @@
 - type: marking
   id: ADTVulpkaninEarSharp2
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_ears.rsi
       state: sharp2
@@ -1064,8 +955,7 @@
 - type: marking
   id: ADTVulpkaninEarSharp3
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [VulpkaninSpecies]
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_ears.rsi
       state: sharp3

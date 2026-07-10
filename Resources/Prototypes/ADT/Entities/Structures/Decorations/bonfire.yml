@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTBonfire
   parent: BaseStructure
   name: костёр
@@ -24,8 +24,9 @@
         - LowImpassable
         hard: true
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
       - trigger:

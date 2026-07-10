@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTBurzhujka
   parent: BaseStructure
   name: печь-буржуйка
@@ -88,8 +88,9 @@
     sound:
       path: /Audio/Ambience/Objects/fireplace.ogg
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:

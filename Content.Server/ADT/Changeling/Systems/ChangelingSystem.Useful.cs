@@ -65,7 +65,7 @@ public sealed partial class ChangelingSystem
         }
 
         var target = args.Target;
-        if (!HasComp<HumanoidAppearanceComponent>(target))
+        if (!HasComp<HumanoidProfileComponent>(target))
         {
             var selfMessage = Loc.GetString("changeling-dna-fail-nohuman", ("target", Identity.Entity(target, EntityManager)));
             _popup.PopupEntity(selfMessage, uid, uid);
@@ -352,21 +352,21 @@ public sealed partial class ChangelingSystem
     {
         if (args.Handled)
             return;
-// Закоментил для баффа
-//       if (component.LesserFormActive)
-//       {
-//           var selfMessage = Loc.GetString("changeling-transform-fail-lesser-form");
-//           _popup.PopupEntity(selfMessage, uid, uid);
-//           return;
-//      }
+        // Закоментил для баффа
+        //       if (component.LesserFormActive)
+        //       {
+        //           var selfMessage = Loc.GetString("changeling-transform-fail-lesser-form");
+        //           _popup.PopupEntity(selfMessage, uid, uid);
+        //           return;
+        //      }
         component.StasisDeathActive = !component.StasisDeathActive;
 
         if (component.StasisDeathActive)
         {
             if (!TryUseAbility(uid, component, args.Cost))
                 return;
-            
-        _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Cellular"), 200));
+
+            _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Cellular"), 200));
 
             args.Handled = true;
 
@@ -526,7 +526,7 @@ public sealed partial class ChangelingSystem
                     ev.HumanoidData.Add(new(
                         netEntity,
                         Name(item.EntityUid),
-                        item.HumanoidAppearanceComponent.Species.Id,
+                        item.Profile.Species.Id,
                         BuildProfile(item)));
                 }
 
@@ -656,7 +656,7 @@ public sealed partial class ChangelingSystem
                 ev.HumanoidData.Add(new(
                     netEntity,
                     Name(item.EntityUid),
-                    item.HumanoidAppearanceComponent.Species.Id,
+                    item.Profile.Species.Id,
                     BuildProfile(item)));
             }
 

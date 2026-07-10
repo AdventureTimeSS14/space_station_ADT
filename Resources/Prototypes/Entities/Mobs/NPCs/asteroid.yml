@@ -5,6 +5,7 @@
   - MobDamageable
   - MobAtmosExposed
   - MobCombat
+  - BaseMobAnimal
   abstract: true
   components:
   - type: Reactive
@@ -12,18 +13,13 @@
       Flammable: [Touch]
       Extinguish: [Touch]
       Acidic: [Touch, Ingestion]
-  - type: Body
-    prototype: Animal
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
   - type: StatusEffects
     allowed:
-    - Stutter
     - Weakness #ADT-Weakness-Tweak
     - Electrocution
-    - TemporaryBlindness
-    - RadiationProtection
     - Adrenaline
   # - type: StandingState #ADT-tweak: а оно надо?
   - type: Tag
@@ -53,8 +49,10 @@
     baseSprintSpeed : 2.50 #ADT‑Tweak
   # ADT-Commented-start
   # - type: Bloodstream
-  #   bloodMaxVolume: 350
-  #   chemicalMaxVolume: 0
+  # bloodReferenceSolution:
+  #   reagents:
+  #   - ReagentId: Blood
+  #     Quantity: 350
   # ADT-Commented-end
   - type: MobThresholds
     thresholds:
@@ -342,6 +340,8 @@
   - type: Tag
     tags:
     - HivelordRemains
+    - Meat
+    - Raw
 
 - type: entity
   id: FoodHivelordRemainsInert
@@ -361,7 +361,8 @@
   - type: Tag
     tags:
     - HivelordRemains
-
+    - Meat
+    - Raw
 
 - type: entity
   id: MobBasilisk
@@ -412,8 +413,10 @@
     capacity: 1
     count: 1
   - type: Bloodstream
-    bloodMaxVolume: 200
-    chemicalMaxVolume: 0
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 200
   - type: NpcFactionMember
     factions:
     - SimpleHostile

@@ -13,7 +13,6 @@
     rules: ghost-role-information-cluwne-prank-rules
   - type: GhostTakeoverAvailable
   - type: MindContainer
-    showExamineInfo: true
   - type: NpcFactionMember
     factions:
     - PetsNT

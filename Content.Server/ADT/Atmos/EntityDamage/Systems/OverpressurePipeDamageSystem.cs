@@ -4,6 +4,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.NodeContainer.NodeGroups;
+using Content.Shared.NodeContainer.NodeGroups;
 using Content.Shared.ADT.Atmos.EntityDamage.Components;
 using Content.Shared.ADT.CCVar;
 using Robust.Shared.Random;
@@ -79,7 +80,7 @@ namespace Content.Server.ADT.Atmos.EntityDamage.Systems
 
             if (EntityManager.TryGetComponent(pipe.Owner, out DamageableComponent? dmg) && dmg != null)
             {
-                float totalDamage = (float)dmg.TotalDamage;
+                float totalDamage = (float)_damage.GetTotalDamage((pipe.Owner, dmg));
                 chance = Math.Clamp(comp.BaseChance + totalDamage * 0.5f, 0f, 1f);
             }
 
@@ -90,6 +91,8 @@ namespace Content.Server.ADT.Atmos.EntityDamage.Systems
             int dmgAmt = (int)(comp.BaseDamage * MathF.Exp(over / limit));
             if (dmgAmt <= 0)
                 return;
+
+            dmgAmt = Math.Min(dmgAmt, 100);
 
             var spec = new DamageSpecifier();
             spec.DamageDict["Structural"] = dmgAmt;

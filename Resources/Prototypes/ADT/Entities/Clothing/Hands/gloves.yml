@@ -1,97 +1,4 @@
-# ADT-Halloween-start
 
-- type: entity
-  parent: ClothingHandsBase
-  id: ADTClothingHandsRabbitGloves
-  name: Rabbit Gloves
-  description: Shhh. Furry.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Hands/Gloves/rabbit_gloves.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Hands/Gloves/rabbit_gloves.rsi
-  - type: Fiber
-    fiberMaterial: fibers-synthetic
-  - type: FingerprintMask
-
-- type: entity
-  parent: ClothingHandsBase
-  id: ADTClothingHandsEmpressOfLightGloves
-  name: empress of light gloves
-  description: Majestic and blue.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Hands/Gloves/empress_of_light_gloves.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Hands/Gloves/empress_of_light_gloves.rsi
-  - type: Fiber
-    fiberMaterial: fibers-synthetic
-  - type: FingerprintMask
-
-# ADT-Halloween-end
-
-- type: entity
-  parent: ClothingHandsBase
-  id: ADTBioMercGloves
-  name: fingerless tactical bio-fabric gloves
-  description: If you thought that this glove is environmentally friendly, then you are very mistaken. This glove is made of a fabric with an admixture of biomass, which strongly resembles leather. Moreover, this "skin" is unnaturally warm...
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Hands/Gloves/biomerc_gloves.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Hands/Gloves/biomerc_gloves.rsi
-  - type: Fiber
-    fiberMaterial: fibers-synthetic
-
-- type: entity
-  parent: ClothingHandsBase
-  id: ADTVyazovGloves
-  name: gloves from the dimension of nightmares
-  description: The right glove has blades, it seems, with which its former owner dealt with his victims.
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Hands/Gloves/vyazov_gloves.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Hands/Gloves/vyazov_gloves.rsi
-  - type: Fiber
-    fiberMaterial: fibers-synthetic
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 8
-    soundHit:
-      path: /Audio/Weapons/bladeslice.ogg
-    animation: WeaponArcFist
-
-- type: entity
-  parent: ClothingHandsGlovesBoxingRed
-  id: ADTRedMartialArtsGloves
-  name: red gloves for martial arts
-  description: red gloves for martial arts
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Hands/Gloves/red_martial_gloves.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Hands/Gloves/red_martial_gloves.rsi
-  - type: Fiber
-    fiberMaterial: fibers-synthetic
-
-- type: entity
-  parent: ClothingHandsBase
-  id: ADTClothingHandsFingerlessCombat
-  name: fingerless combat gloves
-  description: These tactical gloves are fireproof and shockproof, and have become much cooler.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Hands/Gloves/fingerless_combat.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Hands/Gloves/fingerless_combat.rsi
-  - type: Fiber
-    fiberMaterial: fibers-insulative
-    fiberColor: fibers-black
 
 #region Paws
 # ADT Paws
@@ -289,3 +196,32 @@
     sprite: Clothing/Hands/Gloves/tacticalmaidgloves.rsi
   - type: Fiber
     fiberColor: fibers-black
+
+#region Syndicate Grab Gloves
+
+- type: entity
+  parent: [BaseSyndicateContraband, ClothingHandsGlovesCombat]
+  id: ADTClothingHandsGlovesGuerrilla
+  name: guerrilla gloves
+  description: Top of the line quality syndicate combative gloves, good for grabs as well as absorbing electrical shocks. Seems to be powered by telecrystals.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/guerrilla.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/guerrilla.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#940000"
+      right:
+      - state: inhand-right
+        color: "#940000"
+  - type: GrabModifier
+    startingGrabStage: Hard
+    grabEscapeModifier: -0.1
+    grabEscapeMultiplier: 0.8
+    grabMoveSpeedMultiplier: 2
+  - type: MartialArtsBlocking
+
+#endregion

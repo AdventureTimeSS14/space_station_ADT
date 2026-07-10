@@ -1,12 +1,11 @@
-using Content.Server.Body.Systems;
+using System.Linq;
 using Content.Shared.ADT.Body.Allergies;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.EntityEffects.Effects;
+using Content.Shared.EntityEffects.Effects.Damage;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using System.Linq;
 
 namespace Content.Server.ADT.Body;
 

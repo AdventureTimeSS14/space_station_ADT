@@ -12,7 +12,7 @@
   - !type:PlantAdjustHealth
     amount: -5
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -28,7 +28,7 @@
   color: "#000067"
   physicalDesc: reagent-physical-desc-nondescript
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:MovementSpeedModifier
         walkSpeedModifier: 0.65
@@ -61,13 +61,14 @@
   - !type:PlantAdjustHealth
     amount: -5
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate : 0.1
       effects:
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Arachnid ]
+          inverted: true
         damage:
           types:
             Poison: 0.75
@@ -75,6 +76,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Arachnid ]
+          inverted: true
         type: Local
         visualType: Small
         messages: [ "toxin-effect-pain-latrotoxin" ]
@@ -86,5 +88,6 @@
           min: 10
         - !type:MetabolizerTypeCondition
           type: [ Arachnid ]
+          inverted: true
         walkSpeedModifier: 0.7
         sprintSpeedModifier: 0.7

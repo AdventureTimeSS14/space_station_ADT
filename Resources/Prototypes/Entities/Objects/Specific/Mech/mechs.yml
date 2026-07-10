@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: BaseMech
   save: false
   abstract: true
@@ -48,7 +48,7 @@
       enum.StorageUiKey.Key: # ADT edit
         type: StorageBoundUserInterface
   - type: MeleeWeapon
-    range: 1.0 # ADT-tweak 1.5 to 1.0
+    range: 1.2 # ADT-tweak 1.5 to 1.2
     hidden: true
     attackRate: 0.75
     damage:
@@ -94,8 +94,9 @@
       storagebase: !type:Container #ADT edit
         ents: []
   - type: Damageable
-    damageContainer: StructuralInorganic #ADT tweak - чтобы мехи получали и структурный урон
     damageModifierSet: ADTMechDamageModifierSet  # ADT tweak mech rebalance
+  - type: Injurable
+    damageContainer: StructuralInorganic #ADT tweak - чтобы мехи получали и структурный урон
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/mechmove03.ogg
@@ -115,7 +116,8 @@
         node: start
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  - type: NpcFactionMember # ADT-tweak-start
+  # ADT-tweak-Start
+  - type: NpcFactionMember
     factions:
     - NanoTrasen
   - type: MobThresholds
@@ -123,8 +125,11 @@
       0: Alive
       1000: Critical
   - type: MobState
-  - type: GrabProtection # ADT-tweak-end
-  - type: ZombieImmune # ADT-Tweak
+  - type: GrabProtection
+  - type: ZombieImmune
+  - type: NoSlip
+  - type: ProtectedFromStepTriggers
+  # ADT-tweak-End
 
 - type: entity
   id: MechRipley
@@ -150,10 +155,8 @@
         Slash: 0.5
         Piercing: 0.75
         Heat: 0.75
-        Radiation: 0
-        Caustic: 0.1
         Structural: 1.0
-    maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
+    maxintegrity: 170   # ADT-tweak. Правим очки здоровья меха
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
@@ -165,7 +168,7 @@
     mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
     pilotWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -218,8 +221,6 @@
         Slash: 0.5
         Piercing: 0.75
         Heat: 0.75
-        Radiation: 0
-        Caustic: 0.1
         Structural: 1.0
     maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
     # ADT end
@@ -229,7 +230,7 @@
     mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
     pilotWhitelist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
     # ADT Start
     equipmentWhitelist:
       tags:
@@ -239,6 +240,7 @@
     baseWalkSpeed: 1.875
     baseSprintSpeed: 3.375
     # ADT End
+
 
 - type: entity
   parent: MechHonker
@@ -274,8 +276,6 @@
         Slash: 0.5
         Piercing: 0.75
         Heat: 0.75
-        Radiation: 0
-        Caustic: 0.1
         Structural: 1.0
     maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
     # ADT end
@@ -351,8 +351,6 @@
         Slash: 0.5
         Piercing: 0.75
         Heat: 0.75
-        Radiation: 0
-        Caustic: 0.1
         Structural: 1.0
     maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
     # ADT end

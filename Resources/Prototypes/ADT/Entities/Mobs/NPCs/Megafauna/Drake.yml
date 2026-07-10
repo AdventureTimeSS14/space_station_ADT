@@ -68,7 +68,6 @@
       types:
         Heat: 15
     deleteOnCollide: false
-  - type: Timer
   - type: TimedSpawner
     prototypes:
       - NazFire
@@ -101,7 +100,6 @@
     deleteOnCollide: false
   - type: TimedDespawn
     lifetime: 1
-  - type: Timer
   - type: TimedSpawner
     prototypes:
       - FireballSignal
@@ -266,6 +264,7 @@
     - DoorBumpOpener
   - type: NoSlip
   - type: Damageable
+  - type: Injurable
     damageContainer: Drake
   - type: ExplosionResistance
     damageCoefficient: 0
@@ -339,7 +338,6 @@
     delay: 3.9
   - type: SpawnOnTrigger
     proto: IgniteRuneDrake
-  - type: Timer
   - type: TimedSpawner
     prototypes:
       - FireballSignalFlight
@@ -380,16 +378,9 @@
 
 - type: entity
   name: Meteorite Instant Explosion
-  parent: BasePlasticExplosive
   id: MeteorInstaExplosion
   components:
   - type: TriggerOnSpawn
-  - type: Sprite
-    sprite: ADT/Mobs/Phantom/phantom.rsi
-    drawdepth: Effects
-    layers:
-    - state: haunt
-      map: ["base"]
   - type: Explosive
     explosionType: FireBomb
     totalIntensity: 2
@@ -403,16 +394,9 @@
 
 - type: entity
   name: Drake Rune Instant Explosion
-  parent: BasePlasticExplosive
   id: DrakeRuneInstaExplosion
   components:
   - type: TriggerOnSpawn
-  - type: Sprite
-    sprite: ADT/Mobs/Phantom/phantom.rsi
-    drawdepth: Effects
-    layers:
-    - state: haunt
-      map: ["base"]
   - type: Explosive
     explosionType: FireBomb
     totalIntensity: 50
@@ -520,6 +504,11 @@
   name: огненный плевок
   description:
   components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: fireball
+      shader: unshaded
   - type: Gun
     fireRate: 1
     projectileSpeed: 10
@@ -534,11 +523,6 @@
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 4
   - type: Unremoveable
-  - type: Sprite
-    sprite: ADT/Mobs/Phantom/phantom.rsi
-    drawdepth: Effects
-    layers:
-    - state: haunt
 
 - type: entity
   id: WeaponDragonMeteorites
@@ -546,6 +530,11 @@
   name: метеоритный дождь
   description: Горящие пламенем космические обьекты подчиняются вашей воли, разрушая все в округе
   components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: fireball
+      shader: unshaded
   - type: Gun
     fireRate: 1
     projectileSpeed: 25
@@ -560,11 +549,6 @@
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 25
   - type: Unremoveable
-  - type: Sprite
-    sprite: ADT/Mobs/Phantom/phantom.rsi
-    drawdepth: Effects
-    layers:
-    - state: haunt
 
 - type: entity
   name: дыхание дракона
@@ -572,6 +556,11 @@
   parent: BaseWeaponHeavyMachineGun
   description: Выпускает горячее пламя из вашей пасти, сжигая всё на своём пути.
   components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: fireball
+      shader: unshaded
   - type: Gun
     fireRate: 10
     projectileSpeed: 8
@@ -588,8 +577,3 @@
       ballistic-ammo: !type:Container
         ents: []
   - type: Unremoveable
-  - type: Sprite
-    sprite: ADT/Mobs/Phantom/phantom.rsi
-    drawdepth: Effects
-    layers:
-    - state: haunt

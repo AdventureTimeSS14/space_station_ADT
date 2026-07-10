@@ -1,7 +1,7 @@
 - type: entity
   name: small syringe
   description: A small syringe to take.. you guessed it, small samples of liquid.
-  parent: BaseItem
+  parent: BaseSyringe
   id: ADTSmallSyringe
   components:
   - type: Sprite
@@ -25,8 +25,10 @@
   - type: FitsInDispenser
     solution: injector
   - type: Injector
-    delay: 3
-    injectOnly: false
+    restrainedMultiplier: 2 # ADT-Tweak(P4A) Ускорение Шприцов на койках и каталках
+    activeModeProtoId: SyringeInjectMode
+    allowedModes:
+    - SyringeInjectMode
   - type: Appearance
   - type: ExaminableSolution
     solution: injector

@@ -117,6 +117,7 @@
     damage:
       types:
         Blunt: 20
+        Structural: 25 # ADT-Tweak 0 -> 25
     soundHit:
       collection: MetalThud
     bluntStaminaDamageFactor: 1.5

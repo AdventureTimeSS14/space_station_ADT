@@ -32,18 +32,28 @@ public sealed partial class ThievingSystem : EntitySystem
 
     private void OnCompInit(Entity<ThievingComponent> entity, ref ComponentInit args)
     {
-        _alertsSystem.ShowAlert(entity.Owner, entity.Comp.StealthyAlertProtoId, 1);
+        if (!entity.Comp.HideStealthyAlert) // ADT-Tweak 
+            _alertsSystem.ShowAlert(entity.Owner, entity.Comp.StealthyAlertProtoId, 1);
     }
 
     private void OnCompRemoved(Entity<ThievingComponent> entity, ref ComponentRemove args)
     {
-        _alertsSystem.ClearAlert(entity.Owner, entity.Comp.StealthyAlertProtoId);
+        if (!entity.Comp.HideStealthyAlert) // ADT-Tweak 
+            _alertsSystem.ClearAlert(entity.Owner, entity.Comp.StealthyAlertProtoId);
     }
 
     private void OnToggleStealthy(Entity<ThievingComponent> ent, ref ToggleThievingEvent args)
     {
         if (args.Handled)
             return;
+
+        // ADT-Tweak start
+        if (ent.Comp.HideStealthyAlert)
+        {
+            args.Handled = true;
+            return;
+        }
+        // ADT-Tweak end
 
         ent.Comp.Stealthy = !ent.Comp.Stealthy;
         _alertsSystem.ShowAlert(ent.Owner, ent.Comp.StealthyAlertProtoId, (short)(ent.Comp.Stealthy ? 1 : 0));

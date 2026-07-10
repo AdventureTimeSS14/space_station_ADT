@@ -1,8 +1,7 @@
 - type: marking
   id: ADTVoxCocktail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -18,8 +17,7 @@
 - type: marking
   id: ADTVoxTailBalled
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: true
   followSkinColor: true
   sprites:
@@ -29,8 +27,7 @@
 - type: marking
   id: ADTVoxTailSplit
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: true
   followSkinColor: true
   sprites:
@@ -40,8 +37,7 @@
 - type: marking
   id: ADTVoxTailStripes
   bodyPart: Chest
-  markingCategory: Overlay
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -51,8 +47,7 @@
 - type: marking
   id: ADTVoxLArmProsthetic
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   coloring:
@@ -67,8 +62,7 @@
 - type: marking
   id: ADTVoxRArmProsthetic
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   coloring:
@@ -83,8 +77,7 @@
 - type: marking
   id: ADTVoxBeakColor
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -94,8 +87,7 @@
 - type: marking
   id: ADTVoxBeakSplit
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -107,8 +99,7 @@
 - type: marking
   id: ADTVoxBeakTipped
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -118,8 +109,7 @@
 - type: marking
   id: ADTVoxChestPlumage
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -127,10 +117,19 @@
     state: voxchestplumage
 
 - type: marking
-  id: ADTVoxFootSpines
-  bodyPart: Tail
-  markingCategory: Overlay
-  speciesRestriction: [ Vox ]
+  id: ADTVoxFootSpinesLeft
+  bodyPart: LFoot
+  groupWhitelist: [Vox]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxfootspines
+
+- type: marking
+  id: ADTVoxFootSpinesRight
+  bodyPart: RFoot
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -140,8 +139,7 @@
 - type: marking
   id: ADTVoxFootGradientLFoot
   bodyPart: LFoot
-  markingCategory: Legs
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -151,8 +149,7 @@
 - type: marking
   id: ADTVoxFootGradientRFoot
   bodyPart: RFoot
-  markingCategory: Legs
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -162,8 +159,7 @@
 - type: marking
   id: ADTVoxLegGradientLLeg
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -173,8 +169,7 @@
 - type: marking
   id: ADTVoxLegGradientRLeg
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -184,8 +179,7 @@
 - type: marking
   id: ADTVoxHandGradientRHand
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -199,8 +193,7 @@
 - type: marking
   id: ADTVoxHandGradientLHand
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -214,8 +207,7 @@
 - type: marking
   id: ADTVoxHeadGradient
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -228,9 +220,8 @@
 
 - type: marking
   id: ADTVoxTailBell
-  bodyPart: Tail
-  markingCategory: Overlay
-  speciesRestriction: [ Vox ]
+  bodyPart: TailOverlay
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -241,9 +232,8 @@
 
 - type: marking
   id: ADTVoxTailLantern
-  bodyPart: Tail
-  markingCategory: Overlay
-  speciesRestriction: [ Vox ]
+  bodyPart: TailOverlay
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -254,8 +244,7 @@
 - type: marking
   id: ADTVoxTailSingleStripe
   bodyPart: Chest
-  markingCategory: Overlay
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -264,9 +253,8 @@
 
 - type: marking
   id: ADTVoxTailSmallPlume
-  bodyPart: Tail
-  markingCategory: Overlay
-  speciesRestriction: [ Vox ]
+  bodyPart: TailOverlay
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -275,9 +263,8 @@
 
 - type: marking
   id: ADTVoxTailSpines
-  bodyPart: Tail
-  markingCategory: Overlay
-  speciesRestriction: [ Vox ]
+  bodyPart: TailOverlay
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -287,8 +274,7 @@
 - type: marking
   id: ADTVoxArmsStripesLHand
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -298,8 +284,7 @@
 - type: marking
   id: ADTVoxArmsStripesRHand
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -309,8 +294,7 @@
 - type: marking
   id: ADTVoxLegsStripesLLeg
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -320,8 +304,7 @@
 - type: marking
   id: ADTVoxLegsStripesRLeg
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -330,9 +313,8 @@
 
 - type: marking
   id: ADTVoxChains
-  bodyPart: Tail
-  markingCategory: Overlay
-  speciesRestriction: [ Vox ]
+  bodyPart: TailOverlay
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -341,9 +323,8 @@
 
 - type: marking
   id: ADTVoxSunAndMoon
-  bodyPart: Tail
-  markingCategory: Overlay
-  speciesRestriction: [ Vox ]
+  bodyPart: TailOverlay
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -353,8 +334,7 @@
 - type: marking
   id: ADTVoxCheeks
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -364,8 +344,7 @@
 - type: marking
   id: ADTVoxBelly
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Vox ]
+  groupWhitelist: [Vox]
   forcedColoring: false
   followSkinColor: false
   sprites:

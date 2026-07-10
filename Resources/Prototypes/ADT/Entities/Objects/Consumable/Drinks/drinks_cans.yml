@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: DrinkCanBaseFull
   id: ADTDrinkNoStopCan
   name: No Stop Can
@@ -60,10 +60,12 @@
       tags:
         - ADTBeerCan
     hideStackVisualsWhenClosed: false
-  - type: StorageFill
-    contents:
-      - id: DrinkBeerCan
-        amount: 6
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: DrinkBeerCan
+          amount: 6
   - type: ItemCounter
     count:
       tags: [ADTBeerCan]

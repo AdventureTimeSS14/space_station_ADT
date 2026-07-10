@@ -77,7 +77,7 @@
   - type: EntityTargetAction
     whitelist:
       components:
-      - Body
+      - MobState
     canTargetSelf: false
     event: !type:LingStingExtractActionEvent
       cost: 15

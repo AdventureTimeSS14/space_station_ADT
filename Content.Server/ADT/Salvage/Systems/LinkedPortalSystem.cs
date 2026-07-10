@@ -1,5 +1,6 @@
 using Content.Server.ADT.Salvage.Components;
 using Content.Server.Medical;
+using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -192,7 +193,7 @@ public sealed partial class JaunterPortalSystem : EntitySystem
             _stamina.TakeStaminaDamage(otherUid, need, stam);
         }
 
-        if (HasComp<BodyComponent>(otherUid) && HasComp<HungerComponent>(otherUid))
+        if (HasComp<OrganComponent>(otherUid) && HasComp<HungerComponent>(otherUid))
         {
             _vomit.Vomit(otherUid);
         }

@@ -125,7 +125,7 @@
         salvage: !type:GridSpawnGroup
           nameGrid: false
           paths:
-          - /Maps/ADTMaps/Shuttles/pioneer.yml
+          - /Maps/Shuttles/mining.yml
         mining_guest: !type:GridSpawnGroup
           nameGrid: false
           paths:

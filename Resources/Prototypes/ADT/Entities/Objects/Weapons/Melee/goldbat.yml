@@ -16,7 +16,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 8
+        Blunt: 12
         Structural: 12.5
   - type: UseDelay
     delay: 1
