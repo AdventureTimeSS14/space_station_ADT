@@ -160,3 +160,10 @@
         - !type:ReagentCondition
           reagent: ADTBlueSkyDesoxyephedrine
           min: 20
+      - !type:TremorSpasm
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTBlueSkyDesoxyephedrine
+          min: 20
+        probability: 0.15
+        pacifyDuration: 3

@@ -4,3 +4,5 @@ narcotic-effect-rainbows = Картина перед вашими глазами
 narcotic-effect-visible-miosis = Зрачки { CAPITALIZE($entity) } странным образом сузились.
 
 narcotic-effect-loose = Вы чувствуете головокружение.
+
+narcotic-effect-hand-tremor = Вы чувствуете спазм рук!

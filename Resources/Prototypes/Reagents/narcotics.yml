@@ -73,6 +73,15 @@
         - !type:ReagentCondition
           reagent: Desoxyephedrine
           min: 5
+      # Start ADT tweak
+      - !type:TremorSpasm
+        conditions:
+        - !type:ReagentCondition
+          reagent: Desoxyephedrine
+          min: 10
+        probability: 0.15
+        pacifyDuration: 3
+      # End ADT tweak
 
 - type: reagent
   id: Ephedrine
