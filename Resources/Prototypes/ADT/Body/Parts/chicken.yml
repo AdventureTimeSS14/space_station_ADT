@@ -30,7 +30,7 @@
 - type: entity
   id: ADTChickenBody
   name: chicken body
-  parent: PartAnimal
+  parent: OrganBaseOrganic
   # noSpawn: true
   components:
   - type: Sprite
