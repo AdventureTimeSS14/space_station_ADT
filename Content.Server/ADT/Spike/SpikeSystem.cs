@@ -91,7 +91,7 @@ namespace Content.Server.ADT.CelticSpike
 
         private void StartImpaling(EntityUid user, EntityUid spike, EntityUid target)
         {
-            if (!HasComp<HumanoidAppearanceComponent>(target))
+            if (!HasComp<HumanoidProfileComponent>(target))
             {
                 _popup.PopupEntity(Loc.GetString("spike-deny-not-mob"), spike, user);
                 return;
