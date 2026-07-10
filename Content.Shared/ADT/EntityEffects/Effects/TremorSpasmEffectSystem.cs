@@ -40,9 +40,9 @@ public sealed partial class TremorSpasm : EntityEffectBase<TremorSpasm>
 
 
 /*
-              (x_x)
-               /|\
-               / \
+                      (x_x)
+                       /|\
+                       / \
 
-    РДМ отменяется — руки трясутся.
+    РДМ отменяется — руки трясутся, ломает ужасно.
 */
