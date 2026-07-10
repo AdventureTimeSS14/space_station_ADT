@@ -89,6 +89,7 @@
     - ADTSteelSheet
     - Sheet
     - Metal
+    - ConstructionMaterial
   # ADT-UPD-End
 
 - type: entity

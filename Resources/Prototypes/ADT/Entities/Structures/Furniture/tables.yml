@@ -375,11 +375,6 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: TabletopGame
-    size: 300, 300
-    setup:
-      !type:TabletopEmptySetup
-      boardPrototype: Crowbar
   - type: Tag
     tags:
     - Wooden
