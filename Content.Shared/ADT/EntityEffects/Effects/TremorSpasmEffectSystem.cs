@@ -29,7 +29,7 @@ public sealed partial class TremorSpasmEffectSystem : EntityEffectSystem<StatusE
 public sealed partial class TremorSpasm : EntityEffectBase<TremorSpasm>
 {
     /// <summary>
-    /// Как долго сохраняется состояние покоя до начала спазма.
+    /// Длительность состояния пацифизма, накладываемого при спазме рук.
     /// </summary>
     [DataField]
     public TimeSpan PacifyDuration = TimeSpan.FromSeconds(4);
