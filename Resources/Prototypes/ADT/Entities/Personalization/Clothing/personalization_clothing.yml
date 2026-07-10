@@ -1779,7 +1779,7 @@
 - type: entity
   parent: ADTSponsorClothingNeckBase
   id: ADTClothingNeckHonelin111Choker
-  suffix: honelin111
+  suffix: Personal, Honelin111
   name: choker with a bell
   description: A choker with a golden bell that jingles as you walk
   components:
@@ -1855,11 +1855,11 @@
   - type: Appearance
 
 - type: entity
-  parent: Clothing
+  parent: ADTSponsorClothing
   id: ADTClothingEarHonelin111GoldenEarring
   name: gold earring
   description: A piece of jewelry made of a dark gold alloy, with a history that is far from simple—just like the person who wears it.
-  suffix: Honelin111
+  suffix: Personal, Honelin111
   components:
   - type: Sprite
     sprite: ADT/Personalization/honelin111_golden_earrings.rsi
@@ -1890,7 +1890,7 @@
 
 # NSFW
 - type: entity
-  parent: ClothingNeckBase
+  parent: ADTSponsorClothingNeckBase
   id: ADTClothingNeckSentinel
   name: sentinel cloak
   description: An elegant robe given to the eternal guardians who watch over the order of the world.
@@ -1900,3 +1900,23 @@
     sprite: ADT/Personalization/nsfw_cloak.rsi
   - type: StaticPrice
     price: 1984
+
+# Спонсорское (ДЛЯ ВСЕХ СПОНСОРОВ!)
+
+- type: entity
+  parent: ADTSponsorClothing
+  id: ADTClothingEarSponsorEarring
+  name: gold earring
+  description: Minimalist black round earrings. You can barely feel them when you wear them.
+  suffix: Sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/earring.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/earring.rsi
+    slots:
+    - ears
+    - ears2
