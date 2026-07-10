@@ -14,5 +14,3 @@ ent-ADTChurchMobCarp = { ent-MobCarp }
     .desc = { ent-MobCarp.desc }
 ent-ADTMobMouseSpace = космическая мышь
     .desc = Грызун, покоряющий космос.
-ghost-role-information-parrot-name = попугай
-ghost-role-information-parrot-description = Обыкновенный попугай

@@ -68,7 +68,7 @@
     supplyRampTolerance: 500
     supplyRampRate: 500
   - type: SolarPanel
-    maxSupply: 2500 # ADT tweak
+    maxSupply: 1250 # ADT tweak
   - type: Sprite
     sprite: Structures/Power/Generation/solar_panel.rsi
     state: solar_panel_plasma
@@ -108,7 +108,7 @@
     supplyRampTolerance: 500
     supplyRampRate: 500
   - type: SolarPanel
-    maxSupply: 3750 # adt tweak
+    maxSupply: 2250 # adt tweak
   - type: Sprite
     sprite: Structures/Power/Generation/solar_panel.rsi
     state: solar_panel_uranium

@@ -63,3 +63,5 @@ ghost-role-information-cluwne-prank-rules =
     Запрещены выпуск сингулярности, любые манипуляции с атмосферой, бессмысленное убийство игроков или перерезание проводов, демонтаж любых подстанций или ЛКП, серверов. Также, недопустимы кражи редметов особой ценности. Ваши навыки при этом ограничены базовыми, если с администрацией не было договорено иное.
 ghost-role-information-devilknife-name = Нож дьявола
 ghost-role-information-devilknife-description = Элементаль хаоса и подручный инструмент священника. Хаос, хаос!
+ghost-role-information-parrot-name = попугай
+ghost-role-information-parrot-description = Обыкновенный попугай

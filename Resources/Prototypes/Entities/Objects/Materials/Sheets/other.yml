@@ -78,6 +78,8 @@
   # ADT-Tweak-Start
   - type: Tag
     tags:
+    - Sheet
+    - ConstructionMaterial
     - ADTSheetPaper
   # ADT-Tweak-End
 
@@ -118,6 +120,7 @@
   - type: Tag
     tags:
     - Sheet
+    - ConstructionMaterial #ADT tweak
     - NoPaint #ADT tweak
 
 - type: entity
@@ -151,7 +154,7 @@
     tags:
     - Plastic
     - Sheet
-    - ConstructionMaterial
+    - ConstructionMaterial #ADT tweak
     - NoPaint #ADT tweak
   - type: Material
   - type: PhysicalComposition
@@ -217,6 +220,7 @@
     tags:
       - ADTUraniumSheet
       - Sheet
+      - ConstructionMaterial
 ### End ADT Tweak
   - type: Material
   - type: Edible
@@ -274,6 +278,7 @@
         map: [ "base" ]
     - type: Tag
       tags:
+      - ConstructionMaterial  #ADT tweak
       - Sheet
       - NoPaint #ADT tweak
     - type: Material
