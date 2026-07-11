@@ -183,6 +183,14 @@
   objectType: Item
 
 - type: construction
+  id: ADTWeaponCrossbowImprovised
+  graph: ADTWeaponCrossbowImprovised
+  startNode: start
+  targetNode: crossbow
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
   id: ADTSawImprovised
   graph: ADTSawImprovised
   startNode: start
