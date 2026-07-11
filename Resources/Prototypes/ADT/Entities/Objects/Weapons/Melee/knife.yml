@@ -136,3 +136,39 @@
     shape:
     - 0,0,0,3
   - type: DisarmMalus
+
+- type: entity
+  parent: BaseItem
+  id: ADTWeaponAxeImprovised
+  name: improvised axe
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/improvised_axe.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/improvised_axe.rsi
+    storedOffset: -3,-2
+    storedRotation: -45
+  - type: Utensil
+    types:
+      - Knife
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 10
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: DisarmMalus
+    malus: 0.225
+  - type: Tool
+    qualities:
+      - Slicing
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: Construction
+    graph: ADTWeaponAxeImprovised
+    node: ADTWeaponAxeImprovised

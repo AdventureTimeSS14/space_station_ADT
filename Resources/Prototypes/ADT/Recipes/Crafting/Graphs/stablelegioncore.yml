@@ -7,7 +7,7 @@
         - to: stable
           steps:
             - tag: ADTStabilizingSerum
-              name: construction-graph-stabilizing-serum
+              name: construction-graph-tag-stabilizing-serum
               doAfter: 0,1
 
     - node: stable

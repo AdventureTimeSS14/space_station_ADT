@@ -165,3 +165,27 @@
   targetNode: ADTBoneCompBattleaxe
   category: construction-category-weapons
   objectType: Item
+
+- type: construction
+  id: ADTWeaponHammerImprovised
+  graph: ADTWeaponHammerImprovised
+  startNode: start
+  targetNode: hammer
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTWeaponAxeImprovised
+  graph: ADTWeaponAxeImprovised
+  startNode: start
+  targetNode: axe
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTSawImprovised
+  graph: ADTSawImprovised
+  startNode: start
+  targetNode: saw
+  category: construction-category-tools
+  objectType: Item
