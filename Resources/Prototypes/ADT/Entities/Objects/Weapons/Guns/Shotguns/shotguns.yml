@@ -10,6 +10,8 @@
     sprite: ADT/Objects/Weapons/Guns/Shotguns/improvised_sawn.rsi # ADT tweak
   - type: Item
     size: Small
+    shape:
+    - 0,0,2,0
     sprite: ADT/Objects/Weapons/Guns/Shotguns/improvised_sawn.rsi # ADT tweak
   - type: Gun
     fireRate: 4
