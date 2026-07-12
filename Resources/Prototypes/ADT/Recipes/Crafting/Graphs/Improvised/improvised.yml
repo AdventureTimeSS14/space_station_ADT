@@ -199,6 +199,14 @@
   objectType: Item
 
 - type: construction
+  id: ADTShellShotgunSlugImprovised
+  graph: ADTShellShotgunSlugImprovised
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
   id: ADTSawImprovised
   graph: ADTSawImprovised
   startNode: start
