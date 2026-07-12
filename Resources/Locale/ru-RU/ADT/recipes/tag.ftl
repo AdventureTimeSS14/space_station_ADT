@@ -106,3 +106,4 @@ construction-graph-tag-flashlight = фонарик
 construction-graph-tag-stabilizing-serum = стабилизирующая сыворотка
 construction-graph-tag-toolbox = ящик для инструментов
 construction-graph-tag-wrench = гаечный ключ
+construction-graph-tag-baseball-bat = бейсбольная бита

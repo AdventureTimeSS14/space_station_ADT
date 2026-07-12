@@ -12,6 +12,7 @@
             impact: High
           steps:
             - tag: BaseballBat
+              name: construction-graph-tag-baseball-bat
               icon:
                 sprite: ADT/Objects/Weapons/Melee/baseball_bat.rsi
                 state: icon
