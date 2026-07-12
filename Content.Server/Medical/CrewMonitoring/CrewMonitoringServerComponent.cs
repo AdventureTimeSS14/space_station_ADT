@@ -1,4 +1,5 @@
 using Content.Shared.Medical.SuitSensor;
+using Content.Shared.Medical.CrewMonitoring;
 
 namespace Content.Server.Medical.CrewMonitoring;
 
@@ -8,7 +9,7 @@ public sealed partial class CrewMonitoringServerComponent : Component
 {
 
     /// <summary>
-    ///     List of all currently connected sensors to this server.
+    ///     Live sensors currently in range of this server.
     /// </summary>
     public readonly Dictionary<string, SuitSensorStatus> SensorStatus = new();
 
@@ -16,7 +17,13 @@ public sealed partial class CrewMonitoringServerComponent : Component
     ///     After what time sensor consider to be lost.
     /// </summary>
     [DataField("sensorTimeout"), ViewVariables(VVAccess.ReadWrite)]
-    public float SensorTimeout = 10f;
+    public float SensorTimeout = 3f;
+
+    /// <summary>
+    /// Grid or map frame used by all coordinates in the current snapshot.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public CrewMonitoringReferenceFrame? ReferenceFrame;
 
     /// <summary>
     ///     Display name of this server (e.g. for crew monitor UI). If null, entity name is used.
@@ -32,8 +39,15 @@ public sealed partial class CrewMonitoringServerComponent : Component
     public string? ServerAddress;
 
     /// <summary>
-    /// Consoles that have selected this server (monitor-server pair). Server is active only when this is non-empty.
+    /// Consoles that have selected this server. When empty the server does not
+    /// ingest sensor reports, cull, or publish snapshots.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public HashSet<EntityUid> SubscriberConsoles = new();
+
+    /// <summary>
+    /// Whether sensor data changed since the last full snapshot.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool SnapshotDirty = true;
 }
