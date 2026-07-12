@@ -1,41 +1,60 @@
-using Content.Server.DeviceNetwork.Systems;
-using Content.Shared.DeviceNetwork.Components;
+using Content.Server.Medical.CrewMonitoring;
 using Content.Shared.Medical.SuitSensors;
+using Content.Shared.Medical.SuitSensor;
+using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Medical.SuitSensors;
 
 public sealed class SuitSensorSystem : SharedSuitSensorSystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly CrewMonitoringServerSystem _monitoringServers = default!;
+
+    private static readonly TimeSpan CoordinatesUpdateRate = TimeSpan.FromSeconds(0.5);
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var curTime = _gameTiming.CurTime;
-        var sensors = EntityQueryEnumerator<SuitSensorComponent, DeviceNetworkComponent>();
+        // SuitSensorReportEvent is only consumed by crew-monitoring servers.
+        // Building statuses every tick with no listeners allocates heavily and
+        // shows up as periodic GC frame spikes (~10–20s Gen2 cadence).
+        if (!_monitoringServers.HasAnySubscribers)
+            return;
 
-        while (sensors.MoveNext(out var uid, out var sensor, out var device))
+        var now = _timing.CurTime;
+        var query = EntityQueryEnumerator<SuitSensorComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var sensor, out var sensorXform))
         {
-            if (device.TransmitFrequency is null)
+            if (now < sensor.NextUpdate)
                 continue;
 
-            if (curTime < sensor.NextUpdate)
-                continue;
-            sensor.NextUpdate += sensor.UpdateRate;
+            var updateRate = sensor.Mode == SuitSensorMode.SensorCords
+                ? CoordinatesUpdateRate
+                : sensor.UpdateRate;
+            sensor.NextUpdate = now + updateRate;
 
-            if (!CheckSensorAssignedStation((uid, sensor)))
+            // Off / unworn sensors must not allocate SuitSensorStatus.
+            if (sensor.Mode == SuitSensorMode.SensorOff ||
+                sensor.User == null ||
+                !TryComp<TransformComponent>(sensor.User.Value, out var wearerXform) ||
+                wearerXform.MapID == MapId.Nullspace)
+            {
                 continue;
+            }
 
-            // get sensor status
-            var status = GetSensorState((uid, sensor));
+            var status = GetSensorState((uid, sensor, sensorXform));
             if (status == null)
                 continue;
 
-            var payload = SuitSensorToPacket(status);
-            _deviceNetworkSystem.QueuePacket(uid, null, payload, device: device);
+            status.Timestamp = now;
+            var report = new SuitSensorReportEvent(
+                uid,
+                sensor.User.Value,
+                status,
+                wearerXform.MapPosition);
+            RaiseLocalEvent(uid, ref report);
         }
     }
 }
