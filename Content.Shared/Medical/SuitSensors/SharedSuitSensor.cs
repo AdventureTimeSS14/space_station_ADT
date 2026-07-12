@@ -7,6 +7,12 @@ namespace Content.Shared.Medical.SuitSensor;
 [Serializable, NetSerializable]
 public sealed class SuitSensorStatus
 {
+    /// <summary>
+    /// Shared empty department list for statuses with no ID departments.
+    /// Must never be mutated.
+    /// </summary>
+    public static readonly List<string> NoDepartments = new();
+
     public SuitSensorStatus(NetEntity ownerUid, NetEntity suitSensorUid, string name, string job, string jobIcon, List<string> jobDepartments)
     {
         OwnerUid = ownerUid;
@@ -54,33 +60,6 @@ public enum SuitSensorMode : byte
     /// Sensor sends vitals status and GPS position
     /// </summary>
     SensorCords = 3
-}
-
-public static class SuitSensorConstants
-{
-    public const string NET_OWNER_UID = "ownerUid";
-    public const string NET_NAME = "name";
-    public const string NET_JOB = "job";
-    public const string NET_JOB_ICON = "jobIcon";
-    public const string NET_JOB_DEPARTMENTS = "jobDepartments";
-    public const string NET_IS_ALIVE = "alive";
-    public const string NET_TOTAL_DAMAGE = "vitals";
-    public const string NET_TOTAL_DAMAGE_THRESHOLD = "vitalsThreshold";
-    public const string NET_COORDINATES = "coords";
-    public const string NET_SUIT_SENSOR_UID = "uid";
-    public const string NET_SUIT_SENSOR_MODE = "mode"; // ADT-Tweak
-
-    ///Used by the CrewMonitoringServerSystem to send the status of all connected suit sensors to each crew monitor
-    public const string NET_STATUS_COLLECTION = "suit-status-collection";
-
-    /// <summary> Server display name sent with status payload. </summary>
-    public const string NET_SERVER_NAME = "server-name";
-    /// <summary> Server address sent with status payload. </summary>
-    public const string NET_SERVER_ADDRESS = "server-address";
-    /// <summary> Grid/station name where the server is located. </summary>
-    public const string NET_GRID_NAME = "grid-name";
-    /// <summary> Grid entity (NetEntity) where the server is located, for map display. </summary>
-    public const string NET_GRID_UID = "grid-uid";
 }
 
 [Serializable, NetSerializable]
