@@ -171,4 +171,4 @@
     doAfterDuration: 4.0
   - type: Construction
     graph: ADTWeaponAxeImprovised
-    node: ADTWeaponAxeImprovised
+    node: axe

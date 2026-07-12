@@ -62,4 +62,4 @@
     container: projectiles
   - type: Construction
     graph: ADTWeaponCrossbowImprovised
-    node: ADTWeaponCrossbowImprovised
+    node: crossbow

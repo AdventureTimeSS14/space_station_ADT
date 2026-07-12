@@ -38,4 +38,4 @@
     - suitStorage
   - type: Construction
     graph: ADTWeaponHammerImprovised
-    node: ADTWeaponHammerImprovised
+    node: hammer

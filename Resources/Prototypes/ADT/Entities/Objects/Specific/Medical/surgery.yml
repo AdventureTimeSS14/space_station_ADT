@@ -19,4 +19,4 @@
     speedModifier: 0.25
   - type: Construction
     graph: ADTSawImprovised
-    node: ADTSawImprovised
+    node: saw

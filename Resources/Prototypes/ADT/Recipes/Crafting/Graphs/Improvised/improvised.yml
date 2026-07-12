@@ -191,6 +191,14 @@
   objectType: Item
 
 - type: construction
+  id: ADTBaseBallBatNails
+  graph: ADTBaseBallBatNails
+  startNode: start
+  targetNode: nailsbat
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
   id: ADTSawImprovised
   graph: ADTSawImprovised
   startNode: start

@@ -42,3 +42,40 @@
     distance: 1
   - type: StealTarget
     stealGroup: ADTHosWeapon
+
+- type: entity
+  parent: BaseBallBat
+  id: ADTBaseBallBatNails
+  name: baseball bat with nails
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/nails_bat.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,3
+    storedSprite:
+      state: storage
+      sprite: ADT/Objects/Weapons/Melee/nails_bat.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 10
+        Structural: 5
+    soundHit:
+      collection: MetalThud
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 5
+        Piercing: 5
+        Structural: 5
+  - type: Tool
+    qualities:
+    - Rolling
+    speedModifier: 0.25
+  - type: Construction
+    graph: ADTBaseBallBatNails
+    node: nailsbat
