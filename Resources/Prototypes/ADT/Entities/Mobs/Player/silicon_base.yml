@@ -42,8 +42,6 @@
             - MobLayer
     - type: FloorOcclusion
     - type: MovementSpeedModifier
-      baseWalkSpeed: 3
-      baseSprintSpeed: 4
     - type: Sprite
       sprite: ADT/Mobs/Species/IPC/parts.rsi
       state: full
