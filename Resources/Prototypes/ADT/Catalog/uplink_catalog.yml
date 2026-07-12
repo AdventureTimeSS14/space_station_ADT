@@ -1351,7 +1351,7 @@
   icon: { sprite: /Textures/ADT/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
   productEntity: ADTClothingHandsGlovesGuerrilla
   cost:
-    Telecrystal: 60
+    Telecrystal: 6
   categories:
   - UplinkWearables
   conditions:

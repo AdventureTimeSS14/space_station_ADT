@@ -6,3 +6,4 @@ narcotic-effect-visible-miosis = Зрачки { CAPITALIZE($entity) } стран
 narcotic-effect-loose = Вы чувствуете головокружение.
 
 narcotic-effect-hand-tremor = Вы чувствуете спазм рук!
+narcotic-effect-hand-tremor-others = У { CAPITALIZE($entity) } трясутся руки.

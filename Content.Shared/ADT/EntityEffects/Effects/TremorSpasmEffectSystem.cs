@@ -21,7 +21,10 @@ public sealed partial class TremorSpasmEffectSystem : EntityEffectSystem<StatusE
         RaiseLocalEvent(entity.Owner, ref dropEv);
 
         _status.TryAddStatusEffect<PacifiedComponent>(entity, "Pacified", args.Effect.PacifyDuration, true, entity.Comp);
-        _popup.PopupPredicted(Loc.GetString("narcotic-effect-hand-tremor"), entity.Owner, entity.Owner, PopupType.LargeCaution);
+
+        var selfMessage = Loc.GetString("narcotic-effect-hand-tremor");
+        var othersMessage = Loc.GetString("narcotic-effect-hand-tremor-others", ("entity", entity.Owner));
+        _popup.PopupPredicted(selfMessage, othersMessage, entity.Owner, entity.Owner, PopupType.LargeCaution);
     }
 }
 
