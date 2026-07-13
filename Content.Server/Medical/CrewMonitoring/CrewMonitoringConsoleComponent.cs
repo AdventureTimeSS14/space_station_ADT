@@ -138,5 +138,11 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public bool HasScanned;
+
+    /// <summary>
+    /// Server time at which the current scan was started.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan? ScanStartedAt;
     // ADT-Tweak-End
 }

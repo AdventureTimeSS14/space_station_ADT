@@ -23,7 +23,8 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
         {
             gridUid = xform.GridUid;
 
-            if (EntMan.TryGetComponent<MetaDataComponent>(gridUid, out var metaData))
+            if (gridUid != null &&
+                EntMan.TryGetComponent<MetaDataComponent>(gridUid.Value, out var metaData))
             {
                 stationName = metaData.EntityName;
             }
@@ -33,6 +34,7 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
         _menu.Set(stationName, gridUid);
         _menu.OnAlertMutedChanged = muted => SendMessage(new CrewMonitoringSetAlertMutedMessage(muted));
         _menu.OnSelectServer = server => SendMessage(new CrewMonitoringSelectServerMessage(server));
+        _menu.OnScanStarted = () => SendMessage(new CrewMonitoringScanStartMessage());
         _menu.OnScanComplete = () => SendMessage(new CrewMonitoringScanCompleteMessage());
         _menu.OnRescan = () => SendMessage(new CrewMonitoringRescanMessage());
     }

@@ -46,6 +46,11 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
     public Action<NetEntity>? OnSelectServer;
 
     /// <summary>
+    /// Called when the user starts the scan.
+    /// </summary>
+    public Action? OnScanStarted;
+
+    /// <summary>
     /// Called when the 5s scan progress completes; BUI sends CrewMonitoringScanCompleteMessage.
     /// </summary>
     public Action? OnScanComplete;
@@ -77,6 +82,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             ScanProgressBar.Visible = true;
             ScanProgressBar.Value = 0;
             _scanProgress = 0;
+            OnScanStarted?.Invoke();
         };
     }
 
@@ -154,7 +160,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         ServersListContainer.RemoveAllChildren();
 
         var servers = state.Servers ?? new List<CrewMonitoringServerEntry>();
-        var hasServerSelected = sensors.Count > 0;
+        var hasServerSelected = state.SelectedServerUid != null;
 
         if (!hasScanned || !hasServerSelected)
         {
@@ -345,7 +351,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
 
             PopulateDepartmentList(needsHelpSensors);
         }
-        var orderedSensors = otherSensors.OrderBy(n => n.Name).OrderBy(j => j.Job);
+        var orderedSensors = otherSensors.OrderBy(j => j.Job).ThenBy(n => n.Name);
         var assignedSensors = new HashSet<SuitSensorStatus>();
         var departments = otherSensors.SelectMany(d => d.JobDepartments).Distinct().OrderBy(n => n);
 

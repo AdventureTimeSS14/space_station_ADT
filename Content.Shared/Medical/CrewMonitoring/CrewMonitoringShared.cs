@@ -135,6 +135,11 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
 }
 
 [Serializable, NetSerializable]
+public sealed class CrewMonitoringScanStartMessage : BoundUserInterfaceMessage
+{
+}
+
+[Serializable, NetSerializable]
 public sealed class CrewMonitoringScanCompleteMessage : BoundUserInterfaceMessage
 {
 }

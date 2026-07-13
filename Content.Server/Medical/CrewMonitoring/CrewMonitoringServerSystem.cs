@@ -109,7 +109,7 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         foreach (var (address, sensor) in component.SensorStatus)
         {
             var dif = _gameTiming.CurTime - sensor.Timestamp;
-            if (dif.Seconds > component.SensorTimeout)
+            if (dif.TotalSeconds > component.SensorTimeout)
                 toRemove.Add(address);
         }
         foreach (var address in toRemove)
@@ -133,7 +133,9 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         var payload = new NetworkPayload()
         {
             [DeviceNetworkConstants.Command] = DeviceNetworkConstants.CmdUpdatedState,
-            [SuitSensorConstants.NET_STATUS_COLLECTION] = serverComponent.SensorStatus,
+            // DeviceNet payloads are passed by reference server-side. Never expose the
+            // server's mutable dictionary to consoles.
+            [SuitSensorConstants.NET_STATUS_COLLECTION] = new Dictionary<string, SuitSensorStatus>(serverComponent.SensorStatus),
             [SuitSensorConstants.NET_SERVER_NAME] = serverName,
             [SuitSensorConstants.NET_SERVER_ADDRESS] = serverAddress,
             [SuitSensorConstants.NET_GRID_NAME] = gridName
