@@ -8,8 +8,8 @@
     layers:
     - state: crossbow
       map: [ base ]
-    - state: arrow
-      map: [ arrow ]
+    - state: bolt
+      map: [ bolt ]
       visible: false
     - state: plunger
       map: [ plunger ]
@@ -34,10 +34,10 @@
     soundEmpty: null
   - type: ItemMapper
     spriteLayers:
-    - arrow
+    - bolt
     - plunger
     mapLayers:
-      arrow:
+      bolt:
         whitelist:
           tags:
           - Arrow
