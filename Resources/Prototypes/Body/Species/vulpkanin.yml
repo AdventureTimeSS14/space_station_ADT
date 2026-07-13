@@ -161,9 +161,9 @@
     allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl' ]
   - type: Vocal
     sounds:
-        Male: NesMaleVulpa # MaleVuplkanin -> NesMaleVulpa
-        Female: NesFemaleVulpa # FemaleVulpkanin -> NesFemaleVulpa
-        Unsexed: NesFemaleVulpa # MaleVulpkanin -> NesFemaleVulpa
+      Male: NesMaleVulpa # MaleVuplkanin -> NesMaleVulpa
+      Female: NesFemaleVulpa # FemaleVulpkanin -> NesFemaleVulpa
+      Unsexed: NesFemaleVulpa # MaleVulpkanin -> NesFemaleVulpa
   - type: Damageable
     damageModifierSet: Vulpkanin
   - type: Injurable
