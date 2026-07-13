@@ -289,17 +289,29 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
             tileData |= directions << (int) category;
         }
 
-        // Remove walls that intersect with doors (unless they can both physically fit on the same tile)
+        // Remove walls/windows that intersect with doors (unless they can both physically fit on the same tile)
         // TODO NAVMAP why can this even happen?
         // Is this for blast-doors or something?
 
-        // Shift airlock bits over to the wall bits
-        var shiftedAirlockBits = (tileData & AirlockMask) >> ((int) NavMapChunkType.Airlock - (int) NavMapChunkType.Wall);
-
-        // And then mask door bits
-        tileData &= ~shiftedAirlockBits;
+        var shiftedAirlockToWall = (tileData & AirlockMask) >> ((int) NavMapChunkType.Airlock - (int) NavMapChunkType.Wall);
+        var shiftedAirlockToWindow = (tileData & AirlockMask) >> ((int) NavMapChunkType.Airlock - (int) NavMapChunkType.Window);
+        tileData &= ~shiftedAirlockToWall;
+        tileData &= ~shiftedAirlockToWindow;
 
         return (tileData, chunk);
+    }
+
+    /// <summary>
+    /// Ensures a grid has a fully populated <see cref="NavMapComponent"/> (walls, windows, floors).
+    /// Always rebuilds so category layout changes (e.g. windows) apply immediately.
+    /// </summary>
+    public void EnsureNavMap(EntityUid gridUid, MapGridComponent? mapGrid = null)
+    {
+        if (!Resolve(gridUid, ref mapGrid))
+            return;
+
+        var navMap = EnsureComp<NavMapComponent>(gridUid);
+        RefreshGrid(gridUid, navMap, mapGrid);
     }
 
     private bool PruneEmpty(Entity<NavMapComponent> entity, NavMapChunk chunk)
