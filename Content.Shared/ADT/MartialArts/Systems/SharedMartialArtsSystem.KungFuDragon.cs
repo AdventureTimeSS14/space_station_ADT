@@ -57,11 +57,11 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnDownedSlide(EntityUid uid, StandingStateComponent component, DownedEvent args)
     {
-        if (!_combatMode.IsInCombatMode(uid))
-            return;
-
         if (!TryComp<MartialArtsKnowledgeComponent>(uid, out var knowledge)
             || knowledge.MartialArtsForm != MartialArtsForms.KungFuDragon)
+            return;
+
+        if (!_combatMode.IsInCombatMode(uid))
             return;
 
         if (!TryComp<PhysicsComponent>(uid, out var physics) || _gravity.IsWeightless(uid))
