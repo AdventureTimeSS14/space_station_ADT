@@ -52,6 +52,13 @@
     - /Audio/ADT/IPC/buzz-two.ogg
 
 - type: soundCollection
+  id: StartUp
+  files:
+    - /Audio/ADT/IPC/startup.ogg
+
+# Novakid
+
+- type: soundCollection
   id: NovakidLaugh
   files:
     - /Audio/ADT/Novakid/novakid_laugh01.ogg

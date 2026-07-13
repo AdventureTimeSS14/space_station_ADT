@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseStructure
   id: ADTBoxMaintenance
   name: box maintenance
@@ -19,6 +19,7 @@
     anchored: false
     noRot: true
   - type: Damageable
+  - type: Injurable
     damageContainer: Box
   - type: Destructible
     thresholds:

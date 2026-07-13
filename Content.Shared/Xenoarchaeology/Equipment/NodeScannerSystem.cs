@@ -34,6 +34,14 @@ public sealed class NodeScannerSystem : EntitySystem
             connected.NextUpdate = _timing.CurTime + connected.LinkUpdateInterval;
 
             var attachedArtifact = connected.AttachedTo;
+            // ADT-tweak start
+            if (!attachedArtifact.Valid)
+            {
+                RemCompDeferred(uid, connected);
+                continue;
+            }
+            // ADT-tweak end
+
             var artifactCoordinates = Transform(attachedArtifact).Coordinates;
             if (!_transform.InRange(artifactCoordinates, transform.Coordinates, scanner.MaxLinkedRange))
             {

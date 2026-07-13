@@ -59,7 +59,8 @@
         - PillCanisterCharcoal
         - PillCanisterHyronalin
         - PillCanisterIron
-        - Bloodpack
+#        - Bloodpack # ADT-Tweak
+        - ADTBloodPackTransfusionFull # ADT-Tweak
         - MedkitFilled
       chance: 0.9
       offset: 0.0

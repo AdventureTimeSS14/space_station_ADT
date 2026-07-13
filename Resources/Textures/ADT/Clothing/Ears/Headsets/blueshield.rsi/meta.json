@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Tamioki.",
+  "copyright": "Made by Tamioki, ears2 state by FIREMIX",
   "size": {
     "x": 32,
     "y": 32
@@ -18,7 +18,15 @@
       "directions": 4
     },
     {
+      "name": "equipped-EARS2",
+      "directions": 4
+    },
+    {
       "name": "alt-equipped-EARS",
+      "directions": 4
+    },
+    {
+      "name": "alt-equipped-EARS2",
       "directions": 4
     }
   ]

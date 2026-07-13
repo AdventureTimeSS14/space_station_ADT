@@ -7,6 +7,12 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 108000 #30 hrs
+    # ADT-Tweak start
+    - !type:TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
+    # ADT-Tweak end
     - !type:SpeciesRequirement
       inverted: true
       species:
@@ -31,7 +37,6 @@
 - type: startingGear
   id: CorrectionsOfficerGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityLightbatonFilled
     pocket1: WeaponPistolMk58

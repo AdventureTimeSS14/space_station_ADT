@@ -28,13 +28,20 @@ public sealed partial class JukeboxMenu : FancyWindow
     /// </summary>
     public event Action<bool>? OnPlayPressed;
     public event Action? OnStopPressed;
+    public event Action? OnLoopToggled; // ADT-Tweak
     public event Action<ProtoId<JukeboxPrototype>>? OnSongSelected;
     public event Action<float>? SetTime;
-    public event Action<float>? SetVolume; /// ADT-Tweak
+    public event Action<float>? SetVolume; // ADT-Tweak
+    public event Action? OnEjectPressed; // ADT-Tweak
 
     private EntityUid? _audio;
 
     private float _lockTimer;
+
+    private bool _loopState; // ADT-Tweak
+
+    private int _lastSeconds = -1;
+    private float _lastVolume = -1f;
 
     public JukeboxMenu()
     {
@@ -61,6 +68,18 @@ public sealed partial class JukeboxMenu : FancyWindow
         {
             OnStopPressed?.Invoke();
         };
+
+        // ADT-Tweak start
+        LoopButton.OnPressed += args =>
+        {
+            OnLoopToggled?.Invoke();
+        };
+        EjectButton.OnPressed += args =>
+        {
+            OnEjectPressed?.Invoke();
+        };
+        // ADT-Tweak end
+
         PlaybackSlider.OnReleased += PlaybackSliderKeyUp;
         VolumeSlider.OnReleased += VolumeSliderKeyUp; /// ADT-Tweak
 
@@ -123,6 +142,26 @@ public sealed partial class JukeboxMenu : FancyWindow
         PlayButton.Text = Loc.GetString("jukebox-menu-buttonplay");
     }
 
+    // ADT-Tweak start
+    public void SetLoopButton(bool loopEnabled)
+    {
+        if (_loopState == loopEnabled)
+            return;
+
+        _loopState = loopEnabled;
+
+        if (loopEnabled)
+        {
+            LoopButton.Text = Loc.GetString("jukebox-menu-buttonloop-enabled");
+            LoopButton.Pressed = true;
+            return;
+        }
+
+        LoopButton.Text = Loc.GetString("jukebox-menu-buttonloop");
+        LoopButton.Pressed = false;
+    }
+    // ADT-Tweak end
+
     public void SetSelectedSong(string name, float length)
     {
         SetSelectedSongText(name);
@@ -135,6 +174,24 @@ public sealed partial class JukeboxMenu : FancyWindow
     {
         VolumeSlider.Value = volume;
     }
+
+    public void SetDiskName(string? diskName)
+    {
+        if (!string.IsNullOrEmpty(diskName))
+        {
+            DiskNameLabel.Text = diskName;
+        }
+        else
+        {
+            DiskNameLabel.Text = Loc.GetString("jukebox-menu-no-disk");
+        }
+    }
+
+    public void SetEjectButtonEnabled(bool enabled)
+    {
+        EjectButton.Disabled = !enabled;
+    }
+
     /// ADT-Tweak end
 
     protected override void FrameUpdate(FrameEventArgs args)
@@ -151,14 +208,27 @@ public sealed partial class JukeboxMenu : FancyWindow
 
         if (_entManager.TryGetComponent(_audio, out AudioComponent? audio))
         {
-            DurationLabel.Text = $@"{TimeSpan.FromSeconds(audio.PlaybackPosition):mm\:ss} / {_audioSystem.GetAudioLength(audio.FileName):mm\:ss}";
+            var currentSeconds = (int)audio.PlaybackPosition;
+            if (currentSeconds != _lastSeconds)
+            {
+                DurationLabel.Text = $@"{TimeSpan.FromSeconds(audio.PlaybackPosition):mm\:ss} / {_audioSystem.GetAudioLength(audio.FileName):mm\:ss}";
+                _lastSeconds = currentSeconds;
+            }
         }
         else
         {
-            DurationLabel.Text = $"00:00 / 00:00";
+            if (_lastSeconds != 0)
+            {
+                DurationLabel.Text = "00:00 / 00:00";
+                _lastSeconds = 0;
+            }
         }
 
-        VolumeNumberLabel.Text = $"{VolumeSlider.Value.ToString("0.##")} %"; /// ADT-Tweak
+        if (Math.Abs(VolumeSlider.Value - _lastVolume) > 0.01f)
+        {
+            VolumeNumberLabel.Text = $"{VolumeSlider.Value:0.##} %";
+            _lastVolume = VolumeSlider.Value;
+        }
 
         if (PlaybackSlider.Grabbed)
             return;

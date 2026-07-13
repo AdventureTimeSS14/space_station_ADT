@@ -1,0 +1,10 @@
+- type: construction
+  id: IVDripRecipe
+  graph: IVDripGraph
+  startNode: start
+  targetNode: IVDripNode
+  category: construction-category-machines
+  objectType: Structure
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

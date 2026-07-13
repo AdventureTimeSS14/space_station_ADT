@@ -7,6 +7,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Content.Shared.Verbs; // ADT-Tweak: Pen signing
+using Content.Shared.ADT.Chalkboard; // ADT-Tweak: Chalkboard
 using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
 using static Content.Shared.Paper.PaperComponent;
@@ -30,6 +32,7 @@ public sealed class PaperSystem : EntitySystem
 
     private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
     private static readonly ProtoId<TagPrototype> WriteTag = "Write";
+    private static readonly ProtoId<TagPrototype> CrayonTag = "Crayon"; // ADT-Tweak: Chalkboard
 
     private EntityQuery<PaperComponent> _paperQuery;
 
@@ -47,6 +50,8 @@ public sealed class PaperSystem : EntitySystem
         SubscribeLocalEvent<RandomPaperContentComponent, MapInitEvent>(OnRandomPaperContentMapInit);
 
         SubscribeLocalEvent<ActivateOnPaperOpenedComponent, PaperWriteEvent>(OnPaperWrite);
+
+        SubscribeLocalEvent<PaperComponent, GetVerbsEvent<AlternativeVerb>>(AddSignVerb); // ADT-Tweak: Signing alt verb event listener.
 
         _paperQuery = GetEntityQuery<PaperComponent>();
     }
@@ -99,14 +104,37 @@ public sealed class PaperSystem : EntitySystem
 
             if (entity.Comp.StampedBy.Count > 0)
             {
-                var commaSeparated =
-                    string.Join(", ", entity.Comp.StampedBy.Select(s => Loc.GetString(s.StampedName)));
-                args.PushMarkup(
-                    Loc.GetString(
-                        "paper-component-examine-detail-stamped-by",
-                        ("paper", entity),
-                        ("stamps", commaSeparated))
-                );
+                // ADT-Tweak: Start
+                // Separate into stamps and signatures.
+                var stamps = entity.Comp.StampedBy.FindAll(s => s.Type == StampType.RubberStamp);
+                var signatures = entity.Comp.StampedBy.FindAll(s => s.Type == StampType.Signature);
+
+                // If we have stamps, render them.
+                if (stamps.Count > 0)
+                {
+                    var joined = string.Join(", ", stamps.Select(s => Loc.GetString(s.StampedName)));
+                    args.PushMarkup(
+                        Loc.GetString(
+                            "paper-component-examine-detail-stamped-by",
+                            ("paper", entity),
+                            ("stamps", joined)
+                        )
+                    );
+                }
+
+                // Ditto for signatures.
+                if (signatures.Count > 0)
+                {
+                    var joined = string.Join(", ", signatures.Select(s => s.StampedName));
+                    args.PushMarkup(
+                        Loc.GetString(
+                            "paper-component-examine-detail-signed-by",
+                            ("paper", entity),
+                            ("stamps", joined)
+                        )
+                    );
+                }
+                // ADT-Tweak: End
             }
         }
     }
@@ -117,6 +145,15 @@ public sealed class PaperSystem : EntitySystem
         var editable = entity.Comp.StampedBy.Count == 0 || _tagSystem.HasTag(args.Used, WriteIgnoreStampsTag);
         if (_tagSystem.HasTag(args.Used, WriteTag))
         {
+            // ADT-Tweak Start: Chalkboard
+            if (HasComp<ChalkboardComponent>(entity) && !_tagSystem.HasTag(args.Used, CrayonTag))
+            {
+                _popupSystem.PopupClient(Loc.GetString("chalkboard-only-chalk"), entity.Owner, args.User);
+                args.Handled = true;
+                return;
+            }
+            // ADT-Tweak End
+
             if (editable)
             {
                 if (entity.Comp.EditingDisabled)
@@ -152,7 +189,6 @@ public sealed class PaperSystem : EntitySystem
             args.Handled = true;
             return;
         }
-
         // If a stamp, attempt to stamp paper
         if (TryComp<StampComponent>(args.Used, out var stampComp) && TryStamp(entity, GetStampInfo(stampComp), stampComp.StampState))
         {
@@ -262,6 +298,81 @@ public sealed class PaperSystem : EntitySystem
         return true;
     }
 
+    // ADT-Tweak: Start
+    // Send paper signing alt verb to the client if applicable. Based on LockSystem.cs for alt-click behavior.
+    private void AddSignVerb(Entity<PaperComponent> uid, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract)
+            return;
+
+        // Pens have a `Write` tag.
+        if (!args.Using.HasValue || !_tagSystem.HasTag(args.Using.Value, "Write"))
+            return;
+
+        EntityUid user = args.User;
+
+        AlternativeVerb verb = new()
+        {
+            Act = () =>
+            {
+                TrySign(uid, user);
+            },
+            Text = Loc.GetString("paper-component-verb-sign")
+            // Icon = Don't have an icon yet. Todo for later.
+        };
+        args.Verbs.Add(verb);
+    }
+
+    // Actual signature code.
+    public bool TrySign(Entity<PaperComponent> paper, EntityUid signer)
+    {
+        // Generate display information.
+        StampDisplayInfo info = new StampDisplayInfo
+        {
+            StampedName = Name(signer),
+            StampedColor = Color.FromHex("#004391"),
+            Type = StampType.Signature,
+            Font = "/Fonts/ADT/GoodVibesCyr.ttf" // 🌟Starlight🌟
+        };
+
+        // Try stamp with the info, return false if failed.
+        if (TryStamp(paper, info, "sign"))
+        {
+            _popupSystem.PopupClient(
+                Loc.GetString(
+                    "paper-component-action-signed-self",
+                    ("target", paper)
+                ),
+                signer,
+                signer
+            );
+
+            _popupSystem.PopupEntity(
+                Loc.GetString(
+                    "paper-component-action-signed-other",
+                    ("user", signer),
+                    ("target", paper)
+                ),
+                paper,
+                Filter.PvsExcept(signer, entityManager: EntityManager),
+                true
+            );
+
+            _audio.PlayPvs(paper.Comp.Sound, paper);
+
+            _adminLogger.Add(LogType.Verb,
+                LogImpact.Low,
+                $"{ToPrettyString(signer):player} has signed {ToPrettyString(paper):paper}.");
+
+            UpdateUserInterface(paper);
+
+            return true;
+        }
+
+        return false;
+    }
+    // ADT-Tweak: end
+
     // ADT-BookPrinter-Start
     public void UpdateStampState(Entity<PaperComponent> entity)
     {
@@ -324,7 +435,11 @@ public sealed class PaperSystem : EntitySystem
 
     private void UpdateUserInterface(Entity<PaperComponent> entity)
     {
-        _uiSystem.SetUiState(entity.Owner, PaperUiKey.Key, new PaperBoundUserInterfaceState(entity.Comp.Content, entity.Comp.StampedBy, entity.Comp.Mode));
+        // ADT-Tweak: Start
+        _uiSystem.SetUiState(entity.Owner,
+            PaperUiKey.Key,
+            new PaperBoundUserInterfaceState(entity.Comp.Content, entity.Comp.StampedBy, entity.Comp.Mode));
+        // ADT-Tweak: End
     }
 }
 

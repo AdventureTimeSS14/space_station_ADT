@@ -9,6 +9,8 @@ public sealed class EntityInvisibilityVisualsSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
 
+    private static readonly ProtoId<ShaderPrototype> RMCInvisibleShader = "RMCInvisible";
+
     public override void Initialize()
     {
         base.Initialize();
@@ -22,7 +24,7 @@ public sealed class EntityInvisibilityVisualsSystem : EntitySystem
         if (!TryComp(ent, out SpriteComponent? sprite))
             return;
 
-        sprite.PostShader = _prototypes.Index<ShaderPrototype>("RMCInvisible").InstanceUnique();
+        sprite.PostShader = _prototypes.Index(RMCInvisibleShader).InstanceUnique();
     }
 
     private void OnShutdown(Entity<EntityTurnInvisibleComponent> ent, ref ComponentShutdown args)

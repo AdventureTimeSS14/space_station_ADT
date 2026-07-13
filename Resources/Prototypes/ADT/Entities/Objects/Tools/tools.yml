@@ -73,6 +73,9 @@
         type: RPDMenuBoundUserInterface
   - type: ActivatableUI
     key: enum.RpdUiKey.Key
+  - type: Tag
+    tags:
+    - RPD
 
 
 - type: entity

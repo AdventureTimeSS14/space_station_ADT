@@ -1,0 +1,13 @@
+- type: entity
+  id: ADTPlayerBorgAiRemote
+  parent: PlayerBorgBattery
+  suffix: Battery, AI controllable
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - ADTAiRemoteBrain
+  - type: AiRemoteController
+  - type: StartingMindRole
+    mindRole: "MindRoleSiliconBrain"
+    silent: true

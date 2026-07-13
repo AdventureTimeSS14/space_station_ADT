@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/blob/644ebf93d05272ad9c36d9c0a663d7b676e6e89b/icons/obj/bedsheets.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "double_sheetwhite"
+    },
+    {
+      "name": "double_sheetgrey"
+    },
+    {
+      "name": "double_sheetred"
+    },
+    {
+      "name": "double_sheetorange"
+    },
+    {
+      "name": "double_sheetyellow"
+    },
+    {
+      "name": "double_sheetgreen"
+    },
+    {
+      "name": "double_sheetblue"
+    },
+    {
+      "name": "double_sheetpurple"
+    },
+    {
+      "name": "double_sheetbrown"
+    },
+    {
+      "name": "double_sheetblack"
+    },
+    {
+      "name": "double_sheetrainbow"
+    },
+    {
+      "name": "double_sheetclown"
+    },
+    {
+      "name": "double_sheetmime"
+    },
+    {
+      "name": "double_sheetchap"
+    },
+    {
+      "name": "double_sheetmedical"
+    },
+    {
+      "name": "double_sheetrd"
+    },
+    {
+      "name": "double_sheetcmo"
+    },
+    {
+      "name": "double_sheethos"
+    },
+    {
+      "name": "double_sheetce"
+    },
+    {
+      "name": "double_sheethop"
+    },
+    {
+      "name": "double_sheetcaptain"
+    },
+    {
+      "name": "double_sheetian"
+    },
+    {
+      "name": "double_sheetruntime"
+    },
+    {
+      "name": "double_sheetnt"
+    },
+    {
+      "name": "double_sheetcentcom"
+    },
+    {
+      "name": "double_sheetrev"
+    },
+    {
+      "name": "double_sheetsyndie"
+    },
+    {
+      "name": "double_sheetcult"
+    },
+    {
+      "name": "double_sheetwiz"
+    },
+    {
+      "name": "double_sheetqm"
+    },
+    {
+      "name": "double_sheetusa"
+    },
+    {
+      "name": "double_sheetcosmos",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    }
+  ]
+}

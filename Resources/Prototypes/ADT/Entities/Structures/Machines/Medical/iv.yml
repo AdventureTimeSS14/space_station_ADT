@@ -1,0 +1,60 @@
+- type: entity
+  parent: [BaseStructure]
+  id: ADTIVDrip
+  name: iv
+  description: Allows you to inject blood into a patient or extract blood from them to do a blood transfusion.
+  suffix: IV, empty
+  components:
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 60
+        mask:
+        - MobMask
+  - type: Transform
+    anchored: false
+    noRot: true
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Machines/Medical/iv_drip.rsi
+    layers:
+    - state: unhooked
+      map: ["enum.IVDripVisualLayers.Base"]
+    - state: reagent0
+      map: ["enum.IVDripVisualLayers.Reagent"]
+  - type: IVDrip
+    reagentStates:
+    - 0: reagent0
+    - 10: reagent10
+    - 25: reagent25
+    - 50: reagent50
+    - 75: reagent75
+    - 80: reagent80
+    - 100: reagent100
+    ripDamage:
+      types:
+        Piercing: 3
+    transferAmounts:
+    - 1
+    - 5
+    - 10
+    - 15
+  - type: ItemSlots
+    slots:
+      pack:
+        name: pack
+        whitelist:
+          components:
+          - BloodPack
+  - type: ContainerContainer
+    containers:
+      pack: !type:ContainerSlot {}
+  - type: Construction
+    graph: IVDripGraph
+    node: IVDripNode

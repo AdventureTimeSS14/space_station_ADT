@@ -1,8 +1,8 @@
 - type: entity
-  id: PelletClusterRubber
-  name: pellet (ball, rubber)
-  categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: PelletClusterRubber
+  categories: [ HideSpawnMenu ]
+  name: pellet (ball, rubber)
   components:
     #ADT tweak start
   - type: Sprite
@@ -21,11 +21,17 @@
     lifetime: 0.25
 
 - type: entity
-  id: PelletClusterLethal
-  name: pellet (ball, lethal)
-  categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: PelletClusterLethal
+  categories: [ HideSpawnMenu ]
+  name: pellet (ball, lethal)
   components:
+  # ADT-Tweak-Start
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: buckshot
+  # ADT-Tweak-End
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -35,11 +41,17 @@
     lifetime: 0.25
 
 - type: entity
-  id: PelletClusterIncendiary
-  name: pellet (ball, incendiary)
-  categories: [ HideSpawnMenu ]
   parent: BaseBulletIncendiary
+  id: PelletClusterIncendiary
+  categories: [ HideSpawnMenu ]
+  name: pellet (ball, incendiary)
   components:
+  # ADT-Tweak-Start
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/shotgun-ammo.rsi
+    layers:
+    - state: buckshot-incendiary
+  # ADT-Tweak-End
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -53,10 +65,10 @@
     lifetime: 0.25
 
 - type: entity
-  id: PelletClusterLessLethal
-  name: pellet (ball, less lethal)
-  categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: PelletClusterLessLethal
+  categories: [ HideSpawnMenu ]
+  name: pellet (ball, less lethal)
   components:
   - type: Projectile
     deleteOnCollide: false

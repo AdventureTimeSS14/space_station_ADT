@@ -13,6 +13,7 @@
   id: ADTAttachableToggleableBase
   components:
   - type: AttachableToggleable
+    doAfter: 0
   - type: UseDelay
     delay: 0
 

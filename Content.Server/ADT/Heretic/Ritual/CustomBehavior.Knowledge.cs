@@ -1,6 +1,7 @@
 using Content.Server.Heretic.EntitySystems;
 using Content.Shared.Dataset;
 using Content.Shared.Heretic;
+using Content.Shared.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Tag;
 using Robust.Server.Containers;
@@ -8,10 +9,13 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
-using Robust.Server.Containers;
 
 namespace Content.Server.Heretic.Ritual;
 
+/// <summary>
+///     Одноразовый ритуал получения знаний.
+///     Требует предметы только для одного еретика, а не для всех.
+/// </summary>
 public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
 {
     // я полностью переписала систему, при апстриме оставляем нашу версию
@@ -25,8 +29,12 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
     private HereticSystem _heretic = default!;
     private ContainerSystem _container = default!;
 
-    [ValidatePrototypeId<DatasetPrototype>]
-    public const string EligibleTagsDataset = "EligibleTags";
+    private static readonly ProtoId<DatasetPrototype> EligibleTagsDataset = "EligibleTags";
+
+    public static Dictionary<ProtoId<TagPrototype>, int> GetRequiredTags()
+    {
+        return new Dictionary<ProtoId<TagPrototype>, int>(requiredTags);
+    }
 
     public override bool Execute(RitualData args, out string? outstr)
     {
@@ -37,6 +45,13 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
         _container = args.EntityManager.System<ContainerSystem>();
 
         outstr = null;
+
+        // Проверяем, не использовал ли уже этот еретик данный ритуал
+        if (args.EntityManager.HasComponent<HereticKnowledgeRitualUsedComponent>(args.Performer))
+        {
+            outstr = Loc.GetString("heretic-ritual-knowledge-already-used");
+            return false;
+        }
 
         if (requiredTags.Count == 0)
         {
@@ -134,6 +149,9 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
         {
             _heretic.UpdateKnowledge(args.Performer, hereticComp, 4);
         }
+
+        // Добавляем компонент, чтобы пометить ритуал как использованный
+        args.EntityManager.EnsureComponent<HereticKnowledgeRitualUsedComponent>(args.Performer);
 
         requiredTags.Clear();
         requiredTagsLocale.Clear();

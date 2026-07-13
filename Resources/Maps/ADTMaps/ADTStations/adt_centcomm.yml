@@ -43201,13 +43201,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: 18.5,44.5
       parent: 2
-    - type: Timer
   - uid: 5294
     components:
     - type: Transform
       pos: 17.5,48.5
       parent: 2
-    - type: Timer
   - uid: 5295
     components:
     - type: Transform

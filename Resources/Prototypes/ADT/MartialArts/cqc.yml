@@ -1,0 +1,67 @@
+- type: martialArt
+  id: CloseQuartersCombat
+  martialArtsForm: CloseQuartersCombat
+  roundstartCombos: CQCMoves
+
+- type: comboList
+  id: CQCMoves
+  combos:
+  - CQCConsecutive
+  - CQCPressure
+  - CQCRestrain
+  - CQCKick
+  - CQCSlam
+
+- type: combo
+  id: CQCSlam
+  name: cqc-combo-slam
+  martialArtsForm: CloseQuartersCombat
+  attacks:
+  - Grab
+  - Harm
+  event: !type:CqcSlamPerformedEvent {}
+  extraDamage: 15
+  paralyzeTime: 2
+
+- type: combo
+  id: CQCKick
+  name: cqc-combo-kick
+  martialArtsForm: CloseQuartersCombat
+  attacks:
+  - Harm
+  - Harm
+  event: !type:CqcKickPerformedEvent {}
+  extraDamage: 20
+  downedExtraDamage: 30
+
+- type: combo
+  id: CQCRestrain
+  name: cqc-combo-restrain
+  martialArtsForm: CloseQuartersCombat
+  attacks:
+  - Grab
+  - Grab
+  event: !type:CqcRestrainPerformedEvent {}
+  paralyzeTime: 3
+  staminaDamage: 55
+
+- type: combo
+  id: CQCPressure
+  name: cqc-combo-pressure
+  martialArtsForm: CloseQuartersCombat
+  attacks:
+  - Disarm
+  - Grab
+  event: !type:CqcPressurePerformedEvent {}
+
+- type: combo
+  id: CQCConsecutive
+  name: cqc-combo-consecutive
+  martialArtsForm: CloseQuartersCombat
+  attacks:
+  - Disarm
+  - Disarm
+  - Harm
+  event: !type:CqcConsecutivePerformedEvent {}
+  extraDamage: 10
+  staminaDamage: 45

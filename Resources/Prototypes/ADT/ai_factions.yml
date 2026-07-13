@@ -1,15 +1,18 @@
 - type: npcFaction
   id: Ursus
+  friendly:
+  - ADTSpaceMobs
   hostile:
   - SimpleHostile
   - Syndicate
   - Xeno
   - Zombie
   - Revolutionary
-  - DroneAntag
 
 - type: npcFaction
   id: ADTSpaceMobs
+  friendly:
+  - Ursus
   hostile:
   - NanoTrasen
   - Syndicate
@@ -17,30 +20,12 @@
   - PetsNT
   - Zombie
   - Revolutionary
-  - Heretic 
+  - Heretic
   - AllHostile
   - Wizard
-  - DroneAntag
   - Xeno
   - Xenoborg
   - SimpleHostile
-
-- type: npcFaction
-  id: DroneAntag
-  hostile:
-  - SimpleHostile
-  - Passive
-  - SimpleNeutral
-  - Mouse
-  - Syndicate
-  - Xeno
-  - Zombie
-  - Revolutionary
-  - NanoTrasen
-  - PetsNT
-  - Dragon
-  - Ursus
-  - SpaceSecFaction
 
 - type: npcFaction
   id: SpaceSecFaction
@@ -49,7 +34,6 @@
   - Xeno
   - Zombie
   - Dragon
-  - DroneAntag
 
 - type: npcFaction
   id: Pirate
@@ -62,35 +46,3 @@
   - Revolutionary
   - Heretic # goob edit - heretics
   - Ursus
-
-- type: npcFaction
-  id: BloodBrotherLeaderFaction
-  hostile:
-  - NanoTrasen
-  - SimpleHostile
-  - Xeno
-  - PetsNT
-  - Zombie
-  - Heretic # goob edit - heretics
-  - DroneAntag # ADT tweak
-  - Ursus # ADT tweak
-  - Dragon
-  - AllHostile
-  - Wizard
-  - Xenoborg
-
-- type: npcFaction
-  id: BloodBrotherFaction
-  hostile:
-  - NanoTrasen
-  - SimpleHostile
-  - Xeno
-  - PetsNT
-  - Zombie
-  - Heretic # goob edit - heretics
-  - DroneAntag # ADT tweak
-  - Ursus # ADT tweak
-  - Dragon
-  - AllHostile
-  - Wizard
-  - Xenoborg

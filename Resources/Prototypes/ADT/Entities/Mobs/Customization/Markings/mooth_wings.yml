@@ -1,8 +1,7 @@
 - type: marking
   id: MothWingsSlightlylongwings
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   sprites:
   - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: wings-slightlylongwings # тут всё ок
@@ -10,8 +9,7 @@
 - type: marking
   id: MothWingsSkull
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: default
@@ -21,8 +19,7 @@
 - type: marking
   id: MothWingsPredatoreyes
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: default
@@ -32,8 +29,7 @@
 - type: marking
   id: MothWingsLine
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: default
@@ -43,8 +39,7 @@
 - type: marking
   id: MothWingsGradient
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: default
@@ -54,8 +49,7 @@
 - type: marking
   id: MothWingsDeathwing
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: default
@@ -65,8 +59,7 @@
 - type: marking
   id: MothWingsCowcoloring
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: default
@@ -76,8 +69,7 @@
 - type: marking
   id: MothWingsAsterisks
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: default

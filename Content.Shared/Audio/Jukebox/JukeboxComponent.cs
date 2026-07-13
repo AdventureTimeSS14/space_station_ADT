@@ -37,14 +37,38 @@ public sealed partial class JukeboxComponent : Component
 
     [ViewVariables]
     public float SelectAccumulator;
+
     /// ADT-Tweak start
-    [ViewVariables, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float Volume = 50f;
 
+    [DataField]
     public float MinVolume = -30f;
+
+    [DataField]
     public float MaxVolume = 0f;
+
+    [DataField]
     public float MinSlider = 0f;
+
+    [DataField]
     public float MaxSlider = 100f;
+
+    [DataField, AutoNetworkedField]
+    public bool LoopEnabled = false;
+
+    [DataField]
+    public TimeSpan? PlaybackStartTime;
+
+    [DataField]
+    public float CurrentPlaybackOffset = 0f;
+
+    [DataField, AutoNetworkedField]
+    public JukeboxVolumeLevel CurrentVolumeLevel = JukeboxVolumeLevel.Level3;
+
+    [DataField]
+    public double TrackLengthCache;
+
     /// ADT-Tweak end
 }
 
@@ -69,18 +93,37 @@ public sealed class JukeboxSetTimeMessage(float songTime) : BoundUserInterfaceMe
     public float SongTime { get; } = songTime;
 }
 
-/// ADT-Tweak start 
+/// ADT-Tweak start
 [Serializable, NetSerializable]
 public sealed class JukeboxSetVolumeMessage(float volume) : BoundUserInterfaceMessage
 {
     public float Volume { get; } = volume;
+}
+
+
+[Serializable, NetSerializable]
+public sealed class JukeboxToggleLoopMessage : BoundUserInterfaceMessage;
+
+[Serializable, NetSerializable]
+public sealed class JukeboxEjectMessage : BoundUserInterfaceMessage;
+
+[Serializable, NetSerializable]
+public enum JukeboxVolumeLevel : byte
+{
+    Level0 = 0,
+    Level1 = 1,
+    Level2 = 2,
+    Level3 = 3,
+    Level4 = 4
 }
 /// ADT-Tweak end
 
 [Serializable, NetSerializable]
 public enum JukeboxVisuals : byte
 {
-    VisualState
+    VisualState,
+    HasDisk, //ADT-Tweak
+    VolumeLevel //ADT-Tweak
 }
 
 [Serializable, NetSerializable]

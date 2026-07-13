@@ -109,6 +109,23 @@
   - !type:HereticPathCondition
     stage: 5
 
+# side
+- type: listing
+  id: HereticFleshPath6Side
+  name: knowledge-path-flesh-s6-side-name
+  description: knowledge-path-flesh-s6-side-desc
+  icon: { sprite: ADT/Heretic/abilities_heretic.rsi, state: ghoul_voiceles }
+  productHereticKnowledge: CallOfFlesh
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathFlesh
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
 - type: listing
   id: HereticFleshPath7
   name: knowledge-path-flesh-s7-name

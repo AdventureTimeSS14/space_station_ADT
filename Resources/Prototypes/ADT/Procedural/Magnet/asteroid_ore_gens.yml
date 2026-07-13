@@ -2,9 +2,9 @@
   id: ADTOreBS
   replacement: AsteroidRock
   entity: ADTAsteroidRockBS
-  count: 5
-  minGroupSize: 5
-  maxGroupSize: 7
+  count: 2
+  minGroupSize: 1
+  maxGroupSize: 2
 
 - type: oreDunGen
   id: ADTOreCopper

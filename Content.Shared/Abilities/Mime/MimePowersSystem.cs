@@ -12,6 +12,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 using Robust.Shared.Map.Components;
+using Content.Shared.ADT.Mime;
 
 namespace Content.Shared.Abilities.Mime;
 
@@ -117,12 +118,12 @@ public sealed class MimePowersSystem : EntitySystem
             var offset = isVertical ? (i, 0) : (0, i);
             var targetIndex = tileIndex + offset;
 
-            var targetTile = mapGrid.GetTileRef(targetIndex);
+            var targetTile = _mapSystem.GetTileRef(gridUid, mapGrid, targetIndex);
 
             if (targetTile.Tile.IsEmpty)
                 continue;
 
-            if (_turf.IsTileBlocked(tile.Value, CollisionGroup.Impassable | CollisionGroup.Opaque))
+            if (_turf.IsTileBlocked(targetTile, CollisionGroup.Impassable | CollisionGroup.Opaque))
                 continue;
 
             var coords = _mapSystem.GridTileToLocal(gridUid, mapGrid, targetIndex);
@@ -193,6 +194,20 @@ public sealed class MimePowersSystem : EntitySystem
         _alertsSystem.ClearAlert(uid, mimePowers.VowAlert);
         _alertsSystem.ShowAlert(uid, mimePowers.VowBrokenAlert);
         _actionsSystem.RemoveAction(uid, mimePowers.InvisibleWallActionEntity);
+
+        // ADT-Tweak start
+        if (TryComp<MimeFingerGunComponent>(uid, out var fingerGun))
+        {
+            _actionsSystem.RemoveAction(uid, fingerGun.FingerGunActionEntity);
+            Dirty(uid, fingerGun);
+        }
+
+        if (TryComp<MimeSilenceComponent>(uid, out var silence))
+        {
+            _actionsSystem.RemoveAction(uid, silence.SilenceActionEntity);
+            Dirty(uid, silence);
+        }
+        // ADT-Tweak end
     }
 
     /// <summary>
@@ -224,5 +239,19 @@ public sealed class MimePowersSystem : EntitySystem
         _alertsSystem.ClearAlert(uid, mimePowers.VowBrokenAlert);
         _alertsSystem.ShowAlert(uid, mimePowers.VowAlert);
         _actionsSystem.AddAction(uid, ref mimePowers.InvisibleWallActionEntity, mimePowers.InvisibleWallAction, uid);
+
+        // ADT-Tweak start
+        if (TryComp<MimeFingerGunComponent>(uid, out var fingerGun))
+        {
+            _actionsSystem.AddAction(uid, ref fingerGun.FingerGunActionEntity, fingerGun.FingerGunAction, uid);
+            Dirty(uid, fingerGun);
+        }
+
+        if (TryComp<MimeSilenceComponent>(uid, out var silence))
+        {
+            _actionsSystem.AddAction(uid, ref silence.SilenceActionEntity, silence.SilenceAction, uid);
+            Dirty(uid, silence);
+        }
+        // ADT-Tweak end
     }
 }

@@ -49,6 +49,13 @@
     price: 800
   - type: ResearchClient
   - type: TechnologyDatabase
+  - type: ApcPowerReceiver
+    powerLoad: 150
+  - type: PowerState
+    idlePowerDraw: 150
+    workingPowerDraw: 1000
+  - type: RadioJobIconOverride # ADT-Tweak
+    iconId: JobIconMachine
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -114,7 +121,6 @@
         - Ingot
         # ADT-Tweak start. Разрешаем блюспейс кристаллы и фантомным кристаллам пихать в автолат
         - ADTBSCrystal
-        - PhantomEctoplasm
         #ADT-Tweak end
   - type: StationAiWhitelist
   - type: OreSiloClient
@@ -139,6 +145,7 @@
     - PowerCellsStatic
     - ElectronicsStatic
     # ADT-tweak-start
+    - ADTScienceTrigger
     - ADTServiceStaticPack
     - ADTRecorderStaticPack
     - ADTMicsStaticPack
@@ -211,10 +218,13 @@
     staticPacks:
     - ChemistryStatic
     - SurgeryStatic
+    # ADT-tweak-Start
+    - ADTScienceExplosives
+    # ADT-tweak-End
     dynamicPacks:
     - AdvancedTools
     - ScienceEquipment
-    - ScienceExplosives
+    # - ScienceExplosives # ADT-Tweak
     - ScienceClothing
     - PowerCells
     - ScienceWeapons
@@ -235,7 +245,7 @@
     #- ADTPhantomPack
     - ADTWeaponLauncherHydraPack
     - ADTPowerPack
-    - ADTMegaCellPack
+    #- ADTMegaCellPack
     - ADTBeltManipulatorPack
     #ADT-tweak-end
     - ADTBluespaceCrystalTech #ADT Tweak
@@ -316,7 +326,7 @@
     - ADTArcade
     - ADTIndustrialCharger
     - ADTAdvancedThruster
-    - ADTMegaCharger
+    #- ADTMegaCharger
     - ADTChemDisp
     - ADTAdvancedMedical
     - ADTCryoPodMachineCircuitboard
@@ -461,12 +471,18 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
     staticPacks:
     - SecurityEquipmentStatic
     - SecurityPracticeStatic
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
-    - ADTMagazineStaticPack # ADT-tweak
+    # ADT-Tweak-Start
+    - ADTMagazineStaticPack
+    - ADTScienceTrigger
+    - ADTScienceExplosives
+    # ADT-Tweak-End
     dynamicPacks:
     - SalvageSecurityBoards
     - SalvageSecurityWeapons
@@ -515,6 +531,8 @@
     - type: Lathe
       idleState: icon
       runningState: icon
+      unlitIdleState: unlit
+      unlitRunningState: unlit-building
       staticPacks:
       - SecurityAmmoStatic
     - type: EmagLatheRecipes
@@ -546,6 +564,8 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
     staticPacks:
     - TopicalsStatic
     - ChemistryStatic
@@ -554,7 +574,10 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - SurgeryStatic
-    - ADTMedicalMiscStaticPack # ADT-Tweak
+    # ADT-Tweak-Start
+    - ADTMedicalMiscStaticPack
+    - ADTChemicalPayload
+    # ADT-Tweak-End
     dynamicPacks:
     - Chemistry
     #ADT-Tweak Start
@@ -612,6 +635,7 @@
     - ADTSatchels
     - ADTDuffel
     - ADTStandards
+    - ADTDoubleBedsheets
     # ADT tweak end
   - type: EmagLatheRecipes
     emagStaticPacks:
@@ -704,6 +728,8 @@
       - OreSmelting
       - RGlassSmelting
       - ADTBScrystalSmelting #ADT Tweak
+      # ADT-Tweak раскомментить и пересмотреть рецепты после добавления обломков с металлоломом
+      #- ScrapSmeltingBasic #ADT tweak
     # ADT tweak start
     - type: AutoMaterialInsert
       tag: ADTOreBag
@@ -731,6 +757,9 @@
     - RGlassSmelting
     - AdvancedSmelting
     - ADTBScrystalSmelting #ADT Tweak
+# ADT-Tweak раскомментить и пересмотреть рецепты после добавления обломков с металлоломом
+#    - ScrapSmeltingBasic #ADT tweak
+#    - ScrapSmeltingAdvanced #ADT tweak
 
 - type: entity
   parent: BaseLathe
@@ -793,10 +822,15 @@
     - FloorSteelTilesStatic
     - FloorWhiteTilesStatic
     - FloorMaintsTilesStatic
+    - FloorIndustrialTilesStatic
     - FloorWoodTilesStatic
     - FloorConcreteTilesStatic
     - CircuitFloorsStatic
     - FloorMarbleTilesStatic
+    - FloorShuttleTilesStatic
+    - PlasticTilesStatic
+    - CarpetTilesStatic
+    - PreciousTilesStatic
     dynamicPacks:
     - FauxTiles
   - type: MaterialStorage

@@ -28,8 +28,8 @@
      - state: mag-0
        map: ["enum.GunVisualLayers.Mag"]
   - type: AmmoCounter
-  - type: RunAndGunSpreadModifier
-    modifier: 0.1
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.1
   - type: PointLight
     enabled: false
     radius: 2
@@ -38,7 +38,7 @@
     netsync: false
   - type: Gun
     fireRate: 1.8
-    projectileSpeed: 60
+    projectileSpeed: 35
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     useKey: true
@@ -64,10 +64,9 @@
         variation: 0.125
     activatedDamage:
         types:
-            Slash: 10
-            Heat: 10
+            Heat: 20
             Structural: 25
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: blade
     inhandVisuals:
       left:
@@ -112,6 +111,9 @@
     cellSlotId: cell_slot
   - type: StaticPrice
     price: 500
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBulletLaserMK2
     fireCost: 100
+  - type: EnergySword
+    colorOptions: [ "#1E90FFFF" ]
+

@@ -12,8 +12,20 @@
             "args": [],
             "console": "internalConsole",
             "stopAtEntry": false,
-            "brokeredServicePipeName": "undefined"
+            //Warning fix by 03032026-ToolsBuilder "brokeredServicePipeName": "undefined"
         },
+        //# ADT-UPD-Start 03032026-ToolsBuilder Добавление режима TOOLS для сборки маппинга и прототипирования.
+        {
+            "name": "Client (Tools)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build (Tools)",
+            "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
+            "args": [],
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        //# ADT-UPD-End
         {
             "name": "Client (Compatibility renderer)",
             "type": "coreclr",
@@ -23,6 +35,28 @@
             "console": "internalConsole",
             "stopAtEntry": false
         },
+        //# ADT-UPD-Start
+        {
+            "name": "Client (Release)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build (Release)",
+            "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
+            "args": [],
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Client (DebugOpt)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build (DebugOpt)",
+            "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
+            "args": [],
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        //# ADT-UPD-End
         {
             "name": "Server",
             "type": "coreclr",
@@ -31,8 +65,40 @@
             "args": [],
             "console": "integratedTerminal",
             "stopAtEntry": false,
-            "brokeredServicePipeName": "undefined"
+            //Warning fix by 03032026-ToolsBuilder "brokeredServicePipeName": "undefined"
         },
+        //# ADT-UPD-Start 03032026-ToolsBuilder Добавление режима TOOLS для сборки маппинга и прототипирования.
+        {
+            "name": "Server (Tools)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build (Tools)",
+            "program": "${workspaceFolder}/bin/Content.Server/Content.Server.dll",
+            "args": [],
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Server (Release)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build (Release)",
+            "program": "${workspaceFolder}/bin/Content.Server/Content.Server.dll",
+            "args": [],
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Server (DebugOpt)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build (DebugOpt)",
+            "program": "${workspaceFolder}/bin/Content.Server/Content.Server.dll",
+            "args": [],
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        //# ADT-UPD-End 03032026-ToolsBuilder
         {
             "name": "YAML Linter",
             "type": "coreclr",
@@ -52,6 +118,32 @@
                 "Client"
             ],
             "preLaunchTask": "build"
+        },
+        //# ADT-UPD-Start 03032026-ToolsBuilder Добавление режима TOOLS для сборки маппинга и прототипирования.
+        {
+            "name": "Server/Client (Tools)",
+            "configurations": [
+                "Server (Tools)",
+                "Client (Tools)"
+            ],
+            "preLaunchTask": "build (Tools)"
+        },
+        {
+            "name": "Server/Client (Release)",
+            "configurations": [
+                "Server (Release)",
+                "Client (Release)"
+            ],
+            "preLaunchTask": "build (Release)"
+        },
+        {
+            "name": "Server/Client (DebugOpt)",
+            "configurations": [
+                "Server (DebugOpt)",
+                "Client (DebugOpt)"
+            ],
+            "preLaunchTask": "build (DebugOpt)"
         }
+        //# ADT-UPD-End 03032026-ToolsBuilder
     ]
 }

@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: PlasticFlapsBase
   parent: BaseStructureDynamic
   abstract: true
@@ -29,8 +29,9 @@
         layer:
         - MidImpassable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

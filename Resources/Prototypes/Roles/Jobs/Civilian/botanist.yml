@@ -21,7 +21,7 @@
 - type: startingGear
   id: BotanistGear
   equipment:
-    shoes: ClothingShoesColorBrown
+    #shoes: ClothingShoesColorBrown ADT-Tweak
     # id: BotanistPDA ADT: different PDAs in loadouts
     ears: ClothingHeadsetService
     belt: ClothingBeltPlantFilled

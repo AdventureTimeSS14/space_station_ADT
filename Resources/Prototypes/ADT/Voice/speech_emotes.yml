@@ -304,6 +304,21 @@
     - искрит и раздраженно жужжит # ADT-Tweak-BloodCough
 
 - type: emote
+  id: StartUp
+  name: chat-emote-name-startup
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTSiliconEmotes
+  icon: ADT/Interface/Emotes/Vocal/startup.png
+  chatMessages: [включается.]
+  chatTriggers:
+    - включается
+
+- type: emote
   id: Spit
   name: chat-emote-name-spit
   icon: ADT/Interface/Emotes/spit.png
@@ -315,7 +330,7 @@
     components:
     - BorgChassis
     tags:
-    - ADTSiliconEmotes
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-spit"]
   chatTriggers:
     - spit
@@ -328,6 +343,20 @@
     - харкнуло
     - харкает
     - делает харчок
+
+- type: emote
+  id: IPCDeathgasp
+  name: chat-emote-name-deathgasp
+  icon: Interface/Emotes/deathgasp.png
+  whitelist:
+    requireAll: true
+    components:
+    - MobState
+    tags:
+    - ADTSiliconEmotes
+  chatMessages: ["chat-emote-msg-deathgasp-ipc"]
+  chatTriggers:
+  - ipcdeathgasp
 
   #Vox
 

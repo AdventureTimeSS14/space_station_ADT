@@ -3,7 +3,7 @@ using Content.Shared.Cloning;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 using Content.Shared.Chaplain;
-using Content.Shared.Bible.Components;
+using Content.Shared.ADT.Chaplain.Components;
 
 namespace Content.Client.Chaplain;
 

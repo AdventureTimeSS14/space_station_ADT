@@ -76,37 +76,6 @@
     scheduledGameRules: !type:NestedSelector
       tableId: ExtendedGameRulesTable
 
-- type: entity
-  parent: BaseGameRule
-  id: ChangelingGameRule
-  components:
-  - type: ChangelingRule
-  - type: GameRule
-    minPlayers: 25
-    delay:
-      min: 30
-      max: 60
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ Changeling ]
-      max: 5
-      playerRatio: 15
-      blacklist:
-        components:
-        - AntagImmune
-        tags:
-        - ChangelingBlacklist
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleChangeling
-      components:
-      - type: Changeling
-    agentName: ling-round-end-name
-  - type: AntagRandomObjectives
-    sets:
-    - groups: ChangelingObjectiveGroups
-    maxDifficulty: 8
-
 #Облегченное число агентов
 - type: entity
   parent: BaseTraitorRule
@@ -121,16 +90,64 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 4          
-      playerRatio: 15 
+      max: 4
+      playerRatio: 15
       blacklist:
         components:
         - AntagImmune
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
+  - type: AntagRandomObjectives
+    sets:
+    - groups: TraitorLightObjectiveGroups
+    maxDifficulty: 8
+
+- type: entityTable
+  id: TraitorLightGameRulesTable
+  table: !type:AllSelector
+    children:
+      - !type:NestedSelector
+        tableId: BasicCalmEventsTable
+      - !type:NestedSelector
+        tableId: BasicAntagEventsTable
+      - id: ParadoxCloneSpawn
+      - id: SleeperAgentsLight
+      - id: LoneOpsSpawn
+      - id: VoxRaidersEvent
+      - !type:NestedSelector
+        tableId: DerelictBorgEventTable
+      - !type:NestedSelector
+        tableId: CargoGiftsTable
+      - !type:NestedSelector
+        tableId: CalmPestEventsTable
+      - !type:NestedSelector
+        tableId: SpicyPestEventsTable
+
+- type: entity
+  id: TraitorLightStationEventScheduler
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: TraitorLightGameRulesTable
+    minMaxEventTiming:
+      min: 300
+      max: 900
 
 #Пары из антагов
+- type: entity
+  id: ChangelingDuo
+  parent: Changeling
+  components:
+  - type: GameRule
+    minPlayers: 25
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Changeling ]
+      max: 2
+      playerRatio: 15
+
 - type: entity
   parent: BaseTraitorRule
   id: TraitorDuoGameRule
@@ -144,7 +161,7 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 2       
+      max: 2
       playerRatio: 10
       blacklist:
         components:
@@ -154,35 +171,26 @@
       - MindRoleTraitor
 
 - type: entity
-  parent: BaseGameRule
-  id: ChangelingDuoGameRule
+  parent: BaseTraitorRule
+  id: TraitorTripleGameRule
   components:
-  - type: ChangelingRule
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 25
     delay:
-      min: 30
-      max: 60
+      min: 240
+      max: 420
   - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
     definitions:
-    - prefRoles: [ Changeling ]
-      max: 2
-      playerRatio: 15
+    - prefRoles: [ Traitor ]
+      max: 3
+      playerRatio: 10
       blacklist:
         components:
         - AntagImmune
-        tags:
-        - ChangelingBlacklist
       lateJoinAdditional: true
       mindRoles:
-      - MindRoleChangeling
-      components:
-      - type: Changeling
-    agentName: ling-round-end-name
-  - type: AntagRandomObjectives
-    sets:
-    - groups: ChangelingObjectiveGroups
-    maxDifficulty: 8
+      - MindRoleTraitor
 
 - type: entity
   parent: BaseHereticRule
@@ -202,176 +210,60 @@
       - type: HereticRole
 
 - type: entity
-  id: DynamicHardGamerule
-  parent: BaseGameRule
+  parent: BaseHereticRule
+  id: HereticTripleGameRule
   components:
-  - type: DynamicRule
-    maxEventsBeforeAntag: 8
-    maxChaos: 120
-    minChaos: 80
-    scheduledGameRules: !type:NestedSelector
-      tableId: RampingGameRulesTable
-    roundstartRules:
-      - id: Thief
-        cost: 10
-      - id: HereticDuoGameRule
-        cost: 20
-        rerollChance: 0.5
-      - id: HereticSoloGameRule
-        cost: 10
-        rerollChance: 0.5
-      - id: ChangelingDuoGameRule
-        cost: 10
-      - id: TraitorDuoGameRule
-        cost: 10
-      - id: TraitorLightGameRule
-        cost: 15
-      - id: ChangelingGameRule
-        cost: 25
-      - id: Heretic
-        cost: 30
-        rerollChance: 0.5
-      - id: BloodBrother
-        cost: 20
-      - id: Revolutionary
-        cost: 45
-      # - id: Zombie вернуть после баффов
-      #   cost: 60
-    midroundAntags:
-      - id: DragonSpawn
-        cost: 100
-      - id: Pirates
-        cost: 120
-      - id: MorphSpawn
-        cost: 130
-      - id: NinjaSpawn
-        cost: 140
-      - id: ParadoxCloneSpawn
-        cost: 90
-      - id: SleeperAgents
-        cost: 100
-
-- type: entity
-  id: DynamicMediumGamerule
-  parent: BaseGameRule
-  components:
-  - type: DynamicRule
-    maxEventsBeforeAntag: 9
-    maxChaos: 60
-    minChaos: 50
-    scheduledGameRules: !type:NestedSelector
-      tableId: RampingGameRulesTable
-    roundstartRules:
-      - id: Thief
-        cost: 10
-      - id: HereticDuoGameRule
-        cost: 20
-        rerollChance: 0.5
-      - id: HereticSoloGameRule
-        cost: 15
-        rerollChance: 0.5
-      - id: ChangelingDuoGameRule
-        cost: 15
-      - id: TraitorDuoGameRule
-        cost: 15
-      - id: TraitorLightGameRule
-        cost: 15
-      - id: ChangelingGameRule
-        cost: 25
-      - id: BloodBrother
-        cost: 25
-      - id: Heretic
-        cost: 30
-        rerollChance: 0.5
-      - id: Nukeops
-        cost: 50
-      - id: Revolutionary
-        cost: 35
-    midroundAntags:
-      - id: DragonSpawn
-        cost: 110
-      - id: Pirates
-        cost: 130
-      - id: MorphSpawn
-        cost: 140
-      - id: NinjaSpawn
-        cost: 150
-      - id: ParadoxCloneSpawn
-        cost: 90
-      - id: SleeperAgents
-        cost: 110
-
-- type: entity
-  id: DynamicLightGamerule
-  parent: BaseGameRule
-  components:
-  - type: DynamicRule
-    maxEventsBeforeAntag: 10
-    maxChaos: 60
-    minChaos: 30
-    scheduledGameRules: !type:NestedSelector
-      tableId: ExtendedGameRulesTable
-    roundstartRules:
-      - id: Thief
-        cost: 10
-      - id: ChangelingDuoGameRule
-        cost: 10
-      - id: TraitorDuoGameRule
-        cost: 10
-      - id: BloodBrother
-        cost: 25
-      - id: TraitorLightGameRule
-        cost: 15
-      - id: ChangelingGameRule
-        cost: 25
-    midroundAntags:
-      - id: DragonSpawn
-        cost: 110
-      - id: Pirates
-        cost: 130
-      - id: MorphSpawn
-        cost: 140
-      - id: NinjaSpawn
-        cost: 150
-      - id: ParadoxCloneSpawn
-        cost: 90
-      - id: SleeperAgents
-        cost: 110
-
-- type: entity
-  id: DynamicRandomGamerule
-  parent: BaseGameRule
-  components:
+  - type: HereticRule
   - type: GameRule
-  - type: DynamicRandomRule
-
-- type: entity
-  parent: BaseTraitorRule
-  id: BloodBrother
-  components:
-  - type: GameRule
-    minPlayers: 20
-    delay:
-      min: 240
-      max: 420
+    minPlayers: 25
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
+    agentName: heretic-roundend-name
     definitions:
-    - prefRoles: [ BloodBrotherLeader ]
-      max: 4
-      playerRatio: 20
-      blacklist:
-        components:
-        - AntagImmune
+    - prefRoles: [ Heretic ]
+      max: 3
+      playerRatio: 15
       lateJoinAdditional: true
-      mindRoles:
-      - MindRoleTraitor
-  - type: TraitorRule
-    bloodBrotherChance: 1
+      mindComponents:
+      - type: HereticRole
+
+- type: entity
+  parent: BaseGameRule
+  id: ThiefSecretGameRule
+  components:
+  - type: ThiefRule
+  - type: AntagObjectives
+    objectives:
+    - EscapeThiefShuttleObjective
   - type: AntagRandomObjectives
     sets:
-    - groups: BloodBrothersObjectiveGroups
-    maxDifficulty: 12
+    - groups: ThiefBigObjectiveGroups
+      prob: 0.7
+      maxPicks: 1
+    - groups: ThiefObjectiveGroups
+      maxPicks: 10
+    maxDifficulty: 2.5
+  - type: GameRule
+    minPlayers: 25
+  - type: AntagSelection
+    agentName: thief-round-end-agent-name
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Thief ]
+      max: 2
+      playerRatio: 20
+      lateJoinAdditional: true
+      allowNonHumans: true
+      multiAntagSetting: NotExclusive
+      startingGear: ThiefGear
+      components:
+      - type: Thieving
+        stripTimeReduction: 2
+        stealthy: true
+      mindRoles:
+      - MindRoleThief
+      briefing:
+        sound: "/Audio/Misc/thief_greeting.ogg"
+
 
 #этот геймрул сделан только для выдачи трейтора
 - type: entity
@@ -393,4 +285,12 @@
       mindRoles:
       - MindRoleTraitor
   - type: TraitorRule
-    bloodBrotherChance: 0
+
+- type: entity
+  parent: SleeperAgents
+  id: SleeperAgentsLight
+  components:
+  - type: AntagRandomObjectives
+    sets:
+    - groups: TraitorLightObjectiveGroups
+    maxDifficulty: 8

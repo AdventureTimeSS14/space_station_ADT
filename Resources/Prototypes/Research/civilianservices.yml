@@ -91,6 +91,7 @@
     - ADTBlockGameArcadeComputerCircuitboard
     - ADTSpaceVillainArcadeComputerCircuitboard
     - ADTMinesweeperCircuitboard
+    - ADTJukeBoxPlayerVintage
     # ADT tweak end
   position: 3,0 # ADT Research Console Rework
 
@@ -134,6 +135,52 @@
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
   - FauxTileDesertAstroSand
+  # ADT-tweak start: Additional floor tile recipes
+  - FloorTileItemWoodParquet
+  - FloorTileItemWoodLargeRed
+  - FloorTileItemWoodParquetRed
+  - FloorTileItemWoodRed
+  - FloorTileItemWoodChessRed
+  - FloorTileItemWoodLargeLight
+  - FloorTileItemWoodParquetLight
+  - FloorTileItemWoodLight
+  - FloorTileItemWoodChessLight
+  - FloorTileItemWoodLargeDark
+  - FloorTileItemWoodParquetDark
+  - FloorTileItemWoodDark
+  - FloorTileItemWoodChessDark
+  - FloorTileItemWoodLargeBlack
+  - FloorTileItemWoodParquetBlack
+  - FloorTileItemWoodBlack
+  - FloorTileItemWoodChessBlack
+  - FloorTileItemClown
+  - FloorTileItemMime
+  - FloorTileItemKitchen
+  - FloorTileItemLime
+  - FloorTileItemFreezer
+  - FloorTileItemMono
+  - FloorTileItemArcadeRed
+  - FloorTileItemArcadeBlue
+  - FloorTileItemArcadeBlue2
+  - FloorTileItemLaundry
+  - FloorTileItemElevatorShaft
+  - FloorTileItemMetalDiamond
+  - FloorTileItemMining
+  - FloorTileItemMiningDark
+  - FloorTileItemMiningLight
+  - FloorTileItemRockVault
+  - FloorTileItemBlue
+  - FloorTileItemHydro
+  - FloorTileItemBar
+  - FloorTileItemShuttleBlue
+  - FloorTileItemShuttleGrey
+  - FloorTileItemShuttlePurple
+  - FloorTileItemShuttleBlack
+  - FloorTileItemShuttleRed
+  - FauxTileAstroAsteroidSandBorderless
+  - FauxTileAstroIronsand
+  - FauxTileAstroIronsandBorderless
+  # ADT-tweak end
   # ADT Research Console Rework start
   position: 4,0
   requiredTech:

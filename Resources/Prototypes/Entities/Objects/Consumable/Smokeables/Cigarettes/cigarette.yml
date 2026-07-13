@@ -14,7 +14,7 @@
   - type: SpaceGarbage
   - type: Clothing
     sprite: Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
-    slots: [ mask ]
+    slots: [ mask , ears , ears2 ] #ADT-Tweak: Ears2 slot added and possibility to wear cigarettes
     equippedPrefix: unlit
   - type: Item
     size: Tiny
@@ -41,7 +41,7 @@
   - type: SpaceGarbage
   - type: Clothing
     sprite: Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
-    slots: [ mask ]
+    slots: [ mask , ears, ears2 ] #ADT-Tweak: Ears2 slot added and possibility to wear cigarettes
     equippedPrefix: unlit
   - type: Item
     size: Tiny

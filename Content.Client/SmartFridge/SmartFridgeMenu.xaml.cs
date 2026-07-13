@@ -17,6 +17,7 @@ public sealed partial class SmartFridgeMenu : FancyWindow
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public event Action<GUIBoundKeyEventArgs, ListData>? OnItemSelected;
+    public event Action<SmartFridgeEntry>? OnDeleteEmpty; // ADT_Tweak Start: Delete Unnessesary entries
 
     private readonly StyleBoxFlat _styleBox = new() { BackgroundColor = new Color(70, 73, 102) };
 
@@ -48,8 +49,17 @@ public sealed partial class SmartFridgeMenu : FancyWindow
             return;
 
         var label = Loc.GetString("smart-fridge-list-item", ("item", entry.Entry.Name), ("amount", entry.Amount));
-        button.AddChild(new SmartFridgeItem(entry.Representative, label));
+        
+        //ADT-Tweak Start: Delete button generation
+        var item = new SmartFridgeItem(entry.Representative, label);
 
+        var canDelete = entry.Amount == 0;
+        item.SetDeletable(canDelete);
+        if (canDelete)
+            item.OnDeleteRequested += () => OnDeleteEmpty?.Invoke(entry.Entry);
+
+        button.AddChild(item);
+        //ADT-Tweak End
         button.ToolTip = label;
         button.StyleBoxOverride = _styleBox;
     }

@@ -30,6 +30,7 @@
       - WeldingMask
       - RemoteSignaller
       - UtilityKnife
+      - RPD # ADT-Tweak
       components:
       - StationMap
       - SprayPainter
@@ -177,6 +178,7 @@
       - Bloodpack
       - Gauze
       - Ointment
+      - Tourniquet
       - CigPack
       - PillCanister
       - Radio
@@ -185,7 +187,6 @@
       - Dropper
       - ADTMobileDefibrillator # ADT-Tweak
       components:
-      - Hypospray
       - Injector
       - Pill
       - HandLabeler
@@ -198,7 +199,7 @@
           - Bottle
       hypo:
         whitelist:
-          components:
+          tags:
           - Hypospray
       pill:
         whitelist:

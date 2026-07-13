@@ -9,7 +9,7 @@ namespace Content.Server.Administration.Logs;
 
 public sealed partial class AdminLogManager
 {
-    private const int MaxRoundsCached = 3;
+    private const int MaxRoundsCached = 1; // ADT-Tweak. 3 -> 1, держим только текущий раунд в кэше
     private const int LogListInitialSize = 30_000;
 
     private readonly int _logTypes = Enum.GetValues<LogType>().Length;

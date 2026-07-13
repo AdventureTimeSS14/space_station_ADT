@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTBaseAbomination
   parent: SimpleSpaceMobBase
   abstract: true
@@ -37,10 +37,12 @@
     speedModifierThresholds:
       25: 0.5
   - type: Stamina
-    critThreshold: 150
+    baseCritThreshold: 150
   - type: Bloodstream
-    bloodReagent: FluorosulfuricAcid
-    bloodMaxVolume: 200
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 200
   - type: StaminaDamageOnHit
     damage: 10
   - type: DamageStateVisuals
@@ -51,9 +53,10 @@
         Base: dead
   - type: Puller
   - type: Temperature
+    currentTemperature: 310.15
+  - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: -150
-    currentTemperature: 310.15
   - type: TypingIndicator
     proto: alien
   - type: Tag
@@ -100,6 +103,7 @@
     price: 1000
   - type: Damageable
     damageModifierSet: ADTAbominationHypertrophiedDamageSet
+  - type: Injurable
   - type: MovementSpeedModifier
     baseSprintSpeed: 2.5
   - type: MeleeThrowOnHit
@@ -110,8 +114,8 @@
       collection: AlienClaw
     animation: WeaponArcClaw
     damage:
-      groups:
-        Brute: 30
+      types:
+        Blunt: 30
   - type: ReplacementAccent
     accent: ADTReplaceAbomination
   - type: TTS
@@ -149,6 +153,7 @@
     price: 1500
   - type: Damageable
     damageModifierSet: ADTAbominationDeathDamageSet
+  - type: Injurable
   - type: MovementSpeedModifier
     baseSprintSpeed: 4.5
   - type: MeleeWeapon
@@ -158,9 +163,8 @@
       collection: AlienClaw
     animation: WeaponArcClaw
     damage:
-      groups:
-        Brute: 20
       types:
+        Blunt: 20
         Structural: 30
   - type: Jumpboots
     jumpAction: CompActionJumpAbomination
@@ -219,8 +223,8 @@
       collection: AlienClaw
     animation: WeaponArcClaw
     damage:
-      groups:
-        Brute: 15
+      types:
+        Blunt: 15
   - type: ReplacementAccent
     accent: ADTReplaceAbomination
   - type: ExplodeOnTrigger
@@ -268,7 +272,7 @@
 #       types:
 #         Slash: 7
 #   - type: Damageable
-#     damageContainer: Biological
+#   damageContainer: Biological
 #     damageModifierSet: distorted
 #   - type: MovementSpeedModifier
 #     baseWalkSpeed: 2.4
@@ -308,7 +312,7 @@
 #       types:
 #         Slash: 6
 #   - type: Damageable
-#     damageContainer: Biological
+#   damageContainer: Biological
 #     damageModifierSet: echo
 #   - type: MovementSpeedModifier
 #     baseWalkSpeed: 3.0
@@ -351,7 +355,7 @@
 #         Slash: 8
 #         Poison: 5
 #   - type: Damageable
-#     damageContainer: Biological
+#   damageContainer: Biological
 #     damageModifierSet: grant
 #   - type: MovementSpeedModifier
 #     baseWalkSpeed: 2.2
@@ -391,7 +395,7 @@
 #       types:
 #         Piercing: 10
 #   - type: Damageable
-#     damageContainer: Biological
+#   damageContainer: Biological
 #     damageModifierSet: hunter
 #   - type: MovementSpeedModifier
 #     baseWalkSpeed: 3.2
@@ -433,7 +437,7 @@
 #       types:
 #         Slash: 10
 #   - type: Damageable
-#     damageContainer: Biological
+#   damageContainer: Biological
 #     damageModifierSet: soldier
 #   - type: MovementSpeedModifier
 #     baseWalkSpeed: 2.7
@@ -478,7 +482,7 @@
 #       types:
 #         Blunt: 20
 #   - type: Damageable
-#     damageContainer: Biological
+#   damageContainer: Biological
 #     damageModifierSet: wrecker
 #   - type: MovementSpeedModifier
 #     baseWalkSpeed: 2.2

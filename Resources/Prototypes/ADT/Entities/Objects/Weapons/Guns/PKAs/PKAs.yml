@@ -161,7 +161,7 @@
     maxAngle: 0
   - type: GunRequiresWield
   - type: Gun
-    fireRate: 0.3 # Tweak 0.3
+    fireRate: 0.6 # Tweak 0.3 > 0.6
   - type: ContainerContainer
     containers:
       upgrades: !type:Container

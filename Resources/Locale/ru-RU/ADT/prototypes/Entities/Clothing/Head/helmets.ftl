@@ -32,3 +32,6 @@ ent-ADTLegionerHemlet = шлем легионера
 
 ent-ADTClothingHeadHelmetTrueTemplar = шлем крестоносца
     .desc = Теперь древний шлем вполне реален для вас.
+
+ent-ADTClothingHeadHelmetBlueShield = шлем офицера синего щита
+    .desc = Очень прочный шлем, разработанный для корпуса синих щитов.

@@ -1,8 +1,10 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Parallax;
+using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Planet;
 using Content.Shared.Parallax.Biomes;
 using Robust.Server.GameObjects;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
@@ -24,6 +26,7 @@ public sealed class PlanetSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly IConfigurationManager _configManager = default!;
 
     private List<(Vector2i, Tile)> _setTiles = new();
 
@@ -35,13 +38,20 @@ public sealed class PlanetSystem : EntitySystem
         var planet = _proto.Index(id);
 
         var map = _map.CreateMap(out _, runMapInit: runMapInit);
-        _biome.EnsurePlanet(map, _proto.Index(planet.Biome), mapLight: planet.MapLight, dayCycle: planet.DayCycle);
 
-        // add each marker layer
-        var biome = Comp<BiomeComponent>(map);
-        foreach (var layer in planet.BiomeMarkerLayers)
+        var biomeEnabled = _configManager.GetCVar(ADTCCVars.BiomeGenerationEnabled);
+        if (biomeEnabled)
         {
-            _biome.AddMarkerLayer(map, biome, layer);
+            _biome.EnsurePlanet(map, _proto.Index(planet.Biome), mapLight: planet.MapLight, dayCycle: planet.DayCycle);
+        }
+
+        if (biomeEnabled)
+        {
+            var biome = Comp<BiomeComponent>(map);
+            foreach (var layer in planet.BiomeMarkerLayers)
+            {
+                _biome.AddMarkerLayer(map, biome, layer);
+            }
         }
 
         if (planet.AddedComponents is { } added)

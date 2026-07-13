@@ -1,0 +1,12 @@
+<holomap:HolomapWindow xmlns="https://spacestation14.io"
+    xmlns:holomap="clr-namespace:Content.Client.ADT.Holomap.UI"
+    MouseFilter="Stop" Resizable="False"
+    SetSize="300 300">
+    <BoxContainer Orientation="Vertical" Margin="6" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Label Text="{Loc 'holomap-window-select-mode'}" StyleClasses="LabelBig" HorizontalAlignment="Center"/>
+        <BoxContainer Orientation="Vertical" HorizontalAlignment="Stretch">
+            <Button Name="BattlemapButton" Text="{Loc 'holomap-window-button-battlemap'}" Margin="30,0,0,4" HorizontalAlignment="Stretch"/>
+            <Button Name="LavalandButton" Text="{Loc 'holomap-window-button-lavaland'}"  Margin="30,0,0,4" HorizontalAlignment="Stretch" />
+        </BoxContainer>
+    </BoxContainer>
+</holomap:HolomapWindow>

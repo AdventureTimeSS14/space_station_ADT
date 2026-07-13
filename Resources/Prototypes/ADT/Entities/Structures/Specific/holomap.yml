@@ -1,0 +1,74 @@
+- type: entity
+  parent: BaseStructure
+  id: ADTHolomap
+  name: голостанция
+  description: Показывает голограммы планет!
+  components:
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Sprite
+    sprite: ADT/Structures/Specific/holomap.rsi
+    drawdepth: HighFloorObjects
+    layers:
+    - state: base
+      map: ["enum.HolomapVisualLayers.Base"]
+    - state: unshaded
+      map: ["enum.HolomapVisualLayers.Unshaded"]
+      shader: unshaded
+      visible: false
+    - state: battlemap-unshaded
+      map: ["enum.HolomapVisualLayers.Battlemap"]
+      shader: unshaded
+      visible: false
+    - state: battlemap_text-unshaded
+      map: ["enum.HolomapVisualLayers.BattlemapText"]
+      shader: unshaded
+      visible: false
+    - sprite: ADT/Structures/Specific/holomap.rsi
+      state: lavaland
+      map: ["enum.HolomapVisualLayers.Lavaland"]
+      shader: unshaded
+      visible: false
+  - type: Appearance
+  - type: Holomap
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      power:
+        !type:CableDeviceNode
+        nodeGroupID: MVPower
+  - type: PowerConsumer
+    voltage: Medium
+    node: power
+    drawRate: 100
+  - type: Anchorable
+    delay: 2
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.7
+          position: "0,-0.3"
+        density: 1001
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: InteractionOutline
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: 0
+    range: 3
+    sound:
+      path: /Audio/Ambience/Objects/buzzing.ogg
+  - type: ActivatableUI
+    key: enum.HolomapUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.HolomapUiKey.Key:
+        type: HolomapBoundUserInterface

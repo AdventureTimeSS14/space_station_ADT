@@ -5,8 +5,8 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Heretic.Prototypes;
 
-[Serializable, NetSerializable, DataDefinition]
-[Prototype("hereticRitual")]
+[DataDefinition]
+[Prototype]
 public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
 {
     [IdDataField] public string ID { get; private set; } = default!;
@@ -24,7 +24,7 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
     /// <summary>
     ///     Is there a custom behavior that needs to be executed?
     /// </summary>
-    [DataField] public List<RitualCustomBehavior>? CustomBehaviors;
+    [DataField(serverOnly: true)] public List<RitualCustomBehavior>? CustomBehaviors;
 
     /// <summary>
     ///     How many other entities will be created from the ritual?
@@ -57,18 +57,6 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
     /// <remarks> Please use this instead of editing the prototype. Shit WILL break if you don't. </remarks>
     public object Clone()
     {
-        return new HereticRitualPrototype()
-        {
-            ID = ID,
-            RequiredEntityNames = RequiredEntityNames,
-            RequiredTags = RequiredTags,
-            CustomBehaviors = CustomBehaviors,
-            Output = Output,
-            OutputEvent = OutputEvent,
-            OutputKnowledge = OutputKnowledge,
-            LocName = LocName,
-            LocDesc = LocDesc,
-            Icon = Icon
-        };
+        return MemberwiseClone();
     }
 }

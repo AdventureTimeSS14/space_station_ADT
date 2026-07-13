@@ -167,7 +167,7 @@
     children:
     - id: SpaceCash100
       weight: 2
-    - id: GlowstickBase
+    - id: GlowstickGreen
       amount: !type:RangeNumberSelector
         range: 1, 5
     - id: GlowstickRed
@@ -530,7 +530,7 @@
     - id: SyringeInaprovaline
     - id: SyringeEphedrine
     - id: Gauze
-    - id: Bloodpack
+    - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
     - id: RegenerativeMesh
     - id: MedicatedSuture
     - id: EmergencyMedipen

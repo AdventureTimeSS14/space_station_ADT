@@ -1,7 +1,6 @@
 - type: latheRecipePack
   id: ADTSecBorgPack
   recipes:
-  - ADTBorgModuleDisabler #ADT secborg
   - ADTBorgModuleDetention #ADT secborg
   - ADTBorgModuleHarm
 
@@ -29,7 +28,7 @@
   - ADTModsuitModMagboot
   - ADTModsuitModNightVision
   - ADTModsuitModStun
-  - ADTModsuitModPowerKick
+  # - ADTModsuitModPowerKick
   - ADTModsuitModSechud
   - ADTModsuitModStorage
   - ADTModsuitModWelding
@@ -136,6 +135,7 @@
 - type: latheRecipePack
   id: ADTBorgModules
   recipes:
+  - ADTAiRemoteBrain
   - BorgModuleTopicals
   - ADTBorgModuleRescue
   - ADTBorgModuleAdvancedChemical

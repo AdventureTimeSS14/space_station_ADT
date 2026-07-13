@@ -3,6 +3,7 @@
   name: job-name-ADTCentcomConsultant
   description: job-description-ADTCentcomConsultant
   playTimeTracker: JobADTCentcomConsultant
+  setPreference: false
   requirements:
     - !type:RoleTimeRequirement
       role: JobCaptain

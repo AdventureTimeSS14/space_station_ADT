@@ -142,7 +142,8 @@
   - type: HideLayerClothing
     slots:
     - Hair
-    - Snout
+    - SnoutOverlay
+    - SnoutCover
     - HeadTop
     - HeadSide
     - FacialHair
@@ -199,10 +200,11 @@
     slots:
     - Hair
     - Snout
+    - SnoutOverlay # ADT-Twek
+    - SnoutCover # ADT-Twek
     - HeadTop
     - HeadSide
     - FacialHair
-    - SnoutOverlay # ADT Tweak
   #ADT-Tweak-Start
   - type: InjectorsBlocker
   - type: CoveredSlot

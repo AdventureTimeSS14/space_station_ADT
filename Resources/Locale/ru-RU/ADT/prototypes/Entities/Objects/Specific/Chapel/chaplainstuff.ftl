@@ -7,4 +7,5 @@ ent-ADTCsharpForDummies = C# для чайников
 ent-ADTChruchSpaceCarpDehyd = { ent-DehydratedSpaceCarp }
     .desc = { ent-DehydratedSpaceCarp.desc }
 
-grant-language-success = Вы выучили новый язык: {$language}.
+grant-language-success = Вы выучили новый язык: {$languages}.
+grant-languages-success = Вы выучили новые языки: {$languages}.

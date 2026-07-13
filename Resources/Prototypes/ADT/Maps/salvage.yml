@@ -111,6 +111,546 @@
   sizeString: salvage-map-wreck-size-medium
   sizeTag: MediumMagnetTargets
 
+- type: salvageMap
+  id: ADT_DerelictVagabondPoor
+  mapPath: /Maps/ADTMaps/Salvage/derelictVagabondPoor.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_DerelictVagabondRich
+  mapPath: /Maps/ADTMaps/Salvage/derelictVagabondRich.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Angel
+  mapPath: /Maps/ADTMaps/Salvage/angel.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Arashis
+  mapPath: /Maps/ADTMaps/Salvage/arashis.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_arcada
+  mapPath: /Maps/ADTMaps/Salvage/arcada.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Asetorid
+  mapPath: /Maps/ADTMaps/Salvage/Asetorid.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_bar_box
+  mapPath: /Maps/ADTMaps/Salvage/bar_box.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Bar_crash
+  mapPath: /Maps/ADTMaps/Salvage/Bar_crash.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_baranka
+  mapPath: /Maps/ADTMaps/Salvage/baranka.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_behonker
+  mapPath: /Maps/ADTMaps/Salvage/behonker.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_biblioteka
+  mapPath: /Maps/ADTMaps/Salvage/biblioteka.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_blu_ofis
+  mapPath: /Maps/ADTMaps/Salvage/blu_ofis.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_botanika_amber
+  mapPath: /Maps/ADTMaps/Salvage/botanika_amber.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Botanika_crash
+  mapPath: /Maps/ADTMaps/Salvage/Botanika_crash.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_brig_broken
+  mapPath: /Maps/ADTMaps/Salvage/brig_broken.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Brig_crash
+  mapPath: /Maps/ADTMaps/Salvage/Brig_crash.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_broken_shuttle
+  mapPath: /Maps/ADTMaps/Salvage/broken_shuttle.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_cahter
+  mapPath: /Maps/ADTMaps/Salvage/cahter.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_centcom_old
+  mapPath: /Maps/ADTMaps/Salvage/centcom_old.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_church
+  mapPath: /Maps/ADTMaps/Salvage/church.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_clop
+  mapPath: /Maps/ADTMaps/Salvage/clop.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_cult_school
+  mapPath: /Maps/ADTMaps/Salvage/cult_school.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_detective
+  mapPath: /Maps/ADTMaps/Salvage/detective.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_eggs
+  mapPath: /Maps/ADTMaps/Salvage/eggs.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_fire
+  mapPath: /Maps/ADTMaps/Salvage/fire.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_frog_killed
+  mapPath: /Maps/ADTMaps/Salvage/frog_killed.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_gooliaf
+  mapPath: /Maps/ADTMaps/Salvage/gooliaf.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_green
+  mapPath: /Maps/ADTMaps/Salvage/green.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Grei
+  mapPath: /Maps/ADTMaps/Salvage/Grei.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_harmpank
+  mapPath: /Maps/ADTMaps/Salvage/harmpank.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Honk
+  mapPath: /Maps/ADTMaps/Salvage/Honk.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_hop_bgl
+  mapPath: /Maps/ADTMaps/Salvage/hop_bgl.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_hotel
+  mapPath: /Maps/ADTMaps/Salvage/hotel.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_ice
+  mapPath: /Maps/ADTMaps/Salvage/ice.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_in_rn
+  mapPath: /Maps/ADTMaps/Salvage/in_rn.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Kargo
+  mapPath: /Maps/ADTMaps/Salvage/Kargo.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Kargo_sklad
+  mapPath: /Maps/ADTMaps/Salvage/Kargo_sklad.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Kargos
+  mapPath: /Maps/ADTMaps/Salvage/Kargos.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_karp_party
+  mapPath: /Maps/ADTMaps/Salvage/karp_party.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_karp_statui
+  mapPath: /Maps/ADTMaps/Salvage/karp_statui.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Kitchen_velpa
+  mapPath: /Maps/ADTMaps/Salvage/Kitchen_velpa.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_komp
+  mapPath: /Maps/ADTMaps/Salvage/komp.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_krelp
+  mapPath: /Maps/ADTMaps/Salvage/krelp.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_krevetka
+  mapPath: /Maps/ADTMaps/Salvage/krevetka.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Kyhni
+  mapPath: /Maps/ADTMaps/Salvage/Kyhni.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Les_mramora
+  mapPath: /Maps/ADTMaps/Salvage/Les_mramora.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Med
+  mapPath: /Maps/ADTMaps/Salvage/Med.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Mime
+  mapPath: /Maps/ADTMaps/Salvage/Mime.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_most
+  mapPath: /Maps/ADTMaps/Salvage/most.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_mramor
+  mapPath: /Maps/ADTMaps/Salvage/mramor.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_ne_morgai
+  mapPath: /Maps/ADTMaps/Salvage/ne_morgai.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_ofis
+  mapPath: /Maps/ADTMaps/Salvage/ofis.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_old_shutlle_two
+  mapPath: /Maps/ADTMaps/Salvage/old_shuttle_two.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_old_shutlle_ytilizators
+  mapPath: /Maps/ADTMaps/Salvage/old_shuttle_ytilizators.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Perma1
+  mapPath: /Maps/ADTMaps/Salvage/Perma1.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_perma2
+  mapPath: /Maps/ADTMaps/Salvage/perma2.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_perma3
+  mapPath: /Maps/ADTMaps/Salvage/perma3.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_piramida
+  mapPath: /Maps/ADTMaps/Salvage/piramida.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_pirate
+  mapPath: /Maps/ADTMaps/Salvage/pirate.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Piret_crash
+  mapPath: /Maps/ADTMaps/Salvage/Piret_crash.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_portses
+  mapPath: /Maps/ADTMaps/Salvage/portses.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_radio_world
+  mapPath: /Maps/ADTMaps/Salvage/radio_world.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_RND
+  mapPath: /Maps/ADTMaps/Salvage/RND.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_robotex
+  mapPath: /Maps/ADTMaps/Salvage/robotex.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_room
+  mapPath: /Maps/ADTMaps/Salvage/room.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_routercable
+  mapPath: /Maps/ADTMaps/Salvage/routercable.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Sckinet_shuttl
+  mapPath: /Maps/ADTMaps/Salvage/Sckinet_shuttl.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_shata
+  mapPath: /Maps/ADTMaps/Salvage/shata.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_Shool
+  mapPath: /Maps/ADTMaps/Salvage/Shool.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_shuttle_broken_small
+  mapPath: /Maps/ADTMaps/Salvage/shuttle_broken_small.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_shuttlik_broken
+  mapPath: /Maps/ADTMaps/Salvage/shuttlik_broken.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_snow
+  mapPath: /Maps/ADTMaps/Salvage/snow.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_spider_sand
+  mapPath: /Maps/ADTMaps/Salvage/spider_sand.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_SSSp
+  mapPath: /Maps/ADTMaps/Salvage/SSSp.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_studia
+  mapPath: /Maps/ADTMaps/Salvage/studia.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_teatr
+  mapPath: /Maps/ADTMaps/Salvage/teatr.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_tehsbkarparty
+  mapPath: /Maps/ADTMaps/Salvage/tehsbkarparty.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_terminal
+  mapPath: /Maps/ADTMaps/Salvage/terminal.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_texi
+  mapPath: /Maps/ADTMaps/Salvage/texi.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_titan
+  mapPath: /Maps/ADTMaps/Salvage/titan.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_tuz
+  mapPath: /Maps/ADTMaps/Salvage/tuz.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_TV
+  mapPath: /Maps/ADTMaps/Salvage/TV.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_two
+  mapPath: /Maps/ADTMaps/Salvage/two.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_vavilonia
+  mapPath: /Maps/ADTMaps/Salvage/vavilonia.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_vox_tv
+  mapPath: /Maps/ADTMaps/Salvage/vox_tv.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_War_avanpost
+  mapPath: /Maps/ADTMaps/Salvage/War_avanpost.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_wizard
+  mapPath: /Maps/ADTMaps/Salvage/wizard.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_x
+  mapPath: /Maps/ADTMaps/Salvage/x.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_xeno_ofis
+  mapPath: /Maps/ADTMaps/Salvage/xeno_ofis.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_zoo
+  mapPath: /Maps/ADTMaps/Salvage/zoo.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
 # """Large""" maps
 
 - type: salvageMap

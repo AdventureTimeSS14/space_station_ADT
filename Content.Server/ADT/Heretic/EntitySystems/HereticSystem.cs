@@ -11,6 +11,7 @@ using Content.Server.Heretic.Components;
 using Content.Server.Antag;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Shared.Body;
 using Content.Shared.Humanoid;
 using Robust.Server.Player;
 using Content.Server.Revolutionary.Components;
@@ -23,8 +24,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Components;
 using Content.Shared.ADT.Chaplain.Components;
-using Content.Shared.ADT.Damage.Components;
 using Robust.Shared.Utility;
+using Content.Shared.Eye;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -40,6 +41,7 @@ public sealed class HereticSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
 
     private float _timer = 0f;
     private float _passivePointCooldown = 20f * 60f;
@@ -59,7 +61,6 @@ public sealed class HereticSystem : EntitySystem
     private void OnHereticStartup(EntityUid uid, HereticComponent component, ComponentStartup args)
     {
         EnsureComp<PassiveHolyHealingComponent>(uid);
-        EnsureComp<ChangeDamageContainerComponent>(uid);
         EnsureComp<HolyDamageMultiplierComponent>(uid);
     }
 
@@ -186,7 +187,7 @@ public sealed class HereticSystem : EntitySystem
 
         bool IsSessionValid(ICommonSession session)
         {
-            if (!HasComp<HumanoidAppearanceComponent>(session.AttachedEntity))
+            if (!HasComp<HumanoidProfileComponent>(session.AttachedEntity))
                 return false;
 
             if (HasComp<GhoulComponent>(session.AttachedEntity.Value) ||
@@ -200,34 +201,39 @@ public sealed class HereticSystem : EntitySystem
 
     private SacrificeTargetData? GetData(EntityUid uid)
     {
-        if (!TryComp(uid, out HumanoidAppearanceComponent? humanoid))
+        if (!TryComp(uid, out HumanoidProfileComponent? humanoid))
             return null;
 
         if (!_mind.TryGetMind(uid, out var mind, out _) || !_job.MindTryGetJobId(mind, out var jobId) || jobId == null)
             return null;
 
-        var hair = (HairStyles.DefaultHairStyle, humanoid.CachedHairColor ?? Color.Black);
-        if (humanoid.MarkingSet.TryGetCategory(MarkingCategories.Hair, out var hairMarkings) && hairMarkings.Count > 0)
+        var eyeColor = Color.Black;
+        var skinColor = Color.White;
+        var hairColor = new List<Color> { Color.Black };
+        Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> markings = new();
+
+        if (_visualBody.TryGatherMarkingsData(uid, null, out var profiles, out _, out var applied))
         {
-            var hairMarking = hairMarkings[0];
-            hair = (hairMarking.MarkingId, hairMarking.MarkingColors.FirstOrNull() ?? Color.Black);
+            if (profiles.Count > 0)
+            {
+                var firstProfile = profiles.Values.First();
+                eyeColor = firstProfile.EyeColor;
+                skinColor = firstProfile.SkinColor;
+            }
+
+            markings = applied;
+
+            foreach (var organMarkings in applied.Values)
+            {
+                if (organMarkings.TryGetValue(HumanoidVisualLayers.Hair, out var hairMarkings) && hairMarkings.Count > 0)
+                {
+                    hairColor = new List<Color>(hairMarkings[0].MarkingColors);
+                    break;
+                }
+            }
         }
 
-        var facialHair = (HairStyles.DefaultFacialHairStyle, humanoid.CachedFacialHairColor ?? Color.Black);
-        if (humanoid.MarkingSet.TryGetCategory(MarkingCategories.FacialHair, out var facialHairMarkings) &&
-            facialHairMarkings.Count > 0)
-        {
-            var facialHairMarking = facialHairMarkings[0];
-            facialHair = (facialHairMarking.MarkingId, facialHairMarking.MarkingColors.FirstOrNull() ?? Color.Black);
-        }
-
-        var appearance = new HumanoidCharacterAppearance(hair.Item1,
-            hair.Item2,
-            facialHair.Item1,
-            facialHair.Item2,
-            humanoid.EyeColor,
-            humanoid.SkinColor,
-            humanoid.MarkingSet.GetForwardEnumerator().ToList());
+        var appearance = new HumanoidCharacterAppearance(eyeColor, hairColor, skinColor, markings);
 
         var profile = new HumanoidCharacterProfile().WithGender(humanoid.Gender)
             .WithSex(humanoid.Sex)

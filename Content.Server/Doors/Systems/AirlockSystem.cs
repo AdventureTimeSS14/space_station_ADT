@@ -1,4 +1,5 @@
 using Content.Server.Power.Components;
+using Content.Server.Shuttles.Components;
 using Content.Server.Wires;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Doors.Components;
@@ -58,6 +59,19 @@ public sealed class AirlockSystem : SharedAirlockSystem
         }
         else
         {
+            // ADT-Tweak start
+            if (TryComp<DockingComponent>(uid, out var docking) &&
+                docking.Docked &&
+                door.State == DoorState.Closed)
+            {
+                if (DoorSystem.TryOpen(uid, door) &&
+                    TryComp<DoorBoltComponent>(uid, out var doorBolt))
+                {
+                    DoorSystem.SetBoltsDown((uid, doorBolt), true);
+                }
+            }
+            // ADT-Tweak end
+
             UpdateAutoClose(uid, door: door);
         }
     }

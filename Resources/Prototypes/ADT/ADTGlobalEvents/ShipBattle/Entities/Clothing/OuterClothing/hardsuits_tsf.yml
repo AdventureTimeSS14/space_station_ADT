@@ -60,7 +60,7 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 1.75
-      Choke: 1.5
+      Suffocate: 1.5
   # ADT Grab end
 
 #Command

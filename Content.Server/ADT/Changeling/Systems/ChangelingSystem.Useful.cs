@@ -20,7 +20,6 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.ADT.Stealth.Components;
 using Content.Server.Medical;
 using Content.Shared.Heretic;
-using Content.Shared.ADT.BloodBrothers;
 using Content.Shared.Medical;
 
 namespace Content.Server.Changeling.EntitySystems;
@@ -66,7 +65,7 @@ public sealed partial class ChangelingSystem
         }
 
         var target = args.Target;
-        if (!HasComp<HumanoidAppearanceComponent>(target))
+        if (!HasComp<HumanoidProfileComponent>(target))
         {
             var selfMessage = Loc.GetString("changeling-dna-fail-nohuman", ("target", Identity.Entity(target, EntityManager)));
             _popup.PopupEntity(selfMessage, uid, uid);
@@ -187,16 +186,6 @@ public sealed partial class ChangelingSystem
                 if (TryComp<StoreComponent>(uid, out var store))
                 {
                     _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoints", heretic.PathStage } }, uid, store);
-                    _store.UpdateUserInterface(uid, uid, store);
-                }
-            }
-            if (TryComp<BloodBrotherLeaderComponent>(target, out var bro))
-            {
-                var selfMessage = Loc.GetString("changeling-dna-success-bro", ("target", Identity.Entity(target, EntityManager)));
-                _popup.PopupEntity(selfMessage, uid, uid, PopupType.Medium);
-                if (TryComp<StoreComponent>(uid, out var store))
-                {
-                    _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoints", bro.ConvertedCount } }, uid, store);
                     _store.UpdateUserInterface(uid, uid, store);
                 }
             }
@@ -363,21 +352,21 @@ public sealed partial class ChangelingSystem
     {
         if (args.Handled)
             return;
-// Закоментил для баффа
-//       if (component.LesserFormActive)
-//       {
-//           var selfMessage = Loc.GetString("changeling-transform-fail-lesser-form");
-//           _popup.PopupEntity(selfMessage, uid, uid);
-//           return;
-//      }
+        // Закоментил для баффа
+        //       if (component.LesserFormActive)
+        //       {
+        //           var selfMessage = Loc.GetString("changeling-transform-fail-lesser-form");
+        //           _popup.PopupEntity(selfMessage, uid, uid);
+        //           return;
+        //      }
         component.StasisDeathActive = !component.StasisDeathActive;
 
         if (component.StasisDeathActive)
         {
             if (!TryUseAbility(uid, component, args.Cost))
                 return;
-            
-        _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Cellular"), 200));
+
+            _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Cellular"), 200));
 
             args.Handled = true;
 
@@ -537,7 +526,7 @@ public sealed partial class ChangelingSystem
                     ev.HumanoidData.Add(new(
                         netEntity,
                         Name(item.EntityUid),
-                        item.HumanoidAppearanceComponent.Species.Id,
+                        item.Profile.Species.Id,
                         BuildProfile(item)));
                 }
 
@@ -667,7 +656,7 @@ public sealed partial class ChangelingSystem
                 ev.HumanoidData.Add(new(
                     netEntity,
                     Name(item.EntityUid),
-                    item.HumanoidAppearanceComponent.Species.Id,
+                    item.Profile.Species.Id,
                     BuildProfile(item)));
             }
 

@@ -1,27 +1,23 @@
-
 - type: marking
   id: BodyShadekinGauzeLowArmR
-  bodyPart: LLeg
-  markingCategory: OverlayBandage
-  speciesRestriction: [Shadekin]
+  bodyPart: RArm
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
       state: gauze_lowerarm_r_shadekin
 
 - type: marking
   id: BodyShadekinGauzeUpArmL
-  bodyPart: LLeg
-  markingCategory: OverlayBandage
-  speciesRestriction: [Shadekin]
+  bodyPart: LArm
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
       state: gauze_upperarm_l_shadekin
 
 - type: marking
   id: BodyShadekinGauzeUpArmR
-  bodyPart: LLeg
-  markingCategory: OverlayBandage
-  speciesRestriction: [Shadekin]
+  bodyPart: RArm
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
       state: gauze_upperarm_r_shadekin
@@ -29,26 +25,23 @@
 - type: marking
   id: BodyShadekinGauzeUpLegL
   bodyPart: LLeg
-  markingCategory: OverlayBandage
-  speciesRestriction: [Shadekin]
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
       state: gauze_upperleg_l_shadekin
 
 - type: marking
   id: BodyShadekinGauzeUpLegR
-  bodyPart: LLeg
-  markingCategory: OverlayBandage
-  speciesRestriction: [Shadekin]
+  bodyPart: RLeg
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
       state: gauze_upperleg_r_shadekin
 
 - type: marking
   id: BodyShadekinGauzeShoulder
-  bodyPart: LLeg
-  markingCategory: OverlayBandage
-  speciesRestriction: [Shadekin]
+  bodyPart: Chest
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
       state: gauze_shoulder_shadekin

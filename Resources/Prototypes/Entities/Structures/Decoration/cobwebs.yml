@@ -1,4 +1,4 @@
-#BaseCobweb doesn't really need to exist since, as of writing, these only have 2 sprite states & obviously have no need for variation beyond that.
+﻿#BaseCobweb doesn't really need to exist since, as of writing, these only have 2 sprite states & obviously have no need for variation beyond that.
 
 - type: entity
   id: Cobweb1
@@ -18,8 +18,9 @@
   - type: Transform
     anchored: true
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:

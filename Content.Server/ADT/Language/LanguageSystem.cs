@@ -55,8 +55,60 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         UpdateUi(uid);
     }
 
-    public string ObfuscateMessage(EntityUid uid, string originalMessage, List<string> replacements, bool obfiscateSyllables)
+    public string ObfuscateMessage(EntityUid uid, string originalMessage, List<string> replacements, bool obfiscateSyllables, bool replaceEntireMessage = false)
     {
+        if (replaceEntireMessage && replacements.Count > 0)
+        {
+            var picked = _random.Pick(replacements);
+            var trailing = new StringBuilder();
+            for (var i = originalMessage.Length - 1; i >= 0; i--)
+            {
+                var ch = originalMessage[i];
+                if (char.IsWhiteSpace(ch))
+                    continue;
+
+                while (i >= 0)
+                {
+                    ch = originalMessage[i];
+                    if (ch is '.' or ',' or '!' or '?')
+                    {
+                        trailing.Append(ch);
+                        i--;
+                        continue;
+                    }
+
+                    break;
+                }
+
+                break;
+            }
+
+            if (trailing.Length == 0)
+            {
+                trailing.Append('.');
+            }
+            else
+            {
+                var l = 0;
+                var r = trailing.Length - 1;
+                while (l < r)
+                {
+                    (trailing[l], trailing[r]) = (trailing[r], trailing[l]);
+                    l++;
+                    r--;
+                }
+            }
+
+            if (picked.Length > 0)
+            {
+                var pickedBuilder = new StringBuilder(picked);
+                pickedBuilder[0] = char.ToUpperInvariant(picked[0]);
+                pickedBuilder.Append(trailing);
+                return _chat.SanitizeInGameICMessageLanguages(uid, pickedBuilder.ToString(), out _);
+            }
+            return _chat.SanitizeInGameICMessageLanguages(uid, $"{picked}{trailing}", out _);
+        }
+
         var builder = new StringBuilder();
         if (obfiscateSyllables)
             ObfuscateSyllables(builder, originalMessage, replacements);

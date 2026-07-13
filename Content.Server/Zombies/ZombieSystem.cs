@@ -109,6 +109,7 @@ namespace Content.Server.Zombies
             }
 
             component.NextTick = _timing.CurTime + TimeSpan.FromSeconds(1f);
+            component.TimeUntilInevitable = component.InevitableZombificationTime; // ADT-Tweak
         }
 
         public override void Update(float frameTime)
@@ -127,10 +128,25 @@ namespace Content.Server.Zombies
                 comp.NextTick = curTime + TimeSpan.FromSeconds(1f);
 
                 comp.GracePeriod -= TimeSpan.FromSeconds(1f);
+                // ADT-Tweak start
+                comp.TimeUntilInevitable -= TimeSpan.FromSeconds(1f);
+
+                // Check for inevitable zombification
+                if (comp.TimeUntilInevitable <= TimeSpan.Zero)
+                {
+                    ZombifyEntity(uid);
+                    continue;
+                }
+
+                // Show warnings only if not infected by Romerol
+                if (!comp.RomerolInfection && comp.GracePeriod > TimeSpan.Zero && _random.Prob(comp.InfectionWarningChance))
+                    _popup.PopupEntity(Loc.GetString(_random.Pick(comp.InfectionWarnings)), uid, uid);
+                // ADT-Tweak end
+
                 if (comp.GracePeriod > TimeSpan.Zero)
                     continue;
 
-                if (_random.Prob(comp.InfectionWarningChance))
+                if (!comp.RomerolInfection && _random.Prob(comp.InfectionWarningChance)) // ADT-Tweak
                     _popup.PopupEntity(Loc.GetString(_random.Pick(comp.InfectionWarnings)), uid, uid);
 
                 var multiplier = _mobState.IsCritical(uid, mobState)
@@ -265,7 +281,9 @@ namespace Content.Server.Zombies
                     if (HasComp<ZombieImmuneComponent>(uid) || cannotSpread || _random.Prob(GetZombieInfectionChance(uid, entity.Comp)))
                         continue;
 
-                    EnsureComp<PendingZombieComponent>(uid);
+                    var pendingComp = EnsureComp<PendingZombieComponent>(uid);
+                    // Zombie bites are NOT Romerol infections - warnings will show
+                    pendingComp.RomerolInfection = false; // ADT-Tweak
                     EnsureComp<ZombifyOnDeathComponent>(uid);
                 }
                 else
@@ -295,17 +313,10 @@ namespace Content.Server.Zombies
             if (!Resolve(source, ref zombiecomp))
                 return false;
 
-            foreach (var (layer, info) in zombiecomp.BeforeZombifiedCustomBaseLayers)
-            {
-                _humanoidAppearance.SetBaseLayerColor(target, layer, info.Color);
-                _humanoidAppearance.SetBaseLayerId(target, layer, info.Id);
-            }
-            if (TryComp<HumanoidAppearanceComponent>(target, out var appcomp))
-            {
-                appcomp.EyeColor = zombiecomp.BeforeZombifiedEyeColor;
-            }
-            _humanoidAppearance.SetSkinColor(target, zombiecomp.BeforeZombifiedSkinColor, false);
-            _bloodstream.ChangeBloodReagent(target, zombiecomp.BeforeZombifiedBloodReagent);
+            _visualBody.ApplyProfiles(target, zombiecomp.BeforeZombifiedProfiles);
+            _visualBody.ApplyMarkings(target, zombiecomp.BeforeZombifiedMarkings);
+
+            _bloodstream.ChangeBloodReagents(target, zombiecomp.BeforeZombifiedBloodReagents);
 
             return true;
         }

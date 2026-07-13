@@ -5,7 +5,7 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from Skyrat-tg at commit https://github.com/Skyrat-SS13/Skyrat-tg/commit/ed4fbf117973dafea6e654bee7efdc2316bc2d8d, inhand resprite by @mishutka09",
+    "copyright": "Taken from /tg/station at commit 9065b811726ae52be5d1889f436c01a24efbf47a, edited by github user @Flareguy for Space Station 14, inhands by BoskiYourk (GitHub)",
     "states": [
         {
             "name": "mw"

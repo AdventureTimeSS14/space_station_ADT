@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "made by prazat911 for Adventure Time",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "mattress_clean"
+    },
+    {
+      "name": "mattress_clean_full"
+    },
+    {
+      "name": "mattress_full"
+    }
+  ]
+}

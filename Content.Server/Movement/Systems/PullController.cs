@@ -5,6 +5,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Conveyor;
 using Content.Shared.Gravity;
 using Content.Shared.Input;
+using Content.Shared.ADT.Training;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
@@ -84,6 +85,7 @@ public sealed class PullController : VirtualController
     private EntityQuery<FixturesComponent> _fixturesQuery;
 
     private readonly Dictionary<EntityUid, Dictionary<string, float>> _originalDensities = new();
+    private readonly List<EntityUid> _densityRestoreBuffer = new();
     // ADT-tweak end
 
     public override void Initialize()
@@ -102,6 +104,7 @@ public sealed class PullController : VirtualController
         // ADT-tweak start
         SubscribeLocalEvent<PullableComponent, PullStartedMessage>(OnPullStarted);
         SubscribeLocalEvent<PullableComponent, PullStoppedMessage>(OnPullStopped);
+        SubscribeLocalEvent<PullableComponent, EntityTerminatingEvent>(OnPullableTerminating);
         // ADT-tweak end
         SubscribeLocalEvent<PullMovingComponent, PullStoppedMessage>(OnPullStop);
         SubscribeLocalEvent<ActivePullerComponent, MoveEvent>(OnPullerMove);
@@ -118,17 +121,31 @@ public sealed class PullController : VirtualController
     // ADT-tweak start
     private void OnPullStarted(Entity<PullableComponent> ent, ref PullStartedMessage args)
     {
-        if (args.PullerUid is not { Valid: true } puller ||
-            !_pullerQuery.TryComp(puller, out var pullerComp) ||
-            pullerComp.PulledDensityReduction <= 0f)
+        if (args.PullerUid is not { Valid: true } puller)
             return;
 
-        ApplyDensityReduction(ent, pullerComp.PulledDensityReduction);
+        if (!TryComp<TrainingProgressComponent>(puller, out var training) || training.Strength < 0.40f)
+            return;
+
+        float reduction;
+        if (training.Strength >= 1.00f)
+            reduction = 1.00f;
+        else if (training.Strength >= 0.70f)
+            reduction = 0.70f;
+        else
+            reduction = 0.40f;
+
+        ApplyDensityReduction(ent, reduction);
     }
 
     private void OnPullStopped(Entity<PullableComponent> ent, ref PullStoppedMessage args)
     {
         RestoreDensity(ent);
+    }
+
+    private void OnPullableTerminating(Entity<PullableComponent> ent, ref EntityTerminatingEvent args)
+    {
+        _originalDensities.Remove(ent);
     }
     // ADT-tweak end
 
@@ -314,13 +331,23 @@ public sealed class PullController : VirtualController
     {
         base.UpdateBeforeSolve(prediction, frameTime);
 
-        // ADT-tweak start
-        var pulledQuery = EntityQueryEnumerator<PullableComponent, PhysicsComponent>();
-        while (pulledQuery.MoveNext(out var pullableEnt, out var pullable, out var physics))
+        // ADT-tweak start: only check entities with modified densities instead of iterating all pullables
+        if (_originalDensities.Count > 0)
         {
-            if (pullable.Puller is not { Valid: true } puller || physics.BodyType == BodyType.Static)
+            _densityRestoreBuffer.Clear();
+            foreach (var trackedUid in _originalDensities.Keys)
             {
-                RestoreDensity(pullableEnt);
+                if (!_pullableQuery.TryComp(trackedUid, out var pullable) ||
+                    pullable.Puller is not { Valid: true } ||
+                    (_physicsQuery.TryComp(trackedUid, out var phys) && phys.BodyType == BodyType.Static))
+                {
+                    _densityRestoreBuffer.Add(trackedUid);
+                }
+            }
+
+            foreach (var uid in _densityRestoreBuffer)
+            {
+                RestoreDensity(uid);
             }
         }
         // ADT-tweak end

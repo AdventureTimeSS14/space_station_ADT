@@ -22,6 +22,7 @@ public sealed partial class SandevistanVisionOverlay : Overlay
     public SandevistanVisionOverlay()
     {
         IoCManager.InjectDependencies(this);
+        ZIndex = (int)Content.Shared.DrawDepth.DrawDepth.Effects + 20;
         _sandevistanVisionShader = _prototypeManager.Index<ShaderPrototype>("SandevistanVision").Instance().Duplicate();
         _transformSystem = _entityManager.System<TransformSystem>();
     }

@@ -57,9 +57,14 @@
       - ADTPhazonLLeg
       - ADTPhazonRLeg
       - ADTPhazonHead
+    containerId: mech-assembly-container
   - type: Sprite
     state: phazon_harness+o
     noRot: true
+  - type: Construction
+    graph: ADTPhazon
+    node: start
+    defaultTarget: phazon
 
 - type: entity
   parent: ADTBasePhazonPartItem
@@ -148,7 +153,3 @@
   - type: Sprite
     noRot: true
     state: phazon0
-  - type: Construction
-    graph: ADTPhazon
-    node: start
-    defaultTarget: phazon

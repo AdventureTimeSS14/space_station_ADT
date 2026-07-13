@@ -5,7 +5,8 @@
     Brutepack: 30
     Ointment: 30
     Tourniquet: 30
-    Bloodpack: 20
+#    Bloodpack: 20 # ADT-Tweak
+    ADTBloodPackTransfusionFull: 20 # ADT Tweak: Blood IV
     ChemistryBottleEpinephrine: 10
     Syringe: 10
     MedicatedSuture: 10

@@ -30,7 +30,38 @@
             - material: MetalRod
               amount: 2
               doAfter: 1
-
+        - to: adttableroundplastic
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Plastic
+              amount: 4
+              doAfter: 4
+        - to: adttableroundwood
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 4
+              doAfter: 4
+        - to: adttableroundglass
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Glass
+              amount: 4
+              doAfter: 4
+        - to: adtcablereel
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 5
+              doAfter: 5
     - node: adttableframe
       entity: ADTTableFrame
       edges:
@@ -299,3 +330,16 @@
           steps:
             - tool: Anchoring
               doAfter: 1
+
+    - node: adtcablereel
+      entity: ADTCableReel
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 3
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Prying
+              doAfter: 5

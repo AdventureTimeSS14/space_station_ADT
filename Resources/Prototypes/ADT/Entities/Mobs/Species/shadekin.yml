@@ -1,35 +1,25 @@
+﻿# Shadekin mob (upstream PR#42476). Appearance/body/sprite/inventory come from AppearanceShadekin.
 - type: entity
   save: false
-  parent: BaseMobSpeciesOrganic
+  parent:
+  - AppearanceShadekin
+  - ADTBaseSpeciesMobNonBreathing
   id: BaseMobShadekin
   abstract: true
   name: Урист МакСумеречник
   components:
   - type: OnGhostAttemtpDamage # При суициде будет нормально наносится урон не удушением а кровотечением.
-  - type: HumanoidAppearance
-    species: Shadekin
-    hideLayersOnEquip:
-    - SnoutOverlay
-  - type: Hunger
-  - type: Thirst
   - type: Butcherable
     butcheringType: Spike
     spawned:
     - id: ADTFoodMeatShadekin
       amount: 4
-  - type: Icon
-    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
-    state: full
-  - type: Body
-    prototype: Shadekin
-    requiredLegs: 2
   - type: Speech
     allowedEmotes: ['Thump']
   - type: BodyEmotes
     soundsId: ShadekinBodyEmotes
   - type: Puller
     needsHands: false
-  - type: MobState
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -40,15 +30,18 @@
       42: 0.7
       58: 0.5
   - type: Damageable
-    damageContainer: Biological # Shadekin
     damageModifierSet: Shadekin
+  - type: Injurable
+    damageContainer: Biological # Shadekin
   - type: Barotrauma
     damage:
       types:
         Blunt: 1 # В секунду.
   - type: Bloodstream
-    bloodMaxVolume: 180
-    bloodReagent: ShadekinBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ShadekinBlood
+        Quantity: 180
     bloodlossDamage:
       types:
         Bloodloss:
@@ -58,10 +51,11 @@
         Bloodloss:
           -0.25
   - type: Temperature
-    heatDamageThreshold: 330
-    coldDamageThreshold: 230
     currentTemperature: 310.15
     specificHeat: 46
+  - type: TemperatureDamage
+    heatDamageThreshold: 330
+    coldDamageThreshold: 230
     coldDamage:
       types:
         Cold : 0.05 #per second, scales with temperature & other constants
@@ -85,63 +79,6 @@
           - MobMask
         layer:
           - MobLayer
-  - type: Respirator
-    gaspEmote: null
-    damage:
-      types:
-        Asphyxiation: 0.0
-    damageRecovery:
-      types:
-        Asphyxiation: 0.0
-  - type: Sprite
-    scale: 0.95, 0.95
-    layers:
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    - map: [ "enum.HumanoidVisualLayers.Head" ]
-    - map: [ "enum.HumanoidVisualLayers.Snout" ]
-    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.RArm" ]
-    - map: [ "enum.HumanoidVisualLayers.LArm" ]
-    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    # ADT tweak start
-    - map: [ "underwearb" ]
-    - map: [ "underweart" ]
-    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-    - map: [ "socks" ]
-    - map: ["jumpsuit"]
-    # ADT tweak start
-    - map: ["enum.HumanoidVisualLayers.LHand"]
-    - map: ["enum.HumanoidVisualLayers.RHand"]
-    - map: [ "gloves" ]
-    - map: [ "shoes" ]
-    - map: [ "ears" ]
-    - map: [ "outerClothing" ]
-    - map: [ "eyes" ]
-    - map: [ "belt" ]
-    - map: [ "id" ]
-    - map: [ "neck" ]
-    - map: [ "back" ]
-    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-    - map: [ "enum.HumanoidVisualLayers.Hair" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    - map: [ "mask" ]
-    - map: [ "head" ]
-    - map: [ "pocket1" ]
-    - map: [ "pocket2" ]
-    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
-      color: "#ffffff"
-      sprite: Objects/Misc/handcuffs.rsi
-      state: body-overlay-2
-      visible: false
-    - map: [ "clownedon" ] # Dynamically generated
-      sprite: "Effects/creampie.rsi"
-      state: "creampie_human"
-      visible: false
   - type: MeleeWeapon
     soundHit:
       collection: Punch
@@ -165,8 +102,8 @@
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: petting-success-soft-floofy-others
   - type: MovementSpeedModifier
-    baseWalkSpeed : 4.5
-    baseSprintSpeed : 2.5
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4.5
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
@@ -174,89 +111,6 @@
         color: "#3C0F24"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
-  - type: Inventory
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: jumpsuit
-      shoes:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: shoes
-      gloves:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: hand
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: jumpsuit
-      head:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: head
-      underweart:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: underweart
-      underwearb:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: underwearb
-      socks:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: socks
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: jumpsuit
-      shoes:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: shoes
-      gloves:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: hand
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: jumpsuit
-      head:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: head
-      underweart:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: underweart
-      underwearb:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: underwearb
-      socks:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: socks
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
@@ -274,138 +128,3 @@
     - AnomalyHost
     - ADTIgnoreChokeSpeechBlocking
     - ADTShadekinEmotes
-
-- type: entity
-  save: false
-  parent: MobHumanDummy
-  id: MobShadekinDummy
-  categories: [ HideSpawnMenu ]
-  description: A dummy shadekin meant to be used in character setup.
-  components:
-  - type: HumanoidAppearance
-    species: Shadekin
-    hideLayersOnEquip:
-    - SnoutOverlay
-  - type: Sprite
-    scale: 0.95, 0.95
-    layers:
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    - map: [ "enum.HumanoidVisualLayers.Head" ]
-    - map: [ "enum.HumanoidVisualLayers.Snout" ]
-    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.RArm" ]
-    - map: [ "enum.HumanoidVisualLayers.LArm" ]
-    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    # ADT tweak start
-    - map: [ "underwearb" ]
-    - map: [ "underweart" ]
-    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-    - map: [ "socks" ]
-    - map: ["jumpsuit"]
-    # ADT tweak start
-    - map: ["enum.HumanoidVisualLayers.LHand"]
-    - map: ["enum.HumanoidVisualLayers.RHand"]
-    - map: [ "gloves" ]
-    - map: [ "shoes" ]
-    - map: [ "ears" ]
-    - map: [ "outerClothing" ]
-    - map: [ "eyes" ]
-    - map: [ "belt" ]
-    - map: [ "id" ]
-    - map: [ "neck" ]
-    - map: [ "back" ]
-    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-    - map: [ "enum.HumanoidVisualLayers.Hair" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    - map: [ "mask" ]
-    - map: [ "head" ]
-    - map: [ "pocket1" ]
-    - map: [ "pocket2" ]
-  - type: Inventory
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: jumpsuit
-      shoes:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: shoes
-      gloves:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: hand
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: jumpsuit
-      head:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: head
-      underweart:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: underweart
-      underwearb:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: underwearb
-      socks:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: socks
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: jumpsuit
-      shoes:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: shoes
-      gloves:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: hand
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: jumpsuit
-      head:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: head
-      underweart:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: underweart
-      underwearb:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: underwearb
-      socks:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: socks

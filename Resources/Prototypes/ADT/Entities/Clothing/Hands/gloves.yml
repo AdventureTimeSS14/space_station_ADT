@@ -1,3 +1,5 @@
+
+
 #region Paws
 # ADT Paws
 - type: entity
@@ -194,3 +196,32 @@
     sprite: Clothing/Hands/Gloves/tacticalmaidgloves.rsi
   - type: Fiber
     fiberColor: fibers-black
+
+#region Syndicate Grab Gloves
+
+- type: entity
+  parent: [BaseSyndicateContraband, ClothingHandsGlovesCombat]
+  id: ADTClothingHandsGlovesGuerrilla
+  name: guerrilla gloves
+  description: Top of the line quality syndicate combative gloves, good for grabs as well as absorbing electrical shocks. Seems to be powered by telecrystals.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/guerrilla.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/guerrilla.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#940000"
+      right:
+      - state: inhand-right
+        color: "#940000"
+  - type: GrabModifier
+    startingGrabStage: Hard
+    grabEscapeModifier: -0.1
+    grabEscapeMultiplier: 0.8
+    grabMoveSpeedMultiplier: 2
+  - type: MartialArtsBlocking
+
+#endregion

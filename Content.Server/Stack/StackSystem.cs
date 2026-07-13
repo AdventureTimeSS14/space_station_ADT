@@ -1,6 +1,7 @@
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using JetBrains.Annotations;
+using Robust.Server.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 // ADT-Tweak start
@@ -18,6 +19,7 @@ namespace Content.Server.Stack
     public sealed class StackSystem : SharedStackSystem
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IPlayerManager _playerManager = default!; // ADT-Tweak
         [Dependency] private readonly QuickDialogSystem _quickDialog = default!; // ADT-Tweak for system own split
 
         #region Spawning
@@ -26,7 +28,9 @@ namespace Content.Server.Stack
         /// Spawns a new entity and moves an amount to it from the stack.
         /// Moves nothing if amount is greater than ent's stack count.
         /// </summary>
-        /// <param name="amount"> How much to move to the new entity. </param>
+        /// <param name="ent">Entity to split in a new stack.</param>
+        /// <param name="amount">How much to move to the new entity.</param>
+        /// <param name="spawnPosition">Where to spawn the new stack</param>
         /// <returns>Null if StackComponent doesn't resolve, or amount to move is greater than ent has available.</returns>
         [PublicAPI]
         public EntityUid? Split(Entity<StackComponent?> ent, int amount, EntityCoordinates spawnPosition)
@@ -304,6 +308,45 @@ namespace Content.Server.Stack
 
             Popup.PopupCursor(Loc.GetString("comp-stack-split"), user.Owner);
         }
+
+        // ADT-Tweak start
+        protected override void RequestCustomSplit(Entity<StackComponent> stack, Entity<TransformComponent?> user)
+        {
+            if (!Resolve(user.Owner, ref user.Comp, false))
+                return;
+
+            if (!_playerManager.TryGetSessionByEntity(user.Owner, out var session))
+                return;
+
+            var maxCount = stack.Comp.Count;
+
+            _quickDialog.OpenDialog<int>(
+                session,
+                Loc.GetString("comp-stack-split-custom-title"),
+                Loc.GetString("comp-stack-split-custom-description", ("count", maxCount)),
+                (int amount) =>
+                {
+                    if (amount <= 0)
+                    {
+                        Popup.PopupCursor(Loc.GetString("comp-stack-split-too-small"), user.Owner, PopupType.Medium);
+                        return;
+                    }
+
+                    if (amount > maxCount)
+                    {
+                        Popup.PopupCursor(Loc.GetString("comp-stack-split-too-large"), user.Owner, PopupType.Medium);
+                        return;
+                    }
+
+                    if (Split(stack.AsNullable(), amount, user.Comp.Coordinates) is not { } split)
+                        return;
+
+                    Hands.PickupOrDrop(user.Owner, split);
+
+                    Popup.PopupCursor(Loc.GetString("comp-stack-split"), user.Owner);
+                });
+        }
+        // ADT-Tweak end
         #endregion
     }
 }

@@ -17,7 +17,7 @@ using Content.Shared.Damage.Components;
 
 namespace Content.Shared.ADT.Controlled;
 
-public sealed partial class SharedControlledSystem : EntitySystem
+public sealed partial class ControlledSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -25,9 +25,9 @@ public sealed partial class SharedControlledSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
-    [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] protected readonly IGameTiming GameTiming = default!;
+    private static readonly ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
 
     public override void Initialize()
     {
@@ -102,7 +102,7 @@ public sealed partial class SharedControlledSystem : EntitySystem
         observerComp.Source = target;
 
         var xform = Transform(observer);
-        ContainerSystem.AttachParentToContainerOrGrid((observer, xform));
+        _containerSystem.AttachParentToContainerOrGrid((observer, xform));
 
         // If we didn't get to parent's container.
         if (xform.ParentUid != Transform(xform.ParentUid).ParentUid)
@@ -125,7 +125,7 @@ public sealed partial class SharedControlledSystem : EntitySystem
         UpdateVisuals(observer, observerComp);
 
         if (TryComp<DamageableComponent>(target, out var damageable))
-            _damageable.TryChangeDamage(observer, damageable.Damage);
+            _damageable.TryChangeDamage(observer, _damageable.GetAllDamage((target, damageable)));
 
         _mind.TransferTo(uidMindId, target);
     }
@@ -153,7 +153,7 @@ public sealed partial class SharedControlledSystem : EntitySystem
                 _mind.TransferTo(mindId, uid);
             QueueDel(component.Observer);
             RemComp<ControlledComponent>(uid);
-            var damage_brute = new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 1f);
+            var damage_brute = new DamageSpecifier(_proto.Index(BruteDamageGroup), 1f);
             _damageable.TryChangeDamage(uid, damage_brute);
             return true;
         }
@@ -166,7 +166,7 @@ public sealed partial class SharedControlledSystem : EntitySystem
                 _mind.TransferTo(mindId, uid);
             QueueDel(component.Observer);
             RemComp<ControlledComponent>(uid);
-            var damage_brute = new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 1f);
+            var damage_brute = new DamageSpecifier(_proto.Index(BruteDamageGroup), 1f);
             _damageable.TryChangeDamage(uid, damage_brute);
             return true;
         }

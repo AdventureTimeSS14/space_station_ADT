@@ -162,6 +162,8 @@
         Slash: 0.9
         Radiation: 0.6
         Caustic: 0.8
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.85
@@ -202,7 +204,7 @@
   - type: ClothingGrantComponent
     component:
     - type: AshStormImmune
-    
+
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
   id: ADTClothingOuterModsuitBodySecurity
@@ -393,6 +395,8 @@
         Heat: 0.6
         Radiation: 0.3
         Caustic: 0.3
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.4
   - type: StaminaResistance
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
@@ -403,7 +407,11 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 2.25
-      Choke: 2
+      Suffocate: 2
+  - type: ClothingGrantComponent
+    component:
+    - type: SupermatterImmune
+  - type: SupermatterImmune
 
 - type: entity
   parent: ADTClothingOuterModsuitBodySyndicate
@@ -429,6 +437,8 @@
         Heat: 0.2
         Radiation: 0.01
         Caustic: 0.5
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.4
   - type: StaminaResistance
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
@@ -444,7 +454,11 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 1.5
-      Choke: 2
+      Suffocate: 2
+  - type: ClothingGrantComponent
+    component:
+    - type: SupermatterImmune
+  - type: SupermatterImmune
 
 - type: entity
   parent: ADTClothingOuterModsuitBodySyndicate
@@ -470,6 +484,8 @@
         Heat: 0.5
         Radiation: 0.25
         Caustic: 0.4
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.3
   - type: StaminaResistance
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
@@ -485,7 +501,11 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 2.25
-      Choke: 2
+      Suffocate: 2
+  - type: ClothingGrantComponent
+    component:
+    - type: SupermatterImmune
+  - type: SupermatterImmune
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -505,14 +525,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Caustic: 0.1
+        Caustic: 0.2
+        Radiation: 0.7
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.1
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1
-  - type: ZombificationResistance
-    zombificationResistanceCoefficient: 0.4
   - type: FireProtection
     reduction: 0.1
   - type: ItemToggle
@@ -681,6 +702,8 @@
         Piercing: 0.7
         Caustic: 0.7
         Radiation: 0.8
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.3
   - type: StaminaResistance
     damageCoefficient: 0.8
   - type: ClothingSpeedModifier

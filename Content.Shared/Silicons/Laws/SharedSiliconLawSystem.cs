@@ -1,5 +1,7 @@
+using Content.Shared.ADT.Silicons.Borgs.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Mind;
+using Content.Shared.Overlays;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Stunnable;
@@ -27,6 +29,11 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
 
     private void OnGotEmagged(EntityUid uid, EmagSiliconLawComponent component, ref GotEmaggedEvent args)
     {
+        // ADT-Tweak-AiRemoteControl-Start
+        if (HasComp<AiRemoteControllerComponent>(uid))
+            return;
+        // ADT-Tweak-AiRemoteControl-End
+
         if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
             return;
 
@@ -69,12 +76,28 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
 
     protected virtual void EnsureSubvertedSiliconRole(EntityUid mindId)
     {
-
+        if (TryComp<MindComponent>(mindId, out var mind))
+        {
+            var owner = mind.OwnedEntity;
+            if (TryComp<ShowCrewIconsComponent>(owner, out var crewIconComp))
+            {
+                crewIconComp.UncertainCrewBorder = true;
+                Dirty(owner.Value, crewIconComp);
+            }
+        }
     }
 
     protected virtual void RemoveSubvertedSiliconRole(EntityUid mindId)
     {
-
+        if (TryComp<MindComponent>(mindId, out var mind))
+        {
+            var owner = mind.OwnedEntity;
+            if (TryComp<ShowCrewIconsComponent>(owner, out var crewIconComp))
+            {
+                crewIconComp.UncertainCrewBorder = false;
+                Dirty(owner.Value, crewIconComp);
+            }
+        }
     }
 }
 

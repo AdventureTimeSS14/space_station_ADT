@@ -1,7 +1,6 @@
 using Content.Server.EUI;
 using Content.Shared.Revolutionary;
 using Content.Shared.Eui;
-using Content.Shared.Bible.Components;
 using Content.Server.Bible;
 using Content.Shared.Revolutionary.Components;
 using Content.Server.GameTicking.Rules;

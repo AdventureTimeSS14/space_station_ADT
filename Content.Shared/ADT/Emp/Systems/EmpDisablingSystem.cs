@@ -1,13 +1,10 @@
 using Content.Shared.ADT.EMP;
 using Content.Shared.Power.Components;
-using Robust.Shared.Containers;
 
 namespace Content.Shared.Emp;
 
 public abstract partial class SharedEmpSystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-
     private void InitializeADT()
     {
         SubscribeLocalEvent<EmpDisablingComponent, EmpPulseEvent>(OnDisablingPulse);

@@ -7,7 +7,6 @@ namespace Content.Client.ADT.ThermalVision;
 
 public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 {
-    [Dependency] private readonly ILightManager _light = default!;
     [Dependency] private readonly IOverlayManager _overlay = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 

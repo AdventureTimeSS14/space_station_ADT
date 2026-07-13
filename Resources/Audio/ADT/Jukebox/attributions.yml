@@ -25,3 +25,33 @@
   license: "CC-BY-NC-4.0"
   copyright: "by vocal and instrumental ensemble Ariel. Converted to mono ogg"
   source: "https://soundcloud.com/channel_xyz/pcfxn1ptap75"
+
+- files: ["CCTRFKAP.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "By Chris Christodoulou"
+  source: "https://www.youtube.com/watch?v=EGXPAoyP_cg"
+
+- files: ["CCCLP.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "By Chris Christodoulou"
+  source: "https://www.youtube.com/watch?v=Nn9trJXUrp0"
+
+- files: ["MJB.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Mijac Music (administered by Sony/ATV Songs LLC)"
+  source: "https://www.youtube.com/watch?v=-DlMoJ2V6uk"
+
+- files: ["GTBTTB.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Kobalt Music Publishing America o/b/o Del Sound Music"
+  source: "https://www.youtube.com/watch?v=nqgUG_JVzCs"
+
+- files: ["ACDCBIB.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Sony/ATV Tunes LLC o/b/o Australian Music Corporation Pty. Ltd."
+  source: "https://www.youtube.com/watch?v=9VyFICGlOkg"
+
+- files: ["ACDCHTH.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Sony/ATV Tunes LLC o/b/o Australian Music Corporation Pty. Ltd."
+  source: "https://www.youtube.com/watch?v=UCskpE9KGQU"

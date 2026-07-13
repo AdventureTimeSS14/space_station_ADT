@@ -1,12 +1,14 @@
 - type: entity
-  name: first aid kit of the emergency response team medic 
+  name: first aid kit of the emergency response team medic
   description: The first-aid kit of the rapid response team medic includes advanced medical supplies, filaments and grafts for rapid treatment. However, in order to save money, there are few advanced drugs.
   parent: MedkitAdvanced
   id: ADTMedkitAdvancedERT
   components:
   - type: Storage
     grid:
-    - 0,0,8,2
+    - 0,0,6,3
+  - type: Item
+    size: Huge
   - type: StorageFill
     contents:
       - id: ADTObjectsSpecificBicaridineChemistryBottle
@@ -16,13 +18,16 @@
       - id: ChemistryBottleEpinephrine
       - id: ADTLacerinolChemistryBottle
       - id: ADTLacerinolChemistryBottle
-      - id: ADTLacerinolChemistryBottle
-      - id: ADTBruizineChemistryBottle
       - id: ADTBruizineChemistryBottle
       - id: ADTBruizineChemistryBottle
       - id: ADTPuncturaseChemistryBottle
       - id: ADTPuncturaseChemistryBottle
       - id: ADTPuncturaseChemistryBottle
+      - id: ChemistryBottlePyrazine
+      - id: ChemistryBottlePyrazine
+      - id: ChemistryBottlePyrazine
+      - id: ADTSilverSulfadiazineChemistryBottle
+      - id: ADTStypticPowderChemistryBottle
       - id: ADTDyloveneChemistryBottle
       - id: BruteAutoInjector
       - id: BurnAutoInjector
@@ -30,4 +35,5 @@
       - id: AntiPoisonMedipen
       - id: RegenerativeMesh
       - id: MedicatedSuture
-      - id: Bloodpack
+      - id: ADTSalineChemistryBottle
+      - id: ADTSalineChemistryBottle

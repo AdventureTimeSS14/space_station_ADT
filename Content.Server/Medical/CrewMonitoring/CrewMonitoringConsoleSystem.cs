@@ -5,7 +5,7 @@ using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Station.Systems;
-using Content.Server.PowerCell;
+using Content.Shared.PowerCell;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Emag.Systems;
@@ -285,7 +285,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
             if (allowedDepartmentNames.Count > 0)
             {
-                allSensors = allSensors.Where(s => s.JobDepartments != null &&
+                allSensors = allSensors.Where(s => !s.JobDepartments.Any() ||
                     s.JobDepartments.Any(dept => allowedDepartmentNames.Contains(dept))).ToList();
             }
         }

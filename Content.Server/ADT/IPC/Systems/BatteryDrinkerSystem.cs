@@ -146,8 +146,8 @@ public sealed class BatteryDrinkerSystem : EntitySystem
             return;
 
         var amountToDrink = drinkerBattery.MaxCharge * 0.10f;
-        amountToDrink = MathF.Min(amountToDrink, sourceBattery.CurrentCharge);
-        amountToDrink = MathF.Min(amountToDrink, drinkerBattery.MaxCharge - drinkerBattery.CurrentCharge);
+        amountToDrink = MathF.Min(amountToDrink, _battery.GetCharge((source, sourceBattery)));
+        amountToDrink = MathF.Min(amountToDrink, drinkerBattery.MaxCharge - _battery.GetCharge((drinker, drinkerBattery)));
 
         if (sourceComp.MaxAmount > 0)
             amountToDrink = MathF.Min(amountToDrink, (float)sourceComp.MaxAmount);
@@ -158,11 +158,26 @@ public sealed class BatteryDrinkerSystem : EntitySystem
             return;
         }
 
-        var tryUse = _battery.TryUseCharge(source, amountToDrink);
+        // Проверка на NaN/Infinity для предотвращения поломки ЛКП
+        if (float.IsNaN(amountToDrink) || float.IsInfinity(amountToDrink))
+        {
+            _popup.PopupEntity(Loc.GetString("battery-drinker-empty", ("target", source)), drinker, drinker);
+            return;
+        }
+
+        // Проверка на NaN/Infinity перед установкой заряда
+        var newCharge = _battery.GetCharge((drinker, drinkerBattery)) + amountToDrink;
+        if (float.IsNaN(newCharge) || float.IsInfinity(newCharge))
+        {
+            _popup.PopupEntity(Loc.GetString("battery-drinker-error", ("target", source)), drinker, drinker);
+            return;
+        }
+
+        var tryUse = _battery.TryUseCharge((source, sourceBattery), amountToDrink);
         if (tryUse)
         {
-            _battery.SetCharge(drinkerBatteryUid, drinkerBattery.CurrentCharge + amountToDrink);
-            if (drinkerBattery.CurrentCharge < drinkerBattery.MaxCharge * 0.95f)
+            _battery.ChangeCharge(drinkerBatteryUid, amountToDrink);
+            if (_battery.GetCharge((drinker, drinkerBattery)) < drinkerBattery.MaxCharge * 0.95f)
             {
                 args.Repeat = true;
             }
@@ -173,8 +188,6 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         }
         else
         {
-            _battery.SetCharge(drinker, sourceBattery.CurrentCharge + drinkerBattery.CurrentCharge);
-            _battery.SetCharge(source, 0);
             args.Repeat = false;
         }
     }

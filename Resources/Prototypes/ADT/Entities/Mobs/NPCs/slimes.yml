@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: slime
   description: A slime.
   id: ADTMobSlimesGeras
@@ -51,11 +51,14 @@
     - FootstepSound
     - DoorBumpOpener
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Slime
+  - type: Injurable
+    damageContainer: Biological
   - type: Bloodstream
-    bloodReagent: Slime
-    bloodMaxVolume: 150
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Slime
+        Quantity: 150
     bloodlossDamage:
       types:
         Bloodloss:
@@ -65,8 +68,6 @@
         Bloodloss:
           -0.25
   - type: Body
-    prototype: ADTGeras
-    requiredLegs: 1
   - type: MeleeWeapon
     attackRate: 2
     altDisarm: false
@@ -124,12 +125,12 @@
   - type: PassiveDamage
     allowedStates:
     - Alive
-    damageCap: 65
     damage:
       types:
         Heat: -0.14
-      groups:
-        Brute: -0.14
+        Blunt: -0.14
+        Slash: -0.14
+        Piercing: -0.14
   - type: Barotrauma
     damage:
       types:
@@ -159,11 +160,9 @@
     - PressureImmunity
     - Muted
     - ForcedSleep
-    - TemporaryBlindness
     - Pacified
     - StaminaModifier
     - Flashed
-    - RadiationProtection
     - Drowsiness
     - Adrenaline
     - ADTHallucinations

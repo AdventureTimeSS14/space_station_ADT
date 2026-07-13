@@ -1,6 +1,7 @@
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Station.Systems;
+using Content.Server.Traits;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -20,6 +21,8 @@ using Robust.Shared.EntitySerialization;
 using Robust.Shared.Map.Components;
 using System.Linq;
 using Robust.Shared.Utility;
+using Robust.Shared.Configuration;
+using Content.Shared.ADT.CCVar;
 
 namespace Content.Server.ADT.Ghostbar;
 
@@ -31,9 +34,11 @@ public sealed class GhostBarSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly StationSpawningSystem _spawningSystem = default!;
+    [Dependency] private readonly TraitSystem _traits = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly StealthSystem _stealth = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     public GhostBarMapPrototype? GhostBarMap;   // Существует для того, чтобы посетители гост бара спавнились соответственно его настройкам. Если значение равно null во время раунда - что-то сломано
 
 
@@ -47,6 +52,10 @@ public sealed class GhostBarSystem : EntitySystem
 
     private void OnRoundStart(RoundStartingEvent ev)
     {
+        // Check if ghostbar is enabled
+        if (!_cfg.GetCVar(ADTCCVars.GhostbarEnabled))
+            return;
+
         // _mapSystem.CreateMap(out var mapId);
         var opts = new DeserializationOptions
         {
@@ -68,7 +77,9 @@ public sealed class GhostBarSystem : EntitySystem
         _mapSystem.SetPaused(mapComponent.MapId, false);
 
         if (GhostBarMap.Weather.HasValue)
-            _weathersystem.SetWeather(mapComponent.MapId, _prototypeManager.Index(GhostBarMap.Weather.Value), null);
+        {
+            _weathersystem.TrySetWeather(mapComponent.MapId, GhostBarMap.Weather.Value.Id, out _);
+        }
     }
 
     private void OnPlayerGhosted(EntityUid uid, GhostBarPlayerComponent component, MindRemovedMessage args)
@@ -104,6 +115,7 @@ public sealed class GhostBarSystem : EntitySystem
         var randomJob = _random.Pick(GhostBarMap.Jobs);
         var profile = _ticker.GetPlayerProfile(args.SenderSession);
         var mobUid = _spawningSystem.SpawnPlayerMob(randomSpawnPoint, randomJob, profile, null);
+        _traits.ApplyTraits(mobUid, profile, randomJob);
 
         EnsureComp<GhostBarPlayerComponent>(mobUid);
         EnsureComp<MindShieldComponent>(mobUid);

@@ -9,7 +9,6 @@
 # И ВОТ ЭТИ ВСЕ map В СПРАЙТАХ - ТОЖЕ НУЖНЫ!!!
 # УЧИТЕСЬ НА МОИХ СТРАДАНИЯХ!!!
   - type: Body
-    prototype: Human
 #
   - type: Hands
     showInHands: false
@@ -168,6 +167,7 @@
 #
   - type: Damageable
     damageModifierSet: ADTMobCreatureDamageSet
+  - type: Injurable
 #
   - type: LanguageSpeaker
     languages:
@@ -184,7 +184,6 @@
 # И ВОТ ЭТИ ВСЕ map В СПРАЙТАХ - ТОЖЕ НУЖНЫ!!!
 # УЧИТЕСЬ НА МОИХ СТРАДАНИЯХ!!!
   - type: Body
-    prototype: Human
 #
   - type: Hands
     showInHands: false
@@ -255,8 +254,8 @@
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
       - map: ["socks"]
-      - map: ["underpants"]
-      - map: ["undershirt"]
+      - map: ["underwearb"]
+      - map: ["underweart"]
       - map: ["jumpsuit"]
       - map: ["enum.HumanoidVisualLayers.LHand"]
       - map: ["enum.HumanoidVisualLayers.RHand"]
@@ -417,6 +416,7 @@
 #
   - type: Damageable
     damageModifierSet: ADTMobCreatureDamageSet
+  - type: Injurable
 #
   - type: LanguageSpeaker
     languages:
@@ -445,7 +445,6 @@
       - map: ["enum.HumanoidVisualLayers.LHand"]
       - map: ["enum.HumanoidVisualLayers.RHand"]
   - type: Body
-    prototype: Human
   - type: Hands
   - type: MindContainer
   - type: NpcFactionMember
@@ -513,8 +512,8 @@
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
       - map: ["socks"]
-      - map: ["underpants"]
-      - map: ["undershirt"]
+      - map: ["underwearb"]
+      - map: ["underweart"]
       - map: ["jumpsuit"]
       - map: ["enum.HumanoidVisualLayers.LHand"]
       - map: ["enum.HumanoidVisualLayers.RHand"]

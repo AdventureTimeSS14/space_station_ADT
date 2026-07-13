@@ -2,8 +2,7 @@
 - type: marking
   id: ADTFeatheredEarsPangaari
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
   - sprite: ADT/Personalization/pangaari_feathered.rsi
     state: feathered_ears
@@ -11,8 +10,7 @@
 - type: marking
   id: ADTFeatheredWingsPangaari
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
   - sprite: ADT/Personalization/pangaari_feathered.rsi
     state: feathered_wings

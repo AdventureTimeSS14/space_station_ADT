@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: candle
   parent: BaseItem
   id: Candle
@@ -52,6 +52,7 @@
           shader: unshaded
     - type: Damageable
       damageModifierSet: ADTCandle # ADT tweak
+    - type: Injurable
     - type: Destructible
       thresholds:
       - trigger:
@@ -287,7 +288,7 @@
   #ADT-Tweak Start
   - type: Item
     size: Small
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: null
     inhandVisuals:
       left:

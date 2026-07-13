@@ -1,5 +1,4 @@
-﻿using Content.Shared.Anomaly.Effects;
-using Content.Shared.Body.Prototypes;
+using Content.Shared.Anomaly.Effects;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -22,6 +21,14 @@ public sealed partial class InnerBodyAnomalyComponent : Component
     /// </summary>
     [DataField(required: true)]
     public EntProtoId? InjectionProto;
+
+    /// <summary>
+    /// ADT-Tweak
+    /// List of component UIDs that were added by the anomaly.
+    /// Used to remove only the specific components added by the anomaly, not all components of the same type.
+    /// </summary>
+    [ViewVariables]
+    public List<ushort> AddedComponentNetIds = new();
 
     /// <summary>
     /// Duration of stun from the effect of the anomaly

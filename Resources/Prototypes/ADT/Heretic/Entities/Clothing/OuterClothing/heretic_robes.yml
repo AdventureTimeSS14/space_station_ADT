@@ -1,0 +1,59 @@
+- type: entity
+  id: ADTClothingOuterArmorHereticBlade
+  parent: ClothingOuterArmorHeretic
+  name: blade heretic robe
+  description: A ragged set of robes favored by heretics of the Blade path. Strange eyes line the inside. The fabric feels sharp to the touch.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/HereticRobes/blade_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Heretic/HereticRobes/blade_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatHoodHereticBlade
+    slot: head
+
+- type: entity
+  id: ADTClothingOuterArmorHereticFlesh
+  parent: ClothingOuterArmorHeretic
+  name: flesh heretic robe
+  description: A disturbing set of robes favored by heretics of the Flesh path. Strange eyes line the inside. The fabric seems to pulse faintly.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/HereticRobes/flesh_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Heretic/HereticRobes/flesh_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatHoodHereticFlesh
+    slot: head
+
+- type: entity
+  id: ADTClothingOuterArmorHereticVoid
+  parent: ClothingOuterArmorHeretic
+  name: void heretic robe
+  description: A cold set of robes favored by heretics of the Void path. Strange eyes line the inside. The fabric seems to absorb light.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/HereticRobes/void_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Heretic/HereticRobes/void_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatHoodHereticVoid
+    slot: head
+
+- type: entity
+  id: ADTClothingOuterArmorHereticAsh
+  parent: ClothingOuterArmorHeretic
+  name: ashen heretic robe
+  description: A scorched set of robes favored by heretics of the Ash path. Strange eyes line the inside. The fabric is warm and smells of smoke.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/HereticRobes/ashen_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Heretic/HereticRobes/ashen_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatHoodHereticAsh
+    slot: head

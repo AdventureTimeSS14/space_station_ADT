@@ -7,10 +7,9 @@ public sealed partial class WhitelistEntityConditionSystem : EntityConditionSyst
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     protected override void Condition(Entity<MetaDataComponent> entity, ref EntityConditionEvent<WhitelistCondition> args)
     {
-        if (!args.Condition.Blacklist)
-            args.Result = _whitelist.IsWhitelistFail(args.Condition.Whitelist, entity);
-        else
-            args.Result = _whitelist.IsBlacklistFail(args.Condition.Whitelist, entity);
+        args.Result = _whitelist.IsWhitelistFail(args.Condition.Whitelist, entity);
+        if (args.Condition.Blacklist)
+            args.Result = !args.Result;
     }
 }
 

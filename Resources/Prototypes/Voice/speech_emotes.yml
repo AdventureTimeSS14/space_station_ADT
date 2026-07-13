@@ -92,7 +92,7 @@
     components:
     - Vocal
     tags:
-    - SiliconEmotes
+    - ADTSiliconEmotes #ADT-Tweak
   chatMessages: ["chat-emote-msg-honk"]
   chatTriggers:
     - honk
@@ -126,6 +126,7 @@
     - вздохнул
     - вздохнула
     # Corvax-Localization-End
+    - выдыхает #ADT-Tweak
 
 - type: emote
   id: Whistle
@@ -371,6 +372,23 @@
 #   - рычит!
 #   # Corvax-Localization-End
 
+# ADT-Tweak: Vulpkanin emotes defined in /Prototypes/ADT/Voice/speech_emotes.yml (Snarl already above)
+# - type: emote
+#   id: Bark
+#   ...
+# - type: emote
+#   id: Snarl
+#   ...
+# - type: emote
+#   id: Whine
+#   ...
+# - type: emote
+#   id: Howl
+#   ...
+# - type: emote
+#   id: Growl
+#   ...
+
 # hand emotes
 - type: emote
   id: Clap
@@ -530,6 +548,11 @@
    - gasp
    - gasps
    - gasped
+   #ADT-Tweak-Start
+   - задыхается
+   - вдыхает
+   - жадно глотает воздух
+   #ADT-Tweak-End
 
 - type: emote
   id: DefaultDeathgasp
@@ -538,6 +561,11 @@
   whitelist:
     components:
     - MobState
+  #ADT-Tweak-Start
+  blacklist:
+    components:
+    - MobIpc
+  #ADT-Tweak-End
   chatMessages: ["chat-emote-msg-deathgasp"]
   chatTriggers:
   - deathgasp
@@ -564,7 +592,7 @@
     components:
     - Vocal
     tags:
-    - SiliconEmotes
+    - ADTSiliconEmotes #ADT-Tweak
   chatMessages: ["chat-emote-msg-buzz"]
   chatTriggers:
     - buzzing
@@ -614,6 +642,41 @@
     - чирикает
     # Corvax-Localization-End
 
+- type: emote
+  id: Flap
+  name: chat-emote-name-flap
+  category: Hands # Not really "hands", but how far it to vocal? (moth mimes want to flap too!)
+  available: false
+  icon: Interface/Emotes/flap.png
+  whitelist:
+    components:
+    - Hands
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-flap"]
+  chatTriggers:
+   - flap
+   - flaps
+   - flapped
+   - flapping
+   - flutter
+   - flutters
+   - fluttering
+   - fluttered
+   - flap wings
+   - flaps wings
+   - flutter wings
+   - flutters wings
+   - flaps his wings
+   - flaps her wings
+   - flaps their wings
+   - flaps its wings
+   - flutters his wings
+   - flutters her wings
+   - flutters their wings
+   - flutters its wings
+
 # Machine Emotes
 - type: emote
   id: Beep
@@ -625,7 +688,7 @@
     components:
     - Vocal
     tags:
-    - SiliconEmotes
+    - ADTSiliconEmotes #ADT-Tweak
   chatMessages: ["chat-emote-msg-beep"]
   chatTriggers:
     - beep
@@ -646,7 +709,7 @@
     components:
     - Vocal
     tags:
-    - SiliconEmotes
+    - ADTSiliconEmotes #ADT-Tweak
   chatMessages: ["chat-emote-msg-chime"]
   chatTriggers:
     - chime
@@ -667,7 +730,7 @@
     components:
     - Vocal
     tags:
-    - SiliconEmotes
+    - ADTSiliconEmotes #ADT-Tweak
   chatMessages: ["chat-emote-msg-buzzestwo"]
   chatTriggers:
     - buzztwice
@@ -699,7 +762,7 @@
     components:
     - Vocal
     tags:
-    - SiliconEmotes
+    - ADTSiliconEmotes #ADT-Tweak
   chatMessages: ["chat-emote-msg-ping"]
   chatTriggers:
     - ping

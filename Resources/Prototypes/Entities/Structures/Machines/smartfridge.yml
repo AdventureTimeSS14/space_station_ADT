@@ -48,6 +48,7 @@
   - type: SmartFridge
     whitelist:
       components:
+      - Edible
       - FitsInDispenser
       - Pill
       - Produce
@@ -68,8 +69,10 @@
   - type: WiresPanel
   - type: WiresVisuals
   - type: AccessReader
-  - type: UseDelay
-    delay: 1
+  # ADT-Tweak Start: Deprecated - No predict, no Delay. 
+  #- type: UseDelay
+  #  delay: 1
+  # ADT-Tweak End
   - type: AntiRottingContainer
   - type: ResistLocker
   - type: Physics
@@ -105,8 +108,9 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: DamageOnHighSpeedImpact
     damage:
       types:

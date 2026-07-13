@@ -14,12 +14,40 @@ public sealed class PunchingBagAnimationsSystem : SharedPunchingBagAnimationsSys
     private const string BaseLayerKey = "base";
     private const string AnimationKey = "punching-bag-animation";
 
+    private readonly Dictionary<string, Animation> _animationCache = new();
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeAllEvent<PunchingBagAnimationEvent>(ev =>
             PlayAnimation(GetEntity(ev.Uid), EntityUid.Invalid, ev.AnimationState));
+    }
+
+    private Animation GetOrCreateAnimation(string animationState)
+    {
+        if (_animationCache.TryGetValue(animationState, out var cached))
+            return cached;
+
+        var animation = new Animation
+        {
+            Length = TimeSpan.FromSeconds(1.0),
+            AnimationTracks =
+            {
+                new AnimationTrackSpriteFlick
+                {
+                    LayerKey = BaseLayerKey,
+                    KeyFrames =
+                    {
+                        new AnimationTrackSpriteFlick.KeyFrame(animationState, 0f),
+                        new AnimationTrackSpriteFlick.KeyFrame("punchingbag", 1.0f),
+                    }
+                }
+            }
+        };
+
+        _animationCache[animationState] = animation;
+        return animation;
     }
 
     protected override void PlayAnimation(EntityUid uid, EntityUid attacker, string animationState)
@@ -39,24 +67,6 @@ public sealed class PunchingBagAnimationsSystem : SharedPunchingBagAnimationsSys
         if (!_sprite.LayerMapTryGet((uid, sprite), BaseLayerKey, out _, false))
             _sprite.LayerMapSet((uid, sprite), BaseLayerKey, 0);
 
-        var animation = new Animation
-        {
-            Length = TimeSpan.FromSeconds(1.0),
-            AnimationTracks =
-            {
-                new AnimationTrackSpriteFlick
-                {
-                    LayerKey = BaseLayerKey,
-                    KeyFrames =
-                    {
-                        new AnimationTrackSpriteFlick.KeyFrame(animationState, 0f),
-                        new AnimationTrackSpriteFlick.KeyFrame("punchingbag", 1.0f),
-                    }
-                }
-            }
-        };
-
-        _animationSystem.Play(uid, animation, AnimationKey);
+        _animationSystem.Play(uid, GetOrCreateAnimation(animationState), AnimationKey);
     }
 }
-

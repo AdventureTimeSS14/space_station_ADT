@@ -7,7 +7,7 @@ ent-ADTClothingModsuitBackAtmos = МОД "Атмосферный"
 ent-ADTClothingModsuitBackClown = МОД "Космохонк"
     .desc = Костюм от компании "Honk Ltd.", известный также как Модульный Ограничитель Дурачков. Защищает от низкого уровня юмора.
 
-ent-ADTClothingModsuitBackEngineering = МОД "Инженерный" 
+ent-ADTClothingModsuitBackEngineering = МОД "Инженерный"
     .desc = Инженерный костюм с термо- и ударопрочностью. Классика от Nakamura Engineering.
 
 ent-ADTClothingModsuitBackMedical = МОД "Медицинский"
@@ -39,7 +39,7 @@ ent-ADTClothingModsuitBackCCC = МОД "Корпорат"
     .suffix = Консультант
     .desc =  Модный высокотехнологичный скафандр для высокопоставленных офицеров Nanotrasen. Призван держать бюрократов внутри - Пули снаружи.
 
-ent-ADTClothingModsuitBackAdvanced = МОД "Инженерный Продвинутый"
+ent-ADTClothingModsuitBackAdvanced = МОД "Инженерный продвинутый"
     .desc = Усовершенствованная версия классического костюма "Nakamura Engineering", сияющая белизной, кислото- и огнестойкой полировкой.
 
 ent-ADTClothingModsuitBackSyndicateElite = МОД "Элитный"
@@ -106,7 +106,7 @@ ent-ADTClothingHeadHelmetModsuitCMO = шлем МОДа "Гиппократ"
     .desc = Шлем от МОДа.
 ent-ADTClothingHeadHelmetModsuitCaptain = шлем МОДа "Магнат"
     .desc = Шлем от МОДа.
-ent-ADTClothingHeadHelmetModsuitWard = шлем МОДа "Защитный" 
+ent-ADTClothingHeadHelmetModsuitWard = шлем МОДа "Защитный"
     .desc = Шлем от МОДа.
 ent-ADTClothingHeadHelmetModsuitBrigmedic = шлем МОДа "Ангел-Хранитель"
     .desc = Шлем от МОДа.

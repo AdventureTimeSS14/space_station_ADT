@@ -2,8 +2,8 @@
 - type: marking
   id: NovakidHair1
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: braid
@@ -11,8 +11,8 @@
 - type: marking
   id: NovakidHair2
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: comet
@@ -20,8 +20,8 @@
 - type: marking
   id: NovakidHair3
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: constellation
@@ -29,8 +29,8 @@
 - type: marking
   id: NovakidHair4
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: duality
@@ -38,8 +38,8 @@
 - type: marking
   id: NovakidHair5
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: fame
@@ -47,8 +47,8 @@
 - type: marking
   id: NovakidHair6
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: gas_cloud
@@ -56,8 +56,8 @@
 - type: marking
   id: NovakidHair7
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: gaseous_avalanche
@@ -65,8 +65,8 @@
 - type: marking
   id: NovakidHair8
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: light_shine
@@ -74,8 +74,8 @@
 - type: marking
   id: NovakidHair9
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: little_light_starshine
@@ -83,8 +83,8 @@
 - type: marking
   id: NovakidHair10
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: little_star
@@ -92,8 +92,8 @@
 - type: marking
   id: NovakidHair11
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: lunar_day
@@ -101,8 +101,8 @@
 - type: marking
   id: NovakidHair12
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: meteoric_shower
@@ -110,8 +110,8 @@
 - type: marking
   id: NovakidHair13
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: milky_way
@@ -119,8 +119,8 @@
 - type: marking
   id: NovakidHair14
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: Nebula
@@ -128,8 +128,8 @@
 - type: marking
   id: NovakidHair15
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: solar_corona
@@ -137,8 +137,8 @@
 - type: marking
   id: NovakidHair16
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: star_rain
@@ -146,8 +146,8 @@
 - type: marking
   id: NovakidHair17
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: starfall
@@ -155,8 +155,8 @@
 - type: marking
   id: NovakidHair18
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: starfire
@@ -164,8 +164,8 @@
 - type: marking
   id: NovakidHair19
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: sunshine
@@ -173,8 +173,8 @@
 - type: marking
   id: NovakidHair20
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: supernova
@@ -182,8 +182,8 @@
 - type: marking
   id: NovakidHair21
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: universal_style
@@ -191,8 +191,8 @@
 - type: marking
   id: NovakidHair22
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: virgo
@@ -200,8 +200,7 @@
 - type: marking
   id: NovakidFace1
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: cross
@@ -209,8 +208,7 @@
 - type: marking
   id: NovakidFace2
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: crack
@@ -218,8 +216,7 @@
 - type: marking
   id: NovakidFace3
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: crucifix
@@ -227,8 +224,7 @@
 - type: marking
   id: NovakidFace4
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: dual
@@ -236,8 +232,7 @@
 - type: marking
   id: NovakidFace5
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: eye
@@ -245,8 +240,7 @@
 - type: marking
   id: NovakidFace6
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: h
@@ -254,8 +248,7 @@
 - type: marking
   id: NovakidFace7
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: heart
@@ -263,8 +256,7 @@
 - type: marking
   id: NovakidFace8
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: indicator
@@ -272,8 +264,7 @@
 - type: marking
   id: NovakidFace9
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: note
@@ -281,8 +272,7 @@
 - type: marking
   id: NovakidFace10
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: prism
@@ -290,8 +280,7 @@
 - type: marking
   id: NovakidFace11
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: rune
@@ -299,8 +288,7 @@
 - type: marking
   id: NovakidFace12
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: squad
@@ -308,8 +296,7 @@
 - type: marking
   id: NovakidFace13
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: thrill
@@ -317,8 +304,7 @@
 - type: marking
   id: NovakidFace14
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: triple
@@ -326,8 +312,7 @@
 - type: marking
   id: NovakidFace15
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: uncrucifix
@@ -335,8 +320,7 @@
 - type: marking
   id: NovakidFace16
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: x
@@ -344,8 +328,7 @@
 - type: marking
   id: NovakidFace17
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: ye
@@ -353,17 +336,15 @@
 - type: marking
   id: NovakidFace18
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: zeta
 
 - type: marking
   id: HeadNovakidDefolt
-  bodyPart: [ Head ]
-  markingCategory: HeadTop
-  speciesRestriction: [NovakidSpecies]
+  bodyPart: Head # ADT-Tweak: was [ Head ], wizden schema is single-enum
+  groupWhitelist: [Novakid]
   forcedColoring: true
   coloring:
     default:
@@ -377,8 +358,7 @@
 - type: marking
   id: TorsoNovakidDefoltMale
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   forcedColoring: true
   coloring:
     default:
@@ -392,8 +372,7 @@
 - type: marking
   id: TorsoNovakidDefoltFemale
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   forcedColoring: true
   coloring:
     default:
@@ -407,8 +386,7 @@
 - type: marking
   id: NovakidFace19
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: cone_a
@@ -416,8 +394,7 @@
 - type: marking
   id: NovakidFace20
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: connect_a
@@ -425,8 +402,7 @@
 - type: marking
   id: NovakidFace21
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: dot_a
@@ -434,8 +410,7 @@
 - type: marking
   id: NovakidFace22
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: dotline_a
@@ -443,8 +418,7 @@
 - type: marking
   id: NovakidFace23
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: eyes_a
@@ -452,8 +426,7 @@
 - type: marking
   id: NovakidFace24
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: G_a
@@ -461,8 +434,7 @@
 - type: marking
   id: NovakidFace25
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: house
@@ -470,8 +442,7 @@
 - type: marking
   id: NovakidFace26
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: K
@@ -479,8 +450,7 @@
 - type: marking
   id: NovakidFace27
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: lima-a
@@ -488,8 +458,7 @@
 - type: marking
   id: NovakidFace28
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: linedot_a
@@ -497,8 +466,7 @@
 - type: marking
   id: NovakidFace29
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: omega_a
@@ -506,8 +474,7 @@
 - type: marking
   id: NovakidFace30
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: plus
@@ -515,8 +482,7 @@
 - type: marking
   id: NovakidFace31
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: rose
@@ -524,8 +490,7 @@
 - type: marking
   id: NovakidFace32
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: shatter_a
@@ -533,8 +498,7 @@
 - type: marking
   id: NovakidFace33
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: star_a
@@ -542,8 +506,7 @@
 - type: marking
   id: NovakidFace34
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: two-a
@@ -551,8 +514,7 @@
 - type: marking
   id: NovakidFaceHorns
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: horns
@@ -560,8 +522,7 @@
 - type: marking
   id: NovakidFaceHourGlasses
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: hourglasses
@@ -569,8 +530,7 @@
 - type: marking
   id: NovakidFaceLove
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: love
@@ -578,8 +538,7 @@
 - type: marking
   id: NovakidFaceMadness
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: madness
@@ -587,8 +546,7 @@
 - type: marking
   id: NovakidFaceNaive
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: naive
@@ -596,8 +554,7 @@
 - type: marking
   id: NovakidFaceRevTriangle
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: rev_triangle
@@ -605,8 +562,7 @@
 - type: marking
   id: NovakidFaceScar
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: scar
@@ -614,8 +570,7 @@
 - type: marking
   id: NovakidFaceSpider
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: spider
@@ -623,8 +578,7 @@
 - type: marking
   id: NovakidFaceSpinningTop
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: spinning_top
@@ -632,8 +586,7 @@
 - type: marking
   id: NovakidFaceSupernova
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: supernova2
@@ -641,8 +594,7 @@
 - type: marking
   id: NovakidFaceSymbolism
   bodyPart: Snout
-  markingCategory: HeadSide
-  speciesRestriction: [NovakidSpecies]
+  groupWhitelist: [Novakid]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: symbolism

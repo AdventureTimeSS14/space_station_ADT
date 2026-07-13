@@ -1,0 +1,9 @@
+ent-ScrapOre = scrap ore
+    .suffix = Full
+    .desc = A chunk of unrefined scrap ore.
+ent-ScrapOre1 = { ent-ScrapOre }
+    .suffix = Single
+    .desc = { ent-ScrapOre.desc }
+ent-ScrapOre3 = { ent-ScrapOre }
+    .suffix = 3
+    .desc = { ent-ScrapOre.desc }

@@ -1,5 +1,4 @@
 flavor-complex-adtconsideredmilk = как сгущенка
-
 flavor-complex-summershade = как прохлада, тень и арбузы
 flavor-complex-wintersun = как молоко с кофе
 flavor-complex-hungoverangel = как избавление от боли в висках
@@ -7,9 +6,7 @@ flavor-complex-citrusbalance = как витамин С
 flavor-complex-dobtyidrink = как кола с кислинкой
 flavor-complex-milkeclipse = как холод, молоко и чай
 flavor-complex-arcticexlposion = как мороженое с газировкой
-
 flavor-complex-appleliqueur = как крепкий яблочный сок
-
 flavor-complex-sugarknight = как очень сладкое вино
 flavor-complex-grapelady = как крепкое вино с молочным оттенком
 flavor-complex-saturdaybaron = как ром, сладость и праздник
@@ -25,7 +22,6 @@ flavor-complex-bacardiapple = как ром с привкусом яблока
 flavor-complex-elderguards = как закон и очень странная смесь алкоголя с нотками уксуса
 flavor-complex-ADTSawdust = как 24-ая смена за день в лютый мороз
 flavor-complex-limeshade = как теплая тень с лаймовым привкусом
-
 flavor-complex-glyphidstoutbeer = как хмель, солод, опьянение, темнота, опасность и дворфы
 flavor-complex-secunfilteredbeer = как хмель, солод и удар станбатоном
 flavor-complex-luckyjonnybeer = как хмель, солод и...а это что такое?
@@ -39,16 +35,12 @@ flavor-complex-scientificale = На вкус как плазма и хмель
 flavor-complex-uraniumale = На вкус радиактивно, небезопасно и рак.
 flavor-complex-goldenale = как эль, золото и исцеление
 flavor-complex-adtrelaxing = как довольно сильный наркотик
-
 flavor-complex-ADTCocoaDrink = как тепло, уют и какао
-
 flavor-base-adtsindipizza = зловеще сырно
-
-flavor-complex-ADTteqilaoldfashion =  тёрпко и как брутальность
+flavor-complex-ADTteqilaoldfashion = тёрпко и как брутальность
 flavor-complex-ADTjackiewelles = сладко, тёрпко и грустно
 flavor-complex-ADTsilverhand = сладко, тёрпко, как брутальность и рок
 flavor-complex-ADTCoffeeBonBon = как очень сладкое кофе
-
 flavor-base-adtbolognesepasta = изумительно
 flavor-base-adtcarppasta = божественно и как яд
 flavor-base-adtcheesepasta = очень сырно
@@ -63,14 +55,12 @@ flavor-base-adtmushroompasta = как паста и грибы
 flavor-base-adtsalmonpasta = как рыба с лапшой
 flavor-base-adttomatomeatballpasta = замечательно и мясисто
 flavor-base-nigiri = как нежный рис с рыбой
-
-
+flavor-base-adtcake-bananaboom = как ваша скорая смерть от переедания бананами
+flavor-base-adtchak-chak = как обжаренное тесто и медовуха как заменитель мёда
 flavor-base-adtstrawberryflavor = клубнично
-
 flavor-complex-adtorangeteareg = как горячий апельсиновый чай
 flavor-complex-adtcherryteareg = как горячий вишнёвый чай
 flavor-complex-adtwatermelonteareg = как горячий арбузный чай
-
 flavor-complex-adtgummyslime = как сладковатая голубика. Но как вы могли съесть такого милаху?
 flavor-complex-adtgummyarachnid = как черничное мороженое. Кажется, или эта паутина застряла между зубов?...
 flavor-complex-adtgummyarkana = как арбузное пюре. Чувствуется приятное покалывание вашего языка.
@@ -92,7 +82,6 @@ flavor-complex-adtgummyunath = как лаймовый фреш. Чувству�
 flavor-complex-adtgummyursus = как медовые соты. Вы слышите пчелиное жужжание на стороне, или это лишь наваждение..
 flavor-complex-adtgummyvox = как лимонный сок. Вам кажется, что вкус не сочетается с цветом желе. Может, так и задуманно?
 flavor-complex-adtgummyvulpkanin = как персиковая мякоть. Кажется, вы способны проработать еще долгое время.
-
 flavor-complex-adtyupidryapple = как концентрированное кисло-сладкое яблоко
 flavor-complex-adtyupidryberries = как концентрированные кисло-сладкие лесные ягоды
 flavor-complex-adtyupidrycherry = как концентрированная кисло-сладкая вишня
@@ -113,3 +102,5 @@ flavor-complex-adtyupipineapple = как химозный ананасовый �
 flavor-complex-adtyupiraspberry = как химозный малиновый сок и беззаботное детство
 flavor-complex-adtyupistrawberry = как химозный клубничный сок и беззаботное детство
 flavor-complex-adtyupiwatermelon = как химозный арбузный сок и беззаботное детство
+
+flavor-complex-waffle-cake = как вафли и варёная сгущёнка

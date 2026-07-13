@@ -51,6 +51,14 @@ public sealed partial class EdibleComponent : Component
     [DataField]
     public bool UtensilRequired;
 
+    // ADT-Tweak-Start
+    /// <summary>
+    /// Should popup be displayed if required utensil is not present in hands.
+    /// </summary>
+    [DataField]
+    public bool ShowUtensilPopup = true;
+    // ADT-Tweak-End
+
     /// <summary>
     ///     If this is set to true, food can only be eaten if you have a stomach with a
     ///     <see cref="StomachComponent.SpecialDigestible"/> that includes this entity in its whitelist,

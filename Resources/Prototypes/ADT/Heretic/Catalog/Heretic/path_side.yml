@@ -13,7 +13,79 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 2
+    stage: 20 # заглушка
+
+- type: listing
+  id: HereticSidePath3ArmorBlade
+  name: knowledge-path-side-s3-armor-name
+  description: knowledge-path-side-s3-armor-desc
+  icon: { sprite: ADT/Heretic/HereticRobes/blade_armor.rsi, state: icon }
+  productHereticKnowledge: ArmorerRitualBlade
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+    whitelist:
+    - Blade
+
+- type: listing
+  id: HereticSidePath3ArmorFlesh
+  name: knowledge-path-side-s3-armor-name
+  description: knowledge-path-side-s3-armor-desc
+  icon: { sprite: ADT/Heretic/HereticRobes/flesh_armor.rsi, state: icon }
+  productHereticKnowledge: ArmorerRitualFlesh
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+    whitelist:
+    - Flesh
+
+- type: listing
+  id: HereticSidePath3ArmorVoid
+  name: knowledge-path-side-s3-armor-name
+  description: knowledge-path-side-s3-armor-desc
+  icon: { sprite: ADT/Heretic/HereticRobes/void_armor.rsi, state: icon }
+  productHereticKnowledge: ArmorerRitualVoid
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+    whitelist:
+    - Void
+
+- type: listing
+  id: HereticSidePath3ArmorAsh
+  name: knowledge-path-side-s3-armor-name
+  description: knowledge-path-side-s3-armor-desc
+  icon: { sprite: ADT/Heretic/HereticRobes/ashen_armor.rsi, state: icon }
+  productHereticKnowledge: ArmorerRitualAsh
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+    whitelist:
+    - Ash
 
 - type: listing
   id: HereticSidePath3Flask

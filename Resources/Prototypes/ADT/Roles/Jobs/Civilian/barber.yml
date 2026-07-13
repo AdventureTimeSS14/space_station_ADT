@@ -16,7 +16,6 @@
 - type: startingGear
   id: ADTBarberGear
   equipment:
-    shoes: ClothingShoesColorBlack
     id: ADTBarberPDA
     ears: ClothingHeadsetService
     pocket1: ADTRazor

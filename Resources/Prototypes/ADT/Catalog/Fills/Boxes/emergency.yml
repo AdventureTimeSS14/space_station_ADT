@@ -1,19 +1,21 @@
-- type: entity
+﻿- type: entity
   name: survival box
   parent: BoxCardboard
   id: BoxSurvivalBrigmedic
   description: It's a box with basic internals inside.
   suffix: Medical
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingMaskBreathMedicalSecurity
-      - id: EmergencyOxygenTankFilled
-      - id: EmergencyMedipen
-      - id: Flare
-      - id: FoodSnackNutribrick
-      - id: DrinkWaterBottleFull
-      - id: SpaceMedipen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreathMedicalSecurity
+        - id: EmergencyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: DrinkWaterBottleFull
+        - id: SpaceMedipen
   - type: Sprite
     layers:
       - state: internals
@@ -27,15 +29,17 @@
   description: It's a box with basic internals inside.
   suffix: Moth
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskBreath
-    - id: EmergencyOxygenTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodTinPeaches
-    - id: DrinkWaterBottleFull
-    - id: SpaceMedipen # ADT rework - add SpaceMedipen in all survival box
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: EmergencyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodTinPeaches
+        - id: DrinkWaterBottleFull
+        - id: SpaceMedipen # ADT rework - add SpaceMedipen in all survival box
   - type: Sprite
     layers:
     - state: internals
@@ -54,15 +58,17 @@
     - state: heart
   - type: Item
     heldPrefix: hug
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskBreath
-    - id: EmergencyFunnyOxygenTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodTinPeaches
-    - id: DrinkWaterBottleFull
-    - id: SpaceMedipen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: EmergencyFunnyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodTinPeaches
+        - id: DrinkWaterBottleFull
+        - id: SpaceMedipen
   - type: Tag
     tags:
     - BoxHug
@@ -74,15 +80,17 @@
   description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
   suffix: Extended, Moth
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskBreath
-    - id: ExtendedEmergencyOxygenTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodTinPeaches
-    - id: DrinkWaterBottleFull
-    - id: SpaceMedipen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: ExtendedEmergencyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodTinPeaches
+        - id: DrinkWaterBottleFull
+        - id: SpaceMedipen
   - type: Sprite
     layers:
     - state: internals
@@ -95,15 +103,17 @@
   description: It's a box with basic internals inside.
   suffix: Security, Moth
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskGasSecurity
-    - id: EmergencyOxygenTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodTinPeaches
-    - id: DrinkWaterBottleFull
-    - id: SpaceMedipen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskGasSecurity
+        - id: EmergencyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodTinPeaches
+        - id: DrinkWaterBottleFull
+        - id: SpaceMedipen
   - type: Sprite
     layers:
     - state: internals
@@ -116,15 +126,17 @@
   description: It's a box with basic internals inside.
   suffix: Medical, Moth
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskBreathMedical
-    - id: EmergencyOxygenTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodTinPeaches
-    - id: DrinkWaterBottleFull
-    - id: SpaceMedipen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreathMedical
+        - id: EmergencyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodTinPeaches
+        - id: DrinkWaterBottleFull
+        - id: SpaceMedipen
   - type: Sprite
     layers:
     - state: internals
@@ -137,14 +149,16 @@
   description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
   suffix: Syndicate, Moth
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskGasSyndicate
-    - id: ExtendedEmergencyOxygenTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodTinPeaches
-    - id: SpaceMedipen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskGasSyndicate
+        - id: ExtendedEmergencyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodTinPeaches
+        - id: SpaceMedipen
   - type: Sprite
     layers:
     - state: internals
@@ -158,12 +172,14 @@
   description: It's a box with basic internals inside.
   suffix: IPC
   components:
-  - type: StorageFill
-    contents:
-    - id: Flare
-    - id: CableMVStack10
-    - id: WelderMini
-    - id: PowerCellMedium
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Flare
+        - id: CableMVStack10
+        - id: WelderMini
+        - id: PowerCellMedium
   - type: Sprite
     layers:
     - state: internals
@@ -182,12 +198,14 @@
     - state: heart
   - type: Item
     heldPrefix: hug
-  - type: StorageFill
-    contents:
-    - id: Flare
-    - id: CableMVStack10
-    - id: WelderMini
-    - id: PowerCellMedium
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Flare
+        - id: CableMVStack10
+        - id: WelderMini
+        - id: PowerCellMedium
   - type: Tag
     tags:
     - BoxHug
@@ -199,12 +217,14 @@
   description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
   suffix: Extended, IPC
   components:
-  - type: StorageFill
-    contents:
-    - id: Flare
-    - id: CableMVStack10
-    - id: WelderMini
-    - id: PowerCellHigh
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Flare
+        - id: CableMVStack10
+        - id: WelderMini
+        - id: PowerCellHigh
   - type: Sprite
     layers:
     - state: internals
@@ -217,12 +237,14 @@
   description: It's a box with basic internals inside.
   suffix: Security, IPC
   components:
-  - type: StorageFill
-    contents:
-    - id: Flare
-    - id: CableMVStack10
-    - id: WelderMini
-    - id: PowerCellHigh
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Flare
+        - id: CableMVStack10
+        - id: WelderMini
+        - id: PowerCellHigh
   - type: Sprite
     layers:
     - state: internals
@@ -235,12 +257,14 @@
   description: It's a box with basic internals inside.
   suffix: Medical, IPC
   components:
-  - type: StorageFill
-    contents:
-    - id: Flare
-    - id: CableMVStack10
-    - id: WelderMini
-    - id: PowerCellMedium
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Flare
+        - id: CableMVStack10
+        - id: WelderMini
+        - id: PowerCellMedium
   - type: Sprite
     layers:
     - state: internals
@@ -253,12 +277,14 @@
   description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
   suffix: Syndicate, IPC
   components:
-  - type: StorageFill
-    contents:
-    - id: Flare
-    - id: CableMVStack10
-    - id: WelderMini
-    - id: PowerCellHigh
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Flare
+        - id: CableMVStack10
+        - id: WelderMini
+        - id: PowerCellHigh
   - type: Sprite
     layers:
     - state: internals
@@ -271,13 +297,15 @@
   description: It's a box with basic internals inside.
   suffix: Mime, IPC
   components:
-  - type: StorageFill
-    contents:
-    - id: Flare
-    - id: CableMVStack10
-    - id: WelderMini
-    - id: PowerCellMedium
-    - id: FoodBreadBaguette
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Flare
+        - id: CableMVStack10
+        - id: WelderMini
+        - id: PowerCellMedium
+        - id: FoodBreadBaguette
   - type: Sprite
     layers:
     - state: internals
@@ -291,14 +319,16 @@
   description: It's a box with basic internals inside.
   suffix: Standard
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskBreath
-    - id: EmergencyOxygenTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodSnackNutribrick
-    - id: SpaceMedipen # ADT rework - add SpaceMedipen in all survival box
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: EmergencyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: SpaceMedipen # ADT rework - add SpaceMedipen in all survival box
   - type: Sprite
     layers:
     - state: internals
@@ -317,14 +347,16 @@
     - state: heart
   - type: Item
     heldPrefix: hug
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskBreath
-    - id: EmergencyFunnyOxygenTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodSnackNutribrick
-    - id: SpaceMedipen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: EmergencyFunnyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: SpaceMedipen
   - type: Tag
     tags:
     - BoxHug
@@ -336,14 +368,16 @@
   description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
   suffix: Extended, Novakid
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskBreath
-    - id: ExtendedEmergencyOxygenTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodSnackNutribrick
-    - id: SpaceMedipen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: ExtendedEmergencyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: SpaceMedipen
   - type: Sprite
     layers:
     - state: internals
@@ -356,14 +390,16 @@
   description: It's a box with basic internals inside.
   suffix: Security, Novakid
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskGasSecurity
-    - id: EmergencyOxygenTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodSnackNutribrick
-    - id: SpaceMedipen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskGasSecurity
+        - id: EmergencyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: SpaceMedipen
   - type: Sprite
     layers:
     - state: internals
@@ -376,14 +412,16 @@
   description: It's a box with basic internals inside.
   suffix: Medical, Novakid
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskBreathMedical
-    - id: EmergencyOxygenTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodSnackNutribrick
-    - id: SpaceMedipen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreathMedical
+        - id: EmergencyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: SpaceMedipen
   - type: Sprite
     layers:
     - state: internals
@@ -396,14 +434,16 @@
   description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
   suffix: Syndicate, Novakid
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskGasSyndicate
-    - id: ExtendedEmergencyOxygenTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodSnackNutribrick
-    - id: SpaceMedipen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskGasSyndicate
+        - id: ExtendedEmergencyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: SpaceMedipen
   - type: Sprite
     layers:
     - state: internals
@@ -416,14 +456,16 @@
   description: It's a box with basic internals inside.
   suffix: Mime, Novakid
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskBreath
-    - id: EmergencyOxygenTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodBreadBaguette
-    - id: SpaceMedipen # ADT rework - add SpaceMedipen in all survival box
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: EmergencyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodBreadBaguette
+        - id: SpaceMedipen # ADT rework - add SpaceMedipen in all survival box
   - type: Sprite
     layers:
     - state: internals

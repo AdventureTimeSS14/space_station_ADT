@@ -12,11 +12,12 @@ namespace Content.Client.ADT.RPD;
 
 public sealed class RPDConstructionGhostSystem : EntitySystem
 {
+    private const string PlacementMode = nameof(AlignRPDConstruction);
+
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly RPDSystem _rpdSystem = default!;
     [Dependency] private readonly IPlacementManager _placementManager = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    private string _placementMode = typeof(AlignRPDConstruction).Name;
     private Direction _placementDirection = default;
 
     public override void Update(float frameTime)
@@ -66,9 +67,10 @@ public sealed class RPDConstructionGhostSystem : EntitySystem
         var newObjInfo = new PlacementInformation
         {
             MobUid = heldEntity.Value,
-            PlacementOption = _placementMode,
+            PlacementOption = PlacementMode,
             EntityType = rpd.CachedPrototype.Prototype,
             Range = (int) Math.Ceiling(SharedInteractionSystem.InteractionRange),
+            IsTile = false,
             UseEditorContext = false,
         };
 

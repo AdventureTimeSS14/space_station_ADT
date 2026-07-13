@@ -1145,6 +1145,34 @@
   conditions:
     - !type:TileNotBlocked
 
+- type: construction
+  name: construction-name-cable-reel
+  id: ADTCableReelRecipe
+  graph: ADTTable
+  startNode: start
+  targetNode: adtcablereel
+  category: construction-category-furniture
+  description: construction-desc-cable-reel
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-chalkboard
+  id: ADTChalkboardRecipe
+  graph: ADTChalkboard
+  startNode: start
+  targetNode: adtchalkboard
+  category: construction-category-furniture
+  description: construction-desc-chalkboard
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
 # Chairs
 
 - type: construction
@@ -1480,6 +1508,20 @@
   graph: ADTBarbellBench
   startNode: start
   targetNode: barbellbench
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTDoubleBedRecipe
+  name: construction-name-double-bed
+  description: construction-desc-double-bed
+  graph: adt_double_bed
+  startNode: start
+  targetNode: double_bed_complete
   category: construction-category-furniture
   objectType: Structure
   placementMode: SnapgridCenter

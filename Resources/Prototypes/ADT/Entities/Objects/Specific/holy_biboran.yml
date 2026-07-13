@@ -1,0 +1,55 @@
+- type: entity
+  id: ADTHolyBiboran
+  parent: BaseItem
+  name: holy biboran
+  description: A holy biboran.
+  suffix: all languages
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/holy_biboran.rsi
+    state: holy_biboran
+  - type: Item
+    size: Small
+  - type: GrantLanguagesOnUse
+    languages:
+    # common
+    - GalacticCommon
+    - Arachnid
+    - Nekomimetic
+    - Draconic
+    - Canilunzt
+    - SikTaj
+    - Nian
+    - SolCommon
+    - BorgTalk
+    - Drask
+    - Urs
+    - Arkane
+    - Dwarf
+    - CintaTaj
+    - Gutter
+    - NeoRusskiya
+    - Clownish
+    - Scratches
+    - Elysian
+    # exclusive
+    - RootSpeak
+    - Bubblish
+    - Fire
+    - Mar
+    - VoxPidgin
+    - RobotTalk
+    # collective mind
+    - DionaCollectiveMind
+    - CarpCollectiveMind
+    - XenoCollectiveMind
+    - SiliconCollectiveMind
+    - ChangelingCollectiveMind
+    - MorphCollectiveMind
+    # other
+    - CodeSpeak
+    - Dev
+    - SignLanguage
+  - type: Tag
+    tags:
+    - Book

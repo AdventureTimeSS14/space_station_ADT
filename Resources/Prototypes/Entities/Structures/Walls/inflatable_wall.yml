@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseDeltaPressureGlass
   id: InflatableWall
   name: inflatable barricade
@@ -21,8 +21,9 @@
         layer:
         - WallLayer
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Inflatable
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -70,8 +71,9 @@
     closeSound:
       path: /Audio/Misc/zip.ogg
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Inflatable
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

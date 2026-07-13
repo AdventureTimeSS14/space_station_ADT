@@ -31,9 +31,9 @@
 #       types:
 #         Slash: 5
 #   - type: Damageable
-#     damageContainer: SiliconIpc
+#   damageContainer: SiliconIpc
 #     damageModifierSet: Ipc
-#   - type: ToggleableLightVisuals
+#   - type: ToggleableVisuals
 #   - type: PointLight
 #     enabled: false
 #     mask: /Textures/Effects/LightMasks/cone.png
@@ -280,11 +280,9 @@
 #     - PressureImmunity
 #     - Muted
 #     - ForcedSleep
-#     - TemporaryBlindness
 #     - Pacified
 #     - StaminaModifier
 #     - Flashed
-#     - RadiationProtection
 #     - Drowsiness
 #     - Adrenaline
 #   - type: Body
@@ -318,7 +316,6 @@
 #   - type: StandingState
 #   - type: Dna
 #   - type: MindContainer
-#     showExamineInfo: true
 #   - type: CanEnterCryostorage
 #   - type: InteractionPopup
 #     successChance: 1

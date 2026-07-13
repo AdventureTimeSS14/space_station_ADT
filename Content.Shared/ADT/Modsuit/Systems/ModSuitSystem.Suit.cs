@@ -10,9 +10,11 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Popups;
 using Content.Shared.PowerCell;
+using Content.Shared.PowerCell.Components;
 using Content.Shared.Verbs;
 using Content.Shared.Wires;
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.ADT.ModSuits;
@@ -38,7 +40,6 @@ public sealed partial class ModSuitSystem
         SubscribeLocalEvent<ModSuitComponent, ModLockMessage>(OnLocked);
 
         SubscribeLocalEvent<ModSuitComponent, PowerCellSlotEmptyEvent>(OnPowercellEmpty);
-        SubscribeLocalEvent<ModSuitComponent, InventoryRelayedEvent<FindInventoryBatteryEvent>>(OnFindInventoryBatteryEvent);
     }
 
     private void OnModSuitInit(Entity<ModSuitComponent> ent, ref ComponentInit args)
@@ -72,9 +73,9 @@ public sealed partial class ModSuitSystem
 
         Dirty(ent);
 
-        if (HasComp<PowerCellDrawComponent>(ent))
+        if (TryComp<PowerCellDrawComponent>(ent, out var drawComp))
         {
-            _cell.SetDrawEnabled(ent.Owner, false);
+            _cell.SetDrawEnabled((ent.Owner, drawComp), false);
         }
 
         UpdateUserInterface(ent.Owner, ent.Comp);
@@ -163,6 +164,9 @@ public sealed partial class ModSuitSystem
     /// </summary>
     private void OnModSuitUnequip(Entity<ModSuitComponent> ent, ref GotUnequippedEvent args)
     {
+        if (_timing.ApplyingState)
+            return;
+
         ent.Comp.TempUser = null;
 
         foreach (var part in ent.Comp.ClothingUids)
@@ -273,20 +277,6 @@ public sealed partial class ModSuitSystem
         RemoveAllParts((uid, component));
     }
 
-    /// <summary>
-    /// Tries to find battery for charger
-    /// </summary>
-    private void OnFindInventoryBatteryEvent(Entity<ModSuitComponent> entity, ref InventoryRelayedEvent<FindInventoryBatteryEvent> args)
-    {
-        UpdateUserInterface(entity.Owner, entity.Comp);
-
-        if (args.Args.FoundBattery.HasValue)
-            return;
-
-        if (_itemSlotsSystem.TryGetSlot(entity.Owner, "cell_slot", out ItemSlot? slot))
-            args.Args.FoundBattery = slot.Item;
-    }
-
     private bool CanUseMod(Entity<ModSuitComponent> ent, EntityUid? user, bool checkLock = true)
     {
         if (ent.Comp.ClothingUids.Count == 0 || ent.Comp.PartsContainer == null)
@@ -306,16 +296,32 @@ public sealed partial class ModSuitSystem
 
     private bool CanToggleClothing(EntityUid user, Entity<ModSuitComponent> ent)
     {
-        if (!_cell.HasDrawCharge(ent.Owner, user: user))
+        if (!ent.Comp.RequiresBattery)
+        {
+            if (ent.Comp.ClothingUids.Count <= 0)
+                return false;
+
+            var ev = new ToggleClothingAttemptEvent(user, ent);
+            RaiseLocalEvent(ent, ev);
+
+            if (ev.Cancelled)
+                return false;
+
+            return true;
+        }
+
+        if (!TryComp<PowerCellDrawComponent>(ent, out var drawComp)
+            || !TryComp<PowerCellSlotComponent>(ent, out var slotComp)
+            || !_cell.HasDrawCharge((ent.Owner, drawComp, slotComp), user: user))
             return false;
 
         if (ent.Comp.ClothingUids.Count <= 0)
             return false;
 
-        var ev = new ToggleClothingAttemptEvent(user, ent);
-        RaiseLocalEvent(ent, ev);
+        var ev2 = new ToggleClothingAttemptEvent(user, ent);
+        RaiseLocalEvent(ent, ev2);
 
-        if (ev.Cancelled)
+        if (ev2.Cancelled)
             return false;
 
         return true;
@@ -323,18 +329,16 @@ public sealed partial class ModSuitSystem
 
     private void StartupClothing(Entity<ModSuitComponent> ent)
     {
-        var xform = Transform(ent);
-
         foreach (var prototype in ent.Comp.ClothingPrototypes)
         {
-            var spawned = Spawn(prototype.Value, xform.Coordinates);
+            var spawned = Spawn(prototype.Value, MapCoordinates.Nullspace);
             var attachedClothing = EnsureComp<ModPartComponent>(spawned);
             attachedClothing.AttachedUid = GetNetEntity(ent.Owner);
 
             EnsureComp<ContainerManagerComponent>(spawned);
 
             ent.Comp.ClothingUids.Add(GetNetEntity(spawned), prototype.Key);
-            _containerSystem.Insert(spawned, ent.Comp.PartsContainer, containerXform: xform);
+            _containerSystem.Insert(spawned, ent.Comp.PartsContainer);
 
             Dirty(spawned, attachedClothing);
         }
@@ -344,7 +348,7 @@ public sealed partial class ModSuitSystem
     {
         foreach (var module in ent.Comp.StartingModules)
         {
-            var spawned = Spawn(module, ent.Owner.ToCoordinates());
+            var spawned = Spawn(module, MapCoordinates.Nullspace);
             if (!TryComp<ModSuitModComponent>(spawned, out var moduleComp))
                 continue;
 
@@ -387,6 +391,9 @@ public sealed partial class ModSuitSystem
 
     private void UpdateCellDraw(Entity<ModSuitComponent> ent)
     {
+        if (!ent.Comp.RequiresBattery)
+            return;
+
         if (!TryComp<PowerCellDrawComponent>(ent, out var draw))
             return;
 
@@ -394,13 +401,12 @@ public sealed partial class ModSuitSystem
 
         if (attachedCount <= 0)
         {
-            _cell.SetDrawEnabled(ent.Owner, false);
+            _cell.SetDrawEnabled((ent.Owner, draw), false);
         }
         else
         {
-            _cell.SetDrawEnabled(ent.Owner, true);
+            _cell.SetDrawEnabled((ent.Owner, draw), true);
             draw.DrawRate = ent.Comp.ModEnergyBaseUsing * attachedCount;
         }
-
     }
 }

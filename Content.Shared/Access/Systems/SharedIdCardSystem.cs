@@ -1,6 +1,7 @@
 using System.Globalization;
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
+using Content.Shared.ADT.Radio.EntitySystems;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Hands.EntitySystems;
@@ -10,6 +11,7 @@ using Content.Shared.PDA;
 using Content.Shared.Roles;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Configuration;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -25,6 +27,8 @@ public abstract class SharedIdCardSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak
+    [Dependency] private readonly SharedJobStatusSystem _jobStatus = default!;
 
     // CCVar.
     private int _maxNameLength;
@@ -35,6 +39,7 @@ public abstract class SharedIdCardSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<IdCardComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<IdCardComponent, AfterAutoHandleStateEvent>(OnHandleState);
         SubscribeLocalEvent<TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
         SubscribeLocalEvent<EntityRenamedEvent>(OnRename);
 
@@ -75,6 +80,15 @@ public abstract class SharedIdCardSystem : EntitySystem
 
         ev.Title = title;
         ev.Handled = true;
+    }
+
+    private void OnHandleState(Entity<IdCardComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        // Try to update the job status icon of the player owning the ID, if any.
+        if (HasComp<PdaComponent>(Transform(ent).ParentUid))
+            _jobStatus.UpdateStatus(Transform(Transform(ent).ParentUid).ParentUid); //ID is inside a PDA
+        else
+            _jobStatus.UpdateStatus(Transform(ent).ParentUid); //ID is held/directly in the ID slot
     }
 
     /// <summary>
@@ -163,7 +177,7 @@ public abstract class SharedIdCardSystem : EntitySystem
         return true;
     }
 
-    public bool TryChangeJobIcon(EntityUid uid, JobIconPrototype jobIcon, IdCardComponent? id = null, EntityUid? player = null)
+    public bool TryChangeJobIcon(EntityUid uid, JobIconPrototype jobIcon, IdCardComponent? id = null, EntityUid? player = null, string? jobNameOverride = null) // ADT-Tweak
     {
         if (!Resolve(uid, ref id))
         {
@@ -183,6 +197,14 @@ public abstract class SharedIdCardSystem : EntitySystem
             _adminLogger.Add(LogType.Identity, LogImpact.Low,
                 $"{ToPrettyString(player.Value):player} has changed the job icon of {ToPrettyString(uid):entity} to {jobIcon} ");
         }
+
+        // ADT-Tweak start
+        if (player.HasValue && Exists(player.Value) && !Deleted(player.Value) && !Terminating(player.Value))
+        {
+            var displayName = jobNameOverride ?? jobIcon.LocalizedJobName;
+            _radioJobIcon.UpdateRadioJobIcon(player.Value, jobIcon.ID, displayName);
+        }
+        // ADT-Tweak end
 
         return true;
     }

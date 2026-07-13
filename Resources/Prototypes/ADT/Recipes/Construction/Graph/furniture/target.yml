@@ -1,0 +1,18 @@
+- type: constructionGraph
+  id: ShootingTarget
+  start: start
+  graph:
+  - node: start
+    actions:
+      - !type:DestroyEntity {}
+    edges: []
+  - node: target
+    edges:
+    - to: start
+      completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 5
+      steps:
+        - tool: Screwing
+          doAfter: 2

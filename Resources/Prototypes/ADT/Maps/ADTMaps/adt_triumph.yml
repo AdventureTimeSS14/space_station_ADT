@@ -1,0 +1,77 @@
+- type: gameMap
+  id: ADT_Triumph
+  mapName: 'Triumph Station'
+  mapPath: /Maps/ADTMaps/ADTStations/adt_triumph.yml
+  maxRandomOffset: 0
+  minPlayers: 60
+  stations:
+    ADT_Triumph:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0}TRI {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '-'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/ADTMaps/Shuttles/adt_emergency.yml
+        - type: StationCargoShuttle
+          path: /Maps/ADTMaps/Shuttles/adt_cargo.yml
+        - type: StationJobs
+          availableJobs:
+            # command
+            Captain: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            ResearchDirector: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            HeadOfSecurity: [ 1, 1 ]
+            Quartermaster: [ 1, 1 ]
+            ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
+            # juridical
+            Lawyer: [ 2, 2 ]
+            IAA: [ 1, 1 ]
+            # medical
+            MedicalDoctor: [ 4, 4 ]
+            MedicalIntern: [ 3, 3 ]
+            Paramedic: [ 1, 1 ]
+            Chemist: [ 3, 3 ]
+            Psychologist: [ 1, 1 ]
+            ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
+            ADTPathologist: [ 1, 1 ] #ADT-Roles
+            # cargo
+            CargoTechnician: [ 4, 4 ]
+            SalvageSpecialist: [ 3, 3 ]
+            ADTMiner: [ 6, 6 ] #ADT-Roles
+            # security
+            SecurityOfficer: [ 8, 8 ]
+            SecurityCadet: [ 4, 4 ]
+            Warden: [ 1, 1 ]
+            Detective: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ] #ADT-Roles
+            ADTCorrectionsOfficer: [ 1, 1 ] #ADT-Roles
+            ADTSeniorOfficer: [ 1, 1 ] #ADT-Roles
+            # science
+            Scientist: [ 4, 4 ]
+            ResearchAssistant: [ 3, 3 ]
+            ADTRoboticist: [ 2, 2 ] #ADT-Roles
+            ADTSeniorResearcher: [ 1, 1 ] #ADT-Roles
+            # engineering
+            StationEngineer: [ 6, 6 ]
+            AtmosphericTechnician: [ 3, 3 ]
+            TechnicalAssistant: [ 2, 2 ]
+            ADTSeniorEngineer: [ 1, 1 ] #ADT-Roles
+            # service
+            Botanist: [ 3, 3 ]
+            Bartender: [ 2, 2 ]
+            Chef: [ 2, 2 ]
+            Janitor: [ 3, 3 ]
+            ServiceWorker: [ 3, 3 ]
+            Musician: [ 2, 2 ]
+            Clown: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Chaplain: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            Reporter: [ 2, 2 ]
+            # passenger
+            Passenger: [ -1, -1 ]

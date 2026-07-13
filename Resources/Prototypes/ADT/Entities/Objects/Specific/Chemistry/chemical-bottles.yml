@@ -1,4 +1,4 @@
-# бутылочки
+﻿# бутылочки
 
 ##пластиковая
 
@@ -32,8 +32,9 @@
     maxFillLevels: 7
     fillBaseName: fill
   - type: Edible
-    edible: Drink # slurping sounds!
+    edible: Drink
     destroyOnEmpty: false
+    solution: drink
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -67,6 +68,7 @@
       types:
         Blunt: 0
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -98,6 +100,15 @@
   id: ADTPlasticBottle
   name: plastic bottle
   parent: ADTBaseChemistryEmptyPlasticBottle
+  components:
+  - type: Edible
+    edible: Drink
+    destroyOnEmpty: false
+    solution: drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
 
 ##стеклянная
 
@@ -501,4 +512,30 @@
         maxVol: 30
         reagents:
         - ReagentId: Dylovene
+          Quantity: 30
+
+- type: entity
+  id: ADTStypticPowderChemistryBottle
+  name: styptic powder bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTStypticPowder
+          Quantity: 30
+
+- type: entity
+  id: ADTSilverSulfadiazineChemistryBottle
+  name: silver sulfadiazine bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTSilverSulfadiazine
           Quantity: 30

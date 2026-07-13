@@ -39,10 +39,7 @@ namespace Content.Server.Database
             // ReSharper disable StringLiteralTypo
             // Enforce that an address cannot be IPv6-mapped IPv4.
             // So that IPv4 addresses are consistent between separate-socket and dual-stack socket modes.
-            modelBuilder.Entity<ServerBan>().ToTable(t =>
-                t.HasCheckConstraint("AddressNotIPv6MappedIPv4", "NOT inet '::ffff:0.0.0.0/96' >>= address"));
-
-            modelBuilder.Entity<ServerRoleBan>().ToTable( t =>
+            modelBuilder.Entity<BanAddress>().ToTable(t =>
                 t.HasCheckConstraint("AddressNotIPv6MappedIPv4", "NOT inet '::ffff:0.0.0.0/96' >>= address"));
 
             modelBuilder.Entity<Player>().ToTable(t =>
@@ -68,6 +65,11 @@ namespace Content.Server.Database
                         property.SetColumnType("timestamp with time zone");
                 }
             }
+
+            // HairColor is stored as JSONB for efficient querying
+            modelBuilder.Entity<Profile>()
+                .Property(p => p.HairColor)
+                .HasColumnType("jsonb");
         }
 
         public override IQueryable<AdminLog> SearchLogs(IQueryable<AdminLog> query, string searchText)

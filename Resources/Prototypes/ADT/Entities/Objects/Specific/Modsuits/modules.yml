@@ -66,9 +66,8 @@
           path: "/Audio/Items/drill_hit.ogg"
         attackRate: 4
         damage:
-          groups:
-            Brute: 3
           types:
+            Blunt: 3
             Structural: 15
 
 - type: entity
@@ -181,7 +180,7 @@
 - type: entity
   parent: ADTModsuitModBase
   id: ADTModsuitModPowerKick
-  name: MOD power kick module
+  name: MOD power kick module # Закоментил крафт модуля из-за того как люди его применяют. В основном просто пинают людей и мехов в космос.
   description: Super mega power punch! Twowing back every punched.
   components:
   - type: Sprite
@@ -394,7 +393,8 @@
     complexity: 1
     components:
       head:
-      - type: ToggleableLightVisuals
+      - type: ToggleableVisuals
+        spriteLayer: light
         clothingVisuals:
           head:
           - state: equipped-head-light
@@ -474,7 +474,6 @@
       outerClothing:
       - type: RadiationBlocker
         resistance: 100
-      - type: RadiationProtection
 
 - type: entity
   parent: ADTModsuitModBase
@@ -494,6 +493,8 @@
         grid:
         - 0,0,8,4
         maxItemSize: Huge
+      - type: ExplosionResistance # Очень плохое решение ибо добавляет резист к основным параметрам, но иначе сделать защиту содержимого у меня не выйдет.
+        damageCoefficient: 0.9
 
 - type: entity
   parent: ADTModsuitModBase

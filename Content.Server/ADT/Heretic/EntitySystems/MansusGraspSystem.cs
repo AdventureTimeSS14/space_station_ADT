@@ -6,7 +6,7 @@ using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.ADT.Heretic.Components;
-using Content.Shared.Bible.Components;
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -34,6 +34,7 @@ using Robust.Shared.Audio.Systems;
 using Content.Server.Emp;
 using Content.Server.Actions;
 using Content.Shared.Standing;
+using Content.Shared.Eye.Blinding.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -87,7 +88,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         if ((TryComp<HereticComponent>(args.Target, out var th) && th.CurrentPath == ent.Comp.Path))
             return;
 
-        if (HasComp<StatusEffectsComponent>(target) && !HasComp<ChaplainComponent>(target))
+        if (HasComp<StatusEffectsComponent>(target) && !HasComp<MagicImmunityComponent>(target))
         {
             _chat.TrySendInGameICMessage(args.User, Loc.GetString("heretic-speech-mansusgrasp"), InGameICChatType.Speak, false);
             _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
@@ -100,10 +101,10 @@ public sealed partial class MansusGraspSystem : EntitySystem
         // upgraded grasp
         if (hereticComp.CurrentPath != null)
         {
-            if (hereticComp.PathStage >= 2 && !HasComp<ChaplainComponent>(target))
+            if (hereticComp.PathStage >= 2 && !HasComp<MagicImmunityComponent>(target))
                 ApplyGraspEffect(args.User, target, hereticComp.CurrentPath!);
 
-            if (hereticComp.PathStage >= 4 && HasComp<StatusEffectsComponent>(target) && !HasComp<ChaplainComponent>(target))
+            if (hereticComp.PathStage >= 4 && HasComp<StatusEffectsComponent>(target) && !HasComp<MagicImmunityComponent>(target))
             {
                 var markComp = EnsureComp<HereticCombatMarkComponent>(target);
                 markComp.Path = hereticComp.CurrentPath;
@@ -187,7 +188,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
             case "Ash":
                 {
                     var timeSpan = TimeSpan.FromSeconds(5f);
-                    _statusEffect.TryAddStatusEffect(target, TemporaryBlindnessSystem.BlindingStatusEffect, timeSpan, false, TemporaryBlindnessSystem.BlindingStatusEffect);
+                    _statusEffect.TryAddStatusEffect<BlindnessStatusEffectComponent>(target, BlindnessSystem.BlindingStatusEffect, timeSpan, false);
                     break;
                 }
 
@@ -260,7 +261,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
         if (HasComp<StatusEffectsComponent>(target))
         {
-            if (!HasComp<ChaplainComponent>(target))
+            if (!HasComp<MagicImmunityComponent>(target))
             {
                 _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
                 _stun.TryKnockdown(target, TimeSpan.FromSeconds(3f), true);

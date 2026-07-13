@@ -46,27 +46,47 @@ public sealed class VentCrawableSystem : EntitySystem
 
         foreach (var entity in holder.Container.ContainedEntities.ToArray())
         {
-            RemComp<BeingVentCrawlerComponent>(entity);
+            ExitVentCrawler(entity, holder.Container);
+        }
 
-            var meta = MetaData(entity);
-            _containerSystem.Remove(entity, holder.Container, reparent: false, force: true);
-
-            var xform = Transform(entity);
-            if (xform.ParentUid != uid)
-                continue;
-
-            _xformSystem.AttachToGridOrMap(entity, xform);
-
-            if (TryComp<VentCrawlerComponent>(entity, out var ventCrawComp))
+        var crawlerQuery = EntityQueryEnumerator<BeingVentCrawlerComponent>();
+        while (crawlerQuery.MoveNext(out var crawlerUid, out var crawlerComp))
+        {
+            if (crawlerComp.Holder == uid)
             {
-                ventCrawComp.InTube = false;
-                Dirty(entity , ventCrawComp);
-            }
+                RemComp<BeingVentCrawlerComponent>(crawlerUid);
 
-            if (EntityManager.TryGetComponent(entity, out PhysicsComponent? physics))
-                _physicsSystem.WakeBody(entity, body: physics);
+                if (TryComp<VentCrawlerComponent>(crawlerUid, out var ventCrawComp))
+                {
+                    ventCrawComp.InTube = false;
+                    Dirty(crawlerUid, ventCrawComp);
+                }
+            }
         }
 
         EntityManager.DeleteEntity(uid);
+    }
+
+    private void ExitVentCrawler(EntityUid entity, Container container)
+    {
+        RemComp<BeingVentCrawlerComponent>(entity);
+
+        var meta = MetaData(entity);
+        _containerSystem.Remove(entity, container, reparent: false, force: true);
+
+        var xform = Transform(entity);
+        if (xform.ParentUid != container.Owner)
+            return;
+
+        _xformSystem.AttachToGridOrMap(entity, xform);
+
+        if (TryComp<VentCrawlerComponent>(entity, out var ventCrawComp))
+        {
+            ventCrawComp.InTube = false;
+            Dirty(entity, ventCrawComp);
+        }
+
+        if (EntityManager.TryGetComponent(entity, out PhysicsComponent? physics))
+            _physicsSystem.WakeBody(entity, body: physics);
     }
 }

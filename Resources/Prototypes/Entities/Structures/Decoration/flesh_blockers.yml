@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: FleshBlocker
   parent: BaseStructure
   name: flesh clump
@@ -29,6 +29,7 @@
           ajar: ""
           open: ""
   - type: Damageable
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:

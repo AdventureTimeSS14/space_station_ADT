@@ -13,4 +13,11 @@
             SizeFlagsStretchRatio="3"
             HorizontalExpand="True"
             ClipText="True"/>
+    <!-- ADT-Tweak Start: Delete Unnessesary entries -->
+    <Button Name="DeleteButton"
+            Text="✖"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            MinSize="24 0" />
+    <!-- ADT-Tweak End-->
 </BoxContainer>

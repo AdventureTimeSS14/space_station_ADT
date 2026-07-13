@@ -17005,7 +17005,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 88.99248,-18.513046
       parent: 1
-- proto: ADTHeadTajaran
+- proto: OrganTajaranHead
   entities:
   - uid: 7963
     components:
@@ -17013,7 +17013,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 159.86945,-12.806665
       parent: 1
-- proto: ADTHeadVulpkanin
+- proto: OrganVulpkaninADTHead
   entities:
   - uid: 7958
     components:
@@ -17279,7 +17279,7 @@ entities:
     - type: Transform
       pos: 185.5,17.5
       parent: 1
-- proto: ADTLeftLegTajaran
+- proto: OrganTajaranLegLeft
   entities:
   - uid: 7964
     components:
@@ -17365,7 +17365,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ADTOrganTajaranHeart
+- proto: OrganHumanHeart
   entities:
   - uid: 7967
     components:
@@ -17761,21 +17761,21 @@ entities:
     - type: Transform
       pos: 43.5,4.5
       parent: 1
-- proto: ADTRightArmVulpkanin
+- proto: OrganVulpkaninADTArmRight
   entities:
   - uid: 7960
     components:
     - type: Transform
       pos: 146.15948,-13.451375
       parent: 1
-- proto: ADTRightFootTajaran
+- proto: OrganTajaranFootRight
   entities:
   - uid: 7965
     components:
     - type: Transform
       pos: 158.94699,-12.900415
       parent: 1
-- proto: ADTRightFootVulpkanin
+- proto: OrganVulpkaninADTFootRight
   entities:
   - uid: 7959
     components:
@@ -18121,14 +18121,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 67.5,33.5
       parent: 1
-- proto: ADTTailVulpkanin
-  entities:
-  - uid: 7962
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 144.9557,-13.376721
-      parent: 1
+#- proto: ADTTailVulpkanin
+#  entities:
+#  - uid: 7962
+#    components:
+#    - type: Transform
+#      rot: 3.141592653589793 rad
+#      pos: 144.9557,-13.376721
+#      parent: 1
 - proto: ADTTapeRecorder
   entities:
   - uid: 88
@@ -18146,14 +18146,14 @@ entities:
       parent: 1
     - type: Physics
       canCollide: False
-- proto: ADTTorsoTajaran
+- proto: OrganTajaranTorso
   entities:
   - uid: 7966
     components:
     - type: Transform
       pos: 158.04025,-12.69729
       parent: 1
-- proto: ADTTorsoVulpkanin
+- proto: OrganVulpkaninADTTorso
   entities:
   - uid: 7957
     components:
@@ -50512,14 +50512,12 @@ entities:
     - type: Transform
       pos: 66.5,47.5
       parent: 1
-    - type: Timer
   - uid: 6036
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 71.5,45.5
       parent: 1
-    - type: Timer
   - uid: 6037
     components:
     - type: Transform
@@ -52332,7 +52330,7 @@ entities:
       dnas: []
       fibers: []
       fingerprints: []
-- proto: RightFootSkeleton
+- proto: OrganSkeletonPersonFootRight
   entities:
   - uid: 2000
     components:
@@ -52341,7 +52339,7 @@ entities:
       parent: 1
     - type: Physics
       canCollide: False
-- proto: RightLegSkeleton
+- proto: OrganSkeletonPersonLegRight
   entities:
   - uid: 2001
     components:
@@ -61294,7 +61292,7 @@ entities:
       parent: 1
     - type: Physics
       canCollide: False
-- proto: TorsoSkeleton
+- proto: OrganSkeletonPersonTorso
   entities:
   - uid: 2310
     components:

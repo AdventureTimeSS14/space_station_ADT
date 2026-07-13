@@ -5,26 +5,6 @@ salvage-system-announcement-arrived = Обломок был притянут д�
 salvage-asteroid-name = Астероид
 salvage-magnet-window-title = Магнит обломков
 salvage-expedition-window-progression = Прогресс
-salvage-magnet-resources =
-    { $resource ->
-        [OreIron] Железо
-        [OreCoal] Уголь
-        [OreQuartz] Кварц
-        [OreSalt] Соль
-        [OreGold] Золото
-        [OreDiamond] Алмазы
-        [OreSilver] Серебро
-        [OrePlasma] Плазма
-        [OreUranium] Уран
-        [OreArtifactFragment] Фрагменты артефактов
-        [OreBananium] Бананиум
-        [OreSalt] Соль
-        [ADTOreBS] Блюспейс руда
-        [ADTOreCopper] Медная руда
-        [ADTOreZinc] Цинковая руда
-        [ADTOreLead] Свинцовая руда
-       *[other] { $resource }
-    }
 salvage-magnet-resources-count =
     { $count ->
         [1] (Мало)

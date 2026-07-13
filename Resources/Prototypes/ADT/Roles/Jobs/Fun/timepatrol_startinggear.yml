@@ -7,6 +7,12 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 600000
+    # ADT-Tweak start
+    - !type:TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
+    # ADT-Tweak end
   startingGear: ADTTimePatrolGear
   icon: "JobIconMagistrat"
   requireAdminNotify: true

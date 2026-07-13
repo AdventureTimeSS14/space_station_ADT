@@ -87,9 +87,7 @@
     sprite: ADT/Heretic/abilities_heretic.rsi
     state: ashlord_rite2
   customBehaviors:
-  - !type:RitualAshAscendBehavior
-    min: 3
-    max: 3
+  - !type:RitualAscensionSacrificeBehavior
   outputKnowledge: AshlordRite
   outputEvent: !type:EventHereticAscension
 
@@ -114,9 +112,7 @@
     sprite: ADT/Heretic/items.rsi
     state: protective_blade
   customBehaviors:
-  - !type:RitualBladeAscendBehavior
-    min: 3
-    max: 3
+  - !type:RitualAscensionSacrificeBehavior
   outputKnowledge: MaelstromOfSilver
   outputEvent: !type:EventHereticAscension
 
@@ -190,9 +186,7 @@
     sprite: ADT/Heretic/abilities_heretic.rsi
     state: final_hymn
   customBehaviors:
-  - !type:RitualSacrificeBehavior
-    min: 4
-    max: 4
+  - !type:RitualAscensionSacrificeBehavior
   outputKnowledge: PriestFinalHymn
   outputEvent: !type:EventHereticAscension
 
@@ -222,9 +216,7 @@
     sprite: Interface/Alerts/temperature.rsi
     state: cold3
   customBehaviors:
-  - !type:RitualSacrificeBehavior
-    min: 3
-    max: 3
+  - !type:RitualAscensionSacrificeBehavior
   - !type:RitualTemperatureBehavior
     minThreshold: -20
   outputKnowledge: WaltzAtTheEndOfTime
@@ -256,6 +248,58 @@
     GasMask: 1
   output:
     ClothingOuterArmorHeretic: 1
+
+- type: hereticRitual
+  id: ArmorerRitualBlade
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: ADT/Heretic/HereticRobes/blade_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ADTClothingOuterArmorHereticBlade: 1
+
+- type: hereticRitual
+  id: ArmorerRitualFlesh
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: ADT/Heretic/HereticRobes/flesh_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ADTClothingOuterArmorHereticFlesh: 1
+
+- type: hereticRitual
+  id: ArmorerRitualVoid
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: ADT/Heretic/HereticRobes/void_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ADTClothingOuterArmorHereticVoid: 1
+
+- type: hereticRitual
+  id: ArmorerRitualAsh
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: ADT/Heretic/HereticRobes/ashen_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ADTClothingOuterArmorHereticAsh: 1
 
 - type: hereticRitual
   id: AshenEyesRitual

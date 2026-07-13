@@ -111,3 +111,10 @@
     Zinc: 50
     Gold: 250
     Silver: 400
+
+- type: latheRecipe
+  id: ADTBloodPackTransfusionLatheRecipe
+  result: ADTBloodPackTransfusion
+  completetime: 2
+  materials:
+    Plastic: 50

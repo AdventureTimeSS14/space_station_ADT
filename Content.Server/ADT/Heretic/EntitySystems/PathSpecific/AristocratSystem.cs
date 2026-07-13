@@ -154,7 +154,7 @@ public sealed partial class AristocratSystem : EntitySystem
         // boobytraps :trollface:
         foreach (var tileref in tiles2)
         {
-            var tpos = _map.GridTileToWorld((EntityUid) xform.GridUid, grid, tileref.GridIndices);
+            var tpos = _map.GridTileToLocal((EntityUid) xform.GridUid, grid, tileref.GridIndices);
 
             // this shit is for checking if there is a void trap already on that tile or not.
             var el = _lookup.GetEntitiesInRange(tpos, .25f).Where(e => Prototype(e)?.ID == BoobyTrapTile.Id).ToList();

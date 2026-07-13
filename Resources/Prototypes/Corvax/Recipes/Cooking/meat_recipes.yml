@@ -28,7 +28,7 @@
     FoodPlate: 1
     FoodMeat: 1
     FoodApple: 1
-    ADTHeadVulpkanin: 1 # ADT tweak
+    OrganVulpkaninHead: 1 # ADT tweak (was ADTHeadVulpkanin, removed in PR#42476 body refactor)
   #ADT-Tweak Start
   recipeType:
   - Oven

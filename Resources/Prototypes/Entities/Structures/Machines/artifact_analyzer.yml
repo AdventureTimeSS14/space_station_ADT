@@ -48,8 +48,7 @@
   - type: Transform
     anchored: true
   - type: ApcPowerReceiver
-    powerLoad: 12000
-    needsPower: false #only turns on when scanning
+    powerLoad: 5000
   - type: ArtifactAnalyzer
   - type: ItemPlacer
     whitelist:
@@ -168,3 +167,14 @@
   components:
   - type: Sprite
     sprite: Structures/Machines/body_crusher.rsi
+  #ADT-Tweak-Start
+  - type: ArtifactCrusher
+    safetyProtocols: false
+    autoLock: false
+    crushingWhitelist:
+      components:
+      - XenoArtifact
+    crushingDamage:
+      types:
+        Blunt: 10
+  #ADT-Tweak-End

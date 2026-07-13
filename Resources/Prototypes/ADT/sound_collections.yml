@@ -1,0 +1,25 @@
+- type: soundCollection
+  id: ADTTajaranToySounds
+  files:
+  - "/Audio/ADT/Felinid/cat_meow1.ogg"
+  - "/Audio/ADT/Felinid/cat_meow2.ogg"
+  - "/Audio/ADT/Felinid/cat_meow3.ogg"
+  - "/Audio/ADT/Felinid/cat_purr1.ogg"
+  - "/Audio/ADT/Felinid/cat_growl1.ogg"
+  - "/Audio/ADT/Felinid/cat_growl2.ogg"
+  - "/Audio/ADT/Felinid/cat_growl3.ogg"
+  - "/Audio/ADT/Felinid/cat_growl4.ogg"
+  - "/Audio/ADT/Felinid/cat_hiss1.ogg"
+  - "/Audio/ADT/Felinid/cat_hiss2.ogg"
+  - "/Audio/Animals/cat_meow.ogg"
+  - "/Audio/Animals/cat_meow2.ogg"
+  - "/Audio/Animals/cat_hiss.ogg"
+
+- type: soundCollection
+  id: ADTNovakidToySounds
+  files:
+  - "/Audio/ADT/Novakid/novakid_laugh01.ogg"
+  - "/Audio/ADT/Novakid/novakid_laugh02.ogg"
+  - "/Audio/ADT/Novakid/novakid_laugh03.ogg"
+  - "/Audio/ADT/Novakid/novakid_laugh04.ogg"
+  - "/Audio/ADT/Novakid/novakid_laugh05.ogg"

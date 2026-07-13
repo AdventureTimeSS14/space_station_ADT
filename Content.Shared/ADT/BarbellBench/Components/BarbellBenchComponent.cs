@@ -17,6 +17,9 @@ public sealed partial class BarbellBenchComponent : Component
     [DataField("repSoundDelay")]
     public float RepSoundDelay = 1f;
 
+    [DataField("repSoundMaxDistance")]
+    public float RepSoundMaxDistance = 6f;
+
     [DataField, AutoNetworkedField]
     public bool IsPerformingRep = false;
 

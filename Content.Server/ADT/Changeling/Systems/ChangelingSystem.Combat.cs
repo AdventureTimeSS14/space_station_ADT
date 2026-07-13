@@ -165,7 +165,7 @@ public sealed partial class ChangelingSystem
 
         args.Handled = true;
 
-        _status.TryAddStatusEffect<TemporaryBlindnessComponent>(target, TemporaryBlindnessSystem.BlindingStatusEffect, TimeSpan.FromSeconds(args.Duration), true);
+        _status.TryAddStatusEffect<BlindnessStatusEffectComponent>(target, BlindnessSystem.BlindingStatusEffect, TimeSpan.FromSeconds(args.Duration), true);
 
         var selfMessageSuccess = Loc.GetString("changeling-success-sting", ("target", Identity.Entity(target, EntityManager)));
         _popup.PopupEntity(selfMessageSuccess, uid, uid);
@@ -385,7 +385,7 @@ public sealed partial class ChangelingSystem
 
         var additionalShieldHealth = 50 * ling.AbsorbedDnaModifier;
         var shieldHealth = 150 + additionalShieldHealth;
-        if (damage.TotalDamage >= shieldHealth)
+        if (_damageableSystem.GetTotalDamage((uid, damage)) >= shieldHealth)
         {
             QueueDel(ling.ShieldEntity);
 

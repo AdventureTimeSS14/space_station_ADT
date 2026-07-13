@@ -12,8 +12,8 @@
     maxOnTileWhitelist:
       tags: [ Carpet ]
   metabolisms:
-    # Start ADT tweak
-    Narcotic:
+    # Start ADT tweak: Moth Narcotic
+    Digestion:
       effects:
       - !type:GenericStatusEffect
         conditions:
@@ -30,7 +30,7 @@
         type: Add
         time: 8
     # End ADT tweak
-    Poison:
+    Bloodstream:
       effects:
       - !type:PopupMessage
         type: Local
@@ -53,7 +53,7 @@
   flavor: fiber
   color: "#808080"
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         conditions:
@@ -80,7 +80,7 @@
   - !type:CleanTileReaction # Bees are extremely obsessive about cleanliness within what they consider their hive.
     cleanCost: 0 # Consume absolutely zero bees. Buzz buzz.
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:PopupMessage
         type: Local
@@ -181,10 +181,12 @@
   flavor: shocking
   color: "#FDD023"
   metabolisms:
-    Poison:
+    Bloodstream:
+      metabolismRate: 2.0
       effects:
       - !type:Electrocute
-        probability: 0.35
+        siemensCoefficient: 0.5
+        probability: 0.5
 
 - type: reagent
   id: Razorium
@@ -209,7 +211,7 @@
         emote: Scream
         probability: 0.7
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate : 3.00
       effects:
       - !type:HealthChange
@@ -257,14 +259,14 @@
       - !type:AdjustTemperature
         conditions:
         - !type:TemperatureCondition
-          min: 1 #ADT-Tweak 160.15 -> 1
-        amount: -10000 #ADT-Tweak -30000 -> -10000
+          min: 1 # ADT-Tweak 160.15 -> 1
+        amount: -10000 # ADT-Tweak -30000 -> -10000
     Extinguish:
       methods: [ Touch ]
       effects:
       - !type:Extinguish # cold
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate : 0.45
       effects:
       - !type:HealthChange
@@ -294,7 +296,7 @@
         conditions:
         - !type:TemperatureCondition
           min: 1 # ADT-Tweak 160.15 -> 1
-        amount: -50000 #ADT-Tweak -10000 -> -50000
+        amount: -50000 # ADT-Tweak -10000 -> -50000
       - !type:MovementSpeedModifier
         conditions:
         - !type:ReagentCondition
@@ -330,7 +332,7 @@
   slipData:
     requiredSlipSpeed: 3.5 #clown juice gotta slip
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:Emote
         emote: Laugh
@@ -351,7 +353,7 @@
   flavor: weh
   color: "#59b23a"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.25
       effects:
       - !type:Emote
@@ -386,7 +388,7 @@
   flavor: hew
   color: "#a64dc5"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.25
       effects:
       - !type:Emote
@@ -421,7 +423,7 @@
   flavor: dogfood
   color: "#ed9715"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
@@ -455,44 +457,44 @@
   flavor: cannedtuna
   color: "#d8bed8"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
           reagent: Felinase
-          min: 25
+          min: 25 # ADT-Tweak 15 -> 25
         damage:
           types:
             Radiation: 0.5
       - !type:AdjustReagent
         reagent: Felinase
-        amount: -15
+        amount: -15 # ADT-Tweak -5 -> -15
         conditions:
         - !type:ReagentCondition
           reagent: Felinase
-          min: 40
+          min: 40 # ADT-Tweak 30 -> 40
       - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentCondition
           reagent: Felinase
-          min: 25
+          min: 25 # ADT-Tweak 10 -> 25
         effectProto: StatusEffectOwO
-        time: 25.0
+        time: 25.0 # ADT-Tweak 12.5 -> 25.0
         type: Add
       - !type:Emote
         conditions:
         - !type:ReagentCondition
           reagent: Felinase
-          min: 25
+          min: 25 # ADT-Tweak 10 -> 25
         emote: Cough
         showInChat: true
         showInGuidebook: true
         force: true
         probability: 0.05
       - !type:PopupMessage
-        conditions:
+        conditions: # ADT-Tweak: only trigger above min: 25
         - !type:ReagentCondition
           reagent: Felinase
           min: 25
@@ -510,44 +512,44 @@
   flavor: dogfood
   color: "#b87333"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
           reagent: Caninase
-          min: 25
+          min: 25 # ADT-Tweak 15 -> 25
         damage:
           types:
             Radiation: 0.5
       - !type:AdjustReagent
         reagent: Caninase
-        amount: -15
+        amount: -15 # ADT-Tweak -5 -> -15
         conditions:
         - !type:ReagentCondition
           reagent: Caninase
-          min: 40
+          min: 40 # ADT-Tweak 30 -> 40
       - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentCondition
           reagent: Caninase
-          min: 25
+          min: 25 # ADT-Tweak 10 -> 25
         effectProto: StatusEffectBark
-        time: 25.0
+        time: 25.0 # ADT-Tweak 12.5 -> 25.0
         type: Add
       - !type:Emote
         conditions:
         - !type:ReagentCondition
           reagent: Caninase
-          min: 25
+          min: 25 # ADT-Tweak 10 -> 25
         emote: Cough
         showInChat: true
         showInGuidebook: true
         force: true
         probability: 0.05
       - !type:PopupMessage
-        conditions:
+        conditions: # ADT-Tweak: only trigger above min: 25
         - !type:ReagentCondition
           reagent: Caninase
           min: 25

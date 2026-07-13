@@ -1,9 +1,7 @@
-using Content.Server.Administration.Systems;
 using Content.Server.Antag;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Ghost.Roles.Components;
-using Content.Server.Humanoid;
 using Content.Server.Mind.Commands;
 using Content.Server.Roles;
 using Content.Server.Temperature.Components;
@@ -13,6 +11,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Ghost.Roles.Components;
+using Content.Shared.Gibbing;
 using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
@@ -33,16 +32,15 @@ namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class GhoulSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+[Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     public void GhoulifyEntity(Entity<GhoulComponent> ent)
     {
@@ -57,15 +55,6 @@ public sealed partial class GhoulSystem : EntitySystem
         var hasMind = _mind.TryGetMind(ent, out var mindId, out var mind);
         if (hasMind && ent.Comp.BoundHeretic != null)
             SendBriefing(ent, mindId, mind);
-
-        if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
-        {
-            // make them "have no eyes" and grey
-            // this is clearly a reference to grey tide
-            var greycolor = Color.FromHex("#505050");
-            _humanoid.SetSkinColor(ent, greycolor, true, false, humanoid);
-            _humanoid.SetBaseLayerColor(ent, HumanoidVisualLayers.Eyes, greycolor, true, humanoid);
-        }
 
         _rejuvenate.PerformRejuvenate(ent);
         if (TryComp<MobThresholdsComponent>(ent, out var th))
@@ -155,6 +144,6 @@ public sealed partial class GhoulSystem : EntitySystem
     private void OnMobStateChange(Entity<GhoulComponent> ent, ref MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead)
-            _body.GibBody(ent);
+            _gibbing.Gib(ent);
     }
 }

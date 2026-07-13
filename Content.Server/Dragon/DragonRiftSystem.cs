@@ -2,18 +2,18 @@ using Content.Server.Chat.Systems;
 using Content.Server.NPC;
 using Content.Server.NPC.Systems;
 using Content.Server.Pinpointer;
+using Content.Shared.Damage.Components;
 using Content.Shared.Dragon;
 using Content.Shared.Examine;
 using Content.Shared.Sprite;
-using Robust.Shared.Map;
-using Robust.Shared.Player;
-using Robust.Shared.Serialization.Manager;
-using System.Numerics;
-using Content.Shared.Damage.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
-using Robust.Shared.Utility;
+using Robust.Shared.Map;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Utility;
+using System.Numerics;
 
 namespace Content.Server.Dragon;
 
@@ -86,12 +86,12 @@ public sealed class DragonRiftSystem : EntitySystem
 
             // Handle mob spawning
             comp.SpawnAccumulator += frameTime;
-            if (comp.SpawnAccumulator > comp.SpawnCooldown && comp.SpawnPrototypes.Count > 0)
+            if (comp.SpawnAccumulator > comp.SpawnCooldown)
             {
                 comp.SpawnAccumulator -= comp.SpawnCooldown;
 
-                // Pick a random mob prototype from the list
-                var proto = _random.Pick(comp.SpawnPrototypes);
+                // ADT-Tweak-start
+                var proto = _random.Prob(comp.StrongSpawnChance) ? comp.SpawnPrototypeStrong : comp.SpawnPrototype;
                 var ent = Spawn(proto, xform.Coordinates);
 
                 // Copy random sprite from the dragon to the spawned mob (if any)
@@ -105,6 +105,7 @@ public sealed class DragonRiftSystem : EntitySystem
                 // Set mob's follow target to the dragon
                 if (comp.Dragon != null)
                     _npc.SetBlackboard(ent, NPCBlackboard.FollowTarget, new EntityCoordinates(comp.Dragon.Value, Vector2.Zero));
+                // ADT-Tweak-end
             }
         }
     }

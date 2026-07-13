@@ -247,6 +247,13 @@
     stateDoorClosed: minifreezer_door
   - type: AccessReader
     access: [ [ "Bar" ] ]
+# ADT-Tweak-Start: Construction компонент для крафта мини-холодильника
+  - type: Construction
+    graph: ClosetMiniFreezer
+    node: done
+    containers:
+    - entity_storage
+# ADT-Tweak-End
 
 # Botanist
 - type: entity
@@ -539,6 +546,7 @@
         hard: True
         restitution: 0
         friction: 0.4
+  - type: EntityStorage
 
 - type: entity
   parent: LockerPrisoner
@@ -622,15 +630,18 @@
 # Syndicate
 - type: entity
   id: LockerSyndicatePersonal
-  name: syndicate locker
+  name: blood-red locker
   parent: LockerBaseSecure
-  description: It's a personal storage unit for operative gear.
+  description: It's a personal storage unit with a blood-red design.
+  suffix: "Locked"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: syndicate
     stateDoorOpen: color_black2_open
     stateDoorClosed: syndicate_door
+  - type: AccessReader
+    access: [["SyndicateAgent"]]
 
 # Bluespace
 - type: entity

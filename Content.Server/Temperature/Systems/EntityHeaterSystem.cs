@@ -11,9 +11,9 @@ namespace Content.Server.Temperature.Systems;
 /// <summary>
 /// Handles the server-only parts of <see cref="SharedEntityHeaterSystem"/>
 /// </summary>
-public sealed class EntityHeaterSystem : SharedEntityHeaterSystem
+public sealed partial class EntityHeaterSystem : SharedEntityHeaterSystem
 {
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private TemperatureSystem _temperature = default!;
 
     public override void Initialize()
     {
@@ -49,12 +49,22 @@ public sealed class EntityHeaterSystem : SharedEntityHeaterSystem
 
         //ADT bonfire
         var flammbaleQuery = EntityQueryEnumerator<ADTFlammableEntityHeaterComponent, ItemPlacerComponent, FlammableComponent>();
-        while (flammbaleQuery.MoveNext(out var uid, out _, out var placer, out var flammable))
+        while (flammbaleQuery.MoveNext(out var uid, out var heaterComp, out var placer, out var flammable))
         {
             if (!flammable.OnFire)
-                return;
+                continue;
 
-            var energy = flammable.FireStacks * deltaTime * 300;
+            float energy;
+            if (heaterComp.Power > 0f)
+            {
+                energy = heaterComp.Power * deltaTime;
+            }
+            else
+            {
+
+                energy = flammable.FireStacks * deltaTime * 300;
+            }
+
             foreach (var ent in placer.PlacedEntities)
             {
                 _temperature.ChangeHeat(ent, energy);

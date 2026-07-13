@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "made by borkroman",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "tentacles",
+      "directions": 4
+    },
+    {
+      "name": "tentacles_big",
+      "directions": 4
+    },
+    {
+      "name": "tentacles_double",
+      "directions": 4
+    }
+  ]
+}

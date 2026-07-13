@@ -8,6 +8,12 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 50h # ADT-tweak
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 20h # ADT-tweak
   accessGroups:
   - AllAccess
   access:

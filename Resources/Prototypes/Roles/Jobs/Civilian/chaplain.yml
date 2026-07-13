@@ -15,18 +15,19 @@
     - type: Chaplain  # ADT Chaplain
       statusIcon: ChaplainFaction
     - type: BibleUser #Lets them heal with bibles
+    - type: MagicImmunity  # ADT-Tweak
 
 
 - type: startingGear
   id: ChaplainGear
   equipment:
-    shoes: ClothingShoesColorBlack
+    #shoes: ClothingShoesColorBlack ADT-Tweak
     # id: ChaplainPDA ADT: different PDAs in loadouts
     ears: ClothingHeadsetService
   storage:
     back:
     - RubberStampChaplain
-    - ADTEctoSword  # ADT Phantom
+    - ADTEctoSword  # ADT-Tweak
 
 - type: chameleonOutfit
   id: ChaplainChameleonOutfit

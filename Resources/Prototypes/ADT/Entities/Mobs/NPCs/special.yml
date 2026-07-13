@@ -131,14 +131,14 @@
       0: Alive
       10000: Dead
   - type: Stamina
-    critThreshold: 500
+    baseCritThreshold: 500
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
     animation: WeaponArcBite
     damage:
-      groups:
-        Burn: 50
+      types:
+        Heat: 50
   - type: Puller
   - type: Tag
     tags:

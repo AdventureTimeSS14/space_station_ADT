@@ -94,4 +94,9 @@ public sealed partial class SuitSensorComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField, ViewVariables]
     public bool PreviousControlsLocked = false;
+
+    //ADT-Tweak-Start
+    [DataField, AutoNetworkedField]
+    public bool OnMob = false;
+    //ADT-Tweak-End
 }

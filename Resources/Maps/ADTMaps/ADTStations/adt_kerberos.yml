@@ -193425,7 +193425,7 @@ entities:
     - type: Transform
       pos: -20.5,-53.5
       parent: 2
-- proto: MagazineBoxMagnum
+- proto: ADTMagazineBoxMagnumLesser
   entities:
   - uid: 24307
     components:
@@ -193439,7 +193439,7 @@ entities:
     - type: Transform
       pos: 60.33274,7.545334
       parent: 2
-- proto: MagazineBoxMagnumPractice
+- proto: ADTMagazineBoxMagnumLesserPractice
   entities:
   - uid: 24308
     components:
@@ -211758,7 +211758,6 @@ entities:
       parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
-    - type: Timer
   - uid: 25637
     components:
     - type: Transform
@@ -214048,7 +214047,6 @@ entities:
     - type: Transform
       pos: -49.5,50.5
       parent: 2
-    - type: Timer
   - uid: 34116
     components:
     - type: Transform
@@ -216183,7 +216181,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -50.5,52.5
       parent: 2
-    - type: Timer
   - uid: 34564
     components:
     - type: Transform

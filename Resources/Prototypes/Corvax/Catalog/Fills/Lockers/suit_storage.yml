@@ -1,12 +1,14 @@
-- type: entity
+﻿- type: entity
   id: SuitStorageSecPilot
   parent: SuitStorageBase
   suffix: Security
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
         - id: DoubleEmergencyOxygenTankFilled
-        # - id: ClothingOuterHardsuitSecurityPilot
+          # - id: ClothingOuterHardsuitSecurityPilot
         - id: ClothingMaskBreath
         - id: ClothingShoesBootsMag
   - type: AccessReader

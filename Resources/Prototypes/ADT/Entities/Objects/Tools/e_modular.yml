@@ -1,0 +1,23 @@
+- type: entity
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: ADTEhackUnlimited
+  suffix: Unlimited
+  name: Cryptographic Modulator
+  description: Little brother of the EMAG. Specialized to bypass machines, borgs, but not access.
+  components:
+  - type: Emag
+  - type: Sprite
+    sprite: Objects/Tools/access_breaker.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Tools/access_breaker.rsi
+
+- type: entity
+  parent: ADTEhackUnlimited
+  id: ADTEhack
+  suffix: Limited
+  components:
+  - type: LimitedCharges
+  - type: AutoRecharge
+  - type: StaticPrice
+    price: 2000

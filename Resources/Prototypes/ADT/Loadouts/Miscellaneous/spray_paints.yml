@@ -1,0 +1,54 @@
+# Spray paints
+- type: loadout
+  id: ADTSprayPaintRed
+  storage:
+    back:
+    - SprayPaintRed
+
+- type: loadout
+  id: ADTSprayPaintOrange
+  storage:
+    back:
+    - SprayPaintOrange
+
+- type: loadout
+  id: ADTFunnyPaintYellow
+  storage:
+    back:
+    - FunnyPaintYellow
+
+- type: loadout
+  id: ADTSprayPaintGreen
+  storage:
+    back:
+    - SprayPaintGreen
+
+- type: loadout
+  id: ADTSprayPaintBlue
+  storage:
+    back:
+    - SprayPaintBlue
+
+- type: loadout
+  id: ADTSprayPaintPurple
+  storage:
+    back:
+    - SprayPaintPurple
+
+- type: loadout
+  id: ADTFunnyPaint
+  storage:
+    back:
+    - FunnyPaint
+
+- type: loadout
+  id: ADTSprayPaintWhite
+  storage:
+    back:
+    - SprayPaintWhite
+
+- type: loadout
+  id: ADTSprayPaintBlack
+  storage:
+    back:
+    - SprayPaintBlack

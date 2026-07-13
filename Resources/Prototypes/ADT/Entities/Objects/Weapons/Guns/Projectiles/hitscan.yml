@@ -19,7 +19,6 @@
       state: impact_xray
   - type: HitscanBasicEffects
 
-
 - type: entity
   parent: BasicHitscan
   id: EctoLaserPistol
@@ -40,7 +39,6 @@
       sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
       state: impact_xray
   - type: HitscanBasicEffects
-
 
 - type: entity
   parent: BasicHitscan
@@ -68,7 +66,6 @@
       sprite: ADT/Objects/Weapons/Guns/Projectiles/medigun_projectiles.rsi
       state: impact_heal
 
-
 - type: entity
   parent: BasicHitscan
   id: RedLaserBlaster
@@ -88,3 +85,43 @@
     impactFlash:
       sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
       state: impact_laser
+
+- type: entity
+  parent: BasicHitscan
+  id: ADTPulsePistol
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 25
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: muzzle_blue
+    travelFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: beam_blue
+    impactFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: impact_blue
+
+- type: entity
+  parent: BasicHitscan
+  id: ADTYellowLightLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: muzzle_yellow
+    travelFlash:
+      sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: beam_yellow
+    impactFlash:
+      sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: impact_yellow
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 7

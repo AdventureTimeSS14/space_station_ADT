@@ -1,18 +1,20 @@
-- type: body
-  id: ADTGeras
-  name: "slimes"
-  root: torso
-  slots:
-    torso:
-      part: TorsoSlime
-      connections:
-      - legs
-      organs:
-        core: SentientSlimeCore
-        lungs: OrganSlimeLungs
-    legs:
-      part: ADTLegsGeras
-      connections:
-      - feet
-    feet:
-      part: ADTFeetGeras
+# DEPRECATED: type:body prototype system removed in upstream PR#42476
+# This data is preserved for reference when creating InitialBody entries (task 8)
+# - type: body
+#   id: ADTGeras
+#   name: "slimes"
+#   root: torso
+#   slots:
+#     torso:
+#       part: TorsoSlime
+#       connections:
+#       - legs
+#       organs:
+#         core: SentientSlimeCore
+#         lungs: OrganSlimeLungs
+#     legs:
+#       part: ADTLegsGeras
+#       connections:
+#       - feet
+#     feet:
+#       part: ADTFeetGeras

@@ -35,4 +35,9 @@ public sealed partial class PolymorphedEntityComponent : Component
 
     [DataField]
     public EntityUid? Action;
+
+    // ADT-Tweak start
+    [DataField]
+    public int? ParentVisibilityMask;
+    // ADT-Tweak end
 }

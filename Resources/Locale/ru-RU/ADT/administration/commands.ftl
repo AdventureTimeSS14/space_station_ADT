@@ -1,14 +1,17 @@
 ## Команда: banmass
+
 cmd-banmass-desc = Банит сразу нескольких игроков по никнейму или ID.
 cmd-banmass-help = Использование: banmass "Причина" <время> name1 name2 name3.. Время - продолжительность в минутах, 0 для пермабана.
 
 ## Команда: kick_hide
+
 cmd-kick_hide-desc = Тайно кикает пользователя разрывая соединение.
 cmd-kick_hide-help = Использование: kick_hide <nickname>
 cmd-kick_hide-player = Сессия игрока не найдена.
 cmd-kick_hide-error-arg = Не указан аргумент для команды.
 
 ## Команда: echo_chat
+
 cmd-echo_chat-desc = Заставляет указанного игрока или сущности постить ваше message сообщение, если сущность имеет такую возможность.
 cmd-echo_chat-help = Использование: echo_chat <userName/uid(сущности)> <message> <speak/emote/whisper>
 echo_chat-hint = <userName/uid>
@@ -20,43 +23,63 @@ echo_chat-whisper-help = Использование чата шёпотом
 echo_chat-whisper-error-args = Ошибка: неверное количество аргументов! Ожидается 3 аргумента: <Никнейм/Uid> <Текст> <Тип чата>
 
 ## Команда: admin_toggle
+
 cmd-admin_toggle-desc = Вводит в деадмин или реадмин указанного пользователя.
 cmd-admin_toggle-help = Использование: admin_toggle <userName> <readmin/deadmin>
 cmd-admin_toggle-hint-duration = Значение
 cmd-admin_toggle-readmin = Вернуть права админу.
 cmd-admin_toggle-deadmin = Ввести в деадмин.
 cmd-admin_toggle-error-args = Указанный пользователь не найден.
-
 # Команда: export
 cmd-export-only-yml = Указанный файл должен иметь расширение .yml
 cmd-export-help = Экспортирует на ваш компьютер указанный .yml файл
-
 # Команда: lslawset_get
 cmd-lslawset_get-desc = Выводит список законов у сущности которая имеет SiliconLawProviderComponent.
 cmd-lslawset_get-error-component = Сущность не имеет SiliconLawProviderComponent.
 cmd-lslawset_get-help = Использование: lslawset_get <userName/Uid>
-
 # Команда: setmind_swap
 set-mind-swap-command-description = Меняет местами сознания указанных сущностей. Сущности должна иметь { $requiredComponent }.
 set-mind-swap-command-help-text = Использование: { $command } <entityUid1> <entityUid2> [unvisit]
 set-mind-swap-success-message = Сознания успешно поменялись между собой.
 set-mind-swap-command-minds-not-found = Ошибка: сознания не найдены или сущности некорректны.
 set-mind-swap-command-target-has-no-mind-message = У одной из указанных сущностей нет компонента MindContainerComponent.
-
 # Команда: adjstationjob
 cmd-adjstationjob-desc = Изменить манифест рабочих мест на станции.
 cmd-adjstationjob-help = Использование: adjstationjob <station id> <job id> <amount>
-
 # Команда: zoom_tweak
 cmd-zoom_tweak-command-description = Указанному игроку или uid меняет компонент { $component } устанавливая значения zoom.
 cmd-zoom_tweak-command-help-text = Использование: { $command } <Username/Uid> <int-Zoom>
 cmd-zoom_tweak-command-error-content-eye = У указанной сущности отсутствует { $component }.
-
 # Команда: massmsg
 massmsg-command-description = Отправляет скрытое сообщение всем указанным игрокам
-massmsg-command-help-text = Использование: {$command} <сообщение> <всплывающее сообщение> <user1 [user2 [user3]] | all | radius:<float>>
+massmsg-command-help-text = Использование: { $command } <сообщение> <всплывающее сообщение> <user1 [user2 [user3]] | all | radius:<float>>
 massmsg-player-unable = Не удалось найти игрока с таким никнеймом.
 massmsg-command-hint = username/all/radius:<int>
 massmsg-command-hint-one-args = message
 massmsg-command-hint-second-args = popupMessage
-
+# Команда: languageadd
+cmd-languageadd-desc = Добавляет язык сущности.
+cmd-languageadd-help = Использование: languageadd <entity uid> <язык|all> [уровень]
+cmd-languageadd-success = Язык { $language } ({ $knowledge }) добавлен сущности { $entity }.
+cmd-languageadd-all-success = Добавлено { $count } языков сущности { $entity } с уровнем { $knowledge }.
+cmd-languageadd-invalid-language = Язык { $language } не найден.
+cmd-languageadd-invalid-knowledge = Неверный уровень знания языка. Используйте: Understand, BadSpeak, Speak.
+cmd-languageadd-no-language-component = У сущности нет компонента языка.
+# Команда: languageslist
+cmd-languageslist-desc = Показывает список языков, которые знает сущность.
+cmd-languageslist-help = Использование: languageslist <entity uid>
+cmd-languageslist-header = Языки сущности { $entity }:
+cmd-languageslist-empty = Сущность не знает ни одного языка.
+cmd-languageslist-no-language-component = У сущности { $entity } нет компонента языка.
+cmd-languageslist-line = - { $proto } ({ $id }): { $knowledge }{ $current }
+cmd-languageslist-current-suffix = [Текущий]
+# Команда: languageremove
+cmd-languageremove-desc = Удаляет язык у сущности.
+cmd-languageremove-help = Использование: languageremove <entity uid> <язык|all>
+cmd-languageremove-success = Язык { $language } удалён у сущности { $entity }.
+cmd-languageremove-all-success = Удалено { $count } языков у сущности { $entity }.
+cmd-languageremove-invalid-language = Язык { $language } не найден.
+cmd-languageremove-no-language-component = У сущности { $entity } нет компонента языка.
+cmd-languageremove-not-known = Сущность { $entity } не знает язык { $language }.
+cmd-language-hint = Язык
+cmd-knowledge-hint = Уровень

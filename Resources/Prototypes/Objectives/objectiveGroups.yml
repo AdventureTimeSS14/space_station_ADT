@@ -49,6 +49,13 @@
 #    RandomTraitorAliveObjective: 1 - Removed because the objective was boring and didn't progress the round.
     RandomTraitorProgressObjective: 1
 
+#misc objectives that don't fall other another category
+- type: weightedRandom
+  id: TraitorObjectiveGroupOther
+  weights:
+    HijackTradeStationObjective: 1
+
+
 #Thief groups
 - type: weightedRandom
   id: ThiefObjectiveGroups
@@ -92,7 +99,6 @@
     ADTClothingMaskGasCEStealObjective: 1    # ADT Tweak: add gas mask CE
 # ADT-Tweak до убирал ибо вызывало ошибки. "Corvax-StealTarget"  ExpeditionsCircuitboardStealObjective: 1            #sup
     CargoShuttleCircuitboardStealObjective: 1
-    ClothingEyesHudBeerStealObjective: 0.5              #srv, beer goggles less common cause its so easy
     BibleStealObjective: 1
     ClothingNeckGoldmedalStealObjective: 1              #other
     ClothingNeckClownmedalStealObjective: 0.5

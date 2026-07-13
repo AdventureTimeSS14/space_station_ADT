@@ -2,8 +2,8 @@
   id: ADT_Meta
   mapName: 'Meta Station'
   mapPath: /Maps/ADTMaps/ADTStations/adt_meta.yml
-  minPlayers: 20
-  maxPlayers: 35
+  minPlayers: 35
+  maxPlayers: 60
   stations:
     ADT_Meta:
       stationProto: StandardNanotrasenStation
@@ -33,7 +33,7 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
-            Boxer: [2, 2]
+            #Boxer: [2, 2] removed at commit 58f884133b 
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 3 ]

@@ -1,0 +1,549 @@
+meta:
+  format: 7
+  category: Grid
+  engineVersion: 268.0.0
+  forkId: SS14_DEV
+  forkVersion: 4d1cdfa089a58a4939fe03914e2fcdd911465e3a
+  time: 02/14/2026 16:19:13
+  entityCount: 66
+maps: []
+grids:
+- 1
+orphans:
+- 1
+nullspace: []
+tilemap:
+  3: Space
+  70: ADTFloorCult
+  71: ADTFloorCultFire
+  72: ADTFloorCultHell
+  10: ADTFloorDarkWoodLargeBroken
+  90: ADTFloorLightWoodBroken
+  91: ADTFloorLightWoodChessBroken
+  93: ADTFloorLightWoodLargeBroken
+  57: ADTFloorShipDarkGray
+  84: ADTFloorWoodChessBroken
+  27: ADTFloorWoodLargeBroken
+  26: ADTFloorWoodParquetBroken
+  41: ADTFloorYellowOrange
+  53: ADTLatticeLeftLower
+  52: ADTLatticeLeftUpper
+  55: ADTLatticeRightLower
+  23: ADTLatticeRightUpper
+  5: FloorAsteroidSand
+  15: FloorAsteroidSandBorderless
+  6: FloorAsteroidSandDug
+  36: FloorAsteroidSandDugBorderless
+  103: FloorAsteroidSandRed
+  83: FloorAsteroidSandRedBorderless
+  40: FloorAsteroidSandUnvariantized
+  35: FloorAsteroidSandUnvariantizedBorderless
+  0: FloorAsteroidTile
+  79: FloorAstroAsteroidSand
+  78: FloorAstroAsteroidSandBorderless
+  69: FloorAstroGrass
+  38: FloorAstroSnow
+  54: FloorBar
+  58: FloorBasalt
+  49: FloorBrassFilled
+  48: FloorBrassReebe
+  28: FloorBrokenWood
+  37: FloorCarpetClown
+  45: FloorCarpetOffice
+  107: FloorCave
+  22: FloorDark
+  97: FloorDarkMarble
+  98: FloorDarkMono
+  82: FloorDarkPavement
+  81: FloorDarkPavementVertical
+  102: FloorDarkPlastic
+  68: FloorDirt
+  60: FloorFreezer
+  8: FloorGlass
+  42: FloorGold
+  17: FloorGrassDark
+  32: FloorGrassLight
+  73: FloorGrayConcrete
+  109: FloorGrayConcreteOutside
+  2: FloorGrayConcreteOutsideSmooth
+  108: FloorGrayConcreteSmooth
+  66: FloorIce
+  24: FloorKitchen
+  80: FloorLino
+  86: FloorMetalDiamond
+  43: FloorMetalFoam
+  63: FloorMime
+  87: FloorMiningDark
+  64: FloorMono
+  18: FloorMowedAstroGrass
+  19: FloorPlanetGrass
+  50: FloorPlastic
+  25: FloorRGlass
+  29: FloorShuttleBlack
+  76: FloorShuttleBlue
+  74: FloorShuttleOrange
+  30: FloorShuttleRed
+  75: FloorShuttleWhite
+  65: FloorSnow
+  77: FloorSnowDug
+  14: FloorSteel
+  20: FloorSteelCheckerDark
+  31: FloorSteelCheckerLight
+  13: FloorSteelDamaged
+  39: FloorSteelDirty
+  100: FloorTechMaint
+  11: FloorTechMaint2
+  12: FloorTechMaint3
+  105: FloorTechMaintDark
+  34: FloorUraniumMarble
+  85: FloorWebTile
+  96: FloorWhite
+  95: FloorWhiteHerringbone
+  56: FloorWhiteMarble
+  59: FloorWhiteMono
+  51: FloorWhitePlastic
+  16: FloorWood
+  46: FloorWoodChess
+  61: FloorWoodChessDark
+  89: FloorWoodChessLight
+  101: FloorWoodLarge
+  9: FloorWoodLargeDark
+  92: FloorWoodLargeLight
+  88: FloorWoodLight
+  106: FloorWoodParquet
+  62: FloorWoodParquetDark
+  94: FloorWoodParquetLight
+  44: FloorWoodTile
+  33: FloorXeno
+  99: FloorXenoMaint
+  21: Lattice
+  1: Plating
+  7: PlatingAsteroid
+  47: PlatingBrass
+  4: PlatingDamaged
+  67: PlatingSnow
+  104: TrainLattice
+entities:
+- proto: ""
+  entities:
+  - uid: 1
+    components:
+    - type: MetaData
+      name: grid
+    - type: Transform
+      pos: 696.4593,-1.0625
+      parent: invalid
+    - type: MapGrid
+      chunks:
+        0,0:
+          ind: 0,0
+          tiles: AwAAAAAAAAUAAAAAAAAEAAAAAAAAAwAAAAAAAE8AAAAAAAAnAAAAAAAAAAAAAAAAACcAAAAAAAAVAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAFAAAAAAAAAQAAAAAAAAAAAAAAAAAVAAAAAAAABwAAAAAAAAEAAAAAAAAVAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAUAAAAAAABOAAAAAAAATgAAAAAAAE4AAAAAAAAVAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAA==
+          version: 7
+        0,-1:
+          ind: 0,-1
+          tiles: AwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAE8AAAAAAABPAAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAA1AAAAAAAAAQAAAAAAABUAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAFAAAAAAAABQAAAAAAAAUAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAQAAAAAAAAAAAAAAAAAHAAAAAAAABAAAAAAAACcAAAAAAAAFAAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAA1AAAAAAAAFQAAAAAAACcAAAAAAAAnAAAAAAAABAAAAAAAABUAAAAAAAAHAAAAAAAAAAAAAAAAAAEAAAAAAAAFAAAAAAAABQAAAAAAAAUAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAFQAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAABcAAAAAAAAnAAAAAAAAAQAAAAAAAAQAAAAAAAAGAAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAE4AAAAAAABOAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAABOAAAAAAAABQAAAAAAAAUAAAAAAABPAAAAAAAABQAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAABOAAAAAAAAFQAAAAAAAAMAAAAAAAAVAAAAAAAABAAAAAAAACcAAAAAAAABAAAAAAAABAAAAAAAAAQAAAAAAABOAAAAAAAATwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAATgAAAAAAAAEAAAAAAAAVAAAAAAAAJwAAAAAAAAEAAAAAAAAAAAAAAAAABAAAAAAAACcAAAAAAAABAAAAAAAATwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAA==
+          version: 7
+    - type: Broadphase
+    - type: Physics
+      bodyStatus: InAir
+      fixedRotation: False
+      bodyType: Dynamic
+    - type: Fixtures
+      fixtures: {}
+    - type: OccluderTree
+    - type: SpreaderGrid
+    - type: Shuttle
+      dampingModifier: 0.25
+    - type: GridPathfinding
+    - type: Gravity
+      gravityShakeSound: !type:SoundPathSpecifier
+        path: /Audio/Effects/alert.ogg
+    - type: DecalGrid
+      chunkCollection:
+        version: 2
+        nodes: []
+    - type: SupermatterSpreaderGrid
+    - type: GridAtmosphere
+      version: 2
+      data:
+        chunkSize: 4
+    - type: GasTileOverlay
+    - type: RadiationGridResistance
+    - type: ImplicitRoof
+- proto: ADTBlackCentcommAirlock
+  entities:
+  - uid: 2
+    components:
+    - type: Transform
+      pos: 2.5,1.5
+      parent: 1
+  - uid: 3
+    components:
+    - type: Transform
+      pos: 6.5,-2.5
+      parent: 1
+- proto: CrystalSpawner
+  entities:
+  - uid: 4
+    components:
+    - type: Transform
+      pos: 9.5,-2.5
+      parent: 1
+  - uid: 5
+    components:
+    - type: Transform
+      pos: 4.5,0.5
+      parent: 1
+- proto: RandomBrownStalagmite
+  entities:
+  - uid: 6
+    components:
+    - type: Transform
+      pos: 11.5,-5.5
+      parent: 1
+  - uid: 7
+    components:
+    - type: Transform
+      pos: 9.5,-0.5
+      parent: 1
+  - uid: 8
+    components:
+    - type: Transform
+      pos: 5.5,-7.5
+      parent: 1
+  - uid: 9
+    components:
+    - type: Transform
+      pos: 11.5,-2.5
+      parent: 1
+  - uid: 10
+    components:
+    - type: Transform
+      pos: 0.5,-2.5
+      parent: 1
+- proto: RandomCableApcExtensionSpawner
+  entities:
+  - uid: 11
+    components:
+    - type: Transform
+      pos: 6.5,-2.5
+      parent: 1
+  - uid: 12
+    components:
+    - type: Transform
+      pos: 3.5,-3.5
+      parent: 1
+  - uid: 13
+    components:
+    - type: Transform
+      pos: 6.5,-3.5
+      parent: 1
+  - uid: 14
+    components:
+    - type: Transform
+      pos: 2.5,-3.5
+      parent: 1
+  - uid: 15
+    components:
+    - type: Transform
+      pos: 6.5,-1.5
+      parent: 1
+  - uid: 16
+    components:
+    - type: Transform
+      pos: 4.5,-0.5
+      parent: 1
+  - uid: 17
+    components:
+    - type: Transform
+      pos: 2.5,0.5
+      parent: 1
+  - uid: 18
+    components:
+    - type: Transform
+      pos: 3.5,-0.5
+      parent: 1
+- proto: RandomCableMVSpawner
+  entities:
+  - uid: 19
+    components:
+    - type: Transform
+      pos: 2.5,-3.5
+      parent: 1
+  - uid: 20
+    components:
+    - type: Transform
+      pos: 3.5,-3.5
+      parent: 1
+  - uid: 21
+    components:
+    - type: Transform
+      pos: 6.5,-3.5
+      parent: 1
+  - uid: 22
+    components:
+    - type: Transform
+      pos: 7.5,-3.5
+      parent: 1
+  - uid: 23
+    components:
+    - type: Transform
+      pos: 3.5,1.5
+      parent: 1
+  - uid: 24
+    components:
+    - type: Transform
+      pos: 2.5,1.5
+      parent: 1
+- proto: RandomInstruments
+  entities:
+  - uid: 25
+    components:
+    - type: Transform
+      pos: 1.5,-1.5
+      parent: 1
+- proto: SalvageMobSpawner75
+  entities:
+  - uid: 26
+    components:
+    - type: Transform
+      pos: 4.5,-5.5
+      parent: 1
+- proto: SalvageSpawnerEquipment
+  entities:
+  - uid: 27
+    components:
+    - type: Transform
+      pos: 1.5,-3.5
+      parent: 1
+- proto: SalvageSpawnerMobMagnet100
+  entities:
+  - uid: 28
+    components:
+    - type: Transform
+      pos: 8.5,-2.5
+      parent: 1
+- proto: SalvageSpawnerScrapCommon
+  entities:
+  - uid: 29
+    components:
+    - type: Transform
+      pos: 7.5,-5.5
+      parent: 1
+- proto: SalvageSpawnerTreasureValuable
+  entities:
+  - uid: 30
+    components:
+    - type: Transform
+      pos: 9.5,-6.5
+      parent: 1
+- proto: ScrapFirelock1
+  entities:
+  - uid: 31
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.1314745,-4.154763
+      parent: 1
+- proto: ScrapFirelock2
+  entities:
+  - uid: 32
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.3950853,-4.342263
+      parent: 1
+- proto: SpawnMobCarpHolo
+  entities:
+  - uid: 33
+    components:
+    - type: Transform
+      pos: 5.5,-3.5
+      parent: 1
+- proto: Table
+  entities:
+  - uid: 34
+    components:
+    - type: Transform
+      pos: 4.5,-2.5
+      parent: 1
+  - uid: 35
+    components:
+    - type: Transform
+      pos: 5.5,-2.5
+      parent: 1
+- proto: WallRockSand
+  entities:
+  - uid: 36
+    components:
+    - type: Transform
+      pos: 9.5,-5.5
+      parent: 1
+  - uid: 37
+    components:
+    - type: Transform
+      pos: 11.5,-4.5
+      parent: 1
+  - uid: 38
+    components:
+    - type: Transform
+      pos: 11.5,-3.5
+      parent: 1
+  - uid: 39
+    components:
+    - type: Transform
+      pos: 10.5,-3.5
+      parent: 1
+  - uid: 40
+    components:
+    - type: Transform
+      pos: 9.5,-4.5
+      parent: 1
+  - uid: 41
+    components:
+    - type: Transform
+      pos: 8.5,-5.5
+      parent: 1
+  - uid: 42
+    components:
+    - type: Transform
+      pos: 8.5,-7.5
+      parent: 1
+  - uid: 43
+    components:
+    - type: Transform
+      pos: 6.5,-7.5
+      parent: 1
+  - uid: 44
+    components:
+    - type: Transform
+      pos: 7.5,-8.5
+      parent: 1
+  - uid: 45
+    components:
+    - type: Transform
+      pos: 8.5,-8.5
+      parent: 1
+  - uid: 46
+    components:
+    - type: Transform
+      pos: 9.5,-7.5
+      parent: 1
+  - uid: 47
+    components:
+    - type: Transform
+      pos: 10.5,-6.5
+      parent: 1
+- proto: WallRockSandDiamond
+  entities:
+  - uid: 48
+    components:
+    - type: Transform
+      pos: 10.5,-5.5
+      parent: 1
+- proto: WallRockSandTin
+  entities:
+  - uid: 49
+    components:
+    - type: Transform
+      pos: 8.5,-6.5
+      parent: 1
+- proto: WallSandstone
+  entities:
+  - uid: 50
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,-4.5
+      parent: 1
+  - uid: 51
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,-7.5
+      parent: 1
+- proto: WallSolidRust
+  entities:
+  - uid: 52
+    components:
+    - type: Transform
+      pos: 2.5,-2.5
+      parent: 1
+  - uid: 53
+    components:
+    - type: Transform
+      pos: 3.5,-2.5
+      parent: 1
+  - uid: 54
+    components:
+    - type: Transform
+      pos: 1.5,-2.5
+      parent: 1
+  - uid: 55
+    components:
+    - type: Transform
+      pos: 7.5,-2.5
+      parent: 1
+  - uid: 56
+    components:
+    - type: Transform
+      pos: 5.5,2.5
+      parent: 1
+  - uid: 57
+    components:
+    - type: Transform
+      pos: 0.5,-0.5
+      parent: 1
+  - uid: 58
+    components:
+    - type: Transform
+      pos: 0.5,-1.5
+      parent: 1
+  - uid: 59
+    components:
+    - type: Transform
+      pos: 9.5,-1.5
+      parent: 1
+  - uid: 60
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 8.5,-0.5
+      parent: 1
+  - uid: 61
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,-6.5
+      parent: 1
+  - uid: 62
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,-6.5
+      parent: 1
+  - uid: 63
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,2.5
+      parent: 1
+  - uid: 64
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,2.5
+      parent: 1
+  - uid: 65
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,-6.5
+      parent: 1
+  - uid: 66
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,-6.5
+      parent: 1
+...

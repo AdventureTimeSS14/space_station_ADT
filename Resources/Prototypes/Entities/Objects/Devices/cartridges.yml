@@ -41,6 +41,7 @@
   - type: UIFragment
     ui: !type:NanoTaskUi
   - type: NanoTaskCartridge
+    printDelay: 50 # ADT-Tweak
 
 - type: entity
   parent: BasePDACartridge

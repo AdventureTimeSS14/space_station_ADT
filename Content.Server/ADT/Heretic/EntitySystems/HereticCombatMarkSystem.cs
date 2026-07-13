@@ -103,7 +103,7 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
         if (look.Count != 0)
         {
             var lookent = look.ToArray()[0];
-            if (HasComp<HumanoidAppearanceComponent>(lookent)
+            if (HasComp<HumanoidProfileComponent>(lookent)
             && !HasComp<HereticComponent>(lookent))
             {
                 var markComp = EnsureComp<HereticCombatMarkComponent>(lookent);

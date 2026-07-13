@@ -12,7 +12,6 @@ using Content.Server.EUI;
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Eui;
-
 using Robust.Shared.Network;
 
 namespace Content.Server.Administration;
@@ -65,41 +64,46 @@ public sealed class BanPanelEui : BaseEui
         }
     }
 
-    private async void BanPlayer(Ban ban)
+    private async void BanPlayer(Shared.Administration.Ban ban)
     {
         if (!_admins.HasAdminFlag(Player, AdminFlags.Ban))
         {
             _sawmill.Warning($"{Player.Name} ({Player.UserId}) tried to create a ban with no ban flag");
-
             return;
         }
 
         if (ban.Target == null && string.IsNullOrWhiteSpace(ban.IpAddress) && ban.Hwid == null)
         {
             _chat.DispatchServerMessage(Player, Loc.GetString("ban-panel-no-data"));
-
             return;
         }
 
         (IPAddress, int)? addressRange = null;
         if (ban.IpAddress is not null)
         {
-            if (!IPAddress.TryParse(ban.IpAddress, out var ipAddress) || !uint.TryParse(ban.IpAddressHid, out var hidInt) || hidInt > Ipv6_CIDR || hidInt > Ipv4_CIDR && ipAddress.AddressFamily == AddressFamily.InterNetwork)
+            if (!IPAddress.TryParse(ban.IpAddress, out var ipAddress) ||
+                !uint.TryParse(ban.IpAddressHid, out var hidInt) ||
+                hidInt > Ipv6_CIDR ||
+                hidInt > Ipv4_CIDR && ipAddress.AddressFamily == AddressFamily.InterNetwork)
             {
                 _chat.DispatchServerMessage(Player, Loc.GetString("ban-panel-invalid-ip"));
                 return;
             }
 
             if (hidInt == 0)
-                hidInt = (uint) (ipAddress.AddressFamily == AddressFamily.InterNetworkV6 ? Ipv6_CIDR : Ipv4_CIDR);
+                hidInt = (uint)(ipAddress.AddressFamily == AddressFamily.InterNetworkV6 ? Ipv6_CIDR : Ipv4_CIDR);
 
-            addressRange = (ipAddress, (int) hidInt);
+            addressRange = (ipAddress, (int)hidInt);
         }
 
         var targetUid = ban.Target is not null ? PlayerId : null;
-        addressRange = ban.UseLastIp && LastAddress is not null ? (LastAddress, LastAddress.AddressFamily == AddressFamily.InterNetworkV6 ? Ipv6_CIDR : Ipv4_CIDR) : addressRange;
+        addressRange = ban.UseLastIp && LastAddress is not null
+            ? (LastAddress, LastAddress.AddressFamily == AddressFamily.InterNetworkV6 ? Ipv6_CIDR : Ipv4_CIDR)
+            : addressRange;
         var targetHWid = ban.UseLastHwid ? LastHwid : ban.Hwid;
-        if (ban.Target != null && ban.Target != PlayerName || Guid.TryParse(ban.Target, out var parsed) && parsed != PlayerId)
+
+        if (ban.Target != null && ban.Target != PlayerName ||
+            Guid.TryParse(ban.Target, out var parsed) && parsed != PlayerId)
         {
             var located = await _playerLocator.LookupIdByNameOrIdAsync(ban.Target);
             if (located == null)
@@ -114,59 +118,73 @@ public sealed class BanPanelEui : BaseEui
                 if (targetAddress.IsIPv4MappedToIPv6)
                     targetAddress = targetAddress.MapToIPv4();
 
-                // Ban /64 for IPv6, /32 for IPv4.
                 var hid = targetAddress.AddressFamily == AddressFamily.InterNetworkV6 ? Ipv6_CIDR : Ipv4_CIDR;
                 addressRange = (targetAddress, hid);
             }
             targetHWid = ban.UseLastHwid ? located.LastHWId : ban.Hwid;
         }
 
+        // Start-ADT-Tweak: проверка прав админа
+        if (targetUid != null)
+        {
+            var dbData = await _dbManager.GetAdminDataForAsync(targetUid.Value);
+
+            if (dbData != null && dbData.AdminRank != null)
+            {
+                var targetPermissionsFlag = AdminFlagsHelper.NamesToFlags(dbData.AdminRank.Flags.Select(p => p.Flag));
+
+                if ((targetPermissionsFlag & AdminFlags.Permissions) == AdminFlags.Permissions)
+                    return;
+            }
+        }
+        // End-ADT-Tweak
+
         if (ban.BannedJobs?.Length > 0 || ban.BannedAntags?.Length > 0)
         {
-            var now = DateTimeOffset.UtcNow;
             // Start-ADT-Tweak: логи банов для диса
             var lastRoleBan = await _dbManager.GetLastServerRoleBanAsync();
-            var currentRoleBanId = lastRoleBan is not null ? lastRoleBan.Id + 1 : 1;
+            var currentRoleBanId = lastRoleBan is not null ? lastRoleBan + 1 : 1;
             var rolesData = new List<string>();
             // End-ADT-Tweak
+
+            var roleBanInfo = new CreateRoleBanInfo(ban.Reason);
+            roleBanInfo.WithBanningAdmin(Player.UserId);
+            roleBanInfo.WithSeverity(ban.Severity);
+            if (ban.BanDurationMinutes > 0)
+                roleBanInfo.WithMinutes(ban.BanDurationMinutes);
+
+            if (targetUid != null)
+                roleBanInfo.AddUser(targetUid.Value, ban.Target!);
+
+            if (addressRange != null)
+                roleBanInfo.AddAddressRange(addressRange.Value);
+
+            roleBanInfo.AddHWId(targetHWid);
+
             foreach (var role in ban.BannedJobs ?? [])
             {
-                _banManager.CreateRoleBan(
-                    targetUid,
-                    ban.Target,
-                    Player.UserId,
-                    addressRange,
-                    targetHWid,
-                    role,
-                    ban.BanDurationMinutes,
-                    ban.Severity,
-                    ban.Reason,
-                    now
-                );
-                rolesData.Add($"{role}:{currentRoleBanId}"); // ADT-Tweak
-                currentRoleBanId++; // ADT-Tweak 
+                roleBanInfo.AddJob(role);
+
+                // Start-ADT-Tweak
+                rolesData.Add($"{role}:{currentRoleBanId}");
+                currentRoleBanId++;
+                // End-ADT-Tweak
             }
 
             foreach (var role in ban.BannedAntags ?? [])
             {
-                _banManager.CreateRoleBan(
-                    targetUid,
-                    ban.Target,
-                    Player.UserId,
-                    addressRange,
-                    targetHWid,
-                    role,
-                    ban.BanDurationMinutes,
-                    ban.Severity,
-                    ban.Reason,
-                    now
-                );
+                roleBanInfo.AddAntag(role);
 
-                rolesData.Add($"{role}:{currentRoleBanId}"); // ADT-Tweak
-                currentRoleBanId++; // ADT-Tweak
+                // Start-ADT-Tweak
+                rolesData.Add($"{role}:{currentRoleBanId}");
+                currentRoleBanId++;
+                // End-ADT-Tweak
             }
+
+            _banManager.CreateRoleBan(roleBanInfo);
+
             // Start-ADT-Tweak: логи банов для диса
-            var roleBanInfo = new BanInfo
+            var banInfo = new BanInfo
             {
                 BanId = string.Empty,
                 Target = ban.Target!,
@@ -178,14 +196,29 @@ public sealed class BanPanelEui : BaseEui
                 {
                     { "roles", string.Join(", ", rolesData) }
                 }
-            // End-ADT-Tweak
             };
 
-            await _discordBanInfoSender.SendBanInfoAsync<PanelBanPayloadGenerator>(roleBanInfo);
+            await _discordBanInfoSender.SendBanInfoAsync<PanelBanPayloadGenerator>(banInfo);
+            // End-ADT-Tweak
 
             Close();
             return;
         }
+
+        // Server ban
+        var serverBanInfo = new CreateServerBanInfo(ban.Reason);
+        serverBanInfo.WithBanningAdmin(Player.UserId);
+        serverBanInfo.WithSeverity(ban.Severity);
+        if (ban.BanDurationMinutes > 0)
+            serverBanInfo.WithMinutes(ban.BanDurationMinutes);
+
+        if (targetUid != null)
+            serverBanInfo.AddUser(targetUid.Value, ban.Target!);
+
+        if (addressRange != null)
+            serverBanInfo.AddAddressRange(addressRange.Value);
+
+        serverBanInfo.AddHWId(targetHWid);
 
         if (ban.Erase && targetUid is not null)
         {
@@ -199,35 +232,16 @@ public sealed class BanPanelEui : BaseEui
                 _sawmill.Error($"Error while erasing banned player:\n{e}");
             }
         }
-        // ADT-Tweak-Start: логи банов для диса
-        if (targetUid != null)
-        {
-            var dbData = await _dbManager.GetAdminDataForAsync(targetUid.Value);
 
-            if (dbData != null && dbData.AdminRank != null)
-            {
-                var targetPermissionsFlag = AdminFlagsHelper.NamesToFlags(dbData.AdminRank.Flags.Select(p => p.Flag));
-
-                if ((targetPermissionsFlag & AdminFlags.Permissions) == AdminFlags.Permissions)
-                    return;
-            }
-        }
+        // Start-ADT-Tweak: логи банов для диса
         var lastServerBan = await _dbManager.GetLastServerBanAsync();
-        var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
-        // ADT-Tweak-End
+        var newServerBanId = lastServerBan is not null ? lastServerBan + 1 : 1;
+        // End-ADT-Tweak
 
-        _banManager.CreateServerBan(
-            targetUid,
-            ban.Target,
-            Player.UserId,
-            addressRange,
-            targetHWid,
-            ban.BanDurationMinutes,
-            ban.Severity,
-            ban.Reason
-        );
-        // ADT-Tweak-Start: логи банов для дисаusing System.Collections.Immutable;
-        var banInfo = new BanInfo
+        _banManager.CreateServerBan(serverBanInfo);
+
+        // Start-ADT-Tweak: логи банов для диса
+        var serverBanDiscordInfo = new BanInfo
         {
             BanId = newServerBanId.ToString()!,
             Target = ban.Target!,
@@ -237,8 +251,8 @@ public sealed class BanPanelEui : BaseEui
             Expires = DateTimeOffset.Now + TimeSpan.FromMinutes(ban.BanDurationMinutes)
         };
 
-        await _discordBanInfoSender.SendBanInfoAsync<PanelBanPayloadGenerator>(banInfo);
-        // ADT-Tweak-End
+        await _discordBanInfoSender.SendBanInfoAsync<PanelBanPayloadGenerator>(serverBanDiscordInfo);
+        // End-ADT-Tweak
 
         Close();
     }

@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC-BY-3.0",
   "copyright": "White Dream",
   "size": {
@@ -13,6 +13,10 @@
     },
     {
         "name": "janitor",
+        "directions": 4
+    },
+    {
+        "name": "janitor_moving",
         "directions": 4
     },
     {

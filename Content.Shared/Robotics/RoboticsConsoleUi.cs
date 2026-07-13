@@ -123,7 +123,12 @@ public partial record struct CyborgControlData
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan Timeout = TimeSpan.Zero;
 
-    public CyborgControlData(SpriteSpecifier? chassisSprite, string chassisName, string name, float charge, float hpPercent, int moduleCount, bool hasBrain, bool canDisable)
+    // ADT-Tweak start
+    [DataField]
+    public bool IsAiControllable;
+    // ADT-Tweak end
+
+    public CyborgControlData(SpriteSpecifier? chassisSprite, string chassisName, string name, float charge, float hpPercent, int moduleCount, bool hasBrain, bool canDisable, bool isAiControllable) // ADT-Tweak
     {
         ChassisSprite = chassisSprite;
         ChassisName = chassisName;
@@ -133,6 +138,7 @@ public partial record struct CyborgControlData
         ModuleCount = moduleCount;
         HasBrain = hasBrain;
         CanDisable = canDisable;
+        IsAiControllable = isAiControllable; // ADT-Tweak
     }
 }
 

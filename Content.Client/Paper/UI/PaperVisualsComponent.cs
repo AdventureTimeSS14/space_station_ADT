@@ -109,6 +109,15 @@ public sealed partial class PaperVisualsComponent : Component
     [DataField("fontAccentColor")]
     public Color FontAccentColor = new Color(223, 223, 213);
 
+    //  ADT-Tweak Start: Chalkboard
+    /// <summary>
+    ///     Default color for text on the paper (before any control modulation).
+    ///     This is useful for things like chalkboards (white text on a dark background).
+    /// </summary>
+    [DataField("fontDefaultColor")]
+    public Color FontDefaultColor = new(25, 25, 25);
+    // ADT-Tweak End
+
     /// <summary>
     ///     This can enforce that your paper has a limited area to write in.
     ///     If you wish to constrain only one direction, the other direction

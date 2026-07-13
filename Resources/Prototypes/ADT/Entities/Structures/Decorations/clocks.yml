@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTWallClock
   parent: BaseSign
   name: wall clock
@@ -12,8 +12,9 @@
     sprite: /Textures/ADT/Structures/Decoration/clock.rsi
     state: clock
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:
