@@ -100,6 +100,9 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
             }
         }
 
+        // Invalidate client-side draw caches (NavMapControl / crew monitor overlay).
+        component.DataVersion++;
+
         // Refresh beacons
         component.Beacons.Clear();
         foreach (var (nuid, beacon) in beacons)
