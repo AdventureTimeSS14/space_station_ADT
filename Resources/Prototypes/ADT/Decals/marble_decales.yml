@@ -116,3 +116,17 @@
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_line_n
+
+- type: decal
+  id: ADTmarbleLineNwse
+  tags: ["marble"]
+  sprite:
+    sprite: ADT/Decals/marble/marble_decals.rsi
+    state: marble_line_nwse
+
+- type: decal
+  id: ADTmarbleLineSwne
+  tags: ["marble"]
+  sprite:
+    sprite: ADT/Decals/marble/marble_decals.rsi
+    state: marble_line_swne
