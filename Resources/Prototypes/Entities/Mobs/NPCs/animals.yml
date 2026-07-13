@@ -2400,6 +2400,7 @@
     mindRoles:
     - MindRoleGhostRoleFreeAgentHarmless
   - type: CanEscapeInventory
+  - type: GhostTakeoverAvailable
     ## ADT tweak end
 
 - type: entity
