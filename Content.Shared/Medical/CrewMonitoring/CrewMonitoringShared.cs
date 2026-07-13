@@ -5,21 +5,50 @@ using Robust.Shared.Map;
 namespace Content.Shared.Medical.CrewMonitoring;
 
 [Serializable, NetSerializable]
+public sealed class CrewMonitoringReferenceFrame
+{
+    public NetEntity FrameEntity;
+    public NetCoordinates Origin;
+    public float Range;
+    public string Name;
+
+    public CrewMonitoringReferenceFrame(
+        NetEntity frameEntity,
+        NetCoordinates origin,
+        float range,
+        string name)
+    {
+        FrameEntity = frameEntity;
+        Origin = origin;
+        Range = range;
+        Name = name;
+    }
+}
+
+[Serializable, NetSerializable]
 public sealed class CrewMonitoringServerEntry
 {
     public NetEntity NetEntity;
     public NetCoordinates? Coordinates;
     public string ServerAddress;
     public bool IsOnline;
+    public float SensorRange;
     /// <summary> Grid/station name where the server is located (for display). </summary>
     public string GridName;
 
-    public CrewMonitoringServerEntry(NetEntity netEntity, NetCoordinates? coordinates, string serverAddress, bool isOnline, string gridName = "")
+    public CrewMonitoringServerEntry(
+        NetEntity netEntity,
+        NetCoordinates? coordinates,
+        string serverAddress,
+        bool isOnline,
+        float sensorRange,
+        string gridName = "")
     {
         NetEntity = netEntity;
         Coordinates = coordinates;
         ServerAddress = serverAddress;
         IsOnline = isOnline;
+        SensorRange = sensorRange;
         GridName = gridName ?? string.Empty;
     }
 }
@@ -79,6 +108,11 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
     public bool AlertMuted;
 
     /// <summary>
+    /// Alert sound volume from 0 (silent) to 1 (full).
+    /// </summary>
+    public float AlertVolume;
+
+    /// <summary>
     /// All sensor servers on the station for the "Серверы датчиков" department and map blips.
     /// </summary>
     public List<CrewMonitoringServerEntry> Servers;
@@ -103,6 +137,11 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
     /// </summary>
     public NetEntity? SelectedServerUid;
 
+    /// <summary>
+    /// Coordinate frame and circular coverage area of the selected server.
+    /// </summary>
+    public CrewMonitoringReferenceFrame? ReferenceFrame;
+
     public CrewMonitoringState(
         List<SuitSensorStatus> sensors,
         bool isEmagged,
@@ -116,7 +155,9 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
         bool hasScanned = false,
         string gridName = "",
         NetEntity? serverGridUid = null,
-        NetEntity? selectedServerUid = null)
+        NetEntity? selectedServerUid = null,
+        CrewMonitoringReferenceFrame? referenceFrame = null,
+        float alertVolume = 1f)
     {
         Sensors = sensors;
         IsEmagged = isEmagged;
@@ -126,11 +167,13 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
         StationCode = stationCode;
         AlertActive = alertActive;
         AlertMuted = alertMuted;
+        AlertVolume = Math.Clamp(alertVolume, 0f, 1f);
         Servers = servers ?? new List<CrewMonitoringServerEntry>();
         HasScanned = hasScanned;
         GridName = gridName;
         ServerGridUid = serverGridUid;
         SelectedServerUid = selectedServerUid;
+        ReferenceFrame = referenceFrame;
     }
 }
 
@@ -158,6 +201,17 @@ public sealed class CrewMonitoringSetAlertMutedMessage : BoundUserInterfaceMessa
     public CrewMonitoringSetAlertMutedMessage(bool muted)
     {
         Muted = muted;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class CrewMonitoringSetAlertVolumeMessage : BoundUserInterfaceMessage
+{
+    public float Volume { get; }
+
+    public CrewMonitoringSetAlertVolumeMessage(float volume)
+    {
+        Volume = Math.Clamp(volume, 0f, 1f);
     }
 }
 
