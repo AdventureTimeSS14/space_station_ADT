@@ -60,6 +60,10 @@ public abstract partial class SharedMartialArtsSystem
         if (!_combatMode.IsInCombatMode(uid))
             return;
 
+        if (!TryComp<MartialArtsKnowledgeComponent>(uid, out var knowledge)
+            || knowledge.MartialArtsForm != MartialArtsForms.KungFuDragon)
+            return;
+
         if (!TryComp<PhysicsComponent>(uid, out var physics) || _gravity.IsWeightless(uid))
             return;
 
