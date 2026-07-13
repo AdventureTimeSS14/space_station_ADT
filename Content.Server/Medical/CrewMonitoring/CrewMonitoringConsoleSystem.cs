@@ -1,20 +1,22 @@
 using System.Linq;
-using Content.Server.DeviceNetwork;
+using System.Numerics;
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
+using Content.Server.Pinpointer;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.PowerCell;
-using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Components;
-using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Medical.CrewMonitoring;
 using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Pinpointer;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 // ADT-Tweak-Start
 using Robust.Shared.Prototypes;
@@ -28,6 +30,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     [Dependency] private readonly PowerCellSystem _cell = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
+    [Dependency] private readonly CrewMonitoringServerSystem _crewServers = default!;
 
 
     // ADT-Tweak-Start
@@ -36,23 +39,30 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly NavMapSystem _navMap = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     // ADT-Tweak-End
 
     private const float ScanDuration = 5f;
+    private const float ConsoleUpdateInterval = 0.5f;
+    private float _consoleUpdateAccumulator;
+    private List<Entity<MapGridComponent>> _navMapGridBuffer = new();
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, ComponentRemove>(OnRemove);
-        SubscribeLocalEvent<CrewMonitoringConsoleComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, BoundUIOpenedEvent>(OnUIOpened);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, GotEmaggedEvent>(OnEmagged); // ADT-Tweak
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringSetAlertMutedMessage>(OnSetAlertMuted);
+        SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringSetAlertVolumeMessage>(OnSetAlertVolume);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringSelectServerMessage>(OnSelectServer);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringScanStartMessage>(OnScanStart);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringScanCompleteMessage>(OnScanComplete);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringRescanMessage>(OnRescan);
         SubscribeLocalEvent<CrewMonitoringServerComponent, EntityTerminatingEvent>(OnServerTerminating);
+        SubscribeLocalEvent<CrewMonitoringServerComponent, CrewMonitoringServerUpdateEvent>(OnServerUpdate);
     }
 
     private void OnScanStart(EntityUid uid, CrewMonitoringConsoleComponent component, CrewMonitoringScanStartMessage args)
@@ -69,23 +79,61 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             return;
         }
 
+        CompleteScan(uid, component);
+    }
+
+    private void CompleteScan(EntityUid uid, CrewMonitoringConsoleComponent component)
+    {
         component.HasScanned = true;
         component.ScanStartedAt = null;
+        component.ServersListDirty = true;
+        PopulateNavMapsForConsole(uid, component);
         UpdateUserInterface(uid, component);
     }
 
     private void OnRescan(EntityUid uid, CrewMonitoringConsoleComponent component, CrewMonitoringRescanMessage args)
     {
-        if (component.SelectedServerUid != null &&
-            HasComp<CrewMonitoringServerComponent>(component.SelectedServerUid.Value) &&
-            !IsServerResponding(component.SelectedServerUid.Value))
+        var now = _gameTiming.CurTime;
+        var query = EntityQueryEnumerator<CrewMonitoringServerComponent>();
+
+        while (query.MoveNext(out var serverUid, out var server))
         {
-            // Explicit rescan should drop stale snapshot for dead/offline server.
-            component.ConnectedSensors.Clear();
-            component.CachedSensors.Clear();
-            component.LastPacketTime = _gameTiming.CurTime - TimeSpan.FromSeconds(component.SensorTimeout + 1);
+            if (!IsServerInRange(uid, serverUid))
+                continue;
+
+            // Every reachable server must send a complete snapshot after a rescan,
+            // even if none of its sensor values changed.
+            server.SnapshotDirty = true;
+
+            if (component.SelectedServerUid != serverUid)
+                continue;
+
+            if (server.SensorStatus.Count == 0)
+            {
+                if (component.ConnectedSensors.Count != 0)
+                    component.ConnectedSensors = new();
+            }
+            else
+            {
+                component.ConnectedSensors =
+                    new Dictionary<string, SuitSensorStatus>(server.SensorStatus);
+            }
+            component.LastReferenceFrame = server.ReferenceFrame;
+            component.ServersListDirty = true;
+
+            if (IsServerResponding(serverUid))
+            {
+                component.LastPacketTime = now;
+                component.LastServerUid = serverUid;
+                component.OfflineStateSent = false;
+            }
+            else
+            {
+                component.OfflineStateSent = true;
+            }
         }
 
+        PopulateNavMapsForConsole(uid, component);
         UpdateUserInterface(uid, component);
     }
 
@@ -105,51 +153,75 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         if (component.SelectedServerUid != null &&
             TryComp<CrewMonitoringServerComponent>(component.SelectedServerUid.Value, out var prev))
         {
-            prev.SubscriberConsoles.Remove(uid);
+            _crewServers.RemoveSubscriber(prev, uid);
         }
 
         component.SelectedServerUid = serverUid;
-        serverComp.SubscriberConsoles.Add(uid);
+        _crewServers.AddSubscriber(serverComp, uid);
         component.LastServerName = serverComp.ServerName ?? Name(serverUid.Value);
         component.LastServerAddress = serverComp.ServerAddress ?? string.Empty;
         var serverXform = Transform(serverUid.Value);
         component.LastGridName = serverXform.GridUid != null ? Name(serverXform.GridUid.Value) : string.Empty;
         component.LastGridUid = serverXform.GridUid != null ? GetNetEntity(serverXform.GridUid.Value) : null;
         component.LastServerUid = serverUid.Value;
+        if (serverComp.SensorStatus.Count == 0)
+        {
+            if (component.ConnectedSensors.Count != 0)
+                component.ConnectedSensors = new();
+        }
+        else
+        {
+            component.ConnectedSensors =
+                new Dictionary<string, SuitSensorStatus>(serverComp.SensorStatus);
+        }
+        component.LastReferenceFrame = serverComp.ReferenceFrame;
+        component.ServersListDirty = true;
 
         if (IsServerResponding(serverUid.Value))
         {
             // Pull a snapshot immediately, so sensors appear right after selecting a server.
-            component.ConnectedSensors = new Dictionary<string, SuitSensorStatus>(serverComp.SensorStatus);
             component.LastPacketTime = _gameTiming.CurTime;
-
-            component.CachedSensors = new Dictionary<string, SuitSensorStatus>(component.ConnectedSensors);
-            component.CachedServerName = component.LastServerName;
-            component.CachedServerAddress = component.LastServerAddress;
-            component.CachedGridName = component.LastGridName;
-            component.CachedGridUid = component.LastGridUid;
+            component.OfflineStateSent = false;
         }
         else
         {
-            component.ConnectedSensors.Clear();
-            component.CachedSensors.Clear();
-            component.LastOfflineStatePush = TimeSpan.Zero;
+            component.OfflineStateSent = true;
             component.LastPacketTime = _gameTiming.CurTime - TimeSpan.FromSeconds(component.SensorTimeout + 1);
         }
 
+        PopulateNavMapsForConsole(uid, component);
         UpdateUserInterface(uid, component);
     }
-
-    /// <summary>
-    /// Throttle: push offline state at most once per second.
-    /// </summary>
-    private const float OfflineStatePushInterval = 1f;
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        _consoleUpdateAccumulator += frameTime;
+        if (_consoleUpdateAccumulator < ConsoleUpdateInterval)
+            return;
+
+        _consoleUpdateAccumulator -= ConsoleUpdateInterval;
+        UpdatePendingScans();
         UpdateCritAlerts();
         UpdateOfflineConsoles();
+    }
+
+    private void UpdatePendingScans()
+    {
+        var now = _gameTiming.CurTime;
+        var query = EntityQueryEnumerator<CrewMonitoringConsoleComponent>();
+
+        while (query.MoveNext(out var uid, out var component))
+        {
+            if (component.ScanStartedAt == null ||
+                (now - component.ScanStartedAt.Value).TotalSeconds < ScanDuration)
+            {
+                continue;
+            }
+
+            CompleteScan(uid, component);
+        }
     }
 
     /// <summary>
@@ -166,13 +238,11 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
                 continue;
 
             var isOnline = IsSelectedServerOnline(comp, now);
-            if (isOnline || comp.CachedSensors.Count == 0)
+            if (isOnline || comp.SelectedServerUid == null || comp.OfflineStateSent)
                 continue;
 
-            if ((now - comp.LastOfflineStatePush).TotalSeconds < OfflineStatePushInterval)
-                continue;
-
-            comp.LastOfflineStatePush = now;
+            comp.OfflineStateSent = true;
+            comp.ServersListDirty = true;
             UpdateUserInterface(uid, comp);
         }
     }
@@ -191,8 +261,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             if (!isOnline)
                 continue; // Don't play alert from stale cached data
 
-            var sensors = comp.ConnectedSensors.Values;
-            var hasCritOrDead = sensors.Any(s => !s.IsAlive || (s.DamagePercentage != null && s.DamagePercentage.Value >= 0.8f));
+            var hasCritOrDead = HasAlertCondition(comp.ConnectedSensors.Values);
 
             if (!hasCritOrDead)
             {
@@ -206,7 +275,16 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             if (comp.AlertMuted)
                 continue;
 
-            _audio.PlayPvs(comp.CritAlertSound, uid);
+            if (comp.AlertVolume <= 0.01f)
+                continue;
+
+            var baseVolume = AudioParams.Default.Volume;
+            if (comp.CritAlertSound.Params.Volume != 0)
+                baseVolume = comp.CritAlertSound.Params.Volume;
+
+            // Map 0..1 UI volume onto a usable dB range ending at the sound's configured volume.
+            var volumeDb = MathHelper.Lerp(baseVolume - 32f, baseVolume, Math.Clamp(comp.AlertVolume, 0f, 1f));
+            _audio.PlayPvs(comp.CritAlertSound, uid, AudioParams.Default.WithVolume(volumeDb));
             comp.NextCritAlertTime = now + TimeSpan.FromSeconds(comp.CritAlertInterval);
         }
     }
@@ -214,66 +292,105 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     private void OnRemove(EntityUid uid, CrewMonitoringConsoleComponent component, ComponentRemove args)
     {
         if (component.SelectedServerUid != null && TryComp<CrewMonitoringServerComponent>(component.SelectedServerUid.Value, out var serverComp))
-            serverComp.SubscriberConsoles.Remove(uid);
-        component.ConnectedSensors.Clear();
-        component.CachedSensors.Clear();
+            _crewServers.RemoveSubscriber(serverComp, uid);
+        component.ConnectedSensors = new();
+        component.LastReferenceFrame = null;
     }
 
     private void OnServerTerminating(EntityUid uid, CrewMonitoringServerComponent component, ref EntityTerminatingEvent args)
     {
-        foreach (var consoleUid in component.SubscriberConsoles)
+        var subscribers = component.SubscriberConsoles.ToArray();
+        _crewServers.ClearSubscribers(component);
+
+        foreach (var consoleUid in subscribers)
         {
             if (!TryComp<CrewMonitoringConsoleComponent>(consoleUid, out var console))
                 continue;
 
             console.SelectedServerUid = null;
             console.LastServerUid = null;
-            console.ConnectedSensors.Clear();
-            console.CachedSensors.Clear();
-            console.LastServerName = string.Empty;
-            console.LastServerAddress = string.Empty;
-            console.LastGridName = string.Empty;
-            console.LastGridUid = null;
-            console.CachedServerName = string.Empty;
-            console.CachedServerAddress = string.Empty;
-            console.CachedGridName = string.Empty;
-            console.CachedGridUid = null;
+            console.LastReferenceFrame = null;
+            console.OfflineStateSent = true;
             UpdateUserInterface(consoleUid, console);
         }
-
-        component.SubscriberConsoles.Clear();
     }
 
-    private void OnPacketReceived(EntityUid uid, CrewMonitoringConsoleComponent component, DeviceNetworkPacketEvent args)
+    private void OnServerUpdate(
+        Entity<CrewMonitoringServerComponent> server,
+        ref CrewMonitoringServerUpdateEvent args)
     {
-        if (component.SelectedServerUid == null || args.Sender != component.SelectedServerUid.Value)
+        List<EntityUid>? staleSubscribers = null;
+        foreach (var consoleUid in server.Comp.SubscriberConsoles)
+        {
+            if (Deleted(consoleUid) ||
+                !HasComp<CrewMonitoringConsoleComponent>(consoleUid))
+            {
+                (staleSubscribers ??= new()).Add(consoleUid);
+                continue;
+            }
+
+            args.Delivered |= ReceiveServerUpdate(
+                consoleUid,
+                server.Owner,
+                server.Comp,
+                args.Snapshot);
+        }
+
+        if (staleSubscribers == null)
             return;
 
-        var payload = args.Data;
+        foreach (var stale in staleSubscribers)
+            _crewServers.RemoveSubscriber(server.Comp, stale);
+    }
 
-        // Check command
-        if (!payload.TryGetValue(DeviceNetworkConstants.Command, out string? command))
-            return;
+    public bool ReceiveServerUpdate(
+        EntityUid consoleUid,
+        EntityUid serverUid,
+        CrewMonitoringServerComponent server,
+        Dictionary<string, SuitSensorStatus>? snapshot)
+    {
+        if (!TryComp<CrewMonitoringConsoleComponent>(consoleUid, out var console) ||
+            console.SelectedServerUid != serverUid ||
+            !IsServerInRange(consoleUid, serverUid))
+        {
+            return false;
+        }
 
-        if (command != DeviceNetworkConstants.CmdUpdatedState)
-            return;
+        var now = _gameTiming.CurTime;
+        var wasOnline = IsSelectedServerOnline(console, now);
+        console.LastPacketTime = now;
+        console.LastServerUid = serverUid;
+        console.OfflineStateSent = false;
+        console.LastReferenceFrame = server.ReferenceFrame;
 
-        if (!payload.TryGetValue(SuitSensorConstants.NET_STATUS_COLLECTION, out Dictionary<string, SuitSensorStatus>? sensorStatus))
-            return;
+        if (snapshot == null)
+        {
+            if (!wasOnline)
+                UpdateUserInterface(consoleUid, console);
+            return true;
+        }
 
-        component.ConnectedSensors = new Dictionary<string, SuitSensorStatus>(sensorStatus);
-        component.LastServerName = payload.TryGetValue(SuitSensorConstants.NET_SERVER_NAME, out var nameObj) && nameObj is string n ? n : string.Empty;
-        component.LastServerAddress = payload.TryGetValue(SuitSensorConstants.NET_SERVER_ADDRESS, out var addrObj) && addrObj is string a ? a : string.Empty;
-        component.LastGridName = payload.TryGetValue(SuitSensorConstants.NET_GRID_NAME, out var gridNameObj) && gridNameObj is string gn ? gn : string.Empty;
-        component.LastGridUid = payload.TryGetValue(SuitSensorConstants.NET_GRID_UID, out var gridUidObj) && gridUidObj is NetEntity gnu ? gnu : null;
-        component.LastPacketTime = _gameTiming.CurTime;
-        component.LastServerUid = args.Sender;
-        component.CachedSensors = new Dictionary<string, SuitSensorStatus>(sensorStatus);
-        component.CachedServerName = component.LastServerName;
-        component.CachedServerAddress = component.LastServerAddress;
-        component.CachedGridName = component.LastGridName;
-        component.CachedGridUid = component.LastGridUid;
-        UpdateUserInterface(uid, component);
+        // Do not take ownership of the shared empty snapshot singleton.
+        if (snapshot.Count == 0)
+        {
+            if (console.ConnectedSensors.Count != 0)
+                console.ConnectedSensors = new();
+        }
+        else
+        {
+            console.ConnectedSensors = snapshot;
+        }
+        console.LastServerName = server.ServerName ?? Name(serverUid);
+        console.LastServerAddress = server.ServerAddress ?? string.Empty;
+
+        var serverXform = Transform(serverUid);
+        console.LastGridName =
+            serverXform.GridUid != null ? Name(serverXform.GridUid.Value) : string.Empty;
+        console.LastGridUid =
+            serverXform.GridUid != null ? GetNetEntity(serverXform.GridUid.Value) : null;
+
+        UpdateUserInterface(consoleUid, console);
+        return true;
     }
 
     private void OnSetAlertMuted(EntityUid uid, CrewMonitoringConsoleComponent component, CrewMonitoringSetAlertMutedMessage args)
@@ -282,11 +399,18 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         UpdateUserInterface(uid, component);
     }
 
+    private void OnSetAlertVolume(EntityUid uid, CrewMonitoringConsoleComponent component, CrewMonitoringSetAlertVolumeMessage args)
+    {
+        component.AlertVolume = Math.Clamp(args.Volume, 0f, 1f);
+        UpdateUserInterface(uid, component);
+    }
+
     private void OnUIOpened(EntityUid uid, CrewMonitoringConsoleComponent component, BoundUIOpenedEvent args)
     {
         if (!_cell.TryUseActivatableCharge(uid))
             return;
 
+        PopulateNavMapsForConsole(uid, component);
         UpdateUserInterface(uid, component);
     }
 
@@ -298,50 +422,29 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         if (!_uiSystem.IsUiOpen(uid, CrewMonitoringUIKey.Key))
             return;
 
-        // The grid must have a NavMapComponent to visualize the map in the UI
-        var xform = Transform(uid);
-
-        if (xform.GridUid != null)
-            EnsureComp<NavMapComponent>(xform.GridUid.Value);
-
-        // When connection lost (timeout), show cached snapshot instead of empty
+        // Keep showing the last immutable snapshot when the connection times out.
         var now = _gameTiming.CurTime;
         var isOnline = IsSelectedServerOnline(component, now);
-        var sourceSensors = isOnline ? component.ConnectedSensors : component.CachedSensors;
-        var serverName = isOnline ? component.LastServerName : component.CachedServerName;
-        var serverAddress = isOnline ? component.LastServerAddress : component.CachedServerAddress;
+        var sourceSensors = component.ConnectedSensors;
+        var serverName = component.LastServerName;
+        var serverAddress = component.LastServerAddress;
 
-        // Update all sensors info
-        var allSensors = sourceSensors.Values.ToList();
-
-        //ADT-Tweak-Start: Filtering by departments
-        if (!component.IsEmagged && component.Departments.Count > 0)
-        {
-            var allowedDepartmentNames = new List<string>();
-            foreach (var dept in component.Departments)
-            {
-                var deptId = dept.ToString();
-                if (_proto.TryIndex<DepartmentPrototype>(deptId, out var department))
-                {
-                    var localizedDepartmentName = Loc.GetString(department.Name);
-                    allowedDepartmentNames.Add(localizedDepartmentName);
-                }
-            }
-
-            if (allowedDepartmentNames.Count > 0)
-            {
-                allSensors = allSensors.Where(s => !s.JobDepartments.Any() ||
-                    s.JobDepartments.Any(dept => allowedDepartmentNames.Contains(dept))).ToList();
-            }
-        }
-        // ADT-Tweak-End
+        var allSensors = FilterSensors(component, sourceSensors.Values);
 
         var serverOnline = isOnline;
-        var alertActive = allSensors.Any(s => !s.IsAlive || (s.DamagePercentage != null && s.DamagePercentage.Value >= 0.8f));
+        var alertActive = HasAlertCondition(allSensors);
         var stationCode = GetStationCode(uid);
-        var servers = component.HasScanned ? GetServersInRange(uid) : new List<CrewMonitoringServerEntry>();
-        var gridName = isOnline ? component.LastGridName : component.CachedGridName;
-        var serverGridUid = isOnline ? component.LastGridUid : component.CachedGridUid;
+        List<CrewMonitoringServerEntry> servers;
+        if (component.HasScanned)
+            servers = GetCachedServersInRange(uid, component);
+        else
+        {
+            if (component.CachedServers.Count > 0)
+                component.CachedServers = new List<CrewMonitoringServerEntry>();
+            servers = component.CachedServers;
+        }
+        var gridName = component.LastGridName;
+        var serverGridUid = component.LastGridUid;
 
         var selectedServerNet = component.SelectedServerUid != null
             ? GetNetEntity(component.SelectedServerUid.Value)
@@ -359,7 +462,136 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             component.HasScanned,
             gridName,
             serverGridUid,
-            selectedServerNet));
+            selectedServerNet,
+            component.LastReferenceFrame,
+            component.AlertVolume));
+    }
+
+    private void PopulateNavMapsForConsole(EntityUid uid, CrewMonitoringConsoleComponent component)
+    {
+        var xform = Transform(uid);
+        if (xform.GridUid != null)
+            TryPopulateNavMap(component, xform.GridUid.Value);
+
+        if (component.SelectedServerUid != null &&
+            TryComp(component.SelectedServerUid.Value, out TransformComponent? serverXform) &&
+            TryComp<WirelessNetworkComponent>(component.SelectedServerUid.Value, out var wireless))
+        {
+            EnsureNavMapsAround(component, serverXform, wireless.Range);
+            return;
+        }
+
+        if (component.LastReferenceFrame != null &&
+            TryGetEntity(component.LastReferenceFrame.FrameEntity, out var frameUid) &&
+            HasComp<MapGridComponent>(frameUid.Value))
+        {
+            TryPopulateNavMap(component, frameUid.Value);
+        }
+    }
+
+    private void EnsureNavMapsAround(CrewMonitoringConsoleComponent component, TransformComponent serverXform, float range)
+    {
+        if (range <= 0f)
+            return;
+
+        var center = _transform.GetWorldPosition(serverXform);
+        var extent = new Vector2(range, range);
+        _navMapGridBuffer.Clear();
+        _mapManager.FindGridsIntersecting(
+            serverXform.MapID,
+            new Box2(center - extent, center + extent),
+            ref _navMapGridBuffer,
+            approx: true,
+            includeMap: false);
+
+        foreach (var grid in _navMapGridBuffer)
+            TryPopulateNavMap(component, grid.Owner, grid.Comp);
+    }
+
+    private void TryPopulateNavMap(
+        CrewMonitoringConsoleComponent component,
+        EntityUid gridUid,
+        MapGridComponent? mapGrid = null)
+    {
+        if (!component.PopulatedNavMapGrids.Add(gridUid))
+            return;
+
+        _navMap.EnsureNavMap(gridUid, mapGrid);
+    }
+
+    private static bool HasAlertCondition(IEnumerable<SuitSensorStatus> sensors)
+    {
+        foreach (var sensor in sensors)
+        {
+            if (!sensor.IsAlive ||
+                (sensor.DamagePercentage != null && sensor.DamagePercentage.Value >= 0.8f))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private List<SuitSensorStatus> FilterSensors(
+        CrewMonitoringConsoleComponent component,
+        IEnumerable<SuitSensorStatus> values)
+    {
+        EnsureDepartmentCache(component);
+
+        if (component.IsEmagged || component.CachedDepartmentNames.Count == 0)
+            return values is List<SuitSensorStatus> list ? list : values.ToList();
+
+        var filtered = new List<SuitSensorStatus>();
+        foreach (var sensor in values)
+        {
+            if (sensor.JobDepartments.Count == 0)
+            {
+                filtered.Add(sensor);
+                continue;
+            }
+
+            foreach (var dept in sensor.JobDepartments)
+            {
+                if (component.CachedDepartmentNames.Contains(dept))
+                {
+                    filtered.Add(sensor);
+                    break;
+                }
+            }
+        }
+
+        return filtered;
+    }
+
+    private void EnsureDepartmentCache(CrewMonitoringConsoleComponent component)
+    {
+        if (component.CachedDepartmentNames.Count > 0 || component.Departments.Count == 0)
+            return;
+
+        foreach (var dept in component.Departments)
+        {
+            if (_proto.TryIndex<DepartmentPrototype>(dept.ToString(), out var department))
+                component.CachedDepartmentNames.Add(Loc.GetString(department.Name));
+        }
+    }
+
+    private List<CrewMonitoringServerEntry> GetCachedServersInRange(
+        EntityUid consoleUid,
+        CrewMonitoringConsoleComponent component)
+    {
+        var now = _gameTiming.CurTime;
+        if (!component.ServersListDirty &&
+            component.LastServersRefresh != TimeSpan.Zero &&
+            (now - component.LastServersRefresh).TotalSeconds < ConsoleUpdateInterval)
+        {
+            return component.CachedServers;
+        }
+
+        component.CachedServers = GetServersInRange(consoleUid);
+        component.LastServersRefresh = now;
+        component.ServersListDirty = false;
+        return component.CachedServers;
     }
 
     private List<CrewMonitoringServerEntry> GetServersInRange(EntityUid consoleUid)
@@ -381,8 +613,11 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             var address = serverComp.ServerAddress ?? string.Empty;
             var isOnline = IsServerResponding(serverUid);
             var gridName = serverXform.GridUid != null ? Name(serverXform.GridUid.Value) : string.Empty;
+            var sensorRange = TryComp<WirelessNetworkComponent>(serverUid, out var wireless)
+                ? wireless.Range
+                : 0f;
 
-            list.Add(new CrewMonitoringServerEntry(netEntity, coords, address, isOnline, gridName));
+            list.Add(new CrewMonitoringServerEntry(netEntity, coords, address, isOnline, sensorRange, gridName));
         }
 
         return list;
@@ -418,16 +653,6 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             (serverXform.WorldPosition - consoleXform.WorldPosition).Length() > wireless.Range)
         {
             return false;
-        }
-
-        if (TryComp<StationLimitedNetworkComponent>(consoleUid, out var consoleStation))
-        {
-            if (!TryComp<StationLimitedNetworkComponent>(serverUid, out var serverStation) ||
-                consoleStation.StationId == null ||
-                consoleStation.StationId != serverStation.StationId)
-            {
-                return false;
-            }
         }
 
         return true;
