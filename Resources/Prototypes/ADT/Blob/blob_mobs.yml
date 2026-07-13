@@ -229,7 +229,6 @@
         enum.BlobChemSwapUiKey.Key:
           type: BlobChemSwapBoundUserInterface
     - type: Actions
-    - type: ParticleAcceleratorPartVisualizer
     - type: LanguageSpeaker
       currentLanguage: Blob
       languages:
