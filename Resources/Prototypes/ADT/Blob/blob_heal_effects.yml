@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: EffectHealPlusBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.6
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    sprite: ADT/Blob/heals.rsi
+    state: single
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+
+- type: entity
+  id: EffectHealPlusTripleBase
+  categories: [ HideSpawnMenu ]
+  parent: EffectHealPlusBase
+  components:
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Sprite
+    state: triple
+
+- type: entity
+  id: EffectHealPlusTripleYellow
+  parent: EffectHealPlusTripleBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: yellow

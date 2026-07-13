@@ -135,6 +135,15 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         _prototypeManager.PrototypesReloaded -= ReloadExplosionPrototypes;
     }
 
+    public void SetExplosionResistance(EntityUid entityUid, float newCoefficient, ExplosionResistanceComponent? component = null)
+    {
+        if (!Resolve(entityUid, ref component))
+            return;
+
+        component.DamageCoefficient = newCoefficient;
+        Dirty(entityUid, component);
+    }
+
     private void RelayedResistance(EntityUid uid, ExplosionResistanceComponent component,
         InventoryRelayedEvent<GetExplosionResistanceEvent> args)
     {

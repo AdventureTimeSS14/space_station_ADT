@@ -29,4 +29,9 @@ public enum PathFlags : byte
     /// Can we open stuff that requires interaction (e.g. click-open doors).
     /// </summary>
     Interact = 1 << 4,
+
+    /// <summary>
+    /// Can we path through blob tiles. ADT Blob
+    /// </summary>
+    Blob = 1 << 5,
 }

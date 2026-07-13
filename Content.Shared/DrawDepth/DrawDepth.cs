@@ -52,6 +52,11 @@ namespace Content.Shared.DrawDepth
         DeadMobs = DrawDepthTag.Default - 4,
 
         /// <summary>
+        ///     ADT Blob tiles.
+        /// </summary>
+        BlobTiles = DrawDepthTag.Default - 4,
+
+        /// <summary>
         ///     Allows small mobs like mice and drones to render under tables and chairs but above puddles and vents
         /// </summary>
         SmallMobs = DrawDepthTag.Default - 3,

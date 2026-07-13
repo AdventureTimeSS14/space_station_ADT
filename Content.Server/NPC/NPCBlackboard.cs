@@ -320,6 +320,11 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
     public const string NavClimb = "NavClimb";
 
     /// <summary>
+    /// Can the NPC path through blob tiles for steering. ADT Blob
+    /// </summary>
+    public const string NavBlob = "NavBlob";
+
+    /// <summary>
     /// Default key storage for a movement pathfind.
     /// </summary>
     public const string PathfindKey = "MovementPathfind";
