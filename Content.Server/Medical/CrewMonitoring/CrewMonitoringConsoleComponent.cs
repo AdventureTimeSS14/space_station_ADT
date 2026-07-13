@@ -77,25 +77,16 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     public bool AlertMuted;
 
     /// <summary>
+    /// Crit/dead alert loudness from 0 (silent) to 1 (prototype volume).
+    /// </summary>
+    [DataField("alertVolume"), ViewVariables(VVAccess.ReadWrite)]
+    public float AlertVolume = 1f;
+
+    /// <summary>
     /// Last time we received a packet from the server (for connection timeout).
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan LastPacketTime;
-
-    /// <summary>
-    /// Cached snapshot of sensors when we had connection; shown when connection is lost.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public Dictionary<string, SuitSensorStatus> CachedSensors = new();
-
-    /// <summary>
-    /// Cached server name/code for display when offline.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public string CachedServerName = string.Empty;
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public string CachedServerAddress = string.Empty;
 
     /// <summary>
     /// Last grid/station name received (grid where the selected server is).
@@ -109,23 +100,30 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public NetEntity? LastGridUid;
 
+    /// <summary>
+    /// Last coordinate frame supplied by the selected monitoring server.
+    /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    public string CachedGridName = string.Empty;
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public NetEntity? CachedGridUid;
+    public CrewMonitoringReferenceFrame? LastReferenceFrame;
 
     /// <summary>
-    /// Last time we pushed offline state to UI (throttle).
+    /// Whether the current offline state was already sent to the UI.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan LastOfflineStatePush;
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool OfflineStateSent;
 
     /// <summary>
     /// Entity that sent the last packet (for server list online status).
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? LastServerUid;
+
+    /// <summary>
+    /// Grids that already received a full NavMap rebuild for this console session
+    /// (walls/windows for shuttles and station frames).
+    /// </summary>
+    [ViewVariables]
+    public HashSet<EntityUid> PopulatedNavMapGrids = new();
 
     /// <summary>
     /// Server this console has selected (monitor-server pair). Null until user selects one.
@@ -144,5 +142,23 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan? ScanStartedAt;
+
+    /// <summary>
+    /// Cached localized department names for this console's filter.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public readonly HashSet<string> CachedDepartmentNames = new();
+
+    /// <summary>
+    /// Cached server-list entries for open UI; refreshed at most once per console tick.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public List<CrewMonitoringServerEntry> CachedServers = new();
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan LastServersRefresh;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool ServersListDirty = true;
     // ADT-Tweak-End
 }
