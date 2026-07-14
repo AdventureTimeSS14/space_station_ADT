@@ -20,13 +20,13 @@ public sealed class BlobObserverTest
         EntityUid observer = default;
         await server.WaitPost(() =>
         {
-            observer = server.EntMan.SpawnEntity("MobObserverBlob", map.GridCoords);
+            observer = server.EntMan.SpawnEntity("ADTMobObserverBlob", map.GridCoords);
         });
 
         await pair.RunTicksSync(5);
 
         Assert.That(server.EntMan.Deleted(observer), Is.False,
-            "MobObserverBlob deleted itself right after spawning (virtual item pickup failed in BlobObserverSystem.OnStartup)");
+            "ADTMobObserverBlob deleted itself right after spawning (virtual item pickup failed in BlobObserverSystem.OnStartup)");
 
         await server.WaitPost(() => server.EntMan.DeleteEntity(observer));
         await pair.CleanReturnAsync();
@@ -45,12 +45,12 @@ public sealed class BlobObserverTest
         EntityUid core = default;
         await server.WaitPost(() =>
         {
-            core = server.EntMan.SpawnEntity("CoreBlobTile", map.GridCoords);
+            core = server.EntMan.SpawnEntity("ADTCoreBlobTile", map.GridCoords);
         });
 
         await pair.RunTicksSync(5);
 
-        Assert.That(server.EntMan.Deleted(core), Is.False, "CoreBlobTile got deleted right after spawning");
+        Assert.That(server.EntMan.Deleted(core), Is.False, "ADTCoreBlobTile got deleted right after spawning");
 
         await server.WaitPost(() => server.EntMan.DeleteEntity(core));
         await pair.CleanReturnAsync();
