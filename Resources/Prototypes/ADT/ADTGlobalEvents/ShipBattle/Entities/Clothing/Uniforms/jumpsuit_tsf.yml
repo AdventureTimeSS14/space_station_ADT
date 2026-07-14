@@ -6,13 +6,6 @@
   id: ADTShipBattleClothingUniformBase
   components:
   - type: SuitSensor
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    transmitFrequencyId: SuitSensor
-    savableAddress: false
-  - type: WirelessNetworkConnection
-    range: 1200
-  - type: StationLimitedNetwork
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
 
