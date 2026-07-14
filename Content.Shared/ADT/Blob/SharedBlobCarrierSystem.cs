@@ -19,7 +19,7 @@ public abstract class SharedBlobCarrierSystem : EntitySystem
         while (blobFactoryQuery.MoveNext(out var ent, out var comp))
         {
             if (!comp.HasMind)
-                return;
+                continue;
 
             comp.TransformationTimer += frameTime;
 

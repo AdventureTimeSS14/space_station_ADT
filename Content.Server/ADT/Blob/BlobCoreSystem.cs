@@ -540,7 +540,7 @@ public sealed class BlobCoreSystem : EntitySystem
     {
         QueueDel(core.Comp.Observer);
 
-        foreach (var blobTile in core.Comp.BlobTiles.AsParallel())
+        foreach (var blobTile in core.Comp.BlobTiles)
         {
             if (!_tile.TryGetComponent(blobTile, out var blobTileComponent))
                 continue;

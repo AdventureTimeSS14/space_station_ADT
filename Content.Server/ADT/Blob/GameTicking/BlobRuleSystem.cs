@@ -83,7 +83,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
             check[stationUid.Value] += comp.BlobTiles.Count;
         }
 
-        foreach (var (station, length) in check.AsParallel())
+        foreach (var (station, length) in check)
         {
             CheckChangeStage(station, component, length);
         }
@@ -127,16 +127,21 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 false,
                 null,
                 Color.Red);
+            blobRuleComp.ShuttleArrivedAnnounced = false;
         }
         else if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
                  && _roundEndSystem.ExpectedCountdownEnd != null && _emergency.EmergencyShuttleArrived)
         {
-            _chatSystem.DispatchStationAnnouncement(stationUid,
-                Loc.GetString("blob-alert-shuttle-arrived"),
-                Loc.GetString("Station"),
-                false,
-                null,
-                Color.OrangeRed);
+            if (!blobRuleComp.ShuttleArrivedAnnounced)
+            {
+                _chatSystem.DispatchStationAnnouncement(stationUid,
+                    Loc.GetString("blob-alert-shuttle-arrived"),
+                    Loc.GetString("Station"),
+                    false,
+                    null,
+                    Color.OrangeRed);
+                blobRuleComp.ShuttleArrivedAnnounced = true;
+            }
         }
 
         switch (blobRuleComp.Stage)

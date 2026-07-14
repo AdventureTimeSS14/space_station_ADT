@@ -135,7 +135,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
             if (TryComp<PhysicsComponent>(targetEntity, out var physics)
                 && physics is { Hard: true, CanCollide: true }
                 && HasComp<DamageableComponent>(targetEntity)
-                && !HasComp<SubFloorHideComponent>(args.Target)
+                && !HasComp<SubFloorHideComponent>(targetEntity)
                 && !_tileQuery.HasComp(targetEntity))
                 anchoredTarget = targetEntity;
 

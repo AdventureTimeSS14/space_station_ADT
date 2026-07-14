@@ -48,6 +48,6 @@ public sealed partial class BlobPodZombifyOperator : HTNOperator
         }
 
         pod.ZombifyTarget = null;
-        return HTNOperatorStatus.Finished;
+        return HTNOperatorStatus.Failed;
     }
 }
