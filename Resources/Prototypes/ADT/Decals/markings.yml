@@ -231,12 +231,28 @@
     state: warn_line_whitescale_n
 
 - type: decal
+  id: ADTWarnLineSwne
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_line_swne
+
+- type: decal
   id: ADTWarnLineWhitescaleS
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
     sprite: ADT/Decals/markings.rsi
     state: warn_line_whitescale_s
+
+- type: decal
+  id: ADTWarnLineNwse
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_line_nwse
 
 - type: decal
   id: ADTWarnLineWhitescaleW
@@ -583,12 +599,28 @@
     state: bamboo_line_n
 
 - type: decal
+  id: ADTBambooLineNwse
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_line_nwse
+
+- type: decal
   id: ADTBambooLineS
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
     sprite: ADT/Decals/markings.rsi
     state: bamboo_line_s
+
+- type: decal
+  id: ADTBambooLineSwne
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_line_swne
 
 - type: decal
   id: ADTBambooLineW
@@ -887,12 +919,28 @@
     state: golden_stripes_line_n
 
 - type: decal
+  id: ADTGoldenStripesLineNwse
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_line_nwse
+
+- type: decal
   id: ADTGoldenStripesLineS
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
     sprite: ADT/Decals/markings.rsi
     state: golden_stripes_line_s
+
+- type: decal
+  id: ADTGoldenStripesLineSwne
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_line_swne
 
 - type: decal
   id: ADTGoldenStripesLineW
@@ -1125,7 +1173,7 @@
   sprite:
     sprite: ADT/Decals/markings.rsi
     state: siding_thinplating_end_e
-    
+
 - type: decal
   id: ADTSidingThinplatingEndN
   tags: ["station", "markings"]
