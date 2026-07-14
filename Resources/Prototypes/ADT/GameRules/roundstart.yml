@@ -334,7 +334,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StationEvent
-    weight: 1
+    weight: 6
     duration: 1
     earliestStart: 50
     minimumPlayers: 20
