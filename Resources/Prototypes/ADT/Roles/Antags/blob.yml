@@ -9,4 +9,4 @@
   guides: [ ADTBlob ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 5h # 5h # ADT-RoleTime
+    time: 25h
