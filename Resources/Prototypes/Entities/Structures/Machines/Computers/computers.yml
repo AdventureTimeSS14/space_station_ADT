@@ -458,7 +458,7 @@
   - type: PointLight
     radius: 1.5
     energy: 4.0
-    color: "#006400"
+    color: "#4CAF50"
   - type: Computer
     board: CrewMonitoringComputerCircuitboard
   - type: ActivatableUI
@@ -470,6 +470,10 @@
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
   - type: CrewMonitoringConsole
+  - type: PdaBorderColor
+    borderColor: "#6B6B6B" # iron-gray bezel, no accents
+  - type: CrewMonitoringUiVisuals
+    themeColor: "#4CAF50" # green CRT / map / chrome
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: CrewMonitor

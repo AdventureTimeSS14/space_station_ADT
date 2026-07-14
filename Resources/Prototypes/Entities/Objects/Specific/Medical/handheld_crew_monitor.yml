@@ -30,12 +30,17 @@
         type: CrewMonitoringBoundUserInterface
   - type: CrewMonitoringConsole
     departments: [] # ADT-Tweak: No parameters == full access
+  # Chassis #C9CFE3 + screen blue #609EFF sampled from handheldcrewmonitor.rsi
+  - type: PdaBorderColor
+    borderColor: "#C9CFE3"
+    accentVColor: "#609EFF"
+  - type: CrewMonitoringUiVisuals
+    themeColor: "#609EFF"
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: CrewMonitor
   - type: WirelessNetworkConnection
     range: 500
-  - type: StationLimitedNetwork
   - type: StaticPrice
     price: 500
   - type: Tag
