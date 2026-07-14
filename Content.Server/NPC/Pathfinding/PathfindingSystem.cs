@@ -472,6 +472,11 @@ namespace Content.Server.NPC.Pathfinding
                 flags |= PathFlags.Interact;
             }
 
+            if (blackboard.TryGetValue<bool>(NPCBlackboard.NavBlob, out var blob, EntityManager) && blob)
+            {
+                flags |= PathFlags.Blob;
+            }
+
             return flags;
         }
 
