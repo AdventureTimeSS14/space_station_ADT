@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: BaseBlob
+  id: ADTBaseBlob
   abstract: true
   name: base blob
   placement:
@@ -30,9 +30,9 @@
       sprite: Effects/fire.rsi
       normalState: 1
     - type: Damageable
-      damageModifierSet: BaseBlob
+      damageModifierSet: ADTBaseBlob
     - type: Injurable
-      damageContainer: Blob
+      damageContainer: ADTBlob
     - type: Appearance
     - type: Physics
     - type: Clickable
@@ -50,10 +50,10 @@
           density: 1000
     - type: GuideHelp
       guides:
-      - Blob
+      - ADTBlob
 
 - type: entity
-  id: MobObserverBlobController
+  id: ADTMobObserverBlobController
   name: Blob observer controller
   categories: [ HideSpawnMenu ]
   components:

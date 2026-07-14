@@ -53,8 +53,8 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
     private ISawmill _logger = default!;
 
     [ValidatePrototypeId<EntityPrototype>] private const string BlobCaptureObjective = "BlobCaptureObjective";
-    [ValidatePrototypeId<EntityPrototype>] private const string MobObserverBlobController = "MobObserverBlobController";
-    [ValidatePrototypeId<AlertPrototype>] private const string BlobHealth = "BlobHealth";
+    [ValidatePrototypeId<EntityPrototype>] private const string MobObserverBlobController = "ADTMobObserverBlobController";
+    [ValidatePrototypeId<AlertPrototype>] private const string BlobHealth = "ADTBlobHealth";
 
     public override void Initialize()
     {

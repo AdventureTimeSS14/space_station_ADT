@@ -99,5 +99,5 @@ language-ChangelingCollectiveMind-name = Колл. разум улья
 language-ChangelingCollectiveMind-description = Коллективный разум генокрадов, рождённых в одном улье.
 language-MorphCollectiveMind-name = Колл. разум морфов
 language-MorphCollectiveMind-description = Коллективный разум морфов.
-language-BlobCollectiveMind-name = Колл. разум блоба
-language-BlobCollectiveMind-description = Телепатический канал, связывающий блоба со всеми его отпрысками.
+language-ADTBlobCollectiveMind-name = Колл. разум блоба
+language-ADTBlobCollectiveMind-description = Телепатический канал, связывающий блоба со всеми его отпрысками.

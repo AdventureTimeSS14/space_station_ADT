@@ -28,5 +28,5 @@ public sealed partial class ZombieBlobComponent : Component
     public bool CanShoot = false;
 
     [DataField]
-    public ProtoId<LanguagePrototype> CollectiveMindAdded = "BlobCollectiveMind";
+    public ProtoId<LanguagePrototype> CollectiveMindAdded = "ADTBlobCollectiveMind";
 }

@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Pod
 - type: entity
-  id: MobBlobPod
+  id: ADTMobBlobPod
   name: Blob pod
   description: An ordinary person fighting opponents, not like a thing attached to a tile, zombifies corpses.
   parent: SimpleSpaceMobBase
@@ -19,9 +19,9 @@
           - ReagentId: TearGas
             Quantity: 3
     - type: Damageable
-      damageModifierSet: BlobMob
+      damageModifierSet: ADTBlobMob
     - type: Injurable
-      damageContainer: Blob
+      damageContainer: ADTBlob
     - type: Clothing
       quickEquip: false
       sprite: ADT/Blob/Mobs/blob_mobs.rsi
@@ -31,7 +31,7 @@
     - type: Tag
       tags:
         - HidesHair
-        - BlobMob
+        - ADTBlobMob
     - type: IngestionBlocker
     - type: IdentityBlocker
     - type: BlobPod
@@ -46,7 +46,7 @@
     - type: MobMover
     - type: HTN
       rootTask:
-        task: BlobPodCompound
+        task: ADTBlobPodCompound
       blackboard:
         NavBlob: !type:Bool
           true
@@ -55,13 +55,13 @@
     # Einstein Engines - Language begin
     - type: LanguageSpeaker
       languages:
-        Blob: Speak
-        BlobCollectiveMind: Speak
+        ADTBlob: Speak
+        ADTBlobCollectiveMind: Speak
     # Einstein Engines - Language end
     - type: CombatMode
     - type: NpcFactionMember
       factions:
-        - Blob
+        - ADTBlob
     - type: MeleeWeapon
       hidden: true
       soundHit:
@@ -107,11 +107,11 @@
       state: blobpod
     - type: GuideHelp
       guides:
-      - Blob
+      - ADTBlob
 
 # Blobbernaut
 - type: entity
-  id: MobBlobBlobbernaut
+  id: ADTMobBlobBlobbernaut
   name: Blobbernaut
   description: Juggernaut, but blob! when the station crew shows full hatred of you, with the help of such strong men you can organize a blitzkriek if you tell them the plan in advance.
   parent: SimpleSpaceMobBase
@@ -119,13 +119,13 @@
   components:
     - type: ZombieImmune
     - type: Damageable
-      damageModifierSet: BlobBlobbernaut
+      damageModifierSet: ADTBlobBlobbernaut
     - type: Injurable
-      damageContainer: Blob
+      damageContainer: ADTBlob
     - type: Tag
       tags:
-        - Blobbernaut
-        - BlobMob
+        - ADTBlobbernaut
+        - ADTBlobMob
     - type: GhostRole
       name: ghost-role-information-blobbernaut-name
       description: ghost-role-information-blobbernaut-description
@@ -144,8 +144,8 @@
     # Einstein Engines - Language begin
     - type: LanguageSpeaker
       languages:
-        Blob: Speak
-        BlobCollectiveMind: Speak
+        ADTBlob: Speak
+        ADTBlobCollectiveMind: Speak
     # Einstein Engines - Language end
     - type: CombatMode
     - type: HTN
@@ -156,7 +156,7 @@
           true
     - type: NpcFactionMember
       factions:
-        - Blob
+        - ADTBlob
     - type: MobState
       allowedStates:
         - Alive
@@ -209,7 +209,7 @@
       state: Full
     - type: GuideHelp
       guides:
-      - Blob
+      - ADTBlob
     - type: Bloodstream
       bloodReferenceSolution:
         reagents:
@@ -219,7 +219,7 @@
 
 # Observer
 - type: entity
-  id: MobObserverBlob
+  id: ADTMobObserverBlob
   name: Blob observer
   categories: [ HideSpawnMenu ]
   save: false
@@ -229,11 +229,12 @@
         enum.BlobChemSwapUiKey.Key:
           type: BlobChemSwapBoundUserInterface
     - type: Actions
+    - type: Alerts
     - type: LanguageSpeaker
-      currentLanguage: Blob
+      currentLanguage: ADTBlob
       languages:
-        Blob: Speak
-        BlobCollectiveMind: Speak
+        ADTBlob: Speak
+        ADTBlobCollectiveMind: Speak
         Xeno: Understand
         GalacticCommon: Understand
     - type: Hands

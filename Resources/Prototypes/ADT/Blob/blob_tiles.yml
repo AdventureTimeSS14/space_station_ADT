@@ -1,13 +1,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: SpawnPointGhostBlob
+  id: ADTSpawnPointGhostBlob
   name: Blob
   suffix: DONTMAP, spawner
   parent: MarkerBase
   components:
     - type: GhostRoleMobSpawner
-      prototype: CoreBlobTile
+      prototype: ADTCoreBlobTile
     - type: GhostRole
       name: ghost-role-information-blob-name
       description: ghost-role-information-blob-description
@@ -24,8 +24,8 @@
           state: blob_nuke_overlay
 
 - type: entity
-  parent: BaseBlob
-  id: CoreBlobTile
+  parent: ADTBaseBlob
+  id: ADTCoreBlobTile
   name: Core Blob
   description: The most important part of the Blob. This is the brain and heart of the Blob.
   save: false
@@ -54,7 +54,7 @@
     blobTileType: Core
   - type: Store
     currencyWhitelist:
-    - BlobPoint
+    - ADTBlobPoint
   - type: BlobCore
     blobTileCosts:
       !type:BlobTileCosts
@@ -69,15 +69,15 @@
 #      storage: 50
 #      turret: 75
     actionPrototypes:
-      - ActionSwapBlobChem
-      - ActionTeleportBlobToCore
-      - ActionCreateBlobFactory
-      - ActionCreateBlobResource
-      - ActionCreateBlobNode
-      - ActionCreateBlobbernaut
-      - ActionSplitBlobCore
-      - ActionSwapBlobCore
-      - ActionDowngradeBlob
+      - ADTActionSwapBlobChem
+      - ADTActionTeleportBlobToCore
+      - ADTActionCreateBlobFactory
+      - ADTActionCreateBlobResource
+      - ADTActionCreateBlobNode
+      - ADTActionCreateBlobbernaut
+      - ADTActionSplitBlobCore
+      - ADTActionSwapBlobCore
+      - ADTActionDowngradeBlob
   - type: BlobNode
   - type: BlobResource
     pointsPerPulsed: 5
@@ -106,8 +106,8 @@
   - type: GhostTakeoverAvailable
 
 - type: entity
-  parent: BaseBlob
-  id: NormalBlobTile
+  parent: ADTBaseBlob
+  id: ADTNormalBlobTile
   name: Normal Blob
   categories: [ HideSpawnMenu ]
   description: An ordinary part of yours required for the construction of more advanced tiles.
@@ -171,8 +171,8 @@
 
 
 - type: entity
-  parent: BaseBlob
-  id: FactoryBlobTile
+  parent: ADTBaseBlob
+  id: ADTFactoryBlobTile
   name: Factory Blob
   description: The so-called BlobPods come out of the factory and attack passers-by and zombify the corpses of these same passers-by. One factory produces 3 of these BlobPods; they cannot be placed next to each other at a distance of 7 tiles; one factory can produce only one Blobbernaut.
   categories: [ HideSpawnMenu ]
@@ -211,8 +211,8 @@
 #          shader: unshaded
 
 - type: entity
-  parent: BaseBlob
-  id: ResourceBlobTile
+  parent: ADTBaseBlob
+  id: ADTResourceBlobTile
   name: Resource Blob
   categories: [ HideSpawnMenu ]
   components:
@@ -251,8 +251,8 @@
         - state: blob_resource_overlay
 
 - type: entity
-  parent: BaseBlob
-  id: NodeBlobTile
+  parent: ADTBaseBlob
+  id: ADTNodeBlobTile
   name: Node Blob
   description: The second, but mini, Blob core, near which you can place factories and resource blobs. Required to split the core.
   categories: [ HideSpawnMenu ]
@@ -292,8 +292,8 @@
         - state: blob_node_overlay
 
 - type: entity
-  parent: BaseBlob
-  id: StrongBlobTile
+  parent: ADTBaseBlob
+  id: ADTStrongBlobTile
   name: StrongBlobTile
   description: The basis of defensive positions has not only a strength of 6 times, this tile is also capable of withstanding various gases in order to become an atmospheric technician to protect the core, for example, from plasma that the enemy can set on fire.
   categories: [ HideSpawnMenu ]
@@ -320,8 +320,8 @@
 #          shader: unshaded
 
 - type: entity
-  parent: BaseBlob
-  id: ReflectiveBlobTile
+  parent: ADTBaseBlob
+  id: ADTReflectiveBlobTile
   name: ReflectiveBlobTile
   description: Upgrading a fortified cell in which they pay less strength for the ability to reflect only energy projectiles and lasers with a 90% chance.
   categories: [ HideSpawnMenu ]
@@ -338,9 +338,9 @@
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
     - type: Damageable
-      damageModifierSet: BlobReflective
+      damageModifierSet: ADTBlobReflective
     - type: Injurable
-      damageContainer: Blob
+      damageContainer: ADTBlob
     - type: Reflect
       reflectProb: 1
       spread: 20

@@ -5,7 +5,7 @@
 
 Блоб — быстрорастущий опасный организм, чья главная цель — захватить станцию.
   <Box>
-    <GuideEntityEmbed Entity="CoreBlobTile" Caption="Блоб"/>
+    <GuideEntityEmbed Entity="ADTCoreBlobTile" Caption="Блоб"/>
 	<GuideEntityEmbed Entity="MobMouse" Caption="Носитель блоба"/>
   </Box>
 
@@ -30,9 +30,9 @@
 ## Специальные тайлы
 
   <Box>
-    <GuideEntityEmbed Entity="ResourceBlobTile" Caption="Ресурсный тайл"/>
-	<GuideEntityEmbed Entity="FactoryBlobTile" Caption="Тайл фабрики"/>
-	<GuideEntityEmbed Entity="NodeBlobTile" Caption="Тайл узла"/>
+    <GuideEntityEmbed Entity="ADTResourceBlobTile" Caption="Ресурсный тайл"/>
+	<GuideEntityEmbed Entity="ADTFactoryBlobTile" Caption="Тайл фабрики"/>
+	<GuideEntityEmbed Entity="ADTNodeBlobTile" Caption="Тайл узла"/>
 
   </Box>
 
@@ -43,8 +43,8 @@
 ## Прислужники
 
   <Box>
-    <GuideEntityEmbed Entity="MobBlobBlobbernaut" Caption="Блобернаут"/>
-	<GuideEntityEmbed Entity="MobBlobPod" Caption="Спора блоба"/>
+    <GuideEntityEmbed Entity="ADTMobBlobBlobbernaut" Caption="Блобернаут"/>
+	<GuideEntityEmbed Entity="ADTMobBlobPod" Caption="Спора блоба"/>
   </Box>
 
 Фабрики блоба могут производить споры блоба и блобернаутов — это ваша основная рабочая сила.
@@ -58,8 +58,8 @@
 - Зажав Alt+ЛКМ, можно улучшить обычный тайл до укреплённого, а укреплённый — до отражающего.
 
   <Box>
-    <GuideEntityEmbed Entity="StrongBlobTile" Caption="Укреплённые тайлы"/>
-	<GuideEntityEmbed Entity="ReflectiveBlobTile" Caption="Отражающие тайлы"/>
+    <GuideEntityEmbed Entity="ADTStrongBlobTile" Caption="Укреплённые тайлы"/>
+	<GuideEntityEmbed Entity="ADTReflectiveBlobTile" Caption="Отражающие тайлы"/>
   </Box>
 
 ## Особые способности

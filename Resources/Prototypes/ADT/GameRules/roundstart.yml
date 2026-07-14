@@ -297,7 +297,7 @@
 
 # Blob
 - type: entity
-  id: BlobRule
+  id: ADTBlobRule
   parent: BaseGameRule
   categories: [ HideSpawnMenu ]
   components:
@@ -305,7 +305,7 @@
   - type: GameRule
 
 - type: entity
-  id: BlobGameMode
+  id: ADTBlobGameMode
   parent: BaseGameRule
   categories: [ HideSpawnMenu ]
   components:
@@ -315,7 +315,7 @@
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
-    - prefRoles: [ Blob ]
+    - prefRoles: [ ADTBlob ]
       allowNonHumans: true
       blacklist:
         components:
@@ -326,10 +326,10 @@
         color: Plum
         sound: /Audio/Announcements/bloblarm.ogg
       mindRoles:
-      - MindRoleBlob
+      - ADTMindRoleBlob
 
 - type: entity
-  id: BlobSpawn
+  id: ADTBlobSpawn
   parent: BaseGameRule
   categories: [ HideSpawnMenu ]
   components:
@@ -342,6 +342,6 @@
   - type: GameRule
   - type: BlobSpawnRule
     carrierBlobProtos:
-    - SpawnPointGhostBlobRat
+    - ADTSpawnPointGhostBlobRat
     playersPerCarrierBlob: 30
     maxCarrierBlob: 1

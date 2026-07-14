@@ -12,7 +12,7 @@ public sealed partial class BlobSpawnRuleComponent : Component
     [DataField("carrierBlobProtos", required: true, customTypeSerializer: typeof(PrototypeIdListSerializer<EntityPrototype>)), ViewVariables(VVAccess.ReadWrite)]
     public List<string> CarrierBlobProtos = new()
     {
-        "SpawnPointGhostBlobRat"
+        "ADTSpawnPointGhostBlobRat"
     };
 
     [ViewVariables(VVAccess.ReadOnly), DataField("playersPerCarrierBlob")]

@@ -183,29 +183,29 @@ public sealed partial class BlobCoreComponent : Component
     [DataField]
     public BlobTileProto TilePrototypes = new()
     {
-        {BlobTileType.Resource, "ResourceBlobTile"},
-        {BlobTileType.Factory, "FactoryBlobTile"},
-        {BlobTileType.Node, "NodeBlobTile"},
-        {BlobTileType.Reflective, "ReflectiveBlobTile"},
-        {BlobTileType.Strong, "StrongBlobTile"},
-        {BlobTileType.Normal, "NormalBlobTile"},
-        {BlobTileType.Invalid, "NormalBlobTile"}, // wtf
+        {BlobTileType.Resource, "ADTResourceBlobTile"},
+        {BlobTileType.Factory, "ADTFactoryBlobTile"},
+        {BlobTileType.Node, "ADTNodeBlobTile"},
+        {BlobTileType.Reflective, "ADTReflectiveBlobTile"},
+        {BlobTileType.Strong, "ADTStrongBlobTile"},
+        {BlobTileType.Normal, "ADTNormalBlobTile"},
+        {BlobTileType.Invalid, "ADTNormalBlobTile"}, // wtf
         //{BlobTileType.Storage, "StorageBlobTile"},
         //{BlobTileType.Turret, "TurretBlobTile"},
-        {BlobTileType.Core, "CoreBlobTile"},
+        {BlobTileType.Core, "ADTCoreBlobTile"},
     };
 
     [DataField(required: true)]
     public List<EntProtoId> ActionPrototypes = [];
 
     [DataField]
-    public ProtoId<ExplosionPrototype> BlobExplosive = "Blob";
+    public ProtoId<ExplosionPrototype> BlobExplosive = "ADTBlob";
 
     [DataField]
-    public EntProtoId<BlobObserverComponent> ObserverBlobPrototype = "MobObserverBlob";
+    public EntProtoId<BlobObserverComponent> ObserverBlobPrototype = "ADTMobObserverBlob";
 
     [DataField]
-    public EntProtoId MindRoleBlobPrototypeId = "MindRoleBlob";
+    public EntProtoId MindRoleBlobPrototypeId = "ADTMindRoleBlob";
 
     #endregion
 

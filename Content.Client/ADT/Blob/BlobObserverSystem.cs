@@ -34,7 +34,7 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
     }
 
     [ValidatePrototypeId<FactionIconPrototype>]
-    private const string BlobFaction = "BlobFaction";
+    private const string BlobFaction = "ADTBlobFaction";
 
     private void OnShowBlobIcon<T>(Entity<T> ent, ref GetStatusIconsEvent args) where T : Component
     {

@@ -10,10 +10,10 @@ namespace Content.Server.ADT.Blob.GameTicking;
 public sealed partial class BlobRuleComponent : Component
 {
     [DataField]
-    public SoundSpecifier? DetectedAudio = new SoundPathSpecifier("/Audio/ADT/Announcements/blob_detected.ogg");
+    public SoundSpecifier? DetectedAudio = null;
 
     [DataField]
-    public SoundSpecifier? CriticalAudio = new SoundPathSpecifier("/Audio/StationEvents/blobin_time.ogg");
+    public SoundSpecifier? CriticalAudio = null;
 
     [ViewVariables]
     public List<(EntityUid mindId, MindComponent mind)> Blobs = new(); //BlobRoleComponent

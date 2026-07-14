@@ -36,5 +36,5 @@ public sealed partial class BlobPodComponent : Component
     public EntityUid? ZombifyTarget;
 
     [DataField]
-    public ProtoId<LanguagePrototype> CollectiveMind = "BlobCollectiveMind";
+    public ProtoId<LanguagePrototype> CollectiveMind = "ADTBlobCollectiveMind";
 }

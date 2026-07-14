@@ -1,20 +1,20 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: htnCompound
-  id: BlobPodCompound
+  id: ADTBlobPodCompound
   branches:
     - tasks:
         - !type:HTNCompoundTask
           task: MeleeCombatCompound
     - tasks:
         - !type:HTNCompoundTask
-          task: ZombifyCompound
+          task: ADTZombifyCompound
     - tasks:
         - !type:HTNCompoundTask
           task: IdleCompound
 
 - type: htnCompound
-  id: ZombifyCompound
+  id: ADTZombifyCompound
   branches:
     - tasks:
         # TODO: Kill this shit

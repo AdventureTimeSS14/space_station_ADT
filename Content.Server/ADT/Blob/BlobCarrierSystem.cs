@@ -42,10 +42,10 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
     }
 
     [ValidatePrototypeId<EntityPrototype>]
-    private const string ActionTransformToBlob = "ActionTransformToBlob";
+    private const string ActionTransformToBlob = "ADTActionTransformToBlob";
 
     [ValidatePrototypeId<LanguagePrototype>]
-    private const string BlobLang = "Blob";
+    private const string BlobLang = "ADTBlob";
 
     private void OnRemove(Entity<BlobCarrierComponent> ent, ref ComponentRemove args)
     {

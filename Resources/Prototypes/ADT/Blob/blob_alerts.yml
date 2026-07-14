@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: alert
-  id: BlobResource
+  id: ADTBlobResource
   icons:
   - sprite: /Textures/ADT/Blob/Interface/Alerts/blob_resource.rsi
     state: point0
@@ -113,7 +113,7 @@
   maxSeverity: 51
 
 - type: alert
-  id: BlobHealth
+  id: ADTBlobHealth
   category: Health
   icons:
   - sprite: /Textures/ADT/Blob/Interface/Alerts/blob_health.rsi

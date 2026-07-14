@@ -69,7 +69,7 @@ public sealed class BlobSpawnRule : StationEventSystem<BlobSpawnRuleComponent>
         }
 
         // start blob rule incase it isn't, for the sweet greentext
-        GameTicker.StartGameRule("BlobRule");
+        GameTicker.StartGameRule("ADTBlobRule");
     }
 
     // Because GameRule spawns just a GhostRoleSpawner, we can't just remove components

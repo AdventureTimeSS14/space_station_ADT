@@ -12,10 +12,10 @@ public sealed partial class BlobFactoryComponent : Component
     public float SpawnLimit = 3;
 
     [DataField("blobSporeId"), ViewVariables(VVAccess.ReadWrite)]
-    public EntProtoId<BlobMobComponent> Pod = "MobBlobPod";
+    public EntProtoId<BlobMobComponent> Pod = "ADTMobBlobPod";
 
     [DataField("blobbernautId"), ViewVariables(VVAccess.ReadWrite)]
-    public EntProtoId<BlobbernautComponent> BlobbernautId = "MobBlobBlobbernaut";
+    public EntProtoId<BlobbernautComponent> BlobbernautId = "ADTMobBlobBlobbernaut";
 
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? Blobbernaut = default!;

@@ -1,6 +1,6 @@
 # Spoken by the Blob.
 - type: language
-  id: Blob
+  id: ADTBlob
   uiColor: "#800080"
   parent: BaseVocalLanguage
   speech: !type:Generic

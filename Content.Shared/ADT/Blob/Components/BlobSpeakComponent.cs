@@ -11,7 +11,7 @@ namespace Content.Shared.ADT.Blob.Components;
 public sealed partial class BlobSpeakComponent : Component
 {
     [DataField]
-    public ProtoId<LanguagePrototype> Language = "Blob";
+    public ProtoId<LanguagePrototype> Language = "ADTBlob";
 
     //[DataField, AutoNetworkedField]
     //public ProtoId<RadioChannelPrototype> Channel = "Hivemind";

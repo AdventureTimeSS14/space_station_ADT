@@ -30,7 +30,7 @@ public sealed partial class BlobCarrierComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite),
      DataField("corePrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string CoreBlobPrototype = "CoreBlobTile";
+    public string CoreBlobPrototype = "ADTCoreBlobTile";
 
     public EntityUid? TransformToBlob = null;
 }

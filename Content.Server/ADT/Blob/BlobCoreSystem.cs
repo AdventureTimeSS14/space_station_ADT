@@ -61,11 +61,11 @@ public sealed class BlobCoreSystem : EntitySystem
     private EntityQuery<BlobNodeComponent> _node;
 
     [ValidatePrototypeId<AlertPrototype>]
-    private const string BlobHealth = "BlobHealth";
+    private const string BlobHealth = "ADTBlobHealth";
     [ValidatePrototypeId<AlertPrototype>]
-    private const string BlobResource = "BlobResource";
+    private const string BlobResource = "ADTBlobResource";
     [ValidatePrototypeId<CurrencyPrototype>]
-    private const string BlobMoney = "BlobPoint";
+    private const string BlobMoney = "ADTBlobPoint";
 
     private readonly ReaderWriterLockSlim _pointsChange = new();
 
@@ -267,7 +267,7 @@ public sealed class BlobCoreSystem : EntitySystem
         var blobRule = EntityQuery<BlobRuleComponent>().FirstOrDefault();
         if (blobRule == null)
         {
-            _gameTicker.StartGameRule("BlobRule", out _);
+            _gameTicker.StartGameRule("ADTBlobRule", out _);
         }
 
         var ev = new CreateBlobObserverEvent(userId);
@@ -326,14 +326,14 @@ public sealed class BlobCoreSystem : EntitySystem
         switch (newChem)
         {
             case BlobChemType.ExplosiveLattice:
-                _damageable.SetDamageModifierSetId(uid, "ExplosiveLatticeBlob");
+                _damageable.SetDamageModifierSetId(uid, "ADTExplosiveLatticeBlob");
                 _explosionSystem.SetExplosionResistance(uid, 0f, EnsureComp<ExplosionResistanceComponent>(uid));
                 break;
             case BlobChemType.ElectromagneticWeb:
-                _damageable.SetDamageModifierSetId(uid, "ElectromagneticWebBlob");
+                _damageable.SetDamageModifierSetId(uid, "ADTElectromagneticWebBlob");
                 break;
             default:
-                _damageable.SetDamageModifierSetId(uid, "BaseBlob");
+                _damageable.SetDamageModifierSetId(uid, "ADTBaseBlob");
                 break;
         }
     }

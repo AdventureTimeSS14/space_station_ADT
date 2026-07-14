@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: npcFaction
-  id: Blob
+  id: ADTBlob
   hostile:
     - NanoTrasen
     - Syndicate
@@ -13,7 +13,7 @@
     - Wizard
 
 - type: explosion
-  id: Blob
+  id: ADTBlob
   damagePerIntensity:
     types:
       Blunt: 10
@@ -24,26 +24,26 @@
   fireStates: 3
 
 - type: Tag
-  id: BlobMob
+  id: ADTBlobMob
 
 - type: Tag
-  id: Blobbernaut
+  id: ADTBlobbernaut
 
 - type: entity
   parent: MobMouse
-  id: MobMouseBlob
+  id: ADTMobMouseBlob
   suffix: Blob
   components:
   - type: BlobCarrier
 
 - type: entity
-  id: SpawnPointGhostBlobRat
+  id: ADTSpawnPointGhostBlobRat
   name: Mouse Blob Spawn Point
   suffix: Blob Ghost Role
   parent: BaseAntagSpawner
   components:
     - type: GhostRoleMobSpawner
-      prototype: MobMouseBlob
+      prototype: ADTMobMouseBlob
     - type: GhostRole
       makeSentient: true
       name: blob-carrier-role-name
@@ -63,19 +63,19 @@
 # Blob
 - type: entity
   parent: BaseMindRoleAntag
-  id: MindRoleBlob
+  id: ADTMindRoleBlob
   name: Blob Role
 #  description: mind-role-blob-description
   components:
   - type: MindRole
-    antagPrototype: Blob
+    antagPrototype: ADTBlob
     exclusiveAntag: true
     roleType: SoloAntagonist
     subtype: role-subtype-blob
   - type: BlobRole
 
 - type: factionIcon
-  id: BlobFaction
+  id: ADTBlobFaction
   priority: 10
   showTo:
     components:
@@ -88,6 +88,6 @@
     state: blob
 
 - type: currency
-  id: BlobPoint
+  id: ADTBlobPoint
   displayName: store-currency-display-blob-points
   canWithdraw: false

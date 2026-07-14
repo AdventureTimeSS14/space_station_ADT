@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: EffectHealPlusBase
+  id: ADTEffectHealPlusBase
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
@@ -18,9 +18,9 @@
   - type: AnimationPlayer
 
 - type: entity
-  id: EffectHealPlusTripleBase
+  id: ADTEffectHealPlusTripleBase
   categories: [ HideSpawnMenu ]
-  parent: EffectHealPlusBase
+  parent: ADTEffectHealPlusBase
   components:
   - type: TimedDespawn
     lifetime: 0.8
@@ -28,8 +28,8 @@
     state: triple
 
 - type: entity
-  id: EffectHealPlusTripleYellow
-  parent: EffectHealPlusTripleBase
+  id: ADTEffectHealPlusTripleYellow
+  parent: ADTEffectHealPlusTripleBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
