@@ -12,6 +12,7 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
@@ -23,8 +24,10 @@ using static Robust.Client.UserInterface.Controls.BoxContainer;
 namespace Content.Client.Medical.CrewMonitoring;
 
 [GenerateTypedNameReferences]
-public sealed partial class CrewMonitoringWindow : FancyWindow
+public sealed partial class CrewMonitoringWindow : BaseWindow
 {
+    private static readonly List<CrewMonitoringServerEntry> EmptyServerList = new();
+
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     private readonly SharedTransformSystem _transformSystem;
@@ -34,11 +37,17 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
     private bool _tryToScrollToListFocus;
     private Texture? _blipTexture;
     private Texture? _serverBlipTexture;
+    private EntityUid? _monitorUid;
 
     /// <summary>
     /// Called when the user toggles alert sound (crit/dead) on or off.
     /// </summary>
     public Action<bool>? OnAlertMutedChanged;
+
+    /// <summary>
+    /// Called when the user changes alert sound volume (0..1).
+    /// </summary>
+    public Action<float>? OnAlertVolumeChanged;
 
     /// <summary>
     /// Called when the user clicks "Select" on a sensor server to make it the active one.
@@ -66,6 +75,58 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
     private float _rescanProgress;
     private ProgressBar? _rescanProgressBar;
 
+    private int _lastServersUiHash;
+    private int _lastSensorsStructureHash;
+    private float _monitorBlipTimer;
+    private Vector2 _lastMonitorBlipLocal;
+    private const float MonitorBlipMinInterval = 0.2f;
+    private const float MonitorBlipMoveEpsilonSq = 0.01f;
+
+    /// <summary>Shared themed chrome for action buttons (scan / rescan / select).</summary>
+    private StyleBoxFlat _buttonStyle = new();
+
+    /// <summary>Unselected sensor row — dark/empty fill + bright outline (weapon-mode style).</summary>
+    private StyleBoxFlat _sensorRowStyle = new();
+
+    /// <summary>Inactive / no-signal sensor row — muted outline.</summary>
+    private StyleBoxFlat _sensorRowInactiveStyle = new();
+
+    /// <summary>Selected sensor row — solid light fill, dark text.</summary>
+    private StyleBoxFlat _sensorRowSelectedStyle = new();
+
+    private Color _sensorTextBright = Color.FromHex("#7CFF8A");
+    private Color _sensorTextDark = Color.FromHex("#0A120C");
+
+    /// <summary>Bright tint for themed checkboxes (alerts / beacons).</summary>
+    private Color _checkboxColor = Color.FromHex("#7CFF8A");
+
+    /// <summary>Outer bezel — matches the handheld chassis via <c>PdaBorderColor.borderColor</c>.</summary>
+    public string? BorderColor
+    {
+        get => Background.ActualModulateSelf.ToHex();
+        set => Background.ModulateSelfOverride = Color.FromHex(value, Color.White);
+    }
+
+    public string? AccentHColor
+    {
+        get => AccentH.ActualModulateSelf.ToHex();
+        set
+        {
+            AccentH.ModulateSelfOverride = Color.FromHex(value, Color.White);
+            AccentH.Visible = value != null;
+        }
+    }
+
+    public string? AccentVColor
+    {
+        get => AccentV.ActualModulateSelf.ToHex();
+        set
+        {
+            AccentV.ModulateSelfOverride = Color.FromHex(value, Color.White);
+            AccentV.Visible = value != null;
+        }
+    }
+
     public CrewMonitoringWindow()
     {
         RobustXamlLoader.Load(this);
@@ -74,16 +135,194 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         _transformSystem = _entManager.System<SharedTransformSystem>();
         _spriteSystem = _entManager.System<SpriteSystem>();
 
+        CloseButton.OnPressed += _ => Close();
         NavMap.TrackedEntitySelectedAction += SetTrackedEntityFromNavMap;
+        NavMap.OnAlertEnabledChanged += enabled => OnAlertMutedChanged?.Invoke(!enabled);
+        NavMap.OnAlertVolumeChanged += volume => OnAlertVolumeChanged?.Invoke(volume);
+        ApplyScreenTheme(null);
 
         StartScanButton.OnPressed += _ =>
         {
             StartScanButton.Visible = false;
-            ScanProgressBar.Visible = true;
+            ScanLoadingPanel.Visible = true;
             ScanProgressBar.Value = 0;
+            ScanLoadingPercent.Text = "0%";
             _scanProgress = 0;
             OnScanStarted?.Invoke();
         };
+    }
+
+    /// <summary>
+    /// Builds CRT / frame / chrome / map / tabs / buttons from one hue while keeping shade relationships.
+    /// </summary>
+    public void ApplyScreenTheme(string? themeHex)
+    {
+        var theme = Color.FromHex(themeHex ?? "#6A7080", Color.FromHex("#6A7080"));
+        var hsv = Color.ToHsv(theme);
+        var h = hsv.X;
+        var s = Math.Clamp(hsv.Y, 0.12f, 0.9f);
+
+        // CRT scanlines — dark / slightly lighter, same hue.
+        ContentBackground.DarkLine = Color.FromHsv(new Vector4(h, s * 0.55f, 0.10f, 1f));
+        ContentBackground.LightLine = Color.FromHsv(new Vector4(h, s * 0.50f, 0.16f, 1f));
+
+        var frame = Color.FromHsv(new Vector4(h, s * 0.40f, 0.30f, 1f));
+        LeftPanelFrame.PanelOverride = new StyleBoxFlat
+        {
+            BorderColor = frame,
+            BorderThickness = new Thickness(2),
+        };
+        RightPanelFrame.PanelOverride = new StyleBoxFlat
+        {
+            BorderColor = frame,
+            BorderThickness = new Thickness(2),
+        };
+        PanelDivider.PanelOverride = new StyleBoxFlat
+        {
+            BackgroundColor = frame,
+        };
+
+        // Soft multiply tint for content chrome (not header — checkboxes must stay bright).
+        HeaderStripe.ModulateSelfOverride = null;
+        ContentBorder.ModulateSelfOverride = Color.FromHsv(new Vector4(h, s * 0.25f, 0.55f, 1f));
+        // Clear previous panel-wide modulate so buttons/tabs keep their explicit theme colors.
+        RightPanel.ModulateSelfOverride = null;
+
+        // Tabs — active brighter, inactive darker, panel matches CRT wash.
+        var tabActive = new StyleBoxFlat(Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.55f, 0.2f, 0.7f), 0.42f, 1f)));
+        tabActive.SetContentMarginOverride(StyleBox.Margin.Horizontal, 8);
+        tabActive.SetContentMarginOverride(StyleBox.Margin.Vertical, 3);
+        var tabInactive = new StyleBoxFlat(Color.FromHsv(new Vector4(h, s * 0.35f, 0.18f, 1f)));
+        tabInactive.SetContentMarginOverride(StyleBox.Margin.Horizontal, 8);
+        tabInactive.SetContentMarginOverride(StyleBox.Margin.Vertical, 3);
+        MainTabs.TabStyleBoxOverride = tabActive;
+        MainTabs.TabStyleBoxInactiveOverride = tabInactive;
+        MainTabs.PanelStyleBoxOverride = new StyleBoxFlat
+        {
+            BackgroundColor = Color.FromHsv(new Vector4(h, s * 0.40f, 0.12f, 1f)),
+        };
+        MainTabs.TabFontColorOverride = Color.FromHsv(new Vector4(h, s * 0.25f, 0.95f, 1f));
+        MainTabs.TabFontColorInactiveOverride = Color.FromHsv(new Vector4(h, s * 0.20f, 0.55f, 1f));
+
+        // Action buttons (scan / rescan / select).
+        _buttonStyle = new StyleBoxFlat
+        {
+            BackgroundColor = Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.75f, 0.35f, 0.85f), 0.48f, 1f)),
+            BorderColor = Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.55f, 0.25f, 0.7f), 0.72f, 1f)),
+            BorderThickness = new Thickness(1),
+        };
+        _buttonStyle.SetContentMarginOverride(StyleBox.Margin.Horizontal, 8);
+        _buttonStyle.SetContentMarginOverride(StyleBox.Margin.Vertical, 4);
+        StartScanButton.StyleBoxOverride = _buttonStyle;
+
+        // Checkboxes: same brightness class as the ONLINE indicator.
+        _checkboxColor = Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.95f, 0.55f, 1f), Math.Clamp(hsv.Z * 1.25f, 0.85f, 1f), 1f));
+        ApplyThemedCheckBoxes();
+
+        // Sensor rows — weapon-mode toggle contrast (noticeable, not neon-caustic):
+        // selected = solid light fill + dark text; unselected = empty dark + bright edge/text.
+        var accent = Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.85f, 0.45f, 0.85f), 0.72f, 1f));
+        _sensorTextBright = accent;
+        _sensorTextDark = Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.55f, 0.2f, 0.6f), 0.08f, 1f));
+
+        _sensorRowStyle = new StyleBoxFlat
+        {
+            BackgroundColor = Color.Transparent,
+            BorderColor = accent,
+            BorderThickness = new Thickness(2),
+        };
+        _sensorRowStyle.SetContentMarginOverride(StyleBox.Margin.All, 4);
+
+        _sensorRowInactiveStyle = new StyleBoxFlat
+        {
+            BackgroundColor = Color.Transparent,
+            BorderColor = Color.FromHsv(new Vector4(h, s * 0.40f, 0.35f, 1f)),
+            BorderThickness = new Thickness(2),
+        };
+        _sensorRowInactiveStyle.SetContentMarginOverride(StyleBox.Margin.All, 4);
+
+        _sensorRowSelectedStyle = new StyleBoxFlat
+        {
+            BackgroundColor = accent,
+            BorderColor = Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.75f, 0.4f, 0.85f), 0.82f, 1f)),
+            BorderThickness = new Thickness(2),
+        };
+        _sensorRowSelectedStyle.SetContentMarginOverride(StyleBox.Margin.All, 4);
+
+        SearchLineEdit.StyleBoxOverride = new StyleBoxFlat
+        {
+            BackgroundColor = Color.FromHsv(new Vector4(h, s * 0.40f, 0.14f, 1f)),
+            BorderColor = Color.FromHsv(new Vector4(h, s * 0.50f, 0.55f, 1f)),
+            BorderThickness = new Thickness(1),
+        };
+
+        // Map wash + toolbar (zoom / beacons / recenter) + neighbor grids.
+        // Toolbar panel must be mid-brightness so it reads as themed, not charcoal.
+        NavMap.ApplyTheme(
+            Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.75f, 0.25f, 0.85f), 0.72f, 1f)),
+            Color.FromHsv(new Vector4(h, s * 0.55f, 0.22f, 1f)),
+            Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.7f, 0.35f, 0.75f), Math.Clamp(hsv.Z * 1.15f, 0.72f, 0.95f), 1f)),
+            _buttonStyle,
+            Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.55f, 0.25f, 0.7f), 0.28f, 1f)));
+    }
+
+    private void ApplyThemedButton(Button button)
+    {
+        button.StyleBoxOverride = _buttonStyle;
+    }
+
+    private void ApplyThemedCheckBox(CheckBox check)
+    {
+        // Drop default dark button chrome; tint only the checkbox glyph + label.
+        check.StyleBoxOverride = new StyleBoxFlat { BackgroundColor = Color.Transparent };
+        check.ModulateSelfOverride = Color.White;
+        check.TextureRect.ModulateSelfOverride = _checkboxColor;
+        check.Label.FontColorOverride = _checkboxColor;
+        check.Label.ModulateSelfOverride = Color.White;
+    }
+
+    private void ApplyThemedCheckBoxes()
+    {
+        NavMap.ApplyCheckboxTheme(_checkboxColor);
+    }
+
+    private void ApplySensorRowStyle(CrewMonitoringButton button, bool selected)
+    {
+        var active = button.Coordinates != null;
+        if (selected && active)
+            button.StyleBoxOverride = _sensorRowSelectedStyle;
+        else if (active)
+            button.StyleBoxOverride = _sensorRowStyle;
+        else
+            button.StyleBoxOverride = _sensorRowInactiveStyle;
+
+        // Inverted text like weapon-mode toggles: dark on filled, bright on empty.
+        var textColor = selected && active
+            ? _sensorTextDark
+            : active
+                ? _sensorTextBright
+                : Color.FromHsv(new Vector4(Color.ToHsv(_sensorTextBright).X, 0.25f, 0.45f, 1f));
+
+        ApplySensorRowTextColor(button, textColor);
+    }
+
+    private static void ApplySensorRowTextColor(Control root, Color color)
+    {
+        foreach (var child in root.Children)
+        {
+            if (child is Label label)
+            {
+                label.FontColorOverride = color;
+                label.ModulateSelfOverride = Color.White;
+            }
+
+            ApplySensorRowTextColor(child, color);
+        }
+    }
+
+    protected override DragMode GetDragModeFor(Vector2 relativeMousePos)
+    {
+        return DragMode.Move;
     }
 
     public void Set(string stationName, EntityUid? mapUid)
@@ -91,14 +330,11 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         _blipTexture = _spriteSystem.Frame0(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/NavMap/beveled_circle.png")));
         _serverBlipTexture = _spriteSystem.Frame0(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/NavMap/beveled_square.png")));
 
-        if (_entManager.TryGetComponent<TransformComponent>(mapUid, out var xform))
-            NavMap.MapUid = xform.GridUid;
-
-        else
-            NavMap.Visible = false;
-
+        NavMap.MapUid = null;
+        NavMap.Visible = false;
+        MapPlaceholder.Visible = true;
         StationName.AddStyleClass("LabelBig");
-        StationName.Text = stationName;
+        StationName.Text = Loc.GetString("crew-monitoring-ui-select-server-label");
         NavMap.ForceNavMapUpdate();
     }
 
@@ -106,18 +342,30 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
     {
         base.FrameUpdate(args);
 
-        if (ScanProgressBar.Visible && _scanProgress < 1f)
+        if (ScanLoadingPanel.Visible && _scanProgress < 1f)
         {
             _scanProgress += (float) args.DeltaSeconds / ScanDuration;
+            var progress = Math.Clamp(_scanProgress, 0f, 1f);
+            ScanProgressBar.Value = progress;
+            ScanLoadingPercent.Text = $"{(int) (progress * 100)}%";
+
+            var statusKey = progress switch
+            {
+                < 0.2f => "crew-monitoring-ui-scan-initializing",
+                < 0.65f => "crew-monitoring-ui-scan-searching",
+                < 0.9f => "crew-monitoring-ui-scan-verifying",
+                _ => "crew-monitoring-ui-scan-finalizing"
+            };
+            var dots = new string('.', (int) (_scanProgress * ScanDuration * 2) % 3 + 1);
+            ScanLoadingStatus.Text = Loc.GetString(statusKey) + dots;
+
             if (_scanProgress >= 1f)
             {
                 _scanProgress = 1f;
                 ScanProgressBar.Value = 1;
+                ScanLoadingPercent.Text = "100%";
+                ScanLoadingStatus.Text = Loc.GetString("crew-monitoring-ui-scan-waiting");
                 OnScanComplete?.Invoke();
-            }
-            else
-            {
-                ScanProgressBar.Value = _scanProgress;
             }
         }
 
@@ -136,17 +384,27 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
 
         if (_tryToScrollToListFocus)
             TryToScrollToFocus();
+
+        _monitorBlipTimer += (float) args.DeltaSeconds;
+        if (_monitorBlipTimer >= MonitorBlipMinInterval)
+        {
+            _monitorBlipTimer = 0f;
+            UpdateMonitorBlip(force: false);
+        }
     }
 
     // ADT-Tweak-start (P4A) Обновление мониторинга. Категория "Нужна помощь"
     public void ShowSensors(CrewMonitoringState state, EntityUid monitor, EntityCoordinates? monitorCoords)
     {
+        _monitorUid = monitor;
         var sensors = state.Sensors;
         var isEmagged = state.IsEmagged;
         var hasScanned = state.HasScanned;
 
         StartScanPanel.Visible = !hasScanned;
         MainTabs.Visible = hasScanned;
+        if (hasScanned)
+            ScanLoadingPanel.Visible = false;
 
         ServerStatusContainer.Visible = hasScanned;
         if (hasScanned)
@@ -156,10 +414,23 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             UpdateHeader(state);
         }
 
+        var servers = state.Servers ?? EmptyServerList;
+        var serversHash = HashServersUi(servers, state.SelectedServerUid, hasScanned, state.ServerOnline, _rescanInProgress);
+        var sensorsHash = HashSensorsStructure(sensors, isEmagged, hasScanned, state.SelectedServerUid);
+        if (serversHash == _lastServersUiHash && sensorsHash == _lastSensorsStructureHash)
+        {
+            // Coordinates-only / heartbeat UI refresh: update crew blips without wiping controls.
+            UpdateExistingCrewBlips(sensors, isEmagged);
+            UpdateMonitorBlip(force: true);
+            return;
+        }
+
+        _lastServersUiHash = serversHash;
+        _lastSensorsStructureHash = sensorsHash;
+
         ClearOutDatedData();
         ServersListContainer.RemoveAllChildren();
 
-        var servers = state.Servers ?? new List<CrewMonitoringServerEntry>();
         var hasServerSelected = state.SelectedServerUid != null;
 
         if (!hasScanned || !hasServerSelected)
@@ -172,11 +443,28 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         {
             NavMap.Visible = true;
             MapPlaceholder.Visible = false;
-            StationName.Text = state.GridName ?? string.Empty;
-            if (state.ServerGridUid != null && _entManager.TryGetEntity(state.ServerGridUid.Value, out var gridUid))
-                NavMap.MapUid = gridUid;
-            else
-                NavMap.MapUid = null;
+            StationName.Text =
+                state.ReferenceFrame?.Name ??
+                state.GridName ??
+                string.Empty;
+
+            EntityUid? frameUid = null;
+            var frameNetEntity = state.ReferenceFrame?.FrameEntity ?? state.ServerGridUid;
+            if (frameNetEntity != null &&
+                _entManager.TryGetEntity(frameNetEntity.Value, out var resolvedFrameUid))
+            {
+                frameUid = resolvedFrameUid;
+            }
+
+            SetDisplayedGrid(frameUid);
+
+            if (state.ReferenceFrame != null)
+            {
+                var origin = _entManager.GetCoordinates(state.ReferenceFrame.Origin);
+                if (origin.IsValid(_entManager))
+                    NavMap.SensorRangeCenter = origin;
+                NavMap.SensorRange = state.ReferenceFrame.Range;
+            }
         }
 
         var selectedServerUid = state.SelectedServerUid;
@@ -185,17 +473,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         {
             if (_rescanInProgress)
             {
-                var rescanBar = new ProgressBar
-                {
-                    MinValue = 0,
-                    MaxValue = 1,
-                    Value = Math.Clamp(_rescanProgress, 0f, 1f),
-                    HorizontalExpand = true,
-                    Margin = new Thickness(10, 0, 10, 6),
-                    SetHeight = 24
-                };
-                _rescanProgressBar = rescanBar;
-                ServersListContainer.AddChild(rescanBar);
+                ShowRescanProgress();
             }
             else
             {
@@ -205,10 +483,13 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                     HorizontalExpand = true,
                     Margin = new Thickness(10, 0, 10, 6)
                 };
+                ApplyThemedButton(rescanButton);
                 rescanButton.OnPressed += _ =>
                 {
                     _rescanInProgress = true;
                     _rescanProgress = 0;
+                    ServersListContainer.RemoveAllChildren();
+                    ShowRescanProgress();
                 };
                 ServersListContainer.AddChild(rescanButton);
             }
@@ -240,6 +521,14 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                     PanelOverride = new StyleBoxFlat { BackgroundColor = statusColor }
                 };
                 serverRow.AddChild(indicator);
+                serverRow.AddChild(new Label
+                {
+                    Text = Loc.GetString(server.IsOnline
+                        ? "crew-monitoring-server-online"
+                        : "crew-monitoring-server-offline"),
+                    FontColorOverride = statusColor,
+                    Margin = new Thickness(0, 0, 8, 0)
+                });
                 var serverDisplayName = string.IsNullOrEmpty(server.GridName)
                     ? server.ServerAddress
                     : $"{server.GridName} — {server.ServerAddress}";
@@ -249,6 +538,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                     Text = isSelected ? Loc.GetString("crew-monitoring-server-active") : Loc.GetString("crew-monitoring-server-select"),
                     Disabled = isSelected
                 };
+                ApplyThemedButton(selectButton);
                 var serverEntity = server.NetEntity;
                 selectButton.OnPressed += _ => OnSelectServer?.Invoke(serverEntity);
                 serverRow.AddChild(selectButton);
@@ -267,6 +557,14 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                     var localCoords = CoordinatesToLocal(serverCoords.Value);
                     if (localCoords == null)
                         continue;
+
+                    if (isSelected)
+                    {
+                        NavMap.SensorRangeCenter ??= serverCoords.Value;
+                        if (NavMap.SensorRange <= 0f)
+                            NavMap.SensorRange = server.SensorRange;
+                    }
+
                     NavMap.LocalizedNames.TryAdd(server.NetEntity, Loc.GetString("crew-monitoring-server-blip") + " " + server.ServerAddress);
                     NavMap.TrackedEntities.TryAdd(server.NetEntity,
                         new NavMapBlip(
@@ -285,7 +583,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         if (sensors.Count == 0)
         {
             NoServerLabel.Visible = true;
-            NoServerLabel.Text = Loc.GetString("crew-monitoring-ui-select-server-label");
+            NoServerLabel.Text = Loc.GetString("crew-monitoring-ui-no-server-label");
             return;
         }
 
@@ -403,16 +701,165 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             PopulateDepartmentList(remainingSensors);
         }
 
-        // Показываем монитор на карте только если он на том же гриде, что и выбранный сервер
-        if (monitorCoords != null && monitorCoords.Value.IsValid(_entManager) &&
-            _blipTexture != null && NavMap.MapUid != null &&
-            _entManager.TryGetComponent<TransformComponent>(monitor, out var monitorXform) &&
-            monitorXform.GridUid == NavMap.MapUid)
+        UpdateMonitorBlip(force: true);
+    }
+
+    private void UpdateExistingCrewBlips(List<SuitSensorStatus> sensors, bool isEmagged)
+    {
+        if (!NavMap.Visible || _blipTexture == null)
+            return;
+
+        foreach (var sensor in sensors)
         {
-            var localMonitorCoords = CoordinatesToLocal(monitorCoords.Value);
-            if (localMonitorCoords != null)
-                NavMap.TrackedEntities[_entManager.GetNetEntity(monitor)] = new NavMapBlip(localMonitorCoords.Value, _blipTexture, Color.Cyan, true, false);
+            if (!isEmagged &&
+                (sensor.Mode == SuitSensorMode.SensorOff ||
+                 sensor.Mode == SuitSensorMode.SensorBinary ||
+                 sensor.Mode == SuitSensorMode.SensorVitals))
+            {
+                continue;
+            }
+
+            if (sensor.Coordinates == null)
+                continue;
+
+            var coordinates = _entManager.GetCoordinates(sensor.Coordinates);
+            if (coordinates == null || !coordinates.Value.IsValid(_entManager))
+                continue;
+
+            var localCoords = CoordinatesToLocal(coordinates.Value);
+            if (localCoords == null)
+                continue;
+
+            if (!NavMap.TrackedEntities.TryGetValue(sensor.SuitSensorUid, out var existing))
+                continue;
+
+            var statusColorValue = GetStatusColor(sensor, out _) ?? Color.LimeGreen;
+            var blipColor = (_trackedEntity == null || sensor.SuitSensorUid == _trackedEntity)
+                ? statusColorValue
+                : statusColorValue * Color.DimGray;
+
+            NavMap.TrackedEntities[sensor.SuitSensorUid] = new NavMapBlip(
+                localCoords.Value,
+                existing.Texture,
+                blipColor,
+                sensor.SuitSensorUid == _trackedEntity);
         }
+    }
+
+    private static int HashServersUi(
+        List<CrewMonitoringServerEntry> servers,
+        NetEntity? selected,
+        bool hasScanned,
+        bool serverOnline,
+        bool rescanInProgress)
+    {
+        var hash = new HashCode();
+        hash.Add(hasScanned);
+        hash.Add(serverOnline);
+        hash.Add(selected);
+        hash.Add(rescanInProgress);
+        hash.Add(servers.Count);
+        foreach (var server in servers)
+        {
+            hash.Add(server.NetEntity);
+            hash.Add(server.IsOnline);
+            hash.Add(server.ServerAddress);
+            hash.Add(server.GridName);
+        }
+
+        return hash.ToHashCode();
+    }
+
+    private static int HashSensorsStructure(
+        List<SuitSensorStatus> sensors,
+        bool isEmagged,
+        bool hasScanned,
+        NetEntity? selectedServer)
+    {
+        var hash = new HashCode();
+        hash.Add(isEmagged);
+        hash.Add(hasScanned);
+        hash.Add(selectedServer);
+        hash.Add(sensors.Count);
+        foreach (var sensor in sensors)
+        {
+            hash.Add(sensor.SuitSensorUid);
+            hash.Add(sensor.OwnerUid);
+            hash.Add(sensor.Name);
+            hash.Add(sensor.Job);
+            hash.Add(sensor.JobIcon);
+            hash.Add(sensor.IsAlive);
+            hash.Add(sensor.TotalDamage);
+            hash.Add(sensor.TotalDamageThreshold);
+            hash.Add(sensor.Mode);
+            hash.Add(sensor.Coordinates != null);
+        }
+
+        return hash.ToHashCode();
+    }
+
+    private void ShowRescanProgress()
+    {
+        var status = new Label
+        {
+            Text = Loc.GetString("crew-monitoring-ui-scan-waiting"),
+            Align = Label.AlignMode.Center,
+            FontColorOverride = Color.LightGray,
+            Margin = new Thickness(10, 4, 10, 4),
+        };
+        ServersListContainer.AddChild(status);
+
+        _rescanProgressBar = new ProgressBar
+        {
+            MinValue = 0,
+            MaxValue = 1,
+            Value = Math.Clamp(_rescanProgress, 0f, 1f),
+            HorizontalExpand = true,
+            Margin = new Thickness(10, 0, 10, 8),
+            SetHeight = 24,
+        };
+        ServersListContainer.AddChild(_rescanProgressBar);
+    }
+
+    private void SetDisplayedGrid(EntityUid? gridUid)
+    {
+        if (NavMap.MapUid == gridUid)
+            return;
+
+        NavMap.MapUid = gridUid;
+        NavMap.ForceNavMapUpdate();
+    }
+
+    /// <summary>
+    /// Updates the local console marker. Throttled unless <paramref name="force"/> is set.
+    /// </summary>
+    private void UpdateMonitorBlip(bool force = true)
+    {
+        if (_monitorUid == null ||
+            _blipTexture == null ||
+            !NavMap.Visible ||
+            NavMap.MapUid == null ||
+            !_entManager.TryGetComponent<TransformComponent>(_monitorUid.Value, out var xform))
+        {
+            return;
+        }
+
+        var localCoords = CoordinatesToLocal(xform.Coordinates);
+        if (localCoords == null)
+            return;
+
+        var pos = localCoords.Value.Position;
+        if (!force &&
+            Vector2.DistanceSquared(pos, _lastMonitorBlipLocal) < MonitorBlipMoveEpsilonSq &&
+            NavMap.TrackedEntities.ContainsKey(_entManager.GetNetEntity(_monitorUid.Value)))
+        {
+            return;
+        }
+
+        _lastMonitorBlipLocal = pos;
+        var netEntity = _entManager.GetNetEntity(_monitorUid.Value);
+        NavMap.TrackedEntities[netEntity] =
+            new NavMapBlip(localCoords.Value, _blipTexture, Color.Cyan, true, false);
     }
 
     private void UpdateHeader(CrewMonitoringState state)
@@ -437,22 +884,8 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             Text = Loc.GetString("crew-monitoring-header-server-address") + " " + (state.ServerAddress ?? "—"),
             Margin = new Thickness(0, 0, 12, 0)
         });
-        var alertCheck = new CheckBox
-        {
-            Pressed = !state.AlertMuted,
-            Text = state.AlertMuted
-                ? Loc.GetString("crew-monitoring-header-alert-off")
-                : Loc.GetString("crew-monitoring-header-alert-on"),
-            Margin = new Thickness(0, 0, 0, 0)
-        };
-        alertCheck.OnToggled += args =>
-        {
-            alertCheck.Text = args.Pressed
-                ? Loc.GetString("crew-monitoring-header-alert-on")
-                : Loc.GetString("crew-monitoring-header-alert-off");
-            OnAlertMutedChanged?.Invoke(!args.Pressed);
-        };
-        ServerStatusContainer.AddChild(alertCheck);
+
+        NavMap.SetAlertControls(!state.AlertMuted, state.AlertVolume);
     }
     // ADT-Tweak-end (P4A)
 
@@ -484,7 +917,8 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                 StatusColor = statusColor ?? Color.LimeGreen, // ADT-Tweak
             };
 
-            if (sensor.SuitSensorUid == _trackedEntity)
+            var selected = sensor.SuitSensorUid == _trackedEntity;
+            if (selected)
                 sensorButton.AddStyleClass(StyleClass.Positive);
 
             SensorsTable.AddChild(sensorButton);
@@ -605,6 +1039,8 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
 
             jobContainer.AddChild(jobLabel);
 
+            ApplySensorRowStyle(sensorButton, selected);
+
             // Add user coordinates to the navmap
             if (coordinates != null && NavMap.Visible && _blipTexture != null)
             {
@@ -671,10 +1107,15 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                 continue;
 
             if (castSensor.SuitSensorUid == prevTrackedEntity)
+            {
                 castSensor.RemoveStyleClass(StyleClass.Positive);
-
+                ApplySensorRowStyle(castSensor, selected: false);
+            }
             else if (castSensor.SuitSensorUid == currTrackedEntity)
+            {
                 castSensor.AddStyleClass(StyleClass.Positive);
+                ApplySensorRowStyle(castSensor, selected: true);
+            }
 
             if (castSensor?.Coordinates == null)
                 continue;
@@ -738,27 +1179,16 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
     }
 
     /// <summary>
-    /// Converts the input coordinates to an EntityCoordinates which are in
-    /// reference to the grid that the map is displaying. This is a stylistic
-    /// choice; this window deliberately limits the rate that blips update,
-    /// but if the blip is attached to another grid which is moving, that
-    /// blip will move smoothly, unlike the others. By converting the
-    /// coordinates, we are back in control of the blip movement.
+    /// Keeps each marker in its native coordinate frame. The radar converts
+    /// every marker through map space, so moving grids and open space remain
+    /// valid without re-parenting everything to the selected station grid.
     /// </summary>
     private EntityCoordinates? CoordinatesToLocal(EntityCoordinates refCoords)
     {
         if (!refCoords.IsValid(_entManager))
             return null;
 
-        if (NavMap.MapUid == null)
-            return refCoords;
-
-        var targetMapId = _transformSystem.GetMapId((EntityUid)NavMap.MapUid);
-        var sourceMapId = _transformSystem.GetMapId(refCoords);
-        if (targetMapId != sourceMapId)
-            return null;
-
-        return _transformSystem.WithEntityId(refCoords, (EntityUid)NavMap.MapUid);
+        return refCoords;
     }
 
     // ADT-Tweak start
@@ -791,6 +1221,8 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         NavMap.TrackedCoordinates.Clear();
         NavMap.TrackedEntities.Clear();
         NavMap.LocalizedNames.Clear();
+        NavMap.SensorRangeCenter = null;
+        NavMap.SensorRange = 0f;
     }
 }
 

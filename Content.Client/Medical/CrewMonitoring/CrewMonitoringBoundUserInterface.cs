@@ -1,3 +1,4 @@
+using Content.Client.PDA;
 using Content.Shared.Medical.CrewMonitoring;
 using Robust.Client.UserInterface;
 
@@ -31,8 +32,21 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
         }
 
         _menu = this.CreateWindow<CrewMonitoringWindow>();
+
+        // Same pipeline as PDA: bezel/accents come from PdaBorderColor on this device.
+        if (EntMan.TryGetComponent<PdaBorderColorComponent>(Owner, out var border))
+        {
+            _menu.BorderColor = border.BorderColor;
+            _menu.AccentHColor = border.AccentHColor;
+            _menu.AccentVColor = border.AccentVColor;
+        }
+
+        if (EntMan.TryGetComponent<CrewMonitoringUiVisualsComponent>(Owner, out var visuals))
+            _menu.ApplyScreenTheme(visuals.ThemeColor);
+
         _menu.Set(stationName, gridUid);
         _menu.OnAlertMutedChanged = muted => SendMessage(new CrewMonitoringSetAlertMutedMessage(muted));
+        _menu.OnAlertVolumeChanged = volume => SendMessage(new CrewMonitoringSetAlertVolumeMessage(volume));
         _menu.OnSelectServer = server => SendMessage(new CrewMonitoringSelectServerMessage(server));
         _menu.OnScanStarted = () => SendMessage(new CrewMonitoringScanStartMessage());
         _menu.OnScanComplete = () => SendMessage(new CrewMonitoringScanCompleteMessage());
