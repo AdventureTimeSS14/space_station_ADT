@@ -66,6 +66,7 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
     private Color _cornerPanelBg = Color.FromHex("#1A221A");
     private bool _suppressAlertCallback;
     private bool _suppressVolumeCallback;
+    private float? _pendingLocalVolume;
 
     /// <summary>Pressed = alerts enabled (not muted).</summary>
     public event Action<bool>? OnAlertEnabledChanged;
@@ -103,7 +104,8 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         _trackedEntityPanel.AddChild(_trackedEntityLabel);
 
         // Match the zoom / beacons / recenter strip height (label margin 8+8 + line).
-        const float cornerWidth = 34f;
+        const float cornerWidth = 30f;
+        const float volumePanelWidth = cornerWidth + 10f;
 
         _alertButton = new Button
         {
@@ -122,8 +124,8 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
 
         _alertPanel = new PanelContainer
         {
-            MinWidth = cornerWidth,
-            MaxWidth = cornerWidth,
+            MinWidth = volumePanelWidth,
+            MaxWidth = volumePanelWidth,
             Children = { _alertButton },
         };
 
@@ -133,30 +135,34 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         _volumeIcon = new TextureRect
         {
             Texture = volumeTex,
-            SetSize = new Vector2(18, 18),
+            SetSize = new Vector2(14, 14),
             HorizontalAlignment = HAlignment.Center,
             Stretch = TextureRect.StretchMode.KeepCentered,
-            Margin = new Thickness(2, 4, 2, 2),
+            Margin = new Thickness(1, 2, 1, 0),
         };
         _volumeSlider = new CrewMonitoringVerticalSlider
         {
             HorizontalAlignment = HAlignment.Center,
             HorizontalExpand = true,
-            MinHeight = 88,
-            MinWidth = 16,
-            Margin = new Thickness(4, 2, 4, 4),
+            MinHeight = 64,
+            MinWidth = 14,
+            Margin = new Thickness(3, 0, 3, 2),
         };
         _volumeSlider.OnValueChanged += value =>
         {
             if (_suppressVolumeCallback)
                 return;
+
+            // The slider is authoritative locally while the server round-trip is pending.
+            // Otherwise heartbeat states containing the previous value make it jump.
+            _pendingLocalVolume = value;
             OnAlertVolumeChanged?.Invoke(value);
         };
 
         _volumePanel = new PanelContainer
         {
-            MinWidth = cornerWidth,
-            MaxWidth = cornerWidth,
+            MinWidth = volumePanelWidth,
+            MaxWidth = volumePanelWidth,
             Children =
             {
                 new BoxContainer
@@ -231,6 +237,23 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         LayoutContainer.SetGrowVertical(_cornerStack, LayoutContainer.GrowDirection.Begin);
 
         ApplyAlertButtonVisuals(true);
+
+        // Recenter on the connected monitoring server, not the grid physics center.
+        RecenterButton.OnPressed += _ => RecenterToConnectedServer();
+    }
+
+    /// <summary>
+    /// Snaps the map view to <see cref="SensorRangeCenter"/> (connected server) when available.
+    /// </summary>
+    public void RecenterToConnectedServer()
+    {
+        if (SensorRangeCenter is not { } center || !center.IsValid(EntManager))
+            return;
+
+        CenterToCoordinates(center);
+        // Cancel NavMapControl's default Recentering→Offset=0 so we stay on the server.
+        TargetOffset = Offset;
+        Recentering = false;
     }
 
     /// <summary>Outline color for neighboring grids / shuttles drawn in radar overlay.</summary>
@@ -342,8 +365,17 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         ApplyAlertButtonVisuals(alertsEnabled);
         _suppressAlertCallback = false;
 
+        var serverVolume = Math.Clamp(volume, 0f, 1f);
+        if (_pendingLocalVolume is { } localVolume)
+        {
+            if (MathHelper.CloseToPercent(localVolume, serverVolume))
+                _pendingLocalVolume = null;
+            else
+                return;
+        }
+
         _suppressVolumeCallback = true;
-        _volumeSlider.SetValueSilent(Math.Clamp(volume, 0f, 1f));
+        _volumeSlider.SetValueSilent(serverVolume);
         _suppressVolumeCallback = false;
     }
 
