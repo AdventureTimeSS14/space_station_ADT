@@ -36,6 +36,12 @@ public sealed class SuitSensorStatus
     public float? DamagePercentage => TotalDamageThreshold == null || TotalDamage == null ? null : TotalDamage / (float)TotalDamageThreshold;
     public NetCoordinates? Coordinates;
     public SuitSensorMode Mode; // ADT-Tweak
+    /// <summary>
+    /// Whether the monitoring server is currently receiving this sensor.
+    /// False retains the last-known data/position while allowing the UI to show
+    /// the entry as inactive.
+    /// </summary>
+    public bool IsActive = true;
 }
 
 [Serializable, NetSerializable]

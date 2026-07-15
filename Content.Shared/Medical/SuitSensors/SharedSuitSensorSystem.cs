@@ -115,7 +115,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             Dirty(ent);
     }
 
-    private void OnShutdown(Entity<SuitSensorComponent> ent, ref ComponentShutdown args)
+    protected virtual void OnShutdown(Entity<SuitSensorComponent> ent, ref ComponentShutdown args)
     {
         UnindexOnMobSensor(ent);
     }
@@ -273,6 +273,8 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             Disabled = ent.Comp.Mode == mode,
             Priority = -(int)mode, // sort them in descending order
             Category = VerbCategory.SetSensor,
+            // Must close: otherwise the sensor submenu stays open after a click.
+            CloseMenu = true,
             Act = () => TrySetSensor(ent.AsNullable(), mode, userUid)
         };
     }
@@ -387,15 +389,21 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         var transform = ent.Comp2;
 
         //ADT-Tweak-Start
-        // Prefer the OnMob suit sensor when multiple sensors share the same wearer.
-        if (!sensor.OnMob && sensor.User != null && _onMobSensorsByWearer.ContainsKey(sensor.User.Value))
+        // Prefer an *active* OnMob sensor over the uniform. An Off OnMob sensor
+        // must not silence the jumpsuit, or that wearer vanishes from monitors.
+        if (!sensor.OnMob &&
+            sensor.User != null &&
+            _onMobSensorsByWearer.TryGetValue(sensor.User.Value, out var onMobUid) &&
+            TryComp(onMobUid, out SuitSensorComponent? onMob) &&
+            onMob.Mode != SuitSensorMode.SensorOff)
+        {
             return null;
+        }
         //ADT-Tweak-End
 
         // The wearer is the source of truth for position. Clothing can be inside
         // containers and neither the clothing nor the wearer has to be on a grid.
-        if (sensor.Mode == SuitSensorMode.SensorOff ||
-            sensor.User == null ||
+        if (sensor.User == null ||
             !HasComp<MobStateComponent>(sensor.User) ||
             !TryComp<TransformComponent>(sensor.User.Value, out var userTransform))
         {
@@ -420,7 +428,13 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             {
                 userJobDepartments = new List<string>(card.Comp.JobDepartments.Count);
                 foreach (var department in card.Comp.JobDepartments)
-                    userJobDepartments.Add(Loc.GetString(_proto.Index(department).Name));
+                {
+                    if (_proto.TryIndex(department, out var departmentProto))
+                        userJobDepartments.Add(Loc.GetString(departmentProto.Name));
+                }
+
+                if (userJobDepartments.Count == 0)
+                    userJobDepartments = null;
             }
         }
 
@@ -432,7 +446,10 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             isAlive = !_mobStateSystem.IsDead(sensor.User.Value, mobState);
 
         // finally, form suit sensor status
-        var status = new SuitSensorStatus(GetNetEntity(sensor.User.Value), GetNetEntity(ent.Owner), userName, userJob, userJobIcon, userJobDepartments);
+        var status = new SuitSensorStatus(GetNetEntity(sensor.User.Value), GetNetEntity(ent.Owner), userName, userJob, userJobIcon, userJobDepartments)
+        {
+            IsAlive = isAlive,
+        };
         switch (sensor.Mode)
         {
             case SuitSensorMode.SensorBinary:
