@@ -42,7 +42,7 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
     }
 
     /// <summary>
-    /// Registers a console as listening to this server. Wakes sensor ingest on first subscriber.
+    /// Registers a console as listening to this server. Enables global sensor reporting on first subscriber.
     /// </summary>
     public void AddSubscriber(CrewMonitoringServerComponent server, EntityUid consoleUid)
     {
@@ -56,42 +56,10 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
     }
 
     /// <summary>
-    /// Unregisters a console. Idles the server (and may stop global sensor reporting) when none remain.
+    /// Ingest a single suit-sensor report into every subscribed, powered server in range.
+    /// Called directly from <see cref="SuitSensorSystem"/>.
     /// </summary>
-    public void RemoveSubscriber(CrewMonitoringServerComponent server, EntityUid consoleUid)
-    {
-        if (!server.SubscriberConsoles.Remove(consoleUid))
-            return;
-
-        if (server.SubscriberConsoles.Count != 0)
-            return;
-
-        _serversWithSubscribers = Math.Max(0, _serversWithSubscribers - 1);
-        EnterIdle(server);
-    }
-
-    /// <summary>
-    /// Drops every subscriber (e.g. server deleting). Stops sensor ingest for this server.
-    /// </summary>
-    public void ClearSubscribers(CrewMonitoringServerComponent server)
-    {
-        if (server.SubscriberConsoles.Count == 0)
-            return;
-
-        server.SubscriberConsoles.Clear();
-        _serversWithSubscribers = Math.Max(0, _serversWithSubscribers - 1);
-        EnterIdle(server);
-    }
-
-    private void OnMapInit(EntityUid uid, CrewMonitoringServerComponent component, MapInitEvent args)
-    {
-        component.ServerAddress ??= $"10.0.{_random.Next(256)}.{_random.Next(256)}";
-        // Reference frame is built lazily on first subscriber / first report — not at map init.
-    }
-
-    private void OnSensorReport(
-        Entity<SuitSensorComponent> sensor,
-        ref SuitSensorReportEvent report)
+    public void IngestReport(in SuitSensorReportEvent report)
     {
         // No console is listening anywhere — SuitSensorSystem should already skip, but
         // keep this guard so we never walk every monitoring server for nothing.
@@ -143,28 +111,97 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
                 continue;
             }
 
-            NetCoordinates? framedCoords = report.Status.Coordinates;
-            if (report.Status.Mode == SuitSensorMode.SensorCords)
+            var now = _timing.CurTime;
+            // Always have a frame-local position available so Off/stale entries
+            // can keep (or backfill) the last known location.
+            var worldLocal = Vector2.Transform(
+                report.WorldPosition.Position,
+                _transform.GetInvWorldMatrix(frameUid.Value));
+            var framedWorldCoords = GetNetCoordinates(
+                new EntityCoordinates(frameUid.Value, worldLocal));
+
+            if (report.Status.Mode == SuitSensorMode.SensorOff)
             {
-                var localPosition = Vector2.Transform(
-                    report.WorldPosition.Position,
-                    _transform.GetInvWorldMatrix(frameUid.Value));
-                framedCoords = GetNetCoordinates(
-                    new EntityCoordinates(frameUid.Value, localPosition));
+                // Drop from the live set, but never wipe the last-known snapshot.
+                // Mode/medical data stay as last reported so the UI can show
+                // yellow (stale) with coordinates instead of red (off) with none.
+                server.SensorStatus.Remove(key);
+
+                if (!server.LastSensorSnapshot.TryGetValue(key, out var retained))
+                    continue;
+
+                retained.IsActive = false;
+                retained.Timestamp = now;
+                retained.Coordinates ??= framedWorldCoords;
+                server.SnapshotDirty = true;
+                continue;
             }
 
-            var now = _timing.CurTime;
+            NetCoordinates? framedCoords = report.Status.Coordinates;
+            if (report.Status.Mode == SuitSensorMode.SensorCords)
+                framedCoords = framedWorldCoords;
+
             if (server.SensorStatus.TryGetValue(key, out var previous) &&
                 SensorStatusMatches(previous, report.Status, framedCoords))
             {
                 previous.Timestamp = now;
+                if (server.LastSensorSnapshot.TryGetValue(key, out var snap))
+                {
+                    snap.Timestamp = now;
+                    snap.IsActive = true;
+                    if (framedCoords != null)
+                        snap.Coordinates = framedCoords;
+                }
                 continue;
             }
 
             var framedStatus = CopyStatus(report.Status, framedCoords, now);
+            framedStatus.IsActive = true;
             server.SensorStatus[key] = framedStatus;
+            server.LastSensorSnapshot[key] = CopyStatus(framedStatus, framedCoords, now);
             server.SnapshotDirty = true;
         }
+    }
+
+    /// <summary>
+    /// Unregisters a console. Idles the server (and may stop global sensor reporting) when none remain.
+    /// </summary>
+    public void RemoveSubscriber(CrewMonitoringServerComponent server, EntityUid consoleUid)
+    {
+        if (!server.SubscriberConsoles.Remove(consoleUid))
+            return;
+
+        if (server.SubscriberConsoles.Count != 0)
+            return;
+
+        _serversWithSubscribers = Math.Max(0, _serversWithSubscribers - 1);
+        EnterIdle(server);
+    }
+
+    /// <summary>
+    /// Drops every subscriber (e.g. server deleting). Stops sensor ingest for this server.
+    /// </summary>
+    public void ClearSubscribers(CrewMonitoringServerComponent server)
+    {
+        if (server.SubscriberConsoles.Count == 0)
+            return;
+
+        server.SubscriberConsoles.Clear();
+        _serversWithSubscribers = Math.Max(0, _serversWithSubscribers - 1);
+        EnterIdle(server);
+    }
+
+    private void OnMapInit(EntityUid uid, CrewMonitoringServerComponent component, MapInitEvent args)
+    {
+        component.ServerAddress ??= $"10.0.{_random.Next(256)}.{_random.Next(256)}";
+        // Reference frame is built lazily on first subscriber / first report — not at map init.
+    }
+
+    private void OnSensorReport(
+        Entity<SuitSensorComponent> sensor,
+        ref SuitSensorReportEvent report)
+    {
+        IngestReport(in report);
     }
 
     public override void Update(float frameTime)
@@ -213,15 +250,22 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
                 CullOutOfRangeSensors(server, wireless, serverXform);
             }
 
-            // Heartbeat keeps the console "online"; full payload only when data changed.
-            // Avoid allocating an empty dictionary copy when the snapshot is empty.
+            // Heartbeat keeps the console "online"; full payload is the persistent
+            // last-known snapshot, not only the currently live sensor set.
             var sendFullSnapshot = server.SnapshotDirty;
             Dictionary<string, SuitSensorStatus>? snapshot = null;
             if (sendFullSnapshot)
             {
-                snapshot = server.SensorStatus.Count == 0
-                    ? EmptySensorSnapshot
-                    : new Dictionary<string, SuitSensorStatus>(server.SensorStatus);
+                if (server.LastSensorSnapshot.Count == 0)
+                {
+                    snapshot = EmptySensorSnapshot;
+                }
+                else
+                {
+                    snapshot = new Dictionary<string, SuitSensorStatus>(server.LastSensorSnapshot.Count);
+                    foreach (var (key, status) in server.LastSensorSnapshot)
+                        snapshot[key] = CopyStatus(status, status.Coordinates, status.Timestamp);
+                }
             }
 
             var update = new CrewMonitoringServerUpdateEvent(snapshot);
@@ -236,15 +280,35 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
     private static readonly Dictionary<string, SuitSensorStatus> EmptySensorSnapshot = new();
 
     /// <summary>
-    /// Drops any cached sensor state so an idle server holds nothing and does no cull/timeout work.
+    /// Creates an isolated copy of the server's persistent last-known snapshot.
+    /// </summary>
+    public static Dictionary<string, SuitSensorStatus> CopyLastSnapshot(CrewMonitoringServerComponent server)
+    {
+        var snapshot = new Dictionary<string, SuitSensorStatus>(server.LastSensorSnapshot.Count);
+        foreach (var (key, status) in server.LastSensorSnapshot)
+            snapshot[key] = CopyStatus(status, status.Coordinates, status.Timestamp);
+        return snapshot;
+    }
+
+    /// <summary>
+    /// Drops only live sensor state while retaining the persistent last-known snapshot.
     /// </summary>
     public static void EnterIdle(CrewMonitoringServerComponent server)
     {
-        if (server.SensorStatus.Count == 0)
-            return;
-
         server.SensorStatus.Clear();
-        server.SnapshotDirty = true;
+
+        var changed = false;
+        foreach (var status in server.LastSensorSnapshot.Values)
+        {
+            if (!status.IsActive)
+                continue;
+
+            status.IsActive = false;
+            changed = true;
+        }
+
+        if (changed)
+            server.SnapshotDirty = true;
     }
 
     private void OnRemove(
@@ -256,6 +320,7 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
             _serversWithSubscribers = Math.Max(0, _serversWithSubscribers - 1);
 
         component.SensorStatus.Clear();
+        component.LastSensorSnapshot.Clear();
         component.SubscriberConsoles.Clear();
         component.ReferenceFrame = null;
     }
@@ -295,6 +360,7 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
             component.ReferenceFrame.FrameEntity != netFrame)
         {
             component.SensorStatus.Clear();
+            component.LastSensorSnapshot.Clear();
             component.SnapshotDirty = true;
         }
 
@@ -355,8 +421,15 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
 
     private static void RemoveSensor(CrewMonitoringServerComponent component, string key)
     {
-        if (component.SensorStatus.Remove(key))
+        if (!component.SensorStatus.Remove(key))
+            return;
+
+        // Keep the last data/coordinates, but mark the retained entry inactive.
+        if (component.LastSensorSnapshot.TryGetValue(key, out var retained) && retained.IsActive)
+        {
+            retained.IsActive = false;
             component.SnapshotDirty = true;
+        }
     }
 
     private static SuitSensorStatus CopyStatus(
@@ -383,6 +456,7 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
             TotalDamageThreshold = source.TotalDamageThreshold,
             Coordinates = coordinates,
             Mode = source.Mode,
+            IsActive = source.IsActive,
         };
     }
 
@@ -401,6 +475,7 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
             existing.TotalDamageThreshold != incoming.TotalDamageThreshold ||
             !Nullable.Equals(existing.Coordinates, framedCoords) ||
             existing.Mode != incoming.Mode ||
+            existing.IsActive != incoming.IsActive ||
             existing.JobDepartments.Count != incoming.JobDepartments.Count)
         {
             return false;

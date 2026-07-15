@@ -14,6 +14,13 @@ public sealed partial class CrewMonitoringServerComponent : Component
     public readonly Dictionary<string, SuitSensorStatus> SensorStatus = new();
 
     /// <summary>
+    /// Last known status for every sensor seen by this server. Unlike
+    /// <see cref="SensorStatus"/>, entries are not removed on timeout, range loss,
+    /// power loss, or idle, so consoles retain the last known position.
+    /// </summary>
+    public readonly Dictionary<string, SuitSensorStatus> LastSensorSnapshot = new();
+
+    /// <summary>
     ///     After what time sensor consider to be lost.
     /// </summary>
     [DataField("sensorTimeout"), ViewVariables(VVAccess.ReadWrite)]

@@ -73,7 +73,9 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
     private void OnScanComplete(EntityUid uid, CrewMonitoringConsoleComponent component, CrewMonitoringScanCompleteMessage args)
     {
-        if (component.ScanStartedAt == null ||
+        // Client already waited ScanDuration. If ScanStart was dropped, ScanStartedAt
+        // is null — still complete so the UI cannot stick on "waiting forever".
+        if (component.ScanStartedAt != null &&
             (_gameTiming.CurTime - component.ScanStartedAt.Value).TotalSeconds < ScanDuration)
         {
             return;
@@ -108,15 +110,14 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             if (component.SelectedServerUid != serverUid)
                 continue;
 
-            if (server.SensorStatus.Count == 0)
+            if (server.LastSensorSnapshot.Count == 0)
             {
                 if (component.ConnectedSensors.Count != 0)
                     component.ConnectedSensors = new();
             }
             else
             {
-                component.ConnectedSensors =
-                    new Dictionary<string, SuitSensorStatus>(server.SensorStatus);
+                component.ConnectedSensors = CrewMonitoringServerSystem.CopyLastSnapshot(server);
             }
             component.LastReferenceFrame = server.ReferenceFrame;
             component.ServersListDirty = true;
@@ -164,15 +165,14 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         component.LastGridName = serverXform.GridUid != null ? Name(serverXform.GridUid.Value) : string.Empty;
         component.LastGridUid = serverXform.GridUid != null ? GetNetEntity(serverXform.GridUid.Value) : null;
         component.LastServerUid = serverUid.Value;
-        if (serverComp.SensorStatus.Count == 0)
+        if (serverComp.LastSensorSnapshot.Count == 0)
         {
             if (component.ConnectedSensors.Count != 0)
                 component.ConnectedSensors = new();
         }
         else
         {
-            component.ConnectedSensors =
-                new Dictionary<string, SuitSensorStatus>(serverComp.SensorStatus);
+            component.ConnectedSensors = CrewMonitoringServerSystem.CopyLastSnapshot(serverComp);
         }
         component.LastReferenceFrame = serverComp.ReferenceFrame;
         component.ServersListDirty = true;
@@ -410,6 +410,15 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         if (!_cell.TryUseActivatableCharge(uid))
             return;
 
+        // Re-attach to the selected server if the previous subscription was dropped
+        // (server idle cleanup, restart, etc.) while the console kept SelectedServerUid.
+        if (component.SelectedServerUid != null &&
+            TryComp<CrewMonitoringServerComponent>(component.SelectedServerUid.Value, out var serverComp) &&
+            IsServerInRange(uid, component.SelectedServerUid.Value))
+        {
+            _crewServers.AddSubscriber(serverComp, uid);
+        }
+
         PopulateNavMapsForConsole(uid, component);
         UpdateUserInterface(uid, component);
     }
@@ -523,6 +532,12 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     {
         foreach (var sensor in sensors)
         {
+            if (!sensor.IsActive ||
+                sensor.Mode == SuitSensorMode.SensorOff)
+            {
+                continue;
+            }
+
             if (!sensor.IsAlive ||
                 (sensor.DamagePercentage != null && sensor.DamagePercentage.Value >= 0.8f))
             {
