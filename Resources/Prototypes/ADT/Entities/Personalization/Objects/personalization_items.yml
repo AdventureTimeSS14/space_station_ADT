@@ -689,6 +689,7 @@
   id: ADTPlushieAaron
   name: Plush Aaron
   description: A plush toy of a red-haired guy whose image seems very familiar to you. You just want to scratch your fists on his face.
+  suffix: Personal, Pangaari
   components:
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
