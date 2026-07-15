@@ -70,7 +70,7 @@
     - CrewTransferScheduler #ADT tweak
 
 - type: gamePreset
-  id: ADTBlob
+  id: Blob
   alias:
     - blob
     - blab
@@ -78,7 +78,7 @@
   description: blob-description
   showInVote: false
   rules:
-    - ADTBlobGameMode
+    - BlobGameMode
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - BasicRoundstartVariation

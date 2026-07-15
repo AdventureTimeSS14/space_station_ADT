@@ -7,17 +7,17 @@ namespace Content.Server.ADT.Blob.Components;
 public sealed partial class StationBlobConfigComponent : Component
 {
     public const int DefaultStageBegin = 60;
-    public const int DefaultStageCritical = 400;
-    public const int DefaultStageEnd = 800;
+    public const float DefaultStageCriticalPercent = 0.5f;
+    public const float DefaultStageTheEndPercent = 0.8f;
 
     [DataField]
     public int StageBegin { get; set; } = DefaultStageBegin;
 
     [DataField]
-    public int StageCritical { get; set; } = DefaultStageCritical;
+    public float StageCriticalPercent { get; set; } = DefaultStageCriticalPercent;
 
     [DataField]
-    public int StageTheEnd { get; set; } = DefaultStageEnd;
+    public float StageTheEndPercent { get; set; } = DefaultStageTheEndPercent;
 
     /*[DataField("specForceTeam")]  //Goobstation - Disabled automatic ERT
     public ProtoId<SpecForceTeamPrototype> SpecForceTeam { get; set; } = "RXBZZBlobDefault";*/

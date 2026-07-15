@@ -15,6 +15,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Server.ADT.Language;
 using Content.Shared.ADT.Language;
+using Content.Shared.Popups;
 
 namespace Content.Server.ADT.Blob;
 
@@ -26,6 +27,7 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
     [Dependency] private readonly GibbingSystem _gibbingSystem = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -57,7 +59,16 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
 
     private void OnMindRemove(EntityUid uid, BlobCarrierComponent component, MindRemovedMessage args) => component.HasMind = false;
 
-    private void OnTransformToBlobChanged(Entity<BlobCarrierComponent> uid, ref TransformToBlobActionEvent args) => TransformToBlob(uid);
+    private void OnTransformToBlobChanged(Entity<BlobCarrierComponent> uid, ref TransformToBlobActionEvent args)
+    {
+        if (!CanTransform())
+        {
+            _popup.PopupEntity(Loc.GetString("carrier-blob-too-early"), uid, uid, PopupType.LargeCaution);
+            return;
+        }
+
+        TransformToBlob(uid);
+    }
 
     private void OnStartup(EntityUid uid, BlobCarrierComponent component, MapInitEvent args)
     {
@@ -77,7 +88,7 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
 
     private void OnMobStateChanged(Entity<BlobCarrierComponent> uid, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead)
+        if (args.NewMobState == MobState.Dead && CanTransform())
         {
             TransformToBlob(uid);
         }

@@ -33,6 +33,10 @@
       damageModifierSet: ADTBaseBlob
     - type: Injurable
       damageContainer: ADTBlob
+    - type: DamagedByFlashing
+      flashDamage:
+        types:
+          Heat: 15
     - type: Appearance
     - type: Physics
     - type: Clickable

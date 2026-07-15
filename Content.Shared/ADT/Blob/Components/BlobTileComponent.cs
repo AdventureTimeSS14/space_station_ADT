@@ -37,14 +37,6 @@ public sealed partial class BlobTileComponent : Component
         }
     };
 
-    [DataField]
-    public DamageSpecifier FlashDamage = new()
-    {
-        DamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>
-        {
-            { "Heat", 24 },
-        }
-    };
 }
 
 [Serializable]

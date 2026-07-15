@@ -14,7 +14,7 @@ namespace Content.Shared.ADT.Blob;
 public sealed partial class BlobCarrierComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite), DataField("transformationDelay")]
-    public float TransformationDelay = 600;
+    public float TransformationDelay = 35 * 60;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("alertInterval")]
     public float AlertInterval = 30f;

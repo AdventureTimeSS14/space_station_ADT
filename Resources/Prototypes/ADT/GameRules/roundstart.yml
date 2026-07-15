@@ -297,7 +297,7 @@
 
 # Blob
 - type: entity
-  id: ADTBlobRule
+  id: BlobRule
   parent: BaseGameRule
   categories: [ HideSpawnMenu ]
   components:
@@ -305,7 +305,7 @@
   - type: GameRule
 
 - type: entity
-  id: ADTBlobGameMode
+  id: BlobGameMode
   parent: BaseGameRule
   categories: [ HideSpawnMenu ]
   components:
@@ -329,7 +329,7 @@
       - ADTMindRoleBlob
 
 - type: entity
-  id: ADTBlobSpawn
+  id: BlobSpawn
   parent: BaseGameRule
   categories: [ HideSpawnMenu ]
   components:

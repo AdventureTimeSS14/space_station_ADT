@@ -115,6 +115,9 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         Resolve(stationUid, ref stationUid.Comp, false);
 
         var stationName = Name(stationUid);
+        var totalStationTiles = _stationSystem.GetTileCount(stationUid.Owner);
+        var criticalThreshold = totalStationTiles * (stationUid.Comp?.StageCriticalPercent ?? StationBlobConfigComponent.DefaultStageCriticalPercent);
+        var theEndThreshold = totalStationTiles * (stationUid.Comp?.StageTheEndPercent ?? StationBlobConfigComponent.DefaultStageTheEndPercent);
 
         if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
             && _roundEndSystem.ExpectedCountdownEnd != null
@@ -166,7 +169,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 },
                     broadcast: true);
                 return;
-            case BlobStage.Begin when blobTilesCount >= (stationUid.Comp?.StageCritical ?? StationBlobConfigComponent.DefaultStageCritical):
+            case BlobStage.Begin when blobTilesCount >= criticalThreshold:
             {
                 if (_nukeCode.SendNukeCodes(stationUid))//send the nuke code?
                 {
@@ -200,7 +203,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     broadcast: true);
                 return;
             }
-            case BlobStage.Critical when blobTilesCount >= (stationUid.Comp?.StageTheEnd ?? StationBlobConfigComponent.DefaultStageEnd):
+            case BlobStage.Critical when blobTilesCount >= theEndThreshold:
             {
                 blobRuleComp.Stage = BlobStage.TheEnd;
                 _roundEndSystem.EndRound();
@@ -312,7 +315,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
     {
         var comp = EnsureComp<BlobCarrierComponent>(player);
         comp.HasMind = HasComp<ActorComponent>(player);
-        comp.TransformationDelay = 10 * 60; // 10min
+        comp.TransformationDelay = 35 * 60;
     }
 
     private void AfterAntagSelected(EntityUid uid, BlobRuleComponent component, AfterAntagEntitySelectedEvent args)

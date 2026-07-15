@@ -206,7 +206,9 @@ public sealed class BlobCoreSystem : EntitySystem
             return;
         }
 
-        ent.Comp.Target = CompOrNull<StationBlobConfigComponent>(station)?.StageTheEnd ?? StationBlobConfigComponent.DefaultStageEnd;
+        var totalStationTiles = _stationSystem.GetTileCount(station.Value);
+        var theEndPercent = CompOrNull<StationBlobConfigComponent>(station)?.StageTheEndPercent ?? StationBlobConfigComponent.DefaultStageTheEndPercent;
+        ent.Comp.Target = (int) (totalStationTiles * theEndPercent);
     }
 
     private void OnBlobCaptureInfo(EntityUid uid, Objectives.BlobCaptureConditionComponent component, ref ObjectiveAfterAssignEvent args)
@@ -267,7 +269,7 @@ public sealed class BlobCoreSystem : EntitySystem
         var blobRule = EntityQuery<BlobRuleComponent>().FirstOrDefault();
         if (blobRule == null)
         {
-            _gameTicker.StartGameRule("ADTBlobRule", out _);
+            _gameTicker.StartGameRule("BlobRule", out _);
         }
 
         var ev = new CreateBlobObserverEvent(userId);
