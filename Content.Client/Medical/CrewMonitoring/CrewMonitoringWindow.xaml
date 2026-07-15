@@ -6,22 +6,44 @@
                SetSize="1280 760"
                MinSize="1000 560"
                MouseFilter="Stop">
-    <!-- Outer bezel: color comes from PdaBorderColor on the opened monitor -->
-    <PanelContainer Name="Background" Access="Public" StyleClasses="PdaBackgroundRect"/>
-    <PanelContainer Name="AccentH" Access="Public" Margin="-1 170 -2 170" StyleClasses="PdaBackground" Visible="False"/>
-    <PanelContainer Name="AccentV" Access="Public" Margin="220 -1 220 -1" StyleClasses="PdaBackground" Visible="False"/>
-    <PanelContainer Name="Border" StyleClasses="PdaBorderRect"/>
+    <!-- Chassis rails: tucked under content edges; outer corners rounded -->
+    <PanelContainer Name="LeftBezel" Access="Public" SetWidth="80" MaxWidth="80"
+                    HorizontalAlignment="Left" VerticalAlignment="Stretch"
+                    Margin="-10 -10 0 -10" StyleClasses="PdaBackgroundRect"/>
+    <PanelContainer Name="RightBezel" Access="Public" SetWidth="80" MaxWidth="80"
+                    HorizontalAlignment="Right" VerticalAlignment="Stretch"
+                    Margin="0 -10 10 -10" StyleClasses="PdaBackgroundRect"/>
+    <PanelContainer Name="LeftBorder" SetWidth="80" MaxWidth="80"
+                    HorizontalAlignment="Left" VerticalAlignment="Stretch"
+                    Margin="-10 -10 0 -10" StyleClasses="PdaBorderRect"/>
+    <PanelContainer Name="RightBorder" SetWidth="80" MaxWidth="80"
+                    HorizontalAlignment="Right" VerticalAlignment="Stretch"
+                    Margin="0 -10 10 -10" StyleClasses="PdaBorderRect"/>
+
+    <!-- Dark inset strips on the inner third of each rail (lowered 7px) -->
+    <Control HorizontalAlignment="Left" SetWidth="80" MaxWidth="80"
+             VerticalAlignment="Stretch" Margin="-10 23 0 11" MouseFilter="Ignore">
+        <PanelContainer Name="LeftBezelInset" SetWidth="27" MaxWidth="27"
+                        HorizontalAlignment="Right" VerticalAlignment="Stretch"
+                        MouseFilter="Ignore"/>
+    </Control>
+    <Control HorizontalAlignment="Right" SetWidth="80" MaxWidth="80"
+             VerticalAlignment="Stretch" Margin="0 23 10 11" MouseFilter="Ignore">
+        <PanelContainer Name="RightBezelInset" SetWidth="27" MaxWidth="27"
+                        HorizontalAlignment="Left" VerticalAlignment="Stretch"
+                        MouseFilter="Ignore"/>
+    </Control>
 
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
         <!-- Header -->
         <BoxContainer SetHeight="26" Margin="4 2 8 0" Orientation="Horizontal">
             <Control HorizontalExpand="True"/>
             <TextureButton Name="CloseButton" StyleClasses="windowCloseButton"
-                           VerticalAlignment="Center" Margin="0 4 4 0"/>
+                           VerticalAlignment="Center" Margin="0 4 36 0"/>
         </BoxContainer>
 
         <!-- Content -->
-        <Control Margin="18 0" RectClipContent="True" VerticalExpand="True" HorizontalExpand="True">
+        <Control Margin="60 0 80 0" RectClipContent="True" VerticalExpand="True" HorizontalExpand="True">
             <PanelContainer Name="ContentBorder" StyleClasses="PdaBackground"/>
             <Control Margin="3 3" HorizontalExpand="True" VerticalExpand="True">
                 <ui:CrtScanlineBackground Name="ContentBackground" HorizontalExpand="True" VerticalExpand="True"/>
@@ -29,7 +51,7 @@
                               StyleClasses="PdaContent" RectClipContent="True" Margin="2">
                     <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True" MinHeight="0" SeparationOverride="0">
                         <PanelContainer Name="LeftPanelFrame" HorizontalExpand="True" VerticalExpand="True" Margin="8 8 4 8" MinHeight="0">
-                            <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="6" MinHeight="0">
+                            <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="0" MinHeight="0">
                                 <controls:StripeBack Name="HeaderStripe">
                                     <BoxContainer Orientation="Horizontal" MinHeight="38">
                                         <Label Name="StationName" Text="{Loc crew-monitoring-ui-no-station-label}"
@@ -56,8 +78,8 @@
 
                         <PanelContainer Name="PanelDivider" SetWidth="2" VerticalExpand="True" Margin="0 12"/>
 
-                        <PanelContainer Name="RightPanelFrame" SetWidth="430" Margin="4 8 8 8" VerticalExpand="True" MinHeight="0">
-                            <BoxContainer Orientation="Vertical" SetWidth="418" Margin="6" Name="RightPanel" VerticalExpand="True" MinHeight="0">
+                        <PanelContainer Name="RightPanelFrame" SetWidth="450" Margin="4 8 8 8" VerticalExpand="True" MinHeight="0">
+                            <BoxContainer Orientation="Vertical" SetWidth="438" Margin="6" Name="RightPanel" VerticalExpand="True" MinHeight="0">
                             <!-- Before scan: one big button and progress bar -->
                             <BoxContainer Name="StartScanPanel" Orientation="Vertical" VerticalExpand="True">
                                 <Button Name="StartScanButton" Text="{Loc crew-monitoring-ui-start-scan}" HorizontalExpand="True"
@@ -110,11 +132,12 @@
             </Control>
         </Control>
 
-        <!-- Footer -->
-        <BoxContainer Orientation="Horizontal" SetHeight="28" Margin="10 0 10 0" VerticalAlignment="Center">
-            <Label Text="{Loc crew-monitoring-ui-flavor-left-label}" StyleClasses="WindowFooterText" />
+        <!-- Footer: version + logo, full window width with 10px right margin -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SetHeight="18"
+                      Margin="0 12 25 -6" VerticalAlignment="Center">
+            <Control HorizontalExpand="True"/>
             <Label Text="{Loc crew-monitoring-ui-flavor-right-label}" StyleClasses="WindowFooterText"
-                   HorizontalAlignment="Right" HorizontalExpand="True" Margin="0 0 5 0"/>
+                   VerticalAlignment="Center" Margin="0 0 5 0"/>
             <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
                          VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
         </BoxContainer>

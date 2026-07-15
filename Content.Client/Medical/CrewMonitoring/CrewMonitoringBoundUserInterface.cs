@@ -33,12 +33,12 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
 
         _menu = this.CreateWindow<CrewMonitoringWindow>();
 
-        // Same pipeline as PDA: bezel/accents come from PdaBorderColor on this device.
+        // Same pipeline as PDA: chassis color from PdaBorderColor.
+        // Horizontal/vertical accent strips are intentionally unused — the monitor
+        // uses cut-out left/right rails instead of a full rectangular bezel.
         if (EntMan.TryGetComponent<PdaBorderColorComponent>(Owner, out var border))
         {
             _menu.BorderColor = border.BorderColor;
-            _menu.AccentHColor = border.AccentHColor;
-            _menu.AccentVColor = border.AccentVColor;
         }
 
         if (EntMan.TryGetComponent<CrewMonitoringUiVisualsComponent>(Owner, out var visuals))
