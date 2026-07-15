@@ -623,21 +623,23 @@ public sealed class BlobCoreSystem : EntitySystem
         if (!_pointsChange.TryEnterWriteLock(1000))
             return false;
 
-        if (_storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2>
-                {
-                    { BlobMoney, amount }
-                },
-                core,
-                store))
+        try
         {
-            UpdateAllAlerts(core);
+            if (!_storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2>
+                    {
+                        { BlobMoney, amount }
+                    },
+                    core,
+                    store))
+                return false;
 
-            _pointsChange.ExitWriteLock();
+            UpdateAllAlerts(core);
             return true;
         }
-
-        _pointsChange.ExitWriteLock();
-        return false;
+        finally
+        {
+            _pointsChange.ExitWriteLock();
+        }
     }
 
     /// <summary>

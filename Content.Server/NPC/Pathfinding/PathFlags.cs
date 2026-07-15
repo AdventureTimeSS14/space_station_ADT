@@ -30,8 +30,10 @@ public enum PathFlags : byte
     /// </summary>
     Interact = 1 << 4,
 
+    // ADT-Tweak-Start
     /// <summary>
-    /// Can we path through blob tiles. ADT Blob
+    /// Can we path through blob tiles.
     /// </summary>
     Blob = 1 << 5,
+    // ADT-Tweak-End
 }

@@ -11,7 +11,6 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;
-using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Components;
@@ -182,18 +181,19 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
 
         var cost = core.Comp.BlobTileCosts[BlobTileType.Normal];
         if (targetTileEmpty)
-        {
             cost *= 2.5f;
-
-            var plating = _tileDefinitionManager["Plating"];
-            var platingTile = new Tile(plating.TileId);
-            _mapSystem.SetTile(gridUid.Value, grid, location, platingTile);
-        }
 
         if (spendPoints)
         {
             if (!_blobCoreSystem.TryUseAbility(core, cost, location))
                 return;
+        }
+
+        if (targetTileEmpty)
+        {
+            var plating = _tileDefinitionManager["Plating"];
+            var platingTile = new Tile(plating.TileId);
+            _mapSystem.SetTile(gridUid.Value, grid, location, platingTile);
         }
 
         _blobCoreSystem.TransformBlobTile(null,

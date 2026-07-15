@@ -2,12 +2,10 @@
 
 using Content.Shared.ADT.Blob;
 using Content.Shared.ADT.Blob.Components;
-using Content.Server.Radio.EntitySystems;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Speech;
-using Robust.Shared.Network;
 using Content.Server.ADT.Language;
 using Content.Shared.ADT.Language;
 
@@ -17,9 +15,6 @@ public sealed class BlobMobSystem : SharedBlobMobSystem
 {
     [Dependency] private readonly LanguageSystem _language = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly RadioSystem _radioSystem = default!;
-    private EntityQuery<BlobSpeakComponent> _activeBSpeak;
 
     public override void Initialize()
     {
@@ -31,25 +26,7 @@ public sealed class BlobMobSystem : SharedBlobMobSystem
         SubscribeLocalEvent<BlobSpeakComponent, ComponentShutdown>(OnSpokeRemove);
         SubscribeLocalEvent<BlobSpeakComponent, TransformSpeakerNameEvent>(OnSpokeName);
         SubscribeLocalEvent<BlobSpeakComponent, SpeakAttemptEvent>(OnSpokeCan, after: new []{ typeof(SpeechSystem) });
-        // SubscribeLocalEvent<BlobSpeakComponent, EntitySpokeEvent>(OnSpoke, before: new []{ typeof(RadioSystem), typeof(HeadsetSystem) });
-        // SubscribeLocalEvent<BlobSpeakComponent, RadioReceiveEvent>(OnIntrinsicReceive);
-        // SubscribeLocalEvent<SmokeOnTriggerComponent, TriggerEvent>(HandleSmokeTrigger);
     }
-
-    // private void OnIntrinsicReceive(Entity<BlobSpeakComponent> ent, ref RadioReceiveEvent args)
-    // {
-    //     if (TryComp(ent, out ActorComponent? actor) && args.Channel.ID == ent.Comp.Channel)
-    //     {
-    //         _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
-    //     }
-    // }
-
-    // private void OnSpoke(Entity<BlobSpeakComponent> ent, ref EntitySpokeEvent args)
-    // {
-    //     if (args.Channel == null)
-    //         return;
-    //     _radioSystem.SendRadioMessage(ent, args.Message, ent.Comp.Channel, ent, language: args.Language);
-    // }
 
     private void OnSpokeName(Entity<BlobSpeakComponent> ent, ref TransformSpeakerNameEvent args)
     {

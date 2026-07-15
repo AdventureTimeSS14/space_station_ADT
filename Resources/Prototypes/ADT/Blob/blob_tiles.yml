@@ -294,7 +294,7 @@
 - type: entity
   parent: ADTBaseBlob
   id: ADTStrongBlobTile
-  name: StrongBlobTile
+  name: Strong Blob
   description: The basis of defensive positions has not only a strength of 6 times, this tile is also capable of withstanding various gases in order to become an atmospheric technician to protect the core, for example, from plasma that the enemy can set on fire.
   categories: [ HideSpawnMenu ]
   components:
@@ -322,7 +322,7 @@
 - type: entity
   parent: ADTBaseBlob
   id: ADTReflectiveBlobTile
-  name: ReflectiveBlobTile
+  name: Reflective Blob
   description: Upgrading a fortified cell in which they pay less strength for the ability to reflect only energy projectiles and lasers with a 90% chance.
   categories: [ HideSpawnMenu ]
   components:

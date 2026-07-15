@@ -113,7 +113,7 @@
 - type: entity
   id: ADTMobBlobBlobbernaut
   name: Blobbernaut
-  description: Juggernaut, but blob! when the station crew shows full hatred of you, with the help of such strong men you can organize a blitzkriek if you tell them the plan in advance.
+  description: Juggernaut, but blob! When the station crew shows full hatred of you, with the help of such strong men you can organize a blitzkrieg if you tell them the plan in advance.
   parent: SimpleSpaceMobBase
   categories: [ HideSpawnMenu ]
   components:

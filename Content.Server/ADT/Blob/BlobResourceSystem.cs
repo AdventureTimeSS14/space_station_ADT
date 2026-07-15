@@ -34,11 +34,6 @@ public sealed class BlobResourceSystem : EntitySystem
             blobCoreComponent.Observer == null)
             return;
 
-        _popup.PopupEntity(Loc.GetString("blob-get-resource", ("point", component.PointsPerPulsed)),
-            uid,
-            blobCoreComponent.Observer.Value,
-            PopupType.Large);
-
         var points = component.PointsPerPulsed;
 
         if (blobCoreComponent.CurrentChem == BlobChemType.RegenerativeMateria)
