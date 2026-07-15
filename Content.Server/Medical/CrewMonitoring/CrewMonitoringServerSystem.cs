@@ -1,7 +1,8 @@
 using System.Numerics;
+using Content.Server.ADT.Medical.CrewMonitoring;
+using Content.Server.ADT.Medical.SuitSensors;
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
-using Content.Server.Medical.SuitSensors;
 using Content.Server.Power.Components;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.Medical.CrewMonitoring;
@@ -15,6 +16,7 @@ namespace Content.Server.Medical.CrewMonitoring;
 
 public sealed class CrewMonitoringServerSystem : EntitySystem
 {
+    // #ADT-Tweak Start - New Monitor: publish/subscriber fields
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -32,7 +34,9 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
 
     /// <summary>True when any crew-monitor console is listening to any server.</summary>
     public bool HasAnySubscribers => _serversWithSubscribers > 0;
+    // #ADT-Tweak End
 
+    // #ADT-Tweak Start - New Monitor: Initialize subscriptions
     public override void Initialize()
     {
         base.Initialize();
@@ -40,7 +44,9 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         SubscribeLocalEvent<CrewMonitoringServerComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<SuitSensorComponent, SuitSensorReportEvent>(OnSensorReport);
     }
+    // #ADT-Tweak End
 
+    // #ADT-Tweak Start - New Monitor: subscriber API + IngestReport
     /// <summary>
     /// Registers a console as listening to this server. Enables global sensor reporting on first subscriber.
     /// </summary>
@@ -190,7 +196,9 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         _serversWithSubscribers = Math.Max(0, _serversWithSubscribers - 1);
         EnterIdle(server);
     }
+    // #ADT-Tweak End
 
+    // #ADT-Tweak Start - New Monitor: map init + report relay
     private void OnMapInit(EntityUid uid, CrewMonitoringServerComponent component, MapInitEvent args)
     {
         component.ServerAddress ??= $"10.0.{_random.Next(256)}.{_random.Next(256)}";
@@ -203,7 +211,9 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
     {
         IngestReport(in report);
     }
+    // #ADT-Tweak End
 
+    // #ADT-Tweak Start - New Monitor: publish tick Update
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -275,7 +285,9 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
                 server.SnapshotDirty = false;
         }
     }
+    // #ADT-Tweak End
 
+    // #ADT-Tweak Start - New Monitor: snapshot helpers
     /// <summary>Shared empty snapshot — must never be mutated.</summary>
     private static readonly Dictionary<string, SuitSensorStatus> EmptySensorSnapshot = new();
 
@@ -310,7 +322,9 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         if (changed)
             server.SnapshotDirty = true;
     }
+    // #ADT-Tweak End
 
+    // #ADT-Tweak Start - New Monitor: OnRemove clears subscribers/snapshots
     private void OnRemove(
         EntityUid uid,
         CrewMonitoringServerComponent component,
@@ -324,7 +338,9 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         component.SubscriberConsoles.Clear();
         component.ReferenceFrame = null;
     }
+    // #ADT-Tweak End
 
+    // #ADT-Tweak Start - New Monitor: reference frame / timeout / cull helpers
     /// <summary>
     /// Rebuilds the reference frame only when grid/map, origin, range, or name actually changed.
     /// </summary>
@@ -489,4 +505,6 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
 
         return true;
     }
+    // #ADT-Tweak End
 }
+

@@ -28,6 +28,7 @@ namespace Content.Client.Medical.CrewMonitoring;
 [GenerateTypedNameReferences]
 public sealed partial class CrewMonitoringWindow : BaseWindow
 {
+    // #ADT-Tweak Start - New Monitor: scan/theme/callback fields
     private static readonly List<CrewMonitoringServerEntry> EmptyServerList = new();
 
     [Dependency] private readonly IEntityManager _entManager = default!;
@@ -137,6 +138,9 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
         set { }
     }
 
+    // #ADT-Tweak End
+
+    // #ADT-Tweak Start - New Monitor: ctor + chassis/theme setup
     public CrewMonitoringWindow()
     {
         RobustXamlLoader.Load(this);
@@ -400,10 +404,15 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
         }
     }
 
+    // #ADT-Tweak End
+
+    // #ADT-Tweak Start - New Monitor: custom window drag
     protected override DragMode GetDragModeFor(Vector2 relativeMousePos)
     {
         return DragMode.Move;
     }
+
+    // #ADT-Tweak End
 
     public void Set(string stationName, EntityUid? mapUid)
     {
@@ -418,6 +427,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
         NavMap.ForceNavMapUpdate();
     }
 
+    // #ADT-Tweak Start - New Monitor: rewritten FrameUpdate
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
@@ -486,8 +496,10 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
             UpdateMonitorBlip(force: false);
         }
     }
+    // #ADT-Tweak End
 
     // ADT-Tweak-start (P4A) Обновление мониторинга. Категория "Нужна помощь"
+    // #ADT-Tweak Start - New Monitor: rewritten ShowSensors
     public void ShowSensors(CrewMonitoringState state, EntityUid monitor, EntityCoordinates? monitorCoords)
     {
         _monitorUid = monitor;
@@ -818,6 +830,9 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
         UpdateMonitorBlip(force: true);
     }
 
+    // #ADT-Tweak End
+
+    // #ADT-Tweak Start - New Monitor: blips / header / rescan / server UI helpers
     private void UpdateExistingCrewBlips(List<SuitSensorStatus> sensors, bool isEmagged)
     {
         if (!NavMap.Visible || _blipTexture == null)
@@ -1024,6 +1039,9 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
     }
     // ADT-Tweak-end (P4A)
 
+    // #ADT-Tweak End
+
+    // #ADT-Tweak Start - New Monitor: rewritten PopulateDepartmentList
     private void PopulateDepartmentList(IEnumerable<SuitSensorStatus> departmentSensors)
     {
         // Populate departments
@@ -1221,6 +1239,8 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
         }
     }
 
+    // #ADT-Tweak End
+
     private void SetTrackedEntityFromNavMap(NetEntity? netEntity)
     {
         var prevTrackedEntity = _trackedEntity;
@@ -1317,6 +1337,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
     /// every marker through map space, so moving grids and open space remain
     /// valid without re-parenting everything to the selected station grid.
     /// </summary>
+    // #ADT-Tweak Start - New Monitor: nullable CoordinatesToLocal
     private EntityCoordinates? CoordinatesToLocal(EntityCoordinates refCoords)
     {
         if (!refCoords.IsValid(_entManager))
@@ -1324,6 +1345,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
 
         return refCoords;
     }
+    // #ADT-Tweak End
 
     // ADT-Tweak start
     private Color? GetStatusColor(SuitSensorStatus sensor, out bool isCritical)
@@ -1365,7 +1387,9 @@ public sealed class CrewMonitoringButton : Button
     public int IndexInTable;
     public NetEntity SuitSensorUid;
     public EntityCoordinates? Coordinates;
+    // #ADT-Tweak Start - New Monitor: button sensor mode/active
     public SuitSensorMode SensorMode;
     public bool SensorActive;
+    // #ADT-Tweak End
     public Color StatusColor; // ADT-Tweak
 }

@@ -1,6 +1,7 @@
 using System.Numerics;
+using Content.Client.ADT.Medical.CrewMonitoring;
 using Content.Client.Pinpointer.UI;
-using Content.Client.Shuttles.UI;
+using Content.Client.ADT.Shuttles.UI;
 using Content.Client.Stylesheets;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -23,6 +24,7 @@ namespace Content.Client.Medical.CrewMonitoring;
 /// </summary>
 public sealed partial class CrewMonitoringNavMapControl : NavMapControl
 {
+    // #ADT-Tweak Start - New Monitor: radar/navmap fields + corner alert UI
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IParallelManager _parallel = default!;
 
@@ -71,7 +73,9 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
     /// <summary>Pressed = alerts enabled (not muted).</summary>
     public event Action<bool>? OnAlertEnabledChanged;
     public event Action<float>? OnAlertVolumeChanged;
+    // #ADT-Tweak End
 
+    // #ADT-Tweak Start - New Monitor: ctor radar + corner controls
     public CrewMonitoringNavMapControl()
     {
         _transform = EntManager.System<SharedTransformSystem>();
@@ -241,7 +245,9 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         // Recenter on the connected monitoring server, not the grid physics center.
         RecenterButton.OnPressed += _ => RecenterToConnectedServer();
     }
+    // #ADT-Tweak End
 
+    // #ADT-Tweak Start - New Monitor: theme / alert / draw / foreign nav helpers
     /// <summary>
     /// Snaps the map view to <see cref="SensorRangeCenter"/> (connected server) when available.
     /// </summary>
@@ -898,6 +904,9 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
             SelectTrackedEntity(closest);
     }
 
+    // #ADT-Tweak End
+
+    // #ADT-Tweak Start - New Monitor: rewritten FrameUpdate
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
@@ -922,4 +931,5 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
                 ("y", MathF.Round(position.Y)));
         _trackedEntityPanel.Visible = true;
     }
+    // #ADT-Tweak End
 }

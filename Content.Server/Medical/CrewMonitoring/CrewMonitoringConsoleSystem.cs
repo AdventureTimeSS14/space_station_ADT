@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Server.ADT.Medical.CrewMonitoring;
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Pinpointer;
@@ -30,24 +31,29 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     [Dependency] private readonly PowerCellSystem _cell = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
+    // #ADT-Tweak Start - New Monitor: server subscriber pipeline
     [Dependency] private readonly CrewMonitoringServerSystem _crewServers = default!;
+    // #ADT-Tweak End
 
 
     // ADT-Tweak-Start
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    // ADT-Tweak-End
+
+    // #ADT-Tweak Start - New Monitor: scan/select/alerts/navmap/offline
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    // ADT-Tweak-End
 
     private const float ScanDuration = 5f;
     private const float ConsoleUpdateInterval = 0.5f;
     private float _consoleUpdateAccumulator;
     private List<Entity<MapGridComponent>> _navMapGridBuffer = new();
+    // #ADT-Tweak End
 
     public override void Initialize()
     {
@@ -55,6 +61,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, BoundUIOpenedEvent>(OnUIOpened);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, GotEmaggedEvent>(OnEmagged); // ADT-Tweak
+        // #ADT-Tweak Start - New Monitor: BUI + server update subscriptions
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringSetAlertMutedMessage>(OnSetAlertMuted);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringSetAlertVolumeMessage>(OnSetAlertVolume);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringSelectServerMessage>(OnSelectServer);
@@ -63,8 +70,10 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringRescanMessage>(OnRescan);
         SubscribeLocalEvent<CrewMonitoringServerComponent, EntityTerminatingEvent>(OnServerTerminating);
         SubscribeLocalEvent<CrewMonitoringServerComponent, CrewMonitoringServerUpdateEvent>(OnServerUpdate);
+        // #ADT-Tweak End
     }
 
+    // #ADT-Tweak Start - New Monitor: scan / select / alert update loops
     private void OnScanStart(EntityUid uid, CrewMonitoringConsoleComponent component, CrewMonitoringScanStartMessage args)
     {
         component.HasScanned = false;
@@ -288,7 +297,9 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             comp.NextCritAlertTime = now + TimeSpan.FromSeconds(comp.CritAlertInterval);
         }
     }
+    // #ADT-Tweak End
 
+    // #ADT-Tweak Start - New Monitor: OnRemove unsubscribes from server
     private void OnRemove(EntityUid uid, CrewMonitoringConsoleComponent component, ComponentRemove args)
     {
         if (component.SelectedServerUid != null && TryComp<CrewMonitoringServerComponent>(component.SelectedServerUid.Value, out var serverComp))
@@ -296,7 +307,9 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         component.ConnectedSensors = new();
         component.LastReferenceFrame = null;
     }
+    // #ADT-Tweak End
 
+    // #ADT-Tweak Start - New Monitor: server update / alert BUI handlers
     private void OnServerTerminating(EntityUid uid, CrewMonitoringServerComponent component, ref EntityTerminatingEvent args)
     {
         var subscribers = component.SubscriberConsoles.ToArray();
@@ -404,12 +417,14 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         component.AlertVolume = Math.Clamp(args.Volume, 0f, 1f);
         UpdateUserInterface(uid, component);
     }
+    // #ADT-Tweak End
 
     private void OnUIOpened(EntityUid uid, CrewMonitoringConsoleComponent component, BoundUIOpenedEvent args)
     {
         if (!_cell.TryUseActivatableCharge(uid))
             return;
 
+        // #ADT-Tweak Start - New Monitor: re-subscribe + populate navmaps on UI open
         // Re-attach to the selected server if the previous subscription was dropped
         // (server idle cleanup, restart, etc.) while the console kept SelectedServerUid.
         if (component.SelectedServerUid != null &&
@@ -420,9 +435,11 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         }
 
         PopulateNavMapsForConsole(uid, component);
+        // #ADT-Tweak End
         UpdateUserInterface(uid, component);
     }
 
+    // #ADT-Tweak Start - New Monitor: extended UpdateUserInterface state
     private void UpdateUserInterface(EntityUid uid, CrewMonitoringConsoleComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -475,7 +492,9 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             component.LastReferenceFrame,
             component.AlertVolume));
     }
+    // #ADT-Tweak End
 
+    // #ADT-Tweak Start - New Monitor: navmap / filter / server discovery helpers
     private void PopulateNavMapsForConsole(EntityUid uid, CrewMonitoringConsoleComponent component)
     {
         var xform = Transform(uid);
@@ -689,6 +708,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         var hash = (uint)station.Value.GetHashCode();
         return $"ST-{(hash % 10000):D4}";
     }
+    // #ADT-Tweak End
 
     // ADT-Tweak-Start
     private void OnEmagged(EntityUid uid, CrewMonitoringConsoleComponent component, ref GotEmaggedEvent ev)

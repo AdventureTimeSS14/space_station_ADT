@@ -39,17 +39,19 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
+    // #ADT-Tweak Start - New Monitor: wearer → OnMob sensor index
     /// <summary>
     /// Wearer → OnMob suit-sensor entity. Avoids an O(S) EntityQuery in GetSensorState.
     /// </summary>
     private readonly Dictionary<EntityUid, EntityUid> _onMobSensorsByWearer = new();
+    // #ADT-Tweak End
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<SuitSensorComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<SuitSensorComponent, ComponentStartup>(OnStartup); //ADT-Tweak
+        SubscribeLocalEvent<SuitSensorComponent, ComponentStartup>(OnStartup); //ADT-Tweak: NewMonitor
         SubscribeLocalEvent<SuitSensorComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotUnequippedEvent>(OnUnequipped);
@@ -66,13 +68,13 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     private void OnMapInit(Entity<SuitSensorComponent> ent, ref MapInitEvent args)
     {
         // Fallback
-        //ADT-Tweak-Start
+        // #ADT-Tweak Start - New Monitor: OnMob self-user + index at map init
         if (ent.Comp.OnMob)
         {
             ent.Comp.User = ent.Owner;
             IndexOnMobSensor(ent);
         }
-        //ADT-Tweak-End
+        // #ADT-Tweak End
 
         // generate random mode
         if (ent.Comp.RandomMode)
@@ -96,7 +98,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         Dirty(ent);
     }
 
-    //ADT-Tweak-Start
+    // #ADT-Tweak Start - New Monitor: OnMob startup/shutdown indexing
     private void OnStartup(Entity<SuitSensorComponent> ent, ref ComponentStartup args)
     {
         if (!ent.Comp.OnMob)
@@ -136,14 +138,12 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         if (_onMobSensorsByWearer.TryGetValue(ent.Comp.User.Value, out var indexed) && indexed == ent.Owner)
             _onMobSensorsByWearer.Remove(ent.Comp.User.Value);
     }
-    //ADT-Tweak-End
+    // #ADT-Tweak End
 
     private void OnEquipped(Entity<SuitSensorComponent> ent, ref ClothingGotEquippedEvent args)
     {
-        //ADT-Tweak-Start
-        if (ent.Comp.OnMob)
+        if (ent.Comp.OnMob) //ADT-Tweak: NewMonitor
             return;
-        //ADT-Tweak-End
 
         ent.Comp.User = args.Wearer;
         Dirty(ent);
@@ -151,10 +151,8 @@ public abstract class SharedSuitSensorSystem : EntitySystem
 
     private void OnUnequipped(Entity<SuitSensorComponent> ent, ref ClothingGotUnequippedEvent args)
     {
-        //ADT-Tweak-Start
-        if (ent.Comp.OnMob)
+        if (ent.Comp.OnMob) //ADT-Tweak: NewMonitor
             return;
-        //ADT-Tweak-End
 
         ent.Comp.User = null;
         Dirty(ent);
@@ -219,14 +217,14 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         if (!_interactionSystem.InRangeUnobstructed(args.User, args.Target))
             return;
 
-        //ADT-Tweak-Start
+        // #ADT-Tweak Start - New Monitor: OnMob skips wearer incapacitation check
         if (!ent.Comp.OnMob)
         {
             // check if target is incapacitated (cuffed, dead, etc)
             if (ent.Comp.User != null && args.User != ent.Comp.User && _actionBlocker.CanInteract(ent.Comp.User.Value, null))
                 return;
         }
-        //ADT-Tweak-End
+        // #ADT-Tweak End
 
         args.Verbs.UnionWith(new[]
         {
@@ -239,10 +237,8 @@ public abstract class SharedSuitSensorSystem : EntitySystem
 
     private void OnInsert(Entity<SuitSensorComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
-        //ADT-Tweak-Start
-        if (ent.Comp.OnMob)
+        if (ent.Comp.OnMob) //ADT-Tweak: NewMonitor
             return;
-        //ADT-Tweak-End
 
         if (args.Container.ID != ent.Comp.ActivationContainer)
             return;
@@ -253,10 +249,8 @@ public abstract class SharedSuitSensorSystem : EntitySystem
 
     private void OnRemove(Entity<SuitSensorComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        //ADT-Tweak-Start
-        if (ent.Comp.OnMob)
+        if (ent.Comp.OnMob) //ADT-Tweak: NewMonitor
             return;
-        //ADT-Tweak-End
 
         if (args.Container.ID != ent.Comp.ActivationContainer)
             return;
@@ -274,7 +268,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             Priority = -(int)mode, // sort them in descending order
             Category = VerbCategory.SetSensor,
             // Must close: otherwise the sensor submenu stays open after a click.
-            CloseMenu = true,
+            CloseMenu = true, //ADT-Tweak: NewMonitor
             Act = () => TrySetSensor(ent.AsNullable(), mode, userUid)
         };
     }
@@ -388,7 +382,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         var sensor = ent.Comp1;
         var transform = ent.Comp2;
 
-        //ADT-Tweak-Start
+        // #ADT-Tweak Start - New Monitor: prefer active OnMob sensor over uniform
         // Prefer an *active* OnMob sensor over the uniform. An Off OnMob sensor
         // must not silence the jumpsuit, or that wearer vanishes from monitors.
         if (!sensor.OnMob &&
@@ -399,7 +393,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         {
             return null;
         }
-        //ADT-Tweak-End
+        // #ADT-Tweak End
 
         // The wearer is the source of truth for position. Clothing can be inside
         // containers and neither the clothing nor the wearer has to be on a grid.
@@ -495,7 +489,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         }
 
         // Preserve current sensor mode so the monitor UI can filter and mask data correctly.
-        status.Mode = sensor.Mode;
+        status.Mode = sensor.Mode; //ADT-Tweak: NewMonitor
 
         return status;
     }

@@ -1,11 +1,9 @@
-using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
-using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input;
 using Robust.Shared.Maths;
 
-namespace Content.Client.Medical.CrewMonitoring;
+namespace Content.Client.ADT.Medical.CrewMonitoring;
 
 /// <summary>
 /// Simple vertical volume slider (Robust Slider is horizontal-only).

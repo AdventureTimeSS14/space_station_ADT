@@ -41,6 +41,14 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     };
 
     /// <summary>
+    /// Cached localized department names for this console's filter.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public readonly HashSet<string> CachedDepartmentNames = new();
+    // ADT-Tweak-End
+
+    // #ADT-Tweak Start - New Monitor: alerts, server selection, scan, snapshot pipeline
+    /// <summary>
     /// Sound played when any monitored sensor reports crit or dead. Repeats every CritAlertInterval seconds.
     /// </summary>
     [DataField("critAlertSound")]
@@ -144,12 +152,6 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     public TimeSpan? ScanStartedAt;
 
     /// <summary>
-    /// Cached localized department names for this console's filter.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public readonly HashSet<string> CachedDepartmentNames = new();
-
-    /// <summary>
     /// Cached server-list entries for open UI; refreshed at most once per console tick.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
@@ -160,5 +162,5 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public bool ServersListDirty = true;
-    // ADT-Tweak-End
+    // #ADT-Tweak End
 }

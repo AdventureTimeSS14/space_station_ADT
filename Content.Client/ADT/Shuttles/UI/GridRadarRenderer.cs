@@ -7,7 +7,7 @@ using Robust.Shared.Threading;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Client.Shuttles.UI;
+namespace Content.Client.ADT.Shuttles.UI;
 
 /// <summary>
 /// Cached tile-fill and contour renderer shared by shuttle and station radars.
@@ -183,11 +183,11 @@ public sealed class GridRadarRenderer
             ScaledVertices[index] = Vector2.Transform(Vertices[index], Matrix);
         }
     }
-}
 
-public sealed class GridDrawData
-{
-    public readonly List<Vector2> Vertices = new();
-    public int EdgeIndex;
-    public GameTick LastBuild;
+    private sealed class GridDrawData
+    {
+        public readonly List<Vector2> Vertices = new();
+        public int EdgeIndex;
+        public GameTick LastBuild;
+    }
 }

@@ -33,7 +33,7 @@
       transmitFrequencyId: CrewMonitor
       autoConnect: false
     - type: WirelessNetworkConnection
-      range: 500
+      range: 500 #ADT-Tweak: NewMonitor
     - type: ApcPowerReceiver
       powerLoad: 200
     - type: ExtensionCableReceiver

@@ -4,6 +4,7 @@ using Robust.Shared.Map;
 
 namespace Content.Shared.Medical.CrewMonitoring;
 
+// #ADT-Tweak Start - New Monitor: server reference frame for framed coordinates
 [Serializable, NetSerializable]
 public sealed class CrewMonitoringReferenceFrame
 {
@@ -24,7 +25,9 @@ public sealed class CrewMonitoringReferenceFrame
         Name = name;
     }
 }
+// #ADT-Tweak End
 
+// #ADT-Tweak Start - New Monitor: server list entry for scan/select UI
 [Serializable, NetSerializable]
 public sealed class CrewMonitoringServerEntry
 {
@@ -52,6 +55,7 @@ public sealed class CrewMonitoringServerEntry
         GridName = gridName ?? string.Empty;
     }
 }
+// #ADT-Tweak End
 
 [Serializable, NetSerializable]
 public enum CrewMonitoringUIKey
@@ -82,28 +86,29 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
     public List<SuitSensorStatus> Sensors;
     public bool IsEmagged; // ADT-Tweak
 
-    /// <summary> 
-    /// True if console is receiving data from a server. 
+    // #ADT-Tweak Start - New Monitor: BUI state fields (online, alerts, servers, scan, frame)
+    /// <summary>
+    /// True if console is receiving data from a server.
     /// </summary>
     public bool ServerOnline;
-    /// <summary> 
-    /// Name of the server we receive sensor data from. 
+    /// <summary>
+    /// Name of the server we receive sensor data from.
     /// </summary>
     public string ServerName;
-    /// <summary> 
-    /// Address of the server (e.g. "10.0.12.34"). 
+    /// <summary>
+    /// Address of the server (e.g. "10.0.12.34").
     /// </summary>
     public string ServerAddress;
-    /// <summary> 
-    /// Station code where sensors are located. 
+    /// <summary>
+    /// Station code where sensors are located.
     /// </summary>
     public string StationCode;
-    /// <summary> 
-    /// True when any monitored sensor is crit or dead (alert condition). 
+    /// <summary>
+    /// True when any monitored sensor is crit or dead (alert condition).
     /// </summary>
     public bool AlertActive;
-    /// <summary> 
-    /// User has muted the crit/dead alert sound. 
+    /// <summary>
+    /// User has muted the crit/dead alert sound.
     /// </summary>
     public bool AlertMuted;
 
@@ -141,6 +146,7 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
     /// Coordinate frame and circular coverage area of the selected server.
     /// </summary>
     public CrewMonitoringReferenceFrame? ReferenceFrame;
+    // #ADT-Tweak End
 
     public CrewMonitoringState(
         List<SuitSensorStatus> sensors,
@@ -161,6 +167,7 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
     {
         Sensors = sensors;
         IsEmagged = isEmagged;
+        // #ADT-Tweak Start - New Monitor: assign extended BUI state
         ServerOnline = serverOnline;
         ServerName = serverName;
         ServerAddress = serverAddress;
@@ -174,9 +181,11 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
         ServerGridUid = serverGridUid;
         SelectedServerUid = selectedServerUid;
         ReferenceFrame = referenceFrame;
+        // #ADT-Tweak End
     }
 }
 
+// #ADT-Tweak Start - New Monitor: scan/select/alert BUI messages
 [Serializable, NetSerializable]
 public sealed class CrewMonitoringScanStartMessage : BoundUserInterfaceMessage
 {
@@ -228,5 +237,4 @@ public sealed class CrewMonitoringSelectServerMessage : BoundUserInterfaceMessag
         Server = server;
     }
 }
-
-
+// #ADT-Tweak End

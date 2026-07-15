@@ -1,4 +1,4 @@
-namespace Content.Client.Medical.CrewMonitoring;
+namespace Content.Client.ADT.Medical.CrewMonitoring;
 
 /// <summary>
 /// Single-hue screen theme for the crew monitor UI inside the PDA bezel.

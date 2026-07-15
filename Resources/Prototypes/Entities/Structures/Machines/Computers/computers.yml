@@ -470,6 +470,7 @@
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
   - type: CrewMonitoringConsole
+  # #ADT-Tweak Start - New Monitor: bezel color + CRT theme + extended wireless range
   - type: PdaBorderColor
     borderColor: "#6B6B6B" # iron-gray bezel, no accents
   - type: CrewMonitoringUiVisuals
@@ -479,7 +480,8 @@
     receiveFrequencyId: CrewMonitor
   - type: WirelessNetworkConnection
     range: 1200
-  - type: StationAiWhitelist #ADT-Tweak
+  # #ADT-Tweak End
+  - type: StationAiWhitelist #ADT-Tweak: NewMonitor
 
 - type: entity
   parent: BaseComputerAiAccess

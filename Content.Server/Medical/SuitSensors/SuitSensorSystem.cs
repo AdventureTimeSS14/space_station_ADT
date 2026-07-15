@@ -1,3 +1,4 @@
+using Content.Server.ADT.Medical.SuitSensors;
 using Content.Server.Medical.CrewMonitoring;
 using Content.Shared.Medical.SuitSensors;
 using Content.Shared.Medical.SuitSensor;
@@ -8,6 +9,7 @@ namespace Content.Server.Medical.SuitSensors;
 
 public sealed class SuitSensorSystem : SharedSuitSensorSystem
 {
+    // #ADT-Tweak Start - New Monitor: idle/wake report pipeline fields
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly CrewMonitoringServerSystem _monitoringServers = default!;
 
@@ -19,13 +21,17 @@ public sealed class SuitSensorSystem : SharedSuitSensorSystem
     /// </summary>
     private bool _wasReporting;
     private readonly Dictionary<EntityUid, (SuitSensorMode Mode, EntityUid User)> _lastReported = new();
+    // #ADT-Tweak End
 
+    // #ADT-Tweak Start - New Monitor: clear report cache on shutdown
     protected override void OnShutdown(Entity<SuitSensorComponent> ent, ref ComponentShutdown args)
     {
         base.OnShutdown(ent, ref args);
         _lastReported.Remove(ent.Owner);
     }
+    // #ADT-Tweak End
 
+    // #ADT-Tweak Start - New Monitor: IngestReport Update (subscriber-gated)
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -90,4 +96,5 @@ public sealed class SuitSensorSystem : SharedSuitSensorSystem
             _lastReported[uid] = reportState;
         }
     }
+    // #ADT-Tweak End
 }

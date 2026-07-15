@@ -6,6 +6,7 @@ crew-monitoring-ui-filter-line-placeholder = Filter
 
 crew-monitoring-ui-job-label = Job:
 crew-monitoring-ui-no-server-label = Server not found
+# #ADT-Tweak Start - New Monitor: scan / servers / header locale keys
 crew-monitoring-ui-start-scan = Start scan
 crew-monitoring-ui-scan-title = Scanning sensor network
 crew-monitoring-ui-scan-initializing = Initializing interfaces
@@ -30,6 +31,7 @@ crew-monitoring-server-select = Select
 crew-monitoring-server-active = Active
 crew-monitoring-server-online = ONLINE
 crew-monitoring-server-offline = OFFLINE
+# #ADT-Tweak End
 
 crew-monitoring-ui-no-department-label = Unknown
 crew-monitoring-ui-no-station-label = Unknown station

@@ -81,8 +81,8 @@ public sealed partial class SuitSensorComponent : Component
     [DataField, AutoNetworkedField, ViewVariables]
     public bool PreviousControlsLocked = false;
 
-    //ADT-Tweak-Start
+    // #ADT-Tweak Start - New Monitor: OnMob implant/sensor indexing
     [DataField, AutoNetworkedField]
     public bool OnMob = false;
-    //ADT-Tweak-End
+    // #ADT-Tweak End
 }
