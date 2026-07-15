@@ -65,7 +65,11 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
     /// Ingest a single suit-sensor report into every subscribed, powered server in range.
     /// Called directly from <see cref="SuitSensorSystem"/>.
     /// </summary>
-    public void IngestReport(in SuitSensorReportEvent report)
+    /// <param name="urgent">
+    /// When true (crit/dead), flush the snapshot to consoles immediately instead of
+    /// waiting for the next publish interval.
+    /// </param>
+    public void IngestReport(in SuitSensorReportEvent report, bool urgent = false)
     {
         // No console is listening anywhere — SuitSensorSystem should already skip, but
         // keep this guard so we never walk every monitoring server for nothing.
@@ -78,6 +82,8 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
             WirelessNetworkComponent,
             ApcPowerReceiverComponent,
             TransformComponent>();
+
+        var anyUrgentDirty = false;
 
         while (servers.MoveNext(
                    out var serverUid,
@@ -145,7 +151,24 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
 
             NetCoordinates? framedCoords = report.Status.Coordinates;
             if (report.Status.Mode == SuitSensorMode.SensorCords)
+            {
                 framedCoords = framedWorldCoords;
+            }
+            else if (framedCoords == null)
+            {
+                // Binary/Vitals do not stream GPS — keep the last known pin instead of
+                // wiping it (which made the UI go red after downgrading from Cords).
+                if (server.LastSensorSnapshot.TryGetValue(key, out var retainedCoords) &&
+                    retainedCoords.Coordinates != null)
+                {
+                    framedCoords = retainedCoords.Coordinates;
+                }
+                else if (server.SensorStatus.TryGetValue(key, out var liveCoords) &&
+                         liveCoords.Coordinates != null)
+                {
+                    framedCoords = liveCoords.Coordinates;
+                }
+            }
 
             if (server.SensorStatus.TryGetValue(key, out var previous) &&
                 SensorStatusMatches(previous, report.Status, framedCoords))
@@ -166,7 +189,13 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
             server.SensorStatus[key] = framedStatus;
             server.LastSensorSnapshot[key] = CopyStatus(framedStatus, framedCoords, now);
             server.SnapshotDirty = true;
+
+            if (urgent || IsUrgentStatus(framedStatus) || (previous != null && IsUrgentStatus(previous)))
+                anyUrgentDirty = true;
         }
+
+        if (anyUrgentDirty)
+            PublishToSubscribers();
     }
 
     /// <summary>
@@ -223,6 +252,14 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
             return;
         _publishAccumulator -= PublishInterval;
 
+        PublishToSubscribers();
+    }
+
+    /// <summary>
+    /// Pushes heartbeats / dirty snapshots to all subscribed consoles.
+    /// </summary>
+    private void PublishToSubscribers()
+    {
         var query = EntityQueryEnumerator<
             CrewMonitoringServerComponent,
             DeviceNetworkComponent,
@@ -284,6 +321,14 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
             if (update.Delivered && sendFullSnapshot)
                 server.SnapshotDirty = false;
         }
+    }
+
+    private static bool IsUrgentStatus(SuitSensorStatus status)
+    {
+        if (!status.IsAlive)
+            return true;
+
+        return status.DamagePercentage is >= 0.8f;
     }
     // #ADT-Tweak End
 

@@ -152,7 +152,7 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     public TimeSpan? ScanStartedAt;
 
     /// <summary>
-    /// Cached server-list entries for open UI; refreshed at most once per console tick.
+    /// Servers discovered by the last scan/rescan. New servers are not added until rescan.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public List<CrewMonitoringServerEntry> CachedServers = new();

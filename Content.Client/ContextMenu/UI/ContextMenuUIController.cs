@@ -95,9 +95,21 @@ namespace Content.Client.ContextMenu.UI
         /// </summary>
         public void Close()
         {
-            RootMenu.MenuBody.RemoveAllChildren();
             CancelOpen?.Cancel();
             CancelClose?.Cancel();
+            CancelOpen = null;
+            CancelClose = null;
+
+            // #ADT-Tweak Start - New Monitor: close category submenus (SetSensor etc.)
+            // RootMenu.Close() alone leaves open sub-popups on ModalRoot, so the
+            // suit-sensor mode list stayed visible after picking a mode.
+            while (Menus.TryPeek(out var top) && !ReferenceEquals(top, RootMenu))
+            {
+                Menus.Pop().Close();
+            }
+            // #ADT-Tweak End
+
+            RootMenu.MenuBody.RemoveAllChildren();
             OnContextClosed?.Invoke();
             RootMenu.Close();
         }

@@ -201,6 +201,14 @@ public sealed class CrewMonitoringRescanMessage : BoundUserInterfaceMessage
 {
 }
 
+/// <summary>
+/// Clears retained sensor snapshots and forces a fresh ingest from suit sensors.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class CrewMonitoringResetSensorsMessage : BoundUserInterfaceMessage
+{
+}
+
 
 [Serializable, NetSerializable]
 public sealed class CrewMonitoringSetAlertMutedMessage : BoundUserInterfaceMessage

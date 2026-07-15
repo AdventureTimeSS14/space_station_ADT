@@ -7,7 +7,7 @@ crew-monitoring-ui-filter-line-placeholder = Фильтр
 
 crew-monitoring-ui-start-scan = Начать сканирование
 crew-monitoring-ui-scan-title = Сканирование сети датчиков
-crew-monitoring-ui-scan-initializing = Инициализация интерфейсов
+crew-monitoring-ui-scan-initializing = Инициализация интерфейса
 crew-monitoring-ui-scan-searching = Поиск серверов мониторинга
 crew-monitoring-ui-scan-verifying = Проверка сетевых адресов
 crew-monitoring-ui-scan-finalizing = Подготовка результатов
@@ -23,6 +23,8 @@ crew-monitoring-header-server-address = Адрес сервера:
 crew-monitoring-header-station-code = Код станции:
 
 crew-monitoring-rescan = Повторить сканирование
+crew-monitoring-ui-reset-sensors = Сбросить
+crew-monitoring-ui-wounded-only = Раненые
 crew-monitoring-servers-department = Серверы датчиков
 crew-monitoring-server-blip = Сервер
 crew-monitoring-server-select = Выбрать

@@ -43,7 +43,7 @@
         <BoxContainer SetHeight="26" Margin="4 2 8 0" Orientation="Horizontal">
             <Control HorizontalExpand="True"/>
             <TextureButton Name="CloseButton" StyleClasses="windowCloseButton"
-                           VerticalAlignment="Center" Margin="0 4 36 0"/>
+                           VerticalAlignment="Center" Margin="0 4 20 0"/>
         </BoxContainer>
         <!-- #ADT-Tweak End -->
 
@@ -75,10 +75,10 @@
                                     <!-- #ADT-Tweak Start - New Monitor: map placeholder before server select -->
                                     <PanelContainer Name="MapPlaceholder" Visible="false" HorizontalExpand="True" VerticalExpand="True">
                                         <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                            <Label Text="{Loc crew-monitoring-ui-select-server-label}"
+                                            <Label Text="{Loc crew-monitoring-ui-scan-initializing}"
                                                    HorizontalAlignment="Center"
                                                    StyleClasses="LabelHeading" FontColorOverride="Gray"/>
-                                            <Label Text="{Loc crew-monitoring-ui-scan-initializing}"
+                                            <Label Text="{Loc crew-monitoring-ui-select-server-label}"
                                                    HorizontalAlignment="Center" Margin="0 8 0 0" FontColorOverride="DimGray"/>
                                         </BoxContainer>
                                     </PanelContainer>
@@ -117,8 +117,14 @@
                             <!-- After scan: tabs Датчики / Сервера -->
                             <TabContainer Name="MainTabs" VerticalExpand="True" Visible="false" MinHeight="0">
                                 <BoxContainer Orientation="Vertical" VerticalExpand="True" MinHeight="0">
-                                    <LineEdit Name="SearchLineEdit" HorizontalExpand="True"
-                                              PlaceHolder="{Loc crew-monitoring-ui-filter-line-placeholder}" />
+                                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 0">
+                                        <LineEdit Name="SearchLineEdit" HorizontalExpand="True"
+                                                  PlaceHolder="{Loc crew-monitoring-ui-filter-line-placeholder}" />
+                                        <CheckBox Name="WoundedOnlyCheckbox" Text="{Loc crew-monitoring-ui-wounded-only}"
+                                                  Margin="6 0 0 0"/>
+                                        <Button Name="ResetSensorsButton" Text="{Loc crew-monitoring-ui-reset-sensors}"
+                                                Margin="6 0 0 0" MinWidth="90"/>
+                                    </BoxContainer>
                                     <ScrollContainer Name="SensorScroller"
                                                      VerticalExpand="True"
                                                      HorizontalExpand="True"
@@ -126,7 +132,7 @@
                                         <BoxContainer Name="SensorsTable"
                                                        Orientation="Vertical"
                                                        HorizontalExpand="True"
-                                                       Margin="0 0 10 0">
+                                                       Margin="0 0 5 0">
                                         </BoxContainer>
                                         <Label Name="NoServerLabel"
                                                Text="{Loc crew-monitoring-ui-no-server-label}"
@@ -154,9 +160,10 @@
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SetHeight="18"
                       Margin="0 12 25 -6" VerticalAlignment="Center">
             <Control HorizontalExpand="True"/>
-            <Label Text="{Loc crew-monitoring-ui-flavor-right-label}" StyleClasses="WindowFooterText"
+            <Label Name="FooterVersionLabel" Text="{Loc crew-monitoring-ui-flavor-right-label}"
+                   StyleClasses="WindowFooterText"
                    VerticalAlignment="Center" Margin="0 0 5 0"/>
-            <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
+            <TextureRect Name="FooterLogo" StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
                          VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
         </BoxContainer>
         <!-- #ADT-Tweak End -->

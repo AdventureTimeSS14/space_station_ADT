@@ -17,6 +17,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Graphics.RSI;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -73,7 +74,23 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
     /// </summary>
     public Action? OnRescan;
 
+    /// <summary>
+    /// Called when the user clicks "Reset" to clear sensor snapshots and re-ingest.
+    /// </summary>
+    public Action? OnResetSensors;
+
     private const float ScanDuration = 5f;
+    private const float RescanDuration = 3f;
+    // Crit badge colors from the medical HUD "КРИТ." icons (yellow ↔ navy).
+    private static readonly Color CritBlinkA = Color.FromHex("#F7D264");
+    private static readonly Color CritBlinkB = Color.FromHex("#1A2C4E");
+    /// <summary>Matches <c>human_crew_monitoring.rsi</c> critical delays (0.35+0.35).</summary>
+    private const double CritBlinkPeriod = 0.7;
+
+    [Dependency] private readonly IGameTiming _timing = default!;
+
+    private Texture? _critStatusTextureA;
+    private Texture? _critStatusTextureB;
     private float _scanProgress;
     private float _scanWaitingRetry;
     private bool _rescanInProgress;
@@ -82,6 +99,9 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
 
     private int _lastServersUiHash;
     private int _lastSensorsStructureHash;
+    private CrewMonitoringState? _lastSensorsState;
+    private EntityUid _lastMonitorUid;
+    private EntityCoordinates? _lastMonitorCoords;
     private float _monitorBlipTimer;
     private Vector2 _lastMonitorBlipLocal;
     private const float MonitorBlipMinInterval = 0.2f;
@@ -166,6 +186,14 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
             _scanProgress = 0;
             _scanWaitingRetry = 0;
             OnScanStarted?.Invoke();
+        };
+
+        ResetSensorsButton.OnPressed += _ => OnResetSensors?.Invoke();
+        WoundedOnlyCheckbox.OnToggled += _ =>
+        {
+            _lastSensorsStructureHash = 0;
+            if (_lastSensorsState != null)
+                ShowSensors(_lastSensorsState, _lastMonitorUid, _lastMonitorCoords);
         };
     }
 
@@ -261,9 +289,13 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
             Math.Clamp(s * 0.75f, 0.25f, 0.85f),
             0.82f,
             1f));
-        ContentBorder.ModulateSelfOverride = Color.FromHsv(new Vector4(h, s * 0.25f, 0.55f, 1f));
+        var chrome = Color.FromHsv(new Vector4(h, s * 0.25f, 0.55f, 1f));
+        ContentBorder.ModulateSelfOverride = chrome;
         // Clear previous panel-wide modulate so buttons/tabs keep their explicit theme colors.
         RightPanel.ModulateSelfOverride = null;
+
+        // Footer vX.Y + NT logo: near-black on light chrome, near-white on dark.
+        ApplyFooterContrast(chrome);
 
         // Tabs — active brighter, inactive darker, panel matches CRT wash.
         var tabActive = new StyleBoxFlat(Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.55f, 0.2f, 0.7f), 0.42f, 1f)));
@@ -281,7 +313,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
         MainTabs.TabFontColorOverride = Color.FromHsv(new Vector4(h, s * 0.25f, 0.95f, 1f));
         MainTabs.TabFontColorInactiveOverride = Color.FromHsv(new Vector4(h, s * 0.20f, 0.55f, 1f));
 
-        // Action buttons (scan / rescan / select).
+        // Action buttons (rescan / select) — mid theme chrome.
         _buttonStyle = new StyleBoxFlat
         {
             BackgroundColor = Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.75f, 0.35f, 0.85f), 0.48f, 1f)),
@@ -290,25 +322,37 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
         };
         _buttonStyle.SetContentMarginOverride(StyleBox.Margin.Horizontal, 8);
         _buttonStyle.SetContentMarginOverride(StyleBox.Margin.Vertical, 4);
-        StartScanButton.StyleBoxOverride = _buttonStyle;
-
-        // Checkboxes: same brightness class as the ONLINE indicator.
-        _checkboxColor = Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.95f, 0.55f, 1f), Math.Clamp(hsv.Z * 1.25f, 0.85f, 1f), 1f));
-        ApplyThemedCheckBoxes();
 
         // Exact pre-branch Nano button geometry, recolored by sensor availability.
-        var lightFill = Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.45f, 0.18f, 0.65f), 0.68f, 1f));
-        var lightFillSelected = Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.50f, 0.20f, 0.70f), 0.80f, 1f));
-        var staleFill = Color.FromHsv(new Vector4(h, s * 0.42f, 0.42f, 1f));
-        var darkFill = Color.FromHsv(new Vector4(h, s * 0.40f, 0.20f, 1f));
+        // One more step darker so rows sit under the CRT wash.
+        var lightFill = Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.45f, 0.18f, 0.65f), 0.51f, 1f));
+        // Selected crew/server row — fixed light green, one tone down again.
+        var lightFillSelected = Color.FromHex("#48B156");
+        var staleFill = Color.FromHsv(new Vector4(h, s * 0.42f, 0.27f, 1f));
+        var darkFill = Color.FromHsv(new Vector4(h, s * 0.40f, 0.07f, 1f));
         _sensorTextOnLight = Color.White;
         _sensorTextStale = Color.White;
-        _sensorTextMuted = Color.FromHsv(new Vector4(h, s * 0.20f, 0.50f, 1f));
+        _sensorTextMuted = Color.FromHsv(new Vector4(h, s * 0.20f, 0.40f, 1f));
 
         _sensorRowStyle = MakeSensorButtonBox(lightFill);
         _sensorRowSelectedStyle = MakeSensorButtonBox(lightFillSelected);
         _sensorRowStaleStyle = MakeSensorButtonBox(staleFill);
         _sensorRowInactiveStyle = MakeSensorButtonBox(darkFill);
+
+        // Start-scan: brightest available-sensor fill; LabelHeading gray text (not white).
+        var startScanBox = MakeSensorButtonBox(lightFill);
+        startScanBox.SetContentMarginOverride(StyleBox.Margin.Vertical, 8);
+        startScanBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 14);
+        StartScanButton.StyleBoxOverride = startScanBox;
+        // Cancel Nano's default ButtonColorDefault (#464966) modulate — same as sensor rows.
+        StartScanButton.ModulateSelfOverride = Color.White;
+        StartScanButton.Label.FontOverride = _resourceCache.NotoStack(variation: "Bold", size: 16);
+        StartScanButton.Label.FontColorOverride = Color.Gray;
+        StartScanButton.Label.ModulateSelfOverride = Color.White;
+
+        // Checkboxes: same brightness class as the ONLINE indicator.
+        _checkboxColor = Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.95f, 0.55f, 1f), Math.Clamp(hsv.Z * 1.25f, 0.85f, 1f), 1f));
+        ApplyThemedCheckBoxes();
 
         SearchLineEdit.StyleBoxOverride = new StyleBoxFlat
         {
@@ -316,6 +360,9 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
             BorderColor = Color.FromHsv(new Vector4(h, s * 0.50f, 0.55f, 1f)),
             BorderThickness = new Thickness(1),
         };
+
+        ApplyThemedButton(ResetSensorsButton);
+        ResetSensorsButton.ModulateSelfOverride = Color.White;
 
         // Map wash + toolbar (zoom / beacons / recenter) + neighbor grids.
         // Toolbar panel must be mid-brightness so it reads as themed, not charcoal.
@@ -325,6 +372,22 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
             Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.7f, 0.35f, 0.75f), Math.Clamp(hsv.Z * 1.15f, 0.72f, 0.95f), 1f)),
             _buttonStyle,
             Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.55f, 0.25f, 0.7f), 0.28f, 1f)));
+    }
+
+    /// <summary>
+    /// Picks high-contrast footer ink from the chrome behind vX.Y / NT logo.
+    /// </summary>
+    private void ApplyFooterContrast(Color background)
+    {
+        // Rec. 709 relative luminance.
+        var luminance = 0.2126f * background.R + 0.7152f * background.G + 0.0722f * background.B;
+        // Mid-grey chrome (~0.55 V) still counts as dark → light ink.
+        var ink = luminance > 0.55f
+            ? Color.FromHex("#121212")
+            : Color.FromHex("#F2F2F2");
+
+        FooterVersionLabel.FontColorOverride = ink;
+        FooterLogo.ModulateSelfOverride = ink;
     }
 
     private StyleBoxTexture MakeSensorButtonBox(Color modulate)
@@ -360,29 +423,34 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
 
     private void ApplyThemedCheckBoxes()
     {
+        ApplyThemedCheckBox(WoundedOnlyCheckbox);
         NavMap.ApplyCheckboxTheme(_checkboxColor);
     }
 
     private void ApplySensorRowStyle(CrewMonitoringButton button, bool selected)
     {
-        // Inactive + last coords → stale (yellow). Inactive without coords → dark.
+        // Light = live feed with coordinates (full tracking).
+        // Medium/stale = not updating, but last-known position retained.
+        // Dark = only binary/vitals (no location), or blank Off.
         var active = button.SensorActive;
-        var stale = !button.SensorActive && button.Coordinates != null;
+        var hasCoords = button.Coordinates != null;
+        var liveTracking = active && hasCoords;
+        var stale = !active && hasCoords;
 
-        if (selected && active)
+        if (selected)
             button.StyleBoxOverride = _sensorRowSelectedStyle;
-        else if (active)
+        else if (liveTracking)
             button.StyleBoxOverride = _sensorRowStyle;
         else if (stale)
             button.StyleBoxOverride = _sensorRowStaleStyle;
         else
             button.StyleBoxOverride = _sensorRowInactiveStyle;
 
-        // Keep Disabled from greying out the bright fill (Binary/Vitals have no GPS).
+        // Keep Disabled from greying out the fill (Binary/Vitals have no GPS).
         button.ModulateSelfOverride = Color.White;
         button.RemoveStyleClass(StyleClass.Positive);
 
-        var textColor = active
+        var textColor = selected || liveTracking
             ? _sensorTextOnLight
             : stale
                 ? _sensorTextStale
@@ -423,7 +491,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
         NavMap.Visible = false;
         MapPlaceholder.Visible = true;
         StationName.AddStyleClass("LabelBig");
-        StationName.Text = Loc.GetString("crew-monitoring-ui-select-server-label");
+        StationName.Text = Loc.GetString("crew-monitoring-ui-scan-initializing");
         NavMap.ForceNavMapUpdate();
     }
 
@@ -472,7 +540,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
 
         if (_rescanInProgress)
         {
-            _rescanProgress += (float) args.DeltaSeconds / ScanDuration;
+            _rescanProgress += (float) args.DeltaSeconds / RescanDuration;
             if (_rescanProgressBar != null)
                 _rescanProgressBar.Value = _rescanProgress;
             if (_rescanProgress >= 1f)
@@ -489,11 +557,80 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
         if (_tryToScrollToListFocus)
             TryToScrollToFocus();
 
+        UpdateCriticalBlink();
+
         _monitorBlipTimer += (float) args.DeltaSeconds;
         if (_monitorBlipTimer >= MonitorBlipMinInterval)
         {
             _monitorBlipTimer = 0f;
             UpdateMonitorBlip(force: false);
+        }
+    }
+
+    private void EnsureCritTextures()
+    {
+        if (_critStatusTextureA != null)
+            return;
+
+        var state = _spriteSystem.GetState(new SpriteSpecifier.Rsi(
+            new ResPath("Interface/Alerts/human_crew_monitoring.rsi"),
+            "critical"));
+        var frames = state.GetFrames(RsiDirection.South);
+        _critStatusTextureA = frames[0];
+        _critStatusTextureB = frames.Length > 1 ? frames[1] : frames[0];
+    }
+
+    private static bool IsCritBlinkPhaseA(double seconds)
+    {
+        return seconds % CritBlinkPeriod < CritBlinkPeriod * 0.5;
+    }
+
+    private static Color GetCritBlinkColor(double seconds)
+    {
+        return IsCritBlinkPhaseA(seconds) ? CritBlinkA : CritBlinkB;
+    }
+
+    private Texture GetCritStatusTexture(double seconds)
+    {
+        EnsureCritTextures();
+        // RSI frame0 is the dark badge, frame1 the yellow one — opposite of CritBlinkA/B.
+        return IsCritBlinkPhaseA(seconds) ? _critStatusTextureB! : _critStatusTextureA!;
+    }
+
+    /// <summary>
+    /// Flashes map blip and crit status icon together from the same RealTime phase.
+    /// </summary>
+    private void UpdateCriticalBlink()
+    {
+        var seconds = _timing.RealTime.TotalSeconds;
+        var color = GetCritBlinkColor(seconds);
+        var statusTexture = GetCritStatusTexture(seconds);
+
+        foreach (var child in SensorsTable.Children)
+        {
+            if (child is not CrewMonitoringButton button || !button.IsCritical)
+                continue;
+
+            if (button.CritStatusIcon != null)
+                button.CritStatusIcon.Texture = statusTexture;
+
+            if (!NavMap.Visible ||
+                !NavMap.TrackedEntities.TryGetValue(button.SuitSensorUid, out var blip))
+            {
+                continue;
+            }
+
+            var blipColor = (_trackedEntity == null || button.SuitSensorUid == _trackedEntity)
+                ? color
+                : color * Color.DimGray;
+            // Crit uses color blink only — visibility blink would fight the phase.
+            NavMap.TrackedEntities[button.SuitSensorUid] = new NavMapBlip(
+                blip.Coordinates,
+                blip.Texture,
+                blipColor,
+                blinks: false,
+                blip.Selectable,
+                blip.Scale);
         }
     }
     // #ADT-Tweak End
@@ -503,6 +640,9 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
     public void ShowSensors(CrewMonitoringState state, EntityUid monitor, EntityCoordinates? monitorCoords)
     {
         _monitorUid = monitor;
+        _lastSensorsState = state;
+        _lastMonitorUid = monitor;
+        _lastMonitorCoords = monitorCoords;
         var sensors = state.Sensors;
         var isEmagged = state.IsEmagged;
         var hasScanned = state.HasScanned;
@@ -526,7 +666,12 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
 
         var servers = state.Servers ?? EmptyServerList;
         var serversHash = HashServersUi(servers, state.SelectedServerUid, hasScanned, state.ServerOnline, _rescanInProgress);
-        var sensorsHash = HashSensorsStructure(sensors, isEmagged, hasScanned, state.SelectedServerUid);
+        var sensorsHash = HashSensorsStructure(
+            sensors,
+            isEmagged,
+            hasScanned,
+            state.SelectedServerUid,
+            WoundedOnlyCheckbox.Pressed);
         if (serversHash == _lastServersUiHash && sensorsHash == _lastSensorsStructureHash)
         {
             // Coordinates-only / heartbeat UI refresh: update crew blips without wiping controls.
@@ -547,7 +692,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
         {
             NavMap.Visible = false;
             MapPlaceholder.Visible = true;
-            StationName.Text = Loc.GetString("crew-monitoring-ui-select-server-label");
+            StationName.Text = Loc.GetString("crew-monitoring-ui-scan-initializing");
             _mapCenteredOnServer = null;
         }
         else
@@ -623,42 +768,85 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
             {
                 var isSelected = selectedServerUid != null && server.NetEntity == selectedServerUid.Value;
                 var statusColor = server.IsOnline ? Color.LimeGreen : Color.Red;
-                var serverRow = new BoxContainer
+                var serverDisplayName = string.IsNullOrEmpty(server.GridName)
+                    ? server.ServerAddress
+                    : $"{server.GridName} — {server.ServerAddress}";
+
+                // Same chrome as crew sensor rows: light = selectable, green = selected, dim = offline.
+                var serverButton = new Button
+                {
+                    HorizontalExpand = true,
+                    Disabled = !server.IsOnline && !isSelected,
+                    Margin = new Thickness(10, 0),
+                };
+
+                if (isSelected)
+                    serverButton.StyleBoxOverride = _sensorRowSelectedStyle;
+                else if (server.IsOnline)
+                    serverButton.StyleBoxOverride = _sensorRowStyle;
+                else
+                    serverButton.StyleBoxOverride = _sensorRowInactiveStyle;
+
+                serverButton.ModulateSelfOverride = Color.White;
+
+                var mainContainer = new BoxContainer
                 {
                     Orientation = LayoutOrientation.Horizontal,
                     HorizontalExpand = true,
-                    Margin = new Thickness(10, 2, 0, 0)
                 };
+                serverButton.AddChild(mainContainer);
+
                 var indicator = new PanelContainer
                 {
                     MinSize = new Vector2(10, 10),
                     MaxSize = new Vector2(10, 10),
                     Margin = new Thickness(0, 0, 6, 0),
-                    PanelOverride = new StyleBoxFlat { BackgroundColor = statusColor }
+                    VerticalAlignment = VAlignment.Center,
+                    PanelOverride = new StyleBoxFlat { BackgroundColor = statusColor },
                 };
-                serverRow.AddChild(indicator);
-                serverRow.AddChild(new Label
+                mainContainer.AddChild(indicator);
+
+                var textColor = isSelected || server.IsOnline
+                    ? _sensorTextOnLight
+                    : _sensorTextMuted;
+
+                var statusLabel = new Label
                 {
                     Text = Loc.GetString(server.IsOnline
                         ? "crew-monitoring-server-online"
                         : "crew-monitoring-server-offline"),
                     FontColorOverride = statusColor,
-                    Margin = new Thickness(0, 0, 8, 0)
-                });
-                var serverDisplayName = string.IsNullOrEmpty(server.GridName)
-                    ? server.ServerAddress
-                    : $"{server.GridName} — {server.ServerAddress}";
-                serverRow.AddChild(new Label { Text = serverDisplayName, ClipText = true, HorizontalExpand = true });
-                var selectButton = new Button
-                {
-                    Text = isSelected ? Loc.GetString("crew-monitoring-server-active") : Loc.GetString("crew-monitoring-server-select"),
-                    Disabled = isSelected
+                    Margin = new Thickness(0, 0, 8, 0),
+                    VerticalAlignment = VAlignment.Center,
                 };
-                ApplyThemedButton(selectButton);
+                mainContainer.AddChild(statusLabel);
+
+                var nameLabel = new Label
+                {
+                    Text = serverDisplayName,
+                    ClipText = true,
+                    HorizontalExpand = true,
+                    FontColorOverride = textColor,
+                    VerticalAlignment = VAlignment.Center,
+                };
+                mainContainer.AddChild(nameLabel);
+
+                if (isSelected)
+                {
+                    mainContainer.AddChild(new Label
+                    {
+                        Text = Loc.GetString("crew-monitoring-server-active"),
+                        FontColorOverride = textColor,
+                        VerticalAlignment = VAlignment.Center,
+                        Margin = new Thickness(8, 0, 0, 0),
+                    });
+                }
+
                 var serverEntity = server.NetEntity;
-                selectButton.OnPressed += _ => OnSelectServer?.Invoke(serverEntity);
-                serverRow.AddChild(selectButton);
-                ServersListContainer.AddChild(serverRow);
+                if (!isSelected && server.IsOnline)
+                    serverButton.OnPressed += _ => OnSelectServer?.Invoke(serverEntity);
+
+                ServersListContainer.AddChild(serverButton);
             }
 
             if (hasServerSelected && _serverBlipTexture != null && NavMap.Visible)
@@ -718,12 +906,12 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
                 switch (sensor.Mode)
                 {
                     case SuitSensorMode.SensorBinary:
-                        sensor.Coordinates = null;
+                        // Keep Coordinates if the server retained a last-known pin.
                         sensor.TotalDamage = null;
                         sensor.TotalDamageThreshold = null;
                         break;
                     case SuitSensorMode.SensorVitals:
-                        sensor.Coordinates = null;
+                        // Same: do not clear Coordinates — last GPS must survive mode downgrade.
                         break;
                 }
             }
@@ -746,6 +934,10 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
             uniqueSensorsMap[sensor.OwnerUid] = sensor;
         }
         var uniqueSensors = uniqueSensorsMap.Values.ToList();
+
+        // "Раненые": only health2+ ("неоч") through corpse — hide healthy crew.
+        if (WoundedOnlyCheckbox.Pressed)
+            uniqueSensors = uniqueSensors.Where(IsWoundedOrWorse).ToList();
 
         // Отделяем критических и мертвых
         var needsHelpSensors = uniqueSensors
@@ -840,13 +1032,11 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
 
         foreach (var sensor in sensors)
         {
-            // Live Binary/Vitals never expose GPS. Inactive rows may still keep a
-            // last-known pin after the wearer switched Off or left range.
+            // Live Binary/Vitals do not stream fresh GPS, but they may still carry a
+            // last-known pin retained by the server after a Cords downgrade.
             if (!isEmagged &&
                 sensor.IsActive &&
-                (sensor.Mode == SuitSensorMode.SensorOff ||
-                 sensor.Mode == SuitSensorMode.SensorBinary ||
-                 sensor.Mode == SuitSensorMode.SensorVitals))
+                sensor.Mode == SuitSensorMode.SensorOff)
             {
                 continue;
             }
@@ -865,16 +1055,21 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
             if (!NavMap.TrackedEntities.TryGetValue(sensor.SuitSensorUid, out var existing))
                 continue;
 
-            var statusColorValue = GetStatusColor(sensor, out _) ?? Color.LimeGreen;
+            var statusColorValue = GetStatusColor(sensor, out var isCritical);
+            var seconds = _timing.RealTime.TotalSeconds;
+            var blipBase = isCritical
+                ? GetCritBlinkColor(seconds)
+                : statusColorValue ?? Color.LimeGreen;
             var blipColor = (_trackedEntity == null || sensor.SuitSensorUid == _trackedEntity)
-                ? statusColorValue
-                : statusColorValue * Color.DimGray;
+                ? blipBase
+                : blipBase * Color.DimGray;
 
             NavMap.TrackedEntities[sensor.SuitSensorUid] = new NavMapBlip(
                 localCoords.Value,
                 existing.Texture,
                 blipColor,
-                sensor.SuitSensorUid == _trackedEntity);
+                // Crit color-blinks; only non-crit focus uses visibility blink.
+                blinks: !isCritical && sensor.SuitSensorUid == _trackedEntity);
         }
     }
 
@@ -906,12 +1101,14 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
         List<SuitSensorStatus> sensors,
         bool isEmagged,
         bool hasScanned,
-        NetEntity? selectedServer)
+        NetEntity? selectedServer,
+        bool woundedOnly)
     {
         var hash = new HashCode();
         hash.Add(isEmagged);
         hash.Add(hasScanned);
         hash.Add(selectedServer);
+        hash.Add(woundedOnly);
         hash.Add(sensors.Count);
         foreach (var sensor in sensors)
         {
@@ -1042,6 +1239,22 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
     // #ADT-Tweak End
 
     // #ADT-Tweak Start - New Monitor: rewritten PopulateDepartmentList
+    /// <summary>
+    /// True for damage starting at health2 ("неоч") up through critical and dead.
+    /// Binary sensors without vitals only match when dead.
+    /// </summary>
+    private static bool IsWoundedOrWorse(SuitSensorStatus sensor)
+    {
+        if (!sensor.IsAlive)
+            return true;
+
+        if (sensor.DamagePercentage is not { } pct)
+            return false;
+
+        // Same mapping as the crew-monitor RSI: Round(4 * pct) → health0..4 / critical.
+        return MathF.Round(4f * pct) >= 2f;
+    }
+
     private void PopulateDepartmentList(IEnumerable<SuitSensorStatus> departmentSensors)
     {
         // Populate departments
@@ -1067,10 +1280,15 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
                 Coordinates = coordinates,
                 SensorMode = sensor.Mode,
                 SensorActive = sensor.IsActive,
+                IsCritical = isCritical,
                 // Allow focusing last-known pins; only blank entries are unusable.
                 Disabled = coordinates == null,
                 HorizontalExpand = true,
-                StatusColor = statusColor ?? Color.LimeGreen, // ADT-Tweak
+                // Lock row height; width is fixed by the sensors panel — halves clip text.
+                MaxHeight = 36,
+                StatusColor = isCritical
+                    ? CritBlinkA
+                    : statusColor ?? Color.LimeGreen, // ADT-Tweak
             };
 
             var selected = sensor.SuitSensorUid == _trackedEntity;
@@ -1082,16 +1300,19 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
             {
                 Orientation = LayoutOrientation.Horizontal,
                 HorizontalExpand = true,
+                MinWidth = 0,
             };
 
             sensorButton.AddChild(mainContainer);
 
-            // User status container (left: icons + full name)
+            // Left 50%: status icons + name (clipped).
             var statusContainer = new BoxContainer()
             {
                 Orientation = LayoutOrientation.Horizontal,
                 HorizontalExpand = true,
+                SizeFlagsStretchRatio = 1,
                 MinWidth = 0,
+                MaxWidth = float.PositiveInfinity,
             };
 
             mainContainer.AddChild(statusContainer);
@@ -1103,66 +1324,89 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
                 TextureScale = new Vector2(0.25f, 0.25f),
                 HorizontalAlignment = HAlignment.Center,
                 VerticalAlignment = VAlignment.Center,
+                HorizontalExpand = false,
             };
 
-            // Green = currently reporting.
-            // Yellow = inactive but last-known data/position retained (incl. after Off).
-            // Red = inactive with no retained position (true blank Off).
-            suitCoordsIndicator.Modulate = sensor.IsActive
-                ? statusColor ?? Color.LimeGreen
-                : sensor.Coordinates != null
-                    ? Color.Yellow
-                    : Color.Red;
+            // Green = sensors reporting; yellow = last-known position; red = no position.
+            if (sensor.IsActive)
+                suitCoordsIndicator.Modulate = Color.LimeGreen;
+            else if (sensor.Coordinates != null)
+                suitCoordsIndicator.Modulate = Color.Yellow;
+            else
+                suitCoordsIndicator.Modulate = Color.Red;
+
             statusContainer.AddChild(suitCoordsIndicator);
 
-            // Specify texture for the user status icon
-            var specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Alerts/human_crew_monitoring.rsi"), "alive");
-
-            if (!sensor.IsAlive)
+            // Status icon — crit is driven in sync with the map blip (same RealTime phase).
+            if (isCritical)
             {
-                specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Alerts/human_crew_monitoring.rsi"), "dead");
+                EnsureCritTextures();
+                var critIcon = new TextureRect
+                {
+                    Texture = GetCritStatusTexture(_timing.RealTime.TotalSeconds),
+                    TextureScale = new Vector2(2f, 2f),
+                    HorizontalAlignment = HAlignment.Center,
+                    VerticalAlignment = VAlignment.Center,
+                    Margin = new Thickness(0, 1, 3, 0),
+                    HorizontalExpand = false,
+                };
+                sensorButton.CritStatusIcon = critIcon;
+                statusContainer.AddChild(critIcon);
+            }
+            else
+            {
+                var specifier = new SpriteSpecifier.Rsi(
+                    new ResPath("Interface/Alerts/human_crew_monitoring.rsi"),
+                    "alive");
+
+                if (!sensor.IsAlive)
+                {
+                    specifier = new SpriteSpecifier.Rsi(
+                        new ResPath("Interface/Alerts/human_crew_monitoring.rsi"),
+                        "dead");
+                }
+                else if (sensor.DamagePercentage != null)
+                {
+                    var index = Math.Clamp(
+                        (int) MathF.Round(4f * sensor.DamagePercentage.Value),
+                        0,
+                        4);
+                    specifier = new SpriteSpecifier.Rsi(
+                        new ResPath("Interface/Alerts/human_crew_monitoring.rsi"),
+                        "health" + index);
+                }
+
+                var statusIcon = new AnimatedTextureRect
+                {
+                    HorizontalAlignment = HAlignment.Center,
+                    VerticalAlignment = VAlignment.Center,
+                    Margin = new Thickness(0, 1, 3, 0),
+                    HorizontalExpand = false,
+                };
+
+                statusIcon.SetFromSpriteSpecifier(specifier);
+                statusIcon.DisplayRect.TextureScale = new Vector2(2f, 2f);
+                statusContainer.AddChild(statusIcon);
             }
 
-            else if (sensor.DamagePercentage != null)
-            {
-                var index = MathF.Round(4f * sensor.DamagePercentage.Value);
-
-                if (index >= 5)
-                    specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Alerts/human_crew_monitoring.rsi"), "critical");
-
-                else
-                    specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Alerts/human_crew_monitoring.rsi"), "health" + index);
-            }
-
-            // Status icon
-            var statusIcon = new AnimatedTextureRect
-            {
-                HorizontalAlignment = HAlignment.Center,
-                VerticalAlignment = VAlignment.Center,
-                Margin = new Thickness(0, 1, 3, 0),
-            };
-
-            statusIcon.SetFromSpriteSpecifier(specifier);
-            statusIcon.DisplayRect.TextureScale = new Vector2(2f, 2f);
-
-            statusContainer.AddChild(statusIcon);
-
-            // User name — never clip; job sits on the right.
+            // Name occupies the rest of the left half; long names are clipped.
             var nameLabel = new Label()
             {
                 Text = sensor.Name,
                 HorizontalExpand = true,
-                ClipText = false,
+                MinWidth = 0,
+                ClipText = true,
             };
 
             statusContainer.AddChild(nameLabel);
 
-            // Job container pinned to the right edge of the row.
+            // Right 50%: job icon + title (clipped).
             var jobContainer = new BoxContainer()
             {
                 Orientation = LayoutOrientation.Horizontal,
-                HorizontalExpand = false,
-                HorizontalAlignment = HAlignment.Right,
+                HorizontalExpand = true,
+                SizeFlagsStretchRatio = 1,
+                MinWidth = 0,
                 Margin = new Thickness(8, 0, 0, 0),
             };
 
@@ -1177,6 +1421,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
                     VerticalAlignment = VAlignment.Center,
                     Texture = _spriteSystem.Frame0(proto.Icon),
                     Margin = new Thickness(5, 0, 5, 0),
+                    HorizontalExpand = false,
                 };
 
                 jobContainer.AddChild(jobIcon);
@@ -1186,9 +1431,10 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
             var jobLabel = new Label()
             {
                 Text = sensor.Job,
-                HorizontalExpand = false,
-                ClipText = false,
-                Align = Label.AlignMode.Right,
+                HorizontalExpand = true,
+                MinWidth = 0,
+                ClipText = true,
+                Align = Label.AlignMode.Left,
             };
 
             jobContainer.AddChild(jobLabel);
@@ -1203,15 +1449,21 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
                     continue;
 
                 // ADT-Tweak start
-                var statusColorValue = GetStatusColor(sensor, out _);
-                var blipColor = (_trackedEntity == null || sensor.SuitSensorUid == _trackedEntity) ? statusColorValue : statusColorValue * Color.DimGray;
+                var statusColorValue = GetStatusColor(sensor, out var isCriticalBlip);
+                var seconds = _timing.RealTime.TotalSeconds;
+                var blipBase = isCriticalBlip
+                    ? GetCritBlinkColor(seconds)
+                    : statusColorValue ?? Color.LimeGreen;
+                var blipColor = (_trackedEntity == null || sensor.SuitSensorUid == _trackedEntity)
+                    ? blipBase
+                    : blipBase * Color.DimGray;
                 // ADT-Tweak end
                 NavMap.TrackedEntities.TryAdd(sensor.SuitSensorUid,
                     new NavMapBlip
                     (localCoords.Value,
                     _blipTexture,
-                    blipColor ?? Color.LimeGreen, // ADT-Tweak
-                    sensor.SuitSensorUid == _trackedEntity));
+                    blipColor, // ADT-Tweak
+                    blinks: !isCriticalBlip && sensor.SuitSensorUid == _trackedEntity));
 
                 NavMap.Focus = _trackedEntity;
 
@@ -1281,15 +1533,19 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
                     continue;
 
                 // ADT-Tweak start
+                var seconds = _timing.RealTime.TotalSeconds;
+                var blipBase = castSensor.IsCritical
+                    ? GetCritBlinkColor(seconds)
+                    : castSensor.StatusColor;
                 var blipColor = (currTrackedEntity == null || castSensor.SuitSensorUid == currTrackedEntity)
-                    ? castSensor.StatusColor
-                    : castSensor.StatusColor * Color.DimGray;
+                    ? blipBase
+                    : blipBase * Color.DimGray;
                 // ADT-Tweak end
                 data = new NavMapBlip
                     (localCoords.Value,
                     data.Texture,
                     blipColor, // ADT-Tweak
-                    castSensor.SuitSensorUid == currTrackedEntity);
+                    blinks: !castSensor.IsCritical && castSensor.SuitSensorUid == currTrackedEntity);
 
                 NavMap.TrackedEntities[castSensor.SuitSensorUid] = data;
             }
@@ -1352,17 +1608,17 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
     {
         isCritical = false;
 
-        if (sensor.Coordinates == null)
-            return null;
-
         if (!sensor.IsAlive)
-            return Color.Gray;
+            return sensor.Coordinates == null ? null : Color.Gray;
 
         if (sensor.DamagePercentage != null && sensor.DamagePercentage.Value >= 0.8f)
         {
             isCritical = true;
-            return Color.Red;
+            return CritBlinkA;
         }
+
+        if (sensor.Coordinates == null)
+            return null;
 
         if (sensor.DamagePercentage != null && sensor.DamagePercentage.Value >= 0.5f)
             return Color.Gold;
@@ -1390,6 +1646,8 @@ public sealed class CrewMonitoringButton : Button
     // #ADT-Tweak Start - New Monitor: button sensor mode/active
     public SuitSensorMode SensorMode;
     public bool SensorActive;
+    public bool IsCritical;
+    public TextureRect? CritStatusIcon;
     // #ADT-Tweak End
     public Color StatusColor; // ADT-Tweak
 }

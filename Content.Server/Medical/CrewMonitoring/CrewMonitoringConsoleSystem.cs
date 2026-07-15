@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Server.Medical.SuitSensors;
 using Content.Server.ADT.Medical.CrewMonitoring;
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
@@ -33,6 +34,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
     // #ADT-Tweak Start - New Monitor: server subscriber pipeline
     [Dependency] private readonly CrewMonitoringServerSystem _crewServers = default!;
+    [Dependency] private readonly SuitSensorSystem _suitSensors = default!;
     // #ADT-Tweak End
 
 
@@ -68,6 +70,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringScanStartMessage>(OnScanStart);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringScanCompleteMessage>(OnScanComplete);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringRescanMessage>(OnRescan);
+        SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringResetSensorsMessage>(OnResetSensors);
         SubscribeLocalEvent<CrewMonitoringServerComponent, EntityTerminatingEvent>(OnServerTerminating);
         SubscribeLocalEvent<CrewMonitoringServerComponent, CrewMonitoringServerUpdateEvent>(OnServerUpdate);
         // #ADT-Tweak End
@@ -97,7 +100,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     {
         component.HasScanned = true;
         component.ScanStartedAt = null;
-        component.ServersListDirty = true;
+        DiscoverServers(uid, component);
         PopulateNavMapsForConsole(uid, component);
         UpdateUserInterface(uid, component);
     }
@@ -105,6 +108,8 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     private void OnRescan(EntityUid uid, CrewMonitoringConsoleComponent component, CrewMonitoringRescanMessage args)
     {
         var now = _gameTiming.CurTime;
+        DiscoverServers(uid, component);
+
         var query = EntityQueryEnumerator<CrewMonitoringServerComponent>();
 
         while (query.MoveNext(out var serverUid, out var server))
@@ -129,7 +134,6 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
                 component.ConnectedSensors = CrewMonitoringServerSystem.CopyLastSnapshot(server);
             }
             component.LastReferenceFrame = server.ReferenceFrame;
-            component.ServersListDirty = true;
 
             if (IsServerResponding(serverUid))
             {
@@ -143,6 +147,55 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             }
         }
 
+        PopulateNavMapsForConsole(uid, component);
+        UpdateUserInterface(uid, component);
+    }
+
+    private void OnResetSensors(EntityUid uid, CrewMonitoringConsoleComponent component, CrewMonitoringResetSensorsMessage args)
+    {
+        if (!component.HasScanned)
+            return;
+
+        // Drop the console's retained view immediately so the UI goes empty until
+        // suit sensors re-report.
+        if (component.ConnectedSensors.Count != 0)
+            component.ConnectedSensors = new();
+
+        var query = EntityQueryEnumerator<CrewMonitoringServerComponent>();
+        while (query.MoveNext(out var serverUid, out var server))
+        {
+            if (!IsServerInRange(uid, serverUid))
+                continue;
+
+            // Prefer the selected server; otherwise wipe every discovered/reachable one
+            // this console has listed so stale pins cannot linger after reset.
+            if (component.SelectedServerUid != null)
+            {
+                if (component.SelectedServerUid != serverUid)
+                    continue;
+            }
+            else if (server.SubscriberConsoles.Count == 0 || !server.SubscriberConsoles.Contains(uid))
+            {
+                var known = false;
+                foreach (var entry in component.CachedServers)
+                {
+                    if (TryGetEntity(entry.NetEntity, out var knownUid) && knownUid == serverUid)
+                    {
+                        known = true;
+                        break;
+                    }
+                }
+
+                if (!known)
+                    continue;
+            }
+
+            server.SensorStatus.Clear();
+            server.LastSensorSnapshot.Clear();
+            server.SnapshotDirty = true;
+        }
+
+        _suitSensors.ForceImmediateReports();
         PopulateNavMapsForConsole(uid, component);
         UpdateUserInterface(uid, component);
     }
@@ -610,6 +663,17 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Full server discovery — only on initial scan / explicit rescan.
+    /// Between scans the list is frozen; status of known entries may still refresh.
+    /// </summary>
+    private void DiscoverServers(EntityUid consoleUid, CrewMonitoringConsoleComponent component)
+    {
+        component.CachedServers = GetServersInRange(consoleUid);
+        component.LastServersRefresh = _gameTiming.CurTime;
+        component.ServersListDirty = false;
+    }
+
     private List<CrewMonitoringServerEntry> GetCachedServersInRange(
         EntityUid consoleUid,
         CrewMonitoringConsoleComponent component)
@@ -622,10 +686,37 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             return component.CachedServers;
         }
 
-        component.CachedServers = GetServersInRange(consoleUid);
+        RefreshCachedServerStatus(consoleUid, component);
         component.LastServersRefresh = now;
         component.ServersListDirty = false;
         return component.CachedServers;
+    }
+
+    /// <summary>
+    /// Updates online/coords/range for servers already discovered by scan/rescan.
+    /// Does not add newly appeared servers — that requires DiscoverServers.
+    /// </summary>
+    private void RefreshCachedServerStatus(EntityUid consoleUid, CrewMonitoringConsoleComponent component)
+    {
+        foreach (var entry in component.CachedServers)
+        {
+            if (!TryGetEntity(entry.NetEntity, out var serverUid) ||
+                !TryComp<CrewMonitoringServerComponent>(serverUid.Value, out var serverComp) ||
+                !TryComp(serverUid.Value, out TransformComponent? serverXform) ||
+                !IsServerInRange(consoleUid, serverUid.Value))
+            {
+                entry.IsOnline = false;
+                continue;
+            }
+
+            entry.Coordinates = GetNetCoordinates(serverXform.Coordinates);
+            entry.ServerAddress = serverComp.ServerAddress ?? string.Empty;
+            entry.IsOnline = IsServerResponding(serverUid.Value);
+            entry.GridName = serverXform.GridUid != null ? Name(serverXform.GridUid.Value) : string.Empty;
+            entry.SensorRange = TryComp<WirelessNetworkComponent>(serverUid.Value, out var wireless)
+                ? wireless.Range
+                : 0f;
+        }
     }
 
     private List<CrewMonitoringServerEntry> GetServersInRange(EntityUid consoleUid)

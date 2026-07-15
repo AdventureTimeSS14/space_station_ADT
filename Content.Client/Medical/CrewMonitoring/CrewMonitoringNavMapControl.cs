@@ -139,18 +139,18 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         _volumeIcon = new TextureRect
         {
             Texture = volumeTex,
-            SetSize = new Vector2(14, 14),
+            SetSize = new Vector2(10, 10),
             HorizontalAlignment = HAlignment.Center,
             Stretch = TextureRect.StretchMode.KeepCentered,
-            Margin = new Thickness(1, 2, 1, 0),
+            Margin = new Thickness(1, 6, 1, 4),
         };
         _volumeSlider = new CrewMonitoringVerticalSlider
         {
             HorizontalAlignment = HAlignment.Center,
             HorizontalExpand = true,
-            MinHeight = 64,
+            MinHeight = 72,
             MinWidth = 14,
-            Margin = new Thickness(3, 0, 3, 2),
+            Margin = new Thickness(3, 0, 3, 4),
         };
         _volumeSlider.OnValueChanged += value =>
         {
@@ -167,6 +167,7 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         {
             MinWidth = volumePanelWidth,
             MaxWidth = volumePanelWidth,
+            MinHeight = 110,
             Children =
             {
                 new BoxContainer
