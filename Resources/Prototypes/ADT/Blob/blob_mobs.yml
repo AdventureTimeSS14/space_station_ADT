@@ -165,11 +165,11 @@
       hidden: true
       soundHit:
         path: /Audio/Effects/bite.ogg
-      angle: 0
+      angle: 90
       animation: WeaponArcSmash
       damage:
         types:
-          Blunt: 15
+          Blunt: 20
           Structural: 50
     - type: DamageStateVisuals
       states:
