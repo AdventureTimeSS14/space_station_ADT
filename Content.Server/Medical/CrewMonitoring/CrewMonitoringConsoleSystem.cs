@@ -151,6 +151,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         UpdateUserInterface(uid, component);
     }
 
+    // #ADT-Tweak Start - New Monitor: reset snapshots + force re-ingest
     private void OnResetSensors(EntityUid uid, CrewMonitoringConsoleComponent component, CrewMonitoringResetSensorsMessage args)
     {
         if (!component.HasScanned)
@@ -199,6 +200,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         PopulateNavMapsForConsole(uid, component);
         UpdateUserInterface(uid, component);
     }
+    // #ADT-Tweak End
 
     private void OnSelectServer(EntityUid uid, CrewMonitoringConsoleComponent component, CrewMonitoringSelectServerMessage args)
     {

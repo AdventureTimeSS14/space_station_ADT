@@ -114,16 +114,19 @@
                             </BoxContainer>
                             <!-- #ADT-Tweak End -->
 
+                            <!-- #ADT-Tweak Start - New Monitor: sensors/servers tabs + wounded filter / reset -->
                             <!-- After scan: tabs Датчики / Сервера -->
                             <TabContainer Name="MainTabs" VerticalExpand="True" Visible="false" MinHeight="0">
                                 <BoxContainer Orientation="Vertical" VerticalExpand="True" MinHeight="0">
                                     <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 0">
                                         <LineEdit Name="SearchLineEdit" HorizontalExpand="True"
                                                   PlaceHolder="{Loc crew-monitoring-ui-filter-line-placeholder}" />
+                                        <!-- #ADT-Tweak Start - New Monitor: wounded-only filter + reset snapshots -->
                                         <CheckBox Name="WoundedOnlyCheckbox" Text="{Loc crew-monitoring-ui-wounded-only}"
                                                   Margin="6 0 0 0"/>
                                         <Button Name="ResetSensorsButton" Text="{Loc crew-monitoring-ui-reset-sensors}"
                                                 Margin="6 0 0 0" MinWidth="90"/>
+                                        <!-- #ADT-Tweak End -->
                                     </BoxContainer>
                                     <ScrollContainer Name="SensorScroller"
                                                      VerticalExpand="True"
@@ -148,6 +151,7 @@
                                 </ScrollContainer>
                                 <!-- #ADT-Tweak End -->
                             </TabContainer>
+                            <!-- #ADT-Tweak End -->
                         </BoxContainer>
                         </PanelContainer>
                     </BoxContainer>

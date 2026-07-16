@@ -74,13 +74,16 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
     /// </summary>
     public Action? OnRescan;
 
+    // #ADT-Tweak Start - New Monitor: reset snapshots callback
     /// <summary>
     /// Called when the user clicks "Reset" to clear sensor snapshots and re-ingest.
     /// </summary>
     public Action? OnResetSensors;
+    // #ADT-Tweak End
 
     private const float ScanDuration = 5f;
     private const float RescanDuration = 3f;
+    // #ADT-Tweak Start - New Monitor: crit blink phase (map blip + status icon)
     // Crit badge colors from the medical HUD "КРИТ." icons (yellow ↔ navy).
     private static readonly Color CritBlinkA = Color.FromHex("#F7D264");
     private static readonly Color CritBlinkB = Color.FromHex("#1A2C4E");
@@ -91,6 +94,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
 
     private Texture? _critStatusTextureA;
     private Texture? _critStatusTextureB;
+    // #ADT-Tweak End
     private float _scanProgress;
     private float _scanWaitingRetry;
     private bool _rescanInProgress;
@@ -188,6 +192,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
             OnScanStarted?.Invoke();
         };
 
+        // #ADT-Tweak Start - New Monitor: reset + wounded-only filter wiring
         ResetSensorsButton.OnPressed += _ => OnResetSensors?.Invoke();
         WoundedOnlyCheckbox.OnToggled += _ =>
         {
@@ -195,6 +200,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
             if (_lastSensorsState != null)
                 ShowSensors(_lastSensorsState, _lastMonitorUid, _lastMonitorCoords);
         };
+        // #ADT-Tweak End
     }
 
     /// <summary>
@@ -361,8 +367,10 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
             BorderThickness = new Thickness(1),
         };
 
+        // #ADT-Tweak Start - New Monitor: theme reset button
         ApplyThemedButton(ResetSensorsButton);
         ResetSensorsButton.ModulateSelfOverride = Color.White;
+        // #ADT-Tweak End
 
         // Map wash + toolbar (zoom / beacons / recenter) + neighbor grids.
         // Toolbar panel must be mid-brightness so it reads as themed, not charcoal.
@@ -423,7 +431,9 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
 
     private void ApplyThemedCheckBoxes()
     {
+        // #ADT-Tweak Start - New Monitor: theme wounded-only checkbox
         ApplyThemedCheckBox(WoundedOnlyCheckbox);
+        // #ADT-Tweak End
         NavMap.ApplyCheckboxTheme(_checkboxColor);
     }
 
@@ -557,7 +567,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
         if (_tryToScrollToListFocus)
             TryToScrollToFocus();
 
-        UpdateCriticalBlink();
+        UpdateCriticalBlink(); //ADT-Tweak: NewMonitor crit blink
 
         _monitorBlipTimer += (float) args.DeltaSeconds;
         if (_monitorBlipTimer >= MonitorBlipMinInterval)
@@ -567,6 +577,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
         }
     }
 
+    // #ADT-Tweak Start - New Monitor: crit blink helpers
     private void EnsureCritTextures()
     {
         if (_critStatusTextureA != null)
@@ -633,6 +644,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
                 blip.Scale);
         }
     }
+    // #ADT-Tweak End
     // #ADT-Tweak End
 
     // ADT-Tweak-start (P4A) Обновление мониторинга. Категория "Нужна помощь"
@@ -935,9 +947,11 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
         }
         var uniqueSensors = uniqueSensorsMap.Values.ToList();
 
+        // #ADT-Tweak Start - New Monitor: wounded-only client filter
         // "Раненые": only health2+ ("неоч") through corpse — hide healthy crew.
         if (WoundedOnlyCheckbox.Pressed)
             uniqueSensors = uniqueSensors.Where(IsWoundedOrWorse).ToList();
+        // #ADT-Tweak End
 
         // Отделяем критических и мертвых
         var needsHelpSensors = uniqueSensors
@@ -1239,6 +1253,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
     // #ADT-Tweak End
 
     // #ADT-Tweak Start - New Monitor: rewritten PopulateDepartmentList
+    // #ADT-Tweak Start - New Monitor: wounded-only filter predicate
     /// <summary>
     /// True for damage starting at health2 ("неоч") up through critical and dead.
     /// Binary sensors without vitals only match when dead.
@@ -1254,6 +1269,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
         // Same mapping as the crew-monitor RSI: Round(4 * pct) → health0..4 / critical.
         return MathF.Round(4f * pct) >= 2f;
     }
+    // #ADT-Tweak End
 
     private void PopulateDepartmentList(IEnumerable<SuitSensorStatus> departmentSensors)
     {

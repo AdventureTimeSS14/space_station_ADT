@@ -201,6 +201,7 @@ public sealed class CrewMonitoringRescanMessage : BoundUserInterfaceMessage
 {
 }
 
+// #ADT-Tweak Start - New Monitor: reset snapshots BUI message
 /// <summary>
 /// Clears retained sensor snapshots and forces a fresh ingest from suit sensors.
 /// </summary>
@@ -208,6 +209,7 @@ public sealed class CrewMonitoringRescanMessage : BoundUserInterfaceMessage
 public sealed class CrewMonitoringResetSensorsMessage : BoundUserInterfaceMessage
 {
 }
+// #ADT-Tweak End
 
 
 [Serializable, NetSerializable]
