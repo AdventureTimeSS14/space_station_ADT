@@ -325,10 +325,8 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
 
     private static bool IsUrgentStatus(SuitSensorStatus status)
     {
-        if (!status.IsAlive)
-            return true;
-
-        return status.DamagePercentage is >= 0.8f;
+        // Dead or true softcrit (unconscious) — not merely high damage while awake.
+        return !status.IsAlive || status.IsCritical; //ADT-Tweak: NewMonitor
     }
     // #ADT-Tweak End
 
@@ -513,6 +511,7 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         {
             Timestamp = timestamp,
             IsAlive = source.IsAlive,
+            IsCritical = source.IsCritical, //ADT-Tweak: NewMonitor
             TotalDamage = source.TotalDamage,
             TotalDamageThreshold = source.TotalDamageThreshold,
             Coordinates = coordinates,
@@ -532,6 +531,7 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
             existing.Job != incoming.Job ||
             existing.JobIcon != incoming.JobIcon ||
             existing.IsAlive != incoming.IsAlive ||
+            existing.IsCritical != incoming.IsCritical || //ADT-Tweak: NewMonitor
             existing.TotalDamage != incoming.TotalDamage ||
             existing.TotalDamageThreshold != incoming.TotalDamageThreshold ||
             !Nullable.Equals(existing.Coordinates, framedCoords) ||

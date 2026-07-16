@@ -197,6 +197,8 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         }
 
         _suitSensors.ForceImmediateReports();
+        component.KnownAlertStates.Clear(); //ADT-Tweak: NewMonitor
+        component.NextCritAlertTime = TimeSpan.Zero;
         PopulateNavMapsForConsole(uid, component);
         UpdateUserInterface(uid, component);
     }
@@ -254,6 +256,9 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         }
 
         PopulateNavMapsForConsole(uid, component);
+        // Fresh selection: empty KnownAlertStates → one beep if anyone is already crit/dead.
+        component.KnownAlertStates.Clear();
+        ProcessCritAlertSound(uid, component); //ADT-Tweak: NewMonitor
         UpdateUserInterface(uid, component);
     }
 
@@ -267,7 +272,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
         _consoleUpdateAccumulator -= ConsoleUpdateInterval;
         UpdatePendingScans();
-        UpdateCritAlerts();
+        UpdateCritAlertReminders();
         UpdateOfflineConsoles();
     }
 
@@ -307,50 +312,118 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
             comp.OfflineStateSent = true;
             comp.ServersListDirty = true;
+            comp.KnownAlertStates.Clear(); //ADT-Tweak: NewMonitor — re-alert after reconnect
+            comp.NextCritAlertTime = TimeSpan.Zero;
             UpdateUserInterface(uid, comp);
         }
     }
 
+    // #ADT-Tweak Start - New Monitor: edge + 30s reminder crit/dead alerts
     /// <summary>
-    /// When any connected sensor is crit or dead, play alert at the console and repeat every CritAlertInterval.
+    /// Reminder ping every <see cref="CrewMonitoringConsoleComponent.CritAlertInterval"/>
+    /// while any filtered sensor remains crit or dead.
     /// </summary>
-    private void UpdateCritAlerts()
+    private void UpdateCritAlertReminders()
     {
         var now = _gameTiming.CurTime;
         var query = EntityQueryEnumerator<CrewMonitoringConsoleComponent>();
 
         while (query.MoveNext(out var uid, out var comp))
         {
-            var isOnline = IsSelectedServerOnline(comp, now);
-            if (!isOnline)
-                continue; // Don't play alert from stale cached data
-
-            var hasCritOrDead = HasAlertCondition(comp.ConnectedSensors.Values);
-
-            if (!hasCritOrDead)
+            if (!IsSelectedServerOnline(comp, now))
             {
                 comp.NextCritAlertTime = TimeSpan.Zero;
                 continue;
             }
 
-            if (comp.NextCritAlertTime != TimeSpan.Zero && now < comp.NextCritAlertTime)
+            if (!HasAlertCondition(FilterSensors(comp, comp.ConnectedSensors.Values)))
+            {
+                comp.NextCritAlertTime = TimeSpan.Zero;
+                continue;
+            }
+
+            // Edge path schedules the first reminder; wait until then.
+            if (comp.NextCritAlertTime == TimeSpan.Zero || now < comp.NextCritAlertTime)
                 continue;
 
-            if (comp.AlertMuted)
-                continue;
-
-            if (comp.AlertVolume <= 0.01f)
-                continue;
-
-            var baseVolume = AudioParams.Default.Volume;
-            if (comp.CritAlertSound.Params.Volume != 0)
-                baseVolume = comp.CritAlertSound.Params.Volume;
-
-            // Map 0..1 UI volume onto a usable dB range ending at the sound's configured volume.
-            var volumeDb = MathHelper.Lerp(baseVolume - 32f, baseVolume, Math.Clamp(comp.AlertVolume, 0f, 1f));
-            _audio.PlayPvs(comp.CritAlertSound, uid, AudioParams.Default.WithVolume(volumeDb));
+            TryPlayCritAlertSound(uid, comp);
             comp.NextCritAlertTime = now + TimeSpan.FromSeconds(comp.CritAlertInterval);
         }
+    }
+
+    /// <summary>
+    /// Immediate alert when a wearer newly enters softcrit or dies (including crit→dead).
+    /// Resets the reminder timer so the next ping is a full interval later.
+    /// </summary>
+    private void ProcessCritAlertSound(EntityUid uid, CrewMonitoringConsoleComponent comp)
+    {
+        var now = _gameTiming.CurTime;
+        if (!IsSelectedServerOnline(comp, now))
+        {
+            comp.KnownAlertStates.Clear();
+            comp.NextCritAlertTime = TimeSpan.Zero;
+            return;
+        }
+
+        // Match UI filter (department handhelds) so alerts only cover visible crew.
+        var sensors = FilterSensors(comp, comp.ConnectedSensors.Values);
+        var current = new Dictionary<NetEntity, bool>();
+        foreach (var sensor in sensors)
+        {
+            if (!sensor.IsActive || sensor.Mode == SuitSensorMode.SensorOff)
+                continue;
+
+            if (!sensor.IsAlive)
+                current[sensor.OwnerUid] = true;
+            else if (sensor.IsCritical)
+                current[sensor.OwnerUid] = false;
+        }
+
+        var shouldPlay = false;
+        foreach (var (owner, isDead) in current)
+        {
+            if (!comp.KnownAlertStates.TryGetValue(owner, out var wasDead) || wasDead != isDead)
+            {
+                shouldPlay = true;
+                break;
+            }
+        }
+
+        comp.KnownAlertStates.Clear();
+        foreach (var (owner, isDead) in current)
+            comp.KnownAlertStates[owner] = isDead;
+
+        if (current.Count == 0)
+        {
+            comp.NextCritAlertTime = TimeSpan.Zero;
+            return;
+        }
+
+        if (!shouldPlay)
+        {
+            // Still alerting — ensure a reminder is scheduled if somehow unset.
+            if (comp.NextCritAlertTime == TimeSpan.Zero)
+                comp.NextCritAlertTime = now + TimeSpan.FromSeconds(comp.CritAlertInterval);
+            return;
+        }
+
+        TryPlayCritAlertSound(uid, comp);
+        // Always arm the reminder — mute only suppresses audio, not the schedule.
+        comp.NextCritAlertTime = now + TimeSpan.FromSeconds(comp.CritAlertInterval);
+    }
+
+    private bool TryPlayCritAlertSound(EntityUid uid, CrewMonitoringConsoleComponent comp)
+    {
+        if (comp.AlertMuted || comp.AlertVolume <= 0.01f)
+            return false;
+
+        var baseVolume = AudioParams.Default.Volume;
+        if (comp.CritAlertSound.Params.Volume != 0)
+            baseVolume = comp.CritAlertSound.Params.Volume;
+
+        var volumeDb = MathHelper.Lerp(baseVolume - 32f, baseVolume, Math.Clamp(comp.AlertVolume, 0f, 1f));
+        _audio.PlayPvs(comp.CritAlertSound, uid, AudioParams.Default.WithVolume(volumeDb));
+        return true;
     }
     // #ADT-Tweak End
 
@@ -457,6 +530,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         console.LastGridUid =
             serverXform.GridUid != null ? GetNetEntity(serverXform.GridUid.Value) : null;
 
+        ProcessCritAlertSound(consoleUid, console); //ADT-Tweak: NewMonitor — edge alert on snapshot
         UpdateUserInterface(consoleUid, console);
         return true;
     }
@@ -612,8 +686,8 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
                 continue;
             }
 
-            if (!sensor.IsAlive ||
-                (sensor.DamagePercentage != null && sensor.DamagePercentage.Value >= 0.8f))
+            // Alert only for dead or MobState.Critical (unconscious), not high damage while awake.
+            if (!sensor.IsAlive || sensor.IsCritical) //ADT-Tweak: NewMonitor
             {
                 return true;
             }

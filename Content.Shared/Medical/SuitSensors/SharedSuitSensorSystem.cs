@@ -435,14 +435,21 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         userJobDepartments ??= SuitSensorStatus.NoDepartments;
 
         // get health mob state
+        // IsAlive = not dead (critical still counts as alive).
+        // IsCritical = MobState.Critical only — high damage while conscious is NOT crit.
         var isAlive = false;
+        var isCritical = false;
         if (TryComp(sensor.User.Value, out MobStateComponent? mobState))
+        {
             isAlive = !_mobStateSystem.IsDead(sensor.User.Value, mobState);
+            isCritical = _mobStateSystem.IsCritical(sensor.User.Value, mobState); //ADT-Tweak: NewMonitor
+        }
 
         // finally, form suit sensor status
         var status = new SuitSensorStatus(GetNetEntity(sensor.User.Value), GetNetEntity(ent.Owner), userName, userJob, userJobIcon, userJobDepartments)
         {
             IsAlive = isAlive,
+            IsCritical = isCritical, //ADT-Tweak: NewMonitor
         };
         switch (sensor.Mode)
         {

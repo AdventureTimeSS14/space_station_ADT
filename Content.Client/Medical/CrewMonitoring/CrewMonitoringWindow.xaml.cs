@@ -345,7 +345,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
         _sensorRowStaleStyle = MakeSensorButtonBox(staleFill);
         _sensorRowInactiveStyle = MakeSensorButtonBox(darkFill);
 
-        // Start-scan: brightest available-sensor fill; LabelHeading gray text (not white).
+        // Start-scan: available-sensor fill; pure white label.
         var startScanBox = MakeSensorButtonBox(lightFill);
         startScanBox.SetContentMarginOverride(StyleBox.Margin.Vertical, 8);
         startScanBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 14);
@@ -353,7 +353,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
         // Cancel Nano's default ButtonColorDefault (#464966) modulate — same as sensor rows.
         StartScanButton.ModulateSelfOverride = Color.White;
         StartScanButton.Label.FontOverride = _resourceCache.NotoStack(variation: "Bold", size: 16);
-        StartScanButton.Label.FontColorOverride = Color.Gray;
+        StartScanButton.Label.FontColorOverride = Color.White; //ADT-Tweak: NewMonitor
         StartScanButton.Label.ModulateSelfOverride = Color.White;
 
         // Checkboxes: same brightness class as the ONLINE indicator.
@@ -953,11 +953,12 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
             uniqueSensors = uniqueSensors.Where(IsWoundedOrWorse).ToList();
         // #ADT-Tweak End
 
-        // Отделяем критических и мертвых
+        // Отделяем без сознания (crit), мёртвых и тяжело раненых (health≈4).
         var needsHelpSensors = uniqueSensors
             .Where(s => s.IsActive &&
                         s.Mode != SuitSensorMode.SensorOff &&
                         (!s.IsAlive ||
+                         s.IsCritical || //ADT-Tweak: NewMonitor — MobState.Critical
                          (s.DamagePercentage != null && s.DamagePercentage.Value >= 0.8f)))
             .ToList();
         var otherSensors = uniqueSensors.Except(needsHelpSensors).ToList();
@@ -1132,6 +1133,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
             hash.Add(sensor.Job);
             hash.Add(sensor.JobIcon);
             hash.Add(sensor.IsAlive);
+            hash.Add(sensor.IsCritical); //ADT-Tweak: NewMonitor
             hash.Add(sensor.TotalDamage);
             hash.Add(sensor.TotalDamageThreshold);
             hash.Add(sensor.Mode);
@@ -1622,16 +1624,15 @@ public sealed partial class CrewMonitoringWindow : BaseWindow
     // ADT-Tweak start
     private Color? GetStatusColor(SuitSensorStatus sensor, out bool isCritical)
     {
-        isCritical = false;
+        // Badge/blink "КРИТ." only for MobState.Critical (unconscious).
+        // High DamagePercentage while still Alive uses health0..health4, not crit.
+        isCritical = sensor.IsAlive && sensor.IsCritical;
 
         if (!sensor.IsAlive)
             return sensor.Coordinates == null ? null : Color.Gray;
 
-        if (sensor.DamagePercentage != null && sensor.DamagePercentage.Value >= 0.8f)
-        {
-            isCritical = true;
+        if (isCritical)
             return CritBlinkA;
-        }
 
         if (sensor.Coordinates == null)
             return null;

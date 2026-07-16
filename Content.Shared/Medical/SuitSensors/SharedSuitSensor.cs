@@ -31,6 +31,12 @@ public sealed class SuitSensorStatus
     public string JobIcon;
     public List<string> JobDepartments;
     public bool IsAlive;
+    // #ADT-Tweak Start - New Monitor: true MobState.Critical (unconscious), not high damage
+    /// <summary>
+    /// Wearer is in <c>MobState.Critical</c> (unconscious softcrit), not merely near the damage threshold.
+    /// </summary>
+    public bool IsCritical;
+    // #ADT-Tweak End
     public int? TotalDamage;
     public int? TotalDamageThreshold;
     public float? DamagePercentage => TotalDamageThreshold == null || TotalDamage == null ? null : TotalDamage / (float)TotalDamageThreshold;

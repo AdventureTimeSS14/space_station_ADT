@@ -49,22 +49,30 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
 
     // #ADT-Tweak Start - New Monitor: alerts, server selection, scan, snapshot pipeline
     /// <summary>
-    /// Sound played when any monitored sensor reports crit or dead. Repeats every CritAlertInterval seconds.
+    /// Sound played on crit/dead sensor edges and as a reminder while any remain.
     /// </summary>
     [DataField("critAlertSound")]
     public SoundSpecifier CritAlertSound = new SoundPathSpecifier("/Audio/ADT/Machines/crew_monitor_crit_alert.ogg");
 
     /// <summary>
-    /// Interval in seconds between repeated crit/dead alerts.
+    /// Reminder ping interval while at least one sensor is still crit or dead.
+    /// Edge transitions fire immediately and reset this timer.
     /// </summary>
     [DataField("critAlertInterval")]
-    public float CritAlertInterval = 20f;
+    public float CritAlertInterval = 30f;
 
     /// <summary>
-    /// Next game time at which to play the crit alert (server-side, not serialized).
+    /// Next game time for the reminder ping (Zero = no active alert condition).
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan NextCritAlertTime;
+
+    /// <summary>
+    /// Wearers already signaled as alerting: value true = dead, false = MobState.Critical.
+    /// A new key or a change of value re-triggers the alert sound immediately.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public readonly Dictionary<NetEntity, bool> KnownAlertStates = new();
 
     /// <summary>
     /// Last server name received with sensor data (for UI).
