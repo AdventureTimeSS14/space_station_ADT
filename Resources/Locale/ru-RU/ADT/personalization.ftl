@@ -1052,7 +1052,7 @@ ent-ADTClothingHandsHonelin111Gloves = перчатки
     .suffix = { "Спонсорское, honelin111" }
 
 ent-ADTClothingOuterHonelin111Jacket = кожаная куртка
-    .desc = Тёмно-зелёная кожаная куртка с воротником-стойкой и едва различимой нашивкой на плече.
+    .desc = Слегка потёртая кожаная куртка с воротником-стойкой и едва различимой нашивкой на плече.
     .suffix = { "Спонсорское, honelin111" }
 
 ent-ADTSponsorClothingUniformHonelin111Shirt = рубашка
