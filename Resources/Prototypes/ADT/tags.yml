@@ -96,6 +96,9 @@
   id: ADTTelescopicBaton
 
 - type: Tag
+  id: ADTBolt
+
+- type: Tag
   id: ADTBola
 
 - type: Tag

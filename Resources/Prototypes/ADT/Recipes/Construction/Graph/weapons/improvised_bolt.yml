@@ -1,0 +1,114 @@
+﻿- type: constructionGraph
+  id: ADTBoltImprovised
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTBoltImprovised
+      steps:
+      - material: MetalRod
+        amount: 2
+        doAfter: 0.5
+      - material: Cloth
+        amount: 1
+        doAfter: 0.5
+      - tag: GlassShard
+        name: construction-graph-tag-glass-shard
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 0.5
+  - node: ADTBoltImprovised
+    entity: ADTBoltImprovised
+
+- type: constructionGraph
+  id: ADTBoltImprovisedPlasma
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTBoltImprovisedPlasma
+      steps:
+      - material: MetalRod
+        amount: 2
+        doAfter: 0.5
+      - material: Cloth
+        amount: 1
+        doAfter: 0.5
+      - tag: PlasmaGlassShard
+        name: construction-graph-tag-plasma-glass-shard
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 0.5
+  - node: ADTBoltImprovisedPlasma
+    entity: ADTBoltImprovisedPlasma
+
+- type: constructionGraph
+  id: ADTBoltImprovisedReinforcedPlasma
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTBoltImprovisedReinforcedPlasma
+      steps:
+      - material: MetalRod
+        amount: 2
+        doAfter: 0.5
+      - material: Cloth
+        amount: 1
+        doAfter: 0.5
+      - tag: ADTRPlasmaShard
+        name: construction-graph-tag-reinforced-plasma-glass-shard
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 0.5
+  - node: ADTBoltImprovisedReinforcedPlasma
+    entity: ADTBoltImprovisedReinforcedPlasma
+
+- type: constructionGraph
+  id: ADTBoltImprovisedUranium
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTBoltImprovisedUranium
+      steps:
+      - material: MetalRod
+        amount: 2
+        doAfter: 0.5
+      - material: Cloth
+        amount: 1
+        doAfter: 0.5
+      - tag: UraniumGlassShard
+        name: construction-graph-tag-uranium-glass-shard
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 0.5
+  - node: ADTBoltImprovisedUranium
+    entity: ADTBoltImprovisedUranium
+
+- type: constructionGraph
+  id: ADTBoltImprovisedReinforcedUranium
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTBoltImprovisedReinforcedUranium
+      steps:
+      - material: MetalRod
+        amount: 2
+        doAfter: 0.5
+      - material: Cloth
+        amount: 1
+        doAfter: 0.5
+      - tag: ADTRUranShard
+        name: construction-graph-tag-reinforced-uranium-glass-shard
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 0.5
+  - node: ADTBoltImprovisedReinforcedUranium
+    entity: ADTBoltImprovisedReinforcedUranium

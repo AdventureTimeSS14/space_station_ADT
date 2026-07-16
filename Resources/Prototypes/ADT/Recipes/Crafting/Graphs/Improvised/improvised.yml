@@ -213,3 +213,43 @@
   targetNode: saw
   category: construction-category-tools
   objectType: Item
+
+- type: construction
+  id: ADTBoltImprovised
+  graph: ADTBoltImprovised
+  startNode: start
+  targetNode: ADTBoltImprovised
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTBoltImprovisedPlasma
+  graph: ADTBoltImprovisedPlasma
+  startNode: start
+  targetNode: ADTBoltImprovisedPlasma
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTBoltImprovisedReinforcedPlasma
+  graph: ADTBoltImprovisedReinforcedPlasma
+  startNode: start
+  targetNode: ADTBoltImprovisedReinforcedPlasma
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTBoltImprovisedUranium
+  graph: ADTBoltImprovisedUranium
+  startNode: start
+  targetNode: ADTBoltImprovisedUranium
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTBoltImprovisedReinforcedUranium
+  graph: ADTBoltImprovisedReinforcedUranium
+  startNode: start
+  targetNode: ADTBoltImprovisedReinforcedUranium
+  category: construction-category-weapons
+  objectType: Item
