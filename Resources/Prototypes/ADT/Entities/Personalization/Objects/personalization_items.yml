@@ -3680,6 +3680,38 @@
     contents:
     - id: ADTFamilyBusinessLaserPistolRed
 
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieEmiliaEvenwood
+  name: Plushie Emilia
+  description: A soft plush toy made in the likeness of Emilia. It looks harmless enough, until you give it a squeeze.
+  suffix: Personal, Minokaa
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/minokaa_emilia_plushie.rsi
+    state: icon
+  - type: EmitSoundOnUse
+    handle: false
+    sound: null
+  - type: EmitSoundOnActivate
+    sound: &PlushieEmiliaSound
+      collection: ADTToySqueakEmiliaEvenwood
+  - type: EmitSoundOnCollide
+    sound: *PlushieEmiliaSound
+  - type: EmitSoundOnLand
+    sound: *PlushieEmiliaSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieEmiliaSound
+  - type: MeleeWeapon
+    soundHit: *PlushieEmiliaSound
+  - type: TriggerOnUse
+  - type: Speech
+    speechSounds: Squeak
+  - type: SpeakOnTrigger
+    pack: ADTFigurinesPlushieEmiliaEvenwood
+  - type: TTS
+    voice: mitakind
+
 #honelin111
 - type: entity
   parent: BasePlushie
