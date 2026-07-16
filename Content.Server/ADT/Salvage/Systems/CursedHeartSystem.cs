@@ -98,7 +98,7 @@ public sealed class CursedHeartSystem : EntitySystem
     {
         if (args.Handled)
             return;
-        if (comp.IsStopped)
+        if (comp.IsStopped || _mobState.IsDead(uid))
             return;
         args.Handled = true;
         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid);
@@ -111,6 +111,8 @@ public sealed class CursedHeartSystem : EntitySystem
     private void OnToggle(EntityUid uid, CursedHeartComponent comp, ToggleHeartActionEvent args)
     {
         if (args.Handled)
+            return;
+        if (_mobState.IsDead(uid))
             return;
         args.Handled = true;
 
