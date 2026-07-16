@@ -157,7 +157,7 @@
       GalacticCommon: Speak
       Fire: Speak
   - type: TypingIndicator
-    proto: novakid
+    proto: ADTnovakid
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1.1

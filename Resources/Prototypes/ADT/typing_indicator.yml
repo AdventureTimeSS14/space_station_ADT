@@ -1,54 +1,54 @@
 - type: typingIndicator
-  id: ghost
+  id: ADTghost
   spritePath: "/Textures/ADT/Effects/speech.rsi"
   typingState: ghost0
   idleState: ghost0
   offset: 0.14, 0.210
 
 - type: typingIndicator
-  id: demon
+  id: ADTdemon
   spritePath: "/Textures/ADT/Effects/speech.rsi"
   typingState: demon0
   idleState: demon3
   offset: 0.05, 0
 
 - type: typingIndicator
-  id: dwarf
+  id: ADTdwarf
   spritePath: "/Textures/ADT/Effects/speech.rsi"
   typingState: dwarf0
   idleState: dwarf3
   offset: 0, 0.0625
 
 - type: typingIndicator
-  id: drask
+  id: ADTdrask
   spritePath: "/Textures/ADT/Effects/speech.rsi"
   typingState: drask0
   idleState: drask3
   offset: 0.05, 0
 
 - type: typingIndicator
-  id: vulpkanin
+  id: ADTvulpkanin
   spritePath: "/Textures/ADT/Effects/speech.rsi"
   typingState: vulpkanin0
   idleState: vulpkanin3
   offset: 0.05, 0.0625
 
 - type: typingIndicator
-  id: novakid
+  id: ADTnovakid
   spritePath: "/Textures/ADT/Effects/speech.rsi"
   typingState: novakid0
   idleState: novakid3
   offset: 0.05, 0
 
 - type: typingIndicator
-  id: tajaran
+  id: ADTtajaran
   spritePath: "/Textures/ADT/Effects/speech.rsi"
   typingState: tajaran0
   idleState: tajaran3
   offset: 0.14, 0.0625
 
 - type: typingIndicator
-  id: ursus
+  id: ADTursus
   spritePath: "/Textures/ADT/Effects/speech.rsi"
   typingState: ursus0
   idleState: ursus3

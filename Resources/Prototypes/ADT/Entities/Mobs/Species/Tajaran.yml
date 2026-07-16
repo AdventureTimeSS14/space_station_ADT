@@ -81,7 +81,7 @@
         SikTaj: Speak
         CintaTaj: Speak
     - type: TypingIndicator
-      proto: tajaran
+      proto: ADTtajaran
     - type: SizeAttributeWhitelist # Frontier
       tall: true
       tallscale: 0.95
