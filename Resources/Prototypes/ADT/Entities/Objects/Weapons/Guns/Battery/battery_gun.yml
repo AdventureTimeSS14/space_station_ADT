@@ -247,7 +247,7 @@
   - type: StaticPrice
     price: 7500
   - type: Item
-    size: Normal
+    size: Small
 
 - type: entity
   name: Miniature Energy Crossbow
