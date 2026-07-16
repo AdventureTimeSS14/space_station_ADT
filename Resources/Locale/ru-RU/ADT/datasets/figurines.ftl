@@ -59,8 +59,6 @@ adt-figurines-plushie-jungar-9 = Я твой талисман удачи!
 
 adt-figurines-plushie-emilia-evenwood-1 = Йоу
 adt-figurines-plushie-emilia-evenwood-2 = Мамочки-арканочки
-adt-figurines-plushie-emilia-evenwood-3 = Оп, сальто!
-adt-figurines-plushie-emilia-evenwood-4 = Прыг-прыг-прыг!
 
 figurines-gipatter-1 = Ez...
 figurines-gipatter-2 = Хватит со своим Бламех-Жуббром
