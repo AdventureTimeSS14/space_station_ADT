@@ -685,6 +685,17 @@
       - state: pochita-inhand-right
 
 - type: entity
+  parent: BasePlushie
+  id: ADTPlushieAaron
+  name: Plush Aaron
+  description: A plush toy of a red-haired guy whose image seems very familiar to you. You just want to scratch your fists on his face.
+  suffix: Personal, Pangaari
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_aaron
+
+- type: entity
   parent: ADTVehicleKeyJanicart
   id: ADTVehicleKeyPangaariBike
   name: Pangaari bike keys # Для Пани на её ДР в 2026 году от Altius, Mina0, kiwi_fruit, RedLis. Тут был Лис.
@@ -3669,6 +3680,38 @@
     contents:
     - id: ADTFamilyBusinessLaserPistolRed
 
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieEmiliaEvenwood
+  name: Plushie Emilia
+  description: A soft plush toy made in the likeness of Emilia. It looks harmless enough, until you give it a squeeze.
+  suffix: Personal, Minokaa
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/minokaa_emilia_plushie.rsi
+    state: icon
+  - type: EmitSoundOnUse
+    handle: false
+    sound: null
+  - type: EmitSoundOnActivate
+    sound: &PlushieEmiliaSound
+      collection: ADTToySqueakEmiliaEvenwood
+  - type: EmitSoundOnCollide
+    sound: *PlushieEmiliaSound
+  - type: EmitSoundOnLand
+    sound: *PlushieEmiliaSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieEmiliaSound
+  - type: MeleeWeapon
+    soundHit: *PlushieEmiliaSound
+  - type: TriggerOnUse
+  - type: Speech
+    speechSounds: Squeak
+  - type: SpeakOnTrigger
+    pack: ADTFigurinesPlushieEmiliaEvenwood
+  - type: TTS
+    voice: mitakind
+
 #honelin111
 - type: entity
   parent: BasePlushie
@@ -3702,6 +3745,17 @@
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
     state: plushie_til
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLeia
+  name: plush Leia
+  description:  A toy that looks stern and seems to be staring right into your soul, mocking you.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_leia
 
 - type: entity
   name: KS-43 "Cherry"
