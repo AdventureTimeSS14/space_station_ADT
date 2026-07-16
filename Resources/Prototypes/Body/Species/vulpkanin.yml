@@ -210,6 +210,10 @@
     sprite:
       sprite: Effects/creampie.rsi
       state: creampie_vulpkanin
+  # ADT-Tweak: Start
+  - type: TypingIndicator
+    proto: vulpkanin
+  # ADT-Tweak: End
 
 - type: entity
   parent: OrganBaseOrganic

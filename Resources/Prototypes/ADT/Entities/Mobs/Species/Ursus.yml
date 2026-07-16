@@ -83,6 +83,8 @@
     languages:
       GalacticCommon: Speak
       Urs: Speak
+  - type: TypingIndicator
+    proto: ursus
   - type: Temperature
     currentTemperature: 310
     specificHeat: 50

@@ -80,6 +80,8 @@
         GalacticCommon: Speak
         SikTaj: Speak
         CintaTaj: Speak
+    - type: TypingIndicator
+      proto: tajaran
     - type: SizeAttributeWhitelist # Frontier
       tall: true
       tallscale: 0.95

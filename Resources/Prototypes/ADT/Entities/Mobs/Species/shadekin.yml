@@ -115,6 +115,8 @@
     languages:
       GalacticCommon: Speak
       Mar: Speak
+  - type: TypingIndicator
+    proto: alien
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1

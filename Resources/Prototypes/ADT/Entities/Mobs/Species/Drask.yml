@@ -192,6 +192,8 @@
     languages:
       GalacticCommon: Speak
       Drask: Speak
+  - type: TypingIndicator
+    proto: drask
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1.15
