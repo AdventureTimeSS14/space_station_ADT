@@ -80,7 +80,7 @@
   recipes:
   - DrinkFlaskBar
   - DrinkVacuumFlask
-  - DrinkIceBucket
+  # - DrinkIceBucket # Ведро полное.
   - DrinkShaker
   - DrinkJigger
   - Spoon
@@ -102,6 +102,7 @@
   - Paper
   - ADTOldRadio
   - ADTEftpos
+  - BoxDonkSoftBox
 
 - type: latheRecipePack
   id: ADTServiceHydroponics
