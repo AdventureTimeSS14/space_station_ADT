@@ -5,6 +5,7 @@ using Content.Server.Popups;
 using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.ADT.Silicon;
 using Content.Shared.Body.Components;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
@@ -162,7 +163,7 @@ public sealed class CursedHeartSystem : EntitySystem
             return;
         }
         _bloodstream.TryModifyBloodLevel(args.User, -999);
-        _bloodstream.ChangeBloodReagent(args.User, "ADTCursedBlood");
+        _bloodstream.ChangeBloodReagents(args.User, new Solution("ADTCursedBlood", 200));
         _bloodstream.TryModifyBloodLevel(args.User, 300);
         _popup.PopupEntity(Loc.GetString("popup-cursed-heart-use"), args.User, args.User, PopupType.LargeCaution);
         _damage.TryChangeDamage(args.User, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Piercing"), 20), true, false);
