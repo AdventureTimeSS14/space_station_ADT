@@ -56,6 +56,15 @@
   id: ClothingUniformBase
   components:
   - type: SuitSensor
+  # #ADT-Tweak Start - New Monitor: DeviceNet suit-sensor uplink disabled (IngestReport path)
+  # - type: DeviceNetwork
+  #   deviceNetId: Wireless
+  #   transmitFrequencyId: SuitSensor
+  #   savableAddress: false
+  # - type: WirelessNetworkConnection
+  #   range: 1200
+  # - type: StationLimitedNetwork
+  # #ADT-Tweak End
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [underwearb, underweart]

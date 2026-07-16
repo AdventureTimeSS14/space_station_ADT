@@ -53,6 +53,9 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         SubscribeLocalEvent<SuitSensorComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SuitSensorComponent, ComponentStartup>(OnStartup); //ADT-Tweak: NewMonitor
         SubscribeLocalEvent<SuitSensorComponent, ComponentShutdown>(OnShutdown);
+        // #ADT-Tweak Start - New Monitor: PlayerSpawnCompleteEvent station assignment unused
+        // SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
+        // #ADT-Tweak End
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotUnequippedEvent>(OnUnequipped);
         SubscribeLocalEvent<SuitSensorComponent, EmpPulseEvent>(OnEmpPulse);
@@ -500,4 +503,108 @@ public abstract class SharedSuitSensorSystem : EntitySystem
 
         return status;
     }
+
+    // #ADT-Tweak Start - New Monitor: official DeviceNet / station-assignment helpers kept as reference
+    // /// <summary>
+    // /// Checks whether the sensor is assigned to a station or not
+    // /// and tries to assign an unassigned sensor to a station if it's currently on a grid.
+    // /// </summary>
+    // /// <returns>True if the sensor is assigned to a station or assigning it was successful. False otherwise.</returns>
+    // public bool CheckSensorAssignedStation(Entity<SuitSensorComponent> sensor)
+    // {
+    //     if (!sensor.Comp.StationId.HasValue && Transform(sensor.Owner).GridUid == null)
+    //         return false;
+    //
+    //     sensor.Comp.StationId = _stationSystem.GetOwningStation(sensor.Owner);
+    //     Dirty(sensor);
+    //     return sensor.Comp.StationId.HasValue;
+    // }
+    //
+    // private void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)
+    // {
+    //     // If the player spawns in arrivals then the grid underneath them may not be appropriate.
+    //     // in which case we'll just use the station spawn code told us they are attached to and set all of their
+    //     // sensors.
+    //     RecursiveSensor(ev.Mob, ev.Station);
+    // }
+    //
+    // private void RecursiveSensor(EntityUid uid, EntityUid stationUid)
+    // {
+    //     var xform = Transform(uid);
+    //     var enumerator = xform.ChildEnumerator;
+    //
+    //     while (enumerator.MoveNext(out var child))
+    //     {
+    //         if (_sensorQuery.TryComp(child, out var sensor))
+    //         {
+    //             sensor.StationId = stationUid;
+    //             Dirty(child, sensor);
+    //         }
+    //
+    //         RecursiveSensor(child, stationUid);
+    //     }
+    // }
+    //
+    // /// <summary>
+    // /// Create a device network package from the suit sensors status.
+    // /// </summary>
+    // public NetworkPayload SuitSensorToPacket(SuitSensorStatus status)
+    // {
+    //     var payload = new NetworkPayload()
+    //     {
+    //         [DeviceNetworkConstants.Command] = DeviceNetworkConstants.CmdUpdatedState,
+    //         [SuitSensorConstants.NET_NAME] = status.Name,
+    //         [SuitSensorConstants.NET_JOB] = status.Job,
+    //         [SuitSensorConstants.NET_JOB_ICON] = status.JobIcon,
+    //         [SuitSensorConstants.NET_JOB_DEPARTMENTS] = status.JobDepartments,
+    //         [SuitSensorConstants.NET_IS_ALIVE] = status.IsAlive,
+    //         [SuitSensorConstants.NET_SUIT_SENSOR_UID] = status.SuitSensorUid,
+    //         [SuitSensorConstants.NET_OWNER_UID] = status.OwnerUid,
+    //     };
+    //
+    //     if (status.TotalDamage != null)
+    //         payload.Add(SuitSensorConstants.NET_TOTAL_DAMAGE, status.TotalDamage);
+    //     if (status.TotalDamageThreshold != null)
+    //         payload.Add(SuitSensorConstants.NET_TOTAL_DAMAGE_THRESHOLD, status.TotalDamageThreshold);
+    //     if (status.Coordinates != null)
+    //         payload.Add(SuitSensorConstants.NET_COORDINATES, status.Coordinates);
+    //
+    //     return payload;
+    // }
+    //
+    // /// <summary>
+    // /// Try to create the suit sensors status from the device network message.
+    // /// </summary>
+    // public SuitSensorStatus? PacketToSuitSensor(NetworkPayload payload)
+    // {
+    //     // check command
+    //     if (!payload.TryGetValue(DeviceNetworkConstants.Command, out string? command))
+    //         return null;
+    //     if (command != DeviceNetworkConstants.CmdUpdatedState)
+    //         return null;
+    //
+    //     // check name, job and alive
+    //     if (!payload.TryGetValue(SuitSensorConstants.NET_NAME, out string? name)) return null;
+    //     if (!payload.TryGetValue(SuitSensorConstants.NET_JOB, out string? job)) return null;
+    //     if (!payload.TryGetValue(SuitSensorConstants.NET_JOB_ICON, out string? jobIcon)) return null;
+    //     if (!payload.TryGetValue(SuitSensorConstants.NET_JOB_DEPARTMENTS, out List<string>? jobDepartments)) return null;
+    //     if (!payload.TryGetValue(SuitSensorConstants.NET_IS_ALIVE, out bool? isAlive)) return null;
+    //     if (!payload.TryGetValue(SuitSensorConstants.NET_SUIT_SENSOR_UID, out NetEntity suitSensorUid)) return null;
+    //     if (!payload.TryGetValue(SuitSensorConstants.NET_OWNER_UID, out NetEntity ownerUid)) return null;
+    //
+    //     // try get total damage and cords (optionals)
+    //     payload.TryGetValue(SuitSensorConstants.NET_TOTAL_DAMAGE, out int? totalDamage);
+    //     payload.TryGetValue(SuitSensorConstants.NET_TOTAL_DAMAGE_THRESHOLD, out int? totalDamageThreshold);
+    //     payload.TryGetValue(SuitSensorConstants.NET_COORDINATES, out NetCoordinates? coords);
+    //
+    //     var status = new SuitSensorStatus(ownerUid, suitSensorUid, name, job, jobIcon, jobDepartments)
+    //     {
+    //         IsAlive = isAlive.Value,
+    //         TotalDamage = totalDamage,
+    //         TotalDamageThreshold = totalDamageThreshold,
+    //         Coordinates = coords,
+    //     };
+    //     return status;
+    // }
+    // #ADT-Tweak End
 }

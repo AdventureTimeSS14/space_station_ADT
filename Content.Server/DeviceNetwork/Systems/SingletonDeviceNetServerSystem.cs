@@ -30,6 +30,7 @@ public sealed class SingletonDeviceNetServerSystem : EntitySystem
         return Resolve(serverId, ref serverComponent) && serverComponent.Active;
     }
 
+    // #ADT-Tweak Start - New Monitor: activate chosen crew-monitor server for station
     /// <summary>
     /// Makes the given server the active one for its station (e.g. when a monitor selects it).
     /// Disconnects all other servers of type TComp on that station, then connects the selected server.
@@ -58,6 +59,7 @@ public sealed class SingletonDeviceNetServerSystem : EntitySystem
         ConnectServer(serverUid, serverComp, deviceComp);
         return true;
     }
+    // #ADT-Tweak End
 
     /// <summary>
     /// Returns the address of the currently active server for the given station id if there is one.<br/>

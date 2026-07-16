@@ -100,8 +100,10 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
             }
         }
 
+        // #ADT-Tweak Start - New Monitor: invalidate client wall/window line caches
         // Invalidate client-side draw caches (NavMapControl / crew monitor overlay).
         component.DataVersion++;
+        // #ADT-Tweak End
 
         // Refresh beacons
         component.Beacons.Clear();

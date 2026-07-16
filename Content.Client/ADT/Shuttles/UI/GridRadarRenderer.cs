@@ -10,7 +10,8 @@ using Robust.Shared.Utility;
 namespace Content.Client.ADT.Shuttles.UI;
 
 /// <summary>
-/// Cached tile-fill and contour renderer shared by shuttle and station radars.
+/// Cached tile-fill and contour renderer for foreign grids on the crew-monitoring map.
+/// Shuttle consoles keep this logic inlined in <c>BaseShuttleControl</c>.
 /// </summary>
 public sealed class GridRadarRenderer
 {

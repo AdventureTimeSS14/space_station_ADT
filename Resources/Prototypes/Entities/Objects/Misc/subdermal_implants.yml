@@ -105,6 +105,14 @@
       controlsLocked: true
       mode: SensorCords
       activationContainer: "implant"
+    # #ADT-Tweak Start - New Monitor: DeviceNet suit-sensor uplink disabled (IngestReport path)
+    # - type: DeviceNetwork
+    #   deviceNetId: Wireless
+    #   transmitFrequencyId: SuitSensor
+    # - type: StationLimitedNetwork
+    # - type: WirelessNetworkConnection
+    #   range: 500
+    # #ADT-Tweak End
 
 #Traitor implants
 

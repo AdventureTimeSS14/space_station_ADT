@@ -25,8 +25,11 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
         {
             gridUid = xform.GridUid;
 
+            // #ADT-Tweak Start - New Monitor: null-safe grid MetaData lookup
+            // if (EntMan.TryGetComponent<MetaDataComponent>(gridUid, out var metaData))
             if (gridUid != null &&
                 EntMan.TryGetComponent<MetaDataComponent>(gridUid.Value, out var metaData))
+            // #ADT-Tweak End
             {
                 stationName = metaData.EntityName;
             }
@@ -68,7 +71,10 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
         {
             case CrewMonitoringState st:
                 EntMan.TryGetComponent<TransformComponent>(Owner, out var xform);
+                // #ADT-Tweak Start - New Monitor: pass full BUI state (was Sensors list + bool)
+                // _menu?.ShowSensors(st.Sensors, Owner, xform?.Coordinates, true); // ADT-Tweak
                 _menu?.ShowSensors(st, Owner, xform?.Coordinates); //ADT-Tweak: NewMonitor
+                // #ADT-Tweak End
                 break;
         }
     }

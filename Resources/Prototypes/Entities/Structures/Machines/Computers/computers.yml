@@ -458,7 +458,10 @@
   - type: PointLight
     radius: 1.5
     energy: 4.0
+    # #ADT-Tweak Start - New Monitor: green CRT light
+    # color: "#006400"
     color: "#4CAF50"
+    # #ADT-Tweak End
   - type: Computer
     board: CrewMonitoringComputerCircuitboard
   - type: ActivatableUI
@@ -470,18 +473,18 @@
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
   - type: CrewMonitoringConsole
-  # #ADT-Tweak Start - New Monitor: bezel color + CRT theme + extended wireless range
+  # #ADT-Tweak Start - New Monitor: bezel color + CRT theme
   - type: PdaBorderColor
     borderColor: "#6B6B6B" # iron-gray bezel, no accents
   - type: CrewMonitoringUiVisuals
     themeColor: "#4CAF50" # green CRT / map / chrome
+  # #ADT-Tweak End
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: CrewMonitor
   - type: WirelessNetworkConnection
     range: 1200
-  # #ADT-Tweak End
-  - type: StationAiWhitelist #ADT-Tweak: NewMonitor
+  - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseComputerAiAccess

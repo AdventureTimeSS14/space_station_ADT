@@ -43,6 +43,9 @@
     receiveFrequencyId: CrewMonitor
   - type: WirelessNetworkConnection
     range: 500
+  # #ADT-Tweak Start - New Monitor: StationLimitedNetwork disabled
+  # - type: StationLimitedNetwork
+  # #ADT-Tweak End
   - type: StaticPrice
     price: 500
   - type: Tag
