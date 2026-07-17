@@ -18,7 +18,6 @@ public sealed partial class GhostGui : UIWidget
     public event Action? ReturnToBodyPressed;
     public event Action? GhostRolesPressed;
     public event Action? GhostBarPressed; // Goobstation - Ghost Bar
-
     public event Action? ThunderdomePressed; // ADT - Thunderdome
 
     private int _prevNumberRoles;
@@ -38,7 +37,6 @@ public sealed partial class GhostGui : UIWidget
         GhostRolesButton.OnPressed += _ => GhostRolesPressed?.Invoke();
         GhostRolesButton.OnPressed += _ => GhostRolesButton.StyleClasses.Remove(StyleClass.Negative);
         GhostBarButton.OnPressed += _ => GhostBarPressed?.Invoke(); // Goobstation - Ghost Bar
-
         ThunderdomeButton.OnPressed += _ => ThunderdomePressed?.Invoke(); // ADT - Thunderdome
     }
 
@@ -68,11 +66,12 @@ public sealed partial class GhostGui : UIWidget
         TargetWindow.Populate();
     }
 
-    public void UpdateThunderdome(int playerCount) // ADT - Thunderdome
+    // ADT-Tweak-start: Thunderdome
+    public void UpdateThunderdome(int playerCount)
     {
-        ThunderdomeButton.Text = Loc.GetString("thunderdome-ghost-button", ("count", playerCount)); // ADT - Thunderdome
+        ThunderdomeButton.Text = Loc.GetString("thunderdome-ghost-button", ("count", playerCount));
     }
-
+    // ADT-Tweak-end
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);
