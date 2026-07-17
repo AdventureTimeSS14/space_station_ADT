@@ -28,6 +28,7 @@ public sealed partial class GhostGui : UIWidget
         RobustXamlLoader.Load(this);
 
         TargetWindow = new GhostTargetWindow();
+
         GhostBarWindow = new GhostBarRulesWindow();
 
         MouseFilter = MouseFilterMode.Ignore;

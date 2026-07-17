@@ -80,7 +80,7 @@ public abstract partial class ThunderdomeWindow : BaseWindow
 
         _titleLabel = new Label
         {
-            Text = "THUNDERDOME",
+            Text = Loc.GetString("thunderdome-window-title"),
             StyleClasses = { "LabelHeadingBigger" },
             VerticalAlignment = VAlignment.Center,
             HorizontalExpand = true,
