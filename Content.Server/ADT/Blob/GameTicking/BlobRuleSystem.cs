@@ -116,7 +116,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
 
         var stationName = Name(stationUid);
         var totalStationTiles = _stationSystem.GetTileCount(stationUid.Owner);
-        var criticalThreshold = totalStationTiles * (stationUid.Comp?.StageCriticalPercent ?? StationBlobConfigComponent.DefaultStageCriticalPercent);
+        var criticalThreshold = stationUid.Comp?.StageCritical ?? StationBlobConfigComponent.DefaultStageCritical;
         var theEndThreshold = totalStationTiles * (stationUid.Comp?.StageTheEndPercent ?? StationBlobConfigComponent.DefaultStageTheEndPercent);
 
         if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)

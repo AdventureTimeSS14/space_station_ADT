@@ -7,14 +7,14 @@ namespace Content.Server.ADT.Blob.Components;
 public sealed partial class StationBlobConfigComponent : Component
 {
     public const int DefaultStageBegin = 60;
-    public const float DefaultStageCriticalPercent = 0.5f;
-    public const float DefaultStageTheEndPercent = 0.8f;
+    public const int DefaultStageCritical = 800;
+    public const float DefaultStageTheEndPercent = 0.70f;
 
     [DataField]
     public int StageBegin { get; set; } = DefaultStageBegin;
 
     [DataField]
-    public float StageCriticalPercent { get; set; } = DefaultStageCriticalPercent;
+    public int StageCritical { get; set; } = DefaultStageCritical;
 
     [DataField]
     public float StageTheEndPercent { get; set; } = DefaultStageTheEndPercent;

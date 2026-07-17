@@ -34,7 +34,7 @@
   - type: TemperatureDamage
     heatDamage:
       types:
-        Heat: 5
+        Heat: 7
     coldDamage: {}
     coldDamageThreshold: 0
   - type: Flammable

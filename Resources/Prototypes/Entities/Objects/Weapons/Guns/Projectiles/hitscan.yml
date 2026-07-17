@@ -67,7 +67,7 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Heat: 11
+        Heat: 13 # ADT-Tweak
 
 - type: entity
   parent: BasicHitscan

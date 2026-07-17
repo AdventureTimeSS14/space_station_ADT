@@ -36,7 +36,7 @@
     - type: DamagedByFlashing
       flashDamage:
         types:
-          Heat: 5
+          Heat: 10
     - type: Appearance
     - type: Physics
     - type: Clickable
