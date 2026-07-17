@@ -14,8 +14,7 @@ namespace Content.Client.UserInterface.Systems.Ghost;
 // TODO hud refactor BEFORE MERGE fix ghost gui being too far up
 public sealed partial class GhostUIController : UIController, IOnSystemChanged<GhostSystem> // ADT - now this class is partial
 {
-    // ADT-tweak
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private readonly IEntityManager _entManager = default!; // ADT-tweak
     [Dependency] private readonly IEntityNetworkManager _net = default!;
     [UISystemDependency] private readonly GhostSystem? _system = default;
 
@@ -136,7 +135,7 @@ public sealed partial class GhostUIController : UIController, IOnSystemChanged<G
         Gui.GhostRolesPressed += GhostRolesPressed;
         Gui.TargetWindow.WarpClicked += OnWarpClicked;
         Gui.TargetWindow.OnGhostnadoClicked += OnGhostnadoClicked;
-        Gui.ThunderdomePressed += ThunderdomePressed;
+        Gui.ThunderdomePressed += ThunderdomePressed; // ADT-Tweak
 
         UpdateGui();
     }
@@ -151,7 +150,7 @@ public sealed partial class GhostUIController : UIController, IOnSystemChanged<G
         Gui.GhostRolesPressed -= GhostRolesPressed;
         Gui.TargetWindow.WarpClicked -= OnWarpClicked;
 
-        Gui.ThunderdomePressed -= ThunderdomePressed;
+        Gui.ThunderdomePressed -= ThunderdomePressed; // ADT-Tweak
 
         Gui.Hide();
     }
