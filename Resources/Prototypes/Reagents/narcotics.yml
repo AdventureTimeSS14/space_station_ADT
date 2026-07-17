@@ -78,7 +78,7 @@
         conditions:
         - !type:ReagentCondition
           reagent: Desoxyephedrine
-          min: 10
+          min: 2
         probability: 0.15
         pacifyDuration: 3
       # End ADT tweak

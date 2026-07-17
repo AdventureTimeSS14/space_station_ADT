@@ -12,6 +12,7 @@
   - SlimePerson
   - Vox
   - Vulpkanin
+  - Shadekin # ADT-Tweak
 
 - type: guideEntry
   id: Arachnid
@@ -56,4 +57,13 @@
 - type: guideEntry
   id: Vulpkanin
   name: species-name-vulpkanin
-  text: "/ServerInfo/Guidebook/Mobs/Vulpkanin.xml"
+  text: "/ServerInfo/ADT/Guidebook/Mobs/Vulpkanin.xml" # ADT-tweak
+
+# ADT-Tweak: Start
+
+- type: guideEntry
+  id: Shadekin
+  name: species-name-shadekin
+  text: "/ServerInfo/ADT/Guidebook/Mobs/Shadekin.xml"
+
+# ADT-Tweak: End

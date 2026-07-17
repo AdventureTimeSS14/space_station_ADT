@@ -87,7 +87,12 @@ public abstract class SharedTypingIndicatorSystem : EntitySystem
     {
         // if (!Resolve(uid, ref appearance, false)) // Corvax-TypingIndicator
         //     return;
+        _appearance.TryGetData<TypingIndicatorState>(uid,   // ADT Tweak start
+            TypingIndicatorVisuals.State, out var oldState, appearance);
+        if (oldState == state)
+            return;                                         // ADT Tweak end
 
         _appearance.SetData(uid, TypingIndicatorVisuals.State, state, appearance);
+        RaiseLocalEvent(uid, new TypingIndicatorStateChangedEvent(oldState, state)); // ADT Tweak
     }
 }

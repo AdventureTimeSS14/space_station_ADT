@@ -164,6 +164,6 @@
         conditions:
         - !type:ReagentCondition
           reagent: ADTBlueSkyDesoxyephedrine
-          min: 20
+          min: 2
         probability: 0.15
         pacifyDuration: 3

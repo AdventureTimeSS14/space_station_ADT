@@ -1,0 +1,29 @@
+- type: decal
+  id: ADTsplatter2
+  tags: ["crayon"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/crayondecals.rsi
+    state: splatter_2
+
+- type: decal
+  id: ADTsplatter3
+  tags: ["crayon"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/crayondecals.rsi
+    state: splatter_3
+
+- type: decal
+  id: ADTsplatter4
+  tags: ["crayon"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/crayondecals.rsi
+    state: splatter_4
