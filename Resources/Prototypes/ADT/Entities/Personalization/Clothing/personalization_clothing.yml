@@ -1813,7 +1813,7 @@
   parent: ADTSponsorClothingOuterStorageBase
   id: ADTClothingOuterHonelin111Jacket
   name: leather jacket
-  description: A dark green leather jacket with a stand collar and a barely visible shoulder patch.
+  description: A slightly worn leather jacket with a stand collar and a barely visible shoulder patch
   suffix: Personal, honelin111
   components:
   - type: Sprite
