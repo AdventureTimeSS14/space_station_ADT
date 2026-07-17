@@ -118,6 +118,32 @@
   id: TajaranPurrs
   files:
   - /Audio/ADT/Felinid/cat_purr1.ogg
+  - /Audio/Corvax/Effects/Tajaran/purr.ogg
+
+- type: soundCollection
+  id: TajaranSneezes
+  files:
+  - /Audio/ADT/Felinid/hairball.ogg
+
+- type: soundCollection
+  id: TajaranYawns
+  files:
+  - /Audio/Corvax/Effects/Tajaran/sneeze.ogg
+
+- type: soundCollection
+  id: TajaranCry
+  files:
+  - /Audio/Corvax/Effects/Tajaran/cry.ogg
+
+- type: soundCollection
+  id: TajaranSigh
+  files:
+  - /Audio/Corvax/Effects/Tajaran/sigh.ogg
+
+- type: soundCollection
+  id: TajaranGasp
+  files:
+  - /Audio/Corvax/Effects/Tajaran/gasp.ogg
 
 - type: soundCollection
   id: MothBuzz
@@ -240,6 +266,7 @@
   id: FelinidPurrs
   files:
   - /Audio/ADT/Felinid/cat_purr1.ogg
+  - /Audio/Corvax/Effects/Tajaran/purr.ogg
 
 # Resomi
 - type: soundCollection
