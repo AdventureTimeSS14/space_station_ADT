@@ -111,7 +111,7 @@
     languages:
       Universal: Understand
   - type: TypingIndicator
-    proto: ADTghost
+    proto: ADTghost # ADT tweak
   - type: Speech
   - type: UserInterface
     interfaces:
