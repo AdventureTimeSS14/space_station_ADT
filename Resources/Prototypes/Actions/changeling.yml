@@ -1,25 +1,25 @@
 # ADT: Закомментировано из-за использования генокрада от Goob Station
-# - type: entity
-#   parent: BaseAction
-#   id: ActionRetractableItemArmBlade
-#   name: Arm Blade
-#   description: Shed your flesh and reform it into a fleshy blade.
-#   components:
-#   - type: Action
-#     useDelay: 2
-#     raiseOnAction: true
-#     itemIconStyle: BigAction
-#     icon:
-#       sprite: Interface/Actions/changeling.rsi
-#       state: armblade
-#   - type: InstantAction
-#     event: !type:OnRetractableItemActionEvent
-#   - type: RetractableItemAction
-#     spawnedPrototype: ADTArmBlade # ADT-Tweak
-#     summonSounds:
-#       collection: gib # Placeholder
-#     retractSounds:
-#       collection: gib # Placeholder
+- type: entity
+  parent: BaseAction
+  id: ActionRetractableItemArmBlade
+  name: Arm Blade
+  description: Shed your flesh and reform it into a fleshy blade.
+  components:
+  - type: Action
+    useDelay: 2
+    raiseOnAction: true
+    itemIconStyle: BigAction
+    icon:
+      sprite: Interface/Actions/changeling.rsi
+      state: armblade
+  - type: InstantAction
+    event: !type:OnRetractableItemActionEvent
+  - type: RetractableItemAction
+    spawnedPrototype: ADTArmBlade # ADT-Tweak
+    summonSounds:
+      collection: gib # Placeholder
+    retractSounds:
+      collection: gib # Placeholder
 
 # - type: entity
 #   id: ActionChangelingDevour
