@@ -90,7 +90,7 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/ADT/Entities/metal_drop.ogg
-  #ADT-Tweak-Start
+  #ADT-Tweak-End
 
 - type: entity
   parent: PartRodMetal
