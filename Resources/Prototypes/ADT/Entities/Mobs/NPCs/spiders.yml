@@ -121,13 +121,17 @@
       Arachnid: Speak
   - type: SupermatterIgnore
   - type: GrabProtection
-  # ADT-Tweak start
+
+- type: entity
+  parent: ADTMobBaseSpider
+  id: ADTMobBaseSpiderVentCrawler
+  abstract: true
+  components:
   - type: VentCrawler
-  # ADT-Tweak end
 
 - type: entity
   name: hunter
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobHunterSpider
   components:
   - type: Sprite
@@ -175,7 +179,7 @@
 
 - type: entity
   name: guard
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobGuardSpider
   components:
   - type: Sprite
@@ -223,7 +227,7 @@
 
 - type: entity
   name: viper
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobViperSpider
   components:
   - type: Sprite
@@ -337,7 +341,7 @@
 
 - type: entity
   name: little spider
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobMiniSpider
   components:
   - type: Sprite
@@ -446,7 +450,7 @@
 
 - type: entity
   name: clown spider
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobClownSpider
   description: Combines the two most terrifying things in existence, spiders and clowns.
   components:
