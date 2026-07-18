@@ -842,6 +842,16 @@
       - FloorSteelDirty
   - type: Stack
     stackType: FloorTileDirty
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: elevator shaft tile

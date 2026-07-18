@@ -379,6 +379,16 @@
       - FloorWoodChess
   - type: Stack
     stackType: FloorTileItemWoodChess
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: chess black wood floor
