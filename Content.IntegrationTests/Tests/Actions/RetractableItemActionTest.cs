@@ -9,7 +9,7 @@ namespace Content.IntegrationTests.Tests.Actions;
 
 public sealed class RetractableItemActionTest : InteractionTest
 {
-    private static readonly EntProtoId ArmBladeActionProtoId = "ActionRetractableItemArmBlade";
+    private static readonly EntProtoId ArmBladeActionProtoId = "ArmBladeChangeling"; // ADT-Tweak ActionRetractableItemArmBlade -> ArmBladeChangeling
 
     /// <summary>
     /// Gives the player the arm blade action, then activates it and makes sure they are given the blade.

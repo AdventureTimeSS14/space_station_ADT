@@ -400,6 +400,26 @@ public sealed partial class DamageableSystem
         OnEntityDamageChanged((ent, ent.Comp), new DamageSpecifier());
     }
 
+    // ADT-Tweak start
+    public void SetAllDamage(EntityUid uid, DamageableComponent? component, FixedPoint2 newValue)
+    {
+        if (!_damageableQuery.Resolve(uid, ref component, false))
+            return;
+
+        if (newValue < 0)
+            return;
+
+        foreach (var type in component.Damage.DamageDict.Keys)
+        {
+            component.Damage.DamageDict[type] = newValue;
+        }
+
+        // Setting damage does not count as 'dealing' damage, even if it is set to a larger value, so we pass an
+        // empty damage delta.
+        OnEntityDamageChanged((uid, component), new DamageSpecifier());
+    }
+    // ADT-Tweak end
+
     /// <summary>
     /// Set's the damage modifier set prototype for this entity.
     /// </summary>

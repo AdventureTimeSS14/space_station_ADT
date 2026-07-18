@@ -6,7 +6,7 @@ using Content.Server.Heretic.EntitySystems;
 using Content.Server.Medical.SuitSensors;
 using Content.Server.Objectives.Components;
 using Content.Server.Revolutionary.Components;
-using Content.Shared.Changeling.Components;
+using Content.Goobstation.Shared.Changeling.Components; // ADT
 using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Heretic;
