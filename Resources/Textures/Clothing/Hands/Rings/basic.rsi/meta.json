@@ -14,7 +14,8 @@
         "name": "gem"
       },
       {
-        "name": "equipped-FINGER"
+        "name": "equipped-FINGER",
+        "directions": 4
       }
     ]
   }
