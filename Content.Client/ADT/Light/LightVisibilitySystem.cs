@@ -37,7 +37,7 @@ public sealed partial class LightVisibilitySystem : EntitySystem
         shader.SetParameter("showInside", ent.Comp.ShowInside);
         shader.SetParameter("edgeSoftness", ent.Comp.EdgeSoftness);
 
-        Comp<SpriteComponent>(ent.Owner).PostShader = _proto.Index(_shaderProto).InstanceUnique();
+        Comp<SpriteComponent>(ent.Owner).PostShader = shader;
     }
 
     private void OnShutdown(Entity<LightVisibilityComponent> ent, ref ComponentShutdown args)
