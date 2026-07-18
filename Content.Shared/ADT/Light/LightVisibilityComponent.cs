@@ -19,4 +19,6 @@ public sealed partial class LightVisibilityComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool BlockExamine = true;
+
+    public bool HadOutline = false;
 }

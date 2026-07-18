@@ -29,6 +29,7 @@ public sealed partial class LightVisibilitySystem : EntitySystem
 
     private void OnStartup(Entity<LightVisibilityComponent> ent, ref ComponentStartup args)
     {
+        ent.Comp.HadOutline = HasComp<InteractionOutlineComponent>(ent.Owner);
         RemComp<InteractionOutlineComponent>(ent.Owner);
 
         var shader = _proto.Index(_shaderProto).InstanceUnique();
@@ -45,7 +46,9 @@ public sealed partial class LightVisibilitySystem : EntitySystem
         if (TerminatingOrDeleted(ent.Owner))
             return;
 
-        EnsureComp<InteractionOutlineComponent>(ent.Owner);
+        if (ent.Comp.HadOutline)
+            EnsureComp<InteractionOutlineComponent>(ent.Owner);
+
         Comp<SpriteComponent>(ent.Owner).PostShader = null;
     }
 
