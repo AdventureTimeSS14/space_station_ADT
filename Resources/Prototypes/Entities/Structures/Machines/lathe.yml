@@ -220,6 +220,7 @@
     - SurgeryStatic
     # ADT-tweak-Start
     - ADTScienceExplosives
+    - ADTAdvancedMaterialsStatic
     # ADT-tweak-End
     dynamicPacks:
     - AdvancedTools
