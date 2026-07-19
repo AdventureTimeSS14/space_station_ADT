@@ -219,7 +219,7 @@
     children:
     - id: SpaceCash100
       weight: 15
-    - id: EnergyChemDispenserMachineCircuitboard # ADT-Tweak
+    - id: ChemDispenserMachineCircuitboard
     - id: SyndicateMicrowaveMachineCircuitboard
     - id: HydroponicsTrayMachineCircuitboard
     - id: DawInstrumentMachineCircuitboard

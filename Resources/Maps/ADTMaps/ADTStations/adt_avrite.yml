@@ -41701,7 +41701,7 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: ADTEnergyBoozeDispenser
+- proto: BoozeDispenser
   entities:
   - uid: 591
     components:
@@ -41725,7 +41725,7 @@ entities:
     - type: Transform
       pos: 27.5,-74.5
       parent: 2
-- proto: ADTEnergySodaDispenser
+- proto: SodaDispenser
   entities:
   - uid: 595
     components:
@@ -180277,7 +180277,7 @@ entities:
       parent: 25101
     - type: Physics
       canCollide: False
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 25103
     components:
@@ -180294,7 +180294,7 @@ entities:
     - type: Transform
       pos: 15.5,-38.5
       parent: 2
-- proto: EnergyChemDispenserMachineCircuitboard
+- proto: ChemDispenserMachineCircuitboard
   entities:
   - uid: 25106
     components:
