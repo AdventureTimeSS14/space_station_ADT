@@ -8,10 +8,11 @@
   tier: 1
   cost: 10000
   recipeUnlocks:
-  - ChemDispenserMachineCircuitboard
+#  - ChemDispenserMachineCircuitboard
   - ChemMasterMachineCircuitboard
   - HotplateMachineCircuitboard
   - ADTColdplateMachineCircuitboard
+  - EnergyChemDispenserMachineCircuitboard
   position: 3,2
 
 - type: technology
@@ -168,21 +169,6 @@
   position: 5,-3
   requiredTech:
   - ADTSyringeGun
-
-- type: technology
-  id: ADTadvChemDisp
-  name: research-technology-adtchemistry-misc
-  icon:
-    sprite: ADT/Structures/Machines/dispenser.rsi
-    state: industrial
-  discipline: Biochemical
-  tier: 3
-  cost: 25000
-  recipeUnlocks:
-  - EnergyChemDispenserMachineCircuitboard
-  requiredTech:
-  - ADTBluespaceChemistry
-  position: 5,-4
 
 - type: technology
   id: ADTSyringeGun
