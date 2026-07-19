@@ -12,7 +12,7 @@
   - ChemMasterMachineCircuitboard
   - HotplateMachineCircuitboard
   - ADTColdplateMachineCircuitboard
-  - EnergyChemDispenserMachineCircuitboard
+  - ChemDispenserMachineCircuitboard
   position: 3,2
 
 - type: technology

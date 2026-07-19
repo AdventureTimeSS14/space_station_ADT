@@ -102,8 +102,8 @@
     Glass: 50
     Plastic: 300
 - type: latheRecipe
-  id: EnergyChemDispenserMachineCircuitboard
-  result: EnergyChemDispenserMachineCircuitboard
+  id: ChemDispenserMachineCircuitboard
+  result: ChemDispenserMachineCircuitboard
   completetime: 2
   materials:
     Steel: 800

@@ -1,0 +1,41 @@
+- type: technology
+  id: WaterAssebler
+  name: research-technology-water-assembler
+  icon:
+    sprite: ADT/Structures/Machines/water-assembler.rsi
+    state: icon
+  discipline: Evac
+  tier: 1
+  cost: 40000
+  recipeUnlocks:
+  - ADTWaterAssembler
+  position: 2, 2
+
+- type: technology
+  id: EnergyChem
+  name: research-technology-energy-chem
+  icon:
+    sprite: ADT/Structures/Machines/dispenser.rsi
+    state: industrial
+  discipline: Evac
+  tier: 1
+  cost: 40000
+  recipeUnlocks:
+  - EnergyChemDispenserMachineCircuitboard
+  position: 2, 1
+  requiredTech:
+  - WaterAssebler
+
+- type: technology
+  id: Evac
+  name: research-technology-evac
+  icon:
+    sprite: Structures/Wallmounts/signs.rsi
+    state: space
+  discipline: Evac
+  tier: 1
+  cost: 100000
+  recipeUnlocks: []
+  position: 2, 0
+  requiredTech:
+  - EnergyChem

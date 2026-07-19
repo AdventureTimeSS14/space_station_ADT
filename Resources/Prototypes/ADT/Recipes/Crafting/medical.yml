@@ -1,0 +1,43 @@
+- type: construction
+  id: brutepack
+  graph: Brutepack
+  startNode: start
+  targetNode: brutepack
+  category: construction-category-tools
+  objectType: Item
+
+- type: construction
+  id: ointment
+  graph: Ointment
+  startNode: start
+  targetNode: ointment
+  category: construction-category-tools
+  objectType: Item
+
+- type: constructionGraph
+  id: Brutepack
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: brutepack
+      steps:
+      - material: Cloth
+        amount: 6
+        doAfter: 3
+  - node: brutepack
+    entity: Brutepack1
+
+- type: constructionGraph
+  id: Ointment
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ointment
+      steps:
+      - material: Biomass
+        amount: 6
+        doAfter: 3
+  - node: ointment
+    entity: Ointment1

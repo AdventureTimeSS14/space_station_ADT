@@ -1,0 +1,147 @@
+- type: dungeonRoom
+  id: DesertEventBig1
+  size: 23, 21
+  atlas: /Maps/ADTMaps/Ruins/Desert-dungens/desert-dungen-big-1.yml
+  offset: 41, 9
+  tags:
+  - DesertEvent
+
+- type: dungeonRoom
+  id: DesertEventBig2
+  size: 23, 20
+  atlas: /Maps/ADTMaps/Ruins/Desert-dungens/desert-dungen-big-2.yml
+  offset: 66, 10
+  tags:
+  - DesertEvent
+
+- type: dungeonRoom
+  id: DesertEventMid1
+  size: 11, 19
+  atlas: /Maps/ADTMaps/Ruins/Desert-dungens/desert-dungen-medium-1.yml
+  offset: -17, -4
+  tags:
+  - DesertEvent
+
+- type: dungeonRoom
+  id: DesertEventMid2
+  size: 15, 9
+  atlas: /Maps/ADTMaps/Ruins/Desert-dungens/desert-dungen-medium-2.yml
+  offset: 6, 6
+  tags:
+  - DesertEvent
+
+- type: dungeonRoom
+  id: DesertEventMid3
+  size: 15, 10
+  atlas: /Maps/ADTMaps/Ruins/Desert-dungens/desert-dungen-medium-3.yml
+  offset: 6, 16
+  tags:
+  - DesertEvent
+
+- type: dungeonRoom
+  id: DesertEventMid4
+  size: 16, 10
+  atlas: /Maps/ADTMaps/Ruins/Desert-dungens/desert-dungen-medium-4.yml
+  offset: 24, 16
+  tags:
+  - DesertEvent
+
+- type: dungeonRoom
+  id: DesertEventSmall1
+  size: 10, 9
+  atlas: /Maps/ADTMaps/Ruins/Desert-dungens/desert-dungen-small-1.yml
+  offset: -5, 16
+  tags:
+  - DesertEvent
+
+- type: dungeonRoom
+  id: DesertEventSmall2
+  size: 12, 7
+  atlas: /Maps/ADTMaps/Ruins/Desert-dungens/desert-dungen-small-2.yml
+  offset: 35, -6
+  tags:
+  - DesertEvent
+
+- type: dungeonRoom
+  id: DesertEventSmall3
+  size: 6, 6
+  atlas: /Maps/ADTMaps/Ruins/Desert-dungens/desert-dungen-small-3.yml
+  offset: 27, -5
+  tags:
+  - DesertEvent
+
+- type: dungeonRoom
+  id: DesertEventSmall4
+  size: 10, 9
+  atlas: /Maps/ADTMaps/Ruins/Desert-dungens/desert-dungen-small-4.yml
+  offset: -5, 6
+  tags:
+  - DesertEvent
+
+- type: dungeonRoom
+  id: DesertEventWreck1
+  size: 10, 9
+  atlas: /Maps/ADTMaps/Ruins/Desert-dungens/desert-dungen-wreck-1.yml
+  offset: -5, -4
+  tags:
+  - DesertEventWreck
+
+- type: dungeonRoom
+  id: DesertEventWreck2
+  size: 21, 12
+  atlas: /Maps/ADTMaps/Ruins/Desert-dungens/desert-dungen-wreck-2.yml
+  offset: 6, -7
+  tags:
+  - DesertEventWreck
+
+- type: dungeonRoom
+  id: DesertEventWreck3
+  size: 15, 14
+  atlas: /Maps/ADTMaps/Ruins/Desert-dungens/desert-dungen-wreck-3.yml
+  offset: 0, -12
+  tags:
+  - DesertEventWreck
+
+- type: dungeonRoom
+  id: DesertEventWreck4
+  size: 26, 33
+  atlas: /Maps/ADTMaps/Ruins/Desert-dungens/desert-dungen-wreck-4.yml
+  offset: 0, -32
+  tags:
+  - DesertEventWreck
+
+- type: dungeonRoom
+  id: DesertEventWreck5
+  size: 7, 7
+  atlas: /Maps/ADTMaps/Ruins/Desert-dungens/desert-dungen-wreck-5.yml
+  offset: 0, 0
+  tags:
+  - DesertEventWreck
+
+- type: entity
+  id: DesertEventRoomMarker
+  parent: BaseRoomMarker
+  name: desert interior marker
+  components:
+  - type: RoomFill
+    clearExisting: true
+    roomWhitelist:
+      tags:
+      - DesertEvent
+
+- type: entity
+  id: DesertEventWreckRoomMarker
+  parent: BaseRoomMarker
+  name: desert wreck interior marker
+  components:
+  - type: RoomFill
+    clearExisting: true
+    roomWhitelist:
+      tags:
+      - DesertEventWreck
+
+- type: Tag
+  id: DesertEvent
+
+- type: Tag
+  id: DesertEventWreck

@@ -184,3 +184,14 @@
     Ethylredoxrazine: 15
     Dylovene: 5
   recipeType: MedicalAssembler
+
+# Water
+- type: microwaveMealRecipe
+  id: RecipeWater
+  name: water
+  result: DrinkWaterBottleFull
+  time: 5
+  group: Medicinal
+  reagents:
+    AlienBloodPlus: 30
+  recipeType: WaterAssembler

@@ -23,3 +23,16 @@
     1: 0
     2: 0.75
     3: 0.75
+
+- type: techDiscipline
+  id: Evac
+  name: research-discipline-evac
+  uiName: ЭВАК
+  color: "#3d8dbb"
+  icon:
+    sprite: Interface/Misc/research_disciplines.rsi
+    state: evac
+  tierPrerequisites:
+    1: 0
+    2: 0.75
+    3: 0.75

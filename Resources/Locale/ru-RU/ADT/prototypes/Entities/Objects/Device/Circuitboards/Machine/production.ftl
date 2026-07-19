@@ -28,3 +28,6 @@ ent-ADTEnergyBoozeDispenserMachineCircuitboard = энерго-раздатчик
     .desc = Печатная плата энерго-раздатчика алкоголя.
 ent-ADTEnergySodaDispenserMachineCircuitboard = энерго-раздатчик безалкоголя (машинная плата)
     .desc = Печатная плата энерго-раздатчика безалкоголя.
+
+ent-ADTWaterAssemblerMachineCircuitBoard = синтезатор воды (машинная плата)
+    .desc = Машинная плата, используемая для создания синтезатора воды.
