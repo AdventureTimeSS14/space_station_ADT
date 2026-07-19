@@ -895,7 +895,7 @@
   productEntity: ADTWeaponMiniatureEnergyCrossbow
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 6
+    Telecrystal: 4
   cost:
     Telecrystal: 9
   categories:
