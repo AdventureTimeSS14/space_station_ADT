@@ -34,22 +34,22 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: DrinkCoconutWaterJug
-        - id: DrinkCoffeeJug
-        - id: DrinkColaBottleFull
-        - id: DrinkCreamCartonXL
-        - id: DrinkDrGibbJug
-        - id: DrinkEnergyDrinkJug
-        - id: DrinkGreenTeaJug
-        - id: DrinkIceJug
-        - id: DrinkJuiceLimeCartonXL
-        - id: DrinkJuiceOrangeCartonXL
-        - id: DrinkLemonLimeJug
-        - id: DrinkRootBeerJug
-        - id: DrinkSodaWaterBottleFull
-        - id: DrinkSpaceMountainWindBottleFull
-        - id: DrinkSpaceUpBottleFull
-        - id: DrinkSugarJug
-        - id: DrinkTeaJug
-        - id: DrinkTonicWaterBottleFull
-        - id: DrinkWaterMelonJuiceJug
+        - ADTDrinkCoconutWaterCanister #ADT_Tweak, бутылки заменены на канистры
+        - ADTDrinkCoffeeCanister
+        - ADTDrinkColaCanister
+        - ADTDrinkCreamCanister
+        - ADTDrinkDrGibbCanister
+        - ADTDrinkEnergyDrinkCanister
+        - ADTDrinkGreenTeaCanister
+        - ADTDrinkIceCanister
+        - ADTDrinkJuiceLimeCanister
+        - ADTDrinkJuiceOrangeCanister
+        - ADTDrinkLemonLimeCanister
+        - ADTDrinkRootBeerCanister
+        - ADTDrinkSodaWaterCanister
+        - ADTDrinkSpaceMountainWindCanister
+        - ADTDrinkSpaceUpCanister
+        - ADTDrinkSugarCanister
+        - ADTDrinkTeaCanister
+        - ADTDrinkTonicWaterCanister
+        - ADTDrinkJuiceWatermelonCanister #ADT_Tweak, бутылки заменены на канистры

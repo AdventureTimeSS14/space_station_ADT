@@ -59,23 +59,23 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: JugAluminium
-        - id: JugCarbon
-        - id: JugChlorine
-        - id: JugCopper
-        - id: JugEthanol
-        - id: JugFluorine
-        - id: JugSugar
-        - id: JugHydrogen
-        - id: JugIodine
-        - id: JugIron
-        - id: JugLithium
-        - id: JugMercury
-        - id: JugNitrogen
-        - id: JugOxygen
-        - id: JugPhosphorus
-        - id: JugPotassium
-        - id: JugRadium
-        - id: JugSilicon
-        - id: JugSodium
-        - id: JugSulfur
+        - ADTReagentCanisterAluminium #ADT_Tweak, бутылки заменены на канистры
+        - ADTReagentCanisterCarbon
+        - ADTReagentCanisterChlorine
+        - ADTReagentCanisterCopper
+        - ADTReagentCanisterEthanol
+        - ADTReagentCanisterFluorine
+        - ADTReagentCanisterSugar
+        - ADTReagentCanisterHydrogen
+        - ADTReagentCanisterIodine
+        - ADTReagentCanisterIron
+        - ADTReagentCanisterLithium
+        - ADTReagentCanisterMercury
+        - ADTReagentCanisterNitrogen
+        - ADTReagentCanisterOxygen
+        - ADTReagentCanisterPhosphorus
+        - ADTReagentCanisterPotassium
+        - ADTReagentCanisterRadium
+        - ADTReagentCanisterSilicon
+        - ADTReagentCanisterSodium
+        - ADTReagentCanisterSulfur #ADT_Tweak, бутылки заменены на канистры

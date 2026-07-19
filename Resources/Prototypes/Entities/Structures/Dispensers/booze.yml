@@ -36,15 +36,15 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: DrinkAleBottleFullGrowler
-        - id: DrinkBeerGrowler
-        - id: DrinkCoffeeLiqueurBottleFull
-        - id: DrinkCognacBottleFull
-        - id: DrinkGinBottleFull
-        - id: DrinkMeadJug
-        - id: DrinkRumBottleFull
-        - id: DrinkTequilaBottleFull
-        - id: DrinkVermouthBottleFull
-        - id: DrinkVodkaBottleFull
-        - id: DrinkWhiskeyBottleFull
-        - id: DrinkWineBottleFull
+        - ADTDrinkAleCanister #ADT_Tweak, бутылки заменены на канистры
+        - ADTDrinkBeerCanister
+        - ADTDrinkCoffeeLiqueurCanister
+        - ADTDrinkCognacCanister
+        - ADTDrinkGinCanister
+        - ADTDrinkMeadCanister
+        - ADTDrinkRumCanister
+        - ADTDrinkTequilaCanister
+        - ADTDrinkVermouthCanister
+        - ADTDrinkVodkaCanister
+        - ADTDrinkWhiskeyCanister
+        - ADTDrinkWineCanister #ADT_Tweak, бутылки заменены на канистры
