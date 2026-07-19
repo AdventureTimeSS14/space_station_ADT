@@ -22,7 +22,7 @@
       reagents:
       - ReagentId: AlienBloodPlus
         Quantity: 50 #we don't want the map to become pools of blood
-        maxVol: 50
+      maxVol: 50
     bloodlossDamage:
       types:
         Bloodloss:

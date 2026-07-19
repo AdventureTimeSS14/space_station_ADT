@@ -169,5 +169,4 @@
         type: Set
         time: 10
       - !type:Jitter
-        type: Set
         time: 10
