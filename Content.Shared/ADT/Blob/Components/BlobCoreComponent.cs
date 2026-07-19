@@ -215,7 +215,7 @@ public sealed partial class BlobCoreComponent : Component
     public SoundSpecifier GreetSoundNotification = new SoundPathSpecifier("/Audio/Effects/clang.ogg");
 
     [DataField]
-    public SoundSpecifier AttackSound = new SoundPathSpecifier("/Audio/Animals/Blob/blobattack.ogg");
+    public SoundSpecifier AttackSound = new SoundPathSpecifier("/Audio/ADT/Blob/blobattack.ogg");
 
     #endregion
 }
