@@ -19,6 +19,7 @@ using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
 using Content.Goobstation.Shared.Flashbang;
 using Content.Shared.ADT.Grab; // ADT-Tweak
+using Content.Shared.RetractableItemAction; // ADT-Tweak
 using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Goobstation.Shared.InternalResources.EntitySystems;
 using Content.Goobstation.Shared.InternalResources.Events;
@@ -705,6 +706,14 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     public void RemoveAllChangelingEquipment(EntityUid target, ChangelingIdentityComponent comp)
     {
+        // ADT-Tweak start: оружие-руки живут на своём акшене
+        foreach (var held in _hands.EnumerateHeld(target).ToList())
+        {
+            if (HasComp<ActionRetractableItemComponent>(held))
+                QueueDel(held);
+        }
+        // ADT-Tweak end
+
         // check if there's no entities or all entities are null
         if (comp.Equipment.Values.Count == 0
         || comp.Equipment.Values.All(ent => ent == null ? true : false))

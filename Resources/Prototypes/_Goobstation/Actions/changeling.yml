@@ -174,16 +174,23 @@
   components:
   - type: Action
     useDelay: 2
+    raiseOnAction: true # ADT-Tweak
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: armblade
   - type: InstantAction
-    event: !type:ToggleArmbladeEvent {}
+    event: !type:OnRetractableItemActionEvent {} # ADT-Tweak
   - type: ChangelingAction
   - type: InternalResourcesAction
     resourceProto: ChangelingChemicals
     useAmount: 15
+  - type: RetractableItemAction # ADT-Tweak
+    spawnedPrototype: ArmBladeChangeling
+    summonSounds:
+      collection: gib
+    retractSounds:
+      collection: gib
 
 - type: entity
   parent: BaseAction
@@ -194,16 +201,23 @@
   components:
   - type: Action
     useDelay: 2
+    raiseOnAction: true # ADT-Tweak
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: hammer
   - type: InstantAction
-    event: !type:ToggleArmHammerEvent {}
+    event: !type:OnRetractableItemActionEvent {} # ADT-Tweak
   - type: ChangelingAction
   - type: InternalResourcesAction
     resourceProto: ChangelingChemicals
     useAmount: 15
+  - type: RetractableItemAction # ADT-Tweak
+    spawnedPrototype: ArmHammerChangeling
+    summonSounds:
+      collection: gib
+    retractSounds:
+      collection: gib
 
 - type: entity
   parent: BaseAction
@@ -214,16 +228,23 @@
   components:
   - type: Action
     useDelay: 2
+    raiseOnAction: true # ADT-Tweak
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: claw
   - type: InstantAction
-    event: !type:ToggleArmClawEvent {}
+    event: !type:OnRetractableItemActionEvent {} # ADT-Tweak
   - type: ChangelingAction
   - type: InternalResourcesAction
     resourceProto: ChangelingChemicals
     useAmount: 15
+  - type: RetractableItemAction # ADT-Tweak
+    spawnedPrototype: ArmClawChangeling
+    summonSounds:
+      collection: gib
+    retractSounds:
+      collection: gib
 
 - type: entity
   parent: BaseAction

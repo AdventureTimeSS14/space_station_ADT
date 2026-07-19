@@ -70,9 +70,6 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, ChangelingTransformCycleEvent>(OnTransformCycle);
         SubscribeLocalEvent<ChangelingIdentityComponent, ChangelingTransformEvent>(OnTransform);
 
-        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleArmbladeEvent>(OnToggleArmblade);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleArmHammerEvent>(OnToggleHammer);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleArmClawEvent>(OnToggleClaw);
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleDartGunEvent>(OnToggleDartGun);
         SubscribeLocalEvent<ChangelingIdentityComponent, CreateBoneShardEvent>(OnCreateBoneShard);
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleChitinousArmorEvent>(OnToggleArmor);
@@ -397,36 +394,6 @@ public sealed partial class ChangelingSystem
 
     #region Combat Abilities
 
-    private void OnToggleArmblade(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleArmbladeEvent args)
-    {
-        if (args.Handled
-            || !TryToggleItem(uid, ArmbladePrototype, comp, out _))
-            return;
-
-        PlayMeatySound(uid, comp);
-
-        args.Handled = true;
-    }
-    private void OnToggleHammer(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleArmHammerEvent args)
-    {
-        if (args.Handled
-            || !TryToggleItem(uid, HammerPrototype, comp, out _))
-            return;
-
-        PlayMeatySound(uid, comp);
-
-        args.Handled = true;
-    }
-    private void OnToggleClaw(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleArmClawEvent args)
-    {
-        if (args.Handled
-            || !TryToggleItem(uid, ClawPrototype, comp, out _))
-            return;
-
-        PlayMeatySound(uid, comp);
-
-        args.Handled = true;
-    }
     private void OnToggleDartGun(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleDartGunEvent args)
     {
         if (args.Handled)
