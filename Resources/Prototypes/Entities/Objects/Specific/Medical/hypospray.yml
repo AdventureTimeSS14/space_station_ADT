@@ -172,6 +172,7 @@
     allowedModes:
     - AdvancedJetInjectorDynamicMode
     - AdvancedJetInjectorInjectMode
+    movementThreshold: 5 # ADT-Tweak
 
 - type: entity
   parent: SyndiHypo

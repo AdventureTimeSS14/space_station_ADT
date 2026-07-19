@@ -1,0 +1,28 @@
+# Spoken by the Blob.
+- type: language
+  id: ADTBlob
+  uiColor: "#800080"
+  parent: BaseVocalLanguage
+  speech: !type:Generic
+    obfuscateSyllables: true
+    color: "#800080"
+    whisperColor: "#a366a3"
+    replacement:
+    - баб
+    - боб
+    - беб
+    - буб
+    - габ
+    - гоб
+    - геб
+    - губ
+    - блаб
+    - блоб
+    - блеб
+    - блуб
+    - глаб
+    - глоб
+    - глеб
+    - глуб
+    font: Monospace
+    fontSize: 13

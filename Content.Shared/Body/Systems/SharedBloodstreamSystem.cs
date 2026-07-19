@@ -18,7 +18,7 @@ using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Rejuvenate;
 using Content.Shared.StatusEffectNew;
-using Content.Shared.ADT.Speech.EntitySystems; //ADT-Weakness-Tweak
+using Content.Shared.ADT.Speech.EntitySystems; //ADT-Tweak
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -41,7 +41,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedWeaknessSystem _weaknessSystem = default!; //ADT-Weakness-Tweak
+    [Dependency] private readonly SharedWeaknessSystem _weaknessSystem = default!; //ADT-Tweak
 
     public override void Initialize()
     {
@@ -79,7 +79,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
             // Blood level regulation. Must be alive.
             if (!_mobStateSystem.IsDead(uid))
             {
-                TryRegenerateBlood((uid, bloodstream)); // ADT-Tweak 
+                TryRegenerateBlood((uid, bloodstream)); // ADT-Tweak
 
                 TickBleed((uid, bloodstream));
 
@@ -96,7 +96,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                     // The effect is applied in a way that it will never be cleared without being healthy.
                     // Multiplying by 2 is arbitrary but works for this case, it just prevents the time from running out
                     _status.TrySetStatusEffectDuration(uid, Bloodloss);
-                    _weaknessSystem.DoWeakness(uid, bloodstream.AdjustedUpdateInterval * 2, refresh: false); // ADT-Weakness-Tweak
+                    _weaknessSystem.DoWeakness(uid, bloodstream.AdjustedUpdateInterval * 2, refresh: false); // ADT-Tweak
                 }
                 else
                 {
@@ -104,7 +104,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                     _damageableSystem.TryChangeDamage(uid, bloodstream.BloodlossHealDamage * bloodPercentage, ignoreResistances: true, interruptsDoAfters: false);
 
                     _status.TryRemoveStatusEffect(uid, Bloodloss);
-                    _weaknessSystem.DoRemoveWeakness(uid); // ADT-Weakness-Tweak
+                    _weaknessSystem.DoRemoveWeakness(uid); // ADT-Tweak
                 }
             }
             else

@@ -18618,7 +18618,7 @@ entities:
       parent: 351
     - type: Physics
       canCollide: False
-- proto: BoozeDispenser
+- proto: ADTEnergyBoozeDispenser
   entities:
   - uid: 354
     components:
@@ -18642,7 +18642,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 86.5,-52.5
       parent: 2
-- proto: SodaDispenser
+- proto: ADTEnergySodaDispenser
   entities:
   - uid: 358
     components:
@@ -114401,7 +114401,7 @@ entities:
       parent: 17968
     - type: Physics
       canCollide: False
-- proto: ChemDispenser
+- proto: EnergyChemDispenser
   entities:
   - uid: 17970
     components:

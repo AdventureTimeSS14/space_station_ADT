@@ -3130,7 +3130,7 @@
   flavor: adtfleche
   color: "#d2b48c"
   metabolisms:
-    Digestion:
+    Metabolites:
       effects:
       - !type:SatiateThirst
         factor: 5

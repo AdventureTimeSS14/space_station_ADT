@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+- type: weightedRandom
+  id: ChangelingObjectiveGroups
+  weights:
+    ChangelingObjectiveGroupSteal: 1
+    ChangelingObjectiveGroupKill: 1
+
+- type: weightedRandom
+  id: ChangelingObjectiveGroupSteal
+  weights:
+    LingCaptainIDStealObjective: 1
+    LingCMOHyposprayStealObjective: 1
+    LingRDHardsuitStealObjective: 1
+    LingNukeDiskStealObjective: 1
+    LingMagbootsStealObjective: 1
+    LingCorgiMeatStealObjective: 1
+    LingClipboardStealObjective: 1
+    LingCaptainGunStealObjective: 1
+    LingCaptainJetpackStealObjective: 1
+    LingHandTeleporterStealObjective: 1
+    LingStealSupermatterSliverObjective: 1
+
+- type: weightedRandom
+  id: ChangelingObjectiveGroupKill
+  weights:
+    LingKillRandomHeadObjective: 3
+    ChangelingAbsorbOtherObjective: 1

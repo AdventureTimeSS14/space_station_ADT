@@ -414,10 +414,6 @@
         component: SeeingRainbows
         type: Add
         time: 2.5
-      - !type:HallucinationsReagentEffect
-        proto: Changeling
-        type: Remove
-        time: 7
       - !type:PopupMessage
         type: Local
         visualType: Small

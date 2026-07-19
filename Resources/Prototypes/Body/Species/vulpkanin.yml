@@ -161,9 +161,11 @@
     allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl' ]
   - type: Vocal
     sounds:
-      Male: MaleVulpkanin
-      Female: FemaleVulpkanin
-      Unsexed: MaleVulpkanin
+      # ADT-Tweak: Start
+      Male: NesMaleVulpa # MaleVuplkanin -> NesMaleVulpa
+      Female: NesFemaleVulpa # FemaleVulpkanin -> NesFemaleVulpa
+      Unsexed: NesFemaleVulpa # MaleVulpkanin -> NesFemaleVulpa
+      # ADT-Tweak: End
   - type: Damageable
     damageModifierSet: Vulpkanin
   - type: Injurable
@@ -210,6 +212,11 @@
     sprite:
       sprite: Effects/creampie.rsi
       state: creampie_vulpkanin
+  # ADT-Tweak: Start
+  - type: Tag
+    tags:
+    - ADTDogEmotes
+  # ADT-Tweak: End
 
 - type: entity
   parent: OrganBaseOrganic
