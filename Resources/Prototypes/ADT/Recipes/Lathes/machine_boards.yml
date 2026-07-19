@@ -29,14 +29,3 @@
   parent: ADTBaseThrusterCircuitboard
   id: ADTMachineMediumLongThrusterCircuitboard
   result: ADTMachineMediumLongThrusterCircuitboard
-
-## Services
-- type: latheRecipe
-  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
-  id: ADTEnergyBoozeDispenserMachineCircuitboard
-  result: ADTEnergyBoozeDispenserMachineCircuitboard
-
-- type: latheRecipe
-  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
-  id: ADTEnergySodaDispenserMachineCircuitboard
-  result: ADTEnergySodaDispenserMachineCircuitboard
