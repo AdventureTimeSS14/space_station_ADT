@@ -194,12 +194,10 @@
   id: ChemMasterMachineCircuitboard
   result: ChemMasterMachineCircuitboard
 
-# ADT-Tweak-Start закоментил крафт раздатчика из за замены на энергораздатчики.
-#- type: latheRecipe
-#  parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
-#  id: ChemDispenserMachineCircuitboard
-#  result: ChemDispenserMachineCircuitboard
-# ADT-Tweak-End
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
+  id: ChemDispenserMachineCircuitboard
+  result: ChemDispenserMachineCircuitboard
 
 # Treatment
 - type: latheRecipe
@@ -266,13 +264,13 @@
 
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
-  id: ADTEnergyBoozeDispenserMachineCircuitboard #ADT-Tweak
-  result: ADTEnergyBoozeDispenserMachineCircuitboard #ADT-Tweak
+  id: BoozeDispenserMachineCircuitboard
+  result: BoozeDispenserMachineCircuitboard
 
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
-  id: ADTEnergySodaDispenserMachineCircuitboard #ADT-Tweak
-  result: ADTEnergySodaDispenserMachineCircuitboard #ADT-Tweak
+  id: SodaDispenserMachineCircuitboard
+  result: SodaDispenserMachineCircuitboard
 
 # Hydroponics
 - type: latheRecipe

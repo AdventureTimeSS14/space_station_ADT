@@ -116,6 +116,12 @@
   - type: Prying 
     useSound:
       path: /Audio/Items/crowbar.ogg
+# ADT-Tweak Start
+  - type: TrophyHolder
+  - type: ContainerContainer
+    containers:
+      upgrades: !type:Container
+# ADT-Tweak End
 
 # Very high burst damage if you land a mark, while also providing a small amount of healing.
 - type: entity
@@ -141,10 +147,12 @@
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 0.9
-  # - type: LeechOnMarker ADT tweak
-  #   leech:
-  #     groups:
-  #       Brute: -10
+  - type: LeechOnMarker # ADT Tweak
+    leech:
+      types:
+        Blunt: -1.66
+        Slash: -1.67
+        Piercing: -1.67
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
@@ -248,10 +256,12 @@
     proto: BulletChargeGlaive
     capacity: 1
     count: 1
-  # - type: LeechOnMarker ADT crusher reskin
-  #   leech:
-  #     groups:
-  #       Brute: -21
+  - type: LeechOnMarker # ADT Tweak
+    leech:
+      types:
+        Blunt: -3
+        Slash: -3
+        Piercing: -3
   - type: Tag
     tags:
       - Pickaxe
