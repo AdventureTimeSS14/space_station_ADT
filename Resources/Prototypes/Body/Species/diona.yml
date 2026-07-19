@@ -85,7 +85,7 @@
     baseDecayRate: 0.0083
     thirstDamage:
       types:
-        Cold: 0.2
+        Cold: 0.15
         Caustic: 0.08
   - type: Damageable
     damageModifierSet: Diona

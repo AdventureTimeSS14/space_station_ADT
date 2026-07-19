@@ -16,7 +16,7 @@
   - type: Thirst
     thirstDamage:
       types:
-        Cold: 0.12
+        Cold: 0.08
         Caustic: 0.08
   - type: Barotrauma
     damage:
