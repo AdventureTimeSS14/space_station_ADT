@@ -88,7 +88,6 @@ public abstract partial class SharedAugmentedEyesightSystem : EntitySystem
 
         var mod = EnsureComp<FlashModifierComponent>(ent);
         mod.Modifier = ent.Comp.FlashMultiplier;
-        Dirty(ent, mod);
     }
 
     protected virtual void SetVision(Entity<AugmentedEyesightComponent> ent, bool? state = null)
