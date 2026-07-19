@@ -1797,6 +1797,84 @@
       params:
         variation: 0.07
 
+- type: entity
+  parent: ClothingHandsGlovesSyntheticBase
+  id: ADTClothingHandsHonelin111Gloves
+  name: gloves
+  description: The gloves that come with the dress are a striking addition to the outfit.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/honelin111_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/honelin111_gloves.rsi
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterHonelin111Jacket
+  name: leather jacket
+  description: A slightly worn leather jacket with a stand collar and a barely visible shoulder patch
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/honelin111_jacket.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/honelin111_jacket.rsi
+
+- type: entity
+  parent: ADTSponsorClothingUniformSkirtBase
+  id: ADTSponsorClothingUniformHonelin111Shirt
+  name: shirt
+  description: A shirt with several unbuttoned buttons at the collar, tucked into trousers adorned with a leather belt with a two-pronged buckle.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/honelin111_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/honelin111_shirt.rsi
+
+- type: entity
+  parent: ADTSponsorClothingUniformSkirtBase
+  id: ADTSponsorClothingUniformHonelin111Dress
+  name: dress
+  description: The dress is red, highlighting the figure, with long sleeves and a V-neckline that reveals the valley between the breasts. On the side, the dress has a diagonal cut that creates an asymmetrical hem.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/honelin111_dress.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/honelin111_dress.rsi
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatHonelin111Flower
+  name: decorative flower
+  description: A decorative flower used as a head ornament.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/honelin111_flower_head.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/honelin111_flower_head.rsi
+
+- type: entity
+  parent: ADTSponsorClothing
+  id: ADTClothingEarHonelin111GoldenEarring
+  name: gold earring
+  description: A piece of jewelry made of a dark gold alloy, with a history that is far from simple—just like the person who wears it.
+  suffix: Personal, Honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/honelin111_golden_earrings.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/honelin111_golden_earrings.rsi
+    slots:
+    - ears
+    - ears2
+
 # stryz_ani
 - type: entity
   parent: ClothingHandsGlovesSyntheticBase
@@ -1854,24 +1932,6 @@
           - ADTStryzAniKatana
   - type: Appearance
 
-- type: entity
-  parent: ADTSponsorClothing
-  id: ADTClothingEarHonelin111GoldenEarring
-  name: gold earring
-  description: A piece of jewelry made of a dark gold alloy, with a history that is far from simple—just like the person who wears it.
-  suffix: Personal, Honelin111
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/honelin111_golden_earrings.rsi
-    state: icon
-  - type: Item
-    size: Small
-  - type: Clothing
-    sprite: ADT/Personalization/honelin111_golden_earrings.rsi
-    slots:
-    - ears
-    - ears2
-
 # SikRit
 - type: entity
   parent: ADTSponsorClothingNeckBase
@@ -1900,6 +1960,19 @@
     sprite: ADT/Personalization/nsfw_cloak.rsi
   - type: StaticPrice
     price: 1984
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingOuterArmorMishailArmoredJacketSecOfficer
+  name: the armored jacket of an sec officer
+  description: You think it was a caretaker's jacket once. But you can't prove it violates the sixth clause of the general security SOP.
+  suffix: Personal, Mishail
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Mishail_armored_jacket_sec_officer.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/Mishail_armored_jacket_sec_officer.rsi
 
 # Спонсорское (ДЛЯ ВСЕХ СПОНСОРОВ!)
 
