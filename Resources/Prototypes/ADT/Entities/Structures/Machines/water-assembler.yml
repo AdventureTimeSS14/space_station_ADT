@@ -1,0 +1,72 @@
+- type: entity
+  id: ADTWaterAssembler
+  parent: [ BaseMachinePowered, ConstructibleMachine, ADTKitchenAssembler]
+  name: adt-water-assembler
+  description: Great for medicine, apparently. You don't know how it works.
+  components:
+  - type: Microwave
+    validRecipeTypes: WaterAssembler
+    beginCookingSound: /Audio/Machines/machine_switch.ogg
+    foodDoneSound: /Audio/Effects/Shuttle/radar_ping.ogg
+    loopingSound: /Audio/ADT/Machines/medical-assembler.ogg
+    key: MedicalAssemblerKey
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.VisualState:
+        enum.MicrowaveVisualizerLayers.Base:
+          Idle: { state: "mediwave-base" }
+          Broken: { state: "mediwave-base" }
+          Cooking: { state: "mediwave-base" }
+        enum.MicrowaveVisualizerLayers.BaseUnlit:
+          Idle: { state: "mediwave-off-unlit" }
+          Broken: { state: "mediwave-off-unlit" }
+          Cooking: { state: "mediwave-on-unlit" }
+      enum.PowerDeviceVisuals.Powered:
+        enum.MicrowaveVisualizerLayers.BaseUnlit:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Sprite
+    sprite: ADT/Structures/Machines/water-assembler.rsi
+    snapCardinals: true
+    layers:
+    - state: mediwave-base
+      map: ["enum.MicrowaveVisualizerLayers.Base"]
+    - state: mediwave-off-unlit
+      shader: unshaded
+      map: ["enum.MicrowaveVisualizerLayers.BaseUnlit"]
+      visible: false
+  - type: ApcPowerReceiver
+    powerLoad: 5
+  - type: Machine
+    board: ADTWaterAssemblerMachineCircuitBoard
+  - type: ActivatableUI
+    key: enum.MicrowaveUiKey.MedicalAssemblerKey
+  - type: UserInterface
+    interfaces:
+      enum.MicrowaveUiKey.MedicalAssemblerKey:
+        type: AssemblerBoundUserInterface
+  - type: ContainerContainer # Redefined due to inheritance order
+    containers:
+      microwave_entity_container: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+
+- type: entity
+  id: ADTWaterAssemblerMachineCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: medical assembler machine board
+  description: A machine printed circuit board for a medical assembler.
+  components:
+    - type: Sprite
+      state: medical
+    - type: MachineBoard
+      prototype: ADTMedicalAssembler
+      stackRequirements:
+        Manipulator: 1
+        Steel: 5
+        Glass: 2
+        Cable: 4
+      tagRequirements:
+        GlassBeaker:
+          amount: 2
+          defaultPrototype: Beaker
