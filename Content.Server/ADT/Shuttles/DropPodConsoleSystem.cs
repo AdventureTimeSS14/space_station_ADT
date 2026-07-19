@@ -304,6 +304,22 @@ public sealed class DropPodConsoleSystem : EntitySystem
         QueueDel(podGrid);
     }
 
+    // Find all grids that belong to stations marked with DropPodTargetStationComponent
+    private HashSet<EntityUid> GetValidStationGrids()
+    {
+        var valid = new HashSet<EntityUid>();
+        var query = EntityQueryEnumerator<DropPodTargetStationComponent, StationDataComponent>();
+        while (query.MoveNext(out _, out var stationData))
+        {
+            foreach (var gridUid in stationData.Grids)
+            {
+                if (!TerminatingOrDeleted(gridUid) && HasComp<MapGridComponent>(gridUid))
+                    valid.Add(gridUid);
+            }
+        }
+        return valid;
+    }
+
     private void OnConsoleOpened(Entity<DropPodConsoleComponent> ent, ref AfterActivatableUIOpenEvent args)
     {
         UpdateUiState(ent);
@@ -351,18 +367,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
 
         var cooldownRemaining = cooldownReady ? 0 : (int)Math.Ceiling((comp.Cooldown - elapsed).TotalSeconds);
 
-        // Find all grids that belong to stations marked with DropPodTargetStationComponent
-        var validStationGrids = new HashSet<EntityUid>();
-
-        var targetStationQuery = EntityQueryEnumerator<DropPodTargetStationComponent, StationDataComponent>();
-        while (targetStationQuery.MoveNext(out _, out var stationData))
-        {
-            foreach (var gridUid in stationData.Grids)
-            {
-                if (!TerminatingOrDeleted(gridUid) && HasComp<MapGridComponent>(gridUid))
-                    validStationGrids.Add(gridUid);
-            }
-        }
+        var validStationGrids = GetValidStationGrids();
 
         var validBeacons = new List<DropPodBeaconInfo>();
         var stationBeacons = new List<Vector2>();
@@ -474,11 +479,21 @@ public sealed class DropPodConsoleSystem : EntitySystem
             return;
 
         var targetBeaconEnt = GetEntity(args.TargetBeacon);
+
+        var validStationGrids = GetValidStationGrids();
+
         if (!TryComp<WarpPointComponent>(targetBeaconEnt, out var warpPoint))
             return;
 
         if (!TryComp<NavMapBeaconComponent>(targetBeaconEnt, out var navMap))
             return;
+
+        var beaconXform = Transform(targetBeaconEnt);
+        if (beaconXform.GridUid is null || !validStationGrids.Contains(beaconXform.GridUid.Value))
+        {
+            Log.Warning($"DropPodConsole {ToPrettyString(uid)}: target beacon {ToPrettyString(targetBeaconEnt)} is not on a valid station grid.");
+            return;
+        }
 
         var beaconName = navMap.Text ?? navMap.DefaultText ?? MetaData(targetBeaconEnt).EntityName;
         var beaconPrototypeId = MetaData(targetBeaconEnt).EntityPrototype?.ID;
@@ -486,7 +501,6 @@ public sealed class DropPodConsoleSystem : EntitySystem
             return;
 
         var targetWorldPos = _transform.GetWorldPosition(targetBeaconEnt);
-        var beaconXform = Transform(targetBeaconEnt);
         if (beaconXform.MapUid == null)
             return;
 
