@@ -1,0 +1,44 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: reagent
+  parent: Blood
+  id: BloodChangeling
+  standsout: true
+
+- type: reaction
+  id: ChangelingBloodBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    BloodChangeling:
+      amount: 5
+  products:
+    Water: 11
+    Iron: 0.5
+    Sugar: 2
+    CarbonDioxide: 3
+    Protein: 4
+  effects:
+    - !type:SpawnEntity
+      entity: FleshKudzu
+    - !type:Explosion
+      explosionType: Default
+      maxIntensity: 2
+      intensityPerUnit: 0.5
+      intensitySlope: 4
+      maxTotalIntensity: 1
+
+# ADT-Tweak
+- type: reagent
+  id: ChangelingLethargic
+  name: reagent-name-changeling-lethargic
+  group: Narcotics
+  desc: reagent-desc-changeling-lethargic
+  physicalDesc: reagent-physical-desc-syrupy
+  color: "#5a3a7a"
+  metabolisms:
+    Metabolites:
+      effects:
+      - !type:ChangelingStaminaDamage
+        amount: 5
