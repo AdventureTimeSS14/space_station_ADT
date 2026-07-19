@@ -30149,7 +30149,7 @@ entities:
     - type: Transform
       pos: -16.796276,-11.463239
       parent: 2
-- proto: ADTEnergyBoozeDispenser
+- proto: BoozeDispenser
   entities:
   - uid: 532
     components:
@@ -30168,7 +30168,7 @@ entities:
     - type: Transform
       pos: -50.5,-7.5
       parent: 2
-- proto: ADTEnergySodaDispenser
+- proto: SodaDispenser
   entities:
   - uid: 535
     components:
@@ -106762,7 +106762,7 @@ entities:
       parent: 11925
     - type: Physics
       canCollide: False
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 11933
     components:

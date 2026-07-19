@@ -8,12 +8,26 @@
   tier: 1
   cost: 10000
   recipeUnlocks:
-#  - ChemDispenserMachineCircuitboard
+  - ChemDispenserMachineCircuitboard
   - ChemMasterMachineCircuitboard
   - HotplateMachineCircuitboard
   - ADTColdplateMachineCircuitboard
-  - EnergyChemDispenserMachineCircuitboard
   position: 3,2
+
+- type: technology
+  id: ADTadvChemDisp
+  name: research-technology-adtchemistry-misc
+  icon:
+    sprite: ADT/Structures/Machines/dispenser.rsi
+    state: industrial
+  discipline: Biochemical
+  tier: 2
+  cost: 25000
+  recipeUnlocks:
+  - EnergyChemDispenserMachineCircuitboard
+  requiredTech:
+  - ADTChemDisp
+  position: 3,3
 
 - type: technology
   id: ADTAdvancedMedicalCare
