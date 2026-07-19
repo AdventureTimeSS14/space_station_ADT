@@ -8871,7 +8871,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: BoozeDispenser
+- proto: ADTEnergyBoozeDispenser
   entities:
   - uid: 179
     components:
@@ -8889,7 +8889,7 @@ entities:
     - type: Transform
       pos: 17.5,62.5
       parent: 2
-- proto: SodaDispenser
+- proto: ADTEnergySodaDispenser
   entities:
   - uid: 182
     components:
@@ -64847,7 +64847,7 @@ entities:
     - type: Transform
       pos: -17.330315,-34.519756
       parent: 2
-- proto: ChemDispenser
+- proto: EnergyChemDispenser
   entities:
   - uid: 10287
     components:

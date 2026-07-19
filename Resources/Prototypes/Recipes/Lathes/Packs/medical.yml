@@ -108,7 +108,6 @@
   recipes:
   - StasisBedMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
-  - ChemDispenserMachineCircuitboard
 ##- CryoPodMachineCircuitboard
   # ADT-Tweak-Start
   - ADTMedicalAssemblerMachineCircuitBoard

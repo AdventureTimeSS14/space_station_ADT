@@ -966,12 +966,12 @@ ADTSpawnMobXenoRavager: SpawnMobXenoRavager
 Bloodpack: ADTBloodPackTransfusionFull
 
 # ADT 2026-02-27
-# BoozeDispenserMachineCircuitboard: ADTEnergyBoozeDispenserMachineCircuitboard
-# BoozeDispenser: ADTEnergyBoozeDispenser
-# BoozeDispenserEmpty: ADTEnergyBoozeDispenser
-# SodaDispenserMachineCircuitboard: ADTEnergySodaDispenserMachineCircuitboard
-# SodaDispenser: ADTEnergySodaDispenser
-# SodaDispenserEmpty: ADTEnergySodaDispenser
+BoozeDispenserMachineCircuitboard: ADTEnergyBoozeDispenserMachineCircuitboard
+BoozeDispenser: ADTEnergyBoozeDispenser
+BoozeDispenserEmpty: ADTEnergyBoozeDispenser
+SodaDispenserMachineCircuitboard: ADTEnergySodaDispenserMachineCircuitboard
+SodaDispenser: ADTEnergySodaDispenser
+SodaDispenserEmpty: ADTEnergySodaDispenser
 
 # ADT 2026-05-21
 ADTSpawnMobAbominationDeath: null
