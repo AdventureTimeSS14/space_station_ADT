@@ -26,6 +26,10 @@
     capacity: 1
     count: 1
   - type: DisarmMalus
+  - type: TrophyHolder
+  - type: ContainerContainer
+    containers:
+      upgrades: !type:Container
 
 - type: entity
   parent: [WeaponKineticBase, BaseSecurityCargoContraband]
@@ -43,6 +47,12 @@
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 0.9
+  - type: LeechOnMarker
+    leech:
+      types:
+        Blunt: -1.33
+        Slash: -1.33
+        Piercing: -1.34
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
@@ -122,6 +132,12 @@
     state: icon
   - type: UseDelay
     delay: 1
+  - type: LeechOnMarker
+    leech:
+      types:
+        Blunt: -2
+        Slash: -2
+        Piercing: -2
   - type: MeleeWeapon
     attackRate: 0.75
     wideAnimationRotation: -135
@@ -175,6 +191,12 @@
     state: icon
   - type: UseDelay
     delay: 1
+  - type: LeechOnMarker
+    leech:
+      types:
+        Blunt: -0.66
+        Slash: -0.66
+        Piercing: -0.66
   - type: MeleeWeapon
     attackRate: 1.5
     wideAnimationRotation: -135
@@ -240,6 +262,12 @@
     state: icon
   - type: UseDelay
     delay: 1
+  - type: LeechOnMarker
+    leech:
+      types:
+        Blunt: -1
+        Slash: -1
+        Piercing: -1
   - type: MeleeWeapon
     attackRate: 1.5
     damage:

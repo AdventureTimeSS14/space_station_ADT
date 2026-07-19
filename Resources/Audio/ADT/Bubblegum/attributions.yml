@@ -1,0 +1,15 @@
+- files:
+  - demon_attack1.ogg
+  - meteorimpact.ogg
+  - enter_blood.ogg
+  - exit_blood.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Ported from Paradise Station (sound/misc/demon_attack1.ogg, sound/effects/meteorimpact.ogg, sound/misc/enter_blood.ogg, sound/misc/exit_blood.ogg)"
+  source: "https://github.com/ParadiseSS13/Paradise"
+
+- files:
+  - e1m1.ogg
+  - glassbr1.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Ported from Paradise Station (sound/misc/e1m1.ogg, sound/effects/glassbr1.ogg)"
+  source: "https://github.com/ParadiseSS13/Paradise"

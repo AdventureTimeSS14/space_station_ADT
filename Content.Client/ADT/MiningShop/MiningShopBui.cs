@@ -157,15 +157,15 @@ public sealed class MiningShopBui : BoundUserInterface
             if (name != null)
                 names.Add(name);
         }
-        var orders = string.Join(", ", names);
+        var orders = string.Join("\n", names.Select(n => $"{n}"));
 
         var userpoints = _miningPoints.TryFindIdCard(_player.LocalEntity.Value)?.Comp?.Points ?? 0;
 
-        _window.YourPurchases.Text = $"Заказы: {orders}";
+        _window.YourPurchases.Text = $"{Loc.GetString("mining-shop-window-your-purchases")} \n{orders}";
 
-        _window.Express.Text = $"Экспресс доставка";
+        _window.Express.Text = Loc.GetString("mining-shop-window-express");
 
-        _window.PointsLabel.Text = $"Осталось очков: {userpoints}";
+        _window.PointsLabel.Text = Loc.GetString("mining-shop-window-points-left", ("points", userpoints));
 
         var sections = _prototype.EnumeratePrototypes<SharedMiningShopSectionPrototype>();
 
