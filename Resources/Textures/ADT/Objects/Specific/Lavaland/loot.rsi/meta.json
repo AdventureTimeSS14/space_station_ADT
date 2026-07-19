@@ -81,6 +81,21 @@
             0.2
           ]
         ]
-      }
+    },
+    {
+      "name": "hunter_eye"
+    },
+    {
+      "name": "magma_wing"
+    },
+    {
+      "name": "tail_spike"
+    },
+    {
+      "name": "goliath_tentacle"
+    },
+    {
+        "name": "ancient_goliath_tentacle"
+    }
   ]
 }
