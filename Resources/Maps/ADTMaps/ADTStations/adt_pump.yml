@@ -8305,7 +8305,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -42.5,27.5
       parent: 2
-- proto: ADTEnergyBoozeDispenser
+- proto: BoozeDispenser
   entities:
   - uid: 491
     components:
@@ -8313,7 +8313,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -35.5,40.5
       parent: 2
-- proto: ADTEnergySodaDispenser
+- proto: SodaDispenser
   entities:
   - uid: 812
     components:
@@ -31228,7 +31228,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -28.5,26.5
       parent: 2
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 23
     components:

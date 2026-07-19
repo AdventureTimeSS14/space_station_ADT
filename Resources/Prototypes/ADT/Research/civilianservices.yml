@@ -51,6 +51,22 @@
   - MeatManipulation
 
 - type: technology
+  id: ADTServiceEnergy
+  name: research-technology-services-service-energy
+  icon:
+    sprite: Structures/smalldispensers.rsi
+    state: booze
+  discipline: CivilianServices
+  tier: 2
+  cost: 12500
+  recipeUnlocks:
+    - ADTEnergySodaDispenserMachineCircuitboard
+    - ADTEnergyBoozeDispenserMachineCircuitboard
+  position: 1,-3
+  requiredTech:
+  - ADTServicePlus
+
+- type: technology
   id: ADTHydroponicsAdvanced
   name: research-technology-services-hydroponics-advanced
   icon:

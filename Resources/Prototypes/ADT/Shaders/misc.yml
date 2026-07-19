@@ -1,0 +1,5 @@
+- type: shader
+  id: LightVisibility
+  kind: source
+  path: "/Textures/ADT/Shaders/light_visibility.swsl"
+  light_mode: normal
