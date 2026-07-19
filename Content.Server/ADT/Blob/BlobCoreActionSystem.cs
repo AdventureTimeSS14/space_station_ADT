@@ -3,7 +3,7 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Shared.CCVar;
+using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Blob;
 using Content.Shared.ADT.Blob.Components;
 using Content.Shared.Atmos.Components;
@@ -11,7 +11,6 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Interaction;
@@ -66,7 +65,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
         SubscribeLocalEvent<BlobObserverControllerComponent, AfterInteractEvent>(OnInteractController);
         SubscribeLocalEvent<BlobObserverComponent, UserActivateInWorldEvent>(OnInteractTarget);
 
-        Subs.CVar(_cfg, CCVars.BlobCanGrowInSpace, value => _canGrowInSpace = value, true);
+        Subs.CVar(_cfg, ADTCCVars.BlobCanGrowInSpace, value => _canGrowInSpace = value, true);
         _tileQuery = GetEntityQuery<BlobTileComponent>();
         _blobCoreQuery = GetEntityQuery<BlobCoreComponent>();
     }
