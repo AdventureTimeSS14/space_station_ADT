@@ -1,4 +1,5 @@
 using Content.Shared.Alert;
+using Content.Shared.Damage;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -66,6 +67,12 @@ public sealed partial class ThirstComponent : Component
         {ThirstThreshold.Parched, "Parched"},
         {ThirstThreshold.Dead, "Parched"},
     };
+
+    /// <summary>
+    /// Damage dealt when your current threshold is at HungerThreshold.Dead
+    /// </summary>
+    [DataField]
+    public DamageSpecifier? ThirstDamage;
 }
 
 [Flags]
