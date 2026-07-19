@@ -1,0 +1,19 @@
+- type: latheRecipe
+  id: EnergyChemDispenserMachineCircuitboard
+  result: EnergyChemDispenserMachineCircuitboard
+  completetime: 2
+  materials:
+    Steel: 800
+    Copper: 200
+    Zinc: 50
+    Gold: 250
+    Silver: 400
+
+- type: latheRecipe
+  id: ADTWaterAssembler
+  result: ADTWaterAssemblerMachineCircuitBoard
+  completetime: 2
+  materials:
+    Steel: 600
+    Glass: 750
+    Copper: 900

@@ -111,7 +111,7 @@
 ##- CryoPodMachineCircuitboard
   # ADT-Tweak-Start
   - ADTMedicalAssemblerMachineCircuitBoard
-  - EnergyChemDispenserMachineCircuitboard
+  - ChemDispenserMachineCircuitboard
   - ChemMasterMachineCircuitboard
   - HotplateMachineCircuitboard
   - CloningPodMachineCircuitboard
