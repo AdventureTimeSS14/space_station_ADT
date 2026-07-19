@@ -214,6 +214,13 @@ public sealed class ThirstSystem : EntitySystem
 
             thirst.NextUpdateTime += thirst.UpdateRate;
 
+            if (thirst.CurrentThirstThreshold <= ThirstThreshold.Parched &&
+                thirst.ThirstDamage is { } damage &&
+                !_mobState.IsDead(uid))
+            {
+                _damageable.TryChangeDamage(uid, damage, true, false);
+            }
+
             ModifyThirst(uid, thirst, -thirst.ActualDecayRate);
             var calculatedThirstThreshold = GetThirstThreshold(thirst, thirst.CurrentThirst);
 
@@ -222,13 +229,6 @@ public sealed class ThirstSystem : EntitySystem
 
             thirst.CurrentThirstThreshold = calculatedThirstThreshold;
             UpdateEffects(uid, thirst);
-
-            if (thirst.CurrentThirstThreshold <= ThirstThreshold.Parched &&
-                thirst.ThirstDamage is { } damage &&
-                !_mobState.IsDead(uid))
-            {
-                _damageable.TryChangeDamage(uid, damage, true, false);
-            }
         }
     }
 }
