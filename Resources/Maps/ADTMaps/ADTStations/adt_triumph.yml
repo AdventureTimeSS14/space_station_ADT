@@ -22810,7 +22810,7 @@ entities:
     - type: Transform
       pos: -24.185997,-90.58851
       parent: 2
-- proto: BoozeDispenser
+- proto: ADTEnergyBoozeDispenser
   entities:
   - uid: 298
     components:
@@ -22824,7 +22824,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -25.5,-75.5
       parent: 2
-- proto: SodaDispenser
+- proto: ADTEnergySodaDispenser
   entities:
   - uid: 300
     components:
@@ -182540,7 +182540,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ChemDispenser
+- proto: EnergyChemDispenser
   entities:
   - uid: 30095
     components:

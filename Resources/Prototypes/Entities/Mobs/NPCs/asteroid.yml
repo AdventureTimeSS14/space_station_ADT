@@ -95,13 +95,16 @@
     - id: FoodMeatGoliath
       amount: 3
     - id: MaterialGoliathHide1
-      amount: 1 # ADT tweak 3>>1
-    # ADT tweak start
+  # ADT Tweak Start
+      amount: 1
     - id: MaterialBones1
       maxAmount: 5
-    # ADT tweak end
-  - type: Fauna # ADT tweak
-  - type: AshStormImmune # ADT tweak
+  - type: Fauna
+  - type: AshStormImmune
+  - type: ADTMobLoot
+    loots:
+      ADTKineticTrophyGoliathTentacle: 0.1
+  # ADT Tweak End
 
 - type: entity
   parent: BaseAction
