@@ -10,9 +10,8 @@ namespace Content.IntegrationTests.Tests.Actions;
 
 public sealed class RetractableItemActionTest : InteractionTest
 {
-    private static readonly EntProtoId ArmBladeActionProtoId = "ActionTestRetractableItem";
+    private static readonly string ArmBladeActionProtoId = "ActionTestRetractableItem";
 
-    // ADT-Tweak start
     [TestPrototypes]
     private const string RetractablePrototypes = @"
 - type: entity
@@ -35,7 +34,6 @@ public sealed class RetractableItemActionTest : InteractionTest
   - type: RetractableItemAction
     spawnedPrototype: TestRetractableItem
 ";
-// ADT-Tweak end
 
     /// <summary>
     /// Gives the player the arm blade action, then activates it and makes sure they are given the blade.
@@ -55,7 +53,7 @@ public sealed class RetractableItemActionTest : InteractionTest
             Assert.That(heldItem, Is.Null, $"Player is holding an item ({SEntMan.ToPrettyString(heldItem)}) at start of test.");
 
             // Inspect the action prototype to find the item it spawns
-            var armBladeActionProto = ProtoMan.Index(ArmBladeActionProtoId);
+            var armBladeActionProto = ProtoMan.Index<EntityPrototype>(ArmBladeActionProtoId);
 
             // Find the component
             Assert.That(armBladeActionProto.TryGetComponent<RetractableItemActionComponent>(out var actionComp, SEntMan.ComponentFactory));
