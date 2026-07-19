@@ -54,7 +54,7 @@
   - type: DeleteOnTrigger
 
 - type: entity
-  id: ADTBullet40mmGrenadeHEAT
+  id: ADTBullet40mmGrenadeHEAT # Из-за ребаланса взрывов оффами щас не играбельны.
   name: heat grenade
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]

@@ -306,6 +306,12 @@ entity-effect-guidebook-jittering =
         *[other] вызывает
     } тряску
 
+entity-effect-guidebook-tremor-spasm =
+    { $chance ->
+        [1] Вызывает
+        *[other] вызывает
+    } спазм рук, роняя предметы из рук и вызывая пацифизм на {NATURALFIXED($time, 3)} {MANY("секунд", $time)}
+
 entity-effect-guidebook-clean-bloodstream =
     { $chance ->
         [1] Очищает

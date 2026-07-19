@@ -27,7 +27,7 @@
 using System.Linq;
 using Content.Shared.ADT.Grab;
 using Content.Shared.ADT.MartialArts;
-using Content.Shared.Changeling.Components;
+using Content.Goobstation.Shared.Changeling.Components; // ADT-Tweak
 using Content.Shared.Stealth.Components;
 using Content.Shared.Heretic;
 using Content.Shared.ADT.BackStab;

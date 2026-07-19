@@ -685,6 +685,17 @@
       - state: pochita-inhand-right
 
 - type: entity
+  parent: BasePlushie
+  id: ADTPlushieAaron
+  name: Plush Aaron
+  description: A plush toy of a red-haired guy whose image seems very familiar to you. You just want to scratch your fists on his face.
+  suffix: Personal, Pangaari
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_aaron
+
+- type: entity
   parent: ADTVehicleKeyJanicart
   id: ADTVehicleKeyPangaariBike
   name: Pangaari bike keys # Для Пани на её ДР в 2026 году от Altius, Mina0, kiwi_fruit, RedLis. Тут был Лис.
@@ -2234,6 +2245,24 @@
   - type: Whistle
     distance: 5
 
+- type: entity
+  parent: BaseImplanter
+  id: ADTAnagiriHomemadeexplanter
+  name: implanter
+  description: A bulky syringe designed for extracting subcutaneous implants. It contains many obscure parts, buttons, and light indicators. It looks like it was assembled from improvised materials.
+  suffix: Personal, Anagiri
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/anagiri_homemade_explanter.rsi
+    state: implanter0
+  - type: Item
+    sprite: ADT/Personalization/anagiri_homemade_explanter.rsi
+    inhandVisuals:
+      left:
+      - state: implanter-inhand-left
+      right:
+      - state: implanter-inhand-right
+
 #kringe
 - type: entity
   parent: BaseWhistle
@@ -3101,7 +3130,7 @@
   flavor: adtfleche
   color: "#d2b48c"
   metabolisms:
-    Digestion:
+    Metabolites:
       effects:
       - !type:SatiateThirst
         factor: 5
@@ -3669,6 +3698,38 @@
     contents:
     - id: ADTFamilyBusinessLaserPistolRed
 
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieEmiliaEvenwood
+  name: Plushie Emilia
+  description: A soft plush toy made in the likeness of Emilia. It looks harmless enough, until you give it a squeeze.
+  suffix: Personal, Minokaa
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/minokaa_emilia_plushie.rsi
+    state: icon
+  - type: EmitSoundOnUse
+    handle: false
+    sound: null
+  - type: EmitSoundOnActivate
+    sound: &PlushieEmiliaSound
+      collection: ADTToySqueakEmiliaEvenwood
+  - type: EmitSoundOnCollide
+    sound: *PlushieEmiliaSound
+  - type: EmitSoundOnLand
+    sound: *PlushieEmiliaSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieEmiliaSound
+  - type: MeleeWeapon
+    soundHit: *PlushieEmiliaSound
+  - type: TriggerOnUse
+  - type: Speech
+    speechSounds: Squeak
+  - type: SpeakOnTrigger
+    pack: ADTFigurinesPlushieEmiliaEvenwood
+  - type: TTS
+    voice: mitakind
+
 #honelin111
 - type: entity
   parent: BasePlushie
@@ -3702,6 +3763,17 @@
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
     state: plushie_til
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLeia
+  name: plush Leia
+  description:  A toy that looks stern and seems to be staring right into your soul, mocking you.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_leia
 
 - type: entity
   name: KS-43 "Cherry"

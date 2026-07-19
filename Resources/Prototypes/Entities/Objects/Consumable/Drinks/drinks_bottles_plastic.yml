@@ -51,7 +51,7 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 150
+        maxVol: 50 # ADT-Tweak 150 -> 50
 
 # Small Plastic Bottles
 

@@ -247,11 +247,11 @@
   - type: StaticPrice
     price: 7500
   - type: Item
-    size: Normal
+    size: Small
 
 - type: entity
   name: Miniature Energy Crossbow
-  parent: BaseWeaponBatterySmall
+  parent: BaseItem
   id: ADTWeaponMiniatureEnergyCrossbow
   description: The syndicate's energy crossbow, small, silent and deadly.
   components:
@@ -262,22 +262,28 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Belt
+  - type: Item
+    sprite: Objects/Weapons/Guns/Basic/energy_crossbow.rsi
+    size: Small
   - type: Gun
-    fireRate: 5
-    resetOnHandSelected: false
+    fireRate: 3
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
     soundGunshot:
-      path: /Audio/ADT/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
-      params:
-        volume: -5
-  - type: BatteryAmmoProvider
+      path: /Audio/Weapons/Guns/Gunshots/energycrossbow_shoot.ogg
+  - type: BasicEntityAmmoProvider
     proto: ADTBulletMic
+    capacity: 1
+    count: 1
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 4
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/energycrossbow_reload.ogg
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 300
   - type: MagazineVisuals
     magState: mag
     steps: 2

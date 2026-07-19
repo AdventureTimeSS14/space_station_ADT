@@ -344,7 +344,7 @@
 
 - type: language
   id: SignLanguage
-  roundstart: false
+  roundstart: true
   uiColor: White
   parent: BaseEmoteLanguage
   speech: !type:Emotes

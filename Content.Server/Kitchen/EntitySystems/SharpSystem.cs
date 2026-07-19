@@ -102,6 +102,12 @@ public sealed class SharpSystem : EntitySystem
         component.Butchering.Remove(args.Args.Target.Value);
 
         var spawnEntities = EntitySpawnCollection.GetSpawns(butcher.SpawnedEntities, _robustRandom);
+        // ADT-Tweak-Start
+        var ev = new ButcherSpawnsModifyEvent(args.Args.User, uid, spawnEntities);
+        RaiseLocalEvent(args.Args.Target.Value, ref ev);
+        spawnEntities = ev.Spawns; 
+        // ADT-Tweak-End
+
         var coords = _transform.GetMapCoordinates(args.Args.Target.Value);
         EntityUid popupEnt = default!;
 

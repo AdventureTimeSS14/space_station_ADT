@@ -295,7 +295,7 @@
   Наносит [color=Cyan]40[/color] урона по выносливости.
   </Box>
 
-  - [bold]Пинок сапогом[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"]
+  - [bold]Пинок сапогом[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"]
   <Box>
   Только по лежачей цели. Отбрасывает цель.
   </Box>

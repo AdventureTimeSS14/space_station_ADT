@@ -22,7 +22,6 @@
 - type: Tag
   id: RPD
 
-
 - type: Tag
   id: IgnoreBalanceChecks
 
@@ -822,3 +821,5 @@
 - type: Tag
   id: ADTEnergyShield
 
+- type: Tag
+  id: BoxDonkSoftBox

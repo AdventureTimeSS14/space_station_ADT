@@ -651,12 +651,6 @@
   sizeString: salvage-map-wreck-size-medium
   sizeTag: MediumMagnetTargets
 
-- type: salvageMap
-  id: ADT_lavadungeos
-  mapPath: /Maps/ADTMaps/Ruins/lavadungeos.yml
-  sizeString: salvage-map-wreck-size-medium
-  sizeTag: MediumMagnetTargets
-
 # """Large""" maps
 
 - type: salvageMap

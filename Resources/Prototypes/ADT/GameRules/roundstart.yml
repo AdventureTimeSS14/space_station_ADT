@@ -137,18 +137,6 @@
 
 #Пары из антагов
 - type: entity
-  id: ChangelingDuo
-  parent: Changeling
-  components:
-  - type: GameRule
-    minPlayers: 25
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ Changeling ]
-      max: 2
-      playerRatio: 15
-
-- type: entity
   parent: BaseTraitorRule
   id: TraitorDuoGameRule
   components:

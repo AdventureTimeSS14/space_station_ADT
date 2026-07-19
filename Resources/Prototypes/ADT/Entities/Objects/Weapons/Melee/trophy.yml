@@ -1,0 +1,202 @@
+- type: entity
+  id: ADTKineticTrophyLegionSkull
+  name: legion skull
+  description: Increases your fire rate.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+      state: legion_skull
+    - type: Trophy
+      effects:
+        - !type:FireRateBoostEffect
+          coefficient: 0.769
+      examineText: adt-kinetic-trophy-legion-skull
+      trophyTag: ADTKineticTrophyLegionSkull
+    - type: Tag
+      tags:
+        - ADTKineticTrophyLegionSkull
+    - type: UseDelayTrophyEffect
+      coefficient: 1.3
+
+- type: entity
+  id: ADTKineticTrophyMagmaWing
+  name: magma wing
+  description: The next destabilizer shot will deal bonus heat damage.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+      state: magma_wing
+    - type: Trophy
+      effects:
+        - !type:MeleeChargeProjectileEffect
+          bonusDamage:
+            types:
+              Heat: 5
+      examineText: adt-kinetic-trophy-magma-wing
+      trophyTag: ADTKineticTrophyMagmaWing
+    - type: Tag
+      tags:
+        - ADTKineticTrophyMagmaWing
+
+- type: entity
+  id: ADTKineticTrophyPoisonFang
+  name: poison fang
+  description: Marked targets take increased damage for a short time.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Specific/Mining/mineral_scanner.rsi
+      state: adv-o
+    - type: Trophy
+      effects:
+        - !type:DamageAmplifyOnHitEffect
+      examineText: adt-kinetic-trophy-poison-fang
+      trophyTag: ADTKineticTrophyPoisonFang
+    - type: Tag
+      tags:
+        - ADTKineticTrophyPoisonFang
+
+- type: entity
+  id: ADTKineticTrophyFrostGland
+  name: frost gland
+  description: Marked targets deal reduced damage.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Specific/Mining/mineral_scanner.rsi
+      state: adv-o
+    - type: Trophy
+      effects:
+        - !type:SlowDebuffOnHitEffect
+      examineText: adt-kinetic-trophy-frost-gland
+      trophyTag: ADTKineticTrophyFrostGland
+    - type: Tag
+      tags:
+        - ADTKineticTrophyFrostGland
+
+- type: entity
+  id: ADTKineticTrophyBloodDrunkMiner
+  name: eye of blood drunk miner
+  description: Grants you damage reduction and adrenaline after hitting marked targets.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+      state: hunter_eye
+    - type: Trophy
+      effects:
+        - !type:DamageShieldOnHitEffect
+      examineText: adt-kinetic-trophy-blood-drunk-miner
+      trophyTag: ADTKineticTrophyBloodDrunkMiner
+    - type: Tag
+      tags:
+        - ADTKineticTrophyBloodDrunkMiner
+
+- type: entity
+  id: ADTKineticTrophyAshDrakeSpike
+  name: ash drake spike
+  description: Hits create an area blast that damages and knocks back nearby enemies.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+      state: tail_spike
+    - type: Trophy
+      effects:
+        - !type:AreaPushbackOnHitEffect
+          pushbackForce: 700
+      examineText: adt-kinetic-trophy-ash-drake-spike
+      trophyTag: ADTKineticTrophyAshDrakeSpike
+    - type: Tag
+      tags:
+        - ADTKineticTrophyAshDrakeSpike
+
+- type: entity
+  id: ADTKineticTrophyGoliathTentacle
+  name: goliath tentacle
+  description: Detonating a mark deals bonus damage based on your missing health.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+      state: goliath_tentacle
+    - type: Trophy
+      effects:
+        - !type:HealthScalingDamageEffect
+          multiplier: 0.1
+          scalingFactor: 2.0
+          bonusDamage:
+            types:
+              Blunt: 0
+      examineText: adt-kinetic-trophy-goliath-tentacle
+      trophyTag: ADTKineticTrophyGoliathTentacle
+    - type: Tag
+      tags:
+        - ADTKineticTrophyGoliathTentacle
+
+- type: entity
+  id: ADTKineticTrophyAncientGoliathTentacle
+  name: ancient goliath tentacle
+  description: Detonating a mark deals massive bonus damage based on your missing health.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+      state: ancient_goliath_tentacle
+    - type: Trophy
+      effects:
+        - !type:HealthScalingDamageEffect
+          multiplier: 0.1
+          scalingFactor: 4.0
+          bonusDamage:
+            types:
+              Blunt: 0
+      examineText: adt-kinetic-trophy-ancient-goliath-tentacle
+      trophyTag: ADTKineticTrophyGoliathTentacle
+    - type: Tag
+      tags:
+        - ADTKineticTrophyGoliathTentacle
+
+- type: entity
+  id: ADTKineticTrophyDemonClaws
+  name: demon claws
+  description: Increases base damage and heals you when hitting targets, with increased healing upon mark detonation.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+    state: demon_claws
+  - type: Trophy
+    effects:
+    - !type:LifestealOnHitEffect
+    examineText: adt-kinetic-trophy-demon-claws
+    trophyTag: ADTKineticTrophyDemonClaws
+  - type: Tag
+    tags:
+    - ADTKineticTrophyDemonClaws
+
+- type: Tag
+  id: ADTKineticTrophyDemonClaws
+
+- type: Tag
+  id: ADTKineticTrophyGoliathTentacle
+
+- type: Tag
+  id: ADTKineticTrophyLegionSkull
+
+- type: Tag
+  id: ADTKineticTrophyMagmaWing
+
+- type: Tag
+  id: ADTKineticTrophyPoisonFang
+
+- type: Tag
+  id: ADTKineticTrophyFrostGland
+
+- type: Tag
+  id: ADTKineticTrophyBloodDrunkMiner
+
+- type: Tag
+  id: ADTKineticTrophyAshDrakeSpike

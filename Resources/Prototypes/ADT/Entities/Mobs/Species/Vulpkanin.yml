@@ -32,6 +32,7 @@
         Male: NesMaleVulpa
         Female: NesFemaleVulpa
         Unsexed: NesFemaleVulpa
+    - type: GrowlingAccent
     - type: Damageable
       damageModifierSet: ADTVulpkanin
     - type: Injurable

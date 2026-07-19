@@ -4,12 +4,13 @@
   text: "/ServerInfo/Guidebook/Antagonist/Antagonists.xml"
   children:
   - Traitors
+  - Changelings # ADT
   - Heretics
   - Thieves
   - Revolutionaries
   - NuclearOperatives
   - SpaceNinja
-  - Wizard
+  # - Wizard # ADT-Tweak
   - Zombies
   - Xenoborgs
   - MinorAntagonists
@@ -49,12 +50,14 @@
   name: guide-entry-thieves
   text: "/ServerInfo/Guidebook/Antagonist/Thieves.xml"
 
-- type: guideEntry
-  id: Wizard
-  name: guide-entry-wizard
-  text: "/ServerInfo/Guidebook/Antagonist/Wizard.xml"
+# ADT-Tweak start
+# - type: guideEntry
+#   id: Wizard
+#   name: guide-entry-wizard
+#   text: "/ServerInfo/Guidebook/Antagonist/Wizard.xml"
+# ADT-Tweak end
 
 - type: guideEntry
   id: Xenoborgs
   name: guide-entry-xenoborgs
-  text: "/ServerInfo/Guidebook/Antagonist/Xenoborgs.xml"
+  text: "/ServerInfo/ADT/Guidebook/Antagonist/Xenoborgs.xml" # ADT-Tweak
