@@ -45,7 +45,6 @@
       - DefaultStationBeaconTelecoms
       - DefaultStationBeaconTEG
       # WTF Nuclear
-      - DefaultStationBeaconNuclear
       - DefaultStationBeaconNukeOps
       - NuclearBomb
       # Special
