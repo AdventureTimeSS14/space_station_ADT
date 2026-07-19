@@ -199,6 +199,10 @@
   - type: PickupHumans # ADT-Tweak
   - type: Hunger
   - type: Thirst
+    thirstDamage:
+      types:
+        Cold: 0.12
+        Caustic: 0.08
   - type: Barotrauma
     damage:
       types:
