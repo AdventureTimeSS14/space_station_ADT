@@ -22,7 +22,7 @@
     state: incendiarydisplay
   discipline: Arsenal
   tier: 1
-  cost: 10000
+  cost: 23000 #ADT-tweak
   recipeUnlocks:
   - BoxShotgunIncendiary
   - MagazineRifleIncendiary
@@ -86,37 +86,35 @@
   - SalvageWeapons
   # ADT Research Console Rework end
 
-- type: technology
-  id: UraniumMunitions
-  name: research-technology-uranium-munitions
-  icon:
-    sprite: Objects/Materials/Sheets/other.rsi
-    state: uranium
-  discipline: Arsenal
-  tier: 1
-  cost: 7500
-  recipeUnlocks:
-  - MagazineRifleUranium
-  - MagazinePistolUranium
-  - MagazinePistolSubMachineGunUranium
-  - MagazineLightRifleUranium
-  - SpeedLoaderMagnumUranium
-  - MagazineBoxPistolUranium
-  - MagazineBoxMagnumUranium
-  # ADT-Tweak start
-  - ADTMagazineShotgunUranium
-  - ADTMagazineMagnumUranium
-  - ADTSpeedLoaderMagnumLesserUranium
-  - ADTMagazineBoxMagnumLesserUranium
-  # ADT-Tweak end
-  - MagazineBoxLightRifleUranium
-  - MagazineBoxRifleUranium
-  - BoxShotgunUranium
-  # ADT Research Console Rework start
-  position: 2,-2
-  requiredTech:
-  - DraconicMunitions
-  # ADT Research Console Rework end
+# ADT-Tweak start - вырезаны урановые патроны из исследований
+#- type: technology
+#  id: UraniumMunitions
+#  name: research-technology-uranium-munitions
+#  icon:
+#    sprite: Objects/Materials/Sheets/other.rsi
+#    state: uranium
+#  discipline: Arsenal
+#  tier: 1
+#  cost: 7500
+#  recipeUnlocks:
+#  - MagazineRifleUranium
+#  - MagazinePistolUranium
+#  - MagazinePistolSubMachineGunUranium
+#  - MagazineLightRifleUranium
+#  - SpeedLoaderMagnumUranium
+#  - MagazineBoxPistolUranium
+#  - MagazineBoxMagnumUranium
+#  - ADTMagazineShotgunUranium
+#  - ADTMagazineMagnumUranium
+#  - ADTSpeedLoaderMagnumLesserUranium
+#  - ADTMagazineBoxMagnumLesserUranium
+#  - MagazineBoxLightRifleUranium
+#  - MagazineBoxRifleUranium
+#  - BoxShotgunUranium
+#  position: 2,-2
+#  requiredTech:
+#  - DraconicMunitions
+# ADT-Tweak end
 
 - type: technology
   id: AdvancedRiotControl
@@ -164,7 +162,7 @@
   # ADT Research Console Rework start
   position: 2,-3
   requiredTech:
-  - UraniumMunitions
+  - DraconicMunitions # ADT-Tweak - было UraniumMunitions, вырезано из исследований
   # ADT Research Console Rework end
 
 # - type: technology #ADT_Tweak - электрорюкзак перенесен в технологию контроля беспорядков

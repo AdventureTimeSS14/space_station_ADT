@@ -13,6 +13,26 @@
   - ADTMagazineMagnumUranium
   - ADTMagazineShotgunUranium
 
+# ADT-Tweak start - урановые патроны, вынесенные из веток исследований СБ, доступны только на патронфабе
+- type: latheRecipePack
+  id: AmmoTechFabUraniumStatic
+  recipes:
+  - MagazineRifleUranium
+  - MagazineBoxRifleUranium
+  - MagazineLightRifleUranium
+  - MagazineBoxLightRifleUranium
+  - MagazinePistolUranium
+  - MagazinePistolSubMachineGunUranium
+  - MagazineBoxPistolUranium
+  - SpeedLoaderMagnumUranium
+  - MagazineBoxMagnumUranium
+  - BoxShotgunUranium
+  - ADTMagazineMagnumUranium
+  - ADTMagazineShotgunUranium
+  - ADTMagazineBoxMagnumLesserUranium
+  - ADTSpeedLoaderMagnumLesserUranium
+# ADT-Tweak end
+
 
 - type: latheRecipePack
   id: ADTAttachmentPack
