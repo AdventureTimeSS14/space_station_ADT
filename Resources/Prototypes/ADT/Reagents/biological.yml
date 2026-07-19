@@ -134,3 +134,40 @@
   recognizable: true
   physicalDesc: reagent-physical-desc-ferrous
   evaporationSpeed: 0.6
+
+- type: reagent
+  id: AlienBloodPlus
+  name: reagent-name-alien-blood-plus
+  group: Biological
+  desc: reagent-desc-alien-blood-plus
+  flavor: horrible
+  color: "#48b3b8"
+  physicalDesc: reagent-physical-desc-ferrous
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:SatiateThirst
+        factor: 6
+      - !type:Oxygenate
+        factor: -6
+
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: AlienBloodPlus
+          min: 15
+        damage:
+          types:
+            Poison: 2
+      - !type:MovementSpeedModifier
+        conditions:
+        - !type:ReagentCondition
+          reagent: AlienBloodPlus
+          min: 10
+        walkSpeedModifier: 0.8
+        sprintSpeedModifier: 0.8
+        type: Set
+        time: 10
+      - !type:Jitter
+        type: Set
+        time: 10
