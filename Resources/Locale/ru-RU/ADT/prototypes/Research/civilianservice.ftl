@@ -6,6 +6,8 @@ research-technology-exoskeletons = Экзоскелеты
 
 research-technology-services-service-plus = Продвинутое ресторанное обслуживание
 
+research-technology-services-service-energy = Энергетическая химическая принадлежность
+
 research-advanced-reagent-grinder = Продвинутый измельчитель реагентов
 
 research-technology-services-hydroponics-advanced = Продвинутая гидропоника
