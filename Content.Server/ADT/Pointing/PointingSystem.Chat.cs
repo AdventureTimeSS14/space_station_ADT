@@ -1,7 +1,9 @@
 using System.Linq;
 using Content.Server.Chat.Managers;
+using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Pointing;
 using Content.Shared.Chat;
+using Robust.Server.Configuration;
 using Robust.Shared.Player;
 
 namespace Content.Server.Pointing.EntitySystems;
@@ -12,6 +14,7 @@ namespace Content.Server.Pointing.EntitySystems;
 internal sealed partial class PointingSystem
 {
     [Dependency] private readonly IChatManager _adtChatManager = default!;
+    [Dependency] private readonly IServerNetConfigurationManager _adtNetConfig = default!;
 
     partial void OnPointingChatMessage(
         EntityUid source,
@@ -22,6 +25,9 @@ internal sealed partial class PointingSystem
         string viewerMessage,
         string? viewerPointedAtMessage)
     {
+        if (!_config.GetCVar(ADTCCVars.PointingChatIconsEnabled))
+            return;
+
         var viewerList = viewers.Distinct().ToList();
 
         if (!viewerList.Contains(sourceSession))
@@ -33,6 +39,9 @@ internal sealed partial class PointingSystem
 
         foreach (var viewer in viewerList)
         {
+            if (!_adtNetConfig.GetClientCVar(viewer.Channel, ADTCCVars.EnableChatPointingIcons))
+                continue;
+
             var viewerEntity = viewer.AttachedEntity;
             if (viewerEntity is not { Valid: true })
                 continue;
