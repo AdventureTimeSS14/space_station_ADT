@@ -52,6 +52,14 @@
     RawLead: 3000
 
 - type: latheRecipe
+  id: ADTPartRodMetal
+  result: PartRodMetal1
+  applyMaterialDiscount: false
+  completetime: 0
+  materials:
+    Steel: 50
+
+- type: latheRecipe
   id: ADTSheetPGlass
   result: SheetPGlass1
   applyMaterialDiscount: false
