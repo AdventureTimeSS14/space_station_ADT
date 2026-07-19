@@ -292,7 +292,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
                 baseTile.X * stationComp.TileSize,
                 baseTile.Y * stationComp.TileSize);
 
-            _transform.SetCoordinates(child, new EntityCoordinates(stationGrid, entityStationLocal));
+            _transform.SetCoordinates((child, Transform(child), MetaData(child)), new EntityCoordinates(stationGrid, entityStationLocal), unanchor: false);
             // Restore pod-local rotation (SetCoordinates doesn't preserve it when changing parent).
             _transform.SetLocalRotation(child, podLocalRot);
 
