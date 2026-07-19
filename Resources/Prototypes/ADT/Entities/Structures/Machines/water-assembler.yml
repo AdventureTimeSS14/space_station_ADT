@@ -60,7 +60,7 @@
     - type: Sprite
       state: medical
     - type: MachineBoard
-      prototype: ADTMedicalAssembler
+      prototype: ADTWaterAssembler
       stackRequirements:
         Manipulator: 1
         Steel: 5
