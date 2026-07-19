@@ -89,6 +89,9 @@
         2
       AggroVisionRadius: !type:Single
         10
+  - type: ADTMobLoot
+    loots:
+      ADTKineticTrophyMagmaWing: 0.1
   # ADT-Tweak end
 
 - type: entity
