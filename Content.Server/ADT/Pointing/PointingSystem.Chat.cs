@@ -28,10 +28,14 @@ internal sealed partial class PointingSystem
         if (!_config.GetCVar(ADTCCVars.PointingChatIconsEnabled))
             return;
 
-        var viewerList = viewers.Distinct().ToList();
+        var viewerList = viewers
+            .Distinct()
+            .Append(sourceSession)
+            .Where(v => _adtNetConfig.GetClientCVar(v.Channel, ADTCCVars.EnableChatPointingIcons))
+            .ToList();
 
-        if (!viewerList.Contains(sourceSession))
-            viewerList.Add(sourceSession);
+        if (viewerList.Count == 0)
+            return;
 
         var iconNetId = iconTarget != null && Exists(iconTarget.Value)
             ? (int?) GetNetEntity(iconTarget.Value)
@@ -39,9 +43,6 @@ internal sealed partial class PointingSystem
 
         foreach (var viewer in viewerList)
         {
-            if (!_adtNetConfig.GetClientCVar(viewer.Channel, ADTCCVars.EnableChatPointingIcons))
-                continue;
-
             var viewerEntity = viewer.AttachedEntity;
             if (viewerEntity is not { Valid: true })
                 continue;
