@@ -1961,6 +1961,19 @@
   - type: StaticPrice
     price: 1984
 
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingOuterArmorMishailArmoredJacketSecOfficer
+  name: the armored jacket of an sec officer
+  description: You think it was a caretaker's jacket once. But you can't prove it violates the sixth clause of the general security SOP.
+  suffix: Personal, Mishail
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Mishail_armored_jacket_sec_officer.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/Mishail_armored_jacket_sec_officer.rsi
+
 # Спонсорское (ДЛЯ ВСЕХ СПОНСОРОВ!)
 
 - type: entity
