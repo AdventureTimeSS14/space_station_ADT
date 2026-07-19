@@ -5,9 +5,7 @@ using Content.Client.UserInterface.Systems.Ghost.Widgets;
 using Content.Shared.Ghost;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
-// ADT-tweak-start
 using Content.Shared.ADT.Thunderdome;
-// ADT-tweak-end
 
 namespace Content.Client.UserInterface.Systems.Ghost;
 
