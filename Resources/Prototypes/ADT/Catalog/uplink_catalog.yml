@@ -352,9 +352,9 @@
       - LoneOpsUplink
 
 - type: listing
-  id: ADTUplinkSyndiHypo
-  name: uplink-syndihypo-name
-  description: uplink-syndihypo-desc
+  id: ADTUplinkAdvancedJetInjector
+  name: uplink-advancedjetinjector-name
+  description: uplink-advancedjetinjector-desc
   icon: { sprite: Objects/Specific/Medical/advanced_jetinjector.rsi, state: jetinjector_base }
   productEntity: AdvancedJetInjector
   cost:
