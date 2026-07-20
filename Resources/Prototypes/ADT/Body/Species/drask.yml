@@ -28,8 +28,6 @@
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: DraskSpecies
-  - type: ScaleVisuals
-    scale: 1.07, 1.07
   - type: Inventory
     speciesId: drask
 

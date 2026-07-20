@@ -45,6 +45,13 @@ namespace Content.Shared.Atmos
         /// </summary>
         public const float T20C = 293.15f;
 
+        // ADT-Tweak start
+        /// <summary>
+        ///     37ºC in K
+        /// </summary>
+        public const float T37C = 310.1f;
+        // ADT-Tweak end
+
         /// <summary>
         ///     -38.15ºC in K.
         ///     This is used to initialize roundstart freezer rooms.

@@ -58,3 +58,13 @@
     color: "#0cff0c"
     showRank: false
     showName: true
+
+- type: language
+  id: ADTBlobCollectiveMind
+  priority: 0
+  uiColor: "#800080"
+  showUnderstood: false
+  speech: !type:CollectiveMind
+    color: "#800080"
+    showRank: false
+    showName: true

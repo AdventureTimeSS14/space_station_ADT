@@ -621,6 +621,8 @@
       collection: RobotBeeps
     Yawn:
       collection: MaleYawn
+    Snarl:
+      collection: VulpkaninSnarls
     Snore:
       collection: Snores
     Honk:
@@ -671,6 +673,8 @@
       collection: RobotBeeps
     Yawn:
       collection: FemaleYawn
+    Snarl:
+      collection: VulpkaninSnarls
     Snore:
       collection: Snores
     Honk:
