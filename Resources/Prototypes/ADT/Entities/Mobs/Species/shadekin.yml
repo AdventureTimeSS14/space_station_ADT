@@ -115,6 +115,10 @@
     languages:
       GalacticCommon: Speak
       Mar: Speak
+  - type: TypingIndicator
+    proto: alien
+  - type: Sprite
+    scale: 0.95, 0.95
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1

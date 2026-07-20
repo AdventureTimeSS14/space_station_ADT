@@ -83,6 +83,8 @@
     languages:
       GalacticCommon: Speak
       Urs: Speak
+  - type: TypingIndicator
+    proto: ADTursus
   - type: Temperature
     currentTemperature: 310
     specificHeat: 50
@@ -109,10 +111,11 @@
     interactSuccessString: hugging-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
+  - type: Sprite
+    scale: 1.03, 1.03
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1.12
-    tallDensity: 1.5
     short: true
     shortscale: 0.98
     shortDensity: 0.7

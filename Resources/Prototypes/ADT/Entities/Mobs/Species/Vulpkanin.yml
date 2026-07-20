@@ -77,6 +77,8 @@
       languages:
         GalacticCommon: Speak
         Canilunzt: Speak
+    - type: Sprite
+      scale: 0.95, 0.95
     - type: SizeAttributeWhitelist # Frontier
       tall: true
       tallscale: 1

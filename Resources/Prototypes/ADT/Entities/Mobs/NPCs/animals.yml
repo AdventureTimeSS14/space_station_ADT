@@ -402,7 +402,7 @@
 
 - type: entity
   name: Notarius
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobNotariusSpider
   description: A church burocrate spider which going to realy like your church!
   components:

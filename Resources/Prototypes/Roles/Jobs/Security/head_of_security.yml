@@ -68,7 +68,7 @@
     back:
     - Flash
     - ADTtelescopicBaton #ADT-CustomADTLoadout
-    - MagazinePistol
+  # - MagazinePistol ADT-Tweak
 
 - type: chameleonOutfit
   id: HeadOfSecurityChameleonOutfit

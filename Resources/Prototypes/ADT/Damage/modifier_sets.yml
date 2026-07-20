@@ -1,3 +1,24 @@
+# Races modifier sets
+
+- type: damageModifierSet
+  id: Ursus # что то типо медленных танков, но слабы к проникающим.
+  coefficients:
+    Blunt: 0.85
+    Slash: 0.8
+    Piercing: 1.1
+    Heat: 1.1
+
+- type: damageModifierSet
+  id: Felinid # полу-люди полу-таяры
+  coefficients:
+    Blunt: 1.0
+    Piercing: 1.0
+    Slash: 1.0
+    Cold: 1.0
+    Heat: 1.0
+    Poison: 1.0
+    Bloodloss: 2 # в замен зализывания
+
 - type: damageModifierSet
   id: Resomi # потому что они слабы во всем, но хорошо защищают от холода
   coefficients:
@@ -87,12 +108,30 @@
 - type: damageModifierSet
   id: Drask # большие и хп больше + лечение и имунитет к холоду, но медленнее и слабость к жаре
   coefficients:
-    Blunt: 1.05
+    Blunt: 0.8
     Piercing: 0.85
     Slash: 0.9
     Cold: 0
-    Heat: 1.5
+    Heat: 1.6
     Asphyxiation: 2.0
+
+- type: damageModifierSet
+  id: BloodlossDrask # ослабление накопления стаков кровотечения у драсков
+  coefficients:
+    Asphyxiation: 0.0
+    Bloodloss: 0.0 # no double dipping
+    Blunt: 0.08
+    Caustic: 0.0
+    Cellular: 0.0
+    Cold: 0.0
+    Heat: -0.2 # heat damage cauterizes wounds, but will still hurt obviously.
+    Holy: 0
+    Piercing: 0.05
+    Poison: 0.0
+    Radiation: 0.0
+    Shock: 0.0
+    Slash: 0.1
+    Structural: 0.0
 
 - type: damageModifierSet
   id: BloodlossIPC
@@ -151,25 +190,6 @@
     Slash: 9
     Piercing: 9
     Heat: 9
-
-- type: damageModifierSet
-  id: Ursus # что то типо медленных танков, но слабы к проникающим.
-  coefficients:
-    Blunt: 0.85
-    Slash: 0.8
-    Piercing: 1.1
-    Heat: 1.1
-
-- type: damageModifierSet
-  id: Felinid # полу-люди полу-таяры
-  coefficients:
-    Blunt: 1.0
-    Piercing: 1.0
-    Slash: 1.0
-    Cold: 1.0
-    Heat: 1.0
-    Poison: 1.0
-    Bloodloss: 2 # в замен зализывания
 
 - type: damageModifierSet
   id: Pretender

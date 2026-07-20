@@ -57,6 +57,8 @@
       GalacticCommon: Speak
       SolCommon: Speak
       Arkane: Speak
+  - type: TypingIndicator
+    proto: ADTdemon
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1.08

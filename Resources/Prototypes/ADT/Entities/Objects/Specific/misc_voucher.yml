@@ -22,7 +22,7 @@
     kits:
     - ModStorageDuffelbag
     - ModStorageSatchel
-    typeDropPlace: ThisPlace
+    typeDropPlace: InHands
 
 - type: entity
   parent: BaseItem
@@ -123,3 +123,77 @@
     - ShoesSyndieChameleon
     - ShoesSyndieChameleonNoSound
     typeDropPlace: InHands
+
+- type: entity
+  parent: BaseItem
+  id: ADTSecVoucher
+  name: RCU "Swarm"
+  description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station. NT was developed specifically for the blue shield case.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/security_voucher.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - ADTWeaponSecMk58
+    - ADTWeaponLaserSecPistol
+    typeDropPlace: ThisPlace
+    typeDrop: Rocket
+
+- type: entity
+  parent: BaseItem
+  id: ADTSyndicateVoucher
+  name: RCU "Virus"
+  description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station. NT was developed specifically for the blue shield case.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/syndicate_voucher.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - ADTClothingOuterHardsuitSyndie
+    - ADTClothingModsuitBackSyndicate
+    typeDropPlace: ThisPlace
+    typeDrop: Rocket
+
+- type: entity
+  parent: BaseItem
+  id: ADTSyndicateEliteVoucher
+  name: RCU "Plague"
+  description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station. NT was developed specifically for the blue shield case.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/syndicate_voucher.rsi
+    layers:
+    - state: icon
+    - state: icon-elite
+  - type: Item
+    size: Small
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - ADTClothingEliteHardsuitBackSyndicate
+    - ADTClothingEliteModsuitBackSyndicate
+    typeDropPlace: ThisPlace
+    typeDrop: Rocket

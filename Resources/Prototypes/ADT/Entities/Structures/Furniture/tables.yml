@@ -431,10 +431,45 @@
 
 - type: entity
   id: ADTTableRoulette
-  parent: ADTTableRoundPlastic
+  parent: BaseStructure
   name: roulette table
   description: Watch you don't lose your salary.
   components:
+  - type: Animateable
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 1
+            max: 1
+          MaterialCloth1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PlaceableSurface
+  - type: SpriteFade
   - type: Sprite
     sprite: ADT/Structures/Furniture/Tables/roulette.rsi
     noRot: true
@@ -457,6 +492,29 @@
         - TableMask
         layer:
         - TableLayer
+  - type: Climbable
+  - type: Bonkable
+    bonkDamage:
+      types:
+        Blunt: 4
+    bonkSound: !type:SoundCollectionSpecifier
+      collection: TrayHit
+  - type: Clickable
+  - type: Anchorable
+  - type: Rotatable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Construction
+    graph: ADTTable
+    node: adttableroulette
+  - type: Tag
+    tags:
+    - Table
+    - ForceFixRotations
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCarpet
 
 - type: entity
   id: ADTTableRusty

@@ -31,3 +31,4 @@ ui-options-hud-theme-xeno = Ксеноморф
 ui-options-hud-theme-trasenknox = Олдскул
 
 ui-options-show-chat-job-icons = Показывать иконки должностей в чате
+ui-options-show-chat-pointing-icons = Показывать иконки при указании в чате
