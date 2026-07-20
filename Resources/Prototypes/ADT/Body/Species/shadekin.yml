@@ -28,8 +28,6 @@
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: Shadekin
-  - type: ScaleVisuals
-    scale: 0.95, 0.95
   - type: Inventory
     displacements:
       jumpsuit:

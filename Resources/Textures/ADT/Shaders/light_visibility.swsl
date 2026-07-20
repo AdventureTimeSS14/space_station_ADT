@@ -1,0 +1,31 @@
+uniform highp float minLight = 0.0;
+uniform highp float maxLight = 0.3;
+uniform highp float edgeSoftness = 0.08;
+uniform bool showInside = true;
+
+void fragment()
+{
+    // Use the brightest channel as "light level".
+    lowp float lightLevel = (dot(lightSample, vec3(0.299, 0.587, 0.114)));
+
+    // step inside smoothstep when edgeSoftness is exactly 0.
+    highp float soft = max(edgeSoftness, 0.0001);
+
+    highp float fadeIn = smoothstep(minLight - soft, minLight, lightLevel);
+    highp float fadeOut = 1.0 - smoothstep(maxLight, maxLight + soft, lightLevel);
+    highp float insideAlpha = fadeIn * fadeOut;
+
+    highp float visibilityAlpha = showInside ? insideAlpha : (1.0 - insideAlpha);
+
+    // Skip fully-transparent fragments early; harmless optimization,
+    if (visibilityAlpha <= 0.001)
+    {
+        discard;
+    }
+
+    highp vec4 tex = texture(TEXTURE, UV);
+
+    COLOR = tex;
+    COLOR.rgb /= lightSample;
+    COLOR.a *= visibilityAlpha;
+}

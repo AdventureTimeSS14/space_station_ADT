@@ -48,7 +48,7 @@
   id: SyndicateOperativeGearFullNoUplink
   equipment:
     jumpsuit: ClothingUniformJumpsuitOperative
-    back: ADTClothingModsuitBackSyndicate #ADT tweak
+    back: ClothingBackpackDuffelSyndicate
     # mask: ClothingMaskGasSyndicate ADT tweak
     # eyes: ClothingEyesHudSyndicate ADT tweak
     ears: ClothingHeadsetAltSyndicate
@@ -56,6 +56,7 @@
     # outerClothing: ClothingOuterHardsuitSyndie ADT tweak
     shoes: ClothingShoesBootsCombatFilled
     id: SyndiOperativePDA
+    pocket1: ADTSyndicateVoucher #ADT-Tweak
     pocket2: PlushieCarp
     belt: ClothingBeltMilitaryWebbing #ADT nukebuff
   storage:
@@ -87,8 +88,9 @@
   equipment:
     id: SyndiCommanderPDA
     eyes: ClothingEyesHudSyndicate #ADT tweak
-    back: ADTClothingModsuitBackSyndicateCommander #ADT tweak
+    back: ClothingBackpackDuffelSyndicate
     neck: SyndicateWhistle
+    pocket1: ADTSyndicateEliteVoucher #ADt-Tweak
     # outerClothing: ClothingOuterHardsuitSyndieCommander #ADT tweak
   inhand:
   - NukeOpsDeclarationOfWar
@@ -116,12 +118,13 @@
   id: SyndicateOperativeMedicFull
   parent: SyndicateOperativeGearFull
   equipment:
-    back: ADTClothingModsuitBackSyndicateElite #ADT tweak
+    back: ClothingBackpackDuffelSyndicateMedical #ADT tweak
     eyes: ClothingEyesHudSyndicateAgent
     # outerClothing: ClothingOuterHardsuitSyndieMedic #ADT tweak
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiCorpsmanPDA
     belt: ClothingBeltMilitaryWebbingMedFilled
+    pocket1: ADTSyndicateEliteVoucher #ADt-Tweak
   storage:
     back:
     - SyndiHypo

@@ -1,0 +1,71 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: ADTBaseBlob
+  abstract: true
+  name: base blob
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+    - type: ZombieImmune
+    - type: StatusEffects
+      allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Electrocution
+      - PressureImmunity
+      - StaminaModifierStatusEffectComponent
+      - SeeAll
+      - Flashed
+    - type: Reactive
+      groups:
+        Flammable: [Touch]
+        Extinguish: [Touch]
+    - type: ExplosionResistance
+      damageCoefficient: 0.3
+    - type: FireVisuals
+      sprite: Effects/fire.rsi
+      normalState: 1
+    - type: Damageable
+      damageModifierSet: ADTBaseBlob
+    - type: Injurable
+      damageContainer: ADTBlob
+    - type: DamagedByFlashing
+      flashDamage:
+        types:
+          Heat: 10
+    - type: Appearance
+    - type: Physics
+    - type: Clickable
+    - type: Transform
+      anchored: true
+    - type: BlockTeleport
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+          layer:
+            - BlobTileLayer
+          density: 1000
+    - type: GuideHelp
+      guides:
+      - ADTBlob
+
+- type: entity
+  id: ADTMobObserverBlobController
+  name: Blob observer controller
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Blob/Objects/Weapons/flesh_spike_hand.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Blob/Objects/Weapons/flesh_spike_hand.rsi
+    size: Ginormous
+  - type: Unremoveable
+    deleteOnDrop: true

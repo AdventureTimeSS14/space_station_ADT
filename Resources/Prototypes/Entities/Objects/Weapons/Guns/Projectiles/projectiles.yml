@@ -636,8 +636,6 @@
       types:
         Blunt: 0
   # Short lifespan
-  - type: TimedDespawn
-    lifetime: 0.4
 
   # Deals less damage, glaive has better HP recovery
 - type: entity

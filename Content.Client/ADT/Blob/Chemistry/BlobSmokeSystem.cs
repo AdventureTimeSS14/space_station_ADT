@@ -1,0 +1,26 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Linq;
+using Robust.Client.GameObjects;
+
+namespace Content.Client.ADT.Blob.Chemistry;
+
+public sealed class BlobSmokeSystem : EntitySystem
+{
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<Content.Shared.ADT.Blob.Chemistry.BlobSmokeColorComponent, AfterAutoHandleStateEvent>(OnBlobTileHandleState);
+    }
+
+    private void OnBlobTileHandleState(EntityUid uid, Content.Shared.ADT.Blob.Chemistry.BlobSmokeColorComponent component, ref AfterAutoHandleStateEvent state)
+    {
+        if (!TryComp<SpriteComponent>(uid, out var sprite))
+            return;
+
+        for (var i = 0; i < sprite.AllLayers.Count(); i++)
+        {
+            sprite.LayerSetColor(i, component.Color);
+        }
+    }
+}
