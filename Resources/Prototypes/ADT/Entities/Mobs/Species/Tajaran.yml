@@ -80,6 +80,8 @@
         GalacticCommon: Speak
         SikTaj: Speak
         CintaTaj: Speak
+    - type: Sprite
+      scale: 0.9, 0.9
     - type: SizeAttributeWhitelist # Frontier
       tall: true
       tallscale: 0.95

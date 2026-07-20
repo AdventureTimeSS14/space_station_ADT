@@ -175,11 +175,15 @@
   Урон от атаки снижается на [color=Cyan]40%[/color] (Blunt, Slash, Pierce, Heat). Собственные атаки в течение [color=Orange]5 секунд[/color] наносят на [color=Red]20%[/color] больше урона.
   </Box>
 
+  <Box>
+  Нырок в ползание (клавиша ползания) в [color=Red]режиме боя[/color] превращается в скольжение: боец скользит вперёд по направлению взгляда. Дальность скольжения зависит от скорости движения в момент нырка — чем быстрее бежите, тем дальше скользите.
+  </Box>
+
   Комбо-приёмы:
 
   - [bold]Коготь дракона[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"]
   <Box>
-  Наносит [color=Cyan]25[/color] урона по выносливости и замедляет цель на [color=Cyan]40%[/color] на [color=Orange]2 секунды[/color].
+  Наносит [color=Cyan]50[/color] урона по выносливости и замедляет цель на [color=Cyan]40%[/color] на [color=Orange]2 секунды[/color].
   </Box>
 
   - [bold]Хвост дракона[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"]
@@ -189,7 +193,13 @@
 
   - [bold]Удар дракона[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"]
   <Box>
-  Наносит [color=Red]30[/color] урона.
+  Наносит [color=Red]45[/color] урона.
+  </Box>
+
+  - [bold]Восхождение дракона[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"]
+  <Box>
+  Требует накопленной силы дракона — иначе приём не сработает.
+  Наносит [color=Red]15[/color] урона и [color=Cyan]40[/color] урона по выносливости, отбрасывая цель.
   </Box>
 
   ## Ниндзюцу

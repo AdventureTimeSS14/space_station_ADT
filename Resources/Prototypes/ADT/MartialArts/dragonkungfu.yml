@@ -2,7 +2,7 @@
   id: KungFuDragon
   martialArtsForm: KungFuDragon
   roundstartCombos: KungFuDragonMoves
-  baseDamageModifier: 4
+  baseDamageModifier: 6
 
 - type: comboList
   id: KungFuDragonMoves
@@ -10,6 +10,7 @@
   - DragonClaw
   - DragonTail
   - DragonStrike
+  - DragonAscension
 
 - type: combo
   id: DragonClaw
@@ -21,7 +22,7 @@
   event: !type:DragonClawPerformedEvent
     sound:
       path: /Audio/Weapons/genhit3.ogg
-  staminaDamage: 25
+  staminaDamage: 50
 
 - type: combo
   id: DragonTail
@@ -49,4 +50,20 @@
   event: !type:DragonStrikePerformedEvent
     sound:
       path: /Audio/Weapons/genhit1.ogg
-  extraDamage: 30
+  extraDamage: 45
+
+- type: combo
+  id: DragonAscension
+  name: dragon-combo-dragon-ascension
+  martialArtsForm: KungFuDragon
+  attacks:
+  - Harm
+  - Harm
+  - Grab
+  event: !type:DragonAscensionPerformedEvent
+    sound:
+      path: /Audio/Animals/space_dragon_roar.ogg
+    throwSpeed: 7
+    throwDistance: 7
+  extraDamage: 15
+  staminaDamage: 40

@@ -39,7 +39,7 @@ public sealed partial class DamageableComponent : Component
     ///     If this data-field is specified, this allows damageable components to be initialized with non-zero damage.
     /// </remarks>
     [DataField]
-    [Access(typeof(DamageableSystem), Other = AccessPermissions.None)]
+    [Access(typeof(DamageableSystem), Other = AccessPermissions.ReadWrite)] // ADT-Tweak: AccessPermissions.None -> AccessPermissions.ReadWrite
     public DamageSpecifier Damage = new();
 
     /// <summary>
@@ -57,7 +57,7 @@ public sealed partial class DamageableComponent : Component
     ///     The sum of all damages in the DamageableComponent.
     /// </summary>
     [ViewVariables]
-    [Access(typeof(DamageableSystem), Other = AccessPermissions.None)]
+    [Access(typeof(DamageableSystem), Other = AccessPermissions.ReadWrite)] // ADT-Tweak: AccessPermissions.None -> AccessPermissions.ReadWrite
     public FixedPoint2 TotalDamage;
 
     [DataField("radiationDamageTypes")]

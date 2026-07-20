@@ -1,0 +1,17 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Robust.Shared.Network;
+using Robust.Shared.Serialization;
+
+namespace Content.Shared.ADT.Blob.Events;
+
+[Serializable, NetSerializable]
+public sealed partial class CreateBlobObserverEvent : CancellableEntityEventArgs
+{
+    public NetUserId UserId { get; private set; }
+
+    public CreateBlobObserverEvent(NetUserId userId)
+    {
+        UserId = userId;
+    }
+}
