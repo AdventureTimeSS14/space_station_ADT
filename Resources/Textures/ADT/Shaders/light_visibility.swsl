@@ -1,7 +1,9 @@
-uniform highp float minLight = 0.0;
-uniform highp float maxLight = 0.3;
-uniform highp float edgeSoftness = 0.08;
-uniform bool showInside = true;
+uniform highp float minLight;
+uniform highp float maxLight;
+uniform highp float minAlpha;
+uniform highp float maxAlpha;
+uniform highp float edgeSoftness;
+uniform bool showInside;
 
 void fragment()
 {
@@ -16,6 +18,7 @@ void fragment()
     highp float insideAlpha = fadeIn * fadeOut;
 
     highp float visibilityAlpha = showInside ? insideAlpha : (1.0 - insideAlpha);
+    visibilityAlpha = clamp(visibilityAlpha, minAlpha, maxAlpha);
 
     // Skip fully-transparent fragments early; harmless optimization,
     if (visibilityAlpha <= 0.001)
