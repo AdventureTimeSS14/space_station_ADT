@@ -80,6 +80,8 @@
         GalacticCommon: Speak
         SikTaj: Speak
         CintaTaj: Speak
+    - type: TypingIndicator
+      proto: ADTtajaran
     - type: Sprite
       scale: 0.9, 0.9
     - type: SizeAttributeWhitelist # Frontier

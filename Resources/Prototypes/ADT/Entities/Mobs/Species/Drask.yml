@@ -89,7 +89,7 @@
   - type: Barotrauma
     damage:
       types:
-        Blunt: 0.8
+        Blunt: 1.2
   - type: PointLight
     color: "#10207b"
     energy: 1
@@ -102,9 +102,10 @@
     damage:
       types:
         Heat: -0.04
-        Blunt: -0.06
-        Slash: -0.06
-        Piercing: -0.06
+        Cold: -0.1
+        Blunt: -0.03
+        Slash: -0.03
+        Piercing: -0.03
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/pierce.ogg
@@ -114,26 +115,38 @@
       types:
         Blunt: 10
   - type: StaminaDamageOnHit
-    damage: 5
+    damage: 12
   - type: Bloodstream
-    bloodRefreshAmount: 2
+    damageBleedModifiers: BloodlossDrask
+    bloodRefreshAmount: 0.2
+    bleedReductionAmount: 0.12
+    bloodlossThreshold: 0.85
+    maxBleedAmount: 16
     bloodReferenceSolution:
       reagents:
       - ReagentId: Cryoxadone
-        Quantity: 375
+        Quantity: 400
+    bloodlossDamage:
+      types:
+        Bloodloss: 0.8
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.3
-    baseSprintSpeed : 4.3
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4.2
   - type: Temperature
     currentTemperature: 293.15 # 20C - нормальная температура тела
     specificHeat: 42
   - type: TemperatureDamage
-    heatDamageThreshold: 313.15 # 40C
+    heatDamageThreshold: 308.15 # 35C
     coldDamageThreshold: 243.15 # -30C - порог когда активируется coldDamage с лечением.
     coldDamage: #per second, scales with temperature & other constants
       types:
-        Blunt: -0.25
-        Heat: -0.25
+        Blunt: -0.2
+        Slash: -0.1
+        Piercing: -0.1
+        Heat: -0.1
+        Shock: -0.05
+        Caustic: -0.05
+        Radiation: -0.1
         Poison: -0.1
         Cellular: -0.05
     heatDamage: #per second, scales with temperature & other constants
@@ -158,7 +171,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.35
+          radius: 0.4
         density: 275 # bigger density
         restitution: 0.0
         mask:
@@ -192,6 +205,8 @@
     languages:
       GalacticCommon: Speak
       Drask: Speak
+  - type: TypingIndicator
+    proto: ADTdrask
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1.15
