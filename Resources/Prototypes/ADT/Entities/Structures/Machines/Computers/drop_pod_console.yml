@@ -1,0 +1,91 @@
+# Drop Pod Console — placed on a DropPod grid to let syndicate operatives select and launch it at the station.
+
+- type: entity
+  parent: BaseComputer
+  id: ComputerDropPodSyndicate
+  name: drop pod deployment console
+  description: A hardened syndicate console for selecting an impact beacon and launching the drop pod at the station.
+  components:
+  - type: DropPodConsole
+    beaconBlacklist:
+      # Command
+      - DefaultStationBeaconBridge
+      - DefaultStationBeaconVault
+      - DefaultStationBeaconCaptainsQuarters
+      - DefaultStationBeaconHOPOffice
+      - DefaultStationBeaconHOSRoom
+      - DefaultStationBeaconCMORoom
+      - DefaultStationBeaconRDRoom
+      - DefaultStationBeaconQMRoom
+      - DefaultStationBeaconCERoom
+      # Security
+      - DefaultStationBeaconSecurity
+      - DefaultStationBeaconBrig
+      - DefaultStationBeaconBrigMed
+      - DefaultStationBeaconWardensOffice
+      - DefaultStationBeaconArmory
+      - DefaultStationBeaconPermaBrig
+      - DefaultStationBeaconDetectiveRoom
+      - DefaultStationBeaconCourtroom
+      - DefaultStationBeaconLawOffice
+      - DefaultStationBeaconSecurityCheckpoint
+      - ADTDefaultStationBeaconDockingAreaSec
+      - ADTDefaultStationBeaconSuitsSec
+      # AI
+      - DefaultStationBeaconAI
+      - DefaultStationBeaconAISatellite
+      - DefaultStationBeaconAICore
+      - DefaultStationBeaconAIUpload
+      - DefaultStationBeaconAIPower
+      # Dangerous engineering
+      - ADTDefaultStationBeaconSuperMatter
+      - DefaultStationBeaconGravGen
+      - DefaultStationBeaconAnchor
+      - DefaultStationBeaconSingularity
+      - DefaultStationBeaconTelecoms
+      - DefaultStationBeaconTEG
+      # WTF Nuclear
+      - DefaultStationBeaconNukeOps
+      - NuclearBomb
+      # Special
+      - ADTBluespaceHarvesterRift
+      - DefaultStationBeaconNuclear
+      - DefaultStationBeaconCentComm
+  - type: ActivatableUI
+    key: enum.DropPodConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.DropPodConsoleUiKey.Key:
+        type: DropPodConsoleBui
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: request-syndie
+    - map: ["computerLayerKeys"]
+      state: syndie_generic_keys
+    - map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      state: generic_panel_open
+  - type: ItemSlots
+    slots:
+      tcSlot:
+        name: drop-pod-console-tc-slot-name
+        whitelist:
+          components:
+          - Currency
+  - type: ContainerContainer
+    containers:
+      board: !type:Container # заглушка для теста, т.к это консоль и нужна плата
+      tcSlot: !type:ContainerSlot
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b01010"
+  - type: Tag
+    tags:
+    - EmagImmune
