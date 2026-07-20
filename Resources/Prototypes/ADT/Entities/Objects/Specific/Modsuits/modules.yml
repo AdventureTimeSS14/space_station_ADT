@@ -543,3 +543,88 @@
         canEjectStoredMaterials: false
       - type: BatteryRecharge
         multiplier: 3
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModReagentScanner
+  name: MOD reagent scanner module
+  description: A helmet visor modification that projects a chemical analysis overlay, allowing the user to determine the contents of containers.
+  components:
+  - type: Sprite
+    state: scanner
+  - type: ModSuitMod
+    complexity: 1
+    components:
+      head:
+      - type: SolutionScanner
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModStatusReadout
+  name: MOD medical visor module
+  description: A heads-up display installed into the visor of the suit. Reads and displays the vital signs of everyone in view.
+  components:
+  - type: Sprite
+    state: status
+  - type: ModSuitMod
+    complexity: 1
+    energyUsing: 0.1
+    components:
+      head:
+      - type: ShowHealthBars
+      - type: ShowHealthIcons
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModHealthAnalyzer
+  name: MOD health analyzer module
+  description: A miniaturized body scanner embedded into the suit's gloves, letting the wearer read a patient's vitals with a touch.
+  components:
+  - type: Sprite
+    state: health
+  - type: ModSuitMod
+    complexity: 2
+    energyUsing: 0.1
+    components:
+      gloves:
+      - type: HealthAnalyzer
+        scanningEndSound:
+          path: /Audio/Items/Medical/healthscanner.ogg
+      - type: UserInterface
+        interfaces:
+          enum.HealthAnalyzerUiKey.Key:
+            type: HealthAnalyzerBoundUserInterface
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModDefibrillator
+  name: MOD defibrillator module
+  description: A miniaturized defibrillator built into the suit's gloves, letting the wearer revive clinically dead crew with a touch.
+  components:
+  - type: Sprite
+    state: defib
+  - type: ModSuitMod
+    complexity: 3
+    energyUsing: 0.3
+    components:
+      gloves:
+      - type: Defibrillator
+        zapHeal:
+          types:
+            Asphyxiation: -40
+      - type: UseDelay
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModGPS
+  name: MOD GPS module
+  description: A built-in positioning transponder. Shows the wearer's coordinates when the suit is examined.
+  components:
+  - type: Sprite
+    state: gps
+  - type: ModSuitMod
+    complexity: 1
+    isInstantlyActive: true
+    components:
+      MODcore:
+      - type: HandheldGPS

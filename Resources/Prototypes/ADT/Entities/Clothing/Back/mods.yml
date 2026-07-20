@@ -180,6 +180,9 @@
     startingModules:
       - ADTModsuitModStorage
       - ADTModsuitModLight
+      - ADTModsuitModStatusReadout
+      - ADTModsuitModHealthAnalyzer
+      - ADTModsuitModDefibrillator
   - type: Construction
     graph: ADTModsuitMedical
     node: adtmodsuitmedical
@@ -206,6 +209,7 @@
     startingModules:
       - ADTModsuitModOrebag
       - ADTModsuitModStorage
+      - ADTModsuitModGPS
       - ADTModsuitModLight
       - ADTModsuitModPlasmaStabilizer
   - type: Tag
@@ -487,6 +491,10 @@
       - ADTModsuitModStorageLarge
       - ADTModsuitModLight
       - ADTModsuitModJetpack
+      - ADTModsuitModReagentScanner
+      - ADTModsuitModStatusReadout
+      - ADTModsuitModHealthAnalyzer
+      - ADTModsuitModDefibrillator
 
 # Капитан
 - type: entity
@@ -606,6 +614,10 @@
     startingModules:
       - ADTModsuitModStorage
       - ADTModsuitModLight
+      - ADTModsuitModReagentScanner
+      - ADTModsuitModStatusReadout
+      - ADTModsuitModHealthAnalyzer
+      - ADTModsuitModDefibrillator
 
 - type: entity
   parent: ADTClothingModsuitBackBase

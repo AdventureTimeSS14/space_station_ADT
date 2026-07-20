@@ -39,6 +39,11 @@
   - ADTModsuitModTray
   - ADTModsuitModIsulation
   - ADTModsuitModJump
+  - ADTModsuitModReagentScanner
+  - ADTModsuitModStatusReadout
+  - ADTModsuitModHealthAnalyzer
+  - ADTModsuitModDefibrillator
+  - ADTModsuitModGPS
   # - ADTModsuitModNoslip
 
 - type: latheRecipePack

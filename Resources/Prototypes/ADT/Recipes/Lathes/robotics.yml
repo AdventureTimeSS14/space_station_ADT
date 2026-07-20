@@ -203,6 +203,57 @@
     Copper: 200
 
 - type: latheRecipe
+  id: ADTModsuitModStatusReadout
+  result: ADTModsuitModStatusReadout
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 250
+    Glass: 200
+    Copper: 200
+
+- type: latheRecipe
+  id: ADTModsuitModGPS
+  result: ADTModsuitModGPS
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 250
+    Glass: 200
+    Copper: 200
+
+- type: latheRecipe
+  id: ADTModsuitModDefibrillator
+  result: ADTModsuitModDefibrillator
+  completetime: 2
+  materials:
+    Steel: 200
+    Plastic: 250
+    Glass: 200
+    Copper: 200
+    Silver: 100
+
+- type: latheRecipe
+  id: ADTModsuitModHealthAnalyzer
+  result: ADTModsuitModHealthAnalyzer
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 250
+    Glass: 200
+    Copper: 200
+
+- type: latheRecipe
+  id: ADTModsuitModReagentScanner
+  result: ADTModsuitModReagentScanner
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 250
+    Glass: 200
+    Copper: 200
+
+- type: latheRecipe
   id: ADTModsuitModDrill
   result: ADTModsuitModDrill
   completetime: 2
