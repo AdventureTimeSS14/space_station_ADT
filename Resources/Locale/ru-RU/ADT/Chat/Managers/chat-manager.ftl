@@ -1,3 +1,5 @@
+chat-manager-pointing-wrap-message = [color=#b8b0c7]{$message}[/color]
+
 chat-speech-verb-name-radio = Радиовещание
 chat-speech-verb-radio-1 = вещает
 chat-speech-verb-radio-2 = транслирует

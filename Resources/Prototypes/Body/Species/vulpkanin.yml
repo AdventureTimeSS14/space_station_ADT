@@ -212,7 +212,9 @@
     sprite:
       sprite: Effects/creampie.rsi
       state: creampie_vulpkanin
-  # ADT tweak start|
+  # ADT-Tweak: Start
+  - type: TypingIndicator
+    proto: ADTvulpkanin
   - type: Sprite
     scale: 0.95, 0.95
   - type: SizeAttributeWhitelist
