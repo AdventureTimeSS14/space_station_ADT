@@ -66,7 +66,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<DropPodConsoleComponent, AfterActivatableUIOpenEvent>(OnConsoleOpened);
-        SubscribeLocalEvent<DropPodConsoleComponent, ComponentInit>(OnConsoleInit);
+        SubscribeLocalEvent<DropPodConsoleComponent, MapInitEvent>(OnConsoleMapInit);
         SubscribeLocalEvent<NukeDropPodComponent, FTLCompletedEvent>(OnDropPodArrived);
         SubscribeLocalEvent<WarDeclaredEvent>(OnWarDeclared);
 
@@ -105,9 +105,9 @@ public sealed class DropPodConsoleSystem : EntitySystem
         }
     }
 
-    private void OnConsoleInit(Entity<DropPodConsoleComponent> ent, ref ComponentInit args)
+    private void OnConsoleMapInit(Entity<DropPodConsoleComponent> ent, ref MapInitEvent args)
     {
-        // Set cooldown start time when the console is spawned
+        // Set cooldown start time when the console is initialized on a map
         ent.Comp.LastLaunchTime = _timing.CurTime;
     }
 
