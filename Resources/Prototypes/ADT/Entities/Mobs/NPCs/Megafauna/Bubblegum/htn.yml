@@ -1,0 +1,122 @@
+- type: utilityQuery
+  id: ADTBubblegumMeleeTargets
+  query:
+    - !type:NearbyHostilesQuery
+  considerations:
+    - !type:TargetDistanceCon
+      curve: !type:PresetCurve
+        preset: TargetDistance
+    - !type:TargetAccessibleCon
+      curve: !type:BoolCurve
+    - !type:TargetInLOSOrCurrentCon
+      curve: !type:BoolCurve
+
+- type: htnCompound
+  id: ADTBubblegumAttackTargetCompound
+  branches:
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: Target
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            shutdownState: PlanFinished
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: MeleeRange
+        - !type:HTNPrimitiveTask
+          operator: !type:MeleeOperator
+            targetKey: Target
+            targetState: Dead
+          preconditions:
+            - !type:KeyExistsPrecondition
+              key: Target
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: MeleeRange
+          services:
+            - !type:UtilityService
+              id: MeleeService
+              proto: ADTBubblegumMeleeTargets
+              key: Target
+
+- type: htnCompound
+  id: ADTBubblegumCombatPrecondition
+  branches:
+    - preconditions:
+        - !type:BuckledPrecondition
+          isBuckled: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UnbuckleOperator
+            shutdownState: TaskFinished
+    - preconditions:
+        - !type:InContainerPrecondition
+          isInContainer: true
+      tasks:
+        - !type:HTNCompoundTask
+          task: EscapeCompound
+    - preconditions:
+        - !type:PulledPrecondition
+          isPulled: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UnPullOperator
+            shutdownState: TaskFinished
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: ADTBubblegumMeleeTargets
+        - !type:HTNCompoundTask
+          task: ADTBubblegumEngageCompound
+
+- type: htnCompound
+  id: ADTBubblegumEngageCompound
+  branches:
+    - preconditions:
+        - !type:BubblegumAggressivePrecondition
+          isAggressive: true
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTBubblegumAttackTargetCompound
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: Target
+        - !type:TargetInRangePrecondition
+          targetKey: Target
+          rangeKey: ADTBubblegumRetreatTrigger
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:BubblegumRetreatOperator
+            retreatDistance: 5
+        #- !type:HTNPrimitiveTask
+        #  operator: !type:MoveToOperator
+        #    targetKey: BubblegumRetreatCoordinates
+        #    pathfindInPlanning: true
+        #    pathfindKey: TargetPathfind
+        #    removeKeyOnFinish: true
+        #    shutdownState: TaskFinished
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: Target
+      tasks:
+        - !type:HTNCompoundTask
+          task: ADTBubblegumAttackTargetCompound
+
+- type: htnCompound
+  id: ADTBubblegumCompound
+  branches:
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: BubblegumWavesBusy
+      tasks:
+        - !type:HTNCompoundTask
+          task: DoAbsolutelyNothingCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: ADTBubblegumCombatPrecondition
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound

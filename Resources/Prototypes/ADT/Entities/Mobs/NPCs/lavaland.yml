@@ -75,6 +75,9 @@
             max: 1
   - type: Fauna
   - type: AshStormImmune
+  - type: ADTMobLoot
+    loots:
+      ADTKineticTrophyLegionSkull: 0.1
 
 - type: entity
   id: ADTMobLegionSkull
@@ -188,6 +191,9 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MeatLaserImpact
+  - type: ADTMobLoot
+    loots:
+      ADTKineticTrophyAncientGoliathTentacle: 0.1
 
 - type: weightedRandomEntity
   id: AncientGoliathActions
@@ -199,7 +205,7 @@
 
 - type: entity
   name: Nightmare Spider
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobNightmareSpider
   components:
   - type: Sprite
@@ -267,11 +273,13 @@
     lifetime: 35
   - type: AshStormImmune
   - type: Fauna
-
+  - type: ADTMobLoot
+    loots:
+      ADTKineticTrophyPoisonFang: 0.1
 
 - type: entity
   name: Shock Spider
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobShockSpider
   components:
   - type: Sprite
@@ -338,6 +346,9 @@
     lifetime: 35
   - type: AshStormImmune
   - type: Fauna
+  - type: ADTMobLoot
+    loots:
+      ADTKineticTrophyFrostGland: 0.1
 
 #Crab
 - type: entity

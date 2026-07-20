@@ -14,6 +14,7 @@ public sealed partial class FlashImmunityComponent : Component
     /// Is this component currently enabled?
     /// </summary>
     [DataField, AutoNetworkedField]
+    [Access(typeof(SharedFlashSystem), Other = AccessPermissions.ReadWrite)] // ADT-Tweak
     public bool Enabled = true;
 
     /// <summary>

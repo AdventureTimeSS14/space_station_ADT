@@ -1,0 +1,22 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: reagentStingConfiguration
+  id: StingMute
+  reagents:
+    MuteToxin: 2
+
+- type: reagentStingConfiguration
+  id: StingBlind
+  reagents:
+    BlindToxin: 2
+
+- type: reagentStingConfiguration
+  id: StingCryo
+  reagents:
+    Fresium: 10
+
+- type: reagentStingConfiguration
+  id: StingLethargic
+  reagents:
+    ChloralHydrate: 5
+    ChangelingLethargic: 10 # ADT-Tweak

@@ -1,0 +1,15 @@
+- type: gamePreset
+  id: Changeling
+  alias:
+    - ling
+    - lings
+    - changeling
+  name: changeling-gamemode-title
+  description: changeling-gamemode-description
+  showInVote: false
+  rules:
+    - Changeling
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - BasicRoundstartVariation
