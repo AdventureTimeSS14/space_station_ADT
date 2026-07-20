@@ -389,6 +389,23 @@ public sealed partial class ModSuitSystem
         }
     }
 
+    public float GetCurrentDraw(Entity<ModSuitComponent> ent)
+    {
+        var attachedCount = GetAttachedToggleCount(ent);
+
+        if (attachedCount <= 0)
+            return 0f;
+
+        var moduleDraw = 0f;
+        foreach (var module in ent.Comp.ModuleContainer.ContainedEntities)
+        {
+            if (TryComp<ModSuitModComponent>(module, out var mod) && mod.Active)
+                moduleDraw += mod.EnergyUsing;
+        }
+
+        return ent.Comp.ModEnergyBaseUsing * attachedCount + moduleDraw;
+    }
+
     private void UpdateCellDraw(Entity<ModSuitComponent> ent)
     {
         if (!ent.Comp.RequiresBattery)
@@ -397,16 +414,9 @@ public sealed partial class ModSuitSystem
         if (!TryComp<PowerCellDrawComponent>(ent, out var draw))
             return;
 
-        var attachedCount = GetAttachedToggleCount(ent);
+        draw.DrawRate = GetCurrentDraw(ent);
+        Dirty(ent.Owner, draw);
 
-        if (attachedCount <= 0)
-        {
-            _cell.SetDrawEnabled((ent.Owner, draw), false);
-        }
-        else
-        {
-            _cell.SetDrawEnabled((ent.Owner, draw), true);
-            draw.DrawRate = ent.Comp.ModEnergyBaseUsing * attachedCount;
-        }
+        _cell.SetDrawEnabled((ent.Owner, draw), draw.DrawRate > 0f);
     }
 }

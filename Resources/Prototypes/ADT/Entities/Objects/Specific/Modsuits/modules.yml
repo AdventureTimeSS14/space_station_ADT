@@ -107,7 +107,7 @@
   - type: Sprite
     state: magnet
   - type: ModSuitMod
-    energyUsing: 0.2
+    energyUsing: 0.1
     components:
       shoes:
       - type: ToggleClothing
@@ -132,7 +132,7 @@
   - type: Sprite
     state: night_visor
   - type: ModSuitMod
-    energyUsing: 0.4
+    energyUsing: 0.3
     complexity: 2
     components:
       head:
@@ -225,7 +225,6 @@
   - type: Sprite
     state: storage
   - type: ModSuitMod
-    energyUsing: 0.1
     isInstantlyActive: true
     complexity: 3
     components:
@@ -244,7 +243,6 @@
   - type: Sprite
     state: storage_large
   - type: ModSuitMod
-    energyUsing: 0.1
     isInstantlyActive: true
     complexity: 3
     components:
@@ -266,7 +264,6 @@
   - type: Sprite
     state: storage
   - type: ModSuitMod
-    energyUsing: 0.1
     isInstantlyActive: true
     complexity: 3
     components:
@@ -323,7 +320,7 @@
   - type: Sprite
     state: storage_large
   - type: ModSuitMod
-    energyUsing: 0.3
+    energyUsing: 0.1
     isInstantlyActive: true
     complexity: 3
     components:
@@ -342,7 +339,6 @@
   - type: Sprite
     state: tray
   - type: ModSuitMod
-    energyUsing: 0.1
     complexity: 2
     components:
       head:
@@ -359,7 +355,7 @@
   - type: Sprite
     state: carry
   - type: ModSuitMod
-    energyUsing: 0.2
+    energyUsing: 0.05
     complexity: 2
     components:
       gloves:
@@ -389,7 +385,6 @@
   - type: Sprite
     state: flashlight
   - type: ModSuitMod
-    energyUsing: 0.1
     complexity: 1
     components:
       head:
@@ -468,7 +463,7 @@
   - type: Sprite
     state: radshield
   - type: ModSuitMod
-    energyUsing: 0.2
+    energyUsing: 0.02
     complexity: 2
     components:
       outerClothing:
