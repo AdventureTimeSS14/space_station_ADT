@@ -66,6 +66,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<DropPodConsoleComponent, AfterActivatableUIOpenEvent>(OnConsoleOpened);
+        SubscribeLocalEvent<DropPodConsoleComponent, ComponentInit>(OnConsoleInit);
         SubscribeLocalEvent<NukeDropPodComponent, FTLCompletedEvent>(OnDropPodArrived);
         SubscribeLocalEvent<WarDeclaredEvent>(OnWarDeclared);
 
@@ -102,6 +103,12 @@ public sealed class DropPodConsoleSystem : EntitySystem
         {
             comp.WarDeclaredTime = ev.Status == WarConditionStatus.WarReady ? _timing.CurTime : null;
         }
+    }
+
+    private void OnConsoleInit(Entity<DropPodConsoleComponent> ent, ref ComponentInit args)
+    {
+        // Set cooldown start time when the console is spawned
+        ent.Comp.LastLaunchTime = _timing.CurTime;
     }
 
     private void OnDropPodArrived(Entity<NukeDropPodComponent> ent, ref FTLCompletedEvent args)
@@ -335,8 +342,8 @@ public sealed class DropPodConsoleSystem : EntitySystem
             && TryComp<NukeDropPodComponent>(xform.GridUid.Value, out var dropPod)
             && dropPod.Launched;
 
-        var cooldownPassed = comp.CooldownPassedOnStart || comp.LastLaunchTime == TimeSpan.Zero;
-        var elapsed = cooldownPassed ? comp.Cooldown : (_timing.CurTime - comp.LastLaunchTime);
+        var isFirstLaunch = comp.LastLaunchTime == TimeSpan.Zero;
+        var elapsed = _timing.CurTime - comp.LastLaunchTime;
         var cooldownReady = onDropPod && !alreadyLaunched && elapsed >= comp.Cooldown;
 
         var isAtWar = false;

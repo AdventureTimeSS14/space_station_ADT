@@ -30,9 +30,6 @@ public sealed partial class DropPodConsoleComponent : Component
     [DataField]
     public TimeSpan LastLaunchTime = TimeSpan.Zero;
 
-    [DataField]
-    public bool CooldownPassedOnStart = true;
-
     /// <summary>
     /// Prototype spawned at the landing site before the pod arrives.
     /// Null disables the effect entirely.
