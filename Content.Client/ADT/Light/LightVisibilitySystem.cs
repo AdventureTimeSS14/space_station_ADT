@@ -23,6 +23,7 @@ public sealed partial class LightVisibilitySystem : EntitySystem
         SubscribeLocalEvent<LightVisibilityComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<LightVisibilityComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<LightVisibilityComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
+        SubscribeLocalEvent<LightVisibilityComponent, BeforePostShaderRenderEvent>(OnBeforePostShader);
 
         SubscribeLocalEvent<LightVisibilityComponent, ExamineAttemptEvent>(OnExamineAttempt);
     }
