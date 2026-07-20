@@ -29,8 +29,8 @@ internal sealed partial class PointingSystem
             return;
 
         var viewerList = viewers
-            .Distinct()
             .Append(sourceSession)
+            .Distinct()
             .Where(v => _adtNetConfig.GetClientCVar(v.Channel, ADTCCVars.EnableChatPointingIcons))
             .ToList();
 
