@@ -1,4 +1,3 @@
-using Content.Shared.Actions;
 using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell;
@@ -23,7 +22,7 @@ public sealed class ShowEnergyAlarmSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<ShowEnergyAlarmComponent, PowerCellChangedEvent>(OnPowerCellUpdate);
-        SubscribeLocalEvent<ShowEnergyAlarmComponent, GetItemActionsEvent>(OnGetActions);
+        SubscribeLocalEvent<ShowEnergyAlarmComponent, GotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<ShowEnergyAlarmComponent, GotUnequippedEvent>(OnUnequipped);
     }
 
@@ -48,9 +47,9 @@ public sealed class ShowEnergyAlarmSystem : EntitySystem
         UpdateClothingPowerAlert((uid, component));
     }
 
-    private void OnGetActions(EntityUid uid, ShowEnergyAlarmComponent component, GetItemActionsEvent args)
+    private void OnEquipped(EntityUid uid, ShowEnergyAlarmComponent component, GotEquippedEvent args)
     {
-        component.User = args.User;
+        component.User = args.Equipee;
         UpdateClothingPowerAlert((uid, component));
     }
 

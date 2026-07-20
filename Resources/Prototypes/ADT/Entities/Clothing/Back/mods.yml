@@ -539,7 +539,7 @@
       outerClothing: ADTClothingOuterModsuitBodyCentcom
       shoes: ADTClothingModsuitShoesCentcom
     startingModules:
-      - ADTModsuitModStorageLarge
+      - ADTModsuitModStorageBluespace
       - ADTModsuitModLight
       - ADTModsuitModJetpack
       - ADTModsuitModEmpProtection
@@ -564,7 +564,7 @@
       outerClothing: ADTClothingOuterModsuitBodyCCC
       shoes: ADTClothingModsuitShoesCentcom
     startingModules:
-      - ADTModsuitModStorageLarge
+      - ADTModsuitModStorageBluespace
       - ADTModsuitModLight
       - ADTModsuitModJetpack
       - ADTModsuitModIsulation
@@ -603,7 +603,7 @@
     sprite: ADT/Clothing/Back/Modsuit/brigmedic.rsi
     state: icon
   - type: ModSuit
-    maxComplexity: 10
+    maxComplexity: 12
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:

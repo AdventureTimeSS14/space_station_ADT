@@ -45,6 +45,7 @@
   - ADTModsuitPlateStandard
   - ADTModsuitHelmet
   - ADTModsuitPlateCience
+  - ADTModsuitModAnomalyScanner
   position: 0,-1
   requiredTech:
   - MagnetsTech

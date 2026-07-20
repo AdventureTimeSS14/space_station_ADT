@@ -234,6 +234,16 @@
     Silver: 100
 
 - type: latheRecipe
+  id: ADTModsuitModAnomalyScanner
+  result: ADTModsuitModAnomalyScanner
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 250
+    Glass: 200
+    Copper: 200
+
+- type: latheRecipe
   id: ADTModsuitModHealthAnalyzer
   result: ADTModsuitModHealthAnalyzer
   completetime: 2
