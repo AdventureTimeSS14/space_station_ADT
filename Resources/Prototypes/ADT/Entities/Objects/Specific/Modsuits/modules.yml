@@ -628,3 +628,41 @@
     components:
       MODcore:
       - type: HandheldGPS
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModAnomalyScanner
+  name: MOD anomaly scanner module
+  description: A miniaturized anomaly scanner embedded into the suit's gloves, letting the wearer analyze anomalous objects with a touch.
+  components:
+  - type: Sprite
+    state: tanning
+  - type: ModSuitMod
+    complexity: 2
+    energyUsing: 0.1
+    components:
+      gloves:
+      - type: AnomalyScanner
+      - type: UserInterface
+        interfaces:
+          enum.AnomalyScannerUiKey.Key:
+            type: AnomalyScannerBoundUserInterface
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModStorageBluespace
+  name: MOD bluespace storage module
+  description: A bluespace-compressed storage array exclusive to Central Command issue suits.
+  components:
+  - type: Sprite
+    state: storage_bluespace
+  - type: ModSuitMod
+    energyUsing: 0.1
+    isInstantlyActive: true
+    complexity: 2
+    components:
+      MODcore:
+      - type: Storage
+        grid:
+        - 0,0,19,9
+        maxItemSize: Huge

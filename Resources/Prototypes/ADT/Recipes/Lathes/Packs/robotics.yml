@@ -43,6 +43,7 @@
   - ADTModsuitModStatusReadout
   - ADTModsuitModHealthAnalyzer
   - ADTModsuitModDefibrillator
+  - ADTModsuitModAnomalyScanner
   - ADTModsuitModGPS
   # - ADTModsuitModNoslip
 
