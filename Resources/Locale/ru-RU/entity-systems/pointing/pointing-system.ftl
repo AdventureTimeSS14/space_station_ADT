@@ -9,15 +9,11 @@ pointing-system-point-at-other-others = { CAPITALIZE($otherName) } указыв�
 pointing-system-point-at-you-other = { CAPITALIZE($otherName) } указывает на вас
 ## ADT-Tweak end
 pointing-system-point-at-tile = Вы указываете на { $tileName }.
-
 pointing-system-point-in-own-inventory-self = Вы указываете на свой { $item }.
-
 ## ADT-Tweak start
 pointing-system-point-in-own-inventory-others = { CAPITALIZE($pointer) } указывает на свой { $item }
 ## ADT-Tweak end
-
 pointing-system-point-in-other-inventory-self = Вы указываете на { $item } у { $wearer }.
-
 ## ADT-Tweak start
 pointing-system-point-in-other-inventory-target = { CAPITALIZE($pointer) } указывает на ваш { $item }
 pointing-system-point-in-other-inventory-others = { CAPITALIZE($pointer) } указывает на { $item } у { $wearer }
