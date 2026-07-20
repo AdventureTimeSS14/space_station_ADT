@@ -10,3 +10,14 @@
         amount: 2
       - id: MagazinePistolSubMachineGun
         amount: 4
+
+- type: entity
+  id: ADTCrateArmoryLaserPistol
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  name: laser pistol crate
+  description: Contains three laset pitols. Requires Armory access to open.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponLaserSecPistol
+        amount: 3

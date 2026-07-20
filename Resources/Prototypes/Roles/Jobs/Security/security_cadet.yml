@@ -51,12 +51,12 @@
     id: SecurityCadetPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolMk58
+    pocket1: ADTSecVoucher #ADT-Tweak
     pocket2: ADTBookSpaceLaw #ADT-WikiBooks
   storage:
     back:
     - Flash
-    - MagazinePistol
+    # - MagazinePistol ADT-Tweak
 
 - type: chameleonOutfit
   id: SecurityCadetChameleonOutfit
