@@ -346,7 +346,7 @@ public sealed class ADTCCVars
      * Atmos
      */
 
-    /// <summary>
+     /// <summary>
     /// Whether overpressure pipe damage is enabled.
     /// When enabled, pipes with OverpressurePipeDamageComponent will take damage when pressure exceeds the limit.
     /// </summary>
@@ -354,6 +354,24 @@ public sealed class ADTCCVars
         CVarDef.Create("atmos.overpressure_pipe_damage_enabled", true, CVar.SERVERONLY);
 
     /*
+    * Pointing
+    */
+
+    /// <summary>
+    /// If enabled, pointing messages are duplicated into chat with an entity icon.
+    /// When disabled, only popups are shown
+    /// </summary>
+    public static readonly CVarDef<bool> PointingChatIconsEnabled =
+        CVarDef.Create("adt.pointing_chat_icons_enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Client-side setting to toggle pointing messages in chat.
+    /// Replicated to server so it can skip sending chat messages to players who disabled it.
+    /// </summary>
+    public static readonly CVarDef<bool> EnableChatPointingIcons =
+        CVarDef.Create("adt.chat_pointing_icons_enabled", true, CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT);
+
+     /*
      * Blob
      */
 
