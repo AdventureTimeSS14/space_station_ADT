@@ -1,0 +1,34 @@
+- type: reagent
+  id: BlindToxin
+  name: reagent-name-blind-toxin
+  group: Narcotics
+  desc: reagent-desc-blind-toxin
+  physicalDesc: reagent-physical-desc-syrupy
+  color: "#000000"
+  boilingPoint: 255.0
+  meltingPoint: 36.0
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:ModifyStatusEffect # ADT-Tweak
+        effectProto: StatusEffectBlindness
+        type: Add
+        time: 3
+
+# - type: reagent
+#   id: Tirizene
+#   name: reagent-name-tirizene
+#   group: Toxins
+#   desc: reagent-desc-tirizene
+#   physicalDesc: reagent-physical-desc-syrupy
+#   color: "#6E2828"
+#   boilingPoint: 255.0
+#   meltingPoint: 36.0
+#   metabolisms:
+#     Metabolites:
+#       effects:
+#       - !type:TakeStaminaDamage
+#         conditions:
+#         - !type:MetabolizerTypeCondition # Goobstation - Yowie
+#         amount: 13 # 13 parity
+#         immediate: false

@@ -193,4 +193,18 @@ public abstract class SharedNightVisionSystem : EntitySystem
             RemCompDeferred<DamageEyesOnFlashedComponent>(user.Value);
         }
     }
+
+    /// <summary>
+    /// Enables or disables night vision on an entity from outside this system.
+    /// </summary>
+    public void SetActive(Entity<NightVisionComponent?> ent, bool active, bool overlay = true)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
+            return;
+
+        ent.Comp.State = active ? NightVisionState.Full : NightVisionState.Off;
+        ent.Comp.Overlay = overlay;
+        Dirty(ent, ent.Comp);
+        UpdateAlert((ent.Owner, ent.Comp));
+    }
 }

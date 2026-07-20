@@ -2814,7 +2814,7 @@
           Quantity: 150
 - type: entity
   name: wizard spider
-  parent: ADTMobBaseSpider # ADT tweak для разных пауков
+  parent: ADTMobBaseSpiderVentCrawler # ADT tweak для разных пауков
   id: MobGiantSpiderWizard
   description: This spider looks a little magical
   suffix: Wizard
