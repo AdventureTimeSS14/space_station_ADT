@@ -4,7 +4,7 @@
   roundStart: true
   prototype: MobUrsus
   defaultSkinTone: "#964B00"
-  dollPrototype: AppearanceUrsus
+  dollPrototype: ADTAppearanceUrsus
   skinColoration: Hues
   maleFirstNames: firstMaleUrs
   shortDesc: species-short-desc-urs

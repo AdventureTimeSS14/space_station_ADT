@@ -17,7 +17,7 @@
   </Box>
   <Box>
     <GuideEntityEmbed Entity="AppearanceVulpkaninADT" Caption="Вульпканин"/>
-    <GuideEntityEmbed Entity="AppearanceShadekin" Caption="Сумеречник"/> <!-- ADT-Tweak -->
+    <GuideEntityEmbed Entity="ADTAppearanceShadekin" Caption="Сумеречник"/> <!-- ADT-Tweak -->
   </Box>
 
 </Document>
