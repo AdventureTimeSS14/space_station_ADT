@@ -254,7 +254,7 @@
   id: OrganSlimeEyes
   components:
   - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
+    sprite: Mobs/Species/Slime/organs.rsi # ADT tweak Human > Slime
   - type: VisualOrgan
     data:
       sprite: Mobs/Customization/eyes.rsi
@@ -313,6 +313,12 @@
     maxReagents: 6
     metabolizerTypes: [ Slime ]
     stages: [ Digestion, Bloodstream, Metabolites ]
+  # ADT-Tweak start
+  - type: Sprite
+    sprite: Mobs/Species/Slime/organs.rsi
+    layers:
+      - state: core
+  # ADT-Tweak end
 
 - type: entity
   parent: [ OrganBaseLungs, OrganSlimePersonInternal, OrganSlimePersonMetabolizer ]

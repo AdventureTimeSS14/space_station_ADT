@@ -1,44 +1,272 @@
 - type: entity
   parent: BaseSpeciesAppearance
-  id: AppearanceDrask
+  id: ADTAppearanceDrask
   categories: [ HideSpawnMenu ]
   name: drask appearance
   components:
   - type: InitialBody
     organs:
-      Torso: OrganDraskTorso
-      Head: OrganDraskHead
-      ArmLeft: OrganDraskArmLeft
-      ArmRight: OrganDraskArmRight
-      HandRight: OrganDraskHandRight
-      HandLeft: OrganDraskHandLeft
-      LegLeft: OrganDraskLegLeft
-      LegRight: OrganDraskLegRight
-      FootLeft: OrganDraskFootLeft
-      FootRight: OrganDraskFootRight
-      Brain: OrganHumanBrain
-      Eyes: OrganDraskEyes
-      Tongue: OrganHumanTongue
-      Appendix: OrganHumanAppendix
-      Ears: OrganHumanEars
-      Lungs: OrganHumanLungs
-      Heart: OrganHumanHeart
-      Stomach: OrganHumanStomach
-      Liver: OrganHumanLiver
-      Kidneys: OrganHumanKidneys
+      Torso: ADTOrganDraskTorso
+      Head: ADTOrganDraskHead
+      ArmLeft: ADTOrganDraskArmLeft
+      ArmRight: ADTOrganDraskArmRight
+      HandRight: ADTOrganDraskHandRight
+      HandLeft: ADTOrganDraskHandLeft
+      LegLeft: ADTOrganDraskLegLeft
+      LegRight: ADTOrganDraskLegRight
+      FootLeft: ADTOrganDraskFootLeft
+      FootRight: ADTOrganDraskFootRight
+      Brain: ADTOrganDraskBrain
+      Eyes: ADTOrganDraskEyes
+      Tongue: ADTOrganDraskTongue
+      Appendix: ADTOrganDraskAppendix
+      Ears: ADTOrganDraskEars
+      Lungs: ADTOrganDraskLungs
+      Heart: ADTOrganDraskHeart
+      Stomach: ADTOrganDraskStomach
+      Liver: ADTOrganDraskLiver
+      Kidneys: ADTOrganDraskKidneys
   - type: HumanoidProfile
     species: DraskSpecies
   - type: Inventory
     speciesId: drask
 
 - type: entity
+  parent:
+  - ADTAppearanceDrask
+  - BaseSpeciesMobOrganic
+  id: MobDrask
+  name: Urist McDrask
+  components:
+  - type: Sprite
+    scale: 1.07, 1.07
+    layers:
+    # Torso
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+
+    # Head
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      shader: unshaded
+      sprite: ADT/Mobs/Species/Drask/parts.rsi
+      state: eyes
+
+    # Limbs
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+
+    # Underwear & clothing
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+    - map: ["underwearb"]
+    - map: [ "socks" ]
+    - map: ["underweart"]
+    - map: ["jumpsuit"]
+
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+
+    # Extremities
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+
+    # Stuff that goes over the body but below equipment
+    - map: ["enum.HumanoidVisualLayers.Overlay"]
+
+    # More equipment
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "back" ]
+    - map: [ "neck" ]
+    - map: [ "suitstorage" ]
+
+    # Stuff that goes in front of equipment
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutOverlay" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Special" ] # ADT: needed so Special-layer markings (e.g. felinid cat ears) can render
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
+
+    # Stuff that goes in front of stuff that goes in front of equipment
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+
+    # Extra stuff
+    - map: ["enum.HumanoidVisualLayers.OverlayBandage"]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      110: Critical
+      220: Dead
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 1.2
+  - type: PointLight
+    color: "#10207b"
+    energy: 1
+    radius: 1.2
+  - type: Prying
+    speedModifier: 1
+  - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Heat: -0.04
+        Cold: -0.1
+        Blunt: -0.03
+        Slash: -0.03
+        Piercing: -0.03
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 10
+  - type: StaminaDamageOnHit
+    damage: 12
+  - type: Bloodstream
+    damageBleedModifiers: BloodlossDrask
+    bloodRefreshAmount: 0.2
+    bleedReductionAmount: 0.12
+    bloodlossThreshold: 0.85
+    maxBleedAmount: 16
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Cryoxadone
+        Quantity: 400
+    bloodlossDamage:
+      types:
+        Bloodloss: 0.8
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4.2
+  - type: Temperature
+    currentTemperature: 293.15 # 20C - нормальная температура тела
+    specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 308.15 # 35C
+    coldDamageThreshold: 243.15 # -30C - порог когда активируется coldDamage с лечением.
+    coldDamage: #per second, scales with temperature & other constants
+      types:
+        Blunt: -0.2
+        Slash: -0.1
+        Piercing: -0.1
+        Heat: -0.1
+        Shock: -0.05
+        Caustic: -0.05
+        Radiation: -0.1
+        Poison: -0.1
+        Cellular: -0.05
+    heatDamage: #per second, scales with temperature & other constants
+      types:
+        Heat : 4.0
+  - type: TemperatureSpeed
+    thresholds:
+      -33: 1
+      -103: 1
+      -173: 1
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      62: 0.8
+      86: 0.6
+  - type: ThermalRegulator
+    sweatHeatRegulation: 1500
+    shiveringHeatRegulation: 500
+    normalBodyTemperature: 273.15
+    thermalRegulationTemperatureThreshold: 25
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        density: 275 # bigger density
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#0091ff"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: Speech
+    speechSounds: Drask
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
+  - type: Vocal
+    sounds:
+      Male: MaleDrask
+      Female: FemaleDrask
+      Unsexed: MaleDrask
+  - type: Damageable
+    damageModifierSet: Drask
+  - type: Injurable
+    damageContainer: Biological
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      Drask: Speak
+  - type: TypingIndicator
+    proto: ADTdrask
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.15
+    short: true
+    shortscale: 1
+
+- type: entity
   parent: OrganBaseOrganic
-  id: OrganDrask
+  id: ADTOrganDrask
   abstract: true
   suffix: drask
 
 - type: entity
-  id: OrganDraskVisual
+  id: ADTOrganDraskMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Drask ]
+
+- type: entity
+  parent: ADTOrganDrask
+  id: ADTOrganDraskInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Drask/organs.rsi
+
+- type: entity
+  id: ADTOrganDraskVisual
   abstract: true
   components:
   - type: VisualOrgan
@@ -49,20 +277,20 @@
       group: Drask
 
 - type: entity
-  parent: [ OrganDrask, OrganDraskVisual ]
-  id: OrganDraskExternal
+  parent: [ ADTOrganDrask, ADTOrganDraskVisual ]
+  id: ADTOrganDraskExternal
   abstract: true
   components:
   - type: Sprite
     sprite: ADT/Mobs/Species/Drask/parts.rsi
 
 - type: entity
-  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganDraskExternal ]
-  id: OrganDraskTorso
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, ADTOrganDraskExternal ]
+  id: ADTOrganDraskTorso
 
 - type: entity
-  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganDraskExternal ]
-  id: OrganDraskHead
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, ADTOrganDraskExternal ]
+  id: ADTOrganDraskHead
   components:
   - type: VisualOrganMarkings
     hideableLayers:
@@ -73,41 +301,77 @@
     - enum.HumanoidVisualLayers.HeadSide
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganDraskExternal ]
-  id: OrganDraskArmLeft
+  parent: [ OrganBaseArmLeft, ADTOrganDraskExternal ]
+  id: ADTOrganDraskArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganDraskExternal ]
-  id: OrganDraskArmRight
+  parent: [ OrganBaseArmRight, ADTOrganDraskExternal ]
+  id: ADTOrganDraskArmRight
 
 - type: entity
-  parent: [ OrganBaseHandLeft, OrganDraskExternal ]
-  id: OrganDraskHandLeft
+  parent: [ OrganBaseHandLeft, ADTOrganDraskExternal ]
+  id: ADTOrganDraskHandLeft
 
 - type: entity
-  parent: [ OrganBaseHandRight, OrganDraskExternal ]
-  id: OrganDraskHandRight
+  parent: [ OrganBaseHandRight, ADTOrganDraskExternal ]
+  id: ADTOrganDraskHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganDraskExternal ]
-  id: OrganDraskLegLeft
+  parent: [ OrganBaseLegLeft, ADTOrganDraskExternal ]
+  id: ADTOrganDraskLegLeft
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganDraskExternal ]
-  id: OrganDraskLegRight
+  parent: [ OrganBaseLegRight, ADTOrganDraskExternal ]
+  id: ADTOrganDraskLegRight
 
 - type: entity
-  parent: [ OrganBaseFootLeft, OrganDraskExternal ]
-  id: OrganDraskFootLeft
+  parent: [ OrganBaseFootLeft, ADTOrganDraskExternal ]
+  id: ADTOrganDraskFootLeft
 
 - type: entity
-  parent: [ OrganBaseFootRight, OrganDraskExternal ]
-  id: OrganDraskFootRight
+  parent: [ OrganBaseFootRight, ADTOrganDraskExternal ]
+  id: ADTOrganDraskFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, ADTOrganDraskInternal ]
+  id: ADTOrganDraskBrain
+
+- type: entity
+  parent: [ OrganBaseTongue, ADTOrganDraskInternal ]
+  id: ADTOrganDraskTongue
+
+- type: entity
+  parent: [ OrganBaseAppendix, ADTOrganDraskInternal ]
+  id: ADTOrganDraskAppendix
+
+- type: entity
+  parent: [ OrganBaseEars, ADTOrganDraskInternal]
+  id: ADTOrganDraskEars
+
+- type: entity
+  parent: [ OrganBaseLungs, ADTOrganDraskInternal, ADTOrganDraskMetabolizer ]
+  id: ADTOrganDraskLungs
+
+- type: entity
+  parent: [ OrganBaseHeart, ADTOrganDraskInternal, ADTOrganDraskMetabolizer ]
+  id: ADTOrganDraskHeart
+
+- type: entity
+  parent: [ OrganBaseStomach, ADTOrganDraskInternal, ADTOrganDraskMetabolizer ]
+  id: ADTOrganDraskStomach
+
+- type: entity
+  parent: [ OrganBaseLiver, ADTOrganDraskInternal ]
+  id: ADTOrganDraskLiver
+
+- type: entity
+  parent: [ OrganBaseKidneys, ADTOrganDraskInternal ]
+  id: ADTOrganDraskKidneys
 
 # Drask have glowing (unshaded) eyes drawn from the dedicated "eyes" state in parts.rsi.
 - type: entity
-  parent: OrganHumanEyes
-  id: OrganDraskEyes
+  parent: [ ADTOrganDraskVisual, OrganBaseEyes, ADTOrganDraskInternal ]
+  id: ADTOrganDraskEyes
   suffix: drask
   components:
   - type: VisualOrgan
@@ -115,3 +379,9 @@
       sprite: ADT/Mobs/Species/Drask/parts.rsi
       state: eyes
       shader: unshaded
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Drask/organs.rsi
+    layers:
+    - state: eyeball-l
+    - state: eyeball-r
+    - state: eyeball-c

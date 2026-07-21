@@ -3,7 +3,7 @@
   name: species-name-felinid
   roundStart: true
   prototype: MobFelinid
-  dollPrototype: AppearanceFelinid
+  dollPrototype: ADTAppearanceFelinid
   skinColoration: HumanToned
   category: Unusual
   pros:

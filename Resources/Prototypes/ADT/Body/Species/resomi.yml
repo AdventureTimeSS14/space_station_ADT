@@ -3,32 +3,32 @@
 
 - type: entity
   parent: BaseSpeciesAppearance
-  id: AppearanceResomi
+  id: ADTAppearanceResomi
   categories: [ HideSpawnMenu ]
   name: resomi appearance
   components:
   - type: InitialBody
     organs:
-      Torso: OrganResomiTorso
-      Head: OrganResomiHead
-      ArmLeft: OrganResomiArmLeft
-      ArmRight: OrganResomiArmRight
-      HandRight: OrganResomiHandRight
-      HandLeft: OrganResomiHandLeft
-      LegLeft: OrganResomiLegLeft
-      LegRight: OrganResomiLegRight
-      FootLeft: OrganResomiFootLeft
-      FootRight: OrganResomiFootRight
-      Brain: OrganHumanBrain
-      Eyes: OrganResomiEyes
-      Tongue: OrganHumanTongue
-      Appendix: OrganHumanAppendix
-      Ears: OrganHumanEars
-      Lungs: OrganHumanLungs
-      Heart: OrganHumanHeart
-      Stomach: OrganHumanStomach
-      Liver: OrganHumanLiver
-      Kidneys: OrganHumanKidneys
+      Torso: ADTOrganResomiTorso
+      Head: ADTOrganResomiHead
+      ArmLeft: ADTOrganResomiArmLeft
+      ArmRight: ADTOrganResomiArmRight
+      HandRight: ADTOrganResomiHandRight
+      HandLeft: ADTOrganResomiHandLeft
+      LegLeft: ADTOrganResomiLegLeft
+      LegRight: ADTOrganResomiLegRight
+      FootLeft: ADTOrganResomiFootLeft
+      FootRight: ADTOrganResomiFootRight
+      Brain: ADTOrganResomiBrain
+      Eyes: ADTOrganResomiEyes
+      Tongue: ADTOrganResomiTongue
+      Appendix: ADTOrganResomiAppendix
+      Ears: ADTOrganResomiEars
+      Lungs: ADTOrganResomiLungs
+      Heart: ADTOrganResomiHeart
+      Stomach: ADTOrganResomiStomach
+      Liver: ADTOrganResomiLiver
+      Kidneys: ADTOrganResomiKidneys
   - type: HumanoidProfile
     species: Resomi
   - type: Hands
@@ -108,13 +108,148 @@
             state: belt
 
 - type: entity
+  save: false
+  name: Urist McRaptor
+  parent:
+  - ADTAppearanceResomi
+  - BaseSpeciesMobOrganic
+  id: MobResomi
+  components:
+  - type: Tag
+    tags:
+    - ADTResomiEmotes
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+  - type: DamageVisuals
+    thresholds: [ 10, 30, 50, 70]
+    targetLayers:
+    - "enum.HumanoidVisualLayers.Chest"
+    - "enum.HumanoidVisualLayers.Head"
+    - "enum.HumanoidVisualLayers.LArm"
+    - "enum.HumanoidVisualLayers.LLeg"
+    - "enum.HumanoidVisualLayers.RArm"
+    - "enum.HumanoidVisualLayers.RLeg"
+    damageOverlayGroups:
+      Brute:
+        sprite: ADT/Mobs/Effects/Resomi/brute_damage.rsi
+        color: "#C048C2"
+      Burn:
+        sprite: ADT/Mobs/Effects/Resomi/burn_damage.rsi
+  - type: FireVisuals
+    sprite: ADT/Mobs/Effects/onfire.rsi
+    normalState: resomi-minor-burning
+    alternateState: resomi-burning
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      85: Critical
+      140: Dead
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatChicken
+      amount: 5
+  - type: Damageable
+    damageModifierSet: Resomi
+  - type: Injurable
+    damageContainer: Biological
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ResomiBlood
+        Quantity: 250
+  - type: Temperature
+    currentTemperature: 296.15 # 23°C
+    specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 308 # 35°C
+    coldDamageThreshold: 210 # -63°C
+    coldDamage:
+      types:
+        Cold : 0.1 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 1.5 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      220: 0.8 # При 220K (-53°C) скорость снижается до 80%
+      210: 0.7 # При 210K (-63°C) скорость снижается до 70%
+      200: 0.6 # При 200K (-73°C) скорость снижается до 60%
+  - type: ThermalRegulator
+    normalBodyTemperature: 296.15 # 23°C - целевая температура тела резоми
+    thermalRegulationTemperatureThreshold: 6  # Диапазон активации: 276K-306K (17°C до 29°C)
+  - type: TemperatureProtection
+    heatingCoefficient: 1.2  # На 20% быстрее нагреваются
+    coolingCoefficient: 0.8  # На 20% медленнее охлаждаются
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        # they r smaller
+        density: 120
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 5
+  - type: Puller
+    needsHands: false
+  - type: WeaponsUseInability
+  - type: AgillitySkill
+  - type: ChatModifier
+    modifiers:
+      Say: 12
+      WhisperClear: 4
+      WhisperMuffled: 7
+  - type: ResomiAccent
+  - type: FlashModifier
+    modifier: 2
+  - type: Vocal
+    sounds:
+      Male: MaleResomi
+      Female: FemaleResomi
+      Unsexed: MaleResomi
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: petting-success-resomi
+    messagePerceivedByOthers: petting-success-resomi-others
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      Scratches: Speak
+  - type: SizeAttributeWhitelist
+    tall: true
+    tallscale: 1.1
+    short: true
+    shortscale: 0.9
+
+- type: entity
   parent: OrganBaseOrganic
-  id: OrganResomi
+  id: ADTOrganResomi
   abstract: true
   suffix: resomi
 
 - type: entity
-  id: OrganResomiVisual
+  id: ADTOrganResomiMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Animal ]
+
+- type: entity
+  id: ADTOrganResomiVisual
   abstract: true
   components:
   - type: VisualOrgan
@@ -125,29 +260,27 @@
       group: Resomi
 
 - type: entity
-  parent: [ OrganResomiVisual, OrganBaseEyes, OrganHumanInternal ]
-  id: OrganResomiEyes
+  id: ADTOrganResomiInternal
+  abstract: true
   components:
-  - type: VisualOrgan
-    data:
-      sprite: ADT/Mobs/Customization/Resomi/eyes.rsi
-      state: resomi
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Resomi/organs.rsi
 
 - type: entity
-  parent: [ OrganResomi, OrganResomiVisual ]
-  id: OrganResomiExternal
+  parent: [ ADTOrganResomi, ADTOrganResomiVisual ]
+  id: ADTOrganResomiExternal
   abstract: true
   components:
   - type: Sprite
     sprite: ADT/Mobs/Species/Resomi/parts.rsi
 
 - type: entity
-  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganResomiExternal ]
-  id: OrganResomiTorso
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, ADTOrganResomiExternal ]
+  id: ADTOrganResomiTorso
 
 - type: entity
-  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganResomiExternal ]
-  id: OrganResomiHead
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, ADTOrganResomiExternal ]
+  id: ADTOrganResomiHead
   components:
   - type: VisualOrganMarkings
     hideableLayers:
@@ -158,33 +291,78 @@
     - enum.HumanoidVisualLayers.HeadSide
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganResomiExternal ]
-  id: OrganResomiArmLeft
+  parent: [ OrganBaseArmLeft, ADTOrganResomiExternal ]
+  id: ADTOrganResomiArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganResomiExternal ]
-  id: OrganResomiArmRight
+  parent: [ OrganBaseArmRight, ADTOrganResomiExternal ]
+  id: ADTOrganResomiArmRight
 
 - type: entity
-  parent: [ OrganBaseHandLeft, OrganResomiExternal ]
-  id: OrganResomiHandLeft
+  parent: [ OrganBaseHandLeft, ADTOrganResomiExternal ]
+  id: ADTOrganResomiHandLeft
 
 - type: entity
-  parent: [ OrganBaseHandRight, OrganResomiExternal ]
-  id: OrganResomiHandRight
+  parent: [ OrganBaseHandRight, ADTOrganResomiExternal ]
+  id: ADTOrganResomiHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganResomiExternal ]
-  id: OrganResomiLegLeft
+  parent: [ OrganBaseLegLeft, ADTOrganResomiExternal ]
+  id: ADTOrganResomiLegLeft
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganResomiExternal ]
-  id: OrganResomiLegRight
+  parent: [ OrganBaseLegRight, ADTOrganResomiExternal ]
+  id: ADTOrganResomiLegRight
 
 - type: entity
-  parent: [ OrganBaseFootLeft, OrganResomiExternal ]
-  id: OrganResomiFootLeft
+  parent: [ OrganBaseFootLeft, ADTOrganResomiExternal ]
+  id: ADTOrganResomiFootLeft
 
 - type: entity
-  parent: [ OrganBaseFootRight, OrganResomiExternal ]
-  id: OrganResomiFootRight
+  parent: [ OrganBaseFootRight, ADTOrganResomiExternal ]
+  id: ADTOrganResomiFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, ADTOrganResomiInternal ]
+  id: ADTOrganResomiBrain
+
+- type: entity
+  parent: [ OrganBaseTongue, ADTOrganResomiInternal ]
+  id: ADTOrganResomiTongue
+
+- type: entity
+  parent: [ OrganBaseAppendix, ADTOrganResomiInternal ]
+  id: ADTOrganResomiAppendix
+
+- type: entity
+  parent: [ OrganBaseEars, ADTOrganResomiInternal ]
+  id: ADTOrganResomiEars
+
+- type: entity
+  parent: [ OrganBaseLungs, ADTOrganResomiInternal, ADTOrganResomiMetabolizer ]
+  id: ADTOrganResomiLungs
+
+- type: entity
+  parent: [ OrganBaseHeart, ADTOrganResomiInternal, ADTOrganResomiMetabolizer ]
+  id: ADTOrganResomiHeart
+
+- type: entity
+  parent: [ OrganBaseStomach, ADTOrganResomiInternal, ADTOrganResomiMetabolizer ]
+  id: ADTOrganResomiStomach
+
+- type: entity
+  parent: [ OrganBaseLiver, ADTOrganResomiInternal, ADTOrganResomiMetabolizer ]
+  id: ADTOrganResomiLiver
+
+- type: entity
+  parent: [ OrganBaseKidneys, ADTOrganResomiInternal, ADTOrganResomiMetabolizer ]
+  id: ADTOrganResomiKidneys
+
+- type: entity
+  parent: [ ADTOrganResomiVisual, OrganBaseEyes, ADTOrganResomiInternal ]
+  id: ADTOrganResomiEyes
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Customization/Resomi/eyes.rsi
+      state: resomi

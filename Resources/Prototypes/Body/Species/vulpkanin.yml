@@ -141,7 +141,7 @@
 
 - type: entity
   parent:
-  - AppearanceVulpkaninADT
+  - AppearanceVulpkaninADT # ADT tweak
   - BaseSpeciesMobOrganic
   id: MobVulpkanin
   name: Urist McArfArf

@@ -232,7 +232,7 @@
   abstract: true
   components:
     - type: Sprite
-      sprite: Mobs/Species/Human/organs.rsi
+      sprite: ADT/Mobs/Species/Moth/organs.rsi # adt tweak Human > Moth and ADT
 
 - type: entity
   id: OrganMothVisual
@@ -298,7 +298,7 @@
   id: OrganMothFootRight
 
 - type: entity
-  parent: [OrganBaseBrain, OrganSpriteHumanInternal, OrganMothInternal]
+  parent: [OrganBaseBrain, OrganMothInternal] # ADT-tweak removed OrganSpriteHumanInternal
   id: OrganMothBrain
 
 - type: entity
@@ -310,15 +310,15 @@
   id: OrganMothTongue
 
 - type: entity
-  parent: [OrganBaseAppendix, OrganSpriteHumanInternal, OrganMothInternal]
+  parent: [OrganBaseAppendix, OrganMothInternal] # ADT-Tweak: remove OrganSpriteHumanInternal
   id: OrganMothAppendix
 
 - type: entity
-  parent: [OrganBaseEars, OrganSpriteHumanInternal, OrganMothInternal]
+  parent: [OrganBaseEars, OrganMothInternal] # ADT-Tweak: remove OrganSpriteHumanInternal
   id: OrganMothEars
 
 - type: entity
-  parent: [OrganBaseLungs, OrganMothInternal, OrganMothMetabolizer]
+  parent: [OrganBaseLungs, OrganMothInternal, OrganMothMetabolizer] # ADT-tweak removed OrganSpriteHumanInternal, add OrganMothMetabolizer
   id: OrganMothLungs
 
 - type: entity
@@ -339,11 +339,11 @@
           - ADTMothFriendlyFood # ADT-tweak: moths can eat bread, pancakes etc.
 
 - type: entity
-  parent: [OrganBaseLiver, OrganSpriteHumanInternal, OrganMothInternal, OrganAnimalMetabolizer]
+  parent: [OrganBaseLiver, OrganMothInternal, OrganAnimalMetabolizer] # ADT-tweak removed OrganSpriteHumanInternal
   id: OrganMothLiver
 
 - type: entity
-  parent: [OrganBaseKidneys, OrganSpriteHumanInternal, OrganMothInternal, OrganMothMetabolizer]
+  parent: [OrganBaseKidneys, OrganMothInternal, OrganMothMetabolizer] # ADT-tweak removed OrganSpriteHumanInternal
   id: OrganMothKidneys
 
 - type: entity
