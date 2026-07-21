@@ -141,7 +141,7 @@
 
 - type: entity
   parent:
-  - AppearanceVulpkaninADT
+  - AppearanceVulpkaninADT # ADT tweak
   - BaseSpeciesMobOrganic
   id: MobVulpkanin
   name: Urist McArfArf
@@ -224,6 +224,10 @@
     shortscale: 0.9
   - type: Tag
     tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
     - ADTDogEmotes
   # ADT-Tweak: End
 

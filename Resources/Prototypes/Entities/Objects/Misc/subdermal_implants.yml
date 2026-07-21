@@ -154,6 +154,8 @@
   - type: TriggerOnActivateImplant
   - type: UncuffOnTrigger
     targetUser: true
+  - type: RemoveEnsnareOnTrigger # ADT-Tweak - имплант свободы снимает ещё и болы
+    targetUser: true
 
 - type: entity
   parent: BaseSubdermalImplant

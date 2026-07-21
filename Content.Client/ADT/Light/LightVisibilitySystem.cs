@@ -12,7 +12,7 @@ namespace Content.Client.ADT.Light;
 
 public sealed partial class LightVisibilitySystem : EntitySystem
 {
-    [Dependency] private TransformSystem _xform = default!;
+    [Dependency] private IEyeManager _eye = default!;
     [Dependency] private IPrototypeManager _proto = default!;
 
     private ProtoId<ShaderPrototype> _shaderProto = "LightVisibility";
@@ -23,6 +23,7 @@ public sealed partial class LightVisibilitySystem : EntitySystem
         SubscribeLocalEvent<LightVisibilityComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<LightVisibilityComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<LightVisibilityComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
+        SubscribeLocalEvent<LightVisibilityComponent, BeforePostShaderRenderEvent>(OnBeforePostShader);
 
         SubscribeLocalEvent<LightVisibilityComponent, ExamineAttemptEvent>(OnExamineAttempt);
     }
@@ -35,6 +36,8 @@ public sealed partial class LightVisibilitySystem : EntitySystem
         var shader = _proto.Index(_shaderProto).InstanceUnique();
         shader.SetParameter("minLight", ent.Comp.MinLight);
         shader.SetParameter("maxLight", ent.Comp.MaxLight);
+        shader.SetParameter("minAlpha", ent.Comp.MinAlpha);
+        shader.SetParameter("maxAlpha", ent.Comp.MaxAlpha);
         shader.SetParameter("showInside", ent.Comp.ShowInside);
         shader.SetParameter("edgeSoftness", ent.Comp.EdgeSoftness);
 
@@ -61,8 +64,22 @@ public sealed partial class LightVisibilitySystem : EntitySystem
 
         shader.SetParameter("minLight", ent.Comp.MinLight);
         shader.SetParameter("maxLight", ent.Comp.MaxLight);
+        shader.SetParameter("minAlpha", ent.Comp.MinAlpha);
+        shader.SetParameter("maxAlpha", ent.Comp.MaxAlpha);
         shader.SetParameter("showInside", ent.Comp.ShowInside);
         shader.SetParameter("edgeSoftness", ent.Comp.EdgeSoftness);
+    }
+
+    private void OnBeforePostShader(Entity<LightVisibilityComponent> ent, ref BeforePostShaderRenderEvent args)
+    {
+        if (_eye.CurrentEye is not { } eye)
+            return;
+
+        if (args.Sprite.PostShader is not { } shader)
+            return;
+
+        shader.SetParameter("minAlpha", eye.DrawLight ? ent.Comp.MinAlpha : 1f);
+        shader.SetParameter("maxAlpha", eye.DrawLight ? ent.Comp.MaxAlpha : 1f);
     }
 
     private void OnExamineAttempt(Entity<LightVisibilityComponent> ent, ref ExamineAttemptEvent args)

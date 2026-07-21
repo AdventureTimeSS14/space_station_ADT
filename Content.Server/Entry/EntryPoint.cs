@@ -41,6 +41,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server.ADT.Antag;
 using Content.Server.ADT.Export;
 using Content.Shared.Emp;
 
@@ -148,6 +149,7 @@ namespace Content.Server.Entry
             IoCManager.Resolve<TTSManager>().Initialize(); // Corvax-TTS
             IoCManager.Resolve<SponsorsManager>().Initialize(); // Corvax-Sponsors
             IoCManager.Resolve<JoinQueueManager>().Initialize(); // Corvax-Queue
+            IoCManager.Resolve<AntagRollBonusManager>().Initialize(); // ADT Antag roll bonus
         }
 
         public override void PostInit()
