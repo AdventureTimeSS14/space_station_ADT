@@ -215,26 +215,34 @@
   objectType: Item
 
 - type: construction
-  id: ADTBoltImprovised
-  graph: ADTBoltImprovised
+  id: ADTBoltImprovisedSteel
+  graph: ADTBoltImprovisedSteel
   startNode: start
-  targetNode: ADTBoltImprovised
+  targetNode: ADTBoltImprovisedSteel
   category: construction-category-weapons
   objectType: Item
 
 - type: construction
-  id: ADTBoltImprovisedPlasma
-  graph: ADTBoltImprovisedPlasma
+  id: ADTBoltImprovisedPlasteel
+  graph: ADTBoltImprovisedPlasteel
   startNode: start
-  targetNode: ADTBoltImprovisedPlasma
+  targetNode: ADTBoltImprovisedPlasteel
   category: construction-category-weapons
   objectType: Item
 
 - type: construction
-  id: ADTBoltImprovisedReinforcedPlasma
-  graph: ADTBoltImprovisedReinforcedPlasma
+  id: ADTBoltImprovisedBrass
+  graph: ADTBoltImprovisedBrass
   startNode: start
-  targetNode: ADTBoltImprovisedReinforcedPlasma
+  targetNode: ADTBoltImprovisedBrass
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTBoltImprovisedSilver
+  graph: ADTBoltImprovisedSilver
+  startNode: start
+  targetNode: ADTBoltImprovisedSilver
   category: construction-category-weapons
   objectType: Item
 
@@ -243,13 +251,5 @@
   graph: ADTBoltImprovisedUranium
   startNode: start
   targetNode: ADTBoltImprovisedUranium
-  category: construction-category-weapons
-  objectType: Item
-
-- type: construction
-  id: ADTBoltImprovisedReinforcedUranium
-  graph: ADTBoltImprovisedReinforcedUranium
-  startNode: start
-  targetNode: ADTBoltImprovisedReinforcedUranium
   category: construction-category-weapons
   objectType: Item

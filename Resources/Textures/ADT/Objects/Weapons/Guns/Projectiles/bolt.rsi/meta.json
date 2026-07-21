@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "tgstation at a373b4cb08298523d40acc14f9c390a0c403fc31, sprites modified and cut into layers by mirrorcult, resprited by orange6775 (discord)",
+  "copyright": "Sprited by orange6775 (discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -20,11 +20,27 @@
       "name": "solution1"
     },
     {
-      "name": "inhand-left",
+      "name": "inhand-left-tail",
       "directions": 4
     },
     {
-      "name": "inhand-right",
+      "name": "inhand-left-rod",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left-tip",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right-tail",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right-rod",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right-tip",
       "directions": 4
     }
   ]
