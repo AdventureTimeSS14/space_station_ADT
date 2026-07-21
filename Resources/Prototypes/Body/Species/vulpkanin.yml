@@ -222,9 +222,13 @@
     tallscale: 1
     short: true
     shortscale: 0.9
-  - type: Tag
-    tags:
-    - ADTDogEmotes
+   - type: Tag
+     tags:
+     - CanPilot
+     - FootstepSound
+     - DoorBumpOpener
+     - AnomalyHost
+     - ADTDogEmotes
   # ADT-Tweak: End
 
 
