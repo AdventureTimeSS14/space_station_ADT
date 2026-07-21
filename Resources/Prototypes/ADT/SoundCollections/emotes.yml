@@ -385,3 +385,41 @@
   id: Purse
   files:
     - /Audio/Effects/thudswoosh.ogg
+
+
+# Creature Human
+
+- type: soundCollection
+  id: ButcherScream
+  files:
+    - /Audio/ADT/Butcher/butcherscream.ogg
+
+- type: soundCollection
+  id: ButcherSneeze
+  files:
+    - /Audio/ADT/Butcher/butchersneeze.ogg
+
+- type: soundCollection
+  id: ButcherLaugh
+  files:
+    - /Audio/ADT/Butcher/butcherlaugh.ogg
+
+- type: soundCollection
+  id: ButcherCough
+  files:
+    - /Audio/ADT/Butcher/butchercough.ogg
+
+- type: soundCollection
+  id: ButcherYawn
+  files:
+    - /Audio/ADT/Butcher/butcheryawn.ogg
+
+- type: soundCollection
+  id: ButcherSigh
+  files:
+    - /Audio/ADT/Butcher/butchersigh.ogg
+
+- type: soundCollection
+  id: ButcherCry
+  files:
+    - /Audio/ADT/Butcher/butchercry.ogg

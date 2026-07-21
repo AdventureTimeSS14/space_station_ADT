@@ -17005,14 +17005,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 88.99248,-18.513046
       parent: 1
-- proto: OrganTajaranHead
-  entities:
-  - uid: 7963
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 159.86945,-12.806665
-      parent: 1
 - proto: OrganVulpkaninADTHead
   entities:
   - uid: 7958
@@ -17278,14 +17270,6 @@ entities:
     components:
     - type: Transform
       pos: 185.5,17.5
-      parent: 1
-- proto: OrganTajaranLegLeft
-  entities:
-  - uid: 7964
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 159.46289,-14.19729
       parent: 1
 - proto: ADTLegionerArmor
   entities:
@@ -17768,13 +17752,6 @@ entities:
     - type: Transform
       pos: 146.15948,-13.451375
       parent: 1
-- proto: OrganTajaranFootRight
-  entities:
-  - uid: 7965
-    components:
-    - type: Transform
-      pos: 158.94699,-12.900415
-      parent: 1
 - proto: OrganVulpkaninADTFootRight
   entities:
   - uid: 7959
@@ -18146,13 +18123,6 @@ entities:
       parent: 1
     - type: Physics
       canCollide: False
-- proto: OrganTajaranTorso
-  entities:
-  - uid: 7966
-    components:
-    - type: Transform
-      pos: 158.04025,-12.69729
-      parent: 1
 - proto: OrganVulpkaninADTTorso
   entities:
   - uid: 7957

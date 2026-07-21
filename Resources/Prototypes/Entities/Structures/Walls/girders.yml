@@ -24,9 +24,16 @@
   - type: Construction
     graph: Girder
     node: girder
+  #ADT-Tweak-Start
   - type: Sprite
-    sprite: Structures/Walls/solid.rsi
-    state: wall_girder
+    sprite: ADT/Structures/Walls/girder.rsi
+  - type: Icon
+    sprite: ADT/Structures/Walls/girder.rsi
+    state: girder_full
+  - type: IconSmooth
+    key: walls
+    base: girder
+  #ADT-Tweak-End
   - type: Damageable
     damageModifierSet: StructuralMetallic
   - type: Injurable
@@ -62,9 +69,16 @@
   name: reinforced girder
   description: A large structural assembly made out of metal and plasteel; It requires a layer of plasteel before it can be considered a reinforced wall.
   components:
+  #ADT-Tweak-Start
     - type: Sprite
-      sprite: Structures/Walls/solid.rsi
-      state: reinforced_wall_girder
+      sprite: ADT/Structures/Walls/girder.rsi
+    - type: Icon
+      sprite: ADT/Structures/Walls/girder.rsi
+      state: reinf_girder_full
+    - type: IconSmooth
+      key: walls
+      base: reinf_girder
+  #ADT-Tweak-End
     - type: Construction
       graph: Girder
       node: reinforcedGirder
@@ -105,9 +119,16 @@
   name: wall gear
   description: A large gear with mounting brackets for additional plating; This could be made into a wall with more brass plating.
   components:
+  #ADT-Tweak-Start
     - type: Sprite
-      sprite: Structures/Walls/clock.rsi
-      state: wall_gear
+      sprite: ADT/Structures/Walls/girder.rsi
+    - type: Icon
+      sprite: ADT/Structures/Walls/girder.rsi
+      state: clock_girder_full
+    - type: IconSmooth
+      key: walls
+      base: clock_girder
+  #ADT-Tweak-End
     - type: Construction
       graph: ClockworkGirder
       node: clockGirder

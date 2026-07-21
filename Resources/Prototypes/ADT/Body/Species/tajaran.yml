@@ -1,31 +1,31 @@
 - type: entity
   parent: BaseSpeciesAppearance
-  id: AppearanceTajaran
+  id: ADTAppearanceTajaran
   categories: [ HideSpawnMenu ]
   name: tajaran appearance
   components:
   - type: InitialBody
     organs:
-      Torso: OrganTajaranTorso
-      Head: OrganTajaranHead
-      ArmLeft: OrganTajaranArmLeft
-      ArmRight: OrganTajaranArmRight
-      HandRight: OrganTajaranHandRight
-      HandLeft: OrganTajaranHandLeft
-      LegLeft: OrganTajaranLegLeft
-      LegRight: OrganTajaranLegRight
-      FootLeft: OrganTajaranFootLeft
-      FootRight: OrganTajaranFootRight
-      Brain: OrganHumanBrain
-      Eyes: OrganTajaranEyes
-      Tongue: OrganHumanTongue
-      Appendix: OrganHumanAppendix
-      Ears: OrganHumanEars
-      Lungs: OrganHumanLungs
-      Heart: OrganHumanHeart
-      Stomach: OrganFelinidStomach
-      Liver: OrganHumanLiver
-      Kidneys: OrganHumanKidneys
+      Torso: ADTOrganTajaranTorso
+      Head: ADTOrganTajaranHead
+      ArmLeft: ADTOrganTajaranArmLeft
+      ArmRight: ADTOrganTajaranArmRight
+      HandRight: ADTOrganTajaranHandRight
+      HandLeft: ADTOrganTajaranHandLeft
+      LegLeft: ADTOrganTajaranLegLeft
+      LegRight: ADTOrganTajaranLegRight
+      FootLeft: ADTOrganTajaranFootLeft
+      FootRight: ADTOrganTajaranFootRight
+      Brain: ADTOrganTajaranBrain
+      Eyes: ADTOrganTajaranEyes
+      Tongue: ADTOrganTajaranTongue
+      Appendix: ADTOrganTajaranAppendix
+      Ears: ADTOrganTajaranEars
+      Lungs: ADTOrganTajaranLungs
+      Heart: ADTOrganTajaranHeart
+      Stomach: ADTOrganTajaranStomach
+      Liver: ADTOrganTajaranLiver
+      Kidneys: ADTOrganTajaranKidneys
   - type: HumanoidProfile
     species: TajaranSpecies
   - type: Inventory
@@ -63,13 +63,125 @@
             state: jumpsuit
 
 - type: entity
+  save: false
+  name: Tajaran McHands
+  parent:
+  - ADTAppearanceTajaran
+  - BaseSpeciesMobOrganic
+  id: MobTajaran
+  components:
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        90: Critical
+        200: Dead
+    - type: RoarAccent
+    - type: Damageable
+      damageModifierSet: Tajaran
+    - type: Injurable
+      damageContainer: Biological
+    - type: MeleeWeapon
+      soundHit:
+        path: /Audio/Weapons/slash.ogg
+      animation: WeaponArcClaw
+      damage:
+        types:
+          Slash: 5
+    - type: Temperature
+      currentTemperature: 310.15
+      specificHeat: 46
+    - type: TemperatureDamage
+      heatDamageThreshold: 325
+      coldDamageThreshold: 240
+      coldDamage:
+        types:
+          Cold : 0.2 #per second, scales with temperature & other constants
+      heatDamage:
+        types:
+          Heat : 0.1 #per second, scales with temperature & other constants
+    - type: MovementSpeedModifier
+      baseWalkSpeed : 2.7
+      baseSprintSpeed : 4.6
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 145 #lower density
+          restitution: 0.0
+          mask:
+            - MobMask
+          layer:
+            - MobLayer
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        42: 0.7
+        60: 0.5
+    - type: TemperatureSpeed
+      thresholds:
+        273: 0.8
+        240: 0.6
+        210: 0.4
+    - type: Wagging
+    - type: InteractionPopup
+      successChance: 1
+      interactSuccessString: petting-success-generic
+      interactSuccessSound: /Audio/ADT/Felinid/cat_purr1.ogg
+      messagePerceivedByOthers: petting-success-soft-floofy-others
+      interactSuccessSpawn: EffectHearts
+      interactDelay: 4
+    - type: Vocal
+      wilhelm: "/Audio/ADT/Felinid/cat_wilhelm.ogg"
+      sounds:
+        Male: MaleFelinid
+        Female: FemaleFelinid
+        Unsexed: MaleFelinid
+    - type: TypingIndicator
+      proto: ADTtajaran
+    - type: LanguageSpeaker
+      languages:
+        GalacticCommon: Speak
+        SikTaj: Speak
+        CintaTaj: Speak
+    - type: Sprite
+      scale: 0.9, 0.9
+    - type: SizeAttributeWhitelist # Frontier
+      tall: true
+      tallscale: 0.95
+      short: true
+      shortscale: 0.85
+    - type: Tag
+      tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - ADTCatEmotes
+
+- type: entity
   parent: OrganBaseOrganic
-  id: OrganTajaran
+  id: ADTOrganTajaran
   abstract: true
   suffix: tajaran
 
 - type: entity
-  id: OrganTajaranVisual
+  parent: ADTOrganTajaran
+  id: ADTOrganTajaranInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Tajaran/organs.rsi
+
+- type: entity
+  id: ADTOrganTajaranMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Animal ]
+
+- type: entity
+  id: ADTOrganTajaranVisual
   abstract: true
   components:
   - type: VisualOrgan
@@ -80,20 +192,20 @@
       group: Tajaran
 
 - type: entity
-  parent: [ OrganTajaran, OrganTajaranVisual ]
-  id: OrganTajaranExternal
+  parent: [ ADTOrganTajaran, ADTOrganTajaranVisual ]
+  id: ADTOrganTajaranExternal
   abstract: true
   components:
   - type: Sprite
     sprite: ADT/Mobs/Species/Tajaran/parts.rsi
 
 - type: entity
-  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganTajaranExternal ]
-  id: OrganTajaranTorso
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, ADTOrganTajaranExternal ]
+  id: ADTOrganTajaranTorso
 
 - type: entity
-  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganTajaranExternal ]
-  id: OrganTajaranHead
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, ADTOrganTajaranExternal ]
+  id: ADTOrganTajaranHead
   components:
   - type: VisualOrganMarkings
     hideableLayers:
@@ -104,40 +216,76 @@
     - enum.HumanoidVisualLayers.HeadSide
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganTajaranExternal ]
-  id: OrganTajaranArmLeft
+  parent: [ OrganBaseArmLeft, ADTOrganTajaranExternal ]
+  id: ADTOrganTajaranArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganTajaranExternal ]
-  id: OrganTajaranArmRight
+  parent: [ OrganBaseArmRight, ADTOrganTajaranExternal ]
+  id: ADTOrganTajaranArmRight
 
 - type: entity
-  parent: [ OrganBaseHandLeft, OrganTajaranExternal ]
-  id: OrganTajaranHandLeft
+  parent: [ OrganBaseHandLeft, ADTOrganTajaranExternal ]
+  id: ADTOrganTajaranHandLeft
 
 - type: entity
-  parent: [ OrganBaseHandRight, OrganTajaranExternal ]
-  id: OrganTajaranHandRight
+  parent: [ OrganBaseHandRight, ADTOrganTajaranExternal ]
+  id: ADTOrganTajaranHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganTajaranExternal ]
-  id: OrganTajaranLegLeft
+  parent: [ OrganBaseLegLeft, ADTOrganTajaranExternal ]
+  id: ADTOrganTajaranLegLeft
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganTajaranExternal ]
-  id: OrganTajaranLegRight
+  parent: [ OrganBaseLegRight, ADTOrganTajaranExternal ]
+  id: ADTOrganTajaranLegRight
 
 - type: entity
-  parent: [ OrganBaseFootLeft, OrganTajaranExternal ]
-  id: OrganTajaranFootLeft
+  parent: [ OrganBaseFootLeft, ADTOrganTajaranExternal ]
+  id: ADTOrganTajaranFootLeft
 
 - type: entity
-  parent: [ OrganBaseFootRight, OrganTajaranExternal ]
-  id: OrganTajaranFootRight
+  parent: [ OrganBaseFootRight, ADTOrganTajaranExternal ]
+  id: ADTOrganTajaranFootRight
 
 - type: entity
-  parent: OrganHumanEyes
-  id: OrganTajaranEyes
+  parent: [ OrganBaseBrain, ADTOrganTajaranInternal ]
+  id: ADTOrganTajaranBrain
+
+- type: entity
+  parent: [ OrganBaseTongue, ADTOrganTajaranInternal ]
+  id: ADTOrganTajaranTongue
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganSpriteHumanInternal, ADTOrganTajaranInternal ]
+  id: ADTOrganTajaranAppendix
+
+- type: entity
+  parent: [ OrganBaseEars, OrganSpriteHumanInternal, ADTOrganTajaranInternal ]
+  id: ADTOrganTajaranEars
+
+- type: entity
+  parent: [ OrganBaseLungs, ADTOrganTajaranInternal, ADTOrganTajaranMetabolizer ]
+  id: ADTOrganTajaranLungs
+
+- type: entity
+  parent: [ OrganBaseHeart, ADTOrganTajaranInternal, ADTOrganTajaranMetabolizer ]
+  id: ADTOrganTajaranHeart
+
+- type: entity
+  parent: [ OrganBaseStomach, ADTOrganTajaranInternal, ADTOrganTajaranMetabolizer ]
+  id: ADTOrganTajaranStomach
+
+- type: entity
+  parent: [ OrganBaseLiver, ADTOrganTajaranInternal, ADTOrganTajaranMetabolizer ]
+  id: ADTOrganTajaranLiver
+
+- type: entity
+  parent: [ OrganBaseKidneys, ADTOrganTajaranInternal, ADTOrganTajaranMetabolizer ]
+  id: ADTOrganTajaranKidneys
+
+- type: entity
+  parent: [ OrganBaseEyes, ADTOrganTajaranInternal ]
+  id: ADTOrganTajaranEyes
   suffix: tajaran
   components:
   - type: VisualOrgan

@@ -3,27 +3,27 @@
 
 - type: entity
   parent: BaseSpeciesAppearance
-  id: AppearanceNovakid
+  id: ADTAppearanceNovakid
   categories: [ HideSpawnMenu ]
   name: novakid appearance
   components:
   - type: InitialBody
     organs:
-      Torso: OrganNovakidTorso
-      Head: OrganNovakidHead
-      ArmLeft: OrganNovakidArmLeft
-      ArmRight: OrganNovakidArmRight
-      HandRight: OrganNovakidHandRight
-      HandLeft: OrganNovakidHandLeft
-      LegLeft: OrganNovakidLegLeft
-      LegRight: OrganNovakidLegRight
-      FootLeft: OrganNovakidFootLeft
-      FootRight: OrganNovakidFootRight
+      Torso: ADTOrganNovakidTorso
+      Head: ADTOrganNovakidHead
+      ArmLeft: ADTOrganNovakidArmLeft
+      ArmRight: ADTOrganNovakidArmRight
+      HandRight: ADTOrganNovakidHandRight
+      HandLeft: ADTOrganNovakidHandLeft
+      LegLeft: ADTOrganNovakidLegLeft
+      LegRight: ADTOrganNovakidLegRight
+      FootLeft: ADTOrganNovakidFootLeft
+      FootRight: ADTOrganNovakidFootRight
       Brain: OrganHumanBrain
       Tongue: OrganHumanTongue
       Appendix: OrganHumanAppendix
       Ears: OrganHumanEars
-      Lungs: OrganNovakidLungs
+      Lungs: ADTOrganNovakidLungs
       Heart: OrganHumanHeart
       Stomach: OrganHumanStomach
       Liver: OrganHumanLiver
@@ -39,13 +39,218 @@
             state: jumpsuit-female
 
 - type: entity
+  save: false
+  name: Urisst' Mzhand Novakid
+  parent:
+  - ADTAppearanceNovakid
+  - BaseSpeciesMobOrganic
+  id: MobNovakid
+  components:
+  - type: Hunger
+    baseDecayRate: 0.025
+    lastAuthoritativeHungerValue: 400
+    thresholds:
+      Overfed: 400
+      Okay: 300
+      Peckish: 200
+      Starving: 100
+      Dead: 0
+    starvationDamage:
+      types:
+        Cold: 0.12
+        Caustic: 0.08
+        Cellular: 0.05
+  - type: Thirst
+    baseDecayRate: 0
+    updateRate: 0
+  - type: Damageable
+    damageModifierSet: ADTNovakid
+  - type: Injurable
+    damageContainer: Biological
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      110: Critical
+      325: Dead
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 2.5
+    intensitySlope: 1
+    totalIntensity: 10
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 325
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+            Ash:
+              min: 3
+              max: 6
+      - !type:BurnBodyBehavior { }
+      - !type:ExplodeBehavior
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.5
+    damageRecovery:
+      types:
+        Asphyxiation: -0.5
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 300
+  - type: ZombieImmune
+  - type: NovakidGlowing # see NovakidFeaturesSystem.cs
+  - type: PointLight
+    color: "#ffffff"
+    energy: 0.6
+  - type: Speech
+    speechSounds: Lizard
+  - type: Vocal
+    sounds:
+      Male: MaleNovakid
+      Female: FemaleNovakid
+      Unsexed: UnisexNovakid
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Heat: 5
+  - type: Temperature
+    currentTemperature: 410.15
+    specificHeat: 46
+  - type: TemperatureDamage
+    heatDamageThreshold: 650
+    coldDamageThreshold: 193  #starting temperature damage treshold
+    coldDamage:
+      types:
+        Cold : 0.5 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 0.2 #per second, scales with temperature & other constants.
+  - type: TemperatureSpeed
+    thresholds:
+      273: 0.75
+      243: 0.55
+      220: 0.35
+      150: 0.2
+  - type: FlashImmunity
+    includeExamine: false
+  - type: EyeProtection
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4.5
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.02 # Супер пониженный дамаг от давления
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:WashStamp
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:WashCreamPie
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: 0.45 # Повышенный дамаг от водички и моющего средства. Пшик-пшик
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "novakid-hurt-by-water-popup" ]
+        probability: 0.35
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#7e009e"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
+  - type: TypingIndicator
+    proto: ADTnovakid
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      Fire: Speak
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.1
+    short: true
+    shortscale: 0.9
+  - type: BloodCough
+    postingSayDamage: blood-cough-novakid
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - ChangelingBlacklist
+    - ADTNovakidEmotes
+  - type: ItemToggle
+    activated: true
+    onActivate: false
+    onUse: false
+    predictable: false
+  - type: ItemToggleHot
+  - type: MidroundCustomization
+    changeHairSound: /Audio/ADT/slime-hair.ogg
+    allowedLayers:
+    - Hair
+    - FacialHair
+  - type: UserInterface
+    interfaces:
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      # Goobstation - changelings & heretics
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.HereticLivingHeartKey.Key: # goob edit - heretics
+        type: LivingHeartMenuBoundUserInterface
+      enum.MidroundCustomizationUiKey.Key:
+        type: MidroundCustomizationBoundUserInterface
+
+- type: entity
   parent: OrganBaseOrganic
-  id: OrganNovakid
+  id: ADTOrganNovakid
   abstract: true
   suffix: novakid
 
 - type: entity
-  id: OrganNovakidVisual
+  id: ADTOrganNovakidMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Novakid ]
+
+- type: entity
+  id: ADTOrganNovakidVisual
   abstract: true
   components:
   - type: VisualOrgan
@@ -56,20 +261,20 @@
       group: Novakid
 
 - type: entity
-  parent: [ OrganNovakid, OrganNovakidVisual ]
-  id: OrganNovakidExternal
+  parent: [ ADTOrganNovakid, ADTOrganNovakidVisual ]
+  id: ADTOrganNovakidExternal
   abstract: true
   components:
   - type: Sprite
     sprite: ADT/Mobs/Species/Novakid/parts.rsi
 
 - type: entity
-  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganNovakidExternal ]
-  id: OrganNovakidTorso
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, ADTOrganNovakidExternal ]
+  id: ADTOrganNovakidTorso
 
 - type: entity
-  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganNovakidExternal ]
-  id: OrganNovakidHead
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, ADTOrganNovakidExternal ]
+  id: ADTOrganNovakidHead
   components:
   - type: VisualOrganMarkings
     hideableLayers:
@@ -80,49 +285,37 @@
     - enum.HumanoidVisualLayers.HeadSide
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganNovakidExternal ]
-  id: OrganNovakidArmLeft
+  parent: [ OrganBaseArmLeft, ADTOrganNovakidExternal ]
+  id: ADTOrganNovakidArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganNovakidExternal ]
-  id: OrganNovakidArmRight
+  parent: [ OrganBaseArmRight, ADTOrganNovakidExternal ]
+  id: ADTOrganNovakidArmRight
 
 - type: entity
-  parent: [ OrganBaseHandLeft, OrganNovakidExternal ]
-  id: OrganNovakidHandLeft
+  parent: [ OrganBaseHandLeft, ADTOrganNovakidExternal ]
+  id: ADTOrganNovakidHandLeft
 
 - type: entity
-  parent: [ OrganBaseHandRight, OrganNovakidExternal ]
-  id: OrganNovakidHandRight
+  parent: [ OrganBaseHandRight, ADTOrganNovakidExternal ]
+  id: ADTOrganNovakidHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganNovakidExternal ]
-  id: OrganNovakidLegLeft
+  parent: [ OrganBaseLegLeft, ADTOrganNovakidExternal ]
+  id: ADTOrganNovakidLegLeft
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganNovakidExternal ]
-  id: OrganNovakidLegRight
+  parent: [ OrganBaseLegRight, ADTOrganNovakidExternal ]
+  id: ADTOrganNovakidLegRight
 
 - type: entity
-  parent: [ OrganBaseFootLeft, OrganNovakidExternal ]
-  id: OrganNovakidFootLeft
+  parent: [ OrganBaseFootLeft, ADTOrganNovakidExternal ]
+  id: ADTOrganNovakidFootLeft
 
 - type: entity
-  parent: [ OrganBaseFootRight, OrganNovakidExternal ]
-  id: OrganNovakidFootRight
+  parent: [ OrganBaseFootRight, ADTOrganNovakidExternal ]
+  id: ADTOrganNovakidFootRight
 
 - type: entity
-  id: OrganNovakidMetabolizer
-  abstract: true
-  components:
-  - type: Metabolizer
-    metabolizerTypes: [ Novakid ]
-
-- type: entity
-  id: OrganNovakidLungs
-  parent: [ OrganBaseLungs, OrganNovakidMetabolizer ]
-  components:
-  - type: Sprite
-    sprite: ADT/Mobs/Species/Drask/organs.rsi
-    layers:
-    - state: lungs
+  id: ADTOrganNovakidLungs
+  parent: [ OrganBaseLungs, OrganSpriteHumanInternal, ADTOrganNovakidMetabolizer ]

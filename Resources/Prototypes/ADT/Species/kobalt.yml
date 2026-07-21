@@ -5,7 +5,7 @@
   prototype: MobKobolt
   defaultSkinTone: "#34a223"
   shortDesc: species-short-desc-kobalt
-  dollPrototype: AppearanceKobolt
+  dollPrototype: ADTAppearanceKobolt
   skinColoration: Hues #как у reptilian
   maleFirstNames: NamesReptilianMale #как у reptilian
   femaleFirstNames: NamesReptilianFemale #как у reptilian
