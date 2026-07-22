@@ -24,7 +24,6 @@
     NightVisionThreshold: 0.15
     BlueTintIntensity: 0.3
 
-# Slightly stronger NV for Tajaran
 - type: shader
   id: ADTModernNightVisionShaderStrong
   kind: source
@@ -59,7 +58,11 @@
   params:
     brightness: 1.5
 
-# Classic green NVD for night-vision goggles / devices
+- type: shader
+  id: ADTThermalGasVisibilityShader
+  kind: source
+  path: "/Textures/ADT/Shaders/thermal_gas_visibility.swsl"
+
 - type: shader
   id: ADTNightVisionDeviceShader
   kind: source
