@@ -235,7 +235,7 @@
   id: OrganArachnidFootRight
 
 - type: entity
-  parent: [ OrganBaseBrain, OrganSpriteHumanInternal, OrganArachnidInternal ]
+  parent: [ OrganBaseBrain, OrganArachnidInternal ] # ADT-Tweak: remove OrganSpriteHumanInternal
   id: OrganArachnidBrain
 
 - type: entity
@@ -247,11 +247,11 @@
   id: OrganArachnidTongue
 
 - type: entity
-  parent: [ OrganBaseAppendix, OrganSpriteHumanInternal, OrganArachnidInternal ]
+  parent: [ OrganBaseAppendix, OrganArachnidInternal ] # ADT-Tweak: remove OrganSpriteHumanInternal
   id: OrganArachnidAppendix
 
 - type: entity
-  parent: [ OrganBaseEars, OrganSpriteHumanInternal, OrganArachnidInternal ]
+  parent: [ OrganBaseEars, OrganArachnidInternal ] # ADT-Tweak: remove OrganSpriteHumanInternal
   id: OrganArachnidEars
 
 - type: entity
@@ -267,9 +267,11 @@
   id: OrganArachnidStomach
 
 - type: entity
-  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, OrganArachnidInternal, OrganAnimalMetabolizer ]
+  parent: [ OrganBaseLiver, OrganArachnidInternal, OrganAnimalMetabolizer ] # ADT-Tweak: remove OrganSpriteHumanInternal
   id: OrganArachnidLiver
 
 - type: entity
-  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganArachnidInternal, OrganAnimalMetabolizer ]
+  parent: [ OrganBaseKidneys, OrganArachnidInternal, OrganAnimalMetabolizer ] # ADT-Tweak: remove OrganSpriteHumanInternal
   id: OrganArachnidKidneys
+
+# ADT-Tweak start

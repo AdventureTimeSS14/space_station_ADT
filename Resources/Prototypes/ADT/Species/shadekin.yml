@@ -4,7 +4,7 @@
   roundStart: true
   prototype: MobShadekin
   defaultSkinTone: "#FFFFFF"
-  dollPrototype: AppearanceShadekin
+  dollPrototype: ADTAppearanceShadekin
   skinColoration: Hues
   shortDesc: species-short-desc-shadekin
   maleFirstNames: names_shadekin_male_first

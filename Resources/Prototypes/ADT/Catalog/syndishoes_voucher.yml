@@ -17,3 +17,43 @@
     state: icon_no_sound_shoes
   content:
   - ADTClothingShoesChameleonNoSound
+
+- type: thiefBackpackSet
+  id: ADTClothingOuterHardsuitSyndie
+  name: syndicate-voucher-hardsuit-name
+  description: syndicate-voucher-hardsuit-description
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitSyndie
+
+- type: thiefBackpackSet
+  id: ADTClothingModsuitBackSyndicate
+  name: syndicate-voucher-mod-name
+  description: syndicate-voucher-mod-description
+  sprite:
+    sprite: ADT/Clothing/Back/Modsuit/syndicate.rsi
+    state: icon
+  content:
+  - ADTClothingModsuitBackSyndicate
+
+- type: thiefBackpackSet
+  id: ADTClothingEliteHardsuitBackSyndicate
+  name: syndicate-elite-voucher-hardsuit-name
+  description: syndicate-elite-voucher-hardsuit-description
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitSyndieElite
+
+- type: thiefBackpackSet
+  id: ADTClothingEliteModsuitBackSyndicate
+  name: syndicate-elite-voucher-mod-name
+  description: syndicate-elite-voucher-mod-description
+  sprite:
+    sprite: ADT/Clothing/Back/Modsuit/syndicate_elite.rsi
+    state: icon
+  content:
+  - ADTClothingModsuitBackSyndicateElite

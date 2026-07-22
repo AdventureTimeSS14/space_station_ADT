@@ -1056,7 +1056,7 @@ ent-ADTClothingHandsHonelin111Gloves = перчатки
     .suffix = { "Спонсорское, honelin111" }
 
 ent-ADTClothingOuterHonelin111Jacket = кожаная куртка
-    .desc = Тёмно-зелёная кожаная куртка с воротником-стойкой и едва различимой нашивкой на плече.
+    .desc = Слегка потёртая кожаная куртка с воротником-стойкой и едва различимой нашивкой на плече.
     .suffix = { "Спонсорское, honelin111" }
 
 ent-ADTSponsorClothingUniformHonelin111Shirt = рубашка
@@ -1070,3 +1070,11 @@ ent-ADTSponsorClothingUniformHonelin111Dress = платье
 ent-ADTClothingHeadHatHonelin111Flower = декоративный цветок
     .desc = Декоративный цветок, используемый в качестве украшения для головы.
     .suffix = { "Спонсорское, honelin111" }
+
+ent-ADTAnagiriHomemadeexplanter = самодельный эксплантер
+    .desc = Громоздкий шприц, предназначенный для извлечения подкожных имплантов. Содержит в себе много непонятных деталей, кнопок и световых индикаторов. Выглядит так, словно его собрали их подручных средств.
+    .suffix = { "Спонсорское, Anagiri" }
+
+ent-ADTClothingOuterArmorMishailArmoredJacketSecOfficer = бронированная куртка офицера СБ
+    .desc = Вам кажется, что когда-то это была куртка смотрителя. Но вы не можете доказать, что она нарушает шестой пункт общего СРП службы безопасности.
+    .suffix = { "Спонсорское, Mishail" }

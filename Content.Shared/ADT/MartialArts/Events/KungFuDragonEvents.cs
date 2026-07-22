@@ -3,7 +3,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.MartialArts;
@@ -37,3 +39,16 @@ public sealed partial class DragonTailPerformedEvent : BaseKungFuDragonEvent
 
 [DataDefinition]
 public sealed partial class DragonStrikePerformedEvent : BaseKungFuDragonEvent;
+
+[DataDefinition]
+public sealed partial class DragonAscensionPerformedEvent : BaseKungFuDragonEvent
+{
+    [DataField]
+    public float ThrowSpeed = 7f;
+
+    [DataField]
+    public float ThrowDistance = 5f;
+
+    [DataField]
+    public ProtoId<EmotePrototype>? Emote = "Flip";
+}

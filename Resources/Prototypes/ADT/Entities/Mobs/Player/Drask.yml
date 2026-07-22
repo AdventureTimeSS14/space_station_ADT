@@ -1,5 +1,0 @@
-- type: entity
-  save: false
-  name: "Urisst' McDrask"
-  parent: BaseMobDrask
-  id: MobDrask

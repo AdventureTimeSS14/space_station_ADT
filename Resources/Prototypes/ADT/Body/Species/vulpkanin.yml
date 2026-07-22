@@ -20,16 +20,16 @@
       LegRight: OrganVulpkaninADTLegRight
       FootLeft: OrganVulpkaninADTFootLeft
       FootRight: OrganVulpkaninADTFootRight
-      Brain: OrganHumanBrain
-      Eyes: OrganHumanEyes
-      Tongue: OrganHumanTongue
-      Appendix: OrganHumanAppendix
-      Ears: OrganHumanEars
-      Lungs: OrganHumanLungs
-      Heart: OrganHumanHeart
-      Stomach: OrganHumanStomach
-      Liver: OrganHumanLiver
-      Kidneys: OrganHumanKidneys
+      Brain: OrganVulpkaninBrain
+      Eyes: OrganVulpkaninEyes
+      Tongue: OrganVulpkaninTongue
+      Appendix: OrganVulpkaninAppendix
+      Ears: OrganVulpkaninEars
+      Lungs: OrganVulpkaninLungs
+      Heart: OrganVulpkaninHeart
+      Stomach: OrganVulpkaninStomach
+      Liver: OrganVulpkaninLiver
+      Kidneys: OrganVulpkaninKidneys
   - type: HumanoidProfile
     species: VulpkaninSpecies
   - type: Inventory
@@ -96,6 +96,97 @@
           32:
             sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
             state: shoes
+
+# - type: entity
+#   save: false
+#   name: Vulpkanin McHands
+#   parent:
+#   - AppearanceVulpkaninADT
+#   - BaseSpeciesMobOrganic
+#   id: BaseMobVulpkanin
+#   abstract: true
+#   components:
+#     - type: Hunger
+#       baseDecayRate: 0.045
+#       thresholds:
+#         Overfed: 275
+#         Okay: 225
+#         Peckish: 125
+#         Starving: 75
+#         Dead: 0
+#     - type: Thirst
+#       baseDecayRate: 0.04
+#       thresholds:
+#         OverHydrated: 200
+#         Okay: 150
+#         Thirsty: 100
+#         Parched: 50
+#         Dead: 0
+#     - type: Speech
+#       speechSounds: Vulpa
+#     - type: Vocal
+#       sounds:
+#         Male: NesMaleVulpa
+#         Female: NesFemaleVulpa
+#         Unsexed: NesFemaleVulpa
+#     - type: GrowlingAccent
+#     - type: Damageable
+#       damageModifierSet: ADTVulpkanin
+#     - type: Injurable
+#       damageContainer: Biological
+#     - type: RoarAccent
+#     - type: MeleeWeapon
+#       hidden: true
+#       soundHit:
+#         path: /Audio/Weapons/pierce.ogg
+#       angle: 30
+#       animation: WeaponArcClaw
+#       damage:
+#         types:
+#           Piercing: 5
+#     - type: Temperature
+#       currentTemperature: 310.15
+#       specificHeat: 46
+#     - type: TemperatureDamage
+#       heatDamageThreshold: 325
+#       coldDamageThreshold: 230
+#       coldDamage:
+#         types:
+#           Cold : 0.1 #per second, scales with temperature & other constants
+#       heatDamage:
+#         types:
+#           Heat : 0.1 #per second, scales with temperature & other constants
+#     - type: TemperatureSpeed
+#       thresholds:
+#         283: 0.8
+#         240: 0.6
+#         200: 0.4
+#     - type: MovementSpeedModifier
+#       baseWalkSpeed : 2.7
+#       baseSprintSpeed : 4.6
+#     - type: Wagging
+#     - type: InteractionPopup
+#       successChance: 1
+#       interactSuccessString: hugging-success-generic
+#       interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+#       messagePerceivedByOthers: hugging-success-generic-others
+#     - type: LanguageSpeaker
+#       languages:
+#         GalacticCommon: Speak
+#         Canilunzt: Speak
+#     - type: SizeAttributeWhitelist # Frontier
+#       tall: true
+#       tallscale: 1
+#       short: true
+#       shortscale: 0.9
+#     - type: Tag
+#       tags:
+#       - CanPilot
+#       - FootstepSound
+#       - DoorBumpOpener
+#       - AnomalyHost
+#       - ADTDogEmotes
+
 
 - type: entity
   parent: OrganBaseOrganic

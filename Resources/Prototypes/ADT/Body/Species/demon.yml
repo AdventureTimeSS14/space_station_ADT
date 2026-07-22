@@ -3,22 +3,22 @@
 
 - type: entity
   parent: BaseSpeciesAppearance
-  id: AppearanceDemon
+  id: ADTAppearanceDemon
   categories: [ HideSpawnMenu ]
   name: demon appearance
   components:
   - type: InitialBody
     organs:
-      Torso: OrganDemonTorso
-      Head: OrganDemonHead
-      ArmLeft: OrganDemonArmLeft
-      ArmRight: OrganDemonArmRight
-      HandRight: OrganDemonHandRight
-      HandLeft: OrganDemonHandLeft
-      LegLeft: OrganDemonLegLeft
-      LegRight: OrganDemonLegRight
-      FootLeft: OrganDemonFootLeft
-      FootRight: OrganDemonFootRight
+      Torso: ADTOrganDemonTorso
+      Head: ADTOrganDemonHead
+      ArmLeft: ADTOrganDemonArmLeft
+      ArmRight: ADTOrganDemonArmRight
+      HandRight: ADTOrganDemonHandRight
+      HandLeft: ADTOrganDemonHandLeft
+      LegLeft: ADTOrganDemonLegLeft
+      LegRight: ADTOrganDemonLegRight
+      FootLeft: ADTOrganDemonFootLeft
+      FootRight: ADTOrganDemonFootRight
       Brain: OrganHumanBrain
       Eyes: OrganHumanEyes
       Tongue: OrganHumanTongue
@@ -39,14 +39,87 @@
             sprite: ADT/Mobs/Species/Demon/displacement.rsi
             state: jumpsuit-female
 
+# Demon mob (upstream PR#42476). Appearance/body/sprite come from AppearanceDemon.
+- type: entity
+  save: false
+  name: Urisst' Mzhand Demon
+  parent:
+  - ADTAppearanceDemon
+  - BaseSpeciesMobOrganic
+  id: MobDemon
+  components:
+  - type: Wagging
+  - type: Speech
+    speechSounds: Lizard
+  - type: Vocal
+    sounds:
+      Male: MaleHuman
+      Female: FemaleHuman
+      Unsexed: FemaleHuman
+  - type: Damageable
+    damageModifierSet: Demon
+  - type: Injurable
+    damageContainer: Biological
+  - type: MeleeWeapon
+    # hidden: true
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Slash: 2
+        Piercing: 3
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 46
+  - type: TemperatureDamage
+    heatDamageThreshold: 363
+    coldDamageThreshold: 250  #starting temperature damage treshold
+    coldDamage:
+      types:
+        Cold : 0.2 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 0.1 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      285: 0.8
+      248: 0.6
+      220: 0.4
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
+  - type: TypingIndicator
+    proto: ADTdemon
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      SolCommon: Speak
+      Arkane: Speak
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.08
+    short: true
+    shortscale: 0.92
+
 - type: entity
   parent: OrganBaseOrganic
-  id: OrganDemon
+  id: ADTOrganDemon
   abstract: true
   suffix: demon
 
 - type: entity
-  id: OrganDemonVisual
+  id: ADTOrganDemonMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Human, Demon ]
+
+- type: entity
+  id: ADTOrganDemonVisual
   abstract: true
   components:
   - type: VisualOrgan
@@ -57,20 +130,20 @@
       group: Demon
 
 - type: entity
-  parent: [ OrganDemon, OrganDemonVisual ]
-  id: OrganDemonExternal
+  parent: [ ADTOrganDemon, ADTOrganDemonVisual ]
+  id: ADTOrganDemonExternal
   abstract: true
   components:
   - type: Sprite
     sprite: ADT/Mobs/Species/Demon/parts.rsi
 
 - type: entity
-  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganDemonExternal ]
-  id: OrganDemonTorso
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, ADTOrganDemonExternal ]
+  id: ADTOrganDemonTorso
 
 - type: entity
-  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganDemonExternal ]
-  id: OrganDemonHead
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, ADTOrganDemonExternal ]
+  id: ADTOrganDemonHead
   components:
   - type: VisualOrganMarkings
     hideableLayers:
@@ -81,59 +154,42 @@
     - enum.HumanoidVisualLayers.HeadSide
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganDemonExternal ]
-  id: OrganDemonArmLeft
+  parent: [ OrganBaseArmLeft, ADTOrganDemonExternal ]
+  id: ADTOrganDemonArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganDemonExternal ]
-  id: OrganDemonArmRight
+  parent: [ OrganBaseArmRight, ADTOrganDemonExternal ]
+  id: ADTOrganDemonArmRight
 
 - type: entity
-  parent: [ OrganBaseHandLeft, OrganDemonExternal ]
-  id: OrganDemonHandLeft
+  parent: [ OrganBaseHandLeft, ADTOrganDemonExternal ]
+  id: ADTOrganDemonHandLeft
 
 - type: entity
-  parent: [ OrganBaseHandRight, OrganDemonExternal ]
-  id: OrganDemonHandRight
+  parent: [ OrganBaseHandRight, ADTOrganDemonExternal ]
+  id: ADTOrganDemonHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganDemonExternal ]
-  id: OrganDemonLegLeft
+  parent: [ OrganBaseLegLeft, ADTOrganDemonExternal ]
+  id: ADTOrganDemonLegLeft
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganDemonExternal ]
-  id: OrganDemonLegRight
+  parent: [ OrganBaseLegRight, ADTOrganDemonExternal ]
+  id: ADTOrganDemonLegRight
 
 - type: entity
-  parent: [ OrganBaseFootLeft, OrganDemonExternal ]
-  id: OrganDemonFootLeft
+  parent: [ OrganBaseFootLeft, ADTOrganDemonExternal ]
+  id: ADTOrganDemonFootLeft
 
 - type: entity
-  parent: [ OrganBaseFootRight, OrganDemonExternal ]
-  id: OrganDemonFootRight
+  parent: [ OrganBaseFootRight, ADTOrganDemonExternal ]
+  id: ADTOrganDemonFootRight
 
 - type: entity
-  id: OrganDemonMetabolizer
-  abstract: true
-  components:
-  - type: Metabolizer
-    metabolizerTypes: [ Demon ]
-
-- type: entity
-  parent: [ OrganAnimalStomach ]
+  parent: [ OrganBaseStomach, ADTOrganDemonMetabolizer, OrganSpriteHumanInternal ]
   id: ADTOrganDemonStomach
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      stomach:
-        maxVol: 50
 
 - type: entity
-  parent: [ OrganBaseHeart, OrganDemonMetabolizer ]
+  parent: [ OrganBaseHeart, ADTOrganDemonMetabolizer, OrganSpriteHumanInternal ]
   id: ADTOrganDemonHeart
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Metabolizer
-    maxReagents: 2
-    metabolizerTypes: [ Demon ]
+
