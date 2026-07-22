@@ -381,5 +381,20 @@ public sealed class ADTCCVars
     public static readonly CVarDef<bool> BlobCanGrowInSpace =
         CVarDef.Create("blob.grow_space", true, CVar.SERVER);
 
+     /*
+     * Antag Roll Bonus
+     */
+
+    public static readonly CVarDef<bool> AntagRollBonusEnabled =
+        CVarDef.Create("antag.roll_bonus_enabled", true, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> AntagRollBonusPerRound =
+        CVarDef.Create("antag.roll_bonus_per_round", 0.15f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> AntagRollBonusInfoRateLimitPeriod =
+        CVarDef.Create("antag.roll_bonus_info_rate_limit_period", 5f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> AntagRollBonusInfoRateLimitCount =
+        CVarDef.Create("antag.roll_bonus_info_rate_limit_count", 3, CVar.SERVERONLY);
 }
 

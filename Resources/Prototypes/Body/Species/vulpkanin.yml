@@ -224,6 +224,10 @@
     shortscale: 0.9
   - type: Tag
     tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
     - ADTDogEmotes
   # ADT-Tweak: End
 

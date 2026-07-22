@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
+using Content.Shared.ADT.RichText; // ADT-Tweak
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
 using Content.Shared.Labels.Components;
@@ -55,6 +56,7 @@ public sealed partial class LabelSystem : EntitySystem
     /// </summary>
     /// <remarks>
     /// If <paramref name="text"/> is <see langword="null"/> or an empty string, the <see cref="LabelComponent"/> will be removed.
+    /// The label text supports BBCode markup (bold, italic, color, etc.).
     /// </remarks>
     /// <param name="uid">EntityUid to change label on</param>
     /// <param name="text">intended label text (null to remove)</param>
@@ -72,7 +74,7 @@ public sealed partial class LabelSystem : EntitySystem
 
         label = EnsureComp<LabelComponent>(uid);
 
-        label.CurrentLabel = FormattedMessage.EscapeText(text);
+        label.CurrentLabel = MarkupSanitizer.SanitizeLabel(text); // ADT-Tweak. EscapeText -> SanitizeLabel
         _nameModifier.RefreshNameModifiers(uid);
 
         Dirty(uid, label);
@@ -119,9 +121,11 @@ public sealed partial class LabelSystem : EntitySystem
         if (ent.Comp.CurrentLabel == null)
             return;
 
-        var message = new FormattedMessage();
-        message.AddText(Loc.GetString("hand-labeler-has-label", ("label", ent.Comp.CurrentLabel)));
+        // ADT-Tweak-Start: Render label BBCode in examine
+        var msg = Loc.GetString("hand-labeler-has-label", ("label", ent.Comp.CurrentLabel));
+        var message = FormattedMessage.FromMarkupPermissive(msg);
         args.PushMessage(message);
+        // ADT-Tweak-End
     }
 
     private void OnRefreshNameModifiers(Entity<LabelComponent> entity, ref RefreshNameModifiersEvent args)

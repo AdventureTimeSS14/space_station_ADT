@@ -2,6 +2,7 @@ using System.IO;
 using System.Linq;
 using System.Numerics;
 using System.Threading;
+using Content.Client.ADT.Antag;
 using Content.Client.ADT.Lobby.UI;
 using Content.Client.ADT.Traits.UI;
 using Content.Client.Guidebook;
@@ -66,6 +67,7 @@ namespace Content.Client.Lobby.UI
         [Dependency] private readonly DocumentParsingManager _parsingMan = default!;
 
         private readonly SpriteSystem _sprite;
+        private readonly AntagRollBonusSystem _antagRollBonus; // ADT Antag roll bonus
 
         // CCvar.
         private int _maxNameLength;
@@ -138,6 +140,10 @@ namespace Content.Client.Lobby.UI
             _factory = factory; // ADT SAI Custom
             _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
             _sprite = _entManager.System<SpriteSystem>();
+
+            _antagRollBonus = _entManager.System<AntagRollBonusSystem>(); // ADT Antag roll bonus
+            _antagRollBonus.OnBonusesUpdated += RefreshAntags; // ADT Antag roll bonus
+            _antagRollBonus.RequestUpdate(); // ADT Antag roll bonus
 
             _maxNameLength = _cfgManager.GetCVar(CCVars.MaxNameLength);
             _allowFlavorText = _cfgManager.GetCVar(CCVars.FlavorText);
@@ -684,6 +690,8 @@ namespace Content.Client.Lobby.UI
 
             _headshotRequestCts?.Cancel();
             _headshotRequestCts = null;
+
+            _antagRollBonus.OnBonusesUpdated -= RefreshAntags; // ADT Antag roll bonus
         }
 
         protected override void EnteredTree()
