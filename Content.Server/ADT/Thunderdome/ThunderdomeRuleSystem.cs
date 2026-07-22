@@ -147,7 +147,7 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
 
     private void OnRoundEnding(RoundRestartCleanupEvent ev)
     {
-        foreach (var eui in _activeEuis.Values)
+        foreach (var eui in new List<ThunderdomeLoadoutEui>(_activeEuis.Values))
         {
             if (eui.Player.Status != SessionStatus.Disconnected)
                 eui.Close();
@@ -234,6 +234,12 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
         var eui = new ThunderdomeLoadoutEui(this, _ruleEntity.Value, session);
         _euiManager.OpenEui(eui, session);
         _activeEuis[session] = eui;
+    }
+
+    public void OnEuiClosed(ICommonSession session, ThunderdomeLoadoutEui eui)
+    {
+        if (_activeEuis.TryGetValue(session, out var active) && active == eui)
+            _activeEuis.Remove(session);
     }
 
     private void OnMobStateChanged(Entity<ThunderdomePlayerComponent> ent, ref MobStateChangedEvent args)

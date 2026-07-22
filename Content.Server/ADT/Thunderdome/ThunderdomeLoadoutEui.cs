@@ -50,5 +50,6 @@ public sealed class ThunderdomeLoadoutEui : BaseEui
     public override void Closed()
     {
         base.Closed();
+        _thunderdomeSystem.OnEuiClosed(_session, this);
     }
 }
