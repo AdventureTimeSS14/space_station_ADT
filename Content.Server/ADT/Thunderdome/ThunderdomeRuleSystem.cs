@@ -509,8 +509,21 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
 
     private void OnDespawnPickedUp(Entity<TimedDespawnComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
-        if (HasComp<ThunderdomePlayerComponent>(args.Container.Owner))
-            RemComp<TimedDespawnComponent>(ent);
+        var current = args.Container.Owner;
+
+        while (true)
+        {
+            if (HasComp<ThunderdomePlayerComponent>(current))
+            {
+                RemComp<TimedDespawnComponent>(ent);
+                return;
+            }
+
+            if (!_container.TryGetContainingContainer((current, null, null), out var container))
+                break;
+
+            current = container.Owner;
+        }
     }
 
     private void MarkForDespawn(EntityUid uid, float lifetime, bool checkContainer = false)
