@@ -1,4 +1,4 @@
-﻿# ADT Vulpkanin mob (upstream PR#42476). Body/sprite/inventory come from AppearanceVulpkaninADT.
+# ADT Vulpkanin mob (upstream PR#42476). Body/sprite/inventory come from AppearanceVulpkaninADT.
 # This MobVulpkanin (via Player/Vulpkanin.yml) intentionally overrides the official MobVulpkanin.
 - type: entity
   save: false
@@ -89,3 +89,11 @@
       - DoorBumpOpener
       - AnomalyHost
       - ADTDogEmotes
+    - type: NaturalNightVision
+    - type: PointLight
+      netsync: false
+      enabled: false
+      castShadows: false
+      radius: 7
+      energy: 1.6
+      color: "#C8D4FF"

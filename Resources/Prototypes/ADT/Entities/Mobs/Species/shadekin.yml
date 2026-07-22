@@ -1,4 +1,4 @@
-﻿# Shadekin mob (upstream PR#42476). Appearance/body/sprite/inventory come from AppearanceShadekin.
+# Shadekin mob (upstream PR#42476). Appearance/body/sprite/inventory come from AppearanceShadekin.
 - type: entity
   save: false
   parent:
@@ -128,3 +128,11 @@
     - AnomalyHost
     - ADTIgnoreChokeSpeechBlocking
     - ADTShadekinEmotes
+  - type: NaturalNightVision
+  - type: PointLight
+    netsync: false
+    enabled: false
+    castShadows: false
+    radius: 4
+    energy: 1.6
+    color: "#C8D4FF"
