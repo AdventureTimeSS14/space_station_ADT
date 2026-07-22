@@ -575,6 +575,17 @@ public abstract partial class SharedGunSystem : EntitySystem
         return EnsureComp<AmmoComponent>(uid);
     }
 
+    // ADT-Tweak start
+    /// <summary>
+    /// Получает объект <see cref="IShootable"/> для указанного uid, создавая его при необходимости. Используется в <see cref="ChangelingGunSystem"/>.
+    /// </summary>
+    /// <param name="uid"></param>
+    public IShootable AllowEnsureShootable(EntityUid uid)
+    {
+        return EnsureShootable(uid);
+    }
+    // ADT-Tweak end
+
     protected void RemoveShootable(EntityUid uid)
     {
         RemCompDeferred<CartridgeAmmoComponent>(uid);

@@ -64,6 +64,7 @@ capoeira-combo-kick-up = подъём ногой
 dragon-combo-dragon-claw = коготь Дракона
 dragon-combo-dragon-tail = хвост Дракона
 dragon-combo-dragon-strike = удар Дракона
+dragon-combo-dragon-ascension = восхождение Дракона
 
 ninjutsu-combo-bite-the-dust = укус Земли
 ninjutsu-combo-dirty-kill = грязное убийство
@@ -96,6 +97,7 @@ martial-arts-fail-target-standing = Нельзя использовать это
 martial-arts-fail-blocking-gloves = Перчатки сковывают ваши движения, вы не можете использовать боевые искусства!
 martial-arts-fail-not-grabbed = Нельзя использовать этот приём, если вас не удерживают!
 martial-arts-fail-target-alive = Нельзя использовать этот приём на живой цели!
+martial-arts-fail-no-chi = Вам нужно накопить силы дракона! Постойте на месте несколько мгновений.
 
 judo-fail-stunbaton = Настоящий мастер корпоративного дзюдо не нуждается в станбатоне!
 

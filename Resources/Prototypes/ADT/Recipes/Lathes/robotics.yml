@@ -286,6 +286,28 @@
     Copper: 200
 
 - type: latheRecipe
+  id: ADTModsuitModSatchelStorage
+  result: ADTModsuitModSatchelStorage
+  completetime: 2
+  materials:
+    Steel: 1500
+    Plastic: 400
+    Glass: 500
+    Silver: 100
+    Copper: 200
+
+- type: latheRecipe
+  id: ADTModsuitModDuffelbagStorage
+  result: ADTModsuitModDuffelbagStorage
+  completetime: 2
+  materials:
+    Steel: 1500
+    Plastic: 400
+    Glass: 500
+    Silver: 100
+    Copper: 200
+
+- type: latheRecipe
   id: ADTModsuitModWelding
   result: ADTModsuitModWelding
   completetime: 2

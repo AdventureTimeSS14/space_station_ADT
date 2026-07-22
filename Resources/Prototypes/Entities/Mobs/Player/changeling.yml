@@ -1,15 +1,16 @@
-- type: entity
-  parent: [ MobHuman, StorePresetChangeling ]
-  id: MobLing
-  name: Urist McLing
-  suffix: Non-Antag
-  components:
-  - type: ChangelingDevour
-  - type: ChangelingIdentity
-  - type: ChangelingTransform
-  - type: ActionGrant
-    actions:
-    - ActionChangelingStore
-  - type: Store
-    balance:
-      ChangelingDNA: 50
+# ADT: Закомментировано из-за использования генокрада от Goob Station
+# - type: entity
+#   parent: [ MobHuman, StorePresetChangeling ]
+#   id: MobLing
+#   name: Urist McLing
+#   suffix: Non-Antag
+#   components:
+#   - type: ChangelingDevour
+#   - type: ChangelingIdentity
+#   - type: ChangelingTransform
+#   - type: ActionGrant
+#     actions:
+#     - ActionChangelingStore
+#   - type: Store
+#     balance:
+#       ChangelingDNA: 50

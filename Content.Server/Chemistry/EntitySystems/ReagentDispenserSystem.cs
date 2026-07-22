@@ -16,6 +16,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Labels.Components;
 using Content.Shared.Storage;
 using Content.Server.Hands.Systems;
+using Robust.Shared.Utility; // ADT-Tweak
 
 namespace Content.Server.Chemistry.EntitySystems
 {
@@ -98,7 +99,7 @@ namespace Content.Server.Chemistry.EntitySystems
             {
                 string reagentLabel;
                 if (TryComp<LabelComponent>(storedContainer, out var label) && !string.IsNullOrEmpty(label.CurrentLabel))
-                    reagentLabel = label.CurrentLabel;
+                    reagentLabel = FormattedMessage.RemoveMarkupPermissive(label.CurrentLabel); // ADT-Tweak. label.CurrentLabel -> FormattedMessage.RemoveMarkupPermissive
                 else
                     reagentLabel = Name(storedContainer);
 

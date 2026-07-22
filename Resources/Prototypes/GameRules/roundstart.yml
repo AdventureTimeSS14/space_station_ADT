@@ -155,7 +155,7 @@
   - type: GameRule
     minPlayers: 20
   - type: LoadMapRule
-    mapPath: /Maps/Nonstations/nukieplanet.yml
+    mapPath: /Maps/ADTMaps/Nonstation/nukeplanet_adt.yml # ADT-Tweak
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
     definitions:
@@ -271,44 +271,45 @@
       mindRoles:
       - MindRoleTraitorReinforcement
 
-- type: entity
-  id: Changeling
-  parent: BaseGameRule
-  components:
-  - type: GameRule
-    minPlayers: 25
-  - type: AntagSelection
-    agentName: changeling-round-end-agent-name
-    selectionTime: IntraPlayerSpawn
-    definitions:
-    - prefRoles: [ Changeling ]
-      max: 3
-      playerRatio: 15
-      briefing:
-        text: changeling-role-greeting
-        color: Red
-        sound: /Audio/Ambience/Antag/changeling_start.ogg
-      components:
-      - type: ChangelingDevour
-      - type: ChangelingIdentity
-      - type: ChangelingTransform
-      - type: ActionGrant
-        actions:
-        - ActionChangelingStore
-      # TODO: Make it so the changeling gamerule changeling can inherit from the changeling store preset somehow
-      - type: Store
-        name: store-preset-name-changeling
-        categories:
-        - ChangelingAbilities
-        currencyWhitelist:
-        - ChangelingDNA
-        balance:
-          ChangelingDNA: 50
-      mindRoles:
-      - MindRoleChangeling
-  - type: AntagObjectives
-    objectives:
-    - ChangelingSurviveObjective
+# ADT: Закомментировано из-за использования генокрада от Goob Station
+# - type: entity
+#   id: Changeling
+#   parent: BaseGameRule
+#   components:
+#   - type: GameRule
+#     minPlayers: 25
+#   - type: AntagSelection
+#     agentName: changeling-round-end-agent-name
+#     selectionTime: IntraPlayerSpawn
+#     definitions:
+#     - prefRoles: [ Changeling ]
+#       max: 3
+#       playerRatio: 15
+#       briefing:
+#         text: changeling-role-greeting
+#         color: Red
+#         sound: /Audio/Ambience/Antag/changeling_start.ogg
+#       components:
+#       - type: ChangelingDevour
+#       - type: ChangelingIdentity
+#       - type: ChangelingTransform
+#       - type: ActionGrant
+#         actions:
+#         - ActionChangelingStore
+#       # TODO: Make it so the changeling gamerule changeling can inherit from the changeling store preset somehow
+#       - type: Store
+#         name: store-preset-name-changeling
+#         categories:
+#         - ChangelingAbilities
+#         currencyWhitelist:
+#         - ChangelingDNA
+#         balance:
+#           ChangelingDNA: 50
+#       mindRoles:
+#       - MindRoleChangeling
+#   - type: AntagObjectives
+#     objectives:
+#     - ChangelingSurviveObjective
 
 - type: entity
   id: Revolutionary

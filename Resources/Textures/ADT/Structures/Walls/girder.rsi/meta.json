@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/TauCetiStation/TauCetiClassic/commit/e02e5c2e8d458d9aeeb6828cfe8bc55d72d3ad01 and recolored to old style by Morb0, resprited by orange6775 (discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "girder_full"
+    },
+    {
+      "name": "girder0",
+      "directions": 4
+    },
+    {
+      "name": "girder1",
+      "directions": 4
+    },
+    {
+      "name": "girder2",
+      "directions": 4
+    },
+    {
+      "name": "girder3",
+      "directions": 4
+    },
+    {
+      "name": "girder4",
+      "directions": 4
+    },
+    {
+      "name": "girder5",
+      "directions": 4
+    },
+    {
+      "name": "girder6",
+      "directions": 4
+    },
+    {
+      "name": "girder7",
+      "directions": 4
+    },
+    {
+      "name": "reinf_girder_full"
+    },
+    {
+      "name": "reinf_girder0",
+      "directions": 4
+    },
+    {
+      "name": "reinf_girder1",
+      "directions": 4
+    },
+    {
+      "name": "reinf_girder2",
+      "directions": 4
+    },
+    {
+      "name": "reinf_girder3",
+      "directions": 4
+    },
+    {
+      "name": "reinf_girder4",
+      "directions": 4
+    },
+    {
+      "name": "reinf_girder5",
+      "directions": 4
+    },
+    {
+      "name": "reinf_girder6",
+      "directions": 4
+    },
+    {
+      "name": "reinf_girder7",
+      "directions": 4
+    },
+    {
+      "name": "clock_girder_full"
+    },
+    {
+      "name": "clock_girder0",
+      "directions": 4
+    },
+    {
+      "name": "clock_girder1",
+      "directions": 4
+    },
+    {
+      "name": "clock_girder2",
+      "directions": 4
+    },
+    {
+      "name": "clock_girder3",
+      "directions": 4
+    },
+    {
+      "name": "clock_girder4",
+      "directions": 4
+    },
+    {
+      "name": "clock_girder5",
+      "directions": 4
+    },
+    {
+      "name": "clock_girder6",
+      "directions": 4
+    },
+    {
+      "name": "clock_girder7",
+      "directions": 4
+    }
+  ]
+}

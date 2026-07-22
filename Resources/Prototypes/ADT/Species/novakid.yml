@@ -4,7 +4,7 @@
   roundStart: true
   prototype: MobNovakid
   defaultSkinTone: "#34a223"
-  dollPrototype: AppearanceNovakid
+  dollPrototype: ADTAppearanceNovakid
   shortDesc: species-short-desc-novakid
   skinColoration: Hues
   maleFirstNames: firstNovakid
