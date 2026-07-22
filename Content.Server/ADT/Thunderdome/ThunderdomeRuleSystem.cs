@@ -41,8 +41,8 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.ADT.Mind;
 using Content.Shared.ADT.Mobs;
-using Content.Server.Weapons.Ranged.Components;
 using Content.Shared.Power;
+using Content.Shared.Actions;
 
 namespace Content.Server.ADT.Thunderdome;
 
@@ -66,6 +66,8 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
     [Dependency] private readonly ILocalizationManager _loc = default!;
     [Dependency] private readonly GunSystem _gun = default!;
 
+    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+
     private const string RulePrototype = "ThunderdomeRule";
     private EntityUid? _ruleEntity;
     private bool _refillOnKill;
@@ -81,7 +83,6 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEnding);
         SubscribeLocalEvent<ThunderdomeRuleComponent, RuleLoadedGridsEvent>(OnGridsLoaded);
         SubscribeNetworkEvent<ThunderdomeJoinRequestEvent>(OnJoinRequest);
-        SubscribeNetworkEvent<ThunderdomeLeaveRequestEvent>(OnLeaveRequest);
         SubscribeLocalEvent<ThunderdomePlayerComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<ThunderdomeOriginalBodyComponent, MobStateChangedEvent>(OnOriginalBodyStateChanged);
         SubscribeNetworkEvent<ThunderdomeRevivalAcceptEvent>(OnRevivalAccept);
@@ -93,6 +94,20 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
         SubscribeLocalEvent<ThunderdomeOriginalBodyComponent, ExaminedEvent>(OnOriginalBodyExamined);
         SubscribeLocalEvent<ThunderdomePlayerComponent, PlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<ShouldLogMobStateChangeEvent>(OnShouldLogStateChange);
+
+        SubscribeLocalEvent<ThunderdomePlayerComponent, MapInitEvent>(OnPlayerMapInit);
+        SubscribeLocalEvent<ThunderdomePlayerComponent, ThunderdomeLeaveActionEvent>(OnLeaveAction);
+    }
+
+    private void OnPlayerMapInit(Entity<ThunderdomePlayerComponent> ent, ref MapInitEvent args)
+    {
+        _actionsSystem.AddAction(ent, ref ent.Comp.LeaveAction, "ActionThunderdomeLeave");
+    }
+
+    private void OnLeaveAction(Entity<ThunderdomePlayerComponent> ent, ref ThunderdomeLeaveActionEvent args)
+    {
+        args.Handled = true;
+        LeaveThunderdome(ent);
     }
 
     public override void Update(float frameTime)
@@ -210,17 +225,6 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
         var eui = new ThunderdomeLoadoutEui(this, _ruleEntity.Value, session);
         _euiManager.OpenEui(eui, session);
         _activeEuis[session] = eui;
-    }
-
-    private void OnLeaveRequest(ThunderdomeLeaveRequestEvent ev, EntitySessionEventArgs args)
-    {
-        var session = args.SenderSession;
-
-        if (session.AttachedEntity is not { Valid: true } entity
-          || !TryComp<ThunderdomePlayerComponent>(entity, out var tdPlayer))
-            return;
-
-        LeaveThunderdome((entity, tdPlayer));
     }
 
     private void OnMobStateChanged(Entity<ThunderdomePlayerComponent> ent, ref MobStateChangedEvent args)

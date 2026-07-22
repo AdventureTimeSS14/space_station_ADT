@@ -1,3 +1,4 @@
+using Content.Shared.Actions;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Thunderdome;
@@ -53,3 +54,5 @@ public sealed class ThunderdomeRevivalOfferEvent : EntityEventArgs;
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class ThunderdomeRevivalAcceptEvent : EntityEventArgs;
+
+public sealed partial class ThunderdomeLeaveActionEvent : InstantActionEvent;

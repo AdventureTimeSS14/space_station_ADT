@@ -22,4 +22,6 @@ public sealed partial class ThunderdomePlayerComponent : Component
     public int WeaponSelection;
 
     public EntityUid? LastAttacker;
+
+    public EntityUid? LeaveAction;
 }
