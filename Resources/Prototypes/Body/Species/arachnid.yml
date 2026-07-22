@@ -148,6 +148,8 @@
     tallscale: 1.15
     short: true
     shortscale: 0.98
+  - type: NightVision
+    innate: true
   # ADT-Tweak end
   - type: CreamPied
     sprite:
