@@ -13,3 +13,48 @@
   id: SandevistanVision
   kind: source
   path: "/Textures/ADT/Shaders/sandevistan_vision.swsl"
+
+# Starlight port: night / thermal vision overlays
+- type: shader
+  id: ADTModernNightVisionShader
+  kind: source
+  path: "/Textures/ADT/Shaders/night.swsl"
+  params:
+    NightVisionBoost: 1.0
+    NightVisionThreshold: 0.15
+    BlueTintIntensity: 0.3
+
+# Slightly stronger NV for Tajaran
+- type: shader
+  id: ADTModernNightVisionShaderStrong
+  kind: source
+  path: "/Textures/ADT/Shaders/night.swsl"
+  params:
+    NightVisionBoost: 1.4
+    NightVisionThreshold: 0.2
+    BlueTintIntensity: 0.275
+
+- type: shader
+  id: ADTThermalVisionScreenShader
+  kind: source
+  path: "/Textures/ADT/Shaders/thermal-screen.swsl"
+  params:
+    ThermalBoost: 0.75
+    ThermalIntensity: 0.5
+    ThermalAlpha: 1
+
+- type: shader
+  id: ADTThermalVisionScreenShaderHalfAlpha
+  kind: source
+  path: "/Textures/ADT/Shaders/thermal-screen.swsl"
+  params:
+    ThermalBoost: 0.75
+    ThermalIntensity: 0.5
+    ThermalAlpha: 0.25
+
+- type: shader
+  id: ADTBrightnessShader
+  kind: source
+  path: "/Textures/ADT/Shaders/brightness.swsl"
+  params:
+    brightness: 1.25
