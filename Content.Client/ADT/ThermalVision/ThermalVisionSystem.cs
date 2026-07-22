@@ -21,6 +21,7 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
     private ThermalVisionEntityHighlightOverlay _throughWallsOverlay = default!;
     private ThermalVisionOverlay _overlay = default!;
     private ThermalVisionOverlay _altOverlay = default!;
+    private GasTileThermalVisionOverlay _gasOverlay = default!;
     private EntityUid? _effect;
 
     private const string ThermalShaderId = "ADTThermalVisionScreenShader";
@@ -37,6 +38,7 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         _throughWallsOverlay = new(_prototypes.Index<ShaderPrototype>(BrightnessShaderId));
         _overlay = new(_prototypes.Index<ShaderPrototype>(ThermalShaderId));
         _altOverlay = new(_prototypes.Index<ShaderPrototype>(ThermalAltShaderId));
+        _gasOverlay = new GasTileThermalVisionOverlay();
     }
 
     private void OnAttached(Entity<ThermalVisionComponent> ent, ref LocalPlayerAttachedEvent args)
@@ -69,6 +71,7 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         if (_effect != null)
             return;
 
+        _overlayMan.AddOverlay(_gasOverlay);
         _overlayMan.AddOverlay(_throughWallsOverlay);
         if (ent.Comp.UseAlternativeShader)
             _overlayMan.AddOverlay(_altOverlay);
@@ -84,6 +87,7 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         if (_player.LocalEntity == null && !force)
             return;
 
+        _overlayMan.RemoveOverlay(_gasOverlay);
         _overlayMan.RemoveOverlay(_throughWallsOverlay);
         _overlayMan.RemoveOverlay(_overlay);
         _overlayMan.RemoveOverlay(_altOverlay);
