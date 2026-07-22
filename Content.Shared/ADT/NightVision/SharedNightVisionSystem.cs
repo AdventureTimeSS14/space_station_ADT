@@ -5,8 +5,9 @@ using Content.Shared.Alert;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Rounding;
 using Content.Shared.Toggleable;
-using Robust.Shared.Timing;
 using Content.Shared.ADT.Eye.Blinding;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.NightVision;
 
@@ -15,6 +16,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
@@ -81,7 +83,8 @@ public abstract class SharedNightVisionSystem : EntitySystem
         if (ent.Comp.SlotFlags != args.SlotFlags)
             return;
 
-        EnableNightVisionItem(ent, args.Equipee);
+        _appearance.SetData(ent, NightVisionItemVisuals.Active, false);
+        _actions.SetToggled(ent.Comp.Action, false);
     }
 
     private void OnNightVisionItemGotUnequipped(Entity<NightVisionItemComponent> ent, ref GotUnequippedEvent args)
@@ -149,7 +152,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
 
     private void EnableNightVisionItem(Entity<NightVisionItemComponent> item, EntityUid user)
     {
-        DisableNightVisionItem(item, item.Comp.User);
+        DisableNightVisionItem(item, item.Comp.User, playSound: false);
 
         item.Comp.User = user;
         Dirty(item);
@@ -168,6 +171,8 @@ public abstract class SharedNightVisionSystem : EntitySystem
 
             var eyeDamage = EnsureComp<DamageEyesOnFlashedComponent>(user);
             Dirty(user, eyeDamage);
+
+            _audio.PlayPredicted(item.Comp.SoundOn, item, user);
         }
 
         _actions.SetToggled(item.Comp.Action, true);
@@ -181,8 +186,11 @@ public abstract class SharedNightVisionSystem : EntitySystem
     {
     }
 
-    protected void DisableNightVisionItem(Entity<NightVisionItemComponent> item, EntityUid? user)
+    protected void DisableNightVisionItem(Entity<NightVisionItemComponent> item, EntityUid? user, bool playSound = true)
     {
+        var wasActive = item.Comp.User != null;
+        var soundUser = item.Comp.User ?? user;
+
         _actions.SetToggled(item.Comp.Action, false);
 
         item.Comp.User = null;
@@ -213,6 +221,9 @@ public abstract class SharedNightVisionSystem : EntitySystem
 
         item.Comp.PreviousShader = null;
         item.Comp.PreviousEffectPrototype = null;
+
+        if (playSound && wasActive && !_timing.ApplyingState)
+            _audio.PlayPredicted(item.Comp.SoundOff, item, soundUser);
     }
 
     /// <summary>
