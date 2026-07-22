@@ -105,10 +105,13 @@
       - ReagentId: Plasma
         Quantity: 300
   - type: ZombieImmune
-  - type: NovakidGlowing # see NovakidFeaturesSystem.cs
+  - type: NovakidGlowing
   - type: PointLight
+    enabled: true
     color: "#ffffff"
-    energy: 0.6
+    energy: 1.6
+    radius: 3
+    castShadows: false
   - type: Speech
     speechSounds: Lizard
   - type: Vocal
