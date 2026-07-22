@@ -10,12 +10,6 @@ namespace Content.Shared.ADT.Thunderdome;
 public sealed partial class ThunderdomeJoinRequestEvent : EntityEventArgs;
 
 /// <summary>
-/// Player requests to leave the thunderdome.
-/// </summary>
-[Serializable, NetSerializable]
-public sealed class ThunderdomeLeaveRequestEvent : EntityEventArgs;
-
-/// <summary>
 /// Server broadcasts the current thunderdome player count to ghosts.
 /// </summary>
 [Serializable, NetSerializable]
