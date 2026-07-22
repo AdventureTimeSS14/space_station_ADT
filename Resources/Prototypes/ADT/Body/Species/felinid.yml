@@ -154,6 +154,14 @@
     - DoorBumpOpener
     - AnomalyHost
     - ADTCatEmotes
+  - type: NaturalNightVision
+  - type: PointLight
+    netsync: false
+    enabled: false
+    castShadows: false
+    radius: 7
+    energy: 0.3
+    color: "#C8D4FF"
 
 - type: entity
   parent: OrganHumanTorso
