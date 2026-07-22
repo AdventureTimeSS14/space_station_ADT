@@ -229,14 +229,6 @@
     - DoorBumpOpener
     - AnomalyHost
     - ADTDogEmotes
-  - type: NaturalNightVision
-  - type: PointLight
-    netsync: false
-    enabled: false
-    castShadows: false
-    radius: 7
-    energy: 1.6
-    color: "#C8D4FF"
   # ADT-Tweak: End
 
 
