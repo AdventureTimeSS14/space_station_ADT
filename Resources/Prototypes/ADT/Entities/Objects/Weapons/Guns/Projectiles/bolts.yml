@@ -232,7 +232,7 @@
   parent: ADTBaseBolt
   id: ADTBoltImprovisedSilver
   name: silver shard bolt
-  description: The greyshirt's preferred projectile. Now with added radiation!
+  description: The greyshirt's preferred projectile. Now with extra holyness!
   components:
   - type: Item
     inhandVisuals:
@@ -315,3 +315,91 @@
   - type: Construction
     graph: ADTBoltImprovisedUranium
     node: ADTBoltImprovisedUranium
+
+- type: entity
+  parent: ADTBaseBolt
+  id: ADTBoltImprovisedBScrystal
+  name: BS crystal shard bolt
+  description: The greyshirt's preferred projectile. Now with teleportation!
+  components:
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-tail
+        color: "#ded8d1FF"
+      - state: inhand-left-rod
+        color: "#686666FF"
+      - state: inhand-left-tip
+        color: "#4b82d0FF"
+      right:
+      - state: inhand-right-tail
+        color: "#ded8d1FF"
+      - state: inhand-right-rod
+        color: "#686666FF"
+      - state: inhand-right-tip
+        color: "#4b82d0FF"
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/bolt.rsi
+    layers:
+    - state: tail
+      color: "#ded8d1FF"
+    - state: rod
+      color: "#686666FF"
+    - state: tip
+      color: "#4b82d0FF"
+    - state: solution1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 12.5
+        Piercing: 12.5
+  - type: BsCrystalTeleport
+  - type: Construction
+    graph: ADTBoltImprovisedBScrystal
+    node: ADTBoltImprovisedBScrystal
+
+- type: entity
+  parent: ADTBaseBolt
+  id: ADTBoltImprovisedDiamond
+  name: diamond shard bolt
+  description: The greyshirt's preferred projectile. Now with Penetration!
+  components:
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-tail
+        color: "#ded8d1FF"
+      - state: inhand-left-rod
+        color: "#686666FF"
+      - state: inhand-left-tip
+        color: "#d5e4f6FF"
+      right:
+      - state: inhand-right-tail
+        color: "#ded8d1FF"
+      - state: inhand-right-rod
+        color: "#686666FF"
+      - state: inhand-right-tip
+        color: "#d5e4f6FF"
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/bolt.rsi
+    layers:
+    - state: tail
+      color: "#ded8d1FF"
+    - state: rod
+      color: "#686666FF"
+    - state: tip
+      color: "#d5e4f6FF"
+    - state: solution1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 10
+        Piercing: 10
+    ignoreResistances: true
+  - type: Construction
+    graph: ADTBoltImprovisedDiamond
+    node: ADTBoltImprovisedDiamond

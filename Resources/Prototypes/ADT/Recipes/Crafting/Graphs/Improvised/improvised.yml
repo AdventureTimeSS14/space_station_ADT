@@ -253,3 +253,19 @@
   targetNode: ADTBoltImprovisedUranium
   category: construction-category-weapons
   objectType: Item
+
+- type: construction
+  id: ADTBoltImprovisedBScrystal
+  graph: ADTBoltImprovisedBScrystal
+  startNode: start
+  targetNode: ADTBoltImprovisedBScrystal
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTBoltImprovisedDiamond
+  graph: ADTBoltImprovisedDiamond
+  startNode: start
+  targetNode: ADTBoltImprovisedDiamond
+  category: construction-category-weapons
+  objectType: Item
