@@ -15,6 +15,9 @@ public abstract partial class BaseEntityHighlightOverlay : BaseVisionOverlay
     private readonly ContainerSystem _containerSystem;
     private readonly TransformSystem _transform;
 
+    // Highlight redraws sprites; screen capture is only for the thermal LUT overlay.
+    public override bool RequestScreenTexture => false;
+
     protected BaseEntityHighlightOverlay(ShaderPrototype shader) : base(shader)
     {
         _containerSystem = _entityManager.System<ContainerSystem>();
@@ -23,9 +26,7 @@ public abstract partial class BaseEntityHighlightOverlay : BaseVisionOverlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (ScreenTexture == null)
-            return;
-
+        // Bodies are redrawn with BrightnessShader (through walls); no SCREEN_TEXTURE needed.
         var worldHandle = args.WorldHandle;
         var eyeRotation = args.Viewport.Eye?.Rotation ?? Angle.Zero;
 

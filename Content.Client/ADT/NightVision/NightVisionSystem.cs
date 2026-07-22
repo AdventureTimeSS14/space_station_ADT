@@ -21,6 +21,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
     private NightVisionOverlay? _overlay;
     private EntityUid? _effect;
     private string? _activeShader;
+    private string? _activeEffect;
 
     public override void Initialize()
     {
@@ -57,8 +58,9 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
 
     private void AttemptAddVision(Entity<NightVisionComponent> ent)
     {
-        // Recreate overlay if shader differs (e.g. tajaran strong NV).
-        if (_overlay != null && _activeShader != ent.Comp.Shader)
+        // Recreate if shader or light effect differs (device ПНВ vs innate).
+        var effectId = ent.Comp.EffectPrototype.Id;
+        if (_overlay != null && (_activeShader != ent.Comp.Shader || _activeEffect != effectId))
             AttemptRemoveVision(force: true);
 
         if (_effect != null)
@@ -69,6 +71,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
 
         _overlay = new NightVisionOverlay(shaderProto);
         _activeShader = ent.Comp.Shader;
+        _activeEffect = effectId;
         _overlayMan.AddOverlay(_overlay);
 
         _effect = SpawnAttachedTo(ent.Comp.EffectPrototype, Transform(ent).Coordinates);
@@ -85,6 +88,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
             _overlayMan.RemoveOverlay(_overlay);
             _overlay = null;
             _activeShader = null;
+            _activeEffect = null;
         }
 
         if (_effect != null)

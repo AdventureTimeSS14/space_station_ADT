@@ -1,0 +1,157 @@
+// Device night vision (NVD): Rec.709 → green phosphor + soft light blur + analog tube noise.
+
+uniform sampler2D SCREEN_TEXTURE;
+
+// k_gain — amplification (higher = easier tube overload)
+uniform highp float Gain;
+
+// Scene-wide light level (ОбщаяОсвещенность)
+uniform highp float TotalLighting;
+
+// Y_threshold — phosphor overload start (lower = blinds sooner)
+uniform highp float WhiteoutThreshold;
+
+// Extra whiteout multiplier after threshold (blinds harder)
+uniform highp float WhiteoutIntensity;
+
+// Soft bloom radius in screen pixels
+uniform highp float BloomRadius;
+
+// Soft bloom strength (blurred light wash)
+uniform highp float BloomStrength;
+
+// Screen-center dead zone (player character) — no bloom sample/apply inside, px
+uniform highp float CenterClearRadius;
+
+// Soft falloff outside the dead zone, px
+uniform highp float CenterClearSoftness;
+
+// Scintillation grain amplitude
+uniform highp float NoiseAmplitude;
+
+// Global brightness flicker strength (сцинтилляция)
+uniform highp float FlickerStrength;
+
+// Noise cell size in screen pixels (крупнозернистость)
+uniform highp float GrainSize;
+
+// Fixed-pattern defect intensity (битые / горячие пиксели)
+uniform highp float DefectIntensity;
+
+// Odd scanline multiplier (even rows stay at 1.0)
+uniform highp float ScanlineDark;
+
+highp float rand(highp vec2 co)
+{
+    return fract(sin(dot(co, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+highp float sampleLum(highp vec2 uv)
+{
+    return dot(zTextureSpec(SCREEN_TEXTURE, uv).rgb, vec3(0.2126, 0.7152, 0.0722));
+}
+
+// 0 in screen center (character), 1 outside — keeps face sharp / not a bloom source
+highp float bloomAllow(highp vec2 uv)
+{
+    highp vec2 centerUv = vec2(0.5);
+    highp float distPx = length((uv - centerUv) / SCREEN_PIXEL_SIZE);
+    highp float inner = max(CenterClearRadius, 0.0);
+    highp float outer = inner + max(CenterClearSoftness, 1.0);
+    return smoothstep(inner, outer, distPx);
+}
+
+// Excess brightness above threshold (only light that should bloom)
+highp float brightExcess(highp vec2 uv, highp float ampScale, highp float thresh)
+{
+    return max(0.0, sampleLum(uv) * ampScale - thresh) * bloomAllow(uv);
+}
+
+// Compact local blur of bright light only (dense small steps — no ghost copies).
+highp float blurBrightLight(highp vec2 uv, highp float ampScale, highp float thresh, highp float radiusPx)
+{
+    // radiusPx scales step size; keep steps small so shapes don't duplicate
+    highp float stepPx = clamp(radiusPx * 0.12, 1.0, 4.0);
+    highp vec2 s = SCREEN_PIXEL_SIZE * stepPx;
+    highp float sum = 0.0;
+    highp float wsum = 0.0;
+
+    // 5x5 Gaussian-ish kernel
+    sum += brightExcess(uv, ampScale, thresh) * 4.0;
+    wsum += 4.0;
+
+    sum += brightExcess(uv + vec2(s.x, 0.0), ampScale, thresh) * 2.0;
+    sum += brightExcess(uv - vec2(s.x, 0.0), ampScale, thresh) * 2.0;
+    sum += brightExcess(uv + vec2(0.0, s.y), ampScale, thresh) * 2.0;
+    sum += brightExcess(uv - vec2(0.0, s.y), ampScale, thresh) * 2.0;
+    wsum += 8.0;
+
+    sum += brightExcess(uv + vec2(s.x, s.y), ampScale, thresh) * 1.0;
+    sum += brightExcess(uv + vec2(s.x, -s.y), ampScale, thresh) * 1.0;
+    sum += brightExcess(uv + vec2(-s.x, s.y), ampScale, thresh) * 1.0;
+    sum += brightExcess(uv + vec2(-s.x, -s.y), ampScale, thresh) * 1.0;
+    wsum += 4.0;
+
+    sum += brightExcess(uv + vec2(s.x * 2.0, 0.0), ampScale, thresh) * 0.5;
+    sum += brightExcess(uv - vec2(s.x * 2.0, 0.0), ampScale, thresh) * 0.5;
+    sum += brightExcess(uv + vec2(0.0, s.y * 2.0), ampScale, thresh) * 0.5;
+    sum += brightExcess(uv - vec2(0.0, s.y * 2.0), ampScale, thresh) * 0.5;
+    wsum += 2.0;
+
+    return sum / max(wsum, 0.0001);
+}
+
+void fragment()
+{
+    COLOR = zTextureSpec(SCREEN_TEXTURE, Pos);
+
+    // Rec. 709 luminance
+    highp float Y = dot(COLOR.rgb, vec3(0.2126, 0.7152, 0.0722));
+
+    // Amplification: Y_amp = Y * k_gain * (1.0 + TotalLighting * 5.0)
+    highp float ampScale = Gain * (1.0 + TotalLighting * 5.0);
+    highp float YAmp = Y * ampScale;
+
+    // Soft blur of bright light — skipped in screen center (player face)
+    highp float bloomThresh = WhiteoutThreshold * 0.55;
+    highp float centerAllow = bloomAllow(Pos);
+    highp float blurredLight = blurBrightLight(Pos, ampScale, bloomThresh, BloomRadius) * centerAllow;
+    YAmp += blurredLight * BloomStrength;
+
+    // --- 1) Scintillation / flicker ---
+    highp float flicker = sin(TIME * 50.0) * cos(TIME * 30.0) * FlickerStrength;
+    YAmp *= (1.0 + flicker);
+
+    // --- 2) Coarse grain ---
+    highp float cell = max(GrainSize, 1.0);
+    highp vec2 grainCoord = floor(FRAGCOORD.xy / cell);
+    highp float frame = floor(TIME * 45.0);
+    highp float noise = (rand(grainCoord + vec2(frame, frame * 0.37)) - 0.5) * NoiseAmplitude;
+
+    // --- 3) SNR: more noise in shadows ---
+    highp float noiseFinal = noise * (1.0 - clamp(YAmp, 0.0, 1.0));
+    YAmp += noiseFinal;
+
+    // Whiteout from local + blurred light
+    highp float denom = max(1.0 - WhiteoutThreshold, 0.0001);
+    highp float whiteout = clamp((YAmp - WhiteoutThreshold) / denom, 0.0, 1.0);
+    whiteout = clamp(whiteout * WhiteoutIntensity, 0.0, 1.0);
+    highp vec3 green = vec3(0.0, max(YAmp, 0.0), 0.0);
+    highp vec3 white = vec3(1.0);
+    highp vec3 finalColor = mix(green, white, whiteout);
+
+    // --- 4) Fixed-pattern defects ---
+    highp float defectCell = 2.0;
+    highp vec2 defectCoord = floor(FRAGCOORD.xy / defectCell);
+    highp float defectRoll = rand(defectCoord * vec2(19.19, 91.17));
+    highp float dead = step(0.996, defectRoll);
+    highp float hot = step(0.9985, rand(defectCoord * vec2(7.13, 53.71)));
+    finalColor *= (1.0 - dead * DefectIntensity);
+    finalColor = mix(finalColor, vec3(0.0, 1.0, 0.0), hot * DefectIntensity * (1.0 - whiteout));
+
+    // 2px horizontal scanlines (fade out when fully blinded)
+    highp float line = step(2.0, mod(floor(FRAGCOORD.y), 4.0));
+    finalColor *= mix(1.0, mix(ScanlineDark, 1.0, whiteout), line);
+
+    COLOR.rgb = finalColor;
+}

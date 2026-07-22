@@ -159,7 +159,11 @@ public abstract class SharedNightVisionSystem : EntitySystem
         if (!_timing.ApplyingState)
         {
             var nightVision = EnsureComp<NightVisionComponent>(user);
+            item.Comp.PreviousShader = nightVision.Shader;
+            item.Comp.PreviousEffectPrototype = nightVision.EffectPrototype;
             nightVision.State = NightVisionState.Full;
+            nightVision.Shader = item.Comp.Shader;
+            nightVision.EffectPrototype = item.Comp.EffectPrototype;
             Dirty(user, nightVision);
 
             var eyeDamage = EnsureComp<DamageEyesOnFlashedComponent>(user);
@@ -186,12 +190,29 @@ public abstract class SharedNightVisionSystem : EntitySystem
 
         _appearance.SetData(item, NightVisionItemVisuals.Active, false);
 
-        if (TryComp(user, out NightVisionComponent? nightVision) &&
-            !nightVision.Innate)
+        if (TryComp(user, out NightVisionComponent? nightVision))
         {
-            RemCompDeferred<NightVisionComponent>(user.Value);
-            RemCompDeferred<DamageEyesOnFlashedComponent>(user.Value);
+            if (!nightVision.Innate)
+            {
+                RemCompDeferred<NightVisionComponent>(user.Value);
+                RemCompDeferred<DamageEyesOnFlashedComponent>(user.Value);
+            }
+            else
+            {
+                // Restore species/innate shader + light effect after removing the device overlay.
+                if (item.Comp.PreviousShader != null)
+                    nightVision.Shader = item.Comp.PreviousShader;
+
+                if (item.Comp.PreviousEffectPrototype != null)
+                    nightVision.EffectPrototype = item.Comp.PreviousEffectPrototype.Value;
+
+                Dirty(user.Value, nightVision);
+                RemCompDeferred<DamageEyesOnFlashedComponent>(user.Value);
+            }
         }
+
+        item.Comp.PreviousShader = null;
+        item.Comp.PreviousEffectPrototype = null;
     }
 
     /// <summary>

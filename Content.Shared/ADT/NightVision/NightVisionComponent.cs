@@ -23,14 +23,16 @@ public sealed partial class NightVisionComponent : Component
 
     /// <summary>
     /// PointLight effect entity spawned for the local player while NV is full (Starlight port).
+    /// Device NV goggles override this while worn.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntProtoId EffectPrototype = "ADTEffectNightVision";
 
     /// <summary>
     /// Screen shader prototype id (client). Stronger variants can be used per-species.
+    /// Device NV goggles override this while worn.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public string Shader = "ADTModernNightVisionShader";
 }
 
