@@ -97,6 +97,7 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
 
         SubscribeLocalEvent<ThunderdomePlayerComponent, MapInitEvent>(OnPlayerMapInit);
         SubscribeLocalEvent<ThunderdomePlayerComponent, ThunderdomeLeaveActionEvent>(OnLeaveAction);
+        SubscribeLocalEvent<ThunderdomeRuleComponent, ComponentShutdown>(OnRuleShutdown);
     }
 
     private void OnPlayerMapInit(Entity<ThunderdomePlayerComponent> ent, ref MapInitEvent args)
@@ -127,13 +128,21 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
 
     private void EnsureRule()
     {
-        if (_ruleEntity != null)
+        if (_ruleEntity != null && !TerminatingOrDeleted(_ruleEntity.Value))
             return;
+
+        _ruleEntity = null;
 
         if (!_ticker.StartGameRule(RulePrototype, out var ruleEntity))
             return;
 
         _ruleEntity = ruleEntity;
+    }
+
+    private void OnRuleShutdown(Entity<ThunderdomeRuleComponent> ent, ref ComponentShutdown args)
+    {
+        if (_ruleEntity == ent.Owner)
+            _ruleEntity = null;
     }
 
     private void OnRoundEnding(RoundRestartCleanupEvent ev)
