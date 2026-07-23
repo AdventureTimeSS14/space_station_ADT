@@ -96,5 +96,14 @@ accent-adt_chatsanitize-words-27-1 = чек
 accent-adt_chatsanitize-words-27-2 = чекай
 accent-adt_chatsanitize-replace-27 = смотри
 
-accent-adt_chatsanitize-words-28 = idk
-accent-adt_chatsanitize-replace-28 = не знаю
+accent-adt_chatsanitize-words-28 = вайбово
+accent-adt_chatsanitize-replace-28 = атмосферно
+
+accent-adt_chatsanitize-words-29 = фрик
+accent-adt_chatsanitize-replace-29 = чудак
+
+accent-adt_chatsanitize-words-30 = фрики
+accent-adt_chatsanitize-replace-30 = чудаки
+
+accent-adt_chatsanitize-words-31 = прив
+accent-adt_chatsanitize-replace-31 = здравствуйте
