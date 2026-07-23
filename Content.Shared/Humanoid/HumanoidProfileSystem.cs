@@ -23,6 +23,25 @@ public sealed class HumanoidProfileSystem : EntitySystem
         SubscribeLocalEvent<HumanoidProfileComponent, ExaminedEvent>(OnExamined);
     }
 
+    // ADT-Tweak start
+    public void SetSex(Entity<HumanoidProfileComponent?> ent, Sex newSex)
+    {
+        var comp = ent.Comp;
+        if (comp == null)
+            return;
+
+        var oldSex = comp.Sex;
+        if (oldSex == newSex)
+            return;
+
+        comp.Sex = newSex;
+        Dirty(ent);
+
+        var sexChanged = new SexChangedEvent(oldSex, newSex);
+        RaiseLocalEvent(ent, ref sexChanged);
+    }
+    // ADT-Tweak end
+
     public void ApplyProfileTo(Entity<HumanoidProfileComponent?> ent, HumanoidCharacterProfile profile)
     {
         if (!Resolve(ent, ref ent.Comp))
@@ -31,11 +50,8 @@ public sealed class HumanoidProfileSystem : EntitySystem
         ent.Comp.Gender = profile.Gender;
         ent.Comp.Age = profile.Age;
         ent.Comp.Species = profile.Species;
-        ent.Comp.Sex = profile.Sex;
+        SetSex(ent, profile.Sex);
         Dirty(ent);
-
-        var sexChanged = new SexChangedEvent(ent.Comp.Sex, profile.Sex);
-        RaiseLocalEvent(ent, ref sexChanged);
 
         if (TryComp<GrammarComponent>(ent, out var grammar))
         {

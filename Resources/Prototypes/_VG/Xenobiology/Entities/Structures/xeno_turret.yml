@@ -1,0 +1,185 @@
+- type: deviceFrequency
+  id: TurretXeno
+  name: device-frequency-prototype-name-turret-xeno
+  frequency: 2155
+
+- type: deviceFrequency
+  id: TurretControlXeno
+  name: device-frequency-prototype-name-turret-control-xeno
+  frequency: 2156
+
+- type: entity
+  parent: WeaponEnergyTurretStationBase
+  id: WeaponEnergyTurretXeno
+  name: slime exterminator turret
+  description: A high-tech autonomous weapons system designed specifically to eliminate slimes and other xenobiological threats.
+  suffix: Xenobiology
+  components:
+  - type: AccessReader
+    access: [["ResearchDirector"], ["Research"]]
+  - type: Machine
+    board: WeaponEnergyTurretXenoMachineCircuitboard
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: TurretControlXeno
+    transmitFrequencyId: TurretXeno
+    sendBroadcastAttemptEvent: true
+    prefix: device-address-prefix-turret
+    examinableAddress: true
+  - type: DeviceNetworkRequiresPower
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - Research
+    - ResearchDirector
+    - StationAi
+    - BasicSilicon
+    - Borg
+    targetTags:
+    - XenoSlime
+  - type: Sprite
+    sprite: _VG/Objects/Weapons/Guns/Turrets/science_turret.rsi
+    layers:
+    - state: support
+      renderingStrategy: NoRotation
+    - state: base_shadow
+      map: [ "shadow" ]
+    - state: base
+      map: [ "base" ]
+    - state: lethal
+      map: [ "enum.DeployableTurretVisuals.Weapon" ]
+      shader: "unshaded"
+      visible: false
+    - state: cover_closed
+      map: [ "enum.DeployableTurretVisuals.Turret" ]
+      renderingStrategy: NoRotation
+    - state: cover_light_on
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+      shader: "unshaded"
+      renderingStrategy: NoRotation
+      visible: false
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      renderingStrategy: NoRotation
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.BatteryWeaponFireModeVisuals.State:
+        enum.DeployableTurretVisuals.Weapon:
+          BulletEnergyTurretDisabler: { state: stun }
+          BulletEnergyTurretLaser: { state: lethal }
+      enum.DeployableTurretVisuals.Broken:
+        base:
+          True: { state: destroyed }
+          False: { state: base }
+      enum.WiresVisuals.MaintenancePanelState:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: false }
+          False: { visible: true }
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: WeaponEnergyTurretXenoMachineCircuitboard
+  name: slime exterminator turret machine board
+  description: A machine printed circuit board for a slime exterminator turret.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: science
+  - type: MachineBoard
+    prototype: WeaponEnergyTurretXeno
+    tagRequirements:
+      TurretCompatibleWeapon:
+        amount: 1
+        defaultPrototype: WeaponLaserCannon
+        examineName: construction-insert-info-examine-name-laser-cannon
+      ProximitySensor:
+        amount: 1
+        defaultPrototype: ProximitySensor
+    componentRequirements:
+      PowerCell:
+        amount: 1
+        defaultPrototype: PowerCellMedium
+        examineName: construction-insert-info-examine-name-power-cell
+
+- type: entity
+  parent: WeaponEnergyTurretStationControlPanelBase
+  id: WeaponEnergyTurretXenoControlPanel
+  name: slime exterminator control panel
+  description: A wall-mounted interface for remotely configuring slime exterminator turrets.
+  suffix: Xenobiology
+  components:
+  - type: AccessReader
+    access: [["ResearchDirector"], ["Research"]]
+  - type: ContainerFill
+    containers:
+      board:
+      - WeaponEnergyTurretXenoControlPanelElectronics
+  - type: DeployableTurretController
+    accessGroups:
+    - Research
+    accessLevels:
+    - Research
+    - ResearchDirector
+    - BasicSilicon
+    - Borg
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: TurretXeno
+    transmitFrequencyId: TurretControlXeno
+    sendBroadcastAttemptEvent: true
+    prefix: device-address-prefix-console
+    examinableAddress: true
+  - type: DeviceNetworkRequiresPower
+  - type: DeviceList
+    isAllowList: true
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - Research
+    - ResearchDirector
+    - BasicSilicon
+    - Borg
+    targetTags:
+    - XenoSlime
+  - type: Sprite
+    sprite: Structures/Wallmounts/turret_controls.rsi
+    layers:
+    - state: base
+    - state: safe
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      shader: unshaded
+    - state: wires
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.WiresVisualLayers.MaintenancePanel:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      enum.TurretControllerVisuals.ControlPanel:
+        enum.PowerDeviceVisualLayers.Powered:
+          -1: { state: safe }
+          0: { state: stun }
+          1: { state: lethal }
+
+- type: entity
+  parent: BaseElectronics
+  id: WeaponEnergyTurretXenoControlPanelElectronics
+  name: slime exterminator control panel electronics
+  description: An electronics board used in a slime exterminator control panel.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: science
+  - type: ElectronicsBoard
+    prototype: WeaponEnergyTurretXenoControlPanel
+  - type: Tag
+    tags:
+    - TurretControlElectronics

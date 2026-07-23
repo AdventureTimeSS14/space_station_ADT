@@ -1,0 +1,22 @@
+using Content.Shared.Database;
+using Content.Shared.EntityEffects;
+using Robust.Shared.Prototypes;
+
+namespace Content.Shared._VG.EntityEffects;
+
+public sealed partial class ModifySlimeComponent : EntityEffectBase<ModifySlimeComponent>
+{
+    [DataField]
+    public int? ExtractBonus;
+
+    [DataField]
+    public int? OffspringBonus;
+
+    [DataField]
+    public float? ChanceModifier;
+
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+        => null;
+
+    public override LogImpact? Impact => LogImpact.Medium;
+}

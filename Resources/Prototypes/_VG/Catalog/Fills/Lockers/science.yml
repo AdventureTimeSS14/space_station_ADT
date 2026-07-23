@@ -1,0 +1,16 @@
+- type: entity
+  id: LockerScienceFilledXenobiology
+  suffix: Filled, Xenobiology
+  parent: LockerScientist
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingHandsGlovesLatex
+    - id: ClothingHeadsetScience
+    - id: ClothingMaskSterile
+    - id: ClothingOuterVestTank
+    - id: ClothingBeltChemBagXenobiology
+    - id: ClothingBackpackXenoBioTankFilled
+    - id: SprayBottleWater
+    - id: SlimeScannerXenobio
+
