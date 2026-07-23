@@ -104,3 +104,5 @@ construction-graph-tag-manipulator-stock-part = модульная машинн�
 construction-graph-carved-pumpkin = вырезанная тыква
 construction-graph-flashlight = фонарик
 construction-graph-stabilizing-serum = стабилизирующая сыворотка
+construction-graph-tag-archimedes-central-control-module = центральный модуль управления Архимеда
+construction-graph-tag-archimedes-peripherals-control-module = модуль управления периферией Архимеда

@@ -68,6 +68,25 @@
   - ADTOdysseusPeripheralsElectronics
 
 - type: latheRecipePack
+  id: ADTArchimedesPack
+  recipes:
+  - ADTArchimedesHarness
+  - ADTArchimedesLArm
+  - ADTArchimedesRArm
+  - ADTArchimedesLLeg
+  - ADTArchimedesRLeg
+  - ADTArchimedesCentralElectronics
+  - ADTArchimedesPeripheralsElectronics
+  - ADTMechEquipmentToolWelder
+  - ADTMechEquipmentToolWirecutter
+  - ADTMechEquipmentToolScrewdriver
+  - ADTMechEquipmentToolWrench
+  - ADTMechEquipmentToolCrowbar
+  - ADTMechEquipmentToolWelderExperimental
+  - ADTMechEquipmentToolJawsOfLife
+  - ADTMechEquipmentToolPowerDrill
+
+- type: latheRecipePack
   id: ADTClarkePack
   recipes:
   - ADTClarkeHarness

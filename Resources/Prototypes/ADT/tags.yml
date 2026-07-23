@@ -777,3 +777,24 @@
 
 - type: Tag
   id: BoxDonkSoftBox
+
+- type: Tag
+  id: ADTMechEquipmentScience
+
+- type: Tag
+  id: ADTArchimedesLArm
+
+- type: Tag
+  id: ADTArchimedesRArm
+
+- type: Tag
+  id: ADTArchimedesLLeg
+
+- type: Tag
+  id: ADTArchimedesRLeg
+
+- type: Tag
+  id: ADTArchimedesCentralControlModule
+
+- type: Tag
+  id: ADTArchimedesPeripheralsControlModule
