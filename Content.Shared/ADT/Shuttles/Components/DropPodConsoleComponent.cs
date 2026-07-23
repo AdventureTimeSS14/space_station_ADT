@@ -63,7 +63,7 @@ public sealed partial class DropPodConsoleComponent : Component
     /// Sound played when the drop pod launch announcement is broadcast.
     /// </summary>
     [DataField]
-    public SoundSpecifier? LaunchAnnouncementSound = new SoundPathSpecifier("/Audio/ADT/podalarm.ogg");
+    public SoundSpecifier? LaunchAnnouncementSound = new SoundPathSpecifier("/Audio/ADT/Droppod/podalarm.ogg");
 }
 
 [Serializable, NetSerializable]
