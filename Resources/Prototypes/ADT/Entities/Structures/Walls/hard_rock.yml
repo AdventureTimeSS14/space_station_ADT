@@ -1,15 +1,17 @@
 - type: entity
   id: ADTWallRockAncient
-  parent: WallRockBasalt
+  parent: BaseWall
   name: ancient rock
   description: A rare and dense rock that appears to be resistant to every mining tool except a pickaxe.
   suffix: Ancient, planetmap
   components:
   - type: ADTHardRock
-  - type: Sprite
-    color: "#575757"
-  - type: Icon
-    color: "#575757"
+  - type: Transform
+    noRot: true
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -18,6 +20,32 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+  - type: MiningScannerViewable
+  - type: SmoothEdge
+  - type: Icon
+    sprite: Structures/Walls/rock.rsi
+    state: rock_wall
+  - type: Sprite
+    sprite: Structures/Walls/rock.rsi
+    color: "#575757"
+    layers:
+    - state: rock_wall
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_wall_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_wall_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_wall_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_wall_west
 
 - type: entity
   id: ADTWallRockAncientUranium
