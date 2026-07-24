@@ -4,10 +4,5 @@ namespace Content.Shared.ADT.Novakid;
 public sealed partial class NovakidGlowingComponent : Component
 {
     [DataField]
-    public Color GlowingColor;
-
-    NovakidGlowingComponent(Color color)
-    {
-        GlowingColor = color;
-    }
+    public Color GlowingColor = Color.White;
 }

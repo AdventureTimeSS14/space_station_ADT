@@ -782,3 +782,148 @@
     Plastic: 200
     Plasma: 350
     Glass: 200
+
+- type: latheRecipe
+  id: ADTArchimedesHarness
+  result: ADTArchimedesHarness
+  completetime: 4
+  materials:
+    Steel: 1500
+    Glass: 1200
+    Plasma: 1000
+    Uranium: 200
+
+- type: latheRecipe
+  id: ADTArchimedesLArm
+  result: ADTArchimedesLArm
+  completetime: 4
+  materials:
+    Steel: 1000
+    Glass: 750
+    Plasma: 400
+    Uranium: 100
+
+- type: latheRecipe
+  id: ADTArchimedesRArm
+  result: ADTArchimedesRArm
+  completetime: 4
+  materials:
+    Steel: 1000
+    Glass: 750
+    Plasma: 400
+    Uranium: 100
+
+- type: latheRecipe
+  id: ADTArchimedesLLeg
+  result: ADTArchimedesLLeg
+  completetime: 4
+  materials:
+    Steel: 1000
+    Glass: 750
+    Plasma: 400
+    Uranium: 100
+
+- type: latheRecipe
+  id: ADTArchimedesRLeg
+  result: ADTArchimedesRLeg
+  completetime: 4
+  materials:
+    Steel: 1000
+    Glass: 750
+    Plasma: 400
+    Uranium: 100
+
+- type: latheRecipe
+  id: ADTArchimedesCentralElectronics
+  result: ADTArchimedesCentralElectronics
+  completetime: 2
+  materials:
+    Steel: 100
+    Glass: 500
+    Gold: 100
+    Copper: 100
+    Plasma: 200
+    Uranium: 200
+
+- type: latheRecipe
+  id: ADTArchimedesPeripheralsElectronics
+  result: ADTArchimedesPeripheralsElectronics
+  completetime: 2
+  materials:
+    Steel: 100
+    Glass: 500
+    Gold: 100
+    Copper: 100
+    Plasma: 200
+    Uranium: 200
+
+- type: latheRecipe
+  id: ADTMechEquipmentToolWelder
+  result: ADTMechEquipmentToolWelder
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 200
+
+- type: latheRecipe
+  id: ADTMechEquipmentToolWirecutter
+  result: ADTMechEquipmentToolWirecutter
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 200
+
+- type: latheRecipe
+  id: ADTMechEquipmentToolScrewdriver
+  result: ADTMechEquipmentToolScrewdriver
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 200
+
+- type: latheRecipe
+  id: ADTMechEquipmentToolWrench
+  result: ADTMechEquipmentToolWrench
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 200
+
+- type: latheRecipe
+  id: ADTMechEquipmentToolCrowbar
+  result: ADTMechEquipmentToolCrowbar
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 200
+
+# Модернизации инструментов Архимеда
+- type: latheRecipe
+  id: ADTMechEquipmentToolWelderExperimental
+  result: ADTMechEquipmentToolWelderExperimental
+  completetime: 5
+  materials:
+    Steel: 1000
+    Glass: 500
+    Plasma: 500
+    Silver: 200
+
+- type: latheRecipe
+  id: ADTMechEquipmentToolJawsOfLife
+  result: ADTMechEquipmentToolJawsOfLife
+  completetime: 5
+  materials:
+    Steel: 1200
+    Glass: 300
+    Plasma: 400
+    Silver: 300
+
+- type: latheRecipe
+  id: ADTMechEquipmentToolPowerDrill
+  result: ADTMechEquipmentToolPowerDrill
+  completetime: 5
+  materials:
+    Steel: 1000
+    Glass: 300
+    Plasma: 300
+    Silver: 200

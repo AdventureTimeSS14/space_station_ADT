@@ -19,3 +19,4 @@ research-technology-mech-energy-gun-small = Легкое энергооружи�
 research-technology-mech-energy-gun-heavy = Тяжелое энергооружие меха
 research-technology-mech-gun-small = Легкое оружие меха
 research-technology-mech-gun-heavy = Тяжелое оружие меха
+research-technology-mech-archimedes = Архимед

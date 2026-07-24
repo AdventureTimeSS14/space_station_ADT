@@ -42,7 +42,36 @@
   - ADTOdysseusPeripheralsElectronics
   position: 2,0
   requiredTech:
-  - ADTClarkeTechnology
+  - ADTArchimedesTechnology
+
+- type: technology
+  id: ADTArchimedesTechnology
+  name: research-technology-mech-archimedes
+  icon:
+    sprite: Objects/Specific/Mech/mecha.rsi
+    state: archimedes
+  discipline: Mech
+  tier: 2
+  cost: 12500
+  recipeUnlocks:
+  - ADTArchimedesHarness
+  - ADTArchimedesLArm
+  - ADTArchimedesRArm
+  - ADTArchimedesLLeg
+  - ADTArchimedesRLeg
+  - ADTArchimedesCentralElectronics
+  - ADTArchimedesPeripheralsElectronics
+  - ADTMechEquipmentToolWelder
+  - ADTMechEquipmentToolWirecutter
+  - ADTMechEquipmentToolScrewdriver
+  - ADTMechEquipmentToolWrench
+  - ADTMechEquipmentToolCrowbar
+  - ADTMechEquipmentToolWelderExperimental
+  - ADTMechEquipmentToolJawsOfLife
+  - ADTMechEquipmentToolPowerDrill
+  position: 1,1
+  requiredTech:
+  - RipleyAPLU
 
 # - type: technology
 #   id: ADTMedgunTechnology

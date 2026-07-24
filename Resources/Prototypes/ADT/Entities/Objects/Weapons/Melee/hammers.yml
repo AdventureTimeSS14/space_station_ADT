@@ -1,0 +1,41 @@
+- type: entity
+  parent: BaseItem
+  id: ADTWeaponHammerImprovised
+  name: improvised hammer
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/improvised_hammer.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 0.75
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 12.5
+        Structural: 12.5
+    soundHit:
+      collection: MetalThud
+    angle: 0
+    animation: WeaponArcThrust
+    range: 1.6
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 12.5
+        Structural: 12.5
+  - type: Item
+    size: Ginormous
+    sprite: ADT/Objects/Weapons/Melee/improvised_hammer.rsi
+  - type: MeleeThrowOnHit
+    speed: 10
+    distance: 5
+  - type: FlipOnHit
+  - type: Wieldable
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/improvised_hammer.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+  - type: Construction
+    graph: ADTWeaponHammerImprovised
+    node: hammer
