@@ -1,6 +1,6 @@
 - type: entity
   id: XenobioVolatileOrgan
-  parent: [ OrganHumanHeart, BasePowerCell ]
+  parent: [ OrganBaseHeart, BasePowerCell ]
   name: volatile organ
   description: A pulsating mass of slime, it seems to react to nearby devices.
   suffix: Full

@@ -23,7 +23,9 @@ public partial class XenobiologySystem
     private void SubscribeBreeding()
     {
         SubscribeLocalEvent<PendingSlimeSpawnComponent, MapInitEvent>(OnPendingSlimeMapInit);
+        SubscribeLocalEvent<PendingSlimeSpawnComponent, ComponentShutdown>(OnPendingSlimeShutdown);
         SubscribeLocalEvent<SlimeComponent, MapInitEvent>(OnSlimeMapInit);
+        SubscribeLocalEvent<SlimeComponent, ComponentShutdown>(OnSlimeShutdown);
     }
 
     private void OnPendingSlimeMapInit(Entity<PendingSlimeSpawnComponent> ent, ref MapInitEvent args)
@@ -39,6 +41,29 @@ public partial class XenobiologySystem
         s.MaxOffspring += _random.Next(-1, 2);
         s.ExtractsProduced += _random.Next(0, 2);
         s.MitosisHunger *= _random.NextFloat(0.75f, 1.2f);
+        ent.Comp.SpawnedSlime = slime.Value.Owner;
+    }
+
+    private void OnPendingSlimeShutdown(Entity<PendingSlimeSpawnComponent> ent, ref ComponentShutdown args)
+    {
+        if (_net.IsClient)
+            return;
+
+        if (ent.Comp.SpawnedSlime is { } spawnedSlime && Exists(spawnedSlime))
+        {
+            QueueDel(spawnedSlime);
+        }
+    }
+
+    private void OnSlimeShutdown(Entity<SlimeComponent> ent, ref ComponentShutdown args)
+    {
+        if (_net.IsClient)
+            return;
+
+        if (ent.Comp.Stomach.ContainedEntities.Count > 0)
+        {
+            _containerSystem.EmptyContainer(ent.Comp.Stomach);
+        }
     }
 
     private void OnSlimeMapInit(Entity<SlimeComponent> ent, ref MapInitEvent args)

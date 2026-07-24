@@ -8,4 +8,5 @@ public sealed partial class PendingSlimeSpawnComponent : Component
 {
     [DataField] public EntProtoId BasePrototype = "MobSlimeXenobioBaby";
     [DataField] public ProtoId<BreedPrototype> Breed = "GreyMutation";
+    [DataField] public EntityUid? SpawnedSlime;
 }
