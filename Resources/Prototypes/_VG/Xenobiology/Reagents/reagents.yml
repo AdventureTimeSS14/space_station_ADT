@@ -20,7 +20,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: Slime
+          type: [ Slime ]
           inverted: true
         - !type:MobStateCondition
           mobstate: Critical
@@ -30,18 +30,18 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: Slime
+          type: [ Slime ]
           inverted: true
         damage:
           types:
             Bloodloss: -7
-    Narcotic:
+    Bloodstream:
       metabolismRate: 0.1
       effects:
       - !type:GenericStatusEffect
         conditions:
         - !type:MetabolizerTypeCondition
-          type: Slime
+          type: [ Slime ]
           inverted: true
         key: SeeingRainbow
         component: SeeingRainbow
@@ -50,13 +50,13 @@
       - !type:GenericStatusEffect
         conditions:
         - !type:MetabolizerTypeCondition
-          type: Slime
+          type: [ Slime ]
           inverted: true
         key: Drunk
         component: Drunk
         time: 5
         type: Add
-    Poison:
+    Bloodstream:
       metabolismRate: 0.1
       effects:
       - !type:PopupMessage
@@ -65,7 +65,7 @@
           type: Yowie
           inverted: true
         - !type:MetabolizerTypeCondition
-          type: Slime
+          type: [ Slime ]
           inverted: true
         type: Local
         visualType: Small
@@ -77,7 +77,7 @@
           type: Yowie
           inverted: true
         - !type:MetabolizerTypeCondition
-          type: Slime
+          type: [ Slime ]
           inverted: true
         key: Drowsiness
         component: Drowsiness
@@ -252,8 +252,6 @@
         speciesBlacklist:
         - Skeleton
         - IPC
-        - Cyborg
-        - Shadowling
         conditions:
         - !type:ReagentCondition
           reagent: AdvancedMutationToxin

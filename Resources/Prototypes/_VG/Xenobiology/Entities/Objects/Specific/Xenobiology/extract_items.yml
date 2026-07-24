@@ -47,15 +47,7 @@
 #      Damaged: 9
 #      Destroyed: 0
   - type: Metabolizer
-    maxPoisonsProcessable: 2
-    metabolizerTypes: []
-    groups:
-    - id: Medicine
-      rateModifier: 0.4
-    - id: Poison
-      rateModifier: 4.0
-    - id: Narcotic
-      rateModifier: 0.55
+    metabolizerTypes: [ Slime ]
   - type: Tag
     tags:
     - PowerCell

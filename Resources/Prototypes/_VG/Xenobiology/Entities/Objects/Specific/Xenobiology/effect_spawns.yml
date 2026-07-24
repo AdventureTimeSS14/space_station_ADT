@@ -25,8 +25,9 @@
     drawdepth: WallMountedItems
   - type: Clickable
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Slime
+  - type: Injurable
+    damageContainer: Biological
   - type: Destructible
     thresholds:
     - trigger:

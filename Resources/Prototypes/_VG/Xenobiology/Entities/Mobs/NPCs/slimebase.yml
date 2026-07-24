@@ -7,7 +7,7 @@
   components:
   - type: Appearance
   - type: Hunger
-    LastAuthoritativeHungerValue: 40
+    lastAuthoritativeHungerValue: 40
     thresholds:
       Overfed: 150
       Okay: 75
@@ -120,7 +120,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Burn: 5
+        Blunt: 5
     animation: WeaponArcPunch
     soundHit: /Audio/Weapons/punch3.ogg
   - type: InteractionPopup

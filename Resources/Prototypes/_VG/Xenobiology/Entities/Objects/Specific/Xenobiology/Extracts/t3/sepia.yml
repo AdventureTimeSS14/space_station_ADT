@@ -21,7 +21,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:AdjustReagent
-        reagent: Tilenol
+        reagent: Blood
         amount: 100
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]

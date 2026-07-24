@@ -139,8 +139,6 @@
     - ResearchDirector
     - BasicSilicon
     - Borg
-    targetTags:
-    - XenoSlime
   - type: Sprite
     sprite: Structures/Wallmounts/turret_controls.rsi
     layers:
