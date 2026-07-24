@@ -13,5 +13,5 @@ public sealed partial class ADTBulletDeflectComponent : Component
     public LocId Popup = "adt-bullet-deflected";
 
     [DataField]
-    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Weapons/Guns/Hits/bullet_sizzle.ogg");
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Weapons/Guns/Hits/laser_sear_wall.ogg");
 }
