@@ -1,0 +1,12 @@
+ent-PolymorphAshJauntAnimation = { ent-PolymorphShadowJauntAnimation }
+    .desc = { ent-PolymorphShadowJauntAnimation.desc }
+    .suffix = Эффект, Полиморф, Пепел, Начало
+ent-PolymorphAshJauntEndAnimation = { ent-PolymorphShadowJauntAnimation }
+    .desc = { ent-PolymorphShadowJauntAnimation.desc }
+    .suffix = Эффект, Полиморф, Пепел, Конец
+ent-PolymorphAshJaunt = { ent-PolymorphShadowJauntAnimation }
+    .desc = { ent-PolymorphShadowJauntAnimation.desc }
+    .suffix = Эффект, Полиморф, Пепел
+ent-MobHereticFleshAscend = мясная куча
+    .desc = Непонятная путаница конечностей и глаз. Вы чувствуете, как оно смотрит вам в душу.
+    .suffix = НЕ МАППИТЬ
