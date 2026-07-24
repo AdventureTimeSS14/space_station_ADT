@@ -35,7 +35,6 @@
         damage:
           types:
             Bloodloss: -7
-      metabolismRate: 0.1
       effects:
       - !type:GenericStatusEffect
         conditions:
@@ -55,7 +54,6 @@
         component: Drunk
         time: 5
         type: Add
-      metabolismRate: 0.1
       effects:
       - !type:PopupMessage
         conditions:
