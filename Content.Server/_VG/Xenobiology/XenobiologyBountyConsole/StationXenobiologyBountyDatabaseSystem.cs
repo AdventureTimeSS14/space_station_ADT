@@ -18,7 +18,7 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
     [Dependency] private readonly XenobiologyBountyConsoleSystem _xenoConsole = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private static readonly ProtoId<NameIdentifierGroupPrototype> BountyNameIdentifierGroup = "Bounty";
+    private static readonly ProtoId<NameIdentifierGroupPrototype> BountyNameIdentifierGroup = "Xenobounty";
 
     public override void Initialize()
     {
