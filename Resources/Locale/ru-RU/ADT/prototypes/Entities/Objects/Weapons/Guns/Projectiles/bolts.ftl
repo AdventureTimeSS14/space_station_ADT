@@ -1,0 +1,16 @@
+ent-BaseArrow = { ent-BaseItem }
+    .desc = { ent-BaseItem.desc }
+ent-ADTBoltRegular = болт
+    .desc = Вы чувствуете в себе силу охотника.
+ent-ADTBoltImprovisedSteel = болт из стали
+    .desc = Арбалетный болт с куском стали в качестве наконечника.
+ent-ADTBoltImprovisedPlasteel = болт из пластали
+    .desc = Арбалетный болт с куском пластали в качестве наконечника.
+ent-ADTBoltImprovisedBrass = болт из латуни
+    .desc = Арбалетный болт с куском латуни в качестве наконечника.
+ent-ADTBoltImprovisedSilver = болт из серебра
+    .desc = Арбалетный болт с куском серебра в качестве наконечника. Наносит святой урон.
+ent-ADTBoltImprovisedUranium = болт из урана
+    .desc = Арбалетный болт с куском урана в качестве наконечника. Наносит урон радиацией.
+ent-ADTBoltImprovisedBScrystal = болт из блюспейс кристалла
+    .desc = Арбалетный болт с блюспейс кристаллом в качестве наконечника. Телепортирует цель при попадании.

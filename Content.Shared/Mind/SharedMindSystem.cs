@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.ADT.Mind; // ADT-Tweak - Thunderdome
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Emoting;
@@ -621,6 +622,14 @@ public abstract partial class SharedMindSystem : EntitySystem
             // the player has to be alive
             if (!TryGetMind(uid, out var mind, out var mindComp) || mind == exclude || !_mobState.IsAlive(uid, mobState))
                 continue;
+
+            // ADT-Tweak-start - Thunderdome: selection blocker event
+            var blockEv = new GetAntagSelectionBlockerEvent();
+            RaiseLocalEvent(uid, ref blockEv);
+
+            if (blockEv.Blocked)
+                continue;
+            // ADT-Tweak-end
 
             allHumans.Add((mind, mindComp));
         }

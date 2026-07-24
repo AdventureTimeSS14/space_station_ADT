@@ -109,6 +109,7 @@
     tags:
     - Trash
   - type: SpaceGarbage
+  - type: Dumpable #ADT-Tweak
 
 - type: entity
   parent: [Matchbox, BaseSyndicateContraband]

@@ -165,3 +165,99 @@
   targetNode: ADTBoneCompBattleaxe
   category: construction-category-weapons
   objectType: Item
+
+- type: construction
+  id: ADTWeaponHammerImprovised
+  graph: ADTWeaponHammerImprovised
+  startNode: start
+  targetNode: hammer
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTWeaponAxeImprovised
+  graph: ADTWeaponAxeImprovised
+  startNode: start
+  targetNode: axe
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTWeaponCrossbowImprovised
+  graph: ADTWeaponCrossbowImprovised
+  startNode: start
+  targetNode: crossbow
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTBaseBallBatNails
+  graph: ADTBaseBallBatNails
+  startNode: start
+  targetNode: nailsbat
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTShellShotgunSlugImprovised
+  graph: ADTShellShotgunSlugImprovised
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTSawImprovised
+  graph: ADTSawImprovised
+  startNode: start
+  targetNode: saw
+  category: construction-category-tools
+  objectType: Item
+
+- type: construction
+  id: ADTBoltImprovisedSteel
+  graph: ADTBoltImprovisedSteel
+  startNode: start
+  targetNode: ADTBoltImprovisedSteel
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTBoltImprovisedPlasteel
+  graph: ADTBoltImprovisedPlasteel
+  startNode: start
+  targetNode: ADTBoltImprovisedPlasteel
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTBoltImprovisedBrass
+  graph: ADTBoltImprovisedBrass
+  startNode: start
+  targetNode: ADTBoltImprovisedBrass
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTBoltImprovisedSilver
+  graph: ADTBoltImprovisedSilver
+  startNode: start
+  targetNode: ADTBoltImprovisedSilver
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTBoltImprovisedUranium
+  graph: ADTBoltImprovisedUranium
+  startNode: start
+  targetNode: ADTBoltImprovisedUranium
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTBoltImprovisedBScrystal
+  graph: ADTBoltImprovisedBScrystal
+  startNode: start
+  targetNode: ADTBoltImprovisedBScrystal
+  category: construction-category-weapons
+  objectType: Item

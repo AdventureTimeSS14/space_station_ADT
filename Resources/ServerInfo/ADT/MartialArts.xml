@@ -266,16 +266,16 @@
 
   - [bold]Проход в ноги[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"]
   <Box>
-  Роняет человека на пол, оглушая на [color=Orange]1 секунду[/color], нанося [color=Red]5[/color] Blunt-урона и НЕ выбивая вещи из рук.
+  Роняет человека на пол, не давая встать [color=Orange]3 секунды[/color], нанося [color=Red]5[/color] Blunt-урона и НЕ выбивая вещи из рук.
   </Box>
 
   - [bold]Боевой захват[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"]
   <Box>
   Работает исключительно на лежачих противниках.
-  Пинает человека, наносит [color=Cyan]55[/color] урона по выносливости и [color=Red]10[/color] Blunt-урона.
+  Пинает человека, наносит [color=Cyan]55[/color] урона по выносливости и [color=Red]5[/color] Blunt-урона.
   </Box>
 
-  - [bold]Вдавливание глаз[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"]
+  - [bold]Вдавливание глаз[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="harm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"]
   <Box>
   Наносит [color=Red]8[/color] Piercing-урона и [color=Red]2[/color] урона глазам, ослепляя на [color=Orange]10 секунд[/color]. Вылечить повреждение глаз можно только с помощью окулина.
   </Box>

@@ -134,9 +134,9 @@
     - type: Vocal
       wilhelm: "/Audio/ADT/Felinid/cat_wilhelm.ogg"
       sounds:
-        Male: MaleFelinid
-        Female: FemaleFelinid
-        Unsexed: MaleFelinid
+        Male: ADTMaleTajaran
+        Female: ADTFemaleTajaran
+        Unsexed: ADTMaleTajaran
     - type: TypingIndicator
       proto: ADTtajaran
     - type: LanguageSpeaker

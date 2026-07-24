@@ -344,6 +344,9 @@
       - id: RifleStock
       - id: ModularReceiver
       - id: HydroponicsToolScythe
+      #ADT-Tweak-Start
+      - id: ADTBaseBallBatNails
+      #ADT-Tweak-End
     # Rare Group
     - !type:GroupSelector
       weight: 5
@@ -357,13 +360,16 @@
         weight: 2
       - id: Syringe
       - id: Mousetrap
+      #ADT-Tweak-Start
+      - id: ADTWeaponHammerImprovised
+      - id: ADTWeaponCrossbowImprovised
+      #ADT-Tweak-End
       - !type:GroupSelector
         weight: 2
         children:
         - id: Brutepack1
         - id: Ointment1
         - id: Gauze1
-      - id: ADTGoldBaseBallBat #ADT tweak
       - id: Bola
       - id: SurvivalKnife
       - id: ScalpelShiv
@@ -371,6 +377,10 @@
       - id: SawImprov
       - id: HydroponicsToolMiniHoe
       - id: ClothingHandsKnuckleDusters
+      #ADT-Tweak-Start
+      - id: ADTGoldBaseBallBat
+      - id: ADTWeaponAxeImprovised
+      #ADT-Tweak-End
       - !type:NestedSelector
         tableId: AllToyWeaponsTable
 

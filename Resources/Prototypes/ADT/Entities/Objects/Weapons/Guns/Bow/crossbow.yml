@@ -1,0 +1,65 @@
+- type: entity
+  parent: [BaseItem, BaseMinorContraband]
+  id: ADTWeaponCrossbowImprovised
+  name: improvised crossbow
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Bow/crossbow.rsi
+    layers:
+    - state: crossbow
+      map: [ base ]
+    - state: bolt
+      map: [ bolt ]
+      visible: false
+    - state: plunger
+      map: [ plunger ]
+      visible: false
+  - type: Item
+    size: Normal
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Bow/crossbow.rsi
+    quickEquip: false
+    slots:
+      - suitStorage
+  - type: Appearance
+  - type: Gun
+    minAngle: 0
+    maxAngle: 5
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: BulletMiss
+    soundEmpty: null
+  - type: ItemMapper
+    spriteLayers:
+    - bolt
+    - plunger
+    mapLayers:
+      bolt:
+        whitelist:
+          tags:
+          - ADTBolt
+      plunger:
+        whitelist:
+          tags:
+          - Plunger
+  - type: ContainerContainer
+    containers:
+      projectiles: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      projectiles:
+        name: Projectiles
+        startingItem: null
+        insertSound: /Audio/Items/bow_pull.ogg
+        whitelist:
+          tags:
+          - ADTBolt
+          - Plunger
+  - type: ContainerAmmoProvider
+    container: projectiles
+  - type: Construction
+    graph: ADTWeaponCrossbowImprovised
+    node: crossbow
