@@ -23,7 +23,13 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<StationXenobiologyBountyDatabaseComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<StationXenobiologyBountyDatabaseComponent, MapInitEvent>(OnMapInit);
+    }
+
+    private void OnComponentInit(Entity<StationXenobiologyBountyDatabaseComponent> database, ref ComponentInit args)
+    {
+        database.Comp.Bounties.Clear();
     }
 
     private void OnMapInit(Entity<StationXenobiologyBountyDatabaseComponent> database, ref MapInitEvent args)
