@@ -97,23 +97,3 @@
         doAfter: 0.5
   - node: ADTBoltImprovisedUranium
     entity: ADTBoltImprovisedUranium
-
-- type: constructionGraph
-  id: ADTBoltImprovisedBScrystal
-  start: start
-  graph:
-  - node: start
-    edges:
-    - to: ADTBoltImprovisedBScrystal
-      steps:
-      - material: Plastic
-        amount: 1
-        doAfter: 0.5
-      - material: MetalRod
-        amount: 2
-        doAfter: 0.5
-      - material: ADTBScrystal
-        amount: 1
-        doAfter: 0.5
-  - node: ADTBoltImprovisedBScrystal
-    entity: ADTBoltImprovisedBScrystal

@@ -299,6 +299,8 @@
       Unsexed: UnisexArachnid
   - type: TypingIndicator
     proto: spider
+  - type: NightVision # ADT-Tweak
+    innate: true
 
 - type: entity
   id: MobSpiderSpaceSalvage

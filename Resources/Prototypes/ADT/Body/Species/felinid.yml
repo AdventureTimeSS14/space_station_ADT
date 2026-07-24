@@ -154,6 +154,8 @@
     - DoorBumpOpener
     - AnomalyHost
     - ADTCatEmotes
+  - type: NightVision
+    innate: true
 
 - type: entity
   parent: OrganHumanTorso

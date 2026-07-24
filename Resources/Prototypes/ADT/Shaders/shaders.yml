@@ -1,4 +1,4 @@
-# Simple Station
+﻿# Simple Station
 - type: shader
   id: ColorTint
   kind: source
@@ -13,3 +13,71 @@
   id: SandevistanVision
   kind: source
   path: "/Textures/ADT/Shaders/sandevistan_vision.swsl"
+
+# Starlight port: night / thermal vision overlays
+- type: shader
+  id: ADTModernNightVisionShader
+  kind: source
+  path: "/Textures/ADT/Shaders/night.swsl"
+  params:
+    NightVisionBoost: 1.0
+    NightVisionThreshold: 0.15
+    BlueTintIntensity: 0.3
+
+- type: shader
+  id: ADTModernNightVisionShaderStrong
+  kind: source
+  path: "/Textures/ADT/Shaders/night.swsl"
+  params:
+    NightVisionBoost: 1.4
+    NightVisionThreshold: 0.2
+    BlueTintIntensity: 0.275
+
+- type: shader
+  id: ADTThermalVisionScreenShader
+  kind: source
+  path: "/Textures/ADT/Shaders/thermal-screen.swsl"
+  params:
+    ThermalBoost: 1.5
+    ThermalIntensity: 1
+    ThermalAlpha: 1
+
+- type: shader
+  id: ADTThermalVisionScreenShaderHalfAlpha
+  kind: source
+  path: "/Textures/ADT/Shaders/thermal-screen.swsl"
+  params:
+    ThermalBoost: 1.5
+    ThermalIntensity: 1
+    ThermalAlpha: 0.5
+
+- type: shader
+  id: ADTBrightnessShader
+  kind: source
+  path: "/Textures/ADT/Shaders/brightness.swsl"
+  params:
+    brightness: 1.5
+
+- type: shader
+  id: ADTThermalGasVisibilityShader
+  kind: source
+  path: "/Textures/ADT/Shaders/thermal_gas_visibility.swsl"
+
+- type: shader
+  id: ADTNightVisionDeviceShader
+  kind: source
+  path: "/Textures/ADT/Shaders/night_vision_device.swsl"
+  params:
+    Gain: 2.4
+    TotalLighting: 0.0
+    WhiteoutThreshold: 0.32
+    WhiteoutIntensity: 2.8
+    BloomRadius: 16.0
+    BloomStrength: 0.85
+    CenterClearRadius: 72.0
+    CenterClearSoftness: 40.0
+    NoiseAmplitude: 0.06
+    FlickerStrength: 0.02
+    GrainSize: 2.0
+    DefectIntensity: 1.0
+    ScanlineDark: 0.55
