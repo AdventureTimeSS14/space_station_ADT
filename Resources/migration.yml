@@ -997,3 +997,8 @@ ADTRNDInducer: null
 ADTRNDInducerBattery: null
 ADTCrateNecropolisMegaCellMedium: null
 
+# ADT 2026-07-24: Удаление старых органов таяров
+OrganTajaranFootRight: null
+OrganTajaranHead: null
+OrganTajaranLegLeft: null
+OrganTajaranTorso: null

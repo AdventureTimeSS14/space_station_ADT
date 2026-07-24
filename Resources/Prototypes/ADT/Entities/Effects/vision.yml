@@ -1,0 +1,46 @@
+# Starlight port — personal light attached while NV / thermal overlay is active
+- type: entity
+  id: ADTEffectNightVision
+  categories: [ HideSpawnMenu ]
+  name: night vision
+  components:
+  - type: PointLight
+    color: "#D6E4FF"
+    energy: 0.4
+    radius: 10
+    softness: 20
+
+# Stronger personal light for Tajaran innate NV
+- type: entity
+  id: ADTEffectNightVisionTajaran
+  categories: [ HideSpawnMenu ]
+  name: night vision
+  components:
+  - type: PointLight
+    color: "#D6E4FF"
+    energy: 0.6
+    radius: 13
+    softness: 18
+
+# Device NVD (ПНВ) — wider personal light while goggles are active
+- type: entity
+  id: ADTEffectNightVisionDevice
+  categories: [ HideSpawnMenu ]
+  name: night vision device
+  components:
+  - type: PointLight
+    color: "#D6E4FF"
+    energy: 0.4
+    radius: 30
+    softness: 20
+
+- type: entity
+  id: ADTEffectThermalVision
+  categories: [ HideSpawnMenu ]
+  name: thermal vision
+  components:
+  - type: PointLight
+    color: "#FFE4D6"
+    energy: 1.8
+    radius: 20
+    softness: 20
