@@ -100,6 +100,6 @@ public sealed class WeatherSchedulerSystem : EntitySystem
         // ADT-Tweak-Start
         var entry = comp.Stages[stage];
         return entry.Weather != null || entry.Variants.Count > 0;
-        // ADT-Tweak-Start
+        // ADT-Tweak-End
     }
 }
