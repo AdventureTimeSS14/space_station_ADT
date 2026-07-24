@@ -10,7 +10,6 @@
       color: "#005c33"
       shader: XenoMetallic
   - type: Reactive
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -18,7 +17,7 @@
       - !type:MakeUnreactiveEntityEffect
       - !type:CreateGas
         gas: Healium
-        multiplier: 55
+        moles: 55
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]

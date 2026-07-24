@@ -9,7 +9,6 @@
       state: core
       color: "#4dff4d"
   - type: Reactive
-    oneUnitReaction: true
     reactions:
     - reagents: [ Radium ]
       methods: [ Touch, Injection ]

@@ -9,7 +9,6 @@
       state: core
       color: "#2A52BE"
   - type: Reactive
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -22,7 +21,7 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateGas
         gas: Pluoxium
-        multiplier: 55
+        moles: 55
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:

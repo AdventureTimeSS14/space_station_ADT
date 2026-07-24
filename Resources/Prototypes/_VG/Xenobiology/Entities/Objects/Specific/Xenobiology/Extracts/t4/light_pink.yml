@@ -9,7 +9,6 @@
       state: core
       color: "#ffb3ec"
   - type: Reactive
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -54,7 +53,6 @@
         frequency: 20
       - !type:ScrambleNearbyEffect
         radius: 3
-        delay: 3
   - type: Tag
     tags:
     - XenobiologyLightPinkExtract

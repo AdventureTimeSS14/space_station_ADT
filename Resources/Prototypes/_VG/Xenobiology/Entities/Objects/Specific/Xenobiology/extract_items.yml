@@ -31,24 +31,24 @@
       reagents:
       - ReagentId: Slime
         Quantity: 15
-  - type: Organ
-    onAdd:
-    - type: LightningArcShooter
-      arcDepth: 1
-      maxLightningArc: 3
-      shootMinInterval: 90
-      shootMaxInterval: 300
-      shootRange: 5
-      lightningPrototype: Lightning
-    intCap: 32
-    integrity: 32
-    integrityThresholds:
-      Normal: 32
-      Damaged: 9
-      Destroyed: 0
+#  - type: Organ
+#    onAdd:
+#    - type: LightningArcShooter
+#      arcDepth: 1
+#      maxLightningArc: 3
+#      shootMinInterval: 90
+#      shootMaxInterval: 300
+#      shootRange: 5
+#      lightningPrototype: Lightning
+#    intCap: 32
+#    integrity: 32
+#    integrityThresholds:
+#      Normal: 32
+#      Damaged: 9
+#      Destroyed: 0
   - type: Metabolizer
     maxPoisonsProcessable: 2
-    metabolizerTypes: [ Cybernetic ]
+    metabolizerTypes: []
     groups:
     - id: Medicine
       rateModifier: 0.4
@@ -59,7 +59,6 @@
   - type: Tag
     tags:
     - PowerCell
-    - DroneUsable
     - Organ
 
 - type: entity
@@ -75,6 +74,7 @@
   - type: Item
     size: Normal
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: DamageOnHighSpeedImpact
     minimumSpeed: 0.1

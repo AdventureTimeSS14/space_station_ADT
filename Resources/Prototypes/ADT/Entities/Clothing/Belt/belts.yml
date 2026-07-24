@@ -537,8 +537,6 @@
       - Syringe
       - Dropper
       components:
-      - SyringeGun
-      - SurgeryTool
       - SolutionTransfer
       - SlimeExtract
 

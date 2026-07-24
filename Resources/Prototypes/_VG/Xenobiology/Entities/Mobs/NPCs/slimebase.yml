@@ -7,7 +7,7 @@
   components:
   - type: Appearance
   - type: Hunger
-    startingHunger: 40
+    LastAuthoritativeHungerValue: 40
     thresholds:
       Overfed: 150
       Okay: 75
@@ -69,11 +69,14 @@
         Asphyxiation: -1.0
     maxSaturation: 15
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Slime
+  - type: Injurable
+    damageContainer: Biological
   - type: Bloodstream
-    bloodReagent: Slime
-    smokeImmune: true  #No more 50000 slime extracts midshift
+    bloodReferenceSolution:
+       reagents:
+       - ReagentId: Slime
+         Quantity: 300
     bloodlossDamage:
       types:
         Bloodloss:
@@ -99,7 +102,7 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
+        ignoreResistances: true
         damage:
           types:
             Caustic: 5
@@ -116,7 +119,7 @@
         - id: OrganSlimePersonLungs
   - type: MeleeWeapon
     damage:
-      groups:
+      types:
         Burn: 5
     animation: WeaponArcPunch
     soundHit: /Audio/Weapons/punch3.ogg

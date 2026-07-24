@@ -10,7 +10,6 @@
       color: "#f0f8ff"
       shader: XenoBluespace
   - type: Reactive
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -34,7 +33,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        entity: MaterialBSCrystal1
+        entity: ADTMaterialBSCrystal1
         number: 5
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]

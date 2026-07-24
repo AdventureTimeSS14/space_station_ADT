@@ -10,7 +10,6 @@
       color: "#c4c4c4"
       shader: XenoMetallic
   - type: Reactive
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -26,7 +25,6 @@
         frequency: 20
       - !type:AreaReactionEffect
         duration: 10
-        delay: 5
         prototypeId: AluminiumMetalFoam
         sound:
           path: /Audio/Effects/extinguish.ogg

@@ -10,7 +10,6 @@
       color: "#704214"
       shader: XenoSepia
   - type: Reactive
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]

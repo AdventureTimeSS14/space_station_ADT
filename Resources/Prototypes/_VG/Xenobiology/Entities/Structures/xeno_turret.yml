@@ -37,8 +37,6 @@
     - StationAi
     - BasicSilicon
     - Borg
-    targetTags:
-    - XenoSlime
   - type: Sprite
     sprite: _VG/Objects/Weapons/Guns/Turrets/science_turret.rsi
     layers:

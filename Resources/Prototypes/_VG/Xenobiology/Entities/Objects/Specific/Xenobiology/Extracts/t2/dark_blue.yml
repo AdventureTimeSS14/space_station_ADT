@@ -9,7 +9,6 @@
       state: core
       color: "#1e8cfa"
   - type: Reactive
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -34,7 +33,7 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateGas
         gas: Frezon
-        multiplier: 35
+        moles: 35
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:

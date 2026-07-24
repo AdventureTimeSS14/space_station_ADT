@@ -14,7 +14,7 @@
   desc: xenobio-reagent-slime-toxin-desc
   color: "#3CB371"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.1
       effects:
       - !type:HealthChange
@@ -91,7 +91,7 @@
   desc: xenobio-reagent-jelly-purple-desc
   color: "#BF77F6"
   metabolisms:
-    Food:
+    Digestion:
       metabolismRate: 1
       effects:
       - !type:ModifySlimeComponent
@@ -108,7 +108,7 @@
   desc: xenobio-reagent-jelly-blue-desc
   color: "#79F6FC"
   metabolisms:
-    Food:
+    Digestion:
       metabolismRate: 1
       effects:
       - !type:ModifySlimeComponent
@@ -125,7 +125,7 @@
   desc: xenobio-reagent-jelly-darkblue-desc
   color: "#1E8CFA"
   metabolisms:
-    Food:
+    Digestion:
       metabolismRate: 1
       effects:
       - !type:GenericStatusEffect
@@ -146,7 +146,7 @@
   desc: xenobio-reagent-jelly-cerulean-desc
   color: "#2A52BE"
   metabolisms:
-    Food:
+    Digestion:
       metabolismRate: 1
       effects:
       - !type:ModifySlimeComponent
@@ -163,7 +163,7 @@
   desc: xenobio-reagent-jelly-red-desc
   color: "#FF3333"
   metabolisms:
-    Food:
+    Digestion:
       metabolismRate: 1
       effects:
       - !type:ModifySlimeComponent
@@ -180,7 +180,7 @@
   desc: xenobio-reagent-jelly-green-desc
   color: "#4DFF4D"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 5
       effects:
       - !type:SpeciesChange
@@ -204,7 +204,7 @@
   desc: xenobio-reagent-toxin-human-desc
   color: "#000000"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 5
       effects:
       - !type:SpeciesChange
@@ -228,7 +228,7 @@
   desc: xenobio-reagent-jelly-pink-desc
   color: "#FF4DD2"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 1
       effects:
       - !type:ChangeFactionEntityEffect
@@ -245,7 +245,7 @@
   desc: xenobio-reagent-toxin-advanced-desc
   color: "#000000"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 5
       effects:
       - !type:RandomSpeciesChange
@@ -273,7 +273,7 @@
   desc: xenobio-reagent-toxin-felinid-desc
   color: "#000000"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 5
       effects:
       - !type:SpeciesChange
@@ -297,7 +297,7 @@
   desc: xenobio-reagent-genderfluid-desc
   color: "#FF4DD2"
   metabolisms:
-    Narcotic:
+    Bloodstream:
       metabolismRate: 1
       effects:
       - !type:SexChange
