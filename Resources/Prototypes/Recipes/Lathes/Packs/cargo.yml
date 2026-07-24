@@ -24,6 +24,10 @@
   - MineralScannerEmpty
   - AdvancedMineralScannerEmpty
   - OreBagOfHolding
+  # ADT tweak start
+  - ADTResonator
+  - ADTResonatorUpgraded
+  # ADT tweak end
 
 - type: latheRecipePack
   id: CargoBoards
