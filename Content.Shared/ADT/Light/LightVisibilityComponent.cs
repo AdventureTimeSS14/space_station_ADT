@@ -12,6 +12,12 @@ public sealed partial class LightVisibilityComponent : Component
     public float MaxLight = 0.005f;
 
     [DataField, AutoNetworkedField]
+    public float MinAlpha = 0f;
+
+    [DataField, AutoNetworkedField]
+    public float MaxAlpha = 1f;
+
+    [DataField, AutoNetworkedField]
     public float EdgeSoftness = 0.007f;
 
     [DataField, AutoNetworkedField]

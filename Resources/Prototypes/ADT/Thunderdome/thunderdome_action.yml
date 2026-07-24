@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseAction
+  id: ActionThunderdomeLeave
+  name: Покинуть колизей
+  description: Вернуться в наблюдатели.
+  components:
+  - type: Action
+    useDelay: 5
+    icon: { sprite: Actions/Implants/implants.rsi, state: explosive }
+  - type: InstantAction
+    event: !type:ThunderdomeLeaveActionEvent
