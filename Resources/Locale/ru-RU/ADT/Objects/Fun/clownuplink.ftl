@@ -9,7 +9,7 @@ uplink-clown-implanter-name = Хонк-имплант
 uplink-clown-honkbot-name = Абсолютная власть
 
 uplink-clown-present-name = Подарок
-uplink-clown-present-desc = Там может быть какая-та игрушка или музыкальный инструмент!
+uplink-clown-present-desc = Там может быть какая-то игрушка или музыкальный инструмент!
 
 uplink-clown-duffel-name = Вещмешок с костюмом клоуна
 uplink-clown-duffel-desc = Вещмешок, содержащий полный набор клоуна, включая клоунский КПК и карту. Вы можете сделать армию клоунов!
