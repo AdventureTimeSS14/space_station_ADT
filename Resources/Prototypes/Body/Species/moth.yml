@@ -1,4 +1,4 @@
-﻿- type: markingsGroup
+- type: markingsGroup
   parent: Undergarments
   id: Moth
   onlyGroupWhitelisted: true
@@ -211,6 +211,8 @@
       tallscale: 1
       short: true
       shortscale: 0.85
+    - type: NightVision
+      innate: true
   # ADT-tweak-end
 
 - type: entity
