@@ -1,4 +1,3 @@
-using Content.Server.Gatherable;
 using Content.Server.Gatherable.Components;
 using Content.Shared.ADT.Mining;
 using Content.Shared.Popups;
