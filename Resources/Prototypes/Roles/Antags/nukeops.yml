@@ -90,7 +90,7 @@
     eyes: ClothingEyesHudSyndicate #ADT tweak
     back: ClothingBackpackDuffelSyndicate
     neck: SyndicateWhistle
-    pocket1: ADTSyndicateCommanderVoucher
+    pocket1: ADTSyndicateCommanderVoucher #ADT-Tweak
     pocket2: ADTCommanderUplinkRadio40TC #ADT-Tweak
     # outerClothing: ClothingOuterHardsuitSyndieCommander #ADT tweak
   inhand:
