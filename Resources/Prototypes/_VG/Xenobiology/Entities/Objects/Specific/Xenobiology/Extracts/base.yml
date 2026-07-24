@@ -16,7 +16,7 @@
   - type: SolutionContainerManager
     solutions:
       extract:
-        maxVol: 100
+        maxVol: 15
   - type: InjectableSolution
     solution: extract
   - type: DrawableSolution

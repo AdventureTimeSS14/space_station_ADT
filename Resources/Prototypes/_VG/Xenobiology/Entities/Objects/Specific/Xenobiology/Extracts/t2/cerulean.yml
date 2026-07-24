@@ -42,9 +42,12 @@
         messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:AdjustReagent
-        reagent: XenobioJellyCerulean
-        amount: 1
+      - !type:ConvertReagent
+        solutionName: extract
+        removeReagent: Blood
+        addReagent: XenobioJellyCerulean
+        removeAmount: 1
+        addAmount: 1
   - type: Tag
     tags:
     - XenobiologyCeruleanExtract

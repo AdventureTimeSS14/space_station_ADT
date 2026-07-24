@@ -20,9 +20,12 @@
         messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:AdjustReagent
-        reagent: Blood
-        amount: 100
+      - !type:ConvertReagent
+        solutionName: extract
+        removeReagent: Water
+        addReagent: Blood
+        removeAmount: 1
+        addAmount: 1
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:

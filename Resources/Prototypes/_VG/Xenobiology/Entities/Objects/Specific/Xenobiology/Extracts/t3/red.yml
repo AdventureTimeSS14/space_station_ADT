@@ -31,9 +31,12 @@
         messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:AdjustReagent
-        reagent: XenobioJellyRed
-        amount: 1
+      - !type:ConvertReagent
+        solutionName: extract
+        removeReagent: Plasma
+        addReagent: XenobioJellyRed
+        removeAmount: 1
+        addAmount: 1
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:

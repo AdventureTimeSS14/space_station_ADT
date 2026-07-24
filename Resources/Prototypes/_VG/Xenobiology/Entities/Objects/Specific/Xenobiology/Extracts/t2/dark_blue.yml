@@ -43,9 +43,12 @@
         messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:AdjustReagent
-        reagent: Leporazine
-        amount: 30
+      - !type:ConvertReagent
+        solutionName: extract
+        removeReagent: Blood
+        addReagent: Leporazine
+        removeAmount: 1
+        addAmount: 1
   - type: Tag
     tags:
     - XenobiologyDarkBlueExtract

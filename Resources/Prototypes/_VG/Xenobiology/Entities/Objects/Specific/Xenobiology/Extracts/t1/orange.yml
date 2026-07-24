@@ -52,9 +52,12 @@
         messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:AdjustReagent
-        reagent: CapsaicinOil
-        amount: 30
+      - !type:ConvertReagent
+        solutionName: extract
+        removeReagent: Blood
+        addReagent: CapsaicinOil
+        removeAmount: 1
+        addAmount: 1
   - type: Tag
     tags:
     - XenobiologyOrangeExtract

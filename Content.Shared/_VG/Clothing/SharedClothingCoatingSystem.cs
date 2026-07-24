@@ -4,10 +4,12 @@ using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared._VG.Clothing;
 using System.Text;
+using System.Linq;
 
 namespace Content.Shared._VG.Clothing.Systems;
 
-public sealed partial class SharedClothingCoatingSystem : EntitySystem
+[Virtual]
+public partial class SharedClothingCoatingSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
@@ -22,7 +24,7 @@ public sealed partial class SharedClothingCoatingSystem : EntitySystem
     private void OnAfterInteract(Entity<ClothingCoatingComponent> ent, ref AfterInteractEvent args)
     {
         if (!args.Target.HasValue
-            || !TryComp<ClothingComponent>(args.Target, out var clothing))
+        || !TryComp<ClothingComponent>(args.Target, out var clothing))
             return;
 
         var target = args.Target.Value;
@@ -39,16 +41,10 @@ public sealed partial class SharedClothingCoatingSystem : EntitySystem
 
     private void OnExamined(Entity<CoatedClothingComponent> ent, ref ExaminedEvent args)
     {
-        if (ent.Comp.CoatingNames.Count == 0)
-            return;
+        var coatingNames = ent.Comp.CoatingNames
+            .Select(name => Loc.GetString(name));
 
-        var sb = new StringBuilder();
-        for (int i = 0; i < ent.Comp.CoatingNames.Count; i++)
-        {
-            sb.Append(Loc.GetString(ent.Comp.CoatingNames[i]));
-            if (i < ent.Comp.CoatingNames.Count - 1)
-                sb.Append(", ");
-        }
-        args.PushMarkup(Loc.GetString("clothing-coating-inspect", ("coatings", sb.ToString())));
+        var coatings = string.Join(", ", coatingNames);
+        args.PushMarkup(Loc.GetString("clothing-coating-inspect", ("coatings", coatings)));
     }
 }

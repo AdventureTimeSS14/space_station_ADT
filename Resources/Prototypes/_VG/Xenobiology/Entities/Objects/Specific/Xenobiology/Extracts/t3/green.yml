@@ -19,9 +19,12 @@
         messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:AdjustReagent
-        reagent: XenobioFelinidToxin # EVIL
-        amount: 10
+      - !type:ConvertReagent
+        solutionName: extract
+        removeReagent: Radium
+        addReagent: XenobioFelinidToxin
+        removeAmount: 1
+        addAmount: 1
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -31,9 +34,12 @@
         messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:AdjustReagent
-        reagent: XenobioJellyGreen
-        amount: 10
+      - !type:ConvertReagent
+        solutionName: extract
+        removeReagent: Plasma
+        addReagent: XenobioJellyGreen
+        removeAmount: 1
+        addAmount: 1
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -43,9 +49,12 @@
         messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:AdjustReagent
-        reagent: XenobioHumanToxin
-        amount: 10
+      - !type:ConvertReagent
+        solutionName: extract
+        removeReagent: Plasma
+        addReagent: XenobioHumanToxin
+        removeAmount: 1
+        addAmount: 1
   - type: Tag
     tags:
     - XenobiologyGreenExtract

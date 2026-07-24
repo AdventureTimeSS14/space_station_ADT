@@ -66,6 +66,5 @@
    <GuideEntityEmbed Entity="ComputerScienceXenobiologyBounty" Caption="Консоль ксенобиологических заказов"/>
    <GuideEntityEmbed Entity="ClothingBackpackXenoBioTankFilled" Caption="Ксено-контейнер"/>
    <GuideEntityEmbed Entity="WeaponXenoVacNozzle" Caption="Слаймопушка"/>
-   <GuideEntityEmbed Entity="SlimeScannerXenobio" Caption="Сканер слаймов"/>
   </Box>
 </Document>
