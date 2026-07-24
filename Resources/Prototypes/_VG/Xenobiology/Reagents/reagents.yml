@@ -35,7 +35,6 @@
         damage:
           types:
             Bloodloss: -7
-      effects:
       - !type:GenericStatusEffect
         conditions:
         - !type:MetabolizerTypeCondition
@@ -54,12 +53,8 @@
         component: Drunk
         time: 5
         type: Add
-      effects:
       - !type:PopupMessage
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: Yowie
-          inverted: true
         - !type:MetabolizerTypeCondition
           type: [ Slime ]
           inverted: true
@@ -69,9 +64,6 @@
         probability: 0.1
       - !type:GenericStatusEffect
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: Yowie
-          inverted: true
         - !type:MetabolizerTypeCondition
           type: [ Slime ]
           inverted: true
