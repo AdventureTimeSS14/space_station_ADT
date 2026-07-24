@@ -110,13 +110,13 @@
         type: Local
         messages: [ "slime-hurt-by-water-popup" ]
         probability: 0.25
-  - type: Body
-  - type: EntityTableContainerFill
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganSlimePersonCore
-        - id: OrganSlimePersonLungs
+#  - type: Body
+#  - type: EntityTableContainerFill
+#    containers:
+#      body_organs: !type:AllSelector
+#        children:
+#        - id: OrganSlimePersonCore
+#        - id: OrganSlimePersonLungs
   - type: MeleeWeapon
     damage:
       types:
