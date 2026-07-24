@@ -473,7 +473,7 @@
   - type: SpaceGarbage
   - type: Currency
     price:
-      TrashBananaPeel: 1
+      TrashBananaPeel: 2
   - type: Edible
     requiresSpecialDigestion: true
   - type: Clothing
@@ -509,7 +509,7 @@
           Quantity: 2
   - type: Currency
     price:
-      TrashBananaPeel: 2
+      TrashBananaPeel: 3
 
 - type: entity
   parent: TrashBananaPeel
@@ -532,7 +532,7 @@
         volume: -100
   - type: Currency
     price:
-      TrashBananaPeel: 4
+      TrashBananaPeel: 5
 
 - type: entity
   parent: TrashBananaPeel
@@ -551,7 +551,7 @@
     equippedPrefix: peel
       - type: Currency
     price:
-      TrashBananaPeel: 5
+      TrashBananaPeel: 7
 
 - type: entity
   name: carrot
