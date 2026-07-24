@@ -1,0 +1,119 @@
+﻿- type: constructionGraph
+  id: ADTBoltImprovisedSteel
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTBoltImprovisedSteel
+      steps:
+      - material: Plastic
+        amount: 1
+        doAfter: 0.5
+      - material: MetalRod
+        amount: 2
+        doAfter: 0.5
+      - material: Steel
+        amount: 1
+        doAfter: 0.5
+  - node: ADTBoltImprovisedSteel
+    entity: ADTBoltImprovisedSteel
+
+- type: constructionGraph
+  id: ADTBoltImprovisedPlasteel
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTBoltImprovisedPlasteel
+      steps:
+      - material: Plastic
+        amount: 1
+        doAfter: 0.5
+      - material: MetalRod
+        amount: 2
+        doAfter: 0.5
+      - material: Plasteel
+        amount: 1
+        doAfter: 0.5
+  - node: ADTBoltImprovisedPlasteel
+    entity: ADTBoltImprovisedPlasteel
+
+- type: constructionGraph
+  id: ADTBoltImprovisedBrass
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTBoltImprovisedBrass
+      steps:
+      - material: Plastic
+        amount: 1
+        doAfter: 0.5
+      - material: MetalRod
+        amount: 2
+        doAfter: 0.5
+      - material: Brass
+        amount: 1
+        doAfter: 0.5
+  - node: ADTBoltImprovisedBrass
+    entity: ADTBoltImprovisedBrass
+
+- type: constructionGraph
+  id: ADTBoltImprovisedSilver
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTBoltImprovisedSilver
+      steps:
+      - material: Plastic
+        amount: 1
+        doAfter: 0.5
+      - material: MetalRod
+        amount: 2
+        doAfter: 0.5
+      - material: Silver
+        amount: 1
+        doAfter: 0.5
+  - node: ADTBoltImprovisedSilver
+    entity: ADTBoltImprovisedSilver
+
+- type: constructionGraph
+  id: ADTBoltImprovisedUranium
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTBoltImprovisedUranium
+      steps:
+      - material: Plastic
+        amount: 1
+        doAfter: 0.5
+      - material: MetalRod
+        amount: 2
+        doAfter: 0.5
+      - material: Uranium
+        amount: 1
+        doAfter: 0.5
+  - node: ADTBoltImprovisedUranium
+    entity: ADTBoltImprovisedUranium
+
+- type: constructionGraph
+  id: ADTBoltImprovisedBScrystal
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTBoltImprovisedBScrystal
+      steps:
+      - material: Plastic
+        amount: 1
+        doAfter: 0.5
+      - material: MetalRod
+        amount: 2
+        doAfter: 0.5
+      - material: ADTBScrystal
+        amount: 1
+        doAfter: 0.5
+  - node: ADTBoltImprovisedBScrystal
+    entity: ADTBoltImprovisedBScrystal

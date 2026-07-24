@@ -108,32 +108,32 @@
   recipes:
   - BoxBeanbag
   - BoxShotgunIncendiary
-  - BoxShotgunUranium
+  # - BoxShotgunUranium # ADT-Tweak - вырезан крафт урановых патронов
   - BoxShellTranquilizer
   - MagazineBoxLightRifleIncendiary
-  - MagazineBoxLightRifleUranium
+  # - MagazineBoxLightRifleUranium # ADT-Tweak - вырезан крафт урановых патронов
   - MagazineBoxMagnumIncendiary
-  - MagazineBoxMagnumUranium
+  # - MagazineBoxMagnumUranium # ADT-Tweak - вырезан крафт урановых патронов
   - ADTMagazineBoxMagnumLesserIncendiary # ADT tweak
-  - ADTMagazineBoxMagnumLesserUranium # ADT tweak
+  # - ADTMagazineBoxMagnumLesserUranium # ADT tweak # ADT-Tweak - вырезан крафт урановых патронов
   - MagazineBoxPistolIncendiary
-  - MagazineBoxPistolUranium
+  # - MagazineBoxPistolUranium # ADT-Tweak - вырезан крафт урановых патронов
   - MagazineBoxRifleIncendiary
-  - MagazineBoxRifleUranium
+  # - MagazineBoxRifleUranium # ADT-Tweak - вырезан крафт урановых патронов
   - MagazineLightRifleIncendiary
-  - MagazineLightRifleUranium
+  # - MagazineLightRifleUranium # ADT-Tweak - вырезан крафт урановых патронов
   - MagazinePistolIncendiary
-  - MagazinePistolUranium
+  # - MagazinePistolUranium # ADT-Tweak - вырезан крафт урановых патронов
   - MagazinePistolSubMachineGunIncendiary
-  - MagazinePistolSubMachineGunUranium
+  # - MagazinePistolSubMachineGunUranium # ADT-Tweak - вырезан крафт урановых патронов
   - MagazineRifleIncendiary
-  - MagazineRifleUranium
+  # - MagazineRifleUranium # ADT-Tweak - вырезан крафт урановых патронов
   - MagazineShotgunBeanbag
   - MagazineShotgunIncendiary
   - SpeedLoaderMagnumIncendiary
-  - SpeedLoaderMagnumUranium
+  # - SpeedLoaderMagnumUranium # ADT-Tweak - вырезан крафт урановых патронов
   - ADTSpeedLoaderMagnumLesserIncendiary # ADT tweak
-  - ADTSpeedLoaderMagnumLesserUranium # ADT tweak
+  # - ADTSpeedLoaderMagnumLesserUranium # ADT tweak # ADT-Tweak - вырезан крафт урановых патронов
 
 - type: latheRecipePack
   id: SecurityWeapons

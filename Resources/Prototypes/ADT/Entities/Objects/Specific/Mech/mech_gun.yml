@@ -119,7 +119,11 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanMechAmmoProvider
     proto: RedHeavyLaser
-    fireCost: 30
+    fireCost: 11
+  - type: Tag
+    tags:
+    - ADTMechEquipmentSec
+    - ADTMechEquipmentScience
   # - type: Battery
   #   maxCharge: 60
   #   startingCharge: 60

@@ -130,6 +130,7 @@
         shader: unshaded
   - type: PointLight
     color: "#fff7cd"
+    radius: 5
   - type: Armor
     modifiers:
       coefficients:
@@ -266,7 +267,7 @@
   #   color: cyan
   - type: PointLight
     color: "#c53dff"
-    #radius: 1.1
+    radius: 10
     energy: 6
   - type: PressureProtection
     highPressureMultiplier: 0.08

@@ -24,8 +24,8 @@
     netsync: false
   - type: ApcPowerReceiverBattery
     idleLoad: 65
-    batteryRechargeRate: 30
-    batteryRechargeEfficiency: 1.0
+    batteryRechargeRate: 21 # 30 > 21
+    batteryRechargeEfficiency: 0.7 # 1.0 > 0.7
   - type: ApcPowerReceiver
     powerLoad: 65
   - type: ExtensionCableReceiver

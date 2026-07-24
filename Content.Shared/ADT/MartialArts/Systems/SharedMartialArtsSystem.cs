@@ -70,6 +70,9 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.CombatMode;
+using Content.Shared.Gravity;
+using Content.Shared.Throwing;
 
 namespace Content.Shared.ADT.MartialArts;
 
@@ -109,6 +112,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly SharedGravitySystem _gravity = default!;
 
     public static readonly EntProtoId MartsGenericSlow = "MartialArtsGenericSlowdownEffect";
 

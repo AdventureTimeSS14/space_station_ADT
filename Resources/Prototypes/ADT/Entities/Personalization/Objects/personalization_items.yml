@@ -3930,5 +3930,9 @@
     damage:
       types:
         Piercing: 12
+  - type: ThrowingAngle
+    angle: 245
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
 
 #SPONSOR-ITEMS-END

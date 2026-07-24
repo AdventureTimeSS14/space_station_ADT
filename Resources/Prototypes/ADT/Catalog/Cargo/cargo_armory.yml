@@ -7,3 +7,13 @@
   cost: 7500
   category: cargoproduct-category-name-armory
   group: market
+
+- type: cargoProduct
+  id: ADTArmoryLaserPistol
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/Battery/sec_laser_pistol.rsi
+    state: icon
+  product: ADTCrateArmoryLaserPistol
+  cost: 3800
+  category: cargoproduct-category-name-armory
+  group: market

@@ -1,3 +1,4 @@
+using Content.Server.ADT.Blob.GameTicking;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
@@ -33,6 +34,7 @@ public sealed partial class AdminVerbSystem
     private static readonly EntProtoId ParadoxCloneRuleId = "ParadoxCloneSpawn";
     static readonly EntProtoId DefaultWizardRule = "Wizard";
     private static readonly EntProtoId DefaultNinjaRule = "NinjaSpawn";
+    private static readonly EntProtoId DefaultBlobRule = "BlobGameMode"; // ADT-tweak
     private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
 
     // All antag verbs have names so invokeverb works.
@@ -241,5 +243,22 @@ public sealed partial class AdminVerbSystem
 
         if (HasComp<HumanoidProfileComponent>(args.Target)) // only humanoids can be cloned
             args.Verbs.Add(paradox);
+
+        // ADT-Tweak start
+        var blobName = Loc.GetString("admin-verb-text-make-blob");
+        Verb blob = new()
+        {
+            Text = blobName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/ADT/Blob/Actions/blob.rsi"), "blobToCore"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<BlobRuleComponent>(targetPlayer, DefaultBlobRule);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", blobName, Loc.GetString("admin-verb-make-blob")),
+        };
+        args.Verbs.Add(blob);
+        // ADT-Tweak end
     }
 }

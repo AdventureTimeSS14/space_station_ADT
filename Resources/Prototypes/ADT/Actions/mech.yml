@@ -98,3 +98,18 @@
     useDelay: 2
   - type: InstantAction
     event: !type:MechPhazeEvent
+
+- type: entity
+  id: ADTActionMechThruster
+  name: Toggle jet
+  description: Полётный режим. В полёте расходуется топливо.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_thrusters_on
+    useDelay: 2
+  - type: InstantAction
+    event: !type:MechThrusterEvent

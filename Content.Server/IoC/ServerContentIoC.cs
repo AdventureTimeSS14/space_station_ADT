@@ -2,6 +2,7 @@ using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Notes;
+using Content.Server.ADT.Antag;
 using Content.Server.ADT.Discord.Bans;
 using Content.Server.ADT.Export;
 using Content.Server.Afk;
@@ -93,6 +94,7 @@ internal static class ServerContentIoC
         IoCManager.Register<IDiscordBanInfoSender, DiscordBanInfoSender>(); //ADT Tweak: логи банов для диса
         IoCManager.Register<ExportManager>(); // ADT Export
         IoCManager.Register<ServerDiscordIdManager>(); // ADT Discord
+        IoCManager.Register<AntagRollBonusManager>(); // ADT Antag roll bonus
         IoCManager.Register<SponsorsManager>(); // Corvax-Sponsors
         IoCManager.Register<JoinQueueManager>(); // Corvax-Queue
         deps.Register<ServerFeedbackManager>();

@@ -182,6 +182,7 @@
     - id: ADTPosterCalendarNT
     - id: ADTPosterLegitObjection
     - id: ADTPosterStandard # Спрайт от мяукало
+    - id: ADTPosterVLM # с блюмуна
     #ADT tweak ^^^
     - id: PosterLegitOppenhopper
     - id: PosterLegitTyrone

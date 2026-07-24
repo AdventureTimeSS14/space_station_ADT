@@ -85,37 +85,33 @@ public partial class ChatBox : UIWidget
     public void Repopulate()
     {
         // ADT-Tweak start
-        foreach (var child in Contents.Children.Cast<Control>().ToArray())
-        {
-            if (child.Name != "_v_scroll")
-            {
-                Contents.RemoveChild(child);
-            }
-        }
+        _controller.MessageAdded -= OnMessageAdded;
+
+        Contents.Clear();
         // ADT-Tweak end
 
         foreach (var message in _controller.History)
         {
             OnMessageAdded(message.Item2);
         }
+
+        _controller.MessageAdded += OnMessageAdded; // ADT-Tweak 
     }
 
     private void OnChannelFilter(ChatChannel channel, bool active)
     {
         // ADT-Tweak start
-        foreach (var child in Contents.Children.Cast<Control>().ToArray())
-        {
-            if (child.Name != "_v_scroll")
-            {
-                Contents.RemoveChild(child);
-            }
-        }
+        _controller.MessageAdded -= OnMessageAdded;
+
+        Contents.Clear();
         // ADT-Tweak end
 
         foreach (var message in _controller.History)
         {
             OnMessageAdded(message.Item2);
         }
+
+        _controller.MessageAdded += OnMessageAdded; // ADT-Tweak 
 
         if (active)
         {

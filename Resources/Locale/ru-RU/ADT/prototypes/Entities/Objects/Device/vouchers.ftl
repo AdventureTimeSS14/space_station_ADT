@@ -12,3 +12,19 @@ ent-ADTCCCVoucher = РВИ "Честность"
 
 ent-ADTSyndicateShoesVoucher = странная коробочка
     .desc = Странная чёрная коробка. Глядя на неё, вы ощущаете неопределённость.
+
+ent-ADTSecVoucher = РВИ "Рой"
+    .suffix = { "СБ" }
+    .desc = Радиальный Выборочный Интерфейс - Устройство для транспортировки новейших прототипов оружия прямо на место службы.
+
+ent-ADTSyndicateVoucher = РВИ "Вирус"
+    .suffix = { "ЯО" }
+    .desc = Радиальный Выборочный Интерфейс - Украденная технология у NanoTrasen, адаптированная под защищенные каналы поставок Синдиката.
+
+ent-ADTSyndicateCommanderVoucher = РВИ "Чума"
+    .suffix = { "ЯО" }
+    .desc = { ent-ADTSyndicateVoucher.desc }
+
+ent-ADTSyndicateMedicVoucher = РВИ "Мор"
+    .suffix = { "ЯО" }
+    .desc = { ent-ADTSyndicateVoucher.desc }

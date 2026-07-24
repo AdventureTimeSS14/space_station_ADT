@@ -3,7 +3,7 @@
   name: species-name-tajaran
   roundStart: true
   prototype: MobTajaran
-  dollPrototype: AppearanceTajaran
+  dollPrototype: ADTAppearanceTajaran
   skinColoration: Hues
   shortDesc: species-short-desc-tajaran
   maleFirstNames: firstMaleTajaran

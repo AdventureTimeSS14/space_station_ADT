@@ -51,5 +51,19 @@
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
 
+- type: gamePreset
+  id: Blob
+  alias:
+    - blob
+    - blab
+  name: blob-title
+  description: blob-description
+  showInVote: false
+  rules:
+    - BlobGameMode
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - BasicRoundstartVariation
+    - CrewTransferScheduler #ADT tweak
 
 

@@ -5,3 +5,9 @@
   - type: StationPlanetSpawner
     planet: Lavaland
     gridPath: /Maps/ADTMaps/Nonstation/lavaland_outpost.yml
+
+- type: entity
+  abstract: true
+  id: BaseDropPodTarget
+  components:
+    - type: DropPodTargetStation

@@ -101,3 +101,21 @@ shoes-voucher-no-sound-description =
     Бесшумные ботинки-хамелеоны
 
     Ботинки-хамелеоны с особой подошвой, позволяющие передвигаться бесшумно.
+
+syndicate-voucher-hardsuit-name = кроваво-красный скафандр
+syndicate-voucher-hardsuit-description = Тяжелобронированный скафандр, предназначенный для специальных операций. Собственность Мародёров Горлекса.
+
+syndicate-voucher-mod-name = МОД "Синдикат"
+syndicate-voucher-mod-description = Костюм, разработанный "Gorlex Marauders", предлагающий броню, признанную незаконной в большинстве секторов.
+
+syndicate-commander-voucher-hardsuit-name = скафандр командира Синдиката
+syndicate-commander-voucher-hardsuit-description = Усиленная версия кроваво-красного скафандра, предназначенная для командиров оперативных отрядов Синдиката. Броня значительно усилена для ведения смертоносных боёв на передовой.
+
+syndicate-medic-voucher-hardsuit-name = кроваво-красный медицинский скафандр
+syndicate-medic-voucher-hardsuit-description = Тяжелобронированный и манёвренный продвинутый скафандр, предназначенный для полевых медицинских операций.
+
+sec-voucher-mk58-name = МК 58
+sec-voucher-mk58-description = Дешёвый и распространённый пистолет, производимый дочерней компанией Nanotrasen. Использует патроны калибра 9х19 мм.
+
+sec-voucher-laser-name = лазерный пистолет
+sec-voucher-laser-description = Дешёвый и широко распространённый лазерный пистолет, производимый дочерней компанией Nanotrasen. При долгом использовании может нагреваться.

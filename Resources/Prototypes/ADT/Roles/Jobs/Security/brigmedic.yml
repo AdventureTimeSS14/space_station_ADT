@@ -40,7 +40,7 @@
   id: BrigmedicGear
   equipment:
     ears: ClothingHeadsetBrigmedic
-    pocket1: WeaponPistolMk58
+    pocket1: ADTSecVoucher #ADT-Tweak
   storage:
     back:
     - Flash

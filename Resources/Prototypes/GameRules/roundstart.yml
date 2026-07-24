@@ -155,7 +155,7 @@
   - type: GameRule
     minPlayers: 20
   - type: LoadMapRule
-    mapPath: /Maps/Nonstations/nukieplanet.yml
+    mapPath: /Maps/ADTMaps/Nonstation/nukeplanet_adt.yml # ADT-Tweak
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
     definitions:
