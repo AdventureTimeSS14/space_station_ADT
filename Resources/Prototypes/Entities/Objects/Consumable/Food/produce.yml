@@ -550,7 +550,7 @@
     sprite: Objects/Materials/materials.rsi
     equippedPrefix: peel
   - type: Currency
-    git push origin clownuplink-cleanprice:
+    price:
       TrashBananaPeel: 7
 
 - type: entity
