@@ -52,6 +52,10 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
         if (!Resolve(database, ref database.Comp))
             return;
 
+        database.Comp.Bounties.Clear();
+        database.Comp.CheckedBounties.Clear();
+        database.Comp.History.Clear();
+
         var bounties = _proto.EnumeratePrototypes<XenobiologyBountyPrototype>();
         foreach (var bounty in bounties)
             TryAddBounty(database, bounty);
