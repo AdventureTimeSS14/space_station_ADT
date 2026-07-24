@@ -84,7 +84,7 @@
 #Nuclear Operative Commander Gear
 - type: startingGear
   id: SyndicateCommanderGearFull
-  parent: SyndicateOperativeGearFullNoUplink
+  parent: SyndicateOperativeGearFullNoUplink # ADT-Tweak
   equipment:
     id: SyndiCommanderPDA
     eyes: ClothingEyesHudSyndicate #ADT tweak
