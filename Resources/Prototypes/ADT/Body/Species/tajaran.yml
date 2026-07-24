@@ -158,6 +158,10 @@
       - DoorBumpOpener
       - AnomalyHost
       - ADTCatEmotes
+    - type: NightVision
+      innate: true
+      shader: ADTModernNightVisionShaderStrong
+      effectPrototype: ADTEffectNightVisionTajaran
 
 - type: entity
   parent: OrganBaseOrganic
