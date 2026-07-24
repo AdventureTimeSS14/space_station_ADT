@@ -1,0 +1,40 @@
+- type: entity
+  id: ADTWallRockAncient
+  parent: WallRockBasalt
+  name: ancient rock
+  description: A rare and dense rock that appears to be resistant to every mining tool except a pickaxe.
+  suffix: Ancient, planetmap
+  components:
+  - type: ADTHardRock
+  - type: Sprite
+    color: "#575757"
+  - type: Icon
+    color: "#575757"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  id: ADTWallRockAncientUranium
+  parent: ADTWallRockAncient
+  description: An ancient rock vein rich with uranium.
+  suffix: Ancient, Uranium
+  components:
+  - type: OreVein
+    oreChance: 0.5
+    currentOre: OreUranium
+
+- type: entity
+  id: ADTWallRockAncientDiamond
+  parent: ADTWallRockAncient
+  description: An ancient rock vein rich with diamonds.
+  suffix: Ancient, Diamond
+  components:
+  - type: OreVein
+    oreChance: 0.35
+    currentOre: OreDiamond
