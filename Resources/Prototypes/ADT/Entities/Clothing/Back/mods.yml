@@ -654,6 +654,23 @@
       - ADTModsuitModTray
       - ADTModsuitModIsulation
       - ADTModsuitModRadiationProtection
+    requiresBattery: false
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+  - type: StealTarget
+    stealGroup: ClothingOuterHardsuitRd
 
 # ЭС "Харон"
 - type: entity
