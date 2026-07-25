@@ -75,10 +75,16 @@ public sealed class ADTWispLanternSystem : EntitySystem
         _follower.StartFollowingEntity(wisp, user);
         ent.Comp.Wisp = wisp;
 
-        if (!HasComp<NightVisionComponent>(user))
+        if (!TryComp<NightVisionComponent>(user, out var nvComp))
         {
             EnsureComp<NightVisionComponent>(user);
             ent.Comp.GrantedVision = true;
+            ent.Comp.WasVisionActive = false;
+        }
+        else
+        {
+            ent.Comp.GrantedVision = false;
+            ent.Comp.WasVisionActive = nvComp.State != NightVisionState.Off;
         }
 
         _nightVision.SetActive(user, true);
@@ -99,15 +105,21 @@ public sealed class ADTWispLanternSystem : EntitySystem
 
         if (ent.Comp.User is { } user && !TerminatingOrDeleted(user))
         {
-            _nightVision.SetActive(user, false);
-
             if (ent.Comp.GrantedVision)
+            {
+                _nightVision.SetActive(user, false);
                 RemComp<NightVisionComponent>(user);
+            }
+            else
+            {
+                _nightVision.SetActive(user, ent.Comp.WasVisionActive);
+            }
 
             _popup.PopupEntity(Loc.GetString("adt-wisp-lantern-return", ("lantern", ent.Owner)), user, user);
         }
 
         ent.Comp.GrantedVision = false;
+        ent.Comp.WasVisionActive = false;
         ent.Comp.Released = false;
         ent.Comp.User = null;
 
