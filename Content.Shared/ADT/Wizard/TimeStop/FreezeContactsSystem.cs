@@ -31,8 +31,6 @@ public sealed class FreezeContactsSystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
-    private static readonly ProtoId<TagPrototype> FrozenIgnoreMindActionTag = "FrozenIgnoreMindAction";
-
     private const string ProjectileFixture = "projectile";
 
     public override void Initialize()
@@ -219,7 +217,7 @@ public sealed class FreezeContactsSystem : EntitySystem
             return;
         }
 
-        if (IsImmune(otherUid) || TryComp(otherUid, out GuardianSharedComponent? guardian) && IsImmune(guardian.Host))
+        if (TryComp(otherUid, out GuardianSharedComponent? guardian) && IsImmune(guardian.Host))
             return;
 
         EnsureComp<FrozenComponent>(otherUid).FreezeTime = despawn.Lifetime;
@@ -241,7 +239,7 @@ public sealed class FreezeContactsSystem : EntitySystem
 
         bool IsImmune(EntityUid entity)
         {
-            return _actions.GetActions(entity).Any(e => _tag.HasTag(e.Owner, FrozenIgnoreMindActionTag));
+            return false;
         }
     }
 

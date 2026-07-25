@@ -23,7 +23,6 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/Effects/Wizard/warudo.ogg
-      radius: 7
   - type: Physics
     bodyType: Static
   - type: Fixtures
