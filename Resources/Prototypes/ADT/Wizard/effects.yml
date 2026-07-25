@@ -1,6 +1,7 @@
 - type: entity
-  id: EffectDesynchronizer
-  categories: [ HideSpawnMenu ]
+  id: Chronofield
+  name: chronofield
+  description: ZA WARUDO!
   components:
   - type: TimedDespawn
     lifetime: 10
@@ -8,21 +9,21 @@
     color: "#FFFFFF80"
     drawdepth: Effects
     offset: 0, 0.5
-    snapCardinals: false
     noRot: true
+    snapCardinals: false
     layers:
       - shader: unshaded
         sprite: ADT/Wizard/Effects/effects160x160.rsi
         state: time
-  - type: EmitSoundOnSpawn
-    sound:
-      path: /Audio/Effects/Wizard/warudo.ogg
-      radius: 7
   - type: AnimationPlayer
   - type: FreezeContacts
   - type: GravPulseOnMapInit # This is required to trigger physics collision
     maxRange: 2
     baseRadialAcceleration: 0.01
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Effects/Wizard/warudo.ogg
+      radius: 7
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -39,6 +40,3 @@
         - LowImpassable
         - BulletImpassable
         - BlobImpassable
-  - type: Tag
-    tags:
-    - HideContextMenu
