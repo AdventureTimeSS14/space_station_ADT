@@ -33,7 +33,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        entity: ADTMaterialBScrystal
+        entity: ADTMaterialBScrystal1
         number: 5
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
