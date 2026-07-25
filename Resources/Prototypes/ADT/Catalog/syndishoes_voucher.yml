@@ -57,3 +57,23 @@
     state: icon
   content:
   - ClothingOuterHardsuitSyndieMedic
+
+- type: thiefBackpackSet
+  id: ADTDeathSquadHardsuitSet
+  name: deathsquad-voucher-hardsuit-name
+  description: deathsquad-voucher-hardsuit-description
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitDeathsquad
+
+- type: thiefBackpackSet
+  id: ADTCharonModSet
+  name: deathsquad-voucher-mod-name
+  description: deathsquad-voucher-mod-description
+  sprite:
+    sprite: ADT/Clothing/Back/Modsuit/charon.rsi
+    state: icon
+  content:
+  - ADTClothingModsuitBackCharon

@@ -655,6 +655,50 @@
       - ADTModsuitModIsulation
       - ADTModsuitModRadiationProtection
 
+# ЭС "Харон"
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackCharon
+  name: liberation MOD control unit "Charon"
+  description: An advanced combat suit favored by commandos for use in special operations.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/charon.rsi
+    state: icon
+  - type: ModSuit
+    maxComplexity: 20
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitCharon
+      gloves: ADTClothingHandsModsuitCharon
+      outerClothing: ADTClothingOuterModsuitBodyCharon
+      shoes: ADTClothingModsuitShoesCharon
+    startingModules:
+      - ADTModsuitModStorageBluespace
+      - ADTModsuitModLight
+      - ADTModsuitModEmpProtection
+      - ADTModsuitModNoslip
+      - ADTModsuitModStun
+      - ADTModsuitModJetpack
+      - ADTModsuitModIsulation
+      - ADTModsuitModNightVision
+    requiresBattery: false
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+
 - type: entity
   parent: ADTClothingModsuitBackBase
   id: ADTClothingModsuitBackAncient

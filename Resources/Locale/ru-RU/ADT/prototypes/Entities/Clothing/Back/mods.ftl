@@ -66,6 +66,9 @@ ent-ADTClothingModsuitBackAncient = МОД "Гладиатор"
 ent-ADTClothingModsuitBackMinerva = МОД "Минерва"
     .desc = Высокотехнологичный исследовательский костюм от Nakamura Engineering, созданный для полевой работы научного руководителя.
 
+ent-ADTClothingModsuitBackCharon = МОД "Харон"
+    .desc = Продвинутый боевой костюм, излюбленный коммандос для использования в специальных операциях.
+
 # Понятие не имею где прописать части мода. Пропишу тут
 
 ent-ADTActionToggleMODPiece = Переключить элементы MOD
@@ -117,6 +120,8 @@ ent-ADTClothingHeadHelmetModsuitAncient= шлем МОДа "Гладиатор"
     .desc = Шлем от МОДа.
 ent-ADTClothingHeadHelmetModsuitMinerva = шлем МОДа "Минерва"
     .desc = Шлем от МОДа.
+ent-ADTClothingHeadHelmetModsuitCharon = шлем МОДа "Харон"
+    .desc = Шлем от МОДа.
 
 # Оболочка
 ent-ADTClothingOuterModsuitBodyBase = оболочка МОДа "Базовый"
@@ -165,6 +170,8 @@ ent-ADTClothingOuterModsuitBodyAncient = оболочка МОДа "Гладиа
     .desc = Базовая оболочка от МОДа.
 ent-ADTClothingOuterModsuitBodyMinerva = оболочка МОДа "Минерва"
     .desc = Базовая оболочка от МОДа.
+ent-ADTClothingOuterModsuitBodyCharon = оболочка МОДа "Харон"
+    .desc = Базовая оболочка от МОДа.
 
 # Ботинки
 ent-ADTClothingModsuitShoesBase = ботинки МОДа "Базовый"
@@ -209,6 +216,8 @@ ent-ADTClothingModsuitShoesBrigmedic = ботинки МОДа "Ангел-Хр�
 ent-ADTClothingModsuitShoesAncient = ботинки МОДа "Гладиатор"
     .desc = Базовые ботинки от МОДа.
 ent-ADTClothingModsuitShoesMinerva = ботинки МОДа "Минерва"
+    .desc = Базовые ботинки от МОДа.
+ent-ADTClothingModsuitShoesCharon = ботинки МОДа "Харон"
     .desc = Базовые ботинки от МОДа.
 
 # Перчатки
@@ -257,4 +266,6 @@ ent-ADTClothingHandsModsuitBrigmedic = перчатки МОДа "Ангел-Х�
 ent-ADTClothingHandsModsuitAncient = перчатки МОДа "Гладиатор"
     .desc = Базовые перчатки от МОДа.
 ent-ADTClothingHandsModsuitMinerva = перчатки МОДа "Минерва"
+    .desc = Базовые перчатки от МОДа.
+ent-ADTClothingHandsModsuitCharon = перчатки МОДа "Харон"
     .desc = Базовые перчатки от МОДа.

@@ -28,3 +28,7 @@ ent-ADTSyndicateCommanderVoucher = РВИ "Чума"
 ent-ADTSyndicateMedicVoucher = РВИ "Мор"
     .suffix = { "ЯО" }
     .desc = { ent-ADTSyndicateVoucher.desc }
+
+ent-ADTDeathSquadVoucher = РВИ "Стикс"
+    .suffix = { "ЭС" }
+    .desc = Радиальный Выборочный Интерфейс - Устройство для транспортировки новейших прототипов оружия прямо на место службы.

@@ -119,3 +119,8 @@ sec-voucher-mk58-description = Дешёвый и распространённы�
 
 sec-voucher-laser-name = лазерный пистолет
 sec-voucher-laser-description = Дешёвый и широко распространённый лазерный пистолет, производимый дочерней компанией Nanotrasen. При долгом использовании может нагреваться.
+
+deathsquad-voucher-hardsuit-name = скафандр Эскадрона Смерти
+deathsquad-voucher-hardsuit-description = Продвинутый скафандр, используемый в специальных операциях. 
+deathsquad-voucher-mod-name = МОД "Харон"
+deathsquad-voucher-mod-description = Продвинутый боевой костюм для специальных операций Центрального Командования. Не требует батареи.
