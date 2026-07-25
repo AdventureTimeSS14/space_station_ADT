@@ -685,6 +685,34 @@
 
 - type: entity
   parent: ADTModsuitModBase
+  id: ADTModsuitModBodycam
+  name: MOD bodycamera module
+  description: A surveillance camera integrated into the suit's helmet. Broadcasts everything the wearer sees to the security camera network to ensure accountability and responsibility.
+  components:
+  - type: Sprite
+    state: camera
+  - type: ModSuitMod
+    complexity: 1
+    energyUsing: 0.1
+    components:
+      head:
+      - type: DeviceNetwork
+        deviceNetId: Wireless
+        receiveFrequencyId: SurveillanceCameraSecurity
+        transmitFrequencyId: SurveillanceCamera
+      - type: SurveillanceCamera
+        networkSet: true
+        nameSet: true
+      - type: ActiveListener
+        range: 3
+      - type: Eye
+      - type: WirelessNetworkConnection
+        range: 100
+      - type: StationAiVision
+      - type: Bodycam
+
+- type: entity
+  parent: ADTModsuitModBase
   id: ADTModsuitModStorageBluespace
   name: MOD bluespace storage module
   description: A bluespace-compressed storage array exclusive to Central Command issue suits.

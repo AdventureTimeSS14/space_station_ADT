@@ -47,6 +47,7 @@
   - ADTModsuitModGPS
   - ADTModsuitModDiagnosticVisor
   - ADTModsuitModMesonVision
+  - ADTModsuitModBodycam
   # - ADTModsuitModNoslip
 
 - type: latheRecipePack

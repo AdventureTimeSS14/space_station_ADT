@@ -230,7 +230,7 @@
     sprite: ADT/Clothing/Back/Modsuit/security.rsi
     state: icon
   - type: ModSuit
-    maxComplexity: 8
+    maxComplexity: 10
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
@@ -242,6 +242,8 @@
       - ADTModsuitModStorage
       - ADTModsuitModLight
       - ADTModsuitModEmpProtection
+      - ADTModsuitModSechud
+      - ADTModsuitModBodycam
   - type: Construction
     graph: ADTModsuitSecurity
     node: adtmodsuitsecurity
@@ -297,6 +299,8 @@
       - ADTModsuitModJetpack
       - ADTModsuitModEmpProtection
       - ADTModsuitModIsulation
+      - ADTModsuitModSechud
+      - ADTModsuitModBodycam
   - type: MeleeWeapon
     damage:
       types:
@@ -603,7 +607,7 @@
     sprite: ADT/Clothing/Back/Modsuit/brigmedic.rsi
     state: icon
   - type: ModSuit
-    maxComplexity: 12
+    maxComplexity: 14
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
@@ -618,6 +622,8 @@
       - ADTModsuitModStatusReadout
       - ADTModsuitModHealthAnalyzer
       - ADTModsuitModDefibrillator
+      - ADTModsuitModSechud
+      - ADTModsuitModBodycam
 
 - type: entity
   parent: ADTClothingModsuitBackBase
