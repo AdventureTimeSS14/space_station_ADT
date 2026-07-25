@@ -51,6 +51,18 @@
         addReagent: XenobioGenderFluid
         removeAmount: 1
         addAmount: 1
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:CreateEntityReactionEffect
+        entity: XenobioPinkExtractJelly
+        number: 1
   - type: Tag
     tags:
     - XenobiologyPinkExtract
