@@ -13,11 +13,11 @@
     size: Normal
   - type: Battery
     pricePerJoule: 0.15
-    maxCharge: 5200
-    startingCharge: 5200
+    maxCharge: 600
+    startingCharge: 600
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 40
+    autoRechargeRate: 20
   - type: SolutionContainerManager
     solutions:
       battery:
