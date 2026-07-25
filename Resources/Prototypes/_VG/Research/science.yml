@@ -12,6 +12,7 @@
   - SlimeGrinderMachineCircuitboard
   - SlimeScannerXenobio
   - ClothingBackpackXenoBioTank
+  - ClothingBeltChemBagXenobiologyHolding
   position: 3,0
   requiredTech:
   - AlternativeResearch
