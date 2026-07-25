@@ -10,7 +10,13 @@ public sealed partial class ModifySlimeComponent : EntityEffectBase<ModifySlimeC
     public int? ExtractBonus;
 
     [DataField]
+    public int? MaxExtractBonus;
+
+    [DataField]
     public int? OffspringBonus;
+
+    [DataField]
+    public int? MaxOffspringBonus;
 
     [DataField]
     public float? ChanceModifier;

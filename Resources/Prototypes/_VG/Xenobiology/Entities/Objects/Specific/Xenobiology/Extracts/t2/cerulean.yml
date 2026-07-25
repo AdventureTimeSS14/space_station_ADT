@@ -46,7 +46,7 @@
         solutionName: extract
         removeReagent: Blood
         addReagent: XenobioJellyCerulean
-        removeAmount: 1
+        removeAmount: 15
         addAmount: 1
   - type: Tag
     tags:

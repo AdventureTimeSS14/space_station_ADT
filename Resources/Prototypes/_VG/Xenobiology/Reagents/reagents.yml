@@ -79,7 +79,7 @@
   desc: xenobio-reagent-jelly-purple-desc
   color: "#BF77F6"
   metabolisms:
-    Digestion:
+    Bloodstream:
       metabolismRate: 1
       effects:
       - !type:ModifySlimeComponent
@@ -87,7 +87,9 @@
         - !type:ReagentCondition
           reagent: XenobioJellyPurple
           min: 1
+          max: 1
         extractBonus: 1
+        maxExtractBonus: 1
 
 - type: reagent
   parent: BaseXenobioReagent
@@ -96,7 +98,7 @@
   desc: xenobio-reagent-jelly-blue-desc
   color: "#79F6FC"
   metabolisms:
-    Digestion:
+    Bloodstream:
       metabolismRate: 1
       effects:
       - !type:ModifySlimeComponent
@@ -104,6 +106,7 @@
         - !type:ReagentCondition
           reagent: XenobioJellyBlue
           min: 1
+          max: 1
         chanceModifier: -0.25
 
 - type: reagent
@@ -113,8 +116,8 @@
   desc: xenobio-reagent-jelly-darkblue-desc
   color: "#1E8CFA"
   metabolisms:
-    Digestion:
-      metabolismRate: 1
+    Bloodstream:
+      metabolismRate: 2
       effects:
       - !type:GenericStatusEffect
         key: FireImmunity
@@ -122,8 +125,8 @@
         time: 60
         type: Add
       - !type:GenericStatusEffect
-        key: WeatherImmunity
-        component: WeatherImmunity
+        key: PressureImmunity
+        component: PressureImmunity
         time: 60
         type: Add
 
@@ -134,7 +137,7 @@
   desc: xenobio-reagent-jelly-cerulean-desc
   color: "#2A52BE"
   metabolisms:
-    Digestion:
+    Bloodstream:
       metabolismRate: 1
       effects:
       - !type:ModifySlimeComponent
@@ -142,7 +145,9 @@
         - !type:ReagentCondition
           reagent: XenobioJellyCerulean
           min: 1
+          max: 1
         offspringBonus: 2
+        maxOffspringBonus: 2
 
 - type: reagent
   parent: BaseXenobioReagent
@@ -151,7 +156,7 @@
   desc: xenobio-reagent-jelly-red-desc
   color: "#FF3333"
   metabolisms:
-    Digestion:
+    Bloodstream:
       metabolismRate: 1
       effects:
       - !type:ModifySlimeComponent
@@ -159,6 +164,7 @@
         - !type:ReagentCondition
           reagent: XenobioJellyRed
           min: 1
+          max: 1
         chanceModifier: 0.25
 
 - type: reagent

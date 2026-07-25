@@ -35,7 +35,7 @@
         solutionName: extract
         removeReagent: Plasma
         addReagent: XenobioJellyPurple
-        removeAmount: 1
+        removeAmount: 15
         addAmount: 1
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]

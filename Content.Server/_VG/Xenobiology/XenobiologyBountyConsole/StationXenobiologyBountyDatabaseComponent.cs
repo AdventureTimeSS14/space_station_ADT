@@ -57,6 +57,12 @@ public sealed partial class StationXenobiologyBountyDatabaseComponent : Componen
     public TimeSpan SkipDelay = TimeSpan.FromMinutes(10);
 
     /// <summary>
+    /// Maximum number of active bounties allowed at once.
+    /// </summary>
+    [DataField]
+    public int MaxBounties = 6;
+
+    /// <summary>
     /// The time between global bounty refreshes.
     /// </summary>
     [DataField]

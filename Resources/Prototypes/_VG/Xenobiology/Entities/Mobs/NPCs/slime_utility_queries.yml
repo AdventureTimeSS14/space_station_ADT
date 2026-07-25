@@ -4,6 +4,7 @@
     - !type:ComponentQuery
       components:
       - type: Edible
+      retainWithComp: false
     - !type:ComponentFilter
       components:
         - type: Puddle

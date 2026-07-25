@@ -7,6 +7,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Preferences;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Enums;
 
 namespace Content.Shared.Humanoid;
 
@@ -129,4 +130,18 @@ public sealed class HumanoidProfileSystem : EntitySystem
 
         return Loc.GetString("identity-age-old");
     }
+    // ADT-Tweak start
+    public void SetGender(Entity<HumanoidProfileComponent?> ent, Gender newGender)
+    {
+        var comp = ent.Comp;
+        if (comp == null)
+            return;
+
+        if (comp.Gender == newGender)
+            return;
+
+        comp.Gender = newGender;
+        Dirty(ent);
+    }
+    // ADT-Tweak end
 }

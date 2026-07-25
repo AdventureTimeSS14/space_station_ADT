@@ -7,6 +7,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.NameIdentifier;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server._VG.Xenobiology.XenobiologyBountyConsole;
@@ -17,6 +18,7 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
     [Dependency] private readonly NameIdentifierSystem _nameIdentifier = default!;
     [Dependency] private readonly XenobiologyBountyConsoleSystem _xenoConsole = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     private static readonly ProtoId<NameIdentifierGroupPrototype> BountyNameIdentifierGroup = "Xenobounty";
 
@@ -58,11 +60,45 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
         if (!Resolve(database, ref database.Comp))
             return;
 
-        database.Comp.Bounties.Clear();
+        var maxBounties = database.Comp.MaxBounties;
 
-        var bounties = _proto.EnumeratePrototypes<XenobiologyBountyPrototype>();
-        foreach (var bounty in bounties)
-            TryAddBounty(database, bounty);
+        if (database.Comp.Bounties.Count >= maxBounties)
+        {
+            SortBounties(database.Comp);
+            _xenoConsole.UpdateBountyConsoles();
+            return;
+        }
+
+        var allBounties = _proto.EnumeratePrototypes<XenobiologyBountyPrototype>().ToList();
+        if (allBounties.Count == 0)
+            return;
+
+        var existingPrototypeIds = database.Comp.Bounties
+            .Select(b => b.Bounty)
+            .ToHashSet();
+
+        var remaining = allBounties
+            .Where(p => !existingPrototypeIds.Contains(p.ID))
+            .ToList();
+
+        if (remaining.Count == 0)
+            remaining = new List<XenobiologyBountyPrototype>(allBounties);
+
+        var attempts = 0;
+        while (database.Comp.Bounties.Count < maxBounties && remaining.Count > 0 && attempts < maxBounties * 2)
+        {
+            attempts++;
+
+            var chosen = _random.Pick(remaining);
+            if (TryAddBounty(database, chosen))
+            {
+                remaining.Remove(chosen);
+                if (remaining.Count == 0 && database.Comp.Bounties.Count < maxBounties)
+                {
+                    remaining = new List<XenobiologyBountyPrototype>(allBounties);
+                }
+            }
+        }
 
         SortBounties(database.Comp);
         _xenoConsole.UpdateBountyConsoles();
