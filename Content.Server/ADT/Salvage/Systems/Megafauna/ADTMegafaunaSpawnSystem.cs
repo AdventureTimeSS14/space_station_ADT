@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Procedural;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.ADT.Salvage.Systems;
@@ -11,10 +12,31 @@ public sealed class ADTMegafaunaSpawnSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
+    private readonly List<(EntProtoId Proto, EntityCoordinates Coords)> _pendingSpawns = new();
+
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<ADTMegafaunaSpawnComponent, MapInitEvent>(OnMapInit);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (_pendingSpawns.Count == 0)
+            return;
+
+        var toSpawn = new List<(EntProtoId Proto, EntityCoordinates Coords)>(_pendingSpawns);
+        _pendingSpawns.Clear();
+
+        foreach (var (proto, coords) in toSpawn)
+        {
+            if (!coords.IsValid(EntityManager))
+                continue;
+
+            Spawn(proto, coords);
+        }
     }
 
     private void OnMapInit(Entity<ADTMegafaunaSpawnComponent> ent, ref MapInitEvent args)
@@ -35,7 +57,7 @@ public sealed class ADTMegafaunaSpawnSystem : EntitySystem
             if (!TryFindSpot(ent, placed, out var coords))
                 continue;
 
-            Spawn(pool[i], coords);
+            _pendingSpawns.Add((pool[i], coords));
             placed.Add(coords.Position);
         }
     }

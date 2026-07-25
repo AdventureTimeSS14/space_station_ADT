@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Procedural;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.ADT.Generation;
@@ -11,10 +12,31 @@ public sealed class ADTLavalandGenerationSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
+    private readonly List<(EntProtoId Proto, EntityCoordinates Coords)> _pendingSpawns = new();
+
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<ADTLavalandGenerationComponent, MapInitEvent>(OnMapInit);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (_pendingSpawns.Count == 0)
+            return;
+
+        var toSpawn = new List<(EntProtoId Proto, EntityCoordinates Coords)>(_pendingSpawns);
+        _pendingSpawns.Clear();
+
+        foreach (var (proto, coords) in toSpawn)
+        {
+            if (!coords.IsValid(EntityManager))
+                continue;
+
+            Spawn(proto, coords);
+        }
     }
 
     private void OnMapInit(Entity<ADTLavalandGenerationComponent> ent, ref MapInitEvent args)
@@ -34,7 +56,7 @@ public sealed class ADTLavalandGenerationSystem : EntitySystem
                     continue;
 
                 var proto = _random.Pick(group.Prototypes);
-                Spawn(proto, coords);
+                _pendingSpawns.Add((proto, coords));
 
                 placed.Add(coords.Position);
             }

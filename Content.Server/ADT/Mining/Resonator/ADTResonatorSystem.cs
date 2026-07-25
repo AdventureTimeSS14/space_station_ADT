@@ -12,6 +12,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.StepTrigger.Components;
 using Content.Shared.StepTrigger.Systems;
+using Content.Shared.Timing;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -38,6 +39,9 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StepTriggerSystem _stepTrigger = default!;
+    [Dependency] private readonly UseDelaySystem _useDelay = default!;
+
+    private readonly List<Entity<ADTResonanceFieldComponent>> _dueFields = new();
 
     public override void Initialize()
     {
@@ -55,14 +59,24 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
         base.Update(frameTime);
 
         var now = _timing.CurTime;
+        _dueFields.Clear();
+
         var query = EntityQueryEnumerator<ADTResonanceFieldComponent>();
         while (query.MoveNext(out var uid, out var field))
         {
             if (field.BurstTime is not { } burstTime || now < burstTime)
                 continue;
 
-            Burst((uid, field));
+            _dueFields.Add((uid, field));
         }
+
+        foreach (var due in _dueFields)
+        {
+            if (!due.Comp.Bursting && !TerminatingOrDeleted(due))
+                Burst(due);
+        }
+
+        _dueFields.Clear();
     }
 
     private void OnAfterInteract(Entity<ADTResonatorComponent> ent, ref AfterInteractEvent args)
@@ -75,6 +89,9 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
 
     public bool TryPlant(Entity<ADTResonatorComponent> ent, EntityCoordinates coords, EntityUid user)
     {
+        if (TryComp<UseDelayComponent>(ent, out var delayComp) && _useDelay.IsDelayed((ent.Owner, delayComp)))
+            return false;
+
         if (SnapToTile(coords) is not { } target)
             return false;
 
@@ -82,6 +99,10 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
         {
             existing.Comp.DamageMultiplier = ent.Comp.QuickBurstModifier;
             Burst(existing);
+            
+            if (delayComp != null)
+                _useDelay.TryResetDelay((ent.Owner, delayComp));
+            
             return true;
         }
 
@@ -97,6 +118,10 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
         ent.Comp.Fields.Add(field);
 
         _audio.PlayPvs(ent.Comp.PlantSound, field);
+        
+        if (delayComp != null)
+            _useDelay.TryResetDelay((ent.Owner, delayComp));
+
         return true;
     }
 
