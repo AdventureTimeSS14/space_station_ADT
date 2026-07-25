@@ -6,12 +6,6 @@ using Robust.Shared.Random;
 
 namespace Content.Server.ADT.Generation;
 
-/// <summary>
-/// Расставляет структуры лаваленда (подземелья, некрополь-тендрилы) точечно, как сидинг в SS13:
-/// фиксированное число на карту, с интервалами и чистой зоной вокруг аванпоста.
-/// Фауна сюда не входит — она идёт биом-слоями, где движок сажает мобов только на валидный пол.
-/// Мегафауна тоже отдельно — см. <see cref="ADTMegafaunaSpawnSystem"/>.
-/// </summary>
 public sealed class ADTLavalandGenerationSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
