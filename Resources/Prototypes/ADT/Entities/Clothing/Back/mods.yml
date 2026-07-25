@@ -110,6 +110,7 @@
       - ADTModsuitModRadiationProtection
       - ADTModsuitModTray
       - ADTModsuitModIsulation
+      - ADTModsuitModMesonVision
   - type: Construction
     graph: ADTModsuitAtmospheric
     node: adtmodsuitatmospheric
@@ -182,7 +183,6 @@
       - ADTModsuitModLight
       - ADTModsuitModStatusReadout
       - ADTModsuitModHealthAnalyzer
-      - ADTModsuitModDefibrillator
   - type: Construction
     graph: ADTModsuitMedical
     node: adtmodsuitmedical
@@ -355,6 +355,9 @@
       - ADTModsuitModJetpack
       - ADTModsuitModEmpProtection
       - ADTModsuitModIsulation
+      - ADTModsuitModRadiationProtection
+      - ADTModsuitModTray
+      - ADTModsuitModMesonVision
   - type: Construction
     graph: ADTModsuitScience
     node: adtmodsuitscience
@@ -624,6 +627,33 @@
       - ADTModsuitModDefibrillator
       - ADTModsuitModSechud
       - ADTModsuitModBodycam
+
+# НР "Минерва"
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackMinerva
+  name: research MOD control unit "Minerva"
+  description: A high-tech research suit by Nakamura Engineering, made for the Research Director's field work.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/minerva.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitMinerva
+      gloves: ADTClothingHandsModsuitMinerva
+      outerClothing: ADTClothingOuterModsuitBodyMinerva
+      shoes: ADTClothingModsuitShoesMinerva
+    startingModules:
+      - ADTModsuitModStorageLarge
+      - ADTModsuitModReagentScanner
+      - ADTModsuitModWelding
+      - ADTModsuitModLight
+      - ADTModsuitModTray
+      - ADTModsuitModIsulation
+      - ADTModsuitModRadiationProtection
 
 - type: entity
   parent: ADTClothingModsuitBackBase

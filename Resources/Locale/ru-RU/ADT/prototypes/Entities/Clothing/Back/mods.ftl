@@ -63,6 +63,9 @@ ent-ADTClothingModsuitBackBrigmedic = МОД "Ангел-Хранитель"
 ent-ADTClothingModsuitBackAncient = МОД "Гладиатор"
     .desc = Древний костюм, использовавшийся для охраны комплексов от всевозможных угроз. Выглядит потрёпанным, но на удивление, всё ещё работает. К сожалению, он не предназначен для внекорабельной деятельности, однако это компенсируется высокой мобильностью и дополнительной защитой конечностей.
 
+ent-ADTClothingModsuitBackMinerva = МОД "Минерва"
+    .desc = Высокотехнологичный исследовательский костюм от Nakamura Engineering, созданный для полевой работы научного руководителя.
+
 # Понятие не имею где прописать части мода. Пропишу тут
 
 ent-ADTActionToggleMODPiece = Переключить элементы MOD
@@ -112,6 +115,8 @@ ent-ADTClothingHeadHelmetModsuitBrigmedic = шлем МОДа "Ангел-Хра
     .desc = Шлем от МОДа.
 ent-ADTClothingHeadHelmetModsuitAncient= шлем МОДа "Гладиатор"
     .desc = Шлем от МОДа.
+ent-ADTClothingHeadHelmetModsuitMinerva = шлем МОДа "Минерва"
+    .desc = Шлем от МОДа.
 
 # Оболочка
 ent-ADTClothingOuterModsuitBodyBase = оболочка МОДа "Базовый"
@@ -158,6 +163,8 @@ ent-ADTClothingOuterModsuitBodyBrigmedic = оболочка МОДа "Ангел
     .desc = Базовая оболочка от МОДа.
 ent-ADTClothingOuterModsuitBodyAncient = оболочка МОДа "Гладиатор"
     .desc = Базовая оболочка от МОДа.
+ent-ADTClothingOuterModsuitBodyMinerva = оболочка МОДа "Минерва"
+    .desc = Базовая оболочка от МОДа.
 
 # Ботинки
 ent-ADTClothingModsuitShoesBase = ботинки МОДа "Базовый"
@@ -200,6 +207,8 @@ ent-ADTClothingModsuitShoesWard = ботинки МОДа "Защитный"
 ent-ADTClothingModsuitShoesBrigmedic = ботинки МОДа "Ангел-Хранитель"
     .desc = Базовые ботинки от МОДа.
 ent-ADTClothingModsuitShoesAncient = ботинки МОДа "Гладиатор"
+    .desc = Базовые ботинки от МОДа.
+ent-ADTClothingModsuitShoesMinerva = ботинки МОДа "Минерва"
     .desc = Базовые ботинки от МОДа.
 
 # Перчатки
@@ -246,4 +255,6 @@ ent-ADTClothingHandsModsuitWard = перчатки МОДа "Защитный"
 ent-ADTClothingHandsModsuitBrigmedic = перчатки МОДа "Ангел-Хранитель"
     .desc = Базовые перчатки от МОДа.
 ent-ADTClothingHandsModsuitAncient = перчатки МОДа "Гладиатор"
+    .desc = Базовые перчатки от МОДа.
+ent-ADTClothingHandsModsuitMinerva = перчатки МОДа "Минерва"
     .desc = Базовые перчатки от МОДа.

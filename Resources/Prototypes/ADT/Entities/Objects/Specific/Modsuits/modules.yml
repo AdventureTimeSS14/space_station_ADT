@@ -283,7 +283,7 @@
   - type: Sprite
     state: welding
   - type: ModSuitMod
-    energyUsing: 0.2
+    energyUsing: 0.05
     complexity: 1
     components:
       head:

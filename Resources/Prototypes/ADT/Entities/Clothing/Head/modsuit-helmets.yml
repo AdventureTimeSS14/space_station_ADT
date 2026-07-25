@@ -578,3 +578,19 @@
   - type: PointLight
     enabled: false
     color: "#0BB0F4"
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitMinerva
+  name: research MOD helmet "Minerva"
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/minerva.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/minerva.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
