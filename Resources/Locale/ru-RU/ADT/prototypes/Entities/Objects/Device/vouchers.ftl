@@ -32,3 +32,19 @@ ent-ADTSyndicateMedicVoucher = РВИ "Мор"
 ent-ADTDeathSquadVoucher = РВИ "Стикс"
     .suffix = { "ЭС" }
     .desc = Радиальный Выборочный Интерфейс - Устройство для транспортировки новейших прототипов оружия прямо на место службы.
+
+ent-ADTERTLeaderVoucher = РВИ "Эгида"
+    .suffix = { "ОБР Лидер" }
+    .desc = Радиальный Выборочный Интерфейс - Устройство для транспортировки новейших прототипов оружия прямо на место службы.
+
+ent-ADTERTSecurityVoucher = РВИ "Эгида"
+    .suffix = { "ОБР" }
+    .desc = { ent-ADTERTLeaderVoucher.desc }
+
+ent-ADTERTEngineerVoucher = РВИ "Эгида"
+    .suffix = { "ОБР Инженер" }
+    .desc = { ent-ADTERTLeaderVoucher.desc }
+
+ent-ADTERTMedicalVoucher = РВИ "Эгида"
+    .suffix = { "ОБР Медик" }
+    .desc = { ent-ADTERTLeaderVoucher.desc }

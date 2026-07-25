@@ -629,3 +629,79 @@
         Radiation: 0.80
         Caustic: 0.95
   - type: SupermatterImmune
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitERTLeader
+  name: ERT MOD helmet "Polaris"
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/responsory.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/responsory.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+        color: "#2b6cb0"
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitERTSecurity
+  name: ERT MOD helmet "Antares"
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/responsory.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/responsory.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+        color: "#b02b2b"
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitERTEngineer
+  name: ERT MOD helmet "Capella"
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/responsory.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/responsory.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+        color: "#d4a017"
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitERTMedical
+  name: ERT MOD helmet "Vega"
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/responsory.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/responsory.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+        color: "#17c9d4"
