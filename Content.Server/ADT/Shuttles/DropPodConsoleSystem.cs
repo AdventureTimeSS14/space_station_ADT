@@ -199,9 +199,7 @@ public sealed class DropPodConsoleSystem : EntitySystem
                     var tileRef = _mapSystem.GetTileRef(stationGridCov, stationCompCov, targetXform.Coordinates);
                     if (coveredStationTiles.Contains(tileRef.GridIndices))
                     {
-                        // Mark for suppressed scrap - entity still destroyed via damage, but no scrap spawns
-                        EnsureComp<DroppodSuppressedComponent>(target);
-                        _damageable.TryChangeDamage(target, structuralDamage, ignoreResistances: true);
+                        QueueDel(target);
                         continue;
                     }
                 }
@@ -536,6 +534,11 @@ public sealed class DropPodConsoleSystem : EntitySystem
             announcement,
             sender: Loc.GetString("drop-pod-console-sender"),
             colorOverride: Color.Red);
+
+        if (comp.LaunchAnnouncementSound != null)
+        {
+            _audio.PlayGlobal(comp.LaunchAnnouncementSound, Filter.Broadcast(), true);
+        }
 
         if (TryComp<ItemSlotsComponent>(uid, out var slots))
         {

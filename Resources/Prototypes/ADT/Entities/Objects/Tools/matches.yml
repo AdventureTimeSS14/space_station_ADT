@@ -52,3 +52,8 @@
     - matchbox6
   - type: StaticPrice
     price: 20
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: Matchstick
+        amount: 12

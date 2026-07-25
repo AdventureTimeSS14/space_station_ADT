@@ -108,11 +108,11 @@ syndicate-voucher-hardsuit-description = Тяжелобронированный 
 syndicate-voucher-mod-name = МОД "Синдикат"
 syndicate-voucher-mod-description = Костюм, разработанный "Gorlex Marauders", предлагающий броню, признанную незаконной в большинстве секторов.
 
-syndicate-elite-voucher-hardsuit-name = элитный скафандр Синдиката
-syndicate-elite-voucher-hardsuit-description = Элитная версия кроваво-красного скафандра, отличающаяся повышенной стойкостью к радиации и огнеупорностью. Собственность Мародёров Горлекса.
+syndicate-commander-voucher-hardsuit-name = скафандр командира Синдиката
+syndicate-commander-voucher-hardsuit-description = Усиленная версия кроваво-красного скафандра, предназначенная для командиров оперативных отрядов Синдиката. Броня значительно усилена для ведения смертоносных боёв на передовой.
 
-syndicate-elite-voucher-mod-name = МОД "Элитный"
-syndicate-elite-voucher-mod-description = Элитный костюм, усовершенствованный "Cybersun Industries" и предлагающий повышенные показатели брони.
+syndicate-medic-voucher-hardsuit-name = кроваво-красный медицинский скафандр
+syndicate-medic-voucher-hardsuit-description = Тяжелобронированный и манёвренный продвинутый скафандр, предназначенный для полевых медицинских операций.
 
 sec-voucher-mk58-name = МК 58
 sec-voucher-mk58-description = Дешёвый и распространённый пистолет, производимый дочерней компанией Nanotrasen. Использует патроны калибра 9х19 мм.

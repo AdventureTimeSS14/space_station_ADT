@@ -1,0 +1,25 @@
+- type: constructionGraph
+  id: ADTWeaponCrossbowImprovised
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: crossbow
+      steps:
+      - material: WoodPlank
+        amount: 10
+        doAfter: 5
+      - tag: ModularReceiver
+        icon:
+          sprite: Objects/Misc/modular_receiver.rsi
+          state: icon
+        name: construction-graph-tag-modular-receiver
+      - material: Cloth
+        amount: 5
+      - material: Cable
+        amount: 3
+      - material: Steel
+        amount: 5
+        doAfter: 5
+  - node: crossbow
+    entity: ADTWeaponCrossbowImprovised

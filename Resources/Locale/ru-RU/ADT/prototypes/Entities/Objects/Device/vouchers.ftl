@@ -21,6 +21,10 @@ ent-ADTSyndicateVoucher = РВИ "Вирус"
     .suffix = { "ЯО" }
     .desc = Радиальный Выборочный Интерфейс - Украденная технология у NanoTrasen, адаптированная под защищенные каналы поставок Синдиката.
 
-ent-ADTSyndicateEliteVoucher = РВИ "Чума"
+ent-ADTSyndicateCommanderVoucher = РВИ "Чума"
     .suffix = { "ЯО" }
-    .desc = Радиальный Выборочный Интерфейс - Украденная технология у NanoTrasen, адаптированная под защищенные каналы поставок Синдиката.
+    .desc = { ent-ADTSyndicateVoucher.desc }
+
+ent-ADTSyndicateMedicVoucher = РВИ "Мор"
+    .suffix = { "ЯО" }
+    .desc = { ent-ADTSyndicateVoucher.desc }

@@ -101,6 +101,14 @@ construction-graph-voice-trigger = голосовой триггер
 construction-graph-tag-toy-blaster = игрушечный бластер
 construction-graph-tag-stunbaton = дубинка-шокер
 construction-graph-tag-manipulator-stock-part = модульная машинная часть
-construction-graph-carved-pumpkin = вырезанная тыква
-construction-graph-flashlight = фонарик
-construction-graph-stabilizing-serum = стабилизирующая сыворотка
+
+construction-graph-tag-carved-pumpkin = вырезанная тыква
+construction-graph-tag-flashlight = фонарик
+construction-graph-tag-stabilizing-serum = стабилизирующая сыворотка
+construction-graph-tag-toolbox = ящик для инструментов
+construction-graph-tag-wrench = гаечный ключ
+construction-graph-tag-baseball-bat = бейсбольная бита
+
+construction-graph-tag-archimedes-central-control-module = центральный модуль управления Архимеда
+construction-graph-tag-archimedes-peripherals-control-module = модуль управления периферией Архимеда
+

@@ -1,0 +1,140 @@
+- type: entity
+  id: ADTBaseMechEquipmentTool
+  parent: BaseMechEquipment
+  abstract: true
+  components:
+  - type: MechTool
+  - type: ToolTileCompatible
+  - type: Tag
+    tags:
+    - ADTMechEquipmentScience
+
+- type: entity
+  id: ADTMechEquipmentToolWelder
+  parent: ADTBaseMechEquipmentTool
+  name: archimedes welding tool
+  description: Mounted welding tool for the Archimedes tool arm.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/welder.rsi
+    state: icon
+  - type: Tool
+    qualities:
+    - Welding
+    useSound:
+      path: /Audio/Items/welder.ogg
+
+- type: entity
+  id: ADTMechEquipmentToolWirecutter
+  parent: ADTBaseMechEquipmentTool
+  name: archimedes wirecutters
+  description: Mounted wirecutters for the Archimedes tool arm.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/wirecutters.rsi
+    state: cutters
+  - type: Tool
+    qualities:
+    - Cutting
+    useSound:
+      path: /Audio/Items/wirecutter.ogg
+
+- type: entity
+  id: ADTMechEquipmentToolScrewdriver
+  parent: ADTBaseMechEquipmentTool
+  name: archimedes screwdriver
+  description: Mounted screwdriver for the Archimedes tool arm.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/screwdriver.rsi
+    state: screwdriver
+  - type: Tool
+    qualities:
+    - Screwing
+    useSound:
+      collection: Screwdriver
+
+- type: entity
+  id: ADTMechEquipmentToolWrench
+  parent: ADTBaseMechEquipmentTool
+  name: archimedes wrench
+  description: Mounted wrench for the Archimedes tool arm.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/wrench.rsi
+    state: icon
+  - type: Tool
+    qualities:
+    - Anchoring
+    useSound:
+      path: /Audio/Items/ratchet.ogg
+
+- type: entity
+  id: ADTMechEquipmentToolCrowbar
+  parent: ADTBaseMechEquipmentTool
+  name: archimedes crowbar
+  description: Mounted crowbar for the Archimedes tool arm.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/crowbar.rsi
+    state: icon
+  - type: Tool
+    qualities:
+    - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Prying
+
+- type: entity
+  id: ADTMechEquipmentToolWelderExperimental
+  parent: ADTBaseMechEquipmentTool
+  name: archimedes experimental welding tool
+  description: Upgraded welding tool for the Archimedes tool arm. Works much faster.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/welder_experimental.rsi
+    state: icon
+  - type: Tool
+    qualities:
+    - Welding
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/welder.ogg
+
+- type: entity
+  id: ADTMechEquipmentToolJawsOfLife
+  parent: ADTBaseMechEquipmentTool
+  name: archimedes jaws of life
+  description: Upgraded combination of wirecutters and crowbar for the Archimedes tool arm. Can pry open powered doors.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/jaws_of_life.rsi
+    state: jaws_pry
+  - type: Tool
+    qualities:
+    - Prying
+    - Cutting
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+
+- type: entity
+  id: ADTMechEquipmentToolPowerDrill
+  parent: ADTBaseMechEquipmentTool
+  name: archimedes power drill
+  description: Upgraded combination of screwdriver and wrench for the Archimedes tool arm. Works much faster.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/drill.rsi
+    state: drill_screw
+  - type: Tool
+    qualities:
+    - Screwing
+    - Anchoring
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/drill_hit.ogg

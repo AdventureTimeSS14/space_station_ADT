@@ -15,6 +15,13 @@ public abstract class SharedMechEquipmentSystem : EntitySystem
         SubscribeLocalEvent<MechOverloadComponent, SetupMechUserEvent>(SetupOverloadUser);
         SubscribeLocalEvent<MechPhazeComponent, SetupMechUserEvent>(SetupPhaseUser);
         SubscribeLocalEvent<MechPhazeComponent, ComponentStartup>(StartupPhaze);
+        SubscribeLocalEvent<MechThrusterComponent, SetupMechUserEvent>(SetupThrusterUser);
+    }
+
+    private void SetupThrusterUser(EntityUid uid, MechThrusterComponent comp, ref SetupMechUserEvent args)
+    {
+        var pilot = args.Pilot;
+        _actions.AddAction(pilot, ref comp.MechThrusterActionEntity, comp.MechThrusterAction, uid);
     }
 
     private void SetupOverloadUser(EntityUid uid, MechOverloadComponent comp, ref SetupMechUserEvent args)
