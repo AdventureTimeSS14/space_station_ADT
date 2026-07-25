@@ -162,6 +162,20 @@
 
 - type: entity
   parent: BaseItem
+  id: XenobioStabilizedRedExtractJelly
+  name: stabilized red slime jelly
+  description: A stabilized version of the volatile red extract jelly. When used on mechs or Borg, it permanently boosts their movement speed by 50%.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _VG/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#ff3333"
+  - type: JellyCoating
+    speedMultiplier: 1.3
+
+- type: entity
+  parent: BaseItem
   id: XenobioPinkExtractJelly
   name: pink slime jelly
   description: A remarkably stable pink extractor, whose intrinsic properties enable it to heal the vast majority of its owner's wounds with remarkable efficiency.

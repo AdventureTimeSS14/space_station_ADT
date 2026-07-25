@@ -20,12 +20,10 @@
         messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:ConvertReagent
-        solutionName: extract
-        removeReagent: Water
-        addReagent: Blood
-        removeAmount: 1
-        addAmount: 1
+      - !type:ChangeFactionNearbyEffect
+        newFaction: AllHostile # BILLIONS MUST KILL
+        radius: 10
+        duration: 30
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
