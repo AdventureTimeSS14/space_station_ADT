@@ -3,8 +3,7 @@
   query:
     - !type:ComponentQuery
       components:
-      - type: Edible
-      retainWithComp: false
+      - type: MobState
     - !type:ComponentFilter
       components:
         - type: Puddle
