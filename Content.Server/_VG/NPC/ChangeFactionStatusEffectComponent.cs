@@ -1,3 +1,4 @@
+using Content.Server.NPC.HTN;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Prototypes;
 
@@ -11,4 +12,13 @@ public sealed partial class ChangeFactionStatusEffectComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public HashSet<ProtoId<NpcFactionPrototype>> OldFactions = new();
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public HTNCompoundTask? OriginalRootTask;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool WasGivenHTN;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool WasGivenCombatMode;
 }
