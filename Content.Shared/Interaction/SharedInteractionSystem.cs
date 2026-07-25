@@ -168,7 +168,10 @@ namespace Content.Shared.Interaction
         private void OnBoundInterfaceInteractAttempt(Entity<UserInterfaceComponent> ent, ref BoundUserInterfaceMessageAttempt ev)
         {
             _uiQuery.TryComp(ev.Target, out var aUiComp);
-            if (!_actionBlockerSystem.CanInteract(ev.Actor, ev.Target))
+//          if (!_actionBlockerSystem.CanInteract(ev.Actor, ev.Target)) ADT port pAI start PAI's can be slotted into and use console BUIs.
+            var slottedPAI = IsSlottedPAI(ev.Actor, ev.Target);
+
+            if (!_actionBlockerSystem.CanInteract(ev.Actor, ev.Target) && !slottedPAI) // ADT port pAI end PAI's can be slotted into and use console BUIs.
             {
                 // We permit ghosts to open uis unless explicitly blocked
                 if (ev.Message is not OpenBoundInterfaceMessage
@@ -200,7 +203,7 @@ namespace Content.Shared.Interaction
                 return;
             }
 
-            if (aUiComp.RequiresComplex && !_actionBlockerSystem.CanComplexInteract(ev.Actor))
+            if (aUiComp.RequiresComplex && !_actionBlockerSystem.CanComplexInteract(ev.Actor) && !slottedPAI) // ADT port pAI PAI's can be slotted into and use console BUIs. added (&& !slottedPAI)
                 ev.Cancel();
         }
 

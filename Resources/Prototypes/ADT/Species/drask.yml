@@ -4,7 +4,7 @@
   roundStart: true
   prototype: MobDrask
   defaultSkinTone: "#a3d4eb"
-  dollPrototype: AppearanceDrask
+  dollPrototype: ADTAppearanceDrask
   skinColoration: Hues
   shortDesc: species-short-desc-drask
   maleFirstNames: Draskfrist
@@ -28,11 +28,11 @@
   - Не стареют (Всегда молодые)
   - Светящиеся глаза.
   cons:
-  - Тело начинает получать ожоги от высоких температур намного раньше всех остальных рас (40°С и выше)
+  - Тело начинает получать ожоги от высоких температур намного раньше всех остальных рас (35°С и выше)
   - Получают повышенный урон от высоких температур (примерно в 2.5-3 раза).
   - Немного медленнее остальных рас.
   - Получают на 5% больше урона ушибами.
-  - Получают на 50% больше урона ожогами.
+  - Получают на 60% больше урона ожогами.
   - Получают на 100% больше урона от удушения.
   defaultLanguages:
   - GalacticCommon

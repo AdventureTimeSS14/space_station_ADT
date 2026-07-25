@@ -1,73 +1,123 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by PixelTheKermit (github) for SS14, inhands by mubururu_ (github)",
+  "copyright": "Made by PixelTheKermit (github) for SS14, inhands by mubururu_ (github), lungs inhands/kidneys, liver, brain sprites made by discord:prazat911, appendix and ears sprites made by discord:yasha2708",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "eyeball-l"
+        "name": "brain"
     },
     {
-      "name": "eyeball-r"
+        "name": "brain-inhand-left",
+        "directions": 4
     },
     {
-      "name": "eyeballs-inhand-left",
-      "directions": 4
+        "name": "brain-inhand-right",
+        "directions": 4
     },
     {
-      "name": "eyeballs-inhand-right",
-      "directions": 4
+        "name": "kidneys-inhand-left",
+        "directions": 4
+    },
+    {
+        "name": "kidneys-inhand-right",
+        "directions": 4
+    },
+    {
+        "name": "kidney-l"
+    },
+    {
+        "name": "kidney-r"
+    },
+    {
+        "name": "liver"
+    },
+    {
+        "name": "liver-inhand-left",
+        "directions": 4
+    },
+    {
+        "name": "liver-inhand-right",
+        "directions": 4
+    },
+    {
+        "name": "lungs-inhand-left",
+        "directions": 4
+    },
+    {
+        "name": "lungs-inhand-right",
+        "directions": 4
+    },
+    {
+        "name": "eyeball-l"
+    },
+    {
+        "name": "eyeball-r"
+    },
+    {
+        "name": "eyeballs-inhand-left",
+        "directions": 4
+    },
+    {
+        "name": "eyeballs-inhand-right",
+        "directions": 4
     },
     {
         "name": "tongue"
     },
     {
-      "name": "heart-inhand-left",
-      "directions": 4
+        "name": "heart-inhand-left",
+        "directions": 4
     },
     {
-      "name": "heart-inhand-right",
-      "directions": 4
+        "name": "heart-inhand-right",
+        "directions": 4
     },
     {
-      "name": "heart-on",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.6
-        ]
+        "name": "heart-on",
+        "delays": [
+    [
+      0.1,
+      0.1,
+      0.1,
+      0.6
+    ]
       ]
     },
     {
-      "name": "heart-off"
+        "name": "heart-off"
     },
     {
-      "name": "lung-l"
+        "name": "lung-l"
     },
     {
-      "name": "lung-r"
+        "name": "lung-r"
     },
     {
-      "name": "muscle"
+        "name": "muscle"
     },
     {
-      "name": "stomach"
+        "name": "stomach"
     },
     {
-      "name": "stomach-inhand-left",
-      "directions": 4
+        "name": "stomach-inhand-left",
+        "directions": 4
     },
     {
-      "name": "stomach-inhand-right",
-      "directions": 4
+        "name": "stomach-inhand-right",
+        "directions": 4
     },
     {
-      "name": "web-gland"
+        "name": "web-gland"
+    },
+    {
+        "name": "appendix"
+    },
+    {
+        "name": "ears"
     }
   ]
 }

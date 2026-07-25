@@ -1,0 +1,96 @@
+- type: entity
+  id: ADTMechArchimedes
+  parent: BaseMech
+  name: Archimedes
+  description: Scientific and engineering exosuit. Transforms into a mini-shuttle for EVA work. Not suited for combat.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: ADT/Objects/Specific/Mech/archimedes.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: archimedes
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Mech
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.75
+        Heat: 0.75
+        Structural: 1.0
+    maxintegrity: 340
+    baseState: archimedes
+    openState: archimedes-open
+    brokenState: archimedes-broken
+    mechToPilotDamageMultiplier: 0.5
+    airtight: true
+    pilotWhitelist:
+      components:
+        - HumanoidProfile
+    maxEquipmentAmount: 7
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentIndustrial
+      - ADTMechEquipmentMed
+      - ADTMechEquipmentScience
+      - SmallMech
+    startingEquipment:
+    - ADTMechEquipmentToolWelder
+    - ADTMechEquipmentToolWirecutter
+    - ADTMechEquipmentToolScrewdriver
+    - ADTMechEquipmentToolWrench
+    - ADTMechEquipmentToolCrowbar
+    - MechEquipmentGrabberSmall
+  - type: MechThruster
+  - type: Hands
+    showInHands: false
+    disableExplosionRecursion: true
+    canBeStripped: false
+  - type: ComplexInteraction
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 20
+        Structural: 20
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.85
+    baseSprintSpeed: 3.5
+  - type: Construction
+    graph: ADTArchimedes
+    node: archimedes
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Storage
+    grid:
+    - 0,0,3,3
+    clickInsert: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 430
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: ADTMechArchimedesBattery
+  parent: ADTMechArchimedes
+  suffix: Battery
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellHigh

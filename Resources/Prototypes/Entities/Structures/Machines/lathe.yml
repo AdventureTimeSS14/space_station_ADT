@@ -390,6 +390,7 @@
     - ADTModsuitPack
     - ADTGygaxPack
     - ADTOdysseusPack
+    - ADTArchimedesPack
     - ADTClarkePack
     - ADTDurandPack
     - ADTPhazonPack
@@ -535,6 +536,9 @@
       unlitRunningState: unlit-building
       staticPacks:
       - SecurityAmmoStatic
+      # ADT-Tweak start - урановые патроны, вырезанные из веток исследований СБ
+      - AmmoTechFabUraniumStatic
+      # ADT-Tweak end
     - type: EmagLatheRecipes
       emagStaticPacks:
       - SyndicateAmmoStatic

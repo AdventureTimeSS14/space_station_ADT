@@ -51,6 +51,7 @@
     maxItemSize: Small
     whitelist:
       tags:
+      - ADTBolt #ADT-Tweak
       - Arrow
       - Plunger
   - type: Appearance

@@ -8,7 +8,7 @@
   maleFirstNames: names_resomi_male
   femaleFirstNames: names_resomi_female
   naming: First
-  dollPrototype: AppearanceResomi
+  dollPrototype: ADTAppearanceResomi
   skinColoration: Hues
   category: Special
   description: "/ServerInfo/ADT/SpeciesDescriptions/Resomi.xml"

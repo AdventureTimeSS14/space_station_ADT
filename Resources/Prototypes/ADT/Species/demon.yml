@@ -5,7 +5,7 @@
   prototype: MobDemon
   shortDesc: species-short-desc-demon
   defaultSkinTone: "#34a223"
-  dollPrototype: AppearanceDemon
+  dollPrototype: ADTAppearanceDemon
   skinColoration: Hues
   maleFirstNames: names_first_male
   femaleFirstNames: names_first_female

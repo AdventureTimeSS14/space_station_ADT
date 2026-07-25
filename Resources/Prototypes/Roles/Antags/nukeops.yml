@@ -84,13 +84,14 @@
 #Nuclear Operative Commander Gear
 - type: startingGear
   id: SyndicateCommanderGearFull
-  parent: SyndicateOperativeGearFull
+  parent: SyndicateOperativeGearFullNoUplink # ADT-Tweak
   equipment:
     id: SyndiCommanderPDA
     eyes: ClothingEyesHudSyndicate #ADT tweak
     back: ClothingBackpackDuffelSyndicate
     neck: SyndicateWhistle
-    pocket1: ADTSyndicateEliteVoucher #ADt-Tweak
+    pocket1: ADTSyndicateCommanderVoucher #ADT-Tweak
+    pocket2: ADTCommanderUplinkRadio40TC #ADT-Tweak
     # outerClothing: ClothingOuterHardsuitSyndieCommander #ADT tweak
   inhand:
   - NukeOpsDeclarationOfWar
@@ -124,7 +125,7 @@
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiCorpsmanPDA
     belt: ClothingBeltMilitaryWebbingMedFilled
-    pocket1: ADTSyndicateEliteVoucher #ADt-Tweak
+    pocket1: ADTSyndicateMedicVoucher #ADT-Tweak
   storage:
     back:
     - SyndiHypo

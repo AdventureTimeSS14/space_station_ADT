@@ -20,7 +20,7 @@
   - Grab
   - Disarm
   event: !type:JudoLegSweepPerformedEvent {}
-  paralyzeTime: 1
+  paralyzeTime: 3
   extraDamage: 5
   dropItems: false
   canDoWhileProne: false
@@ -35,7 +35,7 @@
   - Grab
   event: !type:JudoCombatGrabPerformedEvent {}
   staminaDamage: 55
-  extraDamage: 10
+  extraDamage: 5
 
 - type: combo
   id: JudoEyeGouge

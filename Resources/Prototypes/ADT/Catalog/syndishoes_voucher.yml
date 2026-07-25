@@ -39,21 +39,21 @@
   - ADTClothingModsuitBackSyndicate
 
 - type: thiefBackpackSet
-  id: ADTClothingEliteHardsuitBackSyndicate
-  name: syndicate-elite-voucher-hardsuit-name
-  description: syndicate-elite-voucher-hardsuit-description
+  id: ADTClothingEliteHardsuitBackSyndicateCommander
+  name: syndicate-commander-voucher-hardsuit-name
+  description: syndicate-commander-voucher-hardsuit-description
   sprite:
-    sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
+    sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
     state: icon
   content:
-  - ClothingOuterHardsuitSyndieElite
+  - ClothingOuterHardsuitSyndieCommander
 
 - type: thiefBackpackSet
-  id: ADTClothingEliteModsuitBackSyndicate
-  name: syndicate-elite-voucher-mod-name
-  description: syndicate-elite-voucher-mod-description
+  id: ADTClothingEliteHardsuitBackSyndicateMedic
+  name: syndicate-medic-voucher-hardsuit-name
+  description: syndicate-medic-voucher-hardsuit-description
   sprite:
-    sprite: ADT/Clothing/Back/Modsuit/syndicate_elite.rsi
+    sprite: Clothing/OuterClothing/Hardsuits/syndiemedic.rsi
     state: icon
   content:
-  - ADTClothingModsuitBackSyndicateElite
+  - ClothingOuterHardsuitSyndieMedic
