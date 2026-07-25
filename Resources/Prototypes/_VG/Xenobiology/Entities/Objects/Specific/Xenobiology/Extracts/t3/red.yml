@@ -48,7 +48,7 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:ChangeFactionNearbyEffect
         newFaction: AllHostile # BILLIONS MUST KILL
-        radius: 3
+        radius: 10
         duration: 30
   - type: Tag
     tags:

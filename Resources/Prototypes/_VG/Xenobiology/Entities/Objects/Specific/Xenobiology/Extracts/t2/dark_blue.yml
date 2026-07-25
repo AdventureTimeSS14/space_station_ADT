@@ -19,9 +19,12 @@
         messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:AdjustReagent
-        reagent: XenobioJellyDarkBlue
-        amount: 1
+      - !type:ConvertReagent
+        solutionName: extract
+        removeReagent: Water
+        addReagent: XenobioJellyDarkBlue
+        removeAmount: 1
+        addAmount: 1
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
