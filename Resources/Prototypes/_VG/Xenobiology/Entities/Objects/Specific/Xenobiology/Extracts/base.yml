@@ -13,10 +13,11 @@
       state: core
       color: "#828282"
   - type: Appearance
+  - type: Solution
   - type: SolutionContainerManager
     solutions:
       extract:
-        maxVol: 15
+        maxVol: 100
   - type: InjectableSolution
     solution: extract
   - type: DrawableSolution
