@@ -4,6 +4,7 @@
   parent: ADTSimpleMobBaselavaland
   description: A scavenger that eats raw meat, often found alongside ash walkers. Produces a thick, medicinally nutritious milk.
   components:
+  - type: Hunger
   - type: Sprite
     drawdepth: Mobs
     sprite: ADT/Mobs/Lavaland/gutlunch.rsi
@@ -55,7 +56,7 @@
         2
   - type: NpcFactionMember
     factions:
-    - Passive
+    - SimpleNeutral
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -193,7 +194,7 @@
         5
   - type: NpcFactionMember
     factions:
-    - Passive
+    - SimpleNeutral
   - type: ADTBulletDeflect
   - type: Butcherable
     spawned:

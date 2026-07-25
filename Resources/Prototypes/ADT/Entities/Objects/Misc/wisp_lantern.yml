@@ -38,6 +38,8 @@
     color: "#4882E9"
   - type: ADTWispLantern
   - type: Appearance
+  - type: UseDelay
+    delay: 2.5
   - type: GenericVisualizer
     visuals:
       enum.ADTWispLanternVisuals.Released:

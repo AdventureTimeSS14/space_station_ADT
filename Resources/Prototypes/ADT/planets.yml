@@ -32,7 +32,7 @@
     bosses:
     - MobDrake
     - ADTMegaFaunaBubblegum
-    #- BloodMinerDungeMarker до фиксов
+    - BloodMinerDungeMarker
   - type: FTLDestination
   - type: WeatherScheduler # Regular storms
     stages:
@@ -93,7 +93,6 @@
   - ADTLavaGutlunchPair
   - ADTLavaGubbucks
   - ADTLavaGoldgrubs
-  - ADTLavaAshenSkeletons
 
 - type: planet
   id: GlacierSurface

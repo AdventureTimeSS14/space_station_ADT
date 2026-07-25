@@ -23,6 +23,8 @@
     - ADTResonator
   - type: StaticPrice
     price: 500
+  - type: UseDelay
+    delay: 2
 
 - type: entity
   parent: ADTResonator

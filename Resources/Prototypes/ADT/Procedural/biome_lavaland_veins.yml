@@ -223,11 +223,3 @@
   maxGroupSize: 2
   maxCount: 7
   radius: 20
-
-- type: biomeMarkerLayer
-  id: ADTLavaAshenSkeletons
-  prototype: ADTMobAshenSkeleton
-  minGroupSize: 2
-  maxGroupSize: 4
-  maxCount: 6
-  radius: 24
