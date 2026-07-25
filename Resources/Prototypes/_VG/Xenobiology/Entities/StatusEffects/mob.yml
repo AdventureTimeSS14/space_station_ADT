@@ -15,12 +15,20 @@
 
 - type: entity
   parent: MobStatusEffectBase
-  id: StatusEffectFireImmune
+  id: StatusEffectImmunePressure
   name: burning immunity
   components:
   - type: GrantComponentsStatusEffect
     components:
-    - type: SpecialHighTempImmunity
+    - type: SpecialPressureImmunity
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectImmuneFire
+  name: burning immunity
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
     - type: FireImmunity
 
 - type: entity

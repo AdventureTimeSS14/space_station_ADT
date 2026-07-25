@@ -117,18 +117,14 @@
   color: "#1E8CFA"
   metabolisms:
     Bloodstream:
-      metabolismRate: 2
+      metabolismRate: 1
       effects:
-      - !type:GenericStatusEffect
-        key: FireImmunity
-        component: FireImmunity
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectImmunePressure
         time: 60
-        type: Add
-      - !type:GenericStatusEffect
-        key: SpecialPressureImmunity
-        component: SpecialPressureImmunity
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectImmuneFire
         time: 60
-        type: Add
 
 - type: reagent
   parent: BaseXenobioReagent
