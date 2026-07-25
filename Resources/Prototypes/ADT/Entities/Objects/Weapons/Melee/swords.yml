@@ -22,6 +22,37 @@
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
     range: 2.3
+  - type: ADTCursedKatana
+    hungerDamage:
+      types:
+        Blunt: 8
+        Slash: 8
+        Piercing: 8
+    healAmount:
+      types:
+        Blunt: -5
+        Slash: -5
+        Piercing: -5
+    healCost:
+      types:
+        Slash: 15
+    combos:
+    - move: TendonCut
+      inputs: [ Light, Light, Light ]
+      name: adt-cursed-katana-move-cut
+      popup: adt-cursed-katana-perform-cut
+    - move: HiltStrike
+      inputs: [ Heavy, Heavy, Heavy ]
+      name: adt-cursed-katana-move-strike
+      popup: adt-cursed-katana-perform-strike
+    - move: Dash
+      inputs: [ Light, Light, Heavy ]
+      name: adt-cursed-katana-move-dash
+      popup: adt-cursed-katana-perform-dash
+    - move: DarkHeal
+      inputs: [ Heavy, Heavy, Light ]
+      name: adt-cursed-katana-move-heal
+      popup: adt-cursed-katana-perform-heal
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
   - type: DisarmMalus
@@ -38,11 +69,7 @@
   - type: Sprite
     sprite: ADT/Objects/Specific/cursed_katana_shard.rsi
     state: katana-shard
-  - type: SpawnItemsOnUse
-    items:
-    - id: ADTKatanacursed
-    sound:
-      path: /Audio/Effects/demon_attack1.ogg
+  - type: ADTCursedKatanaShard
 
 - type: entity
   name: dagger plasma
