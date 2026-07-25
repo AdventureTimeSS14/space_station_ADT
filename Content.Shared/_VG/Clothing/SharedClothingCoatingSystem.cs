@@ -28,6 +28,13 @@ public partial class SharedClothingCoatingSystem : EntitySystem
             return;
 
         var target = args.Target.Value;
+
+        if (TryComp<CoatedClothingComponent>(target, out var existingCoated)
+            && existingCoated.CoatingNames.Contains(ent.Comp.CoatingName))
+        {
+            return;
+        }
+
         EntityManager.AddComponents(target, ent.Comp.Components, false);
 
         var coated = EnsureComp<CoatedClothingComponent>(target);
@@ -35,7 +42,7 @@ public partial class SharedClothingCoatingSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("clothing-coating-success", ("target", target), ("source", ent)), target);
         Dirty(target, coated);
 
-        QueueDel(ent);
+        EntityManager.PredictedQueueDeleteEntity(ent.Owner);
         args.Handled = true;
     }
 
