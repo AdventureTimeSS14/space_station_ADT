@@ -12,22 +12,7 @@
   - SlimeGrinderMachineCircuitboard
   - SlimeScannerXenobio
   - ClothingBackpackXenoBioTank
-  - ClothingBeltChemBagXenobiology
+  - ClothingBeltChemBagXenobiologyHolding
   position: 3,0
   requiredTech:
   - AlternativeResearch
-
-- type: technology
-  id: HoldingXenobiology
-  name: research-technology-holding-xenobiology
-  icon:
-    sprite: _VG/Clothing/Belt/xenobag_holding.rsi
-    state: icon
-  discipline: Experimental
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - ClothingBeltChemBagXenobiologyHolding
-  position: 3,1
-  requiredTech:
-  - BasicXenobiology

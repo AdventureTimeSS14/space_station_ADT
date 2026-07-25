@@ -9,15 +9,6 @@
     Plasma: 100
 
 - type: latheRecipe
-  id: ClothingBeltChemBagXenobiology
-  result: ClothingBeltChemBagXenobiology
-  completetime: 5
-  materials:
-    Steel: 750
-    Silver: 500
-    Plasma: 750
-
-- type: latheRecipe
   id: ClothingBeltChemBagXenobiologyHolding
   result: ClothingBeltChemBagXenobiologyHolding
   completetime: 5
