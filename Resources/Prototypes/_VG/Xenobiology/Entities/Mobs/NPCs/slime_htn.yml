@@ -17,7 +17,7 @@
   - tasks:
     - !type:HTNPrimitiveTask
       operator: !type:UtilityOperator
-        proto: NearbyFood
+        proto: XenoSlimeNearbyFood
     - !type:HTNPrimitiveTask
       operator: !type:MoveToOperator
         pathfindInPlanning: true
