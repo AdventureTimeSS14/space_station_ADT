@@ -654,6 +654,7 @@
       - ADTModsuitModTray
       - ADTModsuitModIsulation
       - ADTModsuitModRadiationProtection
+      - ADTModsuitModAnomalyScanner
     requiresBattery: false
   - type: UserInterface
     interfaces:
