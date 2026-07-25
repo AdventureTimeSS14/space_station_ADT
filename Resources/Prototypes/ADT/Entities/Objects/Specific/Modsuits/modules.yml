@@ -565,7 +565,7 @@
   description: A heads-up display installed into the visor of the suit. Reads and displays the vital signs of everyone in view.
   components:
   - type: Sprite
-    state: status
+    state: medhud_visor
   - type: ModSuitMod
     complexity: 1
     energyUsing: 0.1
@@ -647,6 +647,41 @@
         interfaces:
           enum.AnomalyScannerUiKey.Key:
             type: AnomalyScannerBoundUserInterface
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModDiagnosticVisor
+  name: MOD diagnostic visor module
+  description: A heads-up display installed into the visor of the suit, capable of analyzing the integrity and status of robotics and exosuits.
+  components:
+  - type: Sprite
+    state: diaghud_visor
+  - type: ModSuitMod
+    complexity: 1
+    energyUsing: 0.1
+    components:
+      head:
+      - type: ShowHealthBars
+        damageContainers:
+        - Inorganic
+        - Silicon
+      - type: ShowAccessReaderSettings
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModMesonVision
+  name: MOD meson visor module
+  description: A heads-up display installed into the visor of the suit, projecting a meson overlay that lets the user see structures through walls.
+  components:
+  - type: Sprite
+    state: meson_visor
+  - type: ModSuitMod
+    complexity: 2
+    energyUsing: 0.2
+    components:
+      head:
+      - type: MesonVisionItem
+        slotFlags: HEAD
 
 - type: entity
   parent: ADTModsuitModBase

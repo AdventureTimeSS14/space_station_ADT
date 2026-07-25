@@ -336,6 +336,26 @@
     Copper: 200
 
 - type: latheRecipe
+  id: ADTModsuitModDiagnosticVisor
+  result: ADTModsuitModDiagnosticVisor
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 250
+    Glass: 200
+    Copper: 200
+
+- type: latheRecipe
+  id: ADTModsuitModMesonVision
+  result: ADTModsuitModMesonVision
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 250
+    Glass: 500
+    Copper: 200
+
+- type: latheRecipe
   id: ADTModsuitModStorage
   result: ADTModsuitModStorage
   completetime: 2

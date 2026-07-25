@@ -45,6 +45,8 @@
   - ADTModsuitModDefibrillator
   - ADTModsuitModAnomalyScanner
   - ADTModsuitModGPS
+  - ADTModsuitModDiagnosticVisor
+  - ADTModsuitModMesonVision
   # - ADTModsuitModNoslip
 
 - type: latheRecipePack
