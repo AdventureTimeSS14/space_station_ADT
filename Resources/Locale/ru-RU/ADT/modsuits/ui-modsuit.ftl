@@ -5,6 +5,7 @@ mod-energy-time-minutes = ~{ $minutes } мин
 mod-energy-time-hours = ~{ $hours } ч { $minutes } мин
 mod-energy-time-infinite = ∞
 mod-energy-no-cell = батарея не установлена
+mod-energy-no-battery-required = батарея не требуется
 mod-username = Имя пользователя:
 mod-all-toggled = Полностью включен
 mod-partly-toggled = Частично включен

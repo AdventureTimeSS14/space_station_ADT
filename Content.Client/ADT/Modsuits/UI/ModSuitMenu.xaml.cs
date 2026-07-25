@@ -97,7 +97,14 @@ public sealed partial class ModSuitMenu : FancyWindow
         var draw = _modsuit.GetCurrentDraw((_mod, modComp));
         ModEnergyDraw.Text = Loc.GetString("mod-energy-waste", ("energy", draw.ToString("0.0#")));
 
-        if (_powerCell.TryGetBatteryFromSlot(_mod, out var battery))
+        if (!modComp.RequiresBattery)
+        {
+            ModEnergyCharge.Text = Loc.GetString("mod-energy-no-battery-required");
+            ModEnergyCharge.ModulateSelfOverride = new Color(0.35f, 0.84f, 0.33f);
+            ModEnergyBar.Value = 1f;
+            ModEnergyBar.ForegroundStyleBoxOverride = new StyleBoxFlat(new Color(0.35f, 0.84f, 0.33f));
+        }
+        else if (_powerCell.TryGetBatteryFromSlot(_mod, out var battery))
         {
             var charge = _battery.GetCharge(battery.Value.AsNullable());
             var level = _battery.GetChargeLevel(battery.Value.AsNullable());
