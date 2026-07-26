@@ -10,3 +10,6 @@ ent-ADTBoxFolderClipboardDV = планшет Dar-Vaxed
 
 ent-ADTPaperPack = упаковка бумаги
     .desc = Упаковка бумаги, содержащая десять листов формата А4. Радость бюрократа.
+
+ent-ClownMimeCyborgInstruction = совершенно секретно
+    .desc = Инструкция по созданию киборга убийцы.

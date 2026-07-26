@@ -263,7 +263,7 @@
   description: uplink-clown-gloves-desc
   productEntity: ClothingHandsGlovesColorYellow
   cost:
-    TrashBananaPeel: 75
+    TrashBananaPeel: 55
   categories:
     - EquipmentClown
 
