@@ -28,6 +28,7 @@
   recipeUnlocks:
     - ADTModsuitModArmor
     - ADTModsuitModSechud
+    - ADTModsuitModBodycam
   #  - ADTModsuitModPowerKick
     - ADTModsuitModStun
   technologyPrerequisites:
