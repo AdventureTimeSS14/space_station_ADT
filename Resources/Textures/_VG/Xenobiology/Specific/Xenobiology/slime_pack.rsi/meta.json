@@ -18,6 +18,10 @@
       "directions": 4
     },
     {
+      "name": "equipped-BACKPACK",
+      "directions": 4
+    },
+    {
       "name": "inhand-left",
       "directions": 4
     },
