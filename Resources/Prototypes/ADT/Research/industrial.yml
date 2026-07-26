@@ -58,6 +58,8 @@
     - ADTModsuitModEmpProtection
     - ADTModsuitModNightVision
     - ADTModsuitModDrill
+    - ADTModsuitModDiagnosticVisor
+    - ADTModsuitModMesonVision
   technologyPrerequisites:
     - ADTIndustrialMODsuit
   position: 1,-3
