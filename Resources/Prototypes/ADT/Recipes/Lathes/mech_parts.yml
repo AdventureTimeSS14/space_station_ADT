@@ -927,3 +927,13 @@
     Glass: 300
     Plasma: 300
     Silver: 200
+
+- type: latheRecipe
+  id: ADTMechEquipmentCockpit
+  result: ADTMechEquipmentCockpit
+  completetime: 6
+  materials:
+    Steel: 1200
+    Glass: 800
+    Plastic: 400
+    Plasma: 300
