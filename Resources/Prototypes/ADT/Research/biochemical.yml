@@ -197,6 +197,10 @@
   cost: 5000
   recipeUnlocks:
   - ADTModsuitPlateMedical
+  - ADTModsuitModReagentScanner
+  - ADTModsuitModStatusReadout
+  - ADTModsuitModHealthAnalyzer
+  - ADTModsuitModDefibrillator
   technologyPrerequisites:
     - ADTModsuitBase
   position: 5,-1
