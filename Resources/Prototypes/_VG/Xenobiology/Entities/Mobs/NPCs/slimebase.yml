@@ -7,7 +7,7 @@
   components:
   - type: Appearance
   - type: Hunger
-    lastAuthoritativeHungerValue: 40
+    lastAuthoritativeHungerValue: 20
     thresholds:
       Overfed: 150
       Okay: 75
