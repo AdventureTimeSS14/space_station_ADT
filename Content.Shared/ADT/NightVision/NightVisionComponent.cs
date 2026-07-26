@@ -20,6 +20,13 @@ public sealed partial class NightVisionComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool Innate;
+
+    /// <summary>
+    /// PointLight effect entity spawned for the local player while NV is full (Starlight port).
+    /// Device NV goggles override this while worn.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntProtoId EffectPrototype = "ADTEffectNightVision";
 }
 
 [Serializable, NetSerializable]

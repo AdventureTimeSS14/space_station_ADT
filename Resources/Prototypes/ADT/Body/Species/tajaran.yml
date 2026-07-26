@@ -160,6 +160,7 @@
       - ADTCatEmotes
     - type: NightVision
       innate: true
+      effectPrototype: ADTEffectNightVisionTajaran
 
 - type: entity
   parent: OrganBaseOrganic
