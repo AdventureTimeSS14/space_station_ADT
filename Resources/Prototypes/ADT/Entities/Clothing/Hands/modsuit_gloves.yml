@@ -16,6 +16,12 @@
     fiberMaterial: fibers-carbon-adt
     fiberColor: fibers-grey
   - type: FingerprintMask
+  - type: UserInterface
+    interfaces:
+      enum.HealthAnalyzerUiKey.Key:
+        type: HealthAnalyzerBoundUserInterface
+      enum.AnomalyScannerUiKey.Key:
+        type: AnomalyScannerBoundUserInterface
   - type: Tag
     tags:
     - WhitelistChameleon

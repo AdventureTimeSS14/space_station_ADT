@@ -590,10 +590,6 @@
       - type: HealthAnalyzer
         scanningEndSound:
           path: /Audio/Items/Medical/healthscanner.ogg
-      - type: UserInterface
-        interfaces:
-          enum.HealthAnalyzerUiKey.Key:
-            type: HealthAnalyzerBoundUserInterface
 
 - type: entity
   parent: ADTModsuitModBase
@@ -643,10 +639,6 @@
     components:
       gloves:
       - type: AnomalyScanner
-      - type: UserInterface
-        interfaces:
-          enum.AnomalyScannerUiKey.Key:
-            type: AnomalyScannerBoundUserInterface
 
 - type: entity
   parent: ADTModsuitModBase
