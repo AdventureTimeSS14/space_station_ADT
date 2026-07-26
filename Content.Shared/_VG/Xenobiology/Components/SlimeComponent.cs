@@ -103,7 +103,7 @@ public sealed partial class SlimeComponent : Component
     /// What hunger threshold must be met for mitosis?
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float MitosisHunger = 125f;
+    public float MitosisHunger = 300f;
 
     /// <summary>
     /// How long in between each mitosis/breeding check?

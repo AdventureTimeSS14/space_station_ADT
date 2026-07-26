@@ -9,10 +9,10 @@
   - type: Hunger
     lastAuthoritativeHungerValue: 40
     thresholds:
-      Overfed: 150
-      Okay: 75
-      Peckish: 25 #Baby Slimes will begin hunting here, Adult Slimes will target their tamers here.
-      Starving: 10
+      Overfed: 300
+      Okay: 130
+      Peckish: 50 #Baby Slimes will begin hunting here, Adult Slimes will target their tamers here.
+      Starving: 20
       Dead: 0
     hungerThresholdDecayModifiers:
       Okay: 1.5
@@ -171,7 +171,7 @@
       state: base
       color: "#FFFFFF"
   - type: MobGrowth
-    hungerRequired: 75
+    hungerRequired: 130
     currentStage: baby
     stages:
       baby:
