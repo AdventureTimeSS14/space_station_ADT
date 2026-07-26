@@ -85,6 +85,7 @@
   - ADTMechEquipmentToolWelderExperimental
   - ADTMechEquipmentToolJawsOfLife
   - ADTMechEquipmentToolPowerDrill
+  - ADTMechEquipmentCockpit
 
 - type: latheRecipePack
   id: ADTClarkePack
