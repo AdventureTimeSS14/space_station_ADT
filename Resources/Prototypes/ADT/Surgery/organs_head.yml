@@ -1,0 +1,285 @@
+- type: surgeryGraph
+  id: SurgeryHeadOrgans
+  category: SurgeryCategoryOrganManipulation
+  name: surgery-graph-head-organs-name
+  startNodes:
+    - ScalpClosed
+  nodes:
+    - name: ScalpClosed
+      label: surgery-node-head-scalp-closed-label
+      edges:
+        - id: Cut
+          label: surgery-edge-head-cut-label
+          target: ScalpIncised
+          steps:
+            - name: Разрезать скальп
+              tools: [ Scalpel ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 2
+                      Bloodloss: 1
+
+        - id: RetractEyelid
+          target: EyelidRetracted
+          label: surgery-edge-head-retract-eyelid-label
+          steps:
+            - name: Оттянуть веко
+              tools: [ Retractor ]
+              successChance: 0.9
+              duration: 2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: EyelidRetracted
+      label: surgery-node-head-eyelid-retracted-label
+      edges:
+        - id: ReleaseEyelid
+          target: ScalpClosed
+          label: surgery-edge-head-release-eyelid-label
+          steps:
+            - name: Отпустить веко
+              tools: [ Retractor ]
+              successChance: 0.9
+              duration: 2
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+        - id: RemoveEyes
+          target: EyelidRetracted
+          label: surgery-edge-head-remove-eyes-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Eyes
+          steps:
+            - name: Извлечь глаза
+              tools: [ Hemostat ]
+              successChance: 0.8
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Eyes
+
+        - id: InsertEyes
+          target: EyelidRetracted
+          label: surgery-edge-head-insert-eyes-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Eyes
+              inverted: true
+          steps:
+            - name: Вставить глаза
+              tools: [ Eyes ]
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Eyes
+
+    - name: ScalpIncised
+      label: surgery-node-head-scalp-incised-label
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-head-clamp-bleeders-label
+          target: ScalpBleedersClamped
+          steps:
+            - name: Зажать кровотечение
+              tools: [ Hemostat ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: ScalpBleedersClamped
+      label: surgery-node-head-scalp-bleeders-clamped-label
+      edges:
+        - id: RetractScalp
+          label: surgery-edge-head-retract-scalp-label
+          target: ScalpRetracted
+          steps:
+            - name: Приподнять скальп
+              tools: [ Retractor ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: ScalpRetracted
+      label: surgery-node-head-scalp-retracted-label
+      edges:
+        - id: SawSkull
+          label: surgery-edge-head-saw-skull-label
+          target: SkullSawed
+          steps:
+            - name: Распилить череп
+              tools: [ Saw ]
+              successChance: 0.9
+              duration: 5
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+                      Bloodloss: 2
+
+    - name: SkullSawed
+      label: surgery-node-head-skull-sawed-label
+      edges:
+        - id: RetractSkull
+          target: SkullOpen
+          label: surgery-edge-head-retract-skull-label
+          steps:
+            - name: Приподнять черепную кость
+              tools: [ Retractor ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+        - id: ApplyBoneGelFirst
+          target: SkullBoneGelled
+          label: surgery-edge-head-apply-bone-gel-first-label
+          steps:
+            - name: Нанести костный гель
+              tools: [ BoneGel ]
+              duration: 2
+
+    - name: SkullOpen
+      label: surgery-node-head-skull-open-label
+      edges:
+        - id: UnretractSkull
+          target: SkullSawed
+          label: surgery-edge-head-unretract-skull-label
+          steps:
+            - name: Опустить черепную кость
+              tools: [ Retractor ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+        - id: RemoveBrain
+          target: SkullOpen
+          label: surgery-edge-head-remove-brain-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Brain
+          steps:
+            - name: Извлечь мозг
+              tools: [ Hemostat ]
+              successChance: 0.8
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Brain
+
+        - id: InsertBrain
+          target: SkullOpen
+          label: surgery-edge-head-insert-brain-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Brain
+              inverted: true
+          steps:
+            - name: Вставить мозг
+              tools: [ Brain ]
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Brain
+
+    - name: SkullBoneGelled
+      label: surgery-node-head-skull-bone-gelled-label
+      edges:
+        - id: SetBone
+          label: surgery-edge-head-set-bone-label
+          target: SkullBoneSet
+          steps:
+            - name: Поставить кость на место
+              tools: [ BoneSetter ]
+              successChance: 0.9
+              duration: 3
+
+    - name: SkullBoneSet
+      label: surgery-node-head-skull-bone-set-label
+      edges:
+        - id: ApplyBoneGelSecond
+          label: surgery-edge-head-apply-bone-gel-second-label
+          target: SkullBoneGelledTwice
+          steps:
+            - name: Нанести костный гель повторно
+              tools: [ BoneGel ]
+              duration: 2
+
+    - name: SkullBoneGelledTwice
+      label: surgery-node-head-skull-bone-gelled-twice-label
+      edges:
+        - id: Cauterize
+          label: surgery-edge-head-cauterize-label
+          target: ScalpClosed
+          steps:
+            - name: Завершить операцию
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+
+- type: entity
+  parent: MobHuman
+  id: SurgeryHeadTestDummy
+  name: head surgery dummy

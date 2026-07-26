@@ -1,0 +1,56 @@
+{
+	"version": 1,
+	"license": "CC-BY-SA-3.0",
+	"copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/blob/master/icons/obj/medical/surgery_table.dmi",
+	"size": {
+		"x": 32,
+		"y": 32
+	},
+	"states": [
+		{
+			"name": "surgery_table"
+		},
+		{
+			"name": "surgery_table_unlinked"
+		},
+		{
+			"name": "surgery_table_linked"
+		},
+		{
+			"name": "holder_oxygen"
+		},
+		{
+			"name": "holder_generic"
+		},
+		{
+			"name": "holder_anesthetic"
+		},
+		{
+			"name": "holder_emergency"
+		},
+		{
+			"name": "holder_emergency_engi"
+		},
+		{
+			"name": "holder_oxygen_f"
+		},
+		{
+			"name": "holder_oxygen_fr"
+		},
+		{
+			"name": "holder_emergency_clown"
+		},
+		{
+			"name": "holder_anesthetic_warning"
+		},
+		{
+			"name": "mask_breath"
+		},
+		{
+			"name": "mask_medical"
+		},
+		{
+			"name": "mask_breathmuzzle"
+		}
+	]
+}

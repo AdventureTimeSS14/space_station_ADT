@@ -1,0 +1,250 @@
+- type: surgeryGraph
+  id: SurgeryChestOrgans
+  category: SurgeryCategoryOrganManipulation
+  name: surgery-graph-chest-organs-name
+  startNodes:
+    - ChestClosed
+  nodes:
+    - name: ChestClosed
+      label: surgery-node-chest-closed-label
+      edges:
+        - id: Cut
+          label: surgery-edge-chest-cut-label
+          target: ChestIncised
+          steps:
+            - name: Сделать надрез
+              tools: [ Scalpel ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 2
+                      Bloodloss: 1
+
+    - name: ChestIncised
+      label: surgery-node-chest-incised-label
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-chest-clamp-bleeders-label
+          target: ChestBleedersClamped
+          steps:
+            - name: Зажать кровотечение
+              tools: [ Hemostat ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: ChestBleedersClamped
+      label: surgery-node-chest-bleeders-clamped-label
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-chest-retract-skin-label
+          target: ChestSkinRetracted
+          steps:
+            - name: Приподнять кожу
+              tools: [ Retractor ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: ChestSkinRetracted
+      label: surgery-node-chest-skin-retracted-label
+      edges:
+        - id: SawRibcage
+          label: surgery-edge-chest-saw-ribcage-label
+          target: ChestBoneSawed
+          steps:
+            - name: Вскрыть грудную клетку
+              tools: [ Saw ]
+              successChance: 0.9
+              duration: 5
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+                      Bloodloss: 2
+
+    - name: ChestBoneSawed
+      label: surgery-node-chest-bone-sawed-label
+      edges:
+        - id: RetractRibcage
+          target: ChestOpen
+          label: surgery-edge-chest-retract-ribcage-label
+          steps:
+            - name: Приподнять грудную клетку
+              tools: [ Retractor ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+        - id: ApplyBoneGelFirst
+          target: ChestBoneGelled
+          label: surgery-edge-chest-apply-bone-gel-first-label
+          steps:
+            - name: Нанести костный гель
+              tools: [ BoneGel ]
+              duration: 2
+
+    - name: ChestOpen
+      label: surgery-node-chest-open-label
+      edges:
+        - id: UnretractRibcage
+          target: ChestBoneSawed
+          label: surgery-edge-chest-unretract-ribcage-label
+          steps:
+            - name: Опустить грудную клетку
+              tools: [ Retractor ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+        - id: RemoveHeart
+          target: ChestOpen
+          label: surgery-edge-chest-remove-heart-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Heart
+          steps:
+            - name: Извлечь сердце
+              tools: [ Hemostat ]
+              successChance: 0.8
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Heart
+
+        - id: InsertHeart
+          target: ChestOpen
+          label: surgery-edge-chest-insert-heart-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Heart
+              inverted: true
+          steps:
+            - name: Вставить сердце
+              tools: [ Heart ]
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Heart
+
+        - id: RemoveLungs
+          target: ChestOpen
+          label: surgery-edge-chest-remove-lungs-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Lungs
+          steps:
+            - name: Извлечь лёгкие
+              tools: [ Hemostat ]
+              successChance: 0.8
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Lungs
+
+        - id: InsertLungs
+          target: ChestOpen
+          label: surgery-edge-chest-insert-lungs-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Lungs
+              inverted: true
+          steps:
+            - name: Вставить лёгкие
+              tools: [ Lungs ]
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Lungs
+
+    - name: ChestBoneGelled
+      label: surgery-node-chest-bone-gelled-label
+      edges:
+        - id: SetBone
+          label: surgery-edge-chest-set-bone-label
+          target: ChestBoneSet
+          steps:
+            - name: Поставить кость на место
+              tools: [ BoneSetter ]
+              successChance: 0.9
+              duration: 3
+
+    - name: ChestBoneSet
+      label: surgery-node-chest-bone-set-label
+      edges:
+        - id: ApplyBoneGelSecond
+          label: surgery-edge-chest-apply-bone-gel-second-label
+          target: ChestBoneGelledTwice
+          steps:
+            - name: Нанести костный гель повторно
+              tools: [ BoneGel ]
+              duration: 2
+
+    - name: ChestBoneGelledTwice
+      label: surgery-node-chest-bone-gelled-twice-label
+      edges:
+        - id: Cauterize
+          label: surgery-edge-chest-cauterize-label
+          target: ChestClosed
+          steps:
+            - name: Завершить операцию
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+
+- type: entity
+  parent: MobHuman
+  id: SurgeryChestTestDummy
+  name: chest surgery dummy

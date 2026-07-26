@@ -20,3 +20,69 @@
   - type: Construction
     graph: ADTSawImprovised
     node: saw
+
+- type: entity
+  name: bone setter
+  id: ADTBoneSetter
+  parent: Retractor
+  description: A surgical tool used for setting bones.
+  components:
+  - type: Tag
+    tags:
+    - SurgeryTool
+    - BoneSetter
+  - type: Sprite
+    state: setter
+  - type: Item
+    heldPrefix: setter
+    storedRotation: 90
+
+- type: entity
+  name: bone gel
+  id: ADTBoneGel
+  parent: BaseToolSurgery
+  description: A thick regenerative gel used to mend fractured bones.
+  components:
+  - type: Tag
+    tags:
+    - SurgeryTool
+    - BoneGel
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Surgery/bone_gel.rsi
+    state: bone-gel
+  - type: Item
+    sprite: ADT/Objects/Specific/Medical/Surgery/bone_gel.rsi
+    storedRotation: 90
+
+- type: entity
+  name: blood filter
+  id: ADTBloodFilter
+  parent: BaseToolSurgery
+  description: A surgical tool used to filter contaminants out of the bloodstream.
+  components:
+  - type: Tag
+    tags:
+    - SurgeryTool
+    - BloodFilter
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Surgery/bloodfilter.rsi
+    state: bloodfilter
+  - type: Item
+    sprite: ADT/Objects/Specific/Medical/Surgery/bloodfilter.rsi
+    storedRotation: 90
+
+- type: entity
+  name: surgical drapes
+  id: ADTSurgicalDrapes
+  parent: BaseItem
+  description: A sterile drape laid over a patient before an operation.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Surgery/surgical_drapes.rsi
+    state: surgical_drapes
+  - type: Item
+    sprite: ADT/Objects/Specific/Medical/Surgery/surgical_drapes.rsi
+    storedRotation: 90
+  - type: SurgeryChooser
+  - type: StaticPrice
+    price: 15

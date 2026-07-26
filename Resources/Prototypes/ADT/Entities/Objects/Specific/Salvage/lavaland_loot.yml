@@ -10,10 +10,13 @@
   - type: Item
     size: Small
   - type: CursedHeartGrant
+  - type: SurgeryTool
   - type: Tag
     tags:
     - Meat
-    - Organ
+    - Organ 
+    - Heart
+    - SurgeryTool
 
 - type: entity
   id: ADTVavilonBook

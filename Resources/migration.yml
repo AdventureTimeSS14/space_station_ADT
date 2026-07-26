@@ -1002,3 +1002,6 @@ OrganTajaranFootRight: null
 OrganTajaranHead: null
 OrganTajaranLegLeft: null
 OrganTajaranTorso: null
+
+# ADT 2026-07-26: Консоль сканера тела заменена на хирургическую консоль
+computerBodyScanner: ADTComputerSurgeryConsole

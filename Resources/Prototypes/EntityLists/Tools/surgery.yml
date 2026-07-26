@@ -7,4 +7,9 @@
   - Retractor
   - Hemostat
   - SawAdvanced
-# - Drapes
+  # ADT-Tweak start
+  - ADTBoneSetter
+  - ADTBoneGel
+  - ADTBloodFilter
+  - ADTSurgicalDrapes
+  # ADT-Tweak end

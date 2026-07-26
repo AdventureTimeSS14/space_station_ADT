@@ -1,0 +1,596 @@
+- type: surgeryGraph
+  id: SurgeryAmputateArmLeft
+  category: SurgeryCategoryAmputation
+  name: surgery-graph-amputate-arm-left-name
+  startNodes:
+    - Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:OrganPresentCondition
+              organId: ArmLeft
+          steps:
+            - name: Сделать надрез
+              tools: [ Scalpel ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 10
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      edges:
+        - id: Saw
+          label: surgery-edge-limb-saw-label
+          target: Amputated
+          steps:
+            - name: Отпилить кость
+              tools: [ Saw ]
+              successChance: 0.9
+              duration: 5
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 4
+                      Bloodloss: 10
+          effects:
+            - !type:RemoveOrganEffect
+              organId: ArmLeft
+            - !type:RemoveOrganEffect
+              organId: HandLeft
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      edges:
+        - id: Cauterize
+          label: surgery-edge-limb-cauterize-label
+          target: Cauterized
+          steps:
+            - name: Прижигание
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/Effects/lightburn.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+    - name: Cauterized
+      label: surgery-node-limb-cauterized-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryAmputateArmRight
+  category: SurgeryCategoryAmputation
+  name: surgery-graph-amputate-arm-right-name
+  startNodes:
+    - Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:OrganPresentCondition
+              organId: ArmRight
+          steps:
+            - name: Сделать надрез
+              tools: [ Scalpel ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 10
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      edges:
+        - id: Saw
+          label: surgery-edge-limb-saw-label
+          target: Amputated
+          steps:
+            - name: Отпилить кость
+              tools: [ Saw ]
+              successChance: 0.9
+              duration: 5
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 4
+                      Bloodloss: 3
+          effects:
+            - !type:RemoveOrganEffect
+              organId: ArmRight
+            - !type:RemoveOrganEffect
+              organId: HandRight
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      edges:
+        - id: Cauterize
+          label: surgery-edge-limb-cauterize-label
+          target: Cauterized
+          steps:
+            - name: Прижигание
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/Effects/lightburn.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+    - name: Cauterized
+      label: surgery-node-limb-cauterized-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryAmputateHandLeft
+  category: SurgeryCategoryAmputation
+  name: surgery-graph-amputate-hand-left-name
+  startNodes:
+    - Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:OrganPresentCondition
+              organId: HandLeft
+          steps:
+            - name: Сделать надрез
+              tools: [ Scalpel ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 10
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      edges:
+        - id: Saw
+          label: surgery-edge-limb-saw-label
+          target: Amputated
+          steps:
+            - name: Отпилить кость
+              tools: [ Saw ]
+              successChance: 0.9
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+                      Bloodloss: 10
+          effects:
+            - !type:RemoveOrganEffect
+              organId: HandLeft
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      edges:
+        - id: Cauterize
+          label: surgery-edge-limb-cauterize-label
+          target: Cauterized
+          steps:
+            - name: Прижигание
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/Effects/lightburn.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+    - name: Cauterized
+      label: surgery-node-limb-cauterized-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryAmputateHandRight
+  category: SurgeryCategoryAmputation
+  name: surgery-graph-amputate-hand-right-name
+  startNodes:
+    - Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:OrganPresentCondition
+              organId: HandRight
+          steps:
+            - name: Сделать надрез
+              tools: [ Scalpel ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 10
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      edges:
+        - id: Saw
+          label: surgery-edge-limb-saw-label
+          target: Amputated
+          steps:
+            - name: Отпилить кость
+              tools: [ Saw ]
+              successChance: 0.9
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+                      Bloodloss: 10
+          effects:
+            - !type:RemoveOrganEffect
+              organId: HandRight
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      edges:
+        - id: Cauterize
+          label: surgery-edge-limb-cauterize-label
+          target: Cauterized
+          steps:
+            - name: Прижигание
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/Effects/lightburn.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+    - name: Cauterized
+      label: surgery-node-limb-cauterized-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryAmputateLegLeft
+  category: SurgeryCategoryAmputation
+  name: surgery-graph-amputate-leg-left-name
+  startNodes:
+    - Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:OrganPresentCondition
+              organId: LegLeft
+          steps:
+            - name: Сделать надрез
+              tools: [ Scalpel ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 10
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      edges:
+        - id: Saw
+          label: surgery-edge-limb-saw-label
+          target: Amputated
+          steps:
+            - name: Отпилить кость
+              tools: [ Saw ]
+              successChance: 0.9
+              duration: 5
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 4
+                      Bloodloss: 3
+          effects:
+            - !type:RemoveOrganEffect
+              organId: LegLeft
+            - !type:RemoveOrganEffect
+              organId: FootLeft
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      edges:
+        - id: Cauterize
+          label: surgery-edge-limb-cauterize-label
+          target: Cauterized
+          steps:
+            - name: Прижигание
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/Effects/lightburn.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+    - name: Cauterized
+      label: surgery-node-limb-cauterized-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryAmputateLegRight
+  category: SurgeryCategoryAmputation
+  name: surgery-graph-amputate-leg-right-name
+  startNodes:
+    - Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:OrganPresentCondition
+              organId: LegRight
+          steps:
+            - name: Сделать надрез
+              tools: [ Scalpel ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 10
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      edges:
+        - id: Saw
+          label: surgery-edge-limb-saw-label
+          target: Amputated
+          steps:
+            - name: Отпилить кость
+              tools: [ Saw ]
+              successChance: 0.9
+              duration: 5
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 4
+                      Bloodloss: 3
+          effects:
+            - !type:RemoveOrganEffect
+              organId: LegRight
+            - !type:RemoveOrganEffect
+              organId: FootRight
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      edges:
+        - id: Cauterize
+          label: surgery-edge-limb-cauterize-label
+          target: Cauterized
+          steps:
+            - name: Прижигание
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/Effects/lightburn.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+    - name: Cauterized
+      label: surgery-node-limb-cauterized-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryAmputateFootLeft
+  category: SurgeryCategoryAmputation
+  name: surgery-graph-amputate-foot-left-name
+  startNodes:
+    - Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:OrganPresentCondition
+              organId: FootLeft
+          steps:
+            - name: Сделать надрез
+              tools: [ Scalpel ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 10
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      edges:
+        - id: Saw
+          label: surgery-edge-limb-saw-label
+          target: Amputated
+          steps:
+            - name: Отпилить кость
+              tools: [ Saw ]
+              successChance: 0.9
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+                      Bloodloss: 10
+          effects:
+            - !type:RemoveOrganEffect
+              organId: FootLeft
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      edges:
+        - id: Cauterize
+          label: surgery-edge-limb-cauterize-label
+          target: Cauterized
+          steps:
+            - name: Прижигание
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/Effects/lightburn.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+    - name: Cauterized
+      label: surgery-node-limb-cauterized-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryAmputateFootRight
+  category: SurgeryCategoryAmputation
+  name: surgery-graph-amputate-foot-right-name
+  startNodes:
+    - Attached
+  nodes:
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges:
+        - id: Cut
+          label: surgery-edge-limb-cut-label
+          target: Cut
+          conditions:
+            - !type:OrganPresentCondition
+              organId: FootRight
+          steps:
+            - name: Сделать надрез
+              tools: [ Scalpel ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 3
+                      Bloodloss: 10
+    - name: Cut
+      label: surgery-node-limb-cut-label
+      edges:
+        - id: Saw
+          label: surgery-edge-limb-saw-label
+          target: Amputated
+          steps:
+            - name: Отпилить кость
+              tools: [ Saw ]
+              successChance: 0.9
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/saw.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Piercing: 3
+                      Bloodloss: 10
+          effects:
+            - !type:RemoveOrganEffect
+              organId: FootRight
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      edges:
+        - id: Cauterize
+          label: surgery-edge-limb-cauterize-label
+          target: Cauterized
+          steps:
+            - name: Прижигание
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/Effects/lightburn.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+    - name: Cauterized
+      label: surgery-node-limb-cauterized-label
+      edges: []
+
+- type: entity
+  parent: MobHuman
+  id: SurgeryAmputationTestDummy
+  name: amputation surgery dummy

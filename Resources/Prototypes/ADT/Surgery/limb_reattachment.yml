@@ -1,0 +1,324 @@
+- type: surgeryGraph
+  id: SurgeryReattachArmLeft
+  category: SurgeryCategoryLimbReattachment
+  name: surgery-graph-reattach-arm-left-name
+  startNodes:
+    - Amputated
+  nodes:
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: Attached
+          conditions:
+            - !type:OrganPresentCondition
+              organId: ArmLeft
+              inverted: true
+          steps:
+            - name: Обработать культю
+              tools: [ Cautery ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+            - name: Приложить конечность
+              tools: [ ArmLeft ]
+              duration: 4
+          effects:
+            - !type:InsertOrganEffect
+              organId: ArmLeft
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryReattachArmRight
+  category: SurgeryCategoryLimbReattachment
+  name: surgery-graph-reattach-arm-right-name
+  startNodes:
+    - Amputated
+  nodes:
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: Attached
+          conditions:
+            - !type:OrganPresentCondition
+              organId: ArmRight
+              inverted: true
+          steps:
+            - name: Обработать культю
+              tools: [ Cautery ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+            - name: Приложить конечность
+              tools: [ ArmRight ]
+              duration: 4
+          effects:
+            - !type:InsertOrganEffect
+              organId: ArmRight
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryReattachHandLeft
+  category: SurgeryCategoryLimbReattachment
+  name: surgery-graph-reattach-hand-left-name
+  startNodes:
+    - Amputated
+  nodes:
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: Attached
+          conditions:
+            - !type:OrganPresentCondition
+              organId: HandLeft
+              inverted: true
+            - !type:OrganPresentCondition
+              organId: ArmLeft
+          steps:
+            - name: Обработать культю
+              tools: [ Cautery ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+            - name: Приложить конечность
+              tools: [ HandLeft ]
+              duration: 4
+          effects:
+            - !type:InsertOrganEffect
+              organId: HandLeft
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryReattachHandRight
+  category: SurgeryCategoryLimbReattachment
+  name: surgery-graph-reattach-hand-right-name
+  startNodes:
+    - Amputated
+  nodes:
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: Attached
+          conditions:
+            - !type:OrganPresentCondition
+              organId: HandRight
+              inverted: true
+            - !type:OrganPresentCondition
+              organId: ArmRight
+          steps:
+            - name: Обработать культю
+              tools: [ Cautery ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+            - name: Приложить конечность
+              tools: [ HandRight ]
+              duration: 4
+          effects:
+            - !type:InsertOrganEffect
+              organId: HandRight
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryReattachLegLeft
+  category: SurgeryCategoryLimbReattachment
+  name: surgery-graph-reattach-leg-left-name
+  startNodes:
+    - Amputated
+  nodes:
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: Attached
+          conditions:
+            - !type:OrganPresentCondition
+              organId: LegLeft
+              inverted: true
+          steps:
+            - name: Обработать культю
+              tools: [ Cautery ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+            - name: Приложить конечность
+              tools: [ LegLeft ]
+              duration: 4
+          effects:
+            - !type:InsertOrganEffect
+              organId: LegLeft
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryReattachLegRight
+  category: SurgeryCategoryLimbReattachment
+  name: surgery-graph-reattach-leg-right-name
+  startNodes:
+    - Amputated
+  nodes:
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: Attached
+          conditions:
+            - !type:OrganPresentCondition
+              organId: LegRight
+              inverted: true
+          steps:
+            - name: Обработать культю
+              tools: [ Cautery ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+            - name: Приложить конечность
+              tools: [ LegRight ]
+              duration: 4
+          effects:
+            - !type:InsertOrganEffect
+              organId: LegRight
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryReattachFootLeft
+  category: SurgeryCategoryLimbReattachment
+  name: surgery-graph-reattach-foot-left-name
+  startNodes:
+    - Amputated
+  nodes:
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: Attached
+          conditions:
+            - !type:OrganPresentCondition
+              organId: FootLeft
+              inverted: true
+            - !type:OrganPresentCondition
+              organId: LegLeft
+          steps:
+            - name: Обработать культю
+              tools: [ Cautery ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+            - name: Приложить конечность
+              tools: [ FootLeft ]
+              duration: 4
+          effects:
+            - !type:InsertOrganEffect
+              organId: FootLeft
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges: []
+
+- type: surgeryGraph
+  id: SurgeryReattachFootRight
+  category: SurgeryCategoryLimbReattachment
+  name: surgery-graph-reattach-foot-right-name
+  startNodes:
+    - Amputated
+  nodes:
+    - name: Amputated
+      label: surgery-node-limb-amputated-label
+      edges:
+        - id: Attach
+          label: surgery-edge-limb-attach-label
+          target: Attached
+          conditions:
+            - !type:OrganPresentCondition
+              organId: FootRight
+              inverted: true
+            - !type:OrganPresentCondition
+              organId: LegRight
+          steps:
+            - name: Обработать культю
+              tools: [ Cautery ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+            - name: Приложить конечность
+              tools: [ FootRight ]
+              duration: 4
+          effects:
+            - !type:InsertOrganEffect
+              organId: FootRight
+    - name: Attached
+      label: surgery-node-limb-attached-label
+      edges: []
+
+- type: entity
+  parent: MobHuman
+  id: SurgeryLimbReattachmentTestDummy
+  name: limb reattachment surgery dummy

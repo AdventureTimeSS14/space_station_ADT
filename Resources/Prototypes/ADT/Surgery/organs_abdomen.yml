@@ -1,0 +1,274 @@
+- type: surgeryGraph
+  id: SurgeryAbdomenOrgans
+  category: SurgeryCategoryOrganManipulation
+  name: surgery-graph-abdomen-organs-name
+  startNodes:
+    - AbdomenClosed
+  nodes:
+    - name: AbdomenClosed
+      label: surgery-node-abdomen-closed-label
+      edges:
+        - id: Cut
+          label: surgery-edge-abdomen-cut-label
+          target: AbdomenIncised
+          steps:
+            - name: Сделать надрез
+              tools: [ Scalpel ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/scalpel1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Slash: 2
+                      Bloodloss: 1
+
+    - name: AbdomenIncised
+      label: surgery-node-abdomen-incised-label
+      edges:
+        - id: ClampBleeders
+          label: surgery-edge-abdomen-clamp-bleeders-label
+          target: AbdomenBleedersClamped
+          steps:
+            - name: Зажать кровотечение
+              tools: [ Hemostat ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+    - name: AbdomenBleedersClamped
+      label: surgery-node-abdomen-bleeders-clamped-label
+      edges:
+        - id: RetractSkin
+          label: surgery-edge-abdomen-retract-skin-label
+          target: AbdomenSkinRetracted
+          steps:
+            - name: Приподнять кожу
+              tools: [ Retractor ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+    - name: AbdomenSkinRetracted
+      label: surgery-node-abdomen-skin-retracted-label
+      edges:
+        - id: RetractMuscle
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-retract-muscle-label
+          steps:
+            - name: Раздвинуть мышцы
+              tools: [ Retractor ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+        - id: Cauterize
+          target: AbdomenClosed
+          label: surgery-edge-abdomen-cauterize-label
+          steps:
+            - name: Прижигание
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+
+    - name: AbdomenOpen
+      label: surgery-node-abdomen-open-label
+      edges:
+        - id: UnretractMuscle
+          target: AbdomenSkinRetracted
+          label: surgery-edge-abdomen-unretract-muscle-label
+          steps:
+            - name: Опустить мышцы
+              tools: [ Retractor ]
+              successChance: 0.9
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/retractor2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+
+        - id: RemoveStomach
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-remove-stomach-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Stomach
+          steps:
+            - name: Извлечь желудок
+              tools: [ Hemostat ]
+              successChance: 0.8
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Stomach
+
+        - id: InsertStomach
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-insert-stomach-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Stomach
+              inverted: true
+          steps:
+            - name: Вставить желудок
+              tools: [ Stomach ]
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Stomach
+
+        - id: RemoveLiver
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-remove-liver-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Liver
+          steps:
+            - name: Извлечь печень
+              tools: [ Hemostat ]
+              successChance: 0.8
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Liver
+
+        - id: InsertLiver
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-insert-liver-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Liver
+              inverted: true
+          steps:
+            - name: Вставить печень
+              tools: [ Liver ]
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Liver
+
+        - id: RemoveKidneys
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-remove-kidneys-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Kidneys
+          steps:
+            - name: Извлечь почки
+              tools: [ Hemostat ]
+              successChance: 0.8
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Kidneys
+
+        - id: InsertKidneys
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-insert-kidneys-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Kidneys
+              inverted: true
+          steps:
+            - name: Вставить почки
+              tools: [ Kidneys ]
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ1.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Kidneys
+
+        - id: RemoveAppendix
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-remove-appendix-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Appendix
+          steps:
+            - name: Извлечь аппендикс
+              tools: [ Hemostat ]
+              successChance: 0.8
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Bloodloss: 1
+          effects:
+            - !type:RemoveOrganEffect
+              organId: Appendix
+
+        - id: InsertAppendix
+          target: AbdomenOpen
+          label: surgery-edge-abdomen-insert-appendix-label
+          conditions:
+            - !type:OrganPresentCondition
+              organId: Appendix
+              inverted: true
+          steps:
+            - name: Вставить аппендикс
+              tools: [ Appendix ]
+              duration: 4
+              sound:
+                path: /Audio/ADT/Medical/Surgery/organ2.ogg
+          effects:
+            - !type:InsertOrganEffect
+              organId: Appendix
+
+- type: entity
+  parent: MobHuman
+  id: SurgeryAbdomenTestDummy
+  name: abdomen surgery dummy

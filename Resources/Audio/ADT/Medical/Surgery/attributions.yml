@@ -1,0 +1,14 @@
+- files:
+  - scalpel1.ogg
+  - scalpel2.ogg
+  - retractor1.ogg
+  - retractor2.ogg
+  - hemostat1.ogg
+  - cautery1.ogg
+  - cautery2.ogg
+  - saw.ogg
+  - organ1.ogg
+  - organ2.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Ported from tgstation (sound/items/handling/surgery/*.ogg)"
+  source: "https://github.com/tgstation/tgstation"

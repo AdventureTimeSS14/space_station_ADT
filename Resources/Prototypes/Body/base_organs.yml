@@ -21,6 +21,7 @@
   parent: BaseItem
   components:
   - type: Organ
+  - type: SurgeryTool # ADT-Tweak
 
 - type: entity
   id: OrganBaseOrganic
@@ -117,6 +118,9 @@
     markingData:
       layers:
       - LArm
+  - type: Tag # ADT-Tweak
+    tags:
+    - ArmLeft
 
 - type: entity
   parent: OrganBase
@@ -136,6 +140,9 @@
     markingData:
       layers:
       - RArm
+  - type: Tag # ADT-Tweak
+    tags:
+    - ArmRight
 
 - type: entity
   parent: OrganBase
@@ -159,6 +166,9 @@
     markingData:
       layers:
       - LHand
+  - type: Tag # ADT-Tweak
+    tags:
+    - HandLeft
 
 - type: entity
   parent: OrganBase
@@ -182,6 +192,9 @@
     markingData:
       layers:
       - RHand
+  - type: Tag # ADT-Tweak
+    tags:
+    - HandRight
 
 - type: entity
   parent: OrganBase
@@ -201,6 +214,9 @@
     markingData:
       layers:
       - LLeg
+  - type: Tag # ADT-Tweak
+    tags:
+    - LegLeft
 
 - type: entity
   parent: OrganBase
@@ -220,6 +236,9 @@
     markingData:
       layers:
       - RLeg
+  - type: Tag # ADT-Tweak
+    tags:
+    - LegRight
 
 - type: entity
   parent: OrganBase
@@ -239,6 +258,9 @@
     markingData:
       layers:
       - LFoot
+  - type: Tag # ADT-Tweak
+    tags:
+    - FootLeft
 
 - type: entity
   parent: OrganBase
@@ -258,6 +280,9 @@
     markingData:
       layers:
       - RFoot
+  - type: Tag # ADT-Tweak
+    tags:
+    - FootRight
 
 - type: entity
   parent: OrganBase
@@ -344,6 +369,9 @@
   - type: GibbableOrgan
   - type: Organ
     category: Appendix
+  - type: Tag # ADT-Tweak
+    tags:
+    - Appendix
   - type: Sprite
     layers:
     - state: appendix

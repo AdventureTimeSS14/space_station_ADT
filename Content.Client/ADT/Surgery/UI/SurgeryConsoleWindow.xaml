@@ -1,0 +1,20 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+   xmlns:health="clr-namespace:Content.Client.HealthAnalyzer.UI"
+   Title="{Loc 'surgery-console-window-title'}"
+   MinSize="480 440"
+   SetSize="520 560">
+    <TabContainer Name="Tabs" VerticalExpand="True">
+        <BoxContainer Name="{Loc 'surgery-console-tab-patient'}" Orientation="Vertical">
+            <health:HealthAnalyzerControl Name="HealthAnalyzer"/>
+        </BoxContainer>
+
+        <BoxContainer Name="{Loc 'surgery-console-tab-procedures'}" Orientation="Vertical" Margin="10 5 10 5">
+            <Label Name="StatusLabel" Margin="0 0 0 5"/>
+            <Label Name="GraphLabel" Margin="0 0 0 5"/>
+            <Label Name="NodeLabel" Margin="0 0 0 10"/>
+            <BoxContainer Name="StepsContainer" Orientation="Vertical"/>
+        </BoxContainer>
+    </TabContainer>
+</controls:FancyWindow>

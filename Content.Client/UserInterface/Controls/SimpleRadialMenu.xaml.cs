@@ -134,8 +134,23 @@ public sealed partial class SimpleRadialMenu : RadialMenu
             _ => null
         };
 
-        if(imageControl != null)
+        if (imageControl != null)
+        {
             button.AddChild(imageControl);
+
+            // ADT tweak start
+            if (model.OverlayIcon != null)
+            {
+                button.AddChild(new TextureRect
+                {
+                    Texture = sprites.Frame0(model.OverlayIcon),
+                    SetSize = new Vector2(40f, 40f),
+                    HorizontalAlignment = HAlignment.Center,
+                    VerticalAlignment = VAlignment.Center,
+                });
+            }
+            // ADT tweak end
+        }
 
         if (model is RadialMenuActionOptionBase actionOption)
         {
@@ -334,6 +349,10 @@ public abstract class RadialMenuOptionBase
     /// Specifier that describes icon to be used for radial menu button.
     /// </summary>
     public RadialMenuIconSpecifier? IconSpecifier { get; set; }
+
+    // ADT tweak start
+    public SpriteSpecifier? OverlayIcon { get; set; }
+    // ADT tweak end
 }
 
 /// <summary> Base type for model of radial menu button with some action on button pressed. </summary>

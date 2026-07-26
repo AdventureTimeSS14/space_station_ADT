@@ -801,3 +801,60 @@
 
 - type: Tag
   id: ADTArchimedesPeripheralsControlModule
+
+- type: Tag
+  id: Scalpel
+
+- type: Tag
+  id: Retractor
+
+- type: Tag
+  id: Hemostat
+
+- type: Tag
+  id: Saw
+
+- type: Tag
+  id: Cautery
+
+- type: Tag
+  id: Drill
+
+- type: Tag
+  id: BoneSetter
+
+- type: Tag
+  id: BoneGel
+
+- type: Tag
+  id: BloodFilter
+
+- type: Tag
+  id: ArmLeft
+
+- type: Tag
+  id: ArmRight
+
+- type: Tag
+  id: HandLeft
+
+- type: Tag
+  id: HandRight
+
+- type: Tag
+  id: LegLeft
+
+- type: Tag
+  id: LegRight
+
+- type: Tag
+  id: FootLeft
+
+- type: Tag
+  id: FootRight
+
+- type: Tag
+  id: Brain
+
+- type: Tag
+  id: Appendix
