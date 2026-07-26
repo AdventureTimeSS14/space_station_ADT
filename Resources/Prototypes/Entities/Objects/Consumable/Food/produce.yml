@@ -551,7 +551,7 @@
     equippedPrefix: peel
   - type: Currency
     price:
-      TrashBananaPeel: 7
+      TrashBananaPeel: 1
 
 - type: entity
   name: carrot

@@ -8,6 +8,9 @@ uplink-clown-implanter-name = Хонк-имплант
 
 uplink-clown-honkbot-name = Абсолютная власть
 
+uplink-clown-crayon-name = Радужный мелок
+uplink-clown-crayon-desc = Вы — художник. Станция — ваш холст.
+
 uplink-clown-present-name = Подарок
 uplink-clown-present-desc = Там может быть какая-то игрушка или музыкальный инструмент!
 
@@ -32,9 +35,36 @@ uplink-clown-nukiecan-desc = Бодрящий напиток... очень бо�
 uplink-clown-fakebomb-name = Коробка петард
 uplink-clown-fakebomb-desc = Надо испугать Службу безопасности, а то давно они не были в панике!
 
+uplink-clown-figure-name = Коробка минифигурок
+uplink-clown-figure-desc = Коробка, содержащая загадочную минифигурку.
+
+uplink-clown-maid-name = Набор горничной
+uplink-clown-maid-desc = Для хороших кошко-девочек.
+
+uplink-clown-singularity-name = Игрушечная сингулярность
+uplink-clown-singularity-desc = Массово производится корпоративным конгломератом садистов!
+
+uplink-clown-tile-name = Плитка клоуна
+
+uplink-clown-carpet-name = Клоунский ковёр
+
+uplink-clown-hammer-name = Резиновый молоток
+
+uplink-clown-sword-name = Игрушечный меч
+
+uplink-clown-cushion-name = Подушка-пердушка
+
+uplink-clown-horn-name = Золотой клаксон
+
+uplink-clown-hardsuit-name = Клоунский скафандр
+
+uplink-clown-shoes-name = Блестящие клоунские туфли
+
+uplink-clown-pushhorn-name = Толкающий клаксон
+
 uplink-clown-category-main = Основное
-uplink-clown-category-bonus = Бонус
-uplink-clown-category-trinkets = Безделушки
+uplink-clown-category-equipment = Экипировка
+uplink-clown-category-fun = Веселье!
 
 uplink-clown-currency = Банановая кожура
 
