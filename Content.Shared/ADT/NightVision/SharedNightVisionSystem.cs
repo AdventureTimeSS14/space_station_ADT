@@ -5,9 +5,8 @@ using Content.Shared.Alert;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Rounding;
 using Content.Shared.Toggleable;
-using Content.Shared.ADT.Eye.Blinding;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
+using Content.Shared.ADT.Eye.Blinding;
 
 namespace Content.Shared.ADT.NightVision;
 
@@ -16,7 +15,6 @@ public abstract class SharedNightVisionSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
@@ -83,8 +81,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
         if (ent.Comp.SlotFlags != args.SlotFlags)
             return;
 
-        _appearance.SetData(ent, NightVisionItemVisuals.Active, false);
-        _actions.SetToggled(ent.Comp.Action, false);
+        EnableNightVisionItem(ent, args.Equipee);
     }
 
     private void OnNightVisionItemGotUnequipped(Entity<NightVisionItemComponent> ent, ref GotUnequippedEvent args)
@@ -152,7 +149,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
 
     private void EnableNightVisionItem(Entity<NightVisionItemComponent> item, EntityUid user)
     {
-        DisableNightVisionItem(item, item.Comp.User, playSound: false);
+        DisableNightVisionItem(item, item.Comp.User);
 
         item.Comp.User = user;
         Dirty(item);
@@ -162,17 +159,11 @@ public abstract class SharedNightVisionSystem : EntitySystem
         if (!_timing.ApplyingState)
         {
             var nightVision = EnsureComp<NightVisionComponent>(user);
-            item.Comp.PreviousShader = nightVision.Shader;
-            item.Comp.PreviousEffectPrototype = nightVision.EffectPrototype;
             nightVision.State = NightVisionState.Full;
-            nightVision.Shader = item.Comp.Shader;
-            nightVision.EffectPrototype = item.Comp.EffectPrototype;
             Dirty(user, nightVision);
 
             var eyeDamage = EnsureComp<DamageEyesOnFlashedComponent>(user);
             Dirty(user, eyeDamage);
-
-            _audio.PlayPredicted(item.Comp.SoundOn, item, user);
         }
 
         _actions.SetToggled(item.Comp.Action, true);
@@ -186,11 +177,8 @@ public abstract class SharedNightVisionSystem : EntitySystem
     {
     }
 
-    protected void DisableNightVisionItem(Entity<NightVisionItemComponent> item, EntityUid? user, bool playSound = true)
+    protected void DisableNightVisionItem(Entity<NightVisionItemComponent> item, EntityUid? user)
     {
-        var wasActive = item.Comp.User != null;
-        var soundUser = item.Comp.User ?? user;
-
         _actions.SetToggled(item.Comp.Action, false);
 
         item.Comp.User = null;
@@ -198,32 +186,12 @@ public abstract class SharedNightVisionSystem : EntitySystem
 
         _appearance.SetData(item, NightVisionItemVisuals.Active, false);
 
-        if (TryComp(user, out NightVisionComponent? nightVision))
+        if (TryComp(user, out NightVisionComponent? nightVision) &&
+            !nightVision.Innate)
         {
-            if (!nightVision.Innate)
-            {
-                RemCompDeferred<NightVisionComponent>(user.Value);
-                RemCompDeferred<DamageEyesOnFlashedComponent>(user.Value);
-            }
-            else
-            {
-                // Restore species/innate shader + light effect after removing the device overlay.
-                if (item.Comp.PreviousShader != null)
-                    nightVision.Shader = item.Comp.PreviousShader;
-
-                if (item.Comp.PreviousEffectPrototype != null)
-                    nightVision.EffectPrototype = item.Comp.PreviousEffectPrototype.Value;
-
-                Dirty(user.Value, nightVision);
-                RemCompDeferred<DamageEyesOnFlashedComponent>(user.Value);
-            }
+            RemCompDeferred<NightVisionComponent>(user.Value);
+            RemCompDeferred<DamageEyesOnFlashedComponent>(user.Value);
         }
-
-        item.Comp.PreviousShader = null;
-        item.Comp.PreviousEffectPrototype = null;
-
-        if (playSound && wasActive && !_timing.ApplyingState)
-            _audio.PlayPredicted(item.Comp.SoundOff, item, soundUser);
     }
 
     /// <summary>
