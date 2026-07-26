@@ -16,7 +16,7 @@
               organId: ArmLeft
               inverted: true
           steps:
-            - name: Обработать культю
+            - name: surgery-step-limb-treat-stump
               tools: [ Cautery ]
               successChance: 0.9
               duration: 3
@@ -27,7 +27,7 @@
                   damage:
                     types:
                       Heat: 1
-            - name: Приложить конечность
+            - name: surgery-step-limb-attach
               tools: [ ArmLeft ]
               duration: 4
           effects:
@@ -55,7 +55,7 @@
               organId: ArmRight
               inverted: true
           steps:
-            - name: Обработать культю
+            - name: surgery-step-limb-treat-stump
               tools: [ Cautery ]
               successChance: 0.9
               duration: 3
@@ -66,7 +66,7 @@
                   damage:
                     types:
                       Heat: 1
-            - name: Приложить конечность
+            - name: surgery-step-limb-attach
               tools: [ ArmRight ]
               duration: 4
           effects:
@@ -96,7 +96,7 @@
             - !type:OrganPresentCondition
               organId: ArmLeft
           steps:
-            - name: Обработать культю
+            - name: surgery-step-limb-treat-stump
               tools: [ Cautery ]
               successChance: 0.9
               duration: 3
@@ -107,7 +107,7 @@
                   damage:
                     types:
                       Heat: 1
-            - name: Приложить конечность
+            - name: surgery-step-limb-attach
               tools: [ HandLeft ]
               duration: 4
           effects:
@@ -137,7 +137,7 @@
             - !type:OrganPresentCondition
               organId: ArmRight
           steps:
-            - name: Обработать культю
+            - name: surgery-step-limb-treat-stump
               tools: [ Cautery ]
               successChance: 0.9
               duration: 3
@@ -148,7 +148,7 @@
                   damage:
                     types:
                       Heat: 1
-            - name: Приложить конечность
+            - name: surgery-step-limb-attach
               tools: [ HandRight ]
               duration: 4
           effects:
@@ -176,7 +176,7 @@
               organId: LegLeft
               inverted: true
           steps:
-            - name: Обработать культю
+            - name: surgery-step-limb-treat-stump
               tools: [ Cautery ]
               successChance: 0.9
               duration: 3
@@ -187,7 +187,7 @@
                   damage:
                     types:
                       Heat: 1
-            - name: Приложить конечность
+            - name: surgery-step-limb-attach
               tools: [ LegLeft ]
               duration: 4
           effects:
@@ -215,7 +215,7 @@
               organId: LegRight
               inverted: true
           steps:
-            - name: Обработать культю
+            - name: surgery-step-limb-treat-stump
               tools: [ Cautery ]
               successChance: 0.9
               duration: 3
@@ -226,7 +226,7 @@
                   damage:
                     types:
                       Heat: 1
-            - name: Приложить конечность
+            - name: surgery-step-limb-attach
               tools: [ LegRight ]
               duration: 4
           effects:
@@ -256,7 +256,7 @@
             - !type:OrganPresentCondition
               organId: LegLeft
           steps:
-            - name: Обработать культю
+            - name: surgery-step-limb-treat-stump
               tools: [ Cautery ]
               successChance: 0.9
               duration: 3
@@ -267,7 +267,7 @@
                   damage:
                     types:
                       Heat: 1
-            - name: Приложить конечность
+            - name: surgery-step-limb-attach
               tools: [ FootLeft ]
               duration: 4
           effects:
@@ -297,7 +297,7 @@
             - !type:OrganPresentCondition
               organId: LegRight
           steps:
-            - name: Обработать культю
+            - name: surgery-step-limb-treat-stump
               tools: [ Cautery ]
               successChance: 0.9
               duration: 3
@@ -308,7 +308,7 @@
                   damage:
                     types:
                       Heat: 1
-            - name: Приложить конечность
+            - name: surgery-step-limb-attach
               tools: [ FootRight ]
               duration: 4
           effects:

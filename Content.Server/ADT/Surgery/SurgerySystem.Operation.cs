@@ -25,12 +25,14 @@ public sealed partial class SurgerySystem
             && !currentGraph.StartNodes.Contains(comp.CurrentNode))
         {
             var currentNode = GetNode(currentGraph, comp.CurrentNode);
-            var isDeadEnd = currentNode == null;
+            var isDeadEnd = true;
             if (currentNode != null)
             {
-                isDeadEnd = true;
-                foreach (var _ in GetAllEdges(currentNode))
+                foreach (var edge in GetAllEdges(currentNode))
                 {
+                    if (!EdgeConditionsMet(uid, edge))
+                        continue;
+
                     isDeadEnd = false;
                     break;
                 }
@@ -63,10 +65,16 @@ public sealed partial class SurgerySystem
             return;
 
         if (!_hands.TryGetActiveItem(args.Actor, out var heldItem))
+        {
+            _popup.PopupEntity(Loc.GetString("surgery-no-tool"), uid, args.Actor);
             return;
+        }
 
         if (!ToolMatches(edge.Steps[0], heldItem.Value))
+        {
+            _popup.PopupEntity(Loc.GetString("surgery-wrong-tool"), uid, args.Actor);
             return;
+        }
 
         comp.ActiveEdgeId = edge.Id;
         comp.CompletedSteps = 0;
@@ -157,16 +165,18 @@ public sealed partial class SurgerySystem
 
         var step = edge.Steps[stepIndex];
 
-        comp.IsOperating = true;
-
-        _audio.PlayPvs(step.Sound, patient);
-
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, surgeon, step.Duration,
+        var started = _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, surgeon, step.Duration,
             new SurgeryStepDoAfterEvent(edge.Id, stepIndex), patient, target: patient, used: heldItem)
         {
             BreakOnMove = true,
             NeedHand = true,
         });
+
+        if (!started)
+            return;
+
+        comp.IsOperating = true;
+        _audio.PlayPvs(step.Sound, patient);
     }
 
     private void OnStepDoAfter(EntityUid uid, OperatedComponent comp, SurgeryStepDoAfterEvent args)

@@ -15,7 +15,7 @@
             - !type:OrganPresentCondition
               organId: ArmLeft
           steps:
-            - name: Сделать надрез
+            - name: surgery-step-limb-cut
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -34,7 +34,7 @@
           label: surgery-edge-limb-saw-label
           target: Amputated
           steps:
-            - name: Отпилить кость
+            - name: surgery-step-limb-saw
               tools: [ Saw ]
               successChance: 0.9
               duration: 5
@@ -58,7 +58,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Cauterized
           steps:
-            - name: Прижигание
+            - name: surgery-step-limb-cauterize
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -90,7 +90,7 @@
             - !type:OrganPresentCondition
               organId: ArmRight
           steps:
-            - name: Сделать надрез
+            - name: surgery-step-limb-cut
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -109,7 +109,7 @@
           label: surgery-edge-limb-saw-label
           target: Amputated
           steps:
-            - name: Отпилить кость
+            - name: surgery-step-limb-saw
               tools: [ Saw ]
               successChance: 0.9
               duration: 5
@@ -133,7 +133,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Cauterized
           steps:
-            - name: Прижигание
+            - name: surgery-step-limb-cauterize
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -165,7 +165,7 @@
             - !type:OrganPresentCondition
               organId: HandLeft
           steps:
-            - name: Сделать надрез
+            - name: surgery-step-limb-cut
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -184,7 +184,7 @@
           label: surgery-edge-limb-saw-label
           target: Amputated
           steps:
-            - name: Отпилить кость
+            - name: surgery-step-limb-saw
               tools: [ Saw ]
               successChance: 0.9
               duration: 4
@@ -206,7 +206,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Cauterized
           steps:
-            - name: Прижигание
+            - name: surgery-step-limb-cauterize
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -238,7 +238,7 @@
             - !type:OrganPresentCondition
               organId: HandRight
           steps:
-            - name: Сделать надрез
+            - name: surgery-step-limb-cut
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -257,7 +257,7 @@
           label: surgery-edge-limb-saw-label
           target: Amputated
           steps:
-            - name: Отпилить кость
+            - name: surgery-step-limb-saw
               tools: [ Saw ]
               successChance: 0.9
               duration: 4
@@ -279,7 +279,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Cauterized
           steps:
-            - name: Прижигание
+            - name: surgery-step-limb-cauterize
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -311,7 +311,7 @@
             - !type:OrganPresentCondition
               organId: LegLeft
           steps:
-            - name: Сделать надрез
+            - name: surgery-step-limb-cut
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -330,7 +330,7 @@
           label: surgery-edge-limb-saw-label
           target: Amputated
           steps:
-            - name: Отпилить кость
+            - name: surgery-step-limb-saw
               tools: [ Saw ]
               successChance: 0.9
               duration: 5
@@ -354,7 +354,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Cauterized
           steps:
-            - name: Прижигание
+            - name: surgery-step-limb-cauterize
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -386,7 +386,7 @@
             - !type:OrganPresentCondition
               organId: LegRight
           steps:
-            - name: Сделать надрез
+            - name: surgery-step-limb-cut
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -405,7 +405,7 @@
           label: surgery-edge-limb-saw-label
           target: Amputated
           steps:
-            - name: Отпилить кость
+            - name: surgery-step-limb-saw
               tools: [ Saw ]
               successChance: 0.9
               duration: 5
@@ -429,7 +429,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Cauterized
           steps:
-            - name: Прижигание
+            - name: surgery-step-limb-cauterize
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -461,7 +461,7 @@
             - !type:OrganPresentCondition
               organId: FootLeft
           steps:
-            - name: Сделать надрез
+            - name: surgery-step-limb-cut
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -480,7 +480,7 @@
           label: surgery-edge-limb-saw-label
           target: Amputated
           steps:
-            - name: Отпилить кость
+            - name: surgery-step-limb-saw
               tools: [ Saw ]
               successChance: 0.9
               duration: 4
@@ -502,7 +502,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Cauterized
           steps:
-            - name: Прижигание
+            - name: surgery-step-limb-cauterize
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -534,7 +534,7 @@
             - !type:OrganPresentCondition
               organId: FootRight
           steps:
-            - name: Сделать надрез
+            - name: surgery-step-limb-cut
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -553,7 +553,7 @@
           label: surgery-edge-limb-saw-label
           target: Amputated
           steps:
-            - name: Отпилить кость
+            - name: surgery-step-limb-saw
               tools: [ Saw ]
               successChance: 0.9
               duration: 4
@@ -575,7 +575,7 @@
           label: surgery-edge-limb-cauterize-label
           target: Cauterized
           steps:
-            - name: Прижигание
+            - name: surgery-step-limb-cauterize
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3

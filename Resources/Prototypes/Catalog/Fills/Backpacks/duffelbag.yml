@@ -39,10 +39,12 @@
         - id: ScalpelAdvanced
         - id: ClothingHandsGlovesNitrile
         - id: EmergencyRollerBedSpawnFolded
+        # ADT-Tweak start
         - id: ADTBoneSetter
         - id: ADTBoneGel
         - id: ADTBloodFilter
         - id: ADTSurgicalDrapes
+        # ADT-Tweak end
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle

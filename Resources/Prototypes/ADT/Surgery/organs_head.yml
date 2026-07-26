@@ -12,7 +12,7 @@
           label: surgery-edge-head-cut-label
           target: ScalpIncised
           steps:
-            - name: Разрезать скальп
+            - name: surgery-step-head-cut
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -29,7 +29,7 @@
           target: EyelidRetracted
           label: surgery-edge-head-retract-eyelid-label
           steps:
-            - name: Оттянуть веко
+            - name: surgery-step-head-retract-eyelid
               tools: [ Retractor ]
               successChance: 0.9
               duration: 2
@@ -48,7 +48,7 @@
           target: ScalpClosed
           label: surgery-edge-head-release-eyelid-label
           steps:
-            - name: Отпустить веко
+            - name: surgery-step-head-release-eyelid
               tools: [ Retractor ]
               successChance: 0.9
               duration: 2
@@ -67,7 +67,7 @@
             - !type:OrganPresentCondition
               organId: Eyes
           steps:
-            - name: Извлечь глаза
+            - name: surgery-step-head-remove-eyes
               tools: [ Hemostat ]
               successChance: 0.8
               duration: 3
@@ -90,7 +90,7 @@
               organId: Eyes
               inverted: true
           steps:
-            - name: Вставить глаза
+            - name: surgery-step-head-insert-eyes
               tools: [ Eyes ]
               duration: 3
               sound:
@@ -106,12 +106,28 @@
           label: surgery-edge-head-clamp-bleeders-label
           target: ScalpBleedersClamped
           steps:
-            - name: Зажать кровотечение
+            - name: surgery-step-head-clamp-bleeders
               tools: [ Hemostat ]
               successChance: 0.9
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+        - id: Cauterize
+          label: surgery-edge-head-cauterize-label
+          target: ScalpClosed
+          steps:
+            - name: surgery-step-head-cauterize
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 5
 
     - name: ScalpBleedersClamped
       label: surgery-node-head-scalp-bleeders-clamped-label
@@ -120,7 +136,7 @@
           label: surgery-edge-head-retract-scalp-label
           target: ScalpRetracted
           steps:
-            - name: Приподнять скальп
+            - name: surgery-step-head-retract-scalp
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -132,6 +148,22 @@
                     types:
                       Bloodloss: 1
 
+        - id: Cauterize
+          label: surgery-edge-head-cauterize-label
+          target: ScalpClosed
+          steps:
+            - name: surgery-step-head-cauterize
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 5
+
     - name: ScalpRetracted
       label: surgery-node-head-scalp-retracted-label
       edges:
@@ -139,7 +171,7 @@
           label: surgery-edge-head-saw-skull-label
           target: SkullSawed
           steps:
-            - name: Распилить череп
+            - name: surgery-step-head-saw-skull
               tools: [ Saw ]
               successChance: 0.9
               duration: 5
@@ -152,6 +184,22 @@
                       Piercing: 3
                       Bloodloss: 2
 
+        - id: Cauterize
+          label: surgery-edge-head-cauterize-label
+          target: ScalpClosed
+          steps:
+            - name: surgery-step-head-cauterize
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 5
+
     - name: SkullSawed
       label: surgery-node-head-skull-sawed-label
       edges:
@@ -159,7 +207,7 @@
           target: SkullOpen
           label: surgery-edge-head-retract-skull-label
           steps:
-            - name: Приподнять черепную кость
+            - name: surgery-step-head-retract-skull
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -169,13 +217,13 @@
                 - !type:DamageEffect
                   damage:
                     types:
-                      Bloodloss: 1
+                      Bloodloss: 10
 
         - id: ApplyBoneGelFirst
           target: SkullBoneGelled
           label: surgery-edge-head-apply-bone-gel-first-label
           steps:
-            - name: Нанести костный гель
+            - name: surgery-step-head-apply-bone-gel-first
               tools: [ BoneGel ]
               duration: 2
 
@@ -186,7 +234,7 @@
           target: SkullSawed
           label: surgery-edge-head-unretract-skull-label
           steps:
-            - name: Опустить черепную кость
+            - name: surgery-step-head-unretract-skull
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -196,7 +244,7 @@
                 - !type:DamageEffect
                   damage:
                     types:
-                      Bloodloss: 1
+                      Bloodloss: 10
 
         - id: RemoveBrain
           target: SkullOpen
@@ -205,7 +253,7 @@
             - !type:OrganPresentCondition
               organId: Brain
           steps:
-            - name: Извлечь мозг
+            - name: surgery-step-head-remove-brain
               tools: [ Hemostat ]
               successChance: 0.8
               duration: 4
@@ -215,7 +263,7 @@
                 - !type:DamageEffect
                   damage:
                     types:
-                      Bloodloss: 1
+                      Bloodloss: 10
           effects:
             - !type:RemoveOrganEffect
               organId: Brain
@@ -228,7 +276,7 @@
               organId: Brain
               inverted: true
           steps:
-            - name: Вставить мозг
+            - name: surgery-step-head-insert-brain
               tools: [ Brain ]
               duration: 4
               sound:
@@ -244,7 +292,7 @@
           label: surgery-edge-head-set-bone-label
           target: SkullBoneSet
           steps:
-            - name: Поставить кость на место
+            - name: surgery-step-head-set-bone
               tools: [ BoneSetter ]
               successChance: 0.9
               duration: 3
@@ -256,7 +304,7 @@
           label: surgery-edge-head-apply-bone-gel-second-label
           target: SkullBoneGelledTwice
           steps:
-            - name: Нанести костный гель повторно
+            - name: surgery-step-head-apply-bone-gel-second
               tools: [ BoneGel ]
               duration: 2
 
@@ -267,7 +315,7 @@
           label: surgery-edge-head-cauterize-label
           target: ScalpClosed
           steps:
-            - name: Завершить операцию
+            - name: surgery-step-head-cauterize
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -277,9 +325,4 @@
                 - !type:DamageEffect
                   damage:
                     types:
-                      Heat: 1
-
-- type: entity
-  parent: MobHuman
-  id: SurgeryHeadTestDummy
-  name: head surgery dummy
+                      Heat: 5

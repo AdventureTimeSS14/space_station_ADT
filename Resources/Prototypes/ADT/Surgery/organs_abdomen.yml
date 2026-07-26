@@ -12,7 +12,7 @@
           label: surgery-edge-abdomen-cut-label
           target: AbdomenIncised
           steps:
-            - name: Сделать надрез
+            - name: surgery-step-abdomen-cut
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -22,8 +22,8 @@
                 - !type:DamageEffect
                   damage:
                     types:
-                      Slash: 2
-                      Bloodloss: 1
+                      Slash: 5
+                      Bloodloss: 10
 
     - name: AbdomenIncised
       label: surgery-node-abdomen-incised-label
@@ -32,12 +32,28 @@
           label: surgery-edge-abdomen-clamp-bleeders-label
           target: AbdomenBleedersClamped
           steps:
-            - name: Зажать кровотечение
+            - name: surgery-step-abdomen-clamp-bleeders
               tools: [ Hemostat ]
               successChance: 0.9
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+        - id: Cauterize
+          target: AbdomenClosed
+          label: surgery-edge-abdomen-cauterize-label
+          steps:
+            - name: surgery-step-abdomen-cauterize
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 3
 
     - name: AbdomenBleedersClamped
       label: surgery-node-abdomen-bleeders-clamped-label
@@ -46,7 +62,7 @@
           label: surgery-edge-abdomen-retract-skin-label
           target: AbdomenSkinRetracted
           steps:
-            - name: Приподнять кожу
+            - name: surgery-step-abdomen-retract-skin
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -56,7 +72,23 @@
                 - !type:DamageEffect
                   damage:
                     types:
-                      Bloodloss: 1
+                      Bloodloss: 10
+
+        - id: Cauterize
+          target: AbdomenClosed
+          label: surgery-edge-abdomen-cauterize-label
+          steps:
+            - name: surgery-step-abdomen-cauterize
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 3
 
     - name: AbdomenSkinRetracted
       label: surgery-node-abdomen-skin-retracted-label
@@ -65,7 +97,7 @@
           target: AbdomenOpen
           label: surgery-edge-abdomen-retract-muscle-label
           steps:
-            - name: Раздвинуть мышцы
+            - name: surgery-step-abdomen-retract-muscle
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -75,13 +107,13 @@
                 - !type:DamageEffect
                   damage:
                     types:
-                      Bloodloss: 1
+                      Bloodloss: 10
 
         - id: Cauterize
           target: AbdomenClosed
           label: surgery-edge-abdomen-cauterize-label
           steps:
-            - name: Прижигание
+            - name: surgery-step-abdomen-cauterize
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3
@@ -100,7 +132,7 @@
           target: AbdomenSkinRetracted
           label: surgery-edge-abdomen-unretract-muscle-label
           steps:
-            - name: Опустить мышцы
+            - name: surgery-step-abdomen-unretract-muscle
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -110,7 +142,7 @@
                 - !type:DamageEffect
                   damage:
                     types:
-                      Bloodloss: 1
+                      Bloodloss: 5
 
         - id: RemoveStomach
           target: AbdomenOpen
@@ -119,7 +151,7 @@
             - !type:OrganPresentCondition
               organId: Stomach
           steps:
-            - name: Извлечь желудок
+            - name: surgery-step-abdomen-remove-stomach
               tools: [ Hemostat ]
               successChance: 0.8
               duration: 4
@@ -129,7 +161,7 @@
                 - !type:DamageEffect
                   damage:
                     types:
-                      Bloodloss: 1
+                      Bloodloss: 10
           effects:
             - !type:RemoveOrganEffect
               organId: Stomach
@@ -142,7 +174,7 @@
               organId: Stomach
               inverted: true
           steps:
-            - name: Вставить желудок
+            - name: surgery-step-abdomen-insert-stomach
               tools: [ Stomach ]
               duration: 4
               sound:
@@ -158,7 +190,7 @@
             - !type:OrganPresentCondition
               organId: Liver
           steps:
-            - name: Извлечь печень
+            - name: surgery-step-abdomen-remove-liver
               tools: [ Hemostat ]
               successChance: 0.8
               duration: 4
@@ -168,7 +200,7 @@
                 - !type:DamageEffect
                   damage:
                     types:
-                      Bloodloss: 1
+                      Bloodloss: 10
           effects:
             - !type:RemoveOrganEffect
               organId: Liver
@@ -181,7 +213,7 @@
               organId: Liver
               inverted: true
           steps:
-            - name: Вставить печень
+            - name: surgery-step-abdomen-insert-liver
               tools: [ Liver ]
               duration: 4
               sound:
@@ -197,7 +229,7 @@
             - !type:OrganPresentCondition
               organId: Kidneys
           steps:
-            - name: Извлечь почки
+            - name: surgery-step-abdomen-remove-kidneys
               tools: [ Hemostat ]
               successChance: 0.8
               duration: 4
@@ -207,7 +239,7 @@
                 - !type:DamageEffect
                   damage:
                     types:
-                      Bloodloss: 1
+                      Bloodloss: 10
           effects:
             - !type:RemoveOrganEffect
               organId: Kidneys
@@ -220,7 +252,7 @@
               organId: Kidneys
               inverted: true
           steps:
-            - name: Вставить почки
+            - name: surgery-step-abdomen-insert-kidneys
               tools: [ Kidneys ]
               duration: 4
               sound:
@@ -236,7 +268,7 @@
             - !type:OrganPresentCondition
               organId: Appendix
           steps:
-            - name: Извлечь аппендикс
+            - name: surgery-step-abdomen-remove-appendix
               tools: [ Hemostat ]
               successChance: 0.8
               duration: 4
@@ -246,7 +278,7 @@
                 - !type:DamageEffect
                   damage:
                     types:
-                      Bloodloss: 1
+                      Bloodloss: 10
           effects:
             - !type:RemoveOrganEffect
               organId: Appendix
@@ -259,7 +291,7 @@
               organId: Appendix
               inverted: true
           steps:
-            - name: Вставить аппендикс
+            - name: surgery-step-abdomen-insert-appendix
               tools: [ Appendix ]
               duration: 4
               sound:
@@ -267,8 +299,3 @@
           effects:
             - !type:InsertOrganEffect
               organId: Appendix
-
-- type: entity
-  parent: MobHuman
-  id: SurgeryAbdomenTestDummy
-  name: abdomen surgery dummy

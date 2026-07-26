@@ -148,3 +148,58 @@ surgery-node-head-skull-bone-set-label = Кость вправлена
 surgery-edge-head-apply-bone-gel-second-label = Нанести костный гель повторно
 surgery-node-head-skull-bone-gelled-twice-label = Гель нанесён повторно
 surgery-edge-head-cauterize-label = Завершить операцию
+
+## Названия шагов
+
+surgery-step-limb-cut = Сделать надрез
+surgery-step-limb-saw = Отпилить кость
+surgery-step-limb-cauterize = Прижигание
+surgery-step-limb-treat-stump = Обработать культю
+surgery-step-limb-attach = Приложить конечность
+
+surgery-step-abdomen-cut = Сделать надрез
+surgery-step-abdomen-clamp-bleeders = Зажать кровотечение
+surgery-step-abdomen-cauterize = Прижигание
+surgery-step-abdomen-retract-skin = Приподнять кожу
+surgery-step-abdomen-retract-muscle = Раздвинуть мышцы
+surgery-step-abdomen-unretract-muscle = Опустить мышцы
+surgery-step-abdomen-remove-stomach = Извлечь желудок
+surgery-step-abdomen-insert-stomach = Вставить желудок
+surgery-step-abdomen-remove-liver = Извлечь печень
+surgery-step-abdomen-insert-liver = Вставить печень
+surgery-step-abdomen-remove-kidneys = Извлечь почки
+surgery-step-abdomen-insert-kidneys = Вставить почки
+surgery-step-abdomen-remove-appendix = Извлечь аппендикс
+surgery-step-abdomen-insert-appendix = Вставить аппендикс
+
+surgery-step-chest-cut = Сделать надрез
+surgery-step-chest-clamp-bleeders = Зажать кровотечение
+surgery-step-chest-cauterize = Завершить операцию
+surgery-step-chest-retract-skin = Приподнять кожу
+surgery-step-chest-saw-ribcage = Вскрыть грудную клетку
+surgery-step-chest-retract-ribcage = Приподнять грудную клетку
+surgery-step-chest-apply-bone-gel-first = Нанести костный гель
+surgery-step-chest-unretract-ribcage = Опустить грудную клетку
+surgery-step-chest-remove-heart = Извлечь сердце
+surgery-step-chest-insert-heart = Вставить сердце
+surgery-step-chest-remove-lungs = Извлечь лёгкие
+surgery-step-chest-insert-lungs = Вставить лёгкие
+surgery-step-chest-set-bone = Поставить кость на место
+surgery-step-chest-apply-bone-gel-second = Нанести костный гель повторно
+
+surgery-step-head-cut = Разрезать скальп
+surgery-step-head-retract-eyelid = Оттянуть веко
+surgery-step-head-release-eyelid = Отпустить веко
+surgery-step-head-remove-eyes = Извлечь глаза
+surgery-step-head-insert-eyes = Вставить глаза
+surgery-step-head-clamp-bleeders = Зажать кровотечение
+surgery-step-head-cauterize = Завершить операцию
+surgery-step-head-retract-scalp = Приподнять скальп
+surgery-step-head-saw-skull = Распилить череп
+surgery-step-head-retract-skull = Приподнять черепную кость
+surgery-step-head-apply-bone-gel-first = Нанести костный гель
+surgery-step-head-unretract-skull = Опустить черепную кость
+surgery-step-head-remove-brain = Извлечь мозг
+surgery-step-head-insert-brain = Вставить мозг
+surgery-step-head-set-bone = Поставить кость на место
+surgery-step-head-apply-bone-gel-second = Нанести костный гель повторно

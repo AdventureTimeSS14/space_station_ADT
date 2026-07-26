@@ -102,9 +102,9 @@ public sealed class RespiratorSystem : EntitySystem
                     multiplier *= organ.Comp.SaturationLoss;
                 }
             }
-            // ADT tweak end
-            UpdateSaturation(uid, -(float)respirator.UpdateInterval.TotalSeconds, respirator);
 
+            UpdateSaturation(uid, (float)respirator.UpdateInterval.TotalSeconds * multiplier, respirator);
+            // ADT tweak end
             if (!_mobState.IsIncapacitated(uid) && !(TryComp<PullableComponent>(uid, out var pullable) && TryComp<GrabIntentComponent>(pullable.Puller, out var grabIntent) && grabIntent.GrabStage == GrabStage.Suffocate)) // cannot breathe in crit. // ADT grab tweak
             {
                 switch (respirator.Status)

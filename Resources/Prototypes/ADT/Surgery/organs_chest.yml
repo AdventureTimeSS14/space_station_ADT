@@ -12,7 +12,7 @@
           label: surgery-edge-chest-cut-label
           target: ChestIncised
           steps:
-            - name: Сделать надрез
+            - name: surgery-step-chest-cut
               tools: [ Scalpel ]
               successChance: 0.95
               duration: 3
@@ -32,12 +32,28 @@
           label: surgery-edge-chest-clamp-bleeders-label
           target: ChestBleedersClamped
           steps:
-            - name: Зажать кровотечение
+            - name: surgery-step-chest-clamp-bleeders
               tools: [ Hemostat ]
               successChance: 0.9
               duration: 3
               sound:
                 path: /Audio/ADT/Medical/Surgery/hemostat1.ogg
+
+        - id: Cauterize
+          label: surgery-edge-chest-cauterize-label
+          target: ChestClosed
+          steps:
+            - name: surgery-step-chest-cauterize
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
 
     - name: ChestBleedersClamped
       label: surgery-node-chest-bleeders-clamped-label
@@ -46,7 +62,7 @@
           label: surgery-edge-chest-retract-skin-label
           target: ChestSkinRetracted
           steps:
-            - name: Приподнять кожу
+            - name: surgery-step-chest-retract-skin
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -58,6 +74,22 @@
                     types:
                       Bloodloss: 1
 
+        - id: Cauterize
+          label: surgery-edge-chest-cauterize-label
+          target: ChestClosed
+          steps:
+            - name: surgery-step-chest-cauterize
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+
     - name: ChestSkinRetracted
       label: surgery-node-chest-skin-retracted-label
       edges:
@@ -65,7 +97,7 @@
           label: surgery-edge-chest-saw-ribcage-label
           target: ChestBoneSawed
           steps:
-            - name: Вскрыть грудную клетку
+            - name: surgery-step-chest-saw-ribcage
               tools: [ Saw ]
               successChance: 0.9
               duration: 5
@@ -78,6 +110,22 @@
                       Piercing: 3
                       Bloodloss: 2
 
+        - id: Cauterize
+          label: surgery-edge-chest-cauterize-label
+          target: ChestClosed
+          steps:
+            - name: surgery-step-chest-cauterize
+              tools: [ Cautery ]
+              successChance: 0.95
+              duration: 3
+              sound:
+                path: /Audio/ADT/Medical/Surgery/cautery2.ogg
+              effects:
+                - !type:DamageEffect
+                  damage:
+                    types:
+                      Heat: 1
+
     - name: ChestBoneSawed
       label: surgery-node-chest-bone-sawed-label
       edges:
@@ -85,7 +133,7 @@
           target: ChestOpen
           label: surgery-edge-chest-retract-ribcage-label
           steps:
-            - name: Приподнять грудную клетку
+            - name: surgery-step-chest-retract-ribcage
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -101,7 +149,7 @@
           target: ChestBoneGelled
           label: surgery-edge-chest-apply-bone-gel-first-label
           steps:
-            - name: Нанести костный гель
+            - name: surgery-step-chest-apply-bone-gel-first
               tools: [ BoneGel ]
               duration: 2
 
@@ -112,7 +160,7 @@
           target: ChestBoneSawed
           label: surgery-edge-chest-unretract-ribcage-label
           steps:
-            - name: Опустить грудную клетку
+            - name: surgery-step-chest-unretract-ribcage
               tools: [ Retractor ]
               successChance: 0.9
               duration: 3
@@ -131,7 +179,7 @@
             - !type:OrganPresentCondition
               organId: Heart
           steps:
-            - name: Извлечь сердце
+            - name: surgery-step-chest-remove-heart
               tools: [ Hemostat ]
               successChance: 0.8
               duration: 4
@@ -154,7 +202,7 @@
               organId: Heart
               inverted: true
           steps:
-            - name: Вставить сердце
+            - name: surgery-step-chest-insert-heart
               tools: [ Heart ]
               duration: 4
               sound:
@@ -170,7 +218,7 @@
             - !type:OrganPresentCondition
               organId: Lungs
           steps:
-            - name: Извлечь лёгкие
+            - name: surgery-step-chest-remove-lungs
               tools: [ Hemostat ]
               successChance: 0.8
               duration: 4
@@ -193,7 +241,7 @@
               organId: Lungs
               inverted: true
           steps:
-            - name: Вставить лёгкие
+            - name: surgery-step-chest-insert-lungs
               tools: [ Lungs ]
               duration: 4
               sound:
@@ -209,7 +257,7 @@
           label: surgery-edge-chest-set-bone-label
           target: ChestBoneSet
           steps:
-            - name: Поставить кость на место
+            - name: surgery-step-chest-set-bone
               tools: [ BoneSetter ]
               successChance: 0.9
               duration: 3
@@ -221,7 +269,7 @@
           label: surgery-edge-chest-apply-bone-gel-second-label
           target: ChestBoneGelledTwice
           steps:
-            - name: Нанести костный гель повторно
+            - name: surgery-step-chest-apply-bone-gel-second
               tools: [ BoneGel ]
               duration: 2
 
@@ -232,7 +280,7 @@
           label: surgery-edge-chest-cauterize-label
           target: ChestClosed
           steps:
-            - name: Завершить операцию
+            - name: surgery-step-chest-cauterize
               tools: [ Cautery ]
               successChance: 0.95
               duration: 3

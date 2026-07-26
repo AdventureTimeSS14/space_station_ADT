@@ -41,9 +41,10 @@ public sealed class SurgeryConsoleSystem : SharedSurgerySystem
         RefreshUi(uid);
     }
 
-    private bool TryFindPatient(EntityUid console, out EntityUid patient)
+    private bool TryFindPatient(EntityUid console, out bool hasTable, out EntityUid patient)
     {
         patient = default;
+        hasTable = false;
 
         var consoleCoords = Transform(console).Coordinates;
 
@@ -62,6 +63,8 @@ public sealed class SurgeryConsoleSystem : SharedSurgerySystem
 
         if (nearestTable == EntityUid.Invalid)
             return false;
+
+        hasTable = true;
 
         var tableCoords = Transform(nearestTable).Coordinates;
         foreach (var candidate in _lookup.GetEntitiesInRange<OperatedComponent>(tableCoords, 1f))
@@ -92,10 +95,19 @@ public sealed class SurgeryConsoleSystem : SharedSurgerySystem
 
     private void RefreshUi(EntityUid console)
     {
-        if (!TryFindPatient(console, out var patient))
+        var hasPatient = TryFindPatient(console, out var hasTable, out var patient);
+
+        if (!hasTable)
         {
             _ui.SetUiState(console, SurgeryConsoleUiKey.Key,
                 new SurgeryConsoleState(false, false, new HealthAnalyzerUiState(), string.Empty, string.Empty, new()));
+            return;
+        }
+
+        if (!hasPatient)
+        {
+            _ui.SetUiState(console, SurgeryConsoleUiKey.Key,
+                new SurgeryConsoleState(true, false, new HealthAnalyzerUiState(), string.Empty, string.Empty, new()));
             return;
         }
 
