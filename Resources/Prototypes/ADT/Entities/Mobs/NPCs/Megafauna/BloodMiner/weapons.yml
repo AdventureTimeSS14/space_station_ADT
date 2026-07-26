@@ -1,0 +1,49 @@
+- type: entity
+  id: ADTBulletBloodMinerKinetic
+  name: kinetic bolt
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - NonEnergy
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: chronobolt
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 20
+        Structural: 30
+  - type: TimedDespawn
+    lifetime: 0.16
+  - type: PressureDamageModify
+
+- type: entity
+  id: ADTWeaponBloodMinerKineticAccelerator
+  name: proto-kinetic accelerator
+  parent: BaseItem
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    state: icon
+  - type: Gun
+    fireRate: 2
+    projectileSpeed: 25
+    minAngle: 0
+    maxAngle: 0
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+  - type: BasicEntityAmmoProvider
+    proto: ADTBulletBloodMinerKinetic
+    capacity: 1
+    count: 1
+  - type: Unremoveable
