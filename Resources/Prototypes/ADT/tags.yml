@@ -854,7 +854,4 @@
   id: FootRight
 
 - type: Tag
-  id: Brain
-
-- type: Tag
   id: Appendix
