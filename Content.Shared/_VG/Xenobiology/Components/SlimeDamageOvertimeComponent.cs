@@ -20,7 +20,7 @@ public sealed partial class SlimeDamageOvertimeComponent : Component
     /// How many units from target's bloodstream would be sucked per tick
     /// </summary>
     [DataField]
-    public float SuctionUnits = 2.5f;
+    public float SuctionUnits = 1.35f;
 
     /// <summary>
     /// What toxin would be injected inside target's bloodstream
@@ -32,7 +32,7 @@ public sealed partial class SlimeDamageOvertimeComponent : Component
     /// How many toxin units will be added to the targets bloodstream when eating the target
     /// </summary>
     [DataField]
-    public float ToxinUnits = 0.15f;
+    public float ToxinUnits = 0.8f;
 
     [DataField]
     public TimeSpan Interval = TimeSpan.FromSeconds(1);
@@ -45,7 +45,7 @@ public sealed partial class SlimeDamageOvertimeComponent : Component
     {
         DamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>
         {
-            { new("Caustic"), FixedPoint2.New(2.5f) },
+            { new("Caustic"), FixedPoint2.New(1.5f) },
         },
     };
 }
