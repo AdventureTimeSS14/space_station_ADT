@@ -19,7 +19,7 @@
       Peckish: 0.4
       Starving: 0.2
       Dead: 0.1
-    baseDecayRate: 0.5
+    baseDecayRate: 0.1
     starvingSlowdownModifier: 0
   - type: Sprite
     noRot: true
@@ -164,7 +164,7 @@
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: OverMobs
     sprite: _VG/Xenobiology/Mobs/slimesBaby.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
