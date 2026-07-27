@@ -31,9 +31,12 @@
       - ADTMobNightmareSpider
       - ADTMobShockSpider
       - ADTMobBSCrab
+      - MobBasilisk
+      - MobHivelord
+      - MobWatcherMagmawing
+      - MobWatcherIcewing
     rarePrototypes:
       - MobAncientGoliath
-      - ADTRandomTendrilSpawner
 #      - ADTAbominationDeath
   - type: TimedDespawn
     lifetime: 1

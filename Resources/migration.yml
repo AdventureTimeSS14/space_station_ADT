@@ -1002,3 +1002,12 @@ OrganTajaranFootRight: null
 OrganTajaranHead: null
 OrganTajaranLegLeft: null
 OrganTajaranTorso: null
+
+# ADT 2026-07-27: Удаление вещей "Иллизиума" по заказу Иллюми
+ADTClothingUniformIlisium: null
+ADTClothingOuterHardsuitIlisium: null
+ADTClothingHeadHelmetSoliderIlisium: null
+ADTClothingHeadCapIlisium: null
+ADTClothingHeadHelmetIlisium: null
+ADTClothingMaskGasIlisium: null
+ADTClothingOuterCoatIlisium: null

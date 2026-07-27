@@ -39,6 +39,15 @@
   - ADTModsuitModTray
   - ADTModsuitModIsulation
   - ADTModsuitModJump
+  - ADTModsuitModReagentScanner
+  - ADTModsuitModStatusReadout
+  - ADTModsuitModHealthAnalyzer
+  - ADTModsuitModDefibrillator
+  - ADTModsuitModAnomalyScanner
+  - ADTModsuitModGPS
+  - ADTModsuitModDiagnosticVisor
+  - ADTModsuitModMesonVision
+  - ADTModsuitModBodycam
   # - ADTModsuitModNoslip
 
 - type: latheRecipePack
@@ -85,6 +94,7 @@
   - ADTMechEquipmentToolWelderExperimental
   - ADTMechEquipmentToolJawsOfLife
   - ADTMechEquipmentToolPowerDrill
+  - ADTMechEquipmentCockpit
 
 - type: latheRecipePack
   id: ADTClarkePack

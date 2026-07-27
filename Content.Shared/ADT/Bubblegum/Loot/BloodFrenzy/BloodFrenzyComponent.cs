@@ -8,7 +8,7 @@ namespace Content.Shared.ADT.Bubblegum.Loot;
 public sealed partial class BloodFrenzyComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public TimeSpan Duration = TimeSpan.FromMinutes(2);
+    public TimeSpan Duration = TimeSpan.FromMinutes(1.35);
 
     [DataField, AutoNetworkedField]
     public TimeSpan EndsAt;
