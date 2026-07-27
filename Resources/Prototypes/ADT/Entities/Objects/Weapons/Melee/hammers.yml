@@ -7,7 +7,8 @@
     sprite: ADT/Objects/Weapons/Melee/improvised_hammer.rsi
     state: icon
   - type: MeleeWeapon
-    attackRate: 0.75
+    range: 1.65
+    attackRate: 0.5
     wideAnimationRotation: -135
     damage:
       types:
@@ -15,9 +16,6 @@
         Structural: 12.5
     soundHit:
       collection: MetalThud
-    angle: 0
-    animation: WeaponArcThrust
-    range: 1.6
   - type: IncreaseDamageOnWield
     damage:
       types:
@@ -39,3 +37,6 @@
   - type: Construction
     graph: ADTWeaponHammerImprovised
     node: hammer
+  - type: HeldSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.7
