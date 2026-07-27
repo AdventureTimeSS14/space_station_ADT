@@ -16,4 +16,10 @@ public sealed partial class HitscanMechAmmoProviderComponent : MechAmmoProviderC
 
     [DataField("proto", required: true)]
     public EntProtoId Proto;
+
+    [DataField]
+    public EntProtoId? WeakenedProto;
+
+    [DataField]
+    public float WeakenedCostModifier = 0.75f;
 }

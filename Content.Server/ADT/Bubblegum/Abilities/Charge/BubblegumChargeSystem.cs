@@ -28,12 +28,19 @@ public sealed class BubblegumChargeSystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly BubblegumCombatSystem _combat = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
+
+    private const float MinChargeDistance = 3f;
+    private const float ChargeOvershoot = 1.5f;
+    private const float MaxLeadDistance = 2.5f;
+
+    private readonly HashSet<Entity<MobStateComponent>> _trampleBuffer = [];
 
     public override void Initialize()
     {
@@ -138,11 +145,18 @@ public sealed class BubblegumChargeSystem : EntitySystem
             return false;
 
         var diff = charge.Target.Position - userMap.Position;
-        if (diff.LengthSquared() < 0.01f)
-            return false;
 
-        var direction = Vector2.Normalize(diff);
-        var distance = diff.Length();
+        Vector2 direction;
+        if (diff.LengthSquared() < 0.01f)
+            direction = _transform.GetWorldRotation(user).ToWorldVec();
+        else
+            direction = Vector2.Normalize(diff);
+
+        if (direction.LengthSquared() < 0.01f)
+            direction = new Vector2(1f, 0f);
+
+        var distance = MathF.Max(diff.Length(), MinChargeDistance) + ChargeOvershoot;
+        var travel = direction * distance;
 
         var active = EnsureComp<BubblegumActiveChargeComponent>(user);
         active.TargetCoords = charge.Target;
@@ -150,6 +164,7 @@ public sealed class BubblegumChargeSystem : EntitySystem
         active.TrampleDamage = charge.TrampleDamage;
         active.ExpireOnHit = charge.ExpireOnHit;
         active.AlreadySmashed.Clear();
+        active.AlreadyHit.Clear();
 
         var ray = new CollisionRay(userMap.Position, direction, (int)CollisionGroup.Impassable);
         var rayResults = _physics.IntersectRay(userMap.MapId, ray, distance, user, false);
@@ -170,11 +185,69 @@ public sealed class BubblegumChargeSystem : EntitySystem
         var gridRot = _transform.GetWorldRotation(userXform.ParentUid);
         _transform.SetLocalRotation(user, direction.ToWorldAngle() - gridRot);
 
-        _throwing.TryThrow(user, diff, charge.Speed, animated: false, playSound: false, doSpin: false, compensateFriction: true);
+        TrampleSweep((user, active));
+
+        if (TerminatingOrDeleted(user) || EntityManager.IsQueuedForDeletion(user))
+            return true;
+
+        _throwing.TryThrow(user, travel, charge.Speed, animated: false, playSound: false, doSpin: false, compensateFriction: true);
         return true;
     }
 
-    private void RefreshTargetFromEntity(PendingCharge item, MapId userMap)
+    private void TrampleSweep(Entity<BubblegumActiveChargeComponent> ent)
+    {
+        _trampleBuffer.Clear();
+        _lookup.GetEntitiesInRange(_transform.GetMapCoordinates(ent.Owner), ent.Comp.TrampleRadius, _trampleBuffer);
+
+        foreach (var mob in _trampleBuffer)
+        {
+            if (!TryTrample(ent, mob.Owner))
+                continue;
+
+            if (TerminatingOrDeleted(ent) || !HasComp<BubblegumActiveChargeComponent>(ent))
+                return;
+        }
+    }
+
+    private bool TryTrample(Entity<BubblegumActiveChargeComponent> ent, EntityUid target)
+    {
+        if (target == ent.Owner)
+            return false;
+
+        if (!HasComp<MobStateComponent>(target))
+            return false;
+
+        if (HasComp<BubblegumComponent>(target)
+            || HasComp<BubblegumHallucinationComponent>(target)
+            || HasComp<BubblegumMinionComponent>(target))
+            return false;
+
+        if (_mobState.IsDead(target))
+            return false;
+
+        if (!ent.Comp.AlreadyHit.Add(target))
+            return false;
+
+        var damage = new DamageSpecifier();
+        damage.DamageDict.Add("Blunt", ent.Comp.TrampleDamage);
+        _damageable.TryChangeDamage(target, damage, false, origin: ent.Owner);
+
+        _recoil.KickCamera(target, ent.Comp.Direction * ent.Comp.CameraKickStrength);
+
+        if (!ent.Comp.ExpireOnHit)
+            return true;
+
+        if (HasComp<BubblegumHallucinationComponent>(ent))
+        {
+            QueueDel(ent.Owner);
+            return true;
+        }
+
+        RemCompDeferred<BubblegumActiveChargeComponent>(ent);
+        return true;
+    }
+
+    private void RefreshTargetFromEntity(PendingCharge item, MapId userMap, TimeSpan now)
     {
         if (item.TargetEntity is not { } entity)
             return;
@@ -186,7 +259,19 @@ public sealed class BubblegumChargeSystem : EntitySystem
         if (coords.MapId != userMap)
             return;
 
-        item.Target = coords;
+        var lead = (float)(item.ExecuteAt - now).TotalSeconds;
+        if (lead <= 0f)
+        {
+            item.Target = coords;
+            return;
+        }
+
+        var velocity = _physics.GetMapLinearVelocity(entity);
+        var offset = velocity * lead;
+        if (offset.Length() > MaxLeadDistance)
+            offset = Vector2.Normalize(offset) * MaxLeadDistance;
+
+        item.Target = new MapCoordinates(coords.Position + offset, coords.MapId);
     }
 
     private void OnChargeHit(Entity<BubblegumActiveChargeComponent> ent, ref ThrowDoHitEvent args)
@@ -195,30 +280,9 @@ public sealed class BubblegumChargeSystem : EntitySystem
         if (target == ent.Owner)
             return;
 
-        if (HasComp<BubblegumComponent>(target) || HasComp<BubblegumHallucinationComponent>(target))
-            return;
-
         if (HasComp<MobStateComponent>(target))
         {
-            if (_mobState.IsDead(target))
-                return;
-
-            var damage = new DamageSpecifier();
-            damage.DamageDict.Add("Blunt", ent.Comp.TrampleDamage);
-            _damageable.TryChangeDamage(target, damage, false, origin: ent.Owner);
-
-            _recoil.KickCamera(target, ent.Comp.Direction * ent.Comp.CameraKickStrength);
-
-            if (ent.Comp.ExpireOnHit)
-            {
-                if (HasComp<BubblegumHallucinationComponent>(ent))
-                {
-                    QueueDel(ent.Owner);
-                    return;
-                }
-
-                RemCompDeferred<BubblegumActiveChargeComponent>(ent);
-            }
+            TryTrample(ent, target);
             return;
         }
 
@@ -296,7 +360,7 @@ public sealed class BubblegumChargeSystem : EntitySystem
 
                 if (!item.TelegraphSpawned && now >= item.TelegraphAt)
                 {
-                    RefreshTargetFromEntity(item, userMapId);
+                    RefreshTargetFromEntity(item, userMapId, now);
 
                     var lifetime = (float)(item.ExecuteAt - now).TotalSeconds;
                     var telegraph = Spawn(item.TelegraphProto, item.Target, rotation: Angle.Zero);
@@ -321,6 +385,11 @@ public sealed class BubblegumChargeSystem : EntitySystem
         var activeQuery = EntityQueryEnumerator<BubblegumActiveChargeComponent>();
         while (activeQuery.MoveNext(out var uid, out var comp))
         {
+            TrampleSweep((uid, comp));
+
+            if (TerminatingOrDeleted(uid) || !HasComp<BubblegumActiveChargeComponent>(uid))
+                continue;
+
             if (now < comp.EndsAt)
                 continue;
 

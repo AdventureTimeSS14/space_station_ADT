@@ -35,10 +35,12 @@ public sealed partial class BubblegumAggressivePrecondition : HTNPrecondition
         {
             aggressive = true;
         }
-        else if (blackboard.TryGetValue<EntityUid>(TargetKey, out var target, _entManager)
-                 && _mobState.IsIncapacitated(target))
+        else if (blackboard.TryGetValue<EntityUid>(TargetKey, out var target, _entManager))
         {
-            aggressive = true;
+            if (_entManager.Deleted(target))
+                aggressive = false;
+            else if (_mobState.IsIncapacitated(target))
+                aggressive = true;
         }
 
         return aggressive == IsAggressive;

@@ -43,6 +43,7 @@ using Content.Shared.ADT.Mind;
 using Content.Shared.ADT.Mobs;
 using Content.Shared.Power;
 using Content.Shared.Actions;
+using Content.Server.Access.Systems;
 
 namespace Content.Server.ADT.Thunderdome;
 
@@ -65,6 +66,7 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
     [Dependency] private readonly Mind.TemporaryMindSystem _tempMind = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
     [Dependency] private readonly GunSystem _gun = default!;
+    [Dependency] private readonly IdCardSystem _idCard = default!;
 
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
 
@@ -280,6 +282,13 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
         _stationSpawning.EquipStartingGear(mob, rule.Gear);
         SpawnLoadoutItems(mob, weaponIdx, rule);
 
+        // айди карта с сикеем игруна
+        if (_idCard.TryFindIdCard(mob, out var idCard))
+        {
+            var ckey = session.Name;
+            _idCard.TryChangeFullName(idCard, ckey, idCard);
+        }
+
         var tdPlayer = EnsureComp<ThunderdomePlayerComponent>(mob);
         tdPlayer.RuleEntity = ruleEntity;
         tdPlayer.WeaponSelection = weaponIdx;
@@ -386,6 +395,13 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
 
         if (_refillOnKill)
             RefillAmmo(killerUid);
+
+        // лечащий тулбокс
+        var killerTransform = Transform(killerUid);
+        if (killerTransform.Coordinates != null)
+        {
+            Spawn("HealingToolbox", killerTransform.Coordinates);
+        }
     }
 
     private void GhostDomePlayer(

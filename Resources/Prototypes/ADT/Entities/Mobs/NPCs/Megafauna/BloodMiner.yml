@@ -4,6 +4,10 @@
   name: blood miner
   description:
   components:
+  - type: GpsSignal
+    tag: adt-gps-signal-blood-miner
+    description: adt-gps-signal-blood-miner-desc
+    color: "#8F1D1D"
   - type: Destructible
     thresholds:
     - trigger:

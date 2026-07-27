@@ -71,10 +71,11 @@
   - type: Sprite
     sprite: ADT/Objects/Specific/Lavaland/loot.rsi
     state: crystal
-  - type: GunUpgrade
+  - type: ADTGunUpgrade
+    cost: 20
     tags: [ GunUpgradeVampirism ]
     examineText: gun-upgrade-examine-text-vampirism
-  - type: GunUpgradeVampirism
+  - type: ADTGunUpgradeVampirism
     damageOnHit:
       types:
         Slash: -1.5
