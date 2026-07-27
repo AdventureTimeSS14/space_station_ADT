@@ -231,6 +231,46 @@
     energy: 1.6
     color: "#9dc5c9"
 
+
+# Автомат с музыкальными инструментами
+
+- type: entity
+  parent: VendingMachine
+  id: ADTVendingMachineMusician
+  name: Музыкомат
+  description: Торговый аппарат с музыкальными инструментами.
+  components:
+  - type: VendingMachine
+    pack: ADTMusicomatInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    priceMultiplier: 0
+    screenState: screen
+  - type: DatasetVocalizer
+    dataset: AutoDrobeAds
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: ADT/Structures/Machines/VendingMachines/musicomat.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - state: "screen"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+  - type: PointLight
+    radius: 1.5
+    energy: 3.0
+    color: "#c73434"
+
 #Бесплатные версии торгоматов
 - type: entity
   parent: VendingMachineCoffee

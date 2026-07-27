@@ -64,3 +64,22 @@
     - state: refill_civimed
   - type: StaticPrice
     price: -1500
+
+- type: entity
+  parent: ADTSecuredVendingMachineRestock
+  id: ADTRestockmusicianomat
+  name: Набор пополнения Музыкомат
+  description: А ну скорей любите нас, вам крупно повезло! Загрузите это в ближайший торгомат Музыкомат.
+  components:
+  - type: VendingMachineRestock
+    canRestock:
+    - ADTMusicomatInventory
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/vending_machine_restock.rsi
+    layers:
+    - state: base
+    - state: green_bit
+      shader: unshaded
+    - state: refill_autotune
+  - type: StaticPrice
+    price: -1500
