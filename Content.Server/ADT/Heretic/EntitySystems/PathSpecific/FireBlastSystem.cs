@@ -1,13 +1,12 @@
+//
+
 using System.Linq;
-using Content.Goobstation.Common.Physics;
-using Content.Goobstation.Common.Religion;
+using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems;
-using Content.Shared._Shitmed.Damage;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
@@ -83,13 +82,10 @@ public sealed class FireBlastSystem : SharedFireBlastSystem
                 continue;
 
             Dmg.TryChangeDamage(uid,
-                origin.Comp.FireBlastBonusDamage * Body.GetVitalBodyPartRatio(uid),
+                origin.Comp.FireBlastBonusDamage,
                 false,
                 false,
-                dmg,
-                targetPart: TargetBodyPart.All,
-                splitDamage: SplitDamageBehavior.SplitEnsureAll,
-                canMiss: false);
+                dmg);
         }
     }
 
@@ -170,11 +166,8 @@ public sealed class FireBlastSystem : SharedFireBlastSystem
         _flammable.AdjustFireStacks(target, origin.Comp.FireStacks, flam, true, origin.Comp.FireProtectionPenetration);
 
         Dmg.TryChangeDamage(target,
-            origin.Comp.FireBlastDamage * Body.GetVitalBodyPartRatio(target),
-            origin: origin,
-            targetPart: TargetBodyPart.All,
-            splitDamage: SplitDamageBehavior.SplitEnsureAll,
-            canMiss: false);
+            origin.Comp.FireBlastDamage,
+            origin: origin);
 
         return true;
     }
@@ -217,13 +210,10 @@ public sealed class FireBlastSystem : SharedFireBlastSystem
                 continue;
 
             Dmg.TryChangeDamage(ent.HitEntity,
-                origin.Comp.FireBlastBeamCollideDamage * Body.GetVitalBodyPartRatio(ent.HitEntity),
+                origin.Comp.FireBlastBeamCollideDamage,
                 false,
                 false,
-                dmg,
-                targetPart: TargetBodyPart.All,
-                splitDamage: SplitDamageBehavior.SplitEnsureAll,
-                canMiss: false);
+                dmg);
         }
     }
 

@@ -1,4 +1,5 @@
-using Content.Goobstation.Common.Stunnable;
+//
+
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Damage.Events;
@@ -23,9 +24,6 @@ public abstract partial class SharedHereticAbilitySystem
         // SubscribeLocalEvent<SilverMaelstromComponent, BeforeStatusEffectAddedEvent>(OnBeforeBladeStatusEffect);
         // Remove this after adding noslip heretic magboots side knowledge
         SubscribeLocalEvent<SilverMaelstromComponent, SlipAttemptEvent>(OnBladeSlipAttempt);
-        SubscribeLocalEvent<SilverMaelstromComponent, GetClothingStunModifierEvent>(OnBladeStunModify);
-        SubscribeLocalEvent<SilverMaelstromComponent, DropHandItemsEvent>(OnBladeDropItems,
-            before: new[] { typeof(SharedHandsSystem) });
         // Protective blades do that
         // SubscribeLocalEvent<SilverMaelstromComponent, BeforeHarmfulActionEvent>(OnBladeHarmfulAction);
 
@@ -37,13 +35,10 @@ public abstract partial class SharedHereticAbilitySystem
         SubscribeLocalEvent<RealignmentComponent, ComponentRemove>(OnComponentRemove);
     }
 
-    private void OnBladeDropItems(Entity<SilverMaelstromComponent> ent, ref DropHandItemsEvent args)
+    private void OnComponentRemove(Entity<RealignmentComponent> ent, ref ComponentRemove args)
     {
-        args.Handled = true;
+        // ADT: системы стамина-дрейна из Goob нет — реген реализован в HereticAbilitySystem.Blade (сервер)
     }
-
-    private void OnComponentRemove(Entity<RealignmentComponent> ent, ref ComponentRemove args) =>
-        _stam.ToggleStaminaDrain(ent, 0, false, true, ent.Comp.StaminaRegenKey);
 
     private void OnStatusEnded(Entity<RealignmentComponent> ent, ref StatusEffectEndedEvent args)
     {
@@ -62,11 +57,6 @@ public abstract partial class SharedHereticAbilitySystem
         args.Cancel();
     }
 
-    private void OnBladeStunModify(Entity<SilverMaelstromComponent> ent, ref GetClothingStunModifierEvent args)
-    {
-        args.Modifier *= 0.5f;
-    }
-
     private void OnBladeSlipAttempt(EntityUid uid, Component component, SlipAttemptEvent args)
     {
         args.NoSlip = true;
@@ -82,8 +72,7 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnBeforeBladeStaminaDamage(EntityUid uid, Component component, ref BeforeStaminaDamageEvent args)
     {
-        if (args.Value <= 0
-            || args.Source == uid)
+        if (args.Value <= 0)
             return;
 
         args.Cancelled = true;

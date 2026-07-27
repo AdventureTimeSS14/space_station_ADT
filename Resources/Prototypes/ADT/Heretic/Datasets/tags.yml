@@ -130,3 +130,22 @@
   - Wirecutter
   - Wrench
   - CD
+
+# ADT Heretic: теги, требуемые прототипами еретика
+- type: Tag
+  id: HereticCarving
+
+- type: Tag
+  id: HereticItem
+
+- type: Tag
+  id: ShadowCloakAction
+
+- type: Tag
+  id: WaterTank
+
+- type: Tag
+  id: RoundstartAntag
+
+- type: Tag
+  id: CalmAntag

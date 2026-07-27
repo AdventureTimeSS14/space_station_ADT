@@ -1,7 +1,6 @@
 using Content.Shared.ADT.Heretic.Components;
-using Content.Shared._Shitmed.Surgery;
 using Content.Shared.DoAfter;
-using Content.Shared.Hands;
+
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 
@@ -16,8 +15,7 @@ public abstract partial class SharedHereticAbilitySystem
 
         SubscribeLocalEvent<FleshPassiveComponent, ImmuneToPoisonDamageEvent>(OnPoisonImmune);
 
-        SubscribeLocalEvent<FleshSurgeryComponent, HeldRelayedEvent<SurgeryPainEvent>>(OnPain);
-        SubscribeLocalEvent<FleshSurgeryComponent, HeldRelayedEvent<SurgeryIgnorePreviousStepsEvent>>(OnIgnore);
+        // ADT: щитмед-хирургия вырезана, рука лечит только гулей через do-after
         SubscribeLocalEvent<FleshSurgeryComponent, AfterInteractEvent>(OnAfterInteract);
     }
 
@@ -37,8 +35,7 @@ public abstract partial class SharedHereticAbilitySystem
             new EventHereticFleshSurgeryDoAfter(),
             args.User,
             args.Target,
-            ent,
-            showTo: EntityUid.Invalid)
+            ent)
         {
             Hidden = true, // Hidden because it also has health analyzer do-after
             BreakOnDamage = true,
@@ -50,16 +47,6 @@ public abstract partial class SharedHereticAbilitySystem
 
         if (DoAfter.TryStartDoAfter(dargs))
             args.Handled = true;
-    }
-
-    private void OnIgnore(Entity<FleshSurgeryComponent> ent, ref HeldRelayedEvent<SurgeryIgnorePreviousStepsEvent> args)
-    {
-        args.Args.Handled = true;
-    }
-
-    private void OnPain(Entity<FleshSurgeryComponent> ent, ref HeldRelayedEvent<SurgeryPainEvent> args)
-    {
-        args.Args.Cancel();
     }
 
     private void OnFleshSurgery(EventHereticFleshSurgery args)

@@ -1,10 +1,11 @@
+//
+
 using System.Linq;
 using System.Numerics;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Spreader;
 using Content.Shared.ADT.Heretic.Components;
-using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Shitmed.Targeting;
+using Content.Shared.ADT.Heretic;
 using Content.Shared.Flash;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
@@ -38,16 +39,6 @@ public sealed partial class HereticAbilitySystem
         SubscribeLocalEvent<SpriteRandomOffsetComponent, ComponentStartup>(OnRandomOffsetStartup);
 
         SubscribeLocalEvent<RustbringerComponent, FlashAttemptEvent>(OnFlashAttempt);
-
-        SubscribeLocalEvent<LeechingWalkComponent, MapInitEvent>(OnMapInit);
-    }
-
-    private void OnMapInit(Entity<LeechingWalkComponent> ent, ref MapInitEvent args)
-    {
-        if (!TryComp(ent, out DisgustComponent? disgust))
-            return;
-
-        disgust.AccumulationMultiplier = 0f;
     }
 
     private void OnFlashAttempt(Entity<RustbringerComponent> ent, ref FlashAttemptEvent args)
@@ -284,7 +275,7 @@ public sealed partial class HereticAbilitySystem
             _throw.TryThrow(entity, dir.Normalized() * args.ThrowRange, args.ThrowSpeed);
             _stun.KnockdownOrStun(entity, args.KnockdownTime, true);
             if (entity != args.Performer)
-                _dmg.TryChangeDamage(entity, args.Damage, targetPart: TargetBodyPart.All);
+                _dmg.TryChangeDamage(entity, args.Damage);
         }
 
         args.Handled = true;

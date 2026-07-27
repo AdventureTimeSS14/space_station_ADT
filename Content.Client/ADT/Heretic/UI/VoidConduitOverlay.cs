@@ -1,3 +1,5 @@
+//
+
 using System.Numerics;
 using Content.Shared.ADT.Heretic.Components;
 using Robust.Client.GameObjects;

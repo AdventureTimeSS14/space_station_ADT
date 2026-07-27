@@ -1,3 +1,5 @@
+//
+
 namespace Content.Shared.ADT.Heretic.Components;
 
 [RegisterComponent]

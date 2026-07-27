@@ -67,7 +67,7 @@
     useDelay: 30
     itemIconStyle: NoItem
     sound:
-      path: /Audio/_Goobstation/Wizard/smoke.ogg
+      path: /Audio/ADT/Heretic/smoke.ogg
     icon:
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: entropic_plume

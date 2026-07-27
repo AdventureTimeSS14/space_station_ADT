@@ -75,7 +75,6 @@
       types:
         Piercing: 10
   - type: UseDelay
-  - type: ThrowableBlocked
   - type: ChangeTemperatureOnHit
     heat: -50000
   - type: IceSpear

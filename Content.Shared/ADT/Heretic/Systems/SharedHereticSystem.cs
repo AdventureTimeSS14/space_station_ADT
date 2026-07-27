@@ -1,5 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
-using Content.Goobstation.Common.Conversion;
+using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Heretic;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;

@@ -59,3 +59,38 @@ heretic-speech-link = PI'RC' TH' M'ND
 
 heretic-cant-shoot = Я не могу использовать {$entity} из-за моей священной приверженности пути клинка.
 heretic-ability-fail-lowhealth = Это заклинание наносит {$damage} урона, оно введёт вас в критическое состояние, если его использовать!
+
+# ADT: добавлено при актуализации еретика с Goob
+heretic-ability-fail-tile-not-rusted = Выбранное покрытие должно быть ржавым, чтобы использовать эту способность!
+heretic-ability-fail-tile-underneath-not-rusted = Плитка, на которой вы стоите, должна быть ржавой, чтобы использовать эту способность!
+heretic-ability-fail-tile-occupied = Покрытие занято!
+heretic-ability-fail-rust-stage-low = Вы недостаточно сильны чтобы покрыть ржавчиной данное покрытие!
+heretic-ability-fail-target-ghoul = Цель уже гуль!
+heretic-ability-fail-target-no-mind = У цели нет души!
+heretic-ability-lose-focus-shadow-cloak = Когда вы теряете фокус, тени вытягивают вас наружу!
+heretic-cosmic-rune-fail-star-mark = Заблокировано звёздной меткой!
+heretic-cosmic-rune-fail-unlinked = Руна не присоединена!
+heretic-cosmic-rune-fail-range = Недостаточно близко!
+mansus-grasp-trigger-fail = Что-то мешает вам активировать это!
+heretic-livingheart-faraway = Оно { $state ->
+    [dead] мертво
+    [alive] живо
+    *[other] в неизвестном состоянии
+}, очень далеко отсюда!
+heretic-stargaze-obliterate-other = Вы видите, как {$uid} охвачен обжигающим гневом космоса. На мгновение вы видите, как их силуэты бьются в агонии, прежде чем рассыпаться на атомы.
+heretic-stargaze-obliterate-user = СИЛА САМОГО КОСМОСА ИЗЛИВАЕТСЯ НА ВАС. ВОЛНЫ ЖАРА ОХВАТЫВАЮТ ВАШЕ ТЕЛО, РАЗРЫВАЯ ЕГО ПО ШВАМ. ВАШЕ ПОЛНОЕ УНИЧТОЖЕНИЕ ДЛИТСЯ ВСЕГО МГНОВЕНИЕ, ПРЕЖДЕ ЧЕМ ВЫ СНОВА СТАНЕТЕ ТЕМ, КЕМ БЫЛИ ВСЕГДА. КУСОЧКИ ПРЕВРАЩАЮТСЯ В ПЫЛЬ...
+heretic-stargazer-reset-consciousness = ЭТО ДЕЙСТВИЕ НЕОБРАТИМО ИЗМЕНИТ РАЗУМ ЗВЕЗДОЧЁТА! Используйте ещё раз для подтверждения.
+heretic-stargazer-consciousness-reset-fail = Похоже, что ваш запрос на изменение разума звездочёта был отклонён... Похоже, что на данный момент вы застряли с этим.
+heretic-stargazer-consciousness-reset-target = Ваш призыватель перезагрузил вас, и вашим телом завладел призрак. Похоже, он был недоволен вашим выступлением.
+heretic-stargazer-consciousness-reset-user = Разум звездочёта исказился, чтобы лучше подходить вам.
+heretic-speech-rust-wave = Н'С'Т'ГНИ 'ИХ!
+heretic-speech-void-prison = ПУСТ'ТН'Я ТЮР'М'!
+heretic-speech-void-conduit = ВР'Т' ПУСТ'ТЫ!
+heretic-speech-cosmic-rune = К'СМ'Ч'С'АЯ Р'Н'!
+heretic-speech-star-touch = К'СМ'Ч'С'АЯ 'Н'РГ'!!
+heretic-speech-star-blast = Р'Т'Т' ЗВ'З'А!!
+heretic-speech-cosmic-expansion = К'СМ'Ч'С'ОЕ Р'СШ'РЕН'Е!
+heretic-speech-stargaze = Ш''П Д' В''П
+heretic-speech-ice-spear = 'АРА ЛЬ'А!
+heretic-speech-shapeshft = ПР'ОБР'Ж'Н'Е
+heretic-blade-break-fail-acended-message = Вы не можете сломать клинок после вознесения!

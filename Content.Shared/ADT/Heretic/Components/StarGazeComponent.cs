@@ -27,7 +27,7 @@ public sealed partial class StarGazeComponent : Component
     public float ThrowSpeed = 5f;
 
     [DataField]
-    public SoundSpecifier ObliterateSound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/supermatter.ogg");
+    public SoundSpecifier ObliterateSound = new SoundPathSpecifier("/Audio/ADT/Heretic/supermatter.ogg");
 
     [DataField]
     public EntProtoId AshProto = "Ash";

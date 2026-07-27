@@ -1,3 +1,5 @@
+//
+
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Client.UserInterface.Controls;
@@ -101,7 +103,7 @@ public sealed class HereticShapeshiftRadialMenu : RadialMenu
         }
     }
 
-    public sealed class HereticPolymorphMenuButton : RadialMenuTextureButtonWithSector
+    public sealed class HereticPolymorphMenuButton : RadialMenuButtonWithSector
     {
         public ProtoId<PolymorphPrototype> ProtoId { get; set; }
     }

@@ -1,3 +1,4 @@
+using Content.Shared.Damage.Systems;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Damage;

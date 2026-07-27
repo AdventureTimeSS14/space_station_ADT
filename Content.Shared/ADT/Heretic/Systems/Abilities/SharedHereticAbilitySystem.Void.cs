@@ -1,6 +1,7 @@
+//
+
 using System.Linq;
-using Content.Goobstation.Common.BlockTeleport;
-using Content.Shared._Shitmed.Targeting;
+using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 
@@ -61,12 +62,10 @@ public abstract partial class SharedHereticAbilitySystem
         {
             if (condition)
                 Voidcurse.DoCurse(pookie, 2);
-            _dmg.TryChangeDamage(pookie,
-                args.Damage * _body.GetVitalBodyPartRatio(pookie),
+            _dmg.TryChangeDamage(pookie.Owner,
+                args.Damage,
                 true,
-                origin: ent,
-                targetPart: TargetBodyPart.All,
-                canMiss: false);
+                origin: ent);
         }
 
         args.Handled = true;
@@ -88,12 +87,10 @@ public abstract partial class SharedHereticAbilitySystem
         var pookies = GetNearbyPeople(ent, args.Radius, path);
         foreach (var pookie in pookies)
         {
-            _dmg.TryChangeDamage(pookie,
-                args.Damage * _body.GetVitalBodyPartRatio(pookie),
+            _dmg.TryChangeDamage(pookie.Owner,
+                args.Damage,
                 true,
-                origin: ent,
-                targetPart: TargetBodyPart.All,
-                canMiss: false);
+                origin: ent);
 
             _stun.TryKnockdown(pookie.Owner, args.KnockDownTime, true, drop: false);
 

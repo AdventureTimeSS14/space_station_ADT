@@ -1,3 +1,7 @@
+//
+
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Eye.Blinding.Systems;
 using System.Linq;
 using Content.Shared.ADT.Heretic;
 using Content.Server.Chat.Managers;
@@ -7,8 +11,7 @@ using Content.Server.Mind;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
 using Content.Shared.ADT.Heretic.Components;
-using Content.Shared._Goobstation.Wizard.Traps;
-using Content.Shared.ADT.Heretic.Components;
+using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.Actions;
 using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
@@ -123,8 +126,8 @@ public sealed class CarvingKnifeSystem : EntitySystem
         if (!TryComp(args.Victim, out StatusEffectsComponent? status))
             return;
 
-        _status.TryAddStatusEffect<TemporaryBlindnessComponent>(args.Victim,
-            "TemporaryBlindness",
+        _status.TryAddStatusEffect<BlindnessStatusEffectComponent>(args.Victim,
+            BlindnessSystem.BlindingStatusEffect,
             ent.Comp.BlindnessTime,
             true,
             status);

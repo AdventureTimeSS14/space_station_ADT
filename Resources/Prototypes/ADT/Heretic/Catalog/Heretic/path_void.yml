@@ -39,21 +39,22 @@
     whitelist:
     - Void
 
-- type: listing
-  id: HereticVoidPath3
-  name: knowledge-path-void-s3-name
-  description: knowledge-path-void-s3-desc
-  icon: { sprite: Interface/Alerts/temperature.rsi, state: cold1 }
-  productHereticKnowledge: AristocratWay
-  cost:
-    KnowledgePoint: 1
-  categories:
-  - HereticPathVoid
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:HereticPathCondition
-    stage: 2
+# ADT: отключено как в актуальном Goob (AristocratWay не реализован)
+#- type: listing
+#  id: HereticVoidPath3
+#  name: knowledge-path-void-s3-name
+#  description: knowledge-path-void-s3-desc
+#  icon: { sprite: Interface/Alerts/temperature.rsi, state: cold1 }
+#  productHereticKnowledge: AristocratWay
+#  cost:
+#    KnowledgePoint: 1
+#  categories:
+#  - HereticPathVoid
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+#  - !type:HereticPathCondition
+#    stage: 2
 
 - type: listing
   id: HereticVoidPath4

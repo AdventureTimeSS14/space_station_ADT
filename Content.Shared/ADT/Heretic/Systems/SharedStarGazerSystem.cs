@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Goobstation.Common.Physics;
+using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems.Abilities;
 using Content.Shared.Coordinates;
@@ -106,7 +106,7 @@ public abstract class SharedStarGazerSystem : EntitySystem
     private void OnRefreshMovespeed(Entity<StarGazeComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
         if (ent.Comp.LifeStage < ComponentLifeStage.Stopping)
-            args.ModifySpeed(ent.Comp.Slowdown.X, ent.Comp.Slowdown.Y, true);
+            args.ModifySpeed(ent.Comp.Slowdown.X, ent.Comp.Slowdown.Y);
     }
 
     private void OnStarGazeDoAfter(Entity<StarGazeComponent> ent, ref StarGazeDoAfterEvent args)

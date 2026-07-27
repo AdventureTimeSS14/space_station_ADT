@@ -1,6 +1,5 @@
 using System.Linq;
-using Content.Goobstation.Common.BlockTeleport;
-using Content.Goobstation.Common.Physics;
+using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems.Abilities;
 using Content.Shared.Bed.Sleep;
@@ -21,9 +20,9 @@ namespace Content.Shared.ADT.Heretic.Systems;
 public sealed class SharedStarTouchSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly Common.DivineInterventionSystem _divine = default!;
 
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedMagicSystem _magic = default!;
     [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
@@ -210,7 +209,7 @@ public sealed class SharedStarTouchSystem : EntitySystem
             return;
         }
 
-        if (_magic.IsTouchSpellDenied(target))
+        if (_divine.TouchSpellDenied(target)) // ADT: через DivineInterventionSystem
         {
             _hereticAbility.InvokeTouchSpell(ent, args.User);
             return;

@@ -13,7 +13,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Goobstation.Common.Physics;
+using Content.Shared.ADT.Heretic.Common;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
@@ -21,7 +21,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Client.Physics;
+namespace Content.Client.ADT.Heretic.Physics;
 
 public sealed class ComplexJointVisualsOverlay : Overlay
 {

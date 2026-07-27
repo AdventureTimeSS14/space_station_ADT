@@ -7,7 +7,7 @@ using Robust.Client.Graphics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Client.Physics;
+namespace Content.Client.ADT.Heretic.Physics;
 
 public sealed class ComplexJointVisualsSystem : EntitySystem
 {

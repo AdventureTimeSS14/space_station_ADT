@@ -1,20 +1,26 @@
 using Content.Server.ADT.Heretic.EntitySystems.PathSpecific;
-using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Heretic.Effects;
 
-public sealed partial class VoidCurse : EntityEffect
+// ADT Heretic: накладывает проклятие пустоты
+
+public sealed partial class VoidCurse : EntityEffectBase<VoidCurse>
 {
     [DataField]
     public int Stacks = 1;
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => "Inflicts void curse.";
+}
 
-    public override void Effect(EntityEffectBaseArgs args)
+public sealed partial class VoidCurseEffectSystem : EntityEffectSystem<MetaDataComponent, VoidCurse>
+{
+    [Dependency] private readonly VoidCurseSystem _voidCurse = default!;
+
+    protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<VoidCurse> args)
     {
-        args.EntityManager.System<VoidCurseSystem>().DoCurse(args.TargetEntity, Stacks);
+        _voidCurse.DoCurse(entity, args.Effect.Stacks);
     }
 }

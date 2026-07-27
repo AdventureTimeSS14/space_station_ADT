@@ -1,3 +1,5 @@
+//
+
 using Content.Server.ADT.Heretic.EntitySystems.PathSpecific;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;

@@ -1,16 +1,20 @@
+//
+
+
+using Content.Shared.Damage.Components;
 using System.Linq;
 using System.Numerics;
 using System.Text;
-using Content.Goobstation.Common.BlockTeleport;
-using Content.Goobstation.Common.Physics;
-using Content.Goobstation.Common.Weapons;
+using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
+using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Components;
 using Content.Shared.Interaction;
@@ -39,7 +43,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     [Dependency] private readonly SharedHereticCombatMarkSystem _combatMark = default!;
     [Dependency] private readonly SharedRottingSystem _rotting = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedSanguineStrikeSystem _sanguine = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly CosmosComboSystem _combo = default!;
     [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
@@ -217,11 +221,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
             case "Rust":
                 if (_mobState.IsDead(target))
                     _rotting.ReduceAccumulator(target, -TimeSpan.FromMinutes(1f));
-                else
-                {
-                    var ev = new ModifyDisgustEvent(20f);
-                    RaiseLocalEvent(target, ref ev);
-                }
+                // ADT: у нас нет системы Disgust из Goob (SecondSkin), эффект на живых не переносим
                 break;
 
             default:
@@ -240,7 +240,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
             return;
         }
 
-        if (!TryComp<RandomTeleportComponent>(ent, out var rtp))
+        if (!HasRandomTeleport(ent))
             return;
 
         var ev = new TeleportAttemptEvent();
@@ -248,7 +248,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
-        RandomTeleport(args.User, ent, rtp);
+        RandomTeleport(args.User, ent);
         _audio.PlayPredicted(ent.Comp.ShatterSound, args.User, args.User);
         _popup.PopupClient(Loc.GetString("heretic-blade-use"), args.User, args.User);
         args.Handled = true;
@@ -256,7 +256,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
     private void OnExamine(Entity<HereticBladeComponent> ent, ref ExaminedEvent args)
     {
-        if (!HasComp<RandomTeleportComponent>(ent))
+        if (!HasRandomTeleport(ent))
             return;
 
         if (!_heretic.TryGetHereticComponent(args.Examiner, out var heretic, out _) || heretic.Ascended)
@@ -364,14 +364,28 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                 var bonusHeal = HasComp<MansusInfusedComponent>(ent) ? baseHeal / 2f : baseHeal / 4f;
                 bonusHeal *= aliveMobsCount;
 
-                _sanguine.LifeSteal(args.User, bonusHeal, dmg);
+                SanguineLifeSteal(args.User, bonusHeal, dmg);
             }
         }
+    }
+
+    // ADT: замена SharedSanguineStrikeSystem.LifeSteal из Goob (без Consciousness/Pain из щитмеда)
+    private void SanguineLifeSteal(EntityUid uid, FixedPoint2 amount, DamageableComponent damageable)
+    {
+        var totalUserDamage = _damageable.GetTotalDamage((uid, damageable));
+        if (totalUserDamage <= FixedPoint2.Zero)
+            return;
+
+        // ADT: HealEvenly распределяет лечение по типам урона пропорционально
+        _damageable.HealEvenly((uid, damageable), -FixedPoint2.Min(amount, totalUserDamage));
     }
 
     protected virtual void ApplyAshBladeEffect(EntityUid target) { }
 
     protected virtual void ApplyFleshBladeEffect(EntityUid target) { }
 
-    protected virtual void RandomTeleport(EntityUid user, EntityUid blade, RandomTeleportComponent comp) { }
+    // ADT: RandomTeleportComponent в ADT серверный, поэтому доступ к нему только через override
+    protected virtual bool HasRandomTeleport(EntityUid blade) => false;
+
+    protected virtual void RandomTeleport(EntityUid user, EntityUid blade) { }
 }

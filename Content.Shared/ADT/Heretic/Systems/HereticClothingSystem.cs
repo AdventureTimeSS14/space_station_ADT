@@ -1,5 +1,6 @@
+//
+
 using Content.Shared.ADT.Heretic.Components;
-using Content.Shared._Goobstation.Wizard;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Inventory.Events;
 
@@ -27,7 +28,6 @@ public sealed class HereticClothingSystem : EntitySystem
 
     private bool IsTargetValid(EntityUid target)
     {
-        return _heretic.IsHereticOrGhoul(target) || HasComp<WizardComponent>(target) ||
-               HasComp<ApprenticeComponent>(target);
+        return _heretic.IsHereticOrGhoul(target); // ADT: в сборке нет визарда
     }
 }

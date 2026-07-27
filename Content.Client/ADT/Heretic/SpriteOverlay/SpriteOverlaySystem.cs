@@ -1,3 +1,5 @@
+//
+
 using System.Numerics;
 using Content.Shared.ADT.Heretic.SpriteOverlay;
 using Robust.Client.GameObjects;

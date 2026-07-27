@@ -8,20 +8,6 @@
   },
   "states": [
     {
-      "name": "raw_prophet"
-    },
-    {
-      "name": "raw_prophet-move",
-      "delays":
-      [
-        [
-          0.05, 0.05, 0.05, 0.05, 0.05,
-          0.05, 0.05, 0.05, 0.05, 0.05,
-          0.05, 0.05, 0.05, 0.05, 0.05
-        ]
-      ]
-    },
-    {
       "name": "armsy_end",
       "directions": 4
     },
@@ -34,38 +20,8 @@
       "directions": 4
     },
     {
-      "name": "stalker",
-      "directions": 4
-    },
-    {
       "name": "ash_walker",
       "directions": 4
-    },
-    {
-      "name": "rust_walker_s",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.2
-        ]
-      ]
-    },
-    {
-      "name": "rust_walker_n",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.2
-        ]
-      ]
     },
     {
       "name": "fire_shark",
@@ -98,7 +54,103 @@
       ]
     },
     {
+      "name": "fire_shark_icon"
+    },
+    {
       "name": "moon_mass"
+    },
+    {
+      "name": "raw_prophet"
+    },
+    {
+      "name": "raw_prophet-move",
+      "delays": [
+        [
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "rust_walker",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "rust_walker_n",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "rust_walker_s",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "stalker",
+      "directions": 4
     }
   ]
 }

@@ -1,7 +1,8 @@
+//
+
 using Content.Client.ADT.Heretic.SpriteOverlay;
 using Content.Shared.ADT.Heretic.Components;
-using Content.Shared._Goobstation.Wizard.Traps;
-using Content.Shared.ADT.Heretic.Components;
+using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Heretic.SpriteOverlay;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Heretic;

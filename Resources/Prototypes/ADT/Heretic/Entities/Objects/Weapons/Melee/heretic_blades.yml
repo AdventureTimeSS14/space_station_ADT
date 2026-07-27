@@ -125,3 +125,18 @@
         Slash: 7.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+
+- type: entity
+  parent: HereticBladeBase
+  id: HereticBladeCosmos
+  name: cosmic blade
+  description: A mote of celestial resonance, shaped into a star-woven blade. An iridescent exile, carving radiant trails, desperately seeking unification.
+  suffix: Cosmos
+  components:
+  - type: HereticBlade
+    path: Cosmos
+  - type: Sprite
+    sprite: ADT/Heretic/Blades/blade_cosmos.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Heretic/Blades/blade_cosmos-inhand.rsi

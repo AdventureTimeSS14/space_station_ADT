@@ -1,4 +1,6 @@
-using Content.Shared._EinsteinEngines.Silicon.Components;
+//
+
+using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Heretic.Prototypes;

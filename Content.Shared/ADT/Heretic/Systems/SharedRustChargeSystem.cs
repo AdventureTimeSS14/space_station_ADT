@@ -1,6 +1,9 @@
+//
+
+using Content.Shared.Damage.Components;
 using Content.Shared.ADT.Heretic.Components;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Standing;
@@ -100,14 +103,12 @@ public abstract class SharedRustChargeSystem : EntitySystem
         // Damage mobs
         if (HasComp<MobStateComponent>(other))
         {
-            _stun.KnockdownOrStun(other, ent.Comp.KnockdownTime, true);
+            _stun.TryKnockdown(other, ent.Comp.KnockdownTime, true);
 
-            _damageable.TryChangeDamage(other,
+            _damageable.TryChangeDamage((other, damageable),
                 ent.Comp.Damage,
                 false,
-                true,
-                damageable,
-                targetPart: TargetBodyPart.Chest);
+                true);
 
             return;
         }

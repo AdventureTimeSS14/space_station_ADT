@@ -1,3 +1,5 @@
+//
+
 using Content.Shared.Heretic;
 using Robust.Client.Graphics;
 using Robust.Client.Input;

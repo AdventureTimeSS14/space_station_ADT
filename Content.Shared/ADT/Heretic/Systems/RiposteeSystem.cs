@@ -1,3 +1,5 @@
+//
+
 using Content.Shared.ADT.MartialArts;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems.Abilities;
@@ -22,6 +24,7 @@ namespace Content.Shared.ADT.Heretic.Systems;
 public sealed class RiposteeSystem : EntitySystem
 {
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private readonly Content.Shared.Interaction.SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -128,12 +131,12 @@ public sealed class RiposteeSystem : EntitySystem
             {
                 var ev = data.CanRiposteEvent;
                 ev.Handled = false;
-                RaiseLocalEvent(ent, (object) ev);
+                RaiseLocalEvent(ent.Owner, (object) ev);
                 if (!ev.Handled)
                     continue;
             }
 
-            if (!data.CanRiposteWhileProne && _standing.IsDown(ent))
+            if (!data.CanRiposteWhileProne && _standing.IsDown(ent.Owner))
                 continue;
 
             if (data.RiposteChance is > 0f and < 1f)
@@ -197,7 +200,7 @@ public sealed class RiposteeSystem : EntitySystem
             _combatMode.SetInCombatMode(user, true);
 
         if (_melee.AttemptLightAttack(user, weapon.Owner, weapon.Comp, target) && _net.IsServer &&
-            _melee.InRange(user, target, weapon.Comp.Range, CompOrNull<ActorComponent>(user)?.PlayerSession))
+            _interaction.InRangeUnobstructed((user, null), (target, null), weapon.Comp.Range)) // ADT: InRange у melee protected
         {
             if (data.StunTime > TimeSpan.Zero)
                 _stun.TryUpdateStunDuration(target, data.StunTime);

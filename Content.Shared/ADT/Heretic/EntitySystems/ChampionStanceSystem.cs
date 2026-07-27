@@ -1,19 +1,22 @@
-using Content.Goobstation.Common.Bloodstream;
+//
+
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.ADT.Heretic.Common;
 using Content.Server.Heretic.Components.PathSpecific;
-using Content.Shared.Body.Part;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
-using Content.Shared.Heretic.Components.PathSpecific; // Shitmed Change
+using Content.Shared.Heretic.Components.PathSpecific;
 namespace Content.Shared.Heretic.EntitySystems.PathSpecific;
 
 public sealed class ChampionStanceSystem : EntitySystem
 {
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
 
     public override void Initialize()
@@ -26,10 +29,6 @@ public sealed class ChampionStanceSystem : EntitySystem
         SubscribeLocalEvent<ChampionStanceComponent, ComponentStartup>(OnChampionStartup);
         SubscribeLocalEvent<ChampionStanceComponent, ComponentShutdown>(OnChampionShutdown);
         SubscribeLocalEvent<ChampionStanceComponent, ModifySlowOnDamageSpeedEvent>(OnChampionModifySpeed);
-
-        // if anyone is reading through and does not have EE newmed you can remove these handlers
-        SubscribeLocalEvent<ChampionStanceComponent, BodyPartAddedEvent>(OnBodyPartAdded);
-        SubscribeLocalEvent<ChampionStanceComponent, BodyPartRemovedEvent>(OnBodyPartRemoved);
     }
 
     private void OnChampionModifySpeed(Entity<ChampionStanceComponent> ent, ref ModifySlowOnDamageSpeedEvent args)
@@ -65,7 +64,7 @@ public sealed class ChampionStanceSystem : EntitySystem
 
         if (!_threshold.TryGetThresholdForState(ent, MobState.Critical, out var threshold, thresholdComp))
             threshold = _threshold.GetThresholdForState(ent, MobState.Dead, thresholdComp);
-        return dmg.TotalDamage >= threshold.Value.Float() / 2f;
+        return _damageable.GetTotalDamage((ent.Owner, dmg)) >= threshold.Value.Float() / 2f;
     }
 
     private void OnDamageModify(Entity<ChampionStanceComponent> ent, ref DamageModifyEvent args)
@@ -82,24 +81,5 @@ public sealed class ChampionStanceSystem : EntitySystem
             return;
 
         args.Value *= 0.4f;
-    }
-
-    private void OnBodyPartAdded(Entity<ChampionStanceComponent> ent, ref BodyPartAddedEvent args)
-    {
-        // can't touch this
-        if (!TryComp(args.Part, out WoundableComponent? woundable))
-            return;
-
-        woundable.CanRemove = false;
-        Dirty(args.Part);
-    }
-    private void OnBodyPartRemoved(Entity<ChampionStanceComponent> ent, ref BodyPartRemovedEvent args)
-    {
-        // can touch this
-        if (!TryComp(args.Part, out WoundableComponent? woundable))
-            return;
-
-        woundable.CanRemove = true;
-        Dirty(args.Part);
     }
 }

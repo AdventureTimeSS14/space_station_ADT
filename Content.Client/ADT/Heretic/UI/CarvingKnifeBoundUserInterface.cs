@@ -1,3 +1,5 @@
+//
+
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using JetBrains.Annotations;

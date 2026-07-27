@@ -19,11 +19,6 @@
   - !type:OverallPlaytimeRequirement
     time: 54000 # 15h
   guides: [ Heretics ]
-  # Reserve - antag UI
-  category: Solo
-  icon:
-    sprite: _Funkystation/Interface/Lobby/AntagCards.rsi
-    state: heretic
 
 - type: antag
   id: Ghoul

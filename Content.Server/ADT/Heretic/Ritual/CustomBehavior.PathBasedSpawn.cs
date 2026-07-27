@@ -1,3 +1,5 @@
+//
+
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Robust.Shared.Prototypes;

@@ -1,3 +1,5 @@
+//
+
 namespace Content.Shared.Heretic.Components.PathSpecific;
 
 [RegisterComponent]

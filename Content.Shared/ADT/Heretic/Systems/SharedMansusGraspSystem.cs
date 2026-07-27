@@ -1,10 +1,13 @@
+//
+
+using Content.Shared.Damage.Components;
 using Content.Server.Heretic.Components.PathSpecific;
-using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.ADT.Heretic.Components;
-using Content.Shared._Shitmed.Targeting;
-using Content.Shared._White.BackStab;
+using Content.Shared.ADT.BackStab;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
@@ -105,11 +108,9 @@ public abstract class SharedMansusGraspSystem : EntitySystem
             case "Ash":
             {
                 var timeSpan = TimeSpan.FromSeconds(5f);
-                _statusEffect.TryAddStatusEffect(target,
-                    TemporaryBlindnessSystem.BlindingStatusEffect,
-                    timeSpan,
-                    false,
-                    TemporaryBlindnessSystem.BlindingStatusEffect);
+                _statusNew.TryAddStatusEffectDuration(target,
+                    BlindnessSystem.BlindingStatusEffect,
+                    timeSpan);
                 break;
             }
 
@@ -130,8 +131,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                     _damage.TryChangeDamage(target,
                         new DamageSpecifier(_proto.Index<DamageTypePrototype>("Slash"), 10),
                         ignoreResistances: true,
-                        origin: performer,
-                        targetPart: TargetBodyPart.Chest);
+                        origin: performer);
                 }
 
                 break;
@@ -205,12 +205,10 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                           HasComp<BorgChassisComponent>(target) ||
                           _tag.HasTag(target, "Bot"))) // Check for ingorganic target
                 {
-                    _damage.TryChangeDamage(target,
+                    _damage.TryChangeDamage((target, damageable),
                         new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 500),
                         ignoreResistances: true,
-                        damageable: damageable,
-                        origin: performer,
-                        targetPart: TargetBodyPart.Chest);
+                        origin: performer);
                 }
 
                 break;

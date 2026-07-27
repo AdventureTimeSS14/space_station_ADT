@@ -1,8 +1,10 @@
+//
+
+using Content.Shared.Damage.Components;
+using Content.Shared.Body;
 using System.Linq;
-using Content.Goobstation.Common.Physics;
+using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Heretic.Components;
-using Content.Shared._Shitmed.Damage;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -17,7 +19,7 @@ public abstract class SharedFireBlastSystem : EntitySystem
     [Dependency] protected readonly SharedTransformSystem Xform = default!;
     [Dependency] protected readonly StatusEffectsSystem Status = default!;
     [Dependency] protected readonly DamageableSystem Dmg = default!;
-    [Dependency] protected readonly SharedBodySystem Body = default!;
+    [Dependency] protected readonly BodySystem Body = default!;
 
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedStaminaSystem _stam = default!;
@@ -81,18 +83,14 @@ public abstract class SharedFireBlastSystem : EntitySystem
                 },
             };
 
-            Dmg.TryChangeDamage(uid,
-                damage * Body.GetVitalBodyPartRatio(uid),
+            Dmg.TryChangeDamage((uid, dmg),
+                damage,
                 true,
-                false,
-                dmg,
-                targetPart: TargetBodyPart.All,
-                splitDamage: SplitDamageBehavior.SplitEnsureAll,
-                canMiss: false);
+                false);
 
             var stamDmg = blast.Damage * blast.StaminaDamageMultiplier;
 
-            _stam.TakeOvertimeStaminaDamage(uid, stamDmg);
+            _stam.TakeStaminaDamage(uid, stamDmg); // ADT: овертайм-стамины нет, наносим сразу
         }
     }
 

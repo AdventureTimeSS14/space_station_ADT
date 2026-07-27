@@ -66,10 +66,13 @@
     requirements:
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
-  - type: CollectiveMind
-    defaultChannel: MansusLink
+  - type: ActiveRadio
     channels:
-    - MansusLink
+    - Mansus
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Mansus
   - type: FactionException
   - type: NpcFactionMember
     factions:
@@ -87,7 +90,6 @@
     blackboard:
       NavSmash: !type:Bool
         true
-  - type: Targeting
   - type: Eye
     drawFov: false
   - type: ContentEye
@@ -97,7 +99,6 @@
     speaks: []
     understands: []
   - type: UniversalLanguageSpeaker
-  - type: TowerOfBabel
   - type: LanguageSpeaker
   - type: CosmicTrail
     strength: 10
@@ -117,9 +118,6 @@
     deactivateSound: null
     drawOverlay: false
   - type: SupermatterImmune
-  - type: EventHorizonIgnore
-  - type: SpacetimeSpellbladeEnchantment # It's not a spellblade, trust
-    effect: EffectCosmicSlash
   - type: HealingAura
     componentHealMultipliers:
       CosmosPassive: 2

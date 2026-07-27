@@ -1,3 +1,5 @@
+//
+
 using Content.Client.Eui;
 using Content.Shared.Heretic.Messages;
 using JetBrains.Annotations;

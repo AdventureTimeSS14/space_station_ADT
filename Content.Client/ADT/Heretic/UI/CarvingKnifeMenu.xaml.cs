@@ -1,3 +1,5 @@
+//
+
 using System.Numerics;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.ADT.Heretic.Components;
@@ -84,7 +86,7 @@ public sealed class CarvingKnifeMenu : RadialMenu
     }
 }
 
-public sealed class CarvingKnifeMenuButton : RadialMenuTextureButtonWithSector
+public sealed class CarvingKnifeMenuButton : RadialMenuButtonWithSector
 {
     public ProtoId<RuneCarvingPrototype> ProtoId { get; set; }
 }

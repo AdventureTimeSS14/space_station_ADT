@@ -1,13 +1,11 @@
 using Content.Shared.ADT.Heretic;
-using Content.Goobstation.Common.Identity;
-using Content.Goobstation.Common.Speech;
+using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Heretic.Components;
-using Content.Shared._Shitmed.DoAfter;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Chat;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Rotation;
@@ -133,16 +131,13 @@ public abstract class SharedShadowCloakSystem : EntitySystem
         if (ent.Comp.User is not {} user)
             return;
 
-        if ((args.UncappedDamage ?? args.DamageDelta) is not { } dmg)
+        if (args.DamageDelta is not { } dmg)
             return;
 
         _dmg.TryChangeDamage(user,
             dmg,
             origin: args.Origin,
-            interruptsDoAfters: args.InterruptsDoAfters,
-            ignoreBlockers: args.IgnoreBlockers,
-            targetPart: TargetBodyPart.Vital,
-            canMiss: false);
+            interruptsDoAfters: args.InterruptsDoAfters);
     }
 
     private void OnDamageChanged(Entity<ShadowCloakedComponent> ent, ref DamageChangedEvent args)
@@ -167,7 +162,7 @@ public abstract class SharedShadowCloakSystem : EntitySystem
 
         if (cloak.Comp.DebuffOnEarlyReveal)
         {
-            _stun.KnockdownOrStun(ent, cloak.Comp.KnockdownTime);
+            _stun.TryKnockdown(ent.Owner, cloak.Comp.KnockdownTime, true);
             _status.TryUpdateStatusEffectDuration(ent, cloak.Comp.SlowdownEffect, cloak.Comp.SlowdownTime);
         }
 

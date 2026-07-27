@@ -1,7 +1,8 @@
+//
+
 using System.Linq;
-using Content.Goobstation.Common.Religion;
+using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Heretic.Components;
-using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Chemistry.Components;
@@ -9,6 +10,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.CombatMode;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -69,8 +71,8 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
 
         ent.Comp.AffectedEntities.Add(args.OtherEntity);
 
-        _status.TryAddStatusEffect<TemporaryBlindnessComponent>(args.OtherEntity,
-            "TemporaryBlindness",
+        _status.TryAddStatusEffect<BlindnessStatusEffectComponent>(args.OtherEntity,
+            BlindnessSystem.BlindingStatusEffect,
             TimeSpan.FromSeconds(ent.Comp.Duration),
             true);
 
@@ -132,7 +134,9 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
                     HasComp<AdminFrozenComponent>(uid) || HasComp<IceCubeComponent>(uid))
                     return;
 
-                _gun.TryGetGun(uid, out var gun, out var gunComp);
+                var hasGun = _gun.TryGetGun(uid, out var gunEnt);
+                var gun = gunEnt.Owner;
+                var gunComp = hasGun ? gunEnt.Comp : null;
                 _weapon.TryGetWeapon(uid, out var weapon, out var meleeComp);
 
                 float range;
@@ -173,7 +177,7 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
                 var coords = Transform(target).Coordinates;
 
                 if (gunComp != null)
-                    _gun.AttemptShoot(uid, gun, gunComp, coords, target);
+                    _gun.AttemptShoot(uid, (gun, gunComp), coords, target);
                 else if (meleeComp != null)
                     _weapon.AttemptLightAttack(uid, weapon, meleeComp, target);
             }

@@ -1,3 +1,5 @@
+//
+
 using System.Numerics;
 using Content.Client.IconSmoothing;
 using Content.Shared.ADT.Heretic.Components;

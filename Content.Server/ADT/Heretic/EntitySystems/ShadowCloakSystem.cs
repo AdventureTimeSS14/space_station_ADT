@@ -1,4 +1,4 @@
-using Content.Server.IdentityManagement;
+using Content.Shared.IdentityManagement;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.FixedPoint;

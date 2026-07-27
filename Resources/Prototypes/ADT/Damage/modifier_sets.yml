@@ -352,3 +352,14 @@
     Bloodloss: 0.5
     Cellular: 0.5
     Caustic: 0.5
+
+# ADT: fire shark
+- type: damageModifierSet
+  id: FireShark
+  coefficients:
+    Heat: 0.25
+    Cold: 0.25
+    Poison: 0.0
+    Radiation: 0.0
+    Asphyxiation: 0.0
+    Cellular: 0.0

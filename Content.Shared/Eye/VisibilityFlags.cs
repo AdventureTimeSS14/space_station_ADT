@@ -16,5 +16,6 @@ namespace Content.Shared.Eye
         LingToxin = 1 << 6, // ADT-Changeling-Tweak
         Eldritch = 1 << 7, // ADT-Tweak Heretic
         Bubblegum = 1 << 8, // ADT-Tweak Bubblegum
+        EldritchSpent = 1 << 9, // ADT-Tweak Heretic
     }
 }

@@ -1,5 +1,5 @@
-using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Shared.ADT.Heretic;
+using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Heretic;
@@ -126,7 +126,7 @@ public abstract partial class SharedHereticAbilitySystem
         _starMark.ApplyStarMarkInRange(coords, args.Shooter, ent.Comp.StarMarkRadius);
 
         if (TryComp(args.Target, out StatusEffectsComponent? targetStatus))
-            _stun.KnockdownOrStun(args.Target, ent.Comp.KnockdownTime, true);
+            _stun.TryKnockdown(args.Target, ent.Comp.KnockdownTime, true);
     }
 
     private void PullVictims(EntityUid user, EntityCoordinates coords, int strength)

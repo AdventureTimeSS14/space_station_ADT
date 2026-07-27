@@ -3,7 +3,7 @@
   id: HereticSidePath3Armor
   name: knowledge-path-side-s3-armor-name
   description: knowledge-path-side-s3-armor-desc
-  icon: { sprite: ADT/Heretic/eldritch_hood.rsi, state: icon }
+  icon: { sprite: ADT/Heretic/Clothing/Head/eldritch_hood.rsi, state: icon }
   productHereticKnowledge: ArmorerRitual
   cost:
     KnowledgePoint: 1
@@ -19,7 +19,7 @@
   id: HereticSidePath3ArmorBlade
   name: knowledge-path-side-s3-armor-name
   description: knowledge-path-side-s3-armor-desc
-  icon: { sprite: ADT/Heretic/HereticRobes/blade_armor.rsi, state: icon }
+  icon: { sprite: ADT/Heretic/Clothing/OuterClothing/blade_armor.rsi, state: icon }
   productHereticKnowledge: ArmorerRitualBlade
   cost:
     KnowledgePoint: 1
@@ -37,7 +37,7 @@
   id: HereticSidePath3ArmorFlesh
   name: knowledge-path-side-s3-armor-name
   description: knowledge-path-side-s3-armor-desc
-  icon: { sprite: ADT/Heretic/HereticRobes/flesh_armor.rsi, state: icon }
+  icon: { sprite: ADT/Heretic/Clothing/OuterClothing/flesh_armor.rsi, state: icon }
   productHereticKnowledge: ArmorerRitualFlesh
   cost:
     KnowledgePoint: 1
@@ -55,7 +55,7 @@
   id: HereticSidePath3ArmorVoid
   name: knowledge-path-side-s3-armor-name
   description: knowledge-path-side-s3-armor-desc
-  icon: { sprite: ADT/Heretic/HereticRobes/void_armor.rsi, state: icon }
+  icon: { sprite: ADT/Heretic/Clothing/OuterClothing/void_armor.rsi, state: icon }
   productHereticKnowledge: ArmorerRitualVoid
   cost:
     KnowledgePoint: 1
@@ -73,7 +73,7 @@
   id: HereticSidePath3ArmorAsh
   name: knowledge-path-side-s3-armor-name
   description: knowledge-path-side-s3-armor-desc
-  icon: { sprite: ADT/Heretic/HereticRobes/ashen_armor.rsi, state: icon }
+  icon: { sprite: ADT/Heretic/Clothing/OuterClothing/ashen_armor.rsi, state: icon }
   productHereticKnowledge: ArmorerRitualAsh
   cost:
     KnowledgePoint: 1

@@ -1,9 +1,7 @@
 using System.Linq;
-using Content.Goobstation.Common.BlockTeleport;
+using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Grab;
 using Content.Shared.ADT.MartialArts;
-using Content.Goobstation.Common.Religion;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems.Abilities;
 using Content.Shared.Coordinates;
@@ -11,7 +9,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
@@ -23,7 +20,6 @@ public sealed class CosmicRunesSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -53,18 +49,10 @@ public sealed class CosmicRunesSystem : EntitySystem
             if (Exists(ent.Comp.LinkedRune))
                 EnsureComp<FadingTimedDespawnComponent>(ent.Comp.LinkedRune.Value).Lifetime = 0f;
             args.Handled = true;
-            return;
         }
 
-        if (!TryComp(args.Used, out BibleComponent? bible) ||
-            !HasComp<BibleUserComponent>(args.User) || !TryComp(args.Used, out UseDelayComponent? useDelay) ||
-            _useDelay.IsDelayed((args.Used, useDelay)))
-            return;
-
-        _useDelay.TryResetDelay(args.Used, false, useDelay);
-        _audio.PlayPredicted(bible.HealSoundPath, Transform(ent).Coordinates, args.User);
-        EnsureComp<FadingTimedDespawnComponent>(ent).Lifetime = 0f;
-        args.Handled = true;
+        // ADT: очистка руны библией обрабатывается на сервере (CosmicRuneBibleSystem),
+        // т.к. BibleComponent в ADT серверный
     }
 
     private void OnActivate(Entity<HereticCosmicRuneComponent> ent, ref ActivateInWorldEvent args)
