@@ -1,0 +1,264 @@
+- type: entity
+  id: ADTPKAUpgradeMiningExplosion
+  parent: BasePKAUpgrade
+  name: PKA modkit (mining explosion)
+  description: Causes the kinetic accelerator to destroy rock in an area.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#d8b26a"
+    - state: overlay-2
+      color: "#6b4a1f"
+    - state: overlay-3
+      color: "#a87c33"
+  - type: ADTGunUpgrade
+    cost: 30
+    maximumOfType: 1
+    tags: [ ADTGunUpgradeAoETiles ]
+    examineText: adt-gun-upgrade-examine-text-mining-explosion
+  - type: ADTGunUpgradeAoE
+    mineTiles: true
+    radius: 1.5
+    effect: BulletImpactEffectKinetic
+
+- type: entity
+  id: ADTPKAUpgradeOffensiveMiningExplosion
+  parent: BasePKAUpgrade
+  name: PKA modkit (offensive mining explosion)
+  description: Causes the kinetic accelerator to destroy rock and damage creatures in an area.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#d8b26a"
+    - state: overlay-2
+      color: "#7a1010"
+    - state: overlay-3
+      color: "#c85a1a"
+  - type: ADTGunUpgrade
+    cost: 30
+    maximumOfType: 3
+    tags: [ ADTGunUpgradeAoETiles ]
+    examineText: adt-gun-upgrade-examine-text-offensive-mining-explosion
+  - type: ADTGunUpgradeAoE
+    mineTiles: true
+    mobDamageModifier: 0.25
+    radius: 1.5
+    effect: BulletImpactEffectKinetic
+
+- type: entity
+  id: ADTPKAUpgradeOffensiveExplosion
+  parent: BasePKAUpgrade
+  name: PKA modkit (offensive explosion)
+  description: Causes the kinetic accelerator to damage creatures in an area.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#e04a4a"
+    - state: overlay-2
+      color: "#7a1010"
+    - state: overlay-3
+      color: "#eb1313"
+  - type: ADTGunUpgrade
+    cost: 30
+    examineText: adt-gun-upgrade-examine-text-offensive-explosion
+  - type: ADTGunUpgradeAoE
+    mobDamageModifier: 0.2
+    radius: 1.5
+    effect: BulletImpactEffectKinetic
+
+- type: entity
+  id: ADTPKAUpgradeRapidRepeater
+  parent: BasePKAUpgrade
+  name: PKA modkit (rapid repeater)
+  description: Quarters the kinetic accelerator's cooldown on striking a target, but greatly increases the base cooldown. Don't miss.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#9bf134"
+    - state: overlay-2
+      color: "#07901b"
+    - state: overlay-3
+      color: "#34f1c4"
+  - type: ADTGunUpgrade
+    cost: 50
+    maximumOfType: 1
+    tags: [ ADTGunUpgradeRepeater ]
+    examineText: adt-gun-upgrade-examine-text-repeater
+  - type: ADTGunUpgradeRepeater
+    rechargeCoefficient: 4
+    hitCoefficient: 0.25
+
+- type: entity
+  id: ADTPKAUpgradeDeathSyphon
+  parent: BasePKAUpgrade
+  name: PKA modkit (death syphon)
+  description: Killing a creature permanently increases your damage against that type of creature.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#6e2fa3"
+    - state: overlay-2
+      color: "#2b0b45"
+    - state: overlay-3
+      color: "#a13ce0"
+  - type: ADTGunUpgrade
+    cost: 30
+    maximumOfType: 1
+    tags: [ ADTGunUpgradeSyphon ]
+    examineText: adt-gun-upgrade-examine-text-death-syphon
+  - type: ADTGunUpgradeDeathSyphon
+
+- type: entity
+  id: ADTPKAUpgradeIndoors
+  parent: BasePKAUpgrade
+  name: PKA modkit (pressure compensator)
+  description: A syndicate modification kit that increases the damage a kinetic accelerator does in high pressure environments.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#c0c0c0"
+    - state: overlay-2
+      color: "#2b2b2b"
+    - state: overlay-3
+      color: "#8f8f8f"
+  - type: ADTGunUpgrade
+    cost: 35
+    maximumOfType: 2
+    tags: [ ADTGunUpgradeIndoors ]
+    examineText: adt-gun-upgrade-examine-text-indoors
+  - type: ADTGunUpgradeIndoors
+    coefficient: 2
+
+- type: entity
+  id: ADTPKAUpgradeResonatorBlast
+  parent: BasePKAUpgrade
+  name: PKA modkit (resonator blast)
+  description: Causes kinetic accelerator shots to leave and detonate resonance fields.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#3cf1e0"
+    - state: overlay-2
+      color: "#106b8a"
+    - state: overlay-3
+      color: "#3ca1f1"
+  - type: ADTGunUpgrade
+    cost: 30
+    maximumOfType: 1
+    tags: [ ADTGunUpgradeResonator ]
+    examineText: adt-gun-upgrade-examine-text-resonator
+  - type: ADTGunUpgradeResonator
+
+- type: entity
+  id: ADTPKAUpgradeTracerWhite
+  parent: BasePKAUpgrade
+  name: PKA modkit (white tracer bolts)
+  description: Causes kinetic accelerator bolts to have a white tracer trail.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#ffffff"
+    - state: overlay-2
+      color: "#9a9a9a"
+    - state: overlay-3
+      color: "#ffffff"
+  - type: ADTGunUpgrade
+    cost: 0
+    maximumOfType: 1
+    tags: [ ADTGunUpgradeTracer ]
+    examineText: adt-gun-upgrade-examine-text-tracer
+  - type: ADTGunUpgradeTracer
+    boltColor: "#ffffff"
+  - type: StaticPrice
+    price: 250
+
+- type: entity
+  id: ADTPKAUpgradeTracerAdjustable
+  parent: ADTPKAUpgradeTracerWhite
+  name: PKA modkit (adjustable tracer bolts)
+  description: Causes kinetic accelerator bolts to have an adjustable-colored tracer trail. Use it in hand to change the color.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#ff4fd8"
+    - state: overlay-2
+      color: "#3cf1e0"
+    - state: overlay-3
+      color: "#f1e13c"
+  - type: ADTGunUpgradeTracer
+    boltColor: "#ffffff"
+    adjustable: true
+  - type: UserInterface
+    interfaces:
+      enum.ADTGunUpgradeTracerUiKey.Key:
+        type: ADTTracerColorBoundUserInterface
+  - type: ActivatableUI
+    key: enum.ADTGunUpgradeTracerUiKey.Key
+    inHandsOnly: true
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  id: ADTPKAUpgradeChassisSuper
+  parent: BasePKAUpgrade
+  name: PKA modkit (super chassis)
+  description: Makes your kinetic accelerator yellow. All the fun of having a more powerful PKA without actually having a more powerful PKA.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#f1e13c"
+    - state: overlay-2
+      color: "#8a7c10"
+    - state: overlay-3
+      color: "#f1c93c"
+  - type: ADTGunUpgrade
+    cost: 0
+    maximumOfType: 1
+    tags: [ ADTGunUpgradeChassis ]
+    examineText: adt-gun-upgrade-examine-text-chassis
+  - type: ADTGunUpgradeChassis
+    chassisId: super
+    chassisColor: "#f1e13c"
+    chassisName: adt-gun-upgrade-chassis-name-super
+  - type: StaticPrice
+    price: 250
+
+- type: entity
+  id: ADTPKAUpgradeChassisHyper
+  parent: ADTPKAUpgradeChassisSuper
+  name: PKA modkit (hyper chassis)
+  description: Makes your kinetic accelerator orange. All the fun of having explosive blasts without actually having explosive blasts.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#eb7c13"
+    - state: overlay-2
+      color: "#8a3c10"
+    - state: overlay-3
+      color: "#eb4c13"
+  - type: ADTGunUpgradeChassis
+    chassisId: hyper
+    chassisColor: "#eb7c13"
+    chassisName: adt-gun-upgrade-chassis-name-hyper

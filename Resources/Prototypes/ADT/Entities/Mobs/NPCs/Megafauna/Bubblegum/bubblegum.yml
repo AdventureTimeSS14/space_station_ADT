@@ -49,6 +49,10 @@
   description: bublbegum desc
   parent: BaseMobBubblegum
   components:
+  - type: GpsSignal
+    tag: adt-gps-signal-bubblegum
+    description: adt-gps-signal-bubblegum-desc
+    color: "#B32020"
   - type: Destructible
     thresholds: []
   - type: GenericVisualizer
@@ -60,8 +64,8 @@
           False:
             color: "#FFFFFF"
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.6
-    baseSprintSpeed: 3.6
+    baseWalkSpeed: 4.7
+    baseSprintSpeed: 4.7
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -71,7 +75,7 @@
   - type: Injurable
     damageContainer: Biological
   - type: MeleeWeapon
-    attackRate: 0.5
+    attackRate: 0.85
     damage:
       types:
         Blunt: 35
@@ -87,8 +91,7 @@
       AggroVisionRadius: !type:Single "20"
       NavSmash: !type:Bool "true"
       NavInteract: !type:Bool "true"
-      ADTBubblegumKeepDistance: !type:Single "5"
-      ADTBubblegumRetreatTrigger: !type:Single "4"
+      MeleeRange: !type:Single "1.8"
       MeleeMissChance: !type:Single "0"
     rootTask:
       task: ADTBubblegumCompound
@@ -98,8 +101,8 @@
   - type: Bubblegum
   - type: BubblegumTripleCharge
     delays:
-    - 1.0
-    - 0.7
+    - 0.65
+    - 0.5
     - 0.4
   - type: BubblegumHallucinationCharge
     hallucinationsSmash: 3

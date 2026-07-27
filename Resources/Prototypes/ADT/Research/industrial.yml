@@ -148,6 +148,38 @@
   requiredTech:
   - Shuttlecraft
 
+- type: technology
+  id: ADTResonanceTech
+  name: research-technology-resonance
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/resonator.rsi
+    state: icon
+  discipline: Industrial
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - ADTResonator
+  position: 5,0
+  requiredTech:
+  - SalvageEquipment
+
+- type: technology
+  id: ADTAdvancedResonanceTech
+  name: research-technology-advanced-resonance
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/resonator.rsi
+    state: icon-upgraded
+  discipline: Industrial
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - ADTResonatorUpgraded
+  position: 6,0
+  technologyPrerequisites:
+  - ADTResonanceTech
+  requiredTech:
+  - ADTResonanceTech
+
 #- type: technology
 #  id: ADTMegaCells
 #  name: research-technology-basemegacells
