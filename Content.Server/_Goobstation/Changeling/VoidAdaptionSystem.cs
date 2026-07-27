@@ -6,6 +6,7 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Temperature.Components;
 using Content.Shared.Alert;
 using Content.Shared.Polymorph;
+using Content.Goobstation.Common.Atmos;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -32,7 +33,7 @@ public sealed partial class VoidAdaptionSystem : SharedVoidAdaptionSystem
     {
         // Grant the void-survival immunities using the fork's own base immunity components,
         // so this works with the existing atmos/temperature/respiration systems.
-        EnsureComp<PressureImmunityComponent>(ent);      // immunity to low/high pressure (barotrauma)
+        EnsureComp<SpecialPressureImmunityComponent>(ent);      // immunity to low/high pressure (barotrauma)
         EnsureComp<BreathingImmunityComponent>(ent);     // immunity to asphyxiation (no need to breathe)
         EnsureComp<TemperatureProtectionComponent>(ent); // temperature protection (coefficient forced to 0 below)
 
@@ -45,7 +46,7 @@ public sealed partial class VoidAdaptionSystem : SharedVoidAdaptionSystem
         if (TerminatingOrDeleted(ent))
             return;
 
-        RemComp<PressureImmunityComponent>(ent);
+        RemComp<SpecialPressureImmunityComponent>(ent);
         RemComp<BreathingImmunityComponent>(ent);
         RemComp<TemperatureProtectionComponent>(ent);
 
