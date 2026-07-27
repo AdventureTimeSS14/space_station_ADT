@@ -49,6 +49,10 @@ construction-graph-tag-super-compact-ai-chip = сверхкомпактный ч
 construction-graph-tag-micro-manipulator = манипулятор
 # other
 construction-graph-tag-light-bulb = лампочка
+construction-graph-tag-second-light-bulb = вторую лампочку
+construction-graph-tag-third-light-bulb = третью лампочку
+construction-graph-tag-fourth-light-bulb = четвёртую лампочку
+construction-graph-tag-fifth-light-bulb = пятую лампочку
 construction-graph-tag-radio = радио
 construction-graph-tag-pipe = газовая труба
 construction-graph-tag-human-head = человеческая голова

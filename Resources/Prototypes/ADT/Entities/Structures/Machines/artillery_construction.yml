@@ -321,7 +321,7 @@
         amount: 20
       - material: Plasma
         amount: 20
-      - material: BSCrystal
+      - material: ADTBScrystal
         amount: 10
     - to: frame10
       completed:
@@ -353,7 +353,7 @@
         prototype: SheetPlasma1
         amount: 20
       - !type:SpawnPrototype
-        prototype: MaterialBSCrystal1
+        prototype: ADTMaterialBScrystal1
         amount: 10
       steps:
       - tool: Prying
@@ -946,7 +946,7 @@
         amount: 20
       - material: Plasma
         amount: 20
-      - material: BSCrystal
+      - material: ADTBScrystal
         amount: 10
     - to: frame10
       completed:

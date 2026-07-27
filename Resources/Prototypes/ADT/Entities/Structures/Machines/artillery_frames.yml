@@ -40,8 +40,9 @@
           frame23: { state: cannon_east_23 }
           frame24: { state: cannon_east_24 }
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

@@ -69,7 +69,7 @@
   id: BluespaceArtillery
   name: research-technology-bluespace-artillery
   icon:
-    sprite: _Adventure/Structures/BSA.rsi
+    sprite: ADT/Structures/BSA.rsi
     state: cannon_east
   discipline: Experimental
   tier: 3
