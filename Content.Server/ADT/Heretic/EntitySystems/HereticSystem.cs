@@ -72,7 +72,7 @@ public sealed partial class HereticSystem : SharedHereticSystem
     private const float PassivePointCooldown = 20f * 60f;
     private bool _ascensionRequiresObjectives;
 
-    private const int HereticVisFlags = (int) (VisibilityFlags.Eldritch | VisibilityFlags.EldritchSpent);
+    private const int HereticVisFlags = (int) (VisibilityFlags.EldritchInfluence | VisibilityFlags.EldritchInfluenceSpent);
 
     public static readonly ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
 
