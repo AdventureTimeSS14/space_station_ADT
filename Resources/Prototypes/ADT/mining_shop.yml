@@ -34,6 +34,8 @@
   id: Motion
   name: Выживание
   entries:
+  - id: ADTGpsMining
+    price: 250
   - id: FultonBeacon
     price: 1000
   - id: Fulton
@@ -119,6 +121,10 @@
     price: 150
   - id: ADTWeaponCutter
     price: 2000
+  - id: ADTResonator
+    price: 800
+  - id: ADTResonatorUpgraded
+    price: 2000
   - id: PowerCellHigh
     price: 650
   - id: Binoculars
@@ -140,6 +146,28 @@
     price: 500
 #  - id: PKAUpgradeLight #Fix That and then we will uncoment this
 #    price: 500
+  - id: ADTPKAUpgradeMiningExplosion
+    price: 1500
+  - id: ADTPKAUpgradeOffensiveMiningExplosion
+    price: 2250
+  - id: ADTPKAUpgradeOffensiveExplosion
+    price: 1750
+  - id: ADTPKAUpgradeRapidRepeater
+    price: 2500
+  - id: ADTPKAUpgradeDeathSyphon
+    price: 2750
+  - id: ADTPKAUpgradeIndoors
+    price: 2000
+  - id: ADTPKAUpgradeResonatorBlast
+    price: 2250
+  - id: ADTPKAUpgradeTracerWhite
+    price: 250
+  - id: ADTPKAUpgradeTracerAdjustable
+    price: 500
+  - id: ADTPKAUpgradeChassisSuper
+    price: 250
+  - id: ADTPKAUpgradeChassisHyper
+    price: 250
 
 - type: miningShopSection
   id: Fun

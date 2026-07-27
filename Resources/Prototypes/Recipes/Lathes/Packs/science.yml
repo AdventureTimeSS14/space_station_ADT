@@ -54,6 +54,19 @@
   - PKAUpgradeDamage
   - PKAUpgradeRange
   - PKAUpgradeFireRate
+  # ADT tweak start
+  - ADTPKAUpgradeMiningExplosion
+  - ADTPKAUpgradeOffensiveMiningExplosion
+  - ADTPKAUpgradeOffensiveExplosion
+  - ADTPKAUpgradeRapidRepeater
+  - ADTPKAUpgradeDeathSyphon
+  - ADTPKAUpgradeIndoors
+  - ADTPKAUpgradeResonatorBlast
+  - ADTPKAUpgradeTracerWhite
+  - ADTPKAUpgradeTracerAdjustable
+  - ADTPKAUpgradeChassisSuper
+  - ADTPKAUpgradeChassisHyper
+  # ADT tweak end
   - WeaponTetherGun
   - WeaponGauntletGorilla
   - WeaponLaserSvalinn

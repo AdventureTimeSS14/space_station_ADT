@@ -1,0 +1,33 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               Title="{Loc 'adt-gps-window-title'}"
+               MinSize="460 380"
+               SetSize="630 560">
+    <BoxContainer Orientation="Vertical" Margin="4 4 4 4" SeparationOverride="6">
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+            <Label Text="{Loc 'adt-gps-window-tag'}" VerticalAlignment="Center" />
+            <LineEdit Name="TagEdit" MinWidth="90" VerticalAlignment="Center" />
+            <Button Name="TagButton" Text="{Loc 'adt-gps-window-tag-apply'}" />
+            <Control HorizontalExpand="True" />
+            <Button Name="PowerButton" MinWidth="90" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+            <Label Text="{Loc 'adt-gps-window-range'}" VerticalAlignment="Center" />
+            <Button Name="RangeButton" MinWidth="150" />
+        </BoxContainer>
+        <PanelContainer StyleClasses="AngleRect">
+            <BoxContainer Orientation="Vertical" Margin="0 4 6 4">
+                <Label Name="LocationLabel" StyleClasses="LabelHeading" />
+                <Label Name="PositionLabel" />
+            </BoxContainer>
+        </PanelContainer>
+        <Label Name="SignalsLabel" Text="{Loc 'adt-gps-window-signals'}" StyleClasses="LabelKeyText" />
+        <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+            <BoxContainer Name="SignalList" Orientation="Vertical" HorizontalExpand="True" />
+        </ScrollContainer>
+        <Label Name="EmptyLabel"
+               Text="{Loc 'adt-gps-window-no-signals'}"
+               HorizontalAlignment="Center"
+               StyleClasses="LabelSubText" />
+    </BoxContainer>
+</DefaultWindow>

@@ -1,0 +1,45 @@
+using System.Numerics;
+using Robust.Shared.Prototypes;
+
+namespace Content.Server.ADT.Generation;
+
+[RegisterComponent]
+public sealed partial class ADTLavalandGenerationComponent : Component
+{
+    [DataField]
+    public float SafeRadius = 40f;
+
+    [DataField]
+    public float MinRadius = 40f;
+
+    [DataField]
+    public float MaxRadius = 230f;
+
+    [DataField]
+    public int MaxAttempts = 1000;
+
+    [DataField]
+    public List<LavalandScatterGroup> Groups = new();
+
+    [ViewVariables]
+    public Vector2 BaseCenter = Vector2.Zero;
+}
+
+[DataDefinition]
+public sealed partial class LavalandScatterGroup
+{
+    [DataField(required: true)]
+    public List<EntProtoId> Prototypes = new();
+
+    [DataField]
+    public int Count = 1;
+
+    [DataField]
+    public float MinSpacing = 20f;
+
+    [DataField]
+    public float MinDistanceFromCenter = 40f;
+
+    [DataField]
+    public bool AvoidRooms = true;
+}
