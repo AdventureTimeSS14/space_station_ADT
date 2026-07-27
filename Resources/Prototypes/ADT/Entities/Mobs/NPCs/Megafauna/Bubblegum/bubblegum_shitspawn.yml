@@ -16,8 +16,8 @@
           False:
             color: "#FFFFFF"
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3
-    baseSprintSpeed: 3
+    baseWalkSpeed: 4.7
+    baseSprintSpeed: 4.7
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -27,7 +27,7 @@
   - type: Injurable
     damageContainer: Biological
   - type: MeleeWeapon
-    attackRate: 0.5
+    attackRate: 0.85
     damage:
       types:
         Blunt: 40
@@ -43,8 +43,7 @@
       AggroVisionRadius: !type:Single "20"
       NavSmash: !type:Bool "true"
       NavInteract: !type:Bool "true"
-      ADTBubblegumKeepDistance: !type:Single "5"
-      ADTBubblegumRetreatTrigger: !type:Single "4"
+      MeleeRange: !type:Single "1.8"
       MeleeMissChance: !type:Single "0"
     rootTask:
       task: ADTBubblegumCompound
