@@ -144,7 +144,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Critical
+      85: Critical
       150: Dead
   - type: Butcherable
     butcheringType: Spike
