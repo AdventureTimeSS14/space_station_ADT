@@ -978,7 +978,7 @@
         prototype: SheetPlasma1
         amount: 20
       - !type:SpawnPrototype
-        prototype: MaterialBSCrystal1
+        prototype: ADTMaterialBScrystal1
         amount: 10
       steps:
       - tool: Prying
