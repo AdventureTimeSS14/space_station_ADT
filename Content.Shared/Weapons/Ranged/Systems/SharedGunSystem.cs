@@ -38,6 +38,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.DNAGunLocker;
+using Content.Shared.ADT.Mech.Components;
 using Content.Shared.Electrocution;
 using Content.Shared.ADT.Crawling.Components;
 
@@ -213,13 +214,18 @@ public abstract partial class SharedGunSystem : EntitySystem
         gun = default;
 
         // ADT Content start
-        if (TryComp<MechPilotComponent>(entity, out var mechPilot) &&
-            TryComp<MechComponent>(mechPilot.Mech, out var mech) &&
-            mech.CurrentSelectedEquipment.HasValue &&
-            TryComp<GunComponent>(mech.CurrentSelectedEquipment.Value, out var mechGun))
+        if (TryComp<MechPilotComponent>(entity, out var mechPilot))
         {
-            gun = (mech.CurrentSelectedEquipment.Value, mechGun);
-            return true;
+            if (HasComp<MechControlLockedComponent>(entity))
+                return false;
+
+            if (TryComp<MechComponent>(mechPilot.Mech, out var mech) &&
+                mech.CurrentSelectedEquipment.HasValue &&
+                TryComp<GunComponent>(mech.CurrentSelectedEquipment.Value, out var mechGun))
+            {
+                gun = (mech.CurrentSelectedEquipment.Value, mechGun);
+                return true;
+            }
         }
         // ADT Content end
         if (_hands.GetActiveItem(entity) is { } held &&

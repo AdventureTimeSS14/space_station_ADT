@@ -1,0 +1,48 @@
+- type: entity
+  id: ADTWisp
+  name: friendly wisp
+  description: Happy to light your way.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/wisp.rsi
+    state: wisp
+    drawdepth: Ghosts
+    noRot: true
+    offset: "0,0.5"
+  - type: Transform
+    noRot: true
+  - type: PointLight
+    enabled: true
+    radius: 4
+    energy: 1.5
+    color: "#8AFFFF"
+
+- type: entity
+  parent: BaseItem
+  id: ADTWispLantern
+  name: spooky lantern
+  description: This spooky lantern is home to a friendly wisp. You can let it out, but it'll return if you don't keep the lantern on you.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/wisp_lantern.rsi
+    layers:
+    - state: icon
+      map: [ "lanternLayer" ]
+  - type: Item
+    size: Normal
+  - type: PointLight
+    enabled: true
+    radius: 7
+    energy: 2
+    color: "#4882E9"
+  - type: ADTWispLantern
+  - type: Appearance
+  - type: UseDelay
+    delay: 2.5
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTWispLanternVisuals.Released:
+        lanternLayer:
+          True: { state: icon-empty }
+          False: { state: icon }

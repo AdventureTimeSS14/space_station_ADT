@@ -25776,13 +25776,6 @@ entities:
     - type: Transform
       pos: -14.870971,21.648169
       parent: 2
-- proto: ADTClothingOuterCoatIlisium
-  entities:
-  - uid: 299
-    components:
-    - type: Transform
-      pos: 4.744838,35.622494
-      parent: 2
 - proto: ADTClothingOuterCoatLeathOvercoatOpened
   entities:
   - uid: 300
@@ -25879,13 +25872,6 @@ entities:
     components:
     - type: Transform
       pos: 1.2905059,61.73652
-      parent: 2
-- proto: ADTClothingUniformIlisium
-  entities:
-  - uid: 319
-    components:
-    - type: Transform
-      pos: 4.3718348,35.53368
       parent: 2
 - proto: ADTClothingUniformJumpskirtJanimaid
   entities:

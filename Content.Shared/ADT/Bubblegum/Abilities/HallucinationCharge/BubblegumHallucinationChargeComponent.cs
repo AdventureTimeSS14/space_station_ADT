@@ -22,11 +22,11 @@ public sealed partial class BubblegumHallucinationChargeComponent : Component
     public EntProtoId TelegraphPrototype = "ADTBubblegumChargeTelegraph";
 
     [DataField]
-    public List<float> SmashWaveDelays = new List<float> { 1.4f, 1.2f, 1.1f };
+    public List<float> SmashWaveDelays = new List<float> { 0.9f, 0.75f, 0.65f };
 
     [DataField]
-    public float NormalDelay = 1.2f;
+    public float NormalDelay = 0.75f;
 
     [DataField]
-    public float ChargeSpeed = 12f;
+    public float ChargeSpeed = 20f;
 }
