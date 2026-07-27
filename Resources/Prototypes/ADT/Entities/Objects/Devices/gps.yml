@@ -1,0 +1,66 @@
+- type: entity
+  parent: BaseItem
+  id: ADTGpsMining
+  name: шахтёрский GPS
+  description: Система позиционирования, помогающая находить угодивших в беду шахтёров. Носите её с собой в шахте и однажды это спасёт вам жизнь.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: ADT/Objects/Devices/gps.rsi
+    layers:
+    - state: icon
+    - state: working
+      map: ["enum.GpsVisualLayers.Working"]
+      shader: unshaded
+      visible: false
+    - state: emp
+      map: ["enum.GpsVisualLayers.Emp"]
+      shader: unshaded
+      visible: false
+  - type: Gps
+    tag: MINE0
+  - type: HandheldGPS
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.GpsVisuals.Tracking:
+        enum.GpsVisualLayers.Working:
+          True: { visible: true }
+          False: { visible: false }
+      enum.GpsVisuals.Emped:
+        enum.GpsVisualLayers.Emp:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ActivatableUI
+    key: enum.GpsUiKey.Key
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.GpsUiKey.Key:
+        type: GpsBoundUserInterface
+  - type: StaticPrice
+    price: 60
+
+- type: entity
+  parent: MarkerBase
+  id: ADTGpsBeacon
+  name: GPS-маяк
+  description: Передатчик, отмечающий точку на карте для навигаторов шахтёров.
+  abstract: true
+  components:
+  - type: Sprite
+    state: red
+  - type: GpsSignal
+    tag: adt-gps-signal-beacon
+    color: "#5EC6FF"
+
+- type: entity
+  parent: ADTGpsBeacon
+  id: ADTGpsBeaconMiningBase
+  suffix: NT_AUX
+  components:
+  - type: GpsSignal
+    tag: adt-gps-signal-mining-base
+    description: adt-gps-signal-mining-base-desc
+    color: "#5EC6FF"

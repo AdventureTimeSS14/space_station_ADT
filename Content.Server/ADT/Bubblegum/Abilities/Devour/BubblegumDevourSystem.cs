@@ -6,6 +6,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Server.NPC.HTN;
 using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Bubblegum;
@@ -18,6 +19,7 @@ public sealed class BubblegumDevourSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _thresholds = default!;
     [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly HTNSystem _htn = default!;
 
     private static readonly TimeSpan PostHitDevourDelay = TimeSpan.FromSeconds(0.5);
 
@@ -96,10 +98,16 @@ public sealed class BubblegumDevourSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("bubblegum-devour-popup", ("target", target)), boss, PopupType.LargeCaution);
 
         var gibs = _gibbing.Gib(target, true, boss);
-        if (gibs.Count > 0)
-            return;
+        if (gibs.Count == 0)
+            QueueDel(target);
 
-        QueueDel(target);
+        if (TryComp<HTNComponent>(boss, out var htn)
+            && htn.Blackboard.TryGetValue<EntityUid>("Target", out var currentTarget, EntityManager)
+            && currentTarget == target)
+        {
+            htn.Blackboard.Remove<EntityUid>("Target");
+            _htn.Replan(htn);
+        }
     }
 
     private bool TryGetMaxHealth(EntityUid uid, out float max)

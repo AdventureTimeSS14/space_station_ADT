@@ -8,39 +8,33 @@
   - type: RestrictedRange
     range: 250
     texturepath: "/Textures/ADT/Effects/weather.rsi/ashfal_lvery_light.png"
-  - type: SpawnInRange
-    protosToSpawn:
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - BloodMinerDungeMarker
-      - ADTRandomTendrilSpawner
-      - ADTRandomTendrilSpawner
-      - ADTRandomTendrilSpawner
-      - ADTRandomTendrilSpawner
-      - ADTRandomTendrilSpawner
-      - ADTRandomTendrilSpawner
-      - ADTRandomTendrilSpawner
-      - ADTRandomTendrilSpawner
-      - ADTRandomTendrilSpawner
-      - ADTRandomTendrilSpawner
-      - ADTRandomTendrilSpawner
-    minX: -250
-    maxX: 250
-    minY: -250
-    maxY: 250
+  - type: ADTLavalandGeneration
+    safeRadius: 40
+    minRadius: 40
+    maxRadius: 230
+    groups:
+    - prototypes: [ LavaDungeonRoomMarker ]
+      count: 10
+      minSpacing: 45
+      minDistanceFromCenter: 40
+      avoidRooms: true
+    - prototypes: [ ADTRandomTendrilSpawner ]
+      count: 8
+      minSpacing: 40
+      minDistanceFromCenter: 50
+      avoidRooms: true
+  - type: ADTMegafaunaSpawn
+    count: 2
+    minDistanceFromCenter: 100
+    maxRadius: 220
+    minSpacing: 70
+    avoidRooms: true
+    bosses:
+    - MobDrake
+    - ADTMegaFaunaBubblegum
+    - BloodMinerDungeMarker
   - type: FTLDestination
-  - type: WeatherScheduler # Regular ash storms
+  - type: WeatherScheduler # Regular storms
     stages:
     - duration: # 5-10 minutes of calm
         min: 400
@@ -50,12 +44,23 @@
       duration:
         min: 30
         max: 30
-    - weather: ADTLavalandWeatherAshfall # 1-2 minutes of damaging storm
-      message: ash-storm-alert
-      duration:
+    - duration: # 1-2 minutes of storm
         min: 60
         max: 120
-    - weather: ADTLavalandWeatherAshfallLight # ash clears away for 30 seconds
+      variants:
+      - weather: ADTLavalandWeatherAshfall
+        message: ash-storm-alert
+        weight: 25
+      - weather: ADTLavalandWeatherWind
+        message: wind-storm-alert
+        weight: 25
+      - weather: ADTLavalandWeatherAshfallHeavy
+        message: heavy-ash-storm-alert
+        weight: 10
+      - weather: ADTLavalandWeatherEmberfall
+        message: emberfall-alert
+        weight: 10
+    - weather: ADTLavalandWeatherAshfallLight
       message: ash-storm-clearing
       duration:
         min: 30
@@ -65,25 +70,29 @@
     direction: "-1, -1"
   atmosphere:
     volume: 2500
-    temperature: 313.15 # 40C
-    moles: # 82ka, 14% O2 (unbreathable)
-    - 13.65346
-    - 23.24754
+    temperature: 320
+    moles:
+    - 8
+    - 14
   biomeMarkerLayers:
-  - OreIron
-  - OreQuartz
-  - OreCoal
-  - OreGold
-  - OreSilver
-  - OrePlasma
-  - OreUranium
-  - OreDiamond
-  - OreArtifactFragment
-  - ADTOreBS
-  - OreCopper
-  - OreZinc
-  - OreLead
-  - OreGibtonit
+  - ADTLavaVeinOreIron
+  - ADTLavaVeinOreQuartz
+  - ADTLavaVeinOreCoal
+  - ADTLavaVeinOreGold
+  - ADTLavaVeinOreSilver
+  - ADTLavaVeinOrePlasma
+  - ADTLavaVeinOreUranium
+  - ADTLavaVeinOreDiamond
+  - ADTLavaVeinOreArtifactFragment
+  - ADTLavaVeinADTOreBS
+  - ADTLavaVeinOreCopper
+  - ADTLavaVeinOreZinc
+  - ADTLavaVeinOreLead
+  - ADTLavaVeinOreGibtonit
+  - ADTLavaGutlunchHerd
+  - ADTLavaGutlunchPair
+  - ADTLavaGubbucks
+  - ADTLavaGoldgrubs
 
 - type: planet
   id: GlacierSurface

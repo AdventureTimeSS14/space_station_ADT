@@ -11,10 +11,10 @@ public sealed partial class BubblegumBloodAttackComponent : Component
     public TimeSpan NextAttemptAt;
 
     [DataField]
-    public TimeSpan AttemptInterval = TimeSpan.FromSeconds(4);
+    public TimeSpan AttemptInterval = TimeSpan.FromSeconds(2.5);
 
     [DataField]
-    public float SearchRange = 8f;
+    public float SearchRange = 10f;
 
     [DataField]
     public float PuddleCheckRange = 0.4f;
@@ -29,10 +29,10 @@ public sealed partial class BubblegumBloodAttackComponent : Component
     public float GrabConsciousChance = 0.1f;
 
     [DataField]
-    public TimeSpan SmackHitDelay = TimeSpan.FromSeconds(0.4);
+    public TimeSpan SmackHitDelay = TimeSpan.FromSeconds(0.3);
 
     [DataField]
-    public TimeSpan GrabHitDelay = TimeSpan.FromSeconds(0.6);
+    public TimeSpan GrabHitDelay = TimeSpan.FromSeconds(0.45);
 
     [DataField]
     public TimeSpan DevourDelay = TimeSpan.FromSeconds(0.2);
