@@ -237,12 +237,7 @@ namespace Content.Server.Construction
             if (ev is ConstructionInteractDoAfterEvent interactDoAfter)
             {
                 if (interactDoAfter.Cancelled)
-                // ADT-Tweak start
-                {
-                    ResetEdge(uid, construction);
                     return HandleResult.False;
-                }
-                // ADT-Tweak end
 
                 ev = new InteractUsingEvent(
                     interactDoAfter.User,

@@ -37,8 +37,21 @@ ent-ADTMechEquipmentToolJawsOfLife = навесные «Челюсти жизн�
 ent-ADTMechEquipmentToolPowerDrill = навесной шуруповёрт Архимеда
     .desc = Модернизация, объединяющая отвёртку и гаечный ключ. Работает значительно быстрее.
 
+ent-ADTMechEquipmentCockpit = дополнительный кокпит меха
+    .desc = Второе место, вваренное в каркас меха. На станции пассажир может только копаться в модулях, а в полёте берёт на себя руки и вооружение.
+
 ent-ADTActionMechThruster = Джет-режим
     .desc = Переключить полётный режим. В полёте расходуется топливо.
+
+ent-ADTActionMechCockpitEject = Покинуть кокпит
+    .desc = Выбраться с места второго пилота.
+
+adt-mech-tool-no-energy = Не хватает заряда для работы инструментом!
+adt-mech-equipment-slot-occupied = Свободного места под такой модуль больше нет.
+adt-mech-arm-slot-occupied = Сменная рука уже занята другим модулем.
+adt-mech-cockpit-slot-occupied = Второй кокпит поставить некуда.
+adt-mech-cockpit-verb-enter = Занять место второго пилота
+adt-mech-cockpit-verb-exit = Покинуть место второго пилота
 
 adt-mech-thruster-on = Джет активирован.
 adt-mech-thruster-off = Джет отключён.

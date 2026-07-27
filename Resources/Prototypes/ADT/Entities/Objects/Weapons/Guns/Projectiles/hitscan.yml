@@ -41,6 +41,17 @@
   - type: HitscanBasicEffects
 
 - type: entity
+  parent: RedHeavyLaser
+  id: ADTRedHeavyLaserWeakened
+  name: red low-energy laser ray
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 14
+
+- type: entity
   parent: BasicHitscan
   id: ADTHealMechGun
   categories: [ HideSpawnMenu ]
