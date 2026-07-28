@@ -1,0 +1,13 @@
+- type: reaction
+  id: Aluite
+  impact: Low # not highly dangerous, also a precursor
+  maxTemp: 200
+  reactants:
+    Phenol:
+      amount: 1
+    SodiumPolyacrylate:
+      amount: 1
+    Aluminium:
+      amount: 3
+  products: # jumps up temps from 200 to 333, needs <120 for two reactions, 72 for 3 etc
+    Aluite: 3
