@@ -157,7 +157,6 @@
     - Drunk
     - SlurredSpeech
     - RatvarianLanguage
-    - PressureImmunity
     - Muted
     - ForcedSleep
     - Pacified
@@ -168,6 +167,7 @@
     - ADTHallucinations
     - ADTStarvation
   - type: SleepEmitSound
+  - type: SpecialPressureImmunity
   - type: BloodCough
     postingSayDamage: blood-cough
   - type: TimeDespawnDamage
