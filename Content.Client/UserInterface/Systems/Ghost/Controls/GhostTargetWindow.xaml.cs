@@ -140,7 +140,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
             // ADT-TWEAK START
             AddButtons(_aliveAntags, "ghost-teleport-menu-antagonists-label");
-            AddButtons(_deadAntags, "ghost-teleport-menu-antagonists-label"); // Добавляем мертвых антагов
+            AddButtons(_deadAntags, "ghost-teleport-menu-dead-antagonists-label");
             AddButtons(_alivePlayers, "ghost-teleport-menu-alive-label");
             AddButtons(_ghostPlayers, "ghost-teleport-menu-ghosts-label");
             AddButtons(_leftPlayers, "ghost-teleport-menu-left-label", true);
