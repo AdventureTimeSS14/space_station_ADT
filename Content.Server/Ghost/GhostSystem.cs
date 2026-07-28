@@ -72,10 +72,6 @@ namespace Content.Server.Ghost
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
         [Dependency] private readonly GhostSpriteStateSystem _ghostState = default!;
-        // ADT-TWEAK START
-        [Dependency] private readonly IServerPreferencesManager _prefs = default!;
-        [Dependency] private readonly RoleSystem _roles = default!;
-        // ADT-TWEAK  END
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
