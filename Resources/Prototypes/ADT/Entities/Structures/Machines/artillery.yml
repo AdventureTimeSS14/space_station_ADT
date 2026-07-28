@@ -214,7 +214,7 @@
     cooldownMinutes: 25.0
   - type: Construction
     graph: BluespaceArtilleryConstruction
-    node: BluespaceArtillery
+    node: cannon_east
 
 - type: entity
   parent: BluespaceArtilleryMirrorDebug
@@ -230,4 +230,4 @@
     cooldownMinutes: 25.0
   - type: Construction
     graph: BluespaceArtilleryConstructionFlipped
-    node: BluespaceArtilleryMirror
+    node: cannon_west
