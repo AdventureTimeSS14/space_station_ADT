@@ -64,3 +64,15 @@
     tag: adt-gps-signal-mining-base
     description: adt-gps-signal-mining-base-desc
     color: "#5EC6FF"
+    sameMapOnly: true
+
+- type: entity
+  parent: ADTGpsBeacon
+  id: ADTGpsBeaconRuin
+  suffix: Ruin
+  components:
+  - type: GpsSignal
+    tag: adt-gps-signal-ruin
+    description: adt-gps-signal-ruin-desc
+    color: "#B9A46A"
+    sameMapOnly: true

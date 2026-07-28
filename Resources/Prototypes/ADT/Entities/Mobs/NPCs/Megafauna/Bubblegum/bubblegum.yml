@@ -80,7 +80,7 @@
       types:
         Blunt: 35
         Structural: 150
-    range: 2
+    range: 1.6
     angle: 0
     animation: WeaponArcPunch
     soundHit:
@@ -91,7 +91,7 @@
       AggroVisionRadius: !type:Single "20"
       NavSmash: !type:Bool "true"
       NavInteract: !type:Bool "true"
-      MeleeRange: !type:Single "1.8"
+      MeleeRange: !type:Single "1.45"
       MeleeMissChance: !type:Single "0"
     rootTask:
       task: ADTBubblegumCompound
@@ -122,8 +122,6 @@
       UraniumOre: 10
       SpaceQuartz: 15
     randomLoot:
-    - ADTMayhemBottle
-    - ADTBloodContract
     - ADTWeaponExperimentalProtoKineticAcellerator
     guaranteedLoot:
     - ADTClothingOuterHardsuitHECK

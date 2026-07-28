@@ -48,8 +48,7 @@
     slots:
     - suitStorage
     - Belt
-  - type: UseDelay
-    delay: 1
+  - type: ADTKineticCooldown # ADT Tweak
   - type: AttachableHolder #ADT_Tweak
     slots:
       rmc-aslot-underbarrel:

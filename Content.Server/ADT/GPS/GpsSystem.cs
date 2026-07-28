@@ -141,9 +141,18 @@ public sealed class GpsSystem : SharedGpsSystem
                 signals.Add(data);
         }
 
-        signals.Sort((first, second) => GetSortWeight(first, origin).CompareTo(GetSortWeight(second, origin)));
+        signals.Sort(CompareSignals);
 
         return signals;
+    }
+
+    private static int CompareSignals(GpsSignalData first, GpsSignalData second)
+    {
+        var byTag = string.Compare(first.Tag, second.Tag, StringComparison.CurrentCulture);
+
+        return byTag != 0
+            ? byTag
+            : first.Source.CompareTo(second.Source);
     }
 
     private bool TryBuildSignal(
@@ -172,20 +181,12 @@ public sealed class GpsSystem : SharedGpsSystem
             ? null
             : (Vector2i?) ToTile(coordinates.Position);
 
-        data = new GpsSignalData(tag, description, color, position, sameMap);
+        data = new GpsSignalData(GetNetEntity(source), tag, description, color, position, sameMap);
         return true;
     }
 
     private string Localize(string text)
         => Loc.TryGetString(text, out var localized) ? localized : text;
-
-    private static float GetSortWeight(GpsSignalData signal, MapCoordinates origin)
-    {
-        if (!signal.SameMap || signal.Position == null)
-            return float.MaxValue;
-
-        return (signal.Position.Value - ToTile(origin.Position)).Length;
-    }
 
     private string? GetLocationName(EntityUid uid)
     {

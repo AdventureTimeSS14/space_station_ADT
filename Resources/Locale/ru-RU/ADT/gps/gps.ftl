@@ -41,3 +41,5 @@ adt-gps-signal-legion = Отражённый сигнал
 adt-gps-signal-legion-desc = Сообщение повторяется.
 adt-gps-signal-tendril = Раковый сигнал
 adt-gps-signal-tendril-desc = Что-то растёт там, где расти не должно.
+adt-gps-signal-ruin = Неизвестный сигнал
+adt-gps-signal-ruin-desc = Слабый маяк навигационной консоли. Кто-то здесь уже был.

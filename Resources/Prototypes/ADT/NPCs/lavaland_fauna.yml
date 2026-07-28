@@ -51,15 +51,6 @@
       operator: !type:MoveToOperator
         pathfindInPlanning: false
         removeKeyOnFinish: true
-    - !type:HTNPrimitiveTask
-      preconditions:
-      - !type:KeyExistsPrecondition
-        key: FleeTarget
-      - !type:TargetInRangePrecondition
-        targetKey: FleeTarget
-        rangeKey: ADTFleeRange
-      operator: !type:ADTBurrowOperator
-        chaseTime: 10
   - tasks:
     - !type:HTNCompoundTask
       task: IdleCompound

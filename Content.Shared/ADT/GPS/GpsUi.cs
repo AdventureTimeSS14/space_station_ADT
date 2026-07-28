@@ -25,6 +25,8 @@ public enum GpsVisualLayers : byte
 [Serializable, NetSerializable]
 public sealed class GpsSignalData
 {
+    public NetEntity Source;
+
     public string Tag;
     public string? Description;
     public Color Color;
@@ -33,8 +35,9 @@ public sealed class GpsSignalData
 
     public bool SameMap;
 
-    public GpsSignalData(string tag, string? description, Color color, Vector2i? position, bool sameMap)
+    public GpsSignalData(NetEntity source, string tag, string? description, Color color, Vector2i? position, bool sameMap)
     {
+        Source = source;
         Tag = tag;
         Description = description;
         Color = color;

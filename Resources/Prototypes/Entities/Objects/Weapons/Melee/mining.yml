@@ -144,9 +144,7 @@
     - Back
     - suitStorage
   - type: AmmoCounter
-  - type: UseDelayOnShoot
-  - type: UseDelay
-    delay: 0.9
+  - type: ADTKineticCooldown # ADT tweak
   - type: LeechOnMarker # ADT Tweak
     leech:
       types:
@@ -250,8 +248,9 @@
     slots:
     - Back
     - suitStorage
-  - type: UseDelay
-    delay: 1.9
+  - type: ADTKineticCooldown # ADT tweak
+    meleeMultiplier: 1.9
+    rangedMultiplier: 1.9
   - type: BasicEntityAmmoProvider
     proto: BulletChargeGlaive
     capacity: 1

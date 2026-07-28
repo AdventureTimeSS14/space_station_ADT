@@ -27,7 +27,13 @@ public sealed partial class ADTPickFleeCoordinatesOperator : HTNOperator
     public float FleeDistance = 8f;
 
     [DataField]
+    public float MinFleeDistance = 2f;
+
+    [DataField]
     public float Spread = 0.6f;
+
+    [DataField]
+    public int Attempts = 8;
 
     public override void Initialize(IEntitySystemManager sysManager)
     {
@@ -55,29 +61,40 @@ public sealed partial class ADTPickFleeCoordinatesOperator : HTNOperator
 
         var away = ownerPos.Position - targetPos.Position;
 
-        var angle = away.LengthSquared() > 0.01f
+        var baseAngle = away.LengthSquared() > 0.01f
             ? new Angle(away)
             : _random.NextAngle();
 
-        angle += _random.NextFloat(-Spread, Spread);
+        var attempts = Math.Max(1, Attempts);
+        var ownerCoords = _entManager.GetComponent<TransformComponent>(owner).Coordinates;
 
-        var destination = new MapCoordinates(ownerPos.Position + angle.ToVec() * FleeDistance, ownerPos.MapId);
-
-        var path = await _pathfinding.GetPath(
-            owner,
-            _entManager.GetComponent<TransformComponent>(owner).Coordinates,
-            _transform.ToCoordinates(destination),
-            1f,
-            cancelToken,
-            flags: _pathfinding.GetFlags(blackboard));
-
-        if (path.Result != PathResult.Path || path.Path.Count == 0)
-            return (false, null);
-
-        return (true, new Dictionary<string, object>
+        for (var i = 0; i < attempts; i++)
         {
-            { TargetCoordinates, path.Path[^1].Coordinates },
-            { NPCBlackboard.PathfindKey, path },
-        });
+            var progress = attempts == 1 ? 0f : i / (float)(attempts - 1);
+            var spread = Spread + (MathF.PI / 2f - Spread) * progress;
+            var distance = FleeDistance + (MinFleeDistance - FleeDistance) * progress;
+
+            var angle = baseAngle + _random.NextFloat(-spread, spread);
+            var destination = new MapCoordinates(ownerPos.Position + angle.ToVec() * distance, ownerPos.MapId);
+
+            var path = await _pathfinding.GetPath(
+                owner,
+                ownerCoords,
+                _transform.ToCoordinates(destination),
+                1f,
+                cancelToken,
+                flags: _pathfinding.GetFlags(blackboard));
+
+            if (path.Result is not (PathResult.Path or PathResult.PartialPath) || path.Path.Count == 0)
+                continue;
+
+            return (true, new Dictionary<string, object>
+            {
+                { TargetCoordinates, path.Path[^1].Coordinates },
+                { NPCBlackboard.PathfindKey, path },
+            });
+        }
+
+        return (false, null);
     }
 }
