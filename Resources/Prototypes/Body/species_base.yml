@@ -81,7 +81,6 @@
     - Weakness #ADT-Weakness-Tweak
     - Electrocution
     - RatvarianLanguage
-    - PressureImmunity
     - Muted
     - Pacified
     - Flashed
@@ -89,6 +88,7 @@
     - ADTHallucinations # ADT-Tweak
     - ADTStarvation # ADT-Tweak
   - type: Identity
+  - type: SpecialPressureImmunity
   - type: IdExaminable
   - type: Internals
   - type: FloatingVisuals

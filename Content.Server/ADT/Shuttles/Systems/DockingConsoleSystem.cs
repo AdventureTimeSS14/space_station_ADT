@@ -1,7 +1,6 @@
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Systems;
 using Content.Shared.ADT.Shuttles;
 using Content.Shared.ADT.Shuttles.Components;
 using Content.Shared.ADT.Shuttles.Systems;
@@ -21,7 +20,6 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly StationSystem _station = default!;
 
     public override void Initialize()
     {
@@ -115,7 +113,7 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         if (!_shuttle.CanFTLTo(shuttle, map, ent))
             return;
 
-        if (FindLargestGrid(map) is not { } grid)
+        if (FindDockTarget(map, ent.Comp.DockTag) is not { } grid)
             return;
 
         Log.Debug($"{ToPrettyString(args.Actor):user} is FTL-docking {ToPrettyString(shuttle):shuttle} to {ToPrettyString(grid):grid}");
@@ -124,21 +122,52 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         UpdateConsolesUsing(shuttle);
     }
 
+    private EntityUid? FindDockTarget(MapId map, string dockTag)
+    {
+        var query = EntityQueryEnumerator<PriorityDockComponent, TransformComponent>();
+        while (query.MoveNext(out _, out var dock, out var xform))
+        {
+            if (dock.Tag != dockTag || xform.MapID != map)
+                continue;
+
+            if (xform.GridUid is { } gridUid)
+                return gridUid;
+        }
+
+        return FindLargestGrid(map);
+    }
+
     private EntityUid? FindLargestGrid(MapId map)
     {
         EntityUid? largestGrid = null;
         var largestSize = 0f;
-
-        if (_station.GetStationInMap(map) is {} station)
+        var stations = EntityQueryEnumerator<StationDataComponent>();
+        while (stations.MoveNext(out _, out var data))
         {
-            // prevent picking vgroid and stuff
-            return _station.GetLargestGrid(station);
+            foreach (var gridUid in data.Grids)
+            {
+                if (HasComp<ShuttleComponent>(gridUid) || Transform(gridUid).MapID != map)
+                    continue;
+
+                if (!TryComp<MapGridComponent>(gridUid, out var stationGrid))
+                    continue;
+
+                var stationSize = stationGrid.LocalAABB.Size.LengthSquared();
+                if (stationSize < largestSize)
+                    continue;
+
+                largestSize = stationSize;
+                largestGrid = gridUid;
+            }
         }
+
+        if (largestGrid != null)
+            return largestGrid;
 
         var query = EntityQueryEnumerator<MapGridComponent, TransformComponent>();
         while (query.MoveNext(out var gridUid, out var grid, out var xform))
         {
-            if (xform.MapID != map)
+            if (xform.MapID != map || HasComp<ShuttleComponent>(gridUid))
                 continue;
 
             var size = grid.LocalAABB.Size.LengthSquared();

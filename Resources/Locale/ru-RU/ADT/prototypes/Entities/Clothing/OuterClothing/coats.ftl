@@ -36,10 +36,6 @@ ent-ADTClothingOuterBlackSweatshirtTop = чёрная толстовка-топ�
 ent-ADTClothingOuterCoatBrigmedicWB = ветровка Бригмедика
     .desc = Надежная ветровка врача брига, защита от любого космического ветра.
 
-ent-ADTClothingOuterCoatIlisium = плащ Иллизиума
-    .suffix = Иллизиум
-    .desc = Тёмный плащ Иллизиума
-
 ent-ADTClothingOuterCoatInvestigator = бушлат следователя Службы безопасности
     .desc = Один вид этого бушлата повышает вероятность чистосердечного признания подозреваемого на 50%.
     .suffix = { "" }
