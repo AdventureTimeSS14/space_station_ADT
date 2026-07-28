@@ -76,6 +76,6 @@
   cost: 15100
   recipeUnlocks:
   - ArtilleryComputerCircuitboard
-  position: -4,-4
-  technologyPrerequisites:
+  position: 4,-4
+  requiredTech:
   - ADTBluespaceMining

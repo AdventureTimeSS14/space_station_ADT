@@ -15,4 +15,4 @@ research-technology-advancedmegacells = Сверхэффективные мег�
 
 research-technology-reducer = Беспроводная передача энергии
 
-research-technology-bluespace-artillery = Блюспейс артиллерия (необходимо разрешение ЦК)
+research-technology-bluespace-artillery = Блюспейс артиллерия

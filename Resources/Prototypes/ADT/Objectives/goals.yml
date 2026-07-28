@@ -147,3 +147,5 @@
 - type: stationGoal
   id: BluespaceArtillery
   text: station-goal-bluespace-artillery
+  spawns:
+  - BSABlueprint

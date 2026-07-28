@@ -211,6 +211,7 @@
   - type: Construction
     graph: BluespaceArtilleryConstruction
     node: cannon_east
+    deconstructionTarget: null
 
 - type: entity
   parent: BluespaceArtilleryMirrorDebug
@@ -227,3 +228,4 @@
   - type: Construction
     graph: BluespaceArtilleryConstructionFlipped
     node: cannon_west
+    deconstructionTarget: null
