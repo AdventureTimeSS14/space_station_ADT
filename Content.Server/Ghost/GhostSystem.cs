@@ -370,7 +370,10 @@ namespace Content.Server.Ghost
 
             while (query.MoveNext(out var entity, out var mindContainer))
             {
-                if(IsHiddenFromGhostWarps(entity) || !IsValidWarpTarget(entity))
+                if (IsHiddenFromGhostWarps(entity))
+                    continue;
+
+                if (!IsValidWarpTarget(entity))
                     continue;
 
                 if (TryComp<RoleCacheComponent>(entity, out var roleCacheComponent))
@@ -380,7 +383,9 @@ namespace Content.Server.Ghost
                     if (_prototypeManager.TryIndex(roleCacheComponent.LastJobPrototype, out var jobPrototype) &&
                         _jobs.TryGetDepartment(jobPrototype.ID, out var departmentPrototype))
                     {
-                        var warp = SetupWarp(entity, mindContainer, departmentPrototype.Name, departmentPrototype.Color, jobPrototype.Name);
+                        var departmentName = Loc.GetString($"department-{departmentPrototype.ID}");
+                        var jobName = Loc.GetString($"job-name-{jobPrototype.ID}");
+                        var warp = SetupWarp(entity, mindContainer, departmentName, departmentPrototype.Color, jobName);
                         warp.Group |= WarpGroup.Department;
 
                         warps.Add(warp);
@@ -390,17 +395,19 @@ namespace Content.Server.Ghost
                     if (roleCacheComponent.IsAntag &&
                         _prototypeManager.TryIndex(roleCacheComponent.LastAntagPrototype, out var antagPrototype))
                     {
-                        var warp = SetupWarp(entity, mindContainer, antagPrototype.Name, AntagonistButtonColor, null);
+                        var antagName = Loc.GetString($"antag-name-{antagPrototype.ID}");
+                        var warp = SetupWarp(entity, mindContainer, antagName, AntagonistButtonColor, null);
                         warp.Group |= WarpGroup.Antag;
 
                         warps.Add(warp);
                         addedWarp = true;
                     }
 
-                    // Fallback: если ни департамент, ни антаг не добавились
                     if (!addedWarp)
                     {
-                        var warp = SetupWarp(entity, mindContainer, MetaData(entity).EntityPrototype?.Name ?? "", null, null);
+                        var warp = SetupWarp(entity, mindContainer, 
+                            MetaData(entity).EntityPrototype?.Name ?? "", 
+                            null, null);
                         warp.Group |= WarpGroup.Other;
 
                         warps.Add(warp);
@@ -408,7 +415,9 @@ namespace Content.Server.Ghost
                 }
                 else
                 {
-                    var warp = SetupWarp(entity, mindContainer, MetaData(entity).EntityPrototype?.Name ?? "", null, null);
+                    var warp = SetupWarp(entity, mindContainer, 
+                        MetaData(entity).EntityPrototype?.Name ?? "", 
+                        null, null);
                     warp.Group |= WarpGroup.Other;
 
                     warps.Add(warp);
@@ -426,6 +435,20 @@ namespace Content.Server.Ghost
                 hasAnyMind;
 
             var metadata = Comp<MetaDataComponent>(entity);
+
+            if (!string.IsNullOrEmpty(description))
+            {
+                try
+                {
+                    var localizedDesc = Loc.GetString(description);
+                    if (localizedDesc != description)
+                        description = localizedDesc;
+                }
+                catch
+                {
+
+                }
+            }
 
             if (string.IsNullOrEmpty(description))
                 description = metadata.EntityDescription;
@@ -457,7 +480,7 @@ namespace Content.Server.Ghost
 
             while (allQuery.MoveNext(out var uid, out var warp))
             {
-                if(IsHiddenFromGhostWarps(uid) || !IsValidWarpTarget(uid)) // ADT-Tweak
+                if (IsHiddenFromGhostWarps(uid) || !IsValidWarpTarget(uid))
                     continue;
 
                 var newWarp = new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), "", Description(uid), null);
@@ -481,8 +504,7 @@ namespace Content.Server.Ghost
             return _tag.HasTag(entity, "HideFromGhostWarps");
         }
 
-       // ADT-TWEAK END
-
+        // ADT-TWEAK END
 
         #endregion
 
