@@ -23,6 +23,8 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         private Dictionary<string, List<GhostWarp>> _deadPlayers = [];
         private Dictionary<string, List<GhostWarp>> _ghostPlayers = [];
         private Dictionary<string, List<GhostWarp>> _leftPlayers = [];
+        private Dictionary<string, List<GhostWarp>> _deadOther = [];
+        private Dictionary<string, List<GhostWarp>> _leftOther = [];
 
         private Dictionary<string, List<GhostWarp>> _aliveAntags = [];
         private Dictionary<string, List<GhostWarp>> _deadAntags = []; // Добавляем отдельный словарь для мертвых антагов
@@ -56,6 +58,8 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             _deadPlayers.Clear();
             _ghostPlayers.Clear();
             _leftPlayers.Clear();
+            _deadOther.Clear();
+            _leftOther.Clear();
             _aliveAntags.Clear();
             _deadAntags.Clear(); // Очищаем новый словарь
             _places.Clear();
@@ -74,13 +78,15 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
                 FilterLocalWarps(_alivePlayers, warp, WarpGroup.AliveDepartment);
                 FilterLocalWarps(_deadPlayers, warp, WarpGroup.DeadDepartment);
-                FilterLocalWarps(_leftPlayers, warp, WarpGroup.LeftDepartment);
+                FilterLocalWarps(_leftPlayers, warp, WarpGroup.Left);
 
                 FilterLocalWarps(_aliveAntags, warp, WarpGroup.AliveAntag);
                 FilterLocalWarps(_deadAntags, warp, WarpGroup.DeadAntag); // Используем отдельный словарь для мертвых антагов
 
                 FilterLocalWarps(_ghostPlayers, warp, WarpGroup.Ghost);
                 FilterLocalWarps(_other, warp, WarpGroup.AliveOther);
+                FilterLocalWarps(_deadOther, warp, WarpGroup.DeadOther);
+                FilterLocalWarps(_leftOther, warp, WarpGroup.LeftOther);
             }
         }
 
@@ -112,9 +118,10 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         {
             // Добавляем проверку на наличие данных
             var hasData = _aliveAntags.Count > 0 || _alivePlayers.Count > 0 || 
-                         _ghostPlayers.Count > 0 || _leftPlayers.Count > 0 || 
-                         _deadPlayers.Count > 0 || _deadAntags.Count > 0 ||
-                         _places.Count > 0 || _other.Count > 0;
+                          _ghostPlayers.Count > 0 || _leftPlayers.Count > 0 || 
+                          _deadPlayers.Count > 0 || _deadAntags.Count > 0 ||
+                          _places.Count > 0 || _other.Count > 0 ||
+                          _deadOther.Count > 0 || _leftOther.Count > 0;
             
             if (!hasData)
             {
@@ -138,6 +145,8 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             AddButtons(_ghostPlayers, "ghost-teleport-menu-ghosts-label");
             AddButtons(_leftPlayers, "ghost-teleport-menu-left-label", true);
             AddButtons(_deadPlayers, "ghost-teleport-menu-dead-label", true);
+            AddButtons(_deadOther, "ghost-teleport-menu-other-label", true);
+            AddButtons(_leftOther, "ghost-teleport-menu-other-label", true);
             AddButtons(_places, "ghost-teleport-menu-locations-label", true);
             AddButtons(_other, "ghost-teleport-menu-other-label", true);
         }

@@ -180,9 +180,10 @@ namespace Content.Shared.Ghost
         DeadDepartment = Dead | Department,
         LeftDepartment = Left | Department,
 
-        AliveOther = Alive | Other
-
-     }
+         AliveOther = Alive | Other,
+         DeadOther = Dead | Other,
+         LeftOther = Left | Other
+      }
 
 
     /// <summary>
