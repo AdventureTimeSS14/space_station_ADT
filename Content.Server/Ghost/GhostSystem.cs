@@ -457,7 +457,7 @@ namespace Content.Server.Ghost
 
             while (allQuery.MoveNext(out var uid, out var warp))
             {
-                if(IsHiddenFromGhostWarps(uid)) // ADT-Tweak
+                if(IsHiddenFromGhostWarps(uid) || !IsValidWarpTarget(uid))
                     continue;
 
                 var newWarp = new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), "", Description(uid), null);
