@@ -24,4 +24,4 @@
     access: [[ "Command" ]]
   - type: Construction
     graph: ArtilleryConsoleConstruction
-    node: ArtilleryConsole
+    node: base
