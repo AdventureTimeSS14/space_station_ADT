@@ -280,7 +280,7 @@
   - type: WeatherStatusEffect
     damage:
       types:
-        Blunt: 2
+        Blunt: 1
     damageBlacklist:
       components:
       - AshStormImmune
