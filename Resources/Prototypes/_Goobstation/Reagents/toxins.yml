@@ -30,3 +30,39 @@
       - !type:AdjustReagent
         amount: -25
         reagent: Aluite
+
+- type: reagent
+  id: Cyanide
+  name: reagent-name-cyanide
+  group: Toxins
+  desc: reagent-desc-cyanide
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: bitter
+  color: "#1abcff"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.75 # 37.5 per 5u but pretty slow
+            Asphyxiation: 0.25
+        conditions:
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
+      - !type:ModifyParalysis
+        conditions:
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
+        probability: 0.05
+        time: 2
+      - !type:Emote
+        emote: Gasp
+        probability: 0.1
+        conditions:
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true

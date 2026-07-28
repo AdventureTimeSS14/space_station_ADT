@@ -32,3 +32,57 @@
 #         - !type:MetabolizerTypeCondition # Goobstation - Yowie
 #         amount: 13 # 13 parity
 #         immediate: false
+
+- type: reagent
+  id: Heroin
+  name: reagent-name-heroin
+  group: Medicine
+  desc: reagent-desc-heroin
+  physicalDesc: reagent-physical-desc-thick
+  flavor: medicine
+  color: "#a8a8af"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.5
+      effects:
+      - !type:SuppressPain
+        amount: 15
+        time: 30
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 1.5
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+            Cold: 0.25
+            Asphyxiation: 0.75
+        conditions:
+        - !type:ReagentCondition
+          reagent: Heroin
+          min: 10.5
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
+      - !type:GenericStatusEffect # tripping balls
+        conditions:
+        - !type:ReagentCondition
+          reagent: Heroin
+          min: 10.5
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 20
+      - !type:Drunk
+        boozePower: 10
+        conditions:
+        - !type:ReagentCondition
+          reagent: Heroin
+          min: 10.5
+      - !type:AdjustConsciousness
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -5
+        time: 12

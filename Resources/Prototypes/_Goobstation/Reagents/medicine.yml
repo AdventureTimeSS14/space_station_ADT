@@ -10,7 +10,7 @@
   color: "#8364BE"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
         - !type:ModifyBloodLevel
           amount: 10
@@ -54,7 +54,7 @@
   flavor: medicine
   color: "#ffff64"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -130,7 +130,7 @@
   flavor: medicine
   color: "#ffc41a"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.05
       effects:
       - !type:Vomit
@@ -152,7 +152,7 @@
   flavor: terrible
   color: "#cc9c14"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -177,7 +177,7 @@
   flavor: medicine
   color: "#ff6060"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -225,7 +225,7 @@
     - !type:PlantAdjustToxins
       amount: -30
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 3
       effects:
       - !type:HealthChange
@@ -272,7 +272,7 @@
   color: "#e1d758"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.5
       effects:
       - !type:HealthChange
@@ -310,7 +310,7 @@
   flavor: medicine
   color: "#996fcc"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 3
       effects:
       - !type:HealthChange
@@ -359,7 +359,7 @@
   flavor: medicine
   color: "#ff8af3"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.5
       effects:
       - !type:HealthChange
@@ -404,7 +404,7 @@
   flavor: medicine
   color: "#ffdf97"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 3
       effects:
       - !type:HealthChange
@@ -452,7 +452,7 @@
   flavor: medicine
   color: "#65583b"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.1
       effects:
       - !type:HealthChange
@@ -489,7 +489,7 @@
     - !type:PlantAdjustHealth
       amount: 10
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:AdjustReagentsByGroup
         group: Medicine
@@ -539,7 +539,7 @@
     - !type:PlantAdjustHealth
       amount: -10
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         conditions:
@@ -575,7 +575,7 @@
     - !type:PlantAdjustHealth
       amount: -50
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 1
       effects:
       - !type:CleanBloodstream
@@ -632,7 +632,7 @@
     - !type:PlantAdjustHealth
       amount: -20
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.15
       effects:
       - !type:AdjustReagentsByGroup
@@ -681,7 +681,7 @@
     - !type:PlantAdjustHealth
       amount: -10
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         conditions:
@@ -708,7 +708,7 @@
     - !type:PlantAdjustHealth
       amount: -10
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.15
       effects:
       - !type:SuppressPain
@@ -790,7 +790,7 @@
           - type: PressureProtection # can't get through this to reach the bodyparts!
           invert: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 3
       effects:
       - !type:HealthChange
@@ -859,7 +859,7 @@
           - type: PressureProtection
           invert: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 3
       effects:
       - !type:HealthChange
@@ -947,7 +947,7 @@
           - type: PressureProtection # can't get through this to reach the bodyparts!
           invert: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -974,7 +974,7 @@
     - !type:PlantAdjustHealth
       amount: -10
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -1025,7 +1025,7 @@
     - !type:PlantAdjustHealth
       amount: -8
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -1081,7 +1081,7 @@
     - !type:PlantAdjustToxins
       amount: -8
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.25
       effects:
       - !type:CleanBloodstream
@@ -1110,7 +1110,7 @@
     - !type:PlantAdjustHealth
       amount: -5
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.25
       effects:
       - !type:HealthChange
@@ -1185,7 +1185,7 @@
     - !type:PlantAdjustHealth
       amount: -20
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 1
       effects:
       - !type:HealthChange
@@ -1237,7 +1237,7 @@
           min: 160.15
         amount: -10000
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -1293,7 +1293,7 @@
           max: 420
         amount: 10000
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -1325,7 +1325,7 @@
   flavor: medicine
   color: "#ad2cfa"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.1
       effects:
       - !type:SuppressPain
@@ -1362,7 +1362,7 @@
   flavor: medicine
   color: "#2cfa76"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.1
       effects:
       - !type:SuppressPain
@@ -1411,7 +1411,7 @@
         damage:
           types:
             Poison: 0.1 # Trauma
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.03
       effects:
       - !type:ReduceRotting

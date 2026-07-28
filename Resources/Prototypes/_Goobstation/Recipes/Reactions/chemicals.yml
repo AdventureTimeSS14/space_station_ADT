@@ -1,0 +1,11 @@
+- type: reaction
+  id: Cryostylane
+  reactants:
+    Ice:
+      amount: 1
+    Plasma:
+      amount: 1
+    Nitrogen:
+      amount: 1
+  products:
+    Cryostylane: 1
