@@ -57,6 +57,8 @@ public sealed class ADTLavalandPopulationSystem : EntitySystem
 
         var map = new Entity<BiomeComponent, MapGridComponent>(ent.Owner, biome, grid);
 
+        _placed.Clear();
+
         foreach (var group in ent.Comp.Groups)
         {
             PopulateGroup(ent, map, group);
@@ -74,8 +76,6 @@ public sealed class ADTLavalandPopulationSystem : EntitySystem
 
         var budget = _random.Next(group.MinBudget, group.MaxBudget + 1);
         var failures = 0;
-
-        _placed.Clear();
 
         while (budget > 0 && failures <= group.MaxFailures)
         {
