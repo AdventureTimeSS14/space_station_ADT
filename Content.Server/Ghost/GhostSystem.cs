@@ -375,6 +375,8 @@ namespace Content.Server.Ghost
 
                 if (TryComp<RoleCacheComponent>(entity, out var roleCacheComponent))
                 {
+                    var addedWarp = false;
+
                     if (_prototypeManager.TryIndex(roleCacheComponent.LastJobPrototype, out var jobPrototype) &&
                         _jobs.TryGetDepartment(jobPrototype.ID, out var departmentPrototype))
                     {
@@ -382,6 +384,7 @@ namespace Content.Server.Ghost
                         warp.Group |= WarpGroup.Department;
 
                         warps.Add(warp);
+                        addedWarp = true;
                     }
 
                     if (roleCacheComponent.IsAntag &&
@@ -389,6 +392,16 @@ namespace Content.Server.Ghost
                     {
                         var warp = SetupWarp(entity, mindContainer, antagPrototype.Name, AntagonistButtonColor, null);
                         warp.Group |= WarpGroup.Antag;
+
+                        warps.Add(warp);
+                        addedWarp = true;
+                    }
+
+                    // Fallback: если ни департамент, ни антаг не добавились
+                    if (!addedWarp)
+                    {
+                        var warp = SetupWarp(entity, mindContainer, MetaData(entity).EntityPrototype?.Name ?? "", null, null);
+                        warp.Group |= WarpGroup.Other;
 
                         warps.Add(warp);
                     }
