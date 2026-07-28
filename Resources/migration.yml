@@ -1021,3 +1021,12 @@ WallRockScrapPilePlasma: null
 WallRockScrapPileQuartz: null
 WallRockScrapPileSilver: null
 WallRockScrapPileUranium: null
+
+# ADT 2026-07-28: Revert "3.2 BFUU update"
+BrokenAirAlarm: null
+BrokenAPC: null
+BrokenAutolathe: null
+BrokenImprinter: null
+BrokenMicrowavbe: null
+BrokenSMES: null
+BrokenSubstation: null
