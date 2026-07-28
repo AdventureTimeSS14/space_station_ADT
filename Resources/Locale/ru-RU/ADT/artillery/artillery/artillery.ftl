@@ -10,6 +10,7 @@ artillery-console-warning = Рекомендуем не стоять напро�
 artillery-console-toggle = СТАТУС
 artillery-console-toggle-on = СТАТУС: ЗАПУЩЕНА
 artillery-console-toggle-off = СТАТУС: ОТКЛЮЧЕНА
+artillery-console-power-status = Питание: {0}W / {1}W
 
 artillery-fire-announcement = ВНИМАНИЕ, ОБНАРУЖЕН ВЫСТРЕЛ БЛЮСПЕЙС АРТИЛЛЕРИИ! ПРИГОТОВЬТЕСЬ К УДАРУ!
 artillery-announcement-sender = Центральное Командование

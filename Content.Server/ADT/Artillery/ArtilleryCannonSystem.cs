@@ -162,7 +162,7 @@ public sealed class ArtilleryCannonSystem : EntitySystem
                 Loc.GetString("artillery-announcement-sender"),
                 playSound: false,
                 colorOverride: Color.Red);
-            _audio.PlayGlobal("/Audio/_CorvaxGoob/Adminbuse/artillery.ogg", Filter.Broadcast(), true);
+            _audio.PlayGlobal("/Audio/Corvax/Adminbuse/artillery.ogg", Filter.Broadcast(), true);
         });
 
         for (int i = 0; i < 8; i++)

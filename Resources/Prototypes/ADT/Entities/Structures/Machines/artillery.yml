@@ -194,10 +194,6 @@
     tags:
     - BlueprintBSA
 
-- type: Tag
-  id: BlueprintBSA
-
-
 #region DEBUG/AABUSE
 
 - type: entity

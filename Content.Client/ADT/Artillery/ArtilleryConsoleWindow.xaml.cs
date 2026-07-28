@@ -82,9 +82,11 @@ public sealed partial class ArtilleryConsoleWindow : BaseWindow, IComputerWindow
             ? Loc.GetString("artillery-console-toggle-on")
             : Loc.GetString("artillery-console-toggle-off");
 
-        var powerText = $"Статус: {state.ReceivedPower:F0}W / {state.RequiredPower:F0}W";
-        if (!state.HasCannon)
-            powerText = "Орудие не обнаружено";
+        var powerText = state.HasCannon
+            ? Loc.GetString("artillery-console-power-status",
+                ("0", ((int)state.ReceivedPower).ToString()),
+                ("1", ((int)state.RequiredPower).ToString()))
+            : Loc.GetString("artillery-console-no-cannon");
 
         CooldownLabel.Text = state.FullyPowered ? GetStatusText(state) : powerText;
         Footer.Text = Loc.GetString("artillery-console-warning");

@@ -834,3 +834,6 @@
 
 - type: Tag
   id: BoardBSA
+
+- type: Tag
+  id: BlueprintBSA
