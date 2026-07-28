@@ -62,6 +62,9 @@
       prototype: ArtilleryConsole
     - type: StaticPrice
       price: 1250
+    - type: PhysicalComposition
+      materialComposition:
+        Glass: 75
     - type: Tag
       tags:
       - BoardBSA

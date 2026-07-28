@@ -25,3 +25,5 @@
   - type: Construction
     graph: ArtilleryConsoleConstruction
     node: base
+  - type: Computer
+    board: ArtilleryComputerCircuitboard
