@@ -1011,3 +1011,13 @@ ADTClothingHeadCapIlisium: null
 ADTClothingHeadHelmetIlisium: null
 ADTClothingMaskGasIlisium: null
 ADTClothingOuterCoatIlisium: null
+
+# ADT 2026-07-27: Revert "3.3 bfuu update"
+WallRockScrapPileArtifactFragment: null
+WallRockScrapPileDiamond: null
+WallRockScrapPileGold: null
+WallRockScrapPileIron: null
+WallRockScrapPilePlasma: null
+WallRockScrapPileQuartz: null
+WallRockScrapPileSilver: null
+WallRockScrapPileUranium: null
