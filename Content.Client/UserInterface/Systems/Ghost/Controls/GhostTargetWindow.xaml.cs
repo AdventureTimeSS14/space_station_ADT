@@ -191,7 +191,9 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
                 var departmentLabel = new Label
                 {
-                    Text = Loc.GetString(subCategory) + ": " + warps.Count,
+                    Text = Loc.GetString("ghost-teleport-menu-subgroup-label",
+                        ("name", string.IsNullOrEmpty(subCategory) ? Loc.GetString("ghost-teleport-menu-other-label") : subCategory),
+                        ("count", warps.Count)),
                     StyleClasses = { "LabelSecondaryColor" }
                 };
 
@@ -205,7 +207,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                         VerticalAlignment = VAlignment.Center,
                         SizeFlagsStretchRatio = 1,
                         ModulateSelfOverride = warp.Color,
-                        ToolTip = Loc.GetString(warp.Description),
+                        ToolTip = warp.Description,
                         TooltipDelay = 0.1f,
                         MinSize = new Vector2(150, 0), // Используем MinSize вместо SetWidth
                         ClipText = false,
