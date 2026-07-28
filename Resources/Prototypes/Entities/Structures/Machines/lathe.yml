@@ -732,8 +732,6 @@
       - OreSmelting
       - RGlassSmelting
       - ADTBScrystalSmelting #ADT Tweak
-      # ADT-Tweak раскомментить и пересмотреть рецепты после добавления обломков с металлоломом
-      #- ScrapSmeltingBasic #ADT tweak
     # ADT tweak start
     - type: AutoMaterialInsert
       tag: ADTOreBag
@@ -761,9 +759,6 @@
     - RGlassSmelting
     - AdvancedSmelting
     - ADTBScrystalSmelting #ADT Tweak
-# ADT-Tweak раскомментить и пересмотреть рецепты после добавления обломков с металлоломом
-#    - ScrapSmeltingBasic #ADT tweak
-#    - ScrapSmeltingAdvanced #ADT tweak
 
 - type: entity
   parent: BaseLathe
