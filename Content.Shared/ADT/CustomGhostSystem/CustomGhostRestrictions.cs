@@ -82,7 +82,7 @@ public sealed partial class PlaytimeJobRestriction : CustomGhostRestriction
     private static IPrototypeManager? _proto = null;
 
     [DataField(required: true)]
-    public string Job = string.Empty;
+    public ProtoId<JobPrototype> Job = string.Empty;
 
     [DataField(required: true)]
     public float HoursPlaytime;
