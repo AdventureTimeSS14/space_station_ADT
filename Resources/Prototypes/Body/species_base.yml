@@ -83,12 +83,12 @@
     - RatvarianLanguage
     - Muted
     - Pacified
+    - PressureImmunity
     - Flashed
     - Adrenaline
     - ADTHallucinations # ADT-Tweak
     - ADTStarvation # ADT-Tweak
   - type: Identity
-  - type: SpecialPressureImmunity
   - type: IdExaminable
   - type: Internals
   - type: FloatingVisuals
