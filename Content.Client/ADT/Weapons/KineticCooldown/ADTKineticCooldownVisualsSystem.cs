@@ -32,6 +32,12 @@ public sealed class ADTKineticCooldownVisualsSystem : EntitySystem
             }
 
             graphic ??= AddGraphic(hand);
+            if (cooldown.NextUse <= cooldown.LastUseStart)
+            {
+                graphic.Visible = false;
+                continue;
+            }
+
             graphic.FromTime(cooldown.LastUseStart, cooldown.NextUse);
         }
     }

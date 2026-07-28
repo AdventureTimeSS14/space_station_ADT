@@ -82,6 +82,7 @@ public sealed class GpsSignalRow : PanelContainer
         {
             _position.Text = Loc.GetString("adt-gps-signal-unknown");
             _distance.Text = Loc.GetString("adt-gps-signal-unknown");
+            _icon.Visible = false;
             return;
         }
 
@@ -90,12 +91,14 @@ public sealed class GpsSignalRow : PanelContainer
         if (!signal.SameMap || origin == null)
         {
             _distance.Text = Loc.GetString("adt-gps-signal-off-map");
+            _icon.Visible = false;
             return;
         }
 
         var delta = (Vector2) (signal.Position.Value - origin.Value);
         var distance = delta.Length();
 
+        _icon.Visible = true;
         _icon.UpdateDirection(delta, Angle.Zero);
         _icon.ModulateSelfOverride = GetProximityColor(distance);
         _distance.Text = Loc.GetString("adt-gps-signal-distance", ("distance", (int) distance));
