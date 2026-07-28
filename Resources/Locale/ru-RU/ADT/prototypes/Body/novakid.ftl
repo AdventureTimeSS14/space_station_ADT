@@ -76,3 +76,5 @@ ent-ADTOrganNovakidKidneys = { ent-OrganBaseKidneys }
     .desc = { ent-OrganBaseKidneys.desc }
     .suffix = { ent-ADTOrganNovakidInternal.suffix }
 novakid-hurt-by-water-popup = Вода заставляет ваше пламя угасать
+species-name-novakid = Новакид
+species-name-novakidspecies = Новакид
