@@ -233892,4 +233892,5 @@ entities:
     components:
     - type: Transform
       pos: -13.5,12.5
+      parent: 2
 ...

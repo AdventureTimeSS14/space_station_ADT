@@ -208537,4 +208537,5 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-7.5
+      parent: 2
 ...
