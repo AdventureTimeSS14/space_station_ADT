@@ -247,10 +247,10 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    priceMultiplier: 0
+    allForFree: true
     screenState: screen
   - type: DatasetVocalizer
-    dataset: AutoDrobeAds
+    dataset: MusicDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite

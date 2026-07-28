@@ -68,8 +68,8 @@
 - type: entity
   parent: ADTSecuredVendingMachineRestock
   id: ADTRestockmusicianomat
-  name: Набор пополнения Музыкомат
-  description: А ну скорей любите нас, вам крупно повезло! Загрузите это в ближайший торгомат Музыкомат.
+  name: Ящик пополнения музыкомата
+  description: А ну скорей любите нас, вам крупно повезло! Загрузите это в ближайший торгомат музыкомата.
   components:
   - type: VendingMachineRestock
     canRestock:
