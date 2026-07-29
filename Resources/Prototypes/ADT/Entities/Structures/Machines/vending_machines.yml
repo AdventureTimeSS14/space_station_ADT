@@ -251,8 +251,6 @@
     screenState: screen
   - type: DatasetVocalizer
     dataset: MusicDrobeAds
-  - type: SpeakOnUIClosed
-    pack: GenericVendGoodbyes
   - type: Sprite
     sprite: ADT/Structures/Machines/VendingMachines/musicomat.rsi
     layers:
