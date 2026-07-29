@@ -2699,6 +2699,8 @@
         Heat: -0.03
         Cold: -0.03
         Shock: -0.03
+  - type: NightVision # ADT-Tweak
+    innate: true
 
 - type: entity
   parent: MobSpiderBase
@@ -3387,7 +3389,7 @@
     tags:
       - DoorBumpOpener
   - type: MovementAlwaysTouching
-  - type: PressureImmunity
+  - type: SpecialPressureImmunity
   - type: ProtectedFromStepTriggers
   - type: Insulated
   - type: InteractionPopup

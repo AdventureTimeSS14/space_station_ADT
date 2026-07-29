@@ -121,6 +121,8 @@
       Arachnid: Speak
   - type: SupermatterIgnore
   - type: GrabProtection
+  - type: NightVision
+    innate: true
 
 - type: entity
   parent: ADTMobBaseSpider

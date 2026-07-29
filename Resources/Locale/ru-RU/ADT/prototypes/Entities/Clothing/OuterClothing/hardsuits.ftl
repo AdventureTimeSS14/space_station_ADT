@@ -8,10 +8,6 @@ ent-ADTSpaceSecOfficerHardsuit = скафандр офицера SPACE SEC
 ent-ADTSpaceSecCommanderHardsuit = скафандр командира SPACE SEC
     .desc = Для командира хранителей безопасности среди звезд.
 
-ent-ADTClothingOuterHardsuitIlisium = скафандр Иллизиума
-    .suffix = Иллизиум
-    .desc = Боевой скафандр бойца Иллизиума. Обеспечен встроенными керамическими пластинами.
-
 ent-ADTClothingOuterHardsuitTimePatrol = скафандр стража времени
     .desc = Скафандр путника из далёкого будущего выглядит как невероятная смесь высокотехнологичного костюма и космической брони. Поверьте, если он идёт за вами, то убегать нет смысла.
     .suffix = { "ОБВА" }
@@ -21,14 +17,6 @@ ent-ADTClothingOuterHardsuitInquisitory = скафандр инквизитор�
 
 ent-ADTClothingOuterHardsuitCybersunBodyGuard = скафандр телохранителя CyberSun
     .desc = Тяжелобронированный скафандр элитного подразделения телохранителей CyberSun.
-    .suffix = { "" }
-
-ent-ADTClothingOuterHardsuitCybersunCrysis = скафандр суперсолдата CyberSun
-    .desc = Самая передовая, секретная технология CyberSun в сфере защиты. Кажется, эта разработка ведёт к созданию супер солдат. Пахнет пластитаном и бесчестным боем.
-    .suffix = { "" }
-
-ent-ADTClothingOuterHardsuitSaibaSain = элитный скафандр Сайба-Сайны
-    .desc = Разработка из плазматических волокн, наномашин и кремния. Пахнет как цветение сакуры.
     .suffix = { "" }
 
 ent-ADTClothingOuterHardsuitPioneerAgent = боевой скафандр агента "Пионер"

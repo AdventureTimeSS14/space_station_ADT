@@ -810,6 +810,33 @@
   id: GunUpgradeVampirism
 
 - type: Tag
+  id: ADTGunUpgradeAoETiles
+
+- type: Tag
+  id: ADTGunUpgradeRepeater
+
+- type: Tag
+  id: ADTGunUpgradeSyphon
+
+- type: Tag
+  id: ADTGunUpgradeIndoors
+
+- type: Tag
+  id: ADTGunUpgradeTracer
+
+- type: Tag
+  id: ADTGunUpgradeChassis
+
+- type: Tag
+  id: ADTGunUpgradeResonator
+
+- type: Tag
+  id: ADTResonator
+
+- type: Tag
+  id: ADTGutlunch
+
+- type: Tag
   id: MansusLinkMind
 
 - type: Tag
@@ -841,6 +868,9 @@
 
 - type: Tag
   id: ADTArchimedesRLeg
+
+- type: Tag
+  id: ADTArchimedesArmModule
 
 - type: Tag
   id: ADTArchimedesCentralControlModule

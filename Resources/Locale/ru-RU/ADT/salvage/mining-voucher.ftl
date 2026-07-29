@@ -119,3 +119,28 @@ sec-voucher-mk58-description = Дешёвый и распространённы�
 
 sec-voucher-laser-name = лазерный пистолет
 sec-voucher-laser-description = Дешёвый и широко распространённый лазерный пистолет, производимый дочерней компанией Nanotrasen. При долгом использовании может нагреваться.
+
+deathsquad-voucher-hardsuit-name = скафандр Эскадрона Смерти
+deathsquad-voucher-hardsuit-description = Продвинутый скафандр, используемый в специальных операциях.
+deathsquad-voucher-mod-name = МОД "Харон"
+deathsquad-voucher-mod-description = Продвинутый боевой костюм для специальных операций Центрального Командования. Не требует батареи.
+
+ertleader-voucher-hardsuit-name = скафандр лидера ОБР
+ertleader-voucher-hardsuit-description = Защитный скафандр, выдаваемый лидеру Отряда Быстрого Реагирования кода "Гамма".
+ertleader-voucher-mod-name = МОД ОБР "Полярис"
+ertleader-voucher-mod-description = Облегчённый МОД для лидера Отряда Быстрого Реагирования кода "Гамма". Питается от гипербатареи.
+
+ertsecurity-voucher-hardsuit-name = скафандр бойца ОБР
+ertsecurity-voucher-hardsuit-description = Защитный скафандр, выдаваемый бойцам Отряда Быстрого Реагирования кода "Гамма".
+ertsecurity-voucher-mod-name = МОД ОБР "Антарес"
+ertsecurity-voucher-mod-description = Облегчённый МОД для бойцов Отряда Быстрого Реагирования кода "Гамма". Питается от гипербатареи.
+
+ertengineer-voucher-hardsuit-name = скафандр инженера ОБР
+ertengineer-voucher-hardsuit-description = Защитный скафандр, выдаваемый инженеру Отряда Быстрого Реагирования кода "Гамма".
+ertengineer-voucher-mod-name = МОД ОБР "Капелла"
+ertengineer-voucher-mod-description = Облегчённый МОД для инженера Отряда Быстрого Реагирования кода "Гамма". Питается от гипербатареи.
+
+ertmedical-voucher-hardsuit-name = скафандр медика ОБР
+ertmedical-voucher-hardsuit-description = Защитный скафандр, выдаваемый медику Отряда Быстрого Реагирования кода "Гамма".
+ertmedical-voucher-mod-name = МОД ОБР "Вега"
+ertmedical-voucher-mod-description = Облегчённый МОД для медика Отряда Быстрого Реагирования кода "Гамма". Питается от гипербатареи.

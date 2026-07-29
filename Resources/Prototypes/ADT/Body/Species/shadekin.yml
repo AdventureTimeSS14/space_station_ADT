@@ -244,6 +244,8 @@
     - AnomalyHost
     - ADTIgnoreChokeSpeechBlocking
     - ADTShadekinEmotes
+  - type: NightVision
+    innate: true
 
 - type: entity
   parent: OrganBaseOrganic

@@ -1,0 +1,28 @@
+- type: entity
+  name: diamond tipped pickaxe
+  parent: Pickaxe
+  id: ADTPickaxeDiamond
+  description: A pickaxe with a diamond pick head. Extremely robust at cracking rock walls and digging up dirt.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/pickaxe_diamond.rsi
+    state: pickaxe
+  - type: MeleeWeapon
+    attackRate: 1.4
+    wideAnimationRotation: -135
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+      params:
+        volume: -3
+    damage:
+      types:
+        Piercing: 7
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 12
+        Structural: 45
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Diamond: 100

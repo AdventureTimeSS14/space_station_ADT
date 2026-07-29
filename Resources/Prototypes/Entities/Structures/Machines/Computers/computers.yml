@@ -154,11 +154,20 @@
         whitelist:
           components:
           - ShuttleDestinationCoordinates
+      # ADT port start pAI modernization
+      pai_slot:
+        name: Personal AI Device
+        ejectOnInteract: false
+        whitelist:
+          components:
+          - PAI
+      # # ADT port end pAI modernization
   - type: ContainerContainer
     containers:
       board: !type:Container
         ents: []
       disk_slot: !type:ContainerSlot {}
+      pai_slot: !type:ContainerSlot {} #ADT-Tweak: PAI
   - type: GuideHelp
     guides:
     - ShuttleCraft
@@ -646,6 +655,7 @@
       board: !type:Container
       IdCardConsole-privilegedId: !type:ContainerSlot
       IdCardConsole-targetId: !type:ContainerSlot
+      pai_slot: !type:ContainerSlot {} #ADT-Tweak: PAI
 
 - type: entity
   parent: BaseComputerAiAccess

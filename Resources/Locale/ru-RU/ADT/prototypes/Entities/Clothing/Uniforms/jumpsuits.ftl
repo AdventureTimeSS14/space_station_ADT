@@ -218,10 +218,6 @@ ent-ADTSpaceSecUniformOfficer = комбинезон офицера SPACE SEC
 ent-ADTClothingUniformBrigmedicTurtleneck = водолазка бригмедика
     .desc = Удобная и тёплая водолазка ангела-хранителя брига.
 
-ent-ADTClothingUniformIlisium = костюм Иллизиума
-    .suffix = Иллизиум
-    .desc = Тёмный костюм Иллизиума.
-
 ent-ADTClothingUniformInvestigatorSuit = форма следователя Службы Безопасности
     .desc = Одежда для того, кто намерен докопаться до сути всех тайн.
     .suffix = { "" }
