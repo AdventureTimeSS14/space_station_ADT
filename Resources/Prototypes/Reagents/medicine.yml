@@ -1189,6 +1189,13 @@
         messages: ["ethyloxyephedrine-effect-feeling-awake", "ethyloxyephedrine-effect-clear-mind"]
         type: Local
         probability: 0.1
+    Digestion: # ADT tweak start fix narcolepsy therapy
+      effects:
+      - !type:ResetNarcolepsy
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ethyloxyephedrine
+          min: 10 # ADT tweak end fix narcolepsy therapy
 
 - type: reagent
   id: Diphenylmethylamine
@@ -1540,8 +1547,9 @@
         - !type:TemperatureCondition
           max: 213.0
         damage:
-          Brute: -3
-          Burn: -3
+          Brute: -1.5 # ADT tweak 3 > 1.5
+          Burn: -2 # ADT tweak 3 > 2
+          Airloss: -1
 
 - type: reagent
   id : Aloxadone
