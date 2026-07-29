@@ -18,29 +18,9 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        EntityUid? gridUid = null;
-        var stationName = string.Empty;
-
-        if (EntMan.TryGetComponent<TransformComponent>(Owner, out var xform))
-        {
-            gridUid = xform.GridUid;
-
-            // #ADT-Tweak Start - New Monitor: null-safe grid MetaData lookup
-            // if (EntMan.TryGetComponent<MetaDataComponent>(gridUid, out var metaData))
-            if (gridUid != null &&
-                EntMan.TryGetComponent<MetaDataComponent>(gridUid.Value, out var metaData))
-            // #ADT-Tweak End
-            {
-                stationName = metaData.EntityName;
-            }
-        }
-
         _menu = this.CreateWindow<CrewMonitoringWindow>();
 
-        // #ADT-Tweak Start - New Monitor: PdaBorderColor / UiVisuals theme
-        // Same pipeline as PDA: chassis color from PdaBorderColor.
-        // Horizontal/vertical accent strips are intentionally unused — the monitor
-        // uses cut-out left/right rails instead of a full rectangular bezel.
+        //ADT-Tweak Start - New Monitor: PdaBorderColor / UiVisuals theme
         if (EntMan.TryGetComponent<PdaBorderColorComponent>(Owner, out var border))
         {
             _menu.BorderColor = border.BorderColor;
@@ -48,11 +28,9 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
 
         if (EntMan.TryGetComponent<CrewMonitoringUiVisualsComponent>(Owner, out var visuals))
             _menu.ApplyScreenTheme(visuals.ThemeColor);
-        // #ADT-Tweak End
+        //ADT-Tweak End
 
-        _menu.Set(stationName, gridUid);
-
-        // #ADT-Tweak Start - New Monitor: BUI callbacks
+        //ADT-Tweak Start - New Monitor: BUI callbacks
         _menu.OnAlertMutedChanged = muted => SendMessage(new CrewMonitoringSetAlertMutedMessage(muted));
         _menu.OnAlertVolumeChanged = volume => SendMessage(new CrewMonitoringSetAlertVolumeMessage(volume));
         _menu.OnSelectServer = server => SendMessage(new CrewMonitoringSelectServerMessage(server));
@@ -60,7 +38,7 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
         _menu.OnScanComplete = () => SendMessage(new CrewMonitoringScanCompleteMessage());
         _menu.OnRescan = () => SendMessage(new CrewMonitoringRescanMessage());
         _menu.OnResetSensors = () => SendMessage(new CrewMonitoringResetSensorsMessage());
-        // #ADT-Tweak End
+        //ADT-Tweak End
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -71,10 +49,9 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
         {
             case CrewMonitoringState st:
                 EntMan.TryGetComponent<TransformComponent>(Owner, out var xform);
-                // #ADT-Tweak Start - New Monitor: pass full BUI state (was Sensors list + bool)
-                // _menu?.ShowSensors(st.Sensors, Owner, xform?.Coordinates, true); // ADT-Tweak
-                _menu?.ShowSensors(st, Owner, xform?.Coordinates); //ADT-Tweak: NewMonitor
-                // #ADT-Tweak End
+                //ADT-Tweak Start - New Monitor: pass full BUI state (was Sensors list + bool)
+                _menu?.ShowSensors(st, Owner, xform?.Coordinates);
+                //ADT-Tweak End
                 break;
         }
     }

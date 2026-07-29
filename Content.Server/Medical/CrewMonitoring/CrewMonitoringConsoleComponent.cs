@@ -1,7 +1,7 @@
 using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Medical.CrewMonitoring;
 using Robust.Shared.Audio;
-using Robust.Shared.Network;
+using Robust.Shared.Network;    // ADT-Tweak - New Monitor
 
 namespace Content.Server.Medical.CrewMonitoring;
 
@@ -40,14 +40,13 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
         Params = AudioParams.Default.WithVolume(8),
     };
 
+    // ADT-Tweak Start - New Monitor: alerts, server selection, scan, snapshot pipeline
     /// <summary>
     /// Cached localized department names for this console's filter.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public readonly HashSet<string> CachedDepartmentNames = new();
-    // ADT-Tweak-End
 
-    // #ADT-Tweak Start - New Monitor: alerts, server selection, scan, snapshot pipeline
     /// <summary>
     /// Sound played on crit/dead sensor edges and as a reminder while any remain.
     /// </summary>
@@ -177,5 +176,5 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public bool ServersListDirty = true;
-    // #ADT-Tweak End
+    // ADT-Tweak End
 }

@@ -4,7 +4,7 @@ using Robust.Shared.Map;
 
 namespace Content.Shared.Medical.CrewMonitoring;
 
-// #ADT-Tweak Start - New Monitor: server reference frame for framed coordinates
+// ADT-Tweak Start - New Monitor: server reference frame for framed coordinates
 [Serializable, NetSerializable]
 public sealed class CrewMonitoringReferenceFrame
 {
@@ -25,9 +25,9 @@ public sealed class CrewMonitoringReferenceFrame
         Name = name;
     }
 }
-// #ADT-Tweak End
+// ADT-Tweak End
 
-// #ADT-Tweak Start - New Monitor: server list entry for scan/select UI
+// ADT-Tweak Start - New Monitor: server list entry for scan/select UI
 [Serializable, NetSerializable]
 public sealed class CrewMonitoringServerEntry
 {
@@ -55,7 +55,7 @@ public sealed class CrewMonitoringServerEntry
         GridName = gridName ?? string.Empty;
     }
 }
-// #ADT-Tweak End
+// ADT-Tweak End
 
 [Serializable, NetSerializable]
 public enum CrewMonitoringUIKey
@@ -86,7 +86,7 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
     public List<SuitSensorStatus> Sensors;
     public bool IsEmagged; // ADT-Tweak
 
-    // #ADT-Tweak Start - New Monitor: BUI state fields (online, alerts, servers, scan, frame)
+    // ADT-Tweak Start - New Monitor: BUI state fields (online, alerts, servers, scan, frame)
     /// <summary>
     /// True if console is receiving data from a server.
     /// </summary>
@@ -146,7 +146,6 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
     /// Coordinate frame and circular coverage area of the selected server.
     /// </summary>
     public CrewMonitoringReferenceFrame? ReferenceFrame;
-    // #ADT-Tweak End
 
     public CrewMonitoringState(
         List<SuitSensorStatus> sensors,
@@ -167,7 +166,6 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
     {
         Sensors = sensors;
         IsEmagged = isEmagged;
-        // #ADT-Tweak Start - New Monitor: assign extended BUI state
         ServerOnline = serverOnline;
         ServerName = serverName;
         ServerAddress = serverAddress;
@@ -181,11 +179,11 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
         ServerGridUid = serverGridUid;
         SelectedServerUid = selectedServerUid;
         ReferenceFrame = referenceFrame;
-        // #ADT-Tweak End
+        // ADT-Tweak End
     }
 }
 
-// #ADT-Tweak Start - New Monitor: scan/select/alert BUI messages
+// ADT-Tweak Start - New Monitor: scan/select/alert BUI messages
 [Serializable, NetSerializable]
 public sealed class CrewMonitoringScanStartMessage : BoundUserInterfaceMessage
 {
@@ -201,7 +199,6 @@ public sealed class CrewMonitoringRescanMessage : BoundUserInterfaceMessage
 {
 }
 
-// #ADT-Tweak Start - New Monitor: reset snapshots BUI message
 /// <summary>
 /// Clears retained sensor snapshots and forces a fresh ingest from suit sensors.
 /// </summary>
@@ -209,8 +206,6 @@ public sealed class CrewMonitoringRescanMessage : BoundUserInterfaceMessage
 public sealed class CrewMonitoringResetSensorsMessage : BoundUserInterfaceMessage
 {
 }
-// #ADT-Tweak End
-
 
 [Serializable, NetSerializable]
 public sealed class CrewMonitoringSetAlertMutedMessage : BoundUserInterfaceMessage
@@ -247,4 +242,4 @@ public sealed class CrewMonitoringSelectServerMessage : BoundUserInterfaceMessag
         Server = server;
     }
 }
-// #ADT-Tweak End
+// ADT-Tweak End

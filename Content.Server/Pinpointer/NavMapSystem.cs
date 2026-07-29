@@ -289,18 +289,8 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
             tileData |= directions << (int) category;
         }
 
-        // #ADT-Tweak Start - New Monitor: also mask Window bits under airlocks
-        // // Remove walls that intersect with doors (unless they can both physically fit on the same tile)
-        // // TODO NAVMAP why can this even happen?
-        // // Is this for blast-doors or something?
-        //
-        // // Shift airlock bits over to the wall bits
-        // var shiftedAirlockBits = (tileData & AirlockMask) >> ((int) NavMapChunkType.Airlock - (int) NavMapChunkType.Wall);
-        //
-        // // And then mask door bits
-        // tileData &= ~shiftedAirlockBits;
-
-        // Remove walls/windows that intersect with doors (unless they can both physically fit on the same tile)
+        // ADT-Tweak Start - New Monitor: also mask Window bits under airlocks
+        // Remove walls that intersect with doors (unless they can both physically fit on the same tile)
         // TODO NAVMAP why can this even happen?
         // Is this for blast-doors or something?
 
@@ -308,7 +298,7 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
         var shiftedAirlockToWindow = (tileData & AirlockMask) >> ((int) NavMapChunkType.Airlock - (int) NavMapChunkType.Window);
         tileData &= ~shiftedAirlockToWall;
         tileData &= ~shiftedAirlockToWindow;
-        // #ADT-Tweak End
+        // ADT-Tweak End
 
         return (tileData, chunk);
     }

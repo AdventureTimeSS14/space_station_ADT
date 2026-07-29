@@ -4,9 +4,11 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Clothing;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+// using Content.Shared.DeviceNetwork;
 using Content.Shared.DoAfter;
 using Content.Shared.Emp;
 using Content.Shared.Examine;
+// using Content.Shared.GameTicking;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Medical.SuitSensor;
@@ -14,6 +16,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+// using Content.Shared.Station;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -25,6 +28,7 @@ namespace Content.Shared.Medical.SuitSensors;
 
 public abstract class SharedSuitSensorSystem : EntitySystem
 {
+    // [Dependency] private readonly SharedStationSystem _stationSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -39,12 +43,12 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
-    // #ADT-Tweak Start - New Monitor: wearer → OnMob sensor index
+    // ADT-Tweak Start - New Monitor: wearer -> OnMob sensor index
     /// <summary>
     /// Wearer → OnMob suit-sensor entity. Avoids an O(S) EntityQuery in GetSensorState.
     /// </summary>
     private readonly Dictionary<EntityUid, EntityUid> _onMobSensorsByWearer = new();
-    // #ADT-Tweak End
+    // ADT-Tweak End
 
     public override void Initialize()
     {
@@ -53,9 +57,9 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         SubscribeLocalEvent<SuitSensorComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SuitSensorComponent, ComponentStartup>(OnStartup); //ADT-Tweak: NewMonitor
         SubscribeLocalEvent<SuitSensorComponent, ComponentShutdown>(OnShutdown);
-        // #ADT-Tweak Start - New Monitor: PlayerSpawnCompleteEvent station assignment unused
+        // ADT-Tweak Start - New Monitor: PlayerSpawnCompleteEvent station assignment unused
         // SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
-        // #ADT-Tweak End
+        // ADT-Tweak End
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotUnequippedEvent>(OnUnequipped);
         SubscribeLocalEvent<SuitSensorComponent, EmpPulseEvent>(OnEmpPulse);
@@ -71,13 +75,13 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     private void OnMapInit(Entity<SuitSensorComponent> ent, ref MapInitEvent args)
     {
         // Fallback
-        // #ADT-Tweak Start - New Monitor: OnMob self-user + index at map init
+        // ADT-Tweak Start - New Monitor: OnMob self-user + index at map init
         if (ent.Comp.OnMob)
         {
             ent.Comp.User = ent.Owner;
             IndexOnMobSensor(ent);
         }
-        // #ADT-Tweak End
+        // ADT-Tweak End
 
         // generate random mode
         if (ent.Comp.RandomMode)
@@ -92,16 +96,17 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             };
             ent.Comp.Mode = _random.Pick(modesDist);
         }
-
+        // ADT-Tweak Start - NewMonitor:
         // Spread initial reports over the first interval so a round start does
         // not update every uniform on the same tick.
         ent.Comp.NextUpdate =
             _timing.CurTime +
             TimeSpan.FromSeconds(_random.NextFloat() * (float) ent.Comp.UpdateRate.TotalSeconds);
+        // ADT-Tweak End
         Dirty(ent);
     }
 
-    // #ADT-Tweak Start - New Monitor: OnMob startup/shutdown indexing
+    // ADT-Tweak Start - New Monitor: OnMob startup/shutdown indexing
     private void OnStartup(Entity<SuitSensorComponent> ent, ref ComponentStartup args)
     {
         if (!ent.Comp.OnMob)
@@ -119,7 +124,35 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         if (dirty)
             Dirty(ent);
     }
+    // ADT-Tweak Start - New Monitor: Deleted
+    // private void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)
+    // {
+    //     // If the player spawns in arrivals then the grid underneath them may not be appropriate.
+    //     // in which case we'll just use the station spawn code told us they are attached to and set all of their
+    //     // sensors.
+    //     RecursiveSensor(ev.Mob, ev.Station);
+    // }
 
+    // private void RecursiveSensor(EntityUid uid, EntityUid stationUid)
+    // {
+    //     var xform = Transform(uid);
+    //     var enumerator = xform.ChildEnumerator;
+
+    //     while (enumerator.MoveNext(out var child))
+    //     {
+    //         if (_sensorQuery.TryComp(child, out var sensor))
+    //         {
+    //             sensor.StationId = stationUid;
+    //             Dirty(child, sensor);
+    //         }
+
+    //         RecursiveSensor(child, stationUid);
+    //     }
+    // }
+
+    // ADT-Tweak End
+
+    // ADT-Tweak Start - New Monitor: New indexing
     protected virtual void OnShutdown(Entity<SuitSensorComponent> ent, ref ComponentShutdown args)
     {
         UnindexOnMobSensor(ent);
@@ -141,7 +174,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         if (_onMobSensorsByWearer.TryGetValue(ent.Comp.User.Value, out var indexed) && indexed == ent.Owner)
             _onMobSensorsByWearer.Remove(ent.Comp.User.Value);
     }
-    // #ADT-Tweak End
+    // ADT-Tweak End
 
     private void OnEquipped(Entity<SuitSensorComponent> ent, ref ClothingGotEquippedEvent args)
     {
@@ -220,14 +253,14 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         if (!_interactionSystem.InRangeUnobstructed(args.User, args.Target))
             return;
 
-        // #ADT-Tweak Start - New Monitor: OnMob skips wearer incapacitation check
+        //ADT-Tweak-Start
         if (!ent.Comp.OnMob)
         {
             // check if target is incapacitated (cuffed, dead, etc)
             if (ent.Comp.User != null && args.User != ent.Comp.User && _actionBlocker.CanInteract(ent.Comp.User.Value, null))
                 return;
         }
-        // #ADT-Tweak End
+        //ADT-Tweak-End
 
         args.Verbs.UnionWith(new[]
         {
@@ -240,8 +273,10 @@ public abstract class SharedSuitSensorSystem : EntitySystem
 
     private void OnInsert(Entity<SuitSensorComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
-        if (ent.Comp.OnMob) //ADT-Tweak: NewMonitor
+        //ADT-Tweak-Start
+        if (ent.Comp.OnMob)
             return;
+        //ADT-Tweak-End
 
         if (args.Container.ID != ent.Comp.ActivationContainer)
             return;
@@ -252,8 +287,10 @@ public abstract class SharedSuitSensorSystem : EntitySystem
 
     private void OnRemove(Entity<SuitSensorComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        if (ent.Comp.OnMob) //ADT-Tweak: NewMonitor
+        //ADT-Tweak-Start
+        if (ent.Comp.OnMob)
             return;
+        //ADT-Tweak-End
 
         if (args.Container.ID != ent.Comp.ActivationContainer)
             return;
@@ -385,7 +422,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         var sensor = ent.Comp1;
         var transform = ent.Comp2;
 
-        // #ADT-Tweak Start - New Monitor: prefer active OnMob sensor over uniform
+        // ADT-Tweak Start - New Monitor: prefer active OnMob sensor over uniform
         // Prefer an *active* OnMob sensor over the uniform. An Off OnMob sensor
         // must not silence the jumpsuit, or that wearer vanishes from monitors.
         if (!sensor.OnMob &&
@@ -396,7 +433,6 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         {
             return null;
         }
-        // #ADT-Tweak End
 
         // The wearer is the source of truth for position. Clothing can be inside
         // containers and neither the clothing nor the wearer has to be on a grid.
@@ -406,12 +442,13 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         {
             return null;
         }
+        // ADT-Tweak End
 
         // try to get mobs id from ID slot
         var userName = Loc.GetString("suit-sensor-component-unknown-name");
         var userJob = Loc.GetString("suit-sensor-component-unknown-job");
         var userJobIcon = "JobIconNoId";
-        List<string>? userJobDepartments = null;
+        List<string>? userJobDepartments = null;    // ADT-Tweak - New Monitor
 
         if (_idCardSystem.TryFindIdCard(sensor.User.Value, out var card))
         {
@@ -420,7 +457,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             if (card.Comp.LocalizedJobTitle != null)
                 userJob = card.Comp.LocalizedJobTitle;
             userJobIcon = card.Comp.JobIcon;
-
+            // ADT-Tweak Start - New Monitor
             if (card.Comp.JobDepartments.Count > 0)
             {
                 userJobDepartments = new List<string>(card.Comp.JobDepartments.Count);
@@ -433,15 +470,14 @@ public abstract class SharedSuitSensorSystem : EntitySystem
                 if (userJobDepartments.Count == 0)
                     userJobDepartments = null;
             }
+            // ADT-Tweak End
         }
 
-        userJobDepartments ??= SuitSensorStatus.NoDepartments;
+        userJobDepartments ??= SuitSensorStatus.NoDepartments;  // ADT-Tweak - New Monitor
 
         // get health mob state
-        // IsAlive = not dead (critical still counts as alive).
-        // IsCritical = MobState.Critical only — high damage while conscious is NOT crit.
         var isAlive = false;
-        var isCritical = false;
+        var isCritical = false; // ADT-Tweak - New Monitor: IsCritical = MobState.Critical only — high damage while conscious is NOT crit.
         if (TryComp(sensor.User.Value, out MobStateComponent? mobState))
         {
             isAlive = !_mobStateSystem.IsDead(sensor.User.Value, mobState);
@@ -451,8 +487,10 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         // finally, form suit sensor status
         var status = new SuitSensorStatus(GetNetEntity(sensor.User.Value), GetNetEntity(ent.Owner), userName, userJob, userJobIcon, userJobDepartments)
         {
+            // ADT-Tweak Start - NewMonitor
             IsAlive = isAlive,
-            IsCritical = isCritical, //ADT-Tweak: NewMonitor
+            IsCritical = isCritical,
+            // ADT-Tweak End
         };
         switch (sensor.Mode)
         {
@@ -463,7 +501,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             case SuitSensorMode.SensorCords:
             {
                 status.IsAlive = isAlive;
-
+                // ADT-Tweak Start - NewMonitor:
                 // Damage / threshold only for vitals+ modes — skip for binary.
                 if (TryComp<DamageableComponent>(sensor.User.Value, out var damageable))
                     status.TotalDamage = _damageableSystem.GetTotalDamage((sensor.User.Value, damageable)).Int();
@@ -473,6 +511,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
 
                 if (sensor.Mode != SuitSensorMode.SensorCords)
                     break;
+                // ADT-Tweak End
 
                 EntityCoordinates coordinates;
                 var xformQuery = GetEntityQuery<TransformComponent>();
@@ -497,54 +536,12 @@ public abstract class SharedSuitSensorSystem : EntitySystem
                 break;
             }
         }
-
-        // Preserve current sensor mode so the monitor UI can filter and mask data correctly.
-        status.Mode = sensor.Mode; //ADT-Tweak: NewMonitor
+        status.Mode = sensor.Mode;   //ADT-Tweak - NewMonitor: Preserve current sensor mode so the monitor UI can filter and mask data correctly.
 
         return status;
     }
 
-    // #ADT-Tweak Start - New Monitor: official DeviceNet / station-assignment helpers kept as reference
-    // /// <summary>
-    // /// Checks whether the sensor is assigned to a station or not
-    // /// and tries to assign an unassigned sensor to a station if it's currently on a grid.
-    // /// </summary>
-    // /// <returns>True if the sensor is assigned to a station or assigning it was successful. False otherwise.</returns>
-    // public bool CheckSensorAssignedStation(Entity<SuitSensorComponent> sensor)
-    // {
-    //     if (!sensor.Comp.StationId.HasValue && Transform(sensor.Owner).GridUid == null)
-    //         return false;
-    //
-    //     sensor.Comp.StationId = _stationSystem.GetOwningStation(sensor.Owner);
-    //     Dirty(sensor);
-    //     return sensor.Comp.StationId.HasValue;
-    // }
-    //
-    // private void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)
-    // {
-    //     // If the player spawns in arrivals then the grid underneath them may not be appropriate.
-    //     // in which case we'll just use the station spawn code told us they are attached to and set all of their
-    //     // sensors.
-    //     RecursiveSensor(ev.Mob, ev.Station);
-    // }
-    //
-    // private void RecursiveSensor(EntityUid uid, EntityUid stationUid)
-    // {
-    //     var xform = Transform(uid);
-    //     var enumerator = xform.ChildEnumerator;
-    //
-    //     while (enumerator.MoveNext(out var child))
-    //     {
-    //         if (_sensorQuery.TryComp(child, out var sensor))
-    //         {
-    //             sensor.StationId = stationUid;
-    //             Dirty(child, sensor);
-    //         }
-    //
-    //         RecursiveSensor(child, stationUid);
-    //     }
-    // }
-    //
+    // ADT-Tweak Start - NewMonitor: Unused Networking
     // /// <summary>
     // /// Create a device network package from the suit sensors status.
     // /// </summary>
@@ -606,5 +603,5 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     //     };
     //     return status;
     // }
-    // #ADT-Tweak End
+    // ADT-Tweak End
 }

@@ -56,7 +56,7 @@
   id: ClothingUniformBase
   components:
   - type: SuitSensor
-  # #ADT-Tweak Start - New Monitor: DeviceNet suit-sensor uplink disabled (IngestReport path)
+  # #ADT-Tweak Start - New Monitor: Deprecated
   # - type: DeviceNetwork
   #   deviceNetId: Wireless
   #   transmitFrequencyId: SuitSensor

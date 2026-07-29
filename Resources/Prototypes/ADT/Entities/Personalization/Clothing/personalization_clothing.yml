@@ -22,6 +22,15 @@
   id: ADTSponsorClothingUniformBase
   components:
   - type: SuitSensor
+  # ADT-Tweak Start - New Monitor: Deprecated
+  # - type: DeviceNetwork
+  #   deviceNetId: Wireless
+  #   transmitFrequencyId: SuitSensor
+  #   savableAddress: false
+  # - type: WirelessNetworkConnection
+  #   range: 1200
+  # - type: StationLimitedNetwork
+  # ADT-Tweak End
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
 

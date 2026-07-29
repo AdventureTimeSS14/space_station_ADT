@@ -29,9 +29,8 @@
       enum.CrewMonitoringUIKey.Key:
         type: CrewMonitoringBoundUserInterface
   - type: CrewMonitoringConsole
-    departments: [] #ADT-Tweak: NewMonitor
-  # #ADT-Tweak Start - New Monitor: handheld bezel + CRT theme
-  # Chassis #C9CFE3 + screen blue #609EFF sampled from handheldcrewmonitor.rsi
+    departments: [] # ADT-Tweak: No parameters == full access
+  # ADT-Tweak Start - New Monitor
   - type: PdaBorderColor
     borderColor: "#C9CFE3"
     accentVColor: "#609EFF"
@@ -43,9 +42,9 @@
     receiveFrequencyId: CrewMonitor
   - type: WirelessNetworkConnection
     range: 500
-  # #ADT-Tweak Start - New Monitor: StationLimitedNetwork disabled
+  # ADT-Tweak - New Monitor: StationLimitedNetwork disabled
   # - type: StationLimitedNetwork
-  # #ADT-Tweak End
+  # ADT-Tweak End
   - type: StaticPrice
     price: 500
   - type: Tag

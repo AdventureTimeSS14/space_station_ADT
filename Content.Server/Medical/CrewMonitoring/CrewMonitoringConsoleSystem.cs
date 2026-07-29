@@ -2,12 +2,16 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Medical.SuitSensors;
 using Content.Server.ADT.Medical.CrewMonitoring;
-using Content.Server.DeviceNetwork.Components;
-using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Pinpointer;
-using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Station.Systems;
+using Robust.Shared.Audio;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Timing;
+using Content.Server.DeviceNetwork.Components;
+using Content.Server.DeviceNetwork.Systems;
+using Content.Server.Popups;
 using Content.Shared.PowerCell;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.Emag.Systems;
@@ -15,11 +19,7 @@ using Content.Shared.Medical.CrewMonitoring;
 using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Pinpointer;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
-using Robust.Shared.Timing;
 // ADT-Tweak-Start
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
@@ -31,11 +31,11 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 {
     [Dependency] private readonly PowerCellSystem _cell = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    // ADT-Tweak Start - New Monitor: server subscriber
     [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
-    // #ADT-Tweak Start - New Monitor: server subscriber pipeline
     [Dependency] private readonly CrewMonitoringServerSystem _crewServers = default!;
     [Dependency] private readonly SuitSensorSystem _suitSensors = default!;
-    // #ADT-Tweak End
+    // ADT-Tweak End
 
 
     // ADT-Tweak-Start
@@ -44,7 +44,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     // ADT-Tweak-End
 
-    // #ADT-Tweak Start - New Monitor: scan/select/alerts/navmap/offline
+    // ADT-Tweak Start - New Monitor: scan/select/alerts/navmap/offline
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
@@ -55,7 +55,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     private const float ConsoleUpdateInterval = 0.5f;
     private float _consoleUpdateAccumulator;
     private List<Entity<MapGridComponent>> _navMapGridBuffer = new();
-    // #ADT-Tweak End
+    // ADT-Tweak End
 
     public override void Initialize()
     {
@@ -63,7 +63,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, BoundUIOpenedEvent>(OnUIOpened);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, GotEmaggedEvent>(OnEmagged); // ADT-Tweak
-        // #ADT-Tweak Start - New Monitor: BUI + server update subscriptions
+        // ADT-Tweak Start - New Monitor: BUI + server update subscriptions
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringSetAlertMutedMessage>(OnSetAlertMuted);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringSetAlertVolumeMessage>(OnSetAlertVolume);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringSelectServerMessage>(OnSelectServer);
@@ -73,10 +73,10 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringResetSensorsMessage>(OnResetSensors);
         SubscribeLocalEvent<CrewMonitoringServerComponent, EntityTerminatingEvent>(OnServerTerminating);
         SubscribeLocalEvent<CrewMonitoringServerComponent, CrewMonitoringServerUpdateEvent>(OnServerUpdate);
-        // #ADT-Tweak End
+        // ADT-Tweak End
     }
 
-    // #ADT-Tweak Start - New Monitor: scan / select / alert update loops
+    // ADT-Tweak Start - New Monitor: scan / select / alert update loops
     private void OnScanStart(EntityUid uid, CrewMonitoringConsoleComponent component, CrewMonitoringScanStartMessage args)
     {
         component.HasScanned = false;
@@ -150,8 +150,9 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         PopulateNavMapsForConsole(uid, component);
         UpdateUserInterface(uid, component);
     }
+    // ADT-Tweak End
 
-    // #ADT-Tweak Start - New Monitor: reset snapshots + force re-ingest
+    // ADT-Tweak Start - New Monitor: reset snapshots + force re-ingest
     private void OnResetSensors(EntityUid uid, CrewMonitoringConsoleComponent component, CrewMonitoringResetSensorsMessage args)
     {
         if (!component.HasScanned)
@@ -202,7 +203,6 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         PopulateNavMapsForConsole(uid, component);
         UpdateUserInterface(uid, component);
     }
-    // #ADT-Tweak End
 
     private void OnSelectServer(EntityUid uid, CrewMonitoringConsoleComponent component, CrewMonitoringSelectServerMessage args)
     {
@@ -317,8 +317,9 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             UpdateUserInterface(uid, comp);
         }
     }
+    // ADT-Tweak End
 
-    // #ADT-Tweak Start - New Monitor: edge + 30s reminder crit/dead alerts
+    // ADT-Tweak Start - New Monitor: edge + 30s reminder crit/dead alerts
     /// <summary>
     /// Reminder ping every <see cref="CrewMonitoringConsoleComponent.CritAlertInterval"/>
     /// while any filtered sensor remains crit or dead.
@@ -426,9 +427,9 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         _audio.PlayPvs(comp.CritAlertSound, uid, AudioParams.Default.WithVolume(volumeDb));
         return true;
     }
-    // #ADT-Tweak End
+    // ADT-Tweak End
 
-    // #ADT-Tweak Start - New Monitor: OnRemove unsubscribes from server
+    // ADT-Tweak Start - New Monitor: OnRemove unsubscribes from server
     private void OnRemove(EntityUid uid, CrewMonitoringConsoleComponent component, ComponentRemove args)
     {
         if (component.SelectedServerUid != null && TryComp<CrewMonitoringServerComponent>(component.SelectedServerUid.Value, out var serverComp))
@@ -436,9 +437,9 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         component.ConnectedSensors = new();
         component.LastReferenceFrame = null;
     }
-    // #ADT-Tweak End
+    // ADT-Tweak End
 
-    // #ADT-Tweak Start - New Monitor: server update / alert BUI handlers
+    // ADT-Tweak Start - New Monitor: server update / alert BUI handlers
     private void OnServerTerminating(EntityUid uid, CrewMonitoringServerComponent component, ref EntityTerminatingEvent args)
     {
         var subscribers = component.SubscriberConsoles.ToArray();
@@ -547,14 +548,14 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         component.AlertVolume = Math.Clamp(args.Volume, 0f, 1f);
         UpdateUserInterface(uid, component);
     }
-    // #ADT-Tweak End
+    // ADT-Tweak End
 
     private void OnUIOpened(EntityUid uid, CrewMonitoringConsoleComponent component, BoundUIOpenedEvent args)
     {
         if (!_cell.TryUseActivatableCharge(uid))
             return;
 
-        // #ADT-Tweak Start - New Monitor: re-subscribe + populate navmaps on UI open
+        // ADT-Tweak Start - New Monitor: re-subscribe + populate navmaps on UI open
         // Re-attach to the selected server if the previous subscription was dropped
         // (server idle cleanup, restart, etc.) while the console kept SelectedServerUid.
         if (component.SelectedServerUid != null &&
@@ -565,11 +566,11 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         }
 
         PopulateNavMapsForConsole(uid, component);
-        // #ADT-Tweak End
+        // ADT-Tweak End
         UpdateUserInterface(uid, component);
     }
 
-    // #ADT-Tweak Start - New Monitor: extended UpdateUserInterface state
+    // ADT-Tweak Start - New Monitor: extended UpdateUserInterface state
     private void UpdateUserInterface(EntityUid uid, CrewMonitoringConsoleComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -622,9 +623,9 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             component.LastReferenceFrame,
             component.AlertVolume));
     }
-    // #ADT-Tweak End
+    // ADT-Tweak End
 
-    // #ADT-Tweak Start - New Monitor: navmap / filter / server discovery helpers
+    // ADT-Tweak Start - New Monitor: navmap / filter / server discovery helpers
     private void PopulateNavMapsForConsole(EntityUid uid, CrewMonitoringConsoleComponent component)
     {
         var xform = Transform(uid);
@@ -876,9 +877,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         var hash = (uint)station.Value.GetHashCode();
         return $"ST-{(hash % 10000):D4}";
     }
-    // #ADT-Tweak End
 
-    // ADT-Tweak-Start
     private void OnEmagged(EntityUid uid, CrewMonitoringConsoleComponent component, ref GotEmaggedEvent ev)
     {
         if (ev.Handled || component.IsEmagged)
@@ -892,135 +891,4 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         ev.Handled = true;
     }
     // ADT-Tweak-End
-
-// #ADT-Tweak Start - New Monitor: official CrewMonitoringConsoleSystem kept as reference (DeviceNet path)
-// using System.Linq;
-// using Content.Server.DeviceNetwork;
-// using Content.Server.DeviceNetwork.Systems;
-// using Content.Server.Popups;
-// using Content.Shared.PowerCell;
-// using Content.Shared.DeviceNetwork;
-// using Content.Shared.DeviceNetwork.Events;
-// using Content.Shared.Emag.Systems;
-// using Content.Shared.Medical.CrewMonitoring;
-// using Content.Shared.Medical.SuitSensor;
-// using Content.Shared.Pinpointer;
-// using Robust.Server.GameObjects;
-// using Robust.Shared.Audio.Systems;
-// // ADT-Tweak-Start
-// using Robust.Shared.Prototypes;
-// using Content.Shared.Roles;
-// // ADT-Tweak-End
-//
-// namespace Content.Server.Medical.CrewMonitoring;
-//
-// public sealed class CrewMonitoringConsoleSystem : EntitySystem
-// {
-//     [Dependency] private readonly PowerCellSystem _cell = default!;
-//     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-//
-//
-//     // ADT-Tweak-Start
-//     [Dependency] private readonly IPrototypeManager _proto = default!;
-//     [Dependency] private readonly SharedAudioSystem _audio = default!;
-//     [Dependency] private readonly PopupSystem _popup = default!;
-//     // ADT-Tweak-End
-//
-//     public override void Initialize()
-//     {
-//         base.Initialize();
-//         SubscribeLocalEvent<CrewMonitoringConsoleComponent, ComponentRemove>(OnRemove);
-//         SubscribeLocalEvent<CrewMonitoringConsoleComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
-//         SubscribeLocalEvent<CrewMonitoringConsoleComponent, BoundUIOpenedEvent>(OnUIOpened);
-//         SubscribeLocalEvent<CrewMonitoringConsoleComponent, GotEmaggedEvent>(OnEmagged); // ADT-Tweak
-//     }
-//
-//     private void OnRemove(EntityUid uid, CrewMonitoringConsoleComponent component, ComponentRemove args)
-//     {
-//         component.ConnectedSensors.Clear();
-//     }
-//
-//     private void OnPacketReceived(EntityUid uid, CrewMonitoringConsoleComponent component, DeviceNetworkPacketEvent args)
-//     {
-//         var payload = args.Data;
-//
-//         // Check command
-//         if (!payload.TryGetValue(DeviceNetworkConstants.Command, out string? command))
-//             return;
-//
-//         if (command != DeviceNetworkConstants.CmdUpdatedState)
-//             return;
-//
-//         if (!payload.TryGetValue(SuitSensorConstants.NET_STATUS_COLLECTION, out Dictionary<string, SuitSensorStatus>? sensorStatus))
-//             return;
-//
-//         component.ConnectedSensors = sensorStatus;
-//         UpdateUserInterface(uid, component);
-//     }
-//
-//     private void OnUIOpened(EntityUid uid, CrewMonitoringConsoleComponent component, BoundUIOpenedEvent args)
-//     {
-//         if (!_cell.TryUseActivatableCharge(uid))
-//             return;
-//
-//         UpdateUserInterface(uid, component);
-//     }
-//
-//     private void UpdateUserInterface(EntityUid uid, CrewMonitoringConsoleComponent? component = null)
-//     {
-//         if (!Resolve(uid, ref component))
-//             return;
-//
-//         if (!_uiSystem.IsUiOpen(uid, CrewMonitoringUIKey.Key))
-//             return;
-//
-//         // The grid must have a NavMapComponent to visualize the map in the UI
-//         var xform = Transform(uid);
-//
-//         if (xform.GridUid != null)
-//             EnsureComp<NavMapComponent>(xform.GridUid.Value);
-//
-//         // Update all sensors info
-//         var allSensors = component.ConnectedSensors.Values.ToList();
-//
-//         //ADT-Tweak-Start: Filtering by departments
-//         if (component.Departments.Count > 0)
-//         {
-//             var allowedDepartmentNames = new List<string>();
-//             foreach (var dept in component.Departments)
-//             {
-//                 var deptId = dept.ToString();
-//                 if (_proto.TryIndex<DepartmentPrototype>(deptId, out var department))
-//                 {
-//                     var localizedDepartmentName = Loc.GetString(department.Name);
-//                     allowedDepartmentNames.Add(localizedDepartmentName);
-//                 }
-//             }
-//
-//             if (allowedDepartmentNames.Count > 0)
-//             {
-//                 allSensors = allSensors.Where(s => !s.JobDepartments.Any() ||
-//                     s.JobDepartments.Any(dept => allowedDepartmentNames.Contains(dept))).ToList();
-//             }
-//         }
-//         // ADT-Tweak-End
-//         _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(allSensors, true)); // ADT-Tweak
-//     }
-//
-//     // ADT-Tweak-Start
-//     private void OnEmagged(EntityUid uid, CrewMonitoringConsoleComponent component, ref GotEmaggedEvent ev)
-//     {
-//         if (ev.Handled || component.IsEmagged)
-//             return;
-//
-//         _audio.PlayPvs(component.SparkSound, uid);
-//         _popup.PopupEntity(Loc.GetString("crew-monitoring-component-upgrade-emag"), uid);
-//
-//         component.IsEmagged = true;
-//         UpdateUserInterface(uid, component);
-//         ev.Handled = true;
-//     }
-//     // ADT-Tweak-End
-// }
-// #ADT-Tweak End
 }

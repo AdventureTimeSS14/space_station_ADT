@@ -6,9 +6,6 @@
                SetSize="1330 760"
                MinSize="1050 560"
                MouseFilter="Stop">
-    <!-- #ADT-Tweak Start - New Monitor: chassis bezels / insets -->
-    <!-- Chassis rails: tucked under content edges; outer corners rounded -->
-    <!-- Left rail shifted -50px; window/content widened by the same amount. -->
     <PanelContainer Name="LeftBezel" Access="Public" SetWidth="80" MaxWidth="80"
                     HorizontalAlignment="Left" VerticalAlignment="Stretch"
                     Margin="-60 -10 0 -10" StyleClasses="PdaBackgroundRect"/>
@@ -22,7 +19,6 @@
                     HorizontalAlignment="Right" VerticalAlignment="Stretch"
                     Margin="0 -10 10 -10" StyleClasses="PdaBorderRect"/>
 
-    <!-- Dark inset strips on the inner third of each rail (lowered 7px) -->
     <Control HorizontalAlignment="Left" SetWidth="80" MaxWidth="80"
              VerticalAlignment="Stretch" Margin="-60 23 0 11" MouseFilter="Ignore">
         <PanelContainer Name="LeftBezelInset" SetWidth="27" MaxWidth="27"
@@ -35,27 +31,20 @@
                         HorizontalAlignment="Left" VerticalAlignment="Stretch"
                         MouseFilter="Ignore"/>
     </Control>
-    <!-- #ADT-Tweak End -->
 
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
-        <!-- #ADT-Tweak Start - New Monitor: custom title bar -->
-        <!-- Header -->
         <BoxContainer SetHeight="26" Margin="4 2 8 0" Orientation="Horizontal">
             <Control HorizontalExpand="True"/>
             <TextureButton Name="CloseButton" StyleClasses="windowCloseButton"
                            VerticalAlignment="Center" Margin="0 4 20 0"/>
         </BoxContainer>
-        <!-- #ADT-Tweak End -->
 
-        <!-- Content -->
         <Control Margin="10 0 80 0" RectClipContent="True" VerticalExpand="True" HorizontalExpand="True">
-            <!-- #ADT-Tweak Start - New Monitor: CRT content chrome -->
             <PanelContainer Name="ContentBorder" StyleClasses="PdaBackground"/>
             <Control Margin="3 3" HorizontalExpand="True" VerticalExpand="True">
                 <ui:CrtScanlineBackground Name="ContentBackground" HorizontalExpand="True" VerticalExpand="True"/>
                 <BoxContainer Name="ContentsContainer" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True"
                               StyleClasses="PdaContent" RectClipContent="True" Margin="2">
-            <!-- #ADT-Tweak End -->
                     <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True" MinHeight="0" SeparationOverride="0">
                         <PanelContainer Name="LeftPanelFrame" HorizontalExpand="True" VerticalExpand="True" Margin="8 8 4 8" MinHeight="0">
                             <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="0" MinHeight="0">
@@ -63,16 +52,13 @@
                                     <BoxContainer Orientation="Horizontal" MinHeight="38">
                                         <Label Name="StationName" Text="{Loc crew-monitoring-ui-no-station-label}"
                                                VerticalAlignment="Center" Margin="10 4" StyleClasses="LabelHeading"/>
-                                        <!-- #ADT-Tweak Start - New Monitor: server status header -->
                                         <BoxContainer Name="ServerStatusContainer" Orientation="Horizontal"
                                                       HorizontalAlignment="Right" HorizontalExpand="True"
                                                       VerticalAlignment="Center" Margin="8 4" Visible="false"/>
-                                        <!-- #ADT-Tweak End -->
                                     </BoxContainer>
                                 </controls:StripeBack>
                                 <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="0 6 0 0">
                                     <ui:CrewMonitoringNavMapControl Name="NavMap" HorizontalExpand="True" VerticalExpand="True"/>
-                                    <!-- #ADT-Tweak Start - New Monitor: map placeholder before server select -->
                                     <PanelContainer Name="MapPlaceholder" Visible="false" HorizontalExpand="True" VerticalExpand="True">
                                         <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                                             <Label Text="{Loc crew-monitoring-ui-scan-initializing}"
@@ -82,19 +68,14 @@
                                                    HorizontalAlignment="Center" Margin="0 8 0 0" FontColorOverride="DimGray"/>
                                         </BoxContainer>
                                     </PanelContainer>
-                                    <!-- #ADT-Tweak End -->
                                 </BoxContainer>
                             </BoxContainer>
                         </PanelContainer>
 
-                        <!-- #ADT-Tweak Start - New Monitor: panel divider -->
                         <PanelContainer Name="PanelDivider" SetWidth="2" VerticalExpand="True" Margin="0 12"/>
-                        <!-- #ADT-Tweak End -->
 
                         <PanelContainer Name="RightPanelFrame" SetWidth="450" Margin="4 8 8 8" VerticalExpand="True" MinHeight="0">
                             <BoxContainer Orientation="Vertical" SetWidth="438" Margin="6" Name="RightPanel" VerticalExpand="True" MinHeight="0">
-                            <!-- #ADT-Tweak Start - New Monitor: start-scan panel -->
-                            <!-- Before scan: one big button and progress bar -->
                             <BoxContainer Name="StartScanPanel" Orientation="Vertical" VerticalExpand="True">
                                 <Button Name="StartScanButton" Text="{Loc crew-monitoring-ui-start-scan}" HorizontalExpand="True"
                                         VerticalExpand="True" Margin="8" StyleClasses="BigButton"/>
@@ -112,21 +93,16 @@
                                     </BoxContainer>
                                 </PanelContainer>
                             </BoxContainer>
-                            <!-- #ADT-Tweak End -->
 
-                            <!-- #ADT-Tweak Start - New Monitor: sensors/servers tabs + wounded filter / reset -->
-                            <!-- After scan: tabs Датчики / Сервера -->
                             <TabContainer Name="MainTabs" VerticalExpand="True" Visible="false" MinHeight="0">
                                 <BoxContainer Orientation="Vertical" VerticalExpand="True" MinHeight="0">
                                     <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 0">
                                         <LineEdit Name="SearchLineEdit" HorizontalExpand="True"
                                                   PlaceHolder="{Loc crew-monitoring-ui-filter-line-placeholder}" />
-                                        <!-- #ADT-Tweak Start - New Monitor: wounded-only filter + reset snapshots -->
                                         <CheckBox Name="WoundedOnlyCheckbox" Text="{Loc crew-monitoring-ui-wounded-only}"
                                                   Margin="6 0 0 0"/>
                                         <Button Name="ResetSensorsButton" Text="{Loc crew-monitoring-ui-reset-sensors}"
                                                 Margin="6 0 0 0" MinWidth="90"/>
-                                        <!-- #ADT-Tweak End -->
                                     </BoxContainer>
                                     <ScrollContainer Name="SensorScroller"
                                                      VerticalExpand="True"
@@ -145,13 +121,10 @@
                                                Visible="false"/>
                                     </ScrollContainer>
                                 </BoxContainer>
-                                <!-- #ADT-Tweak Start - New Monitor: servers tab -->
                                 <ScrollContainer Name="ServersTabScroller" VerticalExpand="True" HorizontalExpand="True" Margin="8">
                                     <BoxContainer Name="ServersListContainer" Orientation="Vertical" HorizontalExpand="True"/>
                                 </ScrollContainer>
-                                <!-- #ADT-Tweak End -->
                             </TabContainer>
-                            <!-- #ADT-Tweak End -->
                         </BoxContainer>
                         </PanelContainer>
                     </BoxContainer>
@@ -159,8 +132,6 @@
             </Control>
         </Control>
 
-        <!-- #ADT-Tweak Start - New Monitor: compact footer -->
-        <!-- Footer: version + logo, full window width with 10px right margin -->
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SetHeight="18"
                       Margin="0 12 25 -6" VerticalAlignment="Center">
             <Control HorizontalExpand="True"/>
@@ -170,11 +141,10 @@
             <TextureRect Name="FooterLogo" StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
                          VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
         </BoxContainer>
-        <!-- #ADT-Tweak End -->
     </BoxContainer>
 </ui:CrewMonitoringWindow>
 
-<!-- #ADT-Tweak Start - New Monitor: official CrewMonitoringWindow.xaml kept as reference -->
+<!-- #ADT-Tweak Start - New Monitor: official CrewMonitoringWindow.xaml kept, all interface was refactored -->
 <!-- <controls:FancyWindow xmlns="https://spacestation14.io" -->
 <!--                xmlns:ui="clr-namespace:Content.Client.Medical.CrewMonitoring" -->
 <!--                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls" -->

@@ -97,7 +97,8 @@ namespace Content.Client.ContextMenu.UI
         {
             CancelOpen?.Cancel();
             CancelClose?.Cancel();
-            // #ADT-Tweak Start - New Monitor: clear cancelled tokens + close SetSensor submenus
+
+            //ADT-Tweak Start - New Monitor: clear cancelled tokens + close SetSensor submenus
             CancelOpen = null;
             CancelClose = null;
 
@@ -107,9 +108,9 @@ namespace Content.Client.ContextMenu.UI
             {
                 Menus.Pop().Close();
             }
-            // #ADT-Tweak End
-
             RootMenu.MenuBody.RemoveAllChildren();
+            //ADT-Tweak End
+
             OnContextClosed?.Invoke();
             RootMenu.Close();
         }

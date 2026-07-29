@@ -1,27 +1,22 @@
-using System.Numerics;
-using Content.Client.ADT.Medical.CrewMonitoring;
 using Content.Client.Pinpointer.UI;
+using Content.Client.ADT.Medical.CrewMonitoring;
 using Content.Client.ADT.Shuttles.UI;
 using Content.Client.Stylesheets;
-using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
-using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input;
-using Robust.Shared.IoC;
-using Robust.Shared.Localization;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Threading;
-using Robust.Shared.Timing;
 using Content.Shared.Atmos;
 using Content.Shared.Pinpointer;
+using System.Numerics;
+using Robust.Client.Graphics;
+using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Timing;
 
 namespace Content.Client.Medical.CrewMonitoring;
 
-/// <summary>
-/// Detailed station nav map with shuttle-radar geometry for surrounding grids.
-/// </summary>
 public sealed partial class CrewMonitoringNavMapControl : NavMapControl
 {
     // #ADT-Tweak Start - New Monitor: radar/navmap fields + corner alert UI
@@ -35,13 +30,13 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
 
     protected override Vector2 MidPointVector => PixelSize / 2f;
     protected override int MidPoint =>
-        Math.Max(1, (int) (Math.Min(PixelWidth, PixelHeight) / 2f));
+        Math.Max(1, (int)(Math.Min(PixelWidth, PixelHeight) / 2f));
     protected override int ScaledMinimapRadius =>
-        Math.Max(1, MidPoint - (int) (MinimapMargin * UIScale));
+        Math.Max(1, MidPoint - (int)(MinimapMargin * UIScale));
 
     private readonly SharedTransformSystem _transform;
     private readonly GridRadarRenderer _gridRenderer;
-    private readonly IGameTiming _timing;
+    private readonly IGameTiming _gameTiming;
     private List<Entity<MapGridComponent>> _grids = new();
     private readonly List<Vector2> _transformedEdgeVerts = new();
     private readonly Dictionary<EntityUid, ForeignNavCache> _foreignNavCaches = new();
@@ -79,7 +74,7 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
     public CrewMonitoringNavMapControl()
     {
         _transform = EntManager.System<SharedTransformSystem>();
-        _timing = IoCManager.Resolve<IGameTiming>();
+        _gameTiming = IoCManager.Resolve<IGameTiming>();
         _gridRenderer = new GridRadarRenderer(
             EntManager.System<SharedMapSystem>(),
             _parallel);
@@ -225,30 +220,30 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         drawingArea.AddChild(_cornerStack);
 
         // Pin focus card flush to the bottom-left corner; grow up/right from that point.
-        LayoutContainer.SetAnchorPreset(_trackedEntityPanel, LayoutContainer.LayoutPreset.BottomLeft);
-        LayoutContainer.SetMarginLeft(_trackedEntityPanel, 0);
-        LayoutContainer.SetMarginTop(_trackedEntityPanel, 0);
-        LayoutContainer.SetMarginRight(_trackedEntityPanel, 0);
-        LayoutContainer.SetMarginBottom(_trackedEntityPanel, 0);
-        LayoutContainer.SetGrowHorizontal(_trackedEntityPanel, LayoutContainer.GrowDirection.End);
-        LayoutContainer.SetGrowVertical(_trackedEntityPanel, LayoutContainer.GrowDirection.Begin);
+        SetAnchorPreset(_trackedEntityPanel, LayoutPreset.BottomLeft);
+        SetMarginLeft(_trackedEntityPanel, 0);
+        SetMarginTop(_trackedEntityPanel, 0);
+        SetMarginRight(_trackedEntityPanel, 0);
+        SetMarginBottom(_trackedEntityPanel, 0);
+        SetGrowHorizontal(_trackedEntityPanel, GrowDirection.End);
+        SetGrowVertical(_trackedEntityPanel, GrowDirection.Begin);
 
-        LayoutContainer.SetAnchorPreset(_cornerStack, LayoutContainer.LayoutPreset.BottomRight);
-        LayoutContainer.SetMarginLeft(_cornerStack, 0);
-        LayoutContainer.SetMarginTop(_cornerStack, 0);
-        LayoutContainer.SetMarginRight(_cornerStack, 0);
-        LayoutContainer.SetMarginBottom(_cornerStack, 0);
-        LayoutContainer.SetGrowHorizontal(_cornerStack, LayoutContainer.GrowDirection.Begin);
-        LayoutContainer.SetGrowVertical(_cornerStack, LayoutContainer.GrowDirection.Begin);
+        SetAnchorPreset(_cornerStack, LayoutPreset.BottomRight);
+        SetMarginLeft(_cornerStack, 0);
+        SetMarginTop(_cornerStack, 0);
+        SetMarginRight(_cornerStack, 0);
+        SetMarginBottom(_cornerStack, 0);
+        SetGrowHorizontal(_cornerStack, GrowDirection.Begin);
+        SetGrowVertical(_cornerStack, GrowDirection.Begin);
 
         ApplyAlertButtonVisuals(true);
 
         // Recenter on the connected monitoring server, not the grid physics center.
         RecenterButton.OnPressed += _ => RecenterToConnectedServer();
     }
-    // #ADT-Tweak End
+    //ADT-Tweak End
 
-    // #ADT-Tweak Start - New Monitor: theme / alert / draw / foreign nav helpers
+    //ADT-Tweak Start - New Monitor: theme / alert / draw / foreign nav helpers
     /// <summary>
     /// Snaps the map view to <see cref="SensorRangeCenter"/> (connected server) when available.
     /// </summary>
@@ -263,7 +258,7 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         Recentering = false;
     }
 
-    /// <summary>Outline color for neighboring grids / shuttles drawn in radar overlay.</summary>
+    /// Outline color for neighboring grids / shuttles drawn in radar overlay.
     public Color NeighborGridColor { get; set; } = Color.FromHex("#7DD5E8");
 
     public void ApplyTheme(Color wall, Color tile, Color? neighborGrid = null, StyleBoxFlat? toolbarButton = null, Color? toolbarPanel = null)
@@ -507,7 +502,7 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
             coverageRange = WorldRange * 1.5f;
         }
 
-        var now = _timing.CurTime;
+        var now = _gameTiming.CurTime;
         var queryChanged =
             _cachedGridQueryMap != mapId ||
             _cachedGridQueryRange < 0f ||
@@ -904,23 +899,23 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         if (closest.IsValid())
             SelectTrackedEntity(closest);
     }
+    //ADT-Tweak End
 
-    // #ADT-Tweak End
-
-    // #ADT-Tweak Start - New Monitor: rewritten FrameUpdate
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
 
-        if (Focus == null ||
-            !TrackedEntities.TryGetValue(Focus.Value, out var blip))
+        if (Focus == null || !TrackedEntities.TryGetValue(Focus.Value, out var blip))   //ADT-Tweak - New Monitor
         {
             _trackedEntityLabel.Text = string.Empty;
             _trackedEntityPanel.Visible = false;
+
+
             return;
         }
 
         if (!LocalizedNames.TryGetValue(Focus.Value, out var name))
+        //ADT-Tweak Start - New Monitor: rewritten FrameUpdate
             name = Loc.GetString("navmap-unknown-entity");
 
         var position = _transform.ToMapCoordinates(blip.Coordinates).Position;
@@ -931,91 +926,6 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
                 ("x", MathF.Round(position.X)),
                 ("y", MathF.Round(position.Y)));
         _trackedEntityPanel.Visible = true;
+        // #ADT-Tweak End
     }
-    // #ADT-Tweak End
-
-
 }
-
-// #ADT-Tweak Start - New Monitor: official CrewMonitoringNavMapControl kept as reference
-// using Content.Client.Pinpointer.UI;
-// using Robust.Client.Graphics;
-// using Robust.Client.UserInterface.Controls;
-// using Robust.Shared.Timing;
-//
-// namespace Content.Client.Medical.CrewMonitoring;
-//
-// public sealed partial class CrewMonitoringNavMapControl : NavMapControl
-// {
-//     public NetEntity? Focus;
-//     public Dictionary<NetEntity, string> LocalizedNames = new();
-//
-//     private Label _trackedEntityLabel;
-//     private PanelContainer _trackedEntityPanel;
-//
-//     public CrewMonitoringNavMapControl() : base()
-//     {
-//         WallColor = new Color(192, 122, 196);
-//         TileColor = new(71, 42, 72);
-//         BackgroundColor = Color.FromSrgb(TileColor.WithAlpha(BackgroundOpacity));
-//
-//         _trackedEntityLabel = new Label
-//         {
-//             Margin = new Thickness(10f, 8f),
-//             HorizontalAlignment = HAlignment.Center,
-//             VerticalAlignment = VAlignment.Center,
-//             Modulate = Color.White,
-//         };
-//
-//         _trackedEntityPanel = new PanelContainer
-//         {
-//             PanelOverride = new StyleBoxFlat
-//             {
-//                 BackgroundColor = BackgroundColor,
-//             },
-//
-//             Margin = new Thickness(5f, 10f),
-//             HorizontalAlignment = HAlignment.Left,
-//             VerticalAlignment = VAlignment.Bottom,
-//             Visible = false,
-//         };
-//
-//         _trackedEntityPanel.AddChild(_trackedEntityLabel);
-//         this.AddChild(_trackedEntityPanel);
-//     }
-//
-//     protected override void FrameUpdate(FrameEventArgs args)
-//     {
-//         base.FrameUpdate(args);
-//
-//         if (Focus == null)
-//         {
-//             _trackedEntityLabel.Text = string.Empty;
-//             _trackedEntityPanel.Visible = false;
-//
-//             return;
-//         }
-//
-//         foreach ((var netEntity, var blip) in TrackedEntities)
-//         {
-//             if (netEntity != Focus)
-//                 continue;
-//
-//             if (!LocalizedNames.TryGetValue(netEntity, out var name))
-//                 name = Loc.GetString("navmap-unknown-entity");
-//
-//             var message = name + "\n" + Loc.GetString("navmap-location",
-//                 ("x", MathF.Round(blip.Coordinates.X)),
-//                 ("y", MathF.Round(blip.Coordinates.Y)));
-//
-//             _trackedEntityLabel.Text = message;
-//             _trackedEntityPanel.Visible = true;
-//
-//             return;
-//         }
-//
-//         _trackedEntityLabel.Text = string.Empty;
-//         _trackedEntityPanel.Visible = false;
-//     }
-// }
-// #ADT-Tweak End

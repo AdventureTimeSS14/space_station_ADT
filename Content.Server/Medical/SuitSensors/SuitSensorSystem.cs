@@ -11,8 +11,8 @@ namespace Content.Server.Medical.SuitSensors;
 
 public sealed class SuitSensorSystem : SharedSuitSensorSystem
 {
-    // #ADT-Tweak Start - New Monitor: idle/wake report pipeline fields
-    [Dependency] private readonly IGameTiming _timing = default!;
+    // ADT-Tweak Start - New Monitor: idle/wake report pipeline fields
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly CrewMonitoringServerSystem _monitoringServers = default!;
 
     private static readonly TimeSpan CoordinatesUpdateRate = TimeSpan.FromSeconds(0.5);
@@ -28,9 +28,9 @@ public sealed class SuitSensorSystem : SharedSuitSensorSystem
     /// transitions bypass the normal UpdateRate timer.
     /// </summary>
     private readonly Dictionary<EntityUid, (SuitSensorMode Mode, EntityUid User, MobState MobState)> _lastReported = new();
-    // #ADT-Tweak End
+    // ADT-Tweak End
 
-    // #ADT-Tweak Start - New Monitor: immediate crit/dead reports
+    // ADT-Tweak Start - New Monitor: immediate crit/dead reports
     public override void Initialize()
     {
         base.Initialize();
@@ -78,75 +78,26 @@ public sealed class SuitSensorSystem : SharedSuitSensorSystem
             return;
 
         _lastReported.Clear();
-        var now = _timing.CurTime;
+        var now = _gameTiming.CurTime;
         var query = EntityQueryEnumerator<SuitSensorComponent>();
         while (query.MoveNext(out _, out var sensor))
             sensor.NextUpdate = now;
     }
-    // #ADT-Tweak End
+    // ADT-Tweak End
 
-    // #ADT-Tweak Start - New Monitor: clear report cache on shutdown
+    // ADT-Tweak Start - New Monitor: clear report cache on shutdown
     protected override void OnShutdown(Entity<SuitSensorComponent> ent, ref ComponentShutdown args)
     {
         base.OnShutdown(ent, ref args);
         _lastReported.Remove(ent.Owner);
     }
-    // #ADT-Tweak End
-
-    // #ADT-Tweak Start - New Monitor: IngestReport Update (subscriber-gated)
-    // Official DeviceNet Update path (kept for reference):
-    // public override void Update(float frameTime)
-    // {
-    //     base.Update(frameTime);
-    //
-    //     var curTime = _gameTiming.CurTime;
-    //     var sensors = EntityQueryEnumerator<SuitSensorComponent, DeviceNetworkComponent>();
-    //
-    //     while (sensors.MoveNext(out var uid, out var sensor, out var device))
-    //     {
-    //         if (device.TransmitFrequency is null)
-    //             continue;
-    //
-    //         // check if sensor is ready to update
-    //         if (curTime < sensor.NextUpdate)
-    //             continue;
-    //         sensor.NextUpdate += sensor.UpdateRate;
-    //
-    //         if (!CheckSensorAssignedStation((uid, sensor)))
-    //             continue;
-    //
-    //         // get sensor status
-    //         var status = GetSensorState((uid, sensor));
-    //         if (status == null)
-    //             continue;
-    //
-    //         //Retrieve active server address if the sensor isn't connected to a server
-    //         if (sensor.ConnectedServer == null)
-    //         {
-    //             if (!_singletonServerSystem.TryGetActiveServerAddress<CrewMonitoringServerComponent>(sensor.StationId!.Value, out var address))
-    //                 continue;
-    //
-    //             sensor.ConnectedServer = address;
-    //         }
-    //
-    //         // Send it to the connected server
-    //         var payload = SuitSensorToPacket(status);
-    //
-    //         // Clear the connected server if its address isn't on the network
-    //         if (!_deviceNetworkSystem.IsAddressPresent(device.DeviceNetId, sensor.ConnectedServer))
-    //         {
-    //             sensor.ConnectedServer = null;
-    //             continue;
-    //         }
-    //
-    //         _deviceNetworkSystem.QueuePacket(uid, sensor.ConnectedServer, payload, device: device);
-    //     }
-    // }
+    // ADT-Tweak End
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
+        // ADT-Tweak Start - New Monitor:
         // SuitSensorReportEvent is only consumed by crew-monitoring servers.
         // Building statuses every tick with no listeners allocates heavily and
         // shows up as periodic GC frame spikes (~10–20s Gen2 cadence).
@@ -158,7 +109,7 @@ public sealed class SuitSensorSystem : SharedSuitSensorSystem
             return;
         }
 
-        var now = _timing.CurTime;
+        var now = _gameTiming.CurTime;
         var wakeAll = !_wasReporting;
         _wasReporting = true;
 
@@ -170,8 +121,10 @@ public sealed class SuitSensorSystem : SharedSuitSensorSystem
 
             TryReportSensor(uid, sensor, sensorXform, force: false);
         }
+        // ADT-Tweak End
     }
 
+    // ADT-Tweak Start - New Monitor:
     /// <summary>
     /// Builds and ingests a suit-sensor report when due.
     /// <paramref name="force"/> skips the UpdateRate gate (used for crit/dead).
@@ -202,7 +155,7 @@ public sealed class SuitSensorSystem : SharedSuitSensorSystem
         if (sensor.Mode == SuitSensorMode.SensorOff && !stateChanged)
             return;
 
-        var now = _timing.CurTime;
+        var now = _gameTiming.CurTime;
         var urgent = IsUrgentMobState(mobState) ||
                      (hadPrevious && IsUrgentMobState(previous.MobState));
 
@@ -228,5 +181,5 @@ public sealed class SuitSensorSystem : SharedSuitSensorSystem
         _monitoringServers.IngestReport(in report, urgent: force || urgent);
         _lastReported[uid] = reportState;
     }
-    // #ADT-Tweak End
+    // ADT-Tweak End
 }

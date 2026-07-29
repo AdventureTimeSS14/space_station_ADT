@@ -12,10 +12,7 @@ namespace Content.Shared.Pinpointer;
 
 public abstract class SharedNavMapSystem : EntitySystem
 {
-    // #ADT-Tweak Start - New Monitor: separate Window category (was 3 categories, Window under WallTags)
-    // public const int Categories = 3;
-    public const int Categories = 4;
-    // #ADT-Tweak End
+    public const int Categories = 4; // ADT-Tweak - New Monitor: separate Window category (was 3 categories, Window under WallTags)
     public const int Directions = 4; // Not directly tied to number of atmos directions
 
     public const int ChunkSize = 8;
@@ -25,18 +22,16 @@ public abstract class SharedNavMapSystem : EntitySystem
     public const int AirlockMask = AllDirMask << (int) NavMapChunkType.Airlock;
     public const int WallMask = AllDirMask << (int) NavMapChunkType.Wall;
     public const int FloorMask = AllDirMask << (int) NavMapChunkType.Floor;
-    // #ADT-Tweak Start - New Monitor: WindowMask
-    public const int WindowMask = AllDirMask << (int) NavMapChunkType.Window;
-    // #ADT-Tweak End
+    public const int WindowMask = AllDirMask << (int) NavMapChunkType.Window;   // ADT-Tweak - New Monitor: WindowMask
 
     [Robust.Shared.IoC.Dependency] private readonly TagSystem _tagSystem = default!;
     [Robust.Shared.IoC.Dependency] private readonly INetManager _net = default!;
 
-    // #ADT-Tweak Start - New Monitor: Wall/Window tags split (was WallTags = Wall+Window)
+    // ADT-Tweak Start - New Monitor: Wall/Window tags split (was WallTags = Wall+Window)
     // private static readonly ProtoId<TagPrototype>[] WallTags = {"Wall", "Window"};
     private static readonly ProtoId<TagPrototype> WallTag = "Wall";
     private static readonly ProtoId<TagPrototype> WindowTag = "Window";
-    // #ADT-Tweak End
+    // ADT-Tweak End
     private EntityQuery<NavMapDoorComponent> _doorQuery;
 
     public override void Initialize()
@@ -72,7 +67,7 @@ public abstract class SharedNavMapSystem : EntitySystem
         if (_doorQuery.HasComp(uid))
             return NavMapChunkType.Airlock;
 
-        // #ADT-Tweak Start - New Monitor: Window wins over Wall (was HasAnyTag WallTags → Wall)
+        // ADT-Tweak Start - New Monitor: Window wins over Wall (was HasAnyTag WallTags → Wall)
         // if (_tagSystem.HasAnyTag(uid, WallTags))
         //     return NavMapChunkType.Wall;
         // Windows must win over walls — some glass prototypes also carry structural tags.
@@ -81,7 +76,7 @@ public abstract class SharedNavMapSystem : EntitySystem
 
         if (_tagSystem.HasTag(uid, WallTag))
             return NavMapChunkType.Wall;
-        // #ADT-Tweak End
+        // ADT-Tweak End
 
         return NavMapChunkType.Invalid;
     }

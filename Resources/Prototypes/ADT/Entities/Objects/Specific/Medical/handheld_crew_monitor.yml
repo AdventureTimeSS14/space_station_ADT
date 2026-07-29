@@ -6,7 +6,6 @@
   components:
   - type: CrewMonitoringConsole
     departments: [Security]
-  # Dark steel chassis + red SB/brigmedic screen theme
   - type: PdaBorderColor
     borderColor: "#5C5C73"
     accentHColor: "#E53935"
@@ -33,7 +32,6 @@
   components:
   - type: CrewMonitoringConsole
     departments: [Security, Command, CentralCommand]
-  # Dark steel chassis + blue screen from blueshield_handheldcrewmonitor.rsi
   - type: PdaBorderColor
     borderColor: "#5C5C73"
     accentVColor: "#6098F8"

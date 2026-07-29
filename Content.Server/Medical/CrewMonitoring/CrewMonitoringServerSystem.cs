@@ -2,22 +2,23 @@ using System.Numerics;
 using Content.Server.ADT.Medical.CrewMonitoring;
 using Content.Server.ADT.Medical.SuitSensors;
 using Content.Server.DeviceNetwork.Components;
+using Content.Shared.Medical.SuitSensors;
+using Robust.Shared.Map;
+using Robust.Shared.Random;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Power.Components;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.Medical.CrewMonitoring;
 using Content.Shared.Medical.SuitSensor;
-using Content.Shared.Medical.SuitSensors;
-using Robust.Shared.Map;
-using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Medical.CrewMonitoring;
 
 public sealed class CrewMonitoringServerSystem : EntitySystem
 {
-    // #ADT-Tweak Start - New Monitor: publish/subscriber fields
-    [Dependency] private readonly IGameTiming _timing = default!;
+    // ADT-Tweak Start - New Monitor: publish/subscriber fields
+    // [Dependency] private readonly SuitSensorSystem _sensors = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -34,19 +35,22 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
 
     /// <summary>True when any crew-monitor console is listening to any server.</summary>
     public bool HasAnySubscribers => _serversWithSubscribers > 0;
-    // #ADT-Tweak End
+    // ADT-Tweak End
 
-    // #ADT-Tweak Start - New Monitor: Initialize subscriptions
+
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<CrewMonitoringServerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<CrewMonitoringServerComponent, ComponentRemove>(OnRemove);
-        SubscribeLocalEvent<SuitSensorComponent, SuitSensorReportEvent>(OnSensorReport);
-    }
-    // #ADT-Tweak End
 
-    // #ADT-Tweak Start - New Monitor: subscriber API + IngestReport
+        // ADT-Tweak Start - New Monitor: Initialize subscriptions
+        SubscribeLocalEvent<CrewMonitoringServerComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<SuitSensorComponent, SuitSensorReportEvent>(OnSensorReport);
+        // ADT-Tweak End
+    }
+
+
+    // ADT-Tweak Start - New Monitor: subscriber API + IngestReport
     /// <summary>
     /// Registers a console as listening to this server. Enables global sensor reporting on first subscriber.
     /// </summary>
@@ -123,7 +127,7 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
                 continue;
             }
 
-            var now = _timing.CurTime;
+            var now = _gameTiming.CurTime;
             // Always have a frame-local position available so Off/stale entries
             // can keep (or backfill) the last known location.
             var worldLocal = Vector2.Transform(
@@ -225,9 +229,9 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         _serversWithSubscribers = Math.Max(0, _serversWithSubscribers - 1);
         EnterIdle(server);
     }
-    // #ADT-Tweak End
+    // ADT-Tweak End
 
-    // #ADT-Tweak Start - New Monitor: map init + report relay
+    // ADT-Tweak Start - New Monitor: map init + report relay
     private void OnMapInit(EntityUid uid, CrewMonitoringServerComponent component, MapInitEvent args)
     {
         component.ServerAddress ??= $"10.0.{_random.Next(256)}.{_random.Next(256)}";
@@ -240,9 +244,9 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
     {
         IngestReport(in report);
     }
-    // #ADT-Tweak End
+    // ADT-Tweak End
 
-    // #ADT-Tweak Start - New Monitor: publish tick Update
+    // ADT-Tweak Start - New Monitor: publish tick Update
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -326,11 +330,11 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
     private static bool IsUrgentStatus(SuitSensorStatus status)
     {
         // Dead or true softcrit (unconscious) — not merely high damage while awake.
-        return !status.IsAlive || status.IsCritical; //ADT-Tweak: NewMonitor
+        return !status.IsAlive || status.IsCritical;
     }
-    // #ADT-Tweak End
+    // ADT-Tweak End
 
-    // #ADT-Tweak Start - New Monitor: snapshot helpers
+    // ADT-Tweak Start - New Monitor: snapshot helpers
     /// <summary>Shared empty snapshot — must never be mutated.</summary>
     private static readonly Dictionary<string, SuitSensorStatus> EmptySensorSnapshot = new();
 
@@ -365,9 +369,9 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         if (changed)
             server.SnapshotDirty = true;
     }
-    // #ADT-Tweak End
+    // ADT-Tweak End
 
-    // #ADT-Tweak Start - New Monitor: OnRemove clears subscribers/snapshots
+    // ADT-Tweak Start - New Monitor: OnRemove clears subscribers/snapshots
     private void OnRemove(
         EntityUid uid,
         CrewMonitoringServerComponent component,
@@ -381,9 +385,9 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         component.SubscriberConsoles.Clear();
         component.ReferenceFrame = null;
     }
-    // #ADT-Tweak End
+    // ADT-Tweak End
 
-    // #ADT-Tweak Start - New Monitor: reference frame / timeout / cull helpers
+    // ADT-Tweak Start - New Monitor: reference frame / timeout / cull helpers
     /// <summary>
     /// Rebuilds the reference frame only when grid/map, origin, range, or name actually changed.
     /// </summary>
@@ -436,7 +440,7 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         _removeBuffer.Clear();
         foreach (var (key, status) in component.SensorStatus)
         {
-            if ((_timing.CurTime - status.Timestamp).TotalSeconds > component.SensorTimeout)
+            if ((_gameTiming.CurTime - status.Timestamp).TotalSeconds > component.SensorTimeout)
                 _removeBuffer.Add(key);
         }
 
@@ -511,7 +515,7 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         {
             Timestamp = timestamp,
             IsAlive = source.IsAlive,
-            IsCritical = source.IsCritical, //ADT-Tweak: NewMonitor
+            IsCritical = source.IsCritical,
             TotalDamage = source.TotalDamage,
             TotalDamageThreshold = source.TotalDamageThreshold,
             Coordinates = coordinates,
@@ -531,7 +535,7 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
             existing.Job != incoming.Job ||
             existing.JobIcon != incoming.JobIcon ||
             existing.IsAlive != incoming.IsAlive ||
-            existing.IsCritical != incoming.IsCritical || //ADT-Tweak: NewMonitor
+            existing.IsCritical != incoming.IsCritical ||
             existing.TotalDamage != incoming.TotalDamage ||
             existing.TotalDamageThreshold != incoming.TotalDamageThreshold ||
             !Nullable.Equals(existing.Coordinates, framedCoords) ||
@@ -550,121 +554,4 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
 
         return true;
     }
-    // #ADT-Tweak End
-
-// #ADT-Tweak Start - New Monitor: official CrewMonitoringServerSystem kept as reference (DeviceNet path)
-// using Content.Server.DeviceNetwork.Systems;
-// using Content.Server.Medical.SuitSensors;
-// using Content.Shared.DeviceNetwork;
-// using Content.Shared.DeviceNetwork.Events;
-// using Content.Shared.Medical.SuitSensor;
-// using Robust.Shared.Timing;
-// using Content.Shared.DeviceNetwork.Components;
-//
-// namespace Content.Server.Medical.CrewMonitoring;
-//
-// public sealed class CrewMonitoringServerSystem : EntitySystem
-// {
-//     [Dependency] private readonly SuitSensorSystem _sensors = default!;
-//     [Dependency] private readonly IGameTiming _gameTiming = default!;
-//     [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
-//     [Dependency] private readonly SingletonDeviceNetServerSystem _singletonServerSystem = default!;
-//
-//     private const float UpdateRate = 3f;
-//     private float _updateDiff;
-//
-//     public override void Initialize()
-//     {
-//         base.Initialize();
-//         SubscribeLocalEvent<CrewMonitoringServerComponent, ComponentRemove>(OnRemove);
-//         SubscribeLocalEvent<CrewMonitoringServerComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
-//         SubscribeLocalEvent<CrewMonitoringServerComponent, DeviceNetServerDisconnectedEvent>(OnDisconnected);
-//     }
-//
-//     public override void Update(float frameTime)
-//     {
-//         base.Update(frameTime);
-//
-//         // check update rate
-//         _updateDiff += frameTime;
-//         if (_updateDiff < UpdateRate)
-//             return;
-//         _updateDiff -= UpdateRate;
-//
-//         var servers = EntityQueryEnumerator<CrewMonitoringServerComponent>();
-//
-//         while (servers.MoveNext(out var id, out var server))
-//         {
-//             if (!_singletonServerSystem.IsActiveServer(id))
-//                 continue;
-//
-//             UpdateTimeout(id);
-//             BroadcastSensorStatus(id, server);
-//         }
-//     }
-//
-//     /// <summary>
-//     /// Adds or updates a sensor status entry if the received package is a sensor status update
-//     /// </summary>
-//     private void OnPacketReceived(EntityUid uid, CrewMonitoringServerComponent component, DeviceNetworkPacketEvent args)
-//     {
-//         var sensorStatus = _sensors.PacketToSuitSensor(args.Data);
-//         if (sensorStatus == null)
-//             return;
-//
-//         sensorStatus.Timestamp = _gameTiming.CurTime;
-//         component.SensorStatus[args.SenderAddress] = sensorStatus;
-//     }
-//
-//     /// <summary>
-//     /// Clears the servers sensor status list
-//     /// </summary>
-//     private void OnRemove(EntityUid uid, CrewMonitoringServerComponent component, ComponentRemove args)
-//     {
-//         component.SensorStatus.Clear();
-//     }
-//
-//     /// <summary>
-//     /// Drop the sensor status if it hasn't been updated for to long
-//     /// </summary>
-//     private void UpdateTimeout(EntityUid uid, CrewMonitoringServerComponent? component = null)
-//     {
-//         if (!Resolve(uid, ref component))
-//             return;
-//
-//         foreach (var (address, sensor) in component.SensorStatus)
-//         {
-//             var dif = _gameTiming.CurTime - sensor.Timestamp;
-//             if (dif.Seconds > component.SensorTimeout)
-//                 component.SensorStatus.Remove(address);
-//         }
-//     }
-//
-//     /// <summary>
-//     /// Broadcasts the status of all connected sensors
-//     /// </summary>
-//     private void BroadcastSensorStatus(EntityUid uid, CrewMonitoringServerComponent? serverComponent = null, DeviceNetworkComponent? device = null)
-//     {
-//         if (!Resolve(uid, ref serverComponent, ref device))
-//             return;
-//
-//         var payload = new NetworkPayload()
-//         {
-//             [DeviceNetworkConstants.Command] = DeviceNetworkConstants.CmdUpdatedState,
-//             [SuitSensorConstants.NET_STATUS_COLLECTION] = serverComponent.SensorStatus
-//         };
-//
-//         _deviceNetworkSystem.QueuePacket(uid, null, payload, device: device);
-//     }
-//
-//     /// <summary>
-//     /// Clears sensor data on disconnect
-//     /// </summary>
-//     private void OnDisconnected(EntityUid uid, CrewMonitoringServerComponent component, ref DeviceNetServerDisconnectedEvent _)
-//     {
-//         component.SensorStatus.Clear();
-//     }
-// }
-// #ADT-Tweak End
-}
-
+    // ADT-Tweak End

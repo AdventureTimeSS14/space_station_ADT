@@ -7,11 +7,14 @@ namespace Content.Shared.Medical.SuitSensor;
 [Serializable, NetSerializable]
 public sealed class SuitSensorStatus
 {
+
+    // ADT-Tweak Start - New Monitor
     /// <summary>
     /// Shared empty department list for statuses with no ID departments.
     /// Must never be mutated.
     /// </summary>
-    public static readonly List<string> NoDepartments = new(); //ADT-Tweak: NewMonitor
+    public static readonly List<string> NoDepartments = new();
+    // ADT-Tweak End
 
     public SuitSensorStatus(NetEntity ownerUid, NetEntity suitSensorUid, string name, string job, string jobIcon, List<string> jobDepartments)
     {
