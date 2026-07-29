@@ -1,0 +1,33 @@
+{
+    "version": 1,
+    "size": {
+      "x": 64,
+      "y": 64
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprite by Сычик",
+    "states":
+    [
+      {
+        "name": "butcher_icon"
+      },
+
+      {
+        "name": "butcher",
+        "directions": 4
+      },
+
+      {
+        "name": "butcher_dead",
+        "directions": 1
+      },
+        {
+        "name": "butcher_sleep",
+        "directions": 1
+      },
+      {
+        "name": "butcher_glowing",
+        "directions": 4
+      }
+    ]
+  }

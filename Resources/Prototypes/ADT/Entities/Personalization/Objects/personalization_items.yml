@@ -1798,6 +1798,17 @@
         - ReagentId: Nutriment
           Quantity: 3
 
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieKelly
+  name: plush Kelly
+  description: A seemingly ordinary toy with a lemon-and-lemon-grass scent. The scarf was clearly knotted by someone after it was made, and there's a tag on it that reads, "From the Red Fox."
+  suffix: Personal, kiwi_fruit
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_kelly
+
 # Archeron, заслуженный модератор
 
 - type: entity
@@ -2244,6 +2255,24 @@
           Quantity: 10
   - type: Whistle
     distance: 5
+
+- type: entity
+  parent: BaseImplanter
+  id: ADTAnagiriHomemadeexplanter
+  name: implanter
+  description: A bulky syringe designed for extracting subcutaneous implants. It contains many obscure parts, buttons, and light indicators. It looks like it was assembled from improvised materials.
+  suffix: Personal, Anagiri
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/anagiri_homemade_explanter.rsi
+    state: implanter0
+  - type: Item
+    sprite: ADT/Personalization/anagiri_homemade_explanter.rsi
+    inhandVisuals:
+      left:
+      - state: implanter-inhand-left
+      right:
+      - state: implanter-inhand-right
 
 #kringe
 - type: entity
@@ -3112,7 +3141,7 @@
   flavor: adtfleche
   color: "#d2b48c"
   metabolisms:
-    Digestion:
+    Metabolites:
       effects:
       - !type:SatiateThirst
         factor: 5
@@ -3822,6 +3851,30 @@
   - type: PickableWeapon
 
 - type: entity
+  parent: BaseBallBat
+  id: ADTStryzAniAssaultSledgehammer
+  name: assault sledgehammer
+  description: A simple assault sledgehammer with a wide-swinging handle is perfect for breaking down doors. It has a tape with an inscription in a language you don't understand.
+  suffix: Personal, stryz_ani
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/stryz_ani/assault_sledgehammer.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 13
+        Structural: 7.5
+    soundHit: "/Audio/ADT/Weapons/Melee/bat.ogg"
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 12
+        Structural: 12.5
+  - type: UseDelay
+    delay: 1
+
+- type: entity
   parent: PlushieMoth
   id: ADTPlushieDreamer
   name: plush Dreamer
@@ -3912,5 +3965,9 @@
     damage:
       types:
         Piercing: 12
+  - type: ThrowingAngle
+    angle: 245
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
 
 #SPONSOR-ITEMS-END

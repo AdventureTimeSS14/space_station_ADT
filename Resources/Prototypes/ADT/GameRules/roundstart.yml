@@ -137,18 +137,6 @@
 
 #Пары из антагов
 - type: entity
-  id: ChangelingDuo
-  parent: Changeling
-  components:
-  - type: GameRule
-    minPlayers: 25
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ Changeling ]
-      max: 2
-      playerRatio: 15
-
-- type: entity
   parent: BaseTraitorRule
   id: TraitorDuoGameRule
   components:
@@ -294,3 +282,54 @@
     sets:
     - groups: TraitorLightObjectiveGroups
     maxDifficulty: 8
+
+# Blob
+- type: entity
+  id: BlobRule
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BlobRule
+  - type: GameRule
+
+- type: entity
+  id: BlobGameMode
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BlobRule
+  - type: GameRule
+    minPlayers: 20
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ ADTBlob ]
+      allowNonHumans: true
+      blacklist:
+        components:
+        - CommandStaff
+        - AntagImmune
+      briefing:
+        text: blob-carrier-role-greeting
+        color: Plum
+        sound: /Audio/Announcements/bloblarm.ogg
+      mindRoles:
+      - ADTMindRoleBlob
+
+- type: entity
+  id: BlobSpawn
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StationEvent
+    weight: 6
+    duration: 1
+    earliestStart: 50
+    minimumPlayers: 20
+    maxOccurrences: 2
+  - type: GameRule
+  - type: BlobSpawnRule
+    carrierBlobProtos:
+    - ADTSpawnPointGhostBlobRat
+    playersPerCarrierBlob: 30
+    maxCarrierBlob: 1

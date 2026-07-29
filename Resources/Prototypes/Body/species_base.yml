@@ -81,9 +81,9 @@
     - Weakness #ADT-Weakness-Tweak
     - Electrocution
     - RatvarianLanguage
-    - PressureImmunity
     - Muted
     - Pacified
+    - PressureImmunity
     - Flashed
     - Adrenaline
     - ADTHallucinations # ADT-Tweak
@@ -193,6 +193,7 @@
   id: BaseSpeciesMobOrganic
   save: false
   components:
+  - type: Absorbable # ADT-Tweak
   - type: MobState # ADT-Tweak
   - type: OfferItem # ADT-Tweak
   - type: RadiationPopup # ADT-Tweak

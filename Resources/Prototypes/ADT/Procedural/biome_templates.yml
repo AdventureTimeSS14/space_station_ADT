@@ -97,7 +97,7 @@
         - FloraRockSolid
 
     - !type:BiomeEntityLayer
-      threshold: 0.97
+      threshold: 0.965
       noise:
         seed: 0
         noiseType: OpenSimplex2
@@ -106,18 +106,6 @@
         - FloorBasalt
       entities:
         - ADTSpawnMobPRandomLavaland
-
-    - !type:BiomeEntityLayer
-      threshold: 0.995
-      noise:
-        seed: 0
-        noiseType: OpenSimplex2
-        frequency: 0.6
-        lacunarity: 0.6
-      allowedTiles:
-        - FloorBasalt
-      entities:
-        - LavaDungeonRoomMarker
 
     - !type:BiomeEntityLayer
       threshold: 0.2
@@ -147,6 +135,27 @@
         gain: 0.4
       entities:
       - FloorChasmEntity
+
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorBasalt
+      threshold: 0.55
+      noise:
+        seed: 7
+        noiseType: Cellular
+        frequency: 0.06
+        lacunarity: 2
+        fractalType: FBm
+        octaves: 3
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+      entities:
+        - ADTWallRockAncient
+        - ADTWallRockAncient
+        - ADTWallRockAncient
+        - ADTWallRockAncient
+        - ADTWallRockAncientUranium
+        - ADTWallRockAncientDiamond
 
     # Rock formations
     - !type:BiomeEntityLayer
@@ -181,12 +190,11 @@
       allowedTiles:
         - FloorBasalt
       entities:
-        - FloraTreeSnow
-        - FloraTreeSnow
-        - FloraTreeSnow
-        - FloraTreeSnow
-        - FloraTreeSnow
-        - FloraTreeSnow
+        - FloraRockSolid
+        - FloraRockSolid
+        - BasaltOne
+        - BasaltThree
+        - BasaltFive
 
     # Fill basalt
     - !type:BiomeTileLayer

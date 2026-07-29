@@ -71,31 +71,6 @@
         Heat: 0.9
         Radiation: 0.9
 
-- type: entity
-  parent: [ ADTClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
-  id: ADTClothingHeadHelmetIlisium
-  categories: [ HideSpawnMenu ]
-  name: helmet
-  description: Ilisium
-  suffix: Ilisium
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Head/Hardsuits/helmet_ili.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Head/Hardsuits/helmet_ili.rsi
-  - type: PointLight
-    color: red
-  - type: PressureProtection
-    highPressureMultiplier: 0.08
-    lowPressureMultiplier: 1000
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.90
-        Slash: 0.65
-        Heat: 0.80
-        Radiation: 0.95
-
 # Blueshield
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
@@ -130,6 +105,7 @@
         shader: unshaded
   - type: PointLight
     color: "#fff7cd"
+    radius: 5
   - type: Armor
     modifiers:
       coefficients:
@@ -266,7 +242,7 @@
   #   color: cyan
   - type: PointLight
     color: "#c53dff"
-    #radius: 1.1
+    radius: 10
     energy: 6
   - type: PressureProtection
     highPressureMultiplier: 0.08

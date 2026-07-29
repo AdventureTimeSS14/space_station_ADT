@@ -10,8 +10,28 @@
   id: ADTMagazineUraniumPack
   recipes:
   - ADTMagazineMagnumIncendiary
+  # - ADTMagazineMagnumUranium # ADT-Tweak - вырезан крафт урановых патронов, перенесён в AmmoTechFabUraniumStatic
+  # - ADTMagazineShotgunUranium # ADT-Tweak - вырезан крафт урановых патронов, перенесён в AmmoTechFabUraniumStatic
+
+# ADT-Tweak start - урановые патроны, вынесенные из веток исследований СБ, доступны только на патронфабе
+- type: latheRecipePack
+  id: AmmoTechFabUraniumStatic
+  recipes:
+  - MagazineRifleUranium
+  - MagazineBoxRifleUranium
+  - MagazineLightRifleUranium
+  - MagazineBoxLightRifleUranium
+  - MagazinePistolUranium
+  - MagazinePistolSubMachineGunUranium
+  - MagazineBoxPistolUranium
+  - SpeedLoaderMagnumUranium
+  - MagazineBoxMagnumUranium
+  - BoxShotgunUranium
   - ADTMagazineMagnumUranium
   - ADTMagazineShotgunUranium
+  - ADTMagazineBoxMagnumLesserUranium
+  - ADTSpeedLoaderMagnumLesserUranium
+# ADT-Tweak end
 
 
 - type: latheRecipePack

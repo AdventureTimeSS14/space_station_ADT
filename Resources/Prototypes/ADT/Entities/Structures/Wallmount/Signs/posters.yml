@@ -920,3 +920,13 @@
   - type: Sprite
     sprite: ADT/Structures/Wallmounts/posters.rsi
     state: standart
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterVLM
+  name: "Vox Lives Matter"
+  description: 'A poster calling for an end to discrimination against the Vox. At the bottom, in small print, it reads: "That is why the Vox are a great people."'
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: VLM

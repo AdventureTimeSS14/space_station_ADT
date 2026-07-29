@@ -390,6 +390,7 @@
     - ADTModsuitPack
     - ADTGygaxPack
     - ADTOdysseusPack
+    - ADTArchimedesPack
     - ADTClarkePack
     - ADTDurandPack
     - ADTPhazonPack
@@ -535,6 +536,9 @@
       unlitRunningState: unlit-building
       staticPacks:
       - SecurityAmmoStatic
+      # ADT-Tweak start - урановые патроны, вырезанные из веток исследований СБ
+      - AmmoTechFabUraniumStatic
+      # ADT-Tweak end
     - type: EmagLatheRecipes
       emagStaticPacks:
       - SyndicateAmmoStatic
@@ -728,8 +732,6 @@
       - OreSmelting
       - RGlassSmelting
       - ADTBScrystalSmelting #ADT Tweak
-      # ADT-Tweak раскомментить и пересмотреть рецепты после добавления обломков с металлоломом
-      #- ScrapSmeltingBasic #ADT tweak
     # ADT tweak start
     - type: AutoMaterialInsert
       tag: ADTOreBag
@@ -757,9 +759,6 @@
     - RGlassSmelting
     - AdvancedSmelting
     - ADTBScrystalSmelting #ADT Tweak
-# ADT-Tweak раскомментить и пересмотреть рецепты после добавления обломков с металлоломом
-#    - ScrapSmeltingBasic #ADT tweak
-#    - ScrapSmeltingAdvanced #ADT tweak
 
 - type: entity
   parent: BaseLathe

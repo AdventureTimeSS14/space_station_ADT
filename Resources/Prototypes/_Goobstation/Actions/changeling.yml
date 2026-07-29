@@ -1,0 +1,851 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+## abilities
+
+# starting
+- type: entity
+  parent: BaseAction
+  id: ActionEvolutionMenu
+  name: Open evolution menu
+  description: Opens the evolution menu.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: evolution_menu
+  - type: InstantAction
+    event: !type:OpenEvolutionMenuEvent {}
+  - type: ChangelingAction
+    useOnFire: true
+    useInLesserForm: true
+    useInLastResort: true
+
+- type: entity
+  parent: BaseAction
+  id: ActionAbsorbDNA
+  name: Absorb DNA
+  description: Absorb the target's DNA, husking them in the process. Costs 25 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: absorb_dna
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:AbsorbDNAEvent {}
+  - type: ChangelingAction
+    useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 25
+
+- type: entity
+  parent: BaseAction
+  id: ActionStingExtractDNA
+  name: Extract DNA sting
+  description: Steal your target's genetic information. Costs 25 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: sting_extractdna
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:StingExtractDNAEvent {}
+  - type: ChangelingAction
+    useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 25
+
+- type: entity
+  parent: BaseAction
+  id: ActionChangelingTransformCycle
+  name: Cycle DNA
+  description: Cycle your available DNA.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: transform_cycle
+  - type: InstantAction
+    event: !type:ChangelingTransformCycleEvent {}
+  - type: ChangelingAction
+    useOnFire: true
+    useInLesserForm: true
+
+- type: entity
+  parent: BaseAction
+  id: ActionChangelingTransform
+  name: Transform
+  description: Transform into another humanoid. Doesn't come with clothes. Costs 5 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: NoItem
+    checkCanInteract: true
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: transform
+  - type: InstantAction
+    event: !type:ChangelingTransformEvent {}
+  - type: ChangelingAction
+    useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 5
+
+- type: entity
+  parent: BaseAction
+  id: ActionRegenerativeStasis
+  name: Regenerative Stasis
+  description: Prepare/leave regenerative stasis. Costs 15 chemicals to leave.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: stasis_enter
+    iconOn:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: stasis_exit
+  - type: InstantAction
+    event: !type:ChangelingStasisEvent {}
+  - type: ChangelingAction
+    useOnFire: true
+    useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 15
+
+- type: entity
+  parent: BaseAction
+  id: ActionRegenerate
+  name: Regenerate
+  description: Restore blood, stop bleeding and heal wounds. Costs 15 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 2 # ADT
+    checkCanInteract: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: regrow
+  - type: InstantAction
+    event: !type:ChangelingRegenerateEvent {}
+  - type: ChangelingAction
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 15
+
+# combat
+- type: entity
+  parent: BaseAction
+  id: ActionToggleArmblade
+  name: Toggle Arm Blade
+  description: Reform one of your arms into a strong blade, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 2
+    raiseOnAction: true # ADT-Tweak
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: armblade
+  - type: InstantAction
+    event: !type:OnRetractableItemActionEvent {} # ADT-Tweak
+  - type: ChangelingAction
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 15
+  - type: RetractableItemAction # ADT-Tweak
+    spawnedPrototype: ArmBladeChangeling
+    summonSounds:
+      collection: gib
+    retractSounds:
+      collection: gib
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleHammer
+  name: Toggle Arm Hammer
+  description: Reform one of your arms into a strong hammer, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 2
+    raiseOnAction: true # ADT-Tweak
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: hammer
+  - type: InstantAction
+    event: !type:OnRetractableItemActionEvent {} # ADT-Tweak
+  - type: ChangelingAction
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 15
+  - type: RetractableItemAction # ADT-Tweak
+    spawnedPrototype: ArmHammerChangeling
+    summonSounds:
+      collection: gib
+    retractSounds:
+      collection: gib
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleClaw
+  name: Toggle Arm Claw
+  description: Reform one of your arms into a strong claw, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 2
+    raiseOnAction: true # ADT-Tweak
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: claw
+  - type: InstantAction
+    event: !type:OnRetractableItemActionEvent {} # ADT-Tweak
+  - type: ChangelingAction
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 15
+  - type: RetractableItemAction # ADT-Tweak
+    spawnedPrototype: ArmClawChangeling
+    summonSounds:
+      collection: gib
+    retractSounds:
+      collection: gib
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleDartGun
+  name: Toggle Dart Gun
+  description: Reform one of your arms into a dart gun, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 2
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: dartgun
+  - type: InstantAction
+    event: !type:ToggleDartGunEvent {}
+  - type: ChangelingAction
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 15
+
+- type: entity
+  parent: BaseAction
+  id: ActionCreateBoneShard
+  name: Form Bone Shard
+  description: Break off shards of your bone and shape them into a throwing star. Costs 15 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: bone_shard
+  - type: InstantAction
+    event: !type:CreateBoneShardEvent {}
+  - type: ChangelingAction
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 15
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleChitinousArmor
+  name: Toggle Armor
+  description: Inflate your body into an all-consuming chitinous mass of armor. Costs 25 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 2
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: chitinous_armor
+  - type: InstantAction
+    event: !type:ToggleChitinousArmorEvent {}
+  - type: ChangelingAction
+    requireAbsorbed: 2
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 25
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleOrganicShield
+  name: Form Shield
+  description: Reform one of your arms into a large, fleshy shield. Costs 20 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 2
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: organic_shield
+  - type: InstantAction
+    event: !type:ToggleOrganicShieldEvent {}
+  - type: ChangelingAction
+    requireAbsorbed: 1
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 20
+
+- type: entity
+  parent: BaseAction
+  id: ActionShriekDissonant
+  name: Dissonant Shriek
+  description: Emit an EMP blast, with just your voice. Costs 30 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 45
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: shriek_dissonant
+  - type: InstantAction
+    event: !type:ShriekDissonantEvent {}
+  - type: ChangelingAction
+    useOnFire: true
+    useInLesserForm: true
+    requireAbsorbed: 1
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 30
+
+- type: entity
+  parent: BaseAction
+  id: ActionShriekResonant
+  name: Resonant Shriek
+  description: Disorient people and break lights, with just your voice. Costs 30 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 45
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: shriek_resonant
+  - type: InstantAction
+    event: !type:ShriekResonantEvent {}
+  - type: ChangelingAction
+    useOnFire: true
+    useInLesserForm: true
+    requireAbsorbed: 1
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 30
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleStrainedMuscles
+  name: Strain Muscles
+  description: Move at extremely fast speeds. Deals stamina damage.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: strained_muscles
+  - type: InstantAction
+    event: !type:ToggleStrainedMusclesEvent {}
+  - type: ChangelingAction
+    useOnFire: true
+    useInLesserForm: true
+
+# stings
+- type: entity
+  parent: BaseAction
+  id: ActionStingBlind
+  name: Blind Sting
+  description: Silently sting your target, blinding them for a short time and rendering them near sighted. Costs 25 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1.5
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: sting_blind
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:StingReagentEvent {}
+  - type: ChangelingAction
+    useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingBlind
+    dartGunAmmo: StingBlind
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 25
+
+- type: entity
+  parent: BaseAction
+  id: ActionStingCryo
+  name: Cryogenic Sting
+  description: Silently sting your target, constantly slowing and freezing them. Costs 25 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1.5
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: sting_cryo
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:StingReagentEvent {}
+  - type: ChangelingAction
+    useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingCryo
+    dartGunAmmo: StingCryo
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 25
+
+- type: entity
+  parent: BaseAction
+  id: ActionStingLethargic
+  name: Lethargic Sting
+  description: Silently inject a cocktail of anesthetics into the target. Costs 30 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1.5
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: sting_lethargic
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:StingReagentEvent {}
+  - type: ChangelingAction
+    useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingLethargic
+    dartGunAmmo: StingLethargic
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 30
+
+- type: entity
+  parent: BaseAction
+  id: ActionStingMute
+  name: Mute Sting
+  description: Silently sting your target, completely silencing them for a short time. Costs 25 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1.5
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: sting_mute
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:StingReagentEvent {}
+  - type: ChangelingAction
+    useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingMute
+    dartGunAmmo: StingMute
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 25
+
+- type: entity
+  parent: BaseAction
+  id: ActionStingFakeArmblade
+  name: Fake Armblade Sting
+  description: Silently sting your target, making them grow a dull armblade for a short time. Costs 30 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1.5
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: sting_armblade
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:StingFakeArmbladeEvent {}
+  - type: ChangelingAction
+    useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 30
+
+- type: entity
+  parent: BaseAction
+  id: ActionStingTransform
+  name: Transformation Sting
+  description: Silently sting your target, transforming them into a person of your choosing. Costs 75 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: sting_transform
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:StingTransformEvent {}
+  - type: ChangelingAction
+    useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 75
+
+- type: entity
+  parent: BaseAction
+  id: ActionLayEgg
+  name: Lay Egg
+  description: Plant an egg in a dead corpse which will mature into a new form for us.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: lay_egg
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:StingLayEggsEvent {}
+  - type: ChangelingAction
+    useInLastResort: true
+
+# utility
+- type: entity
+  parent: BaseAction
+  id: ActionAnatomicPanacea
+  name: Anatomic Panacea
+  description: Cure yourself of diseases, disabilities, radiation, toxins, drunkedness and brain damage. Costs 30 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: anatomic_panacea
+  - type: InstantAction
+    event: !type:ActionAnatomicPanaceaEvent {}
+  - type: ChangelingAction
+    useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 30
+
+- type: entity
+  parent: BaseAction
+  id: ActionAugmentedEyesight
+  name: Augmented Eyesight
+  description: Toggle x-ray vision.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1
+    checkCanInteract: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: augmented_eyesight
+  - type: InstantAction
+    event: !type:ActionAugmentedEyesightEvent {}
+  - type: ChangelingAction
+    useOnFire: true
+    useInLesserForm: true
+    useInLastResort: true
+
+- type: entity
+  parent: BaseAction
+  id: ActionBiodegrade
+  name: Biodegrade
+  description: Vomit a caustic substance onto any restraints, or someone's face. Costs 30 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: biodegrade
+  - type: InstantAction
+    event: !type:ActionBiodegradeEvent {}
+  - type: ChangelingAction
+    useOnFire: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 30
+
+- type: entity
+  parent: BaseAction
+  id: ActionChameleonSkin
+  name: Chameleon Skin
+  description: Slowly blend in with the environment. Costs 20 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: chameleon_skin
+  - type: InstantAction
+    event: !type:ActionChameleonSkinEvent {}
+  - type: ChangelingAction
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 25
+
+- type: entity
+  parent: BaseAction
+  id: ActionDarknessAdaption
+  name: Darkness Adaption
+  description: Toggle becoming translucent and gaining night vision in the darkness. Costs 10 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: darkness_adaption
+  - type: InstantAction
+    event: !type:ActionDarknessAdaptionEvent {}
+  - type: ChangelingAction
+    useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 10
+
+- type: entity
+  parent: BaseAction
+  id: ActionAdrenalineReserves
+  name: Adrenaline Reserves
+  description: Release powerful adrenaline from your glands. Costs 30 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 3
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: epinephrine_overdose
+  - type: InstantAction
+    event: !type:ActionAdrenalineReservesEvent {}
+  - type: ChangelingAction
+    useOnFire: true
+    useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 30
+
+- type: entity
+  parent: BaseAction
+  id: ActionFleshmend
+  name: Fleshmend
+  description: Rapidly heal yourself. Costs 30 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: fleshmend
+  - type: InstantAction
+    event: !type:ActionFleshmendEvent {}
+  - type: ChangelingAction
+    useInLesserForm: true
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 30
+
+- type: entity
+  parent: BaseAction
+  id: ActionLastResort
+  name: Last Resort
+  description: Abandon your current body and escape in the form of a headslug. Costs 20 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: last_resort
+  - type: ConfirmableAction
+    popup: changeling-lastresort-activate
+  - type: InstantAction
+    event: !type:ActionLastResortEvent {}
+  - type: ChangelingAction
+    useOnFire: true
+    useInLesserForm: true
+    requireAbsorbed: 1
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 20
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleLesserForm
+  name: Lesser Form
+  description: Abandon your current form and transform into a monkey. Costs 20 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+    checkCanInteract: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: lesser_form
+  - type: InstantAction
+    event: !type:ActionLesserFormEvent {}
+  - type: ChangelingAction
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 20
+
+- type: entity
+  parent: BaseAction
+  id: ActionHivemindAccess
+  name: Hivemind Access
+  description: Tune your chemical receptors for hivemind communication.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: hivemind_access
+  - type: InstantAction
+    event: !type:ActionHivemindAccessEvent {}
+  - type: ChangelingAction
+    useOnFire: true
+    useInLesserForm: true
+
+- type: entity
+  parent: BaseAction
+  id: ActionAbsorbBiomatter
+  name: Absorb Biomatter
+  description: Absorb a food item to regain some chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: absorb_biomatter
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Edible
+    canTargetSelf: false
+    event: !type:AbsorbBiomatterEvent {}
+  - type: ChangelingAction
+    useInLesserForm: true
+    useInLastResort: true

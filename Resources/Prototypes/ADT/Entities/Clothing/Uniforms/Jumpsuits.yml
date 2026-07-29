@@ -297,18 +297,6 @@
         Piercing: 0.8
         Heat: 0.9
 
-- type: entity
-  parent: ClothingUniformBase
-  id: ADTClothingUniformIlisium
-  name: Suit Ilisiom
-  description: Suit Ilisiom
-  suffix: Ilisium
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/uniform_ili.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/uniform_ili.rsi
-
 #Стильномат
 
 - type: entity
@@ -851,17 +839,6 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_sec_moges_gray.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_sec_moges_gray.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ADTClothingUniformCyberSun
-  name: Cybersun jumpsuit
-  description: Simple and style.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/cybersun.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/cybersun.rsi
 
 #Игры Кальмара
 
@@ -1472,7 +1449,7 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.6
-        Heat: 0.6
+        Blunt: 0.9 # 0.7 > 0.9
+        Slash: 0.9 # 0.7 > 0.9
+        Piercing: 0.95 # 0.6 > 0.95
+        Heat: 0.9 # 0.6 > 0.9
