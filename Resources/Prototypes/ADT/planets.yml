@@ -33,6 +33,7 @@
     - MobDrake
     - ADTMegaFaunaBubblegum
     - BloodMinerDungeMarker
+    - ADTHierophantArenaSpawner
   - type: FTLDestination
   - type: WeatherScheduler # Regular storms
     stages:
