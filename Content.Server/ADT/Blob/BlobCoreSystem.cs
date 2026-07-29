@@ -200,6 +200,13 @@ public sealed class BlobCoreSystem : EntitySystem
             return;
         }
 
+        var station = _stationSystem.GetOwningStation(blobObserverComponent.Core);
+        if (station == null)
+        {
+            args.Cancelled = true;
+            return;
+        }
+
         ent.Comp.Target = BlobCaptureConditionComponent.VictoryThreshold;
     }
 
