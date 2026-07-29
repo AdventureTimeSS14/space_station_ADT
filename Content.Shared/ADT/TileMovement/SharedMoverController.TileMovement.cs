@@ -15,6 +15,7 @@ public abstract partial class SharedMoverController
 {
     protected EntityQuery<TileMovementComponent> TileMovementQuery;
     protected EntityQuery<NPCTileMovementComponent> NpcTileMovementQuery;
+    protected EntityQuery<ActorComponent> ActorQuery;
 
     private TimeSpan TileMovementCurrentTime => PhysicsSystem.EffectiveCurTime ?? Timing.CurTime;
 
@@ -27,6 +28,7 @@ public abstract partial class SharedMoverController
     {
         TileMovementQuery = GetEntityQuery<TileMovementComponent>();
         NpcTileMovementQuery = GetEntityQuery<NPCTileMovementComponent>();
+        ActorQuery = GetEntityQuery<ActorComponent>();
     }
 
     /// <summary>
@@ -51,7 +53,7 @@ public abstract partial class SharedMoverController
         EntityUid? relaySource,
         float frameTime)
     {
-        var isNpc = NpcTileMovementQuery.HasComponent(uid);
+        var isNpc = NpcTileMovementQuery.HasComponent(uid) && !ActorQuery.HasComponent(uid);
         var wishButtons = GetTileMoveButtons(uid, inputMover, isNpc);
 
         if (tileMovement.WasWeightlessLastTick)
