@@ -237,8 +237,8 @@
 - type: entity
   parent: VendingMachine
   id: ADTVendingMachineMusician
-  name: Музыкомат
-  description: Торговый аппарат с музыкальными инструментами.
+  name: Musicianmat
+  description: A vending machine with musical instruments for a musician.
   components:
   - type: VendingMachine
     pack: ADTMusicomatInventory

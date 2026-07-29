@@ -68,8 +68,8 @@
 - type: entity
   parent: ADTSecuredVendingMachineRestock
   id: ADTRestockmusicianomat
-  name: Ящик пополнения музыкомата
-  description: А ну скорей любите нас, вам крупно повезло! Загрузите это в ближайший торгомат музыкомата.
+  name: Musicianomat
+  description: A box containing musical supplies for the Musicianomat vending machine. A label reads THE BOX IS TAMPER PROOF AND WILL DESTROY IT'S CONTENT ON HARM.
   components:
   - type: VendingMachineRestock
     canRestock:
