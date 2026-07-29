@@ -205,9 +205,11 @@
       charger_slot:
         ejectOnInteract: true
         whitelist:
+          # ADT-Tweak-Start
           tags:
-          - ADTEnergyShield # ADT-Tweak
-          - ADTResonator # ADT-Tweak
+          - ADTEnergyShield
+          - ADTResonator
+          # ADT-Tweak-End
           components:
           - BatteryAmmoProvider
           - Stunbaton
@@ -246,9 +248,11 @@
       charger_slot:
         ejectOnInteract: true
         whitelist:
+          # ADT-Tweak-Start
           tags:
-          - ADTEnergyShield # ADT-Tweak
-          - ADTResonator # ADT-Tweak
+          - ADTEnergyShield
+          - ADTResonator
+          # ADT-Tweak-End
           components:
           - BatteryAmmoProvider
           - Stunbaton
