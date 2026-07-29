@@ -897,4 +897,14 @@
 - type: Tag
   id: XenobiologyAdamantineExtract
 
+- type: Tag
+  id: XenoSlime
+
+- type: Tag
+  id: XenoNozzleBackTank
+
+- type: Tag
+  id: XenoVacNozzle
+
+
 # XENOBIO - END

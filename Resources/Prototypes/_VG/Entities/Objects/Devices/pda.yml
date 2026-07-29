@@ -1,7 +1,0 @@
-- type: entity
-  parent: SciencePDA
-  id: XenobioPDA
-  name: xenobiologist PDA
-  components:
-  - type: Pda
-    id: XenobioIDCard
