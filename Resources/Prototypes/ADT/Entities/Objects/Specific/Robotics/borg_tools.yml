@@ -26,3 +26,5 @@
           - 0.615413716
     - type: Jetpack
       moleUsage: 0
+    - type: Physics
+      bodyType: KinematicController
