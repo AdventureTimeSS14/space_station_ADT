@@ -5,7 +5,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _VG/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#595959"
       shader: XenoMetallic

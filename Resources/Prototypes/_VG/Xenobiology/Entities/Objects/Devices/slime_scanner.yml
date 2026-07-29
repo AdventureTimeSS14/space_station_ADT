@@ -6,7 +6,7 @@
   components:
   - type: SlimeScanner
   - type: Sprite
-    sprite: _VG/Xenobiology/Specific/Xenobiology/slime_scanner.rsi
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_scanner.rsi
     layers:
     - state: icon
     - state: analyzer

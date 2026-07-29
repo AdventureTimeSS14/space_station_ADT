@@ -528,9 +528,9 @@
   description: A slime-resistant pouch intended for use by Xenobiologists. Smells of.. plasma?
   components:
   - type: Sprite
-    sprite: _VG/Clothing/Belt/xenobag.rsi
+    sprite: ADT/Clothing/Belt/xenobag.rsi
   - type: Clothing
-    sprite: _VG/Clothing/Belt/xenobag.rsi
+    sprite: ADT/Clothing/Belt/xenobag.rsi
   - type: Storage
     whitelist:
       tags:
@@ -547,9 +547,9 @@
   description: A larger slime-resistant pouch intended for use by Xenobiologists. Smells of bluespace extract and monkey hair.
   components:
   - type: Sprite
-    sprite: _VG/Clothing/Belt/xenobag_holding.rsi
+    sprite: ADT/Clothing/Belt/xenobag_holding.rsi
   - type: Clothing
-    sprite: _VG/Clothing/Belt/xenobag_holding.rsi
+    sprite: ADT/Clothing/Belt/xenobag_holding.rsi
   - type: Storage
     grid:
     - 0,0,19,9

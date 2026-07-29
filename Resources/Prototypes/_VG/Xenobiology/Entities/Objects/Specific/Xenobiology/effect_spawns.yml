@@ -20,7 +20,7 @@
   - type: Physics
   - type: Sprite
     layers:
-    - sprite: _VG/Xenobiology/Specific/Xenobiology/goo_ball.rsi
+    - sprite: ADT/Xenobiology/Specific/Xenobiology/goo_ball.rsi
       state: goo-wall
     drawdepth: WallMountedItems
   - type: Clickable

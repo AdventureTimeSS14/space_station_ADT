@@ -6,7 +6,7 @@
   - type: Sprite
     layers:
       - state: red
-      - sprite: _VG/Xenobiology/Mobs/slimesBaby.rsi
+      - sprite: ADT/Xenobiology/Mobs/slimesBaby.rsi
         state: base
   - type: RandomSpawner
     prototypes:

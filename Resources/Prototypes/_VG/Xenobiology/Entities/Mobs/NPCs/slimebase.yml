@@ -24,7 +24,7 @@
   - type: Sprite
     noRot: true
     drawdepth: OverMobs
-    sprite: _VG/Xenobiology/Mobs/slimesBaby.rsi
+    sprite: ADT/Xenobiology/Mobs/slimesBaby.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: base
@@ -165,7 +165,7 @@
   components:
   - type: Sprite
     drawdepth: OverMobs
-    sprite: _VG/Xenobiology/Mobs/slimesBaby.rsi
+    sprite: ADT/Xenobiology/Mobs/slimesBaby.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: base
@@ -176,10 +176,10 @@
     stages:
       baby:
         nextStage: adult
-        sprite: _VG/Xenobiology/Mobs/slimesBaby.rsi
+        sprite: ADT/Xenobiology/Mobs/slimesBaby.rsi
         displayName: baby
       adult:
-        sprite: _VG/Xenobiology/Mobs/slimesAdult.rsi
+        sprite: ADT/Xenobiology/Mobs/slimesAdult.rsi
         displayName: adult
 
 - type: entity
@@ -196,10 +196,10 @@
     stages:
       baby:
         nextStage: adult
-        sprite: _VG/Xenobiology/Mobs/slimesBaby.rsi
+        sprite: ADT/Xenobiology/Mobs/slimesBaby.rsi
         displayName: baby
       adult:
-        sprite: _VG/Xenobiology/Mobs/slimesAdult.rsi
+        sprite: ADT/Xenobiology/Mobs/slimesAdult.rsi
         displayName: adult
 
 - type: entity
@@ -212,5 +212,5 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _VG/Xenobiology/Mobs/slimesBaby.rsi
+      - sprite: ADT/Xenobiology/Mobs/slimesBaby.rsi
         state: base

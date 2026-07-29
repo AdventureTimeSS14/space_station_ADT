@@ -7,7 +7,7 @@
   - type: XenoVacuumTank
   - type: Appearance
   - type: Sprite
-    sprite: _VG/Xenobiology/Specific/Xenobiology/slime_pack.rsi
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_pack.rsi
     state: icon
   - type: Item
     size: Ginormous
@@ -15,7 +15,7 @@
     slots:
     - SUITSTORAGE
     - Back
-    sprite: _VG/Xenobiology/Specific/Xenobiology/slime_pack.rsi
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_pack.rsi
   - type: ContainerContainer
     containers:
       tankbase: !type:Container
@@ -78,10 +78,10 @@
   description: A high-powered vacuum nozzle used in conjunction with a backpack-mounted storage tank to store slimes.
   components:
   - type: Sprite
-    sprite: _VG/Xenobiology/Specific/Xenobiology/slime_nozzle.rsi
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_nozzle.rsi
     state: icon
   - type: Item
-    sprite: _VG/Xenobiology/Specific/Xenobiology/slime_nozzle.rsi
+    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_nozzle.rsi
     size: Normal
   - type: Appearance
   - type: XenoVacuum

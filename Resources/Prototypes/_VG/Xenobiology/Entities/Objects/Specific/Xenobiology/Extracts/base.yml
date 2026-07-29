@@ -9,7 +9,7 @@
     size: Small
   - type: Sprite
     layers:
-    - sprite: _VG/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#828282"
   - type: Appearance
