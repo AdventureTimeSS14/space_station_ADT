@@ -4,10 +4,6 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.ADT.Hierophant;
 
-/// <summary>
-///     Lerps the Hierophant's alpha while it blinks, so it fades out of one tile and back in on another
-///     instead of popping.
-/// </summary>
 public sealed class HierophantFadeSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
