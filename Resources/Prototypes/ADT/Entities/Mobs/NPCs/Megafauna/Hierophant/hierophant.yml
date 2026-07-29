@@ -119,10 +119,10 @@
       max: 15
   - type: StatusIcon
     bounds: -1,-2,1,1
-  - type: ADTMobHealthBar
-    active: true
-    nameOverride: Иерофант
-    primaryColor: "#3d0a52"
-    accentColor: "#a855f7"
-    style: Arcane
-    priority: 50
+  #- type: ADTMobHealthBar
+  #  active: true
+  #  nameOverride: Иерофант
+  #  primaryColor: "#3d0a52"
+  #  accentColor: "#a855f7"
+  #  style: Arcane
+  #  priority: 50
