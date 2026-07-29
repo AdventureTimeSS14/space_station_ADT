@@ -128,8 +128,7 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
             }
 
             var now = _gameTiming.CurTime;
-            // Always have a frame-local position available so Off/stale entries
-            // can keep (or backfill) the last known location.
+            // Frame-local position for live Cords reports (and optional keep of last pin).
             var worldLocal = Vector2.Transform(
                 report.WorldPosition.Position,
                 _transform.GetInvWorldMatrix(frameUid.Value));
@@ -138,9 +137,10 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
 
             if (report.Status.Mode == SuitSensorMode.SensorOff)
             {
-                // Drop from the live set, but never wipe the last-known snapshot.
-                // Mode/medical data stay as last reported so the UI can show
-                // yellow (stale) with coordinates instead of red (off) with none.
+                // Drop from the live set, but keep the last-known snapshot.
+                // Only retain Coordinates if they were actually reported (Cords) —
+                // do not invent a pin from the wearer's current world position on Off
+                // after Binary/Vitals (that never streamed GPS).
                 server.SensorStatus.Remove(key);
 
                 if (!server.LastSensorSnapshot.TryGetValue(key, out var retained))
@@ -148,7 +148,6 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
 
                 retained.IsActive = false;
                 retained.Timestamp = now;
-                retained.Coordinates ??= framedWorldCoords;
                 server.SnapshotDirty = true;
                 continue;
             }
@@ -190,6 +189,16 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
 
             var framedStatus = CopyStatus(report.Status, framedCoords, now);
             framedStatus.IsActive = true;
+
+            // Binary does not stream vitals — keep last damage so Off/UI can still
+            // show the last known health icon instead of a generic "alive".
+            if (framedStatus.TotalDamage == null &&
+                server.LastSensorSnapshot.TryGetValue(key, out var prevMedical))
+            {
+                framedStatus.TotalDamage = prevMedical.TotalDamage;
+                framedStatus.TotalDamageThreshold = prevMedical.TotalDamageThreshold;
+            }
+
             server.SensorStatus[key] = framedStatus;
             server.LastSensorSnapshot[key] = CopyStatus(framedStatus, framedCoords, now);
             server.SnapshotDirty = true;
@@ -555,3 +564,4 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         return true;
     }
     // ADT-Tweak End
+}

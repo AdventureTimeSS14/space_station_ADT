@@ -74,6 +74,19 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     public readonly Dictionary<NetEntity, bool> KnownAlertStates = new();
 
     /// <summary>
+    /// After Reset Sensors: mute edge/reminder beeps until
+    /// CritAlertResyncReadyAt, then play one baseline beep if needed.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool CritAlertResyncPending;
+
+    /// <summary>
+    /// Game time when post-reset sensor re-ingest is considered done.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan CritAlertResyncReadyAt;
+
+    /// <summary>
     /// Last server name received with sensor data (for UI).
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]

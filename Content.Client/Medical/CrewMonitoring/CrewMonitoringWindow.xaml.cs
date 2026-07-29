@@ -87,6 +87,20 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
     /// <summary>Matches <c>human_crew_monitoring.rsi</c> critical delays (0.35+0.35).</summary>
     private const double CritBlinkPeriod = 0.7;
 
+    // Coords-dot only: maroon = no info, yellow = last-known while off, green = live position.
+    private static readonly Color SensorDotNoInfo = Color.FromHex("#6B1C2A");
+    private static readonly Color SensorDotLastKnown = Color.FromHex("#E6C200");
+    private static readonly Color SensorDotHasPosition = Color.LimeGreen;
+
+    // Map blip colors sampled from human_crew_monitoring.rsi status fills.
+    private static readonly Color LifeColorAlive = Color.FromHex("#A80EEA");   // "жив"
+    private static readonly Color LifeColorHealth0 = Color.FromHex("#00C800"); // "отл"
+    private static readonly Color LifeColorHealth1 = Color.FromHex("#70A000");
+    private static readonly Color LifeColorHealth2 = Color.FromHex("#A07800"); // "неоч"
+    private static readonly Color LifeColorHealth3 = Color.FromHex("#C03C0C");
+    private static readonly Color LifeColorHealth4 = Color.FromHex("#E20E0E"); // "ужс!"
+    private static readonly Color LifeColorDead = Color.FromHex("#A53030");    // "ТРУП"
+
     [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     private Texture? _critStatusTextureA;
@@ -324,15 +338,6 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
 
         ApplyFooterContrast(chrome);
 
-        // Tabs — active brighter, inactive darker, panel matches CRT wash.
-        var tabActive = new StyleBoxFlat(Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.55f, 0.2f, 0.7f), 0.42f, 1f)));
-        tabActive.SetContentMarginOverride(StyleBox.Margin.Horizontal, 8);
-        tabActive.SetContentMarginOverride(StyleBox.Margin.Vertical, 3);
-        var tabInactive = new StyleBoxFlat(Color.FromHsv(new Vector4(h, s * 0.35f, 0.18f, 1f)));
-        tabInactive.SetContentMarginOverride(StyleBox.Margin.Horizontal, 8);
-        tabInactive.SetContentMarginOverride(StyleBox.Margin.Vertical, 3);
-        MainTabs.TabStyleBoxOverride = tabActive;
-        MainTabs.TabStyleBoxInactiveOverride = tabInactive;
         MainTabs.PanelStyleBoxOverride = new StyleBoxFlat
         {
             BackgroundColor = Color.FromHsv(new Vector4(h, s * 0.40f, 0.12f, 1f)),
@@ -447,13 +452,15 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
 
     private void ApplySensorRowStyle(CrewMonitoringButton button, bool selected)
     {
-        // Light = live feed with coordinates (full tracking).
-        // Medium/stale = not updating, but last-known position retained.
-        // Dark = only binary/vitals (no location), or blank Off.
+        // Light = live GPS (Cords only).
+        // Medium/stale = last-known pin kept after downgrade/Off (Binary/Vitals/Off).
+        // Dark = no location at all.
         var active = button.SensorActive;
         var hasCoords = button.Coordinates != null;
-        var liveTracking = active && hasCoords;
-        var stale = !active && hasCoords;
+        var liveTracking = active &&
+                           hasCoords &&
+                           button.SensorMode == SuitSensorMode.SensorCords;
+        var stale = hasCoords && !liveTracking;
 
         if (selected)
             button.StyleBoxOverride = _sensorRowSelectedStyle;
@@ -1064,7 +1071,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
             var seconds = _gameTiming.RealTime.TotalSeconds;
             var blipBase = isCritical
                 ? GetCritBlinkColor(seconds)
-                : statusColorValue ?? Color.LimeGreen;
+                : statusColorValue ?? LifeColorAlive;
             var blipColor = (_trackedEntity == null || sensor.SuitSensorUid == _trackedEntity)
                 ? blipBase
                 : blipBase * Color.DimGray;
@@ -1294,7 +1301,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
                 MaxHeight = 36,
                 StatusColor = isCritical
                     ? CritBlinkA
-                    : statusColor ?? Color.LimeGreen,
+                    : statusColor ?? LifeColorAlive,
                 // ADT-Tweak End
             };
 
@@ -1336,13 +1343,8 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
                 HorizontalExpand = false,   // ADT-Tweak - New Monitor
             };
 
-            // ADT-Tweak Start - New Monitor: Green = sensors reporting; yellow = last-known position; red = no position.
-            if (sensor.IsActive)
-                suitCoordsIndicator.Modulate = Color.LimeGreen;
-            else if (sensor.Coordinates != null)
-                suitCoordsIndicator.Modulate = Color.Yellow;
-            else
-                suitCoordsIndicator.Modulate = Color.Red;
+            // ADT-Tweak Start - New Monitor: coords dot — maroon / yellow / green only.
+            suitCoordsIndicator.Modulate = GetCoordsDotColor(sensor);
 
             statusContainer.AddChild(suitCoordsIndicator);
 
@@ -1364,27 +1366,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
             }
             else
             {
-                var specifier = new SpriteSpecifier.Rsi(
-                    new ResPath("Interface/Alerts/human_crew_monitoring.rsi"),
-                    "alive");
-
-                if (!sensor.IsAlive)
-                {
-                    specifier = new SpriteSpecifier.Rsi(
-                        new ResPath("Interface/Alerts/human_crew_monitoring.rsi"),
-                        "dead");
-                }
-                else if (sensor.DamagePercentage != null)
-                {
-                    var index = Math.Clamp(
-                        (int) MathF.Round(4f * sensor.DamagePercentage.Value),
-                        0,
-                        4);
-                    specifier = new SpriteSpecifier.Rsi(
-                        new ResPath("Interface/Alerts/human_crew_monitoring.rsi"),
-                        "health" + index);
-                }
-            // ADT-Tweak end
+                var specifier = GetHealthStatusSpecifier(sensor);
 
                 var statusIcon = new AnimatedTextureRect
                 {
@@ -1398,6 +1380,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
                 statusIcon.DisplayRect.TextureScale = new Vector2(2f, 2f);
                 statusContainer.AddChild(statusIcon);
             }
+            // ADT-Tweak End
 
             // User name
             var nameLabel = new Label()
@@ -1465,7 +1448,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
                 var seconds = _gameTiming.RealTime.TotalSeconds;
                 var blipBase = isCriticalBlip
                     ? GetCritBlinkColor(seconds)
-                    : statusColorValue ?? Color.LimeGreen;
+                    : statusColorValue ?? LifeColorAlive;
                 var blipColor = (_trackedEntity == null || sensor.SuitSensorUid == _trackedEntity)
                     ? blipBase
                     : blipBase * Color.DimGray;
@@ -1613,25 +1596,85 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
     // ADT-Tweak End
 
     // ADT-Tweak start
+    /// <summary>
+    /// Button coords-dot: green = live GPS (Cords), yellow = last-known pin, maroon = no info.
+    /// </summary>
+    private static Color GetCoordsDotColor(SuitSensorStatus sensor)
+    {
+        // Only Cords streams a live position — Binary/Vitals may still carry a retained pin.
+        if (sensor.IsActive &&
+            sensor.Mode == SuitSensorMode.SensorCords &&
+            sensor.Coordinates != null)
+        {
+            return SensorDotHasPosition;
+        }
+
+        if (sensor.Coordinates != null || (!sensor.IsActive && HasLastKnownInfo(sensor)))
+            return SensorDotLastKnown;
+
+        return SensorDotNoInfo;
+    }
+
+    private static bool HasLastKnownInfo(SuitSensorStatus sensor)
+    {
+        return sensor.Coordinates != null ||
+               sensor.TotalDamage != null ||
+               sensor.IsCritical ||
+               !sensor.IsAlive;
+    }
+
+    /// <summary>
+    /// Map blip color = fill color of the matching life-status RSI state.
+    /// </summary>
     private Color? GetStatusColor(SuitSensorStatus sensor, out bool isCritical)
     {
-        // Badge/blink "КРИТ." only for MobState.Critical (unconscious).
-        // High DamagePercentage while still Alive uses health0..health4, not crit.
+        // Badge/blink "КРИТ." — same yellow/navy pair as critical.png frames.
         isCritical = sensor.IsAlive && sensor.IsCritical;
 
         if (!sensor.IsAlive)
-            return sensor.Coordinates == null ? null : Color.Gray;
+            return LifeColorDead;
 
         if (isCritical)
             return CritBlinkA;
 
-        if (sensor.Coordinates == null)
-            return null;
+        if (sensor.DamagePercentage is { } pct)
+        {
+            var index = Math.Clamp((int) MathF.Round(4f * pct), 0, 4);
+            return index switch
+            {
+                0 => LifeColorHealth0,
+                1 => LifeColorHealth1,
+                2 => LifeColorHealth2,
+                3 => LifeColorHealth3,
+                _ => LifeColorHealth4,
+            };
+        }
 
-        if (sensor.DamagePercentage != null && sensor.DamagePercentage.Value >= 0.5f)
-            return Color.Gold;
+        // Binary "жив" — purple from alive.png (only when a pin exists).
+        return sensor.Coordinates != null ? LifeColorAlive : null;
+    }
 
-        return Color.LimeGreen;
+    /// <summary>
+    /// Health RSI for the sensor row. When last location + health are known, never use "alive".
+    /// </summary>
+    private static SpriteSpecifier.Rsi GetHealthStatusSpecifier(SuitSensorStatus sensor)
+    {
+        const string rsi = "Interface/Alerts/human_crew_monitoring.rsi";
+
+        if (!sensor.IsAlive)
+            return new SpriteSpecifier.Rsi(new ResPath(rsi), "dead");
+
+        if (sensor.DamagePercentage is { } pct)
+        {
+            var index = Math.Clamp((int) MathF.Round(4f * pct), 0, 4);
+            return new SpriteSpecifier.Rsi(new ResPath(rsi), "health" + index);
+        }
+
+        // Last location known but only binary vitals — show health0 instead of "alive".
+        if (sensor.Coordinates != null)
+            return new SpriteSpecifier.Rsi(new ResPath(rsi), "health0");
+
+        return new SpriteSpecifier.Rsi(new ResPath(rsi), "alive");
     }
     // ADT-Tweak end
 

@@ -53,6 +53,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
     private const float ScanDuration = 5f;
     private const float ConsoleUpdateInterval = 0.5f;
+    private const float CritAlertResyncDelay = 1.0f;
     private float _consoleUpdateAccumulator;
     private List<Entity<MapGridComponent>> _navMapGridBuffer = new();
     // ADT-Tweak End
@@ -198,8 +199,10 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         }
 
         _suitSensors.ForceImmediateReports();
-        component.KnownAlertStates.Clear(); //ADT-Tweak: NewMonitor
+        component.KnownAlertStates.Clear();
         component.NextCritAlertTime = TimeSpan.Zero;
+        component.CritAlertResyncPending = true;
+        component.CritAlertResyncReadyAt = _gameTiming.CurTime + TimeSpan.FromSeconds(CritAlertResyncDelay);
         PopulateNavMapsForConsole(uid, component);
         UpdateUserInterface(uid, component);
     }
@@ -272,6 +275,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
         _consoleUpdateAccumulator -= ConsoleUpdateInterval;
         UpdatePendingScans();
+        UpdatePostResetCritAlerts();
         UpdateCritAlertReminders();
         UpdateOfflineConsoles();
     }
@@ -321,6 +325,44 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
     // ADT-Tweak Start - New Monitor: edge + 30s reminder crit/dead alerts
     /// <summary>
+    /// After Reset Sensors silence window: one beep if any crit/dead remain, then resume edges.
+    /// </summary>
+    private void UpdatePostResetCritAlerts()
+    {
+        var now = _gameTiming.CurTime;
+        var query = EntityQueryEnumerator<CrewMonitoringConsoleComponent>();
+
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (!comp.CritAlertResyncPending || now < comp.CritAlertResyncReadyAt)
+                continue;
+
+            comp.CritAlertResyncPending = false;
+
+            if (!IsSelectedServerOnline(comp, now))
+            {
+                comp.KnownAlertStates.Clear();
+                comp.NextCritAlertTime = TimeSpan.Zero;
+                continue;
+            }
+
+            var current = CollectAlertStates(FilterSensors(comp, comp.ConnectedSensors.Values));
+            comp.KnownAlertStates.Clear();
+            foreach (var (owner, isDead) in current)
+                comp.KnownAlertStates[owner] = isDead;
+
+            if (current.Count == 0)
+            {
+                comp.NextCritAlertTime = TimeSpan.Zero;
+                continue;
+            }
+
+            TryPlayCritAlertSound(uid, comp);
+            comp.NextCritAlertTime = now + TimeSpan.FromSeconds(comp.CritAlertInterval);
+        }
+    }
+
+    /// <summary>
     /// Reminder ping every <see cref="CrewMonitoringConsoleComponent.CritAlertInterval"/>
     /// while any filtered sensor remains crit or dead.
     /// </summary>
@@ -331,6 +373,9 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var comp))
         {
+            if (comp.CritAlertResyncPending)
+                continue;
+
             if (!IsSelectedServerOnline(comp, now))
             {
                 comp.NextCritAlertTime = TimeSpan.Zero;
@@ -358,6 +403,10 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     /// </summary>
     private void ProcessCritAlertSound(EntityUid uid, CrewMonitoringConsoleComponent comp)
     {
+        // Reset Sensors: ignore edges until baseline beep in UpdatePostResetCritAlerts.
+        if (comp.CritAlertResyncPending)
+            return;
+
         var now = _gameTiming.CurTime;
         if (!IsSelectedServerOnline(comp, now))
         {
@@ -367,18 +416,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         }
 
         // Match UI filter (department handhelds) so alerts only cover visible crew.
-        var sensors = FilterSensors(comp, comp.ConnectedSensors.Values);
-        var current = new Dictionary<NetEntity, bool>();
-        foreach (var sensor in sensors)
-        {
-            if (!sensor.IsActive || sensor.Mode == SuitSensorMode.SensorOff)
-                continue;
-
-            if (!sensor.IsAlive)
-                current[sensor.OwnerUid] = true;
-            else if (sensor.IsCritical)
-                current[sensor.OwnerUid] = false;
-        }
+        var current = CollectAlertStates(FilterSensors(comp, comp.ConnectedSensors.Values));
 
         var shouldPlay = false;
         foreach (var (owner, isDead) in current)
@@ -411,6 +449,23 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         TryPlayCritAlertSound(uid, comp);
         // Always arm the reminder — mute only suppresses audio, not the schedule.
         comp.NextCritAlertTime = now + TimeSpan.FromSeconds(comp.CritAlertInterval);
+    }
+
+    private static Dictionary<NetEntity, bool> CollectAlertStates(IEnumerable<SuitSensorStatus> sensors)
+    {
+        var current = new Dictionary<NetEntity, bool>();
+        foreach (var sensor in sensors)
+        {
+            if (!sensor.IsActive || sensor.Mode == SuitSensorMode.SensorOff)
+                continue;
+
+            if (!sensor.IsAlive)
+                current[sensor.OwnerUid] = true;
+            else if (sensor.IsCritical)
+                current[sensor.OwnerUid] = false;
+        }
+
+        return current;
     }
 
     private bool TryPlayCritAlertSound(EntityUid uid, CrewMonitoringConsoleComponent comp)
