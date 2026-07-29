@@ -159,6 +159,8 @@ namespace Content.Shared.Ghost
          public Color? Color { get; }
 
          public WarpGroup Group { get; set; } = WarpGroup.Location;
+
+         public bool HasMind { get; set; } = true; // ADT-Tweak
      }
 
      [Serializable, NetSerializable, Flags]

@@ -18,6 +18,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
         // ADT-TWEAK START
         private List<GhostWarp> _originalGhostWarps = [];
+        private bool _showWithMindOnly = true;
 
         private Dictionary<string, List<GhostWarp>> _alivePlayers = [];
         private Dictionary<string, List<GhostWarp>> _deadPlayers = [];
@@ -40,8 +41,8 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         {
             RobustXamlLoader.Load(this);
             SearchBar.OnTextChanged += OnSearchTextChanged;
-
             GhostnadoButton.OnPressed += _ => OnGhostnadoClicked?.Invoke();
+            MindFilterCheckBox.OnToggled += OnMindFilterToggled;
         }
 
        // ADT-TWEAK START
@@ -67,6 +68,9 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
             foreach (var warp in _originalGhostWarps)
             {
+                if (_showWithMindOnly && !warp.HasMind)
+                    continue;
+
                 if(!string.IsNullOrEmpty(_searchText) && !warp.DisplayName.Contains(_searchText, StringComparison.OrdinalIgnoreCase))
                     continue;
 
@@ -112,6 +116,12 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             _originalGhostWarps = warps;
             Populate();
             // ADT-TWEAK END
+        }
+
+        private void OnMindFilterToggled(BaseButton.ButtonToggledEventArgs args)
+        {
+            _showWithMindOnly = args.Pressed;
+            Populate();
         }
 
         private void AddButtons()

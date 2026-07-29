@@ -470,6 +470,8 @@ namespace Content.Server.Ghost
                     warp.Group |= WarpGroup.Alive;
             }
 
+            warp.HasMind = hasAnyMind;
+
             return warp;
         }
 

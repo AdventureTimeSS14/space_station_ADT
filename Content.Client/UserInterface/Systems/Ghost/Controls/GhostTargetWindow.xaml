@@ -12,6 +12,9 @@
             <LineEdit Name="SearchBar"
                       PlaceHolder="{Loc 'entity-spawn-window-search-bar-placeholder'}"
                       HorizontalExpand="True"/>
+            <CheckBox Name="MindFilterCheckBox"
+                      Text="{Loc 'ghost-target-window-mind-filter'}"
+                      Pressed="True"/>
         </BoxContainer>
         <ScrollContainer Name="GhostScroll"
                          VerticalExpand="True"

@@ -15,16 +15,6 @@
       - ChefGear
       - ChaplainGear
       - PassengerGear
-  # ADT Tweak start
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
-    - AnomalyHost
-    - ChangelingBlacklist
-    - HideFromGhostWarps
-  # ADT Tweak end
 
 - type: entity
   parent: SalvageHumanCorpse
@@ -36,16 +26,6 @@
     - TechnicalAssistantGear
     - AtmosphericTechnicianGear
     - StationEngineerGear
-  # ADT Tweak start
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
-    - AnomalyHost
-    - ChangelingBlacklist
-    - HideFromGhostWarps
-  # ADT Tweak end
 
 - type: entity
   parent: SalvageHumanCorpse
@@ -56,16 +36,6 @@
     prototypes:
     - CargoTechGear
     - SalvageSpecialistGear
-  # ADT Tweak start
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
-    - AnomalyHost
-    - ChangelingBlacklist
-    - HideFromGhostWarps
-  # ADT Tweak end
 
 - type: entity
   parent: SalvageHumanCorpse
@@ -78,16 +48,6 @@
     - PsychologistGear
     - ChemistGear
     - DoctorGear
-  # ADT Tweak start
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
-    - AnomalyHost
-    - ChangelingBlacklist
-    - HideFromGhostWarps
-  # ADT Tweak end
 
 - type: entity
   parent: SalvageHumanCorpse
@@ -98,16 +58,6 @@
     prototypes:
     - ResearchAssistantGear
     - ScientistGear
-  # ADT Tweak start
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
-    - AnomalyHost
-    - ChangelingBlacklist
-    - HideFromGhostWarps
-  # ADT Tweak end
 
 - type: entity
   parent: SalvageHumanCorpse
@@ -120,16 +70,6 @@
     - SecurityOfficerGear
     - DetectiveGear
     - WardenGear
-  # ADT Tweak start
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
-    - AnomalyHost
-    - ChangelingBlacklist
-    - HideFromGhostWarps
-  # ADT Tweak end
 
 - type: entity
   parent: SalvageHumanCorpse
@@ -146,13 +86,3 @@
     - CMOGear
     - ChiefEngineerGear
     - QuartermasterGear
-  # ADT Tweak start
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
-    - AnomalyHost
-    - ChangelingBlacklist
-    - HideFromGhostWarps
-  # ADT Tweak end
