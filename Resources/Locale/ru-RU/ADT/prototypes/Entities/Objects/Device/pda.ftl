@@ -223,3 +223,6 @@ ent-ADTTraumatologistPDA = КПК травматолога
 
 ent-ADTIntendantPDA = КПК интенданта
     .desc = КПК интенданта.
+
+ent-XenobioPDA = КПК ксенобиолога
+    .desc = { ent-SciencePDA.desc }
