@@ -49,9 +49,6 @@ ent-ADTClothingOuterCoatCentCom = пальто ЦентКом
 ent-ADTClothingOuterCoatCCC = пальто консультанта ЦентКом
     .desc = Тёмно-серое пальто с золотыми вставками. На спине выгравирована золотая буква N. Такое пальто явно носят только важные чины Nanotrasen.
 
-ent-ADTClothingOuterCoatCyberSun = лабораторный халат CyberSun
-    .desc = Лабораторный халат CyberSun, предоставляющий минимальную защиту от вредного воздействия.
-
 ent-ADTClothingOuterCoatTrader = бомбер торговца
     .desc = Куртка-бомбер торговцев ТСФ
     .suffix = { "ТСФ" }
