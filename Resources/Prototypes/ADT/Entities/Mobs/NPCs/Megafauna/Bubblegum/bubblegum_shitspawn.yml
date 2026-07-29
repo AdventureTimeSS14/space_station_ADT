@@ -58,22 +58,33 @@
   - type: BubblegumSummonNarsi
   - type: BubblegumBloodAttack
   - type: BubblegumLoot
-    randomAmountLoot:
-      GoldOre: 10
-      SilverOre: 10
-      DiamondOre: 5
-      PlasmaOre: 15
-      UraniumOre: 10
-      SpaceQuartz: 15
+    deathThemeSound:
+      path: /Audio/ADT/Phantom/Sounds/psycho.ogg
+  - type: MegafaunaLoot
+    dropOnDeath: false # the death sequence drops it
+    crateProto: ADTCrateBubblegumLoot
+    dropEffect: ADTBubblegumChestGlow
+    dropSound:
+      path: /Audio/ADT/Bubblegum/exit_blood.ogg
     randomLoot:
     - ADTMayhemBottle
     - ADTBloodContract
     - ADTWeaponExperimentalProtoKineticAcellerator
-    guaranteedLoot:
-    - ADTClothingOuterHardsuitHECK
-    - ADTClothingHeadHelmetHardsuitHECK
-    - ADTKineticTrophyDemonClaws
-    deathThemeSound:
-      path: /Audio/ADT/Phantom/Sounds/psycho.ogg
+    loot:
+    - proto: ADTClothingOuterHardsuitHECK
+    - proto: ADTClothingHeadHelmetHardsuitHECK
+    - proto: ADTKineticTrophyDemonClaws
+    - proto: GoldOre
+      max: 10
+    - proto: SilverOre
+      max: 10
+    - proto: DiamondOre
+      max: 5
+    - proto: PlasmaOre
+      max: 15
+    - proto: UraniumOre
+      max: 10
+    - proto: SpaceQuartz
+      max: 15
   - type: StatusIcon
     bounds: -1,-2,1,1

@@ -154,20 +154,6 @@
       - ADTMobBloodMiner
 
 - type: entity
-  name: Blood Miner Buffed Spawner
-  id: ADTSpawnBloodMinerBuffed
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    layers:
-      - state: green
-      - sprite: ADT/Mobs/Aliens/Lavaland/bloodminer.rsi
-        state: alive_2
-  - type: ConditionalSpawner
-    prototypes:
-      - ADTMobBloodMinerBuffed
-
-- type: entity
   name: Drake Spawner
   id: ADTSpawnDrake
   parent: MarkerBase
