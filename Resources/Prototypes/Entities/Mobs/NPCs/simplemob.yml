@@ -30,7 +30,7 @@
     - DoorBumpOpener
     - StunImmune
   - type: ProjectileIgnoreCrawling
-  - type: ADTProjectilePassDead
+  - type: ADTProjectilePassDead # ADT-Tweak
   - type: Blindable
 
 - type: entity
