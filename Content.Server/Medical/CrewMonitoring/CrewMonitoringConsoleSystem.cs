@@ -414,7 +414,8 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
     private bool TryPlayCritAlertSound(EntityUid uid, CrewMonitoringConsoleComponent comp)
     {
-        if (comp.AlertMuted || comp.AlertVolume <= 0.01f)
+        //ADT-Tweak: Aghost UI - no beep from the ghost. Physical in-world monitors still PlayPvs.
+        if (comp.SuppressCritAlertSound || comp.AlertMuted || comp.AlertVolume <= 0.01f)
             return false;
 
         var baseVolume = AudioParams.Default.Volume;

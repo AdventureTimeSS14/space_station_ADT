@@ -87,6 +87,13 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     public string LastServerAddress = string.Empty;
 
     /// <summary>
+    /// If true, this console never emits the crit/dead alert sound.
+    /// World monitors still play; ghosts near them can hear as usual.
+    /// </summary>
+    [DataField("suppressCritAlertSound")]
+    public bool SuppressCritAlertSound;
+
+    /// <summary>
     /// If true, crit/dead alert sound is muted on this console.
     /// </summary>
     [DataField("alertMuted"), ViewVariables(VVAccess.ReadWrite)]
