@@ -1,4 +1,4 @@
-using Content.Shared._VG.Flammability;
+using Content.Shared.ADT.Flammability;
 using Content.Shared.Armor;
 using Content.Shared.Atmos;
 using Content.Shared.Clothing.Components;

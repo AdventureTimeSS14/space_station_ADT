@@ -3,7 +3,7 @@ using Content.Server.NPC.Components;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Shared.NPC;
-using Content.Shared._VG.Xenobiology.Components;
+using Content.Shared.ADT.Xenobiology.Components;
 using Robust.Shared.Map;
 
 namespace Content.Server.ADT.NPC;

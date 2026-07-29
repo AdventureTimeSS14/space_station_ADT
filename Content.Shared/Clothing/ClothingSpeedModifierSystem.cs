@@ -1,4 +1,4 @@
-using Content.Shared._VG.Movement;
+using Content.Shared.ADT.Movement;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle;

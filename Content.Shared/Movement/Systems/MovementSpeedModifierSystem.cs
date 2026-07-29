@@ -4,7 +4,7 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Standing;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
-using Content.Shared._VG.Movement;
+using Content.Shared.ADT.Movement;
 
 namespace Content.Shared.Movement.Systems
 {

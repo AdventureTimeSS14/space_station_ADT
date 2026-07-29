@@ -30,7 +30,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Content.Server.ADT.Temperature; //ADT-Tweak-Bonfire
 using Robust.Shared.Timing;
-using Content.Shared._VG.Flammability;
+using Content.Shared.ADT.Flammability;
 
 namespace Content.Server.Atmos.EntitySystems
 {
