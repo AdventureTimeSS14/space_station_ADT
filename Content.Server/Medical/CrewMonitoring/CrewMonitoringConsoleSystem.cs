@@ -21,6 +21,7 @@ using Content.Shared.Pinpointer;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 // ADT-Tweak-Start
+using Content.Shared.PowerCell.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
 // ADT-Tweak-End
@@ -398,8 +399,8 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     }
 
     /// <summary>
-    /// Immediate alert when a wearer newly enters softcrit or dies (including crit→dead).
-    /// Resets the reminder timer so the next ping is a full interval later.
+    /// Immediate alert only on worsening edges: enter crit/dead, or crit -> dead.
+    /// Recoveries (dead -> crit, crit -> alive) update state silently. Reminder timer unchanged.
     /// </summary>
     private void ProcessCritAlertSound(EntityUid uid, CrewMonitoringConsoleComponent comp)
     {
@@ -421,7 +422,15 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         var shouldPlay = false;
         foreach (var (owner, isDead) in current)
         {
-            if (!comp.KnownAlertStates.TryGetValue(owner, out var wasDead) || wasDead != isDead)
+            // New alert condition (alive/bad -> crit or dead).
+            if (!comp.KnownAlertStates.TryGetValue(owner, out var wasDead))
+            {
+                shouldPlay = true;
+                break;
+            }
+
+            // Worsening only: crit → dead. dead → crit is silent.
+            if (!wasDead && isDead)
             {
                 shouldPlay = true;
                 break;
@@ -472,6 +481,10 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     {
         //ADT-Tweak: Aghost UI - no beep from the ghost. Physical in-world monitors still PlayPvs.
         if (comp.SuppressCritAlertSound || comp.AlertMuted || comp.AlertVolume <= 0.01f)
+            return false;
+
+        // Handheld: no beep without a battery or with a depleted cell. Consoles skip (no PowerCellDraw).
+        if (HasComp<PowerCellSlotComponent>(uid) && !_cell.HasActivatableCharge(uid))
             return false;
 
         var baseVolume = AudioParams.Default.Volume;
