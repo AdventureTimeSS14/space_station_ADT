@@ -6,6 +6,12 @@
   components:
   - type: CrewMonitoringConsole
     departments: [Security]
+  - type: PdaBorderColor
+    borderColor: "#5C5C73"
+    accentHColor: "#E53935"
+    accentVColor: "#E53935"
+  - type: CrewMonitoringUiVisuals
+    themeColor: "#E53935"
   - type: Item
     heldPrefix: scanner
     storedSprite:
@@ -26,6 +32,11 @@
   components:
   - type: CrewMonitoringConsole
     departments: [Security, Command, CentralCommand]
+  - type: PdaBorderColor
+    borderColor: "#5C5C73"
+    accentVColor: "#6098F8"
+  - type: CrewMonitoringUiVisuals
+    themeColor: "#6098F8"
   - type: Item
     heldPrefix: scanner
     storedSprite:
