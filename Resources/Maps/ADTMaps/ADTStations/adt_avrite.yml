@@ -375952,4 +375952,11 @@ entities:
     - type: Transform
       pos: 59.191154,16.518507
       parent: 2
+- proto: ADTVendingMachineMusician
+  entities:
+  - uid: 56001
+    components:
+    - type: Transform
+      pos: -30.5,30.5
+      parent: 2
 ...
