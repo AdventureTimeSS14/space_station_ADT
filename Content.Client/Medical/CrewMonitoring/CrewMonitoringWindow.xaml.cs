@@ -92,8 +92,10 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
     private static readonly Color SensorDotLastKnown = Color.FromHex("#E6C200");
     private static readonly Color SensorDotHasPosition = Color.LimeGreen;
 
+    // Map blip when GPS is not live (Binary/Vitals/Off retained pin).
+    private static readonly Color SensorBlipLastKnown = Color.FromHex("#8A8A8A");
+
     // Map blip colors sampled from human_crew_monitoring.rsi status fills.
-    private static readonly Color LifeColorAlive = Color.FromHex("#A80EEA");   // "жив"
     private static readonly Color LifeColorHealth0 = Color.FromHex("#00C800"); // "отл"
     private static readonly Color LifeColorHealth1 = Color.FromHex("#70A000");
     private static readonly Color LifeColorHealth2 = Color.FromHex("#A07800"); // "неоч"
@@ -624,6 +626,10 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
             if (button.CritStatusIcon != null)
                 button.CritStatusIcon.Texture = statusTexture;
 
+            // Stale last-known pins stay gray — no crit color blink on the map.
+            if (!IsLiveGpsTracking(button))
+                continue;
+
             if (!NavMap.Visible ||
                 !NavMap.TrackedEntities.TryGetValue(button.SuitSensorUid, out var blip))
             {
@@ -1067,11 +1073,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
             if (!NavMap.TrackedEntities.TryGetValue(sensor.SuitSensorUid, out var existing))
                 continue;
 
-            var statusColorValue = GetStatusColor(sensor, out var isCritical);
-            var seconds = _gameTiming.RealTime.TotalSeconds;
-            var blipBase = isCritical
-                ? GetCritBlinkColor(seconds)
-                : statusColorValue ?? LifeColorAlive;
+            var blipBase = GetMapBlipBaseColor(sensor, out var isCritical);
             var blipColor = (_trackedEntity == null || sensor.SuitSensorUid == _trackedEntity)
                 ? blipBase
                 : blipBase * Color.DimGray;
@@ -1286,7 +1288,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
             // Add a button that will hold a username and other details
             NavMap.LocalizedNames.TryAdd(sensor.SuitSensorUid, sensor.Name + ", " + sensor.Job);
 
-            var statusColor = GetStatusColor(sensor, out var isCritical); // ADT-Tweak
+            var isCritical = sensor.IsAlive && sensor.IsCritical; // ADT-Tweak
 
             var sensorButton = new CrewMonitoringButton()
             {
@@ -1299,9 +1301,8 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
                 SensorActive = sensor.IsActive,
                 IsCritical = isCritical,
                 MaxHeight = 36,
-                StatusColor = isCritical
-                    ? CritBlinkA
-                    : statusColor ?? LifeColorAlive,
+                // Map tint only: live GPS uses status colors; last-known pin stays gray.
+                StatusColor = GetMapBlipBaseColor(sensor, out _),
                 // ADT-Tweak End
             };
 
@@ -1444,11 +1445,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
                 if (localCoords == null)
                     continue;
 
-                var statusColorValue = GetStatusColor(sensor, out var isCriticalBlip);
-                var seconds = _gameTiming.RealTime.TotalSeconds;
-                var blipBase = isCriticalBlip
-                    ? GetCritBlinkColor(seconds)
-                    : statusColorValue ?? LifeColorAlive;
+                var blipBase = GetMapBlipBaseColor(sensor, out var isCriticalBlip);
                 var blipColor = (_trackedEntity == null || sensor.SuitSensorUid == _trackedEntity)
                     ? blipBase
                     : blipBase * Color.DimGray;
@@ -1526,9 +1523,11 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
                 if (localCoords == null)
                     continue;
                 var seconds = _gameTiming.RealTime.TotalSeconds;
-                var blipBase = castSensor.IsCritical
-                    ? GetCritBlinkColor(seconds)
-                    : castSensor.StatusColor;
+                var blipBase = !IsLiveGpsTracking(castSensor)
+                    ? SensorBlipLastKnown
+                    : castSensor.IsCritical
+                        ? GetCritBlinkColor(seconds)
+                        : castSensor.StatusColor;
                 var blipColor = (currTrackedEntity == null || castSensor.SuitSensorUid == currTrackedEntity)
                     ? blipBase
                     : blipBase * Color.DimGray;
@@ -1596,18 +1595,46 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
     // ADT-Tweak End
 
     // ADT-Tweak start
+    private static bool IsLiveGpsTracking(SuitSensorStatus sensor)
+    {
+        return sensor.IsActive &&
+               sensor.Mode == SuitSensorMode.SensorCords &&
+               sensor.Coordinates != null;
+    }
+
+    private static bool IsLiveGpsTracking(CrewMonitoringButton button)
+    {
+        return button.SensorActive &&
+               button.SensorMode == SuitSensorMode.SensorCords &&
+               button.Coordinates != null;
+    }
+
+    /// <summary>
+    /// Live Cords → status/crit color. Binary/Vitals/Off last-known pin → gray.
+    /// </summary>
+    private Color GetMapBlipBaseColor(SuitSensorStatus sensor, out bool isCritical)
+    {
+        if (!IsLiveGpsTracking(sensor))
+        {
+            isCritical = false;
+            return SensorBlipLastKnown;
+        }
+
+        var statusColorValue = GetStatusColor(sensor, out isCritical);
+        if (isCritical)
+            return GetCritBlinkColor(_gameTiming.RealTime.TotalSeconds);
+
+        return statusColorValue ?? LifeColorHealth0;
+    }
+
     /// <summary>
     /// Button coords-dot: green = live GPS (Cords), yellow = last-known pin, maroon = no info.
     /// </summary>
     private static Color GetCoordsDotColor(SuitSensorStatus sensor)
     {
         // Only Cords streams a live position — Binary/Vitals may still carry a retained pin.
-        if (sensor.IsActive &&
-            sensor.Mode == SuitSensorMode.SensorCords &&
-            sensor.Coordinates != null)
-        {
+        if (IsLiveGpsTracking(sensor))
             return SensorDotHasPosition;
-        }
 
         if (sensor.Coordinates != null || (!sensor.IsActive && HasLastKnownInfo(sensor)))
             return SensorDotLastKnown;
@@ -1650,8 +1677,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
             };
         }
 
-        // Binary "жив" — purple from alive.png (only when a pin exists).
-        return sensor.Coordinates != null ? LifeColorAlive : null;
+        return sensor.Coordinates != null ? LifeColorHealth0 : null;
     }
 
     /// <summary>

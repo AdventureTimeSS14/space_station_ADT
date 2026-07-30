@@ -400,7 +400,8 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
     /// <summary>
     /// Immediate alert only on worsening edges: enter crit/dead, or crit -> dead.
-    /// Recoveries (dead -> crit, crit -> alive) update state silently. Reminder timer unchanged.
+    /// dead -> crit updates state silently and leaves the reminder timer alone;
+    /// crit -> alive clears KnownAlertStates for that wearer and resets NextCritAlertTime when none remain.
     /// </summary>
     private void ProcessCritAlertSound(EntityUid uid, CrewMonitoringConsoleComponent comp)
     {
