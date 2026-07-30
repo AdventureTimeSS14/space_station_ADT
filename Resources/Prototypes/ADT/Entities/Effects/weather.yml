@@ -278,6 +278,12 @@
   id: ADTLavalandWeatherWind
   components:
   - type: WeatherStatusEffect
+    damage:
+      types:
+        Blunt: 1
+    damageBlacklist:
+      components:
+      - AshStormImmune
     sprite:
       sprite: /Textures/Effects/weather.rsi
       state: sandstorm
@@ -286,9 +292,11 @@
       params:
         loop: true
         volume: -4
-  - type: ADTWeatherPush
-    strength: 1.5
+  - type: ADTWeatherWind
     speed: 4
+    acceleration: 18
+    spread: 65
+    gustAmplitude: 0.35
     whitelist:
       components:
       - HumanoidProfile

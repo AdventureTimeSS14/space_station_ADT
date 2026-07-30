@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Flammability;
 using Content.Shared.Armor;
 using Content.Shared.Atmos;
 using Content.Shared.Clothing.Components;
@@ -20,6 +21,11 @@ public sealed class FireProtectionSystem : EntitySystem
 
     private void OnGetProtection(Entity<FireProtectionComponent> ent, ref InventoryRelayedEvent<GetFireProtectionEvent> args)
     {
+        // ADT-Tweak start
+        if (HasComp<VeryFlammableComponent>(ent))
+            return;
+        // ADT-Tweak end
+
         args.Args.Reduce(ent.Comp.Reduction);
     }
 

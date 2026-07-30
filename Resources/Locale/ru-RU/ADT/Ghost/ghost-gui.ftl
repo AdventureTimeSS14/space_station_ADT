@@ -1,0 +1,1 @@
+ghost-target-window-mind-filter = только активные

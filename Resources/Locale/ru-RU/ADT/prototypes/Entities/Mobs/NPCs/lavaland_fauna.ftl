@@ -6,7 +6,7 @@ ent-ADTMobGuthen = гутхен
     .desc = { ent-ADTMobGutlunch.desc }
 ent-ADTMobGrublunch = грублунч
     .desc = Детёныш гутлунча. Когда вырастет, станет таким же падальщиком, как его родители.
-ent-ADTMobGoldgrub = голдграб
+ent-ADTMobGoldgrub = златочервь
     .desc = Червь, жиреющий от всего, что попадается на глаза. Особенно любит драгоценные металлы и прочие блестяшки. Отсюда и название.
 
 adt-goldgrub-burrow = { $creature } зарывается в землю и исчезает из виду!

@@ -1,0 +1,29 @@
+- type: entity
+  parent: BaseComputer
+  id: ArtilleryConsole
+  name: artillery control console
+  description: A control console for firing an artillery cannon.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Machines/BSA.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: base
+    - map: ["computerLayerScreen"]
+      state: screen
+  - type: ArtilleryConsole
+  - type: ActivatableUI
+    key: enum.ArtilleryConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ArtilleryConsoleUiKey.Key:
+        type: ArtilleryConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: AccessReader
+    access: [[ "Command" ]]
+  - type: Construction
+    graph: ArtilleryConsoleConstruction
+    node: base
+  - type: Computer
+    board: ArtilleryComputerCircuitboard

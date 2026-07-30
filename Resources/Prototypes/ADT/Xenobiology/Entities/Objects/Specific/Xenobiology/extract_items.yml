@@ -1,0 +1,212 @@
+- type: entity
+  id: XenobioVolatileOrgan
+  parent: [ OrganBaseHeart, BasePowerCell ]
+  name: volatile organ
+  description: A pulsating mass of slime, it seems to react to nearby devices.
+  suffix: Full
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Xenobiology/Specific/Xenobiology/volatile_organ.rsi
+        state: icon
+  - type: Item
+    size: Normal
+  - type: Battery
+    pricePerJoule: 0.15
+    maxCharge: 600
+    startingCharge: 600
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 20
+  - type: SolutionContainerManager
+    solutions:
+      battery:
+        maxVol: 15
+  - type: InjectableSolution
+    solution: battery
+  - type: DrawableSolution
+    solution: battery
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Slime
+        Quantity: 15
+#  - type: Organ
+#    onAdd:
+#    - type: LightningArcShooter
+#      arcDepth: 1
+#      maxLightningArc: 3
+#      shootMinInterval: 90
+#      shootMaxInterval: 300
+#      shootRange: 5
+#      lightningPrototype: Lightning
+#    intCap: 32
+#    integrity: 32
+#    integrityThresholds:
+#      Normal: 32
+#      Damaged: 9
+#      Destroyed: 0
+  - type: Metabolizer
+    metabolizerTypes: [ Slime ]
+  - type: Tag
+    tags:
+    - PowerCell
+    - Organ
+
+- type: entity
+  name: goop ball
+  parent: [ BaseItem, ItemHeftyBase ]
+  id: XenobioGoopBall
+  description: Not as goopy as it looks. Proven to capture fires on the same level as the holofan. Screaming included!
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Xenobiology/Specific/Xenobiology/goo_ball.rsi
+        state: icon
+  - type: Item
+    size: Normal
+  - type: Damageable
+  - type: Injurable
+    damageContainer: Biological
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 0.1
+    damage:
+      types:
+        Blunt: 1
+    soundHit:
+      collection: desecration
+  - type: UseDelay
+    delay: 0.5
+  - type: EmitSoundOnUse
+    sound:
+      collection: desecration
+      params:
+        variation: 0.125
+  - type: EmitSoundOnLand
+    sound:
+      collection: desecration
+      params:
+        variation: 0.125
+  - type: EmitSoundOnCollide
+    sound:
+      collection: desecration
+      params:
+        variation: 0.125
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          XenoGooWall:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: FloorTileItemBase
+  name: fitted bluespace carpet square
+  id: FloorTileItemBluespace
+  components:
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/Xenobiology/floors.rsi
+    state: icon-bluespace
+  - type: SpawnAfterInteract
+    prototype: FloorBluespaceEntity
+    removeOnInteract: true
+  - type: FloorTile
+    outputs:
+    - Plating
+  - type: Stack
+    stackType: FloorTileItemBluespace
+
+- type: entity
+  parent: FloorTileItemBase
+  name: fitted sepia carpet square
+  id: FloorTileItemSepia
+  components:
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/Xenobiology/floors.rsi
+    state: icon-sepia
+  - type: SpawnAfterInteract
+    prototype: FloorSepiaEntity
+    removeOnInteract: true
+  - type: FloorTile
+    outputs:
+    - Plating
+  - type: Stack
+    stackType: FloorTileItemSepia
+
+- type: entity
+  parent: BaseItem
+  id: XenobioVolatileRedExtractJelly
+  name: volatile red slime jelly
+  description: Using this on a piece of clothing seems to remove any potential slowdowns. Hovewer, subjects wearing such clothing were burnt to a crisp after a scientist lit his cigarette.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#ff3333"
+  - type: ClothingCoating
+    coatingName: clothing-coating-xenobio-volatile
+    components:
+    - type: VeryFlammable
+    - type: SpeedModifierImmunity
+
+- type: entity
+  parent: BaseItem
+  id: XenobioStabilizedRedExtractJelly
+  name: stabilized red slime jelly
+  description: A stabilized version of the volatile red extract jelly. When used on mechs or Borg, it permanently boosts their movement speed by 50%.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#ff3333"
+  - type: JellyCoating
+    speedMultiplier: 1.3
+
+- type: entity
+  parent: BaseItem
+  id: XenobioPinkExtractJelly
+  name: pink slime jelly
+  description: A remarkably stable pink extractor, whose intrinsic properties enable it to heal the vast majority of its owner's wounds with remarkable efficiency.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#ff9999"
+  - type: HealOnHolding
+    interval: 5.0
+    damage:
+      types:
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
+        Cold: 2
+        Poison: 2
+        Radiation: 2
+
+- type: entity
+  parent: BaseItem
+  id: XenobioAdamantineBar
+  name: adamantine bar
+  description: Theoretically, if you sold a couple of these, you wouldn't need to work on the station any more. It must have it's use, since it costs a fortune to get one of these. But where?
+  components:
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/Xenobiology/adamantine_bar.rsi
+    state: icon
+  - type: StaticPrice
+    price: 10000 # goida
+
+# todo mind transfer potion

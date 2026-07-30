@@ -55,7 +55,7 @@
       types:
         Blunt: 35
         Structural: 150
-    range: 2
+    range: 1.6
     angle: 0
     animation: WeaponArcPunch
     soundHit:
@@ -66,7 +66,7 @@
       AggroVisionRadius: !type:Single "20"
       NavSmash: !type:Bool "true"
       NavInteract: !type:Bool "true"
-      MeleeRange: !type:Single "1.8"
+      MeleeRange: !type:Single "1.45"
       MeleeMissChance: !type:Single "0"
     rootTask:
       task: ADTBubblegumCompound
@@ -106,8 +106,6 @@
     dropSound:
       path: /Audio/ADT/Bubblegum/exit_blood.ogg
     randomLoot:
-    - ADTMayhemBottle
-    - ADTBloodContract
     - ADTWeaponExperimentalProtoKineticAcellerator
     loot:
     - proto: ADTClothingOuterHardsuitHECK

@@ -1,2 +1,2 @@
-admin-verb-make-blob = Сделать цель блобом.
-admin-verb-text-make-blob = Сделать блобом
+admin-verb-make-blob = Превратить цель в носителя блоба.
+admin-verb-text-make-blob = Сделать носителем блоба

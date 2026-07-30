@@ -1,0 +1,57 @@
+- type: entity
+  id: PurpleSlimeExtract
+  parent: BaseSlimeExtract
+  name: purple slime extract
+  components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+      state: core
+      color: "#BF77F6"
+  - type: Reactive
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:CreateRQuantityEntityReactionEffect
+        entity: ArtifactFragment1
+        maxEntities: 4
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:ConvertReagent
+        solutionName: extract
+        removeReagent: Plasma
+        addReagent: XenobioJellyPurple
+        removeAmount: 15
+        addAmount: 1
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:ConvertReagent
+        solutionName: extract
+        removeReagent: Blood
+        addReagent: Omnizine
+        removeAmount: 1
+        addAmount: 1
+  - type: Tag
+    tags:
+    - XenobiologyPurpleExtract
