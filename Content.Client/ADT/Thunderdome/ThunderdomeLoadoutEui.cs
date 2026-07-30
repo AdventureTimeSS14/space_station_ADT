@@ -8,6 +8,8 @@ namespace Content.Client.ADT.Thunderdome;
 [UsedImplicitly]
 public sealed partial class ThunderdomeLoadoutEui : BaseEui
 {
+    [Dependency] private readonly IEntityNetworkManager _net = default!;
+
     private readonly ThunderdomeLoadoutWindow _window;
 
     public ThunderdomeLoadoutEui()
@@ -17,6 +19,11 @@ public sealed partial class ThunderdomeLoadoutEui : BaseEui
         _window.OnLoadoutConfirmed += weaponIdx =>
         {
             SendMessage(new ThunderdomeLoadoutSelectedMessage(weaponIdx));
+        };
+
+        _window.OnLeaderboardRequested += () =>
+        {
+            _net.SendSystemNetworkMessage(new ThunderdomeLeaderboardRequestEvent());
         };
     }
 

@@ -1,5 +1,3 @@
-ent-BaseArrow = { ent-BaseItem }
-    .desc = { ent-BaseItem.desc }
 ent-ADTBoltRegular = болт
     .desc = Вы чувствуете в себе силу охотника.
 ent-ADTBoltImprovisedSteel = болт из стали

@@ -8,7 +8,9 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.ADT;
+using Content.Server.ADT.Thunderdome;
 using Content.Server.Administration.Logs;
+using Content.Shared.ADT.Thunderdome;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
@@ -1488,6 +1490,115 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             await db.DbContext.SaveChangesAsync();
         }
         // ADT-BookPrinter-End
+
+        // ADT-Thunderdome-Start
+        public async Task<List<ThunderdomeLeaderboardRow>> GetThunderdomeLeaderboard(int count)
+        {
+            await using var db = await GetDb();
+
+            var top = await db.DbContext.ThunderdomeStats
+                .OrderByDescending(s => s.Score)
+                .ThenByDescending(s => s.Kills)
+                .Take(count)
+                .Select(s => new
+                {
+                    s.UserId,
+                    s.Kills,
+                    s.Deaths,
+                    s.Score,
+                    s.BestStreak,
+                })
+                .ToListAsync();
+
+            if (top.Count == 0)
+                return new List<ThunderdomeLeaderboardRow>();
+
+            var ids = top.Select(t => t.UserId).ToArray();
+            var names = await db.DbContext.Player
+                .Where(p => ids.Contains(p.UserId))
+                .Select(p => new { p.UserId, p.LastSeenUserName })
+                .ToDictionaryAsync(p => p.UserId, p => p.LastSeenUserName);
+
+            var result = new List<ThunderdomeLeaderboardRow>(top.Count);
+            foreach (var row in top)
+            {
+                result.Add(new ThunderdomeLeaderboardRow
+                {
+                    UserId = row.UserId,
+                    Name = names.GetValueOrDefault(row.UserId, string.Empty),
+                    Kills = row.Kills,
+                    Deaths = row.Deaths,
+                    Score = row.Score,
+                    BestStreak = row.BestStreak,
+                });
+            }
+
+            return result;
+        }
+
+        public async Task<ThunderdomePersonalStats?> GetThunderdomeStats(Guid userId)
+        {
+            await using var db = await GetDb();
+
+            var row = await db.DbContext.ThunderdomeStats
+                .SingleOrDefaultAsync(s => s.UserId == userId);
+
+            if (row == null)
+                return null;
+
+            var score = row.Score;
+            var better = await db.DbContext.ThunderdomeStats
+                .CountAsync(s => s.Score > score);
+
+            var total = await db.DbContext.ThunderdomeStats.CountAsync();
+
+            return new ThunderdomePersonalStats
+            {
+                Rank = better + 1,
+                TotalRanked = total,
+                Kills = row.Kills,
+                Deaths = row.Deaths,
+                Score = row.Score,
+                BestStreak = row.BestStreak,
+                RoundsPlayed = row.RoundsPlayed,
+            };
+        }
+
+        public async Task SaveThunderdomeStats(IReadOnlyCollection<ThunderdomeStatsDelta> deltas)
+        {
+            if (deltas.Count == 0)
+                return;
+
+            await using var db = await GetDb();
+
+            var ids = deltas.Select(d => d.UserId).ToArray();
+            var existing = await db.DbContext.ThunderdomeStats
+                .Where(s => ids.Contains(s.UserId))
+                .ToDictionaryAsync(s => s.UserId);
+
+            var now = DateTime.UtcNow;
+            foreach (var delta in deltas)
+            {
+                if (!existing.TryGetValue(delta.UserId, out var row))
+                {
+                    row = new ThunderdomeStats
+                    {
+                        UserId = delta.UserId,
+                    };
+                    db.DbContext.ThunderdomeStats.Add(row);
+                }
+
+                row.Kills += delta.Kills;
+                row.Deaths += delta.Deaths;
+                row.Score += delta.Score;
+                row.RoundsPlayed += delta.RoundsPlayed;
+                row.BestStreak = Math.Max(row.BestStreak, delta.BestStreak);
+                row.LastPlayed = now;
+            }
+
+            await db.DbContext.SaveChangesAsync();
+        }
+        // ADT-Thunderdome-End
 
         public async Task<List<AdminWatchlistRecord>> GetActiveWatchlists(Guid player)
         {

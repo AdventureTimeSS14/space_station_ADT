@@ -83,3 +83,18 @@
   position: 3,0
   requiredTech:
   - AlternativeResearch
+
+- type: technology
+  id: BluespaceArtillery
+  name: research-technology-bluespace-artillery
+  icon:
+    sprite: ADT/Structures/BSA.rsi
+    state: cannon_east
+  discipline: Experimental
+  tier: 3
+  cost: 15100
+  recipeUnlocks:
+  - ArtilleryComputerCircuitboard
+  position: 4,-4
+  requiredTech:
+  - ADTBluespaceMining

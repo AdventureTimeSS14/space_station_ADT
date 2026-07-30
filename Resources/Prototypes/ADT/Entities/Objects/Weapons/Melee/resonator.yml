@@ -23,8 +23,9 @@
     - ADTResonator
   - type: StaticPrice
     price: 500
-  - type: UseDelay
-    delay: 2
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
 
 - type: entity
   parent: ADTResonator
@@ -41,6 +42,7 @@
   - type: ADTResonator
     fieldLimit: 6
     quickBurstModifier: 1
+    chargeUsePercent: 0.075
     modes:
     - Auto
     - Manual

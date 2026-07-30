@@ -450,4 +450,5 @@
     price: 150
   - type: FloatingVisuals
   - type: Fauna
+  - type: ADTCleanRemains
   - type: AshStormImmune

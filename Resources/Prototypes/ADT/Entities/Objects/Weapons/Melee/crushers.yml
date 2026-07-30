@@ -10,9 +10,7 @@
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_spear.rsi
     state: icon
   - type: AmmoCounter
-  - type: UseDelayOnShoot
-  - type: UseDelay
-    delay: 0.9
+  - type: ADTKineticCooldown
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
@@ -44,9 +42,7 @@
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_spear.rsi
     state: icon
   - type: AmmoCounter
-  - type: UseDelayOnShoot
-  - type: UseDelay
-    delay: 0.9
+  - type: ADTKineticCooldown
   - type: LeechOnMarker
     leech:
       types:
@@ -130,8 +126,7 @@
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_hammer.rsi
     state: icon
-  - type: UseDelay
-    delay: 1
+  - type: ADTKineticCooldown
   - type: LeechOnMarker
     leech:
       types:
@@ -189,8 +184,8 @@
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws.rsi
     state: icon
-  - type: UseDelay
-    delay: 1
+  - type: ADTKineticCooldown
+    meleeMultiplier: 1.5
   - type: LeechOnMarker
     leech:
       types:
@@ -260,8 +255,8 @@
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_machete.rsi
     state: icon
-  - type: UseDelay
-    delay: 1
+  - type: ADTKineticCooldown
+    meleeMultiplier: 1.5
   - type: LeechOnMarker
     leech:
       types:

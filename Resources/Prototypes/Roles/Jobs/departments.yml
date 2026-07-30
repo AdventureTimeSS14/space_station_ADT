@@ -3,6 +3,7 @@
   name: department-Cargo
   description: department-Cargo-description
   color: "#A46106"
+  weight: -5 # ADT EDIT
   roles:
   - CargoTechnician
   - Quartermaster
@@ -14,7 +15,7 @@
   name: department-Civilian
   description: department-Civilian-description
   color: "#9FED58"
-  weight: -10
+  weight: -4 # ADT EDIT
   roles:
   - Bartender
   - Botanist
@@ -37,6 +38,7 @@
   name: department-CentralCommand
   description: department-CentralCommand-description
   color: "#0c344d"
+  weight: -1 # ADT EDIT
   roles:
   - CentralCommandOfficial
   - CBURN
@@ -48,13 +50,13 @@
   - ERTEngineer
   - DeathSquad
   editorHidden: true
-  weight: 120
 
 - type: department
   id: Command
   name: department-Command
   description: department-Command-description
   color: "#334E6D"
+  weight: -2 # ADT EDIT
   roles:
   - Captain
   # ADT-Tweak
@@ -78,13 +80,13 @@
   # - ERTEngineer
   # - DeathSquad
   primary: false
-  weight: 100
 
 - type: department
   id: Engineering
   name: department-Engineering
   description: department-Engineering-description
   color: "#EFB341"
+  weight: -6 # ADT EDIT
   roles:
   - AtmosphericTechnician
   - ChiefEngineer
@@ -97,6 +99,7 @@
   name: department-Medical
   description: department-Medical-description
   color: "#52B4E9"
+  weight: -7 # ADT EDIT
   roles:
   - Chemist
   - ChiefMedicalOfficer
@@ -114,7 +117,7 @@
   name: department-Security
   description: department-Security-description
   color: "#DE3A3A"
-  weight: 20
+  weight: -3 # ADT EDIT
   roles:
   - HeadOfSecurity
   - SecurityCadet
@@ -133,6 +136,7 @@
   name: department-Science
   description: department-Science-description
   color: "#D381C9"
+  weight: -8 # ADT EDIT
   roles:
   - ResearchDirector
   - Scientist
@@ -147,6 +151,7 @@
   name: department-Silicon
   description: department-Silicon-description
   color: "#D381C9"
+  weight: -9 # ADT EDIT
   roles:
   - Borg
   - StationAi
@@ -155,8 +160,8 @@
   id: Specific
   name: department-Specific
   description: department-Specific-description
-  color: "#9FED58"
-  weight: 10
+  color: "#29282f"
+  weight: -10 # ADT EDIT
   roles:
   - Reporter
   - Psychologist

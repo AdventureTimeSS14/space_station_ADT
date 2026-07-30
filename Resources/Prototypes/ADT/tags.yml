@@ -110,6 +110,9 @@
   id: Heart
 
 - type: Tag
+  id: HideFromGhostWarps
+
+- type: Tag
   id: Kidneys
 
 - type: Tag
@@ -581,6 +584,9 @@
   id: LavaDungeonBloodMiner
 
 - type: Tag
+  id: LavaDungeonDrake
+
+- type: Tag
   id: ADTLighter
 
 - type: Tag
@@ -833,7 +839,6 @@
   id: ADTArchimedesPeripheralsControlModule
 
 # XENOBIO - START
-
 - type: Tag
   id: XenobiologyGreyExtract
 
@@ -906,5 +911,10 @@
 - type: Tag
   id: XenoVacNozzle
 
-
 # XENOBIO - END
+
+- type: Tag
+  id: BoardBSA
+
+- type: Tag
+  id: BlueprintBSA
