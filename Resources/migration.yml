@@ -1030,3 +1030,13 @@ BrokenImprinter: null
 BrokenMicrowavbe: null
 BrokenSMES: null
 BrokenSubstation: null
+
+# ADT 2026-07-30: Fuck xeno ghost roles
+SpawnMobXenoBurrower: ADTSpawnMobXenoBurrowerNoGhost
+SpawnMobXenoDrone: ADTSpawnMobXenoDroneNoGhost
+SpawnMobXenoPraetorian: ADTSpawnMobXenoPraetorianNoGhost
+SpawnMobXenoQueen: ADTSpawnMobXenoQueenNoGhost
+SpawnMobXenoRavager: ADTSpawnMobXenoRavagerNoGhost
+SpawnMobXenoRunner: ADTSpawnMobXenoRunnerNoGhost
+SpawnMobXenoSpitter: ADTSpawnMobXenoSpitterNoGhost
+SpawnMobXenoEasy: ADTSpawnMobXenoEasyNoGhost
