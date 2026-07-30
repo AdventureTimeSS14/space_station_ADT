@@ -27393,13 +27393,6 @@ entities:
     - type: Transform
       pos: -18.5,38.5
       parent: 2
-- proto: CrateFunInstrumentsVariety
-  entities:
-  - uid: 707
-    components:
-    - type: Transform
-      pos: -29.5,49.5
-      parent: 2
 - proto: CrateLockBoxMedical
   entities:
   - uid: 10244
@@ -70328,5 +70321,12 @@ entities:
     components:
     - type: Transform
       pos: -23.493431,23.550247
+      parent: 2
+- proto: ADTVendingMachineMusician
+  entities:
+  - uid: 53949
+    components:
+    - type: Transform
+      pos: -29.5,49.5
       parent: 2
 ...

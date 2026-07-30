@@ -1,0 +1,22 @@
+- type: entity
+  parent: RockGuitarInstrument
+  id: ADTDeathGuitarInstrument
+  name: rock guitar
+  description: That's the size!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Instruments/deathguitar.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: 45
+    damage:
+      types:
+        Blunt: 5
+        Slash: 10
+        Structural: 10
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 15
+        Structural: 25
+
