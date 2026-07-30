@@ -49,8 +49,6 @@
     maxVocalizeInterval: 10m
     hideChat: true
   - type: VocalizerRequiresPower
-  - type: DatasetVocalizer
-    dataset: SlotMachineAds
   - type: ContainerContainer
     containers:
       money: !type:ContainerSlot
