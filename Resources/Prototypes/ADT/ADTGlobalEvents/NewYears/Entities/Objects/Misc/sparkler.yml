@@ -1,0 +1,78 @@
+- type: entity
+  name: sparkler
+  suffix: New Year
+  parent: BaseItem
+  id: ADTSparkler
+  description: A combustible mixture, that is mostly used in holidays.
+  components:
+  - type: Tag
+    tags:
+    - ADTSparkler
+    - Trash
+  - type: SpaceGarbage
+  - type: ExpendableLight
+    spentName: expendable-light-spent-sparkler-name
+    spentDesc: expendable-light-spent-sparkler-desc
+    glowDuration: 60
+    fadeOutDuration: 8
+    iconStateLit: lit-icon
+    iconStateSpent: unlit-icon
+    turnOnBehaviourID: turn_on
+    fadeOutBehaviourID: fade_out
+    litSound:
+      path: /Audio/Items/Flare/flare_on.ogg
+    loopedSound: /Audio/Items/Flare/flare_burn.ogg
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Misc/sparkler.rsi
+    layers:
+      - map: [ enum.ExpendableLightVisualLayers.Base ]
+        state: unlit-icon
+      - map: [ enum.ExpendableLightVisualLayers.Glow ]
+        state: lit-icon
+        visible: false
+        shader: unshaded
+      - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+        state: burnt-icon
+  - type: Item
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Misc/sparkler.rsi
+    heldPrefix: unlit
+    size: Tiny
+  - type: Appearance
+  - type: PointLight
+    enabled: false
+    color: "#fff095"
+    radius: 0.5
+    energy: 0.5
+    netsync: false
+  - type: IgnitionSource
+    temperature: 500
+  - type: LightBehaviour
+    behaviours:
+      - !type:FadeBehaviour # have the radius start small and get larger as it starts to burn
+        id: turn_on
+        maxDuration: 6.0
+        startValue: 1.5
+        endValue: 5.0
+      - !type:RandomizeBehaviour # just flickers.
+        id: turn_on
+        interpolate: Nearest
+        minDuration: 0.001
+        maxDuration: 0.001
+        startValue: 2.0
+        endValue: 4.0
+        property: Energy
+        isLooped: true
+      - !type:RandomizeBehaviour # just when fades away
+        id: fade_out
+        interpolate: Nearest
+        minDuration: 0.001
+        maxDuration: 0.001
+        startValue: 2.0
+        endValue: 4.0
+        property: Energy
+        isLooped: true
+      - !type:FadeBehaviour # fade out radius as it burns out
+        id: fade_out
+        maxDuration: 8.0
+        startValue: 5.0
+        endValue: 0.5

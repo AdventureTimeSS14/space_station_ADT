@@ -1,0 +1,9 @@
+#сок
+- type: reagent
+  id: ADTJuiceMandarin
+  name: reagent-name-juice-mandarin
+  parent: BaseDrink
+  desc: reagent-desc-juice-mandarin
+  physicalDesc: reagent-physical-desc-citric
+  flavor: ADTmandarin
+  color: "#E78108"

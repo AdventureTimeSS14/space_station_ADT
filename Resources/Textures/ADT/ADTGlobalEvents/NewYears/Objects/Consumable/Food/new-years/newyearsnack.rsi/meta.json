@@ -1,0 +1,80 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord: prazat911 for Adventure Time",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "atmos"
+        },
+        {
+            "name": "botanic"
+        },
+        {
+            "name": "stick"
+        },
+        {
+            "name": "cargo"
+        },
+        {
+            "name": "cookieman"
+        },
+        {
+            "name": "chef"
+        },
+        {
+            "name": "doctor"
+        },
+        {
+            "name": "gift"
+        },
+        {
+            "name": "glove"
+        },
+        {
+            "name": "janitory"
+        },
+        {
+            "name": "mime"
+        },
+        {
+            "name": "nukie"
+        },
+        {
+            "name": "clown"
+        },
+        {
+            "name": "greytide"
+        },
+        {
+            "name": "scientist"
+        },
+        {
+            "name": "security"
+        },
+        {
+            "name": "snowflake"
+        },
+        {
+            "name": "snowman"
+        },
+        {
+            "name": "socks"
+        },
+        {
+            "name": "tree"
+        },
+        {
+            "name": "box1"
+        },
+        {
+            "name": "box2"
+        },
+        {
+            "name": "box3"
+        }
+    ]
+}

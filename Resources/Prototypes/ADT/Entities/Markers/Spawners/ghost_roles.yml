@@ -236,7 +236,7 @@
     - state: green
     - sprite: ADT/Mobs/Aliens/morph.rsi
       state: alive
-        
+
 - type: entity
   name: Hermit spawner
   id: ADTMobHermitSpawner
@@ -297,7 +297,7 @@
     sprite: Markers/jobs.rsi
     layers:
       - state: green
-      
+
 - type: entity
   id: ADTSpawnPointDrPolymorph
   name: DrPolymorph spawn point

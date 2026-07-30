@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation and modified by Swept at https://github.com/tgstation/tgstation/commit/40d75cc340c63582fb66ce15bf75a36115f6bdaa, resprited by orange6775 (discord) and waffle cake created by pangaari (discord)",
+    "copyright": "Taken from tgstation and modified by Swept at https://github.com/tgstation/tgstation/commit/40d75cc340c63582fb66ce15bf75a36115f6bdaa, resprited by orange6775 (discord) and chocolate-slice-heart, chocolate-heart, strawberry-slice-heart, strawberry-heart made by: anvel (discord), and waffle cake created by pangaari (discord)",
     "size": {
         "x": 32,
         "y": 32
@@ -49,6 +49,11 @@
         {"name": "spaceman"},
         {"name": "spaceman-inhand-left", "directions": 4},
         {"name": "spaceman-inhand-right", "directions": 4},
+        {"name": "chocolate-heart"},
+        {"name": "chocolate-slice-heart"},
+        {"name": "strawberry-heart"},
+        {"name": "strawberry-slice-heart"},
+
         {"name": "bananaboom"},
         {"name": "bananaboom-inhand-left", "directions": 4},
         {"name": "bananaboom-inhand-right", "directions": 4},
