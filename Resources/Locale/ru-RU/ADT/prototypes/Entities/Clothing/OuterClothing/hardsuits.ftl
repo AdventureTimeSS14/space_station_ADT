@@ -19,14 +19,6 @@ ent-ADTClothingOuterHardsuitCybersunBodyGuard = скафандр телохра�
     .desc = Тяжелобронированный скафандр элитного подразделения телохранителей CyberSun.
     .suffix = { "" }
 
-ent-ADTClothingOuterHardsuitCybersunCrysis = скафандр суперсолдата CyberSun
-    .desc = Самая передовая, секретная технология CyberSun в сфере защиты. Кажется, эта разработка ведёт к созданию супер солдат. Пахнет пластитаном и бесчестным боем.
-    .suffix = { "" }
-
-ent-ADTClothingOuterHardsuitSaibaSain = элитный скафандр Сайба-Сайны
-    .desc = Разработка из плазматических волокн, наномашин и кремния. Пахнет как цветение сакуры.
-    .suffix = { "" }
-
 ent-ADTClothingOuterHardsuitPioneerAgent = боевой скафандр агента "Пионер"
     .desc = Специальный защитный скафандр на основе скафандра командира ОБР NanoTrasen. Создан в единственном экземпляре для специального агента CyberSun.
     .suffix = { "" }
