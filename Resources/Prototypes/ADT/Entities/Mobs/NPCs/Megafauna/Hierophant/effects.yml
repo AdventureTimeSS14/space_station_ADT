@@ -72,7 +72,7 @@
     layers:
     - state: telegraph
   - type: TimedDespawn
-    lifetime: 0.3
+    lifetime: 0.28
 
 - type: entity
   id: ADTHierophantTelegraphCardinal
@@ -116,7 +116,7 @@
     layers:
     - state: telegraph_edge
   - type: TimedDespawn
-    lifetime: 4
+    lifetime: 3.7
 
 - type: entity
   id: ADTHierophantTempWall
@@ -177,7 +177,15 @@
     drawdepth: Walls
     sprite: ADT/Structures/Walls/hierophant_wall.rsi
     layers:
-    - state: wall
+    - state: wall0
+  - type: Icon
+    sprite: ADT/Structures/Walls/hierophant_wall.rsi
+    state: wall
+  - type: IconSmooth
+    mode: CardinalFlags
+    key: hierophantArenaWalls
+    base: wall
+  - type: SyncSprite
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -198,6 +206,30 @@
     energy: 2
     softness: 1
     color: "#A855D8"
+
+- type: entity
+  id: ADTHierophantFloorEdge
+  name: vortex marking
+  description: The metal here is etched with a pulsing line. Whatever it marks out, it is not for your benefit.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Sprite
+    drawdepth: FloorTiles
+    sprite: ADT/Tiles/hierophant_floor_edge.rsi
+    layers:
+    - state: edge0
+  - type: Icon
+    sprite: ADT/Tiles/hierophant_floor_edge.rsi
+    state: edge0
+  - type: IconSmooth
+    mode: CardinalFlags
+    key: hierophantArenaFloor
+    base: edge
+  - type: SyncSprite
 
 - type: entity
   id: ADTHierophantLightEmitter

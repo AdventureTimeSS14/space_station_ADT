@@ -63,6 +63,7 @@
     layers:
     - state: off
       map: [ "base" ]
+  - type: SyncSprite
   - type: Appearance
   - type: GenericVisualizer
     visuals:
