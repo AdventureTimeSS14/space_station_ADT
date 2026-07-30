@@ -237189,12 +237189,18 @@ entities:
     - type: Transform
       pos: 22.565756,-47.432816
       parent: 2
-
 - proto: ZiptiesBroken
   entities:
   - uid: 35100
     components:
     - type: Transform
       pos: 10.353281,-21.639576
+      parent: 2
+- proto: ADTVendingMachineMusician
+  entities:
+  - uid: 53949
+    components:
+    - type: Transform
+      pos: 12.5,5.5
       parent: 2
 ...
