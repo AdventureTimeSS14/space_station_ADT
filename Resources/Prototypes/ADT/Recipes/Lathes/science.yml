@@ -15,3 +15,13 @@
   id: ADTChemicalPayload
   recipes:
   - ChemicalPayload
+
+- type: latheRecipePack
+  id: BluespaceArtilleryBoards
+  recipes:
+  - ArtilleryComputerCircuitboard
+
+- type: latheRecipe
+  parent: BasePlSiGoCircuitboardRecipe
+  id: ArtilleryComputerCircuitboard
+  result: ArtilleryComputerCircuitboard
