@@ -2,7 +2,7 @@
   id: ADTMegaFaunaHierophant
   name: hierophant
   description: A massive metal club that hangs in the air as though waiting. It'll make you dance to its beat.
-  parent: BaseMobAsteroid
+  parent: ADTBaseMobMegafauna
   components:
   - type: Sprite
     sprite: ADT/Mobs/Aliens/Lavaland/hierophant.rsi
@@ -27,7 +27,6 @@
             color: "#660099"
           False:
             color: "#FFFFFF"
-  - type: Appearance
   - type: Fixtures
     fixtures:
       fix1:
@@ -38,26 +37,6 @@
         - MobMask
         layer:
         - MobLayer
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
-  - type: Tag
-    tags:
-    - CannotSuicide
-    - DoorBumpOpener
-    - StunImmune
-  - type: NoSlip
-  - type: ExplosionResistance
-    damageCoefficient: 0
-  - type: Fauna
-  - type: AshStormImmune
-  - type: StatusEffects
-    allowed: []
-  - type: StaminaResistance
-    damageCoefficient: 0
-    worn: false
-  - type: Destructible
-    thresholds: []
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.2
     baseSprintSpeed: 2.2
@@ -65,9 +44,6 @@
     thresholds:
       0: Alive
       2500: Dead
-  - type: Damageable
-  - type: Injurable
-    damageContainer: Biological
   - type: MeleeWeapon
     attackRate: 1
     damage:
@@ -119,10 +95,9 @@
       max: 15
   - type: StatusIcon
     bounds: -1,-2,1,1
-  #- type: ADTMobHealthBar
-  #  active: true
-  #  nameOverride: Иерофант
-  #  primaryColor: "#3d0a52"
-  #  accentColor: "#a855f7"
-  #  style: Arcane
-  #  priority: 50
+#  - type: ADTMobHealthBar
+#    active: true
+#    primaryColor: "#5b1580"
+#    accentColor: "#c084fc"
+#    style: Arcane
+#    priority: 50
