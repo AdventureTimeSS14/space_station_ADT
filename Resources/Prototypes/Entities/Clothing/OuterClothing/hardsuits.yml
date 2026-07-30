@@ -23,6 +23,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
+  - type: Insulated
     modifiers:
       coefficients:
         Blunt: 0.7 # ADT-Tweak 0.9 -> 0.7
@@ -61,6 +62,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.6 # ADT-Tweak 0.5 -> 0.6
   - type: Armor
+  - type: Insulated
     modifiers:
       coefficients:
   # ADT-Tweak-Start
@@ -434,6 +436,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5 # ADT-Tweak 0.2 -> 0.5
   - type: Armor
+  - type: Insulated
     modifiers:
       coefficients:
         Blunt: 0.8
@@ -662,7 +665,7 @@
     price: 5000
   # ADT-Tweak start
   - type: DNALocker
-  - type: ClothingGrantComponent 
+  - type: ClothingGrantComponent
     component:
     - type: SupermatterImmune
   - type: SupermatterImmune
@@ -1052,6 +1055,7 @@
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
   - type: FireProtection
     reduction: 0.8
+  - type: Insulated
   - type: DNALocker # ADT-Tweak костыль
     enabled: false
   # ADT-Tweak-start
