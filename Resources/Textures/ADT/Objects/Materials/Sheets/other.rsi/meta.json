@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from BlueMoon-Station https://github.com/BlueMoon-Labs/BlueMoon-Station and modified by orange6775 (discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "paper"
+    },
+    {
+      "name": "paper_2"
+    },
+    {
+      "name": "paper_3"
+    },
+    {
+      "name": "paper-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "paper-inhand-left",
+      "directions": 4
+    }
+  ]
+}

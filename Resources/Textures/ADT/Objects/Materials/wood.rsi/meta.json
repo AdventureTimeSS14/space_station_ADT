@@ -1,0 +1,20 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from BlueMoon-Station https://github.com/BlueMoon-Labs/BlueMoon-Station and modified by orange6775 (discord)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "wood"
+        },
+        {
+            "name": "wood_2"
+        },
+        {
+            "name": "wood_3"
+        }
+    ]
+}

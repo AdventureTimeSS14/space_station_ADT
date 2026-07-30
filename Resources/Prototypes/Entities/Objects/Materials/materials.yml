@@ -260,6 +260,7 @@
     - wood_2
     - wood_3
   - type: Sprite
+    sprite: ADT/Objects/Materials/wood.rsi #ADT-Tweak
     state: wood
     layers:
     - state: wood
