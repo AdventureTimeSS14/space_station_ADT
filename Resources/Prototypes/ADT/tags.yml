@@ -581,6 +581,9 @@
   id: LavaDungeonBloodMiner
 
 - type: Tag
+  id: LavaDungeonDrake
+
+- type: Tag
   id: ADTLighter
 
 - type: Tag

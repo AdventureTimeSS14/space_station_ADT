@@ -1,9 +1,11 @@
+using System.Linq;
 using Content.Server.ADT.Mining;
 using Content.Server.ADT.Mining.Resonator;
 using Content.Server.ADT.PressureDamageModify;
 using Content.Server.Gatherable;
 using Content.Server.Gatherable.Components;
 using Content.Shared.ADT.Salvage.Components;
+using Content.Shared.ADT.Weapons.Ranged.Upgrades;
 using Content.Shared.ADT.Weapons.Ranged.Upgrades.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -14,7 +16,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
-using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
@@ -31,20 +32,19 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly ADTResonatorSystem _resonator = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<ADTGunUpgradeDamageComponent, GunShotEvent>(OnDamageShot);
-        SubscribeLocalEvent<ADTGunUpgradeRangeComponent, GunShotEvent>(OnRangeShot);
-        SubscribeLocalEvent<ADTGunUpgradeIndoorsComponent, GunShotEvent>(OnIndoorsShot);
-        SubscribeLocalEvent<ADTGunUpgradeVampirismComponent, GunShotEvent>(OnVampirismShot);
-        SubscribeLocalEvent<ADTGunUpgradeAoEComponent, GunShotEvent>(OnAoEShot);
-        SubscribeLocalEvent<ADTGunUpgradeRepeaterComponent, GunShotEvent>(OnRepeaterShot);
-        SubscribeLocalEvent<ADTGunUpgradeDeathSyphonComponent, GunShotEvent>(OnDeathSyphonShot);
-        SubscribeLocalEvent<ADTGunUpgradeTracerComponent, GunShotEvent>(OnTracerShot);
-        SubscribeLocalEvent<ADTGunUpgradeResonatorComponent, GunShotEvent>(OnResonatorShot);
+        SubscribeLocalEvent<ADTGunUpgradeDamageComponent, ADTGunUpgradeShotEvent>(OnDamageShot);
+        SubscribeLocalEvent<ADTGunUpgradeRangeComponent, ADTGunUpgradeShotEvent>(OnRangeShot);
+        SubscribeLocalEvent<ADTGunUpgradeIndoorsComponent, ADTGunUpgradeShotEvent>(OnIndoorsShot);
+        SubscribeLocalEvent<ADTGunUpgradeVampirismComponent, ADTGunUpgradeShotEvent>(OnVampirismShot);
+        SubscribeLocalEvent<ADTGunUpgradeAoEComponent, ADTGunUpgradeShotEvent>(OnAoEShot);
+        SubscribeLocalEvent<ADTGunUpgradeRepeaterComponent, ADTGunUpgradeShotEvent>(OnRepeaterShot);
+        SubscribeLocalEvent<ADTGunUpgradeDeathSyphonComponent, ADTGunUpgradeShotEvent>(OnDeathSyphonShot);
+        SubscribeLocalEvent<ADTGunUpgradeTracerComponent, ADTGunUpgradeShotEvent>(OnTracerShot);
+        SubscribeLocalEvent<ADTGunUpgradeResonatorComponent, ADTGunUpgradeShotEvent>(OnResonatorShot);
 
         SubscribeLocalEvent<ADTProjectileVampirismComponent, ProjectileHitEvent>(OnVampirismHit);
         SubscribeLocalEvent<ADTProjectileAoEComponent, ProjectileHitEvent>(OnAoEHit);
@@ -55,16 +55,24 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
         SubscribeLocalEvent<ADTSyphonMarkComponent, MobStateChangedEvent>(OnMarkedMobStateChanged);
     }
 
-    private void OnDamageShot(Entity<ADTGunUpgradeDamageComponent> ent, ref GunShotEvent args)
+    private void OnDamageShot(Entity<ADTGunUpgradeDamageComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
-        foreach (var bolt in GetBolts(args))
+        var bolts = GetBolts(args).ToList();
+        if (bolts.Count == 0)
+            return;
+
+        var damage = ent.Comp.SplitAcrossProjectiles
+            ? ent.Comp.Damage / bolts.Count
+            : ent.Comp.Damage;
+
+        foreach (var bolt in bolts)
         {
             if (TryComp<ProjectileComponent>(bolt, out var projectile))
-                projectile.Damage += ent.Comp.Damage;
+                projectile.Damage += damage;
         }
     }
 
-    private void OnRangeShot(Entity<ADTGunUpgradeRangeComponent> ent, ref GunShotEvent args)
+    private void OnRangeShot(Entity<ADTGunUpgradeRangeComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
         foreach (var bolt in GetBolts(args))
         {
@@ -73,7 +81,7 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
         }
     }
 
-    private void OnIndoorsShot(Entity<ADTGunUpgradeIndoorsComponent> ent, ref GunShotEvent args)
+    private void OnIndoorsShot(Entity<ADTGunUpgradeIndoorsComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
         foreach (var bolt in GetBolts(args))
         {
@@ -84,7 +92,7 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
         }
     }
 
-    private void OnVampirismShot(Entity<ADTGunUpgradeVampirismComponent> ent, ref GunShotEvent args)
+    private void OnVampirismShot(Entity<ADTGunUpgradeVampirismComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
         foreach (var bolt in GetBolts(args))
         {
@@ -93,7 +101,7 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
         }
     }
 
-    private void OnAoEShot(Entity<ADTGunUpgradeAoEComponent> ent, ref GunShotEvent args)
+    private void OnAoEShot(Entity<ADTGunUpgradeAoEComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
         foreach (var bolt in GetBolts(args))
         {
@@ -105,20 +113,17 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
         }
     }
 
-    private void OnRepeaterShot(Entity<ADTGunUpgradeRepeaterComponent> ent, ref GunShotEvent args)
+    private void OnRepeaterShot(Entity<ADTGunUpgradeRepeaterComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
-        if (!_container.TryGetContainingContainer(ent.Owner, out var container))
-            return;
-
         foreach (var bolt in GetBolts(args))
         {
             var comp = EnsureComp<ADTProjectileRepeaterComponent>(bolt);
-            comp.Gun = container.Owner;
+            comp.Gun = args.Gun;
             comp.HitCoefficient = ent.Comp.HitCoefficient;
         }
     }
 
-    private void OnDeathSyphonShot(Entity<ADTGunUpgradeDeathSyphonComponent> ent, ref GunShotEvent args)
+    private void OnDeathSyphonShot(Entity<ADTGunUpgradeDeathSyphonComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
         foreach (var bolt in GetBolts(args))
         {
@@ -127,7 +132,7 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
         }
     }
 
-    private void OnTracerShot(Entity<ADTGunUpgradeTracerComponent> ent, ref GunShotEvent args)
+    private void OnTracerShot(Entity<ADTGunUpgradeTracerComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
         foreach (var bolt in GetBolts(args))
         {
@@ -137,7 +142,7 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
         }
     }
 
-    private void OnResonatorShot(Entity<ADTGunUpgradeResonatorComponent> ent, ref GunShotEvent args)
+    private void OnResonatorShot(Entity<ADTGunUpgradeResonatorComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
         foreach (var bolt in GetBolts(args))
         {
@@ -261,11 +266,11 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
         RemCompDeferred<ADTSyphonMarkComponent>(ent);
     }
 
-    private IEnumerable<EntityUid> GetBolts(GunShotEvent args)
+    private IEnumerable<EntityUid> GetBolts(ADTGunUpgradeShotEvent args)
     {
-        foreach (var (uid, _) in args.Ammo)
+        foreach (var bolt in args.Projectiles)
         {
-            if (uid is { } bolt && HasComp<ProjectileComponent>(bolt))
+            if (HasComp<ProjectileComponent>(bolt))
                 yield return bolt;
         }
     }

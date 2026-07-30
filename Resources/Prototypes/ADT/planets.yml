@@ -9,20 +9,57 @@
     range: 250
     texturepath: "/Textures/ADT/Effects/weather.rsi/ashfal_lvery_light.png"
   - type: ADTLavalandGeneration
-    safeRadius: 40
+    safeRadius: 32
+    safeEdgeNoise: 6
+    safeFalloff: 14
     minRadius: 40
     maxRadius: 230
     groups:
     - prototypes: [ LavaDungeonRoomMarker ]
-      count: 10
-      minSpacing: 45
-      minDistanceFromCenter: 40
+      count: 24
+      minSpacing: 50
+      minDistanceFromCenter: 55
       avoidRooms: true
-    - prototypes: [ ADTRandomTendrilSpawner ]
-      count: 8
-      minSpacing: 40
-      minDistanceFromCenter: 50
-      avoidRooms: true
+  - type: ADTLavalandPopulation
+    groups:
+    # /datum/spawn_pool/tendrils - roll("5d4") + roll("1d6")
+    - minBudget: 6
+      maxBudget: 26
+      minSpacing: 24
+      minDistanceFromCenter: 65
+      maxRadius: 220
+      entries:
+      - prototype: ADTRandomTendrilSpawner
+    # /datum/spawn_pool/lavaland_fauna - rand(100, 150)
+    - minBudget: 100
+      maxBudget: 150
+      minSpacing: 12
+      minDistanceFromCenter: 60
+      maxRadius: 225
+      entries:
+      - prototype: MobGoliath
+        weight: 3
+        variants:
+        - prototype: MobAncientGoliath
+          probability: 0.01
+      - prototype: ADTMobLegion
+        weight: 3
+      - prototype: MobWatcherLavaland
+        weight: 3
+        variants:
+        - prototype: MobWatcherIcewing
+          probability: 0.0025
+        - prototype: MobWatcherMagmawing
+          probability: 0.0075
+      - prototype: ADTMobGoldgrub
+        weight: 1
+      - prototype: ADTMobGutlunch
+        weight: 1
+        variants:
+        - prototype: ADTMobGubbuck
+          probability: 0.025
+        - prototype: ADTMobGuthen
+          probability: 0.025
   - type: ADTMegafaunaSpawn
     count: 2
     minDistanceFromCenter: 100
@@ -30,7 +67,7 @@
     minSpacing: 70
     avoidRooms: true
     bosses:
-    - MobDrake
+    - DrakeDungeMarker
     - ADTMegaFaunaBubblegum
     - BloodMinerDungeMarker
   - type: FTLDestination
@@ -89,10 +126,6 @@
   - ADTLavaVeinOreZinc
   - ADTLavaVeinOreLead
   - ADTLavaVeinOreGibtonit
-  - ADTLavaGutlunchHerd
-  - ADTLavaGutlunchPair
-  - ADTLavaGubbucks
-  - ADTLavaGoldgrubs
 
 - type: planet
   id: GlacierSurface
