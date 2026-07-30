@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from MOLOT-BlueMoon-Station https://github.com/BlueMoon-Labs/BlueMoon-Station-13 and modified by orange6775 (discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "cornmeal"
+    },
+    {
+      "name": "cornmeal_open"
+    },
+    {
+      "name": "cornmeal-big"
+    },
+    {
+      "name": "cornmeal-big_open"
+    },
+    {
+      "name": "flour-small"
+    },
+    {
+      "name": "flour-small_open"
+    },
+    {
+      "name": "flour-big"
+    },
+    {
+      "name": "flour-big_open"
+    },
+    {
+      "name": "rice-small"
+    },
+    {
+      "name": "rice-small_open"
+    },
+    {
+      "name": "rice-big"
+    },
+    {
+      "name": "rice-big_open"
+    },
+    {
+      "name": "sugar-small"
+    },
+    {
+      "name": "sugar-small_open"
+    },
+    {
+      "name": "sugar-big"
+    },
+    {
+      "name": "sugar-big_open"
+    },
+    {
+      "name": "cloth-box"
+    },
+    {
+      "name": "oliveoil"
+    },
+    {
+      "name": "oliveoil_open"
+    },
+    {
+      "name": "mayo"
+    },
+    {
+      "name": "mayo_open"
+    }
+  ]
+}
