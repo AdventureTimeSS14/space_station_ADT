@@ -356,6 +356,12 @@
     layers:
     - state: mayo
       map: ["enum.OpenableVisuals.Layer"]
+  #ADT-Tweak-Start
+  - type: Openable
+    sound:
+      collection: pop
+    closeable: true
+  #ADT-Tweak-End
   - type: SolutionContainerManager
     solutions:
       food:

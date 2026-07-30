@@ -443,6 +443,12 @@
     layers:
     - state: bottle-enzyme
       map: ["enum.OpenableVisuals.Layer"]
+  - type: Openable
+    sound:
+      collection: bottleOpenSounds
+    closeable: true
+    closeSound:
+      collection: bottleCloseSounds
   #ADT-Tweak-Closed
   - type: Icon
     state: bottle-enzyme
@@ -467,13 +473,19 @@
     visuals:
       enum.OpenableVisuals.Opened:
         enum.OpenableVisuals.Layer:
-          True: {state: "bottle-enzyme_open"} # open
-          False: {state: "bottle-enzyme"} # closed
+          True: {state: "bottle-vinegar_open"} # open
+          False: {state: "bottle-vinegar"} # closed
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/condiments.rsi
     layers:
-    - state: bottle-enzyme
+    - state: bottle-vinegar
       map: ["enum.OpenableVisuals.Layer"]
+  - type: Openable
+    sound:
+      collection: bottleOpenSounds
+    closeable: true
+    closeSound:
+      collection: bottleCloseSounds
   #ADT-Tweak-Closed
   - type: Icon
     state: bottle-vinegar
