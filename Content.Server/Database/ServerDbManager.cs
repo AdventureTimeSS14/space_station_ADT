@@ -4,7 +4,9 @@ using System.Net;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server.ADT.Thunderdome;
 using Content.Server.Administration.Logs;
+using Content.Shared.ADT.Thunderdome;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Construction.Prototypes;
@@ -308,6 +310,16 @@ namespace Content.Server.Database
 
         #endregion
         // ADT-BookPrinter-End
+
+        // ADT-Thunderdome-Start
+        #region Thunderdome
+
+        Task<List<ThunderdomeLeaderboardRow>> GetThunderdomeLeaderboardAsync(int count);
+        Task<ThunderdomePersonalStats?> GetThunderdomeStatsAsync(Guid userId);
+        Task SaveThunderdomeStatsAsync(IReadOnlyCollection<ThunderdomeStatsDelta> deltas);
+
+        #endregion
+        // ADT-Thunderdome-End
 
         #region Job Whitelists
 
@@ -1028,6 +1040,26 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.UploadBookPrinterEntry(bookEntry));
         }
         // ADT-BookPrinter-Start
+
+        // ADT-Thunderdome-Start
+        public Task<List<ThunderdomeLeaderboardRow>> GetThunderdomeLeaderboardAsync(int count)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetThunderdomeLeaderboard(count));
+        }
+
+        public Task<ThunderdomePersonalStats?> GetThunderdomeStatsAsync(Guid userId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetThunderdomeStats(userId));
+        }
+
+        public Task SaveThunderdomeStatsAsync(IReadOnlyCollection<ThunderdomeStatsDelta> deltas)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SaveThunderdomeStats(deltas));
+        }
+        // ADT-Thunderdome-End
 
         public Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score)
         {
