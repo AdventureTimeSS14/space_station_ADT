@@ -744,7 +744,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
 
         var selectedServerUid = state.SelectedServerUid;
         _rescanProgressBar = null;
-        if (hasScanned && servers.Count > 0)
+        if (hasScanned)
         {
             if (_rescanInProgress)
             {
@@ -770,129 +770,144 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
                 ServersListContainer.AddChild(rescanButton);
             }
 
-            var serversLabel = new RichTextLabel()
+            if (servers.Count == 0)
             {
-                Margin = new Thickness(10, 0),
-                HorizontalExpand = true,
-            };
-            serversLabel.SetMessage(Loc.GetString("crew-monitoring-servers-department"));
-            serversLabel.StyleClasses.Add("font-large");
-            ServersListContainer.AddChild(serversLabel);
-
-            foreach (var server in servers)
-            {
-                var isSelected = selectedServerUid != null && server.NetEntity == selectedServerUid.Value;
-                var statusColor = server.IsOnline ? Color.LimeGreen : Color.Red;
-                var serverDisplayName = string.IsNullOrEmpty(server.GridName)
-                    ? server.ServerAddress
-                    : $"{server.GridName} — {server.ServerAddress}";
-
-                // Same chrome as crew sensor rows: light = selectable, green = selected, dim = offline.
-                var serverButton = new Button
+                var emptyLabel = new Label
                 {
+                    Text = Loc.GetString("crew-monitoring-ui-no-server-label"),
                     HorizontalExpand = true,
-                    Disabled = !server.IsOnline && !isSelected,
-                    Margin = new Thickness(10, 0),
+                    Align = Label.AlignMode.Center,
+                    Margin = new Thickness(10, 8, 10, 0),
+                    FontColorOverride = _sensorTextMuted,
                 };
-
-                if (isSelected)
-                    serverButton.StyleBoxOverride = _sensorRowSelectedStyle;
-                else if (server.IsOnline)
-                    serverButton.StyleBoxOverride = _sensorRowStyle;
-                else
-                    serverButton.StyleBoxOverride = _sensorRowInactiveStyle;
-
-                serverButton.ModulateSelfOverride = Color.White;
-
-                var mainContainer = new BoxContainer
-                {
-                    Orientation = LayoutOrientation.Horizontal,
-                    HorizontalExpand = true,
-                };
-                serverButton.AddChild(mainContainer);
-
-                var indicator = new PanelContainer
-                {
-                    MinSize = new Vector2(10, 10),
-                    MaxSize = new Vector2(10, 10),
-                    Margin = new Thickness(0, 0, 6, 0),
-                    VerticalAlignment = VAlignment.Center,
-                    PanelOverride = new StyleBoxFlat { BackgroundColor = statusColor },
-                };
-                mainContainer.AddChild(indicator);
-
-                var textColor = isSelected || server.IsOnline
-                    ? _sensorTextOnLight
-                    : _sensorTextMuted;
-
-                var statusLabel = new Label
-                {
-                    Text = Loc.GetString(server.IsOnline
-                        ? "crew-monitoring-server-online"
-                        : "crew-monitoring-server-offline"),
-                    FontColorOverride = statusColor,
-                    Margin = new Thickness(0, 0, 8, 0),
-                    VerticalAlignment = VAlignment.Center,
-                };
-                mainContainer.AddChild(statusLabel);
-
-                var nameLabel = new Label
-                {
-                    Text = serverDisplayName,
-                    ClipText = true,
-                    HorizontalExpand = true,
-                    FontColorOverride = textColor,
-                    VerticalAlignment = VAlignment.Center,
-                };
-                mainContainer.AddChild(nameLabel);
-
-                if (isSelected)
-                {
-                    mainContainer.AddChild(new Label
-                    {
-                        Text = Loc.GetString("crew-monitoring-server-active"),
-                        FontColorOverride = textColor,
-                        VerticalAlignment = VAlignment.Center,
-                        Margin = new Thickness(8, 0, 0, 0),
-                    });
-                }
-
-                var serverEntity = server.NetEntity;
-                if (!isSelected && server.IsOnline)
-                    serverButton.OnPressed += _ => OnSelectServer?.Invoke(serverEntity);
-
-                ServersListContainer.AddChild(serverButton);
+                ServersListContainer.AddChild(emptyLabel);
             }
-
-            if (hasServerSelected && _serverBlipTexture != null && NavMap.Visible)
+            else
             {
+                var serversLabel = new RichTextLabel()
+                {
+                    Margin = new Thickness(10, 0),
+                    HorizontalExpand = true,
+                };
+                serversLabel.SetMessage(Loc.GetString("crew-monitoring-servers-department"));
+                serversLabel.StyleClasses.Add("font-large");
+                ServersListContainer.AddChild(serversLabel);
+
                 foreach (var server in servers)
                 {
-                    var serverCoords = _entManager.GetCoordinates(server.Coordinates);
-                    if (serverCoords == null || !serverCoords.Value.IsValid(_entManager))
-                        continue;
                     var isSelected = selectedServerUid != null && server.NetEntity == selectedServerUid.Value;
-                    var blipColor = server.IsOnline ? Color.LimeGreen : Color.Red;
-                    var localCoords = CoordinatesToLocal(serverCoords.Value);
-                    if (localCoords == null)
-                        continue;
+                    var statusColor = server.IsOnline ? Color.LimeGreen : Color.Red;
+                    var serverDisplayName = string.IsNullOrEmpty(server.GridName)
+                        ? server.ServerAddress
+                        : $"{server.GridName} — {server.ServerAddress}";
+
+                    // Same chrome as crew sensor rows: light = selectable, green = selected, dim = offline.
+                    var serverButton = new Button
+                    {
+                        HorizontalExpand = true,
+                        Disabled = !server.IsOnline && !isSelected,
+                        Margin = new Thickness(10, 0),
+                    };
+
+                    if (isSelected)
+                        serverButton.StyleBoxOverride = _sensorRowSelectedStyle;
+                    else if (server.IsOnline)
+                        serverButton.StyleBoxOverride = _sensorRowStyle;
+                    else
+                        serverButton.StyleBoxOverride = _sensorRowInactiveStyle;
+
+                    serverButton.ModulateSelfOverride = Color.White;
+
+                    var mainContainer = new BoxContainer
+                    {
+                        Orientation = LayoutOrientation.Horizontal,
+                        HorizontalExpand = true,
+                    };
+                    serverButton.AddChild(mainContainer);
+
+                    var indicator = new PanelContainer
+                    {
+                        MinSize = new Vector2(10, 10),
+                        MaxSize = new Vector2(10, 10),
+                        Margin = new Thickness(0, 0, 6, 0),
+                        VerticalAlignment = VAlignment.Center,
+                        PanelOverride = new StyleBoxFlat { BackgroundColor = statusColor },
+                    };
+                    mainContainer.AddChild(indicator);
+
+                    var textColor = isSelected || server.IsOnline
+                        ? _sensorTextOnLight
+                        : _sensorTextMuted;
+
+                    var statusLabel = new Label
+                    {
+                        Text = Loc.GetString(server.IsOnline
+                            ? "crew-monitoring-server-online"
+                            : "crew-monitoring-server-offline"),
+                        FontColorOverride = statusColor,
+                        Margin = new Thickness(0, 0, 8, 0),
+                        VerticalAlignment = VAlignment.Center,
+                    };
+                    mainContainer.AddChild(statusLabel);
+
+                    var nameLabel = new Label
+                    {
+                        Text = serverDisplayName,
+                        ClipText = true,
+                        HorizontalExpand = true,
+                        FontColorOverride = textColor,
+                        VerticalAlignment = VAlignment.Center,
+                    };
+                    mainContainer.AddChild(nameLabel);
 
                     if (isSelected)
                     {
-                        NavMap.SensorRangeCenter ??= serverCoords.Value;
-                        if (NavMap.SensorRange <= 0f)
-                            NavMap.SensorRange = server.SensorRange;
-                        TryCenterMapOnServer(selectedServerUid, serverCoords.Value);
+                        mainContainer.AddChild(new Label
+                        {
+                            Text = Loc.GetString("crew-monitoring-server-active"),
+                            FontColorOverride = textColor,
+                            VerticalAlignment = VAlignment.Center,
+                            Margin = new Thickness(8, 0, 0, 0),
+                        });
                     }
 
-                    NavMap.LocalizedNames.TryAdd(server.NetEntity, Loc.GetString("crew-monitoring-server-blip") + " " + server.ServerAddress);
-                    NavMap.TrackedEntities.TryAdd(server.NetEntity,
-                        new NavMapBlip(
-                            localCoords.Value,
-                            _serverBlipTexture,
-                            blipColor,
-                            false,
-                            false));
+                    var serverEntity = server.NetEntity;
+                    if (!isSelected && server.IsOnline)
+                        serverButton.OnPressed += _ => OnSelectServer?.Invoke(serverEntity);
+
+                    ServersListContainer.AddChild(serverButton);
+                }
+
+                if (hasServerSelected && _serverBlipTexture != null && NavMap.Visible)
+                {
+                    foreach (var server in servers)
+                    {
+                        var serverCoords = _entManager.GetCoordinates(server.Coordinates);
+                        if (serverCoords == null || !serverCoords.Value.IsValid(_entManager))
+                            continue;
+                        var isSelected = selectedServerUid != null && server.NetEntity == selectedServerUid.Value;
+                        var blipColor = server.IsOnline ? Color.LimeGreen : Color.Red;
+                        var localCoords = CoordinatesToLocal(serverCoords.Value);
+                        if (localCoords == null)
+                            continue;
+
+                        if (isSelected)
+                        {
+                            NavMap.SensorRangeCenter ??= serverCoords.Value;
+                            if (NavMap.SensorRange <= 0f)
+                                NavMap.SensorRange = server.SensorRange;
+                            TryCenterMapOnServer(selectedServerUid, serverCoords.Value);
+                        }
+
+                        NavMap.LocalizedNames.TryAdd(server.NetEntity, Loc.GetString("crew-monitoring-server-blip") + " " + server.ServerAddress);
+                        NavMap.TrackedEntities.TryAdd(server.NetEntity,
+                            new NavMapBlip(
+                                localCoords.Value,
+                                _serverBlipTexture,
+                                blipColor,
+                                false,
+                                false));
+                    }
                 }
             }
         }
