@@ -216,8 +216,10 @@ public sealed class HierophantClubSystem : EntitySystem
 
         ent.Comp.Teleporting = true;
         _appearance.SetData(ent.Comp.Beacon.Value, HierophantBeaconVisuals.Charging, true);
-        Spawn("ADTHierophantTelegraphEdge", _transform.GetMoverCoordinates(user));
-        Spawn("ADTHierophantTelegraphEdge", _transform.GetMoverCoordinates(ent.Comp.Beacon.Value));
+
+        ClearTeleportEffects(ent);
+        ent.Comp.TeleportEffects.Add(Spawn(ent.Comp.TelegraphEdgeProto, _transform.GetMoverCoordinates(user)));
+        ent.Comp.TeleportEffects.Add(Spawn(ent.Comp.TelegraphEdgeProto, _transform.GetMoverCoordinates(ent.Comp.Beacon.Value)));
 
         _doAfter.TryStartDoAfter(new DoAfterArgs(
             EntityManager,
@@ -261,6 +263,8 @@ public sealed class HierophantClubSystem : EntitySystem
         if (ent.Comp.Beacon != null && !TerminatingOrDeleted(ent.Comp.Beacon.Value))
             _appearance.SetData(ent.Comp.Beacon.Value, HierophantBeaconVisuals.Charging, false);
 
+        ClearTeleportEffects(ent);
+
         if (args.Cancelled || args.Handled)
             return;
 
@@ -298,6 +302,17 @@ public sealed class HierophantClubSystem : EntitySystem
         }
 
         UpdateAppearance(ent);
+    }
+
+    private void ClearTeleportEffects(Entity<HierophantClubComponent> ent)
+    {
+        foreach (var effect in ent.Comp.TeleportEffects)
+        {
+            if (!TerminatingOrDeleted(effect))
+                QueueDel(effect);
+        }
+
+        ent.Comp.TeleportEffects.Clear();
     }
 
     private int GetBlastRange(Entity<HierophantClubComponent> ent, EntityUid user)

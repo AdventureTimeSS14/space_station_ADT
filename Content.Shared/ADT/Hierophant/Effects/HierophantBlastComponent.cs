@@ -1,3 +1,4 @@
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -13,7 +14,19 @@ public sealed partial class HierophantBlastComponent : Component
     public float Damage = 10f;
 
     [DataField]
+    public DamageSpecifier DamageTypes = new()
+    {
+        DamageDict =
+        {
+            { "Heat", 1 },
+        },
+    };
+
+    [DataField]
     public bool MonsterDamageBoost = true;
+
+    [DataField]
+    public float MonsterDamageMultiplier = 2f;
 
     [DataField]
     public bool FriendlyFireCheck;

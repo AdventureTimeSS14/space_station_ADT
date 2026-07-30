@@ -1,7 +1,8 @@
+using Content.Server.Gatherable;
+using Content.Server.Gatherable.Components;
 using Content.Shared.ADT.Hierophant;
 using Content.Shared.ADT.Hierophant.Effects;
 using Content.Shared.ADT.Crawling;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Effects;
 using Content.Shared.Mech.Components;
@@ -21,6 +22,7 @@ public sealed class HierophantBlastSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly GatherableSystem _gatherable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
@@ -31,6 +33,7 @@ public sealed class HierophantBlastSystem : EntitySystem
     private const float TileRadius = 0.45f;
 
     private readonly HashSet<EntityUid> _hitBuffer = new();
+    private readonly HashSet<EntityUid> _drillBuffer = new();
 
     public override void Initialize()
     {
@@ -47,7 +50,7 @@ public sealed class HierophantBlastSystem : EntitySystem
 
         _audio.PlayPvs(ent.Comp.SpawnSound, ent.Owner, AudioParams.Default.WithVolume(-5f));
 
-        DrillRock(ent.Owner); // TODO rework with GatherableSystem idk?
+        DrillRock(ent);
     }
 
     public override void Update(float frameTime)
@@ -112,11 +115,10 @@ public sealed class HierophantBlastSystem : EntitySystem
             && _npcFaction.IsEntityFriendly(ent.Comp.Caster.Value, target))
             return;
 
-        var damage = new DamageSpecifier();
-        damage.DamageDict.Add("Heat", ent.Comp.Damage); // todo move all damage groups into component's
+        var damage = ent.Comp.DamageTypes * ent.Comp.Damage;
 
         if (ent.Comp.MonsterDamageBoost && IsMonster(target))
-            damage.DamageDict["Heat"] += ent.Comp.Damage;
+            damage *= ent.Comp.MonsterDamageMultiplier;
 
         _damageable.TryChangeDamage(target, damage, origin: ent.Comp.Caster);
 
@@ -126,8 +128,7 @@ public sealed class HierophantBlastSystem : EntitySystem
 
     private void DamageMech(Entity<HierophantBlastComponent> ent, EntityUid target)
     {
-        var damage = new DamageSpecifier();
-        damage.DamageDict.Add("Heat", ent.Comp.Damage);
+        var damage = ent.Comp.DamageTypes * ent.Comp.Damage;
 
         _damageable.TryChangeDamage(target, damage, origin: ent.Comp.Caster);
         _audio.PlayPvs(ent.Comp.HitSound, target, AudioParams.Default.WithVolume(-4f));
@@ -141,19 +142,22 @@ public sealed class HierophantBlastSystem : EntitySystem
         return HasComp<NpcFactionMemberComponent>(target) && !HasComp<ActorComponent>(target) && HasComp<FaunaComponent>(target);
     }
 
-    private void DrillRock(EntityUid blast)
+    private void DrillRock(Entity<HierophantBlastComponent> ent)
     {
-        var coords = _transform.GetMapCoordinates(blast);
+        var coords = _transform.GetMapCoordinates(ent.Owner);
 
-        _hitBuffer.Clear();
-        _lookup.GetEntitiesInRange(coords.MapId, coords.Position, TileRadius, _hitBuffer);
+        _drillBuffer.Clear();
+        _lookup.GetEntitiesInRange(coords.MapId, coords.Position, TileRadius, _drillBuffer);
 
-        foreach (var candidate in _hitBuffer)
+        foreach (var candidate in _drillBuffer)
         {
             if (!HasComp<OreVeinComponent>(candidate))
                 continue;
 
-            QueueDel(candidate);
+            if (HasComp<GatherableComponent>(candidate))
+                _gatherable.Gather(candidate, ent.Comp.Caster);
+            else
+                QueueDel(candidate);
         }
     }
 }

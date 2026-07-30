@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Server.ADT.Salvage.Systems;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Shared.ADT.Hierophant;
@@ -30,6 +31,7 @@ public sealed class HierophantCombatSystem : EntitySystem
     [Dependency] private readonly HierophantSystem _hierophant = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly MegafaunaSystem _megafauna = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -82,7 +84,7 @@ public sealed class HierophantCombatSystem : EntitySystem
             if (comp.LastTarget != target)
             {
                 comp.LastTarget = target;
-                _hierophant.Say(uid, "adt-hierophant-target", 3);
+                _megafauna.Say(uid, "adt-hierophant-target", 3);
             }
 
             OpenFire((uid, comp), target.Value);
@@ -257,7 +259,7 @@ public sealed class HierophantCombatSystem : EntitySystem
 
     private void Devour(Entity<HierophantComponent> ent, EntityUid target)
     {
-        _hierophant.Say(ent.Owner, "adt-hierophant-kill", 4);
+        _megafauna.Say(ent.Owner, "adt-hierophant-kill", 4);
 
         var healing = new DamageSpecifier();
         healing.DamageDict.Add("Heat", -100f);

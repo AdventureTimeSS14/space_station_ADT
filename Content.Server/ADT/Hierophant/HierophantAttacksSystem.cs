@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Server.ADT.Salvage.Systems;
 using Content.Shared.ADT.Hierophant;
 using Content.Shared.ADT.Hierophant.Effects;
 using Content.Shared.Mobs.Components;
@@ -18,6 +19,7 @@ public sealed class HierophantAttacksSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly MegafaunaSystem _megafauna = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -400,7 +402,7 @@ public sealed class HierophantAttacksSystem : EntitySystem
 
             case HierophantStepType.Say:
                 if (step.Message != null)
-                    sys.Say(ent.Owner, step.Message);
+                    _megafauna.Say(ent.Owner, step.Message);
                 break;
                 // требует рефактора под полиморфизм
         }

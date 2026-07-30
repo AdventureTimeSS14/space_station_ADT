@@ -1,3 +1,4 @@
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -74,6 +75,16 @@ public sealed partial class HierophantComponent : Component
 
     [DataField]
     public float BlinkBlastDamage = 30f;
+
+    [DataField]
+    public DamageSpecifier SelfRepair = new()
+    {
+        DamageDict =
+        {
+            { "Heat", 1 },
+            { "Blunt", 1 },
+        },
+    };
 
     [DataField]
     public List<EntProtoId> Actions = new()

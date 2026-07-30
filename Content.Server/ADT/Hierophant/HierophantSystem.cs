@@ -1,10 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
-using Content.Server.Chat.Systems;
+using Content.Server.ADT.Salvage.Systems;
 using Content.Server.NPC.HTN;
 using Content.Shared.Actions;
 using Content.Shared.ADT.Hierophant;
 using Content.Shared.ADT.Hierophant.Effects;
-using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
@@ -16,23 +15,20 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Random;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Server.ADT.Hierophant;
 
 public sealed class HierophantSystem : EntitySystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly HierophantAttacksSystem _attacks = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly MegafaunaSystem _megafauna = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -125,7 +121,7 @@ public sealed class HierophantSystem : EntitySystem
         if (args.NewMobState != MobState.Dead)
             return;
 
-        Say(ent.Owner, "adt-hierophant-death");
+        _megafauna.Say(ent.Owner, "adt-hierophant-death");
 
         _attacks.Burst(ent, _transform.GetMoverCoordinates(ent.Owner), 10);
         _attacks.CollapseWalls(ent.Owner);
@@ -209,7 +205,7 @@ public sealed class HierophantSystem : EntitySystem
             comp.DidReset = true;
             comp.TimeoutAt = null;
 
-            Say(uid, "adt-hierophant-returning");
+            _megafauna.Say(uid, "adt-hierophant-returning");
             _attacks.Blink((uid, comp), beaconCoords);
             HealOnReturn((uid, comp));
         }
@@ -233,15 +229,14 @@ public sealed class HierophantSystem : EntitySystem
         if (heal <= 0f)
             return;
 
-        var healing = new DamageSpecifier();
-        healing.DamageDict.Add("Heat", -heal); // TODO MOVE INTO COMPONENT 
-        healing.DamageDict.Add("Blunt", -heal);
-        _damageable.TryChangeDamage(ent.Owner, healing, true);
+        _damageable.TryChangeDamage(ent.Owner, -ent.Comp.SelfRepair * heal, true);
 
         var remaining = damageTaken - heal;
-        Say(ent.Owner, remaining <= maxHealth * 0.1f
+        var line = remaining <= maxHealth * 0.1f
             ? "adt-hierophant-repairs-complete"
-            : "adt-hierophant-repairs-compromised");
+            : "adt-hierophant-repairs-compromised";
+
+        _megafauna.Say(ent.Owner, line);
     }
 
     public void CalculateRage(Entity<HierophantComponent> ent)
@@ -297,31 +292,4 @@ public sealed class HierophantSystem : EntitySystem
         return true;
     }
 
-    public void Say(EntityUid uid, string locId, int count = 1)
-    {
-        if (!TryComp<MetaDataComponent>(uid, out var meta))
-            return;
-
-        var message = count > 1
-            ? Loc.GetString($"{locId}-{_random.Next(1, count + 1)}")
-            : Loc.GetString(locId);
-
-        var name = FormattedMessage.EscapeText(meta.EntityName);
-        var wrappedMessage = Loc.GetString("chat-manager-entity-say-wrap-message",
-            ("entityName", name),
-            ("verb", Loc.GetString("chat-speech-verb-default")),
-            ("fontType", "Blackcraft"),
-            ("fontSize", 16),
-            ("defaultFont", "NotoSans"),
-            ("defaultSize", 12),
-            ("message", message));
-
-        _chat.SendInVoiceRange(
-            ChatChannel.Local,
-            message,
-            wrappedMessage,
-            wrappedMessage,
-            uid,
-            ChatTransmitRange.HideChat);
-    }
 }

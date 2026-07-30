@@ -49,11 +49,17 @@ public sealed partial class HierophantClubComponent : Component
     [DataField]
     public bool Teleporting;
 
+    [ViewVariables]
+    public readonly List<EntityUid> TeleportEffects = new();
+
+    [DataField]
+    public EntProtoId TelegraphEdgeProto = "ADTHierophantTelegraphEdge";
+
     [DataField]
     public TimeSpan BeaconDetachTime = TimeSpan.FromSeconds(5);
 
     [DataField]
-    public TimeSpan TeleportChannelTime = TimeSpan.FromSeconds(4);
+    public TimeSpan TeleportChannelTime = TimeSpan.FromSeconds(3.7);
 
     [DataField]
     public float MinimumTeleportDistance = 2f;
