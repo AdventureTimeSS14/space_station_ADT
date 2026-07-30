@@ -29,6 +29,8 @@ adt-gps-popup-disabled = Устройство больше не передаёт
 
 # Метки сигналов
 adt-gps-signal-beacon = Маяк
+adt-gps-signal-casino = Золотой сигнал
+adt-gps-signal-casino-desc = Место, где бандит утерял своё наследство
 adt-gps-signal-mining-base = NT_AUX
 adt-gps-signal-mining-base-desc = Сигнал наведения шахтёрской базы Nanotrasen.
 adt-gps-signal-bubblegum = Кровавый сигнал
