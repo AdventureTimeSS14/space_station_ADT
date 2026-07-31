@@ -37,4 +37,4 @@
     speciesSpinDamage:
       MobIpc:
         types:
-          Blunt: 30
+          Blunt: 40
