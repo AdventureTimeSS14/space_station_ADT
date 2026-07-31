@@ -189,7 +189,7 @@ public partial class XenobiologySystem
             _appearance.SetData(newEntityUid, XenoSlimeVisuals.Shader, newSlime.Shader);
 
         _appearance.SetData(newEntityUid, XenoSlimeVisuals.Color, newSlime.SlimeColor);
-        _metaData.SetEntityName(newEntityUid, newBreed.BreedName);
+        _metaData.SetEntityName(newEntityUid, Loc.GetString(newBreed.BreedName));
 
         return new Entity<SlimeComponent>(newEntityUid, newSlime);
     }
