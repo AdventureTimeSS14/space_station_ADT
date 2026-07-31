@@ -126,6 +126,9 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
     /// <summary>Last server the map was auto-centered on (re-center when selection changes).</summary>
     private NetEntity? _mapCenteredOnServer;
 
+    /// <summary>Selected monitoring server is online — required for green live-GPS presentation.</summary>
+    private bool _serverOnline;
+
     /// <summary>Shared themed chrome for action buttons (scan / rescan / select).</summary>
     private StyleBoxFlat _buttonStyle = new();
 
@@ -459,7 +462,9 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
         // Dark = no location at all.
         var active = button.SensorActive;
         var hasCoords = button.Coordinates != null;
-        var liveTracking = active &&
+        // Offline server → every pin is last-known (yellow), even if mode was still Cords.
+        var liveTracking = _serverOnline &&
+                           active &&
                            hasCoords &&
                            button.SensorMode == SuitSensorMode.SensorCords;
         var stale = hasCoords && !liveTracking;
@@ -658,6 +663,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
         _lastSensorsState = state;
         _lastMonitorUid = monitor;
         _lastMonitorCoords = monitorCoords;
+        _serverOnline = state.ServerOnline;
         var sensors = state.Sensors;
         var isEmagged = state.IsEmagged;
         var hasScanned = state.HasScanned;
@@ -692,6 +698,8 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
             // Coordinates-only / heartbeat UI refresh: update crew blips without wiping controls.
             UpdateExistingCrewBlips(sensors, isEmagged);
             UpdateMonitorBlip(force: true);
+            // Keep an existing freeze; online/offline flips change the servers hash above.
+            UpdateGridMotionFreeze(state, syncBlips: false);
             return;
         }
 
@@ -913,12 +921,16 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
         }
 
         if (!hasScanned)
+        {
+            UpdateGridMotionFreeze(state, syncBlips: false);
             return;
+        }
 
         if (sensors.Count == 0)
         {
             NoServerLabel.Visible = true;
             NoServerLabel.Text = Loc.GetString("crew-monitoring-ui-no-server-label");   //ADT-Tweak - New Monitor
+            UpdateGridMotionFreeze(state, syncBlips: true);
             return;
         }
 
@@ -1055,6 +1067,19 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
         }
 
         UpdateMonitorBlip(force: true); // ADT-Tweak Start - New Monitor
+        // After rebuild: rising-edge freezes grids; syncBlips refreshes marker snapshots only.
+        UpdateGridMotionFreeze(state, syncBlips: true);
+    }
+
+    /// <summary>
+    /// Offline selected server → freeze radar grid/blip world transforms in place.
+    /// </summary>
+    private void UpdateGridMotionFreeze(CrewMonitoringState state, bool syncBlips)
+    {
+        var freeze = state.HasScanned &&
+                     state.SelectedServerUid != null &&
+                     !state.ServerOnline;
+        NavMap.SetGridTransformsFrozen(freeze, syncBlips && freeze);
     }
 
     // ADT-Tweak Start - New Monitor: blips / header / rescan / server UI helpers
@@ -1610,16 +1635,18 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
     // ADT-Tweak End
 
     // ADT-Tweak start
-    private static bool IsLiveGpsTracking(SuitSensorStatus sensor)
+    private bool IsLiveGpsTracking(SuitSensorStatus sensor)
     {
-        return sensor.IsActive &&
+        return _serverOnline &&
+               sensor.IsActive &&
                sensor.Mode == SuitSensorMode.SensorCords &&
                sensor.Coordinates != null;
     }
 
-    private static bool IsLiveGpsTracking(CrewMonitoringButton button)
+    private bool IsLiveGpsTracking(CrewMonitoringButton button)
     {
-        return button.SensorActive &&
+        return _serverOnline &&
+               button.SensorActive &&
                button.SensorMode == SuitSensorMode.SensorCords &&
                button.Coordinates != null;
     }
@@ -1643,11 +1670,11 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
     }
 
     /// <summary>
-    /// Button coords-dot: green = live GPS (Cords), yellow = last-known pin, maroon = no info.
+    /// Button coords-dot: green = live GPS (Cords + online server), yellow = last-known pin, maroon = no info.
     /// </summary>
-    private static Color GetCoordsDotColor(SuitSensorStatus sensor)
+    private Color GetCoordsDotColor(SuitSensorStatus sensor)
     {
-        // Only Cords streams a live position — Binary/Vitals may still carry a retained pin.
+        // Only Cords on an online server streams a live position.
         if (IsLiveGpsTracking(sensor))
             return SensorDotHasPosition;
 

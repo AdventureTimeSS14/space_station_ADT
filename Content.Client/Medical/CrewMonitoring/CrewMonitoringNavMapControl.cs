@@ -48,6 +48,18 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
     private float _cachedGridQueryRange = -1f;
     private TimeSpan _cachedGridQueryTime;
 
+    /// <summary>
+    /// When the monitoring server is offline, neighbor/frame grid transforms are
+    /// snapped once and reused so the map does not keep drifting with live physics.
+    /// </summary>
+    private bool _freezeGridTransforms;
+    private Matrix3x2 _frozenWorldToFrame = Matrix3x2.Identity;
+    private MapId _frozenMapId = MapId.Nullspace;
+    private Vector2 _frozenCoverageCenter;
+    private float _frozenCoverageRange;
+    private readonly List<FrozenGridSnapshot> _frozenGrids = new();
+    private readonly Dictionary<NetEntity, Vector2> _frozenBlipWorldPositions = new();
+
     private readonly Label _trackedEntityLabel;
     private readonly PanelContainer _trackedEntityPanel;
 
@@ -423,6 +435,34 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         BeaconsCheckbox.Label.ModulateSelfOverride = Color.White;
     }
 
+    /// <summary>
+    /// Freeze / unfreeze radar grid motion. Grid matrices are captured only on the
+    /// rising edge (live → frozen). After a UI rebuild while still frozen, pass
+    /// <paramref name="syncBlips"/> so new markers get a snapshot without unfreezing grids.
+    /// </summary>
+    public void SetGridTransformsFrozen(bool frozen, bool syncBlips = false)
+    {
+        if (!frozen)
+        {
+            if (!_freezeGridTransforms)
+                return;
+
+            _freezeGridTransforms = false;
+            ClearFrozenTransforms();
+            return;
+        }
+
+        if (!_freezeGridTransforms)
+        {
+            _freezeGridTransforms = true;
+            CaptureFrozenTransforms();
+            return;
+        }
+
+        if (syncBlips)
+            SyncFrozenBlips();
+    }
+
     public new void CenterToCoordinates(EntityCoordinates coordinates)
     {
         if (MapUid == null || !coordinates.IsValid(EntManager))
@@ -435,9 +475,10 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
             return;
         }
 
-        var framePosition = Vector2.Transform(
-            source.Position,
-            _transform.GetInvWorldMatrix(MapUid.Value));
+        var worldToFrame = _freezeGridTransforms
+            ? _frozenWorldToFrame
+            : _transform.GetInvWorldMatrix(MapUid.Value);
+        var framePosition = Vector2.Transform(source.Position, worldToFrame);
 
         if (EntManager.HasComponent<MapGridComponent>(MapUid.Value))
         {
@@ -473,35 +514,143 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         }
 
         DrawRangeRings(handle);
-        var mapId = frameXform.MapID;
-        var worldToFrame = _transform.GetInvWorldMatrix(MapUid.Value);
+
+        Matrix3x2 worldToFrame;
+        Vector2 coverageCenter;
+        float coverageRange;
+        MapId mapId;
+
+        if (_freezeGridTransforms)
+        {
+            worldToFrame = _frozenWorldToFrame;
+            coverageCenter = _frozenCoverageCenter;
+            coverageRange = _frozenCoverageRange;
+            mapId = _frozenMapId;
+        }
+        else
+        {
+            mapId = frameXform.MapID;
+            worldToFrame = _transform.GetInvWorldMatrix(MapUid.Value);
+            if (!TryGetCoverage(mapId, out coverageCenter, out coverageRange))
+                return;
+
+            RefreshGridQuery(mapId, coverageCenter, coverageRange);
+        }
+
         var offset = GetOffset();
         var frameToView =
             Matrix3x2.CreateTranslation(-offset) *
             Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) *
             Matrix3x2.CreateTranslation(MidPointVector);
 
-        // Neighbor grids/shuttles are clipped to the monitoring server coverage,
-        // not the current camera zoom — same rule as suit sensors.
-        Vector2 coverageCenter;
-        float coverageRange;
+        var rangeSq = coverageRange * coverageRange;
+        _seenForeignGrids.Clear();
+
+        if (_freezeGridTransforms)
+        {
+            foreach (var frozen in _frozenGrids)
+            {
+                if (frozen.Uid == MapUid || !EntManager.EntityExists(frozen.Uid))
+                    continue;
+
+                if (!EntManager.TryGetComponent<MapGridComponent>(frozen.Uid, out var gridComp))
+                    continue;
+
+                var worldAabb = frozen.GridToWorld.TransformBox(gridComp.LocalAABB);
+                if (!CircleIntersectsBox(coverageCenter, rangeSq, worldAabb))
+                    continue;
+
+                var grid = new Entity<MapGridComponent>(frozen.Uid, gridComp);
+                var gridToView = frozen.GridToWorld * worldToFrame * frameToView;
+                _gridRenderer.DrawGrid(
+                    handle,
+                    gridToView,
+                    grid,
+                    NeighborGridColor,
+                    0.025f);
+
+                if (EntManager.TryGetComponent<NavMapComponent>(frozen.Uid, out var navMap))
+                {
+                    _seenForeignGrids.Add(frozen.Uid);
+                    DrawForeignNavStructures(
+                        handle,
+                        frozen.Uid,
+                        navMap,
+                        gridComp.TileSize,
+                        gridToView,
+                        WallColor,
+                        WindowColor);
+                }
+            }
+        }
+        else
+        {
+            foreach (var grid in _grids)
+            {
+                if (grid.Owner == MapUid)
+                    continue;
+
+                var gridToWorld = _transform.GetWorldMatrix(grid.Owner);
+                var worldAabb = gridToWorld.TransformBox(grid.Comp.LocalAABB);
+                if (!CircleIntersectsBox(coverageCenter, rangeSq, worldAabb))
+                    continue;
+
+                var gridToView = gridToWorld * worldToFrame * frameToView;
+                _gridRenderer.DrawGrid(
+                    handle,
+                    gridToView,
+                    grid,
+                    NeighborGridColor,
+                    0.025f);
+
+                // Floor fill alone hides shuttle / wood / reinforced layout — overlay NavMap walls & glass.
+                if (EntManager.TryGetComponent<NavMapComponent>(grid.Owner, out var navMap))
+                {
+                    _seenForeignGrids.Add(grid.Owner);
+                    DrawForeignNavStructures(
+                        handle,
+                        grid.Owner,
+                        navMap,
+                        grid.Comp.TileSize,
+                        gridToView,
+                        WallColor,
+                        WindowColor);
+                }
+            }
+        }
+
+        PruneForeignNavCaches();
+    }
+
+    private bool TryGetCoverage(MapId mapId, out Vector2 coverageCenter, out float coverageRange)
+    {
+        coverageCenter = default;
+        coverageRange = 0f;
+        var offset = GetOffset();
+
         if (SensorRangeCenter != null && SensorRange > 0f)
         {
             var rangeCenter = _transform.ToMapCoordinates(SensorRangeCenter.Value);
             if (rangeCenter.MapId != mapId)
-                return;
+                return false;
 
             coverageCenter = rangeCenter.Position;
             coverageRange = SensorRange;
-        }
-        else
-        {
-            coverageCenter = Vector2.Transform(
-                offset,
-                _transform.GetWorldMatrix(MapUid.Value));
-            coverageRange = WorldRange * 1.5f;
+            return true;
         }
 
+        if (MapUid == null)
+            return false;
+
+        coverageCenter = Vector2.Transform(
+            offset,
+            _transform.GetWorldMatrix(MapUid.Value));
+        coverageRange = WorldRange * 1.5f;
+        return true;
+    }
+
+    private void RefreshGridQuery(MapId mapId, Vector2 coverageCenter, float coverageRange)
+    {
         var now = _gameTiming.CurTime;
         var queryChanged =
             _cachedGridQueryMap != mapId ||
@@ -510,58 +659,97 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
             (_cachedGridQueryCenter - coverageCenter).LengthSquared() > 4f ||
             now - _cachedGridQueryTime > TimeSpan.FromSeconds(0.25);
 
-        if (queryChanged)
+        if (!queryChanged)
+            return;
+
+        _grids.Clear();
+        var extent = new Vector2(coverageRange, coverageRange);
+        _mapManager.FindGridsIntersecting(
+            mapId,
+            new Box2(coverageCenter - extent, coverageCenter + extent),
+            ref _grids,
+            approx: true,
+            includeMap: false);
+        _cachedGridQueryMap = mapId;
+        _cachedGridQueryCenter = coverageCenter;
+        _cachedGridQueryRange = coverageRange;
+        _cachedGridQueryTime = now;
+    }
+
+    private void CaptureFrozenTransforms()
+    {
+        ClearFrozenTransforms();
+
+        if (MapUid == null ||
+            !EntManager.TryGetComponent<TransformComponent>(MapUid.Value, out var frameXform))
         {
-            _grids.Clear();
-            var extent = new Vector2(coverageRange, coverageRange);
-            _mapManager.FindGridsIntersecting(
-                mapId,
-                new Box2(coverageCenter - extent, coverageCenter + extent),
-                ref _grids,
-                approx: true,
-                includeMap: false);
-            _cachedGridQueryMap = mapId;
-            _cachedGridQueryCenter = coverageCenter;
-            _cachedGridQueryRange = coverageRange;
-            _cachedGridQueryTime = now;
+            return;
         }
 
-        var rangeSq = coverageRange * coverageRange;
-        _seenForeignGrids.Clear();
+        var mapId = frameXform.MapID;
+        if (!TryGetCoverage(mapId, out var coverageCenter, out var coverageRange))
+            return;
+
+        RefreshGridQuery(mapId, coverageCenter, coverageRange);
+
+        _frozenMapId = mapId;
+        _frozenWorldToFrame = _transform.GetInvWorldMatrix(MapUid.Value);
+        _frozenCoverageCenter = coverageCenter;
+        _frozenCoverageRange = coverageRange;
+
         foreach (var grid in _grids)
         {
             if (grid.Owner == MapUid)
                 continue;
 
-            var gridToWorld = _transform.GetWorldMatrix(grid.Owner);
-            var worldAabb = gridToWorld.TransformBox(grid.Comp.LocalAABB);
-            if (!CircleIntersectsBox(coverageCenter, rangeSq, worldAabb))
-                continue;
-
-            var gridToView = gridToWorld * worldToFrame * frameToView;
-            _gridRenderer.DrawGrid(
-                handle,
-                gridToView,
-                grid,
-                NeighborGridColor,
-                0.025f);
-
-            // Floor fill alone hides shuttle / wood / reinforced layout — overlay NavMap walls & glass.
-            if (EntManager.TryGetComponent<NavMapComponent>(grid.Owner, out var navMap))
-            {
-                _seenForeignGrids.Add(grid.Owner);
-                DrawForeignNavStructures(
-                    handle,
-                    grid.Owner,
-                    navMap,
-                    grid.Comp.TileSize,
-                    gridToView,
-                    WallColor,
-                    WindowColor);
-            }
+            _frozenGrids.Add(new FrozenGridSnapshot(
+                grid.Owner,
+                _transform.GetWorldMatrix(grid.Owner)));
         }
 
-        PruneForeignNavCaches();
+        foreach (var (entity, blip) in TrackedEntities)
+        {
+            var mapPosition = _transform.ToMapCoordinates(blip.Coordinates);
+            if (mapPosition.MapId != mapId)
+                continue;
+
+            _frozenBlipWorldPositions[entity] = mapPosition.Position;
+        }
+    }
+
+    private void ClearFrozenTransforms()
+    {
+        _frozenGrids.Clear();
+        _frozenBlipWorldPositions.Clear();
+        _frozenMapId = MapId.Nullspace;
+        _frozenCoverageRange = 0f;
+    }
+
+    /// <summary>
+    /// Keep frozen world positions for markers that still exist; snapshot newcomers once.
+    /// Does not touch frozen grid matrices.
+    /// </summary>
+    private void SyncFrozenBlips()
+    {
+        var next = new Dictionary<NetEntity, Vector2>();
+        foreach (var (entity, blip) in TrackedEntities)
+        {
+            if (_frozenBlipWorldPositions.TryGetValue(entity, out var existing))
+            {
+                next[entity] = existing;
+                continue;
+            }
+
+            var mapPosition = _transform.ToMapCoordinates(blip.Coordinates);
+            if (mapPosition.MapId != _frozenMapId)
+                continue;
+
+            next[entity] = mapPosition.Position;
+        }
+
+        _frozenBlipWorldPositions.Clear();
+        foreach (var (entity, position) in next)
+            _frozenBlipWorldPositions[entity] = position;
     }
 
     /// <summary>
@@ -797,25 +985,45 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         viewOrigin = default;
         range = 0f;
 
-        if (MapUid == null ||
-            SensorRangeCenter == null ||
-            SensorRange <= 0f ||
-            !EntManager.TryGetComponent<TransformComponent>(MapUid.Value, out var frameXform))
-        {
+        if (MapUid == null)
             return false;
+
+        Vector2 coverageWorld;
+        float coverageRange;
+        Matrix3x2 worldToFrame;
+
+        if (_freezeGridTransforms)
+        {
+            if (_frozenCoverageRange <= 0f)
+                return false;
+
+            coverageWorld = _frozenCoverageCenter;
+            coverageRange = _frozenCoverageRange;
+            worldToFrame = _frozenWorldToFrame;
+        }
+        else
+        {
+            if (SensorRangeCenter == null ||
+                SensorRange <= 0f ||
+                !EntManager.TryGetComponent<TransformComponent>(MapUid.Value, out var frameXform))
+            {
+                return false;
+            }
+
+            var rangeCenter = _transform.ToMapCoordinates(SensorRangeCenter.Value);
+            if (rangeCenter.MapId != frameXform.MapID)
+                return false;
+
+            coverageWorld = rangeCenter.Position;
+            coverageRange = SensorRange;
+            worldToFrame = _transform.GetInvWorldMatrix(MapUid.Value);
         }
 
-        var rangeCenter = _transform.ToMapCoordinates(SensorRangeCenter.Value);
-        if (rangeCenter.MapId != frameXform.MapID)
-            return false;
-
         var framePosition =
-            Vector2.Transform(
-                rangeCenter.Position,
-                _transform.GetInvWorldMatrix(MapUid.Value)) -
+            Vector2.Transform(coverageWorld, worldToFrame) -
             GetOffset();
         viewOrigin = ScalePosition(new Vector2(framePosition.X, -framePosition.Y));
-        range = SensorRange;
+        range = coverageRange;
         return true;
     }
 
@@ -827,19 +1035,32 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
             return;
         }
 
-        var worldToFrame = _transform.GetInvWorldMatrix(MapUid.Value);
+        var worldToFrame = _freezeGridTransforms
+            ? _frozenWorldToFrame
+            : _transform.GetInvWorldMatrix(MapUid.Value);
+        var mapId = _freezeGridTransforms ? _frozenMapId : frameXform.MapID;
         var lit = Timing.RealTime.TotalSeconds % 1f > 0.5f;
         foreach (var (entity, blip) in TrackedEntities)
         {
             if (blip.Blinks && !lit)
                 continue;
 
-            var mapPosition = _transform.ToMapCoordinates(blip.Coordinates);
-            if (mapPosition.MapId != frameXform.MapID)
-                continue;
+            Vector2 worldPos;
+            if (_freezeGridTransforms)
+            {
+                if (!_frozenBlipWorldPositions.TryGetValue(entity, out worldPos))
+                    continue;
+            }
+            else
+            {
+                var mapPosition = _transform.ToMapCoordinates(blip.Coordinates);
+                if (mapPosition.MapId != mapId)
+                    continue;
+                worldPos = mapPosition.Position;
+            }
 
             var local =
-                Vector2.Transform(mapPosition.Position, worldToFrame) -
+                Vector2.Transform(worldPos, worldToFrame) -
                 GetOffset();
             var position = ScalePosition(new Vector2(local.X, -local.Y));
             var scale = 0.075f * float.Sqrt(MinimapScale) * blip.Scale;
@@ -873,9 +1094,22 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         var framePosition =
             GetOffset() +
             new Vector2(unscaled.X, -unscaled.Y);
-        var worldPosition = Vector2.Transform(
-            framePosition,
-            _transform.GetWorldMatrix(MapUid.Value));
+
+        Matrix3x2 frameToWorld;
+        MapId mapId;
+        if (_freezeGridTransforms)
+        {
+            if (!Matrix3x2.Invert(_frozenWorldToFrame, out frameToWorld))
+                return;
+            mapId = _frozenMapId;
+        }
+        else
+        {
+            frameToWorld = _transform.GetWorldMatrix(MapUid.Value);
+            mapId = frameXform.MapID;
+        }
+
+        var worldPosition = Vector2.Transform(framePosition, frameToWorld);
 
         var closest = NetEntity.Invalid;
         var closestDistance = float.PositiveInfinity;
@@ -884,11 +1118,21 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
             if (!blip.Selectable)
                 continue;
 
-            var mapPosition = _transform.ToMapCoordinates(blip.Coordinates);
-            if (mapPosition.MapId != frameXform.MapID)
-                continue;
+            Vector2 blipWorld;
+            if (_freezeGridTransforms)
+            {
+                if (!_frozenBlipWorldPositions.TryGetValue(entity, out blipWorld))
+                    continue;
+            }
+            else
+            {
+                var mapPosition = _transform.ToMapCoordinates(blip.Coordinates);
+                if (mapPosition.MapId != mapId)
+                    continue;
+                blipWorld = mapPosition.Position;
+            }
 
-            var distance = Vector2.Distance(worldPosition, mapPosition.Position);
+            var distance = Vector2.Distance(worldPosition, blipWorld);
             if (distance >= closestDistance || distance * MinimapScale > 10f)
                 continue;
 
@@ -918,7 +1162,17 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         //ADT-Tweak Start - New Monitor: rewritten FrameUpdate
             name = Loc.GetString("navmap-unknown-entity");
 
-        var position = _transform.ToMapCoordinates(blip.Coordinates).Position;
+        Vector2 position;
+        if (_freezeGridTransforms &&
+            _frozenBlipWorldPositions.TryGetValue(Focus.Value, out var frozenPos))
+        {
+            position = frozenPos;
+        }
+        else
+        {
+            position = _transform.ToMapCoordinates(blip.Coordinates).Position;
+        }
+
         _trackedEntityLabel.Text =
             name + "\n" +
             Loc.GetString(
@@ -928,4 +1182,6 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         _trackedEntityPanel.Visible = true;
         // #ADT-Tweak End
     }
+
+    private readonly record struct FrozenGridSnapshot(EntityUid Uid, Matrix3x2 GridToWorld);
 }

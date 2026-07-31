@@ -161,49 +161,70 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             return;
 
         // Drop the console's retained view immediately so the UI goes empty until
-        // suit sensors re-report.
-        if (component.ConnectedSensors.Count != 0)
-            component.ConnectedSensors = new();
+        component.ConnectedSensors = new();
 
-        var query = EntityQueryEnumerator<CrewMonitoringServerComponent>();
-        while (query.MoveNext(out var serverUid, out var server))
+        // Always wipe the selected server even if unpowered / out of range, otherwise a
+        // later reconnect would push the pre-reset last-known snapshot back into the UI.
+        if (component.SelectedServerUid is { } selectedUid &&
+            !Deleted(selectedUid) &&
+            TryComp<CrewMonitoringServerComponent>(selectedUid, out var selectedServer))
         {
-            if (!IsServerInRange(uid, serverUid))
-                continue;
-
-            // Prefer the selected server; otherwise wipe every discovered/reachable one
-            // this console has listed so stale pins cannot linger after reset.
-            if (component.SelectedServerUid != null)
+            selectedServer.SensorStatus.Clear();
+            selectedServer.LastSensorSnapshot.Clear();
+            selectedServer.SnapshotDirty = true;
+        }
+        else
+        {
+            var query = EntityQueryEnumerator<CrewMonitoringServerComponent>();
+            while (query.MoveNext(out var serverUid, out var server))
             {
-                if (component.SelectedServerUid != serverUid)
+                if (!IsServerInRange(uid, serverUid))
                     continue;
-            }
-            else if (server.SubscriberConsoles.Count == 0 || !server.SubscriberConsoles.Contains(uid))
-            {
-                var known = false;
-                foreach (var entry in component.CachedServers)
+
+                if (server.SubscriberConsoles.Count == 0 || !server.SubscriberConsoles.Contains(uid))
                 {
-                    if (TryGetEntity(entry.NetEntity, out var knownUid) && knownUid == serverUid)
+                    var known = false;
+                    foreach (var entry in component.CachedServers)
                     {
-                        known = true;
-                        break;
+                        if (TryGetEntity(entry.NetEntity, out var knownUid) && knownUid == serverUid)
+                        {
+                            known = true;
+                            break;
+                        }
                     }
+
+                    if (!known)
+                        continue;
                 }
 
-                if (!known)
-                    continue;
+                server.SensorStatus.Clear();
+                server.LastSensorSnapshot.Clear();
+                server.SnapshotDirty = true;
             }
-
-            server.SensorStatus.Clear();
-            server.LastSensorSnapshot.Clear();
-            server.SnapshotDirty = true;
         }
 
-        _suitSensors.ForceImmediateReports();
         component.KnownAlertStates.Clear();
         component.NextCritAlertTime = TimeSpan.Zero;
-        component.CritAlertResyncPending = true;
-        component.CritAlertResyncReadyAt = _gameTiming.CurTime + TimeSpan.FromSeconds(CritAlertResyncDelay);
+
+        var canRefill = component.SelectedServerUid is { } refillUid &&
+                        !Deleted(refillUid) &&
+                        IsServerInRange(uid, refillUid) &&
+                        IsServerResponding(refillUid);
+
+        if (canRefill)
+        {
+            _suitSensors.ForceImmediateReports();
+            component.CritAlertResyncPending = true;
+            component.CritAlertResyncReadyAt = _gameTiming.CurTime + TimeSpan.FromSeconds(CritAlertResyncDelay);
+        }
+        else
+        {
+            component.CritAlertResyncPending = false;
+            component.CritAlertResyncReadyAt = TimeSpan.Zero;
+            component.LastPacketTime = TimeSpan.Zero;
+            component.OfflineStateSent = true;
+        }
+
         PopulateNavMapsForConsole(uid, component);
         UpdateUserInterface(uid, component);
     }
