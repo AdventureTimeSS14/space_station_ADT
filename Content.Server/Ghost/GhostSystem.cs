@@ -317,20 +317,18 @@ namespace Content.Server.Ghost
                 return;
             }
 
-            // WWDP EDIT START
             if (IsHiddenFromGhostWarps(target) || !IsValidWarpTarget(target))
             {
                 Log.Warning($"User {args.SenderSession.Name} tried to warp to an invalid/hidden target: {ToPrettyString(target)}");
                 return;
             }
-            // WWDP EDIT END
 
             WarpTo(attached, target);
         }
 
         private void OnGhostnadoRequest(GhostnadoRequestEvent msg, EntitySessionEventArgs args)
         {
-            if (args.SenderSession.AttachedEntity is not { Valid: true } uid // WD EDIT
+            if (args.SenderSession.AttachedEntity is not { Valid: true } uid
                 || !_ghostQuery.HasComp(uid))
             {
                 Log.Warning($"User {args.SenderSession.Name} tried to ghostnado without being a ghost.");
@@ -374,6 +372,9 @@ namespace Content.Server.Ghost
                     continue;
 
                 if (!IsValidWarpTarget(entity))
+                    continue;
+
+                if (TryComp<GhostComponent>(entity, out var ghostComp) && ghostComp.CanGhostInteract)
                     continue;
 
                 if (TryComp<RoleCacheComponent>(entity, out var roleCacheComponent))
