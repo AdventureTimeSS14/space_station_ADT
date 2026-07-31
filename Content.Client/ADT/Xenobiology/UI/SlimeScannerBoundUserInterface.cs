@@ -7,6 +7,7 @@ namespace Content.Client.ADT.Xenobiology;
 public sealed class SlimeScannerBoundUserInterface : BoundUserInterface
 {
     private SlimeScannerWindow? _window;
+    private SlimeScannerScannedMessage? _pendingMessage;
 
     public SlimeScannerBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey) { }
 
@@ -15,12 +16,24 @@ public sealed class SlimeScannerBoundUserInterface : BoundUserInterface
         base.Open();
         _window = this.CreateWindow<SlimeScannerWindow>();
         _window.SetWindowTitle(EntMan.GetComponent<MetaDataComponent>(Owner).EntityName);
+        
+        if (_pendingMessage != null)
+        {
+            _window.Populate(_pendingMessage);
+            _pendingMessage = null;
+        }
     }
 
     protected override void ReceiveMessage(BoundUserInterfaceMessage message)
     {
-        if (_window == null || message is not SlimeScannerScannedMessage msg)
+        if (message is not SlimeScannerScannedMessage msg)
             return;
+
+        if (_window == null)
+        {
+            _pendingMessage = msg;
+            return;
+        }
 
         _window.Populate(msg);
     }
@@ -30,5 +43,6 @@ public sealed class SlimeScannerBoundUserInterface : BoundUserInterface
         base.Dispose(disposing);
         _window?.Close();
         _window = null;
+        _pendingMessage = null;
     }
 }
