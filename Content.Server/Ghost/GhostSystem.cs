@@ -384,7 +384,7 @@ namespace Content.Server.Ghost
                         _jobs.TryGetDepartment(jobPrototype.ID, out var departmentPrototype))
                     {
                         var departmentName = Loc.GetString($"department-{departmentPrototype.ID}");
-                        var jobName = Loc.GetString($"job-name-{jobPrototype.ID.ToLower()}");
+                        var jobName = Loc.GetString(jobPrototype.Name);
                         var warp = SetupWarp(entity, mindContainer, departmentName, departmentPrototype.Color, jobName, departmentPrototype.Weight);
                         warp.Group |= WarpGroup.Department;
 
