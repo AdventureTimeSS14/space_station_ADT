@@ -2395,7 +2395,7 @@ entities:
         - node:
             cleanable: True
             color: '#FFFFFFFF'
-            id: v
+            id: Grassa1
           decals:
             7181: -37,11
         - node:
