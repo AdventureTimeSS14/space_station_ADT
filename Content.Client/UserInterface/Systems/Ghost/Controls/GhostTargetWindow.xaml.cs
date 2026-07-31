@@ -187,7 +187,15 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                 AlignContent = FlexBox.FlexAlignContent.SpaceBetween
             };
 
-            foreach (var (subCategory, warps) in sortedWarps)
+            var sortedSubCategories = sortedWarps.OrderBy(kvp =>
+            {
+                var warps = kvp.Value;
+                if (warps == null || warps.Count == 0)
+                    return int.MaxValue;
+                return warps.Min(w => w.DepartmentWeight);
+            }).ToList();
+
+            foreach (var (subCategory, warps) in sortedSubCategories)
             {
                 if(warps.Count == 0)
                     continue;

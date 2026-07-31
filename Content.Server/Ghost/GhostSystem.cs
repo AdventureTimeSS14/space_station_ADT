@@ -385,7 +385,7 @@ namespace Content.Server.Ghost
                     {
                         var departmentName = Loc.GetString($"department-{departmentPrototype.ID}");
                         var jobName = Loc.GetString($"job-name-{jobPrototype.ID.ToLower()}");
-                        var warp = SetupWarp(entity, mindContainer, departmentName, departmentPrototype.Color, jobName);
+                        var warp = SetupWarp(entity, mindContainer, departmentName, departmentPrototype.Color, jobName, departmentPrototype.Weight);
                         warp.Group |= WarpGroup.Department;
 
                         warps.Add(warp);
@@ -427,7 +427,7 @@ namespace Content.Server.Ghost
             return warps;
         }
 
-        private GhostWarp SetupWarp(EntityUid entity, MindContainerComponent mindContainer, string subGroup, Color? color, string? description)
+        private GhostWarp SetupWarp(EntityUid entity, MindContainerComponent mindContainer, string subGroup, Color? color, string? description, int departmentWeight = 0)
         {
             var hasAnyMind = mindContainer.Mind != null;
             var isDead = _mobState.IsDead(entity);
@@ -453,7 +453,7 @@ namespace Content.Server.Ghost
             if (string.IsNullOrEmpty(description))
                 description = metadata.EntityDescription;
 
-            var warp = new GhostWarp(GetNetEntity(entity), metadata.EntityName, subGroup, description, color);
+            var warp = new GhostWarp(GetNetEntity(entity), metadata.EntityName, subGroup, description, color, departmentWeight);
 
             if(isLeft)
                 warp.Group |= WarpGroup.Left;
