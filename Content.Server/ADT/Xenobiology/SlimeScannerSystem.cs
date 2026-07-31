@@ -1,20 +1,23 @@
+using Robust.Server.GameObjects;
+using Content.Shared.ADT.Xenobiology;
 using Content.Shared.ADT.Xenobiology.Components;
 using Content.Shared.ADT.Xenobiology.Components.Equipment;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Examine;
+using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
+using Robust.Shared.Audio.Systems;
 using System.Linq;
-using System.Text;
 
 namespace Content.Server.ADT.Xenobiology;
 
 public sealed partial class SlimeScannerSystem : EntitySystem
 {
-    [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
+    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 
     public override void Initialize()
     {
@@ -22,105 +25,113 @@ public sealed partial class SlimeScannerSystem : EntitySystem
 
         SubscribeLocalEvent<SlimeComponent, AfterInteractUsingEvent>(OnSlimeAfterInteractUsing);
         SubscribeLocalEvent<SlimeExtractComponent, AfterInteractUsingEvent>(OnExtractAfterInteractUsing);
+        SubscribeLocalEvent<SlimeScannerComponent, SlimeScannerDoAfterEvent>(OnDoAfter);
     }
 
     private void OnSlimeAfterInteractUsing(Entity<SlimeComponent> ent, ref AfterInteractUsingEvent args)
     {
-        if (!CanSendTooltip(args))
+        if (!CanInteract(args))
             return;
 
-        TrySendTooltip(args.User, ent, GenerateSlimeMarkup(ent));
+        StartScanDoAfter(args.User, args.Used, ent);
         args.Handled = true;
     }
 
     private void OnExtractAfterInteractUsing(Entity<SlimeExtractComponent> ent, ref AfterInteractUsingEvent args)
     {
-        if (!CanSendTooltip(args))
+        if (!CanInteract(args))
             return;
 
-        var loc = Loc.GetString("slime-scanner-examine-extract", ("reagents", GenerateExtractMarkup(ent)));
-        TrySendTooltip(args.User, ent, loc);
+        StartScanDoAfter(args.User, args.Used, ent);
         args.Handled = true;
     }
 
-    private bool CanSendTooltip(AfterInteractUsingEvent args)
+    private void OnDoAfter(Entity<SlimeScannerComponent> ent, ref SlimeScannerDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled || args.Target == null)
+            return;
+
+        _audioSystem.PlayPvs(ent.Comp.ScanningEndSound, ent.Owner);
+        
+        OpenScannerUI(args.User, ent.Owner, args.Target.Value);
+        args.Handled = true;
+    }
+
+    private bool CanInteract(AfterInteractUsingEvent args)
         => !args.Handled && args.Target != null && args.CanReach && HasComp<SlimeScannerComponent>(args.Used);
 
-    private void TrySendTooltip(EntityUid player, EntityUid target, string message)
+    private void StartScanDoAfter(EntityUid user, EntityUid scanner, EntityUid target)
     {
-        var markup = FormattedMessage.FromMarkupOrThrow(message);
-        _examineSystem.SendExamineTooltip(player, target, markup, false, true);
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(1), new SlimeScannerDoAfterEvent(), scanner, target: target, used: scanner)
+        {
+            NeedHand = true,
+            BreakOnMove = true,
+        };
+
+        _doAfterSystem.TryStartDoAfter(doAfterArgs);
     }
 
-    private string GenerateSlimeMarkup(Entity<SlimeComponent> ent)
+    private void OpenScannerUI(EntityUid user, EntityUid scanner, EntityUid target)
     {
-        var mutationChance = MathF.Floor(ent.Comp.MutationChance * 100f);
+        if (!_uiSystem.HasUi(scanner, SlimeScannerUiKey.Key))
+            return;
 
-        var sb = new StringBuilder();
-
-        sb.AppendLine(Loc.GetString("slime-scanner-examine-slime-description", ("color", ent.Comp.SlimeColor.ToHex()), ("name", _prot.Index(ent.Comp.Breed).BreedName)));
-
-        // all this shit for a good looking examine text. imagine.
-        sb.Append($"{Loc.GetString("slime-scanner-examine-slime-mutations", ("chance", mutationChance))} ");
-        var mutations = ent.Comp.PotentialMutations.ToList();
-        for (int i = 0; i < mutations.Count; i++)
-        {
-            var info = _prot.Index(mutations[i]);
-
-            var color = "white";
-            // todo make the colors work
-            if (info.Components.TryGetComponent(nameof(SlimeComponent), out var sc))
-                color = ((SlimeComponent) sc!).SlimeColor.ToHex();
-
-            sb.Append($"[color={color}]{info.BreedName}[/color]");
-
-            if (i == mutations.Count - 1) sb.AppendLine(".");
-            else sb.Append(", ");
-        }
-
-        sb.AppendLine(Loc.GetString("slime-scanner-examine-slime-extracts", ("num", ent.Comp.ExtractsProduced)));
-
-        return sb.ToString();
+        _uiSystem.OpenUi(scanner, SlimeScannerUiKey.Key, user);
+        
+        var msg = BuildScannedMessage(target);
+        if (msg != null)
+            _uiSystem.ServerSendUiMessage(scanner, SlimeScannerUiKey.Key, msg);
     }
 
-    private string GenerateExtractMarkup(Entity<SlimeExtractComponent> ent)
+    private SlimeScannerScannedMessage? BuildScannedMessage(EntityUid target)
     {
-        var sb = new StringBuilder();
-
-        if (!TryComp<ReactiveComponent>(ent, out var reactive) || reactive.Reactions == null)
+        if (TryComp<SlimeComponent>(target, out var slime))
         {
-            sb.AppendLine(Loc.GetString("slime-scanner-examine-extract-unreactive"));
-            return sb.ToString();
+            var breed = _prot.Index<BreedPrototype>(slime.Breed);
+            
+            var breedName = Loc.GetString(breed.BreedName);
+            
+            var mutations = slime.PotentialMutations
+                .Select(id => Loc.GetString(_prot.Index<BreedPrototype>(id).BreedName))
+                .ToList();
+
+            return new SlimeScannerScannedMessage(
+                GetNetEntity(target),
+                breedName,
+                slime.SlimeColor.ToHex(),
+                slime.MutationChance,
+                mutations,
+                slime.ExtractsProduced,
+                null);
         }
 
-        var reactions = reactive.Reactions;
-        for (int i = 0; i < reactions.Count; i++)
+        if (TryComp<SlimeExtractComponent>(target, out var _) &&
+            TryComp<ReactiveComponent>(target, out var reactive) &&
+            reactive.Reactions != null)
         {
-            var item = reactions[i];
-            if (item.Reagents == null)
-                continue;
-
-            var reagents = item.Reagents.ToList();
-            for (int j = 0; j < reagents.Count; j++)
+            var reagents = new List<ExtractReagentInfo>();
+            foreach (var reaction in reactive.Reactions)
             {
-                var reagent = reagents[j];
-                if (!_prot.TryIndex<ReagentPrototype>(reagent, out var rid))
+                if (reaction.Reagents == null)
                     continue;
 
-                sb.Append($"[color={rid.SubstanceColor.ToHex()}]{rid.ID.ToLower()}[/color]");
-
-                if (reagents.Count <= 1)
-                    continue;
-
-                // jic
-                if (i == reagents.Count - 1) sb.Append("; ");
-                else sb.Append(", ");
+                foreach (var reagentId in reaction.Reagents)
+                {
+                    if (_prot.TryIndex<ReagentPrototype>(reagentId, out var reagentProto))
+                    {
+                        reagents.Add(new ExtractReagentInfo(
+                            reagentProto.ID,
+                            reagentProto.SubstanceColor.ToHex()));
+                    }
+                }
             }
 
-            if (i == reactions.Count - 1) sb.AppendLine(".");
-            else sb.Append(", ");
+            return new SlimeScannerScannedMessage(
+                GetNetEntity(target),
+                null, null, null, null, null,
+                reagents);
         }
 
-        return sb.ToString();
+        return null;
     }
 }
