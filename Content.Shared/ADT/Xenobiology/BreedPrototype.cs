@@ -5,7 +5,7 @@ namespace Content.Shared.ADT.Xenobiology;
 /// <summary>
 /// This prototype stores information about different slime breeds.
 /// </summary>
-[Prototype]
+[Prototype("breed")]
 public sealed partial class BreedPrototype : IPrototype
 {
     [IdDataField]
@@ -15,7 +15,7 @@ public sealed partial class BreedPrototype : IPrototype
     /// Used to set the slime's name.
     /// </summary>
     [DataField(required: true)]
-    public string BreedName = string.Empty;
+    public LocId BreedName = string.Empty;
 
     /// <summary>
     /// The extract produced when this breed is ground.
