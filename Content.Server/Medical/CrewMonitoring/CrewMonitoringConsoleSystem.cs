@@ -236,6 +236,27 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
         if (!TryGetEntity(args.Server, out var serverUid))
             return;
+
+        if (component.SelectedServerUid == serverUid.Value)
+        {
+            if (TryComp<CrewMonitoringServerComponent>(serverUid.Value, out var activeServer))
+                _crewServers.RemoveSubscriber(activeServer, uid);
+
+            component.SelectedServerUid = null;
+            component.ConnectedSensors = new();
+            component.LastReferenceFrame = null;
+            component.LastServerUid = null;
+            component.LastPacketTime = TimeSpan.Zero;
+            component.OfflineStateSent = true;
+            component.KnownAlertStates.Clear();
+            component.NextCritAlertTime = TimeSpan.Zero;
+            component.CritAlertResyncPending = false;
+            component.ServersListDirty = true;
+            PopulateNavMapsForConsole(uid, component);
+            UpdateUserInterface(uid, component);
+            return;
+        }
+
         if (!TryComp<CrewMonitoringServerComponent>(serverUid.Value, out var serverComp) ||
             !IsServerInRange(uid, serverUid.Value))
         {

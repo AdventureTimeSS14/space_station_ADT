@@ -880,7 +880,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
                     }
 
                     var serverEntity = server.NetEntity;
-                    if (!isSelected && server.IsOnline)
+                    if (isSelected || server.IsOnline)
                         serverButton.OnPressed += _ => OnSelectServer?.Invoke(serverEntity);
 
                     ServersListContainer.AddChild(serverButton);
