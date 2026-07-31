@@ -392,17 +392,6 @@ namespace Content.Server.Ghost
                         addedWarp = true;
                     }
 
-                    if (roleCacheComponent.IsAntag &&
-                        _prototypeManager.TryIndex(roleCacheComponent.LastAntagPrototype, out var antagPrototype))
-                    {
-                        var antagName = Loc.GetString(antagPrototype.Name);
-                        var warp = SetupWarp(entity, mindContainer, antagName, AntagonistButtonColor, null);
-                        warp.Group |= WarpGroup.Antag;
-
-                        warps.Add(warp);
-                        addedWarp = true;
-                    }
-
                     if (!addedWarp)
                     {
                         var warp = SetupWarp(entity, mindContainer, 
