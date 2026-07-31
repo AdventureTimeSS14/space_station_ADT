@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Server.ADT.Generation;
 using Content.Server.Procedural;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -17,7 +18,9 @@ public sealed class ADTMegafaunaSpawnSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ADTMegafaunaSpawnComponent, MapInitEvent>(OnMapInit);
+
+        SubscribeLocalEvent<ADTMegafaunaSpawnComponent, MapInitEvent>(OnMapInit,
+            after: [typeof(ADTLavalandGenerationSystem)]);
     }
 
     public override void Update(float frameTime)
@@ -55,7 +58,10 @@ public sealed class ADTMegafaunaSpawnSystem : EntitySystem
         for (var i = 0; i < toSpawn; i++)
         {
             if (!TryFindSpot(ent, placed, out var coords))
+            {
+                Log.Warning($"Found nowhere to put megafauna {pool[i]} on {ToPrettyString(ent.Owner)}.");
                 continue;
+            }
 
             _pendingSpawns.Add((pool[i], coords));
             placed.Add(coords.Position);
@@ -93,12 +99,17 @@ public sealed class ADTMegafaunaSpawnSystem : EntitySystem
                 return false;
         }
 
-        if (comp.AvoidRooms &&
-            _lookup.GetEntitiesInRange(coords, comp.MinSpacing).Any(e => HasComp<RoomFillComponent>(e)))
+        if (!comp.AvoidRooms)
+            return true;
+
+        var clearanceSq = comp.RoomClearance * comp.RoomClearance;
+
+        if (TryComp<ADTLavalandGenerationComponent>(ent, out var generation) &&
+            generation.Placed.Any(room => Vector2.DistanceSquared(coords.Position, room) < clearanceSq))
         {
             return false;
         }
 
-        return true;
+        return !_lookup.GetEntitiesInRange(coords, comp.RoomClearance).Any(e => HasComp<RoomFillComponent>(e));
     }
 }

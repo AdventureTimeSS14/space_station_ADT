@@ -14,6 +14,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Physics;
 using Content.Shared.Throwing;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
@@ -52,6 +53,12 @@ public sealed class BubblegumChargeSystem : EntitySystem
         SubscribeLocalEvent<BubblegumActiveChargeComponent, ThrowDoHitEvent>(OnChargeHit);
         SubscribeLocalEvent<BubblegumActiveChargeComponent, LandEvent>(OnChargeLand);
         SubscribeLocalEvent<BubblegumActiveChargeComponent, PreventCollideEvent>(OnChargePreventCollide);
+        SubscribeLocalEvent<BubblegumActiveChargeComponent, AttemptMeleeEvent>(OnAttemptMelee);
+    }
+
+    private void OnAttemptMelee(Entity<BubblegumActiveChargeComponent> ent, ref AttemptMeleeEvent args)
+    {
+        args.Cancelled = true;
     }
 
     private void OnCanMove(Entity<BubblegumActiveChargeComponent> ent, ref UpdateCanMoveEvent args)

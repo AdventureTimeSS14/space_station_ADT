@@ -8,8 +8,10 @@ adt-resonator-set-matrix = Поля теперь работают как лов�
 
 adt-resonator-examine-mode = Режим: [color=cyan]{ $mode }[/color].
 adt-resonator-examine-limit = Держит до [color=cyan]{ $limit }[/color] полей одновременно.
+adt-resonator-examine-charge = Заряд: [color=cyan]{ $percent }%[/color], хватит ещё на [color=cyan]{ $uses }[/color] полей.
 
 adt-resonator-popup-limit = Резонатор больше не удерживает поля.
+adt-resonator-popup-no-charges = Заряд резонатора кончился, нужен зарядник.
 
 adt-resonance-field-popup-ruptured = Резонирующее поле разрывается прямо на вас!
 

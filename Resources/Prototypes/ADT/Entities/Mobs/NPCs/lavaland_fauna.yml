@@ -69,10 +69,10 @@
     solution: udder
     generated:
       reagents:
-      - ReagentId: MilkGoat
+      - ReagentId: ADTMilkGutlunch
         Quantity: 0.2
   - type: Udder
-    reagentId: MilkGoat
+    reagentId: ADTMilkGutlunch
     quantityPerUpdate: 15
     growthDelay: 30
   - type: Tag
@@ -134,7 +134,7 @@
     - id: FoodMeat
       amount: 1
   - type: Udder
-    reagentId: MilkGoat
+    reagentId: ADTMilkGutlunch
     quantityPerUpdate: 0
     growthDelay: 3600
   - type: Reproductive
@@ -184,14 +184,17 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 5
+  - type: ADTBurrowAway
+    triggerRange: 6
+    chaseTime: 10
   - type: HTN
     rootTask:
       task: ADTGoldgrubCompound
     blackboard:
       ADTFleeRange: !type:Single
-        5
+        6
       VisionRadius: !type:Single
-        5
+        7
   - type: NpcFactionMember
     factions:
     - SimpleNeutral

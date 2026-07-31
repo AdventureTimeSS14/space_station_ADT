@@ -94,3 +94,40 @@ thunderdome-streak-4 = { $player } Доминирует!
 thunderdome-streak-6 = { $player } Беспощаден!
 thunderdome-streak-8 = { $player } Монстр!
 thunderdome-streak-9 = { $player } БОЖЕСТВЕННЫЙ!
+
+# Leaderboard
+thunderdome-leaderboard-button = Таблица лидеров
+thunderdome-ghost-leaderboard-button = Топ колизея
+thunderdome-leaderboard-title = Таблица лидеров колизея
+thunderdome-leaderboard-top-header = Топ бойцов
+thunderdome-leaderboard-empty = Пока никто не отличился. Стань первым.
+thunderdome-leaderboard-personal-header = Твоя статистика
+thunderdome-leaderboard-round-header = За этот раунд
+thunderdome-leaderboard-close = Закрыть
+thunderdome-unknown-player = Неизвестный
+
+# Leaderboard columns
+thunderdome-leaderboard-col-rank = #
+thunderdome-leaderboard-col-name = Боец
+thunderdome-leaderboard-col-score = Очки
+thunderdome-leaderboard-col-kills = Убийств
+thunderdome-leaderboard-col-deaths = Смертей
+thunderdome-leaderboard-col-kd = K/D
+thunderdome-leaderboard-col-streak = Серия
+
+# Leaderboard values
+thunderdome-leaderboard-rank = Место: { $rank } из { $total }
+thunderdome-leaderboard-unranked = Ещё нет места в рейтинге
+thunderdome-leaderboard-score = Очки: { $score }
+thunderdome-leaderboard-kills = Убийств: { $kills }
+thunderdome-leaderboard-deaths = Смертей: { $deaths }
+thunderdome-leaderboard-kd = K/D: { $kd }
+thunderdome-leaderboard-streak = Лучшая серия: { $streak }
+thunderdome-leaderboard-rounds = Раундов сыграно: { $rounds }
+thunderdome-leaderboard-round-rank = Место в раунде: { $rank } из { $total }
+thunderdome-leaderboard-discarded = Не засчитано убийств: { $count }
+thunderdome-leaderboard-discarded-hint = Повторные убийства одной и той же жертвы и убийства только что появившихся бойцов очков не дают.
+
+# Round end summary
+thunderdome-roundend-header = [color=#cc3333][bold]Колизей[/bold][/color]
+thunderdome-roundend-entry = { $rank }. { $name } - { $score } очк. ({ $kills } уб. / { $deaths } см.)

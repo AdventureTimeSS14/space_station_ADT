@@ -17,6 +17,7 @@
       - ADTTendrilLavaWatcher
       - ADTTendrilIcewingWatcher
       - ADTTendrilMagmawingWatcher
+      - ADTTendrilNightmareSpider
 #      - ADTTendrilHypertrophied
 #      - ADTTendrilDeath
 #      - ADTTendrilBloated

@@ -2,10 +2,11 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.ADT.Mining.Resonator;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class ADTResonatorComponent : Component
 {
     [DataField]
@@ -23,6 +24,16 @@ public sealed partial class ADTResonatorComponent : Component
 
     [DataField]
     public int FieldLimit = 4;
+
+    [DataField]
+    public float ChargeUsePercent = 0.1f;
+
+    [DataField]
+    public TimeSpan PlantDelay = TimeSpan.FromSeconds(1.2);
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    [AutoPausedField]
+    public TimeSpan NextPlant;
 
     [DataField]
     public float QuickBurstModifier = 0.8f;

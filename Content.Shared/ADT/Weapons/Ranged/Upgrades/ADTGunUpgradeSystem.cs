@@ -39,10 +39,11 @@ public sealed class ADTGunUpgradeSystem : EntitySystem
         SubscribeLocalEvent<ADTUpgradeableGunComponent, ExaminedEvent>(OnExamine);
 
         SubscribeLocalEvent<ADTUpgradeableGunComponent, GunRefreshModifiersEvent>(RelayEvent);
-        SubscribeLocalEvent<ADTUpgradeableGunComponent, GunShotEvent>(RelayEvent);
+        SubscribeLocalEvent<ADTUpgradeableGunComponent, AmmoShotEvent>(OnAmmoShot);
 
         SubscribeLocalEvent<ADTGunUpgradeComponent, ExaminedEvent>(OnUpgradeExamine);
         SubscribeLocalEvent<ADTGunUpgradeFireRateComponent, GunRefreshModifiersEvent>(OnFireRateRefresh);
+        SubscribeLocalEvent<ADTGunUpgradeRepeaterComponent, GunRefreshModifiersEvent>(OnRepeaterRefresh);
 
         Subs.BuiEvents<ADTGunUpgradeTracerComponent>(ADTGunUpgradeTracerUiKey.Key, subs =>
         {
@@ -228,6 +229,11 @@ public sealed class ADTGunUpgradeSystem : EntitySystem
         args.FireRate *= ent.Comp.Coefficient;
     }
 
+    private void OnRepeaterRefresh(Entity<ADTGunUpgradeRepeaterComponent> ent, ref GunRefreshModifiersEvent args)
+    {
+        args.FireRate *= ent.Comp.FireRateCoefficient; // РАБОТАЕТ СТРАННО ПЕРЕСМОТРЕТЬ
+    }
+
     private void OnTracerColorPicked(Entity<ADTGunUpgradeTracerComponent> ent, ref ADTGunUpgradeTracerColorMessage args)
     {
         if (!ent.Comp.Adjustable)
@@ -242,6 +248,15 @@ public sealed class ADTGunUpgradeSystem : EntitySystem
         foreach (var upgrade in GetUpgrades(ent))
         {
             RaiseLocalEvent(upgrade, ref args);
+        }
+    }
+
+    private void OnAmmoShot(Entity<ADTUpgradeableGunComponent> ent, ref AmmoShotEvent args)
+    {
+        var ev = new ADTGunUpgradeShotEvent(ent.Owner, args.FiredProjectiles);
+        foreach (var upgrade in GetUpgrades(ent))
+        {
+            RaiseLocalEvent(upgrade, ref ev);
         }
     }
 
@@ -293,3 +308,6 @@ public sealed class ADTGunUpgradeSystem : EntitySystem
 
 [Serializable, NetSerializable]
 public sealed partial class ADTGunUpgradeRemoveDoAfterEvent : SimpleDoAfterEvent;
+
+[ByRefEvent]
+public record struct ADTGunUpgradeShotEvent(EntityUid Gun, List<EntityUid> Projectiles);
