@@ -16,7 +16,7 @@
     maxRadius: 230
     groups:
     - prototypes: [ LavaDungeonRoomMarker ]
-      count: 24
+      count: 37
       minSpacing: 50
       minDistanceFromCenter: 55
       avoidRooms: true
@@ -61,7 +61,7 @@
         - prototype: ADTMobGuthen
           probability: 0.025
   - type: ADTMegafaunaSpawn
-    count: 2
+    count: 67
     minDistanceFromCenter: 100
     maxRadius: 220
     minSpacing: 70
