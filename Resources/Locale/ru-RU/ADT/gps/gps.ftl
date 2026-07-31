@@ -29,6 +29,8 @@ adt-gps-popup-disabled = Устройство больше не передаёт
 
 # Метки сигналов
 adt-gps-signal-beacon = Маяк
+adt-gps-signal-casino = Золотой сигнал
+adt-gps-signal-casino-desc = Место, где бандит утерял своё наследство
 adt-gps-signal-mining-base = NT_AUX
 adt-gps-signal-mining-base-desc = Сигнал наведения шахтёрской базы Nanotrasen.
 adt-gps-signal-bubblegum = Кровавый сигнал
@@ -41,3 +43,5 @@ adt-gps-signal-legion = Отражённый сигнал
 adt-gps-signal-legion-desc = Сообщение повторяется.
 adt-gps-signal-tendril = Раковый сигнал
 adt-gps-signal-tendril-desc = Что-то растёт там, где расти не должно.
+adt-gps-signal-ruin = Неизвестный сигнал
+adt-gps-signal-ruin-desc = Слабый маяк навигационной консоли. Кто-то здесь уже был.

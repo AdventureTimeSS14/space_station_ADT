@@ -232,7 +232,7 @@
     - OreBagOfHolding
     - MiningDrillDiamond
     - AdvancedMineralScannerEmpty
-    - BorgModuleAdvancedMining
+    - ADTBorgModuleAdvancedSalvage # ADT-Tweak
   # ADT Research Console Rework start
   position: 4,-1
   requiredTech:

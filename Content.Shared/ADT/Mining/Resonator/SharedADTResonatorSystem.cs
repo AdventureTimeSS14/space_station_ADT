@@ -1,11 +1,14 @@
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
+using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems;
 
 namespace Content.Shared.ADT.Mining.Resonator;
 
 public abstract class SharedADTResonatorSystem : EntitySystem
 {
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
@@ -32,6 +35,14 @@ public abstract class SharedADTResonatorSystem : EntitySystem
 
         args.PushMarkup(Loc.GetString("adt-resonator-examine-mode", ("mode", GetModeName(ent.Comp.Mode))));
         args.PushMarkup(Loc.GetString("adt-resonator-examine-limit", ("limit", ent.Comp.FieldLimit)));
+
+        if (!HasComp<BatteryComponent>(ent))
+            return;
+
+        var charge = _battery.GetChargeLevel(ent.Owner);
+        args.PushMarkup(Loc.GetString("adt-resonator-examine-charge",
+            ("percent", MathF.Round(charge * 100f)),
+            ("uses", (int)MathF.Floor(charge / ent.Comp.ChargeUsePercent))));
     }
 
     public void CycleMode(Entity<ADTResonatorComponent> ent, EntityUid user)
