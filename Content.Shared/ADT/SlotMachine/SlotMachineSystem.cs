@@ -12,6 +12,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Content.Shared.ADT.SlotMachine;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 
 namespace Content.Shared.ADT.SlotMachine
@@ -76,16 +77,34 @@ namespace Content.Shared.ADT.SlotMachine
         /// <summary>
         /// Handle the logic for starting the slot machine
         /// </summary>
-
         private void OnInteractHandEvent(EntityUid uid, SlotMachineComponent comp, ActivateInWorldEvent args)
         {
             if (comp.IsSpinning || !_power.IsPowered(uid))
                 return;
 
-            if (comp.SpinDamage != null)
+            DamageSpecifier? damageToApply = null;
+            if (comp.SpeciesSpinDamage != null)
+            {
+                foreach (var (componentName, speciesDamage) in comp.SpeciesSpinDamage)
+                {
+                    if (EntityManager.ComponentFactory.TryGetRegistration(componentName, out var registration))
+                    {
+                        if (EntityManager.HasComponent(args.User, registration.Type))
+                        {
+                            damageToApply = speciesDamage;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (damageToApply == null)
+                damageToApply = comp.SpinDamage;
+
+            if (damageToApply != null)
             {
                 if (_net.IsServer)
-                    _damageable.TryChangeDamage(args.User, comp.SpinDamage, ignoreResistances: true);
+                    _damageable.TryChangeDamage(args.User, damageToApply, ignoreResistances: true);
             }
             else
             {

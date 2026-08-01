@@ -34,3 +34,7 @@
     spinDamage:
       types:
         Cellular: 20
+    speciesSpinDamage:
+      MobIpc:
+        types:
+          Blunt: 40
