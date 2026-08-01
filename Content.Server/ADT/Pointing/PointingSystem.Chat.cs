@@ -41,7 +41,7 @@ internal sealed partial class PointingSystem
                 if (ent == source)
                     return true;
 
-                if (HasComp<GhostComponent>(ent))
+                if (HasComp<GhostHearingComponent>(ent))
                     return true;
 
                 return _examine.InRangeUnOccluded(ent, source, PointingRange);
