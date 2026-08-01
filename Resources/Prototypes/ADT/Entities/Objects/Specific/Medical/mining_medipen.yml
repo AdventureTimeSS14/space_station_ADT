@@ -27,7 +27,13 @@
     emptySpriteName: survival_empty
   - type: Injector
     currentTransferAmount: 42
-    activeModeProtoId: HyposprayInjectMode
+    activeModeProtoId: ADTSlowMedipenInjectMode
+    allowedModes:
+    - HyposprayInjectMode
+    - ADTSlowMedipenInjectMode
+  - type: ADTLowPressureInjector
+    lowPressureMode: HyposprayInjectMode
+    normalMode: ADTSlowMedipenInjectMode
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -78,7 +84,13 @@
     emptySpriteName: stabilization_empty
   - type: Injector
     currentTransferAmount: 12
-    activeModeProtoId: HyposprayInjectMode
+    activeModeProtoId: ADTSlowMedipenInjectMode
+    allowedModes:
+    - HyposprayInjectMode
+    - ADTSlowMedipenInjectMode
+  - type: ADTLowPressureInjector
+    lowPressureMode: HyposprayInjectMode
+    normalMode: ADTSlowMedipenInjectMode
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -127,7 +139,13 @@
     emptySpriteName: hyper_empty
   - type: Injector
     currentTransferAmount: 37
-    activeModeProtoId: HyposprayInjectMode
+    activeModeProtoId: ADTSlowMedipenInjectMode
+    allowedModes:
+    - HyposprayInjectMode
+    - ADTSlowMedipenInjectMode
+  - type: ADTLowPressureInjector
+    lowPressureMode: HyposprayInjectMode
+    normalMode: ADTSlowMedipenInjectMode
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -164,5 +182,3 @@
     - ADTMedipen
   - type: StaticPrice
     price: 400
-
-# туду сделать чтобы мгновенный ввод был только при низком давлении(не космос)
