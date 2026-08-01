@@ -554,3 +554,12 @@
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: zero_hairstyle
 
+- type: marking
+  id: ADTHumanHairMessySwept
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-messy_swept
+
