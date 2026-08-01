@@ -40,19 +40,6 @@ public sealed class ADTCCVars
         CVarDef.Create("radialmenu.center", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /*
-    * Phantom
-    */
-
-    public static readonly CVarDef<int> PhantomMinPlayers =
-        CVarDef.Create("phantom.min_players", 25);
-
-    public static readonly CVarDef<int> PhantomMaxDifficulty =
-        CVarDef.Create("phantom.max_difficulty", 15);
-
-    public static readonly CVarDef<int> PhantomMaxPicks =
-        CVarDef.Create("phantom.max_picks", 10);
-
-    /*
     * Discord
     */
 
@@ -292,6 +279,21 @@ public sealed class ADTCCVars
     public static readonly CVarDef<int> SpaceWhaleSpawnDistance =
         CVarDef.Create("misc.space_whale_spawn_distance", 1965, CVar.SERVER);
 
+    /// <summary>
+    /// If enabled, job icons in chat and status icons are available.
+    /// When disabled on server, icons will not be shown for anyone.
+    /// Players can also disable icons in their client settings.
+    /// </summary>
+    public static readonly CVarDef<bool> EnableJobIconAnimation =
+        CVarDef.Create("adt.job_icon_animation_enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Client-side setting to toggle job icons in chat.
+    /// Icons are only shown if both server and client allow them.
+    /// </summary>
+    public static readonly CVarDef<bool> EnableChatJobIcons =
+        CVarDef.Create("adt.chat_job_icons_enabled", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /*
     * Headshot
     */
@@ -299,6 +301,24 @@ public sealed class ADTCCVars
     // CVarDef.Create("ic.headshot_url", "https://discord.com/channels/901772674865455115/1446603657255850085", CVar.SERVER | CVar.REPLICATED);
     public static readonly CVarDef<string> HeadshotDomain =
         CVarDef.Create("ic.headshot_domain", "i.pinimg.com", CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Maximum size of headshot images in bytes (default: 5MB).
+    /// </summary>
+    public static readonly CVarDef<int> HeadshotMaxSize =
+        CVarDef.Create("ic.headshot_max_size", 5 * 1024 * 1024, CVar.SERVER);
+
+    /// <summary>
+    /// Headshot cache duration in minutes (default: 30 minutes).
+    /// </summary>
+    public static readonly CVarDef<float> HeadshotCacheDuration =
+        CVarDef.Create("ic.headshot_cache_duration", 30f, CVar.SERVER);
+
+    /// <summary>
+    /// Maximum number of headshot images in cache (default: 100).
+    /// </summary>
+    public static readonly CVarDef<int> HeadshotMaxCacheCount =
+        CVarDef.Create("ic.headshot_max_cache_count", 100, CVar.SERVER);
 
     /*
     * Fix PoolManager. Cvars
@@ -322,5 +342,59 @@ public sealed class ADTCCVars
     public static readonly CVarDef<bool> BiomeGenerationEnabled =
         CVarDef.Create("biome.generation_enabled", true, CVar.SERVERONLY);
 
+    /*
+     * Atmos
+     */
+
+     /// <summary>
+    /// Whether overpressure pipe damage is enabled.
+    /// When enabled, pipes with OverpressurePipeDamageComponent will take damage when pressure exceeds the limit.
+    /// </summary>
+    public static readonly CVarDef<bool> OverpressurePipeDamageEnabled =
+        CVarDef.Create("atmos.overpressure_pipe_damage_enabled", true, CVar.SERVERONLY);
+
+    /*
+    * Pointing
+    */
+
+    /// <summary>
+    /// If enabled, pointing messages are duplicated into chat with an entity icon.
+    /// When disabled, only popups are shown
+    /// </summary>
+    public static readonly CVarDef<bool> PointingChatIconsEnabled =
+        CVarDef.Create("adt.pointing_chat_icons_enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Client-side setting to toggle pointing messages in chat.
+    /// Replicated to server so it can skip sending chat messages to players who disabled it.
+    /// </summary>
+    public static readonly CVarDef<bool> EnableChatPointingIcons =
+        CVarDef.Create("adt.chat_pointing_icons_enabled", true, CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT);
+
+     /*
+     * Blob
+     */
+
+    /// <summary>
+    ///     Whether blob tiles are allowed to spread onto space tiles.
+    /// </summary>
+    public static readonly CVarDef<bool> BlobCanGrowInSpace =
+        CVarDef.Create("blob.grow_space", true, CVar.SERVER);
+
+     /*
+     * Antag Roll Bonus
+     */
+
+    public static readonly CVarDef<bool> AntagRollBonusEnabled =
+        CVarDef.Create("antag.roll_bonus_enabled", true, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> AntagRollBonusPerRound =
+        CVarDef.Create("antag.roll_bonus_per_round", 0.15f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> AntagRollBonusInfoRateLimitPeriod =
+        CVarDef.Create("antag.roll_bonus_info_rate_limit_period", 5f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> AntagRollBonusInfoRateLimitCount =
+        CVarDef.Create("antag.roll_bonus_info_rate_limit_count", 3, CVar.SERVERONLY);
 }
 

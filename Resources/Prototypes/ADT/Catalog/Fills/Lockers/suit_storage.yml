@@ -1,4 +1,4 @@
-#Blueshield's hardsuit
+﻿#Blueshield's hardsuit
 - type: entity
   id: ADTSuitStorageBlueshield
   parent: SuitStorageBase
@@ -12,8 +12,10 @@
     options:
     - ADTClothingModsuitBackBlueShield
     - ADTBlueshieldSuit
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
         - id: OxygenTankFilled
         - id: ClothingMaskBreath
   - type: AccessReader
@@ -25,8 +27,10 @@
   parent: SuitStorageBase
   suffix: Centcom
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
         - id: OxygenTankFilled
         - id: ClothingMaskGasCentcom
         - id: ADTClothingModsuitBackCentcom
@@ -38,8 +42,10 @@
   parent: SuitStorageBase
   suffix: Consultant
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
         - id: OxygenTankFilled
         - id: ClothingMaskGasCentcom
         - id: ADTClothingModsuitBackCCC
@@ -60,8 +66,10 @@
     options:
     - ADTClothingModsuitBackBrigmedic
     - ClothingOuterHardsuitBrigmedic
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
         - id: OxygenTankFilled
         - id: ClothingMaskBreath
   - type: AccessReader
@@ -73,8 +81,10 @@
   parent: SuitStorageBase
   suffix: Miner
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
         - id: ADTClothingOuterArmorMiner
         - id: OxygenTankFilled
         - id: ClothingMaskGasExplorer
@@ -95,8 +105,10 @@
     options:
     - ADTClothingModsuitBackMedical
     - ClothingOuterHardsuitVoidParamed
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
         - id: OxygenTankFilled
         - id: ClothingMaskBreath
   - type: AccessReader

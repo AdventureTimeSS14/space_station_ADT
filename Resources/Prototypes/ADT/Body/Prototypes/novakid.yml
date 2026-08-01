@@ -1,49 +1,51 @@
-- type: body
-  name: "novakid"
-  id: Novakid
-  root: torso
-  slots:
-    head:
-      part: ADTHeadNovakid
-      connections:
-      - torso
-      organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
-    torso:
-      part: ADTTorsoNovakid
-      organs:
-        heart: ADTOrganNovakidHeart
-        lungs: ADTOrganNovakidLungs
-        stomach: ADTOrganNovakidStomach
-        liver: ADTOrganNovakidLiver
-        kidneys: ADTOrganNovakidKidneys
-      connections:
-      - right arm
-      - left arm
-      - left leg
-      - right leg
-    right arm:
-      part: ADTRightArmNovakid
-      connections:
-      - right hand
-    left arm:
-      part: ADTLeftArmNovakid
-      connections:
-      - left hand
-    right hand:
-      part: ADTRightHandNovakid
-    left hand:
-      part: ADTLeftHandNovakid
-    right leg:
-      part: ADTRightLegNovakid
-      connections:
-      - right foot
-    left leg:
-      part: ADTLeftLegNovakid
-      connections:
-      - left foot
-    right foot:
-      part: ADTRightFootNovakid
-    left foot:
-      part: ADTLeftFootNovakid
+# DEPRECATED: type:body prototype system removed in upstream PR#42476
+# This data is preserved for reference when creating InitialBody entries (task 8)
+# - type: body
+#   name: "novakid"
+#   id: Novakid
+#   root: torso
+#   slots:
+#     head:
+#       part: ADTHeadNovakid
+#       connections:
+#       - torso
+#       organs:
+#         brain: OrganHumanBrain
+#         eyes: OrganHumanEyes
+#     torso:
+#       part: ADTTorsoNovakid
+#       organs:
+#         heart: ADTOrganNovakidHeart
+#         lungs: ADTOrganNovakidLungs
+#         stomach: ADTOrganNovakidStomach
+#         liver: ADTOrganNovakidLiver
+#         kidneys: ADTOrganNovakidKidneys
+#       connections:
+#       - right arm
+#       - left arm
+#       - left leg
+#       - right leg
+#     right arm:
+#       part: ADTRightArmNovakid
+#       connections:
+#       - right hand
+#     left arm:
+#       part: ADTLeftArmNovakid
+#       connections:
+#       - left hand
+#     right hand:
+#       part: ADTRightHandNovakid
+#     left hand:
+#       part: ADTLeftHandNovakid
+#     right leg:
+#       part: ADTRightLegNovakid
+#       connections:
+#       - right foot
+#     left leg:
+#       part: ADTLeftLegNovakid
+#       connections:
+#       - left foot
+#     right foot:
+#       part: ADTRightFootNovakid
+#     left foot:
+#       part: ADTLeftFootNovakid

@@ -1,30 +1,53 @@
 - type: localizedDataset
+  id: FigurinesOBS
+  values:
+    prefix: adt-figurines-BSO-
+    count: 15
+
+- type: localizedDataset
+  id: Figurinesbrigmedic
+  values:
+    prefix: adt-figurines-brigmedic-
+    count: 5
+
+- type: localizedDataset
+  id: FigurinesCCC
+  values:
+    prefix: adt-figurines-CCC-
+    count: 5
+
+- type: localizedDataset
   id: FigurinesLirBattlstorm
   values:
-    prefix: figurines-lirbattlstorm-
+    prefix: adt-figurines-lirbattlstorm-
     count: 7
 
 - type: localizedDataset
   id: FigurinesApatia
   values:
-    prefix: figurines-apatia-
-    count: 4 
+    prefix: adt-figurines-apatia-
+    count: 4
 
 - type: localizedDataset
   id: FigurinesUker
   values:
-    prefix: figurines-uker-
+    prefix: adt-figurines-uker-
     count: 4
 
 - type: localizedDataset
   id: FigurinesBush
   values:
-    prefix: figurines-bush-
+    prefix: adt-figurines-bush-
     count: 3
-
 
 - type: localizedDataset
   id: ADTFigurinesPlushieJungar
   values:
     prefix: adt-figurines-plushie-jungar-
     count: 9
+
+- type: localizedDataset
+  id: ADTFigurinesPlushieEmiliaEvenwood
+  values:
+    prefix: adt-figurines-plushie-emilia-evenwood-
+    count: 2

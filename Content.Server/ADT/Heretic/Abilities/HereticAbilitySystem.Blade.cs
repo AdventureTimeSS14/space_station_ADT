@@ -1,5 +1,5 @@
 using Content.Server.Heretic.Components.PathSpecific;
-using Content.Shared.Body.Part;
+using Content.Shared.Body;
 using Content.Shared.Damage.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Slippery;

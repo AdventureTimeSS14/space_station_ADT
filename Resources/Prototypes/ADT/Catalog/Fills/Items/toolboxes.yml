@@ -4,15 +4,17 @@
   name: Thieving bundle
   description: Everything you need to become a better thief version.
   components:
-  - type: StorageFill
-    contents:
-      - id: StorageImplanter
-      - id: ThievingGloves
-      - id: Crowbar
-      - id: Wrench
-      - id: Screwdriver
-      - id: Welder
-      - id: Wirecutter
-      - id: Multitool
-      - id: ClothingHandsGlovesCombat
-      - id: ClothingMaskGasSyndicate
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: StorageImplanter
+        - id: ThievingGloves
+        - id: Crowbar
+        - id: Wrench
+        - id: Screwdriver
+        - id: Welder
+        - id: Wirecutter
+        - id: Multitool
+        - id: ClothingHandsGlovesCombat
+        - id: ClothingMaskGasSyndicate

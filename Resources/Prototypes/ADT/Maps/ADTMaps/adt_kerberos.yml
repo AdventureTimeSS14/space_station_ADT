@@ -19,7 +19,7 @@
           path: /Maps/ADTMaps/Shuttles/adt_cargo.yml
         - type: StationJobs
           availableJobs:
-            Boxer: [ 2, 2 ]
+            #Boxer: [ 2, 2 ] removed at commit 58f884133b 
             CargoTechnician: [ 4, 4 ]
             Passenger: [ -1, -1 ]
             Bartender: [ 1, 1 ]

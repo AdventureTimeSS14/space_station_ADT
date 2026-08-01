@@ -32,22 +32,21 @@ public sealed class WeatherSchedulerSystem : EntitySystem
                 comp.Stage = 0;
 
             var stage = comp.Stages[comp.Stage++];
-            var duration = stage.Duration.Next(_random);
-            comp.NextUpdate = now + TimeSpan.FromSeconds(duration);
+            var duration = TimeSpan.FromSeconds(stage.Duration.Next(_random));
+            comp.NextUpdate = now + duration;
 
+            var (stageWeather, stageMessage) = PickVariant(stage); // ADT-Tweak
             var mapId = Comp<MapComponent>(map).MapId;
-            if (stage.Weather is {} weather)
+            if (stageWeather is {} weather) // ADT-Tweak
             {
-                var ending = comp.NextUpdate;
-                // crossfade weather so as one ends the next starts
                 if (HasWeather(comp, comp.Stage - 1))
-                    ending += WeatherComponent.ShutdownTime;
+                    duration += SharedWeatherSystem.StartupTime;
                 if (HasWeather(comp, comp.Stage + 1))
-                    ending += WeatherComponent.StartupTime;
-                _weather.SetWeather(mapId, _proto.Index(weather), ending);
+                    duration += SharedWeatherSystem.ShutdownTime;
+                _weather.TryAddWeather(map, weather, out _, duration);
             }
 
-            if (stage.Message is {} message)
+            if (stageMessage is {} message) // ADT-Tweak
             {
                 var msg = Loc.GetString(message);
                 _chat.ChatMessageToManyFiltered(
@@ -63,6 +62,34 @@ public sealed class WeatherSchedulerSystem : EntitySystem
         }
     }
 
+    // ADT-Tweak-Start
+    private (EntProtoId? Weather, LocId? Message) PickVariant(WeatherStage stage)
+    {
+        if (stage.Variants.Count == 0)
+            return (stage.Weather, stage.Message);
+
+        var total = 0f;
+        foreach (var variant in stage.Variants)
+        {
+            total += MathF.Max(variant.Weight, 0f);
+        }
+
+        if (total <= 0f)
+            return (stage.Weather, stage.Message);
+
+        var roll = _random.NextFloat(total);
+        foreach (var variant in stage.Variants)
+        {
+            roll -= MathF.Max(variant.Weight, 0f);
+            if (roll <= 0f)
+                return (variant.Weather, variant.Message);
+        }
+
+        var last = stage.Variants[^1];
+        return (last.Weather, last.Message);
+    }
+    // ADT-Tweak-End
+
     private bool HasWeather(WeatherSchedulerComponent comp, int stage)
     {
         if (stage < 0)
@@ -70,6 +97,9 @@ public sealed class WeatherSchedulerSystem : EntitySystem
         else if (stage >= comp.Stages.Count)
             stage %= comp.Stages.Count;
 
-        return comp.Stages[stage].Weather != null;
+        // ADT-Tweak-Start
+        var entry = comp.Stages[stage];
+        return entry.Weather != null || entry.Variants.Count > 0;
+        // ADT-Tweak-End
     }
 }

@@ -21,8 +21,8 @@
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
   - type: RadarConsole
-  - type: WorldLoader
-    radius: 500
+  # - type: WorldLoader
+  #   radius: 500 https://github.com/space-wizards/space-station-14/pull/43428
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -74,8 +74,8 @@
       - Syndicate
   - type: RadarConsole
     maxRange: 1000
-  - type: WorldLoader
-    radius: 1536
+  # - type: WorldLoader
+  #   radius: 1536 https://github.com/space-wizards/space-station-14/pull/43428
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -95,8 +95,8 @@
     state: salvage
   - type: RadarConsole
     maxRange: 1000
-  - type: WorldLoader
-    radius: 1536
+  # - type: WorldLoader
+  #   radius: 1536 https://github.com/space-wizards/space-station-14/pull/43428
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -116,8 +116,8 @@
     state: security
   - type: RadarConsole
     maxRange: 1000
-  - type: WorldLoader
-    radius: 1536
+  # - type: WorldLoader
+  #   radius: 1536 https://github.com/space-wizards/space-station-14/pull/43428
   - type: PointLight
     radius: 1.5
     energy: 1.6

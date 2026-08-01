@@ -3,6 +3,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Input;  //ADT-Tweak
+using Robust.Shared.Utility; // ADT-Tweak
 
 namespace Content.Client.SmartFridge;
 
@@ -16,7 +17,9 @@ public sealed partial class SmartFridgeItem : BoxContainer
         RobustXamlLoader.Load(this);
 
         EntityView.SetEntity(uid);
-        NameLabel.Text = text;
+
+        NameLabel.SetMessage(FormattedMessage.FromMarkupPermissive(text)); // ADT-Tweak
+
     //ADT-Tweak Start: Delete Button UI keylock
         DeleteButton.OnKeyBindDown += args =>
         {

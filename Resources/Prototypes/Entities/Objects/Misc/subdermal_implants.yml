@@ -105,12 +105,14 @@
       controlsLocked: true
       mode: SensorCords
       activationContainer: "implant"
-    - type: DeviceNetwork
-      deviceNetId: Wireless
-      transmitFrequencyId: SuitSensor
-    - type: StationLimitedNetwork
-    - type: WirelessNetworkConnection
-      range: 500
+    # ADT-Tweak Start - New Monitor:
+    # - type: DeviceNetwork
+    #   deviceNetId: Wireless
+    #   transmitFrequencyId: SuitSensor
+    # - type: StationLimitedNetwork
+    # - type: WirelessNetworkConnection
+    #   range: 500
+    # ADT-Tweak End
 
 #Traitor implants
 
@@ -154,6 +156,8 @@
   - type: TriggerOnActivateImplant
   - type: UncuffOnTrigger
     targetUser: true
+  - type: RemoveEnsnareOnTrigger # ADT-Tweak - имплант свободы снимает ещё и болы
+    targetUser: true
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -179,9 +183,7 @@
     whitelist:
       components:
       - Hands # prevent mouse buying grenade penguin since its not telepathic
-  - type: Store
-    balance:
-      Telecrystal: 0
+  - type: RemoteStore
   - type: UserInterface
     interfaces:
       enum.StoreUiKey.Key:
@@ -226,7 +228,7 @@
     implantAction: ActionActivateDnaScramblerImplant
     whitelist:
       components:
-      - HumanoidAppearance # syndies cant turn hamlet into a human
+      - HumanoidProfile # syndies cant turn hamlet into a human
   - type: TriggerOnActivateImplant
   - type: DnaScrambleOnTrigger
     targetUser: true
@@ -248,6 +250,26 @@
     interfaces:
       enum.ChameleonControllerKey.Key:
         type: ChameleonControllerBoundUserInterface
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: VoiceMaskImplant
+  name: identity mask implant
+  description: This implant allows you to change your identity at will.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionChangeVoiceMaskImplant
+  - type: VoiceMask
+    overrideIdentity: true
+    changeIDName: true
+  - type: UserInterface
+    interfaces:
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+  - type: Tag
+    tags:
+    - SubdermalImplant
 
 #Nuclear Operative/Special Exclusive implants
 

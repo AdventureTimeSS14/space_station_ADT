@@ -1,5 +1,5 @@
-- type: entity
-  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+﻿- type: entity
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ] # ADT-Tweak (removed BaseSlicingRefinable)
   id: BaseMobDragon
   suffix: ""
   name: space dragon
@@ -7,10 +7,11 @@
   abstract: true
   components:
   - type: Bloodstream
-    bloodlossThreshold: 0.8 # ADT-Tweak
-    bloodRefreshAmount: 2 # ADT-Tweak
-    bloodMaxVolume: 650
-    damageBleedModifiers: ADTBloodlossDragon # ADT-Tweak
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 650
+    bleedReductionAmount: 5 # ADT-Tweak
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -27,9 +28,9 @@
     rootTask:
       task: XenoCompound
     blackboard:
-      NavInteract: !type:Bool
+      NavInteract: !type:Bool 
         true
-      NavPry: !type:Bool
+      NavPry: !type:Bool 
         true
       NavSmash: !type:Bool
         true
@@ -42,9 +43,9 @@
   - type: MobMover
   - type: InputMover
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.5 # ADT-Tweak 3 -> 3.5
-    baseSprintSpeed: 5.5 # ADT-Tweak 5 -> 5.5
-    weightlessModifier: 1.5
+    baseWalkSpeed: 3.5 # ADT-Tweak (3 ---> 3.5)
+    baseSprintSpeed: 5.5 # ADT-Tweak (5 ---> 5.5)
+    baseWeightlessModifier: 1.5
   - type: RandomSprite
     available:
     - enum.DamageStateVisualLayers.Base:
@@ -98,50 +99,36 @@
       250: 0.85 # ADT-Tweak (less slow 250: 0.7 ---> 250: 0.85)
       350: 0.7 # ADT-Tweak (add new threshold)
       430: 0.5 # ADT-Tweak (higher threshold 400: 0.5 ---> 430: 0.5)
-# ADT-Tweak-start
-# disable taking damage from fire, since its a fire breathing dragon. # also it can't be lit on fire
+  # disable taking damage from fire, since its a fire breathing dragon
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: Flammable
-    fireSpread: false
-    canResistFire: true
-    alwaysCombustible: false
-    canExtinguish: true
-    resisting: false
     damage:
       types: {}
-  - type: Temperature
-    heatDamageThreshold: 800
-    coldDamageThreshold: -800
-  - type: FlashImmunity
-  - type: EyeProtection
-  - type: Damageable
-    damageModifierSet: ADTDragonDamageSet
-  - type: Stamina
-    critThreshold: 350
-# ADT-Tweak-end
   - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
     allowed:
+    - Electrocution
+    - Pacified
+    - Adrenaline
     - Stutter
-    - Weakness #ADT-Weakness-Tweak
-    # - Electrocution # ADT-Tweak - ъуъ
-    # - ForcedSleep # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE PUT TO SLEEP???
-    # - TemporaryBlindness # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE BLINDED???
-    # - Pacified # ADT-Tweak - это чудище не обосрется от пакса
-    - RadiationProtection
-    # - Drowsiness # ADT-Tweak - НЕ СПАТЬ
-    - Adrenaline #ADT-Medicine
+    - Weakness # ADT-Weakness-Tweak
+    - TemporaryBlindness # ADT-Tweak
+    - RadiationProtection # ADT-Tweak
+  - type: Temperature
+  - type: TemperatureDamage
+    heatDamageThreshold: 2400 # ADT-Tweak
   - type: Metabolizer
     solutionOnBody: false
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
-    groups:
-    - id: Medicine
-    - id: Poison
+    stages: [ Digestion, Bloodstream ]
+# ADT-Tweak-start
   - type: Butcherable
+    butcheringType: Knife
     spawned:
     - id: FoodMeatDragon
-      amount: 2
+      amount: 4 # ADT-Tweak
+# ADT-Tweak-end
   - type: InteractionPopup
     successChance: 0.25 # It's no goose, but you better smell like carp.
     interactSuccessString: petting-success-dragon
@@ -161,16 +148,18 @@
   - type: Devourer
     foodPreferenceWhitelist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
     stomachStorageWhitelist:
       components:
       - MobState
+      - Item # ADT-Tweak
     chemical: Ichor
     healRate: 7.5
     whitelist:
       components:
       - MobState
       - Door
+      - Item # ADT-Tweak
       tags:
       - Wall
   - type: Tag
@@ -180,10 +169,10 @@
     - StunImmune
   - type: Puller
     needsHands: false
-  - type: ThermalVision #ADT tweak start
+  - type: ThermalVision #ADT-Tweak-start
     color: Purple
   - type: MesonVision
-    color: Purple #ADT tweak end
+    color: Purple #ADT-Tweak-end
 # ADT-CollectiveMind-Tweak-Start
   - type: CollectiveMindRank
     rankName: collective-mind-dragon-rank
@@ -203,16 +192,6 @@
     speedModifier: 2.5 # fast because dragon strong
     useSound:
       path: /Audio/Items/crowbar.ogg
-# ADT-Tweak start
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 1000
-      behaviors:
-      - !type:GibBehavior { }
-# ADT-Tweak end
 
 - type: entity
   parent: BaseMobDragon
@@ -220,6 +199,17 @@
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
+# ADT-Tweak-start
+    carpRiftHealing:
+      types:
+        Blunt: -2
+        Slash: -2
+        Piercing: -2
+        Heat: -2
+        Cold: -2
+    spawnCarpsAction: ActionRiseFish
+    roarAction: ActionDragonRoar
+# ADT-Tweak-end
   - type: GhostRole
     mindRoles:
     - MindRoleDragon
@@ -268,14 +258,17 @@
       0: Alive
       200: Dead
   # less meat spawned since it's a lot easier to kill
+# ADT-Tweak-start
   - type: Butcherable
+    butcheringType: Knife
     spawned:
     - id: FoodMeatDragon
-      amount: 1
+      amount: 2 # ADT-Tweak
+# ADT-Tweak-end
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 12
+      types:
+        Piercing: 12
 
 - type: entity
   parent: BaseAction
@@ -310,6 +303,7 @@
       components:
       - MobState
       - Door
+      - Item
       tags:
       - Wall
     event: !type:DevourActionEvent
@@ -330,3 +324,16 @@
     range: 0
   - type: WorldTargetAction
     event: !type:ActionGunShootEvent
+
+- type: entity
+  parent: Smoke
+  id: BloodSmoke
+  name: smoke
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Smoke
+    spreadAmount: 3
+    duration: 2
+  - type: Sprite
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke_white

@@ -7,6 +7,10 @@
     - !type:DepartmentTimeRequirement
       department: Science
       time: 60h
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Vox
   weight: 9
   startingGear: SeniorResearcherGear
   icon: "JobIconSeniorResearcher"
@@ -22,10 +26,6 @@
     ears: ClothingHeadsetScience
     belt: ClothingBeltUtilityFilled
     pocket1: AnomalyLocatorEmpty
-  storage:
-    back:
-    - ADTHumanCubeWrapped #ADT-CustomADTLoadout
-
 - type: chameleonOutfit
   id: ADTSeniorResearcherChameleonOutfit
   job: ADTSeniorResearcher

@@ -7,25 +7,20 @@ discord-ban-unban-date = **Дата снятия наказания:** { $expire
 discord-ban-submitted-by = **Наказание выдал(-а):** { $name }
 discord-ban-submitted-by-system = **Наказание выдал(-а):** ***СИСТЕМА***
 discord-ban-submitted-by-discord = **Наказание выдал(-а):** { $name }(Discord)"
-
 # Ресурсы обычного бана
 discord-ban-server-ban-username = Бан
 discord-ban-server-ban-header = ### **Бан | ID { $banId }**
-
 # Бан POST запросом
 discord-ban-server-ban-username-post = Бан (Из Дискорда)
 discord-ban-server-post-ban-header = ### **Discord-Бан | ID { $banId }**
-
 # Ресурсы роль-бана
 discord-ban-role-ban-username = Роль-бан
 discord-ban-role-ban-header = ### **Роль-бан | ID { $banId }**
 discord-ban-role-ban-role = **Роль:** { $role }
-
 # Ресурсы департмент-бана
 discord-ban-department-ban-username = Департмент-бан
 discord-ban-department-ban-header = ### **Департмент-Бан | IDs { $banId }**
 discord-ban-department-ban-department = **Отдел:** { $department }
-
 # Ресурсы бана с панели
 discord-ban-panel-ban-username = Бан (С панели)
 discord-ban-panel-ban-header = ### **UI-Бан** ###

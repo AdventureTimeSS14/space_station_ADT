@@ -28,7 +28,7 @@
   - !type:FlammableTileReaction
     temperatureMultiplier: 2
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         conditions:
@@ -75,7 +75,7 @@
         # ADT-Tweak End
         multiplier: 0.4
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         conditions:
@@ -109,7 +109,7 @@
   flavor: bitter
   color: "#D4872A"
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         conditions:
@@ -152,7 +152,7 @@
   tileReactions:
   - !type:PryTileReaction
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         conditions:
@@ -220,14 +220,14 @@
   tileReactions:
   - !type:FlammableTileReaction {}
   metabolisms:
-    Food:
+    Bloodstream:
       effects:
       - !type:SatiateThirst
         factor: 1
         conditions:
         - !type:MetabolizerTypeCondition
           type: [Vox, Novakid] # ADT-Tweak
-    Poison:
+    Digestion:
       effects:
       - !type:HealthChange
         conditions:
@@ -252,6 +252,8 @@
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
         # ADT-Tweak End
+      - !type:Flammable
+        multiplier: 0.4
 
 - type: reagent
   id: Fluorosurfactant

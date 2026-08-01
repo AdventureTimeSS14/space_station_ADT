@@ -1,5 +1,5 @@
 using Content.Server.Heretic.Components;
-using Content.Shared.Bible.Components;
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
 using Content.Shared.Stunnable;
@@ -16,6 +16,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly IMapManager _map = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly IEntityManager _ent = default!;
@@ -39,7 +40,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
             if (!TryComp<MapGridComponent>(trans.GridUid, out var grid))
                 continue;
 
-            var tileref = grid.GetTileRef(trans.Coordinates);
+            var tileref = _mapSystem.GetTileRef(trans.GridUid.Value, grid, trans.Coordinates);
             var tile = _prot.Index<ContentTileDefinition>("FloorAstroSnow");
             _tile.ReplaceTile(tileref, tile);
         }
@@ -54,7 +55,8 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
     private void OnCollide(Entity<ImmovableVoidRodComponent> ent, ref StartCollideEvent args)
     {
         if ((TryComp<HereticComponent>(args.OtherEntity, out var th) && th.CurrentPath == "Void")
-        || HasComp<GhoulComponent>(args.OtherEntity) || HasComp<ChaplainComponent>(args.OtherEntity))
+        || HasComp<GhoulComponent>(args.OtherEntity)
+        || HasComp<MagicImmunityComponent>(args.OtherEntity))
             return;
 
         var power = 1f;

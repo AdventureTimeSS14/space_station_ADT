@@ -89,7 +89,7 @@ public sealed class BanMassCommand : LocalizedCommands
 
             //Start логи банов для диса
             var lastServerBan = await _dbManager.GetLastServerBanAsync();
-            var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
+            var newServerBanId = lastServerBan is not null ? lastServerBan + 1 : 1;
             //End
 
             _bans.CreateServerBan(targetUid, trimmedTarget, player?.UserId, null, targetHWid, minutes, severity, reason);

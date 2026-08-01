@@ -1,8 +1,7 @@
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCChestGlamour
   bodyPart: Chest
-  markingCategory: Chest
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_glamour.rsi
       state: chest_prime
@@ -12,10 +11,9 @@
       state: chest_third
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCLArmGlamour
   bodyPart: LArm
-  markingCategory: Arms
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_glamour.rsi
       state: l_arm_prime
@@ -23,10 +21,9 @@
       state: l_arm_second
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCRArmGlamour
   bodyPart: RArm
-  markingCategory: Arms
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_glamour.rsi
       state: r_arm_prime
@@ -34,10 +31,9 @@
       state: r_arm_second
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCLLegGlamour
   bodyPart: LLeg
-  markingCategory: Legs
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_glamour.rsi
       state: l_leg_prime
@@ -47,10 +43,9 @@
       state: l_leg_third
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCRLegGlamour
   bodyPart: RLeg
-  markingCategory: Legs
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_glamour.rsi
       state: r_leg_prime
@@ -60,10 +55,9 @@
       state: r_leg_third
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCLFootGlamour
   bodyPart: LFoot
-  markingCategory: Legs
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_glamour.rsi
       state: l_foot_prime
@@ -71,10 +65,9 @@
       state: l_foot_second
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCRFootGlamour
   bodyPart: RFoot
-  markingCategory: Legs
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_glamour.rsi
       state: r_foot_prime
@@ -82,10 +75,9 @@
       state: r_foot_second
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCPartChestGlamourLines
   bodyPart: Chest
-  markingCategory: Chest
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_glamour.rsi
       state: chest_line_prime
@@ -97,10 +89,9 @@
       state: chest_line_fourth
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCPartLLegGlamourLines
   bodyPart: LLeg
-  markingCategory: Legs
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_glamour.rsi
       state: l_leg_line_prime
@@ -108,10 +99,9 @@
       state: l_leg_line_second
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCPartRLegGlamourLines
   bodyPart: RLeg
-  markingCategory: Legs
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_glamour.rsi
       state: r_leg_line_prime
@@ -119,19 +109,17 @@
       state: r_leg_line_second
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCPartLFootGlamourLines
   bodyPart: LFoot
-  markingCategory: Legs
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_glamour.rsi
       state: l_foot_line_prime
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCPartRFootGlamourLines
   bodyPart: RFoot
-  markingCategory: Legs
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_glamour.rsi
       state: r_foot_line_prime

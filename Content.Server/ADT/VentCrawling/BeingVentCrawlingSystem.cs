@@ -1,5 +1,6 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
+using Content.Shared.Atmos;
 using Content.Shared.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;

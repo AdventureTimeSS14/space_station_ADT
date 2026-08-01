@@ -44,6 +44,7 @@
     ClothingUniformJumpsuitDameDane: 2
     ClothingShoesDameDane: 2
     ClothingOuterDameDane: 2
+    ClothingHeadHatMitreClown: 1
     ClothingOuterClownPriest: 1
     ClothingMaskSadMime: 1
     ClothingMaskScaredMime: 1
@@ -60,6 +61,7 @@
     ClothingShoesBootsCowboyBlack: 1
     ClothingShoesBootsCowboyWhite: 1
     # ADT-Tweak-start
+    ClothingHeadHatCowboyRed: 1
     ADTBoxTeto: 1
     BoxPerformer: 1
     ADTClothingBeltSheathZeroCosplayFilled: 2

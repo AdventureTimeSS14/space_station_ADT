@@ -6,7 +6,7 @@ using Robust.Shared.Audio;
 using Content.Shared.Alert;
 using Robust.Shared.GameStates;  // ADT QWERTY's altar update
 
-namespace Content.Shared.Bible.Components;
+namespace Content.Shared.ADT.Chaplain.Components;
 
 
 [RegisterComponent, NetworkedComponent]

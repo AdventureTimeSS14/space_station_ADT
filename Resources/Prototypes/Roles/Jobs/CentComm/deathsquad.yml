@@ -8,6 +8,12 @@
   icon: "ADTJobIconDeathSquad" #ADT-Tweak
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 75h # adt tweak
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 40h # adt tweak
   accessGroups:
   - AllAccess
   access:
@@ -25,7 +31,7 @@
     eyes: ClothingEyesHudSecurity
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitDeathsquad
+    # outerClothing: ClothingOuterHardsuitDeathsquad #ADT tweak: выбор скаф/МОД через ваучер
     shoes: ADTClothingShoesBootsMagERT #ADT tweak
     id: DeathsquadPDA
     pocket1: EnergySword
@@ -33,6 +39,7 @@
     belt: ClothingBeltMilitaryWebbingMedFilled
   storage:
     back:
+    - ADTDeathSquadVoucher #ADT tweak: выбор скаф/МОД
     - WeaponPulsePistol
     - WeaponRevolverMatebaAP
     - SpeedLoaderMagnumAP

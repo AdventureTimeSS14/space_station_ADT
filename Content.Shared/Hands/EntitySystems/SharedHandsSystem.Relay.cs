@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Grab;
 using Content.Shared.Atmos;
 using Content.Shared.Camera;
 using Content.Shared.Cuffs;
@@ -26,6 +27,11 @@ public abstract partial class SharedHandsSystem
         SubscribeLocalEvent<HandsComponent, WieldAttemptEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, UnwieldAttemptEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, TargetHandcuffedEvent>(RefRelayEvent);
+
+        // ADT Grab - relay grab events to held items
+        SubscribeLocalEvent<HandsComponent, FindGrabbingItemEvent>(RefRelayEvent);
+        SubscribeLocalEvent<HandsComponent, StopGrabbingItemPullEvent>(RefRelayEvent);
+        SubscribeLocalEvent<HandsComponent, GrabModifierEvent>(RefRelayEvent);
     }
 
     private void RelayEvent<T>(Entity<HandsComponent> entity, ref T args) where T : EntityEventArgs

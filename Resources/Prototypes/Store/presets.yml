@@ -18,10 +18,13 @@
     - UplinkJob
     - UplinkSilicon
     - UplinkPointless
+    - UplinkObjective
     currencyWhitelist:
     - Telecrystal
     balance:
       Telecrystal: 0
+    expectedFaction:
+    - Syndicate
 
 - type: entity
   id: StorePresetSpellbook
@@ -34,6 +37,31 @@
     - SpellbookDefensive    #Magic Missile, Wall of Force
     - SpellbookUtility      #Body Swap, Lich, Teleport, Knock, Polymorph
     - SpellbookEquipment    #Battlemage Robes, Staff of Locker
-    - SpellbookEvents       #Summon Weapons, Summon Ghosts
+    #ADT-Tweak-Start
+    # Слишком много случаев, когда ивентеры ненамеренно выдавали всей станции ПУШКИ.
+    # Раскомментить только если вы знаете ЧТО ДЕЛАЕТЕ.
+    #- SpellbookEvents       #Summon Weapons, Summon Ghosts
+    #ADT-Tweak-End
     currencyWhitelist:
     - WizCoin
+    expectedFaction:
+    - Wizard
+
+# ADT: Закомментировано из-за использования генокрада от Goob Station
+# - type: entity
+#   id: StorePresetChangeling
+#   abstract: true
+#   components:
+#   - type: Store
+#     name: store-preset-name-changeling
+#     categories:
+#     - ChangelingAbilities
+#     currencyWhitelist:
+#     - ChangelingDNA
+
+- type: entity
+  parent: StorePresetUplink
+  id: StorePresetRemoteUplink
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RingerAccessUplink

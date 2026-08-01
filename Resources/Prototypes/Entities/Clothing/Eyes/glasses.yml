@@ -255,6 +255,7 @@
   - type: IdentityBlocker
     coverage: EYES
   - type: ThermalVisionItem # ADT-tweak
+  - type: ThermalSight
 
 - type: entity
   parent: ClothingEyesBase

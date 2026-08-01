@@ -1,4 +1,4 @@
-#SOFTSUITS
+﻿#SOFTSUITS
 #Basic EVA
 - type: entity
   id: SuitStorageEVA
@@ -144,8 +144,10 @@
   parent: SuitStorageBase
   suffix: Station Engineer
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
         - id: OxygenTankFilled
         - id: ClothingShoesBootsMag
   #     - id: ADTClothingModsuitBackEngineering #ADT tweak
@@ -169,8 +171,10 @@
   parent: SuitStorageBase
   suffix: Atmospheric Technician
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
         - id: OxygenTankFilled
   #     - id: ADTClothingModsuitBackAtmos #ADT-tweak
         - id: ClothingMaskBreath
@@ -193,8 +197,10 @@
   parent: SuitStorageBase
   suffix: Security
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
         - id: OxygenTankFilled
   #     - id: ADTClothingModsuitBackSecurity #ADT-tweak
         - id: ClothingMaskBreath
@@ -230,12 +236,14 @@
   #  containers:
   #    entity_storage: !type:NestedSelector
   #      tableId: FillChiefEngineerHardsuit
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskGasAtmos
-    - id: ClothingShoesBootsMagAdv
-    - id: JetpackVoidFilled
-    - id: OxygenTankFilled
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingMaskGasAtmos
+        - id: ClothingShoesBootsMagAdv
+        - id: JetpackVoidFilled
+        - id: OxygenTankFilled
   #ADT-Tweak end
   - type: AccessReader
     access: [["ChiefEngineer"]]
@@ -261,8 +269,10 @@
   #  containers:
   #    entity_storage: !type:NestedSelector
   #      tableId: FillChiefMedicalOfficerHardsuit
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
         - id: OxygenTankFilled
         - id: ClothingMaskBreathMedical
   - type: UserInterface
@@ -301,11 +311,13 @@
   #  containers:
   #   entity_storage: !type:NestedSelector
   #      tableId: FillHeadOfSecurityHardsuit
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskGasSwat
-    - id: JetpackSecurityFilled
-    - id: OxygenTankFilled
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingMaskGasSwat
+        - id: JetpackSecurityFilled
+        - id: OxygenTankFilled
   #ADT-Tweak end
   - type: AccessReader
     access: [["HeadOfSecurity"]]
@@ -354,8 +366,10 @@
   #  containers:
   #    entity_storage: !type:NestedSelector
   #      tableId: FillCaptainHardsuit
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
         - id: OxygenTankFilled
         - id: ClothingMaskGasCaptain
         - id: JetpackCaptainFilled

@@ -36,6 +36,9 @@ public sealed partial class IpcComponent : Component
     [DataField, AutoNetworkedField]
     public ProtoId<IpcFaceProfilePrototype> FaceProfile = "DefaultIpcFaces";
 
+    [DataField]
+    public bool IsSlowedByBattery;
+
     public bool DrainActivated;
 }
 

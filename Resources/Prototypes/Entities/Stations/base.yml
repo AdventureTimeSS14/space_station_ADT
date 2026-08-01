@@ -18,6 +18,7 @@
         Security: [ ]
         Service: [ ]
     - type: StationCargoBountyDatabase
+    - type: StationXenobiologyBountyDatabase # VG-Tweak
 
 - type: entity
   id: BaseStationJobsSpawning
@@ -125,7 +126,7 @@
         salvage: !type:GridSpawnGroup
           nameGrid: false
           paths:
-          - /Maps/ADTMaps/Shuttles/pioneer.yml
+          - /Maps/Shuttles/mining.yml
         mining_guest: !type:GridSpawnGroup
           nameGrid: false
           paths:

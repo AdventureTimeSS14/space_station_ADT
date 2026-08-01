@@ -1,4 +1,4 @@
-# Hacky for the stress test so don't even consider adding to this
+﻿# Hacky for the stress test so don't even consider adding to this
 - type: entity
   name: burrower
   id: MobXeno
@@ -65,10 +65,12 @@
     speedModifierThresholds:
       25: 0.5
   - type: Stamina
-    critThreshold: 200
+    baseCritThreshold: 200
   - type: Bloodstream
-    bloodReagent: FluorosulfuricAcid
-    bloodMaxVolume: 650
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 650
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -82,6 +84,7 @@
         Structural: 20
   - type: Damageable
     damageModifierSet: ADTXenoDamageSet
+  - type: Injurable
   - type: Fauna
     # ADT-Tweak end
   - type: DamageStateVisuals
@@ -111,9 +114,10 @@
   - type: TypingIndicator
     proto: alien
   - type: Temperature
+    currentTemperature: 310.15
+  - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: -150
-    currentTemperature: 310.15
   - type: Tag
     tags:
       - CannotSuicide
@@ -151,15 +155,17 @@
       0: Alive
       350: Dead # ADT Tweak
   - type: Stamina
-    critThreshold: 300
+    baseCritThreshold: 300
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
   #ADT Start: Xeno baff
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 27
+      types:
+        Blunt: 9
+        Slash: 9
+        Piercing: 9
   # ADT End
   - type: Fixtures
     fixtures:
@@ -201,7 +207,7 @@
   # ADT-Tweak start
       types:
         Blunt: 15
-        Structural: 100
+        Structural: 75
   # ADT-Tweak end
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
@@ -244,8 +250,8 @@
   - type: MovementSpeedModifier
   - type: MeleeWeapon
     damage:
-     groups:
-       Brute: 42 # ADT Tweak
+      types:
+        Slash: 42 # ADT Tweak
   - type: Fixtures
     fixtures:
       fix1:
@@ -344,10 +350,11 @@
     baseSprintSpeed: 6.0 # ADT-Tweak
   - type: MeleeWeapon
     damage:
+      types:
     # ADT-Tweak start
-     types:
-       Piercing: 13
+        Piercing: 13
     # ADT-Tweak end
+        Slash: 5
   - type: Fixtures
     fixtures:
       fix1:
@@ -567,10 +574,12 @@
   - type: ComplexInteraction
   - type: MobState
   - type: Stamina
-    critThreshold: 200
+    baseCritThreshold: 200
   - type: Bloodstream
-    bloodReagent: FluorosulfuricAcid
-    bloodMaxVolume: 300
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 300
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -578,8 +587,8 @@
      collection: AlienClaw
     animation: WeaponArcBite
     damage:
-     groups:
-       Brute: 5
+      types:
+        Slash: 5
   - type: DamageStateVisuals
     states:
       Alive:
@@ -597,9 +606,10 @@
   - type: TypingIndicator
     proto: alien
   - type: Temperature
+    currentTemperature: 310.15
+  - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: -150
-    currentTemperature: 310.15
   - type: NoSlip
   - type: Perishable #Ummmm the acid kills a lot of the bacteria or something
     molsPerSecondPerUnitMass: 0.0005

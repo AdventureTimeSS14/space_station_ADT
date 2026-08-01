@@ -168,11 +168,11 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
 
     private void OnNavMapBeaconMapInit(EntityUid uid, NavMapBeaconComponent component, MapInitEvent args)
     {
-        if (component.DefaultText == null || component.Text != null)
-            return;
-
-        component.Text = Loc.GetString(component.DefaultText);
-        Dirty(uid, component);
+        if (component.DefaultText != null && component.Text == null)
+        {
+            component.Text = Loc.GetString(component.DefaultText);
+            Dirty(uid, component);
+        }
 
         UpdateNavMapBeaconData(uid, component);
     }
@@ -289,18 +289,34 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
             tileData |= directions << (int) category;
         }
 
+        // ADT-Tweak Start - New Monitor: also mask Window bits under airlocks
         // Remove walls that intersect with doors (unless they can both physically fit on the same tile)
         // TODO NAVMAP why can this even happen?
         // Is this for blast-doors or something?
 
-        // Shift airlock bits over to the wall bits
-        var shiftedAirlockBits = (tileData & AirlockMask) >> ((int) NavMapChunkType.Airlock - (int) NavMapChunkType.Wall);
-
-        // And then mask door bits
-        tileData &= ~shiftedAirlockBits;
+        var shiftedAirlockToWall = (tileData & AirlockMask) >> ((int) NavMapChunkType.Airlock - (int) NavMapChunkType.Wall);
+        var shiftedAirlockToWindow = (tileData & AirlockMask) >> ((int) NavMapChunkType.Airlock - (int) NavMapChunkType.Window);
+        tileData &= ~shiftedAirlockToWall;
+        tileData &= ~shiftedAirlockToWindow;
+        // ADT-Tweak End
 
         return (tileData, chunk);
     }
+
+    // #ADT-Tweak Start - New Monitor: force-rebuild navmap for Window category
+    /// <summary>
+    /// Ensures a grid has a fully populated <see cref="NavMapComponent"/> (walls, windows, floors).
+    /// Always rebuilds so category layout changes (e.g. windows) apply immediately.
+    /// </summary>
+    public void EnsureNavMap(EntityUid gridUid, MapGridComponent? mapGrid = null)
+    {
+        if (!Resolve(gridUid, ref mapGrid))
+            return;
+
+        var navMap = EnsureComp<NavMapComponent>(gridUid);
+        RefreshGrid(gridUid, navMap, mapGrid);
+    }
+    // #ADT-Tweak End
 
     private bool PruneEmpty(Entity<NavMapComponent> entity, NavMapChunk chunk)
     {

@@ -17,7 +17,11 @@
       - board
   - type: Computer
   - type: ApcPowerReceiver
-    powerLoad: 200
+    powerLoad: 50
+  - type: PowerState
+    idlePowerDraw: 50
+    workingPowerDraw: 500
+  - type: UIPowerState
   - type: ExtensionCableReceiver
   - type: ActivatableUIRequiresPower
   - type: Sprite
@@ -34,6 +38,19 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: Appearance
+  - type: EdgeConnection # ADT-Tweak
+    connectionKey: computer-console
+    allowedDirections: East, West
+  # ADT port start pAI modernization
+  - type: ItemSlots
+    slots:
+      pai_slot:
+        name: Personal AI Device
+        ejectOnInteract: false
+        whitelist:
+          components:
+          - PAI
+  # ADT port end pAI modernization
   - type: GenericVisualizer
     visuals:
       enum.ComputerVisuals.Powered:
@@ -47,6 +64,14 @@
         enum.WiresVisualLayers.MaintenancePanel:
           True: { visible: false }
           False: { visible: true }
+      # ADT-Tweak start
+      enum.EdgeConnectionVisuals.ConnectionMask:
+        computerLayerBody:
+          None: { state: computer, sprite: Structures/Machines/computers.rsi }
+          West: { state: computer_r, sprite: ADT/Structures/Machines/computers.rsi }
+          East: { state: computer_l, sprite: ADT/Structures/Machines/computers.rsi }
+          East, West: { state: computer_l_r, sprite: ADT/Structures/Machines/computers.rsi }
+      # ADT-Tweak end
   - type: LitOnPowered
   - type: PointLight
     radius: 1.5
@@ -70,6 +95,7 @@
     containers:
       board: !type:Container
         ents: []
+      pai_slot: !type:ContainerSlot {} #ADT-Tweak: PAI
   - type: LightningTarget
     priority: 1
   - type: RequireProjectileTarget

@@ -1,6 +1,6 @@
 - type: entity
   name: syndicate smuggler
-  parent: BaseMobHuman
+  parent: MobHuman # ADT-Tweak: BaseMobHuman removed by wizden Nubody (#42419)
   id: MobSyndicateSmuggler
   components:
     - type: NpcFactionMember

@@ -49,3 +49,12 @@ public enum ButcheringType : byte
     /// </summary>
     Gibber // TODO
 }
+
+// ADT-Tweak-Start
+[ByRefEvent]
+public record struct ButcherSpawnsModifyEvent(
+    EntityUid User,
+    EntityUid Used,
+    List<string> Spawns
+);
+// ADT-Tweak-End

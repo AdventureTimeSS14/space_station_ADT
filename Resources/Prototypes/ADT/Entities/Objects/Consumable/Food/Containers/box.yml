@@ -6,7 +6,7 @@
   name: sindi pizza box
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Baked/pizza.rsi
+    sprite: ADT/Objects/Consumable/Food/Baked/sindy_pizza.rsi
     drawdepth: SmallObjects
     layers:
     - state: boxclosed
@@ -23,7 +23,7 @@
       tags:
       - Pizza
   - type: Item
-    sprite: ADT/Objects/Consumable/Food/Baked/pizza.rsi
+    sprite: ADT/Objects/Consumable/Food/Baked/sindy_pizza.rsi
     inhandVisuals:
       left:
       - state: box-inhand-left
@@ -35,7 +35,9 @@
     stateDoorClosed: boxclosed
   - type: StaticPrice
     price: 0
-  - type: StorageFill
-    contents:
-    - id: KnifePlastic
-    - id: ADRFoodPizzaSindi
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: KnifePlastic
+        - id: ADTFoodPizzaSindi

@@ -7,7 +7,7 @@
   components:
   - type: Projectile
   - type: StaminaDamageOnCollide
-    damage: 65
+    damage: 45
   - type: Ammo
     muzzleFlash: null
   - type: Sprite

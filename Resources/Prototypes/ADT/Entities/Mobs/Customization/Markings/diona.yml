@@ -1,8 +1,7 @@
 - type: marking
   id: ADTDionaTreePaintOverlay
-  bodyPart: [ RFoot, LFoot] 
-  markingCategory: Overlay
-  speciesRestriction: [Diona]
+  bodyPart: RFoot # ADT-Tweak: was [ RFoot, LFoot ], wizden schema is single-enum
+  groupWhitelist: [Diona]
   # coloring:
   #   default:
   #     type:
@@ -15,8 +14,7 @@
 - type: marking
   id: ADTDionaLivingNymph
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [Diona]
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
     state: dionalivingnymph
@@ -24,8 +22,7 @@
 - type: marking
   id: ADTDionaMossChest
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [Diona]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -35,8 +32,7 @@
 - type: marking
   id: ADTDionaMoonBloom
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [Diona]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -47,8 +43,7 @@
 - type: marking
   id: ADTDionaBigFirefly
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [Diona]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -59,8 +54,7 @@
 - type: marking
   id: ADTDionaFirefly
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [Diona]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -71,8 +65,7 @@
 - type: marking
   id: ADTDionaPollenDust
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [Diona]
   forcedColoring: false
   followSkinColor: false
   sprites:

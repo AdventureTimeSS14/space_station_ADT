@@ -5,6 +5,7 @@
   parent: BulletRocket
   categories: [ HideSpawnMenu ]
   components:
+  - type: MagicProjectile # ADT-Tweak
   - type: PointLight
     color: "#E25822"
     radius: 2.0
@@ -37,6 +38,7 @@
   name: dragon's breath
   description: Try not to get toasted.
   components:
+  - type: MagicProjectile # ADT-Tweak
   - type: PointLight
     color: "#E25822"
     radius: 3.0
@@ -87,6 +89,7 @@
   parent: ClosetSteelBase
   categories: [ HideSpawnMenu ]
   components:
+  - type: MagicProjectile # ADT-Tweak
   - type: ResistLocker
     resistTime: 30
   - type: StoreOnCollide
@@ -107,8 +110,7 @@
     deleteOnCollide: false
     onlyCollideWhenShot: true
     damage:
-      types:
-        Brute: 0
+      types: {}
   - type: Sprite
     noRot: true
     sprite: Structures/Storage/closet.rsi
@@ -166,6 +168,7 @@
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
+  - type: MagicProjectile # ADT-Tweak
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
@@ -240,6 +243,7 @@
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
+  - type: MagicProjectile # ADT-Tweak
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
@@ -247,11 +251,18 @@
       color: white
   - type: Projectile
     damage:
-      groups: # good enough. Maybe make it call the rejuvenate command later.
-        Brute: -900
-        Burn: -900
-        Airloss: -600
-        Toxin: -600
+      types: # good enough. Maybe make it call the rejuvenate command later.
+        Asphyxiation: -200
+        Bloodloss: -200
+        Blunt: -200
+        Caustic: -200
+        Cold: -200
+        Heat: -200
+        Piercing: -200
+        Poison: -200
+        Radiation: -200
+        Shock: -200
+        Slash: -200
     ignoreResistances: true
 
 - type: entity
@@ -261,6 +272,7 @@
   categories: [ HideSpawnMenu ]
   description: This looks familiar.
   components:
+  - type: MagicProjectile  # ADT-Tweak
   - type: Projectile
     damage:
       types:
@@ -290,6 +302,7 @@
   components:
   - type: Sprite
     sprite: Structures/Specific/Anomalies/ice_anom.rsi
+  - type: MagicProjectile # ADT-Tweak
   - type: Projectile
     damage:
       types:

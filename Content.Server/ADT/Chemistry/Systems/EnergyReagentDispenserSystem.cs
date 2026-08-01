@@ -66,7 +66,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             var batteryMaxCharge = 0f;
             if (TryComp<BatteryComponent>(reagentDispenser, out var battery))
             {
-                batteryCharge = battery.CurrentCharge;
+                batteryCharge = _battery.GetCharge((reagentDispenser.Owner, battery));
                 batteryMaxCharge = battery.MaxCharge;
             }
 
@@ -146,7 +146,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             var amount = (int)reagentDispenser.Comp.DispenseAmount;
             var powerRequired = GetPowerCostForReagent(message.ReagentId, amount, reagentDispenser.Comp);
 
-            if (battery.CurrentCharge < powerRequired)
+            if (_battery.GetCharge((reagentDispenser.Owner, battery)) < powerRequired)
             {
                 _audioSystem.PlayPvs(reagentDispenser.Comp.PowerSound, reagentDispenser, AudioParams.Default.WithVolume(-2f));
                 return;
@@ -157,7 +157,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             if (!_solutionContainerSystem.TryAddSolution(solution.Value, sol))
                 return;
 
-            _battery.SetCharge(reagentDispenser.Owner, battery.CurrentCharge - powerRequired);
+            _battery.ChangeCharge(reagentDispenser.Owner, -powerRequired);
             ClickSound(reagentDispenser);
             UpdateUiState(reagentDispenser);
         }
@@ -169,7 +169,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
                 || !_solutionContainerSystem.TryGetFitsInDispenser(outputContainer, out var solution, out var soln))
                 return;
 
-            var refundedPower = soln.Sum(reagent => GetPowerCostForReagent(reagent.Reagent.Prototype, (int)reagent.Quantity, reagentDispenser));
+            var refundedPower = soln.Sum(reagent => GetRefundPowerForReagent(reagent.Reagent.Prototype, (int)reagent.Quantity, reagentDispenser));
             if (refundedPower > 0)
                 _battery.ChangeCharge(reagentDispenser.Owner, refundedPower);
 
@@ -183,10 +183,18 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
 
         private static float GetPowerCostForReagent(string reagentId, int amount, EnergyReagentDispenserComponent comp)
         {
-            return comp.Reagents.TryGetValue(reagentId, out var cost)
-                ? cost * amount
-                : float.MaxValue;
+            if (comp.Reagents.TryGetValue(reagentId, out var cost))
+                return cost * amount;
+            return float.MaxValue;
         }
+
+        private static float GetRefundPowerForReagent(string reagentId, int amount, EnergyReagentDispenserComponent comp)
+        {
+            if (comp.Reagents.TryGetValue(reagentId, out var cost))
+                return cost * amount;
+            return 0f;
+        }
+
         private void OnMapInit(Entity<EnergyReagentDispenserComponent> entity, ref MapInitEvent args) =>
             _itemSlotsSystem.AddItemSlot(entity.Owner, SharedEnergyReagentDispenser.OutputSlotName, entity.Comp.EnergyBeakerSlot);
         private void OnEmaged(Entity<EnergyReagentDispenserComponent> ent, ref GotEmaggedEvent args)

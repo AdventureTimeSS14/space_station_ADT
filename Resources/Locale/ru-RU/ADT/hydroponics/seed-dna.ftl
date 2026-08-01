@@ -4,18 +4,14 @@ seed-dna-window-dnadisk = ДНК-диск:
 seed-dna-window-invalid-seed = Эти семена использовать нельзя
 seed-dna-window-extract-all = Извлечь всё
 seed-dna-window-replace-all = Перезаписать всё
-
 seed-dna-slot-component-slot-name-disk = ДНК-диск
 seed-dna-slot-component-slot-name-seeds = Семена
-
 seed-dna-eject-btn = Извлечь
 seed-dna-insert-btn = Вставить
-
 seed-dna-extract-btn = Извлечь
 seed-dna-replace-btn = Перезаписать
-
-seed-dna-row-consume-gas = Потребляемый газ: {$gas}
-seed-dna-row-exude-gas = Выделяемый газ: {$gas}
+seed-dna-row-consume-gas = Потребляемый газ: { $gas }
+seed-dna-row-exude-gas = Выделяемый газ: { $gas }
 
 # -------------------------------------------------
 
@@ -42,13 +38,17 @@ seed-dna-row-CanScream = Может издавать крик
 
 # -------------------------------------------------
 
+
 # Локализация химикатов — заполнить по необходимости
 # seed-dna-chemical-??? = ???
+
 
 # seed-dna-chemicalProp-Min = Минимальное значение
 # seed-dna-chemicalProp-Max = Максимальное значение
 # seed-dna-chemicalProp-PotencyDivisor = Делитель потенции
 # seed-dna-chemicalProp-Inherent = Врождённый
 
+
 # Локализация газов — заполнить по необходимости
 # seed-dna-gas-??? = ???
+

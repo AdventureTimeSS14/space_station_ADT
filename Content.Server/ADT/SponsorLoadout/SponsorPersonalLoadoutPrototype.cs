@@ -5,26 +5,26 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Server.ADT.SponsorLoadout;
 
 [Prototype("sponsorPersonalLoadout")]
-public sealed class SponsorPersonalLoadoutPrototype : IPrototype
+public sealed partial class SponsorPersonalLoadoutPrototype : IPrototype
 {
-    [IdDataField] public string ID { get; } = default!;
+    [IdDataField] public string ID { get; private set; } = default!;
 
     [DataField]
-    public string UserName { get; } = default!;
+    public string UserName { get; private set; } = default!;
 
     [DataField(required: true)]
     public ProtoId<StartingGearPrototype> Equipment;
 
     [DataField("whitelistJobs", customTypeSerializer: typeof(PrototypeIdListSerializer<JobPrototype>))]
-    public List<string>? WhitelistJobs { get; }
+    public List<string>? WhitelistJobs { get; private set;}
 
     [DataField("blacklistJobs", customTypeSerializer: typeof(PrototypeIdListSerializer<JobPrototype>))]
-    public List<string>? BlacklistJobs { get; }
+    public List<string>? BlacklistJobs { get; private set; }
 
     [DataField("speciesRestriction")]
-    public List<string>? SpeciesRestrictions { get; }
+    public List<string>? SpeciesRestrictions { get; private set; }
 
     // Дата истечения лоадаута
     [DataField("expirationDate")]
-    public DateTime? ExpirationDate { get; } = null;
+    public DateTime? ExpirationDate { get; private set; } = null;
 }

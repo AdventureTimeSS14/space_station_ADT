@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseStructure
   id: ADTBaseRailingRusty
   abstract: true
@@ -14,8 +14,9 @@
     bodyType: Static
   - type: InteractionOutline
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: FlimsyMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Climbable
 
 - type: entity

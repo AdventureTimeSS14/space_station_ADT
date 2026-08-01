@@ -75,3 +75,29 @@
     priority: -5
   - type: InstantAction
     event: !type:ToggleIntrinsicUIEvent { key: enum.AtmosAlertsComputerUiKey.Key }
+
+- type: entity
+  id: ADTActionBackToAi
+  name: Back to Ai
+  description: Sends your mind back to the core.
+  components:
+  - type: Action
+    icon: {sprite: Interface/Actions/actions_ai.rsi, state: ai_core}
+    iconOn: {sprite: Interface/Actions/actions_ai.rsi, state: ai_core}
+    keywords: [ "AI", "console", "interface" ]
+    priority: -9
+  - type: InstantAction
+    event: !type:ReturnMindIntoAiEvent
+
+- type: entity
+  id: ADTActionOpenRemoteDevicesMenu
+  name: Open list of remote devices
+  description: Opens a menu with available remote devices.
+  components:
+  - type: Action
+    icon: {sprite: Mobs/Silicon/chassis.rsi, state: robot}
+    iconOn: {sprite: Mobs/Silicon/chassis.rsi, state: robot}
+    keywords: [ "AI", "console", "interface" ]
+    priority: -9
+  - type: InstantAction
+    event: !type:ToggleRemoteDevicesScreenEvent

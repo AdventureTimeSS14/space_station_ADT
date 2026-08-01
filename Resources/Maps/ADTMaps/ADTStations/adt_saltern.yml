@@ -61793,7 +61793,7 @@ entities:
     - type: Transform
       pos: 18.5,13.5
       parent: 2
-- proto: OuijaBoard
+- proto: RandomBoard
   entities:
   - uid: 11999
     components:
@@ -85709,5 +85709,12 @@ entities:
     components:
     - type: Transform
       pos: 7.595656,-17.44269
+      parent: 2
+- proto: ADTVendingMachineMusician
+  entities:
+  - uid: 53949
+    components:
+    - type: Transform
+      pos: -22.5,-1.5
       parent: 2
 ...

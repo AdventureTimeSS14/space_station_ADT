@@ -1,4 +1,4 @@
-#ОСЩ
+﻿#ОСЩ
 
 - type: entity
   parent: ClothingBackpackSecurity
@@ -61,17 +61,18 @@
     - type: Sprite
       sprite: ADT/Clothing/Back/ertleader_cyb.rsi
     - type: Unremoveable
-    - type: StorageFill
-      contents:
-        - id: Flash
-        - id: JawsOfLife
-        - id: CombatKnife
-        - id: FlashlightSeclite
-        - id: GrenadeStinger
-        - id: GrenadeStinger
-        - id: GrenadeFlashBang
-        - id: GrenadeFlashBang
-
+    - type: EntityTableContainerFill
+      containers:
+        storagebase: !type:AllSelector
+          children:
+          - id: Flash
+          - id: JawsOfLife
+          - id: CombatKnife
+          - id: FlashlightSeclite
+          - id: GrenadeStinger
+          - id: GrenadeStinger
+          - id: GrenadeFlashBang
+          - id: GrenadeFlashBang
 - type: entity
   parent: ClothingBackpackMedical
   id: ADTClothingBackpackParamedic
@@ -88,10 +89,11 @@
   suffix: Paramedic,Filled
   description: Backpack to store some paramedical equipment.
   components:
-  - type: StorageFill
-    contents:
-      - id: JawsOfLife
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: JawsOfLife
 # USSP USSP
 
 - type: entity

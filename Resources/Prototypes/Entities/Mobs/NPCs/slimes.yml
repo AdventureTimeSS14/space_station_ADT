@@ -1,7 +1,7 @@
-- type: entity
+﻿- type: entity
   name: basic slime
   id: BaseMobAdultSlimes
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ BaseMobSlimes, SimpleMobBase, MobCombat ]
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
@@ -51,10 +51,14 @@
         Asphyxiation: -1.0
     maxSaturation: 15
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Slime
+  - type: Injurable
+    damageContainer: Biological
   - type: Bloodstream
-    bloodReagent: Slime
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Slime
+        Quantity: 150
     bloodlossDamage:
       types:
         Bloodloss:
@@ -82,14 +86,11 @@
       - !type:HealthChange
         damage:
           types:
-            Heat: 0.05 #Same as slime species
+            Heat: 0.60 # ADT-Tweak 0.05 -> 0.60 #Same as slime species
       - !type:PopupMessage
         type: Local
         messages: [ "slime-hurt-by-water-popup" ]
-        probability: 0.25
-  - type: Body
-    prototype: Slimes
-    requiredLegs: 1
+        probability: 0.35 #ADT-Tweak 0.25 > 0.35
   - type: MeleeWeapon
     altDisarm: false
     soundHit:
@@ -188,6 +189,7 @@
       - MindRoleGhostRoleTeamAntagonist
 #      raffle:
 #        settings: short ADT tweak для быстрого захода на рольку
+    - type: ForceAttack
 
 - type: entity
   name: green slime
@@ -228,6 +230,7 @@
       - MindRoleGhostRoleTeamAntagonist
 #      raffle:
 #        settings: short ADT tweak для быстрого захода на рольку
+    - type: ForceAttack
 
 - type: entity
   name: yellow slime
@@ -267,3 +270,4 @@
       - MindRoleGhostRoleTeamAntagonist
 #      raffle:
 #        settings: short ADT tweak для быстрого захода на рольку
+    - type: ForceAttack

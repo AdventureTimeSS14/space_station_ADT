@@ -61,8 +61,8 @@ construction-graph-tag-paper = бумага
 
 # Одежда
 construction-graph-tag-miner-armor = костюм исследователя
-construction-graph-tag-reinforced-explorer-suit =  пластинчатый костюм исследователя
-construction-graph-tag-reinforced-explorer-suit-two = взрывозащитный костюм
+construction-graph-tag-reinforced-explorer-suit =  частично усиленный костюм исследователя
+construction-graph-tag-reinforced-explorer-suit-two = усиленный костюм исследователя
 construction-graph-gas-mask = противогаз
 
 # Тайлы
@@ -101,6 +101,14 @@ construction-graph-voice-trigger = голосовой триггер
 construction-graph-tag-toy-blaster = игрушечный бластер
 construction-graph-tag-stunbaton = дубинка-шокер
 construction-graph-tag-manipulator-stock-part = модульная машинная часть
-construction-graph-carved-pumpkin = вырезанная тыква
-construction-graph-flashlight = фонарик
-construction-graph-stabilizing-serum = стабилизирующая сыворотка
+
+construction-graph-tag-carved-pumpkin = вырезанная тыква
+construction-graph-tag-flashlight = фонарик
+construction-graph-tag-stabilizing-serum = стабилизирующая сыворотка
+construction-graph-tag-toolbox = ящик для инструментов
+construction-graph-tag-wrench = гаечный ключ
+construction-graph-tag-baseball-bat = бейсбольная бита
+
+construction-graph-tag-archimedes-central-control-module = центральный модуль управления Архимеда
+construction-graph-tag-archimedes-peripherals-control-module = модуль управления периферией Архимеда
+

@@ -7,9 +7,6 @@ namespace Content.Client.ADT.Modsuits.UI;
 
 public sealed class ModSuitRadialBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IClyde _displayManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
-
     private IEntityManager _entityManager;
     private ModSuitRadialMenu? _menu;
 

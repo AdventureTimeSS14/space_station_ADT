@@ -34,7 +34,7 @@
   parent: ADTBase40mmGrenade
   components:
   - type: CartridgeAmmo
-    proto:  ADTBullet40mmGrenadeBlast
+    proto: ADTBullet40mmGrenadeBlast
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/Ammunition/Explosives/40mm_grenade.rsi
     layers:

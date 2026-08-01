@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: AltarBase
   parent: BaseStructure
   name: altar
@@ -43,8 +43,9 @@
   - type: Transform
   - type: Prayable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: PlaceableSurface
   - type: Fixtures
     fixtures:
@@ -96,7 +97,7 @@
         resultProto: BoxFolderCentCom
         soundPath: /Audio/Effects/kaching.ogg
         powerCost: 5
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
         effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
@@ -119,6 +120,7 @@
     radius: 1.5
     energy: 1
     color: "#fbb1b1"
+  - type: Anchorable # ADT-Tweak
 ### Start ADT Tweak
   - type: Construction
     graph: AltarsGraph
@@ -175,7 +177,7 @@
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Magic/knock.ogg
         powerCost: 5
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
         effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
@@ -194,6 +196,7 @@
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: druid
   - type: Prayable # ADT-Tweak
+  - type: Anchorable # ADT-Tweak
 ### Start ADT Tweak
   - type: Construction
     graph: AltarsGraph
@@ -280,7 +283,7 @@
         effectProto: ADTEffectKudzu
         powerCost: 2
         soundPath: /Audio/Magic/blink.ogg
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
         effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
@@ -299,6 +302,7 @@
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: toolbox
   - type: Prayable # ADT-Tweak
+  - type: Anchorable # ADT-Tweak
 ### Start ADT Tweak
   - type: Construction
     graph: AltarsGraph
@@ -330,7 +334,7 @@
         effectProto: ADTWeaponArcRedCrash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 1
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
         effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
@@ -352,6 +356,7 @@
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: space-christian
   - type: Prayable # ADT-Tweak
+  - type: Anchorable # ADT-Tweak
   - type: PointLight
     radius: 1.5
     energy: 1
@@ -382,7 +387,7 @@
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Effects/holy.ogg
         powerCost: 5
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
         effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
@@ -404,6 +409,7 @@
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: satana
   - type: Prayable # ADT-Tweak
+  - type: Anchorable # ADT-Tweak
   - type: PointLight
     radius: 1.5
     energy: 1
@@ -425,7 +431,7 @@
         powerCost: 2
         soundPath: /Audio/Magic/Eldritch/voidblink.ogg
       - requiredTag: Brain
-        resultProto: ADTHeadVulpkanin
+        resultProto: OrganVulpkaninHead # ADT Tweak (was ADTHeadVulpkanin, removed in PR#42476 body refactor)
         effectProto: ADTCultistBubble
         powerCost: 2
         soundPath: /Audio/Magic/Eldritch/voidblink.ogg
@@ -439,7 +445,7 @@
         effectProto: ADTCultistBubble
         soundPath: /Audio/Magic/Eldritch/voidblink.ogg
         powerCost: 1
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
         effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
@@ -461,6 +467,7 @@
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: technology
   - type: Prayable # ADT-Tweak
+  - type: Anchorable # ADT-Tweak
   - type: PointLight
     radius: 1.5
     energy: 1
@@ -486,7 +493,7 @@
         effectProto: EffectRCDConstruct0
         soundPath: /Audio/Items/Mining/fultext_launch.ogg
         powerCost: 3
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
         effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
@@ -547,7 +554,7 @@
         effectProto: ADTWeaponArcRedCrash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 3
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
         effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
@@ -740,7 +747,7 @@
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Effects/hallelujah.ogg
         powerCost: 2
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
         effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
@@ -783,7 +790,7 @@
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Magic/knock.ogg
         powerCost: 3
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
         effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
@@ -826,7 +833,7 @@
         resultProto: MaterialBananium1
         powerCost: 0.1
         soundPath: /Audio/Items/bikehorn.ogg
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
         effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg

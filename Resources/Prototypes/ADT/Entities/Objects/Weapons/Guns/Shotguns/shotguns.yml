@@ -10,13 +10,15 @@
     sprite: ADT/Objects/Weapons/Guns/Shotguns/improvised_sawn.rsi # ADT tweak
   - type: Item
     size: Small
+    shape:
+    - 0,0,2,0
     sprite: ADT/Objects/Weapons/Guns/Shotguns/improvised_sawn.rsi # ADT tweak
   - type: Gun
     fireRate: 4
     soundGunshot: # Corvax-Guns
       path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_sawed.ogg
-  - type: RunAndGunSpreadModifier
-    modifier: 0.3
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.3
   - type: BallisticAmmoProvider
     capacity: 1
     proto: null
@@ -48,13 +50,13 @@
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: RunAndGunSpreadModifier
-    modifier: 0.2
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.2
   - type: BallisticAmmoProvider
     whitelist:
       tags:
       - ShellShotgun
-    capacity: 3 # bug-fix 
+    capacity: 3 # bug-fix
     proto: ShellShotgun
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg

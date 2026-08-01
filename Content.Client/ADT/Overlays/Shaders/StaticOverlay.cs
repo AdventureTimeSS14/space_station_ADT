@@ -6,6 +6,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 
@@ -13,9 +14,11 @@ namespace Content.Client.ADT.Overlays.Shaders;
 
 public sealed class StaticOverlay : Overlay
 {
+    private static readonly ProtoId<ShaderPrototype> SeeingStaticShader = "SeeingStatic";
+
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly ISharedPlayerManager _sharedPlayerManager = default!;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     public override bool RequestScreenTexture => true;
@@ -30,36 +33,37 @@ public sealed class StaticOverlay : Overlay
     public StaticOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _staticShader = _prototypeManager.Index<ShaderPrototype>("SeeingStatic").InstanceUnique();
+        _staticShader = _prototypeManager.Index(SeeingStaticShader).InstanceUnique();
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
     {
-        var playerEntity = _playerManager.LocalPlayer?.ControlledEntity;
+        var playerEntity = _sharedPlayerManager.LocalEntity;
 
         if (playerEntity == null)
             return;
 
-        if (!_entityManager.TryGetComponent<SeeingStaticComponent>(playerEntity, out var staticComp)
-            || !_entityManager.TryGetComponent<StatusEffectsComponent>(playerEntity, out var statusComp))
+        if (!_entityManager.TryGetComponent<SeeingStaticComponent>(playerEntity, out var staticComp))
             return;
 
         var status = _entityManager.EntitySysManager.GetEntitySystem<StatusEffectsSystem>();
 
-        if (playerEntity == null || statusComp == null)
-            return;
-
-        if (!status.TryGetTime(playerEntity.Value, SharedSeeingStaticSystem.StaticKey, out var timeTemp, statusComp))
-            return;
-
-        if (_time != timeTemp) // Resets the shader if the times change. This should factor in wheather it's a reset, or a increase, but I have a lot of cough syrup in me, so TODO.
+        if (!status.TryGetTime(playerEntity.Value, SharedSeeingStaticSystem.StaticKey, out var timeData))
         {
-            _time = timeTemp;
+            MixAmount = 0;
+            return;
+        }
+
+        if (_time != timeData) // Resets the shader if the times change. This should factor in wheather it's a reset, or a increase, but I have a lot of cough syrup in me, so TODO.
+        {
+            _time = timeData;
             _fullTimeLeft = null;
             _curTimeLeft = null;
         }
 
-        _fullTimeLeft ??= (float) (timeTemp.Value.Item2 - timeTemp.Value.Item1).TotalSeconds;
+        var (startTime, endTime) = timeData.Value;
+
+        _fullTimeLeft ??= (float)(endTime - startTime).TotalSeconds;
         _curTimeLeft ??= _fullTimeLeft;
 
         _curTimeLeft -= args.DeltaSeconds;
@@ -69,7 +73,7 @@ public sealed class StaticOverlay : Overlay
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        if (!_entityManager.TryGetComponent(_playerManager.LocalPlayer?.ControlledEntity, out EyeComponent? eyeComp))
+        if (!_entityManager.TryGetComponent(_sharedPlayerManager.LocalEntity, out EyeComponent? eyeComp))
             return false;
 
         if (args.Viewport.Eye != eyeComp.Eye)

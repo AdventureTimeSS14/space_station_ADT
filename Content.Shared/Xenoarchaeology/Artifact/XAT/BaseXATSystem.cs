@@ -33,7 +33,7 @@ public abstract class BaseXATSystem<T> : EntitySystem where T : Component
         {
         // ADT-Tweak-Start: Добавлены проверки существования сущности
         // Проверяем существование сущности перед получением компонента
-        if (!EntityManager.EntityExists(uid))
+        if (!Exists(uid))
             return;
 
         if (!TryComp<XenoArtifactNodeComponent>(uid, out var nodeComp))
@@ -56,7 +56,7 @@ public abstract class BaseXATSystem<T> : EntitySystem where T : Component
     protected bool CanTrigger(Entity<XenoArtifactComponent> artifact, Entity<XenoArtifactNodeComponent> node)
     {
         // Проверяем существование обеих сущностей
-        if (!EntityManager.EntityExists(artifact.Owner) || !EntityManager.EntityExists(node.Owner))
+        if (!Exists(artifact.Owner) || !Exists(node.Owner))
             return false;
 
         // Проверяем компоненты
@@ -90,7 +90,7 @@ public abstract class BaseXATSystem<T> : EntitySystem where T : Component
 
         //ADT-tweak-start
         // Дополнительная проверка существования перед триггером
-        if (!EntityManager.EntityExists(artifact.Owner) || !EntityManager.EntityExists(node.Owner))
+        if (!Exists(artifact.Owner) || !Exists(node.Owner))
             return;
         //ADT-tweak-end
 

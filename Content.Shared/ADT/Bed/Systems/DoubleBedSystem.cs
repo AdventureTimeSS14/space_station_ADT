@@ -27,6 +27,22 @@ public sealed class DoubleBedSystem : EntitySystem
         SubscribeLocalEvent<DoubleBedComponent, StrapAttemptEvent>(OnStrapAttempt, before: new[] { typeof(SharedBuckleSystem) });
         SubscribeLocalEvent<DoubleBedComponent, UnstrappedEvent>(OnUnstrapped, after: new[] { typeof(SharedBuckleSystem) });
         SubscribeLocalEvent<DoubleBedComponent, AfterInteractUsingEvent>(OnAfterInteractUsing, before: new[] { typeof(PlaceableSurfaceSystem) });
+        SubscribeLocalEvent<DoubleBedComponent, InteractHandEvent>(OnInteractHand);
+    }
+
+    private void OnInteractHand(Entity<DoubleBedComponent> ent, ref InteractHandEvent args)
+    {
+        var query = EntityQueryEnumerator<DoubleBedSheetComponent, TransformComponent>();
+        while (query.MoveNext(out var bedsheetUid, out var bedsheetComp, out var bedsheetXform))
+        {
+            if (bedsheetXform.ParentUid == ent.Owner)
+            {
+                args.Handled = true;
+
+                Transform(bedsheetUid).Coordinates = Transform(args.User).Coordinates;
+                return;
+            }
+        }
     }
 
     private void OnDoubleBedStartup(Entity<DoubleBedComponent> ent, ref ComponentStartup args)
@@ -69,11 +85,14 @@ public sealed class DoubleBedSystem : EntitySystem
         if (!_tagSystem.HasTag(args.Used, bedsheetTag))
             return;
 
+        var isDoubleBedsheet = HasComp<DoubleBedSheetComponent>(args.Used);
+
         var bedCoords = Transform(ent).Coordinates;
         var bedsheetCount = 0;
+        var hasDoubleBedsheet = false;
 
-        var query = EntityQueryEnumerator<TagComponent>();
-        while (query.MoveNext(out var uid, out var tagComp))
+        var query = EntityQueryEnumerator<TagComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var tagComp, out var xform))
         {
             if (uid == args.Used)
                 continue;
@@ -81,10 +100,19 @@ public sealed class DoubleBedSystem : EntitySystem
             if (!_tagSystem.HasTag(uid, bedsheetTag))
                 continue;
 
-            var bedsheetCoords = Transform(uid).Coordinates;
+            if (HasComp<DoubleBedSheetComponent>(uid))
+            {
+                hasDoubleBedsheet = true;
+                break;
+            }
+
+            var bedsheetCoords = xform.Coordinates;
             if (bedsheetCoords.TryDistance(EntityManager, bedCoords, out var distance) && distance < 0.5f)
                 bedsheetCount++;
         }
+
+        if (isDoubleBedsheet || hasDoubleBedsheet)
+            return;
 
         var offset = bedsheetCount == 0 ? ent.Comp.RightBedsheetOffset : ent.Comp.LeftBedsheetOffset;
 

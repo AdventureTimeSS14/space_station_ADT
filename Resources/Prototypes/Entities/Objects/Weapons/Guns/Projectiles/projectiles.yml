@@ -63,14 +63,14 @@
       shader: unshaded
   - type: Physics
     bodyType: Dynamic
-    linearDamping: 0
-    angularDamping: 0
+  - type: TileFrictionModifier
+    modifier: 0
   - type: Fixtures
     fixtures:
       projectile:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.1,-0.1,0.1,0.1"
+          bounds: "-0.1,-0.10,0.1,0.30"
         hard: false
         mask:
         - Impassable
@@ -229,12 +229,12 @@
       path: "/Audio/Weapons/Guns/Hits/taser_hit.ogg"
     forceSound: true
   - type: TimedDespawn
-    lifetime: 0.170 # Very short range
+    lifetime: 0.1 # ADT-Tweak 1.70 -> 1 # Very short range
   - type: StunOnCollide
     stunAmount: 0
-    knockdownAmount: 2.5 # Enough to subdue and follow up with a stun baton
+    knockdownAmount: 0.1 # ADT-Tweak 2.5 -> 0.1 # Enough to subdue and follow up with a stun baton
     drop: false #Ranged KD and item drop are too strong in one package
-    slowdownAmount: 2.5
+    slowdownAmount: 3.2 # ADT-Tweak 2.5 -> 3.2
     walkSpeedModifier: 0.5
     sprintSpeedModifier: 0.5
 
@@ -295,11 +295,9 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-# Start ADT Tweak
-        # - Impassable
-        # - BulletImpassable
-        - Opaque # ADT add
-# End ADT Tweak
+        - Opaque
+      #  - Impassable # ADT-tweak
+      #  - BulletImpassabl # ADT-tweak
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -338,11 +336,9 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-# Start ADT Tweak
-        # - Impassable
-        # - BulletImpassable
-        - Opaque # ADT add
-# End ADT Tweak
+        - Opaque
+      #  - Impassable # ADT-tweak
+      #  - BulletImpassabl # ADT-tweak
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -441,7 +437,7 @@
 # ADT-Tweak start
   - type: StunOnCollide
     stunAmount: 0
-    knockdownAmount: 1
+    knockdownAmount: 0.1
 # ADT-Tweak end
 
 - type: entity
@@ -640,8 +636,6 @@
       types:
         Blunt: 0
   # Short lifespan
-  - type: TimedDespawn
-    lifetime: 0.4
 
   # Deals less damage, glaive has better HP recovery
 - type: entity
@@ -1043,8 +1037,8 @@
   - type: Clickable
   - type: Physics
     bodyType: Dynamic
-    linearDamping: 0
-    angularDamping: 0
+  - type: TileFrictionModifier
+    modifier: 0
   - type: TimedDespawn
     lifetime: 10
   - type: Projectile
@@ -1127,8 +1121,8 @@
         - state: hook
     - type: Physics
       bodyType: Dynamic
-      linearDamping: 0
-      angularDamping: 0
+    - type: TileFrictionModifier
+      modifier: 0
     - type: Projectile
       deleteOnCollide: false
       damage:
@@ -1145,6 +1139,17 @@
             - Impassable
             - HighImpassable
     - type: GrapplingProjectile
+
+- type: entity
+  parent: GrapplingHook
+  id: StickyHandPalm
+  name: sticky hand palm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/sticky_hand.rsi
+  - type: Ammo
+    muzzleFlash: null
 
 - type: entity
   name : disabler bolt smg
@@ -1174,11 +1179,9 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-# Start ADT Tweak
-        # - Impassable
-        # - BulletImpassable
-        - Opaque # ADT add
-# End ADT Tweak
+        - Opaque
+      #  - Impassable # ADT-tweak
+      #  - BulletImpassabl # ADT-tweak
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -1328,11 +1331,9 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-# Start ADT Tweak
-        # - Impassable
-        # - BulletImpassable
-        - Opaque # ADT add
-# End ADT Tweak
+        - Opaque
+        - Impassable
+        - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
   - type: Projectile

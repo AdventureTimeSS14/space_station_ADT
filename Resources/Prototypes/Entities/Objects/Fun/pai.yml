@@ -26,38 +26,38 @@
       enum.StationMapUiKey.Key:
         type: StationMapBoundUserInterface
         requireInputValidation: false
-  # ADT-Tweak-start      
+  # ADT-Tweak-start
   - type: Destructible
     thresholds:
     - trigger:
-        !type:DamageTrigger 
+        !type:DamageTrigger
         damage: 135
-      behaviors:      
+      behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
             min: 1
-            max: 5                         
+            max: 5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
-    - trigger:        
-        !type:DamageTrigger 
+    - trigger:
+        !type:DamageTrigger
         damage: 75
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
           ScrapPAI:
             min: 1
-            max: 1    
+            max: 1
       - !type:DoActsBehavior
-        acts: [ "Destruction" ]       
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
-  # ADT-Tweak-end        
+  # ADT-Tweak-end
   - type: Sprite
     sprite: Objects/Fun/pai.rsi
     layers:
@@ -84,15 +84,25 @@
     stopSearchVerbText: pai-system-stop-searching-verb-text
     stopSearchVerbPopup: pai-system-stopped-searching
   - type: Examiner
+  - type: IntrinsicRadioTransmitter # ADT port pai keys
+    channels: [] #ADT-Tweak: PAI
   - type: IntrinsicRadioReceiver
   - type: ActiveRadio
-    channels:
-    - Common
+    channels: [] #ADT-Tweak: PAI
+  # ADT port pai radio end
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
+  - type: EncryptionKeyHolder # ADT port pai keys
+    keySlots: 2
+  # ADT port pai radio end
   - type: DoAfter
   - type: Actions
   - type: ActionGrant
     actions:
     - ActionPAIOpenShop
+    - ActionPAIPDA # ADT port pAI modernization
+    - ActionPAIConsole # ADT port pAI modernization
   - type: Store
     categories:
     - PAIAbilities
@@ -135,6 +145,7 @@
       Unsexed: UnisexSilicon
   - type: Tag
     tags:
+    - CanPilot
     - SiliconEmotes
   # ADT-Tweak-start
   - type: LanguageSpeaker
@@ -144,6 +155,7 @@
       SiliconCollectiveMind: Speak
   - type: CollectiveMindRank
     rankName: collective-mind-pai-rank
+  - type: ContentEye
   # ADT-Tweak-end
 
 
@@ -153,34 +165,34 @@
   name: syndicate personal ai device
   description: Your Syndicate pal who's fun to be with!
   components:
-  # ADT-Tweak-start      
+  # ADT-Tweak-start
   - type: Destructible
     thresholds:
     - trigger:
-        !type:DamageTrigger 
+        !type:DamageTrigger
         damage: 135
-      behaviors:      
+      behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
             min: 1
-            max: 5                         
+            max: 5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
-    - trigger:        
-        !type:DamageTrigger 
+    - trigger:
+        !type:DamageTrigger
         damage: 75
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
           ScrapPAI:
             min: 1
-            max: 1    
+            max: 1
       - !type:DoActsBehavior
-        acts: [ "Destruction" ]       
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
@@ -198,12 +210,20 @@
     roleRules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Syndicate
-  - type: ActiveRadio
-    channels:
-    - Syndicate
+  # - type: IntrinsicRadioTransmitter
+  #   channels:
+  #   - Syndicate
+  # - type: ActiveRadio
+  #   channels:
+  #   - Syndicate
+  # ADT port pai radio
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySyndiePAI
+  - type: EncryptionKeyHolder #Starlight pAI comms rework, see PR #3299
+    keySlots: 3
+  # ADT port pai radio
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -232,8 +252,6 @@
       shader: unshaded
       map: ["screen"]
   - type: Appearance
-  - type: StaticPrice
-    price: 5000
 
 - type: entity
   parent: PersonalAI
@@ -245,20 +263,20 @@
   - type: Destructible
     thresholds:
     - trigger:
-        !type:DamageTrigger 
+        !type:DamageTrigger
         damage: 75
       behaviors:
-      - !type:SpawnEntitiesBehavior 
+      - !type:SpawnEntitiesBehavior
         spawn:
           FoodPotato:
             min: 1
-            max: 1  
+            max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
-  # ADT-Tweak-end       
+  # ADT-Tweak-end
   - type: Sprite
     sprite: Objects/Fun/pai.rsi
     layers:
@@ -283,6 +301,8 @@
   - type: Construction
     graph: PotatoAI
     node: potatoai
+
+# PAI Actions
 
 - type: entity
   parent: ActionIntrinsicStore

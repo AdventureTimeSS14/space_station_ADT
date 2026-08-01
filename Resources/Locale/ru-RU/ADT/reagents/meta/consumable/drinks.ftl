@@ -18,3 +18,6 @@ milk-eclipse-desc = Мороженое с чаем? Дайте два!
 
 arctic-explosion-name = арктический взрыв
 arctic-explosion-desc = Маленькая полярная шапка в вашем стакане.
+
+reagent-name-adt-milk-gutlunch = молоко гутлунча
+reagent-desc-adt-milk-gutlunch = Густое питательное молоко из питательного мешка гутлунча. Отдаёт солью и железом, но заметно бодрит и затягивает мелкие раны.

@@ -1,7 +1,0 @@
-- type: entity
-  save: false
-  name: "Urisst' Mzhand Novakid"
-  parent: BaseMobNovakid
-  id: MobNovakid
-
-#Weh

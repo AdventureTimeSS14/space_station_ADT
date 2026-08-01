@@ -2,10 +2,10 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Weather;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Weather;
@@ -18,7 +18,6 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedWeatherSystem _weather = default!;
 
@@ -36,31 +35,42 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
         base.Update(frameTime);
 
         var now = _timing.CurTime;
-        var query = EntityQueryEnumerator<WeatherComponent>();
-        while (query.MoveNext(out var map, out var weather))
+
+        var query = EntityQueryEnumerator<WeatherStatusEffectComponent, StatusEffectComponent>();
+        while (query.MoveNext(out var uid, out var weatherComp, out var statusComp))
         {
-            if (now < weather.NextUpdate)
+            if (now < weatherComp.NextUpdate)
                 continue;
 
-            weather.NextUpdate = now + weather.UpdateDelay;
+            weatherComp.NextUpdate = now + weatherComp.UpdateDelay;
+            Dirty(uid, weatherComp);
 
-            foreach (var (id, data) in weather.Weather)
-            {
-                // start and end do no damage
-                if (data.State != WeatherState.Running)
-                    continue;
+            // start and end do no damage
+            var percent = _weather.GetWeatherPercent((uid, statusComp));
+            if (percent < 1f)
+                continue;
 
-                UpdateDamage(map, id);
-            }
+            var mapEnt = statusComp.AppliedTo ?? uid;
+            // ADT-Tweak-Start
+            if (weatherComp.Damage is { } damage)
+                UpdateDamage(mapEnt, damage, weatherComp.DamageBlacklist);
+            // ADT-Tweak-End
         }
     }
 
-    private void UpdateDamage(EntityUid map, ProtoId<WeatherPrototype> id)
+    // ADT-Tweak-Start
+    private bool IsExposed(TransformComponent xform)
     {
-        var weather = _proto.Index(id);
-        if (weather.Damage is not {} damage)
-            return;
+        if (xform.GridUid is not { } gridUid || !_gridQuery.TryComp(gridUid, out var grid))
+            return true;
 
+        var tile = _map.GetTileRef((gridUid, grid), xform.Coordinates);
+        return _weather.CanWeatherAffect((gridUid, (MapGridComponent?)grid, null), tile);
+    }
+    // ADT-Tweak-End
+
+    private void UpdateDamage(EntityUid map, DamageSpecifier damage, EntityWhitelist? damageBlacklist)
+    {
         var query = EntityQueryEnumerator<MobStateComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var mob, out var xform))
         {
@@ -68,16 +78,13 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
             if (xform.MapUid != map || mob.CurrentState == MobState.Dead)
                 continue;
 
-            // if not in space, check for being indoors
-            if (xform.GridUid is {} gridUid && _gridQuery.TryComp(gridUid, out var grid))
-            {
-                var tile = _map.GetTileRef((gridUid, grid), xform.Coordinates);
-                if (!_weather.CanWeatherAffect(gridUid, grid, tile))
-                    continue;
-            }
+            if (!IsExposed(xform)) // ADT Tweak
+                continue;
 
-            if (_whitelist.IsBlacklistFailOrNull(weather.DamageBlacklist, uid))
-                _damageable.TryChangeDamage(uid, damage, interruptsDoAfters: false);
+            if (!_whitelist.IsWhitelistFailOrNull(damageBlacklist, uid))
+                continue;
+
+            _damageable.TryChangeDamage(uid, damage, interruptsDoAfters: false);
         }
     }
 }

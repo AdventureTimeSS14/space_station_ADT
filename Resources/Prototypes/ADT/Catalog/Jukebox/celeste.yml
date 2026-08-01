@@ -1,0 +1,23 @@
+- type: jukebox
+  id: ADTLenaRaineFirstSteps
+  name: Lena Raine - First Steps
+  path:
+    path: /Audio/ADT/Jukebox/Celeste/First_Steps.ogg
+
+- type: jukebox
+  id: ADTLenaRaineSpiritOfHospitality
+  name: Lena Raine - Spirit of Hospitality
+  path:
+    path: /Audio/ADT/Jukebox/Celeste/Spirit_of_Hospitality.ogg
+
+- type: jukebox
+  id: ADTLenaRaineConfrontingMyself
+  name: Lena Raine - Confronting Myself
+  path:
+    path: /Audio/ADT/Jukebox/Celeste/Confronting_Myself.ogg
+
+- type: jukebox
+  id: ADTLenaRaineExhale
+  name: Lena Raine - Exhale
+  path:
+    path: /Audio/ADT/Jukebox/Celeste/Exhale.ogg

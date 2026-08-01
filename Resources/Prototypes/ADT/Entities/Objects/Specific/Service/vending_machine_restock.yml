@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseItem
   id: ADTSecuredVendingMachineRestock
   abstract: true
@@ -26,8 +26,9 @@
   - type: Item
     size: Large
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -61,5 +62,24 @@
     - state: green_bit
       shader: unshaded
     - state: refill_civimed
+  - type: StaticPrice
+    price: -1500
+
+- type: entity
+  parent: ADTSecuredVendingMachineRestock
+  id: ADTRestockmusicianomat
+  name: Musicianomat
+  description: A box containing musical supplies for the Musicianomat vending machine. A label reads THE BOX IS TAMPER PROOF AND WILL DESTROY IT'S CONTENT ON HARM.
+  components:
+  - type: VendingMachineRestock
+    canRestock:
+    - ADTMusicomatInventory
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/vending_machine_restock.rsi
+    layers:
+    - state: base
+    - state: green_bit
+      shader: unshaded
+    - state: refill_autotune
   - type: StaticPrice
     price: -1500

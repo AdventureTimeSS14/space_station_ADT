@@ -1,14 +1,16 @@
-- type: entity
+﻿- type: entity
   name: beaker box
   parent: BoxCardboard
   id: ADTBoxAICircuitBoard
   description: A box of spare AI laws boards. The box has a sticker on it that reads “For emergencies only!”
   components:
-  - type: StorageFill
-    contents:
-    - id: NTDefaultCircuitBoard
-    - id: AsimovCircuitBoard
-    - id: CorporateCircuitBoard
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: NTDefaultCircuitBoard
+        - id: AsimovCircuitBoard
+        - id: CorporateCircuitBoard
   - type: Sprite
     layers:
       - state: box_science

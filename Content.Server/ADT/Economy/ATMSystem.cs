@@ -13,6 +13,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.Store.Components;
 
 namespace Content.Server.ADT.Economy;
 

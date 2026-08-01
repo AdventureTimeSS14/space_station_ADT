@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC-BY-SA-3.0",
   "copyright": "Made by discord:prazat911 for ADT",
   "size": {
@@ -96,6 +96,9 @@
     },
     {
       "name": "zima_blue"
+    },
+    {
+      "name": "the_son_of_vulp"
     }
   ]
 }

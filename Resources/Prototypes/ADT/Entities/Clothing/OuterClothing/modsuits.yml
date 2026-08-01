@@ -162,6 +162,8 @@
         Slash: 0.9
         Radiation: 0.6
         Caustic: 0.8
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.85
@@ -202,7 +204,7 @@
   - type: ClothingGrantComponent
     component:
     - type: AshStormImmune
-    
+
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
   id: ADTClothingOuterModsuitBodySecurity
@@ -393,6 +395,8 @@
         Heat: 0.6
         Radiation: 0.3
         Caustic: 0.3
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.4
   - type: StaminaResistance
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
@@ -403,7 +407,11 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 2.25
-      Choke: 2
+      Suffocate: 2
+  - type: ClothingGrantComponent
+    component:
+    - type: SupermatterImmune
+  - type: SupermatterImmune
 
 - type: entity
   parent: ADTClothingOuterModsuitBodySyndicate
@@ -429,6 +437,8 @@
         Heat: 0.2
         Radiation: 0.01
         Caustic: 0.5
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.4
   - type: StaminaResistance
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
@@ -444,7 +454,11 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 1.5
-      Choke: 2
+      Suffocate: 2
+  - type: ClothingGrantComponent
+    component:
+    - type: SupermatterImmune
+  - type: SupermatterImmune
 
 - type: entity
   parent: ADTClothingOuterModsuitBodySyndicate
@@ -470,6 +484,8 @@
         Heat: 0.5
         Radiation: 0.25
         Caustic: 0.4
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.3
   - type: StaminaResistance
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
@@ -485,7 +501,11 @@
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 2.25
-      Choke: 2
+      Suffocate: 2
+  - type: ClothingGrantComponent
+    component:
+    - type: SupermatterImmune
+  - type: SupermatterImmune
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -505,14 +525,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Caustic: 0.1
+        Caustic: 0.2
+        Radiation: 0.7
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.1
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1
-  - type: ZombificationResistance
-    zombificationResistanceCoefficient: 0.4
   - type: FireProtection
     reduction: 0.1
   - type: ItemToggle
@@ -681,6 +702,8 @@
         Piercing: 0.7
         Caustic: 0.7
         Radiation: 0.8
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.3
   - type: StaminaResistance
     damageCoefficient: 0.8
   - type: ClothingSpeedModifier
@@ -758,3 +781,224 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.7
     coolingCoefficient: 0.4
+
+- type: entity
+  parent: ADTClothingOuterModsuitBodyBase
+  id: ADTClothingOuterModsuitBodyMinerva
+  name: research MOD chestplate "Minerva"
+  description: A chestplate for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Modsuit/minerva.rsi
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/OuterClothing/Modsuit/minerva.rsi
+    slots: [ OUTERCLOTHING ]
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.8
+        Piercing: 0.9
+        Heat: 0.3
+        Radiation: 0.3
+        Caustic: 0.1
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: FireProtection
+    reduction: 0.4
+
+- type: entity
+  parent: ADTClothingOuterModsuitBodyBase
+  id: ADTClothingOuterModsuitBodyCharon
+  name: liberation MOD chestplate "Charon"
+  description: A chestplate for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Modsuit/charon.rsi
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/OuterClothing/Modsuit/charon.rsi
+    slots: [ OUTERCLOTHING ]
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: FireProtection
+    reduction: 0.8
+  - type: StaminaResistance
+    damageCoefficient: 0.15
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+        Radiation: 0.1
+        Caustic: 0.1
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0
+  - type: ClothingGrantComponent
+    component:
+    - type: SupermatterImmune
+  - type: SupermatterImmune
+
+- type: entity
+  parent: ADTClothingOuterModsuitBodyBase
+  id: ADTClothingOuterModsuitBodyERTLeader
+  name: ERT MOD chestplate "Polaris"
+  description: A chestplate for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
+    slots: [ OUTERCLOTHING ]
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+        color: "#2b6cb0"
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.3
+        Heat: 0.5
+        Radiation: 0.25
+        Caustic: 0.4
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: StaminaResistance
+    damageCoefficient: 0.3
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.3
+  - type: FireProtection
+    reduction: 0.75
+
+- type: entity
+  parent: ADTClothingOuterModsuitBodyBase
+  id: ADTClothingOuterModsuitBodyERTSecurity
+  name: ERT MOD chestplate "Antares"
+  description: A chestplate for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
+    slots: [ OUTERCLOTHING ]
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+        color: "#b02b2b"
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.4
+        Heat: 0.6
+        Radiation: 0.3
+        Caustic: 0.3
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: StaminaResistance
+    damageCoefficient: 0.3
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.4
+
+- type: entity
+  parent: ADTClothingOuterModsuitBodyBase
+  id: ADTClothingOuterModsuitBodyERTEngineer
+  name: ERT MOD chestplate "Capella"
+  description: A chestplate for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
+    slots: [ OUTERCLOTHING ]
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+        color: "#d4a017"
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.2
+        Radiation: 0.01
+        Caustic: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: FireProtection
+    reduction: 0.8
+  - type: StaminaResistance
+    damageCoefficient: 0.3
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.4
+
+- type: entity
+  parent: ADTClothingOuterModsuitBodyBase
+  id: ADTClothingOuterModsuitBodyERTMedical
+  name: ERT MOD chestplate "Vega"
+  description: A chestplate for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
+    slots: [ OUTERCLOTHING ]
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+        color: "#17c9d4"
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.4
+        Heat: 0.6
+        Radiation: 0.3
+        Caustic: 0.3
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: StaminaResistance
+    damageCoefficient: 0.3
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.2

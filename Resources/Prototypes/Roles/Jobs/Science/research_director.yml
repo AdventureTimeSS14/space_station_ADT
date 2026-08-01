@@ -14,6 +14,12 @@
       inverted: true
       traits:
       - Muted
+    # ADT-Tweak: Start
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Vox
+    # ADT-Tweak: End
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
@@ -32,7 +38,6 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      # - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear
   id: ResearchDirectorGear
@@ -43,7 +48,7 @@
     back:
     - Flash
     - ADTtelescopicBaton #ADT-CustomADTLoadoutStart
-    - ADTHumanCubeWrapped #ADT-CustomADTLoadoutEnd
+    #- ADTHumanCubeWrapped #ADT-CustomADTLoadoutEnd
 
 - type: chameleonOutfit
   id: ResearchDirectorChameleonOutfit

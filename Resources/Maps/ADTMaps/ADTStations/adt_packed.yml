@@ -11858,14 +11858,6 @@ entities:
       parent: 2
     - type: SpamEmitSound
       enabled: False
-  - uid: 662
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 29.5,-6.5
-      parent: 2
-    - type: SpamEmitSound
-      enabled: False
 - proto: BlueprintDoubleEmergencyTank
   entities:
   - uid: 13513
@@ -65202,7 +65194,6 @@ entities:
       parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
-    - type: Timer
   - uid: 9331
     components:
     - type: Transform
@@ -65496,7 +65487,6 @@ entities:
       parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
-    - type: Timer
   - uid: 9372
     components:
     - type: Transform
@@ -65505,7 +65495,6 @@ entities:
       parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
-    - type: Timer
   - uid: 9373
     components:
     - type: Transform
@@ -89658,5 +89647,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 48.62325,43.82952
+      parent: 2
+- proto: ADTVendingMachineMusician
+  entities:
+  - uid: 53949
+    components:
+    - type: Transform
+      pos: 29.5,-6.5
       parent: 2
 ...

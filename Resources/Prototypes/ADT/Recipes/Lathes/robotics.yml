@@ -1,4 +1,16 @@
 - type: latheRecipe
+  id: ADTAiRemoteBrain
+  result: ADTAiRemoteBrain
+  completetime: 4
+  materials:
+    Steel: 500
+    Plastic: 500
+    Gold: 100
+    Silver: 100
+    Plasma: 1000
+    Zinc: 200
+
+- type: latheRecipe
   id: ADTBorgModuleHarm
   result: ADTBorgModuleHarm
   completetime: 3
@@ -11,8 +23,8 @@
     Copper: 400
 
 - type: latheRecipe
-  id: ADTBorgModuleDisabler
-  result: ADTBorgModuleDisabler
+  id: ADTBorgModuleDetention
+  result: ADTBorgModuleDetention
   completetime: 3
   materials:
     Steel: 500
@@ -23,13 +35,15 @@
     Copper: 500
 
 - type: latheRecipe
-  id: ADTBorgModuleDetention
-  result: ADTBorgModuleDetention
+  id: ADTBorgModuleAdvancedSalvage
+  result: ADTBorgModuleAdvancedSalvage
   completetime: 3
   materials:
     Steel: 500
     Glass: 500
     Plastic: 250
+    Gold: 50
+    Plasma: 50
     Copper: 500
 
 - type: latheRecipe
@@ -201,6 +215,67 @@
     Copper: 200
 
 - type: latheRecipe
+  id: ADTModsuitModStatusReadout
+  result: ADTModsuitModStatusReadout
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 250
+    Glass: 200
+    Copper: 200
+
+- type: latheRecipe
+  id: ADTModsuitModGPS
+  result: ADTModsuitModGPS
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 250
+    Glass: 200
+    Copper: 200
+
+- type: latheRecipe
+  id: ADTModsuitModDefibrillator
+  result: ADTModsuitModDefibrillator
+  completetime: 2
+  materials:
+    Steel: 200
+    Plastic: 250
+    Glass: 200
+    Copper: 200
+    Silver: 100
+
+- type: latheRecipe
+  id: ADTModsuitModAnomalyScanner
+  result: ADTModsuitModAnomalyScanner
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 250
+    Glass: 200
+    Copper: 200
+
+- type: latheRecipe
+  id: ADTModsuitModHealthAnalyzer
+  result: ADTModsuitModHealthAnalyzer
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 250
+    Glass: 200
+    Copper: 200
+
+- type: latheRecipe
+  id: ADTModsuitModReagentScanner
+  result: ADTModsuitModReagentScanner
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 250
+    Glass: 200
+    Copper: 200
+
+- type: latheRecipe
   id: ADTModsuitModDrill
   result: ADTModsuitModDrill
   completetime: 2
@@ -251,16 +326,16 @@
     Gold: 100
     Copper: 200
 
-- type: latheRecipe
-  id: ADTModsuitModPowerKick
-  result: ADTModsuitModPowerKick
-  completetime: 2
-  materials:
-    Steel: 1000
-    Plastic: 400
-    Gold: 500
-    Silver: 600
-    Copper: 200
+#- type: latheRecipe
+#  id: ADTModsuitModPowerKick
+#  result: ADTModsuitModPowerKick
+#  completetime: 2
+#  materials:
+#    Steel: 1000
+#    Plastic: 400
+#    Gold: 500
+#    Silver: 600
+#    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModSechud
@@ -273,8 +348,60 @@
     Copper: 200
 
 - type: latheRecipe
+  id: ADTModsuitModDiagnosticVisor
+  result: ADTModsuitModDiagnosticVisor
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 250
+    Glass: 200
+    Copper: 200
+
+- type: latheRecipe
+  id: ADTModsuitModBodycam
+  result: ADTModsuitModBodycam
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 250
+    Glass: 300
+    Copper: 200
+
+- type: latheRecipe
+  id: ADTModsuitModMesonVision
+  result: ADTModsuitModMesonVision
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 250
+    Glass: 500
+    Copper: 200
+
+- type: latheRecipe
   id: ADTModsuitModStorage
   result: ADTModsuitModStorage
+  completetime: 2
+  materials:
+    Steel: 1500
+    Plastic: 400
+    Glass: 500
+    Silver: 100
+    Copper: 200
+
+- type: latheRecipe
+  id: ADTModsuitModSatchelStorage
+  result: ADTModsuitModSatchelStorage
+  completetime: 2
+  materials:
+    Steel: 1500
+    Plastic: 400
+    Glass: 500
+    Silver: 100
+    Copper: 200
+
+- type: latheRecipe
+  id: ADTModsuitModDuffelbagStorage
+  result: ADTModsuitModDuffelbagStorage
   completetime: 2
   materials:
     Steel: 1500

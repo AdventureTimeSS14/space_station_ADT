@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Shared.Chat;
 using Content.Shared.Input;
@@ -83,22 +84,34 @@ public partial class ChatBox : UIWidget
 
     public void Repopulate()
     {
+        // ADT-Tweak start
+        _controller.MessageAdded -= OnMessageAdded;
+
         Contents.Clear();
+        // ADT-Tweak end
 
         foreach (var message in _controller.History)
         {
             OnMessageAdded(message.Item2);
         }
+
+        _controller.MessageAdded += OnMessageAdded; // ADT-Tweak 
     }
 
     private void OnChannelFilter(ChatChannel channel, bool active)
     {
+        // ADT-Tweak start
+        _controller.MessageAdded -= OnMessageAdded;
+
         Contents.Clear();
+        // ADT-Tweak end
 
         foreach (var message in _controller.History)
         {
             OnMessageAdded(message.Item2);
         }
+
+        _controller.MessageAdded += OnMessageAdded; // ADT-Tweak 
 
         if (active)
         {
@@ -115,9 +128,9 @@ public partial class ChatBox : UIWidget
     {
         var formatted = new FormattedMessage(3);
         formatted.PushColor(color);
-        formatted.AddMarkupOrThrow(message);
+        formatted.AddMarkupPermissive(message); // ADT-Tweak
         formatted.Pop();
-        Contents.AddMessage(formatted);
+        Contents.AddMessage(formatted, tagsAllowed: null);
     }
 
     public void Focus(ChatSelectChannel? channel = null)

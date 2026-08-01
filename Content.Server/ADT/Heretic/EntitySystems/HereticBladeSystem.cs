@@ -21,6 +21,8 @@ using System.Text;
 using Content.Shared.ADT.Combat;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.FixedPoint;
 using Content.Shared.Temperature.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
@@ -36,7 +38,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
     [Dependency] private readonly HereticCombatMarkSystem _combatMark = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly TemperatureSystem _temp = default!;
     [Dependency] private readonly TeleportSystem _teleport = default!;
@@ -184,23 +186,20 @@ public sealed partial class HereticBladeSystem : EntitySystem
                 // if infused do -10. why? gaming.
                 var bonusHeal = HasComp<MansusInfusedComponent>(ent) ? 10f : 5f;
 
-                var orig = dmg.Damage.DamageDict;
-                foreach (var k in orig.Keys)
-                    orig[k] = MathF.Max((float) orig[k] - bonusHeal, 0f);
+                var oldDamage = _damageable.GetAllDamage((args.User, dmg));
+                var newDamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>();
+                foreach (var (k, v) in oldDamage.DamageDict)
+                {
+                    newDamageDict[k] = MathF.Max((float) v - bonusHeal, 0f);
+                }
 
-                _damage.SetDamage((args.User, dmg), new() { DamageDict = orig });
+                _damageable.SetDamage((args.User, dmg), new() { DamageDict = newDamageDict });
             }
         }
     }
     private void OnPickUp(Entity<HereticBladeComponent> ent, ref PickupAttemptEvent args)
     {
         if (!TryComp<HereticComponent>(args.User, out var hereticComp) || hereticComp.CurrentPath != ent.Comp.Path)
-        {
-            foreach (var comboEvent in ent.Comp.EventsOnPickup)
-            {
-                comboEvent.DoEffect(args.Item, args.User, EntityManager);
-            }
             args.Cancel();
-        }
     }
 }

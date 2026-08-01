@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC-BY-SA-3.0",
   "copyright": "Created by ADT team",
   "size": {
@@ -23,6 +23,10 @@
     },
     {
       "name": "screen"
+    },
+    {
+        "name": "equipped-SUITSTORAGE",
+        "directions": 4
     }
   ]
 }

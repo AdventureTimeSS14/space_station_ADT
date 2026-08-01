@@ -2,38 +2,37 @@ using System.Linq;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Mech.Components;
-using Content.Server.Power.EntitySystems;
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Atmos;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
+using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
 using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.Tools;
 using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Content.Shared.Wires;
+using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Shared.Whitelist;
-using Content.Server.Emp;
-using Robust.Server.Audio;
-using Content.Shared.Access.Systems;
-using Content.Shared.Access.Components;
 using Robust.Shared.Random;
-using Content.Shared.ADT.Mech;
-using Content.Shared.Mech.Equipment.Components;
 
 namespace Content.Server.Mech.Systems;
 
@@ -42,7 +41,7 @@ public sealed partial class MechSystem : SharedMechSystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
@@ -118,6 +117,11 @@ public sealed partial class MechSystem : SharedMechSystem
         if (TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open)
             return;
 
+        // ADT-Tweak-Start
+        if (HasComp<MechEquipmentComponent>(args.Used))
+            return;
+        // ADT-Tweak-End
+
         if (component.BatterySlot.ContainedEntity == null && TryComp<BatteryComponent>(args.Used, out var battery))
         {
             InsertBattery(uid, args.Used, component, battery);
@@ -142,7 +146,7 @@ public sealed partial class MechSystem : SharedMechSystem
         if (args.Container != component.BatterySlot || !TryComp<BatteryComponent>(args.Entity, out var battery))
             return;
 
-        component.Energy = battery.CurrentCharge;
+        component.Energy = _battery.GetCharge((args.Entity, battery));
         component.MaxEnergy = battery.MaxCharge;
 
         Dirty(uid, component);
@@ -195,7 +199,7 @@ public sealed partial class MechSystem : SharedMechSystem
     private void OnOpenUi(EntityUid uid, MechComponent component, MechOpenUiEvent args)
     {
         args.Handled = true;
-        ToggleMechUi(uid, component);
+        ToggleMechUi(uid, component, args.Performer); // ADT-Mech-Tweak
     }
 
     private void OnToolUseAttempt(EntityUid uid, MechPilotComponent component, ref ToolUserAttemptUseEvent args)
@@ -208,6 +212,8 @@ public sealed partial class MechSystem : SharedMechSystem
     {
         if (!args.CanAccess || !args.CanInteract || component.Broken)
             return;
+
+        _cockpit.AddPassengerVerb(uid, component, args); // ADT-Mech-Tweak
 
         if (CanInsert(uid, args.User, component))
         {
@@ -250,7 +256,7 @@ public sealed partial class MechSystem : SharedMechSystem
                     {
                         BreakOnMove = true,
                     };
-                    _popup.PopupEntity(Loc.GetString("mech-eject-pilot-alert", ("item", uid), ("user", args.User)), uid, PopupType.Large);
+                    _popup.PopupEntity(Loc.GetString("mech-eject-pilot-alert", ("item", uid), ("user", Identity.Entity(args.User, EntityManager))), uid, PopupType.Large);
 
                     _doAfter.TryStartDoAfter(doAfterEventArgs);
                 }
@@ -266,7 +272,7 @@ public sealed partial class MechSystem : SharedMechSystem
 
         if (_whitelistSystem.IsWhitelistFail(component.PilotWhitelist, args.User))
         {
-            _popup.PopupEntity(Loc.GetString("mech-no-enter", ("item", uid)), args.User);
+            _popup.PopupEntity(Loc.GetString("mech-no-enter", ("item", uid)), Identity.Entity(args.User, EntityManager));
             return;
         }
         // ADT Content start
@@ -298,7 +304,7 @@ public sealed partial class MechSystem : SharedMechSystem
 
     private void OnDamageChanged(EntityUid uid, MechComponent component, DamageChangedEvent args)
     {
-        var integrity = component.MaxIntegrity - args.Damageable.TotalDamage;
+        var integrity = component.MaxIntegrity - _damageable.GetTotalDamage((uid, args.Damageable));
         SetIntegrity(uid, integrity, component);
 
         // ADT Mech start
@@ -316,6 +322,8 @@ public sealed partial class MechSystem : SharedMechSystem
             var damage = args.DamageDelta * component.MechToPilotDamageMultiplier;
             _damageable.ChangeDamage(component.PilotSlot.ContainedEntity.Value, damage);
         }
+
+        _cockpit.RelayDamageToPassenger(uid, component, args); // ADT-Mech-Tweak
 
         // ADT-Tweak start: stop move zero power cell
         _actionBlocker.UpdateCanMove(uid);
@@ -406,11 +414,12 @@ public sealed partial class MechSystem : SharedMechSystem
         if (!TryComp<BatteryComponent>(battery, out var batteryComp))
             return false;
 
-        _battery.SetCharge((battery.Value, batteryComp), batteryComp.CurrentCharge + delta.Float());
-        if (batteryComp.CurrentCharge != component.Energy) //if there's a discrepency, we have to resync them
+        _battery.ChangeCharge((battery.Value, batteryComp), delta.Float());
+        var charge = _battery.GetCharge((battery.Value, batteryComp));
+        if (charge != component.Energy) //if there's a discrepency, we have to resync them
         {
-            Log.Debug($"Battery charge was not equal to mech charge. Battery {batteryComp.CurrentCharge}. Mech {component.Energy}");
-            component.Energy = batteryComp.CurrentCharge;
+            Log.Debug($"Battery charge was not equal to mech charge. Battery {charge}. Mech {component.Energy}");
+            component.Energy = charge;
             Dirty(uid, component);
         }
         _actionBlocker.UpdateCanMove(uid);
@@ -431,7 +440,7 @@ public sealed partial class MechSystem : SharedMechSystem
             return;
 
         _container.Insert(toInsert, component.BatterySlot);
-        component.Energy = battery.CurrentCharge;
+        component.Energy = _battery.GetCharge((toInsert, battery));
         component.MaxEnergy = battery.MaxCharge;
 
         _actionBlocker.UpdateCanMove(uid);

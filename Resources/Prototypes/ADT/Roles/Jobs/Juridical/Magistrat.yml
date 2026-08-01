@@ -3,6 +3,7 @@
   name: job-name-magistrat
   description: job-description-magistrat
   playTimeTracker: JobMagistrat
+  setPreference: false
   requirements:
     - !type:DepartmentTimeRequirement
       department: Command

@@ -1,4 +1,5 @@
 using Content.Shared.Abilities.Mime;
+using Content.Shared.ADT.Mime;
 using Content.Server.Popups;
 
 namespace Content.Server.ADT.Mime;
@@ -21,7 +22,7 @@ public sealed class EnhancedMimePowersSystem : EntitySystem
         mimePowers.WallCount = 3;
 
         EnsureComp<MimeFingerGunComponent>(uid);
-        EnsureComp<MimeThroatPunchComponent>(uid);
+        EnsureComp<MimeSilenceComponent>(uid);
 
         _popupSystem.PopupEntity(Loc.GetString("mime-powers-enhanced"), uid, uid);
     }

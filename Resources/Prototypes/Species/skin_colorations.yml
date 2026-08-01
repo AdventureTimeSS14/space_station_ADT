@@ -12,9 +12,9 @@
 - type: skinColoration
   id: VoxFeathers
   strategy: !type:ClampedHsvColoration
-    hue: [0.081, 0.48]
-    saturation: [0.2, 0.8]
-    value: [0.36, 0.55]
+    hue: [0.081, 0.75] 
+    saturation: [0.0, 0.8] 
+    value: [0.2, 0.9]
 
 - type: skinColoration
   id: HumanToned

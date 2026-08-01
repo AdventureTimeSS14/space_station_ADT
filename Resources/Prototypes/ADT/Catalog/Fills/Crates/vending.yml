@@ -4,6 +4,20 @@
   name: CiviMed restock crate
   description: Contains two restock boxes for the CiviMed vending machine.
   components:
-  - type: StorageFill
-    contents:
-      - id: ADTSecuredVendingMachineRestockCiviMedVend
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTSecuredVendingMachineRestockCiviMedVend
+
+- type: entity
+  id: ADTCrateSecuredVendingMachineRestockMusicianFilled
+  parent: CratePlastic
+  name: Musicianmat restock crate
+  description: Contains one restock box for the Musicianmat vending machine.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ADTRestockmusicianomat

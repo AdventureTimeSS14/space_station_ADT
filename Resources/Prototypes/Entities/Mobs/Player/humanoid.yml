@@ -81,6 +81,7 @@
     - type: Loadout
       prototypes: [ DeathSquadGear ]
       roleLoadout: [ RoleSurvivalEVA ]
+    - type: GrantHellRip
     - type: RandomMetadata
       nameSegments:
       - NamesFirstDeadSquad
@@ -600,7 +601,7 @@
         settings: default
       job: CentralCommandOfficial
     - type: Loadout
-      prototypes: [ CentcomGear ]
+      prototypes: [ CentcommGear ]
       roleLoadout: [ RoleSurvivalStandard ]
 
 ## Syndicate

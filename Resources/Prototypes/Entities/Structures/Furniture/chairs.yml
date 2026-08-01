@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: chair
   id: SeatBase
   abstract: true
@@ -22,15 +22,16 @@
         - TableMask
   - type: Sprite
     sprite: Structures/Furniture/chairs.rsi
-    drawdepth: HighFloorObjects # ADT-Tweak: Исправлено отображение стульев - слой стульев теперь отображается ниже персонажа 
+    drawdepth: HighFloorObjects # ADT-Tweak: Исправлено отображение стульев - слой стульев теперь отображается ниже персонажа
     noRot: true
   - type: Strap
     position: Stand
     buckleOffset: "0,-0.05"
   - type: Pullable
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -227,6 +228,7 @@
     node: chairWood
   - type: Damageable
     damageModifierSet: Wood
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger: # Excess damage, don't spawn entities
@@ -338,6 +340,7 @@
           "/Audio/Weapons/slash.ogg"
   - type: Damageable
     damageModifierSet: Web
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger: # Excess damage, don't spawn entities
@@ -395,6 +398,7 @@
     graph: Seat
     node: chairFolding
   - type: DamageExaminable
+  - type: GravityAffected #ADT-Tweak
 
 - type: entity
   parent: ChairFolding
@@ -430,8 +434,9 @@
     graph: Seat
     node: stoolCard
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Card
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:

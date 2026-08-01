@@ -13,6 +13,7 @@
     - BorgModuleScience #until sciborgs are added
 
   defaultModules:
+#  - BorgModulePrying
   - BorgModuleTool
   - BorgModuleInflatable
   - BorgModuleArtifact
@@ -47,6 +48,7 @@
     - BorgModuleEngineering
 
   defaultModules:
+#  - BorgModulePrying
   - BorgModuleTool
   - BorgModuleConstruction
   - BorgModuleRCD
@@ -83,11 +85,14 @@
     - BorgModuleCargo
 
   defaultModules:
+# - BorgModulePrying # ADT-Tweak
   - BorgModuleTool
-  - BorgModuleMining
-  #- BorgModuleTraversal #ADT tweak: MineBorgModulesUpdate
+# ADT-Tweak-Start
+# - BorgModuleMining
+# - BorgModuleTraversal
+# ADT-Tweak-End
   - BorgModuleAppraisal
-  - ADTBorgModuleSalvage #ADT tweak: MineBorgModulesUpdate
+  - ADTBorgModuleSalvage #ADT-Tweak
 
   radioChannels:
   - Supply
@@ -121,7 +126,8 @@
     - BorgModuleJanitor
 
   defaultModules:
-  - BorgModuleTool
+#  - BorgModulePrying
+  - BorgModuleTool # ADT-Tweak
   - BorgModuleCleaning
   - BorgModuleCustodial
 
@@ -158,6 +164,7 @@
 
   defaultModules:
   - BorgModuleTool
+#  - BorgModulePrying
   # ADT-Tweak-Start: "MedborgModuleUpdate"
   - ADTBorgModuleChemical
   - BorgModuleTopicals
@@ -209,6 +216,7 @@
     - BorgModuleService
 
   defaultModules:
+#  - BorgModulePrying
   - BorgModuleTool
   - BorgModuleMusique
   - BorgModuleService

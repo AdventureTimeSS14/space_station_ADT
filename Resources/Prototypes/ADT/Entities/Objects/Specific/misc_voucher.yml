@@ -22,7 +22,7 @@
     kits:
     - ModStorageDuffelbag
     - ModStorageSatchel
-    typeDropPlace: ThisPlace
+    typeDropPlace: InHands
 
 - type: entity
   parent: BaseItem
@@ -44,6 +44,8 @@
   - type: MiningVoucher
     kits:
     - WeaponSaberRevBlueshield
+    - WeaponDrozdBlueshield
+    - WeaponTonfaBlueshield
     typeDropPlace: ThisPlace
     typeDrop: Rocket
 
@@ -121,3 +123,223 @@
     - ShoesSyndieChameleon
     - ShoesSyndieChameleonNoSound
     typeDropPlace: InHands
+
+- type: entity
+  parent: BaseItem
+  id: ADTSecVoucher
+  name: RCU "Swarm"
+  description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station. NT was developed specifically for the blue shield case.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/security_voucher.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - ADTWeaponSecMk58
+    - ADTWeaponLaserSecPistol
+    typeDropPlace: ThisPlace
+    typeDrop: Rocket
+
+- type: entity
+  parent: BaseItem
+  id: ADTSyndicateVoucher
+  name: RCU "Virus"
+  description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station. NT was developed specifically for the blue shield case.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/syndicate_voucher.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - ADTClothingOuterHardsuitSyndie
+    - ADTClothingModsuitBackSyndicate
+    typeDropPlace: ThisPlace
+    typeDrop: Rocket
+
+- type: entity
+  parent: BaseItem
+  id: ADTSyndicateCommanderVoucher
+  name: RCU "Plague"
+  description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station. NT was developed specifically for the blue shield case.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/syndicate_voucher.rsi
+    layers:
+    - state: icon
+    - state: icon-elite
+  - type: Item
+    size: Small
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - ADTClothingEliteHardsuitBackSyndicateCommander
+    - ADTClothingModsuitBackSyndicate
+    typeDropPlace: ThisPlace
+    typeDrop: Rocket
+
+- type: entity
+  parent: BaseItem
+  id: ADTSyndicateMedicVoucher
+  name: RCU "Plague"
+  description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station. NT was developed specifically for the blue shield case.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/syndicate_voucher.rsi
+    layers:
+    - state: icon
+    - state: icon-medic
+  - type: Item
+    size: Small
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - ADTClothingEliteHardsuitBackSyndicateMedic
+    - ADTClothingModsuitBackSyndicate
+    typeDropPlace: ThisPlace
+    typeDrop: Rocket
+
+- type: entity
+  parent: BaseItem
+  id: ADTDeathSquadVoucher
+  name: RCU "Styx"
+  description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/security_voucher.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - ADTDeathSquadHardsuitSet
+    - ADTCharonModSet
+    typeDropPlace: ThisPlace
+    typeDrop: Rocket
+
+- type: entity
+  parent: BaseItem
+  id: ADTERTLeaderVoucher
+  name: RCU "Aegis"
+  description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/security_voucher.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - ADTERTLeaderHardsuitSet
+    - ADTERTLeaderModSet
+    typeDropPlace: ThisPlace
+    typeDrop: Rocket
+
+- type: entity
+  parent: BaseItem
+  id: ADTERTSecurityVoucher
+  name: RCU "Aegis"
+  description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/security_voucher.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - ADTERTSecurityHardsuitSet
+    - ADTERTSecurityModSet
+    typeDropPlace: ThisPlace
+    typeDrop: Rocket
+
+- type: entity
+  parent: BaseItem
+  id: ADTERTEngineerVoucher
+  name: RCU "Aegis"
+  description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/security_voucher.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - ADTERTEngineerHardsuitSet
+    - ADTERTEngineerModSet
+    typeDropPlace: ThisPlace
+    typeDrop: Rocket
+
+- type: entity
+  parent: BaseItem
+  id: ADTERTMedicalVoucher
+  name: RCU "Aegis"
+  description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/security_voucher.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - ADTERTMedicalHardsuitSet
+    - ADTERTMedicalModSet
+    typeDropPlace: ThisPlace
+    typeDrop: Rocket

@@ -21,6 +21,12 @@
       inverted: true
       traits:
       - Muted
+    # ADT-Tweak: Start
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Vox
+    # ADT-Tweak: End
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
@@ -40,7 +46,6 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      # - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear
   id: CMOGear

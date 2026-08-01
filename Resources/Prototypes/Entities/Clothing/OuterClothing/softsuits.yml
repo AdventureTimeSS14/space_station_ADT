@@ -13,7 +13,6 @@
     tags:
     - SuitEVA
     - MonkeyWearable
-    - CorgiWearable
     - WhitelistChameleon
 
 #Syndicate EVA
@@ -126,16 +125,21 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
+    requireActivated: false
   - type: HeldSpeedModifier
   - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
+    heatingCoefficient: 0.01 # ADT-Tweak 0.1 -> 0.01
+    coolingCoefficient: 0.01 # ADT-Tweak 0.1 -> 0.01
   - type: Armor
     modifiers:
       coefficients:
         Heat: 0.90
         Radiation: 0.75
         Caustic: 0.5
+  # ADT-Tweak-Start
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.2
+  # ADT-Tweak-End
   - type: GroupExamine
   # - type: StealTarget ADT tweak
   #   stealGroup: ClothingOuterHardsuitVoidParamed ADT tweak
@@ -170,5 +174,4 @@
       toggleable-clothing: !type:ContainerSlot {}
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon

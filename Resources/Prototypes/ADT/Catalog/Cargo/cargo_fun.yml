@@ -32,5 +32,23 @@
     state: death2_cap
   product: ADTCrateFunSprayPaints
   cost: 2000
-  category: Fun
+  category: cargoproduct-category-name-fun
   group: market
+
+- type: cargoProduct
+  id: ADTFunBoxMusicDisks
+  icon:
+    sprite: Objects/Storage/boxes.rsi
+    state: box
+  product: ADTBoxMusicDisks
+  category: cargoproduct-category-name-fun
+  cost: 400
+
+- type: cargoProduct
+  id: ADTFunJukeBoxPlayer
+  icon:
+    sprite: ADT/Objects/Devices/music_player.rsi
+    state: icon
+  product: ADTJukeBoxPlayer
+  category: cargoproduct-category-name-fun
+  cost: 500

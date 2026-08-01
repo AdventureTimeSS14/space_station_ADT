@@ -68,8 +68,7 @@
   - type: PowerCellDraw
     enabled: false
     drawRate: 1
-    useRate: 1
-    delay: 50
+    useCharge: 1
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: false
@@ -111,6 +110,7 @@
       - ADTModsuitModRadiationProtection
       - ADTModsuitModTray
       - ADTModsuitModIsulation
+      - ADTModsuitModMesonVision
   - type: Construction
     graph: ADTModsuitAtmospheric
     node: adtmodsuitatmospheric
@@ -181,6 +181,8 @@
     startingModules:
       - ADTModsuitModStorage
       - ADTModsuitModLight
+      - ADTModsuitModStatusReadout
+      - ADTModsuitModHealthAnalyzer
   - type: Construction
     graph: ADTModsuitMedical
     node: adtmodsuitmedical
@@ -207,6 +209,7 @@
     startingModules:
       - ADTModsuitModOrebag
       - ADTModsuitModStorage
+      - ADTModsuitModGPS
       - ADTModsuitModLight
       - ADTModsuitModPlasmaStabilizer
   - type: Tag
@@ -227,7 +230,7 @@
     sprite: ADT/Clothing/Back/Modsuit/security.rsi
     state: icon
   - type: ModSuit
-    maxComplexity: 8
+    maxComplexity: 10
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
@@ -239,6 +242,8 @@
       - ADTModsuitModStorage
       - ADTModsuitModLight
       - ADTModsuitModEmpProtection
+      - ADTModsuitModSechud
+      - ADTModsuitModBodycam
   - type: Construction
     graph: ADTModsuitSecurity
     node: adtmodsuitsecurity
@@ -294,6 +299,8 @@
       - ADTModsuitModJetpack
       - ADTModsuitModEmpProtection
       - ADTModsuitModIsulation
+      - ADTModsuitModSechud
+      - ADTModsuitModBodycam
   - type: MeleeWeapon
     damage:
       types:
@@ -348,6 +355,9 @@
       - ADTModsuitModJetpack
       - ADTModsuitModEmpProtection
       - ADTModsuitModIsulation
+      - ADTModsuitModRadiationProtection
+      - ADTModsuitModTray
+      - ADTModsuitModMesonVision
   - type: Construction
     graph: ADTModsuitScience
     node: adtmodsuitscience
@@ -382,6 +392,7 @@
       - ADTModsuitModLight
       - ADTModsuitModJetpack
       - ADTModsuitModIsulation
+    requiresBattery: false
   - type: UserInterface
     interfaces:
       enum.ModSuitUiKey.Key:
@@ -397,9 +408,6 @@
   - type: WiresPanel
   - type: ActivatableUIRequiresPanel
     requireOpen: false
-  - type: ItemSlotsRequirePanel
-    slots:
-      cell_slot: true
   - type: DNALocker
   - type: ContainerContainer
     containers:
@@ -490,6 +498,10 @@
       - ADTModsuitModStorageLarge
       - ADTModsuitModLight
       - ADTModsuitModJetpack
+      - ADTModsuitModReagentScanner
+      - ADTModsuitModStatusReadout
+      - ADTModsuitModHealthAnalyzer
+      - ADTModsuitModDefibrillator
 
 # Капитан
 - type: entity
@@ -534,7 +546,7 @@
       outerClothing: ADTClothingOuterModsuitBodyCentcom
       shoes: ADTClothingModsuitShoesCentcom
     startingModules:
-      - ADTModsuitModStorageLarge
+      - ADTModsuitModStorageBluespace
       - ADTModsuitModLight
       - ADTModsuitModJetpack
       - ADTModsuitModEmpProtection
@@ -559,7 +571,7 @@
       outerClothing: ADTClothingOuterModsuitBodyCCC
       shoes: ADTClothingModsuitShoesCentcom
     startingModules:
-      - ADTModsuitModStorageLarge
+      - ADTModsuitModStorageBluespace
       - ADTModsuitModLight
       - ADTModsuitModJetpack
       - ADTModsuitModIsulation
@@ -575,6 +587,7 @@
     sprite: ADT/Clothing/Back/Modsuit/warden.rsi
     state: icon
   - type: ModSuit
+    maxComplexity: 10
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
@@ -597,6 +610,7 @@
     sprite: ADT/Clothing/Back/Modsuit/brigmedic.rsi
     state: icon
   - type: ModSuit
+    maxComplexity: 14
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
@@ -607,6 +621,131 @@
     startingModules:
       - ADTModsuitModStorage
       - ADTModsuitModLight
+      - ADTModsuitModReagentScanner
+      - ADTModsuitModStatusReadout
+      - ADTModsuitModHealthAnalyzer
+      - ADTModsuitModDefibrillator
+      - ADTModsuitModSechud
+      - ADTModsuitModBodycam
+
+# НР "Минерва"
+- type: entity
+  parent: Clothing
+  id: ADTClothingModsuitBackMinerva
+  name: research MOD control unit "Minerva"
+  description: A high-tech research suit by Nakamura Engineering, made for the Research Director's field work.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/minerva.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitMinerva
+      gloves: ADTClothingHandsModsuitMinerva
+      outerClothing: ADTClothingOuterModsuitBodyMinerva
+      shoes: ADTClothingModsuitShoesMinerva
+    startingModules:
+      - ADTModsuitModStorageLarge
+      - ADTModsuitModReagentScanner
+      - ADTModsuitModWelding
+      - ADTModsuitModLight
+      - ADTModsuitModTray
+      - ADTModsuitModIsulation
+      - ADTModsuitModRadiationProtection
+      - ADTModsuitModAnomalyScanner
+    requiresBattery: false
+  - type: UserInterface
+    interfaces:
+      enum.ModSuitUiKey.Key:
+        type: ModSuitRadialBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ModSuitMenuUiKey.Key:
+        type: ModSuitMenuBoundUserInterface
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: WiresPanel
+  - type: ActivatableUIRequiresPanel
+    requireOpen: false
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+  - type: StealTarget
+    stealGroup: ClothingOuterHardsuitRd
+
+# ЭС "Харон"
+- type: entity
+  parent: Clothing
+  id: ADTClothingModsuitBackCharon
+  name: liberation MOD control unit "Charon"
+  description: An advanced combat suit favored by commandos for use in special operations.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/charon.rsi
+    state: icon
+  - type: ModSuit
+    maxComplexity: 20
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitCharon
+      gloves: ADTClothingHandsModsuitCharon
+      outerClothing: ADTClothingOuterModsuitBodyCharon
+      shoes: ADTClothingModsuitShoesCharon
+    startingModules:
+      - ADTModsuitModStorageBluespace
+      - ADTModsuitModLight
+      - ADTModsuitModEmpProtection
+      - ADTModsuitModNoslip
+      - ADTModsuitModStun
+      - ADTModsuitModJetpack
+      - ADTModsuitModIsulation
+      - ADTModsuitModNightVision
+    requiresBattery: false
+  - type: UserInterface
+    interfaces:
+      enum.ModSuitUiKey.Key:
+        type: ModSuitRadialBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ModSuitMenuUiKey.Key:
+        type: ModSuitMenuBoundUserInterface
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: WiresPanel
+  - type: ActivatableUIRequiresPanel
+    requireOpen: false
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
 
 - type: entity
   parent: ADTClothingModsuitBackBase
@@ -638,3 +777,116 @@
       - ADTModsuitModLight
       - ADTModsuitModIsulation
       - ADTModsuitModWelding
+
+# базовый ERT
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackERTBase
+  name: base ERT MOD control unit
+  description: A civilian class suit by Nakamura Engineering, doesn't offer much other than slightly quicker movement.
+  components:
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+
+# ОБР "Гамма"
+- type: entity
+  parent: ADTClothingModsuitBackERTBase
+  id: ADTClothingModsuitBackERTLeader
+  name: ERT MOD control unit "Polaris"
+  description: A streamlined Nanotrasen suit for the leader of a Gamma-code Emergency Response Team.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/responsory.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Back/Modsuit/responsory.rsi
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      - state: equipped-BACKPACK-unshaded
+        shader: unshaded
+        color: "#2b6cb0"
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitERTLeader
+      gloves: ADTClothingHandsModsuitERTLeader
+      outerClothing: ADTClothingOuterModsuitBodyERTLeader
+      shoes: ADTClothingModsuitShoesERT
+    startingModules:
+      - ADTModsuitModStorageBluespace
+      - ADTModsuitModLight
+      - ADTModsuitModEmpProtection
+      - ADTModsuitModSechud
+      - ADTModsuitModBodycam
+      - ADTModsuitModJetpack
+      - ADTModsuitModNoslip
+  - type: ContainerFill
+    containers:
+      cell_slot:
+      - PowerCellHyper
+
+- type: entity
+  parent: ADTClothingModsuitBackERTLeader
+  id: ADTClothingModsuitBackERTSecurity
+  name: ERT MOD control unit "Antares"
+  description: A streamlined Nanotrasen suit for the security officers of a Gamma-code Emergency Response Team.
+  components:
+  - type: Clothing
+    sprite: ADT/Clothing/Back/Modsuit/responsory.rsi
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      - state: equipped-BACKPACK-unshaded
+        shader: unshaded
+        color: "#b02b2b"
+  - type: ModSuit
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitERTSecurity
+      gloves: ADTClothingHandsModsuitERTSecurity
+      outerClothing: ADTClothingOuterModsuitBodyERTSecurity
+      shoes: ADTClothingModsuitShoesERT
+
+- type: entity
+  parent: ADTClothingModsuitBackERTLeader
+  id: ADTClothingModsuitBackERTEngineer
+  name: ERT MOD control unit "Capella"
+  description: A streamlined Nanotrasen suit for the engineers of a Gamma-code Emergency Response Team.
+  components:
+  - type: Clothing
+    sprite: ADT/Clothing/Back/Modsuit/responsory.rsi
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      - state: equipped-BACKPACK-unshaded
+        shader: unshaded
+        color: "#d4a017"
+  - type: ModSuit
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitERTEngineer
+      gloves: ADTClothingHandsModsuitERTEngineer
+      outerClothing: ADTClothingOuterModsuitBodyERTEngineer
+      shoes: ADTClothingModsuitShoesERT
+
+- type: entity
+  parent: ADTClothingModsuitBackERTLeader
+  id: ADTClothingModsuitBackERTMedical
+  name: ERT MOD control unit "Vega"
+  description: A streamlined Nanotrasen suit for the medics of a Gamma-code Emergency Response Team.
+  components:
+  - type: Clothing
+    sprite: ADT/Clothing/Back/Modsuit/responsory.rsi
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      - state: equipped-BACKPACK-unshaded
+        shader: unshaded
+        color: "#17c9d4"
+  - type: ModSuit
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitERTMedical
+      gloves: ADTClothingHandsModsuitERTMedical
+      outerClothing: ADTClothingOuterModsuitBodyERTMedical
+      shoes: ADTClothingModsuitShoesERT

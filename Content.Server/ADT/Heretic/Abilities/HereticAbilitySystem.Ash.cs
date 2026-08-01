@@ -2,9 +2,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -20,6 +22,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 {
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly TransformSystem _xform = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     private void SubscribeAsh()
     {
@@ -100,7 +103,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                 continue;
 
             if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
-            || HasComp<GhoulComponent>(look))
+            || HasComp<GhoulComponent>(look)
+            || HasComp<MagicImmunityComponent>(look))
                 continue;
 
             if (TryComp<FlammableComponent>(look, out var flam))
@@ -123,7 +127,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
                         var totalHeal = 10f + power;
                         var healSpec = new DamageSpecifier();
-                        var damageTypes = hereticDmgc!.Damage.DamageDict.Keys.ToList();
+                        var oldDamage = _damageable.GetAllDamage((ent.Owner, hereticDmgc));
+                        var damageTypes = oldDamage.DamageDict.Keys.ToList();
                         if (damageTypes.Count > 0)
                         {
                             var healPerType = totalHeal / damageTypes.Count;
@@ -137,13 +142,13 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                     }
 
                     // Проверяем, не перешла ли цель в крит после получения урона, и добиваем её
-                    if (TryComp<MobStateComponent>(look, out var mobstat))
+                    if (TryComp<MobStateComponent>(look, out var mobstat) && targetDmgc != null)
                     {
                         if (mobstat.CurrentState == MobState.Critical)
                         {
                             if (_mobThresholdSystem.TryGetThresholdForState(look, MobState.Dead, out var damage))
                             {
-                                var damageNeeded = damage.Value - targetDmgc!.TotalDamage;
+                                var damageNeeded = damage.Value - _damageable.GetTotalDamage((look, targetDmgc));
                                 if (damageNeeded > 0)
                                 {
                                     DamageSpecifier dspec = new();

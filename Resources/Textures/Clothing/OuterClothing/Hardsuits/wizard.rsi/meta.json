@@ -12,6 +12,9 @@
             "name": "icon"
         },
         {
+            "name": "equipped-OUTERCLOTHING-reptilian"
+        },
+        {
             "name": "equipped-OUTERCLOTHING",
             "directions": 4
         },

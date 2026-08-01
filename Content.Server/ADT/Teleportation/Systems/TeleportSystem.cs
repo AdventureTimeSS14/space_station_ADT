@@ -128,7 +128,7 @@ public sealed class TeleportSystem : EntitySystem
                 continue;
             // Check if we picked a position inside a solid object
             var valid = true;
-            foreach (var entity in grid.GetAnchoredEntities(targetCoords))
+            foreach (var entity in _map.GetAnchoredEntities(gridUid, grid, targetCoords))
             {
                 if (!_physicsQuery.TryGetComponent(entity, out var body))
                     continue;

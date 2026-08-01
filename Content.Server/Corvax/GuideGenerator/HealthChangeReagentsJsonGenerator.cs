@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-using Content.Shared.EntityEffects.Effects;
+using Content.Shared.EntityEffects.Effects.Damage;
 
 namespace Content.Server.Corvax.GuideGenerator;
 public sealed class HealthChangeReagentsJsonGenerator
@@ -19,7 +19,7 @@ public sealed class HealthChangeReagentsJsonGenerator
         {
             if (reagent.Metabolisms is null) continue;
 
-            foreach (var metabolism in reagent.Metabolisms)
+            foreach (var metabolism in reagent.Metabolisms.Metabolisms)
             {
                 foreach (HealthChange effect in metabolism.Value.Effects.Where(x => x is HealthChange))
                 {

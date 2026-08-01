@@ -37,7 +37,7 @@
             ServiceWorker: [ 2, 2 ]
             ADTBarber: [ 1, 1 ]
             Clown: [ 1, 1 ]
-            Boxer: [ 1, 1 ]
+            #Boxer: [ 1, 1 ] removed at commit 58f884133b 
             Mime: [ 1, 1 ]
             Reporter: [ 1, 1 ]
             Musician: [ 1, 1 ]

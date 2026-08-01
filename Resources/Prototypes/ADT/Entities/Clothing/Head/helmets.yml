@@ -1,17 +1,5 @@
 - type: entity
   parent: ClothingHeadBase
-  id: ADTClothingHeadHelmetSoliderIlisium
-  name: Helmet
-  description: Ilisium
-  suffix: Ilisium
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Head/Helmets/helmetSolder.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Head/Helmets/helmetSolder.rsi
-
-- type: entity
-  parent: ClothingHeadBase
   id: ADTClothingHeadHelmetTSF
   name: TSF helmet
   description: Standard security gear. Protects the head from impacts.
@@ -192,3 +180,14 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.8
+
+- type: entity
+  parent: ClothingHeadHelmetSwat
+  id: ADTClothingHeadHelmetBlueShield
+  name: blue shield officer's helmet
+  description: A very durable helmet designed for the Blue Shield corps.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/blue_shield_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/blue_shield_helmet.rsi

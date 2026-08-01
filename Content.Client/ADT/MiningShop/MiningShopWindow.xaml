@@ -1,29 +1,34 @@
-﻿<DefaultWindow
+<DefaultWindow
     xmlns="https://spacestation14.io"
     xmlns:controls="clr-namespace:Content.Client.ADT.MiningShop"
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
-    MinSize="530 700"
-    SetSize="530 700"
-    Resizable="False">
-    <BoxContainer Orientation="Vertical">
-        <BoxContainer Orientation="Horizontal">
-            <Label Text="Search" Align="Left" />
-            <LineEdit Name="Search" Access="Public" HorizontalExpand="True" Margin="10 0 0 0" />
-            <Control HorizontalExpand="True" SizeFlagsStretchRatio="0.25" />
-            <Label Name="PointsLabel" Access="Public" HorizontalExpand="True" Align="Right" />
+    MinSize="520 620"
+    SetSize="520 720"
+    Resizable="True">
+
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="6" SeparationOverride="4">
+
+        <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+            <LineEdit Name="Search" Access="Public" HorizontalExpand="True"
+                      PlaceHolder="{Loc 'mining-shop-window-search'}" />
+            <Label Name="PointsLabel" Access="Public" Align="Right" StyleClasses="LabelKeyText" />
         </BoxContainer>
-        <BoxContainer Name="Main"
-                    Orientation="Horizontal"
-                    Margin="5">
-        <Button Name="Express"
-                    Access="Public"
-                    HorizontalExpand="True"
-                    VerticalExpand="True"/>
+
+        <BoxContainer Name="Main" Orientation="Horizontal">
+            <Button Name="Express" Access="Public" HorizontalExpand="True" />
         </BoxContainer>
-        <BoxContainer Orientation="Horizontal">
-            <RichTextLabel Name="YourPurchases" Access="Public" MaxWidth="1000" /> </BoxContainer>
-        <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+
+        <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
             <BoxContainer Orientation="Vertical" Name="Sections" Access="Public" />
         </ScrollContainer>
+
+        <cc:HSeparator Color="#4972A1" />
+
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+            <Label Text="{Loc 'mining-shop-window-your-purchases'}" StyleClasses="LabelKeyText" />
+            <ScrollContainer MinHeight="72" MaxHeight="72" HorizontalExpand="True" HScrollEnabled="False">
+                <RichTextLabel Name="YourPurchases" Access="Public" />
+            </ScrollContainer>
+        </BoxContainer>
     </BoxContainer>
 </DefaultWindow>

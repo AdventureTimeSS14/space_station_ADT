@@ -1,8 +1,7 @@
 - type: marking
   id: ADTDwarfBearCheeks
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   forcedColoring: true
   followSkinColor: false
   sprites:
@@ -13,8 +12,7 @@
 - type: marking
   id: ADTDwarfHeadGlow
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   forcedColoring: true
   followSkinColor: false
   sprites:
@@ -25,8 +23,7 @@
 - type: marking
   id: ADTDwarfConstellationHead
   bodyPart: Head
-  markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -41,8 +38,7 @@
 - type: marking
   id: ADTDwarfConstellationChest
   bodyPart: Chest
-  markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -57,8 +53,7 @@
 - type: marking
   id: ADTDwarfConstellationLArm
   bodyPart: LArm
-  markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -73,8 +68,7 @@
 - type: marking
   id: ADTDwarfConstellationLHand
   bodyPart: LHand
-  markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -89,8 +83,7 @@
 - type: marking
   id: ADTDwarfConstellationRArm
   bodyPart: RArm
-  markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -105,8 +98,7 @@
 - type: marking
   id: ADTDwarfConstellationRHand
   bodyPart: RHand
-  markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -121,8 +113,7 @@
 - type: marking
   id: ADTDwarfConstellationLLeg
   bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -137,8 +128,7 @@
 - type: marking
   id: ADTDwarfConstellationLFoot
   bodyPart: LFoot
-  markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -153,8 +143,7 @@
 - type: marking
   id: ADTDwarfConstellationRLeg
   bodyPart: RLeg
-  markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -169,8 +158,7 @@
 - type: marking
   id: ADTDwarfConstellationRFoot
   bodyPart: RFoot
-  markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -185,8 +173,7 @@
 - type: marking
   id: ADTDwarfChestHair
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
     state: dwarfchesthair
@@ -194,8 +181,7 @@
 - type: marking
   id: ADTDwarfArmHair
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
     state: dwarfarmhair
@@ -203,8 +189,7 @@
 - type: marking
   id: ADTDwarfLegHair
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
     state: dwarfleghair
@@ -212,8 +197,7 @@
 - type: marking
   id: ADTDwarfTattooShootingStar
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -227,8 +211,7 @@
 - type: marking
   id: ADTDwarfMarkBear
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -242,8 +225,7 @@
 - type: marking
   id: ADTDwarfMarkKangarooLHand
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -257,8 +239,7 @@
 - type: marking
   id: ADTDwarfMarkKangarooRHand
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -272,8 +253,7 @@
 - type: marking
   id: ADTDwarfMarkCobra
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -287,8 +267,7 @@
 - type: marking
   id: ADTDwarfMarkSpider
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Dwarf ]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:

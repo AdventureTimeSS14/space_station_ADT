@@ -14,7 +14,6 @@ namespace Content.Shared.EntityEffects.Effects.EntitySpawning;
 public sealed partial class SpawnRandomEntityEntityEffectSystem : EntityEffectSystem<TransformComponent, SpawnRandomEntity>
 {
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<SpawnRandomEntity> args)

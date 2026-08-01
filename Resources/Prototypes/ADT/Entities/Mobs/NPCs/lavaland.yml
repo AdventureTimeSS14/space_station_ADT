@@ -75,6 +75,9 @@
             max: 1
   - type: Fauna
   - type: AshStormImmune
+  - type: ADTMobLoot
+    loots:
+      ADTKineticTrophyLegionSkull: 0.1
 
 - type: entity
   id: ADTMobLegionSkull
@@ -188,6 +191,9 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MeatLaserImpact
+  - type: ADTMobLoot
+    loots:
+      ADTKineticTrophyAncientGoliathTentacle: 0.1
 
 - type: weightedRandomEntity
   id: AncientGoliathActions
@@ -199,7 +205,7 @@
 
 - type: entity
   name: Nightmare Spider
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobNightmareSpider
   components:
   - type: Sprite
@@ -263,15 +269,15 @@
   - type: MeleeChemicalInjector
     transferAmount: 12
     solution: melee
-  - type: TimedDespawn
-    lifetime: 35
   - type: AshStormImmune
   - type: Fauna
-
+  - type: ADTMobLoot
+    loots:
+      ADTKineticTrophyPoisonFang: 0.1
 
 - type: entity
   name: Shock Spider
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobShockSpider
   components:
   - type: Sprite
@@ -334,10 +340,11 @@
   - type: MeleeChemicalInjector
     transferAmount: 7
     solution: melee
-  - type: TimedDespawn
-    lifetime: 35
   - type: AshStormImmune
   - type: Fauna
+  - type: ADTMobLoot
+    loots:
+      ADTKineticTrophyFrostGland: 0.1
 
 #Crab
 - type: entity
@@ -425,16 +432,8 @@
       Dead: 0
     baseDecayRate: 0.04
   - type: Temperature
-    heatDamageThreshold: 325
-    coldDamageThreshold: 0
     currentTemperature: 310.15
-    coldDamage:
-      types:
-        Cold : 0
     specificHeat: 42
-    heatDamage:
-      types:
-        Heat : 0
   - type: StatusEffects
     allowed:
     - KnockedDown
@@ -442,15 +441,14 @@
     - Stutter
     - Weakness
     - Electrocution
-    - ForcedSleep
-    - TemporaryBlindness
+    - ForcedSleep 
     - Pacified
     - StaminaModifier
-    - RadiationProtection
     - Drowsiness
     - Adrenaline #ADT-Medicine
   - type: MobPrice
     price: 150
   - type: FloatingVisuals
   - type: Fauna
+  - type: ADTCleanRemains
   - type: AshStormImmune

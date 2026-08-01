@@ -2,12 +2,14 @@ using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Chat.Managers;
 using Content.Server.Station.Systems;
+using Content.Shared.ADT.Silicons.Borgs.Components;
 using Content.Shared.Administration;
 using Content.Shared.Chat;
 using Content.Shared.Emag.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Overlays;
 using Content.Shared.Radio.Components;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
@@ -19,6 +21,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared.Tag;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 
@@ -35,6 +39,9 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!;
+
+    private static readonly ProtoId<SiliconLawsetPrototype> DefaultCrewLawset = "Crewsimov";
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -63,6 +70,11 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     {
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
+
+        // ADT-Tweak-AiRemoteControl-Start
+        if (HasComp<AiRemoteControllerComponent>(uid) || _tagSystem.HasTag(uid, "StationAi")) // skip a law's notification for remotable and AI
+            return;
+        // ADT-Tweak-AiRemoteControl-End
 
         var msg = Loc.GetString("laws-notify");
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
@@ -134,6 +146,11 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         if (component.Lawset == null)
             component.Lawset = GetLawset(component.Laws);
+
+        // ADT-Tweak-AiRemoteControl-Start
+        if (HasComp<AiRemoteControllerComponent>(uid)) // You can't emag controllable entities
+            return;
+        // ADT-Tweak-AiRemoteControl-End
 
         args.Laws = component.Lawset;
 
@@ -330,7 +347,19 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         while (query.MoveNext(out var update))
         {
+            if (TryComp<ShowCrewIconsComponent>(update, out var crewIconComp))
+            {
+                crewIconComp.UncertainCrewBorder = DefaultCrewLawset != provider.Laws;
+                Dirty(update, crewIconComp);
+            }
             SetLaws(lawset.Laws, update, provider.LawUploadSound);
+
+            // ADT-Tweak-AiRemoteControl-Start
+            if (TryComp<StationAiHeldComponent>(update, out var stationAiHeldComp) && stationAiHeldComp.CurrentConnectedEntity != null && HasComp<SiliconLawProviderComponent>(stationAiHeldComp.CurrentConnectedEntity))
+            {
+                SetLawsSilent(lawset.Laws, stationAiHeldComp.CurrentConnectedEntity.Value);
+            }
+            // ADT-Tweak-AiRemoteControl-End
         }
         ///ADT AI Custom law start
         UpdateBorgsNTLaws(lawset.Laws);
@@ -346,6 +375,18 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         return;
     }
     ///ADT AI Custom law end
+    // ADT-Tweak-AiRemoteControl-Start
+    public void SetLawsSilent(List<SiliconLaw> newLaws, EntityUid target, SoundSpecifier? cue = null)
+    {
+        if (!TryComp<SiliconLawProviderComponent>(target, out var component))
+            return;
+
+        if (component.Lawset == null)
+            component.Lawset = new SiliconLawset();
+
+        component.Lawset.Laws = newLaws;
+    }
+    // ADT-Tweak-AiRemoteControl-End
 }
 
 [ToolshedCommand, AdminCommand(AdminFlags.Admin)]

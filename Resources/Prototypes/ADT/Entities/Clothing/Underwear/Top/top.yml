@@ -213,4 +213,56 @@
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Top/t_shirt.rsi
 
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraCow
+  name: cow bra
+  description: Cute cow-themed bra. Moo!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/bra_cow.rsi
 
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraBlack
+  name: black bra
+  description: Standard Nanotrasen bra for station staff. Dyed black.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/bra_black.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraBlue
+  name: blue bra
+  description: Standard Nanotrasen bra for station staff. Dyed blue.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/bra_blue.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraRed
+  name: red bra
+  description: Standard Nanotrasen bra for station staff. Dyed red.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/bra_red.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopTShirtBlack
+  name: black t-shirt
+  description: Standard t-shirt. Dyed black.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/t_shirt_black.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopTShirtTelnik
+  name: striped undershirt
+  description: A classic striped sailor's undershirt.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/t_shirt_telnik.rsi #спрайты от prazat911

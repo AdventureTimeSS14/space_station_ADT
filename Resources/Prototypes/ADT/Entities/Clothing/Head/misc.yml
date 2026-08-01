@@ -53,3 +53,59 @@
     range: 10 #радиус голоса
     sound:
       path: /Audio/ADT/Ambience/Music/robotnik.ogg
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBlackroseFlowerWreath
+  name: ClothingHeadHatBlackroseFlowerWreath-name
+  description: ClothingHeadHatBlackroseFlowerWreath-desc
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Misc/blackrose-wreath.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Misc/blackrose-wreath.rsi
+    slots:
+    - HEAD
+    - neck
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatMacFlowerWreath
+  name: ClothingHeadHatMacFlowerWreath-name
+  description: ClothingHeadHatMacFlowerWreath-desc
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Misc/mac-wreat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Misc/mac-wreat.rsi
+    slots:
+    - HEAD
+    - neck
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatRoseFlowerWreath
+  name: ClothingHeadHatRoseFlowerWreath-name
+  description: ClothingHeadHatRoseFlowerWreath-desc
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Misc/rose-wreat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Misc/rose-wreat.rsi
+    slots:
+    - HEAD
+    - neck
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatDandelionFlowerWreath
+  name: ClothingHeadHatDandelionFlowerWreath-name
+  description: ClothingHeadHatDandelionFlowerWreath-desc
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Misc/dandelion-wreat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Misc/dandelion-wreat.rsi
+    slots:
+    - HEAD
+    - neck

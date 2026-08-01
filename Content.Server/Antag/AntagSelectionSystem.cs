@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.ADT.Antag;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
@@ -13,7 +14,7 @@ using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
-using Content.Server.Shuttles.Components;
+using Content.Server.Shuttles.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Antag;
 using Content.Shared.Clothing;
@@ -54,6 +55,8 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly ArrivalsSystem _arrivals = default!;
+    [Dependency] private readonly AntagRollBonusManager _rollBonus = default!;
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
@@ -168,6 +171,15 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         if (!args.LateJoin)
             return;
 
+        TryMakeLateJoinAntag(args.Player);
+    }
+
+    /// <summary>
+    /// Attempt to make this player be a late-join antag.
+    /// </summary>
+    /// <param name="session">The session to attempt to make antag.</param>
+    public void TryMakeLateJoinAntag(ICommonSession session)
+    {
         // TODO: this really doesn't handle multiple latejoin definitions well
         // eventually this should probably store the players per definition with some kind of unique identifier.
         // something to figure out later.
@@ -197,7 +209,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             if (!TryGetNextAvailableDefinition((uid, antag), out var def, players))
                 continue;
 
-            if (TryMakeAntag((uid, antag), args.Player, def.Value))
+            if (TryMakeAntag((uid, antag), session, def.Value))
                 break;
         }
     }
@@ -271,6 +283,13 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         bool midround = false)
     {
         var playerPool = GetPlayerPool(ent, pool, def);
+
+        // ADT-Tweak-Start
+        var bonusRole = GetRollBonusRole(def);
+        if (!midround && bonusRole != null)
+            _rollBonus.MarkEligible(playerPool.AllCandidates, bonusRole.Value);
+        // ADT-Tweak-End
+
         var existingAntagCount = ent.Comp.PreSelectedSessions.TryGetValue(def, out var existingAntags) ? existingAntags.Count : 0;
         var count = GetTargetAntagCount(ent, GetTotalPlayerCount(pool), def) - existingAntagCount;
 
@@ -311,6 +330,10 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                 if (!ent.Comp.PreSelectedSessions.TryGetValue(def, out var set))
                     ent.Comp.PreSelectedSessions.Add(def, set = new HashSet<ICommonSession>());
                 set.Add(session); // Selection done!
+                // ADT-Tweak-Start
+                if (!midround && bonusRole != null)
+                    _rollBonus.MarkPreSelected(session, bonusRole.Value);
+                // ADT-Tweak-End
                 Log.Debug($"Pre-selected {session.Name} as antagonist: {ToPrettyString(ent)}");
                 _adminLogger.Add(LogType.AntagSelection, $"Pre-selected {session.Name} as antagonist: {ToPrettyString(ent)}");
             }
@@ -383,7 +406,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                 ent.Comp.PreSelectedSessions.Add(def, set = new HashSet<ICommonSession>());
             set.Add(session);
             ent.Comp.AssignedSessions.Add(session);
-            
+
             // Corvax-start
             if (def.RoundstartEntity != null && ent.Comp.SelectionTime == AntagSelectionTime.PrePlayerSpawn)
                 antagEnt = Spawn(def.RoundstartEntity);
@@ -483,6 +506,12 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             ent.Comp.AssignedMinds.Add((curMind.Value, Name(player)));
             SendBriefing(session, def.Briefing);
 
+            // ADT-Tweak-Start
+            var bonusRole = GetRollBonusRole(def);
+            if (bonusRole != null)
+                _rollBonus.MarkBecameAntag(session, bonusRole.Value);
+            // ADT-Tweak-End
+
             Log.Debug($"Assigned {ToPrettyString(curMind)} as antagonist: {ToPrettyString(ent)}");
             _adminLogger.Add(LogType.AntagSelection, $"Assigned {ToPrettyString(curMind)} as antagonist: {ToPrettyString(ent)}");
         }
@@ -517,8 +546,31 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             }
         }
 
-        return new AntagSelectionPlayerPool(new() { preferredList, fallbackList });
+        // ADT-Tweak-Start
+        RobustRandom.Shuffle(preferredList);
+        RobustRandom.Shuffle(fallbackList);
+
+        var bonusRole = GetRollBonusRole(def);
+        if (bonusRole == null)
+            return new AntagSelectionPlayerPool(new() { preferredList, fallbackList });
+
+        var role = bonusRole.Value;
+        return new AntagSelectionPlayerPool(new() { preferredList, fallbackList }, s => _rollBonus.GetWeight(s, role));
+        // ADT-Tweak-End
     }
+
+    // ADT-Tweak-Start
+    private static ProtoId<AntagPrototype>? GetRollBonusRole(AntagSelectionDefinition def)
+    {
+        if (def.PrefRoles.Count > 0)
+            return def.PrefRoles[0];
+
+        if (def.FallbackRoles.Count > 0)
+            return def.FallbackRoles[0];
+
+        return null;
+    }
+    // ADT-Tweak-End
 
     /// <summary>
     /// Checks if a given session is valid for an antagonist.
@@ -577,10 +629,10 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         if (entity == null)
             return true;
 
-        if (HasComp<PendingClockInComponent>(entity))
+        if (_arrivals.IsOnArrivals((entity.Value, null)))
             return false;
 
-        if (!def.AllowNonHumans && !HasComp<HumanoidAppearanceComponent>(entity))
+        if (!def.AllowNonHumans && !HasComp<HumanoidProfileComponent>(entity))
             return false;
 
         if (def.Whitelist != null)

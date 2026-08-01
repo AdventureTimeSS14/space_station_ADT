@@ -146,8 +146,8 @@ public sealed class BatteryDrinkerSystem : EntitySystem
             return;
 
         var amountToDrink = drinkerBattery.MaxCharge * 0.10f;
-        amountToDrink = MathF.Min(amountToDrink, sourceBattery.CurrentCharge);
-        amountToDrink = MathF.Min(amountToDrink, drinkerBattery.MaxCharge - drinkerBattery.CurrentCharge);
+        amountToDrink = MathF.Min(amountToDrink, _battery.GetCharge((source, sourceBattery)));
+        amountToDrink = MathF.Min(amountToDrink, drinkerBattery.MaxCharge - _battery.GetCharge((drinker, drinkerBattery)));
 
         if (sourceComp.MaxAmount > 0)
             amountToDrink = MathF.Min(amountToDrink, (float)sourceComp.MaxAmount);
@@ -166,7 +166,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         }
 
         // Проверка на NaN/Infinity перед установкой заряда
-        var newCharge = drinkerBattery.CurrentCharge + amountToDrink;
+        var newCharge = _battery.GetCharge((drinker, drinkerBattery)) + amountToDrink;
         if (float.IsNaN(newCharge) || float.IsInfinity(newCharge))
         {
             _popup.PopupEntity(Loc.GetString("battery-drinker-error", ("target", source)), drinker, drinker);
@@ -176,8 +176,8 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         var tryUse = _battery.TryUseCharge((source, sourceBattery), amountToDrink);
         if (tryUse)
         {
-            _battery.SetCharge(drinkerBatteryUid, newCharge);
-            if (drinkerBattery.CurrentCharge < drinkerBattery.MaxCharge * 0.95f)
+            _battery.ChangeCharge(drinkerBatteryUid, amountToDrink);
+            if (_battery.GetCharge((drinker, drinkerBattery)) < drinkerBattery.MaxCharge * 0.95f)
             {
                 args.Repeat = true;
             }

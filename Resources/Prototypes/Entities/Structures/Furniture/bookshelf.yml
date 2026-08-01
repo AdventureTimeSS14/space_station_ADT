@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: Bookshelf
   parent: BaseStructure
   name: "bookshelf"
@@ -17,6 +17,7 @@
     fillBaseName: book
   - type: Damageable
     damageModifierSet: Wood
+  - type: Injurable
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:

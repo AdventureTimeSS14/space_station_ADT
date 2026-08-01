@@ -14,6 +14,7 @@ using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
+using Content.Shared.StepTrigger.Components;
 using Content.Shared.Storage.Components;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Containers;
@@ -23,6 +24,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Random;
 using Content.Shared.Overlays;
 using Content.Shared.Whitelist;
+using Content.Shared.ADT.Mech.Components;    // ADT Mech
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -31,7 +33,6 @@ namespace Content.Shared.Mech.EntitySystems;
 /// </summary>
 public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
@@ -151,6 +152,8 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         rider.Mech = mech;
         Dirty(pilot, rider);
 
+        EnsureComp<ProtectedFromStepTriggersComponent>(pilot); // ADT-Tweak
+
         if (_net.IsClient)
             return;
 
@@ -172,8 +175,14 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
             return;
         RemComp<RelayInputMoverComponent>(pilot);
         RemComp<InteractionRelayComponent>(pilot);
+        RemCompDeferred<ProtectedFromStepTriggersComponent>(pilot); // ADT-Tweak
 
         _actions.RemoveProvidedActions(pilot, mech);
+
+        // ADT-Mech-Start
+        var ev = new RemoveMechUserEvent(pilot);
+        RaiseLocalEvent(mech, ref ev);
+        // ADT-Mech-End
     }
 
     /// <summary>
@@ -313,6 +322,7 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
 
     /// <summary>
     /// Attempts to change the amount of energy in the mech.
+    /// TODO: Power cells are predicted now, so no need to duplicate the charge level
     /// </summary>
     /// <param name="uid">The mech itself</param>
     /// <param name="delta">The change in energy</param>
@@ -458,6 +468,11 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         if (args.Handled)
             return;
 
+        // ADT-Mech-Start
+        if (HasComp<MechControlLockedComponent>(uid))
+            return;
+        // ADT-Mech-Start
+
         if (!TryComp<MechComponent>(component.Mech, out var mech))
             return;
 
@@ -468,7 +483,7 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
 
     private void OnCanAttackFromContainer(EntityUid uid, MechPilotComponent component, CanAttackFromContainerEvent args)
     {
-        args.CanAttack = true;
+        args.CanAttack = !HasComp<MechControlLockedComponent>(uid); // ADT-Mech-Tweak
     }
 
     private void OnAttackAttempt(EntityUid uid, MechPilotComponent component, AttackAttemptEvent args)
@@ -479,7 +494,10 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         // ADT-Tweak start: disable attack 0 cell
         if (TryComp<MechComponent>(component.Mech, out var mech) && mech.Energy <= 0)
             args.Cancel();
-        // ADT-Tweak end
+
+        if (HasComp<MechControlLockedComponent>(uid))
+            args.Cancel();
+        // ADT-Mech-End
     }
 
     private void UpdateAppearance(EntityUid uid, MechComponent? component = null,

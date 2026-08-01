@@ -84,7 +84,7 @@
     FoodPlateSmall: 1
     FoodCheeseSlice: 1
     FoodOnion: 1
-    ADTOrganVulpkaninLiver: 1
+    OrganVulpkaninLiver: 1 # was ADTOrganVulpkaninLiver, removed in PR#42476 body refactor
   recipeType:
   - Assembler
 
@@ -814,7 +814,7 @@
   time: 15
   group: Savory
   solids:
-    TorsoHuman: 1
+    FoodMeatHuman: 1
     FoodKebabSkewer: 1
   recipeType:
   - Oven
@@ -1329,3 +1329,44 @@
     Sugar: 5
   recipeType:
   - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTRecipeStringCheese
+  name: string cheese recipe
+  result: ADTStringCheese
+  time: 5
+  group: Savory
+  solids:
+    FoodCheeseSlice: 1
+  reagents:
+    TableSalt: 5
+  recipeType:
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTRecipeBananaBoom
+  name: banana boom recipe
+  result: ADTFoodCakeBananaBoom
+  time: 5
+  group: Cake
+  solids:
+    FoodBanana: 7
+    FoodSnackChocolateBar: 1
+    FoodCakePlain: 1
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTRecipeChakChak
+  name: chak-chak recipe
+  result: ADTChakChak
+  time: 10
+  group: Savory
+  solids:
+    FoodPlateSmall: 1
+    FoodDough: 1
+  reagents:
+    OilOlive: 5
+    Mead: 15
+  recipeType:
+  - Microwave

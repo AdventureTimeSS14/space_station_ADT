@@ -74,9 +74,6 @@ public sealed class IvDripSystem : SharedIvDripSystem
                 if (attachedStream is { } bloodSolutionEnt &&
                     TryComp(attachedTo, out BloodstreamComponent? bloodstream))
                 {
-                    var beforePack = packSol.Volume;
-                    var beforeBlood = bloodSolutionEnt.Comp.Solution.Volume;
-
                     var transferAmount = FixedPoint2.Min(ivComp.CurrentTransferAmount, packSol.Volume);
                     if (transferAmount > FixedPoint2.Zero)
                     {
@@ -90,29 +87,25 @@ public sealed class IvDripSystem : SharedIvDripSystem
 
                         if (bloodOnlySolution.Volume > FixedPoint2.Zero)
                         {
-                            var addedBlood = _sharedSolutionContainer.AddSolution(bloodSolutionEnt, bloodOnlySolution);
-                            var remainingBlood = bloodOnlySolution.Volume - addedBlood;
-                            if (remainingBlood > FixedPoint2.Zero)
+                            var currentBloodVolume = bloodSolutionEnt.Comp.Solution.Volume;
+                            var maxBloodVolume = bloodstream.BloodReferenceSolution.Volume * bloodstream.MaxVolumeModifier;
+                            var availableSpace = FixedPoint2.Max(FixedPoint2.Zero, maxBloodVolume - currentBloodVolume);
+
+                            if (availableSpace > FixedPoint2.Zero)
                             {
-                                var overflow = bloodOnlySolution.Clone();
-                                overflow.SplitSolution(addedBlood);
-                                _sharedSolutionContainer.AddSolution(packSolEnt.Value, overflow);
+                                var bloodToAdd = FixedPoint2.Min(bloodOnlySolution.Volume, availableSpace);
+                                _bloodstream.TryRegulateBloodLevel(attachedTo, bloodToAdd);
                             }
                         }
 
                         if (nonBloodSolution.Volume > FixedPoint2.Zero)
                         {
-                            if (!_bloodstream.TryAddToChemicals((attachedTo, bloodstream), nonBloodSolution))
+                            if (!_bloodstream.TryAddToBloodstream(attachedTo, nonBloodSolution))
                             {
                                 _sharedSolutionContainer.AddSolution(packSolEnt.Value, nonBloodSolution);
                             }
                         }
                     }
-
-                    var afterPack = packSol.Volume;
-                    var afterBlood = bloodSolutionEnt.Comp.Solution.Volume;
-
-                    Dirty(packSolEnt.Value);
                 }
             }
             else

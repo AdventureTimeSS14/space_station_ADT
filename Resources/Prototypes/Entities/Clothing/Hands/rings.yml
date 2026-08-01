@@ -8,10 +8,10 @@
     layers:
       - state: ring
         color: "#ffc833"
-      #ADT-Tweak-Start
+      # ADT-Tweak-Start
       - state: equipped-FINGER
-        color: "#ffc833"
-      #ADT-Tweak-End
+        color: "#00000000"
+      # ADT-Tweak-End
 
 - type: entity
   parent: [ RingBase, SilverRingBase ]
@@ -22,7 +22,10 @@
   - type: Sprite
     layers:
       - state: ring
-      - state: equipped-FINGER #ADT-Tweak
+      # ADT-Tweak-Start
+      - state: equipped-FINGER
+        color: "#00000000"
+      # ADT-Tweak-End
 
 - type: entity
   parent: [ RingBase, GoldRingBase ]
@@ -36,10 +39,10 @@
         color: "#ffc833"
       - state: gem
         color: "#c1ffff"
-      #ADT-Tweak-Start
+      # ADT-Tweak-Start
       - state: equipped-FINGER
-        color: "#ffc833"
-      #ADT-Tweak-End
+        color: "#00000000"
+      # ADT-Tweak-End
   - type: StaticPrice
     price: 1500
 
@@ -54,7 +57,10 @@
       - state: ring
       - state: gem
         color: "#c1ffff"
-      - state: equipped-FINGER #ADT-Tweak
+      # ADT-Tweak-Start
+      - state: equipped-FINGER
+        color: "#00000000"
+      # ADT-Tweak-End
   - type: StaticPrice
     price: 1400
 
@@ -70,10 +76,10 @@
         color: "#ffc833"
       - state: gem
         map: [ "gemColor" ]
-      #ADT-Tweak-Start
+      # ADT-Tweak-Start
       - state: equipped-FINGER
-        color: "#ffc833"
-      #ADT-Tweak-End
+        color: "#00000000"
+      # ADT-Tweak-End
   - type: StaticPrice
     price: 2100
   - type: RandomSprite
@@ -93,7 +99,10 @@
       - state: ring
       - state: gem
         map: [ "gemColor" ]
-      - state: equipped-FINGER #ADT-Tweak
+      # ADT-Tweak-Start
+      - state: equipped-FINGER
+        color: "#00000000"
+      # ADT-Tweak-End
   - type: StaticPrice
     price: 2000
   - type: RandomSprite

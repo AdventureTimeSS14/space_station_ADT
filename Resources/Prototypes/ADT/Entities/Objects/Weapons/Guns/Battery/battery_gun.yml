@@ -16,11 +16,11 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTProjectileIonRifle
     fireCost: 125
-  - type: RunAndGunSpreadModifier
-    modifier: 0.1
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.1
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -71,7 +71,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
   - type: StaticPrice
@@ -118,7 +118,7 @@
       fireRate: 1.5
       soundGunshot:
         path: /Audio/ADT/Weapons/Guns/Gunshots/gunshot_tsd.ogg
-    - type: ProjectileBatteryAmmoProvider
+    - type: BatteryAmmoProvider
       proto: ADTADTBulletMagnumHighVelocityTranquilizer
       fireCost: 150
     - type: MagazineVisuals
@@ -157,7 +157,7 @@
       fireRate: 0.6
       soundGunshot:
         path: /Audio/Weapons/plasma_cutter.ogg
-    - type: ProjectileBatteryAmmoProvider
+    - type: BatteryAmmoProvider
       proto: ADTBulletCutter
       fireCost: 100
     - type: Battery
@@ -178,7 +178,7 @@
       fireRate: 1
       soundGunshot:
         path: /Audio/Weapons/plasma_cutter.ogg
-    - type: ProjectileBatteryAmmoProvider
+    - type: BatteryAmmoProvider
       proto: ADTBulletCutterAdv
       fireCost: 75
     - type: Appearance
@@ -214,18 +214,18 @@
     soundHit:
       collection: GenericHit
   - type: AltFireMelee
-  - type: RunAndGunSpreadModifier
-    modifier: 0.1
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.1
   - type: Gun
     fireRate: 3
-    projectileSpeed: 60
+    projectileSpeed: 40
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
     - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBulletDisabler
     fireCost: 30
   - type: BatteryWeaponFireModes
@@ -247,11 +247,11 @@
   - type: StaticPrice
     price: 7500
   - type: Item
-    size: Normal
+    size: Small
 
 - type: entity
   name: Miniature Energy Crossbow
-  parent: BaseWeaponBatterySmall
+  parent: BaseItem
   id: ADTWeaponMiniatureEnergyCrossbow
   description: The syndicate's energy crossbow, small, silent and deadly.
   components:
@@ -262,27 +262,38 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Belt
+  - type: Item
+    sprite: Objects/Weapons/Guns/Basic/energy_crossbow.rsi
+    size: Small
   - type: Gun
-    resetOnHandSelected: false
+    fireRate: 3
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
     soundGunshot:
-      path: /Audio/ADT/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
-      params:
-        volume: -5
-  - type: ProjectileBatteryAmmoProvider
+      path: /Audio/Weapons/Guns/Gunshots/energycrossbow_shoot.ogg
+  - type: BasicEntityAmmoProvider
     proto: ADTBulletMic
-    fireCost: 900
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 300
+    capacity: 1
+    count: 1
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 4
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/energycrossbow_reload.ogg
   - type: MagazineVisuals
     magState: mag
     steps: 2
     zeroVisible: true
+  - type: AmmoCounter
   - type: Appearance
 
 - type: entity
   name: Energy Crossbow
-  parent: ADTWeaponMiniatureEnergyCrossbow
+  parent: BaseWeaponBatterySmall
   id: ADTWeaponEnergyCrossbow
   description: Energy crossbow, big, powerful and stily.
   components:
@@ -293,7 +304,7 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBulletEnergyCrossbow
     fireCost: 900
   - type: Item
@@ -308,7 +319,8 @@
       params:
         volume: -5
     fireRate: 0.5
-  - type: UpgradeableGun
+  - type: ADTUpgradeableGun # ADT Tweak
+    maxModCapacity: 100
     whitelist:
       tags:
       - PKAUpgrade
@@ -358,11 +370,11 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTProjectileIonRifle
     fireCost: 150
-  - type: RunAndGunSpreadModifier
-    modifier: 0.1
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.1
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -390,100 +402,6 @@
     - ADTBsoWeapon
 
 - type: entity
-  name: toy blaster
-  parent: [BaseWeaponBatterySmall]
-  id: ADTToyBlasterGun
-  abstract: true
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: false
-  - type: Appearance
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
-  - type: Gun
-    selectedMode: SemiAuto
-    fireRate: 2
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-      params:
-        pitch: 2
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaserBlaster
-    fireCost: 125
-  - type: StaticPrice
-    price: 50
-  - type: GunExecutionBlacklist
-
-- type: entity
-  name: red toy blaster
-  parent: [ADTToyBlasterGun]
-  id: ADTToyBlasterGunRed
-  description: A hastily converted laser blaster shoots simple 30 watt lasers.
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Fun/toyweapon/redblaster.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: Tag
-    tags:
-    - ADTToyBlaster
-  - type: GunExecutionBlacklist
-
-- type: entity
-  name: blue toy blaster
-  parent: [ADTToyBlasterGun]
-  id: ADTToyBlasterGunBlue
-  description: A hastily converted laser blaster shoots simple 30 watt lasers.
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Fun/toyweapon/blueblaster.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: Tag
-    tags:
-    - ADTToyBlaster
-  - type: GunExecutionBlacklist
-
-- type: entity
-  name: green toy blaster
-  parent: [ADTToyBlasterGun]
-  id: ADTToyBlasterGunGreen
-  description: A hastily converted laser blaster shoots simple 30 watt lasers.
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Fun/toyweapon/greenblaster.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: Tag
-    tags:
-    - ADTToyBlaster
-  - type: GunExecutionBlacklist
-
-- type: entity
   name: CC-7 "Arbiter"
   parent: [BaseWeaponBattery, ADTBaseMagneticGun]
   id: ADTWeaponBlasterCC7Arbiter
@@ -501,7 +419,7 @@
     fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBulletYellowLaser
     fireCost: 125
   - type: BatteryWeaponFireModes
@@ -528,3 +446,177 @@
   - type: Battery
     maxCharge: 1625
     startingCharge: 1625
+
+- type: entity
+  name: X-02 multiphas laser pistol
+  parent: BaseWeaponBatterySmall
+  id: ADTWeaponPistolNTX02
+  description: A multiphase energy gun. This version was developed specifically for Blue Shield officers. This weapon has two fire modes, but there is no way to recharge itself over time.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Battery/x02.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      visible: false
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Battery/x02.rsi
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  - type: RunAndGunSpreadModifier
+    modifier: 0.1
+  - type: Gun
+    fireRate: 3
+    projectileSpeed: 45
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+  - type: BatteryAmmoProvider
+    proto: ADTBulletLaser
+    fireCost: 75
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: ADTBulletLaser
+      fireCost: 75
+    - proto: ADTBulletDisabler
+      fireCost: 75
+  - type: Battery
+    maxCharge: 900
+    startingCharge: 900
+  - type: StaticPrice
+    price: 5500
+  - type: Item
+    size: Small
+
+- type: entity
+  name: svalinn laser rifle
+  parent: [BaseItem, BaseGunWieldable, BaseSecurityContraband]
+  id: ADTWeaponLaserSvalinnRifle
+  description: A cheap and widely used laser rifle.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Battery/svalinn.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: BatteryAmmoProvider
+    proto: ADTYellowLightLaser
+    fireCost: 50
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  - type: Appearance
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Battery/svalinn.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 5
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: Magazine
+        startingItem: PowerCellSmall
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - PowerCell
+            - PowerCellSmall
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: AmmoCounter
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BaseWeaponBatterySmall
+  id: ADTWeaponLaserSecPistol
+  name: laser pistol
+  description: Better pray it won't burn your hands off.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Battery/sec_laser_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Battery/sec_laser_pistol.rsi
+  - type: Item
+    storedOffset: 0,-4
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      params:
+        pitch: 2
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: BatteryAmmoProvider
+    proto: RedLaser
+    fireCost: 20
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 500
+  - type: Tag
+    tags:
+    - Sidearm
+    - LaserWeapon

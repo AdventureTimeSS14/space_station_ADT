@@ -1,7 +1,3 @@
-ent-ADTClothingHeadHelmetSoliderIlisium = шлем скафандра
-    .suffix = Иллизиум
-    .desc = Шлем бойца Иллизиума
-
 ent-ADTClothingHeadHelmetTSF = шлем армии ТСФ
     .desc = Стандартная каска пехотинца Транс-Солнечной Федерации.
     .suffix = { "ТСФ" }
@@ -32,3 +28,6 @@ ent-ADTLegionerHemlet = шлем легионера
 
 ent-ADTClothingHeadHelmetTrueTemplar = шлем крестоносца
     .desc = Теперь древний шлем вполне реален для вас.
+
+ent-ADTClothingHeadHelmetBlueShield = шлем офицера синего щита
+    .desc = Очень прочный шлем, разработанный для корпуса синих щитов.

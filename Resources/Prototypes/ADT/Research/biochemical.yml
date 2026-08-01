@@ -77,6 +77,7 @@
   - ADTMedicalAssemblerMachineCircuitBoard
   - ADTBlankMediPen
   - ADTTourniquet
+  - AdvancedJetInjector
   requiredTech:
   - ADTChemDisp
   position: 3,0
@@ -196,6 +197,10 @@
   cost: 5000
   recipeUnlocks:
   - ADTModsuitPlateMedical
+  - ADTModsuitModReagentScanner
+  - ADTModsuitModStatusReadout
+  - ADTModsuitModHealthAnalyzer
+  - ADTModsuitModDefibrillator
   technologyPrerequisites:
     - ADTModsuitBase
   position: 5,-1

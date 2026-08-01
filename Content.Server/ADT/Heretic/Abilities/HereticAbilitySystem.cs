@@ -12,6 +12,7 @@ using Content.Server.Popups;
 using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
 using Content.Server.Temperature.Systems;
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Actions;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chat;
@@ -54,7 +55,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobstate = default!;
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly SharedStaminaSystem _stam = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
@@ -63,7 +63,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly FlashSystem _flash = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly VomitSystem _vomit = default!;
     [Dependency] private readonly PhysicsSystem _phys = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
@@ -88,7 +87,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         {
             // ignore heretics with the same path*, affect everyone else
             if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
-            || HasComp<GhoulComponent>(look))
+            || HasComp<GhoulComponent>(look)
+            || HasComp<MagicImmunityComponent>(look))
                 continue;
 
             if (!HasComp<StatusEffectsComponent>(look))

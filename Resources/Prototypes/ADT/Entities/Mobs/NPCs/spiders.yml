@@ -33,7 +33,6 @@
         layer:
         - MobLayer
   - type: Body
-    prototype: AnimalHemocyanin
   - type: DamageStateVisuals
     states:
       Alive:
@@ -81,8 +80,10 @@
   - type: Spider
   - type: IgnoreSpiderWeb
   - type: Bloodstream
-    bloodMaxVolume: 150
-    bloodReagent: CopperBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 150
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
@@ -107,25 +108,32 @@
   - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute from base.yml.
     allowedStates:
     - Alive
-    damageCap: 89
     damage:
       types:
         Poison: -0.07
-      groups:
-        Brute: -0.07
-        Burn: -0.07
+        Blunt: -0.07
+        Slash: -0.07
+        Piercing: -0.07
+        Heat: -0.07
+        Caustic: -0.07
   - type: LanguageSpeaker
     languages:
       Arachnid: Speak
   - type: SupermatterIgnore
   - type: GrabProtection
-  # ADT-Tweak start
+  - type: NightVision
+    innate: true
+
+- type: entity
+  parent: ADTMobBaseSpider
+  id: ADTMobBaseSpiderVentCrawler
+  abstract: true
+  components:
   - type: VentCrawler
-  # ADT-Tweak end
 
 - type: entity
   name: hunter
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobHunterSpider
   components:
   - type: Sprite
@@ -160,7 +168,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 4.8
+        Piercing: 10
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -168,12 +176,12 @@
         - ReagentId: Toxin
           Quantity: 50
   - type: MeleeChemicalInjector
-    transferAmount: 1.5
+    transferAmount: 2
     solution: melee
 
 - type: entity
   name: guard
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobGuardSpider
   components:
   - type: Sprite
@@ -208,7 +216,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 6.4
+        Piercing: 15
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -216,12 +224,12 @@
         - ReagentId: Toxin
           Quantity: 50
   - type: MeleeChemicalInjector
-    transferAmount: 0.25
+    transferAmount: 0.5
     solution: melee
 
 - type: entity
   name: viper
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobViperSpider
   components:
   - type: Sprite
@@ -258,14 +266,16 @@
     - id: FoodMeatSpider
       amount: 1
     - id: ADTViperChelicerae
-      amount: 1
+      amount: 2
   - type: Bloodstream
-    bloodMaxVolume: 75
-    bloodReagent: ADTLatrotoxin
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ADTLatrotoxin
+        Quantity: 75
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 1.5
+        Piercing: 7
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -312,28 +322,28 @@
       Dead:
         Base: tarantula_dead
   - type: Stamina
-    critThreshold: 200
+    baseCritThreshold: 200
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.7
     baseSprintSpeed : 2.7
   - type: SlowOnDamage
     speedModifierThresholds:
-      200: 0.7
-      260: 0.5
+      280: 0.7
+      320: 0.5
   - type: MobThresholds
     thresholds:
       0: Alive
-      300: Dead
+      350: Dead
   - type: Prying # Open door from xeno.yml.
     speedModifier: 3
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 24
+        Piercing: 28
 
 - type: entity
   name: little spider
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobMiniSpider
   components:
   - type: Sprite
@@ -386,7 +396,10 @@
     sprite: ADT/Mobs/Animals/minispider.rsi
     size: Huge
   - type: Bloodstream
-    bloodMaxVolume: 25
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 25
   - type: Clothing
     quickEquip: false
     sprite: ADT/Mobs/Animals/minispider.rsi
@@ -439,7 +452,7 @@
 
 - type: entity
   name: clown spider
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobClownSpider
   description: Combines the two most terrifying things in existence, spiders and clowns.
   components:
@@ -491,8 +504,10 @@
     - type: Speech
       speechVerb: Cluwne
     - type: Bloodstream
-      bloodMaxVolume: 150
-      bloodReagent: Laughter
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: Laughter
+          Quantity: 150
     - type: SolutionContainerManager
       solutions:
         melee:
@@ -500,7 +515,7 @@
           - ReagentId: Laughter
             Quantity: 90
     - type: MeleeChemicalInjector
-      transferAmount: 1
+      transferAmount: 3
       solution: melee
     - type: NpcFactionMember
       factions:

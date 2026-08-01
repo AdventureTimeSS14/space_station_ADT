@@ -19,6 +19,7 @@ public sealed partial class GunComponent : Component
     /// The base sound to use when the gun is fired.
     /// </summary>
     [DataField]
+    [Access(typeof(SharedGunSystem), Other = AccessPermissions.ReadWrite)] // ADT-Tweak
     public SoundSpecifier? SoundGunshot = new SoundPathSpecifier("/Audio/Weapons/Guns/Gunshots/smg.ogg");
 
     /// <summary>
@@ -194,6 +195,7 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField]
     [AutoNetworkedField]
+    [Access(typeof(SharedGunSystem), Other = AccessPermissions.ReadWrite)] // ADT-Tweak
     public float FireRate = 8f;
 
     /// <summary>
@@ -226,7 +228,7 @@ public sealed partial class GunComponent : Component
     /// When the gun is next available to be shot.
     /// Can be set multiple times in a single tick due to guns firing faster than a single tick time.
     /// </summary>
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoNetworkedField]
     [AutoPausedField]
     public TimeSpan NextFire = TimeSpan.Zero;

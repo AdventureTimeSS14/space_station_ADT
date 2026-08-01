@@ -1,36 +1,27 @@
-using Content.Server.Actions;
+using System.Linq;
 using Content.Server.DoAfter;
-using Content.Server.Humanoid;
 using Content.Shared.ADT.MidroundCustomization;
-using Content.Shared.ADT.SpeechBarks;
-using Content.Shared.Corvax.TTS;
+using Content.Shared.Body;
+using Content.Shared.UserInterface;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Interaction;
-using Content.Shared.Preferences;
-using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
-using System.Linq;
+using Content.Server.Actions;
+using Robust.Shared.Player;
 
 namespace Content.Server.ADT.MidroundCustomization;
 
-/// <summary>
-/// Allows humanoids to change their appearance mid-round.
-/// </summary>
-
-// TODO: Исправить проблему с генокрадом
-public sealed partial class MidroundCustomizationSystem : EntitySystem
+public sealed class MidroundCustomizationSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly MarkingManager _markings = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -39,399 +30,96 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
 
         Subs.BuiEvents<MidroundCustomizationComponent>(MidroundCustomizationUiKey.Key, subs =>
         {
-            subs.Event<MidroundCustomizationMarkingSelectMessage>(OnSlimeHairSelect);
-            subs.Event<MidroundCustomizationChangeColorMessage>(OnTrySlimeHairChangeColor);
-            subs.Event<MidroundCustomizationAddSlotMessage>(OnTrySlimeHairAddSlot);
-            subs.Event<MidroundCustomizationRemoveSlotMessage>(OnTrySlimeHairRemoveSlot);
-            subs.Event<MidroundCustomizationChangeVoiceMessage>(OnTrySlimeHairChangeVoice);
-            subs.Event<MidroundCustomizationChangeBarkProtoMessage>(OnTryChangeBarkProto);
-            subs.Event<MidroundCustomizationChangeBarkPitchMessage>(OnTryChangeBarkPitch);
-            subs.Event<MidroundCustomizationChangeBarkMinVarMessage>(OnTryChangeBarkMinVar);
-            subs.Event<MidroundCustomizationChangeBarkMaxVarMessage>(OnTryChangeBarkMaxVar);
+            subs.Event<BoundUIOpenedEvent>(OnUIOpened);
+            subs.Event<BoundUIClosedEvent>(OnUIClosed);
+            subs.Event<MidroundCustomizationSelectMessage>(OnMidroundCustomizationSelect);
         });
 
         SubscribeLocalEvent<MidroundCustomizationComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<MidroundCustomizationComponent, ComponentShutdown>(OnShutdown);
-
-        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairSelectDoAfterEvent>(OnSelectSlotDoAfter);
-        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairChangeColorDoAfterEvent>(OnChangeColorDoAfter);
-        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairRemoveSlotDoAfterEvent>(OnRemoveSlotDoAfter);
-        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairAddSlotDoAfterEvent>(OnAddSlotDoAfter);
-        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairChangeVoiceDoAfterEvent>(OnChangeVoiceDoAfter);
-        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairChangeBarkProtoDoAfterEvent>(OnChangeBarkProtoDoAfter);
-        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairChangeBarkPitchDoAfterEvent>(OnChangeBarkPitchDoAfter);
-        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairChangeBarkMinVarDoAfterEvent>(OnChangeBarkMinVarDoAfter);
-        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairChangeBarkMaxVarDoAfterEvent>(OnChangeBarkMaxVarDoAfter);
-
-        InitializeAbilities();
-
+        SubscribeLocalEvent<MidroundCustomizationComponent, MidroundCustomizationSelectDoAfterEvent>(OnSelectSlotDoAfter);
+        
+        SubscribeLocalEvent<MidroundCustomizationComponent, MidroundCustomizationActionEvent>(OnMidroundCustomizationAction);
     }
 
     private void OnOpenUIAttempt(EntityUid uid, MidroundCustomizationComponent mirror, ActivatableUIOpenAttemptEvent args)
     {
-        if (!HasComp<HumanoidAppearanceComponent>(uid))
+        if (!HasComp<VisualBodyComponent>(uid))
             args.Cancel();
     }
 
-    private void OnSlimeHairSelect(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationMarkingSelectMessage message)
+    private void OnMidroundCustomizationAction(EntityUid uid, MidroundCustomizationComponent comp, MidroundCustomizationActionEvent args)
     {
-        _doAfterSystem.Cancel(component.DoAfter);
-        component.DoAfter = null;
+        if (args.Handled)
+            return;
 
-        var doAfter = new SlimeHairSelectDoAfterEvent()
+        if (!TryComp<ActorComponent>(uid, out var actor))
+            return;
+
+        _uiSystem.TryOpenUi(uid, MidroundCustomizationUiKey.Key, actor.Owner);
+        UpdateInterface(uid, comp);
+        args.Handled = true;
+    }
+
+    private void OnMidroundCustomizationSelect(Entity<MidroundCustomizationComponent> ent, ref MidroundCustomizationSelectMessage args)
+    {
+        if (ent.Comp.Target is not { } target)
+            return;
+
+        _doAfterSystem.Cancel(ent.Comp.DoAfter);
+        ent.Comp.DoAfter = null;
+
+        var doAfter = new MidroundCustomizationSelectDoAfterEvent()
         {
-            Category = message.Category,
-            Slot = message.Slot,
-            Marking = message.Marking,
+            Markings = args.Markings,
         };
 
-        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.SelectSlotTime, doAfter, uid, target: uid, used: uid)
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.Actor, ent.Comp.SelectSlotTime, doAfter, ent, target: target, used: ent)
         {
             DistanceThreshold = SharedInteractionSystem.InteractionRange,
             BreakOnDamage = true,
-        }, out var doAfterId);
-
-        component.DoAfter = doAfterId;
+            BreakOnMove = false,
+            NeedHand = true,
+        },
+            out ent.Comp.DoAfter);
     }
 
-    private void OnSelectSlotDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairSelectDoAfterEvent args)
+    private void OnSelectSlotDoAfter(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationSelectDoAfterEvent args)
     {
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+        if (component.Target != args.Target)
             return;
 
-        Color defaultColor;
-        if (component.DefaultSkinColoring)
-        {
-            defaultColor = humanoid.SkinColor;
-        }
-        else
-        {
-            defaultColor = Color.White;
-            if (humanoid.MarkingSet.TryGetCategory(args.Category, out var markingsList) && args.Slot < markingsList.Count)
-            {
-                var current = markingsList[args.Slot];
-                if (current.MarkingColors.Count > 0)
-                {
-                    defaultColor = current.MarkingColors[0];
-                }
-            }
-        }
-
-        _audio.PlayPvs(component.ChangeMarkingSound, uid);
-        _humanoid.SetMarkingId(uid, args.Category, args.Slot, args.Marking, force: false, defaultColor: defaultColor);
-        UpdateInterface(uid, component);
-    }
-
-    private void OnTrySlimeHairChangeColor(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationChangeColorMessage message)
-    {
-        _doAfterSystem.Cancel(component.DoAfter);
-        component.DoAfter = null;
-
-        var doAfter = new SlimeHairChangeColorDoAfterEvent()
-        {
-            Category = message.Category,
-            Slot = message.Slot,
-            Colors = message.Colors,
-        };
-
-        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.ChangeSlotTime, doAfter, uid, target: uid, used: uid)
-        {
-            BreakOnDamage = true,
-        }, out var doAfterId);
-
-        component.DoAfter = doAfterId;
-    }
-
-    private void OnChangeColorDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeColorDoAfterEvent args)
-    {
-        if (args.Handled || args.Target == null || args.Cancelled)
-            return;
-
-        _humanoid.SetMarkingColor(uid, args.Category, args.Slot, args.Colors, force: false);
-
-        // using this makes the UI feel like total ass
-        // que
-        // UpdateInterface(uid, component.Target, message.Session);
-    }
-
-    private void OnTrySlimeHairRemoveSlot(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationRemoveSlotMessage message)
-    {
-        _doAfterSystem.Cancel(component.DoAfter);
-        component.DoAfter = null;
-
-        var doAfter = new SlimeHairRemoveSlotDoAfterEvent()
-        {
-            Category = message.Category,
-            Slot = message.Slot,
-        };
-
-        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.RemoveSlotTime, doAfter, uid, target: uid, used: uid)
-        {
-            DistanceThreshold = SharedInteractionSystem.InteractionRange,
-            BreakOnDamage = true,
-        }, out var doAfterId);
-
-        component.DoAfter = doAfterId;
-    }
-
-    private void OnRemoveSlotDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairRemoveSlotDoAfterEvent args)
-    {
-        if (args.Handled || args.Target == null || args.Cancelled)
-            return;
-
-        _humanoid.RemoveMarking(uid, args.Category, args.Slot);
-
-        _audio.PlayPvs(component.ChangeMarkingSound, uid);
-        UpdateInterface(uid, component);
-    }
-
-    private void OnTrySlimeHairAddSlot(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationAddSlotMessage message)
-    {
-        _doAfterSystem.Cancel(component.DoAfter);
-        component.DoAfter = null;
-
-        var doAfter = new SlimeHairAddSlotDoAfterEvent()
-        {
-            Category = message.Category,
-        };
-
-        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, message.Actor, component.AddSlotTime, doAfter, uid, target: uid, used: uid)
-        {
-            BreakOnDamage = true,
-        }, out var doAfterId);
-
-        component.DoAfter = doAfterId;
-    }
-
-    private void OnAddSlotDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairAddSlotDoAfterEvent args)
-    {
-        if (args.Handled || args.Target == null || args.Cancelled || !TryComp(uid, out HumanoidAppearanceComponent? humanoid))
-            return;
-
-        var marking = _markings.MarkingsByCategoryAndSpecies(args.Category, humanoid.Species).Keys.FirstOrDefault();
-
-        if (string.IsNullOrEmpty(marking))
-            return;
-
-        Color color = component.DefaultSkinColoring ? humanoid.SkinColor : Color.White;
-
-        _audio.PlayPvs(component.ChangeMarkingSound, uid);
-        _humanoid.AddMarking(uid, marking, color);
-        UpdateInterface(uid, component);
-    }
-
-    private void OnTrySlimeHairChangeVoice(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationChangeVoiceMessage message)
-    {
-        _doAfterSystem.Cancel(component.DoAfter);
-        component.DoAfter = null;
-
-        var doAfter = new SlimeHairChangeVoiceDoAfterEvent()
-        {
-            Voice = message.TTS,
-        };
-
-        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.ChangeVoiceTime, doAfter, uid, target: uid, used: uid)
-        {
-            DistanceThreshold = SharedInteractionSystem.InteractionRange,
-            BreakOnDamage = true,
-        }, out var doAfterId);
-
-        component.DoAfter = doAfterId;
-    }
-
-    private void OnChangeVoiceDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeVoiceDoAfterEvent args)
-    {
-        if (args.Handled || args.Target == null || args.Cancelled)
-            return;
-
-        if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
-            return;
-
-        if (!_proto.TryIndex<TTSVoicePrototype>(args.Voice, out var proto) || !HumanoidCharacterProfile.CanHaveVoice(proto, humanoid.Sex, humanoid.Species))
-            return;
-
-        if (component.PlaySoundForVoiceChange)
-            _audio.PlayPvs(component.ChangeMarkingSound, uid);
-        _humanoid.SetTTSVoice(args.Target.Value, args.Voice, humanoid);
-
-        UpdateInterface(uid, component);
-    }
-
-    private void OnTryChangeBarkProto(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationChangeBarkProtoMessage message)
-    {
-        _doAfterSystem.Cancel(component.DoAfter);
-        component.DoAfter = null;
-
-        var doAfter = new SlimeHairChangeBarkProtoDoAfterEvent()
-        {
-            Proto = message.Proto,
-        };
-
-        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.ChangeVoiceTime, doAfter, uid, target: uid, used: uid)
-        {
-            DistanceThreshold = SharedInteractionSystem.InteractionRange,
-            BreakOnDamage = true,
-        }, out var doAfterId);
-
-        component.DoAfter = doAfterId;
-    }
-
-    private void OnChangeBarkProtoDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeBarkProtoDoAfterEvent args)
-    {
-        if (args.Handled || args.Target == null || args.Cancelled)
-            return;
-
-        if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
-            return;
-
-        if (!_proto.TryIndex<BarkPrototype>(args.Proto, out _))
-            return;
-
-        if (component.PlaySoundForVoiceChange)
-            _audio.PlayPvs(component.ChangeMarkingSound, uid);
-        var newData = humanoid.Bark.WithProto(args.Proto);
-        _humanoid.SetBarkData(args.Target.Value, newData, humanoid);
-
-        UpdateInterface(uid, component);
-    }
-
-    private void OnTryChangeBarkPitch(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationChangeBarkPitchMessage message)
-    {
-        _doAfterSystem.Cancel(component.DoAfter);
-        component.DoAfter = null;
-
-        var doAfter = new SlimeHairChangeBarkPitchDoAfterEvent()
-        {
-            Pitch = message.Pitch,
-        };
-
-        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.ChangeVoiceTime, doAfter, uid, target: uid, used: uid)
-        {
-            DistanceThreshold = SharedInteractionSystem.InteractionRange,
-            BreakOnDamage = true,
-        }, out var doAfterId);
-
-        component.DoAfter = doAfterId;
-    }
-
-    private void OnChangeBarkPitchDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeBarkPitchDoAfterEvent args)
-    {
-        if (args.Handled || args.Target == null || args.Cancelled)
-            return;
-
-        if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
-            return;
-
-        if (component.PlaySoundForVoiceChange)
-            _audio.PlayPvs(component.ChangeMarkingSound, uid);
-        var newData = humanoid.Bark.WithPitch(args.Pitch);
-        _humanoid.SetBarkData(args.Target.Value, newData, humanoid);
-
-        UpdateInterface(uid, component);
-    }
-
-    private void OnTryChangeBarkMinVar(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationChangeBarkMinVarMessage message)
-    {
-        _doAfterSystem.Cancel(component.DoAfter);
-        component.DoAfter = null;
-
-        var doAfter = new SlimeHairChangeBarkMinVarDoAfterEvent()
-        {
-            MinVar = message.MinVar,
-        };
-
-        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.ChangeVoiceTime, doAfter, uid, target: uid, used: uid)
-        {
-            DistanceThreshold = SharedInteractionSystem.InteractionRange,
-            BreakOnDamage = true,
-        }, out var doAfterId);
-
-        component.DoAfter = doAfterId;
-    }
-
-    private void OnChangeBarkMinVarDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeBarkMinVarDoAfterEvent args)
-    {
-        if (args.Handled || args.Target == null || args.Cancelled)
-            return;
-
-        if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
-            return;
-
-        if (component.PlaySoundForVoiceChange)
-            _audio.PlayPvs(component.ChangeMarkingSound, uid);
-        var newData = humanoid.Bark.WithMinVar(args.MinVar);
-        _humanoid.SetBarkData(args.Target.Value, newData, humanoid);
-
-        UpdateInterface(uid, component);
-    }
-
-    private void OnTryChangeBarkMaxVar(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationChangeBarkMaxVarMessage message)
-    {
-        _doAfterSystem.Cancel(component.DoAfter);
-        component.DoAfter = null;
-
-        var doAfter = new SlimeHairChangeBarkMaxVarDoAfterEvent()
-        {
-            MaxVar = message.MaxVar,
-        };
-
-        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.ChangeVoiceTime, doAfter, uid, target: uid, used: uid)
-        {
-            DistanceThreshold = SharedInteractionSystem.InteractionRange,
-            BreakOnDamage = true,
-        }, out var doAfterId);
-
-        component.DoAfter = doAfterId;
-    }
-
-    private void OnChangeBarkMaxVarDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeBarkMaxVarDoAfterEvent args)
-    {
-        if (args.Handled || args.Target == null || args.Cancelled)
-            return;
-
-        if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
-            return;
-
-        if (component.PlaySoundForVoiceChange)
-            _audio.PlayPvs(component.ChangeMarkingSound, uid);
-        var newData = humanoid.Bark.WithMaxVar(args.MaxVar);
-        _humanoid.SetBarkData(args.Target.Value, newData, humanoid);
-
+        _visualBody.ApplyMarkings(args.Target.Value, args.Markings);
+        _audio.PlayPvs(component.ChangeHairSound, uid);
         UpdateInterface(uid, component);
     }
 
     private void UpdateInterface(EntityUid uid, MidroundCustomizationComponent component)
     {
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+        if (!_visualBody.TryGatherMarkingsData(uid, component.AllowedLayers, out var profiles, out var markings, out var applied))
             return;
 
-        var markingDict = new Dictionary<MarkingCategories, List<Marking>>();
-        var slotsDict = new Dictionary<MarkingCategories, int>();
-        foreach (var category in component.CustomizableCategories)
-        {
-            markingDict[category] = new();
-            slotsDict[category] = humanoid.MarkingSet.PointsLeft(category);
+        var filteredMarkings = FilterMarkingData(markings, component.AllowedLayers);
+        var filteredProfiles = FilterProfiles(profiles, filteredMarkings.Keys);
+        var filteredApplied = FilterAppliedMarkings(applied, filteredMarkings.Keys);
 
-            if (humanoid.MarkingSet.TryGetCategory(category, out var markings))
-                markingDict[category] = markings.ToList();
-        }
+        var state = new MidroundCustomizationUiState(filteredProfiles, filteredMarkings, filteredApplied);
 
-        var state = new MidroundCustomizationUiState(
-            humanoid.Species,
-            humanoid.Sex,
-            true,
-            humanoid.Voice,
-            humanoid.Bark.Proto,
-            humanoid.Bark.Pitch,
-            humanoid.Bark.MinVar,
-            humanoid.Bark.MaxVar,
-            markingDict,
-            slotsDict);
-
+        component.Target = uid;
         _uiSystem.SetUiState(uid, MidroundCustomizationUiKey.Key, state);
+    }
+
+    private void OnUIOpened(Entity<MidroundCustomizationComponent> ent, ref BoundUIOpenedEvent args)
+    {
+        UpdateInterface(ent.Owner, ent.Comp);
+    }
+
+    private void OnUIClosed(Entity<MidroundCustomizationComponent> ent, ref BoundUIClosedEvent args)
+    {
+        ent.Comp.Target = null;
     }
 
     private void OnMapInit(EntityUid uid, MidroundCustomizationComponent component, MapInitEvent args)
@@ -444,4 +132,45 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         _action.RemoveAction(uid, component.ActionEntity);
     }
 
+    private static Dictionary<ProtoId<OrganCategoryPrototype>, OrganMarkingData> FilterMarkingData(
+        Dictionary<ProtoId<OrganCategoryPrototype>, OrganMarkingData> markings,
+        HashSet<HumanoidVisualLayers> allowedLayers)
+    {
+        var filtered = new Dictionary<ProtoId<OrganCategoryPrototype>, OrganMarkingData>();
+
+        foreach (var (organ, data) in markings)
+        {
+            var layers = data.Layers.Where(allowedLayers.Contains).ToHashSet();
+            if (layers.Count == 0)
+                continue;
+
+            filtered[organ] = new OrganMarkingData
+            {
+                Group = data.Group,
+                Layers = layers,
+            };
+        }
+
+        return filtered;
+    }
+
+    private static Dictionary<ProtoId<OrganCategoryPrototype>, OrganProfileData> FilterProfiles(
+        Dictionary<ProtoId<OrganCategoryPrototype>, OrganProfileData> profiles,
+        IEnumerable<ProtoId<OrganCategoryPrototype>> organs)
+    {
+        var organSet = organs.ToHashSet();
+        return profiles
+            .Where(pair => organSet.Contains(pair.Key))
+            .ToDictionary();
+    }
+
+    private static Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> FilterAppliedMarkings(
+        Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> applied,
+        IEnumerable<ProtoId<OrganCategoryPrototype>> organs)
+    {
+        var organSet = organs.ToHashSet();
+        return applied
+            .Where(pair => organSet.Contains(pair.Key))
+            .ToDictionary(pair => pair.Key, pair => pair.Value);
+    }
 }

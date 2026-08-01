@@ -79,6 +79,7 @@
     containers:
       beakerSlot: !type:ContainerSlot
       outputSlot: !type:ContainerSlot
+      pai_slot: !type:ContainerSlot {} #ADT-Tweak: PAI
       machine_board: !type:Container
       machine_parts: !type:Container
   - type: ItemSlots
@@ -92,6 +93,14 @@
         whitelist:
           tags:
           - Bottle
+      # ADT port start pAI modernization
+      pai_slot:
+        name: Personal AI Device
+        ejectOnInteract: false
+        whitelist:
+          components:
+          - PAI
+      # ADT port end pAI modernization
   - type: SolutionContainerManager
     solutions:
       buffer: {}

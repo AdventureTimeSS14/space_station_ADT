@@ -1,0 +1,30 @@
+- type: entity
+  parent: BaseGameRule
+  id: Changeling
+  components:
+  - type: ChangelingRule
+  - type: GameRule
+    minPlayers: 20 # ADT-Tweak
+  - type: AntagRandomObjectives
+    sets:
+    - groups: ChangelingObjectiveGroups
+    maxDifficulty: 5
+  - type: AntagObjectives
+    objectives:
+    - ChangelingSurviveObjective
+    - ChangelingStealDNAObjective
+    - ChangelingAbsorbObjective
+    - EscapeIdentityObjective
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    agentName: changeling-roundend-name
+    definitions:
+    - prefRoles: [ Changeling ]
+      max: 4
+      playerRatio: 12
+      blacklist:
+        components:
+        - CommandStaff
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleChangeling

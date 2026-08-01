@@ -1,10 +1,13 @@
 using System.Numerics;
+using System.Linq;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions.Components;
 using Content.Shared.Actions;
 using Content.Shared.Audio;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Foldable;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Light.Components;
@@ -18,6 +21,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Vehicle;
@@ -42,14 +46,12 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     [Dependency] private readonly SharedJointSystem _joints = default!;
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
 
     private const string KeySlot = "key_slot";
 
-    [ValidatePrototypeId<TagPrototype>]
-    private const string DoorDump = "DoorBumpOpener";
-
-    [ValidatePrototypeId<TagPrototype>]
-    private const string Key = "VehicleKey";
+    private static readonly ProtoId<TagPrototype> DoorDumpTag = "DoorBumpOpener";
+    private static readonly ProtoId<TagPrototype> KeyTag = "VehicleKey";
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -67,6 +69,9 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         SubscribeLocalEvent<VehicleComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
         SubscribeLocalEvent<VehicleComponent, MoveEvent>(OnMoveEvent);
         SubscribeLocalEvent<VehicleComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
+        SubscribeLocalEvent<VehicleComponent, EntityTerminatingEvent>(OnVehicleTerminating);
+
+        SubscribeLocalEvent<VehicleComponent, FoldedEvent>(OnVehicleFolded);
 
         SubscribeLocalEvent<InVehicleComponent, GettingPickedUpAttemptEvent>(OnGettingPickedUpAttempt);
     }
@@ -111,12 +116,32 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     private void OnBuckleAttempt(EntityUid uid, VehicleComponent component, ref StrapAttemptEvent args)
     {
         var rider = args.Buckle.Owner;
-        if (component.UseHand == true)
+
+        if (TryComp<FoldableComponent>(uid, out var foldable) && foldable.IsFolded)
         {
-            // Add a virtual item to rider's hand, cancel if we can't.
-            if (!_virtualItemSystem.TrySpawnVirtualItemInHand(uid, rider))
+            args.Cancelled = true;
+            if (args.Popup && args.User != null)
+            {
+                _popupSystem.PopupClient(
+                    Loc.GetString("vehicle-folded-cannot-buckle", ("vehicle", uid)),
+                    args.User,
+                    PopupType.Medium);
+            }
+            return;
+        }
+
+        if (component.UseHand == true && args.User == rider)
+        {
+            if (!_handsSystem.TryGetEmptyHand(rider, out _))
             {
                 args.Cancelled = true;
+                if (args.Popup && args.User != null)
+                {
+                    _popupSystem.PopupClient(
+                        Loc.GetString("vehicle-hands-occupied", ("vehicle", uid)),
+                        args.User,
+                        PopupType.Medium);
+                }
                 return;
             }
         }
@@ -125,6 +150,11 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     private void OnBuckled(EntityUid uid, VehicleComponent component, ref StrappedEvent args)
     {
         var rider = args.Buckle.Owner;
+
+        if (component.UseHand == true)
+        {
+            _virtualItemSystem.TrySpawnVirtualItemInHand(uid, rider);
+        }
 
         // Set up the rider and vehicle with each other
         EnsureComp<InputMoverComponent>(uid);
@@ -154,26 +184,62 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         _joints.ClearJoints(rider);
 
-        _tagSystem.AddTag(uid, DoorDump);
+        _tagSystem.AddTag(uid, DoorDumpTag);
     }
 
     private void OnUnBuckled(EntityUid uid, VehicleComponent component, ref UnstrappedEvent args)
     {
         var rider = args.Buckle.Owner;
 
+        if (TerminatingOrDeleted(rider))
+            return;
+
         _actionsSystem.RemoveProvidedActions(rider, uid);
 
-        if (component.UseHand == true)
-            _virtualItemSystem.DeleteInHandsMatching(rider, uid);
+        _virtualItemSystem.DeleteInHandsMatching(rider, uid);
+
+        RemComp<RelayInputMoverComponent>(rider);
 
         RemComp<RiderComponent>(rider);
-        RemComp<RelayInputMoverComponent>(rider);
-        _tagSystem.RemoveTag(uid, DoorDump);
+        _tagSystem.RemoveTag(uid, DoorDumpTag);
 
         Appearance.SetData(uid, VehicleVisuals.HideRider, false);
 
         component.Rider = null;
         Dirty(uid, component);
+    }
+
+    private void OnVehicleTerminating(EntityUid uid, VehicleComponent component, ref EntityTerminatingEvent args)
+    {
+        if (component.Rider != null && TryComp<StrapComponent>(uid, out var strap))
+        {
+            foreach (var buckled in strap.BuckledEntities.ToArray())
+            {
+                _buckle.Unbuckle(buckled, null);
+            }
+        }
+    }
+
+    private void OnVehicleFolded(EntityUid uid, VehicleComponent component, ref FoldedEvent args)
+    {
+        if (!args.IsFolded || component.Rider == null)
+            return;
+
+        if (TryComp<StrapComponent>(uid, out var strap))
+        {
+            foreach (var buckled in strap.BuckledEntities.ToArray())
+            {
+                _buckle.Unbuckle(buckled, null);
+            }
+        }
+
+        if (args.IsFolded && component.Rider != null && !TerminatingOrDeleted(component.Rider.Value))
+        {
+            _popupSystem.PopupClient(
+                Loc.GetString("vehicle-folded-ejected", ("vehicle", uid)),
+                component.Rider.Value,
+                PopupType.Medium);
+        }
     }
 
     /// <summary>
@@ -197,7 +263,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     private void OnEntInserted(EntityUid uid, VehicleComponent component, EntInsertedIntoContainerMessage args)
     {
         if (args.Container.ID != KeySlot ||
-            !_tagSystem.HasTag(args.Entity, Key))
+            !_tagSystem.HasTag(args.Entity, KeyTag))
             return;
 
         // Enable vehicle

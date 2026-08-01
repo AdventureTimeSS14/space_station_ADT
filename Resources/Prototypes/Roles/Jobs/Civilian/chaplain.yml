@@ -15,6 +15,7 @@
     - type: Chaplain  # ADT Chaplain
       statusIcon: ChaplainFaction
     - type: BibleUser #Lets them heal with bibles
+    - type: MagicImmunity  # ADT-Tweak
 
 
 - type: startingGear
@@ -26,7 +27,7 @@
   storage:
     back:
     - RubberStampChaplain
-    - ADTEctoSword  # ADT Phantom
+    - ADTEctoSword  # ADT-Tweak
 
 - type: chameleonOutfit
   id: ChaplainChameleonOutfit

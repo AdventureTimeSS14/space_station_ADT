@@ -9,7 +9,7 @@
       - bread
   - type: Edible
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Baked/pizza.rsi
+    sprite: ADT/Objects/Consumable/Food/Baked/sindy_pizza.rsi
   - type: SolutionContainerManager
     solutions:
       food:
@@ -33,7 +33,7 @@
 - type: entity
   name: Sindi pizza
   parent: ADTFoodPizzaSindiBase
-  id: ADRFoodPizzaSindi
+  id: ADTFoodPizzaSindi
   description: Red and scary pizza
   components:
   - type: FlavorProfile
@@ -55,7 +55,7 @@
       - ADTSindiPizza
   - type: Edible
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Baked/pizza.rsi
+    sprite: ADT/Objects/Consumable/Food/Baked/sindy_pizza.rsi
   - type: SolutionContainerManager
     solutions:
       food:

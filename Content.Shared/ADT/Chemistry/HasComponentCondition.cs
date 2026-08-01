@@ -13,7 +13,7 @@ public sealed partial class HasComponentConditionSystem : EntityConditionSystem<
         foreach (var component in args.Condition.Components)
         {
             var reg = EntityManager.ComponentFactory.GetRegistration(component);
-            hasComp = EntityManager.HasComponent(entity, reg.Type);
+            hasComp = HasComp(entity, reg.Type);
 
             if (hasComp)
                 break;

@@ -1,8 +1,11 @@
 - type: marking
   id: ADTSandevistan
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: []
+  groupWhitelist: [ADTSandevistanCodeOnly]
   sprites:
-  - sprite: ADT/Implants/sandevistan.rsi
-    state: sandy_marking
+    - sprite: ADT/Implants/sandevistan.rsi
+      state: sandy_marking
+
+- type: markingsGroup
+  parent: Undergarments
+  id: ADTSandevistanCodeOnly

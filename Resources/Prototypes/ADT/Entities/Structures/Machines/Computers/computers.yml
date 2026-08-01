@@ -65,6 +65,7 @@
       board: !type:Container
       IdCardConsole-privilegedId: !type:ContainerSlot
       IdCardConsole-targetId: !type:ContainerSlot
+      pai_slot: !type:ContainerSlot {}
 
 - type: entity
   parent: BaseComputerShuttle
@@ -126,7 +127,7 @@
 
 - type: entity
   id: ADTComputerPalletConsolePirate
-  parent: BaseComputerAiAccess
+  parent: [ BaseComputer, BaseComputerAiAccess ]
   name: pirate sale computer
   description: Used to sell goods loaded onto cargo pallets.
   components:
@@ -181,7 +182,7 @@
     - map: ["computerLayerKeys"]
       state: generic_keys
   - type: ApcPowerReceiver
-    powerLoad: 100 #We want this to fail first so I transferred most of the scanner and pod's power here. (3500 in total)
+    powerLoad: 50
   # - type: Computer
   #   board: TurretControllerConsoleCircuitboard
   - type: PointLight
@@ -194,13 +195,14 @@
       - TurretControllerSender #собственно наш порт
   - type: TurretController
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
 #SS40k end
 
 ## Supermatter
 - type: entity
-  parent: [ BaseComputerAiAccess, BaseEngineeringContraband ]
+  parent: [ BaseComputer, BaseComputerAiAccess, BaseEngineeringContraband ]
   id: ComputerSupermatter
   name: supermatter monitoring console
   description: Used to monitor the status of supermatter crystals.
@@ -280,8 +282,8 @@
         type: DockingConsoleBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
-  - type: WorldLoader
-    radius: 256
+  # - type: WorldLoader
+  #   radius: 256 DELETED IN https://github.com/space-wizards/space-station-14/pull/43428
   - type: DockingConsole
   - type: PointLight
     radius: 1.5
@@ -371,3 +373,4 @@
       board: !type:Container
       SeedSlotId: !type:ContainerSlot
       DnaDiskSlotId: !type:ContainerSlot
+      pai_slot: !type:ContainerSlot {}

@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: BaseCargoPallet
   parent: BaseStructure
   name: cargo pallet
@@ -37,8 +37,9 @@
   parent: BaseCargoPallet
   components:
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

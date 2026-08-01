@@ -24,6 +24,10 @@
   name: ice bucket
   description: A special bucket of refreshy ice. Prohibited use for challenge with the same name!
   components:
+  # ADT-Tweak-Start
+  - type: Item
+    size: Normal
+  # ADT-Tweak-End
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -87,10 +91,11 @@
       tags:
       - Cola
     hideStackVisualsWhenClosed: false
-  - type: StorageFill
-    contents:
-    - id: DrinkColaCan
-      amount: 6
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: DrinkColaCan
+        amount: 6
   - type: ItemCounter
     count:
       tags: [Cola]
@@ -130,7 +135,7 @@
       Steel: 50
   - type: Shakeable
   - type: ReactionMixer
-    mixOnInteract: false
+    mixerType: None
     reactionTypes:
     - Shake
 

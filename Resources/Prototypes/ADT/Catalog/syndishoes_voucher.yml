@@ -17,3 +17,143 @@
     state: icon_no_sound_shoes
   content:
   - ADTClothingShoesChameleonNoSound
+
+- type: thiefBackpackSet
+  id: ADTClothingOuterHardsuitSyndie
+  name: syndicate-voucher-hardsuit-name
+  description: syndicate-voucher-hardsuit-description
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitSyndie
+
+- type: thiefBackpackSet
+  id: ADTClothingModsuitBackSyndicate
+  name: syndicate-voucher-mod-name
+  description: syndicate-voucher-mod-description
+  sprite:
+    sprite: ADT/Clothing/Back/Modsuit/syndicate.rsi
+    state: icon
+  content:
+  - ADTClothingModsuitBackSyndicate
+
+- type: thiefBackpackSet
+  id: ADTClothingEliteHardsuitBackSyndicateCommander
+  name: syndicate-commander-voucher-hardsuit-name
+  description: syndicate-commander-voucher-hardsuit-description
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitSyndieCommander
+
+- type: thiefBackpackSet
+  id: ADTClothingEliteHardsuitBackSyndicateMedic
+  name: syndicate-medic-voucher-hardsuit-name
+  description: syndicate-medic-voucher-hardsuit-description
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/syndiemedic.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitSyndieMedic
+
+- type: thiefBackpackSet
+  id: ADTDeathSquadHardsuitSet
+  name: deathsquad-voucher-hardsuit-name
+  description: deathsquad-voucher-hardsuit-description
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitDeathsquad
+
+- type: thiefBackpackSet
+  id: ADTCharonModSet
+  name: deathsquad-voucher-mod-name
+  description: deathsquad-voucher-mod-description
+  sprite:
+    sprite: ADT/Clothing/Back/Modsuit/charon.rsi
+    state: icon
+  content:
+  - ADTClothingModsuitBackCharon
+
+- type: thiefBackpackSet
+  id: ADTERTLeaderHardsuitSet
+  name: ertleader-voucher-hardsuit-name
+  description: ertleader-voucher-hardsuit-description
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitERTLeader
+
+- type: thiefBackpackSet
+  id: ADTERTLeaderModSet
+  name: ertleader-voucher-mod-name
+  description: ertleader-voucher-mod-description
+  sprite:
+    sprite: ADT/Clothing/Back/Modsuit/responsory.rsi
+    state: icon
+  content:
+  - ADTClothingModsuitBackERTLeader
+
+- type: thiefBackpackSet
+  id: ADTERTSecurityHardsuitSet
+  name: ertsecurity-voucher-hardsuit-name
+  description: ertsecurity-voucher-hardsuit-description
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitERTSecurity
+
+- type: thiefBackpackSet
+  id: ADTERTSecurityModSet
+  name: ertsecurity-voucher-mod-name
+  description: ertsecurity-voucher-mod-description
+  sprite:
+    sprite: ADT/Clothing/Back/Modsuit/responsory.rsi
+    state: icon
+  content:
+  - ADTClothingModsuitBackERTSecurity
+
+- type: thiefBackpackSet
+  id: ADTERTEngineerHardsuitSet
+  name: ertengineer-voucher-hardsuit-name
+  description: ertengineer-voucher-hardsuit-description
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitERTEngineer
+
+- type: thiefBackpackSet
+  id: ADTERTEngineerModSet
+  name: ertengineer-voucher-mod-name
+  description: ertengineer-voucher-mod-description
+  sprite:
+    sprite: ADT/Clothing/Back/Modsuit/responsory.rsi
+    state: icon
+  content:
+  - ADTClothingModsuitBackERTEngineer
+
+- type: thiefBackpackSet
+  id: ADTERTMedicalHardsuitSet
+  name: ertmedical-voucher-hardsuit-name
+  description: ertmedical-voucher-hardsuit-description
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitERTMedical
+
+- type: thiefBackpackSet
+  id: ADTERTMedicalModSet
+  name: ertmedical-voucher-mod-name
+  description: ertmedical-voucher-mod-description
+  sprite:
+    sprite: ADT/Clothing/Back/Modsuit/responsory.rsi
+    state: icon
+  content:
+  - ADTClothingModsuitBackERTMedical

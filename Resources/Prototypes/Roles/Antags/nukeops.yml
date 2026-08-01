@@ -6,10 +6,10 @@
   objective: roles-antag-nuclear-operative-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 15h # Corvax-RoleTime 5
+    time: 30h # ADT-tweak 15 > 30
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 5h # Corvax-RoleTime
+    time: 20h # ADT-tweak 10 > 20
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -20,13 +20,13 @@
   objective: roles-antag-nuclear-operative-agent-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 15h # Corvax-RoleTime 5
+    time: 30h # ADT-tweak 15 > 30
   - !type:RoleTimeRequirement
     role: JobChemist
-    time: 10h # Corvax-RoleTime 3
+    time: 15h # ADT-tweak 10 > 15
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 10h # Corvax-RoleTime
+    time: 20h # ADT-tweak 10 > 20
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -37,10 +37,10 @@
   objective: roles-antag-nuclear-operative-commander-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 30h # Corvax-RoleTime 5
+    time: 40h # ADT-tweak 30 > 40
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 15h # Corvax-RoleTime 5
+    time: 30h # ADT-tweak 15 > 30
   # should be changed to nukie playtime when thats tracked (wyci)
   guides: [ NuclearOperatives ]
 
@@ -48,7 +48,7 @@
   id: SyndicateOperativeGearFullNoUplink
   equipment:
     jumpsuit: ClothingUniformJumpsuitOperative
-    back: ADTClothingModsuitBackSyndicate #ADT tweak
+    back: ClothingBackpackDuffelSyndicate
     # mask: ClothingMaskGasSyndicate ADT tweak
     # eyes: ClothingEyesHudSyndicate ADT tweak
     ears: ClothingHeadsetAltSyndicate
@@ -56,7 +56,7 @@
     # outerClothing: ClothingOuterHardsuitSyndie ADT tweak
     shoes: ClothingShoesBootsCombatFilled
     id: SyndiOperativePDA
-    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket1: ADTSyndicateVoucher #ADT-Tweak
     pocket2: PlushieCarp
     belt: ClothingBeltMilitaryWebbing #ADT nukebuff
   storage:
@@ -76,7 +76,7 @@
   id: NukeopsOutfit
   name: roles-antag-nuclear-operative-name
   startingGear: SyndicateOperativeGearFullNoUplink
-  icon: "JobIconSyndicate"
+  icon: "JobIconSyndicateOperative"
   equipment:
     head: ClothingHeadHelmetHardsuitSyndie
     neck: ClothingNeckScarfStripedSyndieRed
@@ -84,12 +84,14 @@
 #Nuclear Operative Commander Gear
 - type: startingGear
   id: SyndicateCommanderGearFull
-  parent: SyndicateOperativeGearFull
+  parent: SyndicateOperativeGearFullNoUplink # ADT-Tweak
   equipment:
     id: SyndiCommanderPDA
     eyes: ClothingEyesHudSyndicate #ADT tweak
-    back: ADTClothingModsuitBackSyndicateCommander #ADT tweak
+    back: ClothingBackpackDuffelSyndicate
     neck: SyndicateWhistle
+    pocket1: ADTSyndicateCommanderVoucher #ADT-Tweak
+    pocket2: ADTCommanderUplinkRadio40TC #ADT-Tweak
     # outerClothing: ClothingOuterHardsuitSyndieCommander #ADT tweak
   inhand:
   - NukeOpsDeclarationOfWar
@@ -107,7 +109,7 @@
   id: NukeopsCommanderOutfit
   name: roles-antag-nuclear-operative-commander-name
   startingGear: SyndicateCommanderGearFull
-  icon: "JobIconSyndicate"
+  icon: "JobIconSyndicateCommander"
   equipment:
     head: ClothingHeadHelmetHardsuitSyndieCommander
     neck: ClothingNeckScarfStripedSyndieGreen
@@ -117,12 +119,13 @@
   id: SyndicateOperativeMedicFull
   parent: SyndicateOperativeGearFull
   equipment:
-    back: ADTClothingModsuitBackSyndicateElite #ADT tweak
+    back: ClothingBackpackDuffelSyndicateMedical #ADT tweak
     eyes: ClothingEyesHudSyndicateAgent
     # outerClothing: ClothingOuterHardsuitSyndieMedic #ADT tweak
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiCorpsmanPDA
     belt: ClothingBeltMilitaryWebbingMedFilled
+    pocket1: ADTSyndicateMedicVoucher #ADT-Tweak
   storage:
     back:
     - SyndiHypo
@@ -139,7 +142,7 @@
   id: NukeopsMedicOutfit
   name: roles-antag-nuclear-operative-agent-name
   startingGear: SyndicateOperativeMedicFull
-  icon: "JobIconSyndicate"
+  icon: "JobIconSyndicateCorpsman"
   equipment:
     head: ClothingHeadHelmetHardsuitSyndieMedic
     neck: ClothingNeckScarfStripedLightBlue

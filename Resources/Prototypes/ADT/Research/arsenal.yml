@@ -28,7 +28,8 @@
   recipeUnlocks:
     - ADTModsuitModArmor
     - ADTModsuitModSechud
-    - ADTModsuitModPowerKick
+    - ADTModsuitModBodycam
+  #  - ADTModsuitModPowerKick
     - ADTModsuitModStun
   technologyPrerequisites:
     - ADTSecMODsuit
@@ -79,7 +80,7 @@
   requiredTech:
   - ADTArsenalBasicModules
 
-# Кинетики 
+# Кинетики
 - type: technology
   id: KineticModifications
   name: research-technology-kinetic-modifications
@@ -93,6 +94,33 @@
   - PKAUpgradeDamage
   - PKAUpgradeRange
   - PKAUpgradeFireRate
+  - ADTPKAUpgradeMiningExplosion
+  - ADTPKAUpgradeTracerWhite
+  - ADTPKAUpgradeTracerAdjustable
+  - ADTPKAUpgradeChassisSuper
+  - ADTPKAUpgradeChassisHyper
   position: 0,2
   requiredTech:
   - SalvageWeapons
+
+- type: technology
+  id: ADTAdvancedKineticModifications
+  name: research-technology-advanced-kinetic-modifications
+  icon:
+    sprite: ADT/Objects/Tools/upgrade.rsi
+    state: display
+  discipline: Arsenal
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - ADTPKAUpgradeOffensiveMiningExplosion
+  - ADTPKAUpgradeOffensiveExplosion
+  - ADTPKAUpgradeRapidRepeater
+  - ADTPKAUpgradeDeathSyphon
+  - ADTPKAUpgradeIndoors
+  - ADTPKAUpgradeResonatorBlast
+  position: 1,2
+  technologyPrerequisites:
+  - KineticModifications
+  requiredTech:
+  - KineticModifications

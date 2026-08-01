@@ -15,4 +15,12 @@ public sealed partial class DeathgaspComponent : Component
     /// </summary>
     [DataField("prototype", customTypeSerializer:typeof(PrototypeIdSerializer<EmotePrototype>))]
     public string Prototype = "DefaultDeathgasp";
+
+    //ADT-Tweak-Start
+    /// <summary>
+    ///     If true - deathgasp will play from any mob state to dead.
+    /// </summary>
+    [DataField]
+    public bool OnAnyState = false;
+    //ADT-Tweak-End
 }

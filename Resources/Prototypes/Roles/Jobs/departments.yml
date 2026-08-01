@@ -2,7 +2,8 @@
   id: Cargo
   name: department-Cargo
   description: department-Cargo-description
-  color: "#A46106"
+  color: "#8B5005" # ADT-Tweak
+  weight: -5 # ADT EDIT
   roles:
   - CargoTechnician
   - Quartermaster
@@ -13,12 +14,11 @@
   id: Civilian
   name: department-Civilian
   description: department-Civilian-description
-  color: "#9FED58"
-  weight: -10
+  color: "#8AD44A" # ADT-Tweak
+  weight: -4 # ADT EDIT
   roles:
   - Bartender
   - Botanist
-  - Boxer
   - Chaplain
   - Chef
   - Clown
@@ -30,7 +30,6 @@
   - Passenger
   - Reporter
   - Visitor
-  - Zookeeper
   - ServiceWorker
   - ADTBarber # ADT-Tweak
 
@@ -39,6 +38,7 @@
   name: department-CentralCommand
   description: department-CentralCommand-description
   color: "#0c344d"
+  weight: -1 # ADT EDIT
   roles:
   - CentralCommandOfficial
   - CBURN
@@ -50,13 +50,13 @@
   - ERTEngineer
   - DeathSquad
   editorHidden: true
-  weight: 120
 
 - type: department
   id: Command
   name: department-Command
   description: department-Command-description
   color: "#334E6D"
+  weight: -2 # ADT EDIT
   roles:
   - Captain
   # ADT-Tweak
@@ -80,13 +80,13 @@
   # - ERTEngineer
   # - DeathSquad
   primary: false
-  weight: 100
 
 - type: department
   id: Engineering
   name: department-Engineering
   description: department-Engineering-description
-  color: "#EFB341"
+  color: "#D99A30" # ADT-Tweak
+  weight: -6 # ADT EDIT
   roles:
   - AtmosphericTechnician
   - ChiefEngineer
@@ -98,7 +98,8 @@
   id: Medical
   name: department-Medical
   description: department-Medical-description
-  color: "#52B4E9"
+  color: "#3FA0D6" # ADT-Tweak
+  weight: -7 # ADT EDIT
   roles:
   - Chemist
   - ChiefMedicalOfficer
@@ -115,8 +116,8 @@
   id: Security
   name: department-Security
   description: department-Security-description
-  color: "#DE3A3A"
-  weight: 20
+  color: "#C42D2D" # ADT-Tweak
+  weight: -3 # ADT EDIT
   roles:
   - HeadOfSecurity
   - SecurityCadet
@@ -134,7 +135,8 @@
   id: Science
   name: department-Science
   description: department-Science-description
-  color: "#D381C9"
+  color: "#B86EAA" # ADT-Tweak
+  weight: -8 # ADT EDIT
   roles:
   - ResearchDirector
   - Scientist
@@ -148,7 +150,8 @@
   id: Silicon
   name: department-Silicon
   description: department-Silicon-description
-  color: "#D381C9"
+  color: "#B86EAA" # ADT-Tweak
+  weight: -9 # ADT EDIT
   roles:
   - Borg
   - StationAi
@@ -157,12 +160,10 @@
   id: Specific
   name: department-Specific
   description: department-Specific-description
-  color: "#9FED58"
-  weight: 10
+  color: "#29282f"
+  weight: -10 # ADT EDIT
   roles:
-  - Boxer
   - Reporter
-  - Zookeeper
   - Psychologist
   # - Pilot # Corvax-Pilot
   - ADTBarber # ADT-Tweak

@@ -31,7 +31,18 @@
     inherentRadioChannels:
     - Common
     - Binary
-  - type: BorgSwitchableSubtype #ADT Tweak
+  # ADT-Twek start
+  - type: ShowHealthBars
+    damageContainers:
+    - Silicon
+  - type: ShowHealthIcons
+    damageContainers:
+    - Silicon
+  - type: BorgSwitchableSubtype
+  - type: IgnoreUIRange
+  - type: ShowElectrocutionHUD
+  - type: StationAiVision
+  # ADT-Tweak end
 
 - type: entity
   id: BorgChassisGeneric
@@ -150,7 +161,7 @@
     # ADT-Tweak-Start
     - type: MovementSpeedModifier
       baseWalkSpeed : 2
-      baseSprintSpeed : 4
+      baseSprintSpeed : 3.5
     - type: Destructible
       thresholds:
       - trigger:

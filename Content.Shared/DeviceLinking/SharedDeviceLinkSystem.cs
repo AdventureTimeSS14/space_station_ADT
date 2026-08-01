@@ -88,7 +88,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
             if (query.TryGetComponent(sinkUid, out var sink))
                 RemoveSinkFromSourceInternal(source, sinkUid, source, sink);
             else
-                Log.Error($"Device source {ToPrettyString(source)} links to invalid entity: {ToPrettyString(sinkUid)}");
+                Log.Warning($"Device source {ToPrettyString(source)} links to invalid entity: {ToPrettyString(sinkUid)}"); // ADT-Tweak: Error > Warning
         }
     }
 

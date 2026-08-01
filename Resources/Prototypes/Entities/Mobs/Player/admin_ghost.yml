@@ -37,8 +37,8 @@
     needsHands: false
   - type: CombatMode
   - type: Physics
+    bodyType: Kinematic # Admin ghosts should ignore the laws of physics.
     ignorePaused: true
-    bodyType: Kinematic
     canCollide: false # ADT-Tweak
   # ADT-Tweak start: новая физика, чтоб не ломать физику других
   - type: Fixtures
@@ -98,6 +98,7 @@
     followEntity: true
   - type: CargoOrderConsole
   - type: CrewMonitoringConsole
+    suppressCritAlertSound: true #ADT-Tweak: NewMonitor — no beep from aghost intrinsic UI
   - type: GeneralStationRecordConsole
     canDeleteEntries: true
   - type: DeviceNetwork
