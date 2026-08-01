@@ -241,6 +241,7 @@
       - !type:RandomSpeciesChange
         speciesBlacklist:
         - Skeleton
+        - GhostSpecies
         - IPC
         conditions:
         - !type:ReagentCondition
