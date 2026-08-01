@@ -1,0 +1,1 @@
+research-technology-basic-xenobiology = Основы ксенобиологии

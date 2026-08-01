@@ -80,10 +80,11 @@ public sealed partial class ModSuitComponent : Component
     public int MaxComplexity = 15;
 
     /// <summary>
-    ///     non-modifyed energy using. 1 toggled part - 1 energy per PowerCellDraw use
+    ///     Base battery draw per toggled part, in watts. Active modules add their
+    ///     energyUsing on top of this; see ModSuitSystem.UpdateCellDraw.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float ModEnergyBaseUsing = 0.5f;
+    public float ModEnergyBaseUsing = 0.1f;
 
     /// <summary>
     ///     Dictionary of inventory slots and entity prototypes to spawn into the clothing container.

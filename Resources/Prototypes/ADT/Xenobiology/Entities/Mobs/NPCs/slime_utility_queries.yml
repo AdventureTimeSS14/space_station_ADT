@@ -1,0 +1,27 @@
+- type: utilityQuery
+  id: XenoSlimeNearbyFood
+  query:
+    - !type:ComponentQuery
+      components:
+      - type: MobState
+    - !type:ComponentFilter
+      components:
+        - type: Puddle
+      retainWithComp: false
+    - !type:ComponentFilter
+      components:
+        - type: BadFood
+      retainWithComp: false
+  considerations:
+    - !type:TargetIsAliveCon
+      curve: !type:InverseBoolCurve
+    - !type:TargetDistanceCon
+      curve: !type:PresetCurve
+        preset: TargetDistance
+    - !type:FoodValueCon
+      curve: !type:QuadraticCurve
+        slope: 1.0
+        exponent: 0.4
+    - !type:TargetAccessibleCon
+      curve: !type:BoolCurve
+

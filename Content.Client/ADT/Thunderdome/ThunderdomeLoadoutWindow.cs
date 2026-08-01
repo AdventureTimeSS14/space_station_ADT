@@ -7,6 +7,7 @@ namespace Content.Client.ADT.Thunderdome;
 public sealed partial class ThunderdomeLoadoutWindow : ThunderdomeWindow
 {
     public event Action<int>? OnLoadoutConfirmed;
+    public event Action? OnLeaderboardRequested;
 
     private int _weaponSelection = -1;
     private ThunderdomeWeaponCard? _selectedCard;
@@ -66,6 +67,14 @@ public sealed partial class ThunderdomeLoadoutWindow : ThunderdomeWindow
                 OnLoadoutConfirmed?.Invoke(_weaponSelection);
         };
         Contents.AddChild(_confirmButton);
+
+        var leaderboardButton = new ThunderdomeButton
+        {
+            Text = Loc.GetString("thunderdome-leaderboard-button"),
+            Margin = new Thickness(8, 0, 8, 6),
+        };
+        leaderboardButton.OnPressed += () => OnLeaderboardRequested?.Invoke();
+        Contents.AddChild(leaderboardButton);
     }
 
     public void UpdateState(ThunderdomeLoadoutEuiState state)

@@ -1481,6 +1481,53 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("stamped_data", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.ThunderdomeStats", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("thunderdome_stats_id");
+
+                    b.Property<int>("BestStreak")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("best_streak");
+
+                    b.Property<int>("Deaths")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("deaths");
+
+                    b.Property<int>("Kills")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("kills");
+
+                    b.Property<DateTime>("LastPlayed")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("last_played");
+
+                    b.Property<int>("RoundsPlayed")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("rounds_played");
+
+                    b.Property<float>("Score")
+                        .HasColumnType("REAL")
+                        .HasColumnName("score");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_thunderdome_stats");
+
+                    b.HasIndex("Score")
+                        .IsDescending();
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("thunderdome_stats", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
                 {
                     b.Property<int>("Id")

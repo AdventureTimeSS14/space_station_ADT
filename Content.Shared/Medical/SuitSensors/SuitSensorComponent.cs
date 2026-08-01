@@ -53,7 +53,9 @@ public sealed partial class SuitSensorComponent : Component
     ///     How often does sensor update its owners status (in seconds). Limited by the system update rate.
     /// </summary>
     [DataField]
-    public TimeSpan UpdateRate = TimeSpan.FromSeconds(2f);
+    // ADT-Tweak Start - New Monitor: 2s -> 1s UpdateRate
+    public TimeSpan UpdateRate = TimeSpan.FromSeconds(1f);
+    // ADT-Tweak End
 
     /// <summary>
     ///     Current user that wears suit sensor. Null if nobody wearing it.
@@ -68,19 +70,21 @@ public sealed partial class SuitSensorComponent : Component
     [AutoPausedField]
     public TimeSpan NextUpdate = TimeSpan.Zero;
 
-    /// <summary>
-    ///     The station this suit sensor belongs to. If it's null the suit didn't spawn on a station and the sensor doesn't work.
-    /// </summary>
-    [DataField("station"), AutoNetworkedField]
-    public EntityUid? StationId = null;
+    // ADT-Tweak Start - New Monitor: StationId / ConnectedServer unused (IngestReport, no DeviceNet uplink)
+    // /// <summary>
+    // ///     The station this suit sensor belongs to. If it's null the suit didn't spawn on a station and the sensor doesn't work.
+    // /// </summary>
+    // [DataField("station"), AutoNetworkedField]
+    // public EntityUid? StationId = null;
 
-    /// <summary>
-    ///     The server the suit sensor sends it state to.
-    ///     The suit sensor will try connecting to a new server when no server is connected.
-    ///     It does this by calling the servers entity system for performance reasons.
-    /// </summary>
-    [DataField("server")]
-    public string? ConnectedServer = null;
+    // /// <summary>
+    // ///     The server the suit sensor sends it state to.
+    // ///     The suit sensor will try connecting to a new server when no server is connected.
+    // ///     It does this by calling the servers entity system for performance reasons.
+    // /// </summary>
+    // [DataField("server")]
+    // public string? ConnectedServer = null;
+    // ADT-Tweak End
 
     /// <summary>
     /// The previous mode of the suit. This is used to restore the state when an EMP effect ends.

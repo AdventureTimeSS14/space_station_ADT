@@ -126172,4 +126172,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 63.99958,37.46473
       parent: 2
+- proto: ADTVendingMachineMusician
+  entities:
+  - uid: 53949
+    components:
+    - type: Transform
+      pos: 37.5,1.5
+      parent: 2
 ...

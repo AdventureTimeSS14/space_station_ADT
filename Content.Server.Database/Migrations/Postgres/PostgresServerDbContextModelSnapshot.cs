@@ -1566,6 +1566,55 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("stamped_data", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.ThunderdomeStats", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("thunderdome_stats_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BestStreak")
+                        .HasColumnType("integer")
+                        .HasColumnName("best_streak");
+
+                    b.Property<int>("Deaths")
+                        .HasColumnType("integer")
+                        .HasColumnName("deaths");
+
+                    b.Property<int>("Kills")
+                        .HasColumnType("integer")
+                        .HasColumnName("kills");
+
+                    b.Property<DateTime>("LastPlayed")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("last_played");
+
+                    b.Property<int>("RoundsPlayed")
+                        .HasColumnType("integer")
+                        .HasColumnName("rounds_played");
+
+                    b.Property<float>("Score")
+                        .HasColumnType("real")
+                        .HasColumnName("score");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_thunderdome_stats");
+
+                    b.HasIndex("Score")
+                        .IsDescending();
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("thunderdome_stats", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
                 {
                     b.Property<int>("Id")

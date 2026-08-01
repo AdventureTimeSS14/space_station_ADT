@@ -227,6 +227,10 @@ public sealed partial class GunSystem : SharedGunSystem
             return;
         }
 
+        // ADT-Tweak-Start
+        if (mapDirection.LengthSquared() > 0f)
+            TransformSystem.SetWorldPosition(uid, TransformSystem.GetWorldPosition(uid) + mapDirection.Normalized() * 0.35f);
+        // ADT-Tweak-End
         ShootProjectile(uid, mapDirection, gunVelocity, gun, user, gun.Comp.ProjectileSpeedModified);
     }
 
