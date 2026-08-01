@@ -1,3 +1,0 @@
-accept-adt_amnesia-window-title = Амнезия!
-adt_amnesia-window-prompt-text-part =  Все размыто...
-                                       Вспышка света стерла последние 5 минут из вашей памяти.

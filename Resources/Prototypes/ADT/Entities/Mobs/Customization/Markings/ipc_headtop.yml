@@ -1,7 +1,0 @@
-- type: marking
-  groupWhitelist: [Ipc]
-  id: ADTIPCHeadTopWires
-  bodyPart: Head
-  sprites:
-    - sprite: ADT/Mobs/Customization/Ipc/ipc_headtops.rsi
-      state: ipc_wires

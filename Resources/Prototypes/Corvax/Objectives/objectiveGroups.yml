@@ -1,4 +1,0 @@
-- type: weightedRandom
-  id: TraitorObjectiveGroupNukieDisk
-  weights:
-    NukeDiskStealObjective: 1

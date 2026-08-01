@@ -1,9 +1,0 @@
-- type: entity
-  parent: BaseSign
-  id: SignNewYear
-  name: new year sign
-  description: "Neon sign. Face in salad and wake up in February."
-  components:
-  - type: Sprite
-    state: corvax_newyear
-

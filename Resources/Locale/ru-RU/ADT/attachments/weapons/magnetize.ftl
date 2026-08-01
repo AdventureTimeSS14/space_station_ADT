@@ -1,1 +1,0 @@
-rmc-magnetize-return = { CAPITALIZE($item) } притягивается на место.

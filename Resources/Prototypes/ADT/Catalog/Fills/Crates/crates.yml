@@ -1,9 +1,0 @@
-- type: entity
-  parent: CrateBaseSecure
-  id: CrateWeaponAirsoftSecure
-  name: secure weapon crate
-  components:
-  - type: Icon
-    sprite: Structures/Storage/Crates/weapon.rsi
-  - type: Sprite
-    sprite: Structures/Storage/Crates/weapon.rsi

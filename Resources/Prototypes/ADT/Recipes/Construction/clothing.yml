@@ -1,7 +1,0 @@
-- type: construction
-  id: ADTClothingEyesGlassesMed
-  graph: ADTGlassesMedHUD
-  startNode: start
-  targetNode: glassesMed
-  category: construction-category-clothing
-  objectType: Item

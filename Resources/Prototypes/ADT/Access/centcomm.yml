@@ -1,7 +1,0 @@
-- type: accessGroup
-  id: CentralCommand
-  tags:
-  - BlueShield
-  - CentralCommand
-  - Magistrate
-  - IAA

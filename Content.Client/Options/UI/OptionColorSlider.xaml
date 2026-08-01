@@ -1,8 +1,0 @@
-<Control xmlns="https://spacestation14.io"
-    xmlns:adt="clr-namespace:Content.Client.ADT.UserInterface.Controls">
-    <BoxContainer Orientation="Vertical">
-        <Label Name="TitleLabel" Access="Public" />
-        <Label Name="ExampleLabel" Access="Public" />
-        <adt:LegacyColorSelectorSliders Name="Slider" Access="Public" HorizontalExpand="True" /> <!-- ADT-Tweak - ColorSelectorSliders -> LegacyColorSelectorSliders -->
-    </BoxContainer>
-</Control>

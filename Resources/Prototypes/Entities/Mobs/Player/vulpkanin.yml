@@ -1,6 +1,0 @@
-# ADT: Уже есть в Resources/Prototypes/ADT/Entities/Mobs/Player/vulpkanin.yml
-# - type: entity
-#   save: false
-#   name: Urist McBark
-#   parent: BaseMobVulpkanin
-#   id: MobVulpkanin

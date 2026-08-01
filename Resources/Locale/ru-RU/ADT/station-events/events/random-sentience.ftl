@@ -1,1 +1,0 @@
-station-event-random-sentience-flavor-corgi = корги

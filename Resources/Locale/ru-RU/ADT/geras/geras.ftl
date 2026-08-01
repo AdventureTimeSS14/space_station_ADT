@@ -1,3 +1,0 @@
-geras-popup-cant-use = Я не могу сконцентрироваться!
-geras-popup-morph-message-user = Ты пытаешься изменить свою форму...
-geras-popup-morph-message-others = { $entity } начинает менять свою форму!

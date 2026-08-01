@@ -1,7 +1,0 @@
-- type: construction
-  id: CoffinZink
-  graph: CoffinZinc
-  startNode: start
-  targetNode: zinccoffin
-  category: construction-category-storage
-  objectType: Structure

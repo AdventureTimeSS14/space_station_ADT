@@ -1,6 +1,0 @@
-- type: entity
-  parent: FoodEgg
-  id: ADTFoodEggLaid
-  description: Farm fresh, and still warm!
-  components:
-  - type: BadFood

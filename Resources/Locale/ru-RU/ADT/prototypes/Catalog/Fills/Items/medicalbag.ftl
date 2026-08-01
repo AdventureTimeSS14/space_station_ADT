@@ -1,9 +1,0 @@
-ent-ADTClothingBeltMedicalBagFilled = { ent-ADTClothingBeltMedicalBag }
-    .desc = { ent-ADTClothingBeltMedicalBag.desc }
-    .suffix = { "Заполнено" }
-ent-ADTClothingBeltMedicalBagEMTFilled = { ent-ADTClothingBeltMedicalBag }
-    .desc = { ent-ADTClothingBeltMedicalBag.desc }
-    .suffix = { "Заполнено, Парамедик" }
-ent-ADTMedkitAdvancedERT = медицинский контейнер ОБР
-    .suffix = Заполненный
-    .desc = Контейнер медика отряда быстрого реагирования, огромный и включает в себя продвинутые медикаменты, нити и трансплантаты для быстрого лечения. Однако, в целях экономии препаратов немного.

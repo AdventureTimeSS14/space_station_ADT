@@ -1,5 +1,0 @@
-﻿- type: localizedDataset
-  id: NamesHumanLastFemale
-  values:
-    prefix: names-last-female-dataset-
-    count: 230 # ADT-Tweak

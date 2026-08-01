@@ -1,9 +1,0 @@
-mime-powers-enhanced = Вы постигли искусство улучшенных пантомим!
-mime-finger-gun-emote = сгибает ладонь в виде пистолета и стреляет из него!
-mime-finger-gun-popup-1 = Пиу!
-mime-finger-gun-popup-2 = Пау!
-mime-finger-gun-popup-3 = Бах!
-mime-finger-gun-popup-4 = Бдыщ!
-mime-finger-gun-no-hands = У вас нет свободных рук!
-mime-silence-emote = прикладывает палец к губам
-mime-silence-target = Вы не можете говорить в течение { $duration } секунд!

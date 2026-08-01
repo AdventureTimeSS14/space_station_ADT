@@ -1,8 +1,0 @@
-- type: species
-  id: GhostSpecies
-  name: species-name-ghost
-  roundStart: false
-  prototype: MobObserver
-  defaultSkinTone: "#a3d4eb"
-  dollPrototype: MobObserver
-  skinColoration: Hues

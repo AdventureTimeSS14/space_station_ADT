@@ -1,8 +1,0 @@
-
-- type: entity
-  id: ADTClothingBeltBandolierFilledIncendiary
-  parent: ClothingBeltBandolier
-  suffix: Filled, Incendiary
-  components:
-  - type: BallisticAmmoProvider
-    proto: ShellShotgunIncendiary

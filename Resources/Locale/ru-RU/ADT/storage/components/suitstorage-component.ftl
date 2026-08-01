@@ -1,1 +1,0 @@
-suitstorage-select-open-ui = Выбрать снаряжение

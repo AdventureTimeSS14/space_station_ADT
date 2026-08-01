@@ -1,8 +1,0 @@
-- type: construction
-  id: ClosetMiniFreezer
-  name: construction-recipe-closet-minifreezer
-  graph: ClosetMiniFreezer
-  startNode: start
-  targetNode: done
-  category: construction-category-storage
-  objectType: Structure

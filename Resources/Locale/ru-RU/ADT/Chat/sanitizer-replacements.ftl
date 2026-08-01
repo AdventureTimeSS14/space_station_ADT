@@ -1,1 +1,0 @@
-chatsan-questioned = вопросительно смотрит

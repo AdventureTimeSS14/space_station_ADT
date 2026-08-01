@@ -1,5 +1,0 @@
-﻿- type: localizedDataset
-  id: Adjectives
-  values:
-    prefix: adjectives-dataset-
-    count: 956 # Corvax-MRP-Edit
