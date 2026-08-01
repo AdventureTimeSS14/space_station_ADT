@@ -193,7 +193,7 @@
 - type: marking
   id: ADTHumanHairMessySwept
   bodyPart: Hair
-  groupWhitelist: [Human, Slime, Demon, Dwarf]
+  groupWhitelist: [Human, Slime, Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/human_hair.rsi
     state: messy_swept
