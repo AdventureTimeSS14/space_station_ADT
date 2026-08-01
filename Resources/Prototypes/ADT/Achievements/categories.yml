@@ -1,0 +1,4 @@
+- type: adtAchievementCategory
+  id: ADTAchievementCategoryLavaland
+  name: adt-achievement-category-lavaland
+  priority: 0

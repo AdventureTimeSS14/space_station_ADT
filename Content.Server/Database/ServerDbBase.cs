@@ -8,6 +8,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.ADT;
+using Content.Server.ADT.Achievements;
 using Content.Server.ADT.Thunderdome;
 using Content.Server.Administration.Logs;
 using Content.Shared.ADT.Thunderdome;
@@ -1599,6 +1600,62 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             await db.DbContext.SaveChangesAsync();
         }
         // ADT-Thunderdome-End
+
+        // ADT-Achievements-Start
+        public async Task<List<ADTAchievementRow>> GetAchievements(Guid userId)
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.ADTPlayerAchievement
+                .Where(a => a.UserId == userId)
+                .Select(a => new ADTAchievementRow
+                {
+                    AchievementId = a.AchievementId,
+                    Progress = a.Progress,
+                    Unlocked = a.UnlockedAt != null,
+                })
+                .ToListAsync();
+        }
+
+        public async Task SaveAchievements(IReadOnlyCollection<ADTAchievementSave> saves)
+        {
+            if (saves.Count == 0)
+                return;
+
+            await using var db = await GetDb();
+
+            var users = saves.Select(s => s.UserId).Distinct().ToArray();
+
+            var existing = await db.DbContext.ADTPlayerAchievement
+                .Where(a => users.Contains(a.UserId))
+                .ToListAsync();
+
+            var lookup = existing.ToDictionary(a => (a.UserId, a.AchievementId));
+            var now = DateTime.UtcNow;
+
+            foreach (var save in saves)
+            {
+                if (!lookup.TryGetValue((save.UserId, save.AchievementId), out var row))
+                {
+                    row = new ADTPlayerAchievement
+                    {
+                        UserId = save.UserId,
+                        AchievementId = save.AchievementId,
+                    };
+
+                    db.DbContext.ADTPlayerAchievement.Add(row);
+                    lookup[(save.UserId, save.AchievementId)] = row;
+                }
+
+                row.Progress = Math.Max(row.Progress, save.Progress);
+
+                if (save.Unlocked && row.UnlockedAt == null)
+                    row.UnlockedAt = now;
+            }
+
+            await db.DbContext.SaveChangesAsync();
+        }
+        // ADT-Achievements-End
 
         public async Task<List<AdminWatchlistRecord>> GetActiveWatchlists(Guid player)
         {

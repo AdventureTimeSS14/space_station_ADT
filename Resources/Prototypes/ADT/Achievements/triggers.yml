@@ -1,0 +1,41 @@
+- type: adtAchievementTrigger
+  id: ADTAchievementUnlocked
+
+- type: adtAchievementTrigger
+  id: ADTLavalandBossKilled
+
+- type: adtAchievementTrigger
+  id: ADTLavalandDrakeKilled
+
+- type: adtAchievementTrigger
+  id: ADTLavalandBubblegumKilled
+
+- type: adtAchievementTrigger
+  id: ADTLavalandBloodMinerKilled
+
+- type: adtAchievementTrigger
+  id: ADTLavalandFaunaKilled
+
+- type: adtAchievementTrigger
+  id: ADTLavalandTendrilDestroyed
+
+- type: adtAchievementTrigger
+  id: ADTRockMined
+
+- type: adtAchievementTrigger
+  id: ADTAshFloraHarvested
+
+- type: adtAchievementTrigger
+  id: ADTAshFloraPolyporeHarvested
+
+- type: adtAchievementTrigger
+  id: ADTAshFloraPorciniHarvested
+
+- type: adtAchievementTrigger
+  id: ADTAshFloraInocybeHarvested
+
+- type: adtAchievementTrigger
+  id: ADTAshFloraEmbershroomHarvested
+
+- type: adtAchievementTrigger
+  id: ADTAshFloraCactusHarvested
