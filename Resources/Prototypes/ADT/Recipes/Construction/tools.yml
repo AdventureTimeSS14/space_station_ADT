@@ -13,3 +13,16 @@
   targetNode: oldRadio
   category: construction-category-tools
   objectType: Item
+
+- type: construction
+  id: ADTMushroomBowl
+  name: mushroom bowl
+  description: A bowl made out of mushrooms.
+  graph: ADTMushroomBowl
+  startNode: start
+  targetNode: bowl
+  category: construction-category-misc
+  objectType: Item
+  icon:
+    sprite: ADT/Objects/Consumable/Food/ash_flora.rsi
+    state: mushroom_bowl
