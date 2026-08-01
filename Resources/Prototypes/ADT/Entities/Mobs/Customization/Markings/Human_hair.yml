@@ -190,6 +190,14 @@
     - sprite: ADT/Mobs/Customization/Frontier/human_hair.rsi
       state: frenchbraid
 
+- type: marking
+  id: ADTHumanHairMessySwept
+  bodyPart: Hair
+  groupWhitelist: [Human, Slime, Demon, Dwarf]
+  sprites:
+  - sprite: ADT/Mobs/Customization/human_hair.rsi
+    state: messy_swept
+
 # Я не захотел создавать отдельный файл для двух ушек. Чмок.
 
 - type: marking
@@ -2934,12 +2942,3 @@
       state: nitori_secondary_alt1
     - sprite: ADT/Mobs/Customization/human_hair.rsi
       state: nitori_secondary_alt2
-
-- type: marking
-  id: ADTHumanHairMessySwept
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, DemonSpecies]
-  sprites:
-  - sprite: ADT/Mobs/Customization/Human/custom.rsi
-    state: hair-messy_swept
