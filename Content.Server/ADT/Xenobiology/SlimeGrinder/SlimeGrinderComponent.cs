@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Xenobiology.SlimeGrinder;
 
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class SlimeGrinderComponent : Component
 {
     /// <summary>
@@ -28,4 +28,14 @@ public sealed partial class SlimeGrinderComponent : Component
     [DataField]
     public SoundSpecifier GrindSound = new SoundPathSpecifier("/Audio/Machines/reclaimer_startup.ogg");
 
+    /// </summary>
+    [DataField]
+    public float AutoFeedRange = 3f;
+
+    [DataField]
+    public TimeSpan ScanInterval = TimeSpan.FromSeconds(1);
+
+    [DataField]
+    [AutoPausedField]
+    public TimeSpan NextScan = TimeSpan.Zero;
 }
