@@ -424,13 +424,13 @@
   flavor: medicine
   color: "#c8a2c8"
   physicalDesc: reagent-physical-desc-powdery
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ModifyBleed
+        amount: -3
   metabolisms:
-    reactiveEffects:
-      Acidic:
-        methods: [ Touch ]
-        effects:
-        - !type:ModifyBleed
-          amount: -3
     Bloodstream:
       metabolismRate : 0.3
       effects:
