@@ -409,7 +409,7 @@
           min: 45
         # Start ADT tweak
         - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
+          type: [ Shadekin, XenobioSlime ] # ADT-Tweak
           inverted: true
         # End ADT tweak
         damage:
@@ -537,7 +537,7 @@
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Vulpkanin, Ursus, Reptilian ] # ADT-Tweak
+          type: [ Animal, Vox, Vulpkanin, Ursus, Reptilian, XenobioSlime ] # ADT-Tweak
           inverted: true
         type: Local
         visualType: MediumCaution
@@ -549,12 +549,12 @@
           - !type:MetabolizerTypeCondition
             type: [ Plant ]
           - !type:MetabolizerTypeCondition
-            type: [ Animal, Vox, Ursus, Reptilian ] # ADT-Tweak
+            type: [ Animal, Vox, Ursus, Reptilian, XenobioSlime ] # ADT-Tweak
             inverted: true
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Ursus, Felinid, Reptilian ] # ADT-Tweak
+          type: [ Animal, Vox, Ursus, Felinid, Reptilian, XenobioSlime ] # ADT-Tweak
           inverted: true
         damage:
           types:

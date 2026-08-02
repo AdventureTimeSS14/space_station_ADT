@@ -180,10 +180,6 @@ objective-condition-blob-capture-description = Ваша единственная
 objective-condition-success = { $condition } | [color={ $markupColor }]Успех![/color]
 objective-condition-fail = { $condition } | [color={ $markupColor }]Провал![/color] ({ $progress }%)
 
-# Команды администратора
-admin-verb-make-blob = Превратить цель в носителя блоба.
-admin-verb-text-make-blob = Сделать носителем блоба
-
 # Язык
 language-ADTBlob-name = Блоб
 chat-language-ADTBlob-name = Блоб

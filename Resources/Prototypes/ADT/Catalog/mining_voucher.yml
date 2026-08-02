@@ -36,17 +36,16 @@
   - Flare
   - Flare #Small Buff
 
-# TODO: resonator
-#- type: thiefBackpackSet
-#  id: MiningResonator
-#  name: mining-voucher-resonator-name
-#  description: mining-voucher-resonator-description
-#  sprite:
-#    sprite: DeltaV/Objects/Weapons/Ranged/resonator.rsi
-#    state: icon
-#  content:
-#  - Resonator
-#  - FireExtinguisherMini
+- type: thiefBackpackSet
+  id: MiningResonator
+  name: mining-voucher-resonator-name
+  description: mining-voucher-resonator-description
+  sprite:
+    sprite: ADT/Objects/Weapons/Melee/resonator.rsi
+    state: icon
+  content:
+  - ADTResonator
+  - FireExtinguisherMini
 
 # TODO: bluespace shelter capsule so this isnt a scam [DONE, left this commented part for Ratty to make everything clear]
 #- type: thiefBackpackSet

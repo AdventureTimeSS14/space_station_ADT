@@ -20,3 +20,5 @@ metabolizer-type-ursus = Урс
 metabolizer-type-felinid = Фелинид
 metabolizer-type-shadekin = Сумеречник
 metabolizer-type-resomi = Резоми
+metabolizer-type-yowie = Йови
+metabolizer-type-xenobio-slime = Мутированный слайм

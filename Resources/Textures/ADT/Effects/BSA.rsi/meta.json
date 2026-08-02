@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tg-station at https://github.com/tgstation/tgstation/blob/HEAD/icons/effects/96x160.dmi",
+  "size": {
+    "x": 96,
+    "y": 160
+  },
+  "states": [
+    {
+      "name": "bsa_impact_ex",
+      "delays": [
+        [
+          0.075,
+          0.089999996,
+          0.125,
+          0.125,
+          0.15,
+          0.075,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

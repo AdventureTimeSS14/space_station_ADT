@@ -208,39 +208,6 @@
 
 - type: entity
   parent: ADTClothingOuterHardsuitBase
-  id: ADTClothingOuterHardsuitIlisium
-  name: hardsuit ilisium
-  description: hardsuit ilisium
-  suffix: Ilisium
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/hardsuit_ili.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/hardsuit_ili.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.02
-    lowPressureMultiplier: 1000
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
-  - type: TemperatureProtection
-    heatingCoefficient: 0.001
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Heat: 0.35
-        Radiation: 0.85
-  - type: StaminaResistance
-    damageCoefficient: 0.5
-  - type: ExplosionResistance
-    damageCoefficient: 0.3
-  - type: ToggleableClothing
-    clothingPrototype: ADTClothingHeadHelmetIlisium
-
-- type: entity
-  parent: ADTClothingOuterHardsuitBase
   id: ADTClothingOuterHardsuitInquisitory
   name: inquisitory hardsuit
   description: Repent of your sins.
@@ -343,39 +310,6 @@
 
 - type: entity
   parent: ADTClothingOuterHardsuitBase
-  id: ADTClothingOuterHardsuitCybersunCrysis
-  name: cybersun supersoldier's hardsuit
-  description: CyberSun's most advanced, secret security technology. It seems this development is leading to the creation of super soldiers. It smells of plastitan and dishonorable fight
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/cybersun_crysis_hardsuit.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/cybersun_crysis_hardsuit.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.02
-    lowPressureMultiplier: 1000
-  - type: ClothingSpeedModifier
-    walkModifier: 0.55
-    sprintModifier: 0.55
-  - type: TemperatureProtection
-    heatingCoefficient: 0.001
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.1
-        Slash: 0.1
-        Piercing: 0.1
-        Heat: 0.1
-        Radiation: 0
-  - type: StaminaResistance
-    damageCoefficient: 0.3
-  - type: ExplosionResistance
-    damageCoefficient: 0.1
-  - type: ToggleableClothing
-    clothingPrototype: ADTClothingHeadHelmetHardsuitCybersunCrysis
-
-- type: entity
-  parent: ADTClothingOuterHardsuitBase
   id: ADTClothingOuterHardsuitPioneerAgent
   name: agent "Pioneer" hardsuit
   description: agent "Pioneer" hardsuit
@@ -412,39 +346,6 @@
     tags:
     - CorgiWearable
     - Hardsuit
-
-- type: entity
-  parent: ADTClothingOuterHardsuitBase
-  id: ADTClothingOuterHardsuitSaibaSain
-  name: Saiba Sain elite hardsuit
-  description: Produced from plasmatic fibers, nanomachines and silicon. Smells like cherry blossom
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/saiba_sain_hardsuit.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/saiba_sain_hardsuit.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.02
-    lowPressureMultiplier: 1000
-  - type: ClothingSpeedModifier
-    walkModifier: 0.55
-    sprintModifier: 0.55
-  - type: TemperatureProtection
-    heatingCoefficient: 0.001
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.1
-        Slash: 0.1
-        Piercing: 0.1
-        Heat: 0.1
-        Radiation: 0
-  - type: StaminaResistance
-    damageCoefficient: 0.3
-  - type: ExplosionResistance
-    damageCoefficient: 0.1
-  - type: ToggleableClothing
-    clothingPrototype: ADTClothingHeadHelmetHardsuitSaibaSain
 
 # USSP USSP USSP USSP USSP USSP USSP USSP USSP
 

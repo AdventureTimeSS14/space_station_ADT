@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Goobstation.Common.Atmos;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
 using Content.Shared.Alert;
@@ -10,6 +11,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Containers;
+using Content.Goobstation.Common.Atmos;
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -145,7 +147,7 @@ namespace Content.Server.Atmos.EntitySystems
         /// </summary>
         public float GetFeltLowPressure(EntityUid uid, BarotraumaComponent barotrauma, float environmentPressure)
         {
-            if (barotrauma.HasImmunity)
+            if (barotrauma.HasImmunity || HasComp<SpecialPressureImmunityComponent>(uid)) // ADT-Tweak
             {
                 return Atmospherics.OneAtmosphere;
             }
@@ -159,7 +161,7 @@ namespace Content.Server.Atmos.EntitySystems
         /// </summary>
         public float GetFeltHighPressure(EntityUid uid, BarotraumaComponent barotrauma, float environmentPressure)
         {
-            if (barotrauma.HasImmunity)
+            if (barotrauma.HasImmunity || HasComp<SpecialPressureImmunityComponent>(uid)) // ADT-Tweak
             {
                 return Atmospherics.OneAtmosphere;
             }

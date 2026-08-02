@@ -23,6 +23,7 @@ nukeops-cond-allnukiesalive = Все ядерные оперативники в�
 nukeops-list-start = Оперативниками были:
 nukeops-list-name = - [color=White]{ $name }[/color]
 nukeops-list-name-user = - [color=White]{ $name }[/color] ([color=gray]{ $user }[/color])
+nukeops-roundend-name = ядерный оперативник
 nukeops-not-enough-ready-players = Недостаточно игроков готовы к игре! { $readyPlayersCount } игроков из необходимых { $minimumPlayers } готовы. Нельзя запустить пресет Ядерные оперативники.
 nukeops-no-one-ready = Нет готовых игроков! Нельзя запустить пресет Ядерные оперативники.
 nukeops-role-commander = Командир

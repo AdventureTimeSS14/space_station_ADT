@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseAction
+  id: ADTActionToggleCursedKatana
+  name: Cursed Katana
+  description: Draw the cursed blade from your arm. Sheathing it without tasting blood is a bad idea.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1
+    raiseOnAction: true
+    itemIconStyle: BigAction
+    icon:
+      sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
+      state: icon-of
+  - type: InstantAction
+    event: !type:OnRetractableItemActionEvent {}
+  - type: RetractableItemAction
+    spawnedPrototype: ADTKatanacursed

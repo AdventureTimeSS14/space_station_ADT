@@ -7871,7 +7871,7 @@ entities:
             2419: -62.43933,-13.441491
         - node:
             color: '#FFFFFFFF'
-            id: FloraBigRock02
+            id: Grassa1
           decals:
             10852: -48,-8
         - node:
@@ -192375,12 +192375,18 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-
 - proto: ZiptiesBroken
   entities:
   - uid: 28285
     components:
     - type: Transform
       pos: 26.78512,-4.706849
+      parent: 2
+- proto: ADTVendingMachineMusician
+  entities:
+  - uid: 53949
+    components:
+    - type: Transform
+      pos: 25.5,-20.5
       parent: 2
 ...

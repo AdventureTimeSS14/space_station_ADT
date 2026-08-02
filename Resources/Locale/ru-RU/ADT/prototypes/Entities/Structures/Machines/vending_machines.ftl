@@ -15,6 +15,9 @@ ent-ADTVendingMachinePatholoDrobe = ПатологоШкаф
 ent-ADTVendingMachineCiviMedVend = ГраждоМед
     .desc = Создан специально чтобы облегчить ваш бала.. боль.
 
+ent-ADTVendingMachineMusician = Музыкомат
+    .desc = Торговый аппарат с музыкальными инструментами.
+
 ent-ADTIceCreamVendInventory = Морожемат
     .desc = Смотри, смотри! Это мороженщик!
 
