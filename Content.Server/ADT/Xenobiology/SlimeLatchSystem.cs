@@ -78,14 +78,13 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         {
             if (dotComp.SourceEntityUid is not { } source || 
                 Deleted(source) || 
-                TerminatingOrDeleted(source) || 
                 !TryComp<SlimeComponent>(source, out var slimeComp) || 
                 !IsLatched((source, slimeComp)))
             {
                 CleanupLatchedComponents(uid);
                 continue;
             }
-            
+
             UpdateHunger((uid, dotComp));
         }
 
@@ -107,7 +106,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
             var target = slime.LatchedTarget!.Value;
 
-            if (Deleted(target) || TerminatingOrDeleted(target))
+            if (Deleted(target))
             {
                 Unlatch(slimeEnt);
                 _latchedSlimes.Remove(slimeUid);
@@ -203,9 +202,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
     private void OnLatchAttempt(SlimeLatchEvent args)
     {
-        if (TerminatingOrDeleted(args.Target)
-        || TerminatingOrDeleted(args.Performer)
-        || !TryComp<SlimeComponent>(args.Performer, out var slime))
+        if (Deleted(args.Target) || Deleted(args.Performer) || !TryComp<SlimeComponent>(args.Performer, out var slime))
             return;
 
         var ent = new Entity<SlimeComponent>(args.Performer, slime);
@@ -253,14 +250,13 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         ent.Comp.NextTickTime = _gameTiming.CurTime + ent.Comp.Interval;
 
         var target = ent.Owner;
-        if (Deleted(target) || TerminatingOrDeleted(target))
+        if (Deleted(target))
         {
             CleanupLatchedComponents(target);
             return;
         }
 
-        // Проверяем, что источник существует
-        if (ent.Comp.SourceEntityUid is not { } source || Deleted(source) || TerminatingOrDeleted(source) || !TryComp<SlimeComponent>(source, out _))
+        if (ent.Comp.SourceEntityUid is not { } source || Deleted(source) || !TryComp<SlimeComponent>(source, out _))
         {
             CleanupLatchedComponents(target);
             return;
@@ -311,7 +307,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             float chemProportion = 1 - bloodProportion;
             float bloodTransfer = Math.Min(ent.Comp.SuctionUnits * bloodProportion, availableVolume * bloodProportion);
             float chemTransfer = Math.Min(ent.Comp.SuctionUnits * chemProportion, availableVolume * chemProportion);
-
+            
             foreach (var stomach in stomachList)
             {
                 var bloodSolution = blood.SplitSolutionWithout(FixedPoint2.New(bloodTransfer / stomachList.Count), ent.Comp.ToxinReagent);
@@ -325,7 +321,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
     private void ConsumeCorpse(Entity<SlimeComponent> slime, EntityUid corpse)
     {
-        if (TerminatingOrDeleted(corpse))
+        if (Deleted(corpse))
         {
             Unlatch(slime);
             return;
@@ -361,8 +357,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             || !_actionBlocker.CanInteract(ent, target)
             || !HasComp<MobStateComponent>(target)
             || HasComp<BeingLatchedComponent>(target)
-            || Deleted(target)
-            || TerminatingOrDeleted(target));
+            || Deleted(target));
     }
 
     public bool NpcTryLatch(Entity<SlimeComponent> ent, EntityUid target)
@@ -378,7 +373,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (IsLatched(ent))
             Unlatch(ent);
 
-        if (Deleted(target) || TerminatingOrDeleted(target))
+        if (Deleted(target))
             return;
 
         _xform.SetCoordinates(ent, Transform(target).Coordinates);
