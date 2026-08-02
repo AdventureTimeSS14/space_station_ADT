@@ -42,8 +42,8 @@
   - Grab
   - Grab
   event: !type:CqcRestrainPerformedEvent {}
-  paralyzeTime: 3
-  staminaDamage: 55
+  paralyzeTime: 4
+  staminaDamage: 60
 
 - type: combo
   id: CQCPressure
@@ -60,7 +60,7 @@
   martialArtsForm: CloseQuartersCombat
   attacks:
   - Disarm
-  - Disarm
+  - Harm
   - Harm
   event: !type:CqcConsecutivePerformedEvent {}
   extraDamage: 10
