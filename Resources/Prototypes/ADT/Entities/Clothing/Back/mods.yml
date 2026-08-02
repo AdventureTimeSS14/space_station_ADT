@@ -778,9 +778,20 @@
       - ADTModsuitModIsulation
       - ADTModsuitModWelding
 
-# ОБР "Гамма"
+# базовый ERT
 - type: entity
   parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackERTBase
+  name: base ERT MOD control unit
+  description: A civilian class suit by Nakamura Engineering, doesn't offer much other than slightly quicker movement.
+  components:
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+
+# ОБР "Гамма"
+- type: entity
+  parent: ADTClothingModsuitBackERTBase
   id: ADTClothingModsuitBackERTLeader
   name: ERT MOD control unit "Polaris"
   description: A streamlined Nanotrasen suit for the leader of a Gamma-code Emergency Response Team.
@@ -805,7 +816,7 @@
       outerClothing: ADTClothingOuterModsuitBodyERTLeader
       shoes: ADTClothingModsuitShoesERT
     startingModules:
-      - ADTModsuitModStorage
+      - ADTModsuitModStorageBluespace
       - ADTModsuitModLight
       - ADTModsuitModEmpProtection
       - ADTModsuitModSechud

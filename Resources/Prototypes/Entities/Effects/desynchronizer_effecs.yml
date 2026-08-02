@@ -17,6 +17,8 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/Effects/Wizard/warudo.ogg
+      params:
+        volume: -6
   - type: AnimationPlayer
   - type: FreezeContacts
   - type: GravPulseOnMapInit # This is required to trigger physics collision

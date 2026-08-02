@@ -21,6 +21,7 @@ using Content.Shared.Pinpointer;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 // ADT-Tweak-Start
+using Content.Shared.PowerCell.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
 // ADT-Tweak-End
@@ -160,49 +161,70 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             return;
 
         // Drop the console's retained view immediately so the UI goes empty until
-        // suit sensors re-report.
-        if (component.ConnectedSensors.Count != 0)
-            component.ConnectedSensors = new();
+        component.ConnectedSensors = new();
 
-        var query = EntityQueryEnumerator<CrewMonitoringServerComponent>();
-        while (query.MoveNext(out var serverUid, out var server))
+        // Always wipe the selected server even if unpowered / out of range, otherwise a
+        // later reconnect would push the pre-reset last-known snapshot back into the UI.
+        if (component.SelectedServerUid is { } selectedUid &&
+            !Deleted(selectedUid) &&
+            TryComp<CrewMonitoringServerComponent>(selectedUid, out var selectedServer))
         {
-            if (!IsServerInRange(uid, serverUid))
-                continue;
-
-            // Prefer the selected server; otherwise wipe every discovered/reachable one
-            // this console has listed so stale pins cannot linger after reset.
-            if (component.SelectedServerUid != null)
+            selectedServer.SensorStatus.Clear();
+            selectedServer.LastSensorSnapshot.Clear();
+            selectedServer.SnapshotDirty = true;
+        }
+        else
+        {
+            var query = EntityQueryEnumerator<CrewMonitoringServerComponent>();
+            while (query.MoveNext(out var serverUid, out var server))
             {
-                if (component.SelectedServerUid != serverUid)
+                if (!IsServerInRange(uid, serverUid))
                     continue;
-            }
-            else if (server.SubscriberConsoles.Count == 0 || !server.SubscriberConsoles.Contains(uid))
-            {
-                var known = false;
-                foreach (var entry in component.CachedServers)
+
+                if (server.SubscriberConsoles.Count == 0 || !server.SubscriberConsoles.Contains(uid))
                 {
-                    if (TryGetEntity(entry.NetEntity, out var knownUid) && knownUid == serverUid)
+                    var known = false;
+                    foreach (var entry in component.CachedServers)
                     {
-                        known = true;
-                        break;
+                        if (TryGetEntity(entry.NetEntity, out var knownUid) && knownUid == serverUid)
+                        {
+                            known = true;
+                            break;
+                        }
                     }
+
+                    if (!known)
+                        continue;
                 }
 
-                if (!known)
-                    continue;
+                server.SensorStatus.Clear();
+                server.LastSensorSnapshot.Clear();
+                server.SnapshotDirty = true;
             }
-
-            server.SensorStatus.Clear();
-            server.LastSensorSnapshot.Clear();
-            server.SnapshotDirty = true;
         }
 
-        _suitSensors.ForceImmediateReports();
         component.KnownAlertStates.Clear();
         component.NextCritAlertTime = TimeSpan.Zero;
-        component.CritAlertResyncPending = true;
-        component.CritAlertResyncReadyAt = _gameTiming.CurTime + TimeSpan.FromSeconds(CritAlertResyncDelay);
+
+        var canRefill = component.SelectedServerUid is { } refillUid &&
+                        !Deleted(refillUid) &&
+                        IsServerInRange(uid, refillUid) &&
+                        IsServerResponding(refillUid);
+
+        if (canRefill)
+        {
+            _suitSensors.ForceImmediateReports();
+            component.CritAlertResyncPending = true;
+            component.CritAlertResyncReadyAt = _gameTiming.CurTime + TimeSpan.FromSeconds(CritAlertResyncDelay);
+        }
+        else
+        {
+            component.CritAlertResyncPending = false;
+            component.CritAlertResyncReadyAt = TimeSpan.Zero;
+            component.LastPacketTime = TimeSpan.Zero;
+            component.OfflineStateSent = true;
+        }
+
         PopulateNavMapsForConsole(uid, component);
         UpdateUserInterface(uid, component);
     }
@@ -214,6 +236,27 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
         if (!TryGetEntity(args.Server, out var serverUid))
             return;
+
+        if (component.SelectedServerUid == serverUid.Value)
+        {
+            if (TryComp<CrewMonitoringServerComponent>(serverUid.Value, out var activeServer))
+                _crewServers.RemoveSubscriber(activeServer, uid);
+
+            component.SelectedServerUid = null;
+            component.ConnectedSensors = new();
+            component.LastReferenceFrame = null;
+            component.LastServerUid = null;
+            component.LastPacketTime = TimeSpan.Zero;
+            component.OfflineStateSent = true;
+            component.KnownAlertStates.Clear();
+            component.NextCritAlertTime = TimeSpan.Zero;
+            component.CritAlertResyncPending = false;
+            component.ServersListDirty = true;
+            PopulateNavMapsForConsole(uid, component);
+            UpdateUserInterface(uid, component);
+            return;
+        }
+
         if (!TryComp<CrewMonitoringServerComponent>(serverUid.Value, out var serverComp) ||
             !IsServerInRange(uid, serverUid.Value))
         {
@@ -398,8 +441,9 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     }
 
     /// <summary>
-    /// Immediate alert when a wearer newly enters softcrit or dies (including crit→dead).
-    /// Resets the reminder timer so the next ping is a full interval later.
+    /// Immediate alert only on worsening edges: enter crit/dead, or crit -> dead.
+    /// dead -> crit updates state silently and leaves the reminder timer alone;
+    /// crit -> alive clears KnownAlertStates for that wearer and resets NextCritAlertTime when none remain.
     /// </summary>
     private void ProcessCritAlertSound(EntityUid uid, CrewMonitoringConsoleComponent comp)
     {
@@ -421,7 +465,15 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         var shouldPlay = false;
         foreach (var (owner, isDead) in current)
         {
-            if (!comp.KnownAlertStates.TryGetValue(owner, out var wasDead) || wasDead != isDead)
+            // New alert condition (alive/bad -> crit or dead).
+            if (!comp.KnownAlertStates.TryGetValue(owner, out var wasDead))
+            {
+                shouldPlay = true;
+                break;
+            }
+
+            // Worsening only: crit → dead. dead → crit is silent.
+            if (!wasDead && isDead)
             {
                 shouldPlay = true;
                 break;
@@ -472,6 +524,10 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     {
         //ADT-Tweak: Aghost UI - no beep from the ghost. Physical in-world monitors still PlayPvs.
         if (comp.SuppressCritAlertSound || comp.AlertMuted || comp.AlertVolume <= 0.01f)
+            return false;
+
+        // Handheld: no beep without a battery or with a depleted cell. Consoles skip (no PowerCellDraw).
+        if (HasComp<PowerCellSlotComponent>(uid) && !_cell.HasActivatableCharge(uid))
             return false;
 
         var baseVolume = AudioParams.Default.Volume;

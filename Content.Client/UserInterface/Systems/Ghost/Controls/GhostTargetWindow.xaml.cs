@@ -27,8 +27,6 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         private Dictionary<string, List<GhostWarp>> _deadOther = [];
         private Dictionary<string, List<GhostWarp>> _leftOther = [];
 
-        private Dictionary<string, List<GhostWarp>> _aliveAntags = [];
-        private Dictionary<string, List<GhostWarp>> _deadAntags = []; // Добавляем отдельный словарь для мертвых антагов
         private Dictionary<string, List<GhostWarp>> _places = [];
         private Dictionary<string, List<GhostWarp>> _other = [];
 
@@ -61,8 +59,6 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             _leftPlayers.Clear();
             _deadOther.Clear();
             _leftOther.Clear();
-            _aliveAntags.Clear();
-            _deadAntags.Clear(); // Очищаем новый словарь
             _places.Clear();
             _other.Clear();
 
@@ -83,10 +79,6 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                 FilterLocalWarps(_alivePlayers, warp, WarpGroup.AliveDepartment);
                 FilterLocalWarps(_deadPlayers, warp, WarpGroup.DeadDepartment);
                 FilterLocalWarps(_leftPlayers, warp, WarpGroup.Left);
-
-                FilterLocalWarps(_aliveAntags, warp, WarpGroup.AliveAntag);
-                FilterLocalWarps(_deadAntags, warp, WarpGroup.DeadAntag); // Используем отдельный словарь для мертвых антагов
-
                 FilterLocalWarps(_ghostPlayers, warp, WarpGroup.Ghost);
                 FilterLocalWarps(_other, warp, WarpGroup.AliveOther);
                 FilterLocalWarps(_deadOther, warp, WarpGroup.DeadOther);
@@ -127,12 +119,12 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         private void AddButtons()
         {
             // Добавляем проверку на наличие данных
-            var hasData = _aliveAntags.Count > 0 || _alivePlayers.Count > 0 || 
+            var hasData = _alivePlayers.Count > 0 || 
                           _ghostPlayers.Count > 0 || _leftPlayers.Count > 0 || 
-                          _deadPlayers.Count > 0 || _deadAntags.Count > 0 ||
+                          _deadPlayers.Count > 0 ||
                           _places.Count > 0 || _other.Count > 0 ||
                           _deadOther.Count > 0 || _leftOther.Count > 0;
-            
+
             if (!hasData)
             {
                 // Добавляем сообщение, если нет данных
@@ -149,8 +141,6 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             }
 
             // ADT-TWEAK START
-            AddButtons(_aliveAntags, "ghost-teleport-menu-antagonists-label");
-            AddButtons(_deadAntags, "ghost-teleport-menu-dead-antagonists-label");
             AddButtons(_alivePlayers, "ghost-teleport-menu-alive-label");
             AddButtons(_ghostPlayers, "ghost-teleport-menu-ghosts-label");
             AddButtons(_leftPlayers, "ghost-teleport-menu-left-label", true);
@@ -187,7 +177,15 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                 AlignContent = FlexBox.FlexAlignContent.SpaceBetween
             };
 
-            foreach (var (subCategory, warps) in sortedWarps)
+            var sortedSubCategories = sortedWarps.OrderBy(kvp =>
+            {
+                var warps = kvp.Value;
+                if (warps == null || warps.Count == 0)
+                    return int.MaxValue;
+                return warps.Min(w => w.DepartmentWeight);
+            }).ToList();
+
+            foreach (var (subCategory, warps) in sortedSubCategories)
             {
                 if(warps.Count == 0)
                     continue;

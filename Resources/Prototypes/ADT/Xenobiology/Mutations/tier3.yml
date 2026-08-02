@@ -1,5 +1,5 @@
 - type: breed
-  breedName: red slime
+  breedName: breed-RedMutation
   id: RedMutation
   producedExtract: RedSlimeExtract
   components:
@@ -13,7 +13,7 @@
     - OilMutation
 
 - type: breed
-  breedName: green slime
+  breedName: breed-GreenMutation
   id: GreenMutation
   producedExtract: GreenSlimeExtract
   components:
@@ -27,7 +27,7 @@
     - BlackMutation
 
 - type: breed
-  breedName: pink slime
+  breedName: breed-PinkMutation
   id: PinkMutation
   producedExtract: PinkSlimeExtract
   components:
@@ -41,7 +41,7 @@
     - LightPinkMutation
 
 - type: breed
-  breedName: gold slime
+  breedName: breed-GoldMutation
   id: GoldMutation
   producedExtract: GoldSlimeExtract
   components:
