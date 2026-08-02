@@ -1,6 +1,6 @@
 # Literally the first base
 - type: breed
-  breedName: grey slime
+  breedName: breed-GreyMutation
   id: GreyMutation
   producedExtract: GreySlimeExtract
   components:

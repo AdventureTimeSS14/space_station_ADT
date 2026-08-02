@@ -68,7 +68,7 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
 
     /// <summary>
     /// Wearers already signaled as alerting: value true = dead, false = MobState.Critical.
-    /// A new key or a change of value re-triggers the alert sound immediately.
+    /// Edge sound only on new keys or crit -> dead; dead -> crit is silent.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public readonly Dictionary<NetEntity, bool> KnownAlertStates = new();
