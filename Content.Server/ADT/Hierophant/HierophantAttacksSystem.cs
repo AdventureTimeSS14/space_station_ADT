@@ -71,8 +71,8 @@ public sealed class HierophantAttacksSystem : EntitySystem
         Enqueue(ent, Step(now, HierophantStepType.Telegraph, destination));
         Enqueue(ent, Step(now, HierophantStepType.Telegraph, source));
 
-        _audio.PlayPvs(ent.Comp.BlinkOutSound, _transform.ToCoordinates(destination));
-        _audio.PlayPvs(ent.Comp.BlinkInSound, _transform.ToCoordinates(source));
+        _audio.PlayPvs(ent.Comp.BlinkOutSound, _transform.ToCoordinates(source));
+        _audio.PlayPvs(ent.Comp.BlinkInSound, _transform.ToCoordinates(destination));
 
         var at = now + TimeSpan.FromSeconds(0.2);
 

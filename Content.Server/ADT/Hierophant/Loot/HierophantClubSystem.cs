@@ -317,7 +317,7 @@ public sealed class HierophantClubSystem : EntitySystem
 
     private int GetBlastRange(Entity<HierophantClubComponent> ent, EntityUid user)
     {
-        return ent.Comp.BlastRange - (int) MathF.Round(GetHealthPercent(user) * 10f);
+        return Math.Max(ent.Comp.BlastRange - (int) MathF.Round(GetHealthPercent(user) * 10f), 0);
     }
 
     private float GetChaserSpeed(Entity<HierophantClubComponent> ent, EntityUid user)

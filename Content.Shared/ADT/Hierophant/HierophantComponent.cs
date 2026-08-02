@@ -74,6 +74,9 @@ public sealed partial class HierophantComponent : Component
     public int ArenaRadius = 11;
 
     [DataField]
+    public float TileMovementRadius = 26f;
+
+    [DataField]
     public float BlinkBlastDamage = 30f;
 
     [DataField]

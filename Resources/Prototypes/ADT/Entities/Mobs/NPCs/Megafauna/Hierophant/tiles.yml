@@ -2,7 +2,7 @@
   id: ADTFloorHierophant
   name: tiles-hierophant-floor
   sprite: /Textures/ADT/Tiles/hierophant_floor.png
-  baseTurf: ADTFloorHierophant
+  baseTurf: Space
   isSubfloor: false
   indestructible: true
   footstepSounds:
