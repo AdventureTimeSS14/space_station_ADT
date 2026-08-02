@@ -3311,8 +3311,8 @@ entities:
       pos: 0.5,5.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+#      configurators:
+#      - invalid
       deviceLists:
       - 11
   - uid: 438
