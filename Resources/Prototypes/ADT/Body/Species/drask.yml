@@ -149,7 +149,7 @@
     damage: 12
   - type: Bloodstream
     damageBleedModifiers: BloodlossDrask
-    bloodRefreshAmount: 0.2
+    bloodRefreshAmount: 0.5
     bleedReductionAmount: 0.12
     bloodlossThreshold: 0.85
     maxBleedAmount: 16
@@ -232,7 +232,7 @@
   - type: Damageable
     damageModifierSet: Drask
   - type: Injurable
-    damageContainer: Biological
+    damageContainer: ADTBiologicalDrask
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
