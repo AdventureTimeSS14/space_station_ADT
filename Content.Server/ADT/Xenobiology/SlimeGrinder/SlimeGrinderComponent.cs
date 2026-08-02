@@ -28,9 +28,8 @@ public sealed partial class SlimeGrinderComponent : Component
     [DataField]
     public SoundSpecifier GrindSound = new SoundPathSpecifier("/Audio/Machines/reclaimer_startup.ogg");
 
-    /// </summary>
     [DataField]
-    public float AutoFeedRange = 3f;
+    public float AutoFeedRange = 1f;
 
     [DataField]
     public TimeSpan ScanInterval = TimeSpan.FromSeconds(1);
