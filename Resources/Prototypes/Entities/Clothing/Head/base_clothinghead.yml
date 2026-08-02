@@ -67,7 +67,7 @@
   - type: ItemTogglePointLight
   - type: PointLight
     enabled: false
-    radius: 7 ADT tweak 3 > 7
+    radius: 7 # ADT tweak 3 > 7
     energy: 1
     mask: /Textures/ADT/Effects/LightMasks/cone_composed_b.png # ADT tweak
     autoRot: true
