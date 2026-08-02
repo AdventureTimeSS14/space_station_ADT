@@ -246,6 +246,7 @@
     - ADTShadekinEmotes
   - type: NightVision
     innate: true
+    effectPrototype: ADTEffectNightVisionMedium
 
 - type: entity
   parent: OrganBaseOrganic

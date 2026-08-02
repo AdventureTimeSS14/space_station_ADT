@@ -229,6 +229,9 @@
     - DoorBumpOpener
     - AnomalyHost
     - ADTDogEmotes
+  - type: NightVision
+    innate: true
+    effectPrototype: ADTEffectNightVisionLow
   # ADT-Tweak: End
 
 

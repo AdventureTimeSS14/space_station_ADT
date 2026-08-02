@@ -169,13 +169,14 @@
   - type: TemperatureDamage
     heatDamageThreshold: 308.15 # 35C
     coldDamageThreshold: 243.15 # -30C - порог когда активируется coldDamage с лечением.
+    coldAlert: ADTColdDrask
     coldDamage: #per second, scales with temperature & other constants
       types:
-        Blunt: -0.2
-        Slash: -0.1
-        Piercing: -0.1
-        Heat: -0.1
-        Shock: -0.05
+        Blunt: -0.25
+        Slash: -0.2
+        Piercing: -0.2
+        Heat: -0.15
+        Shock: -0.1
         Caustic: -0.05
         Radiation: -0.1
         Poison: -0.1
@@ -243,6 +244,17 @@
     tallscale: 1.15
     short: true
     shortscale: 1
+  - type: Uncloneable
+  - type: Tag
+    tags:
+    - CanPilot
+    - ConstantTemperatureThresholds
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+  - type: NightVision
+    innate: true
+    effectPrototype: ADTEffectNightVisionLow
 
 - type: entity
   parent: OrganBaseOrganic
