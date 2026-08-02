@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.Examine;
 using Content.Shared.Gibbing;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Systems;
@@ -76,6 +77,7 @@ public sealed class DiceOfFateSystem : EntitySystem
 
         SubscribeLocalEvent<DiceOfFateComponent, UseInHandEvent>(OnUseInHand, after: [typeof(SharedDiceSystem)]);
         SubscribeLocalEvent<DiceOfFateComponent, LandEvent>(OnLand, after: [typeof(SharedDiceSystem)]);
+        SubscribeLocalEvent<DiceOfFateComponent, ExaminedEvent>(OnExamined);
     }
 
     private void OnUseInHand(Entity<DiceOfFateComponent> entity, ref UseInHandEvent args)
@@ -87,7 +89,10 @@ public sealed class DiceOfFateSystem : EntitySystem
         if (HasComp<DiceOfFateUserComponent>(args.User))
             return;
 
-        entity.Comp.Used = true;
+        if (!entity.Comp.HasRollsLeft())
+            return;
+
+        entity.Comp.RollsUsed++;
         RollFate(args.User, dice.CurrentValue);
         EnsureComp<DiceOfFateUserComponent>(args.User);
     }
@@ -103,9 +108,20 @@ public sealed class DiceOfFateSystem : EntitySystem
         if (HasComp<DiceOfFateUserComponent>(user))
             return;
 
-        entity.Comp.Used = true;
+        if (!entity.Comp.HasRollsLeft())
+            return;
+
+        entity.Comp.RollsUsed++;
         RollFate(user, dice.CurrentValue);
         EnsureComp<DiceOfFateUserComponent>(user);
+    }
+
+    private void OnExamined(Entity<DiceOfFateComponent> entity, ref ExaminedEvent args)
+    {
+        using (args.PushGroup(nameof(DiceOfFateComponent)))
+        {
+            args.PushMarkup(Loc.GetString("dice-of-fate-examine", ("rollsLeft", entity.Comp.RollsLeft)));
+        }
     }
 
     public void RollFate(EntityUid user, int value)
