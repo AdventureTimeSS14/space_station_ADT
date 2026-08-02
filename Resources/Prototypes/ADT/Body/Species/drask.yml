@@ -150,8 +150,8 @@
   - type: Bloodstream
     damageBleedModifiers: BloodlossDrask
     bloodRefreshAmount: 1
-    bleedReductionAmount: 0.2
-    bloodlossThreshold: 0.75
+    bleedReductionAmount: 0.1
+    bloodlossThreshold: 0.80
     maxBleedAmount: 16
     bloodReferenceSolution:
       reagents:
