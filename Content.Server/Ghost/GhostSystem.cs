@@ -317,20 +317,18 @@ namespace Content.Server.Ghost
                 return;
             }
 
-            // WWDP EDIT START
             if (IsHiddenFromGhostWarps(target) || !IsValidWarpTarget(target))
             {
                 Log.Warning($"User {args.SenderSession.Name} tried to warp to an invalid/hidden target: {ToPrettyString(target)}");
                 return;
             }
-            // WWDP EDIT END
 
             WarpTo(attached, target);
         }
 
         private void OnGhostnadoRequest(GhostnadoRequestEvent msg, EntitySessionEventArgs args)
         {
-            if (args.SenderSession.AttachedEntity is not { Valid: true } uid // WD EDIT
+            if (args.SenderSession.AttachedEntity is not { Valid: true } uid
                 || !_ghostQuery.HasComp(uid))
             {
                 Log.Warning($"User {args.SenderSession.Name} tried to ghostnado without being a ghost.");
@@ -376,6 +374,9 @@ namespace Content.Server.Ghost
                 if (!IsValidWarpTarget(entity))
                     continue;
 
+                if (TryComp<GhostComponent>(entity, out var ghostComp) && ghostComp.CanGhostInteract)
+                    continue;
+
                 if (TryComp<RoleCacheComponent>(entity, out var roleCacheComponent))
                 {
                     var addedWarp = false;
@@ -384,20 +385,9 @@ namespace Content.Server.Ghost
                         _jobs.TryGetDepartment(jobPrototype.ID, out var departmentPrototype))
                     {
                         var departmentName = Loc.GetString($"department-{departmentPrototype.ID}");
-                        var jobName = Loc.GetString($"job-name-{jobPrototype.ID.ToLower()}");
-                        var warp = SetupWarp(entity, mindContainer, departmentName, departmentPrototype.Color, jobName);
+                        var jobName = Loc.GetString(jobPrototype.Name);
+                        var warp = SetupWarp(entity, mindContainer, departmentName, departmentPrototype.Color, jobName, departmentPrototype.Weight);
                         warp.Group |= WarpGroup.Department;
-
-                        warps.Add(warp);
-                        addedWarp = true;
-                    }
-
-                    if (roleCacheComponent.IsAntag &&
-                        _prototypeManager.TryIndex(roleCacheComponent.LastAntagPrototype, out var antagPrototype))
-                    {
-                        var antagName = Loc.GetString(antagPrototype.Name);
-                        var warp = SetupWarp(entity, mindContainer, antagName, AntagonistButtonColor, null);
-                        warp.Group |= WarpGroup.Antag;
 
                         warps.Add(warp);
                         addedWarp = true;
@@ -427,7 +417,7 @@ namespace Content.Server.Ghost
             return warps;
         }
 
-        private GhostWarp SetupWarp(EntityUid entity, MindContainerComponent mindContainer, string subGroup, Color? color, string? description)
+        private GhostWarp SetupWarp(EntityUid entity, MindContainerComponent mindContainer, string subGroup, Color? color, string? description, int departmentWeight = 0)
         {
             var hasAnyMind = mindContainer.Mind != null;
             var isDead = _mobState.IsDead(entity);
@@ -453,7 +443,7 @@ namespace Content.Server.Ghost
             if (string.IsNullOrEmpty(description))
                 description = metadata.EntityDescription;
 
-            var warp = new GhostWarp(GetNetEntity(entity), metadata.EntityName, subGroup, description, color);
+            var warp = new GhostWarp(GetNetEntity(entity), metadata.EntityName, subGroup, description, color, departmentWeight);
 
             if(isLeft)
                 warp.Group |= WarpGroup.Left;

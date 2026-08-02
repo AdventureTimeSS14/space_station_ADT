@@ -138,30 +138,33 @@ namespace Content.Shared.Ghost
      /// An player body a ghost can warp to.
      /// This is used as part of <see cref="GhostWarpsResponseEvent"/>
      /// </summary>
-     [Serializable, NetSerializable]
-     public struct GhostWarp
-     {
-         public GhostWarp(NetEntity entity, string displayName, string subGroup, string description, Color? color)
-         {
-             Entity = entity;
-             DisplayName = displayName;
-             SubGroup = subGroup;
-             Color = color;
-             Description = description;
-         }
+      [Serializable, NetSerializable]
+      public struct GhostWarp
+      {
+          public GhostWarp(NetEntity entity, string displayName, string subGroup, string description, Color? color, int departmentWeight = 0)
+          {
+              Entity = entity;
+              DisplayName = displayName;
+              SubGroup = subGroup;
+              Color = color;
+              Description = description;
+              DepartmentWeight = departmentWeight;
+          }
 
-         public NetEntity Entity { get; }
+          public NetEntity Entity { get; }
 
-         public string DisplayName { get; }
-         public string SubGroup { get; }
-         public string Description { get; }
+          public string DisplayName { get; }
+          public string SubGroup { get; }
+          public string Description { get; }
 
-         public Color? Color { get; }
+          public Color? Color { get; }
 
-         public WarpGroup Group { get; set; } = WarpGroup.Location;
+          public int DepartmentWeight { get; } // ADT-TWEAK: weight for department sorting
 
-         public bool HasMind { get; set; } = true; // ADT-Tweak
-     }
+          public WarpGroup Group { get; set; } = WarpGroup.Location;
+
+          public bool HasMind { get; set; } = true; // ADT-Tweak
+      }
 
      [Serializable, NetSerializable, Flags]
      public enum WarpGroup
