@@ -1,5 +1,7 @@
 slime-action-latch-success = The {$slime} latches onto the {$target}!
 
+slime-action-eat-corpse = The {$slime} fully devours the corpse of the {$target}!
+
 slime-latch-attempt = The {$slime} tries to latch onto the {$ent}!
 
 slime-latch-fail-target-dead = You do not want to consume the {$ent}, it is dead!

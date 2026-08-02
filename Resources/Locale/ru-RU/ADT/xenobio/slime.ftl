@@ -1,4 +1,5 @@
 slime-action-latch-success = { $slime } цепляется за { $target }!
+slime-action-eat-corpse = { $slime } полностью поглощает труп { $target }!
 slime-latch-attempt = { $slime } пытается прицепиться к { $ent }!
 slime-latch-fail-target-dead = Вы не хотите поглощать { $ent }, он мёртв!
 slime-latch-fail-already-latched = Вы не можете прицепиться к { $ent }, к нему уже прицепился кто-то другой!
