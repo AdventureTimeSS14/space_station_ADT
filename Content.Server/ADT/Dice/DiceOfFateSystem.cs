@@ -93,10 +93,10 @@ public sealed class DiceOfFateSystem : EntitySystem
         if (HasComp<DiceOfFateUserComponent>(args.User))
             return;
 
-        if (!entity.Comp.HasRollsLeft())
+        if (entity.Comp.RollsLeft <= 0)
             return;
 
-        entity.Comp.RollsUsed++;
+        entity.Comp.RollsLeft--;
         RollFate(args.User, dice.CurrentValue);
         EnsureComp<DiceOfFateUserComponent>(args.User);
     }
@@ -112,10 +112,10 @@ public sealed class DiceOfFateSystem : EntitySystem
         if (HasComp<DiceOfFateUserComponent>(user))
             return;
 
-        if (!entity.Comp.HasRollsLeft())
+        if (entity.Comp.RollsLeft <= 0)
             return;
 
-        entity.Comp.RollsUsed++;
+        entity.Comp.RollsLeft--;
         RollFate(user, dice.CurrentValue);
         EnsureComp<DiceOfFateUserComponent>(user);
     }
