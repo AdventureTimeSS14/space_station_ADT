@@ -1,4 +1,4 @@
-using Content.Server.ADT.Achievements.Components;
+using Content.Server.ADT.Achievements;
 using Content.Shared.ADT.Achievements;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
