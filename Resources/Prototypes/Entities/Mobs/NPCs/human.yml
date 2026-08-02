@@ -94,7 +94,7 @@
   - type: Inventory
     templateId: corpse
   # ADT Tweak start
-  - type: Embalmed
+  - type: UnRotting
   - type: Tag
     tags:
     - CanPilot
