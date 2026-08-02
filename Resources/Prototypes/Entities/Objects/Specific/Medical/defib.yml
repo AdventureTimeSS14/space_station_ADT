@@ -33,6 +33,7 @@
       zapHeal:
         types:
           Asphyxiation: -40
+          Bloodloss: -15 # ADT tweak add bloodloss heal
     - type: DoAfter
     - type: UseDelay
     - type: StaticPrice
