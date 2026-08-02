@@ -1,7 +1,7 @@
 using Content.Shared.ADT.Achievements;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.ADT.Achievements.Components;
+namespace Content.Shared.ADT.Achievements.Components;
 
 public sealed partial class ADTAchievementSourceComponent : Component
 {
