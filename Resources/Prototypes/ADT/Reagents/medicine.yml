@@ -425,7 +425,7 @@
   color: "#c8a2c8"
   physicalDesc: reagent-physical-desc-powdery
   metabolisms:
-    Reactive:
+    reactiveEffects:
       Acidic:
         methods: [ Touch ]
         effects:

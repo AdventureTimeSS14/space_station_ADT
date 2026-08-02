@@ -926,7 +926,7 @@
           conditions:
           - !type:MetabolizerTypeCondition
             type: [ Drask ]
-            inverted: false
+            inverted: true
           amount: 6
 
 
