@@ -30,77 +30,77 @@
           types:
             Blunt: -1
 
-- type: reagent
-  id: ADTNitrofurfoll #искаверканное название нитрофурала.
-  name: reagent-name-nitrofurfoll
-  group: Medicine
-  desc: reagent-desc-nitrofurfoll
-  physicalDesc: reagent-physical-desc-translucent
-  flavor: medicine
-  color: "#fcf27c"
-  metabolisms:
-    Bloodstream:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Slash: -0.25
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentCondition
-          reagent: Bicaridine
-          min: 0.05
-        damage:
-          types:
-            Slash: -1
-      - !type:PopupMessage
-        conditions:
-        - !type:TotalDamageCondition
-          min: 0.05
-        type: Local
-        visualType: Small
-        messages: [ "medicine-effect-slash" ]
-        probability: 0.05
+# - type: reagent
+#   id: ADTNitrofurfoll #искаверканное название нитрофурала.
+#   name: reagent-name-nitrofurfoll
+#   group: Medicine
+#   desc: reagent-desc-nitrofurfoll
+#   physicalDesc: reagent-physical-desc-translucent
+#   flavor: medicine
+#   color: "#fcf27c"
+#   metabolisms:
+#     Bloodstream:
+#       effects:
+#       - !type:HealthChange
+#         damage:
+#           types:
+#             Slash: -0.25
+#       - !type:HealthChange
+#         conditions:
+#         - !type:ReagentCondition
+#           reagent: Bicaridine
+#           min: 0.05
+#         damage:
+#           types:
+#             Slash: -1
+#       - !type:PopupMessage
+#         conditions:
+#         - !type:TotalDamageCondition
+#           min: 0.05
+#         type: Local
+#         visualType: Small
+#         messages: [ "medicine-effect-slash" ]
+#         probability: 0.05
 
-- type: reagent
-  id: ADTPeroHydrogen #литералли перекись водорода, но круче. Пероводород.
-  name: reagent-name-perohydrogen
-  group: Medicine
-  desc: reagent-desc-perohydrogen
-  physicalDesc: reagent-physical-desc-translucent
-  flavor: medicine
-  color: "#d1d1d155"
-  reactiveEffects:
-    Acidic:
-      methods: [ Touch ]
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Piercing: -0.75
-  metabolisms:
-    Bloodstream:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Piercing: -0.25
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentCondition
-          reagent: Bicaridine
-          min: 0.05
-        damage:
-          types:
-            Piercing: -1
-      - !type:PopupMessage
-        conditions:
-        - !type:TotalDamageCondition
-          min: 0.5
-        type: Local
-        visualType: Small
-        messages: [ "medicine-effect-piercing" ]
-        probability: 0.05
+# - type: reagent
+#   id: ADTPeroHydrogen #литералли перекись водорода, но круче. Пероводород.
+#   name: reagent-name-perohydrogen
+#   group: Medicine
+#   desc: reagent-desc-perohydrogen
+#   physicalDesc: reagent-physical-desc-translucent
+#   flavor: medicine
+#   color: "#d1d1d155"
+#   reactiveEffects:
+#     Acidic:
+#       methods: [ Touch ]
+#       effects:
+#       - !type:HealthChange
+#         damage:
+#           types:
+#             Piercing: -0.75
+#   metabolisms:
+#     Bloodstream:
+#       effects:
+#       - !type:HealthChange
+#         damage:
+#           types:
+#             Piercing: -0.25
+#       - !type:HealthChange
+#         conditions:
+#         - !type:ReagentCondition
+#           reagent: Bicaridine
+#           min: 0.05
+#         damage:
+#           types:
+#             Piercing: -1
+#       - !type:PopupMessage
+#         conditions:
+#         - !type:TotalDamageCondition
+#           min: 0.5
+#         type: Local
+#         visualType: Small
+#         messages: [ "medicine-effect-piercing" ]
+#         probability: 0.05
 
 # Dermaline.
 - type: reagent
@@ -125,10 +125,6 @@
         messages: [ "medicine-effect-heat" ]
         probability: 0.05
       - !type:HealthChange
-        conditions:
-        - !type:ReagentCondition
-          reagent: Dermaline
-          min: 0.05
         damage:
           types:
             Heat: -1
@@ -145,14 +141,7 @@
     Bloodstream:
       effects:
       - !type:HealthChange
-        damage:
-          types:
-            Shock: -0.25
-      - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: Dermaline
-          min: 0.05
         damage:
           types:
             Shock: -1
@@ -195,8 +184,8 @@
           min: 0.05
         damage:
           types:
-            Poison: -2
-            Blunt: 1.5
+            Poison: -3
+            Blunt: 1
       - !type:Jitter
         conditions:
         - !type:ReagentCondition
@@ -214,68 +203,68 @@
 
 #DexalinPlus
 # Баффы очень маленькие, поскольку я хочу откреститься подальше от старого дексалина
-- type: reagent
-  id: ADTNikematide #анаграмма никетамида.
-  name: reagent-name-nikematide
-  group: Medicine
-  desc: reagent-desc-nikematide
-  physicalDesc: reagent-physical-desc-translucent
-  flavor: medicine
-  color: "#c98928"
-  metabolisms:
-    Bloodstream:
-      effects:
-      - !type:HealthChange
-        # Start edit by Filo
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-          inverted: true
-        # End edit by Filo
-        damage:
-          types:
-            Asphyxiation: -0.25
-      - !type:PopupMessage
-        conditions:
-        - !type:TotalDamageCondition
-          min: 0.05
-        type: Local
-        visualType: Small
-        messages: [ "medicine-effect-asphyxia" ]
-        probability: 0.05
-      - !type:HealthChange
-        conditions:
-        # Start edit by Filo
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-          inverted: true
-        # End edit by Filo
-        - !type:ReagentCondition
-          reagent: DexalinPlus
-          min: 0.05
-        damage:
-          types:
-            Asphyxiation: -0.5
-      # Start edit by Filo
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-          inverted: true
-        damage:
-          types:
-            Poison: -0.25
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-          inverted: true
-        - !type:ReagentCondition
-          reagent: DexalinPlus
-          min: 0.05
-        damage:
-          types:
-            Poison: -0.5
+# - type: reagent
+#   id: ADTNikematide #анаграмма никетамида.
+#   name: reagent-name-nikematide
+#   group: Medicine
+#   desc: reagent-desc-nikematide
+#   physicalDesc: reagent-physical-desc-translucent
+#   flavor: medicine
+#   color: "#c98928"
+#   metabolisms:
+#     Bloodstream:
+#       effects:
+#       - !type:HealthChange
+#         # Start edit by Filo
+#         conditions:
+#         - !type:MetabolizerTypeCondition
+#           type: [ Shadekin ]
+#           inverted: true
+#         # End edit by Filo
+#         damage:
+#           types:
+#             Asphyxiation: -0.25
+#       - !type:PopupMessage
+#         conditions:
+#         - !type:TotalDamageCondition
+#           min: 0.05
+#         type: Local
+#         visualType: Small
+#         messages: [ "medicine-effect-asphyxia" ]
+#         probability: 0.05
+#       - !type:HealthChange
+#         conditions:
+#         # Start edit by Filo
+#         - !type:MetabolizerTypeCondition
+#           type: [ Shadekin ]
+#           inverted: true
+#         # End edit by Filo
+#         - !type:ReagentCondition
+#           reagent: DexalinPlus
+#           min: 0.05
+#         damage:
+#           types:
+#             Asphyxiation: -0.5
+#       # Start edit by Filo
+#       - !type:HealthChange
+#         conditions:
+#         - !type:MetabolizerTypeCondition
+#           type: [ Shadekin ]
+#           inverted: true
+#         damage:
+#           types:
+#             Poison: -0.25
+#       - !type:HealthChange
+#         conditions:
+#         - !type:MetabolizerTypeCondition
+#           type: [ Shadekin ]
+#           inverted: true
+#         - !type:ReagentCondition
+#           reagent: DexalinPlus
+#           min: 0.05
+#         damage:
+#           types:
+#             Poison: -0.5
       # End edit by Filo
 
 - type: reagent
@@ -307,12 +296,9 @@
         probability: 0.05
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: DexalinPlus
-          min: 0.05
         damage:
           types:
-            Bloodloss: -0.5
+            Bloodloss: -1
 
 #а теперь маленькие, простенькие препаратики, которые предложили в дискорде.
 
@@ -439,6 +425,12 @@
   color: "#c8a2c8"
   physicalDesc: reagent-physical-desc-powdery
   metabolisms:
+    Reactive:
+      Acidic:
+        methods: [ Touch ]
+        effects:
+        - !type:ModifyBleed
+          amount: -3
     Bloodstream:
       metabolismRate : 0.3
       effects:

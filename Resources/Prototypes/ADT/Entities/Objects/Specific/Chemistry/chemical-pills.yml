@@ -54,22 +54,6 @@
         - id: ADTSodiumizolePill
           amount: 10
 - type: entity
-  name: nitrofurfoll pack
-  id: ADTNitrofurfollPack
-  parent: ADTPillPack
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Specific/Chemistry/packs.rsi
-    state: nitrofurfoll
-  - type: Item
-    sprite: ADT/Objects/Specific/Chemistry/packs.rsi
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: ADTNitrofurfollPill
-          amount: 10
-- type: entity
   name: anelgesin pack
   id: ADTAnelgesinPack
   parent: ADTPillPack
@@ -225,41 +209,6 @@
     state: pill7
 
 - type: entity
-  name: nitrofurfoll pill
-  parent: ADTPill
-  id: ADTNitrofurfollPill
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: ADTNitrofurfoll
-          Quantity: 7.5
-        - ReagentId: Bicaridine
-          Quantity: 7.5
-  - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill7
-
-- type: entity
-  name: perohydrogen pill
-  parent: ADTPill
-  id: ADTPeroHydrogenPill
-  description: Narcolepsy is not a problem anymore.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: ADTPeroHydrogen
-          Quantity: 7.5
-        - ReagentId: Bicaridine
-          Quantity: 7.5
-  - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill19
-
-- type: entity
   name: anelgesin pill
   parent: ADTPill
   id: ADTAnelgesinPill
@@ -309,24 +258,6 @@
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill9
-
-- type: entity
-  name: nikematide pill
-  parent: ADTPill
-  id: ADTNikematidePill
-  description: Narcolepsy is not a problem anymore.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: ADTNikematide
-          Quantity: 7.5
-        - ReagentId: DexalinPlus
-          Quantity: 7.5
-  - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill20
 
 - type: entity
   name: haloperidol pill
