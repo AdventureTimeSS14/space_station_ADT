@@ -44,18 +44,6 @@
     radius: 2.5
     softness: 20
 
-# Weaker personal light for Resomi innate NV
-- type: entity
-  id: ADTEffectNightVisionResomi
-  categories: [ HideSpawnMenu ]
-  name: resomi night vision
-  components:
-  - type: PointLight
-    color: "#D6E4FF"
-    energy: 0.3
-    radius: 3
-    softness: 15
-
 # Device NVD (ПНВ) — wider personal light while goggles are active
 - type: entity
   id: ADTEffectNightVisionDevice
