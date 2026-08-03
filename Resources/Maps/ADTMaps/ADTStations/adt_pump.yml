@@ -58094,9 +58094,6 @@ entities:
     - type: Transform
       pos: -52.738785,60.489983
       parent: 2
-    - type: Blocking
-      blockingToggleActionEntity: 9358
-      user: invalid
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
