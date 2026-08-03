@@ -62,7 +62,6 @@
     - map: ["underwearb"]
     - map: [ "socks" ]
     - map: ["underweart"]
-    - map: ["jumpsuit"]
 
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
@@ -77,6 +76,7 @@
     - map: ["enum.HumanoidVisualLayers.Overlay"]
 
     # More equipment
+    - map: ["jumpsuit"]
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
@@ -133,7 +133,6 @@
     damage:
       types:
         Heat: -0.04
-        Cold: -0.1
         Blunt: -0.03
         Slash: -0.03
         Piercing: -0.03
@@ -215,8 +214,6 @@
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#0091ff"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
   - type: Speech
     speechSounds: Drask
   - type: InteractionPopup
