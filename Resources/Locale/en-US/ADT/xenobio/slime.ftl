@@ -12,6 +12,9 @@ slime-latch-fail-max-entities = You cannot consume the {$ent}, you are full!
 
 slime-examined-stomach = [color=red]You can see something moving inside of it![/color]
 
+mob-slime-stage-baby = baby
+mob-slime-stage-adult = adult
+
 slime-examined-tamer = [color=green]It looks happy to see you![/color]
 
 slime-interaction-tame = It seems to like you now!
