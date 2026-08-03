@@ -62,7 +62,7 @@
       id: fade_out
       interpolate: Linear
       maxDuration: 10 # 300.0
-      startValue: 5.0
+      startValue: 8.0 # ADT tweak 5.0 > 8.0
       endValue: 1.5
   - type: Tag
     tags:
