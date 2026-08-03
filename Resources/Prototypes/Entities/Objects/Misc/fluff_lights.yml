@@ -42,10 +42,10 @@
     heldPrefix: off
   - type: PointLight
     enabled: false
-    radius: 3
-    energy: 2
+    radius: 5 # ADT tweak 3 > 5
+    energy: 3 # ADT tweak 2 > 3
     netsync: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_b.png # ADT tweak
+    mask: /Textures/ADT/Effects/LightMasks/circle_e.png # ADT tweak
   - type: ToggleableVisuals
     spriteLayer: light
   - type: ItemTogglePointLight
