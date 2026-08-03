@@ -35,7 +35,7 @@ public sealed partial class SlimeDamageOvertimeComponent : Component
     public float ToxinUnits = 0.15f;
 
     [DataField]
-    public TimeSpan Interval = TimeSpan.FromSeconds(1.0f);
+    public TimeSpan Interval = TimeSpan.FromSeconds(2.0f);
 
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextTickTime = TimeSpan.Zero;
