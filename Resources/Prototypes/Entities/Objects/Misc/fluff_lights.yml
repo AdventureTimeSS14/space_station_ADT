@@ -223,9 +223,9 @@
         - HighImpassable
   - type: PointLight
     enabled: false
-    radius: 8
+    radius: 9 # ADT tweak 8 > 9
     energy: 5
-    mask: /Textures/ADT/Effects/LightMasks/circle_a.png # ADT tweak
+    mask: /Textures/ADT/Effects/LightMasks/circle_e.png # ADT tweak
   - type: ItemSlots
     slots:
       cell_slot:
