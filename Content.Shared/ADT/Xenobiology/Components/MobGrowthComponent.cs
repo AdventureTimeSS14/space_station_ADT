@@ -64,5 +64,5 @@ public sealed partial class GrowthStageData
     public string? Sprite { get; set; }
 
     [DataField]
-    public string? DisplayName { get; set; } = string.Empty;
+    public LocId DisplayName { get; set; } = string.Empty;
 }
