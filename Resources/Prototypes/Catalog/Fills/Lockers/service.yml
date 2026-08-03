@@ -230,6 +230,7 @@
     - id: FoodBanana
     - id: FoodPieBananaCream
     - id: ClownMimeCyborgInstruction
+      prob: 0.25
 
 - type: entity
   id: LockerMimeFilled
@@ -250,3 +251,4 @@
     - id: FoodBreadBaguette
     - id: FoodMimana
     - id: ClownMimeCyborgInstruction
+      prob: 0.25
