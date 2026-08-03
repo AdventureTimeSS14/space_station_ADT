@@ -27,6 +27,7 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Random;
 using System.Linq;
 
 namespace Content.Server.ADT.Xenobiology.Systems;
@@ -50,6 +51,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     private readonly HashSet<EntityUid> _latchedSlimes = new();
 
     public override void Initialize()
@@ -196,8 +198,19 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
     private void OnSlimeMitosis(Entity<SlimeComponent> ent, ref SlimeMitosisEvent args)
     {
+        var target = ent.Comp.LatchedTarget;
+
         Unlatch(ent);
         _latchedSlimes.Remove(ent);
+
+        if (target is not { } latchTarget || Deleted(latchTarget) || args.Offspring.Count == 0)
+            return;
+
+        var newSlime = _random.Pick(args.Offspring);
+        if (!TryComp<SlimeComponent>(newSlime, out var slimeComp))
+            return;
+
+        Latch(new Entity<SlimeComponent>(newSlime, slimeComp), latchTarget);
     }
 
     private void OnLatchAttempt(SlimeLatchEvent args)
