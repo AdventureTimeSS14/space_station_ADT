@@ -104,4 +104,13 @@ public sealed partial class MobGrowthSystem : EntitySystem
             _metaData.SetEntityName(ent, $"{displayName} {ent.Comp.BaseEntityName}");
         }
     }
+
+    public void SetBaseName(EntityUid uid, string baseName)
+    {
+        if (!TryComp<MobGrowthComponent>(uid, out var growth))
+            return;
+
+        growth.BaseEntityName = baseName;
+        UpdateAppearance((uid, growth));
+    }
 }

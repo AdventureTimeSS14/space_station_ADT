@@ -6,7 +6,7 @@ slime-latch-fail-already-latched = Вы не можете прицепиться
 slime-latch-fail-max-entities = Вы не можете поглотить { $ent }, вы переполнены!
 slime-examined-stomach = [color=red]Вы видите, как внутри него что-то движется![/color]
 
-mob-slime-stage-baby = малыш
+mob-slime-stage-baby = детёныш
 mob-slime-stage-adult = взрослый
 slime-examined-tamer = [color=green]Кажется, он рад вас видеть![/color]
 slime-interaction-tame = Похоже, вы теперь ему нравитесь!
