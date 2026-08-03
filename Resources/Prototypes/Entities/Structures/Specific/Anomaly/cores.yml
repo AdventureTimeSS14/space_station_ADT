@@ -42,7 +42,7 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/pyro_core.rsi
   - type: PointLight
-    radius: 1.7 # ADT tweak 1.5 > 1.8
+    radius: 1.7 # ADT tweak 1.5 > 1.7
     energy: 2.7
     color: "#E25822"
     castShadows: false
@@ -73,7 +73,7 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/ice_core.rsi
   - type: PointLight
-    radius: 1.7 # ADT tweak 1.5 > 2
+    radius: 1.7 # ADT tweak 1.5 > 1.7
     energy: 2.7
     color: "#befaff"
     castShadows: false
@@ -178,7 +178,7 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/shadow_core.rsi
   - type: PointLight
-    radius: 1.7 # ADT tweak 1.5 > 1.78
+    radius: 1.7 # ADT tweak 1.5 > 1.7
     energy: 3 # ADT tweak 2.0 > 3
     color: "#793a80"
     castShadows: false
@@ -236,7 +236,7 @@
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/pyro_core.rsi
   - type: PointLight
-    radius: 1.5
+    radius: 1.7 # ADT tweak 1.5 > 1.7
     energy: 2.7
     color: "#fca3c0"
     castShadows: false
