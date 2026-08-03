@@ -127,7 +127,8 @@ public sealed partial class Generic : ILanguageType
             ("message", coloredLanguageMessage));
 
         // Send
-        chat.SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, wrappedLanguageMessage, uid, range, language: Language);
+        var isShout = message.TrimEnd().EndsWith("!");
+        chat.SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, wrappedLanguageMessage, uid, range, language: Language, ignoreWalls: isShout);
         success = true;
     }
 

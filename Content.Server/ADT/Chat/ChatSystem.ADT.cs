@@ -85,6 +85,9 @@ public sealed partial class ChatSystem
                 continue;
             listener = session.AttachedEntity.Value;
 
+            if (!data.Observer && !HasLineOfSight(listener, source, WhisperMuffledRange))
+                continue;
+
             bool condition = true;
             foreach (var item in lang.Conditions.Where(x => x.RaiseOnListener))
             {
