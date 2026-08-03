@@ -1,0 +1,44 @@
+# ADT Hollow Point (#275): magnum HP/FMJ speed loaders
+# Нужно переспрайтить HP / FMJ на отдельные цвета.
+
+- type: entity
+  id: SpeedLoaderMagnumHP
+  name: "speed loader (.45 magnum HP)"
+  parent: BaseSpeedLoaderMagnum
+  description: Designed to quickly load up to six rounds of .45 magnum into an empty revolver. Intended to hold hollow-point ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumHP
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: base-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: base
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: SpeedLoaderMagnumFMJ
+  name: "speed loader (.45 magnum FMJ)"
+  parent: BaseSpeedLoaderMagnum
+  description: Designed to quickly load up to six rounds of .45 magnum into an empty revolver. Intended to hold full metal jacket ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumFMJ
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: base-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: base
+    steps: 7
+    zeroVisible: false
+  - type: Appearance

@@ -1,47 +1,86 @@
 - type: entity
-  parent: BaseBullet
+  parent: BaseBulletHitscan
   id: BulletLightRifle
   categories: [ HideSpawnMenu ]
   name: bullet (.30 rifle)
   components:
-  - type: Projectile
+  - type: HitscanBasicDamage
+    armorPenetration: -0.13
     damage:
       types:
         Piercing: 19
+  - type: HitscanStaminaDamage
+    staminaDamage: 2
+  - type: HitscanPierce
+    chance: 0.4
+    deviation: 0.05
+    pierceLevel: Metal
+  - type: HitscanRicochet
+    chance: 0.3
 
 - type: entity
-  parent: BaseBulletPractice
+  parent: BaseBulletHitscanPractice
   id: BulletLightRiflePractice
   categories: [ HideSpawnMenu ]
   name: bullet (.30 rifle practice)
   components:
-  - type: Projectile
+  - type: HitscanBasicDamage
     damage:
       types:
         Blunt: 2
+  - type: HitscanPierce
+    chance: 0.69
+    deviation: 0.05
+  - type: HitscanRicochet
+    chance: 0.48
+  - type: HitscanBasicVisuals
+    bullet:
+      sprite:
+        sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+        state: practice
 
 - type: entity
-  parent: BaseBulletIncendiary
+  parent: BaseBulletHitscanIncendiary
   id: BulletLightRifleIncendiary
   categories: [ HideSpawnMenu ]
   name: bullet (.30 rifle incendiary)
   components:
-  - type: Projectile
+  - type: HitscanBasicDamage
     damage:
       types:
-        Piercing: 14 #ADT tweak
-        # Blunt: 3 ADT tweak
-        # Heat: 16 ADT tweak
-        Heat: 5
+        Blunt: 3
+        Heat: 16
+  - type: HitscanIgnite
+  - type: HitscanPierce
+    chance: 0.69
+    deviation: 0.05
+  - type: HitscanRicochet
+    chance: 0.48
+  - type: HitscanBasicVisuals
+    bullet:
+      sprite:
+        sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+        state: incendiary
 
 - type: entity
-  parent: BaseBulletUranium
+  parent: BaseBulletHitscanUranium
   id: BulletLightRifleUranium
   categories: [ HideSpawnMenu ]
   name: bullet (.30 rifle uranium)
   components:
-  - type: Projectile
+  - type: HitscanBasicDamage
     damage:
       types:
         Radiation: 9
         Piercing: 10
+  - type: HitscanPierce
+    chance: 0.69
+    deviation: 0.05
+    pierceLevel: HardenedMetal
+  - type: HitscanRicochet
+    chance: 0.8
+  - type: HitscanBasicVisuals
+    bullet:
+      sprite:
+        sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+        state: uranium

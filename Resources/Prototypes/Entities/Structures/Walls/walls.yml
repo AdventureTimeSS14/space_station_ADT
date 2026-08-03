@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   abstract: true
   parent: BaseStructure
   id: BaseStructureWall
@@ -56,6 +56,8 @@
     resistance: 2 # ADT-Tweak
   - type: BlockWeather
   - type: SunShadowCast
+  - type: Ricochetable
+    chance: 0.4
 
 - type: entity
   abstract: true
@@ -102,6 +104,10 @@
   id: WallBrick
   name: brick wall
   components:
+  - type: Pierceable
+    level: Metal
+  - type: Ricochetable
+    chance: 0.2
   - type: Sprite
     sprite: Structures/Walls/brick.rsi
   - type: Icon
@@ -300,6 +306,8 @@
   id: WallDiamond
   name: diamond wall
   components:
+  - type: Ricochetable
+    chance: 1
   - type: Sprite
     sprite: Structures/Walls/diamond.rsi
   - type: Icon
@@ -457,6 +465,8 @@
   id: WallPlastic
   name: plastic wall
   components:
+  - type: Ricochetable
+    chance: 0.1
   - type: Sprite
     sprite: Structures/Walls/plastic.rsi
   - type: Icon
@@ -500,30 +510,32 @@
   name: plastitanium wall
   suffix: indestructible
   components:
-    - type: Sprite
-      sprite: Structures/Walls/plastitanium.rsi
-    - type: Icon
-      sprite: Structures/Walls/plastitanium.rsi
-    - type: IconSmooth
-      key: walls
-      base: plastitanium
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.5,-0.5,0.5,0.5"
-          mask:
-          - FullTileMask
-          layer:
-          - WallLayer
-          density: 4000
-    - type: Damageable
-      damageModifierSet: StructuralMetallicStrong
-    - type: Injurable
-      damageContainer: StructuralInorganic
-    - type: RadiationBlocker
-      resistance: 5
+  - type: Ricochetable # ADT Hollow Point (#275)
+    chance: 1
+  - type: Sprite
+    sprite: Structures/Walls/plastitanium.rsi
+  - type: Icon
+    sprite: Structures/Walls/plastitanium.rsi
+  - type: IconSmooth
+    key: walls
+    base: plastitanium
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 4000
+  - type: Damageable
+    damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: RadiationBlocker
+    resistance: 5
 
 - type: entity
   parent: WallPlastitaniumIndestructible
@@ -600,6 +612,10 @@
   id: WallReinforced
   name: reinforced wall
   components:
+  - type: Pierceable
+    level: HardenedMetal
+  - type: Ricochetable
+    chance: 0.75
   - type: Sprite
     sprite: Structures/Walls/solid.rsi
   - type: Icon
@@ -857,6 +873,8 @@
   id: WallShuttleDiagonal
   name: shuttle wall
   components:
+  - type: Ricochetable
+    chance: 1
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/shuttle_diagonal.rsi
@@ -927,6 +945,8 @@
   id: WallShuttle
   name: shuttle wall
   components:
+  - type: Ricochetable
+    chance: 1
   - type: Damageable
     damageModifierSet: StructuralMetallicStrong
   - type: Injurable
@@ -1042,6 +1062,8 @@
   id: WallSolidDiagonal
   name: solid wall
   components:
+  - type: Ricochetable
+    chance: 0.4
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/solid_diagonal.rsi
@@ -1247,6 +1269,8 @@
   id: WallUranium
   name: uranium wall
   components:
+  - type: Ricochetable
+    chance: 1
   - type: Sprite
     sprite: Structures/Walls/uranium.rsi
   - type: Icon
@@ -1299,6 +1323,8 @@
   name: wood wall
   description: The traditional greytide defense.
   components:
+  - type: Ricochetable
+    chance: 0
   - type: Sprite
     sprite: Structures/Walls/wood.rsi
   - type: Icon
@@ -1338,6 +1364,8 @@
   name: web wall
   description: Keeps the spiders in and the greytide out.
   components:
+  - type: Ricochetable
+    chance: 0
   - type: MeleeSound
     soundGroups:
       Brute:

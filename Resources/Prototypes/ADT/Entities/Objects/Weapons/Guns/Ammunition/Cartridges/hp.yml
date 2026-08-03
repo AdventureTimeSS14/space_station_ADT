@@ -1,0 +1,176 @@
+# ADT Hollow Point (#275): HP / FMJ / AP cartridges
+# TODO ADT: переспрайтить HP / FMJ / AP на финальные цвета.
+
+# --- .35 pistol ---
+- type: entity
+  parent: BaseCartridgePistol
+  id: CartridgePistolHP
+  name: cartridge (.35 auto HP)
+  description: Hollow-point ammunition. High damage against unarmored targets, poor armor penetration and pierce.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletPistolHP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#000000"
+
+- type: entity
+  parent: BaseCartridgePistol
+  id: CartridgePistolFMJ
+  name: cartridge (.35 auto FMJ)
+  description: Full metal jacket ammunition. Balanced pierce and strong ricochet tendency.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletPistolFMJ
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#B68F0E"
+
+- type: entity
+  parent: BaseCartridgePistol
+  id: CartridgePistolAP
+  name: cartridge (.35 auto AP)
+  description: Armor-piercing ammunition. Lower raw damage, high armor penetration and pierce chance.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletPistolAP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#1A8C1A"
+
+# --- .20 rifle ---
+- type: entity
+  parent: BaseCartridgeRifle
+  id: CartridgeRifleHP
+  name: cartridge (.20 rifle HP)
+  components:
+  - type: CartridgeAmmo
+    proto: BulletRifleHP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#000000"
+
+- type: entity
+  parent: BaseCartridgeRifle
+  id: CartridgeRifleFMJ
+  name: cartridge (.20 rifle FMJ)
+  components:
+  - type: CartridgeAmmo
+    proto: BulletRifleFMJ
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#B68F0E"
+
+- type: entity
+  parent: BaseCartridgeRifle
+  id: CartridgeRifleAP
+  name: cartridge (.20 rifle AP)
+  components:
+  - type: CartridgeAmmo
+    proto: BulletRifleAP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#1A8C1A"
+
+# --- .45 magnum ---
+- type: entity
+  parent: BaseCartridgeMagnum
+  id: CartridgeMagnumHP
+  name: cartridge (.45 magnum HP)
+  components:
+  - type: CartridgeAmmo
+    proto: BulletMagnumHP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#000000"
+
+- type: entity
+  parent: BaseCartridgeMagnum
+  id: CartridgeMagnumFMJ
+  name: cartridge (.45 magnum FMJ)
+  components:
+  - type: CartridgeAmmo
+    proto: BulletMagnumFMJ
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#B68F0E"
+
+# CartridgeMagnumAP already exists in wizden Cartridges/magnum.yml
+
+# --- .30 light rifle ---
+- type: entity
+  parent: BaseCartridgeLightRifle
+  id: CartridgeLightRifleHP
+  name: cartridge (.30 rifle HP)
+  components:
+  - type: CartridgeAmmo
+    proto: BulletLightRifleHP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#000000"
+
+- type: entity
+  parent: BaseCartridgeLightRifle
+  id: CartridgeLightRifleFMJ
+  name: cartridge (.30 rifle FMJ)
+  components:
+  - type: CartridgeAmmo
+    proto: BulletLightRifleFMJ
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#B68F0E"
+
+- type: entity
+  parent: BaseCartridgeLightRifle
+  id: CartridgeLightRifleAP
+  name: cartridge (.30 rifle AP)
+  components:
+  - type: CartridgeAmmo
+    proto: BulletLightRifleAP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#1A8C1A"

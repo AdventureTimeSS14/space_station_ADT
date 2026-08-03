@@ -151,7 +151,7 @@
         Heat: 3000
         Cold: 3000
         Structural: 5000
-  - type: HitscanPierce
+  - type: HitscanUnlimitedPierce
   - type: HitscanAmmo
   - type: HitscanBasicEffects
   - type: HitscanBasicVisuals

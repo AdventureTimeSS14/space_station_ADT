@@ -25,6 +25,13 @@
   components:
   - type: CartridgeAmmo
     proto: BulletLightRifle
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#3F47DB"
 
 - type: entity
   parent: BaseCartridgeLightRifle

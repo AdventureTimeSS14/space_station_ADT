@@ -25,6 +25,13 @@
   components:
   - type: CartridgeAmmo
     proto: BulletMagnum
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#3F47DB"
 
 - type: entity
   parent: BaseCartridgeMagnum
@@ -61,7 +68,7 @@
 - type: entity
   parent: BaseCartridgeMagnum
   id: CartridgeMagnumAP
-  name: cartridge (.45 magnum armor-piercing)
+  name: cartridge (.45 magnum AP)
   description: Heavy magnum cartridge mostly used by revolvers. Armor-piercing ammunition is renowned for its ability to cut straight through body armor.
   components:
   - type: CartridgeAmmo
@@ -72,7 +79,7 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#0a0a0a"
+        color: "#1A8C1A" # ADT Hollow Point tip color
 
 - type: entity
   parent: BaseCartridgeMagnum

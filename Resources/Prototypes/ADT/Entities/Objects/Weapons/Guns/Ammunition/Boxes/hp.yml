@@ -1,0 +1,171 @@
+# ADT Hollow Point (#275): HP / FMJ / AP ammunition boxes
+# Нужно переспрайтить HP / FMJ / AP на отдельные цвета (без fmj/ap overlay).
+
+# --- .35 pistol ---
+- type: entity
+  parent: BaseMagazineBoxPistol
+  id: MagazineBoxPistolHP
+  name: ammunition box (.35 auto HP)
+  description: A cardboard box of .35 auto hollow-point rounds.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolHP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineBoxPistol
+  id: MagazineBoxPistolFMJ
+  name: ammunition box (.35 auto FMJ)
+  description: A cardboard box of .35 auto full metal jacket rounds.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolFMJ
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineBoxPistol
+  id: MagazineBoxPistolAP
+  name: ammunition box (.35 auto AP)
+  description: A cardboard box of .35 auto armor-piercing rounds.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolAP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+# --- .20 rifle ---
+- type: entity
+  parent: BaseMagazineBoxRifle
+  id: MagazineBoxRifleHP
+  name: ammunition box (.20 rifle HP)
+  description: A cardboard box of .20 rifle hollow-point rounds.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifleHP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineBoxRifle
+  id: MagazineBoxRifleFMJ
+  name: ammunition box (.20 rifle FMJ)
+  description: A cardboard box of .20 rifle full metal jacket rounds.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifleFMJ
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineBoxRifle
+  id: MagazineBoxRifleAP
+  name: ammunition box (.20 rifle AP)
+  description: A cardboard box of .20 rifle armor-piercing rounds.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifleAP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+# --- .30 light rifle ---
+- type: entity
+  parent: BaseMagazineBoxLightRifle
+  id: MagazineBoxLightRifleHP
+  name: ammunition box (.30 rifle HP)
+  description: A cardboard box of .30 rifle hollow-point rounds.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleHP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineBoxLightRifle
+  id: MagazineBoxLightRifleFMJ
+  name: ammunition box (.30 rifle FMJ)
+  description: A cardboard box of .30 rifle full metal jacket rounds.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleFMJ
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineBoxLightRifle
+  id: MagazineBoxLightRifleAP
+  name: ammunition box (.30 rifle AP)
+  description: A cardboard box of .30 rifle armor-piercing rounds.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleAP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+# --- .45 magnum ---
+- type: entity
+  parent: BaseMagazineBoxMagnum
+  id: MagazineBoxMagnumHP
+  name: ammunition box (.45 magnum HP)
+  description: A cardboard box of .45 magnum hollow-point rounds.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumHP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineBoxMagnum
+  id: MagazineBoxMagnumFMJ
+  name: ammunition box (.45 magnum FMJ)
+  description: A cardboard box of .45 magnum full metal jacket rounds.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumFMJ
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

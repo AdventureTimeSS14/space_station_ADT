@@ -108,7 +108,12 @@ public sealed partial class GunSystem : SharedGunSystem
                     if (!cartridge.Spent)
                     {
                         var uid = Spawn(cartridge.Prototype, fromEnt);
-                        CreateAndFireProjectiles(uid, cartridge);
+
+                        // Kinetic cartridge ammo may spawn hitscan bullet entities (Starlight Shooting 2.0 port).
+                        if (HasComp<HitscanAmmoComponent>(uid))
+                            CreateAndFireHitscan(uid);
+                        else
+                            CreateAndFireProjectiles(uid, cartridge);
 
                         RaiseLocalEvent(ent!.Value, new AmmoShotEvent()
                         {
@@ -150,19 +155,7 @@ public sealed partial class GunSystem : SharedGunSystem
                     if (ent == null)
                         break;
 
-                    var hitscanEv = new HitscanTraceEvent
-                    {
-                        FromCoordinates = fromCoordinates,
-                        ShotDirection = mapDirection.Normalized(),
-                        Gun = gun,
-                        Shooter = user,
-                        Target = gun.Comp.Target,
-                    };
-                    RaiseLocalEvent(ent.Value, ref hitscanEv);
-
-                    Del(ent);
-
-                    Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
+                    CreateAndFireHitscan(ent.Value);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -201,6 +194,60 @@ public sealed partial class GunSystem : SharedGunSystem
             }
 
             MuzzleFlash(gun.Owner, ammoComp, mapDirection.ToAngle(), user);
+            PlayGunshot();
+        }
+
+        void CreateAndFireHitscan(EntityUid ammoEnt)
+        {
+            if (TryComp<ProjectileSpreadComponent>(ammoEnt, out var ammoSpreadComp) && ammoSpreadComp.Count > 1)
+            {
+                // ADT Hollow Point (#275): average ammo spread with gun choke
+                var spreadEvent = new GunGetAmmoSpreadEvent((ammoSpreadComp.Spread + gun.Comp.Spread) / 2);
+                RaiseLocalEvent(gun, ref spreadEvent);
+
+                var angles = LinearSpread(mapAngle - spreadEvent.Spread / 2,
+                    mapAngle + spreadEvent.Spread / 2, ammoSpreadComp.Count);
+
+                FireHitscanTrace(ammoEnt, angles[0].ToVec());
+
+                for (var i = 1; i < ammoSpreadComp.Count; i++)
+                {
+                    var newuid = Spawn(ammoSpreadComp.Proto, fromEnt);
+                    FireHitscanTrace(newuid, angles[i].ToVec());
+                }
+            }
+            else
+            {
+                FireHitscanTrace(ammoEnt, mapDirection);
+            }
+
+            PlayGunshot();
+        }
+
+        void FireHitscanTrace(EntityUid hitscanEnt, Vector2 direction)
+        {
+            var dir = direction == Vector2.Zero ? mapDirection : direction;
+            if (dir == Vector2.Zero)
+            {
+                Del(hitscanEnt);
+                return;
+            }
+
+            var hitscanEv = new HitscanTraceEvent
+            {
+                FromCoordinates = fromCoordinates,
+                ToCoordinates = toCoordinates, // ADT hitscan #3142 aim pointer
+                ShotDirection = dir.Normalized(),
+                Gun = gun,
+                Shooter = user,
+                Target = gun.Comp.Target,
+            };
+            RaiseLocalEvent(hitscanEnt, ref hitscanEv);
+            Del(hitscanEnt);
+        }
+
+        void PlayGunshot()
+        {
             if (TryComp<MechComponent>(user, out var mech)) // ADT Mech gun fix
                 Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun.Owner, mech.PilotSlot.ContainedEntity);
             else

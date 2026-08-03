@@ -1,14 +1,10 @@
 - type: entity
-  parent: BaseBullet
+  parent: BaseBulletHitscan
   id: ADTPelletShotgunSlugImprovised
   categories: [ HideSpawnMenu ]
   name: improvised slug pellet
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    layers:
-    - state: ball
-  - type: Projectile
+  - type: HitscanBasicDamage
     damage:
       types:
         Piercing: 10

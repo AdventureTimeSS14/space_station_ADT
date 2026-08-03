@@ -30,10 +30,10 @@
 - type: entity
   id: ADTBulletMagnumLesser
   name: bullet (.357 magnum)
-  parent: BaseBullet
+  parent: BaseBulletHitscan
   categories: [ HideSpawnMenu ]
   components:
-  - type: Projectile
+  - type: HitscanBasicDamage
     damage:
       types:
         Piercing: 35
@@ -41,21 +41,21 @@
 - type: entity
   id: ADTBulletMagnumLesserPractice
   name: bullet (.357 magnum practice)
-  parent: BaseBulletPractice
+  parent: BaseBulletHitscanPractice
   categories: [ HideSpawnMenu ]
   components:
-  - type: Projectile
+  - type: HitscanBasicDamage
     damage:
       types:
         Blunt: 1
 
 - type: entity
   id: ADTBulletMagnumLesserIncendiary
-  parent: BaseBulletIncendiary
+  parent: BaseBulletHitscanIncendiary
   name: bullet (.357 magnum incendiary)
   categories: [ HideSpawnMenu ]
   components:
-  - type: Projectile
+  - type: HitscanBasicDamage
     damage:
       types:
         Piercing: 32
@@ -63,28 +63,28 @@
 - type: entity
   id: ADTBulletMagnumLesserAP
   name: bullet (.357 magnum armor-piercing)
-  parent: BaseBulletAP
+  parent: BaseBulletHitscanAP
   categories: [ HideSpawnMenu ]
   components:
-  - type: Projectile
+  - type: HitscanBasicDamage
+    ignoreResistances: true
     damage:
       types:
         Piercing: 26 # 20% decrease
-    ignoreResistances: true
 
 - type: entity
   id: ADTBulletMagnumLesserUranium
   name: bullet (.357 magnum uranium)
-  parent: BaseBulletUranium
+  parent: BaseBulletHitscanUranium
   categories: [ HideSpawnMenu ]
   components:
-  - type: Projectile
+  - type: HitscanBasicDamage
     damage:
       types:
         Radiation: 15
         Piercing: 20
 
-#HW
+#HW — keep physical: DamageBonusHoly listens to ProjectileHitEvent
 - type: entity
   id: ADTBulletMagnumHoly
   name: bullet (.357 magnum Holy)

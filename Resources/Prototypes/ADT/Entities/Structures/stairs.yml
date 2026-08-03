@@ -6,6 +6,9 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: Tag
+    tags:
+    - Stairs
   - type: Clickable
   - type: Sprite
     sprite: ADT/Structures/stairs.rsi
@@ -48,6 +51,9 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: Tag
+    tags:
+    - Stairs
   - type: Clickable
   - type: Sprite
     sprite: ADT/Structures/stairs.rsi

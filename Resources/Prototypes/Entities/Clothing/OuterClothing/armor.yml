@@ -23,6 +23,8 @@
         Heat: 0.80
   - type: ExplosionResistance
     damageCoefficient: 0.90
+  - type: Pierceable
+    level: Metal
 
 #Standard armor vest, allowed for security and bartenders
 - type: entity

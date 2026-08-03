@@ -1,59 +1,103 @@
 - type: entity
-  parent: BaseBullet
+  parent: BaseBulletHitscan
   id: BulletMagnum
   categories: [ HideSpawnMenu ]
   name: bullet (.45 magnum)
   components:
-  - type: Projectile
+  - type: HitscanBasicDamage
+    armorPenetration: -0.13
     damage:
       types:
-        Piercing: 42 # ADT tweak 35 > 42
+        Piercing: 35
+  - type: HitscanStaminaDamage
+    staminaDamage: 4
+  - type: HitscanPierce
+    chance: 0.4
+    deviation: 0.05
+  - type: HitscanRicochet
+    chance: 0.3
 
 - type: entity
-  parent: BaseBulletPractice
+  parent: BaseBulletHitscanPractice
   id: BulletMagnumPractice
   categories: [ HideSpawnMenu ]
   name: bullet (.45 magnum practice)
   components:
-  - type: Projectile
+  - type: HitscanBasicDamage
     damage:
       types:
-        Blunt: 1
+        Blunt: 2
+  - type: HitscanPierce
+    chance: 0.69
+    deviation: 0.05
+  - type: HitscanRicochet
+    chance: 0.48
+  - type: HitscanBasicVisuals
+    bullet:
+      sprite:
+        sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+        state: practice
 
 - type: entity
-  parent: BaseBulletIncendiary
+  parent: BaseBulletHitscanIncendiary
   id: BulletMagnumIncendiary
   categories: [ HideSpawnMenu ]
   name: bullet (.45 magnum incendiary)
   components:
-  - type: Projectile
+  - type: HitscanBasicDamage
     damage:
       types:
-        Piercing: 39 #ADT tweak
-        # Blunt: 3 ADT tweak
-        # Heat: 32 ADT tweak
-        Heat: 9
+        Blunt: 3
+        Heat: 32
+  - type: HitscanPierce
+    chance: 0.69
+    deviation: 0.05
+  - type: HitscanRicochet
+    chance: 0.48
+  - type: HitscanIgnite
+  - type: HitscanBasicVisuals
+    bullet:
+      sprite:
+        sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+        state: incendiary
 
 - type: entity
-  parent: BaseBulletAP
+  parent: BaseBulletHitscan
   id: BulletMagnumAP
   categories: [ HideSpawnMenu ]
   name: bullet (.45 magnum armor-piercing)
   components:
-  - type: Projectile
+  - type: HitscanBasicDamage
+    armorPenetration: 0.69
     damage:
       types:
-        Piercing: 34 # 25% decrease # ADT tweak 26 > 34
-    ignoreResistances: true
+        Piercing: 25
+  - type: HitscanPierce
+    chance: 0.81
+    deviation: 0.05
+    pierceLevel: HardenedMetal
+  - type: HitscanRicochet
+    chance: 0.48
 
 - type: entity
-  parent: BaseBulletUranium
+  parent: BaseBulletHitscanUranium
   id: BulletMagnumUranium
   categories: [ HideSpawnMenu ]
   name: bullet (.45 magnum uranium)
   components:
-  - type: Projectile
+  - type: HitscanBasicDamage
     damage:
       types:
-        Radiation: 18 # ADT tweak 15 > 18
-        Piercing: 24 # ADT tweak 20 > 24
+        Radiation: 15
+        Piercing: 20
+  - type: HitscanPierce
+    chance: 0.69
+    deviation: 0.05
+    pierceLevel: HardenedMetal
+  - type: HitscanRicochet
+    chance: 0.8
+  - type: HitscanBasicVisuals
+    bullet:
+      sprite:
+        sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+        state: uranium

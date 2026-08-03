@@ -3,6 +3,7 @@ using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Projectiles;
+using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Prototypes;
 
@@ -40,6 +41,12 @@ public abstract partial class SharedGunSystem
     {
         if (!ProtoManager.TryIndex(proto, out var entityProto))
             return null;
+
+        if (entityProto.TryGetComponent<HitscanBasicDamageComponent>(out var hitscan, Factory)
+            && !hitscan.Damage.Empty)
+        {
+            return hitscan.Damage * Damageable.UniversalHitscanDamageModifier;
+        }
 
         if (!entityProto.TryGetComponent<ProjectileComponent>(out var projectile, Factory))
             return null;

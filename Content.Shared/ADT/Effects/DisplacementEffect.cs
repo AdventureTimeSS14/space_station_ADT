@@ -1,0 +1,14 @@
+using Content.Shared.DisplacementMap;
+using Robust.Shared.Prototypes;
+
+namespace Content.Shared.ADT.Effects;
+
+[Prototype("displacementEffect")]
+public sealed partial class DisplacementEffect : IPrototype
+{
+    [IdDataField]
+    public string ID { get; private set; } = null!;
+
+    [DataField("displacement", required: true)]
+    public DisplacementData Displacement = null!;
+}
