@@ -96,6 +96,21 @@ public sealed partial class MobGrowthSystem : EntitySystem
         _appearance.SetData(ent, GrowthStateVisuals.Sprite, sprite, appearance);
 
         if (_net.IsServer)
-            _metaData.SetEntityName(ent, $"{stageData.DisplayName} {ent.Comp.BaseEntityName}");
+        {
+            var displayName = string.IsNullOrEmpty(stageData.DisplayName)
+                ? string.Empty
+                : Loc.GetString(stageData.DisplayName);
+
+            _metaData.SetEntityName(ent, $"{displayName} {ent.Comp.BaseEntityName}");
+        }
+    }
+
+    public void SetBaseName(EntityUid uid, string baseName)
+    {
+        if (!TryComp<MobGrowthComponent>(uid, out var growth))
+            return;
+
+        growth.BaseEntityName = baseName;
+        UpdateAppearance((uid, growth));
     }
 }
