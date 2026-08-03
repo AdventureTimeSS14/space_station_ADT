@@ -3057,11 +3057,6 @@ entities:
           hard: False
           restitution: 0
           friction: 0.4
-    - type: ThrownItem
-      playLandSound: True
-      landTime: 14320.2961075
-      thrownTime: 14320.1571084
-      thrower: invalid
 - proto: ClothingHeadHatPirateTricord
   entities:
   - uid: 245
