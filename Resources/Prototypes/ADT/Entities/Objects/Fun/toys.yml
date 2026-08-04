@@ -12,7 +12,7 @@
   parent: BasePlushie
   id: ADTPlushieOwl
   name: mage owl plushie
-  description: It looks like a soft and cute blondie.
+  description: mage owl?
   components:
   - type: Sprite
     sprite: ADT/Objects/Fun/toys.rsi
