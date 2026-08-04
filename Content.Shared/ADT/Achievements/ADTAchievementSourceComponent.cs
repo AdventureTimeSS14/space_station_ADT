@@ -3,6 +3,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Achievements.Components;
 
+[RegisterComponent]
 public sealed partial class ADTAchievementSourceComponent : Component
 {
     [DataField]
