@@ -15,6 +15,7 @@ using Robust.Server.Containers;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Xenobiology.SlimeGrinder;
 
@@ -27,11 +28,18 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+
+    private EntityQuery<PhysicsComponent> _physicsQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        _physicsQuery = GetEntityQuery<PhysicsComponent>();
+
+        SubscribeLocalEvent<SlimeGrinderComponent, MapInitEvent>(OnGrinderMapInit);
         SubscribeLocalEvent<ActiveSlimeGrinderComponent, ComponentInit>(OnActiveInit);
         SubscribeLocalEvent<ActiveSlimeGrinderComponent, ComponentRemove>(OnActiveShutdown);
         SubscribeLocalEvent<ActiveSlimeGrinderComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
@@ -43,6 +51,8 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        AutoFeed();
 
         var query = EntityQueryEnumerator<ActiveSlimeGrinderComponent, SlimeGrinderComponent>();
         while (query.MoveNext(out var uid, out _, out var grinder))
@@ -97,6 +107,45 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
 
     #endregion
 
+    private void OnGrinderMapInit(Entity<SlimeGrinderComponent> grinder, ref MapInitEvent args)
+    {
+        grinder.Comp.NextScan = _timing.CurTime;
+    }
+
+    private void AutoFeed()
+    {
+        var currentTime = _timing.CurTime;
+        var query = EntityQueryEnumerator<SlimeGrinderComponent, TransformComponent>();
+        var candidates = new HashSet<Entity<SlimeComponent>>();
+
+        while (query.MoveNext(out var uid, out var grinder, out var xform))
+        {
+            if (grinder.AutoFeedRange <= 0 || grinder.NextScan > currentTime)
+                continue;
+
+            grinder.NextScan += grinder.ScanInterval;
+
+            if (!CanOperate(uid))
+                continue;
+
+            candidates.Clear();
+            _lookup.GetEntitiesInRange(xform.Coordinates, grinder.AutoFeedRange, candidates, LookupFlags.Dynamic | LookupFlags.Sundries);
+
+            foreach (var candidate in candidates)
+            {
+                var candidateUid = candidate.Owner;
+
+                if (!IsValidSlimeCorpse(candidateUid))
+                    continue;
+
+                if (!_physicsQuery.TryGetComponent(candidateUid, out var physics) || physics.BodyStatus != BodyStatus.OnGround)
+                    continue;
+
+                QueueProcess(candidateUid, (uid, grinder), physics, candidate.Comp);
+            }
+        }
+    }
+
     private void OnClimbedOn(Entity<SlimeGrinderComponent> grinder, ref ClimbedOnEvent args)
     {
         if (CanGrind(grinder, args.Climber))
@@ -136,13 +185,20 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         QueueDel(toProcess);
     }
 
-    private bool CanGrind(Entity<SlimeGrinderComponent> grinder, EntityUid dragged)
+    private bool CanGrind(EntityUid grinder, EntityUid dragged)
     {
-        if (!Transform(grinder).Anchored
-        || !HasComp<SlimeComponent>(dragged)
-        || (TryComp<MobStateComponent>(dragged, out var mobState) && mobState.CurrentState != MobState.Dead))
-            return false;
+        return CanOperate(grinder) && IsValidSlimeCorpse(dragged);
+    }
 
-        return !TryComp<ApcPowerReceiverComponent>(grinder, out var power) || power.Powered;
+    private bool CanOperate(EntityUid grinder)
+    {
+        return Transform(grinder).Anchored
+            && (!TryComp<ApcPowerReceiverComponent>(grinder, out var power) || power.Powered);
+    }
+
+    private bool IsValidSlimeCorpse(EntityUid candidate)
+    {
+        return HasComp<SlimeComponent>(candidate)
+            && (!TryComp<MobStateComponent>(candidate, out var mobState) || mobState.CurrentState == MobState.Dead);
     }
 }
