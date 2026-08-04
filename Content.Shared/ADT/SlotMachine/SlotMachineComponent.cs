@@ -62,6 +62,9 @@ public sealed partial class SlotMachineComponent : Component
     [DataField]
     public DamageSpecifier? SpinDamage;
 
+    [DataField]
+    public Dictionary<string, DamageSpecifier>? SpeciesSpinDamage;
+
     [DataField, AutoNetworkedField]
     public bool Emagged;
 

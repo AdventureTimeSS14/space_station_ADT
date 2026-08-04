@@ -3,6 +3,7 @@
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Chat.Widgets"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Systems.Chat.Controls"
+    xmlns:adtcontrols="clr-namespace:Content.Client.ADT.UI.Chat.Controls"
     MouseFilter="Stop"
     HorizontalExpand="True"
     VerticalExpand="True"
@@ -10,6 +11,13 @@
     <PanelContainer Name="ChatWindowPanel" Access="Public" HorizontalExpand="True" VerticalExpand="True"
                     StyleClasses="StyleNano.StyleClassChatPanel">
         <BoxContainer Orientation="Vertical" SeparationOverride="4" HorizontalExpand="True" VerticalExpand="True">
+            <!-- ADT-Tweak start -->
+            <PanelContainer Name="SearchPanel" Access="Public" Visible="False" HorizontalExpand="True" Margin="8 8 8 0">
+                <BoxContainer Orientation="Vertical" SeparationOverride="4" HorizontalExpand="True">
+                    <adtcontrols:ChatSearchBox Name="ChatSearch" Access="Public" HorizontalExpand="True" />
+                </BoxContainer>
+            </PanelContainer>
+            <!-- ADT-Tweak end -->
             <OutputPanel Name="Contents" HorizontalExpand="True" VerticalExpand="True" Margin="8 8 8 4" ShowScrollDownButton="True" />
             <controls:ChatInputBox HorizontalExpand="True" Name="ChatInput" Access="Public" Margin="2"/>
         </BoxContainer>

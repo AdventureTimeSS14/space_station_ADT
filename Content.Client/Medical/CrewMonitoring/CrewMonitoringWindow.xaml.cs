@@ -92,8 +92,10 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
     private static readonly Color SensorDotLastKnown = Color.FromHex("#E6C200");
     private static readonly Color SensorDotHasPosition = Color.LimeGreen;
 
+    // Map blip when GPS is not live (Binary/Vitals/Off retained pin).
+    private static readonly Color SensorBlipLastKnown = Color.FromHex("#8A8A8A");
+
     // Map blip colors sampled from human_crew_monitoring.rsi status fills.
-    private static readonly Color LifeColorAlive = Color.FromHex("#A80EEA");   // "жив"
     private static readonly Color LifeColorHealth0 = Color.FromHex("#00C800"); // "отл"
     private static readonly Color LifeColorHealth1 = Color.FromHex("#70A000");
     private static readonly Color LifeColorHealth2 = Color.FromHex("#A07800"); // "неоч"
@@ -123,6 +125,9 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
 
     /// <summary>Last server the map was auto-centered on (re-center when selection changes).</summary>
     private NetEntity? _mapCenteredOnServer;
+
+    /// <summary>Selected monitoring server is online — required for green live-GPS presentation.</summary>
+    private bool _serverOnline;
 
     /// <summary>Shared themed chrome for action buttons (scan / rescan / select).</summary>
     private StyleBoxFlat _buttonStyle = new();
@@ -457,7 +462,9 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
         // Dark = no location at all.
         var active = button.SensorActive;
         var hasCoords = button.Coordinates != null;
-        var liveTracking = active &&
+        // Offline server → every pin is last-known (yellow), even if mode was still Cords.
+        var liveTracking = _serverOnline &&
+                           active &&
                            hasCoords &&
                            button.SensorMode == SuitSensorMode.SensorCords;
         var stale = hasCoords && !liveTracking;
@@ -624,6 +631,10 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
             if (button.CritStatusIcon != null)
                 button.CritStatusIcon.Texture = statusTexture;
 
+            // Stale last-known pins stay gray — no crit color blink on the map.
+            if (!IsLiveGpsTracking(button))
+                continue;
+
             if (!NavMap.Visible ||
                 !NavMap.TrackedEntities.TryGetValue(button.SuitSensorUid, out var blip))
             {
@@ -652,6 +663,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
         _lastSensorsState = state;
         _lastMonitorUid = monitor;
         _lastMonitorCoords = monitorCoords;
+        _serverOnline = state.ServerOnline;
         var sensors = state.Sensors;
         var isEmagged = state.IsEmagged;
         var hasScanned = state.HasScanned;
@@ -686,6 +698,8 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
             // Coordinates-only / heartbeat UI refresh: update crew blips without wiping controls.
             UpdateExistingCrewBlips(sensors, isEmagged);
             UpdateMonitorBlip(force: true);
+            // Keep an existing freeze; online/offline flips change the servers hash above.
+            UpdateGridMotionFreeze(state, syncBlips: false);
             return;
         }
 
@@ -738,7 +752,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
 
         var selectedServerUid = state.SelectedServerUid;
         _rescanProgressBar = null;
-        if (hasScanned && servers.Count > 0)
+        if (hasScanned)
         {
             if (_rescanInProgress)
             {
@@ -764,140 +778,159 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
                 ServersListContainer.AddChild(rescanButton);
             }
 
-            var serversLabel = new RichTextLabel()
+            if (servers.Count == 0)
             {
-                Margin = new Thickness(10, 0),
-                HorizontalExpand = true,
-            };
-            serversLabel.SetMessage(Loc.GetString("crew-monitoring-servers-department"));
-            serversLabel.StyleClasses.Add("font-large");
-            ServersListContainer.AddChild(serversLabel);
-
-            foreach (var server in servers)
-            {
-                var isSelected = selectedServerUid != null && server.NetEntity == selectedServerUid.Value;
-                var statusColor = server.IsOnline ? Color.LimeGreen : Color.Red;
-                var serverDisplayName = string.IsNullOrEmpty(server.GridName)
-                    ? server.ServerAddress
-                    : $"{server.GridName} — {server.ServerAddress}";
-
-                // Same chrome as crew sensor rows: light = selectable, green = selected, dim = offline.
-                var serverButton = new Button
+                var emptyLabel = new Label
                 {
+                    Text = Loc.GetString("crew-monitoring-ui-no-server-label"),
                     HorizontalExpand = true,
-                    Disabled = !server.IsOnline && !isSelected,
-                    Margin = new Thickness(10, 0),
+                    Align = Label.AlignMode.Center,
+                    Margin = new Thickness(10, 8, 10, 0),
+                    FontColorOverride = _sensorTextMuted,
                 };
-
-                if (isSelected)
-                    serverButton.StyleBoxOverride = _sensorRowSelectedStyle;
-                else if (server.IsOnline)
-                    serverButton.StyleBoxOverride = _sensorRowStyle;
-                else
-                    serverButton.StyleBoxOverride = _sensorRowInactiveStyle;
-
-                serverButton.ModulateSelfOverride = Color.White;
-
-                var mainContainer = new BoxContainer
-                {
-                    Orientation = LayoutOrientation.Horizontal,
-                    HorizontalExpand = true,
-                };
-                serverButton.AddChild(mainContainer);
-
-                var indicator = new PanelContainer
-                {
-                    MinSize = new Vector2(10, 10),
-                    MaxSize = new Vector2(10, 10),
-                    Margin = new Thickness(0, 0, 6, 0),
-                    VerticalAlignment = VAlignment.Center,
-                    PanelOverride = new StyleBoxFlat { BackgroundColor = statusColor },
-                };
-                mainContainer.AddChild(indicator);
-
-                var textColor = isSelected || server.IsOnline
-                    ? _sensorTextOnLight
-                    : _sensorTextMuted;
-
-                var statusLabel = new Label
-                {
-                    Text = Loc.GetString(server.IsOnline
-                        ? "crew-monitoring-server-online"
-                        : "crew-monitoring-server-offline"),
-                    FontColorOverride = statusColor,
-                    Margin = new Thickness(0, 0, 8, 0),
-                    VerticalAlignment = VAlignment.Center,
-                };
-                mainContainer.AddChild(statusLabel);
-
-                var nameLabel = new Label
-                {
-                    Text = serverDisplayName,
-                    ClipText = true,
-                    HorizontalExpand = true,
-                    FontColorOverride = textColor,
-                    VerticalAlignment = VAlignment.Center,
-                };
-                mainContainer.AddChild(nameLabel);
-
-                if (isSelected)
-                {
-                    mainContainer.AddChild(new Label
-                    {
-                        Text = Loc.GetString("crew-monitoring-server-active"),
-                        FontColorOverride = textColor,
-                        VerticalAlignment = VAlignment.Center,
-                        Margin = new Thickness(8, 0, 0, 0),
-                    });
-                }
-
-                var serverEntity = server.NetEntity;
-                if (!isSelected && server.IsOnline)
-                    serverButton.OnPressed += _ => OnSelectServer?.Invoke(serverEntity);
-
-                ServersListContainer.AddChild(serverButton);
+                ServersListContainer.AddChild(emptyLabel);
             }
-
-            if (hasServerSelected && _serverBlipTexture != null && NavMap.Visible)
+            else
             {
+                var serversLabel = new RichTextLabel()
+                {
+                    Margin = new Thickness(10, 0),
+                    HorizontalExpand = true,
+                };
+                serversLabel.SetMessage(Loc.GetString("crew-monitoring-servers-department"));
+                serversLabel.StyleClasses.Add("font-large");
+                ServersListContainer.AddChild(serversLabel);
+
                 foreach (var server in servers)
                 {
-                    var serverCoords = _entManager.GetCoordinates(server.Coordinates);
-                    if (serverCoords == null || !serverCoords.Value.IsValid(_entManager))
-                        continue;
                     var isSelected = selectedServerUid != null && server.NetEntity == selectedServerUid.Value;
-                    var blipColor = server.IsOnline ? Color.LimeGreen : Color.Red;
-                    var localCoords = CoordinatesToLocal(serverCoords.Value);
-                    if (localCoords == null)
-                        continue;
+                    var statusColor = server.IsOnline ? Color.LimeGreen : Color.Red;
+                    var serverDisplayName = string.IsNullOrEmpty(server.GridName)
+                        ? server.ServerAddress
+                        : $"{server.GridName} — {server.ServerAddress}";
+
+                    // Same chrome as crew sensor rows: light = selectable, green = selected, dim = offline.
+                    var serverButton = new Button
+                    {
+                        HorizontalExpand = true,
+                        Disabled = !server.IsOnline && !isSelected,
+                        Margin = new Thickness(10, 0),
+                    };
+
+                    if (isSelected)
+                        serverButton.StyleBoxOverride = _sensorRowSelectedStyle;
+                    else if (server.IsOnline)
+                        serverButton.StyleBoxOverride = _sensorRowStyle;
+                    else
+                        serverButton.StyleBoxOverride = _sensorRowInactiveStyle;
+
+                    serverButton.ModulateSelfOverride = Color.White;
+
+                    var mainContainer = new BoxContainer
+                    {
+                        Orientation = LayoutOrientation.Horizontal,
+                        HorizontalExpand = true,
+                    };
+                    serverButton.AddChild(mainContainer);
+
+                    var indicator = new PanelContainer
+                    {
+                        MinSize = new Vector2(10, 10),
+                        MaxSize = new Vector2(10, 10),
+                        Margin = new Thickness(0, 0, 6, 0),
+                        VerticalAlignment = VAlignment.Center,
+                        PanelOverride = new StyleBoxFlat { BackgroundColor = statusColor },
+                    };
+                    mainContainer.AddChild(indicator);
+
+                    var textColor = isSelected || server.IsOnline
+                        ? _sensorTextOnLight
+                        : _sensorTextMuted;
+
+                    var statusLabel = new Label
+                    {
+                        Text = Loc.GetString(server.IsOnline
+                            ? "crew-monitoring-server-online"
+                            : "crew-monitoring-server-offline"),
+                        FontColorOverride = statusColor,
+                        Margin = new Thickness(0, 0, 8, 0),
+                        VerticalAlignment = VAlignment.Center,
+                    };
+                    mainContainer.AddChild(statusLabel);
+
+                    var nameLabel = new Label
+                    {
+                        Text = serverDisplayName,
+                        ClipText = true,
+                        HorizontalExpand = true,
+                        FontColorOverride = textColor,
+                        VerticalAlignment = VAlignment.Center,
+                    };
+                    mainContainer.AddChild(nameLabel);
 
                     if (isSelected)
                     {
-                        NavMap.SensorRangeCenter ??= serverCoords.Value;
-                        if (NavMap.SensorRange <= 0f)
-                            NavMap.SensorRange = server.SensorRange;
-                        TryCenterMapOnServer(selectedServerUid, serverCoords.Value);
+                        mainContainer.AddChild(new Label
+                        {
+                            Text = Loc.GetString("crew-monitoring-server-active"),
+                            FontColorOverride = textColor,
+                            VerticalAlignment = VAlignment.Center,
+                            Margin = new Thickness(8, 0, 0, 0),
+                        });
                     }
 
-                    NavMap.LocalizedNames.TryAdd(server.NetEntity, Loc.GetString("crew-monitoring-server-blip") + " " + server.ServerAddress);
-                    NavMap.TrackedEntities.TryAdd(server.NetEntity,
-                        new NavMapBlip(
-                            localCoords.Value,
-                            _serverBlipTexture,
-                            blipColor,
-                            false,
-                            false));
+                    var serverEntity = server.NetEntity;
+                    if (isSelected || server.IsOnline)
+                        serverButton.OnPressed += _ => OnSelectServer?.Invoke(serverEntity);
+
+                    ServersListContainer.AddChild(serverButton);
+                }
+
+                if (hasServerSelected && _serverBlipTexture != null && NavMap.Visible)
+                {
+                    foreach (var server in servers)
+                    {
+                        var serverCoords = _entManager.GetCoordinates(server.Coordinates);
+                        if (serverCoords == null || !serverCoords.Value.IsValid(_entManager))
+                            continue;
+                        var isSelected = selectedServerUid != null && server.NetEntity == selectedServerUid.Value;
+                        var blipColor = server.IsOnline ? Color.LimeGreen : Color.Red;
+                        var localCoords = CoordinatesToLocal(serverCoords.Value);
+                        if (localCoords == null)
+                            continue;
+
+                        if (isSelected)
+                        {
+                            NavMap.SensorRangeCenter ??= serverCoords.Value;
+                            if (NavMap.SensorRange <= 0f)
+                                NavMap.SensorRange = server.SensorRange;
+                            TryCenterMapOnServer(selectedServerUid, serverCoords.Value);
+                        }
+
+                        NavMap.LocalizedNames.TryAdd(server.NetEntity, Loc.GetString("crew-monitoring-server-blip") + " " + server.ServerAddress);
+                        NavMap.TrackedEntities.TryAdd(server.NetEntity,
+                            new NavMapBlip(
+                                localCoords.Value,
+                                _serverBlipTexture,
+                                blipColor,
+                                false,
+                                false));
+                    }
                 }
             }
         }
 
         if (!hasScanned)
+        {
+            UpdateGridMotionFreeze(state, syncBlips: false);
             return;
+        }
 
         if (sensors.Count == 0)
         {
             NoServerLabel.Visible = true;
             NoServerLabel.Text = Loc.GetString("crew-monitoring-ui-no-server-label");   //ADT-Tweak - New Monitor
+            UpdateGridMotionFreeze(state, syncBlips: true);
             return;
         }
 
@@ -1034,6 +1067,19 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
         }
 
         UpdateMonitorBlip(force: true); // ADT-Tweak Start - New Monitor
+        // After rebuild: rising-edge freezes grids; syncBlips refreshes marker snapshots only.
+        UpdateGridMotionFreeze(state, syncBlips: true);
+    }
+
+    /// <summary>
+    /// Offline selected server → freeze radar grid/blip world transforms in place.
+    /// </summary>
+    private void UpdateGridMotionFreeze(CrewMonitoringState state, bool syncBlips)
+    {
+        var freeze = state.HasScanned &&
+                     state.SelectedServerUid != null &&
+                     !state.ServerOnline;
+        NavMap.SetGridTransformsFrozen(freeze, syncBlips && freeze);
     }
 
     // ADT-Tweak Start - New Monitor: blips / header / rescan / server UI helpers
@@ -1067,11 +1113,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
             if (!NavMap.TrackedEntities.TryGetValue(sensor.SuitSensorUid, out var existing))
                 continue;
 
-            var statusColorValue = GetStatusColor(sensor, out var isCritical);
-            var seconds = _gameTiming.RealTime.TotalSeconds;
-            var blipBase = isCritical
-                ? GetCritBlinkColor(seconds)
-                : statusColorValue ?? LifeColorAlive;
+            var blipBase = GetMapBlipBaseColor(sensor, out var isCritical);
             var blipColor = (_trackedEntity == null || sensor.SuitSensorUid == _trackedEntity)
                 ? blipBase
                 : blipBase * Color.DimGray;
@@ -1286,7 +1328,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
             // Add a button that will hold a username and other details
             NavMap.LocalizedNames.TryAdd(sensor.SuitSensorUid, sensor.Name + ", " + sensor.Job);
 
-            var statusColor = GetStatusColor(sensor, out var isCritical); // ADT-Tweak
+            var isCritical = sensor.IsAlive && sensor.IsCritical; // ADT-Tweak
 
             var sensorButton = new CrewMonitoringButton()
             {
@@ -1299,9 +1341,8 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
                 SensorActive = sensor.IsActive,
                 IsCritical = isCritical,
                 MaxHeight = 36,
-                StatusColor = isCritical
-                    ? CritBlinkA
-                    : statusColor ?? LifeColorAlive,
+                // Map tint only: live GPS uses status colors; last-known pin stays gray.
+                StatusColor = GetMapBlipBaseColor(sensor, out _),
                 // ADT-Tweak End
             };
 
@@ -1444,11 +1485,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
                 if (localCoords == null)
                     continue;
 
-                var statusColorValue = GetStatusColor(sensor, out var isCriticalBlip);
-                var seconds = _gameTiming.RealTime.TotalSeconds;
-                var blipBase = isCriticalBlip
-                    ? GetCritBlinkColor(seconds)
-                    : statusColorValue ?? LifeColorAlive;
+                var blipBase = GetMapBlipBaseColor(sensor, out var isCriticalBlip);
                 var blipColor = (_trackedEntity == null || sensor.SuitSensorUid == _trackedEntity)
                     ? blipBase
                     : blipBase * Color.DimGray;
@@ -1526,9 +1563,11 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
                 if (localCoords == null)
                     continue;
                 var seconds = _gameTiming.RealTime.TotalSeconds;
-                var blipBase = castSensor.IsCritical
-                    ? GetCritBlinkColor(seconds)
-                    : castSensor.StatusColor;
+                var blipBase = !IsLiveGpsTracking(castSensor)
+                    ? SensorBlipLastKnown
+                    : castSensor.IsCritical
+                        ? GetCritBlinkColor(seconds)
+                        : castSensor.StatusColor;
                 var blipColor = (currTrackedEntity == null || castSensor.SuitSensorUid == currTrackedEntity)
                     ? blipBase
                     : blipBase * Color.DimGray;
@@ -1596,18 +1635,48 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
     // ADT-Tweak End
 
     // ADT-Tweak start
-    /// <summary>
-    /// Button coords-dot: green = live GPS (Cords), yellow = last-known pin, maroon = no info.
-    /// </summary>
-    private static Color GetCoordsDotColor(SuitSensorStatus sensor)
+    private bool IsLiveGpsTracking(SuitSensorStatus sensor)
     {
-        // Only Cords streams a live position — Binary/Vitals may still carry a retained pin.
-        if (sensor.IsActive &&
-            sensor.Mode == SuitSensorMode.SensorCords &&
-            sensor.Coordinates != null)
+        return _serverOnline &&
+               sensor.IsActive &&
+               sensor.Mode == SuitSensorMode.SensorCords &&
+               sensor.Coordinates != null;
+    }
+
+    private bool IsLiveGpsTracking(CrewMonitoringButton button)
+    {
+        return _serverOnline &&
+               button.SensorActive &&
+               button.SensorMode == SuitSensorMode.SensorCords &&
+               button.Coordinates != null;
+    }
+
+    /// <summary>
+    /// Live Cords → status/crit color. Binary/Vitals/Off last-known pin → gray.
+    /// </summary>
+    private Color GetMapBlipBaseColor(SuitSensorStatus sensor, out bool isCritical)
+    {
+        if (!IsLiveGpsTracking(sensor))
         {
-            return SensorDotHasPosition;
+            isCritical = false;
+            return SensorBlipLastKnown;
         }
+
+        var statusColorValue = GetStatusColor(sensor, out isCritical);
+        if (isCritical)
+            return GetCritBlinkColor(_gameTiming.RealTime.TotalSeconds);
+
+        return statusColorValue ?? LifeColorHealth0;
+    }
+
+    /// <summary>
+    /// Button coords-dot: green = live GPS (Cords + online server), yellow = last-known pin, maroon = no info.
+    /// </summary>
+    private Color GetCoordsDotColor(SuitSensorStatus sensor)
+    {
+        // Only Cords on an online server streams a live position.
+        if (IsLiveGpsTracking(sensor))
+            return SensorDotHasPosition;
 
         if (sensor.Coordinates != null || (!sensor.IsActive && HasLastKnownInfo(sensor)))
             return SensorDotLastKnown;
@@ -1650,8 +1719,7 @@ public sealed partial class CrewMonitoringWindow : BaseWindow   // ADT-Tweak - N
             };
         }
 
-        // Binary "жив" — purple from alive.png (only when a pin exists).
-        return sensor.Coordinates != null ? LifeColorAlive : null;
+        return sensor.Coordinates != null ? LifeColorHealth0 : null;
     }
 
     /// <summary>
