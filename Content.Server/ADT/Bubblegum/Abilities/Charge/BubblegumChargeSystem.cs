@@ -335,7 +335,7 @@ public sealed class BubblegumChargeSystem : EntitySystem
         if (!HasComp<DestructibleComponent>(uid))
             return false;
 
-        return Transform(uid).Anchored;
+        return true;
     }
 
     private void OnChargeLand(Entity<BubblegumActiveChargeComponent> ent, ref LandEvent args)
