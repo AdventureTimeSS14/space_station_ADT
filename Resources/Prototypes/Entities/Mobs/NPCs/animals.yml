@@ -1528,10 +1528,6 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPie
-  # ADT-Tweak start
-  - type: VentCrawler
-    allowInventory: false
-  # ADT-Tweak end
   - type: Crawler
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
@@ -1559,6 +1555,10 @@
     description: ghost-role-information-monkey-description
     rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
+  # ADT-Tweak start
+  - type: VentCrawler
+    allowInventory: false
+  # ADT-Tweak end
   - type: Clumsy
     gunShootFailDamage:
       types:
@@ -1604,6 +1604,10 @@
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [SyndicateOperativeGearMonkey]
+  # ADT-Tweak start
+  - type: VentCrawler
+    allowInventory: false
+  # ADT-Tweak end
 
 - type: entity
   id: MobMonkeySyndicateAgent
@@ -1758,6 +1762,10 @@
         Blunt: 1
     clumsySound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  # ADT-Tweak start
+  - type: VentCrawler
+    allowInventory: false
+  # ADT-Tweak end
 
 - type: entity
   id: MobBaseSyndicateKobold
@@ -1774,6 +1782,10 @@
     - Syndicate
   - type: Loadout
     prototypes: [SyndicateOperativeGearMonkey]
+  # ADT-Tweak start
+  - type: VentCrawler
+    allowInventory: false
+  # ADT-Tweak end
 
 - type: entity
   id: MobKoboldSyndicateAgent
