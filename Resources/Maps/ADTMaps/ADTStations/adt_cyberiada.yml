@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.2.1
   forkId: SS14_DEV
   forkVersion: f9bbdf49a45414d6958aca2da56d80314ee24984
-  time: 07/07/2026 06:30:43
-  entityCount: 31912
+  time: 07/18/2026 19:19:40
+  entityCount: 31916
 maps:
 - 1
 grids:
@@ -15607,8 +15607,8 @@ entities:
           id: docking46345
           localAnchorB: -0.5,-1
           localAnchorA: -66.5,22
-          damping: 42.401733
-          stiffness: 380.59708
+          damping: 42.401726
+          stiffness: 380.59702
     - type: OccluderTree
     - type: Shuttle
       dampingModifier: 0.25
@@ -15953,6 +15953,10 @@ entities:
     components:
     - type: Transform
       parent: 31826
+  - uid: 3997
+    components:
+    - type: Transform
+      parent: 31824
   - uid: 4042
     components:
     - type: Transform
@@ -15985,6 +15989,10 @@ entities:
     components:
     - type: Transform
       parent: 31820
+  - uid: 9613
+    components:
+    - type: Transform
+      parent: 31826
   - uid: 10914
     components:
     - type: Transform
@@ -16042,6 +16050,14 @@ entities:
     - type: Transform
       parent: 31820
   - uid: 31891
+    components:
+    - type: Transform
+      parent: 31822
+  - uid: 31913
+    components:
+    - type: Transform
+      parent: 31820
+  - uid: 31914
     components:
     - type: Transform
       parent: 31822
@@ -17409,6 +17425,11 @@ entities:
     components:
     - type: Transform
       pos: -27.5,-29.5
+      parent: 2
+  - uid: 5923
+    components:
+    - type: Transform
+      pos: -29.5,-40.5
       parent: 2
 - proto: ADTModsuitModArmor
   entities:
@@ -21632,7 +21653,7 @@ entities:
       pos: -41.5,-61.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -85186.91
+      secondsUntilStateChange: -85233.25
       state: Opening
     - type: DeviceLinkSource
       linkedPorts:
@@ -21843,18 +21864,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -44.5,-30.5
       parent: 2
-  - uid: 3997
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -45.5,-41.5
-      parent: 2
-  - uid: 9613
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -45.5,-40.5
-      parent: 2
   - uid: 30485
     components:
     - type: Transform
@@ -21873,6 +21882,22 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 23.5,37.5
       parent: 2
+  - uid: 31915
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -45.5,-40.5
+      parent: 2
+    - type: AccessReader
+      accessListsOriginal: []
+  - uid: 31916
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -45.5,-41.5
+      parent: 2
+    - type: AccessReader
+      accessListsOriginal: []
 - proto: AirlockExternalGlassShuttleMining
   entities:
   - uid: 1529
@@ -22111,7 +22136,7 @@ entities:
       pos: 74.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -167072.6
+      secondsUntilStateChange: -167118.94
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23170,7 +23195,7 @@ entities:
       pos: 54.5,-66.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -170884.27
+      secondsUntilStateChange: -170930.61
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -178929,13 +178954,6 @@ entities:
     components:
     - type: Transform
       pos: 67.5,-20.5
-      parent: 2
-- proto: VendingMachineSalvage
-  entities:
-  - uid: 5923
-    components:
-    - type: Transform
-      pos: -29.5,-40.5
       parent: 2
 - proto: VendingMachineSciDrobe
   entities:

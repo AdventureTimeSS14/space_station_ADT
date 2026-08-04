@@ -269,8 +269,6 @@
   - type: MeleeChemicalInjector
     transferAmount: 12
     solution: melee
-  - type: TimedDespawn
-    lifetime: 35
   - type: AshStormImmune
   - type: Fauna
   - type: ADTMobLoot
@@ -342,8 +340,6 @@
   - type: MeleeChemicalInjector
     transferAmount: 7
     solution: melee
-  - type: TimedDespawn
-    lifetime: 35
   - type: AshStormImmune
   - type: Fauna
   - type: ADTMobLoot
@@ -454,4 +450,5 @@
     price: 150
   - type: FloatingVisuals
   - type: Fauna
+  - type: ADTCleanRemains
   - type: AshStormImmune

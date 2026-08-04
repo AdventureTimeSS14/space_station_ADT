@@ -15,7 +15,7 @@ public sealed class BubblegumHallucinationChargeSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private const float TravelBuffer = 0.7f;
+    private const float TravelBuffer = 0.45f;
 
     public override void Initialize()
     {

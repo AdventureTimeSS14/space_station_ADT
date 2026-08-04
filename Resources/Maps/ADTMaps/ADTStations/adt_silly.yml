@@ -2395,19 +2395,19 @@ entities:
         - node:
             cleanable: True
             color: '#FFFFFFFF'
-            id: FloraBigBush1
+            id: Grassa1
           decals:
             7181: -37,11
         - node:
             cleanable: True
             color: '#FFFFFFFF'
-            id: FloraBigBush2
+            id: Grassa1
           decals:
             7377: -46.984386,16.207293
         - node:
             cleanable: True
             color: '#FFFFFFFF'
-            id: FloraBigRock03
+            id: Grassa1
           decals:
             7180: -34,12
         - node:
@@ -72970,5 +72970,12 @@ entities:
     components:
     - type: Transform
       pos: 13.422445,16.592663
+      parent: 2
+- proto: ADTVendingMachineMusician
+  entities:
+  - uid: 53949
+    components:
+    - type: Transform
+      pos: -22.5,5.5
       parent: 2
 ...

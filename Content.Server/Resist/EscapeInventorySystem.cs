@@ -5,6 +5,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
+using Content.Shared.Mech.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Resist;
 using Content.Shared.Storage;
@@ -36,6 +37,11 @@ public sealed class EscapeInventorySystem : EntitySystem
 
         if (!_containerSystem.TryGetContainingContainer((uid, null, null), out var container) || !_actionBlockerSystem.CanInteract(uid, container.Owner))
             return;
+
+        // ADT-Mech-Tweak-Start
+        if (HasComp<MechPilotComponent>(uid))
+            return;
+        // ADT-Mech-Tweak-End
 
         // Make sure there's nothing stopped the removal (like being glued)
         if (!_containerSystem.CanRemove(uid, container))

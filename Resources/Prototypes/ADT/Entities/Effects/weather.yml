@@ -238,3 +238,65 @@
       params:
         loop: true
         volume: -6
+
+- type: entity
+  parent: ADTLavalandWeatherAshfall
+  id: ADTLavalandWeatherAshfallHeavy
+  components:
+  - type: WeatherStatusEffect
+    damage:
+      types:
+        Heat: 6
+    damageBlacklist:
+      components:
+      - AshStormImmune
+    sprite:
+      sprite: /Textures/Effects/weather.rsi
+      state: ashfall_heavy
+    sound:
+      path: /Audio/Effects/Weather/snowstorm_weak.ogg
+      params:
+        loop: true
+        volume: -4
+
+- type: entity
+  parent: WeatherBase
+  id: ADTLavalandWeatherEmberfall
+  components:
+  - type: WeatherStatusEffect
+    sprite:
+      sprite: /Textures/Effects/weather.rsi
+      state: ashfall_light
+    sound:
+      path: /Audio/Effects/Weather/snowstorm_weak.ogg
+      params:
+        loop: true
+        volume: -8
+
+- type: entity
+  parent: WeatherBase
+  id: ADTLavalandWeatherWind
+  components:
+  - type: WeatherStatusEffect
+    damage:
+      types:
+        Blunt: 1
+    damageBlacklist:
+      components:
+      - AshStormImmune
+    sprite:
+      sprite: /Textures/Effects/weather.rsi
+      state: sandstorm
+    sound:
+      path: /Audio/Effects/Weather/snowstorm_weak.ogg
+      params:
+        loop: true
+        volume: -4
+  - type: ADTWeatherWind
+    speed: 4
+    acceleration: 18
+    spread: 65
+    gustAmplitude: 0.35
+    whitelist:
+      components:
+      - HumanoidProfile

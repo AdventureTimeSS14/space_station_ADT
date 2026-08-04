@@ -94,6 +94,7 @@
   - type: Inventory
     templateId: corpse
   # ADT Tweak start
+  - type: UnRotting
   - type: Tag
     tags:
     - CanPilot
@@ -101,6 +102,7 @@
     - DoorBumpOpener
     - AnomalyHost
     - ChangelingBlacklist
+    - HideFromGhostWarps
   # ADT Tweak end
 
 - type: entity
