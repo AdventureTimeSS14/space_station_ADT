@@ -1,6 +1,6 @@
 - type: entity
   id: BaseMobBubblegum
-  parent: BaseMobAsteroid
+  parent: ADTBaseMobMegafauna
   abstract: true
   components:
   - type: Sprite
@@ -23,25 +23,6 @@
         - MobMask
         layer:
         - MobLayer
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
-  - type: Tag
-    tags:
-    - CannotSuicide
-    - DoorBumpOpener
-    - StunImmune
-  - type: NoSlip
-  - type: ExplosionResistance
-    damageCoefficient: 0
-  - type: Fauna
-  - type: Appearance
-  - type: AshStormImmune
-  - type: StatusEffects
-    allowed: []
-  - type: StaminaResistance
-    damageCoefficient: 0
-    worn: false
 
 - type: entity
   id: ADTMegaFaunaBubblegum
@@ -53,8 +34,6 @@
     tag: adt-gps-signal-bubblegum
     description: adt-gps-signal-bubblegum-desc
     color: "#B32020"
-  - type: Destructible
-    thresholds: []
   - type: GenericVisualizer
     visuals:
       enum.BubblegumVisuals.Enraged:
@@ -70,10 +49,6 @@
     thresholds:
       0: Alive
       2500: Dead
-  - type: Damageable
-    damageModifierSet: Bubblegum
-  - type: Injurable
-    damageContainer: Biological
   - type: MeleeWeapon
     attackRate: 0.85
     damage:
@@ -96,8 +71,16 @@
     rootTask:
       task: ADTBubblegumCompound
   - type: Megafauna
+    speechCooldown: 15
+    speechChance: 0.3
+#  - type: ADTMobHealthBar
+#    active: true
+#    primaryColor: "#8e1717"
+#    accentColor: "#ff4d4d"
+ #   style: Molten
+ #   priority: 50
   - type: ArmorPenetration
-    penetration: 0.4
+    penetration: 0.5
   - type: Bubblegum
   - type: BubblegumTripleCharge
     delays:
@@ -190,8 +173,3 @@
     netsync: true
     rootTask:
       task: DoAbsolutelyNothingCompound
-
-- type: htnCompound
-  id: DoAbsolutelyNothingCompound
-  branches:
-    - tasks: []

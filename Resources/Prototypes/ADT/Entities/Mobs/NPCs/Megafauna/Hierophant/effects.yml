@@ -1,0 +1,257 @@
+- type: entity
+  id: ADTHierophantEffectBase
+  abstract: true
+  name: vortex energy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+
+- type: entity
+  id: ADTHierophantBlast
+  parent: ADTHierophantEffectBase
+  name: vortex blast
+  description: Get out of the way!
+  components:
+  - type: Sprite
+    drawdepth: BelowMobs
+    sprite: ADT/Effects/hierophant.rsi
+    layers:
+    - state: blast
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 2
+    color: "#9933CC"
+  - type: HierophantBlast
+  - type: TimedDespawn
+    lifetime: 0.9
+
+- type: entity
+  id: ADTHierophantSquares
+  parent: ADTHierophantEffectBase
+  name: vortex energy
+  components:
+  - type: Transform
+    anchored: true
+    noRot: false
+  - type: Sprite
+    drawdepth: BelowMobs
+    sprite: ADT/Effects/hierophant.rsi
+    layers:
+    - state: squares
+  - type: PointLight
+    enabled: true
+    radius: 1.5
+    energy: 1
+    color: "#9933CC"
+  - type: TimedDespawn
+    lifetime: 0.3
+
+- type: entity
+  id: ADTHierophantChaser
+  parent: ADTHierophantEffectBase
+  name: vortex energy
+  components:
+  - type: HierophantChaser
+  - type: TimedDespawn
+    lifetime: 9.8
+
+- type: entity
+  id: ADTHierophantTelegraph
+  parent: ADTHierophantEffectBase
+  name: vortex energy
+  components:
+  - type: Sprite
+    drawdepth: BelowMobs
+    sprite: ADT/Effects/hierophant_telegraph.rsi
+    layers:
+    - state: telegraph
+  - type: TimedDespawn
+    lifetime: 0.28
+
+- type: entity
+  id: ADTHierophantTelegraphCardinal
+  parent: ADTHierophantTelegraph
+  components:
+  - type: Sprite
+    drawdepth: BelowMobs
+    sprite: ADT/Effects/hierophant_telegraph.rsi
+    layers:
+    - state: telegraph_cardinal
+
+- type: entity
+  id: ADTHierophantTelegraphDiagonal
+  parent: ADTHierophantTelegraph
+  components:
+  - type: Sprite
+    drawdepth: BelowMobs
+    sprite: ADT/Effects/hierophant_telegraph.rsi
+    layers:
+    - state: telegraph_diagonal
+
+- type: entity
+  id: ADTHierophantTelegraphTeleport
+  parent: ADTHierophantTelegraph
+  components:
+  - type: Sprite
+    drawdepth: BelowMobs
+    sprite: ADT/Effects/hierophant_telegraph.rsi
+    layers:
+    - state: telegraph_teleport
+  - type: TimedDespawn
+    lifetime: 0.9
+
+- type: entity
+  id: ADTHierophantTelegraphEdge
+  parent: ADTHierophantTelegraph
+  components:
+  - type: Sprite
+    drawdepth: BelowMobs
+    sprite: ADT/Effects/hierophant_telegraph.rsi
+    layers:
+    - state: telegraph_edge
+  - type: TimedDespawn
+    lifetime: 3.7
+
+- type: entity
+  id: ADTHierophantTempWall
+  name: vortex wall
+  description: An impassable wall of vortex energy.
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Clickable
+  - type: Sprite
+    drawdepth: Walls
+    sprite: ADT/Structures/Walls/hierophant_wall_temp.rsi
+    layers:
+    - state: wall0
+  - type: IconSmooth
+    mode: CardinalFlags
+    key: hierophantWalls
+    base: wall
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+  - type: Occluder
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 1.5
+    color: "#9933CC"
+  - type: HierophantWall
+  - type: TimedDespawn
+    lifetime: 10
+
+- type: entity
+  id: ADTHierophantWall
+  name: vortex wall
+  description: A wall of solid vortex energy. It is not going anywhere.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Clickable
+  - type: Sprite
+    drawdepth: Walls
+    sprite: ADT/Structures/Walls/hierophant_wall.rsi
+    layers:
+    - state: wall0
+  - type: Icon
+    sprite: ADT/Structures/Walls/hierophant_wall.rsi
+    state: wall
+  - type: IconSmooth
+    mode: CardinalFlags
+    key: hierophantArenaWalls
+    base: wall
+  - type: SyncSprite
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+  - type: Occluder
+  - type: PointLight
+    enabled: true
+    radius: 3
+    energy: 2
+    softness: 1
+    color: "#A855D8"
+
+- type: entity
+  id: ADTHierophantFloorEdge
+  name: vortex marking
+  description: The metal here is etched with a pulsing line. Whatever it marks out, it is not for your benefit.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Sprite
+    drawdepth: FloorTiles
+    sprite: ADT/Tiles/hierophant_floor_edge.rsi
+    layers:
+    - state: edge0
+  - type: Icon
+    sprite: ADT/Tiles/hierophant_floor_edge.rsi
+    state: edge0
+  - type: IconSmooth
+    mode: CardinalFlags
+    key: hierophantArenaFloor
+    base: edge
+  - type: SyncSprite
+
+- type: entity
+  id: ADTHierophantLightEmitter
+  name: vortex glow
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: PointLight
+    enabled: true
+    radius: 8
+    energy: 3
+    softness: 1
+    color: "#C9A6E8"
+
+- type: entity
+  id: ADTHierophantArenaMarker
+  name: vortex arena
+  description: The heart of the Hierophant's arena.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: HierophantArena
+    radius: 12
