@@ -1,0 +1,10 @@
+- type: latheRecipePack
+  id: ADTAdvancedMaterialsStatic
+  recipes:
+  - ADTPartRodMetal
+  - SheetRGlass
+  - ADTSheetPGlass
+  - ADTSheetRPGlass
+  - ADTSheetUGlass
+  - ADTSheetRUGlass
+  - MaterialDurathread
