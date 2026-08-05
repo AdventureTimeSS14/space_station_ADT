@@ -9,7 +9,6 @@
     sprite: Mobs/Species/Reptilian/parts.rsi
   - type: Damageable
     damageContainer: Biological
-  - type: BodyPart
   - type: ContainerContainer
     containers:
       bodypart: !type:Container
@@ -36,9 +35,10 @@
   - type: Sprite
     layers:
     - state: l_hand
-  - type: BodyPart
-    partType: Hand
-    symmetry: Left
+  - type: HandOrgan
+    handID: left
+    data:
+      location: Left
 
 - type: entity
   parent: ADTPartAnimal
@@ -49,6 +49,7 @@
   - type: Sprite
     layers:
     - state: r_hand
-  - type: BodyPart
-    partType: Hand
-    symmetry: Right
+  - type: HandOrgan
+    handID: right
+    data:
+      location: Right
