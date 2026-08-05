@@ -51,8 +51,9 @@
     enabled: false
     color: "#FF8080"
     radius: 1.0
-    energy: 9.0
+    energy: 12.0 # ADT tweak 9.0 > 12.0
     netsync: false
+    mask: /Textures/ADT/Effects/Lightmasks/smoke.png # ADT tweak
   - type: IgnitionSource
     temperature: 1000
   - type: LightBehaviour

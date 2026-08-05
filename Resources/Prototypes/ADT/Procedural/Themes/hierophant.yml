@@ -1,0 +1,21 @@
+- type: dungeonRoom
+  id: ADTHierophantArena
+  size: 23, 23
+  atlas: /Maps/ADTMaps/Ruins/hierophant_arena.yml
+  offset: 0, 0
+  tags:
+  - ADTHierophantArena
+
+- type: entity
+  id: ADTHierophantArenaSpawner
+  parent: BaseRoomMarker
+  name: hierophant arena spawner
+  components:
+  - type: RoomFill
+    clearExisting: true
+    roomWhitelist:
+      tags:
+      - ADTHierophantArena
+
+- type: Tag
+  id: ADTHierophantArena
