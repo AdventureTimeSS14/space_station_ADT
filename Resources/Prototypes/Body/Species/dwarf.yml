@@ -70,9 +70,6 @@
   # ADT-Tweak: Start
   - type: TypingIndicator
     proto: ADTdwarf
-  - type: NightVision
-    innate: true
-    effectPrototype: ADTEffectNightVisionLow
   # ADT-Tweak: End
 
 - type: entity
