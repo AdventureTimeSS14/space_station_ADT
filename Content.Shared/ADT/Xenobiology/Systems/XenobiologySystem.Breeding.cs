@@ -108,6 +108,14 @@ public partial class XenobiologySystem
             return;
 
         var offspringCount = _random.Next(1, ent.Comp.MaxOffspring + 1);
+
+        var slowdown = GetBreedingSlowdown(ent);
+        if (slowdown >= 1f)
+            return;
+
+        if (slowdown > 0f)
+            offspringCount = Math.Max(1, (int)MathF.Round(offspringCount * (1f - slowdown)));
+
         _audio.PlayPredicted(ent.Comp.MitosisSound, ent, ent);
 
         List<EntityUid> slimes = [];
@@ -192,5 +200,52 @@ public partial class XenobiologySystem
         _mobGrowth.SetBaseName(newEntityUid, Loc.GetString(newBreed.BreedName));
 
         return new Entity<SlimeComponent>(newEntityUid, newSlime);
+    }
+
+    /// <summary>
+    /// Counts the number of slimes on the same grid as the given slime.
+    /// </summary>
+    public int GetLocalSlimeDensity(Entity<SlimeComponent> ent)
+    {
+        if (_net.IsClient)
+            return 0;
+
+        var gridId = Transform(ent).GridUid;
+        var count = 0;
+
+        var query = EntityQueryEnumerator<SlimeComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out _, out var xform))
+        {
+            if (uid == ent.Owner)
+                continue;
+
+            if (xform.GridUid == gridId)
+                count++;
+        }
+
+        return count;
+    }
+
+    /// <summary>
+    /// Computes a breeding slowdown factor in the range [0, 1] based on local slime density.
+    /// 0 means no slowdown (breeding unaffected), approaching 1 means breeding is nearly halted.
+    /// The slowdown ramps up progressively between the slowdown-start threshold and the max cap.
+    /// </summary>
+    public float GetBreedingSlowdown(Entity<SlimeComponent> ent)
+    {
+        var max = _configuration.GetCVar(SimpleStationCCVars.XenobiologyMaxSlimesPerGrid);
+        var start = _configuration.GetCVar(SimpleStationCCVars.XenobiologyBreedingSlowdownStart);
+        var factor = _configuration.GetCVar(SimpleStationCCVars.XenobiologyBreedingSlowdownFactor);
+
+        if (max <= 0 || factor <= 0)
+            return 0f;
+
+        var density = GetLocalSlimeDensity(ent);
+        if (density <= start)
+            return 0f;
+
+        var range = Math.Max(1, max - start);
+        var raw = (density - start) / (float)range;
+        return Math.Clamp(raw * factor, 0f, 1f);
     }
 }
