@@ -43,7 +43,7 @@
       energy: 4.5 # ADT tweak 2.5 > 4.5
       color: "#FFC458"
       netsync: false
-      mask: /Textures/ADT/Effects/LightMasks/circle_c.png # ADT tweak
+      mask: /Textures/ADT/Effects/Lightmasks/circle_c.png # ADT tweak
     - type: Appearance
     - type: ToggleableVisuals
       spriteLayer: light
