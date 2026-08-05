@@ -16,9 +16,8 @@
   - type: Item
     size: Small
   - type: PointLight
-    radius: 2.5 # ADT tweak 1.5 > 2.5
+    radius: 1.5
     energy: 3
     color: "#4faffb"
-    mask: /Textures/ADT/Effects/LightMasks/star.png # ADT tweak
   - type: StaticPrice
     price: 500

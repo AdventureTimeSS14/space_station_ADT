@@ -37,7 +37,6 @@
       radius: 3
       energy: 3
       color: "#52ff39"
-      mask: /Textures/ADT/Effects/LightMasks/circle_c.png # ADT tweak
     - type: Damageable
       damageModifierSet: Glass
     - type: Injurable

@@ -14,9 +14,9 @@
     equippedPrefix: off
   - type: PointLight
     enabled: false
-    mask: /Textures/ADT/Effects/LightMasks/cone_composed_b.png # ADT tweak
+    mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    radius: 11 # ADT tweak 7 > 11
+    radius: 7
     netsync: false
   - type: Appearance
   - type: HandheldLight

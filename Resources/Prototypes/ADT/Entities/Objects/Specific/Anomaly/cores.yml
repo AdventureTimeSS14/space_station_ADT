@@ -6,11 +6,10 @@
   - type: Sprite
     sprite: ADT/Structures/Specific/Anomalies/Cores/monkey_core.rsi
   - type: PointLight
-    radius: 1.8
-    energy: 3.5
+    radius: 1.5
+    energy: 2.0
     color: "#FFFE42"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_rings.png
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -20,11 +19,10 @@
   - type: Sprite
     sprite: ADT/Structures/Specific/Anomalies/Cores/monkey_core.rsi
   - type: PointLight
-    radius: 1.8
-    energy: 3.5
+    radius: 1.5
+    energy: 2.0
     color: "#FFFE42"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_rings.png
 
 - type: entity
   parent: BaseAnomalyCore
@@ -37,11 +35,10 @@
   - type: Sprite
     sprite: ADT/Structures/Specific/Anomalies/Cores/hw_core.rsi
   - type: PointLight
-    radius: 2
-    energy: 3.5
+    radius: 1.5
+    energy: 2.0
     color: "#8a1111"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_e.png
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -54,8 +51,7 @@
   - type: Sprite
     sprite: ADT/Structures/Specific/Anomalies/Cores/hw_core.rsi
   - type: PointLight
-    radius: 2
-    energy: 3.5
+    radius: 1.5
+    energy: 2.0
     color: "#8a1111"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_e.png

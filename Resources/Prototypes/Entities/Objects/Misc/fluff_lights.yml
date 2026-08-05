@@ -42,10 +42,9 @@
     heldPrefix: off
   - type: PointLight
     enabled: false
-    radius: 5 # ADT tweak 3 > 5
-    energy: 3 # ADT tweak 2 > 3
+    radius: 3
+    energy: 2
     netsync: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_e.png # ADT tweak
   - type: ToggleableVisuals
     spriteLayer: light
   - type: ItemTogglePointLight
@@ -162,7 +161,6 @@
     radius: 2
     energy: 0.5
     color: "#FFFFEE"
-    mask: /Textures/ADT/Effects/LightMasks/circle_a.png # ADT tweak
   - type: Flash
     flashOnMelee: false
     flashOnUse: false
@@ -223,9 +221,8 @@
         - HighImpassable
   - type: PointLight
     enabled: false
-    radius: 9 # ADT tweak 8 > 9
+    radius: 8
     energy: 5
-    mask: /Textures/ADT/Effects/LightMasks/circle_e.png # ADT tweak
   - type: ItemSlots
     slots:
       cell_slot:

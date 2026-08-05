@@ -73,7 +73,6 @@
       energy: 3.0
       color: "#c9c042"
       castShadows: false
-      mask: /Textures/ADT/Effects/LightMasks/circle_a.png # ADT tweak
     - type: WiresPanel
     - type: WiresVisuals
     - type: Machine

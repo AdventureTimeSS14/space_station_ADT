@@ -40,10 +40,9 @@
     - type: PointLight
       enabled: false
       color: "#E25822"
-      radius: 2.0 # ADT tweak 1.0 > 2.0
+      radius: 1.0
       energy: 5.0
       netsync: false
-      mask: /Textures/ADT/Effects/LightMasks/circle_b.png # ADT tweak
     - type: IgnitionSource
       temperature: 400
       ignited: false

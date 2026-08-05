@@ -431,7 +431,6 @@
     state: base
   - type: PointLight
     enabled: true
-    mask: /Textures/ADT/Effects/LightMasks/circle_a.png # ADT tweak
   - type: PoweredLight
     hasLampOnSpawn: LightBulb
   - type: DamageOnInteract

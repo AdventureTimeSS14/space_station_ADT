@@ -137,8 +137,7 @@
   - type: PointLight
     radius: 1.5
     color: "#03fc4e"
-    energy: 1 # ADT tweak 0.7 > 1.0
-    mask: /Textures/ADT/Effects/LightMasks/circle_a.png # ADT tweak
+    energy: 0.7
   - type: Charger
     chargeRate: 50
   - type: Sprite
