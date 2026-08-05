@@ -316,6 +316,9 @@ public sealed class BubblegumChargeSystem : EntitySystem
 
     private bool TrySmashStructure(EntityUid user, BubblegumActiveChargeComponent component, EntityUid target)
     {
+        if (HasComp<MobStateComponent>(target))
+            return false;
+
         var smash = new DamageSpecifier();
         smash.DamageDict.Add("Blunt", component.SmashBlunt);
         smash.DamageDict.Add("Structural", component.SmashStructural);
