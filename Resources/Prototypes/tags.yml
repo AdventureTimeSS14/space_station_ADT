@@ -57,6 +57,12 @@
   id: BananaPeel # SpecialDigestible by OrganAnimalRuminantStomach. Several BananaClown ConstructionGraphs
 
 - type: Tag
+  id: BananiumHorn
+
+- type: Tag
+  id: Baguette
+
+- type: Tag
   id: Bandana # CargoBounty: BountyBandana
 
 - type: Tag
@@ -136,6 +142,12 @@
 
 - type: Tag
   id: BorgModuleService # Cyborg module category for bartenders, botanists, and more
+
+- type: Tag
+  id: BorgModuleClowning
+
+- type: Tag
+  id: BorgModuleAdvancedClowning
 
 - type: Tag
   id: BorgModuleSyndicate # Cyborg module category for evil red robots
