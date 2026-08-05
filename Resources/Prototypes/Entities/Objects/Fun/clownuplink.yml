@@ -137,15 +137,6 @@
     - FunClown
 
 - type: listing
-  id: MobHonkBotSet
-  name: uplink-clown-honkbot-name
-  productEntity: MobHonkBot
-  cost:
-    TrashBananaPeel: 100
-  categories:
-    - FunClown
-
-- type: listing
   id: SoapOmegaSet
   name: uplink-clown-omegasoap-name
   description: uplink-clown-omegasoap-desc

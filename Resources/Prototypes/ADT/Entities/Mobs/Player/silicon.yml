@@ -48,8 +48,9 @@
       borg_brain:
         - PositronicBrain
       borg_module:
-        - BorgModuleClown
-        - BorgModuleMime
+        - BorgModuleClowning
+        - BorgModuleAdvancedClowning
+      
   - type: ItemSlots
     slots:
       cell_slot:
