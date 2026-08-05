@@ -22,10 +22,6 @@
     thresholds:
       0: Alive
       2500: Dead
-  - type: Damageable
-    damageModifierSet: Bubblegum
-  - type: Injurable
-    damageContainer: Biological
   - type: MeleeWeapon
     attackRate: 0.85
     damage:

@@ -20,4 +20,14 @@ public sealed partial class SlimeLatchDoAfterEvent : SimpleDoAfterEvent;
 /// <summary>
 /// rised after mitosis completed, but before parent slime deletion, directed to parent slime
 /// </summary>
-public sealed partial class SlimeMitosisEvent : EntityEventArgs;
+public sealed partial class SlimeMitosisEvent : EntityEventArgs
+{
+    public List<EntityUid> Offspring { get; init; } = new();
+
+    public SlimeMitosisEvent() { }
+
+    public SlimeMitosisEvent(List<EntityUid> offspring)
+    {
+        Offspring = offspring;
+    }
+}

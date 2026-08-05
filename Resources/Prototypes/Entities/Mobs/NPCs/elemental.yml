@@ -195,6 +195,7 @@
     radius: 2
     energy: 3
     color: "#06DF24"
+    mask: /Textures/ADT/Effects/Lightmasks/circle_b.png # ADT tweak
 
 - type: entity
   parent: MobOreCrab
@@ -339,6 +340,7 @@
     radius: 2.0
     energy: 3.5
     color: "#75b1f0" # Edited through the LiquidAnomalySystem
+    mask: /Textures/ADT/Effects/Lightmasks/circle_b.png # ADT tweak
   - type: MobState
     allowedStates:
     - Alive

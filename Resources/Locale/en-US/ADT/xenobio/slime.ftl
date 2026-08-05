@@ -1,5 +1,7 @@
 slime-action-latch-success = The {$slime} latches onto the {$target}!
 
+slime-action-eat-corpse = The {$slime} fully devours the corpse of the {$target}!
+
 slime-latch-attempt = The {$slime} tries to latch onto the {$ent}!
 
 slime-latch-fail-target-dead = You do not want to consume the {$ent}, it is dead!
@@ -9,6 +11,9 @@ slime-latch-fail-already-latched = You can't latch to the {$ent}, it latched by 
 slime-latch-fail-max-entities = You cannot consume the {$ent}, you are full!
 
 slime-examined-stomach = [color=red]You can see something moving inside of it![/color]
+
+mob-slime-stage-baby = baby
+mob-slime-stage-adult = adult
 
 slime-examined-tamer = [color=green]It looks happy to see you![/color]
 

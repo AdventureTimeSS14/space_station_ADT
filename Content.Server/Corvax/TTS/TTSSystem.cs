@@ -11,6 +11,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Server.ADT.Language;
 using Content.Shared.ADT.Language;
+using Content.Server.Examine;
+using Content.Shared.Ghost;
 
 namespace Content.Server.Corvax.TTS;
 
@@ -23,6 +25,7 @@ public sealed partial class TTSSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
     [Dependency] private readonly IRobustRandom _rng = default!;
     [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
+    [Dependency] private readonly ExamineSystem _examineSystem = default!;
 
     private readonly List<string> _sampleText =
         new()
@@ -124,7 +127,19 @@ public sealed partial class TTSSystem : EntitySystem
         if (languageSoundData is null) return;
         // ADT Languages end
 
-        RaiseNetworkEvent(new PlayTTSEvent(soundData, languageSoundData, language, GetNetEntity(uid)), Filter.Pvs(uid));
+        // ADT-Tweak start
+        var ttsEvent = new PlayTTSEvent(soundData, languageSoundData, language, GetNetEntity(uid));
+        var receptions = Filter.Pvs(uid).Recipients;
+        foreach (var session in receptions)
+        {
+            if (!session.AttachedEntity.HasValue) continue;
+
+            if (!HasComp<GhostHearingComponent>(session.AttachedEntity.Value) && !_examineSystem.InRangeUnOccluded(session.AttachedEntity.Value, uid, ChatSystem.VoiceRange))
+                continue;
+
+            RaiseNetworkEvent(ttsEvent, session);
+        }
+        // ADT-Tweak end
     }
 
     private async void HandleWhisper(EntityUid uid, string message, string obfMessage, string speaker, LanguagePrototype language)
@@ -162,6 +177,11 @@ public sealed partial class TTSSystem : EntitySystem
             var distance = (sourcePos - _xforms.GetWorldPosition(xform, xformQuery)).Length();
             if (distance > ChatSystem.VoiceRange * ChatSystem.VoiceRange)
                 continue;
+
+            // ADT-Tweak start
+            if (!HasComp<GhostHearingComponent>(session.AttachedEntity.Value) && !_examineSystem.InRangeUnOccluded(session.AttachedEntity.Value, uid, ChatSystem.WhisperMuffledRange))
+                continue;
+            // ADT-Tweak end
 
             RaiseNetworkEvent(distance > ChatSystem.WhisperClearRange ? obfTtsEvent : fullTtsEvent, session);
         }

@@ -171,7 +171,7 @@ public partial class XenobiologySystem
         }
 
         _containerSystem.EmptyContainer(ent.Comp.Stomach);
-        RaiseLocalEvent(ent, new SlimeMitosisEvent());
+        RaiseLocalEvent(ent, new SlimeMitosisEvent(slimes));
         QueueDel(ent);
     }
 
@@ -189,7 +189,7 @@ public partial class XenobiologySystem
             _appearance.SetData(newEntityUid, XenoSlimeVisuals.Shader, newSlime.Shader);
 
         _appearance.SetData(newEntityUid, XenoSlimeVisuals.Color, newSlime.SlimeColor);
-        _metaData.SetEntityName(newEntityUid, Loc.GetString(newBreed.BreedName));
+        _mobGrowth.SetBaseName(newEntityUid, Loc.GetString(newBreed.BreedName));
 
         return new Entity<SlimeComponent>(newEntityUid, newSlime);
     }
