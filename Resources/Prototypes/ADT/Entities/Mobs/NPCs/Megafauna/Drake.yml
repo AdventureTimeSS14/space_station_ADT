@@ -187,7 +187,7 @@
 
 - type: entity
   id: BaseMobDrake
-  parent: BaseMobAsteroid
+  parent: ADTBaseMobMegafauna
   name: пепельный дракон
   abstract: true
   description:
@@ -288,7 +288,7 @@
 
 - type: entity
   id: MobDrake
-  parent: [ BaseMobDrake, BaseMobAsteroid ]
+  parent: BaseMobDrake
   name: пепельный дракон
   components:
   - type: GpsSignal
