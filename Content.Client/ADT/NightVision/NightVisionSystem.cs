@@ -8,8 +8,8 @@ using Robust.Shared.Prototypes;
 namespace Content.Client.ADT.NightVision;
 
 /// <summary>
-/// Client night vision via Starlight-style screen shader + attached light effect.
-/// Hooks into existing ADT <see cref="SharedNightVisionSystem"/> state (Off/Full).
+/// Client night vision: optional screen shader + attached fill light.
+/// Innate NV uses light only (natural colors); device ПНВ uses the green overlay.
 /// </summary>
 public sealed class NightVisionSystem : SharedNightVisionSystem
 {
@@ -22,6 +22,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
     private EntityUid? _effect;
     private string? _activeShader;
     private string? _activeEffect;
+    private bool _activeOverlay;
 
     public override void Initialize()
     {
@@ -58,21 +59,27 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
 
     private void AttemptAddVision(Entity<NightVisionComponent> ent)
     {
-        // Recreate if shader or light effect differs (device ПНВ vs innate).
         var effectId = ent.Comp.EffectPrototype.Id;
-        if (_overlay != null && (_activeShader != ent.Comp.Shader || _activeEffect != effectId))
+        var wantsOverlay = ent.Comp.Overlay;
+
+        // Recreate if shader, light, or overlay mode changed (device ПНВ vs innate).
+        if (_effect != null &&
+            (_activeShader != ent.Comp.Shader || _activeEffect != effectId || _activeOverlay != wantsOverlay))
             AttemptRemoveVision(force: true);
 
         if (_effect != null)
             return;
 
-        if (!_prototypes.TryIndex<ShaderPrototype>(ent.Comp.Shader, out var shaderProto))
-            return;
-
-        _overlay = new NightVisionOverlay(shaderProto);
         _activeShader = ent.Comp.Shader;
         _activeEffect = effectId;
-        _overlayMan.AddOverlay(_overlay);
+        _activeOverlay = wantsOverlay;
+
+        // Screen tint only when explicitly requested (device NVD). Innate = natural colors.
+        if (wantsOverlay && _prototypes.TryIndex<ShaderPrototype>(ent.Comp.Shader, out var shaderProto))
+        {
+            _overlay = new NightVisionOverlay(shaderProto);
+            _overlayMan.AddOverlay(_overlay);
+        }
 
         _effect = SpawnAttachedTo(ent.Comp.EffectPrototype, Transform(ent).Coordinates);
         _xform.SetParent(_effect.Value, ent.Owner);
@@ -87,9 +94,11 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         {
             _overlayMan.RemoveOverlay(_overlay);
             _overlay = null;
-            _activeShader = null;
-            _activeEffect = null;
         }
+
+        _activeShader = null;
+        _activeEffect = null;
+        _activeOverlay = false;
 
         if (_effect != null)
         {

@@ -1,38 +1,61 @@
-# Starlight port — personal light attached while NV / thermal overlay is active
+# Innate NV: neutral fill light only (no screen tint — natural colors).
+# Tier: Tajaran > Shadekin/Vulp/Moth > everyone else.
+
+# Weak (3rd) — felinid, resomi, arachnid, other innate NV
 - type: entity
   id: ADTEffectNightVision
   categories: [ HideSpawnMenu ]
   name: night vision
   components:
   - type: PointLight
-    color: "#D6E4FF"
-    energy: 0.4
-    radius: 10
-    softness: 20
+    color: "#FFFFFF"
+    energy: 0.35
+    radius: 3
+    softness: 24
+    falloff: 5.0
+    castShadows: true
 
-# Stronger personal light for Tajaran innate NV
+# Medium (2nd) — shadekin, vulpkanin, moth
+- type: entity
+  id: ADTEffectNightVisionMedium
+  categories: [ HideSpawnMenu ]
+  name: night vision medium
+  components:
+  - type: PointLight
+    color: "#FFFFFF"
+    energy: 0.45
+    radius: 4
+    softness: 24
+    falloff: 4.8
+    castShadows: true
+
+# Strong (1st) — tajaran
 - type: entity
   id: ADTEffectNightVisionTajaran
   categories: [ HideSpawnMenu ]
   name: tajaran night vision
   components:
   - type: PointLight
-    color: "#D6E4FF"
-    energy: 0.6
-    radius: 13
-    softness: 18
+    color: "#FFFFFF"
+    energy: 0.55
+    radius: 5
+    softness: 24
+    falloff: 4.5
+    castShadows: true
 
-# Weaker personal light for Resomi innate NV
+# Alias for resomi (weak / 3rd)
 - type: entity
   id: ADTEffectNightVisionResomi
   categories: [ HideSpawnMenu ]
   name: resomi night vision
   components:
   - type: PointLight
-    color: "#D6E4FF"
-    energy: 0.3
+    color: "#FFFFFF"
+    energy: 0.35
     radius: 3
-    softness: 15
+    softness: 24
+    falloff: 5.0
+    castShadows: true
 
 # Device NVD (ПНВ) — wider personal light while goggles are active
 - type: entity
@@ -42,9 +65,9 @@
   components:
   - type: PointLight
     color: "#D6E4FF"
-    energy: 0.4
-    radius: 30
-    softness: 20
+    energy: 0.75
+    radius: 32
+    softness: 18
 
 - type: entity
   id: ADTEffectThermalVision

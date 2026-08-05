@@ -150,6 +150,8 @@
     shortscale: 0.98
   - type: NightVision
     innate: true
+    shader: ADTModernNightVisionShader
+    effectPrototype: ADTEffectNightVision
   # ADT-Tweak end
   - type: CreamPied
     sprite:

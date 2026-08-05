@@ -167,6 +167,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
             nightVision.State = NightVisionState.Full;
             nightVision.Shader = item.Comp.Shader;
             nightVision.EffectPrototype = item.Comp.EffectPrototype;
+            nightVision.Overlay = true; // device NVD: green phosphor screen look
             Dirty(user, nightVision);
 
             var eyeDamage = EnsureComp<DamageEyesOnFlashedComponent>(user);
@@ -207,13 +208,14 @@ public abstract class SharedNightVisionSystem : EntitySystem
             }
             else
             {
-                // Restore species/innate shader + light effect after removing the device overlay.
+                // Restore species/innate light (no screen tint) after removing the device overlay.
                 if (item.Comp.PreviousShader != null)
                     nightVision.Shader = item.Comp.PreviousShader;
 
                 if (item.Comp.PreviousEffectPrototype != null)
                     nightVision.EffectPrototype = item.Comp.PreviousEffectPrototype.Value;
 
+                nightVision.Overlay = false;
                 Dirty(user.Value, nightVision);
                 RemCompDeferred<DamageEyesOnFlashedComponent>(user.Value);
             }

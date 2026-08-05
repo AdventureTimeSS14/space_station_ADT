@@ -1,4 +1,4 @@
-﻿# Simple Station
+# Simple Station
 - type: shader
   id: ColorTint
   kind: source
@@ -15,23 +15,43 @@
   path: "/Textures/ADT/Shaders/sandevistan_vision.swsl"
 
 # Starlight port: night / thermal vision overlays
+# Innate NV: lift pitch-black + compress highlights (no white blind).
+# Tiers: Weak < Medium(Shadekin/Vulp/Moth) < Strong(Tajaran)
 - type: shader
   id: ADTModernNightVisionShader
   kind: source
   path: "/Textures/ADT/Shaders/night.swsl"
   params:
-    NightVisionBoost: 1.0
-    NightVisionThreshold: 0.15
-    BlueTintIntensity: 0.3
+    NightVisionBoost: 2.2
+    NightVisionThreshold: 0.28
+    BlueTintIntensity: 0.22
+    NightVisionLift: 0.03
+    CompressStrength: 0.7
+    MaxBrightness: 1.0
+
+- type: shader
+  id: ADTModernNightVisionShaderMedium
+  kind: source
+  path: "/Textures/ADT/Shaders/night.swsl"
+  params:
+    NightVisionBoost: 2.6
+    NightVisionThreshold: 0.32
+    BlueTintIntensity: 0.2
+    NightVisionLift: 0.035
+    CompressStrength: 0.6
+    MaxBrightness: 1.0
 
 - type: shader
   id: ADTModernNightVisionShaderStrong
   kind: source
   path: "/Textures/ADT/Shaders/night.swsl"
   params:
-    NightVisionBoost: 1.4
-    NightVisionThreshold: 0.2
-    BlueTintIntensity: 0.275
+    NightVisionBoost: 3.0
+    NightVisionThreshold: 0.35
+    BlueTintIntensity: 0.18
+    NightVisionLift: 0.04
+    CompressStrength: 0.5
+    MaxBrightness: 1.0
 
 - type: shader
   id: ADTThermalVisionScreenShader
@@ -68,19 +88,19 @@
   kind: source
   path: "/Textures/ADT/Shaders/night_vision_device.swsl"
   params:
-    Gain: 2.4
+    Gain: 3.6
     TotalLighting: 0.0
-    WhiteoutThreshold: 0.32
-    WhiteoutIntensity: 2.8
+    WhiteoutThreshold: 0.38
+    WhiteoutIntensity: 2.4
     BloomRadius: 16.0
-    BloomStrength: 0.85
+    BloomStrength: 0.9
     CenterClearRadius: 72.0
     CenterClearSoftness: 40.0
-    NoiseAmplitude: 0.06
-    FlickerStrength: 0.02
+    NoiseAmplitude: 0.0
+    FlickerStrength: 0.0
     GrainSize: 2.0
-    DefectIntensity: 1.0
-    ScanlineDark: 0.55
+    DefectIntensity: 0.0
+    ScanlineDark: 0.72
 
 - type: shader
   id: XenoMetallic
