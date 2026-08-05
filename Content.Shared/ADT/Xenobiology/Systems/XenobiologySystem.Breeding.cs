@@ -11,6 +11,11 @@ using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.Body.Systems;
+using Content.Shared.NPC.Systems;
+using Content.Shared.NPC.Components;
+using Robust.Shared.GameObjects;
+using Robust.Shared.Map;
+using Robust.Shared.Player;
 
 namespace Content.Shared.ADT.Xenobiology.Systems;
 
@@ -19,6 +24,8 @@ public partial class XenobiologySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly NpcFactionSystem _factions = default!;
 
     private void SubscribeBreeding()
     {
@@ -178,9 +185,44 @@ public partial class XenobiologySystem
             }
         }
 
+        MakeMitosisFriends(ent, slimes);
+
         _containerSystem.EmptyContainer(ent.Comp.Stomach);
         RaiseLocalEvent(ent, new SlimeMitosisEvent(slimes));
         QueueDel(ent);
+    }
+
+    private void MakeMitosisFriends(Entity<SlimeComponent> ent, List<EntityUid> offspring)
+    {
+        if (_net.IsClient)
+            return;
+
+        var range = ent.Comp.FriendSightRange;
+        if (range <= 0f)
+            return;
+
+        var coords = Transform(ent).Coordinates;
+        var witnessed = new HashSet<EntityUid>();
+
+        foreach (var player in _lookup.GetEntitiesInRange<ActorComponent>(coords, range))
+        {
+            var playerUid = player.Owner;
+
+            if (ent.Comp.LatchedTarget is { } latchTarget && latchTarget == playerUid)
+                continue;
+
+            witnessed.Add(playerUid);
+        }
+
+        if (witnessed.Count == 0)
+            return;
+
+        _factions.IgnoreEntities(new Entity<FactionExceptionComponent?>(ent.Owner, default), witnessed);
+
+        foreach (var child in offspring)
+        {
+            _factions.IgnoreEntities(new Entity<FactionExceptionComponent?>(child, default), witnessed);
+        }
     }
 
     private Entity<SlimeComponent>? SpawnSlime(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
