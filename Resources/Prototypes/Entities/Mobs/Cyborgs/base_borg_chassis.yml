@@ -254,7 +254,7 @@
       isLooped: true
   - type: PointLight
     enabled: false
-    mask: /Textures/ADT/Effects/LightMasks/cone_composed_b.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/cone_composed_b.png # ADT tweak
     autoRot: true
     radius: 9 # ADT tweak 3 > 9
     netsync: false

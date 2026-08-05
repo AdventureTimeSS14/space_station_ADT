@@ -46,7 +46,7 @@
     energy: 2.7
     color: "#E25822"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_cones.png # ADT tweak 1.5 > 1.8
+    mask: /Textures/ADT/Effects/Lightmasks/circle_cones.png # ADT tweak 1.5 > 1.8
   - type: IgnitionSource
     temperature: 400
     ignited: true
@@ -63,7 +63,7 @@
     energy: 10
     color: "#1e070e"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_b.png # ADT tweak 1.5 > 1.8
+    mask: /Textures/ADT/Effects/Lightmasks/circle_b.png # ADT tweak 1.5 > 1.8
 
 - type: entity
   parent: BaseAnomalyCore
@@ -77,7 +77,7 @@
     energy: 2.7
     color: "#befaff"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/star.png # ADT tweak 1.5 > 1.8
+    mask: /Textures/ADT/Effects/Lightmasks/star.png # ADT tweak 1.5 > 1.8
 
 - type: entity
   parent: BaseAnomalyCore
@@ -92,7 +92,7 @@
     energy: 3.5
     color: "#cb5b7e"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_a.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/circle_a.png # ADT tweak
 
 - type: entity
   parent: BaseAnomalyCore
@@ -106,7 +106,7 @@
     energy: 3.5
     color: "#5ca8cb"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_e.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/circle_e.png # ADT tweak
 
 - type: entity
   parent: BaseAnomalyCore
@@ -120,7 +120,7 @@
     energy: 3.5
     color: "#ffffff"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_b.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/circle_b.png # ADT tweak
 
 - type: entity
   parent: BaseAnomalyCore
@@ -134,7 +134,7 @@
     energy: 7 # ADT tweak 3.5 > 7
     color: "#00ccff"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_rings.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/circle_rings.png # ADT tweak
   - type: Tag
     tags:
     - ForceableFollow
@@ -152,7 +152,7 @@
     energy: 4 # ADT tweak 2.0 > 4
     color: "#ffffaa"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_d.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/circle_d.png # ADT tweak
   - type: Electrified
 
 - type: entity
@@ -182,7 +182,7 @@
     energy: 3 # ADT tweak 2.0 > 3
     color: "#793a80"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_e.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/circle_e.png # ADT tweak
 
 - type: entity
   parent: BaseAnomalyCore
@@ -196,7 +196,7 @@
     energy: 2.0
     color: "#56c1e8"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/star.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/star.png # ADT tweak
 
 - type: entity
   parent: BaseAnomalyCore
@@ -240,7 +240,7 @@
     energy: 2.7
     color: "#fca3c0"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_cones.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/circle_cones.png # ADT tweak
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -254,7 +254,7 @@
     energy: 10
     color: "#1e070e"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_b.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/circle_b.png # ADT tweak
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -268,7 +268,7 @@
     energy: 2.7
     color: "#befaff"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/star.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/star.png # ADT tweak
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -283,7 +283,7 @@
     energy: 3.5
     color: "#cb5b7e"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_a.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/circle_a.png # ADT tweak
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -297,7 +297,7 @@
     energy: 3.5
     color: "#5ca8cb"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_e.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/circle_e.png # ADT tweak
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -311,7 +311,7 @@
     energy: 3.5
     color: "#ffffff"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_b.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/circle_b.png # ADT tweak
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -325,7 +325,7 @@
     energy: 7 # ADT tweak 3.5 > 7
     color: "#00ccff"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_rings.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/circle_rings.png # ADT tweak
   - type: Tag
     tags:
     - ForceableFollow
@@ -343,7 +343,7 @@
     energy: 4 # ADT tweak 2.0 > 4
     color: "#ffffaa"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_d.png # ADT
+    mask: /Textures/ADT/Effects/Lightmasks/circle_d.png # ADT
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -372,7 +372,7 @@
     energy: 3 # ADT tweak 2.0 > 3
     color: "#793a80"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/circle_e.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/circle_e.png # ADT tweak
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -386,7 +386,7 @@
     energy: 2.0
     color: "#56c1e8"
     castShadows: false
-    mask: /Textures/ADT/Effects/LightMasks/star.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/star.png # ADT tweak
 
 - type: entity
   parent: BaseAnomalyInertCore

@@ -8,7 +8,7 @@
   - type: PointLight
     color: "#793a80dd"
     radius: 2 # ADT tweak 1.1 > 2
-    mask: /Textures/ADT/Effects/LightMasks/circle_b.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/circle_b.png # ADT tweak
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 2
