@@ -537,7 +537,7 @@
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Vulpkanin, Ursus, Reptilian, XenobioSlime ] # ADT-Tweak
+          type: [ Animal, Vox, Vulpkanin, Ursus, Reptilian, XenobioSlime] # ADT-Tweak
           inverted: true
         type: Local
         visualType: MediumCaution
@@ -569,11 +569,7 @@
       - !type:AdjustReagent
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Ursus, Reptilian ] # ADT-Tweak
-# ADT-Tweak-Start
-        - !type:MetabolizerTypeCondition
-          type: [ Felinid, Animal ]
-# ADT-Tweak-End
+          type: [ Animal, Ursus, Reptilian, Felinid] # ADT-Tweak
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent
