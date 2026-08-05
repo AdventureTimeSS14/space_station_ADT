@@ -51,9 +51,8 @@
     prototype: ComputerScienceXenobiologyBounty
   - type: StaticPrice
 
-# ADT-Xenobio-Start
 - type: entity
-  id: ComputerXenobiologyControl
+  id: ADTComputerXenobiologyControl
   parent: BaseComputerAiAccess
   name: xenobiology control console
   description: Lets you pilot a free-flying drone eye through the station's cameras to remotely capture/place slimes and manage a monkey-cube stock.
@@ -96,7 +95,7 @@
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
   - type: Computer
-    board: XenobiologyControlComputerCircuitboard
+    board: ADTXenobiologyControlComputerCircuitboard
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -109,7 +108,7 @@
     - Science
 
 - type: entity
-  id: XenobiologyControlComputerCircuitboard
+  id: ADTXenobiologyControlComputerCircuitboard
   parent: BaseComputerCircuitboard
   name: xenobiology control console board
   description: A computer printed circuit board for a xenobiology control console.
@@ -117,6 +116,5 @@
   - type: Sprite
     state: cpu_science
   - type: ComputerBoard
-    prototype: ComputerXenobiologyControl
+    prototype: ADTComputerXenobiologyControl
   - type: StaticPrice
-# ADT-Xenobio-End

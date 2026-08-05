@@ -7,7 +7,7 @@ namespace Content.Shared.ADT.Xenobiology.XenobiologyControlConsole;
 public sealed partial class XenobiologyControlConsoleComponent : Component
 {
     [DataField]
-    public EntProtoId EyeProto = "XenobiologyEye";
+    public EntProtoId EyeProto = "ADTXenobiologyEye";
 
     [DataField]
     public int MaxSlimeCapacity = 5;

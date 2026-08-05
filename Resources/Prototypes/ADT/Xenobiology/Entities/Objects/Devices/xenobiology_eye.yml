@@ -1,6 +1,6 @@
 - type: entity
   parent: [Incorporeal, BaseMob]
-  id: XenobiologyEye
+  id: ADTXenobiologyEye
   name: xenobiology drone eye
   description: A remote camera drone piloted from a xenobiology control console.
   categories: [ HideSpawnMenu, DoNotMap ]

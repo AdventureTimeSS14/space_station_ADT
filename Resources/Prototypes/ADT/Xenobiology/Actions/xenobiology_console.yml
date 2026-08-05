@@ -3,7 +3,7 @@
 
 - type: entity
   parent: BaseAction
-  id: ActionXenobiologyCaptureSlime
+  id: ADTActionXenobiologyCaptureSlime
   name: Capture slime
   description: Grabs a live slime near you into the console's storage.
   components:
@@ -17,7 +17,7 @@
 
 - type: entity
   parent: BaseAction
-  id: ActionXenobiologyPlaceSlime
+  id: ADTActionXenobiologyPlaceSlime
   name: Place slime
   description: Places a stored slime at your current position.
   components:
@@ -31,7 +31,7 @@
 
 - type: entity
   parent: BaseAction
-  id: ActionXenobiologyFeedMonkey
+  id: ADTActionXenobiologyFeedMonkey
   name: Feed monkey
   description: Spawns a live monkey at your position, consuming one from the console's cube stock.
   components:
@@ -45,7 +45,7 @@
 
 - type: entity
   parent: BaseAction
-  id: ActionXenobiologyRecycleMonkey
+  id: ADTActionXenobiologyRecycleMonkey
   name: Recycle monkey
   description: Recycles a dead monkey near you into cube stock, via the console's linked recycler.
   components:
@@ -59,7 +59,7 @@
 
 - type: entity
   parent: BaseAction
-  id: ActionXenobiologyReturn
+  id: ADTActionXenobiologyReturn
   name: Return to body
   description: Ends piloting and returns you to your body.
   components:

@@ -1,5 +1,5 @@
 - type: entity
-  id: XenobiologyMonkeyRecycler
+  id: ADTXenobiologyMonkeyRecycler
   parent: BaseMachinePowered
   name: monkey recycler
   description: A grinder that reduces dead monkeys into reusable cube stock. Link it to a xenobiology control console with a multitool.

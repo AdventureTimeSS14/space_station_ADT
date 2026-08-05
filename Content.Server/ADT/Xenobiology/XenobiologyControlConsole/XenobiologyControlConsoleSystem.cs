@@ -41,11 +41,11 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
     [Dependency] private readonly SharedDeviceLinkSystem _deviceLink = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
 
-    private const string ActionXenobiologyCaptureSlime = "ActionXenobiologyCaptureSlime";
-    private const string ActionXenobiologyPlaceSlime = "ActionXenobiologyPlaceSlime";
-    private const string ActionXenobiologyFeedMonkey = "ActionXenobiologyFeedMonkey";
-    private const string ActionXenobiologyRecycleMonkey = "ActionXenobiologyRecycleMonkey";
-    private const string ActionXenobiologyReturn = "ActionXenobiologyReturn";
+    private const string ActionXenobiologyCaptureSlime = "ADTActionXenobiologyCaptureSlime";
+    private const string ActionXenobiologyPlaceSlime = "ADTActionXenobiologyPlaceSlime";
+    private const string ActionXenobiologyFeedMonkey = "ADTActionXenobiologyFeedMonkey";
+    private const string ActionXenobiologyRecycleMonkey = "ADTActionXenobiologyRecycleMonkey";
+    private const string ActionXenobiologyReturn = "ADTActionXenobiologyReturn";
 
     public override void Initialize()
     {
