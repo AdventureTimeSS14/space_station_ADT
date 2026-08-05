@@ -1,7 +1,7 @@
 - type: entity
   name: monkey
   suffix: Advanced
-  id: MobMonkeyAdvanced
+  id: ADTMobMonkeyAdvanced
   parent: MobBaseAncestor
   description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
   components:
@@ -59,7 +59,7 @@
 - type: entity
   name: kobold
   suffix: Advanced
-  id: MobKoboldAdvanced
+  id: ADTMobKoboldAdvanced
   parent: MobBaseKobold
   description: Cousins to the sentient race of lizard people, kobolds blend in with their natural habitat and are as nasty as monkeys; ready to pull out your hair and stab you to death.
   components:
