@@ -1,5 +1,34 @@
 - type: entity
-  parent: PartAnimal
+  id: ADTPartAnimal
+  parent: BaseItem
+  name: "animal body part"
+  abstract: true
+  components:
+  # yes these sprites dont make sense i dont care its better than them being invisible
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+  - type: Damageable
+    damageContainer: Biological
+  - type: BodyPart
+  - type: ContainerContainer
+    containers:
+      bodypart: !type:Container
+        ents: []
+  - type: StaticPrice
+    price: 50
+  - type: Tag
+    tags:
+      - Trash
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  parent: ADTPartAnimal
   id: ADTLeftHandAnimal
   name: left animal hand
   categories: [ HideSpawnMenu ]
@@ -12,7 +41,7 @@
     symmetry: Left
 
 - type: entity
-  parent: PartAnimal
+  parent: ADTPartAnimal
   id: ADTRightHandAnimal
   name: right animal hand
   categories: [ HideSpawnMenu ]
