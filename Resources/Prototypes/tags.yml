@@ -322,6 +322,9 @@
   id: ClothMade # SpecialDigestible: OrganMothStomach. Storage whitelist: FoodBoxCloth
 
 - type: Tag
+  id: ClothingMaskMime # ADT Clownmime
+
+- type: Tag
   id: ClownMask # ConstructionGraph: Honker, BananaClownMask
 
 - type: Tag

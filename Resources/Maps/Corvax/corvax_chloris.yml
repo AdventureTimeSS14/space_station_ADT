@@ -251737,7 +251737,7 @@ entities:
       pos: 19.5,121.5
       parent: 2
     - type: RandomSpawner
-      chance: 0.5
+       comm: 0.5
   - uid: 36182
     components:
     - type: Transform

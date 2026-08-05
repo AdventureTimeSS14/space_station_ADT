@@ -326,7 +326,6 @@
   - type: IdentityBlocker
   - type: Tag
     tags:
-    - ClothingMaskMime
     - HamsterWearable
     - WhitelistChameleon
   - type: HideLayerClothing
