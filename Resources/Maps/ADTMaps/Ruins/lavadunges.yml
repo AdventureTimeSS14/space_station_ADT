@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.2.1
   forkId: ""
   forkVersion: ""
-  time: 07/30/2026 17:35:04
+  time: 08/05/2026 08:09:00
   entityCount: 12139
 maps:
 - 1
@@ -19751,7 +19751,7 @@ entities:
       pos: 20.5,1.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -31669.71
+      secondsUntilStateChange: -32197.754
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -48145,6 +48145,13 @@ entities:
     - type: Transform
       pos: 107.5,20.5
       parent: 1
+- proto: KillTome
+  entities:
+  - uid: 92
+    components:
+    - type: Transform
+      pos: 37.498245,18.56175
+      parent: 1
 - proto: KitchenElectricGrill
   entities:
   - uid: 1692
@@ -52991,11 +52998,6 @@ entities:
     - type: Transform
       pos: 37.5,20.5
       parent: 1
-  - uid: 6490
-    components:
-    - type: Transform
-      pos: 37.5,18.5
-      parent: 1
   - uid: 6491
     components:
     - type: Transform
@@ -54255,7 +54257,7 @@ entities:
       pos: 1.5,-26.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -15660.209
+      secondsUntilStateChange: -16188.252
       state: Opening
   - uid: 2062
     components:
