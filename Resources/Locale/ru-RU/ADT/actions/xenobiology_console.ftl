@@ -4,8 +4,8 @@ ent-ADTActionXenobiologyCaptureSlime = поймать слайма
 ent-ADTActionXenobiologyPlaceSlime = выпустить слайма
     .desc = Выпускает слайма на ваше текущее место.
 
-ent-ADTActionXenobiologyFeedMonkey = покормить обезьяной
-    .desc = Делает живую обезьяну на вашем месте, расходуя один кубик из запаса переработчика.
+ent-ADTActionXenobiologyFeedMonkey = создать обезьяну
+    .desc = Создаёт живую обезьяну на вашем месте, расходуя один кубик из запаса переработчика.
 
 ent-ADTActionXenobiologyRecycleMonkey = переработать обезьяну
     .desc = Перерабатывает мёртвую обезьяну рядом с вами в кубики через привязанный переработчик.

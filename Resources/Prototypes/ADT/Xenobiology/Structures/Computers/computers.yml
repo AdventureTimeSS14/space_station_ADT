@@ -88,6 +88,9 @@
     containers:
       storagebase: !type:Container
         ents: [ ]
+      board: !type:Container
+        ents: [ ]
+      pai_slot: !type:ContainerSlot {}
   - type: UserInterface
     interfaces:
       enum.WiresUiKey.Key:

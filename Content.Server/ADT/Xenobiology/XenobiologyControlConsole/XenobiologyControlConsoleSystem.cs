@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.NPC.HTN;
 using Content.Server.Speech.Components;
+using Content.Shared.ADT.Areas;
 using Content.Shared.ADT.Xenobiology.Components;
 using Content.Shared.ADT.Xenobiology.XenobiologyControlConsole;
 using Content.Shared.Access.Components;
@@ -22,7 +23,6 @@ using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Content.Shared.ADT.Areas;
 
 namespace Content.Server.ADT.Xenobiology.XenobiologyControlConsole;
 
