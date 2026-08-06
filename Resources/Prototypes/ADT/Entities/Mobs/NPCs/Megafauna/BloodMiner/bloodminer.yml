@@ -1,11 +1,6 @@
-- type: damageModifierSet
-  id: BloodMiner
-  coefficients:
-    Heat: 0.5
-
 - type: entity
   id: ADTMobBloodMiner
-  parent: BaseMobAsteroid
+  parent: ADTBaseMobMegafauna
   name: blood-drunk miner
   description: A miner destined to wander forever, engaged in an endless hunt.
   components:
@@ -24,7 +19,6 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: alive_1
-  - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.BloodMinerVisuals.SawOpen:
@@ -38,18 +32,6 @@
     thresholds:
       0: Alive
       1250: Dead
-  - type: Damageable
-    damageModifierSet: BloodMiner
-  - type: Injurable
-    damageContainer: Biological
-  - type: StaminaResistance
-    damageCoefficient: 0
-    worn: false
-  - type: IgnoreSlowOnDamage
-  - type: StatusEffects
-    allowed: []
-  - type: ExplosionResistance
-    damageCoefficient: 0
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
@@ -93,14 +75,6 @@
     - proto: DiamondOre
       min: 1
       max: 5
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
-  - type: Tag
-    tags:
-    - CannotSuicide
-    - DoorBumpOpener
-  - type: NoSlip
   - type: HTN
     rootTask:
       task: ADTBloodMinerCompound
@@ -111,8 +85,13 @@
         16
       MeleeMissChance: !type:Single
         0
-  - type: Fauna
   - type: Megafauna
+#  - type: ADTMobHealthBar
+#    active: true
+#    primaryColor: "#7a1020"
+#    accentColor: "#e8413c"
+#    style: Hazard
+#    priority: 40
 
 - type: entity
   name: blood miner spawner

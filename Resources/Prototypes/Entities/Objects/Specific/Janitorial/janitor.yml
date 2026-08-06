@@ -272,6 +272,8 @@
     radius: 1.5
     energy: 0.75
     color: "#ffc20e"
+    mask: /Textures/ADT/Effects/Lightmasks/star.png # ADT tweak
+    autoRot: true # ADT tweak
   - type: PhysicalComposition
     materialComposition:
       Plastic: 50

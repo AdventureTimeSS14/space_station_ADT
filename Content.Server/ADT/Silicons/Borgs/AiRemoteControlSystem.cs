@@ -19,6 +19,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Popups;
 using Robust.Shared.Containers;
 
 namespace Content.Server.ADT.Silicons.Borgs;
@@ -35,6 +36,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedContainerSystem _containers = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -83,6 +85,9 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         if (!HasComp<StationAiHeldComponent>(user))
             return;
 
+        if (entity.Comp.AiHolder != null)
+            return;
+
         var verb = new AlternativeVerb
         {
             Text = Loc.GetString("ai-remote-control"),
@@ -109,6 +114,12 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
 
         if (!TryComp<AiRemoteControllerComponent>(entity, out var aiRemoteComp))
             return;
+
+        if (aiRemoteComp.AiHolder != null)
+        {
+            _popup.PopupEntity(Loc.GetString("ai-remote-control-occupied"), ai, ai, PopupType.MediumCaution);
+            return;
+        }
 
         if (_mobState.IsIncapacitated(entity))
             return;
@@ -220,13 +231,15 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
             }
 
             var isIncapacitated = _mobState.IsIncapacitated(queryUid);
+            var isOccupied = Comp<AiRemoteControllerComponent>(queryUid).AiHolder != null;
 
             var data = new RemoteDevicesData
             {
                 NetEntityUid = GetNetEntity(queryUid),
                 DisplayName = meta.EntityName,
                 Sprite = spriteSpecifier,
-                IsIncapacitated = isIncapacitated
+                IsIncapacitated = isIncapacitated,
+                IsOccupied = isOccupied
             };
 
             remoteDevices.Add(data);

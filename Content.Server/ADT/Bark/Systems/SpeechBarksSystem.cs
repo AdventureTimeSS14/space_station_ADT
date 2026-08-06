@@ -8,6 +8,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Chat;
+using Content.Server.Examine;
+using Content.Shared.Ghost;
 
 namespace Content.Server.ADT.SpeechBarks;
 
@@ -18,6 +20,7 @@ public sealed class SpeechBarksSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly ExamineSystem _examineSystem = default!;
     private bool _isEnabled = false;
 
     public override void Initialize()
@@ -44,6 +47,9 @@ public sealed class SpeechBarksSystem : EntitySystem
         foreach (var ent in _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 10f))
         {
             if (!_mind.TryGetMind(ent, out _, out var mind) || mind.UserId == null || !_player.TryGetSessionById(mind.UserId, out var session))
+                continue;
+
+            if (!HasComp<GhostHearingComponent>(ent) && !_examineSystem.InRangeUnOccluded(ent, uid, 10f))
                 continue;
 
             RaiseNetworkEvent(new PlaySpeechBarksEvent(

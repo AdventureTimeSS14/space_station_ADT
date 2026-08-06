@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise Station at icons/obj/lavaland/artefacts.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "vortex_talisman",
+            "delays": [
+                [
+                    2,
+                    0.25,
+                    0.225,
+                    0.2,
+                    0.175,
+                    0.15,
+                    0.125,
+                    0.1,
+                    0.075,
+                    0.05,
+                    0.25,
+                    0.089999996,
+                    0.08,
+                    0.07,
+                    0.060000002,
+                    0.05,
+                    0.04,
+                    0.030000001,
+                    0.02,
+                    0.01
+                ]
+            ]
+        }
+    ]
+}

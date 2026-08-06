@@ -1,14 +1,20 @@
 using System.Numerics;
+using Content.Server.Chat.Systems;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Weapons.Melee.Components;
 using Robust.Shared.Map;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Salvage.Systems;
 
 public sealed partial class MegafaunaSystem : EntitySystem
 {
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
