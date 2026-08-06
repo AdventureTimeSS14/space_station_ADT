@@ -70,6 +70,9 @@
       MeleeMissChance: !type:Single "0"
     rootTask:
       task: ADTBubblegumCompound
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
   - type: Megafauna
     speechCooldown: 15
     speechChance: 0.3
