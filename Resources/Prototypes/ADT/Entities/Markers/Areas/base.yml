@@ -1,0 +1,37 @@
+# base area prototype
+# this is basically markerbase without clickable and interaction outline to not make mapping very annoying
+- type: entity
+  abstract: true
+  id: ADTBaseArea
+  suffix: Area # to avoid adding area to every entity name
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    drawdepth: Overdoors
+    sprite: ADT/Markers/Areas/station.rsi
+    state: error
+  - type: Physics # for lookup to work
+  - type: Fixtures
+    fixtures:
+      area:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+  - type: PlacementReplacement
+    key: areas
+  - type: Marker # i dont want to copy paste the sprite hiding code
+  - type: Area
+  - type: Tag
+    tags:
+    - ForceFixRotations
+
+- type: entity
+  abstract: true
+  parent: ADTBaseArea
+  id: ADTBaseAreaStation
+  components:
+  - type: Sprite
+    state: station
+  # maybe do something with this in the future

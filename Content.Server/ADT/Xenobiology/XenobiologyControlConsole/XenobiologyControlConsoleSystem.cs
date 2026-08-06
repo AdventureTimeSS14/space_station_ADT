@@ -22,6 +22,7 @@ using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Content.Shared.ADT.Areas;
 
 namespace Content.Server.ADT.Xenobiology.XenobiologyControlConsole;
 
@@ -40,6 +41,7 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedDeviceLinkSystem _deviceLink = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
+    [Dependency] private readonly AreaSystem _area = default!;
 
     private const string ActionXenobiologyCaptureSlime = "ADTActionXenobiologyCaptureSlime";
     private const string ActionXenobiologyPlaceSlime = "ADTActionXenobiologyPlaceSlime";
@@ -65,6 +67,12 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
         SubscribeLocalEvent<XenobiologyEyePilotComponent, XenobiologyFeedMonkeyEvent>(OnFeedMonkey);
         SubscribeLocalEvent<XenobiologyEyePilotComponent, XenobiologyRecycleMonkeyEvent>(OnRecycleMonkey);
         SubscribeLocalEvent<XenobiologyEyePilotComponent, XenobiologyReturnEvent>(OnReturn);
+    }
+
+    private bool IsInXenobioArea(EntityUid eyeUid)
+    {
+        var areaProto = _area.GetAreaPrototypeId(Transform(eyeUid).Coordinates);
+        return areaProto == "ADTAreaXenobio";
     }
 
     private void OnMapInit(Entity<XenobiologyControlConsoleComponent> ent, ref MapInitEvent args)
@@ -139,7 +147,6 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
 
         _mover.SetRelay(user, eye);
 
-        // TODO сделать зоны
         EnsureComp<StationAiOverlayComponent>(user);
 
         var pilot = AddComp<XenobiologyEyePilotComponent>(user);
@@ -204,6 +211,12 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
             !_container.TryGetContainer(ent.Comp.Console, XenobiologyControlConsoleComponent.SlimeContainerId, out var container))
             return;
 
+        if (!IsInXenobioArea(ent.Comp.Eye))
+        {
+            _popup.PopupEntity(Loc.GetString("xenobiology-control-console-outside-area"), ent.Comp.Eye, ent);
+            return;
+        }
+
         if (container.ContainedEntities.Count >= console.MaxSlimeCapacity)
         {
             _popup.PopupEntity(Loc.GetString("xenobiology-control-console-slime-storage-full"), ent.Comp.Eye, ent);
@@ -238,6 +251,12 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
             !_container.TryGetContainer(ent.Comp.Console, XenobiologyControlConsoleComponent.SlimeContainerId, out var container))
             return;
 
+        if (!IsInXenobioArea(ent.Comp.Eye))
+        {
+            _popup.PopupEntity(Loc.GetString("xenobiology-control-console-outside-area"), ent.Comp.Eye, ent);
+            return;
+        }
+
         var slime = container.ContainedEntities.FirstOrDefault();
 
         if (slime == EntityUid.Invalid)
@@ -264,6 +283,12 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
             !TryComp<StorageComponent>(ent.Comp.Console, out var storage))
             return;
 
+        if (!IsInXenobioArea(ent.Comp.Eye))
+        {
+            _popup.PopupEntity(Loc.GetString("xenobiology-control-console-outside-area"), ent.Comp.Eye, ent);
+            return;
+        }
+
         var cube = storage.Container.ContainedEntities.FirstOrDefault();
 
         if (cube == EntityUid.Invalid)
@@ -286,6 +311,12 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
     {
         if (!TryComp<XenobiologyControlConsoleComponent>(ent.Comp.Console, out var console))
             return;
+
+        if (!IsInXenobioArea(ent.Comp.Eye))
+        {
+            _popup.PopupEntity(Loc.GetString("xenobiology-control-console-outside-area"), ent.Comp.Eye, ent);
+            return;
+        }
 
         if (!TryGetLinkedRecycler(ent.Comp.Console, out _, out var recycler))
         {
