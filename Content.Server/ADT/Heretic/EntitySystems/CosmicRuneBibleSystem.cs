@@ -7,7 +7,7 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.ADT.Heretic.EntitySystems;
 
-// ADT: очистка космической руны библией — серверная часть CosmicRunesSystem (BibleComponent в ADT серверный)
+// ADT: server-side bible-cleanse part of CosmicRunesSystem
 public sealed class CosmicRuneBibleSystem : EntitySystem
 {
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
@@ -17,10 +17,11 @@ public sealed class CosmicRuneBibleSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HereticCosmicRuneComponent, AfterInteractUsingEvent>(OnInteractUsing);
+        // ADT: InteractUsingEvent, not AfterInteractUsingEvent (avoid dupe sub with shared system)
+        SubscribeLocalEvent<HereticCosmicRuneComponent, InteractUsingEvent>(OnInteractUsing);
     }
 
-    private void OnInteractUsing(Entity<HereticCosmicRuneComponent> ent, ref AfterInteractUsingEvent args)
+    private void OnInteractUsing(Entity<HereticCosmicRuneComponent> ent, ref InteractUsingEvent args)
     {
         if (args.Handled || HasComp<FadingTimedDespawnComponent>(ent))
             return;

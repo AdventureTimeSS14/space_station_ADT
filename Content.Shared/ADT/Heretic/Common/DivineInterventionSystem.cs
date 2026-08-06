@@ -6,7 +6,7 @@ using Robust.Shared.Network;
 
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Goobstation.Shared.Religion
+// ADT: from Goob Religion
 
 /// <summary>
 /// Handles "Spell Denial", these methods are largely targeted towards TargetActionEvents, however,

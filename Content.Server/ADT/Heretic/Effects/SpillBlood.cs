@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Heretic.Effects;
 
-// ADT Heretic: проливает кровь цели на пол
+// ADT: spills target's blood on the floor
 
 public sealed partial class SpillBlood : EntityEffectBase<SpillBlood>
 {

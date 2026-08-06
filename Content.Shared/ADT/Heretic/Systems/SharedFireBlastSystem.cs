@@ -90,7 +90,7 @@ public abstract class SharedFireBlastSystem : EntitySystem
 
             var stamDmg = blast.Damage * blast.StaminaDamageMultiplier;
 
-            _stam.TakeStaminaDamage(uid, stamDmg); // ADT: овертайм-стамины нет, наносим сразу
+            _stam.TakeStaminaDamage(uid, stamDmg); // ADT: no stamina-over-time, apply now
         }
     }
 

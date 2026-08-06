@@ -250,7 +250,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
                         _transform.ToMapCoordinates(spawnCoords).Position;
         _gun.ShootProjectile(projectile, direction, userVelocity, performer, performer, speed);
 
-        // ADT: SetTarget (наведение снаряда на цель) отсутствует — используем HomingProjectile при необходимости
+        // ADT: no SetTarget, use HomingProjectile instead
         if (target != null && TryComp(projectile, out Content.Shared.ADT.Heretic.Common.HomingProjectileComponent? homing))
         {
             homing.Target = target.Value;
@@ -264,14 +264,13 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     /// Heals everything imaginable
     /// </summary>
     /// <remarks>
-    /// ADT: щитмед вырезан — лечим обычный урон, кровь и кровотечение через ванильные системы.
-    /// Параметры boneHeal/painHeal/woundHeal оставлены для совместимости сигнатуры с Goob и игнорируются.
+    /// ADT: no shitmed, heals damage/blood via vanilla systems. bone/pain/wound params unused.
     /// </remarks>
     /// <param name="uid">Entity to heal</param>
     /// <param name="toHeal">how much to heal, null = full heal</param>
-    /// <param name="boneHeal">unused (ADT: нет щитмеда)</param>
-    /// <param name="painHeal">unused (ADT: нет щитмеда)</param>
-    /// <param name="woundHeal">unused (ADT: нет щитмеда)</param>
+    /// <param name="boneHeal">unused, no shitmed</param>
+    /// <param name="painHeal">unused, no shitmed</param>
+    /// <param name="woundHeal">unused, no shitmed</param>
     /// <param name="bloodHeal">how much to restore blood, null = fully restore</param>
     /// <param name="bleedHeal">how much to heal bleeding, null = full heal</param>
     public void IHateWoundMed(Entity<DamageableComponent?, BodyComponent?> uid,
@@ -318,7 +317,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
             !_solution.ResolveSolution((uid, sol), blood.BloodSolutionName, ref blood.BloodSolution))
             return;
 
-        // ADT: BloodMaxVolume заменён на объём референс-раствора с модификатором
+        // ADT: BloodMaxVolume replaced by reference-solution volume * modifier
         var maxVolume = blood.BloodReferenceSolution.Volume * blood.MaxVolumeModifier;
         var curVolume = blood.BloodSolution.Value.Comp.Solution.Volume;
         if (curVolume >= maxVolume)

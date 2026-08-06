@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Server.Temperature.Components;
+using Content.Shared.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ActionBlocker;
@@ -15,7 +15,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.ADT.Heretic.EntitySystems;
 
-// ADT: перенесено из Content.Server._Goobstation.Wizard.Systems (без IceCubeOnProjectileHit — еретику не нужен)
+// ADT: from Goob Wizard.Systems, no IceCubeOnProjectileHit
 
 public sealed class IceCubeSystem : SharedIceCubeSystem
 {
@@ -69,7 +69,7 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
                 temperature);
         }
 
-        var realDamage = args.DamageDelta.DamageDict.Where(kvp => kvp.Key is "Blunt" or "Slash" or "Piercing" or "Heat")
+        var realDamage = args.DamageDelta.DamageDict.Where(kvp => kvp.Key.Id is "Blunt" or "Slash" or "Piercing" or "Heat") // ADT: compare ProtoId by Id
             .Sum(kvp => kvp.Value.Float());
 
         if (realDamage <= 0f)

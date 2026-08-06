@@ -1,5 +1,6 @@
 //
 
+using Content.Shared.ADT.Heretic.Common;
 using Content.Server.Heretic.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Damage;
@@ -147,8 +148,7 @@ public sealed class ProtectiveBladeSystem : EntitySystem
                     args.SourceItem,
                     args.Direction,
                     args.Reflective,
-                    args.Damage,
-                    out var dir))
+                    out var dir)) // ADT: signature without Damage
                 continue;
 
             args.Direction = dir.Value;
@@ -332,7 +332,12 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         var proj = Spawn(BladeProjecilePrototype, Transform(origin).Coordinates);
         _gun.ShootProjectile(proj, direction, Vector2.Zero, origin, origin);
         if (targetEntity != EntityUid.Invalid)
-            _gun.SetTarget(proj, targetEntity, out _);
+        {
+            // ADT: no SetTarget, use HomingProjectileComponent
+            var homing = EnsureComp<HomingProjectileComponent>(proj);
+            homing.Target = targetEntity;
+            Dirty(proj, homing);
+        }
 
         var ev = new ProtectiveBladeUsedEvent() { Used = pblade.Value };
         RaiseLocalEvent(origin, ev);

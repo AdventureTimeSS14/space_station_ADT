@@ -4,6 +4,8 @@
   actionPrototypes:
   - ActionHereticOpenStore
   - ActionHereticMansusGrasp
+  # ADT: event sets faction and vision mask
+  event: !type:HereticStartupEvent
 
 - type: hereticKnowledge
   id: HeartbeatOfMansus
@@ -274,8 +276,12 @@
   id: GraspOfVoid
   path: Void
   stage: 2
+  # ADT: passive cold immunity, as in Goob
+  event: !type:EventHereticVoidPassiveT1
+    addedComponents:
+    - type: SpecialLowTempImmunity
 
-# ADT: отключено как в актуальном Goob (событие не реализовано)
+# ADT: disabled, event not implemented
 #- type: hereticKnowledge
 #  id: AristocratWay
 #  path: Void
@@ -287,6 +293,10 @@
   id: MarkOfVoid
   path: Void
   stage: 4
+  # ADT: passive asphyxiation immunity, as in Goob
+  event: !type:EventHereticVoidPassiveT2
+    addedComponents:
+    - type: SpecialBreathingImmunity
 
 - type: hereticKnowledge
   id: VoidBlast
@@ -294,6 +304,15 @@
   stage: 5
   actionPrototypes:
   - ActionHereticVoidBlast
+
+# ADT: Void Prison, side
+- type: hereticKnowledge
+  id: VoidPrison
+  path: Void
+  sideKnowledge: true
+  stage: 5
+  actionPrototypes:
+  - ActionHereticVoidPrison
 
 - type: hereticKnowledge
   id: VoidPhase
@@ -315,6 +334,15 @@
   stage: 8
   actionPrototypes:
   - ActionHereticVoidPull
+
+# ADT: Void Conduit, side
+- type: hereticKnowledge
+  id: VoidConduit
+  path: Void
+  sideKnowledge: true
+  stage: 8
+  actionPrototypes:
+  - ActionHereticVoidConduit
 
 - type: hereticKnowledge
   id: AscensionVoid
@@ -351,7 +379,7 @@
 - type: hereticKnowledge
   id: ArmorerRitual
   sideKnowledge: true
-  stage: 20 # заглушка
+  stage: 20 # ADT: placeholder
   ritualPrototypes:
   - ArmorerRitual
 
@@ -386,6 +414,23 @@
   stage: 3
   ritualPrototypes:
   - ArmorerRitualAsh
+
+# ADT: Cosmos/Rust armor
+- type: hereticKnowledge
+  id: ArmorerRitualCosmos
+  path: Cosmos
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - ArmorerRitualCosmos
+
+- type: hereticKnowledge
+  id: ArmorerRitualRust
+  path: Rust
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - ArmorerRitualRust
 
 - type: hereticKnowledge
   id: PriestRitual
@@ -542,11 +587,10 @@
     - type: SpecialLowTempImmunity
     - type: SpecialHighTempImmunity
     - type: SpecialPressureImmunity
+    # ADT: NightVision has different fields
     - type: NightVision
-      color: white
-      activateSound: null
-      deactivateSound: null
-      drawOverlay: false
+      innate: true
+      overlay: false
   actionPrototypes:
   - ActionResetStarGazerConsciousness
 

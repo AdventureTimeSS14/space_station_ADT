@@ -4,7 +4,7 @@ using Content.Server.ADT.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos.Components;
 using Content.Server.Audio;
-using Content.Server.Light.Components;
+using Content.Shared.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared.Atmos;
@@ -215,7 +215,7 @@ public sealed class AristocratSystem : EntitySystem
 
         // the fog (snow) is coming
         var xform = Transform(ent);
-        _weather.SetWeather(xform.MapID, _prot.Index<WeatherPrototype>("SnowfallMagic"), null);
+        _weather.TrySetWeather(xform.MapID, "WeatherSnowfallMedium", out _); // ADT: no SetWeather, use TrySetWeather
     }
 
     private void EndWaltz(Entity<AristocratComponent> ent)
@@ -226,7 +226,7 @@ public sealed class AristocratSystem : EntitySystem
         _globalSound.StopStationEventMusic(ent, StationEventMusicType.VoidAscended);
 
         var xform = Transform(ent);
-        _weather.SetWeather(xform.MapID, null, null);
+        _weather.TrySetWeather(xform.MapID, null, out _); // ADT: no SetWeather, use TrySetWeather
     }
 
     private void OnMobStateChange(Entity<AristocratComponent> ent, ref MobStateChangedEvent args)
@@ -461,7 +461,7 @@ public sealed class AristocratSystem : EntitySystem
 
         // If heretic is lying down, walking or moving slowly, bullets are slowed down even more
         var waltzMultiplier = TryComp(ent, out InputMoverComponent? mover) && !mover.Sprinting ||
-            _standing.IsDown(ent) || ent.Comp3.LinearVelocity.Length() <= 2.5f
+            _standing.IsDown(ent.Owner) || ent.Comp3.LinearVelocity.Length() <= 2.5f
             ? 1f
             : 2f;
 

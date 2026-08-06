@@ -6,132 +6,10 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: dataset
-  id: EligibleTags
-  values:
-  - BreathMask
-  - ClownEmergencyOxygenTank
-  - EmergencyMedipen
-  - EmergencyNitrogenTank
-  - EmergencyOxygenTank
-  - ExtendedEmergencyOxygenTank
-  - MedicalPatch
-  - SecurityBreathMask
-  - SpaceMedipen
-  - AirAlarm
-  - AirAlarmElectronics
-  - Airlock
-  - AirSensor
-  - Ambrosia
-  - AppraisalTool
-  - Arrow
-  - ArtifactFragment
-  - Banana
-  - BananaPeel
-  - BaseballBat
-  - Bedsheet
-  - Beer
-  - BikeHorn
-  - Bloodpack
-  - BodyBag
-  - Book
-  - BorgArm
-  - BorgHead
-  - BorgLeg
-  - BotanyHatchet
-  - BotanyHoe
-  - BotanyShovel
-  - Bottle
-  - Brain
-  - Bread
-  - Briefcase
-  - BrimFlatcapBrown
-  - BrimFlatcapGrey
-  - Brutepack
-  - Bucket
-  - CableCoil
-  - Candle
-  - Cake
-  - CaptainSabre
-  - Carpet
-  - Carrot
-  - Chicken
-  - Cigarette
-  - CigFilter
-  - CigPack
-  - Cleaver
-  - ClownMask
-  - ClownRecorder
-  - ClownShoes
-  - ClownSuit
-  - CombatKnife
-  - ConveyorAssembly
-  - Cow
-  - Crayon
-  - Crowbar
-  - DoorElectronics
-  - Egg
-  - Eyes
-  - Figurine
-  - FireAlarm
-  - FireAlarmElectronics
-  - Flare
-  - Flashlight
-  - Flower
-  - Folder
-  - Fruit
-  - Galaxythistle
-  - GasMask
-  - GasScrubber
-  - GasTank
-  - GasVent
-  - Gauze
-  - GeigerCounter
-  - GlassAirlock
-  - GlassBeaker
-  - GlassShard
-  - Goat
-  - GPS
-  - HudMedical
-  - HudSecurity
-  - Hamster
-  - Hardsuit
-  - Heart
-  - HelmetEVA
-  - Igniter
-  - Liver
-  - Lungs
-  - Mask
-  - Mayo
-  - Meat
-  - Medal
-  - Medkit
-  - MicrowaveMachineBoard
-  - MonkeyCube
-  - Mop
-  - Mouse
-  - Multitool
-  - Ointment
-  - Organ
-  - Paper
-  - Pen
-  - Pickaxe
-  - Pill
-  - PillCanister
-  - Pipe
-  - PowerCell
-  - Shiv
-  - Soap
-  - Stomach
-  - Steak
-  - Sunglasses
-  - SurgeryTool
-  - Trash
-  - Wirecutter
-  - Wrench
-  - CD
+# ADT: EligibleTags dataset lives in ADT/Datasets/tags.yml, dupe removed
+# ADT: WaterTank tag lives in tags.yml, dupe removed
 
-# ADT Heretic: теги, требуемые прототипами еретика
+# ADT: tags required by heretic prototypes
 - type: Tag
   id: HereticCarving
 
@@ -142,10 +20,30 @@
   id: ShadowCloakAction
 
 - type: Tag
-  id: WaterTank
-
-- type: Tag
   id: RoundstartAntag
 
 - type: Tag
   id: CalmAntag
+
+# ADT: Blade path blade tag, required by HereticBladeBlade
+- type: Tag
+  id: HereticBladeBlade
+
+# ADT: item tags for rituals
+- type: Tag
+  id: SheetGlass
+
+- type: Tag
+  id: Steel
+
+- type: Tag
+  id: SheetPlasma
+
+- type: Tag
+  id: Ash
+
+- type: Tag
+  id: WinterCoat
+
+- type: Tag
+  id: Chair

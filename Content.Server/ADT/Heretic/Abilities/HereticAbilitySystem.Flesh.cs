@@ -7,6 +7,7 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles.Components;
 using Content.Shared.ADT.Heretic.Components;
+using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Cloning;
@@ -38,7 +39,7 @@ public sealed partial class HereticAbilitySystem
         base.SubscribeFlesh();
 
         SubscribeLocalEvent<FleshPassiveComponent, DamageChangedEvent>(OnDamageChanged);
-        // ADT: щитмед-желудок не переносим, баффы от поедания вешаем на ядровое событие приёма пищи
+        // ADT: no shitmed stomach, hook core ingest event
         SubscribeLocalEvent<FleshPassiveComponent, IngestingEvent>(OnConsumingFood);
     }
 
@@ -78,7 +79,7 @@ public sealed partial class HereticAbilitySystem
             multiplier *= ent.Comp.MobMultiplier;
         if (HasComp<BrainComponent>(args.Food))
             multiplier *= ent.Comp.BrainMultiplier;
-        // ADT: BodyPartComponent нет (щитмед) — множитель за части тела пропущен
+        // ADT: no BodyPartComponent (shitmed), no limb multiplier
         if (HasComp<OrganComponent>(args.Food))
             multiplier *= ent.Comp.OrganMultiplier;
         if (HasComp<HumanOrganComponent>(args.Food))
@@ -199,7 +200,7 @@ public sealed partial class HereticAbilitySystem
         ghoul.DropOrgansOnDeath = false;
         ghoul.GhostRoleName = "ghostrole-flesh-mimic-name";
         ghoul.GhostRoleDesc = "ghostrole-flesh-mimic-desc";
-        if (weapon != null && _cloning.CopyItem(weapon.Value, xform.Coordinates, copyStorage: false) is { } weaponClone)
+        if (weapon != null && _cloning.CopyItem(weapon.Value, xform.Coordinates) is { } weaponClone)
         {
             if (!_hands.TryPickup(clone.Value, weaponClone, null, false, false, false))
                 QueueDel(weaponClone);

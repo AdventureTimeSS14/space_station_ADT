@@ -1,12 +1,29 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from TG station",
+  "copyright": "Taken from TG station. rust_walker left and right direction sprites made by Armok.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
+    {
+      "name": "raw_prophet"
+    },
+    {
+      "name": "fire_shark_icon"
+    },
+    {
+      "name": "raw_prophet-move",
+      "delays":
+      [
+        [
+          0.05, 0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05, 0.05, 0.05
+        ]
+      ]
+    },
     {
       "name": "armsy_end",
       "directions": 4
@@ -20,69 +37,12 @@
       "directions": 4
     },
     {
-      "name": "ash_walker",
+      "name": "stalker",
       "directions": 4
     },
     {
-      "name": "fire_shark",
-      "directions": 4,
-      "delays": [
-        [
-          0.3,
-          0.3,
-          0.3,
-          0.3
-        ],
-        [
-          0.3,
-          0.3,
-          0.3,
-          0.3
-        ],
-        [
-          0.3,
-          0.3,
-          0.3,
-          0.3
-        ],
-        [
-          0.3,
-          0.3,
-          0.3,
-          0.3
-        ]
-      ]
-    },
-    {
-      "name": "fire_shark_icon"
-    },
-    {
-      "name": "moon_mass"
-    },
-    {
-      "name": "raw_prophet"
-    },
-    {
-      "name": "raw_prophet-move",
-      "delays": [
-        [
-          0.05,
-          0.05,
-          0.05,
-          0.05,
-          0.05,
-          0.05,
-          0.05,
-          0.05,
-          0.05,
-          0.05,
-          0.05,
-          0.05,
-          0.05,
-          0.05,
-          0.05
-        ]
-      ]
+      "name": "ash_walker",
+      "directions": 4
     },
     {
       "name": "rust_walker",
@@ -123,8 +83,33 @@
       ]
     },
     {
-      "name": "rust_walker_n",
+      "name": "rust_walker-move",
+      "directions": 4,
       "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
         [
           0.1,
           0.1,
@@ -136,21 +121,37 @@
       ]
     },
     {
-      "name": "rust_walker_s",
+      "name": "fire_shark",
+      "directions": 4,
       "delays": [
         [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.2
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
         ]
       ]
     },
     {
-      "name": "stalker",
-      "directions": 4
+      "name": "moon_mass"
     }
   ]
 }

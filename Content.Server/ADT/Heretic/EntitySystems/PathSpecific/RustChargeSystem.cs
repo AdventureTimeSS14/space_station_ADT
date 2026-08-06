@@ -19,6 +19,11 @@ public sealed class RustChargeSystem : SharedRustChargeSystem
 
         var threshold = destructible.Thresholds[^1];
         RaiseLocalEvent(uid, new DamageThresholdReached(destructible, threshold), true);
-        threshold.Execute(uid, _destructible, EntityManager, user);
+
+        // ADT: DamageThreshold has no Execute, run behaviors directly
+        foreach (var behavior in threshold.Behaviors)
+        {
+            behavior.Execute(uid, _destructible, user);
+        }
     }
 }

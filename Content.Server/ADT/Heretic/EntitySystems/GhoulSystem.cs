@@ -14,7 +14,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Humanoid;
 using Content.Server.Mind.Commands;
 using Content.Server.Storage.EntitySystems;
-using Content.Server.Temperature.Components;
+using Content.Shared.Temperature.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
@@ -62,7 +62,7 @@ public sealed class GhoulSystem : EntitySystem
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
-    [Dependency] private readonly BodySystem _body = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly StorageSystem _storage = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
@@ -172,7 +172,7 @@ public sealed class GhoulSystem : EntitySystem
             _htn.Replan(htn);
         }
 
-        // ADT: серую покраску гуля не переносим — система внешности переписана на HumanoidProfile
+        // ADT: no gray-skin recolor, appearance uses HumanoidProfile now
 
         _rejuvenate.PerformRejuvenate(ent);
         if (TryComp<MobThresholdsComponent>(ent, out var th))
@@ -239,7 +239,7 @@ public sealed class GhoulSystem : EntitySystem
     private void OnStartup(Entity<GhoulComponent> ent, ref ComponentStartup args)
     {
         GhoulifyEntity(ent);
-        // ADT: вместо WeakToHolyComponent из Goob — множитель святого урона от ADT-часовни
+        // ADT: holy damage multiplier instead of Goob's WeakToHolyComponent
         EnsureComp<HolyDamageMultiplierComponent>(ent);
     }
 
@@ -283,16 +283,7 @@ public sealed class GhoulSystem : EntitySystem
         if (ent.Comp.SpawnOnDeathPrototype != null)
             Spawn(ent.Comp.SpawnOnDeathPrototype.Value, Transform(ent).Coordinates);
 
-        if (!TryComp(ent, out BodyComponent? body))
-            return;
-
-        foreach (var nymph in _body.GetBodyOrganEntityComps<NymphComponent>((ent, body)))
-        {
-            RemComp(nymph.Owner, nymph.Comp1);
-        }
-
-        _body.GibBody(ent,
-            body: body,
-            contents: ent.Comp.DropOrgansOnDeath ? GibContentsOption.Drop : GibContentsOption.Skip);
+        // ADT: no shitmed BodySystem, gib via GibbingSystem
+        _gibbing.Gib(ent, dropGiblets: ent.Comp.DropOrgansOnDeath);
     }
 }

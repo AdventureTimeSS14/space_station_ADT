@@ -41,7 +41,8 @@ public sealed partial class HereticAbilitySystem
             if (stam.StaminaDamage >= stam.CritThreshold)
                 _stam.ExitStamCrit(ent, stam);
 
-            _stam.ToggleStaminaDrain(ent, args.StaminaRegenRate, true, true, args.StaminaRegenKey, ent);
+            // ADT: no ToggleStaminaDrain, clear stamina directly
+            _stam.TakeStaminaDamage(ent, -stam.StaminaDamage, stam);
             Dirty(ent, stam);
         }
 
@@ -55,7 +56,7 @@ public sealed partial class HereticAbilitySystem
 
     private void OnChampionStance(HereticChampionStanceEvent args)
     {
-        // ADT: щитмед вырезан — запрет на отрыв конечностей не переносится.
+        // ADT: no limb dismemberment lock, no shitmed
     }
 
     private void OnFuriousSteel(EventHereticFuriousSteel args)

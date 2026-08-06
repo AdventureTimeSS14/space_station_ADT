@@ -1,5 +1,6 @@
 //
 
+using System.Numerics;
 using Content.Server.Atmos.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Magic;
@@ -30,9 +31,35 @@ public sealed partial class HereticAbilitySystem
 
         SubscribeLocalEvent<HereticAscensionVoidEvent>(OnAscensionVoid);
 
+        SubscribeLocalEvent<HereticVoidBlastEvent>(OnVoidBlast); // ADT: ice cone
+
         SubscribeLocalEvent<HereticVoidPrisonEvent>(OnVoidPrison);
 
         SubscribeLocalEvent<VoidPrisonComponent, PolymorphedEvent>(OnPrisonRevert);
+    }
+
+    // ADT: fan of ice projectiles
+    private void OnVoidBlast(HereticVoidBlastEvent args)
+    {
+        if (!TryUseAbility(args))
+            return;
+
+        var uid = args.Performer;
+        var xform = Transform(uid);
+        var (pos, rot) = _transform.GetWorldPositionRotation(xform);
+        var forward = rot.ToWorldVec();
+
+        var half = args.ConeAngle / 2f;
+        for (var i = 0; i < args.Count; i++)
+        {
+            var angle = args.Count == 1
+                ? Angle.Zero
+                : Angle.FromDegrees(-half + args.ConeAngle * i / (args.Count - 1));
+            var dir = angle.RotateVec(forward);
+
+            var proj = Spawn(args.Projectile, xform.Coordinates);
+            _gun.ShootProjectile(proj, dir, Vector2.Zero, uid, uid, args.Speed);
+        }
     }
 
     private void OnPrisonRevert(Entity<VoidPrisonComponent> ent, ref PolymorphedEvent args)

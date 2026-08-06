@@ -1,6 +1,6 @@
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Shared._Shitmed.DoAfter (без релея по частям тела)
+// ADT: from _Shitmed.DoAfter, no limb relay
 
 public sealed class GetDoAfterDelayMultiplierEvent(float multiplier = 1f) : EntityEventArgs
 {

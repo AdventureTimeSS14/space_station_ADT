@@ -9,6 +9,7 @@ using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
@@ -73,19 +74,18 @@ public sealed class FireBlastSystem : SharedFireBlastSystem
 
         foreach (var (uid, flam) in result)
         {
-            _flammable.AdjustFireStacks(uid, origin.Comp.BonusFireStacks, flam, true, origin.Comp.FireProtectionPenetration);
+            _flammable.AdjustFireStacks(uid, origin.Comp.BonusFireStacks, flam, true); // ADT: no fire resist piercing
 
             if (statusQuery.TryComp(uid, out var status))
-                _stun.KnockdownOrStun(uid, origin.Comp.BonusKnockdownTime, true);
+                _stun.TryKnockdown(uid, origin.Comp.BonusKnockdownTime, true);
 
             if (!dmgQuery.TryComp(uid, out var dmg))
                 continue;
 
-            Dmg.TryChangeDamage(uid,
+            Dmg.TryChangeDamage((uid, dmg), // ADT: component passed as tuple
                 origin.Comp.FireBlastBonusDamage,
                 false,
-                false,
-                dmg);
+                false);
         }
     }
 
@@ -163,7 +163,7 @@ public sealed class FireBlastSystem : SharedFireBlastSystem
         if (antimagic)
             return true;
 
-        _flammable.AdjustFireStacks(target, origin.Comp.FireStacks, flam, true, origin.Comp.FireProtectionPenetration);
+        _flammable.AdjustFireStacks(target, origin.Comp.FireStacks, flam, true); // ADT: no fire resist piercing
 
         Dmg.TryChangeDamage(target,
             origin.Comp.FireBlastDamage,
@@ -204,16 +204,15 @@ public sealed class FireBlastSystem : SharedFireBlastSystem
                 continue;
 
             if (flammableQuery.TryComp(ent.HitEntity, out var flam))
-                _flammable.AdjustFireStacks(ent.HitEntity, origin.Comp.CollisionFireStacks, flam, true, origin.Comp.FireProtectionPenetration);
+                _flammable.AdjustFireStacks(ent.HitEntity, origin.Comp.CollisionFireStacks, flam, true); // ADT: no fire resist piercing
 
             if (!dmgQuery.TryComp(ent.HitEntity, out var dmg))
                 continue;
 
-            Dmg.TryChangeDamage(ent.HitEntity,
+            Dmg.TryChangeDamage((ent.HitEntity, dmg), // ADT: component passed as tuple
                 origin.Comp.FireBlastBeamCollideDamage,
                 false,
-                false,
-                dmg);
+                false);
         }
     }
 

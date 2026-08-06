@@ -77,8 +77,8 @@
       - Knife
       - Meat
       components:
+      # ADT: no BodyPart, only Organ
       - Organ
-      - BodyPart
       - HereticBlade
       - CarvingKnife
       - HereticMagicItem

@@ -2,7 +2,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Heretic.Components;
 
-// ADT: перенесено из Content.Goobstation.Server.ComponentsRegistry
+// ADT: from Goob ComponentsRegistry
 
 [RegisterComponent]
 public sealed partial class GrantComponentsStatusEffectComponent : Component

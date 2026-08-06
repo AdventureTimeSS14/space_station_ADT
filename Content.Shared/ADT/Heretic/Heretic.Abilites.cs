@@ -167,7 +167,21 @@ public sealed partial class EventHereticFleshPassive : HereticKnowledgeEvent;
 // void (+ upgrades)
 public sealed partial class EventHereticVoidPassiveT1 : HereticKnowledgeEvent;
 public sealed partial class EventHereticVoidPassiveT2 : HereticKnowledgeEvent;
-public sealed partial class HereticVoidBlastEvent : InstantActionEvent { }
+public sealed partial class HereticVoidBlastEvent : InstantActionEvent
+{
+    // ADT: ice cone params, own projectile (15 Cold + 15 Blunt)
+    [DataField]
+    public EntProtoId Projectile = "ADTProjectileVoidBlastIcicle";
+
+    [DataField]
+    public int Count = 5;
+
+    [DataField]
+    public float ConeAngle = 40f; // degrees
+
+    [DataField]
+    public float Speed = 15f;
+}
 
 public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent
 {

@@ -42,8 +42,9 @@ public sealed partial class LeechingWalkComponent : Component
     [DataField]
     public float ChemPurgeRate = 3f;
 
+    // ADT: reagent is named EssenceEldritch here
     [DataField]
-    public ProtoId<ReagentPrototype> ExcludedReagent = "EldritchEssence";
+    public ProtoId<ReagentPrototype> ExcludedReagent = "EssenceEldritch";
 
     [DataField]
     public FixedPoint2 BloodHeal = 5f;

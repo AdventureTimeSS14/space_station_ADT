@@ -1,6 +1,6 @@
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Goobstation.Common.Bloodstream
+// ADT: from Goob Bloodstream
 
 public sealed class StoppedTakingBloodlossDamageEvent : EntityEventArgs;
 

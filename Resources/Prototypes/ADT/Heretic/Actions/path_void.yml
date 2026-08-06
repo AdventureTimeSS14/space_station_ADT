@@ -62,7 +62,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    predicted: false
     checkCanInteract: false
     useDelay: 30
     itemIconStyle: NoItem

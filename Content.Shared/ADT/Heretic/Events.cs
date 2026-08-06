@@ -1,6 +1,6 @@
 namespace Content.Shared.Heretic;
 
-// ADT: события урезаны против Goob — желудочный оверрайд и группы метаболизма щитмеда не переносим
+// ADT: trimmed vs Goob, no shitmed stomach/metabolism groups
 
 [ByRefEvent]
 public record struct ImmuneToPoisonDamageEvent(bool Immune = false);

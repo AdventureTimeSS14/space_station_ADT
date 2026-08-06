@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.ADT.Blob.Components; // ADT: BlockTeleportComponent from Blob
 using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems.Abilities;
@@ -209,7 +210,7 @@ public sealed class SharedStarTouchSystem : EntitySystem
             return;
         }
 
-        if (_divine.TouchSpellDenied(target)) // ADT: через DivineInterventionSystem
+        if (_divine.TouchSpellDenied(target)) // ADT: via DivineInterventionSystem
         {
             _hereticAbility.InvokeTouchSpell(ent, args.User);
             return;

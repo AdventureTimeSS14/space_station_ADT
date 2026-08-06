@@ -200,7 +200,7 @@ public sealed class RiposteeSystem : EntitySystem
             _combatMode.SetInCombatMode(user, true);
 
         if (_melee.AttemptLightAttack(user, weapon.Owner, weapon.Comp, target) && _net.IsServer &&
-            _interaction.InRangeUnobstructed((user, null), (target, null), weapon.Comp.Range)) // ADT: InRange у melee protected
+            _interaction.InRangeUnobstructed((user, null), (target, null), weapon.Comp.Range)) // ADT: melee InRange is protected
         {
             if (data.StunTime > TimeSpan.Zero)
                 _stun.TryUpdateStunDuration(target, data.StunTime);

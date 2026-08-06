@@ -47,15 +47,12 @@
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit
-    - HumanoidAppearance # will cause problems for downstream felinids getting cloned as Urists
+    - HumanoidProfile # ADT: HumanoidAppearance -> HumanoidProfile
     - Implanter # they will spawn full again, but you already get the implant. And we can't do item slot copying yet
     - VirtualItem
   forceCloning: true # Goob - IPC/Vox cloning for paradox ghostrole
   copyInternalStorage: false
-  copyStorage: false
-  makeEquipmentUnremoveable: true
-  internalContentsUnremoveable: true
-  allowNonHumanoid: true
+  # ADT: CloningSettingsPrototype lacks copyStorage / makeEquipmentUnremoveable /
   copyEquipment: # No pockets, ears, suit storage, id card
   - PREVENTEQUIP
   - HEAD

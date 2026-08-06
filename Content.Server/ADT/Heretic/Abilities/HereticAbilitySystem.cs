@@ -40,7 +40,7 @@ using Content.Server.Body.Systems;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Heretic.Components;
-using Content.Server.Temperature.Components;
+using Content.Shared.Temperature.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems.Abilities;
@@ -333,7 +333,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         _aud.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid, AudioParams.Default.WithVolume(-3f));
     }
 
-    // ADT: вместо старлайтовского CollectiveMind используем радиоканал Мансуса
+    // ADT: radio channel instead of CollectiveMind
     public static readonly ProtoId<RadioChannelPrototype> MansusLinkChannel = "Mansus";
 
     public void AddMansusLink(EntityUid target)
@@ -513,7 +513,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
                         if (damageable != null && damageable.TotalDamage < FixedPoint2.Epsilon)
                         {
-                            _body.RestoreBody(uid);
+                            // ADT: no RestoreBody/shitmed, stop healing
                             shouldHeal = false;
                         }
                     }
@@ -542,7 +542,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             }
 
             if (bloodQuery.TryComp(uid, out var blood))
-                _blood.FlushChemicals((uid, blood), leech.ExcludedReagent, leech.ChemPurgeRate * multiplier);
+                _blood.FlushChemicals((uid, blood), leech.ChemPurgeRate * multiplier, leech.ExcludedReagent);
 
             if (temperatureQuery.TryComp(uid, out var temperature))
                 _temperature.ForceChangeTemperature(uid, leech.TargetTemperature, temperature);
@@ -565,7 +565,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 _statusEffect.TryRemoveStatusEffect(uid, "ForcedSleep", status);
                 _statusEffect.TryRemoveStatusEffect(uid, "SlowedDown", status);
                 _statusEffect.TryRemoveStatusEffect(uid, "BlurryVision", status);
-                _statusNew.TryRemoveStatusEffect(uid, BlindnessSystem.BlindingStatusEffect); // ADT: новая система блайнда
+                _statusNew.TryRemoveStatusEffect(uid, BlindnessSystem.BlindingStatusEffect); // ADT: new blindness system
                 _statusEffect.TryRemoveStatusEffect(uid, "SeeingRainbows", status);
             }
         }

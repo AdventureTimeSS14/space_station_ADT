@@ -221,7 +221,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
             case "Rust":
                 if (_mobState.IsDead(target))
                     _rotting.ReduceAccumulator(target, -TimeSpan.FromMinutes(1f));
-                // ADT: у нас нет системы Disgust из Goob (SecondSkin), эффект на живых не переносим
+                // ADT: no Goob Disgust/SecondSkin, skip living-target effect
                 break;
 
             default:
@@ -369,14 +369,14 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         }
     }
 
-    // ADT: замена SharedSanguineStrikeSystem.LifeSteal из Goob (без Consciousness/Pain из щитмеда)
+    // ADT: replaces Goob's SanguineStrikeSystem.LifeSteal, no shitmed
     private void SanguineLifeSteal(EntityUid uid, FixedPoint2 amount, DamageableComponent damageable)
     {
         var totalUserDamage = _damageable.GetTotalDamage((uid, damageable));
         if (totalUserDamage <= FixedPoint2.Zero)
             return;
 
-        // ADT: HealEvenly распределяет лечение по типам урона пропорционально
+        // ADT: HealEvenly splits healing proportionally by damage type
         _damageable.HealEvenly((uid, damageable), -FixedPoint2.Min(amount, totalUserDamage));
     }
 
@@ -384,7 +384,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
     protected virtual void ApplyFleshBladeEffect(EntityUid target) { }
 
-    // ADT: RandomTeleportComponent в ADT серверный, поэтому доступ к нему только через override
+    // ADT: RandomTeleportComponent is server-only, access via override
     protected virtual bool HasRandomTeleport(EntityUid blade) => false;
 
     protected virtual void RandomTeleport(EntityUid user, EntityUid blade) { }

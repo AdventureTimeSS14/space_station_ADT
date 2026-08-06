@@ -51,8 +51,7 @@ public sealed class CosmicRunesSystem : EntitySystem
             args.Handled = true;
         }
 
-        // ADT: очистка руны библией обрабатывается на сервере (CosmicRuneBibleSystem),
-        // т.к. BibleComponent в ADT серверный
+        // ADT: bible-cleanse handled server-side, BibleComponent is server-only
     }
 
     private void OnActivate(Entity<HereticCosmicRuneComponent> ent, ref ActivateInWorldEvent args)

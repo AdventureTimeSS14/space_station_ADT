@@ -28,6 +28,6 @@ public sealed class HereticClothingSystem : EntitySystem
 
     private bool IsTargetValid(EntityUid target)
     {
-        return _heretic.IsHereticOrGhoul(target); // ADT: в сборке нет визарда
+        return _heretic.IsHereticOrGhoul(target); // ADT: no wizard in this build
     }
 }

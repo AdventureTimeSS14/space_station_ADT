@@ -15,8 +15,8 @@
     radius: 2
     energy: 1
     color: "#911500"
+  # ADT: instant cast, no DoAfter
   - type: FleshSurgery
-    delay: 0.8 # Hand picked to not trigger health analyzer UI
   - type: ShowHealthBars
   - type: ShowHealthIcons
   - type: HealthAnalyzer

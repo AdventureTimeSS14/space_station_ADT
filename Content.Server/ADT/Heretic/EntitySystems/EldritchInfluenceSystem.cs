@@ -59,8 +59,7 @@ public sealed class EldritchInfluenceSystem : EntitySystem
         var message = Loc.GetString(_random.Pick(ent.Comp.HeathenExamineMessages));
         var size = ent.Comp.FontSize;
         var loc = Loc.GetString(baseMessage, ("size", size), ("text", message));
-        SharedChatSystem.UpdateFontSize(size, ref message, ref loc);
-        _chatMan.ChatMessageToOne(ChatChannel.Server, message, loc, default, false, session.Channel, canCoalesce: false);
+        _chatMan.ChatMessageToOne(ChatChannel.Server, message, loc, default, false, session.Channel);
 
         var effects = _random.Pick(ent.Comp.PossibleExamineEffects);
         foreach (var effect in effects)
@@ -71,7 +70,8 @@ public sealed class EldritchInfluenceSystem : EntitySystem
 
     public bool CollectInfluence(Entity<EldritchInfluenceComponent> influence, EntityUid user, EntityUid? used = null)
     {
-        if (influence.Comp.Spent)
+        // ADT: already drained/deleted, skip
+        if (influence.Comp.Spent || TerminatingOrDeleted(influence))
             return false;
 
         var (time, hidden) = TryComp<EldritchInfluenceDrainerComponent>(used, out var drainer)
@@ -112,13 +112,23 @@ public sealed class EldritchInfluenceSystem : EntitySystem
         if (args.Cancelled || args.Target == null || !_heretic.TryGetHereticComponent(args.User, out var heretic, out _))
             return;
 
+        // ADT: guard vs parallel do-afters double-firing
+        if (ent.Comp.Spent || TerminatingOrDeleted(ent))
+            return;
+
+        ent.Comp.Spent = true;
+
         var knowledge = TryComp(args.Used, out EldritchInfluenceDrainerComponent? drainer)
             ? drainer.KnowledgePerInfluence
             : 1f;
 
         _heretic.UpdateKnowledge(args.User, knowledge);
 
-        Spawn("EldritchInfluenceIntermediate", Transform(args.Target.Value).Coordinates);
-        QueueDel(args.Target);
+        args.Handled = true;
+
+        // ADT: grab coords/spawn before Del, or coords are lost
+        var coords = Transform(args.Target.Value).Coordinates;
+        Spawn("EldritchInfluenceIntermediate", coords);
+        QueueDel(args.Target.Value);
     }
 }

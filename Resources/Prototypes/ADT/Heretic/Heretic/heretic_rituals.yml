@@ -64,6 +64,7 @@
     Matchstick: 1
   output:
     HereticBladeAsh: 1
+  limit: 2 # ADT: max 2 blades
 
 - type: hereticRitual
   id: MaskOfMadness
@@ -106,6 +107,7 @@
     Knife: 4
   output:
     HereticBladeBlade: 1
+  limit: 2 # ADT: max 2 blades
 
 - type: hereticRitual
   id: AscensionBlade
@@ -116,7 +118,7 @@
     state: protective_blade
   customBehaviors:
   - !type:RitualCanAscend
-  # ADT: обезглавливание невозможно без щитмеда — обычная жертва
+  # ADT: no decapitation without shitmed, plain sacrifice
   - !type:RitualSacrificeBehavior
     min: 3
     max: 3
@@ -138,6 +140,7 @@
     Knife: 1
   output:
     HereticBladeFlesh: 1
+  limit: 2 # ADT: max 2 blades
 
 - type: hereticRitual
   id: ImperfectRitual
@@ -217,6 +220,7 @@
     Knife: 1
   output:
     HereticBladeVoid: 1
+  limit: 2 # ADT: max 2 blades
 
 - type: hereticRitual
   id: AscensionVoid
@@ -267,7 +271,7 @@
   locName: knowledge-path-side-s3-armor-name
   locDesc: knowledge-path-side-s3-armor-desc
   icon:
-    sprite: ADT/Heretic/Clothing/OuterClothing/blade_armor.rsi
+    sprite: ADT/Heretic/HereticRobes/blade_armor.rsi
     state: icon
   requiredTags:
     Table: 1
@@ -280,7 +284,7 @@
   locName: knowledge-path-side-s3-armor-name
   locDesc: knowledge-path-side-s3-armor-desc
   icon:
-    sprite: ADT/Heretic/Clothing/OuterClothing/flesh_armor.rsi
+    sprite: ADT/Heretic/HereticRobes/flesh_armor.rsi
     state: icon
   requiredTags:
     Table: 1
@@ -293,7 +297,7 @@
   locName: knowledge-path-side-s3-armor-name
   locDesc: knowledge-path-side-s3-armor-desc
   icon:
-    sprite: ADT/Heretic/Clothing/OuterClothing/void_armor.rsi
+    sprite: ADT/Heretic/HereticRobes/void_armor.rsi
     state: icon
   requiredTags:
     Table: 1
@@ -306,13 +310,40 @@
   locName: knowledge-path-side-s3-armor-name
   locDesc: knowledge-path-side-s3-armor-desc
   icon:
-    sprite: ADT/Heretic/Clothing/OuterClothing/ashen_armor.rsi
+    sprite: ADT/Heretic/HereticRobes/ashen_armor.rsi
     state: icon
   requiredTags:
     Table: 1
     GasMask: 1
   output:
     ADTClothingOuterArmorHereticAsh: 1
+
+# ADT: Cosmos/Rust armor
+- type: hereticRitual
+  id: ArmorerRitualCosmos
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: ADT/Heretic/Clothing/OuterClothing/cosmos_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ADTClothingOuterArmorHereticCosmos: 1
+
+- type: hereticRitual
+  id: ArmorerRitualRust
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: ADT/Heretic/Clothing/OuterClothing/rust_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ADTClothingOuterArmorHereticRust: 1
 
 - type: hereticRitual
   id: AshenEyesRitual
@@ -344,7 +375,7 @@
 ## stage 7
 
 
-# ADT Heretic: базовые ритуалы из актуального Goob
+# ADT: base rituals from Goob
 - type: hereticRitual
   id: Reminiscence
   locName: heretic-ritual-basic-reminiscence

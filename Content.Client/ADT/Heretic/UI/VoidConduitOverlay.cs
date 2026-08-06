@@ -26,7 +26,7 @@ public sealed class VoidConduitOverlay : Overlay
     public VoidConduitOverlay()
     {
         IoCManager.InjectDependencies(this);
-        ZIndex = (int) Shared.DrawDepth.DrawDepth.FloorEffects;
+        ZIndex = (int) Shared.DrawDepth.DrawDepth.FloorObjects; // ADT: no FloorEffects
 
         _xform = _entMan.System<TransformSystem>();
         _sprite = _entMan.System<SpriteSystem>();

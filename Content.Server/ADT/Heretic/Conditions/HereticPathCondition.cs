@@ -4,7 +4,7 @@ using Content.Shared.Store;
 
 namespace Content.Server.Store.Conditions;
 
-// ADT: перенесено из Content.Server._Shitcode.Store.Conditions
+// ADT: moved from Content.Server._Shitcode.Store.Conditions
 public sealed partial class HereticPathCondition : ListingCondition
 {
     [DataField]

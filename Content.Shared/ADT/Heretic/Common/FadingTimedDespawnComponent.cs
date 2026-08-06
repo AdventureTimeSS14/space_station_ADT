@@ -2,7 +2,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Shared._Goobstation.Wizard.FadingTimedDespawn
+// ADT: from Goob Wizard.FadingTimedDespawn
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class FadingTimedDespawnComponent : Component

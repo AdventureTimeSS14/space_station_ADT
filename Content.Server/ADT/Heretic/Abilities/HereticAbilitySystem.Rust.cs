@@ -69,7 +69,6 @@ public sealed partial class HereticAbilitySystem
         RustObjectsInRadius(mapPos, args.Radius, args.TileRune, args.LookupRange, args.RustStrength);
 
         _gun.ShootProjectile(plume, dir, Vector2.Zero, uid, uid, args.Speed);
-        _gun.SetTarget(plume, null, out _);
     }
 
     private void RustObjectsInRadius(MapCoordinates mapPos,
@@ -273,7 +272,7 @@ public sealed partial class HereticAbilitySystem
             if (dir.LengthSquared() < 0.001f)
                 continue;
             _throw.TryThrow(entity, dir.Normalized() * args.ThrowRange, args.ThrowSpeed);
-            _stun.KnockdownOrStun(entity, args.KnockdownTime, true);
+            _stun.TryKnockdown(entity, args.KnockdownTime, true);
             if (entity != args.Performer)
                 _dmg.TryChangeDamage(entity, args.Damage);
         }

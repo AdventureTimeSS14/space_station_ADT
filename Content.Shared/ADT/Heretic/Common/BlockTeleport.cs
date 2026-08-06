@@ -1,13 +1,7 @@
-using Robust.Shared.GameStates;
-
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Goobstation.Common.BlockTeleport
-
-[RegisterComponent, NetworkedComponent]
-public sealed partial class BlockTeleportComponent : Component
-{
-}
+// ADT: reuse Blob's BlockTeleportComponent
+// only the event lives here, the component is Blob's
 
 [ByRefEvent]
 public record struct TeleportAttemptEvent(

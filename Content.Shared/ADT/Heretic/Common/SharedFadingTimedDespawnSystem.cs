@@ -3,7 +3,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Shared._Goobstation.Wizard.FadingTimedDespawn
+// ADT: from Goob Wizard.FadingTimedDespawn
 
 /// <summary>
 /// This is a copy of SharedTimedDespawnSystem with some modifications

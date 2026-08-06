@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Goobstation.Shared.Religion
+// ADT: from Goob Religion
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class DivineInterventionComponent : Component
@@ -19,8 +19,9 @@ public sealed partial class DivineInterventionComponent : Component
     /// <summary>
     /// Which effect to display.
     /// </summary>
+    // ADT: prototype is named EffectSparks (plural)
     [DataField]
-    public EntProtoId EffectProto = "EffectSpark";
+    public EntProtoId EffectProto = "EffectSparks";
 
     /// <summary>
     /// Which loc string to display.

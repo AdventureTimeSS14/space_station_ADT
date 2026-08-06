@@ -37,7 +37,7 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnComponentRemove(Entity<RealignmentComponent> ent, ref ComponentRemove args)
     {
-        // ADT: системы стамина-дрейна из Goob нет — реген реализован в HereticAbilitySystem.Blade (сервер)
+        // ADT: no Goob stamina-drain system, regen is server-side
     }
 
     private void OnStatusEnded(Entity<RealignmentComponent> ent, ref StatusEffectEndedEvent args)

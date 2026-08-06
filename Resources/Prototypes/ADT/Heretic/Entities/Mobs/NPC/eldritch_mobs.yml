@@ -149,9 +149,7 @@
     description: ghostrole-fire-shark-desc
     mindRoles:
     - MindRoleGhoul
-  - type: Body
-    prototype: null
-    bodyType: Simple
+  # ADT: BodyComponent is organ container only
   - type: IgniteOnMeleeHit
     fireStacks: 2
   - type: MovementSpeedModifier
@@ -173,18 +171,19 @@
     damage:
       types:
         Heat: 0
+  # ADT: no heatDamage, use thresholds
   - type: Temperature
-    heatDamage:
-      types:
-        Heat: 0
   - type: PointLight
     radius: 3
     energy: 3
     color: "#ff8227"
   - type: Damageable
     damageModifierSet: FireShark
+  # ADT: bloodReferenceSolution instead
   - type: Bloodstream
-    bloodReagent: Plasma
-    bloodMaxVolume: 10
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 10
     bleedReductionAmount: 0.1
     maxBleedAmount: 0.5

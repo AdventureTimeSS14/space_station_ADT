@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Shared._Goobstation.Wizard.TimeStop
+// ADT: from Goob Wizard.TimeStop
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class FrozenComponent : Component

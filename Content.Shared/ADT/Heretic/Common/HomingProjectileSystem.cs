@@ -6,7 +6,7 @@ using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Shared._Goobstation.Wizard.Projectiles
+// ADT: from Goob Wizard.Projectiles
 
 public sealed class HomingProjectileSystem : EntitySystem
 {

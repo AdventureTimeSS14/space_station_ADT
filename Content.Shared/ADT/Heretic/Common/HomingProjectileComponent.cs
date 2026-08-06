@@ -2,7 +2,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Shared._Goobstation.Wizard.Projectiles
+// ADT: from Goob Wizard.Projectiles
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HomingProjectileComponent : Component

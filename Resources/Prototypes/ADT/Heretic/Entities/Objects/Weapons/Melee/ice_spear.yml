@@ -32,7 +32,7 @@
     layers:
     - state: spear
   - type: MeleeWeapon
-    animationRotation: -135 # WWDP
+    # ADT: only wideAnimationRotation exists
     wideAnimationRotation: -135
     damage:
       types:

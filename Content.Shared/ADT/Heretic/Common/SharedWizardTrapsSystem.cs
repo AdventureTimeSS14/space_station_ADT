@@ -18,8 +18,8 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Shared._Goobstation.Wizard.Traps
-// (оставлены только WizardTrap + DamageTrap, нужные резьбе еретика)
+// ADT: from Goob Wizard.Traps
+// only WizardTrap + DamageTrap kept, rest unused
 
 public abstract class SharedWizardTrapsSystem : EntitySystem
 {

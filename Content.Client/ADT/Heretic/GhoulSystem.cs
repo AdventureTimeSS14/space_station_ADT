@@ -17,17 +17,26 @@ public sealed class GhoulSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<GetStatusIconsEvent>(OnGetIcons);
+        // ADT: GetStatusIconsEvent is directed, subscribe per-component
+        SubscribeLocalEvent<HereticComponent, GetStatusIconsEvent>(OnGetHereticIcons);
+        SubscribeLocalEvent<HereticMinionComponent, GetStatusIconsEvent>(OnGetMinionIcons);
     }
 
-    private void OnGetIcons(ref GetStatusIconsEvent args)
+    private void OnGetHereticIcons(Entity<HereticComponent> ent, ref GetStatusIconsEvent args)
     {
         if (_player.LocalEntity is not { } player)
             return;
 
-        if (TryComp(player, out HereticMinionComponent? minion) && minion.BoundHeretic == args.Uid)
+        if (TryComp(player, out HereticMinionComponent? minion) && minion.BoundHeretic == ent.Owner)
             args.StatusIcons.Add(_prototype.Index(minion.MasterIcon));
-        else if (TryComp(args.Uid, out minion) && minion.BoundHeretic == player)
-            args.StatusIcons.Add(_prototype.Index(minion.GhoulIcon));
+    }
+
+    private void OnGetMinionIcons(Entity<HereticMinionComponent> ent, ref GetStatusIconsEvent args)
+    {
+        if (_player.LocalEntity is not { } player)
+            return;
+
+        if (ent.Comp.BoundHeretic == player)
+            args.StatusIcons.Add(_prototype.Index(ent.Comp.GhoulIcon));
     }
 }

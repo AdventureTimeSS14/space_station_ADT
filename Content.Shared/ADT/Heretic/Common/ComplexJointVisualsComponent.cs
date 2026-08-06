@@ -5,7 +5,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Goobstation.Common.Physics
+// ADT: from Goob Common.Physics
 
 /// <summary>
 /// Works like JointVisualsComponent, but supports multiple targets and more customization.

@@ -26,13 +26,13 @@
     angle: 0
     animation: WeaponArcHereticCosmic
     attackRate: 1
-    canWideSwing: false
+    # ADT: no canWideSwing
     damage:
       types:
         Slash: 10
         Piercing: 10
         Structural: 100
-      armorPenetration: 0.2
+    # ADT: no armorPenetration
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
@@ -63,9 +63,7 @@
     - MindRoleGhostRoleFamiliar
     raffle:
       settings: short
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
+    # ADT: no GhostRole requirements
   - type: ActiveRadio
     channels:
     - Mansus
@@ -95,9 +93,7 @@
   - type: ContentEye
     maxZoom: 1.5, 1.5
     targetZoom: 1.5, 1.5
-  - type: LanguageKnowledge
-    speaks: []
-    understands: []
+  # ADT: own language system, see UniversalLanguageSpeaker
   - type: UniversalLanguageSpeaker
   - type: LanguageSpeaker
   - type: CosmicTrail
@@ -112,11 +108,10 @@
   - type: WarpPoint
     follow: true
     location: star gazer
+  # ADT: NightVision has different fields
   - type: NightVision
-    color: white
-    activateSound: null
-    deactivateSound: null
-    drawOverlay: false
+    innate: true
+    overlay: false
   - type: SupermatterImmune
   - type: HealingAura
     componentHealMultipliers:

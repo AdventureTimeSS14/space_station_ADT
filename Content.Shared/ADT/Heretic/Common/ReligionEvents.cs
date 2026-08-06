@@ -1,6 +1,6 @@
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Goobstation.Common.Religion (NullrodEvents.cs)
+// ADT: from Goob NullrodEvents.cs
 
 public sealed class TouchSpellDenialRelayEvent : CancellableEntityEventArgs;
 

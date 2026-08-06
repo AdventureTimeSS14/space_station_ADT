@@ -36,7 +36,6 @@
   components:
   - type: Action
     checkCanInteract: false
-    predicted: false
     useDelay: 30
     itemIconStyle: NoItem
     sound:
@@ -63,7 +62,6 @@
   components:
   - type: Action
     checkCanInteract: false
-    predicted: false
     useDelay: 30
     itemIconStyle: NoItem
     sound:

@@ -61,8 +61,8 @@ public sealed partial class HereticAbilitySystem
 
             toHeal += args.HealAmount;
 
-            _flammable.AdjustFireStacks(look, args.FireStacks, flam, true, args.FireProtectionPenetration);
-            _dmg.TryChangeDamage(look,
+            _flammable.AdjustFireStacks(look, args.FireStacks, flam, true); // ADT: no fire resist piercing
+            _dmg.TryChangeDamage(look.Owner,
                 args.Damage,
                 true);
         }

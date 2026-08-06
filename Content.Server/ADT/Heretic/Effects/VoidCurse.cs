@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Heretic.Effects;
 
-// ADT Heretic: накладывает проклятие пустоты
+// ADT: applies void curse
 
 public sealed partial class VoidCurse : EntityEffectBase<VoidCurse>
 {

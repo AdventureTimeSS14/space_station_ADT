@@ -90,14 +90,14 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             !TryComp(uid, out MansusGraspComponent? grasp))
             return;
 
-        if (args.Target == null || _whitelist.IsBlacklistPass(grasp.Blacklist, args.Target.Value))
+        if (args.Target is not { } target || _whitelist.IsWhitelistPass(grasp.Blacklist, target)) // ADT: no IsBlacklistPass, same semantics as IsWhitelistPass
         {
             RustTile();
             return;
         }
 
         // Death to catwalks
-        if (_tag.HasTag(args.Target.Value, "Catwalk"))
+        if (_tag.HasTag(target, "Catwalk"))
         {
             args.Handled = true;
             InvokeGrasp(args.User, (uid, grasp));
@@ -106,7 +106,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             return;
         }
 
-        if (!_ability.TryMakeRustWall(args.Target.Value, (mind, heretic)))
+        if (!_ability.TryMakeRustWall(target, (mind, heretic)))
             return;
 
         args.Handled = true;
@@ -153,7 +153,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             return true;
         }
 
-        if (_whitelist.IsBlacklistPass(grasp.Comp.Blacklist, target))
+        if (_whitelist.IsWhitelistPass(grasp.Comp.Blacklist, target)) // ADT: no IsBlacklistPass, same semantics as IsWhitelistPass
             return false;
 
         var beforeEvent = new BeforeHarmfulActionEvent(user, HarmfulActionType.MansusGrasp);
@@ -181,7 +181,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
 
         if (triggerGrasp && TryComp(target, out StatusEffectsComponent? status))
         {
-            _stun.KnockdownOrStun(target, grasp.Comp.KnockdownTime, true);
+            _stun.TryKnockdown(target, grasp.Comp.KnockdownTime, true);
             _stamina.TakeStaminaDamage(target, grasp.Comp.StaminaDamage);
             _language.DoRatvarian(target, grasp.Comp.SpeechTime, true, status);
             _statusEffect.TryAddStatusEffect<MansusGraspAffectedComponent>(target,

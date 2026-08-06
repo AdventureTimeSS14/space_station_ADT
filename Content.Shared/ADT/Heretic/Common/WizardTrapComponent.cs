@@ -7,7 +7,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Shared._Goobstation.Wizard.Traps
+// ADT: from Goob Wizard.Traps
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class WizardTrapComponent : Component

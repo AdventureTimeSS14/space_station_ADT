@@ -1,21 +1,29 @@
 using Content.Shared.ADT.Heretic.Components;
+using Content.Shared.Damage;
 using Content.Shared.DoAfter;
-
+using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
 
 namespace Content.Shared.ADT.Heretic.Systems.Abilities;
 
 public abstract partial class SharedHereticAbilitySystem
 {
+    [Dependency] private readonly HungerSystem _hunger = default!;
+    [Dependency] private readonly ThirstSystem _thirst = default!;
+
     protected virtual void SubscribeFlesh()
     {
         SubscribeLocalEvent<EventHereticFleshSurgery>(OnFleshSurgery);
+        // ADT: instant cast now, kept for stale do-afters after hotreload
         SubscribeLocalEvent<EventHereticFleshSurgeryDoAfter>(OnFleshSurgeryDoAfter);
 
         SubscribeLocalEvent<FleshPassiveComponent, ImmuneToPoisonDamageEvent>(OnPoisonImmune);
 
-        // ADT: щитмед-хирургия вырезана, рука лечит только гулей через do-after
+        // ADT: instant touch-spell, no DoAfter
         SubscribeLocalEvent<FleshSurgeryComponent, AfterInteractEvent>(OnAfterInteract);
     }
 
@@ -26,27 +34,43 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnAfterInteract(Entity<FleshSurgeryComponent> ent, ref AfterInteractEvent args)
     {
-        if (!HasComp<GhoulComponent>(args.Target))
+        // ADT: instant, no DoAfter; self-cast allowed (heals the heretic)
+        if (args.Handled || !args.CanReach || args.Target is not { } target)
             return;
 
-        var dargs = new DoAfterArgs(EntityManager,
-            args.User,
-            ent.Comp.Delay,
-            new EventHereticFleshSurgeryDoAfter(),
-            args.User,
-            args.Target,
-            ent)
-        {
-            Hidden = true, // Hidden because it also has health analyzer do-after
-            BreakOnDamage = true,
-            BreakOnMove = true,
-            BreakOnHandChange = false,
-            BreakOnDropItem = false,
-            Broadcast = true,
-        };
+        if (!HasComp<MobStateComponent>(target))
+            return;
 
-        if (DoAfter.TryStartDoAfter(dargs))
-            args.Handled = true;
+        args.Handled = true;
+
+        // ally = self, any heretic, or ghoul
+        if (target == args.User || Heretic.IsHereticOrGhoul(target))
+        {
+            // 50 physical damage total (Blunt+Slash+Piercing)
+            var heal = new DamageSpecifier();
+            heal.DamageDict["Blunt"] = FixedPoint2.New(-20);
+            heal.DamageDict["Slash"] = FixedPoint2.New(-20);
+            heal.DamageDict["Piercing"] = FixedPoint2.New(-10);
+            IHateWoundMed(target, heal, null, null, null, null, null);
+        }
+        else
+        {
+            // enemy: 50 blunt + near-starving
+            var dmg = new DamageSpecifier();
+            dmg.DamageDict["Blunt"] = FixedPoint2.New(50);
+            _dmg.TryChangeDamage(target, dmg, origin: args.User);
+
+            // hunger/thirst dropped near-critical, not instant death
+            if (TryComp(target, out HungerComponent? hunger)
+                && hunger.Thresholds.TryGetValue(HungerThreshold.Starving, out var starving))
+                _hunger.SetHunger(target, starving, hunger);
+
+            if (TryComp(target, out ThirstComponent? thirst)
+                && thirst.ThirstThresholds.TryGetValue(ThirstThreshold.Parched, out var parched))
+                _thirst.SetThirst(target, thirst, parched);
+        }
+
+        InvokeTouchSpell<FleshSurgeryComponent>((ent.Owner, ent.Comp), args.User);
     }
 
     private void OnFleshSurgery(EventHereticFleshSurgery args)
@@ -60,10 +84,8 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnFleshSurgeryDoAfter(EventHereticFleshSurgeryDoAfter args)
     {
-        if (args.Cancelled)
-            return;
-
-        if (args.Target == null) // shouldn't really happen. just in case
+        // ADT: kept for old do-afters, new logic is instant
+        if (args.Cancelled || args.Target == null)
             return;
 
         if (!TryComp(args.Used, out FleshSurgeryComponent? surgery))

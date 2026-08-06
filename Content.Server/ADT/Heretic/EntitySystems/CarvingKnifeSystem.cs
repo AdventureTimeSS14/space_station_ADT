@@ -169,8 +169,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
             default,
             false,
             actor.PlayerSession.Channel,
-            Color.DarkGreen,
-            canCoalesce: false);
+            Color.DarkGreen);
         _audio.PlayGlobal(ent.Comp.AlertSound, actor.PlayerSession);
         if (_statusNew.TryUpdateStatusEffectDuration(ent.Comp.User.Value,
                 AlertEffect,

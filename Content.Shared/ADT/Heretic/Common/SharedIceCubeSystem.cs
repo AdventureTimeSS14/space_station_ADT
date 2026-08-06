@@ -20,7 +20,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Shared._Goobstation.Wizard.Traps
+// ADT: from Goob Wizard.Traps
 
 public abstract class SharedIceCubeSystem : EntitySystem
 {

@@ -20,7 +20,7 @@ public sealed class HereticBladeSystem : SharedHereticBladeSystem
     {
         base.ApplyAshBladeEffect(target);
 
-        _flammable.AdjustFireStacks(target, 2.5f, null, true, 0.5f);
+        _flammable.AdjustFireStacks(target, 2.5f, null, true); // ADT: no fire resist piercing
     }
 
     protected override void ApplyFleshBladeEffect(EntityUid target)

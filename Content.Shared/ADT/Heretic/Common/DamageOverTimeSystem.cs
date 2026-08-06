@@ -4,7 +4,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Goobstation.Shared.Clothing.Systems
+// ADT: from Goob Clothing.Systems
 
 public sealed class DamageOverTimeSystem : EntitySystem
 {

@@ -121,25 +121,20 @@
       state: shapeshift
   - type: InstantAction
     event: !type:EventHereticShapeshift
+  # ADT: use local polymorphs, no Goob Shapeshift*
   - type: ShapeshiftAction
     polymorphs:
-    - ShapeshiftMouse
-    - ShapeshiftHonkBot
-    - ShapeshiftAdultSlimesBlue
-    - ShapeshiftBat
-    - ShapeshiftMothroach
-    - ShapeshiftCrab
-    - ShapeshiftGoose
-    - ShapeshiftLizard
-    - ShapeshiftParrot
-    - ShapeshiftGiantSpider
-    - ShapeshiftFox
-    - ShapeshiftCorgi
-    - ShapeshiftCat
-    - ShapeshiftHamster
-    - ShapeshiftCarp
-    - ShapeshiftBingle
-    - ShapeshiftLaserRaptor
+    - ADTPolymorphMouse
+    - ADTPolymorphMothroach
+    - ADTPolymorphLizard
+    - ADTPolymorphSpider
+    - ADTPolymorphCat
+    - ADTPolymorphCarp
+    - ADTPolymorphDog
+    - ADTPolymorphFrog
+    - ADTPolymorphMonkey
+    - ADTPolymorphPossum
+    - ADTPolymorphCow
   - type: UserInterface
     interfaces:
       enum.HereticShapeshiftUiKey.Key:

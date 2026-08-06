@@ -3,7 +3,7 @@ using Content.Shared.StatusEffectNew;
 
 namespace Content.Server.ADT.Heretic.EntitySystems;
 
-// ADT: перенесено из Content.Goobstation.Server.ComponentsRegistry
+// ADT: from Goob ComponentsRegistry
 public sealed partial class GrantComponentsStatusEffectSystem : EntitySystem
 {
     // please don't use it for anything more complicated than adding immunity to stuff.

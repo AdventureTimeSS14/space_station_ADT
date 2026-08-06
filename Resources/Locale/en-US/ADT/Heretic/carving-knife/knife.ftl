@@ -14,3 +14,8 @@ alert-carving-trigger-message =
     {" "}[button label="Teleport" timer={$timer} id="{$id}" uid={$uid} coords ="{$coords}"]
     {" "}
 alert-carving-trigger-message-coords = {$uid}, {$x}, {$y}
+
+# ADT: rune descriptions for the carving knife radial menu (RuneCarvingPrototype.desc).
+rune-carving-grasping-desc = Grasping Carving. When stepped on, causes heavy leg damage and stuns the victim for 5 seconds. Has 1 charge.
+rune-carving-mad-desc = Mad Carving. When stepped on, causes heavy stamina damage, blinds and mutes the victim. Has 2 charges.
+rune-carving-alert-desc = Alert Carving. A nearly invisible rune that alerts the carver who triggered it and where, and allows them to teleport to its location.

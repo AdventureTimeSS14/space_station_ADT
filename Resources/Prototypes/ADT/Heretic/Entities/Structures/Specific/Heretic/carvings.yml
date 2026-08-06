@@ -14,7 +14,7 @@
   components:
   - type: Clickable
   - type: Sprite
-    drawdepth: FloorEffects
+    drawdepth: HighFloorObjects # ADT: no FloorEffects, same Default-5 level
     sprite: ADT/Heretic/carvings.rsi
     color: '#FFFFFF14'
   - type: Fixtures
@@ -39,8 +39,8 @@
     tags:
     - HideContextMenu
     - HereticCarving
+  # ADT: no damageContainer, only damageModifierSet
   - type: Damageable
-    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -110,13 +110,15 @@
       components: []
     targetedEntityWhitelist:
       components:
-      - HumanoidAppearance
+      # ADT: HumanoidProfile instead of HumanoidAppearance
+      - HumanoidProfile
       - BorgChassis
   - type: AlertCarving
 
+# ADT: desc is a LocId for the carving radial menu
 - type: runeCarving
   id: GraspingCarving
-  desc: Grasping Carving. When stepped on, causes heavy damage leg damage and stuns the victim for 5 seconds. Has 1 charge.
+  desc: rune-carving-grasping-desc
   icon:
     sprite: ADT/Heretic/carvings.rsi
     state: tentacle_rune
@@ -124,7 +126,7 @@
 
 - type: runeCarving
   id: MadCarving
-  desc: Mad Carving. When stepped on, causes heavy stamina damage, blindness, and muteness the victim. Has 2 charges.
+  desc: rune-carving-mad-desc
   icon:
     sprite: ADT/Heretic/carvings.rsi
     state: madness_rune
@@ -132,7 +134,7 @@
 
 - type: runeCarving
   id: AlertCarving
-  desc: Alert Carving. A nearly invisible rune that, when stepped on, alerts the carver who triggered it and where, also allowing them to teleport to rune location.
+  desc: rune-carving-alert-desc
   icon:
     sprite: ADT/Heretic/carvings.rsi
     state: alert_rune

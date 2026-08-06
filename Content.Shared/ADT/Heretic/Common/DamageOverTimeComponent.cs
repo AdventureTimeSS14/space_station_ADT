@@ -4,7 +4,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations;
 
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Goobstation.Shared.Clothing.Components (без Shitmed-полей)
+// ADT: from Goob Clothing.Components, no shitmed fields
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class DamageOverTimeComponent : Component

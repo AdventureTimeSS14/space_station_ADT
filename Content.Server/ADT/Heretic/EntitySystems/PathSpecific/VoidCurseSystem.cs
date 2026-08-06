@@ -1,6 +1,6 @@
 //
 
-using Content.Server.Temperature.Components;
+using Content.Shared.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems;

@@ -43,7 +43,8 @@
   - type: Projectile
     impactEffect: null
     deleteOnCollide: false
-    penetrate: true
+    # ADT: threshold instead of penetrate
+    penetrationThreshold: 0
     damage:
       types:
         Heat: 0
@@ -144,7 +145,7 @@
     frequency: 0.1
     alphaLerpAmount: 0.05
     renderedEntityRotationStrategy: Particle
-    useOwnerAsRenderedEntity: true # ADT: вместо Goob EntityTrail
+    useOwnerAsRenderedEntity: true # ADT: instead of Goob EntityTrail
     sprite:
       sprite: /Textures/ADT/Heretic/Effects/effects.rsi
       state: curse
@@ -315,8 +316,8 @@
       shader: unshaded
   - type: InteractionOutline
   - type: Clickable
+  # ADT: no damageContainer, only damageModifierSet
   - type: Damageable
-    damageContainer: InorganicMetaphysical
   - type: Destructible
     thresholds:
     - trigger:

@@ -12,6 +12,12 @@ public sealed partial class HereticSystem
     public HereticKnowledgePrototype GetKnowledge(ProtoId<HereticKnowledgePrototype> id)
         => _proto.Index(id);
 
+    /// <summary>
+    ///     ADT: root knowledge, locks in the heretic's path.
+    /// </summary>
+    public static bool IsRootKnowledge(HereticKnowledgePrototype data)
+        => !data.SideKnowledge && data.Stage <= 1 && !string.IsNullOrWhiteSpace(data.Path);
+
     public void RaiseKnowledgeEvent(EntityUid uid, HereticKnowledgeEvent ev, bool negative)
     {
         if (negative)
@@ -33,6 +39,13 @@ public sealed partial class HereticSystem
         body ??= CompOrNull<MindComponent>(ent.Owner)?.CurrentEntity;
 
         var data = GetKnowledge(id);
+
+        // ADT: hard path lock once CurrentPath is set
+        if (!data.SideKnowledge
+            && !string.IsNullOrWhiteSpace(data.Path)
+            && !string.IsNullOrWhiteSpace(ent.Comp.CurrentPath)
+            && ent.Comp.CurrentPath != data.Path)
+            return false;
 
         if (data.Event != null && body != null)
         {
@@ -56,18 +69,16 @@ public sealed partial class HereticSystem
             }
         }
 
-        Dirty(ent);
-
-        // set path if out heretic doesn't have it, or if it's different from whatever he has atm
-        if (string.IsNullOrWhiteSpace(ent.Comp.CurrentPath))
-        {
-            if (!data.SideKnowledge && ent.Comp.CurrentPath != data.Path)
-                ent.Comp.CurrentPath = data.Path;
-        }
+        // set path if our heretic doesn't have it yet
+        if (string.IsNullOrWhiteSpace(ent.Comp.CurrentPath) && !data.SideKnowledge)
+            ent.Comp.CurrentPath = data.Path;
 
         // make sure we only progress when buying current path knowledge
         if (data.Stage > ent.Comp.PathStage && data.Path == ent.Comp.CurrentPath)
             ent.Comp.PathStage = data.Stage;
+
+        // ADT: Dirty after CurrentPath/PathStage write, not before
+        Dirty(ent);
 
         return true;
     }

@@ -1,6 +1,6 @@
 using Content.Shared.ADT.Heretic.Common;
 using Content.Server.Damage.Systems;
-using Content.Server.Temperature.Components;
+using Content.Shared.Temperature.Components;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Actions;
 using Content.Shared.Ghost;

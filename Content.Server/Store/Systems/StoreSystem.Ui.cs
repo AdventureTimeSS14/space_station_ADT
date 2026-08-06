@@ -123,8 +123,10 @@ public sealed partial class StoreSystem
         {
             // ADT: HereticComponent висит на разуме — резолвим через минд покупателя
             var hereticMind = GetBuyerMind(buyer);
-            if (hereticMind.Valid)
-                _heretic.TryAddKnowledge(hereticMind, (ProtoId<HereticKnowledgePrototype>) listing.ProductHereticKnowledge, buyer);
+            // ADT: если знание не выдалось (например, ключевое знание чужого пути) — отменяем покупку целиком
+            if (!hereticMind.Valid ||
+                !_heretic.TryAddKnowledge(hereticMind, (ProtoId<HereticKnowledgePrototype>) listing.ProductHereticKnowledge, buyer))
+                return;
         }
 
         if (!IsOnStartingMap(uid, component))

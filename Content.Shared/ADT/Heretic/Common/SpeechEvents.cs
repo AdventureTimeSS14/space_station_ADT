@@ -1,7 +1,7 @@
 namespace Content.Shared.ADT.Heretic.Common;
 
-// ADT: перенесено из Content.Goobstation.Common.Speech
-// Внимание: эти ивенты должны подниматься чат-системой/барками, см. интеграцию ShadowCloak.
+// ADT: from Goob Common.Speech
+// raised by chat/barks, see ShadowCloak integration
 
 [ByRefEvent]
 public record struct GetSpeechSoundEvent(string? SpeechSoundProtoId = null, bool Handled = false);

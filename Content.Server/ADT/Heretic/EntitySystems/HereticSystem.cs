@@ -14,7 +14,7 @@ using Content.Server.Antag;
 using Robust.Shared.Random;
 using System.Linq;
 using Content.Shared.ADT.CCVar;
-using Content.Server.ADT.Objectives.Components;
+using Content.Server.Objectives.Components;
 using Content.Server.Actions;
 using Content.Server.Chat.Managers;
 using Content.Server.Objectives;
@@ -255,14 +255,13 @@ public sealed partial class HereticSystem : SharedHereticSystem
         var message = Loc.GetString(_rand.Pick(heretic.InfluenceGainMessages));
         var size = heretic.InfluenceGainTextFontSize;
         var loc = Loc.GetString(baseMessage, ("size", size), ("text", message));
-        SharedChatSystem.UpdateFontSize(size, ref message, ref loc);
+        // ADT: no UpdateFontSize/canCoalesce in our ChatManager
         _chatMan.ChatMessageToOne(ChatChannel.Server,
             message,
             loc,
             default,
             false,
-            session.Channel,
-            canCoalesce: false);
+            session.Channel);
     }
 
     public void UpdateKnowledge(EntityUid uid,
@@ -398,7 +397,7 @@ public sealed partial class HereticSystem : SharedHereticSystem
 
         bool IsSessionValid(ICommonSession session)
         {
-            if (!HasComp<HumanoidAppearanceComponent>(session.AttachedEntity))
+            if (!HasComp<HumanoidProfileComponent>(session.AttachedEntity))
                 return false;
 
             if (HasComp<GhoulComponent>(session.AttachedEntity.Value))
@@ -414,41 +413,19 @@ public sealed partial class HereticSystem : SharedHereticSystem
 
     private SacrificeTargetData? GetData(EntityUid uid)
     {
-        if (!TryComp(uid, out HumanoidAppearanceComponent? humanoid))
+        if (!TryComp(uid, out HumanoidProfileComponent? humanoid))
             return null;
 
         if (!_mind.TryGetMind(uid, out var mind, out _) || !_job.MindTryGetJobId(mind, out var jobId) || jobId == null)
             return null;
 
-        var hair = (HairStyles.DefaultHairStyle, humanoid.CachedHairColor ?? Color.Black);
-        if (humanoid.MarkingSet.TryGetCategory(MarkingCategories.Hair, out var hairMarkings) && hairMarkings.Count > 0)
-        {
-            var hairMarking = hairMarkings[0];
-            hair = (hairMarking.MarkingId, hairMarking.MarkingColors.FirstOrNull() ?? Color.Black);
-        }
-
-        var facialHair = (HairStyles.DefaultFacialHairStyle, humanoid.CachedFacialHairColor ?? Color.Black);
-        if (humanoid.MarkingSet.TryGetCategory(MarkingCategories.FacialHair, out var facialHairMarkings) &&
-            facialHairMarkings.Count > 0)
-        {
-            var facialHairMarking = facialHairMarkings[0];
-            facialHair = (facialHairMarking.MarkingId, facialHairMarking.MarkingColors.FirstOrNull() ?? Color.Black);
-        }
-
-        var appearance = new HumanoidCharacterAppearance(hair.Item1,
-            hair.Item2,
-            facialHair.Item1,
-            facialHair.Item2,
-            humanoid.EyeColor,
-            humanoid.SkinColor,
-            humanoid.MarkingSet.GetForwardEnumerator().ToList());
-
+        // ADT: no appearance cache, build like PolymorphSystem
         var profile = new HumanoidCharacterProfile().WithGender(humanoid.Gender)
             .WithSex(humanoid.Sex)
             .WithSpecies(humanoid.Species)
             .WithName(MetaData(uid).EntityName)
             .WithAge(humanoid.Age)
-            .WithCharacterAppearance(appearance);
+            .WithCharacterAppearance(HumanoidCharacterAppearance.DefaultWithSpecies(humanoid.Species, humanoid.Sex));
 
         var netEntity = GetNetEntity(uid);
 

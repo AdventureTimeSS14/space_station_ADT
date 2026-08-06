@@ -17,3 +17,19 @@
     radius: 2
     energy: 1
     color: "#329a00"
+
+# ADT: Rust mansus grasp, from Goob
+- type: entity
+  id: TouchSpellMansusRust
+  parent: TouchSpellMansus
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RustGrasp
+  - type: MansusGrasp
+    blacklist:
+      components:
+      - Puddle
+  - type: UseDelay
+    delays: # For rust path
+      rust:
+        length: 3

@@ -19,6 +19,6 @@ public record struct HereticCheckEvent(EntityUid Uid, bool Result = false);
 [ByRefEvent]
 public record struct GetVirtualItemBlockingEntityEvent(EntityUid Uid);
 
-// ADT: перенесено из Content.Shared._Goobstation.Wizard (SharedSpellsSystem)
+// ADT: from Goob Wizard SharedSpellsSystem
 [Serializable, NetSerializable]
 public sealed class StopTargetingEvent : EntityEventArgs;

@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Heretic.Effects;
 
-// ADT Heretic: снимает все доступы с ID-карты цели
+// ADT: strips all access from target's ID card
 
 public sealed partial class RemoveAccess : EntityEffectBase<RemoveAccess>
 {
