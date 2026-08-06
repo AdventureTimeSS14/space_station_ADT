@@ -58,18 +58,22 @@
   kind: source
   path: "/Textures/ADT/Shaders/thermal-screen.swsl"
   params:
-    ThermalBoost: 1.5
-    ThermalIntensity: 1
+    ThermalBoost: 1.55
+    ThermalIntensity: 0.88
     ThermalAlpha: 1
+    CenterClearRadius: 90.0
+    CenterClearSoftness: 70.0
 
 - type: shader
   id: ADTThermalVisionScreenShaderHalfAlpha
   kind: source
   path: "/Textures/ADT/Shaders/thermal-screen.swsl"
   params:
-    ThermalBoost: 1.5
-    ThermalIntensity: 1
+    ThermalBoost: 1.55
+    ThermalIntensity: 0.75
     ThermalAlpha: 0.5
+    CenterClearRadius: 90.0
+    CenterClearSoftness: 70.0
 
 - type: shader
   id: ADTBrightnessShader
@@ -88,14 +92,12 @@
   kind: source
   path: "/Textures/ADT/Shaders/night_vision_device.swsl"
   params:
-    Gain: 3.6
+    Gain: 2.5
     TotalLighting: 0.0
-    WhiteoutThreshold: 0.38
-    WhiteoutIntensity: 2.4
-    BloomRadius: 16.0
-    BloomStrength: 0.9
-    CenterClearRadius: 72.0
-    CenterClearSoftness: 40.0
+    WhiteoutThreshold: 0.80
+    WhiteoutIntensity: 1.3
+    BloomRadius: 5.5
+    BloomStrength: 0.43
     NoiseAmplitude: 0.0
     FlickerStrength: 0.0
     GrainSize: 2.0
