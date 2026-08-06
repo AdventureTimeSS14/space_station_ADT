@@ -1532,6 +1532,15 @@
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: JobStatus # marks them as crew
+  # ADT tweak start
+  - type: Vocal
+    sounds:
+      Male: Monkey
+      Female: Monkey
+      Unsexed: Monkey
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  # ADT tweak end
 
 - type: entity
   name: monkey
@@ -1558,6 +1567,7 @@
   # ADT-Tweak start
   - type: VentCrawler
     allowInventory: false
+  - type: StandingState
   # ADT-Tweak end
   - type: Clumsy
     gunShootFailDamage:

@@ -979,3 +979,35 @@
       collection: Whistles
     Spit:
       collection: HumanSpits
+
+- type: emoteSounds
+  id: Monkey
+  sounds:
+    Scream:
+      path: /Audio/Animals/monkey_scream.ogg
+      params:
+        variation: 0.125
+    Whistle:
+      collection: Whistles
+      params:
+        variation: 0.125
+    Snore:
+      collection: Snores
+      params:
+        pitch: 1.3
+        volume: -5
+        variation: 0.125
+    Laugh:
+      path: /Audio/ADT/Animals/monkey_laugh.ogg
+      params:
+        variation: 0.125
+    Gasp:
+      collection: MaleGasp
+      params:
+        pitch: 1.3
+        volume: -5
+        variation: 0.025
+    Spit:
+      collection: HumanSpits
+    Weh:
+      collection: Weh

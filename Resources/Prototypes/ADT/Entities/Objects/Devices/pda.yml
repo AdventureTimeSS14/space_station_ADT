@@ -396,7 +396,7 @@
 # Pun Pun
 - type: entity
   parent: BasePDA
-  id: PunPunPDA
+  id: ADTPunPunPDA
   name: pun pun's PDA
   description: Smells like bananas.
   components:

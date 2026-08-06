@@ -14,7 +14,7 @@
     flavorKind: station-event-random-sentience-flavor-primate
   - type: AlwaysRevolutionaryConvertible
   - type: GhostRole
-    prob: 0.05
+    prob: 0.1
     makeSentient: true
     name: ghost-role-information-monkey-advanced-name
     description: ghost-role-information-monkey-advanced-description
@@ -31,11 +31,27 @@
         Blunt: 1
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
-  - type: Tag
-    tags:
-      - Monkey
+  - type: GrabIntent
   - type: Body
-    prototype: AdvancedPrimate
+  - type: Hands
+    hands:
+      hand_right:
+        location: Right
+      hand_left:
+        location: Left
+    sortedHands:
+    - hand_right
+    - hand_left
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 4
+
+
   - type: Inventory
     templateId: advancedmonkey
     speciesId: monkey
@@ -64,7 +80,7 @@
   description: Cousins to the sentient race of lizard people, kobolds blend in with their natural habitat and are as nasty as monkeys; ready to pull out your hair and stab you to death.
   components:
   - type: GhostRole
-    prob: 0.05
+    prob: 0.1
     makeSentient: true
     name: ghost-role-information-kobold-advanced-name
     description: ghost-role-information-kobold-advanced-description
