@@ -335,8 +335,6 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
             return;
         }
 
-        QueueDel(target);
-
         for (var i = 0; i < recycler.CubeProduction; i++)
         {
             var newCube = Spawn("MonkeyCube", Transform(ent.Comp.Console).Coordinates);
@@ -347,6 +345,8 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
                 break;
             }
         }
+
+        QueueDel(target);
 
         _audio.PlayPvs(console.SuctionSound, ent.Comp.Console);
         args.Handled = true;
