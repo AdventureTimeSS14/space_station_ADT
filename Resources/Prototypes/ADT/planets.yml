@@ -67,9 +67,10 @@
     minSpacing: 70
     avoidRooms: true
     bosses:
-    - DrakeDungeMarker
+    #- DrakeDungeMarker # Выведен из пулла до реворка.
     - ADTMegaFaunaBubblegum
     - BloodMinerDungeMarker
+    - ADTHierophantArenaSpawner
   - type: FTLDestination
   - type: WeatherScheduler # Regular storms
     stages:
