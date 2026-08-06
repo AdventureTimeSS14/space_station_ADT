@@ -53,27 +53,48 @@
     CompressStrength: 0.5
     MaxBrightness: 1.0
 
+# Thermal WORLD only — no white; bodies use ADTThermalBodyShader
 - type: shader
   id: ADTThermalVisionScreenShader
   kind: source
-  path: "/Textures/ADT/Shaders/thermal-screen.swsl"
+  path: "/Textures/ADT/Shaders/thermal_vision_device.swsl"
   params:
-    ThermalBoost: 1.55
-    ThermalIntensity: 0.88
-    ThermalAlpha: 1
-    CenterClearRadius: 90.0
-    CenterClearSoftness: 70.0
+    Gain: 2.6
+    TotalLighting: 0.0
+    WhiteoutThreshold: 1.0
+    WhiteoutIntensity: 0.0
+    BloomRadius: 4.0
+    BloomStrength: 0.12
+    EnvCrush: 1.0
+    ColdFloor: 0.0
+    StructureStrength: 0.75
+    EnvHeatMax: 0.62
+    NoiseAmplitude: 0.0
+    FlickerStrength: 0.0
+    GrainSize: 2.0
+    DefectIntensity: 0.0
+    ScanlineDark: 0.82
 
 - type: shader
   id: ADTThermalVisionScreenShaderHalfAlpha
   kind: source
-  path: "/Textures/ADT/Shaders/thermal-screen.swsl"
+  path: "/Textures/ADT/Shaders/thermal_vision_device.swsl"
   params:
-    ThermalBoost: 1.55
-    ThermalIntensity: 0.75
-    ThermalAlpha: 0.5
-    CenterClearRadius: 90.0
-    CenterClearSoftness: 70.0
+    Gain: 2.4
+    TotalLighting: 0.0
+    WhiteoutThreshold: 1.0
+    WhiteoutIntensity: 0.0
+    BloomRadius: 3.5
+    BloomStrength: 0.1
+    EnvCrush: 1.05
+    ColdFloor: 0.0
+    StructureStrength: 0.8
+    EnvHeatMax: 0.58
+    NoiseAmplitude: 0.0
+    FlickerStrength: 0.0
+    GrainSize: 2.0
+    DefectIntensity: 0.0
+    ScanlineDark: 0.84
 
 - type: shader
   id: ADTBrightnessShader
@@ -81,6 +102,18 @@
   path: "/Textures/ADT/Shaders/brightness.swsl"
   params:
     brightness: 1.5
+
+# Bodies: per-texel luminance → IR (no UV color slabs / tint wash)
+- type: shader
+  id: ADTThermalBodyShader
+  kind: source
+  path: "/Textures/ADT/Shaders/thermal_body.swsl"
+  params:
+    SpectrumMin: 0.12
+    SpectrumMax: 0.95
+    HeatBoost: 1.15
+    DetailPower: 0.75
+    NoiseStrength: 0.12
 
 - type: shader
   id: ADTThermalGasVisibilityShader

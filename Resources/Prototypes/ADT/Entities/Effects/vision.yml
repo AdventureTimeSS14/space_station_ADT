@@ -75,8 +75,10 @@
   name: thermal vision
   components:
   - type: PointLight
-    # Neutral-warm fill; thermal LUT has a center dead-zone so this stays unfiltered
-    color: "#F0E6DC"
-    energy: 1.2
-    radius: 14
-    softness: 22
+    # Slightly stronger fill so background stays readable; voids still black
+    color: "#D0C8D8"
+    energy: 1.0
+    radius: 18
+    softness: 16
+    falloff: 4.2
+    castShadows: true

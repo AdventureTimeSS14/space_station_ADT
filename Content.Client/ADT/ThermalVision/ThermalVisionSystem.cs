@@ -8,7 +8,6 @@ using Robust.Shared.Prototypes;
 namespace Content.Client.ADT.ThermalVision;
 
 /// <summary>
-/// Thermal vision without fullscreen color filter: through-walls body highlight + fill light only.
 /// </summary>
 public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 {
@@ -17,11 +16,15 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
 
+    private ThermalVisionOverlay? _overlay;
     private ThermalVisionEntityHighlightOverlay _throughWallsOverlay = default!;
     private EntityUid? _effect;
     private bool _active;
+    private bool _activeAlt;
 
-    private const string BrightnessShaderId = "ADTBrightnessShader";
+    private const string ScreenShaderId = "ADTThermalVisionScreenShader";
+    private const string ScreenShaderAltId = "ADTThermalVisionScreenShaderHalfAlpha";
+    private const string BodyShaderId = "ADTThermalBodyShader";
 
     public override void Initialize()
     {
@@ -30,7 +33,7 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         SubscribeLocalEvent<ThermalVisionComponent, LocalPlayerAttachedEvent>(OnAttached);
         SubscribeLocalEvent<ThermalVisionComponent, LocalPlayerDetachedEvent>(OnDetached);
 
-        _throughWallsOverlay = new(_prototypes.Index<ShaderPrototype>(BrightnessShaderId));
+        _throughWallsOverlay = new(_prototypes.Index<ShaderPrototype>(BodyShaderId));
     }
 
     private void OnAttached(Entity<ThermalVisionComponent> ent, ref LocalPlayerAttachedEvent args)
@@ -60,10 +63,21 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 
     private void AttemptAddVision(Entity<ThermalVisionComponent> ent)
     {
+        if (_active && _activeAlt != ent.Comp.UseAlternativeShader)
+            AttemptRemoveVision(force: true);
+
         if (_active)
             return;
 
+        var shaderId = ent.Comp.UseAlternativeShader ? ScreenShaderAltId : ScreenShaderId;
+        if (!_prototypes.TryIndex<ShaderPrototype>(shaderId, out var screenShader))
+            return;
+
         _active = true;
+        _activeAlt = ent.Comp.UseAlternativeShader;
+
+        _overlay = new ThermalVisionOverlay(screenShader);
+        _overlayMan.AddOverlay(_overlay);
         _overlayMan.AddOverlay(_throughWallsOverlay);
 
         _effect = SpawnAttachedTo(ent.Comp.EffectPrototype, Transform(ent).Coordinates);
@@ -79,6 +93,14 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
             return;
 
         _active = false;
+        _activeAlt = false;
+
+        if (_overlay != null)
+        {
+            _overlayMan.RemoveOverlay(_overlay);
+            _overlay = null;
+        }
+
         _overlayMan.RemoveOverlay(_throughWallsOverlay);
 
         if (_effect != null)
