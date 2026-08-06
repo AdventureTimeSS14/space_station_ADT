@@ -1540,6 +1540,7 @@
       Unsexed: Monkey
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
+  - type: StandingState
   # ADT tweak end
 
 - type: entity
@@ -1567,7 +1568,6 @@
   # ADT-Tweak start
   - type: VentCrawler
     allowInventory: false
-  - type: StandingState
   # ADT-Tweak end
   - type: Clumsy
     gunShootFailDamage:

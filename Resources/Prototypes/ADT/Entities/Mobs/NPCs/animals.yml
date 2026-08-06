@@ -50,8 +50,6 @@
     damage:
       types:
         Slash: 4
-
-
   - type: Inventory
     templateId: advancedmonkey
     speciesId: monkey
@@ -97,8 +95,23 @@
     clumsySound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
   - type: Body
-    prototype: AdvancedPrimate
-    requiredLegs: 1
+  - type: Hands
+    hands:
+      hand_right:
+        location: Right
+      hand_left:
+        location: Left
+    sortedHands:
+    - hand_right
+    - hand_left
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 4
   - type: Inventory
     templateId: advancedmonkey
     speciesId: monkey
