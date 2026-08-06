@@ -665,7 +665,7 @@
         children:
         - id: MobMonkey
           weight: 85.0 # ADT tweak
-        - id: MobMonkeyAdvanced # ADT tweak
+        - id: ADTMobMonkeyAdvanced # ADT tweak
           weight: 10.0 # ADT tweak
         - id: MobGorilla
           weight: 5.0
