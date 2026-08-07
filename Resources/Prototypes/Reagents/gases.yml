@@ -16,7 +16,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Arachnid ] # ADT-Tweak
+          type: [ Human, Animal, Rat, Plant, Arachnid, Ursus ] # ADT-Tweak
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -47,7 +47,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Arachnid, Moth ] # ADT-Tweak
+          type: [ Human, Animal, Rat, Plant, Arachnid, Moth, Ursus ] # ADT-Tweak
       # Start ADT tweak
       - !type:Oxygenate
         conditions:

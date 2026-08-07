@@ -125,6 +125,7 @@
   - type: Construction
     graph: BluespaceArtilleryConstruction
     node: frame1
+    deconstructionTarget: null
 
 #region West
 
@@ -135,3 +136,4 @@
   - type: Construction
     graph: BluespaceArtilleryConstructionFlipped
     node: frame1
+    deconstructionTarget: null

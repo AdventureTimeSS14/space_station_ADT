@@ -15,3 +15,9 @@
   - type: Item
     heldPrefix: analyzer
     storedRotation: -90
+  - type: ActivatableUI
+    key: enum.SlimeScannerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SlimeScannerUiKey.Key:
+        type: SlimeScannerBoundUserInterface
