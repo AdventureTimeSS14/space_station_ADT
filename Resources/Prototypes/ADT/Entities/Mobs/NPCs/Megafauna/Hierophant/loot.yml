@@ -31,6 +31,10 @@
     soundHit:
       path: /Audio/ADT/Hierophant/sonic_jackhammer.ogg
   - type: HierophantClub
+    cardinalDamage: 15
+    chaserDamage: 15
+    blastRange: 11
+    range: 5
   - type: ItemActionGrant
     actions:
     - ActionADTHierophantVortexRecall
