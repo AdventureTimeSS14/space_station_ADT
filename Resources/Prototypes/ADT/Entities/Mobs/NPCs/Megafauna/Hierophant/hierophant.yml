@@ -67,6 +67,8 @@
     rootTask:
       task: ADTHierophantCompound
   - type: Megafauna
+  - type: ADTBossMusic
+    music: ADTBossMusicHierophant
   - type: Hierophant
   - type: TileMovement
   - type: NPCTileMovement
