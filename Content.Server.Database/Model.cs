@@ -375,6 +375,7 @@ namespace Content.Server.Database
         //ADT-tweak-start
         public string OOCNotes { get; set; } = null!;
         public string HeadshotUrl { get; set; } = null!;
+        public string ExploitableInfo { get; set; } = null!;
         //ADT-tweak-end
         public int Age { get; set; }
         public string Sex { get; set; } = null!;

@@ -111,6 +111,12 @@ namespace Content.Shared.Preferences
                 ? url
                 : string.Empty;
         }
+
+        /// <summary>
+        /// скрытая информация персонажа, видна только антагам и призракам
+        /// </summary>
+        [DataField]
+        public string ExploitableInfo { get; set; } = string.Empty;
         //ADT-tweak-end
 
         /// <summary>
@@ -194,7 +200,8 @@ namespace Content.Shared.Preferences
             BarkData bark,
             HashSet<ProtoId<LanguagePrototype>> languages,
             string oocNotes,
-            string headshotUrl
+            string headshotUrl,
+            string exploitableInfo
             )
             //ADT-tweak-end
         {
@@ -217,6 +224,7 @@ namespace Content.Shared.Preferences
             _languages = languages;
             OOCNotes = oocNotes;
             HeadshotUrl = headshotUrl;
+            ExploitableInfo = exploitableInfo;
             // ADT end
 
             var hasHighPrority = false;
@@ -254,7 +262,8 @@ namespace Content.Shared.Preferences
                 other.Bark,
                 other._languages,
                 other.OOCNotes,
-                other.HeadshotUrl
+                other.HeadshotUrl,
+                other.ExploitableInfo
                 )
                 // ADT end
         {
@@ -374,6 +383,10 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithHeadshotUrl(string headshotUrl)
         {
             return new(this) { HeadshotUrl = headshotUrl };
+        }
+        public HumanoidCharacterProfile WithExploitableInfo(string exploitableInfo)
+        {
+            return new(this) { ExploitableInfo = exploitableInfo };
         }
         //ADT-tweak-end
         public HumanoidCharacterProfile WithAge(int age)
@@ -611,6 +624,7 @@ namespace Content.Shared.Preferences
             // ADT-tweak-start
             if (OOCNotes != other.OOCNotes) return false;
             if (HeadshotUrl != other.HeadshotUrl) return false;
+            if (ExploitableInfo != other.ExploitableInfo) return false;
             if (!Bark.MemberwiseEquals(other.Bark)) return false;
             // ADT-tweak-end
             return Appearance.Equals(other.Appearance);
@@ -712,6 +726,16 @@ namespace Content.Shared.Preferences
             {
                 oocNotes = FormattedMessage.RemoveMarkupOrThrow(oocNotes);
             }
+
+            string exploitableInfo = ExploitableInfo;
+            if (exploitableInfo.Length > maxFlavorTextLength)
+            {
+                exploitableInfo = FormattedMessage.RemoveMarkupOrThrow(exploitableInfo)[..maxFlavorTextLength];
+            }
+            else
+            {
+                exploitableInfo = FormattedMessage.RemoveMarkupOrThrow(exploitableInfo);
+            }
             //ADT-tweak-end
 
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex);
@@ -764,6 +788,7 @@ namespace Content.Shared.Preferences
             FlavorText = flavortext;
             //ADT-tweak-start
             OOCNotes = oocNotes;
+            ExploitableInfo = exploitableInfo;
             // HeadshotUrl уже валидирован при установке через SetHeadshotUrl
             //ADT-tweak-end
             Age = age;
@@ -927,6 +952,7 @@ namespace Content.Shared.Preferences
             //ADT-tweak-start
             hashCode.Add(OOCNotes);
             hashCode.Add(HeadshotUrl);
+            hashCode.Add(ExploitableInfo);
             //ADT-tweak-end
             hashCode.Add(FlavorText);
             hashCode.Add(Species);
