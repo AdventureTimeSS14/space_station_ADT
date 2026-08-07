@@ -44,11 +44,6 @@ public sealed partial class ADTProjectileVampirismComponent : Component
     public DamageSpecifier DamageOnHit = new();
 }
 
-[RegisterComponent]
-public sealed partial class ADTProjectileSpreadLeadComponent : Component
-{
-}
-
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ADTGunUpgradeIndoorsComponent : Component
 {
