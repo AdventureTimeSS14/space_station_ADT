@@ -382,7 +382,7 @@ namespace Content.Server.Ghost
                     var addedWarp = false;
 
                     if (_prototypeManager.TryIndex(roleCacheComponent.LastJobPrototype, out var jobPrototype) &&
-                        _jobs.TryGetDepartment(jobPrototype.ID, out var departmentPrototype))
+                        _jobs.TryGetLowestWeightDepartment(jobPrototype.ID, out var departmentPrototype))
                     {
                         var departmentName = Loc.GetString($"department-{departmentPrototype.ID}");
                         var jobName = Loc.GetString(jobPrototype.Name);
