@@ -100,12 +100,22 @@
         factor: 8
         conditions:
         - !type:MetabolizerTypeCondition
+          type: [ Ursus ]
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:MetabolizerTypeCondition
           type: [ Plant ]
       - !type:Oxygenate
         factor: 8
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Resomi ]
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Arachnid ]
       - !type:ModifyLungGas
         conditions:
         - !type:MetabolizerTypeCondition
