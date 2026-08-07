@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Client.Gameplay;
+using Content.Shared.ADT.Weapons.Melee;
 using Content.Shared.CCVar;
 using Content.Shared.CombatMode;
 using Content.Shared.Effects;
@@ -133,6 +134,16 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
             return;
         }
+
+        // ADT-Tweak-Start
+        if (HasComp<ADTNoWideAttackComponent>(weaponUid))
+        {
+            if (useDown == BoundKeyState.Down)
+                ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
+
+            return;
+        }
+        // ADT-Tweak-End
 
         // Heavy attack.
         if (altDown == BoundKeyState.Down)
