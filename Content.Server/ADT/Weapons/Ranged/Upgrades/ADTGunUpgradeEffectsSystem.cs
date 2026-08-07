@@ -94,11 +94,12 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
 
     private void OnVampirismShot(Entity<ADTGunUpgradeVampirismComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
-        foreach (var bolt in GetBolts(args))
-        {
-            var comp = EnsureComp<ADTProjectileVampirismComponent>(bolt);
-            comp.DamageOnHit += ent.Comp.DamageOnHit;
-        }
+        var bolts = GetBolts(args).ToList();
+        if (bolts.Count == 0)
+            return;
+
+        var comp = EnsureComp<ADTProjectileVampirismComponent>(bolts[0]);
+        comp.DamageOnHit += ent.Comp.DamageOnHit;
     }
 
     private void OnAoEShot(Entity<ADTGunUpgradeAoEComponent> ent, ref ADTGunUpgradeShotEvent args)
