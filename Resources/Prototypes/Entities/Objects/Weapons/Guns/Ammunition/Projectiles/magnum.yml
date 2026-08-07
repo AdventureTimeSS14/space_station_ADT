@@ -58,7 +58,7 @@
   - type: HitscanBasicVisuals
     bullet:
       sprite:
-        sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+        sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles2.rsi
         state: incendiary
 
 - type: entity
