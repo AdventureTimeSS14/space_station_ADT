@@ -18,6 +18,7 @@ using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Rejuvenate;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.ADT.Salvage.Components; //ADT-Tweak
 using Content.Shared.ADT.Speech.EntitySystems; //ADT-Tweak
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -85,7 +86,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
 
                 // deal bloodloss damage if their blood level is below a threshold.
                 var bloodPercentage = GetBloodLevel(uid);
-                if (bloodPercentage < bloodstream.BloodlossThreshold)
+                if (bloodPercentage < bloodstream.BloodlossThreshold && !HasComp<MegafaunaComponent>(uid)) // ADT-Tweak: Megafauna bosses do not take damage from blood loss.
                 {
                     // bloodloss damage is based on the base value, and modified by how low your blood level is.
                     var amt = bloodstream.BloodlossDamage / (0.1f + bloodPercentage);
