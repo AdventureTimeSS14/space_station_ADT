@@ -75,7 +75,7 @@
         factor: 8
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Novakid, Drask, Animal, Rat, Plant, Resomi ]
+          type: [ Human, Novakid, Drask, Animal, Rat, Plant, Resomi, Arachnid, Ursus ]
       - !type:ModifyLungGas
         conditions:
         - !type:MetabolizerTypeCondition
