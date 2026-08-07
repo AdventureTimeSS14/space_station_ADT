@@ -294,7 +294,7 @@ namespace Content.IntegrationTests.Tests
                 "AnnounceOnSpawn",
 
                 // Consumes/deletes nearby entities by design (e.g. the Singularity).
-                "EventHorizon",
+                "EventHorizon", // ADT-tweak
             };
 
             Assert.That(server.CfgMan.GetCVar(CVars.NetPVS), Is.False);
