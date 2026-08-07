@@ -60,7 +60,7 @@
   martialArtsForm: CloseQuartersCombat
   attacks:
   - Disarm
-  - Harm
+  - Disarm
   - Harm
   event: !type:CqcConsecutivePerformedEvent {}
   extraDamage: 10

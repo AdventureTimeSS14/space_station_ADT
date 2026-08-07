@@ -537,7 +537,7 @@
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Vulpkanin, Ursus, Reptilian, XenobioSlime] # ADT-Tweak
+          type: [ Animal, Vox, Vulpkanin, Ursus, Reptilian, XenobioSlime, Novakid, Slime] # ADT-Tweak
           inverted: true
         type: Local
         visualType: MediumCaution
@@ -547,14 +547,12 @@
         probability: 0.1
         conditions:
           - !type:MetabolizerTypeCondition
-            type: [ Plant ]
-          - !type:MetabolizerTypeCondition
-            type: [ Animal, Vox, Ursus, Reptilian, XenobioSlime ] # ADT-Tweak
+            type: [ Animal, Vox, Plant, Ursus, Reptilian, XenobioSlime, Novakid, Slime ] # ADT-Tweak
             inverted: true
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Ursus, Felinid, Reptilian, XenobioSlime ] # ADT-Tweak
+          type: [ Animal, Vox, Ursus, Felinid, Reptilian, XenobioSlime, Novakid, Slime ] # ADT-Tweak
           inverted: true
         damage:
           types:
