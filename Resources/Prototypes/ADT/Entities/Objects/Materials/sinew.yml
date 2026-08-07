@@ -29,6 +29,7 @@
   - type: Stack
     stackType: ADTSinew
     count: 5
+  - type: Material
   - type: StaticPrice
     price: 0
   - type: StackPrice
