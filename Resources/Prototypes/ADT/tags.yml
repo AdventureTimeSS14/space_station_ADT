@@ -2,12 +2,6 @@
   id: ADTMothFriendlyFood
 
 - type: Tag
-  id: Stairs
-
-- type: Tag
-  id: Shield
-
-- type: Tag
   id: ADTHighVoltageDefibrillator
 
 - type: Tag
@@ -924,6 +918,3 @@
 
 - type: Tag
   id: BlueprintBSA
-
-- type: Tag
-  id: BloodSplatter # ADT: hitscan bullet blood spray decals

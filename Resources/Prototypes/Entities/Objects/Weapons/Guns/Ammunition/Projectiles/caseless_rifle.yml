@@ -1,29 +1,21 @@
 - type: entity
-  parent: BaseBulletHitscan
+  parent: BaseBullet
   id: BulletCaselessRifle
   categories: [ HideSpawnMenu ]
   name: bullet (.25 caseless)
   components:
-  - type: HitscanBasicDamage
+  - type: Projectile
     damage:
       types:
         Piercing: 19
-  - type: HitscanPierce
-    chance: 0
-  - type: HitscanRicochet
-    chance: 0
 
 - type: entity
-  parent: BaseBulletHitscanPractice
+  parent: BaseBulletPractice
   id: BulletCaselessRiflePractice
   categories: [ HideSpawnMenu ]
   name: bullet (.25 caseless practice)
   components:
-  - type: HitscanBasicDamage
+  - type: Projectile
     damage:
       types:
         Blunt: 2
-  - type: HitscanPierce
-    chance: 0
-  - type: HitscanRicochet
-    chance: 0

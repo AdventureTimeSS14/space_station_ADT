@@ -73,7 +73,6 @@
   - type: AmmoCounter
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
-    spread: 15
     fireRate: 2
     selectedMode: FullAuto
     availableModes:

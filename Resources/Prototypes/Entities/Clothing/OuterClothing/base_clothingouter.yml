@@ -117,8 +117,6 @@
 # SlotBlocker blocked until UI change
 #  - type: SlotBlock
 #    slots: [innerclothing, feet]
-  - type: Pierceable
-    level: Metal
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000

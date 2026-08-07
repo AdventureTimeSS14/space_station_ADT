@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: base shield
   parent: BaseItem
   id: BaseShield
@@ -62,11 +62,6 @@
                   max: 2
     - type: StaticPrice
       price: 100
-    - type: Tag
-      tags:
-      - Shield
-    - type: Pierceable
-      level: Flesh
 
 - type: entity
   name: base repairable shield
@@ -75,8 +70,6 @@
   description: A repairable shield!
   abstract: true
   components:
-  - type: Pierceable
-    level: Metal
   - type: Repairable # Negative values represent healing
     damage:
       types:
@@ -173,8 +166,6 @@
   id: WoodenBuckler
   description: A small round wooden makeshift shield.
   components:
-    - type: Pierceable # ADT #4953
-      level: Wood
     - type: Sprite
       state: buckler-icon
     - type: Item
@@ -291,8 +282,6 @@
   id: MakeshiftShield
   description: A rundown looking shield, not good for much.
   components:
-    - type: Pierceable # ADT #4953
-      level: Wood
     - type: Sprite
       state: makeshift-icon
     - type: Item
@@ -359,8 +348,6 @@
   id: WebShield
   description: A stringy shield. It's weak, and doesn't seem to do well against heat.
   components:
-    - type: Pierceable # ADT #4953
-      level: Wood
     - type: Sprite
       sprite: Objects/Weapons/Melee/web-shield.rsi
       state: icon
@@ -493,12 +480,6 @@
   id: EnergyShield
   description: Exotic energy shield, when folded, can even fit in your pocket.
   components:
-    # ADT #4953 — does not parent BaseShield
-    - type: Tag
-      tags:
-      - Shield
-    - type: Pierceable
-      level: HardenedMetal
     - type: ItemToggle
       soundActivate:
         path: /Audio/Weapons/ebladeon.ogg

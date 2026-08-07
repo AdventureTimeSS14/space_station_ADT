@@ -1,23 +1,16 @@
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseBulletHitscan
+  parent: BaseBullet
   id: BulletAntiMateriel
   name: bullet (.60 anti-materiel)
   components:
-  - type: HitscanBasicDamage
-    armorPenetration: 0.35
+  - type: Projectile
     damage:
       types:
         Piercing: 75
-        Structural: 226
-  - type: HitscanStaminaDamage
-    staminaDamage: 35
-  - type: HitscanPierce
-    chance: 0.95
-    deviation: 0.005
-    pierceLevel: Rock
-  - type: HitscanRicochet
-    chance: 0.95
-  - type: HitscanReflect
-    reflectiveType: NonEnergy
-    maxReflections: 20
+        Structural: 130 # ADT-Tweak 226 -> 130
+    penetrationThreshold: 360
+    penetrationDamageTypeRequirement:
+    - Structural
+  - type: StaminaDamageOnCollide
+    damage: 60

@@ -1,7 +1,7 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos.Components;
-using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Hitscan.Events;
+using Content.Shared.Weapons.Hitscan.Components;
 
 namespace Content.Server.Weapons.Hitscan;
 

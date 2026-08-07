@@ -1,17 +1,13 @@
 - type: entity
-  parent: BaseBulletHitscan
+  parent: BaseBullet
   id: BulletHeavyRifle
   categories: [ HideSpawnMenu ]
   name: bullet (.10 rifle)
   components:
-  - type: HitscanBasicDamage
+  - type: Projectile
     damage:
       types:
         Piercing: 19
-  - type: HitscanPierce
-    chance: 0
-  - type: HitscanRicochet
-    chance: 0
 
 - type: entity
   parent: BulletHeavyRifle
@@ -19,11 +15,7 @@
   categories: [ HideSpawnMenu ]
   name: minigun bullet (.10 rifle)
   components:
-  - type: HitscanBasicDamage
+  - type: Projectile
     damage:
       types:
         Piercing: 5
-  - type: HitscanPierce
-    chance: 0
-  - type: HitscanRicochet
-    chance: 0

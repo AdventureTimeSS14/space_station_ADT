@@ -6,26 +6,15 @@
 
     MagazineBoxLightRifleBig: 6
     MagazineBoxLightRiflePractice: 3
-    MagazineBoxLightRifleHP: 2
-    MagazineBoxLightRifleFMJ: 2
-    MagazineBoxLightRifleAP: 1
 
     MagazineBoxMagnum: 6
     MagazineBoxMagnumPractice: 3
-    MagazineBoxMagnumHP: 2
-    MagazineBoxMagnumFMJ: 2
 
     MagazineBoxPistol: 6
     MagazineBoxPistolPractice: 3
-    MagazineBoxPistolHP: 2
-    MagazineBoxPistolFMJ: 2
-    MagazineBoxPistolAP: 1
 
     MagazineBoxRifle: 6
     MagazineBoxRiflePractice: 3
-    MagazineBoxRifleHP: 2
-    MagazineBoxRifleFMJ: 2
-    MagazineBoxRifleAP: 1
 
     BoxLethalshot: 6
     BoxShotgunPractice: 3

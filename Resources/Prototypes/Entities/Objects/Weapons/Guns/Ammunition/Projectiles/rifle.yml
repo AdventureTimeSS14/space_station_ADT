@@ -1,84 +1,48 @@
-# Standard ammo. HP/FMJ/AP → ADT/.../Projectiles/hp.yml
-
 - type: entity
-  parent: BaseBulletHitscan
+  parent: BaseBullet
   id: BulletRifle
   categories: [ HideSpawnMenu ]
   name: bullet (.20 rifle)
   components:
-  - type: HitscanBasicDamage
-    armorPenetration: -0.13
+  - type: Projectile
     damage:
       types:
         Piercing: 17
-  - type: HitscanStaminaDamage
-    staminaDamage: 2
-  - type: HitscanPierce
-    chance: 0.4
-    pierceLevel: Wood
-  - type: HitscanRicochet
-    chance: 0.3
 
 - type: entity
-  parent: BaseBulletHitscanPractice
+  parent: BaseBulletPractice
   id: BulletRiflePractice
   categories: [ HideSpawnMenu ]
   name: bullet (.20 rifle practice)
   components:
-  - type: HitscanBasicDamage
+  - type: Projectile
     damage:
       types:
         Blunt: 2
-  - type: HitscanPierce
-    chance: 0.69
-  - type: HitscanRicochet
-    chance: 0.48
-  - type: HitscanBasicVisuals
-    bullet:
-      sprite:
-        sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-        state: practice
 
 - type: entity
-  parent: BaseBulletHitscanIncendiary
+  parent: BaseBulletIncendiary
   id: BulletRifleIncendiary
   categories: [ HideSpawnMenu ]
   name: bullet (.20 rifle incendiary)
   components:
-  - type: HitscanBasicDamage
+  - type: Projectile
     damage:
       types:
-        Blunt: 2
-        Heat: 15
-  - type: HitscanIgnite
-  - type: HitscanPierce
-    chance: 0.69
-  - type: HitscanRicochet
-    chance: 0.48
-  - type: HitscanBasicVisuals
-    bullet:
-      sprite:
-        sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-        state: incendiary
+        Piercing: 15
+        # Blunt: 15 ADT tweak
+        # Heat: 15 ADT tweak
+        Heat: 5
 
 - type: entity
-  parent: BaseBulletHitscanUranium
+  parent: BaseBulletUranium
   id: BulletRifleUranium
   categories: [ HideSpawnMenu ]
   name: bullet (.20 rifle uranium)
   components:
-  - type: HitscanBasicDamage
+  - type: Projectile
     damage:
       types:
         Radiation: 7
         Piercing: 8
-  - type: HitscanPierce
-    chance: 0.69
-    pierceLevel: HardenedMetal
-  - type: HitscanRicochet
-    chance: 0.8
-  - type: HitscanBasicVisuals
-    bullet:
-      sprite:
-        sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-        state: uranium
+

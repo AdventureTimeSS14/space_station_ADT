@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.ADT.Weapons.Hitscan.Components;
 
 /// <summary>
-/// Hitscan entities that have this will be able to pierce through things which have PierceableComponent.
+/// Entities with this can pierce through things which have PierceableComponent.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class HitscanPierceComponent : Component

@@ -25,15 +25,6 @@
   components:
   - type: CartridgeAmmo
     proto: BulletRifle
-  - type: Sprite
-    layers:
-      - state: base
-        map: [ "enum.AmmoVisualLayers.Base" ]
-      - state: tip
-        map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#3F47DB"
-
-# HP/FMJ/AP → Resources/Prototypes/ADT/.../Ammunition/Cartridges/hp.yml
 
 - type: entity
   parent: BaseCartridgeRifle

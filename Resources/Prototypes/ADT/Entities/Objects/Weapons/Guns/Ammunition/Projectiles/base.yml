@@ -1,37 +1,9 @@
-
-
 - type: entity
-  id: BaseBulletHitscan
+  id: ADTBaseBullet
+  parent: BaseBullet
   abstract: true
   categories: [ HideSpawnMenu ]
   components:
-  - type: HitscanAmmo
-  - type: HitscanBasicRaycast
-    maxDistance: 20
-    collisionMask: BulletImpassable
-  - type: HitscanBasicVisuals
-    muzzleFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: muzzle
-    travelFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: trace
-    impactFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: impact
-    bullet:
-      sprite:
-        sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-        state: bullet
-    speed: 700
-    effectLifetime: 0.15
-  - type: HitscanReflect
-    reflectiveType: NonEnergy
-    maxReflections: 5 # Starlight #275 kinetic bounce depth
-  - type: HitscanBasicEffects
-    sound:
-      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
-  - type: HitscanCreateBloodSpray # Starlight: persistent blood decal on flesh hits
   - type: HitscanPierce
     chance: 0.40
     deviation: 0.2
@@ -40,51 +12,111 @@
     chance: 0.30
 
 - type: entity
-  id: BaseBulletHitscanPractice
-  parent: BaseBulletHitscan
+  id: ADTBaseBulletSP
+  parent: ADTBaseBullet
   abstract: true
   categories: [ HideSpawnMenu ]
   components:
-  - type: HitscanBasicDamage
+  - type: Projectile
+    armorPenetration: -0.13
     damage:
       types:
-        Blunt: 1
+        Piercing: 14
+  - type: StaminaDamageOnCollide
+    damage: 2
+  - type: HitscanPierce
+    chance: 0.4
+    deviation: 0.2
+  - type: HitscanRicochet
+    chance: 0.3
 
 - type: entity
-  id: BaseBulletHitscanIncendiary
-  parent: BaseBulletHitscan
+  id: ADTBaseBulletHP
+  parent: ADTBaseBullet
   abstract: true
   categories: [ HideSpawnMenu ]
   components:
-  - type: HitscanBasicDamage
+  - type: Projectile
+    armorPenetration: -1
+    damage:
+      types:
+        Piercing: 21
+  - type: StaminaDamageOnCollide
+    damage: 5
+  - type: HitscanPierce
+    chance: 0.03
+    deviation: 0.2
+  - type: HitscanRicochet
+    chance: 0.15
+
+- type: entity
+  id: ADTBaseBulletFMJ
+  parent: ADTBaseBullet
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    armorPenetration: 0.25
+    damage:
+      types:
+        Piercing: 11
+  - type: HitscanPierce
+    chance: 0.69
+    deviation: 0.2
+    pierceLevel: Wood
+  - type: HitscanRicochet
+    chance: 0.8
+
+- type: entity
+  id: ADTBaseBulletAP
+  parent: ADTBaseBullet
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    armorPenetration: 0.69
+    damage:
+      types:
+        Piercing: 11
+  - type: HitscanPierce
+    chance: 0.81
+    deviation: 0.2
+    pierceLevel: Metal
+  - type: HitscanRicochet
+    chance: 0.48
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: piercing
+      shader: unshaded
+
+- type: entity
+  id: ADTBaseBulletIncendiary
+  parent: ADTBaseBullet
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
     armorPenetration: -0.25
     damage:
       types:
         Piercing: 10
         Heat: 4
-  - type: HitscanIgnite
+  - type: HitscanPierce
+    chance: 0.69
+    deviation: 0.2
+  - type: HitscanRicochet
+    chance: 0.48
+  - type: IgniteOnCollide
     fireStacks: 0.25
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.0
+    energy: 7.0
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: incendiary
+      shader: unshaded
 
-- type: entity
-  id: BaseBulletHitscanAP
-  parent: BaseBulletHitscan
-  abstract: true
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: HitscanBasicDamage
-    armorPenetration: 0.5
-    damage:
-      types:
-        Piercing: 11
-
-- type: entity
-  id: BaseBulletHitscanUranium
-  parent: BaseBulletHitscan
-  abstract: true
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: HitscanBasicDamage
-    armorPenetration: -0.25
-    damage:
-      types:
-        Radiation: 11

@@ -1,88 +1,47 @@
-# Standard ammo. Values from Starlight #275 merge 4e04e930
-# HP/FMJ/AP → ADT/.../Projectiles/hp.yml
-
 - type: entity
-  parent: BaseBulletHitscan
+  parent: BaseBullet
   id: BulletPistol
   categories: [ HideSpawnMenu ]
   name: bullet (.35 auto)
   components:
-  - type: HitscanBasicDamage
-    armorPenetration: -0.13
+  - type: Projectile
     damage:
       types:
-        Piercing: 16
-  - type: HitscanStaminaDamage
-    staminaDamage: 2
-  - type: HitscanPierce
-    chance: 0.4
-    deviation: 0.2
-  - type: HitscanRicochet
-    chance: 0.3
+        Piercing: 14 # ADT-Tweak 16 -> 14
 
 - type: entity
-  parent: BaseBulletHitscanPractice
+  parent: BaseBulletPractice
   id: BulletPistolPractice
   categories: [ HideSpawnMenu ]
   name: bullet (.35 auto practice)
   components:
-  - type: HitscanBasicDamage
+  - type: Projectile
     damage:
       types:
         Blunt: 2
-  - type: HitscanPierce
-    chance: 0.69
-    deviation: 0.2
-  - type: HitscanRicochet
-    chance: 0.48
-  - type: HitscanBasicVisuals
-    bullet:
-      sprite:
-        sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-        state: practice
 
 - type: entity
-  parent: BaseBulletHitscanIncendiary
+  parent: BaseBulletIncendiary
   id: BulletPistolIncendiary
   categories: [ HideSpawnMenu ]
   name: bullet (.35 auto incendiary)
   components:
-  - type: HitscanBasicDamage
+  - type: Projectile
     damage:
       types:
-        Blunt: 2
-        Heat: 14
-  - type: HitscanIgnite
-  - type: HitscanPierce
-    chance: 0.69
-    deviation: 0.2
-  - type: HitscanRicochet
-    chance: 0.48
-  - type: HitscanBasicVisuals
-    bullet:
-      sprite:
-        sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-        state: incendiary
+        Piercing: 10 #ADT tweak
+        # Blunt: 3 ADT twea
+        # Heat: 14
+        Heat: 4
 
 - type: entity
-  parent: BaseBulletHitscanUranium
+  parent: BaseBulletUranium
   id: BulletPistolUranium
   categories: [ HideSpawnMenu ]
   name: bullet (.35 auto uranium)
   components:
-  - type: HitscanBasicDamage
+  - type: Projectile
     damage:
       types:
         Radiation: 6
-        Piercing: 10
-  - type: HitscanPierce
-    chance: 0.69
-    deviation: 0.2
-    pierceLevel: HardenedMetal
-  - type: HitscanRicochet
-    chance: 0.8
-  - type: HitscanBasicVisuals
-    bullet:
-      sprite:
-        sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-        state: uranium
+        Piercing: 8 # ADT-Tweak 10 -> 8
