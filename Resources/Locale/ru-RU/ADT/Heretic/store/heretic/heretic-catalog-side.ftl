@@ -90,9 +90,7 @@ knowledge-path-side-s8-cleave-name = Кровавое рассечение
 knowledge-path-side-s8-cleave-desc =
     Мощный рассекающий удар, поражающий всех врагов вокруг вас. Наносит кровоточащие раны и оглушает поражённых.
 
-knowledge-path-void-prison-name = Тюрьма пустоты
-knowledge-path-void-prison-desc =
-    Заклинание касания, заточающее жертву в непроницаемую сферу пустоты на короткое время.
+# ADT: knowledge-path-void-prison-* live in heretic-catalog-void.ftl
 
 knowledge-path-void-conduit-name = Пустотный канал
 knowledge-path-void-conduit-desc =

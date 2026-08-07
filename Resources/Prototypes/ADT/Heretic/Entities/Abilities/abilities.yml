@@ -10,6 +10,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: MovementIgnoreGravity
+  - type: GravityAffected # ADT: added by MovementIgnoreGravitySystem on init, must be declared
   - type: Sprite
     sprite: ADT/Heretic/Effects/effects160x160.rsi
     layers:

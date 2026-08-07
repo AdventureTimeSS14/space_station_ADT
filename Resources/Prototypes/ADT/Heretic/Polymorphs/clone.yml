@@ -40,10 +40,8 @@
   - SouthernAccent
   - SpanishAccent
   - StutteringAccent
-  # Einstein Engines - Language begin
+  # ADT: LanguageKnowledge is an enum here, not a component
   - LanguageSpeaker
-  - LanguageKnowledge
-  # Einstein Engines - Language end
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit

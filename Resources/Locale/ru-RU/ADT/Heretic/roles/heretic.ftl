@@ -2,6 +2,5 @@ roles-antag-heretic-name = Еретик
 roles-antag-heretic-description = Получай древние знания, приноси людей в жертву или умри, попробовав.
 roles-antag-heretic-objective = Получайте древние знания, приносите людей в жертву или умрите, попробовав.
 
-# ADT: добавлено при актуализации еретика с Goob
+# ADT: roles-antag-ghoul-name lives in ADT/prototypes/Roles/roles.ftl
 roles-antag-ghoul-description = Помогите своему призывателю вознестись.
-roles-antag-ghoul-name = Гуль

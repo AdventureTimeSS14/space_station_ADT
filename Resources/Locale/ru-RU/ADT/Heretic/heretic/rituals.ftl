@@ -67,10 +67,3 @@ heretic-ritual-void-ascend = Вальс в конце времен
 heretic-ritual-fail-cannot-ascend-objectives = Вы должны выполнить свои цели для вознесения.
 
 heretic-ritual-fail-sacrifice-cosmos = Недостаточно трупов со звёздной меткой.
-
-# ADT: добавлено при актуализации еретика с Goob
-heretic-ritual-basic-reminiscence = Воспоминание
-heretic-ritual-basic-reminiscence-desc = Преобразите стул, чтобы мгновенно вернуть одно из ваших потерянных лезвий.
-heretic-ritual-basic-owls = Праздник сов
-heretic-ritual-basic-owls-desc =
-    Под мягким сиянием неразумия скрывается зверь, крадущийся в ночи. Я выведу его на свет и позволю ему предстать передо мной. Он будет наслаждаться моими ощущениями и оставит после себя знания.

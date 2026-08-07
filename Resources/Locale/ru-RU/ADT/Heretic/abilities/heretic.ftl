@@ -20,10 +20,7 @@ heretic-livingheart-offstation = { $state } в направлении к { $dire
 heretic-livingheart-onstation = { $state } в направелии к { $direction }у!
 heretic-livingheart-unknown = Он... не в этой реальности.
 
-ent-HereticProtectiveBlade = жуткий клинок
-    .desc = Ох еретик..
-ent-HereticProtectiveBladeProjectile = жуткий клинок
-    .desc = Эх еретик..
+# ADT: ent-HereticProtectiveBlade* live in prototypes/entities/objects/specific/heretic.ftl
 
 ## speech
 

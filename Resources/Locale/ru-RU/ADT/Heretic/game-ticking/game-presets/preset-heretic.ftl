@@ -47,5 +47,3 @@ ghostrole-flesh-mimic-name = Имитатор плоти
 heretic-ghoul-briefing-end = Подчиняйтесь воле своего призывателя, не смотря ни на что.
 heretic-ghoul-briefing-start = Вы были призваны в этот мир { CAPITALIZE($ent) }!
 heretic-ghoul-briefing-start-noname = Вы были призваны в этот мир сверхъестественной силой.
-ghostrole-fire-shark-name = Палящая акула
-ghostrole-fire-shark-desc = Помогите вашему призывателю достичь вознесения. Сжигайте своих жертв.
