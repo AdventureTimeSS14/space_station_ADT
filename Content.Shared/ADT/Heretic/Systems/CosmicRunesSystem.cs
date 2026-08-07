@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Wizard.FadingTimedDespawn;
 using System.Linq;
 using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Grab;

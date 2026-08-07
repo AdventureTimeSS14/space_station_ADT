@@ -7,6 +7,10 @@
   - type: Unremoveable
   - type: Item
   - type: MansusGrasp
+    blacklist:
+      components:
+      - Puddle # ADT: ruins rust tile rusting
+      - HereticRitualRune # ADT: handled by HereticRitualSystem, grasp must not be consumed
   - type: Sprite
     sprite: ADT/Heretic/mansus_grasp.rsi
     state: icon

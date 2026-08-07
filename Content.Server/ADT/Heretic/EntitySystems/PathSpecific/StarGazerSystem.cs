@@ -1,5 +1,6 @@
 //
 
+using Content.Shared.ADT.Wizard.FadingTimedDespawn;
 using Content.Shared.Body;
 using System.Linq;
 using System.Numerics;

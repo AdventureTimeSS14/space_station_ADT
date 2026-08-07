@@ -17,6 +17,10 @@ using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
+using Content.Shared.Damage.Components;
+using Content.Shared.Doors.Components;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
@@ -145,6 +149,30 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         }
     }
 
+    /// <summary>
+    ///     ADT: the grasp used to fire at any entity and get wasted on random junk.
+    ///     Valid targets are mobs, the transmutation rune, and whatever the current
+    ///     path actually does something with (Blade blades, Lock doors, Rust structures/AI).
+    /// </summary>
+    private bool IsValidGraspTarget(EntityUid target, HereticComponent heretic)
+    {
+        if (HasComp<MobStateComponent>(target) || HasComp<HereticRitualRuneComponent>(target))
+            return true;
+
+        return heretic.CurrentPath switch
+        {
+            // only its own blades, for the Mansus infusion
+            "Blade" => _tag.HasTag(target, "HereticBladeBlade"),
+            // knocks doors open
+            "Lock" => HasComp<DoorComponent>(target),
+            // rusts structures and kills station AI
+            "Rust" => HasComp<StationAiHolderComponent>(target)
+                      || _tag.HasAnyTag(target, "Wall", "Catwalk")
+                      || HasComp<DamageableComponent>(target),
+            _ => false,
+        };
+    }
+
     private bool GraspTarget(Entity<MansusGraspComponent> grasp, EntityUid user, EntityUid target)
     {
         if (!_heretic.TryGetHereticComponent(user, out var hereticComp, out _))
@@ -154,6 +182,17 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         }
 
         if (_whitelist.IsWhitelistPass(grasp.Comp.Blacklist, target)) // ADT: no IsBlacklistPass, same semantics as IsWhitelistPass
+            return false;
+
+        // ADT: reject nonsense targets instead of burning the grasp on them
+        if (!IsValidGraspTarget(target, hereticComp))
+        {
+            _popup.PopupEntity(Loc.GetString("heretic-grasp-fail-invalid-target"), user, user);
+            return false;
+        }
+
+        // ADT: the rune handles itself in HereticRitualSystem, grasp must survive and keep no cooldown
+        if (HasComp<HereticRitualRuneComponent>(target))
             return false;
 
         var beforeEvent = new BeforeHarmfulActionEvent(user, HarmfulActionType.MansusGrasp);

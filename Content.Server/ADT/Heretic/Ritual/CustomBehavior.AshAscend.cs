@@ -18,6 +18,9 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
         if (!base.Execute(args, out outstr))
             return false;
 
+        // ADT: must be reset, otherwise stale uids from a failed attempt let the next one pass
+        burningUids = new();
+
         foreach (var uid in uids)
         {
             if (!args.EntityManager.TryGetComponent<FlammableComponent>(uid, out var flam))

@@ -1,4 +1,4 @@
-using Content.Shared.ADT.Heretic.Common;
+using Content.Shared.ADT.Wizard.FadingTimedDespawn;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 

@@ -1,5 +1,6 @@
 //
 
+using Content.Shared.ADT.Wizard.TimeStop;
 using System.Linq;
 using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Heretic.Components;

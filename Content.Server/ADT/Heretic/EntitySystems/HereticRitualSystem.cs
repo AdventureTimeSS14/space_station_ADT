@@ -99,6 +99,11 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         foreach (var look in lookup)
         {
+            // ADT: the rune ignores the heretic standing on it, so their own gear
+            // is never consumed and they never block their own ritual
+            if (look == performer)
+                continue;
+
             // check for matching tags
             foreach (var tag in requiredTags)
             {
@@ -248,6 +253,9 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         if (!HasComp<MansusGraspComponent>(args.Used))
             return;
+
+        // ADT: the rune consumes the interaction so the grasp is not spent and gets no cooldown
+        args.Handled = true;
 
         if (heretic.ChosenRitual == null)
         {

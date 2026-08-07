@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Wizard.FadingTimedDespawn;
 using Content.Shared.ADT.Heretic;
 using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Heretic.Components;

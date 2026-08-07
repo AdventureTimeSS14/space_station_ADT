@@ -100,6 +100,10 @@ namespace Content.Server.Heretic.Ritual;
         // get all the dead ones
         foreach (var look in lookup)
         {
+            // ADT: never count the performer, they may be standing on the rune
+            if (look == args.Performer)
+                continue;
+
             if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) // only mobs
             || OnlyHumanoid && !args.EntityManager.HasComponent<HumanoidProfileComponent>(look) // only humans
             || args.EntityManager.HasComponent<BorgChassisComponent>(look) // no borgs

@@ -94,3 +94,5 @@ heretic-speech-stargaze = SH''P D' W''P
 heretic-speech-ice-spear = D'WN 'F TH'CE!
 heretic-speech-shapeshft = SH'PE
 heretic-blade-break-fail-acended-message = Вы не можете сломать клинок после вознесения!
+
+heretic-grasp-fail-invalid-target = Хватке здесь не за что ухватиться.

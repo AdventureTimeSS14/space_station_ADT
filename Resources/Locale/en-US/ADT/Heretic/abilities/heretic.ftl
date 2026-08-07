@@ -100,3 +100,5 @@ heretic-speech-realignment = R'S'T!
 heretic-speech-fuckoff = F'K 'FF!!
 heretic-speech-ice-spear = D'WN 'F TH'CE!
 heretic-speech-shapeshft = SH'PE
+
+heretic-grasp-fail-invalid-target = The grasp finds nothing worth touching here.
