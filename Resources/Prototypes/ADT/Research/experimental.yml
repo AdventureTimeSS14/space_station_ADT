@@ -76,7 +76,9 @@
   cost: 5000
   recipeUnlocks:
   - XenobiologyBountyComputerCircuitboard
+  - ADTXenobiologyControlComputerCircuitboard
   - SlimeGrinderMachineCircuitboard
+  - ADTXenobiologyMonkeyRecyclerMachineCircuitboard
   - SlimeScannerXenobio
   - ClothingBackpackXenoBioTank
   - ClothingBeltChemBagXenobiologyHolding

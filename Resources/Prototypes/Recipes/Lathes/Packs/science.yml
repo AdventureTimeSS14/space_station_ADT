@@ -105,6 +105,9 @@
   - ArtifactAnalyzerMachineCircuitboard
   - ArtifactCrusherMachineCircuitboard
   - XenobiologyBountyComputerCircuitboard # ADT-Tweak
+  - ADTXenobiologyControlComputerCircuitboard # ADT-Tweak
+  - SlimeGrinderMachineCircuitboard # ADT-Tweak
+  - ADTXenobiologyMonkeyRecyclerMachineCircuitboard # ADT-Tweak
 
 - type: latheRecipePack
   id: CameraBoards

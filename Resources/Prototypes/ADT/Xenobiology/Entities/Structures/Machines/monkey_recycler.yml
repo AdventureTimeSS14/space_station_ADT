@@ -1,10 +1,15 @@
 - type: entity
   id: ADTXenobiologyMonkeyRecycler
-  parent: BaseMachinePowered
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: monkey recycler
   description: A grinder that reduces dead monkeys into reusable cube stock. Link it to a xenobiology control console with a multitool.
   components:
   - type: XenobiologyMonkeyRecycler
+  - type: Machine
+    board: ADTXenobiologyMonkeyRecyclerMachineCircuitboard
+  - type: GuideHelp
+    guides:
+    - Xenobiology
   - type: DeviceNetwork
     deviceNetId: Wired
     receiveFrequencyId: BasicDevice
