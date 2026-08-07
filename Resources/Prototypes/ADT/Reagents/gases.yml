@@ -111,6 +111,11 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Resomi ]
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Arachnid ]
       - !type:ModifyLungGas
         conditions:
         - !type:MetabolizerTypeCondition
