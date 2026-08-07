@@ -2,12 +2,15 @@ using Robust.Server.GameObjects;
 using Content.Shared.ADT.Xenobiology;
 using Content.Shared.ADT.Xenobiology.Components;
 using Content.Shared.ADT.Xenobiology.Components.Equipment;
+using Content.Shared.ADT.Xenobiology.Systems;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
+using Content.Shared.ADT.CCVar;
 using System.Linq;
 
 namespace Content.Server.ADT.Xenobiology;
@@ -18,6 +21,8 @@ public sealed partial class SlimeScannerSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private readonly XenobiologySystem _xenobio = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     public override void Initialize()
     {
@@ -52,7 +57,7 @@ public sealed partial class SlimeScannerSystem : EntitySystem
             return;
 
         _audioSystem.PlayPvs(ent.Comp.ScanningEndSound, ent.Owner);
-        
+
         OpenScannerUI(args.User, ent.Owner, args.Target.Value);
         args.Handled = true;
     }
@@ -77,7 +82,7 @@ public sealed partial class SlimeScannerSystem : EntitySystem
             return;
 
         _uiSystem.OpenUi(scanner, SlimeScannerUiKey.Key, user);
-        
+
         var msg = BuildScannedMessage(target);
         if (msg != null)
             _uiSystem.ServerSendUiMessage(scanner, SlimeScannerUiKey.Key, msg);
@@ -88,12 +93,17 @@ public sealed partial class SlimeScannerSystem : EntitySystem
         if (TryComp<SlimeComponent>(target, out var slime))
         {
             var breed = _prot.Index<BreedPrototype>(slime.Breed);
-            
+
             var breedName = Loc.GetString(breed.BreedName);
-            
+
             var mutations = slime.PotentialMutations
                 .Select(id => Loc.GetString(_prot.Index<BreedPrototype>(id).BreedName))
                 .ToList();
+
+            var slimeEnt = new Entity<SlimeComponent>(target, slime);
+            var density = _xenobio.GetLocalSlimeDensity(slimeEnt);
+            var slowdown = _xenobio.GetBreedingSlowdown(slimeEnt);
+            var maxSlimes = _cfg.GetCVar(SimpleStationCCVars.XenobiologyMaxSlimesPerGrid);
 
             return new SlimeScannerScannedMessage(
                 GetNetEntity(target),
@@ -102,7 +112,10 @@ public sealed partial class SlimeScannerSystem : EntitySystem
                 slime.MutationChance,
                 mutations,
                 slime.ExtractsProduced,
-                null);
+                null,
+                density,
+                maxSlimes,
+                slowdown);
         }
 
         if (TryComp<SlimeExtractComponent>(target, out var _) &&

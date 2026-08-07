@@ -18,10 +18,6 @@
           True: { visible: true }
           False: { visible: false }
   - type: Appearance
-  - type: GpsSignal
-    tag: adt-gps-signal-casino
-    description: adt-gps-signal-casino-desc
-    color: "#FFE2C4"
   - type: SlotMachine
     spinCost: 0
     smallWinChance: 0

@@ -60,7 +60,7 @@
     storedRotation: -90
   - type: PointLight
     enabled: false
-    mask: /Textures/ADT/Effects/LightMasks/cone_composed_b.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/cone_composed_b.png # ADT tweak
     autoRot: true
     radius: 10 # ADT tweak
     netsync: false

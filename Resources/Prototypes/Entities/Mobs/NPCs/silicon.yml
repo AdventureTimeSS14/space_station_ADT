@@ -447,7 +447,7 @@
     enabled: false
     radius: 8 # ADT tweak 3.5 > 8
     softness: 2
-    mask: /Textures/ADT/Effects/LightMasks/cone_composed_b.png # ADT tweak
+    mask: /Textures/ADT/Effects/Lightmasks/cone_composed_b.png # ADT tweak
     autoRot: true
   - type: FootstepModifier
     footstepSoundCollection:
