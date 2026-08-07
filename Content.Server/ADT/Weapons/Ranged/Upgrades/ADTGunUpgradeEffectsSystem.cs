@@ -94,10 +94,16 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
 
     private void OnVampirismShot(Entity<ADTGunUpgradeVampirismComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
-        foreach (var bolt in GetBolts(args))
+        var bolts = GetBolts(args).ToList();
+        foreach (var bolt in bolts)
         {
             var comp = EnsureComp<ADTProjectileVampirismComponent>(bolt);
             comp.DamageOnHit += ent.Comp.DamageOnHit;
+        }
+
+        if (bolts.Count > 0)
+        {
+            EnsureComp<ADTProjectileSpreadLeadComponent>(bolts[0]);
         }
     }
 
@@ -155,6 +161,11 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
     private void OnVampirismHit(Entity<ADTProjectileVampirismComponent> ent, ref ProjectileHitEvent args)
     {
         if (args.Shooter is not { } shooter || !IsAliveMob(args.Target))
+            return;
+
+        // Only the first projectile in a spread volley heals the shooter
+        // This prevents shotgun pellets from over-healing
+        if (!HasComp<ADTProjectileSpreadLeadComponent>(ent))
             return;
 
         _damageable.TryChangeDamage(shooter, ent.Comp.DamageOnHit);
