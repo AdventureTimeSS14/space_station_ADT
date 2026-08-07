@@ -56,7 +56,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
-    armorPenetration: 0.25
+    armorPenetration: 0.2
     damage:
       types:
         Piercing: 11
@@ -74,7 +74,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
-    armorPenetration: 0.69
+    armorPenetration: 0.45
     damage:
       types:
         Piercing: 11
