@@ -329,6 +329,9 @@ public sealed class BubblegumChargeSystem : EntitySystem
         if (HasComp<ItemComponent>(uid))
             return false;
 
+        if (HasComp<MobStateComponent>(uid))
+            return false;
+
         if (!HasComp<DamageableComponent>(uid))
             return false;
 
