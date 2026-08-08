@@ -39,9 +39,9 @@
     - map: [ "shoes" ]
     - map: [ "ears" ]
     - map: [ "eyes" ]
-    - map: [ "belt" ]
     - map: [ "id" ]
-    - map: [ "outerClothing" ]
+    - map: [ "outerClothing" ] # ADT: Moved UNDER belt layer, because webbings renders UNDER Armor vests (this is NOT logic).
+    - map: [ "belt" ]
     - map: [ "back" ]
     - map: [ "neck" ]
     - map: [ "suitstorage" ]
