@@ -131,6 +131,12 @@
           description: thunderdome-desc-enforcer
           category: thunderdome-category-shotguns
           sprite: WeaponShotgunEnforcer
+      equipmentLoadouts:
+        - gear: ThunderdomeArmyRPS
+          name: thunderdome-loadout-armyrps
+          description: thunderdome-desc-armyrps
+          category: thunderdome-category-equipment
+          sprite: ADTClothingRPSUSSP
     - type: LoadMapRule
       mapPath: /Maps/Nonstations/dm01-entryway.yml
     - type: RuleGrids

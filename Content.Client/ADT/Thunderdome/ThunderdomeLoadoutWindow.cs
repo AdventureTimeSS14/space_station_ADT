@@ -6,11 +6,14 @@ namespace Content.Client.ADT.Thunderdome;
 
 public sealed partial class ThunderdomeLoadoutWindow : ThunderdomeWindow
 {
-    public event Action<int>? OnLoadoutConfirmed;
+    public event Action<int, int>? OnLoadoutConfirmed;
     public event Action? OnLeaderboardRequested;
 
     private int _weaponSelection = -1;
     private ThunderdomeWeaponCard? _selectedCard;
+
+    private int _equipmentSelection = -1;
+    private ThunderdomeWeaponCard? _selectedEquipmentCard;
 
     private readonly Label _playerCountLabel;
     private readonly BoxContainer _categoriesContainer;
@@ -64,7 +67,7 @@ public sealed partial class ThunderdomeLoadoutWindow : ThunderdomeWindow
         _confirmButton.OnPressed += () =>
         {
             if (_weaponSelection >= 0)
-                OnLoadoutConfirmed?.Invoke(_weaponSelection);
+                OnLoadoutConfirmed?.Invoke(_weaponSelection, _equipmentSelection);
         };
         Contents.AddChild(_confirmButton);
 
@@ -84,12 +87,40 @@ public sealed partial class ThunderdomeLoadoutWindow : ThunderdomeWindow
         _categoriesContainer.RemoveAllChildren();
         _selectedCard = null;
         _weaponSelection = -1;
+        _selectedEquipmentCard = null;
+        _equipmentSelection = -1;
         _confirmButton.Disabled = true;
 
+        AddLoadoutGroup(state.Weapons, OnCardSelected);
+
+        if (state.Equipment.Count > 0)
+        {
+            var equipmentHeader = new Label
+            {
+                Text = Loc.GetString("thunderdome-loadout-equipment-header"),
+                StyleClasses = { "LabelHeading" },
+                Margin = new Thickness(4, 10, 0, 2),
+            };
+            _categoriesContainer.AddChild(equipmentHeader);
+
+            var equipmentSubtitle = new Label
+            {
+                Text = Loc.GetString("thunderdome-loadout-equipment-subtitle"),
+                StyleClasses = { "LabelSubText" },
+                Margin = new Thickness(4, 0, 0, 4),
+            };
+            _categoriesContainer.AddChild(equipmentSubtitle);
+
+            AddLoadoutGroup(state.Equipment, OnEquipmentCardSelected);
+        }
+    }
+
+    private void AddLoadoutGroup(List<ThunderdomeLoadoutOption> options, Action<ThunderdomeWeaponCard> onSelected)
+    {
         var categories = new List<(string Category, List<ThunderdomeLoadoutOption> Options)>();
         var categoryMap = new Dictionary<string, List<ThunderdomeLoadoutOption>>();
 
-        foreach (var option in state.Weapons)
+        foreach (var option in options)
         {
             if (!categoryMap.TryGetValue(option.Category, out var list))
             {
@@ -100,7 +131,7 @@ public sealed partial class ThunderdomeLoadoutWindow : ThunderdomeWindow
             list.Add(option);
         }
 
-        foreach (var (category, options) in categories)
+        foreach (var (category, categoryOptions) in categories)
         {
             var header = new Label
             {
@@ -110,10 +141,10 @@ public sealed partial class ThunderdomeLoadoutWindow : ThunderdomeWindow
             };
             _categoriesContainer.AddChild(header);
 
-            foreach (var option in options)
+            foreach (var option in categoryOptions)
             {
                 var card = new ThunderdomeWeaponCard(option.Index, option.Name, option.SpritePrototype, option.Description);
-                card.OnSelected += OnCardSelected;
+                card.OnSelected += onSelected;
                 _categoriesContainer.AddChild(card);
             }
         }
@@ -128,5 +159,14 @@ public sealed partial class ThunderdomeLoadoutWindow : ThunderdomeWindow
         card.SetSelected(true);
 
         _confirmButton.Disabled = false;
+    }
+
+    private void OnEquipmentCardSelected(ThunderdomeWeaponCard card)
+    {
+        _selectedEquipmentCard?.SetSelected(false);
+
+        _selectedEquipmentCard = card;
+        _equipmentSelection = card.WeaponIndex;
+        card.SetSelected(true);
     }
 }
