@@ -109,9 +109,7 @@
   - type: PointLight
     enabled: true
     color: "#ffffff"
-    energy: 1.6
-    radius: 3
-    castShadows: false
+    energy: 0.6
   - type: Speech
     speechSounds: Lizard
   - type: Vocal
