@@ -202,7 +202,8 @@ namespace Content.Server.Preferences.Managers
                 new BarkData(profile.BarkProto, profile.BarkPitch, profile.LowBarkVar, profile.HighBarkVar),
                 languages,
                 profile.OOCNotes,
-                profile.HeadshotUrl
+                profile.HeadshotUrl,
+                profile.ExploitableInfo
             );
         }
 

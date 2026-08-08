@@ -241,6 +241,7 @@ namespace Content.Server.Database
             profile.HighBarkVar = humanoid.Bark.MaxVar;
             profile.HeadshotUrl = humanoid.HeadshotUrl;
             profile.OOCNotes = humanoid.OOCNotes;
+            profile.ExploitableInfo = humanoid.ExploitableInfo;
             profile.Languages.Clear();
             foreach (var langId in humanoid.Languages)
             {
