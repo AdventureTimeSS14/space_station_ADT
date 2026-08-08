@@ -147,4 +147,7 @@ public sealed partial class SlimeComponent : Component
     /// </summary>
     [DataField]
     public SoundPathSpecifier EatSound = new("/Audio/Voice/Talk/slime.ogg");
+
+    [DataField, AutoNetworkedField]
+    public float FriendSightRange = 10f;
 }
