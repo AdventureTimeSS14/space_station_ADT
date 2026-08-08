@@ -193,6 +193,9 @@
         - !type:MetabolizerTypeCondition
           type: [ Arachnid ]
           inverted: true
+        - !type:MetabolizerTypeCondition
+          type: [ Drask ]
+          inverted: true
         amount: 1.5 #ADT-Tweak 0.4 > 1.5
     # ADT Start
     Digestion:

@@ -921,3 +921,6 @@
 
 - type: Tag
   id: ADTAshFloraShavings
+
+- type: Tag
+  id: ConstantTemperatureThresholds # make entity ignore parent temperature thresholds from TemperatureContainerComponent

@@ -108,3 +108,6 @@
   - type: Thieving
     stealthy: false
     hideStealthyAlert: true
+  - type: NightVision
+    innate: true
+    effectPrototype: ADTEffectNightVisionMedium
