@@ -11,6 +11,9 @@ namespace Content.Shared.ADT.Addiction;
 /// Компонент зависимости от реагентов (алкоголь, никотин, наркотики, лекарства).
 /// Появляется при первом употреблении, через трайт (стартовая зависимость) или при передозе лекарств.
 /// </summary>
+// Каналы меняют серверные системы (AddictionSystem, AdjustAddictionLevelEffectSystem)
+// и Shared-эффекты трайтов (AddictionTraitEffect, RandomAddictionEffect), поэтому
+// [Access(typeof(...))] осознанно не ставится: эффекты не являются системами.
 [RegisterComponent]
 public sealed partial class AddictionComponent : Component
 {

@@ -3,7 +3,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server.Popups;
 using Content.Shared.ADT.Addiction;
 using Content.Shared.ADT.Addiction.Effects;
 using Content.Shared.EntityEffects;
@@ -19,7 +18,7 @@ namespace Content.Server.ADT.Addiction;
 public sealed partial class AdjustAddictionLevelEffectSystem : EntityEffectSystem<AddictionComponent, AdjustAddictionLevel>
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly AddictionSystem _addiction = default!;
 
     protected override void Effect(Entity<AddictionComponent> entity, ref EntityEffectEvent<AdjustAddictionLevel> args)
     {
@@ -38,25 +37,7 @@ public sealed partial class AdjustAddictionLevelEffectSystem : EntityEffectSyste
                 entity.Comp.Channels.Add(channel);
             }
 
-            channel.Level = MathF.Min(100f, channel.Level + amount);
-            channel.LastDoseTime = _timing.CurTime;
-            channel.NextPopupTime = TimeSpan.Zero;
-
-            // Доза снимает ломку (как у остальных каналов в AddictionSystem)
-            if (channel.InWithdrawal)
-            {
-                channel.InWithdrawal = false;
-                channel.Stage = 0;
-                var symptomsEv = new AddictionSymptomsChangedEvent(entity.Owner);
-                RaiseLocalEvent(entity.Owner, ref symptomsEv);
-                _popup.PopupEntity(Loc.GetString($"addiction-dose-{KindLoc(kind)}"), entity.Owner, entity.Owner);
-            }
-            // Первое превышение порога - подсадка
-            else if (!channel.WasAddicted && channel.Level >= entity.Comp.Threshold)
-            {
-                channel.WasAddicted = true;
-                _popup.PopupEntity(Loc.GetString($"addiction-begin-{KindLoc(kind)}"), entity.Owner, entity.Owner);
-            }
+            _addiction.ApplyDose(entity.Owner, entity.Comp, channel, amount);
             return;
         }
 
@@ -72,13 +53,4 @@ public sealed partial class AdjustAddictionLevelEffectSystem : EntityEffectSyste
             channel.Level = MathF.Max(0f, channel.Level + amount);
         }
     }
-
-    private static string KindLoc(AddictionKind kind) => kind switch
-    {
-        AddictionKind.Alcohol => "alcohol",
-        AddictionKind.Nicotine => "nicotine",
-        AddictionKind.Drug => "drug",
-        AddictionKind.Medicine => "medicine",
-        _ => "alcohol",
-    };
 }

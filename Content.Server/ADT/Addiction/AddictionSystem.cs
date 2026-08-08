@@ -37,7 +37,6 @@ public sealed partial class AddictionSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<AddictionComponent, GetReagentEffectsEvent>(OnGetReagentEffects);
-        SubscribeLocalEvent<AddictionComponent, ComponentInit>(OnComponentInit);
         // After TraitSystem: EnsureComp не должен перебить каналы, добавленные трайтом
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete, after: [typeof(TraitSystem)]);
     }
@@ -53,95 +52,98 @@ public sealed partial class AddictionSystem : EntitySystem
         }
     }
 
-    private void OnComponentInit(EntityUid uid, AddictionComponent comp, ComponentInit args)
-    {
-        // Каналы из трайта приходят с LastDoseTime = 0, иначе ломка началась бы мгновенно.
-        // Уровень выше порога означает, что зависимость уже есть: без WasAddicted
-        // лечение не показало бы поп-ап выздоровления, а доза до лечения - поп-ап подсадки.
-        foreach (var channel in comp.Channels)
-        {
-            if (channel.LastDoseTime == TimeSpan.Zero)
-                channel.LastDoseTime = _timing.CurTime;
-
-            if (channel.Level >= comp.Threshold)
-                channel.WasAddicted = true;
-        }
-    }
-
     private void UpdateAddiction(EntityUid uid, AddictionComponent comp, float frameTime)
     {
         var dead = _mobState.IsDead(uid);
 
         foreach (var channel in comp.Channels)
+            UpdateChannel(uid, comp, channel, frameTime, dead);
+    }
+
+    /// <summary>
+    /// Обновляет один канал: инициализация рантайм-каналов, спад привыкания, ломка.
+    /// </summary>
+    private void UpdateChannel(EntityUid uid, AddictionComponent comp, AddictionChannel channel, float frameTime, bool dead)
+    {
+        InitRuntimeChannel(comp, channel);
+
+        // Привыкание медленно спадает само. Трайтовые зависимости неизлечимы - не спадают.
+        if (!channel.Permanent)
+            channel.Level = MathF.Max(0f, channel.Level - comp.DecayRate * frameTime);
+
+        var timeSinceDose = _timing.CurTime - channel.LastDoseTime;
+
+        // Доза была недавно - ломки нет
+        if (timeSinceDose < comp.WithdrawalDelay)
         {
-            // Каналы, добавленные в рантайме (трайт-эффект после ComponentInit),
-            // не прошли инициализацию: без времени дозы ломка началась бы мгновенно.
-            if (channel.LastDoseTime == TimeSpan.Zero)
-            {
-                channel.LastDoseTime = _timing.CurTime;
-                if (channel.Level >= comp.Threshold)
-                    channel.WasAddicted = true;
-            }
+            if (channel.InWithdrawal)
+                StopWithdrawal(uid, channel);
 
-            // Привыкание медленно спадает само. Трайтовые зависимости неизлечимы - не спадают.
-            if (!channel.Permanent)
-                channel.Level = MathF.Max(0f, channel.Level - comp.DecayRate * frameTime);
-
-            var timeSinceDose = _timing.CurTime - channel.LastDoseTime;
-
-            // Доза была недавно - ломки нет
-            if (timeSinceDose < comp.WithdrawalDelay)
-            {
-                if (channel.InWithdrawal)
-                {
-                    channel.InWithdrawal = false;
-                    channel.Stage = 0;
-                    RaiseSymptomsChanged(uid);
-                }
-                continue;
-            }
-
-            // Уровень упал ниже порога - зависимость отпустила
-            if (channel.Level < comp.Threshold)
-            {
-                if (channel.WasAddicted)
-                {
-                    channel.WasAddicted = false;
-                    if (!dead)
-                        _popup.PopupEntity(Loc.GetString($"addiction-cured-{KindLoc(channel.Kind)}"), uid, uid);
-                }
-
-                if (channel.InWithdrawal)
-                {
-                    channel.InWithdrawal = false;
-                    channel.Stage = 0;
-                    RaiseSymptomsChanged(uid);
-                }
-                continue;
-            }
-
-            if (dead)
-                continue;
-
-            // Ломка: тяжесть сразу равна стадии зависимости (1 - лёгкая, 2 - средняя, 3 - тяжёлая).
-            // Стадия может смягчиться во время ломки (лечение детоксином, долгое воздержание) -
-            // тогда симптомы пересчитываются.
-            var stage = AddictionStage.FromLevel(channel.Level);
-
-            if (!channel.InWithdrawal || channel.Stage != stage)
-            {
-                channel.InWithdrawal = true;
-                channel.Stage = stage;
-                RaiseSymptomsChanged(uid);
-            }
-
-            if (_timing.CurTime >= channel.NextPopupTime)
-            {
-                channel.NextPopupTime = _timing.CurTime + comp.PopupInterval;
-                // Ключи поп-апов индексируются 0/1/2 (лёгкая/средняя/тяжёлая)
-                _popup.PopupEntity(Loc.GetString($"addiction-withdrawal-{KindLoc(channel.Kind)}-{stage - 1}"), uid, uid);
-            }
+            return;
         }
+
+        // Уровень упал ниже порога - зависимость отпустила
+        if (channel.Level < comp.Threshold)
+        {
+            if (channel.WasAddicted)
+            {
+                channel.WasAddicted = false;
+                if (!dead)
+                    _popup.PopupEntity(Loc.GetString($"addiction-cured-{KindLoc(channel.Kind)}"), uid, uid);
+            }
+
+            if (channel.InWithdrawal)
+                StopWithdrawal(uid, channel);
+
+            return;
+        }
+
+        if (dead)
+            return;
+
+        // Ломка: тяжесть сразу равна стадии зависимости (1 - лёгкая, 2 - средняя, 3 - тяжёлая).
+        // Стадия может смягчиться во время ломки (лечение детоксином, долгое воздержание) -
+        // тогда симптомы пересчитываются.
+        var stage = AddictionStage.FromLevel(channel.Level);
+
+        if (!channel.InWithdrawal || channel.Stage != stage)
+        {
+            channel.InWithdrawal = true;
+            channel.Stage = stage;
+            RaiseSymptomsChanged(uid);
+        }
+
+        if (_timing.CurTime >= channel.NextPopupTime)
+        {
+            channel.NextPopupTime = _timing.CurTime + comp.PopupInterval;
+            // Ключи поп-апов индексируются 0/1/2 (лёгкая/средняя/тяжёлая)
+            _popup.PopupEntity(Loc.GetString($"addiction-withdrawal-{KindLoc(channel.Kind)}-{stage - 1}"), uid, uid);
+        }
+    }
+
+    /// <summary>
+    /// Инициализирует каналы, добавленные в рантайме (трайт-эффект после ComponentInit):
+    /// без времени последней дозы ломка началась бы мгновенно, а WasAddicted
+    /// нужен для корректных поп-апов подсадки и выздоровления.
+    /// </summary>
+    private void InitRuntimeChannel(AddictionComponent comp, AddictionChannel channel)
+    {
+        if (channel.LastDoseTime != TimeSpan.Zero)
+            return;
+
+        channel.LastDoseTime = _timing.CurTime;
+        if (channel.Level >= comp.Threshold)
+            channel.WasAddicted = true;
+    }
+
+    /// <summary>
+    /// Снимает ломку: сбрасывает флаги и пересчитывает симптомы.
+    /// </summary>
+    private void StopWithdrawal(EntityUid uid, AddictionChannel channel)
+    {
+        channel.InWithdrawal = false;
+        channel.Stage = 0;
+        RaiseSymptomsChanged(uid);
     }
 
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
@@ -188,23 +190,30 @@ public sealed partial class AddictionSystem : EntitySystem
             comp.Channels.Add(channel);
         }
 
-        channel.Level = MathF.Min(100f, channel.Level + comp.GainPerTick);
+        ApplyDose(uid, comp, channel, comp.GainPerTick);
+    }
+
+    /// <summary>
+    /// Учитывает дозу канала: растёт уровень, снимается ломка, фиксируется подсадка.
+    /// Общий для обычного употребления (метаболизм) и передоза лекарств.
+    /// </summary>
+    public void ApplyDose(EntityUid uid, AddictionComponent comp, AddictionChannel channel, float amount)
+    {
+        channel.Level = MathF.Min(100f, channel.Level + amount);
         channel.LastDoseTime = _timing.CurTime;
         channel.NextPopupTime = TimeSpan.Zero;
 
         // Доза снимает ломку (поп-ап только если ломка реально была)
         if (channel.InWithdrawal)
         {
-            channel.InWithdrawal = false;
-            channel.Stage = 0;
-            RaiseSymptomsChanged(uid);
-            _popup.PopupEntity(Loc.GetString($"addiction-dose-{KindLoc(kindValue)}"), uid, uid);
+            StopWithdrawal(uid, channel);
+            _popup.PopupEntity(Loc.GetString($"addiction-dose-{KindLoc(channel.Kind)}"), uid, uid);
         }
         // Первое превышение порога - подсадка
         else if (!channel.WasAddicted && channel.Level >= comp.Threshold)
         {
             channel.WasAddicted = true;
-            _popup.PopupEntity(Loc.GetString($"addiction-begin-{KindLoc(kindValue)}"), uid, uid);
+            _popup.PopupEntity(Loc.GetString($"addiction-begin-{KindLoc(channel.Kind)}"), uid, uid);
         }
     }
 
