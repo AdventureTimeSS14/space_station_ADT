@@ -10,50 +10,24 @@
         tableId: CargoGiftsTable
 
 - type: entity
-  abstract: true
-  parent: BaseGameRule
-  id: BaseHereticRule
-  components:
-  - type: HereticRule
-  - type: AntagSelection
-  - type: AntagRandomObjectives
-    sets:
-    - groups: HereticObjectiveGroup
-    maxDifficulty: 7
-
-- type: entity
-  parent: BaseHereticRule
-  id: Heretic
-  components:
-  - type: HereticRule
-  - type: GameRule
-    minPlayers: 25
-  - type: AntagSelection
-    agentName: heretic-roundend-name
-    definitions:
-    - prefRoles: [ Heretic ]
-      max: 4
-      playerRatio: 15
-      lateJoinAdditional: true
-      mindComponents:
-      - type: HereticRole
-
-- type: entity
   parent: BaseHereticRule
   id: HereticSoloGameRule
   components:
-  - type: HereticRule
   - type: GameRule
     minPlayers: 25
   - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
       max: 1
       playerRatio: 15
       lateJoinAdditional: true
-      mindComponents:
-      - type: HereticRole
+      blacklist:
+        components:
+        - CommandStaff
+      mindRoles:
+      - MindRoleHeretic
 
 - type: entityTable
   id: ExtendedGameRulesTable
@@ -184,35 +158,41 @@
   parent: BaseHereticRule
   id: HereticDuoGameRule
   components:
-  - type: HereticRule
   - type: GameRule
     minPlayers: 20
   - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
       max: 2
       playerRatio: 15
       lateJoinAdditional: true
-      mindComponents:
-      - type: HereticRole
+      blacklist:
+        components:
+        - CommandStaff
+      mindRoles:
+      - MindRoleHeretic
 
 - type: entity
   parent: BaseHereticRule
   id: HereticTripleGameRule
   components:
-  - type: HereticRule
   - type: GameRule
     minPlayers: 25
   - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
       max: 3
       playerRatio: 15
       lateJoinAdditional: true
-      mindComponents:
-      - type: HereticRole
+      blacklist:
+        components:
+        - CommandStaff
+      mindRoles:
+      - MindRoleHeretic
 
 - type: entity
   parent: BaseGameRule

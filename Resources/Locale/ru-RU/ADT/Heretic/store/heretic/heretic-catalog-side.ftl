@@ -67,3 +67,31 @@ knowledge-path-side-s9-ashman-desc =
     Пепельники могут проходить сквозь стены, наносить кровоточащие раны и извергать большие волны огня.
 knowledge-path-side-s9-cleave-name = Рассечение
 knowledge-path-side-s9-cleave-desc = Дарует "Рассечение", дальнобойное заклинание, которое наносит урон огнём и сильные кровоточащие раны цели и окружающим ее людям.
+
+# ADT: добавлено при актуализации еретика с Goob
+knowledge-path-side-s3-shark-name = Обжигающая акула
+knowledge-path-side-s3-shark-desc =
+    Колыбель туманности была холодной, но не мертвой. Свет и тепло проникают даже в самую глубокую тьму, и за ними охотятся их собственные хищники.
+knowledge-path-side-s3-void-cloak-name = Плащ пустоты
+knowledge-path-side-s3-void-cloak-desc =
+    Сова - хранительница вещей, которые не совсем реализуются на практике, но в теории существуют. Многие вещи существуют.
+knowledge-path-side-s6-knife-name = Разделочный нож
+knowledge-path-side-s6-knife-desc =
+    Выгравированный, вырезанный на камне... вечный. Во всем скрыта сила. Я могу раскрыть ее! Я могу вырезать монолит, чтобы показать цепи!
+knowledge-path-side-s6-rustwalker-name = Ржавый ритуал
+knowledge-path-side-s6-rustwalker-desc =
+    Я объединил свои знания о созидании со своим стремлением к разрушению. Маршал знал мое имя, и Ржавые холмы отозвались эхом.
+
+knowledge-path-side-s6-ice-spear-name = Тайны творения
+knowledge-path-side-s6-ice-spear-desc =
+    Вы постигли тайны создания льда. Вы можете призывать ледяное копьё, которое можно метнуть во врага. Копьё замораживает цель, нанося дополнительный урон холодом.
+
+knowledge-path-side-s8-cleave-name = Кровавое рассечение
+knowledge-path-side-s8-cleave-desc =
+    Мощный рассекающий удар, поражающий всех врагов вокруг вас. Наносит кровоточащие раны и оглушает поражённых.
+
+# ADT: knowledge-path-void-prison-* live in heretic-catalog-void.ftl
+
+knowledge-path-void-conduit-name = Пустотный канал
+knowledge-path-void-conduit-desc =
+    Открывает канал в пустоту, замораживающий атмосферу и повреждающий шлюзы и окна вокруг.
