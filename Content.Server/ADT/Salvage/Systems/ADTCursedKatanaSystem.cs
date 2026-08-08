@@ -58,7 +58,6 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
         SubscribeLocalEvent<ADTCursedKatanaComponent, GettingPickedUpAttemptEvent>(OnKatanaPickupAttempt);
         SubscribeLocalEvent<ADTCursedKatanaComponent, GotEquippedHandEvent>(OnEquipped);
         SubscribeLocalEvent<ADTCursedKatanaComponent, EntGotInsertedIntoContainerMessage>(OnRetracted);
-        SubscribeLocalEvent<ADTCursedKatanaComponent, ExaminedEvent>(OnExamined);
 
         SubscribeLocalEvent<ADTCursedKatanaComponent, KatanaTendonCutPerformedEvent>(OnTendonCut);
         SubscribeLocalEvent<ADTCursedKatanaComponent, KatanaHiltStrikePerformedEvent>(OnHiltStrike);
@@ -219,18 +218,6 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
         }
 
         return false;
-    }
-
-    private void OnExamined(Entity<ADTCursedKatanaComponent> ent, ref ExaminedEvent args)
-    {
-        args.PushMarkup(Loc.GetString(ent.Comp.DrewBlood
-            ? "adt-cursed-katana-sated"
-            : "adt-cursed-katana-hungry"));
-
-        foreach (var line in _martialArts.GetWeaponComboDescriptions(ent.Owner))
-        {
-            args.PushMarkup(line);
-        }
     }
 
     private void OnKatanaPickupAttempt(Entity<ADTCursedKatanaComponent> ent, ref GettingPickedUpAttemptEvent args)
