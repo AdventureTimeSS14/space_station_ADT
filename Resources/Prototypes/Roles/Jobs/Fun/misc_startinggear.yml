@@ -101,7 +101,7 @@
     head: ClothingHeadHatTophat
     ears: ClothingHeadsetService
     jumpsuit: ClothingUniformJumpsuitJacketMonkey
-    id: PunPunIDCard
+    id: ADTPunPunPDA # ADT tweak card > pda
 
 - type: startingGear
   id: MobPollyGear

@@ -1419,6 +1419,14 @@
   - type: Inventory
     templateId: monkey
     speciesId: monkey
+  # ADT tweak start
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Moffstation/Mobs/Animals/displacements.rsi
+            state: jumpsuit-monkey
+  # ADT tweak end
   - type: Deathgasp
     prototype: MonkeyDeathgasp
   - type: Cuffable
@@ -1520,14 +1528,20 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPie
-  # ADT-Tweak start
-  - type: VentCrawler
-    allowInventory: false
-  # ADT-Tweak end
   - type: Crawler
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: JobStatus # marks them as crew
+  # ADT tweak start
+  - type: Vocal
+    sounds:
+      Male: Monkey
+      Female: Monkey
+      Unsexed: Monkey
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: StandingState
+  # ADT tweak end
 
 - type: entity
   name: monkey
@@ -1551,6 +1565,10 @@
     description: ghost-role-information-monkey-description
     rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
+  # ADT-Tweak start
+  - type: VentCrawler
+    allowInventory: false
+  # ADT-Tweak end
   - type: Clumsy
     gunShootFailDamage:
       types:
@@ -1596,6 +1614,10 @@
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [SyndicateOperativeGearMonkey]
+  # ADT-Tweak start
+  - type: VentCrawler
+    allowInventory: false
+  # ADT-Tweak end
 
 - type: entity
   id: MobMonkeySyndicateAgent
@@ -1722,6 +1744,16 @@
     name: ghost-role-information-kobold-name
     description: ghost-role-information-kobold-description
     rules: ghost-role-information-nonantagonist-rules
+  # ADT tweak start
+  - type: Inventory
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Moffstation/Mobs/Animals/displacements.rsi
+            state: jumpsuit-monkey
+  # ADT tweak end
+
 
 - type: entity
   name: kobold
@@ -1740,6 +1772,10 @@
         Blunt: 1
     clumsySound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  # ADT-Tweak start
+  - type: VentCrawler
+    allowInventory: false
+  # ADT-Tweak end
 
 - type: entity
   id: MobBaseSyndicateKobold
@@ -1756,6 +1792,10 @@
     - Syndicate
   - type: Loadout
     prototypes: [SyndicateOperativeGearMonkey]
+  # ADT-Tweak start
+  - type: VentCrawler
+    allowInventory: false
+  # ADT-Tweak end
 
 - type: entity
   id: MobKoboldSyndicateAgent
