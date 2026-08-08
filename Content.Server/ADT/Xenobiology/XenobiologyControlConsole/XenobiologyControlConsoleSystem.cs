@@ -22,6 +22,7 @@ using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Xenobiology.XenobiologyControlConsole;
 
@@ -41,11 +42,14 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
     [Dependency] private readonly SharedDeviceLinkSystem _deviceLink = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
 
-    private const string ActionXenobiologyCaptureSlime = "ADTActionXenobiologyCaptureSlime";
-    private const string ActionXenobiologyPlaceSlime = "ADTActionXenobiologyPlaceSlime";
-    private const string ActionXenobiologyFeedMonkey = "ADTActionXenobiologyFeedMonkey";
-    private const string ActionXenobiologyRecycleMonkey = "ADTActionXenobiologyRecycleMonkey";
-    private const string ActionXenobiologyReturn = "ADTActionXenobiologyReturn";
+    private static readonly EntProtoId[] PilotActions =
+    [
+        "ADTActionXenobiologyCaptureSlime",
+        "ADTActionXenobiologyPlaceSlime",
+        "ADTActionXenobiologyFeedMonkey",
+        "ADTActionXenobiologyRecycleMonkey",
+        "ADTActionXenobiologyReturn",
+    ];
 
     public override void Initialize()
     {
@@ -145,11 +149,10 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
         pilot.Console = ent;
         pilot.Eye = eye;
 
-        _actions.AddAction(user, ref pilot.CaptureSlimeAction, ActionXenobiologyCaptureSlime);
-        _actions.AddAction(user, ref pilot.PlaceSlimeAction, ActionXenobiologyPlaceSlime);
-        _actions.AddAction(user, ref pilot.FeedMonkeyAction, ActionXenobiologyFeedMonkey);
-        _actions.AddAction(user, ref pilot.RecycleMonkeyAction, ActionXenobiologyRecycleMonkey);
-        _actions.AddAction(user, ref pilot.ReturnAction, ActionXenobiologyReturn);
+        foreach (var actionProto in PilotActions)
+        {
+            pilot.Actions[actionProto] = _actions.AddAction(user, actionProto);
+        }
 
         ent.Comp.Pilot = user;
         ent.Comp.Eye = eye;
@@ -170,11 +173,10 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
 
         if (TryComp<XenobiologyEyePilotComponent>(user, out var pilot))
         {
-            _actions.RemoveAction(user, pilot.CaptureSlimeAction);
-            _actions.RemoveAction(user, pilot.PlaceSlimeAction);
-            _actions.RemoveAction(user, pilot.FeedMonkeyAction);
-            _actions.RemoveAction(user, pilot.RecycleMonkeyAction);
-            _actions.RemoveAction(user, pilot.ReturnAction);
+            foreach (var action in pilot.Actions.Values)
+            {
+                _actions.RemoveAction(user, action);
+            }
         }
 
         RemComp<XenobiologyEyePilotComponent>(user);
