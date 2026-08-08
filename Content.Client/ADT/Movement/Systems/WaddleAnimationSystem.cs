@@ -1,12 +1,8 @@
 ﻿using System.Numerics;
-using Content.Client.Buckle;
 using Content.Client.Gravity;
-using Content.Shared.ActionBlocker;
 using Content.Shared.ADT.Movement.Components;
 using Content.Shared.ADT.Movement.Systems;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
-using Content.Shared.Standing;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.Animations;
@@ -17,10 +13,6 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
     [Dependency] private readonly GravitySystem _gravity = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly BuckleSystem _buckle = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
 
     public override void Initialize()
     {
@@ -50,18 +42,6 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
             return false;
 
         if (_gravity.IsWeightless(uid))
-            return false;
-
-        if (!_actionBlocker.CanMove(uid, mover))
-            return false;
-
-        if (_buckle.IsBuckled(uid))
-            return false;
-
-        if (_standing.IsDown(uid))
-            return false;
-
-        if (_mobState.IsIncapacitated(uid))
             return false;
 
         return true;
