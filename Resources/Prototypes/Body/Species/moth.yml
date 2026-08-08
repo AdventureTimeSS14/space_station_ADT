@@ -213,6 +213,7 @@
       shortscale: 0.85
     - type: NightVision
       innate: true
+      effectPrototype: ADTEffectNightVisionMedium
   # ADT-tweak-end
 
 - type: entity

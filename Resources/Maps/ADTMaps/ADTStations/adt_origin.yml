@@ -27020,13 +27020,6 @@ entities:
     - type: Transform
       pos: -48.73234,60.63695
       parent: 2
-- proto: ADTNitrofurfollPack
-  entities:
-  - uid: 497
-    components:
-    - type: Transform
-      pos: -3.4429955,-48.480476
-      parent: 2
 - proto: ADTObjectBlackBouquet
   entities:
   - uid: 498

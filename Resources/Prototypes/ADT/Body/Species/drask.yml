@@ -62,7 +62,6 @@
     - map: ["underwearb"]
     - map: [ "socks" ]
     - map: ["underweart"]
-    - map: ["jumpsuit"]
 
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
@@ -77,6 +76,7 @@
     - map: ["enum.HumanoidVisualLayers.Overlay"]
 
     # More equipment
+    - map: ["jumpsuit"]
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
@@ -133,7 +133,6 @@
     damage:
       types:
         Heat: -0.04
-        Cold: -0.1
         Blunt: -0.03
         Slash: -0.03
         Piercing: -0.03
@@ -149,9 +148,9 @@
     damage: 12
   - type: Bloodstream
     damageBleedModifiers: BloodlossDrask
-    bloodRefreshAmount: 0.2
-    bleedReductionAmount: 0.12
-    bloodlossThreshold: 0.85
+    bloodRefreshAmount: 1
+    bleedReductionAmount: 0.1
+    bloodlossThreshold: 0.80
     maxBleedAmount: 16
     bloodReferenceSolution:
       reagents:
@@ -169,17 +168,17 @@
   - type: TemperatureDamage
     heatDamageThreshold: 308.15 # 35C
     coldDamageThreshold: 243.15 # -30C - порог когда активируется coldDamage с лечением.
+    coldAlert: ADTColdDrask
     coldDamage: #per second, scales with temperature & other constants
       types:
-        Blunt: -0.2
-        Slash: -0.1
-        Piercing: -0.1
-        Heat: -0.1
-        Shock: -0.05
+        Blunt: -0.25
+        Slash: -0.2
+        Piercing: -0.2
+        Heat: -0.05
+        Shock: -0.1
         Caustic: -0.05
         Radiation: -0.1
         Poison: -0.1
-        Cellular: -0.05
     heatDamage: #per second, scales with temperature & other constants
       types:
         Heat : 4.0
@@ -194,9 +193,10 @@
       86: 0.6
   - type: ThermalRegulator
     sweatHeatRegulation: 1500
-    shiveringHeatRegulation: 500
+    shiveringHeatRegulation: 0
+    metabolismHeat: 0
     normalBodyTemperature: 273.15
-    thermalRegulationTemperatureThreshold: 25
+    thermalRegulationTemperatureThreshold: 15
   - type: Fixtures
     fixtures:
       fix1:
@@ -214,8 +214,6 @@
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#0091ff"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
   - type: Speech
     speechSounds: Drask
   - type: InteractionPopup
@@ -231,7 +229,7 @@
   - type: Damageable
     damageModifierSet: Drask
   - type: Injurable
-    damageContainer: Biological
+    damageContainer: ADTBiologicalDrask
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
@@ -243,6 +241,17 @@
     tallscale: 1.15
     short: true
     shortscale: 1
+  - type: Uncloneable
+  - type: Tag
+    tags:
+    - CanPilot
+    - ConstantTemperatureThresholds
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+  - type: NightVision
+    innate: true
+    effectPrototype: ADTEffectNightVisionLow
 
 - type: entity
   parent: OrganBaseOrganic

@@ -9,9 +9,20 @@
     ADTPatchBurnMini: 15
     ADTBloodPackTransfusionFull: 5
     SyringeSaline: 10
+    ADTSodiumizolePack: 5
+    ADTAnelgesinPack: 5
+    ADTMinoxidePack: 5
+    ADTDiethamilatePack: 5
+    ADTHaloperidolPack: 3
+    ADTVitaminCanister: 5
+    ADTCharcoalPack: 5
+    ADTEthylredoxrazinePack: 5
+    ADTEthyloxyephedrinePack: 5
   emaggedInventory:
     ADTBrutepackAdvanced1: 10
     ADTOintmentAdvanced1: 10
     ADTEphedrinePill: 3
     ADTHappinessPill: 3
     ADTToxinPill: 3
+    ADTMorphineBottle: 3
+    ADTOpiumBottle: 3

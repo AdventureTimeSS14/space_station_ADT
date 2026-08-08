@@ -116,12 +116,13 @@ public partial class SharedMartialArtsSystem
         {
             case ComboAttackType.Harm:
                 // Leg sweep
-                 if (!TryComp<StandingStateComponent>(ent.Owner, out var standing)
-                     || standing.Standing
-                     || !TryComp<StandingStateComponent>(args.Target, out var targetStanding)
-                     || !targetStanding.Standing
-                     )
-                     break;
+                if (
+                    !TryComp<StandingStateComponent>(ent.Owner, out var standing)
+                    || standing.Standing
+                    || !TryComp<StandingStateComponent>(args.Target, out var targetStanding)
+                    || !targetStanding.Standing
+                    )
+                    break;
                 if (HasComp<KnockedDownComponent>(ent.Owner))
                     RemComp<KnockedDownComponent>(ent.Owner);
 
@@ -187,13 +188,22 @@ public partial class SharedMartialArtsSystem
     private void OnCQCRestrain(Entity<CanPerformComboComponent> ent, ref CqcRestrainPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out _))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
 
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
-        ComboPopup(ent, target, proto.Name);
-        ent.Comp.LastAttacks.Clear();
+        if (downed)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-target-down"), ent, ent);
+            ent.Comp.LastAttacks.Clear();
+            return;
+        }
+        else
+        {
+            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
+            ComboPopup(ent, target, proto.Name);
+            ent.Comp.LastAttacks.Clear();
+        }
     }
 
     private void OnCQCPressure(Entity<CanPerformComboComponent> ent, ref CqcPressurePerformedEvent args)
@@ -209,11 +219,11 @@ public partial class SharedMartialArtsSystem
 
         if (!_hands.TryGetActiveItem(target, out var activeItem))
             return;
-        if(!_hands.TryDrop(target, activeItem.Value))
+        if (!_hands.TryDrop(target, activeItem.Value))
             return;
         if (!_hands.TryGetEmptyHand(ent.Owner, out var emptyHand))
             return;
-        if(!_hands.TryPickup(ent, activeItem.Value, emptyHand))
+        if (!_hands.TryPickup(ent, activeItem.Value, emptyHand))
             return;
         _hands.SetActiveHand(ent.Owner, emptyHand);
     }
