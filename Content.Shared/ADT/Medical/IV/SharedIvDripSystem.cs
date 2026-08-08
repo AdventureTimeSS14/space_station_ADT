@@ -211,6 +211,22 @@ public abstract class SharedIvDripSystem : EntitySystem
         if (!InRange(iv, to))
             return;
 
+        var toDetach = new List<Entity<IVDripComponent>>();
+        var query = EntityQueryEnumerator<IVDripComponent>();
+        while (query.MoveNext(out var otherIvId, out var otherIvComp))
+        {
+            if (otherIvId == iv.Owner)
+                continue;
+
+            if (otherIvComp.AttachedTo == to)
+                toDetach.Add((otherIvId, otherIvComp));
+        }
+
+        foreach (var otherIv in toDetach)
+        {
+            Detach(otherIv, false, true);
+        }
+
         iv.Comp.AttachedTo = to;
         Dirty(iv);
 

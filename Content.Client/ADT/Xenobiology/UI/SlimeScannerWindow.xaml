@@ -33,6 +33,8 @@
                                         <PanelContainer Name="ColorDisplay" MinWidth="30" MinHeight="30" Margin="0 0 10 0" />
                                         <Label Name="BreedNameLabel" Text="" StyleClasses="LabelHeading" />
                                     </BoxContainer>
+                                    <RichTextLabel Name="DensityWarningLabel" Text="" StyleClasses="LabelSubText"
+                                                   HorizontalExpand="True" Margin="0 8 0 8" Visible="False" />
                                     <GridContainer Columns="2" Margin="0 5 0 0">
                                         <Label Text="{Loc 'slime-scanner-mutation-chance'}" StyleClasses="LabelKeyText"/>
                                         <Label Name="MutationChanceLabel"/>
