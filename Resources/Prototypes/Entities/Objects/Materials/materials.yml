@@ -360,10 +360,10 @@
     slots:
       - HEAD
   - type: PointLight
-    radius: 1.2
+    radius: 1.7 # ADT tweak 1.2 > 1.7
     energy: 2.7
     color: "#4faffb"
-    slots:
+    mask: /Textures/ADT/Effects/Lightmasks/circle_b.png # ADT tweak
 
 - type: entity
   parent: MaterialBase

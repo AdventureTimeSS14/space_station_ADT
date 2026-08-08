@@ -2088,6 +2088,7 @@
     radius: 5
     energy: 5
     netsync: false
+    mask: /Textures/ADT/Effects/Lightmasks/circle_a.png # ADT tweak
   - type: RadiationSource
     intensity: 0.5
     slope: 0.3

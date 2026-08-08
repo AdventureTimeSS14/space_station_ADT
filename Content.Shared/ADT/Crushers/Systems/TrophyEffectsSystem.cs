@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared.ADT.Crushers.Components;
+using Content.Shared.ADT.Crushers.Effects;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Timing;
@@ -17,6 +18,7 @@ public sealed class TrophyEffectsSystem : EntitySystem
         SubscribeLocalEvent<DamageAmplifyActiveEffectComponent, DamageModifyEvent>(OnDamageAmplifyModify);
         SubscribeLocalEvent<SlowDebuffMarkerComponent, MeleeHitEvent>(OnSlowDebuffMeleeHit);
         SubscribeLocalEvent<DamageShieldActiveEffectComponent, DamageModifyEvent>(OnDamageShieldModify);
+        SubscribeLocalEvent<TrophyComponent, TrophyAlteredEvent>(OnTrophyAltered);
 
     }
 
@@ -45,6 +47,26 @@ public sealed class TrophyEffectsSystem : EntitySystem
         {
             if (comp.ExpireTime != TimeSpan.Zero && comp.ExpireTime < now)
                 RemCompDeferred<SlowDebuffMarkerComponent>(uid);
+        }
+    }
+
+    private void OnTrophyAltered(Entity<TrophyComponent> ent, ref TrophyAlteredEvent args)
+    {
+        if (args.Alteration != TrophyAlteredType.Removed)
+            return;
+
+        if (!ent.Comp.Effects.Any(effect => effect is DamageAmplifyOnHitEffect))
+            return;
+
+        var holder = args.Holder;
+        if (!Exists(holder))
+            return;
+
+        var query = EntityQueryEnumerator<DamageAmplifyActiveEffectComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.Source == holder)
+                RemCompDeferred<DamageAmplifyActiveEffectComponent>(uid);
         }
     }
 

@@ -1,0 +1,28 @@
+- files:
+  - wand_teleport.ogg
+  - blind.ogg
+  - repulse.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Ported from Paradise Station (sound/magic/wand_teleport.ogg, sound/magic/blind.ogg, sound/magic/repulse.ogg)"
+  source: "https://github.com/ParadiseSS13/Paradise"
+
+- files:
+  - airlock_open.ogg
+  - bin_close.ogg
+  - mechmove04.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Ported from Paradise Station (sound/machines/airlock_open.ogg, sound/effects/bin_close.ogg, sound/mecha/mechmove04.ogg)"
+  source: "https://github.com/ParadiseSS13/Paradise"
+
+- files:
+  - sear.ogg
+  - sonic_jackhammer.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Ported from Paradise Station (sound/weapons/sear.ogg, sound/weapons/sonic_jackhammer.ogg)"
+  source: "https://github.com/ParadiseSS13/Paradise"
+
+- files:
+  - hiero_boss.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Ported from Paradise Station (sound/lavaland/hiero_boss.ogg)"
+  source: "https://github.com/ParadiseSS13/Paradise"

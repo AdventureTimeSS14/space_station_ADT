@@ -1,4 +1,5 @@
 using Content.Server.ADT.Bubblegum.Abilities;
+using Content.Server.ADT.Salvage.Systems;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Shared.ADT.Bubblegum;
@@ -14,6 +15,7 @@ namespace Content.Server.ADT.Bubblegum;
 public sealed class BubblegumCombatSystem : EntitySystem
 {
     [Dependency] private readonly BubblegumSystem _bubblegum = default!;
+    [Dependency] private readonly MegafaunaSystem _megafauna = default!;
     [Dependency] private readonly BubblegumBloodWarpSystem _warp = default!;
     [Dependency] private readonly BubblegumHallucinationChargeSystem _hallucination = default!;
     [Dependency] private readonly BubblegumSummonNarsiSystem _narsi = default!;
@@ -116,7 +118,7 @@ public sealed class BubblegumCombatSystem : EntitySystem
             && TryComp<BubblegumBloodWarpComponent>(ent, out var warp)
             && _warp.TryBloodWarp((ent.Owner, warp), targetCoords))
         {
-            _bubblegum.Say(ent, "bubblegum-blood-warp", 3);
+            _megafauna.Say(ent, "bubblegum-blood-warp", 3);
             return;
         }
 
@@ -125,7 +127,7 @@ public sealed class BubblegumCombatSystem : EntitySystem
         {
             if (TryComp<BubblegumTripleChargeComponent>(ent, out var tc))
             {
-                _bubblegum.Say(ent, "bubblegum-triple-charge", 3);
+                _megafauna.Say(ent, "bubblegum-triple-charge", 3);
                 _tripleCharge.StartNpcTripleCharge((ent.Owner, tc), targetCoords);
             }
             return;
@@ -136,7 +138,7 @@ public sealed class BubblegumCombatSystem : EntitySystem
         {
             if (TryComp<BubblegumSummonNarsiComponent>(ent, out var narsi))
             {
-                _bubblegum.Say(ent, "bubblegum-narsi", 3);
+                _megafauna.Say(ent, "bubblegum-narsi", 3);
                 _narsi.TrySummon((ent.Owner, narsi), targetCoords);
             }
             return;
@@ -146,7 +148,7 @@ public sealed class BubblegumCombatSystem : EntitySystem
         {
             if (TryComp<BubblegumHallucinationChargeComponent>(ent, out var hc))
             {
-                _bubblegum.Say(ent, "bubblegum-hallucination", 3);
+                _megafauna.Say(ent, "bubblegum-hallucination", 3);
                 _hallucination.StartHallucinationCharge((ent.Owner, hc), targetCoords, target);
             }
             return;
@@ -154,7 +156,7 @@ public sealed class BubblegumCombatSystem : EntitySystem
 
         if (TryComp<BubblegumSurroundComponent>(ent, out var sc))
         {
-            _bubblegum.Say(ent, "bubblegum-surround", 3);
+            _megafauna.Say(ent, "bubblegum-surround", 3);
             _surround.StartSurround((ent.Owner, sc), targetCoords, target);
         }
     }

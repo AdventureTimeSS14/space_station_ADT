@@ -63,6 +63,7 @@
     color: MediumPurple
     radius: 2
     softness: 1
+    mask: /Textures/ADT/Effects/Lightmasks/circle_b.png # ADT tweak
   - type: UserInterface
     interfaces:
       enum.StoreUiKey.Key:
