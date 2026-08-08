@@ -34,6 +34,16 @@ public sealed class ADTCCVars
         CVarDef.Create("barks.volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /*
+    * Boss music
+    */
+
+    public static readonly CVarDef<bool> BossMusicEnabled =
+        CVarDef.Create("adt.boss_music_enabled", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> BossMusicVolume =
+        CVarDef.Create("adt.boss_music_volume", 1.5f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /*
     * Radial menu
     */
     public static readonly CVarDef<bool> CenterRadialMenu =

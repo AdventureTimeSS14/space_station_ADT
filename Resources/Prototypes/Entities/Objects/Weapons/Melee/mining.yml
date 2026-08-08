@@ -121,6 +121,7 @@
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
+  - type: ADTNoWideAttack
 # ADT-Tweak End
 
 # Very high burst damage if you land a mark, while also providing a small amount of healing.
