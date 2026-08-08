@@ -144,7 +144,7 @@
   - type: Damageable
     damageModifierSet: Shadekin
   - type: Injurable
-    damageContainer: Biological # Shadekin
+    damageContainer: ADTBiologicalShadekin # Shadekin
   - type: Barotrauma
     damage:
       types:
@@ -246,6 +246,7 @@
     - ADTShadekinEmotes
   - type: NightVision
     innate: true
+    effectPrototype: ADTEffectNightVisionMedium
 
 - type: entity
   parent: OrganBaseOrganic
