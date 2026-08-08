@@ -1,38 +1,89 @@
+//
+
+using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Heretic.Components;
+using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Movement.Systems;
+using Content.Shared.Temperature;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Shared.ADT.Heretic.Systems;
 
-public abstract partial class SharedVoidCurseSystem : EntitySystem
+public abstract class SharedVoidCurseSystem : EntitySystem
 {
-    protected virtual void Cycle(Entity<VoidCurseComponent> ent)
-    {
+    [Dependency] private readonly MovementSpeedModifierSystem _modifier = default!;
+    [Dependency] private readonly SharedHereticSystem _heretic = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<VoidCurseComponent, TemperatureChangeAttemptEvent>(OnTemperatureChangeAttempt);
+        SubscribeLocalEvent<VoidCurseComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
+        SubscribeLocalEvent<VoidCurseComponent, ComponentRemove>(OnRemove);
     }
 
-    public void DoCurse(EntityUid uid)
+    private void OnRemove(Entity<VoidCurseComponent> ent, ref ComponentRemove args)
     {
-        if (!HasComp<MobStateComponent>(uid))
-            return; // ignore non mobs because holy shit
-
-        if (TryComp<HereticComponent>(uid, out var h) && h.CurrentPath == "Void" || HasComp<GhoulComponent>(uid))
+        if (TerminatingOrDeleted(ent))
             return;
 
-        if (TryComp<VoidCurseComponent>(uid, out var curse))
-        {
-            if (!curse.Drain)
-            {
-                // we keep adding curse time until we reach ~30 seconds
-                // when the time is reached it can't add any more time to the curse and just locks itself out until it's gone
-                // which is very balanced :+1:
-                curse.Lifetime = Math.Clamp(curse.Lifetime + 5f, 0f, curse.MaxLifetime);
-                if (curse.Lifetime >= curse.MaxLifetime)
-                    curse.Drain = true;
-            }
-            curse.Stacks = Math.Clamp(curse.Stacks + 1, 0, curse.MaxStacks + 1);
-            Dirty(uid, curse);
-        }
-        else EnsureComp<VoidCurseComponent>(uid);
+        _modifier.RefreshMovementSpeedModifiers(ent);
+    }
+
+    private void OnTemperatureChangeAttempt(Entity<VoidCurseComponent> ent, ref TemperatureChangeAttemptEvent args)
+    {
+        if (!args.Cancelled && ent.Comp.Stacks >= ent.Comp.MaxStacks && args.CurrentTemperature > args.LastTemperature)
+            args.Cancel();
+    }
+
+    private void OnRefreshMoveSpeed(Entity<VoidCurseComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
+    {
+        var modifier = 1f - ent.Comp.Stacks * 0.14f;
+        if (TryComp(ent, out TemperatureSpeedComponent? tempSpeed) &&
+            tempSpeed.CurrentSpeedModifier != null && tempSpeed.CurrentSpeedModifier != 0f)
+            modifier /= 1.2f * tempSpeed.CurrentSpeedModifier.Value;
+
+        modifier = Math.Clamp(modifier, 0f, 1f);
+
+        args.ModifySpeed(modifier, modifier);
+    }
+
+    protected void RefreshLifetime(VoidCurseComponent comp)
+    {
+        comp.Lifetime = comp.MaxLifetime + comp.LifetimeIncreasePerLevel * comp.Stacks;
+    }
+
+    public bool DoCurse(EntityUid uid, float stacks = 1, float max = 0)
+    {
+
+        if (!HasComp<MobStateComponent>(uid))
+            return false; // ignore non mobs because holy shit
+
+        if (_heretic.TryGetHereticComponent(uid, out var h, out _) && h.CurrentPath == "Void" ||
+            HasComp<GhoulComponent>(uid))
+            return false;
+
+        var ev = new BeforeCastTouchSpellEvent(uid, false);
+        RaiseLocalEvent(uid, ev, true);
+        if (ev.Cancelled)
+            return false;
+
+        var curse = EnsureComp<VoidCurseComponent>(uid);
+
+        if (max > 0 && curse.Stacks > max)
+            return false;
+
+        if (max > 0 && curse.Stacks + stacks > max)
+            stacks = Math.Max(0, max - curse.Stacks);
+
+        curse.Stacks = Math.Clamp(curse.Stacks + stacks, 0, curse.MaxStacks);
+        RefreshLifetime(curse);
+        Dirty(uid, curse);
+
+        _modifier.RefreshMovementSpeedModifiers(uid);
+        return true;
     }
 }
