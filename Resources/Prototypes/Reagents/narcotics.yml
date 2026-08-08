@@ -139,6 +139,15 @@
         - !type:ReagentCondition
           reagent: Ephedrine
           min: 15
+      # ADT-Tweak-Start: передоз эфедрина даёт лекарственную зависимость
+      - !type:AdjustAddictionLevel
+        kind: Medicine
+        amount: 0.05
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ephedrine
+          min: 20
+      # ADT-Tweak-End
 
 - type: reagent
   id: Stimulants
@@ -260,6 +269,11 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
+  # ADT-Tweak-Start: никотин метаболизируется в крови, иначе системы аллергий и зависимостей его не ловят
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.05
+  # ADT-Tweak-End
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent
