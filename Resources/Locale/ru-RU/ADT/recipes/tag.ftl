@@ -112,3 +112,7 @@ construction-graph-tag-baseball-bat = бейсбольная бита
 construction-graph-tag-archimedes-central-control-module = центральный модуль управления Архимеда
 construction-graph-tag-archimedes-peripherals-control-module = модуль управления периферией Архимеда
 
+construction-graph-tag-baguette = багет
+construction-graph-tag-crayon = мелок
+construction-graph-tag-mime-mask = маска мима
+construction-graph-tag-bananium-horn = бананиумовый клаксон

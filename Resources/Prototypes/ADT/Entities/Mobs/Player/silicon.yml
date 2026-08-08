@@ -35,3 +35,31 @@
         startingItem: PowerCellMedium
   - type: RandomMetadata
     nameSegments: [NamesBorg]
+
+- type: entity
+  id: PlayerBorgChassisClownMimeBattery
+  parent: BorgChassisClownMime
+  name: CloIme cyborg
+  description: Clown and Mime... CloIme!
+  suffix: Battery, Module, Ghost role
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+        - PositronicBrain
+      borg_module:
+        - BorgModuleClowning
+        - BorgModuleAdvancedClowning
+      
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+  - type: GhostRole
+    name: ghost-role-information-clownmime-cyborg-name
+    description: ghost-role-information-clownmime-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable

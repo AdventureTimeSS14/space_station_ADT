@@ -208,3 +208,47 @@
     children:
     - id: ClothingHeadHelmetJanitorBombSuit
     - id: ClothingOuterSuitJanitorBomb
+
+- type: entity
+  id: LockerClownFilled
+  suffix: Filled
+  parent: LockerClown
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerClown
+
+- type: entityTable
+  id: FillLockerClown
+  table: !type:AllSelector
+    children:
+    - id: ClothingMaskClown
+    - id: ClothingUniformJumpsuitClown
+    - id: ClothingShoesClown
+    - id: BikeHorn
+    - id: FoodBanana
+    - id: FoodPieBananaCream
+    - id: ClownMimeCyborgInstruction
+      prob: 0.25
+
+- type: entity
+  id: LockerMimeFilled
+  suffix: Filled
+  parent: LockerMime
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerMime
+
+- type: entityTable
+  id: FillLockerMime
+  table: !type:AllSelector
+    children:
+    - id: ClothingMaskMime
+    - id: ClothingUniformJumpsuitMime
+    - id: FoodBreadBaguette
+    - id: FoodMimana
+    - id: ClownMimeCyborgInstruction
+      prob: 0.25
