@@ -1,0 +1,36 @@
+<Document>
+
+  # Кулинарная техника
+
+  <Box>
+    <GuideEntityEmbed Entity="ADTCookbookManual" Caption="кулинарная книга приёмов"/>
+  </Box>
+
+  Школа повара. Приёмы названы по кухонным операциям и заточены на то, чтобы разорвать
+  чужой захват и вырвать из рук всё, что там держат.
+
+  <Box>
+  Каждый приём этой школы сбрасывает захват, которым цель держит кого-либо.
+  </Box>
+
+  ## Приёмы
+
+  <ADTGuideCombo Combo="CookbookChopCombo">
+  Роняет цель на [color=#E0A03C]1 секунду[/color] и наносит [color=#E05B5B]10[/color]
+  Blunt-урона. Вещи из рук не выбивает.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="CookbookSpinCombo">
+  Оглушает цель на [color=#E0A03C]2 секунды[/color].
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="CookbookRollCombo">
+  Наносит [color=#5BB8E0]35[/color] урона по выносливости и выбивает предмет из активной руки цели.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="CookbookSqueezeCombo">
+  Роняет цель на [color=#E0A03C]1 секунду[/color], выбивая при падении всё из рук,
+  и дополнительно вырывает предмет из активной руки.
+  </ADTGuideCombo>
+
+</Document>
