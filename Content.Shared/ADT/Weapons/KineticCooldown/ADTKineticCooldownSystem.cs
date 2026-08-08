@@ -1,6 +1,5 @@
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Timing;
 
@@ -30,15 +29,11 @@ public sealed class ADTKineticCooldownSystem : EntitySystem
 
     private void OnGunShot(Entity<ADTKineticCooldownComponent> ent, ref GunShotEvent args)
     {
-        if (!TryComp<GunComponent>(ent, out var gun))
+        var recovery = GetSwingTime(ent, args.User);
+        if (recovery == null)
             return;
 
-        var now = _timing.CurTime;
-        var recovery = gun.NextFire - now;
-        if (recovery < TimeSpan.Zero)
-            recovery = TimeSpan.Zero;
-
-        SetCooldown(ent, now + recovery * ent.Comp.RangedMultiplier);
+        SetCooldown(ent, _timing.CurTime + recovery.Value * ent.Comp.RangedMultiplier);
     }
 
     private void OnAttemptMelee(Entity<ADTKineticCooldownComponent> ent, ref AttemptMeleeEvent args)
@@ -52,11 +47,25 @@ public sealed class ADTKineticCooldownSystem : EntitySystem
             return;
         }
 
-        var rate = _melee.GetAttackRate(ent, args.User);
-        if (rate <= 0f)
+        var recovery = GetSwingTime(ent, args.User);
+
+        if (recovery == null)
             return;
 
-        SetCooldown(ent, _timing.CurTime + TimeSpan.FromSeconds(1f / rate) * ent.Comp.MeleeMultiplier);
+        SetCooldown(ent, _timing.CurTime + recovery.Value * ent.Comp.MeleeMultiplier);
+    }
+
+    private TimeSpan? GetSwingTime(Entity<ADTKineticCooldownComponent> ent, EntityUid user)
+    {
+        if (!HasComp<MeleeWeaponComponent>(ent))
+            return null;
+
+        var rate = _melee.GetAttackRate(ent, user);
+
+        if (rate <= 0f)
+            return null;
+
+        return TimeSpan.FromSeconds(1f / rate);
     }
 
     public bool IsDelayed(Entity<ADTKineticCooldownComponent> ent)

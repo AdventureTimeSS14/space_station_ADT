@@ -1,0 +1,14 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'adt-achievements-window-title'}"
+                      MinSize="620 480"
+                      SetSize="720 560">
+    <BoxContainer Orientation="Vertical" Margin="6 6 6 6" SeparationOverride="4">
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <Label Name="SummaryLabel" HorizontalExpand="True" />
+            <CheckBox Name="HideUnlockedButton" Text="{Loc 'adt-achievements-hide-unlocked'}" />
+        </BoxContainer>
+        <PanelContainer StyleClasses="LowDivider" />
+        <TabContainer Name="Categories" VerticalExpand="True" />
+    </BoxContainer>
+</controls:FancyWindow>

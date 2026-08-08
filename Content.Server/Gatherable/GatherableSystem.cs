@@ -1,3 +1,4 @@
+using Content.Server.ADT.Achievements; // ADT tweak
 using Content.Server.Destructible;
 using Content.Server.Gatherable.Components;
 using Content.Shared.EntityTable;
@@ -20,6 +21,7 @@ public sealed partial class GatherableSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly EntityTableSystem _entityTable = default!;
+    [Dependency] private readonly ADTAchievementSystem _achievements = default!; // ADT tweak
 
     public override void Initialize()
     {
@@ -59,6 +61,8 @@ public sealed partial class GatherableSystem : EntitySystem
         {
             _audio.PlayPvs(soundComp.Sound, Transform(gatheredUid).Coordinates);
         }
+
+        _achievements.OnGathered(gatheredUid, gatherer); // ADT tweak
 
         // Complete the gathering process
         _destructible.DestroyEntity(gatheredUid);

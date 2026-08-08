@@ -51,6 +51,7 @@ namespace Content.Server.Database
 		public DbSet<BookPrinterEntry> BookPrinterEntry { get; set; } = null!; // ADT-BookPrinter
         public DbSet<DiscordUser> DiscordUser { get; set; } = null!; // ADT-Discord
         public DbSet<ThunderdomeStats> ThunderdomeStats { get; set; } = null!; // ADT-Thunderdome
+        public DbSet<ADTPlayerAchievement> ADTPlayerAchievement { get; set; } = null!; // ADT-Achievements
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -86,6 +87,12 @@ namespace Content.Server.Database
                 .HasIndex(p => p.Score)
                 .IsDescending();
             // ADT-Thunderdome-End
+
+            // ADT-Achievements-Start
+            modelBuilder.Entity<ADTPlayerAchievement>()
+                .HasIndex(p => new { p.UserId, p.AchievementId })
+                .IsUnique();
+            // ADT-Achievements-End
 
             modelBuilder.Entity<Profile>()
                 .HasIndex(p => new {p.Slot, PrefsId = p.PreferenceId})
@@ -721,6 +728,23 @@ namespace Content.Server.Database
         public DateTime LastPlayed { get; set; }
     }
     // ADT-Thunderdome-End
+
+    // ADT-Achievements-Start
+    public class ADTPlayerAchievement
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        public Guid UserId { get; set; }
+
+        public string AchievementId { get; set; } = default!;
+
+        public int Progress { get; set; }
+
+        public DateTime? UnlockedAt { get; set; }
+    }
+    // ADT-Achievements-End
+
     public class Round
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]

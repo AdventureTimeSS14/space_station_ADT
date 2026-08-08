@@ -30,6 +30,10 @@
   description: bublbegum desc
   parent: BaseMobBubblegum
   components:
+  - type: ADTAchievementSource
+    onDeath:
+    - ADTLavalandBubblegumKilled
+    - ADTLavalandBossKilled
   - type: GpsSignal
     tag: adt-gps-signal-bubblegum
     description: adt-gps-signal-bubblegum-desc

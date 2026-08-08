@@ -240,7 +240,11 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
 
     private void OnResonatorHit(Entity<ADTProjectileResonatorComponent> ent, ref ProjectileHitEvent args)
     {
-        _resonator.BlastAt(ent.Comp.FieldProto, Transform(ent).Coordinates, args.Shooter, ent.Comp.BurstMultiplier);
+        var coords = TerminatingOrDeleted(args.Target)
+            ? Transform(ent).Coordinates
+            : Transform(args.Target).Coordinates;
+
+        _resonator.BlastAt(ent.Comp.FieldProto, coords, args.Shooter, ent.Comp.BurstMultiplier);
     }
 
     private void OnMarkedMobStateChanged(Entity<ADTSyphonMarkComponent> ent, ref MobStateChangedEvent args)
