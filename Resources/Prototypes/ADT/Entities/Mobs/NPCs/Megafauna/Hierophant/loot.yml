@@ -33,8 +33,8 @@
   - type: HierophantClub
     cardinalDamage: 15
     chaserDamage: 15
-    blastRange: 8
-    range: 3
+    blastRange: 11
+    range: 5
   - type: ItemActionGrant
     actions:
     - ActionADTHierophantVortexRecall
