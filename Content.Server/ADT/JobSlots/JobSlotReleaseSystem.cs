@@ -1,16 +1,17 @@
-using System.Linq;
 // SPDX-FileCopyrightText: 2026 ultradyper <ultradyper@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server.MassMedia.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Server.StationRecords;
+using Content.Server.StationRecords.Systems;
+using Content.Shared.StationRecords;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.GameTicking;
-using Content.Shared.Ghost;
 using Content.Shared.Gibbing;
-using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -28,8 +29,9 @@ namespace Content.Server.ADT.JobSlots;
 /// - тело сгнило (BeginRottingEvent, с этого момента дефибриллятор не работает);
 /// - тело уничтожено/расчленено (BeingGibbedEvent);
 /// - гостаут/дисконнект из ЖИВОГО тела (игрок не вернулся).
-/// Слот освобождается ТОЛЬКО через <see cref="ReleaseDelay"/> после события: за это время
-/// успевает отработать клонирование и отыграть ВрИО (acting head), чтобы не было дублей должности.
+/// Слот освобождается через <see cref="ReleaseDelay"/> после события независимо от того,
+/// что дальше делает игрок (призрак, гост-роль, поздний вход за другого, клон). Отмена -
+/// только если игрок вернулся в СВОЁ тело до дедлайна.
 /// Паттерн возврата слота скопирован из CryostorageSystem: PlayerJobs -> TryAdjustJobSlot(+1, clamp) -> TryRemovePlayerJobs.
 /// Об освободившейся должности публикуется новость в КПК (NewsSystem).
 /// </summary>
@@ -37,21 +39,22 @@ public sealed partial class JobSlotReleaseSystem : EntitySystem
 {
     /// <summary>
     /// Задержка между потерей тела и освобождением слота: гостаут из живого тела,
-    /// начало гниения, гибб. Даёт время на клонирование и отыгрыш ВрИО.
+    /// начало гниения, гибб. Даёт время на отыгрыш ВрИО и клонирование (дубль при клоне - принятая норма).
     /// </summary>
     public static readonly TimeSpan ReleaseDelay = TimeSpan.FromMinutes(10);
 
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly NewsSystem _news = default!;
+    [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
     [Dependency] private readonly StationJobsSystem _stationJobs = default!;
 
     private sealed record JobSlotData(
         NetUserId UserId,
         EntityUid Station,
         ProtoId<JobPrototype> JobId,
+        string CharacterName,
         TimeSpan? GhostSince,
         TimeSpan? ReleaseAt);
 
@@ -107,17 +110,6 @@ public sealed partial class JobSlotReleaseSystem : EntitySystem
             // Ждём дедлайн освобождения (рот/гибб уже случились).
             if (data.ReleaseAt != null)
             {
-                // Игрок успел получить новое тело (клон и т.п.): освобождение отменяем,
-                // слот остаётся за ним (PlayerJobs не трогаем).
-                if (_mind.TryGetMind(data.UserId, out var mind) &&
-                    mind.Value.Comp.CurrentEntity is { } current &&
-                    current != mob &&
-                    !HasComp<GhostComponent>(current))
-                {
-                    _tracked.Remove(mob);
-                    continue;
-                }
-
                 if (curTime >= data.ReleaseAt.Value)
                     ReleaseJobSlot(mob);
                 continue;
@@ -146,7 +138,8 @@ public sealed partial class JobSlotReleaseSystem : EntitySystem
 
         // Не удаляем старые записи этого игрока: если его прежнее тело сгниёт или он бросил его
         // гостаутом, слот СТАРОЙ должности должен освободиться отдельно от новой.
-        _tracked[ev.Mob] = new JobSlotData(ev.Player.UserId, ev.Station, ev.JobId, null, null);
+        _tracked[ev.Mob] = new JobSlotData(ev.Player.UserId, ev.Station, ev.JobId, ev.Profile.Name, null, null);
+        Log.Info($"JobSlotRelease: спавн {ev.Player.UserId} за {ev.JobId} (lateJoin={ev.LateJoin}), тело {ev.Mob}, станция {ev.Station}");
     }
 
     private void OnBeginRotting(Entity<PerishableComponent> ent, ref BeginRottingEvent args)
@@ -174,6 +167,7 @@ public sealed partial class JobSlotReleaseSystem : EntitySystem
             return;
 
         _tracked[mob] = data with { ReleaseAt = _timing.CurTime + ReleaseDelay };
+        Log.Info($"JobSlotRelease: тело {mob} потеряно ({data.UserId}, должность {data.JobId}), слот освободится через {ReleaseDelay.TotalMinutes} мин");
     }
 
     /// <summary>
@@ -192,14 +186,35 @@ public sealed partial class JobSlotReleaseSystem : EntitySystem
             return;
 
         // Возвращаем только слот должности ЭТОГО тела: у игрока может быть новая должность
-        // (поздний вход), её слот не трогаем.
+        // (поздний вход), её слот не трогаем. Манифест и новость - только при реальном освобождении.
         if (jobs.Remove(data.JobId))
+        {
             _stationJobs.TryAdjustJobSlot(data.Station, data.JobId, 1, clamp: true);
+            Log.Info($"JobSlotRelease: освобождён слот {data.JobId} для {data.UserId} (тело {mob})");
+
+            RemoveManifestRecord(data.Station, data.CharacterName);
+            PublishVacancyNews(data.Station, data.JobId);
+        }
 
         if (jobs.Count == 0)
             _stationJobs.TryRemovePlayerJobs(data.Station, data.UserId, stationJobs);
+    }
 
-        PublishVacancyNews(data.Station, data.JobId);
+    /// <summary>
+    /// Удаляет персонажа из манифеста КПК (записи станции) при освобождении слота.
+    /// Паттерн как в CryostorageSystem: поиск записи по имени и удаление по ключу.
+    /// </summary>
+    private void RemoveManifestRecord(EntityUid station, string characterName)
+    {
+        if (characterName.Length == 0)
+            return;
+
+        if (_stationRecords.GetRecordByName(station, characterName) is not { } recordId)
+            return;
+
+        var key = new StationRecordKey(recordId, station);
+        _stationRecords.RemoveRecord(key);
+        Log.Info($"JobSlotRelease: удалена запись манифеста для {characterName} на станции {station}");
     }
 
     private void PublishVacancyNews(EntityUid station, ProtoId<JobPrototype> job)
