@@ -6,9 +6,12 @@ thunderdome-ghost-button-default = Колизей (0)
 thunderdome-loadout-title = Экипировка колизея
 thunderdome-loadout-players = Людей в колизее: {$count}
 thunderdome-loadout-subtitle = Выберите своё основное оружие
+thunderdome-loadout-equipment-header = Экипировка
+thunderdome-loadout-equipment-subtitle = Необязательно, можно выбрать дополнительно
 thunderdome-loadout-confirm = Войти в колизей
 
 # Weapon categories
+thunderdome-category-equipment = Разгрузка
 thunderdome-category-shotguns = Дробовики
 thunderdome-category-smgs = Пистолеты-пулемёты
 thunderdome-category-rifles = Винтовки
@@ -58,6 +61,7 @@ thunderdome-join = {$player} зашёл в колизей!
 thunderdome-leave = {$player} вышел с колизея.
 thunderdome-leave-01 = {$user} пропадает. Кажется, он устал от бойни.
 
+thunderdome-desc-armyrps = Армейский разгрузочный пояс с вместительными подсумками. Пустой, заполняй патронами
 thunderdome-desc-capo = Капоэйра + микроинъектор и инъектор гиперзина + 2 автоинъектора
 thunderdome-desc-mosin = Кардешёв-Мосина + 3 магазина + ушанка + ВОДКА
 thunderdome-desc-cqc = Руководство по CQC + микроинъектор
@@ -74,6 +78,7 @@ thunderdome-desc-deckard = Револьвер Декард + 3 спидлоад�
 thunderdome-desc-sabre = Сабля капитана + энергетический щит + микроинъектор и инъектор гиперзина
 thunderdome-desc-enforcer = Силовик + 1 коробка дроби, 1 коробка пули
 
+thunderdome-loadout-armyrps = Армейский РПС
 thunderdome-loadout-capo = Капоэйра
 thunderdome-loadout-mosin = Кардешёв-Мосина
 thunderdome-loadout-cqc = CQC
