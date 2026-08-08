@@ -9,23 +9,14 @@ using Robust.Shared.Audio;
 
 namespace Content.Shared.ADT.MartialArts;
 
-/// <summary>
-/// Боевые искусства оружия. Комбо копится на самом предмете, а не на бойце,
-/// как в SS13, где стили из mind срабатывают только на безоружных атаках,
-/// а оружейные приёмы каждый предмет считает сам.
-/// </summary>
 public partial class SharedMartialArtsSystem
 {
     private void InitializeWeaponCombos()
     {
-        // ComponentStartup, а не MapInit: у сущностей, приехавших с сервера, MapInit на клиенте
-        // не поднимается, и список приёмов остался бы пустым.
         SubscribeLocalEvent<WeaponMartialArtComponent, ComponentStartup>(OnWeaponComboStartup);
         SubscribeLocalEvent<WeaponMartialArtComponent, AfterInteractEvent>(OnWeaponComboAfterInteract);
         SubscribeLocalEvent<WeaponMartialArtComponent, DroppedEvent>(OnWeaponComboDropped);
 
-        // Событие поднимается на бойце, поэтому подписываемся на руки: оружие всё равно
-        // ищется по активной руке, а не по полю Weapon - захват пишет туда самого бойца.
         SubscribeLocalEvent<HandsComponent, ComboAttackPerformedEvent>(OnWeaponComboAttackPerformed);
     }
 
@@ -44,8 +35,6 @@ public partial class SharedMartialArtsSystem
         }
     }
 
-    #region Event Methods
-
     private void OnWeaponComboStartup(Entity<WeaponMartialArtComponent> ent, ref ComponentStartup args)
     {
         ent.Comp.AllowedCombos.Clear();
@@ -59,10 +48,6 @@ public partial class SharedMartialArtsSystem
         }
     }
 
-    /// <summary>
-    /// Клик предметом по существу вне режима боя - интент помощи.
-    /// Безоружный аналог сидит в OnInteract и даёт Hug.
-    /// </summary>
     private void OnWeaponComboAfterInteract(Entity<WeaponMartialArtComponent> ent, ref AfterInteractEvent args)
     {
         if (!args.CanReach
@@ -89,13 +74,6 @@ public partial class SharedMartialArtsSystem
         RegisterWeaponStep((held.Value, weapon), args.Performer, args.Target, args.Type);
     }
 
-    #endregion
-
-    #region Helper Methods
-
-    /// <summary>
-    /// Записывает шаг комбо в оружие и проверяет, не сложился ли приём.
-    /// </summary>
     private void RegisterWeaponStep(Entity<WeaponMartialArtComponent> weapon,
         EntityUid user,
         EntityUid target,
@@ -103,7 +81,6 @@ public partial class SharedMartialArtsSystem
     {
         var comp = weapon.Comp;
 
-        // Как в SS13: шаг пишется только по живой чужой цели.
         if (target == user
             || !HasComp<MobStateComponent>(target)
             || _mobState.IsDead(target))
@@ -115,12 +92,9 @@ public partial class SharedMartialArtsSystem
             return;
         }
 
-        // Размашистый удар поднимает событие на каждую задетую цель - считаем только первую.
         if (comp.LastAttacks.Count > 0 && comp.ResetTime - comp.ComboWindow == _timing.CurTime)
             return;
 
-        // Помощь и захват не ограничены скоростью оружия, поэтому им нужен свой кулдаун,
-        // иначе комбо на этих шагах набирается простым закликиванием.
         if (comp.ThrottledSteps.Contains(type))
         {
             if (_timing.CurTime < comp.NextThrottledStep)
@@ -149,10 +123,6 @@ public partial class SharedMartialArtsSystem
         Dirty(weapon);
     }
 
-    /// <summary>
-    /// Ищет приём, чей набор шагов совпадает с хвостом буфера. Побеждает самый длинный,
-    /// иначе короткое комбо срабатывало бы по дороге к длинному.
-    /// </summary>
     private void CheckWeaponCombo(Entity<WeaponMartialArtComponent> weapon)
     {
         var comp = weapon.Comp;
@@ -195,10 +165,6 @@ public partial class SharedMartialArtsSystem
 
         user ??= comp.CurrentUser;
 
-        // Попап поднимаем только на сервере. Клиент чистит набор предсказанием, потом
-        // получает состояние сервера, где сброса ещё не было, и на следующем тике сбрасывает
-        // снова - и так до тех пор, пока сервер не догонит. PopupClient от этого не спасает:
-        // он отсекает лишь повторы внутри одного тика, а тут сброс честно случается много раз.
         if (popup && user != null && !TerminatingOrDeleted(user.Value) && _netManager.IsServer)
         {
             _popupSystem.PopupEntity(Loc.GetString("weapon-martial-art-neutral-stance"), user.Value, user.Value);
@@ -213,9 +179,6 @@ public partial class SharedMartialArtsSystem
         return HasComp<MartialArtsKnowledgeComponent>(user) || HasComp<KravMagaComponent>(user);
     }
 
-    /// <summary>
-    /// Общий хвост удавшегося приёма: звук, попап и возврат в нейтральную стойку.
-    /// </summary>
     private void FinishWeaponCombo(Entity<WeaponMartialArtComponent> weapon,
         EntityUid user,
         EntityUid target,
@@ -227,9 +190,6 @@ public partial class SharedMartialArtsSystem
         ResetWeaponCombo(weapon, false);
     }
 
-    /// <summary>
-    /// Строки с приёмами оружия для осмотра: название и последовательность интентов.
-    /// </summary>
     public List<string> GetWeaponComboDescriptions(EntityUid weapon)
     {
         var result = new List<string>();
@@ -250,10 +210,6 @@ public partial class SharedMartialArtsSystem
         return result;
     }
 
-    /// <summary>
-    /// Бросок цели с уроном при столкновении. Обёртка, чтобы серверным приёмам
-    /// оружия не тянуть за собой GrabThrownSystem.
-    /// </summary>
     public void GrabThrow(EntityUid target,
         EntityUid thrower,
         System.Numerics.Vector2 vector,
@@ -264,9 +220,6 @@ public partial class SharedMartialArtsSystem
         _grabThrown.Throw(target, thrower, vector, speed, impactDamage, dropItems);
     }
 
-    /// <summary>
-    /// Оружейный аналог <see cref="TryUseMartialArt"/>. Вызывается из обработчиков приёмов.
-    /// </summary>
     public bool TryUseWeaponMartialArt(Entity<WeaponMartialArtComponent> weapon,
         [System.Diagnostics.CodeAnalysis.NotNullWhen(true)] out ComboPrototype? proto,
         out EntityUid user,
@@ -306,6 +259,4 @@ public partial class SharedMartialArtsSystem
             return TryComp<StandingStateComponent>(uid, out var standing) && !standing.Standing;
         }
     }
-
-    #endregion
 }
