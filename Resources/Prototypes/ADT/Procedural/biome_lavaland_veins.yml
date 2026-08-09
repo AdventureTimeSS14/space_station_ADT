@@ -191,6 +191,20 @@
   maxCount: 14
   radius: 3
 
+- type: biomeMarkerLayer
+  id: ADTLavaVeinOreMagmite
+  entityMask:
+    AsteroidRock: ADTAsteroidRockMagmite
+    WallRock: ADTWallRockMagmite
+    WallRockBasalt: ADTWallRockBasaltMagmite
+    WallRockChromite: ADTWallRockChromiteMagmite
+    WallRockSand: ADTWallRockSandMagmite
+    WallRockSnow: ADTWallRockSnowMagmite
+  maxCount: 4
+  minGroupSize: 1
+  maxGroupSize: 2
+  radius: 2
+
 # Стада и мелкая живность
 - type: biomeMarkerLayer
   id: ADTLavaGutlunchHerd

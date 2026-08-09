@@ -4,6 +4,8 @@
   parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
   description: The Pistol trades base damage, and range, for double mod capacity, making it a truely customizable PKA.
   components:
+  - type: ADTMagmiteUpgradable
+    result: ADTWeaponProtoKineticPistolMega
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_pistol.rsi
     layers:
@@ -54,6 +56,8 @@
   parent: [WeaponProtoKineticAcceleratorBase, BaseGunWieldable, BaseCargoContraband]
   description: The Repeater trades mod space and a bit of damage for the ability to fire three shots in rapid succession before needing to recharge, while also doing more damage than base PKA if all three shots are landed.
   components:
+  - type: ADTMagmiteUpgradable
+    result: ADTWeaponProtoKineticRepeaterMega
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_repeater.rsi
     layers:
@@ -107,6 +111,8 @@
   parent: [WeaponProtoKineticAcceleratorBase, BaseGunWieldable, BaseCargoContraband]
   description: The Railgun trades customization, fire rate, and storage capabilities for the ability to fire a high damage shot that penetrates creatures!
   components:
+  - type: ADTMagmiteUpgradable
+    result: ADTWeaponProtoKineticRailgunMega
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_railgun.rsi
     layers:
@@ -154,6 +160,8 @@
   parent: [WeaponProtoKineticAcceleratorBase, BaseGunWieldable, BaseCargoContraband]
   description: The Shotgun fires a short range spread of six rounds that does more damage than base PKA if the whole volley lands. This trades mod capacity and cooldown speed.
   components:
+  - type: ADTMagmiteUpgradable
+    result: ADTWeaponProtoKineticShotgunMega
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_shotgun.rsi
     layers:

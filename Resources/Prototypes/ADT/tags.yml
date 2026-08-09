@@ -921,3 +921,12 @@
 
 - type: Tag
   id: ConstantTemperatureThresholds # make entity ignore parent temperature thresholds from TemperatureContainerComponent
+
+- type: Tag
+  id: ADTMagmite
+
+- type: Tag
+  id: ADTMagmitePartsInert
+
+- type: Tag
+  id: LavaDungeonWorldAnvil
