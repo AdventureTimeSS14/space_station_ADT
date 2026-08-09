@@ -167,7 +167,7 @@ public partial class SharedMartialArtsSystem
         if (downed)
         {
             if (TryComp<StaminaComponent>(target, out var stamina) && stamina.Critical)
-                _newStatus.TryAddStatusEffectDuration(target, "StatusEffectForcedSleeping", out _, TimeSpan.FromSeconds(10));
+                _newStatus.TryAddStatusEffectDuration(target, "StatusEffectForcedSleeping", out _, TimeSpan.FromSeconds(6));
             var downedDmg = proto.DownedExtraDamage > 0 ? proto.DownedExtraDamage : proto.ExtraDamage;
             DoDamage(ent, target, proto.DamageType, downedDmg, out _);
         }
