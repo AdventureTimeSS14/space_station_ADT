@@ -318,11 +318,10 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
                 ? component.RechargeRatePerTier * MathF.Pow(2f, capacitorTier - 2f)
                 : 0f;
 
-            // ADT-Tweak: серво разблокирует реагенты по тирам (Т1: соль/пепел/топливо, Т2: ацетон/аммиак, ...)
-            var servoTier = args.GetPartRating(component.ServoPart, 1f);
+            var scanningModuleTier = args.GetPartRating(component.ScanningModulePart, 1f);
             foreach (var (tier, reagents) in component.TierReagents)
             {
-                if (servoTier < tier)
+                if (scanningModuleTier < tier)
                     continue;
 
                 foreach (var reagent in reagents)
