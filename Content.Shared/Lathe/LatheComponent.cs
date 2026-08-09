@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Construction.Prototypes;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Research.Prototypes;
@@ -84,6 +85,38 @@ namespace Content.Shared.Lathe
         [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
         public float MaterialUseMultiplier = 1;
         #endregion
+
+        // ADT-Tweak-Start: machine parts with tiers
+        [DataField, AutoNetworkedField]
+        public float FinalTimeMultiplier = 1;
+
+        [DataField, AutoNetworkedField]
+        public float FinalMaterialMultiplier = 1;
+
+        [DataField]
+        public ProtoId<MachinePartPrototype> MachinePartPrintSpeed = "Servo";
+
+        [DataField]
+        public float BaseMachinePartEfficiency = 1.2f;
+
+        [DataField]
+        public float MachinePartEfficiencyTierStep = 0.1f;
+
+        [DataField]
+        public float MachinePartEfficiencyExponent = 0.8f;
+
+        [DataField]
+        public float MinMachinePartEfficiency = 0.1f;
+
+        [DataField]
+        public ProtoId<MachinePartPrototype> MachinePartMaterialCapacity = "MatterBin";
+
+        [DataField]
+        public int MaterialStorageTierCapacityBonus = 3750;
+
+        [DataField]
+        public int? BaseStorageLimit;
+        // ADT-Tweak-End
     }
 
     public sealed class LatheGetRecipesEvent : EntityEventArgs

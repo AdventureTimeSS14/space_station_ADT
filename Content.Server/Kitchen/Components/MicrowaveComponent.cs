@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Construction.Prototypes;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Item;
@@ -17,6 +18,12 @@ namespace Content.Server.Kitchen.Components
     {
         [DataField("cookTimeMultiplier"), ViewVariables(VVAccess.ReadWrite)]
         public float CookTimeMultiplier = 1;
+
+        // ADT-Tweak-Start: machine parts with tiers
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float BaseCookTimeMultiplier = 1;
+        // ADT-Tweak-End
+
         [DataField("cookTimeScalingConstant")]
         public float CookTimeScalingConstant = 0.5f;
         [DataField("baseHeatMultiplier"), ViewVariables(VVAccess.ReadWrite)]
@@ -90,6 +97,11 @@ namespace Content.Server.Kitchen.Components
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public int Capacity = 10;
 
+        // ADT-Tweak-Start: machine parts with tiers
+        [ViewVariables(VVAccess.ReadWrite)]
+        public int BaseCapacity = 10;
+        // ADT-Tweak-End
+
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public ProtoId<ItemSizePrototype> MaxItemSize = "Normal";
 
@@ -104,6 +116,17 @@ namespace Content.Server.Kitchen.Components
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float ExplosionChance = .1f;
+
+        // ADT-Tweak-Start: machine parts with tiers
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float BaseExplosionChance = .1f;
+
+        [DataField]
+        public ProtoId<MachinePartPrototype> MicroLaserPart = "MicroLaser";
+
+        [DataField]
+        public ProtoId<MachinePartPrototype> MatterBinPart = "MatterBin";
+        // ADT-Tweak-End
 
         /// <summary>
         /// Chance of lightning occurring when we microwave a metallic object

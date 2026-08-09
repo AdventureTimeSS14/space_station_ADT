@@ -1,5 +1,7 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Botany.Components;
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Events;
 using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Shared.Administration.Logs;
@@ -65,7 +67,31 @@ public sealed class PlantHolderSystem : EntitySystem
         SubscribeLocalEvent<PlantHolderComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<PlantHolderComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<PlantHolderComponent, SolutionTransferredEvent>(OnSolutionTransferred);
+
+        // ADT-Tweak-Start: machine parts with tiers
+        SubscribeLocalEvent<PlantHolderComponent, RefreshPartsEvent>(OnRefreshParts);
+        SubscribeLocalEvent<PlantHolderComponent, UpgradeExamineEvent>(OnUpgradeExamine);
+        // ADT-Tweak-End
     }
+
+    // ADT-Tweak-Start: machine parts with tiers
+    private static void OnRefreshParts(EntityUid uid, PlantHolderComponent component, RefreshPartsEvent args)
+    {
+        var bin = args.GetPartRating(MachinePartIds.MatterBin);
+        var servo = args.GetPartRating(MachinePartIds.Servo);
+        component.MaxWater = component.BaseMaxWater * RefreshPartsEvent.GetPositiveTierMultiplier(bin);
+        component.MaxNutrition = component.BaseMaxNutrition * RefreshPartsEvent.GetPositiveTierMultiplier(bin);
+        // ADT-Tweak: базовые части (тир 1) не дают прибавок
+        component.NutrientConsumptionMultiplier = servo > 1f ? MathF.Max(0.5f, 1f - (servo - 1f) * 0.1f) : 1f;
+    }
+
+    private static void OnUpgradeExamine(EntityUid uid, PlantHolderComponent component, UpgradeExamineEvent args)
+    {
+        args.AddPercentageUpgrade("machine-upgrade-hydro-water", component.MaxWater / component.BaseMaxWater);
+        args.AddPercentageUpgrade("machine-upgrade-hydro-nutrition", component.MaxNutrition / component.BaseMaxNutrition);
+        args.AddPercentageUpgrade("machine-upgrade-hydro-nutrition-consume", component.NutrientConsumptionMultiplier);
+    }
+    // ADT-Tweak-End
 
     public override void Update(float frameTime)
     {
@@ -473,7 +499,7 @@ public sealed class PlantHolderSystem : EntitySystem
         // Nutrient consumption.
         if (component.Seed.NutrientConsumption > 0 && component.NutritionLevel > 0 && _random.Prob(0.75f))
         {
-            component.NutritionLevel -= MathF.Max(0f, component.Seed.NutrientConsumption * HydroponicsSpeedMultiplier);
+            component.NutritionLevel -= MathF.Max(0f, component.Seed.NutrientConsumption * HydroponicsSpeedMultiplier * component.NutrientConsumptionMultiplier); // ADT-Tweak: machine parts
             if (component.DrawWarnings)
                 component.UpdateSpriteAfterUpdate = true;
         }

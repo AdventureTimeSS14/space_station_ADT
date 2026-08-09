@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Emp;
 using Content.Shared.Examine;
 using Content.Shared.Power.Components;
@@ -36,10 +37,17 @@ public sealed class ChargerSystem : EntitySystem
         SubscribeLocalEvent<ChargerComponent, EmpDisabledRemovedEvent>(OnEmpRemoved);
         SubscribeLocalEvent<InsideChargerComponent, RefreshChargeRateEvent>(OnRefreshChargeRate);
         SubscribeLocalEvent<InsideChargerComponent, BatteryStateChangedEvent>(OnStatusChanged);
+        SubscribeLocalEvent<ChargerComponent, RefreshPartsEvent>(OnPartsRefresh); // ADT-Tweak
+        SubscribeLocalEvent<ChargerComponent, UpgradeExamineEvent>(OnUpgradeExamine); // ADT-Tweak
     }
 
     private void OnStartup(Entity<ChargerComponent> ent, ref ComponentStartup args)
     {
+        // ADT-Tweak-Start: machine parts with tiers
+        ent.Comp.BaseChargeRate = ent.Comp.ChargeRate;
+        ent.Comp.FinalChargeRate = ent.Comp.ChargeRate;
+        // ADT-Tweak-End
+
         UpdateStatus(ent);
     }
 
@@ -199,6 +207,26 @@ public sealed class ChargerSystem : EntitySystem
                 _battery.RefreshChargeRate(battery.Value.AsNullable());
         }
     }
+
+    // ADT-Tweak-Start: machine parts with tiers
+    private void OnPartsRefresh(EntityUid uid, ChargerComponent component, RefreshPartsEvent args)
+    {
+        var capTier = args.GetPartRating(component.ChargePart);
+        component.FinalChargeRate = component.BaseChargeRate * RefreshPartsEvent.GetPositiveTierMultiplier(capTier);
+        component.ChargeRate = component.FinalChargeRate;
+
+        UpdateStatus((uid, component));
+    }
+
+    private static void OnUpgradeExamine(EntityUid uid, ChargerComponent component, UpgradeExamineEvent args)
+    {
+        var efficiency = component.BaseChargeRate <= 0f
+            ? 1f
+            : component.FinalChargeRate / component.BaseChargeRate;
+
+        args.AddPercentageUpgrade("machine-upgrade-charging-efficiency", efficiency);
+    }
+    // ADT-Tweak-End
 
     private void UpdateStatus(Entity<ChargerComponent> ent)
     {

@@ -1,4 +1,6 @@
 using System.Linq;
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body;
 using Content.Shared.Body.Components;
@@ -131,6 +133,10 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
 
         if (solutionToInject.Volume > 0)
         {
+            // ADT-Tweak: machine parts with tiers
+            if (entity.Comp.CoolingEfficiency > 1f)
+                solutionToInject.ScaleSolution(entity.Comp.CoolingEfficiency);
+
             _bloodstream.TryAddToBloodstream((patient.Value, bloodstream), solutionToInject);
             _reactive.DoEntityReaction(patient.Value, solutionToInject, ReactionMethod.Injection);
         }
@@ -525,4 +531,21 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
 
     [Serializable, NetSerializable]
     public sealed partial class CryoPodDragFinished : SimpleDoAfterEvent;
+
+    // ADT-Tweak-Start: machine parts with tiers
+    private static void OnRefreshParts(EntityUid uid, CryoPodComponent component, RefreshPartsEvent args)
+    {
+        var matter = args.GetPartRating(MachinePartIds.MatterBin);
+        var laser = args.GetPartRating(MachinePartIds.MicroLaser);
+        component.BeakerTransferAmount = component.BaseBeakerTransferAmount * RefreshPartsEvent.GetPositiveTierMultiplier(matter);
+        component.CoolingEfficiency = RefreshPartsEvent.GetPositiveTierMultiplier(laser);
+    }
+
+    private static void OnUpgradeExamine(EntityUid uid, CryoPodComponent component, UpgradeExamineEvent args)
+    {
+        args.AddPercentageUpgrade("machine-upgrade-cryo-transfer", component.BeakerTransferAmount.Float() / component.BaseBeakerTransferAmount.Float());
+        args.AddPercentageUpgrade("machine-upgrade-cryo-cooling", component.CoolingEfficiency);
+    }
+    // ADT-Tweak-End
+
 }

@@ -1,5 +1,7 @@
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Power;
 using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
@@ -25,10 +27,22 @@ public sealed class SmesSystem : EntitySystem //ADT-tweak: made public
 
         SubscribeLocalEvent<SmesComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SmesComponent, ChargeChangedEvent>(OnBatteryChargeChanged);
+        SubscribeLocalEvent<SmesComponent, RefreshPartsEvent>(OnPartsRefresh); // ADT-Tweak
+        SubscribeLocalEvent<SmesComponent, UpgradeExamineEvent>(OnUpgradeExamine); // ADT-Tweak
     }
 
     private void OnMapInit(EntityUid uid, SmesComponent component, MapInitEvent args)
     {
+        // ADT-Tweak-Start: machine parts with tiers
+        if (TryComp<PowerNetworkBatteryComponent>(uid, out var netBattery))
+        {
+            component.BaseMaxSupply = netBattery.MaxSupply;
+            component.BaseMaxChargeRate = netBattery.MaxChargeRate;
+            component.FinalMaxSupply = netBattery.MaxSupply;
+            component.FinalMaxChargeRate = netBattery.MaxChargeRate;
+        }
+        // ADT-Tweak-End
+
         UpdateSmesState(uid, component);
     }
 
@@ -36,6 +50,36 @@ public sealed class SmesSystem : EntitySystem //ADT-tweak: made public
     {
         UpdateSmesState(uid, component);
     }
+
+    // ADT-Tweak-Start: machine parts with tiers
+    private void OnPartsRefresh(EntityUid uid, SmesComponent component, RefreshPartsEvent args)
+    {
+        if (!TryComp<PowerNetworkBatteryComponent>(uid, out var netBattery))
+            return;
+
+        // ADT-Tweak: базовые части (тир 1) не дают прибавок (средний рейтинг, не сумма)
+        var rating = Math.Max(1f, args.GetPartRating(MachinePartIds.Capacitor));
+        component.FinalMaxSupply = component.BaseMaxSupply * rating;
+        component.FinalMaxChargeRate = component.BaseMaxChargeRate * rating;
+        netBattery.MaxSupply = component.FinalMaxSupply;
+        netBattery.MaxChargeRate = component.FinalMaxChargeRate;
+
+        UpdateSmesState(uid, component);
+    }
+
+    private static void OnUpgradeExamine(EntityUid uid, SmesComponent component, UpgradeExamineEvent args)
+    {
+        var inputMultiplier = component.BaseMaxChargeRate <= 0f
+            ? 1f
+            : component.FinalMaxChargeRate / component.BaseMaxChargeRate;
+        var outputMultiplier = component.BaseMaxSupply <= 0f
+            ? 1f
+            : component.FinalMaxSupply / component.BaseMaxSupply;
+
+        args.AddPercentageUpgrade("machine-upgrade-power-input", inputMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-power-output", outputMultiplier);
+    }
+    // ADT-Tweak-End
 
     private void UpdateSmesState(EntityUid uid, SmesComponent smes)
     {

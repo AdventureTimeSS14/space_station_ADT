@@ -1,4 +1,5 @@
 using Content.Shared.Access.Systems;
+using Content.Shared.ADT.Construction.Components;
 using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Lathe;
 using Robust.Shared.Audio.Systems;
@@ -30,8 +31,14 @@ public sealed class MiningPointsSystem : EntitySystem
     private void OnStartPrinting(Entity<MiningPointsLatheComponent> ent, ref LatheStartPrintingEvent args)
     {
         var points = args.Recipe.MiningPoints;
-        if (points > 0)
-            AddPoints(ent.Owner, points);
+        if (points <= 0)
+            return;
+
+        // ADT-Tweak: очки шахтёров зависят от прокачки печи (машинные части)
+        if (TryComp<OreProcessorUpgradeComponent>(ent, out var oreUpgrade))
+            points = (uint)MathF.Round(points * oreUpgrade.OutputMultiplier);
+
+        AddPoints(ent.Owner, points);
     }
 
     private void OnClaimMiningPoints(Entity<MiningPointsLatheComponent> ent, ref LatheClaimMiningPointsMessage args)

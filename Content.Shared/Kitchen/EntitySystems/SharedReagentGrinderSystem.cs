@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Containers.ItemSlots;
@@ -51,6 +52,11 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
         SubscribeLocalEvent<ReagentGrinderComponent, InteractUsingEvent>(OnInteractUsing);
 
         SubscribeLocalEvent<ReagentGrinderComponent, ReagentGrinderStartMessage>(OnStartMessage);
+
+        // ADT-Tweak-Start: machine parts with tiers
+        SubscribeLocalEvent<ReagentGrinderComponent, RefreshPartsEvent>(OnPartsRefresh);
+        SubscribeLocalEvent<ReagentGrinderComponent, UpgradeExamineEvent>(OnUpgradeExamine);
+        // ADT-Tweak-End
         SubscribeLocalEvent<ReagentGrinderComponent, ReagentGrinderToggleAutoModeMessage>(OnToggleAutoModeMessage);
         SubscribeLocalEvent<ReagentGrinderComponent, ReagentGrinderEjectChamberAllMessage>(OnEjectChamberAllMessage);
         SubscribeLocalEvent<ReagentGrinderComponent, ReagentGrinderEjectChamberContentMessage>(OnEjectChamberContentMessage);
@@ -67,7 +73,34 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
     private void OnGrinderStartup(Entity<ReagentGrinderComponent> ent, ref ComponentStartup args)
     {
         ent.Comp.InputContainer = _containerSystem.EnsureContainer<Container>(ent.Owner, ReagentGrinderComponent.InputContainerId);
+        ent.Comp.BaseStorageMaxEntities = ent.Comp.StorageMaxEntities; // ADT-Tweak: machine parts
     }
+
+    // ADT-Tweak-Start: machine parts with tiers
+    private void OnPartsRefresh(EntityUid uid, ReagentGrinderComponent component, RefreshPartsEvent args)
+    {
+        var servoTier = args.GetPartRating(component.ServoPart, 1f);
+        var matterBinTier = args.GetPartRating(component.MatterBinPart, 1f);
+
+        component.WorkTimeMultiplier = 1f / MathF.Max(servoTier, 1f);
+        component.StorageMaxEntities = (int)MathF.Round(component.BaseStorageMaxEntities * RefreshPartsEvent.GetPositiveTierMultiplier(matterBinTier));
+
+        UpdateUi(uid);
+    }
+
+    private static void OnUpgradeExamine(EntityUid uid, ReagentGrinderComponent component, UpgradeExamineEvent args)
+    {
+        var speedMultiplier = component.WorkTimeMultiplier <= 0f
+            ? 1f
+            : 1f / component.WorkTimeMultiplier;
+        var capacityMultiplier = component.BaseStorageMaxEntities <= 0
+            ? 1f
+            : (float) component.StorageMaxEntities / component.BaseStorageMaxEntities;
+
+        args.AddPercentageUpgrade("machine-upgrade-process-speed", speedMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-capacity", capacityMultiplier);
+    }
+    // ADT-Tweak-End
 
     private void OnEntRemovingAttempt(Entity<ReagentGrinderComponent> ent, ref ContainerIsRemovingAttemptEvent args)
     {

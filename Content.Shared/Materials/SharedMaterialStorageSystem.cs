@@ -436,4 +436,15 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         return true;
     }
 ///ADT plasmacutters end
+
+    // ADT-Tweak-Start: machine parts with tiers
+    public void SetStorageLimit(EntityUid uid, int? storageLimit, MaterialStorageComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.StorageLimit = storageLimit;
+        Dirty(uid, component);
+    }
+    // ADT-Tweak-End
 }

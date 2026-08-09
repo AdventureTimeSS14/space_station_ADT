@@ -40,6 +40,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Temperature.Components;
 using Content.Shared.Damage;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.Construction.Events; // ADT-Tweak: machine parts
 using Content.Shared.ADT.Kitchem.Components; // ADT-Tweak
 using Content.Shared.Power.EntitySystems;
 
@@ -93,6 +94,11 @@ namespace Content.Server.Kitchen.EntitySystems
             SubscribeLocalEvent<MicrowaveComponent, SuicideByEnvironmentEvent>(OnSuicideByEnvironment);
 
             SubscribeLocalEvent<MicrowaveComponent, SignalReceivedEvent>(OnSignalReceived);
+
+            // ADT-Tweak-Start: machine parts with tiers
+            SubscribeLocalEvent<MicrowaveComponent, RefreshPartsEvent>(OnPartsRefresh);
+            SubscribeLocalEvent<MicrowaveComponent, UpgradeExamineEvent>(OnUpgradeExamine);
+            // ADT-Tweak-End
 
             SubscribeLocalEvent<MicrowaveComponent, MicrowaveStartCookMessage>((u, c, m) => Wzhzhzh(u, c, m.Actor));
             SubscribeLocalEvent<MicrowaveComponent, MicrowaveEjectMessage>(OnEjectMessage);
@@ -296,6 +302,12 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void OnMapInit(Entity<MicrowaveComponent> ent, ref MapInitEvent args)
         {
+            // ADT-Tweak-Start: machine parts with tiers
+            ent.Comp.BaseCookTimeMultiplier = ent.Comp.CookTimeMultiplier;
+            ent.Comp.BaseCapacity = ent.Comp.Capacity;
+            ent.Comp.BaseExplosionChance = ent.Comp.ExplosionChance;
+            // ADT-Tweak-End
+
             _deviceLink.EnsureSinkPorts(ent, ent.Comp.OnPort);
         }
 
@@ -484,6 +496,37 @@ namespace Content.Server.Kitchen.EntitySystems
 
             Wzhzhzh(ent.Owner, ent.Comp, null);
         }
+
+        // ADT-Tweak-Start: machine parts with tiers
+        private void OnPartsRefresh(EntityUid uid, MicrowaveComponent component, RefreshPartsEvent args)
+        {
+            var microLaserTier = args.GetPartRating(component.MicroLaserPart);
+            var matterBinTier = args.GetPartRating(component.MatterBinPart);
+            // ADT-Tweak: базовые части (тир 1) не дают прибавок; эффект с тира 2
+            component.CookTimeMultiplier = component.BaseCookTimeMultiplier * (microLaserTier > 1f ? MathF.Max(0.5f, 1f - (microLaserTier - 1f) * 0.1f) : 1f);
+            component.ExplosionChance = MathF.Max(0f, component.BaseExplosionChance - MathF.Max(0f, microLaserTier - 1f) * 0.05f);
+            component.Capacity = (int)MathF.Round(component.BaseCapacity * RefreshPartsEvent.GetPositiveTierMultiplier(matterBinTier));
+
+            UpdateUserInterfaceState(uid, component);
+        }
+
+        private static void OnUpgradeExamine(EntityUid uid, MicrowaveComponent component, UpgradeExamineEvent args)
+        {
+            var speedMultiplier = component.CookTimeMultiplier <= 0f
+                ? 1f
+                : 1f / component.CookTimeMultiplier;
+            var capacityMultiplier = component.BaseCapacity <= 0
+                ? 1f
+                : (float)component.Capacity / component.BaseCapacity;
+            var malfunctionReduction = component.BaseExplosionChance <= 0f
+                ? 1f
+                : component.ExplosionChance / component.BaseExplosionChance;
+
+            args.AddPercentageUpgrade("machine-upgrade-cook-speed", speedMultiplier);
+            args.AddPercentageUpgrade("machine-upgrade-capacity", capacityMultiplier);
+            args.AddPercentageUpgrade("machine-upgrade-malfunction-reduction", malfunctionReduction);
+        }
+        // ADT-Tweak-End
 
         public void UpdateUserInterfaceState(EntityUid uid, MicrowaveComponent component)
         {

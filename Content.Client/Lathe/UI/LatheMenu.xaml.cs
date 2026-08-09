@@ -259,7 +259,7 @@ public sealed partial class LatheMenu : FancyWindow
         var amount = LatheSystem.MaxItemsPerRequest;
         foreach (var (id, needed) in recipe.Materials)
         {
-            var perItem = SharedLatheSystem.AdjustMaterial(needed, recipe.ApplyMaterialDiscount, lathe.MaterialUseMultiplier);
+            var perItem = SharedLatheSystem.AdjustMaterial(needed, recipe.ApplyMaterialDiscount, lathe.FinalMaterialMultiplier); // ADT-Tweak: machine parts
             if (perItem <= 0)
                 continue;
 
@@ -275,7 +275,7 @@ public sealed partial class LatheMenu : FancyWindow
     private string GenerateTooltipText(LatheRecipePrototype prototype)
     {
         StringBuilder sb = new();
-        var multiplier = _entityManager.GetComponent<LatheComponent>(Entity).MaterialUseMultiplier;
+        var multiplier = _entityManager.GetComponent<LatheComponent>(Entity).FinalMaterialMultiplier; // ADT-Tweak: machine parts
 
         foreach (var (id, amount) in prototype.Materials)
         {

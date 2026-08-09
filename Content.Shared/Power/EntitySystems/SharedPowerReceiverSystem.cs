@@ -103,6 +103,15 @@ public abstract class SharedPowerReceiverSystem : EntitySystem
         entity.Comp.Load = load;
     }
 
+    // ADT-Tweak: machine parts with tiers (needed to write BatteryRechargeRate from outside)
+    public void SetBatteryRechargeRate(EntityUid uid, float rechargeRate, ApcPowerReceiverBatteryComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.BatteryRechargeRate = rechargeRate;
+    }
+
     /// <summary>
     /// Checks if entity is APC-powered device, and if it have power.
     /// </summary>

@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Construction.Events;
 using Content.Shared.ADT.Xenobiology.Components;
 using Content.Shared.ADT.Xenobiology.Systems;
 using Content.Shared.ADT.Xenobiology.SlimeGrinder;
@@ -46,7 +47,26 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         SubscribeLocalEvent<SlimeGrinderComponent, ClimbedOnEvent>(OnClimbedOn);
         SubscribeLocalEvent<SlimeGrinderComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<SlimeGrinderComponent, ReclaimerDoAfterEvent>(OnDoAfter);
+
+        // ADT-Tweak: машинные части с тирами
+        SubscribeLocalEvent<SlimeGrinderComponent, RefreshPartsEvent>(OnRefreshParts);
+        SubscribeLocalEvent<SlimeGrinderComponent, UpgradeExamineEvent>(OnUpgradeExamine);
     }
+
+    // ADT-Tweak-Start: машинные части с тирами
+    private void OnRefreshParts(EntityUid uid, SlimeGrinderComponent component, RefreshPartsEvent args)
+    {
+        var servoTier = MathF.Max(1f, args.GetPartRating(component.ServoPart, 1f));
+        component.ExtractMultiplier = servoTier; // Т1 x1, Т2 x2, Т3 x3, Т4 x4
+        component.WorkTimeMultiplier = 1f / servoTier; // скорость выше с каждым тиром
+    }
+
+    private static void OnUpgradeExamine(EntityUid uid, SlimeGrinderComponent component, UpgradeExamineEvent args)
+    {
+        args.AddPercentageUpgrade("machine-upgrade-slime-extract-multiplier", component.ExtractMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-process-speed", 1f / component.WorkTimeMultiplier);
+    }
+    // ADT-Tweak-End
 
     public override void Update(float frameTime)
     {
@@ -167,10 +187,10 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
             return;
 
         EnsureComp<ActiveSlimeGrinderComponent>(grinder);
-        grinder.Comp.ProcessingTimer += physics.FixturesMass * grinder.Comp.ProcessingTimePerUnitMass;
+        grinder.Comp.ProcessingTimer += physics.FixturesMass * grinder.Comp.ProcessingTimePerUnitMass * grinder.Comp.WorkTimeMultiplier; // ADT-Tweak: machine parts
 
         var extractProto = _xenobio.GetProducedExtract((toProcess, slime));
-        var extractQuantity = slime.ExtractsProduced;
+        var extractQuantity = (int)MathF.Round(slime.ExtractsProduced * grinder.Comp.ExtractMultiplier); // ADT-Tweak: machine parts
 
         if (!grinder.Comp.YieldQueue.ContainsKey(extractProto))
             grinder.Comp.YieldQueue.Add(extractProto, extractQuantity);

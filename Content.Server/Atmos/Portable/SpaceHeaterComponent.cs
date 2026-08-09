@@ -27,6 +27,14 @@ public sealed partial class SpaceHeaterComponent : Component
     [GuidebookData]
     public float MaxTemperature = Atmospherics.T20C + 20;
 
+    // ADT-Tweak-Start: machine parts with tiers
+    [DataField]
+    public float BaseMinTemperature = Atmospherics.T0C - 10;
+
+    [DataField]
+    public float BaseMaxTemperature = Atmospherics.T20C + 20;
+    // ADT-Tweak-End
+
     /// <summary>
     ///     Minimal target temperature the device can be set to
     /// </summary>
@@ -58,4 +66,8 @@ public sealed partial class SpaceHeaterComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float PowerConsumption = 3500f;
+
+    // ADT-Tweak: machine parts with tiers
+    [DataField]
+    public float BasePowerConsumption = 3500f;
 }

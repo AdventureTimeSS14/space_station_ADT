@@ -104,7 +104,8 @@ namespace Content.Shared.ADT.Chemistry
         EnergyReagentDispenserDispenseAmount selectedDispenseAmount,
         float batteryCharge,
         float batteryMaxCharge,
-        float currentReceivingEnergy)
+        float currentReceivingEnergy,
+        bool hasCell)
         : BoundUserInterfaceState
     {
         public readonly ContainerInfo? OutputContainer = outputContainer;
@@ -120,6 +121,11 @@ namespace Content.Shared.ADT.Chemistry
         public readonly float BatteryCharge = batteryCharge;
         public readonly float BatteryMaxCharge = batteryMaxCharge;
         public readonly float CurrentReceivingEnergy = currentReceivingEnergy;
+
+        /// <summary>
+        /// ADT: есть ли батарейка в слоте (false = показывать "батарейка отсутствует").
+        /// </summary>
+        public readonly bool HasCell = hasCell;
     }
 
     [Serializable, NetSerializable]

@@ -1,7 +1,9 @@
+using Content.Shared.ADT.Construction.Prototypes;
 using Content.Shared.Containers.ItemSlots;
 using Content.Server.ADT.Chemistry.EntitySystems;
 using Content.Shared.ADT.Chemistry;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Chemistry.Components
 {
@@ -12,6 +14,13 @@ namespace Content.Server.ADT.Chemistry.Components
     [Access(typeof(EnergyReagentDispenserSystem))]
     public sealed partial class EnergyReagentDispenserComponent : Component
     {
+        // ADT-Tweak: слот батарейки (ёмкость/заряд химки = батарейка из крафта)
+        public const string EnergyCellSlotId = "energyCellSlot";
+        public const string PartContainerName = "machine_parts";
+
+        [DataField]
+        public ItemSlot EnergyCellSlot = new();
+
         [DataField]
         public ItemSlot EnergyBeakerSlot = new();
 
@@ -47,5 +56,37 @@ namespace Content.Server.ADT.Chemistry.Components
         /// </summary>
         [DataField]
         public bool Emagged = false;
+
+        /// <summary>
+        /// Нюкерская версия: всегда заряжена на 100% и не разряжается.
+        /// </summary>
+        [DataField]
+        public bool InfiniteBattery = false;
+
+        // ADT-Tweak-Start: machine parts with tiers
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float BaseRechargeRate = 25f;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float FinalRechargeRate = 25f;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float BaseEnergyCostMultiplier = 1f;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float FinalEnergyCostMultiplier = 1f;
+
+        [DataField]
+        public ProtoId<MachinePartPrototype> CapacitorPart = "Capacitor";
+
+        [DataField]
+        public ProtoId<MachinePartPrototype> MatterBinPart = "MatterBin";
+
+        /// <summary>
+        /// Зарядка батареи в секунду для Т2 (Т3 = x2, Т4 = x4). Т1 без авто-зарядки.
+        /// </summary>
+        [DataField]
+        public float RechargeRatePerTier = 5f;
+        // ADT-Tweak-End
     }
 }

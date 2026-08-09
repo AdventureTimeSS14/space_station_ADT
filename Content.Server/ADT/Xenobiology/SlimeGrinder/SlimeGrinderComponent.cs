@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Construction.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -24,6 +25,23 @@ public sealed partial class SlimeGrinderComponent : Component
     /// </summary>
     [DataField]
     public float ProcessingTimePerUnitMass = 0.1f;
+
+    // ADT-Tweak-Start: машинные части с тирами (порт Orion PR #385)
+    [DataField]
+    public ProtoId<MachinePartPrototype> ServoPart = "Servo";
+
+    /// <summary>
+    /// Множитель количества экстрактов (Т1 = x1, Т2 = x2, Т3 = x3, Т4 = x4).
+    /// </summary>
+    [DataField]
+    public float ExtractMultiplier = 1f;
+
+    /// <summary>
+    /// Множитель скорости переработки (меньше = быстрее).
+    /// </summary>
+    [DataField]
+    public float WorkTimeMultiplier = 1f;
+    // ADT-Tweak-End
 
     [DataField]
     public SoundSpecifier GrindSound = new SoundPathSpecifier("/Audio/Machines/reclaimer_startup.ogg");
