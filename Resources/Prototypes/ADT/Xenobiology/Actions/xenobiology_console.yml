@@ -1,0 +1,74 @@
+# ADT-Xenobio-Start
+# Russian text for these lives in Resources/Locale/ru-RU/ADT/actions/xenobiology_console.ftl (ent-<id> pattern).
+
+- type: entity
+  parent: BaseAction
+  id: ADTActionXenobiologyCaptureSlime
+  name: Capture slime
+  description: Grabs a live slime near you into the console's storage.
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Interface/Actions/xenobiology_console.rsi
+      state: capture_slime
+    itemIconStyle: BigAction
+  - type: InstantAction
+    event: !type:XenobiologyCaptureSlimeEvent
+
+- type: entity
+  parent: BaseAction
+  id: ADTActionXenobiologyPlaceSlime
+  name: Place slime
+  description: Places a stored slime at your current position.
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Interface/Actions/xenobiology_console.rsi
+      state: place_slime
+    itemIconStyle: BigAction
+  - type: InstantAction
+    event: !type:XenobiologyPlaceSlimeEvent
+
+- type: entity
+  parent: BaseAction
+  id: ADTActionXenobiologyFeedMonkey
+  name: Feed monkey
+  description: Spawns a live monkey at your position, consuming one from the console's cube stock.
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Interface/Actions/xenobiology_console.rsi
+      state: feed_monkey
+    itemIconStyle: BigAction
+  - type: InstantAction
+    event: !type:XenobiologyFeedMonkeyEvent
+
+- type: entity
+  parent: BaseAction
+  id: ADTActionXenobiologyRecycleMonkey
+  name: Recycle monkey
+  description: Recycles a dead monkey near you into cube stock, via the console's linked recycler.
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Interface/Actions/xenobiology_console.rsi
+      state: recycle_monkey
+    itemIconStyle: BigAction
+  - type: InstantAction
+    event: !type:XenobiologyRecycleMonkeyEvent
+
+- type: entity
+  parent: BaseAction
+  id: ADTActionXenobiologyReturn
+  name: Return to body
+  description: Ends piloting and returns you to your body.
+  components:
+  - type: Action
+    priority: -9
+    itemIconStyle: BigAction
+    icon:
+      sprite: ADT/Interface/Actions/xenobiology_console.rsi
+      state: return
+  - type: InstantAction
+    event: !type:XenobiologyReturnEvent
+# ADT-Xenobio-End

@@ -65,24 +65,27 @@
   requiredTech:
   - BasicAnomalousResearch
 
-- type: technology
-  id: BasicXenobiology
-  name: research-technology-basic-xenobiology
-  icon:
-    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_scanner.rsi
-    state: icon
-  discipline: Experimental
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - XenobiologyBountyComputerCircuitboard
-  - SlimeGrinderMachineCircuitboard
-  - SlimeScannerXenobio
-  - ClothingBackpackXenoBioTank
-  - ClothingBeltChemBagXenobiologyHolding
-  position: 3,0
-  requiredTech:
-  - AlternativeResearch
+#закомментировано пока не готовы зоны
+#- type: technology
+#  id: BasicXenobiology
+#  name: research-technology-basic-xenobiology
+#  icon:
+#    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_scanner.rsi
+#    state: icon
+#  discipline: Experimental
+#  tier: 1
+#  cost: 5000
+#  recipeUnlocks:
+#  - XenobiologyBountyComputerCircuitboard
+#  - ADTXenobiologyControlComputerCircuitboard
+#  - SlimeGrinderMachineCircuitboard
+#  - ADTXenobiologyMonkeyRecyclerMachineCircuitboard
+#  - SlimeScannerXenobio
+#  - ClothingBackpackXenoBioTank
+#  - ClothingBeltChemBagXenobiologyHolding
+#  position: 3,0
+#  requiredTech:
+#  - AlternativeResearch
 
 - type: technology
   id: BluespaceArtillery

@@ -1,8 +1,10 @@
 using System.Linq;
 using System.Numerics;
+using Content.Server.ADT.Procedural;
 using Content.Server.Parallax;
 using Content.Server.Procedural;
 using Content.Shared.Parallax.Biomes;
+using Content.Shared.Procedural;
 using Robust.Shared.Map;
 using Robust.Shared.Noise;
 using Robust.Shared.Prototypes;
@@ -13,10 +15,12 @@ namespace Content.Server.ADT.Generation;
 public sealed class ADTLavalandGenerationSystem : EntitySystem
 {
     [Dependency] private readonly BiomeSystem _biome = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     private readonly List<(EntProtoId Proto, EntityCoordinates Coords)> _pendingSpawns = new();
+    private readonly List<(EntProtoId Proto, ProtoId<DungeonRoomPrototype> Room, EntityCoordinates Coords)> _pendingRooms = new();
     private readonly List<(Vector2i Index, Tile Tile)> _reservedTiles = new();
 
     public override void Initialize()
@@ -29,19 +33,49 @@ public sealed class ADTLavalandGenerationSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (_pendingSpawns.Count == 0)
-            return;
-
-        var toSpawn = new List<(EntProtoId Proto, EntityCoordinates Coords)>(_pendingSpawns);
-        _pendingSpawns.Clear();
-
-        foreach (var (proto, coords) in toSpawn)
+        if (_pendingSpawns.Count > 0)
         {
-            if (!coords.IsValid(EntityManager))
-                continue;
+            var toSpawn = new List<(EntProtoId Proto, EntityCoordinates Coords)>(_pendingSpawns);
+            _pendingSpawns.Clear();
 
-            Spawn(proto, coords);
+            foreach (var (proto, coords) in toSpawn)
+            {
+                if (!coords.IsValid(EntityManager))
+                    continue;
+
+                Spawn(proto, coords);
+            }
         }
+
+        if (_pendingRooms.Count > 0)
+        {
+            var toSpawn = new List<(EntProtoId Proto, ProtoId<DungeonRoomPrototype> Room, EntityCoordinates Coords)>(_pendingRooms);
+            _pendingRooms.Clear();
+
+            foreach (var (proto, room, coords) in toSpawn)
+            {
+                if (!coords.IsValid(EntityManager))
+                    continue;
+
+                SpawnPinnedRoom(proto, room, coords);
+            }
+        }
+    }
+
+    private void SpawnPinnedRoom(EntProtoId proto, ProtoId<DungeonRoomPrototype> room, EntityCoordinates coords)
+    {
+        var uid = EntityManager.CreateEntityUninitialized(proto, coords);
+
+        if (TryComp<ADTRoomFillComponent>(uid, out var fill))
+        {
+            fill.Room = room;
+        }
+        else
+        {
+            Log.Error($"Lavaland generation wanted to pin room {room} onto {proto}, which has no ADTRoomFill.");
+        }
+
+        EntityManager.InitializeAndStartEntity(uid);
     }
 
     public void ReserveSafeZone(Entity<ADTLavalandGenerationComponent> ent, Vector2 center)
@@ -132,17 +166,62 @@ public sealed class ADTLavalandGenerationSystem : EntitySystem
             if (group.Prototypes.Count == 0 || group.Count <= 0)
                 continue;
 
+            var rooms = BuildRoomQueue(group);
+            var next = 0;
+
             for (var i = 0; i < group.Count; i++)
             {
                 if (!TryFindSpot(ent, group, placed, out var coords))
                     continue;
 
                 var proto = _random.Pick(group.Prototypes);
-                _pendingSpawns.Add((proto, coords));
+
+                if (rooms == null)
+                    _pendingSpawns.Add((proto, coords));
+                else
+                    _pendingRooms.Add((proto, rooms[next++], coords));
 
                 placed.Add(coords.Position);
             }
         }
+    }
+
+    private List<ProtoId<DungeonRoomPrototype>>? BuildRoomQueue(LavalandScatterGroup group)
+    {
+        if (group.RoomWhitelist is not { Tags: { } tags })
+            return null;
+
+        var pool = new List<ProtoId<DungeonRoomPrototype>>();
+
+        foreach (var room in _prototype.EnumeratePrototypes<DungeonRoomPrototype>())
+        {
+            foreach (var tag in tags)
+            {
+                if (!room.Tags.Contains(tag))
+                    continue;
+
+                pool.Add(room.ID);
+                break;
+            }
+        }
+
+        if (pool.Count == 0)
+        {
+            Log.Error($"Lavaland generation found no dungeon rooms for tags {string.Join(", ", tags)}.");
+            return null;
+        }
+
+        _random.Shuffle(pool);
+
+        var queue = new List<ProtoId<DungeonRoomPrototype>>(pool);
+        while (queue.Count < group.Count)
+        {
+            var extra = new List<ProtoId<DungeonRoomPrototype>>(pool);
+            _random.Shuffle(extra);
+            queue.AddRange(extra);
+        }
+
+        return queue;
     }
 
     private bool TryFindSpot(
@@ -182,7 +261,8 @@ public sealed class ADTLavalandGenerationSystem : EntitySystem
         }
 
         if (group.AvoidRooms &&
-            _lookup.GetEntitiesInRange(coords, group.MinSpacing).Any(e => HasComp<RoomFillComponent>(e)))
+            _lookup.GetEntitiesInRange(coords, group.MinSpacing)
+                .Any(e => HasComp<RoomFillComponent>(e) || HasComp<ADTRoomFillComponent>(e)))
         {
             return false;
         }

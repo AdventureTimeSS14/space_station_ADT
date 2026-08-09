@@ -19,8 +19,10 @@
           False:
             state: icon_ready_beacon
   - type: Item
+    sprite: ADT/Objects/Weapons/Melee/hierophant_club-inhands.rsi
     size: Ginormous
   - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/hierophant_club.rsi
     slots:
     - Back
   - type: MeleeWeapon
