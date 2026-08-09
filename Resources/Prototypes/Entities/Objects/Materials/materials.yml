@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   abstract: true
   parent: BaseItem
   id: MaterialBase
@@ -95,6 +95,10 @@
   - type: Healing
     damageContainers:
       - Biological
+      # ADT-Tweak Start: New healing containers
+      - ADTBiologicalShadekin
+      - ADTBiologicalDrask
+      # ADT-Tweak End
     damage:
       types:
         Blunt: 0 # ADT tweak

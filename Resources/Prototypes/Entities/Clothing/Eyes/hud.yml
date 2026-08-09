@@ -195,6 +195,10 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    # ADT-Tweak Start: New healing containers
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+    # ADT-Tweak End
     - Inorganic
   - type: ShowSyndicateIcons
   - type: ThermalVisionItem # ADT tweak
@@ -212,6 +216,10 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    # ADT-Tweak Start: New healing containers
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+    # ADT-Tweak End
     - Inorganic
   - type: ShowHungerIcons
   - type: ShowThirstIcons
