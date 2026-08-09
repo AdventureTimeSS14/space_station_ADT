@@ -76,7 +76,11 @@ public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsCo
         var result = new List<HealthIconPrototype>();
 
         // Here you could check health status, diseases, mind status, etc. and pick a good icon, or multiple depending on whatever.
-        if (injurableComp?.DamageContainer == "Biological")
+        // ADT-Tweak Start: New healing containers
+        if (injurableComp.DamageContainer is "Biological"
+            or "ADTBiologicalShadekin"
+            or "ADTBiologicalDrask")
+        // ADT-Tweak End
         {
             if (TryComp<MobStateComponent>(entity, out var state))
             {
