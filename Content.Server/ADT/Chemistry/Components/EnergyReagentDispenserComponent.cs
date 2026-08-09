@@ -74,7 +74,7 @@ namespace Content.Server.ADT.Chemistry.Components
         public ProtoId<MachinePartPrototype> ScanningModulePart = "ScanningModule";
 
         [DataField]
-        public float RechargeRatePerTier = 5f;
+        public float RechargeRatePerTier = 10f;
 
         [DataField]
         public Dictionary<int, List<string>> TierReagents = [];
