@@ -11,7 +11,7 @@
   - Glasses
   - Survival
   - Trinkets
-  - ADTRacialItems # ADT tweak
+  - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathTool
   # ADT underwear tweak start
   - ADTTop
@@ -35,7 +35,7 @@
   - SurvivalMedical
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
-  - ADTRacialItems # ADT tweak
+  - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathToolMedical
   # ADT underwear tweak start
   - ADTTop
@@ -60,7 +60,7 @@
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
-  - ADTRacialItems # ADT tweak
+  - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathTool
   # ADT underwear tweak start
   - ADTTop
@@ -81,7 +81,7 @@
   - ADTBlueshieldBack
   - SurvivalSecurity
   - Trinkets
-  - ADTRacialItems # ADT tweak
+  - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathToolSecurity
   # ADT underwear tweak start
   - ADTTopBlueshield
@@ -104,7 +104,7 @@
   - ADTCentcomConsultantShoes
   - SurvivalSecurity
   - Trinkets
-  - ADTRacialItems # ADT tweak
+  - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathToolSecurity
   # ADT underwear tweak start
   - ADTCentcomConsultantSocks
@@ -126,7 +126,7 @@
   - SeniorPhysicianOuterClothing # ADT-Tweak-senior
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
-  - ADTRacialItems # ADT tweak
+  - ADTRacialItems # ADT-Tweak
   - SurvivalMedical
   - GroupSpeciesBreathToolMedical
   - MedicalShoes
@@ -151,7 +151,7 @@
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
-  - ADTRacialItems # ADT tweak
+  - ADTRacialItems # ADT-Tweak
   # ADT tweak start
   - ADTTop
   - ADTBottom
@@ -174,7 +174,7 @@
   - SurvivalExtended
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
-  - ADTRacialItems # ADT tweak
+  - ADTRacialItems # ADT-Tweak
   # ADT tweak start
   - ADTTop
   - ADTBottom
@@ -197,7 +197,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-  - ADTRacialItems # ADT tweak
+  - ADTRacialItems # ADT-Tweak
   # ADT tweak start
   - ADTTop
   - ADTBottom
@@ -225,7 +225,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-  - ADTRacialItems # ADT tweak
+  - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathToolSecurity
   - ADTBrigmedicPDA
   # ADT underwear tweak start
@@ -248,7 +248,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-  - ADTRacialItems # ADT tweak
+  - ADTRacialItems # ADT-Tweak
   # ADT tweak start
   - ADTTop
   - ADTBottom
@@ -280,7 +280,7 @@
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
-  - ADTRacialItems # ADT tweak
+  - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -304,5 +304,5 @@
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
-  - ADTRacialItems # ADT tweak
+  - ADTRacialItems # ADT-Tweak
   - GroupSpeciesBreathTool
