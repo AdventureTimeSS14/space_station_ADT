@@ -69,6 +69,12 @@
     price: 480
   - id: ADTStabilizingSerum
     price: 360
+  - id: ADTSurvivalMedipen
+    price: 720
+  - id: ADTStabilizationMedipen
+    price: 1080
+  - id: ADTHyperMedipen
+    price: 2400
 
 - type: miningShopSection
   id: EquipmentWearable
