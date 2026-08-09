@@ -559,6 +559,8 @@
       stackRequirements:
         Glass: 5
         Cable: 1
+      partRequirements: #ADT-Tweak: machine parts (материя-бин = скорость охлаждения)
+        MatterBin: 1
 
 - type: entity
   id: ChemMasterMachineCircuitboard
