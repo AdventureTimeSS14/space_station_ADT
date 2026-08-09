@@ -296,9 +296,13 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             var capacitorTier = args.GetPartRating(component.CapacitorPart);
             var matterBinTier = args.GetPartRating(component.MatterBinPart);
 
-            component.FinalRechargeRate = capacitorTier >= 2f
-                ? component.RechargeRatePerTier * MathF.Pow(2f, capacitorTier - 2f)
-                : 0f;
+            component.FinalRechargeRate = capacitorTier switch
+            {
+                >= 4f => component.RechargeRatePerTier * 3f,
+                >= 3f => component.RechargeRatePerTier * 1.5f,
+                >= 2f => component.RechargeRatePerTier,
+                _ => component.RechargeRatePerTier * 0.5f,
+            };
 
             var scanningModuleTier = args.GetPartRating(component.ScanningModulePart, 1f);
             foreach (var (tier, reagents) in component.TierReagents)
@@ -321,8 +325,9 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
 
         private static void OnUpgradeExamine(EntityUid uid, EnergyReagentDispenserComponent component, UpgradeExamineEvent args)
         {
+            var tier1Rate = component.RechargeRatePerTier * 0.5f;
             var rechargeMultiplier = component.FinalRechargeRate > 0f
-                ? 1f + component.FinalRechargeRate / component.RechargeRatePerTier
+                ? component.FinalRechargeRate / tier1Rate
                 : 1f;
 
             args.AddPercentageUpgrade("machine-upgrade-charging-speed", rechargeMultiplier);
