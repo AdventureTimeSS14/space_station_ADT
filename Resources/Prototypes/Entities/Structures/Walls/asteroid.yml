@@ -10,11 +10,6 @@
   name: asteroid rock
   description: A rocky asteroid.
   components:
-  # ADT-Tweak-Start
-  - type: ADTAchievementSource
-    onGathered:
-    - ADTRockMined
-  # ADT-Tweak-End
   - type: Transform
     noRot: true
   - type: IconSmooth
@@ -859,11 +854,6 @@
   name: rock
   suffix: planetmap
   components:
-  # ADT-Tweak-Start
-  - type: ADTAchievementSource
-    onGathered:
-    - ADTRockMined
-  # ADT-Tweak-End
   - type: Transform
     noRot: true
   - type: SoundOnGather

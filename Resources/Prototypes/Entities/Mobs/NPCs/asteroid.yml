@@ -33,11 +33,6 @@
   name: goliath
   description: A massive beast that uses long tentacles to ensnare its prey, threatening them is not advised under any conditions.
   components:
-  # ADT-Tweak-Start
-  - type: ADTAchievementSource
-    onDeath:
-    - ADTLavalandFaunaKilled
-  # ADT-Tweak-End
   - type: Sprite
     sprite: ADT/Mobs/Aliens/Lavaland/goliath.rsi  # ADT resprite
     layers:

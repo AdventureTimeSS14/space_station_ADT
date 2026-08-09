@@ -50,10 +50,6 @@
     popupLow: adt-ash-flora-tall-shroom-low
     popupMedium: adt-ash-flora-tall-shroom-medium
     popupHigh: adt-ash-flora-tall-shroom-high
-  - type: ADTAchievementSource
-    onHarvested:
-    - ADTAshFloraPolyporeHarvested
-    - ADTAshFloraHarvested
 
 - type: entity
   parent: ADTAshFloraTallShroom
@@ -158,10 +154,6 @@
     popupLow: adt-ash-flora-leaf-shroom-low
     popupMedium: adt-ash-flora-leaf-shroom-medium
     popupHigh: adt-ash-flora-leaf-shroom-high
-  - type: ADTAchievementSource
-    onHarvested:
-    - ADTAshFloraPorciniHarvested
-    - ADTAshFloraHarvested
 
 - type: entity
   parent: ADTAshFloraLeafShroom
@@ -269,10 +261,6 @@
     popupLow: adt-ash-flora-cap-shroom-low
     popupMedium: adt-ash-flora-cap-shroom-medium
     popupHigh: adt-ash-flora-cap-shroom-high
-  - type: ADTAchievementSource
-    onHarvested:
-    - ADTAshFloraInocybeHarvested
-    - ADTAshFloraHarvested
 
 - type: entity
   parent: ADTAshFloraCapShroom
@@ -380,10 +368,6 @@
     popupLow: adt-ash-flora-stem-shroom-low
     popupMedium: adt-ash-flora-stem-shroom-medium
     popupHigh: adt-ash-flora-stem-shroom-high
-  - type: ADTAchievementSource
-    onHarvested:
-    - ADTAshFloraEmbershroomHarvested
-    - ADTAshFloraHarvested
   - type: PointLight
     radius: 1.5
     energy: 2.1

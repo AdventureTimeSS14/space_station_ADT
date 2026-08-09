@@ -101,10 +101,6 @@
     popupLow: adt-ash-flora-cacti-low
     popupMedium: adt-ash-flora-cacti-medium
     popupHigh: adt-ash-flora-cacti-high
-  - type: ADTAchievementSource
-    onHarvested:
-    - ADTAshFloraCactusHarvested
-    - ADTAshFloraHarvested
 
 - type: entity
   parent: ADTLavaCactus

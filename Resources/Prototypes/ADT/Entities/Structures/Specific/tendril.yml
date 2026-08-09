@@ -55,9 +55,6 @@
         - MobLayer
         density: 200
   - type: AshStormImmune
-  - type: ADTAchievementSource
-    onDestroyed:
-    - ADTLavalandTendrilDestroyed
 
 - type: entity
   id: ADTTendrilHypertrophied

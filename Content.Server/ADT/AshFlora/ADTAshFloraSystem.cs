@@ -1,4 +1,3 @@
-using Content.Server.ADT.Achievements;
 using Content.Shared.ADT.AshFlora;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -18,7 +17,6 @@ public sealed class ADTAshFloraSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly ADTAchievementSystem _achievements = default!;
 
     public override void Initialize()
     {
@@ -97,8 +95,6 @@ public sealed class ADTAshFloraSystem : EntitySystem
             message = ent.Comp.PopupHigh;
 
         _popup.PopupEntity(Loc.GetString(message), ent, user);
-
-        _achievements.OnHarvested(ent.Owner, user, amount);
 
         if (ent.Comp.HarvestedPrototype is { } harvested)
             Spawn(harvested, Transform(ent).Coordinates);
