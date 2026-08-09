@@ -119,3 +119,19 @@
   speciesBlacklist:
   - NovakidSpecies
 
+# ADT-Tweak: трайт Allergic закомментирован по ревью (PR #3087), не удалён.
+# Система аллергии не работала, трайт давал очко ни за что.
+#- type: trait
+#  id: Allergic
+#  name: trait-allergic-name
+#  description: trait-allergic-desc
+#  category: Disabilities
+#  components:
+#    - type: Allergic
+#  cost: -1
+#  quirk: true
+#  speciesBlacklist:
+#  - NovakidSpecies
+#  - Diona
+#  - SlimePerson
+#  - IPC
