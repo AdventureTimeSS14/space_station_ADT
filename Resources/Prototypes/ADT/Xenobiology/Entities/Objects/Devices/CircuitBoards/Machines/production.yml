@@ -30,8 +30,9 @@
   - type: MachineBoard
     prototype: ADTXenobiologyMonkeyRecycler
     stackRequirements:
-      Manipulator: 2
       Steel: 5
+    partRequirements: #ADT-Tweak: машинные части (материя-бин = выход макак)
+      MatterBin: 2
     tagRequirements:
       Knife:
         amount: 2

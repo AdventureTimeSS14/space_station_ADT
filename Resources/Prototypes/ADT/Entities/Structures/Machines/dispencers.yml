@@ -26,18 +26,6 @@
     idleLoad: 65
     batteryRechargeRate: 0 #ADT-Tweak: авто-зарядка только с частями Т2+ (5/10/20 в секунду)
     batteryRechargeEfficiency: 0.7 # 1.0 > 0.7
-  # ADT-Tweak-Start: батарейка-предмет в слоте, ёмкость/заряд химки = батарейка из крафта
-  - type: PowerCellSlot
-    cellSlotId: energyCellSlot
-  - type: ItemSlots
-    slots:
-      energyCellSlot:
-        name: power-cell-slot-component-slot-name-default
-        ejectOnInteract: true
-        whitelist:
-          components:
-          - PowerCell
-  # ADT-Tweak-End
   - type: ApcPowerReceiver
     powerLoad: 65
   - type: ExtensionCableReceiver
@@ -76,7 +64,6 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       energyBeakerSlot: !type:ContainerSlot
-      energyCellSlot: !type:ContainerSlot #ADT-Tweak: батарейка
       storagebase: !type:Container
   - type: StaticPrice
     price: 1000
@@ -164,7 +151,7 @@
       - FemtoServoStockPart
       - BluespaceCapacitorStockPart
       - BluespaceCapacitorStockPart
-      energyCellSlot: [ PowerCellHyper ]
+      - PowerCellHyper
 
 #раздатчики алкоголя и безалкоголя
 - type: entity

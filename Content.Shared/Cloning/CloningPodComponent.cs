@@ -40,6 +40,20 @@ public sealed partial class CloningPodComponent : Component
     [DataField]
     public float CloningTime = 30f;
 
+    // ADT-Tweak-Start: машинные части (порт Orion PR #385)
+    /// <summary>
+    /// Множитель скорости клонирования (серво: Т1 = 1, Т2 = 2, ...).
+    /// </summary>
+    [DataField]
+    public float SpeedMultiplier = 1f;
+
+    /// <summary>
+    /// Делитель шанса неудачного клонирования (сканмодуль: Т1 = 1, Т2 = 2, ...).
+    /// </summary>
+    [DataField]
+    public float CloningSafety = 1f;
+    // ADT-Tweak-End
+
     /// <summary>
     /// The mob to spawn on emag.
     /// </summary>

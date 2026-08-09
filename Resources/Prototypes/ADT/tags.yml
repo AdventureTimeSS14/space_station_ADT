@@ -921,3 +921,6 @@
 
 - type: Tag
   id: ConstantTemperatureThresholds # make entity ignore parent temperature thresholds from TemperatureContainerComponent
+
+- type: Tag
+  id: ADTPicoServoStockPart

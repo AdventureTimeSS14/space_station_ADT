@@ -516,8 +516,8 @@
         Glass: 1
         Cable: 1
       partRequirements: #ADT-Tweak: machine parts
-        Capacitor: 1
-
+        Servo: 1
+        ScanningModule: 1
 - type: entity
   id: MedicalScannerMachineCircuitboard
   parent: BaseMachineCircuitboard
@@ -635,6 +635,9 @@
         # replacing the console screen
         Glass: 5
         Cable: 2
+      partRequirements: #ADT-Tweak: machine parts
+        MatterBin: 2
+        Servo: 2
       tagRequirements:
         GlassBeaker:
           amount: 2

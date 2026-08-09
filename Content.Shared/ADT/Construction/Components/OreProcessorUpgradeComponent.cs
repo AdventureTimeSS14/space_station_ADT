@@ -22,5 +22,11 @@ public sealed partial class OreProcessorUpgradeComponent : Component
     public float OutputMultiplier = 1f;
 
     [DataField]
-    public ProtoId<MachinePartPrototype> OutputPart = "Servo";
+    public float PointsMultiplier = 1f;
+
+    [DataField]
+    public ProtoId<MachinePartPrototype> OutputPart = "MatterBin";
+
+    [DataField]
+    public ProtoId<MachinePartPrototype> PointsPart = "MicroLaser";
 }

@@ -48,10 +48,16 @@ public sealed partial class MachinePartConstructionGraphStep : ArbitraryInsertCo
 
     public override ConstructionGuideEntry GenerateGuideEntry()
     {
+        // LOC($name) в ftl ожидает ключ локализации, поэтому передаём LocId (machinePartProto.Name),
+        // а не готовый текст.
+        var partNameLocId = MachinePart.Id;
+        if (IoCManager.Resolve<IPrototypeManager>().TryIndex(MachinePart, out var machinePartProto) && !string.IsNullOrWhiteSpace(machinePartProto.Name))
+            partNameLocId = machinePartProto.Name;
+
         return new ConstructionGuideEntry
         {
             Localization = "construction-presenter-arbitrary-step",
-            Arguments = [("name", MachinePart.Id)],
+            Arguments = [("name", partNameLocId)],
             Icon = Icon,
         };
     }

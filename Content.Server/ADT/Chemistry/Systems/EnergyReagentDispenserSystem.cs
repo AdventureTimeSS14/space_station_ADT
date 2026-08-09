@@ -69,20 +69,10 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
         private void SubscribeUpdateUiState<T>(Entity<EnergyReagentDispenserComponent> ent, ref T ev) =>
             UpdateUiState(ent);
 
-        // ADT-Tweak-Start: батарейка-предмет в слоте (energyCellSlot)
+        // ADT-Tweak-Start: батарейка как машинная часть (machine_parts)
         private void OnEntInserted(Entity<EnergyReagentDispenserComponent> ent, ref EntInsertedIntoContainerMessage args)
         {
-            // Батарейка из крафта (machine_parts) попадает в слот
-            if (args.Container.ID == EnergyReagentDispenserComponent.PartContainerName
-                && HasComp<PowerCellComponent>(args.Entity)
-                && _itemSlotsSystem.GetItemOrNull(ent, EnergyReagentDispenserComponent.EnergyCellSlotId) == null)
-            {
-                _container.Remove(args.Entity, args.Container, reparent: false);
-                if (!_itemSlotsSystem.TryInsert(ent, EnergyReagentDispenserComponent.EnergyCellSlotId, args.Entity, null))
-                    _container.Insert(args.Entity, args.Container, force: true);
-            }
-
-            if (args.Container.ID == EnergyReagentDispenserComponent.EnergyCellSlotId)
+            if (args.Container.ID == EnergyReagentDispenserComponent.PartContainerName)
                 SyncBatteryFromCell(ent);
 
             UpdateUiState(ent);
@@ -90,7 +80,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
 
         private void OnEntRemoved(Entity<EnergyReagentDispenserComponent> ent, ref EntRemovedFromContainerMessage args)
         {
-            if (args.Container.ID == EnergyReagentDispenserComponent.EnergyCellSlotId)
+            if (args.Container.ID == EnergyReagentDispenserComponent.PartContainerName)
             {
                 SyncCellFromBattery(ent, args.Entity);
 
@@ -106,14 +96,28 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
         }
 
         /// <summary>
-        /// Ёмкость/заряд химки берутся из батарейки в слоте.
+        /// Ёмкость/заряд химки берутся из батарейки в machine_parts.
         /// </summary>
+        private EntityUid? GetCellInParts(Entity<EnergyReagentDispenserComponent> ent)
+        {
+            if (!_container.TryGetContainer(ent.Owner, EnergyReagentDispenserComponent.PartContainerName, out var partContainer))
+                return null;
+
+            foreach (var item in partContainer.ContainedEntities)
+            {
+                if (HasComp<BatteryComponent>(item))
+                    return item;
+            }
+
+            return null;
+        }
+
         private void SyncBatteryFromCell(Entity<EnergyReagentDispenserComponent> ent)
         {
             if (!TryComp<BatteryComponent>(ent, out var battery))
                 return;
 
-            var cell = _itemSlotsSystem.GetItemOrNull(ent, EnergyReagentDispenserComponent.EnergyCellSlotId);
+            var cell = GetCellInParts(ent);
             if (cell == null || !TryComp<BatteryComponent>(cell.Value, out var cellBattery))
                 return;
 
@@ -154,10 +158,8 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             if (TryComp<ApcPowerReceiverBatteryComponent>(reagentDispenser, out var apcPower))
                 currentReceivingEnergy = apcPower.BatteryRechargeRate;
 
-            // ADT-Tweak: без батарейки в слоте показываем "батарейка отсутствует" (заряд 0/0)
-            var hasCell = reagentDispenser.Comp.InfiniteBattery
-                || (_container.TryGetContainer(reagentDispenser.Owner, EnergyReagentDispenserComponent.EnergyCellSlotId, out _)
-                    && _itemSlotsSystem.GetItemOrNull(reagentDispenser, EnergyReagentDispenserComponent.EnergyCellSlotId) != null);
+            // ADT-Tweak: без батарейки в machine_parts показываем "батарейка отсутствует" (заряд 0/0)
+            var hasCell = reagentDispenser.Comp.InfiniteBattery || GetCellInParts(reagentDispenser) != null;
 
             if (!hasCell)
             {
@@ -238,11 +240,11 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             if (!TryComp<BatteryComponent>(reagentDispenser, out var battery))
                 return;
 
-            // ADT-Tweak: без батарейки в слоте химка не выдаёт реагенты (кроме нюкерской с infiniteBattery).
-            // Старые машины без слота (сейвы) работают по-старому.
+            // ADT-Tweak: без батарейки (машинная часть) химка не выдаёт реагенты (кроме нюкерской с infiniteBattery).
+            // Старые машины без батарейки-части (сейвы) работают по-старому.
             if (!reagentDispenser.Comp.InfiniteBattery
-                && _container.TryGetContainer(reagentDispenser.Owner, EnergyReagentDispenserComponent.EnergyCellSlotId, out _)
-                && _itemSlotsSystem.GetItemOrNull(reagentDispenser, EnergyReagentDispenserComponent.EnergyCellSlotId) == null)
+                && _container.TryGetContainer(reagentDispenser.Owner, EnergyReagentDispenserComponent.PartContainerName, out _)
+                && GetCellInParts(reagentDispenser) == null)
             {
                 _audioSystem.PlayPvs(reagentDispenser.Comp.PowerSound, reagentDispenser, AudioParams.Default.WithVolume(-2f));
                 return;
@@ -322,6 +324,9 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             if (TryComp<ApcPowerReceiverBatteryComponent>(uid, out var apcBattery))
                 _powerReceiver.SetBatteryRechargeRate(uid, component.FinalRechargeRate, apcBattery);
 
+            // ADT-Tweak: после замены частей (РПД) синхронизируем ёмкость с батарейкой
+            SyncBatteryFromCell((uid, component));
+
             UpdateUiState((uid, component));
         }
 
@@ -341,24 +346,8 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
         private void OnMapInit(Entity<EnergyReagentDispenserComponent> entity, ref MapInitEvent args)
         {
             _itemSlotsSystem.AddItemSlot(entity.Owner, SharedEnergyReagentDispenser.OutputSlotName, entity.Comp.EnergyBeakerSlot);
-            _itemSlotsSystem.AddItemSlot(entity.Owner, EnergyReagentDispenserComponent.EnergyCellSlotId, entity.Comp.EnergyCellSlot); // ADT-Tweak
 
-            // ADT-Tweak: батарейка из крафта (machine_parts) -> слот
-            if (_itemSlotsSystem.GetItemOrNull(entity, EnergyReagentDispenserComponent.EnergyCellSlotId) == null
-                && _container.TryGetContainer(entity.Owner, EnergyReagentDispenserComponent.PartContainerName, out var partContainer))
-            {
-                foreach (var item in partContainer.ContainedEntities.ToArray())
-                {
-                    if (!HasComp<PowerCellComponent>(item))
-                        continue;
-
-                    _container.Remove(item, partContainer, reparent: false);
-                    if (!_itemSlotsSystem.TryInsert(entity, EnergyReagentDispenserComponent.EnergyCellSlotId, item, null))
-                        _container.Insert(item, partContainer, force: true);
-                    break;
-                }
-            }
-
+            // ADT-Tweak: батарейка как машинная часть (machine_parts)
             SyncBatteryFromCell(entity);
         }
         private void OnEmaged(Entity<EnergyReagentDispenserComponent> ent, ref GotEmaggedEvent args)

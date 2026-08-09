@@ -23,13 +23,15 @@ public sealed class OreProcessorUpgradeSystem : EntitySystem
 
     private void OnRefreshParts(EntityUid uid, OreProcessorUpgradeComponent component, RefreshPartsEvent args)
     {
-        var tier = args.GetPartRating(component.OutputPart);
         // Базовые части (тир 1) без прибавок: Т1 = x1, Т2 = x2, Т3 = x3, Т4 = x4
-        component.OutputMultiplier = tier;
+        // Материя-бин = выход материалов, микро-лазер = поинты шахтёров, серво = скорость (через лату)
+        component.OutputMultiplier = MathF.Max(1f, args.GetPartRating(component.OutputPart, 1f));
+        component.PointsMultiplier = MathF.Max(1f, args.GetPartRating(component.PointsPart, 1f));
     }
 
     private static void OnUpgradeExamine(EntityUid uid, OreProcessorUpgradeComponent component, UpgradeExamineEvent args)
     {
         args.AddPercentageUpgrade("machine-upgrade-ore-output", component.OutputMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-ore-points", component.PointsMultiplier);
     }
 }

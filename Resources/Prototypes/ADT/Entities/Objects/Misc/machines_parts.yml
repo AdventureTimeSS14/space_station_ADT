@@ -179,6 +179,9 @@
     part: Servo
     tier: 3
     energyRating: 5
+  - type: Tag #ADT-Tweak: для крафта мехов
+    tags:
+    - ADTPicoServoStockPart
 
 - type: entity
   parent: MicroLaserStockPart

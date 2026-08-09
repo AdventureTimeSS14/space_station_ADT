@@ -14,12 +14,8 @@ namespace Content.Server.ADT.Chemistry.Components
     [Access(typeof(EnergyReagentDispenserSystem))]
     public sealed partial class EnergyReagentDispenserComponent : Component
     {
-        // ADT-Tweak: слот батарейки (ёмкость/заряд химки = батарейка из крафта)
-        public const string EnergyCellSlotId = "energyCellSlot";
+        // ADT-Tweak: батарейка как машинная часть (ёмкость/заряд химки = батарейка из крафта)
         public const string PartContainerName = "machine_parts";
-
-        [DataField]
-        public ItemSlot EnergyCellSlot = new();
 
         [DataField]
         public ItemSlot EnergyBeakerSlot = new();

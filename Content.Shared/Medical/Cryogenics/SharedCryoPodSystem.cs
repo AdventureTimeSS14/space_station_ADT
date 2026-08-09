@@ -537,8 +537,9 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
     {
         var matter = args.GetPartRating(MachinePartIds.MatterBin);
         var laser = args.GetPartRating(MachinePartIds.MicroLaser);
-        component.BeakerTransferAmount = component.BaseBeakerTransferAmount * RefreshPartsEvent.GetPositiveTierMultiplier(matter);
-        component.CoolingEfficiency = RefreshPartsEvent.GetPositiveTierMultiplier(laser);
+        // ADT-Tweak: материя-бин = скорость охлаждения, микро-лазер = перенос реагентов
+        component.CoolingEfficiency = RefreshPartsEvent.GetPositiveTierMultiplier(matter);
+        component.BeakerTransferAmount = component.BaseBeakerTransferAmount * RefreshPartsEvent.GetPositiveTierMultiplier(laser);
     }
 
     private static void OnUpgradeExamine(EntityUid uid, CryoPodComponent component, UpgradeExamineEvent args)

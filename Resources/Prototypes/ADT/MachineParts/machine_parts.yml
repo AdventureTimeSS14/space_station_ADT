@@ -23,3 +23,9 @@
   id: MicroLaser
   name: machine-part-name-micro-laser
   stockPartPrototype: MicroLaserStockPart
+
+# Батарейка как машинная часть (для РПД и крафта энерго-химки)
+- type: machinePart
+  id: PowerCell
+  name: machine-part-name-power-cell
+  stockPartPrototype: PowerCellSmall
