@@ -10,7 +10,7 @@
     prototype: SlimeGrinder
     stackRequirements:
       Steel: 5
-    partRequirements: #ADT-Tweak: machine parts
+    partRequirements:
       Servo: 3
       MatterBin: 2
     tagRequirements:
@@ -31,7 +31,7 @@
     prototype: ADTXenobiologyMonkeyRecycler
     stackRequirements:
       Steel: 5
-    partRequirements: #ADT-Tweak: машинные части (материя-бин = выход макак)
+    partRequirements:
       MatterBin: 2
     tagRequirements:
       Knife:

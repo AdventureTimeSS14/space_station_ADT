@@ -8,7 +8,7 @@
       state: engineering
     - type: MachineBoard
       prototype: ADTUniversalPipeDispenser
-      partRequirements: #ADT-Tweak: machine parts
+      partRequirements:
         Servo: 4
       tagRequirements:
         GlassBeaker:
@@ -24,7 +24,7 @@
   components:
   - type: MachineBoard
     prototype: ADTBookPrinter
-    partRequirements: #ADT-Tweak: machine parts
+    partRequirements:
       Servo: 2
 # Ganimed-Book-Printer-End
 
@@ -91,7 +91,7 @@
         Plasma: 5
 
         Glass: 5
-      partRequirements: #ADT-Tweak: machine parts
+      partRequirements:
         Servo: 2
         Capacitor: 1
       tagRequirements:
@@ -143,7 +143,7 @@
       prototype: ADTAdvancedKitchenReagentGrinder
       stackRequirements:
         Plasma: 5
-      partRequirements: #ADT-Tweak: machine parts
+      partRequirements:
         Servo: 3
         MatterBin: 3
       tagRequirements:
@@ -167,7 +167,7 @@
         Steel: 5
         Glass: 2
         Cable: 4
-      partRequirements: #ADT-Tweak: machine parts
+      partRequirements:
         Servo: 1
       tagRequirements:
         GlassBeaker:
@@ -188,7 +188,7 @@
         Steel: 5
         Glass: 2
         Cable: 4
-      partRequirements: #ADT-Tweak: machine parts (серво = скорость готовки)
+      partRequirements: (серво = скорость готовки)
         Servo: 2
       tagRequirements:
         Igniter:
@@ -227,7 +227,7 @@
       stackRequirements:
         Glass: 2
         Cable: 2
-      partRequirements: #ADT-Tweak: machine parts
+      partRequirements:
         Servo: 2
       tagRequirements:
         GlassBeaker:
@@ -255,7 +255,7 @@
       CableHV: 5
 
       ADTBScrystalArt: 10
-    partRequirements: #ADT-Tweak: machine parts
+    partRequirements:
       Servo: 20
     tagRequirements:
       GlassBeaker:
@@ -278,7 +278,7 @@
     stackRequirements:
       Steel: 15
       ADTBScrystal: 3
-    partRequirements: #ADT-Tweak: machine parts
+    partRequirements:
       Servo: 12
 
 - type: entity
@@ -293,7 +293,7 @@
     stackRequirements:
       Steel: 45
       ADTBScrystal: 9
-    partRequirements: #ADT-Tweak: machine parts
+    partRequirements:
       Servo: 36
 
 - type: entity
@@ -308,7 +308,7 @@
     stackRequirements:
       Steel: 20
       ADTBScrystal: 4
-    partRequirements: #ADT-Tweak: machine parts
+    partRequirements:
       Servo: 16
 
 - type: entity
@@ -366,7 +366,7 @@
       stackRequirements:
         Glass: 1
         Steel: 3
-      partRequirements: #ADT-Tweak: machine parts
+      partRequirements:
         Capacitor: 2
         MatterBin: 2
         ScanningModule: 2
@@ -391,7 +391,7 @@
       prototype: ADTEnergySodaDispenser
       stackRequirements:
         Steel: 5
-      partRequirements: #ADT-Tweak: machine parts
+      partRequirements:
         Capacitor: 2
         MatterBin: 2
         ScanningModule: 2
@@ -416,7 +416,7 @@
       prototype: ADTEnergyBoozeDispenser
       stackRequirements:
         Steel: 5
-      partRequirements: #ADT-Tweak: machine parts
+      partRequirements:
         Capacitor: 2
         MatterBin: 2
         ScanningModule: 2

@@ -15,11 +15,10 @@ public sealed partial class MachineBoardComponent : Component
     [DataField]
     public Dictionary<ProtoId<StackPrototype>, int> StackRequirements = new();
 
-    /// <summary>
-    /// The machine parts needed to construct this machine (ADT: machine parts with tiers).
-    /// </summary>
+    // ADT-Tweak start
     [DataField]
     public Dictionary<ProtoId<MachinePartPrototype>, int> PartRequirements = new();
+    // ADT-Tweak end
 
     /// <summary>
     /// Entities needed to construct this machine, discriminated by tag.

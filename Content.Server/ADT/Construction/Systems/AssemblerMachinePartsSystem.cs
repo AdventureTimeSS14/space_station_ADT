@@ -17,7 +17,6 @@ public sealed class AssemblerMachinePartsSystem : EntitySystem
     private void OnRefreshParts(EntityUid uid, AssemblerUpgradeComponent component, RefreshPartsEvent args)
     {
         var servoTier = args.GetPartRating(MachinePartIds.Servo, 1f);
-        // Базовые части (тир 1) без прибавок: Т2 = -10%, Т3 = -20%, Т4 = -30%
         component.IngredientMultiplier = RefreshPartsEvent.GetTierDiscount(servoTier, 0.1f);
     }
 

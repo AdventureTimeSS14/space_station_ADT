@@ -19,7 +19,6 @@ public sealed class CloningPodMachinePartsSystem : EntitySystem
         var servoTier = args.GetPartRating(MachinePartIds.Servo, 1f);
         var scanTier = args.GetPartRating(MachinePartIds.ScanningModule, 1f);
 
-        // Базовые части (тир 1) без прибавок
         component.SpeedMultiplier = servoTier;
         component.CloningSafety = scanTier;
     }

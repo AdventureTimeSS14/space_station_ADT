@@ -34,7 +34,8 @@ public abstract partial class InteractionTest
     protected const string Rod = "MetalRod";
 
     // Parts
-    protected const string Servo1 = "MicroServoStockPart"; // ADT-Tweak: machine parts
+    // ADT-Tweak start: machine parts
+    protected const string Servo1 = "MicroServoStockPart";
     protected const string Servo2 = "NanoServoStockPart";
     protected const string Servo3 = "PicoServoStockPart";
     protected const string Servo4 = "FemtoServoStockPart";
@@ -56,6 +57,7 @@ public abstract partial class InteractionTest
     protected const string ScanningModule4 = "TriphasicScanningModuleStockPart";
     protected const string RapidPartExchanger = "RapidPartExchanger";
     protected const string BluespaceRapidPartExchanger = "BluespaceRapidPartExchanger";
+    // ADT-Tweak end: machine parts
     protected const string Battery1 = "PowerCellSmall";
     protected const string Battery4 = "PowerCellHyper";
 

@@ -228,7 +228,6 @@
 #  requiredTech:
 #  - ADTInducer
 
-# ADT-Tweak: RPED (порт из Orion-Station-14 PR #385)
 - type: technology
   id: ADTRpedTech
   name: research-technology-adt-rped

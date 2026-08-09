@@ -102,7 +102,6 @@
   requiredTech:
   - ADTBluespaceMining
 
-# ADT-Tweak: машинные части с тирами (порт из Orion-Station-14 PR #385)
 - type: technology
   id: ADTPartsTech
   name: research-technology-adt-parts

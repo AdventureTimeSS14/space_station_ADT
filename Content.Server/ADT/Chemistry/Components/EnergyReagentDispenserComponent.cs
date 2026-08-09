@@ -14,7 +14,6 @@ namespace Content.Server.ADT.Chemistry.Components
     [Access(typeof(EnergyReagentDispenserSystem))]
     public sealed partial class EnergyReagentDispenserComponent : Component
     {
-        // ADT-Tweak: батарейка как машинная часть (ёмкость/заряд химки = батарейка из крафта)
         public const string PartContainerName = "machine_parts";
 
         [DataField]
@@ -59,7 +58,6 @@ namespace Content.Server.ADT.Chemistry.Components
         [DataField]
         public bool InfiniteBattery = false;
 
-        // ADT-Tweak-Start: machine parts with tiers
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float FinalRechargeRate = 25f;
 
@@ -75,20 +73,13 @@ namespace Content.Server.ADT.Chemistry.Components
         [DataField]
         public ProtoId<MachinePartPrototype> ScanningModulePart = "ScanningModule";
 
-        /// <summary>
-        /// Зарядка батареи в секунду для Т2 (Т3 = x2, Т4 = x4). Т1 без авто-зарядки.
-        /// </summary>
         [DataField]
         public float RechargeRatePerTier = 5f;
 
         [DataField]
         public Dictionary<int, List<string>> TierReagents = [];
 
-        /// <summary>
-        /// Цена разблокируемых реагентов за единицу.
-        /// </summary>
         [DataField]
         public float TierReagentCost = 8f;
-        // ADT-Tweak-End
     }
 }

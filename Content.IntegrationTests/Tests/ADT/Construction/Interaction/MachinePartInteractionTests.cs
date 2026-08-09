@@ -253,7 +253,7 @@ public sealed class MachinePartInteractionTests : InteractionTest
                     case ValueTuple<string, int> stackEntry:
                         var stack = SEntMan.SpawnEntity(stackEntry.Item1, SEntMan.GetCoordinates(PlayerCoords));
                         var stackComp = SEntMan.GetComponent<Content.Shared.Stacks.StackComponent>(stack);
-                        Stack.SetCount((stack, stackComp), stackEntry.Item2); // ADT-Tweak: adapted signature
+                        Stack.SetCount((stack, stackComp), stackEntry.Item2);
                         SEntMan.System<SharedContainerSystem>().Insert(stack, storage.Container, force: true);
                         break;
                 }

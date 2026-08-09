@@ -20,7 +20,7 @@
     bodyType: Static
   - type: Battery
     maxCharge: 1500
-    startingCharge: 1500 #ADT-Tweak: стартует заряженной
+    startingCharge: 1500
     netsync: false
   - type: ApcPowerReceiverBattery
     idleLoad: 65
@@ -147,8 +147,7 @@
     batteryRechargeRate: 60
     batteryRechargeEfficiency: 1.0
   - type: EnergyReagentDispenser
-    infiniteBattery: true #ADT-Tweak: нюкерская химка всегда заряжена и не разряжается
-  # ADT-Tweak: нюкерская сразу с Т4-частями и лучшей батарейкой
+    infiniteBattery: true
   - type: ContainerFill
     containers:
       machine_board: [ EnergyChemDispenserMachineCircuitboard ]

@@ -505,10 +505,11 @@ namespace Content.Server.Lathe
         {
             foreach (var (mat, amount) in recipe.Materials)
             {
-                // ADT-Tweak: machine parts with tiers
+                // ADT-Tweak start: machine parts with tiers
                 var adjustedAmount = recipe.ApplyMaterialDiscount
                     ? Math.Max(1, (int) Math.Ceiling(amount * lathe.FinalMaterialMultiplier))
                     : amount;
+                // ADT-Tweak end
 
                 yield return (mat, adjustedAmount);
             }

@@ -12,5 +12,5 @@
         Plastic: 6
         CableHV: 4
         CableMV: 8
-      partRequirements: #ADT-Tweak: machine parts
+      partRequirements:
         Capacitor: 1

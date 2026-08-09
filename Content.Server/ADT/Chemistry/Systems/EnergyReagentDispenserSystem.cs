@@ -59,11 +59,8 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             SubscribeLocalEvent<EnergyReagentDispenserComponent, EnergyReagentDispenserClearContainerSolutionMessage>(OnClearContainerSolutionMessage);
             SubscribeLocalEvent<EnergyReagentDispenserComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<EnergyReagentDispenserComponent, GotEmaggedEvent>(OnEmaged);
-
-            // ADT-Tweak-Start: machine parts with tiers
             SubscribeLocalEvent<EnergyReagentDispenserComponent, RefreshPartsEvent>(OnPartsRefresh);
             SubscribeLocalEvent<EnergyReagentDispenserComponent, UpgradeExamineEvent>(OnUpgradeExamine);
-            // ADT-Tweak-End
 
             SubscribeLocalEvent<EnergyReagentDispenserComponent, MapInitEvent>(OnMapInit, before: [typeof(ItemSlotsSystem)]);
         }
@@ -71,7 +68,6 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
         private void SubscribeUpdateUiState<T>(Entity<EnergyReagentDispenserComponent> ent, ref T ev) =>
             UpdateUiState(ent);
 
-        // ADT-Tweak-Start: батарейка как машинная часть (machine_parts)
         private void OnEntInserted(Entity<EnergyReagentDispenserComponent> ent, ref EntInsertedIntoContainerMessage args)
         {
             if (args.Container.ID == EnergyReagentDispenserComponent.PartContainerName)
@@ -86,7 +82,6 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             {
                 SyncCellFromBattery(ent, args.Entity);
 
-                // ADT-Tweak: без батарейки химка пустая
                 if (TryComp<BatteryComponent>(ent, out var battery))
                 {
                     _battery.SetCharge((ent, battery), 0f);
@@ -97,9 +92,6 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             UpdateUiState(ent);
         }
 
-        /// <summary>
-        /// Ёмкость/заряд химки берутся из батарейки в machine_parts.
-        /// </summary>
         private EntityUid? GetCellInParts(Entity<EnergyReagentDispenserComponent> ent)
         {
             if (!_container.TryGetContainer(ent.Owner, EnergyReagentDispenserComponent.PartContainerName, out var partContainer))
@@ -128,9 +120,6 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             _battery.SetCharge((ent, battery), Math.Min(charge, cellBattery.MaxCharge));
         }
 
-        /// <summary>
-        /// При выемке батарейки заряд химки записывается обратно в батарейку.
-        /// </summary>
         private void SyncCellFromBattery(Entity<EnergyReagentDispenserComponent> ent, EntityUid cell)
         {
             if (!TryComp<BatteryComponent>(cell, out var cellBattery)
@@ -140,7 +129,6 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             var charge = _battery.GetCharge((ent, battery));
             _battery.SetCharge((cell, cellBattery), Math.Min(charge, cellBattery.MaxCharge));
         }
-        // ADT-Tweak-End
 
         private void UpdateUiState(Entity<EnergyReagentDispenserComponent> reagentDispenser)
         {
@@ -160,7 +148,6 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             if (TryComp<ApcPowerReceiverBatteryComponent>(reagentDispenser, out var apcPower))
                 currentReceivingEnergy = apcPower.BatteryRechargeRate;
 
-            // ADT-Tweak: без батарейки в machine_parts показываем "батарейка отсутствует" (заряд 0/0)
             var hasCell = reagentDispenser.Comp.InfiniteBattery || GetCellInParts(reagentDispenser) != null;
 
             if (!hasCell)
@@ -207,7 +194,6 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
                 if (!_prototypeManager.TryIndex<ReagentPrototype>(reagentId, out var reagentProto))
                     continue;
 
-                // ADT-Tweak: показываем обновлённую стоимость с учётом улучшения (MatterBin)
                 var displayCost = cost * comp.FinalEnergyCostMultiplier;
 
                 inventory.Add(new EnergyReagentInventoryItem(
@@ -242,8 +228,6 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             if (!TryComp<BatteryComponent>(reagentDispenser, out var battery))
                 return;
 
-            // ADT-Tweak: без батарейки (машинная часть) химка не выдаёт реагенты (кроме нюкерской с infiniteBattery).
-            // Старые машины без батарейки-части (сейвы) работают по-старому.
             if (!reagentDispenser.Comp.InfiniteBattery
                 && _container.TryGetContainer(reagentDispenser.Owner, EnergyReagentDispenserComponent.PartContainerName, out _)
                 && GetCellInParts(reagentDispenser) == null)
@@ -307,13 +291,11 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             return 0f;
         }
 
-        // ADT-Tweak-Start: machine parts with tiers
         private void OnPartsRefresh(EntityUid uid, EnergyReagentDispenserComponent component, RefreshPartsEvent args)
         {
             var capacitorTier = args.GetPartRating(component.CapacitorPart);
             var matterBinTier = args.GetPartRating(component.MatterBinPart);
 
-            // ADT-Tweak: авто-зарядка ТОЛЬКО с Т2+: 5/10/20 в секунду. На Т1 зарядки нет.
             component.FinalRechargeRate = capacitorTier >= 2f
                 ? component.RechargeRatePerTier * MathF.Pow(2f, capacitorTier - 2f)
                 : 0f;
@@ -327,14 +309,11 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
                 foreach (var reagent in reagents)
                     component.Reagents.TryAdd(reagent, component.TierReagentCost);
             }
-            // ADT-Tweak: энерготраты на Т1 без изменений (x1), с Т2+ дешевле: 0.85 / 0.7 / 0.55
             component.FinalEnergyCostMultiplier = RefreshPartsEvent.GetTierDiscount(matterBinTier, 0.15f);
 
-            // реально применяем скорость зарядки батареи (через SharedPowerReceiverSystem - он имеет доступ на запись)
             if (TryComp<ApcPowerReceiverBatteryComponent>(uid, out var apcBattery))
                 _powerReceiver.SetBatteryRechargeRate(uid, component.FinalRechargeRate, apcBattery);
 
-            // ADT-Tweak: после замены частей (РПД) синхронизируем ёмкость с батарейкой
             SyncBatteryFromCell((uid, component));
 
             UpdateUiState((uid, component));
@@ -342,8 +321,6 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
 
         private static void OnUpgradeExamine(EntityUid uid, EnergyReagentDispenserComponent component, UpgradeExamineEvent args)
         {
-            // ADT-Tweak: на Т1 (базовые части) улучшений нет; с Т2+ скорость восстановления заряда растёт
-            // (5/10/20 в секунду) и показывается как +100%/+200%/+400% относительно улучшения Т2.
             var rechargeMultiplier = component.FinalRechargeRate > 0f
                 ? 1f + component.FinalRechargeRate / component.RechargeRatePerTier
                 : 1f;
@@ -351,16 +328,13 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             args.AddPercentageUpgrade("machine-upgrade-charging-speed", rechargeMultiplier);
             args.AddPercentageUpgrade("machine-upgrade-energy-cost", component.FinalEnergyCostMultiplier);
         }
-        // ADT-Tweak-End
 
         private void OnMapInit(Entity<EnergyReagentDispenserComponent> entity, ref MapInitEvent args)
         {
             _itemSlotsSystem.AddItemSlot(entity.Owner, SharedEnergyReagentDispenser.OutputSlotName, entity.Comp.EnergyBeakerSlot);
 
-            // ADT-Tweak: батарейка как машинная часть (machine_parts)
             SyncBatteryFromCell(entity);
 
-            // ADT-Tweak: гарантированный пересчёт улучшений при старте (если RefreshParts ещё не пришёл)
             if (TryComp<MachineComponent>(entity, out var machine))
                 _construction.RefreshParts(entity.Owner, machine);
         }

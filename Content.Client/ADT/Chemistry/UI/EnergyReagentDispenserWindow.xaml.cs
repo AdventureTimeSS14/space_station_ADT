@@ -24,7 +24,7 @@ namespace Content.Client.ADT.Chemistry.UI
         private float _batteryCharge;
         private float _batteryMaxCharge;
         private float _currentReceiving;
-        private bool _hasCell = true; // ADT-Tweak: батарейка в слоте
+        private bool _hasCell = true;
         public event Action<string>? OnDispenseReagentButtonPressed;
         /// <summary>
         /// Create and initialize the dispenser UI client-side. Creates the basic layout,
@@ -67,7 +67,7 @@ namespace Content.Client.ADT.Chemistry.UI
             _batteryMaxCharge = state.BatteryMaxCharge;
             _batteryCharge = state.BatteryCharge;
             _currentReceiving = state.CurrentReceivingEnergy;
-            _hasCell = state.HasCell; // ADT-Tweak
+            _hasCell = state.HasCell;
 
             UpdateContainerInfo(state);
             UpdateReagentsList(state.Inventory);
@@ -86,7 +86,6 @@ namespace Content.Client.ADT.Chemistry.UI
 
         private void UpdateBatteryPercent()
         {
-            // ADT-Tweak: без батарейки показываем "батарейка отсутствует"
             if (!_hasCell)
             {
                 BatteryStatusLabel.Text = Loc.GetString("energy-reagent-dispenser-no-cell");

@@ -525,6 +525,4 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
 
     [Serializable, NetSerializable]
     public sealed partial class CryoPodDragFinished : SimpleDoAfterEvent;
-
-
 }

@@ -106,7 +106,7 @@
 
         Steel: 10
         Plasteel: 20
-      partRequirements: #ADT-Tweak: machine parts
+      partRequirements:
         Servo: 2
     - type: Clothing
       quickEquip: false

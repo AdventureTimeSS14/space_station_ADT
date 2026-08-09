@@ -34,7 +34,6 @@ public sealed class MiningPointsSystem : EntitySystem
         if (points <= 0)
             return;
 
-        // ADT-Tweak: очки шахтёров зависят от прокачки печи (микро-лазер)
         if (TryComp<OreProcessorUpgradeComponent>(ent, out var oreUpgrade))
             points = (uint)MathF.Round(points * oreUpgrade.PointsMultiplier);
 
