@@ -188,6 +188,7 @@ namespace Content.Server.Chemistry.EntitySystems
             var container = _itemSlotsSystem.GetItemOrNull(owner, SharedChemMaster.InputSlotName); //ADT-Tweak
             var bufferReagents = bufferSolution.Contents;
             var bufferCurrentVolume = bufferSolution.Volume;
+            var bufferMaxVolume = bufferSolution.MaxVolume; // ADT-Tweak
 
             // ADT-Tweak Start: Pill container storage
             var storedPillContainersInfo = new List<ContainerInfo?>();
