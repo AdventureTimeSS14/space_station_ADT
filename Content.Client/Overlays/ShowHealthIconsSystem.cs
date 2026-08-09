@@ -77,9 +77,9 @@ public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsCo
 
         // Here you could check health status, diseases, mind status, etc. and pick a good icon, or multiple depending on whatever.
         // ADT-Tweak Start: New healing containers
-        if (injurableComp.DamageContainer is "Biological"
-            or "ADTBiologicalShadekin"
-            or "ADTBiologicalDrask")
+        if (injurableComp.DamageContainer == "Biological"
+            || injurableComp.DamageContainer == "ADTBiologicalShadekin"
+            || injurableComp.DamageContainer == "ADTBiologicalDrask")
         // ADT-Tweak End
         {
             if (TryComp<MobStateComponent>(entity, out var state))
