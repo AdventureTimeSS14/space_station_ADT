@@ -328,6 +328,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 BuildInputContainerInfo(container),
                 bufferReagents,
                 bufferCurrentVolume,
+                bufferMaxVolume, // ADT-Tweak
                 chemMaster.PillType,
                 chemMaster.PillDosageLimit,
                 chemMaster.BottleDosageLimit,
