@@ -403,6 +403,15 @@
         component: SeeingRainbows
         type: Add
         time: 2.5
+      # ADT-Tweak-Start: передоз морфина даёт лекарственную зависимость
+      - !type:AdjustAddictionLevel
+        kind: Medicine
+        amount: 0.05
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTMorphine
+          min: 30.05
+      # ADT-Tweak-End
       - !type:PopupMessage
         type: Local
         visualType: Small
