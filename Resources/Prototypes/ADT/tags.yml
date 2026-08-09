@@ -918,3 +918,6 @@
 
 - type: Tag
   id: BlueprintBSA
+
+- type: Tag
+  id: ConstantTemperatureThresholds # make entity ignore parent temperature thresholds from TemperatureContainerComponent
