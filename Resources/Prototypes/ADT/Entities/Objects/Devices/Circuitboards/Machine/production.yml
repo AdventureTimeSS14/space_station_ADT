@@ -188,6 +188,8 @@
         Steel: 5
         Glass: 2
         Cable: 4
+      partRequirements: #ADT-Tweak: machine parts (серво = скорость готовки)
+        Servo: 2
       tagRequirements:
         Igniter:
           amount: 1
@@ -371,7 +373,7 @@
       componentRequirements: #ADT-Tweak: батарейка из крафта, ёмкость/заряд химки = батарейка
         PowerCell:
           amount: 1
-          defaultPrototype: PowerCellMedium
+          defaultPrototype: PowerCellHyper
       tagRequirements:
         GlassBeaker:
           amount: 2
@@ -389,6 +391,14 @@
       prototype: ADTEnergySodaDispenser
       stackRequirements:
         Steel: 5
+      partRequirements: #ADT-Tweak: machine parts
+        Servo: 2
+        Capacitor: 2
+        MatterBin: 2
+      componentRequirements: #ADT-Tweak: батарейка (гипер)
+        PowerCell:
+          amount: 1
+          defaultPrototype: PowerCellHyper
       tagRequirements:
           GlassBeaker:
             amount: 1
@@ -406,6 +416,14 @@
       prototype: ADTEnergyBoozeDispenser
       stackRequirements:
         Steel: 5
+      partRequirements: #ADT-Tweak: machine parts
+        Servo: 2
+        Capacitor: 2
+        MatterBin: 2
+      componentRequirements: #ADT-Tweak: батарейка (гипер)
+        PowerCell:
+          amount: 1
+          defaultPrototype: PowerCellHyper
       tagRequirements:
           GlassBeaker:
             amount: 1

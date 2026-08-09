@@ -20,8 +20,8 @@ public sealed class ChemMasterMachinePartsSystem : EntitySystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
 
-    public const float BaseBufferCapacity = 200f;
-    public const float BufferCapacityPerTier = 200f;
+    public const float BaseBufferCapacity = 1500f;
+    public const float BufferCapacityPerTier = 1500f;
 
     public override void Initialize()
     {
@@ -34,7 +34,8 @@ public sealed class ChemMasterMachinePartsSystem : EntitySystem
     private void OnRefreshParts(EntityUid uid, ChemMasterComponent component, RefreshPartsEvent args)
     {
         var servoTier = args.GetPartRating(MachinePartIds.Servo, 1f);
-        var capacity = BaseBufferCapacity + BufferCapacityPerTier * servoTier;
+        // Базовые части (тир 1) без прибавок: база 1500, каждый уровень выше +1500 (Т2 = 3000, Т3 = 4500, Т4 = 6000)
+        var capacity = BaseBufferCapacity + BufferCapacityPerTier * MathF.Max(0f, servoTier - 1f);
 
         if (TryComp<ChemMasterBufferComponent>(uid, out var buffer))
         {

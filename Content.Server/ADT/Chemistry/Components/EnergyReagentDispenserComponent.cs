@@ -78,11 +78,32 @@ namespace Content.Server.ADT.Chemistry.Components
         [DataField]
         public ProtoId<MachinePartPrototype> MatterBinPart = "MatterBin";
 
+        [DataField]
+        public ProtoId<MachinePartPrototype> ServoPart = "Servo";
+
         /// <summary>
         /// Зарядка батареи в секунду для Т2 (Т3 = x2, Т4 = x4). Т1 без авто-зарядки.
         /// </summary>
         [DataField]
         public float RechargeRatePerTier = 5f;
+
+        /// <summary>
+        /// Реагенты, разблокируемые серво по тирам (цена 8 W/u за единицу).
+        /// </summary>
+        [DataField]
+        public Dictionary<int, List<string>> TierReagents = new()
+        {
+            [1] = ["TableSalt", "Ash", "WeldingFuel"],
+            [2] = ["Acetone", "Ammonia"],
+            [3] = ["Toxin", "Phenol"],
+            [4] = ["Diethylamine"],
+        };
+
+        /// <summary>
+        /// Цена разблокируемых реагентов за единицу.
+        /// </summary>
+        [DataField]
+        public float TierReagentCost = 8f;
         // ADT-Tweak-End
     }
 }

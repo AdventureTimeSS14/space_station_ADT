@@ -104,7 +104,7 @@
       # ADT port end pAI modernization
   - type: SolutionContainerManager
     solutions:
-      buffer: { maxVol: 200 } #ADT-Tweak: ограниченный буффер, +200 за тир серво
+      buffer: { maxVol: 1500 } #ADT-Tweak: ограниченный буффер, +1500 за тир серво (с Т2)
   - type: DumpableSolution
     solution: buffer
     unlimited: true

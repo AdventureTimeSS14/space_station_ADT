@@ -40,6 +40,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Temperature.Components;
 using Content.Shared.Damage;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.Construction.Components; // ADT-Tweak: machine parts
 using Content.Shared.ADT.Construction.Events; // ADT-Tweak: machine parts
 using Content.Shared.ADT.Kitchem.Components; // ADT-Tweak
 using Content.Shared.Power.EntitySystems;
@@ -675,6 +676,11 @@ namespace Content.Server.Kitchen.EntitySystems
                         reagentDict[reagent.Prototype] += quantity;
                 }
             }
+
+            // ADT-Tweak: серво ассемблера уменьшает требуемые ингредиенты
+            var ingredientMultiplier = TryComp<AssemblerUpgradeComponent>(uid, out var assemblerUpgrade)
+                ? assemblerUpgrade.IngredientMultiplier
+                : 1f;
 
             // Check recipes
             var getRecipesEv = new GetSecretRecipesEvent();

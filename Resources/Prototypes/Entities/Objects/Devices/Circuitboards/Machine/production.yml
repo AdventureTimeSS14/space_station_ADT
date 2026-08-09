@@ -323,8 +323,7 @@
         Cable: 1
         PlasmaGlass: 10
       partRequirements: #ADT-Tweak: machine parts
-        Servo: 3
-
+        MicroLaser: 3
 - type: entity
   parent: BaseMachineCircuitboard
   id: AnomalyVesselExperimentalCircuitboard
@@ -559,8 +558,6 @@
       stackRequirements:
         Glass: 5
         Cable: 1
-      partRequirements: #ADT-Tweak: machine parts (материя-бин = скорость охлаждения)
-        MatterBin: 1
 
 - type: entity
   id: ChemMasterMachineCircuitboard

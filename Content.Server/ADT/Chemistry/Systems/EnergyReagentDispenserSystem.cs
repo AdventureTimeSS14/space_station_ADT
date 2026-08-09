@@ -315,6 +315,17 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             component.FinalRechargeRate = capacitorTier >= 2f
                 ? component.RechargeRatePerTier * MathF.Pow(2f, capacitorTier - 2f)
                 : 0f;
+
+            // ADT-Tweak: серво разблокирует реагенты по тирам (Т1: соль/пепел/топливо, Т2: ацетон/аммиак, ...)
+            var servoTier = args.GetPartRating(component.ServoPart, 1f);
+            foreach (var (tier, reagents) in component.TierReagents)
+            {
+                if (servoTier < tier)
+                    continue;
+
+                foreach (var reagent in reagents)
+                    component.Reagents.TryAdd(reagent, component.TierReagentCost);
+            }
             // ADT-Tweak: энерготраты на Т1 без изменений (x1), с Т2+ дешевле: 0.85 / 0.7 / 0.55
             component.FinalEnergyCostMultiplier = matterBinTier >= 2f
                 ? MathF.Max(0.5f, 1.15f - matterBinTier * 0.15f)

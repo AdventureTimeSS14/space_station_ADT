@@ -114,6 +114,7 @@
     powerLoad: 5
   - type: Machine
     board: ADTMedicalAssemblerMachineCircuitBoard
+  - type: AssemblerUpgrade #ADT-Tweak: машинные части (серво = меньше ингредиентов)
   - type: ActivatableUI
     key: enum.MicrowaveUiKey.MedicalAssemblerKey
   - type: UserInterface
@@ -138,6 +139,7 @@
      canMicrowaveIdsSafely: false
      explosionChance: 0
      lightningChance: 0
+     microLaserPart: Servo #ADT-Tweak: скорость готовки от серво
      beginCookingSound: /Audio/ADT/Machines/egg-timer.ogg
      foodDoneSound: /Audio/Machines/ding.ogg
      loopingSound: /Audio/ADT/Effects/silence.ogg

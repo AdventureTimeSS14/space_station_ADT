@@ -6,14 +6,14 @@
 namespace Content.Shared.ADT.Construction.Components;
 
 /// <summary>
-/// ADT: вместимость буффера химмастера (для осмотра улучшений).
+/// ADT: апгрейд электрического гриля (серво увеличивает мощность нагрева).
 /// </summary>
 [RegisterComponent]
-public sealed partial class ChemMasterBufferComponent : Component
+public sealed partial class GrillUpgradeComponent : Component
 {
     [DataField]
-    public float BaseBufferCapacity = 1500f;
+    public float BasePower = 2400f;
 
     [DataField]
-    public float BufferCapacity = 1500f;
+    public float PowerMultiplier = 1f;
 }
