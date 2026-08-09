@@ -159,7 +159,7 @@
       0: Alive
       70: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 4.3
+    baseWalkSpeed : 2.5
     baseSprintSpeed : 4.3
   - type: SlowOnDamage
     speedModifierThresholds:
@@ -203,7 +203,7 @@
       Dead:
         Base: guard_dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3.8
+    baseWalkSpeed : 2.5
     baseSprintSpeed : 3.8
   - type: SlowOnDamage
     speedModifierThresholds:
@@ -255,7 +255,7 @@
       0: Alive
       40: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 4.5
+    baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
   - type: SlowOnDamage
     speedModifierThresholds:
@@ -283,7 +283,7 @@
         - ReagentId: ADTLatrotoxin
           Quantity: 100
   - type: MeleeChemicalInjector
-    transferAmount: 4
+    transferAmount: 6
     solution: melee
 
 - type: entity
@@ -324,16 +324,16 @@
   - type: Stamina
     baseCritThreshold: 200
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.7
-    baseSprintSpeed : 2.7
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 3
   - type: SlowOnDamage
     speedModifierThresholds:
-      280: 0.7
-      320: 0.5
+      100: 0.7
+      150: 0.5
   - type: MobThresholds
     thresholds:
       0: Alive
-      350: Dead
+      200: Dead
   - type: Prying # Open door from xeno.yml.
     speedModifier: 3
   - type: MeleeWeapon

@@ -15,7 +15,7 @@
   #   maxAngle: -43
   # - type: Wieldable # ADT tweak end
   - type: Gun
-    fireRate: 0.5
+    fireRate: 2.5 # ADT tweak CLICK_CD_RANGE из SS13
     selectedMode: SemiAuto
     angleDecay: 45
     minAngle: 2 #ADT tweak
@@ -34,7 +34,7 @@
           False: { visible: True }
         #todo: add other 'empty' animations
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.75
+    rechargeCooldown: 1.6 # ADT tweak overheat_time базового ПКА из SS13
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
@@ -67,7 +67,7 @@
     offsets:
       rmc-aslot-underbarrel: 0.315, -0.209
   - type: MeleeWeapon
-    attackRate: 1
+    attackRate: 1.25 # ADT tweak CLICK_CD_MELEE из SS13
     damage:
       types:
         Blunt: 5

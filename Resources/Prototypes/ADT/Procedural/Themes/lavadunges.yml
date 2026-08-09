@@ -304,10 +304,15 @@
 
 - type: entity
   id: LavaDungeonRoomMarker
-  parent: BaseRoomMarker
+  parent: MarkerBase
   name: LavaDungeon interior marker
   components:
-  - type: RoomFill
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Mobs/Aliens/elemental.rsi
+        state: alive
+  - type: ADTRoomFill
     clearExisting: true
     roomWhitelist:
       tags:

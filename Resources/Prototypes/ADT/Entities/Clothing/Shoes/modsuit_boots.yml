@@ -109,14 +109,14 @@
   name: security MOD boots
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Shoes/Modsuit/mining.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/security.rsi
     state: icon
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
   - type: Clothing
     equipDelay: 3
     unequipDelay: 3
-    sprite: ADT/Clothing/Shoes/Modsuit/mining.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/security.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
 
