@@ -250,10 +250,10 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             if (!_solutionContainerSystem.TryAddSolution(solution.Value, sol))
                 return;
 
-            if (!reagentDispenser.Comp.InfiniteBattery) // ADT-Tweak: нюкерская не разряжается
+            if (!reagentDispenser.Comp.InfiniteBattery)
                 _battery.ChangeCharge(reagentDispenser.Owner, -powerRequired);
             else
-                _battery.SetCharge(reagentDispenser.Owner, battery.MaxCharge); // всегда 100%
+                _battery.SetCharge(reagentDispenser.Owner, battery.MaxCharge);
             ClickSound(reagentDispenser);
             UpdateUiState(reagentDispenser);
         }
@@ -280,14 +280,14 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
         private static float GetPowerCostForReagent(string reagentId, int amount, EnergyReagentDispenserComponent comp)
         {
             if (comp.Reagents.TryGetValue(reagentId, out var cost))
-                return cost * amount * comp.FinalEnergyCostMultiplier; // ADT-Tweak: machine parts
+                return cost * amount * comp.FinalEnergyCostMultiplier;
             return float.MaxValue;
         }
 
         private static float GetRefundPowerForReagent(string reagentId, int amount, EnergyReagentDispenserComponent comp)
         {
             if (comp.Reagents.TryGetValue(reagentId, out var cost))
-                return cost * amount * comp.FinalEnergyCostMultiplier; // ADT-Tweak: machine parts
+                return cost * amount * comp.FinalEnergyCostMultiplier;
             return 0f;
         }
 
