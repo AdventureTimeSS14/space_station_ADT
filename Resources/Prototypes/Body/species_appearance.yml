@@ -39,9 +39,12 @@
     - map: [ "shoes" ]
     - map: [ "ears" ]
     - map: [ "eyes" ]
+    #- map: [ "belt" ] # ADT-Tweak: Disabled layer from Wizards
     - map: [ "id" ]
-    - map: [ "outerClothing" ] # ADT: Moved UNDER belt layer, because webbings renders UNDER Armor vests (this is NOT logic).
-    - map: [ "belt" ]
+    # ADT-Tweak-Start
+    - map: [ "outerClothing" ]
+    - map: [ "belt" ]  # ADT: Moved ABOVE outer layer, because webbings renders UNDER Armor vests (this was NOT logic).
+    # ADT-Tweak-End
     - map: [ "back" ]
     - map: [ "neck" ]
     - map: [ "suitstorage" ]
