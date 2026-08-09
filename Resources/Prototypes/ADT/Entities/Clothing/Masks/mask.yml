@@ -536,4 +536,7 @@
     sprite: ADT/Clothing/Mask/vox_mask.rsi
   - type: Item
     size: Tiny
+  - type: HideLayerClothing
+    slots:
+    - Snout
   - type: BreathMask
