@@ -60,16 +60,16 @@ namespace Content.Server.ADT.Chemistry.Components
         public bool InfiniteBattery = false;
 
         // ADT-Tweak-Start: machine parts with tiers
-        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float BaseRechargeRate = 25f;
 
-        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float FinalRechargeRate = 25f;
 
-        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float BaseEnergyCostMultiplier = 1f;
 
-        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float FinalEnergyCostMultiplier = 1f;
 
         [DataField]

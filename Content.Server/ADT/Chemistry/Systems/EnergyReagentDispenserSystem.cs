@@ -18,6 +18,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Content.Server.Construction;
 using Content.Server.Construction.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -41,6 +42,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
         [Dependency] private readonly BatterySystem _battery = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
+        [Dependency] private readonly ConstructionSystem _construction = default!;
 
         public override void Initialize()
         {
@@ -360,6 +362,10 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
 
             // ADT-Tweak: батарейка как машинная часть (machine_parts)
             SyncBatteryFromCell(entity);
+
+            // ADT-Tweak: гарантированный пересчёт улучшений при старте (если RefreshParts ещё не пришёл)
+            if (TryComp<MachineComponent>(entity, out var machine))
+                _construction.RefreshParts(entity.Owner, machine);
         }
         private void OnEmaged(Entity<EnergyReagentDispenserComponent> ent, ref GotEmaggedEvent args)
         {
