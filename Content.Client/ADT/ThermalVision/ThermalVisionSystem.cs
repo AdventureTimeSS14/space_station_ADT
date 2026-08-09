@@ -23,6 +23,7 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
     private ThermalVisionOverlay _altOverlay = default!;
     private GasTileThermalVisionOverlay _gasOverlay = default!;
     private EntityUid? _effect;
+    private bool _active;
 
     private const string ThermalShaderId = "ADTThermalVisionScreenShader";
     private const string ThermalAltShaderId = "ADTThermalVisionScreenShaderHalfAlpha";
@@ -68,11 +69,16 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 
     private void AttemptAddVision(Entity<ThermalVisionComponent> ent)
     {
-        if (_effect != null)
+        if (_active)
+            return;
+
+        _active = true;
+        _overlayMan.AddOverlay(_throughWallsOverlay);
+
+        if (ent.Comp.HighlightOnly)
             return;
 
         _overlayMan.AddOverlay(_gasOverlay);
-        _overlayMan.AddOverlay(_throughWallsOverlay);
         if (ent.Comp.UseAlternativeShader)
             _overlayMan.AddOverlay(_altOverlay);
         else
@@ -86,6 +92,8 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
     {
         if (_player.LocalEntity == null && !force)
             return;
+
+        _active = false;
 
         _overlayMan.RemoveOverlay(_gasOverlay);
         _overlayMan.RemoveOverlay(_throughWallsOverlay);
