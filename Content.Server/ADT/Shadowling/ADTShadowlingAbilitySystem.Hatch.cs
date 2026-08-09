@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared.ADT.Shadowling;
 using Content.Shared.DoAfter;
+using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Player;
@@ -18,6 +19,12 @@ public sealed partial class ADTShadowlingAbilitySystem
     {
         SubscribeLocalEvent<ADTShadowlingComponent, ADTShadowlingHatchEvent>(OnHatch);
         SubscribeLocalEvent<ADTShadowlingComponent, ADTShadowlingHatchDoAfterEvent>(OnHatchDoAfter);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
+     }
+
+    private void OnRoundRestart(RoundRestartCleanupEvent ev)
+    {
+        _usedNames.Clear();
     }
 
     private void OnHatch(Entity<ADTShadowlingComponent> ent, ref ADTShadowlingHatchEvent args)

@@ -16,6 +16,7 @@
         time: 10
         conditions:
         - !type:WhitelistCondition
+          blacklist: true
           whitelist:
             components:
             - ADTShadowling
@@ -25,7 +26,6 @@
       - !type:HealthChange
         conditions:
         - !type:WhitelistCondition
-          blacklist: true
           whitelist:
             components:
             - ADTShadowling

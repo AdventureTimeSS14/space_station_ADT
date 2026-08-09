@@ -231,6 +231,17 @@ public sealed partial class ADTShadowlingAbilitySystem
                 if (string.IsNullOrWhiteSpace(message))
                     return;
 
+                if (message.Length > 256)
+                {
+                    _popup.PopupEntity(
+                        Loc.GetString("shadowling-broadcast-too-long"),
+                        ent,
+                        ent,
+                        PopupType.MediumCaution);
+
+                    return;
+                }
+
                 _chat.DispatchGlobalAnnouncement(message, sender, playSound: false, colorOverride: Color.MediumPurple);
                 _audio.PlayGlobal(sound, Filter.Broadcast(), true);
             });
