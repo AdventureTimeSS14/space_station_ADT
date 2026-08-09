@@ -1,6 +1,4 @@
 using Content.Shared.Access.Systems;
-using Content.Shared.ADT.Construction;
-using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -37,11 +35,6 @@ public abstract class SharedSmartFridgeSystem : EntitySystem
 
         SubscribeLocalEvent<SmartFridgeComponent, InteractUsingEvent>(OnInteractUsing, after: [typeof(AnchorableSystem)]);
         SubscribeLocalEvent<SmartFridgeComponent, EntInsertedIntoContainerMessage>(OnItemInserted);
-
-        // ADT-Tweak-Start: machine parts with tiers
-        SubscribeLocalEvent<SmartFridgeComponent, RefreshPartsEvent>(OnRefreshParts);
-        SubscribeLocalEvent<SmartFridgeComponent, UpgradeExamineEvent>(OnUpgradeExamine);
-        // ADT-Tweak-End
         SubscribeLocalEvent<SmartFridgeComponent, EntRemovedFromContainerMessage>(OnItemRemoved);
         SubscribeLocalEvent<SmartFridgeComponent, AfterAutoHandleStateEvent>((ent, ref _) => UpdateUI(ent));
 
@@ -103,10 +96,6 @@ public abstract class SharedSmartFridgeSystem : EntitySystem
         foreach (var used in usedItems)
         {
             if (!_whitelist.CheckBoth(used, ent.Comp.Blacklist, ent.Comp.Whitelist))
-                continue;
-
-            // ADT-Tweak: machine parts with tiers
-            if (CountContained(ent) >= ent.Comp.Capacity)
                 continue;
 
             anyInserted = true;
@@ -300,30 +289,5 @@ public abstract class SharedSmartFridgeSystem : EntitySystem
     {
 
     }
-
-    // ADT-Tweak-Start: machine parts with tiers
-    private static int CountContained(Entity<SmartFridgeComponent> ent)
-    {
-        var count = 0;
-        foreach (var set in ent.Comp.ContainedEntries.Values)
-        {
-            count += set.Count;
-        }
-
-        return count;
-    }
-
-    private void OnRefreshParts(EntityUid uid, SmartFridgeComponent component, RefreshPartsEvent args)
-    {
-        var matterTier = args.GetPartRating(MachinePartIds.MatterBin);
-        component.Capacity = (int) MathF.Round(component.BaseCapacity * RefreshPartsEvent.GetPositiveTierMultiplier(matterTier));
-        Dirty(uid, component);
-    }
-
-    private static void OnUpgradeExamine(EntityUid uid, SmartFridgeComponent component, UpgradeExamineEvent args)
-    {
-        args.AddPercentageUpgrade("machine-upgrade-smartfridge-capacity", component.Capacity / (float) component.BaseCapacity);
-    }
-    // ADT-Tweak-End
 
 }

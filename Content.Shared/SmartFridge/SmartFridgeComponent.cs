@@ -42,14 +42,6 @@ public sealed partial class SmartFridgeComponent : Component
     [DataField, AutoNetworkedField]
     public List<SmartFridgeEntry> Entries = new();
 
-    // ADT-Tweak-Start: machine parts with tiers
-    [DataField]
-    public int BaseCapacity = 50;
-
-    [DataField, AutoNetworkedField]
-    public int Capacity = 50;
-    // ADT-Tweak-End
-
     /// <summary>
     /// A mapping of smart fridge entries to the actual contained contents
     /// </summary>
