@@ -81,8 +81,7 @@ public sealed class PlantHolderSystem : EntitySystem
         var servo = args.GetPartRating(MachinePartIds.Servo);
         component.MaxWater = component.BaseMaxWater * RefreshPartsEvent.GetPositiveTierMultiplier(bin);
         component.MaxNutrition = component.BaseMaxNutrition * RefreshPartsEvent.GetPositiveTierMultiplier(bin);
-        // ADT-Tweak: базовые части (тир 1) не дают прибавок
-        component.NutrientConsumptionMultiplier = servo > 1f ? MathF.Max(0.5f, 1f - (servo - 1f) * 0.1f) : 1f;
+        component.NutrientConsumptionMultiplier = RefreshPartsEvent.GetTierDiscount(servo, 0.1f);
     }
 
     private static void OnUpgradeExamine(EntityUid uid, PlantHolderComponent component, UpgradeExamineEvent args)

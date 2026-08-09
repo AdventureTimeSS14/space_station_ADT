@@ -62,7 +62,7 @@ public sealed class SeedExtractorSystem : EntitySystem
     // ADT-Tweak-Start: machine parts with tiers
     private void OnPartsRefresh(EntityUid uid, SeedExtractorComponent component, RefreshPartsEvent args)
     {
-        var servoTier = MathF.Max(1f, args.GetPartRating(component.ServoPart, 1f));
+        var servoTier = args.GetPartRating(component.ServoPart, 1f);
         component.SeedMultiplier = servoTier;
     }
 

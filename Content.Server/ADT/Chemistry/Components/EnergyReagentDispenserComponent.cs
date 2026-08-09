@@ -61,13 +61,7 @@ namespace Content.Server.ADT.Chemistry.Components
 
         // ADT-Tweak-Start: machine parts with tiers
         [DataField, ViewVariables(VVAccess.ReadWrite)]
-        public float BaseRechargeRate = 25f;
-
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float FinalRechargeRate = 25f;
-
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
-        public float BaseEnergyCostMultiplier = 1f;
 
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float FinalEnergyCostMultiplier = 1f;

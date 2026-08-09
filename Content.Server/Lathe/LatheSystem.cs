@@ -459,11 +459,8 @@ namespace Content.Server.Lathe
         // ADT-Tweak-Start: machine parts with tiers
         private void OnPartsRefresh(EntityUid uid, LatheComponent component, RefreshPartsEvent args)
         {
-            // ADT-Tweak: базовые части (тир 1) не дают прибавок; эффект с тира 2
             var servoTier = args.GetPartRating(component.MachinePartPrintSpeed);
-            var efficiency = servoTier > 1f
-                ? Math.Clamp(1f - (servoTier - 1f) * 0.15f, component.MinMachinePartEfficiency, 1f)
-                : 1f;
+            var efficiency = RefreshPartsEvent.GetTierDiscount(servoTier, 0.15f, component.MinMachinePartEfficiency);
 
             component.FinalTimeMultiplier = component.TimeMultiplier * efficiency;
             component.FinalMaterialMultiplier = component.MaterialUseMultiplier * efficiency;

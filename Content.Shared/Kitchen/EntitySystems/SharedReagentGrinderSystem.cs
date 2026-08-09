@@ -82,7 +82,7 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
         var servoTier = args.GetPartRating(component.ServoPart, 1f);
         var matterBinTier = args.GetPartRating(component.MatterBinPart, 1f);
 
-        component.WorkTimeMultiplier = 1f / MathF.Max(servoTier, 1f);
+        component.WorkTimeMultiplier = 1f / servoTier;
         component.StorageMaxEntities = (int)MathF.Round(component.BaseStorageMaxEntities * RefreshPartsEvent.GetPositiveTierMultiplier(matterBinTier));
 
         UpdateUi(uid);

@@ -84,6 +84,14 @@ public sealed class MachineFrameSystem : EntitySystem
             args.Handled = true;
             return;
         }
+
+        if (TryInsertRequirements(uid, args.Used, component))
+            args.Handled = true;
+    }
+
+    public bool TryInsertRequirements(EntityUid uid, EntityUid used, MachineFrameComponent component)
+    {
+        var inserted = false;
         // ADT-Tweak-End
 
         // Handle component requirements
@@ -94,32 +102,34 @@ public sealed class MachineFrameSystem : EntitySystem
 
             var registration = Factory.GetRegistration(compName);
 
-            if (!HasComp(args.Used, registration.Type))
+            // ADT-Tweak-start
+            if (!HasComp(used, registration.Type)) 
                 continue;
 
             // Insert the entity, if it hasn't already been inserted
-            if (!args.Handled)
+            if (!inserted)
             {
-                if (!_container.TryRemoveFromContainer(args.Used))
-                    return;
+                if (!_container.TryRemoveFromContainer(used))
+                    return inserted;
 
-                args.Handled = true;
-                if (!_container.Insert(args.Used, component.PartContainer))
-                    return;
+                inserted = true;
+                if (!_container.Insert(used, component.PartContainer))
+                    return inserted;
             }
+            // ADT-Tweak-End
 
             component.ComponentProgress[compName]++;
 
             if (IsComplete(component))
             {
                 _popupSystem.PopupEntity(Loc.GetString("machine-frame-component-on-complete"), uid);
-                return;
+                return inserted; // ADT-Tweak
             }
         }
 
         // Handle tag requirements
-        if (!TryComp<TagComponent>(args.Used, out var tagComp))
-            return;
+        if (!TryComp<TagComponent>(used, out var tagComp))
+            return inserted; // ADT-Tweak
 
         foreach (var (tagName, info) in component.TagRequirements)
         {
@@ -130,25 +140,26 @@ public sealed class MachineFrameSystem : EntitySystem
                 continue;
 
             // Insert the entity, if it hasn't already been inserted
-            if (!args.Handled)
+            if (!inserted) // ADT-Tweak
             {
-                if (!_container.TryRemoveFromContainer(args.Used))
-                    return;
+                if (!_container.TryRemoveFromContainer(used))
+                    return inserted; // ADT-Tweak
 
-                args.Handled = true;
-                if (!_container.Insert(args.Used, component.PartContainer))
-                    return;
+                inserted = true;
+                if (!_container.Insert(used, component.PartContainer))
+                    return inserted; // ADT-Tweak
             }
 
             component.TagProgress[tagName]++;
-            args.Handled = true;
 
             if (IsComplete(component))
             {
                 _popupSystem.PopupEntity(Loc.GetString("machine-frame-component-on-complete"), uid);
-                return;
+                return inserted;
             }
         }
+
+        return inserted; // ADT-Tweak
     }
 
     /// <returns>Whether or not the function had any effect. Does not indicate success.</returns>
@@ -173,7 +184,7 @@ public sealed class MachineFrameSystem : EntitySystem
     }
 
     /// <returns>Whether or not the function had any effect. Does not indicate success.</returns>
-    private bool TryInsertStack(EntityUid uid, EntityUid used, MachineFrameComponent component, StackComponent stack)
+    public bool TryInsertStack(EntityUid uid, EntityUid used, MachineFrameComponent component, StackComponent stack) // ADT-Tweak
     {
         var type = stack.StackTypeId;
 
@@ -216,7 +227,7 @@ public sealed class MachineFrameSystem : EntitySystem
     }
 
     // ADT-Tweak-Start: machine parts with tiers
-    private bool TryInsertMachinePart(EntityUid uid, EntityUid used, MachineFrameComponent component, MachinePartComponent machinePart)
+    public bool TryInsertMachinePart(EntityUid uid, EntityUid used, MachineFrameComponent component, MachinePartComponent machinePart) // ADT-Tweak: was private (RPED)
     {
         if (!component.PartRequirements.TryGetValue(machinePart.Part, out var requirement))
             return false;

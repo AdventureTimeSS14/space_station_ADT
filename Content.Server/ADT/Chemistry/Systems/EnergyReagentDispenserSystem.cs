@@ -328,9 +328,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
                     component.Reagents.TryAdd(reagent, component.TierReagentCost);
             }
             // ADT-Tweak: энерготраты на Т1 без изменений (x1), с Т2+ дешевле: 0.85 / 0.7 / 0.55
-            component.FinalEnergyCostMultiplier = matterBinTier >= 2f
-                ? MathF.Max(0.5f, 1.15f - matterBinTier * 0.15f)
-                : 1f;
+            component.FinalEnergyCostMultiplier = RefreshPartsEvent.GetTierDiscount(matterBinTier, 0.15f);
 
             // реально применяем скорость зарядки батареи (через SharedPowerReceiverSystem - он имеет доступ на запись)
             if (TryComp<ApcPowerReceiverBatteryComponent>(uid, out var apcBattery))

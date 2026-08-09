@@ -19,7 +19,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Storage;
-using Content.Shared.Tag;
 using Content.Shared.Wires;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -42,8 +41,6 @@ public sealed class PartExchangerSystem : EntitySystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly MachineFrameSystem _machineFrame = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly BeamSystem _beam = default!;
 
     public override void Initialize()
@@ -320,138 +317,24 @@ public sealed class PartExchangerSystem : EntitySystem
                 return changed;
         }
 
-        var remainingParts = machineFrame.PartRequirements.ToDictionary(
-            entry => entry.Key,
-            entry => Math.Max(0, entry.Value - machineFrame.PartProgress.GetValueOrDefault(entry.Key)));
-        var remainingMaterials = machineFrame.MaterialRequirements.ToDictionary(
-            entry => entry.Key,
-            entry => Math.Max(0, entry.Value - machineFrame.MaterialProgress.GetValueOrDefault(entry.Key)));
-        var remainingComponents = machineFrame.ComponentRequirements.ToDictionary(
-            entry => entry.Key,
-            entry => Math.Max(0, entry.Value.Amount - machineFrame.ComponentProgress.GetValueOrDefault(entry.Key)));
-        var remainingTags = machineFrame.TagRequirements.ToDictionary(
-            entry => entry.Key,
-            entry => Math.Max(0, entry.Value.Amount - machineFrame.TagProgress.GetValueOrDefault(entry.Key)));
-
-        foreach (var partUid in storage.Container.ContainedEntities.ToArray())
+        foreach (var itemUid in storage.Container.ContainedEntities.ToArray())
         {
-            if (TryComp<MachinePartComponent>(partUid, out var machinePart)
-                && remainingParts.TryGetValue(machinePart.Part, out var partRemaining)
-                && partRemaining > 0)
+            if (TryComp<MachinePartComponent>(itemUid, out var machinePart)
+                && _machineFrame.TryInsertMachinePart(frameUid, itemUid, machineFrame, machinePart))
             {
-                var count = TryComp<StackComponent>(partUid, out var partStack) ? partStack.Count : 1;
-                var amount = Math.Min(partRemaining, count);
-                var partToInsert = partUid;
-
-                if (amount <= 0)
-                    continue;
-
-                if (partStack != null && partStack.Count > amount)
-                {
-                    var split = _stack.Split((partUid, partStack), amount, Transform(frameUid).Coordinates);
-                    if (split == null)
-                        continue;
-
-                    partToInsert = split.Value;
-                }
-                else if (!_container.TryRemoveFromContainer(partUid, force: true))
-                {
-                    continue;
-                }
-
-                if (!_container.Insert(partToInsert, machineFrame.PartContainer))
-                {
-                    _container.Insert(partToInsert, storage.Container, force: true);
-                    continue;
-                }
-
-                remainingParts[machinePart.Part] = Math.Max(0, partRemaining - amount);
                 changed = true;
                 continue;
             }
 
-            if (TryComp<StackComponent>(partUid, out var stack)
-                && remainingMaterials.TryGetValue(stack.StackTypeId, out var materialRemaining)
-                && materialRemaining > 0)
+            if (TryComp<StackComponent>(itemUid, out var stack)
+                && _machineFrame.TryInsertStack(frameUid, itemUid, machineFrame, stack))
             {
-                var materialAmount = Math.Min(materialRemaining, stack.Count);
-                EntityUid? stackToInsert = partUid;
-
-                if (materialAmount > 0)
-                {
-                    if (stack.Count > materialAmount)
-                    {
-                        var split = _stack.Split((partUid, stack), materialAmount, Transform(frameUid).Coordinates);
-                        if (split != null)
-                            stackToInsert = split.Value;
-                    }
-                    else if (!_container.TryRemoveFromContainer(partUid, force: true))
-                    {
-                        stackToInsert = null;
-                    }
-
-                    if (stackToInsert != null)
-                    {
-                        if (!_container.Insert(stackToInsert.Value, machineFrame.PartContainer))
-                            _container.Insert(stackToInsert.Value, storage.Container, force: true);
-                        else
-                        {
-                            remainingMaterials[stack.StackTypeId] = Math.Max(0, materialRemaining - materialAmount);
-                            changed = true;
-                        }
-                    }
-                }
-            }
-
-            foreach (var (compName, _) in machineFrame.ComponentRequirements)
-            {
-                if (!remainingComponents.TryGetValue(compName, out var compRemaining) || compRemaining <= 0)
-                    continue;
-
-                var registration = _factory.GetRegistration(compName);
-                if (!HasComp(partUid, registration.Type))
-                    continue;
-
-                if (!_container.TryRemoveFromContainer(partUid, force: true))
-                    continue;
-
-                if (!_container.Insert(partUid, machineFrame.PartContainer))
-                {
-                    _container.Insert(partUid, storage.Container, force: true);
-                    continue;
-                }
-
-                remainingComponents[compName] = compRemaining - 1;
                 changed = true;
-                break;
-            }
-
-            if (!TryComp<TagComponent>(partUid, out var tagComp))
                 continue;
-
-            {
-                foreach (var (tagName, _) in machineFrame.TagRequirements)
-                {
-                    if (!remainingTags.TryGetValue(tagName, out var tagRemaining) || tagRemaining <= 0)
-                        continue;
-
-                    if (!_tag.HasTag(tagComp, tagName))
-                        continue;
-
-                    if (!_container.TryRemoveFromContainer(partUid, force: true))
-                        continue;
-
-                    if (!_container.Insert(partUid, machineFrame.PartContainer))
-                    {
-                        _container.Insert(partUid, storage.Container, force: true);
-                        continue;
-                    }
-
-                    remainingTags[tagName] = tagRemaining - 1;
-                    changed = true;
-                    break;
-                }
             }
+
+            if (_machineFrame.TryInsertRequirements(frameUid, itemUid, machineFrame))
+                changed = true;
         }
 
         if (!changed)

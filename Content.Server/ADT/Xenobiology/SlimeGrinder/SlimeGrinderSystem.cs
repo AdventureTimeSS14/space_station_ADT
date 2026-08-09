@@ -56,7 +56,7 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
     // ADT-Tweak-Start: машинные части с тирами
     private void OnRefreshParts(EntityUid uid, SlimeGrinderComponent component, RefreshPartsEvent args)
     {
-        var servoTier = MathF.Max(1f, args.GetPartRating(component.ServoPart, 1f));
+        var servoTier = args.GetPartRating(component.ServoPart, 1f);
         component.ExtractMultiplier = servoTier; // Т1 x1, Т2 x2, Т3 x3, Т4 x4
         component.WorkTimeMultiplier = 1f / servoTier; // скорость выше с каждым тиром
     }

@@ -50,14 +50,9 @@ public sealed class RefreshPartsEvent : EntityEventArgs
         return sum;
     }
 
-    public static float GetPartCooldownMultiplier(float tier)
+    public static float GetTierDiscount(float tier, float step, float min = 0.5f)
     {
-        return Math.Clamp(1.15f - tier * 0.15f, 0.1f, 1f);
-    }
-
-    public static float GetLinearMultiplier(float tier, float step, float min, float max)
-    {
-        return Math.Clamp(1.2f - tier * step, min, max);
+        return Math.Clamp(1f - (tier - 1f) * step, min, 1f);
     }
 
     public static float GetPositiveTierMultiplier(float tier, float @base = 1f)

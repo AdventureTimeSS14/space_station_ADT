@@ -503,8 +503,7 @@ namespace Content.Server.Kitchen.EntitySystems
         {
             var microLaserTier = args.GetPartRating(component.MicroLaserPart);
             var matterBinTier = args.GetPartRating(component.MatterBinPart);
-            // ADT-Tweak: базовые части (тир 1) не дают прибавок; эффект с тира 2
-            component.CookTimeMultiplier = component.BaseCookTimeMultiplier * (microLaserTier > 1f ? MathF.Max(0.5f, 1f - (microLaserTier - 1f) * 0.1f) : 1f);
+            component.CookTimeMultiplier = component.BaseCookTimeMultiplier * RefreshPartsEvent.GetTierDiscount(microLaserTier, 0.1f);
             component.ExplosionChance = MathF.Max(0f, component.BaseExplosionChance - MathF.Max(0f, microLaserTier - 1f) * 0.05f);
             component.Capacity = (int)MathF.Round(component.BaseCapacity * RefreshPartsEvent.GetPositiveTierMultiplier(matterBinTier));
 

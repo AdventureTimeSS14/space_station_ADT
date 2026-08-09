@@ -8,16 +8,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Construction.Components;
 
-/// <summary>
-/// ADT: upgrade values for the ore processor (smelter). Higher tier machine parts
-/// produce more output per smelt and give miners more points.
-/// </summary>
 [RegisterComponent]
 public sealed partial class OreProcessorUpgradeComponent : Component
 {
-    [DataField]
-    public float BaseOutputMultiplier = 1f;
-
     [DataField]
     public float OutputMultiplier = 1f;
 
