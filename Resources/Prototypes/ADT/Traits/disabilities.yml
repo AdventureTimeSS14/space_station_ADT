@@ -119,7 +119,6 @@
   speciesBlacklist:
   - NovakidSpecies
 
-# ADT-Tweak: трайт Allergic закомментирован по ревью (PR #3087), не удалён.
 # Система аллергии не работала, трайт давал очко ни за что.
 #- type: trait
 #  id: Allergic
