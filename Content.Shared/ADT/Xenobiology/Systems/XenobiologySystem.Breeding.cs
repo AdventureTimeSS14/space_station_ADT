@@ -11,6 +11,11 @@ using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.Body.Systems;
+using Content.Shared.NPC.Systems;
+using Content.Shared.NPC.Components;
+using Robust.Shared.GameObjects;
+using Robust.Shared.Map;
+using Robust.Shared.Player;
 
 namespace Content.Shared.ADT.Xenobiology.Systems;
 
@@ -19,6 +24,8 @@ public partial class XenobiologySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly NpcFactionSystem _factions = default!;
 
     private void SubscribeBreeding()
     {
@@ -108,6 +115,14 @@ public partial class XenobiologySystem
             return;
 
         var offspringCount = _random.Next(1, ent.Comp.MaxOffspring + 1);
+
+        var slowdown = GetBreedingSlowdown(ent);
+        if (slowdown >= 1f)
+            return;
+
+        if (slowdown > 0f)
+            offspringCount = Math.Max(1, (int)MathF.Round(offspringCount * (1f - slowdown)));
+
         _audio.PlayPredicted(ent.Comp.MitosisSound, ent, ent);
 
         List<EntityUid> slimes = [];
@@ -170,9 +185,44 @@ public partial class XenobiologySystem
             }
         }
 
+        MakeMitosisFriends(ent, slimes);
+
         _containerSystem.EmptyContainer(ent.Comp.Stomach);
         RaiseLocalEvent(ent, new SlimeMitosisEvent(slimes));
         QueueDel(ent);
+    }
+
+    private void MakeMitosisFriends(Entity<SlimeComponent> ent, List<EntityUid> offspring)
+    {
+        if (_net.IsClient)
+            return;
+
+        var range = ent.Comp.FriendSightRange;
+        if (range <= 0f)
+            return;
+
+        var coords = Transform(ent).Coordinates;
+        var witnessed = new HashSet<EntityUid>();
+
+        foreach (var player in _lookup.GetEntitiesInRange<ActorComponent>(coords, range))
+        {
+            var playerUid = player.Owner;
+
+            if (ent.Comp.LatchedTarget is { } latchTarget && latchTarget == playerUid)
+                continue;
+
+            witnessed.Add(playerUid);
+        }
+
+        if (witnessed.Count == 0)
+            return;
+
+        _factions.IgnoreEntities(new Entity<FactionExceptionComponent?>(ent.Owner, default), witnessed);
+
+        foreach (var child in offspring)
+        {
+            _factions.IgnoreEntities(new Entity<FactionExceptionComponent?>(child, default), witnessed);
+        }
     }
 
     private Entity<SlimeComponent>? SpawnSlime(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
@@ -192,5 +242,52 @@ public partial class XenobiologySystem
         _mobGrowth.SetBaseName(newEntityUid, Loc.GetString(newBreed.BreedName));
 
         return new Entity<SlimeComponent>(newEntityUid, newSlime);
+    }
+
+    /// <summary>
+    /// Counts the number of slimes on the same grid as the given slime.
+    /// </summary>
+    public int GetLocalSlimeDensity(Entity<SlimeComponent> ent)
+    {
+        if (_net.IsClient)
+            return 0;
+
+        var gridId = Transform(ent).GridUid;
+        var count = 0;
+
+        var query = EntityQueryEnumerator<SlimeComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out _, out var xform))
+        {
+            if (uid == ent.Owner)
+                continue;
+
+            if (xform.GridUid == gridId)
+                count++;
+        }
+
+        return count;
+    }
+
+    /// <summary>
+    /// Computes a breeding slowdown factor in the range [0, 1] based on local slime density.
+    /// 0 means no slowdown (breeding unaffected), approaching 1 means breeding is nearly halted.
+    /// The slowdown ramps up progressively between the slowdown-start threshold and the max cap.
+    /// </summary>
+    public float GetBreedingSlowdown(Entity<SlimeComponent> ent)
+    {
+        var max = _configuration.GetCVar(SimpleStationCCVars.XenobiologyMaxSlimesPerGrid);
+        var start = _configuration.GetCVar(SimpleStationCCVars.XenobiologyBreedingSlowdownStart);
+        var factor = _configuration.GetCVar(SimpleStationCCVars.XenobiologyBreedingSlowdownFactor);
+
+        if (max <= 0 || factor <= 0)
+            return 0f;
+
+        var density = GetLocalSlimeDensity(ent);
+        if (density <= start)
+            return 0f;
+
+        var range = Math.Max(1, max - start);
+        var raw = (density - start) / (float)range;
+        return Math.Clamp(raw * factor, 0f, 1f);
     }
 }
