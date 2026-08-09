@@ -72,7 +72,7 @@
 
   - [bold]Захват[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"]
   <Box>
-  Роняет цель на пол на [color=Orange]3 секунды[/color] и наносит [color=Cyan]55[/color] урона по выносливости.
+  Роняет цель на пол на [color=Orange]4 секунды[/color] и наносит [color=Cyan]60[/color] урона по выносливости, не работает на лежачих.
   </Box>
 
   - [bold]Давление[/bold] — [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="disarm" scale="1"] [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="grab" scale="1"]

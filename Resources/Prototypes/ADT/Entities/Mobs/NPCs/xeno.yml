@@ -148,7 +148,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      350: Dead # ADT Tweak
+      120: Dead # ADT Tweak
   - type: Stamina
     baseCritThreshold: 300
   - type: SlowOnDamage
@@ -158,7 +158,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 27
+        Blunt: 21
   #- type: StaminaDamageOnHit
   #  damage: 12
   # ADT End
@@ -200,7 +200,7 @@
   - type: MeleeWeapon
     damage:
   # ADT-Tweak start
-      types:  
+      types:
         Blunt: 15
   # ADT-Tweak end
   # Start ADT: Xeno Buff
@@ -243,7 +243,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      1000: Dead # ADT Tweak
+      250: Dead # ADT Tweak
   - type: SlowOnDamage
     speedModifierThresholds:
       150: 0.7
@@ -251,7 +251,7 @@
   - type: MeleeWeapon
     damage:
      types:
-       Blunt: 42 # ADT Tweak
+       Blunt: 32 # ADT Tweak
   # Start ADT: Xeno Buff
   # - type: StaminaDamageOnHit
   #  damage: 35
@@ -290,7 +290,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      750: Dead # ADT Tweak
+      150: Dead # ADT Tweak
 # ADT-tweak start
   - type: Destructible
     thresholds:
@@ -307,7 +307,7 @@
     damage:
     # ADT-tweak start
      types:
-       Slash: 27
+       Slash: 17
        Blunt: 10
     # ADT-tweak end
   - type: SlowOnDamage

@@ -180,9 +180,17 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    # ADT-Tweak Start: New healing containers
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+    # ADT-Tweak End
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+    # ADT-Tweak Start: New healing containers
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+    # ADT-Tweak End
 
   # Visual
   inventoryTemplateId: borgDutch
