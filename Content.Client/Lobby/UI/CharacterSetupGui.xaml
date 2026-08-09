@@ -26,11 +26,6 @@
                         Visible="False"
                         StyleClasses="ButtonBig" />
                 <!-- Corvax-Sponsor-End -->
-                <!-- ADT tweak start -->
-                <Button Name="ADTAchievementsButton"
-                        Text="{Loc 'adt-character-setup-gui-achievements-button'}"
-                        StyleClasses="ButtonBig" />
-                <!-- ADT tweak end -->
                 <Button Name="RulesButton"
                         Text="{Loc 'character-setup-gui-character-setup-rules-button'}"
                         StyleClasses="ButtonBig"/>

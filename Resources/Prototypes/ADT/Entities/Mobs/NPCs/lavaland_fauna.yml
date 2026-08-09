@@ -4,9 +4,6 @@
   parent: ADTSimpleMobBaselavaland
   description: A scavenger that eats raw meat, often found alongside ash walkers. Produces a thick, medicinally nutritious milk.
   components:
-  - type: ADTAchievementSource
-    onDeath:
-    - ADTLavalandFaunaKilled
   - type: Hunger
   - type: Sprite
     drawdepth: Mobs
@@ -156,9 +153,6 @@
   parent: ADTSimpleMobBaselavaland
   description: A worm that grows fat from eating everything in its sight. Seems to enjoy precious metals and other shiny things, hence the name.
   components:
-  - type: ADTAchievementSource
-    onDeath:
-    - ADTLavalandFaunaKilled
   - type: Sprite
     drawdepth: Mobs
     sprite: ADT/Mobs/Lavaland/goldgrub.rsi

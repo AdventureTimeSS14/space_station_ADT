@@ -4,7 +4,6 @@ using System.Net;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Server.ADT.Achievements;
 using Content.Server.ADT.Thunderdome;
 using Content.Server.Administration.Logs;
 using Content.Shared.ADT.Thunderdome;
@@ -321,15 +320,6 @@ namespace Content.Server.Database
 
         #endregion
         // ADT-Thunderdome-End
-
-        // ADT-Achievements-Start
-        #region Achievements
-
-        Task<List<ADTAchievementRow>> GetAchievementsAsync(Guid userId);
-        Task SaveAchievementsAsync(IReadOnlyCollection<ADTAchievementSave> saves);
-
-        #endregion
-        // ADT-Achievements-End
 
         #region Job Whitelists
 
@@ -1070,20 +1060,6 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.SaveThunderdomeStats(deltas));
         }
         // ADT-Thunderdome-End
-
-        // ADT-Achievements-Start
-        public Task<List<ADTAchievementRow>> GetAchievementsAsync(Guid userId)
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetAchievements(userId));
-        }
-
-        public Task SaveAchievementsAsync(IReadOnlyCollection<ADTAchievementSave> saves)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.SaveAchievements(saves));
-        }
-        // ADT-Achievements-End
 
         public Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score)
         {

@@ -1,4 +1,3 @@
-using Content.Client.ADT.Achievements;
 using Content.Client.Info;
 using Content.Client.Info.PlaytimeStats;
 using Content.Client.Resources;
@@ -64,8 +63,6 @@ namespace Content.Client.Lobby.UI
             RulesButton.OnPressed += _ => new RulesAndInfoWindow().Open();
 
             StatsButton.OnPressed += _ => new PlaytimeStatsWindow().OpenCentered();
-
-            ADTAchievementsButton.OnPressed += _ => UserInterfaceManager.GetUIController<ADTAchievementsUIController>().OpenWindow(); // ADT tweak
 
             _cfg.OnValueChanged(CCVars.SeeOwnNotes, p => AdminRemarksButton.Visible = p, true);
             // // Corvax-Sponsors-Start // ADT COmmented

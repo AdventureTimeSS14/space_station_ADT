@@ -1,5 +1,4 @@
-﻿using Content.Client.ADT.Achievements;
-using Content.Client.FeedbackPopup;
+﻿using Content.Client.FeedbackPopup;
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
@@ -28,7 +27,6 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
     [Dependency] private readonly OptionsUIController _options = default!;
     [Dependency] private readonly GuidebookUIController _guidebook = default!;
     [Dependency] private readonly FeedbackPopupUIController _feedback = null!;
-    [Dependency] private readonly ADTAchievementsUIController _achievements = default!;
 
     private Options.UI.EscapeMenu? _escapeWindow;
 
@@ -120,14 +118,6 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
         {
             _guidebook.ToggleGuidebook();
         };
-
-        // ADT tweak start
-        _escapeWindow.ADTAchievementsButton.OnPressed += _ =>
-        {
-            CloseEscapeWindow();
-            _achievements.OpenWindow();
-        };
-        // ADT tweak end
 
         // Hide wiki button if we don't have a link for it.
         _escapeWindow.WikiButton.Visible = _cfg.GetCVar(CCVars.InfoLinksWiki) != "";

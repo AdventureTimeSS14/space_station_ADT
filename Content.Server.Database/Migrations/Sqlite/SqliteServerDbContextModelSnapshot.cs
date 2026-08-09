@@ -17,39 +17,6 @@ namespace Content.Server.Database.Migrations.Sqlite
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.0");
 
-            modelBuilder.Entity("Content.Server.Database.ADTPlayerAchievement", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("adtplayer_achievement_id");
-
-                    b.Property<string>("AchievementId")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("achievement_id");
-
-                    b.Property<int>("Progress")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("progress");
-
-                    b.Property<DateTime?>("UnlockedAt")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("unlocked_at");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("user_id");
-
-                    b.HasKey("Id")
-                        .HasName("PK_adtplayer_achievement");
-
-                    b.HasIndex("UserId", "AchievementId")
-                        .IsUnique();
-
-                    b.ToTable("adtplayer_achievement", (string)null);
-                });
-
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
                 {
                     b.Property<Guid>("UserId")
