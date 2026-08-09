@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Serialization;
+﻿using Content.Shared.ADT.Construction.Steps;
+using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Validation;
@@ -44,6 +45,12 @@ namespace Content.Shared.Construction.Steps
             if (node.Has("assemblyId") || node.Has("guideString"))
             {
                 return typeof(PartAssemblyConstructionGraphStep);
+            }
+
+            // ADT-Tweak: machine parts with tiers
+            if (node.Has("machinePart"))
+            {
+                return typeof(MachinePartConstructionGraphStep);
             }
 
             return null;

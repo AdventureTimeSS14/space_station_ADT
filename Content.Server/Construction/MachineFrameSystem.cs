@@ -1,11 +1,14 @@
+using Content.Server.ADT.Construction.Systems;
 using Content.Server.Construction.Components;
 using Content.Server.Stack;
+using Content.Shared.ADT.Construction.Components;
+using Content.Shared.ADT.Construction.Prototypes;
 using Content.Shared.Construction.Components;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
+using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Tag;
-using Content.Shared.Popups;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
@@ -18,6 +21,7 @@ public sealed class MachineFrameSystem : EntitySystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly ConstructionSystem _construction = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly PartExchangerSystem _partExchanger = default!; // ADT-Tweak: RPED
 
     public override void Initialize()
     {
@@ -51,6 +55,11 @@ public sealed class MachineFrameSystem : EntitySystem
         if (args.Handled)
             return;
 
+        // ADT-Tweak-Start: RPED can insert boards and parts into a machine frame
+        if (_partExchanger.TryStartExchange(uid, args))
+            return;
+        // ADT-Tweak-End
+
         if (!component.HasBoard)
         {
             if (TryInsertBoard(uid, args.Used, component))
@@ -67,6 +76,15 @@ public sealed class MachineFrameSystem : EntitySystem
                 args.Handled = true;
             return;
         }
+
+        // ADT-Tweak-Start: machine parts with tiers
+        if (TryComp<MachinePartComponent>(args.Used, out var machinePart)
+            && TryInsertMachinePart(uid, args.Used, component, machinePart))
+        {
+            args.Handled = true;
+            return;
+        }
+        // ADT-Tweak-End
 
         // Handle component requirements
         foreach (var (compName, info) in component.ComponentRequirements)
@@ -134,7 +152,7 @@ public sealed class MachineFrameSystem : EntitySystem
     }
 
     /// <returns>Whether or not the function had any effect. Does not indicate success.</returns>
-    private bool TryInsertBoard(EntityUid uid, EntityUid used, MachineFrameComponent component)
+    public bool TryInsertBoard(EntityUid uid, EntityUid used, MachineFrameComponent component) // ADT-Tweak: was private (RPED)
     {
         if (!TryComp<MachineBoardComponent>(used, out var machineBoard))
             return false;
@@ -197,6 +215,56 @@ public sealed class MachineFrameSystem : EntitySystem
         return true;
     }
 
+    // ADT-Tweak-Start: machine parts with tiers
+    private bool TryInsertMachinePart(EntityUid uid, EntityUid used, MachineFrameComponent component, MachinePartComponent machinePart)
+    {
+        if (!component.PartRequirements.TryGetValue(machinePart.Part, out var requirement))
+            return false;
+
+        var progress = component.PartProgress[machinePart.Part];
+        if (progress >= requirement)
+            return false;
+
+        var remaining = requirement - progress;
+        var stackCount = TryComp<StackComponent>(used, out var stack) ? stack.Count : 1;
+        var delta = Math.Min(stackCount, remaining);
+        if (delta <= 0)
+            return false;
+
+        EntityUid partToInsert;
+        if (TryComp(used, out stack) && stack.Count > delta)
+        {
+            var split = _stack.Split((used, stack), delta, Transform(uid).Coordinates);
+            if (split == null)
+                return false;
+
+            partToInsert = split.Value;
+        }
+        else
+        {
+            partToInsert = used;
+            if (!_container.TryRemoveFromContainer(used))
+                return false;
+        }
+
+        if (!_container.Insert(partToInsert, component.PartContainer))
+        {
+            // ADT-Tweak: cleanup the split stack if insertion failed
+            if (partToInsert != used)
+                QueueDel(partToInsert);
+
+            return false;
+        }
+
+        component.PartProgress[machinePart.Part] += delta;
+
+        if (IsComplete(component))
+            _popupSystem.PopupEntity(Loc.GetString("machine-frame-component-on-complete"), uid);
+
+        return true;
+    }
+    // ADT-Tweak-End
+
     public bool IsComplete(MachineFrameComponent component)
     {
         if (!component.HasBoard)
@@ -207,6 +275,14 @@ public sealed class MachineFrameSystem : EntitySystem
             if (component.MaterialProgress[type] < amount)
                 return false;
         }
+
+        // ADT-Tweak-Start: machine parts with tiers
+        foreach (var (type, amount) in component.PartRequirements)
+        {
+            if (component.PartProgress[type] < amount)
+                return false;
+        }
+        // ADT-Tweak-End
 
         foreach (var (compName, info) in component.ComponentRequirements)
         {
@@ -226,10 +302,12 @@ public sealed class MachineFrameSystem : EntitySystem
     public void ResetProgressAndRequirements(MachineFrameComponent component, MachineBoardComponent machineBoard)
     {
         component.MaterialRequirements = new Dictionary<ProtoId<StackPrototype>, int>(machineBoard.StackRequirements);
+        component.PartRequirements = new Dictionary<ProtoId<MachinePartPrototype>, int>(machineBoard.PartRequirements); // ADT-Tweak
         component.ComponentRequirements = new Dictionary<string, GenericPartInfo>(machineBoard.ComponentRequirements);
         component.TagRequirements = new Dictionary<ProtoId<TagPrototype>, GenericPartInfo>(machineBoard.TagRequirements);
 
         component.MaterialProgress.Clear();
+        component.PartProgress.Clear(); // ADT-Tweak
         component.ComponentProgress.Clear();
         component.TagProgress.Clear();
 
@@ -237,6 +315,13 @@ public sealed class MachineFrameSystem : EntitySystem
         {
             component.MaterialProgress[stackType] = 0;
         }
+
+        // ADT-Tweak-Start: machine parts with tiers
+        foreach (var (partType, _) in component.PartRequirements)
+        {
+            component.PartProgress[partType] = 0;
+        }
+        // ADT-Tweak-End
 
         foreach (var (compName, _) in component.ComponentRequirements)
         {
@@ -255,9 +340,11 @@ public sealed class MachineFrameSystem : EntitySystem
         {
             component.TagRequirements.Clear();
             component.MaterialRequirements.Clear();
+            component.PartRequirements.Clear(); // ADT-Tweak
             component.ComponentRequirements.Clear();
             component.TagRequirements.Clear();
             component.MaterialProgress.Clear();
+            component.PartProgress.Clear(); // ADT-Tweak
             component.ComponentProgress.Clear();
             component.TagProgress.Clear();
 
@@ -289,6 +376,23 @@ public sealed class MachineFrameSystem : EntitySystem
 
                 continue;
             }
+
+            // ADT-Tweak-Start: machine parts with tiers
+            if (TryComp<MachinePartComponent>(part, out var machinePart))
+            {
+                if (!component.PartRequirements.ContainsKey(machinePart.Part))
+                    continue;
+
+                var quantity = 1;
+                if (TryComp<StackComponent>(part, out var partStack))
+                    quantity = partStack.Count;
+
+                if (!component.PartProgress.TryAdd(machinePart.Part, quantity))
+                    component.PartProgress[machinePart.Part] += quantity;
+
+                continue;
+            }
+            // ADT-Tweak-End
 
             // I have many regrets.
             foreach (var (compName, _) in component.ComponentRequirements)

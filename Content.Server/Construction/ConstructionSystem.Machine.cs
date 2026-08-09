@@ -9,6 +9,7 @@ public sealed partial class ConstructionSystem
     private void InitializeMachines()
     {
         SubscribeLocalEvent<MachineComponent, ComponentInit>(OnMachineInit);
+        SubscribeLocalEvent<MachineComponent, ComponentStartup>(OnMachineStartup); // ADT-Tweak: machine parts
         SubscribeLocalEvent<MachineComponent, MapInitEvent>(OnMachineMapInit);
     }
 
@@ -18,9 +19,20 @@ public sealed partial class ConstructionSystem
         component.PartContainer = _container.EnsureContainer<Container>(uid, MachineFrameComponent.PartContainerName);
     }
 
+    // ADT-Tweak-Start: machine parts with tiers
+    private void OnMachineStartup(EntityUid uid, MachineComponent component, ComponentStartup args)
+    {
+        if (component.BoardContainer.ContainedEntities.Count == 0)
+            return;
+
+        RefreshParts(uid, component);
+    }
+    // ADT-Tweak-End
+
     private void OnMachineMapInit(EntityUid uid, MachineComponent component, MapInitEvent args)
     {
         CreateBoardAndStockParts(uid, component);
+        RefreshParts(uid, component); // ADT-Tweak: machine parts
     }
 
     private void CreateBoardAndStockParts(EntityUid uid, MachineComponent component)
@@ -53,6 +65,24 @@ public sealed partial class ConstructionSystem
             if (!_container.Insert(stack, partContainer))
                 throw new Exception($"Couldn't insert machine material of type {stackType} to machine with prototype {Prototype(uid)?.ID ?? "N/A"}");
         }
+
+        // ADT-Tweak-Start: machine parts with tiers
+        foreach (var (partType, amount) in machineBoard.PartRequirements)
+        {
+            if (PrototypeManager.TryIndex(partType, out var machinePart))
+            {
+                for (var i = 0; i < amount; i++)
+                {
+                    if (!TrySpawnInContainer(machinePart.StockPartPrototype, uid, MachineFrameComponent.PartContainerName, out _))
+                        throw new Exception($"Couldn't insert machine part requirement {partType} to machine with prototype {Prototype(uid)?.ID ?? "N/A"}");
+                }
+
+                continue;
+            }
+
+            throw new Exception($"Unknown machine part requirement {partType} for machine with prototype {Prototype(uid)?.ID ?? "N/A"}");
+        }
+        // ADT-Tweak-End
 
         foreach (var (compName, info) in machineBoard.ComponentRequirements)
         {
