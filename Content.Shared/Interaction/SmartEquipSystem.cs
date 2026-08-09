@@ -38,7 +38,7 @@ public sealed class SmartEquipSystem : EntitySystem
             .Bind(ContentKeyFunctions.SmartEquipPocket1, InputCmdHandler.FromDelegate(HandleSmartEquipPocket1, handle: false, outsidePrediction: false))
             .Bind(ContentKeyFunctions.SmartEquipPocket2, InputCmdHandler.FromDelegate(HandleSmartEquipPocket2, handle: false, outsidePrediction: false))
             .Bind(ContentKeyFunctions.SmartEquipSuitStorage, InputCmdHandler.FromDelegate(HandleSmartEquipSuitStorage, handle: false, outsidePrediction: false))
-            .Bind(ContentKeyFunctions.SmartEquipNeck, InputCmdHandler.FromDelegate(HandleSmartEquipNeck, handle: false, outsidePrediction: false))
+            .Bind(ContentKeyFunctions.SmartEquipNeck, InputCmdHandler.FromDelegate(HandleSmartEquipNeck, handle: false, outsidePrediction: false)) // ADT-Tweak-SmartEquipNeck
             .Register<SmartEquipSystem>();
     }
 
