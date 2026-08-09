@@ -19,9 +19,6 @@ public sealed partial class ChargerComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public float BaseChargeRate;
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float FinalChargeRate;
-
     [DataField]
     public ProtoId<MachinePartPrototype> ChargePart = "Capacitor";
     // ADT-Tweak-End

@@ -38,8 +38,6 @@ public sealed class SmesSystem : EntitySystem //ADT-tweak: made public
         {
             component.BaseMaxSupply = netBattery.MaxSupply;
             component.BaseMaxChargeRate = netBattery.MaxChargeRate;
-            component.FinalMaxSupply = netBattery.MaxSupply;
-            component.FinalMaxChargeRate = netBattery.MaxChargeRate;
         }
         // ADT-Tweak-End
 
@@ -58,23 +56,24 @@ public sealed class SmesSystem : EntitySystem //ADT-tweak: made public
             return;
 
         // ADT-Tweak: базовые части (тир 1) не дают прибавок (средний рейтинг, не сумма)
-        var rating = Math.Max(1f, args.GetPartRating(MachinePartIds.Capacitor));
-        component.FinalMaxSupply = component.BaseMaxSupply * rating;
-        component.FinalMaxChargeRate = component.BaseMaxChargeRate * rating;
-        netBattery.MaxSupply = component.FinalMaxSupply;
-        netBattery.MaxChargeRate = component.FinalMaxChargeRate;
+        var rating = args.GetPartRating(MachinePartIds.Capacitor);
+        netBattery.MaxSupply = component.BaseMaxSupply * rating;
+        netBattery.MaxChargeRate = component.BaseMaxChargeRate * rating;
 
         UpdateSmesState(uid, component);
     }
 
-    private static void OnUpgradeExamine(EntityUid uid, SmesComponent component, UpgradeExamineEvent args)
+    private void OnUpgradeExamine(EntityUid uid, SmesComponent component, UpgradeExamineEvent args)
     {
+        if (!TryComp<PowerNetworkBatteryComponent>(uid, out var netBattery))
+            return;
+
         var inputMultiplier = component.BaseMaxChargeRate <= 0f
             ? 1f
-            : component.FinalMaxChargeRate / component.BaseMaxChargeRate;
+            : netBattery.MaxChargeRate / component.BaseMaxChargeRate;
         var outputMultiplier = component.BaseMaxSupply <= 0f
             ? 1f
-            : component.FinalMaxSupply / component.BaseMaxSupply;
+            : netBattery.MaxSupply / component.BaseMaxSupply;
 
         args.AddPercentageUpgrade("machine-upgrade-power-input", inputMultiplier);
         args.AddPercentageUpgrade("machine-upgrade-power-output", outputMultiplier);

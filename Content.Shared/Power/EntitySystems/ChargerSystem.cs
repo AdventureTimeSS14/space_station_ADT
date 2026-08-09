@@ -45,7 +45,6 @@ public sealed class ChargerSystem : EntitySystem
     {
         // ADT-Tweak-Start: machine parts with tiers
         ent.Comp.BaseChargeRate = ent.Comp.ChargeRate;
-        ent.Comp.FinalChargeRate = ent.Comp.ChargeRate;
         // ADT-Tweak-End
 
         UpdateStatus(ent);
@@ -212,17 +211,16 @@ public sealed class ChargerSystem : EntitySystem
     private void OnPartsRefresh(EntityUid uid, ChargerComponent component, RefreshPartsEvent args)
     {
         var capTier = args.GetPartRating(component.ChargePart);
-        component.FinalChargeRate = component.BaseChargeRate * RefreshPartsEvent.GetPositiveTierMultiplier(capTier);
-        component.ChargeRate = component.FinalChargeRate;
+        component.ChargeRate = component.BaseChargeRate * RefreshPartsEvent.GetPositiveTierMultiplier(capTier);
 
         UpdateStatus((uid, component));
     }
 
-    private static void OnUpgradeExamine(EntityUid uid, ChargerComponent component, UpgradeExamineEvent args)
+    private void OnUpgradeExamine(EntityUid uid, ChargerComponent component, UpgradeExamineEvent args)
     {
         var efficiency = component.BaseChargeRate <= 0f
             ? 1f
-            : component.FinalChargeRate / component.BaseChargeRate;
+            : component.ChargeRate / component.BaseChargeRate;
 
         args.AddPercentageUpgrade("machine-upgrade-charging-efficiency", efficiency);
     }

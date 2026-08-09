@@ -18,12 +18,6 @@ public sealed partial class SmesComponent : Component
 
     [DataField]
     public float BaseMaxChargeRate = 200000f;
-
-    [DataField]
-    public float FinalMaxSupply = 200000f;
-
-    [DataField]
-    public float FinalMaxChargeRate = 200000f;
     // ADT-Tweak-End
 
     [ViewVariables]
