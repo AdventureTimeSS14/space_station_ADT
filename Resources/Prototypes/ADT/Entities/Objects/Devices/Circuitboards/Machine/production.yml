@@ -188,7 +188,7 @@
         Steel: 5
         Glass: 2
         Cable: 4
-      partRequirements: (серво = скорость готовки)
+      partRequirements:
         Servo: 2
       tagRequirements:
         Igniter:
