@@ -16,3 +16,11 @@ research-technology-advancedmegacells = Сверхэффективные мег�
 research-technology-reducer = Беспроводная передача энергии
 
 research-technology-bluespace-artillery = Блюспейс артиллерия
+
+# ADT-Tweak: машинные части (порт из Orion-Station-14 PR #385)
+research-technology-adt-parts = Машинные части
+research-technology-adt-advanced-parts = Улучшенные машинные части
+research-technology-adt-super-parts = Продвинутые машинные части
+research-technology-adt-bluespace-parts = Блюспейс-машинные части
+research-technology-adt-rped = РПД
+research-technology-adt-bluespace-rped = Блюспейс-РПД

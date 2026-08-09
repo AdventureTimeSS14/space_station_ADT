@@ -118,6 +118,20 @@
         doAfter: 10
       - tool: Screwing
         doAfter: 10
+      - machinePart: Servo
+        tier: 4
+      - machinePart: Servo
+        tier: 4
+      - machinePart: Capacitor
+        tier: 4
+      - machinePart: Capacitor
+        tier: 4
+      - machinePart: MatterBin
+        tier: 4
+      - machinePart: MicroLaser
+        tier: 4
+      - machinePart: ScanningModule
+        tier: 4
     - to: frame3
       completed:
       - !type:SpawnPrototype
@@ -138,6 +152,21 @@
       - !type:SpawnPrototype
         prototype: LightBulbBroken
         amount: 5
+      - !type:SpawnPrototype
+        prototype: FemtoServoStockPart
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: BluespaceCapacitorStockPart
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: BluespaceMatterBinStockPart
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: QuadUltraMicroLaserStockPart
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: TriphasicScanningModuleStockPart
+        amount: 1
       steps:
       - tool: Prying
         doAfter: 3
@@ -743,6 +772,20 @@
         doAfter: 10
       - tool: Screwing
         doAfter: 10
+      - machinePart: Servo
+        tier: 4
+      - machinePart: Servo
+        tier: 4
+      - machinePart: Capacitor
+        tier: 4
+      - machinePart: Capacitor
+        tier: 4
+      - machinePart: MatterBin
+        tier: 4
+      - machinePart: MicroLaser
+        tier: 4
+      - machinePart: ScanningModule
+        tier: 4
     - to: frame3
       completed:
       - !type:SpawnPrototype
@@ -763,6 +806,21 @@
       - !type:SpawnPrototype
         prototype: LightBulbBroken
         amount: 5
+      - !type:SpawnPrototype
+        prototype: FemtoServoStockPart
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: BluespaceCapacitorStockPart
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: BluespaceMatterBinStockPart
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: QuadUltraMicroLaserStockPart
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: TriphasicScanningModuleStockPart
+        amount: 1
       steps:
       - tool: Prying
         doAfter: 3

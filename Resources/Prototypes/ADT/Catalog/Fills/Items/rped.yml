@@ -1,0 +1,17 @@
+- type: entity
+  parent: BluespaceRapidPartExchanger
+  id: BluespaceRapidPartExchangerFilled
+  suffix: Tier 4
+  components:
+  - type: StorageFill
+    contents:
+      - id: BluespaceCapacitorStockPart
+        amount: 20
+      - id: TriphasicScanningModuleStockPart
+        amount: 20
+      - id: FemtoServoStockPart
+        amount: 20
+      - id: QuadUltraMicroLaserStockPart
+        amount: 20
+      - id: BluespaceMatterBinStockPart
+        amount: 20

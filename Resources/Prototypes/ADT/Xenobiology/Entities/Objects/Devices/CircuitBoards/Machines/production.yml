@@ -9,8 +9,10 @@
   - type: MachineBoard
     prototype: SlimeGrinder
     stackRequirements:
-      Manipulator: 5
       Steel: 5
+    partRequirements: #ADT-Tweak: machine parts
+      Servo: 3
+      MatterBin: 2
     tagRequirements:
       Knife:
         amount: 2

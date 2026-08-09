@@ -252,6 +252,7 @@
     - XenobioPack #ADT Tweak
     - XenobagHoldingPack #ADT Tweak
     - ADTBluespaceCrystalTech #ADT Tweak
+    - PartsDynamic #ADT-Tweak: machine parts
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -743,6 +744,7 @@
       transferSound:
         path: /Audio/Effects/Cargo/ping.ogg
     - type: MiningPointsLathe
+    - type: OreProcessorUpgrade #ADT-Tweak: машинные части (порт Orion PR #385)
      # ADT tweak end
 
 - type: entity

@@ -1,0 +1,25 @@
+# Машинные части с тирами (порт из Orion-Station-14 PR #385)
+- type: machinePart
+  id: Capacitor
+  name: machine-part-name-capacitor
+  stockPartPrototype: CapacitorStockPart
+
+- type: machinePart
+  id: Servo
+  name: machine-part-name-servo
+  stockPartPrototype: MicroServoStockPart
+
+- type: machinePart
+  id: MatterBin
+  name: machine-part-name-matter-bin
+  stockPartPrototype: MatterBinStockPart
+
+- type: machinePart
+  id: ScanningModule
+  name: machine-part-name-scanning-module
+  stockPartPrototype: ScanningModuleStockPart
+
+- type: machinePart
+  id: MicroLaser
+  name: machine-part-name-micro-laser
+  stockPartPrototype: MicroLaserStockPart
