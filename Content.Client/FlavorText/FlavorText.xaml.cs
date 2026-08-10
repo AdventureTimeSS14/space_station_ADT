@@ -13,7 +13,7 @@ namespace Content.Client.FlavorText;
 public sealed partial class FlavorText : Control
 {
     public Action<string>? OnFlavorTextChanged;
-    public Action<string>? OnExploitableInfoChanged;
+    public Action<string>? OnExploitableInfoChanged; // ADT-Tweak: скрытая информация персонажа
     public Action<string>? OnHeadshotUrlChanged;
     public Action? OnPreviewRequested;
 
@@ -31,7 +31,7 @@ public sealed partial class FlavorText : Control
 
         var loc = IoCManager.Resolve<ILocalizationManager>();
         CFlavorTextInput.Placeholder = new Rope.Leaf(loc.GetString("flavor-text-placeholder"));
-        CExploitableInput.Placeholder = new Rope.Leaf(loc.GetString("flavor-interface-exploitable-placeholder"));
+        CExploitableInput.Placeholder = new Rope.Leaf(loc.GetString("flavor-interface-exploitable-placeholder")); // ADT-Tweak: скрытая информация персонажа
 
         _rulesAcceptedText = Loc.GetString("flavor-interface-rules-accepted");
         _rulesNotAcceptedText = Loc.GetString("flavor-interface-rules-not-accepted");
@@ -39,7 +39,7 @@ public sealed partial class FlavorText : Control
         RulesButton.OnPressed += _ => OpenRulesPopup(); // ADT-Tweak
 
         CFlavorTextInput.OnTextChanged += _ => FlavorTextChanged();
-        CExploitableInput.OnTextChanged += _ => ExploitableInfoChanged();
+        CExploitableInput.OnTextChanged += _ => ExploitableInfoChanged(); // ADT-Tweak: скрытая информация персонажа
 
         // ADT-Tweak-start
         CHeadshotUrlInput.OnTextChanged += _ => HeadshotUrlChanged();
@@ -93,7 +93,7 @@ public sealed partial class FlavorText : Control
     private void UpdateControlsState()
     {
         CFlavorTextInput.Editable = _rulesAccepted;
-        CExploitableInput.Editable = _rulesAccepted;
+        CExploitableInput.Editable = _rulesAccepted; // ADT-Tweak: скрытая информация персонажа
         CHeadshotUrlInput.Editable = _rulesAccepted;
         PreviewButton.Disabled = !_rulesAccepted;
 
@@ -115,15 +115,15 @@ public sealed partial class FlavorText : Control
         OnFlavorTextChanged?.Invoke(Rope.Collapse(CFlavorTextInput.TextRope).Trim());
     }
 
+    // ADT-Tweak-Start
     public void ExploitableInfoChanged()
     {
-        // ADT-Tweak-start
         if (!_rulesAccepted)
             return;
-        // ADT-Tweak-end
 
         OnExploitableInfoChanged?.Invoke(Rope.Collapse(CExploitableInput.TextRope).Trim());
     }
+    // ADT-Tweak-End
 
     // ADT-Tweak-start
     public void HeadshotUrlChanged()

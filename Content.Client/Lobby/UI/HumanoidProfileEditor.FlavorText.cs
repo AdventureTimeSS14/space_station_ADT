@@ -26,7 +26,7 @@ public sealed partial class HumanoidProfileEditor
             _flavorTextEdit = _flavorText.CFlavorTextInput;
 
             _flavorText.OnFlavorTextChanged += OnFlavorTextChange;
-            _flavorText.OnExploitableInfoChanged += OnExploitableInfoChange;
+            _flavorText.OnExploitableInfoChanged += OnExploitableInfoChange; // ADT-Tweak: скрытая информация персонажа
             _flavorText.OnHeadshotUrlChanged += OnHeadshotUrlChange;
             _flavorText.OnPreviewRequested += OnFlavorPreviewRequested;
         }
@@ -37,7 +37,7 @@ public sealed partial class HumanoidProfileEditor
 
             TabContainer.RemoveChild(_flavorText);
             _flavorText.OnFlavorTextChanged -= OnFlavorTextChange;
-            _flavorText.OnExploitableInfoChanged -= OnExploitableInfoChange;
+            _flavorText.OnExploitableInfoChanged -= OnExploitableInfoChange; // ADT-Tweak: скрытая информация персонажа
             _flavorText.OnHeadshotUrlChanged -= OnHeadshotUrlChange;
             _flavorText.OnPreviewRequested -= OnFlavorPreviewRequested;
             _flavorText.Dispose();
@@ -56,6 +56,7 @@ public sealed partial class HumanoidProfileEditor
         SetDirty();
     }
 
+    // ADT-Tweak-Start
     private void OnExploitableInfoChange(string content)
     {
         if (Profile is null)
@@ -64,6 +65,7 @@ public sealed partial class HumanoidProfileEditor
         Profile = Profile.WithExploitableInfo(content);
         SetDirty();
     }
+    // ADT-Tweak-End
 
     private void UpdateFlavorTextEdit()
     {
@@ -75,7 +77,7 @@ public sealed partial class HumanoidProfileEditor
         if (_flavorText != null)
         {
             _flavorText.CHeadshotUrlInput.Text = Profile?.HeadshotUrl ?? "";
-            _flavorText.CExploitableInput.TextRope = new Rope.Leaf(Profile?.ExploitableInfo ?? "");
+            _flavorText.CExploitableInput.TextRope = new Rope.Leaf(Profile?.ExploitableInfo ?? ""); // ADT-Tweak: скрытая информация персонажа
         }
     }
 }

@@ -202,8 +202,10 @@ namespace Content.Server.Preferences.Managers
                 new BarkData(profile.BarkProto, profile.BarkPitch, profile.LowBarkVar, profile.HighBarkVar),
                 languages,
                 profile.OOCNotes,
+                // ADT-Tweak-Start
                 profile.HeadshotUrl,
                 profile.ExploitableInfo
+                // ADT-Tweak-End
             );
         }
 

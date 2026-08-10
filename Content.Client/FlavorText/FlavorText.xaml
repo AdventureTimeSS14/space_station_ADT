@@ -32,6 +32,7 @@
                 </BoxContainer>
             </PanelContainer>
 
+            <!-- ADT-Tweak-Start -->
             <!-- Exploitable Info Section -->
             <PanelContainer HorizontalExpand="True" VerticalExpand="True">
                 <PanelContainer.PanelOverride>
@@ -53,6 +54,7 @@
                               Editable="False"/>
                 </BoxContainer>
             </PanelContainer>
+            <!-- ADT-Tweak-End -->
 
             <!-- Headshot URL Section -->
             <PanelContainer HorizontalExpand="True">
