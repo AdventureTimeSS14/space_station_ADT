@@ -3,7 +3,7 @@
   id: AreaBase
   name: area
   suffix: Area
-  lacement:
+  placement:
     mode: SnapgridCenter
     snap:
     - Area
