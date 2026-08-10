@@ -42,3 +42,4 @@ machine-upgrade-assembler-ingredients = требуемые ингредиент�
 machine-upgrade-slime-extract-multiplier = количество экстрактов
 machine-upgrade-cloning-speed = скорость клонирования
 machine-upgrade-cloning-safety = безопасность клонирования
+machine-upgrade-fire-rate = скорострельность

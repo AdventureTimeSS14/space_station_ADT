@@ -7,6 +7,8 @@ using Content.Server.Projectiles;
 using Content.Server.Pinpointer;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Construction;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
@@ -53,6 +55,35 @@ namespace Content.Server.Singularity.EntitySystems
             SubscribeLocalEvent<EmitterComponent, DestructionAttemptEvent>(OnDestructionAttempted);
             SubscribeLocalEvent<EmitterComponent, MachineDeconstructedEvent>(OnDeconstructed); // you shouldn't be able to deconstruct locked emitters but out of scope to fix
             SubscribeLocalEvent<EmitterComponent, LockToggledEvent>(OnLockToggled);
+        // ADT-Tweak start
+            SubscribeLocalEvent<EmitterComponent, MapInitEvent>(OnMapInit);
+            SubscribeLocalEvent<EmitterComponent, RefreshPartsEvent>(OnPartsRefresh);
+            SubscribeLocalEvent<EmitterComponent, UpgradeExamineEvent>(OnUpgradeExamine);
+        }
+
+        private void OnMapInit(Entity<EmitterComponent> ent, ref MapInitEvent args)
+        {
+            ent.Comp.BaseFireInterval = ent.Comp.FireInterval;
+            ent.Comp.BaseFireBurstDelayMin = ent.Comp.FireBurstDelayMin;
+            ent.Comp.BaseFireBurstDelayMax = ent.Comp.FireBurstDelayMax;
+        }
+
+        private void OnPartsRefresh(EntityUid uid, EmitterComponent component, RefreshPartsEvent args)
+        {
+            var servoTier = args.GetPartRating(MachinePartIds.Servo);
+            var laserTier = args.GetPartRating(MachinePartIds.MicroLaser);
+            component.FireRateMultiplier = Math.Clamp((servoTier + laserTier) / 2f, 1f, 4f);
+
+            component.FireInterval = component.BaseFireInterval / component.FireRateMultiplier;
+            component.FireBurstDelayMin = component.BaseFireBurstDelayMin / component.FireRateMultiplier;
+            component.FireBurstDelayMax = component.BaseFireBurstDelayMax / component.FireRateMultiplier;
+            Dirty(uid, component);
+        }
+
+        private static void OnUpgradeExamine(EntityUid uid, EmitterComponent component, UpgradeExamineEvent args)
+        {
+            args.AddPercentageUpgrade("machine-upgrade-fire-rate", component.FireRateMultiplier);
+        // ADT-Tweak end
         }
 
         private void OnAnchorStateChanged(EntityUid uid, EmitterComponent component, ref AnchorStateChangedEvent args)
