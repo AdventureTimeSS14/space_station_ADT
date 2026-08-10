@@ -8,3 +8,7 @@
   femaleFirstNames: NamesSkeletonFirst
   dollPrototype: AppearanceSkeletonPerson
   skinColoration: TintedHues
+  # ADT-Tweak start
+  pros:
+  - Не нуждаются во сне.
+  # ADT-Tweak end

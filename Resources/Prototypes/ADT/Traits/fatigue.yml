@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2026 ultradyper <ultradyper@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: trait
+  id: Energetic
+  name: trait-energetic-name
+  description: trait-energetic-desc
+  category: Quirks
+  cost: -1
+  speciesBlacklist:
+  - IPC
+  - Skeleton
+  - Shadekin
+  conflicts:
+  - Sleepy
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: EnergeticFatigueTrait
+
+- type: trait
+  id: Sleepy
+  name: trait-sleepy-name
+  description: trait-sleepy-desc
+  category: Quirks
+  cost: 1
+  speciesBlacklist:
+  - IPC
+  - Skeleton
+  - Shadekin
+  conflicts:
+  - Energetic
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: SleepyFatigueTrait

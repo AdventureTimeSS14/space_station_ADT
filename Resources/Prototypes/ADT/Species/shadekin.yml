@@ -18,6 +18,7 @@
   category: Special
   description: "/ServerInfo/ADT/SpeciesDescriptions/Shadekin.xml"
   pros:
+  - Не нуждаются во сне.
   - Не нуждаются в дыхательной смеси.
   - Удары наносят смешанный механический урон вместо просто ушибов.
   - Могут знать до 4 языков вместо 3.
