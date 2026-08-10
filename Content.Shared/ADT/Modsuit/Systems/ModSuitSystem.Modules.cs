@@ -93,7 +93,7 @@ public sealed partial class ModSuitSystem
         if (!TryComp<ModSuitComponent>(args.Target, out var modsuit))
             return;
 
-        if (TryComp<WiresPanelComponent>(args.Target, out var panel) && panel.Open)
+        if (!TryComp<WiresPanelComponent>(args.Target, out var panel) || !panel.Open)
             return;
 
         if (modsuit.CurrentComplexity + ent.Comp.Complexity > modsuit.MaxComplexity)
