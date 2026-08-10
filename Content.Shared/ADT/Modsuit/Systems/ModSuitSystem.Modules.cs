@@ -4,6 +4,9 @@ using Content.Shared.Interaction;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
+using Content.Shared.Actions;
+using Content.Shared.Wires;
+using Content.Shared.Clothing.Components;
 
 namespace Content.Shared.ADT.ModSuits;
 
@@ -38,6 +41,9 @@ public sealed partial class ModSuitSystem
     {
         var module = GetEntity(args.Module);
         if (!TryComp<ModSuitModComponent>(module, out var mod))
+            return;
+
+        if (TryComp<WiresPanelComponent>(ent, out var panel) && !panel.Open)
             return;
 
         if (ent.Comp.UserName != null && (!_id.TryFindIdCard(args.Actor, out var id) || ent.Comp.UserName != id.Comp.FullName))
@@ -87,6 +93,9 @@ public sealed partial class ModSuitSystem
         if (!TryComp<ModSuitComponent>(args.Target, out var modsuit))
             return;
 
+        if (TryComp<WiresPanelComponent>(args.Target, out var panel) && panel.Open)
+            return;
+
         if (modsuit.CurrentComplexity + ent.Comp.Complexity > modsuit.MaxComplexity)
             return;
 
@@ -117,6 +126,8 @@ public sealed partial class ModSuitSystem
             if (module.Comp.Components.TryGetValue("MODcore", out var defaultComps))
             {
                 AddComponentsSafe(suit, defaultComps, ToPrettyString(suit));
+                if (suit.Comp.TempUser != null)
+                    UpdateActions(suit, suit.Comp.TempUser.Value);
             }
 
             module.Comp.Active = true;
@@ -132,6 +143,8 @@ public sealed partial class ModSuitSystem
                 if (module.Comp.Components.TryGetValue(attached.Value, out var comps))
                 {
                     AddComponentsSafe(part, comps, ToPrettyString(part));
+                    if (suit.Comp.TempUser != null)
+                        UpdateActions(part, suit.Comp.TempUser.Value);
                 }
 
                 if (module.Comp.RemoveComponents != null && module.Comp.RemoveComponents.TryGetValue(attached.Value, out var remComps))
@@ -163,6 +176,8 @@ public sealed partial class ModSuitSystem
                 try
                 {
                     EntityManager.RemoveComponents(suit, defaultComps);
+                    if (suit.Comp.TempUser != null)
+                        UpdateActions(suit, suit.Comp.TempUser.Value);
                 }
                 catch (Exception ex)
                 {
@@ -190,6 +205,9 @@ public sealed partial class ModSuitSystem
                     {
                         Log.Warning($"Failed to remove components from part {ToPrettyString(part)}: {ex.Message}");
                     }
+
+                    if (suit.Comp.TempUser != null)
+                        UpdateActions(part, suit.Comp.TempUser.Value);
                 }
 
                 if (module.Comp.RemoveComponents != null && module.Comp.RemoveComponents.TryGetValue(attached.Value, out var remComps))
@@ -235,5 +253,24 @@ public sealed partial class ModSuitSystem
 
         args.PushMarkup(Loc.GetString("modsuit-mod-description-energy",
             ("energy", GetColor(energyColor, mod.EnergyUsing.ToString("0.0#")))));
+    }
+
+    private void UpdateActions(EntityUid part, EntityUid user)
+    {
+        if (!TryComp<ClothingComponent>(part, out var clothing) || clothing.InSlotFlag == null)
+            return;
+
+        _actionsSystem.RemoveProvidedActions(user, part);
+
+        var ev = new GetItemActionsEvent(
+            _actionContainer,
+            user,
+            part,
+            clothing.InSlotFlag.Value);
+
+        RaiseLocalEvent(part, ev);
+
+        if (ev.Actions.Count > 0)
+            _actionsSystem.GrantActions(user, ev.Actions, part);
     }
 }
