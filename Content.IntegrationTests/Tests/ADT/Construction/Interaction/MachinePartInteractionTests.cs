@@ -7,7 +7,6 @@ using Content.Shared.ADT.Construction;
 using Content.Shared.ADT.Construction.Components;
 using Content.Shared.ADT.Construction.Prototypes;
 using Content.Shared.Lathe;
-using Content.Shared.Materials;
 using Content.Shared.Storage;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
@@ -83,16 +82,14 @@ public sealed class MachinePartInteractionTests : InteractionTest
     }
 
     [Test]
-    public async Task RpedUpgradesProtolathePerformanceAndCapacity()
+    public async Task RpedUpgradesProtolatheSpeedAndCost()
     {
         await SpawnTarget(Protolathe);
         await InteractUsing(Screw);
 
         var latheBefore = Comp<LatheComponent>();
-        var storageBefore = Comp<MaterialStorageComponent>();
         var baseTime = latheBefore.FinalTimeMultiplier;
         var baseMaterial = latheBefore.FinalMaterialMultiplier;
-        var baseStorage = storageBefore.StorageLimit ?? 0f;
 
         await PlaceInHands((RapidPartExchanger, 1));
         var rped = await GetActiveHeldItemNetEntity();
@@ -112,15 +109,11 @@ public sealed class MachinePartInteractionTests : InteractionTest
         await AssertRpedContains(rped, MatterBin1, 1);
 
         var latheAfter = Comp<LatheComponent>();
-        var storageAfter = Comp<MaterialStorageComponent>();
         Assert.Multiple(() =>
         {
             Assert.That(latheAfter.FinalTimeMultiplier, Is.LessThan(baseTime - 0.0001f));
             Assert.That(latheAfter.FinalMaterialMultiplier, Is.LessThan(baseMaterial - 0.0001f));
         });
-
-        if (storageBefore.StorageLimit != null && storageAfter.StorageLimit != null)
-            Assert.That(storageAfter.StorageLimit.Value, Is.GreaterThan(baseStorage));
     }
 
     [Test]
@@ -136,10 +129,8 @@ public sealed class MachinePartInteractionTests : InteractionTest
         await AwaitDoAfters();
 
         var latheBefore = Comp<LatheComponent>();
-        var storageBefore = Comp<MaterialStorageComponent>();
         var upgradedTime = latheBefore.FinalTimeMultiplier;
         var upgradedMaterial = latheBefore.FinalMaterialMultiplier;
-        var upgradedStorage = storageBefore.StorageLimit ?? 0f;
 
         await PlaceInHands((RapidPartExchanger, 1));
         var downgradeRped = await GetActiveHeldItemNetEntity();
@@ -158,15 +149,11 @@ public sealed class MachinePartInteractionTests : InteractionTest
         await AssertRpedContains(downgradeRped, MatterBin1, 1);
 
         var latheAfter = Comp<LatheComponent>();
-        var storageAfter = Comp<MaterialStorageComponent>();
         Assert.Multiple(() =>
         {
             Assert.That(latheAfter.FinalTimeMultiplier, Is.EqualTo(upgradedTime).Within(0.0001f));
             Assert.That(latheAfter.FinalMaterialMultiplier, Is.EqualTo(upgradedMaterial).Within(0.0001f));
         });
-
-        if (storageBefore.StorageLimit != null && storageAfter.StorageLimit != null)
-            Assert.That(storageAfter.StorageLimit.Value, Is.EqualTo(upgradedStorage).Within(0.0001f));
     }
 
     [Test]

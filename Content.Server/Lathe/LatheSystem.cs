@@ -459,23 +459,11 @@ namespace Content.Server.Lathe
         // ADT-Tweak-Start: machine parts with tiers
         private void OnPartsRefresh(EntityUid uid, LatheComponent component, RefreshPartsEvent args)
         {
-            var servoTier = args.GetPartRating(component.MachinePartPrintSpeed);
-            var efficiency = RefreshPartsEvent.GetTierDiscount(servoTier, 0.15f, component.MinMachinePartEfficiency);
+            var printTier = args.GetPartRating(component.MachinePartPrintSpeed);
+            var materialTier = args.GetPartRating(component.MachinePartMaterialCost);
 
-            component.FinalTimeMultiplier = component.TimeMultiplier * efficiency;
-            component.FinalMaterialMultiplier = component.MaterialUseMultiplier * efficiency;
-
-            if (TryComp<MaterialStorageComponent>(uid, out var materialStorage))
-            {
-                component.BaseStorageLimit ??= materialStorage.StorageLimit;
-
-                if (component.BaseStorageLimit != null)
-                {
-                    var matterBinTier = args.GetPartRating(component.MachinePartMaterialCapacity);
-                    var newLimit = component.BaseStorageLimit.Value + (int) MathF.Round(MathF.Max(0f, matterBinTier - 1f) * component.MaterialStorageTierCapacityBonus);
-                    _materialStorage.SetStorageLimit(uid, Math.Max(component.BaseStorageLimit.Value, newLimit), materialStorage);
-                }
-            }
+            component.FinalTimeMultiplier = component.TimeMultiplier * RefreshPartsEvent.GetTierDiscount(printTier, 0.15f, component.MinMachinePartEfficiency);
+            component.FinalMaterialMultiplier = component.MaterialUseMultiplier * RefreshPartsEvent.GetTierDiscount(materialTier, 0.15f, component.MinMachinePartEfficiency);
 
             Dirty(uid, component);
             UpdateUserInterfaceState(uid, component);

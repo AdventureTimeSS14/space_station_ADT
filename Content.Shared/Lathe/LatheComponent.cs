@@ -94,22 +94,16 @@ namespace Content.Shared.Lathe
         public float FinalMaterialMultiplier = 1;
 
         [DataField]
-        public ProtoId<MachinePartPrototype> MachinePartPrintSpeed = "Servo";
+        public ProtoId<MachinePartPrototype> MachinePartPrintSpeed = "MatterBin";
+
+        [DataField]
+        public ProtoId<MachinePartPrototype> MachinePartMaterialCost = "Servo";
 
         [DataField]
         public float MachinePartEfficiencyExponent = 0.8f;
 
         [DataField]
         public float MinMachinePartEfficiency = 0.1f;
-
-        [DataField]
-        public ProtoId<MachinePartPrototype> MachinePartMaterialCapacity = "MatterBin";
-
-        [DataField]
-        public int MaterialStorageTierCapacityBonus = 3750;
-
-        [DataField]
-        public int? BaseStorageLimit;
         // ADT-Tweak-End
     }
 
