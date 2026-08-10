@@ -149,6 +149,6 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
 
     private void OnComponentShutdown(Entity<WaddleAnimationComponent> entity, ref ComponentShutdown args)
     {
-        _animation.Stop(entity.Owner, entity.Comp.KeyName);
+        StopWaddling(entity);
     }
 }
