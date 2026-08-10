@@ -406,5 +406,15 @@ public sealed class ADTCCVars
 
     public static readonly CVarDef<int> AntagRollBonusInfoRateLimitCount =
         CVarDef.Create("antag.roll_bonus_info_rate_limit_count", 3, CVar.SERVERONLY);
+
+     /*
+     * Fatigue
+     */
+
+    /// <summary>
+    ///     Включает биологическую усталость (потребность в отдыхе) для органических видов.
+    /// </summary>
+    public static readonly CVarDef<bool> GameFatigueEnabled =
+        CVarDef.Create("game.fatigue_enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 }
 

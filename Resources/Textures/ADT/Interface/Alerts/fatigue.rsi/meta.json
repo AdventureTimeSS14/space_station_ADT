@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Fatigue stage icons by ultradyper (Random-Station)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "fatigue1"
+    },
+    {
+      "name": "fatigue2"
+    },
+    {
+      "name": "fatigue3"
+    },
+    {
+      "name": "fatigue4"
+    }
+  ]
+}
