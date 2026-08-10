@@ -5,8 +5,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Content.Shared.Actions;
-using Content.Shared.Wires;
 using Content.Shared.Clothing.Components;
+using Content.Shared.Wires;
 
 namespace Content.Shared.ADT.ModSuits;
 
