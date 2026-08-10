@@ -55,11 +55,13 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     private ActionButtonContainer? _container;
     private readonly List<EntityUid?> _actions = new();
 
+    // ADT-Tweak-Start
     /// <summary>
     /// Manually placed action positions (action prototype id -> slot index), restored after actions are re-linked
     /// (body change, polymorph, death/ghost). Kept for the duration of the round.
     /// </summary>
     private readonly Dictionary<string, int> _pinnedSlots = new();
+    // ADT-Tweak-End
     private readonly DragDropHelper<ActionButton> _menuDragHelper;
     private readonly TextureRect _dragShadow;
     private ActionsWindow? _window;
@@ -103,6 +105,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     private void OnScreenUnload()
     {
+        // ADT-Tweak: сброс ручных позиций кнопок способностей при выгрузке экрана
         _pinnedSlots.Clear();
         UnloadGui();
     }
@@ -267,11 +270,13 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (_actions.Contains(action))
             return;
 
+        // ADT-Tweak-Start
         if (GetActionKey(actionId) is {} key && _pinnedSlots.TryGetValue(key, out var targetIndex))
         {
             _actions.Insert(Math.Min(targetIndex, _actions.Count), actionId);
             return;
         }
+        // ADT-Tweak-End
 
         _actions.Add(action);
     }
@@ -453,12 +458,14 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             if (_container?.TryGetButtonIndex(button, out position) ?? false)
             {
                 if (_actions.Count > position && position >= 0)
+                // ADT-Tweak-Start
                 {
                     if (_actions[position] is {} oldAction && GetActionKey(oldAction) is {} oldKey)
                         _pinnedSlots.Remove(oldKey);
 
                     _actions.RemoveAt(position);
                 }
+                // ADT-Tweak-End
             }
         }
         else if (button.TryReplaceWith(actionId.Value, _actionsSystem) &&
@@ -474,8 +481,10 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
                 _actions[position] = actionId;
             }
 
+            // ADT-Tweak-Start
             if (GetActionKey(actionId.Value) is {} key)
                 _pinnedSlots[key] = position;
+            // ADT-Tweak-End
         }
 
         if (updateSlots)
@@ -793,6 +802,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
                 _actions.Add(action);
         }
 
+        // ADT-Tweak-Start
         ApplyPinnedSlots();
     }
 
@@ -836,6 +846,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     {
         return EntityManager.GetComponent<MetaDataComponent>(actionId).EntityPrototype?.ID;
     }
+    // ADT-Tweak-End
 
     /// <summary>
     /// If currently targeting with this slot, stops targeting.
