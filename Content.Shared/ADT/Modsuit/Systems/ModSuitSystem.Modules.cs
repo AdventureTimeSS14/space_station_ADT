@@ -143,8 +143,6 @@ public sealed partial class ModSuitSystem
                 if (module.Comp.Components.TryGetValue(attached.Value, out var comps))
                 {
                     AddComponentsSafe(part, comps, ToPrettyString(part));
-                    if (suit.Comp.TempUser != null)
-                        UpdateActions(part, suit.Comp.TempUser.Value);
                 }
 
                 if (module.Comp.RemoveComponents != null && module.Comp.RemoveComponents.TryGetValue(attached.Value, out var remComps))
@@ -158,6 +156,9 @@ public sealed partial class ModSuitSystem
                         Log.Warning($"Failed to remove components from part {ToPrettyString(part)}: {ex.Message}");
                     }
                 }
+
+                if (suit.Comp.TempUser != null)
+                    UpdateActions(part, suit.Comp.TempUser.Value);
             }
         }
 
@@ -205,15 +206,15 @@ public sealed partial class ModSuitSystem
                     {
                         Log.Warning($"Failed to remove components from part {ToPrettyString(part)}: {ex.Message}");
                     }
-
-                    if (suit.Comp.TempUser != null)
-                        UpdateActions(part, suit.Comp.TempUser.Value);
                 }
 
                 if (module.Comp.RemoveComponents != null && module.Comp.RemoveComponents.TryGetValue(attached.Value, out var remComps))
                 {
                     AddComponentsSafe(part, remComps, ToPrettyString(part));
                 }
+
+                if (suit.Comp.TempUser != null)
+                    UpdateActions(part, suit.Comp.TempUser.Value);
             }
         }
 
