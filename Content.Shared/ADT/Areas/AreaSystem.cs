@@ -1,24 +1,46 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Areas;
 
 public sealed class AreaSystem : EntitySystem
 {
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private EntityQuery<MapGridComponent> _mapGridQuery;
     private EntityQuery<AreaGridComponent> _areaGridQuery;
-    private EntityQuery<AreaComponent> _areaQuery;
 
     public override void Initialize()
     {
         _mapGridQuery = GetEntityQuery<MapGridComponent>();
         _areaGridQuery = GetEntityQuery<AreaGridComponent>();
-        _areaQuery = GetEntityQuery<AreaComponent>();
+
+        SubscribeLocalEvent<AreaGridComponent, MapInitEvent>(OnAreaGridMapInit);
+    }
+
+    private void OnAreaGridMapInit(Entity<AreaGridComponent> ent, ref MapInitEvent args)
+    {
+        RefreshAreaEntities(ent);
+    }
+
+    public void RefreshAreaEntities(Entity<AreaGridComponent> ent)
+    {
+        if (_net.IsClient)
+            return;
+
+        foreach (var areaProto in ent.Comp.Areas.Values.DistinctBy(a => a.Id))
+        {
+            if (!TryGetAreaCenter(areaProto, ent, out var center))
+                continue;
+
+            Spawn(areaProto, center);
+        }
     }
 
     public bool TryGetArea(EntityCoordinates coordinates, [NotNullWhen(true)] out EntProtoId<AreaComponent>? area)
@@ -26,34 +48,19 @@ public sealed class AreaSystem : EntitySystem
         area = null;
 
         if (_transform.GetGrid(coordinates) is not { } gridId ||
-            !_mapGridQuery.TryComp(gridId, out var grid))
+            !_mapGridQuery.TryComp(gridId, out var grid) ||
+            !_areaGridQuery.TryComp(gridId, out var areaGrid))
         {
             return false;
         }
 
         var indices = _map.CoordinatesToTile(gridId, grid, coordinates);
 
-        if (_areaGridQuery.TryComp(gridId, out var areaGrid) &&
-            areaGrid.Areas.TryGetValue(indices, out var bakedArea))
-        {
-            area = bakedArea;
-            return true;
-        }
+        if (!areaGrid.Areas.TryGetValue(indices, out var areaProto))
+            return false;
 
-        foreach (var anchored in _map.GetAnchoredEntities(gridId, grid, indices))
-        {
-            if (!_areaQuery.HasComp(anchored) ||
-                !TryComp<MetaDataComponent>(anchored, out var metaData) ||
-                metaData.EntityPrototype is not { } prototype)
-            {
-                continue;
-            }
-
-            area = new EntProtoId<AreaComponent>(prototype.ID);
-            return true;
-        }
-
-        return false;
+        area = areaProto;
+        return true;
     }
 
     public EntProtoId<AreaComponent>? GetAreaPrototypeId(EntityCoordinates coordinates)
@@ -65,51 +72,31 @@ public sealed class AreaSystem : EntitySystem
     {
         center = default;
 
-        if (!_mapGridQuery.TryComp(gridUid, out var grid))
+        if (!_mapGridQuery.TryComp(gridUid, out var grid) ||
+            !_areaGridQuery.TryComp(gridUid, out var areaGrid))
+        {
             return false;
+        }
 
         var found = false;
         var min = default(Vector2i);
         var max = default(Vector2i);
 
-        void UpdateBounds(Vector2i indices)
+        foreach (var (indices, proto) in areaGrid.Areas)
         {
+            if (proto != area)
+                continue;
+
             if (!found)
             {
                 min = indices;
                 max = indices;
                 found = true;
-                return;
+                continue;
             }
 
             min = Vector2i.ComponentMin(min, indices);
             max = Vector2i.ComponentMax(max, indices);
-        }
-
-        if (_areaGridQuery.TryComp(gridUid, out var areaGrid))
-        {
-            foreach (var (indices, proto) in areaGrid.Areas)
-            {
-                if (proto == area)
-                    UpdateBounds(indices);
-            }
-        }
-
-        if (!found)
-        {
-            var query = AllEntityQuery<AreaComponent, TransformComponent>();
-            while (query.MoveNext(out var uid, out _, out var xform))
-            {
-                if (xform.GridUid != gridUid ||
-                    !TryComp<MetaDataComponent>(uid, out var metaData) ||
-                    metaData.EntityPrototype?.ID != area.Id)
-                {
-                    continue;
-                }
-
-                var indices = _map.CoordinatesToTile(gridUid, grid, xform.Coordinates);
-                UpdateBounds(indices);
-            }
         }
 
         if (!found)
