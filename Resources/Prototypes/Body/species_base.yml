@@ -199,7 +199,7 @@
   - type: RadiationPopup # ADT-Tweak
   - type: PickupHumans # ADT-Tweak
   - type: Hunger
-  - type: Fatigue # ADT-Tweak: биологическая усталость (потребность в отдыхе), не для IPC/скелетов/боргов
+  - type: Fatigue # ADT-Tweak: биологическая усталость (потребность в отдыхе), не для IPC/скелетов/сумеречников/воксов
   - type: Thirst
   - type: Barotrauma
     damage:

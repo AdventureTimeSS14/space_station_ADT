@@ -12,6 +12,7 @@
   - IPC
   - Skeleton
   - Shadekin
+  - Vox
   conflicts:
   - Sleepy
   effects:
@@ -29,6 +30,7 @@
   - IPC
   - Skeleton
   - Shadekin
+  - Vox
   conflicts:
   - Energetic
   effects:

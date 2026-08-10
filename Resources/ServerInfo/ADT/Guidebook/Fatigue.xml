@@ -63,6 +63,9 @@
   <Box>
     <GuideEntityEmbed Entity="MobShadekin" Caption="Сумеречники"/>
   </Box>
+  <Box>
+    <GuideEntityEmbed Entity="MobVox" Caption="Воксы"/>
+  </Box>
 
   Им не страшны ни коллапс, ни зевота, ни трайты усталости.
 

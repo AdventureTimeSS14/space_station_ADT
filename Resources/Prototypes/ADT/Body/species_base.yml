@@ -75,21 +75,35 @@
   - MobRespirator
   - MobAtmosStandard
   - MobFlammable
-  # ADT-Tweak: BaseMobSpecies removed by wizden Nubody (#42419); base moved to BaseSpeciesMobOrganic
-  - BaseSpeciesMobOrganic
+  # ADT-Tweak: органика без сна (воксы). Раньше база наследовала BaseSpeciesMobOrganic,
+  # но оттуда приходит Fatigue (потребность во сне). Воксы не спят, поэтому состав
+  # органики продублирован ниже БЕЗ Fatigue. UnRotting - воксы не гниют после смерти.
+  - BaseSpeciesMob
   id: ADTBaseMobSpeciesOrganicUnRotting
   abstract: true
   components:
   - type: UnRotting # ADT-Tweak
+  - type: Absorbable # ADT-Tweak
   - type: MobState # ADT-Tweak
   - type: OfferItem
   - type: PickupHumans
   - type: RadiationPopup
+  - type: Hunger
+  - type: Thirst
   - type: Barotrauma
     damage:
       types:
         Blunt: 0.50 #per second, scales with pressure and other constants.
         Heat: 0.1
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Heat: -0.07
+        Blunt: -0.05
+        Piercing: -0.05
+        Slash: -0.05
   - type: Fingerprint
   - type: Blindable
   - type: Temperature
@@ -117,6 +131,7 @@
     shiveringHeatRegulation: 2000
     normalBodyTemperature: 310.15
     thermalRegulationTemperatureThreshold: 2
+  - type: Perishable
   - type: Butcherable
     butcheringType: Spike # TODO human.
     spawned:
@@ -131,6 +146,7 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
+  - type: StunVisuals
   - type: BloodCough
     postingSayDamage: blood-cough
   - type: TimeDespawnDamage
