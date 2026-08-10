@@ -151,7 +151,7 @@ public sealed class HierophantBlastSystem : EntitySystem
 
         foreach (var candidate in _drillBuffer)
         {
-            if (!HasComp<OreVeinComponent>(candidate))
+            if (!IsDrillable(candidate))
                 continue;
 
             if (HasComp<GatherableComponent>(candidate))
@@ -159,5 +159,13 @@ public sealed class HierophantBlastSystem : EntitySystem
             else
                 QueueDel(candidate);
         }
+    }
+
+    private bool IsDrillable(EntityUid uid)
+    {
+        if (HasComp<OreVeinComponent>(uid))
+            return true;
+
+        return HasComp<GatherableComponent>(uid) && Transform(uid).Anchored;
     }
 }

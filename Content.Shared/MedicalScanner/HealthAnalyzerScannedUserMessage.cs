@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Addiction; // ADT-Tweak
 using Content.Shared.FixedPoint; // ADT-Tweak
 using Robust.Shared.Serialization;
 
@@ -30,8 +31,9 @@ public struct HealthAnalyzerUiState
     public bool? Bleeding;
     public bool? Unrevivable;
     public List<(string ReagentId, FixedPoint2 Quantity)>? MetabolizingReagents; // ADT-Tweak - list of metabolizing reagents inside scanned user
+    public List<AddictionInfo>? Addictions; // ADT-Tweak - list of addictions inside scanned user
 
-    public HealthAnalyzerUiState(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable, List<(string ReagentId, FixedPoint2 Quantity)>? metabolizingReagents = null) // Starlight - added metabolizingReagents parameter
+    public HealthAnalyzerUiState(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable, List<(string ReagentId, FixedPoint2 Quantity)>? metabolizingReagents = null, List<AddictionInfo>? addictions = null) // Starlight - added metabolizingReagents parameter
     {
         TargetEntity = targetEntity;
         Temperature = temperature;
@@ -40,5 +42,6 @@ public struct HealthAnalyzerUiState
         Bleeding = bleeding;
         Unrevivable = unrevivable;
         MetabolizingReagents = metabolizingReagents; // ADT-Tweak
+        Addictions = addictions; // ADT-Tweak
     }
 }

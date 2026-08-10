@@ -22,6 +22,8 @@ public sealed class RechargeBasicEntityAmmoSystem : EntitySystem
         SubscribeLocalEvent<RechargeBasicEntityAmmoComponent, ExaminedEvent>(OnExamined);
     }
 
+    private static readonly TimeSpan ServerChargeLead = TimeSpan.FromMilliseconds(250); // ADT-Tweak
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -32,8 +34,15 @@ public sealed class RechargeBasicEntityAmmoSystem : EntitySystem
             if (ammo.Count is null || ammo.Count == ammo.Capacity || recharge.NextCharge == null)
                 continue;
 
-            if (recharge.NextCharge > _timing.CurTime)
+            // ADT-Tweak-Start
+            var chargeAt = recharge.NextCharge.Value;
+
+            if (_netManager.IsServer)
+                chargeAt -= ServerChargeLead;
+
+            if (chargeAt > _timing.CurTime)
                 continue;
+            // ADT-Tweak-End
 
             if (_gun.UpdateBasicEntityAmmoCount((uid, ammo), ammo.Count.Value + 1))
             {
