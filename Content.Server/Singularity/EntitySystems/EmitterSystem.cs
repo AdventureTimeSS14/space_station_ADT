@@ -56,16 +56,8 @@ namespace Content.Server.Singularity.EntitySystems
             SubscribeLocalEvent<EmitterComponent, MachineDeconstructedEvent>(OnDeconstructed); // you shouldn't be able to deconstruct locked emitters but out of scope to fix
             SubscribeLocalEvent<EmitterComponent, LockToggledEvent>(OnLockToggled);
         // ADT-Tweak start
-            SubscribeLocalEvent<EmitterComponent, MapInitEvent>(OnMapInit);
             SubscribeLocalEvent<EmitterComponent, RefreshPartsEvent>(OnPartsRefresh);
             SubscribeLocalEvent<EmitterComponent, UpgradeExamineEvent>(OnUpgradeExamine);
-        }
-
-        private void OnMapInit(Entity<EmitterComponent> ent, ref MapInitEvent args)
-        {
-            ent.Comp.BaseFireInterval = ent.Comp.FireInterval;
-            ent.Comp.BaseFireBurstDelayMin = ent.Comp.FireBurstDelayMin;
-            ent.Comp.BaseFireBurstDelayMax = ent.Comp.FireBurstDelayMax;
         }
 
         private void OnPartsRefresh(EntityUid uid, EmitterComponent component, RefreshPartsEvent args)
@@ -73,10 +65,6 @@ namespace Content.Server.Singularity.EntitySystems
             var servoTier = args.GetPartRating(MachinePartIds.Servo);
             var laserTier = args.GetPartRating(MachinePartIds.MicroLaser);
             component.FireRateMultiplier = Math.Clamp((servoTier + laserTier) / 2f, 1f, 4f);
-
-            component.FireInterval = component.BaseFireInterval / component.FireRateMultiplier;
-            component.FireBurstDelayMin = component.BaseFireBurstDelayMin / component.FireRateMultiplier;
-            component.FireBurstDelayMax = component.BaseFireBurstDelayMax / component.FireRateMultiplier;
             Dirty(uid, component);
         }
 
@@ -228,7 +216,7 @@ namespace Content.Server.Singularity.EntitySystems
             component.FireShotCounter = 0;
             component.TimerCancel = new CancellationTokenSource();
 
-            Timer.Spawn(component.FireBurstDelayMax, () => ShotTimerCallback(uid, component), component.TimerCancel.Token);
+            Timer.Spawn(component.FireBurstDelayMax / component.FireRateMultiplier, () => ShotTimerCallback(uid, component), component.TimerCancel.Token); // ADT-Tweak
 
             UpdateAppearance(uid, component);
         }
@@ -249,14 +237,14 @@ namespace Content.Server.Singularity.EntitySystems
             if (component.FireShotCounter < component.FireBurstSize)
             {
                 component.FireShotCounter += 1;
-                delay = component.FireInterval;
+                delay = component.FireInterval / component.FireRateMultiplier; // ADT-Tweak
             }
             else
             {
                 component.FireShotCounter = 0;
                 var diff = component.FireBurstDelayMax - component.FireBurstDelayMin;
                 // TIL you can do TimeSpan * double.
-                delay = component.FireBurstDelayMin + _random.NextFloat() * diff;
+                delay = (component.FireBurstDelayMin + _random.NextFloat() * diff) / component.FireRateMultiplier; // ADT-Tweak
             }
 
             // Must be set while emitter powered.

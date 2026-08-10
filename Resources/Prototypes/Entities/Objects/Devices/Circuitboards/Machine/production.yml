@@ -482,8 +482,8 @@
       Cable: 5
       Glass: 2
     partRequirements: #ADT-Tweak: machine parts
-      MicroLaser: 2
-      Capacitor: 2
+      Servo: 2
+      MatterBin: 2
 
 - type: entity
   id: SpaceHeaterMachineCircuitBoard

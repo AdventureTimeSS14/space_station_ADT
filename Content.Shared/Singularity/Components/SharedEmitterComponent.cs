@@ -137,15 +137,6 @@ public sealed partial class EmitterComponent : Component
     // ADT-Tweak-Start
     [DataField]
     public float FireRateMultiplier = 1f;
-
-    [DataField]
-    public TimeSpan BaseFireInterval = TimeSpan.FromSeconds(2);
-
-    [DataField]
-    public TimeSpan BaseFireBurstDelayMin = TimeSpan.FromSeconds(4);
-
-    [DataField]
-    public TimeSpan BaseFireBurstDelayMax = TimeSpan.FromSeconds(10);
     // ADT-Tweak-End
 }
 
