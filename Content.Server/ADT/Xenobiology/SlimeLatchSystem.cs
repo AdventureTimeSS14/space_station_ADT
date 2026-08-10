@@ -349,8 +349,6 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             Loc.GetString("slime-action-eat-corpse", ("slime", slime), ("target", corpse)),
             slime,
             PopupType.MediumCaution);
-
-        QueueDel(corpse);
     }
 
     #endregion
