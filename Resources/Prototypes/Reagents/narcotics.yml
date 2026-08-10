@@ -13,6 +13,8 @@
     Bloodstream:
       # Main effects
       effects:
+      - !type:AdjustFatigue # ADT-Tweak
+        resetToAlert: true
       - !type:HealthChange
         # Start ADT tweak
         conditions:
@@ -107,6 +109,8 @@
       - !type:ModifyKnockdown
         time: 1
         type: Remove
+      - !type:AdjustFatigue # ADT-Tweak
+        resetToAlert: true
       # Side effects
       - !type:Jitter
       - !type:PopupMessage
@@ -164,6 +168,8 @@
     Bloodstream:
       effects:
       # Main effects
+      - !type:AdjustFatigue # ADT-Tweak
+        resetToAlert: true
       - !type:MovementSpeedModifier
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25

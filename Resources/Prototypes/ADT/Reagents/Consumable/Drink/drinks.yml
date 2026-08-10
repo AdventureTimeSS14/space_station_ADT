@@ -304,6 +304,8 @@
       effects:
       - !type:SatiateThirst
         factor: 3
+      - !type:AdjustFatigue # ADT-Tweak
+        stages: -1
       - !type:GenericStatusEffect
         key: StaminaModifier
         component: StaminaModifier
@@ -331,6 +333,8 @@
       effects:
       - !type:SatiateThirst
         factor: 2
+      - !type:AdjustFatigue # ADT-Tweak
+        stages: -1
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 2.0

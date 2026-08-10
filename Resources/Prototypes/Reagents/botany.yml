@@ -233,6 +233,13 @@
             Caustic: 0.5 #ADT-tweak. 1 -> 0.5
     Respiration:
       effects:
+      - !type:AdjustFatigue # ADT-Tweak
+        resetToAlert: true
+        probability: 0.35
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ammonia
+          min: 0.15
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
