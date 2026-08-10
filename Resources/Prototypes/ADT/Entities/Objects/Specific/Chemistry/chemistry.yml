@@ -26,8 +26,9 @@
     solution: injector
   - type: Injector
     restrainedMultiplier: 2 # ADT-Tweak(P4A) Ускорение Шприцов на койках и каталках
-    activeModeProtoId: SyringeInjectMode
+    activeModeProtoId: SyringeDrawMode
     allowedModes:
+    - SyringeDrawMode
     - SyringeInjectMode
   - type: Appearance
   - type: ExaminableSolution

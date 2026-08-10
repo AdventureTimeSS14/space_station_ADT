@@ -65,13 +65,15 @@ public sealed class HierophantClubSystem : EntitySystem
 
         args.Handled = true;
 
-        if (args.Target != null
-            && HasComp<MobStateComponent>(args.Target.Value)
+        if (args.Target is { } target
+            && target != args.User
+            && HasComp<MobStateComponent>(target)
+            && !_mobState.IsDead(target)
             && _timing.CurTime >= ent.Comp.NextChaserAt)
         {
             ent.Comp.NextChaserAt = _timing.CurTime + ent.Comp.ChaserCooldown;
             ent.Comp.NextUseAt = _timing.CurTime + ClubCooldown(ent, args.User);
-            FireChaser(ent, args.User, args.Target.Value);
+            FireChaser(ent, args.User, target);
             UpdateAppearance(ent);
             return;
         }

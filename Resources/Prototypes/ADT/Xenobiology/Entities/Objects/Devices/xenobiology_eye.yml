@@ -1,0 +1,29 @@
+- type: entity
+  parent: [Incorporeal, BaseMob]
+  id: ADTXenobiologyEye
+  name: xenobiology drone eye
+  description: A remote camera drone piloted from a xenobiology control console.
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: Fixtures
+    fixtures:
+      lightTrigger:
+        shape:
+          !type:PhysShapeCircle
+          radius: 8
+        density: 80
+        hard: false
+        layer:
+        - GhostImpassable
+  - type: NoFTL
+  - type: Eye
+    pvsScale: 1.5
+  - type: Visibility
+    layer: 2
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/Xenobiology/xenobiology_eye.rsi
+    layers:
+    - state: xenobiology_camera
+      shader: unshaded
+      map: ["base"]
+  - type: CameraActiveOnCollideCollider

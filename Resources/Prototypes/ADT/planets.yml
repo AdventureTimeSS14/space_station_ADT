@@ -16,7 +16,10 @@
     maxRadius: 230
     groups:
     - prototypes: [ LavaDungeonRoomMarker ]
-      count: 24
+      roomWhitelist:
+        tags:
+        - LavaDungeon
+      count: 37
       minSpacing: 50
       minDistanceFromCenter: 55
       avoidRooms: true
@@ -60,8 +63,15 @@
           probability: 0.025
         - prototype: ADTMobGuthen
           probability: 0.025
+  # Планировщик событий лаваленда. Закоменчено, потому что условие щас только одно и через погоду.
+  # - type: ADTLavalandEventScheduler
+  #   delay:
+  #     min: 900
+  #     max: 1800
+  #   events:
+  #   - ADTLavalandEventNecropolisSurge
   - type: ADTMegafaunaSpawn
-    count: 2
+    count: 67
     minDistanceFromCenter: 100
     maxRadius: 220
     minSpacing: 70
@@ -98,6 +108,10 @@
       - weather: ADTLavalandWeatherEmberfall
         message: emberfall-alert
         weight: 10
+      - weather: ADTLavalandWeatherNecropolisSurge
+        message: necropolis-surge-alert
+        weight: 8
+        eventOnEnd: ADTLavalandEventNecropolisSurge
     - weather: ADTLavalandWeatherAshfallLight
       message: ash-storm-clearing
       duration:

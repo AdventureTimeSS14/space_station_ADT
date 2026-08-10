@@ -21,6 +21,7 @@ public sealed class GpsBoundUserInterface : BoundUserInterface
         _window = this.CreateWindow<GpsWindow>();
         _window.OnTogglePressed += () => SendMessage(new GpsToggleMessage());
         _window.OnRangePressed += () => SendMessage(new GpsToggleRangeMessage());
+        _window.OnSosPressed += () => SendMessage(new GpsToggleSosMessage());
         _window.OnTagEntered += tag => SendMessage(new GpsSetTagMessage(tag));
     }
 

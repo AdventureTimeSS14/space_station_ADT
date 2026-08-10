@@ -156,7 +156,7 @@
     - ADTCatEmotes
   - type: NightVision
     innate: true
-
+    effectPrototype: ADTEffectNightVisionMedium
 - type: entity
   parent: OrganHumanTorso
   id: ADTOrganFelinidTorso

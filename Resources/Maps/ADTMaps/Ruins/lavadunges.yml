@@ -56886,6 +56886,13 @@ entities:
     - type: Transform
       pos: 18.5,31.5
       parent: 1
+- proto: SlotMachineFateDice
+  entities:
+  - uid: 7691
+    components:
+    - type: Transform
+      pos: 124.5,-29.5
+      parent: 1
 - proto: RandomArcade
   entities:
   - uid: 7689
@@ -56897,11 +56904,6 @@ entities:
     components:
     - type: Transform
       pos: 126.5,-31.5
-      parent: 1
-  - uid: 7691
-    components:
-    - type: Transform
-      pos: 124.5,-29.5
       parent: 1
 - proto: RandomCargoCorpseSpawner
   entities:

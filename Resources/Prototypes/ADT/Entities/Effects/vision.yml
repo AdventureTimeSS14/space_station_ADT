@@ -12,27 +12,37 @@
 
 # Stronger personal light for Tajaran innate NV
 - type: entity
-  id: ADTEffectNightVisionTajaran
+  id: ADTEffectNightVisionStrong
   categories: [ HideSpawnMenu ]
   name: tajaran night vision
   components:
   - type: PointLight
     color: "#D6E4FF"
-    energy: 0.6
-    radius: 13
-    softness: 18
+    energy: 0.08
+    radius: 6
+    softness: 20
 
-# Weaker personal light for Resomi innate NV
 - type: entity
-  id: ADTEffectNightVisionResomi
+  id: ADTEffectNightVisionMedium
   categories: [ HideSpawnMenu ]
-  name: resomi night vision
+  name: night vision
   components:
   - type: PointLight
     color: "#D6E4FF"
-    energy: 0.3
-    radius: 3
-    softness: 15
+    energy: 0.06
+    radius: 4
+    softness: 20
+
+- type: entity
+  id: ADTEffectNightVisionLow
+  categories: [ HideSpawnMenu ]
+  name: night vision
+  components:
+  - type: PointLight
+    color: "#D6E4FF"
+    energy: 0.04
+    radius: 2.5
+    softness: 20
 
 # Device NVD (ПНВ) — wider personal light while goggles are active
 - type: entity
@@ -42,7 +52,7 @@
   components:
   - type: PointLight
     color: "#D6E4FF"
-    energy: 0.4
+    energy: 0.1
     radius: 30
     softness: 20
 
