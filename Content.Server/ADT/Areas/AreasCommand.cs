@@ -43,11 +43,25 @@ public sealed class AreasCommand : ToolshedCommand
     {
         _map ??= GetSys<SharedMapSystem>();
 
+        var areaQuery = GetEntityQuery<AreaComponent>();
         var query = EntityManager.AllEntityQueryEnumerator<AreaGridComponent, MapGridComponent>();
         while (query.MoveNext(out var gridId, out var areaGrid, out var grid))
         {
             foreach (var (indices, areaProto) in areaGrid.Areas)
             {
+                var alreadySpawned = false;
+                foreach (var anchored in _map.GetAnchoredEntities(gridId, grid, indices))
+                {
+                    if (areaQuery.HasComp(anchored))
+                    {
+                        alreadySpawned = true;
+                        break;
+                    }
+                }
+
+                if (alreadySpawned)
+                    continue;
+
                 var coordinates = _map.ToCoordinates(gridId, indices, grid);
                 Spawn(areaProto, coordinates);
             }
