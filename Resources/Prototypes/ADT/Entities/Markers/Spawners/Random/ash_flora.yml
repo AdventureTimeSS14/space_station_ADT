@@ -1,0 +1,61 @@
+- type: entity
+  name: lavaland ash flora spawn
+  suffix: Plants
+  id: ADTLavalandAshFloraSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Misc/spaceshroom.rsi
+          state: structure
+    - type: RandomSpawner
+      chance: 1
+      offset: 0.0
+      prototypes:
+        # cacti вес 1
+        - ADTLavaCactusOne
+        - ADTLavaCactusTwo
+        - ADTLavaCactusThree
+        - ADTLavaCactusFour
+        # cap_shroom вес 2
+        - ADTAshFloraCapShroom1
+        - ADTAshFloraCapShroom2
+        - ADTAshFloraCapShroom3
+        - ADTAshFloraCapShroom4
+        - ADTAshFloraCapShroom1
+        - ADTAshFloraCapShroom2
+        - ADTAshFloraCapShroom3
+        - ADTAshFloraCapShroom4
+        # leaf_shroom вес 2
+        - ADTAshFloraLeafShroom1
+        - ADTAshFloraLeafShroom2
+        - ADTAshFloraLeafShroom3
+        - ADTAshFloraLeafShroom4
+        - ADTAshFloraLeafShroom1
+        - ADTAshFloraLeafShroom2
+        - ADTAshFloraLeafShroom3
+        - ADTAshFloraLeafShroom4
+        # rock вес 1
+        - FloraRockSolid
+        - FloraRockSolid
+        - FloraRockSolid
+        - FloraRockSolid
+        # stem_shroom вес 2
+        - ADTAshFloraStemShroom1
+        - ADTAshFloraStemShroom2
+        - ADTAshFloraStemShroom3
+        - ADTAshFloraStemShroom4
+        - ADTAshFloraStemShroom1
+        - ADTAshFloraStemShroom2
+        - ADTAshFloraStemShroom3
+        - ADTAshFloraStemShroom4
+        # tall_shroom вес 2
+        - ADTAshFloraTallShroom1
+        - ADTAshFloraTallShroom2
+        - ADTAshFloraTallShroom3
+        - ADTAshFloraTallShroom4
+        - ADTAshFloraTallShroom1
+        - ADTAshFloraTallShroom2
+        - ADTAshFloraTallShroom3
+        - ADTAshFloraTallShroom4

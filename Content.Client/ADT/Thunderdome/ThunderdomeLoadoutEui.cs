@@ -16,9 +16,9 @@ public sealed partial class ThunderdomeLoadoutEui : BaseEui
     {
         _window = new ThunderdomeLoadoutWindow();
         _window.OnClose += () => SendMessage(new CloseEuiMessage());
-        _window.OnLoadoutConfirmed += weaponIdx =>
+        _window.OnLoadoutConfirmed += (weaponIdx, equipmentIdx) =>
         {
-            SendMessage(new ThunderdomeLoadoutSelectedMessage(weaponIdx));
+            SendMessage(new ThunderdomeLoadoutSelectedMessage(weaponIdx, equipmentIdx));
         };
 
         _window.OnLeaderboardRequested += () =>

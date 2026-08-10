@@ -161,6 +161,10 @@
   components:
     - type: Sprite
       sprite: Clothing/Back/Duffels/salvage.rsi
+  # ADT-Tweak-Start
+    - type: ExplosionResistance
+      damageCoefficient: 0.5
+  # ADT-Tweak-End
 
 - type: entity
   parent: [ClothingBackpackDuffel, BaseSyndicateContraband]

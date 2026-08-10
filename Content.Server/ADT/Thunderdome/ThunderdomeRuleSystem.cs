@@ -284,7 +284,7 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
         GhostDomePlayer(ent, rule, playSound: false);
     }
 
-    public void SpawnPlayer(ICommonSession session, EntityUid ruleEntity, int weaponIdx)
+    public void SpawnPlayer(ICommonSession session, EntityUid ruleEntity, int weaponIdx, int equipmentIdx)
     {
         if (!TryComp<ThunderdomeRuleComponent>(ruleEntity, out var rule)
           || !rule.Active
@@ -304,7 +304,7 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
 
         var mob = _stationSpawning.SpawnPlayerMob(spawnCoords.Value, null, profile, null);
         _stationSpawning.EquipStartingGear(mob, rule.Gear);
-        SpawnLoadoutItems(mob, weaponIdx, rule);
+        SpawnLoadoutItems(mob, weaponIdx, equipmentIdx, rule);
 
         // айди карта с сикеем игруна
         if (_idCard.TryFindIdCard(mob, out var idCard))
@@ -647,13 +647,19 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
         EnsureComp<TimedDespawnComponent>(uid).Lifetime = lifetime;
     }
 
-    private void SpawnLoadoutItems(EntityUid mob, int weaponIdx, ThunderdomeRuleComponent rule)
+    private void SpawnLoadoutItems(EntityUid mob, int weaponIdx, int equipmentIdx, ThunderdomeRuleComponent rule)
     {
-        if (rule.WeaponLoadouts.Count == 0)
-            return;
+        if (rule.WeaponLoadouts.Count > 0)
+        {
+            weaponIdx = Math.Clamp(weaponIdx, 0, rule.WeaponLoadouts.Count - 1);
+            _stationSpawning.EquipStartingGear(mob, rule.WeaponLoadouts[weaponIdx].Gear);
+        }
 
-        weaponIdx = Math.Clamp(weaponIdx, 0, rule.WeaponLoadouts.Count - 1);
-        _stationSpawning.EquipStartingGear(mob, rule.WeaponLoadouts[weaponIdx].Gear);
+        if (equipmentIdx >= 0 && rule.EquipmentLoadouts.Count > 0)
+        {
+            equipmentIdx = Math.Clamp(equipmentIdx, 0, rule.EquipmentLoadouts.Count - 1);
+            _stationSpawning.EquipStartingGear(mob, rule.EquipmentLoadouts[equipmentIdx].Gear);
+        }
     }
 
     private EntityCoordinates? GetRandomSpawnPoint(ThunderdomeRuleComponent rule)
@@ -734,7 +740,21 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
             });
         }
 
-        return new ThunderdomeLoadoutEuiState(weapons, rule.Players.Count);
+        var equipment = new List<ThunderdomeLoadoutOption>();
+        for (var i = 0; i < rule.EquipmentLoadouts.Count; i++)
+        {
+            var loadout = rule.EquipmentLoadouts[i];
+            equipment.Add(new ThunderdomeLoadoutOption
+            {
+                Index = i,
+                Name = Loc.GetString(loadout.Name),
+                Description = string.IsNullOrEmpty(loadout.Description) ? string.Empty : Loc.GetString(loadout.Description),
+                Category = Loc.GetString(loadout.Category),
+                SpritePrototype = loadout.Sprite,
+            });
+        }
+
+        return new ThunderdomeLoadoutEuiState(weapons, equipment, rule.Players.Count);
     }
 
     private void RefillAmmo(EntityUid killer)

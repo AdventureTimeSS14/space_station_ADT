@@ -7,3 +7,9 @@ stack-ground-meth-crystal-blue-sky = измельчённый кристалл �
 stack-antibiotic-ointment = антибиотическая мазь
 stack-ectoplasm = эктоплазма
 stack-piastre = пиастры
+stack-adt-sinew =
+    { $amount ->
+        [1] жила
+        [few] жилы
+       *[other] жил
+    } наблюдателя

@@ -121,6 +121,7 @@
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
+  - type: ADTNoWideAttack
 # ADT-Tweak End
 
 # Very high burst damage if you land a mark, while also providing a small amount of healing.
@@ -161,7 +162,7 @@
     fireRate: 1
     useKey: false
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 1 # ADT tweak 0.5 -> 1
+    rechargeCooldown: 1.5 # ADT tweak charge_time дробителя из SS13
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
