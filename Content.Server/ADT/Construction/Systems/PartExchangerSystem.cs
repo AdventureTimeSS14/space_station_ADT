@@ -207,8 +207,20 @@ public sealed class PartExchangerSystem : EntitySystem
                     continue;
 
                 var replacementUids = new List<EntityUid>();
-                var removed = new List<(EntityUid Uid, int Amount)>();
+                var removed = new List<EntityUid>();
                 var reservationFailed = false;
+
+                void RollbackReserved()
+                {
+                    foreach (var reservedUid in replacementUids)
+                    {
+                        if (TerminatingOrDeleted(reservedUid))
+                            continue;
+
+                        _container.Insert(reservedUid, storage.Container, force: true);
+                    }
+                }
+
                 foreach (var (replacementUid, amount, state) in collected)
                 {
                     if (!_container.TryRemoveFromContainer(replacementUid, force: true))
@@ -236,19 +248,12 @@ public sealed class PartExchangerSystem : EntitySystem
                         replacementUids.Add(replacementUid);
                     }
 
-                    removed.Add((Uid: replacementUid, Amount: amount));
+                    removed.Add(replacementUid);
                 }
 
                 if (reservationFailed)
                 {
-                    foreach (var reservedUid in replacementUids)
-                    {
-                        if (TerminatingOrDeleted(reservedUid))
-                            continue;
-
-                        _container.Insert(reservedUid, storage.Container, force: true);
-                    }
-
+                    RollbackReserved();
                     continue;
                 }
 
@@ -257,14 +262,7 @@ public sealed class PartExchangerSystem : EntitySystem
                 if (!_storage.Insert(uid, currentPart.Uid, out _, playSound: false))
                 {
                     _container.Insert(currentPart.Uid, machine.PartContainer, force: true);
-                    foreach (var reservedUid in replacementUids)
-                    {
-                        if (TerminatingOrDeleted(reservedUid))
-                            continue;
-
-                        _container.Insert(reservedUid, storage.Container, force: true);
-                    }
-
+                    RollbackReserved();
                     continue;
                 }
 
@@ -274,7 +272,7 @@ public sealed class PartExchangerSystem : EntitySystem
                         _container.Insert(replacementUid, storage.Container, force: true);
                 }
 
-                foreach (var (removedUid, _) in removed)
+                foreach (var removedUid in removed)
                 {
                     var index = available.FindIndex(p => p.Uid == removedUid);
                     if (index < 0)
