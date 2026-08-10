@@ -39,7 +39,7 @@ namespace Content.Shared.Interaction
         public bool AltInteract { get; }
 
         public InteractEvent(EntityUid user, EntityUid used, EntityUid? target,
-            EntityCoordinates clickLocation, bool canReach, bool altInteract = false)
+            EntityCoordinates clickLocation, bool canReach, bool altInteract = false) // ADT-Tweak: altInteract param
         {
             User = user;
             Used = used;
@@ -57,7 +57,7 @@ namespace Content.Shared.Interaction
     public sealed class AfterInteractEvent : InteractEvent
     {
         public AfterInteractEvent(EntityUid user, EntityUid used, EntityUid? target,
-            EntityCoordinates clickLocation, bool canReach, bool altInteract = false) : base(user, used, target, clickLocation, canReach, altInteract)
+            EntityCoordinates clickLocation, bool canReach, bool altInteract = false) : base(user, used, target, clickLocation, canReach, altInteract) // ADT-Tweak: altInteract param
         { }
     }
 
@@ -68,7 +68,7 @@ namespace Content.Shared.Interaction
     public sealed class AfterInteractUsingEvent : InteractEvent
     {
         public AfterInteractUsingEvent(EntityUid user, EntityUid used, EntityUid? target,
-            EntityCoordinates clickLocation, bool canReach, bool altInteract = false) : base(user, used, target, clickLocation, canReach, altInteract)
+            EntityCoordinates clickLocation, bool canReach, bool altInteract = false) : base(user, used, target, clickLocation, canReach, altInteract) // ADT-Tweak: altInteract param
         { }
     }
 }

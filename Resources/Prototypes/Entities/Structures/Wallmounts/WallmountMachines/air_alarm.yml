@@ -116,7 +116,7 @@
     cost: 5
     delay: 0
     fx: EffectRCDDeconstruct6
-  # ADT-RPD-Start
+  # ADT-RPD-End
 
 - type: entity
   parent: BaseWallmountMetallic
@@ -146,7 +146,7 @@
     cost: 5
     delay: 0
     fx: EffectRCDDeconstruct6
-  # ADT-RPD-Start
+  # ADT-RPD-End
   - type: Destructible
     thresholds:
       - trigger:
