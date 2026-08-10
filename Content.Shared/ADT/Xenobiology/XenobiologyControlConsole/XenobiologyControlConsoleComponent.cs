@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Areas;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -8,6 +9,9 @@ public sealed partial class XenobiologyControlConsoleComponent : Component
 {
     [DataField]
     public EntProtoId EyeProto = "ADTXenobiologyEye";
+
+    [DataField]
+    public EntProtoId<AreaComponent> Area = "AreaXenobio";
 
     [DataField]
     public int MaxSlimeCapacity = 5;
