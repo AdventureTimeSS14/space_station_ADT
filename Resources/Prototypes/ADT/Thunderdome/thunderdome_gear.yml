@@ -255,8 +255,3 @@
     back:
       - BoxLethalshot
       - BoxShotgunSlug
-
-- type: startingGear
-  id: ThunderdomeArmyRPS
-  equipment:
-    belt: ADTClothingRPSUSSP
