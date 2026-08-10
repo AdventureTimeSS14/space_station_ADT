@@ -7,13 +7,11 @@ namespace Content.Shared.ADT.Thunderdome;
 public sealed partial class ThunderdomeLoadoutEuiState : EuiStateBase
 {
     public List<ThunderdomeLoadoutOption> Weapons { get; }
-    public List<ThunderdomeLoadoutOption> Equipment { get; }
     public int PlayerCount { get; }
 
-    public ThunderdomeLoadoutEuiState(List<ThunderdomeLoadoutOption> weapons, List<ThunderdomeLoadoutOption> equipment, int playerCount)
+    public ThunderdomeLoadoutEuiState(List<ThunderdomeLoadoutOption> weapons, int playerCount)
     {
         Weapons = weapons;
-        Equipment = equipment;
         PlayerCount = playerCount;
     }
 }
@@ -32,11 +30,9 @@ public sealed partial class ThunderdomeLoadoutOption
 public sealed partial class ThunderdomeLoadoutSelectedMessage : EuiMessageBase
 {
     public int WeaponIndex { get; }
-    public int EquipmentIndex { get; }
 
-    public ThunderdomeLoadoutSelectedMessage(int weaponIndex, int equipmentIndex)
+    public ThunderdomeLoadoutSelectedMessage(int weaponIndex)
     {
         WeaponIndex = weaponIndex;
-        EquipmentIndex = equipmentIndex;
     }
 }
