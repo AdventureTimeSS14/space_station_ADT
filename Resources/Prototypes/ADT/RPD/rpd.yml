@@ -34,7 +34,7 @@
   mode: ConstructObject
   prototype: GasPipeBend
   cost: 2
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -51,7 +51,7 @@
   mode: ConstructObject
   prototype: GasPipeStraight
   cost: 2
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -68,7 +68,7 @@
   mode: ConstructObject
   prototype: GasPipeHalf
   cost: 2
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -85,7 +85,7 @@
   mode: ConstructObject
   prototype: GasPipeFourway
   cost: 4
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -102,7 +102,7 @@
   mode: ConstructObject
   prototype: GasPipeTJunction
   cost: 3
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -119,7 +119,7 @@
   mode: ConstructObject
   prototype: GasPressurePump
   cost: 2
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -133,7 +133,7 @@
   mode: ConstructObject
   prototype: GasMixer
   cost: 3
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -147,7 +147,7 @@
   mode: ConstructObject
   prototype: GasMixerFlipped
   cost: 3
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -161,7 +161,7 @@
   mode: ConstructObject
   prototype: GasFilter
   cost: 3
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -175,7 +175,7 @@
   mode: ConstructObject
   prototype: GasFilterFlipped
   cost: 3
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -189,7 +189,7 @@
   mode: ConstructObject
   prototype: GasVolumePump
   cost: 3
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -203,7 +203,7 @@
   mode: ConstructObject
   prototype: GasPassiveVent
   cost: 4
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -217,7 +217,7 @@
   mode: ConstructObject
   prototype: GasOutletInjector
   cost: 4
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -231,7 +231,7 @@
   mode: ConstructObject
   prototype: GasVentPump
   cost: 4
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -245,7 +245,7 @@
   mode: ConstructObject
   prototype: GasValve
   cost: 4
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -259,7 +259,7 @@
   mode: ConstructObject
   prototype: GasVentScrubber
   cost: 4
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -273,7 +273,7 @@
   mode: ConstructObject
   prototype: ADTAtmosDeviceFanRPD
   cost: 6
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -289,7 +289,7 @@
   mode: ConstructObject
   prototype: GasPassiveGate
   cost: 4
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -303,7 +303,7 @@
   mode: ConstructObject
   prototype: GasDualPortVentPump
   cost: 4
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -317,7 +317,7 @@
   mode: ConstructObject
   prototype: PressureControlledValve
   cost: 4
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -331,7 +331,7 @@
   mode: ConstructObject
   prototype: DisposalUnit
   cost: 10
-  delay: 4
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -345,7 +345,7 @@
   mode: ConstructObject
   prototype: MailingUnit
   cost: 10
-  delay: 4
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -359,7 +359,7 @@
   mode: ConstructObject
   prototype: GasPort
   cost: 5
-  delay: 3
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -373,7 +373,7 @@
   mode: ConstructObject
   prototype: DisposalJunctionFlipped
   cost: 3
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -390,7 +390,7 @@
   mode: ConstructObject
   prototype: DisposalJunction
   cost: 3
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -407,7 +407,7 @@
   mode: ConstructObject
   prototype: DisposalRouterFlipped
   cost: 3
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -424,7 +424,7 @@
   mode: ConstructObject
   prototype: DisposalRouter
   cost: 3
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -441,7 +441,7 @@
   mode: ConstructObject
   prototype: DisposalTagger
   cost: 3
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -458,7 +458,7 @@
   mode: ConstructObject
   prototype: DisposalBend
   cost: 2
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -475,7 +475,7 @@
   mode: ConstructObject
   prototype: DisposalYJunction
   cost: 3
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -492,7 +492,7 @@
   mode: ConstructObject
   prototype: DisposalSignalRouter
   cost: 3
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -509,7 +509,7 @@
   mode: ConstructObject
   prototype: DisposalSignalRouterFlipped
   cost: 3
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -526,7 +526,7 @@
   mode: ConstructObject
   prototype: DisposalTrunk
   cost: 2
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -543,7 +543,7 @@
   mode: ConstructObject
   prototype: DisposalPipe
   cost: 2
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -560,7 +560,7 @@
   mode: ConstructObject
   prototype: AirSensor
   cost: 4
-  delay: 3
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -574,7 +574,7 @@
   mode: ConstructObject
   prototype: FloorDrain
   cost: 10
-  delay: 4
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -588,7 +588,7 @@
   mode: ConstructObject
   prototype: AirAlarm
   cost: 6
-  delay: 4
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
@@ -604,7 +604,7 @@
   mode: ConstructObject
   prototype: SignalControlledValve
   cost: 3
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
@@ -618,7 +618,7 @@
   mode: ConstructObject
   prototype: HeatExchanger
   cost: 3
-  delay: 2
+  delay: 0
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User

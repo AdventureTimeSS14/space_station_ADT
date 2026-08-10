@@ -497,7 +497,8 @@ namespace Content.Shared.Interaction
                 used.Value,
                 target,
                 coordinates,
-                inRangeUnobstructed);
+                inRangeUnobstructed,
+                altInteract); // ADT-Tweak: altInteract passthrough
         }
 
         private bool IsDeleted(EntityUid uid)
@@ -563,7 +564,7 @@ namespace Content.Shared.Interaction
         }
 
         public void InteractUsingRanged(EntityUid user, EntityUid used, EntityUid? target,
-            EntityCoordinates clickLocation, bool inRangeUnobstructed)
+            EntityCoordinates clickLocation, bool inRangeUnobstructed, bool altInteract = false) // ADT-Tweak: altInteract param
         {
             if (IsDeleted(user) || IsDeleted(used) || IsDeleted(target))
                 return;
@@ -599,7 +600,7 @@ namespace Content.Shared.Interaction
             }
 
             // DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used) && !IsDeleted(target));   // ADT Exception Fix
-            InteractDoAfter(user, used, target, clickLocation, inRangeUnobstructed, checkDeletion: false);
+            InteractDoAfter(user, used, target, clickLocation, inRangeUnobstructed, checkDeletion: false, altInteract: altInteract); // ADT-Tweak: altInteract passthrough
         }
 
         protected bool ValidateInteractAndFace(EntityUid user, EntityCoordinates coordinates)
@@ -1108,7 +1109,7 @@ namespace Content.Shared.Interaction
         /// <param name="canReach">Whether the <paramref name="user"/> is in range of the <paramref name="target"/>.
         ///     </param>
         /// <returns>True if the interaction was handled. Otherwise, false.</returns>
-        public bool InteractDoAfter(EntityUid user, EntityUid used, EntityUid? target, EntityCoordinates clickLocation, bool canReach, bool checkDeletion = true)
+        public bool InteractDoAfter(EntityUid user, EntityUid used, EntityUid? target, EntityCoordinates clickLocation, bool canReach, bool checkDeletion = true, bool altInteract = false) // ADT-Tweak: altInteract param
         {
             if (target is { Valid: false })
                 target = null;
@@ -1116,7 +1117,7 @@ namespace Content.Shared.Interaction
             if (checkDeletion && (IsDeleted(user) || IsDeleted(used) || IsDeleted(target)))
                 return false;
 
-            var afterInteractEvent = new AfterInteractEvent(user, used, target, clickLocation, canReach);
+            var afterInteractEvent = new AfterInteractEvent(user, used, target, clickLocation, canReach, altInteract); // ADT-Tweak: altInteract
             RaiseLocalEvent(used, afterInteractEvent);
             DoContactInteraction(user, used, afterInteractEvent);
             if (canReach)
@@ -1132,7 +1133,7 @@ namespace Content.Shared.Interaction
                 return false;
 
             //DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used) && !IsDeleted(target));
-            var afterInteractUsingEvent = new AfterInteractUsingEvent(user, used, target, clickLocation, canReach);
+            var afterInteractUsingEvent = new AfterInteractUsingEvent(user, used, target, clickLocation, canReach, altInteract); // ADT-Tweak: altInteract
             RaiseLocalEvent(target.Value, afterInteractUsingEvent);
 
             DoContactInteraction(user, used, afterInteractUsingEvent);

@@ -129,14 +129,14 @@ public sealed class AlignRPDConstruction : PlacementMode
             var tile = _mapSystem.GetTileRef(mapGridData.Value.GridUid, mapGrid, target.Value.ToCoordinates());
             var position2 = _mapSystem.TileIndicesFor(mapGridData.Value.GridUid, mapGrid, target.Value.ToCoordinates());
             // Determine if the RPD operation is valid or not
-            if (!_rpdSystem.IsRPDOperationStillValid(heldEntity.Value, rpd, mapGridData.Value.GridUid, mapGrid, tile, position2, target, player.Value, false))
+            if (!_rpdSystem.IsRPDOperationStillValid(heldEntity.Value, rpd, mapGridData.Value.GridUid, mapGrid, tile, position2, target, player.Value, popMsgs: false))
                 return false;
         }
         else
         {
             var tile = _mapSystem.GetTileRef(mapGridData.Value.GridUid, mapGrid, mapGridData.Value.Location);
             var position2 = _mapSystem.TileIndicesFor(mapGridData.Value.GridUid, mapGrid, mapGridData.Value.Location);
-            if (!_rpdSystem.IsRPDOperationStillValid(heldEntity.Value, rpd, mapGridData.Value.GridUid, mapGrid, tile, position2, null, player.Value, false))
+            if (!_rpdSystem.IsRPDOperationStillValid(heldEntity.Value, rpd, mapGridData.Value.GridUid, mapGrid, tile, position2, null, player.Value, popMsgs: false))
                 return false;
         }
 

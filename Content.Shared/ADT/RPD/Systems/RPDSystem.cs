@@ -14,6 +14,8 @@ using Content.Shared.Popups;
 using Content.Shared.ADT.RPD.Components;
 using Content.Shared.Tag;
 using Content.Shared.Tiles;
+using Content.Shared.UserInterface;
+using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -45,6 +47,7 @@ public class RPDSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
 
 
     private HashSet<EntityUid> _intersectingEntities = new();
@@ -59,6 +62,7 @@ public class RPDSystem : EntitySystem
         SubscribeLocalEvent<RPDComponent, RPDDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<RPDComponent, DoAfterAttemptEvent<RPDDoAfterEvent>>(OnDoAfterAttempt);
         SubscribeLocalEvent<RPDComponent, RPDSystemMessage>(OnRPDSystemMessage);
+        SubscribeLocalEvent<RPDComponent, GetVerbsEvent<AlternativeVerb>>(OnAltVerb);
         SubscribeNetworkEvent<RPDConstructionGhostRotationEvent>(OnRPDconstructionGhostRotationEvent);
     }
 
@@ -89,10 +93,37 @@ public class RPDSystem : EntitySystem
         if (!_protoManager.HasIndex(args.ProtoId))
             return;
 
+        if (args.Secondary)
+        {
+            // Set the secondary (Alt) RPD prototype
+            component.SecondaryProtoId = args.ProtoId;
+            UpdateCachedSecondaryPrototype(uid, component);
+            Dirty(uid, component);
+            return;
+        }
+
         // Set the current RPD prototype to the one supplied
         component.ProtoId = args.ProtoId;
         UpdateCachedPrototype(uid, component);
         Dirty(uid, component);
+    }
+
+    private void OnAltVerb(EntityUid uid, RPDComponent component, GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract)
+            return;
+
+        var verb = new AlternativeVerb
+        {
+            Act = () =>
+            {
+                _uiSystem.OpenUi(uid, RpdUiKey.Secondary, args.User);
+            },
+            Text = Loc.GetString("rpd-component-select-secondary"),
+            Priority = 1
+        };
+
+        args.Verbs.Add(verb);
     }
 
     private void OnExamine(EntityUid uid, RPDComponent component, ExaminedEvent args)
@@ -114,6 +145,19 @@ public class RPDSystem : EntitySystem
                 name = proto.Name;
 
             msg = Loc.GetString("rpd-component-examine-build-details", ("name", name));
+        }
+
+        // ADT-Tweak: show the secondary (Alt) configuration if one is set
+        UpdateCachedSecondaryPrototype(uid, component);
+        if (component.CachedSecondaryPrototype != null)
+        {
+            var secondaryName = Loc.GetString(component.CachedSecondaryPrototype.SetName);
+
+            if (component.CachedSecondaryPrototype.Prototype != null &&
+                _protoManager.TryIndex(component.CachedSecondaryPrototype.Prototype, out var secondaryProto))
+                secondaryName = secondaryProto.Name;
+
+            msg += "\n" + Loc.GetString("rpd-component-examine-secondary-details", ("name", secondaryName));
         }
 
         args.PushMarkup(msg);
@@ -142,21 +186,33 @@ public class RPDSystem : EntitySystem
         var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
         var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
 
-        if (!IsRPDOperationStillValid(uid, component, gridUid.Value, mapGrid, tile, position, args.Target, args.User))
+        // ADT-Tweak: secondary (Alt+click) configuration support
+        var secondary = args.AltInteract;
+        UpdateCachedPrototype(uid, component);
+        if (secondary)
+            UpdateCachedSecondaryPrototype(uid, component);
+
+        var prototype = secondary ? component.CachedSecondaryPrototype : component.CachedPrototype;
+
+        // No secondary configuration selected: Alt+click does nothing
+        if (prototype == null)
+            return;
+
+        if (!IsRPDOperationStillValid(uid, component, gridUid.Value, mapGrid, tile, position, args.Target, args.User, prototype))
             return;
 
         if (!_net.IsServer)
             return;
 
         // Get the starting cost, delay, and effect from the prototype
-        var cost = component.CachedPrototype.Cost;
-        var delay = component.CachedPrototype.Delay;
-        var effectPrototype = component.CachedPrototype.Effect;
+        var cost = prototype.Cost;
+        var delay = prototype.Delay;
+        var effectPrototype = prototype.Effect;
 
         #region: Operation modifiers
 
         // Deconstruction modifiers
-        switch (component.CachedPrototype.Mode)
+        switch (prototype.Mode)
         {
             case RpdMode.Deconstruct:
 
@@ -177,7 +233,7 @@ public class RPDSystem : EntitySystem
 
         // Try to start the do after
         var effect = Spawn(effectPrototype, location);
-        var ev = new RPDDoAfterEvent(GetNetCoordinates(location), component.ConstructionDirection, component.ProtoId, cost, GetNetEntity(effect));
+        var ev = new RPDDoAfterEvent(GetNetCoordinates(location), component.ConstructionDirection, secondary ? component.SecondaryProtoId : component.ProtoId, cost, GetNetEntity(effect), secondary);
 
         var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, uid, target: args.Target, used: uid)
         {
@@ -200,8 +256,9 @@ public class RPDSystem : EntitySystem
         if (args.Event?.DoAfter?.Args == null)
             return;
 
-        // Exit if the RPD prototype has changed
-        if (component.ProtoId != args.Event.StartingProtoId)
+        // Exit if the RPD prototype has changed (check the correct slot: primary or secondary)
+        var expectedProtoId = args.Event.Secondary ? component.SecondaryProtoId : component.ProtoId;
+        if (expectedProtoId != args.Event.StartingProtoId)
         {
             args.Cancel();
             return;
@@ -220,7 +277,14 @@ public class RPDSystem : EntitySystem
         var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
         var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
 
-        if (!IsRPDOperationStillValid(uid, component, gridUid.Value, mapGrid, tile, position, args.Event.Target, args.Event.User))
+        var attemptPrototype = args.Event.Secondary ? component.CachedSecondaryPrototype : component.CachedPrototype;
+        if (attemptPrototype == null)
+        {
+            args.Cancel();
+            return;
+        }
+
+        if (!IsRPDOperationStillValid(uid, component, gridUid.Value, mapGrid, tile, position, args.Event.Target, args.Event.User, attemptPrototype))
             args.Cancel();
     }
 
@@ -249,11 +313,19 @@ public class RPDSystem : EntitySystem
         var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
 
         // Ensure the RPD operation is still valid
-        if (!IsRPDOperationStillValid(uid, component, gridUid.Value, mapGrid, tile, position, args.Target, args.User))
+        var finalizePrototype = args.Secondary ? component.CachedSecondaryPrototype : component.CachedPrototype;
+        if (finalizePrototype == null)
+        {
+            if (_net.IsServer)
+                QueueDel(GetEntity(args.Effect));
+            return;
+        }
+
+        if (!IsRPDOperationStillValid(uid, component, gridUid.Value, mapGrid, tile, position, args.Target, args.User, finalizePrototype))
             return;
 
         // Finalize the operation
-        FinalizeRPDOperation(uid, component, gridUid.Value, mapGrid, position, args.Direction, args.Target, args.User);
+        FinalizeRPDOperation(uid, component, gridUid.Value, mapGrid, position, args.Direction, args.Target, args.User, finalizePrototype);
 
         // Play audio and consume charges
         _audio.PlayPredicted(component.SuccessSound, uid, args.User);
@@ -284,10 +356,11 @@ public class RPDSystem : EntitySystem
 
     #region Entity construction/deconstruction rule checks
 
-    public bool IsRPDOperationStillValid(EntityUid uid, RPDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, EntityUid? target, EntityUid user, bool popMsgs = true)
+    public bool IsRPDOperationStillValid(EntityUid uid, RPDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, EntityUid? target, EntityUid user, RPDPrototype? prototype = null, bool popMsgs = true)
     {
         // Update cached prototype if required
         UpdateCachedPrototype(uid, component);
+        prototype ??= component.CachedPrototype;
 
         // Check that the RPD has enough ammo to get the job done
         TryComp<LimitedChargesComponent>(uid, out var charges);
@@ -300,7 +373,7 @@ public class RPDSystem : EntitySystem
             return false;
         }
 
-        if (!_charges.HasCharges((uid, charges), component.CachedPrototype.Cost))
+        if (!_charges.HasCharges((uid, charges), prototype.Cost))
         {
             if (popMsgs)
                 _popup.PopupClient(Loc.GetString("rpd-component-insufficient-ammo-message"), uid, user);
@@ -317,19 +390,21 @@ public class RPDSystem : EntitySystem
             return false;
 
         // Return whether the operation location is valid
-        switch (component.CachedPrototype.Mode)
+        switch (prototype.Mode)
         {
-            case RpdMode.ConstructObject: return IsConstructionLocationValid(uid, component, gridUid, tile, position, user, popMsgs);
+            case RpdMode.ConstructObject: return IsConstructionLocationValid(uid, component, gridUid, tile, position, user, popMsgs, prototype);
             case RpdMode.Deconstruct: return IsDeconstructionStillValid(uid, tile, target, user, popMsgs);
         }
 
         return false;
     }
 
-    private bool IsConstructionLocationValid(EntityUid uid, RPDComponent component, EntityUid gridUid, TileRef tile, Vector2i position, EntityUid user, bool popMsgs = true)
+    private bool IsConstructionLocationValid(EntityUid uid, RPDComponent component, EntityUid gridUid, TileRef tile, Vector2i position, EntityUid user, bool popMsgs = true, RPDPrototype? prototype = null)
     {
+        prototype ??= component.CachedPrototype;
+
         // Check rule: Must place on subfloor
-        if (component.CachedPrototype.ConstructionRules.Contains(RpdConstructionRule.MustBuildOnSubfloor) && !_turf.GetContentTileDefinition(tile).IsSubFloor)
+        if (prototype.ConstructionRules.Contains(RpdConstructionRule.MustBuildOnSubfloor) && !_turf.GetContentTileDefinition(tile).IsSubFloor)
         {
             if (popMsgs)
                 _popup.PopupClient(Loc.GetString("rpd-component-must-build-on-subfloor-message"), uid, user);
@@ -340,8 +415,8 @@ public class RPDSystem : EntitySystem
         // Entity specific rules
 
         // Check rule: The tile is unoccupied
-        var isWindow = component.CachedPrototype.ConstructionRules.Contains(RpdConstructionRule.IsWindow);
-        var isWall = component.CachedPrototype.ConstructionRules.Contains(RpdConstructionRule.IsWall);
+        var isWindow = prototype.ConstructionRules.Contains(RpdConstructionRule.IsWindow);
+        var isWall = prototype.ConstructionRules.Contains(RpdConstructionRule.IsWall);
 
         _intersectingEntities.Clear();
         _lookup.GetLocalEntitiesIntersecting(gridUid, position, _intersectingEntities, -0.05f, LookupFlags.Uncontained);
@@ -354,17 +429,17 @@ public class RPDSystem : EntitySystem
             if (isWall && HasComp<SharedCanBuildWallOnTopRPDComponent>(ent))
                 continue;
 
-            if (component.CachedPrototype.CollisionMask != CollisionGroup.None && TryComp<FixturesComponent>(ent, out var fixtures))
+            if (prototype.CollisionMask != CollisionGroup.None && TryComp<FixturesComponent>(ent, out var fixtures))
             {
                 foreach (var fixture in fixtures.Fixtures.Values)
                 {
                     // Continue if no collision is possible
-                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int)component.CachedPrototype.CollisionMask) == 0)
+                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int)prototype.CollisionMask) == 0)
                         continue;
 
                     // Continue if our custom collision bounds are not intersected
-                    if (component.CachedPrototype.CollisionPolygon != null &&
-                        !DoesCustomBoundsIntersectWithFixture(component.CachedPrototype.CollisionPolygon, component.ConstructionTransform, ent, fixture))
+                    if (prototype.CollisionPolygon != null &&
+                        !DoesCustomBoundsIntersectWithFixture(prototype.CollisionPolygon, component.ConstructionTransform, ent, fixture))
                         continue;
 
                     // Collision was detected
@@ -409,20 +484,22 @@ public class RPDSystem : EntitySystem
 
     #region Entity construction/deconstruction
 
-    private void FinalizeRPDOperation(EntityUid uid, RPDComponent component, EntityUid gridUid, MapGridComponent mapGrid, Vector2i position, Direction direction, EntityUid? target, EntityUid user)
+    private void FinalizeRPDOperation(EntityUid uid, RPDComponent component, EntityUid gridUid, MapGridComponent mapGrid, Vector2i position, Direction direction, EntityUid? target, EntityUid user, RPDPrototype? prototype = null)
     {
         if (!_net.IsServer)
             return;
 
-        if (component.CachedPrototype.Prototype == null)
+        prototype ??= component.CachedPrototype;
+
+        if (prototype.Prototype == null)
             return;
 
-        switch (component.CachedPrototype.Mode)
+        switch (prototype.Mode)
         {
             case RpdMode.ConstructObject:
-                var ent = Spawn(component.CachedPrototype.Prototype, _mapSystem.GridTileToLocal(gridUid, mapGrid, position));
+                var ent = Spawn(prototype.Prototype, _mapSystem.GridTileToLocal(gridUid, mapGrid, position));
 
-                switch (component.CachedPrototype.Rotation)
+                switch (prototype.Rotation)
                 {
                     case RpdRotation.Fixed:
                         Transform(ent).LocalRotation = Angle.Zero;
@@ -491,6 +568,18 @@ public class RPDSystem : EntitySystem
             component.CachedPrototype = _protoManager.Index(component.ProtoId);
     }
 
+    public void UpdateCachedSecondaryPrototype(EntityUid uid, RPDComponent component)
+    {
+        if (component.SecondaryProtoId.Id == "Invalid" || !_protoManager.HasIndex(component.SecondaryProtoId))
+        {
+            component.CachedSecondaryPrototype = null;
+            return;
+        }
+
+        if (component.SecondaryProtoId.Id != component.CachedSecondaryPrototype?.ID)
+            component.CachedSecondaryPrototype = _protoManager.Index(component.SecondaryProtoId);
+    }
+
     #endregion
 }
 
@@ -530,15 +619,19 @@ public sealed partial class RPDDoAfterEvent : DoAfterEvent
     [DataField("fx")]
     public NetEntity? Effect { get; private set; } = null;
 
+    [DataField]
+    public bool Secondary { get; private set; }
+
     private RPDDoAfterEvent() { }
 
-    public RPDDoAfterEvent(NetCoordinates location, Direction direction, ProtoId<RPDPrototype> startingProtoId, int cost, NetEntity? effect = null)
+    public RPDDoAfterEvent(NetCoordinates location, Direction direction, ProtoId<RPDPrototype> startingProtoId, int cost, NetEntity? effect = null, bool secondary = false)
     {
         Location = location;
         Direction = direction;
         StartingProtoId = startingProtoId;
         Cost = cost;
         Effect = effect;
+        Secondary = secondary;
     }
 
     public override DoAfterEvent Clone() => this;

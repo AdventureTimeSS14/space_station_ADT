@@ -114,7 +114,7 @@
   # ADT-RPD-Start
   - type: RPDDeconstructable
     cost: 5
-    delay: 6
+    delay: 0
     fx: EffectRCDDeconstruct6
   # ADT-RPD-Start
 
@@ -144,7 +144,7 @@
   # ADT-RPD-Start
   - type: RPDDeconstructable
     cost: 5
-    delay: 6
+    delay: 0
     fx: EffectRCDDeconstruct6
   # ADT-RPD-Start
   - type: Destructible

@@ -125,13 +125,16 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
     {
         // A predicted message cannot be used here as the RPD UI is closed immediately
         // after this message is sent, which will stop the server from receiving it
-        SendMessage(new RPDSystemMessage(proto.ID));
+        var secondary = UiKey.Equals(RpdUiKey.Secondary);
+        SendMessage(new RPDSystemMessage(proto.ID, secondary));
 
 
         if (_playerManager.LocalSession?.AttachedEntity == null)
             return;
 
-        var msg = Loc.GetString("rpd-component-change-mode", ("mode", Loc.GetString(proto.SetName)));
+        var msg = secondary
+            ? Loc.GetString("rpd-component-change-secondary-mode", ("mode", Loc.GetString(proto.SetName)))
+            : Loc.GetString("rpd-component-change-mode", ("mode", Loc.GetString(proto.SetName)));
 
         if (proto.Mode is RpdMode.ConstructObject)
         {
@@ -141,7 +144,9 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
                 _prototypeManager.TryIndex(proto.Prototype, out var entProto, logError: false))
                 name = entProto.Name;
 
-            msg = Loc.GetString("rpd-component-change-build-mode", ("name", name));
+            msg = secondary
+                ? Loc.GetString("rpd-component-change-secondary-build-mode", ("name", name))
+                : Loc.GetString("rpd-component-change-build-mode", ("name", name));
         }
 
         // Popup message

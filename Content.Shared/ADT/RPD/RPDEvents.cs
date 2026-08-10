@@ -8,9 +8,15 @@ public sealed class RPDSystemMessage : BoundUserInterfaceMessage
 {
     public ProtoId<RPDPrototype> ProtoId;
 
-    public RPDSystemMessage(ProtoId<RPDPrototype> protoId)
+    /// <summary>
+    /// True if the selected prototype is meant to be the secondary (Alt) configuration.
+    /// </summary>
+    public bool Secondary;
+
+    public RPDSystemMessage(ProtoId<RPDPrototype> protoId, bool secondary = false)
     {
         ProtoId = protoId;
+        Secondary = secondary;
     }
 }
 
@@ -30,5 +36,10 @@ public sealed class RPDConstructionGhostRotationEvent : EntityEventArgs
 [Serializable, NetSerializable]
 public enum RpdUiKey : byte
 {
-    Key
+    Key,
+
+    /// <summary>
+    /// Secondary (Alt+click) configuration picker.
+    /// </summary>
+    Secondary
 }

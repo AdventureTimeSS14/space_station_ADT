@@ -33,14 +33,20 @@ namespace Content.Shared.Interaction
         /// </summary>
         public bool CanReach { get; }
 
+        /// <summary>
+        /// Was the interaction performed with Alt held down (Alt+click). ADT-Tweak: alt flag for tile interactions.
+        /// </summary>
+        public bool AltInteract { get; }
+
         public InteractEvent(EntityUid user, EntityUid used, EntityUid? target,
-            EntityCoordinates clickLocation, bool canReach)
+            EntityCoordinates clickLocation, bool canReach, bool altInteract = false)
         {
             User = user;
             Used = used;
             Target = target;
             ClickLocation = clickLocation;
             CanReach = canReach;
+            AltInteract = altInteract;
         }
     }
 
@@ -51,7 +57,7 @@ namespace Content.Shared.Interaction
     public sealed class AfterInteractEvent : InteractEvent
     {
         public AfterInteractEvent(EntityUid user, EntityUid used, EntityUid? target,
-            EntityCoordinates clickLocation, bool canReach) : base(user, used, target, clickLocation, canReach)
+            EntityCoordinates clickLocation, bool canReach, bool altInteract = false) : base(user, used, target, clickLocation, canReach, altInteract)
         { }
     }
 
@@ -62,7 +68,7 @@ namespace Content.Shared.Interaction
     public sealed class AfterInteractUsingEvent : InteractEvent
     {
         public AfterInteractUsingEvent(EntityUid user, EntityUid used, EntityUid? target,
-            EntityCoordinates clickLocation, bool canReach) : base(user, used, target, clickLocation, canReach)
+            EntityCoordinates clickLocation, bool canReach, bool altInteract = false) : base(user, used, target, clickLocation, canReach, altInteract)
         { }
     }
 }

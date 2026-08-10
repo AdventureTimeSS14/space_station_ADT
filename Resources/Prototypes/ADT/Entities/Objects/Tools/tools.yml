@@ -71,6 +71,8 @@
     interfaces:
       enum.RpdUiKey.Key:
         type: RPDMenuBoundUserInterface
+      enum.RpdUiKey.Secondary:
+        type: RPDMenuBoundUserInterface
   - type: ActivatableUI
     key: enum.RpdUiKey.Key
   - type: Tag

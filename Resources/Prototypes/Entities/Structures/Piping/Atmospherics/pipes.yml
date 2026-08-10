@@ -69,7 +69,7 @@
   # ADT-RPD-Start
   - type: RPDDeconstructable
     cost: 4
-    delay: 2
+    delay: 0
     fx: EffectRCDDeconstruct2
   # ADT-RPD-End
   - type: ContainerContainer # ADT tweak start
