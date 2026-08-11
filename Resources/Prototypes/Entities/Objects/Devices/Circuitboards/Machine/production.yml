@@ -339,7 +339,8 @@
       PlasmaGlass: 15
       MetalRod: 4
     partRequirements: #ADT-Tweak: machine parts
-      Servo: 3
+      MicroLaser: 3
+      Servo: 2
 
 - type: entity
   parent: BaseMachineCircuitboard
