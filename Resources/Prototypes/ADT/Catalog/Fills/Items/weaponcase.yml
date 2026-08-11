@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: WeaponCaseNTM90
   name: weapon Case
   suffix: M-90gl
@@ -12,6 +12,7 @@
         - id: WeaponRifleM90GrenadeLauncher
         - id: MagazineRifle
           amount: 5
+
 - type: entity
   id: WeaponCaseNTM90GrenadeLauncherAttachment
   name: weapon Case
@@ -36,6 +37,7 @@
           amount: 4
         - id: ADT40mmGrenadeSmoke
           amount: 4
+
 - type: entity
   id: WeaponCaseNTM90UnderBarrelShotGunAttachment
   suffix: M-90gl
@@ -56,6 +58,7 @@
           amount: 1
         - id: MagazineShotgunUranium
           amount: 1
+
 - type: entity
   id: WeaponCaseNTGunsModules
   name: weapon Case
@@ -85,6 +88,7 @@
         - id: WeaponRifleLecter
         - id: MagazineRifle
           amount: 5
+
 - type: entity
   id: WeaponCaseNTnPulseCarbine
   name: weapon case
@@ -109,6 +113,7 @@
         - id: WeaponRevolverMateba
         - id: SpeedLoaderMagnum
           amount: 3
+
 - type: entity
   id: WeaponCaseNTAPAmmo
   name: weapon case
@@ -121,6 +126,7 @@
         children:
         - id: SpeedLoaderMagnumAP
           amount: 2
+
 - type: entity
   id: WeaponCaseNTDisabler
   name: weapon case
@@ -146,6 +152,7 @@
         - id: MagazineMagnum
           amount: 3
         - id: ADTWeaponPistolDesertEagle
+  
 - type: entity
   id: WeaponCaseNTIonRifle
   name: weapon case
@@ -170,6 +177,7 @@
         - id: WeaponSubMachineGunDrozd
         - id: MagazinePistolSubMachineGun
           amount: 5
+
 - type: entity
   id: WeaponCaseBulldog
   name: weapon case
@@ -185,6 +193,7 @@
           amount: 2
         - id: MagazineShotgunSlug
           amount: 2
+
 - type: entity
   id: ADTWeaponCaseAR12
   name: weapon case
@@ -198,6 +207,7 @@
         - id: ADTWeaponRifleAR12
         - id: ADTMagazineRifleAR12
           amount: 4
+
 - type: entity
   id: ADTWeaponCasePistolet
   name: weapon case
@@ -212,6 +222,7 @@
           amount: 4
         - id: MagazineMagnum
           amount: 4
+
 - type: entity
   id: ADTWeaponCaseShotgunAmmo
   name: weapon case
@@ -232,6 +243,7 @@
           amount: 2
         - id: MagazineShotgunUranium
           amount: 2
+
 - type: entity
   id: ADTWeaponCaseMagazine
   name: weapon case
@@ -248,6 +260,7 @@
           amount: 4
         - id: MagazineRifle
           amount: 4
+
 - type: entity
   id: ADTWeaponCaseAR12Magazine
   name: weapon case
@@ -260,6 +273,7 @@
         children:
         - id: ADTMagazineRifleAR12
           amount: 3
+
 - type: entity
   id: ADTWeaponCaseDrozdMagazine
   name: weapon case
@@ -272,6 +286,7 @@
         children:
         - id: MagazinePistolSubMachineGun
           amount: 3
+
 - type: entity
   id: ADTWeaponCaseM90Magazine
   name: weapon case
@@ -284,6 +299,7 @@
         children:
         - id: MagazineRifle
           amount: 3
+
 - type: entity
   id: ADTWeaponCaseAmmoBulldogX4
   name: weapon case
@@ -296,6 +312,7 @@
         children:
         - id: MagazineShotgun
           amount: 4
+
 - type: entity
   id: ADTWeaponCasePulsePistolet
   name: weapon case
@@ -307,6 +324,7 @@
       storagebase: !type:AllSelector
         children:
         - id: WeaponPulsePistol
+  
 - type: entity
   id: ADTMeleeWeaponCase
   name: weapon case
@@ -321,3 +339,22 @@
           amount: 5
         - id: ADTCqcManual
           amount: 5
+
+- type: entity
+  id: WeaponCaseNTM90GrenadeLauncherAttachmentCBURN
+  name: weapon Case
+  suffix: M-90gl
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTAttachmentM90GrenadeLauncher
+        - id: ADT40mmGrenadeBlast
+          amount: 6
+        - id: ADT40mmGrenadeFlash
+          amount: 12
+        - id: ADT40mmGrenadeSmoke
+          amount: 4

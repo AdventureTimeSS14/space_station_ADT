@@ -1094,6 +1094,14 @@
         Heat: 0.9
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.75
+  - type: GenericVisualizer
+    visuals:
+      enum.NightVisionItemVisuals.Active:
+        icon:
+          True: { state: icon }
+          False: { state: icon }
+  - type: NightVisionItem
+  shaderType: ADTNightVisionDeviceGen3Shader
 
 #Deathsquad Hardsuit
 - type: entity
@@ -1125,6 +1133,14 @@
         Radiation: 0.80
         Caustic: 0.95
   - type: SupermatterImmune  # ADT-Tweak
+  - type: GenericVisualizer
+    visuals:
+      enum.NightVisionItemVisuals.Active:
+        icon:
+          True: { state: icon }
+          False: { state: icon }
+  - type: NightVisionItem
+  shaderType: ADTNightVisionDeviceGen3Shader
 
 #MISC. HARDSUITS
 #Clown Hardsuit

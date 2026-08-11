@@ -1,4 +1,4 @@
-﻿# Simple Station
+# Simple Station
 - type: shader
   id: ColorTint
   kind: source
@@ -80,6 +80,25 @@
     FlickerStrength: 0.02
     GrainSize: 2.0
     DefectIntensity: 1.0
+    ScanlineDark: 0.55
+
+- type: shader
+  id: ADTNightVisionDeviceGen3Shader
+  kind: source
+  path: "/Textures/ADT/Shaders/night_vision_gen3_device.swsl"
+  params:
+    Gain: 2.4
+    TotalLighting: 0.0
+    WhiteoutThreshold: 2.0
+    WhiteoutIntensity: 0.3
+    BloomRadius: 16.0
+    BloomStrength: 0.25
+    CenterClearRadius: 72.0
+    CenterClearSoftness: 40.0
+    NoiseAmplitude: 0.01
+    FlickerStrength: 0.02
+    GrainSize: 1.0
+    DefectIntensity: 0.1
     ScanlineDark: 0.55
 
 - type: shader

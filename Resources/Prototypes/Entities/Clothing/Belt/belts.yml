@@ -112,6 +112,10 @@
     sprite: Clothing/Belt/holster.rsi
   - type: Clothing
     sprite: Clothing/Belt/holster.rsi
+    slots: [belt, neck]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+    quickEquip: false
   - type: Storage
     grid:
     - 0,0,3,1
@@ -126,6 +130,10 @@
     sprite: Clothing/Belt/syndieholster.rsi
   - type: Clothing
     sprite: Clothing/Belt/syndieholster.rsi
+    slots: [belt, neck]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+    quickEquip: false
   - type: Storage
     maxItemSize: Huge
     grid:
