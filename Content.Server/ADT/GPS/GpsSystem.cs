@@ -1,7 +1,13 @@
 using System.Numerics;
 using Content.Shared.ADT.GPS;
 using Content.Shared.Emp;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Popups;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.GPS;
@@ -9,8 +15,12 @@ namespace Content.Server.ADT.GPS;
 public sealed class GpsSystem : SharedGpsSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+
+    private const int CarrierSearchDepth = 8;
 
     public override void Initialize()
     {
@@ -19,7 +29,10 @@ public sealed class GpsSystem : SharedGpsSystem
         SubscribeLocalEvent<GpsComponent, BoundUIOpenedEvent>(OnUiOpened);
         SubscribeLocalEvent<GpsComponent, GpsToggleMessage>(OnToggleMessage);
         SubscribeLocalEvent<GpsComponent, GpsToggleRangeMessage>(OnToggleRangeMessage);
+        SubscribeLocalEvent<GpsComponent, GpsToggleSosMessage>(OnToggleSosMessage);
         SubscribeLocalEvent<GpsComponent, GpsSetTagMessage>(OnSetTagMessage);
+
+        SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
     }
 
     public override void Update(float frameTime)
@@ -58,9 +71,74 @@ public sealed class GpsSystem : SharedGpsSystem
         SetSameMapOnly(ent, !ent.Comp.SameMapOnly);
     }
 
+    private void OnToggleSosMessage(Entity<GpsComponent> ent, ref GpsToggleSosMessage args)
+    {
+        TryToggleSos(ent, args.Actor);
+    }
+
     private void OnSetTagMessage(Entity<GpsComponent> ent, ref GpsSetTagMessage args)
     {
         SetTag(ent, args.Tag);
+    }
+
+    private void OnMobStateChanged(MobStateChangedEvent args)
+    {
+        if (args.NewMobState != MobState.Dead)
+            return;
+
+        var query = EntityQueryEnumerator<GpsComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.Sos || !comp.SosOnDeath || HasComp<EmpDisabledComponent>(uid))
+                continue;
+
+            if (FindCarrier(uid) == args.Target)
+                SetSos((uid, comp), true);
+        }
+    }
+
+    private void TryToggleSos(Entity<GpsComponent> ent, EntityUid user)
+    {
+        if (HasComp<EmpDisabledComponent>(ent))
+        {
+            _popup.PopupEntity(Loc.GetString("adt-gps-popup-broken"), ent.Owner, user);
+            return;
+        }
+
+        if (!SosReady(ent))
+        {
+            var left = (int) Math.Ceiling((ent.Comp.NextSosToggle - _timing.CurTime).TotalSeconds);
+            _popup.PopupEntity(Loc.GetString("adt-gps-popup-sos-cooldown", ("seconds", left)), ent.Owner, user);
+            return;
+        }
+
+        SetSos(ent, !ent.Comp.Sos);
+
+        var message = ent.Comp.Sos
+            ? "adt-gps-popup-sos-enabled"
+            : "adt-gps-popup-sos-disabled";
+
+        _popup.PopupEntity(Loc.GetString(message), ent.Owner, user, PopupType.LargeCaution);
+    }
+
+    protected override void AlertSos(Entity<GpsComponent> ent)
+    {
+        if (ent.Comp.SosSound is not { } sound)
+            return;
+
+        var filter = Filter.Empty();
+
+        var query = EntityQueryEnumerator<GpsComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (!comp.Tracking || HasComp<EmpDisabledComponent>(uid))
+                continue;
+
+            if (FindListener(uid) is { } session)
+                filter.AddPlayer(session);
+        }
+
+        _audio.PlayGlobal(sound, filter, true);
     }
 
     protected override void UpdateUiState(Entity<GpsComponent> ent)
@@ -74,6 +152,7 @@ public sealed class GpsSystem : SharedGpsSystem
     private GpsBoundUserInterfaceState BuildUiState(Entity<GpsComponent> ent)
     {
         var comp = ent.Comp;
+        var sosReadyAt = SosReady(ent) ? null : (TimeSpan?) comp.NextSosToggle;
 
         if (HasComp<EmpDisabledComponent>(ent))
         {
@@ -83,8 +162,11 @@ public sealed class GpsSystem : SharedGpsSystem
                 tag: comp.Tag,
                 sameMapOnly: comp.SameMapOnly,
                 canToggle: comp.CanToggle,
+                sos: comp.Sos,
+                sosReadyAt: sosReadyAt,
                 position: null,
                 location: null,
+                nullspace: false,
                 signals: new List<GpsSignalData>());
         }
 
@@ -96,12 +178,31 @@ public sealed class GpsSystem : SharedGpsSystem
                 tag: comp.Tag,
                 sameMapOnly: comp.SameMapOnly,
                 canToggle: comp.CanToggle,
+                sos: comp.Sos,
+                sosReadyAt: sosReadyAt,
                 position: null,
                 location: null,
+                nullspace: false,
                 signals: new List<GpsSignalData>());
         }
 
         var origin = _transform.GetMapCoordinates(ent.Owner);
+
+        if (origin.MapId == MapId.Nullspace)
+        {
+            return new GpsBoundUserInterfaceState(
+                emped: false,
+                tracking: true,
+                tag: comp.Tag,
+                sameMapOnly: comp.SameMapOnly,
+                canToggle: comp.CanToggle,
+                sos: comp.Sos,
+                sosReadyAt: sosReadyAt,
+                position: null,
+                location: null,
+                nullspace: true,
+                signals: new List<GpsSignalData>());
+        }
 
         return new GpsBoundUserInterfaceState(
             emped: false,
@@ -109,8 +210,11 @@ public sealed class GpsSystem : SharedGpsSystem
             tag: comp.Tag,
             sameMapOnly: comp.SameMapOnly,
             canToggle: comp.CanToggle,
+            sos: comp.Sos,
+            sosReadyAt: sosReadyAt,
             position: ToTile(origin.Position),
             location: GetLocationName(ent.Owner),
+            nullspace: false,
             signals: GetSignals(ent, origin));
     }
 
@@ -127,7 +231,7 @@ public sealed class GpsSystem : SharedGpsSystem
             var tag = Localize(signal.Tag);
             var description = signal.Description == null ? null : Localize(signal.Description);
 
-            if (TryBuildSignal(uid, tag, description, signal.Color, signal.SameMapOnly, reader, origin, out var data))
+            if (TryBuildSignal(uid, tag, description, signal.Color, signal.SameMapOnly, false, reader, origin, out var data))
                 signals.Add(data);
         }
 
@@ -137,7 +241,7 @@ public sealed class GpsSystem : SharedGpsSystem
             if (!device.Tracking || uid == reader.Owner)
                 continue;
 
-            if (TryBuildSignal(uid, device.Tag, null, Color.White, false, reader, origin, out var data))
+            if (TryBuildSignal(uid, device.Tag, null, Color.White, false, device.Sos, reader, origin, out var data))
                 signals.Add(data);
         }
 
@@ -148,6 +252,9 @@ public sealed class GpsSystem : SharedGpsSystem
 
     private static int CompareSignals(GpsSignalData first, GpsSignalData second)
     {
+        if (first.Sos != second.Sos)
+            return first.Sos ? -1 : 1;
+
         var byTag = string.Compare(first.Tag, second.Tag, StringComparison.CurrentCulture);
 
         return byTag != 0
@@ -161,6 +268,7 @@ public sealed class GpsSystem : SharedGpsSystem
         string? description,
         Color color,
         bool sameMapOnly,
+        bool sos,
         Entity<GpsComponent> reader,
         MapCoordinates origin,
         out GpsSignalData data)
@@ -181,7 +289,7 @@ public sealed class GpsSystem : SharedGpsSystem
             ? null
             : (Vector2i?) ToTile(coordinates.Position);
 
-        data = new GpsSignalData(GetNetEntity(source), tag, description, color, position, sameMap);
+        data = new GpsSignalData(GetNetEntity(source), tag, description, color, position, sameMap, sos);
         return true;
     }
 
@@ -197,6 +305,33 @@ public sealed class GpsSystem : SharedGpsSystem
 
         if (xform.MapUid != null)
             return Name(xform.MapUid.Value);
+
+        return null;
+    }
+
+    private ICommonSession? FindListener(EntityUid device)
+    {
+        return FindCarrier(device) is { } carrier && TryComp<ActorComponent>(carrier, out var actor)
+            ? actor.PlayerSession
+            : null;
+    }
+
+    private EntityUid? FindCarrier(EntityUid device)
+    {
+        var current = device;
+
+        for (var depth = 0; depth < CarrierSearchDepth; depth++)
+        {
+            var parent = Transform(current).ParentUid;
+
+            if (!parent.IsValid())
+                return null;
+
+            if (HasComp<MobStateComponent>(parent))
+                return parent;
+
+            current = parent;
+        }
 
         return null;
     }

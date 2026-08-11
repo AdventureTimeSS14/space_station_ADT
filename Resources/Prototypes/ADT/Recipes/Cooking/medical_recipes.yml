@@ -92,19 +92,6 @@
     Dermaline: 10
   recipeType: MedicalAssembler
 
-- type: microwaveMealRecipe
-  id: RecipeAirlossAutoInjector
-  name: airloss auto-injector
-  result: AirlossAutoInjector
-  time: 5
-  group: Medicinal
-  solids:
-    ADTBlankMediPen: 1
-  reagents:
-    Saline: 20
-    DexalinPlus: 20
-  recipeType: MedicalAssembler
-
 #Frontier pen recipes
 
 - type: microwaveMealRecipe

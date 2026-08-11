@@ -1,0 +1,6 @@
+- type: injectorMode
+  parent: [ BaseHyposprayMode, BaseInjectMode ]
+  id: ADTSlowMedipenInjectMode
+  mobTime: 6
+  popupUserAttempt: adt-injector-component-medipen-stiff-user
+  popupTargetAttempt: adt-injector-component-medipen-stiff-target

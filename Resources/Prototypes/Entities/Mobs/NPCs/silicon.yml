@@ -445,9 +445,9 @@
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
-    radius: 3.5
+    radius: 8 # ADT tweak 3.5 > 8
     softness: 2
-    mask: /Textures/Effects/LightMasks/cone.png
+    mask: /Textures/ADT/Effects/Lightmasks/cone_composed_b.png # ADT tweak
     autoRot: true
   - type: FootstepModifier
     footstepSoundCollection:

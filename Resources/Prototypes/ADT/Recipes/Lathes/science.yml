@@ -16,16 +16,16 @@
   recipes:
   - ChemicalPayload
 
-- type: latheRecipePack
-  id: XenobioPack
-  recipes:
-  - SlimeGrinderMachineCircuitboard
-  - ClothingBackpackXenoBioTank
-
-- type: latheRecipePack
-  id: XenobagHoldingPack
-  recipes:
-  - ClothingBeltChemBagXenobiologyHolding
+# закомментировано пока не готовы зоны
+#- type: latheRecipePack
+#  id: XenobioPack
+#  recipes:
+#  - ClothingBackpackXenoBioTank
+#
+#- type: latheRecipePack
+#  id: XenobagHoldingPack
+#  recipes:
+#  - ClothingBeltChemBagXenobiologyHolding
 
 - type: latheRecipePack
   id: BluespaceArtilleryBoards

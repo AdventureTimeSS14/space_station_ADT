@@ -2,7 +2,7 @@
   id: Cargo
   name: department-Cargo
   description: department-Cargo-description
-  color: "#A46106"
+  color: "#8B5005" # ADT-Tweak
   weight: -5 # ADT EDIT
   roles:
   - CargoTechnician
@@ -14,7 +14,7 @@
   id: Civilian
   name: department-Civilian
   description: department-Civilian-description
-  color: "#9FED58"
+  color: "#8AD44A" # ADT-Tweak
   weight: -4 # ADT EDIT
   roles:
   - Bartender
@@ -85,7 +85,7 @@
   id: Engineering
   name: department-Engineering
   description: department-Engineering-description
-  color: "#EFB341"
+  color: "#D99A30" # ADT-Tweak
   weight: -6 # ADT EDIT
   roles:
   - AtmosphericTechnician
@@ -98,7 +98,7 @@
   id: Medical
   name: department-Medical
   description: department-Medical-description
-  color: "#52B4E9"
+  color: "#3FA0D6" # ADT-Tweak
   weight: -7 # ADT EDIT
   roles:
   - Chemist
@@ -116,7 +116,7 @@
   id: Security
   name: department-Security
   description: department-Security-description
-  color: "#DE3A3A"
+  color: "#C42D2D" # ADT-Tweak
   weight: -3 # ADT EDIT
   roles:
   - HeadOfSecurity
@@ -135,7 +135,7 @@
   id: Science
   name: department-Science
   description: department-Science-description
-  color: "#D381C9"
+  color: "#B86EAA" # ADT-Tweak
   weight: -8 # ADT EDIT
   roles:
   - ResearchDirector
@@ -150,7 +150,7 @@
   id: Silicon
   name: department-Silicon
   description: department-Silicon-description
-  color: "#D381C9"
+  color: "#B86EAA" # ADT-Tweak
   weight: -9 # ADT EDIT
   roles:
   - Borg

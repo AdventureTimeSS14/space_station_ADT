@@ -38,9 +38,10 @@
   - type: PointLight
     enabled: false
     color: "#F6F7E9"
-    radius: 5
+    radius: 8 # ADT tweak 5 > 8
     energy: 0
     netsync: false
+    mask: /Textures/ADT/Effects/Lightmasks/smoke.png # ADT tweak
   - type: LightBehaviour
     behaviours:
     - !type:FadeBehaviour # slowly fade in once activated
@@ -61,7 +62,7 @@
       id: fade_out
       interpolate: Linear
       maxDuration: 10 # 300.0
-      startValue: 5.0
+      startValue: 8.0 # ADT tweak 5.0 > 8.0
       endValue: 1.5
   - type: Tag
     tags:

@@ -6,11 +6,13 @@ using Content.Shared.Weapons.Marker;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Network;
 
 namespace Content.Shared.ADT.Crushers.Systems;
 
 public sealed class TrophySystem : EntitySystem
 {
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly TrophyHolderSystem _trophyHolder = default!;
 
     public override void Initialize()
@@ -64,6 +66,31 @@ public sealed class TrophySystem : EntitySystem
             foreach (var effect in trophy.Comp.Effects)
             {
                 effect.OnMeleeHit(trophy, ent, EntityManager, ref args);
+            }
+        }
+
+        DetonateMarks(ent, ref args);
+    }
+
+    private void DetonateMarks(Entity<TrophyHolderComponent> ent, ref MeleeHitEvent args)
+    {
+        if (!_net.IsServer)
+            return;
+
+        foreach (var target in args.HitEntities)
+        {
+            if (target == ent.Owner || target == args.User)
+                continue;
+
+            if (!TryComp<DamageMarkerComponent>(target, out var marker) || marker.Marker != ent.Owner)
+                continue;
+
+            foreach (var trophy in _trophyHolder.GetCurrentTrophies(ent))
+            {
+                foreach (var effect in trophy.Comp.Effects)
+                {
+                    effect.OnMarkDetonation(trophy, ent, args.User, target, EntityManager, ref args);
+                }
             }
         }
     }

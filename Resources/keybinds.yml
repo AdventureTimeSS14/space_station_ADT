@@ -686,4 +686,8 @@ binds:
 - function: PosingRotatePositive
   type: State
   key: E
+- function: SmartEquipNeck
+  type: State
+  key: Q
+  mod1: Shift
 # ADT-Tweak-end

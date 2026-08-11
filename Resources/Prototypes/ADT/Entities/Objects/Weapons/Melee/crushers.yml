@@ -11,6 +11,7 @@
     state: icon
   - type: AmmoCounter
   - type: ADTKineticCooldown
+  - type: ADTNoWideAttack
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
@@ -179,7 +180,7 @@
   parent: WeaponKineticBase
   id: WeaponKineticClaws
   name: kinetic claws
-  description: Unleash your inner edgelord with this two-handed claw small enough to fit in your backpack. Deals a paltry 45 damage on mark detonation, but sports a massive 120 damage backstab bonus.
+  description: Unleash your inner edgelord with these claws, worn like gloves. Deals a paltry 45 damage on mark detonation, but sports a massive 120 damage backstab bonus.
   components:
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws.rsi
@@ -192,7 +193,9 @@
         Blunt: -0.66
         Slash: -0.66
         Piercing: -0.66
+  - type: ADTWearableGun
   - type: MeleeWeapon
+    mustBeEquippedToUse: true
     attackRate: 1.5
     wideAnimationRotation: -135
     damage:
@@ -203,18 +206,10 @@
     angle: 0
     animation: WeaponArcThrust
     range: 1.6
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Blunt: 2.5
-        Slash: 2.5
-        Structural: 10
   - type: BackstabDamageMultipilier
     bonusDamage:
       types:
         Slash: 20
-  - type: GunRequiresWield
-  - type: Wieldable
   - type: Item
     size: Normal
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws-inhands.rsi
@@ -224,11 +219,17 @@
       types:
         Blunt: 10
         Slash: 15
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Heat: 0.95
   - type: Clothing
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws.rsi
-    quickEquip: false
     slots:
-    - suitStorage
+    - gloves
   - type: Tool
     qualities:
       - Slicing
