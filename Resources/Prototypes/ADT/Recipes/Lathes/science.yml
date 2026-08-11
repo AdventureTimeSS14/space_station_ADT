@@ -16,16 +16,15 @@
   recipes:
   - ChemicalPayload
 
-# закомментировано пока не готовы зоны
-#- type: latheRecipePack
-#  id: XenobioPack
-#  recipes:
-#  - ClothingBackpackXenoBioTank
-#
-#- type: latheRecipePack
-#  id: XenobagHoldingPack
-#  recipes:
-#  - ClothingBeltChemBagXenobiologyHolding
+- type: latheRecipePack
+  id: XenobioPack
+  recipes:
+  - ClothingBackpackXenoBioTank
+
+- type: latheRecipePack
+  id: XenobagHoldingPack
+  recipes:
+  - ClothingBeltChemBagXenobiologyHolding
 
 - type: latheRecipePack
   id: BluespaceArtilleryBoards
