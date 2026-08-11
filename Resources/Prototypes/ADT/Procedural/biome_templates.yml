@@ -71,7 +71,6 @@
         - ADTywflowers3
         - ADTywflowers4
 
-# Cactusi chto bi ih zhrat'
     - !type:BiomeEntityLayer
       threshold: 0.95
       noise:
@@ -81,7 +80,7 @@
       allowedTiles:
         - FloorBasalt
       entities:
-        - ADTLavalandCactusSpawner
+        - ADTLavalandAshFloraSpawner
 
     - !type:BiomeEntityLayer
       threshold: 0.95

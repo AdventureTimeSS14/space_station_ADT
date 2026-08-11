@@ -302,9 +302,6 @@
   tags:
   - LavaDungeon
 
-# ADT: базовый маркер комнаты без апстримного RoomFill.
-# Наследоваться от BaseRoomMarker нельзя: он тянет за собой RoomFill без белого списка,
-# и тот начинает ставить случайные комнаты из чужих тем.
 - type: entity
   id: ADTBaseRoomMarker
   parent: MarkerBase
@@ -322,7 +319,6 @@
   parent: ADTBaseRoomMarker
   name: LavaDungeon interior marker
   components:
-  # ADT tweak: комнаты берутся из ADT/Procedural/Rooms/Lavaland, а не из атласа-карты.
   - type: ADTRoomFill
     clearExisting: true
     roomWhitelist:
@@ -336,7 +332,6 @@
   parent: ADTBaseRoomMarker
   name: blood miner dunge spawer
   components:
-  # ADT tweak: комнаты берутся из ADT/Procedural/Rooms/Lavaland, а не из атласа-карты.
   - type: ADTRoomFill
     clearExisting: true
     roomWhitelist:
@@ -348,7 +343,6 @@
   parent: ADTBaseRoomMarker
   name: drake lair spawner
   components:
-  # ADT tweak: комнаты берутся из ADT/Procedural/Rooms/Lavaland, а не из атласа-карты.
   - type: ADTRoomFill
     clearExisting: true
     roomWhitelist:

@@ -110,7 +110,6 @@
     damage:
       types:
         Blunt: 15
-    autoDelay: 2
 
 - type: entity
   id: ADTResonanceCrushEffect

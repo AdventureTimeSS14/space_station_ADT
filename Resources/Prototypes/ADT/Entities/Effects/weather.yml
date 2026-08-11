@@ -300,3 +300,25 @@
     whitelist:
       components:
       - HumanoidProfile
+
+- type: entity
+  parent: WeatherBase
+  id: ADTLavalandWeatherNecropolisSurge
+  components:
+  - type: WeatherStatusEffect
+    damage:
+      types:
+        Heat: 3
+        Blunt: 1
+    damageBlacklist:
+      components:
+      - AshStormImmune
+    sprite:
+      sprite: /Textures/ADT/Effects/weather.rsi
+      state: storm
+    color: "#a13c3c"
+    sound:
+      path: /Audio/Effects/Weather/snowstorm_weak.ogg
+      params:
+        loop: true
+        volume: -3
