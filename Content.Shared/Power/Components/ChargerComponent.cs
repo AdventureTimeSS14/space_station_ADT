@@ -16,8 +16,8 @@ public sealed partial class ChargerComponent : Component
     public float ChargeRate = 20.0f;
 
     // ADT-Tweak-Start: machine parts with tiers
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float BaseChargeRate;
+    [DataField]
+    public float ChargeRateMultiplier = 1f;
 
     [DataField]
     public ProtoId<MachinePartPrototype> ChargePart = "Capacitor";

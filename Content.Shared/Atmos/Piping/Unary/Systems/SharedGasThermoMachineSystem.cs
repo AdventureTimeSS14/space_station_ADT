@@ -55,9 +55,9 @@ public abstract class SharedGasThermoMachineSystem : EntitySystem
     private void OnChangeTemperature(EntityUid uid, GasThermoMachineComponent thermoMachine, GasThermomachineChangeTemperatureMessage args)
     {
         if (IsHeater(thermoMachine))
-            thermoMachine.TargetTemperature = MathF.Min(args.Temperature, thermoMachine.MaxTemperature);
+            thermoMachine.TargetTemperature = MathF.Min(args.Temperature, GetMaxTemperature(thermoMachine)); // ADT-Tweak machine parts
         else
-            thermoMachine.TargetTemperature = MathF.Max(args.Temperature, thermoMachine.MinTemperature);
+            thermoMachine.TargetTemperature = MathF.Max(args.Temperature, GetMinTemperature(thermoMachine)); // ADT-Tweak machine parts
         thermoMachine.TargetTemperature = MathF.Max(thermoMachine.TargetTemperature, Atmospherics.TCMB);
         _adminLogger.Add(LogType.AtmosTemperatureChanged, $"{ToPrettyString(args.Actor)} set temperature on {ToPrettyString(uid)} to {thermoMachine.TargetTemperature}");
         Dirty(uid, thermoMachine);
@@ -70,22 +70,23 @@ public abstract class SharedGasThermoMachineSystem : EntitySystem
         var matterTier = args.GetPartRating(MachinePartIds.MatterBin);
         var laserTier = args.GetPartRating(MachinePartIds.MicroLaser);
 
-        component.HeatCapacity = component.BaseHeatCapacity * RefreshPartsEvent.GetPositiveTierMultiplier(matterTier);
+        component.HeatCapacityMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(matterTier);
+        component.TemperatureRangeBonus = (laserTier - 1f) * 30f;
 
-        var rangeBonus = (laserTier - 1f) * 30f;
-        component.MinTemperature = MathF.Max(Atmospherics.TCMB, component.BaseMinTemperature - rangeBonus);
-        component.MaxTemperature = component.BaseMaxTemperature + rangeBonus;
-
-        component.TargetTemperature = Math.Clamp(component.TargetTemperature, component.MinTemperature, component.MaxTemperature);
+        component.TargetTemperature = Math.Clamp(component.TargetTemperature, GetMinTemperature(component), GetMaxTemperature(component));
         Dirty(uid, component);
         DirtyUI(uid, component);
     }
 
     private static void OnUpgradeExamine(EntityUid uid, GasThermoMachineComponent component, UpgradeExamineEvent args)
     {
-        args.AddPercentageUpgrade("machine-upgrade-thermomachine-heat-capacity", component.HeatCapacity / component.BaseHeatCapacity);
-        args.AddPercentageUpgrade("machine-upgrade-thermomachine-temp-range", (component.MaxTemperature - component.MinTemperature) / (component.BaseMaxTemperature - component.BaseMinTemperature));
+        args.AddPercentageUpgrade("machine-upgrade-thermomachine-heat-capacity", component.HeatCapacityMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-thermomachine-temp-range", (GetMaxTemperature(component) - GetMinTemperature(component)) / (component.MaxTemperature - component.MinTemperature));
     }
+
+    private static float GetMinTemperature(GasThermoMachineComponent component) => MathF.Max(Atmospherics.TCMB, component.MinTemperature - component.TemperatureRangeBonus);
+
+    private static float GetMaxTemperature(GasThermoMachineComponent component) => component.MaxTemperature + component.TemperatureRangeBonus;
     // ADT-Tweak-End
 
     protected virtual void DirtyUI(EntityUid uid, GasThermoMachineComponent? thermoMachine, UserInterfaceComponent? ui=null) {}

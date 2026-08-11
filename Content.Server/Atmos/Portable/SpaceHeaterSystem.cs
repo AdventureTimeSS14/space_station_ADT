@@ -41,17 +41,11 @@ public sealed class SpaceHeaterSystem : EntitySystem
 
     private void OnInit(EntityUid uid, SpaceHeaterComponent spaceHeater, MapInitEvent args)
     {
-        // ADT-Tweak-Start: machine parts with tiers
-        spaceHeater.BasePowerConsumption = spaceHeater.PowerConsumption;
-        spaceHeater.BaseMinTemperature = spaceHeater.MinTemperature;
-        spaceHeater.BaseMaxTemperature = spaceHeater.MaxTemperature;
-        // ADT-Tweak-End
-
         if (!TryComp<GasThermoMachineComponent>(uid, out var thermoMachine))
             return;
 
         thermoMachine.Cp = spaceHeater.HeatingCp;
-        thermoMachine.HeatCapacity = spaceHeater.PowerConsumption;
+        thermoMachine.HeatCapacity = spaceHeater.PowerConsumption * spaceHeater.PowerMultiplier;
     }
 
     private void OnBeforeOpened(EntityUid uid, SpaceHeaterComponent spaceHeater, BeforeActivatableUIOpenEvent args)
@@ -122,8 +116,10 @@ public sealed class SpaceHeaterSystem : EntitySystem
             return;
 
         thermoMachine.TargetTemperature = float.Clamp(thermoMachine.TargetTemperature + args.Temperature,
-                                                      spaceHeater.MinTemperature,
-                                                      spaceHeater.MaxTemperature);
+                                                      // ADT-Tweak start machine parts
+                                                      GetMinTemperature(spaceHeater),
+                                                      GetMaxTemperature(spaceHeater));
+                                                      // ADT-Tweak end machine parts
 
         UpdateAppearance(uid);
         DirtyUI(uid, spaceHeater);
@@ -151,23 +147,27 @@ public sealed class SpaceHeaterSystem : EntitySystem
 
         spaceHeater.PowerLevel = args.PowerLevel;
 
-        switch (spaceHeater.PowerLevel)
-        {
-            case SpaceHeaterPowerLevel.Low:
-                thermoMachine.HeatCapacity = spaceHeater.PowerConsumption / 2;
-                break;
-
-            case SpaceHeaterPowerLevel.Medium:
-                thermoMachine.HeatCapacity = spaceHeater.PowerConsumption;
-                break;
-
-            case SpaceHeaterPowerLevel.High:
-                thermoMachine.HeatCapacity = spaceHeater.PowerConsumption * 2;
-                break;
-        }
+        SetHeatCapacity(spaceHeater, thermoMachine); // ADT-Tweak machine parts
 
         DirtyUI(uid, spaceHeater);
     }
+
+   // ADT-Tweak start machine parts
+    private static void SetHeatCapacity(SpaceHeaterComponent spaceHeater, GasThermoMachineComponent thermoMachine)
+    {
+        var power = spaceHeater.PowerConsumption * spaceHeater.PowerMultiplier;
+        thermoMachine.HeatCapacity = spaceHeater.PowerLevel switch
+        {
+            SpaceHeaterPowerLevel.Low => power / 2,
+            SpaceHeaterPowerLevel.High => power * 2,
+            _ => power,
+        };
+    }
+
+    private static float GetMinTemperature(SpaceHeaterComponent component) => component.MinTemperature - component.TemperatureRangeBonus;
+
+    private static float GetMaxTemperature(SpaceHeaterComponent component) => component.MaxTemperature + component.TemperatureRangeBonus;
+    // ADT-Tweak end machine parts
 
     private void DirtyUI(EntityUid uid, SpaceHeaterComponent? spaceHeater)
     {
@@ -178,7 +178,7 @@ public sealed class SpaceHeaterSystem : EntitySystem
             return;
         }
         _userInterfaceSystem.SetUiState(uid, SpaceHeaterUiKey.Key,
-            new SpaceHeaterBoundUserInterfaceState(spaceHeater.MinTemperature, spaceHeater.MaxTemperature, thermoMachine.TargetTemperature, !powerReceiver.PowerDisabled, spaceHeater.Mode, spaceHeater.PowerLevel));
+            new SpaceHeaterBoundUserInterfaceState(GetMinTemperature(spaceHeater), GetMaxTemperature(spaceHeater), thermoMachine.TargetTemperature, !powerReceiver.PowerDisabled, spaceHeater.Mode, spaceHeater.PowerLevel));
     }
 
     // ADT-Tweak-Start: machine parts with tiers
@@ -187,15 +187,13 @@ public sealed class SpaceHeaterSystem : EntitySystem
         var capacitor = args.GetPartRating(MachinePartIds.Capacitor);
         var laser = args.GetPartRating(MachinePartIds.MicroLaser);
 
-        component.PowerConsumption = component.BasePowerConsumption * RefreshPartsEvent.GetPositiveTierMultiplier(capacitor);
-        var rangeBonus = (laser - 1f) * 10f;
-        component.MinTemperature = component.BaseMinTemperature - rangeBonus;
-        component.MaxTemperature = component.BaseMaxTemperature + rangeBonus;
+        component.PowerMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(capacitor);
+        component.TemperatureRangeBonus = (laser - 1f) * 10f;
 
         if (TryComp<GasThermoMachineComponent>(uid, out var thermo))
         {
-            thermo.TargetTemperature = Math.Clamp(thermo.TargetTemperature, component.MinTemperature, component.MaxTemperature);
-            OnPowerLevelChanged(uid, component, new SpaceHeaterChangePowerLevelMessage(component.PowerLevel));
+            thermo.TargetTemperature = Math.Clamp(thermo.TargetTemperature, GetMinTemperature(component), GetMaxTemperature(component));
+            SetHeatCapacity(component, thermo);
             Dirty(uid, thermo);
         }
 
@@ -204,8 +202,8 @@ public sealed class SpaceHeaterSystem : EntitySystem
 
     private static void OnUpgradeExamine(EntityUid uid, SpaceHeaterComponent component, UpgradeExamineEvent args)
     {
-        args.AddPercentageUpgrade("machine-upgrade-spaceheater-power", component.PowerConsumption / component.BasePowerConsumption);
-        args.AddPercentageUpgrade("machine-upgrade-spaceheater-temp-range", (component.MaxTemperature - component.MinTemperature) / (component.BaseMaxTemperature - component.BaseMinTemperature));
+        args.AddPercentageUpgrade("machine-upgrade-spaceheater-power", component.PowerMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-spaceheater-temp-range", (GetMaxTemperature(component) - GetMinTemperature(component)) / (component.MaxTemperature - component.MinTemperature));
     }
     // ADT-Tweak-End
 

@@ -79,15 +79,16 @@ public sealed class PlantHolderSystem : EntitySystem
     {
         var bin = args.GetPartRating(MachinePartIds.MatterBin);
         var servo = args.GetPartRating(MachinePartIds.Servo);
-        component.MaxWater = component.BaseMaxWater * RefreshPartsEvent.GetPositiveTierMultiplier(bin);
-        component.MaxNutrition = component.BaseMaxNutrition * RefreshPartsEvent.GetPositiveTierMultiplier(bin);
+
+        component.WaterCapacityMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(bin);
+        component.NutritionCapacityMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(bin);
         component.NutrientConsumptionMultiplier = RefreshPartsEvent.GetTierDiscount(servo, 0.1f);
     }
 
     private static void OnUpgradeExamine(EntityUid uid, PlantHolderComponent component, UpgradeExamineEvent args)
     {
-        args.AddPercentageUpgrade("machine-upgrade-hydro-water", component.MaxWater / component.BaseMaxWater);
-        args.AddPercentageUpgrade("machine-upgrade-hydro-nutrition", component.MaxNutrition / component.BaseMaxNutrition);
+        args.AddPercentageUpgrade("machine-upgrade-hydro-water", component.WaterCapacityMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-hydro-nutrition", component.NutritionCapacityMultiplier);
         args.AddPercentageUpgrade("machine-upgrade-hydro-nutrition-consume", component.NutrientConsumptionMultiplier);
     }
     // ADT-Tweak-End

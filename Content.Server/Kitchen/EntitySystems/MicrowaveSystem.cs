@@ -303,12 +303,6 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void OnMapInit(Entity<MicrowaveComponent> ent, ref MapInitEvent args)
         {
-            // ADT-Tweak-Start: machine parts with tiers
-            ent.Comp.BaseCookTimeMultiplier = ent.Comp.CookTimeMultiplier;
-            ent.Comp.BaseCapacity = ent.Comp.Capacity;
-            ent.Comp.BaseExplosionChance = ent.Comp.ExplosionChance;
-            // ADT-Tweak-End
-
             _deviceLink.EnsureSinkPorts(ent, ent.Comp.OnPort);
         }
 
@@ -386,7 +380,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 return;
             }
 
-            if (ent.Comp.Storage.Count >= ent.Comp.Capacity)
+            if (ent.Comp.Storage.Count >= ent.Comp.Capacity * ent.Comp.CapacityMultiplier) // ADT-Tweak machine parts
                 args.Cancel();
         }
 
@@ -451,7 +445,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 return;
             }
 
-            if (ent.Comp.Storage.Count >= ent.Comp.Capacity)
+            if (ent.Comp.Storage.Count >= ent.Comp.Capacity * ent.Comp.CapacityMultiplier) // ADT-Tweak machine parts
             {
                 _popupSystem.PopupEntity(Loc.GetString("microwave-component-interact-full"), ent, args.User);
                 return;
@@ -503,9 +497,10 @@ namespace Content.Server.Kitchen.EntitySystems
         {
             var microLaserTier = args.GetPartRating(component.MicroLaserPart);
             var matterBinTier = args.GetPartRating(component.MatterBinPart);
-            component.CookTimeMultiplier = component.BaseCookTimeMultiplier * RefreshPartsEvent.GetTierDiscount(microLaserTier, 0.1f);
-            component.ExplosionChance = MathF.Max(0f, component.BaseExplosionChance - MathF.Max(0f, microLaserTier - 1f) * 0.05f);
-            component.Capacity = (int)MathF.Round(component.BaseCapacity * RefreshPartsEvent.GetPositiveTierMultiplier(matterBinTier));
+
+            component.CookTimeMultiplier = RefreshPartsEvent.GetTierDiscount(microLaserTier, 0.1f);
+            component.ExplosionChanceMultiplier = MathF.Max(0f, 1f - MathF.Max(0f, microLaserTier - 1f) * 0.5f);
+            component.CapacityMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(matterBinTier);
 
             UpdateUserInterfaceState(uid, component);
         }
@@ -515,16 +510,10 @@ namespace Content.Server.Kitchen.EntitySystems
             var speedMultiplier = component.CookTimeMultiplier <= 0f
                 ? 1f
                 : 1f / component.CookTimeMultiplier;
-            var capacityMultiplier = component.BaseCapacity <= 0
-                ? 1f
-                : (float)component.Capacity / component.BaseCapacity;
-            var malfunctionReduction = component.BaseExplosionChance <= 0f
-                ? 1f
-                : component.ExplosionChance / component.BaseExplosionChance;
 
             args.AddPercentageUpgrade("machine-upgrade-cook-speed", speedMultiplier);
-            args.AddPercentageUpgrade("machine-upgrade-capacity", capacityMultiplier);
-            args.AddPercentageUpgrade("machine-upgrade-malfunction-reduction", malfunctionReduction);
+            args.AddPercentageUpgrade("machine-upgrade-capacity", component.CapacityMultiplier);
+            args.AddPercentageUpgrade("machine-upgrade-malfunction-reduction", component.ExplosionChanceMultiplier);
         }
         // ADT-Tweak-End
 
@@ -584,7 +573,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 return;
 
             ent.Comp1.MalfunctionTime = _gameTiming.CurTime + TimeSpan.FromSeconds(ent.Comp2.MalfunctionInterval);
-            if (_random.Prob(ent.Comp2.ExplosionChance))
+            if (_random.Prob(ent.Comp2.ExplosionChance * ent.Comp2.ExplosionChanceMultiplier)) // ADT-Tweak machine parts
             {
                 Explode((ent, ent.Comp2));
                 return;  // microwave is fucked, stop the cooking.

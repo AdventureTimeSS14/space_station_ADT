@@ -6,8 +6,8 @@
   components:
   - type: StasisBed
   - type: StasisBedMachinePart #ADT-Tweak: machine parts
-    basePowerLoad: 1000
     powerLoad: 1000
+    powerMultiplier: 1
   - type: InjectorBoost # ADT-Tweak (P4A) Ускорение Шприцов на койках и каталках
   - type: AntiRotOnBuckle
   - type: HealOnBuckle

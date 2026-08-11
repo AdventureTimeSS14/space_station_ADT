@@ -18,11 +18,6 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
         [GuidebookData]
         public float HeatCapacity = 5000;
 
-        // ADT-Tweak start: machine parts with tiers
-        [DataField]
-        public float BaseHeatCapacity = 5000;
-        // ADT-Tweak end
-
         [DataField, AutoNetworkedField]
         public float TargetTemperature = Atmospherics.T20C;
 
@@ -55,11 +50,6 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
 		[GuidebookData]
         public float MinTemperature = 73.15f;
 
-        // ADT-Tweak: machine parts with tiers
-        [DataField]
-        public float BaseMinTemperature = 73.15f;
-        // ADT-Tweak end
-
         /// <summary>
         ///     Current maximum temperature
         ///     Ignored if freezer.
@@ -68,9 +58,13 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
 		[GuidebookData]
         public float MaxTemperature = 593.15f;
 
-        // ADT-Tweak: machine parts with tiers
+        // ADT-Tweak-Start: machine parts with tiers
         [DataField]
-        public float BaseMaxTemperature = 593.15f;
+        public float HeatCapacityMultiplier = 1f;
+
+        [DataField]
+        public float TemperatureRangeBonus = 0f;
+        // ADT-Tweak-End
 
         /// <summary>
         /// Last amount of energy added/removed from the attached pipe network

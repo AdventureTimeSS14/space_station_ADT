@@ -24,7 +24,7 @@ public sealed class GrillMachinePartsSystem : EntitySystem
         component.PowerMultiplier = servoTier;
 
         if (TryComp<EntityHeaterComponent>(uid, out var heater))
-            _heater.SetPower(uid, component.BasePower * servoTier, heater);
+            _heater.SetPower(uid, component.Power * component.PowerMultiplier, heater);
     }
 
     private static void OnUpgradeExamine(EntityUid uid, GrillUpgradeComponent component, UpgradeExamineEvent args)

@@ -22,10 +22,10 @@ public sealed class StasisBedMachinePartsSystem : EntitySystem
             return;
 
         var capacitorTier = args.GetPartRating(MachinePartIds.Capacitor);
-        upgrade.PowerLoad = upgrade.BasePowerLoad * RefreshPartsEvent.GetTierDiscount(capacitorTier, 0.1f);
+        upgrade.PowerMultiplier = RefreshPartsEvent.GetTierDiscount(capacitorTier, 0.1f);
 
         if (TryComp<ApcPowerReceiverComponent>(uid, out var receiver))
-            receiver.Load = upgrade.PowerLoad;
+            receiver.Load = upgrade.PowerLoad * upgrade.PowerMultiplier;
     }
 
     private void OnUpgradeExamine(EntityUid uid, StasisBedComponent component, UpgradeExamineEvent args)
@@ -33,6 +33,6 @@ public sealed class StasisBedMachinePartsSystem : EntitySystem
         if (!TryComp<StasisBedMachinePartComponent>(uid, out var upgrade))
             return;
 
-        args.AddPercentageUpgrade("machine-upgrade-stasis-bed-power", upgrade.PowerLoad / upgrade.BasePowerLoad);
+        args.AddPercentageUpgrade("machine-upgrade-stasis-bed-power", upgrade.PowerMultiplier);
     }
 }

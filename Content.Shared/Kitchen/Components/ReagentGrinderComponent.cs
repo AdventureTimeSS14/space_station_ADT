@@ -42,7 +42,7 @@ public sealed partial class ReagentGrinderComponent : Component
 
     // ADT-Tweak-Start: machine parts with tiers
     [DataField]
-    public int BaseStorageMaxEntities = 6;
+    public float CapacityMultiplier = 1f;
 
     [DataField]
     public ProtoId<MachinePartPrototype> ServoPart = "Servo";

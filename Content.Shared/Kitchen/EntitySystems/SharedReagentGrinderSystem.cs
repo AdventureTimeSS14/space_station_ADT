@@ -73,7 +73,6 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
     private void OnGrinderStartup(Entity<ReagentGrinderComponent> ent, ref ComponentStartup args)
     {
         ent.Comp.InputContainer = _containerSystem.EnsureContainer<Container>(ent.Owner, ReagentGrinderComponent.InputContainerId);
-        ent.Comp.BaseStorageMaxEntities = ent.Comp.StorageMaxEntities; // ADT-Tweak: machine parts
     }
 
     // ADT-Tweak-Start: machine parts with tiers
@@ -83,7 +82,7 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
         var matterBinTier = args.GetPartRating(component.MatterBinPart, 1f);
 
         component.WorkTimeMultiplier = 1f / servoTier;
-        component.StorageMaxEntities = (int)MathF.Round(component.BaseStorageMaxEntities * RefreshPartsEvent.GetPositiveTierMultiplier(matterBinTier));
+        component.CapacityMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(matterBinTier);
 
         UpdateUi(uid);
     }
@@ -93,12 +92,9 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
         var speedMultiplier = component.WorkTimeMultiplier <= 0f
             ? 1f
             : 1f / component.WorkTimeMultiplier;
-        var capacityMultiplier = component.BaseStorageMaxEntities <= 0
-            ? 1f
-            : (float) component.StorageMaxEntities / component.BaseStorageMaxEntities;
 
         args.AddPercentageUpgrade("machine-upgrade-process-speed", speedMultiplier);
-        args.AddPercentageUpgrade("machine-upgrade-capacity", capacityMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-capacity", component.CapacityMultiplier);
     }
     // ADT-Tweak-End
 
@@ -202,7 +198,7 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
 
         // Cap the chamber. Don't want someone putting in 500 entities and ejecting them all at once.
         // Maybe I should have done that for the microwave too?
-        if (ent.Comp.InputContainer.ContainedEntities.Count >= ent.Comp.StorageMaxEntities)
+        if (ent.Comp.InputContainer.ContainedEntities.Count >= ent.Comp.StorageMaxEntities * ent.Comp.CapacityMultiplier) // ADT-Tweak machine parts
             return;
 
         if (!_containerSystem.Insert(heldEnt, ent.Comp.InputContainer))

@@ -4,7 +4,7 @@ namespace Content.Shared.ADT.Construction.Components;
 public sealed partial class GrillUpgradeComponent : Component
 {
     [DataField]
-    public float BasePower = 2400f;
+    public float Power = 2400f;
 
     [DataField]
     public float PowerMultiplier = 1f;

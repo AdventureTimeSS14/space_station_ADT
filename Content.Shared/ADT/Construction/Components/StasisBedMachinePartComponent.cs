@@ -13,8 +13,8 @@ namespace Content.Shared.ADT.Construction.Components;
 public sealed partial class StasisBedMachinePartComponent : Component
 {
     [DataField]
-    public float BasePowerLoad = 1000f;
+    public float PowerLoad = 1000f;
 
     [DataField]
-    public float PowerLoad = 1000f;
+    public float PowerMultiplier = 1f;
 }
