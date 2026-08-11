@@ -20,7 +20,8 @@
   id: StatusEffectBloodloss
   name: bloodloss
   components:
-  - type: StutteringAccent
+  # ADT-Tweak: StutteringAccent disabled - bloodloss makes you whisper (Hushed) instead of stuttering.
+  # - type: StutteringAccent
   - type: DrunkStatusEffect
 
 # ADT-Tweak: PainNumbnessTraitStatusEffect and StatusEffectHemophiliaTrait moved to

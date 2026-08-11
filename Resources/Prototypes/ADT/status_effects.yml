@@ -18,6 +18,10 @@
 - type: statusEffect
   id: Weakness
 
+- type: statusEffect
+  id: Hushed
+  alwaysAllowed: true
+
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectMeleeVulnerability
