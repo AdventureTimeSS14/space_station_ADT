@@ -20,9 +20,9 @@
   - AnomalyLocator
   - AnomalyLocatorWide
   - HoloprojectorField
-   - SlimeScannerXenobio # ADT-Tweak
+  - SlimeScannerXenobio # ADT-Tweak
   - SignallerAdvanced
-   - DeviceQuantumSpinInverter #ADT_Tweak
+  - DeviceQuantumSpinInverter #ADT_Tweak
   - DeviceDesynchronizer
   # - ClothingBackpackHarmpack # ADT-Tweak
 

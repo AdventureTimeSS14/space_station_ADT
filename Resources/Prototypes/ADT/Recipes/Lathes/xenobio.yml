@@ -17,7 +17,7 @@
     Silver: 500
     Plasma: 1500
     Uranium: 100
-    ADTBscrystal: 100
+    ADTBScrystal: 100
 
 - type: latheRecipe
   id: XenobiologyBountyComputerCircuitboard
