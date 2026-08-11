@@ -371,6 +371,12 @@
         - SmallMobMask
         layer:
         - SmallMobLayer
+  # ADT-Tweak Start: мини-паук проходит под дверями как мышь и не должен их триггерить
+  # (DoorBumpOpener убран из наследуемых тегов ADTMobBaseSpider)
+  - type: Tag
+    tags:
+    - FootstepSound
+  # ADT-Tweak End
   - type: DamageStateVisuals
     states:
       Alive:
