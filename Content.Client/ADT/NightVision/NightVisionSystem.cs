@@ -6,11 +6,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.ADT.NightVision;
-
-/// <summary>
-/// Client night vision: optional screen shader + attached fill light.
-/// Innate NV uses light only (natural colors); device ПНВ uses the green overlay.
-/// </summary>
 public sealed class NightVisionSystem : SharedNightVisionSystem
 {
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
@@ -62,7 +57,6 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         var effectId = ent.Comp.EffectPrototype.Id;
         var wantsOverlay = ent.Comp.Overlay;
 
-        // Recreate if shader, light, or overlay mode changed (device ПНВ vs innate).
         if (_effect != null &&
             (_activeShader != ent.Comp.Shader || _activeEffect != effectId || _activeOverlay != wantsOverlay))
             AttemptRemoveVision(force: true);
@@ -74,7 +68,6 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         _activeEffect = effectId;
         _activeOverlay = wantsOverlay;
 
-        // Screen tint only when explicitly requested (device NVD). Innate = natural colors.
         if (wantsOverlay && _prototypes.TryIndex<ShaderPrototype>(ent.Comp.Shader, out var shaderProto))
         {
             _overlay = new NightVisionOverlay(shaderProto);

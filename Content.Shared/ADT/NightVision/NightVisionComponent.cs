@@ -15,10 +15,6 @@ public sealed partial class NightVisionComponent : Component
     [DataField, AutoNetworkedField]
     public NightVisionState State = NightVisionState.Full;
 
-    /// <summary>
-    /// When true, applies the screen color shader (device ПНВ look).
-    /// Innate species NV keeps this false — natural colors, fill light only.
-    /// </summary>
     [DataField, AutoNetworkedField]
     public bool Overlay;
 

@@ -4,11 +4,9 @@ uniform highp float ThermalBoost;
 uniform highp float ThermalIntensity;
 uniform highp float ThermalAlpha;
 
-// Soft dead-zone around the player so personal PointLight keeps natural color
 uniform highp float CenterClearRadius;
 uniform highp float CenterClearSoftness;
 
-// Soft but chromatic FLIR — not neon, not gray
 const highp vec3 cCold   = vec3(0.05, 0.12, 0.42); // readable deep blue (dark reveal)
 const highp vec3 cCool   = vec3(0.12, 0.32, 0.72); // clearer blue
 const highp vec3 cMid    = vec3(0.28, 0.48, 0.42); // soft teal
@@ -30,7 +28,6 @@ highp vec3 getThermalColor(in highp float t)
         return mix(cHot, cPeak, (t - 0.8) / 0.2);
 }
 
-// 0 at screen center (player + personal light), 1 outside
 highp float centerAllow(highp vec2 uv)
 {
     highp float distPx = length((uv - vec2(0.5)) / SCREEN_PIXEL_SIZE);
@@ -46,13 +43,11 @@ void fragment()
 
     highp float lum = dot(original, vec3(0.299, 0.587, 0.114));
 
-    // Extra lift in near-black so cold blue actually reveals dark areas
     highp float darkLift = (1.0 - smoothstep(0.0, 0.12, lum)) * 0.08;
     lum = clamp(lum * ThermalBoost + darkLift, 0.0, 1.0);
 
     highp vec3 thermalColor = getThermalColor(lum);
 
-    // Don't paint over personal PointLight / character center
     highp float intensity = ThermalIntensity * centerAllow(Pos);
     COLOR.rgb = mix(original, thermalColor, intensity);
     COLOR.a *= ThermalAlpha;

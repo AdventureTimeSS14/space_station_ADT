@@ -15,8 +15,6 @@
   path: "/Textures/ADT/Shaders/sandevistan_vision.swsl"
 
 # Starlight port: night / thermal vision overlays
-# Innate NV: lift pitch-black + compress highlights (no white blind).
-# Tiers: Weak < Medium(Shadekin/Moth) < Strong(Tajaran); Vulp uses Medium shader + darker light
 - type: shader
   id: ADTModernNightVisionShader
   kind: source
@@ -53,7 +51,6 @@
     CompressStrength: 0.55
     MaxBrightness: 1.0
 
-# Thermal WORLD only — no white; bodies use ADTThermalBodyShader
 - type: shader
   id: ADTThermalVisionScreenShader
   kind: source
@@ -103,7 +100,6 @@
   params:
     brightness: 1.5
 
-# Bodies: per-texel luminance → IR (no UV color slabs / tint wash)
 - type: shader
   id: ADTThermalBodyShader
   kind: source

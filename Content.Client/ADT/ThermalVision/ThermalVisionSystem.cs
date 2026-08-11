@@ -7,8 +7,6 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.ADT.ThermalVision;
 
-/// <summary>
-/// </summary>
 public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 {
     [Dependency] private readonly IOverlayManager _overlayMan = default!;

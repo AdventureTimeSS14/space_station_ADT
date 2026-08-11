@@ -31,29 +31,23 @@ void fragment()
 
     highp float brightness = dot(finalColor, lumaWeights);
 
-    // 1 in full dark → 0 in well-lit areas
     highp float darkFactor = 1.0 - smoothstep(0.0, NightVisionThreshold, brightness);
 
-    // Amplify darks only
     highp float boost = mix(1.0, NightVisionBoost, darkFactor);
     finalColor *= boost;
 
-    // Soft lift in pitch black (cool, not gray wash)
     finalColor += coolTint * (NightVisionLift * darkFactor);
 
-    // Highlight-only tone-map — midtones keep saturation
     highp float lum = dot(finalColor, lumaWeights);
     highp float over = max(lum - CompressStart, 0.0);
     highp float compressedOver = over / (1.0 + over * CompressStrength);
     highp float newLum = (lum - over) + compressedOver;
     finalColor *= newLum / max(lum, 0.0001);
 
-    // Soft ceiling only if needed
     highp float peak = max(finalColor.r, max(finalColor.g, finalColor.b));
     if (peak > MaxBrightness)
         finalColor *= MaxBrightness / peak;
 
-    // Cool tint WITHOUT crushing chroma: blend toward cool version of same luma
     highp float afterLum = dot(finalColor, lumaWeights);
     highp vec3 cool = finalColor * coolTint;
     // Renormalize cool mix so it doesn't darken reds into gray
