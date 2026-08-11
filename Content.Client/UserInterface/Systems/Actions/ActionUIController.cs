@@ -105,8 +105,10 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     private void OnScreenUnload()
     {
-        // ADT-Tweak: сброс ручных позиций кнопок способностей при выгрузке экрана
+        // ADT-Tweak-Start
+        // Сброс ручных позиций кнопок способностей при выгрузке экрана.
         _pinnedSlots.Clear();
+        // ADT-Tweak-End
         UnloadGui();
     }
 
@@ -289,7 +291,14 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (actionId == SelectingTargetFor)
             StopTargeting();
 
+        // ADT-Tweak-Start
+        var removedIndex = _actions.IndexOf(actionId);
+        // ADT-Tweak-End
         _actions.RemoveAll(x => x == actionId);
+        // ADT-Tweak-Start
+        if (removedIndex >= 0)
+            ShiftPinnedSlots(removedIndex);
+        // ADT-Tweak-End
     }
 
     private void OnActionsUpdated()
@@ -464,6 +473,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
                         _pinnedSlots.Remove(oldKey);
 
                     _actions.RemoveAt(position);
+                    ShiftPinnedSlots(position);
                 }
                 // ADT-Tweak-End
             }
@@ -845,6 +855,16 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     private string? GetActionKey(EntityUid actionId)
     {
         return EntityManager.GetComponent<MetaDataComponent>(actionId).EntityPrototype?.ID;
+    }
+
+    /// <summary>
+    /// Shifts pinned slot indexes after an action was removed from the list.
+    /// </summary>
+    private void ShiftPinnedSlots(int removedIndex)
+    {
+        var keysToShift = _pinnedSlots.Where(x => x.Value > removedIndex).Select(x => x.Key).ToList();
+        foreach (var key in keysToShift)
+            _pinnedSlots[key]--;
     }
     // ADT-Tweak-End
 
