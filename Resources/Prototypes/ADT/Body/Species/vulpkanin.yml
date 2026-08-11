@@ -96,6 +96,10 @@
           32:
             sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
             state: shoes
+  - type: NightVision
+    innate: true
+    shader: ADTModernNightVisionShaderMedium
+    effectPrototype: ADTEffectNightVisionMedium
 
 # - type: entity
 #   save: false
