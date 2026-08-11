@@ -203,6 +203,15 @@
           reagent: Bicaridine
           min: 15
       - !type:Drunk
+      # ADT-Tweak-Start: передоз бикаридина даёт лекарственную зависимость
+      - !type:AdjustAddictionLevel
+        kind: Medicine
+        amount: 0.05
+        conditions:
+        - !type:ReagentCondition
+          reagent: Bicaridine
+          min: 15
+      # ADT-Tweak-End
 
 - type: reagent
   id: Cryoxadone

@@ -11,9 +11,13 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
 
 - type: entity
   parent: [ClothingEyesGlassesThermal, BaseChameleon]
@@ -56,12 +60,16 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
   - type: Construction
     graph: ADTGlassesMedHUD
     node: glassesMed
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5

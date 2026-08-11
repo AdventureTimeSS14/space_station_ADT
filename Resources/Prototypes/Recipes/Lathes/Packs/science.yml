@@ -20,9 +20,9 @@
   - AnomalyLocator
   - AnomalyLocatorWide
   - HoloprojectorField
-  # - SlimeScannerXenobio # ADT-Tweak - закомментировано пока не готовы зоны
+  - SlimeScannerXenobio # ADT-Tweak
   - SignallerAdvanced
-  # - DeviceQuantumSpinInverter #ADT_Tweak - временно удалено до решения всех багов предмета
+  # - DeviceQuantumSpinInverter # ADT-Tweak
   - DeviceDesynchronizer
   # - ClothingBackpackHarmpack # ADT-Tweak
 
@@ -104,11 +104,11 @@
   - APECircuitboard
   - ArtifactAnalyzerMachineCircuitboard
   - ArtifactCrusherMachineCircuitboard
-  # ADT-Tweak-Start - закомментировано пока не готовы зоны
-  # - XenobiologyBountyComputerCircuitboard # ADT-Tweak
-  # - ADTXenobiologyControlComputerCircuitboard # ADT-Tweak
-  # - SlimeGrinderMachineCircuitboard # ADT-Tweak
-  # - ADTXenobiologyMonkeyRecyclerMachineCircuitboard # ADT-Tweak
+  # ADT-Tweak-Start
+  - XenobiologyBountyComputerCircuitboard # ADT-Tweak
+  - ADTXenobiologyControlComputerCircuitboard # ADT-Tweak
+  - SlimeGrinderMachineCircuitboard # ADT-Tweak
+  - ADTXenobiologyMonkeyRecyclerMachineCircuitboard # ADT-Tweak
   # ADT-Tweak-End
 
 - type: latheRecipePack
