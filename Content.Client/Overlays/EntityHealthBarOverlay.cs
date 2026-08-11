@@ -4,6 +4,7 @@ using Content.Client.UserInterface.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
+using Content.Shared.Mech.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -32,6 +33,7 @@ public sealed class EntityHealthBarOverlay : Overlay
     private readonly SpriteSystem _spriteSystem;
     private readonly ProgressColorSystem _progressColor;
     private readonly DamageableSystem _damageable;
+    private readonly EntityQuery<MechComponent> _mechQuery;
 
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
@@ -49,6 +51,7 @@ public sealed class EntityHealthBarOverlay : Overlay
         _spriteSystem = _entManager.System<SpriteSystem>();
         _progressColor = _entManager.System<ProgressColorSystem>();
         _damageable = _entManager.System<DamageableSystem>();
+        _mechQuery = _entManager.GetEntityQuery<MechComponent>();
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -93,8 +96,19 @@ public sealed class EntityHealthBarOverlay : Overlay
                 continue;
 
             // we are all progressing towards death every day
-            if (CalcProgress(uid, mobStateComponent, damageableComponent, mobThresholdsComponent) is not { } deathProgress)
+            // ADT-Tweak Start: у мехов полоска считается по Integrity/MaxIntegrity,
+            // их MobThresholds (Critical = 1000) не отражает реальное ХП (maxintegrity 170-500)
+            (float ratio, bool inCrit)? progress;
+            if (_mechQuery.TryGetComponent(uid, out var mech))
+                progress = mech.MaxIntegrity > 0
+                    ? (mech.Integrity.Float() / mech.MaxIntegrity.Float(), mech.Broken)
+                    : (1f, false);
+            else
+                progress = CalcProgress(uid, mobStateComponent, damageableComponent, mobThresholdsComponent);
+
+            if (progress is not { } deathProgress)
                 continue;
+            // ADT-Tweak End
 
             var worldPosition = _transform.GetWorldPosition(xform);
             var worldMatrix = Matrix3Helpers.CreateTranslation(worldPosition);
