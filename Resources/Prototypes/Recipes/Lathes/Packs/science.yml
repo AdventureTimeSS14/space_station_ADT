@@ -22,7 +22,7 @@
   - HoloprojectorField
   - SlimeScannerXenobio # ADT-Tweak
   - SignallerAdvanced
-  - DeviceQuantumSpinInverter #ADT_Tweak
+  # - DeviceQuantumSpinInverter # ADT-Tweak
   - DeviceDesynchronizer
   # - ClothingBackpackHarmpack # ADT-Tweak
 
