@@ -14,7 +14,6 @@
   - type: MachinePart
     part: Capacitor
     tier: 1
-    energyRating: 1
 
 - type: entity
   parent: BaseStockPart
@@ -28,7 +27,6 @@
   - type: MachinePart
     part: ScanningModule
     tier: 1
-    energyRating: 1
 
 - type: entity
   parent: BaseStockPart
@@ -42,7 +40,6 @@
   - type: MachinePart
     part: Servo
     tier: 1
-    energyRating: 1
 
 - type: entity
   parent: BaseStockPart
@@ -56,7 +53,6 @@
   - type: MachinePart
     part: MicroLaser
     tier: 1
-    energyRating: 1
 
 - type: entity
   parent: BaseStockPart
@@ -70,7 +66,6 @@
   - type: MachinePart
     part: MatterBin
     tier: 1
-    energyRating: 1
 
 # Tier 2
 
@@ -85,7 +80,6 @@
   - type: MachinePart
     part: Capacitor
     tier: 2
-    energyRating: 3
 
 - type: entity
   parent: ScanningModuleStockPart
@@ -98,7 +92,6 @@
   - type: MachinePart
     part: ScanningModule
     tier: 2
-    energyRating: 3
 
 - type: entity
   parent: MicroServoStockPart
@@ -111,7 +104,6 @@
   - type: MachinePart
     part: Servo
     tier: 2
-    energyRating: 3
 
 - type: entity
   parent: MicroLaserStockPart
@@ -124,7 +116,6 @@
   - type: MachinePart
     part: MicroLaser
     tier: 2
-    energyRating: 3
 
 - type: entity
   parent: MatterBinStockPart
@@ -137,7 +128,6 @@
   - type: MachinePart
     part: MatterBin
     tier: 2
-    energyRating: 3
 
 # Tier 3
 
@@ -152,7 +142,6 @@
   - type: MachinePart
     part: Capacitor
     tier: 3
-    energyRating: 5
 
 - type: entity
   parent: ScanningModuleStockPart
@@ -165,7 +154,6 @@
   - type: MachinePart
     part: ScanningModule
     tier: 3
-    energyRating: 5
 
 - type: entity
   parent: MicroServoStockPart
@@ -178,7 +166,6 @@
   - type: MachinePart
     part: Servo
     tier: 3
-    energyRating: 5
   - type: Tag #ADT-Tweak: для крафта мехов
     tags:
     - ADTPicoServoStockPart
@@ -194,7 +181,6 @@
   - type: MachinePart
     part: MicroLaser
     tier: 3
-    energyRating: 5
 
 - type: entity
   parent: MatterBinStockPart
@@ -207,7 +193,6 @@
   - type: MachinePart
     part: MatterBin
     tier: 3
-    energyRating: 5
 
 # Tier 4
 
@@ -222,7 +207,6 @@
   - type: MachinePart
     part: Capacitor
     tier: 4
-    energyRating: 10
 
 - type: entity
   parent: ScanningModuleStockPart
@@ -235,7 +219,6 @@
   - type: MachinePart
     part: ScanningModule
     tier: 4
-    energyRating: 10
 
 - type: entity
   parent: MicroServoStockPart
@@ -248,7 +231,6 @@
   - type: MachinePart
     part: Servo
     tier: 4
-    energyRating: 10
 
 - type: entity
   parent: MicroLaserStockPart
@@ -261,7 +243,6 @@
   - type: MachinePart
     part: MicroLaser
     tier: 4
-    energyRating: 10
 
 - type: entity
   parent: MatterBinStockPart
@@ -274,4 +255,3 @@
   - type: MachinePart
     part: MatterBin
     tier: 4
-    energyRating: 10

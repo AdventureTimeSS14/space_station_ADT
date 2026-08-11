@@ -20,8 +20,4 @@ public sealed partial class MachinePartComponent : Component
 
     [DataField]
     public int Tier = 1;
-
-    // TODO: Hook into machine power scaling when machine consumers expose part-based energy coefficients.
-    [DataField]
-    public int EnergyRating = 1;
 }

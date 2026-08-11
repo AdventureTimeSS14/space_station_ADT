@@ -1,9 +1,12 @@
 machine-insert-all = { CAPITALIZE($user) } помещает содержимое { $item } в { $machine }.
 
 # ADT-Tweak: апгрейды машинных частей (порт из Orion-Station-14 PR #385)
+machine-part-name-capacitor = Конденсатор
 machine-part-name-servo = Сервопривод
 machine-part-name-scanning-module = Сканирующий модуль
 machine-part-name-micro-laser = Микро-лазер
+machine-part-name-matter-bin = Контейнер материи
+machine-part-name-power-cell = Батарейный элемент
 
 machine-upgrade-examinable-verb-text = Улучшения
 machine-upgrade-examinable-verb-message = Показать установленные улучшения машины.

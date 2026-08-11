@@ -77,7 +77,6 @@
   - type: MachinePart #ADT-Tweak: батарейка как машинная часть (тир 1)
     part: PowerCell
     tier: 1
-    energyRating: 1
   - type: Battery
     maxCharge: 360
     startingCharge: 360
@@ -129,7 +128,6 @@
   - type: MachinePart #ADT-Tweak: батарейка как машинная часть (тир 2)
     part: PowerCell
     tier: 2
-    energyRating: 1
   - type: Battery
     maxCharge: 720
     startingCharge: 720
@@ -168,7 +166,6 @@
   - type: MachinePart #ADT-Tweak: батарейка как машинная часть (тир 3)
     part: PowerCell
     tier: 3
-    energyRating: 1
   - type: Battery
     maxCharge: 1080
     startingCharge: 1080
@@ -207,7 +204,6 @@
   - type: MachinePart #ADT-Tweak: батарейка как машинная часть (тир 4)
     part: PowerCell
     tier: 4
-    energyRating: 1
   - type: Battery
     maxCharge: 1800
     startingCharge: 1800
