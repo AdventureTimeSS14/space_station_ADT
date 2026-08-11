@@ -9,6 +9,7 @@ namespace Content.Client.Lobby.UI;
 
 public sealed partial class HumanoidProfileEditor
 {
+    // ADT-Tweak-Start
     /// <summary>
     /// Refreshes the slime body composition dropdown: visible only for slime people.
     /// </summary>
@@ -70,4 +71,5 @@ public sealed partial class HumanoidProfileEditor
         SetDirty();
         RefreshSlimeBody();
     }
+    // ADT-Tweak-End
 }

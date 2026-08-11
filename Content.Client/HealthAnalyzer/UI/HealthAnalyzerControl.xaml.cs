@@ -190,6 +190,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         // ADT-Tweak end
     }
 
+    // ADT-Tweak: состояние жидкой крови для списка повреждений
     private bool _bloodIsFluid;
 
     private static string GetStatus(MobState mobState)

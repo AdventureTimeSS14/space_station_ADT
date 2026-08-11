@@ -40,6 +40,9 @@ public sealed partial class ADTSlimeBodySystem : SharedADTSlimeBodySystem
 
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
     {
+        if (args.Profile.Species != "SlimePerson")
+            return;
+
         var composition = SlimeBodyCompositions.Get(args.Profile.SlimeBodyComposition);
         if (composition is null)
             return;
@@ -61,20 +64,27 @@ public sealed partial class ADTSlimeBodySystem : SharedADTSlimeBodySystem
         if (!TryComp(uid, out ADTSlimeBodyComponent? slimeBody))
         {
             AddComp(uid, new ADTSlimeBodyComponent { Reagent = composition.Reagent });
+            slimeBody = Comp<ADTSlimeBodyComponent>(uid);
         }
         else
         {
             slimeBody.Reagent = composition.Reagent;
             Dirty(uid, slimeBody);
         }
+
+        InitializeSlimeBody(uid, slimeBody);
     }
 
-    private void OnMapInit(EntityUid uid, ADTSlimeBodyComponent component, MapInitEvent args)
+    /// <summary>
+    /// Sets up timers and finds the stomach organ. Called on MapInit and right
+    /// after the component is added at player spawn (MapInit does not fire for
+    /// components added after the entity was initialized).
+    /// </summary>
+    private void InitializeSlimeBody(EntityUid uid, ADTSlimeBodyComponent component)
     {
         component.NextUpdate = _timing.CurTime + TimeSpan.FromSeconds(1);
         component.BloodRegenNextUpdate = _timing.CurTime + BloodRegenInterval;
 
-        // Find the stomach organ: the "stomach" solution lives on an organ, not on the body.
         var stomachQuery = EntityQueryEnumerator<StomachComponent, OrganComponent>();
         while (stomachQuery.MoveNext(out var organUid, out _, out var organ))
         {
@@ -84,6 +94,11 @@ public sealed partial class ADTSlimeBodySystem : SharedADTSlimeBodySystem
                 break;
             }
         }
+    }
+
+    private void OnMapInit(EntityUid uid, ADTSlimeBodyComponent component, MapInitEvent args)
+    {
+        InitializeSlimeBody(uid, component);
     }
 
     public override void Update(float frameTime)
