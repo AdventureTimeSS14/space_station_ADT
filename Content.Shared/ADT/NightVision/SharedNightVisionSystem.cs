@@ -173,7 +173,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
             var eyeDamage = EnsureComp<DamageEyesOnFlashedComponent>(user);
             Dirty(user, eyeDamage);
 
-            _audio.PlayPredicted(item.Comp.SoundOn, item, user);
+            _audio.PlayLocal(item.Comp.SoundOn, item, user);
         }
 
         _actions.SetToggled(item.Comp.Action, true);
@@ -223,8 +223,8 @@ public abstract class SharedNightVisionSystem : EntitySystem
         item.Comp.PreviousShader = null;
         item.Comp.PreviousEffectPrototype = null;
 
-        if (playSound && wasActive && !_timing.ApplyingState)
-            _audio.PlayPredicted(item.Comp.SoundOff, item, soundUser);
+        if (playSound && wasActive && !_timing.ApplyingState && soundUser != null)
+            _audio.PlayLocal(item.Comp.SoundOff, item, soundUser);
     }
 
     /// <summary>
