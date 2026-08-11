@@ -35,8 +35,6 @@
   name: kinetic spear
   description: A long-ranged melee weapon which trades damage for a two-tile reach, similar to reagent/bone spears.
   components:
-  - type: ADTMagmiteUpgradable
-    result: WeaponKineticSpearMega
   - type: Tag
     tags:
       - Pickaxe
@@ -125,8 +123,6 @@
   name: kinetic hammer
   description: A beefy, two-handed weapon that inflicts knockback and heavier damage than a crusher, but cannot backstab.
   components:
-  - type: ADTMagmiteUpgradable
-    result: WeaponKineticHammerMega
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_hammer.rsi
     state: icon
@@ -185,8 +181,6 @@
   name: kinetic claws
   description: Unleash your inner edgelord with this two-handed claw small enough to fit in your backpack. Deals a paltry 45 damage on mark detonation, but sports a massive 120 damage backstab bonus.
   components:
-  - type: ADTMagmiteUpgradable
-    result: WeaponKineticClawsMega
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws.rsi
     state: icon
@@ -258,8 +252,6 @@
   name: kinetic machete
   description: A smaller, one-handed variant of the crusher. Deals about 40 less damage than the PKC, but has a 15% melee block chance.
   components:
-  - type: ADTMagmiteUpgradable
-    result: WeaponKineticMacheteMega
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_machete.rsi
     state: icon

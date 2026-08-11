@@ -23,3 +23,6 @@ public sealed partial class ADTWorldAnvilForgeDoAfterEvent : DoAfterEvent
         return this;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed partial class ADTMagmiteUpgradeDoAfterEvent : SimpleDoAfterEvent;

@@ -1,105 +1,57 @@
 - type: entity
-  parent: ADTWeaponProtoKineticPistol
-  id: ADTWeaponProtoKineticPistolMega
-  name: magmite proto-kinetic pistol
-  description: A kinetic pistol reforged with plasma magmite. It swallows twice as many modkits as it used to.
+  parent: ADTWeaponExperimentalProtoKineticAcellerator
+  id: ADTWeaponProtoKineticAcceleratorMagmite
+  name: magmite proto-kinetic accelerator
+  description: A kinetic accelerator reforged on the world anvil. The magmite frame swallows far more modkits than the stock one.
   components:
   - type: ADTMagmiteUpgradable
-    result: ADTWeaponProtoKineticPistolMega
+    result: ADTWeaponProtoKineticAcceleratorMagmite
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Basic/kinetic_accelerator_magmite.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/Basic/kinetic_accelerator_magmite.rsi
   - type: ADTUpgradeableGun
-    maxModCapacity: 130
+    maxModCapacity: 260
+    stockSprite:
+      sprite: ADT/Objects/Weapons/Guns/Basic/kinetic_accelerator_magmite.rsi
+      state: icon
 
 - type: entity
-  parent: ADTWeaponProtoKineticRepeater
-  id: ADTWeaponProtoKineticRepeaterMega
-  name: magmite proto-kinetic repeater
-  description: A kinetic repeater reforged with plasma magmite. It swallows twice as many modkits as it used to.
+  parent: ADTWeaponCutterAdv
+  id: ADTWeaponCutterMagmite
+  name: magmite plasma cutter
+  description: A plasma cutter reforged on the world anvil. The beam reaches further, costs less to fire, and smothers a gibtonite chain reaction instead of setting it off.
   components:
   - type: ADTMagmiteUpgradable
-    result: ADTWeaponProtoKineticRepeaterMega
-  - type: ADTUpgradeableGun
-    maxModCapacity: 150
+    result: ADTWeaponCutterMagmite
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Battery/cutter_magmite.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/Battery/cutter_magmite.rsi
+  - type: BatteryAmmoProvider
+    proto: ADTBulletCutterMagmite
+    fireCost: 60
 
 - type: entity
-  parent: ADTWeaponProtoKineticShotgun
-  id: ADTWeaponProtoKineticShotgunMega
-  name: magmite proto-kinetic shotgun
-  description: A kinetic shotgun reforged with plasma magmite. It swallows twice as many modkits as it used to.
+  parent: WeaponCrusher
+  id: ADTWeaponCrusherMagmite
+  name: magmite proto-kinetic crusher
+  description: A proto-kinetic crusher reforged on the world anvil. Its destabiliser chews straight through rock like a plasma cutter, ancient veins included.
   components:
   - type: ADTMagmiteUpgradable
-    result: ADTWeaponProtoKineticShotgunMega
-  - type: ADTUpgradeableGun
-    maxModCapacity: 150
-
-- type: entity
-  parent: ADTWeaponProtoKineticRailgun
-  id: ADTWeaponProtoKineticRailgunMega
-  name: magmite proto-kinetic railgun
-  description: A kinetic railgun reforged with plasma magmite. It swallows twice as many modkits as it used to.
-  components:
-  - type: ADTMagmiteUpgradable
-    result: ADTWeaponProtoKineticRailgunMega
-  - type: ADTUpgradeableGun
-    maxModCapacity: 30
-
-- type: entity
-  parent: WeaponKineticSpear
-  id: WeaponKineticSpearMega
-  name: magmite proto-kinetic spear
-  description: A kinetic spear reforged with plasma magmite. The destabilizer recharges noticeably faster.
-  components:
-  - type: ADTMagmiteUpgradable
-    result: WeaponKineticSpearMega
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 13
-        Slash: 7
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.35
-
-- type: entity
-  parent: WeaponKineticHammer
-  id: WeaponKineticHammerMega
-  name: magmite proto-kinetic hammer
-  description: A kinetic hammer reforged with plasma magmite. The destabilizer recharges noticeably faster.
-  components:
-  - type: ADTMagmiteUpgradable
-    result: WeaponKineticHammerMega
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 13
-        Slash: 7
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.35
-
-- type: entity
-  parent: WeaponKineticClaws
-  id: WeaponKineticClawsMega
-  name: magmite proto-kinetic claws
-  description: Kinetic claws reforged with plasma magmite. The destabilizer recharges noticeably faster.
-  components:
-  - type: ADTMagmiteUpgradable
-    result: WeaponKineticClawsMega
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 20
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.35
-
-- type: entity
-  parent: WeaponKineticMachete
-  id: WeaponKineticMacheteMega
-  name: magmite proto-kinetic machete
-  description: A kinetic machete reforged with plasma magmite. The destabilizer recharges noticeably faster.
-  components:
-  - type: ADTMagmiteUpgradable
-    result: WeaponKineticMacheteMega
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 26
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.35
+    result: ADTWeaponCrusherMagmite
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_magmite.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_magmite.rsi
+  - type: BasicEntityAmmoProvider
+    proto: ADTBulletChargeMagmite
+    capacity: 1
+    count: 1

@@ -136,6 +136,9 @@
   - ADTLavaVeinOreLead
   - ADTLavaVeinOreGibtonit
   - ADTLavaVeinOreMagmite
+  - ADTLavaVeinAncientRock
+  - ADTLavaVeinAncientRockUranium
+  - ADTLavaVeinAncientRockDiamond
 
 - type: planet
   id: GlacierSurface

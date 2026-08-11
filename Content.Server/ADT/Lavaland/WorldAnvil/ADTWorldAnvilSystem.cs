@@ -2,6 +2,7 @@ using Content.Shared.ADT.Lavaland.WorldAnvil;
 using Content.Shared.ADT.Mining.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Whitelist;
@@ -16,8 +17,10 @@ public sealed class ADTWorldAnvilSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPointLightSystem _light = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -60,6 +63,9 @@ public sealed class ADTWorldAnvilSystem : EntitySystem
             if (!_whitelist.IsValid(fuel.Whitelist, used))
                 continue;
 
+            if (IsBusy(anvil, user))
+                return true;
+
             anvil.Comp.Charges += GetFuelCharges(used, fuel.Charges);
             QueueDel(used);
             UpdateVisuals(anvil);
@@ -100,13 +106,10 @@ public sealed class ADTWorldAnvilSystem : EntitySystem
             if (!_whitelist.IsValid(recipe.Whitelist, used))
                 continue;
 
-            if (anvil.Comp.Forging)
-            {
-                _popup.PopupEntity(Loc.GetString("adt-world-anvil-busy"), anvil, user);
+            if (IsBusy(anvil, user))
                 return true;
-            }
 
-            if (anvil.Comp.Charges < recipe.Cost)
+            if (anvil.Comp.Charges <= 0 || anvil.Comp.Charges < recipe.Cost)
             {
                 _popup.PopupEntity(Loc.GetString("adt-world-anvil-too-cold"), anvil, user);
                 return true;
@@ -117,18 +120,18 @@ public sealed class ADTWorldAnvilSystem : EntitySystem
                 recipe.Delay,
                 new ADTWorldAnvilForgeDoAfterEvent(i),
                 anvil,
-                target: anvil,
-                used: used)
+                target: anvil)
             {
                 BreakOnMove = true,
-                NeedHand = true,
             };
 
             if (!_doAfter.TryStartDoAfter(doAfter))
                 return true;
 
-            anvil.Comp.Forging = true;
-            _audio.PlayPvs(anvil.Comp.ForgeStartSound, anvil);
+            _hands.TryDrop(user, used, Transform(anvil).Coordinates);
+
+            anvil.Comp.Forging = used;
+            _audio.PlayPvs(recipe.StartSound ?? anvil.Comp.ForgeStartSound, anvil);
 
             return true;
         }
@@ -138,16 +141,23 @@ public sealed class ADTWorldAnvilSystem : EntitySystem
 
     private void OnForgeDoAfter(Entity<ADTWorldAnvilComponent> anvil, ref ADTWorldAnvilForgeDoAfterEvent args)
     {
-        anvil.Comp.Forging = false;
+        var forging = anvil.Comp.Forging;
+        anvil.Comp.Forging = null;
 
         if (args.Handled || args.Cancelled)
             return;
 
-        if (args.Used is not { } used || TerminatingOrDeleted(used))
+        if (forging is not { } used || TerminatingOrDeleted(used))
             return;
 
         if (args.RecipeIndex < 0 || args.RecipeIndex >= anvil.Comp.Recipes.Count)
             return;
+
+        if (!_transform.GetMapCoordinates(anvil.Owner).InRange(_transform.GetMapCoordinates(used), 1f))
+        {
+            _popup.PopupEntity(Loc.GetString("adt-world-anvil-workpiece-gone"), anvil, args.User);
+            return;
+        }
 
         var recipe = anvil.Comp.Recipes[args.RecipeIndex];
 
@@ -162,14 +172,26 @@ public sealed class ADTWorldAnvilSystem : EntitySystem
         Spawn(recipe.Result, Transform(anvil).Coordinates);
 
         _audio.PlayPvs(anvil.Comp.ForgeEndSound, anvil);
-        _popup.PopupEntity(Loc.GetString("adt-world-anvil-forged"), anvil, args.User);
+        _popup.PopupEntity(Loc.GetString(recipe.Message), anvil, args.User);
 
         UpdateVisuals(anvil);
 
         if (anvil.Comp.Charges <= 0)
-            _popup.PopupEntity(Loc.GetString("adt-world-anvil-cooled"), anvil, args.User);
+            _popup.PopupEntity(Loc.GetString("adt-world-anvil-cooled"), anvil);
 
         args.Handled = true;
+    }
+
+    private bool IsBusy(Entity<ADTWorldAnvilComponent> anvil, EntityUid user)
+    {
+        if (anvil.Comp.Forging is not { } forging || TerminatingOrDeleted(forging))
+        {
+            anvil.Comp.Forging = null;
+            return false;
+        }
+
+        _popup.PopupEntity(Loc.GetString("adt-world-anvil-busy"), anvil, user);
+        return true;
     }
 
     private void UpdateVisuals(Entity<ADTWorldAnvilComponent> anvil)

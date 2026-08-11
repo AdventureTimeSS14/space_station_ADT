@@ -18,7 +18,7 @@ public sealed partial class ADTWorldAnvilComponent : Component
     public List<ADTWorldAnvilRecipe> Recipes = new();
 
     [ViewVariables]
-    public bool Forging;
+    public EntityUid? Forging;
 
     [DataField]
     public SoundSpecifier ForgeStartSound = new SoundPathSpecifier("/Audio/ADT/Lavaland/anvil_start.ogg");
@@ -51,6 +51,12 @@ public sealed partial class ADTWorldAnvilRecipe
 
     [DataField]
     public float Delay = 7f;
+
+    [DataField]
+    public SoundSpecifier? StartSound;
+
+    [DataField]
+    public LocId Message = "adt-world-anvil-forged";
 }
 
 [Serializable, NetSerializable]

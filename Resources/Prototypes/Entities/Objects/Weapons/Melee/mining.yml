@@ -145,6 +145,8 @@
     - suitStorage
   - type: AmmoCounter
 # ADT-Tweak-Start
+  - type: ADTMagmiteUpgradable
+    result: ADTWeaponCrusherMagmite
   - type: ADTKineticCooldown
 #  - type: UseDelayOnShoot
 #  - type: UseDelay

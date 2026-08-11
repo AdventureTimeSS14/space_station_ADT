@@ -22,13 +22,29 @@
     energy: 2
     color: "#ffa14d"
   - type: InteractionOutline
+  - type: Climbable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 500
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: GpsSignal
+    tag: adt-gps-signal-world-anvil
+    description: adt-gps-signal-world-anvil-desc
+    color: "#FF7A1A"
+    sameMapOnly: true
   - type: ADTWorldAnvil
-    maxCharges: 10
     fuels:
     - whitelist:
         components:
         - Gibtonite
-      charges: 3
+      charges: 1
     recipes:
     - whitelist:
         tags:
@@ -36,12 +52,16 @@
       result: ADTMagmiteParts
       cost: 1
       delay: 7
+      message: adt-world-anvil-forged
     - whitelist:
         tags:
         - ADTMagmitePartsInert
       result: ADTMagmiteParts
       cost: 0
       delay: 3
+      message: adt-world-anvil-reforged
+      startSound:
+        path: /Audio/ADT/Lavaland/anvil_end.ogg
 
 - type: entity
   id: ADTWorldAnvilRoomMarker
