@@ -24,10 +24,10 @@
       Appendix: OrganHumanAppendix
       Ears: OrganHumanEars
       Lungs: ADTOrganNovakidLungs
-      Heart: OrganHumanHeart
-      Stomach: OrganHumanStomach
-      Liver: OrganHumanLiver
-      Kidneys: OrganHumanKidneys
+      Heart: ADTOrganNovakidHeart
+      Stomach: ADTOrganNovakidStomach
+      Liver: ADTOrganNovakidLiver
+      Kidneys: ADTOrganNovakidKidneys
   - type: HumanoidProfile
     species: NovakidSpecies
   - type: Inventory
@@ -249,6 +249,26 @@
   components:
   - type: Metabolizer
     metabolizerTypes: [ Novakid ]
+
+# ADT-Tweak Start: внутренние органы новакида с типом метаболизатора Novakid
+# (раньше использовались человеческие органы, из-за чего условия MetabolizerTypeCondition
+# для Novakid не работали: новакиды получали яд от сварочного топлива и др. пиротехники)
+- type: entity
+  id: ADTOrganNovakidHeart
+  parent: [ OrganBaseHeart, OrganSpriteHumanInternal, ADTOrganNovakidMetabolizer ]
+
+- type: entity
+  id: ADTOrganNovakidStomach
+  parent: [ OrganBaseStomach, OrganSpriteHumanInternal, ADTOrganNovakidMetabolizer ]
+
+- type: entity
+  id: ADTOrganNovakidLiver
+  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, ADTOrganNovakidMetabolizer ]
+
+- type: entity
+  id: ADTOrganNovakidKidneys
+  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, ADTOrganNovakidMetabolizer ]
+# ADT-Tweak End
 
 - type: entity
   id: ADTOrganNovakidVisual
