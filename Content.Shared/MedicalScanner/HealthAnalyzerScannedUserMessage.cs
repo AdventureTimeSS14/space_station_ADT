@@ -11,9 +11,16 @@ public sealed class HealthAnalyzerScannedUserMessage : BoundUserInterfaceMessage
 {
     public HealthAnalyzerUiState State;
 
-    public HealthAnalyzerScannedUserMessage(HealthAnalyzerUiState state)
+    /// <summary>
+    /// When true, the client should open/navigate to the analyzer UI (e.g. PDA MedTek).
+    /// Continuous tick updates keep this false so reopening a PDA does not force MedTek.
+    /// </summary>
+    public bool OpenUi; // ADT-Tweak
+
+    public HealthAnalyzerScannedUserMessage(HealthAnalyzerUiState state, bool openUi = false) // ADT-Tweak
     {
         State = state;
+        OpenUi = openUi; // ADT-Tweak
     }
 }
 
