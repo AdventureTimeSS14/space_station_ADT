@@ -9,6 +9,8 @@ health-analyzer-window-entity-critical-text = Critical
 
 health-analyzer-window-entity-temperature-text = Temperature:
 health-analyzer-window-entity-blood-level-text = Blood Level:
+health-analyzer-window-entity-fluid-level-text = Fluid Level:
+health-analyzer-window-entity-fluid-loss-text = Fluid loss
 health-analyzer-window-entity-status-text = Status:
 health-analyzer-window-entity-damage-total-text = Total Damage:
 

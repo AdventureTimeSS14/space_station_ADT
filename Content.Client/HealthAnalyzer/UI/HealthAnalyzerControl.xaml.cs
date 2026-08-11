@@ -102,6 +102,11 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             : Loc.GetString("health-analyzer-window-entity-unknown-value-text");
 
         // ADT-Tweak start
+        _bloodIsFluid = state.BloodIsFluid;
+        BloodTitleLabel.Text = state.BloodIsFluid
+            ? Loc.GetString("health-analyzer-window-entity-fluid-level-text")
+            : Loc.GetString("health-analyzer-window-entity-blood-level-text");
+
         if (!float.IsNaN(state.BloodLevel))
         {
             var bloodPercent = state.BloodLevel;
@@ -185,6 +190,8 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         // ADT-Tweak end
     }
 
+    private bool _bloodIsFluid;
+
     private static string GetStatus(MobState mobState)
     {
         return mobState switch
@@ -266,6 +273,11 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
                 var damageTypeName = _prototypes.Index<DamageTypePrototype>(type).LocalizedName;
                 var typeId = type.ToString().ToLowerInvariant();
+
+                // ADT-Tweak start: slime people lose liquid, not blood
+                if (_bloodIsFluid && typeId == "bloodloss")
+                    damageTypeName = Loc.GetString("health-analyzer-window-entity-fluid-loss-text");
+                // ADT-Tweak end
 
                 var damageRow = new BoxContainer
                 {

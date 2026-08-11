@@ -32,6 +32,7 @@ public struct HealthAnalyzerUiState
     public bool? Unrevivable;
     public List<(string ReagentId, FixedPoint2 Quantity)>? MetabolizingReagents; // ADT-Tweak - list of metabolizing reagents inside scanned user
     public List<AddictionInfo>? Addictions; // ADT-Tweak - list of addictions inside scanned user
+    public bool BloodIsFluid; // ADT-Tweak - slime people are made of liquid, not blood
 
     public HealthAnalyzerUiState(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable, List<(string ReagentId, FixedPoint2 Quantity)>? metabolizingReagents = null, List<AddictionInfo>? addictions = null) // Starlight - added metabolizingReagents parameter
     {

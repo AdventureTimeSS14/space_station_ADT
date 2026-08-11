@@ -103,6 +103,13 @@
 									<Button Name="BarkPlayButton" Text="{Loc 'humanoid-profile-editor-voice-play'}" MaxWidth="80" />
                                 </BoxContainer>
                                 <!-- ADT Barks End -->
+                                <!-- ADT Slime Body Start -->
+                                <BoxContainer HorizontalExpand="True" Visible="False" Name="SlimeBodyContainer" Margin="0 8 0 0">
+                                    <Label Text="{Loc 'humanoid-profile-editor-slime-body-label'}" VerticalAlignment="Center" />
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="SlimeBodyButton" HorizontalAlignment="Right" MinWidth="190" />
+                                </BoxContainer>
+                                <!-- ADT Slime Body End -->
                             </BoxContainer>
                             <!-- Skin -->
                             <BoxContainer Margin="10" HorizontalExpand="True" Orientation="Vertical">

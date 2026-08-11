@@ -153,6 +153,15 @@ namespace Content.Shared.Preferences
 
         public IReadOnlySet<ProtoId<LanguagePrototype>> Languages => _languages;
         // ADT Languages end
+        // ADT Slime Body start
+        [DataField]
+        private string? _slimeBodyComposition;
+
+        /// <summary>
+        /// The slime body composition id chosen in the character editor, if any.
+        /// </summary>
+        public string? SlimeBodyComposition => _slimeBodyComposition;
+        // ADT Slime Body end
 
         /// <summary>
         /// <see cref="_jobPriorities"/>
@@ -194,7 +203,8 @@ namespace Content.Shared.Preferences
             BarkData bark,
             HashSet<ProtoId<LanguagePrototype>> languages,
             string oocNotes,
-            string headshotUrl
+            string headshotUrl,
+            string? slimeBodyComposition = null
             )
             //ADT-tweak-end
         {
@@ -217,6 +227,7 @@ namespace Content.Shared.Preferences
             _languages = languages;
             OOCNotes = oocNotes;
             HeadshotUrl = headshotUrl;
+            _slimeBodyComposition = slimeBodyComposition;
             // ADT end
 
             var hasHighPrority = false;
@@ -254,7 +265,8 @@ namespace Content.Shared.Preferences
                 other.Bark,
                 other._languages,
                 other.OOCNotes,
-                other.HeadshotUrl
+                other.HeadshotUrl,
+                other._slimeBodyComposition
                 )
                 // ADT end
         {
@@ -612,6 +624,7 @@ namespace Content.Shared.Preferences
             if (OOCNotes != other.OOCNotes) return false;
             if (HeadshotUrl != other.HeadshotUrl) return false;
             if (!Bark.MemberwiseEquals(other.Bark)) return false;
+            if (_slimeBodyComposition != other._slimeBodyComposition) return false; // ADT Slime Body
             // ADT-tweak-end
             return Appearance.Equals(other.Appearance);
         }
@@ -1021,6 +1034,19 @@ namespace Content.Shared.Preferences
                 _languages = list,
             };
         }
+
+        // ADT Slime Body start
+        /// <summary>
+        /// Sets the slime body composition of this profile.
+        /// </summary>
+        public HumanoidCharacterProfile WithSlimeBodyComposition(string? id)
+        {
+            return new(this)
+            {
+                _slimeBodyComposition = id,
+            };
+        }
+        // ADT Slime Body end
 
         public bool CanToggleQuirk(TraitPrototype proto)
         {

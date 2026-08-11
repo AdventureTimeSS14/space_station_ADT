@@ -246,6 +246,10 @@ namespace Content.Client.Lobby.UI
             #endregion
             // ADT Barks End
 
+            // ADT Slime Body start
+            SlimeBodyButton.OnItemSelected += args => SelectSlimeBody(args.Id);
+            // ADT Slime Body end
+
             RefreshSpecies();
 
             SpeciesButton.OnItemSelected += args =>
@@ -566,6 +570,7 @@ namespace Content.Client.Lobby.UI
             UpdateBarkVoicesControls(); // ADT Barks
 
             RefreshLanguages(); // ADT Languages
+            RefreshSlimeBody(); // ADT Slime Body
             RefreshAntags();
             RefreshJobs();
             RefreshLoadouts();
