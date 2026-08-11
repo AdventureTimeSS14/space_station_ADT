@@ -1,4 +1,4 @@
-<!-- ADT-Tweak: MedTek layout as on PDA, without PDA nav / FancyWindow header -->
+<!-- ADT-Tweak Start - New PDA-Like UI -->
 <ui:HealthAnalyzerWindow xmlns="https://spacestation14.io"
                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                          xmlns:ui="clr-namespace:Content.Client.HealthAnalyzer.UI"
@@ -20,7 +20,6 @@
             <TextureButton Name="CloseButton" StyleClasses="windowCloseButton"
                            VerticalAlignment="Center" Margin="0 4 4 0"/>
         </BoxContainer>
-        <!-- ADT-Tweak: side insets match PDA; bottom bezel spacer equals title bar height -->
         <Control Margin="18 0" RectClipContent="True" VerticalExpand="True" HorizontalExpand="True">
             <PanelContainer Name="ContentBorder" StyleClasses="PdaBackground"/>
             <Control Margin="3">

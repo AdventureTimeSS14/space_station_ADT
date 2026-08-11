@@ -4,7 +4,7 @@
                                    xmlns="https://spacestation14.io" Margin="1 0 2 0">
     <PanelContainer StyleClasses="BackgroundDark"></PanelContainer>
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
-        <!-- ADT-Tweak: station header matches PDA content footer (StripeBack hatch) -->
+        <!-- ADT-Tweak: station header matches PDA content -->
         <controls:StripeBack Name="StationNameContainer"
                              HasBottomEdge="False"
                              HasMargins="False"
@@ -19,6 +19,7 @@
                    Margin="6 0"
                    StyleClasses="PdaContentFooterText LabelHeading"
                    Text="{Loc 'crew-manifest-cartridge-loading'}"/>
+        <!-- ADT-Tweak End -->
         </controls:StripeBack>
         <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
             <ui:CrewManifestListing

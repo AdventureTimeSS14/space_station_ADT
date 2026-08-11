@@ -6,11 +6,6 @@ using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.ADT.PDA;
 
-/// <summary>
-/// CRT palette from PDA secondary accent.
-/// Screen tone matches the portable monitor's left CRT panel (~V 0.10 / 0.16); hue from the PDA.
-/// Chrome / controls only rise in value above the scanlines (never below).
-/// </summary>
 public readonly record struct PdaInteriorPalette(
     Color ScanLight,
     Color ScanDark,
@@ -44,14 +39,11 @@ public static class PdaInteriorTheme
     {
         var hsv = Color.ToHsv(secondary);
         var h = hsv.X;
-        // Same sat floor as CrewMonitoring.ApplyScreenTheme; black secondary → muted charcoal.
         var s = Math.Clamp(Math.Max(hsv.Y, 0.12f), 0.12f, 0.90f);
 
-        // Exact left-panel CRT values from CrewMonitoringWindow.ApplyScreenTheme.
         const float scanDarkV = 0.10f;
         const float scanLightV = 0.16f;
 
-        // Everything else only climbs from that floor (monitor right-panel / chrome ladder).
         return new PdaInteriorPalette(
             ScanLight: Color.FromHsv(new Vector4(h, s * 0.50f, scanLightV, 1f)),
             ScanDark: Color.FromHsv(new Vector4(h, s * 0.55f, scanDarkV, 1f)),
@@ -65,7 +57,6 @@ public static class PdaInteriorTheme
             ItemHover: Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.75f, 0.35f, 0.85f), 0.48f, 1f)),
             Divider: Color.FromHsv(new Vector4(h, s * 0.40f, 0.30f, 1f)),
             FooterFg: Color.FromHsv(new Vector4(h, s * 0.15f, 0.96f, 1f)),
-            // Near-white PDA tint — dark modulate kills the diagonal hatch on StripeBack.
             FooterStripe: Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.35f, 0.08f, 0.40f), 0.96f, 1f)),
             PanelBg: Color.FromHsv(new Vector4(h, s * 0.40f, 0.14f, 0.90f)),
             ButtonBorder: Color.FromHsv(new Vector4(h, Math.Clamp(s * 0.55f, 0.25f, 0.70f), 0.72f, 1f))
@@ -88,7 +79,6 @@ public static class PdaInteriorTheme
                 ThemeLabel(label, palette);
                 break;
             case RichTextLabel rich:
-                // Clear dark-theme multiply leftovers; markup keeps its own colors on a dark CRT.
                 if (rich.ModulateSelfOverride is { } mod && IsDark(mod))
                     rich.ModulateSelfOverride = null;
                 break;
@@ -99,7 +89,6 @@ public static class PdaInteriorTheme
                 ThemeLineEdit(lineEdit, palette);
                 break;
             case StripeBack stripe:
-                // Same near-white tint as the PDA footer — dark modulate kills the hatch.
                 stripe.ModulateSelfOverride = palette.FooterStripe;
                 break;
             case TextureButton textureButton:
@@ -115,19 +104,16 @@ public static class PdaInteriorTheme
     {
         if (panel.HasStyleClass("BackgroundDark"))
         {
-            // Raised slightly above scanlines so CRT still reads through.
             panel.PanelOverride = new StyleBoxFlat(palette.PanelBg);
             return;
         }
 
         if (panel.PanelOverride is StyleBoxFlat flat && flat.BackgroundColor.A > 0.2f)
         {
-            // Keep intentional accent bars (nano-task priority) that are saturated + narrow.
             var hsv = Color.ToHsv(flat.BackgroundColor);
             if (hsv.Y > 0.55f && flat.BackgroundColor.A > 0.9f && !float.IsNaN(panel.SetWidth) && panel.SetWidth <= 12)
                 return;
 
-            // Only recolor panels that were darker than our raised item chrome (or the old light theme).
             if (!IsDark(flat.BackgroundColor) && !IsLight(flat.BackgroundColor))
                 return;
 
@@ -168,7 +154,6 @@ public static class PdaInteriorTheme
 
     private static void ThemeLineEdit(LineEdit lineEdit, in PdaInteriorPalette palette)
     {
-        // Raised above scanlines; stylesheet light-gray text stays readable.
         var box = new StyleBoxFlat
         {
             BackgroundColor = palette.ItemHover,

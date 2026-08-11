@@ -18,8 +18,6 @@ namespace Content.Client.PDA
         [ViewVariables]
         private PdaMenu? _menu;
 
-        // ADT-Tweak: MedTek session and selected view live on the PDA entity,
-        // not this transient BUI object.
         private bool _creatingMenu;
 
         private PdaClientUiStateComponent ClientUiState =>
@@ -54,7 +52,6 @@ namespace Content.Client.PDA
             if (_menu is { Disposed: false })
                 return;
 
-            // ADT-Tweak: CreateWindow registers the BUI once — re-entry while opening asserts in DEBUG and kills the client
             if (_creatingMenu)
                 return;
 
@@ -78,7 +75,6 @@ namespace Content.Client.PDA
                     ClientUiState.LastView = view;
             };
 
-            // Keep session if the PDA was closed while MedTek was showing.
             _menu.OnClose += () =>
             {
                 if (_menu is { Disposed: false, IsOnHealthScanView: true } &&
@@ -126,7 +122,6 @@ namespace Content.Client.PDA
                 SendMessage(new PdaLockUplinkMessage());
             };
 
-            // ADT-Tweak: MedTek has no cartridge UI fragment — open cached scan instead
             _menu.OnProgramItemPressed += OnProgramItemPressed;
             _menu.OnInstallButtonPressed += InstallCartridge;
             _menu.OnUninstallButtonPressed += UninstallCartridge;
@@ -146,13 +141,11 @@ namespace Content.Client.PDA
                 _menu.AccentVColor = borderColorComponent.AccentVColor;
             }
 
-            // ADT-Tweak: CRT theme for the screen
             _menu.ApplyInteriorTheme(
                 ResolveSecondaryColor(borderColorComponent),
                 ResolveMainFrameColor(borderColorComponent));
         }
 
-        // ADT-Tweak start
         private void EndMedTekSession()
         {
             ClientUiState.MedTekSessionActive = false;
@@ -205,7 +198,6 @@ namespace Content.Client.PDA
                 return;
             }
 
-            // Background analyzer ticks: refresh MedTek if it's already open, never force-navigate
             if (_menu is { Disposed: false, IsOnHealthScanView: true })
                 _menu.UpdateHealthScanData(scanMessage.State);
         }
@@ -226,14 +218,12 @@ namespace Content.Client.PDA
         {
             base.UpdateState(state);
 
-            // ADT-Tweak: cartridge attach/detach in base.UpdateState can steal the view — put MedTek back.
             if (ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan is { } scan)
             {
                 EnsureMenu();
                 _menu?.ShowHealthScan(scan);
             }
 
-            // ADT-Tweak: cartridge UIs rebuild children on their own states — re-theme after updates
             _menu?.ThemeProgramView();
 
             if (state is not PdaUpdateState updateState)
@@ -249,16 +239,14 @@ namespace Content.Client.PDA
 
             _menu.UpdateState(updateState);
 
-            // PdaUpdateState path also goes through cartridge loader above; restore again after home fields update.
-            if (ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan is { } scan)
-                _menu.ShowHealthScan(scan);
+            if (ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan is { } activeScan)
+                _menu.ShowHealthScan(activeScan);
         }
 
         protected override void AttachCartridgeUI(Control cartridgeUIFragment, string? title)
         {
             _menu?.ProgramView.AddChild(cartridgeUIFragment);
 
-            // ADT-Tweak: don't override an active MedTek scan with a cartridge fragment
             if (ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan is { } scan)
             {
                 _menu?.ShowHealthScan(scan);
@@ -277,7 +265,6 @@ namespace Content.Client.PDA
 
             _menu.ProgramView.RemoveChild(cartridgeUIFragment);
 
-            // ADT-Tweak: cartridge teardown must not kick the user out of MedTek
             if (ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan is { } scan)
             {
                 _menu.ShowHealthScan(scan);

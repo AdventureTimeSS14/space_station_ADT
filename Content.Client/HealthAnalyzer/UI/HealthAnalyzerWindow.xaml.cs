@@ -10,9 +10,6 @@ namespace Content.Client.HealthAnalyzer.UI;
 [GenerateTypedNameReferences]
 public sealed partial class HealthAnalyzerWindow : BaseWindow
 {
-    /// <summary>
-    /// Default medical accent when the analyzer is not a PDA (handheld / standalone).
-    /// </summary>
     private static readonly Color DefaultSecondary = Color.FromHex("#447987");
 
     public HealthAnalyzerWindow()
@@ -33,7 +30,6 @@ public sealed partial class HealthAnalyzerWindow : BaseWindow
         ContentBackground.LightLine = palette.ScanLight;
         ContentBackground.DarkLine = palette.ScanDark;
         ContentBorder.ModulateSelfOverride = palette.Chrome;
-        // ADT-Tweak: handheld MedTek uses a white outer bezel (PDA keeps entity BorderColor)
         Background.ModulateSelfOverride = Color.White;
         HealthAnalyzer.ApplyDividerColor(palette.Divider);
         HealthAnalyzer.ApplyMonitorTextTheme(palette.Fg);

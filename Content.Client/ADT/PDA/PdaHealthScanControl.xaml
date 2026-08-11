@@ -5,7 +5,6 @@
               HorizontalExpand="True"
               VerticalExpand="True"
               SeparationOverride="6">
-    <!-- Left: portrait/name + body fluids -->
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True"
                   SizeFlagsStretchRatio="15" Margin="-4 4 2 4" SeparationOverride="4">
         <BoxContainer Name="PatientDataContainer" Orientation="Vertical" Margin="0 0 0 4">
@@ -59,7 +58,6 @@
 
     <PanelContainer Name="PanelDivider" SetWidth="2" VerticalExpand="True" />
 
-    <!-- Right: traumas + short warning area at the bottom -->
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True"
                   SizeFlagsStretchRatio="20" Margin="4" SeparationOverride="4">
         <BoxContainer Orientation="Horizontal" Margin="0 0 0 2">

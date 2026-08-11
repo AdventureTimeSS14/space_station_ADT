@@ -26,6 +26,8 @@
     <!-- ADT-Tweak: themed rule under the nav bar -->
     <PanelContainer Name="NavAccentLine" Access="Public" MinHeight="2" MaxHeight="2" HorizontalExpand="True"/>
     <BoxContainer Name="ViewContainer" HorizontalExpand="True" VerticalExpand="True" Access="Public">
+    <!-- ADT-Tweak End -->
+
         <BoxContainer Orientation="Vertical"
                       VerticalExpand="True"
                       HorizontalExpand="True"
@@ -91,12 +93,14 @@
                       Name="ProgramView"
                       Access="Public">
         </BoxContainer>
-        <!-- ADT-Tweak: built-in health scan view (MedTek / HealthAnalyzer on PDA) -->
+    <!-- ADT-Tweak: built-in health scan view -->
         <adt:PdaHealthScanControl Name="HealthScanView"
                                   Access="Public"
                                   HorizontalExpand="True"
                                   VerticalExpand="True"
                                   Margin="4"/>
+    <!-- ADT-Tweak End -->
+
     </BoxContainer>
     <!-- ADT-Tweak: content footer stripe — OS version + product name + address -->
     <PanelContainer Name="ContentFooterPanel" Access="Public" HorizontalExpand="True" SetHeight="28" Margin="1 0 2 1">
@@ -118,4 +122,5 @@
             </Control>
         </controls:StripeBack>
     </PanelContainer>
+    <!-- ADT-Tweak End -->
 </pda:PdaWindow>

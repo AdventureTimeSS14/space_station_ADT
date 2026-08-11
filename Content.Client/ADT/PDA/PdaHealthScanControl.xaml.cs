@@ -24,9 +24,6 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.ADT.PDA;
 
-/// <summary>
-/// Split health-scan layout for PDA: vitals/fluids on the left, trauma on the right.
-/// </summary>
 [GenerateTypedNameReferences]
 public sealed partial class PdaHealthScanControl : BoxContainer
 {
@@ -63,9 +60,6 @@ public sealed partial class PdaHealthScanControl : BoxContainer
         ChemicalsDivider.PanelOverride = new StyleBoxFlat { BackgroundColor = color };
     }
 
-    /// <summary>
-    /// Light labels for the dark CRT PDA theme.
-    /// </summary>
     public void ApplyMonitorTextTheme(Color fg)
     {
         _monitorFg = fg;
@@ -229,7 +223,6 @@ public sealed partial class PdaHealthScanControl : BoxContainer
     {
         GroupsContainer.RemoveAllChildren();
 
-        // Rows of 2 equal-width cards with a 2px gap (GridContainer left a large mid gap).
         BoxContainer? currentRow = null;
         var columnIndex = 0;
         foreach (var (damageGroupId, damageAmount) in groups)
@@ -246,7 +239,6 @@ public sealed partial class PdaHealthScanControl : BoxContainer
                 GroupsContainer.AddChild(currentRow);
             }
 
-            // Category header: name only (amounts stay on per-type rows).
             var groupTitleText = _prototypes.Index<DamageGroupPrototype>(damageGroupId).LocalizedName;
 
             var groupBox = new PanelContainer
@@ -322,7 +314,6 @@ public sealed partial class PdaHealthScanControl : BoxContainer
             columnIndex++;
         }
 
-        // Odd last card: keep half-width so layout stays consistent.
         if (currentRow != null && columnIndex % 2 == 1)
         {
             currentRow.AddChild(new Control
