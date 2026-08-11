@@ -1,22 +1,14 @@
 machine-insert-all = { CAPITALIZE($user) } помещает содержимое { $item } в { $machine }.
 
 # ADT-Tweak: апгрейды машинных частей (порт из Orion-Station-14 PR #385)
-machine-part-name-capacitor = Конденсатор
 machine-part-name-servo = Сервопривод
 machine-part-name-scanning-module = Сканирующий модуль
 machine-part-name-micro-laser = Микро-лазер
-machine-part-name-matter-bin = Контейнер материи
-machine-part-name-power-cell = Батарейный элемент
-
-machine-upgrade-examinable-verb-text = Улучшения
-machine-upgrade-examinable-verb-message = Показать установленные улучшения машины.
 
 machine-upgrade-increased-by-percentage-extra = Параметр [color=yellow]{ CAPITALIZE( $upgraded ) }[/color] увеличен на [color={ $color }]{ $percent }%[/color].
 machine-upgrade-decreased-by-percentage-extra = Параметр [color=yellow]{ CAPITALIZE( $upgraded ) }[/color] уменьшен на [color={ $color }]{ $percent }%[/color].
 machine-upgrade-not-upgraded-extra = Параметр [color=yellow]{ CAPITALIZE( $upgraded ) }[/color] не изменился.
 
-lathe-component-upgrade-speed = скорость печати
-lathe-component-upgrade-material-use = расход материалов
 machine-upgrade-charging-efficiency = эффективность зарядки
 machine-upgrade-charging-speed = скорость восстановления заряда
 machine-upgrade-power-input = входная мощность
