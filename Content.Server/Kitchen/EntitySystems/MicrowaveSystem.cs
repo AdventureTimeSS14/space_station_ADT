@@ -498,7 +498,7 @@ namespace Content.Server.Kitchen.EntitySystems
             var microLaserTier = args.GetPartRating(component.MicroLaserPart);
             var matterBinTier = args.GetPartRating(component.MatterBinPart);
 
-            component.CookTimeMultiplier = RefreshPartsEvent.GetTierDiscount(microLaserTier, 0.1f);
+            component.UpgradeCookMultiplier = RefreshPartsEvent.GetTierDiscount(microLaserTier, 0.1f); // ADT-Tweak
             component.ExplosionChanceMultiplier = MathF.Max(0f, 1f - MathF.Max(0f, microLaserTier - 1f) * 0.5f);
             component.CapacityMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(matterBinTier);
 
@@ -507,9 +507,10 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private static void OnUpgradeExamine(EntityUid uid, MicrowaveComponent component, UpgradeExamineEvent args)
         {
-            var speedMultiplier = component.CookTimeMultiplier <= 0f
+            var totalCookMultiplier = component.CookTimeMultiplier * component.UpgradeCookMultiplier; // ADT-Tweak
+            var speedMultiplier = totalCookMultiplier <= 0f // ADT-Tweak
                 ? 1f
-                : 1f / component.CookTimeMultiplier;
+                : 1f / totalCookMultiplier; // ADT-Tweak
 
             args.AddPercentageUpgrade("machine-upgrade-cook-speed", speedMultiplier);
             args.AddPercentageUpgrade("machine-upgrade-capacity", component.CapacityMultiplier);
@@ -681,11 +682,12 @@ namespace Content.Server.Kitchen.EntitySystems
 
             _audio.PlayPvs(component.StartCookingSound, uid);
             var activeComp = AddComp<ActiveMicrowaveComponent>(uid); //microwave is now cooking
-            activeComp.CookTimeRemaining = component.CurrentCookTimerTime;
+            var cookTime = component.CurrentCookTimerTime * component.CookTimeMultiplier * component.UpgradeCookMultiplier; // ADT-Tweak
+            activeComp.CookTimeRemaining = cookTime; // ADT-Tweak
             activeComp.TotalTime = component.CurrentCookTimerTime; //this doesn't scale so that we can have the "actual" time
             activeComp.PortionedRecipe = portionedRecipe;
             //Scale tiems with cook times
-            component.CurrentCookTimeEnd = _gameTiming.CurTime + TimeSpan.FromSeconds(component.CurrentCookTimerTime);
+            component.CurrentCookTimeEnd = _gameTiming.CurTime + TimeSpan.FromSeconds(cookTime); // ADT-Tweak
             if (malfunctioning)
                 activeComp.MalfunctionTime = _gameTiming.CurTime + TimeSpan.FromSeconds(component.MalfunctionInterval);
             UpdateUserInterfaceState(uid, component);

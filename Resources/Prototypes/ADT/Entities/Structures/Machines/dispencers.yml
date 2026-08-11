@@ -287,3 +287,5 @@
       Vodka: 12
       Whiskey: 12
       Wine: 8
+    tierReagents:
+      2: [ Nothing, Ethanol ]

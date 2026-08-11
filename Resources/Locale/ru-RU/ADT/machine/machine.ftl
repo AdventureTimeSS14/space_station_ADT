@@ -38,3 +38,4 @@ machine-upgrade-slime-extract-multiplier = количество экстракт
 machine-upgrade-cloning-speed = скорость клонирования
 machine-upgrade-cloning-safety = безопасность клонирования
 machine-upgrade-fire-rate = скорострельность
+machine-upgrade-thrust = тяга двигателя

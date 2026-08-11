@@ -109,6 +109,9 @@ namespace Content.Server.Kitchen.Components
 
         // ADT-Tweak-Start: machine parts with tiers
         [DataField]
+        public float UpgradeCookMultiplier = 1f;
+
+        [DataField]
         public float CapacityMultiplier = 1f;
 
         [DataField]
