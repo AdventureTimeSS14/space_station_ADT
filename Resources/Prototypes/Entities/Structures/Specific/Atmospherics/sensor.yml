@@ -45,7 +45,7 @@
   # ADT-RPD-Start
   - type: RPDDeconstructable
     cost: 4
-    delay: 0
+    delay: 0.2
     fx: EffectRCDDeconstruct2
   # ADT-RPD-End
 
