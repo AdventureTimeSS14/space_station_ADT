@@ -214,7 +214,7 @@
     - type: NightVision
       innate: true
       shader: ADTModernNightVisionShaderMedium
-      effectPrototype: ADTEffectNightVisionMedium
+      effectPrototype: ADTEffectNightVisionVulp
   # ADT-tweak-end
 
 - type: entity

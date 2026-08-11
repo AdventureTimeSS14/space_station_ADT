@@ -16,7 +16,7 @@
 
 # Starlight port: night / thermal vision overlays
 # Innate NV: lift pitch-black + compress highlights (no white blind).
-# Tiers: Weak < Medium(Shadekin/Vulp/Moth) < Strong(Tajaran)
+# Tiers: Weak < Medium(Shadekin/Moth) < Strong(Tajaran); Vulp uses Medium shader + darker light
 - type: shader
   id: ADTModernNightVisionShader
   kind: source
@@ -46,11 +46,11 @@
   kind: source
   path: "/Textures/ADT/Shaders/night.swsl"
   params:
-    NightVisionBoost: 3.0
-    NightVisionThreshold: 0.35
+    NightVisionBoost: 2.55
+    NightVisionThreshold: 0.32
     BlueTintIntensity: 0.18
-    NightVisionLift: 0.04
-    CompressStrength: 0.5
+    NightVisionLift: 0.03
+    CompressStrength: 0.55
     MaxBrightness: 1.0
 
 # Thermal WORLD only — no white; bodies use ADTThermalBodyShader
@@ -131,10 +131,8 @@
     WhiteoutIntensity: 1.3
     BloomRadius: 5.5
     BloomStrength: 0.43
-    NoiseAmplitude: 0.0
-    FlickerStrength: 0.0
-    GrainSize: 2.0
-    DefectIntensity: 0.0
+    NoiseAmplitude: 0.02
+    GrainSize: 1.0
     ScanlineDark: 0.72
 
 - type: shader

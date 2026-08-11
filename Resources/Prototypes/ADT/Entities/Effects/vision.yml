@@ -1,7 +1,5 @@
-# Innate NV: neutral fill light only (no screen tint — natural colors).
-# Tier: Tajaran > Shadekin/Vulp/Moth > everyone else.
 
-# Weak (3rd) — felinid, resomi, arachnid, other innate NV
+# Weak (3rd) — Фелинид, резоми, арахнид
 - type: entity
   id: ADTEffectNightVision
   categories: [ HideSpawnMenu ]
@@ -15,7 +13,7 @@
     falloff: 5.0
     castShadows: true
 
-# Medium (2nd) — shadekin, vulpkanin, moth
+# Medium (2nd) — Сумеречники
 - type: entity
   id: ADTEffectNightVisionMedium
   categories: [ HideSpawnMenu ]
@@ -29,7 +27,21 @@
     falloff: 4.8
     castShadows: true
 
-# Strong (1st) — tajaran
+# Medium-dark — Вульпы, нианы
+- type: entity
+  id: ADTEffectNightVisionVulp
+  categories: [ HideSpawnMenu ]
+  name: vulpkanin night vision
+  components:
+  - type: PointLight
+    color: "#FFFFFF"
+    energy: 0.36
+    radius: 3.5
+    softness: 24
+    falloff: 5.0
+    castShadows: true
+
+# Strong (1st) — таяры
 - type: entity
   id: ADTEffectNightVisionTajaran
   categories: [ HideSpawnMenu ]
@@ -37,27 +49,13 @@
   components:
   - type: PointLight
     color: "#FFFFFF"
-    energy: 0.55
-    radius: 5
+    energy: 0.4
+    radius: 4.2
     softness: 24
-    falloff: 4.5
+    falloff: 4.7
     castShadows: true
 
-# Alias for resomi (weak / 3rd)
-- type: entity
-  id: ADTEffectNightVisionResomi
-  categories: [ HideSpawnMenu ]
-  name: resomi night vision
-  components:
-  - type: PointLight
-    color: "#FFFFFF"
-    energy: 0.35
-    radius: 3
-    softness: 24
-    falloff: 5.0
-    castShadows: true
-
-# Device NVD (ПНВ) — wider personal light while goggles are active
+# ПНВ, оптический термальный сканер
 - type: entity
   id: ADTEffectNightVisionDevice
   categories: [ HideSpawnMenu ]
@@ -75,7 +73,6 @@
   name: thermal vision
   components:
   - type: PointLight
-    # Slightly stronger fill so background stays readable; voids still black
     color: "#D0C8D8"
     energy: 1.0
     radius: 18
