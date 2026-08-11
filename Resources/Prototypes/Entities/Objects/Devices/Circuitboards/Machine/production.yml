@@ -86,6 +86,7 @@
       Glass: 1
     partRequirements: #ADT-Tweak: machine parts
       Servo: 4
+      MatterBin: 2
 
 - type: entity
   id: SecurityTechFabCircuitboard
@@ -239,6 +240,7 @@
     prototype: UniformPrinter
     partRequirements: #ADT-Tweak: machine parts
       Servo: 3
+      MatterBin: 2
 
 - type: entity
   id: VaccinatorMachineCircuitboard
@@ -373,6 +375,7 @@
         Glass: 1
       partRequirements: #ADT-Tweak: machine parts
         Servo: 2
+        MicroLaser: 2
 
 - type: entity
   id: ThermomachineFreezerMachineCircuitBoard
@@ -738,6 +741,7 @@
         Cable: 10
       partRequirements: #ADT-Tweak: machine parts
         Servo: 4
+        Capacitor: 2
     - type: PhysicalComposition
       materialComposition:
         Steel: 30
@@ -1426,6 +1430,7 @@
       Glass: 1
     partRequirements: #ADT-Tweak: machine parts
       Servo: 4
+      MatterBin: 2
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -1452,10 +1457,10 @@
     prototype: CutterMachine
     stackRequirements:
       Steel: 2
-
       Cable: 1
     partRequirements: #ADT-Tweak: machine parts
       Servo: 2
+      MatterBin: 2
 
 - type: entity
   parent: BaseMachineCircuitboard

@@ -10,6 +10,7 @@
       prototype: ADTUniversalPipeDispenser
       partRequirements:
         Servo: 4
+        MatterBin: 2
       tagRequirements:
         GlassBeaker:
           amount: 2
@@ -128,6 +129,9 @@
         Glass: 5
         Cable: 4
         Plasma: 5
+      partRequirements:
+        MatterBin: 2
+        Servo: 1
       tagRequirements:
         GlassBeaker:
           amount: 3
@@ -190,6 +194,8 @@
         Cable: 4
       partRequirements:
         Servo: 2
+        MicroLaser: 2
+        MatterBin: 2
       tagRequirements:
         Igniter:
           amount: 1
@@ -209,6 +215,9 @@
         Steel: 5
         Glass: 2
         Cable: 4
+      partRequirements:
+        MicroLaser: 2
+        MatterBin: 2
       tagRequirements:
         Igniter:
           amount: 1

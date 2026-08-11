@@ -10,3 +10,4 @@
         Glass: 1
       partRequirements: #ADT-Tweak: machine parts
         Servo: 4
+        MatterBin: 2
