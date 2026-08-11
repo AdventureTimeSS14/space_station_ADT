@@ -1,6 +1,7 @@
 using Content.Client.CartridgeLoader;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.MedicalScanner;
 using Content.Shared.PDA;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
@@ -10,10 +11,19 @@ namespace Content.Client.PDA
     [UsedImplicitly]
     public sealed class PdaBoundUserInterface : CartridgeLoaderBoundUserInterface
     {
+        private const string MedTekProgramName = "med-tek-program-name"; // ADT-Tweak
+
         private readonly PdaSystem _pdaSystem;
 
         [ViewVariables]
         private PdaMenu? _menu;
+
+        // ADT-Tweak: MedTek session and selected view live on the PDA entity,
+        // not this transient BUI object.
+        private bool _creatingMenu;
+
+        private PdaClientUiStateComponent ClientUiState =>
+            EntMan.EnsureComponent<PdaClientUiStateComponent>(Owner);
 
         public PdaBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
@@ -24,13 +34,57 @@ namespace Content.Client.PDA
         {
             base.Open();
 
-            if (_menu == null)
+            EnsureMenu();
+            ApplyPreferredView();
+        }
+
+        private void ApplyPreferredView()
+        {
+            if (ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan is { } scan)
+            {
+                _menu?.ShowHealthScan(scan);
+                return;
+            }
+
+            _menu?.RestoreView(ClientUiState.LastView);
+        }
+
+        private void EnsureMenu()
+        {
+            if (_menu is { Disposed: false })
+                return;
+
+            // ADT-Tweak: CreateWindow registers the BUI once — re-entry while opening asserts in DEBUG and kills the client
+            if (_creatingMenu)
+                return;
+
+            _creatingMenu = true;
+            try
+            {
                 CreateMenu();
+            }
+            finally
+            {
+                _creatingMenu = false;
+            }
         }
 
         private void CreateMenu()
         {
             _menu = this.CreateWindowCenteredLeft<PdaMenu>();
+            _menu.OnViewChanged += view =>
+            {
+                if (view != PdaMenu.HealthScanViewIndex)
+                    ClientUiState.LastView = view;
+            };
+
+            // Keep session if the PDA was closed while MedTek was showing.
+            _menu.OnClose += () =>
+            {
+                if (_menu is { Disposed: false, IsOnHealthScanView: true } &&
+                    ClientUiState.LastHealthScan != null)
+                    ClientUiState.MedTekSessionActive = true;
+            };
 
             _menu.FlashLightToggleButton.OnToggled += _ =>
             {
@@ -72,26 +126,120 @@ namespace Content.Client.PDA
                 SendMessage(new PdaLockUplinkMessage());
             };
 
-            _menu.OnProgramItemPressed += ActivateCartridge;
+            // ADT-Tweak: MedTek has no cartridge UI fragment — open cached scan instead
+            _menu.OnProgramItemPressed += OnProgramItemPressed;
             _menu.OnInstallButtonPressed += InstallCartridge;
             _menu.OnUninstallButtonPressed += UninstallCartridge;
-            _menu.ProgramCloseButton.OnPressed += _ => DeactivateActiveCartridge();
+            _menu.ProgramCloseButton.OnPressed += _ =>
+            {
+                EndMedTekSession();
+                DeactivateActiveCartridge();
+            };
+
+            _menu.OnLeftMedTekView += EndMedTekSession;
 
             var borderColorComponent = GetBorderColorComponent();
-            if (borderColorComponent == null)
+            if (borderColorComponent != null)
+            {
+                _menu.BorderColor = borderColorComponent.BorderColor;
+                _menu.AccentHColor = borderColorComponent.AccentHColor;
+                _menu.AccentVColor = borderColorComponent.AccentVColor;
+            }
+
+            // ADT-Tweak: CRT theme for the screen
+            _menu.ApplyInteriorTheme(
+                ResolveSecondaryColor(borderColorComponent),
+                ResolveMainFrameColor(borderColorComponent));
+        }
+
+        // ADT-Tweak start
+        private void EndMedTekSession()
+        {
+            ClientUiState.MedTekSessionActive = false;
+        }
+
+        private void OnProgramItemPressed(EntityUid uid)
+        {
+            if (TryOpenMedTek(uid))
                 return;
 
-            _menu.BorderColor = borderColorComponent.BorderColor;
-            _menu.AccentHColor = borderColorComponent.AccentHColor;
-            _menu.AccentVColor = borderColorComponent.AccentVColor;
+            EndMedTekSession();
+            ActivateCartridge(uid);
         }
+
+        private bool TryOpenMedTek(EntityUid uid)
+        {
+            if (!EntMan.TryGetComponent(uid, out CartridgeComponent? cartridge))
+                return false;
+
+            if (cartridge.ProgramName != MedTekProgramName)
+                return false;
+
+            EnsureMenu();
+            ClientUiState.MedTekSessionActive = true;
+            if (ClientUiState.LastHealthScan is { } scan)
+                _menu?.ShowHealthScan(scan);
+            return true;
+        }
+
+        private void EnterMedTek(HealthAnalyzerUiState state)
+        {
+            ClientUiState.LastHealthScan = state;
+            ClientUiState.MedTekSessionActive = true;
+            _menu?.ShowHealthScan(state);
+        }
+
+        protected override void ReceiveMessage(BoundUserInterfaceMessage message)
+        {
+            base.ReceiveMessage(message);
+
+            if (message is not HealthAnalyzerScannedUserMessage scanMessage)
+                return;
+
+            ClientUiState.LastHealthScan = scanMessage.State;
+
+            if (scanMessage.OpenUi)
+            {
+                EnsureMenu();
+                EnterMedTek(scanMessage.State);
+                return;
+            }
+
+            // Background analyzer ticks: refresh MedTek if it's already open, never force-navigate
+            if (_menu is { Disposed: false, IsOnHealthScanView: true })
+                _menu.UpdateHealthScanData(scanMessage.State);
+        }
+
+        private static Color ResolveSecondaryColor(PdaBorderColorComponent? border)
+        {
+            var hex = border?.AccentVColor ?? border?.AccentHColor ?? border?.BorderColor ?? "#B0B0B8";
+            return Color.FromHex(hex, Color.FromHex("#B0B0B8"));
+        }
+
+        private static Color ResolveMainFrameColor(PdaBorderColorComponent? border)
+        {
+            return Color.FromHex(border?.BorderColor ?? "#B0B0B8", Color.FromHex("#B0B0B8"));
+        }
+        // ADT-Tweak end
 
         protected override void UpdateState(BoundUserInterfaceState state)
         {
             base.UpdateState(state);
 
+            // ADT-Tweak: cartridge attach/detach in base.UpdateState can steal the view — put MedTek back.
+            if (ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan is { } scan)
+            {
+                EnsureMenu();
+                _menu?.ShowHealthScan(scan);
+            }
+
+            // ADT-Tweak: cartridge UIs rebuild children on their own states — re-theme after updates
+            _menu?.ThemeProgramView();
+
             if (state is not PdaUpdateState updateState)
                 return;
+
+            EnsureMenu();
 
             if (_menu == null)
             {
@@ -100,12 +248,26 @@ namespace Content.Client.PDA
             }
 
             _menu.UpdateState(updateState);
+
+            // PdaUpdateState path also goes through cartridge loader above; restore again after home fields update.
+            if (ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan is { } scan)
+                _menu.ShowHealthScan(scan);
         }
 
         protected override void AttachCartridgeUI(Control cartridgeUIFragment, string? title)
         {
             _menu?.ProgramView.AddChild(cartridgeUIFragment);
+
+            // ADT-Tweak: don't override an active MedTek scan with a cartridge fragment
+            if (ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan is { } scan)
+            {
+                _menu?.ShowHealthScan(scan);
+                return;
+            }
+
+            EndMedTekSession();
             _menu?.ToProgramView(title ?? Loc.GetString("comp-pda-io-program-fallback-title"));
+            _menu?.ThemeProgramView();
         }
 
         protected override void DetachCartridgeUI(Control cartridgeUIFragment)
@@ -113,9 +275,17 @@ namespace Content.Client.PDA
             if (_menu is null)
                 return;
 
+            _menu.ProgramView.RemoveChild(cartridgeUIFragment);
+
+            // ADT-Tweak: cartridge teardown must not kick the user out of MedTek
+            if (ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan is { } scan)
+            {
+                _menu.ShowHealthScan(scan);
+                return;
+            }
+
             _menu.ToHomeScreen();
             _menu.HideProgramHeader();
-            _menu.ProgramView.RemoveChild(cartridgeUIFragment);
         }
 
         protected override void UpdateAvailablePrograms(List<(EntityUid, CartridgeComponent)> programs)
