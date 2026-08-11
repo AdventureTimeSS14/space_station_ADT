@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.UserInterface.Controls;
+using Content.Shared.ADT.Addiction;
 using Content.Shared.ADT.Body.Allergies;
 using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Reagent;
@@ -179,6 +180,8 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         DrawDiagnosticGroups(sortedGroups, damagePerType);
 
         DrawMetabolizingChemicals(state.MetabolizingReagents);
+
+        DrawAddictions(state.Addictions);
         // ADT-Tweak end
     }
 
@@ -428,4 +431,65 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         return titleRow;
     }
     // ADT-Tweak end
+
+    // ADT-Tweak-Start: секция зависимостей (по паттерну DrawMetabolizingChemicals)
+    private void DrawAddictions(List<AddictionInfo>? addictions)
+    {
+        AddictionsContainer.RemoveAllChildren();
+
+        var hasAddictions = addictions != null && addictions.Count > 0;
+
+        AddictionsDivider.Visible = hasAddictions;
+        AddictionsContainer.Visible = hasAddictions;
+
+        if (!hasAddictions || addictions == null)
+            return;
+
+        var titleLabel = new Label
+        {
+            Text = Loc.GetString("health-analyzer-window-addictions-title"),
+            Margin = new Thickness(0, 0, 0, 4),
+            FontColorOverride = Color.Orange,
+        };
+        AddictionsContainer.AddChild(titleLabel);
+
+        var anyTreatable = false;
+        foreach (var addiction in addictions)
+        {
+            var kindName = Loc.GetString($"health-analyzer-addiction-{KindLoc(addiction.Kind)}");
+            var stageName = Loc.GetString($"health-analyzer-addiction-stage-{addiction.Stage}");
+            var line = addiction.Permanent
+                ? Loc.GetString("health-analyzer-window-addiction-permanent", ("kind", kindName), ("stage", addiction.Stage), ("stageName", stageName))
+                : Loc.GetString("health-analyzer-window-addiction-line", ("kind", kindName), ("stage", addiction.Stage), ("stageName", stageName));
+
+            AddictionsContainer.AddChild(new Label
+            {
+                Text = line,
+                Margin = new Thickness(0, 2),
+            });
+
+            if (!addiction.Permanent)
+                anyTreatable = true;
+        }
+
+        AddictionsContainer.AddChild(new Label
+        {
+            Text = anyTreatable
+                ? Loc.GetString("health-analyzer-window-addictions-treatment")
+                : Loc.GetString("health-analyzer-window-addictions-untreatable"),
+            Margin = new Thickness(0, 4, 0, 0),
+            FontColorOverride = anyTreatable ? Color.Green : Color.Red,
+        });
+    }
+
+    private static string KindLoc(AddictionKind kind) => kind switch
+    {
+        AddictionKind.Alcohol => "alcohol",
+        AddictionKind.Nicotine => "nicotine",
+        AddictionKind.Drug => "drug",
+        AddictionKind.Medicine => "medicine",
+        _ => "alcohol",
+    };
+    // ADT-Tweak-End
 }
+

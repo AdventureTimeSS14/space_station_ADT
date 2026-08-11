@@ -176,10 +176,10 @@
       baby:
         nextStage: adult
         sprite: ADT/Xenobiology/Mobs/slimesBaby.rsi
-        displayName: baby
+        displayName: mob-slime-stage-baby
       adult:
         sprite: ADT/Xenobiology/Mobs/slimesAdult.rsi
-        displayName: adult
+        displayName: mob-slime-stage-adult
 
 - type: entity
   parent: MobSlimeXenobioBaby
@@ -196,10 +196,10 @@
       baby:
         nextStage: adult
         sprite: ADT/Xenobiology/Mobs/slimesBaby.rsi
-        displayName: baby
+        displayName: mob-slime-stage-baby
       adult:
         sprite: ADT/Xenobiology/Mobs/slimesAdult.rsi
-        displayName: adult
+        displayName: mob-slime-stage-adult
 
 - type: entity
   abstract: true

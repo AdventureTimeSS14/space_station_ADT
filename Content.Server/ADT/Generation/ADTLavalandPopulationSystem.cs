@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Server.ADT.Procedural;
 using Content.Server.Parallax;
 using Content.Server.Procedural;
 using Content.Shared.Parallax.Biomes;
@@ -173,7 +174,8 @@ public sealed class ADTLavalandPopulationSystem : EntitySystem
 
         var coords = new EntityCoordinates(ent.Owner, new Vector2(spot.X + 0.5f, spot.Y + 0.5f));
 
-        return _lookup.GetEntitiesInRange(coords, clearance).Any(e => HasComp<RoomFillComponent>(e));
+        return _lookup.GetEntitiesInRange(coords, clearance)
+            .Any(e => HasComp<RoomFillComponent>(e) || HasComp<ADTRoomFillComponent>(e));
     }
 
     private bool IsClearGround(Entity<BiomeComponent, MapGridComponent> map, Vector2i indices)

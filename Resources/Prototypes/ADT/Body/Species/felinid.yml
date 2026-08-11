@@ -156,6 +156,8 @@
     - ADTCatEmotes
   - type: NightVision
     innate: true
+    shader: ADTModernNightVisionShader
+    effectPrototype: ADTEffectNightVisionLow
 
 - type: entity
   parent: OrganHumanTorso

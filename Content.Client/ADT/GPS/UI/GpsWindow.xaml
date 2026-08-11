@@ -14,6 +14,8 @@
         <BoxContainer Orientation="Horizontal" SeparationOverride="4">
             <Label Text="{Loc 'adt-gps-window-range'}" VerticalAlignment="Center" />
             <Button Name="RangeButton" MinWidth="150" />
+            <Control HorizontalExpand="True" />
+            <Button Name="SosButton" MinWidth="150" StyleClasses="negative" />
         </BoxContainer>
         <PanelContainer StyleClasses="AngleRect">
             <BoxContainer Orientation="Vertical" Margin="0 4 6 4">

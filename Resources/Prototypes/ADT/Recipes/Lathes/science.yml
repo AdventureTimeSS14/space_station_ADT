@@ -19,7 +19,6 @@
 - type: latheRecipePack
   id: XenobioPack
   recipes:
-  - SlimeGrinderMachineCircuitboard
   - ClothingBackpackXenoBioTank
 
 - type: latheRecipePack

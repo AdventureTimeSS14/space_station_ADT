@@ -94,11 +94,12 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
 
     private void OnVampirismShot(Entity<ADTGunUpgradeVampirismComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
-        foreach (var bolt in GetBolts(args))
-        {
-            var comp = EnsureComp<ADTProjectileVampirismComponent>(bolt);
-            comp.DamageOnHit += ent.Comp.DamageOnHit;
-        }
+        var bolts = GetBolts(args).ToList();
+        if (bolts.Count == 0)
+            return;
+
+        var comp = EnsureComp<ADTProjectileVampirismComponent>(bolts[0]);
+        comp.DamageOnHit += ent.Comp.DamageOnHit;
     }
 
     private void OnAoEShot(Entity<ADTGunUpgradeAoEComponent> ent, ref ADTGunUpgradeShotEvent args)
@@ -239,7 +240,11 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
 
     private void OnResonatorHit(Entity<ADTProjectileResonatorComponent> ent, ref ProjectileHitEvent args)
     {
-        _resonator.BlastAt(ent.Comp.FieldProto, Transform(ent).Coordinates, args.Shooter, ent.Comp.BurstMultiplier);
+        var coords = TerminatingOrDeleted(args.Target)
+            ? Transform(ent).Coordinates
+            : Transform(args.Target).Coordinates;
+
+        _resonator.BlastAt(ent.Comp.FieldProto, coords, args.Shooter, ent.Comp.BurstMultiplier);
     }
 
     private void OnMarkedMobStateChanged(Entity<ADTSyphonMarkComponent> ent, ref MobStateChangedEvent args)

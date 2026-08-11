@@ -50,6 +50,7 @@
     verbToggleOn: fire-extinguisher-component-verb-remove
     verbToggleOff: fire-extinguisher-component-verb-engage
   - type: SpraySafety
+  - type: SelfSpray # ADT-Tweak
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:

@@ -57,7 +57,7 @@
     Warden: 500
     # НИО
     ResearchAssistant: 200
-    Scientist: 300
+    Scientist: 400
     ADTRoboticist: 400
     ADTSeniorResearcher: 450
     # Юридический
