@@ -84,9 +84,9 @@ public abstract class SharedGasThermoMachineSystem : EntitySystem
         args.AddPercentageUpgrade("machine-upgrade-thermomachine-temp-range", (GetMaxTemperature(component) - GetMinTemperature(component)) / (component.MaxTemperature - component.MinTemperature));
     }
 
-    private static float GetMinTemperature(GasThermoMachineComponent component) => MathF.Max(Atmospherics.TCMB, component.MinTemperature - component.TemperatureRangeBonus);
+    public static float GetMinTemperature(GasThermoMachineComponent component) => MathF.Max(Atmospherics.TCMB, component.MinTemperature - component.TemperatureRangeBonus);
 
-    private static float GetMaxTemperature(GasThermoMachineComponent component) => component.MaxTemperature + component.TemperatureRangeBonus;
+    public static float GetMaxTemperature(GasThermoMachineComponent component) => component.MaxTemperature + component.TemperatureRangeBonus;
     // ADT-Tweak-End
 
     protected virtual void DirtyUI(EntityUid uid, GasThermoMachineComponent? thermoMachine, UserInterfaceComponent? ui=null) {}

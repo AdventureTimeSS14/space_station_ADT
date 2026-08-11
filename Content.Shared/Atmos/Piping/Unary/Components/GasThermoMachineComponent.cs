@@ -62,7 +62,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
         [DataField]
         public float HeatCapacityMultiplier = 1f;
 
-        [DataField]
+        [DataField, AutoNetworkedField]
         public float TemperatureRangeBonus = 0f;
         // ADT-Tweak-End
 
