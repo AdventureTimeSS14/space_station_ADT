@@ -160,6 +160,8 @@
       reagents:
       - ReagentId: Slime
         Quantity: 300
+  # ADT-Tweak: slime body is liquid, health analyzer shows fluid wording
+  - type: ADTFluidBody
   - type: Barotrauma
     damage:
       types:

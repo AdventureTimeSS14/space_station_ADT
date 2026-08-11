@@ -159,6 +159,8 @@
     bloodlossDamage:
       types:
         Bloodloss: 0.8
+  # ADT: drask body is cryoxadone-based liquid, health analyzer shows fluid wording
+  - type: ADTFluidBody
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.2

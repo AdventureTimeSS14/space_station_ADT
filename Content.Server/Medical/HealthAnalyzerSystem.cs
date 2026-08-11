@@ -1,6 +1,6 @@
 using Content.Server.Medical.Components;
 using Content.Shared.ADT.Addiction;
-using Content.Shared.ADT.SlimeBody;
+using Content.Shared.ADT.FluidBody;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Components;
@@ -321,7 +321,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             addictions // ADT-Tweak
         )
         {
-            BloodIsFluid = HasComp<ADTSlimeBodyComponent>(entity) // ADT-Tweak
+            BloodIsFluid = HasComp<ADTFluidBodyComponent>(entity) // ADT-Tweak: fluid-bodied races
         };
     }
 }

@@ -104,6 +104,8 @@
       reagents:
       - ReagentId: Plasma
         Quantity: 300
+  # ADT: novakid body is plasma-based liquid, health analyzer shows fluid wording
+  - type: ADTFluidBody
   - type: ZombieImmune
   - type: NovakidGlowing
   - type: PointLight

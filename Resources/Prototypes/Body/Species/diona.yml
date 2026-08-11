@@ -103,6 +103,8 @@
       reagents:
       - ReagentId: Sap
         Quantity: 300
+  # ADT-Tweak: diona body is sap-based liquid, health analyzer shows fluid wording
+  - type: ADTFluidBody
   - type: Reactive
     groups:
       Flammable: [ Touch ]
