@@ -13,7 +13,6 @@ public sealed partial class CrewManifestUiFragment : BoxContainer
     {
         RobustXamlLoader.Load(this);
 
-        StationName.AddStyleClass("LabelBig");
         Orientation = LayoutOrientation.Vertical;
         HorizontalExpand = true;
         VerticalExpand = true;
