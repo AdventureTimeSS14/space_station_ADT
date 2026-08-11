@@ -7,10 +7,6 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.ADT.ThermalVision;
 
-/// <summary>
-/// Client thermal vision via Starlight-style screen + through-walls highlight overlays.
-/// Hooks into existing ADT <see cref="SharedThermalVisionSystem"/> state (Off/Full).
-/// </summary>
 public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 {
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
@@ -18,16 +14,15 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
 
+    private ThermalVisionOverlay? _overlay;
     private ThermalVisionEntityHighlightOverlay _throughWallsOverlay = default!;
-    private ThermalVisionOverlay _overlay = default!;
-    private ThermalVisionOverlay _altOverlay = default!;
-    private GasTileThermalVisionOverlay _gasOverlay = default!;
     private EntityUid? _effect;
     private bool _active;
+    private bool _activeAlt;
 
-    private const string ThermalShaderId = "ADTThermalVisionScreenShader";
-    private const string ThermalAltShaderId = "ADTThermalVisionScreenShaderHalfAlpha";
-    private const string BrightnessShaderId = "ADTBrightnessShader";
+    private const string ScreenShaderId = "ADTThermalVisionScreenShader";
+    private const string ScreenShaderAltId = "ADTThermalVisionScreenShaderHalfAlpha";
+    private const string BodyShaderId = "ADTThermalBodyShader";
 
     public override void Initialize()
     {
@@ -36,10 +31,7 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         SubscribeLocalEvent<ThermalVisionComponent, LocalPlayerAttachedEvent>(OnAttached);
         SubscribeLocalEvent<ThermalVisionComponent, LocalPlayerDetachedEvent>(OnDetached);
 
-        _throughWallsOverlay = new(_prototypes.Index<ShaderPrototype>(BrightnessShaderId));
-        _overlay = new(_prototypes.Index<ShaderPrototype>(ThermalShaderId));
-        _altOverlay = new(_prototypes.Index<ShaderPrototype>(ThermalAltShaderId));
-        _gasOverlay = new GasTileThermalVisionOverlay();
+        _throughWallsOverlay = new(_prototypes.Index<ShaderPrototype>(BodyShaderId));
     }
 
     private void OnAttached(Entity<ThermalVisionComponent> ent, ref LocalPlayerAttachedEvent args)
@@ -69,23 +61,35 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 
     private void AttemptAddVision(Entity<ThermalVisionComponent> ent)
     {
+        if (_active && _activeAlt != ent.Comp.UseAlternativeShader)
+            AttemptRemoveVision(force: true);
+
         if (_active)
             return;
 
+        var shaderId = ent.Comp.UseAlternativeShader ? ScreenShaderAltId : ScreenShaderId;
+        if (!_prototypes.TryIndex<ShaderPrototype>(shaderId, out var screenShader))
+            return;
+
         _active = true;
+        _activeAlt = ent.Comp.UseAlternativeShader;
+
+        _overlay = new ThermalVisionOverlay(screenShader);
+        _overlayMan.AddOverlay(_overlay);
         _overlayMan.AddOverlay(_throughWallsOverlay);
+
+        _effect = SpawnAttachedTo(ent.Comp.EffectPrototype, Transform(ent).Coordinates);
+        _xform.SetParent(_effect.Value, ent.Owner);
 
         if (ent.Comp.HighlightOnly)
             return;
 
         _overlayMan.AddOverlay(_gasOverlay);
+
         if (ent.Comp.UseAlternativeShader)
             _overlayMan.AddOverlay(_altOverlay);
         else
             _overlayMan.AddOverlay(_overlay);
-
-        _effect = SpawnAttachedTo(ent.Comp.EffectPrototype, Transform(ent).Coordinates);
-        _xform.SetParent(_effect.Value, ent.Owner);
     }
 
     private void AttemptRemoveVision(bool force = false)
@@ -93,11 +97,20 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         if (_player.LocalEntity == null && !force)
             return;
 
-        _active = false;
+        if (!_active && _effect == null)
+            return;
 
-        _overlayMan.RemoveOverlay(_gasOverlay);
+        _active = false;
+        _activeAlt = false;
+
+        if (_overlay != null)
+        {
+            _overlayMan.RemoveOverlay(_overlay);
+            _overlay = null;
+        }
+
         _overlayMan.RemoveOverlay(_throughWallsOverlay);
-        _overlayMan.RemoveOverlay(_overlay);
+        _overlayMan.RemoveOverlay(_gasOverlay);
         _overlayMan.RemoveOverlay(_altOverlay);
 
         if (_effect != null)

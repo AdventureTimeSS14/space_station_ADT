@@ -64,10 +64,18 @@ public abstract class SharedWaddleAnimationSystem : EntitySystem
         if (!TryComp<InputMoverComponent>(entity.Owner, out var moverComponent))
             return;
 
-        if ((moverComponent.HeldMoveButtons & MoveButtons.AnyDirection) == MoveButtons.AnyDirection)
-        {
-            RaiseNetworkEvent(new StartedWaddlingEvent(GetNetEntity(entity.Owner)));
-        }
+        if ((moverComponent.HeldMoveButtons & MoveButtons.AnyDirection) == MoveButtons.None)
+            return;
+
+        if (entity.Comp.IsCurrentlyWaddling)
+            return;
+
+        if (!CanWaddle(entity.Owner))
+            return;
+
+        entity.Comp.IsCurrentlyWaddling = true;
+
+        RaiseNetworkEvent(new StartedWaddlingEvent(GetNetEntity(entity.Owner)));
     }
 
     private void OnMovementInput(Entity<WaddleAnimationComponent> entity, ref MoveInputEvent args)

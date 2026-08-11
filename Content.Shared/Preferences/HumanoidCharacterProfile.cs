@@ -152,6 +152,16 @@ namespace Content.Shared.Preferences
         private HashSet<ProtoId<LanguagePrototype>> _languages = new();
 
         public IReadOnlySet<ProtoId<LanguagePrototype>> Languages => _languages;
+
+        /// <summary>
+        /// Трайт, дающий один дополнительный слот языка в редакторе персонажа.
+        /// </summary>
+        private static readonly ProtoId<TraitPrototype> PolyglotTraitId = "Polyglot";
+
+        /// <summary>
+        /// Бонус к лимиту языков от выбранных трайтов (трайт «Полиглот»).
+        /// </summary>
+        public int LanguageSlotsBonus => TraitPreferences.Contains(PolyglotTraitId) ? 1 : 0;
         // ADT Languages end
 
         /// <summary>
@@ -990,7 +1000,7 @@ namespace Content.Shared.Preferences
                 return new(this);
             if (_languages.Contains(language))
                 return new(this);
-            if (_languages.Count >= species.MaxLanguages)
+            if (_languages.Count >= species.MaxLanguages + LanguageSlotsBonus)
                 return new(this);
 
             HashSet<ProtoId<LanguagePrototype>> list = new(_languages);
