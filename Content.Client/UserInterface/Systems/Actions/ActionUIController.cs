@@ -291,14 +291,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (actionId == SelectingTargetFor)
             StopTargeting();
 
-        // ADT-Tweak-Start
-        var removedIndex = _actions.IndexOf(actionId);
-        // ADT-Tweak-End
         _actions.RemoveAll(x => x == actionId);
-        // ADT-Tweak-Start
-        if (removedIndex >= 0)
-            ShiftPinnedSlots(removedIndex);
-        // ADT-Tweak-End
     }
 
     private void OnActionsUpdated()
