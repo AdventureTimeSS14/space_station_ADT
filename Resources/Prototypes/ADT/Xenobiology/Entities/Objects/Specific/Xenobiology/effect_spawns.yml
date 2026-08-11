@@ -1,6 +1,6 @@
 - type: entity
   id: XenoExtractChronofield
-  parent: EffectDesynchronizer
+  parent: Chronofield
   name: sepia chronofield
   components:
   - type: TimedDespawn

@@ -177,11 +177,11 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                 AlignContent = FlexBox.FlexAlignContent.SpaceBetween
             };
 
-            var sortedSubCategories = sortedWarps.OrderBy(kvp =>
+            var sortedSubCategories = sortedWarps.OrderByDescending(kvp =>
             {
                 var warps = kvp.Value;
                 if (warps == null || warps.Count == 0)
-                    return int.MaxValue;
+                    return int.MinValue;
                 return warps.Min(w => w.DepartmentWeight);
             }).ToList();
 

@@ -1,0 +1,117 @@
+- type: entity
+  id: ADTHierophantClub
+  name: hierophant club
+  description: The strange technology of this large club allows various nigh-magical feats. It used to beat you, but now you can set the beat.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/hierophant_club.rsi
+    layers:
+    - state: icon_ready_beacon
+      map: [ "base" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.HierophantClubVisuals.HasBeacon:
+        base:
+          True:
+            state: icon_ready
+          False:
+            state: icon_ready_beacon
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/hierophant_club-inhands.rsi
+    size: Ginormous
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/hierophant_club.rsi
+    slots:
+    - Back
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 15
+    soundHit:
+      path: /Audio/ADT/Hierophant/sonic_jackhammer.ogg
+  - type: HierophantClub
+    cardinalDamage: 15
+    chaserDamage: 15
+    blastRange: 11
+    range: 5
+  - type: ItemActionGrant
+    actions:
+    - ActionADTHierophantVortexRecall
+    - ActionADTHierophantToggleFriendlyFire
+  - type: ActionGrant
+    actions:
+    - ActionADTHierophantVortexRecall
+    - ActionADTHierophantToggleFriendlyFire
+  - type: Tag
+    tags:
+    - ADTHierophantClub
+
+- type: Tag
+  id: ADTHierophantClub
+
+- type: entity
+  id: ADTHierophantBeacon
+  name: hierophant beacon
+  description: A strange beacon, allowing mass teleportation for those able to use it.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Clickable
+  - type: Sprite
+    drawdepth: FloorObjects
+    sprite: ADT/Structures/hierophant_beacon.rsi
+    layers:
+    - state: off
+      map: [ "base" ]
+  - type: SyncSprite
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.HierophantBeaconVisuals.Charging:
+        base:
+          True:
+            state: on
+          False:
+            state: off
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 1.5
+    color: "#9933CC"
+  - type: HierophantBeacon
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+
+- type: entity
+  id: ADTKineticTrophyVortexTalisman
+  name: vortex talisman
+  description: A glowing trinket that was originally the Hierophant's beacon. Suitable as a trophy for a kinetic crusher.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/hierophant_loot.rsi
+    state: vortex_talisman
+  - type: Trophy
+    effects:
+    - !type:SpawnHierophantChaserEffect
+    examineText: adt-kinetic-trophy-vortex-talisman
+    trophyTag: ADTKineticTrophyVortexTalisman
+  - type: Tag
+    tags:
+    - ADTKineticTrophyVortexTalisman
+
+- type: Tag
+  id: ADTKineticTrophyVortexTalisman
+
+- type: entity
+  parent: ADTCrateNecropolis
+  id: ADTCrateHierophantLoot
+  name: vortex chest
+  description: A chest humming with the same energy the Hierophant was made of.

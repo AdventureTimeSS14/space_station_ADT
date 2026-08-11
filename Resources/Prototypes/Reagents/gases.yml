@@ -16,7 +16,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Arachnid ] # ADT-Tweak
+          type: [ Human, Animal, Rat, Plant, Arachnid, Moth, Drask, Resomi, Novakid, Ursus ] # ADT-Tweak
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -47,13 +47,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Arachnid, Moth ] # ADT-Tweak
-      # Start ADT tweak
-      - !type:Oxygenate
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Drask, Resomi, Novakid ]
-      # End ADT tweak
+          type: [ Human, Animal, Rat, Plant, Arachnid, Moth, Drask, Resomi, Novakid, Ursus ] # ADT-Tweak
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:

@@ -191,3 +191,14 @@
     - ADTSiliconEmotes
     - ADTIgnoreChokeSpeechBlocking
     - Unimplantable
+
+- type: trait
+  id: ADTInvertRun
+  name: trait-invert-run-name
+  description: trait-invert-run-desc
+  category: Quirks
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: ADTInvertRun

@@ -22,10 +22,6 @@
     thresholds:
       0: Alive
       2500: Dead
-  - type: Damageable
-    damageModifierSet: Bubblegum
-  - type: Injurable
-    damageContainer: Biological
   - type: MeleeWeapon
     attackRate: 0.85
     damage:
@@ -48,6 +44,8 @@
     rootTask:
       task: ADTBubblegumCompound
   - type: Megafauna
+  - type: ADTBossMusic
+    music: ADTBossMusicBubblegum
   - type: ArmorPenetration
     penetration: 0.5
   - type: Bubblegum

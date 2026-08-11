@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by discord:minokaa",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "capture_slime"
+    },
+    {
+      "name": "place_slime"
+    },
+    {
+      "name": "feed_monkey"
+    },
+    {
+      "name": "recycle_monkey"
+    },
+    {
+      "name": "return"
+    }
+  ]
+}

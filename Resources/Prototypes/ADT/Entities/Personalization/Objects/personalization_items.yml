@@ -3874,6 +3874,13 @@
         Structural: 12.5
   - type: UseDelay
     delay: 1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,3
+    storedSprite:
+      state: storage
+      sprite: ADT/Personalization/stryz_ani/assault_sledgehammer.rsi
 
 - type: entity
   parent: PlushieMoth

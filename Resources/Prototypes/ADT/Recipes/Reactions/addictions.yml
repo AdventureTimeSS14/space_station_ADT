@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2026 ultradyper <ultradyper@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: reaction
+  id: ADTDetoxin
+  reactants:
+    Charcoal:
+      amount: 1
+    Dylovene:
+      amount: 1
+  products:
+    ADTDetoxin: 2

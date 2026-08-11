@@ -954,7 +954,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: StaticPrice
-    price: 250
+    price: 260 # ADT-Tweak 250 > 260
   - type: RadiationBlocker
     resistance: 2 # ADT-Tweak
   - type: Sprite
