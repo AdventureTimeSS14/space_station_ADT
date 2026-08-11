@@ -22,6 +22,8 @@
   effects:
   - !type:AddictionTraitEffect
     kind: Alcohol
+  - !type:SpawnItemInBackpackEffect
+    item: DrinkBeerBottleFull
 
 - type: trait
   id: NicotineAddiction
@@ -38,6 +40,8 @@
   effects:
   - !type:AddictionTraitEffect
     kind: Nicotine
+  - !type:SpawnItemInBackpackEffect
+    item: ADTCigPackHalfSmoked
 
 - type: trait
   id: DrugAddiction
@@ -49,11 +53,19 @@
   - IPC
   - Diona
   - SlimePerson
+  # На командных ролях, ролях СБ и Центкома наркозависимость недоступна
+  # (проверяется клиентом в редакторе по High/Medium приоритетам и сервером при спавне).
+  departmentBlacklist:
+  - Command
+  - Security
+  - CentcomSpecialists
   conflicts:
   - RandomAddiction
   effects:
   - !type:AddictionTraitEffect
     kind: Drug
+  - !type:SpawnItemInBackpackEffect
+    item: PillSpaceDrugs
 
 - type: trait
   id: RandomAddiction
@@ -65,5 +77,11 @@
   - IPC
   - Diona
   - SlimePerson
+  # Рандом тоже может выпасть наркотическим, поэтому на командных/СБ/Центкоме
+  # недоступен целиком (клиент блокирует по High/Medium приоритетам, сервер при спавне).
+  departmentBlacklist:
+  - Command
+  - Security
+  - CentcomSpecialists
   effects:
   - !type:RandomAddictionEffect

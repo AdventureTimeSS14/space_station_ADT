@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.ADT.Addiction;
+using Content.Shared.ADT.Traits;
 using Content.Shared.Jittering;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Timing;
@@ -80,7 +81,7 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
         var wantSlurred = false;
         var wantStutter = false;
         var wantWeakness = false;
-        var wantRainbow = false;
+        var wantMonochromacy = false;
 
         foreach (var channel in comp.Channels)
         {
@@ -99,12 +100,12 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
                     wantStutter = true;
             }
 
-            // Стадия 3 (тяжёлая): слабость, у наркотиков галлюцинации
+            // Стадия 3 (тяжёлая): слабость, у наркотиков серый (монохромный) мир вместо радуги
             if (channel.Stage >= 3)
             {
                 wantWeakness = true;
                 if (channel.Kind == AddictionKind.Drug)
-                    wantRainbow = true;
+                    wantMonochromacy = true;
             }
         }
 
@@ -136,7 +137,22 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
         else
             _status.TryRemoveStatusEffect(uid, comp.WeaknessEffect);
 
-        if (wantRainbow)
-            _status.TrySetStatusEffectDuration(uid, comp.RainbowEffect, comp.SymptomDuration);
+        // Серый фильтр (Monochromacy) вместо радуги: компонент кладём на игрока,
+        // клиентский оверлей включается сам. Флаг отличает наш компонент от
+        // трайтового (дальтонизм): при окончании ломки снимаем только свой.
+        if (wantMonochromacy)
+        {
+            if (!HasComp<MonochromacyComponent>(uid) && !comp.WithdrawalMonochromacyApplied)
+            {
+                AddComp<MonochromacyComponent>(uid);
+                comp.WithdrawalMonochromacyApplied = true;
+            }
+        }
+        else if (comp.WithdrawalMonochromacyApplied)
+        {
+            if (HasComp<MonochromacyComponent>(uid))
+                RemComp<MonochromacyComponent>(uid);
+            comp.WithdrawalMonochromacyApplied = false;
+        }
     }
 }
