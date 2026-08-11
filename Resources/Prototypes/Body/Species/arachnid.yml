@@ -152,7 +152,7 @@
   - type: NightVision
     innate: true
     shader: ADTModernNightVisionShader
-    effectPrototype: ADTEffectNightVision
+    effectPrototype: ADTEffectNightVisionLow
   # ADT-Tweak end
   - type: CreamPied
     sprite:

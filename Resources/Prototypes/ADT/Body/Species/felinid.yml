@@ -157,7 +157,7 @@
   - type: NightVision
     innate: true
     shader: ADTModernNightVisionShader
-    effectPrototype: ADTEffectNightVision
+    effectPrototype: ADTEffectNightVisionLow
 
 - type: entity
   parent: OrganHumanTorso

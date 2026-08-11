@@ -1,9 +1,8 @@
-
-# Weak (3rd) — Фелинид, резоми, арахнид
+# Low — фелинид, резоми, арахнид
 - type: entity
-  id: ADTEffectNightVision
+  id: ADTEffectNightVisionLow
   categories: [ HideSpawnMenu ]
-  name: night vision
+  name: night vision low
   components:
   - type: PointLight
     color: "#FFFFFF"
@@ -13,11 +12,11 @@
     falloff: 5.0
     castShadows: true
 
-# Medium (2nd) — Сумеречники
+# MediumShadekin — сумеречники
 - type: entity
-  id: ADTEffectNightVisionMedium
+  id: ADTEffectNightVisionMediumShadekin
   categories: [ HideSpawnMenu ]
-  name: night vision medium
+  name: night vision medium shadekin
   components:
   - type: PointLight
     color: "#FFFFFF"
@@ -27,11 +26,11 @@
     falloff: 4.8
     castShadows: true
 
-# Medium-dark — Вульпы, нианы
+# Medium — вульпы, нианы
 - type: entity
-  id: ADTEffectNightVisionVulp
+  id: ADTEffectNightVisionMedium
   categories: [ HideSpawnMenu ]
-  name: vulpkanin night vision
+  name: night vision medium
   components:
   - type: PointLight
     color: "#FFFFFF"
@@ -41,11 +40,11 @@
     falloff: 5.0
     castShadows: true
 
-# Strong (1st) — таяры
+# Strong — таяры
 - type: entity
-  id: ADTEffectNightVisionTajaran
+  id: ADTEffectNightVisionStrong
   categories: [ HideSpawnMenu ]
-  name: tajaran night vision
+  name: night vision strong
   components:
   - type: PointLight
     color: "#FFFFFF"

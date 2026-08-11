@@ -99,7 +99,7 @@
   - type: NightVision
     innate: true
     shader: ADTModernNightVisionShaderMedium
-    effectPrototype: ADTEffectNightVisionVulp
+    effectPrototype: ADTEffectNightVisionMedium
 
 # - type: entity
 #   save: false

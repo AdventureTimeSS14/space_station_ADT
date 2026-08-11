@@ -247,7 +247,7 @@
   - type: NightVision
     innate: true
     shader: ADTModernNightVisionShaderMedium
-    effectPrototype: ADTEffectNightVisionMedium
+    effectPrototype: ADTEffectNightVisionMediumShadekin
 
 - type: entity
   parent: OrganBaseOrganic
