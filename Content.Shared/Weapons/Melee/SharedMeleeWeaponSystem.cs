@@ -7,6 +7,7 @@ using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.ADT.Implants;
 using Content.Shared.ADT.MartialArts;
+using Content.Shared.ADT.Weapons.Melee;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -401,6 +402,11 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         if (!CombatMode.IsInCombatMode(user))
             return false;
+
+        // ADT-Tweak-Start
+        if (attack is HeavyAttackEvent && HasComp<ADTNoWideAttackComponent>(weaponUid))
+            return false;
+        // ADT-Tweak-End
 
         EntityUid? target = null;
         switch (attack)

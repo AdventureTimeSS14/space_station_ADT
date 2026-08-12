@@ -1,3 +1,4 @@
+using Content.Server.ADT.Procedural;
 using Content.Server.Procedural;
 using Robust.Shared.Random;
 
@@ -11,7 +12,7 @@ public sealed class ADTRuinBeaconSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ADTRuinBeaconComponent, MapInitEvent>(OnMapInit, after: [typeof(RoomFillSystem)]);
+        SubscribeLocalEvent<ADTRuinBeaconComponent, MapInitEvent>(OnMapInit, after: [typeof(RoomFillSystem), typeof(ADTRoomFillSystem)]);
     }
 
     private void OnMapInit(Entity<ADTRuinBeaconComponent> ent, ref MapInitEvent args)

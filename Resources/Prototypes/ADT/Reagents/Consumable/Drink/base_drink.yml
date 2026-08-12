@@ -1,0 +1,49 @@
+- type: reagent
+  parent: BaseDrink
+  id: ADTBaseDrink
+  group: Drinks
+  abstract: true
+  slipData:
+    requiredSlipSpeed: 3.5
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+  reactiveEffects:
+    Extinguish:
+      methods: [ Touch ]
+      effects:
+      - !type:Extinguish
+  plantMetabolism:
+  - !type:PlantAdjustWater
+    amount: 1
+  tileReactions:
+  - !type:ExtinguishTileReaction { }
+  - !type:SpillIfPuddlePresentTileReaction { }
+
+- type: reagent
+  parent: BaseDrink
+  id: ADTBaseDrinkCold
+  group: Drinks
+  abstract: true
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:AdjustTemperature
+        amount: -500
+
+- type: reagent
+  parent: BaseDrink
+  id: ADTBaseDrinkHot
+  group: Drinks
+  abstract: true
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:AdjustTemperature
+        amount: 500
