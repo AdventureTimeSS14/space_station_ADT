@@ -35,3 +35,24 @@
         <Control SetHeight="26"/>
     </BoxContainer>
 </ui:HealthAnalyzerWindow>
+<!-- ADT-Tweak End -->
+
+<!-- ADT-Tweak - Deprecated Official UI
+    <controls:FancyWindow
+        xmlns="https://spacestation14.io"
+        xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+        xmlns:ui="clr-namespace:Content.Client.HealthAnalyzer.UI"
+        MaxHeight="525"
+        MinWidth="300">
+        <!-- ADT-Tweak: ScrollContainer закомментирован -->
+        <!-- <ScrollContainer
+            Margin="5 5 5 5"
+            ReturnMeasure="True"
+            VerticalExpand="True"> -->
+
+            <ui:HealthAnalyzerControl
+                Name="HealthAnalyzer"/>
+
+        <!-- </ScrollContainer> ADT-Tweak -->
+    </controls:FancyWindow>
+ADT-Tweak End -->

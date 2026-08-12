@@ -2,16 +2,11 @@
 ### UI
 
 # For the PDA screen
-# ADT-Tweak: light text for dark CRT monitor theme
 comp-pda-ui = ID: [color=white]{$owner}[/color], [color=yellow]{$jobTitle}[/color]
 
 comp-pda-ui-blank = ID:
 
 comp-pda-ui-owner = Owner: [color=white]{$actualOwnerName}[/color]
-
-comp-pda-ui-health-scan-title = MedTek
-comp-pda-ui-health-scan-trauma = Trauma:
-comp-pda-ui-health-scan-fluids = Body Fluids
 
 comp-pda-io-program-list-button = Programs
 

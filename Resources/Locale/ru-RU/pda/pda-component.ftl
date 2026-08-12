@@ -1,13 +1,14 @@
 ### UI
 
 # For the PDA screen
-# ADT-Tweak: светлый текст для тёмной CRT-темы
 comp-pda-ui = ID: [color=white]{ $owner }[/color], [color=yellow]{ CAPITALIZE($jobTitle) }[/color]
 comp-pda-ui-blank = ID:
 comp-pda-ui-owner = Владелец: [color=white]{ $actualOwnerName }[/color]
+#ADT-Tweak Start: New Titles
 comp-pda-ui-health-scan-title = МедТек
 comp-pda-ui-health-scan-trauma = Травмы:
 comp-pda-ui-health-scan-fluids = Жидкости организма
+#ADT-Tweak end
 comp-pda-io-program-list-button = Программы
 comp-pda-io-settings-button = Настройки
 comp-pda-io-program-fallback-title = Программа

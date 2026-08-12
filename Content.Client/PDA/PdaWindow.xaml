@@ -19,14 +19,21 @@
                  HorizontalExpand="True">
             <PanelContainer Name="ContentBorder" Access="Public" StyleClasses="PdaBackground"/>
             <Control Margin="3 3">
-                <!-- ADT-Tweak: CRT scanlines like portable crew monitoring -->
+                <!-- ADT-Tweak Start: scanlines -->
                 <crew:CrtScanlineBackground Name="ContentBackground" Access="Public"
                                             HorizontalExpand="True" VerticalExpand="True"/>
+                <!-- ADT-Tweak End -->
+
                 <BoxContainer Access="Public" Name="ContentsContainer" Orientation="Vertical" StyleClasses="PdaContent"/>
 
             </Control>
         </Control>
         <!-- ADT-Tweak: bottom bezel matches title-bar height (product name is in content footer) -->
         <Control SetHeight="26"/>
+        <!-- ADT-Tweak Deprecated footer:
+        <BoxContainer Orientation="Horizontal" SetHeight="28">
+            <Label Text="{Loc 'comp-pda-ui-footer'}" StyleClasses="PdaWindowFooterText" Margin="32 0 0 6"/>
+        </BoxContainer>
+        -->
     </BoxContainer>
 </pda:PdaWindow>

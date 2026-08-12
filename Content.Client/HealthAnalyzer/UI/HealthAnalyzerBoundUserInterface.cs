@@ -19,7 +19,7 @@ namespace Content.Client.HealthAnalyzer.UI
             base.Open();
 
             _window = this.CreateWindow<HealthAnalyzerWindow>();
-            //_window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName; #ADT-Tweak
+            //_window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName; #ADT-Tweak - Deprecated
         }
 
         protected override void ReceiveMessage(BoundUserInterfaceMessage message)

@@ -21,11 +21,12 @@ public sealed partial class PdaSettingsButton : ContainerButton
         BackgroundColor = Color.FromHex("#25252a")
     };
 
-    // ADT-Tweak: optional light CRT theme overrides (stylesheet ignored when set)
+    // ADT-Tweak Start: Theme override
     public Color? ThemeNormalBg { get; set; }
     public Color? ThemeHoverBg { get; set; }
     public Color? ThemeFg { get; set; }
     public Color? ThemeDisabledFg { get; set; }
+    // ADT-Tweak End
 
     public string? Text
     {

@@ -80,7 +80,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             }
 
             component.IsAnalyzerActive = true;
-            UpdateScannedUser(uid, patient, true, openUi: false);
+            UpdateScannedUser(uid, patient, true, openUi: false); // ADT-Tweak - OpenUI state
         }
     }
 
@@ -177,7 +177,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
     private void OpenUserInterface(EntityUid user, EntityUid analyzer)
     {
-        // ADT-Tweak start: PDA MedTek opens the PDA UI with scan data, not a separate analyzer window
+        // ADT-Tweak start: PDA MedTek opens the PDA UI
         if (HasComp<PdaComponent>(analyzer))
         {
             if (!_uiSystem.HasUi(analyzer, PdaUiKey.Key))
@@ -206,8 +206,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         _toggle.TryActivate(healthAnalyzer.Owner);
 
-        // ADT-Tweak: openUi navigates PDA/analyzer UI; tick updates must not.
-        UpdateScannedUser(healthAnalyzer, target, true, openUi: true);
+        UpdateScannedUser(healthAnalyzer, target, true, openUi: true);   // ADT-Tweak
     }
 
     /// <summary>
@@ -222,7 +221,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         _toggle.TryDeactivate(healthAnalyzer.Owner);
 
-        UpdateScannedUser(healthAnalyzer, target, false, openUi: false);
+        UpdateScannedUser(healthAnalyzer, target, false, openUi: false);    // ADT-Tweak
     }
 
 
@@ -236,7 +235,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         if (!healthAnalyzer.Comp.IsAnalyzerActive)
             return;
 
-        UpdateScannedUser(healthAnalyzer, target, false, openUi: false);
+        UpdateScannedUser(healthAnalyzer, target, false, openUi: false);    // ADT-Tweak
         healthAnalyzer.Comp.IsAnalyzerActive = false;
     }
 
@@ -246,7 +245,6 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// <param name="healthAnalyzer">The health analyzer</param>
     /// <param name="target">The entity being scanned</param>
     /// <param name="scanMode">True makes the UI show ACTIVE, False makes the UI show INACTIVE</param>
-    /// <param name="openUi">When true, client should navigate to the analyzer/MedTek view</param>
     public void UpdateScannedUser(EntityUid healthAnalyzer, EntityUid target, bool scanMode, bool openUi = false) // ADT-Tweak
     {
         if (!HasComp<DamageableComponent>(target))
@@ -256,7 +254,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         uiState.ScanMode = scanMode;
         var message = new HealthAnalyzerScannedUserMessage(uiState, openUi); // ADT-Tweak
 
-        // ADT-Tweak start: route PDA scanner updates into the PDA interface
+        // ADT-Tweak Start: scanner updates into the PDA interface
         if (HasComp<PdaComponent>(healthAnalyzer))
         {
             if (!_uiSystem.HasUi(healthAnalyzer, PdaUiKey.Key))
@@ -265,15 +263,15 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             _uiSystem.ServerSendUiMessage(healthAnalyzer, PdaUiKey.Key, message);
             return;
         }
-        // ADT-Tweak end
 
         if (!_uiSystem.HasUi(healthAnalyzer, HealthAnalyzerUiKey.Key))
             return;
+        // ADT-Tweak End
 
         _uiSystem.ServerSendUiMessage(
             healthAnalyzer,
             HealthAnalyzerUiKey.Key,
-            message
+            message     // ADT-Tweak
         );
     }
 

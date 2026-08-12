@@ -1,7 +1,7 @@
 using Content.Client.CartridgeLoader;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.MedicalScanner;
+using Content.Shared.MedicalScanner;    // ADT-Tweak
 using Content.Shared.PDA;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;

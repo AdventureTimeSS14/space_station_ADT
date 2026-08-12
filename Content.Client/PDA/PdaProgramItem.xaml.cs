@@ -17,10 +17,11 @@ public sealed partial class PdaProgramItem : ContainerButton
         BackgroundColor = Color.FromHex("#25252a"),
     };
 
-    // ADT-Tweak: optional light CRT theme overrides (stylesheet ignored when set)
+    // ADT-Tweak Start:  Theme override
     public Color? ThemeNormalBg { get; set; }
     public Color? ThemeHoverBg { get; set; }
     public Color? ThemeFg { get; set; }
+    // ADT-Tweak End
 
     public Color BackgroundColor
     {
@@ -38,7 +39,7 @@ public sealed partial class PdaProgramItem : ContainerButton
     {
         base.Draw(handle);
 
-        // ADT-Tweak start
+        // ADT-Tweak Start
         if (ThemeNormalBg != null && ThemeHoverBg != null)
         {
             var hovered = HasStylePseudoClass(StylePseudoClassHover)
@@ -48,7 +49,7 @@ public sealed partial class PdaProgramItem : ContainerButton
                 ProgramName.FontColorOverride = ThemeFg;
             return;
         }
-        // ADT-Tweak end
+        // ADT-Tweak End
 
         if (TryGetStyleProperty<Color>(StylePropertyBgColor, out var bgColor))
             BackgroundColor = bgColor;

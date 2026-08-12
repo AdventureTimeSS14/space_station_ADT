@@ -25,9 +25,8 @@
     </BoxContainer>
     <!-- ADT-Tweak: themed rule under the nav bar -->
     <PanelContainer Name="NavAccentLine" Access="Public" MinHeight="2" MaxHeight="2" HorizontalExpand="True"/>
-    <BoxContainer Name="ViewContainer" HorizontalExpand="True" VerticalExpand="True" Access="Public">
     <!-- ADT-Tweak End -->
-
+    <BoxContainer Name="ViewContainer" HorizontalExpand="True" VerticalExpand="True" Access="Public">
         <BoxContainer Orientation="Vertical"
                       VerticalExpand="True"
                       HorizontalExpand="True"
@@ -102,7 +101,7 @@
     <!-- ADT-Tweak End -->
 
     </BoxContainer>
-    <!-- ADT-Tweak: content footer stripe — OS version + product name + address -->
+    <!-- ADT-Tweak: content footer stripe -->
     <PanelContainer Name="ContentFooterPanel" Access="Public" HorizontalExpand="True" SetHeight="28" Margin="1 0 2 1">
         <controls:StripeBack Name="FooterStripe" Access="Public" HasBottomEdge="False" HasMargins="False"
                              HorizontalExpand="True" VerticalExpand="True">

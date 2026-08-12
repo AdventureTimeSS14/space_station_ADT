@@ -38,18 +38,19 @@ namespace Content.Client.PDA
         private string _alertLevel = Loc.GetString("comp-pda-ui-unknown");
         private string _instructions = Loc.GetString("comp-pda-ui-unknown");
 
-        // ADT-Tweak: cached light interior palette for dynamically created controls
-        private PdaInteriorPalette? _interiorPalette;
 
         private int _currentView;
 
         public event Action<EntityUid>? OnProgramItemPressed;
         public event Action<EntityUid>? OnUninstallButtonPressed;
         public event Action<EntityUid>? OnInstallButtonPressed;
-        /// <summary>ADT-Tweak: fired when leaving the MedTek view via home / programs / settings.</summary>
+        // ADT-Tweak Start
         public event Action? OnLeftMedTekView;
-        /// <summary>ADT-Tweak: current PDA view changed.</summary>
         public event Action<int>? OnViewChanged;
+
+        private PdaInteriorPalette? _interiorPalette;
+        // ADT-Tweak End
+
         public PdaMenu()
         {
             IoCManager.InjectDependencies(this);
@@ -104,9 +105,10 @@ namespace Content.Client.PDA
                 SettingsButton.IsCurrent = false;
                 ProgramTitle.IsCurrent = true;
 
-                // ADT-Tweak: MedTek uses the program title tab — don't jump to empty cartridge view
+                // ADT-Tweak Start: MedTek uses the program title tab
                 if (_currentView == HealthScanViewIndex)
                     return;
+                // ADT-Tweak End
 
                 ChangeView(ProgramContentView);
             };
@@ -343,17 +345,13 @@ namespace Content.Client.PDA
                 OnLeftMedTekView?.Invoke();
         }
 
-        /// <summary>
         /// Updates MedTek contents without changing the current PDA view.
-        /// </summary>
         public void UpdateHealthScanData(HealthAnalyzerUiState state)
         {
             HealthScanView.Populate(state);
         }
 
-        /// <summary>
         /// Shows built-in health analyzer data inside the PDA instead of a separate window.
-        /// </summary>
         public void ShowHealthScan(HealthAnalyzerUiState state)
         {
             HealthScanView.Populate(state);
@@ -373,10 +371,7 @@ namespace Content.Client.PDA
             ChangeView(HealthScanViewIndex);
         }
 
-        /// <summary>
         /// Restores a non-MedTek view before the PDA becomes visible again.
-        /// The actual cartridge fragment is attached by the normal BUI state update.
-        /// </summary>
         public void RestoreView(int view)
         {
             if (view is < HomeView or > ProgramContentView)
@@ -421,10 +416,7 @@ namespace Content.Client.PDA
             HealthScanView.ApplyDividerColor(color);
         }
 
-        /// <summary>
         /// Paints everything inside the PDA content frame from the secondary accent.
-        /// Screen tone ≈ portable-monitor left CRT; chrome/controls only rise above it.
-        /// </summary>
         public void ApplyInteriorTheme(Color secondary, Color _)
         {
             var palette = PdaInteriorTheme.FromSecondary(secondary);
@@ -460,7 +452,6 @@ namespace Content.Client.PDA
             OsLabel.FontColorOverride = palette.FooterFg;
             ProductLabel.FontColorOverride = palette.FooterFg;
             AddressLabel.FontColorOverride = palette.FooterFg;
-            // Keep StripeBack hatch readable: bright tint only, no dark plate underneath.
             ContentFooterPanel.PanelOverride = null;
             FooterStripe.ModulateSelfOverride = palette.FooterStripe;
             NavAccentLine.PanelOverride = new StyleBoxFlat { BackgroundColor = palette.Divider };
@@ -482,9 +473,7 @@ namespace Content.Client.PDA
             ThemeProgramView();
         }
 
-        /// <summary>
-        /// Re-applies the interior palette to the active cartridge UI (and any dynamic children).
-        /// </summary>
+        /// Re-applies the interior palette to the active cartridge UI.
         public void ThemeProgramView()
         {
             if (_interiorPalette is not { } palette)
@@ -525,7 +514,7 @@ namespace Content.Client.PDA
             ViewContainer.GetChild(_currentView).Visible = false;
             ViewContainer.GetChild(view).Visible = true;
             _currentView = view;
-            OnViewChanged?.Invoke(view);
+            OnViewChanged?.Invoke(view);    //ADT-Tweak
         }
 
         private static BoxContainer CreateProgramListRow()

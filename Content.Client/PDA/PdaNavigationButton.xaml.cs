@@ -90,11 +90,12 @@ public sealed partial class PdaNavigationButton : ContainerButton
         }
     }
 
-    // ADT-Tweak
+    // ADT-Tweak Start
     public void SetBorderColor(Color color)
     {
         _styleBox.BorderColor = color;
     }
+    // ADT-Tweak End
 
     public bool IsActive
     {
