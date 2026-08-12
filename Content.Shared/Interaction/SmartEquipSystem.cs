@@ -247,8 +247,11 @@ public sealed class SmartEquipSystem : EntitySystem
             return;
         }
 
-        _inventory.TryUnequip(uid, equipmentSlot, inventory: inventory, predicted: true, checkDoafter: true);
-        // ADT-Tweak-Start: put the item back if the pickup fails (e.g. combat mode pickup restrictions).
+        // ADT-Tweak-Start: unequip can start a do-after and return false (item stays in slot);
+        // pickup can fail in combat mode, then put the item back.
+        if (!_inventory.TryUnequip(uid, equipmentSlot, inventory: inventory, predicted: true, checkDoafter: true))
+            return;
+
         if (!_hands.TryPickup(uid, slotItem, handsComp: hands))
             _inventory.TryEquip(uid, slotItem, equipmentSlot, predicted: true, checkDoafter: true);
         // ADT-Tweak-End

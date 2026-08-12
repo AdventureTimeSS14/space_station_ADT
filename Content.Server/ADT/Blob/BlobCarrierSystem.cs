@@ -52,11 +52,7 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
     private void OnRemove(Entity<BlobCarrierComponent> ent, ref ComponentRemove args)
     {
         if (TryComp<LanguageSpeakerComponent>(ent.Owner, out var comp))
-        {
-            comp.Languages.Remove(BlobLang);
-            if (comp.CurrentLanguage == BlobLang)
-                _language.SelectDefaultLanguage(ent.Owner, comp);
-        }
+            _language.RemoveLanguage(ent.Owner, BlobLang, comp);
 
         if (ent.Comp.TransformToBlob != null)
             _action.RemoveAction(ent.Owner, ent.Comp.TransformToBlob.Value);

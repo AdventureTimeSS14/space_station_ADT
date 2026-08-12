@@ -74,11 +74,7 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
             return;
 
         if (TryComp<LanguageSpeakerComponent>(args.Container.Owner, out var mind))
-        {
-            mind.Languages.Remove(zombieBlob.CollectiveMindAdded);
-            if (mind.CurrentLanguage == zombieBlob.CollectiveMindAdded.Id)
-                _language.SelectDefaultLanguage(args.Container.Owner, mind);
-        }
+            _language.RemoveLanguage(args.Container.Owner, zombieBlob.CollectiveMindAdded, mind);
 
         RemCompDeferred<ZombieBlobComponent>(args.Container.Owner);
     }

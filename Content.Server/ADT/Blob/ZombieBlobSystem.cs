@@ -235,11 +235,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         if (args.NewMobState == MobState.Dead)
         {
             if (TryComp<LanguageSpeakerComponent>(uid, out var comp))
-            {
-                comp.Languages.Remove(component.CollectiveMindAdded);
-                if (comp.CurrentLanguage == component.CollectiveMindAdded.Id)
-                    _language.SelectDefaultLanguage(uid, comp);
-            }
+                _language.RemoveLanguage(uid, component.CollectiveMindAdded, comp);
             RemComp<ZombieBlobComponent>(uid);
         }
     }
