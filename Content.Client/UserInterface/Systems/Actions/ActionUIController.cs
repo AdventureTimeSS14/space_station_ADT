@@ -22,6 +22,7 @@ using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Graphics.RSI;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
@@ -53,6 +54,14 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     private ActionButtonContainer? _container;
     private readonly List<EntityUid?> _actions = new();
+
+    // ADT-Tweak-Start
+    /// <summary>
+    /// Manually placed action positions (action prototype id -> slot index), restored after actions are re-linked
+    /// (body change, polymorph, death/ghost). Kept for the duration of the round.
+    /// </summary>
+    private readonly Dictionary<string, int> _pinnedSlots = new();
+    // ADT-Tweak-End
     private readonly DragDropHelper<ActionButton> _menuDragHelper;
     private readonly TextureRect _dragShadow;
     private ActionsWindow? _window;
@@ -96,6 +105,10 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     private void OnScreenUnload()
     {
+        // ADT-Tweak-Start
+        // Сброс ручных позиций кнопок способностей при выгрузке экрана.
+        _pinnedSlots.Clear();
+        // ADT-Tweak-End
         UnloadGui();
     }
 
@@ -258,6 +271,14 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         if (_actions.Contains(action))
             return;
+
+        // ADT-Tweak-Start
+        if (GetActionKey(actionId) is {} key && _pinnedSlots.TryGetValue(key, out var targetIndex))
+        {
+            _actions.Insert(Math.Min(targetIndex, _actions.Count), actionId);
+            return;
+        }
+        // ADT-Tweak-End
 
         _actions.Add(action);
     }
@@ -439,7 +460,15 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             if (_container?.TryGetButtonIndex(button, out position) ?? false)
             {
                 if (_actions.Count > position && position >= 0)
+                // ADT-Tweak-Start
+                {
+                    if (_actions[position] is {} oldAction && GetActionKey(oldAction) is {} oldKey)
+                        _pinnedSlots.Remove(oldKey);
+
                     _actions.RemoveAt(position);
+                    ShiftPinnedSlots(position);
+                }
+                // ADT-Tweak-End
             }
         }
         else if (button.TryReplaceWith(actionId.Value, _actionsSystem) &&
@@ -454,6 +483,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             {
                 _actions[position] = actionId;
             }
+
+            // ADT-Tweak-Start
+            if (GetActionKey(actionId.Value) is {} key)
+                _pinnedSlots[key] = position;
+            // ADT-Tweak-End
         }
 
         if (updateSlots)
@@ -770,7 +804,62 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             if (!_actions.Contains(action))
                 _actions.Add(action);
         }
+
+        // ADT-Tweak-Start
+        ApplyPinnedSlots();
     }
+
+    /// <summary>
+    /// Restores manually placed action positions after actions are re-linked. Actions that no longer exist
+    /// are ignored, new actions keep their default spots.
+    /// </summary>
+    private void ApplyPinnedSlots()
+    {
+        if (_pinnedSlots.Count == 0 || _actionsSystem == null)
+            return;
+
+        var byKey = new Dictionary<string, EntityUid>();
+        foreach (var (uid, _) in _actionsSystem.GetClientActions())
+        {
+            if (GetActionKey(uid) is {} key && !byKey.ContainsKey(key))
+                byKey[key] = uid;
+        }
+
+        foreach (var (key, targetIndex) in _pinnedSlots.OrderBy(x => x.Value))
+        {
+            if (!byKey.TryGetValue(key, out var actionId))
+                continue;
+
+            var currentIndex = _actions.IndexOf(actionId);
+            if (currentIndex == targetIndex)
+                continue;
+
+            if (currentIndex == -1)
+            {
+                _actions.Insert(Math.Min(targetIndex, _actions.Count), actionId);
+                continue;
+            }
+
+            _actions.RemoveAt(currentIndex);
+            _actions.Insert(Math.Min(targetIndex, _actions.Count), actionId);
+        }
+    }
+
+    private string? GetActionKey(EntityUid actionId)
+    {
+        return EntityManager.GetComponent<MetaDataComponent>(actionId).EntityPrototype?.ID;
+    }
+
+    /// <summary>
+    /// Shifts pinned slot indexes after an action was removed from the list.
+    /// </summary>
+    private void ShiftPinnedSlots(int removedIndex)
+    {
+        var keysToShift = _pinnedSlots.Where(x => x.Value > removedIndex).Select(x => x.Key).ToList();
+        foreach (var key in keysToShift)
+            _pinnedSlots[key]--;
+    }
+    // ADT-Tweak-End
 
     /// <summary>
     /// If currently targeting with this slot, stops targeting.

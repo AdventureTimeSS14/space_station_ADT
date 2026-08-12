@@ -70,6 +70,8 @@
     slots: [underwearb, underweart]
   - type: Tag
     tags:
+      - ClothMade
+      - Recyclable
       - ADTJumpSuitSacrifice
       - WhitelistChameleon
   - type: HidesSlots

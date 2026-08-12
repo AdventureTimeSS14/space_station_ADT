@@ -249,8 +249,8 @@
     #- ADTMegaCellPack
     - ADTBeltManipulatorPack
     #ADT-tweak-end
-    # - XenobioPack #ADT Tweak - закомментировано пока не готовы зоны
-    # - XenobagHoldingPack #ADT Tweak - закомментировано пока не готовы зоны
+    - XenobioPack #ADT Tweak
+    - XenobagHoldingPack #ADT Tweak
     - ADTBluespaceCrystalTech #ADT Tweak
     - PartsDynamic #ADT-Tweak: machine parts
   - type: EmagLatheRecipes
