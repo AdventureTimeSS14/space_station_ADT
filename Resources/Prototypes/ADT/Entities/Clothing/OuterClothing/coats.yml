@@ -741,3 +741,7 @@
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHatVoxHood
     slot: head
+- type: ContainerContainer # Я не знаю зачем
+    containers:
+      storagebase: !type:Container
+      toggleable-clothing: !type:ContainerSlot
