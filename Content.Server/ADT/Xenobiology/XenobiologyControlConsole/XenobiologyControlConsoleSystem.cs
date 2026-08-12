@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.NPC.HTN;
 using Content.Server.Speech.Components;
+using Content.Shared.ADT.Areas;
 using Content.Shared.ADT.Xenobiology.Components;
 using Content.Shared.ADT.Xenobiology.XenobiologyControlConsole;
 using Content.Shared.Access.Components;
@@ -41,6 +42,7 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedDeviceLinkSystem _deviceLink = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
+    [Dependency] private readonly AreaSystem _area = default!;
 
     private static readonly EntProtoId[] PilotActions =
     [
@@ -132,8 +134,13 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
 
     private void EnterPilotMode(Entity<XenobiologyControlConsoleComponent> ent, EntityUid user)
     {
-        var eye = Spawn(ent.Comp.EyeProto, Transform(ent).Coordinates);
-        AddComp(eye, new XenobiologyEyeComponent { Pilot = user, Console = ent });
+        var xform = Transform(ent);
+        var spawnCoords = xform.Coordinates;
+        if (_area.TryGetAreaCenter(ent.Comp.Area, xform.GridUid ?? EntityUid.Invalid, out var zoneCenter))
+            spawnCoords = zoneCenter;
+
+        var eye = Spawn(ent.Comp.EyeProto, spawnCoords);
+        AddComp(eye, new XenobiologyEyeComponent { Pilot = user, Console = ent, AllowedArea = ent.Comp.Area });
 
         if (TryComp<EyeComponent>(user, out var eyeComp))
         {
@@ -143,7 +150,8 @@ public sealed class XenobiologyControlConsoleSystem : EntitySystem
 
         _mover.SetRelay(user, eye);
 
-        EnsureComp<StationAiOverlayComponent>(user);
+        var overlay = EnsureComp<StationAiOverlayComponent>(user);
+        overlay.VisionNetwork = ent.Comp.Area;
 
         var pilot = AddComp<XenobiologyEyePilotComponent>(user);
         pilot.Console = ent;

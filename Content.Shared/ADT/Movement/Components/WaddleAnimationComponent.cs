@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Movement.Components;
@@ -26,7 +27,7 @@ public sealed class StoppedWaddlingEvent(NetEntity entity) : EntityEventArgs
 /// <summary>
 /// Defines something as having a waddle animation when it moves.
 /// </summary>
-[RegisterComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class WaddleAnimationComponent : Component
 {
     /// <summary>
