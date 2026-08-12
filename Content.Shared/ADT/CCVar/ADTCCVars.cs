@@ -406,5 +406,36 @@ public sealed class ADTCCVars
 
     public static readonly CVarDef<int> AntagRollBonusInfoRateLimitCount =
         CVarDef.Create("antag.roll_bonus_info_rate_limit_count", 3, CVar.SERVERONLY);
+
+    /*
+    * Drunk improvements
+    */
+    public static readonly CVarDef<float> DrunkSwayAmplitude =
+        CVarDef.Create("adt.drunk_sway_amplitude", 0.12f, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> DrunkLurchChance =
+        CVarDef.Create("adt.drunk_lurch_chance", 0.35f, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> DrunkLurchAngle =
+        CVarDef.Create("adt.drunk_lurch_angle", 0.25f, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> DrunkLurchInterval =
+        CVarDef.Create("adt.drunk_lurch_interval", 3f, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> DrunkFallChance =
+        CVarDef.Create("adt.drunk_fall_chance", 0.025f, CVar.SERVER | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> DrunkFallCooldown =
+        CVarDef.Create("adt.drunk_fall_cooldown", 12f, CVar.SERVER | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> DrunkKnockdownTime =
+        CVarDef.Create("adt.drunk_knockdown_time", 1.75f, CVar.SERVER | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     Порог остатка опьянения (сек), с которого работают пьяные эффекты.
+    ///     Совпадает с порогом размытия экрана в DrunkOverlay (50 сек).
+    /// </summary>
+    public static readonly CVarDef<float> DrunkVisualThreshold =
+        CVarDef.Create("adt.drunk_visual_threshold", 50f, CVar.SERVER | CVar.ARCHIVE);
 }
 
