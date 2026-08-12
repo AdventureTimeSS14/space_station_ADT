@@ -2,10 +2,8 @@ ent-ShowSecurityIcons = { "" }
     .desc = { "" }
 ent-ShowMedicalIcons = { "" }
     .desc = { "" }
-# ADT-Tweak-Start: из описания убраны экзокостюмы (мехи не поддерживаются визором)
 ent-ClothingEyesHudDiagnostic = диагностический визор
     .desc = Окуляр с индикатором на стекле, способный анализировать целостность и состояние роботов. Сделан из си-боргия.
-# ADT-Tweak-End
 ent-ClothingEyesHudMedical = медицинский визор
     .desc = Окуляр с индикатором на стекле, который сканирует гуманоидов в поле зрения и предоставляет точные данные о состоянии их здоровья.
 ent-ClothingEyesHudSecurity = визор охраны
@@ -47,9 +45,7 @@ ent-ClothingEyesEyepatchHudBeer = пивной монокуляр
     .desc = Пара солнцезащитных очков, оснащённых сканером реагентов, а также дающих понимание вязкости жидкости во время движения. Для настоящих патриотов.
 ent-ClothingEyesEyepatchHudBeerFlipped = пивной монокуляр
     .desc = { ent-ClothingEyesEyepatchHudBeer.desc }
-# ADT-Tweak-Start: из описания убраны экзокостюмы (мехи не поддерживаются визором)
 ent-ClothingEyesEyepatchHudDiag = диагностический моновизор
     .desc = Окуляр с индикатором на стекле, способный анализировать целостность и состояние роботов. Сделан из си-боргия.
-# ADT-Tweak-End
 ent-ClothingEyesEyepatchHudDiagFlipped = diagnostic hud eyepatch
     .desc = { ent-ClothingEyesEyepatchHudDiag.desc }

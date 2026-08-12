@@ -39,9 +39,9 @@
     damageContainers:
     - Inorganic
     - Silicon
-    # ADT-Tweak Start: КПБ (IPC) видны в диагностическом визоре
+    # ADT-Tweak-Start: КПБ (IPC) видны в диагностическом визоре
     - ADTSiliconDamageContainer
-    # ADT-Tweak End
+    # ADT-Tweak-End
   - type: ShowAccessReaderSettings
 
 - type: entity
