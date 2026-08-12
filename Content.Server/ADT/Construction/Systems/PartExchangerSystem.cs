@@ -60,7 +60,7 @@ public sealed class PartExchangerSystem : EntitySystem
 
     private void OnUiOpened(EntityUid uid, PartExchangerComponent component, BoundUIOpenedEvent args)
     {
-        if (args.UiKey != PartExchangerUiKey.Key)
+        if (args.UiKey is not PartExchangerUiKey uiKey || uiKey != PartExchangerUiKey.Key)
             return;
 
         UpdateUiState(uid, component);
