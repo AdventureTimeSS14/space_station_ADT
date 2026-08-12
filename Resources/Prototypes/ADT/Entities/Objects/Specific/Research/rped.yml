@@ -17,6 +17,16 @@
   - type: GuideHelp
     guides:
     - MachineParts
+  - type: ActionGrant
+    actions:
+    - ActionRpedFilter
+  - type: ItemActionGrant
+    actions:
+    - ActionRpedFilter
+  - type: UserInterface
+    interfaces:
+      enum.PartExchangerUiKey.Key:
+        type: PartExchangerFilterBoundUserInterface
   - type: Storage
     grid:
       - 0,0,5,3

@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Construction.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -23,4 +24,7 @@ public sealed partial class PartExchangerComponent : Component
 
     [DataField]
     public EntProtoId? ExchangeBeamPrototype;
+
+    [DataField]
+    public List<ProtoId<MachinePartPrototype>> FilteredParts = new();
 }

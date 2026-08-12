@@ -5,6 +5,7 @@ using Content.Server.Construction;
 using Content.Server.Construction.Components;
 using Content.Server.Stack;
 using Content.Server.Storage.EntitySystems;
+using Content.Shared.ADT.Construction;
 using Content.Shared.ADT.Construction.Components;
 using Content.Shared.ADT.Construction.Events;
 using Content.Shared.ADT.Construction.Prototypes;
@@ -15,6 +16,7 @@ using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Storage;
 using Content.Shared.Wires;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -37,12 +39,67 @@ public sealed class PartExchangerSystem : EntitySystem
     [Dependency] private readonly MachineFrameSystem _machineFrame = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private readonly BeamSystem _beam = default!;
+    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<MachineComponent, InteractUsingEvent>(OnMachineInteractUsing);
         SubscribeLocalEvent<PartExchangerComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<PartExchangerComponent, ExchangerDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<PartExchangerComponent, PartExchangerFilterActionEvent>(OnFilterAction);
+        SubscribeLocalEvent<PartExchangerComponent, BoundUIOpenedEvent>(OnUiOpened);
+        SubscribeLocalEvent<PartExchangerComponent, PartExchangerFilterChangedMessage>(OnFilterChanged);
+    }
+
+    private void OnFilterAction(EntityUid uid, PartExchangerComponent component, PartExchangerFilterActionEvent args)
+    {
+        _ui.OpenUi(uid, PartExchangerUiKey.Key, args.Performer);
+        args.Handled = true;
+    }
+
+    private void OnUiOpened(EntityUid uid, PartExchangerComponent component, BoundUIOpenedEvent args)
+    {
+        if (args.UiKey != PartExchangerUiKey.Key)
+            return;
+
+        UpdateUiState(uid, component);
+    }
+
+    private void OnFilterChanged(EntityUid uid, PartExchangerComponent component, PartExchangerFilterChangedMessage args)
+    {
+        component.FilteredParts = args.SelectedParts;
+        UpdateUiState(uid, component);
+
+        var message = component.FilteredParts.Count == 0
+            ? Loc.GetString("part-exchanger-filter-reset")
+            : Loc.GetString("part-exchanger-filter-set");
+        _popup.PopupEntity(message, uid, args.Actor);
+    }
+
+    private void UpdateUiState(EntityUid uid, PartExchangerComponent component)
+    {
+        var available = new HashSet<ProtoId<MachinePartPrototype>>();
+        if (TryComp<StorageComponent>(uid, out var storage))
+        {
+            foreach (var itemUid in storage.Container.ContainedEntities)
+            {
+                if (!TryComp<MachinePartComponent>(itemUid, out var part))
+                    continue;
+
+                available.Add(part.Part);
+            }
+        }
+
+        var ordered = available
+            .OrderBy(id => _proto.TryIndex(id, out var partProto) ? partProto.SortPriority : int.MaxValue)
+            .ToList();
+
+        _ui.SetUiState(uid, PartExchangerUiKey.Key, new PartExchangerFilterState
+        {
+            AvailableParts = ordered,
+            SelectedParts = component.FilteredParts,
+        });
     }
 
     private void OnMachineInteractUsing(EntityUid uid, MachineComponent component, InteractUsingEvent args)
@@ -172,6 +229,9 @@ public sealed class PartExchangerSystem : EntitySystem
 
         foreach (var (partType, current) in machineParts)
         {
+            if (component.FilteredParts.Count > 0 && !component.FilteredParts.Contains(partType))
+                continue;
+
             if (!storageParts.TryGetValue(partType, out var available))
                 continue;
 

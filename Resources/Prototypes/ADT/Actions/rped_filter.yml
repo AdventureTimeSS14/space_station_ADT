@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseAction
+  id: ActionRpedFilter
+  name: action-rped-filter-name
+  description: action-rped-filter-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Objects/Specific/Research/rped.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:PartExchangerFilterActionEvent {}

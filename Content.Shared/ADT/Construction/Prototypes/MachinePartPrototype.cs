@@ -17,4 +17,7 @@ public sealed partial class MachinePartPrototype : IPrototype
 
     [DataField]
     public Dictionary<MachineStat, float> Stats = new();
+
+    [DataField]
+    public int SortPriority = 0;
 }
