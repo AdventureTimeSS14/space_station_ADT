@@ -19,7 +19,7 @@
   id: Weakness
 
 - type: statusEffect
-  id: Hushed
+  id: Syllable
   alwaysAllowed: true
 
 - type: entity

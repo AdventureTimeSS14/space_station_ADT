@@ -20,7 +20,7 @@
   id: StatusEffectBloodloss
   name: bloodloss
   components:
-  # ADT-Tweak: StutteringAccent disabled - bloodloss makes you whisper (Hushed) instead of stuttering.
+  # ADT-Tweak: StutteringAccent disabled - bloodloss applies the syllable accent via ADT code instead.
   # - type: StutteringAccent
   - type: DrunkStatusEffect
 
