@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
+using System.Text.RegularExpressions;
 using Content.Client.Administration.Managers;
 using Content.Client.Chat;
 using Content.Client.Chat.Managers;
@@ -24,6 +25,7 @@ using Content.Shared.Decals;
 using Content.Shared.Input;
 using Content.Shared.Radio;
 using Content.Shared.Roles.RoleCodeword;
+using Robust.Client.Audio;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -37,6 +39,8 @@ using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+using Robust.Shared.Audio;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
@@ -67,6 +71,7 @@ public sealed partial class ChatUIController : UIController
     [UISystemDependency] private readonly TransformSystem? _transform = default;
     [UISystemDependency] private readonly MindSystem? _mindSystem = default!;
     [UISystemDependency] private readonly RoleCodewordSystem? _roleCodewordSystem = default!;
+    [UISystemDependency] private readonly AudioSystem _audio = default!;
 
     private static readonly ProtoId<ColorPalettePrototype> ChatNamePalette = "ChatNames";
     private string[] _chatNameColors = default!;
@@ -831,8 +836,17 @@ public sealed partial class ChatUIController : UIController
         }
 
         // Color any words chosen by the client.
+        // ADT tweak start
+        var highlightMatched = false;
+        var highlightSearchText = SharedChatSystem.GetMessageAfterNameTag(msg);
         foreach (var highlight in _highlights)
         {
+#pragma warning disable RA0026
+            if (!highlightMatched && Regex.IsMatch(highlightSearchText, "(?i)(" + highlight + ")(?-i)(?![^[]*])"))
+                highlightMatched = true;
+#pragma warning restore RA0026
+            // ADT tweak end
+
             msg.WrappedMessage = SharedChatSystem.InjectTagAroundString(msg, highlight, "color", _highlightsColor);
         }
 
@@ -862,11 +876,15 @@ public sealed partial class ChatUIController : UIController
                 {
                     var message = Loc.GetString(locString);
                     if (SharedChatSystem.MessageTextContains(msg, message)) {
+                        highlightMatched = true;
                         msg.WrappedMessage = SharedChatSystem.InjectTagAroundString(msg, message, "color", color);
                     }
                 }
             }
         }
+
+        if (highlightMatched && _highlightSoundEnabled && !string.IsNullOrEmpty(_highlightSound))
+            _audio.PlayGlobal(new SoundPathSpecifier(_highlightSound), Filter.Local(), false);
         // End-ADT-Tweak
 
         // Log all incoming chat to repopulate when filter is un-toggled

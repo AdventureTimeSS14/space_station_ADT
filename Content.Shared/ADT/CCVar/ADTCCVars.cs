@@ -396,5 +396,15 @@ public sealed class ADTCCVars
 
     public static readonly CVarDef<int> AntagRollBonusInfoRateLimitCount =
         CVarDef.Create("antag.roll_bonus_info_rate_limit_count", 3, CVar.SERVERONLY);
+
+    /*
+    * Chat Highlight Sound
+    */
+
+    public static readonly CVarDef<bool> ChatHighlightSoundEnabled =
+        CVarDef.Create("adt.chat_highlight_sound_enabled", true, CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    public static readonly CVarDef<string> ChatHighlightSoundPath =
+        CVarDef.Create("adt.chat_highlight_sound_path", "/Audio/ADT/UI/ChatHighlight/notification1.ogg", CVar.ARCHIVE | CVar.CLIENTONLY);
 }
 

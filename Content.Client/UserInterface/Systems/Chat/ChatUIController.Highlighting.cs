@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Content.Shared.CCVar;
+using Content.Shared.ADT.CCVar;
 using Content.Client.CharacterInfo;
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
 
@@ -33,6 +34,11 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
 
     private bool _autoFillHighlightsEnabled;
 
+    // ADT tweak start
+    private bool _highlightSoundEnabled;
+    private string? _highlightSound;
+    // ADT tweak end
+
     /// <summary>
     ///     The boolean that keeps track of the 'OnCharacterUpdated' event, whenever it's a player attaching or opening the character info panel.
     /// </summary>
@@ -45,6 +51,12 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
         _config.OnValueChanged(CCVars.ChatAutoFillHighlights, (value) => { _autoFillHighlightsEnabled = value; }, true);
 
         _config.OnValueChanged(CCVars.ChatHighlightsColor, (value) => { _highlightsColor = value; }, true);
+
+        // ADT tweak start
+        _config.OnValueChanged(ADTCCVars.ChatHighlightSoundEnabled, (value) => { _highlightSoundEnabled = value; }, true);
+
+        _config.OnValueChanged(ADTCCVars.ChatHighlightSoundPath, (value) => { _highlightSound = value; }, true);
+        // ADT tweak end
 
         // Load highlights if any were saved.
         var highlights = _config.GetCVar(CCVars.ChatHighlights);

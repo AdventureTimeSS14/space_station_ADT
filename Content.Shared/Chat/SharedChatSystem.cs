@@ -299,12 +299,40 @@ public abstract partial class SharedChatSystem : EntitySystem
     public static string InjectTagAroundString(ChatMessage message, string targetString, string tag, string? tagParameter)
     {
         var rawmsg = message.WrappedMessage;
+
+        // ADT tweak start
+        var nameStart = rawmsg.IndexOf("[Name]", StringComparison.Ordinal);
+        var nameEnd = rawmsg.IndexOf("[/Name]", StringComparison.Ordinal);
+
+        if (nameStart >= 0 && nameEnd > nameStart)
+        {
+            var afterNameStart = nameEnd + "[/Name]".Length;
+            var before = rawmsg[..afterNameStart];
+            var after = rawmsg[afterNameStart..];
+
+#pragma warning disable RA0026
+            after = Regex.Replace(after, "(?i)(" + targetString + ")(?-i)(?![^[]*])", $"[{tag}={tagParameter}]$1[/{tag}]");
+#pragma warning restore RA0026
+
+            return before + after;
+        }
+        // ADT tweak end
+
         // TODO: Figure out if there's any way we can cache this, and if not then rewrite this to not use regex.
 #pragma warning disable RA0026
         rawmsg = Regex.Replace(rawmsg, "(?i)(" + targetString + ")(?-i)(?![^[]*])", $"[{tag}={tagParameter}]$1[/{tag}]");
 #pragma warning restore RA0026
         return rawmsg;
     }
+
+    // ADT tweak start
+    public static string GetMessageAfterNameTag(ChatMessage message)
+    {
+        var rawmsg = message.WrappedMessage;
+        var nameEnd = rawmsg.IndexOf("[/Name]", StringComparison.Ordinal);
+        return nameEnd >= 0 ? rawmsg[(nameEnd + "[/Name]".Length)..] : rawmsg;
+    }
+    // ADT tweak end
 
     public static string GetStringInsideTag(ChatMessage message, string tag)
     {

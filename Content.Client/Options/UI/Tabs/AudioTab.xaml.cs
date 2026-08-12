@@ -10,6 +10,9 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Content.Shared.ADT.CCVar;
+using Robust.Shared.Audio;
+using Robust.Shared.GameObjects;
+using Robust.Shared.Player;
 
 namespace Content.Client.Options.UI.Tabs;
 
@@ -19,6 +22,8 @@ public sealed partial class AudioTab : Control
     [Dependency] private readonly IAudioManager _audio = default!;
     [Dependency] private readonly IClientAdminManager _admin = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IEntityManager _entMan = default!; // ADT tweak
+    private AudioSystem _audioSystem = default!; // ADT tweak
 
     public AudioTab()
     {
@@ -89,6 +94,26 @@ public sealed partial class AudioTab : Control
         Control.AddOptionCheckBox(CCVars.EventMusicEnabled, EventMusicCheckBox);
         Control.AddOptionCheckBox(CCVars.AdminSoundsEnabled, AdminSoundsCheckBox);
         Control.AddOptionCheckBox(CCVars.BwoinkSoundEnabled, BwoinkSoundCheckBox);
+
+        // ADT tweak start
+        _audioSystem = _entMan.System<AudioSystem>();
+
+        Control.AddOptionCheckBox(ADTCCVars.ChatHighlightSoundEnabled, ChatHighlightSoundCheckBox);
+
+        Control.AddOptionDropDown(
+            ADTCCVars.ChatHighlightSoundPath,
+            DropDownChatHighlightSound,
+            [
+                new OptionDropDownCVar<string>.ValueOption("/Audio/Effects/pop.ogg", Loc.GetString("ui-options-chat-highlight-sound-1")),
+                new OptionDropDownCVar<string>.ValueOption("/Audio/ADT/UI/ChatHighlight/notification1.ogg", Loc.GetString("ui-options-chat-highlight-sound-2")),
+                new OptionDropDownCVar<string>.ValueOption("/Audio/ADT/UI/ChatHighlight/notification2.ogg", Loc.GetString("ui-options-chat-highlight-sound-3")),
+                new OptionDropDownCVar<string>.ValueOption("/Audio/ADT/UI/ChatHighlight/notification3.ogg", Loc.GetString("ui-options-chat-highlight-sound-4")),
+                new OptionDropDownCVar<string>.ValueOption("/Audio/ADT/UI/ChatHighlight/notification4.ogg", Loc.GetString("ui-options-chat-highlight-sound-5")),
+            ]);
+
+        ChatHighlightSoundPlayButton.OnPressed += _ =>
+            _audioSystem.PlayGlobal(new SoundPathSpecifier(_cfg.GetCVar(ADTCCVars.ChatHighlightSoundPath)), Filter.Local(), false);
+        // ADT tweak end
 
         Control.Initialize();
     }
