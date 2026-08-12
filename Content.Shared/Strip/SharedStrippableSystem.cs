@@ -711,10 +711,6 @@ public abstract class SharedStrippableSystem : EntitySystem
                 {
                     if ((hidesSlotsComp.HidesSlots & definition.SlotFlags) != SlotFlags.NONE)
                     {
-                        // Ghosts can ignore HidesSlots restrictions
-                        if (viewer != null && HasComp<BypassHidesSlotsComponent>(viewer.Value))
-                            continue;
-
                         return true;
                     }
                 }
