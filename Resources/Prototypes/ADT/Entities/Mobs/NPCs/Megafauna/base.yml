@@ -10,6 +10,7 @@
   id: ADTMegafauna
   coefficients:
     Heat: 0.5
+    Piercing: 0.5
 
 - type: entity
   id: ADTBaseMobMegafauna

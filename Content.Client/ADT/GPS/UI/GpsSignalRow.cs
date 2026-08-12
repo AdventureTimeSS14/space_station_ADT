@@ -4,14 +4,22 @@ using Content.Shared.ADT.GPS;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Timing;
 
 namespace Content.Client.ADT.GPS.UI;
 
 public sealed class GpsSignalRow : PanelContainer
 {
+    [Dependency] private readonly IEyeManager _eye = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+
     private static readonly StyleBoxFlat StripeBox = new() { BackgroundColor = new Color(1f, 1f, 1f, 0.05f) };
+    private static readonly StyleBoxFlat SosBox = new() { BackgroundColor = new Color(1f, 0f, 0f, 0.15f) };
+
+    private static readonly Color SosColor = Color.FromHex("#FF4444");
 
     private const float FarDistance = 120f;
+    private const float SosBlinkRate = 1.5f;
 
     private readonly Label _tag;
     private readonly ADTMarqueeLabel _description;
@@ -19,8 +27,13 @@ public sealed class GpsSignalRow : PanelContainer
     private readonly Label _distance;
     private readonly Label _position;
 
+    private Vector2? _delta;
+    private bool _sos;
+
     public GpsSignalRow()
     {
+        IoCManager.InjectDependencies(this);
+
         _tag = new Label
         {
             MinWidth = 130,
@@ -72,17 +85,28 @@ public sealed class GpsSignalRow : PanelContainer
 
     public void Update(GpsSignalData signal, Vector2i? origin, bool striped)
     {
-        PanelOverride = striped ? StripeBox : null;
+        _sos = signal.Sos;
 
-        _tag.Text = signal.Tag;
-        _tag.FontColorOverride = signal.Color;
-        _description.Text = signal.Description ?? string.Empty;
+        PanelOverride = signal.Sos
+            ? SosBox
+            : striped ? StripeBox : null;
+
+        _tag.Text = signal.Sos
+            ? Loc.GetString("adt-gps-signal-sos-tag", ("tag", signal.Tag))
+            : signal.Tag;
+
+        _tag.FontColorOverride = signal.Sos ? SosColor : signal.Color;
+
+        _description.Text = signal.Sos
+            ? Loc.GetString("adt-gps-signal-sos-desc")
+            : signal.Description ?? string.Empty;
 
         if (signal.Position == null)
         {
             _position.Text = Loc.GetString("adt-gps-signal-unknown");
             _distance.Text = Loc.GetString("adt-gps-signal-unknown");
             _icon.Visible = false;
+            _delta = null;
             return;
         }
 
@@ -92,16 +116,39 @@ public sealed class GpsSignalRow : PanelContainer
         {
             _distance.Text = Loc.GetString("adt-gps-signal-off-map");
             _icon.Visible = false;
+            _delta = null;
             return;
         }
 
         var delta = (Vector2) (signal.Position.Value - origin.Value);
         var distance = delta.Length();
 
+        _delta = delta;
         _icon.Visible = true;
-        _icon.UpdateDirection(delta, Angle.Zero);
-        _icon.ModulateSelfOverride = GetProximityColor(distance);
+        _icon.ModulateSelfOverride = signal.Sos ? SosColor : GetProximityColor(distance);
         _distance.Text = Loc.GetString("adt-gps-signal-distance", ("distance", (int) distance));
+
+        UpdateArrow();
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+
+        UpdateArrow();
+
+        if (_sos)
+            Modulate = Color.White.WithAlpha(0.6f + 0.4f * MathF.Abs(MathF.Sin((float) _timing.RealTime.TotalSeconds * SosBlinkRate)));
+        else
+            Modulate = Color.White;
+    }
+
+    private void UpdateArrow()
+    {
+        if (_delta is not { } delta)
+            return;
+
+        _icon.UpdateDirection(delta, -_eye.CurrentEye.Rotation);
     }
 
     private static Color GetProximityColor(float distance)

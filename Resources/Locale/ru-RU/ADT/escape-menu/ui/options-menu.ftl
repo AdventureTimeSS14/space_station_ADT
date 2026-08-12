@@ -42,3 +42,5 @@ ui-options-chat-highlight-sound-2 = Уведомление 2
 ui-options-chat-highlight-sound-3 = Уведомление 3
 ui-options-chat-highlight-sound-4 = Уведомление 4
 ui-options-chat-highlight-sound-5 = Уведомление 5
+
+ui-options-function-smart-equip-neck = Умная экипировка на шею

@@ -4,6 +4,12 @@
   name: blood-drunk miner
   description: A miner destined to wander forever, engaged in an endless hunt.
   components:
+  - type: GpsSignal
+    tag: adt-gps-signal-blood-miner
+    description: adt-gps-signal-blood-miner-desc
+    color: "#8B1A1A"
+  - type: Destructible
+    thresholds: []
   - type: Sprite
     sprite: ADT/Mobs/Aliens/Lavaland/bloodminer.rsi
     layers:

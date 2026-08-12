@@ -390,3 +390,45 @@
   - type: ConditionalSpawner
     prototypes:
       - MobArgocyteLeviathing
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobMonkeyAdvanced
+  name: Advanced Monkey Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: monkey
+      sprite: Mobs/Animals/monkey.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobMonkeyAdvanced
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobKobold
+  name: Kobold Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: kobold
+      sprite: Mobs/Animals/kobold.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobKobold
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobKoboldAdvanced
+  name: Advanced Kobold Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: kobold
+      sprite: Mobs/Animals/kobold.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobKoboldAdvanced

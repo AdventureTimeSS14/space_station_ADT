@@ -236,7 +236,8 @@
     shortscale: 0.9
   - type: NightVision
     innate: true
-    effectPrototype: ADTEffectNightVisionResomi
+    shader: ADTModernNightVisionShader
+    effectPrototype: ADTEffectNightVisionLow
 
 - type: entity
   parent: OrganBaseOrganic
