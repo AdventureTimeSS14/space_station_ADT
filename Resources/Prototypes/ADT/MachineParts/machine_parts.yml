@@ -13,7 +13,7 @@
   stockPartPrototype: MicroServoStockPart
   stats:
     Speed: 0.20
-    ResourceCost: 0.15
+    ResourceCost: 0.10
 
 - type: machinePart
   id: MatterBin
@@ -21,7 +21,7 @@
   stockPartPrototype: MatterBinStockPart
   stats:
     Speed: -0.10
-    ResourceCost: -0.20
+    ResourceCost: -0.12
     Capacity: 0.25
     EnergyCost: -0.10
 
