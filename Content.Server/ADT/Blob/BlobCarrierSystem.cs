@@ -94,12 +94,9 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
         if (args.NewMobState != MobState.Dead)
             return;
 
+        // Носитель не теряет статус при смерти: когда пройдёт таймер, он сам превратится в блоба (Update в SharedBlobCarrierSystem).
         if (CanTransform())
             TransformToBlob(uid);
-
-        // Early death drops the carrier status so the blob language and timer do not stick after revival.
-        if (!TerminatingOrDeleted(uid) && HasComp<BlobCarrierComponent>(uid))
-            RemComp<BlobCarrierComponent>(uid);
     }
 
     protected override void TransformToBlob(Entity<BlobCarrierComponent> ent)
