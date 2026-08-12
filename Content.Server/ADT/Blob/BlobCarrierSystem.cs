@@ -52,7 +52,14 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
     private void OnRemove(Entity<BlobCarrierComponent> ent, ref ComponentRemove args)
     {
         if (TryComp<LanguageSpeakerComponent>(ent.Owner, out var comp))
+        {
             comp.Languages.Remove(BlobLang);
+            if (comp.CurrentLanguage == BlobLang)
+                _language.SelectDefaultLanguage(ent.Owner, comp);
+        }
+
+        if (ent.Comp.TransformToBlob != null)
+            _action.RemoveAction(ent.Owner, ent.Comp.TransformToBlob.Value);
     }
 
     private void OnMindAdded(EntityUid uid, BlobCarrierComponent component, MindAddedMessage args) => component.HasMind = true;
@@ -88,10 +95,15 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
 
     private void OnMobStateChanged(Entity<BlobCarrierComponent> uid, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead && CanTransform())
-        {
+        if (args.NewMobState != MobState.Dead)
+            return;
+
+        if (CanTransform())
             TransformToBlob(uid);
-        }
+
+        // Early death drops the carrier status so the blob language and timer do not stick after revival.
+        if (!TerminatingOrDeleted(uid) && HasComp<BlobCarrierComponent>(uid))
+            RemComp<BlobCarrierComponent>(uid);
     }
 
     protected override void TransformToBlob(Entity<BlobCarrierComponent> ent)
