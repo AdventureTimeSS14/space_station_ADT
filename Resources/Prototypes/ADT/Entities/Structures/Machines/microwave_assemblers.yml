@@ -139,7 +139,6 @@
      canMicrowaveIdsSafely: false
      explosionChance: 0
      lightningChance: 0
-     microLaserPart: Servo
      beginCookingSound: /Audio/ADT/Machines/egg-timer.ogg
      foodDoneSound: /Audio/Machines/ding.ogg
      loopingSound: /Audio/ADT/Effects/silence.ogg

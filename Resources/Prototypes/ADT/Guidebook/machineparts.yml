@@ -3,7 +3,7 @@
   name: guide-entry-machine-parts
   text: "/ServerInfo/ADT/Guidebook/MachineParts/MachineParts.xml"
   children:
-  - ADTMachinePartsInstall
+  - MachinePartsInstall
 
 - type: guideEntry
   id: MachinePartsInstall
