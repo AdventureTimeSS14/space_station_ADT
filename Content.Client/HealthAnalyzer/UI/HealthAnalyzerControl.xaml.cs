@@ -151,20 +151,32 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             AlertsContainer.RemoveAllChildren();
 
         if (state.Unrevivable == true)
-            AlertsContainer.AddChild(new RichTextLabel
+        {
+            // ADT-Tweak Start - new formatter
+            var label = new RichTextLabel
             {
-                Text = Loc.GetString("health-analyzer-window-entity-unrevivable-text"),
-                Margin = new Thickness(0, 4),
-                MaxWidth = 300
-            });
+                HorizontalExpand = true,
+                Margin = new Thickness(4, 4),
+            };
+            label.SetMessage(FormattedMessage.FromMarkupPermissive(
+                $"[color=yellow]{FormattedMessage.EscapeText(Loc.GetString("health-analyzer-window-entity-unrevivable-text"))}[/color]"));
+            AlertsContainer.AddChild(label);
+            // ADT-Tweak End
+        }
 
         if (state.Bleeding == true)
-            AlertsContainer.AddChild(new RichTextLabel
+        {
+            // ADT-Tweak Start - new formatter
+            var label = new RichTextLabel
             {
-                Text = Loc.GetString("health-analyzer-window-entity-bleeding-text"),
-                Margin = new Thickness(0, 4),
-                MaxWidth = 300
-            });
+                HorizontalExpand = true,
+                Margin = new Thickness(4, 4),
+            };
+            label.SetMessage(FormattedMessage.FromMarkupPermissive(
+                $"[color=red]{FormattedMessage.EscapeText(Loc.GetString("health-analyzer-window-entity-bleeding-text"))}[/color]"));
+            AlertsContainer.AddChild(label);
+            // ADT-Tweak End
+        }
 
         // Damage Groups
 

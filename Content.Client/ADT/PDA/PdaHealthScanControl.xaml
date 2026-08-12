@@ -80,6 +80,6 @@
 
         <PanelContainer Name="AlertsDivider" Visible="False" MinHeight="1" Margin="0 4 0 0" />
         <BoxContainer Name="AlertsContainer" Visible="False" Margin="0 2" Orientation="Vertical"
-                      HorizontalExpand="True" />
+                      HorizontalExpand="True" RectClipContent="True" />
     </BoxContainer>
 </BoxContainer>

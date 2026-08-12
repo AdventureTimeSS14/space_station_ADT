@@ -157,7 +157,7 @@ namespace Content.Client.PDA
                 popupsystem.PopupCursor(Loc.GetString("ui-copy-text-in-pda")); // ADT-Tweak
             };
             HideAllViews();
-            ToHomeScreen();
+            HomeButton.IsCurrent = false;   //ADT-Tweak
         }
 
         public void UpdateState(PdaUpdateState state)

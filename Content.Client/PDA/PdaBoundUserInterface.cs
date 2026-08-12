@@ -33,24 +33,31 @@ namespace Content.Client.PDA
             base.Open();
 
             EnsureMenu();
-            ApplyPreferredView();
         }
 
         private void ApplyPreferredView()
         {
+            // ADT-Tweak Start - Statements for menu
+            if (_menu is null || _menu.Disposed)
+                return;
+            // ADT-Tweak End
+
             if (ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan is { } scan)
             {
-                _menu?.ShowHealthScan(scan);
+                _menu.ShowHealthScan(scan); // ADT-Tweak
                 return;
             }
 
-            _menu?.RestoreView(ClientUiState.LastView);
+            _menu.RestoreView(ClientUiState.LastView);  // ADT-Tweak
         }
 
         private void EnsureMenu()
         {
             if (_menu is { Disposed: false })
+            {
+                ApplyPreferredView();   // ADT-Tweak
                 return;
+            }
 
             if (_creatingMenu)
                 return;
@@ -69,6 +76,8 @@ namespace Content.Client.PDA
         private void CreateMenu()
         {
             _menu = this.CreateWindowCenteredLeft<PdaMenu>();
+            _menu.Visible = false;  // ADT-Tweak
+
             _menu.OnViewChanged += view =>
             {
                 if (view != PdaMenu.HealthScanViewIndex)
@@ -144,6 +153,11 @@ namespace Content.Client.PDA
             _menu.ApplyInteriorTheme(
                 ResolveSecondaryColor(borderColorComponent),
                 ResolveMainFrameColor(borderColorComponent));
+
+            // ADT-Tweak Start - Statements for menu
+            ApplyPreferredView();
+            _menu.Visible = true;
+            // ADT-Tweak End
         }
 
         private void EndMedTekSession()
@@ -193,6 +207,7 @@ namespace Content.Client.PDA
 
             if (scanMessage.OpenUi)
             {
+                ClientUiState.MedTekSessionActive = true; // ADT-Tweak
                 EnsureMenu();
                 EnterMedTek(scanMessage.State);
                 return;
@@ -216,19 +231,20 @@ namespace Content.Client.PDA
 
         protected override void UpdateState(BoundUserInterfaceState state)
         {
-            base.UpdateState(state);
+            // ADT-Tweak Start: Deprecated MedTek session
+            // base.UpdateState(state);
 
-            if (ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan is { } scan)
-            {
-                EnsureMenu();
-                _menu?.ShowHealthScan(scan);
-            }
+            // if (ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan is { } scan)
+            // {
+            //     EnsureMenu();
+            //     _menu?.ShowHealthScan(scan);
+            // }
 
-            _menu?.ThemeProgramView();
+            // _menu?.ThemeProgramView();
 
-            if (state is not PdaUpdateState updateState)
-                return;
-
+            // if (state is not PdaUpdateState updateState)
+            //     return;
+            // ADT-Tweak End
             EnsureMenu();
 
             if (_menu == null)
@@ -236,11 +252,22 @@ namespace Content.Client.PDA
                 _pdaSystem.Log.Error("PDA state received before menu was created.");
                 return;
             }
+            
+            // ADT-Tweak - New logic for MedTek (WIP)
+            var keepMedTek = ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan != null;
+            if (keepMedTek)
+                _menu.Visible = false;
 
-            _menu.UpdateState(updateState);
+            base.UpdateState(state);
 
-            if (ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan is { } activeScan)
-                _menu.ShowHealthScan(activeScan);
+            _menu.ThemeProgramView();
+
+            if (state is PdaUpdateState updateState)
+                _menu.UpdateState(updateState);
+
+            ApplyPreferredView();
+            _menu.Visible = true;
+            // ADT-Tweak End
         }
 
         protected override void AttachCartridgeUI(Control cartridgeUIFragment, string? title)
@@ -264,12 +291,17 @@ namespace Content.Client.PDA
                 return;
 
             _menu.ProgramView.RemoveChild(cartridgeUIFragment);
+            
+            // ADT-Tweak Start: Deprecated MedTek session
+            // if (ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan is { } scan)
+            // {
+            //     _menu.ShowHealthScan(scan);
+            //     return;
+            // }
+            // ADT-Tweak End
 
-            if (ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan is { } scan)
-            {
-                _menu.ShowHealthScan(scan);
+            if (ClientUiState.MedTekSessionActive && ClientUiState.LastHealthScan != null)
                 return;
-            }
 
             _menu.ToHomeScreen();
             _menu.HideProgramHeader();

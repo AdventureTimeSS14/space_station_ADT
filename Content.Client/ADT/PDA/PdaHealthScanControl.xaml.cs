@@ -174,22 +174,18 @@ public sealed partial class PdaHealthScanControl : BoxContainer
 
         if (state.Unrevivable == true)
         {
-            AlertsContainer.AddChild(new RichTextLabel
-            {
-                Text = Loc.GetString("health-analyzer-window-entity-unrevivable-text"),
-                Margin = new Thickness(0, 4),
-                MaxWidth = 280
-            });
+            // ADT-Tweak Start - alert formatter
+            AlertsContainer.AddChild(CreateAlertLabel(
+                Loc.GetString("health-analyzer-window-entity-unrevivable-text"),
+                Color.Yellow));
         }
 
         if (state.Bleeding == true)
         {
-            AlertsContainer.AddChild(new RichTextLabel
-            {
-                Text = Loc.GetString("health-analyzer-window-entity-bleeding-text"),
-                Margin = new Thickness(0, 4),
-                MaxWidth = 280
-            });
+            AlertsContainer.AddChild(CreateAlertLabel(
+                Loc.GetString("health-analyzer-window-entity-bleeding-text"),
+                Color.Red));
+            // ADT-Tweak End
         }
 
         var damagePerType = _damageable.GetAllDamage(target.Value).DamageDict;
@@ -424,4 +420,18 @@ public sealed partial class PdaHealthScanControl : BoxContainer
         });
         return titleRow;
     }
+
+    // ADT-Tweak Start - alert formatter
+    private static RichTextLabel CreateAlertLabel(string text, Color color)
+    {
+        var label = new RichTextLabel
+        {
+            HorizontalExpand = true,
+            Margin = new Thickness(4, 4),
+        };
+        label.SetMessage(FormattedMessage.FromMarkupPermissive(
+            $"[color={color.ToHex()}]{FormattedMessage.EscapeText(text)}[/color]"));
+        return label;
+    }
+    // ADT-Tweak End
 }
