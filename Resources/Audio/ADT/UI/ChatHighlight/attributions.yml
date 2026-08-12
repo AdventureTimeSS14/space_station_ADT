@@ -1,4 +1,4 @@
 - files: ["notification1.ogg", "notification2.ogg", "notification3.ogg", "notification4.ogg"]
-  license: "Pixabay Content License"
-  copyright: "Free-to-use notification sounds from Pixaba"
-  source: "https://pixabay.com/ "
+  license: "Custom"
+  copyright: "Licensed under the Pixabay Content License (free for commercial/noncommercial use, no attribution required). Notification sounds by Pixabay user Universfield."
+  source: "https://pixabay.com/"
