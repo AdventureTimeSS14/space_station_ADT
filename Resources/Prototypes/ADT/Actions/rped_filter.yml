@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRpedFilter
-  name: action-rped-filter-name
-  description: action-rped-filter-desc
+  name: Part filter setup
+  description: Choose which part types the RPED will replace.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
