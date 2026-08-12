@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2026 PuroSlavKing <puroslavking@yahoo.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-// Ported from Orion-Station-14 (PR #385, https://github.com/AtaraxiaSpaceFoundation/Orion-Station-14/pull/385)
-
 using Content.Shared.ADT.Construction.Components;
 using Content.Shared.ADT.Construction.Prototypes;
 using Content.Shared.FixedPoint;
@@ -30,34 +25,24 @@ public sealed class RefreshPartsEvent : EntityEventArgs
 {
     public IReadOnlyList<MachinePartState> Parts = new List<MachinePartState>();
     public Dictionary<ProtoId<MachinePartPrototype>, float> PartRatings = new();
+    public Dictionary<MachineStat, float> StatMultipliers = new();
 
     public float GetPartRating(ProtoId<MachinePartPrototype> partId, float defaultValue = 1f)
     {
         return PartRatings.GetValueOrDefault(partId, defaultValue);
     }
 
-    public float GetPartRatingSum(ProtoId<MachinePartPrototype> partId)
+    public float GetStatMultiplier(MachineStat stat)
     {
-        var sum = 0f;
-        foreach (var state in Parts)
-        {
-            if (state.Part.Part != partId)
-                continue;
-
-            sum += state.Part.Tier * state.Quantity();
-        }
-
-        return sum;
+        return StatMultipliers.GetValueOrDefault(stat, 1f);
     }
 
-    public static float GetTierDiscount(float tier, float step, float min = 0.5f)
+    /// <summary>
+    /// Multiplier of a part type by its average tier: 1 + value per tier above 1.
+    /// </summary>
+    public static float GetTierMultiplier(float tier, float valuePerTier)
     {
-        return Math.Clamp(1f - (tier - 1f) * step, min, 1f);
-    }
-
-    public static float GetPositiveTierMultiplier(float tier, float @base = 1f)
-    {
-        return Math.Max(@base, tier);
+        return 1f + valuePerTier * (tier - 1f);
     }
 }
 
@@ -74,59 +59,29 @@ public sealed class UpgradeExamineEvent : EntityEventArgs
         _message = message;
     }
 
-    public void AddPercentageUpgrade(string upgradedLocId, float multiplier)
+    public void AddPercentageUpgrade(string upgradedLocId, float multiplier, bool benefit)
     {
-        var percent = Math.Round(100 * MathF.Abs(multiplier - 1), 2);
-        var locId = multiplier switch
+        if (multiplier is 1f or float.NaN)
         {
-            < 1 => "machine-upgrade-decreased-by-percentage",
-            1 or float.NaN => "machine-upgrade-not-upgraded",
-            > 1 => "machine-upgrade-increased-by-percentage",
-        };
-
-        _message.TryAddMarkup(Loc.GetString(locId,
-            ("upgraded", Loc.GetString(upgradedLocId)),
-            ("percent", percent)) + '\n',
-            out _);
-    }
-
-    public void AddPercentageUpgrade(string upgradedLocId, float multiplier, float timeModifier)
-    {
-        var locId = multiplier switch
-        {
-            < 1 => "machine-upgrade-decreased-by-percentage-extra",
-            1 or float.NaN => "machine-upgrade-not-upgraded-extra",
-            > 1 => "machine-upgrade-increased-by-percentage-extra",
-        };
-
-        var percentValue = 0f;
-
-        if (float.IsFinite(multiplier) && float.IsFinite(timeModifier) && timeModifier > 0f)
-        {
-            percentValue = multiplier switch
-            {
-                < 1 => 100f * timeModifier * MathF.Abs(multiplier - 1f),
-                > 1 => 100f / timeModifier * MathF.Abs(multiplier - 1f),
-                _ => 100f / timeModifier,
-            };
-
-            if (!float.IsFinite(percentValue))
-                percentValue = 0f;
+            _message.TryAddMarkup(Loc.GetString("machine-upgrade-not-upgraded-extra",
+                ("upgraded", Loc.GetString(upgradedLocId)),
+                ("percent", FixedPoint2.Zero),
+                ("color", "#FFFFFF")) + '\n',
+                out _);
+            return;
         }
 
-        FixedPoint2 percent = percentValue;
+        var increased = multiplier > 1f;
+        var good = increased == benefit;
 
-        var color = timeModifier switch
-        {
-            < 1 => "#6DFFA5",
-            1 or float.NaN => "#FFFFFF",
-            > 1 => "#FF7A7A",
-        };
+        var locId = increased
+            ? "machine-upgrade-increased-by-percentage-extra"
+            : "machine-upgrade-decreased-by-percentage-extra";
 
         _message.TryAddMarkup(Loc.GetString(locId,
             ("upgraded", Loc.GetString(upgradedLocId)),
-            ("percent", percent),
-            ("color", color)) + '\n',
+            ("percent", (FixedPoint2) Math.Round(100 * MathF.Abs(multiplier - 1), 2)),
+            ("color", good ? "#6DFFA5" : "#FF7A7A")) + '\n',
             out _);
     }
 }

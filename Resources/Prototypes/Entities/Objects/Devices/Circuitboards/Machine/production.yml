@@ -577,7 +577,7 @@
         Glass: 1
         Cable: 1
       partRequirements: #ADT-Tweak: machine parts
-        Servo: 1
+        MatterBin: 1
       tagRequirements:
         GlassBeaker:
           amount: 2
@@ -1089,7 +1089,6 @@
       partRequirements: #ADT-Tweak: machine parts
         MatterBin: 1
         MicroLaser: 1
-        Servo: 1
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -1105,7 +1104,6 @@
     partRequirements: #ADT-Tweak: machine parts
       MatterBin: 1
       MicroLaser: 1
-      Servo: 1
 
 - type: entity
   id: SheetifierMachineCircuitboard

@@ -1,7 +1,6 @@
 using Content.Shared.ADT.Construction;
 using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Cloning;
-
 namespace Content.Server.ADT.Construction.Systems;
 
 public sealed class CloningPodMachinePartsSystem : EntitySystem
@@ -16,16 +15,13 @@ public sealed class CloningPodMachinePartsSystem : EntitySystem
 
     private void OnRefreshParts(EntityUid uid, CloningPodComponent component, RefreshPartsEvent args)
     {
-        var servoTier = args.GetPartRating(MachinePartIds.Servo, 1f);
-        var scanTier = args.GetPartRating(MachinePartIds.ScanningModule, 1f);
-
-        component.SpeedMultiplier = servoTier;
-        component.CloningSafety = scanTier;
+        component.SpeedMultiplier = args.GetStatMultiplier(MachineStat.Speed);
+        component.CloningSafety = args.GetStatMultiplier(MachineStat.Output);
     }
 
     private static void OnUpgradeExamine(EntityUid uid, CloningPodComponent component, UpgradeExamineEvent args)
     {
-        args.AddPercentageUpgrade("machine-upgrade-cloning-speed", component.SpeedMultiplier);
-        args.AddPercentageUpgrade("machine-upgrade-cloning-safety", component.CloningSafety);
+        args.AddPercentageUpgrade("machine-upgrade-cloning-speed", component.SpeedMultiplier, benefit: true);
+        args.AddPercentageUpgrade("machine-upgrade-cloning-safety", component.CloningSafety, benefit: true);
     }
 }

@@ -1,6 +1,7 @@
 using Content.Server.Botany.Components;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.ADT.Construction;
 using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
@@ -62,13 +63,12 @@ public sealed class SeedExtractorSystem : EntitySystem
     // ADT-Tweak-Start: machine parts with tiers
     private void OnPartsRefresh(EntityUid uid, SeedExtractorComponent component, RefreshPartsEvent args)
     {
-        var servoTier = args.GetPartRating(component.ServoPart, 1f);
-        component.SeedMultiplier = servoTier;
+        component.SeedMultiplier = args.GetStatMultiplier(MachineStat.Speed);
     }
 
     private static void OnUpgradeExamine(EntityUid uid, SeedExtractorComponent component, UpgradeExamineEvent args)
     {
-        args.AddPercentageUpgrade("machine-upgrade-seed-extraction", component.SeedMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-seed-extraction", component.SeedMultiplier, benefit: true);
     }
     // ADT-Tweak-End
 }

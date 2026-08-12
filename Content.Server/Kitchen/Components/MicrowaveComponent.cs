@@ -1,4 +1,3 @@
-using Content.Shared.ADT.Construction.Prototypes;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Item;
@@ -116,12 +115,6 @@ namespace Content.Server.Kitchen.Components
 
         [DataField]
         public float ExplosionChanceMultiplier = 1f;
-
-        [DataField]
-        public ProtoId<MachinePartPrototype> MicroLaserPart = "MicroLaser";
-
-        [DataField]
-        public ProtoId<MachinePartPrototype> MatterBinPart = "MatterBin";
         // ADT-Tweak-End
 
         /// <summary>

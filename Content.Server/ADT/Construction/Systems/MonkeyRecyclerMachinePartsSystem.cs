@@ -22,6 +22,6 @@ public sealed class MonkeyRecyclerMachinePartsSystem : EntitySystem
 
     private static void OnUpgradeExamine(EntityUid uid, XenobiologyMonkeyRecyclerComponent component, UpgradeExamineEvent args)
     {
-        args.AddPercentageUpgrade("machine-upgrade-monkey-output", component.CubeProduction);
+        args.AddPercentageUpgrade("machine-upgrade-monkey-output", component.CubeProduction, benefit: true);
     }
 }

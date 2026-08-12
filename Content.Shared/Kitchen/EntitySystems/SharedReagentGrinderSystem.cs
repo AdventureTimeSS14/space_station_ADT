@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.ADT.Construction;
 using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
@@ -78,11 +79,8 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
     // ADT-Tweak-Start: machine parts with tiers
     private void OnPartsRefresh(EntityUid uid, ReagentGrinderComponent component, RefreshPartsEvent args)
     {
-        var servoTier = args.GetPartRating(component.ServoPart, 1f);
-        var matterBinTier = args.GetPartRating(component.MatterBinPart, 1f);
-
-        component.WorkTimeMultiplier = 1f / servoTier;
-        component.CapacityMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(matterBinTier);
+        component.WorkTimeMultiplier = 1f / args.GetStatMultiplier(MachineStat.Speed);
+        component.CapacityMultiplier = args.GetStatMultiplier(MachineStat.Capacity);
 
         UpdateUi(uid);
     }
@@ -93,8 +91,8 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
             ? 1f
             : 1f / component.WorkTimeMultiplier;
 
-        args.AddPercentageUpgrade("machine-upgrade-process-speed", speedMultiplier);
-        args.AddPercentageUpgrade("machine-upgrade-capacity", component.CapacityMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-process-speed", speedMultiplier, benefit: true);
+        args.AddPercentageUpgrade("machine-upgrade-capacity", component.CapacityMultiplier, benefit: true);
     }
     // ADT-Tweak-End
 

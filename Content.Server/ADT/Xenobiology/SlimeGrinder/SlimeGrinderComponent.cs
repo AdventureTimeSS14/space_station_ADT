@@ -1,4 +1,3 @@
-using Content.Shared.ADT.Construction.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -25,9 +24,6 @@ public sealed partial class SlimeGrinderComponent : Component
     /// </summary>
     [DataField]
     public float ProcessingTimePerUnitMass = 0.1f;
-
-    [DataField]
-    public ProtoId<MachinePartPrototype> ServoPart = "Servo";
 
     [DataField]
     public float ExtractMultiplier = 1f;

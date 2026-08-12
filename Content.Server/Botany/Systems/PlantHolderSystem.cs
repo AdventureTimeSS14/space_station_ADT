@@ -77,19 +77,18 @@ public sealed class PlantHolderSystem : EntitySystem
     // ADT-Tweak-Start: machine parts with tiers
     private static void OnRefreshParts(EntityUid uid, PlantHolderComponent component, RefreshPartsEvent args)
     {
-        var bin = args.GetPartRating(MachinePartIds.MatterBin);
-        var servo = args.GetPartRating(MachinePartIds.Servo);
+        var capacity = args.GetStatMultiplier(MachineStat.Capacity);
 
-        component.WaterCapacityMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(bin);
-        component.NutritionCapacityMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(bin);
-        component.NutrientConsumptionMultiplier = RefreshPartsEvent.GetTierDiscount(servo, 0.1f);
+        component.WaterCapacityMultiplier = capacity;
+        component.NutritionCapacityMultiplier = capacity;
+        component.NutrientConsumptionMultiplier = args.GetStatMultiplier(MachineStat.ResourceCost);
     }
 
     private static void OnUpgradeExamine(EntityUid uid, PlantHolderComponent component, UpgradeExamineEvent args)
     {
-        args.AddPercentageUpgrade("machine-upgrade-hydro-water", component.WaterCapacityMultiplier);
-        args.AddPercentageUpgrade("machine-upgrade-hydro-nutrition", component.NutritionCapacityMultiplier);
-        args.AddPercentageUpgrade("machine-upgrade-hydro-nutrition-consume", component.NutrientConsumptionMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-hydro-water", component.WaterCapacityMultiplier, benefit: true);
+        args.AddPercentageUpgrade("machine-upgrade-hydro-nutrition", component.NutritionCapacityMultiplier, benefit: true);
+        args.AddPercentageUpgrade("machine-upgrade-hydro-nutrition-consume", component.NutrientConsumptionMultiplier, benefit: false);
     }
     // ADT-Tweak-End
 

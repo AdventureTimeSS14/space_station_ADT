@@ -20,8 +20,7 @@ public sealed class GrillMachinePartsSystem : EntitySystem
 
     private void OnRefreshParts(EntityUid uid, GrillUpgradeComponent component, RefreshPartsEvent args)
     {
-        var servoTier = args.GetPartRating(MachinePartIds.Servo, 1f);
-        component.PowerMultiplier = servoTier;
+        component.PowerMultiplier = args.GetStatMultiplier(MachineStat.Speed);
 
         if (TryComp<EntityHeaterComponent>(uid, out var heater))
             _heater.SetPower(uid, component.Power * component.PowerMultiplier, heater);
@@ -29,6 +28,6 @@ public sealed class GrillMachinePartsSystem : EntitySystem
 
     private static void OnUpgradeExamine(EntityUid uid, GrillUpgradeComponent component, UpgradeExamineEvent args)
     {
-        args.AddPercentageUpgrade("machine-upgrade-cook-speed", component.PowerMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-cook-speed", component.PowerMultiplier, benefit: true);
     }
 }

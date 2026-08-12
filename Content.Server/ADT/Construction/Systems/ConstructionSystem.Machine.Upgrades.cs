@@ -1,10 +1,6 @@
-// SPDX-FileCopyrightText: 2026 PuroSlavKing <puroslavking@yahoo.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-// Ported from Orion-Station-14 (PR #385, https://github.com/AtaraxiaSpaceFoundation/Orion-Station-14/pull/385)
-
 using System.Linq;
 using Content.Server.Construction.Components;
+using Content.Shared.ADT.Construction;
 using Content.Shared.ADT.Construction.Components;
 using Content.Shared.ADT.Construction.Events;
 using Content.Shared.ADT.Construction.Prototypes;
@@ -18,6 +14,7 @@ namespace Content.Server.Construction;
 public sealed partial class ConstructionSystem
 {
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     private void InitializeMachineUpgrades()
     {
@@ -102,13 +99,35 @@ public sealed partial class ConstructionSystem
     {
         var parts = GetAllParts(component);
         var partRatings = GetPartRatings(parts);
+        var statMultipliers = GetStatMultipliers(partRatings);
 
         RaiseLocalEvent(uid,
             new RefreshPartsEvent
             {
                 Parts = parts,
                 PartRatings = partRatings,
+                StatMultipliers = statMultipliers,
             },
             broadcast: true);
+    }
+
+    private Dictionary<MachineStat, float> GetStatMultipliers(
+        Dictionary<ProtoId<MachinePartPrototype>, float> partRatings)
+    {
+        var multipliers = new Dictionary<MachineStat, float>();
+
+        foreach (var (partId, rating) in partRatings)
+        {
+            if (!_proto.TryIndex(partId, out var partProto))
+                continue;
+
+            foreach (var (stat, value) in partProto.Stats)
+            {
+                var partMultiplier = RefreshPartsEvent.GetTierMultiplier(rating, value);
+                multipliers[stat] = multipliers.GetValueOrDefault(stat, 1f) * partMultiplier;
+            }
+        }
+
+        return multipliers;
     }
 }

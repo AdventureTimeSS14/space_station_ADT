@@ -20,15 +20,15 @@ public sealed class ChemMasterMachinePartsSystem : EntitySystem
 
     private void OnRefreshParts(EntityUid uid, ChemMasterComponent component, RefreshPartsEvent args)
     {
-        var servoTier = args.GetPartRating(MachinePartIds.Servo, 1f);
-
         if (!TryComp<ChemMasterBufferComponent>(uid, out var buffer))
             return;
 
-        buffer.BufferMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(servoTier);
+        var binTier = args.GetPartRating(MachinePartIds.MatterBin, 1f);
+        var capacity = MathF.Max(buffer.BufferCapacity, buffer.BufferCapacityPerTier * (binTier - 1f));
+        buffer.BufferMultiplier = capacity / buffer.BufferCapacity;
 
         if (_solution.TryGetSolution(uid, SharedChemMaster.BufferSolutionName, out _, out var bufferSolution))
-            bufferSolution.MaxVolume = buffer.BufferCapacity * buffer.BufferMultiplier;
+            bufferSolution.MaxVolume = capacity;
     }
 
     private void OnUpgradeExamine(EntityUid uid, ChemMasterComponent component, UpgradeExamineEvent args)
@@ -36,6 +36,6 @@ public sealed class ChemMasterMachinePartsSystem : EntitySystem
         if (!TryComp<ChemMasterBufferComponent>(uid, out var buffer))
             return;
 
-        args.AddPercentageUpgrade("machine-upgrade-chem-master-buffer", buffer.BufferMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-chem-master-buffer", buffer.BufferMultiplier, benefit: true);
     }
 }

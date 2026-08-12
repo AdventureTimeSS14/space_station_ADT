@@ -19,6 +19,7 @@ using Content.Shared.Database;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
+using Content.Shared.ADT.Construction;
 using Content.Shared.ADT.Construction.Components;
 using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Lathe;
@@ -459,11 +460,14 @@ namespace Content.Server.Lathe
         // ADT-Tweak-Start: machine parts with tiers
         private void OnPartsRefresh(EntityUid uid, LatheComponent component, RefreshPartsEvent args)
         {
-            var printTier = args.GetPartRating(component.MachinePartPrintSpeed);
-            var materialTier = args.GetPartRating(component.MachinePartMaterialCost);
+            if (component.SuppressMachinePartUpgrades)
+                return;
 
-            component.FinalTimeMultiplier = component.TimeMultiplier * RefreshPartsEvent.GetTierDiscount(printTier, 0.15f, component.MinMachinePartEfficiency);
-            component.FinalMaterialMultiplier = component.MaterialUseMultiplier * RefreshPartsEvent.GetTierDiscount(materialTier, 0.15f, component.MinMachinePartEfficiency);
+            var speed = args.GetStatMultiplier(MachineStat.Speed);
+            var material = MathF.Max(component.MinMachinePartEfficiency, args.GetStatMultiplier(MachineStat.ResourceCost));
+
+            component.FinalTimeMultiplier = component.TimeMultiplier / MathF.Max(component.MinMachinePartEfficiency, speed);
+            component.FinalMaterialMultiplier = component.MaterialUseMultiplier * material;
 
             Dirty(uid, component);
             UpdateUserInterfaceState(uid, component);
@@ -471,12 +475,15 @@ namespace Content.Server.Lathe
 
         private static void OnUpgradeExamine(EntityUid uid, LatheComponent component, UpgradeExamineEvent args)
         {
+            if (component.SuppressMachinePartUpgrades)
+                return;
+
             var speedMultiplier = component.FinalTimeMultiplier > 0f
                 ? component.TimeMultiplier / component.FinalTimeMultiplier
                 : 1f;
 
-            args.AddPercentageUpgrade("lathe-component-upgrade-speed", speedMultiplier, component.TimeMultiplier);
-            args.AddPercentageUpgrade("lathe-component-upgrade-material-use", component.FinalMaterialMultiplier, component.MaterialUseMultiplier);
+            args.AddPercentageUpgrade("lathe-component-upgrade-speed", speedMultiplier, benefit: true);
+            args.AddPercentageUpgrade("lathe-component-upgrade-material-use", component.FinalMaterialMultiplier, benefit: false);
         }
         // ADT-Tweak-End
 

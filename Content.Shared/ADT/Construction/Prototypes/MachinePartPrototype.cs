@@ -1,8 +1,4 @@
-// SPDX-FileCopyrightText: 2026 PuroSlavKing <puroslavking@yahoo.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-// Ported from Orion-Station-14 (PR #385, https://github.com/AtaraxiaSpaceFoundation/Orion-Station-14/pull/385)
-
+using Content.Shared.ADT.Construction;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Construction.Prototypes;
@@ -18,4 +14,7 @@ public sealed partial class MachinePartPrototype : IPrototype
 
     [DataField(required: true)]
     public EntProtoId StockPartPrototype = string.Empty;
+
+    [DataField]
+    public Dictionary<MachineStat, float> Stats = new();
 }

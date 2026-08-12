@@ -177,7 +177,7 @@ public sealed class MachinePartInteractionTests : InteractionTest
 
         var after = Comp<SeedExtractorComponent>();
         Assert.That(after.SeedMultiplier, Is.GreaterThan(baseMultiplier));
-        Assert.That(after.SeedMultiplier, Is.EqualTo(4f).Within(0.0001f));
+        Assert.That(after.SeedMultiplier, Is.EqualTo(1.6f).Within(0.0001f));
     }
 
     [Test]

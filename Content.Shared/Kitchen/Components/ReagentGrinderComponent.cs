@@ -1,4 +1,3 @@
-using Content.Shared.ADT.Construction.Prototypes;
 using Content.Shared.Kitchen.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -43,12 +42,6 @@ public sealed partial class ReagentGrinderComponent : Component
     // ADT-Tweak-Start: machine parts with tiers
     [DataField]
     public float CapacityMultiplier = 1f;
-
-    [DataField]
-    public ProtoId<MachinePartPrototype> ServoPart = "Servo";
-
-    [DataField]
-    public ProtoId<MachinePartPrototype> MatterBinPart = "MatterBin";
     // ADT-Tweak-End
 
     /// <summary>

@@ -168,7 +168,6 @@
     - item: WeaponGrapplingGun
     - item: DefibrillatorOneHandedUnpowered
 
-# ADT-Tweak: RPED-модуль (порт машинных частей из Orion-Station-14 PR #385)
 - type: entity
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
   id: BorgModuleRPED

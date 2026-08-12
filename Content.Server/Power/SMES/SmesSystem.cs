@@ -55,10 +55,9 @@ public sealed class SmesSystem : EntitySystem //ADT-tweak: made public
         if (!TryComp<PowerNetworkBatteryComponent>(uid, out var netBattery))
             return;
 
-        // ADT-Tweak: базовые части (тир 1) не дают прибавок (средний рейтинг, не сумма)
-        var rating = args.GetPartRating(MachinePartIds.Capacitor);
-        netBattery.MaxSupply = component.BaseMaxSupply * rating;
-        netBattery.MaxChargeRate = component.BaseMaxChargeRate * rating;
+        // ADT-Tweak: базовые части (тир 1) не дают прибавок
+        netBattery.MaxSupply = component.BaseMaxSupply * args.GetStatMultiplier(MachineStat.Capacity);
+        netBattery.MaxChargeRate = component.BaseMaxChargeRate * args.GetStatMultiplier(MachineStat.ChargeRate);
 
         UpdateSmesState(uid, component);
     }
@@ -75,8 +74,8 @@ public sealed class SmesSystem : EntitySystem //ADT-tweak: made public
             ? 1f
             : netBattery.MaxSupply / component.BaseMaxSupply;
 
-        args.AddPercentageUpgrade("machine-upgrade-power-input", inputMultiplier);
-        args.AddPercentageUpgrade("machine-upgrade-power-output", outputMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-power-input", inputMultiplier, benefit: true);
+        args.AddPercentageUpgrade("machine-upgrade-power-output", outputMultiplier, benefit: true);
     }
     // ADT-Tweak-End
 

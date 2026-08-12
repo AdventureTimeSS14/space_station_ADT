@@ -66,12 +66,10 @@ public sealed class ThrusterSystem : EntitySystem
     // ADT-Tweak-Start
     private void OnPartsRefresh(EntityUid uid, ThrusterComponent component, RefreshPartsEvent args)
     {
-        var servoTier = args.GetPartRating(MachinePartIds.Servo);
-
         if (component.IsOn)
             DisableThruster(uid, component);
 
-        component.ThrustMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(servoTier);
+        component.ThrustMultiplier = args.GetStatMultiplier(MachineStat.Speed);
 
         if (component.Enabled && CanEnable(uid, component))
             EnableThruster(uid, component);
@@ -79,7 +77,7 @@ public sealed class ThrusterSystem : EntitySystem
 
     private static void OnUpgradeExamine(EntityUid uid, ThrusterComponent component, UpgradeExamineEvent args)
     {
-        args.AddPercentageUpgrade("machine-upgrade-thrust", component.ThrustMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-thrust", component.ThrustMultiplier, benefit: true);
     }
 
     private float GetThrust(ThrusterComponent component) => component.Thrust * component.ThrustMultiplier;

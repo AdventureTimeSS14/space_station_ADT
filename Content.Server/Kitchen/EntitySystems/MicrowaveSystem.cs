@@ -40,6 +40,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Temperature.Components;
 using Content.Shared.Damage;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.Construction;
 using Content.Shared.ADT.Construction.Components; // ADT-Tweak: machine parts
 using Content.Shared.ADT.Construction.Events; // ADT-Tweak: machine parts
 using Content.Shared.ADT.Kitchem.Components; // ADT-Tweak
@@ -495,12 +496,12 @@ namespace Content.Server.Kitchen.EntitySystems
         // ADT-Tweak-Start: machine parts with tiers
         private void OnPartsRefresh(EntityUid uid, MicrowaveComponent component, RefreshPartsEvent args)
         {
-            var microLaserTier = args.GetPartRating(component.MicroLaserPart);
-            var matterBinTier = args.GetPartRating(component.MatterBinPart);
+            var speed = args.GetStatMultiplier(MachineStat.Speed);
+            var output = args.GetStatMultiplier(MachineStat.Output);
 
-            component.UpgradeCookMultiplier = RefreshPartsEvent.GetTierDiscount(microLaserTier, 0.1f); // ADT-Tweak
-            component.ExplosionChanceMultiplier = MathF.Max(0f, 1f - MathF.Max(0f, microLaserTier - 1f) * 0.5f);
-            component.CapacityMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(matterBinTier);
+            component.UpgradeCookMultiplier = 1f / speed; // ADT-Tweak
+            component.ExplosionChanceMultiplier = MathF.Max(0f, 1f - (output - 1f));
+            component.CapacityMultiplier = args.GetStatMultiplier(MachineStat.Capacity);
 
             UpdateUserInterfaceState(uid, component);
         }
@@ -512,9 +513,9 @@ namespace Content.Server.Kitchen.EntitySystems
                 ? 1f
                 : 1f / totalCookMultiplier; // ADT-Tweak
 
-            args.AddPercentageUpgrade("machine-upgrade-cook-speed", speedMultiplier);
-            args.AddPercentageUpgrade("machine-upgrade-capacity", component.CapacityMultiplier);
-            args.AddPercentageUpgrade("machine-upgrade-malfunction-reduction", component.ExplosionChanceMultiplier);
+            args.AddPercentageUpgrade("machine-upgrade-cook-speed", speedMultiplier, benefit: true);
+            args.AddPercentageUpgrade("machine-upgrade-capacity", component.CapacityMultiplier, benefit: true);
+            args.AddPercentageUpgrade("machine-upgrade-malfunction-reduction", component.ExplosionChanceMultiplier, benefit: true);
         }
         // ADT-Tweak-End
 

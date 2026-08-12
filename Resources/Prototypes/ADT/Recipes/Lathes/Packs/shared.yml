@@ -9,7 +9,6 @@
   - ADTSheetRUGlass
   - MaterialDurathread
 
-# Динамические паки частей (порт из Orion-Station-14 PR #385)
 - type: latheRecipePack
   id: PartsDynamic
   recipes:

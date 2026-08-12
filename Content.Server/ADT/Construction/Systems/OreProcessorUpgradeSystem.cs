@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Construction;
 using Content.Shared.ADT.Construction.Components;
 using Content.Shared.ADT.Construction.Events;
 
@@ -15,13 +16,19 @@ public sealed class OreProcessorUpgradeSystem : EntitySystem
 
     private void OnRefreshParts(EntityUid uid, OreProcessorUpgradeComponent component, RefreshPartsEvent args)
     {
-        component.OutputMultiplier = args.GetPartRating(component.OutputPart, 1f);
-        component.PointsMultiplier = args.GetPartRating(component.PointsPart, 1f);
+        var laserTier = args.GetPartRating(MachinePartIds.MicroLaser, 1f);
+        var binTier = args.GetPartRating(MachinePartIds.MatterBin, 1f);
+
+        component.OutputMultiplier = RefreshPartsEvent.GetTierMultiplier(laserTier, 0.20f)
+            * RefreshPartsEvent.GetTierMultiplier(binTier, -0.10f);
+
+        component.PointsMultiplier = RefreshPartsEvent.GetTierMultiplier(binTier, 0.20f)
+            * RefreshPartsEvent.GetTierMultiplier(laserTier, -0.10f);
     }
 
     private static void OnUpgradeExamine(EntityUid uid, OreProcessorUpgradeComponent component, UpgradeExamineEvent args)
     {
-        args.AddPercentageUpgrade("machine-upgrade-ore-output", component.OutputMultiplier);
-        args.AddPercentageUpgrade("machine-upgrade-ore-points", component.PointsMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-ore-output", component.OutputMultiplier, benefit: true);
+        args.AddPercentageUpgrade("machine-upgrade-ore-points", component.PointsMultiplier, benefit: true);
     }
 }

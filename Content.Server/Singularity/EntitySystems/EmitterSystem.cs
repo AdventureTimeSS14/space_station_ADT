@@ -62,15 +62,13 @@ namespace Content.Server.Singularity.EntitySystems
 
         private void OnPartsRefresh(EntityUid uid, EmitterComponent component, RefreshPartsEvent args)
         {
-            var servoTier = args.GetPartRating(MachinePartIds.Servo);
-            var laserTier = args.GetPartRating(MachinePartIds.MicroLaser);
-            component.FireRateMultiplier = Math.Clamp((servoTier + laserTier) / 2f, 1f, 4f);
+            component.FireRateMultiplier = Math.Clamp(args.GetStatMultiplier(MachineStat.Speed), 0.5f, 4f);
             Dirty(uid, component);
         }
 
         private static void OnUpgradeExamine(EntityUid uid, EmitterComponent component, UpgradeExamineEvent args)
         {
-            args.AddPercentageUpgrade("machine-upgrade-fire-rate", component.FireRateMultiplier);
+            args.AddPercentageUpgrade("machine-upgrade-fire-rate", component.FireRateMultiplier, benefit: true);
         // ADT-Tweak end
         }
 

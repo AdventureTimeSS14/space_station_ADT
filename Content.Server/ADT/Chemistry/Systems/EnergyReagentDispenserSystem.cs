@@ -293,18 +293,9 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
 
         private void OnPartsRefresh(EntityUid uid, EnergyReagentDispenserComponent component, RefreshPartsEvent args)
         {
-            var capacitorTier = args.GetPartRating(component.CapacitorPart);
-            var matterBinTier = args.GetPartRating(component.MatterBinPart);
+            component.FinalRechargeRate = component.RechargeRatePerTier * args.GetPartRating(MachinePartIds.Capacitor, 1f);
 
-            component.FinalRechargeRate = capacitorTier switch
-            {
-                >= 4f => component.RechargeRatePerTier * 3f,
-                >= 3f => component.RechargeRatePerTier * 1.5f,
-                >= 2f => component.RechargeRatePerTier,
-                _ => component.RechargeRatePerTier * 0.5f,
-            };
-
-            var scanningModuleTier = args.GetPartRating(component.ScanningModulePart, 1f);
+            var scanningModuleTier = args.GetPartRating(MachinePartIds.ScanningModule, 1f);
             foreach (var (tier, reagents) in component.TierReagents)
             {
                 if (scanningModuleTier < tier)
@@ -313,7 +304,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
                 foreach (var reagent in reagents)
                     component.Reagents.TryAdd(reagent, component.TierReagentCost);
             }
-            component.FinalEnergyCostMultiplier = RefreshPartsEvent.GetTierDiscount(matterBinTier, 0.15f);
+            component.FinalEnergyCostMultiplier = args.GetStatMultiplier(MachineStat.EnergyCost);
 
             if (TryComp<ApcPowerReceiverBatteryComponent>(uid, out var apcBattery))
                 _powerReceiver.SetBatteryRechargeRate(uid, component.FinalRechargeRate, apcBattery);
@@ -325,13 +316,12 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
 
         private static void OnUpgradeExamine(EntityUid uid, EnergyReagentDispenserComponent component, UpgradeExamineEvent args)
         {
-            var tier1Rate = component.RechargeRatePerTier * 0.5f;
             var rechargeMultiplier = component.FinalRechargeRate > 0f
-                ? component.FinalRechargeRate / tier1Rate
+                ? component.FinalRechargeRate / component.RechargeRatePerTier
                 : 1f;
 
-            args.AddPercentageUpgrade("machine-upgrade-charging-speed", rechargeMultiplier);
-            args.AddPercentageUpgrade("machine-upgrade-energy-cost", component.FinalEnergyCostMultiplier);
+            args.AddPercentageUpgrade("machine-upgrade-charging-speed", rechargeMultiplier, benefit: true);
+            args.AddPercentageUpgrade("machine-upgrade-energy-cost", component.FinalEnergyCostMultiplier, benefit: false);
         }
 
         private void OnMapInit(Entity<EnergyReagentDispenserComponent> entity, ref MapInitEvent args)

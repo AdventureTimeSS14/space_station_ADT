@@ -1,28 +1,46 @@
-# Машинные части с тирами (порт из Orion-Station-14 PR #385)
 - type: machinePart
   id: Capacitor
   name: machine-part-name-capacitor
   stockPartPrototype: CapacitorStockPart
+  stats:
+    ChargeRate: 0.25
+    PowerDraw: -0.15
+    EnergyCost: 0.10
 
 - type: machinePart
   id: Servo
   name: machine-part-name-servo
   stockPartPrototype: MicroServoStockPart
+  stats:
+    Speed: 0.20
+    ResourceCost: 0.15
 
 - type: machinePart
   id: MatterBin
   name: machine-part-name-matter-bin
   stockPartPrototype: MatterBinStockPart
+  stats:
+    Speed: -0.10
+    ResourceCost: -0.20
+    Capacity: 0.25
+    EnergyCost: -0.10
 
 - type: machinePart
   id: ScanningModule
   name: machine-part-name-scanning-module
   stockPartPrototype: ScanningModuleStockPart
+  stats:
+    Speed: -0.10
+    Output: 0.15
 
 - type: machinePart
   id: MicroLaser
   name: machine-part-name-micro-laser
   stockPartPrototype: MicroLaserStockPart
+  stats:
+    Speed: 0.25
+    Output: 0.20
+    EnergyCost: 0.10
 
 # Батарейка как машинная часть (для РПД и крафта энерго-химки)
 - type: machinePart

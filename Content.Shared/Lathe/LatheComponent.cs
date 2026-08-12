@@ -1,4 +1,3 @@
-using Content.Shared.ADT.Construction.Prototypes;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Research.Prototypes;
@@ -94,16 +93,13 @@ namespace Content.Shared.Lathe
         public float FinalMaterialMultiplier = 1;
 
         [DataField]
-        public ProtoId<MachinePartPrototype> MachinePartPrintSpeed = "MatterBin";
-
-        [DataField]
-        public ProtoId<MachinePartPrototype> MachinePartMaterialCost = "Servo";
-
-        [DataField]
         public float MachinePartEfficiencyExponent = 0.8f;
 
         [DataField]
         public float MinMachinePartEfficiency = 0.1f;
+
+        [DataField]
+        public bool SuppressMachinePartUpgrades = false;
         // ADT-Tweak-End
     }
 

@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Construction;
 using Content.Shared.ADT.Construction.Events;
 using Content.Shared.ADT.Xenobiology.Components;
 using Content.Shared.ADT.Xenobiology.Systems;
@@ -53,15 +54,15 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
 
     private void OnRefreshParts(EntityUid uid, SlimeGrinderComponent component, RefreshPartsEvent args)
     {
-        var servoTier = args.GetPartRating(component.ServoPart, 1f);
-        component.ExtractMultiplier = servoTier;
-        component.WorkTimeMultiplier = 1f / servoTier;
+        var speed = args.GetStatMultiplier(MachineStat.Speed);
+        component.ExtractMultiplier = speed;
+        component.WorkTimeMultiplier = 1f / speed;
     }
 
     private static void OnUpgradeExamine(EntityUid uid, SlimeGrinderComponent component, UpgradeExamineEvent args)
     {
-        args.AddPercentageUpgrade("machine-upgrade-slime-extract-multiplier", component.ExtractMultiplier);
-        args.AddPercentageUpgrade("machine-upgrade-process-speed", 1f / component.WorkTimeMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-slime-extract-multiplier", component.ExtractMultiplier, benefit: true);
+        args.AddPercentageUpgrade("machine-upgrade-process-speed", 1f / component.WorkTimeMultiplier, benefit: true);
     }
 
     public override void Update(float frameTime)

@@ -67,11 +67,8 @@ public abstract class SharedGasThermoMachineSystem : EntitySystem
     // ADT-Tweak-Start: machine parts with tiers
     private void OnRefreshParts(EntityUid uid, GasThermoMachineComponent component, RefreshPartsEvent args)
     {
-        var matterTier = args.GetPartRating(MachinePartIds.MatterBin);
-        var laserTier = args.GetPartRating(MachinePartIds.MicroLaser);
-
-        component.HeatCapacityMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(matterTier);
-        component.TemperatureRangeBonus = (laserTier - 1f) * 30f;
+        component.HeatCapacityMultiplier = args.GetStatMultiplier(MachineStat.Capacity);
+        component.TemperatureRangeBonus = (args.GetPartRating(MachinePartIds.MicroLaser) - 1f) * 30f;
 
         component.TargetTemperature = Math.Clamp(component.TargetTemperature, GetMinTemperature(component), GetMaxTemperature(component));
         Dirty(uid, component);
@@ -80,8 +77,8 @@ public abstract class SharedGasThermoMachineSystem : EntitySystem
 
     private static void OnUpgradeExamine(EntityUid uid, GasThermoMachineComponent component, UpgradeExamineEvent args)
     {
-        args.AddPercentageUpgrade("machine-upgrade-thermomachine-heat-capacity", component.HeatCapacityMultiplier);
-        args.AddPercentageUpgrade("machine-upgrade-thermomachine-temp-range", (GetMaxTemperature(component) - GetMinTemperature(component)) / (component.MaxTemperature - component.MinTemperature));
+        args.AddPercentageUpgrade("machine-upgrade-thermomachine-heat-capacity", component.HeatCapacityMultiplier, benefit: true);
+        args.AddPercentageUpgrade("machine-upgrade-thermomachine-temp-range", (GetMaxTemperature(component) - GetMinTemperature(component)) / (component.MaxTemperature - component.MinTemperature), benefit: true);
     }
 
     public static float GetMinTemperature(GasThermoMachineComponent component) => MathF.Max(Atmospherics.TCMB, component.MinTemperature - component.TemperatureRangeBonus);

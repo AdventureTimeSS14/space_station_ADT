@@ -1,4 +1,3 @@
-using Content.Shared.ADT.Construction.Prototypes;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -18,9 +17,6 @@ public sealed partial class ChargerComponent : Component
     // ADT-Tweak-Start: machine parts with tiers
     [DataField]
     public float ChargeRateMultiplier = 1f;
-
-    [DataField]
-    public ProtoId<MachinePartPrototype> ChargePart = "Capacitor";
     // ADT-Tweak-End
 
     /// <summary>

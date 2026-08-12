@@ -7,5 +7,8 @@ public sealed partial class ChemMasterBufferComponent : Component
     public float BufferCapacity = 1500f;
 
     [DataField]
+    public float BufferCapacityPerTier = 2000f;
+
+    [DataField]
     public float BufferMultiplier = 1f;
 }

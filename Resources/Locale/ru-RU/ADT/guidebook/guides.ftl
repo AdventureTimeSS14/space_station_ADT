@@ -22,3 +22,5 @@ guide-entry-medication = Медицина
 guide-entry-chaplain = Священник
 guide-entry-altars = Таблица алтарей
 guide-entry-martialarts-ADT = Боевые искусства
+guide-entry-machine-parts = Машинные части
+guide-entry-machine-parts-install = Куда ставить детали

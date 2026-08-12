@@ -16,12 +16,11 @@ public sealed class AssemblerMachinePartsSystem : EntitySystem
 
     private void OnRefreshParts(EntityUid uid, AssemblerUpgradeComponent component, RefreshPartsEvent args)
     {
-        var servoTier = args.GetPartRating(MachinePartIds.Servo, 1f);
-        component.IngredientMultiplier = RefreshPartsEvent.GetTierDiscount(servoTier, 0.1f);
+        component.IngredientMultiplier = args.GetStatMultiplier(MachineStat.ResourceCost);
     }
 
     private static void OnUpgradeExamine(EntityUid uid, AssemblerUpgradeComponent component, UpgradeExamineEvent args)
     {
-        args.AddPercentageUpgrade("machine-upgrade-assembler-ingredients", component.IngredientMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-assembler-ingredients", component.IngredientMultiplier, benefit: false);
     }
 }

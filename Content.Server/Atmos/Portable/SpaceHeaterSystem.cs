@@ -184,11 +184,8 @@ public sealed class SpaceHeaterSystem : EntitySystem
     // ADT-Tweak-Start: machine parts with tiers
     private void OnRefreshParts(EntityUid uid, SpaceHeaterComponent component, RefreshPartsEvent args)
     {
-        var capacitor = args.GetPartRating(MachinePartIds.Capacitor);
-        var laser = args.GetPartRating(MachinePartIds.MicroLaser);
-
-        component.PowerMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(capacitor);
-        component.TemperatureRangeBonus = (laser - 1f) * 10f;
+        component.PowerMultiplier = args.GetStatMultiplier(MachineStat.EnergyCost);
+        component.TemperatureRangeBonus = (args.GetPartRating(MachinePartIds.MicroLaser) - 1f) * 10f;
 
         if (TryComp<GasThermoMachineComponent>(uid, out var thermo))
         {
@@ -202,8 +199,8 @@ public sealed class SpaceHeaterSystem : EntitySystem
 
     private static void OnUpgradeExamine(EntityUid uid, SpaceHeaterComponent component, UpgradeExamineEvent args)
     {
-        args.AddPercentageUpgrade("machine-upgrade-spaceheater-power", component.PowerMultiplier);
-        args.AddPercentageUpgrade("machine-upgrade-spaceheater-temp-range", (GetMaxTemperature(component) - GetMinTemperature(component)) / (component.MaxTemperature - component.MinTemperature));
+        args.AddPercentageUpgrade("machine-upgrade-spaceheater-power", component.PowerMultiplier, benefit: true);
+        args.AddPercentageUpgrade("machine-upgrade-spaceheater-temp-range", (GetMaxTemperature(component) - GetMinTemperature(component)) / (component.MaxTemperature - component.MinTemperature), benefit: true);
     }
     // ADT-Tweak-End
 

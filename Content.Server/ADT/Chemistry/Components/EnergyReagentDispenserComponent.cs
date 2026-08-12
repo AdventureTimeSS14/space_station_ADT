@@ -1,9 +1,7 @@
-using Content.Shared.ADT.Construction.Prototypes;
 using Content.Shared.Containers.ItemSlots;
 using Content.Server.ADT.Chemistry.EntitySystems;
 using Content.Shared.ADT.Chemistry;
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Chemistry.Components
 {
@@ -63,15 +61,6 @@ namespace Content.Server.ADT.Chemistry.Components
 
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float FinalEnergyCostMultiplier = 1f;
-
-        [DataField]
-        public ProtoId<MachinePartPrototype> CapacitorPart = "Capacitor";
-
-        [DataField]
-        public ProtoId<MachinePartPrototype> MatterBinPart = "MatterBin";
-
-        [DataField]
-        public ProtoId<MachinePartPrototype> ScanningModulePart = "ScanningModule";
 
         [DataField]
         public float RechargeRatePerTier = 10f;

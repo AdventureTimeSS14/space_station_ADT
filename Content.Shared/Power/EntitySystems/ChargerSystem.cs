@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.ADT.Construction;
 using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Emp;
 using Content.Shared.Examine;
@@ -206,15 +207,14 @@ public sealed class ChargerSystem : EntitySystem
     // ADT-Tweak-Start: machine parts with tiers
     private void OnPartsRefresh(EntityUid uid, ChargerComponent component, RefreshPartsEvent args)
     {
-        var capTier = args.GetPartRating(component.ChargePart);
-        component.ChargeRateMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(capTier);
+        component.ChargeRateMultiplier = args.GetStatMultiplier(MachineStat.ChargeRate);
 
         UpdateStatus((uid, component));
     }
 
     private void OnUpgradeExamine(EntityUid uid, ChargerComponent component, UpgradeExamineEvent args)
     {
-        args.AddPercentageUpgrade("machine-upgrade-charging-efficiency", component.ChargeRateMultiplier);
+        args.AddPercentageUpgrade("machine-upgrade-charging-efficiency", component.ChargeRateMultiplier, benefit: true);
     }
     // ADT-Tweak-End
 

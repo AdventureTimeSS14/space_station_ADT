@@ -172,7 +172,7 @@
         Glass: 2
         Cable: 4
       partRequirements:
-        Servo: 1
+        MatterBin: 1
       tagRequirements:
         GlassBeaker:
           amount: 2
@@ -237,7 +237,7 @@
         Glass: 2
         Cable: 2
       partRequirements:
-        Servo: 2
+        MatterBin: 2
       tagRequirements:
         GlassBeaker:
           amount: 1

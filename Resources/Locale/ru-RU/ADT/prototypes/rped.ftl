@@ -1,10 +1,18 @@
-# RPED (порт из Orion-Station-14 PR #385)
 ent-RapidPartExchanger = РПЕД
     .desc = Устройство для быстрой замены деталей машин. Хранит запасные компоненты внутри.
 ent-RapidPartExchangerBorg = { ent-RapidPartExchanger }
     .desc = { ent-RapidPartExchanger.desc }
 ent-BluespaceRapidPartExchanger = блюспейс РПЕД
     .desc = Улучшенная версия устройства для быстрой замены деталей машин, работающая на любом расстоянии и через закрытые технические панели.
+ent-BluespaceRapidPartExchangerFilledTier1 = { ent-BluespaceRapidPartExchanger }
+    .suffix = Уровень 1
+    .desc = { ent-BluespaceRapidPartExchanger.desc }
+ent-BluespaceRapidPartExchangerFilledTier2 = { ent-BluespaceRapidPartExchanger }
+    .suffix = Уровень 2
+    .desc = { ent-BluespaceRapidPartExchanger.desc }
+ent-BluespaceRapidPartExchangerFilledTier3 = { ent-BluespaceRapidPartExchanger }
+    .suffix = Уровень 3
+    .desc = { ent-BluespaceRapidPartExchanger.desc }
 ent-BluespaceRapidPartExchangerFilled = { ent-BluespaceRapidPartExchanger }
     .suffix = Уровень 4
     .desc = { ent-BluespaceRapidPartExchanger.desc }

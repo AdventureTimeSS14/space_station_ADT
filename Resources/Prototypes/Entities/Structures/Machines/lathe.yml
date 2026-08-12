@@ -733,6 +733,7 @@
       idleState: icon
       runningState: building
       defaultProductionAmount: 30 #ADT, changed from 10 to 30
+      suppressMachinePartUpgrades: true #ADT-Tweak
       staticPacks:
       - OreSmelting
       - RGlassSmelting

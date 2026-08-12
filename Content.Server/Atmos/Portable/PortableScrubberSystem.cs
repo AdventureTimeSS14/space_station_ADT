@@ -48,17 +48,14 @@ namespace Content.Server.Atmos.Portable
 
         private void OnPartsRefresh(EntityUid uid, PortableScrubberComponent component, RefreshPartsEvent args)
         {
-            var servoTier = args.GetPartRating(MachinePartIds.Servo);
-            var matterTier = args.GetPartRating(MachinePartIds.MatterBin);
-
-            component.TransferRateMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(servoTier);
-            component.PressureMultiplier = RefreshPartsEvent.GetPositiveTierMultiplier(matterTier);
+            component.TransferRateMultiplier = args.GetStatMultiplier(MachineStat.Speed);
+            component.PressureMultiplier = args.GetStatMultiplier(MachineStat.Capacity);
         }
 
         private static void OnUpgradeExamine(EntityUid uid, PortableScrubberComponent component, UpgradeExamineEvent args)
         {
-            args.AddPercentageUpgrade("machine-upgrade-process-speed", component.TransferRateMultiplier);
-            args.AddPercentageUpgrade("machine-upgrade-capacity", component.PressureMultiplier);
+            args.AddPercentageUpgrade("machine-upgrade-process-speed", component.TransferRateMultiplier, benefit: true);
+            args.AddPercentageUpgrade("machine-upgrade-capacity", component.PressureMultiplier, benefit: true);
         }
         // ADT-Tweak-End
 
