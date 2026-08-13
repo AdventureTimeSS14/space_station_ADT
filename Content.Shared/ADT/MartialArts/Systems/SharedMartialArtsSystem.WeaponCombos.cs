@@ -233,7 +233,8 @@ public partial class SharedMartialArtsSystem
 
         var comp = weapon.Comp;
 
-        if (!_proto.TryIndex(comp.BeingPerformed, out proto)
+        if (comp.BeingPerformed is not { } beingPerformed
+            || !_proto.TryIndex(beingPerformed, out proto)
             || proto.MartialArtsForm != comp.MartialArtsForm)
             return false;
 
