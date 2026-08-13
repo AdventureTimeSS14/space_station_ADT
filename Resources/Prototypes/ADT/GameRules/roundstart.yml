@@ -34,6 +34,9 @@
     - prefRoles: [ Heretic ]
       max: 4
       playerRatio: 15
+      blacklist:
+        components:
+        - MobIpc
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
@@ -51,6 +54,9 @@
     - prefRoles: [ Heretic ]
       max: 1
       playerRatio: 15
+      blacklist:
+        components:
+        - MobIpc
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
@@ -193,6 +199,9 @@
     - prefRoles: [ Heretic ]
       max: 2
       playerRatio: 15
+      blacklist:
+        components:
+        - MobIpc
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
@@ -210,6 +219,9 @@
     - prefRoles: [ Heretic ]
       max: 3
       playerRatio: 15
+      blacklist:
+        components:
+        - MobIpc
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
