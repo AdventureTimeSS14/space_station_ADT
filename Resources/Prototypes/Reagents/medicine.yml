@@ -1093,6 +1093,25 @@
           Toxin: -2
           Airloss: -2
           Brute: -2
+      # ADT-Tweak-Start: зависимость от омнизина. Частое употребление (1..30u в крови) копит
+      # уровень медленно, передоз (30u+, полная бутылка) - быстро. Курение белой конопли
+      # не качает: при курении концентрация в крови ~0.05u, ниже порога 1u.
+      - !type:AdjustAddictionLevel
+        kind: Omnizine
+        amount: 0.04
+        conditions:
+        - !type:ReagentCondition
+          reagent: Omnizine
+          min: 1
+          max: 30
+      - !type:AdjustAddictionLevel
+        kind: Omnizine
+        amount: 0.5
+        conditions:
+        - !type:ReagentCondition
+          reagent: Omnizine
+          min: 30
+      # ADT-Tweak-End
 
 - type: reagent
   id: Ultravasculine

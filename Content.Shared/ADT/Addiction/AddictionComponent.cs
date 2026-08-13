@@ -151,6 +151,7 @@ public enum AddictionKind : byte
     Nicotine,
     Drug,
     Medicine,
+    Omnizine,
 }
 
 /// <summary>
