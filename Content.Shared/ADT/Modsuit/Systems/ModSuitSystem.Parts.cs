@@ -200,12 +200,19 @@ public sealed partial class ModSuitSystem
             return;
         }
 
+        EntityUid? suitStorage = null;
+        if (slot == "outerClothing" && _inventorySystem.TryUnequip(user, parent, "suitstorage", out var stashed, force: true, predicted: true))
+            suitStorage = stashed;
+
         if (_inventorySystem.TryUnequip(user, parent, slot, out var removedItem, predicted: true))
             _containerSystem.Insert(removedItem.Value, attachedComp.ClothingContainer);
         else if (removedItem.HasValue)
             return;
 
         _inventorySystem.TryEquip(user, parent, part, slot, force: true, predicted: true);
+
+        if (suitStorage.HasValue)
+            _inventorySystem.TryEquip(user, parent, suitStorage.Value, "suitstorage", force: true, predicted: true);
 
         UpdateCellDraw(ent);
 
@@ -226,6 +233,10 @@ public sealed partial class ModSuitSystem
 
         var parent = ent.Comp.TempUser.Value;
 
+        EntityUid? suitStorage = null;
+        if (slot == "outerClothing" && _inventorySystem.TryUnequip(user, parent, "suitstorage", out var stashed, force: true, predicted: true))
+            suitStorage = stashed;
+
         _inventorySystem.TryUnequip(user, parent, slot, force: true, predicted: true);
 
         // If attached have clothing in container - equip it
@@ -234,6 +245,9 @@ public sealed partial class ModSuitSystem
 
         if (attachedComp.ClothingContainer.ContainedEntity is { Valid: true } stored)
             _inventorySystem.TryEquip(parent, stored, slot, force: true, predicted: true);
+
+        if (suitStorage.HasValue && _inventorySystem.TryGetSlotEntity(parent, "outerClothing", out _))
+            _inventorySystem.TryEquip(user, parent, suitStorage.Value, "suitstorage", force: true, predicted: true);
 
         UpdateCellDraw(ent);
 
