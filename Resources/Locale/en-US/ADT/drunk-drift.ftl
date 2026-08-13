@@ -8,4 +8,4 @@ adt-drunk-fall-7 = The whole world suddenly started spinning!
 adt-drunk-fall-8 = Dropped themselves on the floor!
 adt-drunk-fall-9 = Tried to walk straight, but the floor disagreed!
 adt-drunk-fall-10 = Almost fell asleep standing up, but fell instead!
-adt-drunk-examine = Looks clearly drunk: they are visibly swaying.
+adt-drunk-examine = [color=#a54edb]Looks clearly drunk: they are visibly swaying.[/color]

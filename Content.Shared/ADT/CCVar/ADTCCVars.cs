@@ -406,6 +406,5 @@ public sealed class ADTCCVars
 
     public static readonly CVarDef<int> AntagRollBonusInfoRateLimitCount =
         CVarDef.Create("antag.roll_bonus_info_rate_limit_count", 3, CVar.SERVERONLY);
-
 }
 

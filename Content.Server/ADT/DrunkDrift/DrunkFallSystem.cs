@@ -90,6 +90,10 @@ public sealed class DrunkFallSystem : EntitySystem
         if (!ent.Comp.VisualsActive)
             return;
 
+        // Осмотр пьяным считается только у живых.
+        if (!_mobQuery.TryComp(ent.Owner, out var mob) || mob.CurrentState != MobState.Alive)
+            return;
+
         args.PushMarkup(Loc.GetString("adt-drunk-examine", ("ent", ent.Owner)));
     }
 
