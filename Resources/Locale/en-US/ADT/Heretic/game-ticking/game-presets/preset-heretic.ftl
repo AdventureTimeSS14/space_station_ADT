@@ -58,6 +58,7 @@ ghostrole-rustwalker-name = Rust Walker
 ghostrole-stargazer-name = Star Gazer
 ghostrole-ghoul-desc = Aid your summoner in achieving ascension.
 ghostrole-flesh-mimic-desc = Aid your summoner in achieving ascension. Be aware that you die over time.
+heretic-clone-item-examine = [color=gray]This is a phantom flesh copy. It will cease to exist if it leaves its creator's possession.[/color]
 ghostrole-prophet-desc = Aid your summoner in achieving ascension. Connect other believers to the Mansus Link. Passively heal heretics and eldritch creatures.
 ghostrole-stalker-desc = Aid your summoner in achieving ascension. Jaunt and sabotage crew's lighting.
 ghostrole-fire-shark-desc = Aid your summoner in achieving ascension. Burn your victims.
