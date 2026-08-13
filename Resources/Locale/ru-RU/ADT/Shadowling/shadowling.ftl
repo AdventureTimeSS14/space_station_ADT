@@ -187,3 +187,5 @@ ent-ADTShadowlingAscendObjective = Вознестись
 guide-entry-adt-shadowling = Тенеморф
 
 language-ADTShadowlingCollectiveMind-name = Коллективный разум
+
+adt-shadowling-title = Тенеморфы
