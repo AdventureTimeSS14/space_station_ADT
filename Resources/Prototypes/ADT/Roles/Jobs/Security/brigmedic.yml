@@ -44,7 +44,7 @@
   storage:
     back:
     - Flash
-    - MagazinePistol
+    # - MagazinePistol: магазин идёт в комплекте с МК-58 из ваучера РВИ
 
 - type: chameleonOutfit
   id: BrigmedicChameleonOutfit
