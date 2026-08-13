@@ -1,0 +1,48 @@
+- type: comboList
+  id: CursedKatanaMoves
+  combos:
+  - CursedKatanaTendonCut
+  - CursedKatanaHiltStrike
+  - CursedKatanaDash
+  - CursedKatanaDarkHeal
+
+- type: combo
+  id: CursedKatanaTendonCut
+  name: adt-cursed-katana-move-cut
+  martialArtsForm: CursedKatana
+  attacks:
+  - Harm
+  - Harm
+  - Harm
+  event: !type:KatanaTendonCutPerformedEvent {}
+
+- type: combo
+  id: CursedKatanaHiltStrike
+  name: adt-cursed-katana-move-strike
+  martialArtsForm: CursedKatana
+  attacks:
+  - HarmLight
+  - HarmLight
+  - HarmLight
+  event: !type:KatanaHiltStrikePerformedEvent {}
+
+- type: combo
+  id: CursedKatanaDash
+  name: adt-cursed-katana-move-dash
+  martialArtsForm: CursedKatana
+  attacks:
+  - Grab
+  - Grab
+  - Grab
+  event: !type:KatanaDashPerformedEvent {}
+
+- type: combo
+  id: CursedKatanaDarkHeal
+  name: adt-cursed-katana-move-heal
+  martialArtsForm: CursedKatana
+  attacks:
+  - Help
+  - Help
+  - Help
+  - Help
+  event: !type:KatanaDarkHealPerformedEvent {}

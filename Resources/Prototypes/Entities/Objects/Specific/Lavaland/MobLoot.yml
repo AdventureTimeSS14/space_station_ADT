@@ -10,6 +10,10 @@
   - type: Healing
     damageContainers:
     - Biological
+    # ADT-Tweak Start: New healing containers
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+    # ADT-Tweak End
     damage:
       types: # these are all split across multiple types
         Blunt: -33

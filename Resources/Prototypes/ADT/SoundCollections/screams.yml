@@ -9,13 +9,11 @@
 - type: soundCollection
   id: TajaranMaleScreams
   files:
-  - /Audio/Voice/Human/malescream_1.ogg
   - /Audio/Corvax/Effects/Tajaran/scream.ogg
 
 - type: soundCollection
   id: TajaranFemaleScreams
   files:
-  - /Audio/Voice/Human/femalescream_2.ogg
   - /Audio/Corvax/Effects/Tajaran/scream.ogg
 
 - type: soundCollection

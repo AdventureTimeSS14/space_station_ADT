@@ -154,20 +154,6 @@
       - ADTMobBloodMiner
 
 - type: entity
-  name: Blood Miner Buffed Spawner
-  id: ADTSpawnBloodMinerBuffed
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    layers:
-      - state: green
-      - sprite: ADT/Mobs/Aliens/Lavaland/bloodminer.rsi
-        state: alive_2
-  - type: ConditionalSpawner
-    prototypes:
-      - ADTMobBloodMinerBuffed
-
-- type: entity
   name: Drake Spawner
   id: ADTSpawnDrake
   parent: MarkerBase
@@ -404,3 +390,45 @@
   - type: ConditionalSpawner
     prototypes:
       - MobArgocyteLeviathing
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobMonkeyAdvanced
+  name: Advanced Monkey Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: monkey
+      sprite: Mobs/Animals/monkey.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobMonkeyAdvanced
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobKobold
+  name: Kobold Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: kobold
+      sprite: Mobs/Animals/kobold.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobKobold
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobKoboldAdvanced
+  name: Advanced Kobold Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: kobold
+      sprite: Mobs/Animals/kobold.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobKoboldAdvanced

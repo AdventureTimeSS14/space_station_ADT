@@ -1,3 +1,4 @@
+using Content.Client.ADT.BossMusic;
 using Content.Client.Administration.Managers;
 using Content.Client.Audio;
 using Content.Shared.Administration;
@@ -78,6 +79,13 @@ public sealed partial class AudioTab : Control
             SliderVolumeInterface,
             scale: ContentAudioSystem.InterfaceMultiplier);
 
+        // ADT Boss music start
+        Control.AddOptionPercentSlider(
+            ADTCCVars.BossMusicVolume,
+            SliderVolumeBossMusic,
+            scale: ADTBossMusicSystem.VolumeMultiplier);
+        // ADT Boss music end
+
         Control.AddOptionSlider(
             CCVars.MaxAmbientSources,
             SliderMaxAmbienceSounds,
@@ -87,6 +95,7 @@ public sealed partial class AudioTab : Control
         Control.AddOptionCheckBox(CCVars.LobbyMusicEnabled, LobbyMusicCheckBox);
         Control.AddOptionCheckBox(CCVars.RestartSoundsEnabled, RestartSoundsCheckBox);
         Control.AddOptionCheckBox(CCVars.EventMusicEnabled, EventMusicCheckBox);
+        Control.AddOptionCheckBox(ADTCCVars.BossMusicEnabled, BossMusicCheckBox); // ADT Boss music
         Control.AddOptionCheckBox(CCVars.AdminSoundsEnabled, AdminSoundsCheckBox);
         Control.AddOptionCheckBox(CCVars.BwoinkSoundEnabled, BwoinkSoundCheckBox);
 

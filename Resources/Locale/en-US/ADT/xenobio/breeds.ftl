@@ -1,0 +1,22 @@
+breed-GreyMutation = grey slime
+breed-OrangeMutation = orange slime
+breed-PurpleMutation = purple slime
+breed-BlueMutation = blue slime
+breed-MetalMutation = metal slime
+breed-YellowMutation = yellow slime
+breed-DarkPurpleMutation = dark purple slime
+breed-DarkBlueMutation = dark blue slime
+breed-SilverMutation = silver slime
+breed-BluespaceMutation = bluespace slime
+breed-SepiaMutation = sepia slime
+breed-CeruleanMutation = cerulean slime
+breed-PyriteMutation = pyrite slime
+breed-RedMutation = red slime
+breed-GreenMutation = green slime
+breed-PinkMutation = pink slime
+breed-GoldMutation = gold slime
+breed-OilMutation = oil slime
+breed-LightPinkMutation = light pink slime
+breed-BlackMutation = black slime
+breed-AdamantineMutation = adamantite slime
+

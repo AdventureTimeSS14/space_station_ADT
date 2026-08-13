@@ -1,0 +1,231 @@
+- type: entity
+  parent: BaseMachine
+  id: BluespaceArtilleryDebug
+  name: Bluespace Artillery
+  description: An high-tech artillery that use new bluespace technologies! DO NOT TOUCH OR YOU WILL BE TERMINATED.
+  suffix: DEBUG
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    sprite: ADT/Structures/BSA.rsi
+    layers:
+    - state: cannon_east
+    - state: east_unshaded
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      visible: false
+    - state: east_charging
+      shader: unshaded
+      map: ["enum.ArtilleryVisuals.Charging"]
+      visible: false
+    - state: east_reloading
+      shader: unshaded
+      map: ["enum.ArtilleryVisuals.Reloading"]
+      visible: false
+  - type: Physics
+    bodyType: Static
+    linearDamping: 999
+  - type: TileFrictionModifier
+    modifier: 10000
+  - type: Anchorable
+    delay: 30
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-5.40,-0.25,5.35,1.75"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+  - type: PowerConsumer
+    voltage: High
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      enum.ArtilleryVisuals.Charging:
+        enum.ArtilleryVisuals.Charging:
+          True: { visible: true }
+          False: { visible: false }
+      enum.ArtilleryVisuals.Reloading:
+        enum.ArtilleryVisuals.Reloading:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ArtilleryCannon
+    multiMap: true
+    powerUseActive: 70000
+    muzzleVerticalOffset: 1.02
+    muzzleForwardOffset: 5.30
+  - type: AmbientSound
+    enabled: false
+    range: 15
+    volume: 1
+    sound:
+      path: /Audio/Ambience/Objects/anomaly_generator.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20000
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+- type: entity
+  parent: BluespaceArtilleryDebug
+  id: BluespaceArtilleryMirrorDebug
+  name: Bluespace Artillery
+  description: An high-tech artillery that use new bluespace technologies! DO NOT TOUCH OR YOU WILL BE TERMINATED.
+  suffix: DEBUG
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/BSA.rsi
+    layers:
+    - state: cannon_west
+    - state: west_unshaded
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      visible: false
+    - state: west_charging
+      shader: unshaded
+      map: ["enum.ArtilleryVisuals.Charging"]
+      visible: false
+    - state: west_reloading
+      shader: unshaded
+      map: ["enum.ArtilleryVisuals.Reloading"]
+      visible: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-5.35,-0.25,5.40,1.75"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: ArtilleryCannon
+    multiMap: true
+    fireDirection: West
+    muzzleForwardOffset: -5.30
+
+- type: explosion
+  id: BSA
+  damagePerIntensity:
+    types:
+      Cold: 5
+      Heat: 5
+      Blunt: 5
+      Structural: 50
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Blue
+  fireColor: Blue
+  texturePath: /Textures/Effects/fire_greyscale.rsi
+  fireStates: 3
+
+- type: entity
+  id: BSAExplosion
+  name: Bluespace artillery explosion
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    sprite: ADT/Effects/BSA.rsi
+    state: bsa_impact_ex
+  - type: PointLight
+    enabled: true
+    radius: 15
+    energy: 10
+    color: "#00BFFF"
+  - type: TimedDespawn
+    lifetime: 1.03
+
+- type: entity
+  parent: BaseItem
+  id: BSABlueprint
+  name: чертёж БСА
+  description: Чертёж со схемой БСА. Необходим для возведения основы артиллерии.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/blueprint.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,0
+    storedSprite:
+      sprite: Objects/Tools/blueprint.rsi
+      state: storage
+  - type: Tag
+    tags:
+    - BlueprintBSA
+
+#region DEBUG/AABUSE
+
+- type: entity
+  parent: BluespaceArtilleryDebug
+  id: BluespaceArtillery
+  suffix: Цель станции
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: ArtilleryCannon
+    multiMap: false
+    cooldownMinutes: 25.0
+  - type: Construction
+    graph: BluespaceArtilleryConstruction
+    node: cannon_east
+    deconstructionTarget: null
+
+- type: entity
+  parent: BluespaceArtilleryMirrorDebug
+  id: BluespaceArtilleryMirror
+  suffix: Цель станции
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: ArtilleryCannon
+    multiMap: false
+    cooldownMinutes: 25.0
+  - type: Construction
+    graph: BluespaceArtilleryConstructionFlipped
+    node: cannon_west
+    deconstructionTarget: null

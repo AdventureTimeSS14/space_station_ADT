@@ -1,0 +1,105 @@
+- type: entity
+  id: ADTMobBloodMiner
+  parent: ADTBaseMobMegafauna
+  name: blood-drunk miner
+  description: A miner destined to wander forever, engaged in an endless hunt.
+  components:
+  - type: GpsSignal
+    tag: adt-gps-signal-blood-miner
+    description: adt-gps-signal-blood-miner-desc
+    color: "#8B1A1A"
+  - type: Destructible
+    thresholds: []
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/bloodminer.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: alive_1
+  - type: GenericVisualizer
+    visuals:
+      enum.BloodMinerVisuals.SawOpen:
+        enum.DamageStateVisualLayers.Base:
+          True: { state: alive_2 }
+          False: { state: alive_1 }
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4.4
+    baseSprintSpeed: 4.4
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1250: Dead
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    angle: 0
+    attackRate: 2.5
+    range: 1.5
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Slash: 6
+  - type: BloodMiner
+    closedDamage:
+      types:
+        Slash: 6
+    openDamage:
+      types:
+        Slash: 10
+  - type: MegafaunaLoot
+    deleteOnDrop: true
+    dropSound:
+      collection: BodyFall
+    loot:
+    - proto: ADTCleawingSaw
+    - proto: WeaponProtoKineticAccelerator
+    - proto: ADTKineticTrophyBloodDrunkMiner
+    - proto: UraniumOre
+      min: 2
+      max: 10
+    - proto: SilverOre
+      min: 2
+      max: 10
+    - proto: GoldOre
+      min: 2
+      max: 10
+    - proto: PlasmaOre
+      min: 2
+      max: 10
+    - proto: SpaceQuartz
+      min: 2
+      max: 10
+    - proto: DiamondOre
+      min: 1
+      max: 5
+  - type: HTN
+    rootTask:
+      task: ADTBloodMinerCompound
+    blackboard:
+      VisionRadius: !type:Single
+        30
+      AggroVisionRadius: !type:Single
+        16
+      MeleeMissChance: !type:Single
+        0
+  - type: Megafauna
+#  - type: ADTMobHealthBar
+#    active: true
+#    primaryColor: "#7a1020"
+#    accentColor: "#e8413c"
+#    style: Hazard
+#    priority: 40
+
+- type: entity
+  name: blood miner spawner
+  id: ADTSpawnMobBloodMiner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: RandomSpawner
+    prototypes:
+    - ADTMobBloodMiner
+  - type: TimedDespawn
+    lifetime: 1

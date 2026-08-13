@@ -7,6 +7,7 @@ using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.ADT.Implants;
 using Content.Shared.ADT.MartialArts;
+using Content.Shared.ADT.Weapons.Melee;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -402,6 +403,11 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (!CombatMode.IsInCombatMode(user))
             return false;
 
+        // ADT-Tweak-Start
+        if (attack is HeavyAttackEvent && HasComp<ADTNoWideAttackComponent>(weaponUid))
+            return false;
+        // ADT-Tweak-End
+
         EntityUid? target = null;
         switch (attack)
         {
@@ -426,6 +432,11 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     // Target was lightly attacked & deleted.
                     return false;
                 }
+
+                // ADT tweak start
+                if (target == user && HasSelfCombos(user))
+                    break;
+                // ADT tweak end
 
                 if (!Blocker.CanAttack(user, target, (weaponUid, weapon), true))
                     return false;
@@ -882,15 +893,50 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         return Math.Clamp(chance, 0f, 1f);
     }
 
+    // ADT tweak start
+    private bool DoSelfDisarm(EntityUid user, EntityUid meleeUid, MeleeWeaponComponent component)
+    {
+        if (!HasSelfCombos(user))
+            return false;
+
+        if (!TryComp<CombatModeComponent>(user, out var combatMode) || combatMode.CanDisarm != true)
+            return false;
+
+        var comboEv = new ComboAttackPerformedEvent(user, user, meleeUid, ComboAttackType.Disarm);
+        RaiseLocalEvent(user, comboEv);
+
+        if (_netMan.IsClient)
+            _meleeSound.PlaySwingSound(user, meleeUid, component);
+
+        return true;
+    }
+
+    protected bool HasSelfCombos(EntityUid user)
+    {
+        if (!TryComp<MartialArtsKnowledgeComponent>(user, out var knowledge))
+            return false;
+
+        foreach (var combo in _protoManager.EnumeratePrototypes<ComboPrototype>())
+        {
+            if (combo.PerformOnSelf && combo.MartialArtsForm == knowledge.MartialArtsForm)
+                return true;
+        }
+
+        return false;
+    }
+    // ADT tweak end
+
     private bool DoDisarm(EntityUid user, DisarmAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
     {
         var target = GetEntity(ev.Target);
 
-        if (Deleted(target) ||
-            user == target)
-        {
+        // ADT tweak start
+        if (Deleted(target))
             return false;
-        }
+
+        if (user == target)
+            return DoSelfDisarm(user, meleeUid, component);
+        // ADT tweak end
 
         if (!InRange(user, target.Value, component.Range, session))
         {
@@ -939,6 +985,11 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var chance = CalculateDisarmChance(user, target.Value, inTargetHand, combatMode);
 
+        // ADT tweak start
+        var comboDisarmEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Disarm);
+        RaiseLocalEvent(user, comboDisarmEv);
+        // ADT tweak end
+
         // At this point we diverge
         if (_netMan.IsClient)
         {
@@ -946,9 +997,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             _meleeSound.PlaySwingSound(user, meleeUid, component);
             return true;
         }
-
-        var comboDisarmEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Disarm);
-        RaiseLocalEvent(user, comboDisarmEv);
 
         if (_random.Prob(chance))
         {

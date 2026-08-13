@@ -11,8 +11,9 @@ using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.StepTrigger.Components;
+using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.StepTrigger.Systems;
-using Content.Shared.Timing;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -33,13 +34,13 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StepTriggerSystem _stepTrigger = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
 
     private readonly List<Entity<ADTResonanceFieldComponent>> _dueFields = new();
 
@@ -89,7 +90,7 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
 
     public bool TryPlant(Entity<ADTResonatorComponent> ent, EntityCoordinates coords, EntityUid user)
     {
-        if (TryComp<UseDelayComponent>(ent, out var delayComp) && _useDelay.IsDelayed((ent.Owner, delayComp)))
+        if (_timing.CurTime < ent.Comp.NextPlant)
             return false;
 
         if (SnapToTile(coords) is not { } target)
@@ -99,10 +100,7 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
         {
             existing.Comp.DamageMultiplier = ent.Comp.QuickBurstModifier;
             Burst(existing);
-            
-            if (delayComp != null)
-                _useDelay.TryResetDelay((ent.Owner, delayComp));
-            
+            StartPlantDelay(ent);
             return true;
         }
 
@@ -113,14 +111,18 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
             return false;
         }
 
+        if (!TrySpendCharge(ent))
+        {
+            _popup.PopupEntity(Loc.GetString("adt-resonator-popup-no-charges"), ent, user);
+            return false;
+        }
+
         var field = Spawn(ent.Comp.FieldProto, target);
         SetupField(field, ent, user);
         ent.Comp.Fields.Add(field);
 
         _audio.PlayPvs(ent.Comp.PlantSound, field);
-        
-        if (delayComp != null)
-            _useDelay.TryResetDelay((ent.Owner, delayComp));
+        StartPlantDelay(ent);
 
         return true;
     }
@@ -137,14 +139,33 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
             return;
         }
 
+        if (HasRockAt(target))
+            return;
+
         var field = Spawn(proto, target);
         if (!TryComp<ADTResonanceFieldComponent>(field, out var comp))
             return;
 
         comp.Creator = user;
-        comp.BurstTime = _timing.CurTime + comp.AutoDelay;
+        comp.Mode = ADTResonatorMode.Manual;
+        comp.FailureProbability = 1f;
+        comp.BurstTime = _timing.CurTime + comp.Lifetime;
         _appearance.SetData(field, ADTResonanceFieldVisuals.Mode, comp.Mode);
         Dirty(field, comp);
+    }
+
+    private void StartPlantDelay(Entity<ADTResonatorComponent> ent)
+    {
+        ent.Comp.NextPlant = _timing.CurTime + ent.Comp.PlantDelay;
+        Dirty(ent);
+    }
+
+    private bool TrySpendCharge(Entity<ADTResonatorComponent> ent)
+    {
+        if (!TryComp<BatteryComponent>(ent, out var battery))
+            return true;
+
+        return _battery.TryUseCharge((ent.Owner, battery), battery.MaxCharge * ent.Comp.ChargeUsePercent);
     }
 
     private void SetupField(EntityUid uid, Entity<ADTResonatorComponent> resonator, EntityUid user, float failure = 0f)
@@ -278,7 +299,6 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
 
             var field = Spawn(resonator.FieldProto, target);
             SetupField(field, (resonatorUid, resonator), ent.Comp.Creator ?? resonatorUid, ent.Comp.FailureProbability + ent.Comp.AddedFailure);
-            resonator.Fields.Add(field);
         }
     }
 
@@ -289,6 +309,20 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
 
         var tile = _map.TileIndicesFor(gridUid, grid, coords);
         return _map.GridTileToLocal(gridUid, grid, tile);
+    }
+
+    private bool HasRockAt(EntityCoordinates coords)
+    {
+        var rocks = new HashSet<Entity<GatherableComponent>>();
+        _lookup.GetEntitiesInRange(coords, 0.1f, rocks);
+
+        foreach (var rock in rocks)
+        {
+            if (!TerminatingOrDeleted(rock))
+                return true;
+        }
+
+        return false;
     }
 
     private Entity<ADTResonanceFieldComponent>? FindFieldAt(EntityCoordinates coords)

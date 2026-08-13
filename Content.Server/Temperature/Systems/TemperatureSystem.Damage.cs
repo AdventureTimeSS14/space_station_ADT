@@ -10,6 +10,7 @@ using Content.Shared.Temperature;
 using Content.Shared.Temperature.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.Tag; // ADT tweak
 
 namespace Content.Server.Temperature.Systems;
 
@@ -27,6 +28,7 @@ public sealed partial class TemperatureSystem
     [Dependency] private EntityQuery<TemperatureDamageComponent> _tempDamageQuery = default!;
     [Dependency] private EntityQuery<ContainerTemperatureComponent> _containerTemperatureQuery = default!;
     [Dependency] private EntityQuery<ThermalRegulatorComponent> _thermalRegulatorQuery = default!;
+    [Dependency] private TagSystem _tagSystem = default!; // ADT tweak
 
     /// <summary>
     ///     All the components that will have their damage updated at the end of the tick.
@@ -233,10 +235,13 @@ public sealed partial class TemperatureSystem
     {
         if (!_tempDamageQuery.Resolve(entity, ref entity.Comp, logMissing: false))
             return;
-
-        var newThresholds = RecalculateParentThresholds(Transform(entity).ParentUid);
-        entity.Comp.ParentHeatDamageThreshold = newThresholds.Item1;
-        entity.Comp.ParentColdDamageThreshold = newThresholds.Item2;
+        const string ignoreParents = "ConstantTemperatureThresholds"; // ADT tweak start
+        if (!_tagSystem.HasTag(entity, ignoreParents))
+        {
+            var newThresholds = RecalculateParentThresholds(Transform(entity).ParentUid);
+            entity.Comp.ParentHeatDamageThreshold = newThresholds.Item1;
+            entity.Comp.ParentColdDamageThreshold = newThresholds.Item2;
+        } // ADT tweak end
     }
 
     /// <summary>

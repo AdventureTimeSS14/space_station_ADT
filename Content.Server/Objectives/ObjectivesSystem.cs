@@ -91,13 +91,22 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             }
             else
             {
-                summary[prepend.Text] = info.Minds;
+                summary[prepend.Text] = new List<(EntityUid, string)>(info.Minds); // ADT-Tweak
             }
         }
+        var printedUnder = new Dictionary<EntityUid, string>(); // ADT-Tweak
 
         // convert the data into summary text
         foreach (var (agent, summary) in summaries)
         {
+            // ADT-Tweak-Start
+            var seen = new HashSet<EntityUid>();
+            foreach (var (_, minds) in summary)
+            {
+                minds.RemoveAll(pair => !seen.Add(pair.Item1));
+            }
+            // ADT-Tweak-Emd
+
             // first get the total number of players that were in these game rules combined
             var total = 0;
             var totalInCustody = 0;
@@ -122,14 +131,18 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                 // add space between the start text and player list
                 result.AppendLine();
 
-                AddSummary(result, agent, minds);
+                AddSummary(result, agent, minds, printedUnder); // ADT-Tweak
             }
 
             ev.AddLine(result.AppendLine().ToString());
         }
     }
 
-    private void AddSummary(StringBuilder result, string agent, List<(EntityUid, string)> minds)
+    private void AddSummary(
+        StringBuilder result,
+        string agent,
+        List<(EntityUid, string)> minds,
+        Dictionary<EntityUid, string> printedUnder) // ADT-Tweak
     {
         var agentSummaries = new List<(string summary, float successRate, int completedObjectives)>();
 
@@ -140,6 +153,19 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
             var title = GetTitle((mindId, mind), name);
             var custody = IsInCustody(mindId, mind) ? Loc.GetString("objectives-in-custody") : string.Empty;
+
+            // ADT-Tweak-End
+            if (printedUnder.TryGetValue(mindId, out var firstAgent))
+            {
+                agentSummaries.Add((Loc.GetString("objectives-listed-under",
+                    ("custody", custody),
+                    ("title", title),
+                    ("agent", firstAgent)), 0f, 0));
+                continue;
+            }
+
+            printedUnder[mindId] = agent;
+            // ADT-Tweak-End
 
             var objectives = mind.Objectives;
             if (objectives.Count == 0)
@@ -152,13 +178,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             var totalObjectives = 0;
             var agentSummary = new StringBuilder();
             agentSummary.AppendLine(Loc.GetString("objectives-with-objectives", ("custody", custody), ("title", title), ("agent", agent)));
-
-            // ADT-tweak-start
-            var ev = new PrependObjectivesSummaryTextEvent();
-            RaiseLocalEvent(mindId, ref ev);
-            if (ev.Text != string.Empty)
-                agentSummary.AppendLine(ev.Text);
-            // ADT-tweak-end
 
             foreach (var objectiveGroup in objectives.GroupBy(o => Comp<ObjectiveComponent>(o).LocIssuer))
             {
@@ -217,6 +236,13 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                     }
                 }
             }
+
+            // ADT-Tweak-Start
+            var ev = new PrependObjectivesSummaryTextEvent();
+            RaiseLocalEvent(mindId, ref ev);
+            if (ev.Text != string.Empty)
+                agentSummary.AppendLine(ev.Text);
+            // ADT-Tweak-End
 
             var successRate = totalObjectives > 0 ? (float) completedObjectives / totalObjectives : 0f;
             agentSummaries.Add((agentSummary.ToString(), successRate, completedObjectives));

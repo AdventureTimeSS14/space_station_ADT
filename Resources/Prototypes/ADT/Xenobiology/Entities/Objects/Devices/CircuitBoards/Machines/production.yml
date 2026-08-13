@@ -1,0 +1,37 @@
+- type: entity
+  id: SlimeGrinderMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: slime grinder machine board
+  description: A machine printed circuit board for a slime grinder.
+  components: # Maybe change this recipe later.
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: SlimeGrinder
+    stackRequirements:
+      Manipulator: 5
+      Steel: 5
+    tagRequirements:
+      Knife:
+        amount: 2
+        defaultPrototype: KitchenKnife
+        examineName: construction-insert-info-examine-name-knife
+
+- type: entity
+  id: ADTXenobiologyMonkeyRecyclerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: monkey recycler machine board
+  description: A machine printed circuit board for a monkey recycler.
+  components:
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: ADTXenobiologyMonkeyRecycler
+    stackRequirements:
+      Manipulator: 2
+      Steel: 5
+    tagRequirements:
+      Knife:
+        amount: 2
+        defaultPrototype: KitchenKnife
+        examineName: construction-insert-info-examine-name-knife

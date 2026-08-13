@@ -28,6 +28,9 @@ public sealed partial class ADTMegafaunaSpawnComponent : Component
     public bool AvoidRooms = true;
 
     [DataField]
+    public float RoomClearance = 30f;
+
+    [DataField]
     public List<EntProtoId> Bosses = new();
 
     [ViewVariables]

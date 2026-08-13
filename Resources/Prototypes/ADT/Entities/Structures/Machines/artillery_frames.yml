@@ -1,0 +1,139 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMachine
+  id: BaseBluespaceArtilleryFrame
+  name: BluespaceArtilleryFrame
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: ADT/Structures/BSA.rsi
+    layers:
+    - state: cannon_east_1
+  - type: GenericVisualizer
+    visuals:
+      enum.ConstructionVisuals.Key:
+        enum.ConstructionVisuals.Layer:
+          frame1: { state: cannon_east_1 }
+          frame2: { state: cannon_east_2 }
+          frame3: { state: cannon_east_3 }
+          frame4: { state: cannon_east_4 }
+          frame5: { state: cannon_east_5 }
+          frame6: { state: cannon_east_6 }
+          frame7: { state: cannon_east_7 }
+          frame8: { state: cannon_east_8 }
+          frame9: { state: cannon_east_9 }
+          frame10: { state: cannon_east_10 }
+          frame11: { state: cannon_east_11 }
+          frame12: { state: cannon_east_12 }
+          frame13: { state: cannon_east_13 }
+          frame14: { state: cannon_east_14 }
+          frame15: { state: cannon_east_15 }
+          frame16: { state: cannon_east_16 }
+          frame17: { state: cannon_east_17 }
+          frame18: { state: cannon_east_18 }
+          frame19: { state: cannon_east_19 }
+          frame20: { state: cannon_east_20 }
+          frame21: { state: cannon_east_21 }
+          frame22: { state: cannon_east_22 }
+          frame23: { state: cannon_east_23 }
+          frame24: { state: cannon_east_24 }
+  - type: Damageable
+    damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-5.40,-0.25,5.35,1.75"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMachine
+  id: BaseBluespaceArtilleryFrameFlipped
+  name: BluespaceArtilleryFrameFlipped
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: ADT/Structures/BSA.rsi
+    layers:
+    - state: cannon_west_1
+  - type: GenericVisualizer
+    visuals:
+      enum.ConstructionVisuals.Key:
+        enum.ConstructionVisuals.Layer:
+          frame1: { state: cannon_west_1 }
+          frame2: { state: cannon_west_2 }
+          frame3: { state: cannon_west_3 }
+          frame4: { state: cannon_west_4 }
+          frame5: { state: cannon_west_5 }
+          frame6: { state: cannon_west_6 }
+          frame7: { state: cannon_west_7 }
+          frame8: { state: cannon_west_8 }
+          frame9: { state: cannon_west_9 }
+          frame10: { state: cannon_west_10 }
+          frame11: { state: cannon_west_11 }
+          frame12: { state: cannon_west_12 }
+          frame13: { state: cannon_west_13 }
+          frame14: { state: cannon_west_14 }
+          frame15: { state: cannon_west_15 }
+          frame16: { state: cannon_west_16 }
+          frame17: { state: cannon_west_17 }
+          frame18: { state: cannon_west_18 }
+          frame19: { state: cannon_west_19 }
+          frame20: { state: cannon_west_20 }
+          frame21: { state: cannon_west_21 }
+          frame22: { state: cannon_west_22 }
+          frame23: { state: cannon_west_23 }
+          frame24: { state: cannon_west_24 }
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-5.35,-0.75,5.40,1.25"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+# --- East-facing (BluespaceArtilleryConstruction) ---
+
+- type: entity
+  parent: BaseBluespaceArtilleryFrame
+  id: BluespaceArtilleryFrame
+  components:
+  - type: Construction
+    graph: BluespaceArtilleryConstruction
+    node: frame1
+    deconstructionTarget: null
+
+#region West
+
+- type: entity
+  parent: BaseBluespaceArtilleryFrameFlipped
+  id: BluespaceArtilleryFrameFlipped
+  components:
+  - type: Construction
+    graph: BluespaceArtilleryConstructionFlipped
+    node: frame1
+    deconstructionTarget: null

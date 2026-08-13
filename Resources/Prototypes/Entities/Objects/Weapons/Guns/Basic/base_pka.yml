@@ -15,7 +15,7 @@
   #   maxAngle: -43
   # - type: Wieldable # ADT tweak end
   - type: Gun
-    fireRate: 0.5
+    fireRate: 2.5 # ADT tweak CLICK_CD_RANGE из SS13
     selectedMode: SemiAuto
     angleDecay: 45
     minAngle: 2 #ADT tweak
@@ -24,7 +24,6 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
-    projectileSpeed: 25
   - type: AmmoCounter
   - type: Appearance
   - type: GenericVisualizer
@@ -35,7 +34,7 @@
           False: { visible: True }
         #todo: add other 'empty' animations
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.75
+    rechargeCooldown: 1.6 # ADT tweak overheat_time базового ПКА из SS13
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
@@ -48,9 +47,11 @@
     slots:
     - suitStorage
     - Belt
-  - type: UseDelay
-    delay: 1
-  - type: AttachableHolder #ADT_Tweak
+# ADT-Tweak-Start
+  - type: ADTKineticCooldown
+#  - type: UseDelay
+#    delay: 1
+  - type: AttachableHolder
     slots:
       rmc-aslot-underbarrel:
         whitelist:
@@ -62,18 +63,19 @@
       # rmc-aslot-rail:
       #   whitelist:
       #       tags:
-  - type: AttachableHolderVisuals #ADT_Tweak
+  - type: AttachableHolderVisuals
     offsets:
       rmc-aslot-underbarrel: 0.315, -0.209
-  - type: MeleeWeapon #ADT_Tweak
-    attackRate: 1
+  - type: MeleeWeapon
+    attackRate: 1.25 # ADT tweak CLICK_CD_MELEE из SS13
     damage:
       types:
         Blunt: 5
     soundHit:
       collection: GenericHit
-  - type: AltFireMelee #ADT_Tweak
+  - type: AltFireMelee
     attackType: Heavy
-  - type: Tag #ADT tweak
+  - type: Tag
     tags:
     - PKA
+# ADT-Tweak-End

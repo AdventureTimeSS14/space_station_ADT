@@ -1,0 +1,105 @@
+- type: entity
+  id: ADTMegaFaunaHierophant
+  name: hierophant
+  description: A massive metal club that hangs in the air as though waiting. It'll make you dance to its beat.
+  parent: ADTBaseMobMegafauna
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/hierophant.rsi
+    drawdepth: Mobs
+    noRot: true
+    offset: 0,0.5
+    layers:
+    - map:
+      - enum.DamageStateVisualLayers.Base
+      state: hierophant
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: hierophant
+      Dead:
+        Base: hierophant_dead
+  - type: GenericVisualizer
+    visuals:
+      enum.HierophantVisuals.Attacking:
+        enum.DamageStateVisualLayers.Base:
+          True:
+            color: "#660099"
+          False:
+            color: "#FFFFFF"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.4
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.2
+    baseSprintSpeed: 2.2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2500: Dead
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 15
+        Structural: 100
+    range: 1.8
+    angle: 0
+    soundHit:
+      path: /Audio/ADT/Hierophant/sonic_jackhammer.ogg
+  - type: ArmorPenetration
+    penetration: 1
+  - type: HTN
+    blackboard:
+      VisionRadius: !type:Single "5"
+      AggroVisionRadius: !type:Single "21"
+      NavSmash: !type:Bool "true"
+      NavInteract: !type:Bool "true"
+      MeleeRange: !type:Single "1.8"
+      MeleeMissChance: !type:Single "0"
+    rootTask:
+      task: ADTHierophantCompound
+  - type: Megafauna
+  - type: ADTBossMusic
+    music: ADTBossMusicHierophant
+  - type: Hierophant
+  - type: TileMovement
+  - type: NPCTileMovement
+  - type: InputMover
+  - type: MobMover
+  - type: GpsSignal
+    tag: adt-gps-signal-hierophant
+    description: adt-gps-signal-hierophant-desc
+    color: "#9933CC"
+  - type: MegafaunaLoot
+    crateProto: ADTCrateHierophantLoot
+    loot:
+    - proto: ADTHierophantClub
+    - proto: ADTKineticTrophyVortexTalisman
+    - proto: GoldOre
+      max: 10
+    - proto: SilverOre
+      max: 10
+    - proto: DiamondOre
+      max: 5
+    - proto: PlasmaOre
+      max: 15
+    - proto: UraniumOre
+      max: 10
+    - proto: SpaceQuartz
+      max: 15
+  - type: StatusIcon
+    bounds: -1,-2,1,1
+#  - type: ADTMobHealthBar
+#    active: true
+#    primaryColor: "#5b1580"
+#    accentColor: "#c084fc"
+#    style: Arcane
+#    priority: 50

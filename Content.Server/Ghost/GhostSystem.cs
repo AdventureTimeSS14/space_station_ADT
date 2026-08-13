@@ -4,7 +4,11 @@ using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
+using Content.Server.Preferences.Managers;
+using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
+using Content.Shared.ADT.CustomGhostSystem;
+using Content.Shared.ADT.Roles;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
@@ -26,6 +30,7 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.SSDIndicator;
 using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
 using Content.Shared.Warps;
@@ -73,6 +78,7 @@ namespace Content.Server.Ghost
 
         private static readonly ProtoId<TagPrototype> AllowGhostShownByEventTag = "AllowGhostShownByEvent";
         private static readonly ProtoId<DamageTypePrototype> AsphyxiationDamageType = "Asphyxiation";
+        public static readonly Color AntagonistButtonColor = Color.FromHex("#7F4141"); // ADT-TWEAK
 
         public override void Initialize()
         {
@@ -286,7 +292,11 @@ namespace Content.Server.Ghost
                 return;
             }
 
-            var response = new GhostWarpsResponseEvent(GetPlayerWarps(entity).Concat(GetLocationWarps()).ToList());
+            // ADT-TWEAK start
+            var mindContainers = GetMindContainersWarps();
+            var places = GetLocationWarps();
+            var response = new GhostWarpsResponseEvent(mindContainers.Concat(places).ToList());
+            // ADT-TWEAK end
             RaiseNetworkEvent(response, args.SenderSession.Channel);
         }
 
@@ -307,19 +317,25 @@ namespace Content.Server.Ghost
                 return;
             }
 
+            if (IsHiddenFromGhostWarps(target) || !IsValidWarpTarget(target))
+            {
+                Log.Warning($"User {args.SenderSession.Name} tried to warp to an invalid/hidden target: {ToPrettyString(target)}");
+                return;
+            }
+
             WarpTo(attached, target);
         }
 
         private void OnGhostnadoRequest(GhostnadoRequestEvent msg, EntitySessionEventArgs args)
         {
-            if (args.SenderSession.AttachedEntity is not {} uid
+            if (args.SenderSession.AttachedEntity is not { Valid: true } uid
                 || !_ghostQuery.HasComp(uid))
             {
                 Log.Warning($"User {args.SenderSession.Name} tried to ghostnado without being a ghost.");
                 return;
             }
 
-            if (_followerSystem.GetMostGhostFollowed() is not {} target)
+            if (_followerSystem.GetMostGhostFollowed() is not { } target)
                 return;
 
             // If there is a ghostnado happening you almost definitely wanna join it, so we automatically follow instead of just warping.
@@ -343,34 +359,144 @@ namespace Content.Server.Ghost
                 _physics.SetLinearVelocity(uid, Vector2.Zero, body: physics);
         }
 
-        private IEnumerable<GhostWarp> GetLocationWarps()
+        // ADT-TWEAK START
+        private List<GhostWarp> GetMindContainersWarps()
         {
+            var warps = new List<GhostWarp>();
+
+            var query = EntityQueryEnumerator<MindContainerComponent>();
+
+            while (query.MoveNext(out var entity, out var mindContainer))
+            {
+                if (IsHiddenFromGhostWarps(entity))
+                    continue;
+
+                if (!IsValidWarpTarget(entity))
+                    continue;
+
+                if (TryComp<GhostComponent>(entity, out var ghostComp) && ghostComp.CanGhostInteract)
+                    continue;
+
+                if (TryComp<RoleCacheComponent>(entity, out var roleCacheComponent))
+                {
+                    var addedWarp = false;
+
+                    if (_prototypeManager.TryIndex(roleCacheComponent.LastJobPrototype, out var jobPrototype) &&
+                        _jobs.TryGetLowestWeightDepartment(jobPrototype.ID, out var departmentPrototype))
+                    {
+                        var departmentName = Loc.GetString($"department-{departmentPrototype.ID}");
+                        var jobName = Loc.GetString(jobPrototype.Name);
+                        var warp = SetupWarp(entity, mindContainer, departmentName, departmentPrototype.Color, jobName, departmentPrototype.Weight);
+                        warp.Group |= WarpGroup.Department;
+
+                        warps.Add(warp);
+                        addedWarp = true;
+                    }
+
+                    if (!addedWarp)
+                    {
+                        var warp = SetupWarp(entity, mindContainer, 
+                            MetaData(entity).EntityPrototype?.Name ?? "", 
+                            null, null);
+                        warp.Group |= WarpGroup.Other;
+
+                        warps.Add(warp);
+                    }
+                }
+                else
+                {
+                    var warp = SetupWarp(entity, mindContainer, 
+                        MetaData(entity).EntityPrototype?.Name ?? "", 
+                        null, null);
+                    warp.Group |= WarpGroup.Other;
+
+                    warps.Add(warp);
+                }
+            }
+
+            return warps;
+        }
+
+        private GhostWarp SetupWarp(EntityUid entity, MindContainerComponent mindContainer, string subGroup, Color? color, string? description, int departmentWeight = 0)
+        {
+            var hasAnyMind = mindContainer.Mind != null;
+            var isDead = _mobState.IsDead(entity);
+            var isLeft = TryComp<SSDIndicatorComponent>(entity, out var indicator) && indicator.IsSSD && !isDead &&
+                hasAnyMind;
+
+            var metadata = Comp<MetaDataComponent>(entity);
+
+            if (!string.IsNullOrEmpty(description))
+            {
+                try
+                {
+                    var localizedDesc = Loc.GetString(description);
+                    if (localizedDesc != description)
+                        description = localizedDesc;
+                }
+                catch
+                {
+
+                }
+            }
+
+            if (string.IsNullOrEmpty(description))
+                description = metadata.EntityDescription;
+
+            var warp = new GhostWarp(GetNetEntity(entity), metadata.EntityName, subGroup, description, color, departmentWeight);
+
+            if(isLeft)
+                warp.Group |= WarpGroup.Left;
+
+            if(HasComp<GhostComponent>(entity))
+            {
+                warp.Group |= WarpGroup.Ghost;
+            }
+            else
+            {
+                if(isDead)
+                    warp.Group |= WarpGroup.Dead;
+                else
+                    warp.Group |= WarpGroup.Alive;
+            }
+
+            warp.HasMind = hasAnyMind;
+
+            return warp;
+        }
+
+        private List<GhostWarp> GetLocationWarps()
+        {
+            var warps = new List<GhostWarp>();
             var allQuery = AllEntityQuery<WarpPointComponent>();
 
             while (allQuery.MoveNext(out var uid, out var warp))
             {
-                yield return new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), true);
-            }
-        }
-
-        private IEnumerable<GhostWarp> GetPlayerWarps(EntityUid except)
-        {
-            foreach (var player in _player.Sessions)
-            {
-                if (player.AttachedEntity is not {Valid: true} attached)
+                if (IsHiddenFromGhostWarps(uid) || !IsValidWarpTarget(uid))
                     continue;
 
-                if (attached == except) continue;
-
-                TryComp<MindContainerComponent>(attached, out var mind);
-
-                var jobName = _jobs.MindTryGetJobName(mind?.Mind);
-                var playerInfo = $"{Comp<MetaDataComponent>(attached).EntityName} ({jobName})";
-
-                if (_mobState.IsAlive(attached) || _mobState.IsCritical(attached))
-                    yield return new GhostWarp(GetNetEntity(attached), playerInfo, false);
+                var newWarp = new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), "", Description(uid), null);
+                warps.Add(newWarp);
             }
+
+            return warps;
         }
+
+        private bool IsValidWarpTarget(EntityUid entity)
+        {
+            var transform = Transform(entity);
+            if (transform.MapID == MapId.Nullspace)
+                return false;
+
+            return true;
+        }
+
+        private bool IsHiddenFromGhostWarps(EntityUid entity)
+        {
+            return _tag.HasTag(entity, "HideFromGhostWarps");
+        }
+
+        // ADT-TWEAK END
 
         #endregion
 

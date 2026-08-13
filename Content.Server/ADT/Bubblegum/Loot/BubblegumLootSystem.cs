@@ -1,10 +1,10 @@
 using System.Numerics;
-using Content.Server.Storage.EntitySystems;
+using Content.Server.ADT.Salvage.Systems;
 using Content.Shared.ADT.Bubblegum;
+using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Camera;
 using Content.Shared.Flash;
 using Content.Shared.Mobs;
-using Content.Shared.Stacks;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
@@ -15,13 +15,12 @@ namespace Content.Server.ADT.Bubblegum;
 public sealed class BubblegumLootSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly MegafaunaLootSystem _megafaunaLoot = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly SharedFlashSystem _flash = default!;
-    [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
@@ -39,7 +38,7 @@ public sealed class BubblegumLootSystem : EntitySystem
         if (TerminatingOrDeleted(ent.Owner))
             return;
 
-        if (ent.Comp.LootDropped || ent.Comp.DespawnAt != null)
+        if (ent.Comp.SequenceFinished || ent.Comp.DespawnAt != null)
             return;
 
         var now = _timing.CurTime;
@@ -76,7 +75,7 @@ public sealed class BubblegumLootSystem : EntitySystem
         var query = EntityQueryEnumerator<BubblegumLootComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.LootDropped || comp.DespawnAt == null)
+            if (comp.SequenceFinished || comp.DespawnAt == null)
                 continue;
 
             var now = _timing.CurTime;
@@ -116,35 +115,10 @@ public sealed class BubblegumLootSystem : EntitySystem
         SpawnAtCoords(ent.Comp.DeathFlashProto, Transform(ent).Coordinates);
         _audio.PlayPvs(ent.Comp.DissolveSound, ent);
 
-        DropLoot(ent);
-    }
+        ent.Comp.SequenceFinished = true;
 
-    private void DropLoot(Entity<BubblegumLootComponent> ent)
-    {
-        ent.Comp.LootDropped = true;
-
-        var coords = Transform(ent).Coordinates;
-        var chest = Spawn(ent.Comp.ChestProto, coords);
-
-        foreach (var (proto, maxAmount) in ent.Comp.RandomAmountLoot)
-        {
-            var amount = _random.Next(1, maxAmount + 1);
-            SpawnAmountIntoChest(chest, proto, amount, coords);
-        }
-
-        if (ent.Comp.RandomLoot.Count > 0)
-        {
-            var picked = _random.Pick(ent.Comp.RandomLoot);
-            SpawnIntoChest(chest, picked, coords);
-        }
-
-        foreach (var proto in ent.Comp.GuaranteedLoot)
-        {
-            SpawnIntoChest(chest, proto, coords);
-        }
-
-        SpawnAtCoords(ent.Comp.ChestGlowProto, Transform(chest).Coordinates);
-        _audio.PlayPvs(ent.Comp.ChestRewardSound, chest);
+        if (TryComp<MegafaunaLootComponent>(ent, out var loot))
+            _megafaunaLoot.DropLoot((ent.Owner, loot));
 
         QueueDel(ent.Owner);
     }
@@ -187,33 +161,6 @@ public sealed class BubblegumLootSystem : EntitySystem
             var kick = new Vector2(_random.NextFloat(-strength, strength), _random.NextFloat(-strength, strength));
             _recoil.KickCamera(recoil, kick);
         }
-    }
-
-    private void SpawnAmountIntoChest(EntityUid chest, string proto, int amount, EntityCoordinates fallback)
-    {
-        var spawned = SpawnIntoChest(chest, proto, fallback);
-        if (spawned == null)
-            return;
-
-        if (TryComp<StackComponent>(spawned.Value, out var stack))
-        {
-            _stack.SetCount((spawned.Value, stack), amount);
-            return;
-        }
-
-        for (var i = 1; i < amount; i++)
-        {
-            SpawnIntoChest(chest, proto, fallback);
-        }
-    }
-
-    private EntityUid? SpawnIntoChest(EntityUid chest, string proto, EntityCoordinates fallback)
-    {
-        var item = Spawn(proto, fallback);
-        if (!_entityStorage.Insert(item, chest))
-            _transform.SetCoordinates(item, fallback);
-
-        return item;
     }
 
     private EntityUid? SpawnAtCoords(string proto, EntityCoordinates coords)

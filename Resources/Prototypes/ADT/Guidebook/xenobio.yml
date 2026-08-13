@@ -1,0 +1,4 @@
+- type: guideEntry
+  id: Xenobiology
+  name: guide-entry-xenobiology
+  text: "/ServerInfo/VG/Guidebook/Science/Xenobiology.xml"
