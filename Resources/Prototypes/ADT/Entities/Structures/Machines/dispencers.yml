@@ -24,7 +24,7 @@
     netsync: false
   - type: ApcPowerReceiverBattery
     idleLoad: 65
-    batteryRechargeRate: 0 #ADT-Tweak: авто-зарядка задаётся частями (Т1 = 5, Т2 = 10, Т3 = 15, Т4 = 30 Вт/с)
+    batteryRechargeRate: 0 #ADT-Tweak: авто-зарядка задаётся частями (Т1 = 10, Т2 = 20, Т3 = 30, Т4 = 40 Вт/с)
     batteryRechargeEfficiency: 0.7 # 1.0 > 0.7
   - type: ApcPowerReceiver
     powerLoad: 65
