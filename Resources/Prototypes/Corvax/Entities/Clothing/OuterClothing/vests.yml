@@ -24,6 +24,24 @@
       sprite: Corvax/Clothing/OuterClothing/Vests/armor_sec_med.rsi
     - type: Clothing
       sprite: Corvax/Clothing/OuterClothing/Vests/armor_sec_med.rsi
+    # ADT-Tweak-Start: описание жилета обещает карманы для мелочёвки, Storage не было
+    - type: Storage
+      grid:
+      - 0,0,2,1
+      maxItemSize: Small
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          ents: []
+        badge: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+    - type: UserInterface
+      interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface
+    # ADT-Tweak-End
 
 - type: entity
   parent: [ClothingOuterBase, BadgeOnClothing] #ADT-Tweak

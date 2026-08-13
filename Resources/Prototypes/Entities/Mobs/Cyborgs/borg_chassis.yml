@@ -39,7 +39,6 @@
     damageContainers:
     - Silicon
   - type: BorgSwitchableSubtype
-  - type: IgnoreUIRange
   - type: ShowElectrocutionHUD
   - type: StationAiVision
   # ADT-Tweak end
