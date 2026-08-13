@@ -62,7 +62,7 @@
     WhiteoutIntensity: 0.0
     BloomRadius: 4.0
     BloomStrength: 0.12
-    EnvCrush: 1.0
+    EnvCrush: 0.8
     ColdFloor: 0.0
     StructureStrength: 0.75
     EnvHeatMax: 0.62
@@ -123,10 +123,10 @@
   params:
     Gain: 2.5
     TotalLighting: 0.0
-    WhiteoutThreshold: 0.80
-    WhiteoutIntensity: 1.3
+    WhiteoutThreshold: 1.5
+    WhiteoutIntensity: 0.8
     BloomRadius: 5.5
-    BloomStrength: 0.43
+    BloomStrength: 0.6
     NoiseAmplitude: 0.02
     GrainSize: 1.0
     ScanlineDark: 0.72
