@@ -293,7 +293,7 @@
       stackRequirements:
         Glass: 5
       partRequirements: #ADT-Tweak: machine parts
-        Capacitor: 1
+        MicroLaser: 1
 
 - type: entity
   id: ArtifactCrusherMachineCircuitboard
@@ -309,7 +309,8 @@
       Glass: 1
       Steel: 5
     partRequirements: #ADT-Tweak: machine parts
-      Servo: 2
+      Servo: 1
+      MicroLaser: 1
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -617,7 +618,8 @@
     stackRequirements:
       Steel: 5
     partRequirements: #ADT-Tweak: machine parts
-      Servo: 3
+      Servo: 2
+      MicroLaser: 1
     tagRequirements:
       Knife:
         amount: 2
@@ -678,10 +680,7 @@
         CableHV: 10
       partRequirements: #ADT-Tweak: machine parts
         Capacitor: 1
-      componentRequirements:
-        PowerCell:
-          amount: 4
-          defaultPrototype: PowerCellSmall
+        PowerCell: 4
 
 - type: entity
   id: SMESAdvancedMachineCircuitboard
@@ -1164,7 +1163,7 @@
     - type: MachineBoard
       prototype: FatExtractor
       partRequirements: #ADT-Tweak: machine parts
-        MicroLaser: 1
+        Servo: 1
       componentRequirements:
         Utensil:
           amount: 1

@@ -94,8 +94,61 @@
 </Box>
 <Box>
 <GuideEntityEmbed Entity="CapacitorStockPart"/>
+<GuideEntityEmbed Entity="PowerCellSmall"/>
 </Box>
-Конденсатор ускоряет зарядку батарей.
+Конденсатор ускоряет зарядку. Батарейки повышают вместимость: базовая - х1, Т2 - х1.5, Т3 - х2, Т4 - х3 (+200%). Меняются они, как и детали, через RPED.
+
+## Переработчик биомассы
+
+<Box>
+<GuideEntityEmbed Entity="BiomassReclaimer"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+Сервопривод ускоряет переработку, микро-лазер увеличивает выход биомассы.
+
+## Анализатор артефактов
+
+<Box>
+<GuideEntityEmbed Entity="MachineArtifactAnalyzer"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+Микро-лазер повышает очки исследований: до +30% на Т4.
+
+## Дробилка артефактов
+
+<Box>
+<GuideEntityEmbed Entity="MachineArtifactCrusher"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+Сервопривод ускоряет дробление, микро-лазер повышает выход фрагментов.
+
+## Экстрактор жира
+
+<Box>
+<GuideEntityEmbed Entity="FatExtractor"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+</Box>
+Сервопривод повышает скорость извлечения питания.
+
+## Хим-плитка
+
+<Box>
+<GuideEntityEmbed Entity="ChemistryHotplate"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+Микро-лазер повышает мощность нагрева растворов.
 
 ## Обогреватель и термомашины
 

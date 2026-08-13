@@ -13,4 +13,5 @@ public static class MachinePartIds
     public static readonly ProtoId<MachinePartPrototype> MatterBin = "MatterBin";
     public static readonly ProtoId<MachinePartPrototype> ScanningModule = "ScanningModule";
     public static readonly ProtoId<MachinePartPrototype> MicroLaser = "MicroLaser";
+    public static readonly ProtoId<MachinePartPrototype> PowerCell = "PowerCell";
 }

@@ -39,6 +39,9 @@ public sealed class SmesSystem : EntitySystem //ADT-tweak: made public
             component.BaseMaxSupply = netBattery.MaxSupply;
             component.BaseMaxChargeRate = netBattery.MaxChargeRate;
         }
+
+        if (TryComp<BatteryComponent>(uid, out var battery))
+            component.BaseMaxCharge = battery.MaxCharge;
         // ADT-Tweak-End
 
         UpdateSmesState(uid, component);
@@ -55,8 +58,19 @@ public sealed class SmesSystem : EntitySystem //ADT-tweak: made public
         if (!TryComp<PowerNetworkBatteryComponent>(uid, out var netBattery))
             return;
 
-        // ADT-Tweak: базовые части (тир 1) не дают прибавок
-        netBattery.MaxSupply = component.BaseMaxSupply * args.GetStatMultiplier(MachineStat.Capacity);
+        var batteryTier = args.GetPartRating(MachinePartIds.PowerCell, 1f);
+        var capacityMultiplier = batteryTier switch
+        {
+            >= 4f => 3f,
+            >= 3f => 2f,
+            >= 2f => 1.5f,
+            _ => 1f,
+        };
+
+        if (TryComp<BatteryComponent>(uid, out var battery))
+            _battery.SetMaxCharge((uid, battery), component.BaseMaxCharge * capacityMultiplier);
+
+        netBattery.MaxSupply = component.BaseMaxSupply * args.GetStatMultiplier(MachineStat.ChargeRate);
         netBattery.MaxChargeRate = component.BaseMaxChargeRate * args.GetStatMultiplier(MachineStat.ChargeRate);
 
         UpdateSmesState(uid, component);
@@ -76,6 +90,9 @@ public sealed class SmesSystem : EntitySystem //ADT-tweak: made public
 
         args.AddPercentageUpgrade("machine-upgrade-power-input", inputMultiplier, benefit: true);
         args.AddPercentageUpgrade("machine-upgrade-power-output", outputMultiplier, benefit: true);
+
+        if (TryComp<BatteryComponent>(uid, out var battery) && component.BaseMaxCharge > 0f)
+            args.AddPercentageUpgrade("machine-upgrade-smes-capacity", battery.MaxCharge / component.BaseMaxCharge, benefit: true);
     }
     // ADT-Tweak-End
 
