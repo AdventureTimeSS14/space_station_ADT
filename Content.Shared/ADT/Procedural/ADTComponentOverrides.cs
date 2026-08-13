@@ -2,6 +2,7 @@ using Robust.Shared.IoC;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Markdown;
+using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Sequence;
 using Robust.Shared.Serialization.Markdown.Validation;
 using Robust.Shared.Serialization.TypeSerializers.Interfaces;
@@ -39,7 +40,25 @@ public sealed class ADTComponentOverridesSerializer :
         IDependencyCollection dependencies,
         ISerializationContext? context = null)
     {
-        return new ValidatedValueNode(node);
+        var sequence = new List<ValidationNode>();
+        foreach (var element in node)
+        {
+            if (element is not MappingDataNode mapping)
+            {
+                sequence.Add(new ErrorNode(element, "Правка компонента должна быть мапингом с полем type."));
+                continue;
+            }
+
+            if (!mapping.Has("type"))
+            {
+                sequence.Add(new ErrorNode(element, "У правки компонента нет поля type."));
+                continue;
+            }
+
+            sequence.Add(new ValidatedValueNode(element));
+        }
+
+        return new ValidatedSequenceNode(sequence);
     }
 
     public DataNode Write(

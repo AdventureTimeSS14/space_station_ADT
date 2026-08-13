@@ -191,18 +191,10 @@
     - 1.5,4.5
   - proto: GasVentPump
     rot: -1.5707963267948966 rad
-    components:
-    - type: DeviceNetwork
-      deviceLists:
-      - 1699
     positions:
     - 2.5,4.5
   - proto: GasVentScrubber
     rot: -1.5707963267948966 rad
-    components:
-    - type: DeviceNetwork
-      deviceLists:
-      - 1699
     positions:
     - 1.5,2.5
   - proto: GeneratorWallmountAPU

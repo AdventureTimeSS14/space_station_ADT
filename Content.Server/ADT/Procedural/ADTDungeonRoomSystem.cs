@@ -1,4 +1,3 @@
-using System.Linq;
 using System.Numerics;
 using Content.Server.Decals;
 using Content.Shared.ADT.Areas;
@@ -203,6 +202,8 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
     {
         _tiles.Clear();
 
+        var quarterTurns = GetQuarterTurns(roomTransform.Rotation());
+
         for (var y = 0; y < room.Size.Y; y++)
         {
             var rowIndex = room.Size.Y - 1 - y;
@@ -226,7 +227,9 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
                 var tilePos = Vector2.Transform(new Vector2(x, y) + tileOffset, roomTransform);
                 var rounded = tilePos.Floored();
 
-                _tiles.Add((rounded, new Tile(tileDef.TileId, 0, legendTile.Variant, legendTile.Rotation)));
+                var rotation = RotateTile(legendTile.Rotation, quarterTurns);
+
+                _tiles.Add((rounded, new Tile(tileDef.TileId, 0, legendTile.Variant, rotation)));
 
                 if (!clearExisting)
                     continue;
@@ -239,6 +242,19 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
         }
 
         _maps.SetTiles(gridUid, grid, _tiles);
+    }
+
+    private static int GetQuarterTurns(Angle rotation)
+    {
+        return (int) Math.Round(rotation.Theta / (Math.PI / 2)) & 3;
+    }
+
+    private static byte RotateTile(byte rotationMirroring, int quarterTurns)
+    {
+        var mirrored = rotationMirroring & 4;
+        var rotation = (rotationMirroring + quarterTurns) & 3;
+
+        return (byte) (rotation | mirrored);
     }
 
     private void SpawnEntities(
@@ -290,8 +306,14 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
 
         var registry = new ComponentRegistry();
 
-        foreach (var node in overrides.Node.Cast<MappingDataNode>())
+        foreach (var element in overrides.Node)
         {
+            if (element is not MappingDataNode node)
+            {
+                Log.Error($"Правка компонента у {group.Proto} не мапинг.");
+                continue;
+            }
+
             if (node.Get("type") is not ValueDataNode nameNode)
                 continue;
 

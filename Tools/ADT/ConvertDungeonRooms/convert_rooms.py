@@ -33,7 +33,6 @@ LEGEND_CHARS = (
 )
 
 SPACE_CHAR = "."
-
 SKIPPED_COMPONENTS = {
     "Transform",
     "MetaData",
@@ -43,6 +42,7 @@ SKIPPED_COMPONENTS = {
     "DeviceLinkSource",
     "DeviceLinkSink",
     "DeviceList",
+    "DeviceNetwork",
     "Physics",
     "Fixtures",
 }
