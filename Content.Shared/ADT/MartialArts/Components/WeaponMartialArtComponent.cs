@@ -52,5 +52,5 @@ public sealed partial class WeaponMartialArtComponent : Component
     public TimeSpan ResetTime;
 
     [DataField, AutoNetworkedField]
-    public ProtoId<ComboPrototype> BeingPerformed;
+    public ProtoId<ComboPrototype>? BeingPerformed;
 }
