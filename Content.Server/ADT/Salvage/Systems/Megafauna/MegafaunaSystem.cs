@@ -26,6 +26,7 @@ public sealed partial class MegafaunaSystem : EntitySystem
         //TODO: SubscribeLocalEvent<ShuttleComponent, FTLStartedEvent>(OnShuttleFTL);
 
         InitializeDrake();
+        InitializeAggro();
     }
 
     private void OnAttemptMeleeThrowOnHit(Entity<MegafaunaComponent> _, ref AttemptMeleeThrowOnHitEvent args)
