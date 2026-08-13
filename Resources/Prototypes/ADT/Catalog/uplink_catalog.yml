@@ -290,8 +290,8 @@
 
 - type: listing
   id: ADTUplinkClothingBeltSyndieHolster
-  name: uplink-holster-name
-  description: uplink-holster-desc
+  name: uplink-syndicate-holster-name
+  description: uplink-syndicate-holster-desc
   productEntity: ClothingBeltSyndieHolster
   discountCategory: rareDiscounts
   discountDownTo:
