@@ -13,11 +13,25 @@ public sealed partial class NanoChatLookupView : PanelContainer
     {
         RobustXamlLoader.Load(this);
     }
+
     public event Action<NanoChatRecipient>? OnStartChat;
+    public event Action? OnCreateGroupRequest;
 
     public void UpdateContactList(NanoChatUiState state)
     {
         ContactsList.RemoveAllChildren();
+
+        // Create group button
+        var createGroupButton = new Button()
+        {
+            Text = Loc.GetString("nano-chat-create-group"),
+            HorizontalExpand = true,
+            StyleClasses = { "OpenBoth" },
+            Margin = new Thickness(0, 0, 0, 4),
+        };
+        createGroupButton.OnPressed += _ => OnCreateGroupRequest?.Invoke();
+        ContactsList.AddChild(createGroupButton);
+
         if (state.Contacts is not { } contacts)
         {
             ContactsList.AddChild(new Label() { Text = Loc.GetString("nano-chat-look-up-no-server") });
@@ -48,7 +62,7 @@ public sealed partial class NanoChatLookupView : PanelContainer
                 ToolTip = Loc.GetString("nano-chat-new-chat"),
             };
             startChatButton.AddStyleClass("OpenBoth");
-            if (contact.Number == state.OwnNumber || state.Recipients.ContainsKey(contact.Number) || state.MaxRecipients <= state.Recipients.Count)
+            if (contact.Number == state.OwnNumber || state.Recipients.ContainsKey(contact.Number) || state.MaxRecipients <= state.Recipients.Count + state.Groups.Count)
             {
                 startChatButton.Disabled = true;
             }
@@ -58,10 +72,17 @@ public sealed partial class NanoChatLookupView : PanelContainer
             {
                 HorizontalExpand = true,
             };
+            var row = new BoxContainer()
+            {
+                Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                HorizontalExpand = true,
+                VerticalAlignment = VAlignment.Center,
+            };
 
-            panel.AddChild(nameLabel);
-            panel.AddChild(numberLabel);
-            panel.AddChild(startChatButton);
+            row.AddChild(nameLabel);
+            row.AddChild(numberLabel);
+            row.AddChild(startChatButton);
+            panel.AddChild(row);
 
             var styleClass = idx % 2 == 0 ? "PanelBackgroundBaseDark" : "PanelBackgroundLight";
             panel.StyleClasses.Add(styleClass);

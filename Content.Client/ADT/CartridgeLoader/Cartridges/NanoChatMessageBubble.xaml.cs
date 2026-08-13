@@ -21,10 +21,18 @@ public sealed partial class NanoChatMessageBubble : BoxContainer
         RobustXamlLoader.Load(this);
     }
 
-    public void SetMessage(NanoChatMessage message, bool isOwnMessage)
+    public void SetMessage(NanoChatMessage message, bool isOwnMessage, string? senderName = null)
     {
         if (MessagePanel.PanelOverride is not StyleBoxFlat)
             return;
+
+        // In group chats show the sender's name above other players' messages.
+        SenderNameLabel.Visible = !isOwnMessage && senderName != null;
+        if (SenderNameLabel.Visible)
+        {
+            SenderNameLabel.Text = senderName;
+            SenderNameLabel.Modulate = new Color(0.72f, 0.9f, 0.72f);
+        }
 
         // Configure message appearance
         var style = (StyleBoxFlat)MessagePanel.PanelOverride;

@@ -34,6 +34,17 @@
                        StyleClasses="LabelSubText"
                        VerticalAlignment="Center"
                        Margin="0 0 8 0" />
+                <Button Name="MembersButton"
+                        MaxSize="32 32"
+                        Visible="False"
+                        StyleClasses="OpenBoth"
+                        Margin="0 0 4 0"
+                        ToolTip="{Loc nano-chat-group-members}">
+                    <TextureRect StyleClasses="ButtonSquare"
+                                 TexturePath="/Textures/Interface/VerbIcons/group.svg.192dpi.png"
+                                 Stretch="KeepAspectCentered"
+                                 MinSize="18 18" />
+                </Button>
                 <Button Name="DeleteChatButton"
                         MaxSize="32 32"
                         Visible="False"
@@ -139,6 +150,12 @@
                                   VerticalExpand="True"
                                   HorizontalExpand="True"
                                   Margin="0 0 0 4">
+                        <Label Name="GroupInfoLabel"
+                               StyleClasses="LabelSubText"
+                               HorizontalAlignment="Center"
+                               HorizontalExpand="True"
+                               Margin="0 2 0 2"
+                               Visible="False" />
                         <Label Name="CurrentChatName"
                                Text="{Loc nano-chat-select-chat}"
                                HorizontalAlignment="Center"

@@ -29,6 +29,8 @@ public sealed partial class LogProbeCartridgeSystem
             probe.ScannedNanoChatData = new NanoChatData(
                 new Dictionary<uint, NanoChatRecipient>(card.Recipients),
                 probe.ScannedNanoChatData.Value.Messages,
+                new Dictionary<uint, NanoChatGroup>(card.Groups),
+                probe.ScannedNanoChatData.Value.GroupMessages,
                 card.Number,
                 GetNetEntity(args.CardUid));
 
@@ -51,6 +53,8 @@ public sealed partial class LogProbeCartridgeSystem
             probe.ScannedNanoChatData = new NanoChatData(
                 probe.ScannedNanoChatData.Value.Recipients,
                 new Dictionary<uint, List<NanoChatMessage>>(card.Messages),
+                probe.ScannedNanoChatData.Value.Groups,
+                new Dictionary<uint, List<NanoChatMessage>>(card.GroupMessages),
                 card.Number,
                 GetNetEntity(args.CardUid));
 
@@ -75,6 +79,8 @@ public sealed partial class LogProbeCartridgeSystem
         ent.Comp.ScannedNanoChatData = new NanoChatData(
             new Dictionary<uint, NanoChatRecipient>(card.Recipients),
             new Dictionary<uint, List<NanoChatMessage>>(card.Messages),
+            new Dictionary<uint, NanoChatGroup>(card.Groups),
+            new Dictionary<uint, List<NanoChatMessage>>(card.GroupMessages),
             card.Number,
             GetNetEntity(target)
         );

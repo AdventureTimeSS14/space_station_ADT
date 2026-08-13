@@ -32,7 +32,9 @@
             <Label Name="PageName" Align="Center"/>
         </PanelContainer>
     </controls:StripeBack>
-    <PanelContainer VerticalExpand="True">
+
+    <!-- Article body -->
+    <PanelContainer Name="ArticlePane" VerticalExpand="True" HorizontalExpand="True">
         <PanelContainer.PanelOverride>
             <gfx:StyleBoxFlat BackgroundColor="#80808005" />
         </PanelContainer.PanelOverride>
@@ -41,18 +43,62 @@
                 HScrollEnabled="False"
                 HorizontalExpand="True"
                 MinSize="0 0"
-                SizeFlagsStretchRatio="2"
                 VerticalExpand="True">
             <BoxContainer
                 Name="PageTextContainer"
                 MinSize="0 0"
                 Orientation="Vertical"
-                SizeFlagsStretchRatio="2"
                 VerticalExpand="True">
             </BoxContainer>
             <RichTextLabel Margin="8,8,8,8" Name="PageText" VerticalAlignment="Top"/>
         </ScrollContainer>
     </PanelContainer>
+
+    <!-- Comments toggle -->
+    <Button Name="CommentsButton"
+            Text="{Loc news-read-ui-comments-button}"
+            HorizontalExpand="True"
+            Margin="5 4 5 0"
+            StyleClasses="OpenBoth"
+            Visible="False" />
+
+    <!-- Draggable splitter between article and comments -->
+    <cartridges:CommentsSplitterControl Name="CommentsSplitter"
+                                        HorizontalExpand="True"
+                                        Visible="False" />
+
+    <!-- Comments section -->
+    <PanelContainer Name="CommentsPanel"
+                    VerticalExpand="True"
+                    MinHeight="130"
+                    Visible="False">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#80808008" />
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="5">
+            <ScrollContainer Name="CommentsScroll"
+                             HScrollEnabled="False"
+                             VerticalExpand="True"
+                             HorizontalExpand="True">
+                <BoxContainer Name="CommentsList"
+                              Orientation="Vertical"
+                              HorizontalExpand="True"
+                              VerticalExpand="True" />
+            </ScrollContainer>
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 4 0 0">
+                <LineEdit Name="CommentInput"
+                          PlaceHolder="{Loc news-read-ui-comment-placeholder}"
+                          HorizontalExpand="True"
+                          StyleClasses="OpenRight" />
+                <Button Name="CommentSendButton"
+                        Text="{Loc news-read-ui-comment-send}"
+                        MinWidth="80"
+                        Disabled="True"
+                        StyleClasses="OpenLeft" />
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+
     <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="5,5,5,5">
         <Button
             Name="NotificationSwitch"
