@@ -99,9 +99,6 @@ public sealed class GpsSystem : SharedGpsSystem
             return;
 
         args.Cancel();
-
-        if (!args.Silent)
-            _popup.PopupEntity(Loc.GetString("adt-gps-popup-not-carried"), ent.Owner, args.User);
     }
 
     private void CloseForInvalidActors(EntityUid uid)
