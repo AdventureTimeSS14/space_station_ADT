@@ -185,3 +185,5 @@ ent-ADTShadowlingAscendObjective = Вознестись
     .desc = Обратите экипаж в рабов и примите истинную форму. Когда вознесётся хотя бы один из вас, победа общая.
 
 guide-entry-adt-shadowling = Тенеморф
+
+language-ADTShadowlingCollectiveMind-name = Коллективный разум
