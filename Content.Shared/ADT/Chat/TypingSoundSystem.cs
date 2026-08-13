@@ -34,7 +34,9 @@ public sealed partial class TypingSoundSystem : EntitySystem
 
     private void GotEquipped(Entity<TypingSoundComponent> ent, ref GotEquippedEvent args)
     {
-        EnsureComp<TypingSoundComponent>(args.Equipee);
+        var typingSound = EnsureComp<TypingSoundComponent>(args.Equipee);
+        typingSound.TypingSound = ent.Comp.TypingSound;
+        typingSound.MessageSentSound = ent.Comp.MessageSentSound;
     }
 
     private void GotUnequipped(Entity<TypingSoundComponent> ent, ref GotUnequippedEvent args)
