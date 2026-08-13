@@ -30,7 +30,6 @@ machine-upgrade-hydro-nutrition-consume = расход питательных в
 machine-upgrade-ore-output = выход ресурсов
 machine-upgrade-ore-points = очки шахтёров
 machine-upgrade-monkey-output = выход кубов обезьян
-machine-upgrade-chem-master-buffer = вместимость буффера
 machine-upgrade-anomaly-points = генерация очков
 machine-upgrade-assembler-ingredients = требуемые ингредиенты
 machine-upgrade-slime-extract-multiplier = количество экстрактов

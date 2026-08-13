@@ -578,7 +578,7 @@
         Glass: 1
         Cable: 1
       partRequirements: #ADT-Tweak: machine parts
-        MatterBin: 1
+        Servo: 1
       tagRequirements:
         GlassBeaker:
           amount: 2

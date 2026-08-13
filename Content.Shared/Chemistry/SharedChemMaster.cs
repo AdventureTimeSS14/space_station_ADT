@@ -289,7 +289,6 @@ namespace Content.Shared.Chemistry
         ContainerInfo? containerInfo,
         IReadOnlyList<ReagentQuantity> bufferReagents,
         FixedPoint2 bufferCurrentVolume,
-        FixedPoint2 bufferMaxVolume, // ADT-Tweak: вместимость буффера
         uint selectedPillType,
         uint pillDosageLimit,
         uint bottleDosageLimit,
@@ -323,7 +322,6 @@ namespace Content.Shared.Chemistry
         public readonly ChemMasterMode Mode = mode;
 
         public readonly FixedPoint2? BufferCurrentVolume = bufferCurrentVolume;
-        public readonly FixedPoint2? BufferMaxVolume = bufferMaxVolume; // ADT-Tweak
         public readonly uint SelectedPillType = selectedPillType;
 
         public readonly uint PillDosageLimit = pillDosageLimit;

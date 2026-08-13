@@ -29,7 +29,6 @@
     bottleDosageLimit: 30
     maxPills: 30
     maxBottles: 20
-  - type: ChemMasterBuffer #ADT-Tweak: машинные части (вместимость буффера)
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -104,7 +103,7 @@
       # ADT port end pAI modernization
   - type: SolutionContainerManager
     solutions:
-      buffer: { maxVol: 1500 } #ADT-Tweak: ограниченный буффер, +1500 за тир серво (с Т2)
+      buffer: {}
   - type: DumpableSolution
     solution: buffer
     unlimited: true

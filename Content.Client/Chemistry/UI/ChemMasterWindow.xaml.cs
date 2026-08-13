@@ -1418,7 +1418,7 @@ namespace Content.Client.Chemistry.UI
             bufferHBox.AddChild(bufferLabel);
             var bufferVol = new Label
             {
-                Text = $"{state.BufferCurrentVolume}/{state.BufferMaxVolume}u", // ADT-Tweak: показываем вместимость буффера
+                Text = $"{state.BufferCurrentVolume}u",
                 StyleClasses = { StyleClass.LabelWeak }
             };
             bufferHBox.AddChild(bufferVol);

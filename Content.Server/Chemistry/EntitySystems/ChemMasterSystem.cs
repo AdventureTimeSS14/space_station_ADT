@@ -188,7 +188,6 @@ namespace Content.Server.Chemistry.EntitySystems
             var container = _itemSlotsSystem.GetItemOrNull(owner, SharedChemMaster.InputSlotName); //ADT-Tweak
             var bufferReagents = bufferSolution.Contents;
             var bufferCurrentVolume = bufferSolution.Volume;
-            var bufferMaxVolume = bufferSolution.MaxVolume; // ADT-Tweak
 
             // ADT-Tweak Start: Pill container storage
             var storedPillContainersInfo = new List<ContainerInfo?>();
@@ -329,7 +328,6 @@ namespace Content.Server.Chemistry.EntitySystems
                 BuildInputContainerInfo(container),
                 bufferReagents,
                 bufferCurrentVolume,
-                bufferMaxVolume, // ADT-Tweak
                 chemMaster.PillType,
                 chemMaster.PillDosageLimit,
                 chemMaster.BottleDosageLimit,
@@ -719,8 +717,6 @@ namespace Content.Server.Chemistry.EntitySystems
                 var available = containerSolution.GetReagentQuantity(id);
                 if (amount == int.MaxValue) amount = available; // Transfer all
                 amount = FixedPoint2.Min(amount, available);
-                if (bufferSolution.MaxVolume.Value > 0)
-                    amount = FixedPoint2.Min(amount, available, bufferSolution.AvailableVolume);
                 _solutionContainerSystem.RemoveReagent(containerSoln.Value, id, amount);
 
                 var solution = bufferSolution;
