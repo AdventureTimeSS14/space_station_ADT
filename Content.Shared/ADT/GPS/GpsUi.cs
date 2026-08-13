@@ -35,7 +35,9 @@ public sealed class GpsSignalData
 
     public bool SameMap;
 
-    public GpsSignalData(NetEntity source, string tag, string? description, Color color, Vector2i? position, bool sameMap)
+    public bool Sos;
+
+    public GpsSignalData(NetEntity source, string tag, string? description, Color color, Vector2i? position, bool sameMap, bool sos)
     {
         Source = source;
         Tag = tag;
@@ -43,6 +45,7 @@ public sealed class GpsSignalData
         Color = color;
         Position = position;
         SameMap = sameMap;
+        Sos = sos;
     }
 }
 
@@ -56,9 +59,15 @@ public sealed class GpsBoundUserInterfaceState : BoundUserInterfaceState
     public bool SameMapOnly;
     public bool CanToggle;
 
+    public bool Sos;
+
+    public TimeSpan? SosReadyAt;
+
     public Vector2i? Position;
 
     public string? Location;
+
+    public bool Nullspace;
 
     public List<GpsSignalData> Signals;
 
@@ -68,8 +77,11 @@ public sealed class GpsBoundUserInterfaceState : BoundUserInterfaceState
         string tag,
         bool sameMapOnly,
         bool canToggle,
+        bool sos,
+        TimeSpan? sosReadyAt,
         Vector2i? position,
         string? location,
+        bool nullspace,
         List<GpsSignalData> signals)
     {
         Emped = emped;
@@ -77,8 +89,11 @@ public sealed class GpsBoundUserInterfaceState : BoundUserInterfaceState
         Tag = tag;
         SameMapOnly = sameMapOnly;
         CanToggle = canToggle;
+        Sos = sos;
+        SosReadyAt = sosReadyAt;
         Position = position;
         Location = location;
+        Nullspace = nullspace;
         Signals = signals;
     }
 }
@@ -90,6 +105,11 @@ public sealed class GpsToggleMessage : BoundUserInterfaceMessage
 
 [Serializable, NetSerializable]
 public sealed class GpsToggleRangeMessage : BoundUserInterfaceMessage
+{
+}
+
+[Serializable, NetSerializable]
+public sealed class GpsToggleSosMessage : BoundUserInterfaceMessage
 {
 }
 

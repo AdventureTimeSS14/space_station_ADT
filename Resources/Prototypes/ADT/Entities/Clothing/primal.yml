@@ -1,0 +1,92 @@
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsBoneBracers
+  name: bone bracers
+  description: For when you're expecting to get slapped on the wrist. Offers modest protection to your arms.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/bone_bracers.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/bone_bracers.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.85
+  - type: GroupExamine
+  - type: Construction
+    graph: ADTBoneBracers
+    node: bracers
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckBoneTalisman
+  name: bone talisman
+  description: A hunter's talisman, some say the old gods smile on those who wear it.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/bone_talisman.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/bone_talisman.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Caustic: 0.85
+  - type: GroupExamine
+  - type: Construction
+    graph: ADTBoneTalisman
+    node: talisman
+
+- type: entity
+  parent: [ ClothingOuterBaseLarge, AllowSuitStorageClothing ]
+  id: ADTClothingOuterArmorBoneLight
+  name: light bone armor
+  description: A lightweight set of bone armor, crafted crudely from animal products.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/light_bone_armor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/light_bone_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.9
+        Heat: 0.5
+  - type: TemperatureProtection
+    heatingCoefficient: 0.4
+  - type: GroupExamine
+  - type: Construction
+    graph: ADTLightBoneArmor
+    node: armor
+
+- type: entity
+  parent: [ ClothingOuterBaseLarge, AllowSuitStorageClothing ]
+  id: ADTClothingOuterGoliathCloak
+  name: goliath cloak
+  description: A staunch, practical cape made out of numerous monster materials, it is coveted amongst exiles and hermits.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/goliath_cloak.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/goliath_cloak.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.85
+        Heat: 0.25
+  - type: TemperatureProtection
+    heatingCoefficient: 0.2
+  - type: FireProtection
+    reduction: 0.5
+  - type: GroupExamine
+  - type: Construction
+    graph: ADTGoliathCloak
+    node: cloak

@@ -642,16 +642,16 @@
       limit: 2
       required: false
     enum.HumanoidVisualLayers.RHand:
-      limit: 2
+      limit: 3
       required: false
     enum.HumanoidVisualLayers.LHand:
-      limit: 2
+      limit: 3
       required: false
     enum.HumanoidVisualLayers.RLeg:
-      limit: 2
+      limit: 3
       required: false
     enum.HumanoidVisualLayers.LLeg:
-      limit: 2
+      limit: 3
       required: false
     enum.HumanoidVisualLayers.RFoot:
       limit: 2

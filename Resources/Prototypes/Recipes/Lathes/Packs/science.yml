@@ -22,7 +22,7 @@
   - HoloprojectorField
   - SlimeScannerXenobio # ADT-Tweak
   - SignallerAdvanced
-  # - DeviceQuantumSpinInverter #ADT_Tweak - временно удалено до решения всех багов предмета
+  # - DeviceQuantumSpinInverter # ADT-Tweak
   - DeviceDesynchronizer
   # - ClothingBackpackHarmpack # ADT-Tweak
 
@@ -104,7 +104,12 @@
   - APECircuitboard
   - ArtifactAnalyzerMachineCircuitboard
   - ArtifactCrusherMachineCircuitboard
+  # ADT-Tweak-Start
   - XenobiologyBountyComputerCircuitboard # ADT-Tweak
+  - ADTXenobiologyControlComputerCircuitboard # ADT-Tweak
+  - SlimeGrinderMachineCircuitboard # ADT-Tweak
+  - ADTXenobiologyMonkeyRecyclerMachineCircuitboard # ADT-Tweak
+  # ADT-Tweak-End
 
 - type: latheRecipePack
   id: CameraBoards

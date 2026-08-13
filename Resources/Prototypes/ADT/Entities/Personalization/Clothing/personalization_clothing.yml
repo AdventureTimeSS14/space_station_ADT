@@ -1698,6 +1698,28 @@
   - type: Sprite
     sprite: ADT/Personalization/Raven559/mantle_officer_blue_shield.rsi
 
+- type: entity
+  parent: ClothingHeadHelmetRiot
+  id: ADTClothingHeadBSHelmet
+  name: worn-out ceremonial helmet of an officer of the "Blue Shield"
+  description: A helmet protected from impacts and cuts. The cap symbolizes the power of capitalism and war crimes.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_helmet.rsi
+
+- type: entity
+  parent: ADTClothingBlueshieldArmor
+  id: ADTClothingOuterBSArmor
+  name: tattered ceremonial armor of the "Blue Shield" officer.
+  description: This armor piece was made specifically to order for officer "Blue Shield" O.G. This armor provides excellent protection against bullets and moderate protection against impacts and cuts. There is a tiny graffiti with a pink pig on the back.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_armor.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_armor.rsi
+
 #Svet217
 - type: entity
   parent: [ClothingBeltBase, ClothingSlotBase]
@@ -1995,3 +2017,19 @@
     slots:
     - ears
     - ears2
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeck1AltiusDarkBrownCloak
+  suffix: Personal, 1Altius
+  name: dark brown cloak
+  description: A dark brown cloak with gold accents, flowing from the wearer’s shoulders.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/1Altius_dark_brown_cloak.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/1Altius_dark_brown_cloak.rsi
+  - type: Item
+    size: Normal
+

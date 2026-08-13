@@ -344,13 +344,6 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         if (slime.Comp.EatSound != null)
             _audio.PlayEntity(slime.Comp.EatSound, slime, slime);
-
-        _popup.PopupEntity(
-            Loc.GetString("slime-action-eat-corpse", ("slime", slime), ("target", corpse)),
-            slime,
-            PopupType.MediumCaution);
-
-        QueueDel(corpse);
     }
 
     #endregion
