@@ -74,9 +74,13 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         _active = true;
         _activeAlt = ent.Comp.UseAlternativeShader;
 
-        _overlay = new ThermalVisionOverlay(screenShader);
-        _overlayMan.AddOverlay(_overlay);
         _overlayMan.AddOverlay(_throughWallsOverlay);
+
+        if (!ent.Comp.HighlightOnly)
+        {
+            _overlay = new ThermalVisionOverlay(screenShader);
+            _overlayMan.AddOverlay(_overlay);
+        }
 
         _effect = SpawnAttachedTo(ent.Comp.EffectPrototype, Transform(ent).Coordinates);
         _xform.SetParent(_effect.Value, ent.Owner);
