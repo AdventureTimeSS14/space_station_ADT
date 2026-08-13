@@ -717,24 +717,16 @@ namespace Content.Shared.Preferences
             }
 
             //ADT-tweak-start
-            string oocNotes = OOCNotes; // Initialize with the property value
+            string oocNotes = FormattedMessage.RemoveMarkupOrThrow(OOCNotes);
             if (oocNotes.Length > maxFlavorTextLength)
             {
-                oocNotes = FormattedMessage.RemoveMarkupOrThrow(oocNotes)[..maxFlavorTextLength];
-            }
-            else
-            {
-                oocNotes = FormattedMessage.RemoveMarkupOrThrow(oocNotes);
+                oocNotes = oocNotes[..maxFlavorTextLength];
             }
 
-            string exploitableInfo = ExploitableInfo;
+            string exploitableInfo = FormattedMessage.RemoveMarkupOrThrow(ExploitableInfo);
             if (exploitableInfo.Length > maxFlavorTextLength)
             {
-                exploitableInfo = FormattedMessage.RemoveMarkupOrThrow(exploitableInfo)[..maxFlavorTextLength];
-            }
-            else
-            {
-                exploitableInfo = FormattedMessage.RemoveMarkupOrThrow(exploitableInfo);
+                exploitableInfo = exploitableInfo[..maxFlavorTextLength];
             }
             //ADT-tweak-end
 
