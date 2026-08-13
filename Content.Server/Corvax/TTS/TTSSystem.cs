@@ -21,7 +21,6 @@ public sealed partial class TTSSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly ADT.Deafness.ADTDeafnessSystem _deafness = default!;
     [Dependency] private readonly TTSManager _ttsManager = default!;
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
     [Dependency] private readonly IRobustRandom _rng = default!;
@@ -138,11 +137,6 @@ public sealed partial class TTSSystem : EntitySystem
             if (!HasComp<GhostHearingComponent>(session.AttachedEntity.Value) && !_examineSystem.InRangeUnOccluded(session.AttachedEntity.Value, uid, ChatSystem.VoiceRange))
                 continue;
 
-            // ADT-Tweak start
-            if (session.AttachedEntity.Value != uid && _deafness.IsDeafened(session.AttachedEntity.Value))
-                continue;
-            // ADT-Tweak end
-
             RaiseNetworkEvent(ttsEvent, session);
         }
         // ADT-Tweak end
@@ -187,17 +181,6 @@ public sealed partial class TTSSystem : EntitySystem
             // ADT-Tweak start
             if (!HasComp<GhostHearingComponent>(session.AttachedEntity.Value) && !_examineSystem.InRangeUnOccluded(session.AttachedEntity.Value, uid, ChatSystem.WhisperMuffledRange))
                 continue;
-            // ADT-Tweak end
-
-            // ADT-Tweak start
-            if (session.AttachedEntity.Value != uid && _deafness.TryGetTTSHearing(session.AttachedEntity.Value, out var muffled))
-            {
-                if (!muffled)
-                    continue;
-
-                RaiseNetworkEvent(obfTtsEvent, session);
-                continue;
-            }
             // ADT-Tweak end
 
             RaiseNetworkEvent(distance > ChatSystem.WhisperClearRange ? obfTtsEvent : fullTtsEvent, session);
