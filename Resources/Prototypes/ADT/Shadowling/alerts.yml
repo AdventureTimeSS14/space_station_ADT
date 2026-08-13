@@ -1,7 +1,0 @@
-- type: alert
-  id: ShadowlingLight
-  icons:
-  - sprite: /Textures/ADT/Interface/Alerts/shadowling_light.rsi
-    state: "9"
-  name: alerts-shadowling-light-name
-  description: alerts-shadowling-light-desc

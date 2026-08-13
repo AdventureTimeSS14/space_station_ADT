@@ -17,7 +17,6 @@ namespace Content.Server.Radio.EntitySystems;
 public sealed class HeadsetSystem : SharedHeadsetSystem
 {
     [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly ADT.Deafness.ADTDeafnessSystem _deafness = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
     [Dependency] private readonly PopupSystem _popup = default!; // ADT Radio Block
@@ -164,11 +163,6 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 
         if (TryComp(parent, out ActorComponent? actor))
         {
-            // ADT-Tweak start
-            if (_deafness.TryInterceptRadio(parent, actor.PlayerSession, args.Message, args.MessageSource))
-                return;
-            // ADT-Tweak end
-
             // ADT Languages start
             if (_language.CanUnderstand(Transform(uid).ParentUid, args.Language))
                 _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
