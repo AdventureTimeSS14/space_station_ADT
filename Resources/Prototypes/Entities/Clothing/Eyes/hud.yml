@@ -39,6 +39,9 @@
     damageContainers:
     - Inorganic
     - Silicon
+    # ADT-Tweak-Start: КПБ (IPC) видны в диагностическом визоре
+    - ADTSiliconDamageContainer
+    # ADT-Tweak-End
   - type: ShowAccessReaderSettings
 
 - type: entity
@@ -195,6 +198,10 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    # ADT-Tweak Start: New healing containers
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+    # ADT-Tweak End
     - Inorganic
   - type: ShowSyndicateIcons
   - type: ThermalVisionItem # ADT tweak
@@ -212,6 +219,10 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    # ADT-Tweak Start: New healing containers
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+    # ADT-Tweak End
     - Inorganic
   - type: ShowHungerIcons
   - type: ShowThirstIcons

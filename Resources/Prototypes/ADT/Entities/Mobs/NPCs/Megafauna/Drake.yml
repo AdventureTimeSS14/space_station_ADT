@@ -285,6 +285,12 @@
     butcheringType: Knife
     spawned:
     - id: ADTKineticTrophyAshDrakeSpike
+    - id: MaterialBones1
+      amount: 15
+      maxAmount: 30
+    - id: ADTMaterialSinew1
+      amount: 3
+      maxAmount: 5
 
 - type: entity
   id: MobDrake

@@ -1,0 +1,28 @@
+<Document>
+
+  # Разрыв Ада
+
+  Кажется, это боевое искусство давно забыто всеми. Но если его никто не знает, откуда тогда оно здесь?
+
+  ## Приёмы
+
+  <ADTGuideCombo Combo="DropKick">
+  Разрывает захват, которым держат вас, отбрасывая захватчика. Восстанавливает
+  [color=#5BB8E0]60[/color] выносливости и поднимает вас с пола.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="Slam">
+  Только лёжа и только против стоячей цели. Роняет её на [color=#E0A03C]8 секунд[/color],
+  наносит [color=#5BB8E0]100[/color] урона по выносливости и поднимает вас с пола.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="TearDown">
+  Наносит [color=#E05B5B]60[/color] урона и [color=#5BB8E0]50[/color] урона по выносливости.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="HeadRip">
+  Только по мёртвой цели, которую вы удерживаете. Наносит [color=#E05B5B]100[/color]
+  Slash-урона и [color=#E05B5B]300[/color] Blunt-урона.
+  </ADTGuideCombo>
+
+</Document>

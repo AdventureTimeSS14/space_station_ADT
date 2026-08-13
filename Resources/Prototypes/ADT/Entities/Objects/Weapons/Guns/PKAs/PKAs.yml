@@ -26,8 +26,10 @@
       hyper:
         sprite: ADT/Objects/Weapons/Guns/PKAs/chassis.rsi
         state: pistol-hyper
-  - type: Gun
-    fireRate: 0.5 # Tweak 0.3
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1.2
+  - type: MeleeWeapon
+    attackRate: 1.5
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
@@ -75,13 +77,16 @@
       upgrades: !type:Container
   - type: Item
     sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_repeater.rsi
+  - type: MeleeWeapon
+    attackRate: 1.1
   - type: BasicEntityAmmoProvider
     proto: ADTBulletKineticRepeater
     capacity: 3
     count: 3
   - type: Gun
-    burstCooldown: 2
-    fireRate: 0.4 # Tweak 0.5 > 0.4
+    burstCooldown: 0.4
+    burstFireRate: 2.5
+    fireRate: 2.5
     selectedMode: Burst
     angleDecay: 45
     minAngle: 2
@@ -91,7 +96,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.25
+    rechargeCooldown: 0.67
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: Clothing
@@ -133,8 +138,11 @@
     proto: ADTBulletKineticRailgun
     capacity: 1
     count: 1
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 3
+  - type: MeleeWeapon
+    attackRate: 0.8
   - type: Gun
-    fireRate: 0.25 # Tweak 0.3 > 0.25
     angleDecay: 45
     minAngle: 2
     maxAngle: 3
@@ -170,8 +178,10 @@
     minAngle: 0
     maxAngle: 0
   - type: GunRequiresWield
-  - type: Gun
-    fireRate: 0.5
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 2
+  - type: MeleeWeapon
+    attackRate: 1
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
@@ -207,8 +217,6 @@
     whitelist:
       tags:
       - PKAUpgrade
-  - type: Gun
-    fireRate: 0.4 # Tweak 0.4
   - type: ContainerContainer
     containers:
       upgrades: !type:Container

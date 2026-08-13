@@ -1,0 +1,14 @@
+- type: adtBossMusic
+  id: ADTBossMusicHierophant
+  duck: 0.4
+  sound:
+    path: /Audio/ADT/Hierophant/hiero_boss.ogg
+    params:
+      volume: -6
+
+- type: adtBossMusic
+  id: ADTBossMusicBubblegum
+  sound:
+    path: /Audio/ADT/Bubblegum/e1m1.ogg
+    params:
+      volume: -6

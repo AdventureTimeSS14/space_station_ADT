@@ -132,6 +132,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         InitializePtsd();
         InitializeCookbookTechnique();
         InitializeCanPerformCombo();
+        InitializeWeaponCombos();
+        InitializeTonfa();
+        InitializeSyndicateAxe();
 
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
@@ -159,6 +162,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
         if (!_timing.IsFirstTimePredicted)
             return;
+
+        UpdateWeaponCombos();
 
         var query = EntityQueryEnumerator<CanPerformComboComponent>();
         while (query.MoveNext(out var ent, out var comp))

@@ -1,0 +1,28 @@
+<Document>
+
+  # Путь Спящего Карпа
+
+  <Box>
+    <GuideEntityEmbed Entity="ADTScrollSleepingCarp" Caption="сказ о спящем карпе"/>
+  </Box>
+
+  Школа трёх приёмов для победителей.. или нет.
+
+  ## Приёмы
+
+  <ADTGuideCombo Combo="SleepingCarpGnashingTeeth">
+  Наносит [color=#E05B5B]10[/color] Slash-урона. Каждое следующее использование -
+  на [color=#E05B5B]20[/color] больше, до потолка в [color=#E05B5B]90[/color].
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="SleepingCarpCrashingWaves">
+  Наносит [color=#E05B5B]15[/color] Blunt-урона, отбрасывает цель и погружает её
+  в [color=#87CEEB]сон[/color] на [color=#E0A03C]2 секунды[/color].
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="SleepingCarpDisarmCatch">
+  Наносит [color=#E05B5B]10[/color] Blunt-урона и забирает предмет из активной руки цели
+  в вашу свободную.
+  </ADTGuideCombo>
+
+</Document>
