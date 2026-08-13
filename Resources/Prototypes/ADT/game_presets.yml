@@ -15,6 +15,23 @@
     - CrewTransferScheduler
 
 - type: gamePreset
+  showInVote: false # secret
+  id: ADTShadowling
+  alias:
+    - shadowling
+    - tenemorph
+  name: adt-shadowling-title
+  minPlayers: 25
+  description: adt-shadowling-title
+  rules:
+    - ADTShadowlingGameRule
+    - BasicRoundstartVariation
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - CrewTransferScheduler
+
+- type: gamePreset
   id: TraitorLight
   alias:
     - traitorlight
