@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Decals;
+using Content.Shared.ADT.Areas;
 using Content.Shared.ADT.Procedural;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
@@ -22,6 +23,7 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly ISerializationManager _serialization = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private readonly AreaSystem _areas = default!;
     [Dependency] private readonly DecalSystem _decals = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -111,8 +113,84 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
         var tileOffset = -roomCenter + grid.TileSizeHalfVector;
 
         SpawnTiles(gridUid, grid, roomTransform, room, tileOffset, clearExisting);
+        SpawnAreas(gridUid, roomTransform, room, tileOffset);
         SpawnEntities(gridUid, grid, room, roomTransform, roomCenter, finalRoomRotation);
         SpawnDecals(gridUid, grid, room, roomTransform, roomCenter, finalRoomRotation);
+    }
+
+    private void SpawnAreas(
+        EntityUid gridUid,
+        Matrix3x2 roomTransform,
+        ADTDungeonRoomPrototype room,
+        Vector2 tileOffset)
+    {
+        if (room.Areas.Count == 0)
+            return;
+
+        var areaGrid = EnsureComp<AreaGridComponent>(gridUid);
+        var touched = new HashSet<EntProtoId<AreaComponent>>();
+
+        for (var y = 0; y < room.Size.Y; y++)
+        {
+            var rowIndex = room.Size.Y - 1 - y;
+
+            if (rowIndex >= room.Areas.Count)
+                continue;
+
+            var row = room.Areas[rowIndex];
+
+            for (var x = 0; x < room.Size.X && x < row.Length; x++)
+            {
+                if (!room.AreaLegend.TryGetValue(row[x].ToString(), out var area))
+                    continue;
+
+                var tilePos = Vector2.Transform(new Vector2(x, y) + tileOffset, roomTransform);
+
+                areaGrid.Areas[tilePos.Floored()] = area;
+                touched.Add(area);
+            }
+        }
+
+        if (touched.Count == 0)
+            return;
+
+        Dirty(gridUid, areaGrid);
+
+        foreach (var area in touched)
+        {
+            RefreshArea(gridUid, area);
+        }
+    }
+
+    private void RefreshArea(EntityUid gridUid, EntProtoId<AreaComponent> area)
+    {
+        if (!_areas.TryGetAreaCenter(area, gridUid, out var center))
+            return;
+
+        if (TryFindArea(gridUid, area, out var existing))
+            Del(existing);
+
+        Spawn(area, center);
+    }
+
+    private bool TryFindArea(EntityUid gridUid, EntProtoId<AreaComponent> area, out EntityUid found)
+    {
+        found = default;
+
+        var query = AllEntityQuery<AreaComponent, MetaDataComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out _, out var meta, out var xform))
+        {
+            if (xform.GridUid != gridUid)
+                continue;
+
+            if (meta.EntityPrototype?.ID != area.Id)
+                continue;
+
+            found = uid;
+            return true;
+        }
+
+        return false;
     }
 
     private void SpawnTiles(

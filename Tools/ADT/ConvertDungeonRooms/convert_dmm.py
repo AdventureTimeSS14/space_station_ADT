@@ -4,6 +4,10 @@
 Соответствия путей SS13 и прототипов SS14 задаются в mapping.json рядом со скриптом:
 пути, которых там нет, скрипт перечислит и остановится, чтобы ничего не потерялось молча.
 
+Виды правил: "tile" кладёт тайл, "entity" ставит сущность, "skip" выбрасывает путь,
+"area" переносит область SS13 в AreaGrid комнаты, например
+{"kind": "area", "proto": "ADTAreaNecropolis"}.
+
     python Tools/ADT/ConvertDungeonRooms/convert_dmm.py \
         SS13/.../lavaland_surface_worldanvil.dmm \
         Resources/Prototypes/ADT/Procedural/Rooms/Lavaland/ADTLavaDungeonWorldAnvil.yml \
@@ -88,12 +92,18 @@ def build(definitions, grid, size, mapping):
     rows = []
     entities = {}
 
+    area_legend = {}
+    area_order = []
+    area_rows = []
+
     for y in range(height, 0, -1):
         row = []
+        area_row = []
         for x in range(1, width + 1):
             key = grid.get((x, y))
             atoms = definitions.get(key, [])
             symbol = SPACE_CHAR
+            area_symbol = SPACE_CHAR
 
             # В SS13 каменная плитка делает лаву под собой безопасной. У нас такой механики нет,
             # поэтому под плитками лаву просто не ставим: дорожки остаются проходимыми.
@@ -128,6 +138,20 @@ def build(definitions, grid, size, mapping):
                 if kind == "tile":
                     continue
 
+                # Область SS13 это такой же атом тайла, но в SS14 она живёт не на тайле,
+                # а в AreaGrid грида, поэтому копим её отдельной картой символов.
+                if kind == "area":
+                    proto = rule["proto"]
+
+                    if proto not in area_legend:
+                        if len(area_order) >= len(LEGEND_CHARS):
+                            sys.exit("слишком много разных областей")
+                        area_legend[proto] = LEGEND_CHARS[len(area_order)]
+                        area_order.append(proto)
+
+                    area_symbol = area_legend[proto]
+                    continue
+
                 if kind == "entity":
                     rotation = DIR_TO_ROTATION.get(direction)
                     entities.setdefault((rule["proto"], rotation), []).append((x - 1, y - 1))
@@ -136,7 +160,9 @@ def build(definitions, grid, size, mapping):
                 sys.exit(f"непонятный вид правила у {path_text}: {kind}")
 
             row.append(symbol)
+            area_row.append(area_symbol)
         rows.append("".join(row))
+        area_rows.append("".join(area_row))
 
     if unknown:
         print("нет соответствия для путей:")
@@ -144,10 +170,13 @@ def build(definitions, grid, size, mapping):
             print("  " + path_text)
         sys.exit("допиши mapping.json")
 
-    return legend, legend_order, rows, entities
+    if not area_order:
+        area_rows = []
+
+    return legend, legend_order, rows, entities, area_legend, area_order, area_rows
 
 
-def write(path, room_id, tags, size, legend, legend_order, rows, entities):
+def write(path, room_id, tags, size, legend, legend_order, rows, entities, area_legend, area_order, area_rows):
     width, height = size
     lines = []
     lines.append(f"# Комната данжа {room_id}, вырезана из карты SS13 скриптом convert_dmm.py.")
@@ -168,6 +197,15 @@ def write(path, room_id, tags, size, legend, legend_order, rows, entities):
     lines.append("  tiles:")
     for row in rows:
         lines.append(f'  - "{row}"')
+
+    if area_rows:
+        lines.append("  areaLegend:")
+        for proto in area_order:
+            lines.append(f'    "{area_legend[proto]}": {proto}')
+
+        lines.append("  areas:")
+        for row in area_rows:
+            lines.append(f'  - "{row}"')
 
     if entities:
         lines.append("  entities:")
@@ -197,12 +235,17 @@ def main():
 
     mapping = load_mapping(args.mapping)
     definitions, grid, size = parse_dmm(args.dmm)
-    legend, legend_order, rows, entities = build(definitions, grid, size, mapping)
+    legend, legend_order, rows, entities, area_legend, area_order, area_rows = build(
+        definitions, grid, size, mapping)
 
-    write(args.out, args.id, args.tags, size, legend, legend_order, rows, entities)
+    write(
+        args.out, args.id, args.tags, size, legend, legend_order, rows, entities,
+        area_legend, area_order, area_rows)
 
     total = sum(len(positions) for positions in entities.values())
-    print(f"{args.id}: {size[0]}x{size[1]}, тайлов в легенде {len(legend_order)}, сущностей {total}")
+    print(
+        f"{args.id}: {size[0]}x{size[1]}, тайлов в легенде {len(legend_order)},"
+        f" сущностей {total}, областей {len(area_order)}")
 
 
 if __name__ == "__main__":

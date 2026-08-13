@@ -53,6 +53,33 @@ public sealed class DungeonRoomTest : GameTest
                         Assert.That(symbol, Has.Length.EqualTo(1),
                             $"{room.ID}: ключ легенды \"{symbol}\" должен быть одним символом.");
                     }
+
+                    if (room.Areas.Count > 0)
+                    {
+                        Assert.That(room.Areas, Has.Count.EqualTo(room.Size.Y),
+                            $"{room.ID}: строк областей {room.Areas.Count}, а размер обещает {room.Size.Y}.");
+
+                        for (var i = 0; i < room.Areas.Count; i++)
+                        {
+                            Assert.That(room.Areas[i], Has.Length.EqualTo(room.Size.X),
+                                $"{room.ID}: в строке областей {i} символов {room.Areas[i].Length}, а размер обещает {room.Size.X}.");
+                        }
+
+                        var unknownAreas = room.Areas
+                            .SelectMany(row => row)
+                            .Where(symbol => symbol != '.' && !room.AreaLegend.ContainsKey(symbol.ToString()))
+                            .Distinct()
+                            .ToList();
+
+                        Assert.That(unknownAreas, Is.Empty,
+                            $"{room.ID}: символы областей без легенды: {string.Join(", ", unknownAreas)}");
+                    }
+
+                    foreach (var (symbol, _) in room.AreaLegend)
+                    {
+                        Assert.That(symbol, Has.Length.EqualTo(1),
+                            $"{room.ID}: ключ легенды областей \"{symbol}\" должен быть одним символом.");
+                    }
                 }
             });
         });
@@ -93,6 +120,12 @@ public sealed class DungeonRoomTest : GameTest
                     {
                         Assert.That(protoMan.HasIndex<DecalPrototype>(group.Id),
                             $"{room.ID}: неизвестная декаль {group.Id}.");
+                    }
+
+                    foreach (var (symbol, area) in room.AreaLegend)
+                    {
+                        Assert.That(protoMan.HasIndex<EntityPrototype>(area.Id),
+                            $"{room.ID}: символ областей \"{symbol}\" ссылается на неизвестную область {area.Id}.");
                     }
                 }
             });

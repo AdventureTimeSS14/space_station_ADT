@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.ADT.Areas;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
 using Content.Shared.Tag;
@@ -23,6 +24,12 @@ public sealed partial class ADTDungeonRoomPrototype : IPrototype
 
     [DataField]
     public List<string> Tiles = new();
+
+    [DataField]
+    public Dictionary<string, EntProtoId<AreaComponent>> AreaLegend = new();
+
+    [DataField]
+    public List<string> Areas = new();
 
     [DataField]
     public List<ADTDungeonRoomEntities> Entities = new();

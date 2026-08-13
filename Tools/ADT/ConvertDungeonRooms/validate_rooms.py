@@ -36,6 +36,24 @@ def main():
             print(f"символы без легенды: {room['id']} {sorted(unknown)}")
             problems += 1
 
+        areas = room.get("areas", [])
+        area_legend = room.get("areaLegend", {})
+
+        if areas and len(areas) != size_y:
+            print(f"строк областей не столько: {room['id']} {len(areas)} вместо {size_y}")
+            problems += 1
+
+        for row in areas:
+            if len(row) != size_x:
+                print(f"ширина строки областей не та: {room['id']} {len(row)} вместо {size_x}")
+                problems += 1
+                break
+
+        unknown_areas = {char for row in areas for char in row if char != "." and char not in area_legend}
+        if unknown_areas:
+            print(f"области без легенды: {room['id']} {sorted(unknown_areas)}")
+            problems += 1
+
         for group in room.get("entities", []):
             for position in group["positions"]:
                 x, y = [float(value) for value in str(position).split(",")]

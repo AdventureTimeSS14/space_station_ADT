@@ -6,6 +6,13 @@
         --atlas /Maps/ADTMaps/Ruins/lavadunges.yml \
         --rooms Resources/Prototypes/ADT/Procedural/Themes/lavadunges.yml \
         --out Resources/Prototypes/ADT/Procedural/Rooms/Lavaland
+
+Если старых прототипов dungeonRoom уже нет, комнату можно вырезать по координатам
+
+    python Tools/ADT/ConvertDungeonRooms/convert_rooms.py \
+        --atlas /Maps/ADTMaps/Ruins/hierophant_arena.yml \
+        --room ADTHierophantArena --size 23,23 --offset 0,0 --tags ADTHierophantArena \
+        --out Resources/Prototypes/ADT/Procedural/Rooms/Hierophant
 """
 
 import argparse
@@ -48,8 +55,12 @@ class Tagged:
 
 
 class MapLoader(yaml.SafeLoader):
+    pass
+
 
 class MapDumper(yaml.SafeDumper):
+    pass
+
 
 def construct_tagged(loader, tag_suffix, node):
     if isinstance(node, yaml.MappingNode):
@@ -97,6 +108,7 @@ class Atlas:
         self.chunks = {}
         self.decals = []
         self.entities = []
+        self.areas = {}
 
         for group in data["entities"]:
             proto = group.get("proto") or ""
@@ -142,15 +154,23 @@ class Atlas:
 
     def _read_grid(self, components):
         for grid in components.get("MapGrid", []):
-            for chunk in grid["chunks"].values():
+            for chunk in (grid.get("chunks") or {}).values():
                 index = parse_vector_int(chunk["ind"])
                 version = int(chunk.get("version", 1))
                 if version < 7:
                     raise RuntimeError(f"чанк версии {version} не поддерживается")
                 self.chunks[index] = decode_chunk(chunk["tiles"])
 
+        # Области мапер сводит в грид командой "areas save", по одному прототипу на тайл.
+        for area_grid in components.get("AreaGrid", []):
+            for key, proto in (area_grid.get("areas") or {}).items():
+                self.areas[parse_vector_int(key)] = proto
+
         for decal_grid in components.get("DecalGrid", []):
-            for node in decal_grid["chunkCollection"]["nodes"]:
+            # Компонент может стоять на гриде пустышкой, если декалей на карте нет.
+            collection = decal_grid.get("chunkCollection") or {}
+
+            for node in collection.get("nodes") or []:
                 info = node.get("node", {})
                 for position in node.get("decals", {}).values():
                     self.decals.append({
@@ -267,6 +287,31 @@ def build_room(atlas, room):
             row.append(legend[tile])
         rows.append("".join(row))
 
+    area_legend = {}
+    area_order = []
+    area_rows = []
+
+    for y in reversed(range(size_y)):
+        row = []
+        for x in range(size_x):
+            proto = atlas.areas.get((offset_x + x, offset_y + y))
+
+            if proto is None:
+                row.append(SPACE_CHAR)
+                continue
+
+            if proto not in area_legend:
+                if len(area_order) >= len(LEGEND_CHARS):
+                    raise RuntimeError(f"в комнате {room['id']} слишком много разных областей")
+                area_legend[proto] = LEGEND_CHARS[len(area_order)]
+                area_order.append(proto)
+
+            row.append(area_legend[proto])
+        area_rows.append("".join(row))
+
+    if not area_order:
+        area_rows = []
+
     groups = {}
     for entity in atlas.entities:
         x, y = entity["pos"]
@@ -289,6 +334,8 @@ def build_room(atlas, room):
     return {
         "legend": [(char, tile) for tile, char in legend.items()],
         "rows": rows,
+        "areaLegend": [(area_legend[proto], proto) for proto in area_order],
+        "areaRows": area_rows,
         "entities": groups,
         "decals": decals,
     }
@@ -320,6 +367,15 @@ def write_room(path, room, built):
     lines.append("  tiles:")
     for row in built["rows"]:
         lines.append(f'  - "{row}"')
+
+    if built["areaRows"]:
+        lines.append("  areaLegend:")
+        for char, proto in sorted(built["areaLegend"]):
+            lines.append(f'    "{char}": {proto}')
+
+        lines.append("  areas:")
+        for row in built["areaRows"]:
+            lines.append(f'  - "{row}"')
 
     if built["entities"]:
         lines.append("  entities:")
@@ -360,18 +416,36 @@ def write_room(path, room, built):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--atlas", required=True, help="путь атласа так, как он записан в прототипах комнат")
-    parser.add_argument("--rooms", required=True, help="файл с прототипами dungeonRoom")
+    parser.add_argument("--rooms", help="файл с прототипами dungeonRoom, откуда брать размеры и смещения")
+    parser.add_argument("--room", help="вырезать одну комнату с этим id, без файла прототипов")
+    parser.add_argument("--size", help="размер одиночной комнаты, например 23,23")
+    parser.add_argument("--offset", help="смещение одиночной комнаты в атласе, например 0,0")
+    parser.add_argument("--tags", nargs="*", default=[], help="теги одиночной комнаты")
     parser.add_argument("--out", required=True, help="куда складывать файлы комнат")
     parser.add_argument("--resources", default="Resources", help="папка Resources")
     args = parser.parse_args()
+
+    if bool(args.rooms) == bool(args.room):
+        sys.exit("нужен либо --rooms, либо --room, но не оба сразу")
 
     atlas_path = os.path.join(args.resources, args.atlas.lstrip("/"))
     if not os.path.exists(atlas_path):
         sys.exit(f"атлас не найден: {atlas_path}")
 
-    rooms = collect_rooms(args.rooms, args.atlas)
-    if not rooms:
-        sys.exit(f"в {args.rooms} нет комнат с атласом {args.atlas}")
+    if args.room:
+        if not args.size or not args.offset:
+            sys.exit("для --room нужны ещё --size и --offset")
+
+        rooms = [{
+            "id": args.room,
+            "size": parse_vector_int(args.size),
+            "offset": parse_vector_int(args.offset),
+            "tags": list(args.tags),
+        }]
+    else:
+        rooms = collect_rooms(args.rooms, args.atlas)
+        if not rooms:
+            sys.exit(f"в {args.rooms} нет комнат с атласом {args.atlas}")
 
     print(f"читаю атлас {atlas_path}")
     atlas = Atlas(atlas_path)
@@ -386,7 +460,10 @@ def main():
 
         entity_count = sum(len(positions) for positions in built["entities"].values())
         decal_count = sum(len(positions) for positions in built["decals"].values())
-        print(f"  {room['id']}: {room['size'][0]}x{room['size'][1]}, сущностей {entity_count}, декалей {decal_count}")
+        area_count = len(built["areaLegend"])
+        print(
+            f"  {room['id']}: {room['size'][0]}x{room['size'][1]},"
+            f" сущностей {entity_count}, декалей {decal_count}, областей {area_count}")
 
     print(f"готово, комнат записано: {len(rooms)}")
 
