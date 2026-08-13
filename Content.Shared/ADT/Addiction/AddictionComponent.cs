@@ -111,9 +111,7 @@ public sealed partial class AddictionComponent : Component
     public EntProtoId WeaknessEffect = "StatusEffectWithdrawalWeakness";
 
     /// <summary>
-    /// Серверный флаг: серый (монохромный) фильтр ломки добавлен нами, а не трайтом
-    /// Monochromacy. Позволяет при окончании ломки снять только свой компонент
-    /// и не трогать компонент дальтоника.
+    /// Серый фильтр ломки добавлен нами (не трайтом дальтонизма).
     /// </summary>
     public bool WithdrawalMonochromacyApplied;
 

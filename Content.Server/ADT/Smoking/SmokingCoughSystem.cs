@@ -18,10 +18,7 @@ using Robust.Shared.Timing;
 namespace Content.Server.ADT.Smoking;
 
 /// <summary>
-/// Кашель при курении: пока игрок курит (горящий smokable во рту), каждые 25 секунд
-/// он кашляет через эмоцию Cough (сообщение в чат + звук). Вейпы не кашляют.
-/// Условия зеркалят SmokingSystem: smokable в слоте mask живого владельца с кровью,
-/// в растворе ещё есть чем затянуться.
+/// Кашель каждые 25 секунд, пока игрок курит.
 /// </summary>
 public sealed partial class SmokingCoughSystem : EntitySystem
 {
@@ -32,19 +29,12 @@ public sealed partial class SmokingCoughSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
 
-    /// <summary>
-    /// Интервал между кашлями, пока игрок курит.
-    /// </summary>
     private static readonly TimeSpan CoughInterval = TimeSpan.FromSeconds(25);
 
-    /// <summary>
-    /// Как часто проверяем курящих.
-    /// </summary>
     private static readonly TimeSpan CheckInterval = TimeSpan.FromSeconds(1);
 
     /// <summary>
-    /// Время следующего кашля для каждого курящего игрока. Запись живёт, пока игрок курит;
-    /// перестал курить - запись удаляется, следующая сессия курения начинает отсчёт заново.
+    /// Время следующего кашля для каждого курящего игрока.
     /// </summary>
     private readonly Dictionary<EntityUid, TimeSpan> _nextCough = new();
 
@@ -67,7 +57,7 @@ public sealed partial class SmokingCoughSystem : EntitySystem
             if (HasComp<VapeComponent>(uid))
                 continue;
 
-            // Смоукл во рту живого владельца с кровью (условия SmokingSystem)
+            // Во рту живого владельца с кровью (как SmokingSystem)
             if (!_container.TryGetContainingContainer((uid, null, null), out var containerManager) ||
                 !_inventory.TryGetSlotEntity(containerManager.Owner, "mask", out var inMaskSlotUid) ||
                 inMaskSlotUid != uid ||
@@ -80,7 +70,7 @@ public sealed partial class SmokingCoughSystem : EntitySystem
             var smoker = containerManager.Owner;
             seen.Add(smoker);
 
-            // В растворе ещё есть чем затянуться (без этого курить нечего)
+            // В растворе ещё есть чем затянуться
             if (!_solution.TryGetSolution(uid, smokable.Solution, out _, out var solution) ||
                 solution.Volume == FixedPoint2.Zero)
             {
@@ -100,8 +90,7 @@ public sealed partial class SmokingCoughSystem : EntitySystem
             _nextCough[smoker] = _timing.CurTime + CoughInterval;
         }
 
-        // Игроки, которые больше не курят: сбрасываем отсчёт,
-        // следующая сессия курения начнёт 25 секунд заново
+        // Игроки, которые больше не курят: сбрасываем отсчёт
         foreach (var smoker in _nextCough.Keys.ToList())
         {
             if (!seen.Contains(smoker))

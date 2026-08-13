@@ -269,8 +269,7 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
-  # ADT-Tweak-Start: никотин метаболизируется в крови, иначе системы аллергий и зависимостей его не ловят;
-  # курение вредит: микро клеточный урон за каждый тик метаболизма никотина
+  # ADT-Tweak-Start: никотин метаболизируется в крови; курение вредит
   metabolisms:
     Bloodstream:
       metabolismRate: 0.05

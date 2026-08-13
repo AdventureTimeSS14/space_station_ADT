@@ -7,9 +7,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.ADT.Traits.Effects;
 
 /// <summary>
-/// Effect that spawns an item and attempts to place it in the player's backpack.
-/// If the player has no backpack or the item does not fit, it is spawned at their feet.
-/// Server-side effect - handled by TraitSystem.
+/// Spawns the item in the player's backpack, or at their feet if it doesn't fit.
 /// </summary>
 public sealed partial class SpawnItemInBackpackEffect : BaseTraitEffect
 {
@@ -21,7 +19,6 @@ public sealed partial class SpawnItemInBackpackEffect : BaseTraitEffect
 
     public override void Apply(TraitEffectContext ctx)
     {
-        // This effect needs to be applied server-side where we have access to
-        // inventory and container systems. Handled by the server TraitSystem.
+        // Server-side: needs inventory and container systems.
     }
 }

@@ -376,9 +376,7 @@ public sealed class TraitSystem : EntitySystem
     }
 
     /// <summary>
-    /// Handles the SpawnItemInBackpackEffect: spawns the item into the player's
-    /// backpack (slot "back", container "storagebase"). If there is no backpack
-    /// or the item does not fit, it is left at the player's feet.
+    /// Spawns the item in the backpack, or at the feet if it doesn't fit.
     /// </summary>
     private void ApplySpawnItemBackpackEffect(EntityUid player, SpawnItemInBackpackEffect effect, TransformComponent transform)
     {

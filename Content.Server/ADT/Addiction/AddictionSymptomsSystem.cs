@@ -137,9 +137,7 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
         else
             _status.TryRemoveStatusEffect(uid, comp.WeaknessEffect);
 
-        // Серый фильтр (Monochromacy) вместо радуги: компонент кладём на игрока,
-        // клиентский оверлей включается сам. Флаг отличает наш компонент от
-        // трайтового (дальтонизм): при окончании ломки снимаем только свой.
+        // Серый фильтр ломки: снимаем только свой (не трайтовый дальтонизм).
         if (wantMonochromacy)
         {
             if (!HasComp<MonochromacyComponent>(uid) && !comp.WithdrawalMonochromacyApplied)
