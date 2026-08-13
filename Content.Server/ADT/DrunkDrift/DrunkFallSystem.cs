@@ -1,4 +1,3 @@
-using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.DrunkDrift;
 using Content.Shared.Drunk;
 using Content.Shared.Examine;
@@ -7,7 +6,6 @@ using Content.Shared.Popups;
 using Content.Shared.Mobs.Components;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
-using Robust.Shared.Configuration;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
@@ -23,7 +21,6 @@ public sealed class DrunkFallSystem : EntitySystem
 {
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -69,7 +66,7 @@ public sealed class DrunkFallSystem : EntitySystem
 
     /// <summary>
     ///     Пересчитывает активность пьяных эффектов по остатку опьянения:
-    ///     они работают только когда началось размытие экрана (порог adt.drunk_visual_threshold).
+    ///     они работают, пока остаток не ниже порога размытия экрана (VisualThreshold).
     /// </summary>
     private void UpdateVisuals(EntityUid uid, ADTDrunkDriftComponent comp)
     {
@@ -78,7 +75,7 @@ public sealed class DrunkFallSystem : EntitySystem
         {
             var remaining = time.EndEffectTime - _timing.CurTime;
             active = remaining == null
-                || remaining.Value >= TimeSpan.FromSeconds(_cfg.GetCVar(ADTCCVars.DrunkVisualThreshold));
+                || remaining.Value >= comp.VisualThreshold;
         }
 
         if (comp.VisualsActive == active)
@@ -104,12 +101,6 @@ public sealed class DrunkFallSystem : EntitySystem
 
         _accumulator -= 1f;
 
-        var chance = _cfg.GetCVar(ADTCCVars.DrunkFallChance);
-        if (chance <= 0f)
-            return;
-
-        var cooldown = TimeSpan.FromSeconds(_cfg.GetCVar(ADTCCVars.DrunkFallCooldown));
-        var knockdownTime = TimeSpan.FromSeconds(_cfg.GetCVar(ADTCCVars.DrunkKnockdownTime));
         var now = _timing.CurTime;
 
         var query = EntityQueryEnumerator<ADTDrunkDriftComponent>();
@@ -138,12 +129,12 @@ public sealed class DrunkFallSystem : EntitySystem
             if (physics.LinearVelocity.Length() < 0.5f)
                 continue;
 
-            if (!_random.Prob(chance))
+            if (!_random.Prob(comp.FallChance))
                 continue;
 
-            comp.NextFall = now + cooldown;
+            comp.NextFall = now + comp.FallCooldown;
             Dirty(uid, comp);
-            _stun.TryKnockdown(uid, knockdownTime, force: true);
+            _stun.TryKnockdown(uid, comp.KnockdownTime, force: true);
             _popup.PopupEntity(Loc.GetString($"adt-drunk-fall-{_random.Next(1, 11)}", ("ent", uid)), uid);
         }
     }

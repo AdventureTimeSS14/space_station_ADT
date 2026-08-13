@@ -1,5 +1,4 @@
 using System.Numerics;
-using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.DrunkDrift;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Random;
@@ -43,20 +42,20 @@ public abstract partial class SharedMoverController
         var phaseRandom = new System.Random(SharedRandomExtensions.HashCodeCombine(netEnt.Id));
         var phase = phaseRandom.NextSingle() * MathF.Tau;
 
-        var sway = _configManager.GetCVar(ADTCCVars.DrunkSwayAmplitude)
+        var sway = drunkDrift.SwayAmplitude
                    * MathF.Sin((float)seconds * (float)DrunkSwayFrequency + phase);
 
         // Рывок в сторону: на каждом интервале с шансом, направление случайное.
-        var lurchInterval = _configManager.GetCVar(ADTCCVars.DrunkLurchInterval);
+        var lurchInterval = drunkDrift.LurchInterval;
         var bucket = (int)(seconds / lurchInterval);
         var bucketRandom = new System.Random(SharedRandomExtensions.HashCodeCombine(netEnt.Id, bucket));
         var lurch = 0f;
-        if (bucketRandom.Prob(_configManager.GetCVar(ADTCCVars.DrunkLurchChance)))
+        if (bucketRandom.Prob(drunkDrift.LurchChance))
         {
             var progress = (float)(seconds - bucket * lurchInterval) / lurchInterval;
             var envelope = MathF.Sin(MathF.PI * Math.Clamp(progress, 0f, 1f));
             var direction = bucketRandom.Next(2) == 0 ? 1f : -1f;
-            lurch = direction * _configManager.GetCVar(ADTCCVars.DrunkLurchAngle) * envelope;
+            lurch = direction * drunkDrift.LurchAngle * envelope;
         }
 
         var angle = sway + lurch;
