@@ -71,3 +71,59 @@
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
       state: r_foot_line_prime
+
+- type: marking
+  groupWhitelist: [Ipc]
+  id: ADTIPCPartHeadDuke
+  bodyPart: Head
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: head_duke_prime
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: head_duke_second
+
+- type: marking
+  groupWhitelist: [Ipc]
+  id: ADTIPCPartHeadGeth
+  bodyPart: Head
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: head_geth_prime
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: head_geth_second
+
+- type: marking
+  groupWhitelist: [Ipc]
+  id: ADTIPCPartLHandArmband
+  bodyPart: LHand
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: l_hand_armband_prime
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: l_hand_armband_second
+
+- type: marking
+  groupWhitelist: [Ipc]
+  id: ADTIPCPartRHandArmband
+  bodyPart: RHand
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: r_hand_armband_prime
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: r_hand_armband_second
+
+- type: marking
+  groupWhitelist: [Ipc]
+  id: ADTIPCPartLLegRing
+  bodyPart: LLeg
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: l_leg_ring
+
+- type: marking
+  groupWhitelist: [Ipc]
+  id: ADTIPCPartRLegRing
+  bodyPart: RLeg
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: r_leg_ring

@@ -24,10 +24,10 @@
       Appendix: OrganHumanAppendix
       Ears: OrganHumanEars
       Lungs: ADTOrganNovakidLungs
-      Heart: OrganHumanHeart
-      Stomach: OrganHumanStomach
-      Liver: OrganHumanLiver
-      Kidneys: OrganHumanKidneys
+      Heart: ADTOrganNovakidHeart
+      Stomach: ADTOrganNovakidStomach
+      Liver: ADTOrganNovakidLiver
+      Kidneys: ADTOrganNovakidKidneys
   - type: HumanoidProfile
     species: NovakidSpecies
   - type: Inventory
@@ -249,6 +249,22 @@
   components:
   - type: Metabolizer
     metabolizerTypes: [ Novakid ]
+
+- type: entity
+  id: ADTOrganNovakidHeart
+  parent: [ OrganBaseHeart, OrganSpriteHumanInternal, ADTOrganNovakidMetabolizer ]
+
+- type: entity
+  id: ADTOrganNovakidStomach
+  parent: [ OrganBaseStomach, OrganSpriteHumanInternal, ADTOrganNovakidMetabolizer ]
+
+- type: entity
+  id: ADTOrganNovakidLiver
+  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, ADTOrganNovakidMetabolizer ]
+
+- type: entity
+  id: ADTOrganNovakidKidneys
+  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, ADTOrganNovakidMetabolizer ]
 
 - type: entity
   id: ADTOrganNovakidVisual
