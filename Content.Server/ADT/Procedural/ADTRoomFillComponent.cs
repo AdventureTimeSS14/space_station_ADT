@@ -1,10 +1,15 @@
+using Content.Shared.ADT.Procedural;
 using Content.Shared.Whitelist;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Procedural;
 
 [RegisterComponent]
 public sealed partial class ADTRoomFillComponent : Component
 {
+    [DataField]
+    public ProtoId<ADTDungeonRoomPrototype>? Room;
+
     [DataField]
     public bool Rotation = true;
 

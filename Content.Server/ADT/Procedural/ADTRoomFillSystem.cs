@@ -1,4 +1,6 @@
+using Content.Shared.ADT.Procedural;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.ADT.Procedural;
@@ -6,6 +8,7 @@ namespace Content.Server.ADT.Procedural;
 public sealed class ADTRoomFillSystem : EntitySystem
 {
     [Dependency] private readonly ADTDungeonRoomSystem _rooms = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
 
@@ -22,7 +25,7 @@ public sealed class ADTRoomFillSystem : EntitySystem
 
         if (xform.GridUid is { } gridUid && TryComp<MapGridComponent>(gridUid, out var grid))
         {
-            var room = _rooms.GetRoom(_random, marker.Comp.RoomWhitelist, marker.Comp.MinSize, marker.Comp.MaxSize);
+            var room = ResolveRoom(marker);
 
             if (room == null)
             {
@@ -45,5 +48,13 @@ public sealed class ADTRoomFillSystem : EntitySystem
         }
 
         QueueDel(marker);
+    }
+
+    private ADTDungeonRoomPrototype? ResolveRoom(Entity<ADTRoomFillComponent> marker)
+    {
+        if (marker.Comp.Room is { } pinned && _prototype.TryIndex(pinned, out var room))
+            return room;
+
+        return _rooms.GetRoom(_random, marker.Comp.RoomWhitelist, marker.Comp.MinSize, marker.Comp.MaxSize);
     }
 }
