@@ -74,22 +74,16 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         _active = true;
         _activeAlt = ent.Comp.UseAlternativeShader;
 
-        _overlay = new ThermalVisionOverlay(screenShader);
-        _overlayMan.AddOverlay(_overlay);
         _overlayMan.AddOverlay(_throughWallsOverlay);
+
+        if (!ent.Comp.HighlightOnly)
+        {
+            _overlay = new ThermalVisionOverlay(screenShader);
+            _overlayMan.AddOverlay(_overlay);
+        }
 
         _effect = SpawnAttachedTo(ent.Comp.EffectPrototype, Transform(ent).Coordinates);
         _xform.SetParent(_effect.Value, ent.Owner);
-
-        if (ent.Comp.HighlightOnly)
-            return;
-
-        _overlayMan.AddOverlay(_gasOverlay);
-
-        if (ent.Comp.UseAlternativeShader)
-            _overlayMan.AddOverlay(_altOverlay);
-        else
-            _overlayMan.AddOverlay(_overlay);
     }
 
     private void AttemptRemoveVision(bool force = false)
@@ -110,8 +104,6 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         }
 
         _overlayMan.RemoveOverlay(_throughWallsOverlay);
-        _overlayMan.RemoveOverlay(_gasOverlay);
-        _overlayMan.RemoveOverlay(_altOverlay);
 
         if (_effect != null)
         {
