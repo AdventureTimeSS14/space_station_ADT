@@ -78,6 +78,9 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
         var mendQuery = EntityQueryEnumerator<ADTShadowMendComponent>();
         while (mendQuery.MoveNext(out var uid, out var mend))
         {
+            if (TerminatingOrDeleted(uid))
+                continue;
+
             if (_timing.CurTime >= mend.EndTime)
             {
                 ApplyVoidPrice(uid, mend);
@@ -99,6 +102,9 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
         var priceQuery = EntityQueryEnumerator<ADTVoidPriceComponent>();
         while (priceQuery.MoveNext(out var uid, out var price))
         {
+            if (TerminatingOrDeleted(uid))
+                continue;
+
             if (_timing.CurTime >= price.EndTime)
             {
                 RemCompDeferred<ADTVoidPriceComponent>(uid);
