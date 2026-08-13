@@ -1,5 +1,4 @@
 using Content.Server.ADT.Blob.GameTicking;
-using Content.Server.ADT.Shadowling;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
@@ -36,7 +35,6 @@ public sealed partial class AdminVerbSystem
     static readonly EntProtoId DefaultWizardRule = "Wizard";
     private static readonly EntProtoId DefaultNinjaRule = "NinjaSpawn";
     private static readonly EntProtoId DefaultBlobRule = "BlobGameMode"; // ADT-tweak
-    private static readonly EntProtoId DefaultShadowlingRule = "ADTShadowlingSpawn"; // ADT-tweak
     private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
 
     // All antag verbs have names so invokeverb works.
@@ -175,23 +173,6 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-heretic"),
         };
         args.Verbs.Add(heretic);
-
-        // ADT-Tweak start: shadowlings
-        var shadowlingName = Loc.GetString("admin-verb-text-make-adt-shadowling");
-        Verb shadowling = new()
-        {
-            Text = shadowlingName,
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/ADT/Interface/Actions/shadowling.rsi"), "hatch"),
-            Act = () =>
-            {
-                _antag.ForceMakeAntag<ADTShadowlingRuleComponent>(targetPlayer, DefaultShadowlingRule);
-            },
-            Impact = LogImpact.High,
-            Message = string.Join(": ", shadowlingName, Loc.GetString("admin-verb-make-adt-shadowling")),
-        };
-        args.Verbs.Add(shadowling);
-        // ADT-Tweak end
 
         var changelingName = Loc.GetString("admin-verb-text-make-changeling");
         Verb changeling = new()

@@ -27,7 +27,7 @@ public sealed class LightDetectionDamageSystem : SharedLightDetectionDamageSyste
         while (query.MoveNext(out var uid, out var comp, out var lightDet))
         {
             if (comp.NextUpdate > _timing.CurTime)
-                continue;
+                return;
 
             comp.NextUpdate = _timing.CurTime + comp.UpdateInterval;
 
@@ -36,15 +36,15 @@ public sealed class LightDetectionDamageSystem : SharedLightDetectionDamageSyste
 
             if (comp.DetectionValue <= 0 && comp.TakeDamageOnLight && !_mobState.IsDead(uid))
             {
-                _damageable.TryChangeDamage(uid, comp.DamageToDeal * comp.ResistanceModifier);
+                _damageable.TryChangeDamage(uid, comp.DamageToDeal * comp.ResistanceModifier); // ADT-Tweak
                 _audio.PlayPvs(comp.SoundOnDamage, uid, AudioParams.Default.WithVolume(-2f));
-                continue;
+                return;
             }
 
             if (comp.DetectionValue > 0 && comp.HealOnShadows && !_mobState.IsDead(uid))
             {
-                _damageable.TryChangeDamage(uid, comp.DamageToHeal, true, false);
-                continue;
+                _damageable.TryChangeDamage(uid, comp.DamageToHeal, true, false); // ADT-Tweak
+                return;
             }
         }
     }
