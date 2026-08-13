@@ -229,7 +229,7 @@
     - ADTDogEmotes
   - type: NightVision
     innate: true
-    effectPrototype: ADTEffectNightVisionLow
+    effectPrototype: ADTEffectNightVisionMedium
   # ADT-Tweak: End
 
 

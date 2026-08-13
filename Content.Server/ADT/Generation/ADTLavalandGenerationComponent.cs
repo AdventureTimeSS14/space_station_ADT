@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Generation;
@@ -48,6 +49,9 @@ public sealed partial class LavalandScatterGroup
 {
     [DataField(required: true)]
     public List<EntProtoId> Prototypes = new();
+
+    [DataField]
+    public EntityWhitelist? RoomWhitelist;
 
     [DataField]
     public int Count = 1;
