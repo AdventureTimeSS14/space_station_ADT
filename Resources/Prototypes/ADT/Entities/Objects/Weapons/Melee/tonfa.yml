@@ -27,8 +27,11 @@
     size: Normal
   - type: GuideHelp
     guides:
-    - ADTMartialArts
+    - ADTMaTonfa
   - type: DisarmMalus
+  - type: WeaponMartialArt
+    martialArtsForm: Tonfa
+    combos: TonfaMoves
 
 - type: entity
   name: steel tonfa
@@ -54,3 +57,6 @@
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/steel_tonfa.rsi
     size: Normal
+  - type: WeaponMartialArt
+    martialArtsForm: Tonfa
+    combos: TonfaSteelMoves
