@@ -25,6 +25,7 @@ public partial class XenobiologySystem
 
         Spawn(ent.Comp.TameEffect, coords);
         comp.Tamer = args.User;
+        comp.Friendship = MathF.Max(comp.Friendship, comp.MinFriendshipToCommand);
 
         _popup.PopupEntity(Loc.GetString("slime-interaction-tame"), args.User, args.User);
 

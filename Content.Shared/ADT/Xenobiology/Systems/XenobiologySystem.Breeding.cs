@@ -139,6 +139,7 @@ public partial class XenobiologySystem
             {
                 var newSlime = sl.Value.Comp;
                 newSlime.Tamer = ent.Comp.Tamer;
+                newSlime.Friendship = ent.Comp.Friendship;
                 newSlime.MutationChance = ent.Comp.MutationChance;
                 newSlime.MaxOffspring = ent.Comp.MaxOffspring;
                 newSlime.ExtractsProduced = ent.Comp.ExtractsProduced;

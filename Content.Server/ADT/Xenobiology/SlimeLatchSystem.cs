@@ -28,6 +28,7 @@ using Content.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
+using Content.Server.Speech.Components;
 using System.Linq;
 
 namespace Content.Server.ADT.Xenobiology.Systems;
@@ -344,6 +345,12 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         if (slime.Comp.EatSound != null)
             _audio.PlayEntity(slime.Comp.EatSound, slime, slime);
+
+        if (HasComp<MonkeyAccentComponent>(corpse))
+        {
+            slime.Comp.Friendship = MathF.Min(1f, slime.Comp.Friendship + slime.Comp.FriendshipPerMeal);
+            Dirty(slime);
+        }
     }
 
     #endregion

@@ -60,6 +60,8 @@
     - FootstepSound
     - DoorBumpOpener
     - XenoSlime
+  - type: ActiveListener
+    range: 10
   - type: Respirator
     damage:
       types:
