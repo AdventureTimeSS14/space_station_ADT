@@ -107,7 +107,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
 
         var message = args.Message.ToLowerInvariant();
 
-        if (!message.Contains("слайм") && !message.Contains("slime"))
+        if (!message.Contains(Loc.GetString("slime-speech-address")))
             return;
 
         if (ContainsCommand(message, SlimeCommandType.Attack) && TryAttackCommand(slime, args.Source, message))
@@ -140,6 +140,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
         if (slime.Comp.Friendship < slime.Comp.MinFriendshipToCommand)
             return false;
 
+        CancelAttackOrder(slime, speaker);
         UnfreezeSlime(slime);
 
         slime.Comp.FollowingTarget = speaker;
@@ -150,6 +151,8 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
 
     private bool TryStopCommand(Entity<SlimeComponent> slime, EntityUid speaker)
     {
+        CancelAttackOrder(slime, speaker);
+
         var hostiles = _factions.GetHostiles(new Entity<FactionExceptionComponent?>(slime, default)).ToList();
         var isFeeding = _slimeLatch.IsLatched(slime) || hostiles.Any(uid => Exists(uid));
 
@@ -182,14 +185,12 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
         if (slime.Comp.Friendship < slime.Comp.MinFriendshipToCommand)
             return false;
 
-        // Extract the target name: "слайм урист макчеловек атакуй"
         var targetName = string.Empty;
-        var nameStart = message.IndexOf("слайм", StringComparison.OrdinalIgnoreCase);
-        if (nameStart == -1)
-            nameStart = message.IndexOf("slime", StringComparison.OrdinalIgnoreCase);
+        var address = Loc.GetString("slime-speech-address");
+        var nameStart = message.IndexOf(address, StringComparison.Ordinal);
         if (nameStart != -1)
         {
-            nameStart += 5;
+            nameStart += address.Length;
             var nameEnd = FindLastCommandKeyword(message, SlimeCommandType.Attack);
             if (nameEnd > nameStart)
                 targetName = message[nameStart..nameEnd].Trim(' ', ',', '.', '!', '?');
@@ -273,6 +274,16 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
         _factions.AggroEntity(new Entity<FactionExceptionComponent?>(slime, default), target);
         RefreshSpeed(slime);
         SayForCommand(slime, Loc.GetString("slime-speech-attack", ("target", target)), speaker);
+    }
+
+    private void CancelAttackOrder(Entity<SlimeComponent> slime, EntityUid speaker)
+    {
+        if (!TryComp<SlimeAttackOrderComponent>(speaker, out var order))
+            return;
+
+        order.Slimes.Remove(slime);
+        if (order.Slimes.Count == 0)
+            RemCompDeferred<SlimeAttackOrderComponent>(speaker);
     }
 
     private int FindLastCommandKeyword(string message, SlimeCommandType type)

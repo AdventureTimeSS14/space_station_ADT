@@ -18,3 +18,4 @@ slime-speech-follow = { $slime } следует за { $target }!
 slime-speech-attack = { $slime } атакует { $target }!
 slime-speech-attack-friend = Grrr... Это мой друг!
 slime-speech-attack-wait = На кого мне напасть?
+slime-speech-address = слайм
