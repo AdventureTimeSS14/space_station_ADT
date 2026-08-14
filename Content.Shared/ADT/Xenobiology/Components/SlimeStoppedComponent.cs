@@ -1,8 +1,6 @@
-using Robust.Shared.GameStates;
-
 namespace Content.Shared.ADT.Xenobiology.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class SlimeStoppedComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)]

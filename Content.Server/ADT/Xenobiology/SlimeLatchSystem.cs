@@ -53,7 +53,6 @@ public sealed partial class SlimeLatchSystem : EntitySystem
     [Dependency] private readonly StomachSystem _stomach = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    private readonly HashSet<EntityUid> _latchedSlimes = new();
 
     public override void Initialize()
     {
@@ -91,28 +90,19 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             UpdateHunger((uid, dotComp));
         }
 
-        foreach (var slimeUid in _latchedSlimes.ToArray())
+        var query = EntityQueryEnumerator<SlimeComponent>();
+        while (query.MoveNext(out var uid, out var slime))
         {
-            if (!TryComp<SlimeComponent>(slimeUid, out var slime))
-            {
-                _latchedSlimes.Remove(slimeUid);
-                continue;
-            }
-
-            var slimeEnt = new Entity<SlimeComponent>(slimeUid, slime);
+            var slimeEnt = new Entity<SlimeComponent>(uid, slime);
 
             if (!IsLatched(slimeEnt))
-            {
-                _latchedSlimes.Remove(slimeUid);
                 continue;
-            }
 
             var target = slime.LatchedTarget!.Value;
 
             if (Deleted(target))
             {
                 Unlatch(slimeEnt);
-                _latchedSlimes.Remove(slimeUid);
                 continue;
             }
 
@@ -122,12 +112,10 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             if (IsPlayerControlled(target))
             {
                 Unlatch(slimeEnt);
-                _latchedSlimes.Remove(slimeUid);
                 continue;
             }
 
             ConsumeCorpse(slimeEnt, target);
-            _latchedSlimes.Remove(slimeUid);
         }
     }
 
@@ -136,10 +124,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
     private void OnSlimeTerminating(Entity<SlimeComponent> ent, ref EntityTerminatingEvent args)
     {
         if (IsLatched(ent))
-        {
             Unlatch(ent);
-            _latchedSlimes.Remove(ent);
-        }
     }
 
     private void OnMobStateChangedSOD(Entity<SlimeDamageOvertimeComponent> ent, ref MobStateChangedEvent args)
@@ -156,21 +141,16 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (IsPlayerControlled(ent) || _mobState.IsDead(slimeEnt))
         {
             Unlatch(slimeEnt);
-            _latchedSlimes.Remove(slimeEnt);
             return;
         }
 
         ConsumeCorpse(slimeEnt, ent);
-        _latchedSlimes.Remove(slimeEnt);
     }
 
     private void OnMobStateChangedSlime(Entity<SlimeComponent> ent, ref MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead)
-        {
             Unlatch(ent);
-            _latchedSlimes.Remove(ent);
-        }
     }
 
     private void OnPullAttempt(Entity<SlimeComponent> ent, ref PullAttemptEvent args)
@@ -182,19 +162,16 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         }
 
         Unlatch(ent);
-        _latchedSlimes.Remove(ent);
     }
 
     private void OnEntGotRemovedFromContainer(Entity<SlimeComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
         Unlatch(ent);
-        _latchedSlimes.Remove(ent);
     }
 
     private void OnEntGotInsertedIntoContainer(Entity<SlimeComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
         Unlatch(ent);
-        _latchedSlimes.Remove(ent);
     }
 
     private void OnSlimeMitosis(Entity<SlimeComponent> ent, ref SlimeMitosisEvent args)
@@ -202,7 +179,6 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         var target = ent.Comp.LatchedTarget;
 
         Unlatch(ent);
-        _latchedSlimes.Remove(ent);
 
         if (target is not { } latchTarget || Deleted(latchTarget) || args.Offspring.Count == 0)
             return;
@@ -224,7 +200,6 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (IsLatched(ent))
         {
             Unlatch(ent);
-            _latchedSlimes.Remove(ent);
             return;
         }
 
@@ -296,12 +271,11 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         }
 
         // Трансфер растворов
-        if (!TryComp<BodyComponent>(source, out _))
+        if (!TryComp<BodyComponent>(source, out var bodyComp))
             return;
 
         var stomachList = new List<Entity<StomachComponent>>();
-        if (TryComp<BodyComponent>(source, out var bodyComp))
-            _body.TryGetOrgansWithComponent(new Entity<BodyComponent?>(source, bodyComp), out stomachList);
+        _body.TryGetOrgansWithComponent(new Entity<BodyComponent?>(source, bodyComp), out stomachList);
 
         if (stomachList.Count == 0)
             return;
@@ -404,8 +378,6 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         EnsureComp(target, out SlimeDamageOvertimeComponent comp);
         comp.SourceEntityUid = ent;
 
-        _latchedSlimes.Add(ent);
-
         _audio.PlayEntity(ent.Comp.EatSound, ent, ent);
         _popup.PopupEntity(Loc.GetString("slime-action-latch-success", ("slime", ent), ("target", target)), ent, PopupType.SmallCaution);
 
@@ -434,7 +406,6 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             _physics.SetCanCollide(ent, true, body: physics);
 
         ent.Comp.LatchedTarget = null;
-        _latchedSlimes.Remove(ent);
     }
 
     #endregion

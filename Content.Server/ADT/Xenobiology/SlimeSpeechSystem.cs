@@ -140,9 +140,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
         if (slime.Comp.Friendship < slime.Comp.MinFriendshipToCommand)
             return false;
 
-        if (TryComp<HTNComponent>(slime, out var htn))
-            _htn.SetHTNEnabled((slime, htn), true, 0.5f);
-        RemCompDeferred<SlimeStoppedComponent>(slime);
+        UnfreezeSlime(slime);
 
         slime.Comp.FollowingTarget = speaker;
         slime.Comp.NextFollowUpdate = TimeSpan.Zero;
@@ -152,8 +150,8 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
 
     private bool TryStopCommand(Entity<SlimeComponent> slime, EntityUid speaker)
     {
-        var isFeeding = _slimeLatch.IsLatched(slime)
-            || _factions.GetHostiles(new Entity<FactionExceptionComponent?>(slime, default)).Any(uid => Exists(uid));
+        var hostiles = _factions.GetHostiles(new Entity<FactionExceptionComponent?>(slime, default)).ToList();
+        var isFeeding = _slimeLatch.IsLatched(slime) || hostiles.Any(uid => Exists(uid));
 
         if (isFeeding && slime.Comp.Friendship < slime.Comp.MinFriendshipToCommand)
         {
@@ -166,7 +164,6 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
         StopFollowing(slime);
         _slimeLatch.Unlatch(slime);
 
-        var hostiles = _factions.GetHostiles(new Entity<FactionExceptionComponent?>(slime, default)).ToList();
         foreach (var hostile in hostiles)
         {
             _factions.DeAggroEntity(new Entity<FactionExceptionComponent?>(slime, default), hostile);
@@ -175,12 +172,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
         if (hostiles.Count > 0)
             RefreshSpeed(slime);
 
-        var stopped = EnsureComp<SlimeStoppedComponent>(slime);
-        stopped.ExpiresAt = _timing.CurTime + slime.Comp.StopDuration;
-        Dirty(slime, stopped);
-
-        if (TryComp<HTNComponent>(slime, out var htn))
-            _htn.SetHTNEnabled((slime, htn), false);
+        FreezeSlime(slime, slime.Comp.StopDuration);
 
         return true;
     }
@@ -215,12 +207,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
             Dirty(speaker, order);
 
             // Freeze the slime so it doesn't hunt on its own while waiting.
-            StopFollowing(slime);
-            var stopped = EnsureComp<SlimeStoppedComponent>(slime);
-            stopped.ExpiresAt = _timing.CurTime + PointOrderDuration;
-            Dirty(slime, stopped);
-            if (TryComp<HTNComponent>(slime, out var htn))
-                _htn.SetHTNEnabled((slime, htn), false);
+            FreezeSlime(slime, PointOrderDuration);
 
             SayForCommand(slime, Loc.GetString("slime-speech-attack-wait"), speaker);
             return true;
@@ -232,14 +219,7 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
             return true;
         }
 
-        StopFollowing(slime);
-        if (TryComp<HTNComponent>(slime, out var htn2))
-            _htn.SetHTNEnabled((slime, htn2), true, 0.5f);
-        RemCompDeferred<SlimeStoppedComponent>(slime);
-
-        _factions.AggroEntity(new Entity<FactionExceptionComponent?>(slime, default), target.Value);
-        RefreshSpeed(slime);
-        SayForCommand(slime, Loc.GetString("slime-speech-attack", ("target", target.Value)), speaker);
+        OrderAttack(slime, target.Value, speaker);
         return true;
     }
 
@@ -257,21 +237,42 @@ public sealed partial class SlimeSpeechSystem : EntitySystem
 
             if (IsFriend(slime, args.Pointed))
             {
-                SayForCommand(slime, Loc.GetString("slime-speech-attack-friend"), order);
+                SayForCommand(slime, Loc.GetString("slime-speech-attack-friend"), order.Owner);
                 continue;
             }
 
-            StopFollowing(slime);
-            if (TryComp<HTNComponent>(slime, out var htn))
-                _htn.SetHTNEnabled((slime, htn), true, 0.5f);
-            RemCompDeferred<SlimeStoppedComponent>(slime);
-
-            _factions.AggroEntity(new Entity<FactionExceptionComponent?>(slime, default), args.Pointed);
-            RefreshSpeed(slime);
-            SayForCommand(slime, Loc.GetString("slime-speech-attack", ("target", args.Pointed)), order);
+            OrderAttack(slime, args.Pointed, order.Owner);
         }
 
         RemCompDeferred<SlimeAttackOrderComponent>(order);
+    }
+
+    private void FreezeSlime(Entity<SlimeComponent> slime, TimeSpan duration)
+    {
+        StopFollowing(slime);
+        var stopped = EnsureComp<SlimeStoppedComponent>(slime);
+        stopped.ExpiresAt = _timing.CurTime + duration;
+        Dirty(slime, stopped);
+
+        if (TryComp<HTNComponent>(slime, out var htn))
+            _htn.SetHTNEnabled((slime, htn), false);
+    }
+
+    private void UnfreezeSlime(Entity<SlimeComponent> slime)
+    {
+        RemCompDeferred<SlimeStoppedComponent>(slime);
+        if (TryComp<HTNComponent>(slime, out var htn))
+            _htn.SetHTNEnabled((slime, htn), true, 0.5f);
+    }
+
+    private void OrderAttack(Entity<SlimeComponent> slime, EntityUid target, EntityUid speaker)
+    {
+        StopFollowing(slime);
+        UnfreezeSlime(slime);
+
+        _factions.AggroEntity(new Entity<FactionExceptionComponent?>(slime, default), target);
+        RefreshSpeed(slime);
+        SayForCommand(slime, Loc.GetString("slime-speech-attack", ("target", target)), speaker);
     }
 
     private int FindLastCommandKeyword(string message, SlimeCommandType type)

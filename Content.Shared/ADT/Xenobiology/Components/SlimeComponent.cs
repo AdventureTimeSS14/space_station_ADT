@@ -171,12 +171,6 @@ public sealed partial class SlimeComponent : Component
     public float MinFriendshipToCommand = 0.15f;
 
     /// <summary>
-    /// How much friendship is required for the slime to attack.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float MinFriendshipToAttack = 0.5f;
-
-    /// <summary>
     /// How much friendship is lost when the slime refuses an order.
     /// </summary>
     [DataField, AutoNetworkedField]

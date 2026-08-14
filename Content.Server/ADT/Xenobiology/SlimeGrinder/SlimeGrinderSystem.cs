@@ -60,14 +60,14 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
             grinder.ProcessingTimer = Math.Clamp(grinder.ProcessingTimer - frameTime, 0, grinder.ProcessingTimer);
 
             if (grinder.ProcessingTimer > 0)
-                return;
+                continue;
 
-            foreach (var yield in grinder.YieldQueue)
+            foreach (var (protoId, count) in grinder.YieldQueue)
             {
-                for (int i = 0; i < yield.Value; i++)
-                    SpawnNextToOrDrop(yield.Key, uid);
-                grinder.YieldQueue.Remove(yield.Key);
+                for (var i = 0; i < count; i++)
+                    SpawnNextToOrDrop(protoId, uid);
             }
+            grinder.YieldQueue.Clear();
 
             if (HasComp<ActiveSlimeGrinderComponent>(uid))
                 RemCompDeferred<ActiveSlimeGrinderComponent>(uid);
