@@ -903,6 +903,27 @@
 - type: Tag
   id: ADTModsuitBoots
 
-# Plating
+# Platings
 - type: Tag
-  id: ADTModsuitPlatingExternal
+  id: ADTModsuitPlatingExternalStandard
+
+- type: Tag
+  id: ADTModsuitPlatingExternalEngineering
+
+- type: Tag
+  id: ADTModsuitPlatingExternalSecurity
+
+- type: Tag
+  id: ADTModsuitPlatingExternalAtmospheric
+
+- type: Tag
+  id: ADTModsuitPlatingExternalMining
+
+- type: Tag
+  id: ADTModsuitPlatingExternalScience
+
+- type: Tag
+  id: ADTModsuitPlatingExternalMedical
+
+- type: Tag
+  id: ADTModsuitPlatingExternalCosmohonk

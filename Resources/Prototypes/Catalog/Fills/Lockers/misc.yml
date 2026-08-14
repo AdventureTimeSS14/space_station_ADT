@@ -190,7 +190,7 @@
     children:
     - id: StrangePill
       prob: 0.20
-    - id: ADTModsuitCoreEnergy # ADT Modsuits
+    - id: ADTModsuitCoreStandard # ADT Modsuits
       prob: 0.03
     # Tools
     - !type:NestedSelector

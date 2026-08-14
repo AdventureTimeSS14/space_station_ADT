@@ -245,6 +245,46 @@
     - ADTModsuitPlatingExternalScience
 
 - type: entity
+  id: ADTModsuitPlateMedical
+  parent: ADTPartModsuit
+  name: MOD medical plating
+  description: A part used in MOD construction.
+  components:
+  - type: Sprite
+    state: medical
+  - type: Icon
+    state: medical
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
+  - type: Tag
+    tags:
+    - ADTModsuitPart
+    - ADTModsuitPlatingExternalMedical
+
+- type: entity
+  id: ADTModsuitPlateCosmohonk
+  parent: ADTPartModsuit
+  name: MOD cosmohonk plating
+  description: A part used in MOD construction.
+  components:
+  - type: Sprite
+    state: cosmohonk
+  - type: Icon
+    state: cosmohonk
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
+  - type: Tag
+    tags:
+    - ADTModsuitPart
+    - ADTModsuitPlatingExternalCosmohonk
+
+- type: entity
   id: ADTModsuitCoreStandard
   parent: ADTPartModsuit
   name: MOD standard core
