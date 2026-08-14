@@ -2,7 +2,6 @@ import re
 import sys
 import logging
 from pathlib import Path
-from datetime import datetime, timezone
 import yaml
 
 FILE_PATH = Path(__file__).resolve()
@@ -101,9 +100,13 @@ def parse_pr_body(body: str, default_author: str):
     return author, changes
 
 
-def append_entry(author: str, changes: list, merged_at: str):
+def append_entry(author: str, changes: list, merged_at: str, pr_number: int):
     data = load_yaml(CHANGELOG_PATH)
     entries = data.get("Entries") or []
+
+    if any(entry.get("pr_number") == pr_number for entry in entries):
+        logging.info(f"PR #{pr_number} уже есть в чейнджлоге.")
+        return
 
     next_id = max((entry.get("id", 0) for entry in entries), default=0) + 1
 
@@ -111,6 +114,7 @@ def append_entry(author: str, changes: list, merged_at: str):
         "author": author,
         "changes": strip_newlines(changes),
         "id": next_id,
+        "pr_number": pr_number,
         "time": merged_at,
     }
     entries.append(new_entry)
@@ -118,13 +122,24 @@ def append_entry(author: str, changes: list, merged_at: str):
     save_yaml({"Entries": entries}, CHANGELOG_PATH)
 
 def main():
-    if len(sys.argv) < 4:
-        logging.error("Usage: auto_cl_on_merge.py <PR_NUMBER> <PR_BODY_FILE> <PR_AUTHOR>")
+    if len(sys.argv) < 5:
+        logging.error("Usage: auto_cl_on_merge.py <PR_NUMBER> <PR_BODY_FILE> <PR_AUTHOR> <MERGED_AT>")
         sys.exit(1)
 
-    pr_number = sys.argv[1]
+    pr_number_arg = sys.argv[1]
     body_file = Path(sys.argv[2])
     default_author = sys.argv[3]
+    merged_at = sys.argv[4]
+
+    try:
+        pr_number = int(pr_number_arg)
+    except ValueError:
+        logging.error(f"PR_NUMBER должен быть числом, получено: {pr_number_arg!r}")
+        sys.exit(1)
+
+    if not merged_at:
+        logging.error("MERGED_AT не может быть пустым.")
+        sys.exit(1)
 
     if not body_file.exists():
         logging.error(f"Файл с телом PR не найден: {body_file}")
@@ -137,8 +152,7 @@ def main():
     if author is None or not changes:
         return
 
-    merged_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    append_entry(author, changes, merged_at)
+    append_entry(author, changes, merged_at, pr_number)
 
 
 if __name__ == "__main__":

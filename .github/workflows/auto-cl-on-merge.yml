@@ -1,69 +1,56 @@
 name: Auto CL on merge
-
 on:
   pull_request_target:
     types: [closed]
     branches: [master]
-
 permissions:
   contents: write
-
 concurrency:
   group: auto-cl-on-merge
   cancel-in-progress: false
-
 jobs:
   update_changelog:
     name: Update changelog
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
-
     steps:
       - name: Checkout master
         uses: actions/checkout@v4
         with:
           ref: master
           token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-
       - name: Install requirements
         run: pip install pyyaml
-
       - name: Save PR body to file
         env:
           PR_BODY: ${{ github.event.pull_request.body }}
         run: |
           printf '%s' "$PR_BODY" > pr_body.txt
-
       - name: Run changelog script
         id: run-script
         run: |
           python Tools/ADT/auto_cl_on_merge.py \
             "${{ github.event.pull_request.number }}" \
             "pr_body.txt" \
-            "${{ github.event.pull_request.user.login }}"
-
+            "${{ github.event.pull_request.user.login }}" \
+            "${{ github.event.pull_request.merged_at }}"
       - name: Clean up temp file
         run: rm -f pr_body.txt
-
       - name: Configure Git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
       - name: Commit and push changelog
         run: |
           git add Resources/Changelog/1ChangelogADT.yml
           if git diff --cached --quiet; then
             exit 0
           fi
-
           git commit -m "Auto CL: PR #${{ github.event.pull_request.number }}"
-
           attempt=1
           max_attempts=5
           until git push origin HEAD:master; do
@@ -73,6 +60,10 @@ jobs:
             fi
             echo "Push отклонён (попытка $attempt/$max_attempts), rebase и повторная попытка."
             git fetch origin master
-            git rebase origin/master
+            if ! git rebase origin/master; then
+              echo "::error::Конфликт при rebase на origin/master (PR #${{ github.event.pull_request.number }})."
+              git rebase --abort
+              exit 1
+            fi
             attempt=$((attempt + 1))
           done
