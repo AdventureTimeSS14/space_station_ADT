@@ -13917,3 +13917,9 @@ Entries:
     id: 1793
     pr_number: 3155
     time: '2026-08-14T04:03:31Z'
+  - author: CrimeMoot
+    changes:
+      - {message: Механика скрытие одежды под другой закрывающей одеждой., type: Remove}
+    id: 1794
+    pr_number: 3133
+    time: '2026-08-14T04:09:01Z'
