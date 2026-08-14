@@ -1,9 +1,13 @@
+using System.Linq;
 using System.Numerics;
 using Content.Shared.ADT.GPS;
 using Content.Shared.Emp;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
+using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -15,7 +19,9 @@ namespace Content.Server.ADT.GPS;
 public sealed class GpsSystem : SharedGpsSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
@@ -31,6 +37,7 @@ public sealed class GpsSystem : SharedGpsSystem
         SubscribeLocalEvent<GpsComponent, GpsToggleRangeMessage>(OnToggleRangeMessage);
         SubscribeLocalEvent<GpsComponent, GpsToggleSosMessage>(OnToggleSosMessage);
         SubscribeLocalEvent<GpsComponent, GpsSetTagMessage>(OnSetTagMessage);
+        SubscribeLocalEvent<GpsComponent, ActivatableUIOpenAttemptEvent>(OnUiOpenAttempt);
 
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
     }
@@ -44,6 +51,11 @@ public sealed class GpsSystem : SharedGpsSystem
 
         while (query.MoveNext(out var uid, out var comp))
         {
+            if (!_ui.IsUiOpen(uid, GpsUiKey.Key))
+                continue;
+
+            CloseForInvalidActors(uid);
+
             if (curTime < comp.NextUpdate)
                 continue;
 
@@ -79,6 +91,36 @@ public sealed class GpsSystem : SharedGpsSystem
     private void OnSetTagMessage(Entity<GpsComponent> ent, ref GpsSetTagMessage args)
     {
         SetTag(ent, args.Tag);
+    }
+
+    private void OnUiOpenAttempt(Entity<GpsComponent> ent, ref ActivatableUIOpenAttemptEvent args)
+    {
+        if (args.Cancelled || IsCarriedBy(ent.Owner, args.User))
+            return;
+
+        args.Cancel();
+    }
+
+    private void CloseForInvalidActors(EntityUid uid)
+    {
+        foreach (var actor in _ui.GetActors(uid, GpsUiKey.Key).ToArray())
+        {
+            if (IsCarriedBy(uid, actor))
+                continue;
+
+            _ui.CloseUi(uid, GpsUiKey.Key, actor);
+        }
+    }
+
+    private bool IsCarriedBy(EntityUid uid, EntityUid user)
+    {
+        if (Transform(uid).ParentUid != user)
+            return false;
+
+        if (_hands.IsHolding(user, uid))
+            return true;
+
+        return _inventory.TryGetContainingSlot(uid, out var slot) && (slot.SlotFlags & SlotFlags.POCKET) != 0;
     }
 
     private void OnMobStateChanged(MobStateChangedEvent args)
