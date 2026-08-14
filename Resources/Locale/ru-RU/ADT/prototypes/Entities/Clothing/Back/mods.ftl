@@ -1,4 +1,4 @@
-ent-AADTClothingModsuitBackStandard = МОД "Базовый"
+ent-ADTClothingModsuitBackStandard = МОД "Базовый"
     .desc = Костюм гражданского класса от "Nakamura Engineering", не дающий ничего особенного, кроме небольшого замедления передвижения.
 ent-ADTClothingModsuitBackStandardFilled = { ent-ADTClothingModsuitBackStandard }
     .desc = { ent-ADTClothingModsuitBackStandard.desc }
