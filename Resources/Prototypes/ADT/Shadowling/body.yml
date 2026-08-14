@@ -19,7 +19,7 @@
       FootLeft: ADTOrganShadowlingFootLeft
       FootRight: ADTOrganShadowlingFootRight
       Brain: OrganHumanBrain
-      Eyes: OrganHumanEyes
+      Eyes: ADTOrganShadowlingEyes
       Tongue: OrganHumanTongue
       Ears: OrganHumanEars
       Lungs: OrganHumanLungs
@@ -48,7 +48,7 @@
       FootLeft: ADTOrganLesserShadowlingFootLeft
       FootRight: ADTOrganLesserShadowlingFootRight
       Brain: OrganHumanBrain
-      Eyes: OrganHumanEyes
+      Eyes: ADTOrganLesserShadowlingEyes
       Tongue: OrganHumanTongue
       Ears: OrganHumanEars
       Lungs: OrganHumanLungs
@@ -78,6 +78,11 @@
   - type: ThermalVision
     highlightOnly: true
     color: "#8a2be2"
+    ignoredComponents:
+    - ADTShadowling
+    - ADTLesserShadowling
+    - ADTShadowlingThrall
+    - ADTAscendantShadowling
   - type: PressureImmunity
   - type: Insulated
     coefficient: 0
@@ -203,6 +208,28 @@
   - type: VisualOrganMarkings
     markingData:
       group: None
+
+- type: entity
+  parent: OrganHumanEyes
+  id: ADTOrganShadowlingEyes
+  suffix: shadowling
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/Shadowling/parts.rsi
+      state: eyes
+      shader: unshaded
+
+- type: entity
+  parent: OrganHumanEyes
+  id: ADTOrganLesserShadowlingEyes
+  suffix: lesser shadowling
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/LesserShadowling/parts.rsi
+      state: eyes
+      shader: unshaded
 
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, ADTOrganShadowlingExternal ]

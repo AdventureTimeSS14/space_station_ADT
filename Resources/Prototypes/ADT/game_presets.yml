@@ -22,7 +22,7 @@
     - tenemorph
   name: adt-shadowling-title
   minPlayers: 25
-  description: adt-shadowling-title
+  description: adt-shadowling-description
   rules:
     - ADTShadowlingGameRule
     - BasicRoundstartVariation

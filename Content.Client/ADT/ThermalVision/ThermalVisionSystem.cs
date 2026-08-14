@@ -9,6 +9,7 @@ namespace Content.Client.ADT.ThermalVision;
 
 public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 {
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
@@ -73,6 +74,13 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 
         _active = true;
         _activeAlt = ent.Comp.UseAlternativeShader;
+
+        _throughWallsOverlay.IgnoredComponents.Clear();
+        foreach (var name in ent.Comp.IgnoredComponents)
+        {
+            if (_componentFactory.TryGetRegistration(name, out var registration))
+                _throughWallsOverlay.IgnoredComponents.Add(registration.Type);
+        }
 
         _overlayMan.AddOverlay(_throughWallsOverlay);
 

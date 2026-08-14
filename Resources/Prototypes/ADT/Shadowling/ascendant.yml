@@ -69,6 +69,11 @@
   - type: ThermalVision
     highlightOnly: true
     color: "#8a2be2"
+    ignoredComponents:
+    - ADTShadowling
+    - ADTLesserShadowling
+    - ADTShadowlingThrall
+    - ADTAscendantShadowling
   - type: PressureImmunity
   - type: Insulated
     coefficient: 0
@@ -111,6 +116,11 @@
     noRot: true
     overrideContainerOcclusion: true
     drawdepth: Ghosts
+  - type: Eye
+    drawFov: false
+    visMask:
+    - Normal
+    - Ghost
   - type: MovementSpeedModifier
     baseWalkSpeed: 4
     baseSprintSpeed: 5
@@ -139,6 +149,13 @@
     noRot: true
     overrideContainerOcclusion: true
     drawdepth: Ghosts
+  # Без маски Ghost собственное тело скрыто от игрока слоем Visibility, который ставит BaseMobJaunt,
+  # и кнопка выхода из сдвига до клиента не доезжает.
+  - type: Eye
+    drawFov: false
+    visMask:
+    - Normal
+    - Ghost
   - type: MovementSpeedModifier
     baseWalkSpeed: 5
     baseSprintSpeed: 7

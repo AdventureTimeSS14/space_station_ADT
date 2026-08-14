@@ -1,6 +1,9 @@
+using System.Linq;
+using Content.Server.Body;
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.Shadowling;
 using Content.Shared.Actions;
+using Content.Shared.Body;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
@@ -22,6 +25,7 @@ public sealed class ADTShadowlingSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
 
     public static readonly ProtoId<LanguagePrototype> HivemindLanguage = "ADTShadowlingCollectiveMind";
     public static readonly ProtoId<NpcFactionPrototype> ShadowlingFaction = "ADTShadowling";
@@ -31,14 +35,14 @@ public sealed class ADTShadowlingSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ADTShadowlingComponent, MapInitEvent>(OnShadowlingInit);
+        SubscribeLocalEvent<ADTShadowlingComponent, MapInitEvent>(OnShadowlingInit, after: [typeof(VisualBodySystem)]);
         SubscribeLocalEvent<ADTShadowlingComponent, ComponentShutdown>(OnShadowlingShutdown);
 
         SubscribeLocalEvent<ADTShadowlingThrallComponent, MapInitEvent>(OnThrallInit);
         SubscribeLocalEvent<ADTShadowlingThrallComponent, ComponentShutdown>(OnThrallShutdown);
         SubscribeLocalEvent<ADTShadowlingThrallComponent, ExaminedEvent>(OnThrallExamined);
 
-        SubscribeLocalEvent<ADTLesserShadowlingComponent, MapInitEvent>(OnLesserInit);
+        SubscribeLocalEvent<ADTLesserShadowlingComponent, MapInitEvent>(OnLesserInit, after: [typeof(VisualBodySystem)]);
         SubscribeLocalEvent<ADTLesserShadowlingComponent, ComponentShutdown>(OnLesserShutdown);
 
         SubscribeLocalEvent<ADTAscendantShadowlingComponent, MapInitEvent>(OnAscendantInit);
@@ -55,6 +59,7 @@ public sealed class ADTShadowlingSystem : EntitySystem
         {
             GrantActions(ent, ent.Comp.HatchedActions, ent.Comp.GrantedActions);
             RegrantUnlockedAbilities(ent);
+            SetEyeColor(ent, ent.Comp.EyeColor);
         }
         else
         {
@@ -169,6 +174,7 @@ public sealed class ADTShadowlingSystem : EntitySystem
             RemoveActions(thrall.GrantedActions);
 
         GrantActions(ent, ent.Comp.Actions, ent.Comp.GrantedActions);
+        SetEyeColor(ent, ent.Comp.EyeColor);
     }
 
     private void OnLesserShutdown(Entity<ADTLesserShadowlingComponent> ent, ref ComponentShutdown args)
@@ -200,6 +206,14 @@ public sealed class ADTShadowlingSystem : EntitySystem
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Asphyxiation", threshold.Value);
         _damageable.TryChangeDamage(target, damage, true, origin: origin);
+    }
+
+    private void SetEyeColor(EntityUid uid, Color color)
+    {
+        if (!_visualBody.TryGatherMarkingsData(uid, null, out var profiles, out _, out _))
+            return;
+
+        _visualBody.ApplyProfiles(uid, profiles.ToDictionary(pair => pair.Key, pair => pair.Value with { EyeColor = color }));
     }
 
     private void GrantActions(EntityUid uid, List<EntProtoId> protos, List<EntityUid> granted)

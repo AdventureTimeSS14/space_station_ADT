@@ -23,6 +23,9 @@ public sealed partial class ADTShadowlingComponent : Component
     public int KnownThralls;
 
     [DataField]
+    public Color EyeColor = Color.Red;
+
+    [DataField]
     public HashSet<EntProtoId> UnlockedAbilities = new();
 
     [DataField]

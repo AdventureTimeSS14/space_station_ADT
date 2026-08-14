@@ -50,9 +50,6 @@ public sealed partial class ADTShadowlingDarksightEvent : InstantActionEvent;
 public sealed partial class ADTShadowlingCollectiveMindDoAfterEvent : SimpleDoAfterEvent;
 
 [Serializable, NetSerializable]
-public sealed partial class ADTShadowlingNullChargeDoAfterEvent : SimpleDoAfterEvent;
-
-[Serializable, NetSerializable]
 public sealed partial class ADTShadowlingEmpowerDoAfterEvent : SimpleDoAfterEvent;
 
 [Serializable, NetSerializable]

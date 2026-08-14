@@ -178,8 +178,10 @@ public sealed partial class ADTShadowlingAbilitySystem
         if (args.Handled)
             return;
 
-        _popup.PopupEntity(Loc.GetString("shadowling-phase-shift-exit"), ent, ent);
-        _polymorph.Revert(ent.Owner);
+        if (_polymorph.Revert(ent.Owner) is not { } ascendant)
+            return;
+
+        _popup.PopupEntity(Loc.GetString("shadowling-phase-shift-exit"), ascendant, ascendant);
         args.Handled = true;
     }
 

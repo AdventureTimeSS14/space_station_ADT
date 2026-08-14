@@ -92,8 +92,6 @@ shadowling-screech-silicon = ОШИБКА $!(@ ОШИБКА )#^! ПЕРЕГРУ�
 # Null Charge
 shadowling-null-charge-invalid = Это не ЛКП.
 shadowling-null-charge-empty = В этом ЛКП нечего сливать.
-shadowling-null-charge-begin = Вы гасите экран ЛКП и осторожно начинаете сливать его заряд в пустоту.
-shadowling-null-charge-interrupted = Концентрация сорвана, ЛКП снова оживает.
 shadowling-null-charge-done = Заряд ушёл в пустоту, а автомат вырублен.
 
 # Black Recuperation
@@ -187,3 +185,21 @@ ent-ADTShadowlingAscendObjective = Вознестись
 guide-entry-adt-shadowling = Тенеморф
 
 language-ADTShadowlingCollectiveMind-name = Коллективный разум
+language-ADTShadowlingCollectiveMind-description = Телепатическая связь улья тенеморфов. Слышат её только сами тенеморфы и их рабы.
+
+adt-shadowling-title = Тенеморфы
+adt-shadowling-description = Среди экипажа прячутся тенеморфы. Они обращают людей в рабов, гасят свет по всей станции и готовятся к вознесению.
+
+ent-ADTShadowlingGameRule = тенеморфы
+    .desc = Выбирает тенеморфов среди экипажа в начале смены.
+ent-ADTShadowlingSpawn = появление тенеморфа
+    .desc = Обращает одного из членов экипажа в тенеморфа посреди смены.
+
+ent-MindRoleShadowling = роль тенеморфа
+    .desc = { "" }
+
+ent-ADTMobShadowlingShadowWalk = тень
+    .desc = Едва заметное движение между стен.
+
+ent-ADTMobAscendantPhased = тень
+    .desc = Разрыв в воздухе там, где только что было нечто огромное.
