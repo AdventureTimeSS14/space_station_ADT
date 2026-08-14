@@ -4,6 +4,9 @@ using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.ADT.Telephone;
 
+/// <summary>
+/// Client-side telephone window: phone list, call, answer, hang up and DND.
+/// </summary>
 public sealed class ADTPhoneBui : BoundUserInterface
 {
     private ADTPhoneWindow? _window;

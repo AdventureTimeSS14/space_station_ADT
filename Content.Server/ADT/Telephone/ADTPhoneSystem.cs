@@ -3,6 +3,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Telephone;
 using Content.Shared.ADT.Telephone;
 using Content.Shared.Database;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
@@ -17,9 +18,13 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Telephone;
 
+/// <summary>
+/// Human interface for the handheld telephones: call list, answer, hang up and DND.
+/// </summary>
 public sealed class ADTPhoneSystem : EntitySystem
 {
     [Dependency] private readonly TelephoneSystem _telephone = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -83,6 +88,9 @@ public sealed class ADTPhoneSystem : EntitySystem
 
     private void OnCallMsg(Entity<ADTPhoneComponent> ent, ref ADTPhoneCallMsg args)
     {
+        if (!_hands.IsHolding(args.Actor, ent.Owner))
+            return;
+
         if (!TryComp<TelephoneComponent>(ent.Owner, out var phone))
             return;
 
@@ -136,12 +144,18 @@ public sealed class ADTPhoneSystem : EntitySystem
 
     private void OnDndMsg(Entity<ADTPhoneComponent> ent, ref ADTPhoneDndMsg args)
     {
+        if (!_hands.IsHolding(args.Actor, ent.Owner))
+            return;
+
         ent.Comp.Dnd = args.Dnd;
         SendUIState(ent.Owner);
     }
 
     private void OnAnswerMsg(Entity<ADTPhoneComponent> ent, ref ADTPhoneAnswerMsg args)
     {
+        if (!_hands.IsHolding(args.Actor, ent.Owner))
+            return;
+
         if (!TryComp<TelephoneComponent>(ent.Owner, out var phone))
             return;
 
@@ -151,6 +165,9 @@ public sealed class ADTPhoneSystem : EntitySystem
 
     private void OnHangUpMsg(Entity<ADTPhoneComponent> ent, ref ADTPhoneHangUpMsg args)
     {
+        if (!_hands.IsHolding(args.Actor, ent.Owner))
+            return;
+
         if (!TryComp<TelephoneComponent>(ent.Owner, out var phone))
             return;
 
