@@ -53,11 +53,11 @@ public sealed class ClockGreetingController : UIController
             return;
 
         var date = Loc.GetString("clock-greeting-date",
-            ("day", msg.Day),
-            ("month", Loc.GetString($"clock-greeting-month-{msg.Month}")),
-            ("year", msg.Year));
-        var earthTime = Loc.GetString("clock-greeting-earth-time", ("time", $"{msg.Hour:D2}:{msg.Minute:D2}"));
-        var shift = Loc.GetString("clock-greeting-shift", ("time", $"{msg.ShiftHours:D2}:{msg.ShiftMinutes:D2}"));
+            ("day", msg.Date.Day),
+            ("month", Loc.GetString($"clock-greeting-month-{msg.Date.Month}")),
+            ("year", msg.Date.Year));
+        var earthTime = Loc.GetString("clock-greeting-earth-time", ("time", $"{msg.Date.Hour:D2}:{msg.Date.Minute:D2}"));
+        var shift = Loc.GetString("clock-greeting-shift", ("time", $"{(int)msg.Shift.TotalHours:D2}:{msg.Shift.Minutes:D2}"));
 
         _ui ??= screen.GetOrAddWidget<ClockGreetingUI>();
         _text = $"{date}\n{earthTime}\n{shift}";

@@ -3,23 +3,11 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.ADT.ClockGreeting;
 
 /// <summary>
-/// Данные для приветствия при спавне: игровая дата, время и время смены.
+/// Данные для приветствия при спавне: игровая дата и время смены.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed class ClockGreetingMessage(
-    int year,
-    int month,
-    int day,
-    int hour,
-    int minute,
-    int shiftHours,
-    int shiftMinutes) : EntityEventArgs
+public sealed class ClockGreetingMessage(DateTime date, TimeSpan shift) : EntityEventArgs
 {
-    public int Year = year;
-    public int Month = month;
-    public int Day = day;
-    public int Hour = hour;
-    public int Minute = minute;
-    public int ShiftHours = shiftHours;
-    public int ShiftMinutes = shiftMinutes;
+    public DateTime Date = date;
+    public TimeSpan Shift = shift;
 }
