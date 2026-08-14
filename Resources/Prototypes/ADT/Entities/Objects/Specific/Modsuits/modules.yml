@@ -215,7 +215,6 @@
     - ADTModsuitModMesonVision
     - ADTModsuitModDiagnosticVisor
     - ADTModsuitModNightVision
-    - ADTModsuitModThermalVision
     - ADTModsuitModSechud
     components:
       head:
@@ -581,7 +580,6 @@
     - ADTModsuitModMesonVision
     - ADTModsuitModDiagnosticVisor
     - ADTModsuitModNightVision
-    - ADTModsuitModThermalVision
     - ADTModsuitModSechud
     components:
       head:
@@ -670,7 +668,6 @@
     - ADTModsuitModMesonVision
     - ADTModsuitModDiagnosticVisor
     - ADTModsuitModNightVision
-    - ADTModsuitModThermalVision
     - ADTModsuitModSechud
     components:
       head:
@@ -696,7 +693,6 @@
     - ADTModsuitModMesonVision
     - ADTModsuitModDiagnosticVisor
     - ADTModsuitModNightVision
-    - ADTModsuitModThermalVision
     - ADTModsuitModSechud
     components:
       head:
@@ -749,4 +745,3 @@
         grid:
         - 0,0,19,9
         maxItemSize: Huge
-  

@@ -30,7 +30,7 @@
       mod-core: !type:ContainerSlot
         showEnts: False
         occludes: True
-        ents: null
+        ent: null
   - type: UserInterface
     interfaces:
       enum.ModSuitUiKey.Key:
