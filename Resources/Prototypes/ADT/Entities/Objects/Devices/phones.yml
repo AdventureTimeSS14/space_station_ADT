@@ -2,8 +2,6 @@
   abstract: true
   parent: BaseItem
   id: ADTBasePhone
-  name: телефон
-  description: Портативный телефон для звонков другим телефонам. Говорите, держа трубку рядом с собой.
   components:
   - type: Sprite
     sprite: ADT/Objects/Devices/phone.rsi
@@ -33,11 +31,7 @@
 - type: entity
   parent: ADTBasePhone
   id: ADTPhoneQM
-  name: телефон квартирмейстера
-  description: Портативный телефон для связи с утилизаторами. Лежит в шкафу квартирмейстера.
 
 - type: entity
   parent: ADTBasePhone
   id: ADTPhoneSalvage
-  name: телефон утилизатора
-  description: Портативный телефон для связи с квартирмейстером. Лежит в шкафчике утилизатора.

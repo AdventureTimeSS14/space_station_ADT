@@ -40,10 +40,14 @@ public sealed class ADTPhoneBui : BoundUserInterface
 
     private void OnSearchChanged(LineEdit.LineEditEventArgs args)
     {
+        ApplySearchFilter(args.Text);
+    }
+
+    private void ApplySearchFilter(string text)
+    {
         if (_window == null)
             return;
 
-        var text = args.Text;
         foreach (var child in _window.PhonesList.Children)
         {
             if (child is Button button)
@@ -83,6 +87,8 @@ public sealed class ADTPhoneBui : BoundUserInterface
             button.OnPressed += _ => SendMessage(new ADTPhoneCallMsg(id));
             _window.PhonesList.AddChild(button);
         }
+
+        ApplySearchFilter(_window.SearchBar.Text);
 
         _window.AnswerButton.Visible = state.Ringing;
         _window.HangUpButton.Visible = state.Engaged;
