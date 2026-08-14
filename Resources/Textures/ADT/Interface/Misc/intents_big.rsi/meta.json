@@ -18,6 +18,12 @@
         },
         {
             "name": "help"
+        },
+        {
+            "name": "harmlight"
+        },
+        {
+            "name": "hug"
         }
     ]
 }

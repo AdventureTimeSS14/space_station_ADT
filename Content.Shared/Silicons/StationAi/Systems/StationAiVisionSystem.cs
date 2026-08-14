@@ -150,7 +150,7 @@ public sealed class StationAiVisionSystem : EntitySystem
     /// Gets a byond-equivalent for tiles in the specified worldAABB.
     /// </summary>
     /// <param name="expansionSize">How much to expand the bounds before to find vision intersecting it. Makes this the largest vision size + 1 tile.</param>
-    public void GetView(Entity<BroadphaseComponent, MapGridComponent> grid, Box2Rotated worldBounds, HashSet<Vector2i> visibleTiles, float expansionSize = 8.5f)
+    public void GetView(Entity<BroadphaseComponent, MapGridComponent> grid, Box2Rotated worldBounds, HashSet<Vector2i> visibleTiles, float expansionSize = 8.5f, string? visionNetwork = null) // ADT-Tweak
     {
         _viewportTiles.Clear();
         _opaque.Clear();
@@ -168,6 +168,11 @@ public sealed class StationAiVisionSystem : EntitySystem
 
         foreach (var seed in _seeds)
         {
+            // ADT-Tweak start
+            if (seed.Comp.VisionNetwork != visionNetwork)
+                continue;
+            // ADT-Tweak end
+
             if (!seed.Comp.Enabled)
                 continue;
 

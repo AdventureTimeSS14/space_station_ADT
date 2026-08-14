@@ -236,6 +236,7 @@
     shortscale: 0.9
   - type: NightVision
     innate: true
+    shader: ADTModernNightVisionShader
     effectPrototype: ADTEffectNightVisionLow
 
 - type: entity

@@ -87,6 +87,8 @@ marking-ADTIPCAntennaSmallEye = Малый глаз
 marking-ADTIPCAntennaModule = Модуль
 marking-ADTIPCAntennaFox = Лисьи ушки
 marking-ADTIPCAntennaCat = Кошачьи ушки
+marking-ADTIPCAntennaCat-ipc_antenna_cat_prime = Первичный
+marking-ADTIPCAntennaCat-ipc_antenna_cat_second = Вторичный
 marking-ADTIPCAntennaTvAlt = ТВ антенна
 
 marking-ADTIPCHeadTopWires = Кабели
@@ -168,6 +170,25 @@ marking-ADTIPCLFootDefault-l_foot_second = Вторичный
 marking-ADTIPCRFootDefault = Обычная, правая ступня
 marking-ADTIPCRFootDefault-r_foot_prime = Первичный
 marking-ADTIPCRFootDefault-r_foot_second = Вторичный
+
+marking-ADTIPCPartHeadDuke = Герцог, голова
+marking-ADTIPCPartHeadDuke-head_duke_prime = Первичный
+marking-ADTIPCPartHeadDuke-head_duke_second = Вторичный
+marking-ADTIPCPartHeadGeth = Гет, голова
+marking-ADTIPCPartHeadGeth-head_geth_prime = Первичный
+marking-ADTIPCPartHeadGeth-head_geth_second = Вторичный
+marking-ADTIPCPartLHandArmband = Нарукавник, левая рука
+marking-ADTIPCPartLHandArmband-l_arm_armband_prime = Первичный
+marking-ADTIPCPartLHandArmband-l_arm_armband_second = Вторичный
+marking-ADTIPCPartRHandArmband = Нарукавник, правая рука
+marking-ADTIPCPartRHandArmband-r_arm_armband_prime = Первичный
+marking-ADTIPCPartRHandArmband-r_arm_armband_second = Вторичный
+marking-ADTIPCPartLLegRing = Кольцо, левая нога
+marking-ADTIPCPartLLegRing-l_leg_ring = Кольцо
+marking-ADTIPCPartRLegRing = Кольцо, правая нога
+marking-ADTIPCPartRLegRing-r_leg_ring = Кольцо
+marking-ADTIPCPartHeadSideStickers = Наклейки, бок головы
+marking-ADTIPCPartHeadSideStickers-headside_stickers = Наклейки
 
 marking-ADTIPCPartChestCore = Ядро
 marking-ADTIPCPartChestCore-chest_core = Ядро
