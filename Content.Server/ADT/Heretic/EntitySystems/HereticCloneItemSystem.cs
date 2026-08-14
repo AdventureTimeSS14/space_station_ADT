@@ -1,6 +1,6 @@
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Examine;
-using Robust.Shared.Containers;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -12,45 +12,47 @@ namespace Content.Server.Heretic.EntitySystems;
 /// </summary>
 public sealed class HereticCloneItemSystem : EntitySystem
 {
-    private readonly HashSet<EntityUid> _pendingChecks = new();
+    private static readonly TimeSpan CheckDelay = TimeSpan.FromSeconds(0.25f);
+
+    private readonly HashSet<EntityUid> _scheduledChecks = new();
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HereticCloneItemComponent, EntGotRemovedFromContainerMessage>(OnRemovedFromContainer);
+        SubscribeLocalEvent<HereticCloneItemComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<HereticCloneItemComponent, ExaminedEvent>(OnExamined);
     }
 
-    private void OnRemovedFromContainer(Entity<HereticCloneItemComponent> ent, ref EntGotRemovedFromContainerMessage args)
+    private void OnParentChanged(Entity<HereticCloneItemComponent> ent, ref EntParentChangedMessage args)
     {
+        if (TerminatingOrDeleted(ent))
+            return;
+
+        // Still possessed by the clone (hand, backpack, pockets, etc.) - nothing to do.
+        if (IsInsideClone(ent))
+            return;
+
         // The item may just be moving between the clone's own containers (e.g. backpack to hand),
-        // so the deletion is deferred until the transfer has settled.
-        _pendingChecks.Add(ent);
+        // so the deletion is deferred briefly until the transfer has settled.
+        if (!_scheduledChecks.Add(ent))
+            return;
+
+        Timer.Spawn(CheckDelay, () =>
+        {
+            _scheduledChecks.Remove(ent);
+
+            if (!Exists(ent) || TerminatingOrDeleted(ent))
+                return;
+
+            if (!IsInsideClone(ent))
+                QueueDel(ent);
+        });
     }
 
     private void OnExamined(Entity<HereticCloneItemComponent> ent, ref ExaminedEvent args)
     {
         args.PushMarkup(Loc.GetString("heretic-clone-item-examine"));
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        if (_pendingChecks.Count == 0)
-            return;
-
-        foreach (var item in _pendingChecks)
-        {
-            if (!Exists(item) || TerminatingOrDeleted(item))
-                continue;
-
-            if (!IsInsideClone(item))
-                QueueDel(item);
-        }
-
-        _pendingChecks.Clear();
     }
 
     private bool IsInsideClone(EntityUid item)
