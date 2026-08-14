@@ -352,3 +352,11 @@
     Bloodloss: 0.5
     Cellular: 0.5
     Caustic: 0.5
+
+- type: damageModifierSet
+  id: ADTAshWalkerScale
+  coefficients:
+    Blunt: 0.9
+    Slash: 0.9
+    Piercing: 0.9
+    Cold: 1.3

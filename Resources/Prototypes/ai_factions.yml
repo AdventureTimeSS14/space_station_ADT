@@ -67,6 +67,7 @@
   - Xeno
   - Xenoborg
   - ADTSpaceMobs # ADT-tweak
+  - ADTAshWalker # ADT-tweak
 
 - type: npcFaction
   id: SimpleNeutral
@@ -150,6 +151,7 @@
   - Heretic # ADT-tweak
   - Ursus # ADT-tweak
   - ADTSpaceMobs # ADT-tweak
+  - ADTAshWalker # ADT-tweak
   - Wizard
   - Xenoborg
 
