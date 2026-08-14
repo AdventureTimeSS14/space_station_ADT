@@ -45,8 +45,9 @@
     - map: [ "outerClothing" ]
     - map: [ "belt" ]  # ADT: Moved ABOVE outer layer, because webbings renders UNDER Armor vests (this was NOT logic).
     # ADT-Tweak-End
-    - map: [ "back" ]
+    #- map: [ "back" ] # ADT-Tweak: Disabled layer from Wizards
     - map: [ "neck" ]
+    - map: [ "back" ]  # ADT: Moved ABOVE the neck layer, since backpacks were partially rendering UNDER capes, yet remained visible on the side sprites (this was NOT logic).
     - map: [ "suitstorage" ]
 
     # Stuff that goes in front of equipment

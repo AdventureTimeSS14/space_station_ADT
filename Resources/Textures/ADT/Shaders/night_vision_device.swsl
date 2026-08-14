@@ -13,7 +13,7 @@ uniform highp float ScanlineDark;
 
 void fragment()
 {
-    const vec3 NV_COLOR = vec3(0.4, 0.85, 0.4);
+    const highp vec3 NV_COLOR = vec3(0.4, 0.85, 0.4);
     COLOR = zTextureSpec(SCREEN_TEXTURE, Pos);
 
     highp float Y = dot(COLOR.rgb, vec3(0.2126, 0.7152, 0.0722));
