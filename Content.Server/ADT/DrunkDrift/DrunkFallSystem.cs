@@ -13,10 +13,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.DrunkDrift;
 
-/// <summary>
-///     ADT: падения пьяных. Раз в секунду у движущегося пьяного есть шанс
-///     споткнуться и упасть (нокдаун). Предметы из рук при падении выпадают сами.
-/// </summary>
+/// <summary>ADT: пьяные спотыкаются и падают при движении.</summary>
 public sealed class DrunkFallSystem : EntitySystem
 {
     [Dependency] private readonly SharedStunSystem _stun = default!;
@@ -52,7 +49,7 @@ public sealed class DrunkFallSystem : EntitySystem
 
     private void OnDrunkRemoved(Entity<DrunkStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {
-        // Пока остался хоть один эффект опьянения - маркер держим и обновляем визуал.
+        // Держим маркер, пока есть хоть один эффект опьянения.
         if (_statusEffects.HasEffectComp<DrunkStatusEffectComponent>(args.Target))
         {
             if (TryComp<ADTDrunkDriftComponent>(args.Target, out var comp))
@@ -64,10 +61,6 @@ public sealed class DrunkFallSystem : EntitySystem
         RemComp<ADTDrunkDriftComponent>(args.Target);
     }
 
-    /// <summary>
-    ///     Пересчитывает активность пьяных эффектов по остатку опьянения:
-    ///     они работают, пока остаток не ниже порога размытия экрана (VisualThreshold).
-    /// </summary>
     private void UpdateVisuals(EntityUid uid, ADTDrunkDriftComponent comp)
     {
         var active = false;
@@ -90,7 +83,6 @@ public sealed class DrunkFallSystem : EntitySystem
         if (!ent.Comp.VisualsActive)
             return;
 
-        // Осмотр пьяным считается только у живых.
         if (!_mobQuery.TryComp(ent.Owner, out var mob) || mob.CurrentState != MobState.Alive)
             return;
 
@@ -110,16 +102,13 @@ public sealed class DrunkFallSystem : EntitySystem
         var query = EntityQueryEnumerator<ADTDrunkDriftComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            // Остаток опьянения тает: пересчитываем, идёт ли размытие экрана.
             UpdateVisuals(uid, comp);
             if (!comp.VisualsActive)
                 continue;
 
-            // Кулдаун после падения.
             if (comp.NextFall > now)
                 continue;
 
-            // Только живые на ногах.
             if (!_mobQuery.TryComp(uid, out var mob) || mob.CurrentState != MobState.Alive)
                 continue;
 
@@ -129,7 +118,6 @@ public sealed class DrunkFallSystem : EntitySystem
             if (!_physicsQuery.TryComp(uid, out var physics) || physics.BodyStatus != BodyStatus.OnGround)
                 continue;
 
-            // Падать можно только в движении.
             if (physics.LinearVelocity.Length() < 0.5f)
                 continue;
 

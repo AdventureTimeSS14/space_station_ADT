@@ -5,11 +5,7 @@ using Robust.Shared.Random;
 
 namespace Content.Shared.Movement.Systems;
 
-/// <summary>
-///     ADT: пьяное шатание (вождение из стороны в сторону).
-///     Всё детерминированное (хэш сущности + игровой тик), чтобы клиент и сервер
-///     считали одинаково и не было mispredict движения.
-/// </summary>
+/// <summary>ADT: пьяное шатание, детерминированное для клиента и сервера.</summary>
 public abstract partial class SharedMoverController
 {
     /// <summary>Частота плавного покачивания: полный цикл ~4 секунды.</summary>
@@ -22,30 +18,25 @@ public abstract partial class SharedMoverController
         _drunkDriftQuery = GetEntityQuery<ADTDrunkDriftComponent>();
     }
 
-    /// <summary>
-    ///     Поворачивает вектор желаемого движения пьяного: плавное покачивание
-    ///     плюс редкие рывки в случайную сторону (влево или вправо).
-    /// </summary>
+    /// <summary>Поворачивает вектор движения пьяного: покачивание и рывки.</summary>
     private void ApplyDrunkWobble(EntityUid uid, ref Vector2 wishDir)
     {
         if (wishDir == Vector2.Zero)
             return;
 
-        // Шатание только когда размытие экрана уже началось (порог adt.drunk_visual_threshold).
         if (!_drunkDriftQuery.TryComp(uid, out var drunkDrift) || !drunkDrift.VisualsActive)
             return;
 
         var netEnt = GetNetEntity(uid);
         var seconds = Timing.CurTick.Value / (double)Timing.TickRate;
 
-        // Стабильная фаза покачивания на сущность: у каждого пьяного своя волна.
+        // Фаза и рывки от хэша сущности: клиент и сервер считают одинаково.
         var phaseRandom = new System.Random(SharedRandomExtensions.HashCodeCombine(netEnt.Id));
         var phase = phaseRandom.NextSingle() * MathF.Tau;
 
         var sway = drunkDrift.SwayAmplitude
                    * MathF.Sin((float)seconds * (float)DrunkSwayFrequency + phase);
 
-        // Рывок в сторону: на каждом интервале с шансом, направление случайное.
         var lurchInterval = drunkDrift.LurchInterval;
         var bucket = (int)(seconds / lurchInterval);
         var bucketRandom = new System.Random(SharedRandomExtensions.HashCodeCombine(netEnt.Id, bucket));
