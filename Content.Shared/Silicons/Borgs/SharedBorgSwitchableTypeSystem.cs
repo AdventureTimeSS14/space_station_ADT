@@ -72,6 +72,7 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
 
     private void SelectTypeMessageHandler(Entity<BorgSwitchableTypeComponent> ent, ref BorgSelectTypeMessage args)
     {
+        // ADT-Tweak: подтип применяется тем же сообщением, тип выбирается один раз
         if (ent.Comp.SelectedBorgType == null)
         {
             if (!Prototypes.HasIndex(args.Prototype))
@@ -80,10 +81,8 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
             SelectBorgModule(ent, args.Prototype);
         }
 
-        // ADT-Tweak-Start: подтип применяется тем же сообщением
         if (args.Subtype is { } subtype && HasComp<BorgSwitchableSubtypeComponent>(ent.Owner))
             RaiseLocalEvent(ent.Owner, new BorgSelectSubtypeMessage(subtype));
-        // ADT-Tweak-End
     }
 
     //

@@ -57,13 +57,12 @@ public sealed partial class BorgToggleSelectTypeEvent : InstantActionEvent;
 /// UI message used by a borg to select their type with <see cref="BorgSwitchableTypeComponent"/>.
 /// </summary>
 /// <param name="prototype">The borg type prototype that the user selected.</param>
+// ADT-Tweak: подтип выбирается тем же сообщением
 [Serializable, NetSerializable]
 public sealed class BorgSelectTypeMessage(ProtoId<BorgTypePrototype> prototype, ProtoId<BorgSubtypePrototype>? subtype = null) : BoundUserInterfaceMessage
 {
     public ProtoId<BorgTypePrototype> Prototype = prototype;
-    // ADT-Tweak-Start: подтип (скин) выбирается тем же сообщением
     public ProtoId<BorgSubtypePrototype>? Subtype = subtype;
-    // ADT-Tweak-End
 }
 
 /// <summary>
