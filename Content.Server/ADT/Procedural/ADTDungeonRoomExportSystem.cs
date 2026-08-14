@@ -230,6 +230,12 @@ public sealed class ADTDungeonRoomExportSystem : EntitySystem
             if (node == null || node.Children.Count == 0)
                 continue;
 
+            if (!CanRead(registration, proto, node))
+            {
+                Log.Warning($"Пропущен компонент {registration.Name} у {ToPrettyString(uid)}.");
+                continue;
+            }
+
             node.InsertAt(0, "type", new ValueDataNode(registration.Name));
 
             var lines = node.ToString().TrimEnd('\n', '\r').Split('\n');
@@ -242,6 +248,24 @@ public sealed class ADTDungeonRoomExportSystem : EntitySystem
         }
 
         return builder.ToString();
+    }
+
+    private bool CanRead(ComponentRegistration registration, EntityPrototype proto, MappingDataNode node)
+    {
+        var data = node;
+
+        if (proto.Components.TryGetValue(registration.Name, out var protoEntry))
+            data = _serialization.CombineMappings(data, protoEntry.Mapping);
+
+        try
+        {
+            _serialization.Read(registration.Type, data);
+            return true;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
     }
 
     private void AppendDecals(StringBuilder builder, Entity<MapGridComponent> grid, Vector2i min, Vector2i size)
