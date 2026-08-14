@@ -1041,7 +1041,7 @@ SpawnMobXenoRunner: ADTSpawnMobXenoRunnerNoGhost
 SpawnMobXenoSpitter: ADTSpawnMobXenoSpitterNoGhost
 SpawnMobXenoEasy: ADTSpawnMobXenoEasyNoGhost
 
-# ADT 2026-0814: ModsuitRework
+# ADT 2026-08-14: ModsuitRework
 ADTClothingModsuitBackBase: ADTClothingModsuitBackStandardFilled
 ADTClothingModsuitBackMining: ADTClothingModsuitBackMiningFilled
 ADTClothingModsuitBackSecurity: ADTClothingModsuitBackSecurityFilled
