@@ -26,7 +26,6 @@ public sealed partial class ADTShadowlingAbilitySystem
         SubscribeLocalEvent<ADTShadowlingComponent, ADTShadowlingScreechEvent>(OnScreech);
 
         SubscribeLocalEvent<ADTShadowlingComponent, ADTShadowlingNullChargeEvent>(OnNullCharge);
-        SubscribeLocalEvent<ADTShadowlingComponent, ADTShadowlingNullChargeDoAfterEvent>(OnNullChargeDoAfter);
 
         SubscribeLocalEvent<ADTShadowlingComponent, ADTShadowlingBlackRecuperationEvent>(OnBlackRecuperation);
         SubscribeLocalEvent<ADTShadowlingComponent, ADTShadowlingEmpowerDoAfterEvent>(OnEmpowerDoAfter);
@@ -189,53 +188,29 @@ public sealed partial class ADTShadowlingAbilitySystem
         if (!TryComp<ADTShadowlingNullChargeActionComponent>(args.Action, out var nullCharge))
             return;
 
-        if (!HasComp<ApcComponent>(args.Target))
+        var target = args.Target;
+
+        if (!TryComp<ApcComponent>(target, out var apc))
         {
             _popup.PopupEntity(Loc.GetString("shadowling-null-charge-invalid"), ent, ent);
             return;
         }
 
-        if (!TryComp<BatteryComponent>(args.Target, out var battery) || _battery.GetCharge((args.Target, battery)) <= 0)
+        if (!TryComp<BatteryComponent>(target, out var battery) || _battery.GetCharge((target, battery)) <= 0)
         {
             _popup.PopupEntity(Loc.GetString("shadowling-null-charge-empty"), ent, ent);
             return;
         }
-
-        _popup.PopupEntity(Loc.GetString("shadowling-null-charge-begin"), ent, ent);
-
-        var doAfter = new DoAfterArgs(EntityManager, ent, nullCharge.CastTime, new ADTShadowlingNullChargeDoAfterEvent(), ent, args.Target, args.Action)
-        {
-            BreakOnDamage = true,
-            BreakOnMove = true,
-            NeedHand = false,
-        };
-
-        _doAfter.TryStartDoAfter(doAfter);
-        args.Handled = true;
-    }
-
-    private void OnNullChargeDoAfter(Entity<ADTShadowlingComponent> ent, ref ADTShadowlingNullChargeDoAfterEvent args)
-    {
-        if (args.Handled || args.Target is not { } target)
-            return;
-
-        if (args.Cancelled)
-        {
-            _popup.PopupEntity(Loc.GetString("shadowling-null-charge-interrupted"), ent, ent, PopupType.MediumCaution);
-            return;
-        }
-
-        args.Handled = true;
-
-        if (!TryComp<ApcComponent>(target, out var apc) || !TryComp<BatteryComponent>(target, out var battery))
-            return;
 
         _battery.SetCharge((target, battery), 0);
 
         if (apc.MainBreakerEnabled)
             _apc.ApcToggleBreaker(target, apc, user: ent);
 
+        _audio.PlayPvs(nullCharge.Sound, target);
         _popup.PopupEntity(Loc.GetString("shadowling-null-charge-done"), ent, ent, PopupType.Medium);
+
+        args.Handled = true;
     }
 
     private void OnBlackRecuperation(Entity<ADTShadowlingComponent> ent, ref ADTShadowlingBlackRecuperationEvent args)

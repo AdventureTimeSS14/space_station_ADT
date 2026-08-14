@@ -18,6 +18,7 @@ public abstract partial class BaseEntityHighlightOverlay : BaseVisionOverlay
     private readonly TransformSystem _transform;
 
     public override bool RequestScreenTexture => false;
+    public readonly HashSet<Type> IgnoredComponents = new();
 
     private readonly List<(SpriteComponent.Layer Layer, ShaderInstance? Shader, Color Color)> _clearedLayers = new();
     private Color _savedSpriteColor;
@@ -40,6 +41,9 @@ public abstract partial class BaseEntityHighlightOverlay : BaseVisionOverlay
             if (xform.MapID != args.MapId || _containerSystem.IsEntityInContainer(uid, meta))
                 continue;
 
+            if (IsIgnored(uid))
+                continue;
+
             PrepareSprite(sprite);
             try
             {
@@ -56,6 +60,17 @@ public abstract partial class BaseEntityHighlightOverlay : BaseVisionOverlay
         }
 
         worldHandle.UseShader(null);
+    }
+
+    private bool IsIgnored(EntityUid uid)
+    {
+        foreach (var type in IgnoredComponents)
+        {
+            if (_entityManager.HasComponent(uid, type))
+                return true;
+        }
+
+        return false;
     }
 
     private void PrepareSprite(SpriteComponent sprite)

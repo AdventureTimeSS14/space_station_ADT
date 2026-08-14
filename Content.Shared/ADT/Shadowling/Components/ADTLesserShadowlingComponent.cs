@@ -17,6 +17,9 @@ public sealed partial class ADTLesserShadowlingComponent : Component
     [DataField]
     public List<EntityUid> GrantedActions = new();
 
+    [DataField]
+    public Color EyeColor = Color.Red;
+
     [DataField, AutoNetworkedField]
     public TimeSpan SurgeryBacklashStun = TimeSpan.FromSeconds(12);
 

@@ -240,7 +240,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 30
+    useDelay: 60
     itemIconStyle: NoItem
     icon:
       sprite: ADT/Interface/Actions/shadowling.rsi
@@ -250,7 +250,6 @@
   - type: TargetAction
     range: 1.5
   - type: ADTShadowlingNullChargeAction
-    castTime: 20
     sound:
       path: /Audio/ADT/Shadowling/ghost2.ogg
 

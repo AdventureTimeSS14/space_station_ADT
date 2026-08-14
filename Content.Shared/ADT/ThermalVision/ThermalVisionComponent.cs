@@ -33,6 +33,9 @@ public sealed partial class ThermalVisionComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool HighlightOnly;
+
+    [DataField, AutoNetworkedField]
+    public HashSet<string> IgnoredComponents = new();
 }
 
 [Serializable, NetSerializable]

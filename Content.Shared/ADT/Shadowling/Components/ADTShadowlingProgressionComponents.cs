@@ -86,9 +86,6 @@ public sealed partial class ADTShadowlingScreechActionComponent : Component
 public sealed partial class ADTShadowlingNullChargeActionComponent : Component
 {
     [DataField]
-    public TimeSpan CastTime = TimeSpan.FromSeconds(20);
-
-    [DataField]
     public SoundSpecifier? Sound;
 }
 

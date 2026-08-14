@@ -15,7 +15,7 @@ public sealed partial class ADTShadowlingRuleComponent : Component
     public int MinThralls = 8;
 
     [DataField]
-    public int MaxThralls = 18;
+    public int MaxThralls = 12;
 
     [ViewVariables]
     public int RequiredThralls;
