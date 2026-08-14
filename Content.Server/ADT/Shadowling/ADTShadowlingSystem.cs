@@ -38,16 +38,16 @@ public sealed class ADTShadowlingSystem : EntitySystem
         SubscribeLocalEvent<ADTShadowlingComponent, MapInitEvent>(OnShadowlingInit, after: [typeof(VisualBodySystem)]);
         SubscribeLocalEvent<ADTShadowlingComponent, ComponentShutdown>(OnShadowlingShutdown);
 
-        SubscribeLocalEvent<ADTShadowlingThrallComponent, MapInitEvent>(OnThrallInit);
+        SubscribeLocalEvent<ADTShadowlingThrallComponent, MapInitEvent>(OnThrallInit, after: [typeof(VisualBodySystem)]);
         SubscribeLocalEvent<ADTShadowlingThrallComponent, ComponentShutdown>(OnThrallShutdown);
         SubscribeLocalEvent<ADTShadowlingThrallComponent, ExaminedEvent>(OnThrallExamined);
 
         SubscribeLocalEvent<ADTLesserShadowlingComponent, MapInitEvent>(OnLesserInit, after: [typeof(VisualBodySystem)]);
         SubscribeLocalEvent<ADTLesserShadowlingComponent, ComponentShutdown>(OnLesserShutdown);
 
-        SubscribeLocalEvent<ADTAscendantShadowlingComponent, MapInitEvent>(OnAscendantInit);
+        SubscribeLocalEvent<ADTAscendantShadowlingComponent, MapInitEvent>(OnAscendantInit, after: [typeof(VisualBodySystem)]);
 
-        SubscribeLocalEvent<ADTAscendantPhasedComponent, MapInitEvent>(OnPhasedInit);
+        SubscribeLocalEvent<ADTAscendantPhasedComponent, MapInitEvent>(OnPhasedInit, after: [typeof(VisualBodySystem)]);
         SubscribeLocalEvent<ADTAscendantPhasedComponent, ComponentShutdown>(OnPhasedShutdown);
     }
 
