@@ -13923,3 +13923,9 @@ Entries:
     id: 1794
     pr_number: 3133
     time: '2026-08-14T04:09:01Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Экипировка МОДа больше не сбрасывает предметы на спине, type: Fix}
+    id: 1795
+    pr_number: 3144
+    time: '2026-08-14T04:12:34Z'
