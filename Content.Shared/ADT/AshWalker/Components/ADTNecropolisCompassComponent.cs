@@ -4,13 +4,13 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.ADT.AshWalker.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class ADTIgniteComponent : Component
+public sealed partial class ADTNecropolisCompassComponent : Component
 {
-    [DataField, AutoNetworkedField]
-    public EntProtoId Blaze = "ADTAshWalkerSmallBlaze";
+    [DataField]
+    public TimeSpan Delay = TimeSpan.FromSeconds(2);
 
     [DataField]
-    public EntProtoId ActionId = "ADTActionIgnite";
+    public EntProtoId ActionId = "ADTActionNecropolisCompass";
 
     [DataField, AutoNetworkedField]
     public EntityUid? ActionEntity;

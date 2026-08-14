@@ -17,7 +17,7 @@ public sealed class ADTLavalandSpeedSystem : EntitySystem
         SubscribeLocalEvent<ADTLavalandSpeedComponent, EntParentChangedMessage>(OnParentChanged);
     }
 
-    private void OnRefreshSpeed(Entity<ADTLavalandSpeedComponent> ent, RefreshMovementSpeedModifiersEvent args)
+    private void OnRefreshSpeed(Entity<ADTLavalandSpeedComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
         if (!IsBonusActive(ent))
             return;
@@ -27,15 +27,15 @@ public sealed class ADTLavalandSpeedSystem : EntitySystem
 
     private void OnMapInit(Entity<ADTLavalandSpeedComponent> ent, ref MapInitEvent args)
     {
-        _movement.RefreshMovementSpeedModifiers(ent);
+        _movement.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnParentChanged(Entity<ADTLavalandSpeedComponent> ent, ref EntParentChangedMessage args)
     {
-        if (args.OldMapId == Transform(ent).MapUid)
+        if (args.OldMapId == Transform(ent.Owner).MapUid)
             return;
 
-        _movement.RefreshMovementSpeedModifiers(ent);
+        _movement.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private bool IsBonusActive(Entity<ADTLavalandSpeedComponent> ent)
@@ -43,7 +43,7 @@ public sealed class ADTLavalandSpeedSystem : EntitySystem
         if (ent.Comp.Everywhere)
             return true;
 
-        if (Transform(ent).MapUid is not { } map)
+        if (Transform(ent.Owner).MapUid is not { } map)
             return false;
 
         return HasComp<ADTLavalandMapComponent>(map);

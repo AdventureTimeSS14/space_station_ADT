@@ -1,0 +1,12 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'adt-necropolis-compass-window-title'}"
+                      MinSize="280 200"
+                      SetSize="280 320">
+    <BoxContainer Orientation="Vertical" Margin="6 6 6 6">
+        <Label Text="{Loc 'adt-necropolis-compass-window-hint'}" />
+        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+            <BoxContainer Name="PointList" Orientation="Vertical" HorizontalExpand="True" />
+        </ScrollContainer>
+    </BoxContainer>
+</controls:FancyWindow>

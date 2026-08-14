@@ -24,6 +24,6 @@ public sealed class ADTAshWalkerSystem : EntitySystem
             return;
 
         args.Cancel();
-        _popup.PopupClient(Loc.GetString("adt-ash-walker-no-guns"), ent, ent);
+        _popup.PopupClient(Loc.GetString("adt-ash-walker-no-guns"), ent.Owner, ent.Owner);
     }
 }
