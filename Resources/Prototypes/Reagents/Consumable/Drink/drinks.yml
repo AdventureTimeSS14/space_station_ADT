@@ -18,6 +18,13 @@
         effectProto: StatusEffectDrowsiness
         time: 2
         type: Remove
+      # ADT tweak start
+      - !type:AdjustTemperature
+        conditions:
+        - !type:TemperatureCondition
+          max: 323
+        amount: 2500
+      # ADT tweak end
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coffeeglass.rsi
     state: icon_empty
@@ -38,7 +45,14 @@
     Digestion:
       metabolites:
         Theobromine: 0.1
-
+      effects:
+      # ADT tweak start
+      - !type:AdjustTemperature
+        conditions:
+        - !type:TemperatureCondition
+          max: 303
+        amount: 2500
+      # ADT tweak end
 - type: reagent
   id: Cream
   name: reagent-name-cream
@@ -104,7 +118,13 @@
         effectProto: StatusEffectDrowsiness
         time: 2
         type: Remove
-
+      # ADT tweak start
+      - !type:AdjustTemperature
+        conditions:
+        - !type:TemperatureCondition
+          max: 303
+        amount: 2500
+      # ADT tweak end
 - type: reagent
   id: GreenTea
   name: reagent-name-green-tea
@@ -469,6 +489,13 @@
       effects:
       - !type:SatiateThirst
         factor: 3 # Slightly worse for quenching thirst than just straight water
+      # ADT tweak start
+      - !type:AdjustTemperature
+        conditions:
+        - !type:TemperatureCondition
+          min: 243 # ADT-Tweak end
+        amount: -2500
+      # ADT tweak end
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1 # The internet tells me I should avoid watering plants with ice, but mostly because of temperature, so this value being the same as water should probably be fine?
@@ -506,7 +533,13 @@
       effects:
       - !type:SatiateHunger
         factor: 4
-
+      # ADT-Tweak start
+      - !type:AdjustTemperature
+        conditions:
+        - !type:TemperatureCondition
+          max: 303
+        amount: 2500
+      # ADT-Tweak end
 - type: reagent
   id: ArnoldPalmer
   name: reagent-name-arnold-palmer

@@ -1,0 +1,1 @@
+materials-adt-sinew = жилы

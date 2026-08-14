@@ -11,6 +11,7 @@
     id: PassengerIDCard
     pocket1: WeaponPistolMk58
     pocket2: MagazinePistol
+    belt: ADTClothingRPSUSSP
   storage:
     back:
       - MedkitCombatFilled

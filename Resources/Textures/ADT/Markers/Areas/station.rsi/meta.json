@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/blob/a47835a04f3c88216ca1516ec4082a009c5f3451/icons/area/areas_station.dmi. anchor, newsroom, substation, evac_lounge, evac_hall, ranch, vault modified by @deltanedas (github). loot_room by @aineias1",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "xenobio"
+        }
+    ]
+}

@@ -26,7 +26,7 @@ public sealed partial class NightVisionComponent : Component
     /// Device NV goggles override this while worn.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntProtoId EffectPrototype = "ADTEffectNightVision";
+    public EntProtoId EffectPrototype = "ADTEffectNightVisionLow";
 
     /// <summary>
     /// Screen shader prototype id (client). Stronger variants can be used per-species.

@@ -148,3 +148,17 @@
     state: curse
   name: alerts-shadow-cloak-name
   description: alerts-shadow-cloak-desc
+
+- type: alert
+  id: ADTColdDrask
+  category: Temperature
+  icons:
+  - sprite: /Textures/Interface/Alerts/temperature.rsi
+    state: cold1
+  - sprite: /Textures/Interface/Alerts/temperature.rsi
+    state: cold2
+  - sprite: /Textures/Interface/Alerts/temperature.rsi
+    state: cold3
+  maxSeverity: 3
+  name: alerts-cold-comfy-name
+  description: alerts-cold-comfy-desc

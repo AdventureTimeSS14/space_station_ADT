@@ -49,5 +49,6 @@ public sealed partial class HumanoidProfileEditor
 
         SetDirty();
         RefreshTraits();
+        RefreshLanguages(); // ADT-Tweak: лимит языков зависит от выбранных трайтов (Полиглот)
     }
 }

@@ -73,6 +73,8 @@
   - type: Megafauna
     speechCooldown: 15
     speechChance: 0.3
+  - type: ADTBossMusic
+    music: ADTBossMusicBubblegum
 #  - type: ADTMobHealthBar
 #    active: true
 #    primaryColor: "#8e1717"

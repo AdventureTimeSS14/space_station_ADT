@@ -66,3 +66,9 @@ trait-voracious-desc = Вы едите быстрее других, ваш ме�
 
 trait-drunk-tolerance-name = Толерантность к алкоголю
 trait-drunk-tolerance-desc = Вы менее подвержены воздействию алкоголя, вам нужно больше, чтобы опьянеть.
+
+trait-invert-run-name = Инвертированный бег
+trait-invert-run-desc = Вы Pangaari? Нет? Не включайте.
+
+trait-polyglot-name = Полиглот
+trait-polyglot-desc = Вы знаете один дополнительный язык: в редакторе персонажа доступен ещё один слот языка.

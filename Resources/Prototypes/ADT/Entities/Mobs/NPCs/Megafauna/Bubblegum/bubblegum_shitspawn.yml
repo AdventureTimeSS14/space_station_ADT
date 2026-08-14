@@ -44,6 +44,8 @@
     rootTask:
       task: ADTBubblegumCompound
   - type: Megafauna
+  - type: ADTBossMusic
+    music: ADTBossMusicBubblegum
   - type: ArmorPenetration
     penetration: 0.5
   - type: Bubblegum
