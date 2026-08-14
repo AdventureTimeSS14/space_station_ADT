@@ -162,12 +162,29 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         return true;
     }
 
+    /// <summary>True, если на станции есть карта НаноМакс с указанным номером.</summary>
+    private bool CardExistsWithNumber(uint number)
+    {
+        var query = AllEntityQuery<NanoChatCardComponent>();
+        while (query.MoveNext(out _, out var card))
+        {
+            if (card.Number == number)
+                return true;
+        }
+
+        return false;
+    }
+
     /// <summary>
     ///     Handles creation of a new chat conversation.
     /// </summary>
     private void HandleNewChat(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
     {
         if (msg.RecipientNumber == null || msg.Content == null || msg.RecipientNumber == card.Comp.Number)
+            return;
+
+        // Не создаём чат с номером, которого нет ни на одной карте (иначе сообщения уходят в никуда).
+        if (!CardExistsWithNumber(msg.RecipientNumber.Value))
             return;
 
         var name = msg.Content;

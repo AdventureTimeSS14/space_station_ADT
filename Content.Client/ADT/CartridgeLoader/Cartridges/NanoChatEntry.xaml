@@ -34,17 +34,18 @@
                           HorizontalExpand="True"
                           VerticalExpand="True"
                           VerticalAlignment="Center">
-                <RichTextLabel Name="NameLabel"
-                               StyleClasses="LabelHeading"
-                               HorizontalExpand="True"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Margin="0 -2 0 0" />
+                <Label Name="NameLabel"
+                       StyleClasses="LabelHeading"
+                       HorizontalExpand="True"
+                       VerticalAlignment="Center"
+                       Align="Center"
+                       ClipText="True"
+                       Margin="0 -2 0 0" />
                 <Label Name="SubLabel"
                        StyleClasses="LabelSubText"
                        HorizontalExpand="True"
-                       ClipText="False"
-                       HorizontalAlignment="Center" />
+                       Align="Center"
+                       ClipText="True" />
             </BoxContainer>
         </BoxContainer>
     </Button>
@@ -58,15 +59,15 @@
         <BoxContainer Orientation="Vertical"
                       HorizontalExpand="True"
                       Margin="6 4">
-            <RichTextLabel Name="InfoNameLabel"
-                           StyleClasses="LabelHeading"
-                           HorizontalExpand="True"
-                           HorizontalAlignment="Center"
-                           Margin="0 -2 0 0" />
+            <Label Name="InfoNameLabel"
+                   StyleClasses="LabelHeading"
+                   HorizontalExpand="True"
+                   Align="Center"
+                   ClipText="True"
+                   Margin="0 -2 0 0" />
             <Label Name="InfoSubLabel"
                    StyleClasses="LabelSubText"
                    HorizontalExpand="True"
-                   HorizontalAlignment="Left"
                    ClipText="True" />
             <BoxContainer Name="ActionButtons"
                           Orientation="Vertical"
