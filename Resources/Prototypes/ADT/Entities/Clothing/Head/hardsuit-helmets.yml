@@ -42,8 +42,6 @@
   - type: InjectorsBlocker
   - type: CoveredSlot
     slots: [eyes, mask, ears]
-  - type: HidesSlots
-    hidesSlots: [ EYES, EARS, MASK ]
 
 - type: entity
   parent: ClothingHeadHardsuitBase
