@@ -104,7 +104,7 @@
   - type: ContainerContainer
     containers:
       cell_slot: !type:Container
-      core-container: !type:Container
+      mod-core: !type:Container
   - type: Construction
     graph: ADTModsuitConstruction
     node: start

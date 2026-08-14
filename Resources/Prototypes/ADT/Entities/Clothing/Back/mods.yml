@@ -43,9 +43,6 @@
     quickEquip: false
     slots:
     - back
-  - type: Construction
-    graph: ADTModsuitConstruction
-    node: standard
   - type: ItemSlots
     slots:
       cell_slot:
@@ -105,6 +102,9 @@
       gloves: ADTClothingHandsModsuitBase
       outerClothing: ADTClothingOuterModsuitBodyBase
       shoes: ADTClothingModsuitShoesBase
+  - type: Construction
+    graph: ADTModsuitConstruction
+    node: standard
 
 ## С МОДулями
 - type: entity

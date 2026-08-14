@@ -202,7 +202,7 @@
         type: SuitStorageBoundUserInterface
   - type: SuitStorage
     options:
-    - ADTClothingModsuitBackEngineering
+    - ADTClothingModsuitBackEngineeringFilled
     - ClothingOuterHardsuitEngineering
   #ADT-Tweak-End
 
