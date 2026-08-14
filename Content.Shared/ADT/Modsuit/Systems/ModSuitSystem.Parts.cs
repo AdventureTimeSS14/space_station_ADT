@@ -207,6 +207,8 @@ public sealed partial class ModSuitSystem
 
         _inventorySystem.TryEquip(user, parent, part, slot, force: true, predicted: true);
 
+        RefreshFullEquipModules(ent);
+
         UpdateCellDraw(ent);
 
         if (GetPartsToggleStatus(ent.Owner, ent.Comp) == ModSuitAttachedStatus.AllToggled && _timing.IsFirstTimePredicted && _netMan.IsClient)
@@ -227,6 +229,8 @@ public sealed partial class ModSuitSystem
         var parent = ent.Comp.TempUser.Value;
 
         _inventorySystem.TryUnequip(user, parent, slot, force: true, predicted: true);
+
+        RefreshFullEquipModules(ent);
 
         // If attached have clothing in container - equip it
         if (!TryComp<ModPartComponent>(clothing, out var attachedComp))

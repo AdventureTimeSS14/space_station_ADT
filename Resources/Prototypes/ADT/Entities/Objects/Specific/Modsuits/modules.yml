@@ -465,6 +465,7 @@
   - type: ModSuitMod
     energyUsing: 0.02
     complexity: 2
+    requiresFullEquip: true
     components:
       # Если что-то в будущем будет давать армор на MODcore - будет коллайд, и модуль работать не будет
       MODcore:
