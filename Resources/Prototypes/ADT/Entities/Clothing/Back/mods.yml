@@ -1,23 +1,12 @@
-#базовый
+# Каркас для МОДов
 - type: entity
+  abstract: true
   parent: Clothing
   id: ADTClothingModsuitBackBase
   name: base MOD control unit
   description: A civilian class suit by Nakamura Engineering, doesn't offer much other than slightly quicker movement.
   components:
-  - type: Sprite
-    sprite: ADT/Clothing/Back/Modsuit/standart.rsi
-    state: icon
   - type: ModSuit
-    clothingPrototypes:
-      head: ADTClothingHeadHelmetModsuitBase
-      gloves: ADTClothingHandsModsuitBase
-      outerClothing: ADTClothingOuterModsuitBodyBase
-      shoes: ADTClothingModsuitShoesBase
-    startingModules:
-      - ADTModsuitModStorage
-      - ADTModsuitModWelding
-      - ADTModsuitModLight
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominal.ogg
   - type: ContainerContainer
@@ -38,6 +27,10 @@
         showEnts: False
         occludes: True
         ent: null # ContainerContainer и UserInterface для модулей надо добавлять сюда, а через модули возможность включить
+      mod-core: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ents: null
   - type: UserInterface
     interfaces:
       enum.ModSuitUiKey.Key:
@@ -51,8 +44,8 @@
     slots:
     - back
   - type: Construction
-    graph: ADTModsuitStandard
-    node: adtmodsuitstandard
+    graph: ADTModsuitConstruction
+    node: standard
   - type: ItemSlots
     slots:
       cell_slot:
@@ -78,16 +71,58 @@
   - type: EmpDisabling
     disablingTime: 30000
   - type: ShowEnergyAlarm
-  - type: ContainerFill
-    containers:
-      cell_slot:
-      - PowerCellMedium
   - type: Geiger
     showExamine: true
     attachedToSuit: true
     showControl: true
 
-#атмосферный
+## С батареей
+- type: entity
+  abstract: true
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackBaseBattery
+  components:
+  - type: ContainerFill
+    containers:
+      cell_slot:
+      - PowerCellMedium
+
+
+# Базовый
+## Пустой
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackStandard
+  name: base MOD control unit
+  description: A civilian class suit by Nakamura Engineering, doesn't offer much other than slightly quicker movement.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/standart.rsi
+    state: icon
+  - type: ModSuit
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitBase
+      gloves: ADTClothingHandsModsuitBase
+      outerClothing: ADTClothingOuterModsuitBodyBase
+      shoes: ADTClothingModsuitShoesBase
+
+## С МОДулями
+- type: entity
+  parent: [ADTClothingModsuitBackStandard, ADTClothingModsuitBackBaseBattery ]
+  id: ADTClothingModsuitBackStandardFilled
+  name: base MOD control unit
+  description: A civilian class suit by Nakamura Engineering, doesn't offer much other than slightly quicker movement.
+  suffix: Filled
+  components:
+  - type: ModSuit
+    startingModules:
+      - ADTModsuitModStorage
+      - ADTModsuitModWelding
+      - ADTModsuitModLight
+
+
+# Атмосферный
+## Пустой
 - type: entity
   parent: ADTClothingModsuitBackBase
   id: ADTClothingModsuitBackAtmos
@@ -103,6 +138,19 @@
       gloves: ADTClothingHandsModsuitAtmos
       outerClothing: ADTClothingOuterModsuitBodyAtmos
       shoes: ADTClothingModsuitShoesAtmos
+  - type: Construction
+    graph: ADTModsuitConstruction
+    node: atmospheric
+
+## С МОДулями
+- type: entity
+  parent: [ADTClothingModsuitBackAtmos, ADTClothingModsuitBackBaseBattery ]
+  id: ADTClothingModsuitBackAtmosFilled
+  name: atmos MOD control unit
+  description: An atmospheric-resistant suit by Nakamura Engineering, offering extreme heat resistance compared to the engineer suit.
+  suffix: Filled
+  components:
+  - type: ModSuit
     startingModules:
       - ADTModsuitModStorage
       - ADTModsuitModWelding
@@ -111,11 +159,10 @@
       - ADTModsuitModTray
       - ADTModsuitModIsulation
       - ADTModsuitModMesonVision
-  - type: Construction
-    graph: ADTModsuitAtmospheric
-    node: adtmodsuitatmospheric
 
-#смешной
+
+# Космохонк
+## Пустой
 - type: entity
   parent: ADTClothingModsuitBackBase
   id: ADTClothingModsuitBackClown
@@ -132,10 +179,12 @@
       outerClothing: ADTClothingOuterModsuitBodyClown
       shoes: ADTClothingModsuitShoesClown
   - type: Construction
-    graph: ADTModsuitClown
-    node: adtmodsuitclown
+    graph: ADTModsuitConstruction
+    node: cosmohonk
 
-#инженерный
+
+# Инженерный
+## Пустой
 - type: entity
   parent: ADTClothingModsuitBackBase
   id: ADTClothingModsuitBackEngineering
@@ -151,6 +200,19 @@
       gloves: ADTClothingHandsModsuitEngineering
       outerClothing: ADTClothingOuterModsuitBodyEngineering
       shoes: ADTClothingModsuitShoesEngineering
+  - type: Construction
+    graph: ADTModsuitConstruction
+    node: engineering
+
+## С МОДулями
+- type: entity
+  parent: [ADTClothingModsuitBackEngineering, ADTClothingModsuitBackBaseBattery ]
+  id: ADTClothingModsuitBackEngineeringFilled
+  name: engineering MOD control unit
+  description: An engineer-fit suit with heat and shock resistance. Nakamura Engineering's classic.
+  suffix: Filled
+  components:
+  - type: ModSuit
     startingModules:
       - ADTModsuitModStorage
       - ADTModsuitModWelding
@@ -158,11 +220,10 @@
       - ADTModsuitModRadiationProtection
       - ADTModsuitModMagboot
       - ADTModsuitModIsulation
-  - type: Construction
-    graph: ADTModsuitEngineering
-    node: adtmodsuitengineering
 
-#медицинский
+
+# Медицинский
+# Пустой
 - type: entity
   parent: ADTClothingModsuitBackBase
   id: ADTClothingModsuitBackMedical
@@ -178,16 +239,27 @@
       gloves: ADTClothingHandsModsuitMedical
       outerClothing: ADTClothingOuterModsuitBodyMedical
       shoes: ADTClothingModsuitShoesMedical
+  - type: Construction
+    graph: ADTModsuitConstruction
+    node: medical
+
+# С МОДулями
+- type: entity
+  parent: [ADTClothingModsuitBackMedical, ADTClothingModsuitBackBaseBattery ]
+  id: ADTClothingModsuitBackMedicalFilled
+  name: medical MOD control unit
+  description: A lightweight suit by DeForest Medical Corporation, allows for easier movement.
+  components:
+  - type: ModSuit
     startingModules:
       - ADTModsuitModStorage
       - ADTModsuitModLight
       - ADTModsuitModStatusReadout
       - ADTModsuitModHealthAnalyzer
-  - type: Construction
-    graph: ADTModsuitMedical
-    node: adtmodsuitmedical
 
-#шахтёрский
+
+# Шахтёрский
+## Пустой
 - type: entity
   parent: ADTClothingModsuitBackBase
   id: ADTClothingModsuitBackMining
@@ -206,20 +278,32 @@
       gloves: ADTClothingHandsModsuitMining
       outerClothing: ADTClothingOuterModsuitBodyMining
       shoes: ADTClothingModsuitShoesMining
+  - type: Tag
+    tags:
+    - ADTHardsuitSalvage
+  - type: Construction
+    graph: ADTModsuitConstruction
+    node: mining
+
+## С МОДулями
+- type: entity
+  parent: [ ADTClothingModsuitBackMining, ADTClothingModsuitBackBaseBattery ]
+  id: ADTClothingModsuitBackMiningFilled
+  name: mining MOD control unit
+  description: A Nanotrasen mining suit for on-site operations, fit with accreting ash armor and a sphere form.
+  suffix: Filled
+  components:
+  - type: ModSuit
     startingModules:
       - ADTModsuitModOrebag
       - ADTModsuitModStorage
       - ADTModsuitModGPS
       - ADTModsuitModLight
       - ADTModsuitModPlasmaStabilizer
-  - type: Tag
-    tags:
-    - ADTHardsuitSalvage
-  - type: Construction
-    graph: ADTModsuitMining
-    node: adtmodsuitmining
 
-#охранный
+
+# Охранный
+## Пустой
 - type: entity
   parent: ADTClothingModsuitBackBase
   id: ADTClothingModsuitBackSecurity
@@ -238,21 +322,32 @@
       gloves: ADTClothingHandsModsuitSecurity
       outerClothing: ADTClothingOuterModsuitBodySecurity
       shoes: ADTClothingModsuitShoesSecurity
+  - type: Construction
+    graph: ADTModsuitConstruction
+    node: security
+
+## С МОДулями
+- type: entity
+  parent: [ ADTClothingModsuitBackSecurity, ADTClothingModsuitBackBaseBattery ]
+  id: ADTClothingModsuitBackSecurityFilled
+  name: security MOD control unit
+  description: An Apadyne Technologies security suit, offering quicker speed at the cost of carrying capacity.
+  suffix: Filled
+  components:
+  - type: ModSuit
     startingModules:
       - ADTModsuitModStorage
       - ADTModsuitModLight
       - ADTModsuitModEmpProtection
       - ADTModsuitModSechud
       - ADTModsuitModBodycam
-  - type: Construction
-    graph: ADTModsuitSecurity
-    node: adtmodsuitsecurity
 
-# учёный
+
+# Учёный
 - type: entity
   parent: ADTClothingModsuitBackBase
   id: ADTClothingModsuitBackScience
-  name: Sciene MOD control unit
+  name: Science MOD control unit
   description: Made by scientists for scientists.
   components:
   - type: Sprite
@@ -266,18 +361,14 @@
       gloves: ADTClothingHandsModsuitScience
       outerClothing: ADTClothingOuterModsuitBodyScience
       shoes: ADTClothingModsuitShoesScience
-    startingModules:
-      - ADTModsuitModStorage
-      - ADTModsuitModWelding
-      - ADTModsuitModLight
-      - ADTModsuitModRadiationProtection
   - type: Construction
-    graph: ADTModsuitScience
-    node: adtmodsuitscience
+    graph: ADTModsuitConstruction
+    node: science
 
-#гсб
+
+# ГСБ
 - type: entity
-  parent: ADTClothingModsuitBackSecurity
+  parent: [ ADTClothingModsuitBackSecurity, ADTClothingModsuitBackBaseBattery ]
   id: ADTClothingModsuitBackSafeguard
   name: safeguard MOD control unit
   description: An Apadyne Technologies security suit, offering quicker speed at the cost of carrying capacity.
@@ -306,9 +397,9 @@
       types:
         Blunt: 10
 
-#осщ
+# ОСЩ
 - type: entity
-  parent: ADTClothingModsuitBackSecurity
+  parent: ADTClothingModsuitBackBaseBattery
   id: ADTClothingModsuitBackBlueShield
   name: blueshield MOD control unit
   description: A lightweight NanoTrasen combat suit, with technology not at all stolen from the Syndicate, specifically for the Blue Shield Officer and the protection of his shielding body chapters. I assure you, all of this is ABSOLUTELY legal.
@@ -333,10 +424,10 @@
 
 # СИ
 - type: entity
-  parent: ADTClothingModsuitBackBase
+  parent: ADTClothingModsuitBackBaseBattery
   id: ADTClothingModsuitBackAdvanced
   name: advanced MOD control unit
-  description: Made by scientists for scientists.
+  description: An advanced version of Nakamura Engineering's classic suit, shining with a white, acid and fire resistant polish.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Back/Modsuit/advanced.rsi
@@ -358,9 +449,6 @@
       - ADTModsuitModRadiationProtection
       - ADTModsuitModTray
       - ADTModsuitModMesonVision
-  - type: Construction
-    graph: ADTModsuitScience
-    node: adtmodsuitscience
   - type: SupermatterImmune
 
 # синдиката
@@ -478,7 +566,7 @@
 
 # Главный Врач
 - type: entity
-  parent: ADTClothingModsuitBackBase
+  parent: ADTClothingModsuitBackBaseBattery
   id: ADTClothingModsuitBackCMO
   name: CMO MOD control unit
   description: Made CMO
@@ -505,7 +593,7 @@
 
 # Капитан
 - type: entity
-  parent: ADTClothingModsuitBackBase
+  parent: ADTClothingModsuitBackBaseBattery
   id: ADTClothingModsuitBackCaptain
   name: Captain MOD control unit
   description: Made Captain
@@ -554,7 +642,7 @@
 
 # КЦК
 - type: entity
-  parent: ADTClothingModsuitBackBase
+  parent: ADTClothingModsuitBackBaseBattery
   id: ADTClothingModsuitBackCCC
   name: Corporate MOD control unit
   description: Made Centcom Consultant
@@ -578,7 +666,7 @@
 
 # Смотритель
 - type: entity
-  parent: ADTClothingModsuitBackBase
+  parent: ADTClothingModsuitBackBaseBattery
   id: ADTClothingModsuitBackWard
   name: Warden MOD control unit
   description: Made Ward
@@ -600,8 +688,9 @@
       - ADTModsuitModLight
       - ADTModsuitModIsulation
 
+# Бригмедик
 - type: entity
-  parent: ADTClothingModsuitBackBase
+  parent: ADTClothingModsuitBackBaseBattery
   id: ADTClothingModsuitBackBrigmedic
   name: Brigmedic MOD control unit
   description: Made Brigmedic
@@ -610,7 +699,7 @@
     sprite: ADT/Clothing/Back/Modsuit/brigmedic.rsi
     state: icon
   - type: ModSuit
-    maxComplexity: 14
+    maxComplexity: 15
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
@@ -630,7 +719,7 @@
 
 # НР "Минерва"
 - type: entity
-  parent: Clothing
+  parent: ADTClothingModsuitBackBase
   id: ADTClothingModsuitBackMinerva
   name: research MOD control unit "Minerva"
   description: A high-tech research suit by Nakamura Engineering, made for the Research Director's field work.
@@ -656,41 +745,12 @@
       - ADTModsuitModRadiationProtection
       - ADTModsuitModAnomalyScanner
     requiresBattery: false
-  - type: UserInterface
-    interfaces:
-      enum.ModSuitUiKey.Key:
-        type: ModSuitRadialBoundUserInterface
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-      enum.ModSuitMenuUiKey.Key:
-        type: ModSuitMenuBoundUserInterface
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - back
-  - type: WiresPanel
-  - type: ActivatableUIRequiresPanel
-    requireOpen: false
-  - type: ContainerContainer
-    containers:
-      mod-modules-container: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitRd
 
 # ЭС "Харон"
 - type: entity
-  parent: Clothing
+  parent: ADTClothingModsuitBackBase
   id: ADTClothingModsuitBackCharon
   name: liberation MOD control unit "Charon"
   description: An advanced combat suit favored by commandos for use in special operations.
@@ -717,38 +777,9 @@
       - ADTModsuitModIsulation
       - ADTModsuitModNightVision
     requiresBattery: false
-  - type: UserInterface
-    interfaces:
-      enum.ModSuitUiKey.Key:
-        type: ModSuitRadialBoundUserInterface
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-      enum.ModSuitMenuUiKey.Key:
-        type: ModSuitMenuBoundUserInterface
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - back
-  - type: WiresPanel
-  - type: ActivatableUIRequiresPanel
-    requireOpen: false
-  - type: ContainerContainer
-    containers:
-      mod-modules-container: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
 
 - type: entity
-  parent: ADTClothingModsuitBackBase
+  parent: ADTClothingModsuitBackBaseBattery
   id: ADTClothingModsuitBackAncient
   name: ancient MOD control unit
   description: Ancient MOD
@@ -780,7 +811,8 @@
 
 # базовый ERT
 - type: entity
-  parent: ADTClothingModsuitBackBase
+  abstract: true
+  parent: ADTClothingModsuitBackBaseBattery
   id: ADTClothingModsuitBackERTBase
   name: base ERT MOD control unit
   description: A civilian class suit by Nakamura Engineering, doesn't offer much other than slightly quicker movement.

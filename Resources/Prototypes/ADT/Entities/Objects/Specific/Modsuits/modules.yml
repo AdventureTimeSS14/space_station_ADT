@@ -210,6 +210,13 @@
   - type: ModSuitMod
     energyUsing: 0.1
     complexity: 2
+    incompatibleModules:
+    - ADTModsuitModStatusReadout
+    - ADTModsuitModMesonVision
+    - ADTModsuitModDiagnosticVisor
+    - ADTModsuitModNightVision
+    - ADTModsuitModThermalVision
+    - ADTModsuitModSechud
     components:
       head:
       - type: ShowJobIcons
@@ -569,6 +576,13 @@
   - type: ModSuitMod
     complexity: 1
     energyUsing: 0.1
+    incompatibleModules:
+    - ADTModsuitModStatusReadout
+    - ADTModsuitModMesonVision
+    - ADTModsuitModDiagnosticVisor
+    - ADTModsuitModNightVision
+    - ADTModsuitModThermalVision
+    - ADTModsuitModSechud
     components:
       head:
       - type: ShowHealthBars
@@ -651,6 +665,13 @@
   - type: ModSuitMod
     complexity: 1
     energyUsing: 0.1
+    incompatibleModules:
+    - ADTModsuitModStatusReadout
+    - ADTModsuitModMesonVision
+    - ADTModsuitModDiagnosticVisor
+    - ADTModsuitModNightVision
+    - ADTModsuitModThermalVision
+    - ADTModsuitModSechud
     components:
       head:
       - type: ShowHealthBars
@@ -670,6 +691,13 @@
   - type: ModSuitMod
     complexity: 2
     energyUsing: 0.2
+    incompatibleModules:
+    - ADTModsuitModStatusReadout
+    - ADTModsuitModMesonVision
+    - ADTModsuitModDiagnosticVisor
+    - ADTModsuitModNightVision
+    - ADTModsuitModThermalVision
+    - ADTModsuitModSechud
     components:
       head:
       - type: MesonVisionItem
@@ -721,3 +749,4 @@
         grid:
         - 0,0,19,9
         maxItemSize: Huge
+  

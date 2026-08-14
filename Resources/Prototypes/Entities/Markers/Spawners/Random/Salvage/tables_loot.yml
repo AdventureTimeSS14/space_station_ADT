@@ -321,7 +321,7 @@
     - id: BlueprintFulton
     - id: BlueprintSeismicCharge
     - id: WeaponCrusherGlaive
-    - id: ADTClothingModsuitBackMining #ADT tweak
+    - id: ADTClothingModsuitBackMiningFilled #ADT tweak
     - id: ChemistryBottleOmnizine
     - !type:GroupSelector
       children:

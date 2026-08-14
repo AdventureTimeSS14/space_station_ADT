@@ -166,8 +166,8 @@
     Copper: 500
 
 - type: latheRecipe
-  id: ADTModsuitPlateCience
-  result: ADTModsuitPlateCience
+  id: ADTModsuitPlateScience
+  result: ADTModsuitPlateScience
   completetime: 2
   materials:
     Steel: 1000
@@ -188,8 +188,8 @@
     Copper: 500
 
 - type: latheRecipe
-  id: ADTModsuitAssembly
-  result: ADTModsuitAssembly
+  id: ADTModsuitShell
+  result: ADTModsuitShell
   completetime: 2
   materials:
     Steel: 600

@@ -1,98 +1,98 @@
 {
-  "copyright" : "Based on tgstation at https://github.com/tgstation/tgstation/blob/adf4605b24258e9c96fa985e1d11912add6aae19/icons/obj/vehicles.dmi and modified by @deltanedas (github)",
-  "license" : "CC-BY-SA-3.0",
-  "version": 1,
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "boots"
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Based on tgstation at https://github.com/tgstation/tgstation/blob/adf4605b24258e9c96fa985e1d11912add6aae19/icons/obj/vehicles.dmi and modified by @deltanedas (github)",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-    {
-      "name": "chestplate"
-    },
-    {
-      "name": "gauntlets"
-    },
-    {
-      "name": "helmet"
-    },
-    {
-      "name": "mod-core-standard",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
-    },
-    {
-      "name": "modcore0"
-    },
-    {
-      "name": "modcore1",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
-    },
-    {
-      "name": "modcore2",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
-    },
-    {
-      "name": "modcore3"
-    },
-    {
-      "name": "modcore4"
-    },
-    {
-      "name": "modcore5"
-    },
-    {
-      "name": "modcore6"
-    },
-    {
-      "name": "modcore7"
-    },
-    {
-      "name": "modcore8"
-    },
-    {
-      "name": "atmospheric"
-    },
-    {
-      "name": "cosmohonk"
-    },
-    {
-      "name": "engineering"
-    },
-    {
-      "name": "medical"
-    },
-    {
-      "name": "security"
-    },
-    {
-      "name": "standard"
-    },
-    {
-      "name": "science"
-    }
-  ]
+    "states": [
+        {
+            "name": "engineering"
+        },
+        {
+            "name": "gauntlets"
+        },
+        {
+            "name": "helmet"
+        },
+        {
+            "name": "medical"
+        },
+        {
+            "name": "modcore8"
+        },
+        {
+            "name": "mod-core-standard",
+            "delays": [
+                [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+                ]
+            ]
+        },
+        {
+            "name": "science"
+        },
+        {
+            "name": "security"
+        },
+        {
+            "name": "shell"
+        },
+        {
+            "name": "shell-boots"
+        },
+        {
+            "name": "shell-chestplate"
+        },
+        {
+            "name": "shell-core",
+            "delays": [
+                [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+                ]
+            ]
+        },
+        {
+            "name": "shell-core-secured",
+            "delays": [
+                [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+                ]
+            ]
+        },
+        {
+            "name": "shell-gauntlets"
+        },
+        {
+            "name": "shell-helmet"
+        },
+        {
+            "name": "shell-secured"
+        },
+        {
+            "name": "standard"
+        },
+        {
+            "name": "atmospheric"
+        },
+        {
+            "name": "boots"
+        },
+        {
+            "name": "chestplate"
+        },
+        {
+            "name": "cosmohonk"
+        }
+    ]
 }

@@ -164,27 +164,6 @@
   id: ADTSyrelBattleAxe
 
 - type: Tag
-  id: ADTModsuitHelmet
-
-- type: Tag
-  id: ADTModsuitGauntlets
-
-- type: Tag
-  id: ADTModsuitCoreEnergy
-
-- type: Tag
-  id: ADTModsuitChestplate
-
-- type: Tag
-  id: ADTModsuitBoots
-
-- type: Tag
-  id: ADTModsuitPlateMining
-
-- type: Tag
-  id: ADTModsuitAssembledPart
-
-- type: Tag
   id: ADTJumpSuitSacrifice
 
 - type: Tag
@@ -241,27 +220,6 @@
 
 - type: Tag
   id: ADTMelonacrifice
-
-- type: Tag
-  id: ADTModsuitPlateAtmospheric
-
-- type: Tag
-  id: ADTModsuitPlateCosmohonk
-
-- type: Tag
-  id: ADTModsuitPlateEngineering
-
-- type: Tag
-  id: ADTModsuitPlateMedical
-
-- type: Tag
-  id: ADTModsuitPlateSecurity
-
-- type: Tag
-  id: ADTModsuitPlateStandard
-
-- type: Tag
-  id: ADTModsuitPlateCience
 
 - type: Tag
   id: VehicleKey
@@ -924,3 +882,27 @@
 
 - type: Tag
   id: ConstantTemperatureThresholds # make entity ignore parent temperature thresholds from TemperatureContainerComponent
+
+# MODSuit
+## Parts
+- type: Tag
+  id: ADTModsuitPart
+
+- type: Tag
+  id: ADTModsuitHelmet
+
+- type: Tag
+  id: ADTModsuitGauntlets
+
+- type: Tag
+  id: ADTModsuitCore
+
+- type: Tag
+  id: ADTModsuitChestplate
+
+- type: Tag
+  id: ADTModsuitBoots
+
+# Plating
+- type: Tag
+  id: ADTModsuitPlatingExternal

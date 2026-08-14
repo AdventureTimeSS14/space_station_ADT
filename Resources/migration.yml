@@ -1040,3 +1040,8 @@ SpawnMobXenoRavager: ADTSpawnMobXenoRavagerNoGhost
 SpawnMobXenoRunner: ADTSpawnMobXenoRunnerNoGhost
 SpawnMobXenoSpitter: ADTSpawnMobXenoSpitterNoGhost
 SpawnMobXenoEasy: ADTSpawnMobXenoEasyNoGhost
+
+# ADT 2026-0814: ModsuitRework
+ADTClothingModsuitBackBase: ADTClothingModsuitBackStandardFilled
+ADTClothingModsuitBackMining: ADTClothingModsuitBackMiningFilled
+ADTClothingModsuitBackSecurity: ADTClothingModsuitBackSecurityFilled

@@ -1,75 +1,218 @@
 ﻿- type: constructionGraph
-  id: ADTModsuitAssembled
+  id: ADTModsuitConstruction
   start: start
   graph:
   - node: start
+    entity: ADTModsuitShell
     edges:
-    - to: adtmodsuitassembled
+    - to: shell-core
       steps:
-      - tag: ADTModsuitCoreEnergy
-        name: construction-graph-tag-mod-core-energy
-        doAfter: 1
+      - tag: ADTModsuitCore
+        name: construction-graph-tag-mod-core
+        store: mod-core
         completed:
-        - !type:VisualizerDataInt
-          key: "enum.MechAssemblyVisuals.State"
-          data: 1
+        - !type:PlaySound
+          sound: /Audio/Items/screwdriver2.ogg
 
+  - node: shell-core
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: start
+      steps:
+      - tool: Prying
+        completed:
+          - !type:EmptyContainer
+            container: mod-core
+    - to: shell-core-secured
+      steps:
       - tool: Screwing
         doAfter: 1
-        completed:
-        - !type:VisualizerDataInt
-          key: "enum.MechAssemblyVisuals.State"
-          data: 2
 
+  - node: shell-core-secured
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: shell-helmet
+      steps:
       - tag: ADTModsuitHelmet
         name: construction-graph-tag-mod-helmet
         doAfter: 1
         completed:
-        - !type:VisualizerDataInt
-          key: "enum.MechAssemblyVisuals.State"
-          data: 3
+        - !type:PlaySound
+          sound: /Audio/Items/screwdriver2.ogg
 
+  - node: shell-helmet
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: shell-chestplate
+      steps:
       - tag: ADTModsuitChestplate
         name: construction-graph-tag-mod-chestplate
         doAfter: 1
         completed:
-        - !type:VisualizerDataInt
-          key: "enum.MechAssemblyVisuals.State"
-          data: 4
+        - !type:PlaySound
+          sound: /Audio/Items/screwdriver2.ogg
 
+  - node: shell-chestplate
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: shell-gauntlets
+      steps:
       - tag: ADTModsuitGauntlets
-        name: construction-graph-tag-mod-gauntles
+        name: construction-graph-tag-mod-gauntlets
         doAfter: 1
         completed:
-        - !type:VisualizerDataInt
-          key: "enum.MechAssemblyVisuals.State"
-          data: 5
+        - !type:PlaySound
+          sound: /Audio/Items/screwdriver2.ogg
 
+  - node: shell-gauntlets
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: shell-boots
+      steps:
       - tag: ADTModsuitBoots
         name: construction-graph-tag-mod-boots
         doAfter: 1
         completed:
-        - !type:VisualizerDataInt
-          key: "enum.MechAssemblyVisuals.State"
-          data: 6
+        - !type:PlaySound
+          sound: /Audio/Items/screwdriver2.ogg
 
+  - node: shell-boots
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: shell-secured
+      steps:
       - tool: Anchoring
         doAfter: 1
-        completed:
-        - !type:VisualizerDataInt
-          key: "enum.MechAssemblyVisuals.State"
-          data: 7
 
       - tool: Screwing
         doAfter: 1
-        completed:
-        - !type:VisualizerDataInt
-          key: "enum.MechAssemblyVisuals.State"
-          data: 8
 
-  - node: adtmodsuitassembled
+  - node: shell-secured
     actions:
-      - !type:SpawnPrototype
-        prototype: ADTModsuitAssembled
-        amount: 1
-      - !type:DeleteEntity {}
+    - !type:AppearanceChange
+    edges:
+    - to: standard
+      steps:
+        - tag: ADTModsuitPlatingExternalStandard
+          name: construction-graph-tag-mod-plating
+          doAfter: 1
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Items/screwdriver2.ogg
+
+        - tool: Anchoring
+          doAfter: 1
+
+    - to: security
+      steps:
+        - tag: ADTModsuitPlatingExternalSecurity
+          name: construction-graph-tag-mod-plating
+          doAfter: 1
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Items/screwdriver2.ogg
+
+        - tool: Anchoring
+          doAfter: 1
+
+    - to: engineering
+      steps:
+        - tag: ADTModsuitPlatingExternalEngineering
+          name: construction-graph-tag-mod-plating
+          doAfter: 1
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Items/screwdriver2.ogg
+
+        - tool: Anchoring
+          doAfter: 1
+
+    - to: atmospheric
+      steps:
+        - tag: ADTModsuitPlatingExternalAtmospheric
+          name: construction-graph-tag-mod-plating
+          doAfter: 1
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Items/screwdriver2.ogg
+
+        - tool: Anchoring
+          doAfter: 1
+
+    - to: cosmohonk
+      steps:
+        - tag: ADTModsuitPlatingExternalCosmohonk
+          name: construction-graph-tag-mod-plating
+          doAfter: 1
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Items/screwdriver2.ogg
+
+        - tool: Anchoring
+          doAfter: 1
+
+    - to: science
+      steps:
+        - tag: ADTModsuitPlatingExternalScience
+          name: construction-graph-tag-mod-plating
+          doAfter: 1
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Items/screwdriver2.ogg
+
+        - tool: Anchoring
+          doAfter: 1
+
+    - to: medical
+      steps:
+        - tag: ADTModsuitPlatingExternalMedical
+          name: construction-graph-tag-mod-plating
+          doAfter: 1
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Items/screwdriver2.ogg
+
+        - tool: Anchoring
+          doAfter: 1
+
+    - to: mining
+      steps:
+        - tag: ADTModsuitPlatingExternalMining
+          name: construction-graph-tag-mod-plating
+          doAfter: 1
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Items/screwdriver2.ogg
+
+        - tool: Anchoring
+          doAfter: 1
+
+  - node: standard
+    entity: ADTClothingModsuitBackStandard
+
+  - node: security
+    entity: ADTClothingModsuitBackSecurity
+
+  - node: engineering
+    entity: ADTClothingModsuitBackEngineering
+
+  - node: atmospheric
+    entity: ADTClothingModsuitBackAtmos
+
+  - node: cosmohonk
+    entity: ADTClothingModsuitBackClown
+
+  - node: science
+    entity: ADTClothingModsuitBackScience
+
+  - node: medical
+    entity: ADTClothingModsuitBackMedical
+
+  - node: mining
+    entity: ADTClothingModsuitBackMining

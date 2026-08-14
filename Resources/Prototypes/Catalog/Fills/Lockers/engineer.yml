@@ -140,7 +140,7 @@
         type: SuitStorageBoundUserInterface
   - type: SuitStorage
     options:
-    - ADTClothingModsuitBackAtmos
+    - ADTClothingModsuitBackAtmosFilled
     - ClothingOuterHardsuitAtmos
   #ADT-Tweak-End
 

@@ -102,7 +102,7 @@
     price: 1200
   - id: ClothingOuterHardsuitSalvage
     price: 3000
-  - id: ADTClothingModsuitBackMining
+  - id: ADTClothingModsuitBackMiningFilled
     price: 3000
 
 - type: miningShopSection

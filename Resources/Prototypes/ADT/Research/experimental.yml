@@ -41,10 +41,10 @@
   - ADTModsuitGauntlets
   - ADTModsuitChestplate
   - ADTModsuitBoots
-  - ADTModsuitAssembly
+  - ADTModsuitShell
   - ADTModsuitPlateStandard
   - ADTModsuitHelmet
-  - ADTModsuitPlateCience
+  - ADTModsuitPlateScience
   - ADTModsuitModAnomalyScanner
   position: 0,-1
   requiredTech:

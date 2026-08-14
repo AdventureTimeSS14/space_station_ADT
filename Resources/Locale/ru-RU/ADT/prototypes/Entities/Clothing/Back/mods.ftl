@@ -1,34 +1,52 @@
-ent-ADTClothingModsuitBackBase = МОД "Базовый"
+ent-AADTClothingModsuitBackStandard = МОД "Базовый"
     .desc = Костюм гражданского класса от "Nakamura Engineering", не дающий ничего особенного, кроме небольшого замедления передвижения.
+ent-ADTClothingModsuitBackStandardFilled = { ent-ADTClothingModsuitBackStandard }
+    .desc = { ent-ADTClothingModsuitBackStandard.desc }
+
 
 ent-ADTClothingModsuitBackAtmos = МОД "Атмосферный"
     .desc = Атмосферостойкий костюм от "Nakamura Engineering", обладающий повышенной термостойкостью и меньшим количеством слотов по сравнению с инженерным МОДом.
+ent-ADTClothingModsuitBackAtmosFilled = { ent-ADTClothingModsuitBackAtmos }
+    .desc = { ent-ADTClothingModsuitBackAtmos.desc }
+
 
 ent-ADTClothingModsuitBackClown = МОД "Космохонк"
     .desc = Костюм от компании "Honk Ltd.", известный также как Модульный Ограничитель Дурачков. Защищает от низкого уровня юмора.
 
-ent-ADTClothingModsuitBackEngineering = МОД "Инженерный"
+ent-ADTClothingModsuitBackEngineering = МОД "Талос"
     .desc = Инженерный костюм с термо- и ударопрочностью. Классика от Nakamura Engineering.
+ent-ADTClothingModsuitBackEngineeringFilled = { ent-ADTClothingModsuitBackEngineering }
+    .desc = { ent-ADTClothingModsuitBackEngineering.desc }
 
-ent-ADTClothingModsuitBackMedical = МОД "Медицинский"
+
+ent-ADTClothingModsuitBackMedical = МОД "Аполлон"
     .desc = Легкий костюм от "DeForest Medical Corporation", позволяющий быстрее двигаться.
+ent-ADTClothingModsuitBackMedicalFilled = { ent-ADTClothingModsuitBackMedical }
+    .desc = { ent-ADTClothingModsuitBackMedical.desc }
 
-ent-ADTClothingModsuitBackMining = МОД "Шахтёрский"
+
+ent-ADTClothingModsuitBackMining = МОД "Стах"
     .desc = Шахтёрский МОД "NanoTrasen" для работы с рудой, оснащенный противопепельным заслоном и сферным преобразователем.
+ent-ADTClothingModsuitBackMiningFilled = { ent-ADTClothingModsuitBackMining }
+    .desc = { ent-ADTClothingModsuitBackMining.desc }
 
-ent-ADTClothingModsuitBackSecurity = МОД "Охранный"
+
+ent-ADTClothingModsuitBackSecurity = МОД "Арес"
     .desc = Защитный костюм "Apadyne Technologies", обеспечивающий высокую скорость за счет снижения грузоподъемности.
+ent-ADTClothingModsuitBackSecurityFilled = { ent-ADTClothingModsuitBackSecurity }
+    .desc = { ent-ADTClothingModsuitBackSecurity.desc }
 
-ent-ADTClothingModsuitBackScience = МОД "Научный"
+
+ent-ADTClothingModsuitBackScience = МОД "Метида"
     .desc = Сделано учёными для учёных. С любовью!
 
-ent-ADTClothingModsuitBackSyndicate = МОД "Синдикат"
+ent-ADTClothingModsuitBackSyndicate = МОД "Мародёр"
     .desc = Костюм, разработанный "Gorlex Marauders", предлагающий броню, признанную незаконной в большинстве секторов.
 
 ent-ADTClothingModsuitBackSafeguard = МОД "Диктатор"
-    .desc = Улучшенная версия простого охранного МОДА, что был создан специально для ГСБ. Жаждит забить генокрада собой досмерти!
+    .desc = Улучшенная версия простого охранного МОДа, что был создан специально для ГСБ. Жаждит забить генокрада собой досмерти!
 
-ent-ADTClothingModsuitBackBlueShield = МОД "Синий щит"
+ent-ADTClothingModsuitBackBlueShield = МОД "ДеБур"
     .desc =  Лёгкий боевой МОД NanoTrasen, с технологиями точно не украденными у синдиката, специально для офицера синего щита и защиты его частей тела. Я уверяю вас, это АБСОЛЮТНО легально.
 
 ent-ADTClothingModsuitBackCentcom = МОД "Корпорат"
@@ -39,7 +57,7 @@ ent-ADTClothingModsuitBackCCC = МОД "Корпорат"
     .suffix = Консультант
     .desc =  Модный высокотехнологичный скафандр для высокопоставленных офицеров Nanotrasen. Призван держать бюрократов внутри - Пули снаружи.
 
-ent-ADTClothingModsuitBackAdvanced = МОД "Инженерный продвинутый"
+ent-ADTClothingModsuitBackAdvanced = МОД "Гефест"
     .desc = Усовершенствованная версия классического костюма "Nakamura Engineering", сияющая белизной, кислото- и огнестойкой полировкой.
 
 ent-ADTClothingModsuitBackSyndicateElite = МОД "Элитный"
@@ -72,12 +90,15 @@ ent-ADTClothingModsuitBackCharon = МОД "Харон"
 ent-ADTClothingModsuitBackERTLeader = МОД ОБР "Полярис"
     .suffix = Лидер
     .desc = Облегчённый скоростной костюм NanoTrasen для лидера Отряда Быстрого Реагирования кода "Гамма".
+
 ent-ADTClothingModsuitBackERTSecurity = МОД ОБР "Антарес"
     .suffix = Боец
     .desc = Облегчённый скоростной костюм NanoTrasen для бойцов Отряда Быстрого Реагирования кода "Гамма".
+
 ent-ADTClothingModsuitBackERTEngineer = МОД ОБР "Капелла"
     .suffix = Инженер
     .desc = Облегчённый скоростной костюм NanoTrasen для инженера Отряда Быстрого Реагирования кода "Гамма".
+
 ent-ADTClothingModsuitBackERTMedical = МОД ОБР "Вега"
     .suffix = Медик
     .desc = Облегчённый скоростной костюм NanoTrasen для медика Отряда Быстрого Реагирования кода "Гамма".
@@ -93,21 +114,21 @@ ent-ADTClothingHeadHelmetModsuitAtmos = шлем МОДа "Атмосферны�
     .desc = Шлем от МОДа.
 ent-ADTClothingHeadHelmetModsuitClown = шлем МОДа "Космохонк"
     .desc = Шлем от МОДа.
-ent-ADTClothingHeadHelmetModsuitEngineering = шлем МОДа "Инженерный"
+ent-ADTClothingHeadHelmetModsuitEngineering = шлем МОДа "Талос"
     .desc = Шлем от МОДа.
-ent-ADTClothingHeadHelmetModsuitMedical = шлем МОДа "Медицинский"
+ent-ADTClothingHeadHelmetModsuitMedical = шлем МОДа "Аполлон"
     .desc = Шлем от МОДа.
-ent-ADTClothingHeadHelmetModsuitMining = шлем МОДа "Шахтёрский"
+ent-ADTClothingHeadHelmetModsuitMining = шлем МОДа "Стах"
     .desc = Шлем от МОДа.
-ent-ADTClothingHeadHelmetModsuitSecurity = шлем МОДа "Охранный"
+ent-ADTClothingHeadHelmetModsuitSecurity = шлем МОДа "Арес"
     .desc = Шлем от МОДа.
-ent-ADTClothingHeadHelmetModsuitScience = шлем МОДа "Научный"
+ent-ADTClothingHeadHelmetModsuitScience = шлем МОДа "Метида"
     .desc = Шлем от МОДа.
-ent-ADTClothingHeadHelmetModsuitSyndicate = шлем МОДа "Синдикат"
+ent-ADTClothingHeadHelmetModsuitSyndicate = шлем МОДа "Мародёр"
     .desc = Шлем от МОДа.
 ent-ADTClothingHeadHelmetModsuitSafeguard = шлем МОДа "Диктатор"
     .desc = Шлем, что 24/7 сканирует агентов вокруг.
-ent-ADTClothingHeadHelmetModsuitBso = шлем МОДа "Синий щит"
+ent-ADTClothingHeadHelmetModsuitBso = шлем МОДа "ДеБур"
     .desc = Шлем от МОДа.
 ent-ADTClothingHeadHelmetModsuitCentcom = шлем МОДа "Корпорат"
     .suffix = Центком
@@ -115,7 +136,7 @@ ent-ADTClothingHeadHelmetModsuitCentcom = шлем МОДа "Корпорат"
 ent-ADTClothingHeadHelmetModsuitCCC = шлем МОДа "Корпорат"
     .suffix = Консультант
     .desc = Прочный шлем МОДа "Корпорат", специально разработанный для представителей Центком. Он вам что-то напоминает.
-ent-ADTClothingHeadHelmetModsuitAdvanced = шлем МОДа "Инженерный Продвинутый"
+ent-ADTClothingHeadHelmetModsuitAdvanced = шлем МОДа "Гефест"
     .desc = Шлем от МОДа.
 ent-ADTClothingHeadHelmetModsuitSyndicateElite = шлем МОДа "Элитный"
     .desc = Шлем от МОДа.
@@ -151,23 +172,23 @@ ent-ADTClothingOuterModsuitBodyAtmos = оболочка МОДа "Атмосфе
     .desc = Базовая оболочка от МОДа.
 ent-ADTClothingOuterModsuitBodyClown = оболочка МОДа "Космохонк"
     .desc = Базовая оболочка от МОДа.
-ent-ADTClothingOuterModsuitBodyEngineering = оболочка МОДа "Инженерный"
+ent-ADTClothingOuterModsuitBodyEngineering = оболочка МОДа "Талос"
     .desc = Базовая оболочка от МОДа.
-ent-ADTClothingOuterModsuitBodyMedical = оболочка МОДа "Медицинский"
+ent-ADTClothingOuterModsuitBodyMedical = оболочка МОДа "Аполлон"
     .desc = Базовая оболочка от МОДа.
-ent-ADTClothingOuterModsuitBodyMining = оболочка МОДа "Шахтёрский"
+ent-ADTClothingOuterModsuitBodyMining = оболочка МОДа "Стах"
     .desc = Базовая оболочка от МОДа.
-ent-ADTClothingOuterModsuitBodySecurity = оболочка МОДа "Охранный"
+ent-ADTClothingOuterModsuitBodySecurity = оболочка МОДа "Арес"
     .desc = Базовая оболочка от МОДа.
-ent-ADTClothingOuterModsuitBodyScience = оболочка МОДа "Научный"
+ent-ADTClothingOuterModsuitBodyScience = оболочка МОДа "Метида"
     .desc = Базовая оболочка от МОДа.
-ent-ADTClothingOuterModsuitBodySyndicate = оболочка МОДа "Синдикат"
+ent-ADTClothingOuterModsuitBodySyndicate = оболочка МОДа "Мародёр"
     .desc = Базовая оболочка от МОДа.
 ent-ADTClothingOuterModsuitBodySafeguard = оболочка МОДа "Диктатор"
     .desc = Готова впитать любую пулю от ядерного оперативника!
-ent-ADTClothingOuterModsuitBodyAdvanced = оболочка МОДа "Инженерный Продвинутый"
+ent-ADTClothingOuterModsuitBodyAdvanced = оболочка МОДа "Гефест"
     .desc = Базовая оболочка от МОДа.
-ent-ADTClothingOuterModsuitBodyBso = оболочка МОДа "Синий щит"
+ent-ADTClothingOuterModsuitBodyBso = оболочка МОДа "ДеБур"
     .desc = Базовая оболочка от МОДа.
 ent-ADTClothingOuterModsuitBodyCentcom = оболочка МОДа "Корпорат"
     .suffix = Центком
@@ -209,26 +230,26 @@ ent-ADTClothingModsuitShoesAtmos = ботинки МОДа "Атмосферны
     .desc = Базовые ботинки от МОДа.
 ent-ADTClothingModsuitShoesClown = ботинки МОДа "Космохонк"
     .desc = ОООХ ЧУВАК ТВОИ РОДИТЕЛИ ТАКИЕ.. а знаешь, мы так долго в открытом космосе что я не чувствую своих НОГ! Я думаю, нам стоит позвать на помощь и извиниться.
-ent-ADTClothingModsuitShoesEngineering = ботинки МОДа "Инженерный"
+ent-ADTClothingModsuitShoesEngineering = ботинки МОДа "Талос"
     .desc = Базовые ботинки от МОДа.
-ent-ADTClothingModsuitShoesMedical = ботинки МОДа "Медицинский"
+ent-ADTClothingModsuitShoesMedical = ботинки МОДа "Аполлон"
     .desc = Базовые ботинки от МОДа.
-ent-ADTClothingModsuitShoesMining = ботинки МОДа "Шахтёрский"
+ent-ADTClothingModsuitShoesMining = ботинки МОДа "Стах"
     .desc = Базовые ботинки от МОДа.
-ent-ADTClothingModsuitShoesSecurity = ботинки МОДа "Охранный"
+ent-ADTClothingModsuitShoesSecurity = ботинки МОДа "Арес"
     .desc = Базовые ботинки от МОДа.
-ent-ADTClothingModsuitShoesScience = ботинки МОДа "Научный"
+ent-ADTClothingModsuitShoesScience = ботинки МОДа "Метида"
     .desc = Базовые ботинки от МОДа.
-ent-ADTClothingModsuitShoesSyndicate = ботинки МОДа "Синдикат"
+ent-ADTClothingModsuitShoesSyndicate = ботинки МОДа "Мародёр"
     .desc = Базовые ботинки от МОДа.
 ent-ADTClothingModsuitShoesSafeguard = ботинки МОДа "Диктатор"
     .desc = Испачканы кровью революционеров.
-ent-ADTClothingModsuitBso = ботинки МОДа "Синий щит"
+ent-ADTClothingModsuitBso = ботинки МОДа "ДеБур"
     .desc = Базовые ботинки от МОДа.
 ent-ADTClothingModsuitShoesCentcom = ботинки МОДа "Корпорат"
     .suffix = Центком
     .desc = Несмотря на их сердитый внешний вид, внутри они обшиты нежным бархатом и очень удобны в хождении и беге.
-ent-ADTClothingModsuitShoesAdvanced = ботинки МОДа "Инженерный Продвинутый"
+ent-ADTClothingModsuitShoesAdvanced = ботинки МОДа "Гефест"
     .desc = Базовые ботинки от МОДа.
 ent-ADTClothingModsuitShoesSyndicateElite = ботинки МОДа "Элитный"
     .desc = Базовые ботинки от МОДа.
@@ -258,21 +279,21 @@ ent-ADTClothingHandsModsuitAtmos = перчатки МОДа "Атмосферн
     .desc = Базовые перчатки от МОДа.
 ent-ADTClothingHandsModsuitClown = перчатки МОДа "Космохонк"
     .desc = Думаю всё же шутить про двух пап капитана было плохой идеей...
-ent-ADTClothingHandsModsuitEngineering = перчатки МОДа "Инженерный"
+ent-ADTClothingHandsModsuitEngineering = перчатки МОДа "Талос"
     .desc = Базовые перчатки от МОДа.
-ent-ADTClothingHandsModsuitMedical = перчатки МОДа "Медицинский"
+ent-ADTClothingHandsModsuitMedical = перчатки МОДа "Аполлон"
     .desc = Базовые перчатки от МОДа.
-ent-ADTClothingHandsModsuitMining = перчатки МОДа "Шахтёрский"
+ent-ADTClothingHandsModsuitMining = перчатки МОДа "Стах"
     .desc = Базовые перчатки от МОДа.
-ent-ADTClothingHandsModsuitSecurity = перчатки МОДа "Охранный"
+ent-ADTClothingHandsModsuitSecurity = перчатки МОДа "Арес"
     .desc = Базовые перчатки от МОДа.
-ent-ADTClothingHandsModsuitScience = перчатки МОДа "Научный"
+ent-ADTClothingHandsModsuitScience = перчатки МОДа "Метида"
     .desc = Базовые перчатки от МОДа.
-ent-ADTClothingHandsModsuitSyndicate = перчатки МОДа "Синдикат"
+ent-ADTClothingHandsModsuitSyndicate = перчатки МОДа "Мародёр"
     .desc = Базовые перчатки от МОДа.
 ent-ADTClothingHandsModsuitSafeguard = перчатки МОДа "Диктатор"
     .desc = Властно сжимают шею еретика!
-ent-ADTClothingHandsModsuitBso = перчатки МОДа "Синий щит"
+ent-ADTClothingHandsModsuitBso = перчатки МОДа "ДеБур"
     .desc = Базовые перчатки от МОДа.
 ent-ADTClothingHandsModsuitCentcom = перчатки МОДа "Корпорат"
     .suffix = Центком
@@ -280,7 +301,7 @@ ent-ADTClothingHandsModsuitCentcom = перчатки МОДа "Корпорат
 ent-ADTClothingHandsModsuitCCC = перчатки МОДа "Корпорат"
     .suffix = Консультант
     .desc = Крайне утончённые и изысканные перчатки как для такого прочного и боевого МОДа. Надевая их, вы ощущаете как легко в ваших руках можно держать целую станцию под контролем.
-ent-ADTClothingHandsModsuitAdvanced = перчатки МОДа "Инженерный Продвинутый"
+ent-ADTClothingHandsModsuitAdvanced = перчатки МОДа "Гефест"
     .desc = Базовые перчатки от МОДа.
 ent-ADTClothingHandsModsuitSyndicateElite = перчатки МОДа "Элитный"
     .desc = Базовые перчатки от МОДа.

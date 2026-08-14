@@ -8,12 +8,12 @@ using Content.Shared.ADT.Eye.Blinding;
 
 namespace Content.Shared.ADT.MesonVision;
 
-public abstract class SharedMesonVisionSystem : EntitySystem
+public abstract partial class SharedMesonVisionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -23,7 +23,7 @@ public abstract class SharedMesonVisionSystem : EntitySystem
         SubscribeLocalEvent<MesonVisionComponent, ComponentRemove>(OnMesonVisionRemove);
 
         SubscribeLocalEvent<MesonVisionItemComponent, GetItemActionsEvent>(OnMesonVisionItemGetActions);
-        SubscribeLocalEvent<MesonVisionItemComponent, ToggleActionEvent>(OnMesonVisionItemToggle);
+        SubscribeLocalEvent<MesonVisionItemComponent, ToggleMesonActionEvent>(OnMesonVisionItemToggle);
         SubscribeLocalEvent<MesonVisionItemComponent, GotEquippedEvent>(OnMesonVisionItemGotEquipped);
         SubscribeLocalEvent<MesonVisionItemComponent, GotUnequippedEvent>(OnMesonVisionItemGotUnequipped);
         SubscribeLocalEvent<MesonVisionItemComponent, ActionRemovedEvent>(OnMesonVisionItemActionRemoved);
@@ -65,7 +65,7 @@ public abstract class SharedMesonVisionSystem : EntitySystem
         args.AddAction(ref ent.Comp.Action, ent.Comp.ActionId);
     }
 
-    private void OnMesonVisionItemToggle(Entity<MesonVisionItemComponent> ent, ref ToggleActionEvent args)
+    private void OnMesonVisionItemToggle(Entity<MesonVisionItemComponent> ent, ref ToggleMesonActionEvent args)
     {
         if (args.Handled)
             return;

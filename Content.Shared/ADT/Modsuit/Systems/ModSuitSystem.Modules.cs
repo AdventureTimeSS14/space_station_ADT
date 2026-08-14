@@ -96,6 +96,29 @@ public sealed partial class ModSuitSystem
         if (!TryComp<WiresPanelComponent>(args.Target, out var panel) || !panel.Open)
             return;
 
+        var newModuleProto = MetaData(ent.Owner).EntityPrototype?.ID;
+
+        if (newModuleProto == null)
+            return;
+
+        foreach (var installedModule in modsuit.ModuleContainer.ContainedEntities)
+        {
+            var installedProto = MetaData(installedModule).EntityPrototype?.ID;
+            if (installedProto == null)
+                continue;
+
+            if (ent.Comp.IncompatibleModules.Contains(installedProto))
+            {
+                return;
+            }
+
+            if (TryComp<ModSuitModComponent>(installedModule, out var installedComp) &&
+                installedComp.IncompatibleModules.Contains(newModuleProto))
+            {
+                return;
+            }
+        }
+
         if (modsuit.CurrentComplexity + ent.Comp.Complexity > modsuit.MaxComplexity)
             return;
 

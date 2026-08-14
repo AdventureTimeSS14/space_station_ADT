@@ -157,6 +157,6 @@
         type: SuitStorageBoundUserInterface
   - type: SuitStorage
     options:
-    - ADTClothingModsuitBackMedical
+    - ADTClothingModsuitBackMedicalFilled
     - ClothingOuterHardsuitVoidParamed
   #ADT-Tweak-End

@@ -14,7 +14,7 @@
     itemIconStyle: BigAction
     useDelay: 0.25
   - type: InstantAction
-    event: !type:ToggleActionEvent
+    event: !type:ToggleNightVisionActionEvent
 
 - type: entity
   id: ActionToggleThermalVision
@@ -32,7 +32,7 @@
     itemIconStyle: BigAction
     useDelay: 0.25
   - type: InstantAction
-    event: !type:ToggleActionEvent
+    event: !type:ToggleThermalVisionActionEvent
 
 - type: entity
   id: ActionToggleMesonVision
@@ -50,4 +50,4 @@
     itemIconStyle: BigAction
     useDelay: 0.25
   - type: InstantAction
-    event: !type:ToggleActionEvent
+    event: !type:ToggleMesonActionEvent

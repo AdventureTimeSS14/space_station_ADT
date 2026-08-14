@@ -5,8 +5,11 @@
   components:
   - type: Action
     priority: -5
-    itemIconStyle: BigItem
+    itemIconStyle: BigAction
     useDelay: 1 # equip noise spam.
+    icon:
+      sprite: ADT/Interface/Actions/mod_actions.rsi
+      state: deploy
   - type: InstantAction
     event: !type:ToggleModPartActionEvent
 
@@ -26,16 +29,16 @@
 
 - type: entity
   id: ADTActionToggleMODMenu
-  name: Toggle Suit Piece
-  description: Remember to equip the important pieces of your suit before going into action.
+  name: Открыть меню МОДа
+  description: Открыть меню МОДа.
   components:
   - type: Action
     priority: -6
-    itemIconStyle: BigItem
+    itemIconStyle: BigAction
     useDelay: 1 # equip noise spam.
     icon:
-      sprite: ADT/Interface/Actions/mod_menu.rsi
-      state: icon
+      sprite: ADT/Interface/Actions/mod_actions.rsi
+      state: panel
   - type: InstantAction
     event: !type:ToggleModMenuActionEvent
 

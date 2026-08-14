@@ -1,186 +1,264 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
-  id: BaseModsuitCorePart
-  parent: BaseMechPart
+  id: ADTPartModsuit
+  parent: BaseItem
+  name: MOD part
+  description: A part used in MOD construction.
   abstract: true
   components:
   - type: Sprite
-    drawdepth: Items
-    noRot: false
     sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
-
-- type: entity
-  id: BaseModsuitCorePartItem
-  parent: BaseModsuitCorePart
-  abstract: true
-  components:
+  - type: Icon
+    sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
   - type: Item
+    size: Normal
+  - type: ContainerContainer
+    containers:
+      bodypart: !type:Container
+        ents: []
+  #- type: GuideHelp TODO: Guide
 
 - type: entity
-  parent: BaseModsuitCorePartItem
-  id: ADTModsuitHelmet
-  name: MOD helmet
-  components:
-  - type: Sprite
-    state: helmet
-  - type: Tag
-    tags:
-    - ADTModsuitHelmet
-
-- type: entity
-  parent: BaseModsuitCorePartItem
-  id: ADTModsuitGauntlets
-  name: MOD gauntlets
-  components:
-  - type: Sprite
-    state: gauntlets
-  - type: Tag
-    tags:
-    - ADTModsuitGauntlets
-
-- type: entity
-  parent: BaseModsuitCorePartItem
-  id: ADTModsuitCoreEnergy
-  name: MOD energy core
-  components:
-  - type: Sprite
-    state: mod-core-standard
-  - type: Tag
-    tags:
-    - ADTModsuitCoreEnergy
-
-- type: entity
-  parent: BaseModsuitCorePartItem
   id: ADTModsuitChestplate
+  parent: ADTPartModsuit
   name: MOD chestplate
   components:
   - type: Sprite
     state: chestplate
+  - type: Icon
+    state: chestplate
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 62
   - type: Tag
     tags:
+    - ADTModsuitPart
     - ADTModsuitChestplate
 
 - type: entity
-  parent: BaseModsuitCorePartItem
   id: ADTModsuitBoots
+  parent: ADTPartModsuit
   name: MOD boots
   components:
   - type: Sprite
     state: boots
+  - type: Icon
+    state: boots
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 62
   - type: Tag
     tags:
+    - ADTModsuitPart
     - ADTModsuitBoots
 
 - type: entity
-  parent: BaseModsuitCorePartItem
-  id: ADTModsuitPlateAtmospheric
-  name: atmospheric MOD plate
+  id: ADTModsuitHelmet
+  parent: ADTPartModsuit
+  name: MOD helmet
   components:
   - type: Sprite
-    state: atmospheric
+    state: helmet
+  - type: Icon
+    state: helmet
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 62
   - type: Tag
     tags:
-    - ADTModsuitPlateAtmospheric
+    - ADTModsuitPart
+    - ADTModsuitHelmet
 
 - type: entity
-  parent: BaseModsuitCorePartItem
-  id: ADTModsuitPlateCosmohonk
-  name: cosmohonk MOD plate
+  id: ADTModsuitGauntlets
+  parent: ADTPartModsuit
+  name: MOD gauntlets
   components:
   - type: Sprite
-    state: cosmohonk
+    state: gauntlets
+  - type: Icon
+    state: gauntlets
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 62
   - type: Tag
     tags:
-    - ADTModsuitPlateCosmohonk
+    - ADTModsuitPart
+    - ADTModsuitGauntlets
 
 - type: entity
-  parent: BaseModsuitCorePartItem
-  id: ADTModsuitPlateEngineering
-  name: engineering MOD plate
+  id: ADTModsuitShell
+  parent: ADTPartModsuit
+  name: MOD shell
   components:
+  - type: Appearance
   - type: Sprite
-    state: engineering
-  - type: Tag
-    tags:
-    - ADTModsuitPlateEngineering
+    state: shell
+  - type: Icon
+    state: shell
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 125
+      Plasma: 62
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:Container
+      core-container: !type:Container
+  - type: Construction
+    graph: ADTModsuitConstruction
+    node: start
+    defaultTarget: standard
+    containers:
+    - cell_slot
+    - mod-core
+  - type: GenericVisualizer
+    visuals:
+      enum.ConstructionVisuals.Key:
+        enum.ConstructionVisuals.Layer:
+          shell-core: { state: shell-core }
+          shell-core-secured: { state: shell-core-secured }
+          shell-helmet: { state: shell-helmet }
+          shell-chestplate: { state: shell-chestplate }
+          shell-gauntlets: { state: shell-gauntlets }
+          shell-boots: { state: shell-boots }
+          shell-secured: { state: shell-secured }
 
 - type: entity
-  parent: BaseModsuitCorePartItem
-  id: ADTModsuitPlateMedical
-  name: medical MOD plate
-  components:
-  - type: Sprite
-    state: medical
-  - type: Tag
-    tags:
-    - ADTModsuitPlateMedical
-
-- type: entity
-  parent: BaseModsuitCorePartItem
-  id: ADTModsuitPlateSecurity
-  name: security MOD plate
-  components:
-  - type: Sprite
-    state: security
-  - type: Tag
-    tags:
-    - ADTModsuitPlateSecurity
-
-- type: entity
-  parent: BaseModsuitCorePartItem
   id: ADTModsuitPlateStandard
-  name: standart  MOD plate
+  parent: ADTPartModsuit
+  name: MOD standard external plating
+  description: A part used in MOD construction.
   components:
   - type: Sprite
     state: standard
+  - type: Icon
+    state: standard
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
   - type: Tag
     tags:
-    - ADTModsuitPlateStandard
+    - ADTModsuitPart
+    - ADTModsuitPlatingExternalStandard
 
 - type: entity
-  parent: BaseModsuitCorePartItem
-  id: ADTModsuitPlateCience
-  name: science MOD plate
-  components:
-  - type: Sprite
-    state: science
-  - type: Tag
-    tags:
-    - ADTModsuitPlateCience
-
-- type: entity
-  parent: BaseModsuitCorePartItem
-  id: ADTModsuitPlateMining
-  name: mining MOD plate
+  id: ADTModsuitPlateEngineering
+  parent: ADTPartModsuit
+  name: MOD standard engineer 'sapper' plating
+  description: A part used in MOD construction.
   components:
   - type: Sprite
     state: engineering
+  - type: Icon
+    state: engineering
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
   - type: Tag
     tags:
-    - ADTModsuitPlateMining
+    - ADTModsuitPart
+    - ADTModsuitPlatingExternalEngineering
 
 - type: entity
-  id: ADTModsuitAssembly
-  parent: BaseModsuitCorePart
-  name: MOD core assembly
+  id: ADTModsuitPlateSecurity
+  parent: ADTPartModsuit
+  name: MOD standard security 'soldat' plating
+  description: A part used in MOD construction.
   components:
-  - type: Appearance
-  - type: MechAssemblyVisuals
-    statePrefix: modcore
   - type: Sprite
-    noRot: true
-    state: modcore0
-  - type: Construction
-    graph: ADTModsuitAssembled
-    node: start
-    defaultTarget: adtmodsuitassembled
-  - type: Item
-- type: entity
-  id: ADTModsuitAssembled
-  parent: BaseModsuitCorePartItem
-  name: MOD core
-  components:
+    state: security
+  - type: Icon
+    state: security
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
   - type: Tag
     tags:
-    - ADTModsuitAssembledPart
+    - ADTModsuitPart
+    - ADTModsuitPlatingExternalSecurity
+
+- type: entity
+  id: ADTModsuitPlateAtmospheric
+  parent: ADTPartModsuit
+  name: MOD standard atmospheric technician's 'aeolus' plating
+  description: A part used in MOD construction.
+  components:
   - type: Sprite
-    state: modcore8
+    state: atmospheric
+  - type: Icon
+    state: atmospheric
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
+  - type: Tag
+    tags:
+    - ADTModsuitPart
+    - ADTModsuitPlatingExternalAtmospheric
+
+- type: entity
+  id: ADTModsuitPlateMining
+  parent: ADTPartModsuit
+  name: MOD mining plating
+  description: A part used in MOD construction.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: Icon
+    state: engineering
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
+  - type: Tag
+    tags:
+    - ADTModsuitPart
+    - ADTModsuitPlatingExternalMining
+
+- type: entity
+  id: ADTModsuitPlateScience
+  parent: ADTPartModsuit
+  name: MOD science plating
+  description: A part used in MOD construction.
+  components:
+  - type: Sprite
+    state: science
+  - type: Icon
+    state: science
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
+  - type: Tag
+    tags:
+    - ADTModsuitPart
+    - ADTModsuitPlatingExternalScience
+
+- type: entity
+  id: ADTModsuitCoreStandard
+  parent: ADTPartModsuit
+  name: MOD standard core
+  description: Growing in the most lush, fertile areas of the planet Sprout, there is a crystal known as the Heartbloom. These rare, organic piezoelectric crystals are of incredible cultural significance to the artist castes of the Ethereals, owing to their appearance; which is exactly similar to that of an Ethereal's heart. Which one you have in your suit is unclear, but either way, it's been repurposed to be an internal power source for a Modular Outerwear Device.
+  components:
+  - type: Sprite
+    state: mod-core-standard
+  - type: Icon
+    state: mod-core-standard
+  - type: Tag
+    tags:
+    - ADTModsuitPart
+    - ADTModsuitCore
+  - type: PhysicalComposition
+    materialComposition:
+      Plasma: 50
+      Glass: 25

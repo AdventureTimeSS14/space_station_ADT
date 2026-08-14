@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Coordinates;
@@ -66,10 +67,8 @@ public sealed partial class ModSuitSystem
         StartupClothing(ent);
         StartupModules(ent);
 
-        if (_actionContainer.EnsureAction(ent, ref ent.Comp.ActionEntity, out var action, ent.Comp.Action))
-            _actionsSystem.SetEntityIcon(ent.Comp.ActionEntity.Value, action.EntityIcon);
-
-        _actionContainer.EnsureAction(ent, ref ent.Comp.ActionMenuEntity, ent.Comp.MenuAction);
+        _actionContainer.EnsureAction(ent, ref ent.Comp.ActionEntity, out var action, ent.Comp.Action);
+        _actionContainer.EnsureAction(ent, ref ent.Comp.ActionMenuEntity, out var menuAction, ent.Comp.MenuAction);
 
         Dirty(ent);
 
@@ -100,12 +99,7 @@ public sealed partial class ModSuitSystem
 
         args.Handled = true;
 
-        // If modsuit have only one attached clothing (like helmets) action will just toggle it
-        // If it have more attached clothings, it'll open radial menu
-        if (ent.Comp.ClothingUids.Count == 1)
-            TogglePart(ent, args.Performer, GetEntity(ent.Comp.ClothingUids.First().Key));
-        else
-            _ui.TryToggleUi(ent.Owner, ModSuitUiKey.Key, args.Performer);
+        _ui.TryToggleUi(ent.Owner, ModSuitUiKey.Key, args.Performer);
     }
 
     /// <summary>
