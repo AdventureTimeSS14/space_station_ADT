@@ -213,6 +213,20 @@ public abstract class SharedLanguageSystem : EntitySystem
         UpdateUi(uid, comp);
     }
 
+    public void RemoveLanguage(EntityUid uid, string lang, LanguageSpeakerComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp, false))
+            return;
+
+        if (!comp.Languages.Remove(lang))
+            return;
+
+        if (comp.CurrentLanguage == lang)
+            SelectDefaultLanguage(uid, comp);
+        else
+            UpdateUi(uid, comp);
+    }
+
     public void SortLanguages(EntityUid uid, LanguageSpeakerComponent? comp = null)
     {
         if (!Resolve(uid, ref comp, false))
