@@ -11,18 +11,10 @@ construction-graph-tag-reinforced-uranium-glass-shard = осколок зака�
 
 construction-graph-tag-mod-core = ядро МОДа
 construction-graph-tag-mod-helmet = шлем МОДа
-construction-graph-tag-mod-gauntles = перчатки МОДа
-construction-graph-tag-mod-core-energy = ядро питания МОДа
+construction-graph-tag-mod-gauntlets = перчатки МОДа
 construction-graph-tag-mod-chestplate = нагрудник МОДа
 construction-graph-tag-mod-boots = ботинки МОДа
-construction-graph-tag-atmospheric-mod-plate = покрытие атмосферного МОДа
-construction-graph-tag-cosmohonk-mod-plate = покрытие МОДа "космохонк"
-construction-graph-tag-engineering-mod-plate = покрытие инженерного МОДа
-construction-graph-tag-medical-mod-plate = покрытие медицинского МОДа
-construction-graph-tag-security-mod-plate = покрытие охранного МОДа
-construction-graph-tag-mining-mod-plate = покрытие шахтёрского МОДа
-construction-graph-tag-science-mod-plate = научное покрытие МОДа
-construction-graph-tag-standart-mod-place = стандартное покрытие МОДа
+construction-graph-tag-mod-plating = любое покрытие МОДа
 
 # Скафандры
 
