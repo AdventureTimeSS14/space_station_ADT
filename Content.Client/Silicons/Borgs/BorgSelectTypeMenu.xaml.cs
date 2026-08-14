@@ -23,8 +23,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 
     private BorgTypePrototype? _selectedBorgType;
 
-    public event Action<ProtoId<BorgTypePrototype>>? ConfirmedBorgType;
-    public event Action<ProtoId<BorgSubtypePrototype>>? ConfirmedBorgSubtype;
+    public event Action<BorgTypePrototype, BorgSubtypePrototype?>? ConfirmedBorgType;
 
     private static readonly List<ProtoId<GuideEntryPrototype>> GuidebookEntries = new() { "Cyborgs", "Robotics" };
 
@@ -80,13 +79,8 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         if (_selectedBorgType == null)
             return;
 
-        ConfirmedBorgType?.Invoke(_selectedBorgType);
-
         //Start ADT Tweak
-        if (ChassisSpriteSelection.SelectedBorgSubtype == null)
-            return;
-
-        ConfirmedBorgSubtype?.Invoke(ChassisSpriteSelection.SelectedBorgSubtype);
+        ConfirmedBorgType?.Invoke(_selectedBorgType, ChassisSpriteSelection.SelectedBorgSubtype);
         //End ADT Tweak
     }
 

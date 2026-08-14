@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.ADT.Silicons.Borgs.Components;
 using Content.Shared.Corvax.TTS; // Corvax-TTS
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
@@ -71,13 +72,18 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
 
     private void SelectTypeMessageHandler(Entity<BorgSwitchableTypeComponent> ent, ref BorgSelectTypeMessage args)
     {
-        if (ent.Comp.SelectedBorgType != null)
-            return;
+        if (ent.Comp.SelectedBorgType == null)
+        {
+            if (!Prototypes.HasIndex(args.Prototype))
+                return;
 
-        if (!Prototypes.HasIndex(args.Prototype))
-            return;
+            SelectBorgModule(ent, args.Prototype);
+        }
 
-        SelectBorgModule(ent, args.Prototype);
+        // ADT-Tweak-Start: подтип применяется тем же сообщением
+        if (args.Subtype is { } subtype && HasComp<BorgSwitchableSubtypeComponent>(ent.Owner))
+            RaiseLocalEvent(ent.Owner, new BorgSelectSubtypeMessage(subtype));
+        // ADT-Tweak-End
     }
 
     //
