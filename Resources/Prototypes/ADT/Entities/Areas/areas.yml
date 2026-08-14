@@ -1,0 +1,30 @@
+- type: entity
+  abstract: true
+  id: AreaBase
+  name: area
+  suffix: Area
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Area
+  components:
+  - type: Transform
+    anchored: true
+  - type: Marker
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Area
+  - type: PlacementReplacement
+    key: areas
+
+- type: entity
+  parent: AreaBase
+  id: AreaXenobio
+  name: xenobiology area
+  components:
+  - type: Sprite
+    sprite: ADT/Markers/Areas/station.rsi
+    state: xenobio
+  - type: StationAiVision
+    range: 2
+    visionNetwork: AreaXenobio
