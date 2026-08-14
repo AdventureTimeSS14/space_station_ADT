@@ -1,0 +1,12 @@
+adt-phone-window-title = Телефон
+adt-phone-search = Поиск
+adt-phone-no-phones = Нет других телефонов
+adt-phone-call-busy = Занято
+adt-phone-call-dnd = Абонент не принимает звонки
+adt-phone-calling = Идут гудки...
+adt-phone-ringing = Телефон звонит!
+adt-phone-hung-up = Вызов завершён
+adt-phone-answer = Ответить
+adt-phone-hang-up = Сбросить
+adt-phone-dnd-on = Не беспокоить: вкл
+adt-phone-dnd-off = Не беспокоить: выкл

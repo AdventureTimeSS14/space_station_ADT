@@ -1,0 +1,43 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: ADTBasePhone
+  name: телефон
+  description: Портативный телефон для звонков другим телефонам. Говорите, держа трубку рядом с собой.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/phone.rsi
+    state: rpb_phone
+  - type: Item
+    size: Small
+  - type: Speech
+  - type: Telephone
+    ringTone: /Audio/ADT/Phone/telephone_ring.ogg
+    listeningRange: 1.5
+    speakerVolume: Speak
+    # Lavaland is a separate map, so phones use unlimited range to reach it.
+    transmissionRange: Unlimited
+    compatibleRanges:
+    - Unlimited
+  - type: ADTPhone
+  - type: ActivatableUI
+    key: enum.ADTPhoneUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: true
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.ADTPhoneUiKey.Key:
+        type: ADTPhoneBui
+
+- type: entity
+  parent: ADTBasePhone
+  id: ADTPhoneQM
+  name: телефон квартирмейстера
+  description: Портативный телефон для связи с утилизаторами. Лежит в шкафу квартирмейстера.
+
+- type: entity
+  parent: ADTBasePhone
+  id: ADTPhoneSalvage
+  name: телефон утилизатора
+  description: Портативный телефон для связи с квартирмейстером. Лежит в шкафчике утилизатора.

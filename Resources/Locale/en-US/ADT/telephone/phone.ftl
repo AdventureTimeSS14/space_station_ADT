@@ -1,0 +1,12 @@
+adt-phone-window-title = Telephone
+adt-phone-search = Search
+adt-phone-no-phones = No other phones
+adt-phone-call-busy = Busy
+adt-phone-call-dnd = The subscriber is not accepting calls
+adt-phone-calling = Dialing...
+adt-phone-ringing = The phone is ringing!
+adt-phone-hung-up = Call ended
+adt-phone-answer = Answer
+adt-phone-hang-up = Hang up
+adt-phone-dnd-on = Do not disturb: on
+adt-phone-dnd-off = Do not disturb: off
