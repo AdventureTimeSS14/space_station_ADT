@@ -47,11 +47,9 @@ public sealed partial class SmokingCoughSystem : EntitySystem
         var query = EntityQueryEnumerator<BurningComponent, SmokableComponent>();
         while (query.MoveNext(out var uid, out _, out var smokable))
         {
-            // Вейпы не кашляют
             if (HasComp<VapeComponent>(uid))
                 continue;
 
-            // Во рту живого владельца с кровью (как SmokingSystem)
             if (!_container.TryGetContainingContainer((uid, null, null), out var containerManager) ||
                 !_inventory.TryGetSlotEntity(containerManager.Owner, "mask", out var inMaskSlotUid) ||
                 inMaskSlotUid != uid ||
@@ -61,7 +59,6 @@ public sealed partial class SmokingCoughSystem : EntitySystem
                 continue;
             }
 
-            // В растворе ещё есть чем затянуться
             if (!_solution.TryGetSolution(uid, smokable.Solution, out _, out var solution) ||
                 solution.Volume == FixedPoint2.Zero)
             {
@@ -71,7 +68,6 @@ public sealed partial class SmokingCoughSystem : EntitySystem
             var smoker = containerManager.Owner;
             seen.Add(smoker);
 
-            // Компонент выдаётся, когда игрок начинает курить, снимается, когда заканчивает
             var cough = EnsureComp<ADTSmokingCoughComponent>(smoker);
             if (cough.NextCough == default)
                 cough.NextCough = _timing.CurTime + CoughInterval;
@@ -83,7 +79,6 @@ public sealed partial class SmokingCoughSystem : EntitySystem
             cough.NextCough = _timing.CurTime + CoughInterval;
         }
 
-        // Игроки, которые больше не курят: компонент снимается, отсчёт начинается заново
         var coughQuery = EntityQueryEnumerator<ADTSmokingCoughComponent>();
         while (coughQuery.MoveNext(out var uid, out _))
         {
