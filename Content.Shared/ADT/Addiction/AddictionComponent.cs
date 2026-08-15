@@ -111,7 +111,7 @@ public sealed partial class AddictionComponent : Component
     public EntProtoId WeaknessEffect = "StatusEffectWithdrawalWeakness";
 
     /// <summary>
-    /// Серый фильтр ломки добавлен нами (не трайтом дальтонизма).
+    /// Серый фильтр ломки
     /// </summary>
     public bool WithdrawalMonochromacyApplied;
 
