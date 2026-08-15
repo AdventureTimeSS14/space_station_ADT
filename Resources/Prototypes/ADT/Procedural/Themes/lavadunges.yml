@@ -303,15 +303,22 @@
   - LavaDungeon
 
 - type: entity
-  id: LavaDungeonRoomMarker
+  id: ADTBaseRoomMarker
   parent: MarkerBase
-  name: LavaDungeon interior marker
+  name: ADT room spawner
+  abstract: true
   components:
   - type: Sprite
     layers:
       - state: red
       - sprite: Mobs/Aliens/elemental.rsi
         state: alive
+
+- type: entity
+  id: LavaDungeonRoomMarker
+  parent: ADTBaseRoomMarker
+  name: LavaDungeon interior marker
+  components:
   - type: ADTRoomFill
     clearExisting: true
     roomWhitelist:
@@ -322,10 +329,10 @@
 
 - type: entity
   id: BloodMinerDungeMarker
-  parent: BaseRoomMarker
+  parent: ADTBaseRoomMarker
   name: blood miner dunge spawer
   components:
-  - type: RoomFill
+  - type: ADTRoomFill
     clearExisting: true
     roomWhitelist:
       tags:
@@ -333,10 +340,10 @@
 
 - type: entity
   id: DrakeDungeMarker
-  parent: BaseRoomMarker
+  parent: ADTBaseRoomMarker
   name: drake lair spawner
   components:
-  - type: RoomFill
+  - type: ADTRoomFill
     clearExisting: true
     roomWhitelist:
       tags:
