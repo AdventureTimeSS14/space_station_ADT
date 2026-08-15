@@ -84,9 +84,11 @@ public sealed partial class ConstructionSystem
             if (requirements != null && !requirements.ContainsKey(part.Part))
                 continue;
 
+            if (EntityManager.IsQueuedForDeletion(partUid))
+                continue;
+
             var quantity = TryComp(partUid, out StackComponent? stack) ? stack.Count : 1;
             storage.Parts.Add(new MachinePartSlot { Part = part.Part, Tier = part.Tier, Quantity = quantity });
-            _container.RemoveEntity(uid, partUid);
             QueueDel(partUid);
         }
     }
