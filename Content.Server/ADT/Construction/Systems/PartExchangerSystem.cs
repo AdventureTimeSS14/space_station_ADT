@@ -302,12 +302,14 @@ public sealed class PartExchangerSystem : EntitySystem
                 }
 
                 var oldPrototype = partProto.GetTierPrototype(currentSlot.Tier);
+                var spawnedOldParts = new List<EntityUid>();
                 for (var i = 0; i < needed; i++)
                 {
                     var spawned = Spawn(oldPrototype, Transform(target).Coordinates);
+                    spawnedOldParts.Add(spawned);
+
                     if (!_storage.Insert(uid, spawned, out _, playSound: false))
                     {
-                        QueueDel(spawned);
                         reservationFailed = true;
                         break;
                     }
@@ -315,6 +317,9 @@ public sealed class PartExchangerSystem : EntitySystem
 
                 if (reservationFailed)
                 {
+                    foreach (var spawned in spawnedOldParts)
+                        QueueDel(spawned);
+
                     RollbackReserved();
                     continue;
                 }
