@@ -11,7 +11,6 @@ using Content.Shared.Popups;
 using Content.Shared.Speech;
 using Content.Shared.Telephone;
 using Content.Shared.UserInterface;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
@@ -19,7 +18,7 @@ using Robust.Shared.Timing;
 namespace Content.Server.ADT.Telephone;
 
 /// <summary>
-/// Human interface for the handheld telephones: call list, answer, hang up and DND.
+/// Human interface for the handheld telephones: call list, answer, hang up and do-not-disturb.
 /// </summary>
 public sealed class ADTPhoneSystem : EntitySystem
 {
@@ -33,11 +32,6 @@ public sealed class ADTPhoneSystem : EntitySystem
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private static readonly SoundSpecifier RingOutgoingSound = new SoundPathSpecifier("/Audio/ADT/Phone/ring_outgoing.ogg");
-    private static readonly SoundSpecifier BusySound = new SoundPathSpecifier("/Audio/ADT/Phone/phone_busy.ogg");
-    private static readonly SoundSpecifier PickupSound = new SoundPathSpecifier("/Audio/ADT/Phone/remote_pickup.ogg");
-    private static readonly SoundSpecifier HangUpSound = new SoundPathSpecifier("/Audio/ADT/Phone/remote_hangup.ogg");
-
     public override void Initialize()
     {
         SubscribeLocalEvent<ADTPhoneComponent, UseInHandEvent>(OnUseInHand, before: [typeof(ActivatableUISystem)]);
@@ -47,7 +41,7 @@ public sealed class ADTPhoneSystem : EntitySystem
         Subs.BuiEvents<ADTPhoneComponent>(ADTPhoneUiKey.Key, subs =>
         {
             subs.Event<ADTPhoneCallMsg>(OnCallMsg);
-            subs.Event<ADTPhoneDndMsg>(OnDndMsg);
+            subs.Event<ADTPhoneDoNotDisturbMsg>(OnDoNotDisturbMsg);
             subs.Event<ADTPhoneAnswerMsg>(OnAnswerMsg);
             subs.Event<ADTPhoneHangUpMsg>(OnHangUpMsg);
         });
@@ -111,16 +105,16 @@ public sealed class ADTPhoneSystem : EntitySystem
 
         ent.Comp.LastCall = time;
 
-        if (targetComp.Dnd)
+        if (targetComp.DoNotDisturb)
         {
-            _audio.PlayPvs(BusySound, ent.Owner);
-            _popup.PopupEntity(Loc.GetString("adt-phone-call-dnd"), ent.Owner, args.Actor, PopupType.MediumCaution);
+            _audio.PlayPvs(ent.Comp.BusySound, ent.Owner);
+            _popup.PopupEntity(Loc.GetString("adt-phone-call-do-not-disturb"), ent.Owner, args.Actor, PopupType.MediumCaution);
             return;
         }
 
         if (_telephone.IsTelephoneEngaged((target, targetPhone)))
         {
-            _audio.PlayPvs(BusySound, ent.Owner);
+            _audio.PlayPvs(ent.Comp.BusySound, ent.Owner);
             _popup.PopupEntity(Loc.GetString("adt-phone-call-busy"), ent.Owner, args.Actor, PopupType.MediumCaution);
             return;
         }
@@ -130,7 +124,7 @@ public sealed class ADTPhoneSystem : EntitySystem
         // The call can still fail if the receiver changed state between the checks above.
         if (phone.CurrentState == TelephoneState.Idle)
         {
-            _audio.PlayPvs(BusySound, ent.Owner);
+            _audio.PlayPvs(ent.Comp.BusySound, ent.Owner);
             _popup.PopupEntity(Loc.GetString("adt-phone-call-busy"), ent.Owner, args.Actor, PopupType.MediumCaution);
             return;
         }
@@ -142,12 +136,12 @@ public sealed class ADTPhoneSystem : EntitySystem
         SendUIState(ent.Owner);
     }
 
-    private void OnDndMsg(Entity<ADTPhoneComponent> ent, ref ADTPhoneDndMsg args)
+    private void OnDoNotDisturbMsg(Entity<ADTPhoneComponent> ent, ref ADTPhoneDoNotDisturbMsg args)
     {
         if (!_hands.IsHolding(args.Actor, ent.Owner))
             return;
 
-        ent.Comp.Dnd = args.Dnd;
+        ent.Comp.DoNotDisturb = args.DoNotDisturb;
         SendUIState(ent.Owner);
     }
 
@@ -180,7 +174,7 @@ public sealed class ADTPhoneSystem : EntitySystem
         switch (args.NewState)
         {
             case TelephoneState.Calling:
-                _audio.PlayPvs(RingOutgoingSound, ent.Owner);
+                _audio.PlayPvs(ent.Comp.RingOutgoingSound, ent.Owner);
                 break;
 
             case TelephoneState.Ringing:
@@ -191,11 +185,11 @@ public sealed class ADTPhoneSystem : EntitySystem
                 break;
 
             case TelephoneState.InCall:
-                _audio.PlayPvs(PickupSound, ent.Owner);
+                _audio.PlayPvs(ent.Comp.PickupSound, ent.Owner);
                 break;
 
             case TelephoneState.EndingCall:
-                _audio.PlayPvs(HangUpSound, ent.Owner);
+                _audio.PlayPvs(ent.Comp.HangUpSound, ent.Owner);
                 break;
         }
 
@@ -244,7 +238,7 @@ public sealed class ADTPhoneSystem : EntitySystem
 
         var state = new ADTPhoneBuiState(
             phones,
-            Comp<ADTPhoneComponent>(phone).Dnd,
+            Comp<ADTPhoneComponent>(phone).DoNotDisturb,
             _telephone.IsTelephoneEngaged((phone, phoneComp)),
             phoneComp.CurrentState == TelephoneState.Ringing);
 

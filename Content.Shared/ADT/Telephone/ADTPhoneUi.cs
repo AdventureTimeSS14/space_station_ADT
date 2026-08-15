@@ -12,20 +12,20 @@ public enum ADTPhoneUiKey : byte
 }
 
 /// <summary>
-/// Telephone window state: list of other phones, DND and call status.
+/// Telephone window state: list of other phones, do-not-disturb and call status.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class ADTPhoneBuiState : BoundUserInterfaceState
 {
     public readonly List<ADTPhoneInfo> Phones;
-    public readonly bool Dnd;
+    public readonly bool DoNotDisturb;
     public readonly bool Engaged;
     public readonly bool Ringing;
 
-    public ADTPhoneBuiState(List<ADTPhoneInfo> phones, bool dnd, bool engaged, bool ringing)
+    public ADTPhoneBuiState(List<ADTPhoneInfo> phones, bool doNotDisturb, bool engaged, bool ringing)
     {
         Phones = phones;
-        Dnd = dnd;
+        DoNotDisturb = doNotDisturb;
         Engaged = engaged;
         Ringing = ringing;
     }
@@ -55,13 +55,13 @@ public sealed class ADTPhoneCallMsg : BoundUserInterfaceMessage
 /// Toggle the do-not-disturb mode.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed class ADTPhoneDndMsg : BoundUserInterfaceMessage
+public sealed class ADTPhoneDoNotDisturbMsg : BoundUserInterfaceMessage
 {
-    public readonly bool Dnd;
+    public readonly bool DoNotDisturb;
 
-    public ADTPhoneDndMsg(bool dnd)
+    public ADTPhoneDoNotDisturbMsg(bool doNotDisturb)
     {
-        Dnd = dnd;
+        DoNotDisturb = doNotDisturb;
     }
 }
 

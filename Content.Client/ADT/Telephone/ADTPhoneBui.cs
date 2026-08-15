@@ -10,7 +10,7 @@ namespace Content.Client.ADT.Telephone;
 public sealed class ADTPhoneBui : BoundUserInterface
 {
     private ADTPhoneWindow? _window;
-    private bool _dnd;
+    private bool _doNotDisturb;
 
     public ADTPhoneBui(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -31,7 +31,7 @@ public sealed class ADTPhoneBui : BoundUserInterface
         _window.SearchBar.OnTextChanged += OnSearchChanged;
         _window.AnswerButton.OnPressed += _ => SendMessage(new ADTPhoneAnswerMsg());
         _window.HangUpButton.OnPressed += _ => SendMessage(new ADTPhoneHangUpMsg());
-        _window.DndButton.OnPressed += _ => SendMessage(new ADTPhoneDndMsg(!_dnd));
+        _window.DoNotDisturbButton.OnPressed += _ => SendMessage(new ADTPhoneDoNotDisturbMsg(!_doNotDisturb));
 
         Refresh();
     }
@@ -64,7 +64,7 @@ public sealed class ADTPhoneBui : BoundUserInterface
         if (_window is not { IsOpen: true } || State is not ADTPhoneBuiState state)
             return;
 
-        _dnd = state.Dnd;
+        _doNotDisturb = state.DoNotDisturb;
 
         _window.PhonesList.DisposeAllChildren();
 
@@ -95,6 +95,6 @@ public sealed class ADTPhoneBui : BoundUserInterface
 
         _window.AnswerButton.Visible = state.Ringing;
         _window.HangUpButton.Visible = state.Engaged;
-        _window.DndButton.Text = Loc.GetString(state.Dnd ? "adt-phone-dnd-on" : "adt-phone-dnd-off");
+        _window.DoNotDisturbButton.Text = Loc.GetString(state.DoNotDisturb ? "adt-phone-do-not-disturb-on" : "adt-phone-do-not-disturb-off");
     }
 }

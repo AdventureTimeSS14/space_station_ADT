@@ -29,9 +29,9 @@
                     HorizontalExpand="True"
                     StyleClasses="OpenBoth"/>
         </BoxContainer>
-        <Button Name="DndButton"
+        <Button Name="DoNotDisturbButton"
                 Access="Public"
-                Text="{Loc 'adt-phone-dnd-off'}"
+                Text="{Loc 'adt-phone-do-not-disturb-off'}"
                 HorizontalExpand="True"
                 Margin="0 4 0 0"/>
     </BoxContainer>
