@@ -293,13 +293,17 @@
   parent: SuitStorageBase
   suffix: Research Director
   components:
+  #ADT-Tweak-Start
+  # - type: EntityTableContainerFill
+  #   containers:
+  #    entity_storage: !type:NestedSelector
+  #     tableId: FillResearchDirectorHardsuit
   - type: EntityTableContainerFill
     containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillResearchDirectorHardsuit
-  - type: AccessReader
-    access: [ [ "ResearchDirector" ] ]
-  #ADT-Tweak-Start
+      entity_storage: !type:AllSelector
+        children:
+        - id: OxygenTankFilled
+        - id: ClothingMaskBreath
   - type: UserInterface
     interfaces:
       enum.SuitStorageUiKey.Key:
@@ -309,6 +313,8 @@
     - ADTClothingModsuitBackMinerva
     - ClothingOuterHardsuitRd
   #ADT-Tweak-End
+  - type: AccessReader
+    access: [ [ "ResearchDirector" ] ]
 
 #HOS's hardsuit
 - type: entity
