@@ -459,3 +459,106 @@
     prototype: ADTAshFloraStemShroom4
     minTime: 300
     maxTime: 600
+
+- type: entity
+  abstract: true
+  parent: ADTBaseAshFlora
+  id: ADTAshFloraFireblossom
+  name: fire blossoms
+  description: Bright red blossoms that give off a dry, scorching heat.
+  components:
+  - type: ADTAshFlora
+    product: ADTFoodFireblossom
+    minAmount: 1
+    maxAmount: 3
+    harvestTime: 2
+    popupLow: adt-ash-flora-fireblossom-low
+    popupMedium: adt-ash-flora-fireblossom-medium
+    popupHigh: adt-ash-flora-fireblossom-high
+
+- type: entity
+  abstract: true
+  parent: ADTBaseAshFlora
+  id: ADTAshFloraFireblossomHarvested
+  name: fire blossoms
+  description: A few picked stalks. New blossoms are already swelling on them.
+
+- type: entity
+  parent: ADTAshFloraFireblossom
+  id: ADTAshFloraFireblossom1
+  components:
+  - type: Sprite
+    state: fireblossom1
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraFireblossomHarvested1
+
+- type: entity
+  parent: ADTAshFloraFireblossomHarvested
+  id: ADTAshFloraFireblossomHarvested1
+  components:
+  - type: Sprite
+    state: fireblossom1p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraFireblossom1
+    minTime: 420
+    maxTime: 960
+
+- type: entity
+  parent: ADTAshFloraFireblossom
+  id: ADTAshFloraFireblossom2
+  components:
+  - type: Sprite
+    state: fireblossom2
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraFireblossomHarvested2
+
+- type: entity
+  parent: ADTAshFloraFireblossomHarvested
+  id: ADTAshFloraFireblossomHarvested2
+  components:
+  - type: Sprite
+    state: fireblossom2p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraFireblossom2
+    minTime: 420
+    maxTime: 960
+
+- type: entity
+  parent: ADTAshFloraFireblossom
+  id: ADTAshFloraFireblossom3
+  components:
+  - type: Sprite
+    state: fireblossom3
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraFireblossomHarvested3
+
+- type: entity
+  parent: ADTAshFloraFireblossomHarvested
+  id: ADTAshFloraFireblossomHarvested3
+  components:
+  - type: Sprite
+    state: fireblossom3p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraFireblossom3
+    minTime: 420
+    maxTime: 960
+
+- type: entity
+  parent: ADTAshFloraFireblossom
+  id: ADTAshFloraFireblossom4
+  components:
+  - type: Sprite
+    state: fireblossom4
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraFireblossomHarvested4
+
+- type: entity
+  parent: ADTAshFloraFireblossomHarvested
+  id: ADTAshFloraFireblossomHarvested4
+  components:
+  - type: Sprite
+    state: fireblossom4p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraFireblossom4
+    minTime: 420
+    maxTime: 960
