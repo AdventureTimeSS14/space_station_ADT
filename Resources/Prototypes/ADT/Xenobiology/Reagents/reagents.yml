@@ -87,9 +87,15 @@
         - !type:ReagentCondition
           reagent: XenobioJellyPurple
           min: 1
-          max: 1
         extractBonus: 1
-        maxExtractBonus: 1
+        maxExtractBonus: 3
+      - !type:AdjustReagent
+        reagent: XenobioJellyPurple
+        amount: -100.0
+        conditions:
+        - !type:ReagentCondition
+          reagent: XenobioJellyPurple
+          min: 1
 
 - type: reagent
   parent: BaseXenobioReagent
@@ -106,8 +112,14 @@
         - !type:ReagentCondition
           reagent: XenobioJellyBlue
           min: 1
-          max: 1
         chanceModifier: -0.25
+      - !type:AdjustReagent
+        reagent: XenobioJellyBlue
+        amount: -100.0
+        conditions:
+        - !type:ReagentCondition
+          reagent: XenobioJellyBlue
+          min: 1
 
 - type: reagent
   parent: BaseXenobioReagent
@@ -141,9 +153,15 @@
         - !type:ReagentCondition
           reagent: XenobioJellyCerulean
           min: 1
-          max: 1
         offspringBonus: 2
-        maxOffspringBonus: 2
+        maxOffspringBonus: 6
+      - !type:AdjustReagent
+        reagent: XenobioJellyCerulean
+        amount: -100.0
+        conditions:
+        - !type:ReagentCondition
+          reagent: XenobioJellyCerulean
+          min: 1
 
 - type: reagent
   parent: BaseXenobioReagent
@@ -160,8 +178,14 @@
         - !type:ReagentCondition
           reagent: XenobioJellyRed
           min: 1
-          max: 1
         chanceModifier: 0.25
+      - !type:AdjustReagent
+        reagent: XenobioJellyRed
+        amount: -100.0
+        conditions:
+        - !type:ReagentCondition
+          reagent: XenobioJellyRed
+          min: 1
 
 - type: reagent
   parent: BaseXenobioReagent

@@ -488,6 +488,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         AddictionKind.Nicotine => "nicotine",
         AddictionKind.Drug => "drug",
         AddictionKind.Medicine => "medicine",
+        AddictionKind.Omnizine => "omnizine",
         _ => "alcohol",
     };
     // ADT-Tweak-End
