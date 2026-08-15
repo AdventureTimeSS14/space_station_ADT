@@ -33,7 +33,7 @@ public sealed class GrantConnectBypassCommand : LocalizedCommands
         var duration = DefaultDuration;
         if (args.Length > 1)
         {
-            var argDuration = args[2];
+            var argDuration = args[1]; // ADT-Fix
             if (!uint.TryParse(argDuration, out var minutes))
             {
                 shell.WriteLine(Loc.GetString("cmd-grant_connect_bypass-invalid-duration", ("duration", argDuration)));
