@@ -33,6 +33,14 @@
       maxRadius: 220
       entries:
       - prototype: ADTRandomTendrilSpawner
+    # Мировая Кузня
+    - minBudget: 1
+      maxBudget: 1
+      minSpacing: 24
+      minDistanceFromCenter: 70
+      maxRadius: 210
+      entries:
+      - prototype: ADTWorldAnvilRoomMarker
     # /datum/spawn_pool/lavaland_fauna - rand(100, 150)
     - minBudget: 100
       maxBudget: 150
@@ -110,7 +118,7 @@
         weight: 10
       - weather: ADTLavalandWeatherNecropolisSurge
         message: necropolis-surge-alert
-        weight: 8
+        weight: 4
         eventOnEnd: ADTLavalandEventNecropolisSurge
     - weather: ADTLavalandWeatherAshfallLight
       message: ash-storm-clearing
@@ -141,6 +149,10 @@
   - ADTLavaVeinOreZinc
   - ADTLavaVeinOreLead
   - ADTLavaVeinOreGibtonit
+  - ADTLavaVeinOreMagmite
+  - ADTLavaVeinAncientRock
+  - ADTLavaVeinAncientRockUranium
+  - ADTLavaVeinAncientRockDiamond
 
 - type: planet
   id: GlacierSurface

@@ -1,0 +1,37 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise SS220 fork at icons/turf/floors/boss_floors.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "tile",
+            "directions": 4
+        },
+        {
+            "name": "block",
+            "directions": 4
+        },
+        {
+            "name": "block_cracked",
+            "directions": 8
+        },
+        {
+            "name": "surrounding_tile",
+            "directions": 4
+        },
+        {
+            "name": "center_cracked"
+        },
+        {
+            "name": "surrounding_cracked",
+            "directions": 8
+        },
+        {
+            "name": "slab"
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+- type: entity
+  parent: BaseItem
+  id: ADTMagmite
+  name: plasma magmite
+  description: A sample of plasma magmite crystallised deep under the volcano. It seems to weaken the further it gets from its birthplace.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/magmite.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: PointLight
+    radius: 1.5
+    energy: 1
+    color: "#ff7a1a"
+  - type: Tag
+    tags:
+    - ADTMagmite
+
+- type: entity
+  parent: BaseItem
+  id: ADTMagmiteParts
+  name: plasma magmite upgrade parts
+  description: Parts forged on the legendary world anvil. While they still glow, hit mining equipment with them to reforge it.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/magmite_parts.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: PointLight
+    radius: 2
+    energy: 1.5
+    color: "#ff7a1a"
+  - type: ADTMagmiteUpgrade
+  - type: TimedDespawn
+    lifetime: 50
+  - type: SpawnOnDespawn
+    prototype: ADTMagmitePartsInert
+
+- type: entity
+  parent: BaseItem
+  id: ADTMagmitePartsInert
+  name: inert plasma magmite upgrade parts
+  description: They seem to have lost their magmatic glow. Maybe the world anvil can bring it back.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/magmite_parts.rsi
+    state: inert
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - ADTMagmitePartsInert
