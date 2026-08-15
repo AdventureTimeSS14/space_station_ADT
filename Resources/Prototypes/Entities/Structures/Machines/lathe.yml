@@ -729,6 +729,22 @@
       whitelist:
         tags:
           - Ore
+          - MaterialBananium
+          - SheetSteel
+          - SheetUranium
+          - SheetRGlass
+          - SheetRPGlass
+          - SheetPGlass
+          - SheetGlass
+          - IngotGold
+          - IngotSilver
+          - MaterialDiamond
+          - SheetPlasma
+          - ADTMaterualBScrystal
+          - ADTSheetZinc
+          - ADTSheetCopper
+          - ADTSheetLead
+
     - type: Lathe
       idleState: icon
       runningState: building
