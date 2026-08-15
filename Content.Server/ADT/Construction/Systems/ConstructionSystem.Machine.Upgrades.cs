@@ -64,21 +64,6 @@ public sealed partial class ConstructionSystem
         return true;
     }
 
-    public void AddMachinePartSlot(MachinePartStorageComponent storage, ProtoId<MachinePartPrototype> partId, int tier, int quantity)
-    {
-        for (var i = 0; i < storage.Parts.Count; i++)
-        {
-            var slot = storage.Parts[i];
-            if (slot.Part != partId || slot.Tier != tier)
-                continue;
-
-            storage.Parts[i] = slot with { Quantity = slot.Quantity + quantity };
-            return;
-        }
-
-        storage.Parts.Add(new MachinePartSlot { Part = partId, Tier = tier, Quantity = quantity });
-    }
-
     private void AbsorbContainerParts(EntityUid uid, MachineComponent component, MachinePartStorageComponent storage)
     {
         if (component.PartContainer.ContainedEntities.Count == 0)
@@ -100,7 +85,8 @@ public sealed partial class ConstructionSystem
                 continue;
 
             var quantity = TryComp(partUid, out StackComponent? stack) ? stack.Count : 1;
-            AddMachinePartSlot(storage, part.Part, part.Tier, quantity);
+            storage.Parts.Add(new MachinePartSlot { Part = part.Part, Tier = part.Tier, Quantity = quantity });
+            _container.RemoveEntity(uid, partUid);
             QueueDel(partUid);
         }
     }

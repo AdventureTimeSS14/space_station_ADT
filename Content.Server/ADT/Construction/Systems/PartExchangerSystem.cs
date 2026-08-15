@@ -326,7 +326,7 @@ public sealed class PartExchangerSystem : EntitySystem
 
                 foreach (var (replacementUid, amount, state) in collected)
                 {
-                    _construction.AddMachinePartSlot(machineStorage, partType, state.Part.Tier, amount);
+                    machineStorage.Parts.Add(new MachinePartSlot { Part = partType, Tier = state.Part.Tier, Quantity = amount });
                     QueueDel(replacementUid);
                 }
 
