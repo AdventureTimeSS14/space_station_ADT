@@ -6,12 +6,8 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.ClockGreeting;
 
-/// <summary>
-/// Шлёт игроку приветствие с игровой датой и временем смены при первом спавне в раунд.
-/// </summary>
 public sealed class ClockGreetingSystem : EntitySystem
 {
-    // ADT-календарь: реальная дата +544 года, время МСК (как в принтере документов)
     private const int GameYearOffset = 544;
     private const int EarthTimeOffsetHours = 3;
 
@@ -33,7 +29,6 @@ public sealed class ClockGreetingSystem : EntitySystem
 
     private void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)
     {
-        // Только первый спавн в раунд, тихие (админские) спавны не трогаем
         if (ev.Silent || !_greeted.Add(ev.Player.UserId))
             return;
 
