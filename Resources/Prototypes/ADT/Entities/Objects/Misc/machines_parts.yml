@@ -1,0 +1,255 @@
+# Tier 1
+
+- type: entity
+  parent: BaseStockPart
+  id: CapacitorStockPart
+  name: basic capacitor
+  suffix: Tier 1
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: capacitor
+  - type: MachinePart
+    part: Capacitor
+    tier: 1
+
+- type: entity
+  parent: BaseStockPart
+  id: ScanningModuleStockPart
+  name: scanning module
+  suffix: Tier 1
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: scan_module
+  - type: MachinePart
+    part: ScanningModule
+    tier: 1
+
+- type: entity
+  parent: BaseStockPart
+  id: MicroServoStockPart
+  name: micro-servo
+  suffix: Tier 1
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: micro_servo
+  - type: MachinePart
+    part: Servo
+    tier: 1
+
+- type: entity
+  parent: BaseStockPart
+  id: MicroLaserStockPart
+  name: micro-laser
+  suffix: Tier 1
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: micro_laser
+  - type: MachinePart
+    part: MicroLaser
+    tier: 1
+
+- type: entity
+  parent: BaseStockPart
+  id: MatterBinStockPart
+  name: basic matter bin
+  suffix: Tier 1
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: matter_bin
+  - type: MachinePart
+    part: MatterBin
+    tier: 1
+
+# Tier 2
+
+- type: entity
+  parent: CapacitorStockPart
+  id: AdvancedCapacitorStockPart
+  name: advanced capacitor
+  suffix: Tier 2
+  components:
+  - type: Sprite
+    state: adv_capacitor
+  - type: MachinePart
+    part: Capacitor
+    tier: 2
+
+- type: entity
+  parent: ScanningModuleStockPart
+  id: AdvancedScanningModuleStockPart
+  name: advanced scanning module
+  suffix: Tier 2
+  components:
+  - type: Sprite
+    state: adv_scan_module
+  - type: MachinePart
+    part: ScanningModule
+    tier: 2
+
+- type: entity
+  parent: MicroServoStockPart
+  id: NanoServoStockPart
+  name: nano-servo
+  suffix: Tier 2
+  components:
+  - type: Sprite
+    state: nano_servo
+  - type: MachinePart
+    part: Servo
+    tier: 2
+
+- type: entity
+  parent: MicroLaserStockPart
+  id: HighPowerMicroLaserStockPart
+  name: high-power micro-laser
+  suffix: Tier 2
+  components:
+  - type: Sprite
+    state: high_micro_laser
+  - type: MachinePart
+    part: MicroLaser
+    tier: 2
+
+- type: entity
+  parent: MatterBinStockPart
+  id: AdvancedMatterBinStockPart
+  name: advanced matter bin
+  suffix: Tier 2
+  components:
+  - type: Sprite
+    state: advanced_matter_bin
+  - type: MachinePart
+    part: MatterBin
+    tier: 2
+
+# Tier 3
+
+- type: entity
+  parent: CapacitorStockPart
+  id: SuperCapacitorStockPart
+  name: super capacitor
+  suffix: Tier 3
+  components:
+  - type: Sprite
+    state: super_capacitor
+  - type: MachinePart
+    part: Capacitor
+    tier: 3
+
+- type: entity
+  parent: ScanningModuleStockPart
+  id: PhasicScanningModuleStockPart
+  name: phasic scanning module
+  suffix: Tier 3
+  components:
+  - type: Sprite
+    state: super_scan_module
+  - type: MachinePart
+    part: ScanningModule
+    tier: 3
+
+- type: entity
+  parent: MicroServoStockPart
+  id: PicoServoStockPart
+  name: pico-servo
+  suffix: Tier 3
+  components:
+  - type: Sprite
+    state: pico_servo
+  - type: MachinePart
+    part: Servo
+    tier: 3
+  - type: Tag #ADT-Tweak: для крафта мехов
+    tags:
+    - ADTPicoServoStockPart
+
+- type: entity
+  parent: MicroLaserStockPart
+  id: UltraHighPowerMicroLaserStockPart
+  name: ultra-high-power micro-laser
+  suffix: Tier 3
+  components:
+  - type: Sprite
+    state: ultra_high_micro_laser
+  - type: MachinePart
+    part: MicroLaser
+    tier: 3
+
+- type: entity
+  parent: MatterBinStockPart
+  id: SuperMatterBinStockPart
+  name: super matter bin
+  suffix: Tier 3
+  components:
+  - type: Sprite
+    state: super_matter_bin
+  - type: MachinePart
+    part: MatterBin
+    tier: 3
+
+# Tier 4
+
+- type: entity
+  parent: CapacitorStockPart
+  id: BluespaceCapacitorStockPart
+  name: bluespace capacitor
+  suffix: Tier 4
+  components:
+  - type: Sprite
+    state: quadratic_capacitor
+  - type: MachinePart
+    part: Capacitor
+    tier: 4
+
+- type: entity
+  parent: ScanningModuleStockPart
+  id: TriphasicScanningModuleStockPart
+  name: triphasic scanning module
+  suffix: Tier 4
+  components:
+  - type: Sprite
+    state: triphasic_scan_module
+  - type: MachinePart
+    part: ScanningModule
+    tier: 4
+
+- type: entity
+  parent: MicroServoStockPart
+  id: FemtoServoStockPart
+  name: femto-servo
+  suffix: Tier 4
+  components:
+  - type: Sprite
+    state: femto_servo
+  - type: MachinePart
+    part: Servo
+    tier: 4
+
+- type: entity
+  parent: MicroLaserStockPart
+  id: QuadUltraMicroLaserStockPart
+  name: quad-ultra micro-laser
+  suffix: Tier 4
+  components:
+  - type: Sprite
+    state: quadultra_micro_laser
+  - type: MachinePart
+    part: MicroLaser
+    tier: 4
+
+- type: entity
+  parent: MatterBinStockPart
+  id: BluespaceMatterBinStockPart
+  name: bluespace matter bin
+  suffix: Tier 4
+  components:
+  - type: Sprite
+    state: bluespace_matter_bin
+  - type: MachinePart
+    part: MatterBin
+    tier: 4

@@ -44,7 +44,6 @@ addiction-cured-medicine = Зависимость от лекарств отпу
 
 reagent-name-adt-detoxin = Детоксин
 reagent-desc-adt-detoxin = Снимает абстинентный синдром и постепенно лечит зависимость от алкоголя, никотина, наркотиков и лекарств. Бессилен против врождённых зависимостей (трайтов).
-reagent-physical-desc-pungent = Резко пахнет лекарствами
 
 entity-effect-guidebook-adjust-addiction-level = Снижает уровень привыкания на {$amount} за цикл метаболизма.
 
