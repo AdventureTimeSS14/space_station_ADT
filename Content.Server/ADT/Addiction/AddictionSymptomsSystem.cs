@@ -12,10 +12,6 @@ namespace Content.Server.ADT.Addiction;
 
 /// <summary>
 /// Применяет симптомы ломки (дрожь, косноязычие, слабость, галлюцинации).
-/// Слушает AddictionSymptomsChangedEvent от AddictionSystem и пересчитывает симптомы
-/// по всем каналам: доза по одному каналу не снимает симптомы другого.
-/// Продлевает симптомы по таймеру, пока идёт ломка.
-/// </summary>
 public sealed partial class AddictionSymptomsSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -26,8 +22,6 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
     {
         base.Initialize();
 
-        // Directed-подписка: событие рейзится на сущность (RaiseLocalEvent без broadcast),
-        // broadcast-подписчики в этом форке такое не получают (см. грабли).
         SubscribeLocalEvent<AddictionComponent, AddictionSymptomsChangedEvent>(OnSymptomsChanged);
     }
 
@@ -68,12 +62,6 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
         RefreshSymptoms(uid, comp);
     }
 
-    /// <summary>
-    /// Пересчитывает симптомы по всем каналам: применяет нужные, убирает лишние.
-    /// Stutter/Slurred/Rainbow не снимает: эти эффекты могут висеть от других источников
-    /// (алкоголь, ЛСД, THC), они истекают сами. Снимаются только свои: слабость
-    /// (уникальный прототип) и дрожь.
-    /// </summary>
     private void RefreshSymptoms(EntityUid uid, AddictionComponent comp)
     {
         var anyWithdrawal = false;
@@ -100,7 +88,7 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
                     wantStutter = true;
             }
 
-            // Стадия 3 (тяжёлая): слабость, у наркотиков серый (монохромный) мир вместо радуги
+            // Стадия 3 (тяжёлая): слабость, у наркотиков монохромный мир
             if (channel.Stage >= 3)
             {
                 wantWeakness = true;
@@ -109,8 +97,7 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
             }
         }
 
-        // Дрожь - косметика на любой стадии, амплитуда по самой тяжёлой.
-        // refresh: true, чтобы время не копилось при повторных вызовах.
+        // Дрожь
         if (anyWithdrawal)
         {
             var amplitude = maxStage switch
@@ -137,7 +124,6 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
         else
             _status.TryRemoveStatusEffect(uid, comp.WeaknessEffect);
 
-        // Серый фильтр ломки: снимаем только свой (не трайтовый дальтонизм).
         if (wantMonochromacy)
         {
             if (!HasComp<MonochromacyComponent>(uid) && !comp.WithdrawalMonochromacyApplied)
