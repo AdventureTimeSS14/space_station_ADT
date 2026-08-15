@@ -10,7 +10,6 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.ADT.ClockGreeting;
 
-/// <summary>Печатает приветствие с датой и временем смены в правом нижнем углу, потом стирает.</summary>
 public sealed class ClockGreetingController : UIController
 {
     private const float WaitTime = 10f;
@@ -123,7 +122,6 @@ public sealed class ClockGreetingController : UIController
                 {
                     _timer = 0;
                     _phase = GreetingPhase.Deleting;
-                    // Фиксируем размер: при стирании текст не сдвигается.
                     _ui.MinSize = _ui.DesiredSize;
                 }
                 break;
