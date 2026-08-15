@@ -1,5 +1,6 @@
 using Content.Server.ADT.Generation;
 using Content.Shared.ADT.Lavaland.LegionCore;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -20,6 +21,7 @@ public sealed class ADTLegionCoreSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
@@ -102,12 +104,13 @@ public sealed class ADTLegionCoreSystem : EntitySystem
             return;
         }
 
-        var onLavaland = IsOnLavaland(target);
+        var onLavaland = Transform(target).MapUid is { } map && HasComp<ADTLavalandGenerationComponent>(map);
         var power = onLavaland ? 1f : core.Comp.WeakenedMultiplier;
 
         if (!core.Comp.InstantHeal.Empty)
             _damageable.TryChangeDamage(target, core.Comp.InstantHeal * power, true, false, origin: args.User);
 
+        _bloodstream.TryModifyBleedAmount(target, -100f);
         _statusEffects.TryAddStatusEffectDuration(target, core.Comp.StatusEffect, core.Comp.Duration * power);
 
         if (onLavaland && core.Comp.RemoveStuns)
@@ -130,11 +133,6 @@ public sealed class ADTLegionCoreSystem : EntitySystem
 
         QueueDel(core);
         args.Handled = true;
-    }
-
-    private bool IsOnLavaland(EntityUid uid)
-    {
-        return Transform(uid).MapUid is { } map && HasComp<ADTLavalandGenerationComponent>(map);
     }
 
     private void RemoveStuns(EntityUid target)

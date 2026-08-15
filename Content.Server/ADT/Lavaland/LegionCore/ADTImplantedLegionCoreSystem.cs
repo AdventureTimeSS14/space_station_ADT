@@ -1,3 +1,4 @@
+using Content.Server.ADT.Generation;
 using Content.Shared.ADT.Lavaland.LegionCore;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
@@ -8,6 +9,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Random;
@@ -24,6 +26,8 @@ public sealed class ADTImplantedLegionCoreSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 
+    private readonly List<EntityUid> _pending = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -31,32 +35,72 @@ public sealed class ADTImplantedLegionCoreSystem : EntitySystem
         SubscribeLocalEvent<ADTImplantedLegionCoreComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<ADTImplantedLegionCoreComponent>();
+
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (!comp.Triggered)
+                continue;
+
+            comp.Triggered = false;
+            _pending.Add(uid);
+        }
+
+        foreach (var uid in _pending)
+        {
+            Trigger(uid);
+        }
+
+        _pending.Clear();
+    }
+
     private void OnMobStateChanged(Entity<ADTImplantedLegionCoreComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState != ent.Comp.TriggerState)
+        if (args.NewMobState != ent.Comp.TriggerState || ent.Comp.Triggered)
             return;
 
-        if (!TryComp<DamageableComponent>(ent, out var damageable))
-            return;
-
-        var comp = ent.Comp;
-        RemComp<ADTImplantedLegionCoreComponent>(ent);
-
-        var cost = _tolerance.TakeCellularCost(ent.Owner, comp.CellularMultiplier);
-        var repair = BuildRepair((ent.Owner, damageable), comp, cost);
-
-        if (!repair.Empty)
-            _damageable.TryChangeDamage(ent.Owner, repair, true, false);
-
-        InjectAdrenaline(ent.Owner, comp);
-
-        if (_mobState.IsIncapacitated(ent.Owner))
+        if (ent.Comp.LavalandOnly &&
+            (Transform(ent.Owner).MapUid is not { } map || !HasComp<ADTLavalandGenerationComponent>(map)))
         {
-            _popup.PopupEntity(Loc.GetString("adt-legion-core-implant-trigger-fail"), ent.Owner, ent.Owner, PopupType.LargeCaution);
+            _popup.PopupEntity(Loc.GetString("adt-legion-core-weakened"), ent.Owner, ent.Owner, PopupType.LargeCaution);
             return;
         }
 
-        _popup.PopupEntity(Loc.GetString("adt-legion-core-implant-trigger"), ent.Owner, ent.Owner, PopupType.Medium);
+        ent.Comp.Triggered = true;
+    }
+
+    private void Trigger(EntityUid uid)
+    {
+        if (!TryComp<ADTImplantedLegionCoreComponent>(uid, out var comp) ||
+            !TryComp<DamageableComponent>(uid, out var damageable) ||
+            !TryComp<MobStateComponent>(uid, out var state) ||
+            state.CurrentState != comp.TriggerState)
+        {
+            return;
+        }
+
+        RemComp<ADTImplantedLegionCoreComponent>(uid);
+
+        var cost = _tolerance.TakeCellularCost(uid, comp.CellularMultiplier);
+        var repair = BuildRepair((uid, damageable), comp, cost);
+
+        if (!repair.Empty)
+            _damageable.TryChangeDamage(uid, repair, true, false);
+
+        _bloodstream.TryModifyBleedAmount(uid, -100f);
+        InjectAdrenaline(uid, comp);
+
+        if (_mobState.IsIncapacitated(uid))
+        {
+            _popup.PopupEntity(Loc.GetString("adt-legion-core-implant-trigger-fail"), uid, uid, PopupType.LargeCaution);
+            return;
+        }
+
+        _popup.PopupEntity(Loc.GetString("adt-legion-core-implant-trigger"), uid, uid, PopupType.Medium);
     }
 
     private DamageSpecifier BuildRepair(

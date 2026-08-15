@@ -28,4 +28,10 @@ public sealed partial class ADTImplantedLegionCoreComponent : Component
 
     [DataField]
     public FixedPoint2 AdrenalineMaxLevel = FixedPoint2.New(15);
+
+    [DataField]
+    public bool LavalandOnly = true;
+
+    [ViewVariables]
+    public bool Triggered;
 }
