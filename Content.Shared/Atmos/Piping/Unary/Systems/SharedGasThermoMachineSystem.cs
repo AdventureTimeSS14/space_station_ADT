@@ -1,3 +1,5 @@
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Atmos.Piping.Unary.Components;
 using Content.Shared.Database;
@@ -17,6 +19,11 @@ public abstract class SharedGasThermoMachineSystem : EntitySystem
         SubscribeLocalEvent<GasThermoMachineComponent, ExaminedEvent>(OnExamined);
 
         SubscribeLocalEvent<GasThermoMachineComponent, GasThermomachineToggleMessage>(OnToggleMessage);
+
+        // ADT-Tweak-Start: machine parts with tiers
+        SubscribeLocalEvent<GasThermoMachineComponent, RefreshPartsEvent>(OnRefreshParts);
+        SubscribeLocalEvent<GasThermoMachineComponent, UpgradeExamineEvent>(OnUpgradeExamine);
+        // ADT-Tweak-End
         SubscribeLocalEvent<GasThermoMachineComponent, GasThermomachineChangeTemperatureMessage>(OnChangeTemperature);
     }
 
@@ -48,14 +55,36 @@ public abstract class SharedGasThermoMachineSystem : EntitySystem
     private void OnChangeTemperature(EntityUid uid, GasThermoMachineComponent thermoMachine, GasThermomachineChangeTemperatureMessage args)
     {
         if (IsHeater(thermoMachine))
-            thermoMachine.TargetTemperature = MathF.Min(args.Temperature, thermoMachine.MaxTemperature);
+            thermoMachine.TargetTemperature = MathF.Min(args.Temperature, GetMaxTemperature(thermoMachine)); // ADT-Tweak machine parts
         else
-            thermoMachine.TargetTemperature = MathF.Max(args.Temperature, thermoMachine.MinTemperature);
+            thermoMachine.TargetTemperature = MathF.Max(args.Temperature, GetMinTemperature(thermoMachine)); // ADT-Tweak machine parts
         thermoMachine.TargetTemperature = MathF.Max(thermoMachine.TargetTemperature, Atmospherics.TCMB);
         _adminLogger.Add(LogType.AtmosTemperatureChanged, $"{ToPrettyString(args.Actor)} set temperature on {ToPrettyString(uid)} to {thermoMachine.TargetTemperature}");
         Dirty(uid, thermoMachine);
         DirtyUI(uid, thermoMachine);
     }
+
+    // ADT-Tweak-Start: machine parts with tiers
+    private void OnRefreshParts(EntityUid uid, GasThermoMachineComponent component, RefreshPartsEvent args)
+    {
+        component.HeatCapacityMultiplier = args.GetStatMultiplier(MachineStat.Capacity);
+        component.TemperatureRangeBonus = (args.GetPartRating(MachinePartIds.MicroLaser) - 1f) * 30f;
+
+        component.TargetTemperature = Math.Clamp(component.TargetTemperature, GetMinTemperature(component), GetMaxTemperature(component));
+        Dirty(uid, component);
+        DirtyUI(uid, component);
+    }
+
+    private static void OnUpgradeExamine(EntityUid uid, GasThermoMachineComponent component, UpgradeExamineEvent args)
+    {
+        args.AddPercentageUpgrade("machine-upgrade-thermomachine-heat-capacity", component.HeatCapacityMultiplier, benefit: true);
+        args.AddPercentageUpgrade("machine-upgrade-thermomachine-temp-range", (GetMaxTemperature(component) - GetMinTemperature(component)) / (component.MaxTemperature - component.MinTemperature), benefit: true);
+    }
+
+    public static float GetMinTemperature(GasThermoMachineComponent component) => MathF.Max(Atmospherics.TCMB, component.MinTemperature - component.TemperatureRangeBonus);
+
+    public static float GetMaxTemperature(GasThermoMachineComponent component) => component.MaxTemperature + component.TemperatureRangeBonus;
+    // ADT-Tweak-End
 
     protected virtual void DirtyUI(EntityUid uid, GasThermoMachineComponent? thermoMachine, UserInterfaceComponent? ui=null) {}
 }

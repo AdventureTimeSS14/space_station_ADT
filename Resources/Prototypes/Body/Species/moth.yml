@@ -326,7 +326,7 @@
   id: OrganMothLungs
 
 - type: entity
-  parent: [OrganBaseHeart, OrganMothInternal, OrganAnimalMetabolizer]
+  parent: [OrganBaseHeart, OrganMothInternal, OrganMothMetabolizer]
   id: OrganMothHeart
 
 - type: entity
