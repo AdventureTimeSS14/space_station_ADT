@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2024-2026 Adventure Time (ADT) contributors
-# SPDX-License-Identifier: AGPL-3.0-or-later
-# Рецепты блюд, у которых не было крафта: пончики, выпечка, торты, пироги,
-# супы, салаты, пицца, десерты, мороженое, вяленое мясо.
-
 # Пончики (группа Dessert, духовка)
 
 - type: microwaveMealRecipe
