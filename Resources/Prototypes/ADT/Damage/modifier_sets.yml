@@ -339,6 +339,39 @@
     Structural: 15
 
 - type: damageModifierSet
+  id: ADTAshWalkerScale
+  coefficients:
+    Blunt: 0.9
+    Slash: 0.9
+    Piercing: 0.9
+    Cold: 1.3
+
+- type: damageModifierSet
+  id: ADTAshWalkerShamanScale
+  coefficients:
+    Blunt: 1.15
+    Slash: 1.15
+    Piercing: 1.15
+    Heat: 1.15
+    Cold: 1.3
+
+- type: damageModifierSet
+  id: ADTNecropolisFlesh
+  coefficients:
+    Heat: 0
+    Cold: 0
+    Caustic: 0.5
+
+- type: damageModifierSet
+  id: ADTDraconidScale
+  coefficients:
+    Blunt: 0.8
+    Slash: 0.8
+    Piercing: 0.8
+    Heat: 0.9
+    Cold: 1.3
+
+- type: damageModifierSet
   id: DiceOfFateMod
   coefficients:
     Blunt: 0.5
@@ -352,11 +385,3 @@
     Bloodloss: 0.5
     Cellular: 0.5
     Caustic: 0.5
-
-- type: damageModifierSet
-  id: ADTAshWalkerScale
-  coefficients:
-    Blunt: 0.9
-    Slash: 0.9
-    Piercing: 0.9
-    Cold: 1.3

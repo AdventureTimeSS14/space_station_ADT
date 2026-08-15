@@ -1,0 +1,345 @@
+- type: entity
+  abstract: true
+  save: false
+  parent: BaseSpeciesMobOrganic
+  id: ADTMobAshWalkerBase
+  components:
+  - type: BreathingImmunity
+  - type: ADTIgnite
+  - type: ADTLavalandSpeed
+  - type: NpcFactionMember
+    factions:
+    - ADTAshWalker
+  - type: TemperatureDamage
+    heatDamageThreshold: 420
+    coldDamageThreshold: 285
+    coldDamage:
+      types:
+        Cold: 0.1
+    heatDamage:
+      types:
+        Heat: 1.5
+  - type: LanguageSpeaker
+    languages:
+      Draconic: Speak
+  - type: LizardAccent
+  - type: Speech
+    speechSounds: Lizard
+    speechVerb: Reptilian
+    allowedEmotes: ['Thump']
+  - type: Vocal
+    sounds:
+      Male: MaleReptilian
+      Female: FemaleReptilian
+      Unsexed: MaleReptilian
+  - type: BodyEmotes
+    soundsId: ReptilianBodyEmotes
+  - type: TypingIndicator
+    proto: lizard
+  - type: CreamPied
+    sprite:
+      sprite: Effects/creampie.rsi
+      state: creampie_lizard
+  - type: Wagging
+  - type: InjectorsBlocker
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatLizard
+      amount: 5
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 5
+  - type: Puller
+    needsHands: false
+  - type: Injurable
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#800000"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Cold: -0.05
+        Blunt: -0.05
+        Piercing: -0.05
+        Slash: -0.05
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      55: 0.8
+      75: 0.7
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+  - type: TemperatureSpeed
+    thresholds:
+      301: 0.9
+      295: 0.8
+      285: 0.7
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 215
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Sprite
+    scale: 1.05, 1.05
+  - type: SizeAttributeWhitelist
+    tall: true
+    tallscale: 1.12
+    short: true
+    shortscale: 0.98
+
+- type: entity
+  parent: AppearanceReptilian
+  id: ADTAppearanceAshWalker
+  categories: [ HideSpawnMenu ]
+  name: ash walker appearance
+  components:
+  - type: HumanoidProfile
+    species: ADTAshWalkerSpecies
+
+- type: entity
+  save: false
+  name: ash walker
+  parent:
+  - ADTMobAshWalkerBase
+  - ADTAppearanceAshWalker
+  id: ADTMobAshWalker
+  components:
+  - type: RandomHumanoidAppearance
+  - type: ADTAshWalker
+  - type: Damageable
+    damageModifierSet: ADTAshWalkerScale
+
+- type: entity
+  save: false
+  parent: ADTMobAshWalker
+  id: ADTMobAshWalkerHatched
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Loadout
+    prototypes: [ ADTAshWalkerGear ]
+
+- type: entity
+  parent: AppearanceReptilian
+  id: ADTAppearanceAshWalkerShaman
+  categories: [ HideSpawnMenu ]
+  name: ash walker shaman appearance
+  components:
+  - type: HumanoidProfile
+    species: ADTAshWalkerShamanSpecies
+
+- type: entity
+  save: false
+  name: ash walker shaman
+  parent:
+  - ADTMobAshWalkerBase
+  - ADTAppearanceAshWalkerShaman
+  id: ADTMobAshWalkerShaman
+  components:
+  - type: RandomHumanoidAppearance
+  - type: ADTAshWalker
+    shaman: true
+  - type: ADTLavalandSpeed
+    walkModifier: 1.11
+    sprintModifier: 1.11
+  - type: ADTHealTouch
+  - type: ADTNecropolisCompass
+  - type: UserInterface
+    interfaces:
+      enum.ADTNecropolisCompassUiKey.Key:
+        type: ADTNecropolisCompassBoundUserInterface
+  - type: Damageable
+    damageModifierSet: ADTAshWalkerShamanScale
+
+- type: entity
+  save: false
+  parent: ADTMobAshWalkerShaman
+  id: ADTMobAshWalkerShamanHatched
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Loadout
+    prototypes: [ ADTAshWalkerShamanGear ]
+
+- type: entity
+  parent: OrganReptilianTorso
+  id: ADTOrganDraconidTorso
+  components:
+  - type: VisualOrgan
+    profile:
+      skinColor: "#110101"
+
+- type: entity
+  parent: OrganReptilianHead
+  id: ADTOrganDraconidHead
+  components:
+  - type: VisualOrgan
+    profile:
+      skinColor: "#110101"
+  - type: VisualOrganMarkings
+    markings:
+      HeadTop:
+      - markingId: LizardHornsDemonic
+        markingColor:
+        - "#110101"
+
+- type: entity
+  parent: OrganReptilianArmLeft
+  id: ADTOrganDraconidArmLeft
+  components:
+  - type: VisualOrgan
+    profile:
+      skinColor: "#110101"
+
+- type: entity
+  parent: OrganReptilianArmRight
+  id: ADTOrganDraconidArmRight
+  components:
+  - type: VisualOrgan
+    profile:
+      skinColor: "#110101"
+
+- type: entity
+  parent: OrganReptilianHandLeft
+  id: ADTOrganDraconidHandLeft
+  components:
+  - type: VisualOrgan
+    profile:
+      skinColor: "#110101"
+
+- type: entity
+  parent: OrganReptilianHandRight
+  id: ADTOrganDraconidHandRight
+  components:
+  - type: VisualOrgan
+    profile:
+      skinColor: "#110101"
+
+- type: entity
+  parent: OrganReptilianLegLeft
+  id: ADTOrganDraconidLegLeft
+  components:
+  - type: VisualOrgan
+    profile:
+      skinColor: "#110101"
+
+- type: entity
+  parent: OrganReptilianLegRight
+  id: ADTOrganDraconidLegRight
+  components:
+  - type: VisualOrgan
+    profile:
+      skinColor: "#110101"
+
+- type: entity
+  parent: OrganReptilianFootLeft
+  id: ADTOrganDraconidFootLeft
+  components:
+  - type: VisualOrgan
+    profile:
+      skinColor: "#110101"
+
+- type: entity
+  parent: OrganReptilianFootRight
+  id: ADTOrganDraconidFootRight
+  components:
+  - type: VisualOrgan
+    profile:
+      skinColor: "#110101"
+
+- type: entity
+  parent: OrganReptilianEyes
+  id: ADTOrganDraconidEyes
+  components:
+  - type: VisualOrgan
+    profile:
+      eyeColor: "#A02720"
+      skinColor: "#110101"
+
+- type: entity
+  parent: AppearanceReptilian
+  id: ADTAppearanceDraconid
+  categories: [ HideSpawnMenu ]
+  name: draconid appearance
+  components:
+  - type: HumanoidProfile
+    species: ADTDraconidSpecies
+  - type: InitialBody
+    organs:
+      Torso: ADTOrganDraconidTorso
+      Head: ADTOrganDraconidHead
+      ArmLeft: ADTOrganDraconidArmLeft
+      ArmRight: ADTOrganDraconidArmRight
+      HandLeft: ADTOrganDraconidHandLeft
+      HandRight: ADTOrganDraconidHandRight
+      LegLeft: ADTOrganDraconidLegLeft
+      LegRight: ADTOrganDraconidLegRight
+      FootLeft: ADTOrganDraconidFootLeft
+      FootRight: ADTOrganDraconidFootRight
+      Eyes: ADTOrganDraconidEyes
+      Brain: OrganReptilianBrain
+      Tongue: OrganReptilianTongue
+      Appendix: OrganReptilianAppendix
+      Ears: OrganReptilianEars
+      Lungs: OrganReptilianLungs
+      Heart: OrganReptilianHeart
+      Stomach: OrganReptilianStomach
+      Liver: OrganReptilianLiver
+      Kidneys: OrganReptilianKidneys
+
+- type: entity
+  save: false
+  name: Urist Mc'Drake
+  parent:
+  - MobReptilian
+  - ADTAppearanceDraconid
+  id: ADTMobDraconid
+  components:
+  - type: ADTLavalandSpeed
+    everywhere: true
+    walkModifier: 1.08
+    sprintModifier: 1.08
+  - type: ADTIgnite
+  - type: BreathingImmunity
+  - type: AshStormImmune
+  - type: Inventory
+    templateId: ADTDraconid
+  - type: NpcFactionMember
+    factions:
+    - ADTAshWalker
+  - type: Damageable
+    damageModifierSet: ADTDraconidScale
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 12
+  - type: TemperatureDamage
+    heatDamageThreshold: 1000
+    coldDamageThreshold: 285
+    coldDamage:
+      types:
+        Cold: 0.1
+    heatDamage:
+      types:
+        Heat: 1.5
