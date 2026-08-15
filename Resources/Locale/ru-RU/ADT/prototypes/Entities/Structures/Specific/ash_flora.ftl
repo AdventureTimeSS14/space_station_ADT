@@ -104,3 +104,24 @@ ent-ADTLavaCactusThreeEmpty = { ent-ADTLavaCactusOneEmpty }
     .desc = { ent-ADTLavaCactusOneEmpty.desc }
 ent-ADTLavaCactusFourEmpty = { ent-ADTLavaCactusOneEmpty }
     .desc = { ent-ADTLavaCactusOneEmpty.desc }
+
+adt-ash-flora-fireblossom-low = Вы срываете единственный уцелевший цветок.
+adt-ash-flora-fireblossom-medium = Вы срываете пару цветков, стараясь не обжечься.
+adt-ash-flora-fireblossom-high = Вы срываете целую горсть раскалённых цветков.
+
+ent-ADTAshFloraFireblossom1 = огнецвет
+    .desc = Ярко-красные цветы, от которых тянет сухим жаром.
+ent-ADTAshFloraFireblossom2 = { ent-ADTAshFloraFireblossom1 }
+    .desc = { ent-ADTAshFloraFireblossom1.desc }
+ent-ADTAshFloraFireblossom3 = { ent-ADTAshFloraFireblossom1 }
+    .desc = { ent-ADTAshFloraFireblossom1.desc }
+ent-ADTAshFloraFireblossom4 = { ent-ADTAshFloraFireblossom1 }
+    .desc = { ent-ADTAshFloraFireblossom1.desc }
+ent-ADTAshFloraFireblossomHarvested1 = огнецвет
+    .desc = Несколько ощипанных стеблей. На них уже набухают новые цветы.
+ent-ADTAshFloraFireblossomHarvested2 = { ent-ADTAshFloraFireblossomHarvested1 }
+    .desc = { ent-ADTAshFloraFireblossomHarvested1.desc }
+ent-ADTAshFloraFireblossomHarvested3 = { ent-ADTAshFloraFireblossomHarvested1 }
+    .desc = { ent-ADTAshFloraFireblossomHarvested1.desc }
+ent-ADTAshFloraFireblossomHarvested4 = { ent-ADTAshFloraFireblossomHarvested1 }
+    .desc = { ent-ADTAshFloraFireblossomHarvested1.desc }

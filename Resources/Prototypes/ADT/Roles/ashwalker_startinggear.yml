@@ -1,0 +1,13 @@
+- type: startingGear
+  id: ADTAshWalkerGear
+  equipment:
+    jumpsuit: ADTClothingUniformAshWalker
+
+- type: startingGear
+  id: ADTAshWalkerShamanGear
+  equipment:
+    jumpsuit: ADTClothingUniformAshWalkerShaman
+    head: ADTClothingHeadRoach
+    neck: ADTClothingNeckHideMantle
+    belt: ADTMedPouch
+    gloves: ADTClothingHandsGoliathGloves

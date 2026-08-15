@@ -5,6 +5,7 @@
   mapLight: "#6e2c2c"
   dayCycle: false
   addedComponents:
+  - type: ADTLavalandMap
   - type: RestrictedRange
     range: 250
     texturepath: "/Textures/ADT/Effects/weather.rsi/ashfal_lvery_light.png"

@@ -1,0 +1,140 @@
+- type: entity
+  id: ADTAshWalkerNest
+  parent: BaseStructure
+  name: necropolis tendril nest
+  description: A tendril of twisted malice. A nest full of fast-growing eggs is built around it.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/ashwalker_nest.rsi
+    state: nest
+    drawdepth: Mobs
+    noRot: true
+    offset: 0,0.5
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: ADTAshWalkerNest
+    auraHealing:
+      types:
+        Blunt: -0.4
+        Slash: -0.4
+        Piercing: -0.4
+        Heat: -0.4
+        Cold: -0.4
+        Poison: -0.4
+  - type: AshStormImmune
+  - type: Damageable
+    damageModifierSet: ADTNecropolisFlesh
+  - type: Injurable
+    damageContainer: Biological
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTAshWalkerNestCoreSpawner:
+            min: 1
+            max: 1
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 1000
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+
+- type: entity
+  id: ADTAshWalkerNestCoreSpawner
+  parent: MarkerBase
+  name: necropolis core spawner
+  suffix: ash walker nest
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomSpawner
+    rarePrototypes:
+    - AnomalyCoreBluespace
+    - AnomalyCoreTech
+    rareChance: 0.1
+    prototypes:
+    - AnomalyCorePyroclastic
+    - AnomalyCoreGravity
+    - AnomalyCoreIce
+    - AnomalyCoreFlesh
+    - AnomalyCoreRock
+    - AnomalyCoreLiquid
+    - AnomalyCoreElectricity
+    - AnomalyCoreFlora
+    - AnomalyCoreShadow
+
+- type: entity
+  id: ADTAshWalkerEggBase
+  parent: BaseStructureDynamic
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/ashwalker_egg.rsi
+    drawdepth: Mobs
+    noRot: true
+  - type: GhostRole
+    rules: ghost-role-information-adt-ash-walker-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+  - type: GhostRoleMobSpawner
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 60
+        mask:
+        - ItemMask
+
+- type: entity
+  id: ADTAshWalkerEgg
+  parent: ADTAshWalkerEggBase
+  name: ash walker egg
+  description: A man-sized yellow egg birthed by some inconceivable creature. A humanoid silhouette shows through it.
+  components:
+  - type: Sprite
+    state: egg
+  - type: ADTAshWalkerEgg
+  - type: GhostRole
+    name: ghost-role-information-adt-ash-walker-name
+    description: ghost-role-information-adt-ash-walker-description
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobAshWalkerHatched
+
+- type: entity
+  id: ADTAshWalkerShamanEgg
+  parent: ADTAshWalkerEggBase
+  name: ash walker shaman egg
+  description: A man-sized amber egg birthed by some inconceivable creature. A humanoid silhouette shows through it.
+  components:
+  - type: Sprite
+    state: egg_shaman
+  - type: ADTAshWalkerEgg
+    shaman: true
+  - type: GhostRole
+    name: ghost-role-information-adt-ash-walker-shaman-name
+    description: ghost-role-information-adt-ash-walker-shaman-description
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobAshWalkerShamanHatched

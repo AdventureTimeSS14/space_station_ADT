@@ -46,3 +46,6 @@
   - type: Construction
     graph: ADTLegionCoreStable
     node: stable
+  - type: Tag
+    tags:
+    - ADTLegionCore

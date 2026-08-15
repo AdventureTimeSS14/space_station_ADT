@@ -56,6 +56,7 @@
   - type: Tag
     tags:
     - Mushroom
+    - ADTAshFloraLeaf
 
 - type: entity
   name: mushroom cap
@@ -138,3 +139,30 @@
   - type: Construction
     graph: ADTMushroomBowl
     node: bowl
+
+- type: entity
+  name: fire blossom
+  parent: FoodProduceBase
+  id: ADTFoodFireblossom
+  description: An ordinary fire blossom.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - spicy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Capsaicin
+          Quantity: 5
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/fireblossom.rsi
+    state: icon
+  - type: Extractable
+    grindableSolutionName: food
+  - type: Tag
+    tags:
+    - ADTFireblossom

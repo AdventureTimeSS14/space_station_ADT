@@ -1,0 +1,508 @@
+- type: adtRitual
+  id: ADTRitualAshstorm
+  categories: [ ADTAshWalker ]
+  name: adt-ritual-ashstorm-name
+  description: adt-ritual-ashstorm-desc
+  shamanOnly: true
+  extraInvokers: 2
+  charges: 2
+  cooldown: 1200
+  castTime: 20
+  failChance: 0.2
+  disasterChance: 0.2
+  neededDye: Amber
+  totemDye: Amber
+  dyeFluff: adt-ritual-dye-amber
+  requiredThings:
+  - name: adt-ritual-thing-goldgrub
+    whitelist:
+      tags: [ ADTGoldgrub ]
+  checks:
+  - !type:ADTRitualThingsCheck
+    mustBeDead: true
+    reason: adt-ritual-things-must-be-dead
+  effects:
+  - !type:ADTRitualWeatherEffect
+    weather: ADTLavalandWeatherAshfall
+    duration: 300
+  disasterEffects:
+  - !type:ADTRitualDamageEffect
+    target: RandomTribesman
+    damage:
+      types:
+        Poison: 95
+  - !type:ADTRitualMessageEffect
+    target: RandomTribesman
+    message: adt-ritual-ashstorm-sick
+
+- type: adtRitual
+  id: ADTRitualTransformation
+  categories: [ ADTAshWalker ]
+  name: adt-ritual-transformation-name
+  description: adt-ritual-transformation-desc
+  extraInvokers: 1
+  cooldown: 480
+  castTime: 30
+  failChance: 0.5
+  disasterChance: 0.3
+  deleteThingsOnSuccess: false
+  deleteThingsOnFail: true
+  neededDye: Cinnabar
+  totemDye: Cinnabar
+  dyeFluff: adt-ritual-dye-cinnabar
+  requiredThings:
+  - name: adt-ritual-thing-captive
+    consume: false
+    whitelist:
+      components: [ HumanoidProfile ]
+  checks:
+  - !type:ADTRitualThingsCheck
+    mustBeAlive: true
+    mustHaveMind: true
+    reason: adt-ritual-things-must-be-alive
+  effects:
+  - !type:ADTRitualPolymorphEffect
+    target: UsedThings
+    polymorph: ADTRitualTransformation
+  disasterEffects:
+  - !type:ADTRitualDamageEffect
+    target: Invoker
+    damage:
+      types:
+        Cellular: 15
+  - !type:ADTRitualTeleportEffect
+    target: UsedThings
+    destination:
+      components: [ NavMapBeacon ]
+
+- type: adtRitual
+  id: ADTRitualSummon
+  categories: [ ADTAshWalker ]
+  name: adt-ritual-summon-name
+  description: adt-ritual-summon-desc
+  shamanOnly: true
+  extraInvokers: 1
+  cooldown: 900
+  castTime: 30
+  failChance: 0.3
+  disasterChance: 0.3
+  neededDye: Crimson
+  totemDye: Crimson
+  dyeFluff: adt-ritual-dye-crimson
+  effects:
+  - !type:ADTRitualDamageEffect
+    target: InRange
+    bloodLoss: 60
+    damage:
+      types:
+        Slash: 35
+  - !type:ADTRitualSummonPickerEffect
+  disasterEffects:
+  - !type:ADTRitualDamageEffect
+    target: Invoker
+    prob: 0.7
+    damage:
+      types:
+        Slash: 60
+        Bloodloss: 30
+
+- type: adtRitual
+  id: ADTRitualCurse
+  categories: [ ADTAshWalker ]
+  name: adt-ritual-curse-name
+  description: adt-ritual-curse-desc
+  shamanOnly: true
+  extraInvokers: 2
+  charges: 3
+  cooldown: 600
+  castTime: 30
+  failChance: 0.3
+  disasterChance: 0.3
+  neededDye: Crimson
+  totemDye: Crimson
+  dyeFluff: adt-ritual-dye-crimson
+  effects:
+  - !type:ADTRitualDamageEffect
+    target: RandomOutsider
+    damage:
+      types:
+        Poison: 60
+        Bloodloss: 25
+  - !type:ADTRitualMessageEffect
+    target: RandomOutsider
+    message: adt-ritual-curse-struck
+  disasterEffects:
+  - !type:ADTRitualPolymorphEffect
+    target: RandomTribesman
+    polymorph: ADTRitualMonkeyize
+
+- type: adtRitual
+  id: ADTRitualPower
+  categories: [ ADTAshWalker ]
+  name: adt-ritual-power-name
+  description: adt-ritual-power-desc
+  shamanOnly: true
+  extraInvokers: 2
+  charges: 2
+  cooldown: 800
+  castTime: 40
+  failChance: 0.4
+  disasterChance: 0.4
+  neededDye: Indigo
+  totemDye: Indigo
+  dyeFluff: adt-ritual-dye-indigo
+  requiredThings:
+  - name: adt-ritual-thing-legion-core
+    whitelist:
+      tags: [ ADTLegionCore ]
+  effects:
+  - !type:ADTRitualComponentsEffect
+    target: Invokers
+    overwrite: true
+    removeComponents: [ SlowOnDamage ] # todo too pulling
+    components:
+    - type: PassiveDamage
+      allowedStates: [ Alive ]
+      damage:
+        types:
+          Blunt: -0.3
+          Slash: -0.3
+          Piercing: -0.3
+          Heat: -0.3
+  disasterEffects:
+  - !type:ADTRitualComponentsEffect
+    target: Invokers
+    overwrite: true
+    components:
+    - type: PassiveDamage
+      allowedStates: [ Alive ]
+      damage:
+        types:
+          Poison: 0.2
+
+- type: adtRitual
+  id: ADTRitualResurrection
+  categories: [ ADTAshWalker ]
+  name: adt-ritual-resurrection-name
+  description: adt-ritual-resurrection-desc
+  shamanOnly: true
+  extraInvokers: 2
+  charges: 3
+  cooldown: 180
+  castTime: 30
+  failChance: 0.35
+  disasterChance: 0.25
+  neededDye: Mint
+  totemDye: Mint
+  dyeFluff: adt-ritual-dye-mint
+  requiredThings:
+  - name: adt-ritual-thing-legion-core
+    whitelist:
+      tags: [ ADTLegionCore ]
+  - name: adt-ritual-thing-corpse
+    consume: false
+    whitelist:
+      components: [ HumanoidProfile ]
+  checks:
+  - !type:ADTRitualThingsCheck
+    mustBeDead: true
+    mustHaveMind: true
+    reason: adt-ritual-things-must-be-dead
+  modifiers:
+  - !type:ADTRitualThingSpeciesModifier
+    species:
+    - ADTAshWalkerSpecies
+    - ADTAshWalkerShamanSpecies
+    - ADTDraconidSpecies
+    failChance: 0.15
+  effects:
+  - !type:ADTRitualReviveEffect
+    target: UsedThings
+    aftermath:
+      types:
+        Cellular: 20
+  disasterEffects:
+  - !type:ADTRitualDamageEffect
+    target: Tribe
+    damage:
+      types:
+        Cellular: 15
+
+- type: adtRitual
+  id: ADTRitualRestoration
+  categories: [ ADTAshWalker ]
+  name: adt-ritual-restoration-name
+  description: adt-ritual-restoration-desc
+  shamanOnly: true
+  extraInvokers: 3
+  cooldown: 360
+  castTime: 30
+  failChance: 0.5
+  disasterChance: 0.3
+  neededDye: Amber
+  totemDye: Amber
+  dyeFluff: adt-ritual-dye-amber
+  requiredThings:
+  - name: adt-ritual-thing-legion-core
+    whitelist:
+      tags: [ ADTLegionCore ]
+  effects:
+  - !type:ADTRitualRechargeEffect
+    amount: 1
+    blacklist: [ ADTRitualPower ]
+  # TODO remake to legion infect
+  disasterEffects:
+  - !type:ADTRitualComponentsEffect
+    target: RandomTribesman
+    overwrite: true
+    components:
+    - type: PassiveDamage
+      allowedStates: [ Alive ]
+      damage:
+        types:
+          Poison: 0.3
+  - !type:ADTRitualMessageEffect
+    target: RandomTribesman
+    message: adt-ritual-restoration-tumour
+
+- type: adtRitual
+  id: ADTRitualPopulation
+  categories: [ ADTAshWalker ]
+  name: adt-ritual-population-name
+  description: adt-ritual-population-desc
+  extraInvokers: 2
+  charges: 1
+  cooldown: 120
+  castTime: 30
+  failChance: 0.1
+  disasterChance: 0.1
+  deleteThingsOnFail: true
+  neededDye: Cinnabar
+  totemDye: Cinnabar
+  dyeFluff: adt-ritual-dye-cinnabar
+  requiredThings:
+  - name: adt-ritual-thing-cactus-fruit
+    whitelist:
+      tags: [ ADTCactusBerry ]
+  - name: adt-ritual-thing-fireblossom
+    whitelist:
+      tags: [ ADTFireblossom ]
+  - name: adt-ritual-thing-mushroom-leaf
+    whitelist:
+      tags: [ ADTAshFloraLeaf ]
+  modifiers:
+  - !type:ADTRitualShamanModifier
+    failChance: 0.4
+    disasterChance: 0.4
+  effects:
+  - !type:ADTRitualSpawnEffect
+    entities: [ ADTAshWalkerShamanEgg ]
+  disasterEffects:
+  - !type:ADTRitualDropItemsEffect
+    target: Tribe
+    prob: 0.4
+
+- type: adtRitual
+  id: ADTRitualSoul
+  categories: [ ADTAshWalker ]
+  name: adt-ritual-soul-name
+  description: adt-ritual-soul-desc
+  extraInvokers: 3
+  cooldown: 1200
+  castTime: 30
+  failChance: 0.1
+  disasterChance: 0.1
+  neededDye: Crimson
+  totemDye: Crimson
+  dyeFluff: adt-ritual-dye-crimson
+  requiredThings:
+  - name: adt-ritual-thing-drake-hide
+    whitelist:
+      tags: [ ADTAshDrakeHide ]
+  modifiers:
+  - !type:ADTRitualShamanModifier
+    failChance: 0.7
+    disasterChance: 0.4
+  effects:
+  - !type:ADTRitualPolymorphEffect
+    target: Invoker
+    polymorph: ADTRitualSoul
+  disasterEffects:
+  - !type:ADTRitualIgniteEffect
+    target: Tribe
+    prob: 0.4
+
+- type: adtRitual
+  id: ADTRitualTransmutation
+  categories: [ ADTAshWalker ]
+  name: adt-ritual-transmutation-name
+  description: adt-ritual-transmutation-desc
+  cooldown: 20
+  castTime: 10
+  failChance: 0.1
+  disasterChance: 0.1
+  requiredThings:
+  - name: adt-ritual-thing-ore
+    amount: 10
+    whitelist:
+      tags: [ Ore ]
+  modifiers:
+  - !type:ADTRitualShamanModifier
+    failChance: 0.5
+    disasterChance: 0.3
+  effects:
+  - !type:ADTRitualSpawnEffect
+    pick: true
+    stackCount: 10
+    entities:
+    - GoldOre1
+    - SilverOre1
+    - SteelOre1
+    - PlasmaOre1
+    - UraniumOre1
+    - DiamondOre1
+    - BananiumOre1
+  disasterEffects:
+  - !type:ADTRitualIgniteEffect
+    target: Tribe
+    prob: 0.3
+
+- type: adtRitual
+  id: ADTRitualInterrogation
+  categories: [ ADTAshWalker ]
+  name: adt-ritual-interrogation-name
+  description: adt-ritual-interrogation-desc
+  shamanOnly: true
+  cooldown: 50
+  castTime: 10
+  failChance: 0.1
+  disasterChance: 0.1
+  requiredThings:
+  - name: adt-ritual-thing-captive
+    consume: false
+    whitelist:
+      components: [ HumanoidProfile ]
+  checks:
+  - !type:ADTRitualThingsCheck
+    mustBeAlive: true
+    mustHaveMind: true
+    reason: adt-ritual-things-must-be-alive
+  modifiers:
+  - !type:ADTRitualHealthyInvokerModifier
+    threshold: 90
+    failChance: 0.3
+    disasterChance: 0.3
+  effects:
+  - !type:ADTRitualEmpathEffect
+    target: UsedThings
+  disasterEffects:
+  - !type:ADTRitualMessageEffect
+    target: Tribe
+    message: adt-ritual-interrogation-honk
+    sound:
+      path: /Audio/Items/airhorn.ogg
+  - !type:ADTRitualStatusEffect
+    target: Tribe
+    statusEffect: StatusEffectBlindness
+    duration: 5
+
+- type: adtRitual
+  id: ADTRitualCreation
+  categories: [ ADTAshWalker ]
+  name: adt-ritual-creation-name
+  description: adt-ritual-creation-desc
+  shamanOnly: true
+  extraInvokers: 2
+  cooldown: 150
+  castTime: 30
+  failChance: 0.1
+  disasterChance: 0.1
+  neededDye: Indigo
+  totemDye: Indigo
+  dyeFluff: adt-ritual-dye-indigo
+  modifiers:
+  # Обряд творят лёжа. Каждый участник на ногах должен делать его опаснее.
+  - !type:ADTRitualConsciousInvokersModifier
+    failChance: 0.2
+    disasterChance: 0.2
+  effects:
+  - !type:ADTRitualSpawnEffect
+    pick: true
+    amount: 2
+    entities:
+    - MobGoliath
+    - MobHivelord
+    - MobBasilisk
+    - ADTMobLegion
+  disasterEffects:
+  - !type:ADTRitualIgniteEffect
+    target: Tribe
+    prob: 0.4
+
+- type: adtRitual
+  id: ADTRitualCommand
+  categories: [ ADTAshWalker ]
+  name: adt-ritual-command-name
+  description: adt-ritual-command-desc
+  shamanOnly: true
+  extraInvokers: 1
+  cooldown: 150
+  castTime: 30
+  failChance: 0.1
+  disasterChance: 0.35
+  neededDye: Mint
+  totemDye: Mint
+  dyeFluff: adt-ritual-dye-mint
+  requiredThings:
+  - name: adt-ritual-thing-beast
+    consume: false
+    whitelist:
+      components: [ MobState ]
+  checks:
+  - !type:ADTRitualThingsCheck
+    mustBeDead: true
+    mustLackMind: true
+    noMegafauna: true
+    reason: adt-ritual-things-must-be-soulless
+  effects:
+  - !type:ADTRitualSentienceEffect
+    target: UsedThings
+  disasterEffects:
+  - !type:ADTRitualSpawnEffect
+    entities: [ MobAncientGoliath ]
+
+- type: adtRitual
+  id: ADTRitualWarming
+  categories: [ ADTAshWalker ]
+  name: adt-ritual-warming-name
+  description: adt-ritual-warming-desc
+  extraInvokers: 1
+  charges: 3
+  cooldown: 180
+  castTime: 25
+  failChance: 0.25
+  disasterChance: 1.0
+  neededDye: Cinnabar
+  totemDye: Cinnabar
+  dyeFluff: adt-ritual-dye-cinnabar
+  requiredThings:
+  - name: adt-ritual-thing-magma-gem
+    whitelist:
+      tags: [ ADTMagmaGem ]
+  effects:
+  - !type:ADTRitualComponentsEffect
+    target: Invokers
+    overwrite: true
+    components:
+    - type: TemperatureDamage
+      heatDamageThreshold: 420
+      coldDamageThreshold: 0
+      coldDamage:
+        types:
+          Cold: 0
+      heatDamage:
+        types:
+          Heat: 1.5
+  disasterEffects:
+  - !type:ADTRitualIgniteEffect
+    target: Invokers

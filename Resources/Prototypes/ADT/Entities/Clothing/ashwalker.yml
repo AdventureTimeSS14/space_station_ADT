@@ -1,0 +1,83 @@
+- type: entity
+  parent: UnsensoredClothingUniformBase
+  id: ADTClothingUniformAshWalker
+  name: ash-walker uniform
+  description: Simple but sturdy ash-soaked cloth. The seams carry tribal marks and the frayed edges look like they have seen more than one eruption.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/ashwalker.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/ashwalker.rsi
+
+- type: entity
+  parent: UnsensoredClothingUniformBase
+  id: ADTClothingUniformAshWalkerShaman
+  name: shaman tribal rags
+  description: Ash-soaked rags from Lazis, hung with bone trinkets and rough gemstones at the neck. This one is meant for the tribe's shaman.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/ashwalker_shaman.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/ashwalker_shaman.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadRoach
+  name: roach
+  description: The mark of a tribe's shaman, telling them apart from their kin at a glance. Miners prize it as a trophy.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/roach.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/roach.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckHideMantle
+  name: hide mantle
+  description: A rather grim assortment of cured hides sewn together into a ragged mantle.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/hide_mantle.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/hide_mantle.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGoliathGloves
+  name: goliath gloves
+  description: Primitive gloves that make carrying things easier.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/goliath_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/goliath_gloves.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.9
+        Heat: 0.5
+        Caustic: 0.5
+  - type: GroupExamine
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ADTMedPouch
+  name: medicinal pouch
+  description: A small pouch for herbs, poultices, bait and other odds and ends.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/medpouch.rsi
+  - type: Storage
+    grid:
+    - 0,0,5,3
+    whitelist:
+      tags:
+      - Brutepack
+      - Ointment
+      - Gauze
+      - Bloodpack
+      - Fruit
+      - Vegetable
