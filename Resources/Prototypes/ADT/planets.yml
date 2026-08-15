@@ -118,7 +118,7 @@
         weight: 10
       - weather: ADTLavalandWeatherNecropolisSurge
         message: necropolis-surge-alert
-        weight: 8
+        weight: 4
         eventOnEnd: ADTLavalandEventNecropolisSurge
     - weather: ADTLavalandWeatherAshfallLight
       message: ash-storm-clearing
