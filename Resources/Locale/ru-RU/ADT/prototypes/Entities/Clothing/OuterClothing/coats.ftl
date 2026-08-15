@@ -165,3 +165,7 @@ ent-ADTClothingOuterWinterCoatLightColorBlack = чёрная лёгкая кур
 
 ent-ADTClothingOuterWinterCoatLightColorDarkBlue = тёмно-синяя лёгкая куртка
     .desc = { ent-ADTClothingOuterWinterCoatLightColorAquamarine.desc }
+
+
+ent-ADTClothingOuterVoxRobe = роба вокса
+  .desc = Стильная роба с капюшоном и кармашками для краденого. Из лучших мастерских Ковчега, с любовью.
