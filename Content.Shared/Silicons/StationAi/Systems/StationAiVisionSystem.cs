@@ -48,7 +48,7 @@ public sealed class StationAiVisionSystem : EntitySystem
         base.Initialize();
 
         _occluderQuery = GetEntityQuery<OccluderComponent>();
-        _areaGridQuery = GetEntityQuery<AreaGridComponent>();
+        _areaGridQuery = GetEntityQuery<AreaGridComponent>(); // ADT-tweak
 
         _seedJob = new()
         {
