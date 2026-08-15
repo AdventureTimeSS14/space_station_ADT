@@ -13946,3 +13946,10 @@ Entries:
     id: 1797
     pr_number: 3127
     time: '2026-08-15T05:50:07Z'
+  - author: AaidzzKirpich
+    changes:
+      - {message: Добавлена уникальная одежда для воксов, type: Add}
+      - {message: Добавлена вкладка "Расовые предметы" в меню выбора снаряжения, type: Add}
+    id: 1798
+    pr_number: 3096
+    time: '2026-08-15T05:53:16Z'
