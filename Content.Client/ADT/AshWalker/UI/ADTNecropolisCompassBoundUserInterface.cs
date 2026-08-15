@@ -1,3 +1,4 @@
+using Content.Client.ADT.UI;
 using Content.Shared.ADT.AshWalker;
 using Robust.Client.UserInterface;
 
@@ -5,7 +6,7 @@ namespace Content.Client.ADT.AshWalker.UI;
 
 public sealed class ADTNecropolisCompassBoundUserInterface : BoundUserInterface
 {
-    private ADTNecropolisCompassWindow? _window;
+    private ADTEntityPickerWindow? _window;
 
     public ADTNecropolisCompassBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -15,8 +16,11 @@ public sealed class ADTNecropolisCompassBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _window = this.CreateWindow<ADTNecropolisCompassWindow>();
-        _window.OnPointSelected += OnPointSelected;
+        _window = this.CreateWindow<ADTEntityPickerWindow>();
+        _window.SetText(
+            Loc.GetString("adt-necropolis-compass-window-title"),
+            Loc.GetString("adt-necropolis-compass-window-hint"));
+        _window.OnEntrySelected += OnPointSelected;
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -26,7 +30,7 @@ public sealed class ADTNecropolisCompassBoundUserInterface : BoundUserInterface
         if (_window == null || state is not ADTNecropolisCompassBuiState compassState)
             return;
 
-        _window.SetPoints(compassState.Points);
+        _window.SetEntries(compassState.Points);
     }
 
     private void OnPointSelected(NetEntity point)

@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Server.Chat.Managers;
 using Content.Shared.ADT.AshWalker;
 using Content.Shared.ADT.AshWalker.Components;
+using Content.Shared.ADT.UI;
 using Content.Shared.Actions;
 using Content.Shared.Chat;
 using Content.Shared.Popups;
@@ -74,9 +75,9 @@ public sealed class ADTNecropolisCompassSystem : EntitySystem
         Timer.Spawn(ent.Comp.Delay, () => Answer(owner, point)); // todo rm shitass Timer.Spawn
     }
 
-    private List<ADTPointOfInterestEntry> CollectPoints(EntityUid user)
+    private List<ADTEntityPickerEntry> CollectPoints(EntityUid user)
     {
-        var points = new List<ADTPointOfInterestEntry>();
+        var points = new List<ADTEntityPickerEntry>();
         var userMap = _transform.GetMapId(user);
 
         var query = EntityQueryEnumerator<ADTPointOfInterestComponent>();
@@ -87,7 +88,7 @@ public sealed class ADTNecropolisCompassSystem : EntitySystem
 
             var proto = MetaData(poi).EntityPrototype?.ID;
 
-            points.Add(new ADTPointOfInterestEntry(GetNetEntity(poi), Loc.GetString(poiComp.Title), proto));
+            points.Add(new ADTEntityPickerEntry(GetNetEntity(poi), Loc.GetString(poiComp.Title), proto));
         }
 
         return points;

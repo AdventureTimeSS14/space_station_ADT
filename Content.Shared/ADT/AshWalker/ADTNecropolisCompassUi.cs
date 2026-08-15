@@ -1,4 +1,4 @@
-using Robust.Shared.Prototypes;
+using Content.Shared.ADT.UI;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.AshWalker;
@@ -10,26 +10,11 @@ public enum ADTNecropolisCompassUiKey : byte
 }
 
 [Serializable, NetSerializable]
-public struct ADTPointOfInterestEntry
-{
-    public NetEntity Entity;
-    public string Name;
-    public EntProtoId? Proto;
-
-    public ADTPointOfInterestEntry(NetEntity entity, string name, EntProtoId? proto)
-    {
-        Entity = entity;
-        Name = name;
-        Proto = proto;
-    }
-}
-
-[Serializable, NetSerializable]
 public sealed class ADTNecropolisCompassBuiState : BoundUserInterfaceState
 {
-    public List<ADTPointOfInterestEntry> Points;
+    public List<ADTEntityPickerEntry> Points;
 
-    public ADTNecropolisCompassBuiState(List<ADTPointOfInterestEntry> points)
+    public ADTNecropolisCompassBuiState(List<ADTEntityPickerEntry> points)
     {
         Points = points;
     }
