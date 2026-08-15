@@ -366,7 +366,7 @@ public abstract partial class SharedMoverController : VirtualController
             accel *= tileDef?.MobAcceleration ?? 1f;
         }
 
-        // ADT-Tweak-Start: пьяное шатание, водит из стороны в сторону (падения - DrunkFallSystem)
+        // ADT-Tweak-Start: пьяное шатание, водит из стороны в сторону
         ApplyDrunkWobble(uid, ref wishDir);
         // ADT-Tweak-End
 
