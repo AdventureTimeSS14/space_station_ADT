@@ -30,6 +30,8 @@ public sealed partial class SlowDebuffOnHitEffect : TrophyEffect
         EntityManager entManager,
         ref MeleeHitEvent args)
     {
+        var gameTiming = IoCManager.Resolve<IGameTiming>();
+
         foreach (var target in args.HitEntities)
         {
             if (target == holder.Owner)
@@ -38,15 +40,21 @@ public sealed partial class SlowDebuffOnHitEffect : TrophyEffect
             if (!entManager.HasComponent<DamageMarkerComponent>(target))
                 continue;
 
-            var gameTiming = IoCManager.Resolve<IGameTiming>();
-            var marker = new SlowDebuffMarkerComponent
+            if (entManager.TryGetComponent<SlowDebuffMarkerComponent>(target, out var active))
+            {
+                active.ExpireTime = gameTiming.CurTime + EffectDuration;
+                entManager.Dirty(target, active);
+                continue;
+            }
+
+            var newMarker = new SlowDebuffMarkerComponent
             {
                 DamageMultiplier = DamageMultiplier,
-                ExpireTime = EffectDuration + gameTiming.CurTime
+                ExpireTime = EffectDuration + gameTiming.CurTime,
+                Source = holder.Owner,
             };
 
-            if (!entManager.HasComponent<SlowDebuffMarkerComponent>(target))
-                entManager.AddComponent(target, marker);
+            entManager.AddComponent(target, newMarker);
         }
     }
 }

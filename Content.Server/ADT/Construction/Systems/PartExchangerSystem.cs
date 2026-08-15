@@ -196,21 +196,10 @@ public sealed class PartExchangerSystem : EntitySystem
         if (!TryComp<MachineComponent>(target, out var machine))
             return;
 
-        var machineParts = new Dictionary<ProtoId<MachinePartPrototype>, List<(EntityUid Uid, MachinePartState State)>>();
+        if (!TryComp<MachinePartStorageComponent>(target, out var machineStorage))
+            return;
+
         var storageParts = new Dictionary<ProtoId<MachinePartPrototype>, List<(EntityUid Uid, MachinePartState State)>>();
-
-        foreach (var partUid in machine.PartContainer.ContainedEntities)
-        {
-            if (!_construction.GetMachinePartState(partUid, out var partState))
-                continue;
-
-            if (!machineParts.TryGetValue(partState.Part.Part, out var bucket))
-            {
-                bucket = new();
-                machineParts[partState.Part.Part] = bucket;
-            }
-            bucket.Add((partUid, partState));
-        }
 
         foreach (var partUid in storage.Container.ContainedEntities)
         {
@@ -227,7 +216,7 @@ public sealed class PartExchangerSystem : EntitySystem
 
         var changed = false;
 
-        foreach (var (partType, current) in machineParts)
+        foreach (var partType in machineStorage.Parts.Select(slot => slot.Part).Distinct().ToArray())
         {
             if (component.FilteredParts.Count > 0 && !component.FilteredParts.Contains(partType))
                 continue;
@@ -237,16 +226,16 @@ public sealed class PartExchangerSystem : EntitySystem
 
             available.Sort((a, b) => b.State.Part.Tier.CompareTo(a.State.Part.Tier));
 
-            foreach (var currentPart in current.OrderBy(part => part.State.Part.Tier))
+            foreach (var currentSlot in machineStorage.Parts.Where(slot => slot.Part == partType).OrderBy(slot => slot.Tier).ToArray())
             {
-                var needed = currentPart.State.Quantity();
+                var needed = currentSlot.Quantity;
                 var collected = new List<(EntityUid Uid, int Amount, MachinePartState State)>();
                 var collectedTotal = 0;
 
                 for (var i = 0; i < available.Count && collectedTotal < needed; i++)
                 {
                     var candidate = available[i];
-                    if (candidate.State.Part.Tier <= currentPart.State.Part.Tier)
+                    if (candidate.State.Part.Tier <= currentSlot.Tier)
                         continue;
 
                     var candidateQuantity = candidate.State.Quantity();
@@ -261,8 +250,10 @@ public sealed class PartExchangerSystem : EntitySystem
                 if (collectedTotal < needed)
                     continue;
 
+                if (!_proto.TryIndex(partType, out var partProto))
+                    continue;
+
                 var replacementUids = new List<EntityUid>();
-                var removed = new List<EntityUid>();
                 var reservationFailed = false;
 
                 void RollbackReserved()
@@ -302,8 +293,6 @@ public sealed class PartExchangerSystem : EntitySystem
                     {
                         replacementUids.Add(replacementUid);
                     }
-
-                    removed.Add(replacementUid);
                 }
 
                 if (reservationFailed)
@@ -312,22 +301,38 @@ public sealed class PartExchangerSystem : EntitySystem
                     continue;
                 }
 
-                _container.RemoveEntity(target, currentPart.Uid);
-
-                if (!_storage.Insert(uid, currentPart.Uid, out _, playSound: false))
+                var oldPrototype = partProto.GetTierPrototype(currentSlot.Tier);
+                var spawnedOldParts = new List<EntityUid>();
+                for (var i = 0; i < needed; i++)
                 {
-                    _container.Insert(currentPart.Uid, machine.PartContainer, force: true);
+                    var spawned = Spawn(oldPrototype, Transform(target).Coordinates);
+                    spawnedOldParts.Add(spawned);
+
+                    if (!_storage.Insert(uid, spawned, out _, playSound: false))
+                    {
+                        reservationFailed = true;
+                        break;
+                    }
+                }
+
+                if (reservationFailed)
+                {
+                    foreach (var spawned in spawnedOldParts)
+                        QueueDel(spawned);
+
                     RollbackReserved();
                     continue;
                 }
 
-                foreach (var replacementUid in replacementUids)
+                foreach (var (replacementUid, amount, state) in collected)
                 {
-                    if (!_container.Insert(replacementUid, machine.PartContainer, force: true))
-                        _container.Insert(replacementUid, storage.Container, force: true);
+                    machineStorage.Parts.Add(new MachinePartSlot { Part = partType, Tier = state.Part.Tier, Quantity = amount });
+                    QueueDel(replacementUid);
                 }
 
-                foreach (var removedUid in removed)
+                machineStorage.Parts.Remove(currentSlot);
+
+                foreach (var removedUid in replacementUids)
                 {
                     var index = available.FindIndex(p => p.Uid == removedUid);
                     if (index < 0)

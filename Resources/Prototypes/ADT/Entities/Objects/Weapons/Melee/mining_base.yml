@@ -152,6 +152,7 @@
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
+    showExamineText: false
     useKey: false
   - type: BasicEntityAmmoProvider
     proto: BulletCharge
@@ -239,8 +240,8 @@
     - Back
     - suitStorage
   - type: ADTKineticCooldown
-    meleeMultiplier: 1.9
-    rangedMultiplier: 1.9
+    baseMeleeMultiplier: 1.9
+    baseRangedMultiplier: 1.9
   - type: BasicEntityAmmoProvider 
     proto: BulletChargeGlaive
   - type: LeechOnMarker

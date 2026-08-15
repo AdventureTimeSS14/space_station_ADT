@@ -16,7 +16,7 @@
   - type: Item
     sprite: ADT/Objects/Weapons/Guns/Basic/kinetic_accelerator_magmite.rsi
   - type: ADTUpgradeableGun
-    maxModCapacity: 260
+    maxModCapacity: 160
     stockSprite:
       sprite: ADT/Objects/Weapons/Guns/Basic/kinetic_accelerator_magmite.rsi
       state: icon
@@ -53,5 +53,3 @@
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_magmite.rsi
   - type: BasicEntityAmmoProvider
     proto: ADTBulletChargeMagmite
-    capacity: 1
-    count: 1
