@@ -1093,6 +1093,23 @@
           Toxin: -2
           Airloss: -2
           Brute: -2
+      # ADT-Tweak-Start: омнизин вызывает зависимость (частое употребление и передоз от 30u)
+      - !type:AdjustAddictionLevel
+        kind: Omnizine
+        amount: 0.04
+        conditions:
+        - !type:ReagentCondition
+          reagent: Omnizine
+          min: 1
+          max: 30
+      - !type:AdjustAddictionLevel
+        kind: Omnizine
+        amount: 0.5
+        conditions:
+        - !type:ReagentCondition
+          reagent: Omnizine
+          min: 30
+      # ADT-Tweak-End
 
 - type: reagent
   id: Ultravasculine
