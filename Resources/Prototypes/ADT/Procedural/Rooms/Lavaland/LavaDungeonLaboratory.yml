@@ -1,0 +1,2050 @@
+- type: adtDungeonRoom
+  id: LavaDungeonLaboratory
+  size: 32, 31
+  tags:
+  - LavaDungeon
+  legend:
+    "a":
+      tile: FloorBasalt
+    "b":
+      tile: Plating
+    "c":
+      tile: FloorTechMaint
+    "d":
+      tile: FloorTechMaint3
+    "e":
+      tile: FloorSteelDirty
+    "f":
+      tile: FloorMetalDiamond
+    "g":
+      tile: FloorSteelDamaged
+    "h":
+      tile: PlatingDamaged
+    "i":
+      tile: FloorFlesh
+    "j":
+      tile: FloorTechMaint2
+    "k":
+      tile: FloorAstroGrass
+    "l":
+      tile: FloorGold
+    "m":
+      tile: FloorGrassDark
+    "n":
+      tile: FloorGrassLight
+    "o":
+      tile: ADTFloorFleshPlanet
+    "p":
+      tile: FloorAsteroidSandUnvariantized
+    "q":
+      tile: FloorCaveDrought
+  tiles:
+  - "aaaaaaaaaabbbcbcdcbcbbbaaaaaaaaa"
+  - "aaaaaaaabbbcccbcdcbcccbbbaaaaaaa"
+  - "aaaaaabbbefbbbfdddfbbbfgbbbaaaaa"
+  - "aaaaabbgbgbbbcbcdcbcbbbebgbbaaaa"
+  - "aaaabbehbfbibbbbbbbbbebfbiebbaaa"
+  - "aaabbbcbjbbbbfegeggfigeggiiebbaa"
+  - "aaabbbcbjibjibbbhebbiiicccciebaa"
+  - "aabbbbcbjibjbbgiihhbbeccbbccibba"
+  - "aabbbbcbjjbibhkkiiehbicbbbbcggba"
+  - "abbbbbcbjjjjbihkigihbecbbbbceibb"
+  - "abeebbcbbbcbbiiihhigbiccbbbciigb"
+  - "bbghcccccccbbihhlheibgicccccegeb"
+  - "bhggbbbbbbbbbeiihihgbeiigiieeiie"
+  - "bbbbbbbbbbbbbgiigigibbbbbbbbbbbb"
+  - "begiiieghkmkbikkieikbmikeegiiiei"
+  - "bhiihghiiieefhikiikkfegheiheieii"
+  - "bggiiiegekimbgehhiiebkmkhghiiigg"
+  - "bbbbbbbbfbbbbbfbbbfbbbbbfbbbbbbb"
+  - "bibebebiiibgibieiiibibbiibbbiibi"
+  - "bieiiebibbfiibibibibiifbibbiegfg"
+  - "bebiiifbbibbbbeggeibbbbibbfegebi"
+  - "bbbigebiiibbbfeegeefbbbbbibeibbb"
+  - "aabeiibbibbbcbgggeebcbbibibigiba"
+  - "aabbbbbbfbbbcbfbbbfbcbbbfbbbbbba"
+  - "aaabknkiiibbfbopppobfibqiieigbaa"
+  - "aaabbknniibbcbopppobiibqgigibbaa"
+  - "aaaabbkknnbbcbpopppbiibgiggbbaaa"
+  - "aaaaabbnkkbbbbpppppbbibieibbaaaa"
+  - "aaaaaabbbnfbbpppppppbbfibbbaaaaa"
+  - "aaaaaaaabbbjbpppppppbjbbbaaaaaaa"
+  - "aaaaaaaaaabbbpppppppbbbaaaaaaaaa"
+  entities:
+  - proto: ADTCursedHeart
+    positions:
+    - 7.5314,27.4798
+  - proto: ADTSoundGenAlarmTimed
+    positions:
+    - 3.5,8.5
+  - proto: ADTSoundGenDestruction1Timed
+    positions:
+    - 15.5,13.5
+    - 20.5,17.5
+  - proto: ADTSoundGenDestruction2Timed
+    positions:
+    - 14.5,26.5
+  - proto: ADTSoundGenDungeonAmbientScaryTimed
+    positions:
+    - 13.5,10.5
+  - proto: ADTSoundGenFactoryTimed
+    positions:
+    - 16.5,19.5
+  - proto: ADTSoundGenHitTimed
+    positions:
+    - 29.5,13.5
+    - 4.5,13.5
+  - proto: ADTSoundGenShaftWaterTimed
+    positions:
+    - 9.5,9.5
+    - 26.5,4.5
+    - 7.5,27.5
+  - proto: ADTSoundGenShortScaryAmbientTimed
+    positions:
+    - 25.5,21.5
+  - proto: ADTTableFrame
+    rot: -1.5707963267948966 rad
+    positions:
+    - 15.5,10.5
+    - 17.5,11.5
+  - proto: APCBasic
+    rot: 3.141592653589793 rad
+    positions:
+    - 16.5,26.5
+  - proto: AirlockAssembly
+    positions:
+    - 2.5,11.5
+    - 23.5,26.5
+  - proto: AirlockMaintLocked
+    rot: 1.5707963267948966 rad
+    positions:
+    - 13.5,25.5
+  - proto: AirlockMaintLocked
+    rot: 3.141592653589793 rad
+    positions:
+    - 30.5,11.5
+  - proto: AirlockMaintLocked
+    positions:
+    - 10.5,2.5
+    - 22.5,2.5
+    - 19.5,9.5
+    - 9.5,26.5
+    - 10.5,28.5
+    - 22.5,28.5
+  - proto: AnomalyCoreFlesh
+    positions:
+    - 16.5339,19.4947
+  - proto: AnomalyFloraBulb
+    rot: 3.141592653589793 rad
+    positions:
+    - 9.5,14.5
+    - 11.5,16.5
+    - 22.5,16.5
+    - 21.5,14.5
+  - proto: AnomalyFloraBulb
+    positions:
+    - 6.5,4.5
+    - 8.5,3.5
+    - 9.5,6.5
+    - 15.5,16.5
+    - 15.5,22.5
+    - 19.5,15.5
+  - proto: Barricade
+    rot: -1.5707963267948966 rad
+    positions:
+    - 15.5,17.5
+    - 17.5,21.5
+    - 15.5,23.5
+    - 18.5,23.5
+    - 16.5,23.5
+  - proto: Barricade
+    rot: 1.5707963267948966 rad
+    positions:
+    - 6.5,10.5
+    - 13.5,17.5
+    - 19.5,22.5
+    - 19.5,18.5
+  - proto: Barricade
+    rot: 3.141592653589793 rad
+    positions:
+    - 8.5,13.5
+    - 12.5,15.5
+  - proto: Barricade
+    positions:
+    - 1.5,14.5
+    - 18.5,12.5
+    - 10.5,11.5
+    - 23.5,10.5
+    - 25.5,11.5
+    - 24.5,13.5
+    - 2.5,16.5
+    - 2.5,15.5
+    - 1.5,16.5
+    - 19.5,25.5
+    - 22.5,11.5
+    - 22.5,28.5
+    - 18.5,28.5
+  - proto: BarricadeBlock
+    rot: -1.5707963267948966 rad
+    positions:
+    - 17.5,23.5
+  - proto: BarricadeBlock
+    rot: 1.5707963267948966 rad
+    positions:
+    - 20.5,15.5
+  - proto: BarricadeBlock
+    rot: 3.141592653589793 rad
+    positions:
+    - 14.5,7.5
+  - proto: BarricadeBlock
+    positions:
+    - 14.5,13.5
+    - 18.5,13.5
+    - 9.5,26.5
+  - proto: BarricadeDirectional
+    rot: -1.5707963267948966 rad
+    positions:
+    - 11.5,11.5
+    - 24.5,10.5
+    - 14.5,17.5
+    - 18.5,21.5
+    - 16.5,17.5
+  - proto: BarricadeDirectional
+    rot: 1.5707963267948966 rad
+    positions:
+    - 17.5,12.5
+    - 5.5,10.5
+    - 24.5,11.5
+    - 18.5,22.5
+    - 18.5,25.5
+    - 13.5,28.5
+  - proto: BarricadeDirectional
+    rot: 3.141592653589793 rad
+    positions:
+    - 18.5,11.5
+    - 8.5,12.5
+    - 19.5,17.5
+  - proto: BarricadeDirectional
+    positions:
+    - 16.5,3.5
+    - 18.5,4.5
+    - 14.5,4.5
+    - 9.5,10.5
+    - 15.5,14.5
+    - 17.5,14.5
+  - proto: BlastDoor
+    rot: 3.141592653589793 rad
+    positions:
+    - 18.5,7.5
+  - proto: BlastDoor
+    positions:
+    - 14.5,13.5
+    - 18.5,13.5
+    - 8.5,7.5
+    - 24.5,7.5
+  - proto: BlastDoorFrame
+    anchored: true
+    positions:
+    - 14.5,7.5
+  - proto: CableApcExtension
+    positions:
+    - 16.5,26.5
+    - 16.5,27.5
+    - 16.5,28.5
+    - 16.5,29.5
+    - 16.5,30.5
+    - 15.5,28.5
+    - 14.5,28.5
+    - 13.5,28.5
+    - 12.5,28.5
+    - 11.5,28.5
+    - 10.5,28.5
+    - 17.5,28.5
+    - 18.5,28.5
+    - 19.5,28.5
+    - 20.5,28.5
+    - 21.5,28.5
+    - 16.5,25.5
+    - 16.5,24.5
+    - 16.5,23.5
+    - 16.5,22.5
+    - 16.5,21.5
+    - 16.5,20.5
+    - 16.5,19.5
+    - 16.5,18.5
+    - 16.5,17.5
+    - 16.5,16.5
+    - 16.5,15.5
+    - 16.5,14.5
+    - 17.5,15.5
+    - 18.5,15.5
+    - 19.5,15.5
+    - 20.5,15.5
+    - 21.5,15.5
+    - 22.5,15.5
+    - 23.5,15.5
+    - 24.5,15.5
+    - 25.5,15.5
+    - 26.5,15.5
+    - 27.5,15.5
+    - 28.5,15.5
+    - 29.5,15.5
+    - 30.5,15.5
+    - 31.5,15.5
+    - 24.5,14.5
+    - 24.5,13.5
+    - 24.5,12.5
+    - 24.5,11.5
+    - 24.5,10.5
+    - 24.5,9.5
+    - 24.5,8.5
+    - 25.5,10.5
+    - 27.5,10.5
+    - 28.5,10.5
+    - 29.5,10.5
+    - 26.5,10.5
+    - 29.5,11.5
+    - 30.5,11.5
+    - 31.5,11.5
+    - 24.5,7.5
+    - 24.5,6.5
+    - 24.5,5.5
+    - 24.5,4.5
+    - 23.5,4.5
+    - 23.5,3.5
+    - 23.5,2.5
+    - 25.5,4.5
+    - 26.5,4.5
+    - 26.5,5.5
+    - 22.5,2.5
+    - 21.5,2.5
+    - 21.5,3.5
+    - 21.5,4.5
+    - 21.5,5.5
+    - 21.5,6.5
+    - 21.5,7.5
+    - 21.5,8.5
+    - 21.5,9.5
+    - 15.5,15.5
+    - 14.5,15.5
+    - 13.5,15.5
+    - 12.5,15.5
+    - 11.5,15.5
+    - 10.5,15.5
+    - 9.5,15.5
+    - 8.5,15.5
+    - 7.5,15.5
+    - 6.5,15.5
+    - 5.5,15.5
+    - 4.5,15.5
+    - 3.5,15.5
+    - 2.5,15.5
+    - 1.5,15.5
+    - 8.5,14.5
+    - 8.5,13.5
+    - 8.5,12.5
+    - 8.5,11.5
+    - 8.5,10.5
+    - 8.5,9.5
+    - 8.5,8.5
+    - 7.5,10.5
+    - 6.5,10.5
+    - 5.5,10.5
+    - 4.5,10.5
+    - 3.5,10.5
+    - 3.5,11.5
+    - 2.5,11.5
+    - 1.5,11.5
+    - 9.5,11.5
+    - 10.5,11.5
+    - 11.5,11.5
+    - 12.5,11.5
+    - 8.5,7.5
+    - 8.5,6.5
+    - 8.5,5.5
+    - 8.5,4.5
+    - 9.5,4.5
+    - 9.5,3.5
+    - 7.5,5.5
+    - 6.5,5.5
+    - 9.5,2.5
+    - 10.5,2.5
+    - 11.5,2.5
+    - 11.5,3.5
+    - 11.5,4.5
+    - 11.5,5.5
+    - 11.5,6.5
+    - 11.5,7.5
+    - 11.5,8.5
+    - 11.5,9.5
+    - 12.5,9.5
+    - 13.5,9.5
+    - 14.5,9.5
+    - 15.5,9.5
+    - 16.5,9.5
+    - 17.5,9.5
+    - 16.5,10.5
+    - 16.5,11.5
+    - 16.5,12.5
+    - 18.5,9.5
+    - 14.5,8.5
+    - 14.5,7.5
+    - 14.5,6.5
+    - 14.5,5.5
+    - 15.5,5.5
+    - 15.5,4.5
+    - 15.5,3.5
+    - 15.5,2.5
+    - 15.5,1.5
+    - 16.5,4.5
+    - 17.5,4.5
+    - 17.5,5.5
+    - 17.5,3.5
+    - 17.5,2.5
+    - 17.5,1.5
+    - 18.5,5.5
+    - 18.5,6.5
+    - 22.5,28.5
+    - 23.5,28.5
+    - 23.5,27.5
+    - 23.5,26.5
+    - 23.5,25.5
+    - 24.5,25.5
+    - 25.5,25.5
+    - 26.5,25.5
+    - 27.5,25.5
+    - 27.5,24.5
+    - 28.5,24.5
+    - 28.5,23.5
+    - 28.5,22.5
+    - 28.5,21.5
+    - 28.5,20.5
+    - 28.5,19.5
+    - 28.5,18.5
+    - 27.5,18.5
+    - 26.5,18.5
+    - 25.5,18.5
+    - 24.5,18.5
+    - 23.5,18.5
+    - 22.5,18.5
+    - 21.5,18.5
+    - 21.5,19.5
+    - 21.5,20.5
+    - 21.5,21.5
+    - 21.5,22.5
+    - 21.5,23.5
+    - 21.5,24.5
+    - 19.5,24.5
+    - 9.5,28.5
+    - 9.5,26.5
+    - 9.5,25.5
+    - 9.5,24.5
+    - 9.5,27.5
+    - 9.5,22.5
+    - 9.5,23.5
+    - 10.5,24.5
+    - 11.5,24.5
+    - 12.5,24.5
+  - proto: CableHV
+    positions:
+    - 21.5,29.5
+    - 20.5,29.5
+    - 19.5,29.5
+    - 19.5,30.5
+  - proto: CableMV
+    positions:
+    - 19.5,30.5
+    - 19.5,29.5
+    - 19.5,28.5
+    - 18.5,28.5
+    - 17.5,28.5
+    - 16.5,28.5
+    - 16.5,27.5
+    - 16.5,26.5
+  - proto: Catwalk
+    rot: -1.5707963267948966 rad
+    positions:
+    - 16.5,4.5
+    - 15.5,0.5
+    - 17.5,0.5
+    - 8.5,8.5
+    - 8.5,9.5
+    - 8.5,10.5
+    - 7.5,10.5
+    - 9.5,11.5
+    - 8.5,11.5
+    - 8.5,12.5
+  - proto: Catwalk
+    rot: 3.141592653589793 rad
+    positions:
+    - 25.5,4.5
+    - 26.5,4.5
+    - 10.5,21.5
+    - 10.5,20.5
+    - 10.5,19.5
+    - 9.5,19.5
+    - 8.5,19.5
+    - 7.5,19.5
+    - 6.5,19.5
+    - 5.5,19.5
+    - 4.5,19.5
+    - 3.5,19.5
+    - 6.5,20.5
+    - 6.5,21.5
+    - 6.5,22.5
+    - 6.5,23.5
+    - 6.5,25.5
+    - 6.5,24.5
+  - proto: Catwalk
+    positions:
+    - 15.5,5.5
+    - 14.5,5.5
+    - 14.5,6.5
+    - 17.5,5.5
+    - 18.5,5.5
+    - 18.5,6.5
+    - 17.5,4.5
+    - 17.5,3.5
+    - 17.5,2.5
+    - 15.5,4.5
+    - 15.5,3.5
+    - 15.5,2.5
+    - 15.5,1.5
+    - 17.5,1.5
+    - 12.5,9.5
+    - 11.5,9.5
+    - 11.5,8.5
+    - 11.5,7.5
+    - 11.5,6.5
+    - 11.5,5.5
+    - 11.5,4.5
+    - 11.5,3.5
+    - 11.5,2.5
+    - 20.5,9.5
+    - 21.5,9.5
+    - 21.5,8.5
+    - 21.5,7.5
+    - 21.5,6.5
+    - 21.5,5.5
+    - 21.5,4.5
+    - 21.5,3.5
+    - 21.5,2.5
+    - 8.5,5.5
+    - 8.5,4.5
+    - 9.5,4.5
+    - 9.5,3.5
+    - 9.5,2.5
+    - 8.5,6.5
+    - 23.5,2.5
+    - 23.5,3.5
+    - 23.5,4.5
+    - 24.5,4.5
+    - 24.5,5.5
+    - 24.5,6.5
+    - 11.5,11.5
+    - 11.5,12.5
+    - 24.5,8.5
+    - 24.5,9.5
+    - 24.5,10.5
+    - 24.5,11.5
+    - 24.5,12.5
+    - 23.5,11.5
+    - 25.5,10.5
+    - 21.5,12.5
+    - 21.5,11.5
+    - 12.5,25.5
+    - 11.5,25.5
+    - 10.5,25.5
+    - 9.5,25.5
+    - 10.5,24.5
+    - 10.5,23.5
+    - 10.5,22.5
+    - 21.5,28.5
+    - 20.5,28.5
+    - 19.5,28.5
+    - 11.5,28.5
+    - 12.5,28.5
+    - 13.5,28.5
+  - proto: Chair
+    rot: 3.141592653589793 rad
+    positions:
+    - 29.5,8.5
+  - proto: ChairFolding
+    rot: 3.141592653589793 rad
+    positions:
+    - 16.5125,5.468
+  - proto: ChairFolding
+    positions:
+    - 29.519,10.4789
+  - proto: ChairOfficeLight
+    positions:
+    - 16.5,11.5
+  - proto: ClosetEmergencyFilledRandom
+    positions:
+    - 9.5,12.5
+    - 25.5,8.5
+  - proto: ClosetFireFilled
+    positions:
+    - 25.5,9.5
+  - proto: ClosetMaintenanceFilledRandom
+    positions:
+    - 2.5,20.5
+  - proto: ClothingMaskClownBanana
+    positions:
+    - 25.5352,27.546
+  - proto: ComputerBroken
+    positions:
+    - 16.5,6.5
+  - proto: ComputerFrame
+    rot: 3.141592653589793 rad
+    positions:
+    - 16.5,10.5
+  - proto: CrateTrashCartFilled
+    positions:
+    - 7.5,12.5
+  - proto: DisposalMachineFrame
+    positions:
+    - 16.5,8.5
+  - proto: EmergencyRollerBed
+    positions:
+    - 29.2095,16.4725
+    - 31.4595,14.5819
+  - proto: FenceMetalBroken
+    rot: -1.5707963267948966 rad
+    positions:
+    - 14.5,0.5
+    - 19.5,0.5
+    - 25.5,19.5
+  - proto: FenceMetalBroken
+    rot: 1.5707963267948966 rad
+    positions:
+    - 24.5,24.5
+  - proto: FenceMetalBroken
+    rot: 3.141592653589793 rad
+    positions:
+    - 22.5,21.5
+    - 27.5,21.5
+  - proto: FenceMetalBroken
+    positions:
+    - 8.5,23.5
+  - proto: FenceMetalCorner
+    rot: -1.5707963267948966 rad
+    positions:
+    - 8.5,21.5
+    - 22.5,20.5
+    - 23.5,19.5
+    - 26.5,23.5
+  - proto: FenceMetalCorner
+    rot: 1.5707963267948966 rad
+    positions:
+    - 26.5,24.5
+    - 27.5,23.5
+    - 23.5,20.5
+  - proto: FenceMetalCorner
+    rot: 3.141592653589793 rad
+    positions:
+    - 22.5,23.5
+    - 23.5,24.5
+  - proto: FenceMetalCorner
+    positions:
+    - 27.5,19.5
+    - 23.5,23.5
+  - proto: FenceMetalGate
+    rot: 3.141592653589793 rad
+    positions:
+    - 15.5,0.5
+    - 10.5,21.5
+  - proto: FenceMetalGate
+    positions:
+    - 17.5,0.5
+  - proto: FenceMetalStraight
+    rot: -1.5707963267948966 rad
+    positions:
+    - 13.5,0.5
+    - 18.5,0.5
+    - 16.5,0.5
+    - 9.5,21.5
+    - 11.5,21.5
+    - 24.5,19.5
+    - 26.5,19.5
+  - proto: FenceMetalStraight
+    rot: 1.5707963267948966 rad
+    positions:
+    - 25.5,24.5
+  - proto: FenceMetalStraight
+    rot: 3.141592653589793 rad
+    positions:
+    - 22.5,22.5
+    - 27.5,20.5
+    - 27.5,22.5
+  - proto: FenceMetalStraight
+    positions:
+    - 8.5,25.5
+    - 8.5,24.5
+    - 8.5,22.5
+  - proto: FirelockFrame
+    positions:
+    - 13.5,9.5
+  - proto: Fireplace
+    positions:
+    - 28.5,12.5
+  - proto: FleshBlocker
+    rot: 1.5707963267948966 rad
+    positions:
+    - 27.5,16.5
+    - 28.5,14.5
+    - 4.5,16.5
+    - 13.5,16.5
+    - 16.5,21.5
+    - 17.5,17.5
+  - proto: FleshBlocker
+    positions:
+    - 16.5,12.5
+    - 21.5,5.5
+    - 23.5,12.5
+    - 7.5,11.5
+    - 9.5,24.5
+    - 11.5,22.5
+  - proto: FloodlightBroken
+    positions:
+    - 13.4812,2.5264
+    - 19.4969,2.5264
+  - proto: FloorChasmEntity
+    rot: -1.5707963267948966 rad
+    positions:
+    - 3.5,22.5
+    - 4.5,22.5
+    - 4.5,23.5
+    - 4.5,24.5
+  - proto: FloorChasmEntity
+    positions:
+    - 24.5,22.5
+    - 24.5,21.5
+    - 25.5,22.5
+    - 25.5,21.5
+    - 25.5,20.5
+    - 24.5,20.5
+    - 23.5,21.5
+    - 23.5,22.5
+    - 25.5,23.5
+    - 26.5,22.5
+    - 24.5,23.5
+    - 26.5,20.5
+    - 26.5,21.5
+  - proto: FloorLavaEntity
+    rot: -1.5707963267948966 rad
+    positions:
+    - 3.5,21.5
+    - 4.5,21.5
+    - 4.5,20.5
+    - 5.5,20.5
+    - 5.5,21.5
+    - 5.5,22.5
+    - 5.5,23.5
+    - 5.5,25.5
+    - 5.5,24.5
+    - 7.5,25.5
+    - 7.5,24.5
+    - 7.5,23.5
+    - 7.5,20.5
+    - 8.5,20.5
+    - 6.5,18.5
+    - 5.5,18.5
+    - 4.5,18.5
+    - 10.5,18.5
+    - 11.5,20.5
+    - 9.5,20.5
+    - 7.5,21.5
+    - 7.5,22.5
+  - proto: FloorLavaEntity
+    positions:
+    - 11.5,18.5
+    - 11.5,19.5
+    - 9.5,18.5
+    - 7.5,18.5
+    - 8.5,18.5
+  - proto: FloorTrapExplosion
+    positions:
+    - 2.5,11.5
+  - proto: FloraGreyStalagmite
+    rot: 1.5707963267948966 rad
+    positions:
+    - 23.439,6.5603
+  - proto: FloraStalagmite
+    rot: 1.5707963267948966 rad
+    positions:
+    - 23.5015,6.1228
+  - proto: FoodAnomalyBerry
+    positions:
+    - 7.2145,6.5654
+  - proto: FoodBowlBigTrash
+    positions:
+    - 29.519,9.6352
+  - proto: FoodMeat
+    positions:
+    - 28.3315,10.8417
+  - proto: FoodMeatRotten
+    rot: -1.5707963267948966 rad
+    positions:
+    - 16.8931,15.6226
+  - proto: FoodMeatRotten
+    positions:
+    - 13.825,2.3742
+    - 11.8032,5.162
+    - 15.8673,12.1024
+    - 16.8361,11.0399
+    - 21.2922,7.9478
+    - 20.6672,4.5415
+    - 25.0756,5.5842
+    - 26.5131,6.3186
+    - 27.4877,10.5917
+    - 27.7533,9.6698
+    - 17.4556,19.9507
+    - 13.5962,19.9351
+  - proto: FoodMeatWheat
+    rot: -1.5707963267948966 rad
+    positions:
+    - 6.359,26.2393
+  - proto: FoodMeatWheat
+    rot: 1.5707963267948966 rad
+    positions:
+    - 27.9096,10.1073
+    - 28.5815,10.4198
+    - 27.894,10.9198
+    - 28.019,10.3886
+    - 16.8306,15.2632
+    - 17.44,14.7632
+    - 29.9314,15.4194
+    - 30.5095,14.935
+    - 30.9783,15.6538
+  - proto: FoodMeatWheat
+    rot: 3.141592653589793 rad
+    positions:
+    - 13.825,1.4992
+    - 14.7,1.8742
+    - 14.3094,2.8273
+    - 7.1715,26.6612
+  - proto: FoodMeatWheat
+    positions:
+    - 11.4594,5.1932
+    - 11.3188,3.9276
+    - 12.1469,4.9276
+    - 16.0392,11.3524
+    - 16.8361,11.6649
+    - 20.539,5.2594
+    - 21.0858,4.3062
+    - 25.1381,6.2092
+    - 25.6225,5.3654
+    - 26.1068,6.2561
+    - 25.6381,6.5373
+    - 26.1381,5.6936
+    - 1.0734,10.6608
+    - 1.714,10.1451
+    - 29.4877,9.6386
+    - 18.315,15.2788
+    - 13.4712,20.1538
+    - 14.4712,20.7319
+    - 13.7525,20.6694
+    - 17.4868,19.3257
+    - 17.5962,18.9819
+    - 18.065,19.3569
+  - proto: FoodSnackSemki
+    positions:
+    - 27.5502,9.4596
+  - proto: GeneratorBasic
+    positions:
+    - 21.5,29.5
+    - 20.5,29.5
+  - proto: GlassBoxBroken
+    positions:
+    - 27.5,12.5
+  - proto: Grille
+    positions:
+    - 14.5,24.5
+    - 15.5,24.5
+    - 18.5,24.5
+  - proto: GrilleBroken
+    rot: -1.5707963267948966 rad
+    positions:
+    - 16.5,24.5
+  - proto: GrilleBroken
+    rot: 1.5707963267948966 rad
+    positions:
+    - 17.5,24.5
+  - proto: GrilleSpawner
+    positions:
+    - 5.5,6.5
+    - 5.5,5.5
+  - proto: HighSecDoor
+    rot: 3.141592653589793 rad
+    positions:
+    - 8.5,13.5
+    - 12.5,15.5
+    - 20.5,15.5
+  - proto: HighSecDoor
+    positions:
+    - 24.5,13.5
+    - 14.5,28.5
+    - 18.5,28.5
+  - proto: InflatableWall
+    rot: 3.141592653589793 rad
+    positions:
+    - 26.5,10.5
+  - proto: LightTree
+    rot: -1.5707963267948966 rad
+    positions:
+    - 5.3206,14.6572
+  - proto: LightTree
+    positions:
+    - 7.5711,3.8924
+    - 9.3836,5.4236
+  - proto: LockerArmory
+    components:
+    - type: Lock
+      locked: false
+    positions:
+    - 3.5,8.5
+  - proto: LockerArmory
+    positions:
+    - 3.5,10.5
+    - 3.5,9.5
+  - proto: LootSpawnerArmory
+    positions:
+    - 3.5,18.5
+  - proto: LootSpawnerArmoryArmorOnly
+    rot: -1.5707963267948966 rad
+    positions:
+    - 30.5,20.5
+  - proto: LootSpawnerArmoryArmorOnly
+    positions:
+    - 5.5,12.5
+    - 23.5,8.5
+    - 3.5,20.5
+  - proto: LootSpawnerArmoryGunsOnly
+    rot: -1.5707963267948966 rad
+    positions:
+    - 28.5,6.5
+  - proto: LootSpawnerIndustrial
+    positions:
+    - 25.5,3.5
+    - 15.5,27.5
+    - 17.5,27.5
+  - proto: LootSpawnerIndustrialFluff
+    positions:
+    - 4.5,6.5
+  - proto: LootSpawnerMaterials
+    positions:
+    - 7.5,9.5
+  - proto: LootSpawnerMaterialsHighValue
+    rot: -1.5707963267948966 rad
+    positions:
+    - 12.5,12.5
+    - 1.5,15.5
+  - proto: LootSpawnerMaterialsHighValue
+    positions:
+    - 20.5,12.5
+    - 19.5,19.5
+    - 17.5,29.5
+  - proto: LootSpawnerMaterialsHighValueConstruction
+    positions:
+    - 20.5,11.5
+    - 14.5,23.5
+  - proto: LootSpawnerMaterialsSupplementary
+    positions:
+    - 7.5,8.5
+  - proto: LootSpawnerMaterialsSurplus
+    positions:
+    - 13.5,18.5
+  - proto: LootSpawnerMedicalClassy
+    positions:
+    - 11.5,1.5
+    - 6.5,5.5
+    - 24.5,3.5
+    - 4.5,12.5
+    - 25.5,26.5
+    - 26.5,26.5
+  - proto: LootSpawnerSecurity
+    rot: -1.5707963267948966 rad
+    positions:
+    - 30.5,19.5
+    - 30.5,18.5
+  - proto: LootSpawnerSecurity
+    positions:
+    - 23.5,9.5
+    - 1.5,18.5
+    - 11.5,29.5
+    - 12.5,29.5
+  - proto: LootSpawnerSecurityBasic
+    positions:
+    - 17.5,6.5
+    - 21.5,1.5
+    - 3.5,12.5
+  - proto: MaintenanceFluffSpawner
+    positions:
+    - 18.5,14.5
+    - 17.5,30.5
+  - proto: MaintenanceInsulsSpawner
+    rot: -1.5707963267948966 rad
+    positions:
+    - 12.5,11.5
+  - proto: MaintenanceInsulsSpawner
+    positions:
+    - 15.5,29.5
+  - proto: MaintenancePlantSpawner
+    positions:
+    - 12.5,4.5
+    - 20.5,8.5
+    - 13.5,14.5
+    - 19.5,20.5
+    - 13.5,30.5
+  - proto: MaintenanceToolSpawner
+    positions:
+    - 13.5,22.5
+    - 15.5,30.5
+  - proto: MaterialBones1
+    rot: -1.5707963267948966 rad
+    positions:
+    - 14.5906,1.7648
+    - 11.7563,3.9745
+    - 16.133,11.6805
+    - 25.9506,5.6623
+    - 1.8546,10.7233
+    - 27.7065,11.123
+    - 14.0025,20.3257
+    - 17.7525,19.2163
+    - 30.8689,15.1381
+  - proto: MaterialBones1
+    rot: 1.5707963267948966 rad
+    positions:
+    - 14.0906,1.5461
+    - 25.9818,6.0217
+    - 28.2065,9.7792
+    - 17.8931,15.1538
+    - 7.0778,26.2862
+  - proto: MaterialBones1
+    rot: 3.141592653589793 rad
+    positions:
+    - 14.5594,2.4367
+    - 12.0532,4.4901
+    - 16.6173,11.3524
+    - 25.4506,6.1936
+    - 28.394,10.8261
+    - 14.4243,20.3101
+    - 17.0962,19.0913
+    - 30.9001,15.81
+  - proto: MaterialBones1
+    positions:
+    - 13.9344,1.8117
+    - 14.1844,1.1711
+    - 11.5219,4.8495
+    - 16.1798,11.0399
+    - 25.2475,5.6779
+    - 1.1671,10.1608
+    - 27.4877,10.2792
+    - 13.2525,20.0601
+    - 17.1587,15.7319
+    - 30.0251,15.0288
+    - 6.234,26.8643
+  - proto: Mirror
+    rot: 3.141592653589793 rad
+    positions:
+    - 31.5,9.5
+  - proto: Mirror
+    positions:
+    - 1.5,13.5
+  - proto: Paper
+    components:
+    - type: Paper
+      content: "[bold][color=black]Я НЕ УМРУ В ТУАЛЕТЕ!![/color][/bold]\n\n"
+    positions:
+    - 1.4756,10.8509
+  - proto: PlushieSpawner50
+    positions:
+    - 17.5,10.5
+    - 15.5,19.5
+  - proto: PoweredDimSmallLight
+    rot: -1.5707963267948966 rad
+    positions:
+    - 19.5,2.5
+    - 5.5,11.5
+    - 19.5,16.5
+    - 19.5,20.5
+    - 25.5,11.5
+    - 11.5,23.5
+    - 13.5,29.5
+    - 28.5,23.5
+  - proto: PoweredDimSmallLight
+    rot: 1.5707963267948966 rad
+    positions:
+    - 14.5,3.5
+    - 11.5,9.5
+    - 13.5,16.5
+    - 13.5,18.5
+    - 31.5,10.5
+    - 21.5,2.5
+    - 19.5,29.5
+    - 21.5,23.5
+  - proto: PoweredDimSmallLight
+    rot: 3.141592653589793 rad
+    positions:
+    - 15.5,8.5
+    - 11.5,1.5
+    - 7.5,8.5
+    - 7.5,14.5
+    - 15.5,14.5
+    - 26.5,14.5
+    - 28.5,8.5
+    - 24.5,18.5
+  - proto: PoweredDimSmallLight
+    positions:
+    - 16.5,6.5
+    - 16.5,12.5
+    - 6.5,6.5
+    - 9.5,12.5
+    - 11.5,12.5
+    - 1.5,12.5
+    - 8.5,16.5
+    - 2.5,16.5
+    - 14.5,23.5
+    - 24.5,16.5
+    - 21.5,12.5
+    - 25.5,6.5
+    - 20.5,9.5
+    - 16.5,25.5
+    - 24.5,25.5
+  - proto: PoweredSmallLight
+    positions:
+    - 16.5,30.5
+  - proto: Rack
+    positions:
+    - 27.5,9.5
+    - 3.5,18.5
+    - 3.5,20.5
+    - 15.5,30.5
+    - 15.5,29.5
+    - 15.5,27.5
+    - 17.5,27.5
+    - 17.5,29.5
+    - 17.5,30.5
+    - 11.5,29.5
+    - 12.5,29.5
+  - proto: Railing
+    rot: -1.5707963267948966 rad
+    positions:
+    - 12.5,6.5
+    - 4.5,20.5
+    - 4.5,18.5
+  - proto: Railing
+    rot: 1.5707963267948966 rad
+    positions:
+    - 20.5,6.5
+    - 23.5,6.5
+  - proto: Railing
+    rot: 3.141592653589793 rad
+    positions:
+    - 12.5,5.5
+    - 20.5,5.5
+    - 22.5,14.5
+    - 21.5,14.5
+    - 10.5,14.5
+    - 11.5,14.5
+    - 7.5,25.5
+  - proto: Railing
+    positions:
+    - 12.5,7.5
+    - 20.5,7.5
+    - 3.5,12.5
+    - 4.5,12.5
+    - 5.5,12.5
+    - 22.5,16.5
+    - 21.5,16.5
+    - 10.5,16.5
+    - 11.5,16.5
+    - 3.5,21.5
+  - proto: RailingCorner
+    rot: -1.5707963267948966 rad
+    positions:
+    - 9.5,16.5
+    - 15.5,18.5
+    - 25.5,15.5
+  - proto: RailingCorner
+    rot: 1.5707963267948966 rad
+    positions:
+    - 23.5,14.5
+    - 17.5,20.5
+    - 25.5,15.5
+  - proto: RailingCorner
+    rot: 3.141592653589793 rad
+    positions:
+    - 9.5,14.5
+    - 15.5,20.5
+    - 7.5,15.5
+  - proto: RailingCorner
+    positions:
+    - 23.5,5.5
+    - 23.5,16.5
+    - 17.5,18.5
+    - 7.5,15.5
+  - proto: RailingCornerSmall
+    rot: -1.5707963267948966 rad
+    positions:
+    - 5.5,25.5
+  - proto: RailingCornerSmall
+    rot: 1.5707963267948966 rad
+    positions:
+    - 4.5,21.5
+  - proto: RailingCornerSmall
+    positions:
+    - 8.5,25.5
+  - proto: RandomCommandCorpseSpawner
+    rot: 1.5707963267948966 rad
+    positions:
+    - 17.5,19.5
+  - proto: RandomEngineerCorpseSpawner
+    rot: -1.5707963267948966 rad
+    positions:
+    - 6.5,26.5
+  - proto: RandomEngineerCorpseSpawner
+    rot: 1.5707963267948966 rad
+    positions:
+    - 11.5,4.5
+  - proto: RandomMeat
+    positions:
+    - 4.5139,8.4723
+    - 5.4045,11.5817
+    - 1.4358,11.4567
+    - 29.1971,16.3989
+    - 31.4471,14.5083
+  - proto: RandomMedicCorpseSpawner
+    rot: 1.5707963267948966 rad
+    positions:
+    - 30.5,15.5
+  - proto: RandomSecurityCorpseSpawner
+    rot: -1.5707963267948966 rad
+    positions:
+    - 13.5,20.5
+  - proto: RandomSecurityCorpseSpawner
+    rot: 1.5707963267948966 rad
+    positions:
+    - 1.5,10.5
+    - 17.5,15.5
+  - proto: RandomSecurityCorpseSpawner
+    positions:
+    - 16.5,5.5
+  - proto: RandomSpawner
+    positions:
+    - 7.5,12.5
+    - 9.5,8.5
+    - 5.5,9.5
+    - 1.5,12.5
+    - 9.5,3.5
+    - 12.5,8.5
+    - 14.5,11.5
+    - 17.5,8.5
+    - 18.5,10.5
+    - 14.5,5.5
+    - 19.5,1.5
+    - 14.5,3.5
+    - 20.5,7.5
+    - 21.5,2.5
+    - 24.5,4.5
+    - 26.5,5.5
+  - proto: RandomSpawner100
+    rot: -1.5707963267948966 rad
+    positions:
+    - 10.5,15.5
+  - proto: RandomSpawner100
+    positions:
+    - 18.5,17.5
+    - 14.5,21.5
+    - 10.5,25.5
+    - 16.5,28.5
+    - 4.5,19.5
+    - 22.5,25.5
+    - 28.5,18.5
+    - 28.5,22.5
+    - 21.5,20.5
+  - proto: RandomVendingDrinks
+    positions:
+    - 27.5,8.5
+  - proto: ReinforcedWindow
+    positions:
+    - 14.5,24.5
+    - 15.5,24.5
+    - 18.5,24.5
+  - proto: SalvageFleshSpawner
+    rot: 1.5707963267948966 rad
+    positions:
+    - 21.5,21.5
+  - proto: SalvageFleshSpawner
+    positions:
+    - 11.5,6.5
+    - 11.5,3.5
+    - 5.5,8.5
+    - 4.5,11.5
+    - 13.5,21.5
+    - 15.5,15.5
+    - 19.5,21.5
+    - 18.5,16.5
+    - 27.5,14.5
+    - 3.5,16.5
+    - 2.5,14.5
+    - 14.5,19.5
+    - 11.5,24.5
+    - 9.5,22.5
+    - 22.5,18.5
+    - 29.5,21.5
+    - 29.5,18.5
+    - 27.5,24.5
+  - proto: SalvageHumanCorpseSpawner
+    positions:
+    - 16.5,11.5
+  - proto: ScrapFaxMachine
+    positions:
+    - 15.5201,11.5746
+  - proto: ScrapMedkit
+    positions:
+    - 15.4187,6.5881
+  - proto: ShardGlass
+    rot: -1.5707963267948966 rad
+    positions:
+    - 16.4164,9.9917
+  - proto: ShardGlass
+    rot: 1.5707963267948966 rad
+    positions:
+    - 17.8852,11.2729
+    - 5.7533,6.4981
+  - proto: ShardGlass
+    positions:
+    - 15.0727,10.6323
+    - 17.9945,11.7573
+    - 6.2533,5.9668
+    - 17.4685,23.9334
+    - 16.4998,24.6834
+  - proto: ShardGlassReinforced
+    rot: 1.5707963267948966 rad
+    positions:
+    - 16.531,24.0584
+  - proto: ShardGlassReinforced
+    positions:
+    - 6.3627,6.5918
+    - 17.2029,24.5272
+  - proto: SignBiohazardMed
+    rot: -1.5707963267948966 rad
+    positions:
+    - 17.5,7.5
+    - 15.5,7.5
+  - proto: SignBiohazardMed
+    rot: 1.5707963267948966 rad
+    positions:
+    - 20.5,14.5
+    - 12.5,14.5
+    - 12.5,23.5
+    - 20.5,23.5
+  - proto: SignalButtonDirectional
+    positions:
+    - 7.5,7.5
+    - 25.5,7.5
+  - proto: SinkEmpty
+    rot: 3.141592653589793 rad
+    positions:
+    - 31.5,10.5
+  - proto: SinkEmpty
+    positions:
+    - 1.5,12.5
+  - proto: SpawnFloorTrapCarp
+    positions:
+    - 15.5,28.5
+  - proto: SpawnFloorTrapXenoBurrower
+    positions:
+    - 22.5,11.5
+  - proto: SpawnFloorTrapXenoDrone
+    positions:
+    - 10.5,11.5
+  - proto: SpeedLoaderLightRifle
+    positions:
+    - 11.5734,26.3801
+    - 11.2453,26.3332
+  - proto: SpiderWeb
+    positions:
+    - 21.5,18.5
+    - 21.5,19.5
+    - 30.5,18.5
+    - 31.5,18.5
+    - 30.5,19.5
+    - 25.5,26.5
+    - 25.5,27.5
+    - 9.5,28.5
+    - 9.5,27.5
+    - 23.5,28.5
+    - 23.5,27.5
+  - proto: StairDark
+    rot: -1.5707963267948966 rad
+    positions:
+    - 28.5,6.5
+  - proto: StairDark
+    rot: 3.141592653589793 rad
+    positions:
+    - 11.5,1.5
+    - 21.5,1.5
+    - 24.5,3.5
+    - 25.5,3.5
+  - proto: StairStage
+    rot: -1.5707963267948966 rad
+    positions:
+    - 15.5,19.5
+  - proto: StairStage
+    rot: 1.5707963267948966 rad
+    positions:
+    - 17.5,19.5
+  - proto: StairStage
+    rot: 3.141592653589793 rad
+    positions:
+    - 16.5,20.5
+  - proto: StairStage
+    positions:
+    - 16.5,18.5
+  - proto: StairWhite
+    positions:
+    - 15.5,6.5
+    - 17.5,6.5
+    - 3.5,12.5
+    - 4.5,12.5
+    - 5.5,12.5
+  - proto: Stairs
+    rot: -1.5707963267948966 rad
+    positions:
+    - 12.5,12.5
+    - 12.5,11.5
+    - 23.5,8.5
+    - 23.5,9.5
+    - 30.5,20.5
+    - 30.5,19.5
+    - 30.5,18.5
+  - proto: Stairs
+    rot: 1.5707963267948966 rad
+    positions:
+    - 6.5,4.5
+    - 6.5,5.5
+    - 7.5,8.5
+    - 7.5,9.5
+    - 20.5,11.5
+    - 20.5,12.5
+    - 1.5,18.5
+  - proto: Stairs
+    positions:
+    - 7.5,27.5
+    - 11.5,26.5
+    - 25.5,26.5
+    - 26.5,26.5
+  - proto: StationMapAssembly
+    rot: 1.5707963267948966 rad
+    positions:
+    - 13.5,11.5
+  - proto: Stool
+    rot: -1.5707963267948966 rad
+    positions:
+    - 4.5,10.5
+    - 4.5,9.5
+    - 4.5,8.5
+  - proto: SubstationBasic
+    positions:
+    - 19.5,30.5
+  - proto: Table
+    positions:
+    - 29.5,9.5
+  - proto: TableReinforced
+    positions:
+    - 15.5,11.5
+    - 17.5,10.5
+  - proto: ToiletDirtyWater
+    rot: 3.141592653589793 rad
+    positions:
+    - 1.5,10.5
+  - proto: ToiletDirtyWater
+    positions:
+    - 31.5,12.5
+  - proto: UnfinishedMachineFrame
+    rot: 3.141592653589793 rad
+    positions:
+    - 15.5,8.5
+  - proto: WallMeat
+    rot: -1.5707963267948966 rad
+    positions:
+    - 2.5,9.5
+    - 0.5,11.5
+    - 6.5,12.5
+    - 4.5,13.5
+    - 2.5,13.5
+  - proto: WallMeat
+    rot: 1.5707963267948966 rad
+    positions:
+    - 19.5,11.5
+    - 19.5,10.5
+    - 12.5,10.5
+    - 13.5,12.5
+    - 13.5,13.5
+    - 19.5,12.5
+    - 15.5,13.5
+    - 17.5,13.5
+  - proto: WallMeat
+    rot: 3.141592653589793 rad
+    positions:
+    - 26.5,12.5
+    - 30.5,8.5
+    - 22.5,13.5
+    - 26.5,9.5
+    - 27.5,13.5
+    - 31.5,13.5
+    - 29.5,13.5
+  - proto: WallMeat
+    positions:
+    - 20.5,1.5
+    - 3.5,6.5
+    - 3.5,23.5
+    - 3.5,24.5
+    - 5.5,26.5
+    - 24.5,2.5
+    - 19.5,4.5
+    - 6.5,3.5
+    - 19.5,3.5
+    - 27.5,4.5
+    - 1.5,20.5
+    - 1.5,21.5
+    - 12.5,30.5
+    - 13.5,5.5
+    - 13.5,3.5
+    - 28.5,25.5
+    - 30.5,21.5
+    - 12.5,3.5
+    - 5.5,3.5
+    - 5.5,4.5
+    - 25.5,13.5
+    - 19.5,5.5
+    - 16.5,7.5
+    - 13.5,7.5
+    - 10.5,9.5
+    - 10.5,7.5
+    - 21.5,10.5
+    - 22.5,9.5
+    - 22.5,6.5
+    - 22.5,4.5
+    - 10.5,5.5
+    - 10.5,4.5
+    - 6.5,7.5
+    - 27.5,7.5
+    - 23.5,7.5
+    - 6.5,9.5
+    - 18.5,29.5
+    - 11.5,27.5
+    - 21.5,27.5
+    - 12.5,26.5
+    - 19.5,26.5
+    - 18.5,26.5
+    - 15.5,26.5
+    - 8.5,27.5
+    - 10.5,26.5
+    - 14.5,27.5
+    - 4.5,17.5
+    - 5.5,17.5
+    - 9.5,17.5
+    - 10.5,17.5
+    - 12.5,17.5
+    - 12.5,20.5
+    - 20.5,20.5
+    - 20.5,19.5
+    - 12.5,19.5
+    - 20.5,17.5
+    - 22.5,17.5
+    - 23.5,17.5
+    - 25.5,17.5
+    - 28.5,17.5
+    - 12.5,22.5
+    - 20.5,21.5
+    - 13.5,23.5
+  - proto: WallReinforced
+    positions:
+    - 12.5,1.5
+    - 21.5,0.5
+    - 24.5,1.5
+    - 22.5,1.5
+    - 12.5,2.5
+    - 3.5,5.5
+    - 4.5,25.5
+    - 3.5,25.5
+    - 6.5,28.5
+    - 4.5,26.5
+    - 5.5,27.5
+    - 6.5,27.5
+    - 25.5,2.5
+    - 26.5,2.5
+    - 1.5,9.5
+    - 0.5,10.5
+    - 10.5,1.5
+    - 10.5,0.5
+    - 20.5,3.5
+    - 12.5,0.5
+    - 23.5,1.5
+    - 0.5,9.5
+    - 26.5,13.5
+    - 2.5,8.5
+    - 0.5,17.5
+    - 0.5,16.5
+    - 0.5,15.5
+    - 20.5,0.5
+    - 2.5,7.5
+    - 11.5,0.5
+    - 26.5,3.5
+    - 8.5,2.5
+    - 9.5,1.5
+    - 28.5,4.5
+    - 29.5,6.5
+    - 4.5,4.5
+    - 2.5,21.5
+    - 2.5,23.5
+    - 0.5,14.5
+    - 1.5,19.5
+    - 25.5,28.5
+    - 20.5,30.5
+    - 13.5,4.5
+    - 22.5,30.5
+    - 21.5,30.5
+    - 24.5,29.5
+    - 24.5,28.5
+    - 23.5,29.5
+    - 22.5,29.5
+    - 29.5,25.5
+    - 31.5,21.5
+    - 30.5,22.5
+    - 26.5,27.5
+    - 29.5,23.5
+    - 28.5,26.5
+    - 29.5,24.5
+    - 30.5,23.5
+    - 26.5,28.5
+    - 27.5,26.5
+    - 20.5,2.5
+    - 7.5,28.5
+    - 8.5,29.5
+    - 8.5,28.5
+    - 9.5,29.5
+    - 10.5,29.5
+    - 31.5,19.5
+    - 11.5,30.5
+    - 31.5,20.5
+    - 27.5,27.5
+    - 8.5,1.5
+    - 7.5,2.5
+    - 6.5,2.5
+    - 4.5,5.5
+    - 29.5,7.5
+    - 30.5,7.5
+    - 23.5,13.5
+    - 29.5,5.5
+    - 28.5,5.5
+    - 27.5,3.5
+    - 0.5,12.5
+    - 0.5,13.5
+    - 2.5,22.5
+    - 0.5,19.5
+    - 0.5,18.5
+    - 3.5,7.5
+    - 22.5,0.5
+    - 10.5,30.5
+    - 15.5,7.5
+    - 17.5,7.5
+    - 19.5,6.5
+    - 19.5,7.5
+    - 13.5,6.5
+    - 13.5,11.5
+    - 13.5,10.5
+    - 13.5,8.5
+    - 19.5,8.5
+    - 11.5,10.5
+    - 10.5,10.5
+    - 10.5,8.5
+    - 20.5,10.5
+    - 22.5,10.5
+    - 22.5,8.5
+    - 22.5,7.5
+    - 22.5,5.5
+    - 22.5,3.5
+    - 10.5,6.5
+    - 10.5,3.5
+    - 19.5,13.5
+    - 16.5,13.5
+    - 4.5,7.5
+    - 5.5,7.5
+    - 7.5,7.5
+    - 9.5,7.5
+    - 28.5,7.5
+    - 26.5,7.5
+    - 25.5,7.5
+    - 10.5,12.5
+    - 11.5,13.5
+    - 10.5,13.5
+    - 21.5,13.5
+    - 22.5,12.5
+    - 6.5,8.5
+    - 7.5,13.5
+    - 6.5,11.5
+    - 26.5,11.5
+    - 26.5,8.5
+    - 6.5,13.5
+    - 5.5,13.5
+    - 3.5,13.5
+    - 1.5,13.5
+    - 2.5,10.5
+    - 2.5,12.5
+    - 9.5,13.5
+    - 30.5,13.5
+    - 28.5,13.5
+    - 30.5,12.5
+    - 30.5,10.5
+    - 30.5,9.5
+    - 31.5,9.5
+    - 18.5,30.5
+    - 22.5,27.5
+    - 10.5,27.5
+    - 12.5,27.5
+    - 20.5,27.5
+    - 20.5,26.5
+    - 13.5,26.5
+    - 14.5,26.5
+    - 16.5,26.5
+    - 17.5,26.5
+    - 8.5,26.5
+    - 22.5,26.5
+    - 24.5,27.5
+    - 24.5,26.5
+    - 18.5,27.5
+    - 14.5,29.5
+    - 14.5,30.5
+    - 12.5,13.5
+    - 20.5,13.5
+    - 1.5,17.5
+    - 2.5,17.5
+    - 3.5,17.5
+    - 6.5,17.5
+    - 7.5,17.5
+    - 8.5,17.5
+    - 11.5,17.5
+    - 12.5,21.5
+    - 20.5,18.5
+    - 12.5,18.5
+    - 21.5,17.5
+    - 24.5,17.5
+    - 26.5,17.5
+    - 27.5,17.5
+    - 29.5,17.5
+    - 30.5,17.5
+    - 31.5,17.5
+    - 20.5,22.5
+    - 12.5,23.5
+    - 13.5,24.5
+    - 20.5,23.5
+    - 19.5,23.5
+    - 19.5,24.5
+    - 12.5,14.5
+    - 12.5,16.5
+    - 20.5,14.5
+    - 20.5,16.5
+  - proto: WallmountTelevisionFrame
+    positions:
+    - 16.5,13.5
+  - proto: WeaponSniperMosin
+    positions:
+    - 11.4171,26.7551
+  - proto: WeaponTurretHostile
+    rot: 1.5707963267948966 rad
+    positions:
+    - 20.5,6.5
+  - proto: WeaponTurretHostile
+    positions:
+    - 25.5,15.5
+  - proto: WeaponTurretSyndicateBroken
+    positions:
+    - 16.5,3.5
+    - 14.5,4.5
+    - 18.5,4.5
+    - 12.5,6.5
+    - 9.5,10.5
+    - 7.5,15.5
+    - 15.5,14.5
+    - 17.5,14.5
+  - proto: WindoorAssembly
+    rot: -1.5707963267948966 rad
+    positions:
+    - 15.5,12.5
+  - proto: WindoorAssemblySecure
+    positions:
+    - 14.5,8.5
+    - 18.5,8.5
+  - proto: WindowClockworkDirectional
+    positions:
+    - 21.5,29.5
+    - 20.5,29.5
+    - 19.5,29.5
+  - proto: WindowDirectional
+    rot: -1.5707963267948966 rad
+    positions:
+    - 15.5,11.5
+    - 28.5,6.5
+    - 31.5,18.5
+  - proto: WindowDirectional
+    rot: 1.5707963267948966 rad
+    positions:
+    - 17.5,10.5
+    - 12.5,29.5
+  - proto: WindowDirectional
+    rot: 3.141592653589793 rad
+    positions:
+    - 15.5,27.5
+    - 17.5,27.5
+  - proto: WindowDirectional
+    positions:
+    - 15.5,10.5
+    - 17.5,10.5
+    - 25.5,27.5
+    - 15.5,29.5
+    - 17.5,29.5
+  - proto: WindowReinforcedDirectional
+    rot: 1.5707963267948966 rad
+    positions:
+    - 5.5,5.5
+  decals:
+  - id: Grassa4
+    color: '#FFFFFFFF'
+    positions:
+    - 14.0101,15.8499
+    - 14.9476,14.889
+    - 18.721,15.264
+    - 17.8304,14.9124
+    - 18.9085,16.1311
+  - id: Grassa5
+    color: '#FFFFFFFF'
+    positions:
+    - 9.8382,16.2952
+    - 11.1741,16.1077
+    - 9.1819,13.5999
+    - 10.471,13.5999
+    - 15.0882,21.7151
+    - 14.971,21.0354
+    - 14.1976,21.9495
+    - 7.2815,2.8657
+    - 7.9699,3.1938
+    - 7.1965,4.1313
+    - 5.7668,5.9829
+    - 3.9621,5.9594
+  - id: Grassb1
+    color: '#FFFFFFFF'
+    positions:
+    - 11.3851,14.0218
+    - 14.221,16.2249
+    - 14.9241,15.7796
+    - 14.9476,15.0765
+  - id: Grassb5
+    color: '#FFFFFFFF'
+    positions:
+    - 9.2991,16.0608
+    - 10.5413,15.8733
+  - id: Grassd3
+    color: '#FFFFFFFF'
+    positions:
+    - 15.346,21.2464
+    - 14.7132,21.6917
+    - 14.0569,21.9729
+  - id: MiniTileSteelBox
+    color: '#FFFFFFFF'
+    positions:
+    - 16,19
+  - id: OldConcreteTrimCornerNe
+    color: '#FFFFFFFF'
+    positions:
+    - 23,20
+  - id: OldConcreteTrimCornerSe
+    color: '#FFFFFFFF'
+    positions:
+    - 23,23
+  - id: OldConcreteTrimCornerSw
+    color: '#FFFFFFFF'
+    positions:
+    - 8,21
+    - 26,23
+  - id: OldConcreteTrimInnerNe
+    color: '#FFFFFFFF'
+    positions:
+    - 23,19
+    - 22,20
+  - id: OldConcreteTrimInnerNw
+    color: '#FFFFFFFF'
+    positions:
+    - 27,19
+  - id: OldConcreteTrimInnerSe
+    color: '#FFFFFFFF'
+    positions:
+    - 22,23
+    - 23,24
+  - id: OldConcreteTrimInnerSw
+    color: '#FFFFFFFF'
+    positions:
+    - 26,24
+    - 27,23
+  - id: OldConcreteTrimLineE
+    color: '#FFFFFFFF'
+    positions:
+    - 22,22
+    - 22,21
+  - id: OldConcreteTrimLineN
+    color: '#FFFFFFFF'
+    positions:
+    - 24,19
+    - 25,19
+    - 26,19
+  - id: OldConcreteTrimLineS
+    color: '#FFFFFFFF'
+    positions:
+    - 9,21
+    - 11,21
+    - 24,24
+    - 25,24
+  - id: OldConcreteTrimLineW
+    color: '#FFFFFFFF'
+    positions:
+    - 8,25
+    - 8,23
+    - 8,24
+    - 8,22
+    - 27,22
+    - 27,21
+    - 27,20
+  - id: Rock03
+    color: '#FFFFFFFF'
+    positions:
+    - 21.1735,13.9983
+    - 22.2282,13.9515
+    - 22.8376,13.928
+  - id: Rock04
+    color: '#FFFFFFFF'
+    positions:
+    - 20.9392,16.1077
+    - 22.861,15.9671
+  - id: splatter
+    color: '#180000B2'
+    positions:
+    - 3.0663,16.0881
+    - 3.0975,15.9318
+    - 3.1444,15.8068
+    - 10.9582,24.0199
+    - 11.0207,23.8324
+    - 11.2394,23.6761
+  - id: splatter
+    color: '#220000B2'
+    positions:
+    - 11.0337,3.8466
+    - 10.7993,4.3622
+    - 11.1431,4.3934
+    - 11.7056,4.1591
+    - 11.3618,3.7684
+    - 11.8149,3.9403
+  - id: splatter
+    color: '#280000B2'
+    positions:
+    - 9.1288,9.7145
+    - 8.6913,9.3707
+    - 8.7381,9.1832
+    - 2.7381,14.6037
+    - 2.4256,13.6818
+    - 1.9569,13.6506
+    - 2.41,13.8693
+    - 2.8631,13.9631
+  - id: splatter
+    color: '#2E0000B2'
+    positions:
+    - 13.8804,1.5334
+    - 13.7554,1.5646
+    - 20.1304,4.4398
+    - 20.4741,4.6117
+  - id: splatter
+    color: '#340000FF'
+    positions:
+    - 15.6772,4.924
+    - 16.2085,4.6427
+    - 16.3804,4.8927
+    - 16.3022,5.1427
+  - id: splatter
+    color: '#3E0000B2'
+    positions:
+    - 13.0284,27.1458
+    - 12.8409,27.1614
+    - 12.8721,27.0208
+    - 13.044,26.8333
+    - 13.1221,26.9896
+    - 22.1257,20.9204
+    - 21.2664,20.8891
+    - 21.6726,20.8266
+    - 21.6882,20.811
+    - 22.0164,20.8579
+    - 22.0164,20.9516
+    - 16.9373,18.8062
+    - 16.7655,18.6499
+    - 16.8123,18.6499
+    - 17.4217,19.0406
+    - 17.4217,19.0562
+    - 17.2811,18.4312
+    - 16.9842,18.9312
+    - 16.7186,19.1499
+    - 16.7811,19.1656
+    - 12.9998,19.9312
+    - 13.0936,19.9156
+    - 13.4998,20.3374
+    - 13.2967,20.3999
+    - 12.8592,20.3374
+    - 12.6873,20.2906
+    - 12.9686,19.6187
+    - 13.4373,19.2906
+    - 16.8436,14.5889
+    - 16.9842,14.667
+    - 17.2967,14.667
+    - 17.578,14.542
+    - 17.578,15.042
+    - 17.1092,15.3233
+    - 16.578,15.3077
+    - 16.5467,14.9483
+    - 16.0302,10.7909
+    - 15.6395,10.822
+    - 15.6393,10.7746
+    - 15.8581,11.3215
+    - 16.1237,11.3371
+    - 16.3112,10.8996
+    - 16.3893,10.8371
+  - id: splatter
+    color: '#440000B2'
+    positions:
+    - 11.0024,4.6747
+    - 11.3462,4.5497
+    - 11.4087,4.2059
+    - 4.4256,9.7926
+    - 1.0194,10.6832
+    - 0.8319,10.5114
+    - 0.7381,10.277
+    - 1.0663,10.2145
+    - 1.2694,10.1832
+    - 6.8163,11.277
+    - 6.9413,11.2301
+    - 7.1288,10.902
+  - id: splatter
+    color: '#500000FF'
+    positions:
+    - 15.9272,4.8615
+    - 16.1772,5.1271
+    - 13.521,1.549
+    - 14.1304,1.4709
+    - 13.7085,1.3146
+    - 13.9741,1.9709
+  - id: splatter
+    color: '#5D0000B2'
+    positions:
+    - 13.5835,1.7052
+    - 13.4272,1.9396
+    - 13.9272,0.9865

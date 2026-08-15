@@ -1,0 +1,76 @@
+- type: entity
+  id: ADTWorldAnvil
+  parent: BaseStructure
+  name: world anvil
+  description: A forge connected by lava reservoirs to the core of the planet. Whoever used it last was making something powerful.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/world_anvil.rsi
+    layers:
+    - state: icon
+      map: [ "base" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTWorldAnvilVisuals.Heated:
+        base:
+          True: { state: icon_heated }
+          False: { state: icon }
+  - type: PointLight
+    enabled: false
+    radius: 4
+    energy: 2
+    color: "#ffa14d"
+  - type: InteractionOutline
+  - type: Climbable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 500
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: GpsSignal
+    tag: adt-gps-signal-world-anvil
+    description: adt-gps-signal-world-anvil-desc
+    color: "#FF7A1A"
+    sameMapOnly: true
+  - type: ADTWorldAnvil
+    fuels:
+    - whitelist:
+        components:
+        - Gibtonite
+      charges: 1
+    recipes:
+    - whitelist:
+        tags:
+        - ADTMagmite
+      result: ADTMagmiteParts
+      cost: 1
+      delay: 7
+      message: adt-world-anvil-forged
+    - whitelist:
+        tags:
+        - ADTMagmitePartsInert
+      result: ADTMagmiteParts
+      cost: 0
+      delay: 3
+      message: adt-world-anvil-reforged
+      startSound:
+        path: /Audio/ADT/Lavaland/anvil_end.ogg
+
+- type: entity
+  id: ADTWorldAnvilRoomMarker
+  parent: ADTBaseRoomMarker
+  name: world anvil ruin spawner
+  components:
+  - type: ADTRoomFill
+    clearExisting: true
+    rotation: false
+    roomWhitelist:
+      tags:
+      - LavaDungeonWorldAnvil

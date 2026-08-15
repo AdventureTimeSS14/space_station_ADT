@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -19,4 +20,13 @@ public sealed partial class ADTKineticCooldownComponent : Component
 
     [DataField, AutoNetworkedField]
     public float MeleeMultiplier = 1f;
+
+    [DataField, AutoNetworkedField]
+    public SoundSpecifier? RechargeSound;
+
+    [DataField]
+    public TimeSpan PredictionTolerance = TimeSpan.FromSeconds(0.1);
+
+    [ViewVariables]
+    public bool RechargePending;
 }
