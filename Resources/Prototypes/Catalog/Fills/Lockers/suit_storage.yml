@@ -299,6 +299,16 @@
         tableId: FillResearchDirectorHardsuit
   - type: AccessReader
     access: [ [ "ResearchDirector" ] ]
+  #ADT-Tweak-Start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackMinerva
+    - ClothingOuterHardsuitRd
+  #ADT-Tweak-End
 
 #HOS's hardsuit
 - type: entity
