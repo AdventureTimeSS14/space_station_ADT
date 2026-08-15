@@ -23,7 +23,6 @@ public struct MachinePartState
 /// </summary>
 public sealed class RefreshPartsEvent : EntityEventArgs
 {
-    public IReadOnlyList<MachinePartState> Parts = new List<MachinePartState>();
     public Dictionary<ProtoId<MachinePartPrototype>, float> PartRatings = new();
     public Dictionary<MachineStat, float> StatMultipliers = new();
 

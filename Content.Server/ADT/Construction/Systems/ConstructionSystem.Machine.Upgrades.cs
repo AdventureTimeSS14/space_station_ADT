@@ -4,7 +4,10 @@ using Content.Shared.ADT.Construction;
 using Content.Shared.ADT.Construction.Components;
 using Content.Shared.ADT.Construction.Events;
 using Content.Shared.ADT.Construction.Prototypes;
+using Content.Shared.Construction;
+using Content.Shared.Construction.Components;
 using Content.Shared.Examine;
+using Content.Shared.Stacks;
 using Content.Shared.Verbs;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -19,6 +22,7 @@ public sealed partial class ConstructionSystem
     private void InitializeMachineUpgrades()
     {
         SubscribeLocalEvent<MachineComponent, GetVerbsEvent<ExamineVerb>>(OnMachineExaminableVerb);
+        SubscribeLocalEvent<MachineComponent, MachineDeconstructedEvent>(OnMachineDeconstructed);
     }
 
     private void OnMachineExaminableVerb(EntityUid uid, MachineComponent component, GetVerbsEvent<ExamineVerb> args)
@@ -60,30 +64,64 @@ public sealed partial class ConstructionSystem
         return true;
     }
 
-    private List<MachinePartState> GetAllParts(MachineComponent component)
+    private void AbsorbContainerParts(EntityUid uid, MachineComponent component, MachinePartStorageComponent storage)
     {
-        var parts = new List<MachinePartState>();
-        foreach (var entity in component.PartContainer.ContainedEntities)
+        if (component.PartContainer.ContainedEntities.Count == 0)
+            return;
+
+        Dictionary<ProtoId<MachinePartPrototype>, int>? requirements = null;
+        if (component.BoardContainer.ContainedEntities.Count > 0
+            && TryComp<MachineBoardComponent>(component.BoardContainer.ContainedEntities[0], out var board))
         {
-            if (GetMachinePartState(entity, out var partState))
-                parts.Add(partState);
+            requirements = board.PartRequirements;
         }
 
-        return parts;
+        foreach (var partUid in component.PartContainer.ContainedEntities.ToArray())
+        {
+            if (!TryComp(partUid, out MachinePartComponent? part))
+                continue;
+
+            if (requirements != null && !requirements.ContainsKey(part.Part))
+                continue;
+
+            var quantity = TryComp(partUid, out StackComponent? stack) ? stack.Count : 1;
+            storage.AddSlot(part.Part, part.Tier, quantity);
+            QueueDel(partUid);
+        }
     }
 
-    private Dictionary<ProtoId<MachinePartPrototype>, float> GetPartRatings(List<MachinePartState> partStates)
+    private void OnMachineDeconstructed(EntityUid uid, MachineComponent component, MachineDeconstructedEvent args)
+    {
+        if (!TryComp<MachinePartStorageComponent>(uid, out var storage) || storage.Parts.Count == 0)
+            return;
+
+        foreach (var slot in storage.Parts)
+        {
+            if (!_proto.TryIndex(slot.Part, out var partProto))
+                continue;
+
+            for (var i = 0; i < slot.Quantity; i++)
+            {
+                if (!TrySpawnInContainer(partProto.GetTierPrototype(slot.Tier), uid, MachineFrameComponent.PartContainerName, out _))
+                    Log.Error($"Couldn't materialize machine part {slot.Part} from machine {Prototype(uid)?.ID ?? "N/A"}!");
+            }
+        }
+
+        storage.Parts.Clear();
+    }
+
+    private Dictionary<ProtoId<MachinePartPrototype>, float> GetPartRatings(List<MachinePartSlot> slots)
     {
         var weightedRatings = new Dictionary<ProtoId<MachinePartPrototype>, float>();
         var quantities = new Dictionary<ProtoId<MachinePartPrototype>, float>();
 
-        foreach (var state in partStates)
+        foreach (var slot in slots)
         {
-            var id = state.Part.Part;
-            var count = state.Quantity();
+            var id = slot.Part;
+            var count = slot.Quantity;
 
             quantities[id] = quantities.GetValueOrDefault(id) + count;
-            weightedRatings[id] = weightedRatings.GetValueOrDefault(id) + state.Part.Tier * count;
+            weightedRatings[id] = weightedRatings.GetValueOrDefault(id) + slot.Tier * count;
         }
 
         var result = new Dictionary<ProtoId<MachinePartPrototype>, float>();
@@ -97,14 +135,15 @@ public sealed partial class ConstructionSystem
 
     public void RefreshParts(EntityUid uid, MachineComponent component)
     {
-        var parts = GetAllParts(component);
-        var partRatings = GetPartRatings(parts);
+        var storage = EnsureComp<MachinePartStorageComponent>(uid);
+        AbsorbContainerParts(uid, component, storage);
+
+        var partRatings = GetPartRatings(storage.Parts);
         var statMultipliers = GetStatMultipliers(partRatings);
 
         RaiseLocalEvent(uid,
             new RefreshPartsEvent
             {
-                Parts = parts,
                 PartRatings = partRatings,
                 StatMultipliers = statMultipliers,
             },
