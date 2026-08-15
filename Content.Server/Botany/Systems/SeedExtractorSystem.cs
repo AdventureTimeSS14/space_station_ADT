@@ -1,6 +1,8 @@
 using Content.Server.Botany.Components;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Robust.Shared.Random;
@@ -18,6 +20,11 @@ public sealed class SeedExtractorSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SeedExtractorComponent, InteractUsingEvent>(OnInteractUsing);
+
+        // ADT-Tweak-Start: machine parts with tiers
+        SubscribeLocalEvent<SeedExtractorComponent, RefreshPartsEvent>(OnPartsRefresh);
+        SubscribeLocalEvent<SeedExtractorComponent, UpgradeExamineEvent>(OnUpgradeExamine);
+        // ADT-Tweak-End
     }
 
     private void OnInteractUsing(EntityUid uid, SeedExtractorComponent seedExtractor, InteractUsingEvent args)
@@ -40,7 +47,7 @@ public sealed class SeedExtractorSystem : EntitySystem
         QueueDel(args.Used);
         args.Handled = true;
 
-        var amount = _random.Next(seedExtractor.BaseMinSeeds, seedExtractor.BaseMaxSeeds + 1);
+        var amount = (int)MathF.Round(_random.Next(seedExtractor.BaseMinSeeds, seedExtractor.BaseMaxSeeds + 1) * seedExtractor.SeedMultiplier); // ADT-Tweak: machine parts
         var coords = Transform(uid).Coordinates;
 
         var packetSeed = seed;
@@ -52,4 +59,16 @@ public sealed class SeedExtractorSystem : EntitySystem
             _botanySystem.SpawnSeedPacket(packetSeed, coords, args.User);
         }
     }
+
+    // ADT-Tweak-Start: machine parts with tiers
+    private void OnPartsRefresh(EntityUid uid, SeedExtractorComponent component, RefreshPartsEvent args)
+    {
+        component.SeedMultiplier = args.GetStatMultiplier(MachineStat.Speed);
+    }
+
+    private static void OnUpgradeExamine(EntityUid uid, SeedExtractorComponent component, UpgradeExamineEvent args)
+    {
+        args.AddPercentageUpgrade("machine-upgrade-seed-extraction", component.SeedMultiplier, benefit: true);
+    }
+    // ADT-Tweak-End
 }

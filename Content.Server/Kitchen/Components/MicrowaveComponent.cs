@@ -17,6 +17,7 @@ namespace Content.Server.Kitchen.Components
     {
         [DataField("cookTimeMultiplier"), ViewVariables(VVAccess.ReadWrite)]
         public float CookTimeMultiplier = 1;
+
         [DataField("cookTimeScalingConstant")]
         public float CookTimeScalingConstant = 0.5f;
         [DataField("baseHeatMultiplier"), ViewVariables(VVAccess.ReadWrite)]
@@ -104,6 +105,17 @@ namespace Content.Server.Kitchen.Components
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float ExplosionChance = .1f;
+
+        // ADT-Tweak-Start: machine parts with tiers
+        [DataField]
+        public float UpgradeCookMultiplier = 1f;
+
+        [DataField]
+        public float CapacityMultiplier = 1f;
+
+        [DataField]
+        public float ExplosionChanceMultiplier = 1f;
+        // ADT-Tweak-End
 
         /// <summary>
         /// Chance of lightning occurring when we microwave a metallic object

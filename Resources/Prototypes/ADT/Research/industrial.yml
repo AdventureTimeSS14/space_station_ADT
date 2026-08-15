@@ -227,3 +227,33 @@
 #  position: 0,-5
 #  requiredTech:
 #  - ADTInducer
+
+- type: technology
+  id: ADTRpedTech
+  name: research-technology-adt-rped
+  icon:
+    sprite: ADT/Objects/Specific/Research/rped.rsi
+    state: icon
+  discipline: Industrial
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - RapidPartExchanger
+  position: 1,0
+  requiredTech:
+  - PowerGeneration
+
+- type: technology
+  id: ADTBluespaceRpedTech
+  name: research-technology-adt-bluespace-rped
+  icon:
+    sprite: ADT/Objects/Specific/Research/bluespace_rped.rsi
+    state: icon
+  discipline: Industrial
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - BluespaceRapidPartExchanger
+  position: 1,1
+  requiredTech:
+  - ADTRpedTech
