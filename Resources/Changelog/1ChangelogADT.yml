@@ -14039,3 +14039,9 @@ Entries:
     id: 1805
     pr_number: 3166
     time: '2026-08-15T15:31:08Z'
+  - author: Inconnu
+    changes:
+      - {message: ИИ-Пауки больше не спамят паутиной., type: Tweak}
+    id: 1806
+    pr_number: 3168
+    time: '2026-08-15T16:34:50Z'
