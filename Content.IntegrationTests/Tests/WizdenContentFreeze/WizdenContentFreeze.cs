@@ -25,7 +25,7 @@ public sealed class WizdenContentFreeze : GameTest
         var protoMan = server.ProtoMan;
 
         var recipesCount = protoMan.Count<FoodRecipePrototype>();
-        var recipesLimit = 390; // ADT: Updated limit from 331 (рецепты печи и сборочного стола: пончики, выпечка, супы, пицца, мороженое, вяленое мясо)
+        var recipesLimit = 390; // ADT: Updated limit from 331
 
         if (recipesCount > recipesLimit)
         {
