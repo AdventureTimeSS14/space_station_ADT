@@ -13940,3 +13940,9 @@ Entries:
     id: 1796
     pr_number: 3130
     time: '2026-08-14T04:15:44Z'
+  - author: ultradyper
+    changes:
+      - {message: При кровопотере игрок говорит по слогам, type: Tweak}
+    id: 1797
+    pr_number: 3127
+    time: '2026-08-15T05:50:07Z'
