@@ -1,0 +1,96 @@
+- type: utilityQuery
+  id: ADTLegionTargets
+  query:
+  - !type:NearbyHostilesQuery
+  considerations:
+  - !type:TargetIsDeadCon
+    curve: !type:InverseBoolCurve
+  - !type:TargetDistanceCon
+    curve: !type:PresetCurve
+      preset: TargetDistance
+  - !type:TargetInLOSOrCurrentCon
+    curve: !type:BoolCurve
+
+- type: utilityQuery
+  id: ADTLegionSkullTargets
+  query:
+  - !type:NearbyHostilesQuery
+  considerations:
+  - !type:TargetIsDeadCon
+    curve: !type:InverseBoolCurve
+  - !type:TargetDistanceCon
+    curve: !type:PresetCurve
+      preset: TargetDistance
+  - !type:TargetAccessibleCon
+    curve: !type:BoolCurve
+  - !type:TargetInLOSOrCurrentCon
+    curve: !type:BoolCurve
+
+- type: htnCompound
+  id: ADTLegionCompound
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: ADTFleeCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: ADTLegionTargets
+    - !type:HTNPrimitiveTask
+      operator: !type:MoveToOperator
+        targetKey: ADTFleeCoordinates
+        pathfindInPlanning: false
+        removeKeyOnFinish: false
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: ADTLegionTargets
+    - !type:HTNCompoundTask
+      task: IdleCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+
+- type: htnCompound
+  id: ADTLegionSkullCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: ADTLegionSkullTargets
+    - !type:HTNCompoundTask
+      task: ADTLegionSkullAttackCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+
+- type: htnCompound
+  id: ADTLegionSkullAttackCompound
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: Target
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:MoveToOperator
+        shutdownState: PlanFinished
+        pathfindInPlanning: true
+        removeKeyOnFinish: false
+        targetKey: TargetCoordinates
+        pathfindKey: TargetPathfind
+        rangeKey: MeleeRange
+    - !type:HTNPrimitiveTask
+      operator: !type:MeleeOperator
+        targetKey: Target
+        targetState: Critical
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+      - !type:TargetInRangePrecondition
+        targetKey: Target
+        rangeKey: MeleeRange
+      services:
+      - !type:UtilityService
+        id: MeleeService
+        proto: ADTLegionSkullTargets
+        key: Target

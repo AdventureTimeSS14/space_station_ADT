@@ -187,6 +187,10 @@
   - type: ADTBurrowAway
     triggerRange: 6
     chaseTime: 10
+  - type: ADTFlee
+    targetKey: FleeTarget
+    distance: 8
+    defaultRange: 6
   - type: HTN
     rootTask:
       task: ADTGoldgrubCompound

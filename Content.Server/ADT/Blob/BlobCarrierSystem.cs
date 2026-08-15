@@ -52,7 +52,10 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
     private void OnRemove(Entity<BlobCarrierComponent> ent, ref ComponentRemove args)
     {
         if (TryComp<LanguageSpeakerComponent>(ent.Owner, out var comp))
-            comp.Languages.Remove(BlobLang);
+            _language.RemoveLanguage(ent.Owner, BlobLang, comp);
+
+        if (ent.Comp.TransformToBlob != null)
+            _action.RemoveAction(ent.Owner, ent.Comp.TransformToBlob.Value);
     }
 
     private void OnMindAdded(EntityUid uid, BlobCarrierComponent component, MindAddedMessage args) => component.HasMind = true;
@@ -88,10 +91,12 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
 
     private void OnMobStateChanged(Entity<BlobCarrierComponent> uid, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead && CanTransform())
-        {
+        if (args.NewMobState != MobState.Dead)
+            return;
+
+        // Носитель не теряет статус при смерти: когда пройдёт таймер, он сам превратится в блоба (Update в SharedBlobCarrierSystem).
+        if (CanTransform())
             TransformToBlob(uid);
-        }
     }
 
     protected override void TransformToBlob(Entity<BlobCarrierComponent> ent)

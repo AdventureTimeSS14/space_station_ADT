@@ -13899,3 +13899,44 @@ Entries:
       - {message: На ориджине исправлены баги, type: Fix}
     time: '2026-04-15T15:49:56Z'
     id: 1791
+  - author: Inconnu
+    changes:
+      - {message: тест, type: Add}
+      - {message: тест, type: Remove}
+      - {message: тест, type: Tweak}
+      - {message: тест, type: Fix}
+    id: 1792
+    pr_number: 3153
+    time: '2026-08-14T03:59:07Z'
+  - author: Inconnu
+    changes:
+      - {message: тест, type: Add}
+      - {message: тест, type: Remove}
+      - {message: тсест, type: Tweak}
+      - {message: тест, type: Fix}
+    id: 1793
+    pr_number: 3155
+    time: '2026-08-14T04:03:31Z'
+  - author: CrimeMoot
+    changes:
+      - {message: Механика скрытие одежды под другой закрывающей одеждой., type: Remove}
+    id: 1794
+    pr_number: 3133
+    time: '2026-08-14T04:09:01Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Экипировка МОДа больше не сбрасывает предметы на спине, type: Fix}
+    id: 1795
+    pr_number: 3144
+    time: '2026-08-14T04:12:34Z'
+  - author: ultradyper
+    changes:
+      - {message: Заражённая блобом мышь теперь называется "мышь", type: Fix}
+      - {message: Гипоручка и лазерная ручка снова поднимаются в боевом режиме и не
+          выпадают при подборе горячими клавишами, type: Fix}
+      - {message: Пакет семян кофейного дерева переименован в "пакет семян (кофейное
+          дерево)", type: Fix}
+      - {message: Язык блоба исчезает после смерти и воскрешения, type: Fix}
+    id: 1796
+    pr_number: 3130
+    time: '2026-08-14T04:15:44Z'

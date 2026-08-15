@@ -49,7 +49,9 @@
       tags:
         - Cartridge
         - Trash
-        - Write
+        # ADT-Tweak-Start: Write убран, ручки (гипоручка/лазерная ручка) должны браться в боевом режиме хоткеями
+        # - Write
+        # ADT-Tweak-End
         - Document
         - Paper
         - Figurine
