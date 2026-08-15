@@ -99,7 +99,7 @@ public sealed partial class ADTShadowlingAbilitySystem
 
         if (!HasComp<HumanoidProfileComponent>(target)
             || !HasComp<MobStateComponent>(target)
-            || !_mobState.IsAlive(target)
+            || _mobState.IsDead(target)
             || !HasPlayer(target))
         {
             if (!quiet)

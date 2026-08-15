@@ -170,7 +170,7 @@ public sealed partial class ADTShadowlingAbilitySystem
         _audio.PlayPvs(power.Sound, ent);
         _popup.PopupEntity(Loc.GetString("shadowling-phase-shift-enter", ("user", ent.Owner)), ent, PopupType.Medium);
 
-        args.Handled = _polymorph.PolymorphEntity(ent, power.Polymorph) != null;
+        args.Handled = EnterShadowForm(ent, power.Polymorph) != null;
     }
 
     private void OnUnphase(Entity<ADTAscendantPhasedComponent> ent, ref ADTAscendantUnphaseEvent args)

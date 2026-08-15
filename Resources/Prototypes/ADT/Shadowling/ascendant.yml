@@ -124,6 +124,8 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 4
     baseSprintSpeed: 5
+  - type: NightVision
+    effectPrototype: ADTEffectNightVisionDevice
   - type: NpcFactionMember
     factions:
     - ADTShadowling

@@ -209,7 +209,7 @@
 - type: entity
   id: ADTActionShadowlingSonicScreech
   name: Крик
-  description: Оглушительный вопль. Путает мысли, роняет силиконов и разбивает окна.
+  description: Оглушительный вопль. Путает мысли, вырубает боргов и разбивает окна.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -226,7 +226,7 @@
     confusionTime: 20
     deafness: 3
     staminaDamage: 30
-    siliconKnockdown: 12
+    siliconShutdown: 12
     windowDamage:
       types:
         Blunt: 90

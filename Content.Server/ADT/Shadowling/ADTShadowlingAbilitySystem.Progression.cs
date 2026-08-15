@@ -167,7 +167,7 @@ public sealed partial class ADTShadowlingAbilitySystem
             if (HasComp<BorgChassisComponent>(nearby))
             {
                 _popup.PopupEntity(Loc.GetString("shadowling-screech-silicon"), nearby, nearby, PopupType.LargeCaution);
-                _stun.TryKnockdown(nearby, screech.SiliconKnockdown, true);
+                _borgShutdown.TryShutdown(nearby, screech.SiliconShutdown);
                 continue;
             }
 

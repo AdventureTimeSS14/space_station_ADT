@@ -17,13 +17,16 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 
     private ThermalVisionOverlay? _overlay;
     private ThermalVisionEntityHighlightOverlay _throughWallsOverlay = default!;
+    private LightSourceHighlightOverlay _lightSourcesOverlay = default!;
     private EntityUid? _effect;
     private bool _active;
     private bool _activeAlt;
+    private bool _activeLightSources;
 
     private const string ScreenShaderId = "ADTThermalVisionScreenShader";
     private const string ScreenShaderAltId = "ADTThermalVisionScreenShaderHalfAlpha";
     private const string BodyShaderId = "ADTThermalBodyShader";
+    private const string LightShaderId = "ADTLightHighlightShader";
 
     public override void Initialize()
     {
@@ -33,6 +36,7 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         SubscribeLocalEvent<ThermalVisionComponent, LocalPlayerDetachedEvent>(OnDetached);
 
         _throughWallsOverlay = new(_prototypes.Index<ShaderPrototype>(BodyShaderId));
+        _lightSourcesOverlay = new(_prototypes.Index<ShaderPrototype>(LightShaderId));
     }
 
     private void OnAttached(Entity<ThermalVisionComponent> ent, ref LocalPlayerAttachedEvent args)
@@ -84,6 +88,12 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 
         _overlayMan.AddOverlay(_throughWallsOverlay);
 
+        if (ent.Comp.HighlightLightSources)
+        {
+            _activeLightSources = true;
+            _overlayMan.AddOverlay(_lightSourcesOverlay);
+        }
+
         if (!ent.Comp.HighlightOnly)
         {
             _overlay = new ThermalVisionOverlay(screenShader);
@@ -112,6 +122,12 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         }
 
         _overlayMan.RemoveOverlay(_throughWallsOverlay);
+
+        if (_activeLightSources)
+        {
+            _activeLightSources = false;
+            _overlayMan.RemoveOverlay(_lightSourcesOverlay);
+        }
 
         if (_effect != null)
         {

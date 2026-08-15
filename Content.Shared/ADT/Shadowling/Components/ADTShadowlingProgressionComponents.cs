@@ -67,7 +67,7 @@ public sealed partial class ADTShadowlingScreechActionComponent : Component
     public float StaminaDamage = 30f;
 
     [DataField]
-    public TimeSpan SiliconKnockdown = TimeSpan.FromSeconds(12);
+    public TimeSpan SiliconShutdown = TimeSpan.FromSeconds(12);
 
     [DataField]
     public DamageSpecifier WindowDamage = new()
