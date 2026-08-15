@@ -35,6 +35,9 @@
   - type: Construction #ADT-Tweak
     graph: ADTLegionCoreStable #ADT-Tweak
     node: start #ADT-Tweak
+  - type: Tag
+    tags:
+    - ADTLegionCore
 - type: entity
   name: legion core
   id: ADTLegionCoreDecayed

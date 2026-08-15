@@ -81,3 +81,45 @@
         Slash: -2
         Piercing: -2
         Blunt: -2
+
+- type: entity
+  id: ADTMagmaGem
+  parent: BaseItem
+  name: calcified auric
+  description: A hot, faintly glowing mineral taken from the guts of a magmawing watcher. It can be smelted down into pure gold.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/magma_gem.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - ADTMagmaGem
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 1.5
+    color: "#ff7a2b"
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 100
+  - type: StaticPrice
+    price: 700
+
+- type: entity
+  id: ADTAshDrakeHide
+  parent: BaseItem
+  name: ash drake hide
+  description: A plate of scales torn off an ash drake. Still warm.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/ashdrake_hide.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+    - ADTAshDrakeHide
+  - type: StaticPrice
+    price: 500
