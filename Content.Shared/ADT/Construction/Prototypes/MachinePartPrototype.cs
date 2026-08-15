@@ -16,8 +16,18 @@ public sealed partial class MachinePartPrototype : IPrototype
     public EntProtoId StockPartPrototype = string.Empty;
 
     [DataField]
+    public List<EntProtoId> TierPrototypes = new();
+
+    [DataField]
     public Dictionary<MachineStat, float> Stats = new();
 
     [DataField]
     public int SortPriority = 0;
+
+    public EntProtoId GetTierPrototype(int tier)
+    {
+        return tier > 0 && tier <= TierPrototypes.Count
+            ? TierPrototypes[tier - 1]
+            : StockPartPrototype;
+    }
 }
