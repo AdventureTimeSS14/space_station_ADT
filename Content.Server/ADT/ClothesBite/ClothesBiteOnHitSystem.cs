@@ -35,7 +35,7 @@ public sealed class ClothesBiteOnHitSystem : EntitySystem
 
     private void OnMeleeHit(Entity<ClothesBiteOnHitComponent> ent, ref MeleeHitEvent args)
     {
-        if (args.HitEntities.Count == 0)
+        if (!args.IsHit || args.HitEntities.Count == 0)
             return;
 
         if (!_body.TryGetOrgansWithComponent<StomachComponent>(ent.Owner, out var stomachs))
