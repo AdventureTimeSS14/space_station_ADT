@@ -37,3 +37,5 @@ ent-ADTClothingHeadHatTechpriestHood = капюшон техно-жреца
 
 ent-ADTClothingHeadHatHoodChaplainHoodWhite = светлый капюшон священника
     .desc = Максимальное благоверие в этой звёздной системе.
+
+ent-ADTClothingHeadHatVoxHood = капюшон вокса
