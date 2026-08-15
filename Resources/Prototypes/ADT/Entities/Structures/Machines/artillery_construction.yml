@@ -118,6 +118,27 @@
         doAfter: 10
       - tool: Screwing
         doAfter: 10
+      - machinePart: Servo
+        tier: 4
+        name: machine-part-name-servo
+      - machinePart: Servo
+        tier: 4
+        name: machine-part-name-servo
+      - machinePart: Capacitor
+        tier: 4
+        name: machine-part-name-capacitor
+      - machinePart: Capacitor
+        tier: 4
+        name: machine-part-name-capacitor
+      - machinePart: MatterBin
+        tier: 4
+        name: machine-part-name-matter-bin
+      - machinePart: MicroLaser
+        tier: 4
+        name: machine-part-name-micro-laser
+      - machinePart: ScanningModule
+        tier: 4
+        name: machine-part-name-scanning-module
     - to: frame3
       completed:
       - !type:SpawnPrototype
@@ -138,6 +159,21 @@
       - !type:SpawnPrototype
         prototype: LightBulbBroken
         amount: 5
+      - !type:SpawnPrototype
+        prototype: FemtoServoStockPart
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: BluespaceCapacitorStockPart
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: BluespaceMatterBinStockPart
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: QuadUltraMicroLaserStockPart
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: TriphasicScanningModuleStockPart
+        amount: 1
       steps:
       - tool: Prying
         doAfter: 3
@@ -743,6 +779,27 @@
         doAfter: 10
       - tool: Screwing
         doAfter: 10
+      - machinePart: Servo
+        tier: 4
+        name: machine-part-name-servo
+      - machinePart: Servo
+        tier: 4
+        name: machine-part-name-servo
+      - machinePart: Capacitor
+        tier: 4
+        name: machine-part-name-capacitor
+      - machinePart: Capacitor
+        tier: 4
+        name: machine-part-name-capacitor
+      - machinePart: MatterBin
+        tier: 4
+        name: machine-part-name-matter-bin
+      - machinePart: MicroLaser
+        tier: 4
+        name: machine-part-name-micro-laser
+      - machinePart: ScanningModule
+        tier: 4
+        name: machine-part-name-scanning-module
     - to: frame3
       completed:
       - !type:SpawnPrototype
@@ -763,6 +820,21 @@
       - !type:SpawnPrototype
         prototype: LightBulbBroken
         amount: 5
+      - !type:SpawnPrototype
+        prototype: FemtoServoStockPart
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: BluespaceCapacitorStockPart
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: BluespaceMatterBinStockPart
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: QuadUltraMicroLaserStockPart
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: TriphasicScanningModuleStockPart
+        amount: 1
       steps:
       - tool: Prying
         doAfter: 3
