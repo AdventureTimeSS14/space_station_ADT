@@ -50,7 +50,6 @@ addiction-cured-omnizine = Зависимость от омнизина отпу
 
 reagent-name-adt-detoxin = Детоксин
 reagent-desc-adt-detoxin = Снимает абстинентный синдром и постепенно лечит зависимость от алкоголя, никотина, наркотиков, лекарств и омнизина. Бессилен против врождённых зависимостей.
-reagent-physical-desc-pungent = Резко пахнет лекарствами
 
 entity-effect-guidebook-adjust-addiction-level = Снижает уровень привыкания на {$amount} за цикл метаболизма.
 
