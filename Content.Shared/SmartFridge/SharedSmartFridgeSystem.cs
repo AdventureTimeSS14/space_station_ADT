@@ -97,7 +97,6 @@ public abstract class SharedSmartFridgeSystem : EntitySystem
         {
             if (!_whitelist.CheckBoth(used, ent.Comp.Blacklist, ent.Comp.Whitelist))
                 continue;
-
             anyInserted = true;
 
             _container.Insert(used, container);

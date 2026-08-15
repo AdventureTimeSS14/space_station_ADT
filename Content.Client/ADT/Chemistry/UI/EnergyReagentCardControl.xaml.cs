@@ -19,7 +19,7 @@ public sealed partial class EnergyReagentCardControl : Control
         ReagentId = item.ReagentId;
         ColorPanel.PanelOverride = new StyleBoxFlat { BackgroundColor = item.ReagentColor };
         ReagentNameLabel.Text = item.ReagentLabel;
-        FillLabel.Text = $"{item.PowerCostPerUnit:F1}W/u"; // ADT-Tweak: округление до 1 знака
+        FillLabel.Text = $"{item.PowerCostPerUnit:F1}W/u";
 
         MainButton.OnPressed += args => OnPressed?.Invoke(ReagentId);
     }
