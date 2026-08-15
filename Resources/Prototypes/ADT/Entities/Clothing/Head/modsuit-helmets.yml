@@ -188,6 +188,7 @@
     - Biological
     - ADTBiologicalShadekin
     - ADTBiologicalDrask
+
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
   id: ADTClothingHeadHelmetModsuitMining
@@ -446,6 +447,7 @@
     - Biological
     - ADTBiologicalShadekin
     - ADTBiologicalDrask
+
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
   id: ADTClothingHeadHelmetModsuitCaptain
@@ -646,9 +648,6 @@
     enabled: false
     color: cyan
     radius: 10
-  - type: PressureProtection
-    highPressureMultiplier: 0.08
-    lowPressureMultiplier: 1000
   - type: FireProtection
     reduction: 0.2
   - type: Armor
