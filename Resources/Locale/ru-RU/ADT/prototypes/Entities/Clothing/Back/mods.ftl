@@ -2,12 +2,14 @@ ent-ADTClothingModsuitBackStandard = МОД "Базовый"
     .desc = Костюм гражданского класса от "Nakamura Engineering", не дающий ничего особенного, кроме небольшого замедления передвижения.
 ent-ADTClothingModsuitBackStandardFilled = { ent-ADTClothingModsuitBackStandard }
     .desc = { ent-ADTClothingModsuitBackStandard.desc }
+    .suffix = Заполненный
 
 
-ent-ADTClothingModsuitBackAtmos = МОД "Атмосферный"
+ent-ADTClothingModsuitBackAtmos = МОД "Хамстер"
     .desc = Атмосферостойкий костюм от "Nakamura Engineering", обладающий повышенной термостойкостью и меньшим количеством слотов по сравнению с инженерным МОДом.
 ent-ADTClothingModsuitBackAtmosFilled = { ent-ADTClothingModsuitBackAtmos }
     .desc = { ent-ADTClothingModsuitBackAtmos.desc }
+    .suffix = Заполненный
 
 
 ent-ADTClothingModsuitBackClown = МОД "Космохонк"
@@ -17,31 +19,32 @@ ent-ADTClothingModsuitBackEngineering = МОД "Талос"
     .desc = Инженерный костюм с термо- и ударопрочностью. Классика от Nakamura Engineering.
 ent-ADTClothingModsuitBackEngineeringFilled = { ent-ADTClothingModsuitBackEngineering }
     .desc = { ent-ADTClothingModsuitBackEngineering.desc }
+    .suffix = Заполненный
 
 
 ent-ADTClothingModsuitBackMedical = МОД "Аполлон"
     .desc = Легкий костюм от "DeForest Medical Corporation", позволяющий быстрее двигаться.
 ent-ADTClothingModsuitBackMedicalFilled = { ent-ADTClothingModsuitBackMedical }
     .desc = { ent-ADTClothingModsuitBackMedical.desc }
+    .suffix = Заполненный
 
 
 ent-ADTClothingModsuitBackMining = МОД "Стах"
     .desc = Шахтёрский МОД "NanoTrasen" для работы с рудой, оснащенный противопепельным заслоном и сферным преобразователем.
 ent-ADTClothingModsuitBackMiningFilled = { ent-ADTClothingModsuitBackMining }
     .desc = { ent-ADTClothingModsuitBackMining.desc }
+    .suffix = Заполненный
 
 
 ent-ADTClothingModsuitBackSecurity = МОД "Арес"
     .desc = Защитный костюм "Apadyne Technologies", обеспечивающий высокую скорость за счет снижения грузоподъемности.
 ent-ADTClothingModsuitBackSecurityFilled = { ent-ADTClothingModsuitBackSecurity }
     .desc = { ent-ADTClothingModsuitBackSecurity.desc }
+    .suffix = Заполненный
 
 
 ent-ADTClothingModsuitBackScience = МОД "Метида"
     .desc = Сделано учёными для учёных. С любовью!
-
-ent-ADTClothingModsuitBackSyndicate = МОД "Мародёр"
-    .desc = Костюм, разработанный "Gorlex Marauders", предлагающий броню, признанную незаконной в большинстве секторов.
 
 ent-ADTClothingModsuitBackSafeguard = МОД "Диктатор"
     .desc = Улучшенная версия простого охранного МОДа, что был создан специально для ГСБ. Жаждит забить генокрада собой досмерти!
@@ -49,16 +52,11 @@ ent-ADTClothingModsuitBackSafeguard = МОД "Диктатор"
 ent-ADTClothingModsuitBackBlueShield = МОД "ДеБур"
     .desc =  Лёгкий боевой МОД NanoTrasen, с технологиями точно не украденными у синдиката, специально для офицера синего щита и защиты его частей тела. Я уверяю вас, это АБСОЛЮТНО легально.
 
-ent-ADTClothingModsuitBackCentcom = МОД "Корпорат"
-    .suffix = Центком
-    .desc =  Модный высокотехнологичный скафандр для высокопоставленных офицеров Nanotrasen. Призван держать бюрократов внутри - Пули снаружи.
-
-ent-ADTClothingModsuitBackCCC = МОД "Корпорат"
-    .suffix = Консультант
-    .desc =  Модный высокотехнологичный скафандр для высокопоставленных офицеров Nanotrasen. Призван держать бюрократов внутри - Пули снаружи.
-
 ent-ADTClothingModsuitBackAdvanced = МОД "Гефест"
     .desc = Усовершенствованная версия классического костюма "Nakamura Engineering", сияющая белизной, кислото- и огнестойкой полировкой.
+
+ent-ADTClothingModsuitBackSyndicate = МОД "Мародёр"
+    .desc = Костюм, разработанный "Gorlex Marauders", предлагающий броню, признанную незаконной в большинстве секторов.
 
 ent-ADTClothingModsuitBackSyndicateElite = МОД "Элитный"
     .desc = Элитный костюм, усовершенствованный "Cybersun Industries" и предлагающий повышенные показатели брони.
@@ -71,6 +69,14 @@ ent-ADTClothingModsuitBackCMO = МОД "Гиппократ"
 
 ent-ADTClothingModsuitBackCaptain = МОД "Магнат"
     .desc = Элегантный и сверхпрочный костюм для капитанов "NanoTrasen". Защищает от ударов, порезов, огня и кислоты, обладает большой вместимостью и высокой мобильностью.
+
+ent-ADTClothingModsuitBackCentcom = МОД "Корпорат"
+    .suffix = Центком
+    .desc =  Модный высокотехнологичный скафандр для высокопоставленных офицеров Nanotrasen. Призван держать бюрократов внутри - Пули снаружи.
+
+ent-ADTClothingModsuitBackCCC = МОД "Корпорат"
+    .suffix = Консультант
+    .desc =  Модный высокотехнологичный скафандр для высокопоставленных офицеров Nanotrasen. Призван держать бюрократов внутри - Пули снаружи.
 
 ent-ADTClothingModsuitBackWard = МОД "Защитный"
     .desc = Усовершенствованный защитный костюм "Apadyne Technologies" обеспечивает более высокую огнестойкость по сравнению со стандартной моделью.
@@ -104,13 +110,10 @@ ent-ADTClothingModsuitBackERTMedical = МОД ОБР "Вега"
     .desc = Облегчённый скоростной костюм NanoTrasen для медика Отряда Быстрого Реагирования кода "Гамма".
 
 # Понятие не имею где прописать части мода. Пропишу тут
-
-ent-ADTActionToggleMODPiece = Переключить элементы MOD
-
 # Шлемы
 ent-ADTClothingHeadHelmetModsuitBase = шлем МОДа "Базовый"
     .desc = Шлем от МОДа.
-ent-ADTClothingHeadHelmetModsuitAtmos = шлем МОДа "Атмосферный"
+ent-ADTClothingHeadHelmetModsuitAtmos = шлем МОДа "Хамстер"
     .desc = Шлем от МОДа.
 ent-ADTClothingHeadHelmetModsuitClown = шлем МОДа "Космохонк"
     .desc = Шлем от МОДа.
@@ -168,7 +171,7 @@ ent-ADTClothingHeadHelmetModsuitERTMedical = шлем МОДа ОБР "Вега"
 # Оболочка
 ent-ADTClothingOuterModsuitBodyBase = оболочка МОДа "Базовый"
     .desc = Базовая оболочка от МОДа.
-ent-ADTClothingOuterModsuitBodyAtmos = оболочка МОДа "Атмосферный"
+ent-ADTClothingOuterModsuitBodyAtmos = оболочка МОДа "Хамстер"
     .desc = Базовая оболочка от МОДа.
 ent-ADTClothingOuterModsuitBodyClown = оболочка МОДа "Космохонк"
     .desc = Базовая оболочка от МОДа.
@@ -226,7 +229,7 @@ ent-ADTClothingOuterModsuitBodyERTMedical = оболочка МОДа ОБР "В
 # Ботинки
 ent-ADTClothingModsuitShoesBase = ботинки МОДа "Базовый"
     .desc = Базовые ботинки от МОДа.
-ent-ADTClothingModsuitShoesAtmos = ботинки МОДа "Атмосферный"
+ent-ADTClothingModsuitShoesAtmos = ботинки МОДа "Хамстер"
     .desc = Базовые ботинки от МОДа.
 ent-ADTClothingModsuitShoesClown = ботинки МОДа "Космохонк"
     .desc = ОООХ ЧУВАК ТВОИ РОДИТЕЛИ ТАКИЕ.. а знаешь, мы так долго в открытом космосе что я не чувствую своих НОГ! Я думаю, нам стоит позвать на помощь и извиниться.
@@ -275,7 +278,7 @@ ent-ADTClothingModsuitShoesERT = ботинки МОДа ОБР
 # Перчатки
 ent-ADTClothingHandsModsuitBase = перчатки МОДа "Базовый"
     .desc = Базовые перчатки от МОДа.
-ent-ADTClothingHandsModsuitAtmos = перчатки МОДа "Атмосферный"
+ent-ADTClothingHandsModsuitAtmos = перчатки МОДа "Хамстер"
     .desc = Базовые перчатки от МОДа.
 ent-ADTClothingHandsModsuitClown = перчатки МОДа "Космохонк"
     .desc = Думаю всё же шутить про двух пап капитана было плохой идеей...

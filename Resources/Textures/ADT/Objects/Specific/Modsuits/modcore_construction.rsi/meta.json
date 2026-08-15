@@ -93,6 +93,9 @@
         },
         {
             "name": "cosmohonk"
+        },
+        {
+            "name": "mining"
         }
     ]
 }

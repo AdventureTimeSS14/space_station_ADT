@@ -249,6 +249,7 @@
   id: ADTClothingModsuitBackMedicalFilled
   name: medical MOD control unit
   description: A lightweight suit by DeForest Medical Corporation, allows for easier movement.
+  suffix: Filled
   components:
   - type: ModSuit
     startingModules:

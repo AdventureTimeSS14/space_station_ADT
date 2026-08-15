@@ -211,9 +211,9 @@
   description: A part used in MOD construction.
   components:
   - type: Sprite
-    state: engineering
+    state: mining
   - type: Icon
-    state: engineering
+    state: mining
   - type: PhysicalComposition
     materialComposition:
       Steel: 75
