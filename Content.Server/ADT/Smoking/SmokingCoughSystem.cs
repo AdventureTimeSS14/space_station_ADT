@@ -2,7 +2,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Server.Nutrition.Components;
 using Content.Shared.Body.Components;
@@ -33,11 +32,6 @@ public sealed partial class SmokingCoughSystem : EntitySystem
 
     private static readonly TimeSpan CheckInterval = TimeSpan.FromSeconds(1);
 
-    /// <summary>
-    /// Время следующего кашля для каждого курящего игрока.
-    /// </summary>
-    private readonly Dictionary<EntityUid, TimeSpan> _nextCough = new();
-
     private TimeSpan _nextCheck;
 
     public override void Update(float frameTime)
@@ -67,9 +61,6 @@ public sealed partial class SmokingCoughSystem : EntitySystem
                 continue;
             }
 
-            var smoker = containerManager.Owner;
-            seen.Add(smoker);
-
             // В растворе ещё есть чем затянуться
             if (!_solution.TryGetSolution(uid, smokable.Solution, out _, out var solution) ||
                 solution.Volume == FixedPoint2.Zero)
@@ -77,24 +68,27 @@ public sealed partial class SmokingCoughSystem : EntitySystem
                 continue;
             }
 
-            if (!_nextCough.TryGetValue(smoker, out var nextCough))
-            {
-                _nextCough[smoker] = _timing.CurTime + CoughInterval;
-                continue;
-            }
+            var smoker = containerManager.Owner;
+            seen.Add(smoker);
 
-            if (_timing.CurTime < nextCough)
+            // Компонент выдаётся, когда игрок начинает курить, снимается, когда заканчивает
+            var cough = EnsureComp<ADTSmokingCoughComponent>(smoker);
+            if (cough.NextCough == default)
+                cough.NextCough = _timing.CurTime + CoughInterval;
+
+            if (_timing.CurTime < cough.NextCough)
                 continue;
 
             _chat.TryEmoteWithChat(smoker, "Cough", hideLog: true);
-            _nextCough[smoker] = _timing.CurTime + CoughInterval;
+            cough.NextCough = _timing.CurTime + CoughInterval;
         }
 
-        // Игроки, которые больше не курят: сбрасываем отсчёт
-        foreach (var smoker in _nextCough.Keys.ToList())
+        // Игроки, которые больше не курят: компонент снимается, отсчёт начинается заново
+        var coughQuery = EntityQueryEnumerator<ADTSmokingCoughComponent>();
+        while (coughQuery.MoveNext(out var uid, out _))
         {
-            if (!seen.Contains(smoker))
-                _nextCough.Remove(smoker);
+            if (!seen.Contains(uid))
+                RemCompDeferred<ADTSmokingCoughComponent>(uid);
         }
     }
 }
