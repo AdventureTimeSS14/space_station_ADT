@@ -13,11 +13,6 @@ namespace Content.Shared.Hands
     public sealed class DropAttemptEvent : CancellableEntityEventArgs
     {
         public readonly EntityUid Uid;
-
-        public DropAttemptEvent(EntityUid uid)
-        {
-            Uid = uid;
-        }
     }
 
     /// <summary>

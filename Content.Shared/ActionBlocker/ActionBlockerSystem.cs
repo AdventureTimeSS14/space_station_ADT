@@ -157,7 +157,7 @@ namespace Content.Shared.ActionBlocker
 
         public bool CanDrop(EntityUid uid)
         {
-            var ev = new DropAttemptEvent(uid);
+            var ev = new DropAttemptEvent();
             RaiseLocalEvent(uid, ev);
 
             return !ev.Cancelled;
