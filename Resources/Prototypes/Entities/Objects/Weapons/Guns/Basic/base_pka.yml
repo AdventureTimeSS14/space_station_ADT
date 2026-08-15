@@ -1,81 +1,57 @@
-- type: entity
-  id: WeaponProtoKineticAcceleratorBase
-  abstract: true
-  parent: [BaseItem, ADTBaseAttachableHolder] # ADT TWEAK
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
-  - type: Item
-    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
-    size: Large # ADT tweak Normal -> large
-    shape:
-    - 0,0,2,1
-  # - type: GunWieldBonus # ADT tweak start
-  #   minAngle: -43
-  #   maxAngle: -43
-  # - type: Wieldable # ADT tweak end
-  - type: Gun
-    fireRate: 2.5 # ADT tweak CLICK_CD_RANGE из SS13
-    selectedMode: SemiAuto
-    angleDecay: 45
-    minAngle: 2 #ADT tweak
-    maxAngle: 3 #ADT tweak
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
-  - type: AmmoCounter
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.AmmoVisuals.HasAmmo:
-        empty-icon:
-          True: { visible: False }
-          False: { visible: True }
-        #todo: add other 'empty' animations
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 1.6 # ADT tweak overheat_time базового ПКА из SS13
-    rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
-  - type: BasicEntityAmmoProvider
-    proto: BulletKinetic
-    capacity: 1
-    count: 1
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
-    quickEquip: false
-    slots:
-    - suitStorage
-    - Belt
-# ADT-Tweak-Start
-  - type: ADTKineticCooldown
-#  - type: UseDelay
-#    delay: 1
-  - type: AttachableHolder
-    slots:
-      rmc-aslot-underbarrel:
-        whitelist:
-          tags:
-          - SurvivalKnifeAttachment
-      # rmc-aslot-stock:
-      #   whitelist:
-      #     tags:
-      # rmc-aslot-rail:
-      #   whitelist:
-      #       tags:
-  - type: AttachableHolderVisuals
-    offsets:
-      rmc-aslot-underbarrel: 0.315, -0.209
-  - type: MeleeWeapon
-    attackRate: 1.25 # ADT tweak CLICK_CD_MELEE из SS13
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      collection: GenericHit
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: Tag
-    tags:
-    - PKA
-# ADT-Tweak-End
+# ADT-Tweak-Start. Moved to ADT folders
+# - type: entity
+#   id: WeaponProtoKineticAcceleratorBase
+#   abstract: true
+#   parent: BaseItem
+#   components:
+#   - type: Sprite
+#     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+#   - type: Item
+#     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+#     size: Large
+#     shape:
+#     - 0,0,2,1
+#   - type: GunWieldBonus
+#     minAngle: -43
+#     maxAngle: -43
+#   - type: Wieldable
+#   - type: Gun
+#     fireRate: 0.5
+#     selectedMode: SemiAuto
+#     angleDecay: 45
+#     minAngle: 44
+#     maxAngle: 45
+#     availableModes:
+#     - SemiAuto
+#     soundGunshot:
+#       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+#     projectileSpeed: 25
+#   - type: AmmoCounter
+#   - type: CustomSpriteAmmoCounter
+#     loadedAmmoSprite: Interface/ItemStatus/PKA/not_spent.png
+#     spentAmmoSprite: Interface/ItemStatus/PKA/spent.png
+#   - type: Appearance
+#   - type: GenericVisualizer
+#     visuals:
+#       enum.AmmoVisuals.HasAmmo:
+#         empty-icon:
+#           True: { visible: False }
+#           False: { visible: True }
+#         #todo: add other 'empty' animations
+#   - type: RechargeBasicEntityAmmo
+#     rechargeCooldown: 0.75
+#     rechargeSound:
+#       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+#   - type: BasicEntityAmmoProvider
+#     proto: BulletKinetic
+#     capacity: 1
+#     count: 1
+#   - type: Clothing
+#     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+#     quickEquip: false
+#     slots:
+#     - suitStorage
+#     - Belt
+#   - type: UseDelay
+#     delay: 1
+# ADT-Tweak-End. Moved to ADT folders

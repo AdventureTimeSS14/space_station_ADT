@@ -1,0 +1,20 @@
+- type: entity
+  parent: MobStatusEffectBase
+  id: ADTStatusEffectRegenerativeCore
+  name: regenerative core
+  components:
+  - type: ADTRegenerativeCoreStatusEffect
+    interval: 1
+    healing:
+      types:
+        Blunt: -1
+        Slash: -1
+        Piercing: -1
+        Heat: -1
+        Cold: -1
+        Shock: -1
+  - type: StatusEffectAlert
+    alert: ADTRegenerativeCore
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: IgnoreSlowOnDamage
