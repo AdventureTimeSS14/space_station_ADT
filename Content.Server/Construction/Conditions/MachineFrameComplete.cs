@@ -1,4 +1,5 @@
 using Content.Server.Construction.Components;
+using Content.Shared.ADT.Construction.Prototypes;
 using Content.Shared.Construction;
 using Content.Shared.Examine;
 using JetBrains.Annotations;
@@ -65,6 +66,31 @@ namespace Content.Server.Construction.Conditions
                                            ("elementName", stackEnt.Name)));
             }
 
+            // ADT-Tweak-Start: machine parts with tiers
+            foreach (var (partType, required) in machineFrame.PartRequirements)
+            {
+                var amount = required - machineFrame.PartProgress.GetValueOrDefault(partType, 0);
+
+                if (amount == 0)
+                    continue;
+
+                string elementName;
+                if (protoManager.TryIndex(partType, out var machinePart))
+                {
+                    var partEnt = protoManager.Index(machinePart.StockPartPrototype);
+                    elementName = partEnt.Name;
+                }
+                else
+                {
+                    elementName = partType;
+                }
+
+                args.PushMarkup(Loc.GetString("construction-condition-machine-frame-required-element-entry",
+                    ("amount", amount),
+                    ("elementName", elementName)));
+            }
+            // ADT-Tweak-End
+
             foreach (var (compName, info) in machineFrame.ComponentRequirements)
             {
                 var amount = info.Amount - machineFrame.ComponentProgress[compName];
@@ -74,7 +100,7 @@ namespace Content.Server.Construction.Conditions
 
                 var examineName = constructionSys.GetExamineName(info);
                 args.PushMarkup(Loc.GetString("construction-condition-machine-frame-required-element-entry",
-                                                ("amount", info.Amount),
+                                                ("amount", amount), // ADT-Tweak: was info.Amount (showed full amount instead of remaining)
                                                 ("elementName", examineName)));
             }
 
@@ -87,7 +113,7 @@ namespace Content.Server.Construction.Conditions
 
                 var examineName = constructionSys.GetExamineName(info);
                 args.PushMarkup(Loc.GetString("construction-condition-machine-frame-required-element-entry",
-                                    ("amount", info.Amount),
+                                    ("amount", amount), // ADT-Tweak: was info.Amount (showed full amount instead of remaining)
                                     ("elementName", examineName)));
             }
 

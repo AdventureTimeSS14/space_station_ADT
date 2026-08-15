@@ -252,6 +252,7 @@
     - XenobioPack #ADT Tweak
     - XenobagHoldingPack #ADT Tweak
     - ADTBluespaceCrystalTech #ADT Tweak
+    - PartsDynamic #ADT-Tweak: machine parts
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -732,6 +733,7 @@
       idleState: icon
       runningState: building
       defaultProductionAmount: 30 #ADT, changed from 10 to 30
+      suppressMachinePartUpgrades: true #ADT-Tweak
       staticPacks:
       - OreSmelting
       - RGlassSmelting
@@ -743,6 +745,7 @@
       transferSound:
         path: /Audio/Effects/Cargo/ping.ogg
     - type: MiningPointsLathe
+    - type: OreProcessorUpgrade #ADT-Tweak: машинные части (порт Orion PR #385)
      # ADT tweak end
 
 - type: entity

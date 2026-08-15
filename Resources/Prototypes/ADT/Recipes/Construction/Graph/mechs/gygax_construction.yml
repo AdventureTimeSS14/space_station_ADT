@@ -92,7 +92,7 @@
           key: "enum.MechAssemblyVisuals.State"
           data: 14
 
-      - tag: ADTMicroManipulatorStockPart
+      - tag: ADTPicoServoStockPart
         name: construction-graph-tag-manipulator-stock-part
         icon:
           sprite: "Objects/Misc/stock_parts.rsi"
