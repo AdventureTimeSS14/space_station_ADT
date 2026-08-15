@@ -168,74 +168,62 @@ public class RPDSystem : EntitySystem
         if (args.Handled || !args.CanReach)
             return;
 
-        var user = args.User;
-        var location = args.ClickLocation;
+        if (TryStartRPDOperation(uid, component, args.User, args.ClickLocation, args.Target, false))
+            args.Handled = true;
+    }
 
-        // Initial validity checks
+    /// <summary>
+    /// Проверяет операцию и запускает её DoAfter. Secondary: вторичная конфигурация (Alt+клик по тайлу).
+    /// </summary>
+    public bool TryStartRPDOperation(EntityUid uid, RPDComponent component, EntityUid user, EntityCoordinates location, EntityUid? target, bool secondary)
+    {
         if (!location.IsValid(EntityManager))
-            return;
+            return false;
 
         var gridUid = _transform.GetGrid(location);
 
         if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
         {
             _popup.PopupClient(Loc.GetString("rpd-component-no-valid-grid"), uid, user);
-            return;
+            return false;
         }
 
         var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
         var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
 
-        // ADT-Tweak: secondary (Alt+click) configuration support
-        var secondary = args.AltInteract;
         UpdateCachedPrototype(uid, component);
         if (secondary)
             UpdateCachedSecondaryPrototype(uid, component);
 
         var prototype = secondary ? component.CachedSecondaryPrototype : component.CachedPrototype;
 
-        // No secondary configuration selected: Alt+click does nothing
+        // Вторичная конфигурация не выбрана
         if (prototype == null)
-            return;
+            return false;
 
-        if (!IsRPDOperationStillValid(uid, component, gridUid.Value, mapGrid, tile, position, args.Target, args.User, prototype))
-            return;
+        if (!IsRPDOperationStillValid(uid, component, gridUid.Value, mapGrid, tile, position, target, user, prototype))
+            return false;
 
         if (!_net.IsServer)
-            return;
+            return false;
 
-        // Get the starting cost, delay, and effect from the prototype
         var cost = prototype.Cost;
         var delay = prototype.Delay;
         var effectPrototype = prototype.Effect;
 
-        #region: Operation modifiers
-
-        // Deconstruction modifiers
-        switch (prototype.Mode)
+        // Deconstructing an object
+        if (prototype.Mode == RpdMode.Deconstruct && target != null &&
+            TryComp<RPDDeconstructableComponent>(target, out var destructible))
         {
-            case RpdMode.Deconstruct:
-
-                // Deconstructing an object
-                if (args.Target != null)
-                {
-                    if (TryComp<RPDDeconstructableComponent>(args.Target, out var destructible))
-                    {
-                        cost = destructible.Cost;
-                        delay = destructible.Delay;
-                        effectPrototype = destructible.Effect;
-                    }
-                }
-                break;
+            cost = destructible.Cost;
+            delay = destructible.Delay;
+            effectPrototype = destructible.Effect;
         }
 
-        #endregion
-
-        // Try to start the do after
         var effect = Spawn(effectPrototype, location);
         var ev = new RPDDoAfterEvent(GetNetCoordinates(location), component.ConstructionDirection, secondary ? component.SecondaryProtoId : component.ProtoId, cost, GetNetEntity(effect), secondary);
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, uid, target: args.Target, used: uid)
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, uid, target: target, used: uid)
         {
             BreakOnDamage = true,
             BreakOnHandChange = true,
@@ -245,10 +233,13 @@ public class RPDSystem : EntitySystem
             BlockDuplicate = false
         };
 
-        args.Handled = true;
-
         if (!_doAfter.TryStartDoAfter(doAfterArgs))
+        {
             QueueDel(effect);
+            return false;
+        }
+
+        return true;
     }
 
     private void OnDoAfterAttempt(EntityUid uid, RPDComponent component, DoAfterAttemptEvent<RPDDoAfterEvent> args)
