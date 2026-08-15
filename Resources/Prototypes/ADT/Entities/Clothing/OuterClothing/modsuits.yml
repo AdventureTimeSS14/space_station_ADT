@@ -1,35 +1,22 @@
 - type: entity
-  parent: ClothingOuterHardsuitEVA
+  abstract: true
+  parent: ClothingOuterBase
   id: ADTClothingOuterModsuitBodyBase
-  name: base MOD chestplate
-  description: A chestplate for a MODsuit.
   components:
-  - type: Clickable
-  - type: InteractionOutline
-  - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Modsuit/standart.rsi
   - type: Clothing
     equipDelay: 3
     unequipDelay: 3
-    sprite: ADT/Clothing/OuterClothing/Modsuit/standart.rsi
     slots: [ OUTERCLOTHING ]
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
-  - type: PressureProtection
-    highPressureMultiplier: 0.02
-    lowPressureMultiplier: 1000
+  - type: ComponentToggler
+    components:
+    - type: PressureProtection
+      highPressureMultiplier: 0.3
+      lowPressureMultiplier: 1000
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 0.8
-        Radiation: 0.8
-        Caustic: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: UserInterface
@@ -43,6 +30,26 @@
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
+  id: ADTClothingOuterModsuitBodyStandard
+  name: base MOD chestplate
+  description: A chestplate for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Modsuit/standart.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Modsuit/standart.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+        Radiation: 0.8
+        Caustic: 0.8
+
+- type: entity
+  parent: ADTClothingOuterModsuitBodyBase
   id: ADTClothingOuterModsuitBodyAtmos
   name: atmos MOD chestplate
   description: A chestplate for a MODsuit.
@@ -50,15 +57,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/atmospheric.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/atmospheric.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-  - type: PressureProtection
-    highPressureMultiplier: 0.02
-    lowPressureMultiplier: 1000
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85

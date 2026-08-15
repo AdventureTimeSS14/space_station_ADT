@@ -216,8 +216,15 @@ public sealed partial class ModSuitSystem
 
         UpdateCellDraw(ent);
 
-        if (GetPartsToggleStatus(ent.Owner, ent.Comp) == ModSuitAttachedStatus.AllToggled && _timing.IsFirstTimePredicted && _netMan.IsClient)
-            _audio.PlayGlobal(ent.Comp.FullyEnabledSound, user);
+        if (GetPartsToggleStatus(ent.Owner, ent.Comp) == ModSuitAttachedStatus.AllToggled)
+        {
+            TogglePressureProtection(ent, ent.Comp, true);
+
+            if (_timing.IsFirstTimePredicted && _netMan.IsClient)
+            {
+                _audio.PlayGlobal(ent.Comp.FullyEnabledSound, user);
+            }
+        }
 
         if (updateUi)
             UpdateUserInterface(ent.Owner, ent.Comp);
@@ -250,6 +257,11 @@ public sealed partial class ModSuitSystem
         RestoreSuitStorage(user, parent, suitStorage);
 
         UpdateCellDraw(ent);
+
+        if (GetPartsToggleStatus(ent.Owner, ent.Comp) != ModSuitAttachedStatus.AllToggled)
+        {
+            TogglePressureProtection(ent, ent.Comp, false);
+        }
 
         if (updateUi)
             UpdateUserInterface(ent.Owner, ent.Comp);

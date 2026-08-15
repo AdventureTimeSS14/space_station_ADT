@@ -1,9 +1,13 @@
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  abstract: true
+  parent: ClothingHeadBase
   id: ADTClothingHeadHelmetModsuitBase
   name: base MOD helmet
   description: A helmet for a MODsuit.
   components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: BreathMask
   - type: Sprite
     sprite: ADT/Clothing/Head/Modsuit/standart.rsi
     layers:
@@ -33,9 +37,11 @@
         Piercing: 0.95
         Heat: 0.90
         Radiation: 0.90
-  - type: PressureProtection
-    highPressureMultiplier: 0.1
-    lowPressureMultiplier: 1000
+  - type: ComponentToggler
+    components:
+    - type: PressureProtection
+      highPressureMultiplier: 0.3
+      lowPressureMultiplier: 1000
   - type: ToggleableVisuals
     spriteLayer: light
   - type: PointLight
@@ -45,6 +51,24 @@
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
+  - type: GroupExamine
+  - type: IngestionBlocker
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: IdentityBlocker
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - SnoutOverlay # ADT-Twek
+    - SnoutCover # ADT-Twek
+    - HeadTop
+    - HeadSide
+    - FacialHair
+  - type: InjectorsBlocker
+  - type: CoveredSlot
+    slots: [eyes, mask, ears]
 
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
@@ -71,9 +95,6 @@
   - type: PointLight
     enabled: false
     color: "#adffe6"
-  - type: PressureProtection
-    highPressureMultiplier: 0.08
-    lowPressureMultiplier: 1000
   - type: TemperatureProtection
     heatingCoefficient: 0.005
     coolingCoefficient: 0.005
@@ -123,9 +144,6 @@
   - type: PointLight
     enabled: false
     color: "#ffdbad"
-  - type: PressureProtection
-    highPressureMultiplier: 0.08
-    lowPressureMultiplier: 1000
   - type: TemperatureProtection
     heatingCoefficient: 0.005
     coolingCoefficient: 0.005
@@ -509,6 +527,7 @@
     - Biological
     - ADTBiologicalShadekin
     - ADTBiologicalDrask
+
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
   id: ADTClothingHeadHelmetModsuitWard
@@ -559,6 +578,7 @@
     - Biological
     - ADTBiologicalShadekin
     - ADTBiologicalDrask
+
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
   id: ADTClothingHeadHelmetModsuitAncient

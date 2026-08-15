@@ -98,10 +98,10 @@
     state: icon
   - type: ModSuit
     clothingPrototypes:
-      head: ADTClothingHeadHelmetModsuitBase
-      gloves: ADTClothingHandsModsuitBase
-      outerClothing: ADTClothingOuterModsuitBodyBase
-      shoes: ADTClothingModsuitShoesBase
+      #head: ADTClothingHeadHelmetModsuitStandard
+      #gloves: ADTClothingHandsModsuitStandard
+      outerClothing: ADTClothingOuterModsuitBodyStandard
+      #shoes: ADTClothingModsuitShoesStandard
   - type: Construction
     graph: ADTModsuitConstruction
     node: standard

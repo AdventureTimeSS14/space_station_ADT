@@ -78,6 +78,7 @@ public sealed partial class ModSuitSystem
         }
 
         UpdateUserInterface(ent.Owner, ent.Comp);
+        TogglePressureProtection(ent, ent.Comp, false);
     }
 
     /// <summary>
@@ -412,5 +413,14 @@ public sealed partial class ModSuitSystem
         Dirty(ent.Owner, draw);
 
         _cell.SetDrawEnabled((ent.Owner, draw), draw.DrawRate > 0f);
+    }
+
+    private void TogglePressureProtection(EntityUid modsuit, ModSuitComponent modComp, bool activate)
+    {
+        foreach (var part in modComp.ClothingUids)
+        {
+            var partUid = GetEntity(part.Key);
+            _componentToggler.ToggleComponent(partUid, activate);
+        }
     }
 }

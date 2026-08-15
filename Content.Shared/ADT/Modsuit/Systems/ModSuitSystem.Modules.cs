@@ -12,7 +12,7 @@ namespace Content.Shared.ADT.ModSuits;
 
 public sealed partial class ModSuitSystem
 {
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
 
     private void InitializeModules()
     {
