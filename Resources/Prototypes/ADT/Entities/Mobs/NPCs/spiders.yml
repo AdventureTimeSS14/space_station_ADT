@@ -78,7 +78,7 @@
       path: /Audio/Animals/snake_hiss.ogg
   - type: NoSlip
   - type: Spider
-    spawnsWebsAsNonPlayer: false # ADT-Tweak
+    spawnsWebsAsNonPlayer: false
   - type: IgnoreSpiderWeb
   - type: Bloodstream
     bloodReferenceSolution:
