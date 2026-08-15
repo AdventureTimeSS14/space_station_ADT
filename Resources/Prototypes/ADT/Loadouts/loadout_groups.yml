@@ -1422,6 +1422,23 @@
   - ADTSprayPaintWhite
   - ADTSprayPaintBlack
 
+- type: loadoutGroup
+  id: ADTRacialItems
+  name: loadout-group-racial-items
+  minLimit: 0
+  maxLimit: 4
+  loadouts:
+  - ADTVoxGloves
+  - ADTVoxUniform
+  - ADTVoxUniformRed
+  - ADTVoxUniformGreen
+  - ADTVoxUniformBlue
+  - ADTVoxUniformTeal
+  - ADTVoxUniformPurple
+  - ADTVoxUniformYellow
+  - ADTVoxRobe
+  - ADTVoxSandals
+
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.
 # Н А Д Е Ю С Ь  В Ы  М Е Н Я  У С Л Ы Ш А Л И ! ! !
 

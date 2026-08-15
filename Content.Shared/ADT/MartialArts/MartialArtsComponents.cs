@@ -64,4 +64,7 @@ public enum MartialArtsForms
     HellRip,
     PTSD,
     CookbookTechnique,
+    Tonfa,
+    CursedKatana,
+    SyndicateAxe,
 }

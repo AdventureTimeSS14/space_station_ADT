@@ -78,6 +78,19 @@
       tags:
       - LoneOpsUplink
 
+- type: listing
+  id: ADTUplinkRevolverPyton
+  name: uplink-revolver-python-name
+  description: uplink-revolver-python-desc
+  productEntity: WeaponRevolverPython
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkWeaponry
+
 #UplinkAttachments
 - type: listing
   id: ADTUplinkWeaponAttachmentsBundle
@@ -274,6 +287,19 @@
   - UplinkExplosives
 
 #UplinkWearables
+
+- type: listing
+  id: ADTUplinkClothingBeltSyndieHolster
+  name: uplink-syndicate-holster-name
+  description: uplink-syndicate-holster-desc
+  productEntity: ClothingBeltSyndieHolster
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWearables
 
 - type: listing
   id: ADTUplinkEliteBundle
