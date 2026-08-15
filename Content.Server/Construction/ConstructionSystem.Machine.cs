@@ -9,7 +9,6 @@ public sealed partial class ConstructionSystem
     private void InitializeMachines()
     {
         SubscribeLocalEvent<MachineComponent, ComponentInit>(OnMachineInit);
-        SubscribeLocalEvent<MachineComponent, ComponentStartup>(OnMachineStartup); // ADT-Tweak: machine parts
         SubscribeLocalEvent<MachineComponent, MapInitEvent>(OnMachineMapInit);
     }
 
@@ -18,16 +17,6 @@ public sealed partial class ConstructionSystem
         component.BoardContainer = _container.EnsureContainer<Container>(uid, MachineFrameComponent.BoardContainerName);
         component.PartContainer = _container.EnsureContainer<Container>(uid, MachineFrameComponent.PartContainerName);
     }
-
-    // ADT-Tweak-Start: machine parts with tiers
-    private void OnMachineStartup(EntityUid uid, MachineComponent component, ComponentStartup args)
-    {
-        if (component.BoardContainer.ContainedEntities.Count == 0)
-            return;
-
-        RefreshParts(uid, component);
-    }
-    // ADT-Tweak-End
 
     private void OnMachineMapInit(EntityUid uid, MachineComponent component, MapInitEvent args)
     {
