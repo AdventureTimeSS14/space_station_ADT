@@ -178,7 +178,9 @@ public sealed class ADTLegionCoreSystem : EntitySystem
         if (HasComp<ADTImplantedLegionCoreComponent>(args.User))
             return;
 
-        EnsureComp<ADTImplantedLegionCoreComponent>(args.User);
+        var implanted = EnsureComp<ADTImplantedLegionCoreComponent>(args.User);
+        implanted.CellularMultiplier = core.Comp.ImplantCellularMultiplier;
+
         _popup.PopupEntity(Loc.GetString("adt-legion-core-implant-done"), args.User, args.User);
 
         QueueDel(core);

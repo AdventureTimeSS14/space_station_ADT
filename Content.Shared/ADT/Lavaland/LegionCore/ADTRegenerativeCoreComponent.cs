@@ -29,4 +29,7 @@ public sealed partial class ADTRegenerativeCoreComponent : Component
 
     [DataField]
     public float ImplantDelay = 5f;
+
+    [DataField]
+    public float ImplantCellularMultiplier = 1f;
 }

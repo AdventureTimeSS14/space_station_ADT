@@ -11,6 +11,7 @@
     duration: 60
     applyDelay: 1
     implantDelay: 5
+    implantCellularMultiplier: 1
     instantHeal:
       types:
         Blunt: -33
