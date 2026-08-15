@@ -10,4 +10,10 @@ public sealed partial class ADTAshWalkerComponent : Component
 
     [DataField]
     public bool BlockGuns = true;
+
+    [DataField]
+    public TimeSpan GunPopupCooldown = TimeSpan.FromSeconds(3);
+
+    [ViewVariables]
+    public TimeSpan NextGunPopup;
 }
