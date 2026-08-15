@@ -167,3 +167,15 @@
     sprite: ADT/Clothing/Shoes/Boots/sandals_zero.rsi
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/sandals_zero.rsi
+
+# Расовая одежда (Пока тут только для воксов. Уберите, когда добавят для других рас)
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingShoesVoxSandals
+  name: vox sandals
+  components: 
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/vox_sandals.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/vox_sandals.rsi

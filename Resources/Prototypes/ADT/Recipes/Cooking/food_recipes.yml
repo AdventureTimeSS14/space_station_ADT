@@ -1,0 +1,874 @@
+# Пончики (группа Dessert, духовка)
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutPlainRecipe
+  name: plain donut recipe
+  result: FoodDonutPlain
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+  reagents:
+    Sugar: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutJellyPlainRecipe
+  name: plain jelly donut recipe
+  result: FoodDonutJellyPlain
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+  reagents:
+    Sugar: 5
+    Syrup: 3
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutHomerRecipe
+  name: donut recipe
+  result: FoodDonutHomer
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+    FoodCherry: 1
+  reagents:
+    Sugar: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutJellyHomerRecipe
+  name: jelly donut recipe
+  result: FoodDonutJellyHomer
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+    FoodCherry: 1
+  reagents:
+    Sugar: 5
+    Syrup: 3
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutPinkRecipe
+  name: pink donut recipe
+  result: FoodDonutPink
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+    FoodBerries: 1
+  reagents:
+    Sugar: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutJellyPinkRecipe
+  name: pink jelly donut recipe
+  result: FoodDonutJellyPink
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+    FoodBerries: 1
+  reagents:
+    Sugar: 5
+    Syrup: 3
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutSweetpeaRecipe
+  name: sweet pea donut recipe
+  result: FoodDonutSweetpea
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+    FoodPeaPod: 1
+  reagents:
+    Sugar: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutJellySweetpeaRecipe
+  name: sweet pea jelly donut recipe
+  result: FoodDonutJellySweetpea
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+    FoodPeaPod: 1
+  reagents:
+    Sugar: 5
+    Syrup: 3
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutBungoRecipe
+  name: bungo donut recipe
+  result: FoodDonutBungo
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+    FoodBungo: 1
+  reagents:
+    Sugar: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutJellyBungoRecipe
+  name: bungo jelly donut recipe
+  result: FoodDonutJellyBungo
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+    FoodBungo: 1
+  reagents:
+    Sugar: 5
+    Syrup: 3
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutMatchaRecipe
+  name: matcha donut recipe
+  result: FoodDonut
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+  reagents:
+    Sugar: 5
+    TeaPowder: 3
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutJellyMatchaRecipe
+  name: matcha jelly donut recipe
+  result: FoodDonutJelly
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+  reagents:
+    Sugar: 5
+    TeaPowder: 3
+    Syrup: 3
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutAppleRecipe
+  name: apple donut recipe
+  result: FoodDonutApple
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+    FoodApple: 1
+  reagents:
+    Sugar: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutJellyAppleRecipe
+  name: apple jelly donut recipe
+  result: FoodDonutJellyApple
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+    FoodApple: 1
+  reagents:
+    Sugar: 5
+    Syrup: 3
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutBluePumpkinRecipe
+  name: blue pumpkin donut recipe
+  result: FoodDonutBluePumpkin
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+    FoodBluePumpkin: 1
+  reagents:
+    Sugar: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutJellyBluePumpkinRecipe
+  name: blue pumpkin jelly donut recipe
+  result: FoodDonutJellyBluePumpkin
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+    FoodBluePumpkin: 1
+  reagents:
+    Sugar: 5
+    Syrup: 3
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutSpacemanRecipe
+  name: spaceman's donut recipe
+  result: FoodDonutSpaceman
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+    FoodBerries: 2
+  reagents:
+    Sugar: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutJellySpacemanRecipe
+  name: spaceman's jelly donut recipe
+  result: FoodDonutJellySpaceman
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+    FoodBerries: 2
+  reagents:
+    Sugar: 5
+    Syrup: 3
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutCaramelRecipe
+  name: caramel donut recipe
+  result: FoodDonutCaramel
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+  reagents:
+    Sugar: 5
+    Cream: 3
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutJellyCaramelRecipe
+  name: caramel jelly donut recipe
+  result: FoodDonutJellyCaramel
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+  reagents:
+    Sugar: 5
+    Cream: 3
+    Syrup: 3
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutChocolateRecipe
+  name: chocolate donut recipe
+  result: FoodDonutChocolate
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+  reagents:
+    Sugar: 5
+    CocoaPowder: 3
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutJellyChocolateRecipe
+  name: chocolate jelly donut recipe
+  result: FoodDonutJellyChocolate
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+  reagents:
+    Sugar: 5
+    CocoaPowder: 3
+    Syrup: 3
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutChaosRecipe
+  name: chaos donut recipe
+  result: FoodDonutChaos
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+    FoodMushroom: 1
+  reagents:
+    Sugar: 5
+    TableSalt: 3
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutMeatRecipe
+  name: meat donut recipe
+  result: FoodDonutMeat
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+    FoodMeatCutlet: 1
+  reagents:
+    Sugar: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodDonutJellyScurretRecipe
+  name: scurret jelly donut recipe
+  result: FoodDonutJellyScurret
+  time: 10
+  group: Dessert
+  solids:
+    FoodDough: 1
+  reagents:
+    Sugar: 5
+    Slime: 5
+    Syrup: 3
+  recipeType:
+  - Oven
+
+# Выпечка
+
+- type: microwaveMealRecipe
+  id: ADTFoodBreadVolcanicRecipe
+  name: volcanic bread recipe
+  result: FoodBreadVolcanic
+  time: 15
+  group: Breads
+  solids:
+    FoodDough: 1
+  reagents:
+    Ash: 5
+    TableSalt: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodWaffleSoylentRecipe
+  name: soylent waffles recipe
+  result: FoodBakedWaffleSoylent
+  time: 10
+  group: Breakfast
+  solids:
+    FoodSoybeans: 2
+  reagents:
+    Flour: 5
+    MilkSoy: 5
+    Egg: 6
+    SodaWater: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodWaffleRoffleRecipe
+  name: roffle waffles recipe
+  result: FoodBakedWaffleRoffle
+  time: 10
+  group: Breakfast
+  reagents:
+    Flour: 5
+    Milk: 5
+    Egg: 6
+    SodaWater: 5
+    Sulfur: 3
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodBunMeatRecipe
+  name: meat bun recipe
+  result: FoodBakedBunMeat
+  time: 15
+  group: Breads
+  solids:
+    FoodDough: 1
+    FoodMeatCutlet: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodBunHoneyRecipe
+  name: honey bun recipe
+  result: FoodBakedBunHoney
+  time: 15
+  group: Breads
+  solids:
+    FoodDough: 1
+  reagents:
+    Syrup: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodBunHotXRecipe
+  name: hot cross bun recipe
+  result: FoodBakedBunHotX
+  time: 15
+  group: Breads
+  solids:
+    FoodDough: 1
+  reagents:
+    Sugar: 10
+    Blackpepper: 3
+  recipeType:
+  - Oven
+
+# Торты
+
+- type: microwaveMealRecipe
+  id: ADTFoodCakeVanillaRecipe
+  name: vanilla cake recipe
+  result: FoodCakeVanilla
+  time: 5
+  group: Cake
+  solids:
+    FoodCakePlain: 1
+  reagents:
+    Sugar: 10
+    Cream: 5
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodCakeWaffleRecipe
+  name: waffle cake recipe
+  result: ADTFoodCakeWaffle
+  time: 5
+  group: Cake
+  solids:
+    FoodBakedWaffle: 2
+  reagents:
+    Sugar: 5
+    Cream: 10
+  recipeType:
+  - Assembler
+
+# Пироги
+
+- type: microwaveMealRecipe
+  id: ADTFoodPiePlumpRecipe
+  name: plump pie recipe
+  result: FoodPiePlump
+  time: 15
+  group: Pie
+  solids:
+    FoodDoughPie: 1
+    FoodPlateTin: 1
+    FoodMushroom: 2
+  recipeType:
+  - Oven
+
+# Супы
+
+- type: microwaveMealRecipe
+  id: ADTFoodSoupBorschtRecipe
+  name: borscht recipe
+  result: FoodSoupBeet
+  time: 10
+  group: Soup
+  solids:
+    FoodBowlBig: 1
+    FoodCabbage: 1
+    FoodPotato: 1
+    FoodCarrot: 1
+    FoodOnionSlice: 1
+    FoodTomato: 2
+  reagents:
+    Water: 10
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodSoupBorschtRedRecipe
+  name: red borscht recipe
+  result: FoodSoupBeetRed
+  time: 10
+  group: Soup
+  solids:
+    FoodBowlBig: 1
+    FoodCabbage: 1
+    FoodCarrot: 1
+    FoodTomato: 3
+  reagents:
+    Water: 10
+    TableSalt: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodSoupElectronRecipe
+  name: electron soup recipe
+  result: FoodSoupElectron
+  time: 10
+  group: Soup
+  solids:
+    FoodBowlBig: 1
+  reagents:
+    Water: 10
+    Licoxide: 6
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodSoupMysteryRecipe
+  name: mystery soup recipe
+  result: FoodSoupMystery
+  time: 10
+  group: Soup
+  solids:
+    FoodBowlBig: 1
+    FoodMushroom: 1
+    FoodPotato: 1
+  reagents:
+    Water: 10
+    TableSalt: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodSoupMisoRecipe
+  name: miso soup recipe
+  result: FoodSoupMiso
+  time: 10
+  group: Soup
+  solids:
+    FoodBowlBig: 1
+    FoodSoybeans: 1
+    FoodMushroom: 1
+  reagents:
+    Water: 10
+    Soysauce: 5
+  recipeType:
+  - Oven
+
+# Салаты
+
+- type: microwaveMealRecipe
+  id: ADTFoodSaladAesirRecipe
+  name: aesir salad recipe
+  result: FoodSaladAesir
+  time: 5
+  group: Salad
+  solids:
+    FoodBowlBig: 1
+    FoodCabbage: 1
+    FoodApple: 1
+    FoodCarrot: 1
+  reagents:
+    Omnizine: 5
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodSaladEdenRecipe
+  name: eden salad recipe
+  result: FoodSaladEden
+  time: 5
+  group: Salad
+  solids:
+    FoodBowlBig: 1
+    FoodPineapple: 1
+    FoodBanana: 1
+    FoodApple: 1
+  reagents:
+    Omnizine: 3
+  recipeType:
+  - Assembler
+
+# Пицца
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaBaseRecipe
+  name: pizza base recipe
+  result: FoodDoughPizzaBaked
+  time: 10
+  group: Pizza
+  solids:
+    FoodDoughFlat: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaSindiRecipe
+  name: sindi pizza recipe
+  result: ADTFoodPizzaSindi
+  time: 15
+  group: Pizza
+  solids:
+    FoodDoughFlat: 1
+    FoodTomato: 4
+    FoodCheeseSlice: 2
+  reagents:
+    Blood: 5
+  recipeType:
+  - Oven
+
+# Завтрак
+
+- type: microwaveMealRecipe
+  id: ADTFoodFriedEggRecipe
+  name: fried egg recipe
+  result: FoodMealFriedegg
+  time: 10
+  group: Breakfast
+  solids:
+    FoodPlateSmall: 1
+  reagents:
+    Egg: 6
+    TableSalt: 3
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodEggsBenedictRecipe
+  name: eggs benedict recipe
+  result: FoodMealEggsbenedict
+  time: 10
+  group: Breakfast
+  solids:
+    FoodBreadPlainSlice: 1
+    FoodMeatBacon: 1
+  reagents:
+    Egg: 6
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodSoftTacoRecipe
+  name: soft taco recipe
+  result: FoodMealSoftTaco
+  time: 10
+  group: Savory
+  solids:
+    FoodDoughTortillaFlat: 1
+    FoodCheeseSlice: 1
+    FoodMeatCutlet: 1
+    FoodTomato: 1
+    FoodOnionSlice: 1
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodChickenFriedRecipe
+  name: fried chicken recipe
+  result: FoodMeatChickenFried
+  time: 10
+  group: Savory
+  solids:
+    FoodMeatChickenCutlet: 1
+  reagents:
+    Egg: 3
+    TableSalt: 5
+    Blackpepper: 5
+  recipeType:
+  - Oven
+
+# Десерты
+
+- type: microwaveMealRecipe
+  id: ADTFoodMuffinBluecherryRecipe
+  name: bluecherry muffin recipe
+  result: FoodBakedMuffinBluecherry
+  time: 15
+  group: Dessert
+  solids:
+    FoodPlateMuffinTin: 1
+    FoodDoughSlice: 1
+    FoodCherry: 3
+    FoodBerries: 1
+  reagents:
+    Sugar: 10
+  recipeType:
+  - Oven
+
+# Мороженое
+
+- type: microwaveMealRecipe
+  id: ADTFoodFrozenChocolatePopsicleWithNutsRecipe
+  name: chocolate popsicle with nuts recipe
+  result: ADTFoodFrozenChocolatePopsicleWithNuts
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodSnackChocolateBarNuts: 1
+  reagents:
+    Ice: 5
+    Cream: 5
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodFrozenPopsicleMangoFruitIceRecipe
+  name: mango fruit ice recipe
+  result: ADTFoodFrozenPopsicleMangoFruitIce
+  time: 5
+  group: Icecreams
+  solids:
+    FoodBungo: 1
+  reagents:
+    Ice: 5
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodFrozenMelonPopsicleRecipe
+  name: melon popsicle recipe
+  result: ADTFoodFrozenMelonPopsicle
+  time: 5
+  group: Icecreams
+  solids:
+    FoodWatermelon: 1
+  reagents:
+    Ice: 5
+    Cream: 5
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodFrozenThreeFlavorsPopsicleRecipe
+  name: three flavors popsicle recipe
+  result: ADTFoodFrozenThreeFlavorsPopsicle
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodStrawberry: 1
+    FoodBanana: 1
+    FoodApple: 1
+  reagents:
+    Ice: 5
+    Cream: 5
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodFrozenIceCreamWaffleconeNutsRecipe
+  name: wafflecone with nuts recipe
+  result: ADTFoodFrozenIceCreamWaffleconeNuts
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodFrozenIceCreamCone: 1
+    ADTFoodSnackChocolateBarNuts: 1
+  reagents:
+    IceCream: 5
+    Cream: 5
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodFrozenPopsicleJumboRecipe
+  name: jumbo popsicle recipe
+  result: FoodFrozenPopsicleJumbo
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodSnackChocolateBarChunk: 1
+  reagents:
+    Ice: 10
+    Cream: 10
+    Sugar: 5
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodFrozenPopsicleJumboNTRecipe
+  name: jumbo NT popsicle recipe
+  result: ADTFoodFrozenPopsicleJumbo
+  time: 5
+  group: Icecreams
+  solids:
+    ADTFoodSnackChocolateBarChunk: 2
+  reagents:
+    Ice: 10
+    Cream: 10
+  recipeType:
+  - Assembler
+
+# Вяленое мясо
+
+- type: microwaveMealRecipe
+  id: ADTFoodSnackDriedBeefRecipe
+  name: dried beef recipe
+  result: ADTFoodSnackDriedBeef
+  time: 10
+  group: Savory
+  solids:
+    FoodMeat: 1
+  reagents:
+    TableSalt: 5
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodSnackDriedChickenRecipe
+  name: dried chicken recipe
+  result: ADTFoodSnackDriedChicken
+  time: 10
+  group: Savory
+  solids:
+    FoodMeatChicken: 1
+  reagents:
+    TableSalt: 5
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodSnackDriedHorseRecipe
+  name: dried horse meat recipe
+  result: ADTFoodSnackDriedHorse
+  time: 10
+  group: Savory
+  solids:
+    FoodMeat: 2
+  reagents:
+    TableSalt: 5
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodSnackDriedPigRecipe
+  name: dried pork recipe
+  result: ADTFoodSnackDriedPig
+  time: 10
+  group: Savory
+  solids:
+    FoodMeat: 1
+  reagents:
+    TableSalt: 5
+    Blackpepper: 5
+  recipeType:
+  - Assembler
