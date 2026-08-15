@@ -38,8 +38,8 @@ public sealed class TrophySystem : EntitySystem
                 if (ent.Comp.Applied)
                     return;
 
-                cooldown.MeleeMultiplier /= ent.Comp.MeleeCoefficient;
-                cooldown.RangedMultiplier /= ent.Comp.RangedCoefficient;
+                cooldown.MeleeMultiplierModifier /= ent.Comp.MeleeCoefficient;
+                cooldown.RangedMultiplierModifier /= ent.Comp.RangedCoefficient;
 
                 ent.Comp.Applied = true;
                 break;
@@ -48,8 +48,8 @@ public sealed class TrophySystem : EntitySystem
                 if (!ent.Comp.Applied)
                     return;
 
-                cooldown.MeleeMultiplier *= ent.Comp.MeleeCoefficient;
-                cooldown.RangedMultiplier *= ent.Comp.RangedCoefficient;
+                cooldown.MeleeMultiplierModifier *= ent.Comp.MeleeCoefficient;
+                cooldown.RangedMultiplierModifier *= ent.Comp.RangedCoefficient;
 
                 ent.Comp.Applied = false;
                 break;

@@ -1,9 +1,10 @@
+using Content.Shared.Examine;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.Weapons.KineticCooldown;
@@ -11,7 +12,7 @@ namespace Content.Shared.ADT.Weapons.KineticCooldown;
 public sealed class ADTKineticCooldownSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
@@ -22,6 +23,7 @@ public sealed class ADTKineticCooldownSystem : EntitySystem
         SubscribeLocalEvent<ADTKineticCooldownComponent, ShotAttemptedEvent>(OnShotAttempted);
         SubscribeLocalEvent<ADTKineticCooldownComponent, GunShotEvent>(OnGunShot);
         SubscribeLocalEvent<ADTKineticCooldownComponent, AttemptMeleeEvent>(OnAttemptMelee);
+        SubscribeLocalEvent<ADTKineticCooldownComponent, ExaminedEvent>(OnExamined);
     }
 
     public override void Update(float frameTime)
@@ -37,12 +39,9 @@ public sealed class ADTKineticCooldownSystem : EntitySystem
                 continue;
 
             comp.RechargePending = false;
+            Dirty(uid, comp);
 
-            if (comp.RechargeSound == null)
-                continue;
-
-            if (_net.IsServer)
-                _audio.PlayPvs(comp.RechargeSound, uid);
+            _audio.PlayLocal(comp.RechargeSound, uid, null);
         }
     }
 
@@ -56,11 +55,15 @@ public sealed class ADTKineticCooldownSystem : EntitySystem
 
     private void OnGunShot(Entity<ADTKineticCooldownComponent> ent, ref GunShotEvent args)
     {
+        if (TryComp<GunComponent>(ent, out var gun) && gun.BurstActivated)
+            return;
+
         var recovery = GetSwingTime(ent, args.User);
+
         if (recovery == null)
             return;
 
-        SetCooldown(ent, _timing.CurTime + recovery.Value * ent.Comp.RangedMultiplier);
+        SetCooldown(ent, _timing.CurTime + recovery.Value * ent.Comp.CurrentRangedMultiplier);
     }
 
     private void OnAttemptMelee(Entity<ADTKineticCooldownComponent> ent, ref AttemptMeleeEvent args)
@@ -79,7 +82,35 @@ public sealed class ADTKineticCooldownSystem : EntitySystem
         if (recovery == null)
             return;
 
-        SetCooldown(ent, _timing.CurTime + recovery.Value * ent.Comp.MeleeMultiplier, false);
+        SetCooldown(ent, _timing.CurTime + recovery.Value * ent.Comp.CurrentMeleeMultiplier, false);
+    }
+
+    private void OnExamined(Entity<ADTKineticCooldownComponent> ent, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        var swing = GetSwingTime(ent, args.Examiner);
+
+        if (swing == null)
+            return;
+
+        using (args.PushGroup(nameof(ADTKineticCooldownComponent)))
+        {
+            if (TryComp<GunComponent>(ent, out var gun))
+            {
+                args.PushMarkup(Loc.GetString("adt-kinetic-cooldown-examine-mode",
+                    ("mode", Loc.GetString($"gun-{gun.SelectedMode}"))));
+
+                var ranged = swing.Value * ent.Comp.CurrentRangedMultiplier;
+                args.PushMarkup(Loc.GetString("adt-kinetic-cooldown-examine-ranged",
+                    ("seconds", $"{ranged.TotalSeconds:0.0#}")));
+            }
+
+            var melee = swing.Value * ent.Comp.CurrentMeleeMultiplier;
+            args.PushMarkup(Loc.GetString("adt-kinetic-cooldown-examine-melee",
+                ("seconds", $"{melee.TotalSeconds:0.0#}")));
+        }
     }
 
     private TimeSpan? GetSwingTime(Entity<ADTKineticCooldownComponent> ent, EntityUid user)
@@ -97,9 +128,7 @@ public sealed class ADTKineticCooldownSystem : EntitySystem
 
     public bool IsDelayed(Entity<ADTKineticCooldownComponent> ent)
     {
-        var tolerance = _net.IsServer ? ent.Comp.PredictionTolerance : TimeSpan.Zero;
-
-        return _timing.CurTime + tolerance < ent.Comp.NextUse;
+        return _timing.CurTime < ent.Comp.NextUse;
     }
 
     public void SetCooldown(Entity<ADTKineticCooldownComponent> ent, TimeSpan next, bool playRechargeSound = true)
@@ -111,5 +140,18 @@ public sealed class ADTKineticCooldownSystem : EntitySystem
         ent.Comp.NextUse = next;
         ent.Comp.RechargePending = playRechargeSound;
         Dirty(ent);
+
+        _gun.ADTSetNextFire(ent.Owner, ent.Comp.NextUse);
+    }
+
+    public void ReduceCooldown(Entity<ADTKineticCooldownComponent> ent, TimeSpan next)
+    {
+        if (next >= ent.Comp.NextUse)
+            return;
+
+        ent.Comp.NextUse = next;
+        Dirty(ent);
+
+        _gun.ADTSetNextFire(ent.Owner, ent.Comp.NextUse);
     }
 }
