@@ -1,0 +1,38 @@
+- type: adtDungeonRoom
+  id: LavaDungeonSmallCapsule
+  size: 3, 2
+  tags:
+  - LavaDungeon
+  legend:
+    "a":
+      tile: PlatingDamaged
+  tiles:
+  - "aaa"
+  - "aaa"
+  entities:
+  - proto: ChairPilotSeat
+    rot: -1.5707963267948966 rad
+    positions:
+    - 1.5,0.5
+    - 2.5,0.5
+  - proto: Grille
+    rot: -1.5707963267948966 rad
+    positions:
+    - 0.5,0.5
+  - proto: SalvageHumanCorpseSpawner
+    positions:
+    - 1.5,0.5
+  - proto: ScrapAirlock1
+    positions:
+    - 2.6846,0.3045
+  - proto: ShuttleWindow
+    rot: -1.5707963267948966 rad
+    positions:
+    - 0.5,0.5
+  - proto: WallShuttle
+    positions:
+    - 1.5,1.5
+    - 2.5,1.5
+  - proto: WallShuttleDiagonal
+    positions:
+    - 0.5,1.5

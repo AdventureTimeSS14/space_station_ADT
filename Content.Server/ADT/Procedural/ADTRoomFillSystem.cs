@@ -1,5 +1,4 @@
-using Content.Server.Procedural;
-using Content.Shared.Procedural;
+using Content.Shared.ADT.Procedural;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -8,7 +7,7 @@ namespace Content.Server.ADT.Procedural;
 
 public sealed class ADTRoomFillSystem : EntitySystem
 {
-    [Dependency] private readonly DungeonSystem _dungeon = default!;
+    [Dependency] private readonly ADTDungeonRoomSystem _rooms = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
@@ -20,44 +19,42 @@ public sealed class ADTRoomFillSystem : EntitySystem
         SubscribeLocalEvent<ADTRoomFillComponent, MapInitEvent>(OnMapInit);
     }
 
-    private void OnMapInit(Entity<ADTRoomFillComponent> ent, ref MapInitEvent args)
+    private void OnMapInit(Entity<ADTRoomFillComponent> marker, ref MapInitEvent args)
     {
-        var xform = Transform(ent);
+        var xform = Transform(marker);
 
-        if (xform.GridUid is { } gridUid)
+        if (xform.GridUid is { } gridUid && TryComp<MapGridComponent>(gridUid, out var grid))
         {
-            var room = ResolveRoom(ent);
+            var room = ResolveRoom(marker);
 
             if (room == null)
             {
-                Log.Error($"Unable to find matching room prototype for {ToPrettyString(ent.Owner)}.");
+                Log.Error($"Не нашлось подходящей комнаты для {ToPrettyString(marker)}");
             }
             else
             {
-                var grid = Comp<MapGridComponent>(gridUid);
                 var origin = _maps.LocalToTile(gridUid, grid, xform.Coordinates)
                              - new Vector2i(room.Size.X / 2, room.Size.Y / 2);
 
-                _dungeon.SpawnRoom(
+                _rooms.SpawnRoom(
                     gridUid,
                     grid,
                     origin,
                     room,
                     _random,
-                    null,
-                    clearExisting: ent.Comp.ClearExisting,
-                    rotation: ent.Comp.Rotation);
+                    clearExisting: marker.Comp.ClearExisting,
+                    rotation: marker.Comp.Rotation);
             }
         }
 
-        QueueDel(ent);
+        QueueDel(marker);
     }
 
-    private DungeonRoomPrototype? ResolveRoom(Entity<ADTRoomFillComponent> ent)
+    private ADTDungeonRoomPrototype? ResolveRoom(Entity<ADTRoomFillComponent> marker)
     {
-        if (ent.Comp.Room is { } pinned && _prototype.TryIndex(pinned, out var room))
+        if (marker.Comp.Room is { } pinned && _prototype.TryIndex(pinned, out var room))
             return room;
 
-        return _dungeon.GetRoomPrototype(_random, ent.Comp.RoomWhitelist, ent.Comp.MinSize, ent.Comp.MaxSize);
+        return _rooms.GetRoom(_random, marker.Comp.RoomWhitelist, marker.Comp.MinSize, marker.Comp.MaxSize);
     }
 }
