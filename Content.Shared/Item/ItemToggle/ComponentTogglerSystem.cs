@@ -16,9 +16,10 @@ public sealed class ComponentTogglerSystem : EntitySystem
 
     private void OnToggled(Entity<ComponentTogglerComponent> ent, ref ItemToggledEvent args)
     {
-        ToggleComponent(ent, args.Activated);
+        ToggleComponent(ent, args.Activated); // ADT-Tweak-ModsuitRework
     }
 
+    // ADT-Tweak-ModsuitRework-Start
     public void ToggleComponent(EntityUid uid, bool activate)
     {
         if (!TryComp<ComponentTogglerComponent>(uid, out var component))
@@ -47,4 +48,5 @@ public sealed class ComponentTogglerSystem : EntitySystem
             EntityManager.RemoveComponents(component.Target.Value, component.RemoveComponents ?? component.Components);
         }
     }
+    // ADT-Tweak-ModsuitRework-End
 }
