@@ -14061,3 +14061,9 @@ Entries:
     id: 1807
     pr_number: 3170
     time: '2026-08-15T20:26:16Z'
+  - author: CatBackG
+    changes:
+      - {message: Добавлен маркинг "крылья и хвост (Суккуб)" для Слаймолюдов., type: Add}
+    id: 1808
+    pr_number: 3171
+    time: '2026-08-15T20:27:03Z'
