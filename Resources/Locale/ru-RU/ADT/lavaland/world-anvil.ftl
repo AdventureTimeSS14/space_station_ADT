@@ -39,13 +39,13 @@ ent-ADTWallRockSandMagmite = { ent-ADTWallRockMagmite }
 ent-ADTWallRockSnowMagmite = { ent-ADTWallRockMagmite }
     .desc = { ent-ADTWallRockMagmite.desc }
 
-ent-ADTWeaponProtoKineticAcceleratorMagmite = магмитовый кинетический акселератор
+ent-ADTWeaponProtoKineticAcceleratorMagmite = магмитовый протокинетический ускоритель
     .desc = Кинетический акселератор, перекованный на Мировой Кузне. Магмитовый корпус вмещает куда больше модулей, чем заводской.
 
 ent-ADTWeaponCutterMagmite = магмитовый плазменный резак
     .desc = Плазменный резак, перекованный на Мировой Кузне. Луч бьёт дальше, тратит меньше заряда и не подрывает гибтонит, а гасит его цепную реакцию.
 
-ent-ADTWeaponCrusherMagmite = магмитовый прото-кинетический крушитель
+ent-ADTWeaponCrusherMagmite = магмитовый протокинетический крушитель
     .desc = Прото-кинетический крушитель, перекованный на Мировой Кузне. Улучшенный дестабилизатор буравит породу насквозь, включая древнюю.
 
 ent-ADTStoneTile = каменная плитка
