@@ -4,9 +4,6 @@
 
 namespace Content.Server.ADT.Smoking;
 
-/// <summary>
-/// Время следующего кашля курильщика.
-/// </summary>
 [RegisterComponent]
 public sealed partial class ADTSmokingCoughComponent : Component
 {
