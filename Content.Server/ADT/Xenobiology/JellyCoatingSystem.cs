@@ -41,6 +41,7 @@ public partial class JellyCoatingSystem : EntitySystem
             return;
 
         var boosted = EnsureComp<SpeedBoostedComponent>(target);
+        boosted.SpeedMultiplier = ent.Comp.SpeedMultiplier;
 
         _popup.PopupEntity(Loc.GetString("jelly-coating-success", ("target", target), ("source", ent.Owner)), target);
         Dirty(target, boosted);
@@ -51,8 +52,7 @@ public partial class JellyCoatingSystem : EntitySystem
 
     private void OnRefreshSpeed(EntityUid uid, SpeedBoostedComponent component, ref RefreshMovementSpeedModifiersEvent args)
     {
-        // Применяем +30% к скорости
-        args.ModifySpeed(1.3f);
+        args.ModifySpeed(component.SpeedMultiplier);
     }
 
     private void OnPilotRefreshSpeed(EntityUid uid, MechPilotComponent pilot, ref RefreshMovementSpeedModifiersEvent args)
@@ -60,10 +60,9 @@ public partial class JellyCoatingSystem : EntitySystem
         if (!HasComp<MechComponent>(pilot.Mech))
             return;
 
-        if (!HasComp<SpeedBoostedComponent>(pilot.Mech))
+        if (!TryComp<SpeedBoostedComponent>(pilot.Mech, out var boosted))
             return;
 
-        // Применяем +30% к скорости
-        args.ModifySpeed(1.3f);
+        args.ModifySpeed(boosted.SpeedMultiplier);
     }
 }
