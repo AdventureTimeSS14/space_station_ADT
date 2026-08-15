@@ -13963,3 +13963,9 @@ Entries:
     id: 1799
     pr_number: 3124
     time: '2026-08-15T06:21:49Z'
+  - author: FriendlyOne
+    changes:
+      - {message: 'Изменен метаболизм у Ниан с животного, на мольский', type: Tweak}
+    id: 1800
+    pr_number: 3164
+    time: '2026-08-15T10:56:34Z'
