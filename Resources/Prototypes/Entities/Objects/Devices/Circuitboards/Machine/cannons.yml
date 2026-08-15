@@ -13,9 +13,10 @@
   - type: MachineBoard
     prototype: ShuttleGunSvalinnMachineGun
     stackRequirements:
-      Manipulator: 6
       Steel: 5
       CableHV: 5
+    partRequirements: #ADT-Tweak: machine parts
+      Servo: 6
 
 - type: entity
   id: ShuttleGunPerforatorCircuitboard
@@ -30,9 +31,10 @@
   - type: MachineBoard
     prototype: ShuttleGunPerforator
     stackRequirements:
-      Manipulator: 10
       Steel: 10
       CableHV: 5
+    partRequirements: #ADT-Tweak: machine parts
+      Servo: 10
 
 - type: entity
   id: ShuttleGunFriendshipCircuitboard
@@ -47,9 +49,10 @@
   - type: MachineBoard
     prototype: ShuttleGunFriendship
     stackRequirements:
-      Manipulator: 5
       Steel: 7
       CableHV: 5
+    partRequirements: #ADT-Tweak: machine parts
+      Servo: 5
 
 - type: entity
   id: ShuttleGunDusterCircuitboard
@@ -64,10 +67,11 @@
   - type: MachineBoard
     prototype: ShuttleGunDuster
     stackRequirements:
-      Manipulator: 10
       Steel: 10
       CableHV: 5
       Uranium: 2
+    partRequirements: #ADT-Tweak: machine parts
+      Servo: 10
 
 - type: entity
   id: ShuttleGunKineticCircuitboard
@@ -82,6 +86,7 @@
   - type: MachineBoard
     prototype: ShuttleGunKinetic
     stackRequirements:
-      Manipulator: 5
       Steel: 5
       CableHV: 2
+    partRequirements: #ADT-Tweak: machine parts
+      Servo: 5

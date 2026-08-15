@@ -1,0 +1,269 @@
+<Document>
+
+# Куда ставить детали
+
+Шпаргалка по машинам: какая деталь куда ставится и что она там даёт. Подробнее о самих деталях и системе тиров - в руководстве [textlink="Машинные части" link="MachineParts"].
+
+## Протолат и автолат
+
+<Box>
+<GuideEntityEmbed Entity="Protolathe"/>
+<GuideEntityEmbed Entity="Autolathe"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+<GuideEntityEmbed Entity="MatterBinStockPart"/>
+</Box>
+Сервопривод - печать быстрее, но дороже по материалам. Ёмкость материи - дешевле, но медленнее. Классический компромисс.
+
+## Микроволновка
+
+<Box>
+<GuideEntityEmbed Entity="KitchenMicrowave"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+<GuideEntityEmbed Entity="MatterBinStockPart"/>
+</Box>
+Микро-лазер - готовит быстрее и надёжнее. Ёмкость материи - вместительнее.
+
+## Кухонный и медицинский ассемблеры
+
+<Box>
+<GuideEntityEmbed Entity="ADTKitchenAssembler"/>
+<GuideEntityEmbed Entity="ADTMedicalAssembler"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MatterBinStockPart"/>
+</Box>
+Ёмкость материи снижает требуемые ингредиенты.
+
+## Переработчик руды
+
+<Box>
+<GuideEntityEmbed Entity="OreProcessor"/>
+<GuideEntityEmbed Entity="OreProcessorIndustrial"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+<GuideEntityEmbed Entity="MatterBinStockPart"/>
+</Box>
+Машина выбора: микро-лазер повышает выход ресурсов (и снижает очки), ёмкость материи повышает очки шахтёров (и снижает выход). Собирайте под свою задачу.
+
+## Энерго-химраздатчики
+
+<Box>
+<GuideEntityEmbed Entity="EnergyChemDispenser"/>
+<GuideEntityEmbed Entity="ADTEnergySodaDispenser"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="CapacitorStockPart"/>
+<GuideEntityEmbed Entity="MatterBinStockPart"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="ScanningModuleStockPart"/>
+</Box>
+Конденсатор заряжает батарею (10/20/30/40 Вт/с по тирам), ёмкость материи удешевляет синтез, сканирующий модуль открывает реагенты.
+
+## Клонаппарат
+
+<Box>
+<GuideEntityEmbed Entity="CloningPod"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+<GuideEntityEmbed Entity="ScanningModuleStockPart"/>
+</Box>
+Сервопривод ускоряет клонирование, сканирующий модуль повышает безопасность - скорость и здоровье пациента несовместимы.
+
+## SMES и зарядники
+
+<Box>
+<GuideEntityEmbed Entity="SMESBasic"/>
+<GuideEntityEmbed Entity="PowerCellRecharger"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="CapacitorStockPart"/>
+<GuideEntityEmbed Entity="PowerCellSmall"/>
+</Box>
+Конденсатор ускоряет зарядку. Батарейки повышают вместимость: базовая - х1, Т2 - х1.5, Т3 - х2, Т4 - х3 (+200%). Меняются они, как и детали, через RPED.
+
+## Переработчик биомассы
+
+<Box>
+<GuideEntityEmbed Entity="BiomassReclaimer"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+Сервопривод ускоряет переработку, микро-лазер увеличивает выход биомассы.
+
+## Анализатор артефактов
+
+<Box>
+<GuideEntityEmbed Entity="MachineArtifactAnalyzer"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+Микро-лазер повышает очки исследований: до +30% на Т4.
+
+## Дробилка артефактов
+
+<Box>
+<GuideEntityEmbed Entity="MachineArtifactCrusher"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+Сервопривод ускоряет дробление, микро-лазер повышает выход фрагментов.
+
+## Экстрактор жира
+
+<Box>
+<GuideEntityEmbed Entity="FatExtractor"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+</Box>
+Сервопривод повышает скорость извлечения питания.
+
+## Хим-плитка
+
+<Box>
+<GuideEntityEmbed Entity="ChemistryHotplate"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+Микро-лазер повышает мощность нагрева растворов.
+
+## Обогреватель и термомашины
+
+<Box>
+<GuideEntityEmbed Entity="SpaceHeater"/>
+<GuideEntityEmbed Entity="GasThermoMachineHeater"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="CapacitorStockPart"/>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+Конденсатор повышает тепловую мощность, микро-лазер расширяет диапазон температур.
+
+## Сосуд аномалий
+
+<Box>
+<GuideEntityEmbed Entity="MachineAnomalyVessel"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+Микро-лазер повышает генерацию очков исследований.
+
+## Дробилка
+
+<Box>
+<GuideEntityEmbed Entity="KitchenReagentGrinder"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+<GuideEntityEmbed Entity="MatterBinStockPart"/>
+</Box>
+Сервопривод перемалывает быстрее, ёмкость материи вмещает больше.
+
+## Переработчик слаймов
+
+<Box>
+<GuideEntityEmbed Entity="SlimeGrinder"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+</Box>
+Сервопривод - больше экстрактов и быстрее работа.
+
+## Экстрактор семян
+
+<Box>
+<GuideEntityEmbed Entity="SeedExtractor"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+</Box>
+Сервопривод увеличивает количество извлекаемых семян.
+
+## Гидропонные лотки
+
+<Box>
+<GuideEntityEmbed Entity="HydroponicsTrayEmpty"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MatterBinStockPart"/>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+</Box>
+Ёмкость материи - больше воды и удобрений. Сервопривод повышает их расход - не перестарайтесь.
+
+## Портативный скруббер
+
+<Box>
+<GuideEntityEmbed Entity="PortableScrubber"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+<GuideEntityEmbed Entity="MatterBinStockPart"/>
+</Box>
+Сервопривод - скорость всасывания, ёмкость материи - предельное давление.
+
+## Эмиттер
+
+<Box>
+<GuideEntityEmbed Entity="Emitter"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+Сервопривод и микро-лазер вместе повышают скорострельность.
+
+## Двигатели шаттла
+
+<Box>
+<GuideEntityEmbed Entity="ADTBigThruster"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+</Box>
+Сервопривод увеличивает тягу.
+
+## Электрический гриль
+
+<Box>
+<GuideEntityEmbed Entity="KitchenElectricGrill"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+</Box>
+Сервопривод повышает мощность нагрева.
+
+## Стазис-кровать
+
+<Box>
+<GuideEntityEmbed Entity="StasisBed"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="CapacitorStockPart"/>
+</Box>
+Конденсатор снижает энергопотребление.
+
+## Ресайклер макак
+
+<Box>
+<GuideEntityEmbed Entity="ADTXenobiologyMonkeyRecycler"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MatterBinStockPart"/>
+</Box>
+Ёмкость материи увеличивает выход кубов.
+
+</Document>

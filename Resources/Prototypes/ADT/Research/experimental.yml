@@ -100,3 +100,79 @@
   position: 4,-4
   requiredTech:
   - ADTBluespaceMining
+
+- type: technology
+  id: ADTPartsTech
+  name: research-technology-adt-parts
+  icon:
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: matter_bin
+  discipline: Experimental
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - CapacitorStockPart
+  - ScanningModuleStockPart
+  - MicroServoStockPart
+  - MicroLaserStockPart
+  - MatterBinStockPart
+  position: 1,-1
+  requiredTech:
+  - AlternativeResearch
+
+- type: technology
+  id: ADTAdvancedPartsTech
+  name: research-technology-adt-advanced-parts
+  icon:
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: advanced_matter_bin
+  discipline: Experimental
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - AdvancedCapacitorStockPart
+  - AdvancedScanningModuleStockPart
+  - NanoServoStockPart
+  - HighPowerMicroLaserStockPart
+  - AdvancedMatterBinStockPart
+  position: 1,-2
+  requiredTech:
+  - ADTPartsTech
+
+- type: technology
+  id: ADTSuperPartsTech
+  name: research-technology-adt-super-parts
+  icon:
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: super_matter_bin
+  discipline: Experimental
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - SuperCapacitorStockPart
+  - PhasicScanningModuleStockPart
+  - PicoServoStockPart
+  - UltraHighPowerMicroLaserStockPart
+  - SuperMatterBinStockPart
+  position: 1,-3
+  requiredTech:
+  - ADTAdvancedPartsTech
+
+- type: technology
+  id: ADTBluespacePartsTech
+  name: research-technology-adt-bluespace-parts
+  icon:
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: bluespace_matter_bin
+  discipline: Experimental
+  tier: 4
+  cost: 20000
+  recipeUnlocks:
+  - BluespaceCapacitorStockPart
+  - TriphasicScanningModuleStockPart
+  - FemtoServoStockPart
+  - QuadUltraMicroLaserStockPart
+  - BluespaceMatterBinStockPart
+  position: 1,-4
+  requiredTech:
+  - ADTSuperPartsTech
