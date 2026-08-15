@@ -8,18 +8,19 @@
     sprite: ADT/Objects/Specific/Lavaland/loot.rsi
     state: legion_core
   - type: ADTRegenerativeCore
+    canImplant: false
     duration: 60
     applyDelay: 1
     implantDelay: 5
     implantCellularMultiplier: 1
     instantHeal:
       types:
-        Blunt: -33
-        Slash: -33
-        Piercing: -33
-        Heat: -33
-        Cold: -33
-        Shock: -33
+        Blunt: -16.5
+        Slash: -16.5
+        Piercing: -16.5
+        Heat: -16.5
+        Cold: -16.5
+        Shock: -16.5
   - type: TimedDespawn
     lifetime: 240
   - type: SpawnOnDespawn
