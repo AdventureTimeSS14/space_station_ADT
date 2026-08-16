@@ -562,8 +562,6 @@
   speedModifier: 0.45
   footstepSounds:
     collection: FootstepFloor
-  baseWhitelist:
-  - FloorSteel
   itemDrop: FloorTileItemSepia
   heatCapacity: 10000
 
@@ -575,8 +573,6 @@
   speedModifier: 1.55
   footstepSounds:
     collection: FootstepHoverBorg
-  baseWhitelist:
-  - FloorSteel
   itemDrop: FloorTileItemBluespace
 
 - type: tile
