@@ -564,7 +564,6 @@
     collection: FootstepFloor
   baseWhitelist:
   - FloorSteel
-  - ADTFloorSepia
   itemDrop: FloorTileItemSepia
   heatCapacity: 10000
 
@@ -578,7 +577,6 @@
     collection: FootstepHoverBorg
   baseWhitelist:
   - FloorSteel
-  - ADTFloorBluespace
   itemDrop: FloorTileItemBluespace
 
 - type: tile
