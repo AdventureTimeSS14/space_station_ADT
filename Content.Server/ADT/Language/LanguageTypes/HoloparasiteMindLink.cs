@@ -117,7 +117,7 @@ public sealed partial class HoloparasiteMindLink : ILanguageType
     public void Whisper(EntityUid uid, string message, string name, string nameIdentity, ChatTransmitRange range, IEntityManager entMan, out bool success, out string resultMessage, out string resultObfMessage)
     {
         var chat = entMan.System<ChatSystem>();
-        var admin = IoCManager.Resolve<AdminManager>();
+        var admin = IoCManager.Resolve<IAdminManager>();
         var proto = IoCManager.Resolve<IPrototypeManager>();
         var chatMan = IoCManager.Resolve<IChatManager>();
 
