@@ -1,9 +1,7 @@
 ﻿using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared.ADT.Silicons.Borgs;
 using Content.Shared.ADT.Silicons.Borgs.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
-using Robust.Shared.Prototypes;
 
 namespace Content.Client.Silicons.Borgs;
 
@@ -30,6 +28,6 @@ public sealed class BorgSelectTypeUserInterface : BoundUserInterface
         _menu = this.CreateWindow<BorgSelectTypeMenu>();
         // ADT-Tweak: тип и подтип одним сообщением
         _menu.ConfirmedBorgType += (prototype, subtype) => SendMessage(
-            new BorgSelectTypeMessage(prototype, subtype is null ? (ProtoId<BorgSubtypePrototype>?)null : new ProtoId<BorgSubtypePrototype>(subtype.ID)));
+            new BorgSelectTypeMessage(prototype, subtype?.ID));
     }
 }
