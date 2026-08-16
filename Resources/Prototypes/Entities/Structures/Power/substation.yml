@@ -251,12 +251,10 @@
   - type: ContainerFill
     containers:
       board: [ WallmountSubstationElectronics ]
-      servo: [ MicroServoStockPart ] #ADT-Tweak: machine parts
       powercell: [ PowerCellSmall ]
   - type: ContainerContainer
     containers:
       board: !type:Container
-      servo: !type:Container #ADT-Tweak: machine parts
       powercell: !type:Container
 
       # Construction Frame

@@ -3882,13 +3882,6 @@ entities:
     - type: Transform
       pos: 35.5,47.5
       parent: 2
-- proto: SpawnPointObserver
-  entities:
-  - uid: 417
-    components:
-    - type: Transform
-      pos: 12.5,33.5
-      parent: 2
 - proto: SpawnPointPassenger
   entities:
   - uid: 418
