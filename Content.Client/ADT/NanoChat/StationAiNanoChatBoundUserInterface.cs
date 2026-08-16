@@ -36,13 +36,13 @@ public sealed class StationAiNanoChatBoundUserInterface(EntityUid owner, Enum ui
 
     protected override void Dispose(bool disposing)
     {
+        if (_window != null)
+        {
+            _window.Fragment.OnMessageSent -= OnMessageSent;
+            _window.Dispose();
+            _window = null;
+        }
+
         base.Dispose(disposing);
-
-        if (_window == null)
-            return;
-
-        _window.Fragment.OnMessageSent -= OnMessageSent;
-        _window.Dispose();
-        _window = null;
     }
 }

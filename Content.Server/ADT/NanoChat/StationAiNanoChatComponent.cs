@@ -13,10 +13,10 @@ public sealed partial class StationAiNanoChatComponent : Component
     /// <summary>
     ///     The action that opens the NanoChat UI.
     /// </summary>
-    [DataField("NanoChat")]
+    [DataField]
     public EntProtoId Action = "ActionStationAiNanoChat";
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public EntityUid? ActionEntity;
 
     /// <summary>
