@@ -170094,8 +170094,6 @@ entities:
     - type: Transform
       pos: 40.479496,-51.455708
       parent: 2
-    - type: Stack
-      count: 5
 - proto: MicrowaveMachineCircuitboard
   entities:
   - uid: 25812

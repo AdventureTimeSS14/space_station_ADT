@@ -256089,8 +256089,6 @@ entities:
     - type: Transform
       pos: 18.526108,-2.0163682
       parent: 2
-    - type: Stack
-      count: 3
 - proto: MicrophoneInstrument
   entities:
   - uid: 39649

@@ -127480,8 +127480,6 @@ entities:
     - type: Transform
       pos: 8.87146,-192.43654
       parent: 2
-    - type: Stack
-      count: 5
 - proto: MineralScanner
   entities:
   - uid: 17808
