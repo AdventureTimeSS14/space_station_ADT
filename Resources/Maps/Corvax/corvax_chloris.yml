@@ -254143,7 +254143,7 @@ entities:
     - type: Transform
       pos: 133.4961,59.96576
       parent: 2
-- proto: MicroManipulatorStockPart
+- proto: MicroServoStockPart
   entities:
   - uid: 36495
     components:
