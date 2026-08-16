@@ -839,6 +839,23 @@ namespace Content.Shared.Preferences
                 _languages.Remove(lang);
             }
 
+            // ADT-Tweak-Start: снять лишние языки сверх лимита (черта Полиглот снята, хакерский профиль)
+            var maxLanguages = speciesPrototype.MaxLanguages + LanguageSlotsBonus;
+            if (_languages.Count > maxLanguages)
+            {
+                var required = new HashSet<ProtoId<LanguagePrototype>>(speciesPrototype.DefaultLanguages);
+                required.UnionWith(speciesPrototype.UniqueLanguages);
+                foreach (var lang in _languages.ToList())
+                {
+                    if (_languages.Count <= maxLanguages)
+                        break;
+                    if (required.Contains(lang))
+                        continue;
+                    _languages.Remove(lang);
+                }
+            }
+            // ADT-Tweak-End
+
             GetQuirkPoints();
             // ADT end
         }
