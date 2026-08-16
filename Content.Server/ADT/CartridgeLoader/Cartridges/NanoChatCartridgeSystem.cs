@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.ADT.NanoChat;
 using Content.Server.Administration.Logs;
 using Content.Server.CartridgeLoader;
 using Content.Server.Power.Components;
@@ -10,6 +11,7 @@ using Content.Shared.Database;
 using Content.Shared.ADT.CartridgeLoader.Cartridges;
 using Content.Shared.ADT.NanoChat;
 using Content.Shared.PDA;
+using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -259,7 +261,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         );
 
         // Attempt delivery
-        var (deliveryFailed, recipients) = AttemptMessageDelivery(cartridge, msg.RecipientNumber.Value);
+        var (deliveryFailed, recipients) = AttemptMessageDeliveryInternal(cartridge, msg.RecipientNumber.Value, cartridge.Comp.RadioChannel);
 
         // Update delivery status
         message = message with { DeliveryFailed = deliveryFailed };
@@ -300,17 +302,19 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Attempts to deliver a message to recipients.
+    ///     Attempts to deliver a message to recipients, including cards held by a station AI.
     /// </summary>
-    /// <param name="sender">The sending cartridge entity</param>
+    /// <param name="sender">The sending entity (cartridge or station AI)</param>
     /// <param name="recipientNumber">The recipient's number</param>
+    /// <param name="channelId">The radio channel used for delivery</param>
     /// <returns>Tuple containing delivery status and recipients if found.</returns>
-    private (bool failed, List<Entity<NanoChatCardComponent>> recipient) AttemptMessageDelivery(
-        Entity<NanoChatCartridgeComponent> sender,
-        uint recipientNumber)
+    public (bool failed, List<Entity<NanoChatCardComponent>> recipient) AttemptMessageDeliveryInternal(
+        EntityUid sender,
+        uint recipientNumber,
+        ProtoId<RadioChannelPrototype> channelId)
     {
         // First verify we can send from this device
-        var channel = _prototype.Index(sender.Comp.RadioChannel);
+        var channel = _prototype.Index(channelId);
         var sendAttemptEvent = new RadioSendAttemptEvent(channel, sender);
         RaiseLocalEvent(ref sendAttemptEvent);
         if (sendAttemptEvent.Cancelled)
@@ -331,11 +335,14 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (foundRecipients.Count == 0)
             return (true, foundRecipients);
 
+        var senderStation = _station.GetOwningStation(sender);
+
         // Now check if any of these cards can receive
         var deliverableRecipients = new List<Entity<NanoChatCardComponent>>();
         foreach (var recipient in foundRecipients)
         {
             // Find any cartridges that have this card
+            var foundCartridge = false;
             var cartridgeQuery = EntityQueryEnumerator<NanoChatCartridgeComponent, ActiveRadioComponent>();
             while (cartridgeQuery.MoveNext(out var receiverUid, out var receiverCart, out _))
             {
@@ -344,7 +351,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
                 // Check if devices are on same station/map
                 var recipientStation = _station.GetOwningStation(receiverUid);
-                var senderStation = _station.GetOwningStation(sender);
 
                 // Both entities must be on a station
                 if (recipientStation == null || senderStation == null)
@@ -366,8 +372,38 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
                 // Found valid cartridge that can receive
                 deliverableRecipients.Add(recipient);
+                foundCartridge = true;
                 break; // Only need one valid cartridge per card
             }
+
+            if (foundCartridge)
+                continue;
+
+            // Cards held by a station AI (e.g. in a core) can receive without a cartridge
+            if (!HasComp<StationAiNanoChatComponent>(recipient.Owner))
+                continue;
+
+            var aiRecipientStation = _station.GetOwningStation(recipient.Owner);
+
+            // Both entities must be on a station
+            if (aiRecipientStation == null || senderStation == null)
+                continue;
+
+            // Must be on same map/station unless long range allowed
+            if (!channel.LongRange && aiRecipientStation != senderStation)
+                continue;
+
+            // Needs telecomms
+            if (!HasActiveServer(senderStation.Value) || !HasActiveServer(aiRecipientStation.Value))
+                continue;
+
+            // Check if recipient can receive
+            var aiReceiveAttemptEv = new RadioReceiveAttemptEvent(channel, sender, recipient.Owner);
+            RaiseLocalEvent(ref aiReceiveAttemptEv);
+            if (aiReceiveAttemptEv.Cancelled)
+                continue;
+
+            deliverableRecipients.Add(recipient);
         }
 
         return (deliverableRecipients.Count == 0, deliverableRecipients);
@@ -397,7 +433,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     /// <param name="sender">The sender's card entity</param>
     /// <param name="recipient">The recipient's card entity</param>
     /// <param name="message">The <see cref="NanoChatMessage" /> to deliver</param>
-    private void DeliverMessageToRecipient(Entity<NanoChatCardComponent> sender,
+    public void DeliverMessageToRecipient(Entity<NanoChatCardComponent> sender,
         Entity<NanoChatCardComponent> recipient,
         NanoChatMessage message)
     {
@@ -487,7 +523,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     /// <summary>
     ///     Gets the <see cref="NanoChatRecipient" /> for a given NanoChat number.
     /// </summary>
-    private NanoChatRecipient? GetCardInfo(uint number)
+    public NanoChatRecipient? GetCardInfo(uint number)
     {
         // Find card with this number to get its info
         var query = EntityQueryEnumerator<NanoChatCardComponent>();
@@ -503,6 +539,11 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             {
                 jobTitle = idCard.LocalizedJobTitle;
                 name = idCard.FullName ?? name;
+            }
+            else if (HasComp<StationAiNanoChatComponent>(uid))
+            {
+                name = Name(uid);
+                jobTitle = Loc.GetString("job-name-station-ai");
             }
 
             return new NanoChatRecipient(number, name, jobTitle);
