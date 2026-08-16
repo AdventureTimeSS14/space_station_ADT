@@ -4,8 +4,6 @@
   id: ADTClothingOuterModsuitBodyBase
   components:
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     slots: [ OUTERCLOTHING ]
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
@@ -86,12 +84,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/clown.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/clown.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -114,12 +107,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/engineering.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/engineering.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -148,12 +136,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/medical.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/medical.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -180,12 +163,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/mining.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/mining.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -213,12 +191,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/security.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/security.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -244,12 +217,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/science.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/science.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -274,12 +242,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/hos.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/hos.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -307,12 +270,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/bso.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/bso.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -341,12 +299,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/advanced.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/advanced.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -377,12 +330,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/syndicate.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/syndicate.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
@@ -421,12 +369,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/syndicate_elite.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/syndicate_elite.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -468,12 +411,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/syndicate_comma.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/syndicate_comma.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -515,12 +453,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/cmo.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/cmo.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -572,12 +505,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/captain.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/captain.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -606,12 +534,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/centcomm.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/centcomm.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -622,12 +545,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/centcomm.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/centcomm.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -653,12 +571,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/warden.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/warden.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -686,12 +599,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/brigmedic.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/brigmedic.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -746,17 +654,12 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/ancient.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/ancient.rsi
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING
       - state: equipped-OUTERCLOTHING-unshaded
         shader: unshaded
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -790,12 +693,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/minerva.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/minerva.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -819,12 +717,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/charon.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/charon.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: TemperatureProtection
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
@@ -849,6 +742,9 @@
     component:
     - type: SupermatterImmune
   - type: SupermatterImmune
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -859,12 +755,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING
@@ -898,12 +789,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING
@@ -935,12 +821,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING
@@ -974,12 +855,7 @@
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
   - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
     sprite: ADT/Clothing/OuterClothing/Modsuit/responsory.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING
