@@ -1,3 +1,4 @@
+using Content.Server.ADT.Medical.CryoPod;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Unary.EntitySystems;
 using Content.Server.Medical.Components;
@@ -59,11 +60,16 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
         var health = _healthAnalyzerSystem.GetHealthAnalyzerUiState(patient);
         health.ScanMode = true;
         var hasDamage = patient is null ? false : _damageable.GetTotalDamage(patient.Value) > 0;
+        // ADT Tweak start
+        var metabolismSpeedup = TryComp<CryoPodMetabolismComponent>(entity, out var metabolism)
+            ? 1f / metabolism.Multiplier
+            : 1f;
+        // ADT Tweak end
 
         UI.ServerSendUiMessage(
             entity.Owner,
             CryoPodUiKey.Key,
-            new CryoPodUserMessage(gasMix, health, beakerCapacity, beaker, injecting, hasDamage)
+            new CryoPodUserMessage(gasMix, health, beakerCapacity, beaker, injecting, hasDamage, metabolismSpeedup) // ADT-Tweak
         );
     }
 
