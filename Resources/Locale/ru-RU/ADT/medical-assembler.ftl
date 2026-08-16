@@ -9,6 +9,7 @@ medical-assembler-eject-button = Выбросить материалы
 medical-assembler-unlocked = Доступен
 medical-assembler-locked = Заблокирован (РНД)
 medical-assembler-requires = Требуется:
+medical-assembler-available = доступно {$volume}u
 medical-assembler-reagent-discount = [color=#6DFFA5]Части уменьшают расход реагентов на {$percent}%.[/color]
 research-technology-med-assembler-pens-1 = Автоинжекторы: базовые
 research-technology-med-assembler-pens-2 = Автоинжекторы: продвинутые

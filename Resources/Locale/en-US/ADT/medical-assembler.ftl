@@ -9,6 +9,7 @@ medical-assembler-eject-button = Eject materials
 medical-assembler-unlocked = Available
 medical-assembler-locked = Locked (RND)
 medical-assembler-requires = Requires:
+medical-assembler-available = available {$volume}u
 medical-assembler-reagent-discount = [color=#6DFFA5]Machine parts reduce reagent usage by {$percent}%.[/color]
 research-technology-med-assembler-pens-1 = Auto-injectors: basic
 research-technology-med-assembler-pens-2 = Auto-injectors: advanced

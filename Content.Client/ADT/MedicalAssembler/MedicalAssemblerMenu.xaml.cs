@@ -172,10 +172,11 @@ public sealed partial class MedicalAssemblerMenu : FancyWindow
             var have = GetReagentAmount(state, reagentId);
             var ok = have >= required;
             var name = GetReagentName(reagentId);
+            var available = Loc.GetString("medical-assembler-available", ("volume", have));
             markup.AppendLine($"- {name} {required}u " +
                               (ok
-                                  ? $"[color=#6DFFA5](доступно {have}u)[/color]"
-                                  : $"[color=#FF7A7A](доступно {have}u)[/color]"));
+                                  ? $"[color=#6DFFA5]({available})[/color]"
+                                  : $"[color=#FF7A7A]({available})[/color]"));
         }
 
         if (FormattedMessage.TryFromMarkup(markup.ToString(), out var message))
