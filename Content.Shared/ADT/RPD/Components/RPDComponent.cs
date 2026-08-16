@@ -43,11 +43,11 @@ public sealed partial class RPDComponent : Component
     public RPDPrototype CachedPrototype { get; set; } = default!;
 
     /// <summary>
-    /// The ProtoId of the secondary (Alt) RPD prototype, or "Invalid" if none is set.
+    /// The ProtoId of the secondary (Alt) RPD prototype, null if none is set.
     /// Placed with Alt+click on a tile.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public ProtoId<RPDPrototype> SecondaryProtoId { get; set; } = "Invalid";
+    public ProtoId<RPDPrototype>? SecondaryProtoId { get; set; }
 
     /// <summary>
     /// A cached copy of the secondary RPD prototype, null if none is selected.

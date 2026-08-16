@@ -48,13 +48,14 @@ public sealed class RPDAltUseSystem : EntitySystem
         if (!coords.IsValid(EntityManager))
             return false;
 
-        if (_rateLimit.CountAction(session!, SharedInteractionSystem.RateLimitKey) != RateLimitStatus.Allowed)
-            return false;
-
         if (!_hands.TryGetActiveItem(user, out var held) || !TryComp<RPDComponent>(held, out var rpd))
             return false;
 
         if (!_actionBlocker.CanInteract(user, null))
+            return false;
+
+        // Rate limit только в нашем пути: при false ваниль спишет лимит сама
+        if (_rateLimit.CountAction(session!, SharedInteractionSystem.RateLimitKey) != RateLimitStatus.Allowed)
             return false;
 
         return _rpd.TryStartRPDOperation(held.Value, rpd, user, coords, null, true);

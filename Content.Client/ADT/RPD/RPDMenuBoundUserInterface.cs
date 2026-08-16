@@ -138,15 +138,9 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
 
         if (proto.Mode is RpdMode.ConstructObject)
         {
-            var name = Loc.GetString(proto.SetName);
-
-            if (proto.Prototype != null &&
-                _prototypeManager.TryIndex(proto.Prototype, out var entProto, logError: false))
-                name = entProto.Name;
-
             msg = secondary
-                ? Loc.GetString("rpd-component-change-secondary-build-mode", ("name", name))
-                : Loc.GetString("rpd-component-change-build-mode", ("name", name));
+                ? Loc.GetString("rpd-component-change-secondary-build-mode", ("name", GetConstructName(proto)))
+                : Loc.GetString("rpd-component-change-build-mode", ("name", GetConstructName(proto)));
         }
 
         // Popup message
@@ -156,22 +150,21 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
 
     private string GetTooltip(RPDPrototype proto)
     {
-        string tooltip;
-
-        if (proto.Mode is RpdMode.ConstructObject
-            && proto.Prototype != null
-            && _prototypeManager.TryIndex(proto.Prototype, out var entProto, logError: false))
-        {
-            tooltip = Loc.GetString(entProto.Name);
-        }
-        else
-        {
-            tooltip = Loc.GetString(proto.SetName);
-        }
+        var tooltip = GetConstructName(proto);
 
         tooltip = OopsConcat(char.ToUpper(tooltip[0]).ToString(), tooltip.Remove(0, 1));
 
         return tooltip;
+    }
+
+    private string GetConstructName(RPDPrototype proto)
+    {
+        if (proto.Mode is RpdMode.ConstructObject
+            && proto.Prototype != null
+            && _prototypeManager.TryIndex(proto.Prototype, out var entProto, logError: false))
+            return Loc.GetString(entProto.Name);
+
+        return Loc.GetString(proto.SetName);
     }
 
     private static string OopsConcat(string a, string b)

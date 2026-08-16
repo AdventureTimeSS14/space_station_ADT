@@ -221,7 +221,12 @@ public class RPDSystem : EntitySystem
         }
 
         var effect = Spawn(effectPrototype, location);
-        var ev = new RPDDoAfterEvent(GetNetCoordinates(location), component.ConstructionDirection, secondary ? component.SecondaryProtoId : component.ProtoId, cost, GetNetEntity(effect), secondary);
+
+        var startingProtoId = component.ProtoId;
+        if (secondary && component.SecondaryProtoId is { } secondaryId)
+            startingProtoId = secondaryId;
+
+        var ev = new RPDDoAfterEvent(GetNetCoordinates(location), component.ConstructionDirection, startingProtoId, cost, GetNetEntity(effect), secondary);
 
         var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, uid, target: target, used: uid)
         {
@@ -248,7 +253,10 @@ public class RPDSystem : EntitySystem
             return;
 
         // Exit if the RPD prototype has changed (check the correct slot: primary or secondary)
-        var expectedProtoId = args.Event.Secondary ? component.SecondaryProtoId : component.ProtoId;
+        var expectedProtoId = component.ProtoId;
+        if (args.Event.Secondary && component.SecondaryProtoId is { } secondaryId)
+            expectedProtoId = secondaryId;
+
         if (expectedProtoId != args.Event.StartingProtoId)
         {
             args.Cancel();
@@ -561,14 +569,14 @@ public class RPDSystem : EntitySystem
 
     public void UpdateCachedSecondaryPrototype(EntityUid uid, RPDComponent component)
     {
-        if (component.SecondaryProtoId.Id == "Invalid" || !_protoManager.HasIndex(component.SecondaryProtoId))
+        if (component.SecondaryProtoId is not { } secondaryId || !_protoManager.HasIndex(secondaryId))
         {
             component.CachedSecondaryPrototype = null;
             return;
         }
 
-        if (component.SecondaryProtoId.Id != component.CachedSecondaryPrototype?.ID)
-            component.CachedSecondaryPrototype = _protoManager.Index(component.SecondaryProtoId);
+        if (secondaryId != component.CachedSecondaryPrototype?.ID)
+            component.CachedSecondaryPrototype = _protoManager.Index(secondaryId);
     }
 
     #endregion
