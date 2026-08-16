@@ -1,0 +1,137 @@
+- type: entity
+  name: tactical axe
+  parent: BaseItem
+  id: ADTWeaponsTacticalAxe
+  description: A very sharp axe blade.
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/tactical_axe.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    swingLeft: true
+    damage:
+      types:
+        Slash: 20
+        Piercing: 10
+        Structural: 40
+    range: 1.65
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/tactical_axe.rsi
+    storedSprite:
+      state: storage
+      sprite: ADT/Objects/Weapons/Melee/tactical_axe.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+
+- type: entity
+  parent: BaseItem
+  id: ADTWeaponsTacticalHammer
+  name: tactical hammer
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/tactical_hammer.rsi
+    state: icon
+  - type: MeleeWeapon
+    range: 2.0
+    attackRate: 0.6
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 25
+        Structural: 40
+    soundHit:
+      collection: MetalThud
+    bluntStaminaDamageFactor: 1.2
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 25
+        Structural: 85
+  - type: Item
+    size: Ginormous
+    sprite: ADT/Objects/Weapons/Melee/tactical_hammer.rsi
+  # - type: MeleeThrowOnHit
+  #   speed: 10
+  #   distance: 3
+  # - type: FlipOnHit
+  - type: Wieldable
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/tactical_hammer.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+
+- type: entity
+  name: CBURN Chainsword
+  parent: BaseItem
+  id: ADTWeaponыChainsword
+  description: Chainsword
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/chainsword_icon.rsi
+    layers:
+    - state: icon
+      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: icon_chainsword
+      visible: false
+      map: [ "chainsword" ]
+  - type: MeleeWeapon
+    attackRate: 1.6
+    damage:
+      types:
+        Blunt: 3
+    soundHit:
+        path: "/Audio/Weapons/smash.ogg"
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/chainsword.rsi
+  - type: DisarmMalus
+  - type: Appearance
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/chainsawwield.ogg
+      params:
+        volume: -3
+    soundDeactivate:
+      path: /Audio/Weapons/chainsawwield.ogg
+      params:
+        volume: -3
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/chainsawidle.ogg
+  - type: UseDelay
+    delay: 1.5
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+      types:
+        Slash: 15
+        Structural: 20
+  - type: ToggleableVisuals
+    spriteLayer: chainsword
+    inhandVisuals:
+      left:
+      - state: inhand-left-chainsword
+      right:
+      - state: inhand-right-chainsword
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: {state: icon_chainsword}
+          False: {state: icon}
