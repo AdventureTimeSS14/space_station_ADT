@@ -112,7 +112,9 @@ public abstract partial class SharedMoverController : VirtualController
         InitializeRelay();
         InitializeTileMovement(); // ADT-Tweak
         InitializeInvertRun(); // ADT tweak
-        InitializeDrunkDrift(); // ADT-Tweak
+        // ADT-Tweak-Start
+        InitializeDrunkDrift();
+        // ADT-Tweak-End
         Subs.CVar(_configManager, CCVars.RelativeMovement, value => _relativeMovement = value, true);
         Subs.CVar(_configManager, CCVars.MinFriction, value => _minDamping = value, true);
         Subs.CVar(_configManager, CCVars.AirFriction, value => _airDamping = value, true);
@@ -366,7 +368,7 @@ public abstract partial class SharedMoverController : VirtualController
             accel *= tileDef?.MobAcceleration ?? 1f;
         }
 
-        // ADT-Tweak-Start: пьяное шатание, водит из стороны в сторону
+        // ADT-Tweak-Start: apply drunken sway during movement
         ApplyDrunkWobble(uid, ref wishDir);
         // ADT-Tweak-End
 

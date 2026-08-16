@@ -3,15 +3,15 @@ using Content.Shared.Examine;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.StatusEffectNew.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.DrunkDrift;
 
-/// <summary>ADT: маркер пьяного, шатание и осмотр.</summary>
-public sealed class DrunkDriftSystem : EntitySystem
+public sealed partial class DrunkDriftSystem : EntitySystem
 {
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private float _accumulator;
     private EntityQuery<MobStateComponent> _mobQuery;
@@ -22,20 +22,32 @@ public sealed class DrunkDriftSystem : EntitySystem
 
         _mobQuery = GetEntityQuery<MobStateComponent>();
 
-        SubscribeLocalEvent<DrunkStatusEffectComponent, StatusEffectAppliedEvent>(OnDrunkApplied);
-        SubscribeLocalEvent<DrunkStatusEffectComponent, StatusEffectRemovedEvent>(OnDrunkRemoved);
+        SubscribeLocalEvent<StatusEffectComponent, StatusEffectAppliedEvent>(OnDrunkApplied);
+        SubscribeLocalEvent<StatusEffectComponent, StatusEffectRemovedEvent>(OnDrunkRemoved);
         SubscribeLocalEvent<ADTDrunkDriftComponent, ExaminedEvent>(OnExamined);
     }
 
-    private void OnDrunkApplied(Entity<DrunkStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
+    private void OnDrunkApplied(Entity<StatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
+        if (!HasComp<DrunkStatusEffectComponent>(ent.Owner))
+            return;
+
+        if (_timing.ApplyingState)
+            return;
+
         var comp = EnsureComp<ADTDrunkDriftComponent>(args.Target);
         UpdateVisuals(args.Target, comp);
     }
 
-    private void OnDrunkRemoved(Entity<DrunkStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
+    private void OnDrunkRemoved(Entity<StatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {
-        // Держим маркер, пока есть хоть один эффект опьянения.
+        if (!HasComp<DrunkStatusEffectComponent>(ent.Owner))
+            return;
+
+        if (_timing.ApplyingState)
+            return;
+
+        // Keep the marker while any drunkenness effect remains.
         if (_statusEffects.HasEffectComp<DrunkStatusEffectComponent>(args.Target))
         {
             if (TryComp<ADTDrunkDriftComponent>(args.Target, out var comp))
