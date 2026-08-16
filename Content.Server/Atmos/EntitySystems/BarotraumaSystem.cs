@@ -12,6 +12,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Containers;
 using Content.Goobstation.Common.Atmos;
+using Content.Shared.ADT.ModSuits;
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -22,6 +23,7 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private readonly AlertsSystem _alertsSystem = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger= default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
+        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
 
         private const float UpdateTimer = 1f;
         private float _timer;
@@ -30,8 +32,10 @@ namespace Content.Server.Atmos.EntitySystems
         {
             SubscribeLocalEvent<PressureProtectionComponent, GotEquippedEvent>(OnPressureProtectionEquipped);
             SubscribeLocalEvent<PressureProtectionComponent, GotUnequippedEvent>(OnPressureProtectionUnequipped);
+            // ADT-Tweak-ModsuitRework-Start
             SubscribeLocalEvent<PressureProtectionComponent, ComponentInit>(OnPressureProtectionChanged);
             SubscribeLocalEvent<PressureProtectionComponent, ComponentRemove>(OnPressureProtectionChanged);
+            // ADT-Tweak-ModsuitRework-End
 
             SubscribeLocalEvent<PressureImmunityComponent, ComponentInit>(OnPressureImmuneInit);
             SubscribeLocalEvent<PressureImmunityComponent, ComponentRemove>(OnPressureImmuneRemove);
@@ -58,9 +62,11 @@ namespace Content.Server.Atmos.EntitySystems
             var protectionTarget = uid;
             string? slotTarget = null;
 
-            if (_inventorySystem.TryGetContainingEntity(uid, out var entity) && _inventorySystem.TryGetContainingSlot(uid, out var slot))
+            if (_containerSystem.TryGetContainingContainer(uid, out var container)
+                && HasComp<InventoryComponent>(container.Owner)
+                && _inventorySystem.TryGetContainingSlot(uid, out var slot))
             {
-                protectionTarget = entity.Value;
+                protectionTarget = container.Owner;
                 slotTarget = slot.Name;
             }
 
