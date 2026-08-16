@@ -50,9 +50,6 @@ public sealed partial class HoloparasiteMindLink : ILanguageType
     public void Speak(EntityUid uid, string message, string name, SpeechVerbPrototype verb, ChatTransmitRange range, IEntityManager entMan, out bool success, out string resultMessage)
     {
         var chat = entMan.System<ChatSystem>();
-        var admin = IoCManager.Resolve<IAdminManager>();
-        var proto = IoCManager.Resolve<IPrototypeManager>();
-        var chatMan = IoCManager.Resolve<IChatManager>();
 
         success = false;
         chat.TryProcessRadioMessage(uid, message, out message, out _);
@@ -64,52 +61,8 @@ public sealed partial class HoloparasiteMindLink : ILanguageType
         if (!entMan.TryGetComponent<HoloparasiteMindLinkComponent>(uid, out var link) || link.Partner == null)
             return;
 
-        var clients = Filter.Empty();
-        var admins = Filter.Empty();
-
-        var mindQuery = entMan.EntityQueryEnumerator<LanguageSpeakerComponent, ActorComponent>();
-        while (mindQuery.MoveNext(out var player, out _, out var actorComp))
-        {
-            if (player == uid || player == link.Partner)
-                clients.AddPlayer(actorComp.PlayerSession);
-            else if (admin.IsAdmin(actorComp.PlayerSession))
-                admins.AddPlayer(actorComp.PlayerSession);
-        }
-
-        string messageWrap;
-        string adminMessageWrap;
-        var language = proto.Index(Language);
-
-        var wrapKey = ShowName
-            ? "chat-manager-send-holoparasite-mind-link-chat-wrap-message-name"
-            : "chat-manager-send-holoparasite-mind-link-chat-wrap-message";
-
-        messageWrap = Loc.GetString(wrapKey,
-            ("fontType", Font ?? "NotoSansDisplay"),
-            ("fontSize", FontSize ?? 12),
-            ("defaultFont", "NotoSansDisplay"),
-            ("defaultSize", 12),
-            ("source", uid),
-            ("message", message),
-            ("channel", language.LocalizedName));
-
-        adminMessageWrap = Loc.GetString("chat-manager-send-holoparasite-mind-link-chat-wrap-message-admin",
-            ("fontType", Font ?? "NotoSansDisplay"),
-            ("fontSize", FontSize ?? 12),
-            ("defaultFont", "NotoSansDisplay"),
-            ("defaultSize", 12),
-            ("source", uid),
-            ("message", message),
-            ("channel", language.LocalizedName));
-
-        if (Color != null)
-        {
-            messageWrap = $"[color={Color.Value.ToHex()}]{messageWrap}[/color]";
-            adminMessageWrap = $"[color={Color.Value.ToHex()}]{adminMessageWrap}[/color]";
-        }
-
-        chatMan.ChatMessageToManyFiltered(clients, ChatChannel.CollectiveMind, message, messageWrap, uid, false, false, Color);
-        chatMan.ChatMessageToManyFiltered(admins, ChatChannel.CollectiveMind, message, adminMessageWrap, uid, false, false, Color);
+        SendToPair(entMan, uid, link.Partner.Value, message,
+            Font ?? "NotoSansDisplay", FontSize ?? 12, "NotoSansDisplay", 12, Color);
 
         success = true;
     }
@@ -117,9 +70,6 @@ public sealed partial class HoloparasiteMindLink : ILanguageType
     public void Whisper(EntityUid uid, string message, string name, string nameIdentity, ChatTransmitRange range, IEntityManager entMan, out bool success, out string resultMessage, out string resultObfMessage)
     {
         var chat = entMan.System<ChatSystem>();
-        var admin = IoCManager.Resolve<IAdminManager>();
-        var proto = IoCManager.Resolve<IPrototypeManager>();
-        var chatMan = IoCManager.Resolve<IChatManager>();
 
         success = false;
         chat.TryProcessRadioMessage(uid, message, out message, out _);
@@ -132,53 +82,50 @@ public sealed partial class HoloparasiteMindLink : ILanguageType
         if (!entMan.TryGetComponent<HoloparasiteMindLinkComponent>(uid, out var link) || link.Partner == null)
             return;
 
-        var clients = Filter.Empty();
+        SendToPair(entMan, uid, link.Partner.Value, message,
+            Font ?? "NotoSansDisplayItalic", FontSize ?? 11, "NotoSansDisplayItalic", 11, WhisperColor);
+
+        success = true;
+    }
+
+    private void SendToPair(IEntityManager entMan, EntityUid uid, EntityUid partner, string message, string fontType, int fontSize, string defaultFont, int defaultSize, Color? color)
+    {
+        var admin = IoCManager.Resolve<IAdminManager>();
+        var proto = IoCManager.Resolve<IPrototypeManager>();
+        var chatMan = IoCManager.Resolve<IChatManager>();
+
+        var clients = Filter.Entities(uid, partner);
         var admins = Filter.Empty();
 
-        var mindQuery = entMan.EntityQueryEnumerator<LanguageSpeakerComponent, ActorComponent>();
-        while (mindQuery.MoveNext(out var player, out _, out var actorComp))
+        var playerQuery = entMan.EntityQueryEnumerator<ActorComponent>();
+        while (playerQuery.MoveNext(out var player, out var actorComp))
         {
-            if (player == uid || player == link.Partner)
-                clients.AddPlayer(actorComp.PlayerSession);
-            else if (admin.IsAdmin(actorComp.PlayerSession))
+            if (player == uid || player == partner)
+                continue;
+
+            if (admin.IsAdmin(actorComp.PlayerSession))
                 admins.AddPlayer(actorComp.PlayerSession);
         }
 
-        string messageWrap;
-        string adminMessageWrap;
         var language = proto.Index(Language);
 
         var wrapKey = ShowName
             ? "chat-manager-send-holoparasite-mind-link-chat-wrap-message-name"
             : "chat-manager-send-holoparasite-mind-link-chat-wrap-message";
 
-        messageWrap = Loc.GetString(wrapKey,
-            ("fontType", Font ?? "NotoSansDisplayItalic"),
-            ("fontSize", FontSize ?? 11),
-            ("defaultFont", "NotoSansDisplayItalic"),
-            ("defaultSize", 11),
+        var messageWrap = Loc.GetString(wrapKey,
+            ("fontType", fontType),
+            ("fontSize", fontSize),
+            ("defaultFont", defaultFont),
+            ("defaultSize", defaultSize),
             ("source", uid),
             ("message", message),
             ("channel", language.LocalizedName));
 
-        adminMessageWrap = Loc.GetString("chat-manager-send-holoparasite-mind-link-chat-wrap-message-admin",
-            ("fontType", Font ?? "NotoSansDisplayItalic"),
-            ("fontSize", FontSize ?? 11),
-            ("defaultFont", "NotoSansDisplayItalic"),
-            ("defaultSize", 11),
-            ("source", uid),
-            ("message", message),
-            ("channel", language.LocalizedName));
+        if (color != null)
+            messageWrap = $"[color={color.Value.ToHex()}]{messageWrap}[/color]";
 
-        if (WhisperColor != null)
-        {
-            messageWrap = $"[color={WhisperColor.Value.ToHex()}]{messageWrap}[/color]";
-            adminMessageWrap = $"[color={WhisperColor.Value.ToHex()}]{adminMessageWrap}[/color]";
-        }
-
-        chatMan.ChatMessageToManyFiltered(clients, ChatChannel.CollectiveMind, message, messageWrap, uid, false, false, WhisperColor);
-        chatMan.ChatMessageToManyFiltered(admins, ChatChannel.CollectiveMind, message, adminMessageWrap, uid, false, false, WhisperColor);
-
-        success = true;
+        chatMan.ChatMessageToManyFiltered(clients, ChatChannel.CollectiveMind, message, messageWrap, uid, false, false, color);
+        chatMan.ChatMessageToManyFiltered(admins, ChatChannel.CollectiveMind, message, messageWrap, uid, false, false, color);
     }
 }

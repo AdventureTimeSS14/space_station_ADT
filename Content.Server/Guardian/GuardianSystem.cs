@@ -1,5 +1,5 @@
 using Content.Server.Popups;
-using Content.Server.ADT.Holoparasite; // ADT-Tweak
+using Content.Server.ADT.Holoparasite;
 using Content.Shared.Actions;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
@@ -35,7 +35,7 @@ namespace Content.Server.Guardian
         [Dependency] private readonly GibbingSystem _gibbing = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly HoloparasiteMindLinkSystem _holoMindLink = default!; // ADT-Tweak
+        [Dependency] private readonly HoloparasiteMindLinkSystem _holoMindLink = default!;
 
         public override void Initialize()
         {
@@ -241,7 +241,9 @@ namespace Content.Server.Guardian
             if (TryComp<GuardianComponent>(guardian, out var guardianComp))
             {
                 guardianComp.Host = args.Args.Target.Value;
-                _holoMindLink.TryAddMindLink(args.Args.Target.Value, guardian); // ADT-Tweak: ментальная связь носителя и голопаразита
+                // ADT-Tweak-Start: ментальная связь носителя и голопаразита
+                _holoMindLink.TryAddMindLink(args.Args.Target.Value, guardian);
+                // ADT-Tweak-End
                 _audio.PlayPvs(guardianComp.InjectSound, args.Args.Target.Value);
                 _popupSystem.PopupEntity(Loc.GetString("guardian-created"), args.Args.Target.Value, args.Args.Target.Value);
                 // Exhaust the activator
