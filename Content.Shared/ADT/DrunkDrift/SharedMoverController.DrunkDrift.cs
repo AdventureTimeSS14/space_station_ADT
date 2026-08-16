@@ -18,7 +18,6 @@ public abstract partial class SharedMoverController
         _drunkDriftQuery = GetEntityQuery<ADTDrunkDriftComponent>();
     }
 
-    /// <summary>Поворачивает вектор движения пьяного: покачивание и рывки.</summary>
     private void ApplyDrunkWobble(EntityUid uid, ref Vector2 wishDir)
     {
         if (wishDir == Vector2.Zero)
