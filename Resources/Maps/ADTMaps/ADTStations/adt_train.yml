@@ -127473,15 +127473,13 @@ entities:
     - type: Transform
       pos: -7.502056,-137.48164
       parent: 2
-- proto: MicroManipulatorStockPart
+- proto: MicroLaserStockPart
   entities:
   - uid: 17807
     components:
     - type: Transform
       pos: 8.87146,-192.43654
       parent: 2
-    - type: Stack
-      count: 5
 - proto: MineralScanner
   entities:
   - uid: 17808
