@@ -90,8 +90,8 @@
   - BlockWriting
   - Hushed
   - Touchy
-  - CharacterFlavor # ADT: флавор (описание персонажа), копируется при клонировании
-  # ADT-fix-clone-end
+  - CharacterFlavor
+  
 
 # for job-specific traits etc.
 - type: cloningSettings
