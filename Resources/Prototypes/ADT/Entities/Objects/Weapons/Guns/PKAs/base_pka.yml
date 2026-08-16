@@ -12,6 +12,7 @@
     - 0,0,2,1
   - type: Gun
     fireRate: 2.5
+    showExamineText: false
     selectedMode: SemiAuto
     angleDecay: 45
     minAngle: 2
@@ -37,6 +38,7 @@
     - suitStorage
     - Belt
   - type: ADTKineticCooldown
+    baseRangedMultiplier: 2
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: AttachableHolder

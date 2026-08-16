@@ -5,6 +5,7 @@ using Content.Server.ADT.PressureDamageModify;
 using Content.Server.Gatherable;
 using Content.Server.Gatherable.Components;
 using Content.Shared.ADT.Salvage.Components;
+using Content.Shared.ADT.Weapons.KineticCooldown;
 using Content.Shared.ADT.Weapons.Ranged.Upgrades;
 using Content.Shared.ADT.Weapons.Ranged.Upgrades.Components;
 using Content.Shared.Damage;
@@ -14,7 +15,6 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Projectiles;
-using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
@@ -28,6 +28,7 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly GatherableSystem _gatherable = default!;
     [Dependency] private readonly ADTHardRockSystem _hardRock = default!;
+    [Dependency] private readonly ADTKineticCooldownSystem _cooldown = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -223,21 +224,17 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
 
     private void OnRepeaterHit(Entity<ADTProjectileRepeaterComponent> ent, ref ProjectileHitEvent args)
     {
-        if (ent.Comp.Gun is not { } gun || !TryComp<RechargeBasicEntityAmmoComponent>(gun, out var recharge))
+        if (ent.Comp.Gun is not { } gun || !TryComp<ADTKineticCooldownComponent>(gun, out var cooldown))
             return;
 
         if (!IsAliveMob(args.Target) && !HasComp<GatherableComponent>(args.Target))
             return;
 
-        if (recharge.NextCharge is not { } next)
-            return;
-
-        var left = next - _timing.CurTime;
+        var left = cooldown.NextUse - _timing.CurTime;
         if (left <= TimeSpan.Zero)
             return;
 
-        recharge.NextCharge = _timing.CurTime + left * ent.Comp.HitCoefficient;
-        Dirty(gun, recharge);
+        _cooldown.ReduceCooldown((gun, cooldown), _timing.CurTime + left * ent.Comp.HitCoefficient);
     }
 
     private void OnDeathSyphonHit(Entity<ADTProjectileDeathSyphonComponent> ent, ref ProjectileHitEvent args)

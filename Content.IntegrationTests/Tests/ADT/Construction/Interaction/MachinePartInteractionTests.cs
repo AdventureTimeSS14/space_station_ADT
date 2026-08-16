@@ -299,7 +299,22 @@ public sealed class MachinePartInteractionTests : InteractionTest
 
     private int CountMachinePart(MachineComponent machine, ProtoId<MachinePartPrototype> partId, float? tier = null)
     {
-        return CountMachinePart(machine.PartContainer, partId, tier);
+        var count = 0;
+        if (!SEntMan.TryGetComponent<MachinePartStorageComponent>(machine.Owner, out var storage))
+            return count;
+
+        foreach (var slot in storage.Parts)
+        {
+            if (slot.Part != partId)
+                continue;
+
+            if (tier != null && Math.Abs(slot.Tier - tier.Value) > 0.0001f)
+                continue;
+
+            count += slot.Quantity;
+        }
+
+        return count;
     }
 
     private async Task AssertRpedContains(NetEntity rped, string prototype, int expectedCount)

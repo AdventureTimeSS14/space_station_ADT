@@ -17,6 +17,7 @@
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
+    showExamineText: false
     useKey: false
   - type: BasicEntityAmmoProvider
     proto: BulletCharge
@@ -49,6 +50,7 @@
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
+    showExamineText: false
     useKey: false
   - type: BasicEntityAmmoProvider
     proto: BulletCharge
@@ -176,7 +178,7 @@
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws.rsi
     state: icon
   - type: ADTKineticCooldown
-    meleeMultiplier: 1.5
+    baseMeleeMultiplier: 1.5
   - type: LeechOnMarker
     leech:
       types:
@@ -247,7 +249,7 @@
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_machete.rsi
     state: icon
   - type: ADTKineticCooldown
-    meleeMultiplier: 1.5
+    baseMeleeMultiplier: 1.5
   - type: LeechOnMarker
     leech:
       types:
