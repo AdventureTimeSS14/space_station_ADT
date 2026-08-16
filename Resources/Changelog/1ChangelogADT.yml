@@ -14114,3 +14114,9 @@ Entries:
     id: 1813
     pr_number: 3180
     time: '2026-08-16T15:26:55Z'
+  - author: ultradyper
+    changes:
+      - {message: Клоны теперь копируют описание персонажа оригинала, type: Fix}
+    id: 1814
+    pr_number: 3187
+    time: '2026-08-16T15:32:41Z'
