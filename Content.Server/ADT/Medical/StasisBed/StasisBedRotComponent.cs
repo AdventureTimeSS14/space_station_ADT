@@ -1,4 +1,3 @@
-using Content.Server.ADT.Medical.StasisBed;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;

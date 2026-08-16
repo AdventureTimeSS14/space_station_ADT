@@ -6,7 +6,6 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Serialization; // ADT-Tweak
-using Robust.Shared.Utility;
 
 namespace Content.Shared.Kitchen
 {
@@ -54,9 +53,6 @@ namespace Content.Shared.Kitchen
         /// </summary>
         [DataField]
         public ProtoId<TechnologyPrototype>? RequiredTechnology;
-
-        [DataField]
-        public SpriteSpecifier? Icon;
         // ADT-Tweak end
 
         [DataField]

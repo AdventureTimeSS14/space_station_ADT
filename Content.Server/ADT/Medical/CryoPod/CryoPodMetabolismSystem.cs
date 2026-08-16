@@ -4,6 +4,7 @@ using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Body.Events;
 using Content.Shared.Medical.Cryogenics;
 using Content.Shared.Metabolism;
+using Content.Shared.Power;
 using Robust.Shared.Containers;
 
 namespace Content.Server.ADT.Medical.CryoPod;
@@ -18,9 +19,21 @@ public sealed class CryoPodMetabolismSystem : EntitySystem
 
         SubscribeLocalEvent<CryoPodMetabolismComponent, RefreshPartsEvent>(OnRefreshParts);
         SubscribeLocalEvent<CryoPodMetabolismComponent, UpgradeExamineEvent>(OnUpgradeExamine);
-        SubscribeLocalEvent<CryoPodMetabolismComponent, EntInsertedIntoContainerMessage>(OnBodyInserted);
+        SubscribeLocalEvent<CryoPodMetabolismComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<CryoPodMetabolismComponent, EntRemovedFromContainerMessage>(OnBodyRemoved);
+        SubscribeLocalEvent<InsideCryoPodComponent, ComponentInit>(OnInsideCryoPodInit);
         SubscribeLocalEvent<InsideCryoPodComponent, GetMetabolicMultiplierEvent>(OnGetMetabolicMultiplier);
+    }
+
+    private void OnInsideCryoPodInit(Entity<InsideCryoPodComponent> ent, ref ComponentInit args)
+    {
+        _metabolizer.UpdateMetabolicMultiplier(ent.Owner);
+    }
+
+    private void OnPowerChanged(Entity<CryoPodMetabolismComponent> ent, ref PowerChangedEvent args)
+    {
+        if (TryComp<CryoPodComponent>(ent, out var cryoPod) && cryoPod.BodyContainer.ContainedEntity is { } patient)
+            _metabolizer.UpdateMetabolicMultiplier(patient);
     }
 
     private void OnRefreshParts(EntityUid uid, CryoPodMetabolismComponent component, RefreshPartsEvent args)
@@ -50,16 +63,12 @@ public sealed class CryoPodMetabolismSystem : EntitySystem
             ("tier", component.Tier)));
     }
 
-    private void OnBodyInserted(Entity<CryoPodMetabolismComponent> ent, ref EntInsertedIntoContainerMessage args)
-    {
-        if (args.Container.ID == CryoPodComponent.BodyContainerName)
-            _metabolizer.UpdateMetabolicMultiplier(args.Entity);
-    }
-
     private void OnBodyRemoved(Entity<CryoPodMetabolismComponent> ent, ref EntRemovedFromContainerMessage args)
     {
-        if (args.Container.ID == CryoPodComponent.BodyContainerName)
-            _metabolizer.UpdateMetabolicMultiplier(args.Entity);
+        if (args.Container.ID != CryoPodComponent.BodyContainerName)
+            return;
+
+        _metabolizer.UpdateMetabolicMultiplier(args.Entity);
     }
 
     private void OnGetMetabolicMultiplier(Entity<InsideCryoPodComponent> ent, ref GetMetabolicMultiplierEvent args)

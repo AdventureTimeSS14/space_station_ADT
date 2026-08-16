@@ -19,11 +19,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Server.ADT.MedicalAssembler;
-
-/// <summary>
-/// Логика медицинского ассемблера: список рецептов с блокировкой по РНД,
-/// проверка материалов и реагентов, сборка результата.
-/// </summary>
 public sealed class ADTMedicalAssemblerSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -84,14 +79,12 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
             return;
         }
 
-        // проверка материалов в контейнере
         foreach (var (solidProtoId, quantity) in recipe.IngredientsSolids)
         {
             if (CountMaterial(storage, solidProtoId) < quantity)
                 return;
         }
 
-        // проверка реагентов в мензурке
         Entity<SolutionComponent>? beakerSolEnt = null;
         Solution? beakerSolution = null;
         if (recipe.IngredientsReagents.Count > 0)
@@ -111,7 +104,6 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
             }
         }
 
-        // списание материалов
         foreach (var (solidProtoId, quantity) in recipe.IngredientsSolids)
         {
             var remaining = (int) quantity;
@@ -128,7 +120,6 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
             }
         }
 
-        // списание реагентов
         if (beakerSolEnt is { } solEnt && beakerSolution is { } sol)
         {
             var reagentMultiplier = GetReagentMultiplier(ent);
@@ -158,12 +149,10 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
         if (!_power.IsPowered(ent) || !ent.Comp.CustomTabUnlocked || msg.ItemType != "medipen")
             return;
 
-        // какой прототип результата по стилю
         var resultProto = ent.Comp.MedipenStylePrototypes.GetValueOrDefault(msg.StyleId);
         if (resultProto is null)
             return;
 
-        // рецепт не пустой и не больше максимума
         var total = FixedPoint2.Zero;
         foreach (var reagentQuantity in msg.Reagents)
             total += reagentQuantity.Quantity;
@@ -171,7 +160,6 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
         if (total <= 0 || total > FixedPoint2.New(ent.Comp.MaxCustomVolume))
             return;
 
-        // проверка и списание реагентов из мензурки (без скидки за части)
         var beaker = _itemSlots.GetItemOrNull(ent.Owner, ADTMedicalAssemblerComponent.BeakerSlotId);
         if (beaker is not { Valid: true }
             || !_solution.TryGetFitsInDispenser(beaker.Value, out var beakerSolEnt, out var beakerSolution))
@@ -190,7 +178,6 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
 
         _solution.UpdateChemicals(beakerSolEnt.Value);
 
-        // спавн и наполнение
         var result = Spawn(resultProto, Transform(ent.Owner).Coordinates);
         if (_solution.TryGetSolution(result, "pen", out var resultSolEnt, out var resultSolution))
         {
@@ -229,9 +216,6 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
         return MetaData(uid).EntityPrototype?.ID;
     }
 
-    /// <summary>
-    /// Множитель расхода реагентов от частей (манипулятор/маттер-бин уменьшают его).
-    /// </summary>
     private float GetReagentMultiplier(Entity<ADTMedicalAssemblerComponent> ent)
     {
         return TryComp<AssemblerUpgradeComponent>(ent, out var upgrade) ? upgrade.IngredientMultiplier : 1f;

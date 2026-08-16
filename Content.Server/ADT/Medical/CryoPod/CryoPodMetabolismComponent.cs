@@ -1,5 +1,3 @@
-using Content.Server.ADT.Medical.CryoPod;
-
 namespace Content.Server.ADT.Medical.CryoPod;
 
 [RegisterComponent]

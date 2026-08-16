@@ -7,9 +7,6 @@
   result: EmergencyMedipen
   time: 5
   group: Medicinal
-  icon:
-    sprite: Objects/Specific/Medical/medipen.rsi
-    state: medipen
   solids:
     ADTBlankMediPen: 1
   reagents:

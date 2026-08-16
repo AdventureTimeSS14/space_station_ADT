@@ -1,5 +1,3 @@
-using Content.Server.ADT.MedicalAssembler;
-
 namespace Content.Server.ADT.MedicalAssembler;
 
 [RegisterComponent]
