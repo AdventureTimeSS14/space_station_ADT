@@ -48,8 +48,6 @@ using Content.Shared.Gibbing;
 using Content.Shared.Roles;
 using Content.Shared.Species.Components;
 using Robust.Shared.Audio;
-using Robust.Shared.Containers;
-using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.EntitySystems;
@@ -65,7 +63,6 @@ public sealed class GhoulSystem : EntitySystem
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly GibbingSystem _gibbing = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly StorageSystem _storage = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
@@ -286,82 +283,7 @@ public sealed class GhoulSystem : EntitySystem
         if (ent.Comp.SpawnOnDeathPrototype != null)
             Spawn(ent.Comp.SpawnOnDeathPrototype.Value, Transform(ent).Coordinates);
 
-        // Delete all clone items before gibbing to prevent duplication
-        DeleteClonedItems(ent);
-
         // ADT: no shitmed BodySystem, gib via GibbingSystem
         _gibbing.Gib(ent, dropGiblets: ent.Comp.DropOrgansOnDeath);
-    }
-
-    /// <summary>
-    /// Recursively deletes all items marked with <see cref="HereticCloneItemComponent"/>
-    /// from the ghoul's containers before gibbing to prevent item duplication.
-    /// Real (unmarked) items found inside a cloned container are ejected so they drop
-    /// on the floor instead of being deleted together with the cloned container.
-    /// </summary>
-    private void DeleteClonedItems(EntityUid uid)
-    {
-        var toDelete = new List<EntityUid>();
-        var coords = Transform(uid).Coordinates;
-
-        if (TryComp<ContainerManagerComponent>(uid, out var manager))
-        {
-            foreach (var container in manager.Containers.Values)
-            {
-                var contents = new List<EntityUid>(container.ContainedEntities);
-                foreach (var item in contents)
-                {
-                    if (HasComp<HereticCloneItemComponent>(item))
-                    {
-                        CollectCloneItemsRecursive(item, toDelete, coords, true);
-                        toDelete.Add(item);
-                    }
-                    else
-                    {
-                        // Clean any nested clone items, then eject the real item so it drops
-                        // on the floor instead of being deleted together with the gibbed body.
-                        CollectCloneItemsRecursive(item, toDelete, coords, false);
-                        _container.Remove(item, container, destination: coords, force: true);
-                    }
-                }
-            }
-        }
-
-        foreach (var item in toDelete)
-        {
-            QueueDel(item);
-        }
-    }
-
-    private void CollectCloneItemsRecursive(EntityUid item, List<EntityUid> list, EntityCoordinates coords, bool ownerDeleted)
-    {
-        if (!TryComp<ContainerManagerComponent>(item, out var manager))
-            return;
-
-        foreach (var container in manager.Containers.Values)
-        {
-            var contents = new List<EntityUid>(container.ContainedEntities);
-            foreach (var storedItem in contents)
-            {
-                if (!Exists(storedItem))
-                    continue;
-
-                if (HasComp<HereticCloneItemComponent>(storedItem))
-                {
-                    CollectCloneItemsRecursive(storedItem, list, coords, true);
-                    list.Add(storedItem);
-                }
-                else if (ownerDeleted)
-                {
-                    // A real item inside a cloned container that is being deleted: eject it so it drops.
-                    _container.Remove(storedItem, container, destination: coords, force: true);
-                }
-                else
-                {
-                    // A real item inside a container that stays: recurse to clean any nested clone items.
-                    CollectCloneItemsRecursive(storedItem, list, coords, false);
-                }
-            }
-        }
     }
 }

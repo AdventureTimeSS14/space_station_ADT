@@ -16,6 +16,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Nutrition;
 using Content.Shared.NPC.Components;
@@ -173,9 +174,6 @@ public sealed partial class HereticAbilitySystem
 
         _aud.PlayPvs(MimicSpawnSound, xform.Coordinates);
 
-        // Mark all cloned items so they are deleted on death instead of dropping
-        MarkClonedItems(clone.Value);
-
         EntityUid? weapon = null;
         if (!giveBlade && TryComp(uid, out HandsComponent? hands))
         {
@@ -208,10 +206,20 @@ public sealed partial class HereticAbilitySystem
                 QueueDel(weaponClone);
             else
             {
-                MarkClonedItem(weaponClone);
-                MarkStorageRecursive(weaponClone);
                 EnsureComp<GhoulWeaponComponent>(weaponClone);
                 ghoul.BoundWeapon = weaponClone;
+                var cartridgeQuery = GetEntityQuery<CartridgeAmmoComponent>();
+                if (TryComp(weaponClone, out ContainerManagerComponent? containerManager))
+                {
+                    foreach (var container in containerManager.Containers.Values)
+                    {
+                        foreach (var contained in container.ContainedEntities)
+                        {
+                            if (!cartridgeQuery.HasComp(contained))
+                                EnsureComp<UnremoveableComponent>(contained);
+                        }
+                    }
+                }
             }
         }
 
@@ -257,44 +265,5 @@ public sealed partial class HereticAbilitySystem
         }
 
         return clone.Value;
-    }
-
-    /// <summary>
-    /// Marks equipment created by cloning. These items are deleted immediately when
-    /// removed from the mimic, so they cannot be transferred to another entity.
-    /// </summary>
-    private void MarkClonedItems(EntityUid uid)
-    {
-        if (!TryComp<ContainerManagerComponent>(uid, out var containerManager))
-            return;
-
-        foreach (var container in containerManager.Containers.Values)
-        {
-            foreach (var item in container.ContainedEntities)
-            {
-                MarkClonedItem(item);
-                MarkStorageRecursive(item);
-            }
-        }
-    }
-
-    private void MarkClonedItem(EntityUid item)
-    {
-        EnsureComp<HereticCloneItemComponent>(item);
-    }
-
-    private void MarkStorageRecursive(EntityUid item)
-    {
-        if (!TryComp<ContainerManagerComponent>(item, out var manager))
-            return;
-
-        foreach (var container in manager.Containers.Values)
-        {
-            foreach (var contained in container.ContainedEntities)
-            {
-                MarkClonedItem(contained);
-                MarkStorageRecursive(contained);
-            }
-        }
     }
 }
