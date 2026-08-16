@@ -14107,3 +14107,10 @@ Entries:
     id: 1812
     pr_number: 3181
     time: '2026-08-16T15:26:29Z'
+  - author: ultradyper
+    changes:
+      - {message: 'Исправлен баг, когда языки сверх лимита оставались после снятия
+          черты Полиглот', type: Fix}
+    id: 1813
+    pr_number: 3180
+    time: '2026-08-16T15:26:55Z'
