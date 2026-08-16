@@ -22,7 +22,7 @@ public sealed partial class GasEvaporatorComponent : Component
     public float UnitsPerSecond = 5f;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MolesToGasMultiplier = 4.6793f;
+    public float MolesToGasMultiplier = 1.6793f;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public GasCondenserMode Mode = GasCondenserMode.Condense;
