@@ -256082,7 +256082,7 @@ entities:
     - type: Transform
       pos: 50.671425,-16.491583
       parent: 2
-- proto: MicroManipulatorStockPart
+- proto: CapacitorStockPart
   entities:
   - uid: 39648
     components:

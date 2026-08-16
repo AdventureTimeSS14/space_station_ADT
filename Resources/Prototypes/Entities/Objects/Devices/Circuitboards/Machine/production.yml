@@ -1471,7 +1471,8 @@
     prototype: SmartFridge
     stackRequirements:
       Glass: 5
-      Manipulator: 2
+    partRequirements: #ADT-Tweak
+      Capacitor: 2
     tagRequirements:
         GlassBeaker:
           amount: 2

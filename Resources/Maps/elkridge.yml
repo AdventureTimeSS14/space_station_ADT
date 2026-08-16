@@ -92352,7 +92352,7 @@ entities:
     - type: Transform
       pos: 35.608074,7.556761
       parent: 2
-- proto: MicroManipulatorStockPart
+- proto: MicroServoStockPart
   entities:
   - uid: 14934
     components:
