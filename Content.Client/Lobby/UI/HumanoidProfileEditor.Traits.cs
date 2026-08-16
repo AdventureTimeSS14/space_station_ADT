@@ -56,11 +56,12 @@ public sealed partial class HumanoidProfileEditor
         RefreshLanguages(); // ADT-Tweak: лимит языков зависит от выбранных трайтов (Полиглот)
     }
 
-    // ADT-Tweak-Start: при снятии Полиглота убрать языки сверх нового лимита
+    // ADT-Tweak-Start
     private void TrimLanguages()
     {
         if (Profile is null)
             return;
+
         var species = _prototypeManager.Index(Profile.Species);
         var required = new HashSet<ProtoId<LanguagePrototype>>(species.DefaultLanguages);
         required.UnionWith(species.UniqueLanguages);
@@ -70,8 +71,10 @@ public sealed partial class HumanoidProfileEditor
         {
             if (Profile.Languages.Count <= max)
                 break;
+    
             if (required.Contains(lang))
                 continue;
+    
             Profile = Profile.WithoutLanguage(lang);
         }
     }
