@@ -91,7 +91,7 @@
   - Hushed
   - Touchy
   - CharacterFlavor
-  
+  # ADT-fix-clone-end
 
 # for job-specific traits etc.
 - type: cloningSettings
