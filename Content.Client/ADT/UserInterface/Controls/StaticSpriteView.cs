@@ -37,7 +37,16 @@ public class StaticSpriteView : Control
     /// This field configures automatic scaling of the sprite. This automatic scaling is done before
     /// applying the explicitly set scale <see cref="SunriseStaticSpriteView.Scale"/>.
     /// </summary>
-    public StretchMode Stretch { get; set; } = StretchMode.Fit;
+    public StretchMode Stretch
+    {
+        get => _stretch;
+        set
+        {
+            _stretch = value;
+            InvalidateSnapshot();
+        }
+    }
+    private StretchMode _stretch = StretchMode.Fit;
 
     public enum StretchMode
     {
@@ -66,15 +75,43 @@ public class StaticSpriteView : Control
     /// If null, the world space orientation of the entity will be used. Otherwise the specified direction will be
     /// used.
     /// </remarks>
-    public Direction? OverrideDirection { get; set; }
+    public Direction? OverrideDirection
+    {
+        get => _overrideDirection;
+        set
+        {
+            _overrideDirection = value;
+            InvalidateSnapshot();
+        }
+    }
+    private Direction? _overrideDirection;
 
     private Vector2 _scale = Vector2.One;
     private Angle _eyeRotation = Angle.Zero;
     private Angle? _worldRotation = Angle.Zero;
     private Vector2 _spriteSize;
 
-    public Vector2 Offset { get; set; } = Vector2.Zero;
-    public bool SpriteOffset { get; set; }
+    public Vector2 Offset
+    {
+        get => _offset;
+        set
+        {
+            _offset = value;
+            InvalidateSnapshot();
+        }
+    }
+    private Vector2 _offset;
+
+    public bool SpriteOffset
+    {
+        get => _spriteOffset;
+        set
+        {
+            _spriteOffset = value;
+            InvalidateSnapshot();
+        }
+    }
+    private bool _spriteOffset;
 
     public Angle EyeRotation
     {
@@ -83,6 +120,7 @@ public class StaticSpriteView : Control
         {
             _eyeRotation = value;
             InvalidateMeasure();
+            InvalidateSnapshot();
         }
     }
 
@@ -97,6 +135,7 @@ public class StaticSpriteView : Control
         {
             _worldRotation = value;
             InvalidateMeasure();
+            InvalidateSnapshot();
         }
     }
 
@@ -110,6 +149,7 @@ public class StaticSpriteView : Control
         {
             _scale = value;
             InvalidateMeasure();
+            InvalidateSnapshot();
         }
     }
 
@@ -242,7 +282,7 @@ public class StaticSpriteView : Control
         if (_snapshot != null)
         {
             renderHandle.DrawingHandleScreen.DrawTextureRect(_snapshot.Texture,
-                new UIBox2(0, 0, PixelSize.X, PixelSize.Y));
+                new UIBox2(0, 0, PixelSize.X, PixelSize.Y), Modulate * ActualModulateSelf);
             return;
         }
 
@@ -280,11 +320,7 @@ public class StaticSpriteView : Control
 
         renderHandle.RenderInRenderTarget(_snapshot, () =>
         {
-            var world = renderHandle.DrawingHandleWorld;
-            var oldModulate = world.Modulate;
-            world.Modulate *= Modulate * ActualModulateSelf;
             renderHandle.DrawEntity(uid, position, scale, _worldRotation, _eyeRotation, OverrideDirection, sprite, xform, _transform);
-            world.Modulate = oldModulate;
         }, Color.Transparent);
 
         renderHandle.DrawingHandleScreen.DrawTextureRect(_snapshot.Texture,
