@@ -575,7 +575,7 @@ public class RPDSystem : EntitySystem
             return;
         }
 
-        if (secondaryId != component.CachedSecondaryPrototype?.ID)
+        if (secondaryId.Id != component.CachedSecondaryPrototype?.ID)
             component.CachedSecondaryPrototype = _protoManager.Index(secondaryId);
     }
 
