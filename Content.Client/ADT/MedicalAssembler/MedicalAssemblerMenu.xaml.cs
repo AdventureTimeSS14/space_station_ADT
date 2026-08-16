@@ -21,14 +21,14 @@ namespace Content.Client.ADT.MedicalAssembler;
 [GenerateTypedNameReferences]
 public sealed partial class MedicalAssemblerMenu : FancyWindow
 {
-    private const float MaxCustomVolume = 5f;
-
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
 
     private readonly SpriteSystem _spriteSystem;
     private readonly Texture _lockTexture;
+
+    private float MaxCustomVolume => _state?.MaxCustomVolume ?? 5f;
 
     private readonly List<string> _recipeIds = new();
     private MedicalAssemblerUpdateState? _state;

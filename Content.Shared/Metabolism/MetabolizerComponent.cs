@@ -52,7 +52,6 @@ public sealed partial class MetabolizerComponent : Component
             SolutionOnBody = false,
             TransferSolutionName = BloodstreamComponent.DefaultBloodSolutionName,
             MetabolizeAll = true,
-            TransferRate = 5, // ADT-Tweak
         },
         ["Digestion"] = new()
         {

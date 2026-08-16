@@ -129,7 +129,8 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
             _solution.UpdateChemicals(solEnt);
         }
 
-        Spawn(recipe.Result, Transform(ent.Owner).Coordinates);
+        for (var i = 0; i < recipe.ResultCount; i++)
+            Spawn(recipe.Result, Transform(ent.Owner).Coordinates);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg"), ent);
 
         UpdateUi(ent);
@@ -153,9 +154,19 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
         if (resultProto is null)
             return;
 
-        var total = FixedPoint2.Zero;
+        var reagents = new Dictionary<string, FixedPoint2>();
         foreach (var reagentQuantity in msg.Reagents)
-            total += reagentQuantity.Quantity;
+        {
+            if (reagentQuantity.Quantity <= 0)
+                continue;
+
+            var reagentId = reagentQuantity.Reagent.Prototype;
+            reagents[reagentId] = reagents.GetValueOrDefault(reagentId) + reagentQuantity.Quantity;
+        }
+
+        var total = FixedPoint2.Zero;
+        foreach (var quantity in reagents.Values)
+            total += quantity;
 
         if (total <= 0 || total > FixedPoint2.New(ent.Comp.MaxCustomVolume))
             return;
@@ -167,22 +178,22 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
             return;
         }
 
-        foreach (var reagentQuantity in msg.Reagents)
+        foreach (var (reagentId, quantity) in reagents)
         {
-            if (beakerSolution.GetTotalPrototypeQuantity(reagentQuantity.Reagent.Prototype) < reagentQuantity.Quantity)
+            if (beakerSolution.GetTotalPrototypeQuantity(reagentId) < quantity)
                 return;
         }
 
-        foreach (var reagentQuantity in msg.Reagents)
-            _solution.RemoveReagent(beakerSolEnt.Value, reagentQuantity.Reagent, reagentQuantity.Quantity);
+        foreach (var (reagentId, quantity) in reagents)
+            _solution.RemoveReagent(beakerSolEnt.Value, reagentId, quantity);
 
         _solution.UpdateChemicals(beakerSolEnt.Value);
 
         var result = Spawn(resultProto, Transform(ent.Owner).Coordinates);
         if (_solution.TryGetSolution(result, "pen", out var resultSolEnt, out var resultSolution))
         {
-            foreach (var reagentQuantity in msg.Reagents)
-                resultSolution.AddReagent(reagentQuantity.Reagent, reagentQuantity.Quantity);
+            foreach (var (reagentId, quantity) in reagents)
+                resultSolution.AddReagent(reagentId, quantity);
 
             _solution.UpdateChemicals(resultSolEnt.Value);
         }
@@ -276,6 +287,7 @@ public sealed class ADTMedicalAssemblerSystem : EntitySystem
             beakerCapacity,
             beakerReagents != null,
             GetReagentMultiplier(ent),
-            ent.Comp.CustomTabUnlocked));
+            ent.Comp.CustomTabUnlocked,
+            ent.Comp.MaxCustomVolume));
     }
 }
