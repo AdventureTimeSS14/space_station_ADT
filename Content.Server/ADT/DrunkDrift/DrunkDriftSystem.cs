@@ -1,30 +1,24 @@
 using Content.Shared.ADT.DrunkDrift;
 using Content.Shared.Drunk;
-using Content.Shared.Examine;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.DrunkDrift;
 
-/// <summary>ADT: маркер пьяного и осмотр нетрезвых.</summary>
-public sealed class DrunkDriftSystem : EntitySystem
+/// <summary>ADT: маркер пьяного и обновление визуального состояния.</summary>
+public sealed class DrunkDriftSystem : SharedDrunkDriftSystem
 {
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-
-    private EntityQuery<MobStateComponent> _mobQuery;
 
     private float _accumulator;
 
     public override void Initialize()
     {
-        _mobQuery = GetEntityQuery<MobStateComponent>();
+        base.Initialize();
 
         SubscribeLocalEvent<DrunkStatusEffectComponent, StatusEffectAppliedEvent>(OnDrunkApplied);
         SubscribeLocalEvent<DrunkStatusEffectComponent, StatusEffectRemovedEvent>(OnDrunkRemoved);
-        SubscribeLocalEvent<ADTDrunkDriftComponent, ExaminedEvent>(OnExamined);
     }
 
     private void OnDrunkApplied(Entity<DrunkStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
@@ -62,17 +56,6 @@ public sealed class DrunkDriftSystem : EntitySystem
 
         comp.VisualsActive = active;
         Dirty(uid, comp);
-    }
-
-    private void OnExamined(Entity<ADTDrunkDriftComponent> ent, ref ExaminedEvent args)
-    {
-        if (!ent.Comp.VisualsActive)
-            return;
-
-        if (!_mobQuery.TryComp(ent.Owner, out var mob) || mob.CurrentState != MobState.Alive)
-            return;
-
-        args.PushMarkup(Loc.GetString("adt-drunk-examine", ("ent", ent.Owner)));
     }
 
     public override void Update(float frameTime)
