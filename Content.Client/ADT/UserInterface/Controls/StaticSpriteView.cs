@@ -17,7 +17,10 @@ public class StaticSpriteView : Control
 {
     protected SpriteSystem? SpriteSystem;
     private SharedTransformSystem? _transform;
+    private IClyde _clyde = default!;
     protected readonly IEntityManager EntMan;
+
+    private IRenderTexture? _snapshot;
 
     [ViewVariables]
     public SpriteComponent? Sprite => Entity?.Comp1;
@@ -113,18 +116,21 @@ public class StaticSpriteView : Control
     public StaticSpriteView()
     {
         IoCManager.Resolve(ref EntMan);
+        IoCManager.Resolve(ref _clyde);
         RectClipContent = true;
     }
 
     public StaticSpriteView(IEntityManager entMan)
     {
         EntMan = entMan;
+        _clyde = IoCManager.Resolve<IClyde>();
         RectClipContent = true;
     }
 
     public StaticSpriteView(EntityUid? uid, IEntityManager entMan)
     {
         EntMan = entMan;
+        _clyde = IoCManager.Resolve<IClyde>();
         RectClipContent = true;
         SetEntity(uid);
     }
@@ -132,6 +138,7 @@ public class StaticSpriteView : Control
     public StaticSpriteView(NetEntity uid, IEntityManager entMan)
     {
         EntMan = entMan;
+        _clyde = IoCManager.Resolve<IClyde>();
         RectClipContent = true;
         SetEntity(uid);
     }
@@ -144,6 +151,7 @@ public class StaticSpriteView : Control
         // Подписаться на событие появления сущности
         Entity = null;
         NetEnt = netEnt;
+        InvalidateSnapshot();
     }
 
     public void SetEntity(EntityUid? uid)
@@ -156,11 +164,25 @@ public class StaticSpriteView : Control
         {
             Entity = null;
             NetEnt = null;
+            InvalidateSnapshot();
             return;
         }
 
         Entity = new(uid.Value, sprite, xform);
         NetEnt = EntMan.GetNetEntity(uid);
+        InvalidateSnapshot();
+    }
+
+    private void InvalidateSnapshot()
+    {
+        _snapshot?.Dispose();
+        _snapshot = null;
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+        InvalidateSnapshot();
     }
 
     protected override Vector2 MeasureOverride(Vector2 availableSize)
@@ -217,12 +239,26 @@ public class StaticSpriteView : Control
 
     protected override void Draw(IRenderHandle renderHandle)
     {
+        if (_snapshot != null)
+        {
+            renderHandle.DrawingHandleScreen.DrawTextureRect(_snapshot.Texture,
+                new UIBox2(0, 0, PixelSize.X, PixelSize.Y));
+            return;
+        }
+
         if (!ResolveEntity(out var uid, out var sprite, out var xform))
             return;
 
         SpriteSystem ??= EntMan.System<SpriteSystem>();
         _transform ??= EntMan.System<TransformSystem>();
         SpriteSystem.ForceUpdate(uid);
+
+        var pixelSize = PixelSize;
+        if (pixelSize.X <= 0 || pixelSize.Y <= 0)
+            return;
+
+        if (_spriteSize == Vector2.Zero)
+            UpdateSize();
 
         var stretchVec = Stretch switch
         {
@@ -236,15 +272,23 @@ public class StaticSpriteView : Control
             ? Vector2.Zero
             : -(-_eyeRotation).RotateVec(sprite.Offset * _scale) * new Vector2(1, -1) * EyeManager.PixelsPerMeter;
 
-        var position = PixelSize / 2 + offset * stretch * UIScale + Offset * UIScale;
+        var position = pixelSize / 2 + offset * stretch * UIScale + Offset * UIScale;
         var scale = Scale * UIScale * stretch;
 
-        var world = renderHandle.DrawingHandleWorld;
-        var oldModulate = world.Modulate;
-        world.Modulate *= Modulate * ActualModulateSelf;
+        _snapshot = _clyde.CreateRenderTarget(new Vector2i((int) pixelSize.X, (int) pixelSize.Y),
+            RenderTargetColorFormat.Rgba8Srgb, name: "StaticSpriteView");
 
-        renderHandle.DrawEntity(uid, position, scale, _worldRotation, _eyeRotation, OverrideDirection, sprite, xform, _transform);
-        world.Modulate = oldModulate;
+        renderHandle.RenderInRenderTarget(_snapshot, () =>
+        {
+            var world = renderHandle.DrawingHandleWorld;
+            var oldModulate = world.Modulate;
+            world.Modulate *= Modulate * ActualModulateSelf;
+            renderHandle.DrawEntity(uid, position, scale, _worldRotation, _eyeRotation, OverrideDirection, sprite, xform, _transform);
+            world.Modulate = oldModulate;
+        }, Color.Transparent);
+
+        renderHandle.DrawingHandleScreen.DrawTextureRect(_snapshot.Texture,
+            new UIBox2(0, 0, pixelSize.X, pixelSize.Y));
     }
 
     private bool ResolveEntity(
