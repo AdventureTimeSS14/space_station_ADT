@@ -48,3 +48,15 @@ ent-ADTCrateNecropolisModsuitMods = { ent-ADTCrateNecropolis }
 ent-ADTCrateNecropolisSuperSynthesizer = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
     .suffix = Суперсинтезатор, Лаваленд
+
+ent-ADTCrateNecropolisEverfullMug = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Неиссякаемая кружка, Лаваленд
+
+ent-ADTCrateNecropolisWispLantern = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Фонарь с виспом, Лаваленд
+
+ent-ADTCrateNecropolisPickaxeDiamond = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Алмазная кирка, Лаваленд
