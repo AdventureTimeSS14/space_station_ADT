@@ -83,4 +83,9 @@ public sealed class UpgradeExamineEvent : EntityEventArgs
             ("color", good ? "#6DFFA5" : "#FF7A7A")) + '\n',
             out _);
     }
+
+    public void AddUpgradeLine(string text)
+    {
+        _message.TryAddMarkup(text + '\n', out _);
+    }
 }
