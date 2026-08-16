@@ -839,7 +839,7 @@ namespace Content.Shared.Preferences
                 _languages.Remove(lang);
             }
 
-            // ADT-Tweak-Start: снять лишние языки сверх лимита (черта Полиглот снята, хакерский профиль)
+            // ADT-Tweak-Start
             var maxLanguages = speciesPrototype.MaxLanguages + LanguageSlotsBonus;
             if (_languages.Count > maxLanguages)
             {
@@ -849,8 +849,10 @@ namespace Content.Shared.Preferences
                 {
                     if (_languages.Count <= maxLanguages)
                         break;
+
                     if (required.Contains(lang))
                         continue;
+
                     _languages.Remove(lang);
                 }
             }
