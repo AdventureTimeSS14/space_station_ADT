@@ -1040,7 +1040,3 @@ SpawnMobXenoRavager: ADTSpawnMobXenoRavagerNoGhost
 SpawnMobXenoRunner: ADTSpawnMobXenoRunnerNoGhost
 SpawnMobXenoSpitter: ADTSpawnMobXenoSpitterNoGhost
 SpawnMobXenoEasy: ADTSpawnMobXenoEasyNoGhost
-
-# ADT Xenobio bluespace floor entity -> tile item (2026-08-17)
-FloorBluespaceEntity: FloorTileItemBluespace
-FloorSepiaEntity: FloorTileItemSepia
