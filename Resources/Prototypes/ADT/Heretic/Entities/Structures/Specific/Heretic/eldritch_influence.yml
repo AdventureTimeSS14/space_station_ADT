@@ -18,9 +18,10 @@
   id: EldritchInfluenceIntermediate
   categories: [ HideSpawnMenu ]
   components:
-  # ADT: rift spawns instantly, as in Goob
+  # ADT: after collection the rift disappears for a while, then reappears as a
+  # reality fracture visible to everyone (previously spawned instantly)
   - type: TimedDespawn
-    lifetime: 0.1
+    lifetime: 120
   - type: SpawnOnDespawn
     prototype: EldritchInfluenceSpent
 
@@ -39,4 +40,4 @@
     sprite: ADT/Heretic/reality_fracture.rsi
     state: icon_harvested
   - type: Visibility
-    layer: 256 # ADT: VisibilityFlags.EldritchInfluenceSpent = 1<<8
+    layer: 1 # ADT: Normal - visible to the whole crew (previously EldritchInfluenceSpent layer, only heretics saw it)
