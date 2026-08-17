@@ -134,6 +134,7 @@
           components:
           - FitsInDispenser
   - type: ActivatableUI
+    inHandsOnly: false
     key: enum.MedicalAssemblerUiKey.Key
   - type: ActivatableUIRequiresPower
   - type: UserInterface

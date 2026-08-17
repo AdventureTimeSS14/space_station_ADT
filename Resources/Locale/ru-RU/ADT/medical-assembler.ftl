@@ -31,7 +31,5 @@ medical-assembler-style-stimpen = Стимулятор
 medical-assembler-style-oxapen = Оксапен
 medical-assembler-style-bicpen = Бикаридин
 medical-assembler-style-dexpen = Дексалин
-ent-ADTBlankMediPen = Пустой медипен
-    .desc = Пустой медипен с безграничным потенциалом. Не допускает отклонений от рецептов Нанотрейзен.
 ent-ADTCustomMedipen = Кастомный медипен
     .desc = Медипен, собранный на медицинском ассемблере с индивидуальным содержимым. Не допускает отклонений от рецептов Нанотрейзен.
