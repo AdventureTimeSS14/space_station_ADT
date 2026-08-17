@@ -14120,3 +14120,39 @@ Entries:
     id: 1814
     pr_number: 3187
     time: '2026-08-16T15:32:41Z'
+  - author: Etvy
+    changes:
+      - {message: Добавлена возможность крепления тонфы на спину, type: Add}
+    id: 1815
+    pr_number: 3189
+    time: '2026-08-17T06:59:09Z'
+  - author: ultradyper
+    changes:
+      - {message: Пьяные игроки шатаются при ходьбе, type: Add}
+      - {message: 'При осмотре персонажа, если он пьян, будет показано, что он явно
+          нетрезв', type: Tweak}
+    id: 1816
+    pr_number: 3137
+    time: '2026-08-17T07:12:53Z'
+  - author: ultradyper
+    changes:
+      - {message: 'Добавлена скрытая информация персонажа, видимая только антагонистам
+          и призракам', type: Add}
+    id: 1817
+    pr_number: 3081
+    time: '2026-08-17T08:31:40Z'
+  - author: ultradyper
+    changes:
+      - {message: 'Ассистенту доступны смокинги, котелок, цилиндр и монокль в лоаудате',
+        type: Add}
+      - {message: Трости доступны в лоаудате всем профессиям, type: Add}
+    id: 1818
+    pr_number: 3177
+    time: '2026-08-17T10:13:24Z'
+  - author: Inconnu
+    changes:
+      - {message: Бонус на антагонистов теперь сохраняется между перезапусками сервера.,
+        type: Add}
+    id: 1819
+    pr_number: 3191
+    time: '2026-08-17T11:03:29Z'
