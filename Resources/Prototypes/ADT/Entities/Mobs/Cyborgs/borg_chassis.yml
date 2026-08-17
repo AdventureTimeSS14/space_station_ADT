@@ -166,7 +166,7 @@
       - BorgModuleGeneric
       - BorgModuleClowning
       - BorgModuleAdvancedClowning
-    hasMindState: ClownMime_e
+    hasMindState: ClownMimee
     noMindState: ClownMimeer
   - type: Construction
     node: clownmimecyborg
