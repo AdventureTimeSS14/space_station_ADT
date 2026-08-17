@@ -184,3 +184,25 @@
     Dylovene: 5
   recipeType: MedicalAssembler
   requiredTechnology: ADTMedAssemblerPens3
+
+- type: microwaveMealRecipe
+  id: RecipeMedicatedSutureAssembler
+  name: medicated suture recipe
+  result: MedicatedSuture
+  time: 10
+  group: Medicinal
+  reagents:
+    TranexamicAcid: 40
+    Cryptobiolin: 40
+  recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeRegenerativeMeshAssembler
+  name: regenerative mesh recipe
+  result: RegenerativeMesh
+  time: 10
+  group: Medicinal
+  reagents:
+    Sigynate: 40
+    Dermaline: 40
+  recipeType: MedicalAssembler
