@@ -14149,3 +14149,10 @@ Entries:
     id: 1818
     pr_number: 3177
     time: '2026-08-17T10:13:24Z'
+  - author: Inconnu
+    changes:
+      - {message: Бонус на антагонистов теперь сохраняется между перезапусками сервера.,
+        type: Add}
+    id: 1819
+    pr_number: 3191
+    time: '2026-08-17T11:03:29Z'
