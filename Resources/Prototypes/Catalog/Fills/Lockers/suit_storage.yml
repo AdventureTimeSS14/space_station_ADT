@@ -305,7 +305,7 @@
   - type: SuitStorage
     options:
     - ADTClothingModsuitBackMinerva
-    - ClothingOuterHardsuitRds
+    - ClothingOuterHardsuitRd
   # ADT-Tweak end
   - type: AccessReader
     access: [ [ "ResearchDirector" ] ]

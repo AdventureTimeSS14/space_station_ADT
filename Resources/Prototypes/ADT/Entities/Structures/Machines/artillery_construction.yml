@@ -795,7 +795,7 @@
         name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitort-4
+        name: machine-part-name-capacitor-t4
       - machinePart: MatterBin
         tier: 4
         name: machine-part-name-matter-bin-t4

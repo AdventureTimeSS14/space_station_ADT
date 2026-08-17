@@ -7,7 +7,8 @@ machine-part-name-scanning-module = сканирующий модуль
 machine-part-name-scanning-module-t4 = трифазный сканирующий модуль
 machine-part-name-micro-laser = Микро-лазер
 machine-part-name-micro-laser-t4 = квад-ультра микро-лазер
-machine-part-name-Capacitor-t4 = блюспейс-конденсатор
+machine-part-name-capacitor-t4 = блюспейс-конденсатор
+machine-part-name-matter-bin-t4 = блюспейс-ёмкость материи
 
 machine-upgrade-increased-by-percentage-extra = Параметр [color=yellow]{ $upgraded }[/color] увеличен на [color={ $color }]{ $percent }%[/color].
 machine-upgrade-decreased-by-percentage-extra = Параметр [color=yellow]{ $upgraded }[/color] уменьшен на [color={ $color }]{ $percent }%[/color].
