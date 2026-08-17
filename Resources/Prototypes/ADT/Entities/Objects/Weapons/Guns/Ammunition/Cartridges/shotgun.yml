@@ -1,0 +1,20 @@
+- type: entity
+  parent: [ BaseShellShotgun, BaseSecurityContraband ]
+  id: ADTShellShotgunSlugImprovised
+  name: improvised slug shotgun shell
+  components:
+  - type: Tag
+    tags:
+    - ShellShotgun
+    - ShellShotgunLight
+  - type: Sprite
+    layers:
+      - state: improvised
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Construction
+    graph: ADTShellShotgunSlugImprovised
+    node: shell
+  - type: CartridgeAmmo
+    proto: ADTPelletShotgunSlugImprovised
+  - type: SpentAmmoVisuals
+    state: "improvised"

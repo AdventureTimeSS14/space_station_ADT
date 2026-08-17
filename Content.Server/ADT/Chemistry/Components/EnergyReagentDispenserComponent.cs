@@ -12,6 +12,8 @@ namespace Content.Server.ADT.Chemistry.Components
     [Access(typeof(EnergyReagentDispenserSystem))]
     public sealed partial class EnergyReagentDispenserComponent : Component
     {
+        public const string PartContainerName = "machine_parts";
+
         [DataField]
         public ItemSlot EnergyBeakerSlot = new();
 
@@ -47,5 +49,26 @@ namespace Content.Server.ADT.Chemistry.Components
         /// </summary>
         [DataField]
         public bool Emagged = false;
+
+        /// <summary>
+        /// Нюкерская версия: всегда заряжена на 100% и не разряжается.
+        /// </summary>
+        [DataField]
+        public bool InfiniteBattery = false;
+
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public float FinalRechargeRate = 25f;
+
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public float FinalEnergyCostMultiplier = 1f;
+
+        [DataField]
+        public float RechargeRatePerTier = 10f;
+
+        [DataField]
+        public Dictionary<int, List<string>> TierReagents = [];
+
+        [DataField]
+        public float TierReagentCost = 8f;
     }
 }

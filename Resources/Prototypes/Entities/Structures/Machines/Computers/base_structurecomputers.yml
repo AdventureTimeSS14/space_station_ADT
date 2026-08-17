@@ -41,6 +41,16 @@
   - type: EdgeConnection # ADT-Tweak
     connectionKey: computer-console
     allowedDirections: East, West
+  # ADT port start pAI modernization
+  - type: ItemSlots
+    slots:
+      pai_slot:
+        name: Personal AI Device
+        ejectOnInteract: false
+        whitelist:
+          components:
+          - PAI
+  # ADT port end pAI modernization
   - type: GenericVisualizer
     visuals:
       enum.ComputerVisuals.Powered:
@@ -67,9 +77,9 @@
     radius: 1.5
     energy: 3.0
     enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
+    mask: /Textures/ADT/Effects/Lightmasks/circle_c.png # ADT tweak
     autoRot: true
-    offset: "0, 0.4" # shine from the top, not bottom of the computer
+#    offset: "0, 0.4" # shine from the top, not bottom of the computer # ADT tweak
     castShadows: false
   - type: EmitSoundOnUIOpen
     sound:
@@ -85,6 +95,7 @@
     containers:
       board: !type:Container
         ents: []
+      pai_slot: !type:ContainerSlot {} #ADT-Tweak: PAI
   - type: LightningTarget
     priority: 1
   - type: RequireProjectileTarget

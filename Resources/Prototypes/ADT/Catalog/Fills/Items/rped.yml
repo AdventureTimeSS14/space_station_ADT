@@ -1,0 +1,71 @@
+- type: entity
+  parent: BluespaceRapidPartExchanger
+  id: BluespaceRapidPartExchangerFilledTier1
+  suffix: Tier 1
+  components:
+  - type: StorageFill
+    contents:
+      - id: CapacitorStockPart
+        amount: 20
+      - id: ScanningModuleStockPart
+        amount: 20
+      - id: MicroServoStockPart
+        amount: 20
+      - id: MicroLaserStockPart
+        amount: 20
+      - id: MatterBinStockPart
+        amount: 20
+
+- type: entity
+  parent: BluespaceRapidPartExchanger
+  id: BluespaceRapidPartExchangerFilledTier2
+  suffix: Tier 2
+  components:
+  - type: StorageFill
+    contents:
+      - id: AdvancedCapacitorStockPart
+        amount: 20
+      - id: AdvancedScanningModuleStockPart
+        amount: 20
+      - id: NanoServoStockPart
+        amount: 20
+      - id: HighPowerMicroLaserStockPart
+        amount: 20
+      - id: AdvancedMatterBinStockPart
+        amount: 20
+
+- type: entity
+  parent: BluespaceRapidPartExchanger
+  id: BluespaceRapidPartExchangerFilledTier3
+  suffix: Tier 3
+  components:
+  - type: StorageFill
+    contents:
+      - id: SuperCapacitorStockPart
+        amount: 20
+      - id: PhasicScanningModuleStockPart
+        amount: 20
+      - id: PicoServoStockPart
+        amount: 20
+      - id: UltraHighPowerMicroLaserStockPart
+        amount: 20
+      - id: SuperMatterBinStockPart
+        amount: 20
+
+- type: entity
+  parent: BluespaceRapidPartExchanger
+  id: BluespaceRapidPartExchangerFilled
+  suffix: Tier 4
+  components:
+  - type: StorageFill
+    contents:
+      - id: BluespaceCapacitorStockPart
+        amount: 20
+      - id: TriphasicScanningModuleStockPart
+        amount: 20
+      - id: FemtoServoStockPart
+        amount: 20
+      - id: QuadUltraMicroLaserStockPart
+        amount: 20
+      - id: BluespaceMatterBinStockPart
+        amount: 20

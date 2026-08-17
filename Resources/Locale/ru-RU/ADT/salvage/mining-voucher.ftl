@@ -53,7 +53,7 @@ blueshield-voucher-smg-description =
 blueshield-voucher-tonfa-name = набор с кунг-фу дракона
 blueshield-voucher-tonfa-description =
     Набор ближнего боя.
-    Включает в себя усиленный набор брони, свиток Кунг-фу Дракона, а также фаворитный щит корпуса синих щитов.
+    Включает в себя усиленный набор брони, свиток Кунг-фу Дракона, стальную тонфу, а также фаворитный щит корпуса синих щитов.
 
 blueshield-voucher-saber-rev-name = набор с энергетическим мечом-револьвером
 blueshield-voucher-saber-rev-description =
@@ -108,14 +108,39 @@ syndicate-voucher-hardsuit-description = Тяжелобронированный 
 syndicate-voucher-mod-name = МОД "Синдикат"
 syndicate-voucher-mod-description = Костюм, разработанный "Gorlex Marauders", предлагающий броню, признанную незаконной в большинстве секторов.
 
-syndicate-elite-voucher-hardsuit-name = элитный скафандр Синдиката
-syndicate-elite-voucher-hardsuit-description = Элитная версия кроваво-красного скафандра, отличающаяся повышенной стойкостью к радиации и огнеупорностью. Собственность Мародёров Горлекса.
+syndicate-commander-voucher-hardsuit-name = скафандр командира Синдиката
+syndicate-commander-voucher-hardsuit-description = Усиленная версия кроваво-красного скафандра, предназначенная для командиров оперативных отрядов Синдиката. Броня значительно усилена для ведения смертоносных боёв на передовой.
 
-syndicate-elite-voucher-mod-name = МОД "Элитный"
-syndicate-elite-voucher-mod-description = Элитный костюм, усовершенствованный "Cybersun Industries" и предлагающий повышенные показатели брони.
+syndicate-medic-voucher-hardsuit-name = кроваво-красный медицинский скафандр
+syndicate-medic-voucher-hardsuit-description = Тяжелобронированный и манёвренный продвинутый скафандр, предназначенный для полевых медицинских операций.
 
 sec-voucher-mk58-name = МК 58
 sec-voucher-mk58-description = Дешёвый и распространённый пистолет, производимый дочерней компанией Nanotrasen. Использует патроны калибра 9х19 мм.
 
 sec-voucher-laser-name = лазерный пистолет
 sec-voucher-laser-description = Дешёвый и широко распространённый лазерный пистолет, производимый дочерней компанией Nanotrasen. При долгом использовании может нагреваться.
+
+deathsquad-voucher-hardsuit-name = скафандр Эскадрона Смерти
+deathsquad-voucher-hardsuit-description = Продвинутый скафандр, используемый в специальных операциях.
+deathsquad-voucher-mod-name = МОД "Харон"
+deathsquad-voucher-mod-description = Продвинутый боевой костюм для специальных операций Центрального Командования. Не требует батареи.
+
+ertleader-voucher-hardsuit-name = скафандр лидера ОБР
+ertleader-voucher-hardsuit-description = Защитный скафандр, выдаваемый лидеру Отряда Быстрого Реагирования кода "Гамма".
+ertleader-voucher-mod-name = МОД ОБР "Полярис"
+ertleader-voucher-mod-description = Облегчённый МОД для лидера Отряда Быстрого Реагирования кода "Гамма". Питается от гипербатареи.
+
+ertsecurity-voucher-hardsuit-name = скафандр бойца ОБР
+ertsecurity-voucher-hardsuit-description = Защитный скафандр, выдаваемый бойцам Отряда Быстрого Реагирования кода "Гамма".
+ertsecurity-voucher-mod-name = МОД ОБР "Антарес"
+ertsecurity-voucher-mod-description = Облегчённый МОД для бойцов Отряда Быстрого Реагирования кода "Гамма". Питается от гипербатареи.
+
+ertengineer-voucher-hardsuit-name = скафандр инженера ОБР
+ertengineer-voucher-hardsuit-description = Защитный скафандр, выдаваемый инженеру Отряда Быстрого Реагирования кода "Гамма".
+ertengineer-voucher-mod-name = МОД ОБР "Капелла"
+ertengineer-voucher-mod-description = Облегчённый МОД для инженера Отряда Быстрого Реагирования кода "Гамма". Питается от гипербатареи.
+
+ertmedical-voucher-hardsuit-name = скафандр медика ОБР
+ertmedical-voucher-hardsuit-description = Защитный скафандр, выдаваемый медику Отряда Быстрого Реагирования кода "Гамма".
+ertmedical-voucher-mod-name = МОД ОБР "Вега"
+ertmedical-voucher-mod-description = Облегчённый МОД для медика Отряда Быстрого Реагирования кода "Гамма". Питается от гипербатареи.

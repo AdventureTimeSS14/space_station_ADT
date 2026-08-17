@@ -22,12 +22,24 @@
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
     range: 2.3
+  - type: ADTCursedKatana
+    hungerDamage:
+      types:
+        Blunt: 8
+        Slash: 8
+        Piercing: 8
+    healCost:
+      types:
+        Slash: 10
+  - type: WeaponMartialArt
+    martialArtsForm: CursedKatana
+    combos: CursedKatanaMoves
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
   - type: DisarmMalus
   - type: GuideHelp
     guides:
-    - ADTMartialArts
+    - ADTMaKatana
 
 - type: entity
   parent: BaseItem
@@ -38,11 +50,7 @@
   - type: Sprite
     sprite: ADT/Objects/Specific/cursed_katana_shard.rsi
     state: katana-shard
-  - type: SpawnItemsOnUse
-    items:
-    - id: ADTKatanacursed
-    sound:
-      path: /Audio/Effects/demon_attack1.ogg
+  - type: ADTCursedKatanaShard
 
 - type: entity
   name: dagger plasma

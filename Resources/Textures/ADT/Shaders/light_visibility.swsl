@@ -29,6 +29,6 @@ void fragment()
     highp vec4 tex = texture(TEXTURE, UV);
 
     COLOR = tex;
-    COLOR.rgb /= lightSample;
+    COLOR.rgb /= max(lightSample, vec3(0.0001));
     COLOR.a *= visibilityAlpha;
 }

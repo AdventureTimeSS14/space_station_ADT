@@ -49,10 +49,12 @@
 
 # Cargo Modules
 
-- type: latheRecipe
-  parent: BaseGoldBorgModuleRecipe
-  id: BorgModuleAdvancedMining
-  result: BorgModuleAdvancedMining
+# ADT-Tweak-Start
+# - type: latheRecipe
+#   parent: BaseGoldBorgModuleRecipe
+#   id: BorgModuleAdvancedMining
+#   result: BorgModuleAdvancedMining
+# ADT-Tweak-End
 
 # Engineering Modules
 

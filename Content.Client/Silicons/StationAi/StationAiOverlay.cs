@@ -61,6 +61,15 @@ public sealed class StationAiOverlay : Overlay
         _entManager.TryGetComponent(gridUid, out MapGridComponent? grid);
         _entManager.TryGetComponent(gridUid, out BroadphaseComponent? broadphase);
 
+        // ADT-Tweak start
+        var visionNetwork = default(string?);
+        if (playerEnt is { } player &&
+            _entManager.TryGetComponent(player, out StationAiOverlayComponent? overlayComp))
+        {
+            visionNetwork = overlayComp.VisionNetwork;
+        }
+        // ADT-Tweak end
+
         var invMatrix = args.Viewport.GetWorldToLocalMatrix();
         _accumulator -= (float) _timing.FrameTime.TotalSeconds;
 
@@ -73,7 +82,7 @@ public sealed class StationAiOverlay : Overlay
             {
                 _accumulator = MathF.Max(0f, _accumulator + _updateRate);
                 _visibleTiles.Clear();
-                _entManager.System<StationAiVisionSystem>().GetView((gridUid, broadphase, grid), worldBounds, _visibleTiles);
+                _entManager.System<StationAiVisionSystem>().GetView((gridUid, broadphase, grid), worldBounds, _visibleTiles, visionNetwork: visionNetwork); // ADT-Tweak
             }
 
             var gridMatrix = xforms.GetWorldMatrix(gridUid);

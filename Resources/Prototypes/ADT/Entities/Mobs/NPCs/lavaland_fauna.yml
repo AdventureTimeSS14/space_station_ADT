@@ -1,0 +1,223 @@
+- type: entity
+  name: gutlunch
+  id: ADTMobGutlunch
+  parent: ADTSimpleMobBaselavaland
+  description: A scavenger that eats raw meat, often found alongside ash walkers. Produces a thick, medicinally nutritious milk.
+  components:
+  - type: Hunger
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/Lavaland/gutlunch.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: gutlunch
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: gutlunch
+      Dead:
+        Base: gutlunch
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.30
+        density: 80
+        hard: true
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      60: Dead
+  - type: ADTScavenger
+    whitelist:
+      tags:
+      - Meat
+    healOnEat:
+      types:
+        Blunt: -4
+        Piercing: -4
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3
+  - type: ADTHerdMember
+  - type: HTN
+    rootTask:
+      task: ADTHerdCompound
+    blackboard:
+      ADTHerdRange: !type:Single
+        6
+      ADTHerdCloseRange: !type:Single
+        2
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 2
+  - type: SolutionContainerManager
+    solutions:
+      udder:
+        maxVol: 100
+  - type: SolutionRegeneration
+    solution: udder
+    generated:
+      reagents:
+      - ReagentId: ADTMilkGutlunch
+        Quantity: 0.2
+  - type: Udder
+    reagentId: ADTMilkGutlunch
+    quantityPerUpdate: 15
+    growthDelay: 30
+  - type: Tag
+    tags:
+    - ADTGutlunch
+    - DoorBumpOpener
+  - type: Reproductive
+    partnerWhitelist:
+      tags:
+      - ADTGutlunch
+    offspring:
+    - id: ADTMobGrublunch
+  - type: ReproductivePartner
+  - type: InteractionPopup
+    successChance: 0.7
+    interactSuccessString: petting-success-generic
+    interactFailureString: petting-failure-generic
+  - type: MobPrice
+    price: 200
+
+- type: entity
+  name: gubbuck
+  id: ADTMobGubbuck
+  parent: ADTMobGutlunch
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Lavaland/gutlunch.rsi
+    color: "#E39FBB"
+    scale: 0.85, 0.85
+  - type: Grammar
+    attributes:
+      gender: male
+
+- type: entity
+  name: guthen
+  id: ADTMobGuthen
+  parent: ADTMobGutlunch
+  components:
+  - type: Grammar
+    attributes:
+      gender: female
+
+- type: entity
+  name: grublunch
+  id: ADTMobGrublunch
+  parent: ADTMobGutlunch
+  description: A baby gutlunch. It will grow up to be a scavenger like its parents.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Lavaland/gutlunch.rsi
+    color: "#9E9E9E"
+    scale: 0.6, 0.6
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      25: Dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 1
+  - type: Udder
+    reagentId: ADTMilkGutlunch
+    quantityPerUpdate: 0
+    growthDelay: 3600
+  - type: Reproductive
+    breedChance: 0
+    partnerWhitelist:
+      tags:
+      - ADTGutlunch
+    offspring:
+    - id: ADTMobGrublunch
+  - type: MobPrice
+    price: 50
+
+- type: entity
+  name: goldgrub
+  id: ADTMobGoldgrub
+  parent: ADTSimpleMobBaselavaland
+  description: A worm that grows fat from eating everything in its sight. Seems to enjoy precious metals and other shiny things, hence the name.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/Lavaland/goldgrub.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: goldgrub
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: goldgrub
+      Dead:
+        Base: goldgrub-dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.30
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      45: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5
+  - type: ADTBurrowAway
+    triggerRange: 6
+    chaseTime: 10
+  - type: ADTFlee
+    targetKey: FleeTarget
+    distance: 8
+    defaultRange: 6
+  - type: HTN
+    rootTask:
+      task: ADTGoldgrubCompound
+    blackboard:
+      ADTFleeRange: !type:Single
+        6
+      VisionRadius: !type:Single
+        7
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: ADTBulletDeflect
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 1
+  - type: ADTScavenger
+    storeEaten: true
+    capacity: 12
+    whitelist:
+      tags:
+      - Ore
+  - type: ADTMobLoot
+    loots:
+      GoldOre1: 0.5
+      SilverOre1: 0.5
+      UraniumOre1: 0.4
+      DiamondOre1: 0.25
+  - type: MobPrice
+    price: 300

@@ -54,6 +54,7 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      fTLCooldownOverride: 15
     - type: MiningShuttleGuest
     - type: DockingShuttle
       destinations: []

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -25,7 +26,7 @@ public sealed partial class DropPodConsoleComponent : Component
     public float FlightTime = 90f;
 
     [DataField]
-    public TimeSpan Cooldown = TimeSpan.FromSeconds(120);
+    public TimeSpan Cooldown = TimeSpan.FromSeconds(0);
 
     [DataField]
     public TimeSpan LastLaunchTime = TimeSpan.Zero;
@@ -35,7 +36,7 @@ public sealed partial class DropPodConsoleComponent : Component
     /// Null disables the effect entirely.
     /// </summary>
     [DataField]
-    public string? PreLandingSpawnPrototype = "ADTDroppodTarget";
+    public string? PreLandingSpawnPrototype = null;
 
     /// <summary>
     /// How many seconds before landing to spawn <see cref="PreLandingSpawnPrototype"/>.
@@ -57,6 +58,12 @@ public sealed partial class DropPodConsoleComponent : Component
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan? WarDeclaredTime;
+
+    /// <summary>
+    /// Sound played when the drop pod launch announcement is broadcast.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? LaunchAnnouncementSound = new SoundPathSpecifier("/Audio/ADT/Droppod/podalarm.ogg");
 }
 
 [Serializable, NetSerializable]

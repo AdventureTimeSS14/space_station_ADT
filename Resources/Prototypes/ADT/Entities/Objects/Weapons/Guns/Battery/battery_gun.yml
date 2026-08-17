@@ -138,6 +138,8 @@
   id: ADTWeaponCutter
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
   components:
+    - type: ADTMagmiteUpgradable
+      result: ADTWeaponCutterMagmite
     - type: Item
       size: Normal
       shape:
@@ -171,6 +173,8 @@
   id: ADTWeaponCutterAdv
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
   components:
+    - type: ADTMagmiteUpgradable
+      result: ADTWeaponCutterMagmite
     - type: Sprite
       sprite: ADT/Objects/Weapons/Guns/Battery/cutteradv.rsi
       state: icon
@@ -319,7 +323,8 @@
       params:
         volume: -5
     fireRate: 0.5
-  - type: UpgradeableGun
+  - type: ADTUpgradeableGun # ADT Tweak
+    maxModCapacity: 100
     whitelist:
       tags:
       - PKAUpgrade

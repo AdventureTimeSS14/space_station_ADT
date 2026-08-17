@@ -3,6 +3,7 @@ using Content.Server.Chat.Managers;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Pointing;
 using Content.Shared.Chat;
+using Content.Shared.Ghost;
 using Robust.Server.Configuration;
 using Robust.Shared.Player;
 
@@ -29,9 +30,22 @@ internal sealed partial class PointingSystem
             return;
 
         var viewerList = viewers
-            .Distinct()
             .Append(sourceSession)
+            .Distinct()
             .Where(v => _adtNetConfig.GetClientCVar(v.Channel, ADTCCVars.EnableChatPointingIcons))
+            .Where(v =>
+            {
+                if (v.AttachedEntity is not { Valid: true } ent)
+                    return false;
+
+                if (ent == source)
+                    return true;
+
+                if (HasComp<GhostHearingComponent>(ent))
+                    return true;
+
+                return _examine.InRangeUnOccluded(ent, source, PointingRange);
+            })
             .ToList();
 
         if (viewerList.Count == 0)

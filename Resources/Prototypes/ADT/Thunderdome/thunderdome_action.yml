@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseAction
+  id: ActionThunderdomeLeave
+  name: Покинуть колизей
+  description: Вернуться в наблюдатели.
+  components:
+  - type: Action
+    useDelay: 5
+    icon: { sprite: Actions/Implants/implants.rsi, state: explosive }
+  - type: InstantAction
+    event: !type:ThunderdomeLeaveActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionThunderdomeLeaderboard
+  name: Таблица лидеров
+  description: Посмотреть топ бойцов колизея и свою статистику.
+  components:
+  - type: Action
+    useDelay: 3
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: manifest }
+  - type: InstantAction
+    event: !type:ThunderdomeLeaderboardActionEvent

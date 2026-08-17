@@ -461,6 +461,52 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("antag", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AntagRollBonus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("antag_roll_bonus_id");
+
+                    b.Property<string>("Antag")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("antag");
+
+                    b.Property<int>("MissedRounds")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("missed_rounds");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_antag_roll_bonus");
+
+                    b.HasIndex("UserId", "Antag")
+                        .IsUnique();
+
+                    b.ToTable("antag_roll_bonus", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AntagRollBonusWipe", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("antag_roll_bonus_wipe_id");
+
+                    b.Property<DateTime>("LastWipe")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("last_wipe");
+
+                    b.HasKey("Id")
+                        .HasName("PK_antag_roll_bonus_wipe");
+
+                    b.ToTable("antag_roll_bonus_wipe", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.AssignedUserId", b =>
                 {
                     b.Property<int>("Id")
@@ -1112,6 +1158,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
 
+                    b.Property<string>("ExploitableInfo")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("exploitable_info");
+
                     b.Property<string>("EyeColor")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -1479,6 +1530,53 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasDatabaseName("IX_stamped_data_book_printer_entry_id");
 
                     b.ToTable("stamped_data", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ThunderdomeStats", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("thunderdome_stats_id");
+
+                    b.Property<int>("BestStreak")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("best_streak");
+
+                    b.Property<int>("Deaths")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("deaths");
+
+                    b.Property<int>("Kills")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("kills");
+
+                    b.Property<DateTime>("LastPlayed")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("last_played");
+
+                    b.Property<int>("RoundsPlayed")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("rounds_played");
+
+                    b.Property<float>("Score")
+                        .HasColumnType("REAL")
+                        .HasColumnName("score");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_thunderdome_stats");
+
+                    b.HasIndex("Score")
+                        .IsDescending();
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("thunderdome_stats", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.Trait", b =>

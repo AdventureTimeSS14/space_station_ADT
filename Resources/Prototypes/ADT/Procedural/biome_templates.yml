@@ -71,7 +71,6 @@
         - ADTywflowers3
         - ADTywflowers4
 
-# Cactusi chto bi ih zhrat'
     - !type:BiomeEntityLayer
       threshold: 0.95
       noise:
@@ -81,7 +80,7 @@
       allowedTiles:
         - FloorBasalt
       entities:
-        - ADTLavalandCactusSpawner
+        - ADTLavalandAshFloraSpawner
 
     - !type:BiomeEntityLayer
       threshold: 0.95
@@ -97,7 +96,7 @@
         - FloraRockSolid
 
     - !type:BiomeEntityLayer
-      threshold: 0.97
+      threshold: 0.965
       noise:
         seed: 0
         noiseType: OpenSimplex2
@@ -106,18 +105,6 @@
         - FloorBasalt
       entities:
         - ADTSpawnMobPRandomLavaland
-
-    - !type:BiomeEntityLayer
-      threshold: 0.995
-      noise:
-        seed: 0
-        noiseType: OpenSimplex2
-        frequency: 0.6
-        lacunarity: 0.6
-      allowedTiles:
-        - FloorBasalt
-      entities:
-        - LavaDungeonRoomMarker
 
     - !type:BiomeEntityLayer
       threshold: 0.2
@@ -181,12 +168,11 @@
       allowedTiles:
         - FloorBasalt
       entities:
-        - FloraTreeSnow
-        - FloraTreeSnow
-        - FloraTreeSnow
-        - FloraTreeSnow
-        - FloraTreeSnow
-        - FloraTreeSnow
+        - FloraRockSolid
+        - FloraRockSolid
+        - BasaltOne
+        - BasaltThree
+        - BasaltFive
 
     # Fill basalt
     - !type:BiomeTileLayer

@@ -10,6 +10,15 @@ namespace Content.Shared.ADT.CCVar;
 public sealed class ADTCCVars
 {
     /*
+    * Exploitable Info
+    */
+    /// <summary>
+    /// Включает скрытую информацию персонажа (видна только владельцу, антагам и призракам).
+    /// </summary>
+    public static readonly CVarDef<bool> ExploitableSecrets =
+        CVarDef.Create("ic.exploitable_info", true, CVar.SERVER | CVar.REPLICATED);
+
+    /*
     * Barks
     */
     public static readonly CVarDef<bool> BarksEnabled =
@@ -32,6 +41,16 @@ public sealed class ADTCCVars
 
     public static readonly CVarDef<float> BarksVolume =
         CVarDef.Create("barks.volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /*
+    * Boss music
+    */
+
+    public static readonly CVarDef<bool> BossMusicEnabled =
+        CVarDef.Create("adt.boss_music_enabled", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> BossMusicVolume =
+        CVarDef.Create("adt.boss_music_volume", 1.5f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /*
     * Radial menu
@@ -381,5 +400,26 @@ public sealed class ADTCCVars
     public static readonly CVarDef<bool> BlobCanGrowInSpace =
         CVarDef.Create("blob.grow_space", true, CVar.SERVER);
 
+     /*
+     * Antag Roll Bonus
+     */
+
+    public static readonly CVarDef<bool> AntagRollBonusEnabled =
+        CVarDef.Create("antag.roll_bonus_enabled", true, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> AntagRollBonusPerRound =
+        CVarDef.Create("antag.roll_bonus_per_round", 0.15f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> AntagRollBonusInfoRateLimitPeriod =
+        CVarDef.Create("antag.roll_bonus_info_rate_limit_period", 5f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> AntagRollBonusInfoRateLimitCount =
+        CVarDef.Create("antag.roll_bonus_info_rate_limit_count", 3, CVar.SERVERONLY);
+
+    /// <summary>
+    /// How many hours pass between full wipes of every stored roll bonus. Zero or less disables wiping.
+    /// </summary>
+    public static readonly CVarDef<float> AntagRollBonusWipeHours =
+        CVarDef.Create("antag.roll_bonus_wipe_hours", 36f, CVar.SERVERONLY);
 }
 

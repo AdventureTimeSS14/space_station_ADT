@@ -10,4 +10,7 @@ public sealed partial class SlowDebuffMarkerComponent : Component
 
     [DataField, AutoNetworkedField]
     public float DamageMultiplier = 0.9f;
+
+    [DataField, AutoNetworkedField]
+    public EntityUid Source;
 }

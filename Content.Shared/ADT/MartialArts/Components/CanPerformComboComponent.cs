@@ -38,7 +38,7 @@ public sealed partial class CanPerformComboComponent : Component
     [DataField]
     public List<ProtoId<ComboPrototype>> RoundstartCombos = new();
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan ResetTime = TimeSpan.Zero;
 
     [DataField, AutoNetworkedField]

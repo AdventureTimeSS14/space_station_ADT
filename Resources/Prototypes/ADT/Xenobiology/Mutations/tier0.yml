@@ -1,0 +1,15 @@
+# Literally the first base
+- type: breed
+  breedName: breed-GreyMutation
+  id: GreyMutation
+  producedExtract: GreySlimeExtract
+  slimeColor: "#828282"
+  maxOffspring: 4
+  mutationChance: 0.45
+  potentialMutations:
+  - OrangeMutation
+  - PurpleMutation
+  - BlueMutation
+  - MetalMutation
+
+# TODO add rainbow here for Smile

@@ -18,8 +18,10 @@
       - ADTCrateNecropolisMjollnir
       #- ADTCrateNecropolisMegaCellMedium
       - ADTCrateNecropolisModsuitMods
-      - ADTCrateNecropolisSuperSynthesizer
       - ADTCrateNecropolisCursedKatana
+      - ADTCrateNecropolisPickaxeDiamond
+      - ADTCrateNecropolisEverfullMug
+      - ADTCrateNecropolisWispLantern
     rarePrototypes:
       - ADTCrateNecropolisVavilon
       - ADTCrateNecropolisVehicleLavabike

@@ -1,3 +1,5 @@
+using Content.Server.ADT.Generation;
+using Content.Server.ADT.Salvage.Systems;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Parallax;
 using Content.Shared.ADT.CCVar;
@@ -19,6 +21,7 @@ namespace Content.Server.ADT.Planet;
 
 public sealed class PlanetSystem : EntitySystem
 {
+    [Dependency] private readonly ADTLavalandGenerationSystem _lavaland = default!;
     [Dependency] private readonly BiomeSystem _biome = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MapSystem _map = default!;
@@ -85,6 +88,24 @@ public sealed class PlanetSystem : EntitySystem
             _setTiles.Clear();
             var aabb = Comp<MapGridComponent>(gridUid).LocalAABB;
             _biome.ReserveTiles(map, aabb.Enlarged(0.2f), _setTiles);
+
+            // ADT-Tweak-Start
+            var center = aabb.Center;
+            if (TryComp<ADTLavalandGenerationComponent>(map, out var generation))
+            {
+                generation.BaseCenter = center;
+                _lavaland.ReserveSafeZone((map, generation), center);
+
+                if (generation.BaseBeacon is { } beacon)
+                    Spawn(beacon, new EntityCoordinates(gridUid, center));
+            }
+
+            if (TryComp<ADTLavalandPopulationComponent>(map, out var population))
+                population.BaseCenter = center;
+
+            if (TryComp<ADTMegafaunaSpawnComponent>(map, out var megafauna))
+                megafauna.BaseCenter = center;
+            // ADT-Tweak-End
         }
         else
         {

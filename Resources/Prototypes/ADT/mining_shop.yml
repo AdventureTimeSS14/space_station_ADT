@@ -3,167 +3,195 @@
   name: ПКК
   entries:
 #  - id: WeaponCrusherDagger
-#    price: 550
+#    price: 660
   - id: WeaponCrusher
-    price: 1050
+    price: 1260
   - id: WeaponKineticSpear
-    price: 1050
+    price: 1260
   - id: WeaponKineticHammer
-    price: 1050
+    price: 1260
   - id: WeaponKineticClaws
-    price: 1050
+    price: 1260
   - id: WeaponKineticMachete
-    price: 1050
+    price: 1260
 
 - type: miningShopSection
   id: KA
   name: ПКА
   entries:
   - id: WeaponProtoKineticAccelerator
-    price: 750
-  - id: ADTWeaponProtoKineticPistol
-    price: 1750
+    price: 900
   - id: ADTWeaponProtoKineticShotgun
-    price: 2350
-  - id: ADTWeaponProtoKineticRepeater
-    price: 2150
-  - id: ADTWeaponProtoKineticRailgun
-    price: 2100
+    price: 3400
 
 - type: miningShopSection
   id: Motion
   name: Выживание
   entries:
+  - id: ADTGpsMining
+    price: 250
   - id: FultonBeacon
-    price: 1000
+    price: 1200
   - id: Fulton
-    price: 1750
+    price: 2100
   - id: ADTJaunter
     price: 900
   - id: WeaponGrapplingGun
-    price: 750
+    price: 900
   - id: ADTShelterCapsule
-    price: 500
+    price: 600
   - id: ADTShelterCapsuleLuxury
-    price: 3500
+    price: 4200
   - id: ADTShelterCapsuleBar
-    price: 7500
+    price: 9000
   - id: ADTShelterCapsuleLivingRoom
-    price: 10000
+    price: 12000
 
 - type: miningShopSection
   id: Medicine
   name: Медицина
   entries:
   - id: SpaceMedipen
-    price: 300
+    price: 360
   - id: EmergencyMedipen
-    price: 300
+    price: 360
   - id: BruteAutoInjector
-    price: 600
+    price: 720
   - id: BurnAutoInjector
-    price: 600
+    price: 720
   - id: MedkitBruteFilled
-    price: 900
+    price: 1080
   - id: MedkitBurnFilled
-    price: 800
+    price: 960
   - id: MedkitToxinFilled
-    price: 1000
+    price: 1200
   - id: ADTPatchPackFilled
-    price: 400
+    price: 480
   - id: ADTStabilizingSerum
-    price: 300
+    price: 360
+  - id: ADTSurvivalMedipen
+    price: 720
+  - id: ADTStabilizationMedipen
+    price: 1080
+  - id: ADTHyperMedipen
+    price: 2400
 
 - type: miningShopSection
   id: EquipmentWearable
   name: Снаряжение
   entries:
   - id: ClothingMaskGasExplorer
-    price: 175
+    price: 210
   - id: ClothingBeltSalvageWebbing
-    price: 500
+    price: 600
   - id: OreBag
-    price: 350
+    price: 420
   - id: ADTAdvancedOreBag
-    price: 850
+    price: 1020
 #  - id: OreBagOfHolding
-#    price: 3000
-  - id: ADTClothingOuterArmorMiner
-    price: 1000
-#  - id: ADTClothingOuterArmorMinerHeavy
 #    price: 3600
+  - id: ADTClothingOuterArmorMiner
+    price: 1200
+#  - id: ADTClothingOuterArmorMinerHeavy
+#    price: 4320
 #  - id: ADTClothingOuterArmorMinerLight
-#    price: 4000
+#    price: 4800
   - id: ADTClothingJumpBoots
-    price: 1500
+    price: 1800
   - id: ClothingOuterHardsuitSpatio
-    price: 1000
+    price: 1200
   - id: ClothingOuterHardsuitSalvage
-    price: 2500
+    price: 3000
   - id: ADTClothingModsuitBackMining
-    price: 2500
+    price: 3000
 
 - type: miningShopSection
   id: EquipmentHand
   name: Раскопки
   entries:
   - id: Flare
-    price: 75
+    price: 90
   - id: Pickaxe
-    price: 125
-  - id: MiningDrill
-    price: 500
-  # - id: SeismicCharge временно в ауте
-  #   price: 200
-  - id: FireExtinguisherMini
     price: 150
+  - id: MiningDrill
+    price: 600
+  # - id: SeismicCharge временно в ауте
+  #   price: 240
+  - id: FireExtinguisherMini
+    price: 180
   - id: ADTWeaponCutter
-    price: 2000
+    price: 2400
+  - id: ADTResonator
+    price: 960
+  - id: ADTResonatorUpgraded
+    price: 2400
   - id: PowerCellHigh
-    price: 650
+    price: 780
   - id: Binoculars
-    price: 450
+    price: 540
   - id: ADTModsuitModDrill
-    price: 1000
+    price: 1200
   - id: ADTModsuitModStorageLarge
-    price: 500 
-    
+    price: 600
+
 - type: miningShopSection
   id: Upgrades
   name: Улучшения
   entries:
   - id: PKAUpgradeDamage
-    price: 750
+    price: 900
   - id: PKAUpgradeRange
-    price: 350
+    price: 420
   - id: PKAUpgradeFireRate
-    price: 500
+    price: 600
 #  - id: PKAUpgradeLight #Fix That and then we will uncoment this
-#    price: 500
+#    price: 600
+  - id: ADTPKAUpgradeMiningExplosion
+    price: 1800
+  - id: ADTPKAUpgradeOffensiveMiningExplosion
+    price: 2700
+  - id: ADTPKAUpgradeOffensiveExplosion
+    price: 2100
+  - id: ADTPKAUpgradeRapidRepeater
+    price: 3000
+  - id: ADTPKAUpgradeDeathSyphon
+    price: 3300
+  - id: ADTPKAUpgradeIndoors
+    price: 2400
+  - id: ADTPKAUpgradeResonatorBlast
+    price: 2700
+  - id: ADTPKAUpgradeTracerWhite
+    price: 300
+  - id: ADTPKAUpgradeTracerAdjustable
+    price: 600
+  - id: ADTPKAUpgradeChassisSuper
+    price: 300
+  - id: ADTPKAUpgradeChassisHyper
+    price: 300
 
 - type: miningShopSection
   id: Fun
   name: Безделушки
   entries:
   - id: PlushieLizard
-    price: 220 # CURSE
+    price: 264 # CURSE
   - id: SpaceCash1000
-    price: 2500
+    price: 3000
   - id: DrinkWhiskeyBottleFull
-    price: 100
+    price: 120
   - id: DrinkAbsintheBottleFull
-    price: 150
+    price: 180
   - id: BoxMRE
-    price: 350
+    price: 420
   - id: ADTFunPokerBox
-    price: 500
+    price: 600
   - id: ChessBoard
-    price: 400
+    price: 480
   - id: CheckerBoard
-    price: 400
+    price: 480
   - id: SoapNT
-    price: 400
+    price: 480
   - id: Cigar
-    price: 300
+    price: 360
   - id: CigarGoldCase
-    price: 1000
+    price: 1200

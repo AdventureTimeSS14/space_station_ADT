@@ -1,0 +1,108 @@
+# ВОКСЫ
+
+- type: loadout
+  id: ADTVoxGloves
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - Vox
+  storage:
+    back: 
+    - ADTClothingHandsGlovesVox
+
+- type: loadout
+  id: ADTVoxUniform
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - Vox
+  storage:
+    back: 
+    - ADTClothingUniformVoxSuit
+  groupBy: "voxuniform"
+
+- type: loadout
+  id: ADTVoxUniformBlue
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - Vox
+  storage:
+    back: 
+    - ADTClothingUniformVoxSuitBlue
+  groupBy: "voxuniform"
+
+- type: loadout
+  id: ADTVoxUniformGreen
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - Vox
+  storage:
+    back: 
+    - ADTClothingUniformVoxSuitGreen
+  groupBy: "voxuniform"
+
+- type: loadout
+  id: ADTVoxUniformPurple
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - Vox
+  storage:
+    back: 
+    - ADTClothingUniformVoxSuitPurple
+  groupBy: "voxuniform"
+
+- type: loadout
+  id: ADTVoxUniformRed
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - Vox
+  storage:
+    back: 
+    - ADTClothingUniformVoxSuitRed
+  groupBy: "voxuniform"
+
+- type: loadout
+  id: ADTVoxUniformTeal
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - Vox
+  storage:
+    back: 
+    - ADTClothingUniformVoxSuitTeal
+  groupBy: "voxuniform"
+
+- type: loadout
+  id: ADTVoxUniformYellow
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - Vox
+  storage:
+    back: 
+    - ADTClothingUniformVoxSuitYellow
+  groupBy: "voxuniform"
+
+- type: loadout
+  id: ADTVoxRobe
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - Vox
+  storage:
+    back: 
+    - ADTClothingOuterVoxRobe
+
+- type: loadout
+  id: ADTVoxSandals
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - Vox
+  storage:
+    back: 
+    - ADTClothingShoesVoxSandals

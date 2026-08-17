@@ -86,6 +86,9 @@
         - id: PlushieSharkGrey
           amount: !type:ConstantNumberSelector
             value: 2
+        - id: ADTBlackSharkPlushie # ADT tweak start
+          amount: !type:ConstantNumberSelector
+            value: 2 # ADT tweak end
 
 - type: entity
   parent: CrateGenericSteel

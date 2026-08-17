@@ -1,0 +1,151 @@
+# Tier 1
+- type: latheRecipe
+  parent: BaseStockPartRecipe
+  id: CapacitorStockPart
+  result: CapacitorStockPart
+
+- type: latheRecipe
+  parent: BaseStockPartRecipe
+  id: ScanningModuleStockPart
+  result: ScanningModuleStockPart
+
+- type: latheRecipe
+  parent: BaseStockPartRecipe
+  id: MicroServoStockPart
+  result: MicroServoStockPart
+
+- type: latheRecipe
+  parent: BaseStockPartRecipe
+  id: MicroLaserStockPart
+  result: MicroLaserStockPart
+
+- type: latheRecipe
+  parent: BaseStockPartRecipe
+  id: MatterBinStockPart
+  result: MatterBinStockPart
+
+# Tier 2
+- type: latheRecipe
+  id: AdvancedCapacitorStockPart
+  result: AdvancedCapacitorStockPart
+  categories:
+  - Parts
+  completetime: 1.5
+  materials:
+    Steel: 50
+    Plastic: 50
+    Copper: 50
+    Silver: 75
+    Gold: 25
+
+- type: latheRecipe
+  parent: AdvancedCapacitorStockPart
+  id: AdvancedScanningModuleStockPart
+  result: AdvancedScanningModuleStockPart
+
+- type: latheRecipe
+  parent: AdvancedCapacitorStockPart
+  id: NanoServoStockPart
+  result: NanoServoStockPart
+
+- type: latheRecipe
+  parent: AdvancedCapacitorStockPart
+  id: HighPowerMicroLaserStockPart
+  result: HighPowerMicroLaserStockPart
+
+- type: latheRecipe
+  parent: AdvancedCapacitorStockPart
+  id: AdvancedMatterBinStockPart
+  result: AdvancedMatterBinStockPart
+
+- type: latheRecipe
+  id: RapidPartExchanger
+  result: RapidPartExchanger
+  categories:
+  - Parts
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 250
+
+# Tier 3
+- type: latheRecipe
+  id: SuperCapacitorStockPart
+  result: SuperCapacitorStockPart
+  categories:
+  - Parts
+  completetime: 2
+  materials:
+    Steel: 75
+    Plastic: 75
+    Copper: 75
+    Plasma: 75
+    Uranium: 25
+    Gold: 25
+
+- type: latheRecipe
+  parent: SuperCapacitorStockPart
+  id: PhasicScanningModuleStockPart
+  result: PhasicScanningModuleStockPart
+
+- type: latheRecipe
+  parent: SuperCapacitorStockPart
+  id: PicoServoStockPart
+  result: PicoServoStockPart
+
+- type: latheRecipe
+  parent: SuperCapacitorStockPart
+  id: UltraHighPowerMicroLaserStockPart
+  result: UltraHighPowerMicroLaserStockPart
+
+- type: latheRecipe
+  parent: SuperCapacitorStockPart
+  id: SuperMatterBinStockPart
+  result: SuperMatterBinStockPart
+
+# Tier 4
+- type: latheRecipe
+  id: TriphasicScanningModuleStockPart
+  result: TriphasicScanningModuleStockPart
+  categories:
+  - Parts
+  completetime: 3
+  materials:
+    Steel: 75
+    Plastic: 75
+    Copper: 75
+    ADTBScrystal: 75
+    Gold: 50
+    Uranium: 50
+
+- type: latheRecipe
+  parent: TriphasicScanningModuleStockPart
+  id: FemtoServoStockPart
+  result: FemtoServoStockPart
+
+- type: latheRecipe
+  parent: TriphasicScanningModuleStockPart
+  id: BluespaceCapacitorStockPart
+  result: BluespaceCapacitorStockPart
+
+- type: latheRecipe
+  parent: TriphasicScanningModuleStockPart
+  id: QuadUltraMicroLaserStockPart
+  result: QuadUltraMicroLaserStockPart
+
+- type: latheRecipe
+  parent: TriphasicScanningModuleStockPart
+  id: BluespaceMatterBinStockPart
+  result: BluespaceMatterBinStockPart
+
+- type: latheRecipe
+  id: BluespaceRapidPartExchanger
+  result: BluespaceRapidPartExchanger
+  categories:
+  - Parts
+  completetime: 2
+  materials:
+    Steel: 750
+    Glass: 250
+    Silver: 125
+    ADTBScrystal: 150

@@ -8,13 +8,13 @@ namespace Content.Shared.ADT.Bubblegum.Abilities;
 public sealed partial class BubblegumTripleChargeComponent : Component
 {
     [DataField]
-    public List<float> Delays = new() { 0.9f, 0.6f, 0.3f };
+    public List<float> Delays = new() { 0.6f, 0.45f, 0.35f };
 
     [DataField]
     public EntProtoId TelegraphPrototype = "ADTBubblegumChargeTelegraph";
 
     [DataField]
-    public float ChargeSpeed = 12f;
+    public float ChargeSpeed = 20f;
 
     [DataField]
     public EntProtoId MarkerPrototype = "ADTBubblegumTripleChargeMarker";
@@ -23,7 +23,7 @@ public sealed partial class BubblegumTripleChargeComponent : Component
     public TimeSpan PlayerCooldownBetweenClicks = TimeSpan.FromSeconds(0.3);
 
     [DataField]
-    public TimeSpan FullCooldown = TimeSpan.FromSeconds(8);
+    public TimeSpan FullCooldown = TimeSpan.FromSeconds(6);
 
     [DataField]
     public List<MapCoordinates> PendingPlayerTargets = [];

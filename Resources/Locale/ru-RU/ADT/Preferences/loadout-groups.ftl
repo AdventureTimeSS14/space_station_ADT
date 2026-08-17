@@ -5,6 +5,7 @@ loadout-group-top-adt = Нижнее белье(Верх)
 loadout-group-bottom-adt = Нижнее белье(Низ)
 loadout-group-socks-adt = Носки
 loadout-group-spray-paints = Баллончики с краской
+loadout-group-racial-items = Расовые предметы
 # Command
 ent-MagistratNeck = Галстуки
 ent-MagistratJumpsuit = Костюмы
@@ -21,6 +22,8 @@ loadout-group-chef-id-adt = Шеф-повар, ID
 loadout-group-librarian-backpack = Библиотекарь, рюкзак
 loadout-group-librarian-id-adt = Библиотекарь, ID
 loadout-group-passenger-id-adt = Ассистент, ID
+loadout-group-passenger-head-adt = Ассистент, голова
+loadout-group-passenger-glasses-adt = Ассистент, очки
 loadout-group-bartender-id-adt = Бармен, ID
 loadout-group-clown-id-adt = Клоун, ID
 loadout-group-janitor-id-adt = Уборщик, ID

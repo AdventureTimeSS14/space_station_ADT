@@ -1,6 +1,6 @@
 - type: entity
   id: BaseMobBubblegum
-  parent: BaseMobAsteroid
+  parent: ADTBaseMobMegafauna
   abstract: true
   components:
   - type: Sprite
@@ -23,25 +23,6 @@
         - MobMask
         layer:
         - MobLayer
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
-  - type: Tag
-    tags:
-    - CannotSuicide
-    - DoorBumpOpener
-    - StunImmune
-  - type: NoSlip
-  - type: ExplosionResistance
-    damageCoefficient: 0
-  - type: Fauna
-  - type: Appearance
-  - type: AshStormImmune
-  - type: StatusEffects
-    allowed: []
-  - type: StaminaResistance
-    damageCoefficient: 0
-    worn: false
 
 - type: entity
   id: ADTMegaFaunaBubblegum
@@ -49,8 +30,10 @@
   description: bublbegum desc
   parent: BaseMobBubblegum
   components:
-  - type: Destructible
-    thresholds: []
+  - type: GpsSignal
+    tag: adt-gps-signal-bubblegum
+    description: adt-gps-signal-bubblegum-desc
+    color: "#B32020"
   - type: GenericVisualizer
     visuals:
       enum.BubblegumVisuals.Enraged:
@@ -60,23 +43,19 @@
           False:
             color: "#FFFFFF"
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.6
-    baseSprintSpeed: 3.6
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
   - type: MobThresholds
     thresholds:
       0: Alive
-      2500: Dead
-  - type: Damageable
-    damageModifierSet: Bubblegum
-  - type: Injurable
-    damageContainer: Biological
+      3500: Dead
   - type: MeleeWeapon
-    attackRate: 0.5
+    attackRate: 0.85
     damage:
       types:
-        Blunt: 35
+        Blunt: 45
         Structural: 150
-    range: 2
+    range: 1.6
     angle: 0
     animation: WeaponArcPunch
     soundHit:
@@ -87,47 +66,67 @@
       AggroVisionRadius: !type:Single "20"
       NavSmash: !type:Bool "true"
       NavInteract: !type:Bool "true"
-      ADTBubblegumKeepDistance: !type:Single "5"
-      ADTBubblegumRetreatTrigger: !type:Single "4"
+      MeleeRange: !type:Single "1.45"
       MeleeMissChance: !type:Single "0"
     rootTask:
       task: ADTBubblegumCompound
   - type: Megafauna
+    speechCooldown: 15
+    speechChance: 0.3
+  - type: ADTBossMusic
+    music: ADTBossMusicBubblegum
+#  - type: ADTMobHealthBar
+#    active: true
+#    primaryColor: "#8e1717"
+#    accentColor: "#ff4d4d"
+ #   style: Molten
+ #   priority: 50
   - type: ArmorPenetration
-    penetration: 0.4
+    penetration: 0.65
   - type: Bubblegum
   - type: BubblegumTripleCharge
     delays:
-    - 1.0
-    - 0.7
+    - 0.65
+    - 0.5
     - 0.4
   - type: BubblegumHallucinationCharge
-    hallucinationsSmash: 3
+    hallucinationsNormal: 8
+    hallucinationsSmash: 5
   - type: BubblegumSurround
-    waves: 4
+    waves: 6
   - type: BubblegumBloodWarp
   - type: BubblegumSummonNarsi
-    count: 2
+    count: 3
   - type: BubblegumBloodAttack
-    smackDamageEnraged: 17
+    smackDamage: 15
+    smackDamageEnraged: 26
   - type: BubblegumLoot
-    randomAmountLoot:
-      GoldOre: 10
-      SilverOre: 10
-      DiamondOre: 5
-      PlasmaOre: 15
-      UraniumOre: 10
-      SpaceQuartz: 15
-    randomLoot:
-    - ADTMayhemBottle
-    - ADTBloodContract
-    - ADTWeaponExperimentalProtoKineticAcellerator
-    guaranteedLoot:
-    - ADTClothingOuterHardsuitHECK
-    - ADTClothingHeadHelmetHardsuitHECK
-    - ADTKineticTrophyDemonClaws
     deathThemeSound:
       path: /Audio/ADT/Phantom/Sounds/psycho.ogg
+  - type: MegafaunaLoot
+    dropOnDeath: false # the death sequence drops it
+    crateProto: ADTCrateBubblegumLoot
+    dropEffect: ADTBubblegumChestGlow
+    dropSound:
+      path: /Audio/ADT/Bubblegum/exit_blood.ogg
+    randomLoot:
+    - ADTWeaponExperimentalProtoKineticAcellerator
+    loot:
+    - proto: ADTClothingOuterHardsuitHECK
+    - proto: ADTClothingHeadHelmetHardsuitHECK
+    - proto: ADTKineticTrophyDemonClaws
+    - proto: GoldOre
+      max: 10
+    - proto: SilverOre
+      max: 10
+    - proto: DiamondOre
+      max: 5
+    - proto: PlasmaOre
+      max: 15
+    - proto: UraniumOre
+      max: 10
+    - proto: SpaceQuartz
+      max: 15
   - type: StatusIcon
     bounds: -1,-2,1,1
 
@@ -178,8 +177,3 @@
     netsync: true
     rootTask:
       task: DoAbsolutelyNothingCompound
-
-- type: htnCompound
-  id: DoAbsolutelyNothingCompound
-  branches:
-    - tasks: []

@@ -1,4 +1,5 @@
-﻿using Content.Shared.Mech;
+﻿using Content.Shared.ADT.Mech.Components;
+using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
 using Robust.Client.GameObjects;
@@ -42,6 +43,15 @@ public sealed partial class MechSystem : SharedMechSystem
             state = component.OpenState;
             drawDepth = DrawDepth.SmallMobs;
         }
+        // ADT-Mech-Start
+        else if (TryComp<MechThrusterComponent>(uid, out var thruster) &&
+                 thruster.FlightState != null &&
+                 _appearance.TryGetData<bool>(uid, MechThrusterVisuals.Flying, out var flying, args.Component) &&
+                 flying)
+        {
+            state = thruster.FlightState;
+        }
+        // ADT-Mech-End
 
         _sprite.LayerSetRsiState((uid, args.Sprite), MechVisualLayers.Base, state);
         _sprite.SetDrawDepth((uid, args.Sprite), (int)drawDepth);

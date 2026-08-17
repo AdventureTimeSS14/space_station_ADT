@@ -5,6 +5,8 @@ ent-ADTMobBlobPod = капля блоба
     .desc = Обычный боец блоба.
 ent-ADTMobBlobBlobbernaut = блобернаут
     .desc = Элитный боец блоба.
+ent-ADTMobMouseBlob = мышь
+    .desc = { ent-MobMouse.desc }
 ent-ADTBaseBlob = базовый блоб.
     .desc = { "" }
 ent-ADTNormalBlobTile = обычный тайл блоба
@@ -179,10 +181,6 @@ objective-condition-blob-capture-title = Захватить станцию
 objective-condition-blob-capture-description = Ваша единственная цель — захватить всю станцию. Вам нужно как минимум { $count } тайлов блоба.
 objective-condition-success = { $condition } | [color={ $markupColor }]Успех![/color]
 objective-condition-fail = { $condition } | [color={ $markupColor }]Провал![/color] ({ $progress }%)
-
-# Команды администратора
-admin-verb-make-blob = Превратить цель в носителя блоба.
-admin-verb-text-make-blob = Сделать носителем блоба
 
 # Язык
 language-ADTBlob-name = Блоб

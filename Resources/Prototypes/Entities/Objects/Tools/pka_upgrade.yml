@@ -9,7 +9,7 @@
     sprite: Objects/Tools/upgrade.rsi
   - type: Item
     size: Small
-  - type: GunUpgrade
+  - type: ADTGunUpgrade # ADT Tweak
   - type: StaticPrice
     price: 750
   - type: Tag
@@ -30,14 +30,17 @@
       color: "#a71010"
     - state: overlay-3
       color: "#eb4c13"
-  - type: GunUpgrade
+  # ADT Tweak Start
+  - type: ADTGunUpgrade
+    cost: 30
     tags: [ GunUpgradeDamage ]
     examineText: gun-upgrade-examine-text-damage
-  - type: GunUpgradeDamage
+  - type: ADTGunUpgradeDamage
     damage:
       types:
         Blunt: 10
         Structural: 15
+  # ADT Tweak End
 
 - type: entity
   id: PKAUpgradeRange
@@ -53,11 +56,14 @@
       color: "#1012a7"
     - state: overlay-3
       color: "#1373eb"
-  - type: GunUpgrade
+  # ADT Tweak Start
+  - type: ADTGunUpgrade
+    cost: 24
     tags: [ GunUpgradeRange ]
     examineText: gun-upgrade-examine-text-range
-  - type: GunUpgradeSpeed
-    coefficient: 1.3 # ADT-Tweak 1.5 -> 1.3
+  - type: ADTGunUpgradeRange
+    coefficient: 1.34
+  # ADT Tweak End
 
 - type: entity
   id: PKAUpgradeFireRate
@@ -73,8 +79,13 @@
       color: "#07901b"
     - state: overlay-3
       color: "#9bf134"
-  - type: GunUpgrade
+  # ADT Tweak Start
+  - type: ADTGunUpgrade
+    cost: 30
+    maximumOfType: 3
     tags: [ GunUpgradeReloadSpeed ]
     examineText: gun-upgrade-examine-text-reload
-  - type: GunUpgradeFireRate
+  - type: ADTGunUpgradeFireRate
     coefficient: 1.5
+    rechargeCoefficient: 0.8
+  # ADT Tweak End

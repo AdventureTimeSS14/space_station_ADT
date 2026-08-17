@@ -39,6 +39,15 @@
   - ADTModsuitModTray
   - ADTModsuitModIsulation
   - ADTModsuitModJump
+  - ADTModsuitModReagentScanner
+  - ADTModsuitModStatusReadout
+  - ADTModsuitModHealthAnalyzer
+  - ADTModsuitModDefibrillator
+  - ADTModsuitModAnomalyScanner
+  - ADTModsuitModGPS
+  - ADTModsuitModDiagnosticVisor
+  - ADTModsuitModMesonVision
+  - ADTModsuitModBodycam
   # - ADTModsuitModNoslip
 
 - type: latheRecipePack
@@ -66,6 +75,26 @@
   - ADTMechGunMedigun
   - ADTOdysseusCentralElectronics
   - ADTOdysseusPeripheralsElectronics
+
+- type: latheRecipePack
+  id: ADTArchimedesPack
+  recipes:
+  - ADTArchimedesHarness
+  - ADTArchimedesLArm
+  - ADTArchimedesRArm
+  - ADTArchimedesLLeg
+  - ADTArchimedesRLeg
+  - ADTArchimedesCentralElectronics
+  - ADTArchimedesPeripheralsElectronics
+  - ADTMechEquipmentToolWelder
+  - ADTMechEquipmentToolWirecutter
+  - ADTMechEquipmentToolScrewdriver
+  - ADTMechEquipmentToolWrench
+  - ADTMechEquipmentToolCrowbar
+  - ADTMechEquipmentToolWelderExperimental
+  - ADTMechEquipmentToolJawsOfLife
+  - ADTMechEquipmentToolPowerDrill
+  - ADTMechEquipmentCockpit
 
 - type: latheRecipePack
   id: ADTClarkePack

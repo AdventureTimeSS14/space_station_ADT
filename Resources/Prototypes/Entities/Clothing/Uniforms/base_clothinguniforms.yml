@@ -56,22 +56,24 @@
   id: ClothingUniformBase
   components:
   - type: SuitSensor
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    transmitFrequencyId: SuitSensor
-    savableAddress: false
-  - type: WirelessNetworkConnection
-    range: 1200
-  - type: StationLimitedNetwork
+  # #ADT-Tweak Start - New Monitor: Deprecated
+  # - type: DeviceNetwork
+  #   deviceNetId: Wireless
+  #   transmitFrequencyId: SuitSensor
+  #   savableAddress: false
+  # - type: WirelessNetworkConnection
+  #   range: 1200
+  # - type: StationLimitedNetwork
+  # #ADT-Tweak End
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [underwearb, underweart]
   - type: Tag
     tags:
+      - ClothMade
+      - Recyclable
       - ADTJumpSuitSacrifice
       - WhitelistChameleon
-  - type: HidesSlots
-    hidesSlots: [ UNDERWEART, UNDERWEARB, POCKET ]
   #ADT-Tweak-End
 
 - type: entity

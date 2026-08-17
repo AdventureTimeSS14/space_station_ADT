@@ -13,3 +13,11 @@ flavor-interface-flavor-text-title = Описание персонажа
 flavor-interface-custom-species = Описание расы
 flavor-interface-no-custom-species-desc = Абсолютно обычный бороздитель космоса.
 headshot-loading = [bold]Загрузка...[/bold]
+
+flavor-interface-exploitable-title = Скрытая информация
+flavor-interface-exploitable-desc =
+    Информация о персонаже, которую в раунде видят только антагонисты и призраки.
+    Например: «Меня можно подкупить», «Боится темноты».
+flavor-interface-exploitable-placeholder = Меня можно подкупить за 5000 кредитов...
+exploitable-examine-verb-text = Скрытая информация
+exploitable-examine-verb-disabled = Слишком далеко, чтобы разглядеть.

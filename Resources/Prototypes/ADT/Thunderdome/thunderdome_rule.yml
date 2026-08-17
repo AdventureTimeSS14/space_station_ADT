@@ -1,0 +1,131 @@
+- type: entity
+  id: ThunderdomeRule
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: ThunderdomeRule
+      gear: ThunderdomeBaseGear
+      weaponLoadouts:
+        - gear: ThunderdomeShotgun
+          name: thunderdome-loadout-shotgun
+          description: thunderdome-desc-shotgun
+          category: thunderdome-category-shotguns
+          sprite: WeaponShotgunKammerer
+        - gear: ThunderdomeDoubleBarreled
+          name: thunderdome-loadout-doublebarreled
+          description: thunderdome-desc-doublebarreled
+          category: thunderdome-category-shotguns
+          sprite: WeaponShotgunDoubleBarreled
+        - gear: ThunderdomeSmg
+          name: thunderdome-loadout-smg
+          description: thunderdome-desc-smg
+          category: thunderdome-category-smgs
+          sprite: WeaponSubMachineGunDrozd
+        - gear: ThunderdomeWt550
+          name: thunderdome-loadout-wt550
+          description: thunderdome-desc-wt550
+          category: thunderdome-category-smgs
+          sprite: WeaponSubMachineGunWt550
+        - gear: ThunderdomeLecter
+          name: thunderdome-loadout-lecter
+          description: thunderdome-desc-lecter
+          category: thunderdome-category-rifles
+          sprite: WeaponRifleLecter
+        - gear: ThunderdomeAkms
+          name: thunderdome-loadout-akms
+          description: thunderdome-desc-akms
+          category: thunderdome-category-rifles
+          sprite: WeaponRifleAk
+        - gear: ThunderdomePython
+          name: thunderdome-loadout-python
+          description: thunderdome-desc-python
+          category: thunderdome-category-revolvers
+          sprite: WeaponRevolverPython
+        - gear: ThunderdomeInspector
+          name: thunderdome-loadout-inspector
+          description: thunderdome-desc-inspector
+          category: thunderdome-category-revolvers
+          sprite: WeaponRevolverInspector
+        - gear: ThunderdomeHristov
+          name: thunderdome-loadout-hristov
+          description: thunderdome-desc-hristov
+          category: thunderdome-category-snipers
+          sprite: WeaponSniperHristov
+        - gear: ThunderdomeEsword
+          name: thunderdome-loadout-esword
+          description: thunderdome-desc-esword
+          category: thunderdome-category-melee
+          sprite: EnergySword
+        - gear: ThunderdomeCapoeira
+          description: thunderdome-desc-capo
+          name: thunderdome-loadout-capo
+          category: thunderdome-category-melee
+          sprite: ADTScrollCapoeira
+        - gear: ThunderdomeMosin
+          name: thunderdome-loadout-mosin
+          description: thunderdome-desc-mosin
+          category: thunderdome-category-snipers
+          sprite: WeaponSniperMosin
+        - gear: ThunderdomeKungFuDragon
+          name: thunderdome-loadout-kungfu
+          description: thunderdome-desc-kungfu
+          category: thunderdome-category-melee
+          sprite: ADTScrollDragonKungFu
+        - gear: ThunderdomeFireAxe
+          name: thunderdome-loadout-fireaxe
+          description: thunderdome-desc-fireaxe
+          category: thunderdome-category-melee
+          sprite: FireAxeFlaming
+        - gear: ThunderdomeEnergyDagger
+          name: thunderdome-loadout-edagger
+          description: thunderdome-desc-edagger
+          category: thunderdome-category-melee
+          sprite: EnergyDagger
+        - gear: ThunderdomeEstoc
+          name: thunderdome-loadout-estoc
+          description: thunderdome-desc-estoc
+          category: thunderdome-category-rifles
+          sprite: WeaponRifleEstoc
+        - gear: ThunderdomeHushpup
+          name: thunderdome-loadout-hushpup
+          description: thunderdome-desc-hushpup
+          category: thunderdome-category-shotguns
+          sprite: WeaponShotgunHushpup
+        - gear: ThunderdomeAdvancedLaser
+          name: thunderdome-loadout-aeg
+          description: thunderdome-desc-aeg
+          category: thunderdome-category-energy
+          sprite: WeaponAdvancedLaser
+        - gear: ThunderdomeSvalinn
+          name: thunderdome-loadout-svalinn
+          description: thunderdome-desc-svalinn
+          category: thunderdome-category-energy
+          sprite: ADTWeaponLaserSvalinnRifle
+        - gear: ThunderdomeTacticBat
+          name: thunderdome-loadout-tacticbat
+          description: thunderdome-desc-tacticbat
+          category: thunderdome-category-melee
+          sprite: ADTTacticBat
+        - gear: ThunderdomeXC67
+          name: thunderdome-loadout-xc67
+          description: thunderdome-desc-xc67
+          category: thunderdome-category-rifles
+          sprite: ADTWeaponRifleXC67
+        - gear: ThunderdomeDeckard
+          name: thunderdome-loadout-deckard
+          description: thunderdome-desc-deckard
+          category: thunderdome-category-revolvers
+          sprite: WeaponRevolverDeckard
+        - gear: ThunderdomeCaptainSabre
+          name: thunderdome-loadout-sabre
+          description: thunderdome-desc-sabre
+          category: thunderdome-category-melee
+          sprite: CaptainSabre
+        - gear: ThunderdomeEnforcer
+          name: thunderdome-loadout-enforcer
+          description: thunderdome-desc-enforcer
+          category: thunderdome-category-shotguns
+          sprite: WeaponShotgunEnforcer
+    - type: LoadMapRule
+      mapPath: /Maps/Nonstations/dm01-entryway.yml
+    - type: RuleGrids

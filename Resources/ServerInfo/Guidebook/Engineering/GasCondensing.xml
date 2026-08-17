@@ -1,23 +1,181 @@
 ﻿<Document>
-  # Gas Condensing
-  Gas condensers take gasses and condense them into their liquid (reagent) forms.
+  # Конденсация газа
+  Конденсатор газа - двусторонний преобразователь: превращает [bold]газ в жидкость[/bold] или, наоборот, [bold]жидкость в газ[/bold]. Текущий режим всегда виден при осмотре.
 
   <Box>
     <GuideEntityEmbed Entity="BaseGasCondenser"/>
   </Box>
 
-  For example, water vapor can be condensed into liquid water, oxygen into liquid oxygen, and so on.
+  ## Что понадобится
 
-  It has a [textlink="pipenet" link="PipeNetworks"] connection to input gas, and an internal tank to store the condensed liquid.
+  <Box>
+    <GuideEntityEmbed Entity="Beaker"/>
+    <GuideEntityEmbed Entity="StorageCanister"/>
+    <GuideEntityEmbed Entity="GasPort"/>
+  </Box>
 
-  A condensor will stop condensing gas if the tank is full.
-  You can take liquid out of the condenser by interacting with it using any empty container.
+  - [bold]Мензурка[/bold] — чтобы заливать жидкость. Вставляется в слот конденсатора.
+  - [bold]Канистра[/bold] — чтобы собирать газ. Подключается к трубопроводу через разъём.
+  - [bold]Трубы и питание[/bold] — конденсатор работает только подключённым к трубопроводу и с питанием (включается переключателем).
 
-  Gas condensors can take multiple gasses as input, and will condense them into their liquid forms.
-  For example, if you input a mixture of oxygen and nitrogen, you will get liquid oxygen and liquid nitrogen in the output tank.
+  ## Переключение режима
 
-  Because [textlink="Chemistry" link="Chemist"] works with limited reagents in liquid form, they will highly appreciate the work of a skilled atmospherics technician who can provide them with the reagents they need.
+  <ColorBox Color="#2b3a2b" OutlineColor="#4d6b4d" OutlineThickness="1" Margin="4">
+    <Box Orientation="Vertical" Margin="6">
+      Нажмите по конденсатору [bold]правой кнопкой мыши[/bold] и выберите [italic]«Переключить режим»[/italic]. При переключении вы увидите всплывающее сообщение с новым режимом.
+    </Box>
+  </ColorBox>
 
+  ## Режим 1: конденсация — газ в жидкость
 
+  <ColorBox Color="#1f2b3a" OutlineColor="#335577" OutlineThickness="1" Margin="4">
+    <Box Orientation="Vertical" Margin="6">
+      [bold][color=#7fb8ff]Газ из труб[/color] → [color=#7fb8ff]жидкость[/color][/bold]
+
+      1. Подайте нужный газ по трубам в конденсатор.
+      2. Если в слоте стоит мензурка — жидкость копится в ней. Если мензурки нет — во внутреннем баке (вместимость 400u).
+      3. Когда ёмкость заполнена, конденсация останавливается. Жидкость из бака сливается кликом пустой ёмкостью.
+      4. Несколько газов конденсируются одновременно: смесь кислорода и азота даст жидкий кислород и жидкий азот.
+    </Box>
+  </ColorBox>
+
+  ## Режим 2: испарение — жидкость в газ
+
+  <ColorBox Color="#3a2f1f" OutlineColor="#6b5726" OutlineThickness="1" Margin="4">
+    <Box Orientation="Vertical" Margin="6">
+      [bold][color=#ffb873]Жидкость из мензурки[/color] → [color=#ffb873]газ в трубы и канистру[/color][/bold]
+
+      1. Вставьте мензурку с жидкостью в слот конденсатора.
+      2. Подключите канистру к той же трубе через разъём.
+      3. Жидкость испаряется со скоростью около 5 единиц в секунду, и газ уходит по трубам в канистру.
+
+      Испарится только та жидкость, у которой есть газовая форма — остальное останется в мензурке. Мензурку можно достать в любой момент.
+    </Box>
+  </ColorBox>
+
+  ## Какие газы можно получить
+
+  ### Базовые газы
+
+  <Table Columns="2">
+    <ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4" HorizontalAlignment="Left">[bold]Жидкость[/bold]</Box></ColorBox>
+    <ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4" HorizontalAlignment="Left">[bold]Газ[/bold]</Box></ColorBox>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий кислород</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Кислород</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий азот</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Азот</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий диоксид углерода</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Диоксид углерода</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкая плазма</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Плазма</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий тритий</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Тритий</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Вода</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Водяной пар</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий аммиак</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Аммиак</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий оксид азота</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Оксид азота</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий фрезон</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Фрезон</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий бз</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Бз</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий плюоксиум</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Плюоксиум</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий водород</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Водород</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий нитриум</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Нитриум</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий хилиум</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Хилиум</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий гипер-ноблий</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Гипер-ноблий</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий прото-нитрат</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Прото-нитрат</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий заукер</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Заукер</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий галон</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Галон</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий гелий</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Гелий</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Жидкий анти-ноблиум</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Анти-ноблиум</Box>
+  </Table>
+
+  ### Лекарства
+
+  <Table Columns="2">
+    <ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4" HorizontalAlignment="Left">[bold]Жидкость[/bold]</Box></ColorBox>
+    <ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4" HorizontalAlignment="Left">[bold]Газ[/bold]</Box></ColorBox>
+    <Box Margin="4" HorizontalAlignment="Left">Дексалин плюс</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный дексалин плюс</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Омнизин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный омнизин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Инапровалин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный инапровалин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Дифенгидрамин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный дифенгидрамин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Ихор</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный ихор</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Бикаридин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный бикаридин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Трикордразин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный трикордразин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Диловен</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный диловен</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Эпинефрин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный эпинефрин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Дексалин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный дексалин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Келотан</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный келотан</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Древесный уголь</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный древесный уголь</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Железо</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразное железо</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Криоксадон</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный криоксадон</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Серебряная сульфадиазин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразная серебряная сульфадиазин</Box>
+  </Table>
+
+  ### Опасные газы
+
+  <ColorBox Color="#3a1f1f" OutlineColor="#6b3333" OutlineThickness="1" Margin="2">
+    <Box Margin="6">[color=#ff7a7a][bold]Внимание:[/bold] вдыхание этих газов наносит урон. Пользуйтесь канистрой и фильтрами осторожно.[/color]</Box>
+  </ColorBox>
+
+  <Table Columns="2">
+    <ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4" HorizontalAlignment="Left">[bold]Жидкость[/bold]</Box></ColorBox>
+    <ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4" HorizontalAlignment="Left">[bold]Газ[/bold]</Box></ColorBox>
+    <Box Margin="4" HorizontalAlignment="Left">Флогистон</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный флогистон</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Политриновая кислота</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразная политриновая кислота</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Серная кислота</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразная серная кислота</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Фторсерная кислота</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразная фторсерная кислота</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Токсин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный токсин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Хлор</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный хлор</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Фтор</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный фтор</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Радий</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный радий</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Нейротоксин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный нейротоксин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Лексин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный лексин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Гистамин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразный гистамин</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Ртуть</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразная ртуть</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Сварочное топливо</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Газообразное сварочное топливо</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Этанол</Box>
+    <Box Margin="4" HorizontalAlignment="Left">Пары этанола</Box>
+  </Table>
 
 </Document>

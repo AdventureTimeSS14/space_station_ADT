@@ -1,0 +1,81 @@
+- type: utilityQuery
+  id: ADTNearbyMiners
+  query:
+  - !type:ComponentQuery
+    components:
+    - type: HumanoidProfile
+  considerations:
+  - !type:TargetIsAliveCon
+    curve: !type:BoolCurve
+  - !type:TargetDistanceCon
+    curve: !type:PresetCurve
+      preset: TargetDistance
+  - !type:TargetInLOSCon
+    curve: !type:BoolCurve
+
+- type: utilityQuery
+  id: ADTNearbyHerdMates
+  query:
+  - !type:ComponentQuery
+    components:
+    - type: ADTHerdMember
+  considerations:
+  - !type:TargetIsAliveCon
+    curve: !type:BoolCurve
+  - !type:TargetDistanceCon
+    curve: !type:PresetCurve
+      preset: TargetDistance
+
+- type: htnCompound
+  id: ADTGoldgrubCompound
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: ADTFleeCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: ADTNearbyMiners
+        key: FleeTarget
+        keyCoordinates: FleeTargetCoordinates
+    - !type:HTNPrimitiveTask
+      operator: !type:MoveToOperator
+        targetKey: ADTFleeCoordinates
+        pathfindInPlanning: false
+        removeKeyOnFinish: false
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: ADTNearbyMiners
+        key: FleeTarget
+        keyCoordinates: FleeTargetCoordinates
+    - !type:HTNCompoundTask
+      task: IdleCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+
+- type: htnCompound
+  id: ADTHerdCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: ADTNearbyHerdMates
+        key: FollowTarget
+        keyCoordinates: FollowTargetCoordinates
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: FollowTarget
+      - !type:CoordinatesNotInRangePrecondition
+        targetKey: FollowTargetCoordinates
+        rangeKey: ADTHerdRange
+      operator: !type:MoveToOperator
+        pathfindInPlanning: true
+        targetKey: FollowTargetCoordinates
+        rangeKey: ADTHerdCloseRange
+        removeKeyOnFinish: false
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound

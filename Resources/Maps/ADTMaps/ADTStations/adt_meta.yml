@@ -170386,7 +170386,7 @@ entities:
     - type: Transform
       pos: -8.482431,-53.813084
       parent: 2
-- proto: MicroManipulatorStockPart
+- proto: ScanningModuleStockPart
   entities:
   - uid: 23873
     components:
@@ -239154,5 +239154,12 @@ entities:
     components:
     - type: Transform
       pos: 84.44003,-64.47448
+      parent: 2
+- proto: ADTVendingMachineMusician
+  entities:
+  - uid: 53949
+    components:
+    - type: Transform
+      pos: 33.5,-9.5
       parent: 2
 ...

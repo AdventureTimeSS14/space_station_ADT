@@ -20,8 +20,9 @@
   - AnomalyLocator
   - AnomalyLocatorWide
   - HoloprojectorField
+  - SlimeScannerXenobio # ADT-Tweak
   - SignallerAdvanced
-  # - DeviceQuantumSpinInverter #ADT_Tweak - временно удалено до решения всех багов предмета
+  # - DeviceQuantumSpinInverter # ADT-Tweak
   - DeviceDesynchronizer
   # - ClothingBackpackHarmpack # ADT-Tweak
 
@@ -54,6 +55,19 @@
   - PKAUpgradeDamage
   - PKAUpgradeRange
   - PKAUpgradeFireRate
+  # ADT tweak start
+  - ADTPKAUpgradeMiningExplosion
+  - ADTPKAUpgradeOffensiveMiningExplosion
+  - ADTPKAUpgradeOffensiveExplosion
+  - ADTPKAUpgradeRapidRepeater
+  - ADTPKAUpgradeDeathSyphon
+  - ADTPKAUpgradeIndoors
+  - ADTPKAUpgradeResonatorBlast
+  - ADTPKAUpgradeTracerWhite
+  - ADTPKAUpgradeTracerAdjustable
+  - ADTPKAUpgradeChassisSuper
+  - ADTPKAUpgradeChassisHyper
+  # ADT tweak end
   - WeaponTetherGun
   - WeaponGauntletGorilla
   - WeaponLaserSvalinn
@@ -90,6 +104,12 @@
   - APECircuitboard
   - ArtifactAnalyzerMachineCircuitboard
   - ArtifactCrusherMachineCircuitboard
+  # ADT-Tweak-Start
+  - XenobiologyBountyComputerCircuitboard # ADT-Tweak
+  - ADTXenobiologyControlComputerCircuitboard # ADT-Tweak
+  - SlimeGrinderMachineCircuitboard # ADT-Tweak
+  - ADTXenobiologyMonkeyRecyclerMachineCircuitboard # ADT-Tweak
+  # ADT-Tweak-End
 
 - type: latheRecipePack
   id: CameraBoards

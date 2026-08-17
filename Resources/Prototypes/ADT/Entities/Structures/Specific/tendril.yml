@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: ADTTendrilBase
   parent: BaseStructure
   name: tendrыl
@@ -145,7 +145,7 @@
   parent: ADTTendrilBase
   name: tendrыl
   description: e
-  suffix: Magma Watcher
+  suffix: Shock Spider
   components:
   - type: Tendril
     spawns:
@@ -156,7 +156,7 @@
   parent: ADTTendrilBase
   name: tendrыl
   description: e
-  suffix: Magma Watcher
+  suffix: Nightmare Spider
   components:
   - type: Tendril
     spawns:

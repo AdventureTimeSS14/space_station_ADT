@@ -54,7 +54,7 @@
 - type: polymorph
   id: WizardForcedMonkey
   configuration:
-    entity: MobMonkey
+    entity: ADTMobMonkeyAdvanced # ADT tweak
     forced: true
     inventory: None
     transferName: true
@@ -151,7 +151,7 @@
 - type: polymorph
   id: ArtifactMonkey
   configuration:
-    entity: MobMonkey
+    entity: ADTMobMonkeyAdvanced # ADT tweak
     forced: true
     transferName: true
     allowRepeatedMorphs: true

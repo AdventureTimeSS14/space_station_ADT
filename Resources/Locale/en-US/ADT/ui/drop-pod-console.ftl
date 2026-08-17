@@ -22,6 +22,6 @@ drop-pod-console-notice = WARNING: Operatives not seated during landing will sus
 ## Announcement sent when a launch is initiated
 ## {$beacon}  – name of the target beacon
 ## {$seconds} – lead time in whole seconds
-drop-pod-console-launch-announcement = ALERT: A Syndicate drop pod has been detected heading toward "{ $beacon }" on the station. Brace for impact in { $seconds } seconds!
+drop-pod-console-launch-announcement = ALERT: A Syndicate drop pod has been detected heading the station. Brace for impact in { $seconds } seconds!
 
 drop-pod-console-sender = Central Command
