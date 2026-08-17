@@ -14141,3 +14141,11 @@ Entries:
     id: 1817
     pr_number: 3081
     time: '2026-08-17T08:31:40Z'
+  - author: ultradyper
+    changes:
+      - {message: 'Ассистенту доступны смокинги, котелок, цилиндр и монокль в лоаудате',
+        type: Add}
+      - {message: Трости доступны в лоаудате всем профессиям, type: Add}
+    id: 1818
+    pr_number: 3177
+    time: '2026-08-17T10:13:24Z'
