@@ -5,6 +5,7 @@ using Content.Shared.ADT.Blob.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
+using Content.Server.ADT.Language;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Mind;
 using Content.Server.NPC;
@@ -45,6 +46,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
     [Dependency] private readonly IChatManager _chatMan = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly TriggerSystem _trigger = default!;
+    [Dependency] private readonly LanguageSystem _language = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
@@ -233,7 +235,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         if (args.NewMobState == MobState.Dead)
         {
             if (TryComp<LanguageSpeakerComponent>(uid, out var comp))
-                comp.Languages.Remove(component.CollectiveMindAdded);
+                _language.RemoveLanguage(uid, component.CollectiveMindAdded, comp);
             RemComp<ZombieBlobComponent>(uid);
         }
     }

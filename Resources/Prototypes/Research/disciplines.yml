@@ -36,6 +36,7 @@
     1: 0
     2: 0.75
     3: 0.75
+    4: 0.9 # ADT-Tweak
 
 - type: techDiscipline
   id: CivilianServices

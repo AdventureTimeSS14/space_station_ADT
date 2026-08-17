@@ -9,8 +9,8 @@
       sprite: Objects/Misc/stock_parts.rsi
     - type: Item
       size: Tiny
-    - type: Stack
-      count: 1
+    # ADT-Tweak: Stack убран из базы (stackType обязателен в ADT; новые части с тирами не стекуются,
+    # MicroManipulatorStockPart переопределяет Stack со stackType: Manipulator ниже)
     - type: Tag
       tags:
       - ConstructionMaterial

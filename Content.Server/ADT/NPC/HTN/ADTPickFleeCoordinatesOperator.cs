@@ -77,10 +77,14 @@ public sealed partial class ADTPickFleeCoordinatesOperator : HTNOperator
             var angle = baseAngle + _random.NextFloat(-spread, spread);
             var destination = new MapCoordinates(ownerPos.Position + angle.ToVec() * distance, ownerPos.MapId);
 
+            var destinationCoords = ownerCoords.EntityId.IsValid()
+                ? _transform.ToCoordinates(ownerCoords.EntityId, destination)
+                : _transform.ToCoordinates(destination);
+
             var path = await _pathfinding.GetPath(
                 owner,
                 ownerCoords,
-                _transform.ToCoordinates(destination),
+                destinationCoords,
                 1f,
                 cancelToken,
                 flags: _pathfinding.GetFlags(blackboard));

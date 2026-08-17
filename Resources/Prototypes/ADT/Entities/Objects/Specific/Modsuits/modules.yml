@@ -458,17 +458,21 @@
   parent: ADTModsuitModBase
   id: ADTModsuitModRadiationProtection
   name: MOD radiation protection module
-  description: Locks modsuit on you.
+  description: Shields the wearer, halving incoming radiation on top of the suit's own plating.
   components:
   - type: Sprite
     state: radshield
   - type: ModSuitMod
     energyUsing: 0.02
     complexity: 2
+    requiresFullEquip: true
     components:
-      outerClothing:
-      - type: RadiationBlocker
-        resistance: 100
+      # Если что-то в будущем будет давать армор на MODcore - будет коллайд, и модуль работать не будет
+      MODcore:
+      - type: Armor
+        modifiers:
+          coefficients:
+            Radiation: 0.5
 
 - type: entity
   parent: ADTModsuitModBase

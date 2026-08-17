@@ -85,7 +85,13 @@
       - !type:GroupSelector
         weight: 2
         children:
-        - id: MicroManipulatorStockPart
+        # ADT-Tweak start
+        - id: CapacitorStockPart
+        - id: MicroServoStockPart
+        - id: MatterBinStockPart
+        - id: ScanningModuleStockPart
+        - id: MicroLaserStockPart
+        # ADT-Tweak end
         - id: CableHVStack10
         - id: WelderIndustrial
         - id: PowerCellHigh

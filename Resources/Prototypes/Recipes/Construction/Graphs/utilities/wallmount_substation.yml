@@ -57,8 +57,10 @@
             sprite: "Objects/Power/power_cells.rsi"
             state: "medium"
           doAfter: 0.5
-        - material: Manipulator
-          amount: 1
+        # ADT-Tweak start
+        - machinePart: Capacitor
+          name: machine-part-name-capacitor
+        # ADT-Tweak end
           doAfter: 0.5
       - to: frame
         completed:

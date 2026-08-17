@@ -412,7 +412,8 @@ namespace Content.Server.Connection
                             status == PlayerGameStatus.JoinedGame;
             return isAdmin ||
                    havePriorityJoin || // Corvax-Sponsors
-                   wasInGame;
+                   wasInGame ||
+                   HasTemporaryBypass(userId); // ADT-Tweak-Start
         }
         // Corvax-Queue-End
     }
