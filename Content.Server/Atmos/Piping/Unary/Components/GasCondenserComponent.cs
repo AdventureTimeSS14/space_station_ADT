@@ -36,5 +36,5 @@ public sealed partial class GasCondenserComponent : Component
     /// 400u / 1871.71051 moles per canister
     /// </remarks>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MolesToReagentMultiplier = 0.2137f;
+    public float MolesToReagentMultiplier = 0.1f; // ADT-Tweak 0.2137f > 0.1f
 }

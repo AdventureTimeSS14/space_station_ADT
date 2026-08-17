@@ -602,4 +602,16 @@
   - type: GuideHelp
     guides:
     - GasCondensing
+  # ADT Tweak start
+  - type: ContainerContainer
+    containers:
+      beakerSlot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      beakerSlot:
+        whitelist:
+          components:
+          - FitsInDispenser
+  - type: GasEvaporator
+  # ADT Tweak end
 
