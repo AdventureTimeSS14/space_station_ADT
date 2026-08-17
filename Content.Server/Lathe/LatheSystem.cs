@@ -19,6 +19,9 @@ using Content.Shared.Database;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Components;
+using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Lathe;
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Localizations;
@@ -74,6 +77,11 @@ namespace Content.Server.Lathe
             SubscribeLocalEvent<LatheComponent, ResearchRegistrationChangedEvent>(OnResearchRegistrationChanged);
 
             SubscribeLocalEvent<LatheComponent, LatheQueueRecipeMessage>(OnLatheQueueRecipeMessage);
+
+            // ADT-Tweak-Start: machine parts with tiers
+            SubscribeLocalEvent<LatheComponent, RefreshPartsEvent>(OnPartsRefresh);
+            SubscribeLocalEvent<LatheComponent, UpgradeExamineEvent>(OnUpgradeExamine);
+            // ADT-Tweak-End
             SubscribeLocalEvent<LatheComponent, LatheSyncRequestMessage>(OnLatheSyncRequestMessage);
             SubscribeLocalEvent<LatheComponent, LatheDeleteRequestMessage>(OnLatheDeleteRequestMessage);
             SubscribeLocalEvent<LatheComponent, LatheMoveRequestMessage>(OnLatheMoveRequestMessage);
@@ -207,7 +215,11 @@ namespace Content.Server.Lathe
                 component.Queue.RemoveFirst();
             var recipe = _proto.Index(batch.Recipe);
 
-            var time = _reagentSpeed.ApplySpeed(uid, recipe.CompleteTime) * component.TimeMultiplier;
+            // ADT-Tweak-Start: machine parts with tiers
+            var baseTime = _reagentSpeed.ApplySpeed(uid, recipe.CompleteTime).TotalSeconds;
+            var adjustedTime = baseTime * MathF.Pow(MathF.Max(0.1f, component.FinalTimeMultiplier), component.MachinePartEfficiencyExponent);
+            var time = TimeSpan.FromSeconds(Math.Max(0.1f, adjustedTime));
+            // ADT-Tweak-End
 
             var lathe = EnsureComp<LatheProducingComponent>(uid);
             lathe.StartTime = _timing.CurTime;
@@ -238,6 +250,17 @@ namespace Content.Server.Lathe
                 if (currentRecipe.Result is { } resultProto)
                 {
                     var result = Spawn(resultProto, Transform(uid).Coordinates);
+                    // ADT-Tweak-Start: печь (OreProcessor) выдаёт больше результата в зависимости от тира частей
+                    if (TryComp<OreProcessorUpgradeComponent>(uid, out var oreUpgrade))
+                    {
+                        var extraCount = (int)oreUpgrade.OutputMultiplier;
+                        for (var i = 1; i < extraCount; i++)
+                        {
+                            var extra = Spawn(resultProto, Transform(uid).Coordinates);
+                            _stack.TryMergeToContacts(extra);
+                        }
+                    }
+                    // ADT-Tweak-End
                     //ADT tweak start
                     if (TryComp<DocumentPrinterComponent>(uid, out var printer)
                         && printer.Queue.Count > 0)
@@ -434,6 +457,36 @@ namespace Content.Server.Lathe
             UpdateUserInterfaceState(uid, component);
         }
 
+        // ADT-Tweak-Start: machine parts with tiers
+        private void OnPartsRefresh(EntityUid uid, LatheComponent component, RefreshPartsEvent args)
+        {
+            if (component.SuppressMachinePartUpgrades)
+                return;
+
+            var speed = args.GetStatMultiplier(MachineStat.Speed);
+            var material = MathF.Max(component.MinMachinePartEfficiency, args.GetStatMultiplier(MachineStat.ResourceCost));
+
+            component.FinalTimeMultiplier = component.TimeMultiplier / MathF.Max(component.MinMachinePartEfficiency, speed);
+            component.FinalMaterialMultiplier = component.MaterialUseMultiplier * material;
+
+            Dirty(uid, component);
+            UpdateUserInterfaceState(uid, component);
+        }
+
+        private static void OnUpgradeExamine(EntityUid uid, LatheComponent component, UpgradeExamineEvent args)
+        {
+            if (component.SuppressMachinePartUpgrades)
+                return;
+
+            var speedMultiplier = component.FinalTimeMultiplier > 0f
+                ? component.TimeMultiplier / component.FinalTimeMultiplier
+                : 1f;
+
+            args.AddPercentageUpgrade("lathe-component-upgrade-speed", speedMultiplier, benefit: true);
+            args.AddPercentageUpgrade("lathe-component-upgrade-material-use", component.FinalMaterialMultiplier, benefit: false);
+        }
+        // ADT-Tweak-End
+
         protected override bool HasRecipe(EntityUid uid, LatheRecipePrototype recipe, LatheComponent component)
         {
             return GetAvailableRecipes(uid, component).Contains(recipe.ID);
@@ -447,9 +500,11 @@ namespace Content.Server.Lathe
         {
             foreach (var (mat, amount) in recipe.Materials)
             {
+                // ADT-Tweak start: machine parts with tiers
                 var adjustedAmount = recipe.ApplyMaterialDiscount
-                    ? (int)(amount * lathe.MaterialUseMultiplier)
+                    ? Math.Max(1, (int) Math.Ceiling(amount * lathe.FinalMaterialMultiplier))
                     : amount;
+                // ADT-Tweak end
 
                 yield return (mat, adjustedAmount);
             }

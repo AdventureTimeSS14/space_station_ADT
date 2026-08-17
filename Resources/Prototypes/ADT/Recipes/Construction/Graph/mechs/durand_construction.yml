@@ -92,31 +92,34 @@
           key: "enum.MechAssemblyVisuals.State"
           data: 13
 
-      - tag: ADTMicroManipulatorStockPart
-        name: construction-graph-tag-manipulator-stock-part
+      - machinePart: Servo
+        tier: 3
+        name: machine-part-name-servo
         icon:
-          sprite: "Objects/Misc/stock_parts.rsi"
-          state: micro_mani
+          sprite: "ADT/Objects/Misc/stock_parts.rsi"
+          state: pico_servo
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
           data: 14
 
-      - tag: ADTMicroManipulatorStockPart
-        name: construction-graph-tag-manipulator-stock-part
+      - machinePart: Servo
+        tier: 3
+        name: machine-part-name-servo
         icon:
-          sprite: "Objects/Misc/stock_parts.rsi"
-          state: micro_mani
+          sprite: "ADT/Objects/Misc/stock_parts.rsi"
+          state: pico_servo
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
           data: 15
 
-      - tag: ADTMicroManipulatorStockPart
-        name: construction-graph-tag-manipulator-stock-part
+      - machinePart: Servo
+        tier: 3
+        name: machine-part-name-servo
         icon:
-          sprite: "Objects/Misc/stock_parts.rsi"
-          state: micro_mani
+          sprite: "ADT/Objects/Misc/stock_parts.rsi"
+          state: pico_servo
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"

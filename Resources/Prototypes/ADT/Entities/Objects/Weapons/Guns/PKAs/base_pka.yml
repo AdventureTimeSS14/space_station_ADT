@@ -1,0 +1,64 @@
+- type: entity
+  id: WeaponProtoKineticAcceleratorBase
+  abstract: true
+  parent: [BaseItem, ADTBaseAttachableHolder]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+  - type: Item
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    size: Large
+    shape:
+    - 0,0,2,1
+  - type: Gun
+    fireRate: 2.5
+    showExamineText: false
+    selectedMode: SemiAuto
+    angleDecay: 45
+    minAngle: 2
+    maxAngle: 3
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+  - type: AmmoCounter
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.HasAmmo:
+        empty-icon:
+          True: { visible: False }
+          False: { visible: True }
+  - type: BasicEntityAmmoProvider
+    proto: BulletKinetic
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: ADTKineticCooldown
+    baseRangedMultiplier: 2
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - SurvivalKnifeAttachment
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.315, -0.209
+  - type: MeleeWeapon
+    attackRate: 1.25
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: Tag
+    tags:
+    - PKA

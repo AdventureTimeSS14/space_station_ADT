@@ -225,7 +225,7 @@
     thrusterType: Angular
     requireSpace: false
     thrust: 2000
-    machinePartThrust: Manipulator
+    machinePartThrust: Servo #ADT-Tweak: machine parts
   - type: Sprite
     # Listen I'm not the biggest fan of the sprite but it was the most appropriate thing I could find.
     sprite: Structures/Shuttles/gyroscope.rsi

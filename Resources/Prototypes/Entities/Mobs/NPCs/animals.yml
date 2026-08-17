@@ -2694,6 +2694,7 @@
     needsHands: false
   - type: NoSlip
   - type: Spider
+    spawnsWebsAsNonPlayer: false # ADT-Tweak
   - type: IgnoreSpiderWeb
   - type: Bloodstream
     bloodReferenceSolution:

@@ -301,7 +301,7 @@
   - !type:GroupLoadoutEffect
     proto: EffectSpeciesVox
   equipment:
-    mask: ClothingMaskBreath
+    mask: ADTClothingMaskVox # ADT-Tweak
 
 - type: loadout
   id: LoadoutSpeciesBreathToolMedical

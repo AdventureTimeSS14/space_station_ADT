@@ -191,6 +191,20 @@
   maxCount: 14
   radius: 3
 
+- type: biomeMarkerLayer
+  id: ADTLavaVeinOreMagmite
+  entityMask:
+    AsteroidRock: ADTAsteroidRockMagmite
+    WallRock: ADTWallRockMagmite
+    WallRockBasalt: ADTWallRockBasaltMagmite
+    WallRockChromite: ADTWallRockChromiteMagmite
+    WallRockSand: ADTWallRockSandMagmite
+    WallRockSnow: ADTWallRockSnowMagmite
+  maxCount: 4
+  minGroupSize: 1
+  maxGroupSize: 2
+  radius: 2
+
 # Стада и мелкая живность
 - type: biomeMarkerLayer
   id: ADTLavaGutlunchHerd
@@ -223,3 +237,45 @@
   maxGroupSize: 2
   maxCount: 7
   radius: 20
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinAncientRock
+  entityMask:
+    AsteroidRock: ADTWallRockAncient
+    WallRock: ADTWallRockAncient
+    WallRockBasalt: ADTWallRockAncient
+    WallRockChromite: ADTWallRockAncient
+    WallRockSand: ADTWallRockAncient
+    WallRockSnow: ADTWallRockAncient
+  maxCount: 10
+  minGroupSize: 4
+  maxGroupSize: 7
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinAncientRockUranium
+  entityMask:
+    AsteroidRock: ADTWallRockAncientUranium
+    WallRock: ADTWallRockAncientUranium
+    WallRockBasalt: ADTWallRockAncientUranium
+    WallRockChromite: ADTWallRockAncientUranium
+    WallRockSand: ADTWallRockAncientUranium
+    WallRockSnow: ADTWallRockAncientUranium
+  maxCount: 2
+  minGroupSize: 2
+  maxGroupSize: 3
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinAncientRockDiamond
+  entityMask:
+    AsteroidRock: ADTWallRockAncientDiamond
+    WallRock: ADTWallRockAncientDiamond
+    WallRockBasalt: ADTWallRockAncientDiamond
+    WallRockChromite: ADTWallRockAncientDiamond
+    WallRockSand: ADTWallRockAncientDiamond
+    WallRockSnow: ADTWallRockAncientDiamond
+  maxCount: 2
+  minGroupSize: 2
+  maxGroupSize: 3
+  radius: 3

@@ -26,10 +26,10 @@
       hyper:
         sprite: ADT/Objects/Weapons/Guns/PKAs/chassis.rsi
         state: pistol-hyper
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 1.2
   - type: MeleeWeapon
     attackRate: 1.5
+  - type: ADTKineticCooldown
+    baseRangedMultiplier: 1.8
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
@@ -41,8 +41,6 @@
     - 0,1,0,1
   - type: BasicEntityAmmoProvider
     proto: ADTBulletKineticPistol
-    capacity: 1
-    count: 1
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_pistol.rsi
     quickEquip: false
@@ -79,10 +77,10 @@
     sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_repeater.rsi
   - type: MeleeWeapon
     attackRate: 1.1
+  - type: ADTKineticCooldown
+    baseRangedMultiplier: 2.2
   - type: BasicEntityAmmoProvider
     proto: ADTBulletKineticRepeater
-    capacity: 3
-    count: 3
   - type: Gun
     burstCooldown: 0.4
     burstFireRate: 2.5
@@ -95,10 +93,6 @@
     - Burst
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.67
-    rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_repeater.rsi
     quickEquip: false
@@ -136,12 +130,10 @@
   - type: GunRequiresWield
   - type: BasicEntityAmmoProvider
     proto: ADTBulletKineticRailgun
-    capacity: 1
-    count: 1
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 3
   - type: MeleeWeapon
     attackRate: 0.8
+  - type: ADTKineticCooldown
+    baseRangedMultiplier: 2.4
   - type: Gun
     angleDecay: 45
     minAngle: 2
@@ -178,10 +170,10 @@
     minAngle: 0
     maxAngle: 0
   - type: GunRequiresWield
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 2
   - type: MeleeWeapon
     attackRate: 1
+  - type: ADTKineticCooldown
+    baseRangedMultiplier: 2
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
@@ -190,8 +182,6 @@
     size: Normal
   - type: BasicEntityAmmoProvider
     proto: ADTBulletKineticShotgunSpread
-    capacity: 1
-    count: 1
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_shotgun.rsi
     quickEquip: false
@@ -205,6 +195,8 @@
   parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
   description: Upgraded version of PKA, customizable classic.
   components:
+  - type: ADTMagmiteUpgradable
+    result: ADTWeaponProtoKineticAcceleratorMagmite
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/PKAs/experimental_pka.rsi
     layers:
@@ -225,8 +217,6 @@
     size: Small
   - type: BasicEntityAmmoProvider
     proto: ADTBulletKineticPistol
-    capacity: 1
-    count: 1
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/PKAs/experimental_pka.rsi
     quickEquip: false

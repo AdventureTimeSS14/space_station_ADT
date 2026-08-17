@@ -2,7 +2,7 @@
   name: stabilizing serum
   id: ADTStabilizingSerum
   parent: BaseItem
-  description: Drink this and become a ninja turtle.
+  description: Inject a legion core with this serum to preserve its healing powers indefinitely. It won't work on a decayed one.
   components:
   - type: Sprite
     sprite: ADT/Objects/Specific/Salvage/stabilizing_serum.rsi
@@ -17,32 +17,24 @@
   name: stable legion core
   id: ADTLegionCoreStable
   parent: BaseItem
-  description: Is this a soul from undertale?
+  description: The core beats steadily, as if it had never left a body. It will never decay - smear it on a wound or implant it into your chest.
   components:
   - type: Sprite
     sprite: ADT/Objects/Specific/Lavaland/loot.rsi
     state: legion_core_stable
-  - type: Healing
-    damageContainers:
-    - Biological
-    # ADT-Tweak Start: New healing containers
-    - ADTBiologicalShadekin
-    - ADTBiologicalDrask
-    # ADT-Tweak End
-    damage:
+  - type: ADTRegenerativeCore
+    duration: 60
+    applyDelay: 1
+    implantDelay: 5
+    implantCellularMultiplier: 1
+    instantHeal:
       types:
-        Blunt: -100
-        Slash: -100
-        Piercing: -100
-        Heat: -100
-        Radiation: -100
-        Caustic: -100
-    delay: 0.1
-    selfHealPenaltyMultiplier: 0
-    healingBeginSound:
-      path: "/Audio/Items/eating_1.ogg"
-    healingEndSound:
-      path: "/Audio/Items/eating_3.ogg"
+        Blunt: -16.5
+        Slash: -16.5
+        Piercing: -16.5
+        Heat: -16.5
+        Cold: -16.5
+        Shock: -16.5
   - type: Construction
     graph: ADTLegionCoreStable
     node: stable

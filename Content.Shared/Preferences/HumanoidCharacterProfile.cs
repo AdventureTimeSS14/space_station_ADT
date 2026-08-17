@@ -111,6 +111,12 @@ namespace Content.Shared.Preferences
                 ? url
                 : string.Empty;
         }
+
+        /// <summary>
+        /// скрытая информация персонажа, видна только антагам и призракам
+        /// </summary>
+        [DataField]
+        public string ExploitableInfo { get; set; } = string.Empty;
         //ADT-tweak-end
 
         /// <summary>
@@ -204,7 +210,8 @@ namespace Content.Shared.Preferences
             BarkData bark,
             HashSet<ProtoId<LanguagePrototype>> languages,
             string oocNotes,
-            string headshotUrl
+            string headshotUrl,
+            string exploitableInfo
             )
             //ADT-tweak-end
         {
@@ -227,6 +234,7 @@ namespace Content.Shared.Preferences
             _languages = languages;
             OOCNotes = oocNotes;
             HeadshotUrl = headshotUrl;
+            ExploitableInfo = exploitableInfo;
             // ADT end
 
             var hasHighPrority = false;
@@ -264,7 +272,8 @@ namespace Content.Shared.Preferences
                 other.Bark,
                 other._languages,
                 other.OOCNotes,
-                other.HeadshotUrl
+                other.HeadshotUrl,
+                other.ExploitableInfo
                 )
                 // ADT end
         {
@@ -384,6 +393,10 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithHeadshotUrl(string headshotUrl)
         {
             return new(this) { HeadshotUrl = headshotUrl };
+        }
+        public HumanoidCharacterProfile WithExploitableInfo(string exploitableInfo)
+        {
+            return new(this) { ExploitableInfo = exploitableInfo };
         }
         //ADT-tweak-end
         public HumanoidCharacterProfile WithAge(int age)
@@ -621,6 +634,7 @@ namespace Content.Shared.Preferences
             // ADT-tweak-start
             if (OOCNotes != other.OOCNotes) return false;
             if (HeadshotUrl != other.HeadshotUrl) return false;
+            if (ExploitableInfo != other.ExploitableInfo) return false;
             if (!Bark.MemberwiseEquals(other.Bark)) return false;
             // ADT-tweak-end
             return Appearance.Equals(other.Appearance);
@@ -713,14 +727,16 @@ namespace Content.Shared.Preferences
             }
 
             //ADT-tweak-start
-            string oocNotes = OOCNotes; // Initialize with the property value
+            string oocNotes = FormattedMessage.RemoveMarkupOrThrow(OOCNotes);
             if (oocNotes.Length > maxFlavorTextLength)
             {
-                oocNotes = FormattedMessage.RemoveMarkupOrThrow(oocNotes)[..maxFlavorTextLength];
+                oocNotes = oocNotes[..maxFlavorTextLength];
             }
-            else
+
+            string exploitableInfo = FormattedMessage.RemoveMarkupOrThrow(ExploitableInfo);
+            if (exploitableInfo.Length > maxFlavorTextLength)
             {
-                oocNotes = FormattedMessage.RemoveMarkupOrThrow(oocNotes);
+                exploitableInfo = exploitableInfo[..maxFlavorTextLength];
             }
             //ADT-tweak-end
 
@@ -774,6 +790,7 @@ namespace Content.Shared.Preferences
             FlavorText = flavortext;
             //ADT-tweak-start
             OOCNotes = oocNotes;
+            ExploitableInfo = exploitableInfo;
             // HeadshotUrl уже валидирован при установке через SetHeadshotUrl
             //ADT-tweak-end
             Age = age;
@@ -838,6 +855,25 @@ namespace Content.Shared.Preferences
             {
                 _languages.Remove(lang);
             }
+
+            // ADT-Tweak-Start
+            var maxLanguages = speciesPrototype.MaxLanguages + LanguageSlotsBonus;
+            if (_languages.Count > maxLanguages)
+            {
+                var required = new HashSet<ProtoId<LanguagePrototype>>(speciesPrototype.DefaultLanguages);
+                required.UnionWith(speciesPrototype.UniqueLanguages);
+                foreach (var lang in _languages.ToList())
+                {
+                    if (_languages.Count <= maxLanguages)
+                        break;
+
+                    if (required.Contains(lang))
+                        continue;
+
+                    _languages.Remove(lang);
+                }
+            }
+            // ADT-Tweak-End
 
             GetQuirkPoints();
             // ADT end
@@ -937,6 +973,7 @@ namespace Content.Shared.Preferences
             //ADT-tweak-start
             hashCode.Add(OOCNotes);
             hashCode.Add(HeadshotUrl);
+            hashCode.Add(ExploitableInfo);
             //ADT-tweak-end
             hashCode.Add(FlavorText);
             hashCode.Add(Species);

@@ -111,10 +111,9 @@ public sealed partial class AddictionComponent : Component
     public EntProtoId WeaknessEffect = "StatusEffectWithdrawalWeakness";
 
     /// <summary>
-    /// Статус-эффект галлюцинаций на тяжёлой стадии наркотической ломки.
+    /// Серый фильтр ломки
     /// </summary>
-    [DataField]
-    public EntProtoId RainbowEffect = "StatusEffectSeeingRainbow";
+    public bool WithdrawalMonochromacyApplied;
 
     /// <summary>
     /// Реагент, который кормит никотиновый канал (по id, у никотина нет своей группы метаболизма).
@@ -150,6 +149,7 @@ public enum AddictionKind : byte
     Nicotine,
     Drug,
     Medicine,
+    Omnizine,
 }
 
 /// <summary>

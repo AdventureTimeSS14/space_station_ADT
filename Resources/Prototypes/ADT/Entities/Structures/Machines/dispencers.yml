@@ -20,11 +20,11 @@
     bodyType: Static
   - type: Battery
     maxCharge: 1500
-    startingCharge: 0
+    startingCharge: 1500
     netsync: false
   - type: ApcPowerReceiverBattery
     idleLoad: 65
-    batteryRechargeRate: 21 # 30 > 21
+    batteryRechargeRate: 0 #ADT-Tweak: авто-зарядка задаётся частями (Т1 = 10, Т2 = 20, Т3 = 30, Т4 = 40 Вт/с)
     batteryRechargeEfficiency: 0.7 # 1.0 > 0.7
   - type: ApcPowerReceiver
     powerLoad: 65
@@ -111,6 +111,12 @@
       Sodium: 5
       Sugar: 5
       Sulfur: 5
+    tierReagents:
+    #  1: 
+      2: [ TableSalt, Ash, WeldingFuel ]
+      3: [ Acetone, Ammonia, Plasma ]
+      4: [ Phenol, Diethylamine ]
+    tierReagentCost: 8
     reagentsEmagged:
       Puncturase: 15
       Pyrazine: 15
@@ -140,6 +146,19 @@
     idleLoad: 150
     batteryRechargeRate: 60
     batteryRechargeEfficiency: 1.0
+  - type: EnergyReagentDispenser
+    infiniteBattery: true
+  - type: ContainerFill
+    containers:
+      machine_board: [ EnergyChemDispenserMachineCircuitboard ]
+      machine_parts:
+      - TriphasicScanningModuleStockPart
+      - TriphasicScanningModuleStockPart
+      - BluespaceCapacitorStockPart
+      - BluespaceCapacitorStockPart
+      - BluespaceMatterBinStockPart
+      - BluespaceMatterBinStockPart
+      - PowerCellHyper
 
 #раздатчики алкоголя и безалкоголя
 - type: entity
@@ -268,3 +287,5 @@
       Vodka: 12
       Whiskey: 12
       Wine: 8
+    tierReagents:
+      2: [ Nothing, Ethanol ]

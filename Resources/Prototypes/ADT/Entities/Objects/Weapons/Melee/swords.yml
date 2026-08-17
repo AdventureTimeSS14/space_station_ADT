@@ -28,37 +28,18 @@
         Blunt: 8
         Slash: 8
         Piercing: 8
-    healAmount:
-      types:
-        Blunt: -5
-        Slash: -5
-        Piercing: -5
     healCost:
       types:
-        Slash: 15
-    combos:
-    - move: TendonCut
-      inputs: [ Light, Light, Light ]
-      name: adt-cursed-katana-move-cut
-      popup: adt-cursed-katana-perform-cut
-    - move: HiltStrike
-      inputs: [ Heavy, Heavy, Heavy ]
-      name: adt-cursed-katana-move-strike
-      popup: adt-cursed-katana-perform-strike
-    - move: Dash
-      inputs: [ Light, Light, Heavy ]
-      name: adt-cursed-katana-move-dash
-      popup: adt-cursed-katana-perform-dash
-    - move: DarkHeal
-      inputs: [ Heavy, Heavy, Light ]
-      name: adt-cursed-katana-move-heal
-      popup: adt-cursed-katana-perform-heal
+        Slash: 10
+  - type: WeaponMartialArt
+    martialArtsForm: CursedKatana
+    combos: CursedKatanaMoves
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
   - type: DisarmMalus
   - type: GuideHelp
     guides:
-    - ADTMartialArts
+    - ADTMaKatana
 
 - type: entity
   parent: BaseItem

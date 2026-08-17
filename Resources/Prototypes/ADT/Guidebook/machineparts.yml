@@ -1,0 +1,11 @@
+- type: guideEntry
+  id: MachineParts
+  name: guide-entry-machine-parts
+  text: "/ServerInfo/ADT/Guidebook/MachineParts/MachineParts.xml"
+  children:
+  - MachinePartsInstall
+
+- type: guideEntry
+  id: MachinePartsInstall
+  name: guide-entry-machine-parts-install
+  text: "/ServerInfo/ADT/Guidebook/MachineParts/MachinePartsInstall.xml"

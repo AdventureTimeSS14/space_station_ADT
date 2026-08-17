@@ -275,7 +275,12 @@ public sealed partial class GrabIntentSystem
         var resolvedPuller = (pullerUid, pullerComp, grabIntentComp);
         var resolvedPullable = (pullable.Owner, pullable.Comp1, pullable.Comp2);
         if (!TrySetGrabStages(resolvedPuller, resolvedPullable, newStage, escapeAttemptModifier))
+        {
+            var failedComboEv =
+                new ComboAttackPerformedEvent(pullerUid, pullable.Owner, pullerUid, ComboAttackType.Grab);
+            RaiseLocalEvent(pullerUid, failedComboEv);
             return false;
+        }
 
         var raiseEffectList = new List<EntityUid> { pullable.Owner };
         _color.RaiseEffect(Color.Yellow,
