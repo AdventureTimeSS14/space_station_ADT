@@ -1,0 +1,26 @@
+ent-RapidPartExchanger = РПЕД
+    .desc = Устройство для быстрой замены деталей машин. Хранит запасные компоненты внутри.
+ent-RapidPartExchangerBorg = { ent-RapidPartExchanger }
+    .desc = { ent-RapidPartExchanger.desc }
+ent-BluespaceRapidPartExchanger = блюспейс РПЕД
+    .desc = Улучшенная версия устройства для быстрой замены деталей машин, работающая на любом расстоянии и через закрытые технические панели.
+ent-BluespaceRapidPartExchangerFilledTier1 = { ent-BluespaceRapidPartExchanger }
+    .suffix = Уровень 1
+    .desc = { ent-BluespaceRapidPartExchanger.desc }
+ent-BluespaceRapidPartExchangerFilledTier2 = { ent-BluespaceRapidPartExchanger }
+    .suffix = Уровень 2
+    .desc = { ent-BluespaceRapidPartExchanger.desc }
+ent-BluespaceRapidPartExchangerFilledTier3 = { ent-BluespaceRapidPartExchanger }
+    .suffix = Уровень 3
+    .desc = { ent-BluespaceRapidPartExchanger.desc }
+ent-BluespaceRapidPartExchangerFilled = { ent-BluespaceRapidPartExchanger }
+    .suffix = Уровень 4
+    .desc = { ent-BluespaceRapidPartExchanger.desc }
+ent-BorgModuleRPED = РПЕД модуль борга
+    .desc = Инженерный модуль, содержащий устройство для быстрой замены деталей машин.
+
+action-rped-filter-name = Настройка замены
+action-rped-filter-desc = Выбрать, какие типы деталей РПЕД будет заменять.
+part-exchanger-filter-title = Настройка замены деталей
+part-exchanger-filter-reset = Фильтр замены сброшен: РПЕД снова заменяет все детали.
+part-exchanger-filter-set = Фильтр замены: РПЕД будет заменять только выбранные типы деталей.

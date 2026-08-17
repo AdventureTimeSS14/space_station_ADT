@@ -1,0 +1,59 @@
+uniform sampler2D SCREEN_TEXTURE;
+
+// Dark-area amplification (higher = better pitch-black vision)
+uniform highp float NightVisionBoost;
+
+// Luminance below this is treated as "dark" and gets boost/lift/tint
+uniform highp float NightVisionThreshold;
+
+// Cool tint strength in dark areas (does NOT desaturate midtones)
+uniform highp float BlueTintIntensity;
+
+// Soft additive floor in near-black so dim lit sprites stay readable
+uniform highp float NightVisionLift;
+
+// Highlight compression strength (only above CompressStart)
+uniform highp float CompressStrength;
+
+// Soft clamp for highlights only (1.0 = no hard gray wash)
+uniform highp float MaxBrightness;
+
+const highp vec3 coolTint = vec3(0.55, 0.78, 1.0);
+const highp vec3 lumaWeights = vec3(0.299, 0.587, 0.114);
+
+// Only compress bright pixels; leave midtones alone so colors stay vivid
+const highp float CompressStart = 0.55;
+
+void fragment()
+{
+    COLOR = zTextureSpec(SCREEN_TEXTURE, Pos);
+    highp vec3 finalColor = COLOR.rgb;
+
+    highp float brightness = dot(finalColor, lumaWeights);
+
+    highp float darkFactor = 1.0 - smoothstep(0.0, NightVisionThreshold, brightness);
+
+    highp float boost = mix(1.0, NightVisionBoost, darkFactor);
+    finalColor *= boost;
+
+    finalColor += coolTint * (NightVisionLift * darkFactor);
+
+    highp float lum = dot(finalColor, lumaWeights);
+    highp float over = max(lum - CompressStart, 0.0);
+    highp float compressedOver = over / (1.0 + over * CompressStrength);
+    highp float newLum = (lum - over) + compressedOver;
+    finalColor *= newLum / max(lum, 0.0001);
+
+    highp float peak = max(finalColor.r, max(finalColor.g, finalColor.b));
+    if (peak > MaxBrightness)
+        finalColor *= MaxBrightness / peak;
+
+    highp float afterLum = dot(finalColor, lumaWeights);
+    highp vec3 cool = finalColor * coolTint;
+    // Renormalize cool mix so it doesn't darken reds into gray
+    highp float coolLum = max(dot(cool, lumaWeights), 0.0001);
+    cool *= afterLum / coolLum;
+    finalColor = mix(finalColor, cool, darkFactor * BlueTintIntensity);
+
+    COLOR.rgb = finalColor;
+}

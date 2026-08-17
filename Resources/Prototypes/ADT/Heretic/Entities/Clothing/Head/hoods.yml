@@ -16,5 +16,3 @@
   - type: HideLayerClothing
     slots:
     - Hair
-  - type: HidesSlots
-    hidesSlots: [ EYES, EARS, MASK ]

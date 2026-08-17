@@ -220,6 +220,7 @@
     - SurgeryStatic
     # ADT-tweak-Start
     - ADTScienceExplosives
+    - ADTAdvancedMaterialsStatic
     # ADT-tweak-End
     dynamicPacks:
     - AdvancedTools
@@ -248,7 +249,10 @@
     #- ADTMegaCellPack
     - ADTBeltManipulatorPack
     #ADT-tweak-end
+    - XenobioPack #ADT Tweak
+    - XenobagHoldingPack #ADT Tweak
     - ADTBluespaceCrystalTech #ADT Tweak
+    - PartsDynamic #ADT-Tweak: machine parts
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -330,6 +334,7 @@
     - ADTChemDisp
     - ADTAdvancedMedical
     - ADTCryoPodMachineCircuitboard
+    - BluespaceArtilleryBoards
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
@@ -390,6 +395,7 @@
     - ADTModsuitPack
     - ADTGygaxPack
     - ADTOdysseusPack
+    - ADTArchimedesPack
     - ADTClarkePack
     - ADTDurandPack
     - ADTPhazonPack
@@ -535,6 +541,9 @@
       unlitRunningState: unlit-building
       staticPacks:
       - SecurityAmmoStatic
+      # ADT-Tweak start - урановые патроны, вырезанные из веток исследований СБ
+      - AmmoTechFabUraniumStatic
+      # ADT-Tweak end
     - type: EmagLatheRecipes
       emagStaticPacks:
       - SyndicateAmmoStatic
@@ -724,12 +733,11 @@
       idleState: icon
       runningState: building
       defaultProductionAmount: 30 #ADT, changed from 10 to 30
+      suppressMachinePartUpgrades: true #ADT-Tweak
       staticPacks:
       - OreSmelting
       - RGlassSmelting
       - ADTBScrystalSmelting #ADT Tweak
-      # ADT-Tweak раскомментить и пересмотреть рецепты после добавления обломков с металлоломом
-      #- ScrapSmeltingBasic #ADT tweak
     # ADT tweak start
     - type: AutoMaterialInsert
       tag: ADTOreBag
@@ -737,6 +745,7 @@
       transferSound:
         path: /Audio/Effects/Cargo/ping.ogg
     - type: MiningPointsLathe
+    - type: OreProcessorUpgrade #ADT-Tweak: машинные части (порт Orion PR #385)
      # ADT tweak end
 
 - type: entity
@@ -757,9 +766,6 @@
     - RGlassSmelting
     - AdvancedSmelting
     - ADTBScrystalSmelting #ADT Tweak
-# ADT-Tweak раскомментить и пересмотреть рецепты после добавления обломков с металлоломом
-#    - ScrapSmeltingBasic #ADT tweak
-#    - ScrapSmeltingAdvanced #ADT tweak
 
 - type: entity
   parent: BaseLathe

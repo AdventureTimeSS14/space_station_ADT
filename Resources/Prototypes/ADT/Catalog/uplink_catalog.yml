@@ -78,6 +78,19 @@
       tags:
       - LoneOpsUplink
 
+- type: listing
+  id: ADTUplinkRevolverPyton
+  name: uplink-revolver-python-name
+  description: uplink-revolver-python-desc
+  productEntity: WeaponRevolverPython
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkWeaponry
+
 #UplinkAttachments
 - type: listing
   id: ADTUplinkWeaponAttachmentsBundle
@@ -276,6 +289,19 @@
 #UplinkWearables
 
 - type: listing
+  id: ADTUplinkClothingBeltSyndieHolster
+  name: uplink-syndicate-holster-name
+  description: uplink-syndicate-holster-desc
+  productEntity: ClothingBeltSyndieHolster
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWearables
+
+- type: listing
   id: ADTUplinkEliteBundle
   name: uplink-elite-bundle-name
   description: uplink-elite-bundle-desc
@@ -352,11 +378,11 @@
       - LoneOpsUplink
 
 - type: listing
-  id: ADTUplinkSyndiHypo
-  name: uplink-syndihypo-name
-  description: uplink-syndihypo-desc
-  icon: { sprite: Objects/Specific/Medical/syndihypo.rsi, state: hypo }
-  productEntity: SyndiHypo
+  id: ADTUplinkAdvancedJetInjector
+  name: uplink-advancedjetinjector-name
+  description: uplink-advancedjetinjector-desc
+  icon: { sprite: Objects/Specific/Medical/advanced_jetinjector.rsi, state: jetinjector_base }
+  productEntity: AdvancedJetInjector
   cost:
     Telecrystal: 6
   categories:

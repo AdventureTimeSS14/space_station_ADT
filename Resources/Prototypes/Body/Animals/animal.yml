@@ -42,7 +42,7 @@
  # ADT-Tweak start
 - type: entity
   parent: [ OrganBaseAnimalEyes, OrganAnimalInternal, OrganAnimalMetabolizer  ]
-  id: OrganAnimalEyes
+  id: ADTOrganAnimalEyes
 
 - type: entity
   parent: OrganBaseOrganic
@@ -76,4 +76,4 @@
         - id: OrganAnimalStomach
         - id: OrganAnimalLiver
         - id: OrganAnimalKidneys
-        - id: OrganAnimalEyes
+        - id: ADTOrganAnimalEyes # ADT tweak added eyes

@@ -38,8 +38,11 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.DNAGunLocker;
+using Content.Shared.ADT.Mech.Components;
+using Content.Shared.ADT.Weapons.Ranged.WearableGun;
 using Content.Shared.Electrocution;
 using Content.Shared.ADT.Crawling.Components;
+using Content.Shared.Inventory.VirtualItem;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -212,22 +215,37 @@ public abstract partial class SharedGunSystem : EntitySystem
     {
         gun = default;
 
-        // ADT Content start
-        if (TryComp<MechPilotComponent>(entity, out var mechPilot) &&
-            TryComp<MechComponent>(mechPilot.Mech, out var mech) &&
-            mech.CurrentSelectedEquipment.HasValue &&
-            TryComp<GunComponent>(mech.CurrentSelectedEquipment.Value, out var mechGun))
+        // ADT-Tweak-Start
+        if (TryComp<MechPilotComponent>(entity, out var mechPilot))
         {
-            gun = (mech.CurrentSelectedEquipment.Value, mechGun);
-            return true;
+            if (HasComp<MechControlLockedComponent>(entity))
+                return false;
+
+            if (TryComp<MechComponent>(mechPilot.Mech, out var mech) &&
+                mech.CurrentSelectedEquipment.HasValue &&
+                TryComp<GunComponent>(mech.CurrentSelectedEquipment.Value, out var mechGun))
+            {
+                gun = (mech.CurrentSelectedEquipment.Value, mechGun);
+                return true;
+            }
         }
-        // ADT Content end
+
         if (_hands.GetActiveItem(entity) is { } held &&
-            TryComp(held, out GunComponent? gunComp))
+            TryComp(held, out GunComponent? gunComp) &&
+            !HasComp<ADTWearableGunComponent>(held))
         {
             gun = (held, gunComp);
             return true;
         }
+
+        if (TryComp<ADTWearableGunUserComponent>(entity, out var wearableUser) &&
+            TryComp(wearableUser.Gun, out GunComponent? wearableGun) &&
+            (_hands.GetActiveItem(entity) is not { } inHand || HasComp<VirtualItemComponent>(inHand)))
+        {
+            gun = (wearableUser.Gun.Value, wearableGun);
+            return true;
+        }
+        // ADT-Tweak-End
 
         // Last resort is check if the entity itself is a gun.
         if (TryComp(entity, out gunComp))
@@ -575,6 +593,17 @@ public abstract partial class SharedGunSystem : EntitySystem
         return EnsureComp<AmmoComponent>(uid);
     }
 
+    // ADT-Tweak start
+    /// <summary>
+    /// Получает объект <see cref="IShootable"/> для указанного uid, создавая его при необходимости. Используется в <see cref="ChangelingGunSystem"/>.
+    /// </summary>
+    /// <param name="uid"></param>
+    public IShootable AllowEnsureShootable(EntityUid uid)
+    {
+        return EnsureShootable(uid);
+    }
+    // ADT-Tweak end
+
     protected void RemoveShootable(EntityUid uid)
     {
         RemCompDeferred<CartridgeAmmoComponent>(uid);
@@ -694,7 +723,8 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Serializable, NetSerializable]
     public sealed class HitscanEvent : EntityEventArgs
     {
-        public List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)> Sprites = [];
+        public List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)> Sprites = new();
+        public float Lifetime; // ADT-Tweak BAS
     }
 
     /// <summary>

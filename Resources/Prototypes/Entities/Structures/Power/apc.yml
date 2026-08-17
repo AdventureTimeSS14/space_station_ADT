@@ -15,6 +15,7 @@
     sound:
       path: /Audio/Ambience/Objects/hdd_buzz.ogg
   - type: PointLight
+    mask: /Textures/ADT/Effects/Lightmasks/circle_a.png # ADT tweak
     radius: 1.5
     energy: 3.0
     color: "#3db83b"

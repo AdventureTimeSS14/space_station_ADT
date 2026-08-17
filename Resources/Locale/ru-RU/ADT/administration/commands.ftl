@@ -83,3 +83,12 @@ cmd-languageremove-no-language-component = У сущности { $entity } не�
 cmd-languageremove-not-known = Сущность { $entity } не знает язык { $language }.
 cmd-language-hint = Язык
 cmd-knowledge-hint = Уровень
+
+cmd-convertToDungeonRoom-desc = Превращает грид в комнату данжа для лаваленда
+cmd-convertToDungeonRoom-help = Использование: convertToDungeonRoom <путь к .yml> [id комнаты] [теги...]. Файл не сохраняется на сервере.
+cmd-adt-converttodungeonroom-server = Эту команду нельзя выполнить с консоли сервера, файл некому отдавать.
+cmd-adt-converttodungeonroom-usage = Нужен путь к .yml с гридом. Использование: convertToDungeonRoom <путь> [id комнаты] [теги...]
+cmd-adt-converttodungeonroom-no-grid = Не удалось загрузить грид из { $path }. В файле должен быть ровно один грид.
+cmd-adt-converttodungeonroom-empty = На гриде нет ни одного тайла, конвертировать нечего.
+cmd-adt-converttodungeonroom-too-many-tiles = В комнате слишком много разных тайлов, не вмещает.
+cmd-adt-converttodungeonroom-done = Комната { $room } собрана, выберите куда её сохранить.

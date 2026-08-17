@@ -205,3 +205,102 @@
   - type: Tag
     tags:
     - ADTMedipen
+
+- type: entity
+  name: custom medipen
+  parent: ChemicalMedipen
+  id: ADTCustomMedipen
+  description: A medipen assembled on a medical assembler with custom contents.
+  components:
+  - type: Sprite
+    layers:
+    - state: medipen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    emptySpriteName: medipen_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 5
+  - type: Tag
+    tags:
+    - ADTMedipen
+
+- type: entity
+  name: custom medipen
+  parent: ADTCustomMedipen
+  id: ADTCustomMedipenFirstaid
+  components:
+  - type: Sprite
+    layers:
+    - state: firstaid
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    emptySpriteName: firstaid_empty
+
+- type: entity
+  name: custom medipen
+  parent: ADTCustomMedipen
+  id: ADTCustomMedipenHypovolemic
+  components:
+  - type: Sprite
+    layers:
+    - state: hypovolemic
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    emptySpriteName: hypovolemic_empty
+
+- type: entity
+  name: custom medipen
+  parent: ADTCustomMedipen
+  id: ADTCustomMedipenStimpen
+  components:
+  - type: Sprite
+    layers:
+    - state: stimpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    emptySpriteName: stimpen_empty
+
+- type: entity
+  name: custom medipen
+  parent: ADTCustomMedipen
+  id: ADTCustomMedipenOxapen
+  components:
+  - type: Sprite
+    layers:
+    - state: oxapen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    emptySpriteName: oxapen_empty
+
+- type: entity
+  name: custom medipen
+  parent: ADTCustomMedipen
+  id: ADTCustomMedipenBicpen
+  components:
+  - type: Sprite
+    layers:
+    - state: bicpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    emptySpriteName: bicpen_empty
+
+- type: entity
+  name: custom medipen
+  parent: ADTCustomMedipen
+  id: ADTCustomMedipenDexpen
+  components:
+  - type: Sprite
+    layers:
+    - state: dexpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    emptySpriteName: dexpen_empty

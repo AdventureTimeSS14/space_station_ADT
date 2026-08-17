@@ -302,6 +302,11 @@
         - !type:ReagentCondition
           reagent: Fresium
           max: 40 # slows when less than 40
+        # ADT tweak start
+        - !type:MetabolizerTypeCondition
+          type: [ Drask]
+          inverted: true
+        # ADT tweak end
         walkSpeedModifier: 0.6
         sprintSpeedModifier: 0.6
       - !type:MovementSpeedModifier
@@ -309,6 +314,11 @@
         - !type:ReagentCondition
           reagent: Fresium
           min: 40 # your legs stop working when above 40
+        # ADT tweak start
+        - !type:MetabolizerTypeCondition
+          type: [ Drask]
+          inverted: true
+        # ADT tweak end
         walkSpeedModifier: 0.00
         sprintSpeedModifier: 0.00
       - !type:PopupMessage

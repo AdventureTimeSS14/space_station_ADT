@@ -141,7 +141,7 @@
 
 - type: entity
   parent:
-  - AppearanceVulpkaninADT
+  - AppearanceVulpkaninADT # ADT tweak
   - BaseSpeciesMobOrganic
   id: MobVulpkanin
   name: Urist McArfArf
@@ -153,17 +153,17 @@
         color: "#ccac1f"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
-  - type: MessyDrinker
-    spillChance: 0.33
   - type: Speech
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
     allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl' ]
   - type: Vocal
     sounds:
-      Male: MaleVulpkanin
-      Female: FemaleVulpkanin
-      Unsexed: MaleVulpkanin
+      # ADT-Tweak: Start
+      Male: NesMaleVulpa # MaleVuplkanin -> NesMaleVulpa
+      Female: NesFemaleVulpa # FemaleVulpkanin -> NesFemaleVulpa
+      Unsexed: NesFemaleVulpa # MaleVulpkanin -> NesFemaleVulpa
+      # ADT-Tweak: End
   - type: Damageable
     damageModifierSet: Vulpkanin
   - type: Injurable
@@ -210,6 +210,28 @@
     sprite:
       sprite: Effects/creampie.rsi
       state: creampie_vulpkanin
+  # ADT-Tweak: Start
+  - type: TypingIndicator
+    proto: ADTvulpkanin
+  - type: Sprite
+    scale: 0.95, 0.95
+  - type: SizeAttributeWhitelist
+    tall: true
+    tallscale: 1
+    short: true
+    shortscale: 0.9
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - ADTDogEmotes
+  - type: NightVision
+    innate: true
+    effectPrototype: ADTEffectNightVisionMedium
+  # ADT-Tweak: End
+
 
 - type: entity
   parent: OrganBaseOrganic

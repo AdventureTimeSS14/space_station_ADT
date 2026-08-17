@@ -997,3 +997,46 @@ ADTRNDInducer: null
 ADTRNDInducerBattery: null
 ADTCrateNecropolisMegaCellMedium: null
 
+# ADT 2026-07-24: Удаление старых органов таяров
+OrganTajaranFootRight: null
+OrganTajaranHead: null
+OrganTajaranLegLeft: null
+OrganTajaranTorso: null
+
+# ADT 2026-07-27: Удаление вещей "Иллизиума" по заказу Иллюми
+ADTClothingUniformIlisium: null
+ADTClothingOuterHardsuitIlisium: null
+ADTClothingHeadHelmetSoliderIlisium: null
+ADTClothingHeadCapIlisium: null
+ADTClothingHeadHelmetIlisium: null
+ADTClothingMaskGasIlisium: null
+ADTClothingOuterCoatIlisium: null
+
+# ADT 2026-07-27: Revert "3.3 bfuu update"
+WallRockScrapPileArtifactFragment: null
+WallRockScrapPileDiamond: null
+WallRockScrapPileGold: null
+WallRockScrapPileIron: null
+WallRockScrapPilePlasma: null
+WallRockScrapPileQuartz: null
+WallRockScrapPileSilver: null
+WallRockScrapPileUranium: null
+
+# ADT 2026-07-28: Revert "3.2 BFUU update"
+BrokenAirAlarm: null
+BrokenAPC: null
+BrokenAutolathe: null
+BrokenImprinter: null
+BrokenMicrowavbe: null
+BrokenSMES: null
+BrokenSubstation: null
+
+# ADT 2026-07-30: Fuck xeno ghost roles
+SpawnMobXenoBurrower: ADTSpawnMobXenoBurrowerNoGhost
+SpawnMobXenoDrone: ADTSpawnMobXenoDroneNoGhost
+SpawnMobXenoPraetorian: ADTSpawnMobXenoPraetorianNoGhost
+SpawnMobXenoQueen: ADTSpawnMobXenoQueenNoGhost
+SpawnMobXenoRavager: ADTSpawnMobXenoRavagerNoGhost
+SpawnMobXenoRunner: ADTSpawnMobXenoRunnerNoGhost
+SpawnMobXenoSpitter: ADTSpawnMobXenoSpitterNoGhost
+SpawnMobXenoEasy: ADTSpawnMobXenoEasyNoGhost

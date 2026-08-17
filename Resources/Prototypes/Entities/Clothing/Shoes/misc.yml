@@ -37,6 +37,10 @@
   name: ducky slippers
   description: You wish these made quacking sounds as you walked. It's a good thing they don't, though.
   components:
+  # ADT-Tweak start
+  - type: WaddleWhenWorn
+    tumbleIntensity: 10
+  # ADT-Tweak end
   - type: Sprite
     sprite: Clothing/Shoes/Misc/duck-slippers.rsi
   - type: Clothing

@@ -64,6 +64,7 @@ capoeira-combo-kick-up = подъём ногой
 dragon-combo-dragon-claw = коготь Дракона
 dragon-combo-dragon-tail = хвост Дракона
 dragon-combo-dragon-strike = удар Дракона
+dragon-combo-dragon-ascension = восхождение Дракона
 
 ninjutsu-combo-bite-the-dust = укус Земли
 ninjutsu-combo-dirty-kill = грязное убийство
@@ -96,6 +97,7 @@ martial-arts-fail-target-standing = Нельзя использовать это
 martial-arts-fail-blocking-gloves = Перчатки сковывают ваши движения, вы не можете использовать боевые искусства!
 martial-arts-fail-not-grabbed = Нельзя использовать этот приём, если вас не удерживают!
 martial-arts-fail-target-alive = Нельзя использовать этот приём на живой цели!
+martial-arts-fail-no-chi = Вам нужно накопить силы дракона! Постойте на месте несколько мгновений.
 
 judo-fail-stunbaton = Настоящий мастер корпоративного дзюдо не нуждается в станбатоне!
 
@@ -107,7 +109,26 @@ alerts-dragon-power-name = Сила Дракона
 alerts-dragon-power-desc = Вы на мгновение вспоминаете прошлые битвы. Это знание защитит вас от будущих ударов.
 
 alerts-sneak-attack-name = Скрытая Атака
-alerts-sneak-attack-desc = Для истинного синоби первый удар и последний — одно и то же.
+alerts-sneak-attack-desc = Для истинного синоби первый удар и последний - одно и то же.
 
 alerts-loss-of-surprise-name = Раскрытие
 alerts-loss-of-surprise-desc = Ваши намерения известны! Пройдёт несколько мгновений, прежде чем вы сможете снова атаковать из укрытия.
+
+combo-intent-harm = точный удар
+combo-intent-harmlight = размашистый удар
+combo-intent-disarm = толчок
+combo-intent-grab = захват
+combo-intent-help = помощь
+combo-intent-hug = объятие
+
+weapon-martial-art-combo = [color=yellow]{ $move }[/color] - { $steps }
+weapon-martial-art-neutral-stance = Вы возвращаетесь в нейтральную стойку.
+
+tonfa-combo-solar-plexus = удар в солнечное сплетение
+tonfa-combo-ribs = удар в рёбра
+tonfa-combo-wrist = удар по кисти
+tonfa-combo-leg-sweep = подсечка
+tonfa-combo-grab-break = сброс захвата
+
+syndicate-axe-combo-knockdown = нокдаун
+syndicate-axe-combo-grab-push = отталкивание при захвате

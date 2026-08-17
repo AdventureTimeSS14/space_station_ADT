@@ -137,7 +137,8 @@
   - type: PointLight
     radius: 1.5
     color: "#03fc4e"
-    energy: 0.7
+    energy: 1 # ADT tweak 0.7 > 1.0
+    mask: /Textures/ADT/Effects/Lightmasks/circle_a.png # ADT tweak
   - type: Charger
     chargeRate: 50
   - type: Sprite
@@ -179,6 +180,7 @@
         #  - PowerCell
           tags:
             - ADTEnergyShield
+            - ADTResonator
         #ADT-Tweak-End
         blacklist:
           tags:
@@ -204,6 +206,11 @@
       charger_slot:
         ejectOnInteract: true
         whitelist:
+          # ADT-Tweak-Start
+          tags:
+          - ADTEnergyShield
+          - ADTResonator
+          # ADT-Tweak-End
           components:
           - BatteryAmmoProvider
           - Stunbaton
@@ -242,8 +249,11 @@
       charger_slot:
         ejectOnInteract: true
         whitelist:
+          # ADT-Tweak-Start
           tags:
-          - ADTEnergyShield # ADT-Tweak
+          - ADTEnergyShield
+          - ADTResonator
+          # ADT-Tweak-End
           components:
           - BatteryAmmoProvider
           - Stunbaton

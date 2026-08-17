@@ -1,0 +1,40 @@
+- type: latheRecipePack
+  id: ADTAdvancedMaterialsStatic
+  recipes:
+  - ADTPartRodMetal
+  - SheetRGlass
+  - ADTSheetPGlass
+  - ADTSheetRPGlass
+  - ADTSheetUGlass
+  - ADTSheetRUGlass
+  - MaterialDurathread
+
+- type: latheRecipePack
+  id: PartsDynamic
+  recipes:
+  # Tier 1
+  - CapacitorStockPart
+  - ScanningModuleStockPart
+  - MicroServoStockPart
+  - MicroLaserStockPart
+  - MatterBinStockPart
+  # Tier 2
+  - AdvancedCapacitorStockPart
+  - AdvancedScanningModuleStockPart
+  - NanoServoStockPart
+  - HighPowerMicroLaserStockPart
+  - AdvancedMatterBinStockPart
+  - RapidPartExchanger
+  # Tier 3
+  - SuperCapacitorStockPart
+  - PhasicScanningModuleStockPart
+  - PicoServoStockPart
+  - UltraHighPowerMicroLaserStockPart
+  - SuperMatterBinStockPart
+  # Tier 4
+  - BluespaceCapacitorStockPart
+  - TriphasicScanningModuleStockPart
+  - FemtoServoStockPart
+  - QuadUltraMicroLaserStockPart
+  - BluespaceMatterBinStockPart
+  - BluespaceRapidPartExchanger

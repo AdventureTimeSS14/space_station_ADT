@@ -221,9 +221,10 @@ namespace Content.Server.Medical.BiomassReclaimer
             var expectedYield = physics.FixturesMass * component.YieldPerUnitMass;
             if (HasComp<ProduceComponent>(toProcess))
                 expectedYield *= component.ProduceYieldMultiplier;
+            expectedYield *= component.ExtractMultiplier; // ADT-Tweak
             component.CurrentExpectedYield += expectedYield;
 
-            component.ProcessingTimer = physics.FixturesMass * component.ProcessingTimePerUnitMass;
+            component.ProcessingTimer = physics.FixturesMass * component.ProcessingTimePerUnitMass * component.WorkTimeMultiplier; // ADT-Tweak
 
             var inventory = _inventory.GetHandOrInventoryEntities(toProcess);
             foreach (var item in inventory)

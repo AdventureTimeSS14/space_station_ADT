@@ -10,22 +10,22 @@
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_spear.rsi
     state: icon
   - type: AmmoCounter
-  - type: UseDelayOnShoot
-  - type: UseDelay
-    delay: 0.9
+  - type: ADTKineticCooldown
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: ADTNoWideAttack
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
+    showExamineText: false
     useKey: false
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.5
-    rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
     proto: BulletCharge
-    capacity: 1
-    count: 1
   - type: DisarmMalus
+  - type: TrophyHolder
+  - type: ContainerContainer
+    containers:
+      upgrades: !type:Container
 
 - type: entity
   parent: [WeaponKineticBase, BaseSecurityCargoContraband]
@@ -40,21 +40,20 @@
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_spear.rsi
     state: icon
   - type: AmmoCounter
-  - type: UseDelayOnShoot
-  - type: UseDelay
-    delay: 0.9
+  - type: ADTKineticCooldown
+  - type: LeechOnMarker
+    leech:
+      types:
+        Blunt: -1.33
+        Slash: -1.33
+        Piercing: -1.34
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
+    showExamineText: false
     useKey: false
-  - type: RechargeBasicEntityAmmo
-    rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
-    rechargeCooldown: 0.5
   - type: BasicEntityAmmoProvider
     proto: BulletCharge
-    capacity: 1
-    count: 1
   - type: MeleeWeapon
     attackRate: 1
     wideAnimationRotation: -135
@@ -120,15 +119,20 @@
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_hammer.rsi
     state: icon
-  - type: UseDelay
-    delay: 1
+  - type: ADTKineticCooldown
+  - type: LeechOnMarker
+    leech:
+      types:
+        Blunt: -2
+        Slash: -2
+        Piercing: -2
   - type: MeleeWeapon
-    attackRate: 0.75
+    attackRate: 0.7
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 10
-        Slash: 5
+        Blunt: 22
+        Slash: 8
     soundHit:
       collection: MetalThud
     angle: 0
@@ -168,14 +172,22 @@
   parent: WeaponKineticBase
   id: WeaponKineticClaws
   name: kinetic claws
-  description: Unleash your inner edgelord with this two-handed claw small enough to fit in your backpack. Deals a paltry 45 damage on mark detonation, but sports a massive 120 damage backstab bonus.
+  description: Unleash your inner edgelord with these claws, worn like gloves. Deals a paltry 45 damage on mark detonation, but sports a massive 120 damage backstab bonus.
   components:
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws.rsi
     state: icon
-  - type: UseDelay
-    delay: 1
+  - type: ADTKineticCooldown
+    baseMeleeMultiplier: 1.5
+  - type: LeechOnMarker
+    leech:
+      types:
+        Blunt: -0.66
+        Slash: -0.66
+        Piercing: -0.66
+  - type: ADTWearableGun
   - type: MeleeWeapon
+    mustBeEquippedToUse: true
     attackRate: 1.5
     wideAnimationRotation: -135
     damage:
@@ -186,18 +198,10 @@
     angle: 0
     animation: WeaponArcThrust
     range: 1.6
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Blunt: 2.5
-        Slash: 2.5
-        Structural: 10
   - type: BackstabDamageMultipilier
     bonusDamage:
       types:
         Slash: 20
-  - type: GunRequiresWield
-  - type: Wieldable
   - type: Item
     size: Normal
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws-inhands.rsi
@@ -207,11 +211,17 @@
       types:
         Blunt: 10
         Slash: 15
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Heat: 0.95
   - type: Clothing
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws.rsi
-    quickEquip: false
     slots:
-    - suitStorage
+    - gloves
   - type: Tool
     qualities:
       - Slicing
@@ -238,8 +248,14 @@
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_machete.rsi
     state: icon
-  - type: UseDelay
-    delay: 1
+  - type: ADTKineticCooldown
+    baseMeleeMultiplier: 1.5
+  - type: LeechOnMarker
+    leech:
+      types:
+        Blunt: -1
+        Slash: -1
+        Piercing: -1
   - type: MeleeWeapon
     attackRate: 1.5
     damage:

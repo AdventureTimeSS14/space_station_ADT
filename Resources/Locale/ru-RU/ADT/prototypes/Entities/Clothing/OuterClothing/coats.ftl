@@ -36,10 +36,6 @@ ent-ADTClothingOuterBlackSweatshirtTop = чёрная толстовка-топ�
 ent-ADTClothingOuterCoatBrigmedicWB = ветровка Бригмедика
     .desc = Надежная ветровка врача брига, защита от любого космического ветра.
 
-ent-ADTClothingOuterCoatIlisium = плащ Иллизиума
-    .suffix = Иллизиум
-    .desc = Тёмный плащ Иллизиума
-
 ent-ADTClothingOuterCoatInvestigator = бушлат следователя Службы безопасности
     .desc = Один вид этого бушлата повышает вероятность чистосердечного признания подозреваемого на 50%.
     .suffix = { "" }
@@ -52,9 +48,6 @@ ent-ADTClothingOuterCoatCentCom = пальто ЦентКом
 
 ent-ADTClothingOuterCoatCCC = пальто консультанта ЦентКом
     .desc = Тёмно-серое пальто с золотыми вставками. На спине выгравирована золотая буква N. Такое пальто явно носят только важные чины Nanotrasen.
-
-ent-ADTClothingOuterCoatCyberSun = лабораторный халат CyberSun
-    .desc = Лабораторный халат CyberSun, предоставляющий минимальную защиту от вредного воздействия.
 
 ent-ADTClothingOuterCoatTrader = бомбер торговца
     .desc = Куртка-бомбер торговцев ТСФ
@@ -172,3 +165,7 @@ ent-ADTClothingOuterWinterCoatLightColorBlack = чёрная лёгкая кур
 
 ent-ADTClothingOuterWinterCoatLightColorDarkBlue = тёмно-синяя лёгкая куртка
     .desc = { ent-ADTClothingOuterWinterCoatLightColorAquamarine.desc }
+
+
+ent-ADTClothingOuterVoxRobe = роба вокса
+  .desc = Стильная роба с капюшоном и кармашками для краденого. Из лучших мастерских Ковчега, с любовью.

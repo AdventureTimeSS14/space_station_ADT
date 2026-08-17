@@ -67,9 +67,9 @@
   - type: ItemTogglePointLight
   - type: PointLight
     enabled: false
-    radius: 3
+    radius: 7 # ADT tweak 3 > 7
     energy: 1
-    mask: /Textures/Effects/LightMasks/cone.png
+    mask: /Textures/ADT/Effects/Lightmasks/cone_composed_b.png # ADT tweak
     autoRot: true
     netsync: false
   - type: Appearance
@@ -104,10 +104,6 @@
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot {}
-  # ADT-Tweak-Start
-  - type: HidesSlots
-    hidesSlots: [ EYES, EARS, MASK ]
-  # ADT-Tweak-End
 
 - type: entity
   abstract: true
@@ -150,8 +146,6 @@
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes, mask, ears]
-  - type: HidesSlots
-    hidesSlots: [ EYES, EARS, MASK ]
   #ADT-Tweak-End
 
 
@@ -209,8 +203,6 @@
   - type: InjectorsBlocker
   - type: CoveredSlot
     slots: [eyes, mask, ears]
-  - type: HidesSlots
-    hidesSlots: [ EYES, EARS, MASK ]
   #ADT-Tweak-End
 
 - type: entity
@@ -237,9 +229,9 @@
   - type: ItemTogglePointLight
   - type: PointLight
     enabled: false
-    radius: 3
+    radius: 6 # ADT tweak 3 > 6
     energy: 2
-    mask: /Textures/Effects/LightMasks/cone.png
+    mask: /Textures/ADT/Effects/Lightmasks/cone_composed_b.png # ADT tweak
     autoRot: true
     netsync: false
   - type: Appearance
@@ -269,10 +261,6 @@
     startingCharge: 600
   - type: BatterySelfRecharger
     autoRechargeRate: 2 #recharge of 2 makes total drain 1w / s so max charge is 1:1 with time. Time to fully charge should be 5 minutes. Having recharge gives light an extended flicker period which gives you some warning to return to light area.
-  # ADT-Tweak-Start
-  - type: HidesSlots
-    hidesSlots: [ EYES, EARS, MASK ]
-  # ADT-Tweak-End
 
 - type: entity
   abstract: true

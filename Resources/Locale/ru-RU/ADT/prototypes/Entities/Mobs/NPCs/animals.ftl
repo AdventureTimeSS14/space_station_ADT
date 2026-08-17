@@ -14,3 +14,6 @@ ent-ADTChurchMobCarp = { ent-MobCarp }
     .desc = { ent-MobCarp.desc }
 ent-ADTMobMouseSpace = космическая мышь
     .desc = Грызун, покоряющий космос.
+ent-ADTMobMonkeyAdvanced = обезьяна
+    .desc = вам кажется эта обезьяна немного лучше других владеет своими конечностями, чем её собратья
+    .suffix = Продвинутый

@@ -169962,7 +169962,7 @@ entities:
     - type: Transform
       pos: 79.5,9.5
       parent: 2
-- proto: MicroManipulatorStockPart
+- proto: CapacitorStockPart
   entities:
   - uid: 25786
     components:
@@ -170094,8 +170094,6 @@ entities:
     - type: Transform
       pos: 40.479496,-51.455708
       parent: 2
-    - type: Stack
-      count: 5
 - proto: MicrowaveMachineCircuitboard
   entities:
   - uid: 25812
@@ -233886,4 +233884,11 @@ entities:
       falloff: 4.5
       energy: 42
       radius: 3
+- proto: ADTVendingMachineMusician
+  entities:
+  - uid: 53949
+    components:
+    - type: Transform
+      pos: -13.5,12.5
+      parent: 2
 ...

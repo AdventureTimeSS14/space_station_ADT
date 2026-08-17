@@ -56,6 +56,11 @@ public sealed partial class CryoPodWindow : FancyWindow
                                       ("pressure", $"{msg.GasMix.Pressure:0.00}"));
         Temperature.Text = Loc.GetString("generic-not-available-shorthand");
 
+        // ADT Tweak start
+        MetabolismLabel.Text = Loc.GetString("cryo-pod-window-metabolism-value", ("speedup", msg.MetabolismSpeedup.ToString("0.00")));
+        MetabolismLabel.FontColorOverride = msg.MetabolismSpeedup > 1f ? Color.DeepSkyBlue : Color.Gray;
+        // ADT Tweak end
+
         if (hasGas)
         {
             var celsius = TemperatureHelpers.KelvinToCelsius(msg.GasMix.Temperature);

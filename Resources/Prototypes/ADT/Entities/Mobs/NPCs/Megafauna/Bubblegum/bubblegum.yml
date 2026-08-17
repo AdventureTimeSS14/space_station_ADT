@@ -1,0 +1,179 @@
+- type: entity
+  id: BaseMobBubblegum
+  parent: ADTBaseMobMegafauna
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/bubblegum.rsi
+    layers:
+    - map:
+      - enum.DamageStateVisualLayers.Base
+      state: bubblegum
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bubblegum
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 1
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+
+- type: entity
+  id: ADTMegaFaunaBubblegum
+  name: bubblegum
+  description: bublbegum desc
+  parent: BaseMobBubblegum
+  components:
+  - type: GpsSignal
+    tag: adt-gps-signal-bubblegum
+    description: adt-gps-signal-bubblegum-desc
+    color: "#B32020"
+  - type: GenericVisualizer
+    visuals:
+      enum.BubblegumVisuals.Enraged:
+        enum.DamageStateVisualLayers.Base:
+          True:
+            color: "#950A0A"
+          False:
+            color: "#FFFFFF"
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      3500: Dead
+  - type: MeleeWeapon
+    attackRate: 0.85
+    damage:
+      types:
+        Blunt: 45
+        Structural: 150
+    range: 1.6
+    angle: 0
+    animation: WeaponArcPunch
+    soundHit:
+      path: /Audio/ADT/Bubblegum/demon_attack1.ogg
+  - type: HTN
+    blackboard:
+      VisionRadius: !type:Single "20"
+      AggroVisionRadius: !type:Single "20"
+      NavSmash: !type:Bool "true"
+      NavInteract: !type:Bool "true"
+      MeleeRange: !type:Single "1.45"
+      MeleeMissChance: !type:Single "0"
+    rootTask:
+      task: ADTBubblegumCompound
+  - type: Megafauna
+    speechCooldown: 15
+    speechChance: 0.3
+  - type: ADTBossMusic
+    music: ADTBossMusicBubblegum
+#  - type: ADTMobHealthBar
+#    active: true
+#    primaryColor: "#8e1717"
+#    accentColor: "#ff4d4d"
+ #   style: Molten
+ #   priority: 50
+  - type: ArmorPenetration
+    penetration: 0.65
+  - type: Bubblegum
+  - type: BubblegumTripleCharge
+    delays:
+    - 0.65
+    - 0.5
+    - 0.4
+  - type: BubblegumHallucinationCharge
+    hallucinationsNormal: 8
+    hallucinationsSmash: 5
+  - type: BubblegumSurround
+    waves: 6
+  - type: BubblegumBloodWarp
+  - type: BubblegumSummonNarsi
+    count: 3
+  - type: BubblegumBloodAttack
+    smackDamage: 15
+    smackDamageEnraged: 26
+  - type: BubblegumLoot
+    deathThemeSound:
+      path: /Audio/ADT/Phantom/Sounds/psycho.ogg
+  - type: MegafaunaLoot
+    dropOnDeath: false # the death sequence drops it
+    crateProto: ADTCrateBubblegumLoot
+    dropEffect: ADTBubblegumChestGlow
+    dropSound:
+      path: /Audio/ADT/Bubblegum/exit_blood.ogg
+    randomLoot:
+    - ADTWeaponExperimentalProtoKineticAcellerator
+    loot:
+    - proto: ADTClothingOuterHardsuitHECK
+    - proto: ADTClothingHeadHelmetHardsuitHECK
+    - proto: ADTKineticTrophyDemonClaws
+    - proto: GoldOre
+      max: 10
+    - proto: SilverOre
+      max: 10
+    - proto: DiamondOre
+      max: 5
+    - proto: PlasmaOre
+      max: 15
+    - proto: UraniumOre
+      max: 10
+    - proto: SpaceQuartz
+      max: 15
+  - type: StatusIcon
+    bounds: -1,-2,1,1
+
+- type: entity
+  id: ADTMegaFaunaBubblegumHallucination
+  name: bubblegum
+  suffix: Hallucination
+  categories:
+  - HideSpawnMenu
+  parent: BaseMobBubblegum
+  components:
+  - type: Sprite
+    color: "#FFFFFF80"
+    sprite: ADT/Mobs/Aliens/Lavaland/bubblegum.rsi
+    layers:
+    - map:
+      - enum.DamageStateVisualLayers.Base
+      state: bubblegum
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1: Dead
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTPuddleBloodBubblegum:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts:
+        - Destruction
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: MeleeWeapon
+    attackRate: 0.01
+    damage:
+      types:
+        Blunt: 0
+  - type: BubblegumHallucination
+  - type: TimedDespawn
+    lifetime: 4
+  - type: HTN
+    netsync: true
+    rootTask:
+      task: DoAbsolutelyNothingCompound

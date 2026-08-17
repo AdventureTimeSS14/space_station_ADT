@@ -15,7 +15,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.ADT.MartialArts;
-using Content.Shared.Changeling.Components;
+using Content.Goobstation.Shared.Changeling.Components; // ADT-Tweak
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;

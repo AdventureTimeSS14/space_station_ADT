@@ -1,0 +1,54 @@
+uniform sampler2D SCREEN_TEXTURE;
+
+uniform highp float ThermalBoost;
+uniform highp float ThermalIntensity;
+uniform highp float ThermalAlpha;
+
+uniform highp float CenterClearRadius;
+uniform highp float CenterClearSoftness;
+
+const highp vec3 cCold   = vec3(0.05, 0.12, 0.42); // readable deep blue (dark reveal)
+const highp vec3 cCool   = vec3(0.12, 0.32, 0.72); // clearer blue
+const highp vec3 cMid    = vec3(0.28, 0.48, 0.42); // soft teal
+const highp vec3 cWarm   = vec3(0.72, 0.52, 0.22); // amber (not neon yellow)
+const highp vec3 cHot    = vec3(0.78, 0.38, 0.22); // soft orange-copper
+const highp vec3 cPeak   = vec3(0.88, 0.72, 0.58); // warm cream
+
+highp vec3 getThermalColor(in highp float t)
+{
+    if (t < 0.2)
+        return mix(cCold, cCool, t / 0.2);
+    else if (t < 0.4)
+        return mix(cCool, cMid, (t - 0.2) / 0.2);
+    else if (t < 0.6)
+        return mix(cMid, cWarm, (t - 0.4) / 0.2);
+    else if (t < 0.8)
+        return mix(cWarm, cHot, (t - 0.6) / 0.2);
+    else
+        return mix(cHot, cPeak, (t - 0.8) / 0.2);
+}
+
+highp float centerAllow(highp vec2 uv)
+{
+    highp float distPx = length((uv - vec2(0.5)) / SCREEN_PIXEL_SIZE);
+    highp float inner = max(CenterClearRadius, 0.0);
+    highp float outer = inner + max(CenterClearSoftness, 1.0);
+    return smoothstep(inner, outer, distPx);
+}
+
+void fragment()
+{
+    COLOR = zTextureSpec(SCREEN_TEXTURE, Pos);
+    highp vec3 original = COLOR.rgb;
+
+    highp float lum = dot(original, vec3(0.299, 0.587, 0.114));
+
+    highp float darkLift = (1.0 - smoothstep(0.0, 0.12, lum)) * 0.08;
+    lum = clamp(lum * ThermalBoost + darkLift, 0.0, 1.0);
+
+    highp vec3 thermalColor = getThermalColor(lum);
+
+    highp float intensity = ThermalIntensity * centerAllow(Pos);
+    COLOR.rgb = mix(original, thermalColor, intensity);
+    COLOR.a *= ThermalAlpha;
+}

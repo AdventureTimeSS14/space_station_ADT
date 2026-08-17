@@ -105,12 +105,14 @@
       controlsLocked: true
       mode: SensorCords
       activationContainer: "implant"
-    - type: DeviceNetwork
-      deviceNetId: Wireless
-      transmitFrequencyId: SuitSensor
-    - type: StationLimitedNetwork
-    - type: WirelessNetworkConnection
-      range: 500
+    # ADT-Tweak Start - New Monitor:
+    # - type: DeviceNetwork
+    #   deviceNetId: Wireless
+    #   transmitFrequencyId: SuitSensor
+    # - type: StationLimitedNetwork
+    # - type: WirelessNetworkConnection
+    #   range: 500
+    # ADT-Tweak End
 
 #Traitor implants
 
@@ -153,6 +155,8 @@
       - Cuffable # useless if you cant be cuffed
   - type: TriggerOnActivateImplant
   - type: UncuffOnTrigger
+    targetUser: true
+  - type: RemoveEnsnareOnTrigger # ADT-Tweak - имплант свободы снимает ещё и болы
     targetUser: true
 
 - type: entity

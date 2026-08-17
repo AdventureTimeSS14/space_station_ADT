@@ -153850,7 +153850,7 @@ entities:
     - type: Transform
       pos: -44.5629,3.349322
       parent: 2
-- proto: MicroManipulatorStockPart
+- proto: CapacitorStockPart
   entities:
   - uid: 11378
     components:
@@ -208530,5 +208530,12 @@ entities:
     components:
     - type: Transform
       pos: 1.5202117,22.570433
+      parent: 2
+- proto: ADTVendingMachineMusician
+  entities:
+  - uid: 53949
+    components:
+    - type: Transform
+      pos: 1.5,-7.5
       parent: 2
 ...

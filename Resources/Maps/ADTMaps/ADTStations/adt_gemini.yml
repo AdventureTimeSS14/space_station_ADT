@@ -14846,17 +14846,17 @@ entities:
             24886: -38,-21
         - node:
             color: '#FFFFFFFF'
-            id: FloraBigRock01
+            id: Grassa1
           decals:
             16998: -60,42
         - node:
             color: '#FFFFFFFF'
-            id: FloraBigRock02
+            id: Grassa1
           decals:
             17270: -14,-37
         - node:
             color: '#FFFFFFFF'
-            id: FloraBigRock03
+            id: Grassa1
           decals:
             35242: -60,41
             35244: -60,38
@@ -161495,7 +161495,7 @@ entities:
     - type: Transform
       pos: 31.5,78.5
       parent: 2
-- proto: MicroManipulatorStockPart
+- proto: MicroServoStockPart
   entities:
   - uid: 18373
     components:

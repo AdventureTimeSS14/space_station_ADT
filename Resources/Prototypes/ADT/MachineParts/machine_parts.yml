@@ -1,0 +1,60 @@
+- type: machinePart
+  id: Capacitor
+  name: machine-part-name-capacitor
+  stockPartPrototype: CapacitorStockPart
+  tierPrototypes: [CapacitorStockPart, AdvancedCapacitorStockPart, SuperCapacitorStockPart, BluespaceCapacitorStockPart]
+  sortPriority: 0
+  stats:
+    ChargeRate: 0.25
+    PowerDraw: -0.15
+    EnergyCost: 0.10
+
+- type: machinePart
+  id: Servo
+  name: machine-part-name-servo
+  stockPartPrototype: MicroServoStockPart
+  tierPrototypes: [MicroServoStockPart, NanoServoStockPart, PicoServoStockPart, FemtoServoStockPart]
+  sortPriority: 1
+  stats:
+    Speed: 0.20
+    ResourceCost: 0.10
+
+- type: machinePart
+  id: MatterBin
+  name: machine-part-name-matter-bin
+  stockPartPrototype: MatterBinStockPart
+  tierPrototypes: [MatterBinStockPart, AdvancedMatterBinStockPart, SuperMatterBinStockPart, BluespaceMatterBinStockPart]
+  sortPriority: 2
+  stats:
+    Speed: -0.10
+    ResourceCost: -0.12
+    Capacity: 0.25
+    EnergyCost: -0.10
+
+- type: machinePart
+  id: ScanningModule
+  name: machine-part-name-scanning-module
+  stockPartPrototype: ScanningModuleStockPart
+  tierPrototypes: [ScanningModuleStockPart, AdvancedScanningModuleStockPart, PhasicScanningModuleStockPart, TriphasicScanningModuleStockPart]
+  sortPriority: 3
+  stats:
+    Speed: -0.10
+    Output: 0.15
+
+- type: machinePart
+  id: MicroLaser
+  name: machine-part-name-micro-laser
+  stockPartPrototype: MicroLaserStockPart
+  tierPrototypes: [MicroLaserStockPart, HighPowerMicroLaserStockPart, UltraHighPowerMicroLaserStockPart, QuadUltraMicroLaserStockPart]
+  sortPriority: 4
+  stats:
+    Speed: 0.25
+    Output: 0.20
+    EnergyCost: 0.10
+
+- type: machinePart
+  id: PowerCell
+  name: machine-part-name-power-cell
+  stockPartPrototype: PowerCellSmall
+  tierPrototypes: [PowerCellSmall, PowerCellMedium, PowerCellHigh, PowerCellHyper]
+  sortPriority: 5

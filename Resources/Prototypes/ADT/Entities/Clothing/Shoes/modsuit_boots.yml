@@ -109,14 +109,14 @@
   name: security MOD boots
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Shoes/Modsuit/mining.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/security.rsi
     state: icon
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
   - type: Clothing
     equipDelay: 3
     unequipDelay: 3
-    sprite: ADT/Clothing/Shoes/Modsuit/mining.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/security.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
 
@@ -324,3 +324,47 @@
         Cold: 0.95
   - type: ClothingSlowOnDamageModifier
     modifier: 0.50
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesMinerva
+  name: research MOD boots "Minerva"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Modsuit/minerva.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Modsuit/minerva.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesCharon
+  name: liberation MOD boots "Charon"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Modsuit/charon.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Modsuit/charon.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesERT
+  name: ERT MOD boots
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Modsuit/responsory.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Modsuit/responsory.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg

@@ -1,0 +1,88 @@
+- type: entity
+  id: ADTMegaFaunaBubblegumShitSpawnOriginalPower
+  name: bubblegum
+  suffix: Original Power
+  description: bublbegum desc
+  parent: BaseMobBubblegum
+  components:
+  - type: Destructible
+    thresholds: []
+  - type: GenericVisualizer
+    visuals:
+      enum.BubblegumVisuals.Enraged:
+        enum.DamageStateVisualLayers.Base:
+          True:
+            color: "#950A0A"
+          False:
+            color: "#FFFFFF"
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4.7
+    baseSprintSpeed: 4.7
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2500: Dead
+  - type: MeleeWeapon
+    attackRate: 0.85
+    damage:
+      types:
+        Blunt: 40
+        Structural: 150
+    range: 2
+    angle: 0
+    animation: WeaponArcPunch
+    soundHit:
+      path: /Audio/ADT/Bubblegum/demon_attack1.ogg
+  - type: HTN
+    blackboard:
+      VisionRadius: !type:Single "20"
+      AggroVisionRadius: !type:Single "20"
+      NavSmash: !type:Bool "true"
+      NavInteract: !type:Bool "true"
+      MeleeRange: !type:Single "1.8"
+      MeleeMissChance: !type:Single "0"
+    rootTask:
+      task: ADTBubblegumCompound
+  - type: Megafauna
+  - type: ADTBossMusic
+    music: ADTBossMusicBubblegum
+  - type: ArmorPenetration
+    penetration: 0.5
+  - type: Bubblegum
+  - type: BubblegumTripleCharge
+  - type: BubblegumHallucinationCharge
+  - type: BubblegumSurround
+  - type: BubblegumBloodWarp
+  - type: BubblegumSummonNarsi
+  - type: BubblegumBloodAttack
+  - type: BubblegumLoot
+    deathThemeSound:
+      path: /Audio/ADT/Phantom/Sounds/psycho.ogg
+  - type: MegafaunaLoot
+    dropOnDeath: false # the death sequence drops it
+    crateProto: ADTCrateBubblegumLoot
+    dropEffect: ADTBubblegumChestGlow
+    dropSound:
+      path: /Audio/ADT/Bubblegum/exit_blood.ogg
+    randomLoot:
+    - ADTMayhemBottle
+    - ADTBloodContract
+    - ADTWeaponExperimentalProtoKineticAcellerator
+    loot:
+    - proto: ADTClothingOuterHardsuitHECK
+    - proto: ADTClothingHeadHelmetHardsuitHECK
+    - proto: ADTKineticTrophyDemonClaws
+    - proto: GoldOre
+      max: 10
+    - proto: SilverOre
+      max: 10
+    - proto: DiamondOre
+      max: 5
+    - proto: PlasmaOre
+      max: 15
+    - proto: UraniumOre
+      max: 10
+    - proto: SpaceQuartz
+      max: 15
+  - type: StatusIcon
+    bounds: -1,-2,1,1

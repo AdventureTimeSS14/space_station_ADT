@@ -393,6 +393,29 @@
   - type: Pda
     id: ADTStudentIDCard
 
+# Pun Pun
+- type: entity
+  parent: BasePDA
+  id: ADTPunPunPDA
+  name: pun pun's PDA
+  description: Smells like bananas.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+  - type: Pda
+    id: PunPunIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-punpun
+  - type: PdaBorderColor
+    borderColor: "#333333"
+    accentVColor: "#ffdc54"
+  - type: Icon
+    sprite: ADT/Objects/Devices/pda.rsi
+    state: pda-punpun
+
 # Bartender
 
 - type: entity
@@ -948,6 +971,16 @@
   components:
   - type: Pda
     id: ADTRDIDCard
+
+# xenobio
+
+- type: entity
+  parent: SciencePDA
+  id: XenobioPDA
+  name: xenobiologist PDA
+  components:
+  - type: Pda
+    id: XenobioIDCard
 
 # chief medical officer
 

@@ -14,12 +14,10 @@ public sealed partial class MegafaunaSystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly GunSystem _gun = default!;
 
-    public override void Initialize()
+    protected void InitializeDrake()
     {
-        base.Initialize();
         SubscribeLocalEvent<AshDrakeSwoopActionEvent>(OnSwoop);
         SubscribeLocalEvent<AshDrakeMeteoritesActionEvent>(OnMeteors);
         SubscribeLocalEvent<AshDrakeFireActionEvent>(OnFire);

@@ -1,0 +1,14 @@
+- type: entity
+  id: ADTDroppodTarget
+  name: drop pod targeting reticle
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    sprite: ADT/Effects/droppod_target.rsi
+    layers:
+    - state: targeting
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 15

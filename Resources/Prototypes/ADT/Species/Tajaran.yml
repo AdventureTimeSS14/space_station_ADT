@@ -3,7 +3,7 @@
   name: species-name-tajaran
   roundStart: true
   prototype: MobTajaran
-  dollPrototype: AppearanceTajaran
+  dollPrototype: ADTAppearanceTajaran
   skinColoration: Hues
   shortDesc: species-short-desc-tajaran
   maleFirstNames: firstMaleTajaran
@@ -18,8 +18,9 @@
   - Получают на 10% меньше урона порезами.
   - Получают на 40% меньше урона обморожением.
   special:
-  - Имеют нестандартные возрастные рамки (Молодые 18-21, Зрелые 22-35, Старые 36-45)
+  - Имеют нестандартные возрастные рамки (Молодые 18-21, Зрелые 22-35, Старые 36-45).
   - Имеют общий язык с унатхами.
+  - Имеют сильное ночное зрение.
   cons:
   - Получают на 5% больше урона уколами.
   - Получают на 30% больше урона ожогами.

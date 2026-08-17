@@ -1,0 +1,1326 @@
+- type: constructionGraph
+  id: BluespaceArtilleryConstruction
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frame1
+      completed:
+      - !type:SnapToGrid { }
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 5
+      - tag: BlueprintBSA
+        name: construction-graph-tag-blueprint-bsa
+
+  - node: frame1
+    entity: BluespaceArtilleryFrame
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame2
+      steps:
+      - material: Steel
+        amount: 20
+        doAfter: 3
+      - material: Plasteel
+        amount: 10
+        doAfter: 3
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      - !type:DeleteEntity {}
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      steps:
+      - tool: Welding
+        doAfter: 20
+
+  - node: frame2
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame3
+      steps:
+      - material: Steel
+        amount: 20
+        doAfter: 3
+      - material: Plasteel
+        amount: 5
+        doAfter: 3
+      - tool: Anchoring
+        doAfter: 20
+      - tool: Welding
+        doAfter: 10
+    - to: frame1
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 10
+      steps:
+      - tool: Prying
+        doAfter: 4
+
+  - node: frame3
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame4
+      steps:
+      - tag: LightBulb
+        name: construction-graph-tag-light-bulb
+      - tag: LightBulb
+        name: construction-graph-tag-second-light-bulb
+      - tag: LightBulb
+        name: construction-graph-tag-third-light-bulb
+      - tag: LightBulb
+        name: construction-graph-tag-fourth-light-bulb
+      - tag: LightBulb
+        name: construction-graph-tag-fifth-light-bulb
+      - material: Cable
+        amount: 10
+      - material: CableMV
+        amount: 5
+      - machinePart: Capacitor
+        tier: 4
+        name: machine-part-name-capacitor
+      - machinePart: Capacitor
+        tier: 4
+        name: machine-part-name-capacitor
+      - machinePart: Capacitor
+        tier: 4
+        name: machine-part-name-capacitor
+      - machinePart: Capacitor
+        tier: 4
+        name: machine-part-name-capacitor
+      - machinePart: Capacitor
+        tier: 4
+        name: machine-part-name-capacitor
+      - material: Gold
+        amount: 20
+      - material: Silver
+        amount: 30
+    - to: frame2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 20
+      steps:
+      - tool: Anchoring
+        doAfter: 20
+      - tool: Prying
+        doAfter: 4
+
+  - node: frame4
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame5
+      steps:
+      - tool: Anchoring
+        doAfter: 10
+      - tool: Screwing
+        doAfter: 10
+    - to: frame3
+      completed:
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 10
+      - !type:SpawnPrototype
+        prototype: CableMVStack1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: CapacitorStockPart
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: IngotGold1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: IngotSilver1
+        amount: 30
+      - !type:SpawnPrototype
+        prototype: LightBulbBroken
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: FemtoServoStockPart
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: BluespaceCapacitorStockPart
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: BluespaceMatterBinStockPart
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: QuadUltraMicroLaserStockPart
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: TriphasicScanningModuleStockPart
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 3
+
+  - node: frame5
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame6
+      steps:
+      - material: Steel
+        amount: 10
+        doAfter: 2
+      - material: Plasteel
+        amount: 5
+        doAfter: 2
+      - tool: Welding
+        doAfter: 10
+    - to: frame4
+      steps:
+      - tool: Screwing
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
+
+  - node: frame6
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame7
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 2
+      - tool: Welding
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 10
+      - material: Cable
+        amount: 15
+      - material: CableMV
+        amount: 10
+    - to: frame5
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 10
+      steps:
+      - tool: Welding
+        doAfter: 3
+      - tool: Prying
+        doAfter: 3
+
+  - node: frame7
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame8
+      steps:
+      - material: CableHV
+        amount: 20
+      - material: CableMV
+        amount: 10
+    - to: frame6
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 15
+      - !type:SpawnPrototype
+        prototype: CableMVStack1
+        amount: 10
+      steps:
+      - tool: Cutting
+        doAfter: 2
+
+  - node: frame8
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame9
+      steps:
+      - tool: Anchoring
+        doAfter: 5
+      - tool: Screwing
+        doAfter: 5
+      - material: Uranium
+        amount: 20
+      - material: Plasma
+        amount: 20
+      - material: Gold
+        amount: 15
+    - to: frame7
+      completed:
+      - !type:SpawnPrototype
+        prototype: CableHVStack1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: CableMVStack1
+        amount: 10
+      steps:
+      - tool: Cutting
+        doAfter: 8
+
+  - node: frame9
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame10
+      steps:
+      - tool: Anchoring
+        doAfter: 5
+      - tool: Screwing
+        doAfter: 5
+      - material: Uranium
+        amount: 20
+      - material: Plasma
+        amount: 20
+      - material: Silver
+        amount: 15
+    - to: frame8
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetUranium1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: SheetPlasma1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: IngotGold1
+        amount: 15
+      steps:
+      - tool: Prying
+        doAfter: 2
+
+  - node: frame10
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame11
+      steps:
+      - tool: Anchoring
+        doAfter: 5
+      - tool: Screwing
+        doAfter: 5
+      - material: Uranium
+        amount: 25
+      - material: Plasma
+        amount: 25
+    - to: frame9
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetUranium1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: SheetPlasma1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: IngotSilver1
+        amount: 15
+      steps:
+      - tool: Prying
+        doAfter: 2
+
+  - node: frame11
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame12
+      steps:
+      - tool: Anchoring
+        doAfter: 5
+      - tool: Screwing
+        doAfter: 5
+      - material: Uranium
+        amount: 20
+      - material: Plasma
+        amount: 20
+      - material: ADTBScrystal
+        amount: 10
+    - to: frame10
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetUranium1
+        amount: 25
+      - !type:SpawnPrototype
+        prototype: SheetPlasma1
+        amount: 25
+      steps:
+      - tool: Prying
+        doAfter: 2
+
+  - node: frame12
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame13
+      steps:
+      - material: Steel
+        amount: 30
+        doAfter: 2
+    - to: frame11
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetUranium1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: SheetPlasma1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: ADTMaterialBScrystal1
+        amount: 10
+      steps:
+      - tool: Prying
+        doAfter: 2
+
+  - node: frame13
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame14
+      steps:
+      - material: Steel
+        amount: 30
+        doAfter: 2
+    - to: frame12
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame14
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame15
+      steps:
+      - material: Steel
+        amount: 30
+        doAfter: 2
+    - to: frame13
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame15
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame16
+      steps:
+      - material: Steel
+        amount: 30
+        doAfter: 2
+    - to: frame14
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame16
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame17
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 30
+      - tool: Welding
+        doAfter: 15
+    - to: frame15
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame17
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame18
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 30
+      - tool: Welding
+        doAfter: 15
+    - to: frame16
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame18
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame19
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 30
+      - tool: Welding
+        doAfter: 15
+    - to: frame17
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame19
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame20
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 30
+      - tool: Welding
+        doAfter: 15
+    - to: frame18
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame20
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame21
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 30
+      - tool: Welding
+        doAfter: 15
+    - to: frame19
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame21
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame22
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 30
+      - tool: Welding
+        doAfter: 15
+    - to: frame20
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame22
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame23
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 30
+      - tool: Welding
+        doAfter: 15
+    - to: frame21
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame23
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame24
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 30
+      - tool: Welding
+        doAfter: 15
+    - to: frame22
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame24
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: cannon_east
+      conditions:
+      - !type:EntityAnchored
+        anchored: true
+      steps:
+      - tool: Welding
+        doAfter: 45
+    - to: frame23
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      steps:
+      - tool: Prying
+        doAfter: 2
+
+  - node: cannon_east
+    entity: BluespaceArtillery
+    edges:
+    - to: frame24
+      conditions:
+      - !type:EntityAnchored
+        anchored: true
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - tool: Cutting
+        doAfter: 200
+
+- type: constructionGraph
+  id: BluespaceArtilleryConstructionFlipped
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frame1
+      completed:
+      - !type:SnapToGrid { }
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 5
+      - tag: BlueprintBSA
+        name: construction-graph-tag-blueprint-bsa
+
+  - node: frame1
+    entity: BluespaceArtilleryFrameFlipped
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame2
+      steps:
+      - material: Steel
+        amount: 20
+        doAfter: 3
+      - material: Plasteel
+        amount: 10
+        doAfter: 3
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      - !type:DeleteEntity {}
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      steps:
+      - tool: Welding
+        doAfter: 20
+
+  - node: frame2
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame3
+      steps:
+      - material: Steel
+        amount: 20
+        doAfter: 3
+      - material: Plasteel
+        amount: 5
+        doAfter: 3
+      - tool: Anchoring
+        doAfter: 20
+      - tool: Welding
+        doAfter: 10
+    - to: frame1
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 10
+      steps:
+      - tool: Prying
+        doAfter: 4
+
+  - node: frame3
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame4
+      steps:
+      - tag: LightBulb
+        name: construction-graph-tag-light-bulb
+      - tag: LightBulb
+        name: construction-graph-tag-second-light-bulb
+      - tag: LightBulb
+        name: construction-graph-tag-third-light-bulb
+      - tag: LightBulb
+        name: construction-graph-tag-fourth-light-bulb
+      - tag: LightBulb
+        name: construction-graph-tag-fifth-light-bulb
+      - material: Cable
+        amount: 10
+      - material: CableMV
+        amount: 5
+      - machinePart: Capacitor
+        tier: 4
+        name: machine-part-name-capacitor
+      - machinePart: Capacitor
+        tier: 4
+        name: machine-part-name-capacitor
+      - machinePart: Capacitor
+        tier: 4
+        name: machine-part-name-capacitor
+      - machinePart: Capacitor
+        tier: 4
+        name: machine-part-name-capacitor
+      - machinePart: Capacitor
+        tier: 4
+        name: machine-part-name-capacitor
+      - material: Gold
+        amount: 20
+      - material: Silver
+        amount: 30
+    - to: frame2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 20
+      steps:
+      - tool: Anchoring
+        doAfter: 20
+      - tool: Prying
+        doAfter: 4
+
+  - node: frame4
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame5
+      steps:
+      - tool: Anchoring
+        doAfter: 10
+      - tool: Screwing
+        doAfter: 10
+      - machinePart: Servo
+        tier: 4
+        name: machine-part-name-servo
+      - machinePart: Servo
+        tier: 4
+        name: machine-part-name-servo
+      - machinePart: Capacitor
+        tier: 4
+        name: machine-part-name-capacitor
+      - machinePart: Capacitor
+        tier: 4
+        name: machine-part-name-capacitor
+      - machinePart: MatterBin
+        tier: 4
+        name: machine-part-name-matter-bin
+      - machinePart: MicroLaser
+        tier: 4
+        name: machine-part-name-micro-laser
+      - machinePart: ScanningModule
+        tier: 4
+        name: machine-part-name-scanning-module
+    - to: frame3
+      completed:
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 10
+      - !type:SpawnPrototype
+        prototype: CableMVStack1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: CapacitorStockPart
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: IngotGold1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: IngotSilver1
+        amount: 30
+      - !type:SpawnPrototype
+        prototype: LightBulbBroken
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: FemtoServoStockPart
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: BluespaceCapacitorStockPart
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: BluespaceMatterBinStockPart
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: QuadUltraMicroLaserStockPart
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: TriphasicScanningModuleStockPart
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 3
+
+  - node: frame5
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame6
+      steps:
+      - material: Steel
+        amount: 10
+        doAfter: 2
+      - material: Plasteel
+        amount: 5
+        doAfter: 2
+      - tool: Welding
+        doAfter: 10
+    - to: frame4
+      steps:
+      - tool: Screwing
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
+
+  - node: frame6
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame7
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 2
+      - tool: Welding
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 10
+      - material: Cable
+        amount: 15
+      - material: CableMV
+        amount: 10
+    - to: frame5
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 10
+      steps:
+      - tool: Welding
+        doAfter: 3
+      - tool: Prying
+        doAfter: 3
+
+  - node: frame7
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame8
+      steps:
+      - material: CableHV
+        amount: 20
+      - material: CableMV
+        amount: 10
+    - to: frame6
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 15
+      - !type:SpawnPrototype
+        prototype: CableMVStack1
+        amount: 10
+      steps:
+      - tool: Cutting
+        doAfter: 2
+
+  - node: frame8
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame9
+      steps:
+      - tool: Anchoring
+        doAfter: 5
+      - tool: Screwing
+        doAfter: 5
+      - material: Uranium
+        amount: 20
+      - material: Plasma
+        amount: 20
+      - material: Gold
+        amount: 15
+    - to: frame7
+      completed:
+      - !type:SpawnPrototype
+        prototype: CableHVStack1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: CableMVStack1
+        amount: 10
+      steps:
+      - tool: Cutting
+        doAfter: 8
+
+  - node: frame9
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame10
+      steps:
+      - tool: Anchoring
+        doAfter: 5
+      - tool: Screwing
+        doAfter: 5
+      - material: Uranium
+        amount: 20
+      - material: Plasma
+        amount: 20
+      - material: Silver
+        amount: 15
+    - to: frame8
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetUranium1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: SheetPlasma1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: IngotGold1
+        amount: 15
+      steps:
+      - tool: Prying
+        doAfter: 2
+
+  - node: frame10
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame11
+      steps:
+      - tool: Anchoring
+        doAfter: 5
+      - tool: Screwing
+        doAfter: 5
+      - material: Uranium
+        amount: 25
+      - material: Plasma
+        amount: 25
+    - to: frame9
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetUranium1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: SheetPlasma1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: IngotSilver1
+        amount: 15
+      steps:
+      - tool: Prying
+        doAfter: 2
+
+  - node: frame11
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame12
+      steps:
+      - tool: Anchoring
+        doAfter: 5
+      - tool: Screwing
+        doAfter: 5
+      - material: Uranium
+        amount: 20
+      - material: Plasma
+        amount: 20
+      - material: ADTBScrystal
+        amount: 10
+    - to: frame10
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetUranium1
+        amount: 25
+      - !type:SpawnPrototype
+        prototype: SheetPlasma1
+        amount: 25
+      steps:
+      - tool: Prying
+        doAfter: 2
+
+  - node: frame12
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame13
+      steps:
+      - material: Steel
+        amount: 30
+        doAfter: 2
+    - to: frame11
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetUranium1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: SheetPlasma1
+        amount: 20
+      - !type:SpawnPrototype
+        prototype: ADTMaterialBScrystal1
+        amount: 10
+      steps:
+      - tool: Prying
+        doAfter: 2
+
+  - node: frame13
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame14
+      steps:
+      - material: Steel
+        amount: 30
+        doAfter: 2
+    - to: frame12
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame14
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame15
+      steps:
+      - material: Steel
+        amount: 30
+        doAfter: 2
+    - to: frame13
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame15
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame16
+      steps:
+      - material: Steel
+        amount: 30
+        doAfter: 2
+    - to: frame14
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame16
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame17
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 30
+      - tool: Welding
+        doAfter: 15
+    - to: frame15
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame17
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame18
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 30
+      - tool: Welding
+        doAfter: 15
+    - to: frame16
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame18
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame19
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 30
+      - tool: Welding
+        doAfter: 15
+    - to: frame17
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame19
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame20
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 30
+      - tool: Welding
+        doAfter: 15
+    - to: frame18
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame20
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame21
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 30
+      - tool: Welding
+        doAfter: 15
+    - to: frame19
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame21
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame22
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 30
+      - tool: Welding
+        doAfter: 15
+    - to: frame20
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame22
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame23
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 30
+      - tool: Welding
+        doAfter: 15
+    - to: frame21
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame23
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame24
+      steps:
+      - material: Plasteel
+        amount: 30
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 30
+      - tool: Welding
+        doAfter: 15
+    - to: frame22
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: frame24
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: cannon_west
+      conditions:
+      - !type:EntityAnchored
+        anchored: true
+      steps:
+      - tool: Welding
+        doAfter: 45
+    - to: frame23
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 30
+      steps:
+      - tool: Prying
+        doAfter: 2
+
+  - node: cannon_west
+    entity: BluespaceArtilleryMirror
+    edges:
+    - to: frame24
+      conditions:
+      - !type:EntityAnchored
+        anchored: true
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - tool: Cutting
+        doAfter: 200

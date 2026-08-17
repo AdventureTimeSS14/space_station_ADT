@@ -10,12 +10,12 @@
         icon:
           sprite: Objects/Specific/Hydroponics/pumpkin.rsi
           state: carved
-        name: construction-graph-carved-pumpkin
+        name: construction-graph-tag-carved-pumpkin
       - tag: Flashlight
         icon:
           sprite: Objects/Tools/flashlight.rsi
           state: flashlight
-        name: construction-graph-flashlight
+        name: construction-graph-tag-flashlight
       - material: Cloth
         amount: 5
       - material: Cable
