@@ -24,6 +24,8 @@
       Dead: 0.1
     baseDecayRate: 0.1
     starvingSlowdownModifier: 0
+  - type: Slime
+    breed: GreyMutation
   - type: Sprite
     noRot: true
     drawdepth: OverMobs
@@ -207,16 +209,3 @@
       adult:
         sprite: ADT/Xenobiology/Mobs/slimesAdult.rsi
         displayName: mob-slime-stage-adult
-
-- type: entity
-  abstract: true
-  parent: MarkerBase
-  id: MobSlimeXenobioBabyPending
-  name: undetermined slime
-  components:
-  - type: PendingSlimeSpawn
-  - type: Sprite
-    layers:
-      - state: green
-      - sprite: ADT/Xenobiology/Mobs/slimesBaby.rsi
-        state: base

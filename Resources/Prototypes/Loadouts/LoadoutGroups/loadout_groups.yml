@@ -61,6 +61,8 @@
   - ADTFlowerWreath2
   - ADTFlowerWreath3
   - ADTFlowerWreath4
+  - OffsetCane
+  - OffsetCaneWood
   # ADT-Tweak-End
 
 - type: loadoutGroup
@@ -260,6 +262,10 @@
   - ADTClothingUniformJumpsuitHawaiBlue
   - ADTClothingUniformJumpsuitHawaiYellow
   - ADTClothingUniformJumpsuitHawaiBlack
+  - ADTClothingUniformJumpsuitTuxedo
+  - ADTClothingUniformJumpsuitTuxedoWhite
+  - ADTClothingUniformJumpsuitTuxedoRed
+  - ADTClothingUniformJumpsuitTuxedoHell
   # ADT tweak end
 
 - type: loadoutGroup

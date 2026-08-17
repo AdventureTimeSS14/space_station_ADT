@@ -78,16 +78,16 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         var sodQuery = EntityQueryEnumerator<SlimeDamageOvertimeComponent>();
         while (sodQuery.MoveNext(out var uid, out var dotComp))
         {
-            if (dotComp.SourceEntityUid is not { } source || 
-                Deleted(source) || 
-                !TryComp<SlimeComponent>(source, out var slimeComp) || 
-                !IsLatched((source, slimeComp)))
+            if (dotComp.SourceEntityUid is not { } source
+                || Deleted(source)
+                || !TryComp<SlimeComponent>(source, out var slimeComp)
+                || !IsLatched((source, slimeComp)))
             {
                 CleanupLatchedComponents(uid);
                 continue;
             }
 
-            UpdateHunger((uid, dotComp));
+            UpdateHunger((uid, dotComp), (source, slimeComp));
         }
 
         var query = EntityQueryEnumerator<SlimeComponent>();
@@ -231,32 +231,12 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
     #region Core Logic
 
-    private void UpdateHunger(Entity<SlimeDamageOvertimeComponent> ent)
+    private void UpdateHunger(Entity<SlimeDamageOvertimeComponent> ent, Entity<SlimeComponent> source)
     {
         if (_gameTiming.CurTime < ent.Comp.NextTickTime || _mobState.IsDead(ent))
             return;
 
         ent.Comp.NextTickTime = _gameTiming.CurTime + ent.Comp.Interval;
-
-        var target = ent.Owner;
-        if (Deleted(target))
-        {
-            CleanupLatchedComponents(target);
-            return;
-        }
-
-        if (ent.Comp.SourceEntityUid is not { } source || Deleted(source) || !TryComp<SlimeComponent>(source, out _))
-        {
-            CleanupLatchedComponents(target);
-            return;
-        }
-
-        // Дополнительная проверка - слайм должен быть прикреплен
-        if (!IsLatched((source, Comp<SlimeComponent>(source))))
-        {
-            CleanupLatchedComponents(target);
-            return;
-        }
 
         // Наносим урон цели
         if (TryComp<DamageableComponent>(ent, out var damageable))
@@ -309,12 +289,6 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
     private void ConsumeCorpse(Entity<SlimeComponent> slime, EntityUid corpse)
     {
-        if (Deleted(corpse))
-        {
-            Unlatch(slime);
-            return;
-        }
-
         Unlatch(slime);
 
         if (slime.Comp.EatSound != null)

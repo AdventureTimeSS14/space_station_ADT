@@ -1162,6 +1162,24 @@
   - ADTTouristPDA
   - ADTStudentPDA
 
+# Ассистент, формальная одежда
+- type: loadoutGroup
+  id: ADTPassengerHead
+  name: loadout-group-passenger-head-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadHatBowlerHat
+  - ADTClothingHeadHatTophat
+
+- type: loadoutGroup
+  id: ADTPassengerGlasses
+  name: loadout-group-passenger-glasses-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTClothingEyesGlassesMonocle
+
 - type: loadoutGroup
   id: ADTBartenderPDA
   name: loadout-group-bartender-id-adt
