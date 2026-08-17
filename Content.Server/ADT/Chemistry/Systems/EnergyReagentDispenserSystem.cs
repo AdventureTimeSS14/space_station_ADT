@@ -62,7 +62,9 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             SubscribeLocalEvent<EnergyReagentDispenserComponent, RefreshPartsEvent>(OnPartsRefresh);
             SubscribeLocalEvent<EnergyReagentDispenserComponent, UpgradeExamineEvent>(OnUpgradeExamine);
 
-            SubscribeLocalEvent<EnergyReagentDispenserComponent, MapInitEvent>(OnMapInit, before: [typeof(ItemSlotsSystem)]);
+            SubscribeLocalEvent<EnergyReagentDispenserComponent, MapInitEvent>(OnMapInit,
+                before: [typeof(ItemSlotsSystem)],
+                after: [typeof(SharedBatterySystem)]);
         }
 
         private void SubscribeUpdateUiState<T>(Entity<EnergyReagentDispenserComponent> ent, ref T ev) =>
@@ -78,7 +80,8 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
 
         private void OnEntRemoved(Entity<EnergyReagentDispenserComponent> ent, ref EntRemovedFromContainerMessage args)
         {
-            if (args.Container.ID == EnergyReagentDispenserComponent.PartContainerName)
+            if (args.Container.ID == EnergyReagentDispenserComponent.PartContainerName
+                && HasComp<BatteryComponent>(args.Entity))
             {
                 SyncCellFromBattery(ent, args.Entity);
 
@@ -145,16 +148,14 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             }
 
             var currentReceivingEnergy = 0f;
-            if (TryComp<ApcPowerReceiverBatteryComponent>(reagentDispenser, out var apcPower))
-                currentReceivingEnergy = apcPower.BatteryRechargeRate;
-
-            var hasCell = reagentDispenser.Comp.InfiniteBattery || GetCellInParts(reagentDispenser) != null;
-
-            if (!hasCell)
+            if (TryComp<ApcPowerReceiverBatteryComponent>(reagentDispenser, out var apcPower)
+                && TryComp<ApcPowerReceiverComponent>(reagentDispenser, out var apcReceiver)
+                && apcReceiver.Powered)
             {
-                batteryCharge = 0f;
-                batteryMaxCharge = 0f;
+                currentReceivingEnergy = apcPower.BatteryRechargeRate;
             }
+
+            var hasCell = true;
 
             var state = new EnergyReagentDispenserBoundUserInterfaceState(
                 outputContainerInfo,
@@ -228,9 +229,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             if (!TryComp<BatteryComponent>(reagentDispenser, out var battery))
                 return;
 
-            if (!reagentDispenser.Comp.InfiniteBattery
-                && _container.TryGetContainer(reagentDispenser.Owner, EnergyReagentDispenserComponent.PartContainerName, out _)
-                && GetCellInParts(reagentDispenser) == null)
+            if (!TryComp<ApcPowerReceiverComponent>(reagentDispenser, out var apcReceiver) || !apcReceiver.Powered)
             {
                 _audioSystem.PlayPvs(reagentDispenser.Comp.PowerSound, reagentDispenser, AudioParams.Default.WithVolume(-2f));
                 return;

@@ -24,10 +24,10 @@
     netsync: false
   - type: ApcPowerReceiverBattery
     idleLoad: 65
+    batteryBackup: false
     batteryRechargeRate: 0 #ADT-Tweak: авто-зарядка задаётся частями (Т1 = 10, Т2 = 20, Т3 = 30, Т4 = 40 Вт/с)
     batteryRechargeEfficiency: 0.7 # 1.0 > 0.7
   - type: ApcPowerReceiver
-    powerLoad: 65
   - type: ExtensionCableReceiver
   - type: Anchorable
   - type: Pullable
@@ -78,6 +78,7 @@
     board: EnergyChemDispenserMachineCircuitboard
   - type: ActivatableUI
     key: enum.EnergyReagentDispenserUiKey.Key
+  - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
       enum.EnergyReagentDispenserUiKey.Key:
@@ -144,6 +145,7 @@
     netsync: false
   - type: ApcPowerReceiverBattery
     idleLoad: 150
+    batteryBackup: false
     batteryRechargeRate: 60
     batteryRechargeEfficiency: 1.0
   - type: EnergyReagentDispenser
