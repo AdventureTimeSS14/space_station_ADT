@@ -10,6 +10,8 @@ using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Atmos.Rotting;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -52,6 +54,9 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     [Dependency] private readonly SharedVoidCurseSystem _voidCurse = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedHereticSystem _heretic = default!;
+    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
+
+    private const float BleedHealPerLivingHit = 0.5f;
 
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
@@ -358,13 +363,19 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         if (HasComp<SilverMaelstromComponent>(args.User))
         {
             args.BonusDamage += args.BaseDamage * 0.5f;
-            if (aliveMobsCount > 0 && TryComp<DamageableComponent>(args.User, out var dmg))
+            if (aliveMobsCount > 0)
             {
                 var baseHeal = args.BaseDamage.GetTotal();
-                var bonusHeal = HasComp<MansusInfusedComponent>(ent) ? baseHeal / 2f : baseHeal / 4f;
+                var bonusHeal = HasComp<MansusInfusedComponent>(ent) ? baseHeal : baseHeal / 2f;
                 bonusHeal *= aliveMobsCount;
 
-                SanguineLifeSteal(args.User, bonusHeal, dmg);
+                if (TryComp<DamageableComponent>(args.User, out var dmg))
+                    SanguineLifeSteal(args.User, bonusHeal, dmg);
+
+                // ADT: vampirism weakly mends bleeding as well
+                if (_net.IsServer &&
+                    TryComp<BloodstreamComponent>(args.User, out var blood) && blood.BleedAmount > 0f)
+                    _bloodstream.TryModifyBleedAmount((args.User, blood), -BleedHealPerLivingHit * aliveMobsCount);
             }
         }
     }

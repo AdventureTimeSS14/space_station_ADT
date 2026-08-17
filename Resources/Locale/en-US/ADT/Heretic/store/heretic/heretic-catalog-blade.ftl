@@ -61,16 +61,14 @@ knowledge-path-blade-s6-name = Stance of the Torn Champion
 knowledge-path-blade-s6-desc =
     In time, it was he who stood alone among the bodies of his former comrades, awash in blood, none of it his own. He was without rival, equal, or purpose.
 
-    Grants immunity to having your limbs dismembered, as well as resistance to bloodloss and damage slowdown.
+    Grants resistance to bloodloss and damage slowdown.
     Additionally, when damaged below 50% of your maximum health, you gain increased resistance to gaining wounds and resistance to batons.
 
 knowledge-path-blade-s7-name = Empowered Blades
 knowledge-path-blade-s7-desc =
     I found him cleaved in twain, halves locked in a duel without end; a flurry of blades, neither hitting their mark, for the Champion was indomitable.
 
-    Attacking someone with a Sundered Blade in both hands will now deliver a blow with both at once, dealing two attacks in rapid succession.
-    The second blow will be slightly weaker.
-    You are able to infuse your mansus grasp directly into your blades, and your blades are more effective against structures.
+    You are able to infuse your mansus grasp directly into your blades, doubling their damage and stunning whoever picks them up.
 
 knowledge-path-blade-s8-name = Furious Steel
 knowledge-path-blade-s8-desc =
@@ -82,9 +80,8 @@ knowledge-path-blade-s8-desc =
 knowledge-path-blade-s9-name = Maelstrom of Silver
 knowledge-path-blade-s9-desc =
     The ascension ritual of the Path of Blades.
-    Bring 3 headless corpses to a transmutation rune to complete the ritual.
+
     When completed, you will be surrounded in a constant, regenerating orbit of blades.
     These blades will protect you from all attacks, but are consumed on use.
-    Your Furious Steel spell will also have a shorter cooldown.
-    Additionally, you become a master of combat, gaining the ability to waltz over slippery surfaces.
-    Your Sundered Blades will deal bonus damage and heal you on attack for a portion of the damage dealt.
+    Additionally, you become a master of combat, gaining the ability to waltz over slippery surfaces and shake off stuns.
+    Every weapon you hold in your hands deals bonus damage and heals you on attack for a portion of the damage dealt, while also weakly mending your bleeding.
