@@ -14134,3 +14134,10 @@ Entries:
     id: 1816
     pr_number: 3137
     time: '2026-08-17T07:12:53Z'
+  - author: ultradyper
+    changes:
+      - {message: 'Добавлена скрытая информация персонажа, видимая только антагонистам
+          и призракам', type: Add}
+    id: 1817
+    pr_number: 3081
+    time: '2026-08-17T08:31:40Z'
