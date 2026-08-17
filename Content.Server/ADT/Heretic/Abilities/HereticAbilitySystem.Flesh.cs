@@ -15,8 +15,10 @@ using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Inventory;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Nutrition;
 using Content.Shared.NPC.Components;
@@ -174,6 +176,8 @@ public sealed partial class HereticAbilitySystem
 
         _aud.PlayPvs(MimicSpawnSound, xform.Coordinates);
 
+        MarkMimicEquipmentUnremoveable(clone.Value);
+
         EntityUid? weapon = null;
         if (!giveBlade && TryComp(uid, out HandsComponent? hands))
         {
@@ -208,18 +212,7 @@ public sealed partial class HereticAbilitySystem
             {
                 EnsureComp<GhoulWeaponComponent>(weaponClone);
                 ghoul.BoundWeapon = weaponClone;
-                var cartridgeQuery = GetEntityQuery<CartridgeAmmoComponent>();
-                if (TryComp(weaponClone, out ContainerManagerComponent? containerManager))
-                {
-                    foreach (var container in containerManager.Containers.Values)
-                    {
-                        foreach (var contained in container.ContainedEntities)
-                        {
-                            if (!cartridgeQuery.HasComp(contained))
-                                EnsureComp<UnremoveableComponent>(contained);
-                        }
-                    }
-                }
+                MarkItemAndStorageUnremoveable(weaponClone);
             }
         }
 
@@ -265,5 +258,45 @@ public sealed partial class HereticAbilitySystem
         }
 
         return clone.Value;
+    }
+
+    private void MarkMimicEquipmentUnremoveable(EntityUid mimic)
+    {
+        if (TryComp(mimic, out InventoryComponent? inventory))
+        {
+            var slots = _inventory.GetSlotEnumerator((mimic, inventory));
+            while (slots.NextItem(out var item, out _))
+            {
+                MarkItemAndStorageUnremoveable(item);
+            }
+        }
+
+        if (TryComp(mimic, out HandsComponent? hands))
+        {
+            foreach (var held in _hands.EnumerateHeld((mimic, hands)))
+            {
+                MarkItemAndStorageUnremoveable(held);
+            }
+        }
+    }
+
+    private void MarkItemAndStorageUnremoveable(EntityUid item)
+    {
+        EnsureComp<UnremoveableComponent>(item);
+
+        if (!TryComp(item, out ContainerManagerComponent? containerManager))
+            return;
+
+        var cartridgeQuery = GetEntityQuery<CartridgeAmmoComponent>();
+        foreach (var container in containerManager.Containers.Values)
+        {
+            foreach (var contained in container.ContainedEntities)
+            {
+                if (cartridgeQuery.HasComp(contained))
+                    continue;
+
+                MarkItemAndStorageUnremoveable(contained);
+            }
+        }
     }
 }
