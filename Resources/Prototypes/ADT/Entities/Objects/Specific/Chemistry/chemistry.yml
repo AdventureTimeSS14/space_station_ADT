@@ -27,7 +27,7 @@
   - type: Injector
     ignoreMobs: false
     ignoreClosed: false
-    activeModeProtoId: DropperDrawMode
+    activeModeProtoId: DropperDrawMode #ADT Tweak
     allowedModes:
     - DropperDrawMode
     - DropperInjectMode
