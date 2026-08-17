@@ -45,7 +45,7 @@
     attackRate: 1
     damage:
       types:
-        Holy: 5
+        Holy: 10
         Slash: 1.5
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/ecto-sword.rsi
