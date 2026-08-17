@@ -14126,3 +14126,11 @@ Entries:
     id: 1815
     pr_number: 3189
     time: '2026-08-17T06:59:09Z'
+  - author: ultradyper
+    changes:
+      - {message: Пьяные игроки шатаются при ходьбе, type: Add}
+      - {message: 'При осмотре персонажа, если он пьян, будет показано, что он явно
+          нетрезв', type: Tweak}
+    id: 1816
+    pr_number: 3137
+    time: '2026-08-17T07:12:53Z'
