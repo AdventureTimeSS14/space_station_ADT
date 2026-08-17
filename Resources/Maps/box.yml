@@ -133334,7 +133334,7 @@ entities:
     - type: Transform
       pos: 40.21878,-29.572002
       parent: 8364
-- proto: MicroManipulatorStockPart
+- proto: ScanningModuleStockPart
   entities:
   - uid: 16355
     components:

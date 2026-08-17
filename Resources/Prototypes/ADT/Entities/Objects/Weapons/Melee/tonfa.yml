@@ -12,6 +12,8 @@
     quickEquip: false
     slots:
     - Belt
+    - back
+    - suitStorage
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/tonfa.rsi
     state: icon-of
@@ -44,6 +46,8 @@
     quickEquip: false
     slots:
     - Belt
+    - back
+    - suitStorage
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/steel_tonfa.rsi
     state: icon-of

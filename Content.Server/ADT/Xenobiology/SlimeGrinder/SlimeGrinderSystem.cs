@@ -74,7 +74,7 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         var query = EntityQueryEnumerator<ActiveSlimeGrinderComponent, SlimeGrinderComponent>();
         while (query.MoveNext(out var uid, out _, out var grinder))
         {
-            grinder.ProcessingTimer = Math.Clamp(grinder.ProcessingTimer - frameTime, 0, grinder.ProcessingTimer);
+            grinder.ProcessingTimer = Math.Max(0f, grinder.ProcessingTimer - frameTime);
 
             if (grinder.ProcessingTimer > 0)
                 continue;

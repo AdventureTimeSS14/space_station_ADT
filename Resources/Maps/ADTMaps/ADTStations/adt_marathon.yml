@@ -107274,7 +107274,7 @@ entities:
     - type: Transform
       pos: -17.966362,-18.358541
       parent: 2
-- proto: MicroManipulatorStockPart
+- proto: MatterBinStockPart
   entities:
   - uid: 16305
     components:

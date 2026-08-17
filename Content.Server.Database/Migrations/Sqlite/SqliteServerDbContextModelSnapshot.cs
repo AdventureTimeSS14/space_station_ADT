@@ -1112,6 +1112,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
 
+                    b.Property<string>("ExploitableInfo")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("exploitable_info");
+
                     b.Property<string>("EyeColor")
                         .IsRequired()
                         .HasColumnType("TEXT")
