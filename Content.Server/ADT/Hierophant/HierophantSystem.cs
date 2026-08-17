@@ -247,8 +247,8 @@ public sealed class HierophantSystem : EntitySystem
         var floor = ent.Comp.Enraged ? 40f : 0f;
         ent.Comp.AngerModifier = Math.Clamp(Math.Max(damageTaken / 42f, floor), 0f, 50f);
 
-        ent.Comp.BurstRange = 3 + (int) MathF.Round(ent.Comp.AngerModifier * 0.08f);
-        ent.Comp.BeamRange = 5 + (int) MathF.Round(ent.Comp.AngerModifier * 0.12f);
+        ent.Comp.BurstRange = ent.Comp.BaseBurstRange + (int) MathF.Round(ent.Comp.AngerModifier * 0.08f);
+        ent.Comp.BeamRange = ent.Comp.BaseBeamRange + (int) MathF.Round(ent.Comp.AngerModifier * 0.12f);
     }
 
     public void SetBlinking(Entity<HierophantComponent> ent, bool value)
