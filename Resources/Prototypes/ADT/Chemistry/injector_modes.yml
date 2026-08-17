@@ -1,0 +1,23 @@
+- type: injectorMode
+  parent: [ BaseHyposprayMode, BaseInjectMode ]
+  id: ADTSlowMedipenInjectMode
+  mobTime: 6
+  popupUserAttempt: adt-injector-component-medipen-stiff-user
+  popupTargetAttempt: adt-injector-component-medipen-stiff-target
+
+- type: injectorMode
+  abstract: true
+  parent: BaseSyringeMode
+  id: ADTSmallSyringeMode
+  transferAmounts:
+  - 1
+  - 3
+  - 5
+
+- type: injectorMode
+  parent: [ ADTSmallSyringeMode, BaseInjectMode ]
+  id: ADTSmallSyringeInjectMode
+
+- type: injectorMode
+  parent: [ ADTSmallSyringeMode, BaseDrawMode ]
+  id: ADTSmallSyringeDrawMode
