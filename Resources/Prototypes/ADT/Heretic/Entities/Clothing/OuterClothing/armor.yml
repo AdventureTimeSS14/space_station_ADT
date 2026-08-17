@@ -31,8 +31,6 @@
   - type: ClothingGrantComponent
     component:
     - type: GrabProtection
-  - type: HidesSlots
-    hidesSlots: [ INNERCLOTHING, UNDERWEART, UNDERWEARB, POCKET ]
 
 - type: entity
   parent: [ ClothingOuterBaseMedium, ClothingOuterStorageToggleableBase, AllowSuitStorageClothing, BaseMagicContraband ]

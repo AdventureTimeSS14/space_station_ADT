@@ -34,7 +34,7 @@
           False: { visible: false }
   - type: ActivatableUI
     key: enum.GpsUiKey.Key
-    inHandsOnly: true
+    inHandsOnly: false
     requireActiveHand: false
   - type: UserInterface
     interfaces:

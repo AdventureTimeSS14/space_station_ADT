@@ -10,6 +10,15 @@ namespace Content.Shared.ADT.CCVar;
 public sealed class ADTCCVars
 {
     /*
+    * Exploitable Info
+    */
+    /// <summary>
+    /// Включает скрытую информацию персонажа (видна только владельцу, антагам и призракам).
+    /// </summary>
+    public static readonly CVarDef<bool> ExploitableSecrets =
+        CVarDef.Create("ic.exploitable_info", true, CVar.SERVER | CVar.REPLICATED);
+
+    /*
     * Barks
     */
     public static readonly CVarDef<bool> BarksEnabled =

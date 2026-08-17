@@ -17,7 +17,10 @@ public class StaticSpriteView : Control
 {
     protected SpriteSystem? SpriteSystem;
     private SharedTransformSystem? _transform;
+    private IClyde _clyde = default!;
     protected readonly IEntityManager EntMan;
+
+    private IRenderTexture? _snapshot;
 
     [ViewVariables]
     public SpriteComponent? Sprite => Entity?.Comp1;
@@ -34,7 +37,16 @@ public class StaticSpriteView : Control
     /// This field configures automatic scaling of the sprite. This automatic scaling is done before
     /// applying the explicitly set scale <see cref="SunriseStaticSpriteView.Scale"/>.
     /// </summary>
-    public StretchMode Stretch { get; set; } = StretchMode.Fit;
+    public StretchMode Stretch
+    {
+        get => _stretch;
+        set
+        {
+            _stretch = value;
+            InvalidateSnapshot();
+        }
+    }
+    private StretchMode _stretch = StretchMode.Fit;
 
     public enum StretchMode
     {
@@ -63,15 +75,43 @@ public class StaticSpriteView : Control
     /// If null, the world space orientation of the entity will be used. Otherwise the specified direction will be
     /// used.
     /// </remarks>
-    public Direction? OverrideDirection { get; set; }
+    public Direction? OverrideDirection
+    {
+        get => _overrideDirection;
+        set
+        {
+            _overrideDirection = value;
+            InvalidateSnapshot();
+        }
+    }
+    private Direction? _overrideDirection;
 
     private Vector2 _scale = Vector2.One;
     private Angle _eyeRotation = Angle.Zero;
     private Angle? _worldRotation = Angle.Zero;
     private Vector2 _spriteSize;
 
-    public Vector2 Offset { get; set; } = Vector2.Zero;
-    public bool SpriteOffset { get; set; }
+    public Vector2 Offset
+    {
+        get => _offset;
+        set
+        {
+            _offset = value;
+            InvalidateSnapshot();
+        }
+    }
+    private Vector2 _offset;
+
+    public bool SpriteOffset
+    {
+        get => _spriteOffset;
+        set
+        {
+            _spriteOffset = value;
+            InvalidateSnapshot();
+        }
+    }
+    private bool _spriteOffset;
 
     public Angle EyeRotation
     {
@@ -80,6 +120,7 @@ public class StaticSpriteView : Control
         {
             _eyeRotation = value;
             InvalidateMeasure();
+            InvalidateSnapshot();
         }
     }
 
@@ -94,6 +135,7 @@ public class StaticSpriteView : Control
         {
             _worldRotation = value;
             InvalidateMeasure();
+            InvalidateSnapshot();
         }
     }
 
@@ -107,24 +149,28 @@ public class StaticSpriteView : Control
         {
             _scale = value;
             InvalidateMeasure();
+            InvalidateSnapshot();
         }
     }
 
     public StaticSpriteView()
     {
         IoCManager.Resolve(ref EntMan);
+        IoCManager.Resolve(ref _clyde);
         RectClipContent = true;
     }
 
     public StaticSpriteView(IEntityManager entMan)
     {
         EntMan = entMan;
+        _clyde = IoCManager.Resolve<IClyde>();
         RectClipContent = true;
     }
 
     public StaticSpriteView(EntityUid? uid, IEntityManager entMan)
     {
         EntMan = entMan;
+        _clyde = IoCManager.Resolve<IClyde>();
         RectClipContent = true;
         SetEntity(uid);
     }
@@ -132,6 +178,7 @@ public class StaticSpriteView : Control
     public StaticSpriteView(NetEntity uid, IEntityManager entMan)
     {
         EntMan = entMan;
+        _clyde = IoCManager.Resolve<IClyde>();
         RectClipContent = true;
         SetEntity(uid);
     }
@@ -144,6 +191,7 @@ public class StaticSpriteView : Control
         // Подписаться на событие появления сущности
         Entity = null;
         NetEnt = netEnt;
+        InvalidateSnapshot();
     }
 
     public void SetEntity(EntityUid? uid)
@@ -156,11 +204,25 @@ public class StaticSpriteView : Control
         {
             Entity = null;
             NetEnt = null;
+            InvalidateSnapshot();
             return;
         }
 
         Entity = new(uid.Value, sprite, xform);
         NetEnt = EntMan.GetNetEntity(uid);
+        InvalidateSnapshot();
+    }
+
+    private void InvalidateSnapshot()
+    {
+        _snapshot?.Dispose();
+        _snapshot = null;
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+        InvalidateSnapshot();
     }
 
     protected override Vector2 MeasureOverride(Vector2 availableSize)
@@ -217,12 +279,26 @@ public class StaticSpriteView : Control
 
     protected override void Draw(IRenderHandle renderHandle)
     {
+        if (_snapshot != null)
+        {
+            renderHandle.DrawingHandleScreen.DrawTextureRect(_snapshot.Texture,
+                new UIBox2(0, 0, PixelSize.X, PixelSize.Y), Modulate * ActualModulateSelf);
+            return;
+        }
+
         if (!ResolveEntity(out var uid, out var sprite, out var xform))
             return;
 
         SpriteSystem ??= EntMan.System<SpriteSystem>();
         _transform ??= EntMan.System<TransformSystem>();
         SpriteSystem.ForceUpdate(uid);
+
+        var pixelSize = PixelSize;
+        if (pixelSize.X <= 0 || pixelSize.Y <= 0)
+            return;
+
+        if (_spriteSize == Vector2.Zero)
+            UpdateSize();
 
         var stretchVec = Stretch switch
         {
@@ -236,15 +312,19 @@ public class StaticSpriteView : Control
             ? Vector2.Zero
             : -(-_eyeRotation).RotateVec(sprite.Offset * _scale) * new Vector2(1, -1) * EyeManager.PixelsPerMeter;
 
-        var position = PixelSize / 2 + offset * stretch * UIScale + Offset * UIScale;
+        var position = pixelSize / 2 + offset * stretch * UIScale + Offset * UIScale;
         var scale = Scale * UIScale * stretch;
 
-        var world = renderHandle.DrawingHandleWorld;
-        var oldModulate = world.Modulate;
-        world.Modulate *= Modulate * ActualModulateSelf;
+        _snapshot = _clyde.CreateRenderTarget(new Vector2i((int) pixelSize.X, (int) pixelSize.Y),
+            RenderTargetColorFormat.Rgba8Srgb, name: "StaticSpriteView");
 
-        renderHandle.DrawEntity(uid, position, scale, _worldRotation, _eyeRotation, OverrideDirection, sprite, xform, _transform);
-        world.Modulate = oldModulate;
+        renderHandle.RenderInRenderTarget(_snapshot, () =>
+        {
+            renderHandle.DrawEntity(uid, position, scale, _worldRotation, _eyeRotation, OverrideDirection, sprite, xform, _transform);
+        }, Color.Transparent);
+
+        renderHandle.DrawingHandleScreen.DrawTextureRect(_snapshot.Texture,
+            new UIBox2(0, 0, pixelSize.X, pixelSize.Y));
     }
 
     private bool ResolveEntity(

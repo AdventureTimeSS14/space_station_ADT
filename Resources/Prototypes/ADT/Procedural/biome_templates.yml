@@ -135,27 +135,6 @@
       entities:
       - FloorChasmEntity
 
-    - !type:BiomeEntityLayer
-      allowedTiles:
-        - FloorBasalt
-      threshold: 0.55
-      noise:
-        seed: 7
-        noiseType: Cellular
-        frequency: 0.06
-        lacunarity: 2
-        fractalType: FBm
-        octaves: 3
-        cellularDistanceFunction: Euclidean
-        cellularReturnType: Distance2
-      entities:
-        - ADTWallRockAncient
-        - ADTWallRockAncient
-        - ADTWallRockAncient
-        - ADTWallRockAncient
-        - ADTWallRockAncientUranium
-        - ADTWallRockAncientDiamond
-
     # Rock formations
     - !type:BiomeEntityLayer
       allowedTiles:

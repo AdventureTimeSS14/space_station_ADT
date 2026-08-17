@@ -12,6 +12,17 @@ namespace Content.Server.Power.SMES;
 [RegisterComponent, Access(typeof(SmesSystem))]
 public sealed partial class SmesComponent : Component
 {
+    // ADT-Tweak-Start: machine parts with tiers
+    [DataField]
+    public float BaseMaxSupply = 200000f;
+
+    [DataField]
+    public float BaseMaxChargeRate = 200000f;
+
+    [DataField]
+    public float BaseMaxCharge = 8000000f;
+    // ADT-Tweak-End
+
     [ViewVariables]
     public ChargeState LastChargeState;
     [ViewVariables]

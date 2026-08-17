@@ -726,3 +726,22 @@
     sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_darkblue.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_darkblue.rsi
+
+# Расовая одежда (Пока тут только для воксов. Уберите, когда добавят для других рас)
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterVoxRobe
+  name: vox robe
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/vox_robe.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/vox_robe.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatVoxHood
+    slot: head
+  - type: ContainerContainer # Я не знаю зачем.
+    containers:
+      storagebase: !type:Container
+      toggleable-clothing: !type:ContainerSlot

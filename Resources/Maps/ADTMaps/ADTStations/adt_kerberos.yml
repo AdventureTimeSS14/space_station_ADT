@@ -192327,7 +192327,7 @@ entities:
     - type: Transform
       pos: -26.243423,-43.319897
       parent: 2
-- proto: MicroManipulatorStockPart
+- proto: MicroLaserStockPart
   entities:
   - uid: 26894
     components:

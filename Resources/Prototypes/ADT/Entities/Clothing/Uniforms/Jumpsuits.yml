@@ -1453,3 +1453,82 @@
         Slash: 0.9 # 0.7 > 0.9
         Piercing: 0.95 # 0.6 > 0.95
         Heat: 0.9 # 0.6 > 0.9
+
+# Расовая одежда (Пока тут только для воксов. Уберите, когда добавят для других рас)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformVoxSuit
+  name: vox suit
+  description: vox work clothes
+  components: 
+    - type: Sprite
+      sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformVoxSuitBlue
+  name: vox suit blue
+  description: vox work clothes
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_blue.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_blue.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformVoxSuitGreen
+  name: vox suit green
+  description: vox work clothes
+  components: 
+   - type: Sprite
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_green.rsi
+   - type: Clothing
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_green.rsi   
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformVoxSuitPurple
+  name: vox suit purple
+  description: vox work clothes
+  components:
+   - type: Sprite
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_purple.rsi
+   - type: Clothing
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_purple.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformVoxSuitRed
+  name: vox suit red
+  description: vox work clothes
+  components:
+   - type: Sprite
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_red.rsi
+   - type: Clothing
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_red.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformVoxSuitTeal
+  name: vox suit teal
+  description: vox work clothes
+  components:
+   - type: Sprite
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_teal.rsi
+   - type: Clothing
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_teal.rsi 
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformVoxSuitYellow
+  name: vox suit yellow
+  description: vox work clothes
+  components:
+   - type: Sprite
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_yellow.rsi
+   - type: Clothing
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_yellow.rsi 

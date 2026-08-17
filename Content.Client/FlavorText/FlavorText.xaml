@@ -32,6 +32,30 @@
                 </BoxContainer>
             </PanelContainer>
 
+            <!-- ADT-Tweak-Start -->
+            <!-- Exploitable Info Section -->
+            <PanelContainer HorizontalExpand="True" VerticalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#2d2d2d"/>
+                </PanelContainer.PanelOverride>
+
+                <BoxContainer Orientation="Vertical" Margin="10">
+                    <ui:Label Text="{Loc 'flavor-interface-exploitable-title'}"
+                              Margin="0 0 0 8"
+                              StyleClasses="LabelHeading"/>
+                    <ui:Label Text="{Loc 'flavor-interface-exploitable-desc'}"
+                              Margin="0 0 0 18"/>
+
+                    <TextEdit Name="CExploitableInput"
+                              Access="Public"
+                              MinSize="220 80"
+                              HorizontalExpand="True"
+                              VerticalExpand="True"
+                              Editable="False"/>
+                </BoxContainer>
+            </PanelContainer>
+            <!-- ADT-Tweak-End -->
+
             <!-- Headshot URL Section -->
             <PanelContainer HorizontalExpand="True">
                 <PanelContainer.PanelOverride>

@@ -11,19 +11,16 @@
     state: icon
   - type: AmmoCounter
   - type: ADTKineticCooldown
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: ADTNoWideAttack
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
+    showExamineText: false
     useKey: false
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.5
-    rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
     proto: BulletCharge
-    capacity: 1
-    count: 1
   - type: DisarmMalus
   - type: TrophyHolder
   - type: ContainerContainer
@@ -53,17 +50,12 @@
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
+    showExamineText: false
     useKey: false
-  - type: RechargeBasicEntityAmmo
-    rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
-    rechargeCooldown: 0.5
   - type: BasicEntityAmmoProvider
     proto: BulletCharge
-    capacity: 1
-    count: 1
   - type: MeleeWeapon
-    attackRate: 1
+    attackRate: 1.4
     wideAnimationRotation: -135
     damage:
       types:
@@ -135,12 +127,12 @@
         Slash: -2
         Piercing: -2
   - type: MeleeWeapon
-    attackRate: 0.75
+    attackRate: 0.7
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 10
-        Slash: 5
+        Blunt: 22
+        Slash: 8
     soundHit:
       collection: MetalThud
     angle: 0
@@ -186,7 +178,7 @@
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws.rsi
     state: icon
   - type: ADTKineticCooldown
-    meleeMultiplier: 1.5
+    baseMeleeMultiplier: 1.5
   - type: LeechOnMarker
     leech:
       types:
@@ -257,7 +249,7 @@
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_machete.rsi
     state: icon
   - type: ADTKineticCooldown
-    meleeMultiplier: 1.5
+    baseMeleeMultiplier: 1.5
   - type: LeechOnMarker
     leech:
       types:
