@@ -90,19 +90,19 @@
         amount: 5
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - material: Gold
         amount: 20
       - material: Silver
@@ -743,19 +743,19 @@
         amount: 5
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - machinePart: Capacitor
         tier: 4
-        name: machine-part-name-capacitor
+        name: machine-part-name-capacitor-t4
       - material: Gold
         amount: 20
       - material: Silver

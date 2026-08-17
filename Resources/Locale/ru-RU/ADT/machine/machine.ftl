@@ -6,7 +6,7 @@ machine-part-name-servo-t4 = фемто-серво
 machine-part-name-scanning-module = сканирующий модуль
 machine-part-name-scanning-module-t4 = трифазный сканирующий модуль
 machine-part-name-micro-laser = Микро-лазер
-machine-part-name-micro-laser-t4 =квад-ультра микро-лазер
+machine-part-name-micro-laser-t4 = квад-ультра микро-лазер
 machine-part-name-Capacitor-t4 = блюспейс-конденсатор
 
 machine-upgrade-increased-by-percentage-extra = Параметр [color=yellow]{ $upgraded }[/color] увеличен на [color={ $color }]{ $percent }%[/color].
