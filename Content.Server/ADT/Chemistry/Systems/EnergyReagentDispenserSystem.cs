@@ -188,25 +188,34 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
 
         private List<EnergyReagentInventoryItem> GetInventory(EnergyReagentDispenserComponent comp)
         {
-            var inventory = new List<EnergyReagentInventoryItem>();
+            var tierReagents = new HashSet<string>();
+            foreach (var reagents in comp.TierReagents.Values)
+                tierReagents.UnionWith(reagents);
+
+            var baseReagents = new List<EnergyReagentInventoryItem>();
+            var newReagents = new List<EnergyReagentInventoryItem>();
 
             foreach (var (reagentId, cost) in comp.Reagents)
             {
                 if (!_prototypeManager.TryIndex<ReagentPrototype>(reagentId, out var reagentProto))
                     continue;
 
-                var displayCost = cost * comp.FinalEnergyCostMultiplier;
-
-                inventory.Add(new EnergyReagentInventoryItem(
+                var item = new EnergyReagentInventoryItem(
                     reagentId,
                     reagentProto.LocalizedName,
-                    displayCost,
+                    cost * comp.FinalEnergyCostMultiplier,
                     reagentProto.SubstanceColor
-                ));
+                );
+
+                if (tierReagents.Contains(reagentId))
+                    newReagents.Add(item);
+                else
+                    baseReagents.Add(item);
             }
 
-            inventory.Sort((a, b) => string.Compare(a.ReagentLabel, b.ReagentLabel, StringComparison.Ordinal));
-            return inventory;
+            baseReagents.Sort((a, b) => string.Compare(a.ReagentLabel, b.ReagentLabel, StringComparison.Ordinal));
+            baseReagents.AddRange(newReagents);
+            return baseReagents;
         }
 
         private void OnSetDispenseAmountMessage(Entity<EnergyReagentDispenserComponent> reagentDispenser, ref EnergyReagentDispenserSetDispenseAmountMessage message)
