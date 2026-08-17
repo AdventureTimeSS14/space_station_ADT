@@ -366,5 +366,29 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         if (_player.TryGetSessionById(mind.UserId, out var session))
             _antag.SendBriefing(session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
     }
+
+    //ADT-Tweak-start
+    /// <summary>
+    /// в обычного революционера крч превращает.
+    /// </summary>
+    public void MakeRegularRev(EntityUid target, EntityUid? converter = null)
+    {
+        if (!_mind.TryGetMind(target, out var mindId, out var mind))
+            return;
+
+        _npcFaction.AddFaction(target, RevolutionaryNpcFaction);
+        var revComp = EnsureComp<RevolutionaryComponent>(target);
+
+        _adminLogManager.Add(LogType.Mind,
+            LogImpact.Medium,
+            $"{ToPrettyString(converter ?? target)} converted {ToPrettyString(target)} into a Revolutionary");
+
+        if (mindId == default || !_role.MindHasRole<RevolutionaryRoleComponent>(mindId))
+            _role.MindAddRole(mindId, "MindRoleRevolutionary");
+
+        if (_player.TryGetSessionById(mind.UserId, out var session))
+            _antag.SendBriefing(session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
+    }
     //ADT rerev end
+    //ADT-Tweak-end
 }
