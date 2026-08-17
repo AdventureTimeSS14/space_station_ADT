@@ -8,3 +8,65 @@
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
+
+#ClownMimecyborg start
+  - node: cyborg
+    entity: BorgChassisSelectable
+    edges:
+    - to: clownmimecyborg
+      conditions:
+        - !type:ContainerEmpty
+          container: "borg_brain"
+      steps:
+        - material: Cloth
+          amount: 20
+          doAfter: 10
+        - tag: ClownRecorder
+          name: construction-graph-tag-clown-recorder
+          icon:
+            sprite: Objects/Fun/clownrecorder.rsi
+            state: icon
+          doAfter: 2
+        - tag: Baguette
+          name: construction-graph-tag-baguette
+          doAfter: 2
+        - tag: Crayon
+          name: construction-graph-tag-crayon
+          doAfter: 2
+        - tag: Crayon
+          name: construction-graph-tag-crayon
+          doAfter: 2
+        - tag: Crayon
+          name: construction-graph-tag-crayon
+          doAfter: 2
+        - tag: Crayon
+          name: construction-graph-tag-crayon
+          doAfter: 2
+        - tag: Crayon
+          name: construction-graph-tag-crayon
+          doAfter: 2
+        - tag: Crayon
+          name: construction-graph-tag-crayon
+          doAfter: 2
+        - tag: Crayon
+          name: construction-graph-tag-crayon
+          doAfter: 2
+        - tag: Crayon
+          name: construction-graph-tag-crayon
+          doAfter: 2
+        - tag: ClownMask
+          name: construction-graph-tag-clown-mask
+          doAfter: 2
+        - tag: ClownShoes
+          name: construction-graph-tag-clown-shoes
+          doAfter: 2
+        - tag: ClothingMaskMime
+          name: construction-graph-tag-mime-mask
+          doAfter: 2
+        - tag: BananiumHorn
+          name: construction-graph-tag-bananium-horn
+          doAfter: 2
+
+  - node: clownmimecyborg
+    entity: BorgChassisClownMime
+#ClownMimecyborg end

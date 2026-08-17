@@ -151,11 +151,11 @@
   - type: Sprite
     layers:
     - state: ClownMime
-    - state: ClownMime_e_r
+    - state: ClownMimeer
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
       visible: false
-    - state: ClownMime_l
+    - state: ClownMimel
       shader: unshaded
       map: ["light"]
       visible: false
@@ -167,7 +167,7 @@
       - BorgModuleClowning
       - BorgModuleAdvancedClowning
     hasMindState: ClownMime_e
-    noMindState: ClownMime_e_r
+    noMindState: ClownMimeer
   - type: Construction
     node: clownmimecyborg
   - type: MimePowers

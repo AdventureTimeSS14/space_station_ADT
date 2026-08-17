@@ -22,6 +22,9 @@
     TrashBananaPeel: 10
   categories:
     - UplinkMainClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 2
 
 - type: listing
   id: MagicPlushSet
@@ -31,6 +34,9 @@
     TrashBananaPeel: 3
   categories:
     - UplinkMainClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
 
 - type: listing
   id: UplinkHonkImplanterSet
@@ -40,6 +46,9 @@
     TrashBananaPeel: 5
   categories:
     - UplinkMainClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
 
 - type: listing
   id: MobHonkBotSet
@@ -49,6 +58,9 @@
     TrashBananaPeel: 100
   categories:
     - FunClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
 
 - type: listing
   id: CrayonRainbowSet
@@ -59,6 +71,9 @@
     TrashBananaPeel: 10
   categories:
     - UplinkMainClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 3
 
 - type: listing
   id: PresentRandomSet
@@ -69,6 +84,9 @@
     TrashBananaPeel: 2
   categories:
     - UplinkMainClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 5
 
 - type: listing
   id: ToyHammerSet
@@ -78,6 +96,9 @@
     TrashBananaPeel: 2
   categories:
     - UplinkMainClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 2
 
 - type: listing
   id: SnapPopBoxSex
@@ -88,6 +109,9 @@
     TrashBananaPeel: 5
   categories:
     - UplinkMainClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
 
 - type: listing
   id: FloorTileItemClownSet
@@ -115,6 +139,9 @@
     TrashBananaPeel: 4
   categories:
     - UplinkMainClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
 
 - type: listing
   id: SingularitySet
@@ -125,6 +152,9 @@
     TrashBananaPeel: 10
   categories:
     - UplinkMainClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
 
 - type: listing
   id: SoapSyndieSet
@@ -135,16 +165,9 @@
     TrashBananaPeel: 30
   categories:
     - FunClown
-
-- type: listing
-  id: SoapOmegaSet
-  name: uplink-clown-omegasoap-name
-  description: uplink-clown-omegasoap-desc
-  productEntity: SoapOmega
-  cost:
-    TrashBananaPeel: 110
-  categories:
-    - FunClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
 
 - type: listing
   id: DrinkNukieCanSet
@@ -155,6 +178,9 @@
     TrashBananaPeel: 25
   categories:
     - FunClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
 
 - type: listing
   id: GoldenBikeHornSet
@@ -164,6 +190,9 @@
     TrashBananaPeel: 25
   categories:
     - UplinkMainClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 2
 
 - type: listing
   id: FoodPieBananaCreamSet
@@ -174,6 +203,9 @@
     TrashBananaPeel: 20
   categories:
     - FunClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 5
 
 - type: listing
   id: ClothingShoesBlingSet
@@ -183,6 +215,9 @@
     TrashBananaPeel: 25
   categories:
     - EquipmentClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 2
 
 - type: listing
   id: ClothingBackpackDuffelSyndicateCostumeClownSet
@@ -193,6 +228,9 @@
     TrashBananaPeel: 10
   categories:
     - EquipmentClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 2
 
 - type: listing
   id: ClothingHeadHatCatEarsSet
@@ -203,6 +241,9 @@
     TrashBananaPeel: 55
   categories:
     - EquipmentClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 3
 
 - type: listing
   id: ClothingOuterHardsuitClownSet
@@ -212,6 +253,9 @@
     TrashBananaPeel: 60
   categories:
     - EquipmentClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
 
 - type: listing
   id: ClothingOuterModsuitClownSet
@@ -220,6 +264,9 @@
     TrashBananaPeel: 60
   categories:
     - EquipmentClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
 
 - type: listing
   id: MechSet
@@ -227,7 +274,10 @@
   cost:
     TrashBananaPeel: 275
   categories:
-    - EquipmentClown
+    - EquipmentClown 
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
 
 - type: listing
   id: PushHornSet
@@ -237,6 +287,9 @@
     TrashBananaPeel: 35
   categories:
     - EquipmentClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
 
 - type: listing
   id: MaidSet
@@ -247,6 +300,9 @@
     TrashBananaPeel: 30
   categories:
     - EquipmentClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 3
 
 - type: listing
   id: UplinkGlovesSet
@@ -257,12 +313,15 @@
     TrashBananaPeel: 55
   categories:
     - EquipmentClown
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
 
 - type: storeCategory
   id: UplinkMainClown
   name: uplink-clown-category-main
   priority: 1
-
+    
 - type: storeCategory
   id: EquipmentClown
   name: uplink-clown-category-equipment
