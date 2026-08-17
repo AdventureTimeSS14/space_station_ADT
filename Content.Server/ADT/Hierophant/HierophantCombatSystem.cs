@@ -233,6 +233,7 @@ public sealed class HierophantCombatSystem : EntitySystem
         comp.Caster = ent.Owner;
         comp.Target = target;
         comp.Speed = speed;
+        comp.Damage = ent.Comp.BlastDamage;
 
         if (moving > 0)
             comp.Moving = moving;
@@ -269,7 +270,7 @@ public sealed class HierophantCombatSystem : EntitySystem
         }
         else
         {
-            ent.Comp.BurstRange = 3;
+            ent.Comp.BurstRange = ent.Comp.BaseBurstRange;
             _attacks.Burst(ent, ourCoords, spreadSpeed: 0.25f);
         }
     }

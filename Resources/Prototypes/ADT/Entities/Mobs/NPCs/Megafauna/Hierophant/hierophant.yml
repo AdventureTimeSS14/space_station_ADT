@@ -38,8 +38,8 @@
         layer:
         - MobLayer
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.2
-    baseSprintSpeed: 2.2
+    baseWalkSpeed: 2.4
+    baseSprintSpeed: 2.4
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -48,7 +48,7 @@
     attackRate: 1
     damage:
       types:
-        Blunt: 15
+        Blunt: 26
         Structural: 100
     range: 1.8
     angle: 0
@@ -70,6 +70,10 @@
   - type: ADTBossMusic
     music: ADTBossMusicHierophant
   - type: Hierophant
+    blastDamage: 14
+    blinkBlastDamage: 38
+    baseBeamRange: 6
+    baseBurstRange: 4
   - type: TileMovement
   - type: NPCTileMovement
   - type: InputMover

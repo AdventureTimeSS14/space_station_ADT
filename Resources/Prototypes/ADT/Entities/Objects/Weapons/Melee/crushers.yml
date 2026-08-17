@@ -55,7 +55,7 @@
   - type: BasicEntityAmmoProvider
     proto: BulletCharge
   - type: MeleeWeapon
-    attackRate: 1.4
+    attackRate: 1
     wideAnimationRotation: -135
     damage:
       types:
