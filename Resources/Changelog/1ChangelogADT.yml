@@ -14120,3 +14120,9 @@ Entries:
     id: 1814
     pr_number: 3187
     time: '2026-08-16T15:32:41Z'
+  - author: Etvy
+    changes:
+      - {message: Добавлена возможность крепления тонфы на спину, type: Add}
+    id: 1815
+    pr_number: 3189
+    time: '2026-08-17T06:59:09Z'
