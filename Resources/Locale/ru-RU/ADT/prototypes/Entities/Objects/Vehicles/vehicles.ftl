@@ -44,7 +44,7 @@ vehicle-folded-ejected = Вас вытолкнули из { $vehicle }, пото
 ent-ADTVehicleATVMedic = медицинский квадроцикл
     .desc = Квадроцикл со сцепкой для перевозки каталок и мешков для трупов.
 
-ent-ADTActionTrailerToggle = Прицеп
+ent-ADTActionTrailerToggle = прицеп
     .desc = Прицепить или отцепить прицеп от сцепки квадроцикла.
 
 adt-trailer-attached = Прицеп закреплён на сцепке.
