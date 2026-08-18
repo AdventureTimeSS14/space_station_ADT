@@ -109,7 +109,7 @@
     sprite: ADT/Objects/Misc/stock_parts.rsi
     state: matter_bin
   discipline: Experimental
-  tier: 0
+  tier: 1
   cost: 7500
   recipeUnlocks:
   - CapacitorStockPart
@@ -128,7 +128,7 @@
     sprite: ADT/Objects/Misc/stock_parts.rsi
     state: advanced_matter_bin
   discipline: Experimental
-  tier: 1
+  tier: 2
   cost: 10000
   recipeUnlocks:
   - AdvancedCapacitorStockPart
@@ -147,7 +147,7 @@
     sprite: ADT/Objects/Misc/stock_parts.rsi
     state: super_matter_bin
   discipline: Experimental
-  tier: 2
+  tier: 3
   cost: 15000
   recipeUnlocks:
   - SuperCapacitorStockPart
@@ -166,7 +166,7 @@
     sprite: ADT/Objects/Misc/stock_parts.rsi
     state: bluespace_matter_bin
   discipline: Experimental
-  tier: 3
+  tier: 4
   cost: 20000
   recipeUnlocks:
   - BluespaceCapacitorStockPart
@@ -185,7 +185,7 @@
     sprite: ADT/Objects/Misc/stock_parts.rsi
     state: quantum_matter_bin
   discipline: Experimental
-  tier: 4
+  tier: 5
   cost: 40000
   recipeUnlocks:
   - QuantumCapacitorStockPart
