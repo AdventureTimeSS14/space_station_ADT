@@ -1,0 +1,14 @@
+- type: entity
+  id: ADTVehicleHitch
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ADTVehicleHitchStrap
+  - type: Physics
+    bodyType: KinematicController
+    bodyStatus: OnGround
+  - type: Strap
+    buckleOnInteractHand: false
+    position: None
+    whitelist:
+      components:
+      - ADTTrailer
