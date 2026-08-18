@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
 
-namespace Content.Server.ADT.Chat;
+namespace Content.Server.ADT.Chat.Systems;
 
 public sealed partial class ChatVisibilitySystem : EntitySystem
 {
