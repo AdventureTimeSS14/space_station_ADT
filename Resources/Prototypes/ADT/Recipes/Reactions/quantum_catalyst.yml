@@ -1,51 +1,67 @@
 - type: reaction
   id: ADTCatalystReaction1
   reactants:
-    WeldingFuel: 2
-    Oxygen: 1
+    WeldingFuel:
+      amount: 2
+    Oxygen:
+      amount: 1
   products:
     ADTCatalystPrecursor1: 3
 
 - type: reaction
   id: ADTCatalystReaction2
   reactants:
-    ADTCatalystPrecursor1: 2
-    Sodium: 1
-    Chlorine: 1
+    ADTCatalystPrecursor1:
+      amount: 2
+    Sodium:
+      amount: 1
+    Chlorine:
+      amount: 1
   products:
     ADTCatalystPrecursor2: 4
 
 - type: reaction
   id: ADTCatalystReaction3
   reactants:
-    ADTCatalystPrecursor2: 2
-    Ethanol: 1
+    ADTCatalystPrecursor2:
+      amount: 2
+    Ethanol:
+      amount: 1
   products:
     ADTCatalystPrecursor3: 3
 
 - type: reaction
   id: ADTCatalystReaction4
   reactants:
-    ADTCatalystPrecursor3: 2
-    Ammonia: 1
-    SulfuricAcid: 1
+    ADTCatalystPrecursor3:
+      amount: 2
+    Ammonia:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
   products:
     ADTCatalystPrecursor4: 4
 
 - type: reaction
   id: ADTCatalystReaction5
   reactants:
-    ADTCatalystPrecursor4: 2
-    Plasma: 1
-    Radium: 1
+    ADTCatalystPrecursor4:
+      amount: 2
+    Plasma:
+      amount: 1
+    Radium:
+      amount: 1
   products:
     ADTCatalystPrecursor5: 4
 
 - type: reaction
   id: ADTQuantumCatalystReaction
   reactants:
-    ADTCatalystPrecursor5: 2
-    SpaceLube: 1
-    Gold: 1
+    ADTCatalystPrecursor5:
+      amount: 2
+    SpaceLube:
+      amount: 1
+    Gold:
+      amount: 1
   products:
     ADTQuantumCatalyst: 4
