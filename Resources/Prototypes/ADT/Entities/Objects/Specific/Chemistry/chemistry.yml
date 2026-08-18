@@ -32,6 +32,10 @@
     allowedModes:
     - DropperDrawMode
     - DropperInjectMode #ADT fix start
+  - type: Appearance
+  - type: ExaminableSolution
+    solution: injector
+  - type: Spillable
     solution: injector
   - type: TrashOnSolutionEmpty
     solution: injector
