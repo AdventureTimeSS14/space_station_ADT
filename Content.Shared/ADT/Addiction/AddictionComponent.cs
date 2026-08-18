@@ -122,6 +122,12 @@ public sealed partial class AddictionComponent : Component
     public ProtoId<ReagentPrototype> NicotineReagent = "Nicotine";
 
     /// <summary>
+    /// Реагент, который кормит кофейный канал (по id, как никотин).
+    /// </summary>
+    [DataField]
+    public ProtoId<ReagentPrototype> CoffeeReagent = "Coffee";
+
+    /// <summary>
     /// Id родительского прототипа, по которому реагент считается алкоголем (в ADT все спиртные наследуют BaseAlcohol).
     /// </summary>
     [DataField]
@@ -150,6 +156,7 @@ public enum AddictionKind : byte
     Drug,
     Medicine,
     Omnizine,
+    Coffee,
 }
 
 /// <summary>
