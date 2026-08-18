@@ -166,7 +166,7 @@
     ADTBScrystal: 300
     Diamond: 200
   reagentCost:
-    ADTQuantumCatalyst: 50
+    ADTQuantumCatalyst: 100
 
 - type: latheRecipe
   parent: QuantumScanningModuleStockPart
