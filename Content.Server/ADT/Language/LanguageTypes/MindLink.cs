@@ -1,21 +1,17 @@
-using Content.Server.Administration.Managers;
-using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
-using Content.Shared.ADT.Holoparasite;
 using Content.Shared.ADT.Language;
+using Content.Shared.ADT.MindLink;
 using Content.Shared.Chat;
 using Content.Shared.Speech;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Server.ADT.Language;
 
 /// <summary>
-/// Ментальная связь голопаразита и носителя: сообщение уходит только паре.
+/// Ментальная связь пары сущностей: сообщение уходит только паре.
 /// </summary>
 [DataDefinition]
-public sealed partial class HoloparasiteMindLink : ILanguageType
+public sealed partial class MindLink : ILanguageType
 {
     public ProtoId<LanguagePrototype> Language { get; set; }
 
@@ -58,7 +54,7 @@ public sealed partial class HoloparasiteMindLink : ILanguageType
         if (string.IsNullOrEmpty(message))
             return;
 
-        if (!entMan.TryGetComponent<HoloparasiteMindLinkComponent>(uid, out var link) || link.Partner == null)
+        if (!entMan.TryGetComponent<MindLinkComponent>(uid, out var link) || link.Partner == null)
             return;
 
         SendToPair(entMan, uid, link.Partner.Value, message,
@@ -79,7 +75,7 @@ public sealed partial class HoloparasiteMindLink : ILanguageType
         if (string.IsNullOrEmpty(message))
             return;
 
-        if (!entMan.TryGetComponent<HoloparasiteMindLinkComponent>(uid, out var link) || link.Partner == null)
+        if (!entMan.TryGetComponent<MindLinkComponent>(uid, out var link) || link.Partner == null)
             return;
 
         SendToPair(entMan, uid, link.Partner.Value, message,
@@ -90,28 +86,12 @@ public sealed partial class HoloparasiteMindLink : ILanguageType
 
     private void SendToPair(IEntityManager entMan, EntityUid uid, EntityUid partner, string message, string fontType, int fontSize, string defaultFont, int defaultSize, Color? color)
     {
-        var admin = IoCManager.Resolve<IAdminManager>();
+        var language = entMan.System<LanguageSystem>();
         var proto = IoCManager.Resolve<IPrototypeManager>();
-        var chatMan = IoCManager.Resolve<IChatManager>();
-
-        var clients = Filter.Entities(uid, partner);
-        var admins = Filter.Empty();
-
-        var playerQuery = entMan.EntityQueryEnumerator<ActorComponent>();
-        while (playerQuery.MoveNext(out var player, out var actorComp))
-        {
-            if (player == uid || player == partner)
-                continue;
-
-            if (admin.IsAdmin(actorComp.PlayerSession))
-                admins.AddPlayer(actorComp.PlayerSession);
-        }
-
-        var language = proto.Index(Language);
 
         var wrapKey = ShowName
-            ? "chat-manager-send-holoparasite-mind-link-chat-wrap-message-name"
-            : "chat-manager-send-holoparasite-mind-link-chat-wrap-message";
+            ? "chat-manager-send-mind-link-chat-wrap-message-name"
+            : "chat-manager-send-mind-link-chat-wrap-message";
 
         var messageWrap = Loc.GetString(wrapKey,
             ("fontType", fontType),
@@ -120,12 +100,11 @@ public sealed partial class HoloparasiteMindLink : ILanguageType
             ("defaultSize", defaultSize),
             ("source", uid),
             ("message", message),
-            ("channel", language.LocalizedName));
+            ("channel", proto.Index(Language).LocalizedName));
 
         if (color != null)
             messageWrap = $"[color={color.Value.ToHex()}]{messageWrap}[/color]";
 
-        chatMan.ChatMessageToManyFiltered(clients, ChatChannel.CollectiveMind, message, messageWrap, uid, false, false, color);
-        chatMan.ChatMessageToManyFiltered(admins, ChatChannel.CollectiveMind, message, messageWrap, uid, false, false, color);
+        language.SendChannelMessageToPair(uid, partner, message, messageWrap, ChatChannel.CollectiveMind, color);
     }
 }

@@ -3,6 +3,6 @@
   priority: 0
   uiColor: "#40a7d7"
   showUnderstood: false
-  speech: !type:HoloparasiteMindLink
+  speech: !type:MindLink
     color: "#40a7d7"
     showName: true
