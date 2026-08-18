@@ -13,7 +13,7 @@
   id: Rev
   name: roles-antag-rev-name
   antagonist: true
-  setPreference: false
+  setPreference: true
   objective: roles-antag-rev-objective
   guides: [ Revolutionaries ]
 

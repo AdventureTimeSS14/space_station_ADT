@@ -334,6 +334,17 @@
       - type: HeadRevolutionary
       mindRoles:
       - MindRoleHeadRevolutionary
+    - prefRoles: [ Rev ]
+      max: 6
+      playerRatio: 10
+      briefing:
+        text: rev-role-greeting
+        color: CornflowerBlue
+        sound: "/Audio/Ambience/Antag/headrev_start.ogg"
+      components:
+      - type: Revolutionary
+      mindRoles:
+      - MindRoleRevolutionary
   - type: DynamicRuleCost
     cost: 200
 
