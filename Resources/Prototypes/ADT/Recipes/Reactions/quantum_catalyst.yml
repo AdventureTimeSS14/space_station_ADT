@@ -3,7 +3,7 @@
   reactants:
     WeldingFuel:
       amount: 2
-    Oxygen:
+    Sulfur:
       amount: 1
   products:
     ADTCatalystPrecursor1: 3

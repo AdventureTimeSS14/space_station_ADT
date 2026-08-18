@@ -182,9 +182,9 @@
 [bold]Синтез катализатора - шесть этапов.[/bold] Все ингредиенты получаются в обычной химии:
 
 [head=2]Этап 1: горючий прекурсор[/head]
-Сварите сварочное топливо с кислородом:
+Сварите сварочное топливо с серой:
 <GuideReagentEmbed Reagent="WeldingFuel"/>
-<GuideReagentEmbed Reagent="Oxygen"/>
+<GuideReagentEmbed Reagent="Sulfur"/>
 <GuideReagentEmbed Reagent="ADTCatalystPrecursor1"/>
 
 [head=2]Этап 2: электролитный прекурсор[/head]
