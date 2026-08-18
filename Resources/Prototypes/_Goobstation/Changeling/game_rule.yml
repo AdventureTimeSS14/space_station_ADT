@@ -25,7 +25,7 @@
       blacklist:
         components:
         - CommandStaff
-        # ADT-Tweak-Start: КПБ получал роль и цели генокрада, но без способностей (MakeChangeling отклонял силиконы уже после выдачи роли)
+        # ADT-Tweak-Start: КПБ получал роль и цели генокрада
         - Silicon
         tags:
         - ChangelingBlacklist
