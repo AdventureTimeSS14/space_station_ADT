@@ -244,7 +244,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Total number of gases. Increase this if you want to add more!
         /// </summary>
-        public const int TotalNumberOfGases = 20; //ADT-Gas
+        public const int TotalNumberOfGases = 49; //ADT-Gas
 
         /// <summary>
         ///     This is the actual length of the gases arrays in mixtures.
@@ -467,7 +467,36 @@ namespace Content.Shared.Atmos
         Zauker = 16,
         Halon = 17,
         Helium = 18,
-        AntiNoblium = 19
+        AntiNoblium = 19,
+        DexalinPlus = 20,
+        Omnizine = 21,
+        Inaprovaline = 22,
+        Diphenhydramine = 23,
+        Ichor = 24,
+        Phlogiston = 25,
+        PolytrinicAcid = 26,
+        SulfuricAcid = 27,
+        FluorosulfuricAcid = 28,
+        Bicaridine = 29,
+        Tricordrazine = 30,
+        Dylovene = 31,
+        Epinephrine = 32,
+        Dexalin = 33,
+        Kelotane = 34,
+        Charcoal = 35,
+        Iron = 36,
+        Cryoxadone = 37,
+        ADTSilverSulfadiazine = 38,
+        Toxin = 39,
+        Chlorine = 40,
+        Fluorine = 41,
+        Radium = 42,
+        Neurotoxin = 43,
+        Lexorin = 44,
+        Histamine = 45,
+        Mercury = 46,
+        WeldingFuel = 47,
+        Ethanol = 48
         //ADT-Gas-End
     }
 }

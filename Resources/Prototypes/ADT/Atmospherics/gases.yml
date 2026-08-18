@@ -153,3 +153,327 @@
   color: "#525151"
   reagent: Anti-Noblium
   pricePerMole: 150
+
+- type: gas
+  id: DexalinPlus
+  name: gases-dexalin-plus
+  abbreviation: gas-dexalin-plus-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 130
+  color: "#7fd7ff"
+  reagent: DexalinPlus
+  pricePerMole: 4
+
+- type: gas
+  id: Omnizine
+  name: gases-omnizine
+  abbreviation: gas-omnizine-abbreviation
+  molarHeatCapacity: 25
+  heatCapacityRatio: 1.3
+  molarMass: 180
+  color: "#78c2c2"
+  reagent: Omnizine
+  pricePerMole: 12
+
+- type: gas
+  id: Inaprovaline
+  name: gases-inaprovaline
+  abbreviation: gas-inaprovaline-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 160
+  color: "#9ae9e9"
+  reagent: Inaprovaline
+  pricePerMole: 3
+
+- type: gas
+  id: Diphenhydramine
+  name: gases-diphenhydramine
+  abbreviation: gas-diphenhydramine-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 255
+  color: "#c49ae9"
+  reagent: Diphenhydramine
+  pricePerMole: 3
+
+- type: gas
+  id: Ichor
+  name: gases-ichor
+  abbreviation: gas-ichor-abbreviation
+  molarHeatCapacity: 30
+  heatCapacityRatio: 1.3
+  molarMass: 100
+  color: "#b00000"
+  reagent: Ichor
+  pricePerMole: 25
+
+- type: gas
+  id: Phlogiston
+  name: gases-phlogiston
+  abbreviation: gas-phlogiston-abbreviation
+  molarHeatCapacity: 10
+  heatCapacityRatio: 1.4
+  molarMass: 50
+  color: "#ff8c00"
+  reagent: Phlogiston
+  pricePerMole: 8
+  isFuel: true
+
+- type: gas
+  id: PolytrinicAcid
+  name: gases-polytrinic-acid
+  abbreviation: gas-polytrinic-acid-abbreviation
+  molarHeatCapacity: 30
+  heatCapacityRatio: 1.3
+  molarMass: 150
+  color: "#00e000"
+  reagent: PolytrinicAcid
+  pricePerMole: 3
+
+- type: gas
+  id: SulfuricAcid
+  name: gases-sulfuric-acid
+  abbreviation: gas-sulfuric-acid-abbreviation
+  molarHeatCapacity: 30
+  heatCapacityRatio: 1.3
+  molarMass: 98
+  color: "#ffd700"
+  reagent: SulfuricAcid
+  pricePerMole: 2
+
+- type: gas
+  id: FluorosulfuricAcid
+  name: gases-fluorosulfuric-acid
+  abbreviation: gas-fluorosulfuric-acid-abbreviation
+  molarHeatCapacity: 30
+  heatCapacityRatio: 1.3
+  molarMass: 100
+  color: "#ff66cc"
+  reagent: FluorosulfuricAcid
+  pricePerMole: 6
+
+# Полезные газы (медицина)
+- type: gas
+  id: Bicaridine
+  name: gases-bicaridine
+  abbreviation: gas-bicaridine-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 160
+  color: "#ff5050"
+  reagent: Bicaridine
+  pricePerMole: 5
+
+- type: gas
+  id: Tricordrazine
+  name: gases-tricordrazine
+  abbreviation: gas-tricordrazine-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 200
+  color: "#90ee90"
+  reagent: Tricordrazine
+  pricePerMole: 6
+
+- type: gas
+  id: Dylovene
+  name: gases-dylovene
+  abbreviation: gas-dylovene-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 150
+  color: "#98fb98"
+  reagent: Dylovene
+  pricePerMole: 4
+
+- type: gas
+  id: Epinephrine
+  name: gases-epinephrine
+  abbreviation: gas-epinephrine-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 180
+  color: "#ffa500"
+  reagent: Epinephrine
+  pricePerMole: 4
+
+- type: gas
+  id: Dexalin
+  name: gases-dexalin
+  abbreviation: gas-dexalin-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 150
+  color: "#4169e1"
+  reagent: Dexalin
+  pricePerMole: 4
+
+- type: gas
+  id: Kelotane
+  name: gases-kelotane
+  abbreviation: gas-kelotane-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 170
+  color: "#ffd700"
+  reagent: Kelotane
+  pricePerMole: 3
+
+- type: gas
+  id: Charcoal
+  name: gases-charcoal
+  abbreviation: gas-charcoal-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 12
+  color: "#3f3f3f"
+  reagent: Charcoal
+  pricePerMole: 1
+
+- type: gas
+  id: Iron
+  name: gases-iron
+  abbreviation: gas-iron-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 56
+  color: "#c0c0c0"
+  reagent: Iron
+  pricePerMole: 2
+
+- type: gas
+  id: Cryoxadone
+  name: gases-cryoxadone
+  abbreviation: gas-cryoxadone-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 200
+  color: "#8080ff"
+  reagent: Cryoxadone
+  pricePerMole: 8
+
+- type: gas
+  id: ADTSilverSulfadiazine
+  name: gases-adt-silver-sulfadiazine
+  abbreviation: gas-adt-silver-sulfadiazine-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 200
+  color: "#e8e8e8"
+  reagent: ADTSilverSulfadiazine
+  pricePerMole: 5
+
+# Опасные газы (токсины, вредные вещества)
+- type: gas
+  id: Toxin
+  name: gases-toxin
+  abbreviation: gas-toxin-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 100
+  color: "#ff00ff"
+  reagent: Toxin
+  pricePerMole: 1
+
+- type: gas
+  id: Chlorine
+  name: gases-chlorine
+  abbreviation: gas-chlorine-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 71
+  color: "#00ff00"
+  reagent: Chlorine
+  pricePerMole: 2
+
+- type: gas
+  id: Fluorine
+  name: gases-fluorine
+  abbreviation: gas-fluorine-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 38
+  color: "#ccff00"
+  reagent: Fluorine
+  pricePerMole: 3
+
+- type: gas
+  id: Radium
+  name: gases-radium
+  abbreviation: gas-radium-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 226
+  color: "#00ffff"
+  reagent: Radium
+  pricePerMole: 5
+
+- type: gas
+  id: Neurotoxin
+  name: gases-neurotoxin
+  abbreviation: gas-neurotoxin-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 200
+  color: "#8e008e"
+  reagent: Neurotoxin
+  pricePerMole: 15
+
+- type: gas
+  id: Lexorin
+  name: gases-lexorin
+  abbreviation: gas-lexorin-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 100
+  color: "#800000"
+  reagent: Lexorin
+  pricePerMole: 10
+
+- type: gas
+  id: Histamine
+  name: gases-histamine
+  abbreviation: gas-histamine-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 111
+  color: "#ffd1dc"
+  reagent: Histamine
+  pricePerMole: 3
+
+- type: gas
+  id: Mercury
+  name: gases-mercury
+  abbreviation: gas-mercury-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 200
+  color: "#c0c0c0"
+  reagent: Mercury
+  pricePerMole: 8
+
+- type: gas
+  id: WeldingFuel
+  name: gases-welding-fuel
+  abbreviation: gas-welding-fuel-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 32
+  color: "#ffb347"
+  reagent: WeldingFuel
+  pricePerMole: 1
+  isFuel: true
+
+- type: gas
+  id: Ethanol
+  name: gases-ethanol
+  abbreviation: gas-ethanol-abbreviation
+  molarHeatCapacity: 20
+  heatCapacityRatio: 1.3
+  molarMass: 46
+  color: "#ffc107"
+  reagent: Ethanol
+  pricePerMole: 1
+  isFuel: true

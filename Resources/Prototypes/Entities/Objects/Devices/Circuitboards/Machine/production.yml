@@ -563,6 +563,9 @@
       stackRequirements:
         Glass: 5
         Cable: 1
+      partRequirements: #ADT-Tweak: machine parts
+        Capacitor: 1
+        ScanningModule: 1
 
 - type: entity
   id: ChemMasterMachineCircuitboard
