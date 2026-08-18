@@ -14178,3 +14178,10 @@ Entries:
     id: 1821
     pr_number: 3207
     time: '2026-08-18T10:33:27Z'
+  - author: ultradyper
+    changes:
+      - {message: Дрифт и осмотр опьянения больше не срабатывают при кровопотере,
+        type: Fix}
+    id: 1822
+    pr_number: 3205
+    time: '2026-08-18T10:36:44Z'
