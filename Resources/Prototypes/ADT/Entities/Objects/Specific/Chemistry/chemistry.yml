@@ -26,7 +26,7 @@
     solution: injector
   - type: Injector
     restrainedMultiplier: 2 # ADT-Tweak(P4A) Ускорение Шприцов на койках и каталках
-  ignoreMobs: false #ADT fix start
+    ignoreMobs: false #ADT fix start
     ignoreClosed: false
     activeModeProtoId: DropperDrawMode #ADT Tweak
     allowedModes:
