@@ -588,7 +588,7 @@ namespace Content.Server.Lathe
             foreach (var (reagent, needed) in recipe.ReagentCost)
             {
                 var adjustedAmount = SharedLatheSystem.AdjustReagentCost(needed, recipe.ApplyMaterialDiscount, lathe.FinalMaterialMultiplier);
-                _solution.AddReagent(solution.Value, reagent, adjustedAmount * quantity);
+                _solution.TryAddReagent(solution.Value, reagent, adjustedAmount * quantity, out _);
             }
         }
         // ADT-Tweak-End
