@@ -18,7 +18,7 @@ public sealed class MonkeyRecyclerMachinePartsSystem : EntitySystem
     {
         var matterTier = args.GetPartRating(MachinePartIds.MatterBin, 1f);
         component.CubeProduction = matterTier > 4f
-            ? (int) (matterTier * 2f - 2f)
+            ? (int) (4f + (matterTier - 4f) * 4f)
             : (int) matterTier;
     }
 

@@ -105,8 +105,11 @@ public abstract class SharedLatheSystem : EntitySystem
         }
 
         // ADT-Tweak Start
-        if (component.ReagentCostSlotId is { } slotId && recipe.ReagentCost.Count > 0)
+        if (recipe.ReagentCost.Count > 0)
         {
+            if (component.ReagentCostSlotId is not { } slotId)
+                return false;
+
             var beaker = _itemSlots.GetItemOrNull(uid, slotId);
             if (beaker is not { } beakerUid || !_solution.TryGetFitsInDispenser(beakerUid, out _, out var solution))
                 return false;
@@ -137,6 +140,9 @@ public abstract class SharedLatheSystem : EntitySystem
         => reduce ? (int) MathF.Ceiling(original * multiplier) : original;
 
     // ADT-Tweak Start
+    /// <summary>
+    /// Applies the lathe material multiplier to a reagent cost, mirroring <see cref="AdjustMaterial"/>.
+    /// </summary>
     public static FixedPoint2 AdjustReagentCost(FixedPoint2 original, bool reduce, float multiplier)
         => reduce ? FixedPoint2.NewCeiling((float) (original * multiplier)) : original;
     // ADT-Tweak End

@@ -555,6 +555,8 @@ namespace Content.Server.Lathe
 
             foreach (var (mat, amount) in GetAdjustedAmount(lathe, recipe!))
                 _materialStorage.TryChangeMaterialAmount(uid, mat, amount);
+
+            RefundReagentCost(uid, lathe, recipe!, 1); // ADT-Tweak
         }
 
         /// <summary>
@@ -569,7 +571,27 @@ namespace Content.Server.Lathe
 
             foreach (var (mat, amount) in GetAdjustedAmount(lathe, recipe!))
                 _materialStorage.TryChangeMaterialAmount(uid, mat, amount * delta);
+
+            RefundReagentCost(uid, lathe, recipe!, delta); // ADT-Tweak
         }
+
+        // ADT-Tweak start
+        private void RefundReagentCost(EntityUid uid, LatheComponent lathe, LatheRecipePrototype recipe, int quantity)
+        {
+            if (lathe.ReagentCostSlotId is not { } slotId || recipe.ReagentCost.Count == 0)
+                return;
+
+            if (_itemSlots.GetItemOrNull(uid, slotId) is not { } beaker
+                || !_solution.TryGetFitsInDispenser(beaker, out var solution, out _))
+                return;
+
+            foreach (var (reagent, needed) in recipe.ReagentCost)
+            {
+                var adjustedAmount = SharedLatheSystem.AdjustReagentCost(needed, recipe.ApplyMaterialDiscount, lathe.FinalMaterialMultiplier);
+                _solution.AddReagent(solution.Value, reagent, adjustedAmount * quantity);
+            }
+        }
+        // ADT-Tweak-End
 
         public void AbortProduction(EntityUid uid, LatheComponent? component = null)
         {
