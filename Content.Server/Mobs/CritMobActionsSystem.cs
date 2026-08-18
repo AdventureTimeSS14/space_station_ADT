@@ -1,6 +1,9 @@
 ﻿using Content.Server.Administration;
 using Content.Server.Chat.Systems;
 using Content.Server.Popups;
+using Content.Shared.ADT.CritLastWords;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -17,6 +20,7 @@ namespace Content.Server.Mobs;
 public sealed class CritMobActionsSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly DeathgaspSystem _deathgasp = default!;
     [Dependency] private readonly IServerConsoleHost _host = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -61,6 +65,42 @@ public sealed class CritMobActionsSystem : EntitySystem
     {
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
+
+        // ADT-Tweak-Start: последние слова наносят удушающий урон (ADTCritLastWordsComponent), ghost отменён
+        if (TryComp<ADTCritLastWordsComponent>(uid, out var adtLastWords))
+        {
+            _quickDialog.OpenDialog(actor.PlayerSession, Loc.GetString("action-name-crit-last-words"), "",
+                (string lastWords) =>
+                {
+                    // if a person is gibbed/deleted, they can't say last words
+                    if (Deleted(uid))
+                        return;
+
+                    // Intentionally does not check for muteness
+                    if (actor.PlayerSession.AttachedEntity != uid
+                        || !_mobState.IsCritical(uid))
+                        return;
+
+                    if (string.IsNullOrWhiteSpace(lastWords))
+                        return;
+
+                    if (lastWords.Length > adtLastWords.MaxLength)
+                    {
+                        lastWords = lastWords.Substring(0, adtLastWords.MaxLength);
+                    }
+                    lastWords += "...";
+
+                    _chat.TrySendInGameICMessage(uid, lastWords, InGameICChatType.Whisper, ChatTransmitRange.Normal, checkRadioPrefix: false, ignoreActionBlocker: true);
+
+                    var damage = new DamageSpecifier();
+                    damage.DamageDict.Add("Asphyxiation", adtLastWords.Damage);
+                    _damageable.ChangeDamage(uid, damage, ignoreResistances: true, interruptsDoAfters: false);
+                });
+
+            args.Handled = true;
+            return;
+        }
+        // ADT-Tweak-End
 
         _quickDialog.OpenDialog(actor.PlayerSession, Loc.GetString("action-name-crit-last-words"), "",
             (string lastWords) =>

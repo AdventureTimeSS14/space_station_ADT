@@ -147,6 +147,11 @@
       - ActionCritSuccumb
       - ActionCritFakeDeath
       - ActionCritLastWords
+  # ADT-Tweak-Start: урон удушения за последние слова в крите (ADTCritLastWordsComponent, CritMobActionsSystem)
+  - type: ADTCritLastWords
+    maxLength: 20
+    damage: 20
+  # ADT-Tweak-End
   - type: StoreDamageTakenOnMind
   - type: Deathgasp
   - type: HealthExaminable

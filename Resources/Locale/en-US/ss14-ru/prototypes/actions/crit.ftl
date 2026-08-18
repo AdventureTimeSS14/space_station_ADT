@@ -5,4 +5,4 @@ ent-ActionCritSuccumb = Succumb
 ent-ActionCritFakeDeath = Fake Death
     .desc = Pretend to take your final breath while staying alive.
 ent-ActionCritLastWords = Say Last Words
-    .desc = Whisper your last words to anyone nearby, and then succumb to your fate. You only have 30 characters to work with.
+    .desc = Whisper your last words to anyone nearby. Each phrase deals 20 points of suffocation damage. You only have 20 characters to work with.

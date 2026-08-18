@@ -40,9 +40,14 @@
   parent: ActionCritSuccumb # for use delay
   id: ActionCritLastWords
   name: Say Last Words
-  description: Whisper your last words to anyone nearby, and then succumb to your fate. You only have 30 characters to work with.
+  # ADT-Tweak-Start: последние слова наносят урон удушения вместо мгновенного ghost
+  description: Whisper your last words to anyone nearby. Each phrase deals 20 points of suffocation damage. You only have 20 characters to work with.
+  # ADT-Tweak-End
   components:
   - type: Action
+    # ADT-Tweak-Start: кулдаун последних слов 5с вместо унаследованных 10с от ActionCritSuccumb
+    useDelay: 5
+    # ADT-Tweak-End
     icon:
       sprite: Interface/Actions/actions_crit.rsi
       state: lastwords
