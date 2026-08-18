@@ -34,7 +34,7 @@ using Content.Shared.Heretic;
 using Content.Shared.Movement.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Standing;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
@@ -301,7 +301,6 @@ public sealed class AristocratSystem : EntitySystem
         var xformQuery = GetEntityQuery<TransformComponent>();
         var hereticQuery = GetEntityQuery<HereticComponent>();
         var ghoulQuery = GetEntityQuery<GhoulComponent>();
-        var statusQuery = GetEntityQuery<StatusEffectsComponent>();
 
         HashSet<EntityUid> ignored = new();
         var conduitQuery = EntityQueryEnumerator<VoidConduitComponent, TransformComponent>();
@@ -330,14 +329,9 @@ public sealed class AristocratSystem : EntitySystem
                 if (_heretic.IsHereticOrGhoul(ent))
                 {
                     ignored.Add(ent);
-                    if (statusQuery.TryComp(ent, out var status))
-                    {
-                        _status.TryAddStatusEffect<PressureImmunityComponent>(ent,
-                            "PressureImmunity",
-                            TimeSpan.FromSeconds(2),
-                            true,
-                            status);
-                    }
+                    _status.TrySetStatusEffectDuration(ent,
+                        PressureImmunityStatusEffectSystem.PressureImmunityEffect,
+                        TimeSpan.FromSeconds(2));
                     continue;
                 }
 
