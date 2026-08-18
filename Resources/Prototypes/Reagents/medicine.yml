@@ -742,9 +742,9 @@
           - !type:ReagentCondition
             reagent: Barozine
             min: 60    #ADT_Tweak - изменено значение передозировки для борьбы с набегаторами
-      - !type:GenericStatusEffect
-        key: PressureImmunity
-        component: PressureImmunity
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectPressureImmunity
+        type: Add
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
