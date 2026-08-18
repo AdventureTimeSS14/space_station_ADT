@@ -68,7 +68,7 @@ public sealed class MindLinkSystem : EntitySystem
         if (!HasLanguageFromPrototype(uid, language))
             _language.RemoveLanguage(uid, language);
 
-        if (partner == null || !TryComp<MindLinkComponent>(partner.Value, out _))
+        if (partner == null || !TryComp<MindLinkComponent>(partner.Value, out var partnerLink) || partnerLink.Partner != uid)
             return;
 
         RemComp<MindLinkComponent>(partner.Value);

@@ -36,7 +36,9 @@ namespace Content.Server.Guardian
         [Dependency] private readonly GibbingSystem _gibbing = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+        // ADT-Tweak-Start: ментальная связь носителя и голопаразита
         [Dependency] private readonly MindLinkSystem _mindLink = default!;
+        // ADT-Tweak-End
 
         public override void Initialize()
         {
