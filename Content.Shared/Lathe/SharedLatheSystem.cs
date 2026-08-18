@@ -1,7 +1,11 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
+using Content.Shared.FixedPoint;
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Localizations;
 using Content.Shared.Materials;
@@ -20,6 +24,8 @@ public abstract class SharedLatheSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedMaterialStorageSystem _materialStorage = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!; // ADT-Tweak
+    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!; // ADT-Tweak
 
     public readonly Dictionary<string, List<LatheRecipePrototype>> InverseRecipes = new();
     public const int MaxItemsPerRequest = 10_000;
@@ -97,6 +103,22 @@ public abstract class SharedLatheSystem : EntitySystem
             if (_materialStorage.GetMaterialAmount(uid, material) < adjustedAmount * amount)
                 return false;
         }
+
+        // ADT-Tweak Start
+        if (component.ReagentCostSlotId is { } slotId && recipe.ReagentCost.Count > 0)
+        {
+            var beaker = _itemSlots.GetItemOrNull(uid, slotId);
+            if (beaker is not { } beakerUid || !_solution.TryGetFitsInDispenser(beakerUid, out _, out var solution))
+                return false;
+
+            foreach (var (reagent, needed) in recipe.ReagentCost)
+            {
+                var adjustedAmount = AdjustReagentCost(needed, recipe.ApplyMaterialDiscount, component.FinalMaterialMultiplier);
+                if (solution.GetTotalPrototypeQuantity(reagent) < adjustedAmount * amount)
+                    return false;
+            }
+        }
+        // ADT-Tweak End
         return true;
     }
 
@@ -113,6 +135,11 @@ public abstract class SharedLatheSystem : EntitySystem
 
     public static int AdjustMaterial(int original, bool reduce, float multiplier)
         => reduce ? (int) MathF.Ceiling(original * multiplier) : original;
+
+    // ADT-Tweak Start
+    public static FixedPoint2 AdjustReagentCost(FixedPoint2 original, bool reduce, float multiplier)
+        => reduce ? FixedPoint2.NewCeiling((float) (original * multiplier)) : original;
+    // ADT-Tweak End
 
     protected abstract bool HasRecipe(EntityUid uid, LatheRecipePrototype recipe, LatheComponent component);
 

@@ -17,7 +17,9 @@ public sealed class MonkeyRecyclerMachinePartsSystem : EntitySystem
     private void OnRefreshParts(EntityUid uid, XenobiologyMonkeyRecyclerComponent component, RefreshPartsEvent args)
     {
         var matterTier = args.GetPartRating(MachinePartIds.MatterBin, 1f);
-        component.CubeProduction = (int)matterTier;
+        component.CubeProduction = matterTier > 4f
+            ? (int) (matterTier * 2f - 2f)
+            : (int) matterTier;
     }
 
     private static void OnUpgradeExamine(EntityUid uid, XenobiologyMonkeyRecyclerComponent component, UpgradeExamineEvent args)
