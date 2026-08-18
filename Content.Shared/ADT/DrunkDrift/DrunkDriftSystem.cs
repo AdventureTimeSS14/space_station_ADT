@@ -29,7 +29,8 @@ public sealed partial class DrunkDriftSystem : EntitySystem
 
     private void OnDrunkApplied(Entity<StatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
-        if (!HasComp<DrunkStatusEffectComponent>(ent.Owner))
+        // Bloodloss and woozy effects also carry DrunkStatusEffect - wobble only from alcohol.
+        if (MetaData(ent.Owner).EntityPrototype?.ID != SharedDrunkSystem.Drunk.Id)
             return;
 
         if (_timing.ApplyingState)
@@ -41,14 +42,14 @@ public sealed partial class DrunkDriftSystem : EntitySystem
 
     private void OnDrunkRemoved(Entity<StatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {
-        if (!HasComp<DrunkStatusEffectComponent>(ent.Owner))
+        if (MetaData(ent.Owner).EntityPrototype?.ID != SharedDrunkSystem.Drunk.Id)
             return;
 
         if (_timing.ApplyingState)
             return;
 
         // Keep the marker while any drunkenness effect remains.
-        if (_statusEffects.HasEffectComp<DrunkStatusEffectComponent>(args.Target))
+        if (_statusEffects.HasStatusEffect(args.Target, SharedDrunkSystem.Drunk))
         {
             if (TryComp<ADTDrunkDriftComponent>(args.Target, out var comp))
                 UpdateVisuals(args.Target, comp);
@@ -62,7 +63,7 @@ public sealed partial class DrunkDriftSystem : EntitySystem
     private void UpdateVisuals(EntityUid uid, ADTDrunkDriftComponent comp)
     {
         var active = false;
-        if (_statusEffects.TryGetMaxTime<DrunkStatusEffectComponent>(uid, out var time))
+        if (_statusEffects.TryGetTime(uid, SharedDrunkSystem.Drunk, out var time))
         {
             var remaining = time.EndEffectTime - _timing.CurTime;
             active = remaining == null
