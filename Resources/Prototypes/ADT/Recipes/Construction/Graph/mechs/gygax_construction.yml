@@ -94,7 +94,7 @@
 
       - machinePart: Servo
         tier: 3
-        name: machine-part-name-servo
+        name: machine-part-name-servo-t3
         icon:
           sprite: "ADT/Objects/Misc/stock_parts.rsi"
           state: pico_servo

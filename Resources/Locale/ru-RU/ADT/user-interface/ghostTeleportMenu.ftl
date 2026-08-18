@@ -8,3 +8,4 @@ ghost-teleport-menu-locations-label = Локации и объекты
 ghost-teleport-menu-other-label = Другие
 ghost-teleport-menu-count-label = Количество
 ghost-teleport-menu-subgroup-label = {$name}: {$count}
+ghost-teleport-menu-no-targets = Нет целей для телепортации

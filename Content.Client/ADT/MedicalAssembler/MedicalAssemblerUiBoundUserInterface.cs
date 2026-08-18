@@ -5,11 +5,11 @@ using Robust.Client.UserInterface;
 namespace Content.Client.ADT.MedicalAssembler;
 
 [UsedImplicitly]
-public sealed class MedicalAssemblerBoundUserInterface : BoundUserInterface
+public sealed class MedicalAssemblerUiBoundUserInterface : BoundUserInterface
 {
     private MedicalAssemblerMenu? _menu;
 
-    public MedicalAssemblerBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+    public MedicalAssemblerUiBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
     }
 
