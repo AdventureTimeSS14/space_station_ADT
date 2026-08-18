@@ -464,10 +464,18 @@ namespace Content.IntegrationTests.Tests
                             var spawnPointProtos = protoManager.EnumeratePrototypes<EntityPrototype>()
                                 .Where(proto => !proto.Abstract
                                     && proto.TryGetComponent<SpawnPointComponent>(out var spawn, componentFactory)
+                                    && spawn.SpawnType == SpawnPointType.Job
                                     && spawn.Job == job)
                                 .Select(proto => proto.ID);
 
-                            var protos = string.Join(", ", spawnPointProtos);
+                            var containerSpawnPointProtos = protoManager.EnumeratePrototypes<EntityPrototype>()
+                                .Where(proto => !proto.Abstract
+                                    && proto.TryGetComponent<ContainerSpawnPointComponent>(out var spawn, componentFactory)
+                                    && spawn.SpawnType is SpawnPointType.Job or SpawnPointType.Unset
+                                    && spawn.Job == job)
+                                .Select(proto => proto.ID);
+
+                            var protos = string.Join(", ", spawnPointProtos.Concat(containerSpawnPointProtos).Distinct());
                             return protos.Length == 0
                                 ? $"{job} (no spawn point entity prototype found)"
                                 : $"{job} (spawn point entity prototypes: {protos})";
