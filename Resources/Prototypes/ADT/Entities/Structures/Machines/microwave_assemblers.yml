@@ -134,12 +134,13 @@
           components:
           - FitsInDispenser
   - type: ActivatableUI
+    inHandsOnly: false
     key: enum.MedicalAssemblerUiKey.Key
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
       enum.MedicalAssemblerUiKey.Key:
-        type: MedicalAssemblerBoundUserInterface
+        type: MedicalAssemblerUiBoundUserInterface
   - type: ContainerContainer # Redefined due to inheritance order
     containers:
       microwave_entity_container: !type:Container
