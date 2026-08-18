@@ -6,6 +6,7 @@
   - type: Physics
     bodyType: KinematicController
     bodyStatus: OnGround
+    canCollide: false
   - type: Strap
     buckleOnInteractHand: false
     position: None
