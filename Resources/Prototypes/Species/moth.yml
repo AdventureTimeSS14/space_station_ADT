@@ -33,5 +33,5 @@
   - Nian
   maxAge: 70
   oldAge: 45
-  youngAge: 27 # ADT-Tweak: увеличен порог молодого возраста
+  youngAge: 27
   # ADT end
