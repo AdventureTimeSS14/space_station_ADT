@@ -5,4 +5,6 @@
 // https://github.com/dotnet/runtime/issues/107197
 // So we can't really parallelize integration tests harder either until the runtime fixes that,
 // *or* we fix serv3 to not spam expression trees.
-[assembly: LevelOfParallelism(2)]
+
+// TODO: Если упрётесь в таймаут по памяти (16 GB) или зависание - откатить обратно на 2.
+[assembly: LevelOfParallelism(4)] // ADT-Tweak
