@@ -16,6 +16,15 @@
   setPreference: true
   objective: roles-antag-rev-objective
   guides: [ Revolutionaries ]
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 10h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 10h
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 5h
 
 - type: startingGear
   id: HeadRevGear
@@ -24,3 +33,4 @@
     - Flash
     - ClothingEyesGlassesSunglasses
     - ADTToolboxRevolution #ADT revolution
+
