@@ -59,19 +59,24 @@ jobs:
         compression-level: 0
 
   integration-test:
+    name: integration-test (${{ matrix.name }})
     if: github.actor != 'IanComradeBot' && github.event.pull_request.draft == false
     needs: build
     strategy:
       fail-fast: false
       matrix:
         include:
-          - name: core
-            filter: "FullyQualifiedName!~EntityTest&FullyQualifiedName!~PostMapInitTest&FullyQualifiedName!~MappingTests&FullyQualifiedName!~PrototypeTests"
-          - name: entity
-            filter: "FullyQualifiedName~EntityTest"
-          - name: maps
+          - name: core-a
+            filter: "FullyQualifiedName!~EntityTest&FullyQualifiedName!~PostMapInitTest&FullyQualifiedName!~MappingTests&FullyQualifiedName!~PrototypeTests&FullyQualifiedName!~Tests.GameRules&FullyQualifiedName!~Tests.Round.&FullyQualifiedName!~Tests.Station.&FullyQualifiedName!~Tests.Power&FullyQualifiedName!~Tests.Atmos"
+          - name: core-b
+            filter: "FullyQualifiedName~Tests.GameRules|FullyQualifiedName~Tests.Round.|FullyQualifiedName~Tests.Station.|FullyQualifiedName~Tests.Power|FullyQualifiedName~Tests.Atmos"
+          - name: entity-a
+            filter: "FullyQualifiedName~EntityTest.SpawnAndDeleteAllEntitiesOnDifferentMaps|FullyQualifiedName~EntityTest.SpawnAndDeleteAllEntitiesInTheSameSpot|FullyQualifiedName~EntityTest.SpawnAndDirtyAllEntities"
+          - name: entity-b
+            filter: "FullyQualifiedName~EntityTest.SpawnAndDeleteEntityCountTest|FullyQualifiedName~EntityTest.AllComponentsOneToOneDeleteTest"
+          - name: map
             filter: "FullyQualifiedName~PostMapInitTest|FullyQualifiedName~MappingTests"
-          - name: prototypes
+          - name: prototype
             filter: "FullyQualifiedName~PrototypeTests"
     runs-on: ubuntu-latest
     steps:
