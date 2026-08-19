@@ -154,7 +154,9 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         if (state.Unrevivable == true)
             AlertsContainer.AddChild(new RichTextLabel
             {
-                Text = Loc.GetString("health-analyzer-window-entity-unrevivable-text"),
+                Text = Loc.GetString(state.Hollow == true // ADT-Tweak
+                    ? "health-analyzer-window-entity-hollow-text"
+                    : "health-analyzer-window-entity-unrevivable-text"),
                 Margin = new Thickness(0, 4),
                 MaxWidth = 300
             });
