@@ -110,7 +110,6 @@ public sealed partial class AddictionSystem : EntitySystem
         {
             channel.InWithdrawal = true;
             channel.Stage = stage;
-            // Кофе без симптомов - пересчитывать нечего, иначе снимем чужие (дрожь и т.п.)
             if (channel.Kind != AddictionKind.Coffee)
                 RaiseSymptomsChanged(uid);
         }
