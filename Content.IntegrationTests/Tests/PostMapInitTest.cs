@@ -266,7 +266,6 @@ namespace Content.IntegrationTests.Tests
             await server.WaitPost(() => mapSys.InitializeMap(id));
             // ADT-Tweak start
             Assert.That(loader.TrySaveMap(id, path), $"Failed to save map {path}");
-            // ADT-Tweak start
             Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes), Is.False,
                 $"Test map {path} unexpectedly passed pre-init check");
             // ADT-Tweak end
