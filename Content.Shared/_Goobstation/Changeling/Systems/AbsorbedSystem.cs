@@ -22,7 +22,9 @@ public sealed partial class AbsorbedSystem : EntitySystem
     // ADT-Tweak start
     private void OnCloned(Entity<AbsorbedComponent> ent, ref CloningEvent args)
     {
-        RemComp<UnrevivableComponent>(args.CloneUid);
+        if (TryComp<UnrevivableComponent>(ent, out var unrevivable)
+            && unrevivable.ReasonMessage.Id == "defibrillator-hollow")
+            RemComp<UnrevivableComponent>(args.CloneUid);
     }
     // ADT-Tweak end
 
