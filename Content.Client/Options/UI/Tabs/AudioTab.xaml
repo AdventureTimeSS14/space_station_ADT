@@ -33,6 +33,16 @@
                 <!-- ADT Boss music end -->
                 <CheckBox Name="AdminSoundsCheckBox" Text="{Loc 'ui-options-admin-sounds'}" />
                 <CheckBox Name="BwoinkSoundCheckBox" Text="{Loc 'ui-options-bwoink-sound'}" />
+                <!-- ADT-tweak start -->
+                <CheckBox Name="ChatHighlightSoundCheckBox" Text="{Loc 'ui-options-chat-highlight-sound'}" />
+                <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+                    <ui:OptionDropDown Name="DropDownChatHighlightSound" Title="{Loc 'ui-options-chat-highlight-sound-choice'}"
+                                     Margin="0 0 4 0" />
+                    <Button Name="ChatHighlightSoundPlayButton" Text="{Loc 'ui-options-chat-highlight-sound-play'}" />
+                </BoxContainer>
+                <ui:OptionSlider Name="SliderChatHighlightSoundVolume" Title="{Loc 'ui-options-chat-highlight-sound-volume'}"
+                                 Margin="0 0 0 8" />
+                <!-- ADT-tweak end -->
             </BoxContainer>
         </BoxContainer>
         <ui:OptionsTabControlRow Name="Control" Access="Public" />
