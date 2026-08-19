@@ -13,7 +13,7 @@ using Robust.Shared.Map.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Coordinates;
 using Content.Client.Hands.Systems;
-using Robust.Shared.Input;
+using Robust.Client.Input;
 
 namespace Content.Client.ADT.RPD;
 
