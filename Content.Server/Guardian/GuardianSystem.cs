@@ -244,8 +244,9 @@ namespace Content.Server.Guardian
             if (TryComp<GuardianComponent>(guardian, out var guardianComp))
             {
                 guardianComp.Host = args.Args.Target.Value;
-                // ADT-Tweak-Start: ментальная связь носителя и голопаразита
-                _mindLink.TryAddMindLink(args.Args.Target.Value, guardian, HoloparasiteMindLink.Language);
+                // ADT-Tweak-Start: ментальная связь носителя и голопаразита (только голопаразит, без Ifrit/HoloClown)
+                if (component.GuardianProto != "MobHoloClownGuardian" && component.GuardianProto != "MobIfritGuardian")
+                    _mindLink.TryAddMindLink(args.Args.Target.Value, guardian, HoloparasiteMindLink.Language);
                 // ADT-Tweak-End
                 _audio.PlayPvs(guardianComp.InjectSound, args.Args.Target.Value);
                 _popupSystem.PopupEntity(Loc.GetString("guardian-created"), args.Args.Target.Value, args.Args.Target.Value);

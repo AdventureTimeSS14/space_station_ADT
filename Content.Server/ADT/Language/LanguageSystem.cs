@@ -65,6 +65,11 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
     /// </summary>
     public void SendChannelMessageToPair(EntityUid uid, EntityUid partner, string message, string messageWrap, ChatChannel channel, Color? color)
     {
+        SendChannelMessageToPair(uid, partner, message, messageWrap, messageWrap, channel, color);
+    }
+
+    public void SendChannelMessageToPair(EntityUid uid, EntityUid partner, string message, string messageWrap, string adminMessageWrap, ChatChannel channel, Color? color)
+    {
         var clients = Filter.Entities(uid, partner);
         var admins = Filter.Empty();
 
@@ -79,7 +84,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         }
 
         _chatMan.ChatMessageToManyFiltered(clients, channel, message, messageWrap, uid, false, false, color);
-        _chatMan.ChatMessageToManyFiltered(admins, channel, message, messageWrap, uid, false, false, color);
+        _chatMan.ChatMessageToManyFiltered(admins, channel, message, adminMessageWrap, uid, false, false, color);
     }
 
     public string ObfuscateMessage(EntityUid uid, string originalMessage, List<string> replacements, bool obfiscateSyllables, bool replaceEntireMessage = false)

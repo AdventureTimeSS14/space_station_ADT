@@ -105,6 +105,22 @@ public sealed partial class MindLink : ILanguageType
         if (color != null)
             messageWrap = $"[color={color.Value.ToHex()}]{messageWrap}[/color]";
 
-        language.SendChannelMessageToPair(uid, partner, message, messageWrap, ChatChannel.CollectiveMind, color);
+        var adminWrapKey = ShowName
+            ? "chat-manager-send-mind-link-chat-wrap-message-admin"
+            : "chat-manager-send-mind-link-chat-wrap-message";
+
+        var adminMessageWrap = Loc.GetString(adminWrapKey,
+            ("fontType", fontType),
+            ("fontSize", fontSize),
+            ("defaultFont", defaultFont),
+            ("defaultSize", defaultSize),
+            ("source", uid),
+            ("message", message),
+            ("channel", proto.Index(Language).LocalizedName));
+
+        if (color != null)
+            adminMessageWrap = $"[color={color.Value.ToHex()}]{adminMessageWrap}[/color]";
+
+        language.SendChannelMessageToPair(uid, partner, message, messageWrap, adminMessageWrap, ChatChannel.CollectiveMind, color);
     }
 }
