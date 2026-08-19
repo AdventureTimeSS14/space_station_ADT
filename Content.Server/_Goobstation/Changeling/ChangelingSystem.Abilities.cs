@@ -178,6 +178,7 @@ public sealed partial class ChangelingSystem
         unrevivable.Cloneable = true;
         if (!hadUnrevivable)
             unrevivable.ReasonMessage = "defibrillator-hollow";
+        Dirty(target, unrevivable);
         // ADT-Tweak end
 
         TryComp<ChangelingChemicalComponent>(uid, out var chemComp); // user's chemical component

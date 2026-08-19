@@ -20,6 +20,10 @@ public sealed partial class AbsorbedSystem : EntitySystem
     }
 
     // ADT-Tweak start
+    /// <summary>
+    /// Снимает <see cref="UnrevivableComponent"/> с клона только для тел, опустошённых генокрадом
+    /// (причина дефиба "defibrillator-hollow"), чтобы не затронуть трейт Unrevivable.
+    /// </summary>
     private void OnCloned(Entity<AbsorbedComponent> ent, ref CloningEvent args)
     {
         if (TryComp<UnrevivableComponent>(ent, out var unrevivable)
