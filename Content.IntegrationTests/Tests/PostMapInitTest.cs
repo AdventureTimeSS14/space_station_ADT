@@ -136,8 +136,10 @@ namespace Content.IntegrationTests.Tests
                 mapSystem.CreateMap(out var mapId);
                 try
                 {
+                    // ADT-Tweak start
                     Assert.That(mapLoader.TryLoadGrid(mapId, path, out var grid),
-                        $"Failed to load grid {mapFile}, was it saved as a map instead of a grid?"); // ADT-Tweak
+                        $"Failed to load grid {mapFile}, was it saved as a map instead of a grid?");
+                    // ADT-Tweak end
                 }
                 catch (Exception ex)
                 {
@@ -239,8 +241,10 @@ namespace Content.IntegrationTests.Tests
 
             if (isV7Map)
             {
+                // ADT-Tweak start
                 Assert.That(IsPreInit(map, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes),
-                    $"Map {map} was saved post-map-init, open it in the map editor and save it again without running map init."); // ADT-Tweak
+                    $"Map {map} was saved post-map-init, open it in the map editor and save it again without running map init.");
+                // ADT-Tweak end
             }
 
             // Check that the test actually does manage to catch post-init maps and isn't just blindly passing everything.
@@ -252,15 +256,20 @@ namespace Content.IntegrationTests.Tests
 
             // First check that a pre-init version passes
             var path = new ResPath($"{nameof(NoSavedPostMapInitTest)}.yml");
-            Assert.That(loader.TrySaveMap(id, path), $"Failed to save map {path}"); // ADT-Tweak
+            // ADT-Tweak start
+            Assert.That(loader.TrySaveMap(id, path), $"Failed to save map {path}");
             Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes),
-                $"Test map {path} failed pre-init check"); // ADT-Tweak
+                $"Test map {path} failed pre-init check");
+            // ADT-Tweak end
 
             // and the post-init version fails.
             await server.WaitPost(() => mapSys.InitializeMap(id));
-            Assert.That(loader.TrySaveMap(id, path), $"Failed to save map {path}"); // ADT-Tweak
+            // ADT-Tweak start
+            Assert.That(loader.TrySaveMap(id, path), $"Failed to save map {path}");
+            // ADT-Tweak start
             Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes), Is.False,
-                $"Test map {path} unexpectedly passed pre-init check"); // ADT-Tweak
+                $"Test map {path} unexpectedly passed pre-init check");
+            // ADT-Tweak end
         }
 
         private bool IsWhitelistedForMap(EntProtoId protoId, ResPath map)
