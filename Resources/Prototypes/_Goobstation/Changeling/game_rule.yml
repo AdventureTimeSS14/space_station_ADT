@@ -25,7 +25,7 @@
       blacklist:
         components:
         - CommandStaff
-        # ADT-Tweak-Start: КПБ получал роль и цели генокрада
+        # ADT-Tweak-Start
         - Silicon
         tags:
         - ChangelingBlacklist
