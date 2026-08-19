@@ -14185,3 +14185,9 @@ Entries:
     id: 1822
     pr_number: 3205
     time: '2026-08-18T10:36:44Z'
+  - author: ultradyper
+    changes:
+      - {message: КПБ и новакиды больше не могут быть генокрадами, type: Fix}
+    id: 1823
+    pr_number: 3213
+    time: '2026-08-19T06:00:05Z'
