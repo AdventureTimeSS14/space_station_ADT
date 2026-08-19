@@ -8,8 +8,9 @@
       state: engineering
     - type: MachineBoard
       prototype: ADTUniversalPipeDispenser
-      stackRequirements:
-        Manipulator: 4
+      partRequirements:
+        Servo: 4
+        MatterBin: 2
       tagRequirements:
         GlassBeaker:
           amount: 2
@@ -24,8 +25,8 @@
   components:
   - type: MachineBoard
     prototype: ADTBookPrinter
-    stackRequirements:
-      Manipulator: 2
+    partRequirements:
+      Servo: 2
 # Ganimed-Book-Printer-End
 
 - type: entity
@@ -89,8 +90,11 @@
       stackRequirements:
         Steel: 5
         Plasma: 5
-        Manipulator: 3
+
         Glass: 5
+      partRequirements:
+        Servo: 2
+        Capacitor: 1
       tagRequirements:
           GlassBeaker:
             amount: 1
@@ -125,6 +129,9 @@
         Glass: 5
         Cable: 4
         Plasma: 5
+      partRequirements:
+        MatterBin: 2
+        Servo: 1
       tagRequirements:
         GlassBeaker:
           amount: 3
@@ -139,8 +146,10 @@
     - type: MachineBoard
       prototype: ADTAdvancedKitchenReagentGrinder
       stackRequirements:
-        Manipulator: 6
         Plasma: 5
+      partRequirements:
+        Servo: 3
+        MatterBin: 3
       tagRequirements:
         GlassBeaker:
           amount: 1
@@ -159,10 +168,11 @@
     - type: MachineBoard
       prototype: ADTMedicalAssembler
       stackRequirements:
-        Manipulator: 1
         Steel: 5
         Glass: 2
         Cable: 4
+      partRequirements:
+        MatterBin: 1
       tagRequirements:
         GlassBeaker:
           amount: 2
@@ -182,6 +192,10 @@
         Steel: 5
         Glass: 2
         Cable: 4
+      partRequirements:
+        Servo: 2
+        MicroLaser: 2
+        MatterBin: 2
       tagRequirements:
         Igniter:
           amount: 1
@@ -201,6 +215,9 @@
         Steel: 5
         Glass: 2
         Cable: 4
+      partRequirements:
+        MicroLaser: 2
+        MatterBin: 2
       tagRequirements:
         Igniter:
           amount: 1
@@ -217,9 +234,10 @@
     - type: MachineBoard
       prototype: ADTKitchenAssembler
       stackRequirements:
-        Manipulator: 2
         Glass: 2
         Cable: 2
+      partRequirements:
+        MatterBin: 2
       tagRequirements:
         GlassBeaker:
           amount: 1
@@ -244,8 +262,10 @@
       Glass: 15
       Steel: 15
       CableHV: 5
-      Manipulator: 20
+
       ADTBScrystalArt: 10
+    partRequirements:
+      Servo: 20
     tagRequirements:
       GlassBeaker:
         amount: 5
@@ -265,9 +285,10 @@
   - type: MachineBoard
     prototype: ADTMediumLongThruster
     stackRequirements:
-      Manipulator: 12
       Steel: 15
       ADTBScrystal: 3
+    partRequirements:
+      Servo: 12
 
 - type: entity
   id: ADTMachineBigThrusterCircuitboard #3x3
@@ -279,9 +300,10 @@
   - type: MachineBoard
     prototype: ADTBigThruster
     stackRequirements:
-      Manipulator: 36
       Steel: 45
       ADTBScrystal: 9
+    partRequirements:
+      Servo: 36
 
 - type: entity
   id: ADTMachineMediumThrusterCircuitboard #2x2
@@ -293,9 +315,10 @@
   - type: MachineBoard
     prototype: ADTMediumThruster
     stackRequirements:
-      Manipulator: 16
       Steel: 20
       ADTBScrystal: 4
+    partRequirements:
+      Servo: 16
 
 - type: entity
   id: ADTAdvancedMedicalBedCircuitboard
@@ -350,9 +373,16 @@
     - type: MachineBoard
       prototype: EnergyChemDispenser
       stackRequirements:
-        Manipulator: 1
         Glass: 1
         Steel: 3
+      partRequirements:
+        Capacitor: 2
+        MatterBin: 2
+        ScanningModule: 2
+      componentRequirements: #ADT-Tweak: батарейка из крафта, ёмкость/заряд химки = батарейка
+        PowerCell:
+          amount: 1
+          defaultPrototype: PowerCellHyper
       tagRequirements:
         GlassBeaker:
           amount: 2
@@ -370,6 +400,14 @@
       prototype: ADTEnergySodaDispenser
       stackRequirements:
         Steel: 5
+      partRequirements:
+        Capacitor: 2
+        MatterBin: 2
+        ScanningModule: 2
+      componentRequirements: #ADT-Tweak: батарейка (гипер)
+        PowerCell:
+          amount: 1
+          defaultPrototype: PowerCellHyper
       tagRequirements:
           GlassBeaker:
             amount: 1
@@ -387,6 +425,14 @@
       prototype: ADTEnergyBoozeDispenser
       stackRequirements:
         Steel: 5
+      partRequirements:
+        Capacitor: 2
+        MatterBin: 2
+        ScanningModule: 2
+      componentRequirements: #ADT-Tweak: батарейка (гипер)
+        PowerCell:
+          amount: 1
+          defaultPrototype: PowerCellHyper
       tagRequirements:
           GlassBeaker:
             amount: 1

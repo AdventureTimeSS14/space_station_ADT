@@ -920,7 +920,19 @@
   id: BlueprintBSA
 
 - type: Tag
-  id: ADTAshFloraShavings
+  id: ConstantTemperatureThresholds # make entity ignore parent temperature thresholds from TemperatureContainerComponent
 
 - type: Tag
-  id: ConstantTemperatureThresholds # make entity ignore parent temperature thresholds from TemperatureContainerComponent
+  id: ADTMagmite
+
+- type: Tag
+  id: ADTMagmitePartsInert
+
+- type: Tag
+  id: LavaDungeonWorldAnvil
+
+- type: Tag
+  id: ADTAshFloraShavings
+ 
+- type: Tag
+  id: ADTPicoServoStockPart

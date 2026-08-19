@@ -148898,7 +148898,7 @@ entities:
     - type: Transform
       pos: 40.21878,-29.572002
       parent: 2
-- proto: MicroManipulatorStockPart
+- proto: MicroServoStockPart
   entities:
   - uid: 9359
     components:

@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.ADT.Construction.Prototypes;
 using Content.Shared.Construction.Components;
 using Content.Shared.Examine;
 using Content.Shared.Lathe;
@@ -39,6 +40,26 @@ namespace Content.Shared.Construction
                         ("amount", amount),
                         ("requiredElement", Loc.GetString(name))));
                 }
+
+                // ADT-Tweak-Start
+                foreach (var (partType, amount) in component.PartRequirements)
+                {
+                    string elementName;
+                    if (_prototype.TryIndex(partType, out var machinePart))
+                    {
+                        var partEnt = _prototype.Index(machinePart.StockPartPrototype);
+                        elementName = partEnt.Name;
+                    }
+                    else
+                    {
+                        elementName = partType;
+                    }
+
+                    args.PushMarkup(Loc.GetString("machine-board-component-required-element-entry-text",
+                        ("amount", amount),
+                        ("requiredElement", Loc.GetString(elementName))));
+                }
+                // ADT-Tweak-End
 
                 foreach (var (_, info) in component.ComponentRequirements)
                 {

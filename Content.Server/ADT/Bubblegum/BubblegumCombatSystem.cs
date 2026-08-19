@@ -91,9 +91,20 @@ public sealed class BubblegumCombatSystem : EntitySystem
                 || TerminatingOrDeleted(target))
                 continue;
 
+            if (!TargetOnSameGrid(uid, target))
+            {
+                htn.Blackboard.Remove<EntityUid>("Target");
+                continue;
+            }
+
             comp.NextAbilityAt = now + comp.AbilityInterval;
             Decide((uid, comp), target);
         }
+    }
+
+    private bool TargetOnSameGrid(EntityUid ent, EntityUid target)
+    {
+        return _transform.GetGrid(ent) == _transform.GetGrid(target);
     }
 
     private bool IsBusy(EntityUid uid)

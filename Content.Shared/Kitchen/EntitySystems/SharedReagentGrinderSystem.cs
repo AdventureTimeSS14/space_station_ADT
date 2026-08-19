@@ -1,4 +1,6 @@
 using System.Linq;
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Containers.ItemSlots;
@@ -51,6 +53,11 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
         SubscribeLocalEvent<ReagentGrinderComponent, InteractUsingEvent>(OnInteractUsing);
 
         SubscribeLocalEvent<ReagentGrinderComponent, ReagentGrinderStartMessage>(OnStartMessage);
+
+        // ADT-Tweak-Start: machine parts with tiers
+        SubscribeLocalEvent<ReagentGrinderComponent, RefreshPartsEvent>(OnPartsRefresh);
+        SubscribeLocalEvent<ReagentGrinderComponent, UpgradeExamineEvent>(OnUpgradeExamine);
+        // ADT-Tweak-End
         SubscribeLocalEvent<ReagentGrinderComponent, ReagentGrinderToggleAutoModeMessage>(OnToggleAutoModeMessage);
         SubscribeLocalEvent<ReagentGrinderComponent, ReagentGrinderEjectChamberAllMessage>(OnEjectChamberAllMessage);
         SubscribeLocalEvent<ReagentGrinderComponent, ReagentGrinderEjectChamberContentMessage>(OnEjectChamberContentMessage);
@@ -68,6 +75,26 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
     {
         ent.Comp.InputContainer = _containerSystem.EnsureContainer<Container>(ent.Owner, ReagentGrinderComponent.InputContainerId);
     }
+
+    // ADT-Tweak-Start: machine parts with tiers
+    private void OnPartsRefresh(EntityUid uid, ReagentGrinderComponent component, RefreshPartsEvent args)
+    {
+        component.WorkTimeMultiplier = 1f / args.GetStatMultiplier(MachineStat.Speed);
+        component.CapacityMultiplier = args.GetStatMultiplier(MachineStat.Capacity);
+
+        UpdateUi(uid);
+    }
+
+    private static void OnUpgradeExamine(EntityUid uid, ReagentGrinderComponent component, UpgradeExamineEvent args)
+    {
+        var speedMultiplier = component.WorkTimeMultiplier <= 0f
+            ? 1f
+            : 1f / component.WorkTimeMultiplier;
+
+        args.AddPercentageUpgrade("machine-upgrade-process-speed", speedMultiplier, benefit: true);
+        args.AddPercentageUpgrade("machine-upgrade-capacity", component.CapacityMultiplier, benefit: true);
+    }
+    // ADT-Tweak-End
 
     private void OnEntRemovingAttempt(Entity<ReagentGrinderComponent> ent, ref ContainerIsRemovingAttemptEvent args)
     {
@@ -169,7 +196,7 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
 
         // Cap the chamber. Don't want someone putting in 500 entities and ejecting them all at once.
         // Maybe I should have done that for the microwave too?
-        if (ent.Comp.InputContainer.ContainedEntities.Count >= ent.Comp.StorageMaxEntities)
+        if (ent.Comp.InputContainer.ContainedEntities.Count >= ent.Comp.StorageMaxEntities * ent.Comp.CapacityMultiplier) // ADT-Tweak machine parts
             return;
 
         if (!_containerSystem.Insert(heldEnt, ent.Comp.InputContainer))

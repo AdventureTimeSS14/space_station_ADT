@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Areas;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.StationAi;
 using Robust.Shared.Map.Components;
@@ -28,6 +29,7 @@ public sealed class StationAiVisionSystem : EntitySystem
     private readonly HashSet<Vector2i> _viewportTiles = new();
 
     private EntityQuery<OccluderComponent> _occluderQuery;
+    private EntityQuery<AreaGridComponent> _areaGridQuery;
 
     // Dummy set
     private readonly HashSet<Vector2i> _singleTiles = new();
@@ -46,6 +48,7 @@ public sealed class StationAiVisionSystem : EntitySystem
         base.Initialize();
 
         _occluderQuery = GetEntityQuery<OccluderComponent>();
+        _areaGridQuery = GetEntityQuery<AreaGridComponent>(); // ADT-tweak
 
         _seedJob = new()
         {
@@ -184,6 +187,17 @@ public sealed class StationAiVisionSystem : EntitySystem
 
             _job.Data.Add(seed);
         }
+
+        // ADT-Tweak start
+        if (visionNetwork != null && _areaGridQuery.TryComp(grid.Owner, out var areaGrid))
+        {
+            foreach (var (tile, area) in areaGrid.Areas)
+            {
+                if (area.Id == visionNetwork)
+                    visibleTiles.Add(tile);
+            }
+        }
+        // ADT-Tweak end
 
         if (_seeds.Count == 0)
             return;

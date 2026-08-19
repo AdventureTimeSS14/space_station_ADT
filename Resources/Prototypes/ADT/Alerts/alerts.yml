@@ -153,3 +153,11 @@
   maxSeverity: 3
   name: alerts-cold-comfy-name
   description: alerts-cold-comfy-desc
+
+- type: alert
+  id: ADTRegenerativeCore
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/regenerative_core.rsi
+    state: icon
+  name: alerts-adt-regenerative-core-name
+  description: alerts-adt-regenerative-core-desc

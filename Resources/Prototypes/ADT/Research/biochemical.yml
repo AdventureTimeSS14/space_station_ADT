@@ -129,7 +129,7 @@
   - ADTPatchThermo
   requiredTech:
   - ADTCryoTech
-  position: 2,0
+  position: 2,-1
 
 - type: technology
   id: ADTMechanizedTreatment

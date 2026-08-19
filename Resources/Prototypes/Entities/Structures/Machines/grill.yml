@@ -29,6 +29,7 @@
   - type: PlaceableSurface
   - type: Machine
     board: ElectricGrillMachineCircuitboard
+  - type: GrillUpgrade #ADT-Tweak: машинные части (серво = скорость готовки)
   - type: Appearance
   - type: GenericVisualizer
     visuals:

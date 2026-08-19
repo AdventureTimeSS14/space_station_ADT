@@ -256082,15 +256082,13 @@ entities:
     - type: Transform
       pos: 50.671425,-16.491583
       parent: 2
-- proto: MicroManipulatorStockPart
+- proto: CapacitorStockPart
   entities:
   - uid: 39648
     components:
     - type: Transform
       pos: 18.526108,-2.0163682
       parent: 2
-    - type: Stack
-      count: 3
 - proto: MicrophoneInstrument
   entities:
   - uid: 39649

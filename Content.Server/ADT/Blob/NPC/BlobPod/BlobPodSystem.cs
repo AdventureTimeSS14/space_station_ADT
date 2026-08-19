@@ -4,6 +4,7 @@ using Content.Shared.ADT.Blob.Components;
 using Content.Shared.ADT.Blob.NPC.BlobPod;
 using Content.Server.DoAfter;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.ADT.Language;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.Popups;
@@ -38,6 +39,7 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
+    [Dependency] private readonly LanguageSystem _language = default!;
 
     public override void Initialize()
     {
@@ -72,7 +74,7 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
             return;
 
         if (TryComp<LanguageSpeakerComponent>(args.Container.Owner, out var mind))
-            mind.Languages.Remove(zombieBlob.CollectiveMindAdded);
+            _language.RemoveLanguage(args.Container.Owner, zombieBlob.CollectiveMindAdded, mind);
 
         RemCompDeferred<ZombieBlobComponent>(args.Container.Owner);
     }

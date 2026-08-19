@@ -36,7 +36,7 @@ public sealed class HolyDamageSystem : EntitySystem
             {
                 var thermalDamage = 0.1428f * heretic.PathStage * (float)holyDamage;
                 var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), FixedPoint2.New(thermalDamage));
-                _damageableSystem.TryChangeDamage(args.Target, damage);
+                _damageableSystem.TryChangeDamage(args.Target, damage, ignoreResistances: true);
             }
         }
     }
@@ -57,7 +57,7 @@ public sealed class HolyDamageSystem : EntitySystem
             {
                 var thermalDamage = 0.1428f * heretic.PathStage * (float)holyDamage;
                 var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), FixedPoint2.New(thermalDamage));
-                _damageableSystem.TryChangeDamage(args.Target, damage);
+                _damageableSystem.TryChangeDamage(args.Target, damage, ignoreResistances: true);
             }
         }
     }
@@ -81,7 +81,7 @@ public sealed class HolyDamageSystem : EntitySystem
                     {
                         var thermalDamage = 0.1428f * heretic.PathStage * (float)holyDamage;
                         var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), FixedPoint2.New(thermalDamage));
-                        _damageableSystem.TryChangeDamage(ent, damage);
+                        _damageableSystem.TryChangeDamage(ent, damage, ignoreResistances: true);
                     }
                 }
             }

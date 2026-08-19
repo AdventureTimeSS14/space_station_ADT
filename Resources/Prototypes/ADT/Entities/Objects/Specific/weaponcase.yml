@@ -84,6 +84,7 @@
      - id: ADTScrollDragonKungFu
      - id: ADTBlueShieldEnergyShield
      - id: ADTClothingHeadHelmetBlueShield
+     - id: ADTWeaponTonfaSteel
 
 - type: entity
   id: ADTBaseWeaponCaseNT
