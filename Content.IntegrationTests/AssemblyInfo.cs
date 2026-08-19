@@ -6,5 +6,4 @@
 // So we can't really parallelize integration tests harder either until the runtime fixes that,
 // *or* we fix serv3 to not spam expression trees.
 
-// TODO: Если упрётесь в таймаут по памяти (16 GB) или зависание - откатить обратно на 2.
-[assembly: LevelOfParallelism(4)] // ADT-Tweak
+[assembly: LevelOfParallelism(2)]
