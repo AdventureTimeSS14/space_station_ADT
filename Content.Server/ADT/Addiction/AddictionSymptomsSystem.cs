@@ -78,7 +78,6 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
             if (!channel.InWithdrawal)
                 continue;
 
-            // Кофе - лайтовая зависимость: только попапы, без симптомов
             if (channel.Kind == AddictionKind.Coffee)
                 continue;
 
