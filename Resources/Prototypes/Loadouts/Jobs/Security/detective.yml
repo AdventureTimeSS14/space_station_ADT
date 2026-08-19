@@ -3,11 +3,13 @@
   id: DetectiveFedora
   equipment:
     head: ClothingHeadHatFedoraBrown
+  groupBy: "fedoras" # ADT-Tweak: DetectiveRework
 
 - type: loadout
   id: DetectiveFedoraGrey
   equipment:
     head: ClothingHeadHatFedoraGrey
+  groupBy: "fedoras" # ADT-Tweak: DetectiveRework
 
 # Neck
 - type: loadout
@@ -20,32 +22,38 @@
   id: DetectiveJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitDetective
+  groupBy: "jumpsuits" # ADT-Tweak: DetectiveRework
 
 - type: loadout
   id: DetectiveJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtDetective
+  groupBy: "jumpskirts" # ADT-Tweak: DetectiveRework
 
 - type: loadout
   id: NoirJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitDetectiveGrey
+  groupBy: "jumpsuits" # ADT-Tweak: DetectiveRework
 
 - type: loadout
   id: NoirJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtDetectiveGrey
+  groupBy: "jumpskirts" # ADT-Tweak: DetectiveRework
 
 # OuterClothing
 - type: loadout
   id: DetectiveArmorVest
   equipment:
     outerClothing: ClothingOuterVestDetective
+  groupBy: "vests" # ADT-Tweak: DetectiveRework
 
 - type: loadout
   id: DetectiveCoat
   equipment:
     outerClothing: ClothingOuterCoatDetectiveLoadout
+  groupBy: "coats" # ADT-Tweak: DetectiveRework
 
 - type: loadout
   id: DetectiveCoatGrey

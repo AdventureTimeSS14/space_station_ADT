@@ -57,4 +57,17 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: JawsOfLife
+        - id: JawsOfLife
+
+# Детектив
+
+- type: entity
+  parent: ClothingBackpackSatchelSecurity
+  id: ADTClothingBackpackSatchelDetective
+  name: detective satchel
+  description: A satchel to hold evidence, weapons, but not booze.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/detective_satchel.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Back/detective_satchel.rsi

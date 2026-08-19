@@ -58,6 +58,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ADTSecurityVeteran
+  groupBy: "moges"
 
 - type: loadout
   id: ADTSecurityOfficerMogesBlue
@@ -66,6 +67,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ADTSecurityVeteran
+  groupBy: "moges"
 
 - type: loadout
   id: ADTSecurityOfficerMogesGray
@@ -74,6 +76,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ADTSecurityVeteran
+  groupBy: "moges"
 
 # OuterClothing
 - type: loadout

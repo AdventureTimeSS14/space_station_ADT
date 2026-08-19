@@ -104,6 +104,8 @@ loadout-group-detective-id-adt = Детектив, ID
 loadout-security-officer-neck-adt = Офицер СБ, шея
 loadout-security-officer-glasses-adt = Офицер СБ, очки
 loadout-security-cadet-neck-adt = Кадет СБ, шея
+loadout-detective-glasses-adt = Детектив, очки
+loadout-detective-backpack-adt = Детектив, рюкзак
 # Brigmedic
 loadout-brigmedic-jumpsuit-adt = Бригмедик, комбинезон
 loadout-brigmedic-head-adt = Бригмедик, голова

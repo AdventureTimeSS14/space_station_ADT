@@ -556,6 +556,7 @@
     sprite: ADT/Clothing/OuterClothing/Coats/corrections_officer_coat_grey.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/corrections_officer_coat_grey.rsi
+
 - type: entity
   parent: ClothingOuterStorageBase
   id: ADTClothingOuterDavidsJacket
@@ -745,3 +746,38 @@
     containers:
       storagebase: !type:Container
       toggleable-clothing: !type:ContainerSlot
+
+# Детектив
+## Поношенное
+- type: entity
+  parent: ClothingOuterCoatDetectiveLoadout
+  id: ADTClothingOuterWinterCoatDetective
+  name: detective winter coat
+  description: Ah, your trusty coat. There's a few tears here and there, giving it a more timely look. Or at least, that's what you told yourself when you found out gettin' it repaired would set you back 200 spesos.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/detective_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/detective_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.80
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+
+## Нуарное
+- type: entity
+  parent: ADTClothingOuterWinterCoatDetective
+  id: ADTClothingOuterWinterCoatDetectiveNoir
+  name: noir detective winter coat
+  description: Ah, your trusty coat. There's a few tears here and there, giving it a more timely look. Or at least, that's what you told yourself when you found out gettin' it repaired would set you back 200 spesos.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/detective_coat_noir.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/detective_coat_noir.rsi

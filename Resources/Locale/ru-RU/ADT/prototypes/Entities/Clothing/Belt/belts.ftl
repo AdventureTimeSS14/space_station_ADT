@@ -62,3 +62,6 @@ ent-ADTClothingBeltSheathZero = { ent-ADTClothingBeltSheathZeroFilled }
     .desc = { ent-ADTClothingBeltSheathZeroFilled.desc }
 ent-ADTClothingChemdisBelt = химразпояс 4000
     .desc = Крайне компактная версия устаревшего ныне химического раздатчика, сделанная для переноски химикатов в кувшинах.
+
+ent-ClothingBeltDetectiveWebbing = РПС детектива
+    .desc = Лимитированный, универсальный разгрузочный жилет с ремнями и поясом, может вмещать снаряжение криминалиста.

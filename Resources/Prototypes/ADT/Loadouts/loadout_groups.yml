@@ -590,6 +590,30 @@
   - ADTNeckSecBadgeSilver
   - ADTNeckSecBadgeGold
 
+# DETECTIVE
+
+- type: loadoutGroup
+  id: DetectiveGlassesADT
+  name: loadout-detective-glasses-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTClothingEyesHudSecurity
+  - ADTClothingEyesGlassesSecurity
+  - ADTClothingEyesHudAltClone
+  - ADTClothingEyesHudAltDetective
+  - ADTClothingEyesHudAltDetectiveNoir
+  - ADTClothingEyesHudAltDetectiveOld
+
+- type: loadoutGroup
+  id: DetectiveBackpackADT
+  name: loadout-detective-backpack-adt
+  loadouts:
+  - SecurityBackpack
+  - SecuritySatchel
+  - SecurityDuffel
+  - ADTDetectiveSatchel
+
 # SECURITY OFFICER
 
 - type: loadoutGroup

@@ -553,3 +553,14 @@
   - type: Storage
     grid:
     - 0,0,19,9
+
+- type: entity
+  parent: ClothingBeltSecurity
+  id: ClothingBeltDetectiveWebbing
+  name: detective carrier
+  description: Unique and versatile chest rig, can hold detective gear.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/detectivewebbing.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/detectivewebbing.rsi

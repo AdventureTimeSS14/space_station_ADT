@@ -53,3 +53,6 @@ ent-ADTClothingOuterArmorMinerReinforcedFull = пластинчатый кост
 
 ent-ADTClothingOuterArmorCrusader = защитный доспех крестоносца
     .desc = Время захватывать Иерусалим, брат!
+
+ent-ADTClothingOuterVestDetectiveBlack = чёрный бронежилет детектива
+    .desc = Внешне переработанная версия стандартного бронежилета детектива. Для тех, кому не нравится зелёный цвет.

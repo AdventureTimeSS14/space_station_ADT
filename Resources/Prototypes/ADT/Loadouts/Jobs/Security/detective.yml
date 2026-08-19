@@ -21,6 +21,56 @@
   id: ADTDetectiveOldFedora
   equipment:
     head: ADTClothingHeadOldFedora
+  groupBy: "fedoras"
+
+- type: loadout
+  id: ADTDetectiveBeret
+  equipment:
+    head: ADTClothingHeadHatBeretDetective
+  groupBy: "berets"
+
+- type: loadout
+  id: ADTDetectiveBeretNoir
+  equipment:
+    head: ADTClothingHeadHatBeretDetectiveNoir
+  groupBy: "berets"
+
+# Eyes
+- type: loadout
+  id: ADTClothingEyesHudAltClone
+  equipment:
+    eyes: ADTClothingEyesHudAltSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurity100hours
+  groupBy: "hud"
+
+- type: loadout
+  id: ADTClothingEyesHudAltDetective
+  equipment:
+    eyes: ADTClothingEyesHudAltDetective
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurity100hours
+  groupBy: "hud"
+
+- type: loadout
+  id: ADTClothingEyesHudAltDetectiveNoir
+  equipment:
+    eyes: ADTClothingEyesHudAltDetectiveNoir
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurity100hours
+  groupBy: "hud"
+
+- type: loadout
+  id: ADTClothingEyesHudAltDetectiveOld
+  equipment:
+    eyes: ADTClothingEyesHudAltDetectiveOld
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurity100hours
+  groupBy: "hud"
 
 # Jumpsuit
 - type: loadout
@@ -35,12 +85,26 @@
   id: ADTDetectiveOldSuit
   equipment:
     jumpsuit: ADTClothingUniformJumpsuitDetectiveOld
+  groupBy: "jumpsuits"
+
+- type: loadout
+  id: ADTJumpsuitWithVest
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitDetectiveVest
+  groupBy: "jumpsuits"
+
+- type: loadout
+  id: ADTNoirJumpsuitWithVest
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitDetectiveVestNoir
+  groupBy: "jumpsuits"
 
 # Jumpskirts
 - type: loadout
   id: ADTDetectiveOldJumpskirt
   equipment:
     jumpsuit: ADTClothingUniformJumpskirtDetectiveOld
+  groupBy: "jumpskirts"
 
 # OuterClothing
 - type: loadout
@@ -52,14 +116,34 @@
     proto: MasterDetective
 
 - type: loadout
+  id: ADTDetectiveWinterCoat
+  equipment:
+    outerClothing: ADTClothingOuterWinterCoatDetective
+  groupBy: "winterCoats"
+
+- type: loadout
+  id: ADTDetectiveWinterCoatNoir
+  equipment:
+    outerClothing: ADTClothingOuterWinterCoatDetectiveNoir
+  groupBy: "winterCoats"
+
+- type: loadout
+  id: DetectiveArmorVestBlack
+  equipment:
+    outerClothing: ADTClothingOuterVestDetectiveBlack
+  groupBy: "vests"
+
+- type: loadout
   id: ADTDetectiveCoatDark
   equipment:
     outerClothing: ClothingOuterCoatDetectiveDark
+  groupBy: "coats"
 
 - type: loadout
   id: ADTDetectiveCoatOld
   equipment:
     outerClothing: ADTClothingOuterCoatDetectiveLoadoutOld
+  groupBy: "coats"
 
 # Shoulders
 - type: loadout
@@ -87,3 +171,8 @@
   equipment:
     id: ADTInvestigatorPDA
 
+# Back
+- type: loadout
+  id: ADTDetectiveSatchel
+  equipment:
+    back: ADTClothingBackpackSatchelDetective

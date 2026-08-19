@@ -1466,7 +1466,7 @@
   - SecurityBeret
   - SecurityHat
   - TrooperHat
-  - ADTPilotSecurityBeret #ADT-Tweak
+  #- ADTPilotSecurityBeret # ADT-Tweak: DetectiveRework - Disabled
 
 - type: loadoutGroup
   id: SecurityJumpsuit
@@ -1547,8 +1547,10 @@
   - DetectiveFedora
   - DetectiveFedoraGrey
   # ADT-Loadout-Start
-  - DetectiveInvestigatorCap
   - ADTDetectiveOldFedora
+  - ADTDetectiveBeret
+  - ADTDetectiveBeretNoir
+  - DetectiveInvestigatorCap
   # ADT-Loadout-End
 
 - type: loadoutGroup
@@ -1573,12 +1575,14 @@
   - NoirJumpsuit
   - NoirJumpskirt
   # ADT-Loadouts-Start
+  - ADTJumpsuitWithVest
+  - ADTNoirJumpsuitWithVest
   - ADTDetectiveOldSuit
   - ADTDetectiveOldJumpskirt
-  - DetectiveInvestigatorSuit
   - ADTSecurityOfficerMogesBrown
   - ADTSecurityOfficerMogesBlue
   - ADTSecurityOfficerMogesGray
+  - DetectiveInvestigatorSuit
   # ADT-Loadouts-End
 
 - type: loadoutGroup
@@ -1586,11 +1590,15 @@
   name: loadout-group-detective-outerclothing
   loadouts:
   - DetectiveArmorVest
+  - DetectiveArmorVestBlack # ADT-Tweak: DetectiveRework
   - DetectiveCoat
-  - DetectiveCoatGrey
+  #- DetectiveCoatGrey # ADT-Tweak: DetectiveRework - Disabled
   # ADT-Loadouts-Start
   - ADTDetectiveCoatDark
   - ADTDetectiveCoatOld
+  - ADTDetectiveWinterCoat
+  - ADTDetectiveWinterCoatNoir
+  - DetectiveCoatGrey # ADT-Tweak: DetectiveRework
   - DetectiveCoatInvestigator
   - ADTArmorVestHidden
   # ADT-Loadouts-End

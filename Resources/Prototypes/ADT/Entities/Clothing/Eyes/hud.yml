@@ -1,5 +1,3 @@
-
-
 - type: entity
   parent: ClothingEyesBase
   id: ADTClothingEyesHudMGD
@@ -25,3 +23,36 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Helmets/security.rsi
   - type: FlashImmunity
+
+- type: entity
+  parent: ADTClothingEyesHudAltSecurity
+  id: ADTClothingEyesHudAltDetective
+  name: detective hud
+  description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/HUD/detective_hud.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/HUD/detective_hud.rsi
+
+- type: entity
+  parent: ADTClothingEyesHudAltDetective
+  id: ADTClothingEyesHudAltDetectiveNoir
+  name: noir detective hud
+  description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/HUD/detective_hud_noir.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/HUD/detective_hud_noir.rsi
+
+- type: entity
+  parent: ADTClothingEyesHudAltDetective
+  id: ADTClothingEyesHudAltDetectiveOld
+  name: old detective hud
+  description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/HUD/detective_hud_old.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/HUD/detective_hud_old.rsi

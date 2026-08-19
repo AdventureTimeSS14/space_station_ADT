@@ -76,3 +76,9 @@ ent-ADTClothingHeadHatPurpleBenie = фиолетовая шапка
 
 ent-ADTClothingHeadHatRedBenie = красная шапка
     .desc = Обычная красная шапка. Смотреть здесь не на что.
+
+ent-ADTClothingHeadHatBeretDetective = берет детектива
+    .desc = Поношенный коричневый берет с высцвевшей кокардой отдела СБ. Для тех, кому федоры кажутся некрасивыми.
+
+ent-ADTClothingHeadHatBeretDetectiveNoir = нуарный берет детектива
+    .desc = Чёрный берет с серебряной кокардой отдела СБ. Для тех, кому федоры кажутся некрасивыми.

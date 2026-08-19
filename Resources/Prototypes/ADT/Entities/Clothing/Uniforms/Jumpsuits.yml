@@ -1461,7 +1461,7 @@
   id: ADTClothingUniformVoxSuit
   name: vox suit
   description: vox work clothes
-  components: 
+  components:
     - type: Sprite
       sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit.rsi
     - type: Clothing
@@ -1483,11 +1483,11 @@
   id: ADTClothingUniformVoxSuitGreen
   name: vox suit green
   description: vox work clothes
-  components: 
+  components:
    - type: Sprite
      sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_green.rsi
    - type: Clothing
-     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_green.rsi   
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_green.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -1520,7 +1520,7 @@
    - type: Sprite
      sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_teal.rsi
    - type: Clothing
-     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_teal.rsi 
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_teal.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -1531,4 +1531,28 @@
    - type: Sprite
      sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_yellow.rsi
    - type: Clothing
-     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_yellow.rsi 
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_yellow.rsi
+
+# Детектив
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitDetectiveVest
+  name: suit with vest
+  description: Someone who wears this means business.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Uniforms/Jumpsuit/detective_vest.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Uniforms/Jumpsuit/detective_vest.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitDetectiveVestNoir
+  name: noir suit with vest
+  description: Someone who wears this means business.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Uniforms/Jumpsuit/detective_vest_noir.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Uniforms/Jumpsuit/detective_vest_noir.rsi

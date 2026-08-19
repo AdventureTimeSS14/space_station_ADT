@@ -517,3 +517,28 @@
     sprite: ADT/Clothing/Head/Hats/chefhat_red.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/chefhat_red.rsi
+
+# Детектив
+## Поношенный
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretDetective
+  name: detective beret
+  description: A beret with the security department's insignia. For detectives that are more inclined towards style than safety.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/detective_beret.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/detective_beret.rsi
+
+## Нуарный
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretDetectiveNoir
+  name: noir detective beret
+  description: A beret with the security department's insignia. For detectives that are more inclined towards style than safety.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/detective_beret_noir.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/detective_beret_noir.rsi

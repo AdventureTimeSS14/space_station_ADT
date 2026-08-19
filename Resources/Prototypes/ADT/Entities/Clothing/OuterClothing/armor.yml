@@ -565,3 +565,15 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
+
+# Детектив
+- type: entity
+  parent: ClothingOuterVestDetective
+  id: ADTClothingOuterVestDetectiveBlack
+  name: black detective's vest
+  description: A hard-boiled private investigator's armored vest.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/detvest_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/detvest_black.rsi

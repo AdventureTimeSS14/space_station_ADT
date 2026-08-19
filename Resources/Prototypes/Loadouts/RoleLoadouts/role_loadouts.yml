@@ -699,13 +699,14 @@
   groups:
   - Inventory # Corvax-Loadouts
   - DetectiveHead
-  - SecurityOfficerGlassesADT #ADT-Tweak
+  - DetectiveGlassesADT # ADT-Tweak: DetectiveRework
   - DetectiveNeck
   - DetectiveJumpsuit
-  - SecurityBackpack
+  #- SecurityBackpack # ADT-Tweak: DetectiveRework - Disabled
+  - DetectiveBackpackADT # ADT-Tweak: DetectiveRework
   - DetectiveOuterClothing
-  - DetectiveShoes # ADT tweak
-  - ADTDetectivePDA #ADT tweak
+  - DetectiveShoes # ADT-Tweak
+  - ADTDetectivePDA #ADT-Tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
