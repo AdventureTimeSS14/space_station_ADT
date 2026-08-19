@@ -9,6 +9,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
 using Content.Shared.Players.RateLimiting;
+using Content.Shared.Popups;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
@@ -22,6 +23,7 @@ public sealed class RPDAltUseSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly SharedPlayerRateLimitManager _rateLimit = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -54,10 +56,16 @@ public sealed class RPDAltUseSystem : EntitySystem
         if (!_actionBlocker.CanInteract(user, null))
             return false;
 
-        // Rate limit только в нашем пути: при false ваниль спишет лимит сама
         if (_rateLimit.CountAction(session!, SharedInteractionSystem.RateLimitKey) != RateLimitStatus.Allowed)
             return false;
 
-        return _rpd.TryStartRPDOperation(held.Value, rpd, user, coords, null, true);
+        if (!_rpd.TryStartRPDOperation(held.Value, rpd, user, coords, null, true))
+        {
+            if (rpd.SecondaryProtoId == null)
+                _popup.PopupEntity(Loc.GetString("rpd-component-no-secondary-selected"), held.Value, user);
+            return true;
+        }
+
+        return true;
     }
 }

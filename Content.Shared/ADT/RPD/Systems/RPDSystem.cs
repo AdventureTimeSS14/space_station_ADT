@@ -276,6 +276,10 @@ public class RPDSystem : EntitySystem
         var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
         var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
 
+        UpdateCachedPrototype(uid, component);
+        if (args.Event.Secondary)
+            UpdateCachedSecondaryPrototype(uid, component);
+
         var attemptPrototype = args.Event.Secondary ? component.CachedSecondaryPrototype : component.CachedPrototype;
         if (attemptPrototype == null)
         {
@@ -310,6 +314,10 @@ public class RPDSystem : EntitySystem
 
         var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
         var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
+
+        UpdateCachedPrototype(uid, component);
+        if (args.Secondary)
+            UpdateCachedSecondaryPrototype(uid, component);
 
         // Ensure the RPD operation is still valid
         var finalizePrototype = args.Secondary ? component.CachedSecondaryPrototype : component.CachedPrototype;

@@ -40,3 +40,4 @@ rpd-ammo-component-on-examine =
     }.
 rpd-ammo-component-after-interact-full = РРТ полон!
 rpd-ammo-component-after-interact-refilled = Вы пополняете РРТ.
+rpd-component-no-secondary-selected = Вторичная конфигурация не выбрана! Используйте Alt+ЛКМ по РРТ для выбора.
