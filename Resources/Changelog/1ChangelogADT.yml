@@ -14208,3 +14208,9 @@ Entries:
     id: 1825
     pr_number: 3203
     time: '2026-08-19T06:08:56Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Молодой возраст молей увеличен до 27 лет, type: Tweak}
+    id: 1826
+    pr_number: 3223
+    time: '2026-08-19T14:43:17Z'
