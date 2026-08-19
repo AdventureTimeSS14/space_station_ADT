@@ -21,6 +21,6 @@
     ClothingHandsGlovesColorBlack: 2
     ClothingHandsGlovesLatex: 2
     ClothingHeadsetSecurity: 2
-    ClothingBeltDetectiveWebbing: 1
+    ClothingBeltDetectiveWebbing: 1 # ADT-Tweak: DetectiveRework
   contrabandInventory:
     ToyFigurineDetective: 1
