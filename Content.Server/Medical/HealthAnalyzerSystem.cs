@@ -279,7 +279,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             bleeding = bloodstream.BleedAmount > 0;
         }
 
-        var hollow = HasComp<AbsorbedComponent>(entity); // ADT-Tweak - consumed by a changeling
+        var hollow = HasComp<AbsorbedComponent>(entity); // ADT-Tweak - флаг поглощения генокрадом
         if (TryComp<UnrevivableComponent>(entity, out var unrevivableComp) && unrevivableComp.Analyzable)
             unrevivable = true;
 

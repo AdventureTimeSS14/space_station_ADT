@@ -19,10 +19,12 @@ public sealed partial class AbsorbedSystem : EntitySystem
         SubscribeLocalEvent<AbsorbedComponent, CloningEvent>(OnCloned); // ADT-Tweak
     }
 
-    private void OnCloned(Entity<AbsorbedComponent> ent, ref CloningEvent args) // ADT-Tweak
+    // ADT-Tweak start
+    private void OnCloned(Entity<AbsorbedComponent> ent, ref CloningEvent args)
     {
         RemComp<UnrevivableComponent>(args.CloneUid);
     }
+    // ADT-Tweak end
 
     private void OnExamine(Entity<AbsorbedComponent> ent, ref ExaminedEvent args)
     {

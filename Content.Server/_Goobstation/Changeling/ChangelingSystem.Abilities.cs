@@ -172,9 +172,11 @@ public sealed partial class ChangelingSystem
         _blood.SpillAllSolutions(target);
 
         EnsureComp<AbsorbedComponent>(target);
-        var unrevivable = EnsureComp<UnrevivableComponent>(target); // ADT-Tweak
+        // ADT-Tweak start
+        var unrevivable = EnsureComp<UnrevivableComponent>(target);
         unrevivable.Cloneable = true;
         unrevivable.ReasonMessage = "defibrillator-hollow";
+        // ADT-Tweak end
 
         TryComp<ChangelingChemicalComponent>(uid, out var chemComp); // user's chemical component
         var popup = string.Empty;
