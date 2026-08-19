@@ -12,8 +12,6 @@ health-analyzer-window-entity-damage-total-text = Общие поврежден�
 health-analyzer-window-damage-group-text = { $damageGroup }: { $amount }
 health-analyzer-window-damage-type-text = { $damageType }: { $amount }
 health-analyzer-window-entity-unrevivable-text = [color=yellow]Обнаружено уникальное строение тела! Пациент не может быть реанимирован стандартными средствами![/color]
-# ADT-Tweak
-health-analyzer-window-entity-hollow-text = [color=yellow]Тело опустошено. Дефибрилляция невозможна.[/color]
 health-analyzer-window-entity-bleeding-text = [color=red]У пациента открытые раны![/color]
 health-analyzer-window-scan-mode-text = Режим сканирования:
 health-analyzer-window-scan-mode-active = АКТИВЕН

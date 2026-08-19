@@ -1,5 +1,4 @@
 using Content.Server.Medical.Components;
-using Content.Goobstation.Common.Changeling; // ADT-Tweak
 using Content.Shared.ADT.Addiction;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -279,7 +278,6 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             bleeding = bloodstream.BleedAmount > 0;
         }
 
-        var hollow = HasComp<AbsorbedComponent>(entity); // ADT-Tweak - флаг поглощения генокрадом
         if (TryComp<UnrevivableComponent>(entity, out var unrevivableComp) && unrevivableComp.Analyzable)
             unrevivable = true;
 
@@ -319,8 +317,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             bleeding,
             unrevivable,
             metabolizingReagents, // ADT-Tweak
-            addictions, // ADT-Tweak
-            hollow // ADT-Tweak
+            addictions // ADT-Tweak
         );
     }
 }

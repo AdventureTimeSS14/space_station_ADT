@@ -30,11 +30,10 @@ public struct HealthAnalyzerUiState
     public bool? ScanMode;
     public bool? Bleeding;
     public bool? Unrevivable;
-    public bool? Hollow; // ADT-Tweak - флаг поглощения генокрадом (AbsorbedComponent)
     public List<(string ReagentId, FixedPoint2 Quantity)>? MetabolizingReagents; // ADT-Tweak - list of metabolizing reagents inside scanned user
     public List<AddictionInfo>? Addictions; // ADT-Tweak - list of addictions inside scanned user
 
-    public HealthAnalyzerUiState(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable, List<(string ReagentId, FixedPoint2 Quantity)>? metabolizingReagents = null, List<AddictionInfo>? addictions = null, bool? hollow = null) // ADT-Tweak - добавлен hollow; Starlight - added metabolizingReagents parameter
+    public HealthAnalyzerUiState(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable, List<(string ReagentId, FixedPoint2 Quantity)>? metabolizingReagents = null, List<AddictionInfo>? addictions = null) // Starlight - added metabolizingReagents parameter
     {
         TargetEntity = targetEntity;
         Temperature = temperature;
@@ -42,7 +41,6 @@ public struct HealthAnalyzerUiState
         ScanMode = scanMode;
         Bleeding = bleeding;
         Unrevivable = unrevivable;
-        Hollow = hollow; // ADT-Tweak
         MetabolizingReagents = metabolizingReagents; // ADT-Tweak
         Addictions = addictions; // ADT-Tweak
     }
