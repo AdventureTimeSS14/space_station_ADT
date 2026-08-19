@@ -405,7 +405,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 4.5 # ADT-Tweak 1.5 -> 4.5
+    useDelay: 2.5 # ADT-Tweak 1.5 -> 2.5
     itemIconStyle: NoItem
     checkCanInteract: false
     icon:
@@ -436,7 +436,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 4.5 # ADT-Tweak 1.5 -> 4.5
+    useDelay: 2.5 # ADT-Tweak 1.5 -> 2.5
     itemIconStyle: NoItem
     checkCanInteract: false
     icon:
@@ -467,7 +467,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 4.5 # ADT-Tweak 1.5 -> 4.5
+    useDelay: 2.5 # ADT-Tweak 1.5 -> 2.5
     itemIconStyle: NoItem
     checkCanInteract: false
     icon:
@@ -498,7 +498,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 4.5 # ADT-Tweak 1.5 -> 4.5
+    useDelay: 2.5 # ADT-Tweak 1.5 -> 2.5
     itemIconStyle: NoItem
     checkCanInteract: false
     icon:
@@ -519,7 +519,7 @@
     dartGunAmmo: StingMute
   - type: InternalResourcesAction
     resourceProto: ChangelingChemicals
-    useAmount: 35 # ADT-Tweak 25 -> 35
+    useAmount: 25
 
 - type: entity
   parent: BaseAction
@@ -529,7 +529,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 4.5 # ADT-Tweak 1.5 -> 4.5
+    useDelay: 2.5 # ADT-Tweak 1.5 -> 2.5
     itemIconStyle: NoItem
     checkCanInteract: false
     icon:
@@ -547,7 +547,7 @@
     useInLesserForm: true
   - type: InternalResourcesAction
     resourceProto: ChangelingChemicals
-    useAmount: 40 # ADT-Tweak 30 -> 40
+    useAmount: 30
 
 - type: entity
   parent: BaseAction
