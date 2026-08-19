@@ -82,14 +82,6 @@ jobs:
       run: |
         git submodule update --init --recursive
 
-    - name: Pull engine updates
-      uses: space-wizards/submodule-dependency@v0.1.5
-
-    - name: Update Engine Submodules
-      run: |
-        cd RobustToolbox/
-        git submodule update --init --recursive
-
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v4.1.0
       with:
@@ -102,7 +94,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: content-build
-        path: ./
+        path: bin
 
     - name: Run Integration Tests (${{ matrix.name }})
       shell: pwsh
