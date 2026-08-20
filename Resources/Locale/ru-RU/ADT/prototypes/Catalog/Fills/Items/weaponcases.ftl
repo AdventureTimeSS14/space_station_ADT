@@ -102,3 +102,10 @@ ent-ADTBaseWeaponCaseNTCC7Arbiter = оружейный кейс
 ent-ADTBaseWeaponCaseNTR22Rodent = оружейный кейс
     .desc = { ent-ADTBaseWeaponCaseNT.desc }
     .suffix = R-22 "Грызун"
+
+ent-WeaponCaseNTTrackingImplants = { ent-WeaponCaseNTM90 }
+    .desc = { ent-WeaponCaseNTM90.desc }
+    .suffix = { "Импланты Трекер" }
+ent-WeaponCaseNTMindShieldImplants = { ent-WeaponCaseNTM90 }
+    .desc = { ent-WeaponCaseNTM90.desc }
+    .suffix = { "Импланты Щит Разума" }

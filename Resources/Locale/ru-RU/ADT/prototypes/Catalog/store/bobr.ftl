@@ -111,6 +111,18 @@ boobr-bulldog-ammo-x4-desc = Включает в себя 4 барабана д�
 boobr-bulldog-misc-ammo-name = Смешанный кейс патрон для дробовика (12х70)
 boobr-bulldog-misc-ammo-desc = Кейс включает в себя по 2 барабана каждой вариации калибра "12х70": "зажигательные, травматические, дробь, урановые, пуля" всего 10 барабанов.
 
+boobr-box-beanbag-ammo-name = Коробка ружейных патронов (травматические)
+boobr-box-beanbag-ammo-desc = Коробка с 20 ружейными травматическими патронами 12х70
+
+boobr-box-lethal-ammo-name = Коробка ружейных патронов (дробь)
+boobr-box-lethal-ammo-desc = Коробка с 20 ружейными патронами 12х70
+
+boobr-box-slug-ammo-name = Коробка ружейных патронов (пуля)
+boobr-box-slug-ammo-desc = Коробка с 20 ружейными пулевыми патронами 12х70
+
+boobr-box-incendiary-ammo-name = Коробка ружейных патронов (зажигательные)
+boobr-box-incendiary-ammo-desc = Коробка с 20 ружейными зажигательными патронами 12х70
+
 
 boobr-drozd-ammo-name = Магазин ПП (9х19 мм)
 boobr-drozd-ammo-desc = Магазин ПП на 30 патронов. Совместим с Дроздом.
@@ -174,43 +186,6 @@ boobr-automat-misc-ammo-case-name = Смешанный кейс автоматн
 boobr-automat-misc-ammo-case-desc = Включает в себя 4 магазина от AR-12 (7.62x39 мм), 4 магазина для М90 (6.5 ТСФ), 4 магазина для Дрозда (9х19 мм).
 
 
-boobr-riot-shield-name = Противоударный щит
-boobr-riot-shield-desc = Большой ростовой щит на случай беспорядков. Хорошо подходит для контроля толпы.
-
-boobr-bullet-shield-name = Противопульный щит
-boobr-bullet-shield-desc = Щит на случай беспорядков, созданный противостоять пулям, но не более того.
-
-boobr-mag-boots-name = Магнитные сапоги ОБР.
-boobr-mag-boots-desc = Продвинутые магнитные сапоги, специально разработанные для ведения боевых действий в космосе. Данная модель выдается бойцам отрядов ОБР.
-
-boobr-JawsOfLife-name = Челюсти жизни
-boobr-JawsOfLife-desc = Приспособление для быстрого вскрытия дверей.
-
-boobr-c4-name = C-4
-boobr-c4-desc = Используйте её, чтобы разрушать стены, шлюзы. Её можно прикрепить практически к любому объекту, а таймер можно изменять, минимальное значение - 10 секунд.
-
-boobr-combat-medkit-name = Боевая аптечка
-boobr-combat-medkit-desc = Компактная аптечка для оказания первой помощи в условиях боя.
-
-boobr-grenade-name = Шрапнельная граната
-boobr-grenade-desc = Разбрасывает вокруг себя облако шрапнели, вызывающей множественные раны и кровотечения.
-
-boobr-jetpack-mini-name = Мини-джетпак
-boobr-jetpack-mini-desc = Позволяет с лёгкостью передвигаться вне станции.
-
-boobr-grappling-gun-name = Крюк-кошка
-boobr-grappling-gun-desc = Для лёгкого перемещения вне станции. Меч со сменным лезвием не в комплекте.
-
-boobr-medikit-name = Продвинутая аптечка
-boobr-medikit-desc = Продвинутый набор для оказания помощи при сильных ранах.
-
-boobr-portable-recharger-name = Переносной зарядник
-boobr-portable-recharger-desc = Переносной зарядник, выделенный для своевременной зарядки энергооружия в условиях боевых действий.
-
-boobr-holo-projector-name = Продвинутый голопроектор
-boobr-holo-projector-desc = Продвинутая версия обычного голопроектора, используемая для сдерживания угрозы или создания укреплений.
-
-
 boobr-weapon-attachments-name = Набор оружейных модулей
 boobr-weapon-attachments-desc = Кейс, в котором лежит лазерный целеуказатель, вертикальная рукоять, коллиматорный и оптический прицелы.
 
@@ -224,8 +199,18 @@ boobr-weapon-attachments-magneticharness-name = Магнитный ремень
 boobr-weapon-attachments-magneticharness-description = Комплект из ремня и магнитных креплений, которые крепятся к верхней планке. В случае потери бойцом равновесия - оружие не падает на землю и остается с владельцем.
 
 
-boobr-smoke-grenade-name = Дымовая граната
-boobr-smoke-grenade-desc = Граната тактического применения, при использовании выпускающая большое и продолжительное облако дыма.
+boobr-riot-shield-name = Противоударный щит
+boobr-riot-shield-desc = Большой ростовой щит на случай беспорядков. Хорошо подходит для контроля толпы.
+
+boobr-bullet-shield-name = Противопульный щит
+boobr-bullet-shield-desc = Щит на случай беспорядков, созданный противостоять пулям, но не более того.
+ 
+boobr-telescopic-shield-name = Телескопический щит
+boobr-telescopic-shield-desc = Продвинутый щит на случай беспорядков, изготовлен из облегчённых материалов, способен складываться для удобства хранения.
+
+
+boobr-c4-name = C-4
+boobr-c4-desc = Используйте её, чтобы разрушать стены, шлюзы. Её можно прикрепить практически к любому объекту, а таймер можно изменять, минимальное значение - 10 секунд.
 
 boobr-grenade-flash-bang-name = Светошумовая граната
 boobr-grenade-flash-bang-desc = Стандартная светошумовая граната, ослепляющая и замедляющая движения всех, кто не имеет соответствующих средств защиты.
@@ -233,26 +218,121 @@ boobr-grenade-flash-bang-desc = Стандартная светошумовая 
 boobr-cluster-bang-grenade-name = Кластерная светошумовая граната
 boobr-cluster-bang-grenade-desc = Кто-то скажет что это эффективно, кто-то скажет что это бред...
 
+boobr-grenade-name = Фугасная граната
+boobr-grenade-desc = Помни - в незнакоемую комнату граната идет первой!
+
 boobr-cluster-grenade-name = Кластерная граната
 boobr-cluster-grenade-desc = Кто-то скажет что это бред, кто-то скажет что это крайне эффективно...
-
-boobr-emp-grenade-name = ЭМИ граната
-boobr-emp-grenade-desc = И вправду бывает полезной. Хотя скорее вредит...
-
-boobr-grenade-stinger-name = Травматическая граната
-boobr-grenade-stinger-desc = Здесь не на что смотреть, пожалуйста, расходитесь.
 
 boobr-incendiary-grenade-name = Зажигательная граната
 boobr-incendiary-grenade-desc = Хороша против незащищённых целей...
 
-boobr-metal-foam-grenade-name = Металлопенная граната
-boobr-metal-foam-grenade-desc = Очень эффективна при восстановлении станции или временной застройке дыр, но, к сожалению, обладает малой прочностью.
+boobr-shrapnel-grenade-name = Шрапнельная граната
+boobr-shrapnel-grenade-desc = Разбрасывает вокруг себя облако шрапнели, вызывающей множественные раны и кровотечения.
 
-boobr-clean-grenade-name = Чистящая граната
-boobr-clean-grenade-desc = После кровавых побоищ не заменимы.
+boobr-grenade-stinger-name = Травматическая граната
+boobr-grenade-stinger-desc = Здесь не на что смотреть, пожалуйста, расходитесь.
+
+boobr-smoke-grenade-name = Дымовая граната
+boobr-smoke-grenade-desc = Граната тактического применения, при использовании выпускающая большое и продолжительное облако дыма.
+
+boobr-emp-grenade-name = ЭМИ граната
+boobr-emp-grenade-desc = И вправду бывает полезной. Хотя скорее вредит...
+
+
+boobr-mag-boots-name = Магнитные сапоги ОБР.
+boobr-mag-boots-desc = Продвинутые магнитные сапоги, специально разработанные для ведения боевых действий в космосе. Данная модель выдается бойцам отрядов ОБР.
+
+boobr-JawsOfLife-name = Челюсти жизни
+boobr-JawsOfLife-desc = Приспособление для быстрого вскрытия дверей.
+
+boobr-combat-medkit-name = Боевая аптечка
+boobr-combat-medkit-desc = Компактная аптечка для оказания первой помощи в условиях боя.
+
+boobr-medikit-name = Продвинутая аптечка
+boobr-medikit-desc = Продвинутый набор для оказания помощи при сильных ранах.
+
+boobr-jetpack-mini-name = Мини-джетпак
+boobr-jetpack-mini-desc = Позволяет с лёгкостью передвигаться вне станции.
+
+boobr-grappling-gun-name = Крюк-кошка
+boobr-grappling-gun-desc = Для лёгкого перемещения вне станции. Меч со сменным лезвием не в комплекте.
+
+boobr-portable-recharger-name = Переносной зарядник
+boobr-portable-recharger-desc = Переносной зарядник, выделенный для своевременной зарядки энергооружия в условиях боевых действий.
+
+boobr-holo-projector-name = Продвинутый голопроектор
+boobr-holo-projector-desc = Продвинутая версия обычного голопроектора, используемая для сдерживания угрозы или создания укреплений.
 
 boobr-clothing-belt-chief-engineer-filled-name = Заполненный пояс старшего инженера
 boobr-clothing-belt-chief-engineer-filled-desc = Крайне полезен, когда нужен второй или третий инженер.
 
 boobr-clothing-belt-assault-name = Штурмовой пояс
 boobr-clothing-belt-assault-desc = Просто крутецкий штурмовой пояс.
+
+boobr-crew-monitor-name = Портативный монитор экипажа
+boobr-crew-monitor-desc = Ручной монитор экипажа, отображающий состояние датчиков костюма.
+
+boobr-hand-defibrillator-name = Боевой переносной дефибриллятор.
+boobr-hand-defibrillator-desc = Облегченная версия дефибриллятора, возращает к жизни лучше и быстрее, хоть разряд опаснее. Можно надеть на шею
+
+boobr-boxbodybag-name = Коробка мешков для тел
+boobr-boxbodybag-desc = Содержит мешки для тел
+
+
+boobr-sandevistan-autosurgeon-name = САПО.Г. "Сандевистан"
+boobr-sandevistan-autosurgeon-desc = Медицинский прибор ОБР, для проведения операций по вживлению военного кибер-импланта "Сандевистан".
+
+boobr-mantis-blade-name = САПО.Г. "Клинки богомола"
+boobr-mantis-blade-desc = Медицинский прибор ОБР, для проведения операций по вживлению военного кибер-импланта "Клинки богомола".
+
+boobr-tracking-implants-name = Импланты "Трекер"
+boobr-tracking-implants-desc = Кейс с тремя имплантами "Трекер"
+
+boobr-mindshield-implants-name = Импланты "Щит Разума"
+boobr-mindshield-implants-desc = Кейс с тремя имплантами "Щит Разума"
+
+
+boobr-ambusol-plus-name = Амбузол+
+boobr-ambusol-plus-desc = Баночка с пятью таблетками "Амбузол+", защищающих от зомби-инфекции.
+
+boobr-opporozidone-name = Оппорозидон
+boobr-opporozidone-desc = Бутылочка с 30 единицами оппорозидона - лекарства, которое излечивает гниение у трупов в криокапсуле.
+
+
+boobr-metal-foam-grenade-name = Металлопенная граната
+boobr-metal-foam-grenade-desc = Очень эффективна при восстановлении станции или временной застройке дыр, но, к сожалению, обладает малой прочностью.
+
+boobr-rcd-name = РСУ
+boobr-rcd-desc = Новейшее ручное строительное устройство, которое может быстро размещать и демонтировать различные станционные сооружения и конструкции. Требует сжатой материи для использования.
+
+boobr-rcd-ammo-name = Картридж РСУ и РРТ
+boobr-rcd-ammo-desc = Картридж питания для РСУ и РРТ.
+
+boobr-rpd-name = РРТ
+boobr-rpd-desc = Ручной раскладчик труб используется для быстрого строительства конструкциий, используемых при эксплуатации атмосферных и утилизационных системах.
+
+boobr-crate-air-grenade-name = Ящик воздушных гранат
+boobr-crate-air-grenade-desc = Три воздушные гранаты для быстрого восстановления пригодной для дыхания атмосферы.
+
+boobr-crate-steel-name = Ящик стали
+boobr-crate-steel-desc = Ящик с 90 единицами стали.
+
+boobr-crate-glass-name = Ящик стекла
+boobr-crate-glass-desc = Ящик с 90 единицами стекла
+
+boobr-crate-plastic-name = Ящик пластика
+boobr-crate-plastic-desc = Ящик с 90 единицами пластика
+
+
+boobr-clean-grenade-name = Чистящая граната
+boobr-clean-grenade-desc = После кровавых побоищ не заменимы.
+
+boobr-adv-mop-name = Продвинутая швабра
+boobr-adv-mop-desc = Моторизованная швабра с увеличенным резервуаром и возможностью уборки нескольких луж одновременно. Система автоматического противодействия клоунам в комплект не входит.
+
+boobr-trash-bag-name = Мешок для мусора
+boobr-trash-bag-desc = Просто мешок для сбора мусора
+
+boobr-clean-bot-name = Чистобот
+boobr-clean-bot-desc = Ужас автоматизации теперь угрожает и космическим уборщикам.

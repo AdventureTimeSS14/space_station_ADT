@@ -429,8 +429,32 @@
         - id: ADTAttachmentReflexSight
         - id: ADTAttachmentT2Miniscope
 
+#Импланты
+- type: entity
+  id: WeaponCaseNTTrackingImplants
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: TrackingImplanter
+          amount: 3
 
-
+- type: entity
+  id: WeaponCaseNTMindShieldImplants
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MindShieldImplanter
+          amount: 3
 
 
 

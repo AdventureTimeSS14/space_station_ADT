@@ -8,9 +8,11 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/carbine.rsi, state: icon }
   productEntity: WeaponCaseNTM90
   cost:
-    Productunit: 18
+    Productunit: 14
   categories:
   - ADTUplinkERTWeapon
+  - ADTUplinkERTRiotWeapon
+  - ADTUplinkERTCBURNWeapon
 
 - type: listing
   id: ADTBoberAR12
@@ -19,7 +21,7 @@
   icon: { sprite: ADT/Objects/Weapons/Guns/Rifles/ar12.rsi, state: icon }
   productEntity: ADTWeaponCaseAR12
   cost:
-    Productunit: 24
+    Productunit: 18
   categories:
   - ADTUplinkERTWeapon
 
@@ -30,9 +32,11 @@
   icon: { sprite: Objects/Weapons/Guns/Rifles/lecter.rsi, state: icon }
   productEntity: WeaponCaseNTLecter
   cost:
-    Productunit: 24
+    Productunit: 14
   categories:
   - ADTUplinkERTWeapon
+  - ADTUplinkERTRiotWeapon
+  - ADTUplinkERTCBURNWeapon
 
 #Пистолеты-пулеметы
 - type: listing
@@ -42,9 +46,11 @@
   icon: { sprite: Objects/Weapons/Guns/SMGs/drozd.rsi, state: icon }
   productEntity: WeaponCaseNTDrozd
   cost:
-    Productunit: 14
+    Productunit: 9
   categories:
   - ADTUplinkERTWeapon
+  - ADTUplinkERTRiotWeapon
+  - ADTUplinkERTCBURNWeapon
 
 - type: listing
   id: ADTBoberWT550
@@ -53,10 +59,10 @@
   icon: { sprite: Objects/Weapons/Guns/SMGs/wt550.rsi, state: icon }
   productEntity: WeaponCaseNTWT550
   cost:
-    Productunit: 14
+    Productunit: 7
   categories:
-  - ADTUplinkERTWeapon
-  - ADTUplinkERTAttachments
+  - ADTUplinkERTRiotWeapon
+  - ADTUplinkERTCBURNWeapon
 
 #Дробовики
 - type: listing
@@ -66,9 +72,10 @@
   icon: { sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
   productEntity: WeaponCaseBulldog
   cost:
-    Productunit: 20
+    Productunit: 16
   categories:
   - ADTUplinkERTWeapon
+  - ADTUplinkERTCBURNWeapon
 
 - type: listing
   id: ADTBoberEnforcer
@@ -77,9 +84,10 @@
   icon: { sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi, state: icon }
   productEntity: WeaponCaseEnforcer
   cost:
-    Productunit: 20
+    Productunit: 10
   categories:
-  - ADTUplinkERTWeapon
+  - ADTUplinkERTRiotWeapon
+  - ADTUplinkERTCBURNWeapon
 
 #Подствольное
 - type: listing
@@ -91,7 +99,7 @@
   cost:
     Productunit: 8
   categories:
-  - ADTUplinkERTAttachments
+  - ADTUplinkERTWeapon
 
 - type: listing
   id: ADTBoberM90UnderbarrelShotgun
@@ -102,7 +110,9 @@
   cost:
     Productunit: 5
   categories:
-  - ADTUplinkERTAttachments
+  - ADTUplinkERTWeapon
+  - ADTUplinkERTRiotWeapon
+  - ADTUplinkERTCBURNWeapon
 
 - type: listing
   id: ADTBoberM90GrenadeLauncherCBURN
@@ -113,7 +123,7 @@
   cost:
     Productunit: 8
   categories:
-  - ADTUplinkERTAttachments
+  - ADTUplinkERTCBURNWeapon
 
 #Энергетическое основное
 - type: listing
@@ -137,6 +147,8 @@
     Productunit: 8
   categories:
   - ADTUplinkERTWeapon
+  - ADTUplinkERTRiotWeapon
+  - ADTUplinkERTCBURNWeapon
 
 - type: listing
   id: ADTBoberLaserCarbine
@@ -148,6 +160,8 @@
     Productunit: 24
   categories:
   - ADTUplinkERTWeapon
+  - ADTUplinkERTRiotWeapon
+  - ADTUplinkERTCBURNWeapon
 
 - type: listing
   id: ADTBoberLaserCannon
@@ -159,6 +173,8 @@
     Productunit: 24
   categories:
   - ADTUplinkERTWeapon
+  - ADTUplinkERTRiotWeapon
+  - ADTUplinkERTCBURNWeapon
 
 - type: listing
   id: ADTBoberXRayCannon
@@ -170,6 +186,7 @@
     Productunit: 24
   categories:
   - ADTUplinkERTWeapon
+  - ADTUplinkERTCBURNWeapon
 
 #Пистолеты
 - type: listing
@@ -179,9 +196,31 @@
   icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi, state: icon }
   productEntity: WeaponCaseNTMateba
   cost:
-    Productunit: 8
+    Productunit: 6
   categories:
-  - ADTUplinkERTWeapon
+  - ADTUplinkERTWeaponSecondary
+
+- type: listing
+  id: ADTBoberMatebaRiot
+  name: boobr-mateba-name
+  description: boobr-mateba-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi, state: icon }
+  productEntity: WeaponCaseNTMateba
+  cost:
+    Productunit: 6
+  categories:
+  - ADTUplinkERTRiotWeaponSecondary
+
+- type: listing
+  id: ADTBoberMatebaCBURN
+  name: boobr-mateba-name
+  description: boobr-mateba-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi, state: icon }
+  productEntity: WeaponCaseNTMateba
+  cost:
+    Productunit: 6
+  categories:
+  - ADTUplinkERTCBURNWeaponSecondary
 
 - type: listing
   id: ADTBoberDeagle
@@ -190,20 +229,42 @@
   icon: { sprite: ADT/Objects/Weapons/Guns/Pistols/deser_eagle.rsi, state: base }
   productEntity: WeaponCaseNTDeagle
   cost:
-    Productunit: 8
+    Productunit: 6
   categories:
-  - ADTUplinkERTWeapon
+  - ADTUplinkERTWeaponSecondary
 
 - type: listing
   id: ADTBoberN1984
   name: boobr-n1984-name
   description: boobr-n1984-desc
-  icon: { sprite: ADT/Objects/Weapons/Guns/Pistols/N1984.rsi, state: base }
+  icon: { sprite: Objects/Weapons/Guns/Pistols/N1984.rsi, state: base }
+  productEntity: WeaponCaseNTN1984
+  cost:
+    Productunit: 6
+  categories:
+  - ADTUplinkERTWeaponSecondary
+
+- type: listing
+  id: ADTBoberN1984Riot
+  name: boobr-n1984-name
+  description: boobr-n1984-desc
+  icon: { sprite: Objects/Weapons/Guns/Pistols/N1984.rsi, state: base }
   productEntity: WeaponCaseNTN1984
   cost:
     Productunit: 8
   categories:
-  - ADTUplinkERTWeapon
+  - ADTUplinkERTRiotWeaponSecondary
+
+- type: listing
+  id: ADTBoberN1984CBURN
+  name: boobr-n1984-name
+  description: boobr-n1984-desc
+  icon: { sprite: Objects/Weapons/Guns/Pistols/N1984.rsi, state: base }
+  productEntity: WeaponCaseNTN1984
+  cost:
+    Productunit: 8
+  categories:
+  - ADTUplinkERTCBURNWeaponSecondary
 
 #Энергетические пистолеты
 - type: listing
@@ -215,7 +276,18 @@
   cost:
     Productunit: 8
   categories:
-  - ADTUplinkERTWeapon
+  - ADTUplinkERTWeaponSecondary
+
+- type: listing
+  id: ADTPulsePistolCBURN
+  name: pulse-pistol-name
+  description: pulse-pistol-desc
+  icon: { sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi, state: icon }
+  productEntity: WeaponPulsePistol
+  cost:
+    Productunit: 10
+  categories:
+  - ADTUplinkERTCBURNWeaponSecondary
 
 - type: listing
   id: ADTAdvancedLaserPistol
@@ -224,9 +296,31 @@
   icon: { sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi, state: icon }
   productEntity: WeaponAdvancedLaser
   cost:
-    Productunit: 8
+    Productunit: 5
   categories:
-  - ADTUplinkERTWeapon
+  - ADTUplinkERTWeaponSecondary
+
+- type: listing
+  id: ADTAdvancedLaserPistolRiot
+  name: advanced-laser-pistol-name
+  description: advanced-laser-pistol-desc
+  icon: { sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi, state: icon }
+  productEntity: WeaponAdvancedLaser
+  cost:
+    Productunit: 6
+  categories:
+  - ADTUplinkERTRiotWeaponSecondary
+
+- type: listing
+  id: ADTAdvancedLaserPistolCBURN
+  name: advanced-laser-pistol-name
+  description: advanced-laser-pistol-desc
+  icon: { sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi, state: icon }
+  productEntity: WeaponAdvancedLaser
+  cost:
+    Productunit: 6
+  categories:
+  - ADTUplinkERTCBURNWeaponSecondary
 
 - type: listing
   id: ADTBoberDisabler
@@ -237,7 +331,29 @@
   cost:
     Productunit: 5
   categories:
-  - ADTUplinkERTWeapon
+  - ADTUplinkERTWeaponSecondary
+
+- type: listing
+  id: ADTBoberDisablerRiot
+  name: boobr-disabler-name
+  description: boobr-disabler-desc
+  icon: { sprite: Objects/Weapons/Guns/Battery/disabler.rsi, state: icon }
+  productEntity: WeaponCaseNTDisabler
+  cost:
+    Productunit: 5
+  categories:
+  - ADTUplinkERTRiotWeaponSecondary
+
+- type: listing
+  id: ADTBoberDisablerCBURN
+  name: boobr-disabler-name
+  description: boobr-disabler-desc
+  icon: { sprite: Objects/Weapons/Guns/Battery/disabler.rsi, state: icon }
+  productEntity: WeaponCaseNTDisabler
+  cost:
+    Productunit: 5
+  categories:
+  - ADTUplinkERTCBURNWeaponSecondary
 
 #Оружие ближнего боя
 - type: listing
@@ -247,9 +363,9 @@
   icon: { sprite: ADT/Objects/Weapons/Melee/steel_tonfa.rsi, state: icon-of }
   productEntity: ADTWeaponTonfaSteel
   cost:
-    Productunit: 7
+    Productunit: 6
   categories:
-  - ADTUplinkERTWeapon
+  - ADTUplinkERTWeaponMelee
 
 - type: listing
   id: ADTBoberCombatKnife
@@ -260,7 +376,7 @@
   cost:
     Productunit: 1
   categories:
-  - ADTUplinkERTAttachments
+  - ADTUplinkERTWeaponMelee
 
 - type: listing
   id: ADTBoberMeleeWeaponCase
@@ -271,18 +387,18 @@
   cost:
     Productunit: 16
   categories:
-  - ADTUplinkERTWeapon
+  - ADTUplinkERTWeaponMelee
 
 - type: listing
   id: ADTBoberTruncheon
   name: bober-truncheon-name
-  description: bober-truncheon-desc
+  description: boobr-truncheon-desc
   icon: { sprite: Objects/Weapons/Melee/truncheon.rsi, state: icon }
   productEntity: Truncheon
   cost:
     Productunit: 2
   categories:
-  - ADTUplinkERTWeapon
+  - ADTUplinkERTWeaponMelee
 
 - type: listing
   id: ADTBoberTacticalAxe
@@ -293,7 +409,7 @@
   cost:
     Productunit: 4
   categories:
-  - ADTUplinkERTWeapon
+  - ADTUplinkERTWeaponMelee
 
 - type: listing
   id: ADTBoberTacticalHammer
@@ -302,9 +418,9 @@
   icon: { sprite: ADT/Objects/Weapons/Melee/tactical_hammer.rsi, state: icon }
   productEntity: ADTWeaponsTacticalHammer
   cost:
-    Productunit: 4
+    Productunit: 6
   categories:
-  - ADTUplinkERTWeapon
+  - ADTUplinkERTWeaponMelee
 
 - type: listing
   id: ADTBoberCQC
@@ -313,9 +429,9 @@
   icon: { sprite: ADT/Objects/Specific/material_art_book.rsi, state: cqc }
   productEntity: ADTCqcManual
   cost:
-    Productunit: 3
+    Productunit: 4
   categories:
-  - ADTUplinkERTWeapon
+  - ADTUplinkERTWeaponMelee
 
 #Аплинк ОБР - магазины
  
@@ -330,6 +446,7 @@
     Productunit: 1
   categories:
   - ADTUplinkERTAmmo
+  - ADTUplinkERTCBURNAmmo
 
 - type: listing
   id: ADTBoberAmmoSlugBulldog
@@ -341,6 +458,7 @@
     Productunit: 1
   categories:
   - ADTUplinkERTAmmo
+  - ADTUplinkERTCBURNAmmo
 
 - type: listing
   id: ADTBoberAmmoBeanbagBulldog
@@ -352,6 +470,7 @@
     Productunit: 1
   categories:
   - ADTUplinkERTAmmo
+  - ADTUplinkERTCBURNAmmo
 
 - type: listing
   id: ADTBoberAmmoUraniumBulldog
@@ -374,6 +493,7 @@
     Productunit: 1
   categories:
   - ADTUplinkERTAmmo
+  - ADTUplinkERTCBURNAmmo
 
 - type: listing
   id: ADTBoberAmmoBulldogX4
@@ -385,6 +505,7 @@
     Productunit: 3
   categories:
   - ADTUplinkERTAmmo
+  - ADTUplinkERTCBURNAmmo
 
 - type: listing
   id: ADTBoberAmmoMiscBulldog
@@ -396,6 +517,54 @@
     Productunit: 7
   categories:
   - ADTUplinkERTAmmo
+  - ADTUplinkERTCBURNAmmo
+
+- type: listing
+  id: ADTBoberAmmoBoxBeanbag
+  name: boobr-box-beanbag-ammo-name
+  description: boobr-box-beanbag-ammo-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi, state: beanbag }
+  productEntity: BoxBeanbag
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTRiotAmmo
+  - ADTUplinkERTCBURNAmmo
+
+- type: listing
+  id: ADTBoberAmmoBoxLethal
+  name: boobr-box-lethal-ammo-name
+  description: boobr-box-lethal-ammo-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi, state: base }
+  productEntity: BoxLethalshot
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTRiotAmmo
+  - ADTUplinkERTCBURNAmmo
+
+- type: listing
+  id: ADTBoberAmmoBoxSlug
+  name: boobr-box-slug-ammo-name
+  description: boobr-box-slug-ammo-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi, state: slug }
+  productEntity: BoxShotgunSlug
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTRiotAmmo
+  - ADTUplinkERTCBURNAmmo
+
+- type: listing
+  id: ADTBoberAmmoBoxIncendiary
+  name: boobr-box-incendiary-ammo-name
+  description: boobr-box-incendiary-ammo-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi, state: incendiary }
+  productEntity: BoxShotgunIncendiary
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTCBURNAmmo
 
 #9х19 мм
 - type: listing
@@ -408,6 +577,8 @@
     Productunit: 4
   categories:
   - ADTUplinkERTAmmo
+  - ADTUplinkERTRiotAmmo
+  - ADTUplinkERTCBURNAmmo
 
 - type: listing
   id: ADTBoberAmmoDrozd
@@ -419,6 +590,8 @@
     Productunit: 2
   categories:
   - ADTUplinkERTAmmo
+  - ADTUplinkERTRiotAmmo
+  - ADTUplinkERTCBURNAmmo
 
 - type: listing
   id: ADTBoberAmmoDrozdUranium
@@ -441,6 +614,7 @@
     Productunit: 2
   categories:
   - ADTUplinkERTAmmo
+  - ADTUplinkERTCBURNAmmo
 
 - type: listing
   id: ADTBoberAmmoWT550
@@ -451,7 +625,8 @@
   cost:
     Productunit: 2
   categories:
-  - ADTUplinkERTAmmo
+  - ADTUplinkERTRiotAmmo
+  - ADTUplinkERTCBURNAmmo
 
 #6.5 мм
 - type: listing
@@ -464,6 +639,8 @@
     Productunit: 2
   categories:
   - ADTUplinkERTAmmo
+  - ADTUplinkERTRiotAmmo
+  - ADTUplinkERTCBURNAmmo
 
 - type: listing
   id: ADTBoberAmmoM90Magazine
@@ -475,6 +652,8 @@
     Productunit: 4
   categories:
   - ADTUplinkERTAmmo
+  - ADTUplinkERTRiotAmmo
+  - ADTUplinkERTCBURNAmmo
 
 - type: listing
   id: ADTBoberAmmoM90Uranium
@@ -497,6 +676,7 @@
     Productunit: 2
   categories:
   - ADTUplinkERTAmmo
+  - ADTUplinkERTCBURNAmmo
 
 #7.62х39
 - type: listing
@@ -554,6 +734,8 @@
     Productunit: 1
   categories:
   - ADTUplinkERTAmmo
+  - ADTUplinkERTRiotAmmo
+  - ADTUplinkERTCBURNAmmo
 
 - type: listing
   id: ADTBoberAmmoMateba
@@ -565,6 +747,8 @@
     Productunit: 1
   categories:
   - ADTUplinkERTAmmo
+  - ADTUplinkERTRiotAmmo
+  - ADTUplinkERTCBURNAmmo
 
 #Смешанные боеприпасы
 - type: listing
@@ -577,6 +761,7 @@
     Productunit: 5
   categories:
   - ADTUplinkERTAmmo
+  - ADTUplinkERTCBURNAmmo
 
 - type: listing
   id: ADTBoberAmmoMiscPistolet
@@ -585,9 +770,11 @@
   icon: { sprite: ADT/Objects/Storage/weaponcase.rsi, state: closed }
   productEntity: ADTWeaponCasePistolet
   cost:
-    Productunit: 5
+    Productunit: 4
   categories:
   - ADTUplinkERTAmmo
+  - ADTUplinkERTRiotAmmo
+  - ADTUplinkERTCBURNAmmo
 
 - type: listing
   id: ADTBoberAutomatAmmoMiscMagazine
@@ -596,9 +783,11 @@
   icon: { sprite: ADT/Objects/Storage/weaponcase.rsi, state: closed }
   productEntity: ADTWeaponCaseMagazine
   cost:
-    Productunit: 8
+    Productunit: 6
   categories:
   - ADTUplinkERTAmmo
+  - ADTUplinkERTRiotAmmo
+  - ADTUplinkERTCBURNAmmo
 
 #Аплинк ОБР - оружейные обвесы
 - type: listing
@@ -669,26 +858,16 @@
   - ADTUplinkERTMisc
 
 - type: listing
-  id: ADTBoberMagboots
-  name: boobr-mag-boots-name
-  description:  boobr-mag-boots-desc
-  productEntity: ADTClothingShoesBootsMagERT
+  id: ADTBoberTelescopicShield
+  name: boobr-telescopic-shield-name
+  description:  boobr-telescopic-shield-desc
+  productEntity: TelescopicShield
   cost:
-    Productunit: 3
+    Productunit: 6
   categories:
   - ADTUplinkERTMisc
 
 #Аплинк ОБР - гранаты
-- type: listing
-  id: ADTBoberGrenadeShrapnel
-  name: boobr-grenade-name
-  description: boobr-grenade-desc
-  productEntity: GrenadeShrapnel
-  cost:
-    Productunit: 3
-  categories:
-  - ADTUplinkERTMisc
-
 - type: listing
   id: ADTBoberc4
   name: boobr-c4-name
@@ -697,28 +876,8 @@
   cost:
     Productunit: 1
   categories:
-  - ADTUplinkERTMisc
-
-- type: listing
-  id: ADTBoberSmokeGrenade
-  name: boobr-smoke-grenade-name
-  description: boobr-smoke-grenade-desc
-  productEntity: SmokeGrenade
-  cost:
-    Productunit: 1
-  categories:
-  - ADTUplinkERTMisc
+  - ADTUplinkERTGrenades
  
-- type: listing
-  id: ADTBoberJawOfLife
-  name: boobr-JawsOfLife-name
-  description: boobr-JawsOfLife-desc
-  productEntity: JawsOfLife
-  cost:
-    Productunit: 2
-  categories:
-  - ADTUplinkERTMisc
-
 - type: listing
   id: ADTBoberGrenadeFlashBang
   name: boobr-grenade-flash-bang-name
@@ -727,7 +886,8 @@
   cost:
     Productunit: 1
   categories:
-  - ADTUplinkERTMisc
+  - ADTUplinkERTRiotGrenades
+  - ADTUplinkERTGrenades
 
 - type: listing
   id: ADTBoberClusterBangFull
@@ -737,7 +897,18 @@
   cost:
     Productunit: 2
   categories:
-  - ADTUplinkERTMisc
+  - ADTUplinkERTRiotGrenades
+  - ADTUplinkERTGrenades
+
+- type: listing
+  id: ADTBoberGrenadeExplosive
+  name: boobr-grenade-name
+  description: boobr-grenade-desc
+  productEntity: ExGrenade
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTGrenades
 
 - type: listing
   id: ADTBoberClusterGrenade
@@ -747,7 +918,18 @@
   cost:
     Productunit: 4
   categories:
-  - ADTUplinkERTMisc
+  - ADTUplinkERTGrenades
+
+- type: listing
+  id: ADTBoberGrenadeShrapnel
+  name: boobr-shrapnel-grenade-name
+  description: boobr-shrapnel-grenade-desc
+  productEntity: GrenadeShrapnel
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTRiotGrenades
+  - ADTUplinkERTGrenades
 
 - type: listing
   id: ADTBoberGrenadeStinger
@@ -757,7 +939,8 @@
   cost:
     Productunit: 1
   categories:
-  - ADTUplinkERTMisc
+  - ADTUplinkERTRiotGrenades
+  - ADTUplinkERTGrenades
 
 - type: listing
   id: ADTBoberGrenadeIncendiary
@@ -767,18 +950,20 @@
   cost:
     Productunit: 2
   categories:
-  - ADTUplinkERTMisc
+  - ADTUplinkERTRiotGrenades
+  - ADTUplinkERTGrenades
 
 - type: listing
-  id: ADTBoberMetalFoamGrenade
-  name: boobr-metal-foam-grenade-name
-  description: boobr-metal-foam-grenade-desc
-  productEntity: MetalFoamGrenade
+  id: ADTBoberSmokeGrenade
+  name: boobr-smoke-grenade-name
+  description: boobr-smoke-grenade-desc
+  productEntity: SmokeGrenade
   cost:
     Productunit: 1
   categories:
-  - ADTUplinkERTMisc
-
+  - ADTUplinkERTRiotGrenades
+  - ADTUplinkERTGrenades
+ 
 - type: listing
   id: ADTBoberEmpGrenade
   name: boobr-emp-grenade-name
@@ -787,46 +972,17 @@
   cost:
     Productunit: 3
   categories:
-  - ADTUplinkERTMisc
-
-- type: listing
-  id: ADTBoberCleanerGrenade
-  name: boobr-clean-grenade-name
-  description: boobr-clean-grenade-desc
-  productEntity: CleanerGrenade
-  cost:
-    Productunit: 1
-  categories:
-  - ADTUplinkERTMisc
+  - ADTUplinkERTRiotGrenades
+  - ADTUplinkERTGrenades
 
 #Аплинк ОБР - прочее
 - type: listing
-  id: ADTBoberJetPack
-  name: boobr-jetpack-mini-name
-  description: boobr-jetpack-mini-desc
-  productEntity: JetpackMiniFilled
-  cost:
-    Productunit: 2
-  categories:
-  - ADTUplinkERTMisc
-
-- type: listing
-  id: ADTBoberGrapplingGun
-  name: boobr-grappling-gun-name
-  description:  boobr-grappling-gun-desc
-  productEntity: WeaponGrapplingGun
+  id: ADTBoberJawOfLife
+  name: boobr-JawsOfLife-name
+  description: boobr-JawsOfLife-desc
+  productEntity: JawsOfLife
   cost:
     Productunit: 1
-  categories:
-  - ADTUplinkERTMisc
-
-- type: listing
-  id: ADTBoberClothingBeltMilitaryWebbing
-  name: boobr-clothing-belt-assault-name
-  description: boobr-clothing-belt-assault-desc
-  productEntity: ClothingBeltMilitaryWebbing
-  cost:
-    Productunit: 5
   categories:
   - ADTUplinkERTMisc
 
@@ -835,6 +991,26 @@
   name: boobr-clothing-belt-chief-engineer-filled-name
   description: boobr-clothing-belt-chief-engineer-filled-desc
   productEntity: ClothingBeltChiefEngineerFilled
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberPortableRecharger
+  name: boobr-portable-recharger-name
+  description:  boobr-portable-recharger-desc
+  productEntity: PortableRecharger
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberHoloprojector
+  name: boobr-holo-projector-name
+  description:  boobr-holo-projector-desc
+  productEntity: ADTAdvancedHoloprojectorField
   cost:
     Productunit: 5
   categories:
@@ -862,32 +1038,92 @@
   - ADTUplinkERTMisc
 
 - type: listing
-  id: ADTBoberPortableRecharger
-  name: boobr-portable-recharger-name
-  description:  boobr-portable-recharger-desc
-  productEntity: PortableRecharger
-  cost:
-    Productunit: 4
-  categories:
-  - ADTUplinkERTMisc
-
-- type: listing
-  id: ADTBoberHoloprojector
-  name: boobr-holo-projector-name
-  description:  boobr-holo-projector-desc
-  productEntity: ADTAdvancedHoloprojectorField
-  cost:
-    Productunit: 5
-  categories:
-  - ADTUplinkERTMisc
-
-- type: listing
   id: ADTBoberNightVision
   name: uplink-night-vision-name
   description:  uplink-night-vision-desc
-  productEntity: ClothingEyesNightVision
+  productEntity: ClothingEyesNightVisionAdvanced
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberThermalVision
+  name: uplink-thermal-name
+  description:  uplink-thermal-desc
+  productEntity: ClothingEyesGlassesThermal
+  cost:
+    Productunit: 6
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberJetPack
+  name: boobr-jetpack-mini-name
+  description: boobr-jetpack-mini-desc
+  productEntity: JetpackMiniFilled
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberGrapplingGun
+  name: boobr-grappling-gun-name
+  description:  boobr-grappling-gun-desc
+  productEntity: WeaponGrapplingGun
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberClothingBeltMilitaryWebbing
+  name: boobr-clothing-belt-assault-name
+  description: boobr-clothing-belt-assault-desc
+  productEntity: ClothingBeltMilitaryWebbing
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberMagboots
+  name: boobr-mag-boots-name
+  description:  boobr-mag-boots-desc
+  productEntity: ADTClothingShoesBootsMagERT
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberCrewMonitor
+  name: boobr-crew-monitor-name
+  description:  boobr-crew-monitor-desc
+  productEntity: HandheldCrewMonitor
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberHandDefibrillator
+  name: boobr-hand-defibrillator-name
+  description:  boobr-hand-defibrillator-desc
+  productEntity: ADTHandDefibrillator
   cost:
     Productunit: 4
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberBoxBodyBag
+  name: boobr-boxbodybag-name
+  description:  boobr-boxbodybag-desc
+  productEntity: BoxBodyBag
+  cost:
+    Productunit: 1
   categories:
   - ADTUplinkERTMisc
 
@@ -901,3 +1137,196 @@
 #     Productunit: 8
 #   categories:
 #   - ADTUplinkERTWeapon
+
+#Аплинк ОБР - импланты
+- type: listing
+  id: ADTBoberMantisDaggers
+  name: boobr-mantis-blade-name
+  description: boobr-mantis-blade-desc
+  productEntity: ADTMantisDaggersAutoSurgeon
+  icon: { sprite: ADT/Implants/mantis_daggers.rsi, state: icon}
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTRiotImplanters
+  - ADTUplinkERTImplanters
+
+- type: listing
+  id: UplinkERTMechSandevistanAutoSurgeon
+  name: boobr-sandevistan-autosurgeon-name
+  description: boobr-sandevistan-autosurgeon-desc
+  icon: { sprite: ADT/Implants/sandevistan.rsi, state: icon}
+  productEntity: ADTERTSandevistanAutoSurgeon
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
+  cost:
+    Productunit: 12
+  categories:
+  - ADTUplinkERTImplanters
+
+- type: listing
+  id: ADTBoberTrackingImplants
+  name: boobr-tracking-implants-name
+  description: boobr-tracking-implants-desc
+  productEntity: WeaponCaseNTTrackingImplants
+  icon: { sprite: Objects/Specific/Medical/implanter.rsi, state: implanter1}
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTRiotImplanters
+  - ADTUplinkERTImplanters
+
+- type: listing
+  id: ADTBoberMindShieldImplants
+  name: boobr-mindshield-implants-name
+  description: boobr-mindshield-implants-desc
+  productEntity: WeaponCaseNTMindShieldImplants
+  icon: { sprite: Objects/Specific/Medical/implanter.rsi, state: implanter1}
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTRiotImplanters
+
+#Аплинк ОБР - специальные реагенты
+- type: listing
+  id: ADTBoberAmbusolPlus
+  name: boobr-ambusol-plus-name
+  description:  boobr-ambusol-plus-desc
+  productEntity: PillCanisterAmbuzolPlus
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTCBURNReagents
+
+- type: listing
+  id: ADTBoberOpporozidone
+  name: boobr-opporozidone-name
+  description:  boobr-opporozidone-desc
+  productEntity: ChemistryBottleOpporozidone
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTCBURNReagents
+
+#Аплинк ОБР - инженерия
+- type: listing
+  id: ADTBoberMetalFoamGrenade
+  name: boobr-metal-foam-grenade-name
+  description: boobr-metal-foam-grenade-desc
+  productEntity: CrateEngineeringFoamGrenade
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTEngineer
+
+- type: listing
+  id: ADTBoberRCD
+  name: boobr-rcd-name
+  description: boobr-rcd-desc
+  productEntity: RCD
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTEngineer
+
+- type: listing
+  id: ADTBoberRCDAmmo
+  name: boobr-rcd-ammo-name
+  description: boobr-rcd-ammo-desc
+  productEntity: RCDAmmo
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTEngineer
+
+- type: listing
+  id: ADTBoberRPD
+  name: boobr-rpd-name
+  description: boobr-rpd-desc
+  productEntity: ADTRPD
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTEngineer
+
+- type: listing
+  id: ADTBoberCrateAirGrenade
+  name: boobr-crate-air-grenade-name
+  description: boobr-crate-air-grenade-desc
+  productEntity: CrateAirGrenade
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTEngineer
+
+- type: listing
+  id: ADTBoberCrateSteel
+  name: boobr-crate-steel-name
+  description: boobr-crate-steel-desc
+  productEntity: CrateMaterialSteel
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTEngineer
+
+- type: listing
+  id: ADTBoberCrateGlass
+  name: boobr-crate-glass-name
+  description: boobr-crate-glass-desc
+  productEntity: CrateMaterialGlass
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTEngineer
+
+- type: listing
+  id: ADTBoberCratePlastic
+  name: boobr-crate-plastic-name
+  description: boobr-crate-plastic-desc
+  productEntity: CrateMaterialPlastic
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTEngineer
+
+#Аплинк ОБР - уборщик
+- type: listing
+  id: ADTBoberCleanerGrenade
+  name: boobr-clean-grenade-name
+  description: boobr-clean-grenade-desc
+  productEntity: BoxCleanerGrenades
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTJanitor
+
+- type: listing
+  id: ADTBoberAdvMop
+  name: boobr-adv-mop-name
+  description: boobr-adv-mop-desc
+  productEntity: AdvMopItem
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTJanitor
+
+- type: listing
+  id: ADTBoberTrashBagBlue
+  name: boobr-trash-bag-name
+  description: boobr-trash-bag-desc
+  productEntity: TrashBagBlue
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTJanitor
+
+- type: listing
+  id: ADTBoberCleanBot
+  name: boobr-clean-bot-name
+  description: boobr-clean-bot-desc
+  productEntity: MobCleanBot
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTJanitor
