@@ -34,7 +34,7 @@ public sealed partial class GeneralRecord : Control
         RecordName.SetMessage(record.Name, defaultColor: Color.White);
         Age.SetMessage(Loc.GetString("general-station-record-console-record-age", ("age", record.Age.ToString())), defaultColor: Color.White);
         Title.SetMessage(Loc.GetString("general-station-record-console-record-title",
-            ("job", Loc.GetString(record.JobTitle))), defaultColor: Color.White);
+            ("job", record.JobTitle)), defaultColor: Color.White); // ADT-Tweak
         Species.SetMessage(Loc.GetString("general-station-record-console-record-species", ("species", Loc.GetString("species-name-" + record.Species.ToLower()))), defaultColor: Color.White);
         Gender.SetMessage(Loc.GetString("general-station-record-console-record-gender",
             ("gender", Loc.GetString("station-records-sex-" + record.Profile.Sex.ToString().ToLower()))), defaultColor: Color.White);
