@@ -1,4 +1,5 @@
 using Content.Shared.ADT.RPD.Systems;
+using Content.Shared.Atmos.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
@@ -60,6 +61,9 @@ public sealed partial class RPDComponent : Component
     }
 
     private Direction _constructionDirection = Direction.South;
+
+    [DataField, AutoNetworkedField]
+    public AtmosPipeLayer ConstructionLayer = AtmosPipeLayer.Primary;
 
     /// <summary>
     /// Returns a rotated transform based on the specified ConstructionDirection

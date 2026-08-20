@@ -87,11 +87,26 @@
     lastCharges: 0
 
 - type: entity
+  id: ADTRPDBluespace
+  parent: ADTRPD
+  name: bluespace RPD
+  description: A bluespace-enhanced rapid pipe dispenser that passively generates its own compressed matter.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/brpd.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Objects/Tools/brpd.rsi
+    quickEquip: false
+    slots:
+    - Belt
+
+- type: entity
   id: ADTRPDRecharging
   parent: ADTRPD
   name: experimental RPD
   description: A bluespace-enhanced rapid pipe dispenser that passively generates its own compressed matter.
-  suffix: Recharging
+  suffix: Recharging, ADMIN
   components:
   - type: LimitedCharges
     maxCharges: 100

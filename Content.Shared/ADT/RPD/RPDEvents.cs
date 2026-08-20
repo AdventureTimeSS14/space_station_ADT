@@ -1,3 +1,4 @@
+using Content.Shared.Atmos.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -24,6 +25,19 @@ public sealed class RPDConstructionGhostRotationEvent : EntityEventArgs
     {
         NetEntity = netEntity;
         Direction = direction;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class RPDConstructionGhostLayerEvent : EntityEventArgs
+{
+    public readonly NetEntity NetEntity;
+    public readonly AtmosPipeLayer Layer;
+
+    public RPDConstructionGhostLayerEvent(NetEntity netEntity, AtmosPipeLayer layer)
+    {
+        NetEntity = netEntity;
+        Layer = layer;
     }
 }
 
