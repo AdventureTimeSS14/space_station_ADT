@@ -615,6 +615,7 @@ public abstract partial class SharedStunSystem
         }
 
         RemComp<KnockedDownComponent>(entity);
+        _standingState.Stand(entity); //ADT tweak
 
         _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(entity):user} has stood up from knockdown.");
     }
