@@ -20247,13 +20247,6 @@ entities:
     - type: Transform
       pos: 0.5,-332.5
       parent: 2
-- proto: ADTUniversalPipeDispenser
-  entities:
-  - uid: 563
-    components:
-    - type: Transform
-      pos: 4.5,-258.5
-      parent: 2
 - proto: ADTUSSPMug
   entities:
   - uid: 564

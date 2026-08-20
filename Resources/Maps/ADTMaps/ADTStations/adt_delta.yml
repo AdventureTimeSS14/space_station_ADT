@@ -28673,18 +28673,6 @@ entities:
       - - Atmospherics
       - - Engineering
       - - Research
-- proto: ADTUniversalPipeDispenser
-  entities:
-  - uid: 389
-    components:
-    - type: Transform
-      pos: -58.5,30.5
-      parent: 2
-  - uid: 390
-    components:
-    - type: Transform
-      pos: -22.5,-49.5
-      parent: 2
 - proto: ADTVehicleKeyJanicart
   entities:
   - uid: 392

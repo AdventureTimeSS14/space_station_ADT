@@ -25488,13 +25488,6 @@ entities:
     - type: Transform
       pos: 4.513054,-13.46489
       parent: 2
-- proto: ADTUniversalPipeDispenser
-  entities:
-  - uid: 465
-    components:
-    - type: Transform
-      pos: 52.5,-32.5
-      parent: 2
 - proto: ADTVasePlant0
   entities:
   - uid: 466

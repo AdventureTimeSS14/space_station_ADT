@@ -10279,21 +10279,6 @@ entities:
     - type: Transform
       pos: -28.35939,40.691273
       parent: 2
-- proto: ADTUniversalPipeDispenser
-  entities:
-  - uid: 476
-    components:
-    - type: Transform
-      pos: -64.5,47.5
-      parent: 2
-    - type: TechnologyDatabase
-      supportedDisciplines:
-      - Industrial
-      - Biochemical
-      - Mech
-      - Experimental
-      - Arsenal
-      - CivilianServices
 - proto: ADTUssp
   entities:
   - uid: 9470

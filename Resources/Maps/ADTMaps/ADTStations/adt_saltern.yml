@@ -7219,13 +7219,6 @@ entities:
     - type: Transform
       pos: -6.615907,29.5273
       parent: 2
-- proto: ADTUniversalPipeDispenser
-  entities:
-  - uid: 100
-    components:
-    - type: Transform
-      pos: 31.5,10.5
-      parent: 2
 - proto: ADTVehicleKeySecway
   entities:
   - uid: 102

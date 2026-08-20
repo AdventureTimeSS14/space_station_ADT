@@ -14246,21 +14246,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -125.5,-6.5
       parent: 2
-- proto: ADTUniversalPipeDispenser
-  entities:
-  - uid: 9239
-    components:
-    - type: Transform
-      pos: -113.5,25.5
-      parent: 2
-    - type: TechnologyDatabase
-      supportedDisciplines:
-      - Industrial
-      - Biochemical
-      - Mech
-      - Experimental
-      - Arsenal
-      - CivilianServices
 - proto: ADTVendingMachineCiviMedVend
   entities:
   - uid: 7716

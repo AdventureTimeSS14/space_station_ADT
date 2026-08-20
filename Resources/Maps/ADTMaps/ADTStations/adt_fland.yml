@@ -19281,13 +19281,6 @@ entities:
     - type: Transform
       pos: 103.5,-43.5
       parent: 2
-- proto: ADTUniversalPipeDispenser
-  entities:
-  - uid: 443
-    components:
-    - type: Transform
-      pos: 79.5,-33.5
-      parent: 2
 - proto: ADTVehicleKeyJanicart
   entities:
   - uid: 444

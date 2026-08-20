@@ -43585,21 +43585,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: ADTUniversalPipeDispenser
-  entities:
-  - uid: 944
-    components:
-    - type: Transform
-      pos: 35.5,57.5
-      parent: 2
-    - type: TechnologyDatabase
-      supportedDisciplines:
-      - Industrial
-      - Biochemical
-      - Mech
-      - Experimental
-      - Arsenal
-      - CivilianServices
 - proto: ADTUssp
   entities:
   - uid: 945
