@@ -14208,3 +14208,48 @@ Entries:
     id: 1825
     pr_number: 3203
     time: '2026-08-19T06:08:56Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Молодой возраст молей увеличен до 27 лет, type: Tweak}
+    id: 1826
+    pr_number: 3223
+    time: '2026-08-19T14:43:17Z'
+  - author: CrimeMoot
+    changes:
+      - {message: Установить аварийный доступ был заменён на Space + ЛКМ для боргов
+          и ИИ., type: Tweak}
+      - {message: Звуковые сопровождение о заблокирование/электризации/аварийном доступе,
+        type: Fix}
+    id: 1827
+    pr_number: 3218
+    time: '2026-08-19T14:47:44Z'
+  - author: FriendlyOne
+    changes:
+      - {message: 'Тела, скушанные генокрадами, можно клонировать', type: Tweak}
+      - {message: 'Дефибриллятор говорит о том, что тело опустошено и не может быть
+          дефибриллировано', type: Tweak}
+    id: 1828
+    pr_number: 3225
+    time: '2026-08-20T14:13:57Z'
+  - author: Archeron
+    changes:
+      - {message: 'Стоимость ослепляющего, летаргического и криогенного укола генокрада
+          выросла на 10 химикатов', type: Tweak}
+      - {message: Кд на уколы выросло в 2 раза, type: Tweak}
+    id: 1829
+    pr_number: 3224
+    time: '2026-08-20T14:28:26Z'
+  - author: CrimeMoot
+    changes:
+      - {message: 'Блокировка слотов при перекрытии одеждой больше не препятствует
+          снятию предметов, находящихся под одеждой.', type: Remove}
+    id: 1830
+    pr_number: 3227
+    time: '2026-08-20T15:14:27Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Корабли с выключенной системой опознавания больше не показываются
+          на консоли мониторинга екипажа, type: Fix}
+    id: 1831
+    pr_number: 3233
+    time: '2026-08-20T19:22:41Z'
