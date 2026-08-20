@@ -10,6 +10,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Threading;
 using Content.Shared.Atmos;
 using Content.Shared.Pinpointer;
+using Content.Shared.Shuttles.Systems;
 using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
@@ -35,6 +36,7 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         Math.Max(1, MidPoint - (int)(MinimapMargin * UIScale));
 
     private readonly SharedTransformSystem _transform;
+    private readonly SharedShuttleSystem _shuttles; // ADT-Tweak: фильтр стелс-кораблей по IFF
     private readonly GridRadarRenderer _gridRenderer;
     private readonly IGameTiming _gameTiming;
     private List<Entity<MapGridComponent>> _grids = new();
@@ -86,6 +88,7 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
     public CrewMonitoringNavMapControl()
     {
         _transform = EntManager.System<SharedTransformSystem>();
+        _shuttles = EntManager.System<SharedShuttleSystem>(); // ADT-Tweak
         _gameTiming = IoCManager.Resolve<IGameTiming>();
         _gridRenderer = new GridRadarRenderer(
             EntManager.System<SharedMapSystem>(),
@@ -670,6 +673,7 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
             ref _grids,
             approx: true,
             includeMap: false);
+        _grids.RemoveAll(g => !_shuttles.CanDraw(g.Owner)); // ADT-Tweak
         _cachedGridQueryMap = mapId;
         _cachedGridQueryCenter = coverageCenter;
         _cachedGridQueryRange = coverageRange;
