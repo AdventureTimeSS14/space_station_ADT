@@ -49,6 +49,7 @@ public sealed class AlignRPDConstruction : PlacementMode
     private readonly Color _guideColor = new(0, 0, 0.5785f);
     private EntityCoordinates _unalignedMouseCoords = default;
     private AtmosPipeLayer _lastLayer = AtmosPipeLayer.Primary;
+    private EntityUid? _lastHeldEntity;
 
     public AtmosPipeLayer Layer { get; private set; } = AtmosPipeLayer.Primary;
 
@@ -130,14 +131,16 @@ public sealed class AlignRPDConstruction : PlacementMode
 
         Layer = layer;
 
-        if (layer != _lastLayer)
+        var player = _playerManager.LocalSession?.AttachedEntity;
+        var heldEntity = player != null ? _hands.GetActiveItem(player.Value) : null;
+
+        if (layer != _lastLayer || heldEntity != _lastHeldEntity)
         {
             _lastLayer = layer;
+            _lastHeldEntity = heldEntity;
 
-            var player = _playerManager.LocalSession?.AttachedEntity;
-
-            if (player != null && _hands.GetActiveItem(player.Value) is { } heldEntity)
-                _entityNetwork.SendSystemNetworkMessage(new RPDConstructionGhostLayerEvent(_entityManager.GetNetEntity(heldEntity), layer));
+            if (heldEntity is { } activeEntity)
+                _entityNetwork.SendSystemNetworkMessage(new RPDConstructionGhostLayerEvent(_entityManager.GetNetEntity(activeEntity), layer));
         }
 
         UpdatePlacer(layer);
