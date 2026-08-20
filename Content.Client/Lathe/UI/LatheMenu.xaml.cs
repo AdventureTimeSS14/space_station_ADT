@@ -4,6 +4,11 @@ using Content.Client.Materials;
 using Content.Shared.ADT.Salvage.Components; // ADT tweak
 using Content.Shared.ADT.Salvage.Systems; // ADT tweak
 using Content.Client.UserInterface.Controls;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.FixedPoint;
 using Content.Shared.Lathe;
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Research.Prototypes;
@@ -14,6 +19,7 @@ using Robust.Client.Player; // ADT tweak
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Timing; // ADT tweak
@@ -143,6 +149,20 @@ public sealed partial class LatheMenu : FancyWindow
         if (_entityManager.TryGetComponent<MiningPointsComponent>(Entity, out var points))
             UpdateMiningPoints(points.Points);
     }
+
+    // ADT-Tweak start
+    public void UpdateBeakerStatus(bool hasSlot, bool beakerInserted)
+    {
+        BeakerLabel.Visible = hasSlot;
+        if (!hasSlot)
+            return;
+
+        BeakerLabel.Text = Loc.GetString(beakerInserted
+            ? "lathe-menu-beaker-inserted"
+            : "lathe-menu-beaker-not-inserted");
+        BeakerLabel.FontColorOverride = beakerInserted ? Color.FromHex("#6DFFA5") : Color.FromHex("#FF7A7A");
+    }
+    // ADT-Tweak end
 
     /// <summary>
     /// Populates the list of all the recipes
@@ -307,6 +327,46 @@ public sealed partial class LatheMenu : FancyWindow
 
             sb.AppendLine(tooltipText);
         }
+
+        // ADT-tweak start
+        if (prototype.ReagentCost.Count > 0
+            && _entityManager.TryGetComponent<LatheComponent>(Entity, out var lathe)
+            && lathe.ReagentCostSlotId is { } slotId)
+        {
+            Solution? solution = null;
+            var beaker = _entityManager.System<ItemSlotsSystem>().GetItemOrNull(Entity, slotId);
+            if (beaker is { } beakerUid)
+                _entityManager.System<SharedSolutionContainerSystem>().TryGetFitsInDispenser(beakerUid, out _, out solution);
+
+            foreach (var (reagent, needed) in prototype.ReagentCost)
+            {
+                if (!_prototypeManager.TryIndex(reagent, out var reagentProto))
+                    continue;
+
+                var adjustedAmount = SharedLatheSystem.AdjustReagentCost(needed, prototype.ApplyMaterialDiscount, lathe.FinalMaterialMultiplier);
+                var name = reagentProto.LocalizedName;
+
+                string tooltipText;
+                if (solution != null)
+                {
+                    var availableAmount = solution.GetTotalPrototypeQuantity(reagent);
+                    var missingAmount = FixedPoint2.Max(0, adjustedAmount - availableAmount);
+                    tooltipText = missingAmount > 0
+                        ? Loc.GetString("lathe-menu-reagent-amount-missing", ("amount", adjustedAmount), ("missingAmount", missingAmount), ("reagent", name))
+                        : Loc.GetString("lathe-menu-reagent-amount", ("amount", adjustedAmount), ("reagent", name));
+                }
+                else
+                {
+                    tooltipText = Loc.GetString("lathe-menu-reagent-amount", ("amount", adjustedAmount), ("reagent", name));
+                }
+
+                sb.AppendLine(tooltipText);
+            }
+
+            if (solution == null)
+                sb.AppendLine(Loc.GetString("lathe-menu-reagent-no-beaker"));
+        }
+        // ADT-tweak end
 
         var desc = _lathe.GetRecipeDescription(prototype);
         if (!string.IsNullOrWhiteSpace(desc))

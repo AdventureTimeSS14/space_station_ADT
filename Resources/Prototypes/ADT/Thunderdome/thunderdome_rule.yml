@@ -75,7 +75,7 @@
           name: thunderdome-loadout-fireaxe
           description: thunderdome-desc-fireaxe
           category: thunderdome-category-melee
-          sprite: FireAxeFlaming
+          sprite: FireAxe
         - gear: ThunderdomeEnergyDagger
           name: thunderdome-loadout-edagger
           description: thunderdome-desc-edagger

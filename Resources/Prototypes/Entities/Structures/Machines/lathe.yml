@@ -200,6 +200,21 @@
   - type: Machine
     board: ProtolatheMachineCircuitboard
   # ADT-tweak Start
+  - type: ItemSlots
+    slots:
+      beaker_slot:
+        name: lathe-component-output-slot-beaker-name
+        whitelist:
+          components:
+          - FitsInDispenser
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      beaker_slot: !type:ContainerSlot
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - beaker_slot
   - type: StationAiWhitelist
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
@@ -215,6 +230,7 @@
     runningState: building
     unlitIdleState: unlit
     unlitRunningState: unlit-building
+    reagentCostSlotId: beaker_slot # ADT-Tweak
     staticPacks:
     - ChemistryStatic
     - SurgeryStatic
