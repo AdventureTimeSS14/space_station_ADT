@@ -14253,3 +14253,10 @@ Entries:
     id: 1831
     pr_number: 3233
     time: '2026-08-20T19:22:41Z'
+  - author: Archeron
+    changes:
+      - {message: Зловещая эссенция больше не наносит урон ядами и радиацией, type: Tweak}
+      - {message: Шанс удара током от зловещей эссенции уменьшен, type: Tweak}
+    id: 1832
+    pr_number: 3235
+    time: '2026-08-20T19:34:40Z'
