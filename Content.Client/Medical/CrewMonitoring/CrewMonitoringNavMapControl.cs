@@ -10,7 +10,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Threading;
 using Content.Shared.Atmos;
 using Content.Shared.Pinpointer;
-using Content.Shared.Shuttles.Systems; // ADT-Tweak
+using Content.Shared.Shuttles.Systems;
 using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
@@ -673,7 +673,7 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
             ref _grids,
             approx: true,
             includeMap: false);
-        _grids.RemoveAll(g => !_shuttles.CanDraw(g.Owner)); // ADT-Tweak: не рисуем стелс-корабли (IFF Hide)
+        _grids.RemoveAll(g => !_shuttles.CanDraw(g.Owner)); // ADT-Tweak
         _cachedGridQueryMap = mapId;
         _cachedGridQueryCenter = coverageCenter;
         _cachedGridQueryRange = coverageRange;
