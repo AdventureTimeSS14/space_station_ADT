@@ -5,6 +5,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Materials;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
@@ -12,6 +13,7 @@ namespace Content.Shared.ADT.RPD.Systems;
 public sealed class RPDMaterialChargesSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
@@ -60,6 +62,7 @@ public sealed class RPDMaterialChargesSystem : EntitySystem
         _charges.AddCharges((ent.Owner, charges, null), chargesToAdd);
         args.Handled = true;
 
+        _audio.PlayPredicted(ent.Comp.InsertSound, ent, user);
         _popup.PopupClient(Loc.GetString("rpd-ammo-component-after-interact-refilled"), ent, user);
     }
 

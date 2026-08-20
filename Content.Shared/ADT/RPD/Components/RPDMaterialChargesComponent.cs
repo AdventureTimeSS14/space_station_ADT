@@ -1,5 +1,6 @@
 using Content.Shared.ADT.RPD.Systems;
 using Content.Shared.Materials;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -10,6 +11,9 @@ namespace Content.Shared.ADT.RPD.Components;
 [Access(typeof(RPDMaterialChargesSystem))]
 public sealed partial class RPDMaterialChargesComponent : Component
 {
+    [DataField]
+    public SoundSpecifier InsertSound = new SoundCollectionSpecifier("MachineInsert");
+
     [DataField]
     public Dictionary<ProtoId<MaterialPrototype>, RPDMaterialChargeRate> ChargeRates = new();
 
