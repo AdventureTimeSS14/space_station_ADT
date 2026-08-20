@@ -23,3 +23,4 @@ research-technology-adt-super-parts = Продвинутые машинные ч
 research-technology-adt-bluespace-parts = Блюспейс-машинные части
 research-technology-adt-rped = РПЕД
 research-technology-adt-bluespace-rped = Блюспейс-РПЕД
+research-technology-adt-bluespace-rpd = Блюспейс-РРТ
