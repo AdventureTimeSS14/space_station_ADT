@@ -25,6 +25,11 @@
       blacklist:
         components:
         - CommandStaff
+        # ADT-Tweak-Start
+        - Silicon
+        tags:
+        - ChangelingBlacklist
+        # ADT-Tweak-End
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling

@@ -200,7 +200,7 @@ public sealed partial class MedicalAssemblerMenu : FancyWindow
         if (!_proto.TryIndex<EntityPrototype>(protoId, out var proto))
             return protoId;
 
-        return Loc.GetString(proto.Name);
+        return proto.Name;
     }
 
     private string GetReagentName(string reagentId)

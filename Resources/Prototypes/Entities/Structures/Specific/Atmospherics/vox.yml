@@ -27,6 +27,35 @@
       Halon: danger
       Helium: unwanted
       AntiNoblium: danger
+      DexalinPlus: unwanted
+      Omnizine: unwanted
+      Inaprovaline: unwanted
+      Diphenhydramine: unwanted
+      Ichor: danger
+      Phlogiston: danger
+      PolytrinicAcid: danger
+      SulfuricAcid: danger
+      FluorosulfuricAcid: danger
+      Bicaridine: unwanted
+      Tricordrazine: unwanted
+      Dylovene: unwanted
+      Epinephrine: unwanted
+      Dexalin: unwanted
+      Kelotane: unwanted
+      Charcoal: unwanted
+      Iron: danger
+      Cryoxadone: unwanted
+      ADTSilverSulfadiazine: unwanted
+      Toxin: danger
+      Chlorine: danger
+      Fluorine: danger
+      Radium: danger
+      Neurotoxin: danger
+      Lexorin: danger
+      Histamine: danger
+      Mercury: danger
+      WeldingFuel: danger
+      Ethanol: danger
       # ADT-Gas-End
 
 - type: entity

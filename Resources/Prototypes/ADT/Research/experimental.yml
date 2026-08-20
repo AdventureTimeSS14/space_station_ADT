@@ -9,9 +9,9 @@
   cost: 15000
   recipeUnlocks:
   - ADTMaterialBScrystalArt
-  position: 2,-2
+  position: 3,-3
   requiredTech:
-  - AlternativeResearch
+  - AdvancedAnomalyResearch
 
 - type: technology
   id: ADTAiRemoteBrain
@@ -63,7 +63,8 @@
   - ADTMachineBluespaceHarvesterCircuitboard
   position: 4,-3
   requiredTech:
-  - BasicAnomalousResearch
+  - AdvancedAnomalyResearch
+  - CrystalManipulation
 
 - type: technology
   id: BasicXenobiology
@@ -97,9 +98,9 @@
   cost: 15100
   recipeUnlocks:
   - ArtilleryComputerCircuitboard
-  position: 4,-4
+  position: 5,-4
   requiredTech:
-  - ADTBluespaceMining
+  - ADTQuantumPartsTech
 
 - type: technology
   id: ADTPartsTech
@@ -176,3 +177,23 @@
   position: 1,-4
   requiredTech:
   - ADTSuperPartsTech
+
+- type: technology
+  id: ADTQuantumPartsTech
+  name: research-technology-adt-quantum-parts
+  icon:
+    sprite: ADT/Objects/Misc/stock_parts.rsi
+    state: quantum_matter_bin
+  discipline: Experimental
+  tier: 5
+  cost: 40000
+  recipeUnlocks:
+  - QuantumCapacitorStockPart
+  - QuantumScanningModuleStockPart
+  - QuantumServoStockPart
+  - QuantumMicroLaserStockPart
+  - QuantumMatterBinStockPart
+  position: 4,-4
+  requiredTech:
+  - ADTBluespacePartsTech
+  - ADTBluespaceMining

@@ -148,6 +148,7 @@
       - ActionCritFakeDeath
       - ActionCritLastWords
   - type: StoreDamageTakenOnMind
+  - type: StoreBodyAppearanceOnMind # ADT tweak
   - type: Deathgasp
   - type: HealthExaminable
     examinableTypes:

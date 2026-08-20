@@ -7,6 +7,7 @@ using Content.Server.Mind;
 using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
+using Content.Shared.ADT.Ghost.GhostTypes;
 using Content.Shared.ADT.CustomGhostSystem;
 using Content.Shared.ADT.Roles;
 using Content.Shared.Actions;
@@ -19,8 +20,14 @@ using Content.Shared.Database;
 using Content.Shared.Eye;
 using Content.Shared.FixedPoint;
 using Content.Shared.Follower;
+using Content.Shared.DisplacementMap;
 using Content.Shared.Ghost;
 using Content.Shared.GhostTypes;
+using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Inventory;
+using Content.Shared.Medical.SuitSensors;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
@@ -36,6 +43,7 @@ using Content.Shared.Tag;
 using Content.Shared.Warps;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
@@ -72,6 +80,9 @@ namespace Content.Server.Ghost
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
         [Dependency] private readonly GhostSpriteStateSystem _ghostState = default!;
+        [Dependency] private readonly InventorySystem _inventory = default!;
+        [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
+        [Dependency] private readonly StoreBodyAppearanceOnMindSystem _bodyAppearance = default!;
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -550,6 +561,7 @@ namespace Content.Server.Ghost
         public EntityUid? SpawnGhost(Entity<MindComponent?> mind, EntityUid targetEntity,
             bool canReturn = false)
         {
+            _bodyAppearance.CapAppearance(targetEntity); // ADT Tweak
             _transformSystem.TryGetMapOrGridCoordinates(targetEntity, out var spawnPosition);
             return SpawnGhost(mind, spawnPosition, canReturn);
         }
@@ -601,6 +613,11 @@ namespace Content.Server.Ghost
                 _ghostState.SetGhostSprite((ghost, state), mind);
             }
 
+            // ADT Tweak Start 
+            ApplyBodyAppearance(ghost, mind.Owner);
+            GiveGhostClothes(ghost, ghostComponent);
+            // ADT Tweak End
+
             // Try setting the ghost entity name to either the character name or the player name.
             // If all else fails, it'll default to the default entity prototype name, "observer".
             // However, that should rarely happen.
@@ -627,6 +644,44 @@ namespace Content.Server.Ghost
             _nameMod.RefreshNameModifiers(ghost);
             return ghost;
         }
+
+        // ADT Tweak Start
+        private void ApplyBodyAppearance(EntityUid ghost, EntityUid mind)
+        {
+            if (!TryComp<GhostBodyAppearanceComponent>(mind, out var bodyAppearance))
+                return;
+
+            var ghostAppearance = EnsureComp<GhostBodyAppearanceComponent>(ghost);
+            ghostAppearance.Layers = new Dictionary<HumanoidVisualLayers, PrototypeLayerData>(bodyAppearance.Layers);
+            ghostAppearance.Markings = new Dictionary<HumanoidVisualLayers, List<Marking>>(bodyAppearance.Markings);
+            ghostAppearance.Sex = bodyAppearance.Sex;
+            Dirty(ghost, ghostAppearance);
+
+            if (TryComp<HumanoidProfileComponent>(ghost, out var profile))
+                _humanoidProfile.SetSex((ghost, profile), bodyAppearance.Sex);
+
+            if (TryComp<InventoryComponent>(ghost, out var ghostInventory))
+            {
+                ghostInventory.Displacements = new Dictionary<string, DisplacementData>(bodyAppearance.Displacements);
+                ghostInventory.FemaleDisplacements = new Dictionary<string, DisplacementData>(bodyAppearance.FemaleDisplacements);
+                ghostInventory.MaleDisplacements = new Dictionary<string, DisplacementData>(bodyAppearance.MaleDisplacements);
+                Dirty(ghost, ghostInventory);
+            }
+        }
+
+        private void GiveGhostClothes(EntityUid ghost, GhostComponent component)
+        {
+            if (component.AvailableClothing is not { Count: > 0 } clothing)
+                return;
+
+            var item = Spawn(_random.Pick(clothing));
+            RemComp<SuitSensorComponent>(item);
+            EnsureComp<UnremoveableComponent>(item);
+
+            if (!_inventory.TryEquip(ghost, item, "jumpsuit", true, true))
+                QueueDel(item);
+        }
+        // ADT Tweak End
 
         public bool OnGhostAttempt(EntityUid mindId, bool canReturnGlobal, bool viaCommand = false, bool forced = false, MindComponent? mind = null)
         {
@@ -715,6 +770,11 @@ namespace Content.Server.Ghost
 
             if (playerEntity != null)
                 _adminLog.Add(LogType.Mind, $"{ToPrettyString(playerEntity.Value):player} ghosted{(!canReturn ? " (non-returnable)" : "")}");
+
+            // ADT Tweak Start
+            if (playerEntity != null)
+                _bodyAppearance.CapAppearance(playerEntity.Value);
+            // ADT Tweak End
 
             var ghost = SpawnGhost((mindId, mind), position, canReturn);
 

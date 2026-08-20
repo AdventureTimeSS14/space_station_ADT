@@ -21,12 +21,11 @@
           type: [ Moth ]
         key: Stutter
         component: StutteringAccent
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Moth ]
-        key: SeeingRainbows
-        component: SeeingRainbows
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 8
     # End ADT tweak
