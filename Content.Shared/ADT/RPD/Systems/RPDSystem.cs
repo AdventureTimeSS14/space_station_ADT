@@ -126,7 +126,9 @@ public class RPDSystem : EntitySystem
 
     private void OnAfterInteract(EntityUid uid, RPDComponent component, AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach)
+        var bluespace = component.IgnoreRangeCheck && component.CachedPrototype.Mode == RpdMode.ConstructObject;
+
+        if (args.Handled || (!args.CanReach && !bluespace))
             return;
 
         var user = args.User;
@@ -179,6 +181,22 @@ public class RPDSystem : EntitySystem
         }
 
         #endregion
+
+        if (component.InstantPlacement && component.CachedPrototype.Mode == RpdMode.ConstructObject)
+        {
+            var fx = Spawn(effectPrototype, location);
+
+            if (component.BeamPrototype is { } beamPrototype)
+                RaiseLocalEvent(new RPDInstantPlacementEvent(args.User, fx, beamPrototype));
+
+            if (!FinalizeRPDOperation(uid, component, gridUid.Value, mapGrid, position, component.ConstructionDirection, component.ConstructionLayer, args.Target, args.User))
+                return;
+
+            _audio.PlayPredicted(component.SuccessSound, uid, args.User);
+            _charges.TryUseCharges(uid, cost);
+            args.Handled = true;
+            return;
+        }
 
         // Try to start the do after
         var effect = Spawn(effectPrototype, location);
@@ -258,7 +276,8 @@ public class RPDSystem : EntitySystem
             return;
 
         // Finalize the operation
-        FinalizeRPDOperation(uid, component, gridUid.Value, mapGrid, position, args.Direction, args.ConstructionLayer, args.Target, args.User);
+        if (!FinalizeRPDOperation(uid, component, gridUid.Value, mapGrid, position, args.Direction, args.ConstructionLayer, args.Target, args.User))
+            return;
 
         // Play audio and consume charges
         _audio.PlayPredicted(component.SuccessSound, uid, args.User);
@@ -332,9 +351,10 @@ public class RPDSystem : EntitySystem
         }
 
         // Exit if the target / target location is obstructed
+        var range = component.CachedPrototype.Mode == RpdMode.ConstructObject ? component.Range : SharedInteractionSystem.InteractionRange;
         var unobstructed = (target == null)
-            ? _interaction.InRangeUnobstructed(user, _mapSystem.GridTileToWorld(gridUid, mapGrid, position), popup: popMsgs)
-            : _interaction.InRangeUnobstructed(user, target.Value, popup: popMsgs);
+            ? _interaction.InRangeUnobstructed(user, _mapSystem.GridTileToWorld(gridUid, mapGrid, position), range, popup: popMsgs)
+            : _interaction.InRangeUnobstructed(user, target.Value, range, popup: popMsgs);
 
         if (!unobstructed)
             return false;
@@ -432,13 +452,13 @@ public class RPDSystem : EntitySystem
 
     #region Entity construction/deconstruction
 
-    private void FinalizeRPDOperation(EntityUid uid, RPDComponent component, EntityUid gridUid, MapGridComponent mapGrid, Vector2i position, Direction direction, AtmosPipeLayer layer, EntityUid? target, EntityUid user)
+    private bool FinalizeRPDOperation(EntityUid uid, RPDComponent component, EntityUid gridUid, MapGridComponent mapGrid, Vector2i position, Direction direction, AtmosPipeLayer layer, EntityUid? target, EntityUid user)
     {
         if (!_net.IsServer)
-            return;
+            return false;
 
         if (component.CachedPrototype.Prototype == null)
-            return;
+            return false;
 
         switch (component.CachedPrototype.Mode)
         {
@@ -459,8 +479,17 @@ public class RPDSystem : EntitySystem
                         break;
                 }
 
+                var validated = new RPDPlacementValidatedEvent(ent, user);
+                RaiseLocalEvent(validated);
+
+                if (validated.Rejected)
+                {
+                    QueueDel(ent);
+                    return false;
+                }
+
                 _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RPD to spawn {ToPrettyString(ent)} at {position} on grid {gridUid}");
-                break;
+                return true;
 
             case RpdMode.Deconstruct:
 
@@ -469,10 +498,13 @@ public class RPDSystem : EntitySystem
                     // Deconstruct object
                     _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RPD to delete {ToPrettyString(target):target}");
                     QueueDel(target);
+                    return true;
                 }
 
-                break;
+                return false;
         }
+
+        return false;
     }
 
     #endregion

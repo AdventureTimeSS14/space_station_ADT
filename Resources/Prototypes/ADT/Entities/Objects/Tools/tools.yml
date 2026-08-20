@@ -90,7 +90,8 @@
   id: ADTRPDBluespace
   parent: ADTRPD
   name: bluespace RPD
-  description: A bluespace-enhanced rapid pipe dispenser that passively generates its own compressed matter.
+  description: A bluespace-enhanced rapid pipe dispenser that can place pipes at a distance.
+  suffix: Bluespace
   components:
   - type: Sprite
     sprite: ADT/Objects/Tools/brpd.rsi
@@ -100,13 +101,18 @@
     quickEquip: false
     slots:
     - Belt
+  - type: RPD
+    range: 10
+    ignoreRangeCheck: true
+    instantPlacement: true
+    beamPrototype: AnomalyTechBeam
 
 - type: entity
   id: ADTRPDRecharging
   parent: ADTRPD
   name: experimental RPD
   description: A bluespace-enhanced rapid pipe dispenser that passively generates its own compressed matter.
-  suffix: Recharging, ADMIN
+  suffix: Recharging
   components:
   - type: LimitedCharges
     maxCharges: 100

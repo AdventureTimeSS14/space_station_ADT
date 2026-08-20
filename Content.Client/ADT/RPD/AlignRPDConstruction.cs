@@ -180,11 +180,21 @@ public sealed class AlignRPDConstruction : PlacementMode
     {
         var player = _playerManager.LocalSession?.AttachedEntity;
 
+        if (!_entityManager.TryGetComponent<HandsComponent>(player, out var hands))
+            return false;
+
+        var heldEntity = _hands.GetActiveItem(player.Value);
+
+        if (!_entityManager.TryGetComponent<RPDComponent>(heldEntity, out var rpd))
+            return false;
+
         // If the destination is out of interaction range, set the placer alpha to zero
         if (!_entityManager.TryGetComponent<TransformComponent>(player, out var xform))
             return false;
 
-        if (!xform.Coordinates.InRange(_entityManager, _transformSystem, position, SharedInteractionSystem.InteractionRange))
+        var range = rpd.CachedPrototype.Mode == RpdMode.ConstructObject ? rpd.Range : SharedInteractionSystem.InteractionRange;
+
+        if (!xform.Coordinates.InRange(_entityManager, _transformSystem, position, range))
         {
             InvalidPlaceColor = InvalidPlaceColor.WithAlpha(0);
             return false;
@@ -195,15 +205,6 @@ public sealed class AlignRPDConstruction : PlacementMode
         {
             InvalidPlaceColor = InvalidPlaceColor.WithAlpha(PlaceColorBaseAlpha);
         }
-
-        // Determine if player is carrying an RPD in their active hand
-        if (!_entityManager.TryGetComponent<HandsComponent>(player, out var hands))
-            return false;
-
-        var heldEntity = _hands.GetActiveItem(player.Value);
-
-        if (!_entityManager.TryGetComponent<RPDComponent>(heldEntity, out var rpd))
-            return false;
 
         // Retrieve the map grid data for the position
         if (!_rpdSystem.TryGetMapGridData(position, out var mapGridData))

@@ -211,7 +211,7 @@
     - id: ClothingNeckCloakCe
     - id: ADTClothingMaskGasCE
     - id: ADTUniversalPipeDispenserCircuitboard
-    - id: ADTRPD
+    - id: ADTRPDBluespace
     #- id: ADTEngiInducerBattery # ADT-REMOVED
     - id: ADTBookSRPcmd
     - id: ADTBookSRPeng

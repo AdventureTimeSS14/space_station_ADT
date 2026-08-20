@@ -74,7 +74,7 @@ public sealed class RPDConstructionGhostSystem : EntitySystem
             MobUid = heldEntity.Value,
             PlacementOption = PlacementMode,
             EntityType = expectedProto,
-            Range = (int) Math.Ceiling(SharedInteractionSystem.InteractionRange),
+            Range = (int) Math.Ceiling(rpd.CachedPrototype.Mode == RpdMode.ConstructObject ? rpd.Range : SharedInteractionSystem.InteractionRange),
             IsTile = false,
             UseEditorContext = false,
         };
