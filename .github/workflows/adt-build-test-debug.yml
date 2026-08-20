@@ -67,7 +67,6 @@ jobs:
       matrix:
         include:
           # Веса это процессорное время прогона на линуксе от 20.08.2026, всего 2156с. По ним разложены шарды.
-          # В выражении обязан быть хотя бы один позитивный "test =~" иначе эта хуйня(NUnit) считает фильтр пустым и пропускает все тесты
 
           # ~154с, ~14 GB RAM
           - name: entity-dirty
@@ -149,7 +148,8 @@ jobs:
         export DOTNET_gcServer=1
 
         set +e
-        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed NUnit.Where="$NUNIT_WHERE" NUnit.TestOutputXml="logs-$SHARD_NAME" NUnit.WorkDirectory="$(pwd)/test_results"
+        # NUnit.DiscoveryMethod=Legacy обязателен.
+        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed NUnit.Where="$NUNIT_WHERE" NUnit.DiscoveryMethod=Legacy NUnit.TestOutputXml="logs-$SHARD_NAME" NUnit.WorkDirectory="$(pwd)/test_results"
         code=$?
         set -e
 
