@@ -27,6 +27,7 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.CycleChatChannelBackward);
             common.AddFunction(ContentKeyFunctions.EscapeContext);
             common.AddFunction(ContentKeyFunctions.ExamineEntity);
+            common.AddFunction(ContentKeyFunctions.ADTDoorEmergencyAccess); // ADT-Tweak
             common.AddFunction(ContentKeyFunctions.OpenAHelp);
             common.AddFunction(ContentKeyFunctions.TakeScreenshot);
             common.AddFunction(ContentKeyFunctions.TakeScreenshotNoUI);
@@ -80,6 +81,7 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.SmartEquipPocket1);
             human.AddFunction(ContentKeyFunctions.SmartEquipPocket2);
             human.AddFunction(ContentKeyFunctions.SmartEquipSuitStorage);
+            human.AddFunction(ContentKeyFunctions.SmartEquipNeck); // ADT-Tweak-SmartEquipNeck
             human.AddFunction(ContentKeyFunctions.OpenBackpack);
             human.AddFunction(ContentKeyFunctions.OpenBelt);
             human.AddFunction(ContentKeyFunctions.MouseMiddle);

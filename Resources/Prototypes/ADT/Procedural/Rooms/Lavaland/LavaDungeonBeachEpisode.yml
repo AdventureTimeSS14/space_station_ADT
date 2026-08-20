@@ -1,0 +1,1077 @@
+- type: adtDungeonRoom
+  id: LavaDungeonBeachEpisode
+  size: 29, 26
+  tags:
+  - LavaDungeon
+  legend:
+    "a":
+      tile: FloorBasalt
+    "b":
+      tile: Plating
+    "c":
+      tile: FloorAsteroidIronsandUnvariantized
+    "d":
+      tile: FloorAsteroidSand
+    "e":
+      tile: FloorLowDesert
+    "f":
+      tile: FloorReinforced
+    "g":
+      tile: FloorDesert
+    "h":
+      tile: FloorSteelLime
+    "i":
+      tile: FloorWhite
+  tiles:
+  - "aaabbbccccccccccccccccccbbbaa"
+  - "aaabccccccccccccccccccccccbaa"
+  - "aabbccccccccccccccccccccccbba"
+  - "aabdcccccccccccccccccccccccba"
+  - "aabcdcccdcccccdcccccccccccdba"
+  - "abbdddddcccdcccddcccccddcddbb"
+  - "abddddcdddddddddddddddddddddb"
+  - "abeeddddddddddddddddddddddddb"
+  - "abeeeeeeeeeeeeddededeedddeeeb"
+  - "bbbbeeeeeeeeeeeeeeeeeeeeeebbb"
+  - "bffbggeeeeeeeeeeeeeeeeeeggbff"
+  - "bffbgggeeeeeeeeeeeeeeeegggbff"
+  - "ffffggggggggggggggggggggggfff"
+  - "bffbggggggggggggggggggggggbff"
+  - "ffffggggggggggggggggggggggfff"
+  - "bffbggggggggggggggggggggggbff"
+  - "bffbggggggghhhhhhhhhhhggggbff"
+  - "bbbbgggggghhhhhhhhhhhhhgggbbb"
+  - "abggggggghhhhhhhhhhhhhhgggggb"
+  - "abgggggghhhhhhhbhhhhhbhhggggb"
+  - "abggggghhhhhhhhbhhhhhbhhggggb"
+  - "aabgggghhhhhhhhbhhhhhbhhgggbb"
+  - "aabgggghhhbbbbbbbbbbbbbbgggba"
+  - "aabbggghhhbiiibibbbbbbbbggbba"
+  - "aaabbbbhhhiiiiiibbbbbbbbbbbaa"
+  - "aaaaaabbbbbbbbbbbbbbbbbbaaaaa"
+  entities:
+  - proto: ADTAlwaysPoweredShuttleLight
+    rot: -1.5707963267948966 rad
+    positions:
+    - 28.5,18.5
+  - proto: ADTAlwaysPoweredShuttleLight
+    rot: 1.5707963267948966 rad
+    positions:
+    - 1.5,18.5
+  - proto: ADTClothingSandals
+    positions:
+    - 2.3516,15.6426
+    - 27.7433,15.4551
+    - 2.0702,15.5332
+    - 2.5861,15.5957
+    - 27.3056,15.5957
+    - 27.5088,15.7051
+  - proto: ADTDeckChair
+    positions:
+    - 18.5,10.5
+    - 7.5,10.5
+    - 24.5,6.5
+    - 12.5,10.5
+    - 6.5,8.5
+    - 23.5,9.5
+  - proto: ADTDiscoBall
+    anchored: true
+    positions:
+    - 21.5,9.5
+  - proto: ADTEnergyBoozeDispenser
+    rot: 3.141592653589793 rad
+    positions:
+    - 16.5,4.5
+  - proto: ADTEnergySodaDispenser
+    rot: 3.141592653589793 rad
+    positions:
+    - 17.5,4.5
+  - proto: ADTIceCreamVendInventory
+    components:
+    - type: PointLight
+      enabled: true
+    positions:
+    - 7.5,1.5
+  - proto: ADTVendingMachinePrazatClothing
+    components:
+    - type: PointLight
+      enabled: true
+    positions:
+    - 11.5,4.5
+  - proto: APCBasic
+    components:
+    - type: PowerNetworkBattery
+      loadingNetworkDemand: 2270
+      currentReceiving: 2270.0413
+      currentSupply: 2270
+    positions:
+    - 20.5,3.5
+  - proto: AirTankFilled
+    positions:
+    - 27.299,9.7207
+    - 2.2666,9.4239
+    - 27.768,9.4864
+    - 2.6262,9.4395
+  - proto: AirlockMiningLocked
+    rot: -1.5707963267948966 rad
+    components:
+    - type: Airlock
+      powered: true
+    - type: DoorBolt
+      powered: true
+    positions:
+    - 3.5,13.5
+    - 26.5,13.5
+    - 3.5,11.5
+    - 26.5,11.5
+  - proto: AirlockMiningLocked
+    components:
+    - type: Airlock
+      powered: true
+    - type: DoorBolt
+      powered: true
+    positions:
+    - 0.5,13.5
+    - 0.5,11.5
+  - proto: AlwaysPoweredLightExterior
+    rot: -1.5707963267948966 rad
+    positions:
+    - 26.5,21.5
+  - proto: AlwaysPoweredLightExterior
+    rot: 1.5707963267948966 rad
+    positions:
+    - 3.5,21.5
+  - proto: AtmosDeviceFanDirectional
+    rot: -1.5707963267948966 rad
+    positions:
+    - 0.5,13.5
+    - 0.5,11.5
+  - proto: BeachBall
+    positions:
+    - 9.7725,13.6391
+  - proto: BenchComfy
+    rot: 3.141592653589793 rad
+    positions:
+    - 12.5,4.5
+  - proto: CableApcExtension
+    positions:
+    - 7.5,7.5
+    - 7.5,8.5
+    - 7.5,6.5
+    - 7.5,9.5
+    - 16.5,4.5
+    - 19.5,4.5
+    - 17.5,4.5
+    - 15.5,4.5
+    - 20.5,3.5
+    - 20.5,4.5
+    - 20.5,2.5
+    - 13.5,4.5
+    - 14.5,4.5
+    - 18.5,4.5
+    - 13.5,3.5
+    - 12.5,4.5
+    - 13.5,2.5
+    - 11.5,4.5
+    - 8.5,4.5
+    - 10.5,4.5
+    - 9.5,4.5
+    - 7.5,4.5
+    - 7.5,5.5
+    - 6.5,10.5
+    - 7.5,10.5
+    - 5.5,10.5
+    - 4.5,10.5
+    - 2.5,10.5
+    - 3.5,10.5
+    - 1.5,10.5
+    - 3.5,11.5
+    - 20.5,5.5
+    - 26.5,10.5
+    - 20.5,7.5
+    - 18.5,7.5
+    - 20.5,6.5
+    - 19.5,7.5
+    - 17.5,7.5
+    - 3.5,14.5
+    - 20.5,8.5
+    - 20.5,9.5
+    - 26.5,12.5
+    - 22.5,9.5
+    - 26.5,11.5
+    - 3.5,15.5
+    - 15.5,7.5
+    - 3.5,13.5
+    - 3.5,12.5
+    - 3.5,9.5
+    - 16.5,7.5
+    - 21.5,9.5
+    - 12.5,7.5
+    - 25.5,9.5
+    - 24.5,9.5
+    - 13.5,7.5
+    - 10.5,7.5
+    - 28.5,11.5
+    - 11.5,7.5
+    - 14.5,7.5
+    - 26.5,15.5
+    - 23.5,9.5
+    - 26.5,9.5
+    - 28.5,13.5
+    - 26.5,13.5
+    - 1.5,11.5
+    - 27.5,13.5
+    - 26.5,14.5
+    - 27.5,11.5
+    - 1.5,13.5
+    - 1.5,12.5
+  - proto: CableHV
+    positions:
+    - 21.5,3.5
+    - 22.5,1.5
+    - 22.5,2.5
+    - 21.5,2.5
+  - proto: CableMV
+    positions:
+    - 20.5,3.5
+    - 21.5,3.5
+  - proto: ClothingMaskGas
+    rot: 3.432739322306588E-05 rad
+    positions:
+    - 27.2649,9.4082
+  - proto: ClothingMaskGas
+    positions:
+    - 2.7044,9.3457
+    - 27.6692,9.4082
+    - 2.4073,9.4551
+  - proto: CrateTrashCart
+    positions:
+    - 24.5,2.5
+    - 25.5,2.5
+  - proto: CryogenicSleepUnit
+    rot: 3.141592653589793 rad
+    positions:
+    - 20.5,1.5
+  - proto: DresserFilled
+    positions:
+    - 28.5,9.5
+    - 1.5,9.5
+  - proto: FloorWaterEntity
+    positions:
+    - 23.5,14.5
+    - 21.5,13.5
+    - 23.5,13.5
+    - 21.5,12.5
+    - 21.5,14.5
+    - 22.5,12.5
+    - 22.5,13.5
+    - 20.5,12.5
+    - 15.5,13.5
+    - 15.5,14.5
+    - 13.5,13.5
+    - 14.5,14.5
+    - 24.5,14.5
+    - 14.5,13.5
+    - 13.5,14.5
+    - 10.5,14.5
+    - 11.5,14.5
+    - 11.5,13.5
+    - 10.5,13.5
+    - 12.5,14.5
+    - 12.5,13.5
+    - 11.5,12.5
+    - 10.5,12.5
+    - 12.5,12.5
+    - 14.5,12.5
+    - 8.5,14.5
+    - 7.5,14.5
+    - 9.5,14.5
+    - 9.5,13.5
+    - 13.5,12.5
+    - 9.5,12.5
+    - 8.5,13.5
+    - 9.5,15.5
+    - 17.5,15.5
+    - 24.5,15.5
+    - 22.5,15.5
+    - 25.5,15.5
+    - 6.5,13.5
+    - 16.5,15.5
+    - 14.5,15.5
+    - 6.5,14.5
+    - 19.5,15.5
+    - 21.5,15.5
+    - 4.5,15.5
+    - 10.5,15.5
+    - 13.5,15.5
+    - 15.5,15.5
+    - 7.5,16.5
+    - 15.5,12.5
+    - 5.5,16.5
+    - 12.5,15.5
+    - 23.5,15.5
+    - 6.5,17.5
+    - 8.5,15.5
+    - 5.5,14.5
+    - 11.5,15.5
+    - 7.5,15.5
+    - 20.5,15.5
+    - 7.5,13.5
+    - 7.5,12.5
+    - 8.5,12.5
+    - 16.5,13.5
+    - 16.5,14.5
+    - 22.5,14.5
+    - 7.5,17.5
+    - 4.5,20.5
+    - 5.5,18.5
+    - 6.5,15.5
+    - 5.5,19.5
+    - 4.5,18.5
+    - 4.5,19.5
+    - 4.5,17.5
+    - 17.5,13.5
+    - 17.5,14.5
+    - 17.5,12.5
+    - 18.5,15.5
+    - 18.5,12.5
+    - 20.5,14.5
+    - 20.5,13.5
+    - 19.5,13.5
+    - 19.5,12.5
+    - 19.5,14.5
+    - 18.5,13.5
+    - 16.5,12.5
+    - 26.5,20.5
+    - 27.5,19.5
+    - 6.5,22.5
+    - 17.5,22.5
+    - 18.5,22.5
+    - 10.5,22.5
+    - 7.5,22.5
+    - 6.5,21.5
+    - 8.5,22.5
+    - 8.5,21.5
+    - 5.5,22.5
+    - 18.5,21.5
+    - 19.5,21.5
+    - 9.5,21.5
+    - 9.5,22.5
+    - 7.5,21.5
+    - 10.5,21.5
+    - 16.5,21.5
+    - 11.5,22.5
+    - 11.5,21.5
+    - 24.5,22.5
+    - 12.5,22.5
+    - 16.5,22.5
+    - 25.5,21.5
+    - 22.5,21.5
+    - 26.5,18.5
+    - 25.5,22.5
+    - 27.5,17.5
+    - 24.5,19.5
+    - 3.5,21.5
+    - 26.5,17.5
+    - 26.5,22.5
+    - 26.5,19.5
+    - 24.5,18.5
+    - 25.5,18.5
+    - 25.5,19.5
+    - 25.5,17.5
+    - 22.5,17.5
+    - 24.5,17.5
+    - 23.5,18.5
+    - 23.5,19.5
+    - 21.5,19.5
+    - 22.5,19.5
+    - 23.5,17.5
+    - 22.5,18.5
+    - 19.5,18.5
+    - 21.5,18.5
+    - 20.5,19.5
+    - 21.5,17.5
+    - 19.5,17.5
+    - 20.5,17.5
+    - 20.5,18.5
+    - 19.5,19.5
+    - 16.5,19.5
+    - 18.5,19.5
+    - 18.5,17.5
+    - 18.5,18.5
+    - 16.5,18.5
+    - 17.5,18.5
+    - 17.5,19.5
+    - 17.5,17.5
+    - 15.5,18.5
+    - 16.5,17.5
+    - 14.5,19.5
+    - 15.5,19.5
+    - 15.5,17.5
+    - 11.5,19.5
+    - 14.5,18.5
+    - 13.5,18.5
+    - 12.5,21.5
+    - 17.5,21.5
+    - 3.5,20.5
+    - 26.5,21.5
+    - 2.5,17.5
+    - 23.5,21.5
+    - 23.5,22.5
+    - 6.5,20.5
+    - 24.5,21.5
+    - 19.5,22.5
+    - 6.5,19.5
+    - 20.5,21.5
+    - 5.5,20.5
+    - 20.5,22.5
+    - 21.5,21.5
+    - 6.5,18.5
+    - 6.5,16.5
+    - 2.5,18.5
+    - 3.5,17.5
+    - 3.5,22.5
+    - 13.5,22.5
+    - 13.5,21.5
+    - 14.5,21.5
+    - 4.5,21.5
+    - 4.5,22.5
+    - 15.5,21.5
+    - 5.5,21.5
+    - 3.5,19.5
+    - 3.5,18.5
+    - 2.5,19.5
+    - 15.5,22.5
+    - 14.5,22.5
+    - 21.5,22.5
+    - 22.5,22.5
+    - 27.5,18.5
+    - 14.5,17.5
+    - 13.5,17.5
+    - 12.5,19.5
+    - 11.5,18.5
+    - 10.5,18.5
+    - 13.5,19.5
+    - 12.5,17.5
+    - 12.5,18.5
+    - 11.5,17.5
+    - 10.5,19.5
+    - 4.5,16.5
+    - 25.5,20.5
+    - 21.5,20.5
+    - 19.5,20.5
+    - 10.5,17.5
+    - 8.5,16.5
+    - 10.5,16.5
+    - 20.5,20.5
+    - 18.5,20.5
+    - 7.5,19.5
+    - 12.5,16.5
+    - 11.5,16.5
+    - 17.5,16.5
+    - 17.5,20.5
+    - 9.5,16.5
+    - 9.5,19.5
+    - 15.5,16.5
+    - 18.5,16.5
+    - 20.5,16.5
+    - 8.5,17.5
+    - 9.5,17.5
+    - 14.5,16.5
+    - 21.5,16.5
+    - 22.5,16.5
+    - 7.5,18.5
+    - 9.5,18.5
+    - 13.5,16.5
+    - 23.5,16.5
+    - 23.5,20.5
+    - 24.5,20.5
+    - 22.5,20.5
+    - 9.5,25.5
+    - 7.5,25.5
+    - 5.5,24.5
+    - 12.5,24.5
+    - 14.5,24.5
+    - 13.5,24.5
+    - 14.5,23.5
+    - 13.5,23.5
+    - 17.5,23.5
+    - 18.5,24.5
+    - 16.5,24.5
+    - 17.5,24.5
+    - 18.5,23.5
+    - 22.5,23.5
+    - 22.5,24.5
+    - 23.5,23.5
+    - 23.5,24.5
+    - 21.5,24.5
+    - 20.5,25.5
+    - 19.5,25.5
+    - 18.5,25.5
+    - 17.5,25.5
+    - 22.5,25.5
+    - 8.5,25.5
+    - 6.5,25.5
+    - 23.5,25.5
+    - 24.5,16.5
+    - 8.5,18.5
+    - 8.5,19.5
+    - 16.5,16.5
+    - 25.5,16.5
+    - 19.5,16.5
+    - 14.5,20.5
+    - 12.5,20.5
+    - 10.5,20.5
+    - 8.5,20.5
+    - 7.5,20.5
+    - 13.5,20.5
+    - 11.5,20.5
+    - 9.5,20.5
+    - 4.5,24.5
+    - 5.5,23.5
+    - 7.5,24.5
+    - 9.5,23.5
+    - 8.5,23.5
+    - 7.5,23.5
+    - 6.5,24.5
+    - 10.5,24.5
+    - 8.5,24.5
+    - 9.5,24.5
+    - 6.5,23.5
+    - 10.5,25.5
+    - 4.5,23.5
+    - 21.5,23.5
+    - 19.5,23.5
+    - 15.5,23.5
+    - 10.5,23.5
+    - 11.5,23.5
+    - 16.5,20.5
+    - 15.5,20.5
+    - 21.5,25.5
+    - 16.5,25.5
+    - 24.5,23.5
+    - 20.5,24.5
+    - 16.5,23.5
+    - 12.5,23.5
+    - 11.5,24.5
+    - 15.5,24.5
+    - 20.5,23.5
+    - 15.5,25.5
+    - 18.5,14.5
+    - 25.5,24.5
+    - 14.5,25.5
+    - 24.5,24.5
+    - 19.5,24.5
+    - 25.5,23.5
+    - 5.5,17.5
+    - 13.5,25.5
+    - 12.5,25.5
+    - 11.5,25.5
+    - 5.5,15.5
+  - proto: GeneratorBasic
+    components:
+    - type: PowerSupplier
+      supplyRampPosition: 1134.3761
+    positions:
+    - 22.5,1.5
+    - 22.5,2.5
+  - proto: Grille
+    positions:
+    - 3.5,14.5
+    - 26.5,14.5
+    - 26.5,10.5
+    - 26.5,15.5
+    - 26.5,9.5
+    - 3.5,12.5
+    - 3.5,15.5
+    - 26.5,12.5
+    - 3.5,9.5
+    - 3.5,10.5
+  - proto: Jukebox
+    positions:
+    - 21.5,7.5
+  - proto: LightPostSmall
+    rot: -1.5707963267948966 rad
+    positions:
+    - 6.5,11.5
+    - 23.5,11.5
+  - proto: LightPostSmall
+    rot: 1.5707963267948966 rad
+    positions:
+    - 14.5,19.5
+  - proto: LockerBoozeFilled
+    positions:
+    - 21.5,1.5
+  - proto: MedkitBruteFilled
+    rot: 1.5707963267948966 rad
+    positions:
+    - 19.7955,1.5743
+  - proto: Mirror
+    positions:
+    - 11.5,3.5
+    - 13.5,3.5
+    - 12.5,3.5
+  - proto: OxygenCanister
+    positions:
+    - 17.5,1.5
+  - proto: Pickaxe
+    positions:
+    - 27.3147,9.377
+    - 2.3355,9.6895
+  - proto: PortableScrubber
+    positions:
+    - 22.5,4.5
+  - proto: PoweredSmallLight
+    rot: -1.5707963267948966 rad
+    components:
+    - type: PointLight
+      enabled: false
+    - type: DamageOnInteract
+      isDamageActive: false
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    positions:
+    - 15.5,1.5
+  - proto: PoweredSmallLight
+    rot: 3.141592653589793 rad
+    components:
+    - type: PointLight
+      enabled: false
+    - type: DamageOnInteract
+      isDamageActive: false
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    positions:
+    - 12.5,1.5
+  - proto: PoweredSmallLight
+    components:
+    - type: PointLight
+      enabled: false
+    - type: DamageOnInteract
+      isDamageActive: false
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    positions:
+    - 18.5,2.5
+  - proto: Poweredlight
+    rot: 1.5707963267948966 rad
+    components:
+    - type: PointLight
+      enabled: false
+    - type: DamageOnInteract
+      isDamageActive: false
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    positions:
+    - 4.5,14.5
+    - 4.5,8.5
+  - proto: Poweredlight
+    rot: 3.141592653589793 rad
+    components:
+    - type: PointLight
+      enabled: false
+    - type: DamageOnInteract
+      isDamageActive: false
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    positions:
+    - 15.5,7.5
+    - 18.5,4.5
+    - 23.5,4.5
+    - 11.5,4.5
+    - 6.5,2.5
+  - proto: Rack
+    positions:
+    - 2.5,15.5
+    - 27.5,15.5
+  - proto: RandomVendingDrinks
+    positions:
+    - 14.5,5.5
+  - proto: RandomVendingSnacks
+    positions:
+    - 14.5,6.5
+  - proto: ReinforcedWindow
+    positions:
+    - 3.5,9.5
+    - 26.5,14.5
+    - 26.5,15.5
+    - 26.5,10.5
+    - 3.5,10.5
+    - 3.5,15.5
+    - 26.5,9.5
+    - 3.5,12.5
+    - 26.5,12.5
+    - 3.5,14.5
+  - proto: SinkStemlessWater
+    positions:
+    - 11.5,2.5
+    - 12.5,2.5
+    - 13.5,2.5
+  - proto: StoolBar
+    positions:
+    - 19.5,7.5
+    - 18.5,7.5
+    - 17.5,7.5
+    - 20.5,7.5
+  - proto: SubstationWallBasic
+    components:
+    - type: PowerNetworkBattery
+      loadingNetworkDemand: 2270.0413
+      currentReceiving: 2268.7522
+      currentSupply: 2270.0413
+      supplyRampPosition: 1.2890625
+    positions:
+    - 21.5,3.5
+  - proto: Table
+    positions:
+    - 18.5,1.5
+    - 19.5,1.5
+  - proto: TableCounterWood
+    rot: -1.5707963267948966 rad
+    positions:
+    - 17.5,6.5
+    - 17.5,4.5
+    - 16.5,4.5
+    - 20.5,6.5
+    - 18.5,6.5
+    - 18.5,4.5
+    - 19.5,6.5
+  - proto: TableWood
+    positions:
+    - 27.5,9.5
+    - 2.5,9.5
+  - proto: ToiletEmpty
+    positions:
+    - 15.5,2.5
+  - proto: ToolboxArtisticFilled
+    positions:
+    - 19.1857,1.8556
+  - proto: ToolboxElectricalFilled
+    positions:
+    - 19.1389,1.6681
+  - proto: ToolboxEmergencyFilled
+    positions:
+    - 18.4756,1.4181
+  - proto: ToolboxMechanicalFilled
+    positions:
+    - 18.4197,1.7462
+  - proto: VendingMachineBooze
+    components:
+    - type: AccessReader
+      access: []
+    - type: PointLight
+      enabled: true
+    positions:
+    - 20.5,4.5
+  - proto: VendingMachineCigs
+    components:
+    - type: PointLight
+      enabled: true
+    positions:
+    - 14.5,4.5
+  - proto: VendingMachineClothing
+    components:
+    - type: PointLight
+      enabled: true
+    positions:
+    - 10.5,4.5
+  - proto: WallReinforced
+    rot: -1.5707963267948966 rad
+    positions:
+    - 23.5,2.5
+    - 23.5,3.5
+    - 22.5,3.5
+  - proto: WallReinforced
+    rot: 1.5707963267948966 rad
+    positions:
+    - 23.5,0.5
+  - proto: WallReinforced
+    positions:
+    - 17.5,0.5
+    - 18.5,0.5
+    - 19.5,0.5
+    - 22.5,0.5
+    - 2.5,16.5
+    - 0.5,8.5
+    - 1.5,17.5
+    - 0.5,9.5
+    - 16.5,0.5
+    - 3.5,16.5
+    - 23.5,1.5
+    - 1.5,7.5
+    - 0.5,15.5
+    - 0.5,10.5
+    - 1.5,5.5
+    - 21.5,0.5
+    - 1.5,4.5
+    - 2.5,2.5
+    - 6.5,1.5
+    - 0.5,14.5
+    - 2.5,3.5
+    - 1.5,6.5
+    - 0.5,12.5
+    - 1.5,16.5
+    - 24.5,1.5
+    - 0.5,16.5
+    - 2.5,8.5
+    - 20.5,0.5
+    - 7.5,0.5
+    - 5.5,1.5
+    - 4.5,1.5
+    - 3.5,2.5
+    - 9.5,0.5
+    - 3.5,8.5
+    - 3.5,1.5
+    - 26.5,1.5
+    - 25.5,1.5
+    - 2.5,4.5
+    - 26.5,2.5
+    - 1.5,8.5
+    - 6.5,0.5
+    - 8.5,0.5
+    - 13.5,0.5
+    - 14.5,0.5
+    - 12.5,0.5
+    - 15.5,0.5
+    - 11.5,0.5
+    - 10.5,0.5
+    - 28.5,7.5
+    - 1.5,18.5
+    - 28.5,8.5
+    - 28.5,20.5
+    - 27.5,8.5
+    - 2.5,21.5
+    - 27.5,22.5
+    - 27.5,23.5
+    - 2.5,20.5
+    - 26.5,8.5
+    - 26.5,25.5
+    - 3.5,24.5
+    - 4.5,25.5
+    - 3.5,25.5
+    - 28.5,17.5
+    - 28.5,16.5
+    - 3.5,23.5
+    - 5.5,25.5
+    - 25.5,25.5
+    - 27.5,16.5
+    - 28.5,19.5
+    - 28.5,18.5
+    - 24.5,25.5
+    - 28.5,6.5
+    - 27.5,4.5
+    - 27.5,3.5
+    - 28.5,4.5
+    - 26.5,24.5
+    - 28.5,5.5
+    - 2.5,22.5
+    - 1.5,19.5
+    - 2.5,23.5
+    - 27.5,20.5
+    - 27.5,21.5
+    - 1.5,20.5
+    - 26.5,23.5
+    - 26.5,16.5
+    - 27.5,2.5
+  - proto: WallWood
+    rot: -1.5707963267948966 rad
+    positions:
+    - 21.5,5.5
+    - 21.5,3.5
+    - 10.5,2.5
+    - 21.5,6.5
+    - 10.5,3.5
+    - 21.5,4.5
+    - 14.5,3.5
+    - 11.5,3.5
+    - 13.5,3.5
+    - 12.5,3.5
+    - 15.5,4.5
+    - 15.5,5.5
+    - 15.5,6.5
+    - 15.5,3.5
+    - 20.5,3.5
+    - 16.5,3.5
+    - 16.5,1.5
+    - 14.5,2.5
+    - 17.5,3.5
+    - 16.5,2.5
+    - 18.5,3.5
+  - proto: WardrobeMixedFilled
+    positions:
+    - 28.5,15.5
+    - 1.5,15.5
+  - proto: WeldingFuelTankFull
+    positions:
+    - 17.5,2.5
+  - proto: WoodDoor
+    rot: -1.5707963267948966 rad
+    positions:
+    - 10.5,1.5
+    - 14.5,1.5
+  - proto: WoodDoor
+    rot: 3.141592653589793 rad
+    positions:
+    - 19.5,3.5
+  decals:
+  - id: ADTTileBrickTileSteelCornerNe
+    color: '#FFFFFFFF'
+    positions:
+    - 21,9
+    - 22,8
+    - 23,6
+  - id: ADTTileBrickTileSteelCornerNw
+    color: '#FFFFFFFF'
+    positions:
+    - 11,9
+    - 10,8
+    - 9,7
+    - 8,6
+    - 7,5
+  - id: ADTTileBrickTileSteelCornerSe
+    color: '#FFFFFFFF'
+    positions:
+    - 14,4
+    - 20,4
+    - 23,4
+  - id: ADTTileBrickTileSteelCornerSw
+    color: '#FFFFFFFF'
+    positions:
+    - 22,4
+    - 16,4
+    - 7,1
+  - id: ADTTileBrickTileSteelLineE
+    color: '#FFFFFFFF'
+    positions:
+    - 14,6
+    - 14,5
+    - 9,3
+    - 9,2
+    - 20,6
+    - 20,5
+    - 23,5
+    - 22,7
+  - id: ADTTileBrickTileSteelLineN
+    color: '#FFFFFFFF'
+    positions:
+    - 14,9
+    - 13,9
+    - 12,9
+    - 15,9
+    - 16,9
+    - 17,9
+    - 18,9
+    - 20,9
+    - 19,9
+  - id: ADTTileBrickTileSteelLineS
+    color: '#FFFFFFFF'
+    positions:
+    - 10,4
+    - 11,4
+    - 12,4
+    - 13,4
+    - 9,1
+    - 8,1
+    - 15,7
+    - 16,7
+    - 17,7
+    - 18,7
+    - 19,7
+    - 20,7
+    - 21,7
+    - 17,4
+    - 18,4
+    - 19,4
+  - id: ADTTileBrickTileSteelLineW
+    color: '#FFFFFFFF'
+    positions:
+    - 22,6
+    - 22,5
+    - 16,6
+    - 16,5
+    - 7,4
+    - 7,3
+    - 7,2
+  - id: ADTTileMiniTileSteelInnerNe
+    color: '#FFFFFFFF'
+    positions:
+    - 9,1
+    - 22,6
+    - 21,8
+  - id: ADTTileMiniTileSteelInnerNw
+    color: '#FFFFFFFF'
+    positions:
+    - 11,8
+    - 10,7
+    - 9,6
+    - 8,5
+  - id: ADTTileMiniTileSteelInnerSe
+    color: '#FFFFFFFF'
+    positions:
+    - 14,7
+    - 9,4
+  - id: ADTTileMiniTileSteelInnerSw
+    color: '#FFFFFFFF'
+    positions:
+    - 22,7
+  - id: Dirt
+    color: '#FFFFFFFF'
+    cleanable: true
+    positions:
+    - 8,1
+    - 7,5
+    - 11,1
+    - 15,2
+    - 13,2
+    - 12,7
+    - 10,5
+    - 15,8
+    - 19,8
+    - 12,9
+    - 18,5
+    - 16,5
+    - 20,5
+    - 22,8
+  - id: FlowersBROne
+    color: '#FFFFFFFF'
+    positions:
+    - 20,11
+  - id: FlowersBRThree
+    color: '#FFFFFFFF'
+    positions:
+    - 3,4
+  - id: Flowersbr3
+    color: '#FFFFFFFF'
+    positions:
+    - 5,9
+    - 24,8
+    - 26,6
+  - id: Flowerspv2
+    color: '#FFFFFFFF'
+    positions:
+    - 8,11
+    - 10,9
+  - id: Flowersy2
+    color: '#FFFFFFFF'
+    positions:
+    - 15,11
+    - 24,10
+    - 26,5
+    - 24,3
+  - id: Flowersy4
+    color: '#FFFFFFFF'
+    positions:
+    - 6,5
+  - id: MarkupSquare
+    color: '#A8866144'
+    positions:
+    - 8,14
+    - 9,14
+    - 10,13
+    - 12,13
+    - 12,15
+    - 21,16
+  - id: MarkupSquare
+    color: '#A886616C'
+    positions:
+    - 4,19

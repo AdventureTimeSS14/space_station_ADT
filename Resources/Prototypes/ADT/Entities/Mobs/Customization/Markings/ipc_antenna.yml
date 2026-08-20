@@ -141,7 +141,9 @@
   bodyPart: Hair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
-      state: ipc_antenna_cat
+      state: ipc_antenna_cat_prime
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
+      state: ipc_antenna_cat_second
 
 - type: marking
   groupWhitelist: [Ipc]

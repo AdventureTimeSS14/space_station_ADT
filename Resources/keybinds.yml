@@ -664,6 +664,12 @@ binds:
 - function: PickupHumans
   type: State
   key: Space
+- function: ADTDoorEmergencyAccess # Нужно для ИИ и боргов.
+  type: State
+  key: MouseLeft
+  mod1: Space
+  canFocus: true
+  allowSubCombs: true
 - function: TogglePosing
   type: State
   key: R
@@ -686,4 +692,8 @@ binds:
 - function: PosingRotatePositive
   type: State
   key: E
+- function: SmartEquipNeck
+  type: State
+  key: Q
+  mod1: Shift
 # ADT-Tweak-end

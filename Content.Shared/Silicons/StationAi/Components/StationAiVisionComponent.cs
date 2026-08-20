@@ -38,4 +38,12 @@ public sealed partial class StationAiVisionComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float Range = 7.5f;
+
+    // ADT Tweak start
+    /// <summary>
+    /// Which vision network this seed belongs to. Null means the station AI network (cameras).
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public string? VisionNetwork;
+    // ADT Tweak end
 }

@@ -354,7 +354,7 @@ namespace Content.Server.Power.EntitySystems
                     apcReceiver.Load = apcBattery.IdleLoad;
 
                     // Try to draw power from the battery if there isn't sufficient external power
-                    var requireBattery = !powered && !apcReceiver.PowerDisabled;
+                    var requireBattery = !powered && !apcReceiver.PowerDisabled && apcBattery.BatteryBackup; // ADT-Tweak
 
                     if (requireBattery)
                     {

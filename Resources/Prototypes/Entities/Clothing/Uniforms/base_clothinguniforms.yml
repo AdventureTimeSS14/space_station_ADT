@@ -70,10 +70,10 @@
     slots: [underwearb, underweart]
   - type: Tag
     tags:
+      - ClothMade
+      - Recyclable
       - ADTJumpSuitSacrifice
       - WhitelistChameleon
-  - type: HidesSlots
-    hidesSlots: [ UNDERWEART, UNDERWEARB, POCKET ]
   #ADT-Tweak-End
 
 - type: entity

@@ -11,3 +11,11 @@ mob-slime-stage-adult = взрослый
 slime-examined-tamer = [color=green]Кажется, он рад вас видеть![/color]
 slime-interaction-tame = Похоже, вы теперь ему нравитесь!
 slime-interaction-tame-fail = Похоже, вы ему не интересны.
+
+slime-speech-greet = Привет!
+slime-speech-grrr = Grrr...
+slime-speech-follow = { $slime } следует за { $target }!
+slime-speech-attack = { $slime } атакует { $target }!
+slime-speech-attack-friend = Grrr... Это мой друг!
+slime-speech-attack-wait = На кого мне напасть?
+slime-speech-address = слайм

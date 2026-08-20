@@ -161,7 +161,7 @@
     - type: NightVision
       innate: true
       shader: ADTModernNightVisionShaderStrong
-      effectPrototype: ADTEffectNightVisionTajaran
+      effectPrototype: ADTEffectNightVisionStrong
 
 - type: entity
   parent: OrganBaseOrganic

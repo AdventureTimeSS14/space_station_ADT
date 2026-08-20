@@ -139,12 +139,17 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
             return;
         }
 
+        if (HasRockAt(target))
+            return;
+
         var field = Spawn(proto, target);
         if (!TryComp<ADTResonanceFieldComponent>(field, out var comp))
             return;
 
         comp.Creator = user;
-        comp.BurstTime = _timing.CurTime + comp.AutoDelay;
+        comp.Mode = ADTResonatorMode.Manual;
+        comp.FailureProbability = 1f;
+        comp.BurstTime = _timing.CurTime + comp.Lifetime;
         _appearance.SetData(field, ADTResonanceFieldVisuals.Mode, comp.Mode);
         Dirty(field, comp);
     }
@@ -294,7 +299,6 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
 
             var field = Spawn(resonator.FieldProto, target);
             SetupField(field, (resonatorUid, resonator), ent.Comp.Creator ?? resonatorUid, ent.Comp.FailureProbability + ent.Comp.AddedFailure);
-            resonator.Fields.Add(field);
         }
     }
 
@@ -305,6 +309,20 @@ public sealed class ADTResonatorSystem : SharedADTResonatorSystem
 
         var tile = _map.TileIndicesFor(gridUid, grid, coords);
         return _map.GridTileToLocal(gridUid, grid, tile);
+    }
+
+    private bool HasRockAt(EntityCoordinates coords)
+    {
+        var rocks = new HashSet<Entity<GatherableComponent>>();
+        _lookup.GetEntitiesInRange(coords, 0.1f, rocks);
+
+        foreach (var rock in rocks)
+        {
+            if (!TerminatingOrDeleted(rock))
+                return true;
+        }
+
+        return false;
     }
 
     private Entity<ADTResonanceFieldComponent>? FindFieldAt(EntityCoordinates coords)

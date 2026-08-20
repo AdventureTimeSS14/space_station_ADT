@@ -461,6 +461,52 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("antag", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AntagRollBonus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("antag_roll_bonus_id");
+
+                    b.Property<string>("Antag")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("antag");
+
+                    b.Property<int>("MissedRounds")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("missed_rounds");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_antag_roll_bonus");
+
+                    b.HasIndex("UserId", "Antag")
+                        .IsUnique();
+
+                    b.ToTable("antag_roll_bonus", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AntagRollBonusWipe", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("antag_roll_bonus_wipe_id");
+
+                    b.Property<DateTime>("LastWipe")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("last_wipe");
+
+                    b.HasKey("Id")
+                        .HasName("PK_antag_roll_bonus_wipe");
+
+                    b.ToTable("antag_roll_bonus_wipe", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.AssignedUserId", b =>
                 {
                     b.Property<int>("Id")
@@ -1111,6 +1157,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
+
+                    b.Property<string>("ExploitableInfo")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("exploitable_info");
 
                     b.Property<string>("EyeColor")
                         .IsRequired()

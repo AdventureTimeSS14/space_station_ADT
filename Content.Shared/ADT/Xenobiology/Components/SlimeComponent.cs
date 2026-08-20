@@ -150,4 +150,41 @@ public sealed partial class SlimeComponent : Component
 
     [DataField, AutoNetworkedField]
     public float FriendSightRange = 10f;
+
+    /// <summary>
+    /// How much this slime likes its tamer. 0-1.
+    /// Grows when the slime eats monkeys, shrinks when upset.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float Friendship;
+
+    /// <summary>
+    /// How much friendship is gained per eaten monkey.
+    /// </summary>
+    [DataField]
+    public float FriendshipPerMeal = 0.1f;
+
+    /// <summary>
+    /// How much friendship is required for the slime to follow commands.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float MinFriendshipToCommand = 0.15f;
+
+    /// <summary>
+    /// How much friendship is lost when the slime refuses an order.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float FriendshipLossOnRefusal = 0.1f;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid? FollowingTarget;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan NextFollowUpdate;
+
+    [DataField, AutoNetworkedField]
+    public float ChaseSpeedMultiplier = 1.3f;
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan StopDuration = TimeSpan.FromSeconds(10);
 }

@@ -1,0 +1,94 @@
+- type: comboList
+  id: TonfaMoves
+  combos:
+  - TonfaSolarPlexus
+  - TonfaRibs
+  - TonfaWrist
+  - TonfaLegSweep
+  - TonfaGrabBreak
+
+- type: comboList
+  id: TonfaSteelMoves
+  combos:
+  - TonfaSolarPlexus
+  - TonfaRibsSteel
+  - TonfaWristSteel
+  - TonfaLegSweep
+  - TonfaGrabBreak
+
+- type: combo
+  id: TonfaSolarPlexus
+  name: tonfa-combo-solar-plexus
+  martialArtsForm: Tonfa
+  attacks:
+  - Grab
+  - HarmLight
+  event: !type:TonfaSolarPlexusPerformedEvent {}
+  staminaDamage: 40
+
+- type: combo
+  id: TonfaRibs
+  name: tonfa-combo-ribs
+  martialArtsForm: Tonfa
+  attacks:
+  - HarmLight
+  - Harm
+  event: !type:TonfaRibsPerformedEvent {}
+  extraDamage: 10
+
+- type: combo
+  id: TonfaRibsSteel
+  name: tonfa-combo-ribs
+  martialArtsForm: Tonfa
+  attacks:
+  - HarmLight
+  - Harm
+  event: !type:TonfaRibsPerformedEvent {}
+  extraDamage: 20
+
+- type: combo
+  id: TonfaWrist
+  name: tonfa-combo-wrist
+  martialArtsForm: Tonfa
+  attacks:
+  - HarmLight
+  - HarmLight
+  - Harm
+  event: !type:TonfaWristPerformedEvent {}
+  extraDamage: 5
+
+- type: combo
+  id: TonfaWristSteel
+  name: tonfa-combo-wrist
+  martialArtsForm: Tonfa
+  attacks:
+  - HarmLight
+  - HarmLight
+  - Harm
+  event: !type:TonfaWristPerformedEvent {}
+  extraDamage: 13
+
+- type: combo
+  id: TonfaLegSweep
+  name: tonfa-combo-leg-sweep
+  martialArtsForm: Tonfa
+  attacks:
+  - Grab
+  - Grab
+  - Harm
+  event: !type:TonfaLegSweepPerformedEvent {}
+  paralyzeTime: 3
+  dropItems: false
+
+- type: combo
+  id: TonfaGrabBreak
+  name: tonfa-combo-grab-break
+  martialArtsForm: Tonfa
+  attacks:
+  - HarmLight
+  - HarmLight
+  - HarmLight
+  event: !type:TonfaGrabBreakPerformedEvent {}
+  paralyzeTime: 3
+  dropItems: false
+  thrownSpeed: 7

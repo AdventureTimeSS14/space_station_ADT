@@ -213,6 +213,8 @@
       shortscale: 0.85
     - type: NightVision
       innate: true
+      shader: ADTModernNightVisionShaderMedium
+      effectPrototype: ADTEffectNightVisionMedium
   # ADT-tweak-end
 
 - type: entity
@@ -324,7 +326,7 @@
   id: OrganMothLungs
 
 - type: entity
-  parent: [OrganBaseHeart, OrganMothInternal, OrganAnimalMetabolizer]
+  parent: [OrganBaseHeart, OrganMothInternal, OrganMothMetabolizer]
   id: OrganMothHeart
 
 - type: entity

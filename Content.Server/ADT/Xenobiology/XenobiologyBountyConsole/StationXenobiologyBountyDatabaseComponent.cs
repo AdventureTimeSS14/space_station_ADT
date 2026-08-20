@@ -1,7 +1,4 @@
 using Content.Shared.ADT.Xenobiology.XenobiologyBountyConsole;
-using Content.Shared.Cargo;
-using Content.Shared.Cargo.Prototypes;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.ADT.Xenobiology.XenobiologyBountyConsole;
@@ -24,25 +21,6 @@ public sealed partial class StationXenobiologyBountyDatabaseComponent : Componen
     /// </summary>
     [DataField]
     public List<XenobiologyBountyHistoryData> History = [];
-
-    /// <summary>
-    /// Used to determine unique order IDs
-    /// </summary>
-    [DataField]
-    public int TotalBounties;
-
-    /// <summary>
-    /// A list of bounty IDs that have been checked this tick.
-    /// Used to prevent multiplying bounty prices.
-    /// </summary>
-    [DataField]
-    public HashSet<string> CheckedBounties = new();
-
-    /// <summary>
-    /// The group that bounties are pulled from.
-    /// </summary>
-    [DataField]
-    public ProtoId<CargoBountyGroupPrototype> Group = "StationBounty";
 
     /// <summary>
     /// The time at which players will be able to skip the next bounty.

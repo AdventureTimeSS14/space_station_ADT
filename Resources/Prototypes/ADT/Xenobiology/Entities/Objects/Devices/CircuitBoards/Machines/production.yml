@@ -9,8 +9,30 @@
   - type: MachineBoard
     prototype: SlimeGrinder
     stackRequirements:
-      Manipulator: 5
       Steel: 5
+    partRequirements:
+      Servo: 3
+      MatterBin: 2
+    tagRequirements:
+      Knife:
+        amount: 2
+        defaultPrototype: KitchenKnife
+        examineName: construction-insert-info-examine-name-knife
+
+- type: entity
+  id: ADTXenobiologyMonkeyRecyclerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: monkey recycler machine board
+  description: A machine printed circuit board for a monkey recycler.
+  components:
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: ADTXenobiologyMonkeyRecycler
+    stackRequirements:
+      Steel: 5
+    partRequirements:
+      MatterBin: 2
     tagRequirements:
       Knife:
         amount: 2

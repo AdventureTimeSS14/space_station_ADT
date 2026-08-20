@@ -73,6 +73,7 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction PosingOffsetDown = "PosingOffsetDown"; // ADT-Tweak
         public static readonly BoundKeyFunction PosingRotateNegative = "PosingRotateNegative"; // ADT-Tweak
         public static readonly BoundKeyFunction PosingRotatePositive = "PosingRotatePositive"; // ADT-Tweak
+        public static readonly BoundKeyFunction SmartEquipNeck = "SmartEquipNeck"; // ADT-Tweak-SmartEquipNeck
 
         public static readonly BoundKeyFunction ArcadeUp = "ArcadeUp";
         public static readonly BoundKeyFunction ArcadeDown = "ArcadeDown";
@@ -144,5 +145,6 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction MappingOpenContextMenu = "MappingOpenContextMenu";
         public static readonly BoundKeyFunction PickupHumans = "PickupHumans"; // ADT-Tweak
         public static readonly BoundKeyFunction ResistGrab = "ResistGrab"; // ADT-Tweak
+        public static readonly BoundKeyFunction ADTDoorEmergencyAccess = "ADTDoorEmergencyAccess"; // ADT-Tweak
     }
 }

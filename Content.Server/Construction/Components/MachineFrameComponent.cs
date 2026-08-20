@@ -1,4 +1,5 @@
-﻿using Content.Shared.Construction.Components;
+﻿using Content.Shared.ADT.Construction.Prototypes;
+using Content.Shared.Construction.Components;
 using Content.Shared.Stacks;
 using Content.Shared.Tag;
 using Robust.Shared.Containers;
@@ -18,6 +19,11 @@ namespace Content.Server.Construction.Components
         [ViewVariables]
         public readonly Dictionary<ProtoId<StackPrototype>, int> MaterialProgress = new();
 
+        // ADT-Tweak-Start: machine parts with tiers
+        [ViewVariables]
+        public readonly Dictionary<ProtoId<MachinePartPrototype>, int> PartProgress = new();
+        // ADT-Tweak-End
+
         [ViewVariables]
         public readonly Dictionary<string, int> ComponentProgress = new();
 
@@ -26,6 +32,11 @@ namespace Content.Server.Construction.Components
 
         [ViewVariables]
         public Dictionary<ProtoId<StackPrototype>, int> MaterialRequirements = new();
+
+        // ADT-Tweak-Start: machine parts with tiers
+        [ViewVariables]
+        public Dictionary<ProtoId<MachinePartPrototype>, int> PartRequirements = new();
+        // ADT-Tweak-End
 
         [ViewVariables]
         public Dictionary<string, GenericPartInfo> ComponentRequirements = new();

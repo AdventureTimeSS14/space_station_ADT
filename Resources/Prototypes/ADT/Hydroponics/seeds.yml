@@ -112,3 +112,174 @@
       Min: 1
       Max: 4
       PotencyDivisor: 25
+
+- type: seed
+  id: ADTSeedLavalandCactus
+  name: seeds-adt-lavaland-cactus-name
+  noun: seeds-noun-seeds
+  displayName: seeds-adt-lavaland-cactus-display-name
+  plantRsi: ADT/Objects/Specific/Hydroponics/lavaland_cactus.rsi
+  packetPrototype: ADTSeedLavalandCactusPacket
+  productPrototypes:
+    - ADTFoodCactusBerry
+  lifespan: 50
+  endurance: 25
+  maturation: 7
+  production: 4
+  yield: 4
+  potency: 50
+  growthStages: 2
+  waterConsumption: 0.30
+  idealHeat: 320
+  heatTolerance: 60
+  lowPressureTolerance: 20
+  highPressureTolerance: 140
+  chemicals:
+    Vitamin:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 25
+    Nutriment:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 25
+    ADTVitriumFroth:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 12
+
+- type: seed
+  id: ADTSeedPolypore
+  name: seeds-adt-polypore-name
+  noun: seeds-noun-spores
+  displayName: seeds-adt-polypore-display-name
+  plantRsi: ADT/Objects/Specific/Hydroponics/polypore.rsi
+  packetPrototype: ADTSeedPolyporePacket
+  productPrototypes:
+    - ADTFoodMushroomShavings
+  lifespan: 50
+  endurance: 25
+  maturation: 7
+  production: 4
+  yield: 4
+  potency: 50
+  growthStages: 3
+  waterConsumption: 0.30
+  idealHeat: 320
+  heatTolerance: 60
+  lowPressureTolerance: 20
+  highPressureTolerance: 140
+  chemicals:
+    Sugar:
+      Min: 1
+      Max: 3
+      PotencyDivisor: 16
+    Ethanol:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 25
+
+- type: seed
+  id: ADTSeedPorcini
+  name: seeds-adt-porcini-name
+  noun: seeds-noun-spores
+  displayName: seeds-adt-porcini-display-name
+  plantRsi: ADT/Objects/Specific/Hydroponics/porcini.rsi
+  packetPrototype: ADTSeedPorciniPacket
+  productPrototypes:
+    - ADTFoodMushroomLeaf
+  lifespan: 50
+  endurance: 25
+  maturation: 7
+  production: 4
+  yield: 4
+  potency: 50
+  growthStages: 3
+  waterConsumption: 0.30
+  idealHeat: 320
+  heatTolerance: 60
+  lowPressureTolerance: 20
+  highPressureTolerance: 140
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 3
+      PotencyDivisor: 16
+    ADTVitriumFroth:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 25
+    Nicotine:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 25
+
+- type: seed
+  id: ADTSeedInocybe
+  name: seeds-adt-inocybe-name
+  noun: seeds-noun-spores
+  displayName: seeds-adt-inocybe-display-name
+  plantRsi: ADT/Objects/Specific/Hydroponics/inocybe.rsi
+  packetPrototype: ADTSeedInocybePacket
+  productPrototypes:
+    - ADTFoodMushroomCap
+  lifespan: 50
+  endurance: 25
+  maturation: 7
+  production: 4
+  yield: 4
+  potency: 50
+  growthStages: 3
+  waterConsumption: 0.30
+  idealHeat: 320
+  heatTolerance: 60
+  lowPressureTolerance: 20
+  highPressureTolerance: 140
+  chemicals:
+    MindbreakerToxin:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 25
+    ADTEntropicPolypnium:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 12
+    SpaceDrugs:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 25
+
+- type: seed
+  id: ADTSeedEmbershroom
+  name: seeds-adt-embershroom-name
+  noun: seeds-noun-spores
+  displayName: seeds-adt-embershroom-display-name
+  plantRsi: ADT/Objects/Specific/Hydroponics/ember.rsi
+  packetPrototype: ADTSeedEmbershroomPacket
+  productPrototypes:
+    - ADTFoodMushroomStem
+  lifespan: 50
+  endurance: 25
+  maturation: 7
+  production: 4
+  yield: 4
+  potency: 50
+  growthStages: 3
+  waterConsumption: 0.30
+  idealHeat: 320
+  heatTolerance: 60
+  lowPressureTolerance: 20
+  highPressureTolerance: 140
+  chemicals:
+    ADTTineaLuxor:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 25
+    Vitamin:
+      Min: 1
+      Max: 1
+      PotencyDivisor: 50
+    SpaceDrugs:
+      Min: 1
+      Max: 1
+      PotencyDivisor: 50

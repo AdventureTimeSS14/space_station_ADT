@@ -1,0 +1,193 @@
+- type: constructionGraph
+  id: ADTSinewRestraints
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: restraints
+      steps:
+      - material: ADTSinew
+        amount: 1
+        doAfter: 1
+  - node: restraints
+    entity: ADTSinewRestraints
+
+- type: constructionGraph
+  id: ADTBoneBracers
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bracers
+      steps:
+      - material: Bones
+        amount: 2
+      - material: ADTSinew
+        amount: 1
+        doAfter: 2
+  - node: bracers
+    entity: ADTClothingHandsBoneBracers
+
+- type: constructionGraph
+  id: ADTBoneTalisman
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: talisman
+      steps:
+      - material: Bones
+        amount: 2
+      - material: ADTSinew
+        amount: 1
+        doAfter: 2
+  - node: talisman
+    entity: ADTClothingNeckBoneTalisman
+
+- type: constructionGraph
+  id: ADTBonePickaxe
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pickaxe
+      steps:
+      - material: Bones
+        amount: 4
+      - material: ADTSinew
+        amount: 2
+        doAfter: 4
+  - node: pickaxe
+    entity: ADTBonePickaxe
+
+- type: constructionGraph
+  id: ADTBoneScythe
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: scythe
+      steps:
+      - material: Bones
+        amount: 5
+      - material: ADTSinew
+        amount: 2
+        doAfter: 4
+  - node: scythe
+    entity: ADTBoneScythe
+
+- type: constructionGraph
+  id: ADTBoneAxe
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: axe
+      steps:
+      - material: Bones
+        amount: 6
+      - material: ADTSinew
+        amount: 3
+        doAfter: 5
+  - node: axe
+    entity: ADTBoneAxe
+
+- type: constructionGraph
+  id: ADTLightBoneArmor
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: armor
+      steps:
+      - material: Bones
+        amount: 2
+      - material: ADTSinew
+        amount: 2
+      - material: GoliathHide
+        amount: 1
+        doAfter: 5
+  - node: armor
+    entity: ADTClothingOuterArmorBoneLight
+
+- type: constructionGraph
+  id: ADTGoliathCloak
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: cloak
+      steps:
+      - material: Cloth
+        amount: 2
+      - material: ADTSinew
+        amount: 2
+      - material: GoliathHide
+        amount: 2
+        doAfter: 5
+  - node: cloak
+    entity: ADTClothingOuterGoliathCloak
+
+- type: construction
+  id: ADTSinewRestraints
+  graph: ADTSinewRestraints
+  startNode: start
+  targetNode: restraints
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: ADTClothingHandsBoneBracers
+  graph: ADTBoneBracers
+  startNode: start
+  targetNode: bracers
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: ADTClothingNeckBoneTalisman
+  graph: ADTBoneTalisman
+  startNode: start
+  targetNode: talisman
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: ADTBonePickaxe
+  graph: ADTBonePickaxe
+  startNode: start
+  targetNode: pickaxe
+  category: construction-category-tools
+  objectType: Item
+
+- type: construction
+  id: ADTBoneScythe
+  graph: ADTBoneScythe
+  startNode: start
+  targetNode: scythe
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTBoneAxe
+  graph: ADTBoneAxe
+  startNode: start
+  targetNode: axe
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTClothingOuterArmorBoneLight
+  graph: ADTLightBoneArmor
+  startNode: start
+  targetNode: armor
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: ADTClothingOuterGoliathCloak
+  graph: ADTGoliathCloak
+  startNode: start
+  targetNode: cloak
+  category: construction-category-clothing
+  objectType: Item

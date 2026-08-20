@@ -24,6 +24,7 @@ namespace Content.Client.ADT.Chemistry.UI
         private float _batteryCharge;
         private float _batteryMaxCharge;
         private float _currentReceiving;
+        private bool _hasCell = true;
         public event Action<string>? OnDispenseReagentButtonPressed;
         /// <summary>
         /// Create and initialize the dispenser UI client-side. Creates the basic layout,
@@ -44,8 +45,6 @@ namespace Content.Client.ADT.Chemistry.UI
                 return;
 
             ReagentList.Children.Clear();
-            //Sort inventory by reagentLabel
-            inventory.Sort((x, y) => string.Compare(x.ReagentLabel, y.ReagentLabel, StringComparison.Ordinal));
 
             foreach (var card in inventory
                          .Select(item => new EnergyReagentCardControl(item)))
@@ -66,6 +65,7 @@ namespace Content.Client.ADT.Chemistry.UI
             _batteryMaxCharge = state.BatteryMaxCharge;
             _batteryCharge = state.BatteryCharge;
             _currentReceiving = state.CurrentReceivingEnergy;
+            _hasCell = state.HasCell;
 
             UpdateContainerInfo(state);
             UpdateReagentsList(state.Inventory);
@@ -84,6 +84,14 @@ namespace Content.Client.ADT.Chemistry.UI
 
         private void UpdateBatteryPercent()
         {
+            if (!_hasCell)
+            {
+                BatteryStatusLabel.Text = Loc.GetString("energy-reagent-dispenser-no-cell");
+                BatteryStatusLabel.StyleClasses.Clear();
+                BatteryStatusLabel.StyleClasses.Add("Disabled");
+                return;
+            }
+
             var batteryPercent = _batteryMaxCharge > 0
                 ? _batteryCharge / _batteryMaxCharge * 100
                 : 0;

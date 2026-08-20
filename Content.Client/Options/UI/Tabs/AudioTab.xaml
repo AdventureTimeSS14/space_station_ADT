@@ -17,6 +17,9 @@
                 <ui:OptionSlider Name="SliderVolumeAmbience" Title="{Loc 'ui-options-ambience-volume'}" />
                 <ui:OptionSlider Name="SliderVolumeLobby" Title="{Loc 'ui-options-lobby-volume'}" />
                 <ui:OptionSlider Name="SliderVolumeInterface" Title="{Loc 'ui-options-interface-volume'}" />
+                <!-- ADT Boss music start -->
+                <ui:OptionSlider Name="SliderVolumeBossMusic" Title="{Loc 'ui-options-boss-music-volume'}" />
+                <!-- ADT Boss music end -->
                 <ui:OptionSlider Name="SliderMaxAmbienceSounds" Title="{Loc 'ui-options-ambience-max-sounds'}" />
                 <!-- ADT Barks start -->
                 <ui:OptionDropDown Name="DropDownBarksOrTTS" Title="{Loc 'ui-options-barks-or-tts'}"
@@ -25,8 +28,21 @@
                 <CheckBox Name="LobbyMusicCheckBox" Text="{Loc 'ui-options-lobby-music'}" />
                 <CheckBox Name="RestartSoundsCheckBox" Text="{Loc 'ui-options-restart-sounds'}" />
                 <CheckBox Name="EventMusicCheckBox" Text="{Loc 'ui-options-event-music'}" />
+                <!-- ADT Boss music start -->
+                <CheckBox Name="BossMusicCheckBox" Text="{Loc 'ui-options-boss-music'}" />
+                <!-- ADT Boss music end -->
                 <CheckBox Name="AdminSoundsCheckBox" Text="{Loc 'ui-options-admin-sounds'}" />
                 <CheckBox Name="BwoinkSoundCheckBox" Text="{Loc 'ui-options-bwoink-sound'}" />
+                <!-- ADT-tweak start -->
+                <CheckBox Name="ChatHighlightSoundCheckBox" Text="{Loc 'ui-options-chat-highlight-sound'}" />
+                <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+                    <ui:OptionDropDown Name="DropDownChatHighlightSound" Title="{Loc 'ui-options-chat-highlight-sound-choice'}"
+                                     Margin="0 0 4 0" />
+                    <Button Name="ChatHighlightSoundPlayButton" Text="{Loc 'ui-options-chat-highlight-sound-play'}" />
+                </BoxContainer>
+                <ui:OptionSlider Name="SliderChatHighlightSoundVolume" Title="{Loc 'ui-options-chat-highlight-sound-volume'}"
+                                 Margin="0 0 0 8" />
+                <!-- ADT-tweak end -->
             </BoxContainer>
         </BoxContainer>
         <ui:OptionsTabControlRow Name="Control" Access="Public" />

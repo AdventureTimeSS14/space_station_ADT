@@ -42,9 +42,11 @@ using Content.Shared.ADT.DNAGunLocker;
 using Content.Shared.ADT.Utility;
 using Content.Shared.ADT.Weapons.Hitscan.Events;
 using Content.Shared.ADT.Mech.Components;
+using Content.Shared.ADT.Weapons.Ranged.WearableGun;
 using Content.Shared.Electrocution;
 using Content.Shared.ADT.Crawling.Components;
 using Content.Shared.ADT.Camera; // ADT screenshake
+using Content.Shared.Inventory.VirtualItem;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -218,7 +220,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     {
         gun = default;
 
-        // ADT Content start
+        // ADT-Tweak-Start
         if (TryComp<MechPilotComponent>(entity, out var mechPilot))
         {
             if (HasComp<MechControlLockedComponent>(entity))
@@ -232,13 +234,23 @@ public abstract partial class SharedGunSystem : EntitySystem
                 return true;
             }
         }
-        // ADT Content end
+
         if (_hands.GetActiveItem(entity) is { } held &&
-            TryComp(held, out GunComponent? gunComp))
+            TryComp(held, out GunComponent? gunComp) &&
+            !HasComp<ADTWearableGunComponent>(held))
         {
             gun = (held, gunComp);
             return true;
         }
+
+        if (TryComp<ADTWearableGunUserComponent>(entity, out var wearableUser) &&
+            TryComp(wearableUser.Gun, out GunComponent? wearableGun) &&
+            (_hands.GetActiveItem(entity) is not { } inHand || HasComp<VirtualItemComponent>(inHand)))
+        {
+            gun = (wearableUser.Gun.Value, wearableGun);
+            return true;
+        }
+        // ADT-Tweak-End
 
         // Last resort is check if the entity itself is a gun.
         if (TryComp(entity, out gunComp))
