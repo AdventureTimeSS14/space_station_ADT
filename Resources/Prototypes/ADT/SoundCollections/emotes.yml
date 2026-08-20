@@ -56,6 +56,12 @@
   files:
     - /Audio/ADT/IPC/startup.ogg
 
+- type: soundCollection
+  id: CalculatingIPC
+  files:
+    - /Audio/ADT/IPC/calculating1.ogg
+    - /Audio/ADT/IPC/calculating2.ogg
+
 # Novakid
 
 - type: soundCollection
