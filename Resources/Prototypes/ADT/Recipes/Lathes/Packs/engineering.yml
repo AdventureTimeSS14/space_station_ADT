@@ -21,7 +21,6 @@
 - type: latheRecipePack
   id: ADTMicsStaticPack
   recipes:
-  - StorageCanister
   - Lantern
   - OxygenTank
   - NitrogenTank
