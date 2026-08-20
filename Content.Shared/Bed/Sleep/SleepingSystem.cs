@@ -152,15 +152,14 @@ public sealed partial class SleepingSystem : EntitySystem
         }
 
         // ADT-Tweak start
-        if (MetaData(ent.Owner).EntityLifeStage >= EntityLifeStage.Terminating)
+        if (TerminatingOrDeleted(ent.Owner))
             return;
         // ADT Tweak end
 
         _stun.TryUnstun(ent.Owner);
         _stun.TryStanding(ent.Owner);
 
-        if (TryComp<SpamEmitSoundComponent>(ent, out _)) // ADT-Tweak
-            RemComp<SpamEmitSoundComponent>(ent);
+        RemCompDeferred<SpamEmitSoundComponent>(ent); // ADT Tweak
     }
 
     private void OnCompInit(Entity<SleepingComponent> ent, ref ComponentInit args)
