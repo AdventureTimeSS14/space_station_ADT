@@ -1,6 +1,11 @@
+using Content.Shared.ADT.Ghost.GhostTypes;
+using Content.Shared.Clothing;
+using Content.Shared.DisplacementMap;
+using Content.Shared.Ghost;
 using Content.Shared.GhostTypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
+using Content.Shared.Inventory;
 using Robust.Client.GameObjects;
 using Robust.Shared.Analyzers;
 using Robust.Shared.GameObjects;
@@ -20,11 +25,60 @@ public sealed class GhostBodyVisualsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<GhostBodyAppearanceComponent, AfterAutoHandleStateEvent>(OnState);
+        SubscribeLocalEvent<EquipmentVisualsUpdatedEvent>(OnEquipmentVisualsUpdated);
     }
 
     private void OnState(Entity<GhostBodyAppearanceComponent> ent, ref AfterAutoHandleStateEvent args)
     {
         ApplyAppearance(ent);
+    }
+
+    private void OnEquipmentVisualsUpdated(EquipmentVisualsUpdatedEvent args)
+    {
+        if (!HasComp<GhostComponent>(args.Equipee))
+            return;
+
+        if (!TryComp<SpriteComponent>(args.Equipee, out var sprite))
+            return;
+
+        var displacement = GetDisplacement(args.Equipee, args.Slot);
+
+        foreach (var key in args.RevealedLayers)
+        {
+            if (!_sprite.LayerMapTryGet((args.Equipee, sprite), key, out var index, false))
+                continue;
+
+            if (sprite[index] is not SpriteComponent.Layer layer)
+                continue;
+
+            if (layer.CopyToShaderParameters != null)
+                continue;
+
+            if (layer.ShaderPrototype == null)
+            {
+                sprite.LayerSetShader(index, SpriteSystem.UnshadedId.Id);
+                continue;
+            }
+
+            if (displacement != null && layer.ShaderPrototype == displacement.ShaderOverride)
+                sprite.LayerSetShader(index, displacement.ShaderOverrideUnshaded);
+        }
+    }
+
+    private DisplacementData? GetDisplacement(EntityUid uid, string slot)
+    {
+        if (!TryComp<InventoryComponent>(uid, out var inventory))
+            return null;
+
+        var sex = CompOrNull<HumanoidProfileComponent>(uid)?.Sex;
+
+        if (sex == Sex.Male && inventory.MaleDisplacements.Count > 0)
+            return inventory.MaleDisplacements.GetValueOrDefault(slot);
+
+        if (sex == Sex.Female && inventory.FemaleDisplacements.Count > 0)
+            return inventory.FemaleDisplacements.GetValueOrDefault(slot);
+
+        return inventory.Displacements.GetValueOrDefault(slot);
     }
 
     private void ApplyAppearance(Entity<GhostBodyAppearanceComponent> ent)
@@ -75,7 +129,7 @@ public sealed class GhostBodyVisualsSystem : EntitySystem
                         {
                             RsiPath = rsi.RsiPath.ToString(),
                             State = rsi.RsiState,
-                            Shader = proto.Shader,
+                            Shader = proto.Shader ?? SpriteSystem.UnshadedId.Id,
                         };
                         var newLayer = _sprite.AddLayer(target, layerData, baseIndex + i + 1);
                         _sprite.LayerMapSet(target, layerId, newLayer);
