@@ -7,6 +7,7 @@ using Content.Shared.Polymorph;
 using Content.Server.Polymorph.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using System.Linq;
 
 namespace Content.Server.ADT.EntityEffects;
 
@@ -22,15 +23,15 @@ public sealed partial class ScrambleNearbyEffectSystem : EntityEffectSystem<Tran
         var uid = entity.Owner;
         var effect = args.Effect;
 
-        var allSpecies = new List<string>();
-        foreach (var species in _prototype.EnumeratePrototypes<SpeciesPrototype>())
-        {
-            if (species.ID == "Skeleton" || species.ID == "IPC" || species.ID == "Cyborg")
-                continue;
-            allSpecies.Add(species.ID);
-        }
+        var species = _prototype.EnumeratePrototypes<SpeciesPrototype>().ToList();
 
-        if (allSpecies.Count == 0)
+        if (effect.SpeciesWhitelist != null && effect.SpeciesWhitelist.Count > 0)
+            species = species.Where(q => effect.SpeciesWhitelist.Any(w => q.ID == w)).ToList();
+
+        if (effect.SpeciesBlacklist != null && effect.SpeciesBlacklist.Count > 0)
+            species = species.Where(q => !effect.SpeciesBlacklist.Any(w => q.ID == w)).ToList();
+
+        if (species.Count == 0)
             return;
 
         foreach (var target in _lookup.GetEntitiesInRange(uid, effect.Radius))
@@ -38,13 +39,11 @@ public sealed partial class ScrambleNearbyEffectSystem : EntityEffectSystem<Tran
             if (!TryComp<HumanoidProfileComponent>(target, out _))
                 continue;
 
-            var randomSpecies = _random.Pick(allSpecies);
-            if (!_prototype.TryIndex<SpeciesPrototype>(randomSpecies, out var species))
-                continue;
+            var randomSpecies = _random.Pick(species);
 
             var config = new PolymorphConfiguration
             {
-                Entity = species.Prototype,
+                Entity = randomSpecies.Prototype,
                 TransferDamage = true,
                 Forced = true,
                 Inventory = PolymorphInventoryChange.Transfer,
