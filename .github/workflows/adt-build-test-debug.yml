@@ -1,5 +1,7 @@
 name: ADT Build & Test Debug Linux
 
+# Интеграционные тесты разбиты на шарды.
+
 on:
   push:
     branches: [ master, staging, stable ]
@@ -12,12 +14,8 @@ on:
 jobs:
   build:
     if: github.actor != 'IanComradeBot' && github.event.pull_request.draft == false
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-
-    runs-on: ${{ matrix.os }}
-    timeout-minutes: 90 # изменение
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
 
     steps:
     - name: Checkout Master
@@ -40,7 +38,67 @@ jobs:
       with:
         dotnet-version: 10.0.x
 
-    # изменение
+    - name: Install dependencies
+      run: dotnet restore
+
+    - name: Build Project
+      run: dotnet build --configuration DebugOpt --no-restore /m
+
+    - name: Run Content.Tests
+      shell: bash
+      run: dotnet test --no-build --configuration DebugOpt Content.Tests/Content.Tests.csproj -- NUnit.ConsoleOut=0 NUnit.TestOutputXml="logs" NUnit.WorkDirectory="$(pwd)/test_results"
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: content-build
+        path: bin/
+        if-no-files-found: error
+        compression-level: 0
+
+  integration-test:
+    name: integration-test (${{ matrix.name }})
+    if: github.actor != 'IanComradeBot' && github.event.pull_request.draft == false
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Веса в комментариях это замеренное процессорное время прогона от 19.08.2026. По ним и разложены шарды.
+          # ~651с одним тестом + ~12 GB RAM
+          - name: entity-dirty
+            where: "test =~ EntityTest.SpawnAndDirtyAllEntities"
+
+          # ~1090с
+          - name: maps
+            where: "test =~ PostMapInitTest or test =~ Tests.Mapping"
+
+          # ~1028с
+          - name: slow
+            where: "(test =~ EntityTest and test !~ SpawnAndDirtyAllEntities) or test =~ Tests.Access or test =~ Tests.Actions or test =~ Tests.Preferences or test =~ PrototypeTests or test =~ PrototypeSaveTest or test =~ Tests.Utility"
+
+          # ~624с. Всё остальное, включая новые тесты.
+          - name: core
+            where: "test !~ PostMapInitTest and test !~ Tests.Mapping and test !~ EntityTest and test !~ Tests.Access and test !~ Tests.Actions and test !~ Tests.Preferences and test !~ PrototypeTests and test !~ PrototypeSaveTest and test !~ Tests.Utility"
+
+    steps:
+    - name: Checkout Master
+      uses: actions/checkout@v4.2.2
+
+    - name: Setup Submodule
+      run: |
+        git submodule update --init --recursive
+
+    - name: Pull engine updates
+      uses: space-wizards/submodule-dependency@v0.1.5
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v4.1.0
+      with:
+        dotnet-version: 10.0.x
+
     - name: Increase swap space
       run: |
         echo "Before:"
@@ -60,16 +118,17 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
 
-    - name: Build Project
-      run: dotnet build --configuration DebugOpt --no-restore /m
+    - name: Download build artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: content-build
+        path: bin
 
-    - name: Run Content.Tests
+    - name: Run Integration Tests (${{ matrix.name }})
       shell: bash
-      run: dotnet test --no-build --configuration DebugOpt Content.Tests/Content.Tests.csproj -- NUnit.ConsoleOut=0 NUnit.TestOutputXml="logs" NUnit.WorkDirectory="$(pwd)/test_results"
-
-    - name: Run Content.IntegrationTests
-      shell: bash
-      # Изменение
+      env:
+        NUNIT_WHERE: ${{ matrix.where }}
+        SHARD_NAME: ${{ matrix.name }}
       run: |
         ( while true; do
             awk '/^MemTotal:/{t=$2} /^MemAvailable:/{a=$2} /^SwapTotal:/{st=$2} /^SwapFree:/{sf=$2} END{printf "%d %d\n",(t-a)/1024,(st-sf)/1024}' /proc/meminfo
@@ -80,7 +139,7 @@ jobs:
         export DOTNET_gcServer=1
 
         set +e
-        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed NUnit.TestOutputXml="logs" NUnit.WorkDirectory="$(pwd)/test_results"
+        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed NUnit.Where="$NUNIT_WHERE" NUnit.TestOutputXml="logs-$SHARD_NAME" NUnit.WorkDirectory="$(pwd)/test_results"
         code=$?
         set -e
 
@@ -97,14 +156,38 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: nunit3-results-${{ matrix.os }}
+        name: nunit3-results-${{ matrix.name }}
         path: test_results/*
         retention-days: 7
         compression-level: 9
+
+  # На всякий случай, если фильтр наебнется вдруг.
+  shard-report:
+    name: Shard report
+    if: always() && needs.integration-test.result != 'skipped'
+    needs: integration-test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Master
+      uses: actions/checkout@v4.2.2
+      with:
+        sparse-checkout: Tools/ADT
+        submodules: false
+
+    - name: Download all shard results
+      uses: actions/download-artifact@v4
+      with:
+        pattern: nunit3-results-*
+        path: shard-results
+
+    - name: Check shard balance and overlap
+      run: python3 Tools/ADT/ci_shard_report.py shard-results
+
   ci-success:
     name: Build & Test Debug
     needs:
       - build
+      - integration-test
     runs-on: ubuntu-latest
     steps:
       - name: CI succeeded
