@@ -66,22 +66,32 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # Веса в комментариях это замеренное процессорное время прогона от 19.08.2026. По ним и разложены шарды.
-          # ~651с одним тестом + ~12 GB RAM
+          # Веса это процессорное время прогона на линуксе от 20.08.2026, всего 2156с. По ним разложены шарды.
+          # В выражении обязан быть хотя бы один позитивный "test =~" иначе эта хуйня(NUnit) считает фильтр пустым и пропускает все тесты
+
+          # ~154с, ~14 GB RAM
           - name: entity-dirty
-            where: "test =~ EntityTest.SpawnAndDirtyAllEntities"
+            where: "test =~ Tests.EntityTest.SpawnAndDirtyAllEntities"
 
-          # ~1090с
-          - name: maps
-            where: "test =~ PostMapInitTest or test =~ Tests.Mapping"
+          # ~258с, ~15 GB RAM
+          - name: entity-rest
+            where: "test =~ Tests.EntityTest and test !~ SpawnAndDirtyAllEntities"
 
-          # ~1028с
+          # ~348с
+          - name: maps-a
+            where: "test =~ Tests.PostMapInitTest.NonGameMapsLoadableTest or test =~ Tests.PostMapInitTest.ShuttlesLoadableTest or test =~ Tests.PostMapInitTest.GridsLoadableTest or test =~ Tests.Mapping"
+
+          # ~495с. Остаток PostMapInitTest
+          - name: maps-b
+            where: "test =~ Tests.PostMapInitTest and test !~ NonGameMapsLoadableTest and test !~ ShuttlesLoadableTest and test !~ GridsLoadableTest"
+
+          # ~412с
           - name: slow
-            where: "(test =~ EntityTest and test !~ SpawnAndDirtyAllEntities) or test =~ Tests.Access or test =~ Tests.Actions or test =~ Tests.Preferences or test =~ PrototypeTests or test =~ PrototypeSaveTest or test =~ Tests.Utility"
+            where: "test =~ Tests.Access or test =~ Tests.Actions or test =~ Tests.Preferences or test =~ Tests.PrototypeTests or test =~ Tests.PrototypeSaveTest or test =~ Tests.Utility"
 
-          # ~624с. Всё остальное, включая новые тесты.
+          # ~489с. Всё остальное, включая новые тесты
           - name: core
-            where: "test !~ PostMapInitTest and test !~ Tests.Mapping and test !~ EntityTest and test !~ Tests.Access and test !~ Tests.Actions and test !~ Tests.Preferences and test !~ PrototypeTests and test !~ PrototypeSaveTest and test !~ Tests.Utility"
+            where: "test =~ Content.IntegrationTests and test !~ Tests.EntityTest and test !~ Tests.PostMapInitTest and test !~ Tests.Mapping and test !~ Tests.Access and test !~ Tests.Actions and test !~ Tests.Preferences and test !~ Tests.PrototypeTests and test !~ Tests.PrototypeSaveTest and test !~ Tests.Utility"
 
     steps:
     - name: Checkout Master
