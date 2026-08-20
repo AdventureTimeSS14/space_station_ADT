@@ -51,9 +51,27 @@
       shader: unshaded
     - map: [ "enum.HumanoidVisualLayers.Head" ]
       shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      shader: unshaded
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
       shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.SnoutOverlay" ]
+      shader: unshaded
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Special" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
       shader: unshaded
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
       shader: unshaded
@@ -70,6 +88,8 @@
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
       shader: unshaded
     - map: [ "enum.HumanoidVisualLayers.RHand" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Overlay" ]
       shader: unshaded
     - map: [ "jumpsuit" ]
       shader: unshaded
