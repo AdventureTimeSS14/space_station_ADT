@@ -51,6 +51,8 @@ public class RPDSystem : EntitySystem
     [Dependency] private readonly SharedAtmosPipeLayersSystem _atmosPipeLayers = default!;
 
 
+    private const float InstantPlacementDelay = 0.7f;
+
     private HashSet<EntityUid> _intersectingEntities = new();
 
     public override void Initialize()
@@ -183,23 +185,14 @@ public class RPDSystem : EntitySystem
         #endregion
 
         if (component.InstantPlacement && component.CachedPrototype.Mode == RpdMode.ConstructObject)
-        {
-            var fx = Spawn(effectPrototype, location);
+            delay = InstantPlacementDelay;
+            
+        var effect = Spawn(effectPrototype, location);
 
-            if (component.BeamPrototype is { } beamPrototype)
-                RaiseLocalEvent(new RPDInstantPlacementEvent(args.User, fx, beamPrototype));
-
-            if (!FinalizeRPDOperation(uid, component, gridUid.Value, mapGrid, position, component.ConstructionDirection, component.ConstructionLayer, args.Target, args.User))
-                return;
-
-            _audio.PlayPredicted(component.SuccessSound, uid, args.User);
-            _charges.TryUseCharges(uid, cost);
-            args.Handled = true;
-            return;
-        }
+        if (component.BeamPrototype is { } beamPrototype)
+            RaiseLocalEvent(new RPDInstantPlacementEvent(args.User, effect, beamPrototype));
 
         // Try to start the do after
-        var effect = Spawn(effectPrototype, location);
         var ev = new RPDDoAfterEvent(GetNetCoordinates(location), component.ConstructionDirection, component.ConstructionLayer, component.ProtoId, cost, GetNetEntity(effect));
 
         var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, uid, target: args.Target, used: uid)
