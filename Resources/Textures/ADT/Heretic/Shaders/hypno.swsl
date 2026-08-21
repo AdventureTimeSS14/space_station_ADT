@@ -25,10 +25,10 @@ void fragment() {
     highp float time = TIME * speed;
     lowp int timei = int(time) * 100 + int((time - floor(time)) * 100.);
     timei = int(float(timei) / 100.);
-    lowp int s1 = timei % steps;
-    lowp int s2 = (timei + 1) % steps;
+    lowp int s1 = int(mod(float(timei), float(steps)));
+    lowp int s2 = int(mod(float(timei + 1), float(steps)));
     highp float tfrac = (time - floor(time));
-    highp float m = float((int(tfrac * 100.) + int(time) * 1000) % steps) / 1000. + tfrac;
+    highp float m = mod(float(int(tfrac * 100.) + int(time) * 1000), float(steps)) / 1000. + tfrac;
     m = clamp(m, 0., 1.);
 
     // So fucking cursed
