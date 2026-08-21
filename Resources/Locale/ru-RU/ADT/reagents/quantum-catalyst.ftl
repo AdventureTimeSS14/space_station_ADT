@@ -1,0 +1,13 @@
+reagent-name-adt-catalyst-precursor1 = Горючий прекурсор
+reagent-desc-adt-catalyst-precursor1 = Едкая горючая смесь, первый этап синтеза квантового катализатора. Пахнет сваркой.
+reagent-name-adt-catalyst-precursor2 = Электролитный прекурсор
+reagent-desc-adt-catalyst-precursor2 = Синий электролитный раствор, второй этап синтеза квантового катализатора.
+reagent-name-adt-catalyst-precursor3 = Эфирный прекурсор
+reagent-desc-adt-catalyst-precursor3 = Маслянистая янтарная жидкость, третий этап синтеза квантового катализатора.
+reagent-name-adt-catalyst-precursor4 = Сульфаминовый прекурсор
+reagent-desc-adt-catalyst-precursor4 = Фиолетовая суспензия, четвёртый этап синтеза квантового катализатора.
+reagent-name-adt-catalyst-precursor5 = Радиоактивный прекурсор
+reagent-desc-adt-catalyst-precursor5 = Слабо светящийся зелёный раствор, пятый этап синтеза квантового катализатора.
+reagent-name-adt-quantum-catalyst = Квантовый катализатор
+reagent-desc-adt-quantum-catalyst = Пульсирующая фиолетовая жидкость, стабилизирующая квантовые сплетения материи. Требуется для создания квантовых машинных частей на протолате.
+reagent-physical-desc-adt-catalyst = Маслянистая и мерцающая

@@ -145,3 +145,10 @@
   id: XenoBluespace
   kind: source
   path: "/Textures/ADT/Xenobiology/Shaders/xeno_bluespace.swsl"
+
+- type: shader
+  id: GhostBody
+  kind: source
+  path: "/Textures/ADT/Shaders/ghost_body.swsl"
+  params:
+    visibility: 0.55

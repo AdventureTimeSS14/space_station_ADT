@@ -138,10 +138,10 @@ public sealed class ManifestListingsSystem : EntitySystem
             return Loc.GetString(data.Name);
 
         if (data.ProductEntity != null)
-            return Loc.GetString(_proto.Index(data.ProductEntity.Value).Name);
+            return _proto.Index(data.ProductEntity.Value).Name;
 
         if (data.ProductAction != null)
-            return Loc.GetString(_proto.Index(data.ProductAction.Value).Name);
+            return _proto.Index(data.ProductAction.Value).Name;
 
         return Loc.GetString("manifest-listing-entry-unknown");
     }

@@ -45,6 +45,7 @@ public sealed class CryoPodMetabolismSystem : EntitySystem
         component.Tier = tier;
         component.Multiplier = tier switch
         {
+            >= 5f => 1f / 1.8f,
             >= 4f => 1f / 1.4f,
             >= 3f => 1f / 1.25f,
             >= 2f => 1f / 1.1f,
