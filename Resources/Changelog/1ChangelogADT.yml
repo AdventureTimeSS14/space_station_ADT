@@ -14285,3 +14285,9 @@ Entries:
     id: 1834
     pr_number: 3237
     time: '2026-08-21T14:03:45Z'
+  - author: Golyb4ik
+    changes:
+      - {message: Болу теперь можно снимать на ходу, type: Tweak}
+    id: 1835
+    pr_number: 3244
+    time: '2026-08-21T17:41:28Z'
