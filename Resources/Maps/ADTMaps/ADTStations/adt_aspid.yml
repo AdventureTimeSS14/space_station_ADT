@@ -10198,6 +10198,13 @@ entities:
     - type: Transform
       pos: 64.45392,66.549126
       parent: 2
+- proto: ADTUniversalPipeDispenser
+  entities:
+  - uid: 238
+    components:
+    - type: Transform
+      pos: 40.5,-17.5
+      parent: 2
 - proto: ADTVasePlant2
   entities:
   - uid: 239

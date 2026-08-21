@@ -5464,6 +5464,13 @@ entities:
     - type: Transform
       pos: 19.489988,-22.598814
       parent: 2
+- proto: ADTUniversalPipeDispenser
+  entities:
+  - uid: 4153
+    components:
+    - type: Transform
+      pos: 22.5,7.5
+      parent: 2
 - proto: ADTVehicleKeyJanicart
   entities:
   - uid: 78

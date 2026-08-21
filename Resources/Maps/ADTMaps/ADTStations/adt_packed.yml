@@ -7075,6 +7075,13 @@ entities:
     - type: Transform
       pos: 17.653221,46.53297
       parent: 2
+- proto: ADTUniversalPipeDispenser
+  entities:
+  - uid: 39
+    components:
+    - type: Transform
+      pos: 32.5,-25.5
+      parent: 2
 - proto: ADTVasePlant7
   entities:
   - uid: 11793

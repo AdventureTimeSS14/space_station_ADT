@@ -28179,6 +28179,21 @@ entities:
     - type: Transform
       pos: -71.5,-53.5
       parent: 2
+- proto: ADTUniversalPipeDispenser
+  entities:
+  - uid: 655
+    components:
+    - type: Transform
+      pos: -35.5,-46.5
+      parent: 2
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Biochemical
+      - Mech
+      - Experimental
+      - Arsenal
+      - CivilianServices
 - proto: ADTVehicleKeyATV
   entities:
   - uid: 4
