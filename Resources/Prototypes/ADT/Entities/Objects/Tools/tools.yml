@@ -52,8 +52,8 @@
     lastCharges: 130
   - type: RPDMaterialCharges
     chargeRates:
-      Steel: { charges: 2, sheets: 1 }
-      Plasteel: { charges: 4, sheets: 1 }
+      Steel: { charges: 1, sheets: 1 }
+      Plasteel: { charges: 2, sheets: 1 }
   - type: UseDelay
   - type: Sprite
     sprite: ADT/Objects/Tools/rpd.rsi
