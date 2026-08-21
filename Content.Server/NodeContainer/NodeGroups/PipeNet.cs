@@ -7,7 +7,6 @@ using Content.Shared.NodeContainer.NodeGroups;
 using Robust.Shared.Utility;
 using Robust.Shared.Random;
 using Robust.Shared.GameObjects;
-// using Content.Server.ADT.Atmos.EntityDamage.Systems;
 
 namespace Content.Server.NodeContainer.NodeGroups;
 
@@ -40,10 +39,6 @@ public sealed class PipeNet : BaseNodeGroup, IPipeNet
     public void Update()
     {
         _atmosphereSystem?.React(Air, this);
-        // ADT-Tweak start
-        // var overpressureSystem = EntitySystem.Get<OverpressurePipeDamageSystem>();
-        // overpressureSystem?.Update(this);
-        // ADT-Tweak end
     }
 
     public override void LoadNodes(List<Node> groupNodes)

@@ -10,6 +10,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.RPD.Systems;
+
 public sealed class RPDMaterialChargesSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
