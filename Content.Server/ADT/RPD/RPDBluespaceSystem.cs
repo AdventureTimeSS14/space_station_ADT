@@ -5,6 +5,7 @@ using Content.Server.Popups;
 using Content.Shared.ADT.RPD;
 
 namespace Content.Server.ADT.RPD;
+
 public sealed class RPDBluespaceSystem : EntitySystem
 {
     [Dependency] private readonly BeamSystem _beam = default!;
