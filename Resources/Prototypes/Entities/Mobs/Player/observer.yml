@@ -41,11 +41,59 @@
   components:
   - type: Sprite
     sprite: Mobs/Ghosts/ghost_human.rsi
-    color: "#fff8"
+    color: "#ffffff" # ADT Tweak
     layers:
     - state: animated
       map: [ "ghostVariant" ]
       shader: unshaded
+    # ADT Tweak Start
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.SnoutOverlay" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Special" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.LHand" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.RHand" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Overlay" ]
+      shader: unshaded
+    - map: [ "jumpsuit" ]
+      shader: unshaded
+    # ADT Tweak End
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -79,19 +127,49 @@
   - type: Examiner
     skipChecks: true
   - type: Ghost
-  - type: GhostSpriteState
-    damageMap:
-      Blunt: 3
-      Slash: 3
-      Piercing: 3
-      Heat: 1
-      Cold: 1
-      Shock: 1
-      Radiation: 1
-      Cellular: 1
-      Poison: 1
-      Asphyxiation: 1
-    prefix: "ghost_"
+  # ADT Tweak Start
+    availableClothing:
+    - ClothingUniformJumpsuitPsychologist
+    - ClothingUniformJumpsuitScientist
+    - ClothingUniformJumpsuitSafari
+    - ClothingUniformJumpsuitSecGrey
+    - ClothingUniformJumpsuitBartender
+    - ClothingUniformJumpsuitBartenderPurple
+    - ClothingUniformJumpsuitChef
+    - ClothingUniformJumpsuitChemistry
+    - ClothingUniformJumpsuitDetective
+    - ClothingUniformJumpsuitHawaiYellow
+    - ClothingUniformJumpsuitHoS
+    - ClothingUniformJumpsuitJanitor
+    - ClothingUniformJumpsuitKimono
+    - ClothingUniformJumpsuitMime
+    - ClothingUniformJumpsuitChaplain
+    - ClothingUniformJumpsuitParamedic
+    - ClothingUniformJumpsuitPirate
+    - ADTClothingUniformJumpsuitBlueshield
+    - ADTClothingUniformJumpsuitGreenSuitLawyer
+    - ADTClothingUniformJumpsuitBarber
+    - ADTClothingUniformCorrectionsOfficer
+    - ADTClothingUniformSquidGamePlayer
+  - type: Inventory 
+    templateId: ghost
+  - type: InventorySlots
+  - type: HumanoidProfile
+  #- type: GhostSpriteState
+  #  damageMap:
+  #    Blunt: 3
+  #    Slash: 3
+  #    Piercing: 3
+  #    Heat: 1
+  #    Cold: 1
+  #    Shock: 1
+  #    Radiation: 1
+  #    Cellular: 1
+  #    Poison: 1
+  #    Asphyxiation: 1
+  #  prefix: "ghost_"
+
+  # ADT Tweak End
   - type: GhostHearing
   - type: ShowElectrocutionHUD
   - type: IntrinsicRadioReceiver

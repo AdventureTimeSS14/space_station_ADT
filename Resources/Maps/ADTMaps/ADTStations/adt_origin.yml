@@ -167603,15 +167603,13 @@ entities:
     - type: Transform
       pos: -23.424147,-57.476757
       parent: 2
-- proto: MicroManipulatorStockPart
+- proto: MicroServoStockPart
   entities:
   - uid: 23578
     components:
     - type: Transform
       pos: -67.223114,-34.454304
       parent: 2
-    - type: Stack
-      count: 2
   - uid: 23579
     components:
     - type: Transform
@@ -167622,15 +167620,11 @@ entities:
     - type: Transform
       pos: 41.557148,-39.45461
       parent: 2
-    - type: Stack
-      count: 3
   - uid: 23581
     components:
     - type: Transform
       pos: 38.538754,-36.428898
       parent: 2
-    - type: Stack
-      count: 3
 - proto: MicrophoneInstrument
   entities:
   - uid: 23582

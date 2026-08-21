@@ -16,11 +16,20 @@ public enum HierophantVisuals : byte
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
 public sealed partial class HierophantComponent : Component
 {
-    [DataField]
+    [ViewVariables]
     public int BurstRange = 3;
 
-    [DataField]
+    [ViewVariables]
     public int BeamRange = 5;
+
+    [DataField]
+    public int BaseBurstRange = 3;
+
+    [DataField]
+    public int BaseBeamRange = 5;
+
+    [DataField]
+    public float BlastDamage = 10f;
 
     [DataField]
     public float ChaserSpeed = 0.3f;

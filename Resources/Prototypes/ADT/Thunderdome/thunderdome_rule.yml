@@ -66,11 +66,6 @@
           description: thunderdome-desc-mosin
           category: thunderdome-category-snipers
           sprite: WeaponSniperMosin
-        - gear: ThunderdomeCQC
-          name: thunderdome-loadout-cqc
-          description: thunderdome-desc-cqc
-          category: thunderdome-category-melee
-          sprite: ADTCqcManual
         - gear: ThunderdomeKungFuDragon
           name: thunderdome-loadout-kungfu
           description: thunderdome-desc-kungfu
@@ -80,7 +75,7 @@
           name: thunderdome-loadout-fireaxe
           description: thunderdome-desc-fireaxe
           category: thunderdome-category-melee
-          sprite: FireAxeFlaming
+          sprite: FireAxe
         - gear: ThunderdomeEnergyDagger
           name: thunderdome-loadout-edagger
           description: thunderdome-desc-edagger

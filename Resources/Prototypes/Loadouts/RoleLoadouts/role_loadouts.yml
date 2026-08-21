@@ -76,6 +76,8 @@
   - PassengerShoes
   - Glasses
   - ADTPassengerPDA # ADT-Tweak
+  - ADTPassengerHead # ADT-Tweak
+  - ADTPassengerGlasses # ADT-Tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom

@@ -117,12 +117,10 @@
   - type: Sprite
     sprite: ADT/Xenobiology/Specific/Xenobiology/floors.rsi
     state: icon-bluespace
-  - type: SpawnAfterInteract
-    prototype: FloorBluespaceEntity
-    removeOnInteract: true
   - type: FloorTile
     outputs:
     - Plating
+    - ADTFloorBluespace
   - type: Stack
     stackType: FloorTileItemBluespace
 
@@ -134,12 +132,10 @@
   - type: Sprite
     sprite: ADT/Xenobiology/Specific/Xenobiology/floors.rsi
     state: icon-sepia
-  - type: SpawnAfterInteract
-    prototype: FloorSepiaEntity
-    removeOnInteract: true
   - type: FloorTile
     outputs:
     - Plating
+    - ADTFloorSepia
   - type: Stack
     stackType: FloorTileItemSepia
 

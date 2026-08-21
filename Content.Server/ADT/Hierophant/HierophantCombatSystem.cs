@@ -81,6 +81,15 @@ public sealed class HierophantCombatSystem : EntitySystem
                 continue;
             }
 
+            if (!TargetOnSameGrid(uid, target.Value))
+            {
+                if (TryComp<HTNComponent>(uid, out var targetHtn))
+                    targetHtn.Blackboard.Remove<EntityUid>("Target");
+
+                comp.LastTarget = null;
+                continue;
+            }
+
             if (comp.LastTarget != target)
             {
                 comp.LastTarget = target;
@@ -89,6 +98,14 @@ public sealed class HierophantCombatSystem : EntitySystem
 
             OpenFire((uid, comp), target.Value);
         }
+    }
+
+    private bool TargetOnSameGrid(EntityUid ent, EntityUid target)
+    {
+        var ourGrid = _transform.GetGrid(ent);
+        var targetGrid = _transform.GetGrid(target);
+
+        return ourGrid == targetGrid;
     }
 
     private void OpenFire(Entity<HierophantComponent> ent, EntityUid target)
@@ -216,6 +233,7 @@ public sealed class HierophantCombatSystem : EntitySystem
         comp.Caster = ent.Owner;
         comp.Target = target;
         comp.Speed = speed;
+        comp.Damage = ent.Comp.BlastDamage;
 
         if (moving > 0)
             comp.Moving = moving;
@@ -252,7 +270,7 @@ public sealed class HierophantCombatSystem : EntitySystem
         }
         else
         {
-            ent.Comp.BurstRange = 3;
+            ent.Comp.BurstRange = ent.Comp.BaseBurstRange;
             _attacks.Burst(ent, ourCoords, spreadSpeed: 0.25f);
         }
     }

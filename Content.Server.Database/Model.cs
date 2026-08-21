@@ -51,6 +51,10 @@ namespace Content.Server.Database
 		public DbSet<BookPrinterEntry> BookPrinterEntry { get; set; } = null!; // ADT-BookPrinter
         public DbSet<DiscordUser> DiscordUser { get; set; } = null!; // ADT-Discord
         public DbSet<ThunderdomeStats> ThunderdomeStats { get; set; } = null!; // ADT-Thunderdome
+        // ADT-AntagRollBonus-Start
+        public DbSet<AntagRollBonus> AntagRollBonus { get; set; } = null!;
+        public DbSet<AntagRollBonusWipe> AntagRollBonusWipe { get; set; } = null!;
+        // ADT-AntagRollBonus-End
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -86,6 +90,12 @@ namespace Content.Server.Database
                 .HasIndex(p => p.Score)
                 .IsDescending();
             // ADT-Thunderdome-End
+
+            // ADT-AntagRollBonus-Start
+            modelBuilder.Entity<AntagRollBonus>()
+                .HasIndex(p => new { p.UserId, p.Antag })
+                .IsUnique();
+            // ADT-AntagRollBonus-End
 
             modelBuilder.Entity<Profile>()
                 .HasIndex(p => new {p.Slot, PrefsId = p.PreferenceId})
@@ -375,6 +385,7 @@ namespace Content.Server.Database
         //ADT-tweak-start
         public string OOCNotes { get; set; } = null!;
         public string HeadshotUrl { get; set; } = null!;
+        public string ExploitableInfo { get; set; } = null!;
         //ADT-tweak-end
         public int Age { get; set; }
         public string Sex { get; set; } = null!;
@@ -721,6 +732,29 @@ namespace Content.Server.Database
         public DateTime LastPlayed { get; set; }
     }
     // ADT-Thunderdome-End
+
+    // ADT-AntagRollBonus-Start
+    public class AntagRollBonus
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        public Guid UserId { get; set; }
+
+        public string Antag { get; set; } = null!;
+
+        public int MissedRounds { get; set; }
+    }
+
+    public class AntagRollBonusWipe
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        public DateTime LastWipe { get; set; }
+    }
+    // ADT-AntagRollBonus-End
+
     public class Round
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]

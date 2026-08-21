@@ -26,6 +26,12 @@ public sealed partial class SlimeGrinderComponent : Component
     public float ProcessingTimePerUnitMass = 0.1f;
 
     [DataField]
+    public float ExtractMultiplier = 1f;
+
+    [DataField]
+    public float WorkTimeMultiplier = 1f;
+
+    [DataField]
     public SoundSpecifier GrindSound = new SoundPathSpecifier("/Audio/Machines/reclaimer_startup.ogg");
 
     [DataField]

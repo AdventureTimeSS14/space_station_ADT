@@ -45,6 +45,11 @@ namespace Content.Shared.Lathe
         [DataField]
         public string? ReagentOutputSlotId;
 
+        // ADT-Tweak-Start
+        [DataField, AutoNetworkedField]
+        public string? ReagentCostSlotId;
+        // ADT-Tweak-End
+
         /// <summary>
         /// The default amount that's displayed in the UI for selecting the print amount.
         /// </summary>
@@ -84,6 +89,23 @@ namespace Content.Shared.Lathe
         [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
         public float MaterialUseMultiplier = 1;
         #endregion
+
+        // ADT-Tweak-Start: machine parts with tiers
+        [DataField, AutoNetworkedField]
+        public float FinalTimeMultiplier = 1;
+
+        [DataField, AutoNetworkedField]
+        public float FinalMaterialMultiplier = 1;
+
+        [DataField]
+        public float MachinePartEfficiencyExponent = 0.8f;
+
+        [DataField]
+        public float MinMachinePartEfficiency = 0.1f;
+
+        [DataField]
+        public bool SuppressMachinePartUpgrades = false;
+        // ADT-Tweak-End
     }
 
     public sealed class LatheGetRecipesEvent : EntityEventArgs
