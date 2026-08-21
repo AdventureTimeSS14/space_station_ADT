@@ -8,6 +8,9 @@
   - type: RestrictedRange
     range: 250
     texturepath: "/Textures/ADT/Effects/weather.rsi/ashfal_lvery_light.png"
+  - type: ADTRestrictedZone
+    terrainMargin: 8
+    spawnBuffer: 8
   - type: ADTLavalandGeneration
     safeRadius: 32
     safeEdgeNoise: 6

@@ -22,7 +22,4 @@ public sealed partial class ADTBossMusicComponent : Component
 
     [DataField, AutoPausedField]
     public TimeSpan CombatUntil;
-
-    [ViewVariables]
-    public Dictionary<EntityUid, TimeSpan?> Listeners = new();
 }

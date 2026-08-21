@@ -8,6 +8,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -26,6 +27,8 @@ public sealed class ADTBossMusicSystem : EntitySystem
     private static readonly TimeSpan UpdateInterval = TimeSpan.FromSeconds(0.5);
 
     private TimeSpan _nextUpdate;
+
+    private readonly List<Entity<ADTBossMusicComponent>> _activeBosses = new();
 
     private readonly List<EntityUid> _toRemove = new();
 
@@ -51,15 +54,14 @@ public sealed class ADTBossMusicSystem : EntitySystem
 
         if (music is not { } newMusic)
         {
-            ClearListeners((uid, comp));
+            DropListeners(uid);
             return;
         }
 
-        foreach (var listener in comp.Listeners.Keys)
-        {
-            if (!TryComp<ADTBossMusicListenerComponent>(listener, out var listenerComp))
-                continue;
+        var query = EntityQueryEnumerator<ADTBossMusicListenerComponent>();
 
+        while (query.MoveNext(out var listener, out var listenerComp))
+        {
             if (listenerComp.Boss != uid)
                 continue;
 
@@ -82,7 +84,7 @@ public sealed class ADTBossMusicSystem : EntitySystem
             return;
 
         comp.CombatUntil = TimeSpan.Zero;
-        ClearListeners((uid, comp));
+        DropListeners(uid);
     }
 
     public bool IsInCombat(EntityUid uid, ADTBossMusicComponent? comp = null)
@@ -119,7 +121,7 @@ public sealed class ADTBossMusicSystem : EntitySystem
 
     private void OnBossShutdown(Entity<ADTBossMusicComponent> ent, ref ComponentShutdown args)
     {
-        ClearListeners(ent);
+        DropListeners(ent.Owner);
     }
 
     public override void Update(float frameTime)
@@ -131,97 +133,151 @@ public sealed class ADTBossMusicSystem : EntitySystem
 
         _nextUpdate = _timing.CurTime + UpdateInterval;
 
+        CollectActiveBosses();
+
+        if (_activeBosses.Count > 0)
+        {
+            foreach (var session in _player.Sessions)
+            {
+                if (session.AttachedEntity is not { } player)
+                    continue;
+
+                UpdateListener(player, _timing.CurTime);
+            }
+        }
+
+        DropOrphanedListeners();
+    }
+
+    private void CollectActiveBosses()
+    {
+        _activeBosses.Clear();
+
         var query = EntityQueryEnumerator<ADTBossMusicComponent>();
 
         while (query.MoveNext(out var uid, out var comp))
         {
-            UpdateBoss((uid, comp));
+            if (TerminatingOrDeleted(uid) || _mobState.IsDead(uid))
+                continue;
+
+            if (comp.Music == null)
+                continue;
+
+            if (HasLivingTarget(uid))
+                StartCombat(uid, comp);
+
+            if (!IsInCombat(uid, comp))
+                continue;
+
+            _activeBosses.Add((uid, comp));
         }
     }
 
-    private void UpdateBoss(Entity<ADTBossMusicComponent> ent)
+    private void UpdateListener(EntityUid player, TimeSpan now)
     {
-        if (TerminatingOrDeleted(ent.Owner) || _mobState.IsDead(ent.Owner))
+        TryComp<ADTBossMusicListenerComponent>(player, out var listener);
+
+        if (!IsValidListener(player))
         {
-            ClearListeners(ent);
+            ClearListener(player);
             return;
         }
 
-        if (ent.Comp.Music == null)
+        var coords = _transform.GetMapCoordinates(player);
+        var current = GetActiveBoss(listener?.Boss);
+
+        if (current is { } stay && InRange(stay, coords, stay.Comp.ExitRange))
         {
-            ClearListeners(ent);
+            Bind(player, stay, listener);
             return;
         }
 
-        if (HasLivingTarget(ent.Owner))
-            StartCombat(ent.Owner, ent.Comp);
-
-        if (!IsInCombat(ent.Owner, ent.Comp))
+        if (FindBoss(coords) is { } nearest)
         {
-            ClearListeners(ent);
+            Bind(player, nearest, listener);
             return;
         }
 
-        var bossCoords = _transform.GetMapCoordinates(ent.Owner);
-        var rangeSquared = ent.Comp.Range * ent.Comp.Range;
-        var exitRangeSquared = ent.Comp.ExitRange * ent.Comp.ExitRange;
-        var now = _timing.CurTime;
+        if (listener == null)
+            return;
 
-        _toRemove.Clear();
-
-        foreach (var (listener, leftAt) in ent.Comp.Listeners)
+        if (current is not { } leaving)
         {
-            if (!IsValidListener(listener))
-            {
-                _toRemove.Add(listener);
-                continue;
-            }
-
-            var coords = _transform.GetMapCoordinates(listener);
-
-            if (coords.MapId == bossCoords.MapId
-                && (coords.Position - bossCoords.Position).LengthSquared() <= exitRangeSquared)
-            {
-                ent.Comp.Listeners[listener] = null;
-                continue;
-            }
-
-            if (leftAt == null)
-            {
-                ent.Comp.Listeners[listener] = now;
-                continue;
-            }
-
-            if (now - leftAt.Value >= ent.Comp.ExitDelay)
-                _toRemove.Add(listener);
+            ClearListener(player);
+            return;
         }
 
-        foreach (var listener in _toRemove)
+        listener.LeftAt ??= now;
+
+        if (now - listener.LeftAt.Value >= leaving.Comp.ExitDelay)
+            ClearListener(player);
+    }
+
+    private void Bind(EntityUid player, Entity<ADTBossMusicComponent> boss, ADTBossMusicListenerComponent? listener)
+    {
+        if (boss.Comp.Music is not { } music)
+            return;
+
+        listener ??= EnsureComp<ADTBossMusicListenerComponent>(player);
+        listener.LeftAt = null;
+
+        if (listener.Boss == boss.Owner && listener.Music == music)
+            return;
+
+        listener.Boss = boss.Owner;
+        listener.Music = music;
+        Dirty(player, listener);
+    }
+
+    private Entity<ADTBossMusicComponent>? FindBoss(MapCoordinates coords)
+    {
+        Entity<ADTBossMusicComponent>? best = null;
+        var bestDistance = float.MaxValue;
+
+        foreach (var boss in _activeBosses)
         {
-            RemoveListener(ent, listener);
+            var bossCoords = _transform.GetMapCoordinates(boss.Owner);
+
+            if (bossCoords.MapId != coords.MapId)
+                continue;
+
+            var distance = (coords.Position - bossCoords.Position).LengthSquared();
+
+            if (distance > boss.Comp.Range * boss.Comp.Range)
+                continue;
+
+            if (distance >= bestDistance)
+                continue;
+
+            bestDistance = distance;
+            best = boss;
         }
 
-        foreach (var session in _player.Sessions)
+        return best;
+    }
+
+    private Entity<ADTBossMusicComponent>? GetActiveBoss(EntityUid? uid)
+    {
+        if (uid is not { } boss)
+            return null;
+
+        foreach (var active in _activeBosses)
         {
-            if (session.AttachedEntity is not { } player)
-                continue;
-
-            if (ent.Comp.Listeners.ContainsKey(player))
-                continue;
-
-            if (!IsValidListener(player))
-                continue;
-
-            var coords = _transform.GetMapCoordinates(player);
-
-            if (coords.MapId != bossCoords.MapId)
-                continue;
-
-            if ((coords.Position - bossCoords.Position).LengthSquared() > rangeSquared)
-                continue;
-
-            AddListener(ent, player);
+            if (active.Owner == boss)
+                return active;
         }
+
+        return null;
+    }
+
+    private bool InRange(Entity<ADTBossMusicComponent> boss, MapCoordinates coords, float range)
+    {
+        var bossCoords = _transform.GetMapCoordinates(boss.Owner);
+
+        if (bossCoords.MapId != coords.MapId)
+            return false;
+
+        return (coords.Position - bossCoords.Position).LengthSquared() <= range * range;
     }
 
     private bool HasLivingTarget(EntityUid uid)
@@ -246,50 +302,58 @@ public sealed class ADTBossMusicSystem : EntitySystem
         if (HasComp<GhostComponent>(uid))
             return false;
 
-        return !TryComp<MobStateComponent>(uid, out var mobState) || _mobState.IsAlive(uid, mobState);
+        return !TryComp<MobStateComponent>(uid, out var mobState) || !_mobState.IsDead(uid, mobState);
     }
 
-    private void AddListener(Entity<ADTBossMusicComponent> ent, EntityUid player)
+    private void DropOrphanedListeners()
     {
-        if (ent.Comp.Music is not { } music)
-            return;
+        _toRemove.Clear();
 
-        if (TryComp<ADTBossMusicListenerComponent>(player, out var existing)
-            && existing.Boss is { } other
-            && other != ent.Owner
-            && !TerminatingOrDeleted(other))
-            return;
+        var query = EntityQueryEnumerator<ADTBossMusicListenerComponent>();
 
-        var listener = EnsureComp<ADTBossMusicListenerComponent>(player);
-        listener.Boss = ent.Owner;
-        listener.Music = music;
-        Dirty(player, listener);
-
-        ent.Comp.Listeners[player] = null;
-    }
-
-    private void RemoveListener(Entity<ADTBossMusicComponent> ent, EntityUid player)
-    {
-        ent.Comp.Listeners.Remove(player);
-
-        if (!TryComp<ADTBossMusicListenerComponent>(player, out var listener))
-            return;
-
-        if (listener.Boss != ent.Owner)
-            return;
-
-        RemCompDeferred<ADTBossMusicListenerComponent>(player);
-    }
-
-    private void ClearListeners(Entity<ADTBossMusicComponent> ent)
-    {
-        if (ent.Comp.Listeners.Count == 0)
-            return;
-
-        var listeners = new List<EntityUid>(ent.Comp.Listeners.Keys);
-        foreach (var listener in listeners)
+        while (query.MoveNext(out var uid, out var comp))
         {
-            RemoveListener(ent, listener);
+            if (GetActiveBoss(comp.Boss) is not null && HasComp<ActorComponent>(uid) && IsValidListener(uid))
+                continue;
+
+            _toRemove.Add(uid);
         }
+
+        FlushRemovals();
+    }
+
+    private void DropListeners(EntityUid boss)
+    {
+        _toRemove.Clear();
+
+        var query = EntityQueryEnumerator<ADTBossMusicListenerComponent>();
+
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.Boss != boss)
+                continue;
+
+            _toRemove.Add(uid);
+        }
+
+        FlushRemovals();
+    }
+
+    private void FlushRemovals()
+    {
+        foreach (var uid in _toRemove)
+        {
+            ClearListener(uid);
+        }
+
+        _toRemove.Clear();
+    }
+
+    private void ClearListener(EntityUid uid)
+    {
+        if (TerminatingOrDeleted(uid))
+            return;
+
+        RemComp<ADTBossMusicListenerComponent>(uid);
     }
 }

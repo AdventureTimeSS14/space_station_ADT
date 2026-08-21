@@ -2,7 +2,15 @@
   id: ADTBossMusicHierophant
   duck: 0.4
   sound:
-    path: /Audio/ADT/Hierophant/hiero_boss.ogg
+    path: /Audio/ADT/Hierophant/hiero_fight.ogg
+    params:
+      volume: -6
+
+- type: adtBossMusic
+  id: ADTBossMusicHierophantEnraged
+  duck: 0.4
+  sound:
+    path: /Audio/ADT/Hierophant/hiero_fight2.ogg
     params:
       volume: -6
 
