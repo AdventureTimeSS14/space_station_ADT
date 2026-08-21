@@ -67,16 +67,4 @@
             - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
           invert: true
-        probability: 0.5
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 5
-            Radiation: 5
-        conditions:
-        - !type:HasComponentCondition
-          components:
-            - Heretic
-            - Ghoul
-          guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-          invert: true
+        probability: 0.2

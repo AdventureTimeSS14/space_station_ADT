@@ -61,6 +61,11 @@ namespace Content.Shared.Research.Prototypes
         [DataField]
         public Dictionary<ProtoId<MaterialPrototype>, int> Materials = new();
 
+        // ADT-Tweak Start
+        [DataField]
+        public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> ReagentCost = new();
+        // ADT-Tweak End
+
         [DataField]
         public bool ApplyMaterialDiscount = true;
 

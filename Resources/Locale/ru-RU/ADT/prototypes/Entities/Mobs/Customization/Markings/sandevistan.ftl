@@ -1,0 +1,1 @@
+marking-ADTSandevistan = Сандевистан

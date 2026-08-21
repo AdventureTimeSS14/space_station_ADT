@@ -504,8 +504,8 @@
               Poison: -9
               Slash: 0.4
               Piercing: 0.8
-        - !type:GenericStatusEffect
-          key: Drunk
+        - !type:ModifyStatusEffect
+          effectProto: StatusEffectDrunk
           time: 8.0
           type: Add
 
@@ -580,9 +580,8 @@
             types:
               Shock: -6.2
               Caustic: -5.1
-        - !type:GenericStatusEffect
-          key: TemporaryBlindness
-          component: TemporaryBlindness
+        - !type:ModifyStatusEffect
+          effectProto: StatusEffectBlindness
           time: 60
           type: Add
 
