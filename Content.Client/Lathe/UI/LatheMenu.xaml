@@ -141,6 +141,9 @@
             HorizontalExpand="True"
             Orientation="Vertical">
             <Label Text="{Loc 'lathe-menu-materials-title'}" Margin="5 5 5 5" HorizontalAlignment="Center"/>
+            <!-- ADT tweak start -->
+            <Label Name="BeakerLabel" Margin="5 0 5 5" HorizontalAlignment="Center" Visible="False"/>
+            <!-- ADT tweak end -->
             <PanelContainer VerticalExpand="True">
                 <PanelContainer.PanelOverride>
                     <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
