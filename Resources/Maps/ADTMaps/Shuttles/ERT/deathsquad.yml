@@ -10,7 +10,7 @@ maps:
 - 1
 grids:
 - 2
-orphans: []
+orphans: [] # Фикс грида
 nullspace: []
 tilemap:
   0: Space
