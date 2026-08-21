@@ -334,6 +334,7 @@
       - type: HeadRevolutionary
       mindRoles:
       - MindRoleHeadRevolutionary
+      # ADT-Tweak-start
     - prefRoles: [ Rev ]
       max: 6
       playerRatio: 10
@@ -345,6 +346,7 @@
       - type: Revolutionary
       mindRoles:
       - MindRoleRevolutionary
+      # ADT-Tweak-end
   - type: DynamicRuleCost
     cost: 200
 
