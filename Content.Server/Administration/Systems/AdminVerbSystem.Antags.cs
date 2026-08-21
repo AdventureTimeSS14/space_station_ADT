@@ -155,7 +155,7 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "Revolutionary"),
             Act = () =>
             {
-                _rev.MakeRegularRev(args.Target);
+                _rev.MakeRegularRev(args.Target, args.User);
             },
             Impact = LogImpact.High,
             Message = string.Join(": ", revName, Loc.GetString("admin-verb-make-rev")),
