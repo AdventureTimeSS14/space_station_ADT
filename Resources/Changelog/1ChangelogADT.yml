@@ -14260,3 +14260,10 @@ Entries:
     id: 1832
     pr_number: 3235
     time: '2026-08-20T19:34:40Z'
+  - author: Inconnu
+    changes:
+      - {message: Госты с лобби больше не являются дефолтными призраками в одежде,
+        type: Fix}
+    id: 1833
+    pr_number: 3238
+    time: '2026-08-21T12:01:40Z'
