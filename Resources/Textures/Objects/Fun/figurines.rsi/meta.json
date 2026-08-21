@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Sprites made by Flareguy for Space Station 14. Figurine_spawner sprite made using parts found in spawner_icons.dmi from Paradise Station at commit https://github.com/ParadiseSS13/Paradise/commit/813f0a3ae556d86dddd7c4ef93a52880de8d2e37. Head sprites excluding Captain, Medical exluding doctor, non-human excluding queen and slime, and service jobs excluding librarian done by tacobeller and holoclown done by brainfood1183. inhand-left and inhand-right sprites made by the_pro_noob678 for SS14. Skeleton, Thief, Griffin, and Owlman Figurines made by YoungThugSS14.",
+    "copyright": "Sprites made by Flareguy for Space Station 14. Figurine_spawner sprite made using parts found in spawner_icons.dmi from Paradise Station at commit https://github.com/ParadiseSS13/Paradise/commit/813f0a3ae556d86dddd7c4ef93a52880de8d2e37. Head sprites excluding Captain, Medical exluding doctor, non-human excluding queen and slime, and service jobs excluding librarian done by tacobeller and holoclown done by brainfood1183. inhand-left and inhand-right sprites made by the_pro_noob678 for SS14. Skeleton, Thief, Griffin, and Owlman Figurines made by YoungThugSS14. Resprite Detective figure by catbackg_ (Discord).",
     "size": {
         "x": 32,
         "y": 32
