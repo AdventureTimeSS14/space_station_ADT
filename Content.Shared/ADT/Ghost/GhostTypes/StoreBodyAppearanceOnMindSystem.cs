@@ -45,7 +45,8 @@ public sealed class StoreBodyAppearanceOnMindSystem : EntitySystem
 
     public void CapAppearance(EntityUid body)
     {
-        if (!TryComp<MindContainerComponent>(body, out var mindContainer) || mindContainer.Mind is not { } mind)
+        if (!TryComp<MindContainerComponent>(body, out var mindContainer) ||
+            mindContainer.Mind is not { Valid: true } mind)
             return;
 
         if (!Exists(mind))
