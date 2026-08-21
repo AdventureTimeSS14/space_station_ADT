@@ -32,6 +32,13 @@
     allowedModes:
     - DropperDrawMode
     - DropperInjectMode #ADT fix start
+    restrainedMultiplier: 2
+    ignoreMobs: false
+    ignoreClosed: false
+    activeModeProtoId: DropperDrawMode
+    allowedModes:
+    - DropperDrawMode
+    - DropperInjectMode
   - type: Appearance
   - type: ExaminableSolution
     solution: injector

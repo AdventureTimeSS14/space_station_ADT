@@ -820,8 +820,12 @@ public sealed partial class ChatUIController : UIController
         }
     }
 
-    public void ProcessChatMessage(ChatMessage msg, bool speechBubble = true)
+    public void ProcessChatMessage(ChatMessage msg, bool speechBubble = true, bool playHighlightSound = true)  // ADT-tweak
     {
+        // ADT-tweak start
+        TryPlayHighlightSound(msg, playHighlightSound);
+        // ADT-tweak end
+
         // color the name unless it's something like "the old man"
         if ((msg.Channel == ChatChannel.Local || msg.Channel == ChatChannel.Whisper) && _chatNameColorsEnabled)
         {
