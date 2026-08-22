@@ -152,7 +152,7 @@ public sealed class ADTLavalandPopulationSystem : EntitySystem
             if (_placed.Any(other => Vector2.DistanceSquared(spot, other) < spacingSq))
                 continue;
 
-            if (group.AvoidRooms && IsNearRoom(ent, spot, group.RoomClearance))
+            if (group.AvoidRooms && IsNearRoom(ent, spot, group.RoomClearance, group.RoomMargin))
                 continue;
 
             return true;
@@ -162,12 +162,18 @@ public sealed class ADTLavalandPopulationSystem : EntitySystem
         return false;
     }
 
-    private bool IsNearRoom(Entity<ADTLavalandPopulationComponent> ent, Vector2 spot, float clearance)
+    private bool IsNearRoom(Entity<ADTLavalandPopulationComponent> ent, Vector2 spot, float clearance, float margin)
     {
         var clearanceSq = clearance * clearance;
 
         if (TryComp<ADTLavalandGenerationComponent>(ent, out var generation) &&
             generation.Placed.Any(room => Vector2.DistanceSquared(spot, room) < clearanceSq))
+        {
+            return true;
+        }
+
+        if (TryComp<ADTOccupiedRoomsComponent>(ent, out var occupied) &&
+            occupied.Rooms.Any(room => room.Enlarged(margin).Contains(spot)))
         {
             return true;
         }
