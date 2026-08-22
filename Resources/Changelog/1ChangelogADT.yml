@@ -14301,3 +14301,11 @@ Entries:
     id: 1836
     pr_number: 3179
     time: '2026-08-22T04:19:59Z'
+  - author: Sierra
+    changes:
+      - {message: 'Изменён отправитель объявления для станции, касающегося ОБР.',
+        type: Tweak}
+      - {message: Исправлена связь с особыми подразделениями., type: Fix}
+    id: 1837
+    pr_number: 3245
+    time: '2026-08-22T06:26:33Z'
