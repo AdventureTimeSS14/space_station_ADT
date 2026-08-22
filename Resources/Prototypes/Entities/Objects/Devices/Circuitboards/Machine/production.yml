@@ -883,7 +883,8 @@
       stackRequirements:
         CableHV: 5
       partRequirements: #ADT-Tweak: machine parts
-        Servo: 1
+        MicroLaser: 1
+        MatterBin: 1
     - type: PhysicalComposition
       materialComposition:
         Glass: 200
@@ -933,7 +934,8 @@
       stackRequirements:
         CableHV: 10
       partRequirements: #ADT-Tweak: machine parts
-        Servo: 2
+        MicroLaser: 2
+        MatterBin: 2
     - type: PhysicalComposition
       materialComposition:
         Glass: 200
@@ -954,7 +956,8 @@
       stackRequirements:
         Cable: 10
       partRequirements: #ADT-Tweak: machine parts
-        Servo: 1
+        MicroLaser: 1
+        MatterBin: 1
     - type: PhysicalComposition
       materialComposition:
         Glass: 200

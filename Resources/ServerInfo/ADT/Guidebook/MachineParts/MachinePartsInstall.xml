@@ -249,6 +249,21 @@
 </Box>
 Сервопривод увеличивает тягу.
 
+## Портативные генераторы
+
+<Box>
+<GuideEntityEmbed Entity="PortableGeneratorPacman"/>
+<GuideEntityEmbed Entity="PortableGeneratorSuperPacman"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="PortableGeneratorJrPacman"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+<GuideEntityEmbed Entity="MatterBinStockPart"/>
+</Box>
+Микро-лазер форсирует генератор: тир 4 - +50% выработки, тир 5 - +100%, но расход топлива растёт сильнее (+75% на Т4, +125% на Т5). Ёмкость материи экономит топливо (-50% на Т4, -75% на Т5), но режет выработку (-30% на Т4, -50% на Т5). Соберите обе детали - и компенсируйте недостатки друг друга.
+
 ## Электрический гриль
 
 <Box>
