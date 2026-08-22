@@ -420,6 +420,7 @@
   loadouts:
   - ADTBlueshieldCloak
   - ADTBlueshieldCloakSecond
+  - ADTClothingNeckEnsembleBlueshield
 
 - type: loadoutGroup
   id: ADTBlueshieldBack
@@ -854,6 +855,7 @@
   maxLimit: 1
   loadouts:
   - ADTNeckSalvageSpecialistCape
+  - ADTClothingNeckEnsembleSalvager
 
 # ШАХТЁР
 - type: loadoutGroup

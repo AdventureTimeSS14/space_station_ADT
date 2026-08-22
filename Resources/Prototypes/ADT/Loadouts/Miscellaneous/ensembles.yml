@@ -1,0 +1,51 @@
+# Ensembles - комбинированные плащи/мантии с переключением состояний
+
+- type: loadout
+  id: ADTClothingNeckEnsembleCaptain
+  equipment:
+    neck: ClothingNeckEnsembleCaptain
+
+- type: loadout
+  id: ADTClothingNeckEnsembleChiefEngineerWhite
+  equipment:
+    neck: ClothingNeckEnsembleChiefEngineerWhite
+
+- type: loadout
+  id: ADTClothingNeckEnsembleChiefEngineerGreen
+  equipment:
+    neck: ClothingNeckEnsembleChiefEngineerGreen
+
+- type: loadout
+  id: ADTClothingNeckEnsembleChiefMedicalOfficer
+  equipment:
+    neck: ClothingNeckEnsembleChiefMedicalOfficer
+
+- type: loadout
+  id: ADTClothingNeckEnsembleHeadOfSecurity
+  equipment:
+    neck: ClothingNeckEnsembleHeadOfSecurity
+
+- type: loadout
+  id: ADTClothingNeckEnsembleResearchDirector
+  equipment:
+    neck: ClothingNeckEnsembleResearchDirector
+
+- type: loadout
+  id: ADTClothingNeckEnsembleQuarterMaster
+  equipment:
+    neck: ClothingNeckEnsembleQuarterMaster
+
+- type: loadout
+  id: ADTClothingNeckEnsembleHeadOfPersonnel
+  equipment:
+    neck: ClothingNeckEnsembleHeadOfPersonnel
+
+- type: loadout
+  id: ADTClothingNeckEnsembleBlueshield
+  equipment:
+    neck: ClothingNeckEnsembleBlueshield
+
+- type: loadout
+  id: ADTClothingNeckEnsembleSalvager
+  equipment:
+    neck: ClothingNeckEnsembleSalvager
