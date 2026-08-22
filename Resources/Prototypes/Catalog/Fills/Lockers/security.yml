@@ -53,7 +53,7 @@
     - id: ClothingHeadHatCapWardenAlt # Corvax-SecFashion
     - id: ClothingOuterCoatWardenAlt # Corvax-SecFashion
     - id: ClothingBackpackWarden # Corvax-SecFashion
-    - id: ClothingBackpackElectropack
+#    - id: ClothingBackpackElectropack #ADT Tweak
       amount: 2
     - id: RemoteSignaller
       amount: 2
@@ -64,7 +64,7 @@
     - id: ADTClothingNeckBodyCamera #ADT bodycam
     - id: ADTBookSRPsec
     - id: ADTBookPCDsec
-    - id: ADTClothingNeckShockCollar
+#    - id: ADTClothingNeckShockCollar #ADT Tweak
       amount: 2
     - id: RemoteSignaller
       amount: 2
