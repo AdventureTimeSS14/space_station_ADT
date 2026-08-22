@@ -74,9 +74,17 @@
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
       state: o2
       shader: unshaded
-  - type: MachinePart #ADT-Tweak: батарейка как машинная часть (тир 1)
+  # ADT-Tweak start
+  - type: MachinePart
     part: PowerCell
     tier: 1
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 50
+      Copper: 200
+      Zinc: 200
+  # ADT-Tweak end
   - type: Battery
     maxCharge: 360
     startingCharge: 360
@@ -125,9 +133,20 @@
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
       state: o2
       shader: unshaded
-  - type: MachinePart #ADT-Tweak: батарейка как машинная часть (тир 2)
+  # ADT-Tweak start
+  - type: MachinePart
     part: PowerCell
     tier: 2
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 300
+      Glass: 300
+      Plastic: 100
+      Gold: 10
+      Silver: 50
+      Copper: 200
+      Zinc: 200
+  # ADT-Tweak end
   - type: Battery
     maxCharge: 720
     startingCharge: 720
@@ -163,9 +182,19 @@
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
       state: o2
       shader: unshaded
-  - type: MachinePart #ADT-Tweak: батарейка как машинная часть (тир 3)
+  # ADT-Tweak start
+  - type: MachinePart
     part: PowerCell
     tier: 3
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 300
+      Glass: 400
+      Plastic: 200
+      Gold: 50
+      Silver: 50
+      Zinc: 200
+  # ADT-Tweak end
   - type: Battery
     maxCharge: 1080
     startingCharge: 1080
@@ -201,9 +230,18 @@
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
       state: o2
       shader: unshaded
-  - type: MachinePart #ADT-Tweak: батарейка как машинная часть (тир 4)
+  # ADT-Tweak start
+  - type: MachinePart
     part: PowerCell
     tier: 4
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
+      Glass: 700
+      Plasma: 300
+      Gold: 200
+      Silver: 300
+  # ADT-Tweak end
   - type: Battery
     maxCharge: 1800
     startingCharge: 1800
