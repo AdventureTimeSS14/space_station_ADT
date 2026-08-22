@@ -14357,3 +14357,10 @@ Entries:
     id: 1840
     pr_number: 3214
     time: '2026-08-22T18:10:45Z'
+  - author: Sierra
+    changes:
+      - {message: Изменено общее время слепоты после усвоенного реагента аломицина,
+        type: Tweak}
+    id: 1841
+    pr_number: 3248
+    time: '2026-08-22T19:09:00Z'
