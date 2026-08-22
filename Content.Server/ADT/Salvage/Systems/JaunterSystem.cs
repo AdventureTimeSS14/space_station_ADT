@@ -1,13 +1,15 @@
 using Content.Server.ADT.Salvage.Components;
-using Content.Shared.Damage.Systems;
-using Content.Server.Medical;
-using Content.Shared.Body.Components;
-using Content.Shared.Damage.Components;
-using Content.Shared.Nutrition.Components;
-using Content.Shared.Interaction.Events;
 using Content.Server.Interaction;
+using Content.Server.Medical;
 using Content.Shared.ADT.Salvage.Components;
+using Content.Shared.Body;
+using Content.Shared.Body.Components;
 using Content.Shared.Chasm;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Medical;
+using Content.Shared.Nutrition.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -15,8 +17,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.Medical;
-using Content.Shared.Body;
 
 namespace Content.Server.ADT.Salvage.Systems;
 
