@@ -87,10 +87,12 @@
     materialUseMultiplier: 0.5
     timeMultiplier: 1.5
   - type: LatheHeatProducing
-  - type: ReagentSpeed
-    modifiers:
-      SpaceLube: 0.8 # being faster means less heat so lube needs to be nerfed
-      SpaceGlue: 5 # no change from normal lathe, overheat!!!
+  # ADT-Tweka start
+  #- type: ReagentSpeed
+  #  modifiers:
+  #    SpaceLube: 0.8 # being faster means less heat so lube needs to be nerfed
+  #    SpaceGlue: 5 # no change from normal lathe, overheat!!!
+  # ADT-Tweak end
 
 - type: entity
   id: Autolathe
