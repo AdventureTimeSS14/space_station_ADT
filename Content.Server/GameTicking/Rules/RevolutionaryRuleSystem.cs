@@ -347,8 +347,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         // revs lost and heads died
         "rev-stalemate"
     };
-    //ADT rerev start
 
+    //ADT-Tweak-Start
     public void MakeEntRev(EntityUid user, EntityUid target, HeadRevolutionaryComponent comp)
     {
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
@@ -359,12 +359,31 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
 
         _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(user)} converted {ToPrettyString(target)} into a Revolutionary");
-        // ADT TWEAK START
+
         if (_mind.TryGetMind(user, out var revMindId, out _) && _role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role))
             role.Value.Comp2.ConvertedCount++;
-        // ADT TWEAK END
+
         if (_player.TryGetSessionById(mind.UserId, out var session))
             _antag.SendBriefing(session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
     }
-    //ADT rerev end
+
+    public void MakeRegularRev(EntityUid target, EntityUid? converter = null)
+    {
+        if (!_mind.TryGetMind(target, out var mindId, out var mind))
+            return;
+
+        _npcFaction.AddFaction(target, RevolutionaryNpcFaction);
+        var revComp = EnsureComp<RevolutionaryComponent>(target);
+
+        _adminLogManager.Add(LogType.Mind,
+            LogImpact.Medium,
+            $"{ToPrettyString(converter ?? target)} converted {ToPrettyString(target)} into a Revolutionary");
+
+        if (mindId == default || !_role.MindHasRole<RevolutionaryRoleComponent>(mindId))
+            _role.MindAddRole(mindId, "MindRoleRevolutionary");
+
+        if (_player.TryGetSessionById(mind.UserId, out var session))
+            _antag.SendBriefing(session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
+    }
+    //ADT-Tweak-end
 }

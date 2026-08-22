@@ -7,13 +7,6 @@
     Plastic: 200
 
 - type: latheRecipe
-  id: StorageCanister
-  result: StorageCanister
-  completetime: 3
-  materials:
-    Steel: 3000
-
-- type: latheRecipe
   id: CassetteTape
   result: ADTCassetteTape
   completetime: 2

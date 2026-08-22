@@ -129,28 +129,39 @@
   - type: Ghost
   # ADT Tweak Start
     availableClothing:
-    - ClothingUniformJumpsuitPsychologist
-    - ClothingUniformJumpsuitScientist
-    - ClothingUniformJumpsuitSafari
-    - ClothingUniformJumpsuitSecGrey
-    - ClothingUniformJumpsuitBartender
-    - ClothingUniformJumpsuitBartenderPurple
-    - ClothingUniformJumpsuitChef
-    - ClothingUniformJumpsuitChemistry
-    - ClothingUniformJumpsuitDetective
-    - ClothingUniformJumpsuitHawaiYellow
-    - ClothingUniformJumpsuitHoS
-    - ClothingUniformJumpsuitJanitor
-    - ClothingUniformJumpsuitKimono
-    - ClothingUniformJumpsuitMime
-    - ClothingUniformJumpsuitChaplain
-    - ClothingUniformJumpsuitParamedic
-    - ClothingUniformJumpsuitPirate
-    - ADTClothingUniformJumpsuitBlueshield
-    - ADTClothingUniformJumpsuitGreenSuitLawyer
-    - ADTClothingUniformJumpsuitBarber
-    - ADTClothingUniformCorrectionsOfficer
-    - ADTClothingUniformSquidGamePlayer
+      jumpsuit:
+      - ClothingUniformJumpsuitPsychologist
+      - ClothingUniformJumpsuitScientist
+      - ClothingUniformJumpsuitSafari
+      - ClothingUniformJumpsuitSecGrey
+      - ClothingUniformJumpsuitBartender
+      - ClothingUniformJumpsuitBartenderPurple
+      - ClothingUniformJumpsuitChef
+      - ClothingUniformJumpsuitChemistry
+      - ClothingUniformJumpsuitDetective
+      - ClothingUniformJumpsuitHawaiYellow
+      - ClothingUniformJumpsuitHoS
+      - ClothingUniformJumpsuitJanitor
+      - ClothingUniformJumpsuitKimono
+      - ClothingUniformJumpsuitMime
+      - ClothingUniformJumpsuitChaplain
+      - ClothingUniformJumpsuitParamedic
+      - ClothingUniformJumpsuitPirate
+      - ADTClothingUniformJumpsuitBlueshield
+      - ADTClothingUniformJumpsuitGreenSuitLawyer
+      - ADTClothingUniformJumpsuitBarber
+      - ADTClothingUniformCorrectionsOfficer
+      - ADTClothingUniformSquidGamePlayer
+      shoes:
+      - ClothingShoesColorBlack
+      - ClothingShoesColorWhite
+      - ClothingShoesColorBlue
+      - ClothingShoesColorBrown
+      - ClothingShoesColorGreen
+      - ClothingShoesColorOrange
+      - ClothingShoesColorRed
+      - ClothingShoesColorYellow
+      - ClothingShoesColorPurple
   - type: Inventory 
     templateId: ghost
   - type: InventorySlots

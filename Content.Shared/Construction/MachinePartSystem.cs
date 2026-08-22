@@ -38,7 +38,7 @@ namespace Content.Shared.Construction
 
                     args.PushMarkup(Loc.GetString("machine-board-component-required-element-entry-text",
                         ("amount", amount),
-                        ("requiredElement", Loc.GetString(name))));
+                        ("requiredElement", name))); // ADT-Tweak
                 }
 
                 // ADT-Tweak-Start
@@ -57,7 +57,7 @@ namespace Content.Shared.Construction
 
                     args.PushMarkup(Loc.GetString("machine-board-component-required-element-entry-text",
                         ("amount", amount),
-                        ("requiredElement", Loc.GetString(elementName))));
+                        ("requiredElement", elementName)));
                 }
                 // ADT-Tweak-End
 
