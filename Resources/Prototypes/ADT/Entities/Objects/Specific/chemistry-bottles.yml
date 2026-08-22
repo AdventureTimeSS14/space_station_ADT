@@ -19,7 +19,7 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-ADTPolymorphine
+    currentLabel: reagent-name-polymorphine
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -34,7 +34,7 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-ADTChaoticPolymorphine
+    currentLabel: reagent-name-chaotic-polymorphine
   - type: SolutionContainerManager
     solutions:
       drink:

@@ -56,6 +56,10 @@
         frequency: 20
       - !type:ScrambleNearbyEffect
         radius: 3
+        speciesBlacklist:
+        - Skeleton
+        - GhostSpecies
+        - IPC
   - type: Tag
     tags:
     - XenobiologyLightPinkExtract

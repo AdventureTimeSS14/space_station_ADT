@@ -1,0 +1,15 @@
+clock-greeting-month-1 = January
+clock-greeting-month-2 = February
+clock-greeting-month-3 = March
+clock-greeting-month-4 = April
+clock-greeting-month-5 = May
+clock-greeting-month-6 = June
+clock-greeting-month-7 = July
+clock-greeting-month-8 = August
+clock-greeting-month-9 = September
+clock-greeting-month-10 = October
+clock-greeting-month-11 = November
+clock-greeting-month-12 = December
+clock-greeting-date = {$month} {$day}, {$year}
+clock-greeting-earth-time = {$time} Earth time
+clock-greeting-shift = Shift time - {$time}

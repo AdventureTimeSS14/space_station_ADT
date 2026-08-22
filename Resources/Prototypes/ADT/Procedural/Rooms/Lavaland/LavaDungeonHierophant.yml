@@ -1,0 +1,117 @@
+- type: adtDungeonRoom
+  id: LavaDungeonHierophant
+  size: 22, 21
+  tags:
+  - LavaDungeon
+  legend:
+    "a":
+      tile: ADTFloorCult
+    "b":
+      tile: ADTFloorCultFire
+    "c":
+      tile: ADTFloorCultHell
+  tiles:
+  - "aaaabbaaaaaaaaaaaabaaa"
+  - "aaaacaaaaaaaaaaccbbbca"
+  - "aaaaaaaaaaaaaaaaaaaaca"
+  - "abbaaaaaabbaaaabaaaaca"
+  - "aaaaaaaaaaaaaccaaaaacb"
+  - "aaaccaaaaaaaaacaaaaaaa"
+  - "aaaaacaaaaaaaaaaaaaaaa"
+  - "accaacaaaaacaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaabaaa"
+  - "aaaabbaaaaabaaabaaaaaa"
+  - "aaaaaaaaaabcbaaaccacca"
+  - "aaaaaaaaaaabaaaaaaaaaa"
+  - "aaaacaaaaaaaaaaaaabbaa"
+  - "aaaacaaaaaaaaaaaacabaa"
+  - "abbaaaacaaaaaabaaaaaaa"
+  - "aaaaaaaaaaaaaabaaaaacc"
+  - "aaaaaaaaabbaaacaaaaaaa"
+  - "aaaaaaaaaaaaaccacaaaca"
+  - "aacaaaabaaaaaabaaaabaa"
+  - "aaabbaabbaaaaaaaaabbbb"
+  - "aaaaaacaaaacaaaabaaaaa"
+  entities:
+  - proto: ADTAbductorWall
+    positions:
+    - 18.5,3.5
+    - 4.5,3.5
+    - 5.5,4.5
+    - 5.5,3.5
+    - 4.5,4.5
+    - 0.5,6.5
+    - 0.5,7.5
+    - 0.5,8.5
+    - 0.5,1.5
+    - 0.5,0.5
+    - 17.5,3.5
+    - 17.5,4.5
+    - 18.5,4.5
+    - 9.5,1.5
+    - 13.5,1.5
+    - 0.5,10.5
+    - 0.5,11.5
+    - 0.5,12.5
+    - 0.5,13.5
+    - 0.5,14.5
+    - 0.5,9.5
+    - 0.5,19.5
+    - 0.5,20.5
+    - 4.5,17.5
+    - 4.5,16.5
+    - 5.5,17.5
+    - 5.5,16.5
+    - 18.5,17.5
+    - 17.5,17.5
+    - 17.5,16.5
+    - 18.5,16.5
+    - 20.5,8.5
+    - 20.5,12.5
+    - 9.5,19.5
+    - 13.5,19.5
+    - 2.5,12.5
+    - 2.5,8.5
+    - 9.5,6.5
+    - 13.5,6.5
+    - 15.5,8.5
+    - 15.5,12.5
+    - 13.5,14.5
+    - 9.5,14.5
+    - 7.5,12.5
+    - 7.5,8.5
+  - proto: ADTCursedHeart
+    positions:
+    - 11.5345,10.4862
+  - proto: ADTNarsieRuneRed
+    rot: 3.141592653589793 rad
+    positions:
+    - 11.5,10.5
+  - proto: CandleRedInfinite
+    positions:
+    - 11.6751,11.8612
+    - 10.5033,9.5643
+    - 12.8158,10.7518
+    - 10.3314,11.1737
+    - 12.1126,9.4237
+  - proto: CandleRedSmallInfinite
+    positions:
+    - 8.7101,2.1523
+    - 8.4695,14.2962
+    - 17.3864,15.637
+    - 15.9908,7.6333
+    - 12.7745,5.156
+    - 15.4755,0.843
+  - proto: SalvageHumanCorpseSpawner
+    positions:
+    - 6.5,10.5
+    - 11.5,17.5
+    - 15.5,4.5
+    - 20.5,11.5
+    - 8.5,3.5
+    - 18.5,19.5
+    - 2.5,18.5
+    - 1.5,0.5
+  - proto: SpawnMobHellspawn
+    positions:
+    - 11.5,10.5

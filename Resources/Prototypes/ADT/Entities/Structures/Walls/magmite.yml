@@ -1,0 +1,168 @@
+- type: entity
+  id: ADTWallRockMagmite
+  parent: WallRock
+  description: An ore vein rich with plasma magmite.
+  suffix: Magmite
+  components:
+  - type: EntityRemap
+    mask:
+      AsteroidRock: ADTAsteroidRockMagmite
+      WallRockBasalt: ADTWallRockBasaltMagmite
+      WallRockChromite: ADTWallRockChromiteMagmite
+      WallRockSand: ADTWallRockSandMagmite
+      WallRockSnow: ADTWallRockSnowMagmite
+  - type: OreVein
+    oreChance: 0.5
+    currentOre: ADTOreMagmite
+  - type: Icon
+    sprite: ADT/Structures/Walls/rock.rsi
+  - type: Sprite
+    sprite: ADT/Structures/Walls/rock.rsi
+    layers:
+    - state: rock_bsore
+      color: "#ff7a1a"
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - state: rock
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_west
+
+- type: entity
+  id: ADTAsteroidRockMagmite
+  parent: AsteroidRock
+  description: An ore vein rich with plasma magmite.
+  suffix: Magmite
+  components:
+  - type: OreVein
+    oreChance: 0.5
+    currentOre: ADTOreMagmite
+  - type: Icon
+    sprite: ADT/Structures/Walls/rock.rsi
+  - type: Sprite
+    sprite: ADT/Structures/Walls/rock.rsi
+    layers:
+    - state: rock_bsore
+      color: "#ff7a1a"
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - state: rock_asteroid
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_asteroid_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_asteroid_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_asteroid_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_asteroid_west
+
+- type: entity
+  id: ADTWallRockBasaltMagmite
+  parent: WallRockBasalt
+  description: An ore vein rich with plasma magmite.
+  suffix: Magmite
+  components:
+  - type: OreVein
+    oreChance: 0.5
+    currentOre: ADTOreMagmite
+  - type: Icon
+    sprite: ADT/Structures/Walls/rock.rsi
+  - type: Sprite
+    sprite: ADT/Structures/Walls/rock.rsi
+    layers:
+    - state: rock_bsore
+      color: "#ff7a1a"
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - state: rock_wall
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_wall_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_wall_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_wall_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_wall_west
+
+- type: entity
+  id: ADTWallRockChromiteMagmite
+  parent: WallRockChromite
+  description: An ore vein rich with plasma magmite.
+  suffix: Magmite
+  components:
+  - type: OreVein
+    oreChance: 0.5
+    currentOre: ADTOreMagmite
+  - type: Icon
+    sprite: ADT/Structures/Walls/rock.rsi
+  - type: Sprite
+    sprite: ADT/Structures/Walls/rock.rsi
+    layers:
+    - state: rock_bsore
+      color: "#ff7a1a"
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - state: rock_chromite
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_chromite_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_chromite_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_chromite_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_chromite_west
+
+- type: entity
+  id: ADTWallRockSandMagmite
+  parent: WallRockSand
+  description: An ore vein rich with plasma magmite.
+  suffix: Magmite
+  components:
+  - type: OreVein
+    oreChance: 0.5
+    currentOre: ADTOreMagmite
+  - type: Icon
+    sprite: ADT/Structures/Walls/rock.rsi
+  - type: Sprite
+    sprite: ADT/Structures/Walls/rock.rsi
+    layers:
+    - state: rock_bsore
+      color: "#ff7a1a"
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - state: rock_sand
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_sand_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_sand_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_sand_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_sand_west
+
+- type: entity
+  id: ADTWallRockSnowMagmite
+  parent: WallRockSnow
+  description: An ore vein rich with plasma magmite.
+  suffix: Magmite
+  components:
+  - type: OreVein
+    oreChance: 0.5
+    currentOre: ADTOreMagmite
+  - type: Icon
+    sprite: ADT/Structures/Walls/rock.rsi
+  - type: Sprite
+    sprite: ADT/Structures/Walls/rock.rsi
+    layers:
+    - state: rock_bsore
+      color: "#ff7a1a"
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - state: rock_snow
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_snow_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_snow_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_snow_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_snow_west

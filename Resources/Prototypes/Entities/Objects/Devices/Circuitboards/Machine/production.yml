@@ -563,6 +563,9 @@
       stackRequirements:
         Glass: 5
         Cable: 1
+      partRequirements: #ADT-Tweak: machine parts
+        Capacitor: 1
+        ScanningModule: 1
 
 - type: entity
   id: ChemMasterMachineCircuitboard
@@ -1471,7 +1474,8 @@
     prototype: SmartFridge
     stackRequirements:
       Glass: 5
-      Manipulator: 2
+    partRequirements: #ADT-Tweak
+      Capacitor: 2
     tagRequirements:
         GlassBeaker:
           amount: 2

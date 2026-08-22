@@ -116,7 +116,7 @@
       types:
         Heat: 20
   - type: TimedDespawn
-    lifetime: 0.25
+    lifetime: 0.5
 
 - type: entity
   name: Laser bolt
@@ -488,3 +488,51 @@
   - type: EmpOnCollide
     energyConsumption: 20
     disableDuration: 2
+
+- type: entity
+  id: ADTBulletCutterMagmite
+  name: magmite cutter bolt
+  parent: ADTBulletCutterAdv
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ADTDefuseGibtoniteOnHit
+  - type: Sprite
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+      color: "#ff4b1a"
+  - type: TimedDespawn
+    lifetime: 0.65
+  - type: PointLight
+    radius: 2.5
+    color: "#ff4b1a"
+    energy: 1.5
+
+- type: entity
+  id: ADTBulletChargeMagmite
+  name: magmite charge bolt
+  parent: BulletCharge
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ADTHardRockPiercing
+  - type: GatheringProjectile
+    amount: 4
+  - type: Projectile
+    deleteOnCollide: false
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 0
+  - type: TimedDespawn
+    lifetime: 0.2
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: chronobolt
+      shader: unshaded
+      color: "#ff7a1a"
+  - type: PointLight
+    radius: 2
+    color: "#ff7a1a"
+    energy: 1

@@ -29,37 +29,21 @@ public partial class XenobiologySystem
 
     private void SubscribeBreeding()
     {
-        SubscribeLocalEvent<PendingSlimeSpawnComponent, MapInitEvent>(OnPendingSlimeMapInit);
-        SubscribeLocalEvent<PendingSlimeSpawnComponent, ComponentShutdown>(OnPendingSlimeShutdown);
         SubscribeLocalEvent<SlimeComponent, MapInitEvent>(OnSlimeMapInit);
         SubscribeLocalEvent<SlimeComponent, ComponentShutdown>(OnSlimeShutdown);
+        SubscribeLocalEvent<RehydratableComponent, GotRehydratedEvent>(OnSlimeRehydrated);
     }
 
-    private void OnPendingSlimeMapInit(Entity<PendingSlimeSpawnComponent> ent, ref MapInitEvent args)
+    private void OnSlimeRehydrated(Entity<RehydratableComponent> ent, ref GotRehydratedEvent args)
     {
-        if (!_net.IsServer) return;
-
-        var slime = SpawnSlime(ent, ent.Comp.BasePrototype, ent.Comp.Breed);
-        if (!slime.HasValue)
+        if (_net.IsClient || !TryComp<SlimeComponent>(args.Target, out var slime))
             return;
 
-        var s = slime.Value.Comp;
-        s.MutationChance *= _random.NextFloat(0.5f, 1.5f);
-        s.MaxOffspring += _random.Next(-1, 2);
-        s.ExtractsProduced += _random.Next(0, 2);
-        s.MitosisHunger *= _random.NextFloat(0.75f, 1.2f);
-        ent.Comp.SpawnedSlime = slime.Value.Owner;
-    }
-
-    private void OnPendingSlimeShutdown(Entity<PendingSlimeSpawnComponent> ent, ref ComponentShutdown args)
-    {
-        if (_net.IsClient)
-            return;
-
-        if (ent.Comp.SpawnedSlime is { } spawnedSlime && Exists(spawnedSlime))
-        {
-            QueueDel(spawnedSlime);
-        }
+        slime.MutationChance *= _random.NextFloat(0.5f, 1.5f);
+        slime.MaxOffspring += _random.Next(-1, 2);
+        slime.ExtractsProduced += _random.Next(0, 2);
+        slime.MitosisHunger *= _random.NextFloat(0.75f, 1.2f);
+        Dirty(args.Target, slime);
     }
 
     private void OnSlimeShutdown(Entity<SlimeComponent> ent, ref ComponentShutdown args)
@@ -76,6 +60,8 @@ public partial class XenobiologySystem
     private void OnSlimeMapInit(Entity<SlimeComponent> ent, ref MapInitEvent args)
     {
         if (!_net.IsServer) return;
+
+        ApplyBreed(ent, ent.Comp.Breed);
 
         Subs.CVar(_configuration, SimpleStationCCVars.XenobiologyBreedingInterval, val => ent.Comp.UpdateInterval = TimeSpan.FromSeconds(val), true);
         ent.Comp.NextUpdateTime = _gameTiming.CurTime + ent.Comp.UpdateInterval;
@@ -231,20 +217,38 @@ public partial class XenobiologySystem
     private Entity<SlimeComponent>? SpawnSlime(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
     {
         if (Deleted(parent)
-        || !_prototypeManager.TryIndex(selectedBreed, out var newBreed) || _net.IsClient)
+        || !_prototypeManager.TryIndex(selectedBreed, out _) || _net.IsClient)
             return null;
 
-        var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent, null, newBreed.Components);
+        var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent);
         if (!TryComp<SlimeComponent>(newEntityUid, out var newSlime))
             return null;
 
-        if (newSlime.ShouldHaveShader && newSlime.Shader != null)
-            _appearance.SetData(newEntityUid, XenoSlimeVisuals.Shader, newSlime.Shader);
-
-        _appearance.SetData(newEntityUid, XenoSlimeVisuals.Color, newSlime.SlimeColor);
-        _mobGrowth.SetBaseName(newEntityUid, Loc.GetString(newBreed.BreedName));
+        ApplyBreed((newEntityUid, newSlime), selectedBreed);
 
         return new Entity<SlimeComponent>(newEntityUid, newSlime);
+    }
+
+    private void ApplyBreed(Entity<SlimeComponent> ent, ProtoId<BreedPrototype> breedId)
+    {
+        if (!_prototypeManager.TryIndex(breedId, out var breed))
+            return;
+
+        var slime = ent.Comp;
+        slime.Breed = breedId;
+        slime.SlimeColor = breed.SlimeColor;
+        slime.MaxOffspring = breed.MaxOffspring;
+        slime.MutationChance = breed.MutationChance;
+        slime.PotentialMutations = breed.PotentialMutations;
+        slime.ShouldHaveShader = breed.ShouldHaveShader;
+        slime.Shader = breed.Shader;
+
+        if (slime.ShouldHaveShader && slime.Shader != null)
+            _appearance.SetData(ent, XenoSlimeVisuals.Shader, slime.Shader);
+
+        _appearance.SetData(ent, XenoSlimeVisuals.Color, slime.SlimeColor);
+        _mobGrowth.SetBaseName(ent, Loc.GetString(breed.BreedName));
+        Dirty(ent);
     }
 
     /// <summary>

@@ -489,6 +489,56 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("antag", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AntagRollBonus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("antag_roll_bonus_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Antag")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("antag");
+
+                    b.Property<int>("MissedRounds")
+                        .HasColumnType("integer")
+                        .HasColumnName("missed_rounds");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_antag_roll_bonus");
+
+                    b.HasIndex("UserId", "Antag")
+                        .IsUnique();
+
+                    b.ToTable("antag_roll_bonus", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AntagRollBonusWipe", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("antag_roll_bonus_wipe_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("LastWipe")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("last_wipe");
+
+                    b.HasKey("Id")
+                        .HasName("PK_antag_roll_bonus_wipe");
+
+                    b.ToTable("antag_roll_bonus_wipe", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.AssignedUserId", b =>
                 {
                     b.Property<int>("Id")
@@ -1182,6 +1232,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("char_name");
+
+                    b.Property<string>("ExploitableInfo")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("exploitable_info");
 
                     b.Property<string>("EyeColor")
                         .IsRequired()
