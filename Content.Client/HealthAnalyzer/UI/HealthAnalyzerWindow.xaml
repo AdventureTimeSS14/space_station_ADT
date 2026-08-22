@@ -1,17 +1,36 @@
-<controls:FancyWindow
-    xmlns="https://spacestation14.io"
-    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-    xmlns:ui="clr-namespace:Content.Client.HealthAnalyzer.UI"
-    MaxHeight="525"
-    MinWidth="300">
-    <!-- ADT-Tweak: ScrollContainer закомментирован -->
-    <!-- <ScrollContainer
-        Margin="5 5 5 5"
-        ReturnMeasure="True"
-        VerticalExpand="True"> -->
-
-        <ui:HealthAnalyzerControl
-            Name="HealthAnalyzer"/>
-
-    <!-- </ScrollContainer> ADT-Tweak -->
-</controls:FancyWindow>
+<ui:HealthAnalyzerWindow xmlns="https://spacestation14.io"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:ui="clr-namespace:Content.Client.HealthAnalyzer.UI"
+                         xmlns:crew="clr-namespace:Content.Client.Medical.CrewMonitoring"
+                         xmlns:adt="clr-namespace:Content.Client.ADT.PDA"
+                         x:Class="Content.Client.HealthAnalyzer.UI.HealthAnalyzerWindow"
+                         MouseFilter="Stop"
+                         MinSize="700 500"
+                         SetSize="700 500">
+    <PanelContainer Name="Background" StyleClasses="PdaBackgroundRect" />
+    <PanelContainer Name="Border" StyleClasses="PdaBorderRect" />
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+        <BoxContainer SetHeight="26" Margin="4 2 8 0" Orientation="Horizontal">
+            <Label Text="{Loc 'comp-pda-ui-health-scan-title'}"
+                   StyleClasses="FancyWindowTitle"
+                   VerticalAlignment="Center"
+                   Margin="8 0 0 0"
+                   HorizontalExpand="True" />
+            <TextureButton Name="CloseButton" StyleClasses="windowCloseButton"
+                           VerticalAlignment="Center" Margin="0 4 4 0"/>
+        </BoxContainer>
+        <Control Margin="18 0" RectClipContent="True" VerticalExpand="True" HorizontalExpand="True">
+            <PanelContainer Name="ContentBorder" StyleClasses="PdaBackground"/>
+            <Control Margin="3">
+                <crew:CrtScanlineBackground Name="ContentBackground"
+                                            HorizontalExpand="True"
+                                            VerticalExpand="True"/>
+                <adt:PdaHealthScanControl Name="HealthAnalyzer"
+                                          HorizontalExpand="True"
+                                          VerticalExpand="True"
+                                          Margin="4"/>
+            </Control>
+        </Control>
+        <Control SetHeight="26"/>
+    </BoxContainer>
+</ui:HealthAnalyzerWindow>
