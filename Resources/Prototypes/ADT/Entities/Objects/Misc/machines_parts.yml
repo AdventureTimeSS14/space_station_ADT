@@ -253,3 +253,65 @@
   - type: MachinePart
     part: MatterBin
     tier: 4
+
+# Tier 5
+
+- type: entity
+  parent: CapacitorStockPart
+  id: QuantumCapacitorStockPart
+  name: quantum capacitor
+  suffix: Tier 5
+  components:
+  - type: Sprite
+    state: quantum_capacitor
+  - type: MachinePart
+    part: Capacitor
+    tier: 5
+
+- type: entity
+  parent: ScanningModuleStockPart
+  id: QuantumScanningModuleStockPart
+  name: quantum scanning module
+  suffix: Tier 5
+  components:
+  - type: Sprite
+    state: quantum_scan_module
+  - type: MachinePart
+    part: ScanningModule
+    tier: 5
+
+- type: entity
+  parent: MicroServoStockPart
+  id: QuantumServoStockPart
+  name: quantum servo
+  suffix: Tier 5
+  components:
+  - type: Sprite
+    state: quantum_servo
+  - type: MachinePart
+    part: Servo
+    tier: 5
+
+- type: entity
+  parent: MicroLaserStockPart
+  id: QuantumMicroLaserStockPart
+  name: quantum micro-laser
+  suffix: Tier 5
+  components:
+  - type: Sprite
+    state: quantum_micro_laser
+  - type: MachinePart
+    part: MicroLaser
+    tier: 5
+
+- type: entity
+  parent: MatterBinStockPart
+  id: QuantumMatterBinStockPart
+  name: quantum matter bin
+  suffix: Tier 5
+  components:
+  - type: Sprite
+    state: quantum_matter_bin
+  - type: MachinePart
+    part: MatterBin
+    tier: 5
