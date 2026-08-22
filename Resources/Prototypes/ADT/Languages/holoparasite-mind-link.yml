@@ -1,0 +1,8 @@
+- type: language
+  id: ADTHoloparasiteMindLink
+  priority: 0
+  uiColor: "#40a7d7"
+  showUnderstood: false
+  speech: !type:MindLink
+    color: "#40a7d7"
+    showName: true
