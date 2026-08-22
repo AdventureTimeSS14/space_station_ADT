@@ -1,6 +1,7 @@
 using Content.Server.ADT.Blob.GameTicking;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
+using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Server.Zombies;
@@ -24,6 +25,7 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly ZombieSystem _zombie = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly OutfitSystem _outfit = default!;
+    [Dependency] private readonly RevolutionaryRuleSystem _rev = default!;
 
     private static readonly EntProtoId DefaultTraitorRule = "TraitorOnly"; //ADT-tweak
     private static readonly EntProtoId DefaultInitialInfectedRule = "Zombie";
@@ -143,6 +145,23 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", headRevName, Loc.GetString("admin-verb-make-head-rev")),
         };
         args.Verbs.Add(headRev);
+
+        // ADT-Tweak-start
+        var revName = Loc.GetString("admin-verb-text-make-rev");
+        Verb rev = new()
+        {
+            Text = revName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "Revolutionary"),
+            Act = () =>
+            {
+                _rev.MakeRegularRev(args.Target, args.User);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", revName, Loc.GetString("admin-verb-make-rev")),
+        };
+        args.Verbs.Add(rev);
+        //ADT-Tweak-end
 
         var thiefName = Loc.GetString("admin-verb-text-make-thief");
         Verb thief = new()
