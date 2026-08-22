@@ -96,6 +96,8 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.Arcade2);
             human.AddFunction(ContentKeyFunctions.OfferItem); // ADT-Tweak
             human.AddFunction(ContentKeyFunctions.PickupHumans); // ADT-Tweak
+            human.AddFunction(ContentKeyFunctions.Resist); // ADT-Tweak
+            human.AddFunction(ContentKeyFunctions.DrawBackItem); // ADT-Tweak
             human.AddFunction(ContentKeyFunctions.TogglePosing); // ADT-Tweak
 
             // actions should be common (for ghosts, mobs, etc)
