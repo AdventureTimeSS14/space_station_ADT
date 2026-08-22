@@ -73,7 +73,7 @@ public sealed class ADTOreFurnaceSystem : EntitySystem
         UpdateUiState(ent);
     }
 
-    private void OnBeforeUiOpen(Entity<ADTOreFurnaceComponent> ent, BeforeActivatableUIOpenEvent args)
+    private void OnBeforeUiOpen(Entity<ADTOreFurnaceComponent> ent, ref BeforeActivatableUIOpenEvent args)
     {
         UpdateUiState(ent);
     }
