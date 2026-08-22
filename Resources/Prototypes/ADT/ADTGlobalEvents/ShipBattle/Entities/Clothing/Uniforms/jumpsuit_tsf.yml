@@ -16,7 +16,7 @@
   # - type: StationLimitedNetwork
   # ADT-Tweak End
   - type: Tag
-    tags: [] # ignore "WhitelistChameleon" tag
+    tags: [ ClothMade, Recyclable ]
 
 #Command
 
