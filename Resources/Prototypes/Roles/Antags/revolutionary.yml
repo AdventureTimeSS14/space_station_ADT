@@ -2,13 +2,14 @@
   id: HeadRev
   name: roles-antag-rev-head-name
   antagonist: true
-  setPreference: true
+  setPreference: true # ADT-Tweak
   objective: roles-antag-rev-head-objective
   guides: [ Revolutionaries ]
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 30h # Corvax-RoleTime 1
-
+    
+# ADT-Tweak-start
 - type: antag
   id: Rev
   name: roles-antag-rev-name
@@ -25,6 +26,7 @@
   - !type:DepartmentTimeRequirement
     department: Medical
     time: 5h
+ # ADT-Tweak-end
 
 - type: startingGear
   id: HeadRevGear
