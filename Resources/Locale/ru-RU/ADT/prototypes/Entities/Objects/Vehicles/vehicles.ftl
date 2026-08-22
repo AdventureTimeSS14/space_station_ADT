@@ -40,3 +40,12 @@ vehicle-use-key = Вы используете { $keys } чтобы запуст�
 vehicle-folded-cannot-buckle = Нельзя сесть на сложенное транспортное средство { $vehicle }.
 vehicle-hands-occupied = Руки заняты, чтобы сесть на { $vehicle }.
 vehicle-folded-ejected = Вас вытолкнули из { $vehicle }, потому что его сложили!
+
+ent-ADTVehicleATVMedic = медицинский квадроцикл
+    .desc = Квадроцикл со сцепкой для перевозки каталок и мешков для трупов.
+
+ent-ADTActionTrailerToggle = прицеп
+    .desc = Прицепить или отцепить прицеп от сцепки квадроцикла.
+
+adt-trailer-attached = Прицеп закреплён на сцепке.
+adt-trailer-unattached = Прицеп отцеплён от сцепки.
