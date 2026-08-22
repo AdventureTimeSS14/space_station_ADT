@@ -80,10 +80,10 @@
     tier: 1
   - type: PhysicalComposition
     materialComposition:
-      Steel: 100
-      Plastic: 50
-      Copper: 200
-      Zinc: 200
+      Steel: 50
+      Plastic: 25
+      Copper: 100
+      Zinc: 100
   # ADT-Tweak end
   - type: Battery
     maxCharge: 360
@@ -139,13 +139,13 @@
     tier: 2
   - type: PhysicalComposition
     materialComposition:
-      Steel: 300
-      Glass: 300
-      Plastic: 100
-      Gold: 10
-      Silver: 50
-      Copper: 200
-      Zinc: 200
+      Steel: 150
+      Glass: 150
+      Plastic: 50
+      Gold: 5
+      Silver: 25
+      Copper: 100
+      Zinc: 100
   # ADT-Tweak end
   - type: Battery
     maxCharge: 720
@@ -188,12 +188,12 @@
     tier: 3
   - type: PhysicalComposition
     materialComposition:
-      Steel: 300
-      Glass: 400
-      Plastic: 200
-      Gold: 50
-      Silver: 50
-      Zinc: 200
+      Steel: 150
+      Glass: 200
+      Plastic: 100
+      Gold: 25
+      Silver: 25
+      Zinc: 100
   # ADT-Tweak end
   - type: Battery
     maxCharge: 1080
@@ -236,11 +236,11 @@
     tier: 4
   - type: PhysicalComposition
     materialComposition:
-      Steel: 800
-      Glass: 700
-      Plasma: 300
-      Gold: 200
-      Silver: 300
+      Steel: 300
+      Glass: 300
+      Plasma: 100
+      Gold: 100
+      Silver: 100
   # ADT-Tweak end
   - type: Battery
     maxCharge: 1800
