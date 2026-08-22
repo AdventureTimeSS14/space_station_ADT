@@ -2,7 +2,7 @@
   id: HeadRev
   name: roles-antag-rev-head-name
   antagonist: true
-  setPreference: true # ADT-Tweak
+  setPreference: true 
   objective: roles-antag-rev-head-objective
   guides: [ Revolutionaries ]
   requirements:
