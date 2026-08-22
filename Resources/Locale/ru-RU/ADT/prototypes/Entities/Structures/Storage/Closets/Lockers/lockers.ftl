@@ -40,3 +40,7 @@ ent-ADTSuitStorageParamed = хранилище скафандра
 ent-SuitStorageBrigmedic = хранилище скафандра
     .suffix = Бригмедик
     .desc = { ent-SuitStorageBase.desc }
+
+ent-LockerCorrectionOfficerFilled = шкаф надзирателя службы безопасности
+    .suffix = Заполненный
+    .desc = { ent-SuitStorageBase.desc }
