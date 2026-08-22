@@ -126,23 +126,23 @@
 # ERT Mechs
 - type: storeCategory
   id: ADTUplinkERTMechMechs
-  name: uplink-syndimech-mechs
-  priority: 1
+  name: uplink-ertmech-mechs
+  priority: 11
 
 - type: storeCategory
   id: ADTUplinkERTMechWeapon
-  name: uplink-syndimech-weapon
-  priority: 2
+  name: uplink-ertmech-weapon
+  priority: 12
 
 - type: storeCategory
   id: ADTUplinkERTMechEquipment
-  name: uplink-syndimech-equipment
-  priority: 3
+  name: uplink-ertmech-equipment
+  priority: 13
 
 - type: storeCategory
   id: ADTUplinkERTMechAmmo
-  name: uplink-syndimech-ammo
-  priority: 4
+  name: uplink-ertmech-ammo
+  priority: 14
 
 - type: storeCategory
   id: ADTUplinkERTMechImplants
@@ -151,5 +151,5 @@
 
 - type: storeCategory
   id: ADTUplinkERTRevolutionalMechWeapon
-  name: uplink-syndimech-weapon
-  priority: 2
+  name: uplink-ertmech-weapon
+  priority: 12

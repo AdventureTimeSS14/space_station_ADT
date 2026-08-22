@@ -927,3 +927,6 @@
 
 - type: Tag
   id: ADTPicoServoStockPart
+
+- type: Tag
+  id: ADTFlamethrowerCharge

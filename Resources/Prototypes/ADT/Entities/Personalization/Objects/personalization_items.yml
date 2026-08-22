@@ -2532,7 +2532,7 @@
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Battery/yv2.rsi
   - type: Gun
-    fireRate: 2
+    fireRate: 3
     projectileSpeed: 60
     selectedMode: SemiAuto
     availableModes:
@@ -3250,7 +3250,7 @@
   - type: AltFireMelee
   # ADT-Tweak end
   - type: Gun
-    fireRate: 1
+    fireRate: 2
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

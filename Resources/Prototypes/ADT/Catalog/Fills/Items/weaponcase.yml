@@ -12,7 +12,11 @@
         children:
         - id: WeaponRifleM90GrenadeLauncher
         - id: MagazineRifle
-          amount: 5
+          amount: 4
+        - id: ADT40mmGrenadeBlast
+          amount: 3
+        - id: ADT40mmGrenadeBaton
+          amount: 2
 
 - type: entity
   id: WeaponCaseNTLecter

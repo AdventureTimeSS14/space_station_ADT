@@ -252,3 +252,31 @@
         Piercing: 1.5
         Holy: 7
   - type: HolyDamage
+
+- type: entity
+  id: ADTBulletFlamethrower
+  parent: BaseBulletIncendiary
+  name: flame
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 15
+    deleteOnCollide: false
+  - type: TimedSpawner
+    prototypes:
+      - NazFire
+    chance: 1
+    intervalSeconds: 0.05
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 10
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: fireball
+      shader: unshaded
+  - type: IgniteOnCollide
+    fireStacks: 7
+    count: 10

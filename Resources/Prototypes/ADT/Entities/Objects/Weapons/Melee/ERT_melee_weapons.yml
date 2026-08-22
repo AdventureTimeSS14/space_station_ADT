@@ -22,6 +22,8 @@
     storedSprite:
       state: storage
       sprite: ADT/Objects/Weapons/Melee/tactical_axe.rsi
+    shape:
+      - 0,0,1,2
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
@@ -67,7 +69,7 @@
 - type: entity
   name: CBURN Chainsword
   parent: BaseItem
-  id: ADTWeaponыChainsword
+  id: ADTWeaponChainsword
   description: Chainsword
   components:
   - type: Sharp
@@ -81,6 +83,7 @@
       map: [ "chainsword" ]
   - type: MeleeWeapon
     attackRate: 1.6
+    wideAnimationRotation: -135
     damage:
       types:
         Blunt: 3
@@ -88,6 +91,8 @@
         path: "/Audio/Weapons/smash.ogg"
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/chainsword.rsi
+    shape:
+      - 0,0,1,3
   - type: DisarmMalus
   - type: Appearance
   - type: ItemToggle

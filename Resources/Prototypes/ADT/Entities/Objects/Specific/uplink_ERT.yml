@@ -39,7 +39,7 @@
     key: enum.StoreUiKey.Key
   - type: Store
     balance:
-      Productunit: 35
+      Productunit: 50
 
 #Аплинк ОБР против революции
 - type: entity
@@ -71,7 +71,7 @@
   id: ADTBaseUplinkBOBERTCBURN
   name: Б.О.О.Б.Р.
   description: Блюспейс оружейная отряда быстрого реагирования.
-  suffix: 35 ЕТ, РХБЗЗ
+  suffix: 40 ЕТ, РХБЗЗ
   components:
   - type: Store
     name: store-preset-name-uplink
@@ -88,7 +88,7 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 35
+      Productunit: 40
 
 #Аплинки инженера ОБР и Уборщика ОБР
 - type: entity
@@ -96,7 +96,7 @@
   id: ADTBaseUplinkBOBERTEngineer
   name: Б.О.О.Б.Р.
   description: Блюспейс оружейная отряда быстрого реагирования.
-  suffix: 35 ЕТ, Инженер ОБР
+  suffix: 55 ЕТ, Инженер ОБР
   components:
   - type: Store
     name: store-preset-name-uplink
@@ -113,14 +113,38 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 35
+      Productunit: 55
+
+- type: entity
+  parent: ADTBaseUplinkBOBERT
+  id: ADTBaseUplinkBOBERTEngineerRiot
+  name: Б.О.О.Б.Р.
+  description: Блюспейс оружейная отряда быстрого реагирования.
+  suffix: 40 ЕТ, Инженер ОБР против ревоюции
+  components:
+  - type: Store
+    name: store-preset-name-uplink
+    categories:
+    - ADTUplinkERTRiotWeapon
+    - ADTUplinkERTRiotWeaponSecondary
+    - ADTUplinkERTWeaponMelee
+    - ADTUplinkERTRiotAmmo
+    - ADTUplinkERTRiotGrenades
+    - ADTUplinkERTAttachments
+    - ADTUplinkERTRiotImplanters
+    - ADTUplinkERTEngineer
+    - ADTUplinkERTMisc
+    currencyWhitelist:
+    - Productunit
+    balance:
+      Productunit: 40
 
 - type: entity
   parent: ADTBaseUplinkBOBERT
   id: ADTBaseUplinkBOBERTJanitor
   name: Б.О.О.Б.Р.
   description: Блюспейс оружейная отряда быстрого реагирования.
-  suffix: 35 ЕТ, Уборщик ОБР
+  suffix: 20 ЕТ, Уборщик ОБР
   components:
   - type: Store
     name: store-preset-name-uplink
@@ -133,7 +157,90 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 35
+      Productunit: 20
+
+#Командирские аплинки
+- type: entity
+  parent: ADTBaseUplinkBOBERT
+  id: ADTBaseUplinkBOBERTRiotLeader
+  name: Б.О.О.Б.Р.
+  description: Блюспейс оружейная отряда быстрого реагирования.
+  suffix: 50 ЕТ, Командир, Против революции
+  components:
+  - type: Store
+    name: store-preset-name-uplink
+    categories:
+    - ADTUplinkERTRiotWeapon
+    - ADTUplinkERTRiotWeaponSecondary
+    - ADTUplinkERTWeaponMelee
+    - ADTUplinkERTRiotAmmo
+    - ADTUplinkERTRiotGrenades
+    - ADTUplinkERTAttachments
+    - ADTUplinkERTRiotImplanters
+    - ADTUplinkERTMisc
+    - ADTUplinkERTMechMechs
+    - ADTUplinkERTRevolutionalMechWeapon
+    - ADTUplinkERTMechEquipment
+    - ADTUplinkERTMechAmmo
+    currencyWhitelist:
+    - Productunit
+    balance:
+      Productunit: 50
+
+- type: entity
+  parent: ADTBaseUplinkBOBERT
+  id: ADTBaseUplinkBOBERTLeader
+  name: Б.О.О.Б.Р.
+  description: Блюспейс оружейная отряда быстрого реагирования.
+  suffix: 65 ЕТ, Командир, Базовый
+  components:
+  - type: Store
+    name: store-preset-name-uplink
+    categories:
+    - ADTUplinkERTWeapon
+    - ADTUplinkERTWeaponSecondary
+    - ADTUplinkERTWeaponMelee
+    - ADTUplinkERTAmmo
+    - ADTUplinkERTGrenades
+    - ADTUplinkERTAttachments
+    - ADTUplinkERTImplanters
+    - ADTUplinkERTMisc
+    - ADTUplinkERTMechMechs
+    - ADTUplinkERTMechWeapon
+    - ADTUplinkERTMechEquipment
+    - ADTUplinkERTMechAmmo
+    currencyWhitelist:
+    - Productunit
+    balance:
+      Productunit: 65
+
+- type: entity
+  parent: ADTBaseUplinkBOBERT
+  id: ADTBaseUplinkBOBERTCBURNLeader
+  name: Б.О.О.Б.Р.
+  description: Блюспейс оружейная отряда быстрого реагирования.
+  suffix: 55 ЕТ, Командир, РХБЗЗ
+  components:
+  - type: Store
+    name: store-preset-name-uplink
+    categories:
+    - ADTUplinkERTCBURNWeapon
+    - ADTUplinkERTCBURNWeaponSecondary
+    - ADTUplinkERTWeaponMelee
+    - ADTUplinkERTCBURNAmmo
+    - ADTUplinkERTGrenades
+    - ADTUplinkERTAttachments
+    - ADTUplinkERTRiotImplanters
+    - ADTUplinkERTCBURNReagents
+    - ADTUplinkERTMisc
+    - ADTUplinkERTMechMechs
+    - ADTUplinkERTMechWeapon
+    - ADTUplinkERTMechEquipment
+    - ADTUplinkERTMechAmmo
+    currencyWhitelist:
+    - Productunit
+    balance:
+      Productunit: 65
 
 - type: entity
   name: product unit
