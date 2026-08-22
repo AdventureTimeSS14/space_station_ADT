@@ -1,0 +1,459 @@
+- type: entity
+  id: ADTActionShadowlingHatch
+  name: Раскрытие
+  description: Сбросить маскировку и принять истинную форму. Отменить это будет нельзя.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 300
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: hatch
+  - type: InstantAction
+    event: !type:ADTShadowlingHatchEvent
+
+- type: entity
+  id: ADTActionShadowlingEnthrall
+  name: Порабощение
+  description: Подчинить живого и находящегося в сознании гуманоида своей воле. Щит разума это блокирует.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 3
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: enthrall
+  - type: EntityTargetAction
+    event: !type:ADTShadowlingEnthrallEvent
+    whitelist:
+      components:
+      - HumanoidProfile
+      - MobState
+  - type: TargetAction
+    range: 1.5
+
+- type: entity
+  id: ADTActionShadowlingGlare
+  name: Взгляд
+  description: Оглушить и лишить голоса. Вблизи роняет с ног, издалека лишь сбивает с шага.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: glare
+  - type: EntityTargetAction
+    event: !type:ADTShadowlingGlareEvent
+  - type: TargetAction
+    range: 10
+  - type: ADTShadowlingGlareAction
+    meleeRange: 2
+    closeKnockdown: 4
+    closeMute: 20
+    closeStamina: 20
+    farStun: 2
+    farSlow: 10
+    farMute: 10
+
+- type: entity
+  id: ADTActionShadowlingVeil
+  name: Завеса
+  description: Бесшумно погасить все источники света поблизости.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 15
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: veil
+  - type: InstantAction
+    event: !type:ADTShadowlingVeilEvent
+  - type: ADTShadowlingVeilAction
+    range: 5
+    sound:
+      path: /Audio/ADT/Shadowling/ghost2.ogg
+
+- type: entity
+  id: ADTActionShadowlingShadowWalk
+  name: Теневой шаг
+  description: Уйти в пространство между мирами на четыре секунды. Сквозь стены, невидимым и неуязвимым.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: shadow_walk
+  - type: InstantAction
+    event: !type:ADTShadowlingShadowWalkEvent
+  - type: ADTShadowlingShadowWalkAction
+    polymorph: ADTShadowlingShadowWalk
+    sound:
+      path: /Audio/ADT/Shadowling/bamf.ogg
+
+- type: entity
+  id: ADTActionShadowlingIcyVeins
+  name: Ледяные вены
+  description: Мгновенно выморозить воздух вокруг. Своих не задевает.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 25
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: icy_veins
+  - type: InstantAction
+    event: !type:ADTShadowlingIcyVeinsEvent
+  - type: ADTShadowlingIcyVeinsAction
+    range: 5
+    stun: 2
+    reagent: ADTFrostoil
+    reagentAmount: 15
+    damage:
+      types:
+        Cold: 10
+    sound:
+      path: /Audio/ADT/Shadowling/ghost2.ogg
+
+- type: entity
+  id: ADTActionShadowlingGuise
+  name: Личина
+  description: Окутать себя тенями на несколько секунд, став почти незаметным.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 120
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: shadow_walk
+  - type: InstantAction
+    event: !type:ADTShadowlingGuiseEvent
+  - type: ADTShadowlingGuiseAction
+    duration: 4
+    visibility: -0.9
+    sound:
+      path: /Audio/ADT/Shadowling/bamf.ogg
+
+- type: entity
+  id: ADTActionShadowlingDarksight
+  name: Тёмное зрение
+  description: Перестроить нервы в глазах, чтобы видеть в темноте.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: darksight
+  - type: InstantAction
+    event: !type:ADTShadowlingDarksightEvent
+
+- type: entity
+  id: ADTActionShadowlingCollectiveMind
+  name: Коллективный разум
+  description: Собрать силу своих рабов. Открывает новые способности по мере их числа и разблокирует вознесение.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: collective_mind
+  - type: InstantAction
+    event: !type:ADTShadowlingCollectiveMindEvent
+  - type: ADTShadowlingCollectiveMindAction
+    castTime: 3
+    selfHeal:
+      types:
+        Cellular: -50
+    sound:
+      path: /Audio/ADT/Shadowling/ghost2.ogg
+
+- type: entity
+  id: ADTActionShadowlingBlindnessSmoke
+  name: Слепящий дым
+  description: Изрыгнуть облако чёрного дыма. Чужим выжигает глаза, своих лечит.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: black_smoke
+  - type: InstantAction
+    event: !type:ADTShadowlingBlindnessSmokeEvent
+  - type: ADTShadowlingBlindnessSmokeAction
+    smokeProto: Smoke
+    reagent: ADTShadowlingSmoke
+    reagentAmount: 100
+    duration: 10
+    spreadAmount: 20
+    sound:
+      path: /Audio/ADT/Shadowling/bamf.ogg
+
+- type: entity
+  id: ADTActionShadowlingSonicScreech
+  name: Крик
+  description: Оглушительный вопль. Путает мысли, вырубает боргов и разбивает окна.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: screech
+  - type: InstantAction
+    event: !type:ADTShadowlingScreechEvent
+  - type: ADTShadowlingScreechAction
+    range: 5
+    confusionEffect: StatusEffectDrunk
+    confusionTime: 20
+    deafness: 3
+    staminaDamage: 30
+    siliconShutdown: 12
+    windowDamage:
+      types:
+        Blunt: 90
+    sound:
+      path: /Audio/ADT/Shadowling/screech.ogg
+
+- type: entity
+  id: ADTActionShadowlingNullCharge
+  name: Обнуление
+  description: Слить заряд ЛКП в пустоту и вырубить его автомат.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 60
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: null_charge
+  - type: EntityTargetAction
+    event: !type:ADTShadowlingNullChargeEvent
+  - type: TargetAction
+    range: 1.5
+  - type: ADTShadowlingNullChargeAction
+    sound:
+      path: /Audio/ADT/Shadowling/ghost2.ogg
+
+- type: entity
+  id: ADTActionShadowlingBlackRecuperation
+  name: Чёрное восстановление
+  description: Наделить живого раба силой или поднять мёртвого.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 60
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: revive_thrall
+  - type: EntityTargetAction
+    event: !type:ADTShadowlingBlackRecuperationEvent
+  - type: TargetAction
+    range: 1.5
+  - type: ADTShadowlingBlackRecuperationAction
+    empowerTime: 8
+    reviveTime: 3
+    empowerPolymorph: ADTShadowlingEmpowered
+    maxEmpowered: 5
+    sound:
+      path: /Audio/Items/Defib/defib_zap.ogg
+
+- type: entity
+  id: ADTActionShadowlingDestroyEngines
+  name: Уничтожить двигатели
+  description: Сжечь жизненную силу жертвы, чтобы задержать шаттл на десять минут. Отозвать его после этого не выйдет. Одноразово.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: extend_shuttle
+  - type: EntityTargetAction
+    event: !type:ADTShadowlingDestroyEnginesEvent
+    whitelist:
+      components:
+      - HumanoidProfile
+      - MobState
+  - type: TargetAction
+    range: 1.5
+  - type: ADTShadowlingDestroyEnginesAction
+    castTime: 15
+    shuttleDelay: 600
+    sound:
+      path: /Audio/ADT/Shadowling/ghost.ogg
+
+- type: entity
+  id: ADTActionShadowlingAscend
+  name: Вознесение
+  description: Сбросить смертную оболочку и обрести истинную форму. Обратного пути нет.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 300
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: ascend
+  - type: InstantAction
+    event: !type:ADTShadowlingAscendEvent
+  - type: ADTShadowlingAscendAction
+    stages: [ 5, 10, 9, 6 ]
+    polymorph: ADTShadowlingAscended
+    shockwaveRange: 7
+    shockwaveKnockdown: 20
+    breakAllLights: true
+
+- type: entity
+  id: ADTActionAscendantAnnihilate
+  name: Аннигиляция
+  description: Разорвать цель на куски одним жестом.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: annihilate
+  - type: EntityTargetAction
+    event: !type:ADTAscendantAnnihilateEvent
+  - type: TargetAction
+    range: 7
+  - type: ADTAscendantAnnihilateAction
+
+- type: entity
+  id: ADTActionAscendantHypnosis
+  name: Гипноз
+  description: Мгновенно подчинить гуманоида, без всякого ритуала.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: enthrall
+  - type: EntityTargetAction
+    event: !type:ADTAscendantHypnosisEvent
+    whitelist:
+      components:
+      - HumanoidProfile
+      - MobState
+  - type: TargetAction
+    range: 7
+  - type: ADTAscendantHypnosisAction
+
+- type: entity
+  id: ADTActionAscendantPhaseShift
+  name: Фазовый сдвиг
+  description: Шагнуть в пространство между мирами. Сквозь стены и незримо.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 2
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: shadow_walk
+  - type: InstantAction
+    event: !type:ADTAscendantPhaseShiftEvent
+  - type: ADTAscendantPhaseShiftAction
+    polymorph: ADTShadowlingAscendantPhased
+
+- type: entity
+  id: ADTActionAscendantUnphase
+  name: Вернуться
+  description: Шагнуть обратно в мир.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 2
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: shadow_walk
+  - type: InstantAction
+    event: !type:ADTAscendantUnphaseEvent
+
+- type: entity
+  id: ADTActionAscendantLightningStorm
+  name: Грозовой шторм
+  description: Обрушить молнии на всё вокруг.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 10
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: lightning_storm
+  - type: InstantAction
+    event: !type:ADTAscendantLightningStormEvent
+  - type: ADTAscendantLightningStormAction
+    range: 6
+    knockdown: 16
+    damage:
+      types:
+        Shock: 50
+
+- type: entity
+  id: ADTActionAscendantBroadcast
+  name: Глас вознёсшегося
+  description: Обратиться разом ко всей станции.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 20
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: transmit
+  - type: InstantAction
+    event: !type:ADTAscendantBroadcastEvent
+  - type: ADTAscendantBroadcastAction
+
+- type: entity
+  id: ADTActionAscendantBlackWill
+  name: Чёрная воля
+  description: Наделить раба силой или поднять его из мёртвых. Без ограничений.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Interface/Actions/shadowling.rsi
+      state: revive_thrall
+  - type: EntityTargetAction
+    event: !type:ADTShadowlingBlackRecuperationEvent
+  - type: TargetAction
+    range: 3
+  - type: ADTShadowlingBlackRecuperationAction
+    empowerTime: 3
+    reviveTime: 2
+    ignoreLimit: true
