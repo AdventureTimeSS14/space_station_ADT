@@ -6,6 +6,9 @@ public sealed partial class JaunterComponent : Component
     [DataField]
     public bool DeleteOnUse = true;
 
+    [DataField]
+    public TimeSpan ChasmImmunity = TimeSpan.FromSeconds(3);
+
     public bool BeaconMode = false;
 }
 

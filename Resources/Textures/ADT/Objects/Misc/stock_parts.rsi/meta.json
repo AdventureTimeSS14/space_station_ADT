@@ -31,6 +31,20 @@
             ]
         },
         {
+            "name": "quantum_micro_laser",
+            "delays": [
+                [
+                    0.3,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.3
+                ]
+            ]
+        },
+        {
             "name": "capacitor"
         },
         {
@@ -41,6 +55,20 @@
         },
         {
             "name": "quadratic_capacitor",
+            "delays": [
+                [
+                    0.3,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "quantum_capacitor",
             "delays": [
                 [
                     0.3,
@@ -77,6 +105,20 @@
             ]
         },
         {
+            "name": "quantum_servo",
+            "delays": [
+                [
+                    0.3,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.3
+                ]
+            ]
+        },
+        {
             "name": "matter_bin"
         },
         {
@@ -87,6 +129,20 @@
         },
         {
             "name": "bluespace_matter_bin",
+            "delays": [
+                [
+                    0.3,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "quantum_matter_bin",
             "delays": [
                 [
                     0.3,
@@ -137,6 +193,21 @@
         },
         {
             "name": "triphasic_scan_module",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "quantum_scan_module",
             "delays": [
                 [
                     0.1,
