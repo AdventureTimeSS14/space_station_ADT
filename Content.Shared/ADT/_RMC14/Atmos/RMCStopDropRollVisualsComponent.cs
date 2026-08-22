@@ -1,5 +1,4 @@
-// Ported from RMC-14 (https://github.com/RMC-14/RMC-14), AGPL-3.0-or-later.
-// SPDX-License-Identifier: AGPL-3.0-or-later
+// Ported from RMC-14 (https://github.com/RMC-14/RMC-14), MIT License
 
 using Robust.Shared.GameStates;
 
