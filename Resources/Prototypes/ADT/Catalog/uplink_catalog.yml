@@ -1,6 +1,26 @@
 #UplinkWeaponry
 
 - type: listing
+  id: ADTUplinkRapier
+  name: uplink-adt-rapier-name
+  description: uplink-adt-rapier-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Melee/rapier.rsi, state: icon }
+  productEntity: ADTRapier
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 5
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+      - LoneOpsUplink
+
+- type: listing
   id: ADTUplinkAdvancedHristov
   name: uplink-hristov-bundle-name
   description: uplink-hristov-bundle-desc

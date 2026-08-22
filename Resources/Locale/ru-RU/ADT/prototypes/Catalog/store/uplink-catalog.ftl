@@ -257,3 +257,6 @@ uplink-box-music-disks-desc = Тихо выполнять цели - не ваш
 
 uplink-code-speak-implanter-name = Имплантер Кодового языка
 uplink-code-speak-implanter-desc = Каждый уважающий себя ядерный оперативник знает этот язык. Имплантер замаскирован под обычный имплантер Общегалактического языка.
+
+uplink-adt-rapier-name = Рапира
+uplink-adt-rapier-desc = Тонкий клинок синдиката, пробивающий броню точными уколами.
