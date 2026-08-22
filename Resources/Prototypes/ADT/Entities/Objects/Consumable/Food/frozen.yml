@@ -742,6 +742,18 @@
       - id: ADTFoodFrozenWatermelonPopsicleTrash
       - id: ADTFoodFrozenWatermelonPopsicle
 
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedPopsicleSlime
+  components:
+  - type: Sprite
+    state: popsicleslime_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenPopsicleSlimeTrash
+      - id: ADTFoodFrozenPopsicleSlime
+
 # Мусор
 
 - type: entity
@@ -969,3 +981,12 @@
   components:
   - type: Sprite
     state: watermelonpopsicle_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenPopsicleSlimeTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: popsicleslime_trash
