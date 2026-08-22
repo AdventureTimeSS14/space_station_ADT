@@ -62,7 +62,7 @@ public sealed partial class ADTOreFurnaceRecipeRow : Control
 
         if (amount > _maxAmount)
             AmountEdit.SetText(_maxAmount.ToString());
-        else if (amount < 0)
-            AmountEdit.SetText("0");
+        else if (amount < 1)
+            AmountEdit.SetText("1");
     }
 }

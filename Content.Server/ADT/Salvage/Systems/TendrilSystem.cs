@@ -132,6 +132,9 @@ public sealed class TendrilSystem : EntitySystem
         if (!IsValidTarget(attacker))
             return;
 
+        if (ent.Comp.Aggressor is { } previous && previous != attacker)
+            ClearAggro(ent);
+
         ent.Comp.Aggressor = attacker;
         ent.Comp.AggroEndTime = _time.CurTime + ent.Comp.AggroMemory;
 

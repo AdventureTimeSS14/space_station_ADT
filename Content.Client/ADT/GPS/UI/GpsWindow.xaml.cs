@@ -77,7 +77,7 @@ public sealed partial class GpsWindow : DefaultWindow
         var usable = state.Tracking && !state.Emped && !state.Nullspace;
 
         WaypointButton.Disabled = !usable || state.Waypoints.Count >= state.MaxWaypoints;
-        WaypointEdit.Editable = usable;
+        WaypointEdit.Editable = usable && state.Waypoints.Count < state.MaxWaypoints;
         WaypointEmptyLabel.Visible = state.Waypoints.Count == 0;
 
         while (WaypointList.ChildCount > state.Waypoints.Count)
