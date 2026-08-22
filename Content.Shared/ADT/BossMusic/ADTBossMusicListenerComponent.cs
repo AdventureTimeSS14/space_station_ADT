@@ -11,4 +11,7 @@ public sealed partial class ADTBossMusicListenerComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? Boss;
+
+    [ViewVariables]
+    public TimeSpan? LeftAt;
 }
