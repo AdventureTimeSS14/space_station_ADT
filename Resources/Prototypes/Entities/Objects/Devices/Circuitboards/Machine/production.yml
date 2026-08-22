@@ -825,11 +825,8 @@
         CableMV: 5
         CableHV: 5
       partRequirements: #ADT-Tweak: machine parts
-        Servo: 1
-      componentRequirements:
-        PowerCell:
-          amount: 1
-          defaultPrototype: PowerCellSmall
+        Capacitor: 1
+        PowerCell: 1
     - type: PhysicalComposition
       materialComposition:
         Glass: 200
