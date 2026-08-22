@@ -70,7 +70,7 @@ public abstract partial class SharedStunSystem
         SubscribeLocalEvent<KnockedDownComponent, DidEquipHandEvent>(OnHandEquipped);
         SubscribeLocalEvent<KnockedDownComponent, DidUnequipHandEvent>(OnHandUnequipped);
         SubscribeLocalEvent<KnockedDownComponent, HandCountChangedEvent>(OnHandCountChanged);
-        SubscribeLocalEvent<GravityAffectedComponent, KnockDownAttemptEvent>(OnKnockdownAttempt);
+        //SubscribeLocalEvent<GravityAffectedComponent, KnockDownAttemptEvent>(OnKnockdownAttempt); ADT-Tweak
         SubscribeLocalEvent<GravityAffectedComponent, GetStandUpTimeEvent>(OnGetStandUpTime);
 
         // Handling Alternative Inputs
