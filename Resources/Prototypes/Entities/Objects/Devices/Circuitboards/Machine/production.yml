@@ -827,6 +827,7 @@
       partRequirements: #ADT-Tweak: machine parts
         Capacitor: 1
         PowerCell: 1
+        Servo: 1
     - type: PhysicalComposition
       materialComposition:
         Glass: 200
