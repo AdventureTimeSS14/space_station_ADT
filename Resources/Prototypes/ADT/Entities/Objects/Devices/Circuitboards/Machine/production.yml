@@ -334,6 +334,9 @@
         Glass: 2
         Steel: 8
         Plasma: 2
+      partRequirements:
+        Servo: 1
+        MicroLaser: 1
 
 #Зарядник мегабатареек
 #

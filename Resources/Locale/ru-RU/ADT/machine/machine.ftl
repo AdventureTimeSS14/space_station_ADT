@@ -49,3 +49,4 @@ machine-upgrade-artifact-points = очки исследований
 machine-upgrade-fragment-output = выход фрагментов
 machine-upgrade-fat-extraction = скорость извлечения жира
 machine-upgrade-heat-power = мощность нагрева
+machine-upgrade-metabolism-speed = скорость метаболизма
