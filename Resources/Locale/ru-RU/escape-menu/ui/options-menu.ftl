@@ -1,4 +1,4 @@
-﻿## General stuff
+## General stuff
 
 ui-options-title = Игровые настройки
 ui-options-tab-accessibility = Доступность
@@ -100,6 +100,8 @@ ui-options-vp-vertical-fit-tooltip =
 ui-options-vp-low-res = Изображение низкого разрешения
 ui-options-parallax-low-quality = Низкокачественный параллакс (фон)
 ui-options-ambient-occlusion = Отображать окружающее затенение
+ui-options-trace = Отображать следы пуль
+ui-options-trace-tooltip = Если при стрельбе есть лаги, снимите галочку для повышения производительности.
 ui-options-fps-counter = Показать счётчик FPS
 ui-options-vp-width = Ширина окна игры:
 ui-options-hud-layout = Тип HUD:
