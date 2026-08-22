@@ -114,11 +114,10 @@
       Sulfur: 5
     tierReagents:
     #  1: 
-      2: [ TableSalt, Water, WeldingFuel ]
-      3: [ Benzene, Hydroxide, Fersilicite ]
-      4: [ Uranium, Plasma, Siderlac ]
-      5: [ Omnizine, Cognizine, Diethylamine ]
-    tierReagentCost: 8
+      2: { TableSalt: 4, Water: 3, WeldingFuel: 8 }
+      3: { Benzene: 10, Hydroxide: 8, Fersilicite: 12 }
+      4: { Uranium: 15, Plasma: 12, Siderlac: 15 }
+      5: { Omnizine: 50, Cognizine: 50, Diethylamine: 10 }
     reagentsEmagged:
       Puncturase: 15
       Pyrazine: 15
@@ -291,4 +290,4 @@
       Whiskey: 12
       Wine: 8
     tierReagents:
-      2: [ Nothing, Ethanol ]
+      2: { Nothing: 4, Ethanol: 8 }
