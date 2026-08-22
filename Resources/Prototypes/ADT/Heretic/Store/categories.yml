@@ -29,3 +29,14 @@
   id: HereticPathSide
   name: store-heretic-path-side
   priority: 999 # lowest possible
+
+# ADT: Cosmos and Rust paths
+- type: storeCategory
+  id: HereticPathCosmos
+  name: store-heretic-path-cosmos
+  priority: 0
+
+- type: storeCategory
+  id: HereticPathRust
+  name: store-heretic-path-rust
+  priority: 0
