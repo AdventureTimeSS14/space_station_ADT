@@ -113,7 +113,7 @@
       Sugar: 5
       Sulfur: 5
     tierReagents:
-    #  1: 
+      #  1: 
       2: { TableSalt: 4, Water: 3, WeldingFuel: 8 }
       3: { Benzene: 10, Hydroxide: 8, Fersilicite: 12 }
       4: { Uranium: 15, Plasma: 12, Siderlac: 15 }
