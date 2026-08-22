@@ -15,6 +15,8 @@ public sealed partial class GpsWindow : DefaultWindow
     public event Action? OnRangePressed;
     public event Action? OnSosPressed;
     public event Action<string>? OnTagEntered;
+    public event Action<string>? OnWaypointAdded;
+    public event Action<int>? OnWaypointRemoved;
 
     private GpsBoundUserInterfaceState? _state;
 
@@ -28,11 +30,19 @@ public sealed partial class GpsWindow : DefaultWindow
         SosButton.OnPressed += _ => OnSosPressed?.Invoke();
         TagButton.OnPressed += _ => SubmitTag();
         TagEdit.OnTextEntered += _ => SubmitTag();
+        WaypointButton.OnPressed += _ => SubmitWaypoint();
+        WaypointEdit.OnTextEntered += _ => SubmitWaypoint();
     }
 
     private void SubmitTag()
     {
         OnTagEntered?.Invoke(TagEdit.Text);
+    }
+
+    private void SubmitWaypoint()
+    {
+        OnWaypointAdded?.Invoke(WaypointEdit.Text);
+        WaypointEdit.Text = string.Empty;
     }
 
     public void UpdateState(GpsBoundUserInterfaceState state)
@@ -53,7 +63,41 @@ public sealed partial class GpsWindow : DefaultWindow
 
         UpdateSosButton();
         UpdateStatus(state);
+        UpdateWaypoints(state);
         UpdateSignals(state);
+    }
+
+    private void UpdateWaypoints(GpsBoundUserInterfaceState state)
+    {
+        WaypointBox.Visible = state.MaxWaypoints > 0;
+
+        if (!WaypointBox.Visible)
+            return;
+
+        var usable = state.Tracking && !state.Emped && !state.Nullspace;
+
+        WaypointButton.Disabled = !usable || state.Waypoints.Count >= state.MaxWaypoints;
+        WaypointEdit.Editable = usable;
+        WaypointEmptyLabel.Visible = state.Waypoints.Count == 0;
+
+        while (WaypointList.ChildCount > state.Waypoints.Count)
+        {
+            WaypointList.RemoveChild(WaypointList.GetChild(WaypointList.ChildCount - 1));
+        }
+
+        while (WaypointList.ChildCount < state.Waypoints.Count)
+        {
+            var index = WaypointList.ChildCount;
+            var row = new GpsWaypointRow();
+            row.OnRemovePressed += () => OnWaypointRemoved?.Invoke(index);
+            WaypointList.AddChild(row);
+        }
+
+        for (var i = 0; i < state.Waypoints.Count; i++)
+        {
+            if (WaypointList.GetChild(i) is GpsWaypointRow row)
+                row.Update(state.Waypoints[i], state.Position, striped: i % 2 == 0);
+        }
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
