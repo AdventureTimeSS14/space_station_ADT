@@ -169,28 +169,35 @@
 
 ## Квантовый катализатор
 
-Реагент для печати квантовых деталей - [bold]50 единиц на деталь[/bold]. Заливается в мензурку и вставляется в слот протолата.
+Реагент для печати квантовых деталей - [bold]50 единиц на деталь[/bold]. Синтез - шестиэтапная цепочка: каждый этап требует нагрева смеси до своей температуры на [bold]хим-плитке[/bold] (чем дальше этап, тем горячее) и дополнительных ингредиентов, включая реагенты из тиров энерго-химраздатчика. Улучшенная плитка (микро-лазер) греет быстрее. Нагрев зависит от объёма раствора: чем меньше мензурка, тем быстрее. Готовый катализатор заливается в мензурку и вставляется в слот протолата.
 
 [head=2]Этапы синтеза[/head]
 
-<Table Columns="2">
+<Table Columns="3">
 <ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Этап[/bold]</Box></ColorBox>
 <ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Реагент[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Температура[/bold]</Box></ColorBox>
 <ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">1. Горючий прекурсор</Box></ColorBox>
 <ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor1"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">400 К</Box></ColorBox>
 <ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">2. Электролитный прекурсор</Box></ColorBox>
 <ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor2"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">450 К</Box></ColorBox>
 <ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">3. Эфирный прекурсор</Box></ColorBox>
 <ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor3"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">500 К</Box></ColorBox>
 <ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">4. Сульфаминовый прекурсор</Box></ColorBox>
 <ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor4"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">600 К</Box></ColorBox>
 <ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">5. Радиоактивный прекурсор</Box></ColorBox>
 <ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor5"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">750 К</Box></ColorBox>
 <ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">6. Квантовый катализатор</Box></ColorBox>
 <ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTQuantumCatalyst"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">900 К</Box></ColorBox>
 </Table>
 
-Улучшенный протолат расходует меньше материалов и катализатора - скидка растёт с тиром установленных деталей.
+Рецепт каждого этапа виден в описании реагента. Улучшенный протолат расходует меньше материалов и катализатора - скидка растёт с тиром установленных деталей.
 
 ## Устройство быстрой замены (RPED)
 

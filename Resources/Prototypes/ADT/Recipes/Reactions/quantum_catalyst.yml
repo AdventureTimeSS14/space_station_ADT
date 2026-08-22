@@ -1,15 +1,21 @@
 - type: reaction
   id: ADTCatalystReaction1
+  minTemp: 400
   reactants:
     WeldingFuel:
       amount: 2
     Sulfur:
       amount: 1
   products:
-    ADTCatalystPrecursor1: 3
+    ADTCatalystPrecursor4: 5
+  effects:
+    - !type:IgniteNearbyEffect
+      radius: 4
+      fireStacks: 4
 
 - type: reaction
   id: ADTCatalystReaction2
+  minTemp: 450
   reactants:
     ADTCatalystPrecursor1:
       amount: 2
@@ -17,21 +23,35 @@
       amount: 1
     Chlorine:
       amount: 1
+    Hydroxide:
+      amount: 1
   products:
-    ADTCatalystPrecursor2: 4
+    ADTCatalystPrecursor2: 5
+  effects:
+    - !type:Emp
+      rangeModifier: 0.2
+      maxRange: 6
+      energyConsumption: 12500
+      duration: 15
 
 - type: reaction
   id: ADTCatalystReaction3
+  minTemp: 500
   reactants:
     ADTCatalystPrecursor2:
       amount: 2
     Ethanol:
       amount: 1
+    Benzene:
+      amount: 1
   products:
-    ADTCatalystPrecursor3: 3
+    ADTCatalystPrecursor3: 4
+  effects:
+    - !type:Flash
 
 - type: reaction
   id: ADTCatalystReaction4
+  minTemp: 600
   reactants:
     ADTCatalystPrecursor3:
       amount: 2
@@ -39,11 +59,18 @@
       amount: 1
     SulfuricAcid:
       amount: 1
+    Fersilicite:
+      amount: 1
   products:
-    ADTCatalystPrecursor4: 4
+    ADTCatalystPrecursor4: 5
+  effects:
+    - !type:IgniteNearbyEffect
+      radius: 5
+      fireStacks: 3
 
 - type: reaction
   id: ADTCatalystReaction5
+  minTemp: 750
   reactants:
     ADTCatalystPrecursor4:
       amount: 2
@@ -51,11 +78,18 @@
       amount: 1
     Radium:
       amount: 1
+    Uranium:
+      amount: 1
   products:
-    ADTCatalystPrecursor5: 4
+    ADTCatalystPrecursor5: 6
+  effects:
+    - !type:KnockdownNearbyEffect
+      radius: 4
+      time: 3
 
 - type: reaction
   id: ADTQuantumCatalystReaction
+  minTemp: 900
   reactants:
     ADTCatalystPrecursor5:
       amount: 2
@@ -63,5 +97,15 @@
       amount: 1
     Gold:
       amount: 1
+    Siderlac:
+      amount: 1
   products:
-    ADTQuantumCatalyst: 4
+    ADTQuantumCatalyst: 5
+  effects:
+    - !type:KnockdownNearbyEffect
+      radius: 5
+      time: 4
+    - !type:Flash
+    - !type:IgniteNearbyEffect
+      radius: 5
+      fireStacks: 3
