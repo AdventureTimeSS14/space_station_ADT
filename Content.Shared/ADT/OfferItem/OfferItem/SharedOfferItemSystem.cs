@@ -44,6 +44,9 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
         if (offer.Item is not { } item || item != args.Used)
             return;
 
+        if (offer.Target is not null)
+            Cancel((args.User, offer), popup: false);
+
         offer.IsInOfferMode = false;
         offer.Target = ent.Owner;
         Dirty(args.User, offer);
@@ -98,6 +101,15 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
     {
         if (!ent.Comp.IsInReceiveMode || ent.Comp.Target is not { } giverUid)
             return false;
+
+        if (!_actionBlocker.CanInteract(ent.Owner, null))
+            return false;
+
+        if (!_transform.InRange(Transform(ent).Coordinates, Transform(giverUid).Coordinates, ent.Comp.MaxOfferDistance))
+        {
+            Cancel(ent);
+            return false;
+        }
 
         if (!TryComp<OfferItemComponent>(giverUid, out var giverComp) || giverComp.Item is not { } item)
         {
