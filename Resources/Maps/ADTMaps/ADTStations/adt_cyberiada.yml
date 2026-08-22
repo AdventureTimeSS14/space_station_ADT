@@ -171069,17 +171069,17 @@ entities:
       parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
-  - uid: 31991
+  - uid: 319911
     components:
     - type: Transform
       pos: 24.5,-36.5
       parent: 2
-  - uid: 31992
+  - uid: 319922
     components:
     - type: Transform
       pos: 24.5,-35.5
       parent: 2
-  - uid: 31993
+  - uid: 319933
     components:
     - type: Transform
       pos: 21.5,-34.5
