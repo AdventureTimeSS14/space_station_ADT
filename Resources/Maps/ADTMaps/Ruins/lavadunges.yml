@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 277.2.1
-  forkId: SS14_DEV
-  forkVersion: 9753114fa7d0c905336734895467320e751a8c4f
-  time: 07/21/2026 17:58:25
-  entityCount: 12522
+  forkId: ""
+  forkVersion: ""
+  time: 08/05/2026 08:26:57
+  entityCount: 12518
 maps:
 - 1
 grids:
@@ -23614,7 +23614,7 @@ entities:
       pos: 20.5,1.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -54284.047
+      secondsUntilStateChange: -54313.168
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23901,7 +23901,7 @@ entities:
       - - Quartermaster
       - - Salvage
     - type: Door
-      secondsUntilStateChange: -21335.893
+      secondsUntilStateChange: -21365.014
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -52633,6 +52633,13 @@ entities:
     - type: Transform
       pos: 107.5,20.5
       parent: 1
+- proto: KillTome
+  entities:
+  - uid: 7374
+    components:
+    - type: Transform
+      pos: 37.505554,18.540314
+      parent: 1
 - proto: KitchenElectricGrill
   entities:
   - uid: 7088
@@ -54762,36 +54769,6 @@ entities:
       parent: 1
     - type: Physics
       canCollide: False
-- proto: OrganTajaranFootRight
-  entities:
-  - uid: 7374
-    components:
-    - type: Transform
-      pos: 158.94699,-12.900415
-      parent: 1
-- proto: OrganTajaranHead
-  entities:
-  - uid: 7375
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 159.86945,-12.806665
-      parent: 1
-- proto: OrganTajaranLegLeft
-  entities:
-  - uid: 7376
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 159.46289,-14.19729
-      parent: 1
-- proto: OrganTajaranTorso
-  entities:
-  - uid: 7377
-    components:
-    - type: Transform
-      pos: 158.04025,-12.69729
-      parent: 1
 - proto: OrganVulpkaninADTArmRight
   entities:
   - uid: 7378
@@ -57692,11 +57669,6 @@ entities:
     - type: Transform
       pos: 37.5,20.5
       parent: 1
-  - uid: 7836
-    components:
-    - type: Transform
-      pos: 37.5,18.5
-      parent: 1
   - uid: 7837
     components:
     - type: Transform
@@ -58994,7 +58966,7 @@ entities:
       pos: 1.5,-26.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -38274.547
+      secondsUntilStateChange: -38303.668
       state: Opening
   - uid: 8044
     components:
