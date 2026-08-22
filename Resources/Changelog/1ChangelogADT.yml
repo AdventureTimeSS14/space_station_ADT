@@ -14291,3 +14291,13 @@ Entries:
     id: 1835
     pr_number: 3244
     time: '2026-08-21T17:41:28Z'
+  - author: ultradyper & prazat911
+    changes:
+      - {message: Респрайт свёрнутых комбинезонов и юбок-комбинезонов от prazat911,
+        type: Tweak}
+      - {message: Респрайт галстуков от prazat911, type: Tweak}
+      - {message: 'Новые галстуки: тёмно-зелёный, светло-фиолетовый и малиновый',
+        type: Add}
+    id: 1836
+    pr_number: 3179
+    time: '2026-08-22T04:19:59Z'
