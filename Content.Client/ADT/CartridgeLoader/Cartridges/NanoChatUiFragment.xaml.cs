@@ -14,44 +14,39 @@ public sealed partial class NanoChatUiFragment : BoxContainer
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private readonly NewChatPopup _newChatPopup;
+    private const int MaxGroupMembers = 30;
+
     private uint? _currentChat;
     private uint? _pendingChat;
     private uint _ownNumber;
     private bool _notificationsMuted;
-    private bool _listNumber = true;
+    private uint? _membersGroupNumber;
     private Dictionary<uint, NanoChatRecipient> _recipients = new();
     private Dictionary<uint, List<NanoChatMessage>> _messages = new();
+    private Dictionary<uint, NanoChatGroup> _groups = new();
+    private Dictionary<uint, List<NanoChatMessage>> _groupMessages = new();
+    private List<NanoChatGroupInfo> _publicGroups = new();
+    private List<NanoChatGroupInvite> _invites = new();
 
-    public event Action<NanoChatUiMessageType, uint?, string?, string?>? OnMessageSent;
+    public event Action<NanoChatUiMessageEvent>? OnMessageSent;
 
     public NanoChatUiFragment()
     {
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
 
-        _newChatPopup = new NewChatPopup();
         SetupEventHandlers();
     }
 
     private void SetupEventHandlers()
     {
-        _newChatPopup.OnChatCreated += (number, name, job) =>
-        {
-            OnMessageSent?.Invoke(NanoChatUiMessageType.NewChat, number, name, job);
-        };
-
-        NewChatButton.OnPressed += _ =>
-        {
-            _newChatPopup.ClearInputs();
-            _newChatPopup.OpenCentered();
-        };
+        MembersButton.OnPressed += _ => OpenMembersView();
 
         MuteButton.OnPressed += _ =>
         {
             _notificationsMuted = !_notificationsMuted;
             UpdateMuteButton();
-            OnMessageSent?.Invoke(NanoChatUiMessageType.ToggleMute, null, null, null);
+            OnMessageSent?.Invoke(new NanoChatUiMessageEvent(NanoChatUiMessageType.ToggleMute, null, null, null));
         };
 
         MessageInput.OnTextChanged += args =>
@@ -77,23 +72,148 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         LookupButton.OnPressed += _ => ToggleView();
         LookupView.OnStartChat += contact =>
         {
-            if (OnMessageSent is { } handler)
-            {
-                handler(NanoChatUiMessageType.NewChat, contact.Number, contact.Name, contact.JobTitle);
-                SelectChat(contact.Number);
-                ToggleView();
-            }
+            OnMessageSent?.Invoke(new NanoChatUiMessageEvent(NanoChatUiMessageType.NewChat, contact.Number, contact.Name, contact.JobTitle));
+            SelectChat(contact.Number);
+            ToggleView();
         };
-        ListNumberButton.OnPressed += _ =>
+        LookupView.OnCreateGroupRequest += (name, isPublic, members) =>
         {
-            _listNumber = !_listNumber;
-            UpdateListNumber();
-            OnMessageSent?.Invoke(NanoChatUiMessageType.ToggleListNumber, null, null, null);
+            OnMessageSent?.Invoke(new NanoChatUiMessageEvent(NanoChatUiMessageType.CreateGroup,
+                content: name,
+                isPublic: isPublic,
+                members: members));
         };
+        MembersBackButton.OnPressed += _ => CloseMembersView();
+        MembersInviteButton.OnPressed += _ => InviteMember();
+        MembersInviteInput.OnTextChanged += args => OnMembersInviteTextChanged(args);
+        MembersInviteInput.OnTextEntered += _ => InviteMember();
+        MembersLeaveButton.OnPressed += _ => LeaveGroup();
+        MembersDeleteButton.OnPressed += _ => DeleteGroup();
 
         MessageInput.OnTextEntered += _ => SendMessage(); // Send message when pressing enter
         SendButton.OnPressed += _ => SendMessage();
         DeleteChatButton.OnPressed += _ => DeleteCurrentChat();
+    }
+
+    /// <summary>Открывает список участников группы прямо в основном окне, замещая чат.</summary>
+    private void OpenMembersView()
+    {
+        var activeChat = _pendingChat ?? _currentChat;
+        if (activeChat == null || !_groups.TryGetValue(activeChat.Value, out var group))
+            return;
+
+        _membersGroupNumber = activeChat.Value;
+        UpdateMembersView(group);
+        MessageArea.Visible = false;
+        MembersView.Visible = true;
+    }
+
+    private void CloseMembersView()
+    {
+        _membersGroupNumber = null;
+        MembersView.Visible = false;
+        MessageArea.Visible = true;
+    }
+
+    /// <summary>Перерисовывает список участников: имя, должность, номер и кнопку кика у владельца.</summary>
+    private void UpdateMembersView(NanoChatGroup group)
+    {
+        var isOwner = group.Owner == _ownNumber;
+        MembersGroupNameLabel.Text = group.Name + "  (" +
+            Loc.GetString("nano-chat-group-members-count", ("count", group.Members.Count)) + ")";
+        MembersLeaveButton.Text = Loc.GetString(isOwner ? "nano-chat-group-leave-owner" : "nano-chat-group-leave");
+        MembersDeleteButton.Visible = isOwner;
+
+        MembersList.RemoveAllChildren();
+        foreach (var member in group.Members.OrderBy(m => m.Name))
+        {
+            var nameLabel = new Label()
+            {
+                Text = member.Name + (string.IsNullOrEmpty(member.JobTitle) ? "" : $" ({member.JobTitle})") + $" #{member.Number:D4}",
+                HorizontalExpand = true,
+                ClipText = true,
+            };
+
+            var row = new BoxContainer()
+            {
+                Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                HorizontalExpand = true,
+                VerticalAlignment = VAlignment.Center,
+            };
+            row.AddChild(nameLabel);
+
+            if (isOwner && member.Number != _ownNumber)
+            {
+                var kickButton = new Button()
+                {
+                    Text = Loc.GetString("nano-chat-group-kick"),
+                    MinSize = new Vector2(80, 28),
+                    MaxSize = new Vector2(80, 28),
+                    Margin = new Thickness(4, 0, 0, 0),
+                };
+                kickButton.AddStyleClass("OpenBoth");
+                var memberNumber = member.Number;
+                kickButton.OnPressed += _ =>
+                {
+                    OnMessageSent?.Invoke(new NanoChatUiMessageEvent(NanoChatUiMessageType.KickMember,
+                        group.Number,
+                        targetNumber: memberNumber));
+                };
+                row.AddChild(kickButton);
+            }
+
+            var panel = new PanelContainer { HorizontalExpand = true };
+            panel.AddChild(row);
+            MembersList.AddChild(panel);
+        }
+
+        MembersInviteInput.Text = string.Empty;
+        MembersInviteButton.Disabled = true;
+    }
+
+    private void InviteMember()
+    {
+        if (_membersGroupNumber == null || !uint.TryParse(MembersInviteInput.Text, out var number))
+            return;
+
+        if (number == _ownNumber)
+            return;
+
+        OnMessageSent?.Invoke(new NanoChatUiMessageEvent(NanoChatUiMessageType.InviteToGroup,
+            _membersGroupNumber.Value,
+            targetNumber: number));
+        MembersInviteInput.Text = string.Empty;
+        MembersInviteButton.Disabled = true;
+    }
+
+    private void OnMembersInviteTextChanged(LineEdit.LineEditEventArgs args)
+    {
+        if (args.Text.Length > 4)
+            MembersInviteInput.Text = args.Text[..4];
+
+        var digits = string.Concat(args.Text.Where(char.IsDigit));
+        if (digits != args.Text)
+            MembersInviteInput.Text = digits;
+
+        MembersInviteButton.Disabled = !uint.TryParse(MembersInviteInput.Text, out _);
+    }
+
+    private void LeaveGroup()
+    {
+        if (_membersGroupNumber == null)
+            return;
+
+        OnMessageSent?.Invoke(new NanoChatUiMessageEvent(NanoChatUiMessageType.LeaveGroup, _membersGroupNumber.Value));
+        CloseMembersView();
+    }
+
+    private void DeleteGroup()
+    {
+        if (_membersGroupNumber == null)
+            return;
+
+        OnMessageSent?.Invoke(new NanoChatUiMessageEvent(NanoChatUiMessageType.DeleteGroup, _membersGroupNumber.Value));
+        CloseMembersView();
     }
 
     private void ToggleView()
@@ -124,19 +244,32 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             _ownNumber
         );
 
-        if (!_messages.TryGetValue(activeChat.Value, out var value))
+        if (_groups.ContainsKey(activeChat.Value))
         {
-            value = new List<NanoChatMessage>();
-            _messages[activeChat.Value] = value;
+            if (!_groupMessages.TryGetValue(activeChat.Value, out var value))
+            {
+                value = new List<NanoChatMessage>();
+                _groupMessages[activeChat.Value] = value;
+            }
+
+            value.Add(predictedMessage);
+        }
+        else
+        {
+            if (!_messages.TryGetValue(activeChat.Value, out var value))
+            {
+                value = new List<NanoChatMessage>();
+                _messages[activeChat.Value] = value;
+            }
+
+            value.Add(predictedMessage);
         }
 
-        value.Add(predictedMessage);
-
         // Update UI with predicted message
-        UpdateMessages(_messages);
+        UpdateMessages(_groupMessages, _messages);
 
         // Send message event
-        OnMessageSent?.Invoke(NanoChatUiMessageType.SendMessage, activeChat, messageContent, null);
+        OnMessageSent?.Invoke(new NanoChatUiMessageEvent(NanoChatUiMessageType.SendMessage, activeChat, messageContent, null));
 
         // Clear input
         MessageInput.Text = string.Empty;
@@ -156,10 +289,16 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         {
             recipient.HasUnread = false;
             _recipients[number] = recipient;
-            UpdateChatList(_recipients);
         }
 
-        OnMessageSent?.Invoke(NanoChatUiMessageType.SelectChat, number, null, null);
+        if (_groups.TryGetValue(number, out var group))
+        {
+            _groups[number] = group with { HasUnread = false };
+        }
+
+        UpdateChatList(_recipients, _groups, _publicGroups, _invites);
+
+        OnMessageSent?.Invoke(new NanoChatUiMessageEvent(NanoChatUiMessageType.SelectChat, number, null, null));
         UpdateCurrentChat();
     }
 
@@ -169,67 +308,162 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         if (activeChat == null)
             return;
 
-        OnMessageSent?.Invoke(NanoChatUiMessageType.DeleteChat, activeChat, null, null);
+        OnMessageSent?.Invoke(new NanoChatUiMessageEvent(NanoChatUiMessageType.DeleteChat, activeChat, null, null));
     }
 
-    private void UpdateChatList(Dictionary<uint, NanoChatRecipient> recipients)
+    private void UpdateChatList(Dictionary<uint, NanoChatRecipient> recipients,
+        Dictionary<uint, NanoChatGroup> groups,
+        List<NanoChatGroupInfo> publicGroups,
+        List<NanoChatGroupInvite> invites)
     {
         ChatList.RemoveAllChildren();
         _recipients = recipients;
+        _groups = groups;
 
-        NoChatsLabel.Visible = recipients.Count == 0;
+        NoChatsLabel.Visible = recipients.Count == 0 && groups.Count == 0 && publicGroups.Count == 0 && invites.Count == 0;
         if (NoChatsLabel.Parent != ChatList)
         {
             NoChatsLabel.Parent?.RemoveChild(NoChatsLabel);
             ChatList.AddChild(NoChatsLabel);
         }
 
-        foreach (var (number, recipient) in recipients.OrderBy(r => r.Value.Name))
+        // Pending invites first: they need a decision.
+        if (invites.Count > 0)
+        {
+            ChatList.AddChild(new Label()
+            {
+                Text = Loc.GetString("nano-chat-invites-section"),
+                StyleClasses = { "LabelSubText" },
+                HorizontalAlignment = HAlignment.Center,
+                Margin = new Thickness(0, 2),
+            });
+        }
+
+        foreach (var invite in invites.OrderBy(i => i.GroupName))
+        {
+            var entry = new NanoChatEntry();
+            entry.SetInvite(invite, invite.GroupNumber);
+            entry.OnAcceptPressed += _ =>
+                OnMessageSent?.Invoke(new NanoChatUiMessageEvent(NanoChatUiMessageType.AcceptInvite, invite.GroupNumber));
+            entry.OnDeclinePressed += _ =>
+                OnMessageSent?.Invoke(new NanoChatUiMessageEvent(NanoChatUiMessageType.DeclineInvite, invite.GroupNumber));
+            ChatList.AddChild(entry);
+        }
+
+        // DMs and joined groups, sorted by name.
+        var entries = new List<(uint number, bool isGroup, string sortName)>();
+        foreach (var (number, recipient) in recipients)
+            entries.Add((number, false, recipient.Name));
+        foreach (var (number, group) in groups)
+            entries.Add((number, true, group.Name));
+
+        foreach (var (number, isGroup, _) in entries.OrderBy(e => e.sortName))
         {
             var entry = new NanoChatEntry();
             // For pending chat selection, always show it as selected even if unconfirmed
             var isSelected = (_pendingChat == number) || (_pendingChat == null && _currentChat == number);
-            entry.SetRecipient(recipient, number, isSelected);
+            if (isGroup)
+                entry.SetGroup(groups[number], number, isSelected);
+            else
+                entry.SetRecipient(recipients[number], number, isSelected);
             entry.OnPressed += SelectChat;
             ChatList.AddChild(entry);
         }
+
+        // Public groups everyone can join, shown right in the chat list.
+        if (publicGroups.Count > 0)
+        {
+            ChatList.AddChild(new Label()
+            {
+                Text = Loc.GetString("nano-chat-public-groups-section"),
+                StyleClasses = { "LabelSubText" },
+                HorizontalAlignment = HAlignment.Center,
+                Margin = new Thickness(0, 2),
+            });
+        }
+
+        foreach (var group in publicGroups.OrderBy(g => g.Name))
+        {
+            var entry = new NanoChatEntry();
+            entry.SetPublicGroup(group, group.Number);
+            entry.OnPressed += JoinPublicAndSelect;
+            entry.OnJoinPressed += JoinPublicAndSelect;
+            ChatList.AddChild(entry);
+        }
+    }
+
+    private void JoinPublicAndSelect(uint number)
+    {
+        OnMessageSent?.Invoke(new NanoChatUiMessageEvent(NanoChatUiMessageType.JoinPublicGroup, number));
+        SelectChat(number);
     }
 
     private void UpdateCurrentChat()
     {
         var activeChat = _pendingChat ?? _currentChat;
         var hasActiveChat = activeChat != null;
+        var isGroup = activeChat != null && _groups.ContainsKey(activeChat.Value);
 
         // Update UI state
         MessagesScroll.Visible = hasActiveChat;
         CurrentChatName.Visible = !hasActiveChat;
         MessageInputContainer.Visible = hasActiveChat;
-        DeleteChatButton.Visible = hasActiveChat;
-        DeleteChatButton.Disabled = !hasActiveChat;
+        GroupInfoRow.Visible = isGroup;
+        MembersButton.Visible = isGroup;
+        DeleteChatButton.Visible = hasActiveChat && !isGroup;
+        DeleteChatButton.Disabled = !hasActiveChat || isGroup;
 
-        if (activeChat != null && _recipients.TryGetValue(activeChat.Value, out var recipient))
+        // Чат сменился или группа удалена - закрываем список участников.
+        if (MembersView.Visible && (activeChat != _membersGroupNumber || !isGroup))
+            CloseMembersView();
+
+        if (isGroup && _groups.TryGetValue(activeChat!.Value, out var group))
         {
-            CurrentChatName.Text = recipient.Name + (string.IsNullOrEmpty(recipient.JobTitle) ? "" : $" ({recipient.JobTitle})");
+            CurrentChatName.Text = group.Name + "  (" +
+                Loc.GetString("nano-chat-group-members-count", ("count", group.Members.Count)) + ")";
+            GroupInfoLabel.Text = group.Name + "  |  " +
+                Loc.GetString("nano-chat-group-members-count", ("count", group.Members.Count)) + " / " + MaxGroupMembers;
         }
         else
         {
-            CurrentChatName.Text = Loc.GetString("nano-chat-select-chat");
+            if (activeChat != null && _recipients.TryGetValue(activeChat.Value, out var recipient))
+            {
+                CurrentChatName.Text = recipient.Name + (string.IsNullOrEmpty(recipient.JobTitle) ? "" : $" ({recipient.JobTitle})");
+            }
+            else
+            {
+                CurrentChatName.Text = Loc.GetString("nano-chat-select-chat");
+            }
         }
     }
 
-    private void UpdateMessages(Dictionary<uint, List<NanoChatMessage>> messages)
+    private void UpdateMessages(Dictionary<uint, List<NanoChatMessage>> groupMessages,
+        Dictionary<uint, List<NanoChatMessage>> messages)
     {
+        _groupMessages = groupMessages;
         _messages = messages;
         MessageList.RemoveAllChildren();
 
         var activeChat = _pendingChat ?? _currentChat;
-        if (activeChat == null || !messages.TryGetValue(activeChat.Value, out var chatMessages))
+        if (activeChat == null)
+            return;
+
+        var isGroup = _groups.ContainsKey(activeChat.Value);
+        var chatMessages = isGroup
+            ? groupMessages.GetValueOrDefault(activeChat.Value)
+            : messages.GetValueOrDefault(activeChat.Value);
+
+        if (chatMessages == null)
             return;
 
         foreach (var message in chatMessages)
         {
             var messageBubble = new NanoChatMessageBubble();
-            messageBubble.SetMessage(message, message.SenderId == _ownNumber);
+            string? senderName = null;
+            if (isGroup && message.SenderId != _ownNumber)
+                senderName = GetGroupSenderName(activeChat.Value, message.SenderId);
+
+            messageBubble.SetMessage(message, message.SenderId == _ownNumber, senderName);
             MessageList.AddChild(messageBubble);
 
             // Add spacing between messages
@@ -244,33 +478,32 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             scroll.SetScrollValue(new Vector2(0, float.MaxValue));
     }
 
+    private string? GetGroupSenderName(uint groupNumber, uint senderId)
+    {
+        if (_groups.TryGetValue(groupNumber, out var group))
+        {
+            foreach (var member in group.Members)
+            {
+                if (member.Number == senderId)
+                    return member.Name;
+            }
+        }
+
+        return $"#{senderId:D4}";
+    }
+
     private void UpdateMuteButton()
     {
         if (BellMutedIcon != null)
             BellMutedIcon.Visible = _notificationsMuted;
     }
 
-    private void UpdateListNumber()
-    {
-        if (ListNumberButton != null)
-            ListNumberButton.Pressed = _listNumber;
-    }
-
     public void UpdateState(NanoChatUiState state)
     {
         _ownNumber = state.OwnNumber;
         _notificationsMuted = state.NotificationsMuted;
-        _listNumber = state.ListNumber;
         OwnNumberLabel.Text = $"#{state.OwnNumber:D4}";
         UpdateMuteButton();
-        UpdateListNumber();
-
-        // Update new chat button state based on recipient limit
-        var atLimit = state.Recipients.Count >= state.MaxRecipients;
-        NewChatButton.Disabled = atLimit;
-        NewChatButton.ToolTip = atLimit
-            ? Loc.GetString("nano-chat-max-recipients")
-            : Loc.GetString("nano-chat-new-chat");
 
         // First handle pending chat resolution if we have one
         if (_pendingChat != null)
@@ -285,9 +518,16 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         if (_pendingChat == null)
             _currentChat = state.CurrentChat;
 
+        _publicGroups = state.PublicGroups;
+        _invites = state.Invites;
+
         UpdateCurrentChat();
-        UpdateChatList(state.Recipients);
-        UpdateMessages(state.Messages);
+        UpdateChatList(state.Recipients, state.Groups, _publicGroups, _invites);
+        UpdateMessages(state.GroupMessages, state.Messages);
         LookupView.UpdateContactList(state);
+
+        // Перерисовываем список участников, если он открыт.
+        if (MembersView.Visible && _membersGroupNumber != null && _groups.TryGetValue(_membersGroupNumber.Value, out var membersGroup))
+            UpdateMembersView(membersGroup);
     }
 }

@@ -7,9 +7,16 @@ public sealed class NewsReaderUiMessageEvent : CartridgeMessageEvent
 {
     public readonly NewsReaderUiAction Action;
 
-    public NewsReaderUiMessageEvent(NewsReaderUiAction action)
+    // ADT-Tweak: комментарии к новостям
+    /// <summary>
+    ///     Comment content for the <see cref="NewsReaderUiAction.AddComment" /> action.
+    /// </summary>
+    public readonly string? Content;
+
+    public NewsReaderUiMessageEvent(NewsReaderUiAction action, string? content = null)
     {
         Action = action;
+        Content = content;
     }
 }
 
@@ -18,5 +25,6 @@ public enum NewsReaderUiAction
 {
     Next,
     Prev,
-    NotificationSwitch
+    NotificationSwitch,
+    AddComment // ADT-Tweak
 }
