@@ -1,4 +1,4 @@
-﻿#ADT-TEAM-ITEMS-START
+#ADT-TEAM-ITEMS-START
 
 # Ale_xan_der
 - type: entity
@@ -2532,7 +2532,7 @@
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Battery/yv2.rsi
   - type: Gun
-    fireRate: 2
+    fireRate: 3
     projectileSpeed: 60
     selectedMode: SemiAuto
     availableModes:
@@ -2575,11 +2575,12 @@
   - type: Sprite
     sprite: ADT/Personalization/yv2recharger.rsi
     state: icon
-  # - type: Clothing
-  #   # equippedPrefix: charging
-  #   quickEquip: false
-  #   slots:
-  #   - belt
+  - type: Clothing
+    sprite: ADT/Personalization/yv2recharger.rsi
+    slots: [belt, neck]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+    quickEquip: false
   - type: Charger
     chargeRate: 20 # ADT tweak
     slotId: charger_slot
@@ -3249,7 +3250,7 @@
   - type: AltFireMelee
   # ADT-Tweak end
   - type: Gun
-    fireRate: 1
+    fireRate: 2
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

@@ -4,15 +4,16 @@
     jumpsuit: ClothingUniformJumpsuitColorBrown
     back: ClothingBackpackDuffelCBURN
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesNightVisionAdvanced
     ears: ClothingHeadsetAltCentCom
+    neck: ADTClothingBeltHolsterN1984Fill
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitCBURN
-    shoes: ClothingShoesBootsMag
+    shoes: ADTClothingShoesBootsMagERT
     id: CBURNPDA
     pocket2: WeaponLaserGun
     belt: ClothingBeltMilitaryWebbing
-    suitstorage: WeaponShotgunEnforcer
+    suitstorage: JetpackBlackFilled
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
@@ -20,7 +21,7 @@
     back:
     - CrowbarOrange
     - Chainsaw
-    - MedkitCombatFilled
+    - ADTMedkitERTFilled
     - MagazineShotgunIncendiary
     - MagazineShotgunIncendiary
     - MagazineShotgun
@@ -29,6 +30,8 @@
     - SpaceCash500
     - BoxShotgunIncendiary
     - BoxLethalshot
+    - WeaponShotgunEnforcer
+    - CombatKnife
 
 - type: startingGear
   id: ADTCmndCBURNGear
@@ -36,15 +39,16 @@
     jumpsuit: ClothingUniformJumpsuitColorBrown
     back: ClothingBackpackDuffelCBURN
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesNightVisionAdvanced
     ears: ClothingHeadsetAltCentCom
+    neck: ADTClothingBeltHolsterN1984Fill
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitCBURNLeader
     shoes: ADTClothingShoesBootsMagERT
     id: CBURNPDA
     pocket1: WeaponPulsePistol
     pocket2: DoubleEmergencyOxygenTankFilled
-    suitstorage: WeaponShotgunBulldog
+    suitstorage: JetpackBlackFilled
     belt: ADTClothingBeltMilitaryWebbingCBURNFilled
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
@@ -54,9 +58,11 @@
     - BoxSurvivalEngineering
     - JawsOfLife
     - Chainsaw
-    - MedkitCombatFilled
+    - ADTMedkitERTFilled
     - GrenadeFlashBang
     - PillAmbuzolPlus
     - RubberStampCentcom
     - SpaceCash1000
     - ADTertRevolutionaryMechUplink
+    - WeaponShotgunBulldog
+    - CombatKnife

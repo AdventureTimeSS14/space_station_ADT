@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: ADTClothingBeltMedicalSecurityFilled
   parent: ADTClothingBeltMedicalSecurity
   suffix: Filled
@@ -25,6 +25,18 @@
         children:
         - id: WeaponPistolMk58
         - id: MagazinePistol
+
+- type: entity
+  id: ADTClothingBeltHolsterN1984Fill
+  parent: ClothingBeltHolster
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPistolN1984
+        - id: MagazineMagnum
 
 - type: entity
   id: ADTClothingBeltMedicalBagFilled

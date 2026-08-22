@@ -3,9 +3,10 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTLeader
     back: ClothingBackpackERTLeader
-    shoes: ClothingShoesBootsMag
+    shoes: ADTClothingShoesBootsMagERT
     head: ClothingHeadHelmetERTLeader
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesNightVisionAdvanced
+    neck: ADTClothingBeltHolsterN1984Fill
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterArmorBasicSlim
     id: ERTLeaderPDA
@@ -16,6 +17,7 @@
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
+    suitstorage: JetpackBlackFilled
   storage:
     back:
     - BoxSurvivalEngineering
@@ -24,15 +26,18 @@
     - PinpointerNuclear
     - FlashlightSeclite
     - SpaceCash500
+    - CombatKnife
+    - ADTMedkitERTFilled
 
 - type: startingGear
   id: ADTERTLeaderGearEVA
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTLeader
     back: ClothingBackpackERTLeader
-    shoes: ClothingShoesBootsMag
+    shoes: ADTClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesNightVisionAdvanced
+    neck: ADTClothingBeltHolsterN1984Fill
     gloves: ClothingHandsGlovesCombat
     # outerClothing: ClothingOuterHardsuitERTLeader #ADT tweak: выбор скаф/МОД через ваучер
     id: ERTLeaderPDA
@@ -43,6 +48,7 @@
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
+    inhand: JetpackBlackFilled
   storage:
     back:
     - ADTERTLeaderVoucher #ADT tweak: выбор скаф/МОД
@@ -53,14 +59,17 @@
     - FlashlightSeclite
     - SpaceCash500
     - ADTertMechUplink
+    - CombatKnife
+    - ADTMedkitERTFilled
 
 - type: startingGear
   id: ADTERTLeaderGearEVARiot
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTLeader
     back: ClothingBackpackERTLeader
-    shoes: ClothingShoesBootsMag
-    eyes: ClothingEyesGlassesSecurity
+    shoes: ADTClothingShoesBootsMagERT
+    eyes: ClothingEyesNightVisionAdvanced
+    neck: ADTClothingBeltHolsterN1984Fill
     gloves: ClothingHandsGlovesCombat
     mask: ClothingMaskGasERT
     outerClothing: ADTClothingOuterERTRiotHardsuit
@@ -72,6 +81,7 @@
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
+    suitstorage: JetpackBlackFilled
   storage:
     back:
     - BoxSurvivalEngineering
@@ -80,6 +90,8 @@
     - PinpointerNuclear
     - SpaceCash500
     - ADTertRevolutionaryMechUplink
+    - CombatKnife
+    - ADTMedkitERTFilled
 
 #engie
 
@@ -88,9 +100,10 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTEngineer
     back: ClothingBackpackERTEngineer
-    shoes: ClothingShoesBootsWork
+    shoes: ADTClothingShoesBootsMagERT
     head: ClothingHeadHelmetERTEngineer
-    eyes: ClothingEyesGlassesMeson
+    eyes: ClothingEyesNightVisionAdvanced
+    neck: ADTClothingBeltHolsterN1984Fill
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterArmorBasicSlim
     id: ERTEngineerPDA
@@ -101,6 +114,7 @@
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
+    suitstorage: JetpackBlackFilled
   storage:
     back:
     - BoxSurvivalEngineering
@@ -115,15 +129,18 @@
     - PinpointerNuclear
     - FlashlightSeclite
     - SpaceCash500
+    - CombatKnife
+    - ADTMedkitERTFilled
 
 - type: startingGear
   id: ADTERTEngineerGearEVA
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTEngineer
     back: ClothingBackpackERTEngineer
-    shoes: ClothingShoesBootsMag
+    shoes: ADTClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesMeson
+    eyes: ClothingEyesNightVisionAdvanced
+    neck: ADTClothingBeltHolsterN1984Fill
     gloves: ClothingHandsGlovesCombat
     # outerClothing: ClothingOuterHardsuitERTEngineer #ADT tweak: выбор скаф/МОД через ваучер
     id: ERTEngineerPDA
@@ -134,6 +151,7 @@
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
+    inhand: JetpackBlackFilled
   storage:
     back:
     - ADTERTEngineerVoucher #ADT tweak: выбор скаф/МОД
@@ -149,15 +167,18 @@
     - PinpointerNuclear
     - FlashlightSeclite
     - SpaceCash500
+    - CombatKnife
+    - ADTMedkitERTFilled
 
 - type: startingGear
   id: ADTERTEngineerGearEVARiot
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTEngineer
     back: ClothingBackpackERTEngineer
-    shoes: ClothingShoesBootsMag
+    shoes: ADTClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesMeson
+    eyes: ClothingEyesNightVisionAdvanced
+    neck: ADTClothingBeltHolsterN1984Fill
     gloves: ClothingHandsGlovesCombat
     outerClothing: ADTClothingOuterERTRiotHardsuit
     id: ERTEngineerPDA
@@ -168,6 +189,7 @@
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
+    suitstorage: JetpackBlackFilled
   storage:
     back:
     - BoxSurvivalEngineering
@@ -181,6 +203,8 @@
     - SheetGlass
     - PinpointerNuclear
     - SpaceCash500
+    - CombatKnife
+    - ADTMedkitERTFilled
 
 # Security
 
@@ -189,9 +213,10 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
     back: ClothingBackpackERTSecurity
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ADTClothingShoesBootsMagERT
     head: ClothingHeadHelmetERTSecurity
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesNightVisionAdvanced
+    neck: ADTClothingBeltHolsterN1984Fill
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterArmorBasicSlim
     id: ERTSecurityPDA
@@ -202,6 +227,7 @@
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
+    suitstorage: JetpackBlackFilled
   storage:
     back:
     - BoxSurvivalEngineering
@@ -210,15 +236,18 @@
     - PinpointerNuclear
     - FlashlightSeclite
     - SpaceCash500
+    - CombatKnife
+    - ADTMedkitERTFilled
 
 - type: startingGear
   id: ADTERTSecurityGearEVA
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
     back: ClothingBackpackERTSecurity
-    shoes: ClothingShoesBootsMag
+    shoes: ADTClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesNightVisionAdvanced
+    neck: ADTClothingBeltHolsterN1984Fill
     gloves: ClothingHandsGlovesCombat
     # outerClothing: ClothingOuterHardsuitERTSecurity #ADT tweak: выбор скаф/МОД через ваучер
     id: ERTSecurityPDA
@@ -229,6 +258,7 @@
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
+    inhand: JetpackBlackFilled
   storage:
     back:
     - ADTERTSecurityVoucher #ADT tweak: выбор скаф/МОД
@@ -238,15 +268,18 @@
     - PinpointerNuclear
     - FlashlightSeclite
     - SpaceCash500
+    - CombatKnife
+    - ADTMedkitERTFilled
 
 - type: startingGear
   id: ADTERTSecurityGearEVARiot
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
     back: ClothingBackpackERTSecurity
-    shoes: ClothingShoesBootsMag
+    shoes: ADTClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesNightVisionAdvanced
+    neck: ADTClothingBeltHolsterN1984Fill
     gloves: ClothingHandsGlovesCombat
     outerClothing: ADTClothingOuterERTRiotHardsuit
     id: ERTSecurityPDA
@@ -257,8 +290,9 @@
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
-  inhand:
-    - AirTankFilled
+    suitstorage: JetpackBlackFilled
+  # inhand:
+  #   - AirTankFilled
   storage:
     back:
     - BoxSurvivalEngineering
@@ -266,6 +300,8 @@
     - CrowbarRed
     - PinpointerNuclear
     - SpaceCash500
+    - CombatKnife
+    - ADTMedkitERTFilled
 
 # Medical
 
@@ -274,9 +310,10 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTMedic
     back: ClothingBackpackERTMedical
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ADTClothingShoesBootsMagERT
     head: ClothingHeadHelmetERTMedic
-    eyes: ClothingEyesHudMedSec
+    eyes: ClothingEyesNightVisionAdvanced
+    neck: ADTClothingBeltHolsterN1984Fill
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterArmorBasicSlim
     id: ERTMedicPDA
@@ -287,6 +324,7 @@
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
+    suitstorage: JetpackBlackFilled
   storage:
     back:
     - BoxSurvivalMedical # Is this actually supposed to be Medical? All other ERT has Extended
@@ -295,15 +333,18 @@
     - PinpointerNuclear
     - FlashlightSeclite
     - SpaceCash500
+    - CombatKnife
+    - ADTMedkitERTFilled
 
 - type: startingGear
   id: ADTERTMedicalGearEVA
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTMedic
     back: ClothingBackpackERTMedical
-    shoes: ClothingShoesBootsMag
+    shoes: ADTClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesHudMedSec
+    eyes: ClothingEyesNightVisionAdvanced
+    neck: ADTClothingBeltHolsterN1984Fill
     gloves: ClothingHandsGlovesCombat
     # outerClothing: ClothingOuterHardsuitERTMedical #ADT tweak: выбор скаф/МОД через ваучер
     id: ERTMedicPDA
@@ -314,6 +355,7 @@
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
+    inhand: JetpackBlackFilled
   storage:
     back:
     - ADTERTMedicalVoucher #ADT tweak: выбор скаф/МОД
@@ -323,16 +365,19 @@
     - PinpointerNuclear
     - FlashlightSeclite
     - SpaceCash500
+    - CombatKnife
+    - ADTMedkitERTFilled
 
 - type: startingGear
   id: ADTERTMedicalGearEVARiot
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTMedic
     back: ClothingBackpackERTMedical
-    shoes: ClothingShoesBootsMag
+    shoes: ADTClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesHudMedSec
-    gloves: ClothingHandsGlovesNitrile
+    eyes: ClothingEyesNightVisionAdvanced
+    neck: ADTClothingBeltHolsterN1984Fill
+    gloves: ClothingHandsGlovesCombat
     outerClothing: ADTClothingOuterERTRiotHardsuit
     id: ERTMedicPDA
     ears: ClothingHeadsetAltCentCom
@@ -342,6 +387,7 @@
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
+    suitstorage: JetpackBlackFilled
   storage:
     back:
     - BoxSurvivalMedical # Is this actually supposed to be Medical? All other ERT has Extended
@@ -349,6 +395,8 @@
     - CrowbarRed
     - PinpointerNuclear
     - SpaceCash500
+    - CombatKnife
+    - ADTMedkitERTFilled
 
 #Janitor
 
@@ -369,6 +417,7 @@
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
+    suitstorage: JetpackBlackFilled
   storage:
     back:
     - BoxSurvivalEngineering
@@ -381,13 +430,15 @@
     - PinpointerNuclear
     - FlashlightSeclite
     - SpaceCash500
+    - CombatKnife
+    - ADTMedkitERTFilled
 
 - type: startingGear
   id: ADTERTJanitorGearEVA
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTJanitor
     back: ClothingBackpackERTJanitor
-    shoes: ClothingShoesBootsMag
+    shoes: ADTClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTJanitor
@@ -399,6 +450,7 @@
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
+    suitstorage: JetpackBlackFilled
   storage:
     back:
     - BoxSurvivalEngineering
@@ -411,13 +463,15 @@
     - PinpointerNuclear
     - FlashlightSeclite
     - SpaceCash500
+    - CombatKnife
+    - ADTMedkitERTFilled
 
 - type: startingGear
   id: ADTERTJanitorGearEVARiot
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTJanitor
     back: ClothingBackpackERTJanitor
-    shoes: ClothingShoesBootsMag
+    shoes: ADTClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
     gloves: ClothingHandsGlovesCombat
     outerClothing: ADTClothingOuterERTRiotHardsuit
@@ -429,6 +483,7 @@
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
+    suitstorage: JetpackBlackFilled
   storage:
     back:
     - BoxSurvivalEngineering
@@ -440,3 +495,5 @@
     - AdvMopItem
     - PinpointerNuclear
     - SpaceCash500
+    - CombatKnife
+    - ADTMedkitERTFilled
