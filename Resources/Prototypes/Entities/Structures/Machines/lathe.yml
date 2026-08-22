@@ -94,7 +94,7 @@
 
 - type: entity
   id: Autolathe
-  parent: BaseLatheLube
+  BaseLathe # ADT-Tweak (BaseLatheLube)
   name: autolathe
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
   components:
@@ -180,7 +180,7 @@
 
 - type: entity
   id: Protolathe
-  parent: BaseLatheLube
+  parent: BaseLathe # ADT-Tweak (BaseLatheLube)
   name: protolathe
   description: Converts raw materials into advanced items.
   components:
@@ -296,7 +296,7 @@
 
 - type: entity
   id: CircuitImprinter
-  parent: BaseLatheLube
+  BaseLathe # ADT-Tweak (BaseLatheLube)
   name: circuit imprinter
   description: Prints circuit boards for machines.
   components:
@@ -379,7 +379,7 @@
 
 - type: entity
   id: ExosuitFabricator
-  parent: BaseLatheLube
+  BaseLathe # ADT-Tweak (BaseLatheLube)
   name: exosuit fabricator
   description: Creates parts for robotics and other mechanical needs.
   components:
@@ -471,7 +471,7 @@
 
 - type: entity
   id: SecurityTechFab
-  parent: BaseLatheLube
+  BaseLathe # ADT-Tweak (BaseLatheLube)
   name: security techfab
   description: Prints equipment for use by security crew.
   components:
@@ -531,7 +531,7 @@
 
 - type: entity
   id: AmmoTechFab
-  parent: BaseLatheLube
+  BaseLathe # ADT-Tweak (BaseLatheLube)
   name: ammo techfab
   description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
   components:
@@ -569,7 +569,7 @@
 
 - type: entity
   id: MedicalTechFab
-  parent: BaseLatheLube
+  BaseLathe # ADT-Tweak (BaseLatheLube)
   name: medical techfab
   description: Prints equipment for use by the medbay.
   components:
