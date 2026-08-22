@@ -1,6 +1,3 @@
-lathe-menu-mining-points = Шахтёрские очки: { $points }
-lathe-menu-mining-points-claim-button = Забрать очки
-lathe-menu-smelt-all = [color=darkgray]Shift+ЛКМ — переработать всю руду: { $amount } шт.[/color]
 lathe-menu-reagent-amount = Требуется реагент: { $amount } ед. { $reagent }
 lathe-menu-reagent-amount-missing = Требуется реагент: { $amount } ед. { $reagent } ([color=red]не хватает { $missingAmount } ед.[/color])
 lathe-menu-reagent-amount = Требуется реагент: { $amount } ед. { $reagent }

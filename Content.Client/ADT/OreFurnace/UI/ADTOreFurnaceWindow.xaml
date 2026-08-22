@@ -1,0 +1,55 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:ui="clr-namespace:Content.Client.Materials.UI"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc 'ore-furnace-menu-title'}"
+    MinSize="620 420"
+    SetSize="680 500">
+    <BoxContainer
+        Orientation="Vertical"
+        VerticalExpand="True"
+        HorizontalExpand="True"
+        Margin="4"
+        SeparationOverride="4">
+        <BoxContainer
+            Name="PointsContainer"
+            Orientation="Horizontal"
+            HorizontalExpand="True">
+            <Label
+                Name="PointsLabel"
+                HorizontalExpand="True"
+                VerticalAlignment="Center"/>
+            <Button
+                Name="ClaimPointsButton"
+                Text="{Loc 'ore-furnace-menu-claim-points'}"/>
+        </BoxContainer>
+        <Button
+            Name="SmeltEverythingButton"
+            Text="{Loc 'ore-furnace-menu-smelt-everything'}"
+            HorizontalExpand="True"/>
+        <PanelContainer VerticalExpand="True">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#1B1B1E"/>
+            </PanelContainer.PanelOverride>
+            <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                <BoxContainer
+                    Name="RecipeList"
+                    Orientation="Vertical"
+                    HorizontalExpand="True"
+                    VerticalExpand="True"
+                    RectClipContent="True"/>
+            </ScrollContainer>
+        </PanelContainer>
+        <Label
+            Text="{Loc 'ore-furnace-menu-materials'}"
+            Margin="5 4 5 0"
+            HorizontalAlignment="Center"/>
+        <PanelContainer MinHeight="90">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#1B1B1E"/>
+            </PanelContainer.PanelOverride>
+            <ui:MaterialStorageControl Name="MaterialsList"/>
+        </PanelContainer>
+    </BoxContainer>
+</controls:FancyWindow>
