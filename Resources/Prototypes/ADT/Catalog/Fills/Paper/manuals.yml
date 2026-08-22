@@ -5,3 +5,22 @@
   components:
   - type: Paper
     content: antinoblium-recipe
+
+- type: entity
+  id: ClownMimeCyborgInstruction
+  suffix: "ClownMime Instruction"
+  parent: Paper
+  components:
+  - type: Paper
+    stampState: paper_stamp-clown
+    stampedBy:
+    - stampedName: Хонкомама
+      stampedColor: "#C71585"
+    - stampedName: Хранительница тишины
+      stampedColor: "#696969"
+    content: book-text-clownmime-scribbles
+  - type: PaperVisuals
+    backgroundModulate: "#cccccc"
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0

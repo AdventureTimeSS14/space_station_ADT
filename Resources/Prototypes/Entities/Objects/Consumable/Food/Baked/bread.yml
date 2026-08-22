@@ -673,6 +673,11 @@
           Quantity: 1
         - ReagentId: Blackpepper
           Quantity: 1
+#ADT-ClownMime
+  - type: Tag
+    tags:
+    - Baguette
+#ADT-ClownMime
   - type: Clothing
     slots: [ BELT ]
     equippedPrefix: baguette

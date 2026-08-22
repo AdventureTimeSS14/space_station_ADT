@@ -156,6 +156,9 @@
   - type: Construction
     graph: BananiumHorn
     node: bananiumHorn
+  - type: Tag #ADT-Clownmime
+    tags:
+    - BananiumHorn
   - type: Tool
     useSound: *SoundBananiumHorn
 

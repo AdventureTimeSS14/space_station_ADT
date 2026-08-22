@@ -471,6 +471,9 @@
   - type: Extractable
     grindableSolutionName: food
   - type: SpaceGarbage
+  - type: Currency
+    price:
+      TrashBananaPeel: 2
   - type: Edible
     requiresSpecialDigestion: true
   - type: Clothing
@@ -504,6 +507,9 @@
           Quantity: 1
         - ReagentId: Carbon
           Quantity: 2
+  - type: Currency
+    price:
+      TrashBananaPeel: 3
 
 - type: entity
   parent: TrashBananaPeel
@@ -524,6 +530,9 @@
       path: /Audio/Effects/slip.ogg
       params:
         volume: -100
+  - type: Currency
+    price:
+      TrashBananaPeel: 5
 
 - type: entity
   parent: TrashBananaPeel
@@ -540,6 +549,9 @@
   - type: Clothing
     sprite: Objects/Materials/materials.rsi
     equippedPrefix: peel
+  - type: Currency
+    price:
+      TrashBananaPeel: 1
 
 - type: entity
   name: carrot

@@ -46,6 +46,7 @@
     back:
     - RubberStampClown
     - CrayonRainbow
+    - ClownUplink
 
 - type: chameleonOutfit
   id: ClownChameleonOutfit
