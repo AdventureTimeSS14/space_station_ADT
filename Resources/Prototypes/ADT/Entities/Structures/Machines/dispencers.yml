@@ -114,9 +114,10 @@
       Sulfur: 5
     tierReagents:
     #  1: 
-      2: [ TableSalt, Ash, WeldingFuel ]
-      3: [ Acetone, Ammonia, Plasma ]
-      4: [ Phenol, Diethylamine ]
+      2: [ TableSalt, Water, WeldingFuel ]
+      3: [ Benzene, Hydroxide, Fersilicite ]
+      4: [ Uranium, Plasma, Siderlac ]
+      5: [ Omnizine, Cognizine, Diethylamine ]
     tierReagentCost: 8
     reagentsEmagged:
       Puncturase: 15
