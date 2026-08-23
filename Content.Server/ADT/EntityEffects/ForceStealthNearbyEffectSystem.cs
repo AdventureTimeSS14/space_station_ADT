@@ -1,6 +1,7 @@
 using Content.Shared.ADT.EntityEffects;
 using Content.Server.ADT.Stealth;
 using Content.Shared.EntityEffects;
+using Content.Shared.Ghost;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 
@@ -19,6 +20,9 @@ public sealed partial class ForceStealthNearbyEffectSystem : EntityEffectSystem<
 
         foreach (var target in _lookup.GetEntitiesInRange(uid, effect.Radius))
         {
+            if (HasComp<GhostComponent>(target))
+                continue;
+
             if (_random.Prob(effect.Chance))
                 _stealth.TryApplyForceStealth(target, out _, effect.Duration);
         }
