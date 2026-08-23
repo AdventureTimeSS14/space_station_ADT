@@ -112,6 +112,14 @@
     NoiseStrength: 0.12
 
 - type: shader
+  id: ADTLightHighlightShader
+  kind: source
+  path: "/Textures/ADT/Shaders/light_highlight.swsl"
+  params:
+    MinBrightness: 0.45
+    Saturation: 1.0
+
+- type: shader
   id: ADTThermalGasVisibilityShader
   kind: source
   path: "/Textures/ADT/Shaders/thermal_gas_visibility.swsl"
