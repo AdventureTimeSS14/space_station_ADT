@@ -14491,3 +14491,9 @@ Entries:
     id: 1843
     pr_number: 3125
     time: '2026-08-23T02:48:02Z'
+  - author: kerfus-owo
+    changes:
+      - {message: Добавлен крафт баллончиков с краской в автолат., type: Add}
+    id: 1844
+    pr_number: 3252
+    time: '2026-08-23T09:11:19Z'
