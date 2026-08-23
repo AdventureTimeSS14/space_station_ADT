@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Body;
 using Content.Shared.ADT.Language;
+using Content.Shared.ADT.NightVision;
 using Content.Shared.ADT.Shadowling;
 using Content.Shared.Actions;
 using Content.Shared.Body;
@@ -26,6 +27,7 @@ public sealed class ADTShadowlingSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private readonly SharedNightVisionSystem _nightVision = default!;
 
     public static readonly ProtoId<LanguagePrototype> HivemindLanguage = "ADTShadowlingCollectiveMind";
     public static readonly ProtoId<NpcFactionPrototype> ShadowlingFaction = "ADTShadowling";
@@ -153,6 +155,9 @@ public sealed class ADTShadowlingSystem : EntitySystem
     {
         RemoveActions(ent.Comp.GrantedActions);
         LeaveHivemind(ent);
+
+        if (TryComp<NightVisionComponent>(ent, out var nightVision) && !nightVision.Innate)
+            RemCompDeferred<NightVisionComponent>(ent);
     }
 
     private void OnThrallExamined(Entity<ADTShadowlingThrallComponent> ent, ref ExaminedEvent args)

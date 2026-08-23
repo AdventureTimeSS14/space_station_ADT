@@ -10,13 +10,13 @@
   id: ADTShadowlingGameRule
   components:
   - type: GameRule
-    minPlayers: 25
+    minPlayers: 40
   - type: AntagSelection
     agentName: shadowling-roundend-agent-name
     definitions:
     - prefRoles: [ ADTShadowling ]
-      max: 3
-      playerRatio: 14
+      max: 4
+      playerRatio: 10
       blacklist:
         components:
         - AntagImmune
@@ -31,11 +31,11 @@
   - type: StationEvent
     earliestStart: 30
     weight: 3
-    minimumPlayers: 25
+    minimumPlayers: 40
     reoccurrenceDelay: 9999
     duration: 1
   - type: GameRule
-    minPlayers: 25
+    minPlayers: 40
   - type: AntagSelection
     agentName: shadowling-roundend-agent-name
     definitions:
