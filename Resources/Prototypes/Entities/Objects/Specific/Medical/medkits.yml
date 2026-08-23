@@ -145,5 +145,5 @@
     shape:
     - 0,0,2,2
     sprite: Objects/Specific/Medical/firstaidkits.rsi
-    heldPrefix: firstaid
+    heldPrefix: ertkit
 #ADT-End

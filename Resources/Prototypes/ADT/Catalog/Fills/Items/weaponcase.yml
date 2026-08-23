@@ -181,7 +181,7 @@
 
 - type: entity
   id: WeaponCaseNTM90GrenadeLauncherAttachmentCBURN
-  name: weapon Case
+  name: weapon case
   suffix: M-90gl
   description: Case with weapons.
   parent: WeaponCaseNT
