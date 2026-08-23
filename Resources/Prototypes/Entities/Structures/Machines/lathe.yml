@@ -18,7 +18,7 @@
         layer:
           - MachineLayer
   - type: Lathe
-    producingSound: /Audio/ADT/Machines/lathe_print.ogg
+    producingSound: /Audio/ADT/Machines/lathe_print.ogg # ADT-Tweak: звук производства BaseLathe
   - type: MaterialStorage
   - type: Destructible
     thresholds:
