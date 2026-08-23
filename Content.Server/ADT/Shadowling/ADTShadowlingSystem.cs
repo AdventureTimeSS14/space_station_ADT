@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Server.Body;
-using Content.Shared.ADT.Ghost;
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.NightVision;
 using Content.Shared.ADT.Shadowling;
@@ -127,10 +126,6 @@ public sealed class ADTShadowlingSystem : EntitySystem
         thrall.Master = master;
         Dirty(target, thrall);
 
-        var visible = EnsureComp<GhostVisibleAntagComponent>(target);
-        visible.Name = "shadowling-thrall-name";
-        Dirty(target, visible);
-
         var ev = new ADTShadowlingThrallAddedEvent(target, master);
         RaiseLocalEvent(ev);
         return true;
@@ -145,7 +140,6 @@ public sealed class ADTShadowlingSystem : EntitySystem
             return false;
 
         RemComp<ADTShadowlingThrallComponent>(target);
-        RemComp<GhostVisibleAntagComponent>(target);
         return true;
     }
 
