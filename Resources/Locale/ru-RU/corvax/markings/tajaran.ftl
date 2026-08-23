@@ -48,7 +48,6 @@ marking-Belly6 = Живот 2
 marking-TajaranChest = Грудь
 marking-Belly5 = Живот
 marking-Belly7 = Живот 3
-marking-TajaranTailM = Хвост
 marking-TailRing2 = Круг (хвост) 2
 marking-TailSkeleton2 = Рисунок скелета (хвост) 2
 marking-TailTip2 = Кончик (хвост) 2

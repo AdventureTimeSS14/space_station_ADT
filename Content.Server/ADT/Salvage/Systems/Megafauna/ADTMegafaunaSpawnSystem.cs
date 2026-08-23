@@ -111,6 +111,12 @@ public sealed class ADTMegafaunaSpawnSystem : EntitySystem
             return false;
         }
 
+        if (TryComp<ADTOccupiedRoomsComponent>(ent, out var occupied) &&
+            occupied.Rooms.Any(room => room.Enlarged(comp.RoomMargin).Contains(coords.Position)))
+        {
+            return false;
+        }
+
         return !_lookup.GetEntitiesInRange(coords, comp.RoomClearance)
             .Any(e => HasComp<RoomFillComponent>(e) || HasComp<ADTRoomFillComponent>(e));
     }

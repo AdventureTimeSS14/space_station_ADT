@@ -192,3 +192,42 @@
       sprite: ADT/Clothing/Neck/Ties/gold_tie.rsi #спрайты от prazat911
     - type: StaticPrice
       price: 75
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckDarkGreenTie
+  name: dark green tie
+  description: Just a tie.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Ties/darkgreen_tie.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Neck/Ties/darkgreen_tie.rsi
+    - type: StaticPrice
+      price: 18
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckLightPurpleTie
+  name: light purple tie
+  description: Just a tie.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Ties/lightpurple_tie.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Neck/Ties/lightpurple_tie.rsi
+    - type: StaticPrice
+      price: 18
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckMalineTie
+  name: maline tie
+  description: Just a tie.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Ties/maline_tie.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Neck/Ties/maline_tie.rsi
+    - type: StaticPrice
+      price: 18

@@ -22,7 +22,8 @@
   source: "https://github.com/ParadiseSS13/Paradise"
 
 - files:
-  - hiero_boss.ogg
-  license: "CC-BY-SA-3.0"
-  copyright: "Ported from Paradise Station (sound/lavaland/hiero_boss.ogg)"
-  source: "https://github.com/ParadiseSS13/Paradise"
+  - hiero_fight.ogg
+  - hiero_fight2.ogg
+  license: "CC-BY-SA-4.0"
+  copyright: "Provided for the ADT project under CC-BY-SA-4.0"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
