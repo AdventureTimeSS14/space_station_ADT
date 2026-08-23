@@ -144,7 +144,7 @@
     subtype: role-subtype-dragon
     exclusiveAntag: true
   - type: DragonRole
-  - type: ADTGhostVisibleAntag # ADT Tweak
+  - type: GhostVisibleAntag # ADT Tweak
 
 # Ninja
 - type: entity
@@ -157,7 +157,7 @@
     subtype: role-subtype-ninja
     exclusiveAntag: true
   - type: NinjaRole
-  - type: ADTGhostVisibleAntag # ADT Tweak
+  - type: GhostVisibleAntag # ADT Tweak
 
 # Paradox Clone
 - type: entity
@@ -183,7 +183,7 @@
     exclusiveAntag: true
     antagPrototype: Nukeops
   - type: NukeopsRole
-  - type: ADTGhostVisibleAntag # ADT Tweak
+  - type: GhostVisibleAntag # ADT Tweak
 
 - type: entity
   parent: MindRoleNukeops
@@ -283,7 +283,7 @@
     roleType: TeamAntagonist
     subtype: role-subtype-traitor-reinforcement
     antagPrototype: GenericTeamAntagonist
-  - type: ADTGhostVisibleAntag # ADT Tweak
+  - type: GhostVisibleAntag # ADT Tweak
 
 # Wizards
 - type: entity
@@ -296,7 +296,7 @@
     exclusiveAntag: true
     subtype: role-subtype-wizard
   - type: WizardRole
-  - type: ADTGhostVisibleAntag # ADT Tweak
+  - type: GhostVisibleAntag # ADT Tweak
 
 # Xenoborgs
 - type: entity
@@ -310,7 +310,7 @@
     roleType: Silicon
     subtype: role-subtype-xenoborg-core
   - type: XenoborgRole
-  - type: ADTGhostVisibleAntag # ADT Tweak
+  - type: GhostVisibleAntag # ADT Tweak
 
 - type: entity
   parent: BaseMindRoleAntag
@@ -323,7 +323,7 @@
     roleType: Silicon
     subtype: role-subtype-xenoborg
   - type: XenoborgRole
-  - type: ADTGhostVisibleAntag # ADT Tweak
+  - type: GhostVisibleAntag # ADT Tweak
 
 # Zombie Squad
 - type: entity
@@ -337,7 +337,7 @@
     roleType: TeamAntagonist
     subtype: role-subtype-initial-infected
   - type: InitialInfectedRole
-  - type: ADTGhostVisibleAntag # ADT Tweak
+  - type: GhostVisibleAntag # ADT Tweak
 
 - type: entity
   parent: MindRoleGhostRoleTeamAntagonistFlock
@@ -349,7 +349,7 @@
     exclusiveAntag: true
     subtype: role-subtype-zombie
   - type: ZombieRole
-  - type: ADTGhostVisibleAntag # ADT Tweak
+  - type: GhostVisibleAntag # ADT Tweak
 
 # ADT: Закомментировано из-за использования генокрада от Goob Station
 # # Changeling

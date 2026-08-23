@@ -192,7 +192,7 @@
       rules: ghost-role-information-space-dragon-summoned-carp-rules
       mindRoles:
       - MindRoleGhostRoleTeamAntagonistFlock
-    - type: ADTGhostVisibleAntag
+    - type: GhostVisibleAntag
       name: ghost-role-information-sentient-carp-name
     - type: GhostTakeoverAvailable
     - type: HTN

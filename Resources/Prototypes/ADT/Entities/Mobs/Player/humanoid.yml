@@ -810,7 +810,7 @@
     name: ghost-role-information-pirate-name
     description: ghost-role-information-pirate-description
     rules: ghost-role-information-pirate-rules
-  - type: ADTGhostVisibleAntag
+  - type: GhostVisibleAntag
     name: ghost-role-information-pirate-name
   - type: GhostTakeoverAvailable
 
@@ -827,7 +827,7 @@
     randomizeName: true
   - type: Loadout
     prototypes: [ADTPirateCaptainGear]
-  - type: ADTGhostVisibleAntag
+  - type: GhostVisibleAntag
     name: ghost-role-information-captain-pirate-name
 
 - type: entity
@@ -842,7 +842,7 @@
     randomizeName: true
   - type: Loadout
     prototypes: [ADTPirateFirstmateGear]
-  - type: ADTGhostVisibleAntag
+  - type: GhostVisibleAntag
     name: ghost-role-information-pirate-firstmate-name
 
 
@@ -858,7 +858,7 @@
     randomizeName: true
   - type: Loadout
     prototypes: [ADTRoleMobVoxRaiderGear]
-  - type: ADTGhostVisibleAntag
+  - type: GhostVisibleAntag
     name: ghost-role-information-vox_raider-name
 
 - type: startingGear

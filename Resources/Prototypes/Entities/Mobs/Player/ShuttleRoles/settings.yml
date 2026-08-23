@@ -759,7 +759,7 @@
       - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: default
-    - type: ADTGhostVisibleAntag
+    - type: GhostVisibleAntag
       name: ghost-role-information-syndie-soldier-teamlead-name
     - type: Loadout
       prototypes: [ SyndicateFootsoldierTeamLeaderGear ]
@@ -781,7 +781,7 @@
       - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: default
-    - type: ADTGhostVisibleAntag
+    - type: GhostVisibleAntag
       name: ghost-role-information-syndie-soldier-name
     - type: Loadout
       prototypes: [ SyndicateFootsoldierGear ]

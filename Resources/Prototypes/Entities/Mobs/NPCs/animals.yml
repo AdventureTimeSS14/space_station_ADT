@@ -1611,7 +1611,7 @@
     - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
-  - type: ADTGhostVisibleAntag
+  - type: GhostVisibleAntag
     name: ghost-role-information-monkey-name
   - type: GhostTakeoverAvailable
   - type: Loadout
@@ -2762,7 +2762,7 @@
     - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: short
-  - type: ADTGhostVisibleAntag
+  - type: GhostVisibleAntag
     name: ghost-role-information-giant-spider-name
   - type: GhostTakeoverAvailable
   - type: ForceAttack
@@ -3373,7 +3373,7 @@
     - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
-  - type: ADTGhostVisibleAntag
+  - type: GhostVisibleAntag
     name: ghost-role-information-SyndiCat-name
   - type: GhostTakeoverAvailable
   - type: AutoImplant

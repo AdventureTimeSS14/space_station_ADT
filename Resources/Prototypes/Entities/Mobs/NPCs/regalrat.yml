@@ -96,7 +96,7 @@
     - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
-  - type: ADTGhostVisibleAntag
+  - type: GhostVisibleAntag
     name: ghost-role-information-rat-king-name
   - type: GhostTakeoverAvailable
   # ADT-Tweak start буст метаболизма

@@ -46,7 +46,7 @@
     - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
-  - type: ADTGhostVisibleAntag
+  - type: GhostVisibleAntag
     name: ghost-role-information-revenant-name
   - type: GhostTakeoverAvailable
   - type: Revenant
