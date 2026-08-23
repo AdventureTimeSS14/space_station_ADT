@@ -450,7 +450,7 @@ namespace Content.Server.Ghost
                 }
 
                 if (mindContainer.Mind != null &&
-                    roleCacheComponent is { IsAntag: true } &&
+                    (roleCacheComponent is { IsAntag: true } || HasComp<GhostVisibleAntagComponent>(entity)) &&
                     GetVisibleAntagName(entity, roleCacheComponent) is { } antagName)
                 {
                     var warp = SetupWarp(entity, mindContainer, antagName, AntagonistButtonColor, null);

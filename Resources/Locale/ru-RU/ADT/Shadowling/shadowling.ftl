@@ -4,6 +4,7 @@ alerts-shadowling-light-desc = Запас тьмы в вашем теле. Зе�
 shadowling-tumor-collapses = { $tumor } схлопывается сама в себя!
 
 shadowling-thrall-examine = Черты лица неестественно натянуты.
+shadowling-thrall-name = Раб тенеморфа
 
 shadowling-not-hatched = Ваши телепатические способности подавлены. Сначала сбросьте маскировку.
 
