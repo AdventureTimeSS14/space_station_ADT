@@ -20,10 +20,12 @@ public sealed class ADTMagmiteScannerSystem : EntitySystem
 
         SubscribeLocalEvent<ADTMagmiteScannerComponent, ComponentStartup>(OnScannerStartup);
         SubscribeLocalEvent<ADTMagmiteScannerComponent, ComponentShutdown>(OnScannerShutdown);
-        SubscribeLocalEvent<ADTMagmiteScannerComponent, EntParentChangedMessage>(OnScannerParentChanged);
+        SubscribeLocalEvent<ADTMagmiteScannerComponent, EntGotInsertedIntoContainerMessage>(OnScannerInserted);
+        SubscribeLocalEvent<ADTMagmiteScannerComponent, EntGotRemovedFromContainerMessage>(OnScannerRemoved);
         SubscribeLocalEvent<ADTMagmiteScannerComponent, ItemToggledEvent>(OnScannerToggled);
 
-        SubscribeLocalEvent<ADTMagmiteScannerLinkComponent, EntParentChangedMessage>(OnLinkParentChanged);
+        SubscribeLocalEvent<ADTMagmiteScannerLinkComponent, EntGotInsertedIntoContainerMessage>(OnLinkInserted);
+        SubscribeLocalEvent<ADTMagmiteScannerLinkComponent, EntGotRemovedFromContainerMessage>(OnLinkRemoved);
     }
 
     private void OnScannerStartup(Entity<ADTMagmiteScannerComponent> ent, ref ComponentStartup args)
@@ -43,7 +45,12 @@ public sealed class ADTMagmiteScannerSystem : EntitySystem
         RefreshViewer(user);
     }
 
-    private void OnScannerParentChanged(Entity<ADTMagmiteScannerComponent> ent, ref EntParentChangedMessage args)
+    private void OnScannerInserted(Entity<ADTMagmiteScannerComponent> ent, ref EntGotInsertedIntoContainerMessage args)
+    {
+        Refresh(ent);
+    }
+
+    private void OnScannerRemoved(Entity<ADTMagmiteScannerComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
         Refresh(ent);
     }
@@ -53,7 +60,17 @@ public sealed class ADTMagmiteScannerSystem : EntitySystem
         Refresh(ent);
     }
 
-    private void OnLinkParentChanged(Entity<ADTMagmiteScannerLinkComponent> ent, ref EntParentChangedMessage args)
+    private void OnLinkInserted(Entity<ADTMagmiteScannerLinkComponent> ent, ref EntGotInsertedIntoContainerMessage args)
+    {
+        RefreshLinkedScanners(ent);
+    }
+
+    private void OnLinkRemoved(Entity<ADTMagmiteScannerLinkComponent> ent, ref EntGotRemovedFromContainerMessage args)
+    {
+        RefreshLinkedScanners(ent);
+    }
+
+    private void RefreshLinkedScanners(Entity<ADTMagmiteScannerLinkComponent> ent)
     {
         foreach (var scanner in ent.Comp.Scanners.ToArray())
         {
