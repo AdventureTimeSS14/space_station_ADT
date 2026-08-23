@@ -2,3 +2,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Created by discord: 1.wswiss.1 for Adventure Time."
   source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["lathe_pring.ogg"]
+  license: CCbySA
+  copyright: "made by kayozzx (discord)"
+  source: "https://github.com/ss220club/BandaStation"
