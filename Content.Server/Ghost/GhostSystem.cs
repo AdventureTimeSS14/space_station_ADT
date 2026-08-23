@@ -7,6 +7,7 @@ using Content.Server.Mind;
 using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
+using Content.Shared.ADT.Ghost;
 using Content.Shared.ADT.Ghost.GhostTypes;
 using Content.Shared.ADT.CustomGhostSystem;
 using Content.Shared.ADT.Roles;
@@ -388,36 +389,39 @@ namespace Content.Server.Ghost
                 if (TryComp<GhostComponent>(entity, out var ghostComp) && ghostComp.CanGhostInteract)
                     continue;
 
-                if (TryComp<RoleCacheComponent>(entity, out var roleCacheComponent))
+                var addedWarp = false;
+
+                TryComp<RoleCacheComponent>(entity, out var roleCacheComponent);
+
+                var jobId = roleCacheComponent?.LastJobPrototype;
+                if (jobId is { } job &&
+                    _prototypeManager.TryIndex(job, out var jobPrototype) &&
+                    _jobs.TryGetLowestWeightDepartment(jobPrototype.ID, out var departmentPrototype))
                 {
-                    var addedWarp = false;
+                    var departmentName = Loc.GetString($"department-{departmentPrototype.ID}");
+                    var jobName = Loc.GetString(jobPrototype.Name);
+                    var warp = SetupWarp(entity, mindContainer, departmentName, departmentPrototype.Color, jobName, departmentPrototype.Weight);
+                    warp.Group |= WarpGroup.Department;
 
-                    if (_prototypeManager.TryIndex(roleCacheComponent.LastJobPrototype, out var jobPrototype) &&
-                        _jobs.TryGetLowestWeightDepartment(jobPrototype.ID, out var departmentPrototype))
-                    {
-                        var departmentName = Loc.GetString($"department-{departmentPrototype.ID}");
-                        var jobName = Loc.GetString(jobPrototype.Name);
-                        var warp = SetupWarp(entity, mindContainer, departmentName, departmentPrototype.Color, jobName, departmentPrototype.Weight);
-                        warp.Group |= WarpGroup.Department;
-
-                        warps.Add(warp);
-                        addedWarp = true;
-                    }
-
-                    if (!addedWarp)
-                    {
-                        var warp = SetupWarp(entity, mindContainer, 
-                            MetaData(entity).EntityPrototype?.Name ?? "", 
-                            null, null);
-                        warp.Group |= WarpGroup.Other;
-
-                        warps.Add(warp);
-                    }
+                    warps.Add(warp);
+                    addedWarp = true;
                 }
-                else
+
+                if (mindContainer.Mind != null &&
+                    roleCacheComponent is { IsAntag: true } &&
+                    GetVisibleAntagName(entity, roleCacheComponent) is { } antagName)
                 {
-                    var warp = SetupWarp(entity, mindContainer, 
-                        MetaData(entity).EntityPrototype?.Name ?? "", 
+                    var warp = SetupWarp(entity, mindContainer, antagName, AntagonistButtonColor, null);
+                    warp.Group |= WarpGroup.Antag;
+
+                    warps.Add(warp);
+                    addedWarp = true;
+                }
+
+                if (!addedWarp)
+                {
+                    var warp = SetupWarp(entity, mindContainer,
+                        MetaData(entity).EntityPrototype?.Name ?? "",
                         null, null);
                     warp.Group |= WarpGroup.Other;
 
@@ -426,6 +430,17 @@ namespace Content.Server.Ghost
             }
 
             return warps;
+        }
+
+        private string? GetVisibleAntagName(EntityUid entity, RoleCacheComponent roleCache)
+        {
+            if (roleCache.VisibleAntagName is { } cached)
+                return cached;
+
+            if (TryComp<GhostVisibleAntagComponent>(entity, out var visible) && visible.Name is { } loc)
+                return Loc.GetString(loc);
+
+            return null;
         }
 
         private GhostWarp SetupWarp(EntityUid entity, MindContainerComponent mindContainer, string subGroup, Color? color, string? description, int departmentWeight = 0)

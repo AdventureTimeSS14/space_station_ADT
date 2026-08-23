@@ -1,5 +1,5 @@
 ghost-teleport-menu-antagonists-label = Антагонисты
-ghost-teleport-menu-dead-antagonists-label = Мертвые антагонисты
+ghost-teleport-menu-dead-antagonists-label = Мёртвые антагонисты
 ghost-teleport-menu-alive-label = Живые
 ghost-teleport-menu-dead-label = Мертвые
 ghost-teleport-menu-ghosts-label = Призраки
