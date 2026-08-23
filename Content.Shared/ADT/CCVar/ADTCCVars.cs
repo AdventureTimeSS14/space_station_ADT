@@ -416,6 +416,12 @@ public sealed class ADTCCVars
     public static readonly CVarDef<int> AntagRollBonusInfoRateLimitCount =
         CVarDef.Create("antag.roll_bonus_info_rate_limit_count", 3, CVar.SERVERONLY);
 
+    /// <summary>
+    /// How many hours pass between full wipes of every stored roll bonus. Zero or less disables wiping.
+    /// </summary>
+    public static readonly CVarDef<float> AntagRollBonusWipeHours =
+        CVarDef.Create("antag.roll_bonus_wipe_hours", 36f, CVar.SERVERONLY);
+
      /*
      * Heretic
      */
@@ -425,10 +431,5 @@ public sealed class ADTCCVars
     /// </summary>
     public static readonly CVarDef<bool> HereticAscensionRequiresObjectives =
         CVarDef.Create("heretic.ascension_requires_objectives", true, CVar.SERVERONLY);
-    /// <summary>
-    /// How many hours pass between full wipes of every stored roll bonus. Zero or less disables wiping.
-    /// </summary>
-    public static readonly CVarDef<float> AntagRollBonusWipeHours =
-        CVarDef.Create("antag.roll_bonus_wipe_hours", 36f, CVar.SERVERONLY);
 }
 
