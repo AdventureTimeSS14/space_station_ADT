@@ -169,7 +169,6 @@
     hasMindState: ClownMimee
     noMindState: ClownMimeer
   - type: Construction
-    graph: BorgChassisClownMime
     node: clownmimecyborg
   - type: MimePowers
   - type: ContainerFill
