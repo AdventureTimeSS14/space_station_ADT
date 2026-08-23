@@ -15,7 +15,8 @@
     edges:
     - to: clownmimecyborg
       conditions:
-        - !type:ContainerEmpty { container: borg_brain }
+        - !type:ContainerEmpty
+          container: borg_brain
       steps:
         - material: Cloth
           amount: 20
@@ -67,5 +68,5 @@
           doAfter: 2
 
   - node: clownmimecyborg
-    entity: BorgChassisClownMime
+    entity: PlayerBorgChassisClownMimeBattery
 #ClownMimecyborg end
