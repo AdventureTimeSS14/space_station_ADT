@@ -351,7 +351,7 @@
   name: boobr-xraycannon-name
   description: boobr-xraycannon-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Battery/xray.rsi, state: icon }
-  productEntity: WeaponLaserCannon
+  productEntity: WeaponXRayCannon
   cost:
     Productunit: 12
   categories:
@@ -362,7 +362,7 @@
   name: boobr-xraycannon-name
   description: boobr-xraycannon-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Battery/xray.rsi, state: icon }
-  productEntity: WeaponLaserCannon
+  productEntity: WeaponXRayCannon
   cost:
     Productunit: 12
   categories:
@@ -374,7 +374,7 @@
   description: boobr-flamethrower-desc
   productEntity: ADTWeaponFlamethrowerCBURN
   cost:
-    Productunit: 20
+    Productunit: 24
   categories:
   - ADTUplinkERTCBURNWeapon
 
