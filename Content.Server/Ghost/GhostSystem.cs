@@ -7,6 +7,7 @@ using Content.Server.Mind;
 using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
+using Content.Shared.Access.Systems;
 using Content.Shared.ADT.Ghost;
 using Content.Shared.ADT.Ghost.GhostTypes;
 using Content.Shared.ADT.CustomGhostSystem;
@@ -38,7 +39,9 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.Roles;
 using Content.Shared.SSDIndicator;
+using Content.Shared.StatusIcon;
 using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
 using Content.Shared.Warps;
@@ -82,6 +85,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
         [Dependency] private readonly GhostSpriteStateSystem _ghostState = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
+        [Dependency] private readonly SharedIdCardSystem _idCard = default!; // ADT-TWEAK
         [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
         [Dependency] private readonly StoreBodyAppearanceOnMindSystem _bodyAppearance = default!;
 
@@ -393,7 +397,25 @@ namespace Content.Server.Ghost
 
                 TryComp<RoleCacheComponent>(entity, out var roleCacheComponent);
 
-                var jobId = roleCacheComponent?.LastJobPrototype;
+                ProtoId<JobPrototype>? jobId = null;
+                DepartmentPrototype? cardDepartment = null;
+                string? cardJobName = null;
+
+                if (_idCard.TryFindIdCard(entity, out var idCard))
+                {
+                    jobId = idCard.Comp.JobPrototype ?? roleCacheComponent?.LastJobPrototype;
+
+                    foreach (var departmentId in idCard.Comp.JobDepartments)
+                    {
+                        if (_prototypeManager.TryIndex(departmentId, out var department) &&
+                            (cardDepartment == null || department.Weight > cardDepartment.Weight))
+                            cardDepartment = department;
+                    }
+
+                    if (_prototypeManager.TryIndex(idCard.Comp.JobIcon, out JobIconPrototype? jobIcon))
+                        cardJobName = jobIcon.LocalizedJobName;
+                }
+
                 if (jobId is { } job &&
                     _prototypeManager.TryIndex(job, out var jobPrototype) &&
                     _jobs.TryGetLowestWeightDepartment(jobPrototype.ID, out var departmentPrototype))
@@ -401,6 +423,15 @@ namespace Content.Server.Ghost
                     var departmentName = Loc.GetString($"department-{departmentPrototype.ID}");
                     var jobName = Loc.GetString(jobPrototype.Name);
                     var warp = SetupWarp(entity, mindContainer, departmentName, departmentPrototype.Color, jobName, departmentPrototype.Weight);
+                    warp.Group |= WarpGroup.Department;
+
+                    warps.Add(warp);
+                    addedWarp = true;
+                }
+                else if (cardDepartment != null)
+                {
+                    var departmentName = Loc.GetString($"department-{cardDepartment.ID}");
+                    var warp = SetupWarp(entity, mindContainer, departmentName, cardDepartment.Color, cardJobName, cardDepartment.Weight);
                     warp.Group |= WarpGroup.Department;
 
                     warps.Add(warp);
@@ -420,11 +451,7 @@ namespace Content.Server.Ghost
 
                 if (!addedWarp)
                 {
-                    var subGroup = mindContainer.Mind != null
-                        ? Loc.GetString("game-ticker-unknown-role")
-                        : MetaData(entity).EntityPrototype?.Name ?? "";
-
-                    var warp = SetupWarp(entity, mindContainer, subGroup, null, null);
+                    var warp = SetupWarp(entity, mindContainer, Loc.GetString("game-ticker-unknown-role"), null, null);
                     warp.Group |= WarpGroup.Other;
 
                     warps.Add(warp);
