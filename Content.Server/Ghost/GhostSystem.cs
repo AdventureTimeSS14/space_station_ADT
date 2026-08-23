@@ -7,6 +7,7 @@ using Content.Server.Mind;
 using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
+using Content.Server.StationRecords.Systems;
 using Content.Shared.Access.Systems;
 using Content.Shared.ADT.Ghost;
 using Content.Shared.ADT.Ghost.GhostTypes;
@@ -41,6 +42,7 @@ using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Content.Shared.SSDIndicator;
+using Content.Shared.StationRecords;
 using Content.Shared.StatusIcon;
 using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
@@ -86,6 +88,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly GhostSpriteStateSystem _ghostState = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly SharedIdCardSystem _idCard = default!; // ADT-TWEAK
+        [Dependency] private readonly StationRecordsSystem _records = default!; // ADT-TWEAK
         [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
         [Dependency] private readonly StoreBodyAppearanceOnMindSystem _bodyAppearance = default!;
 
@@ -403,7 +406,15 @@ namespace Content.Server.Ghost
 
                 if (_idCard.TryFindIdCard(entity, out var idCard))
                 {
-                    jobId = idCard.Comp.JobPrototype ?? roleCacheComponent?.LastJobPrototype;
+                    jobId = idCard.Comp.JobPrototype;
+
+                    if (jobId is null
+                        && TryComp<StationRecordKeyStorageComponent>(idCard, out var keyStorage)
+                        && keyStorage.Key is { } key
+                        && _records.TryGetRecord<GeneralStationRecord>(key, out var record))
+                        jobId = record.JobPrototype;
+
+                    jobId ??= roleCacheComponent?.LastJobPrototype;
 
                     foreach (var departmentId in idCard.Comp.JobDepartments)
                     {
