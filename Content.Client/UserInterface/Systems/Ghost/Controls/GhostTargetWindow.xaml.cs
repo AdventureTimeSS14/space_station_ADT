@@ -193,10 +193,16 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
             mainContainer.AddChild(CreateSectionHeader("ghost-teleport-menu-unknown-label"));
 
+            var subBox = new FlexBox
+            {
+                AlignContent = FlexBox.FlexAlignContent.SpaceBetween
+            };
+
             foreach (var warps in _unknown.Values)
             foreach (var warp in warps)
-                mainContainer.AddChild(CreateWarpButton(warp));
+                subBox.AddChild(CreateWarpButton(warp));
 
+            mainContainer.AddChild(subBox);
             GhostTeleportContainer.AddChild(mainContainer);
         }
 
