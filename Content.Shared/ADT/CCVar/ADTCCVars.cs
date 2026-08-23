@@ -431,5 +431,18 @@ public sealed class ADTCCVars
     /// </summary>
     public static readonly CVarDef<bool> HereticAscensionRequiresObjectives =
         CVarDef.Create("heretic.ascension_requires_objectives", true, CVar.SERVERONLY);
+
+    /*
+     * Chat Highlight Sound
+     */
+
+    public static readonly CVarDef<bool> ChatHighlightSoundEnabled =
+        CVarDef.Create("adt.chat_highlight_sound_enabled", true, CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    public static readonly CVarDef<string> ChatHighlightSoundPath =
+        CVarDef.Create("adt.chat_highlight_sound_path", "/Audio/ADT/UI/ChatHighlight/notification1.ogg", CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    public static readonly CVarDef<float> ChatHighlightSoundVolume =
+        CVarDef.Create("adt.chat_highlight_sound_volume", 1f, CVar.ARCHIVE | CVar.CLIENTONLY);
 }
 

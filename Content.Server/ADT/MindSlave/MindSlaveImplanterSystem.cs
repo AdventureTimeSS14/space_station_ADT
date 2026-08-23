@@ -82,13 +82,14 @@ public sealed class MindSlaveImplanterSystem : EntitySystem
             args.Handled = true;
             return;
         }
-
+        // ADT-Tweak-start
         if (_hereticSystem.TryGetHereticComponent(target, out _, out _))
         {
             _popup.PopupEntity(Loc.GetString("mindslave-heretic-block"), target, user, PopupType.MediumCaution);
             args.Handled = true;
             return;
         }
+        // ADT-Tweak-end
 
         if (_mobState.IsDead(target))
         {
@@ -124,9 +125,11 @@ public sealed class MindSlaveImplanterSystem : EntitySystem
         if (HasComp<MindSlaveComponent>(target) || HasComp<MindShieldComponent>(target) || _mobState.IsDead(target))
             return;
 
+       // ADT-Tweak-start
         if (_hereticSystem.TryGetHereticComponent(target, out _, out _))
             return;
-
+       // ADT-Tweak-end
+        
         var implant = Spawn("MindSlaveImplant", Transform(target).Coordinates);
 
         if (!TryComp<SubdermalImplantComponent>(implant, out var implantComp))
