@@ -10,6 +10,9 @@ public sealed partial class ADTMagmiteUpgradeComponent : Component
 
     [DataField]
     public LocId CoolMessage = "adt-magmite-parts-cooled";
+
+    [DataField]
+    public EntProtoId? CooledPrototype;
 }
 
 [RegisterComponent]

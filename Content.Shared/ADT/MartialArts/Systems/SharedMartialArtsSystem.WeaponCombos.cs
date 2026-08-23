@@ -86,7 +86,7 @@ public partial class SharedMartialArtsSystem
             || _mobState.IsDead(target))
             return;
 
-        if (comp.BlockedByKnownMartialArt && KnowsMartialArt(user))
+        if (comp.BlockedByKnownMartialArt && KnowsMartialArt(user, comp))
         {
             ResetWeaponCombo(weapon, false);
             return;
@@ -174,9 +174,15 @@ public partial class SharedMartialArtsSystem
         Dirty(weapon);
     }
 
-    private bool KnowsMartialArt(EntityUid user)
+    private bool KnowsMartialArt(EntityUid user, WeaponMartialArtComponent weapon)
     {
-        return HasComp<MartialArtsKnowledgeComponent>(user) || HasComp<KravMagaComponent>(user);
+        if (TryComp<MartialArtsKnowledgeComponent>(user, out var knowledge)
+            && !weapon.AllowedMartialArts.Contains(knowledge.MartialArtsForm))
+        {
+            return true;
+        }
+
+        return HasComp<KravMagaComponent>(user);
     }
 
     private void FinishWeaponCombo(Entity<WeaponMartialArtComponent> weapon,
