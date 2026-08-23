@@ -41,7 +41,7 @@ public sealed partial class ChatUIController
             foreach (var highlight in _highlights)
             {
 #pragma warning disable RA0026
-                if (Regex.IsMatch(searchText, "(?i)(" + highlight + ")(?-i)(?![^[]*])"))
+                if (Regex.IsMatch(searchText, "(?i)(?<!\\w)(" + highlight + ")(?!\\w)(?-i)(?![^[]*])"))
                     return true;
 #pragma warning restore RA0026
             }
