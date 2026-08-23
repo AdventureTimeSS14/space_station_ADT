@@ -132,6 +132,21 @@
     ScanlineDark: 0.72
 
 - type: shader
+  id: ADTNightVisionDeviceGen3Shader
+  kind: source
+  path: "/Textures/ADT/Shaders/night_vision_gen3_device.swsl"
+  params:
+    Gain: 2.5
+    TotalLighting: 0.0
+    WhiteoutThreshold: 1.5
+    WhiteoutIntensity: 0.8
+    BloomRadius: 5.5
+    BloomStrength: 0.6
+    NoiseAmplitude: 0.02
+    GrainSize: 1.0
+    ScanlineDark: 0.72
+
+- type: shader
   id: XenoMetallic
   kind: source
   path: "/Textures/ADT/Xenobiology/Shaders/xeno_metallic.swsl"
