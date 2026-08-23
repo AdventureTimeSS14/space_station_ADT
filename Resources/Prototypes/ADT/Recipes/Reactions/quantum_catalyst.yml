@@ -7,7 +7,7 @@
     Sulfur:
       amount: 1
   products:
-    ADTCatalystPrecursor4: 5
+    ADTCatalystPrecursor1: 3
   effects:
     - !type:IgniteNearbyEffect
       radius: 4
@@ -63,7 +63,7 @@
     Fersilicite:
       amount: 1
   products:
-    ADTCatalystPrecursor4: 5
+    ADTCatalystPrecursor4: 4
   effects:
     - !type:IgniteNearbyEffect
       radius: 5
@@ -82,7 +82,7 @@
     Uranium:
       amount: 1
   products:
-    ADTCatalystPrecursor5: 6
+    ADTCatalystPrecursor5: 5
   effects:
     - !type:KnockdownNearbyEffect
       radius: 4
