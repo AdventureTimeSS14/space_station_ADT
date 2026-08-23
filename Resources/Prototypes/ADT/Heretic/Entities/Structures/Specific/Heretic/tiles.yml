@@ -125,6 +125,7 @@
     blockExplosions: false
   - type: Sprite
     sprite: ADT/Heretic/Effects/effects.rsi
+    drawdepth: FloorObjects
     layers:
     - state: cosmic_carpet
   - type: RustRequiresPathStage

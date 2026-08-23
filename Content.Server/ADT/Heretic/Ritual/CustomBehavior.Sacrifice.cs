@@ -145,11 +145,11 @@ namespace Content.Server.Heretic.Ritual;
             var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(uid);
             var isSec = args.EntityManager.HasComponent<SecurityStaffComponent>(uid);
             var isHeretic = _heretic.TryGetHereticComponent(uid, out var otherHeretic, out var otherMind);
-            knowledgeGain +=
-                isHeretic ||
-                heretic.SacrificeTargets.Any(x => x.Entity == args.EntityManager.GetNetEntity(uid))
-                    ? isCommand || isSec || isHeretic ? 3f : 2f
-                    : 0f;
+
+            if (isHeretic)
+                knowledgeGain += 4f;
+            else if (heretic.SacrificeTargets.Any(x => x.Entity == args.EntityManager.GetNetEntity(uid)))
+                knowledgeGain += isCommand || isSec ? 3f : 2f;
 
             try
             {

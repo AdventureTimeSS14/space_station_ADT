@@ -45,6 +45,7 @@ using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Coordinates;
 using Content.Shared.Gibbing;
+using Content.Shared.Eye;
 using Content.Shared.Roles;
 using Content.Shared.Species.Components;
 using Robust.Shared.Audio;
@@ -88,6 +89,13 @@ public sealed class GhoulSystem : EntitySystem
 
         SubscribeLocalEvent<HereticMinionComponent, AttackAttemptEvent>(OnTryAttack);
         SubscribeLocalEvent<HereticMinionComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
+
+        SubscribeLocalEvent<GhoulComponent, GetVisMaskEvent>(OnGhoulGetVis);
+    }
+
+    private void OnGhoulGetVis(Entity<GhoulComponent> ent, ref GetVisMaskEvent args)
+    {
+        args.VisibilityMask |= (int) VisibilityFlags.HereticCarving;
     }
 
     private void OnGetBriefing(Entity<GhoulRoleComponent> ent, ref GetBriefingEvent args)

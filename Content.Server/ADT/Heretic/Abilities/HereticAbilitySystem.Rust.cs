@@ -213,11 +213,12 @@ public sealed partial class HereticAbilitySystem
 
             var xform = Transform(target);
             var rotation = xform.LocalRotation;
-            var coords = _transform.GetMapCoordinates(target, xform);
+            var coords = xform.Coordinates;
 
             Del(target);
 
-            targetEntity = Spawn(transformation, coords, rotation: rotation);
+            targetEntity = Spawn(transformation, coords);
+            _transform.SetLocalRotation(targetEntity, rotation);
         }
 
         if (TerminatingOrDeleted(targetEntity) || !_tag.HasTag(targetEntity, "Wall"))

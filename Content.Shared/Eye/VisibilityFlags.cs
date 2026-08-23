@@ -17,5 +17,6 @@ namespace Content.Shared.Eye
         EldritchInfluence = 1 << 7, // ADT-Heretic (Goobstation)
         EldritchInfluenceSpent = 1 << 8, // ADT-Heretic (Goobstation)
         Bubblegum = 1 << 9, // ADT-Tweak Bubblegum
+        HereticCarving = 1 << 10, // ADT-Heretic (Goobstation)
     }
 }

@@ -29,7 +29,6 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly StoreSystem _store = default!;
 
@@ -46,6 +45,8 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
     [ValidatePrototypeId<CurrencyPrototype>] public readonly ProtoId<CurrencyPrototype> Currency = "KnowledgePoint";
 
     [ValidatePrototypeId<EntityPrototype>] static EntProtoId _mindRole = "MindRoleHeretic";
+
+    public const int InfluencesPerHeretic = 3;
 
     public override void Initialize()
     {
@@ -67,7 +68,7 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
         if (grid == null)
             return;
 
-        for (int i = 0; i < _rand.Next(6, 8); i++)
+        for (int i = 0; i < InfluencesPerHeretic; i++)
             if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
                 Spawn("EldritchInfluence", coords);
     }

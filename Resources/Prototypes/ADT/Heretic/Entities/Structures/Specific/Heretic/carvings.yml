@@ -16,7 +16,9 @@
   - type: Sprite
     drawdepth: HighFloorObjects # ADT: no FloorEffects, same Default-5 level
     sprite: ADT/Heretic/carvings.rsi
-    color: '#FFFFFF14'
+    color: '#FFFFFFB4'
+  - type: Visibility
+    layer: 1024
   - type: Fixtures
     fixtures:
       fix1:
@@ -99,7 +101,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    color: '#FFFFFF0a'
+    color: '#FFFFFFB4'
     state: alert_rune
   - type: WizardTrap
     sparks: false

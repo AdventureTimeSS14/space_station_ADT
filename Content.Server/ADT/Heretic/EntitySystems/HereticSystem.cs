@@ -36,6 +36,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.Heretic.Systems;
+using Robust.Server.GameStates;
+using Robust.Shared.Network;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Mind.Components;
@@ -61,6 +63,7 @@ public sealed partial class HereticSystem : SharedHereticSystem
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly PvsOverrideSystem _pvs = default!;
 
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly IPlayerManager _playerMan = default!;
@@ -72,7 +75,9 @@ public sealed partial class HereticSystem : SharedHereticSystem
     private const float PassivePointCooldown = 20f * 60f;
     private bool _ascensionRequiresObjectives;
 
-    private const int HereticVisFlags = (int) (VisibilityFlags.EldritchInfluence | VisibilityFlags.EldritchInfluenceSpent);
+    private const int HereticVisFlags = (int) (VisibilityFlags.EldritchInfluence | VisibilityFlags.EldritchInfluenceSpent | VisibilityFlags.HereticCarving);
+
+    private readonly Dictionary<EntityUid, List<(EntityUid Target, NetUserId User)>> _targetPvsOverrides = new();
 
     public static readonly ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
 
@@ -183,6 +188,51 @@ public sealed partial class HereticSystem : SharedHereticSystem
     private void OnRestart(RoundRestartCleanupEvent ev)
     {
         _timer = 0f;
+        _targetPvsOverrides.Clear();
+    }
+
+    private void UpdateTargetPvsOverrides(Entity<HereticComponent> ent)
+    {
+        if (_targetPvsOverrides.Remove(ent.Owner, out var oldOverrides))
+        {
+            foreach (var (target, user) in oldOverrides)
+            {
+                if (_playerMan.TryGetSessionById(user, out var oldSession))
+                    _pvs.RemoveSessionOverride(target, oldSession);
+            }
+        }
+
+        var newOverrides = new List<(EntityUid Target, NetUserId User)>();
+
+        if (TryComp(ent, out MindComponent? mindComp) &&
+            mindComp.UserId is { } userId &&
+            _playerMan.TryGetSessionById(userId, out var session))
+        {
+            foreach (var target in ent.Comp.SacrificeTargets)
+            {
+                if (!TryGetEntity(target.Entity, out var tent) ||
+                    !Exists(tent.Value) ||
+                    EntityManager.IsQueuedForDeletion(tent.Value))
+                    continue;
+
+                newOverrides.Add((tent.Value, userId));
+                _pvs.AddSessionOverride(tent.Value, session);
+            }
+        }
+
+        _targetPvsOverrides[ent.Owner] = newOverrides;
+    }
+
+    private void ClearTargetPvsOverrides(EntityUid mindId)
+    {
+        if (!_targetPvsOverrides.Remove(mindId, out var oldOverrides))
+            return;
+
+        foreach (var (target, user) in oldOverrides)
+        {
+            if (_playerMan.TryGetSessionById(user, out var session))
+                _pvs.RemoveSessionOverride(target, session);
+        }
     }
 
     public override void Update(float frameTime)
@@ -311,6 +361,8 @@ public sealed partial class HereticSystem : SharedHereticSystem
 
     private void OnShutdown(Entity<HereticComponent> ent, ref ComponentShutdown args)
     {
+        ClearTargetPvsOverrides(ent.Owner);
+
         if (!TryComp(ent, out MindComponent? mind) || mind.CurrentEntity is not { } body || TerminatingOrDeleted(body))
             return;
 
@@ -344,6 +396,8 @@ public sealed partial class HereticSystem : SharedHereticSystem
                              !EntityManager.IsQueuedForDeletion(tent.Value))
             .ToList();
         Dirty(ent); // update client
+
+        UpdateTargetPvsOverrides(ent);
     }
 
     private void OnRerollTargets(Entity<HereticComponent> ent, ref EventHereticRerollTargets args)
@@ -392,6 +446,8 @@ public sealed partial class HereticSystem : SharedHereticSystem
 
         ent.Comp.SacrificeTargets = pickedTargets.Select(GetData).OfType<SacrificeTargetData>().ToList();
         Dirty(ent); // update client
+
+        UpdateTargetPvsOverrides(ent);
 
         return;
 
