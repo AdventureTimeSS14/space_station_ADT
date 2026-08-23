@@ -43,11 +43,16 @@ public sealed class StoreBodyAppearanceOnMindSystem : EntitySystem
         CapAppearance(ent.Owner);
     }
 
-    public void CapAppearance(EntityUid body)
+    public void CapAppearance(EntityUid body, EntityUid? mind = null)
     {
-        if (!TryComp<MindContainerComponent>(body, out var mindContainer) ||
-            mindContainer.Mind is not { Valid: true } mind)
-            return;
+        if (mind == null)
+        {
+            if (!TryComp<MindContainerComponent>(body, out var mindContainer) ||
+                mindContainer.Mind is not { Valid: true } containedMind)
+                return;
+
+            mind = containedMind;
+        }
 
         if (!Exists(mind))
             return;
@@ -55,7 +60,7 @@ public sealed class StoreBodyAppearanceOnMindSystem : EntitySystem
         if (!_container.TryGetContainer(body, BodyComponent.ContainerID, out var organs))
             return;
 
-        ApplyFromOrgans(mind, body, organs.ContainedEntities);
+        ApplyFromOrgans(mind.Value, body, organs.ContainedEntities);
     }
 
     public void CapAppearanceFromProfile(EntityUid mind, HumanoidCharacterProfile profile)
