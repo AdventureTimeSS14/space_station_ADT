@@ -1,11 +1,14 @@
 using System.Linq;
 using Content.Shared.ADT.EntityEffects;
 using Content.Server.Polymorph.Systems;
+using Content.Shared.Body;
 using Content.Shared.EntityEffects;
+using Content.Shared.Ghost;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Polymorph;
 using Content.Server.Polymorph.Components;
+using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -17,6 +20,9 @@ public sealed partial class ScrambleNearbyEffectSystem : EntityEffectSystem<Tran
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly HumanoidProfileSystem _humanoid = default!;
+    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private readonly GrammarSystem _grammar = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<ScrambleNearbyEffect> args)
     {
@@ -36,7 +42,10 @@ public sealed partial class ScrambleNearbyEffectSystem : EntityEffectSystem<Tran
 
         foreach (var target in _lookup.GetEntitiesInRange(uid, effect.Radius))
         {
-            if (!TryComp<HumanoidProfileComponent>(target, out _))
+            if (!TryComp<HumanoidProfileComponent>(target, out var profile))
+                continue;
+
+            if (HasComp<GhostComponent>(target))
                 continue;
 
             var randomSpecies = _random.Pick(species);
@@ -57,7 +66,26 @@ public sealed partial class ScrambleNearbyEffectSystem : EntityEffectSystem<Tran
             {
                 if (TryComp<PolymorphedEntityComponent>(result.Value, out _))
                     RemCompDeferred<PolymorphedEntityComponent>(result.Value);
+
+                PreserveSexGender(result.Value, profile);
             }
         }
+    }
+
+    private void PreserveSexGender(EntityUid newEntity, HumanoidProfileComponent profile)
+    {
+        _humanoid.SetSex((newEntity, null), profile.Sex);
+        _humanoid.SetGender((newEntity, null), profile.Gender);
+
+        if (_visualBody.TryGatherMarkingsData(newEntity, null, out var organProfiles, out _, out _))
+        {
+            foreach (var category in organProfiles.Keys)
+                organProfiles[category] = organProfiles[category] with { Sex = profile.Sex };
+
+            _visualBody.ApplyProfiles(newEntity, organProfiles);
+        }
+
+        if (TryComp<GrammarComponent>(newEntity, out var grammar))
+            _grammar.SetGender((newEntity, grammar), profile.Gender);
     }
 }
