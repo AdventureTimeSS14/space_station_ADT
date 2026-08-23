@@ -100,7 +100,6 @@
     - ADTMedkitERTFilled
     - BoxFolderCentCom
     - RubberStampCentcom
-    - JetpackBlackFilled
     - BoxHandcuff
 
 #engie
@@ -361,7 +360,7 @@
     - CombatKnife
     - ADTMedkitERTFilled
     - HandheldCrewMonitor
-    - ADTHandDefibrillator
+    - DefibrillatorCompact
     - CrowbarGreen
 
 - type: startingGear
@@ -397,7 +396,7 @@
     - ADTMedkitERTFilled
     - JetpackBlackFilled
     - HandheldCrewMonitor
-    - ADTHandDefibrillator
+    - DefibrillatorCompact
     - CrowbarGreen
 
 - type: startingGear
@@ -432,7 +431,7 @@
     - CombatKnife
     - ADTMedkitERTFilled
     - HandheldCrewMonitor
-    - ADTHandDefibrillator
+    - DefibrillatorCompact
     - BoxHandcuff
     - CrowbarGreen
 
