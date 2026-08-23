@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.ADT.Silicons.Borgs.Components; // ADT tweak
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Player;
@@ -16,6 +17,11 @@ public abstract partial class SharedBorgSystem
     /// </summary>
     public bool CanActivate(Entity<BorgChassisComponent> chassis)
     {
+        // ADT-Tweak-Start
+        if (HasComp<ADTBorgShutdownComponent>(chassis))
+            return false;
+        // ADT-Tweak-End
+
         if (!_powerCell.HasDrawCharge(chassis.Owner))
             return false;
 

@@ -29,6 +29,7 @@ namespace Content.Server.Radio.EntitySystems;
 public sealed class RadioSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netMan = default!;
+    [Dependency] private readonly ADT.Deafness.ADTDeafnessSystem _deafness = default!;
     [Dependency] private readonly IReplayRecordingManager _replay = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
@@ -66,6 +67,11 @@ public sealed class RadioSystem : EntitySystem
     {
         if (TryComp(uid, out ActorComponent? actor))
         {
+            // ADT-Tweak start
+            if (_deafness.TryInterceptRadio(uid, actor.PlayerSession, args.Message, args.MessageSource))
+                return;
+            // ADT-Tweak end
+
             // ADT Languages start
             if (_language.CanUnderstand(uid, args.Language))
                 _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);

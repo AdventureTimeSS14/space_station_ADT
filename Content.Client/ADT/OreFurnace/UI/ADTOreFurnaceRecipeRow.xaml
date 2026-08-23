@@ -1,0 +1,38 @@
+<Control xmlns="https://spacestation14.io">
+    <PanelContainer>
+        <BoxContainer
+            Orientation="Horizontal"
+            HorizontalExpand="True"
+            Margin="4 3 4 3"
+            SeparationOverride="6">
+            <BoxContainer
+                Name="IconContainer"
+                MinSize="32 32"
+                VerticalAlignment="Center"/>
+            <BoxContainer
+                Orientation="Vertical"
+                HorizontalExpand="True"
+                VerticalAlignment="Center">
+                <Label Name="NameLabel"/>
+                <Label Name="CostLabel" StyleClasses="LabelSubText"/>
+            </BoxContainer>
+            <Label
+                Name="AvailableLabel"
+                MinWidth="120"
+                Align="Right"
+                VerticalAlignment="Center"/>
+            <LineEdit
+                Name="AmountEdit"
+                MinWidth="50"
+                VerticalAlignment="Center"/>
+            <Button
+                Name="SmeltButton"
+                Text="{Loc 'ore-furnace-menu-smelt'}"
+                VerticalAlignment="Center"/>
+            <Button
+                Name="SmeltMaxButton"
+                Text="{Loc 'ore-furnace-menu-smelt-max'}"
+                VerticalAlignment="Center"/>
+        </BoxContainer>
+    </PanelContainer>
+</Control>

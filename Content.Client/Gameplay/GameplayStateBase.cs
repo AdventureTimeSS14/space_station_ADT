@@ -242,9 +242,18 @@ namespace Content.Client.Gameplay
                 var transformSystem = _entitySystemManager.GetEntitySystem<SharedTransformSystem>();
                 var mapSystem = _entitySystemManager.GetEntitySystem<MapSystem>();
 
-                coordinates = _mapManager.TryFindGridAt(mousePosWorld, out var uid, out _) ?
-                    mapSystem.MapToGrid(uid, mousePosWorld) :
-                    transformSystem.ToCoordinates(mousePosWorld);
+                // ADT Tweak start
+                if (_mapManager.MapExists(mousePosWorld.MapId))
+                {
+                    coordinates = _mapManager.TryFindGridAt(mousePosWorld, out var uid, out _) ?
+                        mapSystem.MapToGrid(uid, mousePosWorld) :
+                        transformSystem.ToCoordinates(mousePosWorld);
+                }
+                else
+                {
+                    coordinates = EntityCoordinates.Invalid;
+                }
+                // ADT Tweak end
             }
             else
             {
