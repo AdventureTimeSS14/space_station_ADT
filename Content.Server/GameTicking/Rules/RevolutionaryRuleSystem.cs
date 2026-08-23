@@ -151,9 +151,11 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         {
             return;
         }
-
+        
+        // ADT-Tweak-start
         if (_heretic.TryGetHereticComponent(ev.Target, out _, out _))
             return;
+        // ADT-Tweak-end
 
         //ADT rerev start
         if (mind == null || !_player.TryGetSessionById(mind.UserId, out var session) || ev.User == null)
@@ -356,10 +358,10 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     //ADT-Tweak-Start
     public void MakeEntRev(EntityUid user, EntityUid target, HeadRevolutionaryComponent comp)
     {
-        // ADT: Еретик невосприимчив к конвертации в Революцию
+        // ADT-Tweak-start: Еретик невосприимчив к конвертации в Революцию
         if (_heretic.TryGetHereticComponent(target, out _, out _))
             return;
-
+        // ADT-Tweak-end
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return;
 
