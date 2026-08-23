@@ -7,6 +7,9 @@ using Content.Server.Mind;
 using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
+using Content.Server.StationRecords.Systems;
+using Content.Shared.Access.Systems;
+using Content.Shared.ADT.Ghost;
 using Content.Shared.ADT.Ghost.GhostTypes;
 using Content.Shared.ADT.CustomGhostSystem;
 using Content.Shared.ADT.Roles;
@@ -37,7 +40,10 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.Roles;
 using Content.Shared.SSDIndicator;
+using Content.Shared.StationRecords;
+using Content.Shared.StatusIcon;
 using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
 using Content.Shared.Warps;
@@ -81,6 +87,8 @@ namespace Content.Server.Ghost
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
         [Dependency] private readonly GhostSpriteStateSystem _ghostState = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
+        [Dependency] private readonly SharedIdCardSystem _idCard = default!; // ADT-TWEAK
+        [Dependency] private readonly StationRecordsSystem _records = default!; // ADT-TWEAK
         [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
         [Dependency] private readonly StoreBodyAppearanceOnMindSystem _bodyAppearance = default!;
 
@@ -388,37 +396,73 @@ namespace Content.Server.Ghost
                 if (TryComp<GhostComponent>(entity, out var ghostComp) && ghostComp.CanGhostInteract)
                     continue;
 
-                if (TryComp<RoleCacheComponent>(entity, out var roleCacheComponent))
+                var addedWarp = false;
+
+                TryComp<RoleCacheComponent>(entity, out var roleCacheComponent);
+
+                ProtoId<JobPrototype>? jobId = null;
+                DepartmentPrototype? cardDepartment = null;
+                string? cardJobName = null;
+
+                if (_idCard.TryFindIdCard(entity, out var idCard))
                 {
-                    var addedWarp = false;
+                    jobId = idCard.Comp.JobPrototype;
 
-                    if (_prototypeManager.TryIndex(roleCacheComponent.LastJobPrototype, out var jobPrototype) &&
-                        _jobs.TryGetLowestWeightDepartment(jobPrototype.ID, out var departmentPrototype))
+                    if (jobId is null
+                        && TryComp<StationRecordKeyStorageComponent>(idCard, out var keyStorage)
+                        && keyStorage.Key is { } key
+                        && _records.TryGetRecord<GeneralStationRecord>(key, out var record))
+                        jobId = record.JobPrototype;
+
+                    jobId ??= roleCacheComponent?.LastJobPrototype;
+
+                    foreach (var departmentId in idCard.Comp.JobDepartments)
                     {
-                        var departmentName = Loc.GetString($"department-{departmentPrototype.ID}");
-                        var jobName = Loc.GetString(jobPrototype.Name);
-                        var warp = SetupWarp(entity, mindContainer, departmentName, departmentPrototype.Color, jobName, departmentPrototype.Weight);
-                        warp.Group |= WarpGroup.Department;
-
-                        warps.Add(warp);
-                        addedWarp = true;
+                        if (_prototypeManager.TryIndex(departmentId, out var department) &&
+                            (cardDepartment == null || department.Weight > cardDepartment.Weight))
+                            cardDepartment = department;
                     }
 
-                    if (!addedWarp)
-                    {
-                        var warp = SetupWarp(entity, mindContainer, 
-                            MetaData(entity).EntityPrototype?.Name ?? "", 
-                            null, null);
-                        warp.Group |= WarpGroup.Other;
-
-                        warps.Add(warp);
-                    }
+                    if (_prototypeManager.TryIndex(idCard.Comp.JobIcon, out JobIconPrototype? jobIcon))
+                        cardJobName = jobIcon.LocalizedJobName;
                 }
-                else
+
+                if (jobId is { } job &&
+                    _prototypeManager.TryIndex(job, out var jobPrototype) &&
+                    _jobs.TryGetLowestWeightDepartment(jobPrototype.ID, out var departmentPrototype))
                 {
-                    var warp = SetupWarp(entity, mindContainer, 
-                        MetaData(entity).EntityPrototype?.Name ?? "", 
-                        null, null);
+                    var departmentName = Loc.GetString($"department-{departmentPrototype.ID}");
+                    var jobName = Loc.GetString(jobPrototype.Name);
+                    var warp = SetupWarp(entity, mindContainer, departmentName, departmentPrototype.Color, jobName, departmentPrototype.Weight);
+                    warp.Group |= WarpGroup.Department;
+
+                    warps.Add(warp);
+                    addedWarp = true;
+                }
+                else if (cardDepartment != null)
+                {
+                    var departmentName = Loc.GetString($"department-{cardDepartment.ID}");
+                    var warp = SetupWarp(entity, mindContainer, departmentName, cardDepartment.Color, cardJobName, cardDepartment.Weight);
+                    warp.Group |= WarpGroup.Department;
+
+                    warps.Add(warp);
+                    addedWarp = true;
+                }
+
+                if (mindContainer.Mind != null &&
+                    roleCacheComponent is { IsAntag: true } &&
+                    GetVisibleAntagName(entity, roleCacheComponent) is { } antagName)
+                {
+                    var warp = SetupWarp(entity, mindContainer, antagName, AntagonistButtonColor, null);
+                    warp.Group |= WarpGroup.Antag;
+
+                    warps.Add(warp);
+                    addedWarp = true;
+                }
+
+                if (!addedWarp)
+                {
+                    var warp = SetupWarp(entity, mindContainer, Loc.GetString("game-ticker-unknown-role"), null, null);
                     warp.Group |= WarpGroup.Other;
 
                     warps.Add(warp);
@@ -426,6 +470,17 @@ namespace Content.Server.Ghost
             }
 
             return warps;
+        }
+
+        private string? GetVisibleAntagName(EntityUid entity, RoleCacheComponent roleCache)
+        {
+            if (roleCache.VisibleAntagName is { } cached)
+                return cached;
+
+            if (TryComp<GhostVisibleAntagComponent>(entity, out var visible) && visible.Name is { } loc)
+                return Loc.GetString(loc);
+
+            return null;
         }
 
         private GhostWarp SetupWarp(EntityUid entity, MindContainerComponent mindContainer, string subGroup, Color? color, string? description, int departmentWeight = 0)
