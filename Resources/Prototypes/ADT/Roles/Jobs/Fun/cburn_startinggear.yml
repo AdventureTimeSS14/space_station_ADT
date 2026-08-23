@@ -1,7 +1,7 @@
 - type: startingGear
   id: ADTCBURNGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorBrown
+    jumpsuit: ADTClothingUniformCBURN
     back: ClothingBackpackDuffelCBURN
     mask: ClothingMaskGasERT
     eyes: ClothingEyesNightVisionAdvanced
@@ -11,32 +11,31 @@
     outerClothing: ClothingOuterHardsuitCBURN
     shoes: ADTClothingShoesBootsMagERT
     id: CBURNPDA
-    pocket2: WeaponLaserGun
-    belt: ClothingBeltMilitaryWebbing
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERTCBURN
+    belt: ADTShipBattleClothingBeltWarbelt
     suitstorage: JetpackBlackFilled
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
-    - CrowbarOrange
-    - Chainsaw
-    - ADTMedkitERTFilled
-    - MagazineShotgunIncendiary
-    - MagazineShotgunIncendiary
-    - MagazineShotgun
-    - GrenadeFlashBang
     - PillAmbuzolPlus
-    - SpaceCash500
-    - BoxShotgunIncendiary
-    - BoxLethalshot
-    - WeaponShotgunEnforcer
+    - ADTWeaponChainsword
+    - FoodSnackNutribrick
+    - FoodSnackNutribrick
+    - DrinkWaterBottleFull
+    - DrinkWaterBottleFull
+    - PinpointerNuclear
+    - SpaceCash1000
     - CombatKnife
+    - ADTMedkitERTFilled
+    - CrowbarGreen
 
 - type: startingGear
   id: ADTCmndCBURNGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorBrown
+    jumpsuit: ADTClothingUniformCBURN
     back: ClothingBackpackDuffelCBURN
     mask: ClothingMaskGasERT
     eyes: ClothingEyesNightVisionAdvanced
@@ -46,23 +45,25 @@
     outerClothing: ClothingOuterHardsuitCBURNLeader
     shoes: ADTClothingShoesBootsMagERT
     id: CBURNPDA
-    pocket1: WeaponPulsePistol
-    pocket2: DoubleEmergencyOxygenTankFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERTCBURNLeader
+    belt: ADTShipBattleClothingBeltWarbelt
     suitstorage: JetpackBlackFilled
-    belt: ADTClothingBeltMilitaryWebbingCBURNFilled
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
-    - BoxSurvivalEngineering
     - JawsOfLife
-    - Chainsaw
-    - ADTMedkitERTFilled
-    - GrenadeFlashBang
     - PillAmbuzolPlus
-    - RubberStampCentcom
+    - ADTWeaponChainsword
+    - FoodSnackNutribrick
+    - FoodSnackNutribrick
+    - DrinkWaterBottleFull
+    - DrinkWaterBottleFull
+    - PinpointerNuclear
     - SpaceCash1000
-    - ADTertRevolutionaryMechUplink
-    - WeaponShotgunBulldog
     - CombatKnife
+    - ADTMedkitERTFilled
+    - BoxFolderCentCom
+    - RubberStampCentco

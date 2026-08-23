@@ -136,19 +136,15 @@
   kind: source
   path: "/Textures/ADT/Shaders/night_vision_gen3_device.swsl"
   params:
-    Gain: 2.4
+    Gain: 2.5
     TotalLighting: 0.0
-    WhiteoutThreshold: 2.0
-    WhiteoutIntensity: 0.3
-    BloomRadius: 16.0
-    BloomStrength: 0.25
-    CenterClearRadius: 72.0
-    CenterClearSoftness: 40.0
-    NoiseAmplitude: 0.01
-    FlickerStrength: 0.02
+    WhiteoutThreshold: 1.5
+    WhiteoutIntensity: 0.8
+    BloomRadius: 5.5
+    BloomStrength: 0.6
+    NoiseAmplitude: 0.02
     GrainSize: 1.0
-    DefectIntensity: 0.1
-    ScanlineDark: 0.55
+    ScanlineDark: 0.72
 
 - type: shader
   id: XenoMetallic
