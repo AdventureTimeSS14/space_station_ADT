@@ -24,3 +24,4 @@ research-technology-adt-bluespace-parts = Блюспейс-машинные ча
 research-technology-adt-quantum-parts = Квантовые машинные части
 research-technology-adt-rped = РПЕД
 research-technology-adt-bluespace-rped = Блюспейс-РПЕД
+research-technology-adt-bluespace-rpd = Блюспейс-РРТ

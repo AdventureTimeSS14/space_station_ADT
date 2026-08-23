@@ -103,3 +103,57 @@
   - type: GunRequiresWield
   - type: Item
     size: Huge
+
+- type: entity
+  name: flamethrower
+  parent: BaseItem
+  id: ADTWeaponFlamethrowerCBURN
+  suffix: РХБЗЗ
+  description: GAAAAAAAAAAAAAAAANS
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Flamethrower/cburn_flamethrower.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -30
+  - type: Gun
+    minAngle: 22
+    maxAngle: 40
+    angleIncrease: 5
+    angleDecay: 5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    projectileSpeed: 12
+    fireRate: 0.5
+    soundGunshot:
+      collection: RMCFlamerShoot
+    soundEmpty:
+      path: /Audio/_RMC14/Weapons/Guns/Flamer/gun_flamethrower_empty.ogg
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Flamethrower/cburn_flamethrower.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ADTFlamethrowerCharge
+    capacity: 50
+    proto: ADTFlamethrowerCharge
+    cycleable: false # No synthesizing ammo for your syndicate masters.
+  - type: AmmoCounter
+

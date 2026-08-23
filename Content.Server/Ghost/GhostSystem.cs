@@ -646,7 +646,7 @@ namespace Content.Server.Ghost
         }
 
         // ADT Tweak Start
-        private void ApplyBodyAppearance(EntityUid ghost, EntityUid mind)
+        public void ApplyBodyAppearance(EntityUid ghost, EntityUid mind)
         {
             if (!TryComp<GhostBodyAppearanceComponent>(mind, out var bodyAppearance))
                 return;
@@ -669,17 +669,23 @@ namespace Content.Server.Ghost
             }
         }
 
-        private void GiveGhostClothes(EntityUid ghost, GhostComponent component)
+        public void GiveGhostClothes(EntityUid ghost, GhostComponent component)
         {
             if (component.AvailableClothing is not { Count: > 0 } clothing)
                 return;
 
-            var item = Spawn(_random.Pick(clothing));
-            RemComp<SuitSensorComponent>(item);
-            EnsureComp<UnremoveableComponent>(item);
+            foreach (var (slot, pool) in clothing)
+            {
+                if (pool.Count == 0)
+                    continue;
 
-            if (!_inventory.TryEquip(ghost, item, "jumpsuit", true, true))
-                QueueDel(item);
+                var item = Spawn(_random.Pick(pool));
+                RemComp<SuitSensorComponent>(item);
+                EnsureComp<UnremoveableComponent>(item);
+
+                if (!_inventory.TryEquip(ghost, item, slot, true, true))
+                    QueueDel(item);
+            }
         }
         // ADT Tweak End
 

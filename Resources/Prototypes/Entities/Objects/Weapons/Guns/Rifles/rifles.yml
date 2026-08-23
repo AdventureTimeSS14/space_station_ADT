@@ -156,6 +156,7 @@
   - type: AttachableHolder
     slots:
       rmc-aslot-underbarrel:
+        startingAttachable: ADTAttachmentM90GrenadeLauncher
         whitelist:
           tags:
           - ADTAttachmentM90GrenadeLauncher

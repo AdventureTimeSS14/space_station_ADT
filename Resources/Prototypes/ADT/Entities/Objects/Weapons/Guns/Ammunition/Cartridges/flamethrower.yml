@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseCartridgeLightRifle
+  id: ADTFlamethrowerCharge
+  name: flamethrower charge
+  description: Fire, fire, fire!
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletFlamethrower
+    deleteOnSpawn: true
+  - type: Tag
+    tags:
+      - ADTFlamethrowerCharge
+  - type: SpentAmmoVisuals
