@@ -32,6 +32,9 @@ public sealed partial class ADTShadowlingAbilitySystem
         if (args.Handled || ent.Comp.Hatched)
             return;
 
+        if (ent.Comp.HatchStages.Count == 0)
+            return;
+
         if (Transform(ent).GridUid == null)
         {
             _popup.PopupEntity(Loc.GetString("shadowling-hatch-need-floor"), ent, ent);
@@ -63,8 +66,14 @@ public sealed partial class ADTShadowlingAbilitySystem
 
     private void OnHatchDoAfter(Entity<ADTShadowlingComponent> ent, ref ADTShadowlingHatchDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled || ent.Comp.Hatched)
+        if (args.Handled || ent.Comp.Hatched)
             return;
+
+        if (args.Cancelled)
+        {
+            BreakChrysalis(ent);
+            return;
+        }
 
         args.Handled = true;
 

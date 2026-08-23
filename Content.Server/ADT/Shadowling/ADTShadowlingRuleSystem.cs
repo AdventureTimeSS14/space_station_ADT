@@ -41,7 +41,9 @@ public sealed class ADTShadowlingRuleSystem : GameRuleSystem<ADTShadowlingRuleCo
         base.Started(uid, comp, rule, args);
 
         var players = Math.Max(_player.PlayerCount, 1);
-        comp.RequiredThralls = Math.Clamp(players / comp.ThrallDivisor, comp.MinThralls, comp.MaxThralls);
+        var divisor = Math.Max(comp.ThrallDivisor, 1);
+        var max = Math.Max(comp.MinThralls, comp.MaxThralls);
+        comp.RequiredThralls = Math.Clamp(players / divisor, comp.MinThralls, max);
     }
 
     private void OnAntagSelected(Entity<ADTShadowlingRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)

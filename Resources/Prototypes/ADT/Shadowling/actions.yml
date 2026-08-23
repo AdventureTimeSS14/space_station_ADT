@@ -58,6 +58,7 @@
     closeStamina: 20
     farStun: 2
     farSlow: 10
+    slowModifier: 0.5
     farMute: 10
 
 - type: entity

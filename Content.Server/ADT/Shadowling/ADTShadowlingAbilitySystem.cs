@@ -24,6 +24,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Light;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Systems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Standing;
 using Content.Shared.Stealth;
@@ -44,6 +45,7 @@ public sealed partial class ADTShadowlingAbilitySystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;

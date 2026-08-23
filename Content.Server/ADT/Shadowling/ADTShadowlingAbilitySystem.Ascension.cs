@@ -37,6 +37,9 @@ public sealed partial class ADTShadowlingAbilitySystem
         if (!TryComp<ADTShadowlingAscendActionComponent>(args.Action, out var ascend))
             return;
 
+        if (ascend.Stages.Count == 0)
+            return;
+
         _popup.PopupEntity(Loc.GetString("shadowling-ascend-begin-self"), ent, ent, PopupType.LargeCaution);
         _popup.PopupEntity(Loc.GetString("shadowling-ascend-begin-others", ("user", ent.Owner)), ent, Filter.PvsExcept(ent.Owner), true, PopupType.LargeCaution);
 

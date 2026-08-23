@@ -7,7 +7,6 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Speech.Muting;
-using Content.Shared.Stunnable;
 using Content.Shared.Chemistry.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
@@ -68,7 +67,7 @@ public sealed partial class ADTShadowlingAbilitySystem
         }
 
         _stun.TryAddParalyzeDuration(target, glare.FarStun);
-        _status.TryAddStatusEffect<StunnedStatusEffectComponent>(target, glare.SlowEffect, glare.FarSlow, false);
+        _movementMod.TryUpdateMovementSpeedModDuration(target, glare.SlowEffect, glare.FarSlow, glare.SlowModifier);
         _status.TryAddStatusEffect<MutedComponent>(target, glare.MuteEffect, glare.FarMute, true);
         _popup.PopupEntity(Loc.GetString("shadowling-glare-far"), target, target, PopupType.LargeCaution);
         return true;

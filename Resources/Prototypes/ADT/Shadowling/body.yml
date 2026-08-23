@@ -85,7 +85,7 @@
     - ADTLesserShadowling
     - ADTShadowlingThrall
     - ADTAscendantShadowling
-  - type: PressureImmunity
+  - type: SpecialPressureImmunity
   - type: Insulated
     coefficient: 0
   - type: NpcFactionMember

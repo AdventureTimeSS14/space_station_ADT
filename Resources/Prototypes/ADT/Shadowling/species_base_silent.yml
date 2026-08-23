@@ -62,7 +62,6 @@
     allowed:
     - Stutter
     - Weakness
-    - PressureImmunity
     - Flashed
   - type: Identity
   - type: FloatingVisuals

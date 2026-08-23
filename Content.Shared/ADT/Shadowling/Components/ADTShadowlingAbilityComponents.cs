@@ -36,7 +36,10 @@ public sealed partial class ADTShadowlingGlareActionComponent : Component
     public ProtoId<StatusEffectPrototype> MuteEffect = "Muted";
 
     [DataField]
-    public ProtoId<StatusEffectPrototype> SlowEffect = "SlowedDown";
+    public EntProtoId SlowEffect = "ADTShadowlingGlareSlowdownStatusEffect";
+
+    [DataField]
+    public float SlowModifier = 0.5f;
 
     [DataField]
     public SoundSpecifier? Sound;
