@@ -50,6 +50,10 @@
   - type: LimitedCharges
     maxCharges: 130
     lastCharges: 130
+  - type: RPDMaterialCharges
+    chargeRates:
+      Steel: { charges: 1, sheets: 1 }
+      Plasteel: { charges: 2, sheets: 1 }
   - type: UseDelay
   - type: Sprite
     sprite: ADT/Objects/Tools/rpd.rsi
@@ -85,6 +89,27 @@
   components:
   - type: LimitedCharges
     lastCharges: 0
+
+- type: entity
+  id: ADTRPDBluespace
+  parent: ADTRPD
+  name: bluespace RPD
+  description: A bluespace-enhanced rapid pipe dispenser that can place pipes at a distance.
+  suffix: Bluespace
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/brpd.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Objects/Tools/brpd.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: RPD
+    range: 10
+    ignoreRangeCheck: true
+    instantPlacement: true
+    beamPrototype: AnomalyTechBeam
 
 - type: entity
   id: ADTRPDRecharging

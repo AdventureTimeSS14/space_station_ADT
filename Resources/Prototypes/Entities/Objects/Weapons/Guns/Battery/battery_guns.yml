@@ -168,6 +168,8 @@
   - type: BatteryAmmoProvider
     proto: ADTYellowLightLaser
     fireCost: 50
+  - type: Gun
+    fireRate: 3.5
   #ADT-Tweak-End
 
 - type: entity
@@ -229,6 +231,7 @@
   - type: Item
     storedOffset: 0,-4
   - type: Gun #ADT Tweak Start
+    fireRate: 2.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
       params:
@@ -334,7 +337,7 @@
   - type: GunExecutionBlacklist #ADT-Tweak
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 2
+    fireRate: 3.5 #ADT_Tweak 2 -> 3
     availableModes:
     - SemiAuto
   - type: BatteryAmmoProvider
@@ -409,14 +412,14 @@
   - type: AltFireMelee
   # ADT-Tweak end
   - type: Gun
-    fireRate: 1 # ADT-Tweak 2 -> 1
+    fireRate: 2
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: BatteryAmmoProvider
-    proto: ADTPulsePistol # ADT-Tweak Pulse -> ADTPulsePistol
+    proto: Pulse
     fireCost: 100 # ADT tweak 200 -> 100
   - type: Battery
     maxCharge: 1000 # ADT tweak 2000->1000
@@ -626,7 +629,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
   - type: Gun
-    fireRate: 2.0 #ADT_Tweak 1.5 to 2.0
+    fireRate: 3.0 #ADT_Tweak 1.5 to 3.0
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: BatteryAmmoProvider
@@ -986,6 +989,7 @@
   - type: AltFireMelee
   # ADT-Tweak end
   - type: Gun
+    fireRate: 3.5 # ADT tweak 2 -> 3.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
 # Start ADT Tweak
@@ -1054,6 +1058,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    fireRate: 3.5 # ADT tweak 2 -> 3.5
   - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
@@ -1368,6 +1373,6 @@
     minAngle: 0
     maxAngle: 0
   - type: Gun
-    fireRate: 2
+    fireRate: 3 #ADT-tweak 2 to 3
     minAngle: 1
     maxAngle: 2

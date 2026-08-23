@@ -352,3 +352,48 @@
     Bloodloss: 0.5
     Cellular: 0.5
     Caustic: 0.5
+
+- type: damageModifierSet
+  id: ADTShadowling
+  coefficients:
+    Blunt: 0.75
+    Slash: 0.75
+    Piercing: 0.75
+    Heat: 1.25
+    Cold: 0
+    Shock: 0
+    Radiation: 0
+    Asphyxiation: 0
+    Bloodloss: 0
+    Poison: 0.5
+
+- type: damageModifierSet
+  id: ADTLesserShadowling
+  coefficients:
+    Blunt: 0.75
+    Slash: 0.75
+    Piercing: 0.75
+    Heat: 1.1
+    Cold: 0
+    Shock: 0
+    Radiation: 0
+    Asphyxiation: 0
+    Bloodloss: 0
+    Poison: 0.5
+
+- type: damageModifierSet
+  id: ADTAscendantShadowling
+  coefficients:
+    Blunt: 0
+    Slash: 0
+    Piercing: 0
+    Heat: 0
+    Cold: 0
+    Shock: 0
+    Radiation: 0
+    Asphyxiation: 0
+    Bloodloss: 0
+    Poison: 0
+    Caustic: 0
+    Cellular: 0
+    Holy: 0

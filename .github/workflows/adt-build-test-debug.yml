@@ -1,0 +1,204 @@
+name: ADT Build & Test Debug Linux
+
+# Интеграционные тесты разбиты на шарды.
+
+on:
+  push:
+    branches: [ master, staging, stable ]
+  merge_group:
+  pull_request:
+    types: [ opened, reopened, synchronize, ready_for_review ]
+    branches: [ master, staging, stable ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    if: github.actor != 'IanComradeBot' && github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+    - name: Checkout Master
+      uses: actions/checkout@v4.2.2
+
+    - name: Setup Submodule
+      run: |
+        git submodule update --init --recursive
+
+    - name: Pull engine updates
+      uses: space-wizards/submodule-dependency@v0.1.5
+
+    - name: Update Engine Submodules
+      run: |
+        cd RobustToolbox/
+        git submodule update --init --recursive
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v4.1.0
+      with:
+        dotnet-version: 10.0.x
+
+    - name: Install dependencies
+      run: dotnet restore
+
+    - name: Build Project
+      run: dotnet build --configuration DebugOpt --no-restore /m
+
+    - name: Run Content.Tests
+      shell: bash
+      run: dotnet test --no-build --configuration DebugOpt Content.Tests/Content.Tests.csproj -- NUnit.ConsoleOut=0 NUnit.TestOutputXml="logs" NUnit.WorkDirectory="$(pwd)/test_results"
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: content-build
+        path: bin/
+        if-no-files-found: error
+        compression-level: 0
+
+  integration-test:
+    name: integration-test (${{ matrix.name }})
+    if: github.actor != 'IanComradeBot' && github.event.pull_request.draft == false
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Веса это процессорное время прогона на линуксе от 20.08.2026, всего 2156с. По ним разложены шарды.
+
+          # ~154с, ~14 GB RAM
+          - name: entity-dirty
+            where: "test =~ Tests.EntityTest.SpawnAndDirtyAllEntities"
+
+          # ~258с, ~15 GB RAM
+          - name: entity-rest
+            where: "test =~ Tests.EntityTest and test !~ SpawnAndDirtyAllEntities"
+
+          # ~348с
+          - name: maps-a
+            where: "test =~ Tests.PostMapInitTest.NonGameMapsLoadableTest or test =~ Tests.PostMapInitTest.ShuttlesLoadableTest or test =~ Tests.PostMapInitTest.GridsLoadableTest or test =~ Tests.Mapping"
+
+          # ~495с. Остаток PostMapInitTest
+          - name: maps-b
+            where: "test =~ Tests.PostMapInitTest and test !~ NonGameMapsLoadableTest and test !~ ShuttlesLoadableTest and test !~ GridsLoadableTest"
+
+          # ~412с
+          - name: slow
+            where: "test =~ Tests.Access or test =~ Tests.Actions or test =~ Tests.Preferences or test =~ Tests.PrototypeTests or test =~ Tests.PrototypeSaveTest or test =~ Tests.Utility"
+
+          # ~489с. Всё остальное, включая новые тесты
+          - name: core
+            where: "test =~ Content.IntegrationTests and test !~ Tests.EntityTest and test !~ Tests.PostMapInitTest and test !~ Tests.Mapping and test !~ Tests.Access and test !~ Tests.Actions and test !~ Tests.Preferences and test !~ Tests.PrototypeTests and test !~ Tests.PrototypeSaveTest and test !~ Tests.Utility"
+
+    steps:
+    - name: Checkout Master
+      uses: actions/checkout@v4.2.2
+
+    - name: Setup Submodule
+      run: |
+        git submodule update --init --recursive
+
+    - name: Pull engine updates
+      uses: space-wizards/submodule-dependency@v0.1.5
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v4.1.0
+      with:
+        dotnet-version: 10.0.x
+
+    - name: Increase swap space
+      run: |
+        echo "Before:"
+        free -h
+        df -h /mnt
+
+        sudo swapoff -a
+        sudo rm -f /mnt/swapfile
+        sudo fallocate -l 24G /mnt/swapfile
+        sudo chmod 600 /mnt/swapfile
+        sudo mkswap /mnt/swapfile
+        sudo swapon /mnt/swapfile
+
+        echo "After:"
+        free -h
+
+    - name: Install dependencies
+      run: dotnet restore
+
+    - name: Download build artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: content-build
+        path: bin
+
+    - name: Run Integration Tests (${{ matrix.name }})
+      shell: bash
+      env:
+        NUNIT_WHERE: ${{ matrix.where }}
+        SHARD_NAME: ${{ matrix.name }}
+      run: |
+        ( while true; do
+            awk '/^MemTotal:/{t=$2} /^MemAvailable:/{a=$2} /^SwapTotal:/{st=$2} /^SwapFree:/{sf=$2} END{printf "%d %d\n",(t-a)/1024,(st-sf)/1024}' /proc/meminfo
+            sleep 5
+          done > /tmp/mem-samples.txt ) &
+        sampler=$!
+
+        export DOTNET_gcServer=1
+
+        set +e
+        # NUnit.DiscoveryMethod=Legacy обязателен.
+        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed NUnit.Where="$NUNIT_WHERE" NUnit.DiscoveryMethod=Legacy NUnit.TestOutputXml="logs-$SHARD_NAME" NUnit.WorkDirectory="$(pwd)/test_results"
+        code=$?
+        set -e
+
+        kill $sampler 2>/dev/null || true
+        echo "::group::Peak memory during integration tests"
+        echo "Peak RAM used  (MB): $(sort -n -k1,1 /tmp/mem-samples.txt | tail -1 | cut -d' ' -f1)"
+        echo "Peak swap used (MB): $(sort -n -k2,2 /tmp/mem-samples.txt | tail -1 | cut -d' ' -f2)"
+        free -h
+        echo "::endgroup::"
+
+        exit $code
+
+    - name: Archive NUnit3 test results.
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: nunit3-results-${{ matrix.name }}
+        path: test_results/*
+        retention-days: 7
+        compression-level: 9
+
+  # На всякий случай, если фильтр наебнется вдруг.
+  shard-report:
+    name: Shard report
+    if: always() && needs.integration-test.result != 'skipped'
+    needs: integration-test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Master
+      uses: actions/checkout@v4.2.2
+      with:
+        sparse-checkout: Tools/ADT
+        submodules: false
+
+    - name: Download all shard results
+      uses: actions/download-artifact@v4
+      with:
+        pattern: nunit3-results-*
+        path: shard-results
+
+    - name: Check shard balance and overlap
+      run: python3 Tools/ADT/ci_shard_report.py shard-results
+
+  ci-success:
+    name: Build & Test Debug
+    needs:
+      - build
+      - integration-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: CI succeeded
+        run: exit 0
