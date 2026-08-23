@@ -47,12 +47,12 @@
     soundHit:
       collection: MetalThud
     bluntStaminaDamageFactor: 1.2
+    clickDamageModifier: 1.0
   - type: IncreaseDamageOnWield
     damage:
       types:
         Blunt: 25
         Structural: 85
-    clickDamageModifier: 1.0
   - type: Item
     size: Ginormous
     sprite: ADT/Objects/Weapons/Melee/tactical_hammer.rsi
