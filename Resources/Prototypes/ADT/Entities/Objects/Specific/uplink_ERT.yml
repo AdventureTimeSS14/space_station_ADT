@@ -22,7 +22,7 @@
   id: ADTBaseUplinkBOBERT
   name: Б.О.О.Б.Р.
   description: Блюспейс оружейная отряда быстрого реагирования.
-  suffix: 35 ЕТ, Базовый
+  suffix: 45 ЕТ, Базовый
   components:
   - type: Sprite
     sprite: ADT/Objects/Specific/bobert.rsi
@@ -39,7 +39,7 @@
     key: enum.StoreUiKey.Key
   - type: Store
     balance:
-      Productunit: 50
+      Productunit: 45
 
 #Аплинк ОБР против революции
 - type: entity
@@ -47,7 +47,7 @@
   id: ADTBaseUplinkBOBERTRiot
   name: Б.О.О.Б.Р.
   description: Блюспейс оружейная отряда быстрого реагирования.
-  suffix: 35 ЕТ, Против революции
+  suffix: 30 ЕТ, Против революции
   components:
   - type: Store
     name: store-preset-name-uplink
@@ -63,7 +63,7 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 35
+      Productunit: 30
 
 #Аплинк РХБЗЗ
 - type: entity
@@ -71,7 +71,7 @@
   id: ADTBaseUplinkBOBERTCBURN
   name: Б.О.О.Б.Р.
   description: Блюспейс оружейная отряда быстрого реагирования.
-  suffix: 40 ЕТ, РХБЗЗ
+  suffix: 35 ЕТ, РХБЗЗ
   components:
   - type: Store
     name: store-preset-name-uplink
@@ -88,7 +88,7 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 40
+      Productunit: 35
 
 #Аплинки инженера ОБР и Уборщика ОБР
 - type: entity
@@ -96,7 +96,7 @@
   id: ADTBaseUplinkBOBERTEngineer
   name: Б.О.О.Б.Р.
   description: Блюспейс оружейная отряда быстрого реагирования.
-  suffix: 55 ЕТ, Инженер ОБР
+  suffix: 50 ЕТ, Инженер ОБР
   components:
   - type: Store
     name: store-preset-name-uplink
@@ -113,14 +113,14 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 55
+      Productunit: 50
 
 - type: entity
   parent: ADTBaseUplinkBOBERT
   id: ADTBaseUplinkBOBERTEngineerRiot
   name: Б.О.О.Б.Р.
   description: Блюспейс оружейная отряда быстрого реагирования.
-  suffix: 40 ЕТ, Инженер ОБР против ревоюции
+  suffix: 35 ЕТ, Инженер ОБР против ревоюции
   components:
   - type: Store
     name: store-preset-name-uplink
@@ -137,14 +137,14 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 40
+      Productunit: 35
 
 - type: entity
   parent: ADTBaseUplinkBOBERT
   id: ADTBaseUplinkBOBERTJanitor
   name: Б.О.О.Б.Р.
   description: Блюспейс оружейная отряда быстрого реагирования.
-  suffix: 20 ЕТ, Уборщик ОБР
+  suffix: 15 ЕТ, Уборщик ОБР
   components:
   - type: Store
     name: store-preset-name-uplink
@@ -157,7 +157,7 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 20
+      Productunit: 15
 
 #Командирские аплинки
 - type: entity
@@ -165,7 +165,7 @@
   id: ADTBaseUplinkBOBERTRiotLeader
   name: Б.О.О.Б.Р.
   description: Блюспейс оружейная отряда быстрого реагирования.
-  suffix: 50 ЕТ, Командир, Против революции
+  suffix: 45 ЕТ, Командир, Против революции
   components:
   - type: Store
     name: store-preset-name-uplink
@@ -185,14 +185,14 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 50
+      Productunit: 45
 
 - type: entity
   parent: ADTBaseUplinkBOBERT
   id: ADTBaseUplinkBOBERTLeader
   name: Б.О.О.Б.Р.
   description: Блюспейс оружейная отряда быстрого реагирования.
-  suffix: 65 ЕТ, Командир, Базовый
+  suffix: 60 ЕТ, Командир, Базовый
   components:
   - type: Store
     name: store-preset-name-uplink
@@ -212,14 +212,14 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 65
+      Productunit: 60
 
 - type: entity
   parent: ADTBaseUplinkBOBERT
   id: ADTBaseUplinkBOBERTCBURNLeader
   name: Б.О.О.Б.Р.
   description: Блюспейс оружейная отряда быстрого реагирования.
-  suffix: 55 ЕТ, Командир, РХБЗЗ
+  suffix: 50 ЕТ, Командир, РХБЗЗ
   components:
   - type: Store
     name: store-preset-name-uplink
@@ -240,7 +240,7 @@
     currencyWhitelist:
     - Productunit
     balance:
-      Productunit: 65
+      Productunit: 45
 
 - type: entity
   name: product unit

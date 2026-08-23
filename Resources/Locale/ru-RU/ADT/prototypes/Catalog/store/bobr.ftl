@@ -51,7 +51,7 @@ boobr-flamethrower-name = Огнемёт
 boobr-flamethrower-desc = Лучший способ справиться с толпой того, что хорошо горит.
 
 
-boobr-mateba-name = "Матеба"
+boobr-mateba-name = Матеба
 boobr-mateba-desc = Чертовски стильный и шумный револьвер, использующий патроны .44 магнум.
 
 boobr-deagle-name = Дезерт Игл
@@ -65,7 +65,7 @@ advanced-laser-pistol-name = Продвинутый лазерный писто�
 advanced-laser-pistol-desc = Экспериментальный высокоэнергетический лазерный пистолет с самозаряжающейся ядерной батареей.
 
 pulse-pistol-name = Импульсный пистолет
-pulse-pistol-desc = Кейс с импульсным пистолетом - может пригодится.
+pulse-pistol-desc = Младший брат импульсного карабина - но столь же опасный.
 
 boobr-disabler-name = Набор станнеров
 boobr-disabler-desc = NanoTrasen не смогли выбрать, что лучше - станнер-пулемет или просто станнер. Потому они добавили в набор оба.
