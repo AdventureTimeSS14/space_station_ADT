@@ -268,7 +268,7 @@ public abstract class SharedStarMarkSystem : EntitySystem
         field.Comp.Strength = strength;
         Dirty(field);
 
-        if (strength < 10 || !TryComp(field, out VelocityModifierContactsComponent? modifier))
+        if (!TryComp(field, out VelocityModifierContactsComponent? modifier))
             return;
 
         modifier.IsActive = true;

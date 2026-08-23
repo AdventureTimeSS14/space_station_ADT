@@ -34,6 +34,8 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: TimedDespawn
+    lifetime: 300
   - type: EldritchInfluence
     spent: true
   - type: Sprite
