@@ -420,9 +420,11 @@ namespace Content.Server.Ghost
 
                 if (!addedWarp)
                 {
-                    var warp = SetupWarp(entity, mindContainer,
-                        MetaData(entity).EntityPrototype?.Name ?? "",
-                        null, null);
+                    var subGroup = mindContainer.Mind != null
+                        ? Loc.GetString("game-ticker-unknown-role")
+                        : MetaData(entity).EntityPrototype?.Name ?? "";
+
+                    var warp = SetupWarp(entity, mindContainer, subGroup, null, null);
                     warp.Group |= WarpGroup.Other;
 
                     warps.Add(warp);
