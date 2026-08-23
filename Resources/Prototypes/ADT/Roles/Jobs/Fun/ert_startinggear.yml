@@ -383,7 +383,6 @@
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
-    inhand: 
   storage:
     back:
     - ADTERTMedicalVoucher #ADT tweak: выбор скаф/МОД
