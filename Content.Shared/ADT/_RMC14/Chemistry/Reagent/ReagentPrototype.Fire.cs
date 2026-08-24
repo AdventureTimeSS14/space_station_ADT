@@ -55,4 +55,7 @@ public sealed partial class ReagentPrototype
 
     [DataField]
     public TimeSpan VacuumBurnout = TimeSpan.FromSeconds(1.5);
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool IsFlammableReagent => Intensity > 0 && Duration > 0;
 }

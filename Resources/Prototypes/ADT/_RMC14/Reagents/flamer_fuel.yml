@@ -1,7 +1,7 @@
 - type: reagent
   id: RMCNapalmUT
   name: reagent-name-rmcnapalm-ut
-  group: Special
+  group: Pyrotechnic
   desc: reagent-desc-rmcnapalm-ut
   physicalDesc: reagent-physical-desc-shiny
   flavor: bitter
