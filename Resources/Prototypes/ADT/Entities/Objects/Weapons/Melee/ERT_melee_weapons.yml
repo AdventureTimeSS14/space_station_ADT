@@ -47,6 +47,7 @@
     soundHit:
       collection: MetalThud
     bluntStaminaDamageFactor: 1.2
+    clickDamageModifier: 1.0
   - type: IncreaseDamageOnWield
     damage:
       types:
@@ -65,6 +66,8 @@
     quickEquip: false
     slots:
     - suitStorage
+  - type: UseDelay
+    delay: 1.5
 
 - type: entity
   name: CBURN Chainsword

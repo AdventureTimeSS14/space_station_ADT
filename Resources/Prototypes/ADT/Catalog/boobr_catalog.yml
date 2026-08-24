@@ -373,6 +373,9 @@
   name: boobr-flamethrower-name
   description: boobr-flamethrower-desc
   productEntity: ADTWeaponFlamethrowerCBURN
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
   cost:
     Productunit: 24
   categories:
@@ -617,8 +620,11 @@
   description: bober-tactical-hammer-desc
   icon: { sprite: ADT/Objects/Weapons/Melee/tactical_hammer.rsi, state: icon }
   productEntity: ADTWeaponsTacticalHammer
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
   cost:
-    Productunit: 6
+    Productunit: 8
   categories:
   - ADTUplinkERTWeaponMelee
 
@@ -1322,8 +1328,11 @@
   name: boobr-heavy-shield-name
   description:  boobr-heavy-shield-desc
   productEntity: ADTHeavyShieldERT
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
   cost:
-    Productunit: 5
+    Productunit: 8
   categories:
   - ADTUplinkERTMisc
 
@@ -1705,7 +1714,7 @@
     - !type:ListingLimitedStockCondition
       stock: 1
   cost:
-    Productunit: 12
+    Productunit: 18
   categories:
   - ADTUplinkERTImplanters
 
