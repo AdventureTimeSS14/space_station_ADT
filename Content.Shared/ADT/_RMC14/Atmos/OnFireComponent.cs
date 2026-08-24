@@ -16,4 +16,10 @@ public sealed partial class OnFireComponent : Component
 
     [DataField, AutoNetworkedField]
     public DamageSpecifier? TileDamage;
+
+    [DataField, AutoNetworkedField]
+    public bool BurnsInVacuum;
+
+    [DataField, AutoNetworkedField]
+    public float VacuumDecay = 5f;
 }

@@ -1,5 +1,4 @@
 // Ported from RMC-14 (https://github.com/RMC-14/RMC-14), MIT License
-
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -30,6 +29,18 @@ public sealed partial class TileFireComponent : Component
 
     [DataField, AutoNetworkedField]
     public TimeSpan BigFireDuration = TimeSpan.FromSeconds(0.5);
+
+    [DataField, AutoNetworkedField]
+    public bool BurnsInVacuum;
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan VacuumDuration = TimeSpan.FromSeconds(1.5);
+
+    [ViewVariables]
+    public TileFireVisuals Visual = TileFireVisuals.Four;
+
+    [ViewVariables]
+    public TimeSpan? ScheduledAt;
 }
 
 [Serializable, NetSerializable]

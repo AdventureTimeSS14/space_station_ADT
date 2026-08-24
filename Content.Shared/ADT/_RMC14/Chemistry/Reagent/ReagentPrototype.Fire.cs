@@ -49,4 +49,10 @@ public sealed partial class ReagentPrototype
 
     [DataField]
     public bool FireSpread;
+
+    [DataField]
+    public bool BurnsInVacuum;
+
+    [DataField]
+    public TimeSpan VacuumBurnout = TimeSpan.FromSeconds(1.5);
 }

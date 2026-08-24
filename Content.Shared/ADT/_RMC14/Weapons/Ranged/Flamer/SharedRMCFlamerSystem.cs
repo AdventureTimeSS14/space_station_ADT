@@ -314,8 +314,6 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
 
         var normalized = delta.Normalized();
 
-        fromMap = fromMap.Offset(normalized * 0.23f);
-
         if (!solution.Value.Comp.Solution.Contents.TryFirstOrNull(out var firstReagent))
             return false;
 
@@ -333,7 +331,16 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
         fromCoordinates = _transform.ToCoordinates(fromCoordinates.EntityId, fromMap);
         toCoordinates = _transform.ToCoordinates(fromCoordinates.EntityId, toMap);
 
+        fromCoordinates = _rmcMap.SnapToGrid(fromCoordinates);
+
         tiles = _line.DrawLine(fromCoordinates, toCoordinates, flamer.Comp.DelayPer, maxRange, out _, true, reagent.FireSpread);
+
+        if (tiles.Count > 0)
+            tiles.RemoveAt(0);
+
+        var origin = _transform.ToMapCoordinates(fromCoordinates).Position;
+        tiles.RemoveAll(tile => (_transform.ToMapCoordinates(tile.Coordinates).Position - origin).LengthSquared() < 0.25f);
+
         if (tiles.Count == 0)
         {
             tiles = null;
@@ -450,6 +457,8 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
                     var intensity = Math.Min(comp.MaxIntensity, reagent.Intensity);
                     var duration = Math.Min(comp.MaxDuration, reagent.Duration + (int) (comp.FuelPressure * reagent.DurationMod));
                     _rmcFlammable.SetIntensityDuration(fire, intensity, duration);
+
+                    _rmcFlammable.SetVacuumBehaviour(fire, reagent.BurnsInVacuum, reagent.VacuumBurnout);
                 }
 
                 break;

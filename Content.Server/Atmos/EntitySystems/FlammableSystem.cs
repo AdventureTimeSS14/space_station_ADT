@@ -468,13 +468,22 @@ namespace Content.Server.Atmos.EntitySystems
                     var rmcFire = CompOrNull<OnFireComponent>(uid); // ADT-Tweak
 
                     var air = _atmosphereSystem.GetContainingMixture(uid);
+                    var noOxygen = air == null || air.GetMoles(Gas.Oxygen) < 1f; // ADT-Tweak
 
                     // If we're in an oxygenless environment, put the fire out.
-                    if (rmcFire == null && (air == null || air.GetMoles(Gas.Oxygen) < 1f)) // ADT-Tweak
+                    if (rmcFire == null && noOxygen) // ADT-Tweak
                     {
                         Extinguish(uid, flammable);
                         continue;
                     }
+
+                    // ADT-Tweak-Start
+                    if (rmcFire != null && noOxygen && !rmcFire.BurnsInVacuum)
+                    {
+                        AdjustFireStacks(uid, -rmcFire.VacuumDecay, flammable, flammable.OnFire);
+                        continue;
+                    }
+                    // ADT-Tweak-End
 
                     var source = EnsureComp<IgnitionSourceComponent>(uid);
                     _ignitionSourceSystem.SetIgnited((uid, source));

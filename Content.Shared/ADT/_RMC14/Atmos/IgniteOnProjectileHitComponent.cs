@@ -15,4 +15,10 @@ public sealed partial class IgniteOnProjectileHitComponent : Component
 
     [DataField, AutoNetworkedField]
     public Color BurnColor = Color.FromHex("#EE6515");
+
+    [DataField, AutoNetworkedField]
+    public bool BurnsInVacuum;
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan VacuumBurnout = TimeSpan.FromSeconds(1.5);
 }

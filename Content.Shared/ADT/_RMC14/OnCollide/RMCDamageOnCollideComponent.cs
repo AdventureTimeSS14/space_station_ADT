@@ -2,17 +2,16 @@
 using Content.Shared.Damage;
 using Content.Shared.Physics;
 using Content.Shared.Whitelist;
-using Robust.Shared.GameStates;
 
 namespace Content.Shared._RMC14.OnCollide;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class RMCDamageOnCollideComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    [ViewVariables]
     public bool InitDamaged;
 
-    [DataField, AutoNetworkedField]
+    [ViewVariables]
     public EntityUid? Chain;
 
     [DataField(required: true)]
@@ -21,7 +20,7 @@ public sealed partial class RMCDamageOnCollideComponent : Component
     [DataField]
     public DamageSpecifier ChainDamage = new();
 
-    [DataField, AutoNetworkedField]
+    [ViewVariables]
     public HashSet<EntityUid> Damaged = new();
 
     [DataField]
@@ -51,6 +50,6 @@ public sealed partial class RMCDamageOnCollideComponent : Component
     [DataField]
     public bool CanRehit;
 
-    [DataField, AutoNetworkedField]
+    [ViewVariables]
     public bool Disabled;
 }

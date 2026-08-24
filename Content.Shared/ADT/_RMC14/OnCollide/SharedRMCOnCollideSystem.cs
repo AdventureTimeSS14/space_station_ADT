@@ -25,16 +25,22 @@ public sealed class SharedRMCOnCollideSystem : EntitySystem
     private EntityQuery<CollideChainComponent> _collideChainQuery;
     private EntityQuery<RMCDamageOnCollideComponent> _damageOnCollideQuery;
 
-    private readonly List<Entity<RMCDamageOnCollideComponent>> _damageOnCollide = new();
+    private readonly List<EntityUid> _pending = new();
 
     public override void Initialize()
     {
         _collideChainQuery = GetEntityQuery<CollideChainComponent>();
         _damageOnCollideQuery = GetEntityQuery<RMCDamageOnCollideComponent>();
 
+        SubscribeLocalEvent<RMCDamageOnCollideComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<RMCDamageOnCollideComponent, StartCollideEvent>(OnStartCollide);
         SubscribeLocalEvent<RMCDamageOnCollideComponent, EndCollideEvent>(OnEndCollide);
         SubscribeLocalEvent<RMCDamageOnCollideComponent, ComponentShutdown>(OnShutdown);
+    }
+
+    private void OnStartup(Entity<RMCDamageOnCollideComponent> ent, ref ComponentStartup args)
+    {
+        _pending.Add(ent.Owner);
     }
 
     private void OnStartCollide(Entity<RMCDamageOnCollideComponent> ent, ref StartCollideEvent args)
@@ -47,8 +53,7 @@ public sealed class SharedRMCOnCollideSystem : EntitySystem
         if (!ent.Comp.CanRehit)
             return;
 
-        if (ent.Comp.Damaged.Remove(args.OtherEntity))
-            Dirty(ent);
+        ent.Comp.Damaged.Remove(args.OtherEntity);
     }
 
     private void OnShutdown(Entity<RMCDamageOnCollideComponent> ent, ref ComponentShutdown args)
@@ -73,13 +78,15 @@ public sealed class SharedRMCOnCollideSystem : EntitySystem
         if (!ent.Comp.DamageDead && _mobState.IsDead(other))
             return;
 
+        if (Transform(other).Anchored)
+            return;
+
         var attempt = new RMCDamageCollideAttemptEvent(other, ent.Comp.Fire);
         RaiseLocalEvent(ent, ref attempt);
         if (attempt.Cancelled)
             return;
 
         ent.Comp.Damaged.Add(other);
-        Dirty(ent);
 
         if (ent.Comp.Chain == null || AddToChain(ent.Comp.Chain.Value, other))
             _damageable.TryChangeDamage(other, ent.Comp.Damage, ent.Comp.IgnoreResistances);
@@ -99,10 +106,7 @@ public sealed class SharedRMCOnCollideSystem : EntitySystem
             return true;
 
         if (chain.Comp.Hit.Add(add))
-        {
-            Dirty(chain);
             return true;
-        }
 
         return false;
     }
@@ -127,7 +131,6 @@ public sealed class SharedRMCOnCollideSystem : EntitySystem
         }
 
         ent.Comp.Chain = chain;
-        Dirty(ent);
     }
 
     public void CleanupChain(EntityUid? chain, EntityUid? skip = null)
@@ -160,39 +163,31 @@ public sealed class SharedRMCOnCollideSystem : EntitySystem
             return;
 
         ent.Comp.Disabled = true;
-        Dirty(ent);
     }
 
     public override void Update(float frameTime)
     {
-        if (_net.IsClient)
+        if (_net.IsClient || _pending.Count == 0)
             return;
-
-        _damageOnCollide.Clear();
 
         try
         {
-            var query = EntityQueryEnumerator<RMCDamageOnCollideComponent>();
-            while (query.MoveNext(out var uid, out var comp))
+            foreach (var uid in _pending)
             {
-                if (comp.InitDamaged)
+                if (!_damageOnCollideQuery.TryComp(uid, out var comp) || comp.InitDamaged)
                     continue;
 
                 comp.InitDamaged = true;
-                _damageOnCollide.Add((uid, comp));
-            }
 
-            foreach (var entity in _damageOnCollide)
-            {
-                foreach (var contact in _physics.GetEntitiesIntersectingBody(entity, (int) entity.Comp.Collision))
+                foreach (var contact in _physics.GetEntitiesIntersectingBody(uid, (int) comp.Collision))
                 {
-                    OnCollide(entity, contact);
+                    OnCollide((uid, comp), contact);
                 }
             }
         }
         finally
         {
-            _damageOnCollide.Clear();
+            _pending.Clear();
         }
     }
 }

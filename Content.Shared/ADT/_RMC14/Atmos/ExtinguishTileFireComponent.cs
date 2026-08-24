@@ -1,15 +1,12 @@
 // Ported from RMC-14 (https://github.com/RMC-14/RMC-14), MIT License
-
-using Robust.Shared.GameStates;
-
 namespace Content.Shared._RMC14.Atmos;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class SprayExtinguishTileFireComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    [ViewVariables]
     public bool Extinguished;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan ExtinguishAmount = TimeSpan.FromSeconds(6);
 }

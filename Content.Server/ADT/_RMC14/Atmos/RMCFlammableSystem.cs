@@ -3,6 +3,7 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
 using Robust.Shared.Player;
@@ -13,6 +14,13 @@ public sealed class RMCFlammableSystem : SharedRMCFlammableSystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
+    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+
+    protected override bool HasOxygen(EntityUid uid)
+    {
+        var air = _atmosphere.GetContainingMixture(uid);
+        return air != null && air.GetMoles(Gas.Oxygen) >= 1f;
+    }
 
     public override bool Ignite(Entity<FlammableComponent?> flammable, int intensity, int duration, int? maxStacks, DamageSpecifier? tileDamage = null)
     {

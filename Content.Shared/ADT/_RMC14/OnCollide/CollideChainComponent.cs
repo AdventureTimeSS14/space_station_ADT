@@ -1,12 +1,10 @@
 // Ported from RMC-14 (https://github.com/RMC-14/RMC-14), MIT License
 
-using Robust.Shared.GameStates;
-
 namespace Content.Shared._RMC14.OnCollide;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class CollideChainComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    [ViewVariables]
     public HashSet<EntityUid> Hit = new();
 }
