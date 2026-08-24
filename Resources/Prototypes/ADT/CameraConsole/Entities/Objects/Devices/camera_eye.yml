@@ -30,7 +30,6 @@
     - state: generic_camera
       shader: unshaded
       map: ["base"]
-  - type: CameraActiveOnCollideCollider
 
 - type: entity
   parent: ADTCameraEyeBase
