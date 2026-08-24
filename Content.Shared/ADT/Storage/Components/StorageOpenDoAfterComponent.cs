@@ -17,13 +17,6 @@ public sealed partial class StorageOpenDoAfterComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public TimeSpan Delay = TimeSpan.FromSeconds(1);
-
-    /// <summary>
-    /// Set right before re-toggling after the do-after completes, so the follow-up toggle is not
-    /// delayed again. Transient, reset within the same tick.
-    /// </summary>
-    [ViewVariables]
-    public bool BypassDoAfter;
 }
 
 [Serializable, NetSerializable]

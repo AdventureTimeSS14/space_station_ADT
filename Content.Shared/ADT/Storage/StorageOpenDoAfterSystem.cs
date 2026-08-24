@@ -49,12 +49,10 @@ public sealed class StorageOpenDoAfterSystem : EntitySystem
     /// </summary>
     private bool TryDelay(Entity<StorageOpenDoAfterComponent> ent, EntityUid user)
     {
-        // The follow-up toggle from a completed do-after is allowed straight through.
-        if (ent.Comp.BypassDoAfter)
-        {
-            ent.Comp.BypassDoAfter = false;
+        // A zero delay means no do-after: the follow-up toggle from a completed do-after zeroes the
+        // delay so it passes straight through, and a bag configured with Delay 0 just toggles instantly.
+        if (ent.Comp.Delay <= TimeSpan.Zero)
             return false;
-        }
 
         var doAfter = new DoAfterArgs(EntityManager, user, ent.Comp.Delay, new StorageOpenDoAfterEvent(), ent, target: ent)
         {
@@ -73,8 +71,11 @@ public sealed class StorageOpenDoAfterSystem : EntitySystem
 
         args.Handled = true;
 
-        ent.Comp.BypassDoAfter = true;
+        // ToggleOpen re-raises the open/close attempt; zero the delay so it isn't queued behind
+        // another do-after. Restored right after (no Dirty in between, so no networked state change).
+        var delay = ent.Comp.Delay;
+        ent.Comp.Delay = TimeSpan.Zero;
         _storage.ToggleOpen(args.User, ent);
-        ent.Comp.BypassDoAfter = false; // reset in case ToggleOpen short-circuited before the attempt event
+        ent.Comp.Delay = delay;
     }
 }
