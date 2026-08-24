@@ -2066,7 +2066,7 @@
 - type: entity
   parent: ADTSponsorClothingHeadBase
   id: ADTClothingHeadSponsorBlueKandzasi
-  name: red kandzasi
+  name: blue kandzasi
   description: A traditional Japanese hair ornament. It consists of a gold-plated brass frame and blue silk ribbons.
   suffix: Sponsor
   components:
