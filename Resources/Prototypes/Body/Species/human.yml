@@ -12,7 +12,7 @@
       limit: 2
       required: false
     enum.HumanoidVisualLayers.Chest:
-      limit: 2
+      limit: 4
       required: false
     enum.HumanoidVisualLayers.Snout:
       limit: 1
