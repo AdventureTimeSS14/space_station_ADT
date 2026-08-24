@@ -1,0 +1,56 @@
+- type: reagent
+  id: ADTShadowlingSmoke
+  name: reagent-name-adt-shadowling-smoke
+  group: Toxins
+  desc: reagent-desc-adt-shadowling-smoke
+  physicalDesc: reagent-physical-desc-adt-shadowling-smoke
+  flavor: bitter
+  color: "#000000"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.5
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectBlindness
+        type: Add
+        time: 10
+        conditions:
+        - !type:WhitelistCondition
+          blacklist: true
+          whitelist:
+            components:
+            - ADTShadowling
+            - ADTShadowlingThrall
+            - ADTLesserShadowling
+            - ADTAscendantShadowling
+      - !type:HealthChange
+        conditions:
+        - !type:WhitelistCondition
+          whitelist:
+            components:
+            - ADTShadowling
+            - ADTShadowlingThrall
+            - ADTLesserShadowling
+            - ADTAscendantShadowling
+        damage:
+          types:
+            Blunt: -4
+            Slash: -4
+            Piercing: -4
+            Asphyxiation: -4
+            Poison: -4
+
+- type: reagent
+  id: ADTFrostoil
+  name: reagent-name-adt-frostoil
+  group: Food
+  desc: reagent-desc-adt-frostoil
+  physicalDesc: reagent-physical-desc-adt-frostoil
+  flavor: cold
+  color: "#8BA6E9"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.75
+      effects:
+      - !type:AdjustTemperature
+        amount: -9000
