@@ -107,6 +107,10 @@ public sealed class NyaAccentSystem : EntitySystem
 
         // Trimming and uppering first char (Because it can be replaced with lower char)
         final_msg = final_msg.Trim();
+
+        if (string.IsNullOrEmpty(final_msg))
+            return final_msg;
+
         final_msg = char.ToUpper(final_msg[0]) + final_msg.Substring(1);
 
         return final_msg;

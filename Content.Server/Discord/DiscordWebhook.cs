@@ -1,3 +1,4 @@
+using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -14,7 +15,12 @@ public sealed class DiscordWebhook : IPostInjectInit
     [Dependency] private readonly ILogManager _log = default!;
 
     private const string BaseUrl = "https://discord.com/api/v10/webhooks";
-    private readonly HttpClient _http = new();
+
+    private readonly HttpClient _http = new()
+    {
+        Timeout = TimeSpan.FromSeconds(10)
+    };
+
     private ISawmill _sawmill = default!;
 
     private string GetUrl(WebhookIdentifier identifier)
