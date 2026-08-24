@@ -14594,3 +14594,12 @@ Entries:
     id: 1850
     pr_number: 3259
     time: '2026-08-24T00:26:53Z'
+  - author: White_Sneak
+    changes:
+      - {message: 'Звук печати для машин - Autolathe, AutolatheHyperConvection, Protolathe,
+          ProtolatheHyperConvection, ExosuitFabricator, Biofabricator, SecurityTechFab,
+          AmmoTechFab, MedicalTechFab, Biogenerator, OreProcessor, OreProcessorIndustrial,
+          Sheetifier.', type: Add}
+    id: 1851
+    pr_number: 3254
+    time: '2026-08-24T02:29:12Z'
