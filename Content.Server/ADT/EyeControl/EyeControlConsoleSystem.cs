@@ -150,6 +150,9 @@ public sealed class EyeControlConsoleSystem : EntitySystem
         pilot.Actions[ReturnAction] = _actions.AddAction(user, ReturnAction);
         foreach (var actionProto in ent.Comp.Actions)
         {
+            if (pilot.Actions.ContainsKey(actionProto))
+                continue;
+
             pilot.Actions[actionProto] = _actions.AddAction(user, actionProto);
         }
 
