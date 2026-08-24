@@ -120,18 +120,12 @@
         map: ["enum.GunVisualLayers.Mag"]
   - type: Wieldable
     unwieldOnUse: false
-  - type: GunWieldBonus
-    minAngle: -20
-    maxAngle: -30
+  - type: GunRequiresWield
   - type: Gun
-    minAngle: 22
-    maxAngle: 40
-    angleIncrease: 5
-    angleDecay: 5
-    selectedMode: FullAuto
+    cameraRecoilScalar: 0
+    selectedMode: SemiAuto
     availableModes:
-    - FullAuto
-    projectileSpeed: 12
+    - SemiAuto
     fireRate: 0.5
     soundGunshot:
       collection: RMCFlamerShoot
@@ -145,15 +139,20 @@
     slots:
     - Back
     - suitStorage
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - ADTFlamethrowerCharge
-    capacity: 50
-    proto: ADTFlamethrowerCharge
-    cycleable: false # No synthesizing ammo for your syndicate masters.
+  - type: RMCFlamerAmmoProvider
+  - type: RMCFlamerTank
+    maxIntensity: 40
+    maxDuration: 30
+    maxRange: 5
+  - type: RMCIgniter
+  - type: SolutionContainerManager
+    solutions:
+      rmc_flamer_tank:
+        maxVol: 100
+        reagents:
+        - ReagentId: RMCNapalmUT
+          Quantity: 100
+  - type: RefillableSolution
+    solution: rmc_flamer_tank
   - type: AmmoCounter
 
