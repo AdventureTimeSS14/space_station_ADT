@@ -2,6 +2,7 @@
 using System.Numerics;
 using Content.Client.Weapons.Ranged.Systems;
 using Content.Shared._RMC14.Weapons.Ranged.Flamer;
+using Content.Shared.CombatMode;
 using Content.Shared.Wieldable.Components;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -28,6 +29,7 @@ public sealed class RMCFlamerPreviewOverlay : Overlay
     private readonly SharedMapSystem _mapSystem;
     private readonly SharedTransformSystem _transform;
     private readonly SharedRMCFlamerSystem _flamer;
+    private readonly EntityQuery<CombatModeComponent> _combatQ;
     private readonly EntityQuery<RMCFlamerAmmoProviderComponent> _flamerQ;
     private readonly EntityQuery<WieldableComponent> _wieldableQ;
     private readonly EntityQuery<TransformComponent> _xformQ;
@@ -42,6 +44,7 @@ public sealed class RMCFlamerPreviewOverlay : Overlay
         _mapSystem = ents.System<SharedMapSystem>();
         _transform = ents.System<SharedTransformSystem>();
         _flamer = ents.System<SharedRMCFlamerSystem>();
+        _combatQ = ents.GetEntityQuery<CombatModeComponent>();
         _flamerQ = ents.GetEntityQuery<RMCFlamerAmmoProviderComponent>();
         _wieldableQ = ents.GetEntityQuery<WieldableComponent>();
         _xformQ = ents.GetEntityQuery<TransformComponent>();
@@ -51,6 +54,9 @@ public sealed class RMCFlamerPreviewOverlay : Overlay
     {
         var player = _player.LocalEntity;
         if (player == null)
+            return;
+
+        if (!_combatQ.TryComp(player.Value, out var combat) || !combat.IsInCombatMode)
             return;
 
         if (!_guns.TryGetGun(player.Value, out var gun))
