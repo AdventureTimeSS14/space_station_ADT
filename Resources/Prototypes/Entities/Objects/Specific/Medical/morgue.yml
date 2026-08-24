@@ -26,9 +26,10 @@
   - type: Tag
     tags:
     - BodyBag
-  # ADT-Tweak: задержка на открытие/закрытие
+  # ADT-Tweak start: задержка на открытие/закрытие
   - type: StorageOpenDoAfter
     delay: 0.5
+  # ADT-Tweak end
   - type: Clickable
   - type: InteractionOutline
   - type: MovedByPressure

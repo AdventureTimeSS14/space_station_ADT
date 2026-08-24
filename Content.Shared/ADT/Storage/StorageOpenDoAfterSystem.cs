@@ -30,7 +30,7 @@ public sealed class StorageOpenDoAfterSystem : EntitySystem
         if (args.Cancelled || args.Silent)
             return;
 
-        if (TryDelay(ent, args.User))
+        if (TryDelay(ent, args.User, open: true))
             args.Cancelled = true;
     }
 
@@ -40,21 +40,20 @@ public sealed class StorageOpenDoAfterSystem : EntitySystem
         if (args.Cancelled || args.User is not { } user)
             return;
 
-        if (TryDelay(ent, user))
+        if (TryDelay(ent, user, open: false))
             args.Cancelled = true;
     }
 
     /// <summary>
     /// Starts (or ignores a duplicate) do-after and returns true when the immediate toggle should be blocked.
     /// </summary>
-    private bool TryDelay(Entity<StorageOpenDoAfterComponent> ent, EntityUid user)
+    private bool TryDelay(Entity<StorageOpenDoAfterComponent> ent, EntityUid user, bool open)
     {
-        // A zero delay means no do-after: the follow-up toggle from a completed do-after zeroes the
-        // delay so it passes straight through, and a bag configured with Delay 0 just toggles instantly.
+        // A bag configured with Delay 0 just opens/closes instantly, no do-after.
         if (ent.Comp.Delay <= TimeSpan.Zero)
             return false;
 
-        var doAfter = new DoAfterArgs(EntityManager, user, ent.Comp.Delay, new StorageOpenDoAfterEvent(), ent, target: ent)
+        var doAfter = new DoAfterArgs(EntityManager, user, ent.Comp.Delay, new StorageOpenDoAfterEvent(open), ent, target: ent)
         {
             BreakOnMove = true,
         };
@@ -71,11 +70,18 @@ public sealed class StorageOpenDoAfterSystem : EntitySystem
 
         args.Handled = true;
 
-        // ToggleOpen re-raises the open/close attempt; zero the delay so it isn't queued behind
-        // another do-after. Restored right after (no Dirty in between, so no networked state change).
-        var delay = ent.Comp.Delay;
-        ent.Comp.Delay = TimeSpan.Zero;
-        _storage.ToggleOpen(args.User, ent);
-        ent.Comp.Delay = delay;
+        // Perform exactly the requested operation, not a toggle, so a state change during the wait can't
+        // invert the action. Both methods are idempotent and skip the attempt event (no re-entrant do-after).
+        if (args.Open)
+        {
+            // Re-check via a silent attempt so foldable/welded/space guards still apply; our own handler
+            // ignores silent attempts, so this doesn't start another do-after.
+            if (_storage.CanOpen(args.User, ent, silent: true))
+                _storage.OpenStorage(ent);
+        }
+        else
+        {
+            _storage.CloseStorage(ent);
+        }
     }
 }

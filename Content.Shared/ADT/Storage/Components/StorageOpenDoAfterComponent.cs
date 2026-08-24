@@ -20,4 +20,21 @@ public sealed partial class StorageOpenDoAfterComponent : Component
 }
 
 [Serializable, NetSerializable]
-public sealed partial class StorageOpenDoAfterEvent : SimpleDoAfterEvent { }
+public sealed partial class StorageOpenDoAfterEvent : SimpleDoAfterEvent
+{
+    /// <summary>
+    /// The operation that was requested: true to open, false to close. Applied on completion so a
+    /// state change during the do-after can't invert the original action.
+    /// </summary>
+    [DataField]
+    public bool Open;
+
+    public StorageOpenDoAfterEvent()
+    {
+    }
+
+    public StorageOpenDoAfterEvent(bool open)
+    {
+        Open = open;
+    }
+}
