@@ -8,16 +8,18 @@
   id: MobHellspawn
   description: An unstoppable force of carnage.
   components:
-  - type: GhostRole
-    allowMovement: true
-    makeSentient: true
-    name: ghost-role-information-hellspawn-name
-    description: ghost-role-information-hellspawn-description
-    rules: ghost-role-information-antagonist-rules
-    mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
-    raffle:
-      settings: default
+  # ADT-Tweak-Start
+  # - type: GhostRole
+  #   allowMovement: true
+  #   makeSentient: true
+  #   name: ghost-role-information-hellspawn-name
+  #   description: ghost-role-information-hellspawn-description
+  #   rules: ghost-role-information-antagonist-rules
+  #   mindRoles:
+  #   - MindRoleGhostRoleSoloAntagonist
+  #   raffle:
+  #     settings: default
+  # ADT-Tweak-End
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
