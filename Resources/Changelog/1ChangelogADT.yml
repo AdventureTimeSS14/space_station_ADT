@@ -14547,3 +14547,59 @@ Entries:
     id: 1847
     pr_number: 3250
     time: '2026-08-23T14:03:36Z'
+  - author: Inconnu
+    changes:
+      - {message: ОСЩ теперь может использовать тонфу и кунгфу одновременно., type: Tweak}
+      - {message: Одежда призрака больше не перекрывает хвосты и тд, type: Fix}
+      - {message: Прыжковые ботинки в модах больше нельзя абузить, type: Fix}
+      - {message: 'Парадоксальные клоны, дети клонерки, трансформации генокрада теперь
+          имеют корректный пол', type: Fix}
+      - {message: Лужа больше не останавливает развитие блоба(кроме умственного),
+        type: Fix}
+      - {message: Магмитовые сканеры больше не ломаются при перемещении в инвентаре,
+        type: Fix}
+      - {message: Магмитовые вещи больше не прилипают к телу, type: Fix}
+      - {message: Активация двух разных способностей-оружия генокрада больше не ломается.,
+        type: Fix}
+    id: 1848
+    pr_number: 3255
+    time: '2026-08-23T16:14:15Z'
+  - author: CrimeMoot
+    changes:
+      - {message: 'Реакции экстрактор рассчитанные по зоне, больше не действуют на
+          призраков', type: Fix}
+      - {message: Смена расы экстрактами больше не сбрасывает пол и гендер персонажа,
+        type: Fix}
+      - {message: 'Тенеморфы исключены из случайных рас, выдаваемых экстрактами',
+        type: Tweak}
+    id: 1849
+    pr_number: 3258
+    time: '2026-08-23T19:18:10Z'
+  - author: Пётр
+    changes:
+      - {message: Увеличение цены тяжелого щита ОБР и ограничение лимита покупки до
+          одного на аплинк, type: Tweak}
+      - {message: Увеличение цены кувалды и ограничение лимита покупки до одного на
+          аплинк, type: Tweak}
+      - {message: Добавлена задержка при взятии кувалды в две руки, type: Tweak}
+      - {message: Урон кувалды через точечную атаку (ЛКМ) теперь равен таковой при
+          атаке через ПКМ, type: Tweak}
+      - {message: Увеличение цены тяжелого щита ОБР и ограничение лимита покупки до
+          одного, type: Tweak}
+      - {message: Увеличение цены Сандевистана в аплинке ОБР, type: Tweak}
+      - {message: В аплинке командира РХБЗЗ уменьшено число валюты до 45, type: Tweak}
+      - {message: Во всех остальных аплинках уменьшено число валюты на -5, type: Tweak}
+      - {message: Исправлена дырка в шаттле ОБР против революции, type: Fix}
+      - {message: Мелкие правки локализации аплинков ОБР, type: Fix}
+    id: 1850
+    pr_number: 3259
+    time: '2026-08-24T00:26:53Z'
+  - author: White_Sneak
+    changes:
+      - {message: 'Звук печати для машин - Autolathe, AutolatheHyperConvection, Protolathe,
+          ProtolatheHyperConvection, ExosuitFabricator, Biofabricator, SecurityTechFab,
+          AmmoTechFab, MedicalTechFab, Biogenerator, OreProcessor, OreProcessorIndustrial,
+          Sheetifier.', type: Add}
+    id: 1851
+    pr_number: 3254
+    time: '2026-08-24T02:29:12Z'
