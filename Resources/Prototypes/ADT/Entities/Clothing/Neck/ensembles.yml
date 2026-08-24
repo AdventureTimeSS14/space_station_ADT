@@ -27,17 +27,17 @@
     showLabel: true
     states:
       both: !type:ItemSwitchState
-        verb: both
+        verb: item-switch-verb-both
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/cap.rsi
           state: icon
       mantle: !type:ItemSwitchState
-        verb: mantle
+        verb: item-switch-verb-mantle
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/cap.rsi
           state: mantle-icon
       cloak: !type:ItemSwitchState
-        verb: cloak
+        verb: item-switch-verb-cloak
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/cap.rsi
           state: cloak-icon
@@ -71,17 +71,17 @@
     showLabel: true
     states:
       both: !type:ItemSwitchState
-        verb: both
+        verb: item-switch-verb-both
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/ChiefEngineer/whitece.rsi
           state: icon
       mantle: !type:ItemSwitchState
-        verb: mantle
+        verb: item-switch-verb-mantle
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/ChiefEngineer/whitece.rsi
           state: mantle-icon
       cloak: !type:ItemSwitchState
-        verb: cloak
+        verb: item-switch-verb-cloak
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/ChiefEngineer/whitece.rsi
           state: cloak-icon
@@ -115,17 +115,17 @@
     showLabel: true
     states:
       both: !type:ItemSwitchState
-        verb: both
+        verb: item-switch-verb-both
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/ChiefEngineer/greence.rsi
           state: icon
       mantle: !type:ItemSwitchState
-        verb: mantle
+        verb: item-switch-verb-mantle
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/ChiefEngineer/greence.rsi
           state: mantle-icon
       cloak: !type:ItemSwitchState
-        verb: cloak
+        verb: item-switch-verb-cloak
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/ChiefEngineer/greence.rsi
           state: cloak-icon
@@ -159,40 +159,60 @@
     showLabel: true
     states:
       all: !type:ItemSwitchState
-        verb: all
+        verb: item-switch-verb-all
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/cmo.rsi
           state: icon
+        components:
+        - !type:PointLight
+          color: "#4C93E3"
+          radius: 1.8
+          energy: 2
       mantle: !type:ItemSwitchState
-        verb: mantle
+        verb: item-switch-verb-mantle
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/cmo.rsi
           state: mantle-icon
       cloak: !type:ItemSwitchState
-        verb: cloak
+        verb: item-switch-verb-cloak
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/cmo.rsi
           state: cloak-icon
       wings: !type:ItemSwitchState
-        verb: wings
+        verb: item-switch-verb-wings
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/cmo.rsi
           state: wings-icon
+        components:
+        - !type:PointLight
+          color: "#4C93E3"
+          radius: 1.8
+          energy: 2
       cloakmantle: !type:ItemSwitchState
-        verb: cloak&mantle
+        verb: item-switch-verb-cloakmantle
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/cmo.rsi
           state: cloakmantle-icon
       cloakwings: !type:ItemSwitchState
-        verb: cloak&wings
+        verb: item-switch-verb-cloakwings
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/cmo.rsi
           state: cloakwings-icon
+        components:
+        - !type:PointLight
+          color: "#4C93E3"
+          radius: 1.8
+          energy: 2
       mantlewings: !type:ItemSwitchState
-        verb: mantle&wings
+        verb: item-switch-verb-mantlewings
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/cmo.rsi
           state: mantlewings-icon
+        components:
+        - !type:PointLight
+          color: "#4C93E3"
+          radius: 1.8
+          energy: 2
 
 - type: entity
   parent: ClothingNeckBase
@@ -223,17 +243,17 @@
     showLabel: true
     states:
       both: !type:ItemSwitchState
-        verb: both
+        verb: item-switch-verb-both
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/hos.rsi
           state: icon
       mantle: !type:ItemSwitchState
-        verb: mantle
+        verb: item-switch-verb-mantle
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/hos.rsi
           state: mantle-icon
       cloak: !type:ItemSwitchState
-        verb: cloak
+        verb: item-switch-verb-cloak
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/hos.rsi
           state: cloak-icon
@@ -267,37 +287,37 @@
     showLabel: true
     states:
       all: !type:ItemSwitchState
-        verb: all
+        verb: item-switch-verb-all
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/rd.rsi
           state: icon
       mantle: !type:ItemSwitchState
-        verb: mantle
+        verb: item-switch-verb-mantle
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/rd.rsi
           state: mantle-icon
       wings: !type:ItemSwitchState
-        verb: wings
+        verb: item-switch-verb-wings
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/rd.rsi
           state: wings-icon
       mantlewings: !type:ItemSwitchState
-        verb: mantle&wings
+        verb: item-switch-verb-mantlewings
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/rd.rsi
           state: mantlewings-icon
       cloak: !type:ItemSwitchState
-        verb: cloak
+        verb: item-switch-verb-cloak
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/rd.rsi
           state: cloak-icon
       cloakmantle: !type:ItemSwitchState
-        verb: cloak&mantle
+        verb: item-switch-verb-cloakmantle
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/rd.rsi
           state: cloakmantle-icon
       cloakwings: !type:ItemSwitchState
-        verb: cloak&wings
+        verb: item-switch-verb-cloakwings
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/rd.rsi
           state: cloakwings-icon
@@ -331,17 +351,17 @@
     showLabel: true
     states:
       both: !type:ItemSwitchState
-        verb: both
+        verb: item-switch-verb-both
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/qm.rsi
           state: icon
       mantle: !type:ItemSwitchState
-        verb: mantle
+        verb: item-switch-verb-mantle
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/qm.rsi
           state: mantle-icon
       cloak: !type:ItemSwitchState
-        verb: cloak
+        verb: item-switch-verb-cloak
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/qm.rsi
           state: cloak-icon
@@ -375,17 +395,17 @@
     showLabel: true
     states:
       both: !type:ItemSwitchState
-        verb: both
+        verb: item-switch-verb-both
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/hop.rsi
           state: icon
       mantle: !type:ItemSwitchState
-        verb: mantle
+        verb: item-switch-verb-mantle
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/hop.rsi
           state: mantle-icon
       cloak: !type:ItemSwitchState
-        verb: cloak
+        verb: item-switch-verb-cloak
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/hop.rsi
           state: cloak-icon
@@ -417,27 +437,27 @@
     showLabel: true
     states:
       cloakblackmantle: !type:ItemSwitchState
-        verb: cloakblack&mantle
+        verb: item-switch-verb-cloakblackmantle
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/bso.rsi
           state: icon
       cloakwhitemantle: !type:ItemSwitchState
-        verb: cloakwhite&mantle
+        verb: item-switch-verb-cloakwhitemantle
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/bso.rsi
           state: cloakwhitemantle-icon
       cloakwhite: !type:ItemSwitchState
-        verb: cloakwhite
+        verb: item-switch-verb-cloakwhite
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/bso.rsi
           state: cloakwhite-icon
       cloakblack: !type:ItemSwitchState
-        verb: cloakblack
+        verb: item-switch-verb-cloakblack
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/bso.rsi
           state: cloakblack-icon
       mantle: !type:ItemSwitchState
-        verb: mantle
+        verb: item-switch-verb-mantle
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/bso.rsi
           state: mantle-icon
@@ -469,17 +489,17 @@
     showLabel: true
     states:
       both: !type:ItemSwitchState
-        verb: both
+        verb: item-switch-verb-both
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/ntr.rsi
           state: icon
       mantle: !type:ItemSwitchState
-        verb: mantle
+        verb: item-switch-verb-mantle
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/ntr.rsi
           state: mantle-icon
       cloak: !type:ItemSwitchState
-        verb: cloak
+        verb: item-switch-verb-cloak
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/ntr.rsi
           state: cloak-icon
@@ -510,27 +530,27 @@
     showLabel: true
     states:
       all: !type:ItemSwitchState
-        verb: all
+        verb: item-switch-verb-all
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/trans.rsi
           state: icon
       cloak: !type:ItemSwitchState
-        verb: cloak
+        verb: item-switch-verb-cloak
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/trans.rsi
           state: cloak-icon
       cloakJewelry: !type:ItemSwitchState
-        verb: cloak&jewelry
+        verb: item-switch-verb-cloakjewelry
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/trans.rsi
           state: cloak-icon
       cloakSash: !type:ItemSwitchState
-        verb: cloak&sash
+        verb: item-switch-verb-cloaksash
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/trans.rsi
           state: cloakSash-icon
       cloakSashL: !type:ItemSwitchState
-        verb: altcloak&mantle
+        verb: item-switch-verb-altcloakmantle
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/trans.rsi
           state: cloakSashL-icon
@@ -562,27 +582,27 @@
     showLabel: true
     states:
       both: !type:ItemSwitchState
-        verb: both
+        verb: item-switch-verb-both
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/salvager.rsi
           state: icon
       cloak: !type:ItemSwitchState
-        verb: cloak
+        verb: item-switch-verb-cloak
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/salvager.rsi
           state: cloak-icon
       mantle: !type:ItemSwitchState
-        verb: mantle
+        verb: item-switch-verb-mantle
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/salvager.rsi
           state: mantle-icon
       altcloak: !type:ItemSwitchState
-        verb: altcloak
+        verb: item-switch-verb-altcloak
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/salvager.rsi
           state: altcloak-icon
       altcloakmantle: !type:ItemSwitchState
-        verb: altcloak&mantle
+        verb: item-switch-verb-altcloakmantle
         sprite:
           sprite: ADT/Clothing/Neck/Ensembles/salvager.rsi
           state: altcloakmantle-icon

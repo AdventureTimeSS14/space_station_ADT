@@ -472,6 +472,7 @@
   minLimit: 0
   loadouts:
   - LawyerNeck
+  - ADTClothingNeckEnsembleNanotrasenRepresentative # ADT Loadout
 
 #- type: loadoutGroup
 #  id: LawyerJobTrinkets

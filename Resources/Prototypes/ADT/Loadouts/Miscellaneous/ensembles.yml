@@ -1,51 +1,180 @@
 # Ensembles - комбинированные плащи/мантии с переключением состояний
+# Все плащи требуют 100 часов наигранного времени на соответствующей должности
+
+- type: loadoutEffectGroup
+  id: ADTEnsembleCaptain100hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000 # 100 часов
+
+- type: loadoutEffectGroup
+  id: ADTEnsembleChiefEngineer100hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChiefEngineer
+      time: 360000 # 100 часов
+
+- type: loadoutEffectGroup
+  id: ADTEnsembleChiefMedicalOfficer100hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChiefMedicalOfficer
+      time: 360000 # 100 часов
+
+- type: loadoutEffectGroup
+  id: ADTEnsembleHeadOfSecurity100hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfSecurity
+      time: 360000 # 100 часов
+
+- type: loadoutEffectGroup
+  id: ADTEnsembleResearchDirector100hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobResearchDirector
+      time: 360000 # 100 часов
+
+- type: loadoutEffectGroup
+  id: ADTEnsembleQuarterMaster100hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobQuartermaster
+      time: 360000 # 100 часов
+
+- type: loadoutEffectGroup
+  id: ADTEnsembleHeadOfPersonnel100hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfPersonnel
+      time: 360000 # 100 часов
+
+- type: loadoutEffectGroup
+  id: ADTEnsembleBlueshield100hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobADTBlueShieldOfficer
+      time: 360000 # 100 часов
+
+- type: loadoutEffectGroup
+  id: ADTEnsembleSalvager100hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSalvageSpecialist
+      time: 360000 # 100 часов
+
+- type: loadoutEffectGroup
+  id: ADTEnsembleNanotrasenRepresentative100hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobLawyer
+      time: 360000 # 100 часов
 
 - type: loadout
   id: ADTClothingNeckEnsembleCaptain
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTEnsembleCaptain100hour
   equipment:
     neck: ClothingNeckEnsembleCaptain
 
 - type: loadout
   id: ADTClothingNeckEnsembleChiefEngineerWhite
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTEnsembleChiefEngineer100hour
   equipment:
     neck: ClothingNeckEnsembleChiefEngineerWhite
 
 - type: loadout
   id: ADTClothingNeckEnsembleChiefEngineerGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTEnsembleChiefEngineer100hour
   equipment:
     neck: ClothingNeckEnsembleChiefEngineerGreen
 
 - type: loadout
   id: ADTClothingNeckEnsembleChiefMedicalOfficer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTEnsembleChiefMedicalOfficer100hour
   equipment:
     neck: ClothingNeckEnsembleChiefMedicalOfficer
 
 - type: loadout
   id: ADTClothingNeckEnsembleHeadOfSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTEnsembleHeadOfSecurity100hour
   equipment:
     neck: ClothingNeckEnsembleHeadOfSecurity
 
 - type: loadout
   id: ADTClothingNeckEnsembleResearchDirector
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTEnsembleResearchDirector100hour
   equipment:
     neck: ClothingNeckEnsembleResearchDirector
 
 - type: loadout
   id: ADTClothingNeckEnsembleQuarterMaster
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTEnsembleQuarterMaster100hour
   equipment:
     neck: ClothingNeckEnsembleQuarterMaster
 
 - type: loadout
   id: ADTClothingNeckEnsembleHeadOfPersonnel
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTEnsembleHeadOfPersonnel100hour
   equipment:
     neck: ClothingNeckEnsembleHeadOfPersonnel
 
 - type: loadout
   id: ADTClothingNeckEnsembleBlueshield
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTEnsembleBlueshield100hour
   equipment:
     neck: ClothingNeckEnsembleBlueshield
 
 - type: loadout
   id: ADTClothingNeckEnsembleSalvager
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTEnsembleSalvager100hour
   equipment:
     neck: ClothingNeckEnsembleSalvager
+
+- type: loadout
+  id: ADTClothingNeckEnsembleNanotrasenRepresentative
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTEnsembleNanotrasenRepresentative100hour
+  equipment:
+    neck: ClothingNeckEnsembleNanotrasenRepresentative

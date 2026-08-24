@@ -22,4 +22,7 @@ ent-ADTFloraPalmTree02 = { ent-ADTFloraPalmTree01 }
 ent-ADTFloraPalmTree03 = { ent-ADTFloraPalmTree01 }
     .desc = { ent-ADTFloraPalmTree01.desc }
 
+ent-ADTFloraTreeForgotten = забытое дерево
+    .desc = Там кто-то есть за деревом.
+
 

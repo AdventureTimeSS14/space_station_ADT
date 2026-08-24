@@ -1,2 +1,19 @@
 itemswitch-component-on-examine-detailed-message = Текущий режим: {$state}
 item-switch-failed-no-power = Недостаточно энергии!
+
+item-switch-verb-both = оба
+item-switch-verb-cloak = плащ
+item-switch-verb-mantle = мантия
+item-switch-verb-all = всё
+item-switch-verb-wings = крылья
+item-switch-verb-cloakmantle = плащ и мантия
+item-switch-verb-cloakwings = плащ и крылья
+item-switch-verb-mantlewings = мантия и крылья
+item-switch-verb-cloakblackmantle = чёрный плащ и мантия
+item-switch-verb-cloakwhitemantle = белый плащ и мантия
+item-switch-verb-cloakwhite = белый плащ
+item-switch-verb-cloakblack = чёрный плащ
+item-switch-verb-altcloak = альт. плащ
+item-switch-verb-altcloakmantle = альт. плащ и мантия
+item-switch-verb-cloakjewelry = плащ и украшение
+item-switch-verb-cloaksash = плащ и кушак

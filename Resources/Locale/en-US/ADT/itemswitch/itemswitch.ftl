@@ -1,2 +1,19 @@
 itemswitch-component-on-examine-detailed-message = Current mode: {$state}
 item-switch-failed-no-power = Not enough power!
+
+item-switch-verb-both = both
+item-switch-verb-cloak = cloak
+item-switch-verb-mantle = mantle
+item-switch-verb-all = all
+item-switch-verb-wings = wings
+item-switch-verb-cloakmantle = cloak and mantle
+item-switch-verb-cloakwings = cloak and wings
+item-switch-verb-mantlewings = mantle and wings
+item-switch-verb-cloakblackmantle = black cloak and mantle
+item-switch-verb-cloakwhitemantle = white cloak and mantle
+item-switch-verb-cloakwhite = white cloak
+item-switch-verb-cloakblack = black cloak
+item-switch-verb-altcloak = alt. cloak
+item-switch-verb-altcloakmantle = alt. cloak and mantle
+item-switch-verb-cloakjewelry = cloak and jewelry
+item-switch-verb-cloaksash = cloak and sash

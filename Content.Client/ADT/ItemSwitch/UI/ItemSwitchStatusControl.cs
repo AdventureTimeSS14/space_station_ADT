@@ -23,14 +23,22 @@ public sealed class ItemSwitchStatusControl : PollingItemStatusControl<ItemSwitc
 
     protected override Data PollData()
     {
-        return new Data(_parent.Comp.State);
+        string? verb = null;
+        if (_parent.Comp.States.TryGetValue(_parent.Comp.State, out var state))
+            verb = state.Verb;
+
+        return new Data(_parent.Comp.State, verb);
     }
 
     protected override void Update(in Data data)
     {
+        var stateText = data.Verb is not null && Loc.TryGetString(data.Verb, out var localized)
+            ? localized
+            : data.State;
+
         _label.SetMarkup(Loc.GetString("itemswitch-component-on-examine-detailed-message",
-            ("state", data.State)));
+            ("state", stateText)));
     }
 
-    public record struct Data(string State);
+    public record struct Data(string State, string? Verb);
 }
