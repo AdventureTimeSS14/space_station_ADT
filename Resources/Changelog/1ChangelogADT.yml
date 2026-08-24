@@ -14603,3 +14603,9 @@ Entries:
     id: 1851
     pr_number: 3254
     time: '2026-08-24T02:29:12Z'
+  - author: Archeron
+    changes:
+      - {message: Убрана гост-роль адского отродья, type: Tweak}
+    id: 1852
+    pr_number: 3265
+    time: '2026-08-24T19:52:50Z'
