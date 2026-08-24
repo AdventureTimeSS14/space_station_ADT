@@ -1,32 +1,43 @@
-<BoxContainer xmlns="https://spacestation14.io"
-            xmlns:adt="clr-namespace:Content.Client.ADT.UserInterface.Controls.FancyButton"
-            Orientation="Vertical"
-            SetWidth="144">
-    <adt:FancyButton
-            Name="BuyButton"
-            SetSize="140 140"
-            Margin="4">
+<PanelContainer xmlns="https://spacestation14.io"
+                xmlns:adt="clr-namespace:Content.Client.ADT.UserInterface.Controls.FancyButton"
+                Name="EntryPanel"
+                StyleClasses="VendingEntryPanel"
+                HorizontalExpand="True"
+                Margin="0 0 0 2">
+
+    <BoxContainer Orientation="Horizontal"
+                  HorizontalExpand="True"
+                  Margin="8 3">
+
         <EntityPrototypeView
                 Name="ItemPrototype"
-                Margin="8"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Scale="4 4"/>
-        <BoxContainer
-                Orientation="Horizontal"
-                HorizontalExpand="True"
-                VerticalAlignment="Top"
-                Margin="6">
-            <RichTextLabel Name="CostLabel"
-                    HorizontalAlignment="Left"/>
+                MinSize="44 44"
+                Scale="1.4 1.4"
+                Margin="0 0 8 0"
+                VerticalAlignment="Center"/>
+
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True"
+                      VerticalAlignment="Center">
+
+            <RichTextLabel Name="NameLabel"
+                           StyleClasses="VendingEntryNameLabel"
+                           VerticalAlignment="Center"/>
             <Control HorizontalExpand="True"/>
             <RichTextLabel Name="CountLabel"
-                    HorizontalAlignment="Right"/>
+                           StyleClasses="VendingEntryCountLabel"
+                           VerticalAlignment="Center"/>
         </BoxContainer>
-    </adt:FancyButton>
-    <RichTextLabel Name="NameLabel"
-            Margin="0 4"
-            MaxWidth="144"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Bottom"/>
-</BoxContainer>
+
+        <adt:FancyButton
+                Name="BuyButton"
+                MinSize="92 32"
+                Margin="8 0 0 0"
+                VerticalAlignment="Center">
+            <RichTextLabel Name="CostLabel"
+                           StyleClasses="VendingEntryPriceLabel"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+        </adt:FancyButton>
+    </BoxContainer>
+</PanelContainer>

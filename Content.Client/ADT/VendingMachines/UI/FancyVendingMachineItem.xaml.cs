@@ -8,24 +8,33 @@ using Robust.Shared.Prototypes;
 namespace Content.Client.ADT.VendingMachines.UI;
 
 [GenerateTypedNameReferences]
-public sealed partial class FancyVendingMachineItem : BoxContainer
+public sealed partial class FancyVendingMachineItem : PanelContainer
 {
     public Action? BuyPressed;
 
-    public FancyVendingMachineItem(EntProtoId entProto, string text, int count, int price)
+    public FancyVendingMachineItem(EntProtoId entProto, string text, uint count, uint maxAmount, int price)
     {
         RobustXamlLoader.Load(this);
         BuyButton.OnPressed += _ => BuyPressed?.Invoke();
 
-        BuyButton.Button.Disabled = count <= 0;
-
         ItemPrototype.SetPrototype(entProto);
 
         NameLabel.Text = text;
-        CountLabel.SetMarkup(Loc.GetString("vending-machine-ui-count", ("count", count), ("color", count > 0 ? "[color=white]" : "[color=red]")));
 
-        var priceText = price <= 0 ? Loc.GetString("vending-machine-ui-price-free") : Loc.GetString("vending-machine-ui-price", ("price", price));
-        CostLabel.SetMarkup(priceText);
+        CostLabel.SetMarkup(price <= 0 ? Loc.GetString("vending-machine-ui-price-free") : Loc.GetString("vending-machine-ui-price", ("price", price)));
+
+        UpdateCount(count, maxAmount);
+    }
+
+    public void UpdateCount(uint count, uint maxAmount)
+    {
+        var color = count <= 0 ? "red" : maxAmount > 0 && count <= maxAmount / 2 ? "yellow" : "green";
+        CountLabel.SetMarkup(Loc.GetString("vending-machine-ui-count", ("count", count), ("color", $"[color={color}]")));
+
+        if (count <= 0)
+            AddStyleClass("VendingEntryDisabled");
+        else
+            RemoveStyleClass("VendingEntryDisabled");
     }
 
     public void SetColoring(Color baseColor, Color border, Color hover, Color disabled)
@@ -35,5 +44,10 @@ public sealed partial class FancyVendingMachineItem : BoxContainer
         BuyButton.HoveredColor = hover;
         BuyButton.DisabledColor = disabled;
         BuyButton.UpdateColor();
+    }
+
+    public void SetBuyDisabled(bool disabled)
+    {
+        BuyButton.Button.Disabled = disabled;
     }
 }
