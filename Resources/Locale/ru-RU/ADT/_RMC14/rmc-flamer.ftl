@@ -20,7 +20,8 @@ rmc-immune-to-ignition-examine = { CAPITALIZE($ent) } { $direct ->
         [True] не загорается даже от прямого попадания огнесмеси
        *[other] не загорается от слабого пламени
     }.
-rmc-immune-to-fire-tile-damage-examine = { CAPITALIZE($ent) } не получает урона от огня.
+rmc-immune-to-fire-tile-damage-examine = [color=#00FFD5]{ CAPITALIZE($ent) } не получает урона от огня.[/color]
+rmc-fire-armor-debuff-modifier-examine = { CAPITALIZE($ent) } на { $percentage }% меньше страдает от того, что пламя разъедает броню.
 
 rmc-molotov-can-craft = [color=cyan]Из этого можно сделать молотов, добавив бумагу.[/color]
 rmc-molotov-empty = { CAPITALIZE($bottle) } пуста...
