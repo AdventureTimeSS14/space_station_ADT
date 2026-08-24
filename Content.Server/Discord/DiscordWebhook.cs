@@ -15,12 +15,12 @@ public sealed class DiscordWebhook : IPostInjectInit
     [Dependency] private readonly ILogManager _log = default!;
 
     private const string BaseUrl = "https://discord.com/api/v10/webhooks";
-
+    // ADT-Tweak-Start
     private readonly HttpClient _http = new()
     {
         Timeout = TimeSpan.FromSeconds(10)
     };
-
+    // ADT-Tweak-End
     private ISawmill _sawmill = default!;
 
     private string GetUrl(WebhookIdentifier identifier)
