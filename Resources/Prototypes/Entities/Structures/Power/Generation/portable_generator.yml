@@ -89,6 +89,7 @@
       failureSound:
         path: /Audio/ADT/Machines/pacman_off.ogg
       # ADT-Sound-Update-End
+    - type: GeneratorMachineParts #ADT-Tweak: machine parts
     - type: FuelGenerator
     - type: PowerSupplier
       supplyRate: 3000

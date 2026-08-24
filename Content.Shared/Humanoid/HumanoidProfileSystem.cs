@@ -143,5 +143,18 @@ public sealed class HumanoidProfileSystem : EntitySystem
         comp.Gender = newGender;
         Dirty(ent);
     }
+
+    public void SetAge(Entity<HumanoidProfileComponent?> ent, int newAge)
+    {
+        var comp = ent.Comp;
+        if (comp == null)
+            return;
+
+        if (comp.Age == newAge)
+            return;
+
+        comp.Age = newAge;
+        Dirty(ent);
+    }
     // ADT-Tweak end
 }

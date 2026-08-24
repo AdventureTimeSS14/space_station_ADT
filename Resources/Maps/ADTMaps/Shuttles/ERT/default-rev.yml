@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.2.1
   forkId: ""
   forkVersion: ""
-  time: 08/11/2026 01:14:50
-  entityCount: 1153
+  time: 08/23/2026 22:11:22
+  entityCount: 1154
 maps: []
 grids:
 - 1
@@ -855,7 +855,7 @@ entities:
           0,-1:
             0: 61695
           -1,0:
-            0: 137
+            0: 136
             1: 16930
           1,0:
             1: 4642
@@ -873,8 +873,8 @@ entities:
           -1,1:
             1: 16
           -1,-1:
-            0: 37102
             1: 8192
+            0: 33006
           0,-4:
             0: 61919
           0,-5:
@@ -1050,11 +1050,6 @@ entities:
       parent: 1
 - proto: ADTRandomHumanoidSpawnerERTSecurityEVARiot
   entities:
-  - uid: 15
-    components:
-    - type: Transform
-      pos: 2.471602,-6.5383573
-      parent: 1
   - uid: 16
     components:
     - type: Transform
@@ -1126,6 +1121,11 @@ entities:
       parent: 1
 - proto: ADTSpaceSecWindow
   entities:
+  - uid: 15
+    components:
+    - type: Transform
+      pos: -3.5,0.5
+      parent: 1
   - uid: 701
     components:
     - type: Transform
@@ -1338,6 +1338,11 @@ entities:
     components:
     - type: Transform
       pos: -5.5,2.5
+      parent: 1
+  - uid: 1154
+    components:
+    - type: Transform
+      pos: -3.5,-0.5
       parent: 1
 - proto: ADTSpaceSecWindowDiagonal
   entities:
