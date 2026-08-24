@@ -120,7 +120,7 @@
   id: ADTBaseUplinkBOBERTEngineerRiot
   name: Б.О.О.Б.Р.
   description: Блюспейс оружейная отряда быстрого реагирования.
-  suffix: 35 ЕТ, Инженер ОБР против ревоюции
+  suffix: 35 ЕТ, Инженер ОБР против революции
   components:
   - type: Store
     name: store-preset-name-uplink
@@ -219,7 +219,7 @@
   id: ADTBaseUplinkBOBERTCBURNLeader
   name: Б.О.О.Б.Р.
   description: Блюспейс оружейная отряда быстрого реагирования.
-  suffix: 50 ЕТ, Командир, РХБЗЗ
+  suffix: 45 ЕТ, Командир, РХБЗЗ
   components:
   - type: Store
     name: store-preset-name-uplink
