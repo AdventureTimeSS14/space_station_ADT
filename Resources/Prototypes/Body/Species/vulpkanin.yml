@@ -3,10 +3,10 @@
   id: Vulpkanin
   limits:
     enum.HumanoidVisualLayers.Hair:
-      limit: 1
+      limit: 3
       required: false
     enum.HumanoidVisualLayers.FacialHair:
-      limit: 1
+      limit: 2
       onlyGroupWhitelisted: true
       required: false
     enum.HumanoidVisualLayers.Head:

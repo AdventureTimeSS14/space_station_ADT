@@ -7,10 +7,10 @@
       limit: 2
       required: false
     enum.HumanoidVisualLayers.HeadTop:
-      limit: 1
+      limit: 2
       required: false
     enum.HumanoidVisualLayers.HeadSide:
-      limit: 1
+      limit: 2
       required: false
     enum.HumanoidVisualLayers.Chest:
       limit: 2
