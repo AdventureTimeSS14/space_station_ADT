@@ -1,4 +1,5 @@
 using Content.Server.Chemistry.Components;
+using Content.Shared._RMC14.Atmos;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -46,6 +47,15 @@ namespace Content.Server.Chemistry.EntitySystems
                 var solution = soln.Comp.Solution;
                 _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch);
             }
+
+            // ADT-Tweak-Start
+            var power = 7;
+            if (TryComp(entity.Owner, out RMCExtinguisherPowerComponent? extinguisher))
+                power = extinguisher.Power;
+
+            var rmcEv = new VaporHitEvent((entity.Owner, contents), power);
+            RaiseLocalEvent(args.OtherEntity, ref rmcEv);
+            // ADT-Tweak-End
 
             // Check for collision with a impassable object (e.g. wall) and stop
             if ((args.OtherFixture.CollisionLayer & (int)CollisionGroup.Impassable) != 0 && args.OtherFixture.Hard)
