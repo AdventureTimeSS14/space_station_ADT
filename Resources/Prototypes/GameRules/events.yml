@@ -241,7 +241,11 @@
     earliestStart: 30
     reoccurrenceDelay: 20
     minimumPlayers: 30
-  - type: SpaceSpawnRule
+  # ADT-Tweak-Start: Ninja shuttle (Striker) and new objectives
+  - type: RuleGrids
+  - type: LoadMapRule
+    gridPath: /Maps/ADT/Shuttles/ADTNinjaShuttle.yml
+  # ADT-Tweak-End
   - type: AntagLoadProfileRule
   - type: AntagObjectives
     objectives:
@@ -251,6 +255,12 @@
     - TerrorObjective
     - MassArrestObjective
     - NinjaSurviveObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: NinjaNewObjectivesGroup
+      prob: 0.5
+      maxPicks: 2
+    maxDifficulty: 3
   - type: AntagSelection
     agentName: ninja-round-end-agent-name
     definitions:
