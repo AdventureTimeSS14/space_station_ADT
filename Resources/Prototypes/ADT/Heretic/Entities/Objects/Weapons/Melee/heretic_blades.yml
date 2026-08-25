@@ -20,7 +20,6 @@
   - type: Item
     size: Normal
     sprite: ADT/Heretic/Blades/blade_blade-inhand.rsi
-  - type: ItemToggle
   - type: RandomTeleport
     radius:
       min: 10
@@ -57,9 +56,60 @@
   components:
   - type: HereticBlade
     path: Blade
+  # ADT: base layer, infusion visuals, Mansus Grasp tag
+  - type: Sprite
+    sprite: ADT/Heretic/Blades/blade_blade.rsi
+    layers:
+    - state: icon
+      map: [ "base" ]
+  # ADT: explicit inhand Item sprite, blade was invisible in hand
+  - type: Item
+    size: Normal
+    sprite: ADT/Heretic/Blades/blade_blade-inhand.rsi
+  - type: Tag
+    tags:
+    - HereticItem
+    - HereticBladeBlade
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.InfusedBladeVisuals.Infused:
+        base:
+          False: { state: icon }
+          True: { state: infused }
+  # ADT: two hits come from Multihit (second blade in other hand), not wielding
+  - type: Multihit
+    damageMultiplier: 0.75
+    multihitWhitelist:
+      tags:
+      - HereticBladeBlade
+    conditions:
+    - !type:MultihitUserHereticEvent
+      requiredPath: Blade
+      minPathStage: 7
   - type: Reflect
     reflectProb: 0.5
     spread: 0
+
+# ADT: ghoul blade, no teleport
+- type: entity
+  parent: HereticBladeBase
+  id: HereticBladeFleshGhoul
+  name: ghoul blade
+  description: A crescent blade born from a fleshwarped creature.
+  suffix: Flesh ghoul
+  components:
+  - type: HereticBlade
+    path: Flesh
+  - type: Sprite
+    sprite: ADT/Heretic/Blades/blade_flesh.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Heretic/Blades/blade_flesh-inhand.rsi
+  - type: RandomTeleport
+    radius:
+      min: 0
+      max: 0
 
 - type: entity
   parent: HereticBladeBase
@@ -125,3 +175,18 @@
         Slash: 7.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+
+- type: entity
+  parent: HereticBladeBase
+  id: HereticBladeCosmos
+  name: cosmic blade
+  description: A mote of celestial resonance, shaped into a star-woven blade. An iridescent exile, carving radiant trails, desperately seeking unification.
+  suffix: Cosmos
+  components:
+  - type: HereticBlade
+    path: Cosmos
+  - type: Sprite
+    sprite: ADT/Heretic/Blades/blade_cosmos.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Heretic/Blades/blade_cosmos-inhand.rsi

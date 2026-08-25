@@ -1,11 +1,13 @@
+//
+
+using System.Numerics;
+using Content.Client.Lobby;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Heretic;
 using Robust.Client.Player;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
-using System.Numerics;
-using Content.Client.Lobby;
 
 namespace Content.Client.ADT.Heretic.UI;
 
@@ -17,6 +19,8 @@ public sealed class LivingHeartMenu : RadialMenu
 
     private readonly LobbyUIController _controller;
 
+    private readonly HereticSystem _heretic;
+
     public EntityUid Entity { get; private set; }
 
     public event Action<NetEntity>? SendActivateMessageAction;
@@ -27,6 +31,7 @@ public sealed class LivingHeartMenu : RadialMenu
         RobustXamlLoader.Load(this);
 
         _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
+        _heretic = _ent.System<HereticSystem>();
     }
 
     public void SetEntity(EntityUid ent)
@@ -42,7 +47,7 @@ public sealed class LivingHeartMenu : RadialMenu
 
         var player = _player.LocalEntity;
 
-        if (!_ent.TryGetComponent<HereticComponent>(player, out var heretic))
+        if (player == null || !_heretic.TryGetHereticComponent(player.Value, out var heretic, out _))
             return;
 
         foreach (var target in heretic.SacrificeTargets)

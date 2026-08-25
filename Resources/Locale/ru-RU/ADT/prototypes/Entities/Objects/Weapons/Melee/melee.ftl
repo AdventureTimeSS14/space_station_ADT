@@ -45,17 +45,6 @@ ent-ADTNanotrasenCoin = монета NanoTrasen
 
 ent-ADTFetidBaghnakhs = вонючий багнак
     .desc = Его можно выбить из мимика «плоти». А ещё он живой...
-ent-HereticBladeAsh = пепельный клинок
-    .desc = Странный клинок, хорошо подходит для придания жуткого вида или же использования в ритуалах и жертвоприношениях
-
-ent-HereticBladeFlesh = кровавый клинок
-    .desc = { ent-HereticBladeAsh.desc }
-
-ent-HereticBladeVoid = пустотный клинок
-    .desc = { ent-HereticBladeAsh.desc }
-
-ent-HereticBladeBlade = расколотый клинок
-    .desc = { ent-HereticBladeAsh.desc }
 
 ent-ADTWeaponSworldMimicry = мимикрический клинок
     .desc = Вам становится не по себе от одного вида данного меча и его носителя...
