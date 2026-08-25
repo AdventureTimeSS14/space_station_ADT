@@ -615,6 +615,11 @@ public sealed class GhostRoleSystem : EntitySystem
         _mindSystem.TransferTo(newMind, mob);
 
         _roleSystem.MindAddRoles(newMind.Owner, role.MindRoles, newMind.Comp);
+
+        // ADT Tweak start
+        if (role.JobProto is { } jobProto && !HasComp<GhostTakeoverAvailableComponent>(mob))
+            _roleSystem.MindAddJobRole(newMind.Owner, newMind.Comp, false, jobProto);
+        // ADT Tweak end
     }
 
     /// <summary>

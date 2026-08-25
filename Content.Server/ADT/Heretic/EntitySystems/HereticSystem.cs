@@ -479,6 +479,8 @@ public sealed partial class HereticSystem : SharedHereticSystem
         ent.Comp.SacrificeTargets = pickedTargets.Select(GetData).OfType<SacrificeTargetData>().ToList();
         Dirty(ent); // update client
 
+        UpdateTargetPvsOverrides(ent);
+
         return;
 
         bool IsSessionValid(ICommonSession session)
