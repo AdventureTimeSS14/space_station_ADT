@@ -1,0 +1,14 @@
+ent-ClothingHeadHatHoodHeretic = зловещий капюшон
+    .desc = Порванный, запыленный капюшон. Странные глаза выстроились внутри.
+ent-ClothingHeadHatHoodHereticVoid = { ent-ClothingHeadHatHoodHeretic }
+    .desc = { ent-ClothingHeadHatHoodHeretic.desc }
+ent-ClothingHeadHatHoodHereticAsh = { ent-ClothingHeadHatHoodHeretic }
+    .desc = { ent-ClothingHeadHatHoodHeretic.desc }
+ent-ClothingHeadHatHoodHereticFlesh = { ent-ClothingHeadHatHoodHeretic }
+    .desc = { ent-ClothingHeadHatHoodHeretic.desc }
+ent-ClothingHeadHatHoodHereticBlade = { ent-ClothingHeadHatHoodHeretic }
+    .desc = { ent-ClothingHeadHatHoodHeretic.desc }
+ent-ClothingHeadHatHoodHereticCosmos = { ent-ClothingHeadHatHoodHeretic }
+    .desc = { ent-ClothingHeadHatHoodHeretic.desc }
+ent-ClothingHeadHatHoodVoidCloakHeretic = пустой капюшон
+    .desc = Черные, как смола, они не отражают свет. Снаружи они покрыты руническими символами. С каждой вспышкой вы перестаете понимать, что видите.

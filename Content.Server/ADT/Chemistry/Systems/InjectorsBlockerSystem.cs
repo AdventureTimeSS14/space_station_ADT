@@ -43,6 +43,9 @@ public sealed class InjectorsBlockerSystem : EntitySystem
 
     private bool InjectorIgnoresBlockers(EntityUid injectorUid)
     {
+        if (injectorUid == EntityUid.Invalid || !Exists(injectorUid))
+            return false;
+
         if (TryComp<InjectorComponent>(injectorUid, out var injector))
             return injector.IgnoreBlockers;
 
