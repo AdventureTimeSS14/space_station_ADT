@@ -26,6 +26,6 @@
     - type: ThermalVisionItem
       toggleable: false
       slotFlags: NECK
+      highlightOnly: true
     - type: ThermalVision
       color: "#998989"
-      highlightOnly: true

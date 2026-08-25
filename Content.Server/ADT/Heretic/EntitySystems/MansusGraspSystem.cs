@@ -28,6 +28,12 @@ using Content.Shared.Timing;
 using Content.Shared.Trigger;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
+using Content.Shared.Mech.Components;
+using Content.Shared.FixedPoint;
+using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.PowerCell;
+using Content.Shared.PowerCell.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -54,6 +60,8 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly HereticSystem _heretic = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
+    [Dependency] private readonly PowerCellSystem _powerCell = default!;
 
     public static readonly SoundSpecifier DefaultSound = new SoundPathSpecifier("/Audio/Items/welder.ogg");
 
@@ -156,6 +164,11 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
     /// </summary>
     private bool IsValidGraspTarget(EntityUid target, HereticComponent heretic)
     {
+        if (HasComp<BatteryComponent>(target)
+            || HasComp<PowerCellSlotComponent>(target)
+            || HasComp<MechComponent>(target))
+            return true;
+
         if (HasComp<MobStateComponent>(target) || HasComp<HereticRitualRuneComponent>(target))
             return true;
 
@@ -214,6 +227,8 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             return true;
         }
 
+        TryDrainTarget(user, target);
+
         // upgraded grasp
         if (!TryApplyGraspEffectAndMark(user, hereticComp, target, grasp, out var triggerGrasp))
             return false;
@@ -235,6 +250,34 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         InvokeGrasp(user, grasp);
         QueueDel(grasp);
         return true;
+    }
+
+    private bool TryDrainTarget(EntityUid user, EntityUid target)
+    {
+        if (TryComp(target, out MechComponent? mech) && mech.MaxEnergy > 0)
+        {
+            mech.Energy = FixedPoint2.Max(FixedPoint2.Zero, mech.Energy - mech.MaxEnergy * 0.5f);
+            _popup.PopupEntity(Loc.GetString("mansus-grasp-drain"), user, user);
+            return true;
+        }
+
+        if (TryComp(target, out PowerCellSlotComponent? slot) &&
+            _powerCell.TryGetBatteryFromSlotOrEntity((target, slot), out var cellBattery) &&
+            cellBattery != null)
+        {
+            _battery.ChangeCharge(cellBattery.Value.Owner, -cellBattery.Value.Comp.MaxCharge * 0.5f);
+            _popup.PopupEntity(Loc.GetString("mansus-grasp-drain"), user, user);
+            return true;
+        }
+
+        if (TryComp(target, out BatteryComponent? battery))
+        {
+            _battery.ChangeCharge((target, battery), -battery.MaxCharge * 0.5f);
+            _popup.PopupEntity(Loc.GetString("mansus-grasp-drain"), user, user);
+            return true;
+        }
+
+        return false;
     }
 
     private void OnMelee(Entity<MansusGraspComponent> ent, ref MeleeHitEvent args)

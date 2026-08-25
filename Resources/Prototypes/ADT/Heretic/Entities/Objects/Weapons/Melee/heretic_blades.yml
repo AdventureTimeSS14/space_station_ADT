@@ -20,7 +20,6 @@
   - type: Item
     size: Normal
     sprite: ADT/Heretic/Blades/blade_blade-inhand.rsi
-  - type: ItemToggle
   - type: RandomTeleport
     radius:
       min: 10

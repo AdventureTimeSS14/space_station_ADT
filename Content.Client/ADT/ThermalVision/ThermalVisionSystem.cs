@@ -21,6 +21,7 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
     private EntityUid? _effect;
     private bool _active;
     private bool _activeAlt;
+    private bool _activeHighlight;
     private bool _activeLightSources;
 
     private const string ScreenShaderId = "ADTThermalVisionScreenShader";
@@ -66,7 +67,7 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 
     private void AttemptAddVision(Entity<ThermalVisionComponent> ent)
     {
-        if (_active && _activeAlt != ent.Comp.UseAlternativeShader)
+        if (_active && (_activeAlt != ent.Comp.UseAlternativeShader || _activeHighlight != ent.Comp.HighlightOnly))
             AttemptRemoveVision(force: true);
 
         if (_active)
@@ -78,6 +79,7 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 
         _active = true;
         _activeAlt = ent.Comp.UseAlternativeShader;
+        _activeHighlight = ent.Comp.HighlightOnly;
 
         _throughWallsOverlay.IgnoredComponents.Clear();
         foreach (var name in ent.Comp.IgnoredComponents)
@@ -98,10 +100,10 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         {
             _overlay = new ThermalVisionOverlay(screenShader);
             _overlayMan.AddOverlay(_overlay);
-        }
 
-        _effect = SpawnAttachedTo(ent.Comp.EffectPrototype, Transform(ent).Coordinates);
-        _xform.SetParent(_effect.Value, ent.Owner);
+            _effect = SpawnAttachedTo(ent.Comp.EffectPrototype, Transform(ent).Coordinates);
+            _xform.SetParent(_effect.Value, ent.Owner);
+        }
     }
 
     private void AttemptRemoveVision(bool force = false)
@@ -114,6 +116,7 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 
         _active = false;
         _activeAlt = false;
+        _activeHighlight = false;
 
         if (_overlay != null)
         {

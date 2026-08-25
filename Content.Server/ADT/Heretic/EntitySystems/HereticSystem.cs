@@ -73,6 +73,8 @@ public sealed partial class HereticSystem : SharedHereticSystem
 
     private float _timer;
     private const float PassivePointCooldown = 20f * 60f;
+    private float _targetCheckTimer;
+    private const float TargetCheckCooldown = 60f;
     private bool _ascensionRequiresObjectives;
 
     private const int HereticVisFlags = (int) (VisibilityFlags.EldritchInfluence | VisibilityFlags.EldritchInfluenceSpent | VisibilityFlags.HereticCarving);
@@ -241,6 +243,18 @@ public sealed partial class HereticSystem : SharedHereticSystem
 
         _timer += frameTime;
 
+        _targetCheckTimer += frameTime;
+        if (_targetCheckTimer >= TargetCheckCooldown)
+        {
+            _targetCheckTimer = 0f;
+
+            var hereticQuery = EntityQueryEnumerator<HereticComponent>();
+            while (hereticQuery.MoveNext(out var uid, out _))
+            {
+                RaiseLocalEvent(uid, new EventHereticUpdateTargets());
+            }
+        }
+
         if (_timer < PassivePointCooldown)
             return;
 
@@ -391,26 +405,36 @@ public sealed partial class HereticSystem : SharedHereticSystem
 
     private void OnUpdateTargets(Entity<HereticComponent> ent, ref EventHereticUpdateTargets args)
     {
-        ent.Comp.SacrificeTargets = ent.Comp.SacrificeTargets
-            .Where(target => TryGetEntity(target.Entity, out var tent) && Exists(tent) &&
-                             !EntityManager.IsQueuedForDeletion(tent.Value))
-            .ToList();
-        Dirty(ent); // update client
-
+        RerollTargets(ent, true);
         UpdateTargetPvsOverrides(ent);
     }
 
     private void OnRerollTargets(Entity<HereticComponent> ent, ref EventHereticRerollTargets args)
     {
+        RerollTargets(ent, false);
+        UpdateTargetPvsOverrides(ent);
+    }
+
+    private void RerollTargets(Entity<HereticComponent> ent, bool keepValid)
+    {
         // welcome to my linq smorgasbord of doom
         // have fun figuring that out
 
-        var targets = _antag.GetAliveConnectedPlayers(_playerMan.Sessions)
+        var candidates = _antag.GetAliveConnectedPlayers(_playerMan.Sessions)
             .Where(IsSessionValid)
             .Select(x => x.AttachedEntity!.Value)
             .ToList();
 
         var pickedTargets = new List<EntityUid>();
+
+        if (keepValid)
+        {
+            pickedTargets = ent.Comp.SacrificeTargets
+                .Select(target => TryGetEntity(target.Entity, out var tent) ? tent : null)
+                .Where(target => target != null && candidates.Contains(target.Value))
+                .Cast<EntityUid>()
+                .ToList();
+        }
 
         var predicates = new List<Func<EntityUid, bool>>();
 
@@ -423,22 +447,30 @@ public sealed partial class HereticSystem : SharedHereticSystem
 
         foreach (var predicate in predicates)
         {
-            var list = targets.Where(predicate).ToList();
+            if (pickedTargets.Any(predicate))
+                continue;
+
+            var list = candidates.Where(x => !pickedTargets.Contains(x) && predicate(x)).ToList();
 
             if (list.Count == 0)
                 continue;
 
-            // pick and take
-            var picked = _rand.Pick(list);
-            targets.Remove(picked);
-            pickedTargets.Add(picked);
+            pickedTargets.Add(_rand.Pick(list));
         }
 
-        // add whatever more until satisfied
-        for (var i = 0; i <= ent.Comp.MaxTargets - pickedTargets.Count; i++)
+        while (pickedTargets.Count < ent.Comp.MaxTargets)
         {
-            if (targets.Count > 0)
-                pickedTargets.Add(_rand.PickAndTake(targets));
+            var list = candidates.Where(x => !pickedTargets.Contains(x) &&
+                                             !HasComp<CommandStaffComponent>(x) &&
+                                             !HasComp<SecurityStaffComponent>(x)).ToList();
+
+            if (list.Count == 0)
+                list = candidates.Where(x => !pickedTargets.Contains(x)).ToList();
+
+            if (list.Count == 0)
+                break;
+
+            pickedTargets.Add(_rand.PickAndTake(list));
         }
 
         // leave only unique entityuids
@@ -446,8 +478,6 @@ public sealed partial class HereticSystem : SharedHereticSystem
 
         ent.Comp.SacrificeTargets = pickedTargets.Select(GetData).OfType<SacrificeTargetData>().ToList();
         Dirty(ent); // update client
-
-        UpdateTargetPvsOverrides(ent);
 
         return;
 
