@@ -98,11 +98,8 @@ public sealed class TTSManager
 
             var soundData = await response.Content.ReadAsByteArrayAsync(cancellationToken: cts.Token);
 
-            if (!_cache.ContainsKey(cacheKey))
-                _cacheKeysSeq.Add(cacheKey);
-
-            _cache[cacheKey] = soundData;
-
+            _cache.Add(cacheKey, soundData);
+            _cacheKeysSeq.Add(cacheKey);
             if (_cache.Count > _maxCachedCount)
             {
                 var firstKey = _cacheKeysSeq.First();
