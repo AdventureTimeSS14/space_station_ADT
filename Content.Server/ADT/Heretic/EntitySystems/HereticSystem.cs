@@ -45,6 +45,9 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Server.Hands.Systems;
+using Content.Shared.ADT.Bed.Cryostorage;
+using Robust.Shared.Enums;
+using Content.Shared.Bed.Cryostorage;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -93,6 +96,9 @@ public sealed partial class HereticSystem : SharedHereticSystem
         SubscribeLocalEvent<HereticComponent, EventHereticRerollTargets>(OnRerollTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticAscension>(OnAscension);
 
+        SubscribeLocalEvent<HereticSacrificeTargetComponent, EntityTerminatingEvent>(OnTargetTerminating);
+        SubscribeLocalEvent<HereticSacrificeTargetComponent, EntityEnteredCryostorageEvent>(OnTargetEnteredCryostorage);
+
         SubscribeLocalEvent<HereticComponent, MindGotRemovedEvent>(OnMindRemoved);
         SubscribeLocalEvent<HereticComponent, MindGotAddedEvent>(OnMindAdded);
 
@@ -103,6 +109,27 @@ public sealed partial class HereticSystem : SharedHereticSystem
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRestart);
 
         Subs.CVar(_cfg, ADTCCVars.HereticAscensionRequiresObjectives, value => _ascensionRequiresObjectives = value, true);
+
+        _playerMan.PlayerStatusChanged += OnPlayerStatusChanged;
+    }
+
+    public override void Shutdown()
+    {
+        base.Shutdown();
+
+        _playerMan.PlayerStatusChanged -= OnPlayerStatusChanged;
+    }
+
+    private void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs args)
+    {
+        if (args.NewStatus != SessionStatus.InGame)
+            return;
+
+        if (!_mind.TryGetMind(args.Session.UserId, out var mindId, out _) ||
+            !TryComp(mindId, out HereticComponent? heretic))
+            return;
+
+        UpdateTargetPvsOverrides((mindId.Value, heretic));
     }
 
     private void OnMindAdded(Entity<HereticComponent> ent, ref MindGotAddedEvent args)
@@ -189,6 +216,41 @@ public sealed partial class HereticSystem : SharedHereticSystem
     {
         _timer = 0f;
         _targetPvsOverrides.Clear();
+    }
+
+    private List<EntityUid> ResolveSacrificeTargets(HereticComponent comp)
+    {
+        var targets = new List<EntityUid>();
+
+        foreach (var target in comp.SacrificeTargets)
+        {
+            if (TryGetEntity(target.Entity, out var uid))
+                targets.Add(uid.Value);
+        }
+
+        return targets;
+    }
+
+    private void UpdateSacrificeTargetMarkers(Entity<HereticComponent> ent, List<EntityUid> oldTargets, List<EntityUid> newTargets)
+    {
+        foreach (var old in oldTargets)
+        {
+            if (newTargets.Contains(old) || !TryComp(old, out HereticSacrificeTargetComponent? marker))
+                continue;
+
+            marker.Heretics.Remove(ent.Owner);
+
+            if (marker.Heretics.Count == 0 && !TerminatingOrDeleted(old))
+                RemComp<HereticSacrificeTargetComponent>(old);
+        }
+
+        foreach (var target in newTargets)
+        {
+            if (TerminatingOrDeleted(target))
+                continue;
+
+            EnsureComp<HereticSacrificeTargetComponent>(target).Heretics.Add(ent.Owner);
+        }
     }
 
     private void UpdateTargetPvsOverrides(Entity<HereticComponent> ent)
@@ -362,6 +424,7 @@ public sealed partial class HereticSystem : SharedHereticSystem
     private void OnShutdown(Entity<HereticComponent> ent, ref ComponentShutdown args)
     {
         ClearTargetPvsOverrides(ent.Owner);
+        UpdateSacrificeTargetMarkers(ent, ResolveSacrificeTargets(ent.Comp), new List<EntityUid>());
 
         if (!TryComp(ent, out MindComponent? mind) || mind.CurrentEntity is not { } body || TerminatingOrDeleted(body))
             return;
@@ -391,26 +454,54 @@ public sealed partial class HereticSystem : SharedHereticSystem
 
     private void OnUpdateTargets(Entity<HereticComponent> ent, ref EventHereticUpdateTargets args)
     {
-        ent.Comp.SacrificeTargets = ent.Comp.SacrificeTargets
-            .Where(target => TryGetEntity(target.Entity, out var tent) && Exists(tent) &&
-                             !EntityManager.IsQueuedForDeletion(tent.Value))
-            .ToList();
-        Dirty(ent); // update client
-
-        UpdateTargetPvsOverrides(ent);
+        RerollTargets(ent, true);
     }
 
     private void OnRerollTargets(Entity<HereticComponent> ent, ref EventHereticRerollTargets args)
     {
+        RerollTargets(ent, false);
+    }
+
+    private void OnTargetTerminating(Entity<HereticSacrificeTargetComponent> ent, ref EntityTerminatingEvent args)
+    {
+        TargetLeftTheRound(ent);
+    }
+
+    private void OnTargetEnteredCryostorage(Entity<HereticSacrificeTargetComponent> ent, ref EntityEnteredCryostorageEvent args)
+    {
+        TargetLeftTheRound(ent);
+    }
+
+    private void TargetLeftTheRound(Entity<HereticSacrificeTargetComponent> ent)
+    {
+        // RerollTargets edits the marker's set, so walk a copy of it.
+        foreach (var mindId in ent.Comp.Heretics.ToList())
+        {
+            if (!TryComp(mindId, out HereticComponent? heretic))
+                continue;
+
+            RerollTargets((mindId, heretic), true, ent.Owner);
+        }
+
+        ent.Comp.Heretics.Clear();
+    }
+
+    private void RerollTargets(Entity<HereticComponent> ent, bool keepValid, EntityUid? ignore = null)
+    {
         // welcome to my linq smorgasbord of doom
         // have fun figuring that out
 
-        var targets = _antag.GetAliveConnectedPlayers(_playerMan.Sessions)
+        var oldTargets = ResolveSacrificeTargets(ent.Comp);
+        var candidates = _antag.GetAliveConnectedPlayers(_playerMan.Sessions)
             .Where(IsSessionValid)
             .Select(x => x.AttachedEntity!.Value)
+            .Where(x => x != ignore && !TerminatingOrDeleted(x))
             .ToList();
 
         var pickedTargets = new List<EntityUid>();
+
+        if (keepValid)
+            pickedTargets = oldTargets.Where(candidates.Contains).ToList();
 
         var predicates = new List<Func<EntityUid, bool>>();
 
@@ -423,22 +514,30 @@ public sealed partial class HereticSystem : SharedHereticSystem
 
         foreach (var predicate in predicates)
         {
-            var list = targets.Where(predicate).ToList();
+            if (pickedTargets.Any(predicate))
+                continue;
+
+            var list = candidates.Where(x => !pickedTargets.Contains(x) && predicate(x)).ToList();
 
             if (list.Count == 0)
                 continue;
 
-            // pick and take
-            var picked = _rand.Pick(list);
-            targets.Remove(picked);
-            pickedTargets.Add(picked);
+            pickedTargets.Add(_rand.Pick(list));
         }
 
-        // add whatever more until satisfied
-        for (var i = 0; i <= ent.Comp.MaxTargets - pickedTargets.Count; i++)
+        while (pickedTargets.Count < ent.Comp.MaxTargets)
         {
-            if (targets.Count > 0)
-                pickedTargets.Add(_rand.PickAndTake(targets));
+            var list = candidates.Where(x => !pickedTargets.Contains(x) &&
+                                             !HasComp<CommandStaffComponent>(x) &&
+                                             !HasComp<SecurityStaffComponent>(x)).ToList();
+
+            if (list.Count == 0)
+                list = candidates.Where(x => !pickedTargets.Contains(x)).ToList();
+
+            if (list.Count == 0)
+                break;
+
+            pickedTargets.Add(_rand.PickAndTake(list));
         }
 
         // leave only unique entityuids
@@ -447,6 +546,7 @@ public sealed partial class HereticSystem : SharedHereticSystem
         ent.Comp.SacrificeTargets = pickedTargets.Select(GetData).OfType<SacrificeTargetData>().ToList();
         Dirty(ent); // update client
 
+        UpdateSacrificeTargetMarkers(ent, oldTargets, ResolveSacrificeTargets(ent.Comp));
         UpdateTargetPvsOverrides(ent);
 
         return;
@@ -457,6 +557,9 @@ public sealed partial class HereticSystem : SharedHereticSystem
                 return false;
 
             if (HasComp<GhoulComponent>(session.AttachedEntity.Value))
+                return false;
+
+            if (HasComp<CryostorageContainedComponent>(session.AttachedEntity.Value))
                 return false;
 
             if (!_mind.TryGetMind(session.AttachedEntity.Value, out var mind, out _) ||

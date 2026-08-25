@@ -102,3 +102,5 @@ heretic-speech-ice-spear = D'WN 'F TH'CE!
 heretic-speech-shapeshft = SH'PE
 
 heretic-grasp-fail-invalid-target = The grasp finds nothing worth touching here.
+
+mansus-grasp-drain = Mansus's Grasp drains energy from the target!

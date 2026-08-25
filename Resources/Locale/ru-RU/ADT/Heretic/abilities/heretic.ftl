@@ -93,3 +93,5 @@ heretic-speech-shapeshft = SH'PE
 heretic-blade-break-fail-acended-message = Вы не можете сломать клинок после вознесения!
 
 heretic-grasp-fail-invalid-target = Хватке здесь не за что ухватиться.
+
+mansus-grasp-drain = Хватка Мансуса высасывает энергию из цели!
