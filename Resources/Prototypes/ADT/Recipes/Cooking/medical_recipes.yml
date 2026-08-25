@@ -13,7 +13,6 @@
     Epinephrine: 12
     TranexamicAcid: 3
   recipeType: MedicalAssembler
-  requiredTechnology: ADTMedAssemblerPens1
 
 - type: microwaveMealRecipe
   id: RecipeAntiPoisonMedipen
@@ -27,7 +26,6 @@
     Ultravasculine: 10
     Epinephrine: 5
   recipeType: MedicalAssembler
-  requiredTechnology: ADTMedAssemblerPens1
 
 - type: microwaveMealRecipe
   id: RecipeBruteAutoInjector
@@ -41,7 +39,6 @@
     Bicaridine: 15
     TranexamicAcid: 5
   recipeType: MedicalAssembler
-  requiredTechnology: ADTMedAssemblerPens1
 
 - type: microwaveMealRecipe
   id: RecipeBurnAutoInjector
@@ -55,7 +52,6 @@
     Dermaline: 10
     Leporazine: 10
   recipeType: MedicalAssembler
-  requiredTechnology: ADTMedAssemblerPens1
 
 - type: microwaveMealRecipe
   id: RecipeRadAutoInjector
@@ -69,7 +65,6 @@
     Arithrazine: 15
     Bicaridine: 5
   recipeType: MedicalAssembler
-  requiredTechnology: ADTMedAssemblerPens1
 
 - type: microwaveMealRecipe
   id: RecipePunctAutoInjector
@@ -83,7 +78,6 @@
     Puncturase: 10
     TranexamicAcid: 5
   recipeType: MedicalAssembler
-  requiredTechnology: ADTMedAssemblerPens2
 
 - type: microwaveMealRecipe
   id: RecipePyraAutoInjector
@@ -97,7 +91,6 @@
     Pyrazine: 10
     Dermaline: 10
   recipeType: MedicalAssembler
-  requiredTechnology: ADTMedAssemblerPens2
 
 #Frontier pen recipes
 
@@ -113,7 +106,6 @@
     TranexamicAcid: 5
     Saline: 15
   recipeType: MedicalAssembler
-  requiredTechnology: ADTMedAssemblerPens2
 
 - type: microwaveMealRecipe
   id: RecipePenStimulant
@@ -127,7 +119,6 @@
     Desoxyephedrine: 10
     Dylovene: 10
   recipeType: MedicalAssembler
-  requiredTechnology: ADTMedAssemblerPens2
 
 - type: microwaveMealRecipe
   id: RecipePenCrisisAutoInjector
@@ -141,7 +132,6 @@
     Inaprovaline: 10
     DexalinPlus: 10
   recipeType: MedicalAssembler
-  requiredTechnology: ADTMedAssemblerPens2
 
 - type: microwaveMealRecipe
   id: RecipePenLacerAutoInjector
@@ -155,7 +145,6 @@
     Lacerinol: 10
     TranexamicAcid: 5
   recipeType: MedicalAssembler
-  requiredTechnology: ADTMedAssemblerPens3
 
 - type: microwaveMealRecipe
   id: RecipePenBruizAutoInjector
@@ -169,7 +158,6 @@
     Bruizine: 10
     TranexamicAcid: 5
   recipeType: MedicalAssembler
-  requiredTechnology: ADTMedAssemblerPens3
 
 - type: microwaveMealRecipe
   id: RecipePenEthylredoxrazineAutoInjector
@@ -183,7 +171,6 @@
     Ethylredoxrazine: 15
     Dylovene: 5
   recipeType: MedicalAssembler
-  requiredTechnology: ADTMedAssemblerPens3
 
 - type: microwaveMealRecipe
   id: RecipeMedicatedSutureAssembler

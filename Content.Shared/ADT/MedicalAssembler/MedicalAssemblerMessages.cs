@@ -78,7 +78,7 @@ public sealed class MedicalAssemblerUpdateState : BoundUserInterfaceState
     public bool HasBeaker;
     public float ReagentMultiplier = 1f;
     public bool CustomTabUnlocked;
-    public float MaxCustomVolume = 5f;
+    public float MaxCustomVolume = 15f;
 
     public MedicalAssemblerUpdateState(
         MedicalAssemblerRecipeEntry[] recipes,
@@ -89,7 +89,7 @@ public sealed class MedicalAssemblerUpdateState : BoundUserInterfaceState
         bool hasBeaker,
         float reagentMultiplier = 1f,
         bool customTabUnlocked = false,
-        float maxCustomVolume = 5f)
+        float maxCustomVolume = 15f)
     {
         Recipes = recipes;
         Materials = materials;

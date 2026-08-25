@@ -11,12 +11,6 @@ medical-assembler-locked = Locked (RND)
 medical-assembler-requires = Requires:
 medical-assembler-available = available {$volume}u
 medical-assembler-reagent-discount = [color=#6DFFA5]Machine parts reduce reagent usage by {$percent}%.[/color]
-research-technology-med-assembler-pens-1 = Auto-injectors: basic
-research-technology-med-assembler-pens-2 = Auto-injectors: advanced
-research-technology-med-assembler-pens-3 = Auto-injectors: specialized
-research-unlock-med-assembler-pens-1 = Unlocks basic auto-injector assembly in the medical assembler.
-research-unlock-med-assembler-pens-2 = Unlocks advanced auto-injector assembly in the medical assembler.
-research-unlock-med-assembler-pens-3 = Unlocks specialized auto-injector assembly in the medical assembler.
 medical-assembler-recipes-tab = Recipes
 medical-assembler-custom-tab = Custom
 medical-assembler-custom-beaker-text = Beaker reagents

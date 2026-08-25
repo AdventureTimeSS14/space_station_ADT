@@ -28,7 +28,7 @@ public sealed partial class MedicalAssemblerMenu : FancyWindow
     private readonly SpriteSystem _spriteSystem;
     private readonly Texture _lockTexture;
 
-    private float MaxCustomVolume => _state?.MaxCustomVolume ?? 5f;
+    private float MaxCustomVolume => _state?.MaxCustomVolume ?? 15f;
 
     private readonly List<string> _recipeIds = new();
     private MedicalAssemblerUpdateState? _state;
