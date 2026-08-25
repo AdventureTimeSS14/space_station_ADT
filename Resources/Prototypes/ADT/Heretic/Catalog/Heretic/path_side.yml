@@ -3,7 +3,7 @@
   id: HereticSidePath3Armor
   name: knowledge-path-side-s3-armor-name
   description: knowledge-path-side-s3-armor-desc
-  icon: { sprite: ADT/Heretic/eldritch_hood.rsi, state: icon }
+  icon: { sprite: ADT/Heretic/Clothing/Head/eldritch_hood.rsi, state: icon }
   productHereticKnowledge: ArmorerRitual
   cost:
     KnowledgePoint: 1
@@ -13,7 +13,7 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 20 # заглушка
+    stage: 20 # ADT: placeholder
 
 - type: listing
   id: HereticSidePath3ArmorBlade
@@ -133,3 +133,137 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 0
+
+# ADT: Cosmos/Rust armor
+- type: listing
+  id: HereticSidePath3ArmorCosmos
+  name: knowledge-path-side-s3-armor-name
+  description: knowledge-path-side-s3-armor-desc
+  icon: { sprite: ADT/Heretic/Clothing/OuterClothing/cosmos_armor.rsi, state: icon }
+  productHereticKnowledge: ArmorerRitualCosmos
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+    whitelist:
+    - Cosmos
+
+- type: listing
+  id: HereticSidePath3ArmorRust
+  name: knowledge-path-side-s3-armor-name
+  description: knowledge-path-side-s3-armor-desc
+  icon: { sprite: ADT/Heretic/Clothing/OuterClothing/rust_armor.rsi, state: icon }
+  productHereticKnowledge: ArmorerRitualRust
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+    whitelist:
+    - Rust
+
+# ADT: side listings from Goob
+- type: listing
+  id: HereticSidePath3VoidCloak
+  name: knowledge-path-side-s3-void-cloak-name
+  description: knowledge-path-side-s3-void-cloak-desc
+  icon: { sprite: ADT/Heretic/Clothing/OuterClothing/void_cloak.rsi, state: icon }
+  productHereticKnowledge: VoidCloak
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
+  id: HereticSidePath3Shark
+  name: knowledge-path-side-s3-shark-name
+  description: knowledge-path-side-s3-shark-desc
+  icon: { sprite: ADT/Heretic/eldritch_mobs.rsi, state: fire_shark_icon }
+  productHereticKnowledge: ScorchingShark
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
+  id: HereticSidePath6RustWalker
+  name: knowledge-path-side-s6-rustwalker-name
+  description: knowledge-path-side-s6-rustwalker-desc
+  icon: { sprite: ADT/Heretic/eldritch_mobs.rsi, state: rust_walker }
+  productHereticKnowledge: RustedRitual
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
+  id: HereticSidePath6CarvingKnife
+  name: knowledge-path-side-s6-knife-name
+  description: knowledge-path-side-s6-knife-desc
+  icon: { sprite: ADT/Heretic/items.rsi, state: rune_carver }
+  productHereticKnowledge: CarvingKnife
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
+  id: HereticSidePath6IceSpear
+  name: knowledge-path-side-s6-ice-spear-name
+  description: knowledge-path-side-s6-ice-spear-desc
+  icon: { sprite: ADT/Heretic/Entities/ice_spear.rsi, state: spear }
+  productHereticKnowledge: MysteriesOfCreation
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
+  id: HereticSidePath8Cleave
+  name: knowledge-path-side-s8-cleave-name
+  description: knowledge-path-side-s8-cleave-desc
+  icon: { sprite: ADT/Heretic/abilities_heretic.rsi, state: cleave }
+  productHereticKnowledge: Cleave
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 7

@@ -1,136 +1,70 @@
+//
+
 using Content.Server.Heretic.EntitySystems;
-using Content.Shared.Dataset;
 using Content.Shared.Heretic;
-using Content.Shared.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Mind;
+using Content.Shared.Store.Components;
 using Content.Shared.Tag;
-using Robust.Server.Containers;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
-using System.Linq;
-using System.Text;
+using Robust.Server.Containers;
 
 namespace Content.Server.Heretic.Ritual;
 
-/// <summary>
-///     Одноразовый ритуал получения знаний.
-///     Требует предметы только для одного еретика, а не для всех.
-/// </summary>
 public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
 {
-    // я полностью переписала систему, при апстриме оставляем нашу версию
-    private static Dictionary<ProtoId<TagPrototype>, int> requiredTags = new();
-    private static List<string> requiredTagsLocale = new();
-    private List<EntityUid> toDelete = new();
+    private HashSet<ProtoId<TagPrototype>> _missingTags = new();
+    private List<EntityUid> _toDelete = new();
 
-    private IPrototypeManager _prot = default!;
-    private IRobustRandom _rand = default!;
     private EntityLookupSystem _lookup = default!;
     private HereticSystem _heretic = default!;
+    private TagSystem _tag = default!;
     private ContainerSystem _container = default!;
 
-    private static readonly ProtoId<DatasetPrototype> EligibleTagsDataset = "EligibleTags";
-
-    public static Dictionary<ProtoId<TagPrototype>, int> GetRequiredTags()
-    {
-        return new Dictionary<ProtoId<TagPrototype>, int>(requiredTags);
-    }
-
+    // this is basically a ripoff from hereticritualsystem
     public override bool Execute(RitualData args, out string? outstr)
     {
-        _prot = IoCManager.Resolve<IPrototypeManager>();
-        _rand = IoCManager.Resolve<IRobustRandom>();
         _lookup = args.EntityManager.System<EntityLookupSystem>();
         _heretic = args.EntityManager.System<HereticSystem>();
+        _tag = args.EntityManager.System<TagSystem>();
         _container = args.EntityManager.System<ContainerSystem>();
 
         outstr = null;
 
-        // Проверяем, не использовал ли уже этот еретик данный ритуал
-        if (args.EntityManager.HasComponent<HereticKnowledgeRitualUsedComponent>(args.Performer))
-        {
-            outstr = Loc.GetString("heretic-ritual-knowledge-already-used");
+        var requiredTags = _heretic.TryGetRequiredKnowledgeTags(args.Mind);
+
+        if (requiredTags == null)
             return false;
-        }
 
-        if (requiredTags.Count == 0)
+        var lookup = _lookup.GetEntitiesInRange(args.Platform, 1.5f);
+
+        _toDelete.Clear();
+        _missingTags.Clear();
+        _missingTags.UnionWith(requiredTags);
+        foreach (var look in lookup)
         {
-            var allTags = _prot.Index<DatasetPrototype>(EligibleTagsDataset).Values.ToList();
-
-            if (allTags.Count < 5)
-            {
-                outstr = Loc.GetString("heretic-ritual-fail-not-enough-tags");
-                return false;
-            }
-
-            var selectedTags = new HashSet<string>();
-            while (selectedTags.Count < 5 && selectedTags.Count < allTags.Count)
-            {
-                var tagIndex = _rand.Next(allTags.Count);
-                selectedTags.Add(allTags[tagIndex]);
-            }
-
-            foreach (var tag in selectedTags)
-            {
-                var protoId = new ProtoId<TagPrototype>(tag);
-                requiredTags.Add(protoId, 1);
-                requiredTagsLocale.Add(Loc.GetString("names-eligibleTags-" + tag));
-            }
-        }
-
-        var lookup = _lookup.GetEntitiesInRange(args.Platform, .75f);
-
-        var workingRequiredTags = new Dictionary<ProtoId<TagPrototype>, int>(requiredTags);
-
-        foreach (var entity in lookup)
-        {
-            if (_container.IsEntityInContainer(entity))
+            if (!args.EntityManager.TryGetComponent<TagComponent>(look, out var tags))
                 continue;
 
-            if (!args.EntityManager.TryGetComponent<TagComponent>(entity, out var tagComponent))
+            if (_container.IsEntityInContainer(look))
                 continue;
 
-            var entityTags = tagComponent.Tags;
-
-            foreach (var requiredTag in workingRequiredTags.Keys.ToList())
+            _missingTags.RemoveWhere(tag =>
             {
-                if (workingRequiredTags[requiredTag] <= 0)
-                    continue;
-
-                if (entityTags.Contains(requiredTag))
+                if (_tag.HasTag(tags, tag))
                 {
-                    workingRequiredTags[requiredTag]--;
-                    toDelete.Add(entity);
-                    break;
+                    _toDelete.Add(look);
+                    return true;
                 }
-            }
+
+                return false;
+            });
         }
 
-        var missingList = new List<ProtoId<TagPrototype>>();
-        foreach (var tag in workingRequiredTags)
+        if (_missingTags.Count > 0)
         {
-            if (tag.Value > 0)
-                missingList.Add(tag.Key);
-        }
-
-        if (missingList.Count > 0)
-        {
-            var missingListLocaled = new List<string>();
-            foreach (var missingTag in missingList)
-            {
-                missingListLocaled.Add(Loc.GetString("names_eligibleTags-" + missingTag.Id));
-            }
-
-            var sb = new StringBuilder();
-            for (int i = 0; i < missingListLocaled.Count; i++)
-            {
-                if (i == missingListLocaled.Count - 1)
-                    sb.Append(missingListLocaled[i]);
-                else
-                    sb.Append($"{missingListLocaled[i]}, ");
-            }
-
-            outstr = Loc.GetString("heretic-ritual-fail-items", ("itemlist", sb.ToString()));
+            var missing = string.Join(", ", _missingTags);
+            outstr = Loc.GetString("heretic-ritual-fail-items", ("itemlist", missing));
             return false;
         }
 
@@ -139,21 +73,21 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
 
     public override void Finalize(RitualData args)
     {
-        foreach (var ent in toDelete)
+        foreach (var ent in _toDelete)
         {
             args.EntityManager.QueueDeleteEntity(ent);
         }
-        toDelete.Clear();
 
-        if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
-        {
-            _heretic.UpdateKnowledge(args.Performer, hereticComp, 4);
-        }
+        _toDelete.Clear();
 
-        // Добавляем компонент, чтобы пометить ритуал как использованный
-        args.EntityManager.EnsureComponent<HereticKnowledgeRitualUsedComponent>(args.Performer);
+        if (!args.EntityManager.TryGetComponent(args.Mind, out StoreComponent? store) ||
+            !args.EntityManager.TryGetComponent(args.Mind, out MindComponent? mind))
+            return;
 
-        requiredTags.Clear();
-        requiredTagsLocale.Clear();
+        _heretic.UpdateMindKnowledge((args.Mind, args.Mind.Comp, store, mind), args.Performer, 5);
+        args.Mind.Comp.ChosenRitual = null;
+        args.Mind.Comp.KnowledgeRequiredTags.Clear();
+        args.Mind.Comp.KnownRituals.Remove(args.RitualId);
+        args.EntityManager.Dirty(args.Mind);
     }
 }

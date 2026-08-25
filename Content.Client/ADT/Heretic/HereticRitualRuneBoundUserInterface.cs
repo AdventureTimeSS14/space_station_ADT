@@ -1,3 +1,5 @@
+//
+
 using Content.Client.ADT.Heretic.UI;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;

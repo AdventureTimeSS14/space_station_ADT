@@ -64,6 +64,7 @@
     Matchstick: 1
   output:
     HereticBladeAsh: 1
+  limit: 2 # ADT: max 2 blades
 
 - type: hereticRitual
   id: MaskOfMadness
@@ -87,7 +88,10 @@
     sprite: ADT/Heretic/abilities_heretic.rsi
     state: ashlord_rite2
   customBehaviors:
-  - !type:RitualAscensionSacrificeBehavior
+  - !type:RitualCanAscend
+  - !type:RitualAshAscendBehavior
+    min: 3
+    max: 3
   outputKnowledge: AshlordRite
   outputEvent: !type:EventHereticAscension
 
@@ -103,6 +107,7 @@
     Knife: 4
   output:
     HereticBladeBlade: 1
+  limit: 2 # ADT: max 2 blades
 
 - type: hereticRitual
   id: AscensionBlade
@@ -112,7 +117,11 @@
     sprite: ADT/Heretic/items.rsi
     state: protective_blade
   customBehaviors:
-  - !type:RitualAscensionSacrificeBehavior
+  - !type:RitualCanAscend
+  # ADT: no decapitation without shitmed, plain sacrifice
+  - !type:RitualSacrificeBehavior
+    min: 3
+    max: 3
   outputKnowledge: MaelstromOfSilver
   outputEvent: !type:EventHereticAscension
 
@@ -131,6 +140,7 @@
     Knife: 1
   output:
     HereticBladeFlesh: 1
+  limit: 2 # ADT: max 2 blades
 
 - type: hereticRitual
   id: ImperfectRitual
@@ -186,7 +196,10 @@
     sprite: ADT/Heretic/abilities_heretic.rsi
     state: final_hymn
   customBehaviors:
-  - !type:RitualAscensionSacrificeBehavior
+  - !type:RitualCanAscend
+  - !type:RitualSacrificeBehavior
+    min: 4
+    max: 4
   outputKnowledge: PriestFinalHymn
   outputEvent: !type:EventHereticAscension
 
@@ -207,6 +220,7 @@
     Knife: 1
   output:
     HereticBladeVoid: 1
+  limit: 2 # ADT: max 2 blades
 
 - type: hereticRitual
   id: AscensionVoid
@@ -216,7 +230,10 @@
     sprite: Interface/Alerts/temperature.rsi
     state: cold3
   customBehaviors:
-  - !type:RitualAscensionSacrificeBehavior
+  - !type:RitualCanAscend
+  - !type:RitualSacrificeBehavior
+    min: 3
+    max: 3
   - !type:RitualTemperatureBehavior
     minThreshold: -20
   outputKnowledge: WaltzAtTheEndOfTime
@@ -241,7 +258,7 @@
   locName: knowledge-path-side-s3-armor-name
   locDesc: knowledge-path-side-s3-armor-desc
   icon:
-    sprite: ADT/Heretic/eldritch_armor.rsi
+    sprite: ADT/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
     state: icon
   requiredTags:
     Table: 1
@@ -301,6 +318,33 @@
   output:
     ADTClothingOuterArmorHereticAsh: 1
 
+# ADT: Cosmos/Rust armor
+- type: hereticRitual
+  id: ArmorerRitualCosmos
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: ADT/Heretic/Clothing/OuterClothing/cosmos_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ADTClothingOuterArmorHereticCosmos: 1
+
+- type: hereticRitual
+  id: ArmorerRitualRust
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: ADT/Heretic/Clothing/OuterClothing/rust_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ADTClothingOuterArmorHereticRust: 1
+
 - type: hereticRitual
   id: AshenEyesRitual
   locName: knowledge-path-side-s3-ashen-eyes-name
@@ -329,3 +373,151 @@
     HereticEldritchFlask: 1
 
 ## stage 7
+
+
+# ADT: base rituals from Goob
+- type: hereticRitual
+  id: Reminiscence
+  locName: heretic-ritual-basic-reminiscence
+  locDesc: heretic-ritual-basic-reminiscence-desc
+  icon:
+    sprite: ADT/Heretic/Blades/eldritch_blade.rsi
+    state: icon
+  customBehaviors:
+  - !type:RitualRecallBladeBehavior
+  requiredTags:
+    Chair: 1
+
+- type: hereticRitual
+  id: FeastOfOwls
+  locName: heretic-ritual-basic-owls
+  locDesc: heretic-ritual-basic-owls-desc
+  runeSuccessAnimation: false
+  icon:
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    state: god_transmit
+  customBehaviors:
+  - !type:RitualCanAscend
+    checkObjectives: false
+  - !type:RitualFeastOfOwlsBehavior
+
+### rust path
+- type: hereticRitual
+  id: BladeRust
+  locName: knowledge-path-rust-s1-name
+  locDesc: knowledge-path-rust-s1-desc
+  icon:
+    sprite: ADT/Heretic/Blades/blade_rust.rsi
+    state: icon
+  requiredTags:
+    Knife: 1
+    Trash: 1
+  output:
+    HereticBladeRust: 1
+  limit: 2
+
+- type: hereticRitual
+  id: AscensionRust
+  locName: knowledge-path-rust-s9-name
+  locDesc: knowledge-path-rust-s9-desc
+  icon:
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    state: ascension_rust
+  customBehaviors:
+  - !type:RitualCanAscend
+  - !type:RitualRustAscendBehavior
+    min: 3
+    max: 3
+  outputKnowledge: RustbringersOath
+  outputEvent: !type:EventHereticAscension
+
+### cosmic path
+- type: hereticRitual
+  id: BladeCosmos
+  locName: knowledge-path-cosmos-s1-name
+  locDesc: knowledge-path-cosmos-s1-desc
+  icon:
+    sprite: ADT/Heretic/Blades/blade_cosmos.rsi
+    state: icon
+  requiredTags:
+    Knife: 1
+    SheetGlass: 1
+  output:
+    HereticBladeCosmos: 1
+  limit: 2
+
+- type: hereticRitual
+  id: AscensionCosmos
+  locName: knowledge-path-cosmos-s9-name
+  locDesc: knowledge-path-cosmos-s9-desc
+  icon:
+    sprite: ADT/Heretic/abilities_heretic.rsi
+    state: stargazer
+  customBehaviors:
+  - !type:RitualCanAscend
+  - !type:RitualCosmosAscendBehavior
+    min: 3
+    max: 3
+  outputKnowledge: CreatorsGift
+  outputEvent: !type:EventHereticAscension
+
+### side, stage 3
+- type: hereticRitual
+  id: VoidCloak
+  locName: knowledge-path-side-s3-void-cloak-name
+  locDesc: knowledge-path-side-s3-void-cloak-desc
+  icon:
+    sprite: ADT/Heretic/Clothing/OuterClothing/void_cloak.rsi
+    state: icon
+  requiredTags:
+    GlassShard: 1
+    Bedsheet: 1
+    WinterCoat: 1
+  output:
+    ClothingOuterArmorCloakVoid: 1
+
+- type: hereticRitual
+  id: ScorchingShark
+  locName: knowledge-path-side-s3-shark-name
+  locDesc: knowledge-path-side-s3-shark-desc
+  icon:
+    sprite: ADT/Heretic/eldritch_mobs.rsi
+    state: fire_shark_icon
+  requiredTags:
+    Ash: 3
+    Liver: 1
+    SheetPlasma: 3
+  output:
+    MobGhoulFireShark: 3
+  limit: 15
+
+### side, stage 6
+- type: hereticRitual
+  id: RustedRitual
+  locName: knowledge-path-side-s6-rustwalker-name
+  locDesc: knowledge-path-side-s6-rustwalker-desc
+  icon:
+    sprite: ADT/Heretic/eldritch_mobs.rsi
+    state: rust_walker
+  customBehaviors:
+  - !type:RitualReagentPuddleBehavior
+    reagent: Vomit
+  requiredTags:
+    Steel: 10
+    CableCoil: 15
+  output:
+    MobGhoulRustWalker: 1
+
+- type: hereticRitual
+  id: CarvingKnife
+  locName: knowledge-path-side-s6-knife-name
+  locDesc: knowledge-path-side-s6-knife-desc
+  icon:
+    sprite: ADT/Heretic/items.rsi
+    state: rune_carver
+  requiredTags:
+    GlassShard: 1
+    Paper: 1
+    Knife: 1
+  output:
+    CarvingKnife: 1
