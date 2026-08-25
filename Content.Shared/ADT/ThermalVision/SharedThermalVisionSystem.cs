@@ -150,10 +150,10 @@ public abstract class SharedThermalVisionSystem : EntitySystem
                 nightVision.Color = thermal.Color;
                 nightVision.UseAlternativeShader = thermal.UseAlternativeShader;
                 nightVision.HighlightLightSources = thermal.HighlightLightSources;
+                nightVision.HighlightOnly = thermal.HighlightOnly;
                 nightVision.IgnoredComponents = new(thermal.IgnoredComponents);
             }
 
-            nightVision.HighlightOnly = item.Comp.HighlightOnly;
             nightVision.State = ThermalVisionState.Full;
             Dirty(user, nightVision);
         }

@@ -23,7 +23,4 @@ public sealed partial class ThermalVisionItemComponent : Component
     // Only allows for a single slotflag right now because some code uses strings and some code uses enums to determine slots :(
     [DataField, AutoNetworkedField]
     public SlotFlags SlotFlags { get; set; } = SlotFlags.EYES;
-
-    [DataField, AutoNetworkedField]
-    public bool HighlightOnly;
 }

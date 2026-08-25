@@ -73,10 +73,6 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         if (_active)
             return;
 
-        var shaderId = ent.Comp.UseAlternativeShader ? ScreenShaderAltId : ScreenShaderId;
-        if (!_prototypes.TryIndex<ShaderPrototype>(shaderId, out var screenShader))
-            return;
-
         _active = true;
         _activeAlt = ent.Comp.UseAlternativeShader;
         _activeHighlight = ent.Comp.HighlightOnly;
@@ -96,14 +92,18 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
             _overlayMan.AddOverlay(_lightSourcesOverlay);
         }
 
-        if (!ent.Comp.HighlightOnly)
-        {
-            _overlay = new ThermalVisionOverlay(screenShader);
-            _overlayMan.AddOverlay(_overlay);
+        if (ent.Comp.HighlightOnly)
+            return;
 
-            _effect = SpawnAttachedTo(ent.Comp.EffectPrototype, Transform(ent).Coordinates);
-            _xform.SetParent(_effect.Value, ent.Owner);
-        }
+        var shaderId = ent.Comp.UseAlternativeShader ? ScreenShaderAltId : ScreenShaderId;
+        if (!_prototypes.TryIndex<ShaderPrototype>(shaderId, out var screenShader))
+            return;
+
+        _overlay = new ThermalVisionOverlay(screenShader);
+        _overlayMan.AddOverlay(_overlay);
+
+        _effect = SpawnAttachedTo(ent.Comp.EffectPrototype, Transform(ent).Coordinates);
+        _xform.SetParent(_effect.Value, ent.Owner);
     }
 
     private void AttemptRemoveVision(bool force = false)
