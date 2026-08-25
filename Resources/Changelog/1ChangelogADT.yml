@@ -14645,3 +14645,9 @@ Entries:
     id: 1855
     pr_number: 3082
     time: '2026-08-25T14:30:51Z'
+  - author: maksim21612
+    changes:
+      - {message: Исправлена текстура у кувалды теперь она верно отображается, type: Fix}
+    id: 1856
+    pr_number: 3275
+    time: '2026-08-25T17:36:53Z'
