@@ -8,6 +8,7 @@ shadowling-thrall-examine = Черты лица неестественно на�
 shadowling-not-hatched = Ваши телепатические способности подавлены. Сначала сбросьте маскировку.
 
 # Hatch
+shadowling-round-duration-cooldown = Вы сможете раскрыться через { $minutes } мин.
 shadowling-hatch-need-floor = Чтобы раскрыться, нужно стоять на полу!
 shadowling-hatch-begin-self = Вы сбрасываете всё, что может помешать вылуплению, и начинаете выделять смолу, которая вас защитит.
 shadowling-hatch-begin-others = Вещи { $user } внезапно сползают. С них стекает обильная фиолетовая жижа, которая начинает формироваться вокруг.
