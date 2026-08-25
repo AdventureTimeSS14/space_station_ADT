@@ -14615,3 +14615,9 @@ Entries:
     id: 1853
     pr_number: 3272
     time: '2026-08-25T14:12:24Z'
+  - author: FriendlyOne
+    changes:
+      - {message: 'Нианы теперь дерутся когтями, нанося режущий урон с руки', type: Tweak}
+    id: 1854
+    pr_number: 3262
+    time: '2026-08-25T14:17:56Z'
