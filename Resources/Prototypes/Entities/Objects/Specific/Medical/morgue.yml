@@ -124,6 +124,7 @@
     tags:
     - Burnt
     - Trash
+    - Ash # ADT-Heretic: ритуал Обжигающей акулы
   - type: SolutionContainerManager
     solutions:
       food:

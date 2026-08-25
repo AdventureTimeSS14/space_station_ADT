@@ -6,13 +6,34 @@
   components:
   - type: HereticMagicItem
   - type: Sprite
-    sprite: ADT/Heretic/eldritch_hood.rsi
+    sprite: ADT/Heretic/Clothing/Head/eldritch_hood.rsi
     state: icon
   - type: Clothing
-    sprite: ADT/Heretic/eldritch_hood.rsi
+    sprite: ADT/Heretic/Clothing/Head/eldritch_hood.rsi
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: HideLayerClothing
-    slots:
-    - Hair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHoodVoidCloakHeretic
+  name: void hood
+  description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Clothing/Head/void_cloak_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Heretic/Clothing/Head/void_cloak_hood.rsi
+  - type: Tag
+    tags: [ ]
+  - type: StripMenuInvisible
+  - type: VoidCloakHood
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.7
+        Caustic: 0.7

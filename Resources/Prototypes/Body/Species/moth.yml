@@ -167,6 +167,15 @@
         Burn:
           sprite: Mobs/Effects/burn_damage.rsi
     - type: MothAccent
+    # ADT-Tweak start: моли дерутся когтями (режущий урон)
+    - type: MeleeWeapon
+      soundHit:
+        path: /Audio/Weapons/slash.ogg
+      animation: WeaponArcClaw
+      damage:
+        types:
+          Slash: 5
+    # ADT-Tweak end
     # ADT-Tweak start
     - type: Vocal
       sounds:
