@@ -48,6 +48,11 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 
 public abstract partial class SharedGunSystem : EntitySystem
 {
+    // ADT-Tweak-Start
+    private static readonly TimeSpan MinFireRateInterval = TimeSpan.FromSeconds(0.5);
+    private const int MaxCatchUpShots = 100;
+    // ADT-Tweak-End
+
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly INetManager _netManager = default!;
@@ -349,6 +354,11 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (gun.Comp.SelectedMode == SelectiveFire.Burst || gun.Comp.BurstActivated)
             fireRate = TimeSpan.FromSeconds(1f / gun.Comp.BurstFireRate);
 
+        // ADT-Tweak-Start
+        if (fireRate <= TimeSpan.Zero || double.IsNaN(fireRate.TotalSeconds) || fireRate < MinFireRateInterval)
+          fireRate = MinFireRateInterval;
+        // ADT-Tweak-End
+
         // First shot
         // Previously we checked shotcounter but in some cases all the bullets got dumped at once
         // curTime - fireRate is insufficient because if you time it just right you can get a 3rd shot out slightly quicker.
@@ -358,11 +368,13 @@ public abstract partial class SharedGunSystem : EntitySystem
         var shots = 0;
         var lastFire = gun.Comp.NextFire;
 
-        while (gun.Comp.NextFire <= curTime)
+        // ADT-Tweak-Start
+        while (gun.Comp.NextFire <= curTime && shots < MaxCatchUpShots)
         {
             gun.Comp.NextFire += fireRate;
             shots++;
         }
+        // ADT-Tweak-End
 
         // NextFire has been touched regardless so need to dirty the gun.
         DirtyField(gun.AsNullable(), nameof(GunComponent.NextFire));
