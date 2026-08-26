@@ -3978,4 +3978,60 @@
   - type: EmbeddableProjectile
     offset: -0.15,0.0
 
+#karmafom
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSani
+  name: plushie toy sani
+  description: plushie toy sani
+  suffix: Personal, karmafom
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_sani
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: sani-inhand-left
+      right:
+      - state: sani-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: sani-equipped-HELMET
+        offset: "0, 0.06"
+
+#BarCow
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSif
+  name: plushie toy sif
+  description: plushie toy sif
+  suffix: Personal, Barcow
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_sif
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: sif-inhand-left
+      right:
+      - state: sif-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: sif-equipped-HELMET
+        offset: "0, 0.06"
 #SPONSOR-ITEMS-END
