@@ -351,9 +351,10 @@ public abstract partial class SharedGunSystem : EntitySystem
             return false;
 
         // ADT-Tweak-Start
-        var fireRateSeconds = 1f / gun.Comp.FireRateModified;
+        var fireRateSeconds = 1d / gun.Comp.FireRateModified;
+
         if (gun.Comp.SelectedMode == SelectiveFire.Burst || gun.Comp.BurstActivated)
-            fireRateSeconds = 1f / gun.Comp.BurstFireRate;
+            fireRateSeconds = 1d / gun.Comp.BurstFireRate;
 
         if (double.IsNaN(fireRateSeconds) || fireRateSeconds < MinFireRateInterval.TotalSeconds)
         {
