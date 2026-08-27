@@ -14690,3 +14690,10 @@ Entries:
     id: 1861
     pr_number: 3280
     time: '2026-08-27T09:22:15Z'
+  - author: Golyb4ik
+    changes:
+      - {message: Изменено количество слотов внешности и причёсок некоторым расам,
+        type: Tweak}
+    id: 1862
+    pr_number: 3261
+    time: '2026-08-27T11:12:40Z'
