@@ -1,5 +1,5 @@
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.EntitySystems;
+//
+
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Heretic.Prototypes;
@@ -9,14 +9,11 @@ namespace Content.Server.Heretic.Ritual;
 
 public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 {
-
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-
-    private EntityLookupSystem _lookup = default!;
+    protected EntityLookupSystem _lookup = default!;
 
     [DataField] public ProtoId<ReagentPrototype>? Reagent;
 
-    private List<EntityUid> _uids = new();
+    private List<EntityUid> uids = new();
 
     public override bool Execute(RitualData args, out string? outstr)
     {
@@ -31,32 +28,21 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 
         foreach (var ent in lookup)
         {
-            if (!args.EntityManager.TryGetComponent(ent, out PuddleComponent? puddle))
+            if (!args.EntityManager.TryGetComponent<PuddleComponent>(ent, out var puddle))
                 continue;
 
             if (puddle.Solution == null)
                 continue;
 
-            if (!args.EntityManager.TryGetComponent(puddle.Solution.Value, out SolutionComponent? solutionComp))
+            var soln = puddle.Solution.Value;
+
+            if (!soln.Comp.Solution.ContainsPrototype(Reagent))
                 continue;
 
-            var hasReagent = false;
-            foreach (var reagent in solutionComp.Solution.Contents)
-            {
-                if (reagent.Reagent.Prototype == Reagent.Value)
-                {
-                    hasReagent = true;
-                    break;
-                }
-            }
-
-            if (!hasReagent)
-                continue;
-
-            _uids.Add(ent);
+            uids.Add(ent);
         }
 
-        if (_uids.Count == 0)
+        if (uids.Count == 0)
         {
             outstr = Loc.GetString("heretic-ritual-fail-reagentpuddle", ("reagentname", Reagent!));
             return false;
@@ -67,9 +53,8 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 
     public override void Finalize(RitualData args)
     {
-        foreach (var uid in _uids)
+        foreach (var uid in uids)
             args.EntityManager.QueueDeleteEntity(uid);
-
-        _uids.Clear();
+        uids = new();
     }
 }

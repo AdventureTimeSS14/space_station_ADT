@@ -325,7 +325,7 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
             return;
 
         _audio.PlayPvs(ent.Comp.StrikeSound, target);
-        _damageable.TryChangeDamage(target, ent.Comp.StrikeDamage, ignoreResistances: true, origin: user);
+        _damageable.TryChangeDamage(target, ent.Comp.StrikeDamage, ignoreResistances: false, origin: user);
         _stun.TryUpdateStunDuration(target, ent.Comp.StrikeStun);
 
         var direction = _transform.GetMapCoordinates(target).Position - _transform.GetMapCoordinates(user).Position;
@@ -364,10 +364,10 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
             if (mob.Owner == user || mob.Owner == target || _mobState.IsDead(mob))
                 continue;
 
-            _damageable.TryChangeDamage(mob.Owner, ent.Comp.DashSplashDamage, ignoreResistances: true, origin: user);
+            _damageable.TryChangeDamage(mob.Owner, ent.Comp.DashSplashDamage, ignoreResistances: false, origin: user);
         }
 
-        _damageable.TryChangeDamage(target, ent.Comp.DashDamage, ignoreResistances: true, origin: user);
+        _damageable.TryChangeDamage(target, ent.Comp.DashDamage, ignoreResistances: false, origin: user);
 
         DashThrough(ent, user, target);
 
@@ -406,7 +406,7 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
                 if (mob.Owner == user || mob.Owner == target || _mobState.IsDead(mob))
                     continue;
 
-                _damageable.TryChangeDamage(mob.Owner, ent.Comp.DashTrailDamage, ignoreResistances: true, origin: user);
+                _damageable.TryChangeDamage(mob.Owner, ent.Comp.DashTrailDamage, ignoreResistances: false, origin: user);
             }
         }
 
@@ -431,7 +431,7 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
             return;
 
         _audio.PlayPvs(ent.Comp.HealSound, user);
-        _damageable.TryChangeDamage(target, ent.Comp.HealCost, ignoreResistances: true, origin: user);
+        _damageable.TryChangeDamage(target, ent.Comp.HealCost, ignoreResistances: false, origin: user);
 
         var mend = EnsureComp<ADTShadowMendComponent>(user);
         mend.NextTick = _timing.CurTime;

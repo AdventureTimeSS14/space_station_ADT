@@ -596,6 +596,7 @@
   - type: Item
     storedOffset: 0,-4
   - type: Gun
+    fireRate: 3.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
       params:

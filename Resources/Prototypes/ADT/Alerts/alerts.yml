@@ -140,6 +140,15 @@
   name: alerts-pickup-name
   description: alerts-pickup-desc
 
+# ADT Heretic: алерт Покрова тени
+- type: alert
+  id: ShadowCloak
+  icons:
+  - sprite: /Textures/ADT/Heretic/Interface/Alerts/shdaow_cloak.rsi
+    state: curse
+  name: alerts-shadow-cloak-name
+  description: alerts-shadow-cloak-desc
+
 - type: alert
   id: ADTColdDrask
   category: Temperature

@@ -42,6 +42,7 @@
     # ADT toys start
     - id: ADTPlushieOwl
     - id: ADTPlushieOctocat
+    - id: ADTPlushieSani
     # ADT toys end
     - !type:GroupSelector
       children:

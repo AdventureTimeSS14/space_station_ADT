@@ -29,12 +29,14 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly StoreSystem _store = default!;
 
 
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/ADT/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
+
+    public static readonly SoundSpecifier BriefingSoundIntense =
+        new SoundPathSpecifier("/Audio/ADT/Heretic/Ambience/Antag/Heretic/heretic_gain_intense.ogg");
 
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
 
@@ -43,6 +45,8 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
     [ValidatePrototypeId<CurrencyPrototype>] public readonly ProtoId<CurrencyPrototype> Currency = "KnowledgePoint";
 
     [ValidatePrototypeId<EntityPrototype>] static EntProtoId _mindRole = "MindRoleHeretic";
+
+    public const int InfluencesPerHeretic = 3;
 
     public override void Initialize()
     {
@@ -64,7 +68,7 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
         if (grid == null)
             return;
 
-        for (int i = 0; i < _rand.Next(6, 8); i++)
+        for (int i = 0; i < InfluencesPerHeretic; i++)
             if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
                 Spawn("EldritchInfluence", coords);
     }
@@ -86,23 +90,22 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, HereticFactionId);
 
-        EnsureComp<HereticComponent>(target);
+        // ADT: компонент и магазин живут на сущности разума (mind), а не на теле —
+        // вся логика еретика (TryGetHereticComponent, OnStore, выдача действий) ищет их там.
+        EnsureComp<HereticComponent>(mindId);
 
         // add store
-        var store = EnsureComp<StoreComponent>(target);
+        var store = EnsureComp<StoreComponent>(mindId);
         foreach (var category in rule.StoreCategories)
             store.Categories.Add(category);
         store.CurrencyWhitelist.Add(Currency);
         store.Balance.Add(Currency, 2);
         _store.RefreshAllListings(store);
 
-        var uiComp = EnsureComp<UserInterfaceComponent>(target);
-        if (!_userInterfaceSystem.HasUi(target, StoreUiKey.Key, uiComp))
-        {
-            _userInterfaceSystem.SetUi(target, StoreUiKey.Key, new InterfaceData("StoreBoundUserInterface"));
-        }
-        
-        _store.UpdateUserInterface(target, target, store);
+        _userInterfaceSystem.SetUi(mindId, StoreUiKey.Key, new InterfaceData("StoreBoundUserInterface", -1));
+        _userInterfaceSystem.SetUi(mindId, HereticLivingHeartKey.Key, new InterfaceData("LivingHeartMenuBoundUserInterface", -1));
+
+        _store.UpdateUserInterface(target, mindId, store);
 
         rule.Minds.Add(mindId);
 
