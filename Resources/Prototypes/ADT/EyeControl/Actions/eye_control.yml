@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseAction
+  id: ADTActionEyeControlReturn
+  name: Return to body
+  description: Ends remote viewing and returns you to your body.
+  components:
+  - type: Action
+    priority: -9
+    itemIconStyle: BigAction
+    icon:
+      sprite: ADT/Interface/Actions/xenobiology_console.rsi
+      state: return
+  - type: InstantAction
+    event: !type:EyeControlReturnEvent

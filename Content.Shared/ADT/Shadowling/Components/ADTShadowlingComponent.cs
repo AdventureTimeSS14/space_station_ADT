@@ -97,4 +97,7 @@ public sealed partial class ADTShadowlingComponent : Component
 
     [DataField]
     public TimeSpan EnthrallKnockdown = TimeSpan.FromSeconds(24);
+
+    [DataField]
+    public TimeSpan RoundDurationCooldown = TimeSpan.FromMinutes(25);
 }

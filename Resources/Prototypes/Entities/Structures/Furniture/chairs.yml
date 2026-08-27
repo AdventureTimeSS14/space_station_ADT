@@ -8,6 +8,9 @@
   components:
   - type: Animateable
   - type: Clickable
+  - type: Tag # ADT-Heretic: ритуал Воспоминания (возврат клинка)
+    tags:
+    - Chair
   - type: InteractionOutline
   - type: Physics
     bodyType: Dynamic

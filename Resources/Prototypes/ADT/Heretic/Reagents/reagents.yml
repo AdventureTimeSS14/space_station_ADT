@@ -28,43 +28,23 @@
             Piercing: -1
             Cellular: -1
         conditions:
-        - !type:HasComponentCondition
-          components:
-            - Heretic
-            - Ghoul
-          guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
+        - !type:HereticOrGhoulCondition
       - !type:ModifyBleed
         amount: -1.5
         conditions:
-        - !type:HasComponentCondition
-          components:
-            - Heretic
-            - Ghoul
-          guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
+        - !type:HereticOrGhoulCondition
       - !type:CleanBloodstream
         cleanseRate: 1
         conditions:
-        - !type:HasComponentCondition
-          components:
-            - Heretic
-            - Ghoul
-          guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
+        - !type:HereticOrGhoulCondition
       - !type:GenericStatusEffect
         key: SeeingRainbows
         time: 15.0
         type: Remove
         conditions:
-        - !type:HasComponentCondition
-          components:
-            - Heretic
-            - Ghoul
-          guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
+        - !type:HereticOrGhoulCondition
       - !type:Electrocute
         conditions:
-        - !type:HasComponentCondition
-          components:
-            - Heretic
-            - Ghoul
-          guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-          invert: true
+        - !type:HereticOrGhoulCondition
+          inverted: true
         probability: 0.2

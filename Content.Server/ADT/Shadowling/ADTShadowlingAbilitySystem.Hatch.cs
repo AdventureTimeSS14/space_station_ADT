@@ -32,6 +32,19 @@ public sealed partial class ADTShadowlingAbilitySystem
         if (args.Handled || ent.Comp.Hatched)
             return;
 
+        if (_gameTicker.RoundDuration() < ent.Comp.RoundDurationCooldown)
+        {
+            var remaining = ent.Comp.RoundDurationCooldown - _gameTicker.RoundDuration();
+            var minutes = (int)Math.Ceiling(remaining.TotalMinutes);
+
+            _popup.PopupEntity(
+                Loc.GetString("shadowling-round-duration-cooldown", ("minutes", minutes)),
+                ent,
+                ent);
+
+            return;
+        }
+
         if (ent.Comp.HatchStages.Count == 0)
             return;
 
