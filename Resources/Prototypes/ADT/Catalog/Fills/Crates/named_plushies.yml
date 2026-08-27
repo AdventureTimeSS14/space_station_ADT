@@ -1,0 +1,94 @@
+- type: cargoProduct
+  id: ADTFunNamedPlushies
+  icon:
+    sprite: Objects/Fun/Plushies/human.rsi
+    state: icon
+  product: ADTCrateNamedPlushie
+  cost: 1200
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: entityTable
+  id: ADTAllNamedPlushiesTable
+  table: !type:GroupSelector
+    children:
+    - id: ADTPlushieAaron
+    - id: ADTPlushieAfi
+    - id: ADTPlushieAkula
+    - id: ADTPlushieAmira
+    - id: ADTPlushieAnagiri
+    - id: ADTPlushieAyus
+    - id: ADTPlushieAzalia
+    - id: ADTPlushieAzil
+    - id: ADTPlushieBob
+    - id: ADTPlushieDarina
+    - id: ADTPlushieDekus
+    - id: ADTPlushieDell
+    - id: ADTPlushieDianaSaeros
+    - id: ADTPlushieDreamer
+    - id: ADTPlushieEmiliaEvenwood
+    - id: ADTPlushieEmma
+    - id: ADTPlushieEvgeniy
+    - id: ADTPlushieFries
+    - id: ADTPlushieFritz
+    - id: ADTPlushieGiPatter
+    - id: ADTPlushieGlide
+    - id: ADTPlushieHollowing
+    - id: ADTPlushieIlumi
+    - id: ADTPlushieIohan
+    - id: ADTPlushieJan
+    - id: ADTPlushieJason
+    - id: ADTPlushieJungar
+    - id: ADTPlushieKapitanOgonek
+    - id: ADTPlushieKelly
+    - id: ADTPlushieKoff
+    - id: ADTPlushiekramol
+    - id: ADTPlushieKus
+    - id: ADTPlushieLeia
+    - id: ADTPlushieLiexer
+    - id: ADTPlushieLilit
+    - id: ADTPlushieLo
+    - id: ADTPlushieLuke
+    - id: ADTPlushieLya
+    - id: ADTPlushieMa
+    - id: ADTPlushieMelimaSaeros
+    - id: ADTPlushieMigel
+    - id: ADTPlushieMilkyWay
+    - id: ADTPlushieMio
+    - id: ADTPlushieMorulu
+    - id: ADTPlushieNinaKonogar
+    - id: ADTPlushieNova
+    - id: ADTPlushieOvai
+    - id: ADTPlushiePeter
+    - id: ADTPlushiePochita
+    - id: ADTPlushiePrazat
+    - id: ADTPlushieRebecca
+    - id: ADTPlushieRicker
+    - id: ADTPlushieRose
+    - id: ADTPlushieRykoslave
+    - id: ADTPlushieSani
+    - id: ADTPlushieSati
+    - id: ADTPlushieSchrodinger
+    - id: ADTPlushieSif
+    - id: ADTPlushieSofy
+    - id: ADTPlushieSupernova
+    - id: ADTPlushieTerenty
+    - id: ADTPlushietil
+    - id: ADTPlushieTimrika
+    - id: ADTPlushieUma
+    - id: ADTPlushieUvarov
+    - id: ADTPlushieValtor
+    - id: ADTPlushieVictor
+
+- type: entity
+  parent: CrateGenericSteel
+  id: ADTCrateNamedPlushie
+  name: named plushie crate
+  description: A bunch of soft plushies shaped like the station's crew.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ADTAllNamedPlushiesTable
+        rolls: !type:ConstantNumberSelector
+          value: 10
