@@ -17,9 +17,9 @@ public sealed partial class LegCuffSystem : EntitySystem
     [Dependency] private SharedEnsnareableSystem _ensnareable = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private IGameTiming _timing = default!;
 
-    private readonly Dictionary<EntityUid, TimeSpan> _lastBreakoutSound = new();
     private static readonly TimeSpan BreakoutSoundCooldown = TimeSpan.FromSeconds(1);
 
     public override void Initialize()
@@ -29,12 +29,15 @@ public sealed partial class LegCuffSystem : EntitySystem
         SubscribeLocalEvent<LegCuffComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<LegCuffComponent, LegCuffDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<LegCuffComponent, EntGotRemovedFromContainerMessage>(OnRemovedFromContainer);
-        SubscribeLocalEvent<EnsnareableComponent, GetVerbsEvent<InteractionVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<LegCuffedComponent, GetVerbsEvent<InteractionVerb>>(OnGetVerbs);
         SubscribeLocalEvent<LegCuffedComponent, RemoveEnsnareAlertEvent>(OnSelfBreakoutAttempt);
     }
 
-    private void OnAfterInteract(EntityUid uid, LegCuffComponent comp, AfterInteractEvent args)
+    private void OnAfterInteract(Entity<LegCuffComponent> ent, ref AfterInteractEvent args)
     {
+        var uid = ent.Owner;
+        var comp = ent.Comp;
+
         if (args.Target is not { } target || !args.CanReach || args.Handled)
             return;
 
@@ -61,8 +64,11 @@ public sealed partial class LegCuffSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnDoAfter(EntityUid uid, LegCuffComponent comp, LegCuffDoAfterEvent args)
+    private void OnDoAfter(Entity<LegCuffComponent> ent, ref LegCuffDoAfterEvent args)
     {
+        var uid = ent.Owner;
+        var comp = ent.Comp;
+
         if (args.Cancelled || args.Handled || args.Args.Target is not { } target)
             return;
 
@@ -75,20 +81,21 @@ public sealed partial class LegCuffSystem : EntitySystem
             return;
         }
 
-        _lastBreakoutSound.Remove(target);
+        RemCompDeferred<LegCuffBreakoutSoundComponent>(target);
 
         var cuffed = EnsureComp<LegCuffedComponent>(target);
-        cuffed.CuffedRSI = comp.CuffedRSI;
-        cuffed.BodyIconState = comp.BodyIconState;
+        cuffed.CuffedSprite = comp.CuffedSprite;
         Dirty(target, cuffed);
+
+//        if (TryComp<AppearanceComponent>(target, out var appearance))
+//            _appearance.SetData(target, LegCuffVisuals.Applied, true, appearance);
 
         args.Handled = true;
     }
 
-    private void OnGetVerbs(EntityUid uid, EnsnareableComponent comp, GetVerbsEvent<InteractionVerb> args)
+    private void OnGetVerbs(Entity<LegCuffedComponent> ent, ref GetVerbsEvent<InteractionVerb> args)
     {
-        if (!comp.IsEnsnared)
-            return;
+        var uid = ent.Owner;
 
         if (args.User == uid)
             return;
@@ -96,8 +103,12 @@ public sealed partial class LegCuffSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess)
             return;
 
+        if (!TryComp<EnsnareableComponent>(uid, out var ensnareable) || !ensnareable.IsEnsnared)
+            return;
+
         EntityUid? legCuffEntity = null;
-        foreach (var contained in comp.Container.ContainedEntities)
+
+        foreach (var contained in ensnareable.Container.ContainedEntities)
         {
             if (!HasComp<LegCuffComponent>(contained))
                 continue;
@@ -108,6 +119,8 @@ public sealed partial class LegCuffSystem : EntitySystem
 
         if (legCuffEntity == null)
             return;
+
+        var user = args.User;
 
         var verb = new InteractionVerb
         {
@@ -120,37 +133,41 @@ public sealed partial class LegCuffSystem : EntitySystem
                     return;
 
                 if (TryComp<LegCuffComponent>(legCuffEntity, out var legCuff))
-                    _audio.PlayPredicted(legCuff.RemoveCuffSound, uid, args.User);
+                    _audio.PlayPredicted(legCuff.RemoveCuffSound, uid, user);
 
-                _ensnareable.TryFree(uid, args.User, legCuffEntity.Value, ensnaring);
+                _ensnareable.TryFree(uid, user, legCuffEntity.Value, ensnaring);
             }
         };
 
         args.Verbs.Add(verb);
     }
 
-    private void OnSelfBreakoutAttempt(EntityUid uid, LegCuffedComponent comp, RemoveEnsnareAlertEvent args)
+    private void OnSelfBreakoutAttempt(Entity<LegCuffedComponent> ent, ref RemoveEnsnareAlertEvent args)
     {
+        var uid = ent.Owner;
+
         if (!TryComp<EnsnareableComponent>(uid, out var ensnareable) || !ensnareable.IsEnsnared)
             return;
 
         var now = _timing.CurTime;
-        if (_lastBreakoutSound.TryGetValue(uid, out var lastTime) && now - lastTime < BreakoutSoundCooldown)
+        var cooldown = EnsureComp<LegCuffBreakoutSoundComponent>(uid);
+
+        if (now < cooldown.NextAllowedTime)
             return;
 
-        _lastBreakoutSound[uid] = now;
+        cooldown.NextAllowedTime = now + BreakoutSoundCooldown;
 
         foreach (var contained in ensnareable.Container.ContainedEntities)
         {
             if (!TryComp<LegCuffComponent>(contained, out var legCuff))
                 continue;
 
-            _audio.PlayPvs(legCuff.RemoveCuffSound, uid);
+            _audio.PlayPredicted(legCuff.RemoveCuffSound, uid, uid);
             break;
         }
     }
 
-    private void OnRemovedFromContainer(EntityUid uid, LegCuffComponent comp, EntGotRemovedFromContainerMessage args)
+    private void OnRemovedFromContainer(Entity<LegCuffComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
         var victim = args.Container.Owner;
 
@@ -160,7 +177,9 @@ public sealed partial class LegCuffSystem : EntitySystem
         if (!ReferenceEquals(ens.Container, args.Container))
             return;
 
-        RemComp<LegCuffedComponent>(victim);
-        _lastBreakoutSound.Remove(victim);
+//        _appearance.SetData(victim, LegCuffVisuals.Applied, false);
+
+        RemCompDeferred<LegCuffedComponent>(victim);
+        RemCompDeferred<LegCuffBreakoutSoundComponent>(victim);
     }
 }

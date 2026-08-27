@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Cuffs.Components;
 
@@ -6,8 +7,8 @@ namespace Content.Shared.Cuffs.Components;
 public sealed partial class LegCuffedComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public string CuffedRSI = "ADT/Objects/Misc/legcuffs.rsi";
+    public SpriteSpecifier CuffedSprite =
+        new SpriteSpecifier.Rsi(new ResPath("ADT/Objects/Misc/legcuffs.rsi"), "leg-irons");
 
-    [DataField, AutoNetworkedField]
-    public string BodyIconState = "leg-irons";
+    public TimeSpan BreakoutSoundCooldown = TimeSpan.FromSeconds(1);
 }

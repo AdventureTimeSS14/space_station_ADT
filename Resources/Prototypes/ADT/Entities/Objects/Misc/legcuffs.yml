@@ -10,8 +10,9 @@
     sprite: ADT/Objects/Misc/legcuffs.rsi
     state: icon
   - type: LegCuff
-    cuffedRSI: ADT/Objects/Misc/legcuffs.rsi
-    bodyIconState: leg-irons
+    cuffedSprite:
+      sprite: ADT/Objects/Misc/legcuffs.rsi
+      state: leg-irons
     applyDelay: 4
     startCuffSound:
       path: /Audio/ADT/Entities/Objects/handcuffs.ogg

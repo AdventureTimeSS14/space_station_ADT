@@ -1,73 +1,52 @@
-using Content.Client.Ensnaring; // EnsnaredVisualLayers
+using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Robust.Client.GameObjects;
-using Robust.Shared.Utility;
 
 namespace Content.Client.Cuffs;
 
-public sealed partial class LegCuffVisualizerSystem : EntitySystem
+public sealed partial class LegCuffVisualizerSystem : VisualizerSystem<LegCuffedComponent>
 {
-    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<LegCuffedComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<LegCuffedComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<LegCuffedComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<LegCuffedComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<LegCuffedComponent, AppearanceChangeEvent>(OnAppearanceChange);
     }
-
-    private void OnStartup(EntityUid uid, LegCuffedComponent comp, ComponentStartup args)
+    protected override void OnAppearanceChange(EntityUid uid, LegCuffedComponent component, ref AppearanceChangeEvent args)
     {
-        Apply(uid, comp);
+        if (args.Sprite == null)
+            return;
+
+        if (!AppearanceSystem.TryGetData<bool>(uid, LegCuffVisuals.Applied, out var applied, args.Component))
+            return;
+
+        Entity<SpriteComponent?> ent = (uid, args.Sprite);
+
+//        var layer = _sprite.LayerMapReserve(ent, LegCuffVisualLayers.Overlay);
+//       _sprite.LayerSetSprite(ent, layer, component.CuffedSprite);
+//      _sprite.LayerSetVisible(ent, layer, applied);
     }
 
-    private void OnAppearanceChange(EntityUid uid, LegCuffedComponent comp, ref AppearanceChangeEvent args)
+    private void OnInit(EntityUid uid, LegCuffedComponent component, ComponentInit args)
     {
-        Apply(uid, comp);
+        if (!TryComp<SpriteComponent>(uid, out var sprite) || !TryComp<AppearanceComponent>(uid, out var appearance))
+            return;
+
+        SpriteSystem.LayerMapReserve((uid, sprite), LegCuffVisualLayers.Overlay);
+        SpriteSystem.LayerSetSprite((uid, sprite), LegCuffVisualLayers.Overlay, component.CuffedSprite);
+        SpriteSystem.LayerSetVisible((uid, sprite), LegCuffVisualLayers.Overlay, true);
     }
 
-    private void OnRemove(EntityUid uid, LegCuffedComponent comp, ComponentRemove args)
-    {
-        Clear(uid);
-    }
-
-    private void OnShutdown(EntityUid uid, LegCuffedComponent comp, ComponentShutdown args)
-    {
-        Clear(uid);
-    }
-
-    private void Apply(EntityUid uid, LegCuffedComponent comp)
+    private void OnShutdown(EntityUid uid, LegCuffedComponent component, ComponentShutdown args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        Entity<SpriteComponent?> ent = (uid, sprite);
-
-        var layer = _sprite.LayerMapReserve(ent, LegCuffLayer.Overlay);
-        _sprite.LayerSetSprite(ent, layer,
-            new SpriteSpecifier.Rsi(new ResPath(comp.CuffedRSI), comp.BodyIconState));
-        _sprite.LayerSetVisible(ent, layer, true);
-
-        if (_sprite.LayerMapTryGet(ent, EnsnaredVisualLayers.Ensnared, out var ensLayer, false))
-            _sprite.LayerSetVisible(ent, ensLayer, false);
-    }
-
-    private void Clear(EntityUid uid)
-    {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
+        if (!SpriteSystem.LayerMapTryGet((uid, sprite), LegCuffVisualLayers.Overlay, out var layer, false))
             return;
 
-        Entity<SpriteComponent?> ent = (uid, sprite);
-
-        if (_sprite.LayerMapTryGet(ent, LegCuffLayer.Overlay, out var layer, false))
-            _sprite.LayerSetVisible(ent, layer, false);
+        SpriteSystem.RemoveLayer((uid, sprite), layer);
     }
-}
-
-public enum LegCuffLayer : byte
-{
-    Overlay
 }

@@ -5,11 +5,11 @@ namespace Content.Shared.Cuffs;
 [Serializable, NetSerializable]
 public enum LegCuffVisuals : byte
 {
-    Cuffed
+    Applied
 }
 
 [Serializable, NetSerializable]
 public enum LegCuffVisualLayers : byte
 {
-    Base
+    Overlay
 }

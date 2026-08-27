@@ -1,4 +1,5 @@
 using Robust.Shared.Audio;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Cuffs.Components;
 
@@ -6,10 +7,8 @@ namespace Content.Shared.Cuffs.Components;
 public sealed partial class LegCuffComponent : Component
 {
     [DataField]
-    public string CuffedRSI = "ADT/Objects/Misc/legcuffs.rsi";
-
-    [DataField]
-    public string BodyIconState = "leg-irons";
+    public SpriteSpecifier CuffedSprite =
+        new SpriteSpecifier.Rsi(new ResPath("ADT/Objects/Misc/legcuffs.rsi"), "leg-irons");
 
     [DataField]
     public SoundSpecifier StartCuffSound = new SoundPathSpecifier("/Audio/ADT/Entities/Objects/handcuffs.ogg");
