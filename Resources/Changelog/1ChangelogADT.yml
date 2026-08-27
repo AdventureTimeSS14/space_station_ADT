@@ -14680,3 +14680,13 @@ Entries:
     id: 1860
     pr_number: 3266
     time: '2026-08-27T09:00:50Z'
+  - author: Inconnu && Dertropischeinsel
+    changes:
+      - {message: Добавлена новая карта для Колизея., type: Add}
+      - {message: Удален кашель от курения., type: Remove}
+      - {message: Изменены приёмы проклятой катаны. (Гайдбук в помощь)., type: Tweak}
+      - {message: 'Приёмы проклятой катаны больше не наносят ББ урон, кроме подрезки
+          жил.', type: Tweak}
+    id: 1861
+    pr_number: 3280
+    time: '2026-08-27T09:22:15Z'
