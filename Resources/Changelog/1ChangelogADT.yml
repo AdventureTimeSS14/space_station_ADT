@@ -14659,3 +14659,9 @@ Entries:
     id: 1857
     pr_number: 3276
     time: '2026-08-26T02:34:00Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Взрыв СМа увеличен в ~2 раза, type: Tweak}
+    id: 1858
+    pr_number: 3277
+    time: '2026-08-27T08:55:40Z'
