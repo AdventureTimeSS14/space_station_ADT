@@ -127,5 +127,5 @@
           category: thunderdome-category-shotguns
           sprite: WeaponShotgunEnforcer
     - type: LoadMapRule
-      mapPath: /Maps/Nonstations/dm01-entryway.yml
+      mapPath: /Maps/ADTMaps/Nonstation/thunderdome.yml
     - type: RuleGrids
