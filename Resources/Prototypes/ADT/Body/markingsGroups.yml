@@ -13,10 +13,10 @@
       limit: 1
       required: false
     enum.HumanoidVisualLayers.Hair:
-      limit: 3 #ADT-tweak 1>3
+      limit: 3
       required: false
     enum.HumanoidVisualLayers.FacialHair:
-      limit: 2 #ADT-tweak 1>2
+      limit: 2
       required: false
     enum.HumanoidVisualLayers.Chest:
       limit: 4
@@ -679,10 +679,10 @@
       limit: 1
       required: false
     enum.HumanoidVisualLayers.Hair:
-      limit: 3 #ADT-tweak 1>3
+      limit: 3
       required: false
     enum.HumanoidVisualLayers.FacialHair:
-      limit: 2 #ADT-tweak 1>2
+      limit: 2
       required: false
     enum.HumanoidVisualLayers.Chest:
       limit: 4
@@ -709,28 +709,28 @@
       limit: 1
       required: false
     enum.HumanoidVisualLayers.RArm:
-      limit: 3 #ADT-tweak 2>3
+      limit: 3
       required: false
     enum.HumanoidVisualLayers.LArm:
-      limit: 3 #ADT-tweak 2>3 
+      limit: 3
       required: false
     enum.HumanoidVisualLayers.RHand:
-      limit: 3 #ADT-tweak 2>3
+      limit: 3
       required: false
     enum.HumanoidVisualLayers.LHand:
-      limit: 3 #ADT-tweak 2>3
+      limit: 3
       required: false
     enum.HumanoidVisualLayers.RLeg:
-      limit: 3 #ADT-tweak 2>3
+      limit: 3
       required: false
     enum.HumanoidVisualLayers.LLeg:
-      limit: 3 #ADT-tweak 2>3
+      limit: 3
       required: false
     enum.HumanoidVisualLayers.RFoot:
-      limit: 3 #ADT-tweak 2>3
+      limit: 3
       required: false
     enum.HumanoidVisualLayers.LFoot:
-      limit: 3 #ADT-tweak 2>3
+      limit: 3
       required: false
     enum.HumanoidVisualLayers.Overlay:
       limit: 1
