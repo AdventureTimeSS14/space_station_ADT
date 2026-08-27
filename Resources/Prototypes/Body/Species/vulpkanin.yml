@@ -3,10 +3,10 @@
   id: Vulpkanin
   limits:
     enum.HumanoidVisualLayers.Hair:
-      limit: 3
+      limit: 3 #ADT-tweak 1>3
       required: false
     enum.HumanoidVisualLayers.FacialHair:
-      limit: 2
+      limit: 2 #ADT-tweak 1>2
       onlyGroupWhitelisted: true
       required: false
     enum.HumanoidVisualLayers.Head:
