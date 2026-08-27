@@ -7,10 +7,10 @@
       limit: 2
       required: false
     enum.HumanoidVisualLayers.HeadTop:
-      limit: 2
+      limit: 2 #ADT-tweak 1>2
       required: false
     enum.HumanoidVisualLayers.HeadSide:
-      limit: 2
+      limit: 2 #ADT-tweak 1>2
       required: false
     enum.HumanoidVisualLayers.Chest:
       limit: 2
