@@ -302,49 +302,49 @@
 #   tags:
 #   - LavaDungeon
 
-# - type: entity
-#   id: ADTBaseRoomMarker
-#   parent: MarkerBase
-#   name: ADT room spawner
-#   abstract: true
-#   components:
-#   - type: Sprite
-#     layers:
-#       - state: red
-#       - sprite: Mobs/Aliens/elemental.rsi
-#         state: alive
+- type: entity
+  id: ADTBaseRoomMarker
+  parent: MarkerBase
+  name: ADT room spawner
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Mobs/Aliens/elemental.rsi
+        state: alive
 
-# - type: entity
-#   id: LavaDungeonRoomMarker
-#   parent: ADTBaseRoomMarker
-#   name: LavaDungeon interior marker
-#   components:
-#   - type: ADTRoomFill
-#     clearExisting: true
-#     roomWhitelist:
-#       tags:
-#       - LavaDungeon
-#   - type: ADTRuinBeacon
-#     probability: 0.2
+- type: entity
+  id: LavaDungeonRoomMarker
+  parent: ADTBaseRoomMarker
+  name: LavaDungeon interior marker
+  components:
+  - type: ADTRoomFill
+    clearExisting: true
+    roomWhitelist:
+      tags:
+      - LavaDungeon
+  - type: ADTRuinBeacon
+    probability: 0.2
 
-# - type: entity
-#   id: BloodMinerDungeMarker
-#   parent: ADTBaseRoomMarker
-#   name: blood miner dunge spawer
-#   components:
-#   - type: ADTRoomFill
-#     clearExisting: true
-#     roomWhitelist:
-#       tags:
-#       - LavaDungeonBloodMiner
+- type: entity
+  id: BloodMinerDungeMarker
+  parent: ADTBaseRoomMarker
+  name: blood miner dunge spawer
+  components:
+  - type: ADTRoomFill
+    clearExisting: true
+    roomWhitelist:
+      tags:
+      - LavaDungeonBloodMiner
 
-# - type: entity
-#   id: DrakeDungeMarker
-#   parent: ADTBaseRoomMarker
-#   name: drake lair spawner
-#   components:
-#   - type: ADTRoomFill
-#     clearExisting: true
-#     roomWhitelist:
-#       tags:
-#       - LavaDungeonDrake
+- type: entity
+  id: DrakeDungeMarker
+  parent: ADTBaseRoomMarker
+  name: drake lair spawner
+  components:
+  - type: ADTRoomFill
+    clearExisting: true
+    roomWhitelist:
+      tags:
+      - LavaDungeonDrake
