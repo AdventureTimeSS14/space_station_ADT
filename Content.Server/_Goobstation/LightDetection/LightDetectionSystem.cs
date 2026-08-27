@@ -2,9 +2,12 @@ using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.LightDetection.Systems;
 using Content.Server.Disposal.Unit;
+using Content.Shared.ADT.LightDetection;
+using Content.Shared.Eye;
 using Content.Shared.Physics;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
+using Robust.Shared.Containers;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Threading;
@@ -24,6 +27,7 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IParallelManager _parallel = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     protected override string SawmillName => "light_damage";
 
@@ -44,6 +48,7 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
             XformSys = _transformSystem,
             PhysicsSys = _physicsSystem,
             LookupSys = _lookup,
+            ContainerSys = _container,
         };
 
         Subs.CVar(_cfg, GoobCVars.LightDetectionRange, value => LookupRange = value, true);
@@ -77,6 +82,27 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
         public required SharedTransformSystem XformSys;
         public required SharedPhysicsSystem PhysicsSys;
         public required EntityLookupSystem LookupSys;
+        public required SharedContainerSystem ContainerSys;
+
+        private bool IsVisibleLight(Entity<TransformComponent> light)
+        {
+            if (LightSys.HasComp<IgnoredByLightDetectionComponent>(light))
+                return false;
+
+            if (LightSys.TryComp<VisibilityComponent>(light, out var visibility)
+                && (visibility.Layer & (int) VisibilityFlags.Normal) == 0)
+            {
+                return false;
+            }
+
+            foreach (var container in ContainerSys.GetContainingContainers((light.Owner, light.Comp)))
+            {
+                if (container.OccludesLight)
+                    return false;
+            }
+
+            return true;
+        }
 
         public void Execute(int index)
         {
@@ -102,6 +128,10 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
                     continue;
 
                 var pointXform = LightSys.Transform(point);
+
+                if (!IsVisibleLight((point, pointXform)))
+                    continue;
+
                 var lightPos = XformSys.GetWorldPosition(pointXform);
                 var distance = (lightPos - worldPos).Length();
 
