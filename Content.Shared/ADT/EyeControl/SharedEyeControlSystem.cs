@@ -1,9 +1,8 @@
 using Content.Shared.ADT.Areas;
-using Content.Shared.ADT.Xenobiology.XenobiologyControlConsole;
 
-namespace Content.Shared.ADT.Xenobiology;
+namespace Content.Shared.ADT.EyeControl;
 
-public sealed class SharedXenobiologyEyeSystem : EntitySystem
+public sealed class SharedEyeControlSystem : EntitySystem
 {
     [Dependency] private readonly AreaSystem _area = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
@@ -12,12 +11,15 @@ public sealed class SharedXenobiologyEyeSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<XenobiologyEyeComponent, MoveEvent>(OnEyeMove);
+        SubscribeLocalEvent<EyeControlEyeComponent, MoveEvent>(OnEyeMove);
     }
 
-    private void OnEyeMove(Entity<XenobiologyEyeComponent> ent, ref MoveEvent args)
+    private void OnEyeMove(Entity<EyeControlEyeComponent> ent, ref MoveEvent args)
     {
         if (ent.Comp.IsProcessingMoveEvent || TerminatingOrDeleted(ent))
+            return;
+
+        if (ent.Comp.AllowedArea is null)
             return;
 
         if (_area.GetAreaPrototypeId(args.NewPosition) == ent.Comp.AllowedArea)

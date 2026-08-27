@@ -2,10 +2,10 @@ using Content.Shared.ADT.Areas;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.ADT.Xenobiology.XenobiologyControlConsole;
+namespace Content.Shared.ADT.EyeControl;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(false)]
-public sealed partial class XenobiologyEyeComponent : Component
+public sealed partial class EyeControlEyeComponent : Component
 {
     [DataField(required: true), AutoNetworkedField]
     public EntityUid Pilot;
@@ -14,7 +14,7 @@ public sealed partial class XenobiologyEyeComponent : Component
     public EntityUid Console;
 
     [DataField, AutoNetworkedField]
-    public EntProtoId<AreaComponent> AllowedArea;
+    public EntProtoId<AreaComponent>? AllowedArea;
 
     [ViewVariables]
     public bool IsProcessingMoveEvent;
