@@ -26,3 +26,12 @@
   - /Audio/ADT/Personalization/minokaa_emilia_plushie/emilia_toy-2.ogg
   - /Audio/ADT/Personalization/minokaa_emilia_plushie/emilia_toy-3.ogg
   - /Audio/ADT/Personalization/minokaa_emilia_plushie/emilia_toy-4.ogg
+
+- type: soundCollection
+  id: ADTIvyToySounds
+  files:
+  - "/Audio/ADT/Novakid/novakid_laugh01.ogg"
+  - "/Audio/ADT/Novakid/novakid_laugh02.ogg"
+  - "/Audio/ADT/Novakid/novakid_laugh03.ogg"
+  - "/Audio/ADT/Novakid/novakid_laugh04.ogg"
+  - "/Audio/ADT/Novakid/novakid_laugh05.ogg"
