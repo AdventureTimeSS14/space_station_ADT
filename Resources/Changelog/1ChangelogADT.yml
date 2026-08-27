@@ -14665,3 +14665,9 @@ Entries:
     id: 1858
     pr_number: 3277
     time: '2026-08-27T08:55:40Z'
+  - author: Golyb4ik
+    changes:
+      - {message: Изменена скорость атаки у стальной тонфы, type: Tweak}
+    id: 1859
+    pr_number: 3279
+    time: '2026-08-27T08:55:56Z'
