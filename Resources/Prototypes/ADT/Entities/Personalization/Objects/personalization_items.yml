@@ -1,4 +1,4 @@
-﻿#ADT-TEAM-ITEMS-START
+#ADT-TEAM-ITEMS-START
 
 # Ale_xan_der
 - type: entity
@@ -2532,7 +2532,7 @@
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Battery/yv2.rsi
   - type: Gun
-    fireRate: 2
+    fireRate: 3
     projectileSpeed: 60
     selectedMode: SemiAuto
     availableModes:
@@ -2575,11 +2575,12 @@
   - type: Sprite
     sprite: ADT/Personalization/yv2recharger.rsi
     state: icon
-  # - type: Clothing
-  #   # equippedPrefix: charging
-  #   quickEquip: false
-  #   slots:
-  #   - belt
+  - type: Clothing
+    sprite: ADT/Personalization/yv2recharger.rsi
+    slots: [belt, neck]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+    quickEquip: false
   - type: Charger
     chargeRate: 20 # ADT tweak
     slotId: charger_slot
@@ -3249,7 +3250,7 @@
   - type: AltFireMelee
   # ADT-Tweak end
   - type: Gun
-    fireRate: 1
+    fireRate: 2
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -3976,6 +3977,63 @@
     angle: 245
   - type: EmbeddableProjectile
     offset: -0.15,0.0
+
+#karmafom
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSani
+  name: plushie toy sani
+  description: plushie toy sani
+  suffix: Personal, karmafom
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_sani
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: sani-inhand-left
+      right:
+      - state: sani-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: sani-equipped-HELMET
+        offset: "0, 0.06"
+
+#BarCow
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSif
+  name: plushie toy sif
+  description: plushie toy sif
+  suffix: Personal, Barcow
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_sif
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: sif-inhand-left
+      right:
+      - state: sif-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: sif-equipped-HELMET
+        offset: "0, 0.06"
 
 - type: entity
   parent: PlushieMoth

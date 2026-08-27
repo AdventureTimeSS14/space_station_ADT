@@ -1,6 +1,6 @@
+//
+
 using Content.Server.Heretic.Components;
-using Content.Server.Heretic.Ritual;
-using Content.Server.Chat.Managers;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
@@ -11,12 +11,11 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using System.Text;
 using System.Linq;
-using Robust.Shared.Serialization.Manager;
 using Content.Shared.Examine;
 using Content.Shared.ADT.Heretic.Components;
+using Content.Shared.Stacks;
 using Robust.Shared.Containers;
-using Content.Shared.Chat;
-using Robust.Server.Player;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -24,112 +23,15 @@ public sealed partial class HereticRitualSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ISerializationManager _series = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
+    [Dependency] private readonly HereticSystem _heretic = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly SharedStackSystem _stack = default!;
+    [Dependency] private readonly GhoulSystem _ghoul = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/ADT/Heretic/castsummon.ogg");
-
-    /// <summary>
-    ///     Отправляет рецепт ритуала в чат игроку
-    /// </summary>
-    private void SendRitualRecipeToChat(EntityUid performer, HereticRitualPrototype ritual)
-    {
-        var sb = new StringBuilder();
-
-        // Заголовок ритуала
-        var ritualName = Loc.GetString(ritual.LocName);
-        sb.AppendLine($"[color=#FF6B35]═══ {ritualName} ═══[/color]");
-
-        // Требуемые предметы (теги)
-        if (ritual.RequiredTags != null && ritual.RequiredTags.Count > 0)
-        {
-            sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-required-items")}[/color]");
-            foreach (var tag in ritual.RequiredTags)
-            {
-                var tagKey = $"names_eligibleTags-{tag.Key.Id}";
-                var tagName = Loc.HasString(tagKey) ? Loc.GetString(tagKey) : tag.Key.Id;
-                var countStr = tag.Value > 1 ? $" x{tag.Value}" : "";
-                sb.AppendLine($"  • {tagName}{countStr}");
-            }
-        }
-
-        // Требуемые имена сущностей
-        if (ritual.RequiredEntityNames != null && ritual.RequiredEntityNames.Count > 0)
-        {
-            sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-required-entities")}[/color]");
-            foreach (var entityName in ritual.RequiredEntityNames)
-            {
-                var countStr = entityName.Value > 1 ? $" x{entityName.Value}" : "";
-                sb.AppendLine($"  • {entityName.Key}{countStr}");
-            }
-        }
-
-        if (ritual.CustomBehaviors != null && ritual.CustomBehaviors.Count > 0)
-        {
-            foreach (var behavior in ritual.CustomBehaviors)
-            {
-                if (behavior is RitualSacrificeBehavior sacrifice)
-                {
-                    sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-required-corpses", ("min", sacrifice.Min), ("max", sacrifice.Max))}[/color]");
-                }
-                if (behavior is RitualAscensionSacrificeBehavior ascensionSacrifice)
-                {
-                    sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-required-corpses-ascension", ("min", ascensionSacrifice.Min), ("max", ascensionSacrifice.Max))}[/color]");
-                }
-                if (behavior is RitualTemperatureBehavior temp)
-                {
-                    if (temp.MinThreshold <= 0)
-                        sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-requirement-cold", ("temp", temp.MinThreshold))}[/color]");
-                    else
-                        sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-requirement-hot", ("temp", temp.MinThreshold))}[/color]");
-                }
-                if (behavior is RitualReagentPuddleBehavior reagent && reagent.Reagent != null)
-                {
-                    sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-required-reagent", ("reagent", reagent.Reagent.Value))}[/color]");
-                }
-                // Обработка ритуала знаний - показывает текущие требуемые предметы
-                if (behavior is RitualKnowledgeBehavior)
-                {
-                    var knowledgeTags = RitualKnowledgeBehavior.GetRequiredTags();
-                    if (knowledgeTags.Count > 0)
-                    {
-                        sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-required-items")}[/color]");
-                        foreach (var tag in knowledgeTags)
-                        {
-                            var tagKey = $"names_eligibleTags-{tag.Key.Id}";
-                            var tagName = Loc.HasString(tagKey) ? Loc.GetString(tagKey) : tag.Key.Id;
-                            var countStr = tag.Value > 1 ? $" x{tag.Value}" : "";
-                            sb.AppendLine($"  • {tagName}{countStr}");
-                        }
-                    }
-                    else
-                    {
-                        sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-required-items-knowledge")}[/color]");
-                    }
-                }
-            }
-        }
-
-        var message = sb.ToString();
-        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
-
-        if (_playerManager.TryGetSessionByEntity(performer, out var session))
-        {
-            _chatManager.ChatMessageToOne(ChatChannel.Server,
-                message,
-                wrappedMessage,
-                default,
-                false,
-                session.Channel,
-                Color.FromHex("#FF9632"));
-        }
-    }
 
     public HereticRitualPrototype GetRitual(ProtoId<HereticRitualPrototype>? id)
     {
@@ -141,21 +43,42 @@ public sealed partial class HereticRitualSystem : EntitySystem
     ///     Try to perform a selected ritual
     /// </summary>
     /// <returns> If the ritual succeeded or not </returns>
-    public bool TryDoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public bool TryDoRitual(EntityUid performer,
+        EntityUid mind,
+        HereticComponent heretic,
+        EntityUid platform,
+        ProtoId<HereticRitualPrototype> ritualId)
     {
         // here i'm introducing locals for basically everything
         // because if i access stuff directly shit is bound to break.
         // please don't access stuff directly from the prototypes or else shit will break.
         // regards
 
-        if (!TryComp<HereticComponent>(performer, out var hereticComp))
-            return false;
+        var rit = _proto.Index(ritualId);
 
-        var rit = _series.CreateCopy((HereticRitualPrototype) GetRitual(ritualId).Clone(), notNullableOverride: true);
+        List<EntityUid>? limited = null;
+        var exists = false;
+
+        if (rit.Limit > 0)
+            limited = heretic.LimitedTransmutations.GetOrNew(ritualId, out exists);
+
+        if (limited != null)
+        {
+            if (exists)
+                limited.RemoveAll(x => !Exists(x));
+
+            if (limited.Count >= rit.Limit)
+            {
+                _popup.PopupEntity(Loc.GetString("heretic-ritual-fail-limit"), platform, performer);
+                return false;
+            }
+        }
+
         var lookup = _lookup.GetEntitiesInRange(platform, 1.5f);
 
         var missingList = new Dictionary<string, float>();
         var toDelete = new List<EntityUid>();
+        var toSplit = new List<(Entity<StackComponent> ent, int amount)>();
 
         // check for all conditions
         // this is god awful but it is that it is
@@ -164,7 +87,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         foreach (var behavior in behaviors)
         {
-            var ritData = new RitualData(performer, platform, ritualId, EntityManager);
+            var ritData = new RitualData(performer, platform, (mind, heretic), ritualId, EntityManager, limited, rit.Limit);
 
             if (!behavior.Execute(ritData, out var missingStr))
             {
@@ -176,6 +99,11 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         foreach (var look in lookup)
         {
+            // ADT: the rune ignores the heretic standing on it, so their own gear
+            // is never consumed and they never block their own ritual
+            if (look == performer)
+                continue;
+
             // check for matching tags
             foreach (var tag in requiredTags)
             {
@@ -187,11 +115,19 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
                 if (ltags.Contains(tag.Key))
                 {
-                    requiredTags[tag.Key] -= 1;
+                    TryComp(look, out StackComponent? stack);
+                    var amount = stack == null ? 1 : Math.Min(stack.Count, requiredTags[tag.Key]);
+
+                    requiredTags[tag.Key] -= amount;
 
                     // prevent deletion of more items than needed
                     if (requiredTags[tag.Key] >= 0)
-                        toDelete.Add(look);
+                    {
+                        if (stack == null || stack.Count <= amount)
+                            toDelete.Add(look);
+                        else
+                            toSplit.Add(((look, stack), amount));
+                    }
                 }
             }
         }
@@ -229,7 +165,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
         // finalize all of the custom ones
         foreach (var behavior in behaviors)
         {
-            var ritData = new RitualData(performer, platform, ritualId, EntityManager);
+            var ritData = new RitualData(performer, platform, (mind, heretic), ritualId, EntityManager, limited, rit.Limit);
             behavior.Finalize(ritData);
         }
 
@@ -237,17 +173,38 @@ public sealed partial class HereticRitualSystem : EntitySystem
         foreach (var ent in toDelete)
             QueueDel(ent);
 
+        foreach (var ((ent, stack), amount) in toSplit)
+        {
+            _stack.SetCount(ent, stack.Count - amount, stack);
+        }
+
+        var ghoulQuery = GetEntityQuery<GhoulComponent>();
+
         // add stuff
         var output = rit.Output ?? new();
         foreach (var ent in output.Keys)
-            for (int i = 0; i < output[ent]; i++)
-                Spawn(ent, Transform(platform).Coordinates);
+        {
+            for (var i = 0; i < output[ent]; i++)
+            {
+                var spawned = Spawn(ent, Transform(platform).Coordinates);
+
+                if (ghoulQuery.TryComp(spawned, out var ghoul))
+                    _ghoul.SetBoundHeretic(spawned, performer);
+
+                if (limited == null)
+                    continue;
+
+                limited.Add(spawned);
+                if (limited.Count >= rit.Limit)
+                    break;
+            }
+        }
 
         if (rit.OutputEvent != null)
-            RaiseLocalEvent(performer, rit.OutputEvent, true);
+            RaiseLocalEvent(mind, rit.OutputEvent, true);
 
         if (rit.OutputKnowledge != null)
-            _knowledge.AddKnowledge(performer, hereticComp, (ProtoId<HereticKnowledgePrototype>) rit.OutputKnowledge);
+            _heretic.TryAddKnowledge((mind, heretic),  rit.OutputKnowledge.Value, performer);
 
         return true;
     }
@@ -264,7 +221,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
     private void OnInteract(Entity<HereticRitualRuneComponent> ent, ref InteractHandEvent args)
     {
-        if (!TryComp<HereticComponent>(args.User, out var heretic))
+        if (!_heretic.TryGetHereticComponent(args.User, out var heretic, out var mind))
             return;
 
         if (heretic.KnownRituals.Count == 0)
@@ -280,24 +237,25 @@ public sealed partial class HereticRitualSystem : EntitySystem
     {
         var user = args.Actor;
 
-        if (!TryComp<HereticComponent>(user, out var heretic))
+        if (!_heretic.TryGetHereticComponent(user, out var heretic, out _))
             return;
 
         heretic.ChosenRitual = args.ProtoId;
 
-        var ritual = GetRitual(heretic.ChosenRitual);
-        var ritualName = Loc.GetString(ritual.LocName);
+        var ritualName = Loc.GetString(GetRitual(heretic.ChosenRitual).LocName);
         _popup.PopupEntity(Loc.GetString("heretic-ritual-switch", ("name", ritualName)), user, user);
-        SendRitualRecipeToChat(user, ritual);
     }
 
     private void OnInteractUsing(Entity<HereticRitualRuneComponent> ent, ref InteractUsingEvent args)
     {
-        if (!TryComp<HereticComponent>(args.User, out var heretic))
+        if (!_heretic.TryGetHereticComponent(args.User, out var heretic, out var mind))
             return;
 
-        if (!TryComp<MansusGraspComponent>(args.Used, out var grasp))
+        if (!HasComp<MansusGraspComponent>(args.Used))
             return;
+
+        // ADT: the rune consumes the interaction so the grasp is not spent and gets no cooldown
+        args.Handled = true;
 
         if (heretic.ChosenRitual == null)
         {
@@ -305,21 +263,29 @@ public sealed partial class HereticRitualSystem : EntitySystem
             return;
         }
 
-        if (!TryDoRitual(args.User, ent, (ProtoId<HereticRitualPrototype>) heretic.ChosenRitual))
+        var successAnimation = _proto.Index(heretic.ChosenRitual.Value).RuneSuccessAnimation;
+
+        if (!TryDoRitual(args.User, mind, heretic, ent, heretic.ChosenRitual.Value))
             return;
 
-        _audio.PlayPvs(RitualSuccessSound, ent, AudioParams.Default.WithVolume(-3f));
-        _popup.PopupEntity(Loc.GetString("heretic-ritual-success"), ent, args.User);
-        Spawn("HereticRuneRitualAnimation", Transform(ent).Coordinates);
+        if (successAnimation)
+            RitualSuccess(ent, args.User);
     }
 
     private void OnExamine(Entity<HereticRitualRuneComponent> ent, ref ExaminedEvent args)
     {
-        if (!TryComp<HereticComponent>(args.Examiner, out var h))
+        if (!_heretic.TryGetHereticComponent(args.Examiner, out var h, out _))
             return;
 
         var ritual = h.ChosenRitual != null ? GetRitual(h.ChosenRitual).LocName : null;
-        var name = ritual != null ? Loc.GetString(ritual) : Loc.GetString("heretic-ritual-unknown");
+        var name = ritual != null ? Loc.GetString(ritual) : "None";
         args.PushMarkup(Loc.GetString("heretic-ritualrune-examine", ("rit", name)));
+    }
+
+    public void RitualSuccess(EntityUid ent, EntityUid user)
+    {
+        _audio.PlayPvs(RitualSuccessSound, ent, AudioParams.Default.WithVolume(-3f));
+        _popup.PopupEntity(Loc.GetString("heretic-ritual-success"), ent, user);
+        Spawn("HereticRuneRitualAnimation", Transform(ent).Coordinates);
     }
 }

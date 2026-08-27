@@ -49,30 +49,14 @@
     # ADT Tweak Start
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
       shader: unshaded
+    # Head
     - map: [ "enum.HumanoidVisualLayers.Head" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.Hair" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       shader: unshaded
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
       shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.SnoutOverlay" ]
-      shader: unshaded
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
       shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.Special" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
-      shader: unshaded
+    # Limbs
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
       shader: unshaded
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
@@ -85,13 +69,37 @@
       shader: unshaded
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
       shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Special" ]
+      shader: unshaded
+    # Clothing
+    - map: [ "jumpsuit" ]
+      shader: unshaded
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
       shader: unshaded
     - map: [ "enum.HumanoidVisualLayers.RHand" ]
       shader: unshaded
+    # Stuff that goes over the body but below equipment
     - map: [ "enum.HumanoidVisualLayers.Overlay" ]
       shader: unshaded
-    - map: [ "jumpsuit" ]
+    # More equipment
+    - map: [ "shoes" ]
+      shader: unshaded
+    # Stuff that goes in front of equipment
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.SnoutOverlay" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
       shader: unshaded
     # ADT Tweak End
   - type: Appearance

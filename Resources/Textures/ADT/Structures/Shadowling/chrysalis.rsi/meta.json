@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise 220 at SS13/ss1984/Paradise-master220/icons/obj/smooth_structures/alien/resin_wall.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "chrysalis"
+        },
+        {
+            "name": "chrysalis_lone"
+        }
+    ]
+}

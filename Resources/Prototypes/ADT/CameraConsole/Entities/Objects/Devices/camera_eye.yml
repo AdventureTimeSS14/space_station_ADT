@@ -1,0 +1,143 @@
+- type: entity
+  abstract: true
+  parent: [Incorporeal, BaseMob]
+  id: ADTCameraEyeBase
+  name: camera eye
+  description: A remote camera eye piloted from an eye control console.
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: Fixtures
+    fixtures:
+      lightTrigger:
+        shape:
+          !type:PhysShapeCircle
+          radius: 8
+        density: 80
+        hard: false
+        layer:
+        - GhostImpassable
+  - type: NoFTL
+  - type: Eye
+    pvsScale: 1.5
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 20
+    baseSprintSpeed: 8
+  - type: Visibility
+    layer: 2
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/camera_eye.rsi
+    layers:
+    - state: generic_camera
+      shader: unshaded
+      map: ["base"]
+
+- type: entity
+  parent: ADTCameraEyeBase
+  id: ADTCameraEye
+  name: camera console eye
+  description: A remote camera eye piloted from an advanced camera console.
+  categories: [ HideSpawnMenu, DoNotMap ]
+
+- type: entity
+  parent: ADTCameraEyeBase
+  id: ADTCameraEyeMarker
+  name: camera eye marker
+  description: A marker used for remote camera eyes.
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: Sprite
+    layers:
+    - state: marker
+      shader: unshaded
+      map: ["base"]
+
+- type: entity
+  parent: ADTCameraEyeBase
+  id: ADTCameraEyeAbductor
+  name: abductor camera eye
+  description: A remote abductor camera eye piloted from an eye control console.
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: Sprite
+    layers:
+    - state: abductor_camera
+      shader: unshaded
+      map: ["base"]
+
+- type: entity
+  parent: ADTCameraEyeBase
+  id: ADTCameraEyeYalpElor
+  name: yalp'elor camera eye
+  description: A remote yalp'elor camera eye piloted from an eye control console.
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: Sprite
+    layers:
+    - state: yalp_elor
+      shader: unshaded
+      map: ["base"]
+
+- type: entity
+  parent: ADTCameraEyeBase
+  id: ADTCameraEyeRatvar
+  name: ratvar camera eye
+  description: A remote ratvar camera eye piloted from an eye control console.
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: Sprite
+    layers:
+    - state: ratvar_camera
+      shader: unshaded
+      map: ["base"]
+
+- type: entity
+  parent: ADTCameraEyeBase
+  id: ADTCameraEyeSyndi
+  name: syndicate camera eye
+  description: A remote syndicate camera eye piloted from an eye control console.
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: Sprite
+    layers:
+    - state: syndi
+      shader: unshaded
+      map: ["base"]
+
+- type: entity
+  parent: ADTCameraEyeBase
+  id: ADTCameraEyeXeno
+  name: xeno camera eye
+  description: A remote xenocamera eye piloted from an eye control console.
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: Sprite
+    layers:
+    - state: xeno
+      shader: unshaded
+      map: ["base"]
+
+- type: entity
+  parent: ADTCameraEyeBase
+  id: ADTCameraEyeDarkBlue
+  name: dark blue camera eye
+  description: A remote dark blue camera eye piloted from an eye control console.
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: Sprite
+    layers:
+    - state: darkblue
+      shader: unshaded
+      map: ["base"]
+
+- type: entity
+  parent: ADTCameraEyeBase
+  id: ADTCameraEyeCyan
+  name: cyan camera eye
+  description: A remote cyan camera eye piloted from an eye control console.
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: Sprite
+    layers:
+    - state: cyan
+      shader: unshaded
+      map: ["base"]
