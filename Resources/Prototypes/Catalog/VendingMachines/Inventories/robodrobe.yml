@@ -1,15 +1,20 @@
 - type: vendingMachineInventory
   id: RoboDrobeInventory
   startingInventory:
-    ClothingOuterCoatRobo: 2
-    ClothingUniformJumpsuitRoboticist: 2
-    ClothingUniformJumpskirtRoboticist: 2
-    ClothingShoesColorBlack: 2
-    ClothingHandsGlovesRobohands: 2
-    ClothingHeadHatCorpsoft: 2
-    ClothingHeadBandSkull: 2
-    ClothingHeadsetRobotics: 2
-    ClothingOuterWinterRobo: 2
+    ADTVendingCategoryOuter:  # ADT-Tweak
+        ClothingOuterCoatRobo: 2
+        ClothingOuterWinterRobo: 2
+    ADTVendingCategoryUniforms:  # ADT-Tweak
+        ClothingUniformJumpsuitRoboticist: 2
+        ClothingUniformJumpskirtRoboticist: 2
+    ADTVendingCategoryShoes:  # ADT-Tweak
+        ClothingShoesColorBlack: 2
+    ADTVendingCategoryAccessories: # ADT-Tweak
+        ClothingHandsGlovesRobohands: 2
+        ClothingHeadsetRobotics: 2
+    ADTVendingCategoryHead: # ADT-Tweak
+        ClothingHeadHatCorpsoft: 2
+        ClothingHeadBandSkull: 2
   # ADT-tweak-start
   contrabandInventory:
     ADTClothingOuterEggman: 1

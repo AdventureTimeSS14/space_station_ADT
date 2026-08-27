@@ -72,6 +72,14 @@ namespace Content.Client.VendingMachines
             _menu?.Populate(Owner, _cachedInventory, newState.PriceMultiplier, newState.Credits); //ADT-Economy-Tweak
         }
 
+        protected override void ReceiveMessage(BoundUserInterfaceMessage message)
+        {
+            base.ReceiveMessage(message);
+
+            if (message is VendingMachineUserInfoMessage info)
+                _menu?.SetUserInfo(info.Balance);
+        }
+
         private void OnItemSelected(VendingMachineInventoryEntry entry)
         {
             SendPredictedMessage(new VendingMachineEjectCountMessage(entry, 1));
