@@ -222,7 +222,7 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 10
   - type: Tag
     tags:
     - ADTMedipen

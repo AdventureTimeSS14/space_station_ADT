@@ -11,6 +11,12 @@ medical-assembler-locked = Заблокирован (РНД)
 medical-assembler-requires = Требуется:
 medical-assembler-available = доступно {$volume}u
 medical-assembler-reagent-discount = [color=#6DFFA5]Части уменьшают расход реагентов на {$percent}%.[/color]
+research-technology-med-assembler-pens-1 = Автоинжекторы: базовые
+research-technology-med-assembler-pens-2 = Автоинжекторы: продвинутые
+research-technology-med-assembler-pens-3 = Автоинжекторы: специализированные
+research-unlock-med-assembler-pens-1 = Разблокирует сборку базовых автоинжекторов в медицинском ассемблере.
+research-unlock-med-assembler-pens-2 = Разблокирует сборку продвинутых автоинжекторов в медицинском ассемблере.
+research-unlock-med-assembler-pens-3 = Разблокирует сборку специализированных автоинжекторов в медицинском ассемблере.
 medical-assembler-recipes-tab = Рецепты
 medical-assembler-custom-tab = Кастомный
 medical-assembler-custom-beaker-text = Реагенты в мензурке
