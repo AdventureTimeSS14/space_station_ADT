@@ -1,0 +1,48 @@
+- type: vendingMachineCategory
+  id: ADTVendingCategoryBackpacks
+  name: vending-category-backpacks
+  icon: ClothingBackpack
+  accentColor: "#60a5fa"
+  priority: 1
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryUniforms
+  name: vending-category-uniforms
+  icon: ClothingUniformJumpsuitColorGrey
+  accentColor: "#4ade80"
+  priority: 2
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryOuter
+  name: vending-category-outer
+  icon: ADTClothingOuterCoatLeathOvercoat
+  accentColor: "#fbbf24"
+  priority: 3
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryHead
+  name: vending-category-head
+  icon: ClothingHeadHatBeret
+  accentColor: "#f87171"
+  priority: 4
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryAccessories
+  name: vending-category-accessories
+  icon: ClothingEyesGlasses
+  accentColor: "#a78bfa"
+  priority: 5
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryShoes
+  name: vending-category-shoes
+  icon: ClothingShoesColorBlack
+  accentColor: "#f59e0b"
+  priority: 6
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryUnderwear
+  name: vending-category-underwear
+  icon: ADTClothingUnderwearTopBraWhite
+  accentColor: "#f472b6"
+  priority: 7

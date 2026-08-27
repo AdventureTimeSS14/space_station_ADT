@@ -1,23 +1,27 @@
 - type: vendingMachineInventory
   id: PietyVendInventory
   startingInventory:
-    ClothingUniformJumpsuitChaplain: 2
-    ClothingUniformJumpskirtChaplain: 2
-    ClothingUniformJumpsuitMonasticRobeDark: 1
-    ClothingUniformJumpsuitMonasticRobeLight: 1
-    ClothingNeckStoleChaplain: 1
-    ClothingOuterHoodieChaplain: 1
-    ADTClothingOuterHoodieChaplainWhite: 1 #ADT-tweak
-    ClothingOuterHoodieBlack: 1
-    ClothingHeadHatHoodNunHood: 1
-    ClothingOuterNunRobe: 1
-    ClothingHeadHatFez: 1
-    ClothingHeadHatPlaguedoctor: 1
-    ClothingHeadHatWitch: 1
-    ClothingHeadHatWitch1: 1
-    ClothingOuterPlagueSuit: 1
-    ClothingMaskPlague: 1
-    ClothingHeadsetService: 2
+    ADTVendingCategoryUniforms:  # ADT-Tweak
+        ClothingUniformJumpsuitChaplain: 2
+        ClothingUniformJumpskirtChaplain: 2
+        ClothingUniformJumpsuitMonasticRobeDark: 1
+        ClothingUniformJumpsuitMonasticRobeLight: 1
+    ADTVendingCategoryAccessories:  # ADT-Tweak
+        ClothingNeckStoleChaplain: 1
+        ClothingMaskPlague: 1
+        ClothingHeadsetService: 2
+    ADTVendingCategoryOuter:  # ADT-Tweak
+        ClothingOuterHoodieChaplain: 1
+        ADTClothingOuterHoodieChaplainWhite: 1 #ADT-tweak
+        ClothingOuterHoodieBlack: 1
+        ClothingOuterNunRobe: 1
+        ClothingOuterPlagueSuit: 1
+    ADTVendingCategoryHead:  # ADT-Tweak
+        ClothingHeadHatHoodNunHood: 1
+        ClothingHeadHatFez: 1
+        ClothingHeadHatPlaguedoctor: 1
+        ClothingHeadHatWitch: 1
+        ClothingHeadHatWitch1: 1
     BoxCandle: 2
     BoxCandleSmall: 2
     Urn: 5

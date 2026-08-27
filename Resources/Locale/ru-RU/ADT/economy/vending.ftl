@@ -1,2 +1,13 @@
 vending-ui-credits-amount = Кредитов в автомате: { $credits }
 vending-machine-component-no-balance = Недостаточно средств.
+vending-user-balance = Баланс: { $balance }$
+vending-category-emagged = Скрытые
+vending-category-contraband = Контрабанда
+vending-category-misc = Прочее
+vending-category-backpacks = Рюкзаки
+vending-category-uniforms = Униформа
+vending-category-shoes = Обувь
+vending-category-head = Головные уборы
+vending-category-accessories = Аксессуары
+vending-category-outer = Верхняя одежда
+vending-category-underwear = Нижнее бельё
