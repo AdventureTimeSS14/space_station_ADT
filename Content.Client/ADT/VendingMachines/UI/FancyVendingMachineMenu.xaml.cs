@@ -46,13 +46,13 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
     public Color ButtonDisabledColor = Color.FromHex("#3f3f3fff");
 
     private static readonly VendingCategoryInfo ContrabandCategory = new(
-        "vending-contraband", Loc.GetString("vending-category-contraband"), "", Color.FromHex("#f87171"));
+        "vending-contraband", Loc.GetString("vending-category-contraband"), "CigPackGreen", Color.FromHex("#f87171"));
 
     private static readonly VendingCategoryInfo EmaggedCategory = new(
-        "vending-emagged", Loc.GetString("vending-category-emagged"), "", Color.FromHex("#fbbf24"));
+        "vending-emagged", Loc.GetString("vending-category-emagged"), "Emag", Color.FromHex("#fbbf24"));
 
     private static readonly VendingCategoryInfo MiscCategory = new(
-        "vending-misc", Loc.GetString("vending-category-misc"), "", Color.FromHex("#a0a0a0"));
+        "vending-misc", Loc.GetString("vending-category-misc"), "BoxCardboard", Color.FromHex("#a0a0a0"));
 
     public FancyVendingMachineMenu()
     {

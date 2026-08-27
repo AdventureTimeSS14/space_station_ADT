@@ -9,10 +9,17 @@
                   HorizontalExpand="True"
                   Margin="8 3">
 
+        <Button Name="InfoButton"
+                Text="?"
+                ModulateSelfOverride="#00000000"
+                MinSize="26 26"
+                Margin="0 0 4 0"
+                VerticalAlignment="Center"/>
+
         <EntityPrototypeView
                 Name="ItemPrototype"
-                MinSize="44 44"
-                Scale="1.4 1.4"
+                MinSize="41 41"
+                Scale="1.3 1.3"
                 Margin="0 0 8 0"
                 VerticalAlignment="Center"/>
 
@@ -31,7 +38,7 @@
 
         <adt:FancyButton
                 Name="BuyButton"
-                MinSize="92 32"
+                MinSize="70 24"
                 Margin="8 0 0 0"
                 VerticalAlignment="Center">
             <RichTextLabel Name="CostLabel"

@@ -122,17 +122,17 @@ public sealed class VendingSheetlet<T> : Sheetlet<T> where T : PalettedStyleshee
 
             E<RichTextLabel>()
                 .Class("VendingEntryNameLabel")
-                .Font(sheet.BaseFont.GetFont(12))
+                .Font(sheet.BaseFont.GetFont(11))
                 .FontColor(textPrimary),
 
             E<RichTextLabel>()
                 .Class("VendingEntryCountLabel")
-                .Font(sheet.BaseFont.GetFont(12))
+                .Font(sheet.BaseFont.GetFont(11))
                 .FontColor(textSecondary),
 
             E<RichTextLabel>()
                 .Class("VendingEntryPriceLabel")
-                .Font(sheet.BaseFont.GetFont(12)),
+                .Font(sheet.BaseFont.GetFont(11)),
 
             // ===== FOOTER =====
             E<PanelContainer>()
