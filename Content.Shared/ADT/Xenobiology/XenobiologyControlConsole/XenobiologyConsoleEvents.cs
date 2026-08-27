@@ -9,5 +9,3 @@ public sealed partial class XenobiologyPlaceSlimeEvent : InstantActionEvent;
 public sealed partial class XenobiologyFeedMonkeyEvent : InstantActionEvent;
 
 public sealed partial class XenobiologyRecycleMonkeyEvent : InstantActionEvent;
-
-public sealed partial class XenobiologyReturnEvent : InstantActionEvent;
