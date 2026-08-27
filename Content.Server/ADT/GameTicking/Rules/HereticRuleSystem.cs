@@ -6,6 +6,7 @@ using Content.Server.Station.Components;
 using Content.Server.Objectives;
 using Content.Server.Objectives.Components;
 using Content.Server.Roles;
+using Content.Shared.ADT.HolyDamage;
 using Content.Shared.Heretic;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
@@ -90,10 +91,8 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, HereticFactionId);
 
-        // ADT: компонент и магазин живут на сущности разума (mind), а не на теле —
-        // вся логика еретика (TryGetHereticComponent, OnStore, выдача действий) ищет их там.
         EnsureComp<HereticComponent>(mindId);
-
+        EnsureComp<HolyAffectedComponent>(target);
         // add store
         var store = EnsureComp<StoreComponent>(mindId);
         foreach (var category in rule.StoreCategories)
