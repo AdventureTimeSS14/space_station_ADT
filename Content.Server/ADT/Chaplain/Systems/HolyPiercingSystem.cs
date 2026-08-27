@@ -1,4 +1,5 @@
 using Content.Shared.ADT.Chaplain.Components;
+using Content.Shared.ADT.HolyDamage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
