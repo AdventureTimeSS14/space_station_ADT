@@ -81,3 +81,17 @@
   icon: CheapLighter
   accentColor: "#f87171"
   priority: 2
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryPdasAndCards
+  name: vending-category-pdas-and-cards
+  icon: PassengerPDA
+  accentColor: "#60a5fa"
+  priority: 1
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryEncryptionKeys
+  name: vending-category-encryption-keys
+  icon: EncryptionKeyCargo
+  accentColor: "#a78bfa"
+  priority: 2

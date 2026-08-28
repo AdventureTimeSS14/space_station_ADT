@@ -16,3 +16,5 @@ vending-category-nonalcohol = Безалкогольные
 vending-category-fillers = Посуда и аксессуары
 vending-category-smokables = Курительные изделия
 vending-category-lighters = Зажигалки и спички
+vending-category-pdas-and-cards = ПДА и карты
+vending-category-encryption-keys = Ключи шифрования
