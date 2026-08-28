@@ -4,7 +4,6 @@ public static class XenobiologyGuideColors
 {
     public static readonly Color Card = Color.FromHex("#1c1a22");
     public static readonly Color Border = Color.FromHex("#4a4458");
-    public static readonly Color Text = Color.FromHex("#d8dee9");
     public static readonly Color Muted = Color.FromHex("#7a8290");
     public static readonly Color Accent = Color.FromHex("#a3be8c");
     public static readonly Color Arrow = Color.FromHex("#858094");

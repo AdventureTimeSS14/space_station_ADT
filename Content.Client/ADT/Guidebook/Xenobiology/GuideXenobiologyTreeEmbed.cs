@@ -13,46 +13,45 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Client.ADT.Guidebook.Xenobiology;
+
 public sealed class GuideXenobiologyTreeEmbed : Control, IDocumentTag, ISearchableControl
 {
     private const string RootBreed = "GreyMutation";
     private const string SlimeRsi = "/Textures/ADT/Xenobiology/Mobs/slimesBaby.rsi";
     private const string SlimeState = "base";
 
-    private const float RowSpacing = 90f;
-    private const float RowGap = 96f;
-    private const float Row1X = 130f;
-    private const float Row2X = 178f;
-    private const float RowStartY = 70f;
-    private const float NodeSize = 34f;
-    private const float GreySize = 52f;
-    private const float LabelHeight = 13f;
+    private const float NodeSize = 48f;
+    private const float GreySize = 64f;
 
-    private const float CanvasWidth = Row2X + RowGap * 3 + NodeSize + 14f;
-    private const float CanvasHeight = RowStartY + RowSpacing * 5 + NodeSize + LabelHeight + 14f;
-    private static readonly Dictionary<string, (int Row, int Slot)> BreedSlots = new()
+    private static readonly float[] RingRadii = { 0f, 85f, 148f, 210f, 272f };
+    private const float CanvasSize = (272f + NodeSize / 2f + 8f) * 2f;
+
+    private static readonly Dictionary<string, float> BreedAngles = new()
     {
-        [RootBreed] = (0, 0),
-        ["OrangeMutation"] = (1, 0),
-        ["PurpleMutation"] = (1, 1),
-        ["BlueMutation"] = (1, 2),
-        ["MetalMutation"] = (1, 3),
-        ["YellowMutation"] = (2, 0),
-        ["DarkPurpleMutation"] = (2, 1),
-        ["DarkBlueMutation"] = (2, 2),
-        ["SilverMutation"] = (2, 3),
-        ["RedMutation"] = (3, 0),
-        ["GreenMutation"] = (3, 1),
-        ["PinkMutation"] = (3, 2),
-        ["GoldMutation"] = (3, 3),
-        ["BluespaceMutation"] = (4, 0),
-        ["SepiaMutation"] = (4, 1),
-        ["CeruleanMutation"] = (4, 2),
-        ["PyriteMutation"] = (4, 3),
-        ["OilMutation"] = (5, 0),
-        ["BlackMutation"] = (5, 1),
-        ["LightPinkMutation"] = (5, 2),
-        ["AdamantineMutation"] = (5, 3),
+        // Первый тир
+        ["OrangeMutation"] = 45f,
+        ["PurpleMutation"] = 135f,
+        ["BlueMutation"] = 225f,
+        ["MetalMutation"] = 315f,
+        // Второй тир
+        ["YellowMutation"] = 0f,
+        ["DarkPurpleMutation"] = 90f,
+        ["DarkBlueMutation"] = 180f,
+        ["SilverMutation"] = 270f,
+        // Второй тир
+        ["RedMutation"] = 45f,
+        ["GreenMutation"] = 135f,
+        ["PinkMutation"] = 225f,
+        ["GoldMutation"] = 315f,
+        // Третий тир
+        ["BluespaceMutation"] = 0f,
+        ["SepiaMutation"] = 90f,
+        ["CeruleanMutation"] = 180f,
+        ["PyriteMutation"] = 270f,
+        ["OilMutation"] = 45f,
+        ["BlackMutation"] = 135f,
+        ["LightPinkMutation"] = 225f,
+        ["AdamantineMutation"] = 315f,
     };
 
     private readonly IPrototypeManager _proto;
@@ -61,6 +60,7 @@ public sealed class GuideXenobiologyTreeEmbed : Control, IDocumentTag, ISearchab
 
     private readonly List<BreedNode> _nodes = new();
     private readonly List<(BreedNode Parent, BreedNode Child)> _edges = new();
+    private BreedNode? _hoveredNode;
 
     private sealed record BreedNode(ProtoId<BreedPrototype> Id, BreedPrototype Breed, int Tier, Vector2 Pos, float Radius);
 
@@ -70,7 +70,7 @@ public sealed class GuideXenobiologyTreeEmbed : Control, IDocumentTag, ISearchab
         _proto = IoCManager.Resolve<IPrototypeManager>();
 
         var resource = IoCManager.Resolve<IResourceCache>();
-        _font = resource.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 10);
+        _font = resource.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 11);
 
         if (resource.TryGetResource<RSIResource>(new ResPath(SlimeRsi), out var rsi)
             && rsi.RSI.TryGetState(SlimeState, out var state))
@@ -106,22 +106,27 @@ public sealed class GuideXenobiologyTreeEmbed : Control, IDocumentTag, ISearchab
             return false;
 
         var tiers = ComputeTiers(root);
-        var centerX = CanvasWidth / 2f;
+        var center = new Vector2(CanvasSize / 2f, CanvasSize / 2f);
 
         foreach (var breed in _proto.EnumeratePrototypes<BreedPrototype>())
         {
             if (!tiers.TryGetValue(breed.ID, out var tier))
                 continue;
 
-            if (!BreedSlots.TryGetValue(breed.ID, out var slot))
+            if (breed.ID == RootBreed)
+            {
+                _nodes.Add(new BreedNode(breed.ID, breed, tier, center, GreySize / 2f));
+                continue;
+            }
+
+            if (!BreedAngles.TryGetValue(breed.ID, out var degrees))
                 continue;
 
-            var isRoot = breed.ID == RootBreed;
-            var radius = isRoot ? GreySize / 2f : NodeSize / 2f;
-            var x = isRoot ? centerX : (slot.Row % 2 == 0 ? Row1X : Row2X) + slot.Slot * RowGap;
-            var pos = new Vector2(x, RowY(slot.Row));
+            var radians = MathHelper.DegreesToRadians(degrees);
+            var dir = new Vector2(MathF.Cos(radians), MathF.Sin(radians));
+            var pos = center + dir * RingRadii[tier];
 
-            _nodes.Add(new BreedNode(breed.ID, breed, tier, pos, radius));
+            _nodes.Add(new BreedNode(breed.ID, breed, tier, pos, NodeSize / 2f));
         }
 
         foreach (var node in _nodes)
@@ -139,7 +144,7 @@ public sealed class GuideXenobiologyTreeEmbed : Control, IDocumentTag, ISearchab
             }
         }
 
-        MinSize = new Vector2(CanvasWidth, CanvasHeight);
+        MinSize = new Vector2(CanvasSize, CanvasSize);
 
         control = this;
         return true;
@@ -172,6 +177,31 @@ public sealed class GuideXenobiologyTreeEmbed : Control, IDocumentTag, ISearchab
         return tiers;
     }
 
+    protected override void MouseMove(GUIMouseMoveEventArgs args)
+    {
+        base.MouseMove(args);
+
+        _hoveredNode = GetHoveredNode(args.RelativePosition);
+    }
+
+    protected override void MouseExited()
+    {
+        base.MouseExited();
+
+        _hoveredNode = null;
+    }
+
+    private BreedNode? GetHoveredNode(Vector2 relativePosition)
+    {
+        foreach (var node in _nodes)
+        {
+            if ((relativePosition - node.Pos).LengthSquared() <= node.Radius * node.Radius)
+                return node;
+        }
+
+        return null;
+    }
+
     protected override void Draw(DrawingHandleScreen handle)
     {
         base.Draw(handle);
@@ -184,22 +214,28 @@ public sealed class GuideXenobiologyTreeEmbed : Control, IDocumentTag, ISearchab
             handle.DrawCircle(pos + new Vector2(0f, 2f), node.Radius + 2f, Color.Black.WithAlpha(0.35f));
         }
 
-        foreach (var node in _nodes.OrderBy(x => x.Pos.Y))
+        foreach (var node in _nodes.OrderBy(x => x.Tier))
         {
             var pos = ToScreen(node.Pos);
-
-            if (node.Breed.ID == RootBreed)
-                handle.DrawCircle(pos, node.Radius + 5f, XenobiologyGuideColors.Accent.WithAlpha(0.4f), false);
-
-            handle.DrawCircle(pos, node.Radius + 3f, node.Breed.SlimeColor.WithAlpha(0.25f));
-
             DrawSlime(handle, pos, node.Radius * 2f, node.Breed.SlimeColor);
-
-            var name = Loc.GetString(node.Breed.BreedName).Replace(" слайм", "");
-            var dimensions = handle.GetDimensions(_font, name, 1);
-            var labelPos = ToScreen(node.Pos + new Vector2(-dimensions.X / 2f, node.Radius + 4f));
-            handle.DrawString(_font, labelPos, name, XenobiologyGuideColors.Text);
         }
+
+        if (_hoveredNode is { } hovered)
+            DrawNameplate(handle, hovered);
+    }
+
+    private void DrawNameplate(DrawingHandleScreen handle, BreedNode node)
+    {
+        var name = Loc.GetString(node.Breed.BreedName);
+        var dimensions = handle.GetDimensions(_font, name, 1);
+        var padding = new Vector2(6f, 3f);
+
+        var textPos = node.Pos + new Vector2(-dimensions.X / 2f, -node.Radius - dimensions.Y - padding.Y - 6f);
+        var box = UIBox2.FromDimensions(textPos - padding, dimensions + padding * 2f);
+
+        handle.DrawRect(box, Color.FromHex("#141318").WithAlpha(0.92f));
+        handle.DrawRect(box, node.Breed.SlimeColor, false);
+        handle.DrawString(_font, ToScreen(textPos), name, Color.White);
     }
 
     private void DrawEdges(DrawingHandleScreen handle)
@@ -241,11 +277,6 @@ public sealed class GuideXenobiologyTreeEmbed : Control, IDocumentTag, ISearchab
         handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList,
             new[] { tip, back + perp, back - perp },
             color);
-    }
-
-    private static float RowY(int row)
-    {
-        return RowStartY + row * RowSpacing;
     }
 
     private Vector2 ToScreen(Vector2 local)

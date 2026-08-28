@@ -8,20 +8,18 @@
         </PanelContainer.PanelOverride>
         <BoxContainer Orientation="Vertical">
             <PanelContainer Name="AccentBar" HorizontalExpand="True" MinHeight="4"/>
-            <BoxContainer Orientation="Horizontal" Margin="8 6 8 8" HorizontalExpand="True">
-                <BoxContainer Name="ExtractViewContainer" Orientation="Vertical" VerticalAlignment="Center"/>
-                <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="8 0 0 0">
-                    <BoxContainer Orientation="Horizontal">
-                        <RichTextLabel Name="NameLabel" VerticalAlignment="Center"/>
-                        <PanelContainer Name="TierBadge" Margin="8 0 0 0">
-                            <PanelContainer.PanelOverride>
-                                <gfx:StyleBoxFlat BackgroundColor="#7a8290" BorderThickness="1" BorderColor="#141318"/>
-                            </PanelContainer.PanelOverride>
-                            <RichTextLabel Name="TierLabel" Margin="4 1 4 1"/>
-                        </PanelContainer>
-                    </BoxContainer>
-                    <BoxContainer Name="ReactionBox" Orientation="Vertical" Margin="0 6 0 0"/>
+            <BoxContainer Orientation="Vertical" Margin="8 6 8 8">
+                <BoxContainer Orientation="Horizontal">
+                    <BoxContainer Name="ExtractViewContainer" Orientation="Vertical" VerticalAlignment="Center"/>
+                    <RichTextLabel Name="NameLabel" HorizontalExpand="True" VerticalAlignment="Center" Margin="8 0 0 0"/>
+                    <PanelContainer Name="TierBadge" Margin="8 0 0 0" VerticalAlignment="Center">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#7a8290" BorderThickness="1" BorderColor="#141318"/>
+                        </PanelContainer.PanelOverride>
+                        <RichTextLabel Name="TierLabel" Margin="4 1 4 1"/>
+                    </PanelContainer>
                 </BoxContainer>
+                <BoxContainer Name="ReactionBox" Orientation="Vertical" Margin="0 6 0 0"/>
             </BoxContainer>
         </BoxContainer>
     </PanelContainer>
