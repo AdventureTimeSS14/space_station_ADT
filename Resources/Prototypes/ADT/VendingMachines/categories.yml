@@ -46,3 +46,24 @@
   icon: ADTClothingUnderwearTopBraWhite
   accentColor: "#f472b6"
   priority: 7
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryAlcohol
+  name: vending-category-alcohol
+  icon: DrinkVodkaBottleFull
+  accentColor: "#f87171"
+  priority: 1
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryNonAlcohol
+  name: vending-category-nonalcohol
+  icon: DrinkColaBottleFull
+  accentColor: "#4ade80"
+  priority: 2
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryFillers
+  name: vending-category-fillers
+  icon: DrinkGlass
+  accentColor: "#60a5fa"
+  priority: 3

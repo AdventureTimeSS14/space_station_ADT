@@ -11,3 +11,6 @@ vending-category-head = Головные уборы
 vending-category-accessories = Аксессуары
 vending-category-outer = Верхняя одежда
 vending-category-underwear = Нижнее бельё
+vending-category-alcohol = Алкогольные
+vending-category-nonalcohol = Безалкогольные
+vending-category-fillers = Посуда и аксессуары
