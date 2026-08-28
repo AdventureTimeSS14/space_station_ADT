@@ -5,11 +5,6 @@ using Content.Shared.Storage.EntitySystems;
 
 namespace Content.Shared.ADT.Storage;
 
-/// <summary>
-/// Turns opening/closing an <see cref="StorageOpenDoAfterComponent"/> storage into a do-after.
-/// Hooks the storage open/close attempt events, so it covers both the click interaction and the
-/// right-click verb. The do-after breaks on movement, so a bag that is being dragged can't be opened.
-/// </summary>
 public sealed class StorageOpenDoAfterSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
@@ -26,7 +21,6 @@ public sealed class StorageOpenDoAfterSystem : EntitySystem
 
     private void OnOpenAttempt(Entity<StorageOpenDoAfterComponent> ent, ref StorageOpenAttemptEvent args)
     {
-        // Silent attempts are used to decide whether to show the verb; don't start a do-after for those.
         if (args.Cancelled || args.Silent)
             return;
 
@@ -36,20 +30,15 @@ public sealed class StorageOpenDoAfterSystem : EntitySystem
 
     private void OnCloseAttempt(Entity<StorageOpenDoAfterComponent> ent, ref StorageCloseAttemptEvent args)
     {
-        // A null user means a programmatic close (e.g. something being inserted); leave those instant.
-        if (args.Cancelled || args.User is not { } user)
+        if (args.Cancelled || args.Silent || args.User is not { } user)
             return;
 
         if (TryDelay(ent, user, open: false))
             args.Cancelled = true;
     }
 
-    /// <summary>
-    /// Starts (or ignores a duplicate) do-after and returns true when the immediate toggle should be blocked.
-    /// </summary>
     private bool TryDelay(Entity<StorageOpenDoAfterComponent> ent, EntityUid user, bool open)
     {
-        // A bag configured with Delay 0 just opens/closes instantly, no do-after.
         if (ent.Comp.Delay <= TimeSpan.Zero)
             return false;
 
@@ -59,7 +48,6 @@ public sealed class StorageOpenDoAfterSystem : EntitySystem
         };
         _doAfter.TryStartDoAfter(doAfter);
 
-        // Block the instant toggle whether or not the do-after started (a duplicate is already running).
         return true;
     }
 
@@ -70,18 +58,15 @@ public sealed class StorageOpenDoAfterSystem : EntitySystem
 
         args.Handled = true;
 
-        // Perform exactly the requested operation, not a toggle, so a state change during the wait can't
-        // invert the action. Both methods are idempotent and skip the attempt event (no re-entrant do-after).
         if (args.Open)
         {
-            // Re-check via a silent attempt so foldable/welded/space guards still apply; our own handler
-            // ignores silent attempts, so this doesn't start another do-after.
             if (_storage.CanOpen(args.User, ent, silent: true))
                 _storage.OpenStorage(ent);
         }
         else
         {
-            _storage.CloseStorage(ent);
+            if (_storage.CanClose(ent, args.User, silent: true))
+                _storage.CloseStorage(ent);
         }
     }
 }
