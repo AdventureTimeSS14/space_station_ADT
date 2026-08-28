@@ -1,16 +1,24 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.TTS;
 
+/// <summary>
+/// Voices the entity's chat messages through speech synthesis.
+/// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class TTSComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("voice", customTypeSerializer: typeof(PrototypeIdSerializer<TTSVoicePrototype>))]
-    public string? VoicePrototypeId { get; set; }
+    /// <summary>
+    /// Voice the entity speaks with.
+    /// </summary>
+    [DataField("voice")]
+    public ProtoId<TTSVoicePrototype>? VoicePrototypeId;
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("effect")]
-    public string? Effect { get; set; }
+    /// <summary>
+    /// Service effect the entity constantly speaks through, for example <c>robotic</c>.
+    /// Null means a clean voice.
+    /// </summary>
+    [DataField]
+    public string? Effect;
 }

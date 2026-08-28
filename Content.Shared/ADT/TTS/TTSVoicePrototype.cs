@@ -4,34 +4,48 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.TTS;
 
-[Prototype("ttsVoice"), DataDefinition]
+/// <summary>
+/// Voice available for speech synthesis.
+/// </summary>
+[Prototype("ttsVoice")]
 public sealed partial class TTSVoicePrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    [DataField("name")]
-    public string Name { get; private set; } = string.Empty;
+    [DataField]
+    public string Name = string.Empty;
 
-    [DataField("description")]
-    public string Description { get; private set; } = string.Empty;
+    [DataField]
+    public string Description = string.Empty;
 
-    [DataField("sex", required: true)]
-    public Sex Sex { get; private set; } = default!;
+    [DataField(required: true)]
+    public Sex Sex;
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("speaker", required: true)]
-    public string Speaker { get; private set; } = string.Empty;
+    /// <summary>
+    /// Voice identifier on the speech service side.
+    /// </summary>
+    [DataField(required: true)]
+    public string Speaker = string.Empty;
 
-    [DataField("roundStart")]
-    public bool RoundStart { get; private set; } = true;
+    /// <summary>
+    /// Whether the voice can be picked in the character editor.
+    /// </summary>
+    [DataField]
+    public bool RoundStart = true;
 
-    [DataField("sponsorOnly")]
-    public bool SponsorOnly { get; private set; }
+    [DataField]
+    public bool SponsorOnly;
 
-    [DataField("speciesBlacklist")]
-    public HashSet<ProtoId<SpeciesPrototype>> SpeciesBlacklist { get; private set; } = new();
+    /// <summary>
+    /// Species that cannot use this voice.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<SpeciesPrototype>> SpeciesBlacklist = new();
 
-    [DataField("speciesWhitelist")]
-    public HashSet<ProtoId<SpeciesPrototype>> SpeciesWhitelist { get; private set; } = new();
+    /// <summary>
+    /// If not empty, only these species can use this voice.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<SpeciesPrototype>> SpeciesWhitelist = new();
 }

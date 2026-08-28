@@ -108,9 +108,9 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
             RaiseLocalEvent(args.Source, barkEv);
             bark = barkEv.Data;
         }
-        if (TryComp<TTSComponent>(args.Source, out var ttsComp) && ttsComp.VoicePrototypeId != null)
+        if (TryComp<TTSComponent>(args.Source, out var ttsComp) && ttsComp.VoicePrototypeId is { } voiceId)
         {
-            var ttsEv = new TransformSpeakerVoiceEvent(args.Source, ttsComp.VoicePrototypeId);
+            var ttsEv = new TransformSpeakerVoiceEvent(args.Source, voiceId);
             RaiseLocalEvent(args.Source, ttsEv);
             tts = ttsEv.VoiceId;
         }
