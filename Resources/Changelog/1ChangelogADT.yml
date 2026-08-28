@@ -14737,3 +14737,10 @@ Entries:
     id: 1866
     pr_number: 3283
     time: '2026-08-28T12:40:47Z'
+  - author: CrimeMoot
+    changes:
+      - {message: Значительно уменьшена нагрузка на сторону клиента при работе с ксенобиологией.,
+        type: Tweak}
+    id: 1867
+    pr_number: 3286
+    time: '2026-08-28T13:28:55Z'
