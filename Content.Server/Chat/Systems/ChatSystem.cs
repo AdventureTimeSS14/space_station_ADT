@@ -213,7 +213,10 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         // ADT-Port-Start - DeltaV - Hushed trait logic
         // This needs to happen after prefix removal to avoid bug
-        if (desiredType == InGameICChatType.Speak && HasComp<HushedComponent>(source))
+        var currentLanguage = language ?? _language.GetCurrentLanguage(source);
+        var isCollectiveMind = currentLanguage.LanguageType is CollectiveMind;
+
+        if (desiredType == InGameICChatType.Speak && HasComp<HushedComponent>(source) && !isCollectiveMind)
         {
             // hushed players cannot speak on local chat so will be sent as whisper instead
             desiredType = InGameICChatType.Whisper;

@@ -5,7 +5,6 @@
   children:
   - Traitors
   - Changelings # ADT
-  - Heretics
   - Thieves
   - Revolutionaries
   - NuclearOperatives
