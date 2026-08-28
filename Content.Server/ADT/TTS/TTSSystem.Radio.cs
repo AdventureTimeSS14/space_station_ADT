@@ -103,6 +103,6 @@ public sealed partial class TTSSystem
     {
         return _prototypeManager.TryIndex<TTSRadioChannelPrototype>(channelId, out var proto)
             ? proto.Effect
-            : TTSRadioChannelPrototype.DefaultEffect;
+            : "radio_headset";
     }
 }
