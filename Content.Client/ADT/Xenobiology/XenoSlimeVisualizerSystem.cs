@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using Content.Client.DamageState;
 using Content.Shared.ADT.Xenobiology;
 using Content.Shared.ADT.Xenobiology.Components;
@@ -18,22 +17,16 @@ public sealed class XenoSlimeVisualizerSystem : VisualizerSystem<SlimeComponent>
 
     protected override void OnAppearanceChange(EntityUid uid, SlimeComponent component, ref AppearanceChangeEvent args)
     {
-        if (args.Sprite == null || !AppearanceSystem.TryGetData<Color>(uid, XenoSlimeVisuals.Color, out var color, args.Component) || !TryComp<SpriteComponent>(uid, out var spriteComponent))
+        if (args.Sprite == null || !AppearanceSystem.TryGetData<Color>(uid, XenoSlimeVisuals.Color, out var color, args.Component))
             return;
 
         foreach (var layer in args.Sprite.AllLayers)
             layer.Color = color.WithAlpha(layer.Color.A);
 
-        if (!AppearanceSystem.TryGetData<string>(uid, XenoSlimeVisuals.Shader, out var shader, args.Component))
+        if (!AppearanceSystem.TryGetData<string>(uid, XenoSlimeVisuals.Shader, out var shader, args.Component)
+            || !_sprite.LayerMapTryGet(uid, DamageStateVisualLayers.Base, out var layerKey, false))
             return;
-        var spriteComp = args.Sprite;
-        var newShader = _proto.Index<ShaderPrototype>(shader).InstanceUnique();
 
-        var layerExists = _sprite.LayerMapTryGet(uid, DamageStateVisualLayers.Base, out var layerKey, false);
-        if (!layerExists)
-            return;
-        spriteComp.LayerSetShader(layerKey, newShader);
-        spriteComp.GetScreenTexture = true;
-        spriteComp.RaiseShaderEvent = true;
+        args.Sprite.LayerSetShader(layerKey, _proto.Index<ShaderPrototype>(shader).Instance());
     }
 }
