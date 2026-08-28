@@ -122,7 +122,7 @@ public sealed partial class GuideXenobiologyReactionEmbed : BoxContainer, IDocum
 
         var entries = reactive.Reactions
             .Where(x => x.Reagents != null && x.Reagents.Count > 0)
-            .OrderBy(x => ReagentOrder.GetValueOrDefault(x.Reagents!.Min(), 4))
+            .OrderBy(x => ReagentOrder.GetValueOrDefault(x.Reagents!.Min()!, 4))
             .ToList();
 
         foreach (var entry in entries)
