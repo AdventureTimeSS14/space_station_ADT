@@ -5,7 +5,7 @@ using Content.Server.Speech;
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Chat;
-using Content.Shared.Corvax.TTS;
+using Content.Shared.ADT.TTS;
 using Content.Shared.Paper;
 using Content.Shared.Speech;
 using Content.Shared.TapeRecorder;

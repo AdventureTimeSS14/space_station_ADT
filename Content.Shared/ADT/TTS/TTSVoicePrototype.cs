@@ -1,14 +1,10 @@
-﻿using Content.Shared.Humanoid;
+using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Corvax.TTS;
+namespace Content.Shared.ADT.TTS;
 
-/// <summary>
-/// Prototype represent available TTS voices
-/// </summary>
 [Prototype("ttsVoice"), DataDefinition]
-// ReSharper disable once InconsistentNaming
 public sealed partial class TTSVoicePrototype : IPrototype
 {
     [IdDataField]
@@ -27,20 +23,15 @@ public sealed partial class TTSVoicePrototype : IPrototype
     [DataField("speaker", required: true)]
     public string Speaker { get; private set; } = string.Empty;
 
-    /// <summary>
-    /// Whether the species is available "at round start" (In the character editor)
-    /// </summary>
     [DataField("roundStart")]
     public bool RoundStart { get; private set; } = true;
 
     [DataField("sponsorOnly")]
-    public bool SponsorOnly { get; private set; } = false;
+    public bool SponsorOnly { get; private set; }
 
-    // ADT-Tweak-Start
     [DataField("speciesBlacklist")]
     public HashSet<ProtoId<SpeciesPrototype>> SpeciesBlacklist { get; private set; } = new();
 
     [DataField("speciesWhitelist")]
     public HashSet<ProtoId<SpeciesPrototype>> SpeciesWhitelist { get; private set; } = new();
-    // ADT-Tweak-End
 }

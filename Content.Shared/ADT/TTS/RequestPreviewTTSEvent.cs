@@ -1,8 +1,7 @@
-﻿using Robust.Shared.Serialization;
+using Robust.Shared.Serialization;
 
-namespace Content.Shared.Corvax.TTS;
+namespace Content.Shared.ADT.TTS;
 
-// ReSharper disable once InconsistentNaming
 [Serializable, NetSerializable]
 public sealed class RequestPreviewTTSEvent(string voiceId) : EntityEventArgs
 {
