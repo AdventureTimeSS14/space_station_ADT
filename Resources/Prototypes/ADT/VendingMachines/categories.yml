@@ -67,3 +67,17 @@
   icon: DrinkGlass
   accentColor: "#60a5fa"
   priority: 3
+
+- type: vendingMachineCategory
+  id: ADTVendingCategorySmokables
+  name: vending-category-smokables
+  icon: CigPackGreen
+  accentColor: "#fbbf24"
+  priority: 1
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryLighters
+  name: vending-category-lighters
+  icon: CheapLighter
+  accentColor: "#f87171"
+  priority: 2

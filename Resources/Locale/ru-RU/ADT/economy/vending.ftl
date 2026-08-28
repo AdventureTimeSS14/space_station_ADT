@@ -14,3 +14,5 @@ vending-category-underwear = Нижнее бельё
 vending-category-alcohol = Алкогольные
 vending-category-nonalcohol = Безалкогольные
 vending-category-fillers = Посуда и аксессуары
+vending-category-smokables = Курительные изделия
+vending-category-lighters = Зажигалки и спички
