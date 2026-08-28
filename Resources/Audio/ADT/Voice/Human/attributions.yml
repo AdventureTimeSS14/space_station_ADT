@@ -27,3 +27,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Sounds by https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station"
   source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station"
+
+- files: ["pink_laugh1.ogg", "pink_laugh2.ogg", "pink_scream1.ogg", "pink_scream2.ogg", "pink_sigh.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Taken from Deltarune Chapter 5"
+  source: "https://www.youtube.com/watch?v=opGju28vG4I"

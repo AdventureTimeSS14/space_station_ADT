@@ -6,6 +6,7 @@ loadout-group-bottom-adt = Нижнее белье(Низ)
 loadout-group-socks-adt = Носки
 loadout-group-spray-paints = Баллончики с краской
 loadout-group-racial-items = Расовые предметы
+loadout-group-super-instruments = Супер-инструменты
 # Command
 ent-MagistratNeck = Галстуки
 ent-MagistratJumpsuit = Костюмы

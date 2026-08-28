@@ -18,6 +18,7 @@
   storage:
     back:
     - SuperSynthesizerInstrument
+  groupBy: "supersynthesizer"
 # ADT-Tweak-end
 
 # Jumpsuit

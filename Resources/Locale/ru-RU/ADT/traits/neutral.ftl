@@ -31,6 +31,12 @@ trait-female-ipc-desc = Вы способны издавать звуки жен
 trait-male-ipc-name = Голосовой модуль (Мужской)
 trait-male-ipc-desc = Вы способны издавать звуки мужских человеческих особей.
 
+trait-cute-ipc-name = Голосовой модуль (Милый)
+trait-cute-ipc-desc = Вы способны издавать милые женские звуки.
+
+trait-xenoborg-ipc-name = Голосовой модуль (Ксеноборг)
+trait-xenoborg-ipc-desc = Вы способны издавать жуткие звуки ксеноборгов.
+
 trait-polite-accent-name = Вежливый
 trait-polite-accent-desc = Вы говорите без грубых выражений, которые используют другие.
 
