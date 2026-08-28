@@ -20,3 +20,5 @@ vending-category-pdas-and-cards = ПДА и карты
 vending-category-encryption-keys = Ключи шифрования
 vending-category-protection = Средства защиты
 vending-category-sec-equipment = Снаряжение
+vending-category-medical = Медицина
+vending-category-med-equipment = Снаряжение

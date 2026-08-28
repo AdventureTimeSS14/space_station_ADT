@@ -1,15 +1,17 @@
 - type: vendingMachineInventory
   id: NanoMedInventory
   startingInventory:
-    HandheldHealthAnalyzer: 1
-    Gauze: 3
-    Brutepack: 3
-    Ointment: 3
-#    Bloodpack: 3 # ADT Tweak
-    ADTBloodPackTransfusionFull: 3 # ADT Tweak: Blood IV
-    ChemistryBottleEpinephrine: 3
-    Syringe: 3
-    PillCanisterTricordrazine: 2
+    ADTVendingCategoryMedical: # ADT-Tweak
+        Gauze: 3
+        Brutepack: 3
+        Ointment: 3
+#        Bloodpack: 3 # ADT Tweak
+        ADTBloodPackTransfusionFull: 3 # ADT Tweak: Blood IV
+        ChemistryBottleEpinephrine: 3
+        PillCanisterTricordrazine: 2
+    ADTVendingCategoryMedEquipment: # ADT-Tweak
+        HandheldHealthAnalyzer: 1
+        Syringe: 3
   contrabandInventory:
     PillCanisterRandom: 1
 
@@ -17,15 +19,17 @@
 - type: vendingMachineInventory
   id: NanoMedCivilianWallInventory
   startingInventory:
-    HandheldHealthAnalyzer: 1
-    Tourniquet: 3
-    Brutepack: 3
-    AloeCream: 3 # Currently just a reskin of Ointment but it's something
-#    Bloodpack: 3 # ADT Tweak
-    ADTBloodPackTransfusionFull: 3 # ADT Tweak: Blood IV
-    ChemistryBottleInaprovaline: 3
-    Syringe: 3
-    PillTricordrazine: 10
+    ADTVendingCategoryMedical: # ADT-Tweak
+        Tourniquet: 3
+        Brutepack: 3
+        AloeCream: 3 # Currently just a reskin of Ointment but it's something
+#        Bloodpack: 3 # ADT Tweak
+        ADTBloodPackTransfusionFull: 3 # ADT Tweak: Blood IV
+        ChemistryBottleInaprovaline: 3
+        PillTricordrazine: 10
+    ADTVendingCategoryMedEquipment: # ADT-Tweak
+        HandheldHealthAnalyzer: 1
+        Syringe: 3
   contrabandInventory:
     PillCanisterRandom: 1
 
@@ -33,30 +37,31 @@
 - type: vendingMachineInventory
   id: NanoMedPlusInventory
   startingInventory:
-    # Medical Essential Gear
-    ClothingBeltMedicalFilled: 2
-    # Shared Essential
-    HandheldHealthAnalyzer: 3
-    # ADT tweak start
-    Gauze: 5
-    ADTPatchPackFilled: 3
-    ADTAntibioticOintment: 4
-    ADTBloodPackTransfusionFull: 5
-    # ADT tweak end
-    JetInjector: 3
-    # Paramed Essential Gear
-    ClothingBeltMedicalEMTFilled: 1
-    EmergencyRollerBedSpawnFolded: 1
-    BoxBodyBag: 1
-    # Extra Expendable Gear
-    Brutepack: 4
-    Ointment: 4
-#    Bloodpack: 4  # ADT-Tweak
-    # Optional / Situational Gear
-    BoxBottle: 3
-    Defibrillator: 2 # Easily shared between several people
-    Syringe: 4
-    PillCanisterTricordrazine: 4
+    ADTVendingCategoryMedical: # ADT-Tweak
+        # ADT tweak start
+        Gauze: 5
+        ADTPatchPackFilled: 3
+        ADTAntibioticOintment: 4
+        ADTBloodPackTransfusionFull: 5
+        # ADT tweak end
+        Brutepack: 4
+        Ointment: 4
+#        Bloodpack: 4  # ADT-Tweak
+        PillCanisterTricordrazine: 4
+    ADTVendingCategoryMedEquipment: # ADT-Tweak
+        # Medical Essential Gear
+        ClothingBeltMedicalFilled: 2
+        # Shared Essential
+        HandheldHealthAnalyzer: 3
+        JetInjector: 3
+        # Paramed Essential Gear
+        ClothingBeltMedicalEMTFilled: 1
+        EmergencyRollerBedSpawnFolded: 1
+        BoxBodyBag: 1
+        # Optional / Situational Gear
+        BoxBottle: 3
+        Defibrillator: 2 # Easily shared between several people
+        Syringe: 4
     ClothingOuterHospitalGown: 2 # Not a popular item, so less stock
   contrabandInventory:
     PillCanisterRandom: 3
@@ -73,17 +78,19 @@
 - type: vendingMachineInventory
   id: NanoMedCivilianInventory
   startingInventory:
-    HandheldHealthAnalyzer: 3
-    Tourniquet: 5
-    Brutepack: 5
-    AloeCream: 5
-#    Bloodpack: 5 # ADT Tweak
-    ADTBloodPackTransfusionFull: 5 # ADT Tweak: Blood IV
-    ChemistryBottleInaprovaline: 5
-    Syringe: 5
-    PillTricordrazine: 10
-    PillIron: 5
-    PillCopper: 5
+    ADTVendingCategoryMedical: # ADT-Tweak
+        Tourniquet: 5
+        Brutepack: 5
+        AloeCream: 5
+#        Bloodpack: 5 # ADT Tweak
+        ADTBloodPackTransfusionFull: 5 # ADT Tweak: Blood IV
+        ChemistryBottleInaprovaline: 5
+        PillTricordrazine: 10
+        PillIron: 5
+        PillCopper: 5
+    ADTVendingCategoryMedEquipment: # ADT-Tweak
+        HandheldHealthAnalyzer: 3
+        Syringe: 5
   contrabandInventory:
     PillCanisterRandom: 1
     PillSpaceDrugs: 3

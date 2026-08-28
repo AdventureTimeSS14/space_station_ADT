@@ -109,3 +109,18 @@
   icon: Handcuffs
   accentColor: "#60a5fa"
   priority: 2
+
+# NanoMed
+- type: vendingMachineCategory
+  id: ADTVendingCategoryMedical
+  name: vending-category-medical
+  icon: Gauze
+  accentColor: "#f87171"
+  priority: 1
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryMedEquipment
+  name: vending-category-med-equipment
+  icon: Defibrillator
+  accentColor: "#38bdf8"
+  priority: 2
