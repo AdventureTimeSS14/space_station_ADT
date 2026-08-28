@@ -30,7 +30,7 @@ public sealed partial class ADTShadowlingCollectiveMindActionComponent : Compone
 public sealed partial class ADTShadowlingBlindnessSmokeActionComponent : Component
 {
     [DataField]
-    public EntProtoId SmokeProto = "Smoke";
+    public EntProtoId SmokeProto = "ADTShadowlingSmokeCloud";
 
     [DataField]
     public ProtoId<ReagentPrototype> Reagent = "ADTShadowlingSmoke";

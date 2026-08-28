@@ -1,0 +1,56 @@
+<Document>
+  # Руна и ритуалы
+
+  Руна трансмутации это ваш единственный способ скрафтить что-то.
+
+  ## Как это работает
+
+  <Box>
+    <GuideEntityEmbed Entity="HereticRuneRitual" Caption=""/>
+  </Box>
+
+  1. Нарисуйте руну. Нажмите ручкой по полу при активной [color=#a3be8c]Хватке Мансуса[/color] это займёт 14 секунд, [color=#ebcb8b]Кодексом Цикатрикс[/color] можно нарисовать за 5 секунд без хватки.
+  2. Щёлкните по руне [bold]пустой рукой[/bold]. Откроется круговое меню со всеми ритуалами, которые вы знаете.
+  3. Соберите нужные предметы [bold]на руну[/bold].
+  4. Щёлкните по руне [color=#a3be8c]Хваткой Мансуса[/color].
+
+  Запуск ритуала [bold]не тратит хватку[/bold] и не отправляет её в перезарядку.
+
+  ## Про руну
+
+  - Руна не принадлежит конкретно вам. Её могут использовать все еретики.
+  - Стирается нажатием ручки или кодекса.
+  - Ломается от 100 единиц урона.
+
+  ## Про лимиты
+
+  У каждого еретика лимит ровно два клинка на раунд. Счётчик считает [bold]существующие[/bold] предметы, поэтому уничтоженный клинок освобождает слот, а отобранный - нет
+
+  Если клинок именно потерялся, есть ритуал [color=#ebcb8b]Воспоминание[/color].
+
+  <GuideHereticQuote Text="Ищущий да разложит своё подношение в круге. Мансус не торгуется и сдачи не даёт."/>
+
+  # Базовые ритуалы
+
+  <GuideHereticRitualEmbed Ritual="Sacrifice"/>
+  <GuideHereticRitualEmbed Ritual="AmberFocus"/>
+  <GuideHereticRitualEmbed Ritual="CodexCicatrix"/>
+  <GuideHereticRitualEmbed Ritual="LivingHeart"/>
+  <GuideHereticRitualEmbed Ritual="Reminiscence"/>
+  <GuideHereticRitualEmbed Ritual="RitualOfKnowledge"/>
+  <GuideHereticRitualEmbed Ritual="FeastOfOwls"/>
+
+  # Побочные ритуалы
+
+  <GuideHereticRitualEmbed Ritual="ArmorerRitual" CycleOutput="ClothingOuterArmorHeretic, ADTClothingOuterArmorHereticAsh, ADTClothingOuterArmorHereticBlade, ADTClothingOuterArmorHereticFlesh, ADTClothingOuterArmorHereticVoid, ADTClothingOuterArmorHereticRust, ADTClothingOuterArmorHereticCosmos"/>
+  <GuideHereticRitualEmbed Ritual="AshenEyesRitual"/>
+  <GuideHereticRitualEmbed Ritual="PriestRitual"/>
+  <GuideHereticRitualEmbed Ritual="VoidCloak"/>
+  <GuideHereticRitualEmbed Ritual="ScorchingShark"/>
+  <GuideHereticRitualEmbed Ritual="RustedRitual"/>
+  <GuideHereticRitualEmbed Ritual="CarvingKnife"/>
+
+  # Ритуалы путей
+
+  Ритуалы конкретных путей лежат на страницах самих путей: [textlink="Пепел" link="ADTHereticPathAsh"], [textlink="Клинок" link="ADTHereticPathBlade"], [textlink="Плоть" link="ADTHereticPathFlesh"], [textlink="Пустота" link="ADTHereticPathVoid"], [textlink="Ржавчина" link="ADTHereticPathRust"], [textlink="Космос" link="ADTHereticPathCosmos"].
+</Document>
