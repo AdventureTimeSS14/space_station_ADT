@@ -20,10 +20,7 @@ heretic-livingheart-offstation = { $state } в направлении к { $dire
 heretic-livingheart-onstation = { $state } в направелии к { $direction }у!
 heretic-livingheart-unknown = Он... не в этой реальности.
 
-ent-HereticProtectiveBlade = жуткий клинок
-    .desc = Ох еретик..
-ent-HereticProtectiveBladeProjectile = жуткий клинок
-    .desc = Эх еретик..
+# ADT: ent-HereticProtectiveBlade* live in prototypes/entities/objects/specific/heretic.ftl
 
 ## speech
 
@@ -59,3 +56,42 @@ heretic-speech-link = PI'RC' TH' M'ND
 
 heretic-cant-shoot = Я не могу использовать {$entity} из-за моей священной приверженности пути клинка.
 heretic-ability-fail-lowhealth = Это заклинание наносит {$damage} урона, оно введёт вас в критическое состояние, если его использовать!
+
+# ADT: добавлено при актуализации еретика с Goob
+heretic-ability-fail-tile-not-rusted = Выбранное покрытие должно быть ржавым, чтобы использовать эту способность!
+heretic-ability-fail-tile-underneath-not-rusted = Плитка, на которой вы стоите, должна быть ржавой, чтобы использовать эту способность!
+heretic-ability-fail-tile-occupied = Покрытие занято!
+heretic-ability-fail-rust-stage-low = Вы недостаточно сильны чтобы покрыть ржавчиной данное покрытие!
+heretic-ability-fail-target-ghoul = Цель уже гуль!
+heretic-ability-fail-target-no-mind = У цели нет души!
+heretic-ability-lose-focus-shadow-cloak = Когда вы теряете фокус, тени вытягивают вас наружу!
+heretic-cosmic-rune-fail-star-mark = Заблокировано звёздной меткой!
+heretic-cosmic-rune-fail-unlinked = Руна не присоединена!
+heretic-cosmic-rune-fail-range = Недостаточно близко!
+mansus-grasp-trigger-fail = Что-то мешает вам активировать это!
+heretic-livingheart-faraway = Оно { $state ->
+    [dead] мертво
+    [alive] живо
+    *[other] в неизвестном состоянии
+}, очень далеко отсюда!
+heretic-stargaze-obliterate-other = Вы видите, как {$uid} охвачен обжигающим гневом космоса. На мгновение вы видите, как их силуэты бьются в агонии, прежде чем рассыпаться на атомы.
+heretic-stargaze-obliterate-user = СИЛА САМОГО КОСМОСА ИЗЛИВАЕТСЯ НА ВАС. ВОЛНЫ ЖАРА ОХВАТЫВАЮТ ВАШЕ ТЕЛО, РАЗРЫВАЯ ЕГО ПО ШВАМ. ВАШЕ ПОЛНОЕ УНИЧТОЖЕНИЕ ДЛИТСЯ ВСЕГО МГНОВЕНИЕ, ПРЕЖДЕ ЧЕМ ВЫ СНОВА СТАНЕТЕ ТЕМ, КЕМ БЫЛИ ВСЕГДА. КУСОЧКИ ПРЕВРАЩАЮТСЯ В ПЫЛЬ...
+heretic-stargazer-reset-consciousness = ЭТО ДЕЙСТВИЕ НЕОБРАТИМО ИЗМЕНИТ РАЗУМ ЗВЕЗДОЧЁТА! Используйте ещё раз для подтверждения.
+heretic-stargazer-consciousness-reset-fail = Похоже, что ваш запрос на изменение разума звездочёта был отклонён... Похоже, что на данный момент вы застряли с этим.
+heretic-stargazer-consciousness-reset-target = Ваш призыватель перезагрузил вас, и вашим телом завладел призрак. Похоже, он был недоволен вашим выступлением.
+heretic-stargazer-consciousness-reset-user = Разум звездочёта исказился, чтобы лучше подходить вам.
+heretic-speech-rust-wave = SPR'D TH' WO'D!
+heretic-speech-void-prison = V'D PR'S'N!
+heretic-speech-void-conduit = MBR'C' TH' V''D!
+heretic-speech-cosmic-rune = ST'R R'N'!
+heretic-speech-star-touch = ST'R 'N'RG'!!
+heretic-speech-star-blast = R'T'T' ST'R!!
+heretic-speech-cosmic-expansion = C'SM'S 'XP'ND!
+heretic-speech-stargaze = SH''P D' W''P
+heretic-speech-ice-spear = D'WN 'F TH'CE!
+heretic-speech-shapeshft = SH'PE
+heretic-blade-break-fail-acended-message = Вы не можете сломать клинок после вознесения!
+
+heretic-grasp-fail-invalid-target = Хватке здесь не за что ухватиться.
+
+mansus-grasp-drain = Хватка Мансуса высасывает энергию из цели!

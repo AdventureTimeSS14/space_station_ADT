@@ -9,6 +9,7 @@ namespace Content.Client.ADT.ThermalVision;
 
 public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 {
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
@@ -16,13 +17,17 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 
     private ThermalVisionOverlay? _overlay;
     private ThermalVisionEntityHighlightOverlay _throughWallsOverlay = default!;
+    private LightSourceHighlightOverlay _lightSourcesOverlay = default!;
     private EntityUid? _effect;
     private bool _active;
     private bool _activeAlt;
+    private bool _activeHighlight;
+    private bool _activeLightSources;
 
     private const string ScreenShaderId = "ADTThermalVisionScreenShader";
     private const string ScreenShaderAltId = "ADTThermalVisionScreenShaderHalfAlpha";
     private const string BodyShaderId = "ADTThermalBodyShader";
+    private const string LightShaderId = "ADTLightHighlightShader";
 
     public override void Initialize()
     {
@@ -32,6 +37,7 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         SubscribeLocalEvent<ThermalVisionComponent, LocalPlayerDetachedEvent>(OnDetached);
 
         _throughWallsOverlay = new(_prototypes.Index<ShaderPrototype>(BodyShaderId));
+        _lightSourcesOverlay = new(_prototypes.Index<ShaderPrototype>(LightShaderId));
     }
 
     private void OnAttached(Entity<ThermalVisionComponent> ent, ref LocalPlayerAttachedEvent args)
@@ -61,22 +67,40 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 
     private void AttemptAddVision(Entity<ThermalVisionComponent> ent)
     {
-        if (_active && _activeAlt != ent.Comp.UseAlternativeShader)
+        if (_active && (_activeAlt != ent.Comp.UseAlternativeShader || _activeHighlight != ent.Comp.HighlightOnly))
             AttemptRemoveVision(force: true);
 
         if (_active)
+            return;
+
+        _active = true;
+        _activeAlt = ent.Comp.UseAlternativeShader;
+        _activeHighlight = ent.Comp.HighlightOnly;
+
+        _throughWallsOverlay.IgnoredComponents.Clear();
+        foreach (var name in ent.Comp.IgnoredComponents)
+        {
+            if (_componentFactory.TryGetRegistration(name, out var registration))
+                _throughWallsOverlay.IgnoredComponents.Add(registration.Type);
+        }
+
+        _overlayMan.AddOverlay(_throughWallsOverlay);
+
+        if (ent.Comp.HighlightLightSources)
+        {
+            _activeLightSources = true;
+            _overlayMan.AddOverlay(_lightSourcesOverlay);
+        }
+
+        if (ent.Comp.HighlightOnly)
             return;
 
         var shaderId = ent.Comp.UseAlternativeShader ? ScreenShaderAltId : ScreenShaderId;
         if (!_prototypes.TryIndex<ShaderPrototype>(shaderId, out var screenShader))
             return;
 
-        _active = true;
-        _activeAlt = ent.Comp.UseAlternativeShader;
-
         _overlay = new ThermalVisionOverlay(screenShader);
         _overlayMan.AddOverlay(_overlay);
-        _overlayMan.AddOverlay(_throughWallsOverlay);
 
         _effect = SpawnAttachedTo(ent.Comp.EffectPrototype, Transform(ent).Coordinates);
         _xform.SetParent(_effect.Value, ent.Owner);
@@ -92,6 +116,7 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 
         _active = false;
         _activeAlt = false;
+        _activeHighlight = false;
 
         if (_overlay != null)
         {
@@ -100,6 +125,12 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         }
 
         _overlayMan.RemoveOverlay(_throughWallsOverlay);
+
+        if (_activeLightSources)
+        {
+            _activeLightSources = false;
+            _overlayMan.RemoveOverlay(_lightSourcesOverlay);
+        }
 
         if (_effect != null)
         {

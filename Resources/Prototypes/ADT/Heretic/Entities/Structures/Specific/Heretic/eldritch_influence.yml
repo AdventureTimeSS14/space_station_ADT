@@ -12,18 +12,22 @@
     state: icon
   - type: Clickable
   - type: Visibility
-    layer: 128
+    layer: 128 # ADT: VisibilityFlags.EldritchInfluence = 1<<7
 
 - type: entity
   id: EldritchInfluenceIntermediate
   categories: [ HideSpawnMenu ]
   components:
+  # ADT: after collection the rift disappears for a while, then reappears as a
+  # reality fracture visible to everyone (previously spawned instantly)
   - type: TimedDespawn
-    lifetime: 30
+    lifetime: 120
   - type: SpawnOnDespawn
     prototype: EldritchInfluenceSpent
 
 - type: entity
+  # ADT: inherit from the rift, else EldritchInfluence is missing
+  parent: EldritchInfluence
   id: EldritchInfluenceSpent
   name: reality fracture
   description: A reality fracture. Something keeps leaking out of it, should you really be near this thing?
@@ -31,9 +35,11 @@
     mode: SnapgridCenter
   components:
   - type: TimedDespawn
-    lifetime: 120
-  - type: InteractionOutline
+    lifetime: 300
+  - type: EldritchInfluence
+    spent: true
   - type: Sprite
     sprite: ADT/Heretic/reality_fracture.rsi
     state: icon_harvested
-  - type: Clickable
+  - type: Visibility
+    layer: 1 # ADT: Normal - visible to the whole crew (previously EldritchInfluenceSpent layer, only heretics saw it)

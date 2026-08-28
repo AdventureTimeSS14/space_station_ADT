@@ -9,6 +9,7 @@ using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
 using Content.Server.StationRecords.Systems;
+using Content.Shared.ADT.Bed.Cryostorage;
 using Content.Shared.Access.Systems;
 using Content.Shared.Bed.Cryostorage;
 using Content.Shared.Chat;
@@ -219,6 +220,11 @@ public sealed class CryostorageSystem : SharedCryostorageSystem
         Dirty(ent, comp);
         UpdateCryostorageUIState((cryostorageEnt.Value, cryostorageComponent));
         AdminLog.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(ent):player} was entered into cryostorage inside of {ToPrettyString(cryostorageEnt.Value)}");
+
+        // ADT-Tweak-Start
+        var enteredEv = new EntityEnteredCryostorageEvent(cryostorageEnt.Value);
+        RaiseLocalEvent(ent, ref enteredEv);
+        // ADT-Tweak-End
 
         if (!TryComp<StationRecordsComponent>(station, out var stationRecords))
             return;

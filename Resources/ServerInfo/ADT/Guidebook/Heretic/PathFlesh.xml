@@ -1,0 +1,36 @@
+<Document>
+  # Путь Плоти
+
+  <Box>
+    <GuideEntityEmbed Entity="HereticBladeFlesh" Caption=""/>
+  </Box>
+
+  Сотнями голодали, а вы нашли силу в собственной жадности.
+
+  ## Как играется
+
+  Со второй ступени Хватка Плоти поднимает из трупа упыря.
+  Ваша задача - создать как можно больше миньонов.
+
+  ## Слабое место
+
+  Вам нужны тела, много тел, и брать их негде кроме как из экипажа.
+
+  ## Вознесение
+
+  Четыре трупа на руне.
+
+  <GuideHereticQuote Path="Flesh" Text="Голод не утоляется. Голод растёт вместе с тем, кто ему поддался."/>
+
+  ## Ступени
+
+  <GuideHereticPathEmbed Path="Flesh"/>
+
+  # Ритуалы пути
+
+  <GuideHereticRitualEmbed Ritual="BladeFlesh" Path="Flesh"/>
+  <GuideHereticRitualEmbed Ritual="ImperfectRitual" Path="Flesh"/>
+  <GuideHereticRitualEmbed Ritual="RawRitual" Path="Flesh"/>
+  <GuideHereticRitualEmbed Ritual="LonelyRitual" Path="Flesh"/>
+  <GuideHereticRitualEmbed Ritual="AscensionFlesh" Path="Flesh"/>
+</Document>

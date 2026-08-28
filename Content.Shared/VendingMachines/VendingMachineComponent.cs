@@ -242,14 +242,24 @@ namespace Content.Shared.VendingMachines
         //ADT-Economy-Start
         [ViewVariables(VVAccess.ReadWrite)]
         public int Price;
+
+        [DataField]
+        public uint MaxAmount;
+
+        [DataField]
+        public string? Category;
         //ADT-Economy-End
 
-        public VendingMachineInventoryEntry(InventoryType type, string id, uint amount, int price) //ADT-Economy
+        public VendingMachineInventoryEntry(InventoryType type, string id, uint amount, int price, uint maxAmount, string? category = null) //ADT-Economy
         {
             Type = type;
             ID = id;
             Amount = amount;
-            Price = price; //ADT-Economy
+            //ADT-Economy start
+            Price = price;
+            MaxAmount = maxAmount;
+            Category = category;
+            //ADT-Economy end
         }
 
         public VendingMachineInventoryEntry(VendingMachineInventoryEntry entry)
@@ -257,7 +267,11 @@ namespace Content.Shared.VendingMachines
             Type = entry.Type;
             ID = entry.ID;
             Amount = entry.Amount;
-            Price = entry.Price; //ADT-Economy
+            //ADT-Economy start
+            Price = entry.Price;
+            MaxAmount = entry.MaxAmount;
+            Category = entry.Category;
+            //ADT-Economy end
         }
     }
 

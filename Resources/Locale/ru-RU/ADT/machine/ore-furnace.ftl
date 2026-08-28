@@ -1,0 +1,10 @@
+ore-furnace-menu-title = Рудная печь
+ore-furnace-menu-points = Шахтёрские очки: { $points }
+ore-furnace-menu-claim-points = Забрать очки
+ore-furnace-menu-smelt-everything = Переплавить всю руду
+ore-furnace-menu-smelt = Переплавить
+ore-furnace-menu-smelt-max = Всё
+ore-furnace-menu-available = хватит на { $amount }
+ore-furnace-menu-not-enough = не хватает руды
+ore-furnace-menu-materials = Руда в печи
+ore-furnace-menu-cost-entry = { $material } { $amount }

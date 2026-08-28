@@ -18,6 +18,7 @@
         layer:
           - MachineLayer
   - type: Lathe
+    producingSound: /Audio/ADT/Machines/lathe_print.ogg # ADT-Tweak: звук производства BaseLathe
   - type: MaterialStorage
   - type: Destructible
     thresholds:
@@ -87,14 +88,16 @@
     materialUseMultiplier: 0.5
     timeMultiplier: 1.5
   - type: LatheHeatProducing
-  - type: ReagentSpeed
-    modifiers:
-      SpaceLube: 0.8 # being faster means less heat so lube needs to be nerfed
-      SpaceGlue: 5 # no change from normal lathe, overheat!!!
+  # ADT-Tweka start
+  #- type: ReagentSpeed
+  #  modifiers:
+  #    SpaceLube: 0.8 # being faster means less heat so lube needs to be nerfed
+  #    SpaceGlue: 5 # no change from normal lathe, overheat!!!
+  # ADT-Tweak end
 
 - type: entity
   id: Autolathe
-  parent: BaseLatheLube
+  parent: BaseLathe # ADT-Tweak (BaseLatheLube)
   name: autolathe
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
   components:
@@ -149,6 +152,7 @@
     - ADTServiceStaticPack
     - ADTRecorderStaticPack
     - ADTMicsStaticPack
+    - ADTSprayPaintStaticPack
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagStaticPacks:
@@ -180,7 +184,7 @@
 
 - type: entity
   id: Protolathe
-  parent: BaseLatheLube
+  parent: BaseLathe # ADT-Tweak (BaseLatheLube)
   name: protolathe
   description: Converts raw materials into advanced items.
   components:
@@ -200,6 +204,21 @@
   - type: Machine
     board: ProtolatheMachineCircuitboard
   # ADT-tweak Start
+  - type: ItemSlots
+    slots:
+      beaker_slot:
+        name: lathe-component-output-slot-beaker-name
+        whitelist:
+          components:
+          - FitsInDispenser
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      beaker_slot: !type:ContainerSlot
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - beaker_slot
   - type: StationAiWhitelist
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
@@ -215,6 +234,7 @@
     runningState: building
     unlitIdleState: unlit
     unlitRunningState: unlit-building
+    reagentCostSlotId: beaker_slot # ADT-Tweak
     staticPacks:
     - ChemistryStatic
     - SurgeryStatic
@@ -280,7 +300,7 @@
 
 - type: entity
   id: CircuitImprinter
-  parent: BaseLatheLube
+  parent: BaseLathe # ADT-Tweak (BaseLatheLube)
   name: circuit imprinter
   description: Prints circuit boards for machines.
   components:
@@ -363,7 +383,7 @@
 
 - type: entity
   id: ExosuitFabricator
-  parent: BaseLatheLube
+  parent: BaseLathe # ADT-Tweak (BaseLatheLube)
   name: exosuit fabricator
   description: Creates parts for robotics and other mechanical needs.
   components:
@@ -455,7 +475,7 @@
 
 - type: entity
   id: SecurityTechFab
-  parent: BaseLatheLube
+  parent: BaseLathe # ADT-Tweak (BaseLatheLube)
   name: security techfab
   description: Prints equipment for use by security crew.
   components:
@@ -515,7 +535,7 @@
 
 - type: entity
   id: AmmoTechFab
-  parent: BaseLatheLube
+  parent: BaseLathe # ADT-Tweak (BaseLatheLube)
   name: ammo techfab
   description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
   components:
@@ -553,7 +573,7 @@
 
 - type: entity
   id: MedicalTechFab
-  parent: BaseLatheLube
+  parent: BaseLathe # ADT-Tweak (BaseLatheLube)
   name: medical techfab
   description: Prints equipment for use by the medbay.
   components:
@@ -703,69 +723,6 @@
     emagStaticPacks:
     - BioGenEmagStatic
     - HostileCubesStatic
-
-- type: entity
-  parent: BaseLathe
-  id: OreProcessor
-  name: ore processor
-  description: It produces sheets and ingots using ores.
-  components:
-    - type: Sprite
-      sprite: Structures/Machines/ore_processor.rsi
-      layers:
-        - state: icon
-          map: ["enum.LatheVisualLayers.IsRunning"]
-        - state: unlit
-          shader: unshaded
-          map: ["enum.PowerDeviceVisualLayers.Powered"]
-        - state: inserting
-          map: ["enum.MaterialStorageVisualLayers.Inserting"]
-        - state: panel
-          map: ["enum.WiresVisualLayers.MaintenancePanel"]
-    - type: Machine
-      board: OreProcessorMachineCircuitboard
-    - type: MaterialStorage
-      ignoreColor: true
-      whitelist:
-        tags:
-          - Ore
-    - type: Lathe
-      idleState: icon
-      runningState: building
-      defaultProductionAmount: 30 #ADT, changed from 10 to 30
-      suppressMachinePartUpgrades: true #ADT-Tweak
-      staticPacks:
-      - OreSmelting
-      - RGlassSmelting
-      - ADTBScrystalSmelting #ADT Tweak
-    # ADT tweak start
-    - type: AutoMaterialInsert
-      tag: ADTOreBag
-    - type: MiningPoints
-      transferSound:
-        path: /Audio/Effects/Cargo/ping.ogg
-    - type: MiningPointsLathe
-    - type: OreProcessorUpgrade #ADT-Tweak: машинные части (порт Orion PR #385)
-     # ADT tweak end
-
-- type: entity
-  parent: OreProcessor
-  id: OreProcessorIndustrial
-  name: industrial ore processor
-  description: An ore processor specifically designed for mass-producing metals in industrial applications.
-  components:
-  - type: Sprite
-    sprite: Structures/Machines/ore_processor_industrial.rsi
-  - type: Machine
-    board: OreProcessorIndustrialMachineCircuitboard
-  - type: Lathe
-    materialUseMultiplier: 0.75
-    timeMultiplier: 0.5
-    staticPacks:
-    - OreSmelting
-    - RGlassSmelting
-    - AdvancedSmelting
-    - ADTBScrystalSmelting #ADT Tweak
 
 - type: entity
   parent: BaseLathe

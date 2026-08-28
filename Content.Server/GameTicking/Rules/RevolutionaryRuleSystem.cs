@@ -29,6 +29,7 @@ using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Cuffs.Components;
+using Content.Shared.ADT.Heretic.Systems;
 using Robust.Shared.Player;
 
 namespace Content.Server.GameTicking.Rules;
@@ -52,6 +53,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly SharedHereticSystem _heretic = default!;
 
     //Used in OnPostFlash, no reference to the rule component is available
     public readonly ProtoId<NpcFactionPrototype> RevolutionaryNpcFaction = "Revolutionary";
@@ -149,6 +151,11 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         {
             return;
         }
+        
+        // ADT-Tweak-start
+        if (_heretic.TryGetHereticComponent(ev.Target, out _, out _))
+            return;
+        // ADT-Tweak-end
 
         //ADT rerev start
         if (mind == null || !_player.TryGetSessionById(mind.UserId, out var session) || ev.User == null)
@@ -347,10 +354,14 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         // revs lost and heads died
         "rev-stalemate"
     };
-    //ADT rerev start
 
+    //ADT-Tweak-Start
     public void MakeEntRev(EntityUid user, EntityUid target, HeadRevolutionaryComponent comp)
     {
+        // ADT-Tweak-start: Еретик невосприимчив к конвертации в Революцию
+        if (_heretic.TryGetHereticComponent(target, out _, out _))
+            return;
+        // ADT-Tweak-end
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return;
 
@@ -359,12 +370,31 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
 
         _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(user)} converted {ToPrettyString(target)} into a Revolutionary");
-        // ADT TWEAK START
+
         if (_mind.TryGetMind(user, out var revMindId, out _) && _role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role))
             role.Value.Comp2.ConvertedCount++;
-        // ADT TWEAK END
+
         if (_player.TryGetSessionById(mind.UserId, out var session))
             _antag.SendBriefing(session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
     }
-    //ADT rerev end
+
+    public void MakeRegularRev(EntityUid target, EntityUid? converter = null)
+    {
+        if (!_mind.TryGetMind(target, out var mindId, out var mind))
+            return;
+
+        _npcFaction.AddFaction(target, RevolutionaryNpcFaction);
+        var revComp = EnsureComp<RevolutionaryComponent>(target);
+
+        _adminLogManager.Add(LogType.Mind,
+            LogImpact.Medium,
+            $"{ToPrettyString(converter ?? target)} converted {ToPrettyString(target)} into a Revolutionary");
+
+        if (mindId == default || !_role.MindHasRole<RevolutionaryRoleComponent>(mindId))
+            _role.MindAddRole(mindId, "MindRoleRevolutionary");
+
+        if (_player.TryGetSessionById(mind.UserId, out var session))
+            _antag.SendBriefing(session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
+    }
+    //ADT-Tweak-end
 }

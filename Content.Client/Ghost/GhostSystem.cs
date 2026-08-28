@@ -3,8 +3,10 @@ using Content.Shared.Actions;
 using Content.Shared.Ghost;
 using Robust.Client.Console;
 using Robust.Client.GameObjects;
+using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client.Ghost
 {
@@ -16,6 +18,12 @@ namespace Content.Client.Ghost
         [Dependency] private readonly PointLightSystem _pointLightSystem = default!;
         [Dependency] private readonly ContentEyeSystem _contentEye = default!;
         [Dependency] private readonly SpriteSystem _sprite = default!;
+        [Dependency] private readonly IPrototypeManager _protoMan = default!;
+
+        // ADT Tweak Start
+        private static readonly ProtoId<ShaderPrototype> BodyShaderId = "GhostBody";
+        private ShaderInstance _bodyShader = default!;
+        // ADT Tweak End
 
         public int AvailableGhostRoleCount { get; private set; }
 
@@ -55,6 +63,8 @@ namespace Content.Client.Ghost
         {
             base.Initialize();
 
+            _bodyShader = _protoMan.Index(BodyShaderId).InstanceUnique(); // ADT Tweak
+
             SubscribeLocalEvent<GhostComponent, ComponentStartup>(OnStartup);
             SubscribeLocalEvent<GhostComponent, ComponentRemove>(OnGhostRemove);
             SubscribeLocalEvent<GhostComponent, AfterAutoHandleStateEvent>(OnGhostState);
@@ -72,8 +82,16 @@ namespace Content.Client.Ghost
 
         private void OnStartup(EntityUid uid, GhostComponent component, ComponentStartup args)
         {
-            if (TryComp(uid, out SpriteComponent? sprite))
-                _sprite.SetVisible((uid, sprite), GhostVisibility || uid == _playerManager.LocalEntity);
+            if (!TryComp(uid, out SpriteComponent? sprite))
+                return;
+
+            _sprite.SetVisible((uid, sprite), GhostVisibility || uid == _playerManager.LocalEntity);
+
+            // ADT Tweak Start
+            _sprite.SetColor((uid, sprite), Color.White);
+            sprite.PostShader = _bodyShader;
+            sprite.GetScreenTexture = true;
+            // ADT Tweak End
         }
 
         private void OnToggleLighting(EntityUid uid, EyeComponent component, ToggleLightingActionEvent args)

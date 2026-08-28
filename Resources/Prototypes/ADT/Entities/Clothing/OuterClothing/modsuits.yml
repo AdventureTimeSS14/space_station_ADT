@@ -889,6 +889,9 @@
     zombificationResistanceCoefficient: 0.3
   - type: FireProtection
     reduction: 0.75
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -926,6 +929,9 @@
     damageCoefficient: 0.3
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -953,7 +959,7 @@
       coefficients:
         Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.6
+        Piercing: 0.5
         Heat: 0.2
         Radiation: 0.01
         Caustic: 0.5
@@ -965,6 +971,9 @@
     damageCoefficient: 0.3
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -992,7 +1001,7 @@
       coefficients:
         Blunt: 0.5
         Slash: 0.5
-        Piercing: 0.4
+        Piercing: 0.5
         Heat: 0.6
         Radiation: 0.3
         Caustic: 0.3
@@ -1002,3 +1011,6 @@
     damageCoefficient: 0.3
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.2
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1

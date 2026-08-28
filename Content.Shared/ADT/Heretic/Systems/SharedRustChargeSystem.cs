@@ -1,0 +1,123 @@
+//
+
+using Content.Shared.Damage.Components;
+using Content.Shared.ADT.Heretic.Components;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Standing;
+using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
+using Content.Shared.Tag;
+using Content.Shared.Throwing;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Physics.Events;
+
+namespace Content.Shared.ADT.Heretic.Systems;
+
+public abstract class SharedRustChargeSystem : EntitySystem
+{
+    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<RustChargeComponent, StartCollideEvent>(OnCollide);
+        SubscribeLocalEvent<RustChargeComponent, PreventCollideEvent>(OnPreventCollide);
+        SubscribeLocalEvent<RustChargeComponent, LandEvent>(OnLand);
+        SubscribeLocalEvent<RustChargeComponent, StopThrowEvent>(OnStopThrow);
+        SubscribeLocalEvent<RustChargeComponent, DownAttemptEvent>(OnDownAttempt);
+        SubscribeLocalEvent<RustChargeComponent, InteractionAttemptEvent>(OnInteractAttempt);
+        SubscribeLocalEvent<RustChargeComponent, BeforeOldStatusEffectAddedEvent>(OnBeforeRustChargeStatusEffect);
+        SubscribeLocalEvent<RustChargeComponent, ComponentShutdown>(OnRustChargeShutdown);
+    }
+
+    private void OnRustChargeShutdown(Entity<RustChargeComponent> ent, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(ent))
+            return;
+
+        RemCompDeferred<RustObjectsInRadiusComponent>(ent);
+    }
+
+    private void OnBeforeRustChargeStatusEffect(Entity<RustChargeComponent> ent, ref BeforeOldStatusEffectAddedEvent args)
+    {
+        if (args.EffectKey == "KnockedDown")
+            args.Cancelled = true;
+    }
+
+    private void OnInteractAttempt(Entity<RustChargeComponent> ent, ref InteractionAttemptEvent args)
+    {
+        args.Cancelled = true;
+    }
+
+    private void OnDownAttempt(Entity<RustChargeComponent> ent, ref DownAttemptEvent args)
+    {
+        args.Cancel();
+    }
+
+    private void OnPreventCollide(Entity<RustChargeComponent> ent, ref PreventCollideEvent args)
+    {
+        if (!args.OtherFixture.Hard)
+            return;
+
+        var other = args.OtherEntity;
+
+        if (!HasComp<DamageableComponent>(other) || _tag.HasTag(other, ent.Comp.IgnoreTag) ||
+            ent.Comp.DamagedEntities.Contains(other))
+            args.Cancelled = true;
+    }
+
+    private void OnStopThrow(Entity<RustChargeComponent> ent, ref StopThrowEvent args)
+    {
+        RemCompDeferred(ent.Owner, ent.Comp);
+    }
+
+    private void OnLand(Entity<RustChargeComponent> ent, ref LandEvent args)
+    {
+        RemCompDeferred(ent.Owner, ent.Comp);
+    }
+
+    private void OnCollide(Entity<RustChargeComponent> ent, ref StartCollideEvent args)
+    {
+        if (!args.OtherFixture.Hard)
+            return;
+
+        var other = args.OtherEntity;
+
+        if (ent.Comp.DamagedEntities.Contains(other))
+            return;
+
+        _audio.PlayPredicted(ent.Comp.HitSound, ent, ent);
+
+        ent.Comp.DamagedEntities.Add(other);
+
+        if (!TryComp(other, out DamageableComponent? damageable) || _tag.HasTag(other, ent.Comp.IgnoreTag))
+            return;
+
+        // Damage mobs
+        if (HasComp<MobStateComponent>(other))
+        {
+            _stun.TryKnockdown(other, ent.Comp.KnockdownTime, true);
+
+            _damageable.TryChangeDamage((other, damageable),
+                ent.Comp.Damage,
+                false,
+                true);
+
+            return;
+        }
+
+        // Destroy structures
+        DestroyStructure(other, ent);
+    }
+
+    protected virtual void DestroyStructure(EntityUid uid, EntityUid user)
+    {
+    }
+}

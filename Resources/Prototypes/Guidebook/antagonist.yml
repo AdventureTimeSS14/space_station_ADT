@@ -5,7 +5,6 @@
   children:
   - Traitors
   - Changelings # ADT
-  - Heretics
   - Thieves
   - Revolutionaries
   - NuclearOperatives
@@ -14,6 +13,7 @@
   - Zombies
   - Xenoborgs
   - ADTBlob # ADT-Tweak
+  - ADTShadowling # ADT-Tweak
   - MinorAntagonists
 
 - type: guideEntry

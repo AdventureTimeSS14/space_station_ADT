@@ -54,6 +54,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly IReplayRecordingManager _replay = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly ADT.Deafness.ADTDeafnessSystem _deafness = default!;
     [Dependency] private readonly IChatSanitizationManager _sanitizer = default!;
     [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -212,7 +213,10 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         // ADT-Port-Start - DeltaV - Hushed trait logic
         // This needs to happen after prefix removal to avoid bug
-        if (desiredType == InGameICChatType.Speak && HasComp<HushedComponent>(source))
+        var currentLanguage = language ?? _language.GetCurrentLanguage(source);
+        var isCollectiveMind = currentLanguage.LanguageType is CollectiveMind;
+
+        if (desiredType == InGameICChatType.Speak && HasComp<HushedComponent>(source) && !isCollectiveMind)
         {
             // hushed players cannot speak on local chat so will be sent as whisper instead
             desiredType = InGameICChatType.Whisper;
@@ -792,6 +796,15 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (entRange == MessageRangeCheckResult.Disallowed)
                 continue;
             var entHideChat = entRange == MessageRangeCheckResult.HideChat;
+
+            // ADT-Tweak start
+            if (listener != source && _deafness.TryGetDeafenedMessage(listener, message, out var deafened))
+            {
+                _chatManager.ChatMessageToOne(channel, deafened, deafened, source, entHideChat, session.Channel, author: author);
+                continue;
+            }
+            // ADT-Tweak end
+
             if (ignoreLanguage)
             {
                 _chatManager.ChatMessageToOne(channel, message, wrappedMessage, source, entHideChat, session.Channel, author: author);
