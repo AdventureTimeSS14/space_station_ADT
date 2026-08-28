@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
@@ -27,6 +28,16 @@ public sealed class DivineInterventionSystem : EntitySystem
         SubscribeLocalEvent<BeforeCastTouchSpellEvent>(OnTouchSpellAttempt);
 
         SubscribeLocalEvent<DivineInterventionComponent, TouchSpellDenialRelayEvent>(OnTouchSpellDenied);
+
+        SubscribeLocalEvent<MagicImmunityComponent, BeforeCastTouchSpellEvent>(OnImmuneTouchSpellAttempt);
+    }
+
+    private void OnImmuneTouchSpellAttempt(EntityUid uid, MagicImmunityComponent comp, BeforeCastTouchSpellEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        args.Cancel();
     }
 
     private bool ShouldDeny(EntityUid target, out EntityUid? denyingItem)

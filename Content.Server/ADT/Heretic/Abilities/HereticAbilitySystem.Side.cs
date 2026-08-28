@@ -1,5 +1,6 @@
 //
 
+using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.Body.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
@@ -35,6 +36,12 @@ public sealed partial class HereticAbilitySystem
         foreach (var (target, _) in targets)
         {
             if (target == args.Performer)
+                continue;
+
+            var denial = new BeforeCastTouchSpellEvent(target, false);
+            RaiseLocalEvent(target, denial, true);
+
+            if (denial.Cancelled)
                 continue;
 
             hasTargets = true;

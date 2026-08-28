@@ -1,0 +1,52 @@
+<Document>
+  # Снаряжение и слуги
+
+  Всё это создается на руне. Ингредиенты каждого ритуала лежат в разделе [textlink="Руна и ритуалы" link="ADTHereticRituals"].
+
+  # Фокусы
+
+  Без янтарного фокуса, кодекса Цикатрикс, полностью надетой робы или плаща пустоты продвинутые заклинания не сработают. после вознесения фокус не требуется.
+
+  <Box>
+    <GuideEntityEmbed Entity="ClothingNeckAmberFocus" Caption=""/>
+    <GuideEntityEmbed Entity="CodexCicatrix" Caption=""/>
+  </Box>
+
+  [color=#ebcb8b][bold]Янтарный фокус[/bold][/color] вешается на шею и больше ничего не умеет. В основном - бесполезный.
+
+  [color=#ebcb8b][bold]Кодекс Цикатрикс[/bold][/color] работает как фокус, пока открыт в руке, рисует руну за 5 секунд вместо 14 и высасывает из сдвига реальности два очка вместо одного. Однако полоску прогресса при высасывании видят все вокруг. Также Кодекс умеет стирать руны.
+  # Прочие предметы
+
+  <Box>
+    <GuideEntityEmbed Entity="ClothingEldritchMedalion" Caption=""/>
+    <GuideEntityEmbed Entity="HereticEldritchFlask" Caption=""/>
+    <GuideEntityEmbed Entity="ClothingMaskMadHeretic" Caption=""/>
+    <GuideEntityEmbed Entity="CarvingKnife" Caption=""/>
+  </Box>
+
+  [color=#998989][bold]Зловещий медальон[/bold][/color] аналогия термальных очков. Живые существа подсвечиваются сквозь стены. Просто носите его на шее и всё.
+
+  [color=#b48ead][bold]Жуткая фляжка[/bold][/color] работает как криостазисная мензурка и содержит в себе 100 единиц жуткой эссенции, которая лечит еретиков и миньонов.
+
+  [color=#d08770][bold]Маска Безумия[/bold][/color] мне лень писать, она бесполезная.
+
+  [color=#a3be8c][bold]Нож для резьбы[/bold][/color] позволяет создавать на полу ловушки.
+
+  # Броня
+
+  <Box>
+    <GuideEntityEmbed Entity="ClothingOuterArmorHeretic" Caption=""/>
+    <GuideEntityEmbed Entity="ClothingOuterArmorCloakVoid" Caption=""/>
+  </Box>
+
+  Зловещие доспехи работают [bold]как фокус, пока капюшон надет[/bold]. У каждого пути своя версия с собственным видом, но ритуал одинаковый: стол и противогаз.
+
+  <Box>
+    <GuideEntityEmbed Entity="ADTClothingOuterArmorHereticAsh" Caption=""/>
+    <GuideEntityEmbed Entity="ADTClothingOuterArmorHereticBlade" Caption=""/>
+    <GuideEntityEmbed Entity="ADTClothingOuterArmorHereticFlesh" Caption=""/>
+    <GuideEntityEmbed Entity="ADTClothingOuterArmorHereticVoid" Caption=""/>
+    <GuideEntityEmbed Entity="ADTClothingOuterArmorHereticRust" Caption=""/>
+    <GuideEntityEmbed Entity="ADTClothingOuterArmorHereticCosmos" Caption=""/>
+  </Box>
+</Document>

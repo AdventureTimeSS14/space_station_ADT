@@ -12,6 +12,7 @@ using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Advertise.Components;
 using Content.Shared.ADT.Economy;
+using Content.Shared.ADT.VendingMachines;
 using Content.Shared.Cargo;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -79,6 +80,9 @@ namespace Content.Server.VendingMachines
             SubscribeLocalEvent<VendingMachineComponent, InteractUsingEvent>(OnInteractUsing);
             SubscribeLocalEvent<VendingMachineComponent, VendingMachineWithdrawMessage>(OnWithdrawMessage);
             //ADT-Economy-End
+            // ADT-Tweak start
+            SubscribeLocalEvent<VendingMachineComponent, AfterActivatableUIOpenEvent>(OnAfterActivatableUIOpen);
+            // ADT-Tweak end
 
             SubscribeLocalEvent<VendingMachineRestockComponent, PriceCalculationEvent>(OnPriceCalculation);
         }
@@ -235,6 +239,33 @@ namespace Content.Server.VendingMachines
             Audio.PlayPvs(component.SoundWithdrawCurrency, uid);
 
             UpdateVendingMachineInterfaceState(uid, component);
+        }
+
+        private void OnAfterActivatableUIOpen(EntityUid uid, VendingMachineComponent component, AfterActivatableUIOpenEvent args)
+        {
+            SendUserInfo(uid, args.User);
+        }
+
+        private void SendUserInfo(EntityUid uid, EntityUid user)
+        {
+            var balance = 0;
+
+            var items = _accessReader.FindPotentialAccessItems(user);
+            foreach (var item in items)
+            {
+                var nextItem = item;
+                if (TryComp(item, out PdaComponent? pda) && pda.ContainedId is { Valid: true } id)
+                    nextItem = id;
+
+                if (TryComp<BankCardComponent>(nextItem, out var bankCard) && bankCard.AccountId.HasValue)
+                {
+                    balance = _bankCard.GetBalance(bankCard.AccountId.Value);
+                    break;
+                }
+            }
+
+            _userInterfaceSystem.ServerSendUiMessage(uid, VendingMachineUiKey.Key,
+                new VendingMachineUserInfoMessage(balance), user);
         }
 
         private void OnInventoryEjectCountMessage(EntityUid uid, VendingMachineComponent component, VendingMachineEjectCountMessage args)
@@ -415,6 +446,11 @@ namespace Content.Server.VendingMachines
             UpdateVendingMachineInterfaceState(uid, vendComponent); // // ADT-Tweak
             TryUpdateVisualState(uid, vendComponent);
             Audio.PlayPvs(vendComponent.SoundVend, uid);
+
+            // ADT-Tweak start
+            if (sender.HasValue)
+                SendUserInfo(uid, sender.Value);
+            // ADT-Tweak end
         }
 
         /// <summary>
@@ -593,7 +629,7 @@ namespace Content.Server.VendingMachines
 
                 if (PrototypeManager.TryIndex(vendingInventory, out VendingMachineInventoryPrototype? inventoryPrototype))
                 {
-                    foreach (var (item, amount) in inventoryPrototype.StartingInventory)
+                    foreach (var (item, amount, _) in VendingMachineInventoryData.Flatten(inventoryPrototype.StartingInventory)) // ADT-Twek
                     {
                         if (PrototypeManager.TryIndex(item, out EntityPrototype? entity))
                             total += _pricing.GetEstimatedPrice(entity) * amount;

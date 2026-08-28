@@ -1,5 +1,6 @@
 //
 
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.ADT.MartialArts;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems.Abilities;
@@ -117,6 +118,9 @@ public sealed class RiposteeSystem : EntitySystem
             return;
 
         if (HasComp<RiposteeComponent>(args.User))
+            return;
+
+        if (HasComp<ChaplainComponent>(args.User))
             return;
 
         foreach (var data in ent.Comp.Data.Values)
