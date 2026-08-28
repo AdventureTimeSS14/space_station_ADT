@@ -199,7 +199,7 @@
   - type: InstantAction
     event: !type:ADTShadowlingBlindnessSmokeEvent
   - type: ADTShadowlingBlindnessSmokeAction
-    smokeProto: Smoke
+    smokeProto: ADTShadowlingSmokeCloud
     reagent: ADTShadowlingSmoke
     reagentAmount: 100
     duration: 10

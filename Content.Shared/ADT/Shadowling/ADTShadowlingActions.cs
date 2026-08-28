@@ -1,5 +1,6 @@
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Shadowling;
@@ -75,7 +76,20 @@ public sealed partial class ADTShadowlingAscendDoAfterEvent : SimpleDoAfterEvent
 }
 
 [Serializable, NetSerializable]
-public sealed partial class ADTShadowlingDethrallDoAfterEvent : SimpleDoAfterEvent;
+public sealed partial class ADTShadowlingDethrallDoAfterEvent : SimpleDoAfterEvent
+{
+    [DataField]
+    public FixedPoint2 StartDamage;
+
+    public ADTShadowlingDethrallDoAfterEvent()
+    {
+    }
+
+    public ADTShadowlingDethrallDoAfterEvent(FixedPoint2 startDamage)
+    {
+        StartDamage = startDamage;
+    }
+}
 
 [Serializable, NetSerializable]
 public sealed partial class ADTShadowlingHatchDoAfterEvent : SimpleDoAfterEvent

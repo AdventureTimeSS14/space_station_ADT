@@ -12,7 +12,7 @@
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectBlindness
-        type: Add
+        type: Update
         time: 10
         conditions:
         - !type:WhitelistCondition
@@ -23,22 +23,6 @@
             - ADTShadowlingThrall
             - ADTLesserShadowling
             - ADTAscendantShadowling
-      - !type:HealthChange
-        conditions:
-        - !type:WhitelistCondition
-          whitelist:
-            components:
-            - ADTShadowling
-            - ADTShadowlingThrall
-            - ADTLesserShadowling
-            - ADTAscendantShadowling
-        damage:
-          types:
-            Blunt: -4
-            Slash: -4
-            Piercing: -4
-            Asphyxiation: -4
-            Poison: -4
 
 - type: reagent
   id: ADTFrostoil
