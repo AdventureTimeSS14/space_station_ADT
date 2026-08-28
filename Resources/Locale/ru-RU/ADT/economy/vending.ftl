@@ -18,3 +18,5 @@ vending-category-smokables = Курительные изделия
 vending-category-lighters = Зажигалки и спички
 vending-category-pdas-and-cards = ПДА и карты
 vending-category-encryption-keys = Ключи шифрования
+vending-category-protection = Средства защиты
+vending-category-sec-equipment = Снаряжение
