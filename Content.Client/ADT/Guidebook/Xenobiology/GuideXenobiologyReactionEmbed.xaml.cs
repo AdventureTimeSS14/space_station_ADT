@@ -29,8 +29,7 @@ public sealed partial class GuideXenobiologyReactionEmbed : BoxContainer, IDocum
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
-    private const float ChipWidth = 78f;
-    private const float ChipHeight = 24f;
+    private const float ChipWidth = 80f;
 
     private static readonly Dictionary<string, int> ReagentOrder = new()
     {
@@ -151,17 +150,20 @@ public sealed partial class GuideXenobiologyReactionEmbed : BoxContainer, IDocum
                 BorderThickness = new Thickness(1),
                 BorderColor = color.WithAlpha(0.7f),
             },
-            MinSize = new Vector2(ChipWidth, ChipHeight),
-            MaxSize = new Vector2(ChipWidth, ChipHeight),
+            MinWidth = ChipWidth,
             VerticalAlignment = VAlignment.Center,
         };
-        chip.AddChild(new RichTextLabel
+        var chipBox = new BoxContainer
         {
-            Margin = new Thickness(4, 1, 4, 1),
+            Orientation = LayoutOrientation.Horizontal,
+            Margin = new Thickness(4, 2, 4, 2),
+        };
+        chipBox.AddChild(new RichTextLabel
+        {
             HorizontalAlignment = HAlignment.Center,
-            VerticalAlignment = VAlignment.Center,
-            Text = $"[font size=11]{Loc.GetString("xenobio-guide-reagent-chip", ("reagent", reagentName), ("color", XenobiologyGuideColors.ToMarkup(color)))}[/font]",
+            Text = Loc.GetString("xenobio-guide-reagent-chip", ("reagent", reagentName), ("color", XenobiologyGuideColors.ToMarkup(color))),
         });
+        chip.AddChild(chipBox);
         row.AddChild(chip);
 
         var effectPanel = new PanelContainer
