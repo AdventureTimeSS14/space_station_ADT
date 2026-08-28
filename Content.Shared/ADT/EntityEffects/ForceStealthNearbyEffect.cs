@@ -16,7 +16,7 @@ public sealed partial class ForceStealthNearbyEffect : EntityEffectBase<ForceSte
     public float Chance = 1f;
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => null;
+        => Loc.GetString("entity-effect-guidebook-stealth-nearby", ("duration", Duration));
 
     public override LogImpact? Impact => LogImpact.Medium;
 }

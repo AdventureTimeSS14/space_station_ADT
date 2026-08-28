@@ -1,0 +1,28 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              Orientation="Vertical"
+              Margin="5 4 5 4">
+    <PanelContainer HorizontalExpand="True">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#1c1a22" BorderThickness="1" BorderColor="#4a4458"/>
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer Name="AccentBar" HorizontalExpand="True" MinHeight="4"/>
+            <BoxContainer Orientation="Horizontal" Margin="8 6 8 8" HorizontalExpand="True">
+                <BoxContainer Name="ExtractViewContainer" Orientation="Vertical" VerticalAlignment="Center"/>
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="8 0 0 0">
+                    <BoxContainer Orientation="Horizontal">
+                        <RichTextLabel Name="NameLabel" VerticalAlignment="Center"/>
+                        <PanelContainer Name="TierBadge" Margin="8 0 0 0">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#7a8290" BorderThickness="1" BorderColor="#141318"/>
+                            </PanelContainer.PanelOverride>
+                            <RichTextLabel Name="TierLabel" Margin="4 1 4 1"/>
+                        </PanelContainer>
+                    </BoxContainer>
+                    <BoxContainer Name="ReactionBox" Orientation="Vertical" Margin="0 6 0 0"/>
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</BoxContainer>
