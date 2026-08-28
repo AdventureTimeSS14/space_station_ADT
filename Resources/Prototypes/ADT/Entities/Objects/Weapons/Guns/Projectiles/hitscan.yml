@@ -114,20 +114,6 @@
     deviation: 0.05
   - type: HitscanRicochet
     chance: 0.30
-  - type: HitscanBasicVisuals
-    muzzleFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: muzzle
-    travelFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: trace
-    impactFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: impact
-    bullet:
-      sprite:
-        sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-        state: sp
 
 - type: entity
   id: BulletMagnumTraceImprovised
@@ -149,14 +135,6 @@
     staminaDamage: 5
   - type: HitscanBasicVisuals
     muzzleFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: muzzle
-    travelFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: trace
-    impactFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: impact
     bullet:
       sprite:
         sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -197,15 +175,6 @@
   - type: HitscanRicochet
     chance: 0.80
   - type: HitscanBasicVisuals
-    muzzleFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: muzzle
-    travelFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: trace
-    impactFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: impact
     bullet:
       sprite:
         sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -226,15 +195,6 @@
   - type: HitscanRicochet
     chance: 0.48
   - type: HitscanBasicVisuals
-    muzzleFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: muzzle
-    travelFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: trace
-    impactFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: impact
     bullet:
       sprite:
         sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -255,21 +215,18 @@
     deviation: 0.05
   - type: HitscanRicochet
     chance: 0.48
-  - type: HitscanIgniteEffect
+#  - type: HitscanIgniteEffect
   - type: HitscanBasicVisuals
-    muzzleFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: muzzle
-    travelFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: trace
-    impactFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: impact
     bullet:
       sprite:
         sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles2.rsi
         state: incendiary
+        unshaded: true
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.0
+    energy: 7.0
 
 - type: entity
   id: BulletMagnumTraceUranium
@@ -288,15 +245,6 @@
   - type: HitscanRicochet
     chance: 0.80
   - type: HitscanBasicVisuals
-    muzzleFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: muzzle
-    travelFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: trace
-    impactFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: impact
     bullet:
       sprite:
         sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -319,15 +267,6 @@
   - type: HitscanRicochet
     chance: 0.48
   - type: HitscanBasicVisuals
-    muzzleFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: muzzle
-    travelFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: trace
-    impactFlash:
-      sprite: ADT/Objects/Weapons/Guns/Projectiles/bullet_trace.rsi
-      state: impact
     bullet:
       sprite:
         sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -452,7 +391,7 @@
       types:
         Blunt: 2
         Heat: 14
-  - type: HitscanIgniteEffect
+#  - type: HitscanIgniteEffect
   - type: HitscanPierce
     chance: 0.69
     deviation: 0.2
@@ -463,6 +402,12 @@
       sprite:
         sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles2.rsi
         state: incendiary
+        unshaded: true
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.0
+    energy: 7.0
 
 - type: entity
   id: BulletPistolTraceUranium
@@ -806,7 +751,7 @@
       types:
         Blunt: 3
         Heat: 16
-  - type: HitscanIgniteEffect
+#  - type: HitscanIgniteEffect
   - type: HitscanPierce
     chance: 0.69
     deviation: 0.05
@@ -817,6 +762,12 @@
       sprite:
         sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles2.rsi
         state: incendiary
+        unshaded: true
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.0
+    energy: 7.0
 
 - type: entity
   id: BulletLightRifleTraceUranium
@@ -953,7 +904,7 @@
       types:
         Blunt: 2
         Heat: 15
-  - type: HitscanIgniteEffect
+#  - type: HitscanIgniteEffect
   - type: HitscanPierce
     chance: 0.69
   - type: HitscanRicochet
@@ -963,6 +914,13 @@
       sprite:
         sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles2.rsi
         state: incendiary
+        unshaded: true
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.0
+    energy: 7.0
+
 
 - type: entity
   id: BulletRifleTraceUranium
