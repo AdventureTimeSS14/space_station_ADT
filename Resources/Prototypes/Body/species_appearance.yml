@@ -30,6 +30,7 @@
     - map: ["jumpsuit"]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
     - map: [ "enum.HumanoidVisualLayers.RHand" ]
+    - map: [ "finger" ] # ADT layers
 
     # Stuff that goes over the body but below equipment
     - map: ["enum.HumanoidVisualLayers.Overlay"]
@@ -38,6 +39,7 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
+    - map: [ "ears2" ]  # ADT layers
     - map: [ "eyes" ]
     #- map: [ "belt" ] # ADT-Tweak: Disabled layer from Wizards
     - map: [ "id" ]
