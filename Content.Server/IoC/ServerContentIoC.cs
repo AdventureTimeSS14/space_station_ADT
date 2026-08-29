@@ -14,7 +14,6 @@ using Content.Server.ADT.Sponsors;
 using Content.Server.Corvax.Sponsors;
 using Content.Shared.ADT.Sponsors;
 using Content.Server.ADT.TTS;
-using Content.Server.Corvax.TTS;
 using Content.Server.Database;
 using Content.Server.Discord;
 using Content.Server.Discord.DiscordLink;

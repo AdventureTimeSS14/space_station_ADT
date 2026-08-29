@@ -7,7 +7,6 @@ using Content.Client.Corvax.JoinQueue;
 using Content.Client.Corvax.Sponsors;
 using Content.Shared.ADT.Sponsors;
 using Content.Client.ADT.TTS;
-using Content.Client.Corvax.TTS;
 using Content.Client.DebugMon;
 using Content.Client.Eui;
 using Content.Client.FeedbackPopup;
