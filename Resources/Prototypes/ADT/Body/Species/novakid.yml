@@ -257,6 +257,12 @@
 - type: entity
   id: ADTOrganNovakidStomach
   parent: [ OrganBaseStomach, OrganSpriteHumanInternal, ADTOrganNovakidMetabolizer ]
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - ADTCoalOre
+    isSpecialDigestibleExclusive: false
 
 - type: entity
   id: ADTOrganNovakidLiver
