@@ -91,12 +91,25 @@ public sealed class TTSManager
             ResetCache();
         }, true);
 
-        _cfg.OnValueChanged(ADTTTSCVars.TTSApiUrl, v => _apiUrl = v, true);
+        _cfg.OnValueChanged(ADTTTSCVars.TTSApiUrl, v => SetApiUrl(v), true);
         _cfg.OnValueChanged(ADTTTSCVars.TTSApiToken, v => _apiToken = v, true);
         _cfg.OnValueChanged(ADTTTSCVars.TTSMaxConcurrentRequests, v => _maxConcurrent = Math.Max(1, v), true);
         _cfg.OnValueChanged(ADTTTSCVars.TTSMaxQueuedRequests, v => _maxQueued = Math.Max(0, v), true);
         _cfg.OnValueChanged(ADTTTSCVars.TTSCircuitBreakerFailures, v => _breakerFailures = v, true);
         _cfg.OnValueChanged(ADTTTSCVars.TTSCircuitBreakerCooldown, v => _breakerCooldown = v, true);
+    }
+
+    private void SetApiUrl(string url)
+    {
+        if (!string.IsNullOrEmpty(url) &&
+            (!Uri.TryCreate(url, UriKind.Absolute, out var uri) || uri.Scheme != Uri.UriSchemeHttps))
+        {
+            _sawmill.Error($"TTS API URL '{url}' rejected cuz only https:// is allowed to avoid sending the bearer token and speech text in cleartext");
+            _apiUrl = string.Empty;
+            return;
+        }
+
+        _apiUrl = url;
     }
 
     /// <summary>
@@ -189,6 +202,13 @@ public sealed class TTSManager
 
     private async Task<byte[]?> SendAsync(string speaker, string text, string? effect, string cacheKey, CancellationToken ct)
     {
+        if (string.IsNullOrEmpty(_apiUrl))
+        {
+            _sawmill.Error("TTS API URL is not configured or was rejected as insecure");
+            ReportFailure();
+            return null;
+        }
+
         _sawmill.Verbose($"Generate new audio for '{text}' speech by '{speaker}' speaker");
 
         var reqTime = DateTime.UtcNow;
