@@ -1,4 +1,4 @@
-using Content.Shared.Corvax.TTS;
+using Content.Shared.ADT.TTS;
 using Content.Shared.Inventory;
 using Content.Shared.VoiceMask;
 
@@ -14,7 +14,6 @@ public partial class VoiceMaskSystem
 
     private void OnSpeakerVoiceTransform(EntityUid uid, VoiceMaskComponent component, ref InventoryRelayedEvent<TransformSpeakerVoiceEvent> args)
     {
-        args.Args.VoiceId = component.VoiceId;
         args.Args.VoiceId = component.VoiceId;
     }
 

@@ -1,10 +1,10 @@
-﻿using Content.Server.Chat.Managers;
+using Content.Server.Chat.Managers;
 using Content.Server.Players.RateLimiting;
-using Content.Shared.Corvax.CCCVars;
+using Content.Shared.ADT.CCVar;
 using Content.Shared.Players.RateLimiting;
 using Robust.Shared.Player;
 
-namespace Content.Server.Corvax.TTS;
+namespace Content.Server.ADT.TTS;
 
 public sealed partial class TTSSystem
 {
@@ -17,10 +17,9 @@ public sealed partial class TTSSystem
     {
         _rateLimitManager.Register(RateLimitKey,
             new RateLimitRegistration(
-                CCCVars.TTSRateLimitPeriod,
-                CCCVars.TTSRateLimitCount,
-                RateLimitPlayerLimited)
-            );
+                ADTTTSCVars.TTSRateLimitPeriod,
+                ADTTTSCVars.TTSRateLimitCount,
+                RateLimitPlayerLimited));
     }
 
     private void RateLimitPlayerLimited(ICommonSession player)
