@@ -385,7 +385,7 @@ namespace Content.Server.VendingMachines
 
             //ADT-Economy-Start
             var returnedCount = (int)vendComponent.ReturnedInventory.GetValueOrDefault(itemId);
-            if (entry.Amount <= 0 && returnedCount <= 0)
+            if (count <= 0 || count > (int)entry.Amount + returnedCount)
             {
                 if (sender.HasValue)
                     Popup.PopupEntity(Loc.GetString("vending-machine-component-try-eject-out-of-stock"), uid, sender.Value);
@@ -393,7 +393,7 @@ namespace Content.Server.VendingMachines
                 Deny(uid, vendComponent);
                 return;
             }
-
+            
             if (string.IsNullOrEmpty(entry.ID))
                 return;
 
