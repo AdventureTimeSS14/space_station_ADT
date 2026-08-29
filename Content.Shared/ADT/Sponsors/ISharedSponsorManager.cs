@@ -19,6 +19,8 @@ public interface ISharedSponsorManager
 
     bool IsTraitAllowed(ICommonSession? session, string traitId);
 
+    bool IsTtsVoiceAllowed(ICommonSession? session, string voiceId);
+
     bool IsJobTimeBypassed(ICommonSession? session, ProtoId<JobPrototype> job);
 
     bool IsAntagTimeBypassed(ICommonSession? session);

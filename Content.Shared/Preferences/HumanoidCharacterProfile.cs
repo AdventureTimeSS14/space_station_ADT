@@ -829,8 +829,12 @@ namespace Content.Shared.Preferences
 
             // ADT-Tweak-Start
             prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
-            if (voice is null || !CanHaveVoice(voice, Sex, Species)) // ADT-Tweak
+            if (voice is null
+                || !CanHaveVoice(voice, Sex, Species)
+                || !SponsorProfileValidation.IsTtsVoiceAllowed(session, collection, voice))
+            {
                 Voice = DefaultSexVoice[sex];
+            }
             // ADT-Tweak-End
 
             // Checks prototypes exist for all loadouts and dump / set to default if not.

@@ -40,6 +40,12 @@ public sealed class SponsorBenefits
     [JsonPropertyName("traits")]
     public HashSet<string> Traits { get; set; } = new();
 
+    [JsonPropertyName("ttsVoices")]
+    public HashSet<string> TtsVoices { get; set; } = new();
+
+    [JsonPropertyName("allTtsVoices")]
+    public bool AllTtsVoices { get; set; }
+
     #endregion
 
     #region Чат и призрак
@@ -84,6 +90,8 @@ public sealed class SponsorBenefits
             AllMarkings = AllMarkings,
             Species = new HashSet<string>(Species),
             Traits = new HashSet<string>(Traits),
+            TtsVoices = new HashSet<string>(TtsVoices),
+            AllTtsVoices = AllTtsVoices,
             OocColor = OocColor,
             AllowCustomOocColor = AllowCustomOocColor,
             GhostColors = new List<Color>(GhostColors),
@@ -127,6 +135,8 @@ public sealed class SponsorBenefits
             result.AllMarkings |= benefits.AllMarkings;
             result.Species.UnionWith(benefits.Species);
             result.Traits.UnionWith(benefits.Traits);
+            result.TtsVoices.UnionWith(benefits.TtsVoices);
+            result.AllTtsVoices |= benefits.AllTtsVoices;
 
             if (benefits.OocColor != null)
                 result.OocColor = benefits.OocColor;

@@ -4,6 +4,7 @@ using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
+using Content.Shared.ADT.TTS;
 using Content.Shared.Traits;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
@@ -87,6 +88,20 @@ public static class SponsorProfileValidation
             return true;
 
         return manager.IsMarkingAllowed(session, markingId);
+    }
+
+    public static bool IsTtsVoiceAllowed(
+        ICommonSession? session,
+        IDependencyCollection collection,
+        TTSVoicePrototype voice)
+    {
+        if (!voice.SponsorOnly)
+            return true;
+
+        if (!TryGetManager(collection, out var manager))
+            return true;
+
+        return manager.IsTtsVoiceAllowed(session, voice.ID);
     }
 
     public static void StripMarkings(

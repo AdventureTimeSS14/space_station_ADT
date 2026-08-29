@@ -2,6 +2,7 @@ using System.Globalization;
 using System.Linq;
 using Content.Client.ADT.UserInterface.Controls;
 using Content.Shared.ADT.Sponsors;
+using Content.Shared.ADT.TTS;
 using Content.Shared.Clothing;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -30,6 +31,8 @@ public sealed class SponsorBenefitsEditor : BoxContainer
     private readonly SponsorProtoPicker _markings;
     private readonly SponsorProtoPicker _species;
     private readonly SponsorProtoPicker _traits;
+    private readonly CheckBox _allTtsVoices;
+    private readonly SponsorProtoPicker _ttsVoices;
 
     private readonly CheckBox _hasOocColor;
     private readonly LegacyColorSelectorSliders _oocColor;
@@ -62,6 +65,8 @@ public sealed class SponsorBenefitsEditor : BoxContainer
         _markings = AddPicker(Loc.GetString("adt-sponsor-editor-markings"), BuildMarkings());
         _species = AddPicker(Loc.GetString("adt-sponsor-editor-species"), BuildSpecies());
         _traits = AddPicker(Loc.GetString("adt-sponsor-editor-traits"), BuildTraits());
+        _allTtsVoices = AddCheck(Loc.GetString("adt-sponsor-editor-all-tts"));
+        _ttsVoices = AddPicker(Loc.GetString("adt-sponsor-editor-tts"), BuildTtsVoices());
 
         AddHeader(Loc.GetString("adt-sponsor-editor-chat-ghost"));
 
@@ -105,6 +110,8 @@ public sealed class SponsorBenefitsEditor : BoxContainer
         _markings.SetSelected(benefits.Markings);
         _species.SetSelected(benefits.Species);
         _traits.SetSelected(benefits.Traits);
+        _allTtsVoices.Pressed = benefits.AllTtsVoices;
+        _ttsVoices.SetSelected(benefits.TtsVoices);
 
         _hasOocColor.Pressed = benefits.OocColor != null;
         _oocColor.Visible = _hasOocColor.Pressed;
@@ -128,6 +135,8 @@ public sealed class SponsorBenefitsEditor : BoxContainer
             Markings = _markings.GetSelected(),
             Species = _species.GetSelected(),
             Traits = _traits.GetSelected(),
+            TtsVoices = _ttsVoices.GetSelected(),
+            AllTtsVoices = _allTtsVoices.Pressed,
             AllLoadouts = _allLoadouts.Pressed,
             AllMarkings = _allMarkings.Pressed,
             AllowCustomOocColor = _customOocColor.Pressed,
@@ -190,6 +199,14 @@ public sealed class SponsorBenefitsEditor : BoxContainer
         foreach (var proto in _proto.EnumeratePrototypes<SpeciesPrototype>())
         {
             yield return new SponsorPickerItem(proto.ID, Loc.GetString(proto.Name), proto.SponsorOnly);
+        }
+    }
+
+    private IEnumerable<SponsorPickerItem> BuildTtsVoices()
+    {
+        foreach (var proto in _proto.EnumeratePrototypes<TTSVoicePrototype>())
+        {
+            yield return new SponsorPickerItem(proto.ID, proto.Name, proto.SponsorOnly);
         }
     }
 

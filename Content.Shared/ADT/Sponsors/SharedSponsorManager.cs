@@ -58,6 +58,11 @@ public abstract class SharedSponsorManager : ISharedSponsorManager
         return GetData(session).IsTraitAllowed(traitId);
     }
 
+    public virtual bool IsTtsVoiceAllowed(ICommonSession? session, string voiceId)
+    {
+        return GetData(session).IsTtsVoiceAllowed(voiceId);
+    }
+
     public bool IsJobTimeBypassed(ICommonSession? session, ProtoId<JobPrototype> job)
     {
         var data = GetData(session);

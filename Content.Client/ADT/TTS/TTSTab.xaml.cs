@@ -106,7 +106,13 @@ public sealed partial class TTSTab : Control
 
     private static bool CanUseVoice(TTSVoicePrototype voice)
     {
-        return true; // спонсорские ттсы появятся вместе с обновой спонсорки
+        if (!voice.SponsorOnly)
+            return true;
+
+        var sponsors = IoCManager.Resolve<Content.Client.ADT.Sponsors.SponsorManager>();
+        var session = IoCManager.Resolve<Robust.Client.Player.IPlayerManager>().LocalSession;
+
+        return sponsors.IsTtsVoiceAllowed(session, voice.ID);
     }
 
     public void UpdateControls(HumanoidCharacterProfile? profile, Sex sex, ProtoId<SpeciesPrototype> species)

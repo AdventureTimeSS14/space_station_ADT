@@ -26,7 +26,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SponsorsManager _sponsorsManager = default!; //ADT-Sponsors-Job
-    [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!; // ADT-SponsorsV2
+    [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
     private readonly List<ProtoId<JobPrototype>> _jobBans = new();

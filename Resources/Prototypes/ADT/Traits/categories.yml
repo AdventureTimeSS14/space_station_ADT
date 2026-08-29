@@ -36,3 +36,9 @@
   priority: 60
   accentColor: "#10b981"
   defaultExpanded: true
+
+- type: traitCategory
+  id: ADTSponsorTraits
+  name: trait-category-sponsor
+  priority: 100
+  accentColor: "#66CCFF"

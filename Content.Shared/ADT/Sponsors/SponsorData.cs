@@ -19,6 +19,8 @@ public sealed class SponsorData
     public bool AllMarkings { get; private init; }
     public FrozenSet<string> Species { get; private init; } = FrozenSet<string>.Empty;
     public FrozenSet<string> Traits { get; private init; } = FrozenSet<string>.Empty;
+    public FrozenSet<string> TtsVoices { get; private init; } = FrozenSet<string>.Empty;
+    public bool AllTtsVoices { get; private init; }
 
     public Color? OocColor { get; private init; }
     public bool AllowCustomOocColor { get; private init; }
@@ -54,6 +56,11 @@ public sealed class SponsorData
     public bool IsTraitAllowed(string traitId)
     {
         return Traits.Contains(traitId);
+    }
+
+    public bool IsTtsVoiceAllowed(string voiceId)
+    {
+        return AllTtsVoices || TtsVoices.Contains(voiceId);
     }
 
     public bool IsJobTimeBypassed(string jobId, string? departmentId)
@@ -95,6 +102,8 @@ public sealed class SponsorData
                             || benefits.Markings.Count > 0
                             || benefits.Species.Count > 0
                             || benefits.Traits.Count > 0
+                            || benefits.AllTtsVoices
+                            || benefits.TtsVoices.Count > 0
                             || benefits.OocColor != null
                             || benefits.AllowCustomOocColor
                             || benefits.GhostColors.Count > 0
@@ -114,6 +123,8 @@ public sealed class SponsorData
             AllMarkings = benefits.AllMarkings,
             Species = benefits.Species.ToFrozenSet(),
             Traits = benefits.Traits.ToFrozenSet(),
+            TtsVoices = benefits.TtsVoices.ToFrozenSet(),
+            AllTtsVoices = benefits.AllTtsVoices,
             OocColor = benefits.OocColor,
             AllowCustomOocColor = benefits.AllowCustomOocColor,
             GhostColors = benefits.GhostColors.ToArray(),
