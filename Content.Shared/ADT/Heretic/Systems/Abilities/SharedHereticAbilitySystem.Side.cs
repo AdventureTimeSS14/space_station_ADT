@@ -1,4 +1,6 @@
 using Content.Shared.ADT.Heretic.Components;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Projectiles;
@@ -12,6 +14,13 @@ public abstract partial class SharedHereticAbilitySystem
         SubscribeLocalEvent<EventHereticCloak>(OnCloak);
         SubscribeLocalEvent<EventHereticRustCharge>(OnRustCharge);
         SubscribeLocalEvent<EventHereticIceSpear>(OnIceSpear);
+
+        SubscribeLocalEvent<SmolderingHuskComponent, DamageModifyEvent>(OnSmolderingHuskDamage);
+    }
+
+    private void OnSmolderingHuskDamage(Entity<SmolderingHuskComponent> ent, ref DamageModifyEvent args)
+    {
+        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, ent.Comp.ModifierSet);
     }
 
     private void OnCloak(EventHereticCloak args)

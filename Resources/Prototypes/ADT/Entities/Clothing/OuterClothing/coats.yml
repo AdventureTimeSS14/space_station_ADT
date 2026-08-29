@@ -36,7 +36,7 @@
 
 #толстовки-топки от Празата
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ADTClothingOuterStorageClothBase
   id: ADTClothingOuterWhiteSweatshirtTop
   name: white sweatshirt-top
   description: white sweatshirt-top
@@ -49,7 +49,7 @@
     price: 65
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ADTClothingOuterStorageClothBase
   id: ADTClothingOuterGraySweatshirtTop
   name: gray sweatshirt-top
   description: gray sweatshirt-top
@@ -62,7 +62,26 @@
     price: 65
 
 - type: entity
+  abstract: true
   parent: ClothingOuterStorageBase
+  id: ADTClothingOuterStorageClothBase
+  components:
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: ADTClothingOuterStorageClothBase
   id: ADTClothingOuterBlackSweatshirtTop
   name: black sweatshirt-top
   description: black sweatshirt-top
@@ -323,7 +342,7 @@
 
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ADTClothingOuterStorageClothBase
   id: ADTClothingOuterDutch
   name: dutch's jacket
   description: For those long nights on the beach in Tahiti.
@@ -334,7 +353,7 @@
     sprite: ADT/Clothing/OuterClothing/Coats/dutch_jacket.rsi
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ADTClothingOuterStorageClothBase
   id: ADTClothingOuterLettermanNanoTrasen
   name: blue letterman jacket
   description: A blue letterman jacket with a proud Nanotrasen N on the back. The tag says that it was made by Mr.Chang's corp.
@@ -345,7 +364,7 @@
     sprite: ADT/Clothing/OuterClothing/Coats/letterman_nanotrasen.rsi
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ADTClothingOuterStorageClothBase
   id: ADTClothingOuterLettermanSyndie
   name: blood-red letterman jacket
   description: A blood-red letterman jacket with a huge S on the back. Nothing suspicious.
@@ -356,7 +375,7 @@
     sprite: ADT/Clothing/OuterClothing/Coats/letterman_syndie.rsi
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ADTClothingOuterStorageClothBase
   id: ADTClothingOuterLettermanBlack
   name: black letterman jacket
   description: A black letterman jacket.

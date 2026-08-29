@@ -205,6 +205,22 @@
     stage: 2
 
 - type: listing
+  id: HereticSidePath3SmolderingHusk
+  name: knowledge-path-side-s3-husk-name
+  description: knowledge-path-side-s3-husk-desc
+  icon: { sprite: ADT/Heretic/items.rsi, state: rusty_medalion }
+  productHereticKnowledge: SmolderingHusk
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
   id: HereticSidePath6RustWalker
   name: knowledge-path-side-s6-rustwalker-name
   description: knowledge-path-side-s6-rustwalker-desc
