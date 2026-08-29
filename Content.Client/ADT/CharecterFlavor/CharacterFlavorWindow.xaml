@@ -4,8 +4,8 @@
                       xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
                       xmlns:ui="clr-namespace:Robust.Client.UserInterface.Controls;assembly=Robust.Client"
                       Title="{Loc 'flavor-interface-lable'}"
-                      MinSize="600 468"
-                      SetSize="800 670">
+                      MinSize="785 468"
+                      SetSize="985 670">
 
         <BoxContainer Orientation="Vertical"
                       Margin="10"
@@ -39,6 +39,8 @@
                         <TextureRect Name="HeadshotImage"
                                     HorizontalExpand="True"
                                     VerticalExpand="True"
+                                    CanShrink="True"
+                                    RectClipContent="True"
                                     Stretch="KeepAspectCentered">
                             <RichTextLabel Name="HeadshotLoadingLabel"
                                            HorizontalAlignment="Center"
