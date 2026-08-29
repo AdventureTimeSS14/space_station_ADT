@@ -55,7 +55,10 @@ public sealed class ADTActionOrderSystem : EntitySystem
     {
         _pendingSend = false;
         _cachedFor = null;
+        _syncedFor = null;
         RebuildCache(ev.Entity);
+
+        _ui.GetUIController<ActionUIController>().ReloadActionOrder();
     }
 
     private void OnHandleState(Entity<ADTActionOrderComponent> ent, ref AfterAutoHandleStateEvent args)
