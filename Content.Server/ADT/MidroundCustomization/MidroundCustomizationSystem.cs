@@ -239,12 +239,12 @@ public sealed class MidroundCustomizationSystem : EntitySystem
             return;
         }
 
-        _pointLight.SetColor(uid, color.Value);
+        _pointLight.SetColor(uid, color);
     }
 
-    private bool TryGetLayerColor(EntityUid uid, HumanoidVisualLayers layer, out Color? color)
+    private bool TryGetLayerColor(EntityUid uid, HumanoidVisualLayers layer, out Color color)
     {
-        color = null;
+        color = default;
 
         if (!_visualBody.TryGatherMarkingsData(uid, new HashSet<HumanoidVisualLayers> { layer }, out _, out _, out var applied))
             return false;
@@ -269,15 +269,18 @@ public sealed class MidroundCustomizationSystem : EntitySystem
         if (ent.Comp.ChangeSlotOnState.Count == 0)
             return;
 
-        var wasManaged = ent.Comp.ChangeSlotOnState.Any(entry => entry.State == args.OldMobState);
-        var isManaged = ent.Comp.ChangeSlotOnState.Any(entry => entry.State == args.NewMobState);
+        var oldState = args.OldMobState;
+        var newState = args.NewMobState;
+
+        var wasManaged = ent.Comp.ChangeSlotOnState.Any(entry => entry.State == oldState);
+        var isManaged = ent.Comp.ChangeSlotOnState.Any(entry => entry.State == newState);
 
         if (isManaged)
         {
             if (!wasManaged)
                 RecordOriginalMarkings(ent, ent.Comp);
 
-            ApplyStateMarkings(ent, ent.Comp, args.NewMobState);
+            ApplyStateMarkings(ent, ent.Comp, newState);
             return;
         }
 
