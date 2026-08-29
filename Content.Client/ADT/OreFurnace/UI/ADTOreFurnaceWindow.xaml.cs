@@ -25,6 +25,8 @@ public sealed partial class ADTOreFurnaceWindow : FancyWindow
     public event Action<ProtoId<OreSmeltRecipePrototype>, int>? OnSmelt;
     public event Action? OnSmeltEverything;
     public event Action? OnClaimPoints;
+    public event Action? OnToggleSiloLink;
+    public event Action? OnFindSilo;
 
     private readonly List<ADTOreFurnaceRecipeRow> _rows = new();
 
@@ -41,6 +43,8 @@ public sealed partial class ADTOreFurnaceWindow : FancyWindow
 
         SmeltEverythingButton.OnPressed += _ => OnSmeltEverything?.Invoke();
         ClaimPointsButton.OnPressed += _ => OnClaimPoints?.Invoke();
+        SiloLinkButton.OnPressed += _ => OnToggleSiloLink?.Invoke();
+        FindSiloButton.OnPressed += _ => OnFindSilo?.Invoke();
     }
 
     public void SetEntity(EntityUid uid)
@@ -77,11 +81,17 @@ public sealed partial class ADTOreFurnaceWindow : FancyWindow
         }
     }
 
-    public void Update(uint points, bool canClaim)
+    public void Update(uint points, bool canClaim, bool siloLinkEnabled, string? siloName)
     {
         PointsContainer.Visible = canClaim;
         PointsLabel.Text = Loc.GetString("ore-furnace-menu-points", ("points", points));
         ClaimPointsButton.Disabled = points == 0;
+
+        SiloLinkLabel.Text = !siloLinkEnabled
+            ? Loc.GetString("ore-furnace-menu-silo-off")
+            : siloName != null
+                ? Loc.GetString("ore-furnace-menu-silo-name", ("name", siloName))
+                : Loc.GetString("ore-furnace-menu-silo-none");
 
         UpdateRows();
     }
