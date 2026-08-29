@@ -645,6 +645,10 @@
       collection: Whistles
     Spit:
       collection: HumanSpits
+    IPCCuteSurprised:
+      path: /Audio/ADT/Voice/Human/pink_scream1.ogg
+    IPCCuteScared:
+      path: /Audio/ADT/Voice/Human/pink_scream2.ogg
 
 - type: emoteSounds
   id: MaleUrsus
