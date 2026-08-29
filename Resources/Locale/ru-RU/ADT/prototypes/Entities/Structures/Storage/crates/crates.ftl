@@ -7,3 +7,5 @@ ent-ADTCrateScienceLawsAiEmpty = защищённый ящик плат зако
 ent-CrateWeaponAirsoftSecure = защищённый ящик для страйкболла
     .suffix = НЕ МАППИТЬ, Пустой
     .desc = Ящик для страйкбольных наборов.
+ent-ADTCrateResearchAndDevelopmentServer = ящик сервера РнД
+    .desc = Содержит упаковку сервера РнД. Для открытия требуется доступ "Научный".
