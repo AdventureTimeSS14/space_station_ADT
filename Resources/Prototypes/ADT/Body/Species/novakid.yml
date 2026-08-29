@@ -219,7 +219,7 @@
     predictable: false
   - type: ItemToggleHot
   - type: MidroundCustomization
-    changeHairSound: /Audio/ADT/slime-hair.ogg
+    changeHairSound: /Audio/ADT/Novakid/novakid_laugh01.ogg
     allowedLayers:
     - Hair
     - FacialHair
