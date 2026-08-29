@@ -14778,3 +14778,9 @@ Entries:
     id: 1871
     pr_number: 3294
     time: '2026-08-29T10:23:00Z'
+  - author: CrimeMoot
+    changes:
+      - {message: Редактор персонажа можно использовать будучи в гостах., type: Add}
+    id: 1872
+    pr_number: 3297
+    time: '2026-08-29T18:45:29Z'
