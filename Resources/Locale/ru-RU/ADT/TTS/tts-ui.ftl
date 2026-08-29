@@ -10,3 +10,11 @@ humanoid-profile-editor-voice-tooltip-sponsoronly = Доступно тольк�
 humanoid-profile-editor-voice-category-tooltip = Показать голоса из {$category}
 humanoid-profile-editor-voice-match = Найдено: {$filtered}/{$all}
 tts-rate-limited = Вы генерируете TTS слишком быстро!
+
+ui-options-tab-tts = TTS
+ui-options-tts-label = Озвучка речи
+ui-options-tts-radio-label = Озвучка рации
+ui-options-tts-radio-enabled = Озвучивать сообщения по рации
+ui-options-tts-radio-volume = Громкость рации:
+ui-options-tts-radio-channels-label = Громкость каналов
+ui-options-tts-radio-channels-hint = Канал на нуле не озвучивается.

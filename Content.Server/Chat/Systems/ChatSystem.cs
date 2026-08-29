@@ -70,11 +70,11 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
     [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
 
-    // Corvax-TTS-Start: Moved from Server to Shared
+    // ADT-Tweak-Start: Moved from Server to Shared
     // public const int VoiceRange = 10; // how far voice goes in world units
     // public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
     // public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
-    // Corvax-TTS-End
+    // ADT-Tweak-End
     public new readonly SoundSpecifier DefaultAnnouncementSound = new SoundPathSpecifier("/Audio/ADT/Announcements/announce_dig.ogg"); // ADT-Tweak: замена звука оповещения на ADT версию
     public const string CentComAnnouncementSound = "/Audio/ADT/Announcements/announce_dig.ogg"; // ADT-Tweak: замена звука CentComm на ADT версию
 
