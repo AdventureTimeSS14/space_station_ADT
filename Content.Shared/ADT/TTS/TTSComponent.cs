@@ -13,7 +13,7 @@ public sealed partial class TTSComponent : Component
     /// Voice the entity speaks with.
     /// </summary>
     [DataField("voice")]
-    public ProtoId<TTSVoicePrototype>? VoicePrototypeId;
+    public ProtoId<TTSVoicePrototype>? VoicePrototypeId = "glados";
 
     /// <summary>
     /// Service effect the entity constantly speaks through, for example <c>robotic</c>.
