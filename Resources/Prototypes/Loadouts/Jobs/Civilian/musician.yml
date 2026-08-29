@@ -1,4 +1,4 @@
-# ADT-Tweak-start
+#ADT-Tweak-Start
 # SuperSynthesizerInstrument
 - type: loadoutEffectGroup
   id: SuperSynthesizerInstrumentWorthy
@@ -19,7 +19,7 @@
     back:
     - SuperSynthesizerInstrument
   groupBy: "supersynthesizer"
-# ADT-Tweak-end
+#ADT-Tweak-End
 
 # Jumpsuit
 - type: loadout
