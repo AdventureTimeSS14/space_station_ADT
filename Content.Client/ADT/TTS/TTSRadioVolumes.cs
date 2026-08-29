@@ -26,7 +26,8 @@ public static class TTSRadioVolumes
             var value = pair[(separator + 1)..];
 
             if (channel.Length == 0 ||
-                !float.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out var volume))
+                !float.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out var volume) ||
+                float.IsNaN(volume))
             {
                 continue;
             }
@@ -43,6 +44,9 @@ public static class TTSRadioVolumes
 
         foreach (var (channel, volume) in volumes)
         {
+            if (float.IsNaN(volume))
+                continue;
+
             var clamped = Math.Clamp(volume, 0f, FullVolume);
 
             if (clamped >= FullVolume)

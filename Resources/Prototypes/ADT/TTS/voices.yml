@@ -1949,3 +1949,11 @@
   sex: Male
   speaker: tau_ethereal_dow
   id: tau_ethereal_dow
+
+# Custom TTS
+- type: ttsVoice
+  name: "Бананчики"
+  description: "Да это не я --- делаю..."
+  sex: Male
+  speaker: darkiich
+  id: darkiich

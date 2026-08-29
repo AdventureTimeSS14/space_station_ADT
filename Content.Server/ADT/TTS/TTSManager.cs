@@ -44,6 +44,8 @@ public sealed class TTSManager
     private HttpClient _httpClient = default!;
     private ISawmill _sawmill = default!;
 
+    private readonly object _lock = new();
+
     private readonly Dictionary<string, byte[]> _cache = new();
     private readonly Queue<string> _cacheOrder = new();
     private readonly Dictionary<string, Task<byte[]?>> _inFlight = new();
@@ -116,26 +118,29 @@ public sealed class TTSManager
 
         var cacheKey = GenerateCacheKey(speaker, text, effect);
 
-        if (_cache.TryGetValue(cacheKey, out var cached))
+        lock (_lock)
         {
-            ReusedCount.Inc();
-            _sawmill.Verbose($"Use cached sound for '{text}' speech by '{speaker}' speaker");
-            return Task.FromResult<byte[]?>(cached);
+            if (_cache.TryGetValue(cacheKey, out var cached))
+            {
+                ReusedCount.Inc();
+                _sawmill.Verbose($"Use cached sound for '{text}' speech by '{speaker}' speaker");
+                return Task.FromResult<byte[]?>(cached);
+            }
+
+            if (_inFlight.TryGetValue(cacheKey, out var running))
+            {
+                ReusedCount.Inc();
+                _sawmill.Verbose($"Join running request for '{text}' speech by '{speaker}' speaker");
+                return running;
+            }
+
+            var task = RequestAsync(speaker, text, effect, cacheKey);
+
+            if (!task.IsCompleted)
+                _inFlight[cacheKey] = task;
+
+            return task;
         }
-
-        if (_inFlight.TryGetValue(cacheKey, out var running))
-        {
-            ReusedCount.Inc();
-            _sawmill.Verbose($"Join running request for '{text}' speech by '{speaker}' speaker");
-            return running;
-        }
-
-        var task = RequestAsync(speaker, text, effect, cacheKey);
-
-        if (!task.IsCompleted)
-            _inFlight[cacheKey] = task;
-
-        return task;
     }
 
     private async Task<byte[]?> RequestAsync(string speaker, string text, string? effect, string cacheKey)
@@ -175,7 +180,10 @@ public sealed class TTSManager
         }
         finally
         {
-            _inFlight.Remove(cacheKey);
+            lock (_lock)
+            {
+                _inFlight.Remove(cacheKey);
+            }
         }
     }
 
@@ -186,7 +194,7 @@ public sealed class TTSManager
         var reqTime = DateTime.UtcNow;
         try
         {
-            var url = $"{_apiUrl}?speaker={speaker}&text={HttpUtility.UrlEncode(text)}&ext=ogg";
+            var url = $"{_apiUrl}?speaker={HttpUtility.UrlEncode(speaker)}&text={HttpUtility.UrlEncode(text)}&ext=ogg";
             if (!string.IsNullOrEmpty(effect))
                 url += $"&effect={HttpUtility.UrlEncode(effect)}";
 
@@ -210,12 +218,15 @@ public sealed class TTSManager
 
             var soundData = await response.Content.ReadAsByteArrayAsync(ct);
 
-            if (_cache.TryAdd(cacheKey, soundData))
+            lock (_lock)
             {
-                _cacheOrder.Enqueue(cacheKey);
-                while (_cache.Count > _maxCachedCount && _cacheOrder.TryDequeue(out var oldest))
+                if (_cache.TryAdd(cacheKey, soundData))
                 {
-                    _cache.Remove(oldest);
+                    _cacheOrder.Enqueue(cacheKey);
+                    while (_cache.Count > _maxCachedCount && _cacheOrder.TryDequeue(out var oldest))
+                    {
+                        _cache.Remove(oldest);
+                    }
                 }
             }
 
@@ -243,23 +254,31 @@ public sealed class TTSManager
 
     public void ResetCache()
     {
-        _cache.Clear();
-        _cacheOrder.Clear();
+        lock (_lock)
+        {
+            _cache.Clear();
+            _cacheOrder.Clear();
+        }
     }
 
     private async Task<bool> TryEnterAsync(CancellationToken ct)
     {
-        if (_activeRequests < _maxConcurrent)
+        TaskCompletionSource<bool>? waiter = null;
+
+        lock (_lock)
         {
-            _activeRequests++;
-            return true;
+            if (_activeRequests < _maxConcurrent)
+            {
+                _activeRequests++;
+                return true;
+            }
+
+            if (_waiters.Count >= _maxQueued)
+                return false;
+
+            waiter = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
+            _waiters.Enqueue(waiter);
         }
-
-        if (_waiters.Count >= _maxQueued)
-            return false;
-
-        var waiter = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
-        _waiters.Enqueue(waiter);
 
         await using var registration = ct.Register(() => waiter.TrySetResult(false));
         return await waiter.Task;
@@ -267,13 +286,16 @@ public sealed class TTSManager
 
     private void Release()
     {
-        while (_waiters.TryDequeue(out var waiter))
+        lock (_lock)
         {
-            if (waiter.TrySetResult(true))
-                return;
-        }
+            while (_waiters.TryDequeue(out var waiter))
+            {
+                if (waiter.TrySetResult(true))
+                    return;
+            }
 
-        _activeRequests--;
+            _activeRequests--;
+        }
     }
 
     private enum CircuitState : byte
