@@ -233,7 +233,7 @@
   - type: MidroundCustomization
     selectSlotTime: 0
     changeSlotTime: 0
-    changeVoiceTime: 0
+    changeVoiceTime: 1
     playSoundForVoiceChange: false
     allowedLayers:
     - FacialHair
