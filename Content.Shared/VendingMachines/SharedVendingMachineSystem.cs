@@ -56,7 +56,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     {
         var component = entity.Comp;
 
-var inventory = new Dictionary<string, VendingMachineInventoryEntry>();
+        var inventory = new Dictionary<string, VendingMachineInventoryEntry>();
         var emaggedInventory = new Dictionary<string, VendingMachineInventoryEntry>();
         var contrabandInventory = new Dictionary<string, VendingMachineInventoryEntry>();
 
@@ -180,7 +180,7 @@ var inventory = new Dictionary<string, VendingMachineInventoryEntry>();
         if (type == InventoryType.Emagged && HasComp<EmaggedComponent>(uid))
             return component.EmaggedInventory.GetValueOrDefault(entryId);
 
-if (type == InventoryType.Contraband && component.Contraband)
+        if (type == InventoryType.Contraband && component.Contraband)
             return component.ContrabandInventory.GetValueOrDefault(entryId);
 
         return component.Inventory.GetValueOrDefault(entryId);

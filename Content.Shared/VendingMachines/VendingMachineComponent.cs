@@ -279,7 +279,7 @@ namespace Content.Shared.VendingMachines
         }
     }
 
-[Serializable, NetSerializable]
+    [Serializable, NetSerializable]
     public enum InventoryType : byte
     {
         Regular,
