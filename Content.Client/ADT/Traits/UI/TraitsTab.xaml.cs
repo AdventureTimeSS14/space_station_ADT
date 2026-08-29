@@ -52,6 +52,8 @@ public sealed partial class TraitsTab : BoxContainer
         UpdateGlobalStats();
     }
 
+    private const string SponsorTraitCategory = "ADTSponsorTraits";
+
     private void OnMaxTraitCountChanged(int value)
     {
         _maxGlobalTraits = value;
@@ -90,8 +92,12 @@ public sealed partial class TraitsTab : BoxContainer
             .ThenBy(c => Loc.GetString(c.Name))
             .ToList();
 
+        var adtSponsors = IoCManager.Resolve<Content.Client.ADT.Sponsors.SponsorManager>();
+        var localSession = IoCManager.Resolve<Robust.Client.Player.IPlayerManager>().LocalSession;
+
         var traitsByCategory = _prototype.EnumeratePrototypes<TraitPrototype>()
-            .GroupBy(t => t.Category)
+            .Where(t => !t.SponsorOnly || adtSponsors.IsTraitAllowed(localSession, t.ID))
+            .GroupBy(t => t.SponsorOnly ? new ProtoId<TraitCategoryPrototype>(SponsorTraitCategory) : t.Category)
             .ToDictionary(g => g.Key, g => g.OrderBy(t => Loc.GetString(t.Name)).ToList());
 
         foreach (var category in categories)

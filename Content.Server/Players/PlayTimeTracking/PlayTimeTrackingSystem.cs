@@ -39,6 +39,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly PlayTimeTrackingManager _tracking = default!;
     [Dependency] private readonly SponsorsManager _sponsorsManager = default!; //ADT-Sponsors-Job
+    [Dependency] private readonly Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!;
 
     public override void Initialize()
     {
@@ -245,6 +246,11 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         if (!_cfg.GetCVar(CCVars.GameRoleTimers))
             return true;
 
+        // ADT-Tweak-Start
+        if (_adtSponsors.IsJobTimeBypassed(player, job))
+            return true;
+        // ADT-Tweak-End
+
         //ADT-Sponsors-Job-Start
         var info = _sponsorsManager.TryGetInfo(player.UserId, out var sponsorInfo);
 
@@ -282,6 +288,11 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     {
         if (!_cfg.GetCVar(CCVars.GameRoleTimers))
             return true;
+
+        // ADT-Tweak-Start
+        if (_adtSponsors.IsAntagTimeBypassed(player))
+            return true;
+        // ADT-Tweak-End
 
         if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
         {

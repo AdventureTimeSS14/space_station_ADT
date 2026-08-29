@@ -15,6 +15,11 @@
                HorizontalExpand="True"
                VerticalExpand="True" />
 
+        <Button Name="ButtonSponsorColors"
+                Text="{Loc 'adt-sponsor-colors-open'}"
+                HorizontalAlignment="Center"
+                Visible="False" />
+
         <!-- Кнопка перехода на Boosty -->
         <Button Name="ButtonSiteBoosty"
                 Text="{Loc 'ui-lobby-sponsor-get-sponsor'}"

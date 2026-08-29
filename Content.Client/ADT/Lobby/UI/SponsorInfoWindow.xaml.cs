@@ -20,6 +20,7 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IUriOpener _uriOpener = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsors;
     public bool HasSponsor { get; private set; }
     public SponsorInfo? SponsorInfo { get; private set; } = default!;
     private string _userName = string.Empty;
@@ -42,12 +43,41 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
             _uriOpener.OpenUri(url);
         };
 
+        _adtSponsors = IoCManager.Resolve<Content.Client.ADT.Sponsors.SponsorManager>();
+
+        ButtonSponsorColors.OnPressed += _ =>
+        {
+            new Content.Client.ADT.Sponsors.UI.SponsorColorsWindow(_adtSponsors).OpenCentered();
+        };
+
+        _adtSponsors.Updated += UpdateSponsorInfo;
+
         UpdateSponsorInfo();
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+
+        if (disposing)
+            _adtSponsors.Updated -= UpdateSponsorInfo;
     }
 
     private void UpdateSponsorInfo()
     {
         List<string> lines;
+
+        var adtData = _adtSponsors.Data;
+
+        ButtonSponsorColors.Visible = adtData.AllowCustomOocColor
+                                      || adtData.AllowCustomGhostColor
+                                      || adtData.GhostColors.Count > 0;
+
+        if (adtData.HasAnyBenefit)
+        {
+            SponsorLabel.SetMessage(BuildAdtInfo(adtData));
+            return;
+        }
 
         if (_sponsorsManager.TryGetInfo(out var sponsor) && sponsor != null)
         {
@@ -77,5 +107,50 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
         var formatted = new FormattedMessage();
         formatted.AddMarkup(string.Join("\n", lines));
         SponsorLabel.SetMessage(formatted);
+    }
+
+    private static FormattedMessage BuildAdtInfo(Content.Shared.ADT.Sponsors.SponsorData data)
+    {
+        var lines = new List<string>();
+
+        foreach (var tier in data.Tiers)
+        {
+            var until = tier.ExpiresAt == null
+                ? Loc.GetString("adt-sponsor-info-forever")
+                : tier.ExpiresAt.Value.ToLocalTime().ToString("dd.MM.yyyy");
+
+            lines.Add(Loc.GetString("adt-sponsor-info-tier", ("tier", tier.DisplayName), ("date", until)));
+        }
+
+        if (lines.Count > 0)
+            lines.Add(string.Empty);
+
+        if (data.RoleBypass != Content.Shared.ADT.Sponsors.SponsorRoleBypass.None)
+            lines.Add(Loc.GetString("adt-sponsor-info-roles"));
+
+        if (data.AllLoadouts || data.Loadouts.Count > 0)
+            lines.Add(Loc.GetString("adt-sponsor-info-loadouts"));
+
+        if (data.AllMarkings || data.Markings.Count > 0)
+            lines.Add(Loc.GetString("adt-sponsor-info-markings"));
+
+        if (data.Species.Count > 0)
+            lines.Add(Loc.GetString("adt-sponsor-info-species"));
+
+        if (data.OocColor != null || data.AllowCustomOocColor)
+            lines.Add(Loc.GetString("adt-sponsor-info-ooc"));
+
+        if (data.AllowCustomGhostColor || data.GhostColors.Count > 0)
+            lines.Add(Loc.GetString("adt-sponsor-info-ghost"));
+
+        if (data.PriorityJoin)
+            lines.Add(Loc.GetString("adt-sponsor-info-priority"));
+
+        if (data.ExtraCharacterSlots > 0)
+            lines.Add(Loc.GetString("adt-sponsor-info-slots", ("count", data.ExtraCharacterSlots)));
+
+        var formatted = new FormattedMessage();
+        formatted.AddMarkup(string.Join("\n", lines));
+        return formatted;
     }
 }

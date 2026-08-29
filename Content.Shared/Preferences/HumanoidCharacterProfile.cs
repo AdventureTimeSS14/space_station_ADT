@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared.ADT.Sponsors;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.CharecterFlavor;
 using Content.Shared.ADT.Language;
@@ -659,6 +660,14 @@ namespace Content.Shared.Preferences
             }
             // Corvax-Sponsors-End
 
+            // ADT-Tweak-Start
+            if (!SponsorProfileValidation.IsSpeciesAllowed(session, collection, speciesPrototype))
+            {
+                Species = DefaultSpecies;
+                speciesPrototype = prototypeManager.Index(Species);
+            }
+            // ADT-Tweak-End
+
             var sex = Sex switch
             {
                 Sex.Male => Sex.Male,
@@ -740,6 +749,8 @@ namespace Content.Shared.Preferences
             }
             //ADT-tweak-end
 
+            SponsorProfileValidation.StripMarkings(Appearance, session, collection); // ADT-Tweak
+
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex);
 
             var prefsUnavailableMode = PreferenceUnavailable switch
@@ -785,6 +796,8 @@ namespace Content.Shared.Preferences
             var traits = TraitPreferences
                          .Where(prototypeManager.HasIndex)
                          .ToList();
+
+            traits = SponsorProfileValidation.FilterTraits(traits, session, collection); // ADT-Tweak
 
             Name = name;
             FlavorText = flavortext;

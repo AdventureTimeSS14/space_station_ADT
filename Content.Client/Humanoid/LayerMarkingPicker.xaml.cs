@@ -74,12 +74,38 @@ public sealed partial class LayerMarkingPicker : BoxContainer
 
     private void UpdateMarkings()
     {
+        // ADT-Tweak-Start
+        var sponsors = IoCManager.Resolve<Content.Client.ADT.Sponsors.SponsorManager>();
+        var localSession = IoCManager.Resolve<Robust.Client.Player.IPlayerManager>().LocalSession;
+        // ADT-Tweak-End
+
         foreach (var marking in _allMarkings.Values.OrderBy(marking => Loc.GetString($"marking-{marking.ID}")))
         {
             var item = new LayerMarkingItem(_markingsModel, _organ, _layer, marking, true);
+
+            // ADT-Tweak-Start
+            if (marking.SponsorOnly)
+            {
+                if (!sponsors.IsMarkingAllowed(localSession, marking.ID))
+                    continue;
+
+                SponsorItems.AddChild(item);
+                continue;
+            }
+            // ADT-Tweak-End
+
             Items.AddChild(item);
         }
-        _searchable = Items.GetSearchableControls();
+
+        // ADT-Tweak-Start
+        var hasSponsor = SponsorItems.ChildCount > 0;
+        SponsorHeader.Visible = hasSponsor;
+        SponsorItems.Visible = hasSponsor;
+        RegularHeader.Visible = hasSponsor;
+        // ADT-Tweak-End
+
+        _searchable = SponsorItems.GetSearchableControls();
+        _searchable.AddRange(Items.GetSearchableControls());
     }
 
     private void UpdateCount()

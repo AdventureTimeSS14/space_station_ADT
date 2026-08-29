@@ -99,11 +99,17 @@ public sealed partial class SpeciesWindow : FancyWindow
             SpeciesContainer.AddChild(button);
         }
 
-        if (IoCManager.Resolve<SponsorsManager>().TryGetInfo(out var sponsor))
+        var adtSponsors = IoCManager.Resolve<Content.Client.ADT.Sponsors.SponsorManager>();
+        var localSession = IoCManager.Resolve<Robust.Client.Player.IPlayerManager>().LocalSession;
+
+        if (IoCManager.Resolve<SponsorsManager>().TryGetInfo(out var sponsor) || adtSponsors.Data.HasAnyBenefit)
         {
             AddLabel("Спонсорские");
             foreach (var item in protoList.Where(x => x.Category == SpeciesCategory.Sponsor))
             {
+                if (item.SponsorOnly && !adtSponsors.IsSpeciesAllowed(localSession, item.ID) && sponsor == null)
+                    continue;
+
                 var button = new SpeciesButton(item)
                 {
                     HorizontalExpand = true,
