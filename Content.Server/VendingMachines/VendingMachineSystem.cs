@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Advertise.EntitySystems;
 using Content.Server.ADT.Economy;
+using Content.Server.ADT.VendingMachines;
 using Content.Server.Cargo.Systems;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -209,7 +210,12 @@ namespace Content.Server.VendingMachines
 
             if (!TryComp<CurrencyComponent>(args.Used, out var currency) ||
                 !currency.Price.Keys.Contains(component.CurrencyType))
+            // ADT-Return start
+            {
+                EntityManager.System<ADTVendingMachineReturnSystem>().TryReturnItem(uid, component, args);
                 return;
+            }
+            // ADT-Return end
 
             var stack = Comp<StackComponent>(args.Used);
             component.Credits += stack.Count;
@@ -377,12 +383,12 @@ namespace Content.Server.VendingMachines
                 return;
             }
 
-            if (entry.Amount <= 0)
+            //ADT-Economy-Start
+            var returnedCount = (int)vendComponent.ReturnedInventory.GetValueOrDefault(itemId);
+            if (entry.Amount <= 0 && returnedCount <= 0)
             {
-                //ADT-Economy-Start
                 if (sender.HasValue)
                     Popup.PopupEntity(Loc.GetString("vending-machine-component-try-eject-out-of-stock"), uid, sender.Value);
-                //ADT-Economy-End
 
                 Deny(uid, vendComponent);
                 return;
@@ -391,8 +397,8 @@ namespace Content.Server.VendingMachines
             if (string.IsNullOrEmpty(entry.ID))
                 return;
 
-            //ADT-Economy-Start
-            var price = GetPrice(entry, vendComponent, count);
+            var freeCount = Math.Min(returnedCount, count);
+            var price = GetPrice(entry, vendComponent, count - freeCount);
             if (price > 0 && !vendComponent.AllForFree && sender.HasValue && !_tag.HasTag(sender.Value, "IgnoreBalanceChecks"))
             {
                 var success = false;
@@ -429,6 +435,7 @@ namespace Content.Server.VendingMachines
                 }
             }
             vendComponent.NextItemCount = count;
+            vendComponent.NextItemReturnedCount = freeCount; //ADT-Return
             //ADT-Economy-End
 
             // Start Ejecting, and prevent users from ordering while anim playing
@@ -441,7 +448,17 @@ namespace Content.Server.VendingMachines
             if (TryComp(uid, out SpeakOnUIClosedComponent? speakComponent))
                 _speakOnUIClosed.TrySetFlag((uid, speakComponent));
 
-            entry.Amount -= (uint)count;    // ADT vending eject count
+            //ADT-Return start
+            entry.Amount = (uint)Math.Max(0, (int)entry.Amount - (count - freeCount));
+            if (freeCount > 0)
+            {
+                var left = returnedCount - freeCount;
+                if (left > 0)
+                    vendComponent.ReturnedInventory[itemId] = (uint)left;
+                else
+                    vendComponent.ReturnedInventory.Remove(itemId);
+            }
+            //ADT-Return end
             Dirty(uid, vendComponent);
             UpdateVendingMachineInterfaceState(uid, vendComponent); // // ADT-Tweak
             TryUpdateVisualState(uid, vendComponent);
@@ -527,9 +544,21 @@ namespace Content.Server.VendingMachines
                 vendComponent.NextItemToEject = item.ID;
                 vendComponent.ThrowNextItem = throwItem;
                 vendComponent.NextItemCount = 1;
+                //ADT-Return start
+                var returnedCount = (int)vendComponent.ReturnedInventory.GetValueOrDefault(item.ID);
+                var freeCount = Math.Min(returnedCount, 1);
+                vendComponent.NextItemReturnedCount = freeCount;
                 var entry = GetEntry(uid, item.ID, item.Type, vendComponent);
                 if (entry != null)
-                    entry.Amount--;
+                    entry.Amount = (uint)Math.Max(0, (int)entry.Amount - (1 - freeCount));
+                if (freeCount > 0)
+                {
+                    if (returnedCount > 1)
+                        vendComponent.ReturnedInventory[item.ID] = (uint)(returnedCount - 1);
+                    else
+                        vendComponent.ReturnedInventory.Remove(item.ID);
+                }
+                //ADT-Return end
                 EjectItem(uid, vendComponent, forceEject);   // ADT vending eject count
             }
             else
@@ -561,8 +590,17 @@ namespace Content.Server.VendingMachines
                 var offset = (wallMountComponent.Direction + xform.LocalRotation - Math.PI / 2).ToVec() * WallVendEjectDistanceFromWall;
                 spawnCoordinates = spawnCoordinates.Offset(offset);
             }
+            // ADT-Return start
+            var returnedCount = vendComponent.NextItemReturnedCount;
+            if (returnedCount > 0)
+            {
+                RaiseLocalEvent(uid, new ADTVendingReturnedEjectEvent(
+                    vendComponent.NextItemToEject, returnedCount, spawnCoordinates, vendComponent.ThrowNextItem));
+            }
+            // ADT-Return end
+
             // ADT vending eject count start
-            for (var i = 0; i < count; i++)
+            for (var i = 0; i < count - returnedCount; i++) // ADT-Return 
             {
                 var ent = Spawn(vendComponent.NextItemToEject, spawnCoordinates);
 
@@ -578,6 +616,7 @@ namespace Content.Server.VendingMachines
             vendComponent.NextItemToEject = null;
             vendComponent.ThrowNextItem = false;
             vendComponent.NextItemCount = 1;    // ADT vending eject count
+            vendComponent.NextItemReturnedCount = 0;    //ADT-Return
             vendComponent.Ejecting = false;     // ADT-Tweak
 
             // No need to update the visual state because we never changed it during a forced eject

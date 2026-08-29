@@ -51,6 +51,7 @@ namespace Content.Shared.VendingMachines
         public bool DispenseOnHitCoolingDown;
 
         public string? NextItemToEject;
+        public int NextItemReturnedCount; // ADT-Return 
 
         [DataField]
         public bool Broken;
@@ -225,6 +226,9 @@ namespace Content.Shared.VendingMachines
         [DataField]
         public Color UiButtonDisabledColor = Color.FromHex("#3f3f3fff");
 
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public Dictionary<string, uint> ReturnedInventory = new();
+
         //ADT-Economy-End
     }
 
@@ -275,7 +279,7 @@ namespace Content.Shared.VendingMachines
         }
     }
 
-    [Serializable, NetSerializable]
+[Serializable, NetSerializable]
     public enum InventoryType : byte
     {
         Regular,
@@ -341,6 +345,8 @@ namespace Content.Shared.VendingMachines
         public Dictionary<string, VendingMachineInventoryEntry> EmaggedInventory = new();
 
         public Dictionary<string, VendingMachineInventoryEntry> ContrabandInventory = new();
+
+        public Dictionary<string, uint> ReturnedInventory = new(); // ADT-Return 
 
         public bool Contraband;
 

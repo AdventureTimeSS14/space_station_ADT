@@ -1,3 +1,4 @@
+vending-machine-return-success = Вы вернули { $item } в автомат.
 vending-ui-credits-amount = Кредитов в автомате: { $credits }
 vending-machine-component-no-balance = Недостаточно средств.
 vending-user-balance = Баланс: { $balance }$
@@ -12,7 +13,7 @@ vending-category-accessories = Аксессуары
 vending-category-outer = Верхняя одежда
 vending-category-underwear = Нижнее бельё
 vending-category-alcohol = Алкогольные
-vending-category-nonalcohol = Без-алко
+vending-category-nonalcohol = Безалкогольное
 vending-category-fillers = Инвентарь
 vending-category-smokables = Курительные
 vending-category-lighters = Зажигательные

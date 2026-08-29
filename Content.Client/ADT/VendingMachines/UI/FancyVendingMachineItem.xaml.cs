@@ -21,6 +21,7 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
 
         ItemPrototype.SetPrototype(entProto);
 
+        NameLabel.AddStyleClasses("VendingEntryNameLabel");
         NameLabel.Text = text;
 
         CostLabel.SetMarkup(price <= 0 ? Loc.GetString("vending-machine-ui-price-free") : Loc.GetString("vending-machine-ui-price", ("price", price)));

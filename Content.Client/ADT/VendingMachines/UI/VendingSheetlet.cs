@@ -120,7 +120,7 @@ public sealed class VendingSheetlet<T> : Sheetlet<T> where T : PalettedStyleshee
                 .Panel(entryDisabledBox)
                 .Modulate(new Color(1f, 1f, 1f, 0.5f)),
 
-            E<RichTextLabel>()
+            E<Label>()
                 .Class("VendingEntryNameLabel")
                 .Font(sheet.BaseFont.GetFont(11))
                 .FontColor(textPrimary),

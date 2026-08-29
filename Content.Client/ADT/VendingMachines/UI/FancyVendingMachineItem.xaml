@@ -1,5 +1,6 @@
 <PanelContainer xmlns="https://spacestation14.io"
                 xmlns:adt="clr-namespace:Content.Client.ADT.UserInterface.Controls.FancyButton"
+                xmlns:ui="clr-namespace:Content.Client.ADT.UserInterface.Controls"
                 Name="EntryPanel"
                 StyleClasses="VendingEntryPanel"
                 HorizontalExpand="True"
@@ -23,18 +24,14 @@
                 Margin="0 0 8 0"
                 VerticalAlignment="Center"/>
 
-        <BoxContainer Orientation="Horizontal"
-                      HorizontalExpand="True"
-                      VerticalAlignment="Center">
+        <ui:ADTMarqueeLabel Name="NameLabel"
+                            HorizontalExpand="True"
+                            VerticalAlignment="Center"
+                            Margin="0 0 6 0"/>
 
-            <RichTextLabel Name="NameLabel"
-                           StyleClasses="VendingEntryNameLabel"
-                           VerticalAlignment="Center"/>
-            <Control HorizontalExpand="True"/>
-            <RichTextLabel Name="CountLabel"
-                           StyleClasses="VendingEntryCountLabel"
-                           VerticalAlignment="Center"/>
-        </BoxContainer>
+        <RichTextLabel Name="CountLabel"
+                       StyleClasses="VendingEntryCountLabel"
+                       VerticalAlignment="Center"/>
 
         <adt:FancyButton
                 Name="BuyButton"
