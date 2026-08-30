@@ -81,7 +81,7 @@ public sealed partial class ADTOreFurnaceWindow : FancyWindow
         }
     }
 
-    public void Update(uint points, bool canClaim, bool siloLinkEnabled, string? siloName)
+    public void Update(uint points, bool canClaim, bool siloLinkEnabled, bool siloLinked)
     {
         PointsContainer.Visible = canClaim;
         PointsLabel.Text = Loc.GetString("ore-furnace-menu-points", ("points", points));
@@ -89,8 +89,8 @@ public sealed partial class ADTOreFurnaceWindow : FancyWindow
 
         SiloLinkLabel.Text = !siloLinkEnabled
             ? Loc.GetString("ore-furnace-menu-silo-off")
-            : siloName != null
-                ? Loc.GetString("ore-furnace-menu-silo-name", ("name", siloName))
+            : siloLinked
+                ? Loc.GetString("ore-furnace-menu-silo-connected")
                 : Loc.GetString("ore-furnace-menu-silo-none");
 
         UpdateRows();

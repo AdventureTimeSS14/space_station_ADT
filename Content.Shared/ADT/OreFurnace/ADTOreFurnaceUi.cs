@@ -31,10 +31,10 @@ public sealed class ADTOreFurnaceToggleSiloLinkMessage : BoundUserInterfaceMessa
 public sealed class ADTOreFurnaceFindSiloMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
-public sealed class ADTOreFurnaceUpdateState(uint points, bool canClaim, bool siloLinkEnabled, string? siloName) : BoundUserInterfaceState
+public sealed class ADTOreFurnaceUpdateState(uint points, bool canClaim, bool siloLinkEnabled, bool siloLinked) : BoundUserInterfaceState
 {
     public readonly uint Points = points;
     public readonly bool CanClaim = canClaim;
     public readonly bool SiloLinkEnabled = siloLinkEnabled;
-    public readonly string? SiloName = siloName;
+    public readonly bool SiloLinked = siloLinked;
 }

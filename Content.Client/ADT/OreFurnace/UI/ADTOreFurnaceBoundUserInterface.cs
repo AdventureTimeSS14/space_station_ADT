@@ -35,6 +35,6 @@ public sealed class ADTOreFurnaceBoundUserInterface : BoundUserInterface
         if (state is not ADTOreFurnaceUpdateState furnaceState)
             return;
 
-        _window?.Update(furnaceState.Points, furnaceState.CanClaim, furnaceState.SiloLinkEnabled, furnaceState.SiloName);
+        _window?.Update(furnaceState.Points, furnaceState.CanClaim, furnaceState.SiloLinkEnabled, furnaceState.SiloLinked);
     }
 }

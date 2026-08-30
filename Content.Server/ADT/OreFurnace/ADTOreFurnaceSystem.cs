@@ -6,7 +6,6 @@ using Content.Shared.ADT.OreFurnace.Components;
 using Content.Shared.ADT.OreFurnace.Prototypes;
 using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.ADT.Salvage.Systems;
-using Content.Shared.IdentityManagement;
 using Content.Shared.Materials;
 using Content.Shared.Materials.OreSilo;
 using Content.Shared.Stacks;
@@ -268,11 +267,9 @@ public sealed class ADTOreFurnaceSystem : EntitySystem
     private void UpdateUiState(Entity<ADTOreFurnaceComponent> ent)
     {
         var hasPoints = TryComp<MiningPointsComponent>(ent, out var points);
-        var siloName = ent.Comp.Silo is { } linkedSilo && TryComp<OreSiloComponent>(linkedSilo, out _)
-            ? Identity.Name(linkedSilo, EntityManager)
-            : null;
+        var siloLinked = ent.Comp.Silo is { } linkedSilo && TryComp<OreSiloComponent>(linkedSilo, out _);
 
         _ui.SetUiState(ent.Owner, ADTOreFurnaceUiKey.Key, new ADTOreFurnaceUpdateState(
-            points?.Points ?? 0, hasPoints, ent.Comp.SiloLinkEnabled, siloName));
+            points?.Points ?? 0, hasPoints, ent.Comp.SiloLinkEnabled, siloLinked));
     }
 }
