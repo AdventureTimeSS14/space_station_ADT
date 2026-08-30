@@ -37,22 +37,17 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
     private string? _selectedCategory;
     private Label? _emptyLabel;
 
-    public event Action<VendingMachineInventoryEntry>? OnItemSelected;
+    public event Action<VendingMachineInventoryEntry, int>? OnItemSelected;
     public Action? OnWithdraw;
 
-    public Color ButtonBorderColor = Color.FromHex("#4972A1");
-    public Color ButtonBaseColor = Color.FromHex("#141F2F");
-    public Color ButtonHoveredColor = Color.FromHex("#4972A1");
-    public Color ButtonDisabledColor = Color.FromHex("#3f3f3fff");
-
     private static readonly VendingCategoryInfo ContrabandCategory = new(
-        "vending-contraband", Loc.GetString("vending-category-contraband"), "CigPackGreen", Color.FromHex("#f87171"));
+        "vending-contraband", Loc.GetString("vending-category-contraband"), "CigPackGreen");
 
     private static readonly VendingCategoryInfo EmaggedCategory = new(
-        "vending-emagged", Loc.GetString("vending-category-emagged"), "Emag", Color.FromHex("#fbbf24"));
+        "vending-emagged", Loc.GetString("vending-category-emagged"), "Emag");
 
     private static readonly VendingCategoryInfo MiscCategory = new(
-        "vending-misc", Loc.GetString("vending-category-misc"), "BoxCardboard", Color.FromHex("#a0a0a0"));
+        "vending-misc", Loc.GetString("vending-category-misc"), "BoxCardboard");
 
     public FancyVendingMachineMenu()
     {
@@ -124,14 +119,6 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
         var comp = _entityManager.GetComponentOrNull<VendingMachineComponent>(entityUid);
         _priceMultiplier = comp == null || comp.AllForFree ? 0 : priceMultiplier;
 
-        if (comp != null)
-        {
-            ButtonBaseColor = comp.UiButtonBaseColor;
-            ButtonBorderColor = comp.UiButtonBorderColor;
-            ButtonHoveredColor = comp.UiButtonHoveredColor;
-            ButtonDisabledColor = comp.UiButtonDisabledColor;
-        }
-
         CreditsLabel.Text = Loc.GetString("vending-ui-credits-amount", ("credits", credits));
         WithdrawButton.Disabled = credits == 0;
 
@@ -150,7 +137,6 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
             _emptyLabel = new Label()
             {
                 Text = Loc.GetString("vending-machine-component-try-eject-out-of-stock"),
-                StyleClasses = { "VendingEmptyLabel" },
                 Margin = new Thickness(4, 8),
                 HorizontalExpand = true,
                 HorizontalAlignment = HAlignment.Center
@@ -214,7 +200,7 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
             var button = new Button
             {
                 Margin = new Thickness(4, 2),
-                StyleBoxOverride = GetCategoryButtonStyle(category, category.Id == _selectedCategory),
+                StyleBoxOverride = GetCategoryButtonStyle(category.Id == _selectedCategory),
             };
 
             var content = new BoxContainer
@@ -253,12 +239,12 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
         }
     }
 
-    private static StyleBox GetCategoryButtonStyle(VendingCategoryInfo category, bool selected)
+    private static StyleBox GetCategoryButtonStyle(bool selected)
     {
         return new StyleBoxFlat
         {
-            BackgroundColor = selected ? category.AccentColor.WithAlpha(0.3f) : Color.Transparent,
-            BorderColor = category.AccentColor,
+            BackgroundColor = selected ? Color.FromHex("#2A2A2E") : Color.Transparent,
+            BorderColor = selected ? Color.FromHex("#4A4A52") : Color.Transparent,
             BorderThickness = new Thickness(1),
             ContentMarginLeftOverride = 0,
             ContentMarginRightOverride = 0,
@@ -299,7 +285,7 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
             return MiscCategory;
 
         if (_prototypeManager.TryIndex<VendingMachineCategoryPrototype>(id, out var category))
-            return new VendingCategoryInfo(category.ID, Loc.GetString(category.Name), category.Icon, category.AccentColor, category.Priority);
+            return new VendingCategoryInfo(category.ID, Loc.GetString(category.Name), category.Icon, category.Priority);
 
         return MiscCategory;
     }
@@ -320,14 +306,14 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
         VendingContents.RemoveAllChildren();
         _visibleItems.Clear();
 
+        var index = 0;
         foreach (var item in _cachedItems.Where(FilterItem))
         {
             var price = (int)(item.Entry.Price * _priceMultiplier);
-            var listItem = new FancyVendingMachineItem(item.Entry.ID, item.Name, item.Entry.Amount, item.Entry.MaxAmount, price);
-            listItem.SetColoring(ButtonBaseColor, ButtonBorderColor, ButtonHoveredColor, ButtonDisabledColor);
+            var listItem = new FancyVendingMachineItem(item.Entry.ID, item.Name, item.Entry.Amount, item.Entry.MaxAmount, price, index++ % 2 == 1);
             listItem.SetBuyDisabled(!_enabled || item.Entry.Amount == 0 ||
                                     price > 0 && _machineCredits < price && _userBalance < price);
-            listItem.BuyPressed += () => OnItemSelected?.Invoke(item.Entry);
+            listItem.BuyPressed += () => OnItemSelected?.Invoke(item.Entry, listItem.SelectedAmount);
 
             _visibleItems.Add((item, listItem));
             VendingContents.AddChild(listItem);
@@ -336,5 +322,5 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
 
     private record struct FancyVendingMachineData(string Name, VendingMachineInventoryEntry Entry, string CategoryId);
 
-    private record struct VendingCategoryInfo(string Id, string Name, string IconProto, Color AccentColor, int Priority = 100);
+    private record struct VendingCategoryInfo(string Id, string Name, string IconProto, int Priority = 100);
 }
