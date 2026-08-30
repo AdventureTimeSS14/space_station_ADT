@@ -1,7 +1,6 @@
 - type: entity
   parent: SuperSynthesizerInstrument
   id: ADTSuperSynthesizerAquamarineInstrument
-  suffix: Admin
   name: aquamarine super synthesizer
   description: Blasting the ghetto with Touhou MIDIs since 2020.
   components:
@@ -25,7 +24,6 @@
 - type: entity
   parent: SuperSynthesizerInstrument
   id: ADTSuperSynthesizerWhiteInstrument
-  suffix: Admin
   name: white super synthesizer
   description: Blasting the ghetto with Touhou MIDIs since 2020.
   components:
@@ -49,7 +47,6 @@
 - type: entity
   parent: SuperSynthesizerInstrument
   id: ADTSuperSynthesizerYellowInstrument
-  suffix: Admin
   name: yellow super synthesizer
   description: Blasting the ghetto with Touhou MIDIs since 2020.
   components:
@@ -73,7 +70,6 @@
 - type: entity
   parent: SuperSynthesizerInstrument
   id: ADTSuperSynthesizerGreenInstrument
-  suffix: Admin
   name: green super synthesizer
   description: Blasting the ghetto with Touhou MIDIs since 2020.
   components:
@@ -97,7 +93,6 @@
 - type: entity
   parent: SuperSynthesizerInstrument
   id: ADTSuperSynthesizerBrownInstrument
-  suffix: Admin
   name: brown super synthesizer
   description: Blasting the ghetto with Touhou MIDIs since 2020.
   components:
@@ -121,7 +116,6 @@
 - type: entity
   parent: SuperSynthesizerInstrument
   id: ADTSuperSynthesizerRedInstrument
-  suffix: Admin
   name: red super synthesizer
   description: Blasting the ghetto with Touhou MIDIs since 2020.
   components:
@@ -145,7 +139,6 @@
 - type: entity
   parent: SuperSynthesizerInstrument
   id: ADTSuperSynthesizerOrangeInstrument
-  suffix: Admin
   name: orange super synthesizer
   description: Blasting the ghetto with Touhou MIDIs since 2020.
   components:
@@ -169,7 +162,6 @@
 - type: entity
   parent: SuperSynthesizerInstrument
   id: ADTSuperSynthesizerPinkInstrument
-  suffix: Admin
   name: pink super synthesizer
   description: Blasting the ghetto with Touhou MIDIs since 2020.
   components:
@@ -193,7 +185,6 @@
 - type: entity
   parent: SuperSynthesizerInstrument
   id: ADTSuperSynthesizerGreyInstrument
-  suffix: Admin
   name: grey super synthesizer
   description: Blasting the ghetto with Touhou MIDIs since 2020.
   components:
@@ -217,7 +208,6 @@
 - type: entity
   parent: SuperSynthesizerInstrument
   id: ADTSuperSynthesizerBlueInstrument
-  suffix: Admin
   name: blue super synthesizer
   description: Blasting the ghetto with Touhou MIDIs since 2020.
   components:
@@ -241,7 +231,6 @@
 - type: entity
   parent: SuperSynthesizerInstrument
   id: ADTSuperSynthesizerPurpleInstrument
-  suffix: Admin
   name: purple super synthesizer
   description: Blasting the ghetto with Touhou MIDIs since 2020.
   components:
@@ -265,7 +254,6 @@
 - type: entity
   parent: SuperSynthesizerInstrument
   id: ADTSuperSynthesizerBlackInstrument
-  suffix: Admin
   name: black super synthesizer
   description: Blasting the ghetto with Touhou MIDIs since 2020.
   components:
@@ -289,7 +277,6 @@
 - type: entity
   parent: SuperSynthesizerInstrument
   id: ADTSuperSynthesizerDarkBlueInstrument
-  suffix: Admin
   name: dark blue super synthesizer
   description: Blasting the ghetto with Touhou MIDIs since 2020.
   components:
