@@ -46,3 +46,81 @@
   icon: ADTClothingUnderwearTopBraWhite
   accentColor: "#f472b6"
   priority: 7
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryAlcohol
+  name: vending-category-alcohol
+  icon: DrinkVodkaBottleFull
+  accentColor: "#f87171"
+  priority: 1
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryNonAlcohol
+  name: vending-category-nonalcohol
+  icon: DrinkColaBottleFull
+  accentColor: "#4ade80"
+  priority: 2
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryFillers
+  name: vending-category-fillers
+  icon: DrinkGlass
+  accentColor: "#60a5fa"
+  priority: 3
+
+- type: vendingMachineCategory
+  id: ADTVendingCategorySmokables
+  name: vending-category-smokables
+  icon: CigPackGreen
+  accentColor: "#fbbf24"
+  priority: 1
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryLighters
+  name: vending-category-lighters
+  icon: CheapLighter
+  accentColor: "#f87171"
+  priority: 2
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryPdasAndCards
+  name: vending-category-pdas-and-cards
+  icon: PassengerPDA
+  accentColor: "#60a5fa"
+  priority: 1
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryEncryptionKeys
+  name: vending-category-encryption-keys
+  icon: EncryptionKeyCargo
+  accentColor: "#a78bfa"
+  priority: 2
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryProtection
+  name: vending-category-protection
+  icon: RiotShield
+  accentColor: "#f59e0b"
+  priority: 1
+
+- type: vendingMachineCategory
+  id: ADTVendingCategorySecEquipment
+  name: vending-category-sec-equipment
+  icon: Handcuffs
+  accentColor: "#60a5fa"
+  priority: 2
+
+# NanoMed
+- type: vendingMachineCategory
+  id: ADTVendingCategoryMedical
+  name: vending-category-medical
+  icon: Gauze
+  accentColor: "#f87171"
+  priority: 1
+
+- type: vendingMachineCategory
+  id: ADTVendingCategoryMedEquipment
+  name: vending-category-med-equipment
+  icon: Defibrillator
+  accentColor: "#38bdf8"
+  priority: 2

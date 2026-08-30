@@ -11,9 +11,6 @@
     slots: [mask, neck]
   - type: IdentityBlocker
     coverage: MOUTH
-  - type: Tag
-    tags:
-    - WhitelistChameleon
 
 - type: entity
   parent: ADTClothingNeckFacescarfBlack

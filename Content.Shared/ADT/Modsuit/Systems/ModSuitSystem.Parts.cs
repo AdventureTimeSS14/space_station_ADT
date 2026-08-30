@@ -273,7 +273,7 @@ public sealed partial class ModSuitSystem
     private void RestoreSuitStorage(EntityUid user, EntityUid parent, EntityUid? stashed)
     {
         if (stashed.HasValue)
-            _inventorySystem.TryEquip(user, parent, stashed.Value, "suitstorage", predicted: true);
+            _inventorySystem.TryEquip(user, parent, stashed.Value, "suitstorage", force: true, predicted: true);
     }
 
     private void RemoveAllParts(Entity<ModSuitComponent> ent)

@@ -47,11 +47,11 @@ public sealed partial class VoiceMaskComponent : Component
     [DataField]
     public EntProtoId? Action = "ActionChangeVoiceMask"; //ADT tweaked
 
-    // Corvax-TTS-Start
+    // ADT-Tweak-Start
     [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public string VoiceId = HumanoidCharacterProfile.DefaultVoice;
-    // Corvax-TTS-End
+    // ADT-Tweak-End
 
     // ADT Barks start
     [DataField]

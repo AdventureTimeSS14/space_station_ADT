@@ -202,3 +202,15 @@
     - !type:AddCompsEffect
       components:
         - type: ADTInvertRun
+
+- type: trait
+  id: ADTRoboticVoiceIPC
+  name: trait-robotic-voice-ipc-name
+  description: trait-robotic-voice-ipc-desc
+  category: Quirks
+  cost: 0
+  speciesWhitelist:
+    - IPC
+  effects:
+    - !type:SetTTSEffect
+      effect: robotic

@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client.ADT.UserInterface.Controls;
 using Content.Client.Stylesheets;
 using Content.Shared.ADT.GPS;
 using Robust.Client.Graphics;
