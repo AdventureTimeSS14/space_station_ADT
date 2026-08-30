@@ -21,6 +21,13 @@ public sealed partial class CreateEntityReactionEffect : EntityEffect
         var ev = new CreateEntityEvent(Entity, Number, Delay, target);
         raiser.RaiseEffectEvent(target, ev, scale, user);
     }
+
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    {
+        return Loc.GetString("entity-effect-guidebook-create-entity-reaction",
+            ("amount", Number),
+            ("entname", GuidebookTextHelpers.LocalizedEntityName(prototype, Entity)));
+    }
 }
 
 public sealed partial class CreateEntityEvent : EntityEffectBase<CreateEntityEvent>

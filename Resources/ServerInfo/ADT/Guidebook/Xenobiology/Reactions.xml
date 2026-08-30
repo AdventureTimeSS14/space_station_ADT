@@ -1,0 +1,47 @@
+<Document>
+  # Реакции экстрактов
+
+  Экстракт реагирует, когда в него попадает нужный реагент: через шприц или если капнуть реагент прямо на него. После реакции экстракт гаснет и больше не реагирует ни на что.
+
+  Обычно экстракт заводится от [color=#5c9bd6]воды[/color], [color=#ff9f1a]плазмы[/color] и [color=#bf616a]крови[/color], но у зелёного вместо воды работает [color=#4dff4d]радий[/color].
+
+  ## Базовые породы
+
+  <GuideXenobiologyReactionEmbed Extract="GreySlimeExtract" Tier="0"/>
+
+  ## Первый тир
+
+  <GuideXenobiologyReactionEmbed Extract="OrangeSlimeExtract" Tier="1"/>
+  <GuideXenobiologyReactionEmbed Extract="PurpleSlimeExtract" Tier="1"/>
+  <GuideXenobiologyReactionEmbed Extract="BlueSlimeExtract" Tier="1"/>
+  <GuideXenobiologyReactionEmbed Extract="MetalSlimeExtract" Tier="1"/>
+
+  ## Второй тир
+
+  <GuideXenobiologyReactionEmbed Extract="YellowSlimeExtract" Tier="2"/>
+  <GuideXenobiologyReactionEmbed Extract="DarkPurpleSlimeExtract" Tier="2"/>
+  <GuideXenobiologyReactionEmbed Extract="DarkBlueSlimeExtract" Tier="2"/>
+  <GuideXenobiologyReactionEmbed Extract="SilverSlimeExtract" Tier="2"/>
+  <GuideXenobiologyReactionEmbed Extract="CeruleanSlimeExtract" Tier="2"/>
+  <GuideXenobiologyReactionEmbed Extract="BluespaceSlimeExtract" Tier="2"/>
+  <GuideXenobiologyReactionEmbed Extract="SepiaSlimeExtract" Tier="2"/>
+  <GuideXenobiologyReactionEmbed Extract="PyriteSlimeExtract" Tier="2"/>
+
+  ## Третий тир
+
+  <GuideXenobiologyReactionEmbed Extract="RedSlimeExtract" Tier="3"/>
+  <GuideXenobiologyReactionEmbed Extract="GreenSlimeExtract" Tier="3"/>
+  <GuideXenobiologyReactionEmbed Extract="PinkSlimeExtract" Tier="3"/>
+  <GuideXenobiologyReactionEmbed Extract="GoldSlimeExtract" Tier="3"/>
+
+  ## Четвёртый тир
+
+  <GuideXenobiologyReactionEmbed Extract="OilSlimeExtract" Tier="4"/>
+  <GuideXenobiologyReactionEmbed Extract="BlackSlimeExtract" Tier="4"/>
+  <GuideXenobiologyReactionEmbed Extract="LightPinkSlimeExtract" Tier="4"/>
+  <GuideXenobiologyReactionEmbed Extract="AdamantineSlimeExtract" Tier="4"/>
+
+  ## Осторожно
+
+  [color=#ff9f1a]Золотой[/color], [color=#d08770]сепия[/color] и [color=#bf616a]масляный[/color] экстракты опасны. Золотой спавнит мобов, сепия делает всех вокруг враждебными, а масляный на плазме взрывается. Подрывайте их только там, где не жалко пола и себя.
+</Document>
