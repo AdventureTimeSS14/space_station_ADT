@@ -7,7 +7,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
   reagents:
     Sugar: 5
   recipeType:
@@ -20,7 +20,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
   reagents:
     Sugar: 5
     Syrup: 3
@@ -34,7 +34,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
     FoodCherry: 1
   reagents:
     Sugar: 5
@@ -48,7 +48,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
     FoodCherry: 1
   reagents:
     Sugar: 5
@@ -63,7 +63,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
     FoodBerries: 1
   reagents:
     Sugar: 5
@@ -77,7 +77,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
     FoodBerries: 1
   reagents:
     Sugar: 5
@@ -92,7 +92,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
     FoodPeaPod: 1
   reagents:
     Sugar: 5
@@ -106,7 +106,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
     FoodPeaPod: 1
   reagents:
     Sugar: 5
@@ -121,7 +121,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
     FoodBungo: 1
   reagents:
     Sugar: 5
@@ -135,7 +135,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
     FoodBungo: 1
   reagents:
     Sugar: 5
@@ -150,7 +150,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
   reagents:
     Sugar: 5
     TeaPowder: 3
@@ -164,7 +164,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
   reagents:
     Sugar: 5
     TeaPowder: 3
@@ -179,7 +179,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
     FoodApple: 1
   reagents:
     Sugar: 5
@@ -193,7 +193,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
     FoodApple: 1
   reagents:
     Sugar: 5
@@ -208,7 +208,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
     FoodBluePumpkin: 1
   reagents:
     Sugar: 5
@@ -222,7 +222,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
     FoodBluePumpkin: 1
   reagents:
     Sugar: 5
@@ -237,7 +237,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
     FoodBerries: 2
   reagents:
     Sugar: 5
@@ -251,7 +251,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
     FoodBerries: 2
   reagents:
     Sugar: 5
@@ -266,7 +266,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
   reagents:
     Sugar: 5
     Cream: 3
@@ -280,7 +280,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
   reagents:
     Sugar: 5
     Cream: 3
@@ -295,7 +295,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
   reagents:
     Sugar: 5
     CocoaPowder: 3
@@ -309,7 +309,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
   reagents:
     Sugar: 5
     CocoaPowder: 3
@@ -324,7 +324,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
     FoodMushroom: 1
   reagents:
     Sugar: 5
@@ -339,7 +339,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
     FoodMeatCutlet: 1
   reagents:
     Sugar: 5
@@ -353,7 +353,7 @@
   time: 10
   group: Dessert
   solids:
-    FoodDough: 1
+    FoodDoughSlice: 1
   reagents:
     Sugar: 5
     Slime: 5
@@ -870,5 +870,197 @@
   reagents:
     TableSalt: 5
     Blackpepper: 5
+  recipeType:
+  - Assembler
+
+# Новые рецепты (блюда без рецепта)
+# Mistery chicken (vox), cannoli, swirl lollipop, mint и др.
+
+- type: microwaveMealRecipe
+  id: ADTFoodChickenFriedVoxRecipe
+  name: mystery fried chicken recipe
+  result: FoodMeatChickenFriedVox
+  time: 10
+  group: Savory
+  solids:
+    FoodMeatChickenCutlet: 1
+  reagents:
+    Egg: 3
+    TableSalt: 5
+    Blackpepper: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodCannoliRecipe
+  name: cannoli recipe
+  result: FoodBakedCannoli
+  time: 15
+  group: Dessert
+  solids:
+    FoodDoughSlice: 2
+  reagents:
+    Sugar: 5
+    Milk: 5
+    Cream: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodSwirlLollipopRecipe
+  name: swirl lollipop recipe
+  result: FoodSnackSwirlLollipop
+  time: 5
+  group: Dessert
+  reagents:
+    Sugar: 15
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodMintRecipe
+  name: mint recipe
+  result: FoodMealMint
+  time: 5
+  group: Dessert
+  reagents:
+    Sugar: 5
+    Milk: 5
+  recipeType:
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodPotatoYakiRecipe
+  name: yaki imo recipe
+  result: FoodMealPotatoYaki
+  time: 15
+  group: Savory
+  solids:
+    FoodPotato: 1
+  reagents:
+    TableSalt: 5
+    Blackpepper: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodCornedbeefRecipe
+  name: corned beef and cabbage recipe
+  result: FoodMealCornedbeef
+  time: 15
+  group: Savory
+  solids:
+    FoodMeat: 1
+    FoodCabbage: 1
+  reagents:
+    TableSalt: 5
+  recipeType:
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMilkapeRecipe
+  name: milk ape recipe
+  result: FoodMealMilkape
+  time: 10
+  group: Dessert
+  reagents:
+    Milk: 10
+    CocoaPowder: 5
+    Sugar: 5
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodNutriBatardRecipe
+  name: nutri-bâtard recipe
+  result: FoodBreadNutriBatard
+  time: 15
+  group: Breads
+  solids:
+    FoodDough: 1
+  reagents:
+    TableSalt: 5
+    Blackpepper: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodCottonNutriBatardRecipe
+  name: cotton nutri-bâtard recipe
+  result: FoodBreadCottonNutriBatard
+  time: 15
+  group: Moth
+  solids:
+    FoodDoughCotton: 1
+  reagents:
+    TableSalt: 5
+    Blackpepper: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodSnowconeFlavorlessRecipe
+  name: flavorless snowcone recipe
+  result: FoodFrozenSnowcone
+  time: 5
+  group: Icecreams
+  reagents:
+    Ice: 8
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodSnowconeBerryRecipe
+  name: berry snowcone recipe
+  result: FoodFrozenSnowconeBerry
+  time: 5
+  group: Icecreams
+  solids:
+    FoodBerries: 1
+  reagents:
+    Ice: 8
+    Sugar: 2
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodSnowconeFruitRecipe
+  name: fruit salad snowcone recipe
+  result: FoodFrozenSnowconeFruit
+  time: 5
+  group: Icecreams
+  solids:
+    FoodApple: 1
+    FoodBanana: 1
+  reagents:
+    Ice: 8
+    Sugar: 2
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodSnowconeClownRecipe
+  name: clowncone recipe
+  result: FoodFrozenSnowconeClown
+  time: 5
+  group: Icecreams
+  solids:
+    FoodBanana: 1
+  reagents:
+    Ice: 8
+    Sugar: 2
+    Syrup: 2
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodSnowconeMimeRecipe
+  name: mime snowcone recipe
+  result: FoodFrozenSnowconeMime
+  time: 5
+  group: Icecreams
+  reagents:
+    Ice: 8
+    Milk: 2
   recipeType:
   - Assembler
