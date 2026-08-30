@@ -24,6 +24,8 @@ public sealed class ADTOreFurnaceBoundUserInterface : BoundUserInterface
         _window.OnSmelt += (recipe, amount) => SendMessage(new ADTOreFurnaceSmeltMessage(recipe, amount));
         _window.OnSmeltEverything += () => SendMessage(new ADTOreFurnaceSmeltAllMessage());
         _window.OnClaimPoints += () => SendMessage(new ADTOreFurnaceClaimPointsMessage());
+        _window.OnToggleSiloLink += () => SendMessage(new ADTOreFurnaceToggleSiloLinkMessage());
+        _window.OnFindSilo += () => SendMessage(new ADTOreFurnaceFindSiloMessage());
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -33,6 +35,6 @@ public sealed class ADTOreFurnaceBoundUserInterface : BoundUserInterface
         if (state is not ADTOreFurnaceUpdateState furnaceState)
             return;
 
-        _window?.Update(furnaceState.Points, furnaceState.CanClaim);
+        _window?.Update(furnaceState.Points, furnaceState.CanClaim, furnaceState.SiloLinkEnabled, furnaceState.SiloLinked);
     }
 }
