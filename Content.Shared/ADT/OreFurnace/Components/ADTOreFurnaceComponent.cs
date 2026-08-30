@@ -26,6 +26,15 @@ public sealed partial class ADTOreFurnaceComponent : Component
     [DataField, AutoNetworkedField]
     public float PointsMultiplier = 1f;
 
+    [DataField, AutoNetworkedField]
+    public EntityUid? Silo;
+
+    [DataField, AutoNetworkedField]
+    public bool SiloLinkEnabled = true;
+
+    [DataField, AutoNetworkedField]
+    public float SiloLinkRange = 25f;
+
     [DataField]
     public SoundSpecifier? SmeltSound;
 }

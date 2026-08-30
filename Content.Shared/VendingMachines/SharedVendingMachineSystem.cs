@@ -80,6 +80,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
             Inventory = inventory,
             EmaggedInventory = emaggedInventory,
             ContrabandInventory = contrabandInventory,
+            ReturnedInventory = new(component.ReturnedInventory), // ADT-Return
             Contraband = component.Contraband,
             EjectEnd = component.EjectEnd,
             DenyEnd = component.DenyEnd,
@@ -355,6 +356,24 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
             return new();
 
         var inventory = new List<VendingMachineInventoryEntry>(component.Inventory.Values);
+
+        // ADT-Return start
+        var mergedInventory = new List<VendingMachineInventoryEntry>(component.Inventory.Values.Count);
+        foreach (var entry in component.Inventory.Values)
+        {
+            if (!component.ReturnedInventory.TryGetValue(entry.ID, out var returnedAmount))
+            {
+                mergedInventory.Add(entry);
+                continue;
+            }
+
+            mergedInventory.Add(new VendingMachineInventoryEntry(entry.Type, entry.ID,
+                entry.Amount + returnedAmount,
+                returnedAmount > 0 ? 0 : entry.Price,
+                entry.MaxAmount + returnedAmount, entry.Category));
+        }
+        inventory = mergedInventory;
+        // ADT-Return end
 
         if (_emag.CheckFlag(uid, EmagType.Interaction))
             inventory.AddRange(component.EmaggedInventory.Values);
