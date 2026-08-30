@@ -54,6 +54,7 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly StackSystem _stackSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
+        [Dependency] private readonly ADTVendingMachineReturnSystem _vendingReturn = default!;
         //ADT-Economy-End
         [Dependency] private readonly SharedPointLightSystem _light = default!;
         [Dependency] private readonly EmagSystem _emag = default!;
@@ -212,7 +213,7 @@ namespace Content.Server.VendingMachines
                 !currency.Price.Keys.Contains(component.CurrencyType))
             // ADT-Return start
             {
-                EntityManager.System<ADTVendingMachineReturnSystem>().TryReturnItem(uid, component, args);
+                _vendingReturn.TryReturnItem(uid, component, args);
                 return;
             }
             // ADT-Return end

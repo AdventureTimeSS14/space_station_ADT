@@ -13,6 +13,8 @@ namespace Content.Client.ADT.VendingMachines.UI;
 [GenerateTypedNameReferences]
 public sealed partial class FancyVendingMachineItem : PanelContainer
 {
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+
     private const int MaxSelectable = 5;
 
     private static readonly StyleBoxFlat StripeBox = new() { BackgroundColor = Color.FromHex("#1F1F23") };
@@ -33,6 +35,7 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
     public FancyVendingMachineItem(EntProtoId entProto, string text, uint count, uint maxAmount, int price, bool striped)
     {
         RobustXamlLoader.Load(this);
+        IoCManager.InjectDependencies(this);
         BuyButton.OnPressed += _ => BuyPressed?.Invoke();
 
         _unitPrice = price;
@@ -80,7 +83,7 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
 
     private void SetupInfoTooltip(EntProtoId entProto, string text)
     {
-        if (!IoCManager.Resolve<IPrototypeManager>().TryIndex(entProto, out EntityPrototype? proto))
+        if (!_proto.TryIndex(entProto, out EntityPrototype? proto))
             return;
 
         var msg = new FormattedMessage();

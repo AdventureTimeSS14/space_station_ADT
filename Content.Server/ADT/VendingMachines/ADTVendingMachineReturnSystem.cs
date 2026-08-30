@@ -23,6 +23,7 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
+    [Dependency] private readonly VendingMachineSystem _vending = default!;
 
     private const string ReturnedItemsContainerId = "ADTVendingReturnedItems";
 
@@ -98,6 +99,6 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
 
     private void Deny(EntityUid uid, VendingMachineComponent component)
     {
-        EntityManager.System<VendingMachineSystem>().Deny(uid, component);
+        _vending.Deny(uid, component);
     }
 }
