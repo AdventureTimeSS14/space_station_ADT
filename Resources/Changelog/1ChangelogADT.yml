@@ -14784,3 +14784,10 @@ Entries:
     id: 1872
     pr_number: 3297
     time: '2026-08-29T18:45:29Z'
+  - author: FriendlyOne
+    changes:
+      - {message: 'Айтем со спины теперь не выпадает, если одеваешь мод внутри меха',
+        type: Fix}
+    id: 1873
+    pr_number: 3302
+    time: '2026-08-30T12:26:14Z'
