@@ -24,9 +24,6 @@ public sealed partial class LegCuffVisualizerSystem : VisualizerSystem<LegCuffed
 
         Entity<SpriteComponent?> ent = (uid, args.Sprite);
 
-//        var layer = _sprite.LayerMapReserve(ent, LegCuffVisualLayers.Overlay);
-//       _sprite.LayerSetSprite(ent, layer, component.CuffedSprite);
-//      _sprite.LayerSetVisible(ent, layer, applied);
     }
 
     private void OnInit(EntityUid uid, LegCuffedComponent component, ComponentInit args)

@@ -87,9 +87,6 @@ public sealed partial class LegCuffSystem : EntitySystem
         cuffed.CuffedSprite = comp.CuffedSprite;
         Dirty(target, cuffed);
 
-//        if (TryComp<AppearanceComponent>(target, out var appearance))
-//            _appearance.SetData(target, LegCuffVisuals.Applied, true, appearance);
-
         args.Handled = true;
     }
 
@@ -176,8 +173,6 @@ public sealed partial class LegCuffSystem : EntitySystem
 
         if (!ReferenceEquals(ens.Container, args.Container))
             return;
-
-//        _appearance.SetData(victim, LegCuffVisuals.Applied, false);
 
         RemCompDeferred<LegCuffedComponent>(victim);
         RemCompDeferred<LegCuffBreakoutSoundComponent>(victim);
