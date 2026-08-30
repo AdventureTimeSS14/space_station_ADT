@@ -371,7 +371,7 @@
     - ADTSiliconStealthWhitelist
     - ADTSiliconEmotes
     - Unimplantable
-    - IgnoreBalanceChecks
+    - ADTVendingCargoAccount
   # ADT-Tweak end
   - type: NpcFactionMember
     factions:

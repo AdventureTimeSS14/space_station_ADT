@@ -7,6 +7,7 @@ using Content.Server.Cargo.Systems;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
+using Content.Server.Station.Systems;
 using Content.Server.Store.Components;
 using Content.Server.Vocalization.Systems;
 using Content.Shared.Access.Components;
@@ -15,6 +16,7 @@ using Content.Shared.Advertise.Components;
 using Content.Shared.ADT.Economy;
 using Content.Shared.ADT.VendingMachines;
 using Content.Shared.Cargo;
+using Content.Shared.Cargo.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
@@ -56,6 +58,8 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly StackSystem _stackSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
         [Dependency] private readonly ADTVendingMachineReturnSystem _vendingReturn = default!;
+        [Dependency] private readonly CargoSystem _cargoSystem = default!;
+        [Dependency] private readonly StationSystem _stationSystem = default!;
         //ADT-Economy-End
         [Dependency] private readonly SharedPointLightSystem _light = default!;
         [Dependency] private readonly EmagSystem _emag = default!;
@@ -261,6 +265,16 @@ namespace Content.Server.VendingMachines
         {
             var balance = 0;
 
+            if (IsCargoAccountUser(user) &&
+                _stationSystem.GetOwningStation(user) is { } station &&
+                TryComp<StationBankAccountComponent>(station, out var stationBank))
+            {
+                balance = _cargoSystem.GetBalanceFromAccount((station, stationBank), stationBank.PrimaryAccount);
+                _userInterfaceSystem.ServerSendUiMessage(uid, VendingMachineUiKey.Key,
+                    new VendingMachineUserInfoMessage(balance), user);
+                return;
+            }
+
             var items = _accessReader.FindPotentialAccessItems(user);
             foreach (var item in items)
             {
@@ -282,6 +296,11 @@ namespace Content.Server.VendingMachines
         private bool IsBalanceExempt(EntityUid user)
         {
             return _tag.HasTag(user, "IgnoreBalanceChecks");
+        }
+
+        private bool IsCargoAccountUser(EntityUid user)
+        {
+            return _tag.HasTag(user, "ADTVendingCargoAccount");
         }
 
         private void OnInventoryEjectCountMessage(EntityUid uid, VendingMachineComponent component, VendingMachineEjectCountMessage args)
@@ -412,6 +431,16 @@ namespace Content.Server.VendingMachines
             if (price > 0 && !vendComponent.AllForFree && sender.HasValue && !IsBalanceExempt(sender.Value))
             {
                 var success = false;
+
+                if (IsCargoAccountUser(sender.Value) &&
+                    _stationSystem.GetOwningStation(sender.Value) is { } station &&
+                    TryComp<StationBankAccountComponent>(station, out var stationBank))
+                {
+                    success = _cargoSystem.GetBalanceFromAccount((station, stationBank), stationBank.PrimaryAccount) >= price;
+                    if (success)
+                        _cargoSystem.UpdateBankAccount((station, stationBank), -price, stationBank.PrimaryAccount);
+                }
+                else
                 if (vendComponent.Credits >= price)
                 {
                     vendComponent.Credits -= price;

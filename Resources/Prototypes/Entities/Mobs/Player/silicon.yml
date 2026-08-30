@@ -7,7 +7,7 @@
   # ADT-Tweak start
   - type: Tag
     tags:
-    - IgnoreBalanceChecks
+    - ADTVendingCargoAccount
   # ADT-Tweak end
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
