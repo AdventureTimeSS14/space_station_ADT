@@ -132,15 +132,14 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
 
             VoiceButton.AddItem(Loc.GetString(voice.Name), i);
 
-            if (firstVoiceChoiceId == -1)
-                firstVoiceChoiceId = i;
-
-            if (voice.SponsorOnly &&
-                _sponsorsManager.TryGetInfo(out var sponsor) &&
-                !sponsor.AllowedMarkings.Contains(voice.ID))
+            if (!CanUseVoice(voice))
             {
                 VoiceButton.SetItemDisabled(VoiceButton.GetIdx(i), true);
+                continue;
             }
+
+            if (firstVoiceChoiceId == -1)
+                firstVoiceChoiceId = i;
         }
 
         var voiceChoiceId = _voiceList.FindIndex(voice => voice.ID == currentVoice);
@@ -152,6 +151,17 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
 
         _currentVoice = _voiceList[firstVoiceChoiceId].ID;
         OnVoiceChanged?.Invoke(_currentVoice);
+    }
+
+    private bool CanUseVoice(TTSVoicePrototype voice)
+    {
+        if (!voice.SponsorOnly)
+            return true;
+
+        if (!_sponsorsManager.TryGetInfo(out var sponsor))
+            return false;
+
+        return sponsor.AllowedMarkings.Contains(voice.ID);
     }
 
     private void UpdateBarkButtonText(string proto)
