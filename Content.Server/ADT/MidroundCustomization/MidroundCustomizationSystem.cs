@@ -17,6 +17,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Content.Server.Actions;
+using Content.Server.Corvax.Sponsors;
 using Robust.Shared.Player;
 
 namespace Content.Server.ADT.MidroundCustomization;
@@ -30,6 +31,7 @@ public sealed class MidroundCustomizationSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
+    [Dependency] private readonly SponsorsManager _sponsors = default!;
 
     public override void Initialize()
     {
@@ -117,6 +119,12 @@ public sealed class MidroundCustomizationSystem : EntitySystem
         if (!HasComp<TTSComponent>(ent))
             return;
 
+        if (!_proto.TryIndex<TTSVoicePrototype>(args.Voice, out var proto))
+            return;
+
+        if (!CanUseVoice(args.Actor, proto))
+            return;
+
         var doAfter = new MidroundCustomizationChangeVoiceDoAfterEvent()
         {
             Voice = args.Voice,
@@ -139,10 +147,27 @@ public sealed class MidroundCustomizationSystem : EntitySystem
         if (!HumanoidCharacterProfile.CanHaveVoice(proto, humanoid.Sex, humanoid.Species))
             return;
 
+        if (!CanUseVoice(args.User, proto))
+            return;
+
         tts.VoicePrototypeId = args.Voice;
 
         PlayVoiceChangeSound(uid, component);
         UpdateInterface(uid, component);
+    }
+
+    private bool CanUseVoice(EntityUid player, TTSVoicePrototype voice)
+    {
+        if (!voice.SponsorOnly)
+            return true;
+
+        if (!TryComp<ActorComponent>(player, out var actor))
+            return false;
+
+        if (!_sponsors.TryGetInfo(actor.PlayerSession.UserId, out var sponsor))
+            return false;
+
+        return sponsor.AllowedMarkings.Contains(voice.ID);
     }
 
     private void OnChangeBark(Entity<MidroundCustomizationComponent> ent, ref MidroundCustomizationChangeBarkMessage args)
