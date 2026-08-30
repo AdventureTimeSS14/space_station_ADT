@@ -14808,3 +14808,9 @@ Entries:
     id: 1875
     pr_number: 3291
     time: '2026-08-30T12:33:33Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Добавлена задержка в 0.5с на открытие\закрытие мешка для тел, type: Add}
+    id: 1876
+    pr_number: 3228
+    time: '2026-08-30T12:45:33Z'
