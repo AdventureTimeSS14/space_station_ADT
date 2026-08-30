@@ -27,6 +27,7 @@ public sealed class ADTOreFurnaceSystem : EntitySystem
     [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     public override void Initialize()
     {
@@ -159,20 +160,16 @@ public sealed class ADTOreFurnaceSystem : EntitySystem
     {
         var xform = Transform(ent);
         var grid = _transform.GetGrid(ent.Owner);
-        var rangeSquared = ent.Comp.SiloLinkRange * ent.Comp.SiloLinkRange;
+        var range = ent.Comp.SiloLinkRange;
 
         var silos = new List<(EntityUid, float)>();
 
-        var query = EntityQueryEnumerator<OreSiloComponent, TransformComponent>();
-        while (query.MoveNext(out var silo, out _, out var siloXform))
+        foreach (var silo in _lookup.GetEntitiesInRange<OreSiloComponent>(xform.Coordinates, range))
         {
-            if (_transform.GetGrid(silo) != grid)
+            if (_transform.GetGrid(silo.Owner) != grid)
                 continue;
 
-            var distance = (siloXform.LocalPosition - xform.LocalPosition).LengthSquared();
-            if (distance > rangeSquared)
-                continue;
-
+            var distance = (Transform(silo).LocalPosition - xform.LocalPosition).LengthSquared();
             silos.Add((silo, distance));
         }
 
