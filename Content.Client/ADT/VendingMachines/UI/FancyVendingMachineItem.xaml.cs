@@ -49,6 +49,7 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
         BuyButton.OnMouseExited += _ => _buyBox.BackgroundColor = BuyButton.Disabled ? ButtonDisabled : ButtonBackground;
 
         AmountSelector.StyleBoxOverride = MakeFlatButtonStyle(AmountSelector);
+        AmountSelector.PrefixMargin = false;
 
         AmountSelector.OnItemSelected += args =>
         {
