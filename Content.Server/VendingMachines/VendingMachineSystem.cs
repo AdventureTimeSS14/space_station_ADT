@@ -276,7 +276,12 @@ namespace Content.Server.VendingMachines
             }
 
             _userInterfaceSystem.ServerSendUiMessage(uid, VendingMachineUiKey.Key,
-                new VendingMachineUserInfoMessage(balance), user);
+                new VendingMachineUserInfoMessage(balance, IsBalanceExempt(user)), user);
+        }
+
+        private bool IsBalanceExempt(EntityUid user)
+        {
+            return _tag.HasTag(user, "IgnoreBalanceChecks");
         }
 
         private void OnInventoryEjectCountMessage(EntityUid uid, VendingMachineComponent component, VendingMachineEjectCountMessage args)
@@ -404,7 +409,7 @@ namespace Content.Server.VendingMachines
 
             var freeCount = Math.Min(returnedCount, count);
             var price = GetPrice(entry, vendComponent, count - freeCount);
-            if (price > 0 && !vendComponent.AllForFree && sender.HasValue && !_tag.HasTag(sender.Value, "IgnoreBalanceChecks"))
+            if (price > 0 && !vendComponent.AllForFree && sender.HasValue && !IsBalanceExempt(sender.Value))
             {
                 var success = false;
                 if (vendComponent.Credits >= price)
