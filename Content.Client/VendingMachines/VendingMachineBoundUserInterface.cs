@@ -80,9 +80,9 @@ namespace Content.Client.VendingMachines
                 _menu?.SetUserInfo(info.Balance);
         }
 
-        private void OnItemSelected(VendingMachineInventoryEntry entry)
+        private void OnItemSelected(VendingMachineInventoryEntry entry, int count) // ADT-tweak
         {
-            SendPredictedMessage(new VendingMachineEjectCountMessage(entry, 1));
+            SendPredictedMessage(new VendingMachineEjectCountMessage(entry, count)); // ADT-tweak
         }
 
         // END-ADT-TWEAK
