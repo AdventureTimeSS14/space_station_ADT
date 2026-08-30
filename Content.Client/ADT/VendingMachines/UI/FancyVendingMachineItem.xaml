@@ -32,7 +32,7 @@
             VerticalAlignment="Center"/>
         <OptionButton
             Name="AmountSelector"
-            MinWidth="45"
+            MinSize="70 26"
             HideTriangle="True"
             VerticalAlignment="Center"/>
         <PanelContainer
