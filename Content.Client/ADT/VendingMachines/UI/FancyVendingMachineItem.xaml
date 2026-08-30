@@ -30,14 +30,18 @@
             Name="CostLabel"
             MinWidth="80"
             VerticalAlignment="Center"/>
-        <OptionButton
-            Name="AmountSelector"
-            MinSize="70 26"
-            HideTriangle="True"
-            VerticalAlignment="Center"/>
+        <PanelContainer
+            MinSize="45 26"
+            VerticalAlignment="Center">
+            <OptionButton
+                Name="AmountSelector"
+                HideTriangle="True"
+                VerticalExpand="True"/>
+        </PanelContainer>
         <PanelContainer
             Name="BuyPanel"
             MinSize="70 26"
+            MaxHeight="26"
             VerticalAlignment="Center">
             <PanelContainer.PanelOverride>
                 <gfx:StyleBoxFlat BackgroundColor="#2E2E36" BorderColor="#4A4A52" BorderThickness="1"/>

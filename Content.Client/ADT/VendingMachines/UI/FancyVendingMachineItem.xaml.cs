@@ -23,6 +23,7 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
     private static readonly Color ButtonBorder = Color.FromHex("#4A4A52");
 
     public Action? BuyPressed;
+    public Action? OnAmountChanged;
 
     private int _unitPrice;
     private StyleBoxFlat _buyBox = new();
@@ -43,6 +44,7 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
         NameLabel.Text = text;
 
         _buyBox = (StyleBoxFlat) BuyPanel.PanelOverride!;
+        BuyButton.StyleBoxOverride = new StyleBoxFlat { BackgroundColor = Color.Transparent };
         BuyButton.OnMouseEntered += _ => _buyBox.BackgroundColor = BuyButton.Disabled ? ButtonDisabled : ButtonHovered;
         BuyButton.OnMouseExited += _ => _buyBox.BackgroundColor = BuyButton.Disabled ? ButtonDisabled : ButtonBackground;
 
@@ -52,6 +54,7 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
         {
             AmountSelector.SelectId(args.Id);
             UpdateCost();
+            OnAmountChanged?.Invoke();
         };
 
         UpdateCount(count, maxAmount);

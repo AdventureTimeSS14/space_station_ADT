@@ -88,11 +88,18 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
     {
         foreach (var (data, item) in _visibleItems)
         {
-            var price = (int)(data.Entry.Price * _priceMultiplier);
             item.UpdateCount(data.Entry.Amount, data.Entry.MaxAmount);
-            item.SetBuyDisabled(!_enabled || data.Entry.Amount == 0 ||
-                                price > 0 && _machineCredits < price && _userBalance < price);
+            UpdateItemDisabled(data, item);
         }
+    }
+
+    private void UpdateItemDisabled(FancyVendingMachineData data, FancyVendingMachineItem item)
+    {
+        var price = (int)(data.Entry.Price * _priceMultiplier);
+        var total = price * item.SelectedAmount;
+
+        item.SetBuyDisabled(!_enabled || data.Entry.Amount == 0 ||
+                            total > 0 && _machineCredits < total && _userBalance < total);
     }
 
     public override void Close()
@@ -311,9 +318,9 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
         {
             var price = (int)(item.Entry.Price * _priceMultiplier);
             var listItem = new FancyVendingMachineItem(item.Entry.ID, item.Name, item.Entry.Amount, item.Entry.MaxAmount, price, index++ % 2 == 1);
-            listItem.SetBuyDisabled(!_enabled || item.Entry.Amount == 0 ||
-                                    price > 0 && _machineCredits < price && _userBalance < price);
+            UpdateItemDisabled(item, listItem);
             listItem.BuyPressed += () => OnItemSelected?.Invoke(item.Entry, listItem.SelectedAmount);
+            listItem.OnAmountChanged += () => UpdateItemDisabled(item, listItem);
 
             _visibleItems.Add((item, listItem));
             VendingContents.AddChild(listItem);
