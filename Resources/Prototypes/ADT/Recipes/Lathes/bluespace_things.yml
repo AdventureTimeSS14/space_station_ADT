@@ -5,7 +5,7 @@
   materials:
     Plasma: 200
     Diamond: 200
-    ADTBScrystal: 90
+    ADTBScrystal: 100
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
