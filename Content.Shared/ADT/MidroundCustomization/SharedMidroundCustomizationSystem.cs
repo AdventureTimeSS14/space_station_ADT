@@ -42,12 +42,83 @@ public sealed class MidroundCustomizationUiState : BoundUserInterfaceState
     public Dictionary<ProtoId<OrganCategoryPrototype>, OrganProfileData> OrganProfileData;
     public Dictionary<ProtoId<OrganCategoryPrototype>, OrganMarkingData> OrganMarkingData;
     public Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> AppliedMarkings;
+
+    public string Species = string.Empty;
+    public Sex Sex;
+
+    public string? Voice;
+
+    public string? BarkProto;
+    public float BarkPitch = 1f;
+    public float BarkMinVar = 0.1f;
+    public float BarkMaxVar = 0.5f;
+
+    public bool PointLightColor;
+    public bool PointLightColorEnabled;
+}
+
+[Serializable, NetSerializable]
+public sealed class MidroundCustomizationChangeVoiceMessage : BoundUserInterfaceMessage
+{
+    public MidroundCustomizationChangeVoiceMessage(string voice)
+    {
+        Voice = voice;
+    }
+
+    public string Voice { get; }
+}
+
+[Serializable, NetSerializable]
+public sealed class MidroundCustomizationChangeBarkMessage : BoundUserInterfaceMessage
+{
+    public MidroundCustomizationChangeBarkMessage(string proto, float pitch, float minVar, float maxVar)
+    {
+        Proto = proto;
+        Pitch = pitch;
+        MinVar = minVar;
+        MaxVar = maxVar;
+    }
+
+    public string Proto { get; }
+    public float Pitch { get; }
+    public float MinVar { get; }
+    public float MaxVar { get; }
+}
+
+[Serializable, NetSerializable]
+public sealed class MidroundCustomizationPointLightColorToggleMessage : BoundUserInterfaceMessage
+{
+    public MidroundCustomizationPointLightColorToggleMessage(bool enabled)
+    {
+        Enabled = enabled;
+    }
+
+    public bool Enabled { get; }
 }
 
 [Serializable, NetSerializable]
 public sealed partial class MidroundCustomizationSelectDoAfterEvent : DoAfterEvent
 {
     public Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> Markings = new();
+
+    public override DoAfterEvent Clone() => this;
+}
+
+[Serializable, NetSerializable]
+public sealed partial class MidroundCustomizationChangeVoiceDoAfterEvent : DoAfterEvent
+{
+    public string Voice = string.Empty;
+
+    public override DoAfterEvent Clone() => this;
+}
+
+[Serializable, NetSerializable]
+public sealed partial class MidroundCustomizationChangeBarkDoAfterEvent : DoAfterEvent
+{
+    public string Proto = string.Empty;
+    public float Pitch = 1f;
+    public float MinVar = 0.1f;
+    public float MaxVar = 0.5f;
 
     public override DoAfterEvent Clone() => this;
 }

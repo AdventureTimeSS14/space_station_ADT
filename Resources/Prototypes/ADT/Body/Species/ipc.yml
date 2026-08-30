@@ -233,8 +233,19 @@
   - type: MidroundCustomization
     selectSlotTime: 0
     changeSlotTime: 0
+    changeVoiceTime: 1
+    playSoundForVoiceChange: false
     allowedLayers:
     - FacialHair
+    pointLightColor: true
+    pointLightLayer: FacialHair
+    changeSlotOnState:
+    - state: Dead
+      organ: Head
+      layer: FacialHair
+      slot: 0
+      marking: ADTIPCScreenBroken
+      colors: [ "#ffffff" ]
   - type: AnimatedEmotes
   - type: Posing
   - type: SoftWalk
