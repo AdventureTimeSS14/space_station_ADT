@@ -29,6 +29,7 @@ using Content.Shared.Power;
 using Content.Shared.Stacks;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
+using Content.Shared.Tools.Components;
 using Content.Shared.UserInterface;
 using Content.Shared.VendingMachines;
 using Content.Shared.Wall;
@@ -209,14 +210,17 @@ namespace Content.Server.VendingMachines
             if (component.Broken || !this.IsPowered(uid, EntityManager))
                 return;
 
+            if (HasComp<ToolComponent>(args.Used))
+                return;
+
             if (!TryComp<CurrencyComponent>(args.Used, out var currency) ||
                 !currency.Price.Keys.Contains(component.CurrencyType))
-            // ADT-Return start
+
             {
-                _vendingReturn.TryReturnItem(uid, component, args);
+                if (_vendingReturn.TryReturnItem(uid, component, args.User, args.Used))
+                    args.Handled = true;
                 return;
             }
-            // ADT-Return end
 
             var stack = Comp<StackComponent>(args.Used);
             component.Credits += stack.Count;

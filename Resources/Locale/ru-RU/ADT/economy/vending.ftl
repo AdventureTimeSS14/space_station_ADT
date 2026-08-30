@@ -1,4 +1,5 @@
 vending-machine-return-success = Вы вернули { $item } в автомат.
+vending-machine-return-verb = Вернуть предмет
 vending-ui-credits-amount = Кредитов в автомате: { $credits }
 vending-machine-component-no-balance = Недостаточно средств.
 vending-user-balance = Баланс: { $balance }$
