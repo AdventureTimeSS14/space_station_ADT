@@ -1,4 +1,12 @@
 - type: marking
+  id: MobDemonTailColor
+  bodyPart: Tail
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: tail
+
+- type: marking
   id: DemonTail1
   bodyPart: Tail
   groupWhitelist: [Demon]
@@ -7,6 +15,16 @@
     state: tail
   - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
     state: demon_tail
+
+- type: marking
+  id: DemonTailKist
+  bodyPart: Tail
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: tail
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: kist_tail
 
 - type: marking
   id: DemonTailLong
@@ -29,14 +47,103 @@
     state: up
 
 - type: marking
-  id: MobDemonTailColor
+  id: DemonTailMediumColor
   bodyPart: Tail
   groupWhitelist: [Demon]
   sprites:
-    - sprite: ADT/Mobs/Species/Demon/parts.rsi
-      state: tail
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: meduim_tail
 
- # Corvax-Wega Animated Tail demons
+- type: marking
+  id: DemonTailMedium
+  bodyPart: Tail
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: meduim_tail
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: demon_tail_medium
+
+- type: marking
+  id: DemonTailMediumLong
+  bodyPart: Tail
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: meduim_tail
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: long_mediun
+
+- type: marking
+  id: DemonTailChillColor
+  bodyPart: Tail
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: chill_tail
+
+- type: marking
+  id: DemonTailChill
+  bodyPart: Tail
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: chill_tail
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: demon_chill_tail
+
+- type: marking
+  id: DemonTailChillKist
+  bodyPart: Tail
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: chill_tail
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: kist_chill_tail
+
+- type: marking
+  id: DemonTailChillLong
+  bodyPart: Tail
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: chill_tail
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: long_chill
+
+- type: marking
+  id: DemonTailDouble
+  bodyPart: Tail
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: double_tail
+
+- type: marking
+  id: DemonTailChillDouble
+  bodyPart: Tail
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: chill_double_tail
+
+- type: marking
+  id: DemonTailMini
+  bodyPart: Tail
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: mini_tail
+
+- type: marking
+  id: MobDemonTailColorAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: tail_waggin
+
 - type: marking
   id: DemonTail1Animated
   bodyPart: Tail
@@ -46,6 +153,16 @@
     state: tail_waggin
   - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
     state: demon_tail_waggin
+
+- type: marking
+  id: DemonTailKistAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: tail_waggin
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: kist_tail_waggin
 
 - type: marking
   id: DemonTailLongAnimated
@@ -68,9 +185,92 @@
     state: up_waggin
 
 - type: marking
-  id: MobDemonTailColorAnimated
+  id: DemonTailMediumColorAnimated
   bodyPart: Tail
   groupWhitelist: []
   sprites:
   - sprite: ADT/Mobs/Species/Demon/parts.rsi
-    state: tail_waggin
+    state: meduim_tail_waggin
+
+- type: marking
+  id: DemonTailMediumAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: meduim_tail_waggin
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: demon_tail_medium_waggin
+
+- type: marking
+  id: DemonTailMediumLongAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: meduim_tail_waggin
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: long_medium_waggin
+
+- type: marking
+  id: DemonTailChillColorAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: chill_tail_waggin
+
+- type: marking
+  id: DemonTailChillAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: chill_tail_waggin
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: demon_chill_tail_waggin
+
+- type: marking
+  id: DemonTailChillKistAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: chill_tail_waggin
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: kist_chill_tail_waggin
+
+- type: marking
+  id: DemonTailChillLongAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: chill_tail_waggin
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: long_chill_waggin
+
+- type: marking
+  id: DemonTailDoubleAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: double_tail_waggin
+
+- type: marking
+  id: DemonTailChillDoubleAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: chill_double_tail_waggin
+
+- type: marking
+  id: DemonTailMiniAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: mini_tail_waggin
+

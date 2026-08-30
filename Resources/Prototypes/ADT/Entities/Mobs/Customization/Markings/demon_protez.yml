@@ -1,0 +1,516 @@
+- type: marking
+  id: DemonProtezArmLeftA
+  bodyPart: LArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: l_arm-protez-a
+
+- type: marking
+  id: DemonProtezArmLeftB
+  bodyPart: LArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: l_arm-protez-b
+
+- type: marking
+  id: DemonProtezArmLeftC
+  bodyPart: LArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: l_arm-protez-c
+
+- type: marking
+  id: DemonProtezArmLeftD
+  bodyPart: LArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: l_arm-protez-d
+
+- type: marking
+  id: DemonProtezArmRightA
+  bodyPart: RArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: r_arm-protez-a
+
+- type: marking
+  id: DemonProtezArmRightB
+  bodyPart: RArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: r_arm-protez-b
+
+- type: marking
+  id: DemonProtezArmRightC
+  bodyPart: RArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: r_arm-protez-c
+
+- type: marking
+  id: DemonProtezArmRightD
+  bodyPart: RArm
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: r_arm-protez-d
+
+- type: marking
+  id: DemonProtezHandLeftA
+  bodyPart: LHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: l_hand-protez-a
+
+- type: marking
+  id: DemonProtezHandLeftB
+  bodyPart: LHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: l_hand-protez-b
+
+- type: marking
+  id: DemonProtezHandLeftC
+  bodyPart: LHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: l_hand-protez-c
+
+- type: marking
+  id: DemonProtezHandLeftD
+  bodyPart: LHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: l_hand-protez-d
+
+- type: marking
+  id: DemonProtezHandRightA
+  bodyPart: RHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: r_hand-protez-a
+
+- type: marking
+  id: DemonProtezHandRightB
+  bodyPart: RHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: r_hand-protez-b
+
+- type: marking
+  id: DemonProtezHandRightC
+  bodyPart: RHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: r_hand-protez-c
+
+- type: marking
+  id: DemonProtezHandRightD
+  bodyPart: RHand
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: r_hand-protez-d
+
+- type: marking
+  id: DemonProtezLegLeftA
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: l_leg-protez-a
+
+- type: marking
+  id: DemonProtezLegLeftB
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: l_leg-protez-b
+
+- type: marking
+  id: DemonProtezLegLeftC
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: l_leg-protez-c
+
+- type: marking
+  id: DemonProtezLegLeftD
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: l_leg-protez-d
+
+- type: marking
+  id: DemonProtezLegRightA
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: r_leg-protez-a
+
+- type: marking
+  id: DemonProtezLegRightB
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: r_leg-protez-b
+
+- type: marking
+  id: DemonProtezLegRightC
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: r_leg-protez-c
+
+- type: marking
+  id: DemonProtezLegRightD
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: r_leg-protez-d
+
+- type: marking
+  id: DemonProtezFootLeftA
+  bodyPart: LFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: l_foot-protez-a
+
+- type: marking
+  id: DemonProtezFootLeftB
+  bodyPart: LFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: l_foot-protez-b
+
+- type: marking
+  id: DemonProtezFootLeftC
+  bodyPart: LFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: l_foot-protez-c
+
+- type: marking
+  id: DemonProtezFootLeftD
+  bodyPart: LFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: l_foot-protez-d
+
+- type: marking
+  id: DemonProtezFootRightA
+  bodyPart: RFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: r_foot-protez-a
+
+- type: marking
+  id: DemonProtezFootRightB
+  bodyPart: RFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: r_foot-protez-b
+
+- type: marking
+  id: DemonProtezFootRightC
+  bodyPart: RFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: r_foot-protez-c
+
+- type: marking
+  id: DemonProtezFootRightD
+  bodyPart: RFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: r_foot-protez-d
+
+# Торс
+
+- type: marking
+  id: DemonProtezChestA
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-chest-a
+
+- type: marking
+  id: DemonProtezChestB
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-chest-b
+
+- type: marking
+  id: DemonProtezChestC
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-chest-c
+
+- type: marking
+  id: DemonProtezChestD
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-chest-d
+
+- type: marking
+  id: DemonProtezBellyAMale
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sexRestriction: Male
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-a_m
+
+- type: marking
+  id: DemonProtezBellyAFemale
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sexRestriction: Female
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-a_f
+
+- type: marking
+  id: DemonProtezBellyBMale
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sexRestriction: Male
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-b_m
+
+- type: marking
+  id: DemonProtezBellyBFemale
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sexRestriction: Female
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-b_f
+
+- type: marking
+  id: DemonProtezBellyCMale
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sexRestriction: Male
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-c_m
+
+- type: marking
+  id: DemonProtezBellyCFemale
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sexRestriction: Female
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-c_f
+
+- type: marking
+  id: DemonProtezBellyDMale
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sexRestriction: Male
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-d_m
+
+- type: marking
+  id: DemonProtezBellyDFemale
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sexRestriction: Female
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-d_f
+
+- type: marking
+  id: DemonProtezTorsoAMale
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sexRestriction: Male
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-full-body-a_m
+
+- type: marking
+  id: DemonProtezTorsoAFemale
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sexRestriction: Female
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-full-body-a_f
+
+- type: marking
+  id: DemonProtezTorsoBMale
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sexRestriction: Male
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-full-body-b_m
+
+- type: marking
+  id: DemonProtezTorsoBFemale
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sexRestriction: Female
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-full-body-b_f
+
+- type: marking
+  id: DemonProtezTorsoCMale
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sexRestriction: Male
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-full-body-c_m
+
+- type: marking
+  id: DemonProtezTorsoCFemale
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sexRestriction: Female
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-full-body-c_f
+
+- type: marking
+  id: DemonProtezTorsoDMale
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sexRestriction: Male
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-full-body-d_m
+
+- type: marking
+  id: DemonProtezTorsoDFemale
+  bodyPart: Chest
+  groupWhitelist: [Demon]
+  sexRestriction: Female
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: protez-full-body-d_f
+
+# Хвост
+
+- type: marking
+  id: DemonProtezTailA
+  bodyPart: Tail
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: tail
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: tail-protez-a
+
+- type: marking
+  id: DemonProtezTailB
+  bodyPart: Tail
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: tail
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: tail-protez-b
+
+- type: marking
+  id: DemonProtezTailC
+  bodyPart: Tail
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: tail
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: tail-protez-c
+
+- type: marking
+  id: DemonProtezTailD
+  bodyPart: Tail
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: tail
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: tail-protez-d
+
+- type: marking
+  id: DemonProtezTailAAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: tail_waggin
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: tail-protez-a-waggin
+
+- type: marking
+  id: DemonProtezTailBAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: tail_waggin
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: tail-protez-b-waggin
+
+- type: marking
+  id: DemonProtezTailCAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: tail_waggin
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: tail-protez-c-waggin
+
+- type: marking
+  id: DemonProtezTailDAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Demon/parts.rsi
+    state: tail_waggin
+  - sprite: ADT/Mobs/Customization/Demon/protez.rsi
+    state: tail-protez-d-waggin
+

@@ -2,3 +2,9 @@
   id: ADTFootstepsSilent
   files:
     - /Audio/ADT/Effects/silence.ogg
+
+# Копыта аркан
+- type: soundCollection
+  id: ADTFootstepHoof
+  files:
+    - /Audio/ADT/Effects/Footsteps/Hoof/hoofstep1.ogg
