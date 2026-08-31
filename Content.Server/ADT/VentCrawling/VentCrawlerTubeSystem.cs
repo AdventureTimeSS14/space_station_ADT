@@ -205,9 +205,13 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
         _mover.SetRelay(entity, holder);
         ventCrawlerComponent.InTube = true;
         Dirty(entity, ventCrawlerComponent);
+
+        if (!_ventCrawableSystem.EnterTube(holder, uid, holderComponent))
+            return false;
+
         _eye.RefreshVisibilityMask(entity);
 
-        return _ventCrawableSystem.EnterTube(holder, uid, holderComponent);
+        return true;
     }
 
     private bool IsHoldingItems (EntityUid uid)
