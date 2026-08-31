@@ -6,7 +6,7 @@ using Content.Shared.ADT.Construction.Events;
 namespace Content.Server.ADT.Construction.Systems;
 public sealed class AnomalyVesselMachinePartsSystem : EntitySystem
 {
-    private static readonly float[] TierPointMultipliers = [1.10f, 1.15f, 1.20f, 1.30f, 1.60f];
+    private static readonly float[] TierPointMultipliers = [1.00f, 1.10f, 1.20f, 1.30f, 1.60f];
 
     [Dependency] private readonly AnomalySystem _anomaly = default!;
 
