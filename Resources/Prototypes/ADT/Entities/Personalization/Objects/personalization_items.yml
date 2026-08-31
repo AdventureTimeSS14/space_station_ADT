@@ -4077,7 +4077,7 @@
     useSound: *PlushieMothSound
 
 - type: entity
-  parent: PlushieSharkBlue
+  parent: BasePlushie
   id: ADTPlushieAreya
   name: plush Areya
   description: A plush blue, cute arcanum. It emits a berry-like fragrance mixed with the scent of some incomprehensible medicines that even the most experienced chemists wouldn’t be able to identify... On the back, there’s a label that reads “Mommy arkan.”
@@ -4094,6 +4094,22 @@
     clothingVisuals:
       head:
       - state: equipped-HELMET
-        offset: "0, 0.04"
-
+        offset: "0, 0.0"
+  - type: EmitSoundOnUse
+    sound: &PlushieSharkSound
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: EmitSoundOnLand
+    sound: *PlushieSharkSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieSharkSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieSharkSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieSharkSound
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    soundHit: *PlushieSharkSound
+    animation: WeaponArcBite
+  - type: Edible
+    useSound: *PlushieSharkSound
 #SPONSOR-ITEMS-END
