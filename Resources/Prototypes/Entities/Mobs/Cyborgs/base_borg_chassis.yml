@@ -361,6 +361,18 @@
   - type: RandomMetadata
     nameSegments:
     - NamesBorg
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+    - CanPilot
+    - SiliconEmotes
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - Unimplantable
+    - ADTVendingCargoAccount
+  # ADT-Tweak end
   - type: NpcFactionMember
     factions:
     - NanoTrasen
