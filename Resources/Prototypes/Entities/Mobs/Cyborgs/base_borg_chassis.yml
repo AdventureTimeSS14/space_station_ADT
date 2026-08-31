@@ -16,6 +16,7 @@
     soundHit:
       collection: MetalThud
   - type: CombatMode
+  - type: ADTBorgMarkerViewer # ADT-Tweak
   - type: NoSlip
   - type: StaticPrice
     price: 1250

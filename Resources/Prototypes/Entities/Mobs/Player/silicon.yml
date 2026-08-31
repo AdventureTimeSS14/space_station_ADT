@@ -57,6 +57,28 @@
     actions:
     - ActionJumpToCore
     - ActionAIViewLaws
+    # ADT-Tweak-Start
+    - ADTActionPlaceBorgMarker
+    - ADTActionCycleBorgMarkerColor
+    - ADTActionClearBorgMarkers
+  - type: ADTBorgMarkerViewer
+  - type: ADTBorgMarkerPlacer
+    palette:
+    - color: "#FF4242"
+      name: adt-borg-marker-color-red
+    - color: "#FF9E3D"
+      name: adt-borg-marker-color-orange
+    - color: "#FFE14D"
+      name: adt-borg-marker-color-yellow
+    - color: "#4CE06A"
+      name: adt-borg-marker-color-green
+    - color: "#46C7FF"
+      name: adt-borg-marker-color-blue
+    - color: "#C77DFF"
+      name: adt-borg-marker-color-purple
+    - color: "#FFFFFF"
+      name: adt-borg-marker-color-white
+    # ADT-Tweak-End
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
