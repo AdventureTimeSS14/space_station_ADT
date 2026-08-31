@@ -259,7 +259,10 @@ public sealed class SharedVentCrawableSystem : EntitySystem
             UpdateExitAction(holder);
 
             if (holder.NextTube == null && holder.DesiredDirection != Direction.Invalid)
-                TryStartSegment(uid, holder);
+            {
+                if (TryStartSegment(uid, holder))
+                    holder.Progress = 0;
+            }
 
             if (holder.NextTube == null)
                 continue;
@@ -317,7 +320,6 @@ public sealed class SharedVentCrawableSystem : EntitySystem
 
         holder.CurrentDirection = direction;
         holder.NextTube = nextTube;
-        holder.Progress = 0;
         return true;
     }
 
