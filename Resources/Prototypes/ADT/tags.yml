@@ -26,6 +26,9 @@
   id: IgnoreBalanceChecks
 
 - type: Tag
+  id: ADTVendingCargoAccount
+
+- type: Tag
   id: SpaceCash
 
 - type: Tag

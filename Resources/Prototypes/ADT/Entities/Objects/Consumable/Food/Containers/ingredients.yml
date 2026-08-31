@@ -1,0 +1,24 @@
+- type: entity
+  parent: ReagentPacketBase
+  id: ADTReagentContainerOat
+  name: oat bag
+  description: A big bag of oat.
+  components:
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "oat-big_open"} # open
+          False: {state: "oat-big"} # closed
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/ingredients.rsi
+    layers:
+    - state: oat-big
+      map: ["enum.OpenableVisuals.Layer"]
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Oats
+          Quantity: 50
