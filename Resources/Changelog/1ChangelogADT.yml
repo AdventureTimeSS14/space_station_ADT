@@ -14931,3 +14931,10 @@ Entries:
     id: 1883
     pr_number: 3313
     time: '2026-08-31T16:12:31Z'
+  - author: Inconnu
+    changes:
+      - {message: Т4 улучшения для раздатчика химикатов вновь в игре., type: Tweak}
+      - {message: Сидерлак удален из Т4 раздатчика химикатов., type: Remove}
+    id: 1884
+    pr_number: 3316
+    time: '2026-08-31T19:41:38Z'
