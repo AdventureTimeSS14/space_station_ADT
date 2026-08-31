@@ -88,8 +88,8 @@
 - type: latheRecipePack
   id: ScienceBoards
   recipes:
+  - TurboItemRechargerCircuitboard
   # ADT-Tweak-Start
-  # - TurboItemRechargerCircuitboard
   # - AutolatheHyperConvectionMachineCircuitboard
   # - ProtolatheHyperConvectionMachineCircuitboard
   # - CircuitImprinterHyperConvectionMachineCircuitboard
