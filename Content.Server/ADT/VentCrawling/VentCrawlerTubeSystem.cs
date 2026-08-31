@@ -28,6 +28,7 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
     [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly ServerInventorySystem _inventory = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedEyeSystem _eye = default!;
 
     public override void Initialize()
     {
@@ -204,6 +205,7 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
         _mover.SetRelay(entity, holder);
         ventCrawlerComponent.InTube = true;
         Dirty(entity, ventCrawlerComponent);
+        _eye.RefreshVisibilityMask(entity);
 
         return _ventCrawableSystem.EnterTube(holder, uid, holderComponent);
     }
