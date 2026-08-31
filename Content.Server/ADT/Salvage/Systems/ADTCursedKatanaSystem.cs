@@ -349,13 +349,6 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
 
         _audio.PlayPvs(ent.Comp.DashSound, user);
 
-        if (TryComp<PullerComponent>(user, out var puller)
-            && puller.Pulling is { } pulled
-            && TryComp<PullableComponent>(pulled, out var pullable))
-        {
-            _pulling.TryStopPull(pulled, pullable, user, true);
-        }
-
         var nearby = new HashSet<Entity<MobStateComponent>>();
         _lookup.GetEntitiesInRange(_transform.GetMapCoordinates(user), ent.Comp.DashRange, nearby);
 
@@ -463,8 +456,25 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
         user = EntityUid.Invalid;
         target = EntityUid.Invalid;
 
-        return TryComp<WeaponMartialArtComponent>(ent.Owner, out var weapon)
-            && _martialArts.TryUseWeaponMartialArt((ent.Owner, weapon), out _, out user, out target, out _);
+        if (!TryComp<WeaponMartialArtComponent>(ent.Owner, out var weapon)
+            || !_martialArts.TryUseWeaponMartialArt((ent.Owner, weapon), out _, out user, out target, out _))
+            return false;
+
+        ReleaseGrab(user, target);
+        return true;
+    }
+
+    private void ReleaseGrab(EntityUid user, EntityUid target)
+    {
+        if (TryComp<PullableComponent>(target, out var targetPullable) && targetPullable.Puller == user)
+            _pulling.TryStopPull(target, targetPullable, user, true);
+
+        if (!TryComp<PullerComponent>(user, out var puller)
+            || puller.Pulling is not { } pulled
+            || !TryComp<PullableComponent>(pulled, out var pullable))
+            return;
+
+        _pulling.TryStopPull(pulled, pullable, user, true);
     }
 
     private void Finish(Entity<ADTCursedKatanaComponent> ent, EntityUid user, EntityUid target, LocId popup)

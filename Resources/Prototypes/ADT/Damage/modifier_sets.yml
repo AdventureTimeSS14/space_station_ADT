@@ -394,16 +394,16 @@
 - type: damageModifierSet
   id: ADTAscendantShadowling
   coefficients:
-    Blunt: 0
-    Slash: 0
-    Piercing: 0
-    Heat: 0
+    Blunt: 0.1
+    Slash: 0.1
+    Piercing: 0.1
+    Heat: 0.7
     Cold: 0
     Shock: 0
     Radiation: 0
     Asphyxiation: 0
     Bloodloss: 0
     Poison: 0
-    Caustic: 0
+    Caustic: 0.1
     Cellular: 0
-    Holy: 0
+    Holy: 2

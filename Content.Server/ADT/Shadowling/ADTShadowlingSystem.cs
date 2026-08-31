@@ -8,12 +8,14 @@ using Content.Shared.Body;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
+using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Shadowling;
@@ -28,6 +30,7 @@ public sealed class ADTShadowlingSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
     [Dependency] private readonly SharedNightVisionSystem _nightVision = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
     public static readonly ProtoId<LanguagePrototype> HivemindLanguage = "ADTShadowlingCollectiveMind";
     public static readonly ProtoId<NpcFactionPrototype> ShadowlingFaction = "ADTShadowling";
@@ -126,6 +129,8 @@ public sealed class ADTShadowlingSystem : EntitySystem
         thrall.Master = master;
         Dirty(target, thrall);
 
+        ClearBlindness(target);
+
         var ev = new ADTShadowlingThrallAddedEvent(target, master);
         RaiseLocalEvent(ev);
         return true;
@@ -180,6 +185,12 @@ public sealed class ADTShadowlingSystem : EntitySystem
 
         GrantActions(ent, ent.Comp.Actions, ent.Comp.GrantedActions);
         SetEyeColor(ent, ent.Comp.EyeColor);
+        ClearBlindness(ent);
+    }
+
+    private void ClearBlindness(EntityUid uid)
+    {
+        _statusEffects.TryRemoveStatusEffect(uid, BlindnessSystem.BlindingStatusEffect);
     }
 
     private void OnLesserShutdown(Entity<ADTLesserShadowlingComponent> ent, ref ComponentShutdown args)

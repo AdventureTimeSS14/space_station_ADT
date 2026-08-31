@@ -1,0 +1,40 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+              Orientation="Vertical"
+              Margin="5 4 5 4">
+    <PanelContainer HorizontalExpand="True">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#1c1a22" BorderThickness="1" BorderColor="#4a4458"/>
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer Name="AccentBar" HorizontalExpand="True" MinHeight="4"/>
+            <BoxContainer Orientation="Vertical" Margin="8 6 8 8">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                    <TextureRect Name="RitualIcon"
+                                 VerticalAlignment="Center"
+                                 Stretch="KeepAspectCentered"
+                                 MinSize="32 32"/>
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="8 0 0 0">
+                        <RichTextLabel Name="NameLabel" VerticalAlignment="Center"/>
+                        <RichTextLabel Name="LimitLabel" VerticalAlignment="Center" Visible="False"/>
+                    </BoxContainer>
+                </BoxContainer>
+                <cc:HSeparator Margin="0 6 0 6"/>
+                <RichTextLabel Name="DescriptionLabel" HorizontalExpand="True"/>
+                <BoxContainer Name="InputBox" Orientation="Vertical" Margin="0 8 0 0" Visible="False">
+                    <RichTextLabel Name="InputHeader"/>
+                    <WrapContainer Name="InputContainer" HorizontalExpand="True" Margin="0 4 0 0"/>
+                </BoxContainer>
+                <BoxContainer Name="ConditionBox" Orientation="Horizontal" Margin="0 8 0 0" Visible="False">
+                    <RichTextLabel Name="ConditionHeader" VerticalAlignment="Top"/>
+                    <RichTextLabel Name="ConditionLabel" HorizontalExpand="True" Margin="5 0 0 0"/>
+                </BoxContainer>
+                <BoxContainer Name="OutputBox" Orientation="Vertical" Margin="0 8 0 0" Visible="False">
+                    <RichTextLabel Name="OutputHeader"/>
+                    <BoxContainer Name="OutputContainer" Orientation="Horizontal" Margin="0 4 0 0"/>
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</BoxContainer>

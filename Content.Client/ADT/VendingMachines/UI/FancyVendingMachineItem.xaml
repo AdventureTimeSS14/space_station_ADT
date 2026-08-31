@@ -1,32 +1,57 @@
-<BoxContainer xmlns="https://spacestation14.io"
-            xmlns:adt="clr-namespace:Content.Client.ADT.UserInterface.Controls.FancyButton"
-            Orientation="Vertical"
-            SetWidth="144">
-    <adt:FancyButton
-            Name="BuyButton"
-            SetSize="140 140"
-            Margin="4">
+<PanelContainer
+    xmlns="https://spacestation14.io"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:ui="clr-namespace:Content.Client.ADT.UserInterface.Controls"
+    Name="EntryPanel"
+    HorizontalExpand="True">
+    <BoxContainer
+        Orientation="Horizontal"
+        HorizontalExpand="True"
+        Margin="6 3 6 3"
+        SeparationOverride="6">
+        <Button
+            Name="InfoButton"
+            Text="?"
+            ModulateSelfOverride="#00000000"
+            MinSize="26 26"
+            VerticalAlignment="Center"/>
         <EntityPrototypeView
-                Name="ItemPrototype"
-                Margin="8"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Scale="4 4"/>
-        <BoxContainer
-                Orientation="Horizontal"
+            Name="ItemPrototype"
+            MinSize="32 32"
+            VerticalAlignment="Center"/>
+        <ui:ADTMarqueeLabel
+            Name="NameLabel"
+            HorizontalExpand="True"
+            VerticalAlignment="Center"/>
+        <RichTextLabel
+            Name="CountLabel"
+            VerticalAlignment="Center"/>
+        <RichTextLabel
+            Name="CostLabel"
+            MinWidth="80"
+            VerticalAlignment="Center"/>
+        <PanelContainer
+            MinSize="45 26"
+            VerticalAlignment="Center">
+            <OptionButton
+                Name="AmountSelector"
+                HideTriangle="True"
+                VerticalExpand="True"/>
+        </PanelContainer>
+        <PanelContainer
+            Name="BuyPanel"
+            MinSize="70 26"
+            MaxHeight="26"
+            VerticalAlignment="Center">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#2E2E36" BorderColor="#4A4A52" BorderThickness="1"/>
+            </PanelContainer.PanelOverride>
+            <Button
+                Name="BuyButton"
+                Text="{Loc 'vending-machine-ui-buy-button-text'}"
+                ModulateSelfOverride="#00000000"
                 HorizontalExpand="True"
-                VerticalAlignment="Top"
-                Margin="6">
-            <RichTextLabel Name="CostLabel"
-                    HorizontalAlignment="Left"/>
-            <Control HorizontalExpand="True"/>
-            <RichTextLabel Name="CountLabel"
-                    HorizontalAlignment="Right"/>
-        </BoxContainer>
-    </adt:FancyButton>
-    <RichTextLabel Name="NameLabel"
-            Margin="0 4"
-            MaxWidth="144"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Bottom"/>
-</BoxContainer>
+                VerticalExpand="True"/>
+        </PanelContainer>
+    </BoxContainer>
+</PanelContainer>

@@ -1446,6 +1446,12 @@
   minLimit: 0
   maxLimit: 4
   loadouts:
+  # Арахнид
+  - ADTArachnidJumpsuitWeb
+  - ADTArachnidJumpskirtWeb
+  - ADTArachnidWinterWeb
+  - ADTArachnidBootsWinterWeb
+  # Вокс
   - ADTVoxGloves
   - ADTVoxUniform
   - ADTVoxUniformRed
@@ -1456,6 +1462,28 @@
   - ADTVoxUniformYellow
   - ADTVoxRobe
   - ADTVoxSandals
+  # Урс
+  - ADTUrsusMicrophone
+  - ADTUrsusHatTophat
+  - ADTUrsusOuterCoatUrs
+  # КПБ
+  - ADTIPCBurgerRobot
+  - ADTIPCHatCardborg
+  - ADTIPCOuterCardborg
+  # Новакид
+  - ADTNovakidRevolverRussian
+  - ADTNovakidCartridgeCap
+  - ADTNovakidHatCowboyWhite
+  - ADTNovakidHatCowboyBrown
+  - ADTNovakidHatCowboyBlack
+  - ADTNovakidHatCowboyRed
+  - ADTNovakidHatCowboyGrey
+  - ADTNovakidHatCowboyBountyHunter
+  - ADTNovakidBootsCowboyWhite
+  - ADTNovakidBootsCowboyBrown
+  - ADTNovakidBootsCowboyBlack
+  - ADTNovakidBootsCowboyFancy
+  # При добавлении новых предметов сохраняйте порядок рас!!!
 
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.
 # Н А Д Е Ю С Ь  В Ы  М Е Н Я  У С Л Ы Ш А Л И ! ! !

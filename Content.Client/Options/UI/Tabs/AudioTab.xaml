@@ -8,7 +8,6 @@
             <BoxContainer Orientation="Vertical" Margin="0 3 0 0">
                 <ui:OptionSlider Name="SliderVolumeMaster" Title="{Loc 'ui-options-master-volume'}"
                                  Margin="0 0 0 8" />
-                <!-- Corvax-TTS-Start --><ui:OptionSlider Name="SliderVolumeTts" Title="{Loc 'ui-options-tts-volume'}" /><!-- Corvax-TTS-End -->
                 <!-- ADT Barks start -->
                 <ui:OptionSlider Name="SliderVolumeBarks" Title="{Loc 'ui-options-barks-volume'}" />
                 <!-- ADT Barks end -->
@@ -21,10 +20,6 @@
                 <ui:OptionSlider Name="SliderVolumeBossMusic" Title="{Loc 'ui-options-boss-music-volume'}" />
                 <!-- ADT Boss music end -->
                 <ui:OptionSlider Name="SliderMaxAmbienceSounds" Title="{Loc 'ui-options-ambience-max-sounds'}" />
-                <!-- ADT Barks start -->
-                <ui:OptionDropDown Name="DropDownBarksOrTTS" Title="{Loc 'ui-options-barks-or-tts'}"
-                                 Margin="0 0 0 8" />
-                <!-- ADT Barks end -->
                 <CheckBox Name="LobbyMusicCheckBox" Text="{Loc 'ui-options-lobby-music'}" />
                 <CheckBox Name="RestartSoundsCheckBox" Text="{Loc 'ui-options-restart-sounds'}" />
                 <CheckBox Name="EventMusicCheckBox" Text="{Loc 'ui-options-event-music'}" />

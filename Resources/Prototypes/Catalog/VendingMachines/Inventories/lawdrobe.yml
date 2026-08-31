@@ -1,32 +1,38 @@
 - type: vendingMachineInventory
   id: LawDrobeInventory
   startingInventory:
-    ClothingUniformJumpsuitLawyerBlue: 1
-    ClothingUniformJumpskirtLawyerBlue: 1
-    ClothingUniformJumpsuitLawyerPurple: 1
-    ClothingUniformJumpskirtLawyerPurple: 1
-    ClothingUniformJumpsuitLawyerRed: 1
-    ClothingUniformJumpskirtLawyerRed: 1
-    ClothingUniformJumpsuitLawyerBlack: 1
-    ClothingUniformJumpskirtLawyerBlack: 1
-    ClothingUniformJumpsuitLawyerGood: 1
-    ClothingUniformJumpskirtLawyerGood: 1
-    ClothingShoesBootsLaceup: 2
-    ClothingHeadsetLawyer: 2 # ADT-Tweak
-    ClothingNeckLawyerbadge: 2
+    ADTVendingCategoryUniforms:  # ADT-Tweak
+        ClothingUniformJumpsuitLawyerBlue: 1
+        ClothingUniformJumpskirtLawyerBlue: 1
+        ClothingUniformJumpsuitLawyerPurple: 1
+        ClothingUniformJumpskirtLawyerPurple: 1
+        ClothingUniformJumpsuitLawyerRed: 1
+        ClothingUniformJumpskirtLawyerRed: 1
+        ClothingUniformJumpsuitLawyerBlack: 1
+        ClothingUniformJumpskirtLawyerBlack: 1
+        ClothingUniformJumpsuitLawyerGood: 1
+        ClothingUniformJumpskirtLawyerGood: 1
+    ADTVendingCategoryShoes:  # ADT-Tweak
+        ClothingShoesBootsLaceup: 2
+    ADTVendingCategoryAccessories:  # ADT-Tweak
+        ClothingHeadsetLawyer: 2 # ADT-Tweak
+        ClothingNeckLawyerbadge: 2
+        ADTBureaucraticBelt: 1 # ADT-Tweak
+        # Corvax-LawyerDrip-Start
+        ClothingHandsGlovesColorWhite: 1
+        ClothingHandsGlovesColorGray: 1
+        ClothingHandsGlovesColorBlack: 1
+        ClothingHandsGlovesColorRed: 1
+        ClothingHandsGlovesColorBlue: 1
+        # Corvax-LawyerDrip-End
+    ADTVendingCategoryHead:  # ADT-Tweak
+        # Corvax-LawyerDrip-Start
+        ClothingHeadHatBowlerHat: 1
+        ClothingHeadHatOutlawHat: 1
+        ClothingHeadHatTophat: 1
+        # Corvax-LawyerDrip-End
     BriefcaseBrown: 2
     ADTBookSpaceLaw: 3 #ADT-WikiBooks
-    ADTBureaucraticBelt: 1 # ADT-Tweak
-    # Corvax-LawyerDrip-Start
-    ClothingHandsGlovesColorWhite: 1
-    ClothingHandsGlovesColorGray: 1
-    ClothingHandsGlovesColorBlack: 1
-    ClothingHandsGlovesColorRed: 1
-    ClothingHandsGlovesColorBlue: 1
-    ClothingHeadHatBowlerHat: 1
-    ClothingHeadHatOutlawHat: 1
-    ClothingHeadHatTophat: 1
-    # Corvax-LawyerDrip-End
     LuxuryPen: 2
     HandLabeler: 2
   contrabandInventory:
