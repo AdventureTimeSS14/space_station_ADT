@@ -51,7 +51,6 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             SubscribeLocalEvent<EnergyReagentDispenserComponent, ComponentStartup>(SubscribeUpdateUiState);
             SubscribeLocalEvent<EnergyReagentDispenserComponent, SolutionContainerChangedEvent>(SubscribeUpdateUiState);
             SubscribeLocalEvent<EnergyReagentDispenserComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
-            SubscribeLocalEvent<EnergyReagentDispenserComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
             SubscribeLocalEvent<EnergyReagentDispenserComponent, BoundUIOpenedEvent>(SubscribeUpdateUiState);
 
             SubscribeLocalEvent<EnergyReagentDispenserComponent, EnergyReagentDispenserSetDispenseAmountMessage>(OnSetDispenseAmountMessage);
@@ -72,25 +71,9 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
 
         private void OnEntInserted(Entity<EnergyReagentDispenserComponent> ent, ref EntInsertedIntoContainerMessage args)
         {
-            if (args.Container.ID == EnergyReagentDispenserComponent.PartContainerName)
-                SyncBatteryFromCell(ent);
-
-            UpdateUiState(ent);
-        }
-
-        private void OnEntRemoved(Entity<EnergyReagentDispenserComponent> ent, ref EntRemovedFromContainerMessage args)
-        {
             if (args.Container.ID == EnergyReagentDispenserComponent.PartContainerName
                 && HasComp<BatteryComponent>(args.Entity))
-            {
-                SyncCellFromBattery(ent, args.Entity);
-
-                if (TryComp<BatteryComponent>(ent, out var battery))
-                {
-                    _battery.SetCharge((ent, battery), 0f);
-                    _battery.SetMaxCharge((ent, battery), 1500f);
-                }
-            }
+                SyncBatteryFromCell(ent);
 
             UpdateUiState(ent);
         }
@@ -121,16 +104,6 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             _battery.SetMaxCharge((ent, battery), cellBattery.MaxCharge);
             var charge = _battery.GetCharge((cell.Value, cellBattery));
             _battery.SetCharge((ent, battery), Math.Min(charge, cellBattery.MaxCharge));
-        }
-
-        private void SyncCellFromBattery(Entity<EnergyReagentDispenserComponent> ent, EntityUid cell)
-        {
-            if (!TryComp<BatteryComponent>(cell, out var cellBattery)
-                || !TryComp<BatteryComponent>(ent, out var battery))
-                return;
-
-            var charge = _battery.GetCharge((ent, battery));
-            _battery.SetCharge((cell, cellBattery), Math.Min(charge, cellBattery.MaxCharge));
         }
 
         private void UpdateUiState(Entity<EnergyReagentDispenserComponent> reagentDispenser)
