@@ -4,8 +4,8 @@ using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Prototypes;
+using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.ADT.HolyDamage;
-using Content.Shared.Heretic;
 using Content.Shared.FixedPoint;
 using Content.Shared.Weapons.Melee;
 using System.Linq;
@@ -17,6 +17,7 @@ public sealed class HolyDamageSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly SharedHereticSystem _heretic = default!;
 
     private const int MinimumPathStage = 5;
     private const float DamageIncreasePerStage = 0.1f;
@@ -32,7 +33,7 @@ public sealed class HolyDamageSystem : EntitySystem
 
     private void OnProjectileHit(EntityUid uid, HolyDamageComponent component, ref ProjectileHitEvent args)
     {
-        if (!TryComp<HereticComponent>(args.Target, out var heretic) ||
+        if (!_heretic.TryGetHereticComponent(args.Target, out var heretic, out _) ||
             !TryComp<ProjectileComponent>(uid, out var projectile) ||
             !projectile.Damage.DamageDict.TryGetValue("Holy", out var holyDamage))
         {
@@ -44,7 +45,7 @@ public sealed class HolyDamageSystem : EntitySystem
 
     private void OnThrowHit(EntityUid uid, HolyDamageComponent component, ThrowDoHitEvent args)
     {
-        if (!TryComp<HereticComponent>(args.Target, out var heretic) ||
+        if (!_heretic.TryGetHereticComponent(args.Target, out var heretic, out _) ||
             !TryComp<MeleeWeaponComponent>(uid, out var meleeWeapon) ||
             !meleeWeapon.Damage.DamageDict.TryGetValue("Holy", out var holyDamage))
         {
@@ -66,7 +67,7 @@ public sealed class HolyDamageSystem : EntitySystem
 
         foreach (var target in args.HitEntities)
         {
-            if (!TryComp<HereticComponent>(target, out var heretic))
+            if (!_heretic.TryGetHereticComponent(target, out var heretic, out _))
                 continue;
 
             ApplyHolyDamage(target, heretic.PathStage, holyDamage);
