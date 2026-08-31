@@ -37,8 +37,8 @@
   id: MagazineRifle
   result: MagazineRifle
   materials:
-    Steel: 25 #ADT Tweak
-    Lead: 450 #ADT-BFUU-Tweak
+    Steel: 25 #ADT Tweak-Start
+    Lead: 450 #ADT Tweak-End
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
