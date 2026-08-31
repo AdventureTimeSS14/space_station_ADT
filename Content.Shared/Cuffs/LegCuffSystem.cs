@@ -81,10 +81,9 @@ public sealed partial class LegCuffSystem : EntitySystem
             return;
         }
 
-        RemCompDeferred<LegCuffBreakoutSoundComponent>(target);
-
         var cuffed = EnsureComp<LegCuffedComponent>(target);
         cuffed.CuffedSprite = comp.CuffedSprite;
+        cuffed.NextAllowedTime = TimeSpan.Zero;
         Dirty(target, cuffed);
 
         args.Handled = true;
@@ -147,12 +146,11 @@ public sealed partial class LegCuffSystem : EntitySystem
             return;
 
         var now = _timing.CurTime;
-        var cooldown = EnsureComp<LegCuffBreakoutSoundComponent>(uid);
 
-        if (now < cooldown.NextAllowedTime)
+        if (now < ent.Comp.NextAllowedTime)
             return;
 
-        cooldown.NextAllowedTime = now + BreakoutSoundCooldown;
+        ent.Comp.NextAllowedTime = now + BreakoutSoundCooldown;
 
         foreach (var contained in ensnareable.Container.ContainedEntities)
         {
@@ -175,6 +173,5 @@ public sealed partial class LegCuffSystem : EntitySystem
             return;
 
         RemCompDeferred<LegCuffedComponent>(victim);
-        RemCompDeferred<LegCuffBreakoutSoundComponent>(victim);
     }
 }
