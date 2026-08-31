@@ -24,14 +24,20 @@ public sealed class MechOverloadSystem : EntitySystem
 
     private void OnToggleOverload(EntityUid uid, MechOverloadComponent comp, MechOverloadEvent args)
     {
-        var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
         if (!TryComp<MechComponent>(uid, out var mech))
             return;
         if (mech.Integrity <= comp.MinIng)
             return;
+
+        var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
+
         if (comp.Overload == false)
         {
-            _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, 5, 5, 40, movementSpeed);
+            comp.SavedWalkSpeed = movementSpeed.BaseWalkSpeed;
+            comp.SavedSprintSpeed = movementSpeed.BaseSprintSpeed;
+            comp.SavedAcceleration = movementSpeed.Acceleration;
+
+            _movementSpeedModifierSystem.ChangeBaseSpeed(uid, 5, 5, 40, movementSpeed);
             mech.MechEnergyWaste += 20;
             comp.Overload = true;
             Spawn("EffectSparks", Transform(uid).Coordinates);
@@ -39,19 +45,22 @@ public sealed class MechOverloadSystem : EntitySystem
         }
         else
         {
-            _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, 3, 3, 40, movementSpeed);
+            _movementSpeedModifierSystem.ChangeBaseSpeed(uid, comp.SavedWalkSpeed, comp.SavedSprintSpeed, comp.SavedAcceleration, movementSpeed);
             mech.MechEnergyWaste -= 20;
             comp.Overload = false;
         }
     }
     private void OnDamage(EntityUid uid, MechOverloadComponent component, DamageChangedEvent args)
     {
-        var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
         if (!TryComp<MechComponent>(uid, out var mech))
             return;
         if (mech.Integrity > component.MinIng)
             return;
-        _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, 3, 3, 40, movementSpeed);
+        if (!component.Overload)
+            return;
+
+        var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
+        _movementSpeedModifierSystem.ChangeBaseSpeed(uid, component.SavedWalkSpeed, component.SavedSprintSpeed, component.SavedAcceleration, movementSpeed);
         mech.MechEnergyWaste -= 20;
         component.Overload = false;
     }
