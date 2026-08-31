@@ -349,6 +349,7 @@
           - Paper
           - Pill
           - Fruit # ADT-tweak: moths can eat fruit
+          - Vegetable # ADT-tweak: moths can eat vegetables
           - ADTMothFriendlyFood # ADT-tweak: moths can eat bread, pancakes etc.
 
 - type: entity
