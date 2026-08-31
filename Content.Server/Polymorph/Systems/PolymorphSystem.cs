@@ -4,7 +4,7 @@ using Content.Shared.Humanoid; // ADT-Changeling-Tweak
 //ADT-Geras-Tweak-Start
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
-using Content.Shared.Corvax.TTS;
+using Content.Shared.ADT.TTS;
 using Content.Server.Speech.Components;
 using Content.Server.Corvax.Speech.Components;
 using Content.Shared.Speech.Components;

@@ -43,6 +43,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Heretic.Components;
 using Content.Shared.Temperature.Components;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems.Abilities;
 using Content.Shared.Damage.Components;
@@ -357,6 +358,12 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             return;
 
         var ent = args.Performer;
+
+        var denial = new BeforeCastTouchSpellEvent(args.Target);
+        RaiseLocalEvent(args.Target, denial, true);
+
+        if (denial.Cancelled)
+            return;
 
         if (!HasComp<MindContainerComponent>(args.Target))
         {

@@ -609,6 +609,17 @@
   ritualPrototypes:
   - ScorchingShark
 
+- type: hereticKnowledge
+  id: SmolderingHusk
+  sideKnowledge: true
+  stage: 3
+  event: !type:EventHereticSmolderingHusk
+    addedComponents:
+    - type: SmolderingHusk
+      modifierSet:
+        coefficients:
+          Radiation: 0.5
+
 ### side, stage 6
 - type: hereticKnowledge
   id: RustedRitual

@@ -504,9 +504,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             else
             {
                 // ADT-Tweak-Start
-                var replaced = _actions[position];
                 _actions[position] = actionId;
-                MarkRemovedFromHotbar(replaced);
                 // ADT-Tweak-End
             }
 
@@ -540,8 +538,17 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             SetAction(button, action, false);
         }
 
+        // ADT-Tweak-Start
         if (dragged.Parent is ActionButtonContainer)
+        {
             SetAction(dragged, swapAction, false);
+        }
+        else if (swapAction != null)
+        {
+            MarkRemovedFromHotbar(swapAction);
+            StoreOrder();
+        }
+        // ADT-Tweak-End
 
         if (_actionsSystem != null)
             _container?.SetActionData(_actionsSystem, _actions.ToArray());

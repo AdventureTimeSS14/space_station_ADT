@@ -26,6 +26,7 @@ using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -163,6 +164,9 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         if (args.Cancelled)
             return;
 
+        if (HasComp<ChaplainComponent>(args.User))
+            return;
+
         var blades = GetBlades(ent);
         if (blades.Count == 0)
             return;
@@ -199,6 +203,9 @@ public sealed class ProtectiveBladeSystem : EntitySystem
     private void OnTakeDamage(Entity<ProtectiveBladesComponent> ent, ref BeforeDamageChangedEvent args)
     {
         if (args.Cancelled || args.Damage.GetTotal() < 5f)
+            return;
+
+        if (args.Origin is { } origin && HasComp<ChaplainComponent>(origin))
             return;
 
         var blades = GetBlades(ent);

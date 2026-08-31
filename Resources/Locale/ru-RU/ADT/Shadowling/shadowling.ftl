@@ -145,7 +145,12 @@ shadowling-broadcast-prompt = Что вы хотите сказать всей �
 shadowling-broadcast-sender = { $name }
 
 # Dethralling
-shadowling-dethrall-needs-down = Цель должна лежать, иначе к её голове не подобраться.
+shadowling-dethrall-needs-lit = Свет должен гореть, иначе выжигать заразу нечем.
+shadowling-dethrall-needs-restrained = Цель должна быть связана или пристёгнута, иначе она просто вырвется.
+shadowling-dethrall-hive-nearby = Рядом кто-то из улья. Пока он здесь, к опухоли не подобраться.
+shadowling-dethrall-broke-free = { $target } вырывается, и свет уходит в сторону.
+shadowling-dethrall-hurt = { $target } дёргается от боли, и вы теряете опухоль из виду.
+shadowling-dethrall-begin-thrall = Свет жжёт вам глаза. Что-то внутри головы скребётся и визжит.
 shadowling-dethrall-begin = Вы направляете свет в глаза { $target } и ищете опухоль.
 shadowling-dethrall-success = Вы выжигаете заразу из головы { $target }.
 shadowling-dethrall-freed = Пронзительный белый свет заполняет ваш разум. Он снова ваш, но о времени в рабстве вы не помните ничего.
