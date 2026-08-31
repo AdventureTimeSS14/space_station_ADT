@@ -8,6 +8,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Timing;
 
 namespace Content.Client.ADT.VentCrawling;
+
 public sealed partial class VentCrawPipeOverlay : Overlay
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
