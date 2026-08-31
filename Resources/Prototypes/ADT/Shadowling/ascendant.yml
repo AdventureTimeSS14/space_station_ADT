@@ -6,7 +6,6 @@
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
   components:
   - type: ADTAscendantShadowling
-  - type: GhostVisibleAntag
   - type: InputMover
   - type: MobMover
   - type: CombatMode
