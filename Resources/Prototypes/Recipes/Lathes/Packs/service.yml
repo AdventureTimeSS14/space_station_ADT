@@ -79,6 +79,7 @@
   - ReagentGrinderIndustrialMachineCircuitboard
   - JukeboxCircuitBoard
   - DawInstrumentMachineCircuitboard
+  - ADTColormatMachineCircuitboard # ADT-Tweak
   # ADT-Tweak-Start
   # - ADTAdvancedMicrowaveMachineCircuitBoard
   - ADTCoffeeMachineBluespaceCircuitboard
