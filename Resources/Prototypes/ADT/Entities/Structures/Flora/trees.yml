@@ -1,4 +1,4 @@
-# Сломанные деревья
+﻿# Сломанные деревья
 - type: entity
   parent: BaseTree
   id: ADTFloraTreeBroken01
@@ -131,7 +131,7 @@
   description: Well, there is a man here.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Flora/flora_treeforgotten.rsi
+    sprite: ADT/Structures/Flora/flora_forgotten_tree.rsi
     state: treeforgotten
   - type: Fixtures
     fixtures:

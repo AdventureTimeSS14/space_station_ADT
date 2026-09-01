@@ -1,0 +1,72 @@
+# ADT: бумажные окна (сёдзи) в стиле SS13 — для постройки додзё
+- type: entity
+  id: ADTWindowPaper
+  parent: BaseStructure
+  name: paper window
+  description: A fragile shoji screen of wooden lattice and paper. Fills the room with soft light... and burns beautifully.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Window
+  components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
+  - type: Tag
+    tags:
+    - ForceFixRotations
+    - Window
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: ADT/Structures/Windows/paperwindow.rsi
+    state: full
+  - type: Icon
+    sprite: ADT/Structures/Windows/paperwindow.rsi
+    state: full
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb {}
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Paper:
+            min: 1
+            max: 2
+          MaterialWoodPlank1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Airtight
+  - type: Flammable
+    damage:
+      types:
+        Heat: 3
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path: /Audio/Weapons/boxingpunch1.ogg
+  - type: RCDDeconstructable
+    cost: 4
+    delay: 2
+    fx: EffectRCDDeconstruct2
+  - type: Repairable

@@ -5,6 +5,7 @@ using Content.Server.Discord;
 using Content.Server.GameTicking.Events;
 using Content.Server.Maps;
 using Content.Server.Roles;
+using Content.Server.Shuttles.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
@@ -47,6 +48,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
+        [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -631,6 +633,20 @@ namespace Content.Server.GameTicking
 
                 // ADT-tweak-end
 
+                // ADT-start: tg-style escaped status for round end crew table
+                var escaped = false;
+                EntityUid? statusMob = lastMob;
+                if (statusMob is null && mind.OriginalOwnedEntity is not null)
+                    statusMob = GetEntity(mind.OriginalOwnedEntity.Value);
+
+                if (statusMob.HasValue
+                    && mobState != MobState.Dead
+                    && !TerminatingOrDeleted(statusMob.Value))
+                {
+                    escaped = _emergencyShuttle.IsTargetEscaping(statusMob.Value);
+                }
+                // ADT-end
+
                 var playerEndRoundInfo = new RoundEndMessageEvent.RoundEndPlayerInfo()
                 {
                     // Note that contentPlayerData?.Name sticks around after the player is disconnected.
@@ -651,7 +667,8 @@ namespace Content.Server.GameTicking
                     // ADT-tweak-start: manifest
                     LastWords = lastWords,
                     EntMobState = mobState,
-                    DamagePerGroup = damagePerGroup
+                    DamagePerGroup = damagePerGroup,
+                    Escaped = escaped
                     // ADT-tweak-end
                 };
                 listOfPlayerInfo.Add(playerEndRoundInfo);
@@ -670,6 +687,17 @@ namespace Content.Server.GameTicking
                 listOfPlayerInfoFinal,
                 sound
             );
+
+            // ADT-start: ss13-style round end stats
+            var statsEv = new Content.Shared.ADT.RoundEnd.RoundEndStatsCollectEvent();
+            RaiseLocalEvent(ref statsEv);
+            roundEndMessageEvent.RoundStats = statsEv.Stats;
+            roundEndMessageEvent.SpeciesCensus = statsEv.SpeciesCensus;
+            roundEndMessageEvent.RichestEscapedName = statsEv.RichestEscapedName ?? string.Empty;
+            roundEndMessageEvent.RichestEscapedJob = statsEv.RichestEscapedJob ?? string.Empty;
+            roundEndMessageEvent.RichestEscapedBalance = statsEv.RichestEscapedBalance;
+            // ADT-end
+
             RaiseNetworkEvent(roundEndMessageEvent);
             RaiseLocalEvent(roundEndMessageEvent);
             RaiseLocalEvent(new RoundEndedEvent(RoundId, roundDuration)); // Corvax

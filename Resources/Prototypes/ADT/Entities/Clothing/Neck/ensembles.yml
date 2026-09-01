@@ -164,7 +164,7 @@
           sprite: ADT/Clothing/Neck/Ensembles/cmo.rsi
           state: icon
         components:
-        - !type:PointLight
+        - type: PointLight
           color: "#4C93E3"
           radius: 1.8
           energy: 2
@@ -184,7 +184,7 @@
           sprite: ADT/Clothing/Neck/Ensembles/cmo.rsi
           state: wings-icon
         components:
-        - !type:PointLight
+        - type: PointLight
           color: "#4C93E3"
           radius: 1.8
           energy: 2
@@ -199,7 +199,7 @@
           sprite: ADT/Clothing/Neck/Ensembles/cmo.rsi
           state: cloakwings-icon
         components:
-        - !type:PointLight
+        - type: PointLight
           color: "#4C93E3"
           radius: 1.8
           energy: 2
@@ -209,7 +209,7 @@
           sprite: ADT/Clothing/Neck/Ensembles/cmo.rsi
           state: mantlewings-icon
         components:
-        - !type:PointLight
+        - type: PointLight
           color: "#4C93E3"
           radius: 1.8
           energy: 2

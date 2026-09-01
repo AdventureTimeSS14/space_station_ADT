@@ -1,4 +1,4 @@
-using Content.Shared.Roles;
+﻿using Content.Shared.Roles;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Replays;
@@ -195,6 +195,8 @@ namespace Content.Shared.GameTicking
 
             public bool Connected;
 
+    public bool Escaped;
+
             //ADT-tweak-start
             public string? LastWords;
 
@@ -216,6 +218,14 @@ namespace Content.Shared.GameTicking
         /// Sound gets networked due to how entity lifecycle works between client / server and to avoid clipping.
         /// </summary>
         public ResolvedSoundSpecifier? RestartSound;
+
+        // ADT-start: ss13-style round end stats
+        public Dictionary<string, int> RoundStats = new();
+        public Dictionary<string, int> SpeciesCensus = new();
+        public string RichestEscapedName = string.Empty;
+        public string RichestEscapedJob = string.Empty;
+        public int RichestEscapedBalance;
+        // ADT-end
 
         public RoundEndMessageEvent(
             string gamemodeTitle,

@@ -40,6 +40,14 @@ public sealed class MiningSystem : EntitySystem
         {
             Spawn(proto.OreEntity, coords.Offset(_random.NextVector2(0.2f)));
         }
+
+        // ADT-start: round end stats
+        if (toSpawn > 0)
+        {
+            var oreEv = new Content.Shared.ADT.Mining.OreMinedEvent(toSpawn);
+            RaiseLocalEvent(ref oreEv);
+        }
+        // ADT-end
     }
 
     private void OnMapInit(EntityUid uid, OreVeinComponent component, MapInitEvent args)

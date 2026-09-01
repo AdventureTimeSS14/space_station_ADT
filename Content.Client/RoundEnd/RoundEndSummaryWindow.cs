@@ -14,13 +14,22 @@ namespace Content.Client.RoundEnd
 {
     public sealed class RoundEndSummaryWindow : DefaultWindow
     {
-        private readonly IEntityManager _entityManager;
-        public int RoundId;
+    private readonly IEntityManager _entityManager;
+    private readonly string _richestEscapedName = string.Empty;
+    private readonly string _richestEscapedJob = string.Empty;
+    private readonly int _richestEscapedBalance;
+    public int RoundId;
 
         public RoundEndSummaryWindow(string gm, string roundEnd, TimeSpan roundTimeSpan, int roundId,
-            RoundEndMessageEvent.RoundEndPlayerInfo[] info, IEntityManager entityManager)
+            RoundEndMessageEvent.RoundEndPlayerInfo[] info, IEntityManager entityManager,
+            System.Collections.Generic.Dictionary<string, int>? roundStats = null,
+            System.Collections.Generic.Dictionary<string, int>? speciesCensus = null,
+            string richestEscapedName = "", string richestEscapedJob = "", int richestEscapedBalance = 0)
         {
             _entityManager = entityManager;
+            _richestEscapedName = richestEscapedName;
+            _richestEscapedJob = richestEscapedJob;
+            _richestEscapedBalance = richestEscapedBalance;
 
             MinSize = SetSize = new Vector2(520, 580);
 
@@ -36,6 +45,8 @@ namespace Content.Client.RoundEnd
             var roundEndTabs = new TabContainer();
             roundEndTabs.AddChild(MakeRoundEndSummaryTab(gm, roundEnd, roundTimeSpan, roundId));
             roundEndTabs.AddChild(MakePlayerManifestTab(info));
+            roundEndTabs.AddChild(MakeCrewTableTab(info)); // ADT-tweak: tg-style crew table
+            roundEndTabs.AddChild(MakeStatsTab(roundStats, speciesCensus, info)); // ADT-tweak: ss13-style round stats
 
             ContentsContainer.AddChild(roundEndTabs);
 
@@ -328,11 +339,243 @@ namespace Content.Client.RoundEnd
                 playerInfoContainer.AddChild(panel);
             }
 
-            playerInfoContainerScrollbox.AddChild(playerInfoContainer);
-            playerManifestTab.AddChild(playerInfoContainerScrollbox);
+        playerInfoContainerScrollbox.AddChild(playerInfoContainer);
+        playerManifestTab.AddChild(playerInfoContainerScrollbox);
 
-            return playerManifestTab;
+        return playerManifestTab;
+    }
+
+    //ADT-tweak-start: ss13-style round stats tab
+    private BoxContainer MakeStatsTab(System.Collections.Generic.Dictionary<string, int>? roundStats,
+        System.Collections.Generic.Dictionary<string, int>? speciesCensus,
+        RoundEndMessageEvent.RoundEndPlayerInfo[] info)
+    {
+        var statsTab = new BoxContainer
+        {
+            Orientation = LayoutOrientation.Vertical,
+            Name = Loc.GetString("round-end-summary-window-stats-tab-title")
+        };
+
+        var scroll = new ScrollContainer
+        {
+            VerticalExpand = true,
+            Margin = new Thickness(10)
+        };
+
+        var container = new BoxContainer
+        {
+            Orientation = LayoutOrientation.Vertical,
+            SeparationOverride = 4
+        };
+
+        roundStats ??= new System.Collections.Generic.Dictionary<string, int>();
+        speciesCensus ??= new System.Collections.Generic.Dictionary<string, int>();
+
+        // species census
+        var speciesHeader = new RichTextLabel();
+        speciesHeader.SetMarkup(Loc.GetString("round-end-summary-window-stats-species-header",
+            ("count", speciesCensus.Count)));
+        container.AddChild(speciesHeader);
+
+        foreach (var (species, count) in speciesCensus.OrderByDescending(p => p.Value))
+        {
+            var name = Loc.TryGetString($"species-name-{species}", out var localized)
+                ? localized
+                : species;
+
+            var label = new RichTextLabel();
+            label.SetMarkup(Loc.GetString("round-end-summary-window-stats-species-line",
+                ("species", name), ("count", count)));
+            container.AddChild(label);
         }
+
+        container.AddChild(new Control { MinSize = new Vector2(0, 8) });
+
+        // misc stats
+        void AddStat(string key, string localeId)
+        {
+            if (!roundStats.TryGetValue(key, out var value))
+                return;
+
+            var label = new RichTextLabel();
+            label.SetMarkup(Loc.GetString(localeId, ("value", value)));
+            container.AddChild(label);
+        }
+
+        AddStat("slips-total", "round-end-summary-window-stats-slips-total");
+        AddStat("slips-clown", "round-end-summary-window-stats-slips-clown");
+        AddStat("ore-mined", "round-end-summary-window-stats-ore-mined");
+        AddStat("clowns-beaten", "round-end-summary-window-stats-clowns-beaten");
+        AddStat("corpses-station", "round-end-summary-window-stats-corpses-station");
+
+        // richest escaped (server-computed)
+        if (_richestEscapedName.Length > 0)
+        {
+            var richestLabel = new RichTextLabel();
+            var job = _richestEscapedJob.Length > 0 && Loc.TryGetString(_richestEscapedJob, out var richestJob)
+                ? $", {richestJob}"
+                : string.Empty;
+            richestLabel.SetMarkup(Loc.GetString("round-end-summary-window-stats-richest-escaped",
+                ("name", _richestEscapedName), ("job", job), ("balance", _richestEscapedBalance)));
+            container.AddChild(richestLabel);
+        }
+
+        // most battered escaped (computed from player info)
+        float worstDamage = 0;
+        RoundEndMessageEvent.RoundEndPlayerInfo? worstPlayer = null;
+        foreach (var player in info)
+        {
+            if (!player.Escaped || player.Observer)
+                continue;
+
+            var total = 0f;
+            foreach (var v in player.DamagePerGroup.Values)
+                total += (float)v;
+
+            if (total > worstDamage)
+            {
+                worstDamage = total;
+                worstPlayer = player;
+            }
+        }
+
+        if (worstPlayer is { } battered && worstDamage > 0)
+        {
+            var batteredLabel = new RichTextLabel();
+            batteredLabel.SetMarkup(Loc.GetString("round-end-summary-window-stats-battered-escaped",
+                ("name", battered.PlayerICName ?? battered.PlayerOOCName), ("damage", (int) worstDamage)));
+            container.AddChild(batteredLabel);
+        }
+
+        scroll.AddChild(container);
+        statsTab.AddChild(scroll);
+
+        return statsTab;
+    }
+    //ADT-tweak-end
+
+    //ADT-tweak-start: tgstation-style crew status table
+    private BoxContainer MakeCrewTableTab(RoundEndMessageEvent.RoundEndPlayerInfo[] playersInfo)
+    {
+        var crewTab = new BoxContainer
+        {
+            Orientation = LayoutOrientation.Vertical,
+            Name = Loc.GetString("round-end-summary-window-crew-tab-title")
+        };
+
+        var scroll = new ScrollContainer
+        {
+            VerticalExpand = true,
+            Margin = new Thickness(10)
+        };
+
+        var container = new BoxContainer
+        {
+            Orientation = LayoutOrientation.Vertical
+        };
+
+        var crew = playersInfo.Where(p => !p.Observer).ToArray();
+        var observers = playersInfo.Where(p => p.Observer).ToArray();
+
+        var alive = crew.Count(p => p.EntMobState != MobState.Dead && p.EntMobState != MobState.Invalid);
+        var dead = crew.Count(p => p.EntMobState == MobState.Dead);
+        var escaped = crew.Count(p => p.Escaped && p.EntMobState != MobState.Dead);
+
+        var summaryLabel = new RichTextLabel { Margin = new Thickness(0, 0, 0, 8) };
+        summaryLabel.SetMarkup(Loc.GetString("round-end-summary-window-crew-summary",
+            ("alive", alive), ("dead", dead), ("escaped", escaped), ("total", crew.Length)));
+        container.AddChild(summaryLabel);
+
+        var grid = new GridContainer
+        {
+            Columns = 3,
+            HorizontalExpand = true
+        };
+
+        void AddHeader(string text)
+        {
+            var label = new Label
+            {
+                Text = text,
+                StyleClasses = { StyleNano.StyleClassLabelHeading },
+                Margin = new Thickness(4, 2)
+            };
+            grid.AddChild(label);
+        }
+
+        AddHeader(Loc.GetString("round-end-summary-window-crew-name-header"));
+        AddHeader(Loc.GetString("round-end-summary-window-crew-role-header"));
+        AddHeader(Loc.GetString("round-end-summary-window-crew-status-header"));
+
+        var sorted = crew
+            .OrderBy(p => p.EntMobState == MobState.Dead)
+            .ThenBy(p => p.PlayerICName ?? p.PlayerOOCName)
+            .Concat(observers.OrderBy(p => p.PlayerICName ?? p.PlayerOOCName));
+
+        foreach (var player in sorted)
+        {
+            var name = player.PlayerICName ?? player.PlayerOOCName;
+
+            var nameLabel = new Label
+            {
+                Text = player.Antag ? $"{name} [?]" : name,
+                FontColorOverride = player.Antag ? Color.Red : (player.Observer ? Color.Gray : Color.White),
+                Margin = new Thickness(4, 1)
+            };
+            grid.AddChild(nameLabel);
+
+            var roleLabel = new Label
+            {
+                Text = Loc.GetString(player.Role),
+                FontColorOverride = player.Observer ? Color.Gray : Color.LightGray,
+                Margin = new Thickness(4, 1)
+            };
+            grid.AddChild(roleLabel);
+
+            string status;
+            Color statusColor;
+            if (player.Observer)
+            {
+                status = Loc.GetString("round-end-summary-window-crew-status-observer");
+                statusColor = Color.Gray;
+            }
+            else if (player.EntMobState == MobState.Dead)
+            {
+                status = Loc.GetString("round-end-summary-window-crew-status-dead");
+                statusColor = Color.Red;
+            }
+            else if (player.EntMobState == MobState.Invalid)
+            {
+                status = Loc.GetString("round-end-summary-window-crew-status-nobody");
+                statusColor = Color.Gray;
+            }
+            else if (player.Escaped)
+            {
+                status = Loc.GetString("round-end-summary-window-crew-status-escaped");
+                statusColor = Color.Green;
+            }
+            else
+            {
+                status = Loc.GetString("round-end-summary-window-crew-status-alive");
+                statusColor = Color.Yellow;
+            }
+
+            var statusLabel = new Label
+            {
+                Text = status,
+                FontColorOverride = statusColor,
+                Margin = new Thickness(4, 1)
+            };
+            grid.AddChild(statusLabel);
+        }
+
+        container.AddChild(grid);
+        scroll.AddChild(container);
+        crewTab.AddChild(scroll);
+
+        return crewTab;
+    }
+    //ADT-tweak-end
     }
     //ADT-tweak-end
 }
