@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.2.1
   forkId: ""
   forkVersion: ""
-  time: 08/23/2026 22:11:22
-  entityCount: 1154
+  time: 08/30/2026 19:31:52
+  entityCount: 1153
 maps: []
 grids:
 - 1
@@ -1050,11 +1050,6 @@ entities:
       parent: 1
 - proto: ADTRandomHumanoidSpawnerERTSecurityEVARiot
   entities:
-  - uid: 16
-    components:
-    - type: Transform
-      pos: 1.4872271,-6.5071073
-      parent: 1
   - uid: 17
     components:
     - type: Transform

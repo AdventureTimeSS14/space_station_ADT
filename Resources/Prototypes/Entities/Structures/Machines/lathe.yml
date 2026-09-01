@@ -348,7 +348,7 @@
     # ADT-tweak-start
     - ADTBluespaceHarvesterPack
     - ADTArcade
-    - ADTIndustrialCharger
+    # - ADTIndustrialCharger # ADT-Tweak
     - ADTAdvancedThruster
     #- ADTMegaCharger
     - ADTChemDisp
