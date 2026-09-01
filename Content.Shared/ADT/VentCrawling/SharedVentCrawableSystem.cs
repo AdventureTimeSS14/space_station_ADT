@@ -8,8 +8,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Shared.Actions;
 using Content.Shared.Body;
 using Content.Shared.Body.Components;
+using Content.Shared.Eye;
 using Content.Shared.Tools.Components;
 using Content.Shared.Item;
 using Content.Shared.Movement.Events;
@@ -34,6 +36,7 @@ public sealed class SharedVentCrawableSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {
@@ -41,6 +44,52 @@ public sealed class SharedVentCrawableSystem : EntitySystem
 
         SubscribeLocalEvent<VentCrawlerHolderComponent, ComponentStartup>(OnComponentStartup);
         SubscribeLocalEvent<VentCrawlerHolderComponent, MoveInputEvent>(OnMoveInput);
+        SubscribeLocalEvent<VentCrawlerComponent, GetVisMaskEvent>(OnGetVisMask);
+        SubscribeLocalEvent<BeingVentCrawlerComponent, ExitVentActionEvent>(OnExitAction);
+    }
+
+    private void OnGetVisMask(Entity<VentCrawlerComponent> ent, ref GetVisMaskEvent args)
+    {
+        if (ent.Comp.InTube)
+            args.VisibilityMask |= (int) VisibilityFlags.Subfloor;
+    }
+
+    private void OnExitAction(EntityUid uid, BeingVentCrawlerComponent component, ExitVentActionEvent args)
+    {
+        if (args.Handled || !TryComp<VentCrawlerHolderComponent>(component.Holder, out var holder))
+            return;
+
+        if (holder.CurrentTube is not {} tube || !HasComp<VentCrawlerEntryComponent>(tube))
+            return;
+
+        if (TryComp<WeldableComponent>(tube, out var weldable) && weldable.IsWelded)
+            return;
+
+        var ev = new VentCrawlingExitEvent();
+        RaiseLocalEvent(component.Holder, ref ev);
+        args.Handled = true;
+    }
+
+    private void UpdateExitAction(VentCrawlerHolderComponent holder)
+    {
+        var player = holder.Container.ContainedEntities.FirstOrDefault();
+        if (player == default)
+            return;
+
+        var atExit = holder.CurrentTube is {} tube
+            && HasComp<VentCrawlerEntryComponent>(tube)
+            && (!TryComp<WeldableComponent>(tube, out var weldable) || !weldable.IsWelded);
+
+        if (atExit)
+        {
+            if (holder.ExitAction == null)
+                holder.ExitAction = _actions.AddAction(player, "VentCrawlExitAction");
+        }
+        else if (holder.ExitAction is {} action)
+        {
+            _actions.RemoveAction(player, action);
+            holder.ExitAction = null;
+        }
     }
     private static readonly Direction[] _validMoveButtonsToDirection = new Direction[16]
     {
@@ -74,14 +123,14 @@ public sealed class SharedVentCrawableSystem : EntitySystem
     /// <param name="args">The MoveInputEvent arguments.</param>
     private void OnMoveInput(EntityUid uid, VentCrawlerHolderComponent holder, ref MoveInputEvent args)
     {
-
         if (!Exists(holder.CurrentTube))
         {
             var ev = new VentCrawlingExitEvent();
             RaiseLocalEvent(uid, ref ev);
+            return;
         }
-        holder.IsMoving = args.HasDirectionalMovement;
-        holder.CurrentDirection = MoveButtonsToDirectionFast(args.Entity.Comp.HeldMoveButtons);
+
+        holder.DesiredDirection = MoveButtonsToDirectionFast(args.Entity.Comp.HeldMoveButtons);
     }
 
     /// <summary>
@@ -180,12 +229,6 @@ public sealed class SharedVentCrawableSystem : EntitySystem
         if (TryComp<PhysicsComponent>(holderUid, out var physBody))
             _physicsSystem.SetCanCollide(holderUid, false, body: physBody);
 
-        if (holder.CurrentTube != null)
-        {
-            holder.PreviousTube = holder.CurrentTube;
-            holder.PreviousDirection = holder.CurrentDirection;
-        }
-
         holder.CurrentTube = toUid;
 
         return true;
@@ -213,79 +256,148 @@ public sealed class SharedVentCrawableSystem : EntitySystem
                 continue;
             }
 
-            if (holder.CurrentDirection == Direction.Invalid || holder.CurrentTube == null)
+            UpdateExitAction(holder);
+
+            if (holder.NextTube == null && holder.DesiredDirection != Direction.Invalid)
+            {
+                if (TryStartSegment(uid, holder))
+                    holder.Progress = 0;
+            }
+
+            if (holder.NextTube == null)
                 continue;
 
-            var currentTube = holder.CurrentTube.Value;
+            holder.Progress += frameTime / holder.Speed;
 
-            if (holder.IsMoving && holder.NextTube == null)
+            while (holder.Progress >= 1)
             {
-                var nextTube = _VentCrawlerTubeSystem.NextTubeFor(currentTube, holder.CurrentDirection);
+                holder.Progress -= 1;
+                MoveToNextTube(uid, holder);
 
-                if (nextTube != null)
-                {
-                    holder.NextTube = nextTube;
-                    holder.StartingTime = holder.Speed;
-                    holder.TimeLeft = holder.Speed;
-                }
-                else
-                {
-                    var ev = new GetVentCrawlingsConnectableDirectionsEvent();
-                    RaiseLocalEvent(currentTube, ref ev);
-                    if (ev.Connectable.Contains(holder.CurrentDirection))
-                    {
-                        var Exitev = new VentCrawlingExitEvent();
-                        RaiseLocalEvent(uid, ref Exitev);
-                        continue;
-                    }
-                }
+                if (holder.Progress > 0 && holder.DesiredDirection != Direction.Invalid && !TryStartSegment(uid, holder))
+                    break;
             }
 
-            if (holder.NextTube != null && holder.TimeLeft > 0)
-            {
-                var time = frameTime;
-                if (time > holder.TimeLeft)
-                    time = holder.TimeLeft;
-
-                var progress = 1 - holder.TimeLeft / holder.StartingTime;
-                var origin = Transform(currentTube).Coordinates;
-                var target = Transform(holder.NextTube.Value).Coordinates;
-                var newPosition = (target.Position - origin.Position) * progress;
-
-                _xformSystem.SetCoordinates(uid, _xformSystem.WithEntityId(origin.Offset(newPosition), currentTube));
-
-                holder.TimeLeft -= time;
-                frameTime -= time;
-            }
-            else if (holder.NextTube != null && holder.TimeLeft == 0)
-            {
-                var welded = false;
-
-                if (TryComp<WeldableComponent>(holder.NextTube.Value, out var weldableComponent))
-                    welded = weldableComponent.IsWelded;
-
-                if (HasComp<VentCrawlerEntryComponent>(holder.NextTube.Value) && !holder.FirstEntry && !welded)
-                {
-                    var ev = new VentCrawlingExitEvent();
-                    RaiseLocalEvent(uid, ref ev);
-                }
-                else
-                {
-                    _containerSystem.Remove(uid, Comp<VentCrawlerTubeComponent>(currentTube).Contents ,reparent: false, force: true);
-
-                    if (holder.FirstEntry)
-                        holder.FirstEntry = false;
-
-                    if (_gameTiming.CurTime > holder.LastCrawl + VentCrawlerHolderComponent.CrawlDelay)
-                    {
-                        holder.LastCrawl = _gameTiming.CurTime;
-                        _audioSystem.PlayPvs(holder.CrawlSound, uid);
-                    }
-
-                    EnterTube(uid, holder.NextTube.Value, holder);
-                    holder.NextTube = null;
-                }
-            }
+            SetSegmentPosition(uid, holder);
         }
+    }
+
+    private bool TryStartSegment(EntityUid uid, VentCrawlerHolderComponent holder)
+    {
+        if (holder.DesiredDirection == Direction.Invalid)
+        {
+            holder.CurrentDirection = Direction.Invalid;
+            return false;
+        }
+
+        var currentTube = holder.CurrentTube!.Value;
+        var direction = ResolveDirection(currentTube, holder.CurrentDirection, holder.DesiredDirection);
+
+        if (direction == Direction.Invalid)
+        {
+            holder.CurrentDirection = Direction.Invalid;
+            return false;
+        }
+
+        var nextTube = _VentCrawlerTubeSystem.NextTubeFor(currentTube, direction);
+
+        if (nextTube == null)
+        {
+            if (!HasComp<VentCrawlerEntryComponent>(currentTube))
+            {
+                var ev = new GetVentCrawlingsConnectableDirectionsEvent();
+                RaiseLocalEvent(currentTube, ref ev);
+                if (ev.Connectable != null && ev.Connectable.Contains(direction))
+                {
+                    var exitEv = new VentCrawlingExitEvent();
+                    RaiseLocalEvent(uid, ref exitEv);
+                }
+            }
+
+            holder.CurrentDirection = Direction.Invalid;
+            return false;
+        }
+
+        holder.CurrentDirection = direction;
+        holder.NextTube = nextTube;
+        return true;
+    }
+
+    private void MoveToNextTube(EntityUid uid, VentCrawlerHolderComponent holder)
+    {
+        if (holder.NextTube == null)
+            return;
+
+        var currentTube = holder.CurrentTube!.Value;
+
+        _containerSystem.Remove(uid, Comp<VentCrawlerTubeComponent>(currentTube).Contents, reparent: false, force: true);
+
+        if (_gameTiming.CurTime > holder.LastCrawl + VentCrawlerHolderComponent.CrawlDelay)
+        {
+            holder.LastCrawl = _gameTiming.CurTime;
+            _audioSystem.PlayPvs(holder.CrawlSound, uid);
+        }
+
+        EnterTube(uid, holder.NextTube.Value, holder);
+        holder.NextTube = null;
+    }
+
+    private void SetSegmentPosition(EntityUid uid, VentCrawlerHolderComponent holder)
+    {
+        if (holder.NextTube == null)
+            return;
+
+        var origin = Transform(holder.CurrentTube!.Value).Coordinates;
+        var target = Transform(holder.NextTube.Value).Coordinates;
+        var newPosition = (target.Position - origin.Position) * holder.Progress;
+
+        _xformSystem.SetCoordinates(uid, _xformSystem.WithEntityId(origin.Offset(newPosition), holder.CurrentTube.Value));
+    }
+
+    private Direction ResolveDirection(EntityUid tube, Direction current, Direction desired)
+    {
+        if (desired == Direction.Invalid)
+            return Direction.Invalid;
+
+        var ev = new GetVentCrawlingsConnectableDirectionsEvent();
+        RaiseLocalEvent(tube, ref ev);
+
+        if (ev.Connectable == null)
+            return desired;
+
+        if (ev.Connectable.Contains(desired))
+            return desired;
+
+        if (IsDiagonal(desired))
+        {
+            GetCardinalAxes(desired, out var axis1, out var axis2);
+
+            if (axis1 != current && ev.Connectable.Contains(axis1))
+                return axis1;
+            if (axis2 != current && ev.Connectable.Contains(axis2))
+                return axis2;
+
+            if (ev.Connectable.Contains(axis1))
+                return axis1;
+            if (ev.Connectable.Contains(axis2))
+                return axis2;
+
+            return Direction.Invalid;
+        }
+
+        if (current != Direction.Invalid && ev.Connectable.Contains(current))
+            return current;
+
+        return Direction.Invalid;
+    }
+
+    private static bool IsDiagonal(Direction direction)
+        => (int) direction % 2 == 1;
+
+    private static void GetCardinalAxes(Direction diagonal, out Direction axis1, out Direction axis2)
+    {
+        var vec = diagonal.ToIntVec();
+        axis1 = vec.X > 0 ? Direction.East : Direction.West;
+        axis2 = vec.Y > 0 ? Direction.North : Direction.South;
     }
 }
