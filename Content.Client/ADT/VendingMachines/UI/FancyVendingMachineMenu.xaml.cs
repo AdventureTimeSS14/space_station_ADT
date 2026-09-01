@@ -325,14 +325,14 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
         foreach (var item in _cachedItems.Where(FilterItem))
         {
             var price = (int)(item.Entry.Price * _priceMultiplier);
-            var canPaint = _dummies.TryGetValue(item.Entry.ID, out var dummy) && _entityManager.HasComponent<ClothingComponent>(dummy); // ADT Tweak - покраска одежды
-            var listItem = new FancyVendingMachineItem(item.Entry.ID, item.Name, item.Entry.Amount, item.Entry.MaxAmount, price, index++ % 2 == 1, canPaint); // ADT Tweak - canPaint
+            var canPaint = _dummies.TryGetValue(item.Entry.ID, out var dummy) && _entityManager.HasComponent<ClothingComponent>(dummy);
+            var listItem = new FancyVendingMachineItem(item.Entry.ID, item.Name, item.Entry.Amount, item.Entry.MaxAmount, price, index++ % 2 == 1, canPaint);
 
             if (_paintColors.TryGetValue(item.Entry.ID, out var savedColor))
                 listItem.SetPaintColor(savedColor);
 
             UpdateItemDisabled(item, listItem);
-            listItem.BuyPressed += () => OnItemSelected?.Invoke(item.Entry, listItem.SelectedAmount, listItem.PaintColor); // ADT Tweak - цвет
+            listItem.BuyPressed += () => OnItemSelected?.Invoke(item.Entry, listItem.SelectedAmount, listItem.PaintColor);
             listItem.OnAmountChanged += () => UpdateItemDisabled(item, listItem);
 
             if (canPaint)
