@@ -27,6 +27,8 @@ vending-category-medical = Медицина
 vending-category-med-equipment = Снаряжение
 
 vending-paint-window-title = Покраска одежды
+vending-paint-rgb = RGB
+vending-paint-hsv = HSV
 vending-paint-hex = HEX
 vending-paint-reset = Сбросить
 vending-paint-close = Закрыть

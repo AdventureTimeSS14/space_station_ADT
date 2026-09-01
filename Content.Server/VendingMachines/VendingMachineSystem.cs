@@ -581,9 +581,15 @@ namespace Content.Server.VendingMachines
 
             if (forceEject)
             {
+                // ADT-Tweak start
+                if (vendComponent.Ejecting)
+                    return;
+                // ADT-Tweak end
+
                 vendComponent.NextItemToEject = item.ID;
                 vendComponent.ThrowNextItem = throwItem;
                 vendComponent.NextItemCount = 1;
+                vendComponent.NextItemPaintColor = null; // ADT-Tweak
                 //ADT-Return start
                 var returnedCount = (int)vendComponent.ReturnedInventory.GetValueOrDefault(item.ID);
                 var freeCount = Math.Min(returnedCount, 1);

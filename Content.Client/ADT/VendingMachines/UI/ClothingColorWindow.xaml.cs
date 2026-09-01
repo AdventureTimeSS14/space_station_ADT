@@ -195,7 +195,17 @@ public sealed partial class ClothingColorWindow : FancyWindow
         if (_updating)
             return;
 
-        SetColor(CurrentSliderColor());
+        SetColor(CurrentInputColor());
+    }
+
+    private Color CurrentInputColor()
+    {
+        var scale = Scale;
+
+        if (_mode == ColorMode.Hsv)
+            return Color.FromHsv(new Vector4(_topInput.Value / scale[0], _middleInput.Value / scale[1], _bottomInput.Value / scale[2], 1f));
+
+        return new Color(_topInput.Value / scale[0], _middleInput.Value / scale[1], _bottomInput.Value / scale[2]);
     }
 
     private Color CurrentSliderColor()

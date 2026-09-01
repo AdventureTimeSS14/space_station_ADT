@@ -13,9 +13,9 @@
             Orientation="Horizontal"
             SeparationOverride="4"
             HorizontalAlignment="Center">
-            <Button Name="RgbModeButton" ToggleMode="True" Text="RGB"/>
-            <Button Name="HsvModeButton" ToggleMode="True" Text="HSV"/>
-            <Button Name="HexModeButton" ToggleMode="True" Text="HEX"/>
+            <Button Name="RgbModeButton" ToggleMode="True" Text="{Loc 'vending-paint-rgb'}"/>
+            <Button Name="HsvModeButton" ToggleMode="True" Text="{Loc 'vending-paint-hsv'}"/>
+            <Button Name="HexModeButton" ToggleMode="True" Text="{Loc 'vending-paint-hex'}"/>
         </BoxContainer>
         <BoxContainer
             Orientation="Horizontal"
@@ -62,7 +62,7 @@
             SeparationOverride="6"
             Visible="False">
             <Label
-                Text="HEX"
+                Text="{Loc 'vending-paint-hex'}"
                 VerticalAlignment="Center"/>
             <LineEdit
                 Name="HexInput"
