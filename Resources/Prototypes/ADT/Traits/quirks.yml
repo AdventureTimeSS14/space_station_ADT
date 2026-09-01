@@ -149,6 +149,10 @@
   speciesWhitelist:
     - IPC
   rewriteComponents: true
+  conflicts:
+    - ADTMaleIPC
+    - ADTCuteIPC
+    - ADTXenoborgIPC
   components:
   - type: Vocal
     sounds:
@@ -175,6 +179,10 @@
   speciesWhitelist:
     - IPC
   rewriteComponents: true
+  conflicts:
+    - ADTFemaleIPC
+    - ADTCuteIPC
+    - ADTXenoborgIPC
   components:
   - type: Vocal
     sounds:
@@ -201,6 +209,10 @@
   speciesWhitelist:
     - IPC
   rewriteComponents: true
+  conflicts:
+    - ADTFemaleIPC
+    - ADTMaleIPC
+    - ADTXenoborgIPC
   components:
   - type: Vocal
     sounds:
@@ -228,6 +240,10 @@
   speciesWhitelist:
     - IPC
   rewriteComponents: true
+  conflicts:
+    - ADTFemaleIPC
+    - ADTMaleIPC
+    - ADTCuteIPC
   components:
   - type: Vocal
     sounds:

@@ -384,6 +384,7 @@
   icon: Interface/Emotes/scream.png
   category: Vocal
   whitelist:
+    requireAll: true
     components:
     - Vocal
     tags:
@@ -403,6 +404,7 @@
   icon: Interface/Emotes/scream.png
   category: Vocal
   whitelist:
+    requireAll: true
     components:
     - Vocal
     tags:
