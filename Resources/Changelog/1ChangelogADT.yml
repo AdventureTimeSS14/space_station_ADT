@@ -14938,3 +14938,10 @@ Entries:
     id: 1884
     pr_number: 3316
     time: '2026-08-31T19:41:38Z'
+  - author: maksim21612
+    changes:
+      - {message: Добавлена плюшевая игрушка Иви, type: Add}
+      - {message: Добавлена плюшевая игрушка Арея, type: Add}
+    id: 1885
+    pr_number: 3281
+    time: '2026-09-01T09:27:32Z'
