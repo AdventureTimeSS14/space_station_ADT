@@ -1,3 +1,4 @@
+# Колормата — устройство для покраски любых предметов
 - type: entity
   parent: [BaseMachinePowered, ConstructibleMachine]
   id: ADTColormat
@@ -36,6 +37,7 @@
   - type: ApcPowerReceiver
     powerLoad: 100
 
+# Машинная плата колорматы
 - type: entity
   parent: BaseMachineCircuitboard
   id: ADTColormatMachineCircuitboard

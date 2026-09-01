@@ -1,3 +1,4 @@
+using Content.Client.DisplacementMap;
 using Content.Shared.ADT.VendingMachines;
 using Content.Shared.Clothing;
 using Content.Shared.Hands;
@@ -62,7 +63,8 @@ public sealed class ADTClothingPaintSystem : EntitySystem
 
         foreach (var revealed in args.RevealedLayers)
         {
-            if (!sprite.LayerMapTryGet(revealed, out var layer) || !IsPaintable(sprite[layer]))
+            if (DisplacementMapSystem.IsDisplacementKey(revealed) ||
+                !sprite.LayerMapTryGet(revealed, out var layer) || !IsPaintable(sprite[layer]))
                 continue;
 
             _sprite.LayerSetColor((args.Equipee, sprite), layer, color);
