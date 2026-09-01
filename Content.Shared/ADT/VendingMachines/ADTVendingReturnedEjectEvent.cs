@@ -10,7 +10,7 @@ public sealed class ADTVendingReturnedEjectEvent : EntityEventArgs
     public readonly bool ThrowItem;
     public readonly Color? PaintColor;
 
-    public ADTVendingReturnedEjectEvent(string itemProtoId, int count, EntityCoordinates coordinates, bool throwItem, Color? paintColor = null) // ADT Tweak
+    public ADTVendingReturnedEjectEvent(string itemProtoId, int count, EntityCoordinates coordinates, bool throwItem, Color? paintColor = null)
     {
         ItemProtoId = itemProtoId;
         Count = count;
