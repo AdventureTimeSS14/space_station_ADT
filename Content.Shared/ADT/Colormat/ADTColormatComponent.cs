@@ -7,5 +7,5 @@ namespace Content.Shared.ADT.Colormat;
 public sealed partial class ADTColormatComponent : Component
 {
     [DataField]
-    public string SlotId = "ColormatSlot";
+    public string SlotId = "colormatslot";
 }

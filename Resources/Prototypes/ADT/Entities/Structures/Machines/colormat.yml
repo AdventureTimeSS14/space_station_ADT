@@ -18,8 +18,13 @@
     board: ADTColormatMachineCircuitboard
   - type: ItemSlots
     slots:
-      ColormatSlot:
+      colormatslot:
         name: colormat-slot-name
+  - type: ContainerContainer
+    containers:
+      colormatslot: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
   - type: ADTColormat
   - type: ActivatableUI
     key: enum.ADTColormatUiKey.Key
