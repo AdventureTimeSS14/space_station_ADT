@@ -111,8 +111,7 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
             if (!Exists(returned))
                 break;
 
-            if (args.PaintColor is { } paintColor)
-                PaintClothing(returned, paintColor);
+            PaintClothing(returned, args.PaintColor);
 
             _container.Remove(returned, container, force: true, destination: args.Coordinates);
 
@@ -130,13 +129,21 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
         _vending.Deny(uid, component);
     }
 
-    public void PaintClothing(EntityUid uid, Color color)
+    public void PaintClothing(EntityUid uid, Color? color)
     {
         if (!HasComp<ClothingComponent>(uid))
             return;
 
-        var paint = EnsureComp<ADTClothingPaintComponent>(uid);
-        paint.PaintColor = color;
-        Dirty(uid, paint);
+        if (color is { } paintColor)
+        {
+            var paint = EnsureComp<ADTClothingPaintComponent>(uid);
+            paint.PaintColor = paintColor;
+            Dirty(uid, paint);
+        }
+        else if (TryComp<ADTClothingPaintComponent>(uid, out var paint))
+        {
+            paint.PaintColor = null;
+            Dirty(uid, paint);
+        }
     }
 }
