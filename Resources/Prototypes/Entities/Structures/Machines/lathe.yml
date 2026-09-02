@@ -239,6 +239,7 @@
     - ChemistryStatic
     - SurgeryStatic
     # ADT-tweak-Start
+    - PartsStatic
     - ADTScienceExplosives
     - ADTAdvancedMaterialsStatic
     # ADT-tweak-End
