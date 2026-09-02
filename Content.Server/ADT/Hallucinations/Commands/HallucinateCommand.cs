@@ -18,7 +18,7 @@ sealed class HallucinateCommand : IConsoleCommand
 
     public string Command => "hallucinate";
 
-    public string Description => Loc.GetString("hallucinate-command-description", ("requiredComponent", nameof(MindContainerComponent)));
+    public string Description => Loc.GetString("hallucinate-command-description");
 
     public string Help => Loc.GetString("hallucinate-command-help-text", ("command", Command));
 
@@ -55,7 +55,10 @@ sealed class HallucinateCommand : IConsoleCommand
             if (!_proto.HasIndex<HallucinationsPackPrototype>(args[i]))
                 shell.WriteLine($"Invalid pack: {args[i]}");
             else
+            {
                 hall.AddOrAdjustHallucinations(uid, args[i], duration, type);
+                shell.WriteLine(Loc.GetString("hallucinate-command-success", ("target", uid), ("added", args[i])));
+            }
         }
     }
 
