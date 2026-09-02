@@ -14965,3 +14965,10 @@ Entries:
     id: 1887
     pr_number: 3317
     time: '2026-09-02T06:48:29Z'
+  - author: Fineter75
+    changes:
+      - {message: Добавлена песня при возвышении тенеморфа, type: Add}
+      - {message: Добавлен звук при вербовке тенеморфом, type: Add}
+    id: 1888
+    pr_number: 3321
+    time: '2026-09-02T07:40:07Z'
