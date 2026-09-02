@@ -119,7 +119,7 @@
   - AdvancedMatterBinStockPart
   position: 1,-1
   requiredTech:
-  - ADTPartsTech
+  - AlternativeResearch
 
 - type: technology
   id: ADTSuperPartsTech
