@@ -1,6 +1,5 @@
 using Content.Shared.Actions;
 using Content.Shared.Mech.Components;
-using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -20,6 +19,8 @@ public sealed class MechOverloadSystem : EntitySystem
     {
         SubscribeLocalEvent<MechOverloadComponent, MechOverloadEvent>(OnToggleOverload);
         SubscribeLocalEvent<MechOverloadComponent, DamageChangedEvent>(OnDamage);
+        SubscribeLocalEvent<MechOverloadComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
+        SubscribeLocalEvent<MechOverloadComponent, RefreshFrictionModifiersEvent>(OnRefreshFrictionModifiers);
     }
 
     private void OnToggleOverload(EntityUid uid, MechOverloadComponent comp, MechOverloadEvent args)
@@ -29,25 +30,21 @@ public sealed class MechOverloadSystem : EntitySystem
         if (mech.Integrity <= comp.MinIng)
             return;
 
-        var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
-
-        if (comp.Overload == false)
+        if (!comp.Overload)
         {
-            comp.SavedWalkSpeed = movementSpeed.BaseWalkSpeed;
-            comp.SavedSprintSpeed = movementSpeed.BaseSprintSpeed;
-            comp.SavedAcceleration = movementSpeed.Acceleration;
-
-            _movementSpeedModifierSystem.ChangeBaseSpeed(uid, 5, 5, 40, movementSpeed);
-            mech.MechEnergyWaste += 20;
             comp.Overload = true;
+            _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
+            _movementSpeedModifierSystem.RefreshFrictionModifiers(uid);
+            mech.MechEnergyWaste += 20;
             Spawn("EffectSparks", Transform(uid).Coordinates);
             _damageable.TryChangeDamage(uid, comp.DamagePerSpeed, ignoreResistances: true);
         }
         else
         {
-            _movementSpeedModifierSystem.ChangeBaseSpeed(uid, comp.SavedWalkSpeed, comp.SavedSprintSpeed, comp.SavedAcceleration, movementSpeed);
-            mech.MechEnergyWaste -= 20;
             comp.Overload = false;
+            _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
+            _movementSpeedModifierSystem.RefreshFrictionModifiers(uid);
+            mech.MechEnergyWaste -= 20;
         }
     }
     private void OnDamage(EntityUid uid, MechOverloadComponent component, DamageChangedEvent args)
@@ -59,11 +56,28 @@ public sealed class MechOverloadSystem : EntitySystem
         if (!component.Overload)
             return;
 
-        var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
-        _movementSpeedModifierSystem.ChangeBaseSpeed(uid, component.SavedWalkSpeed, component.SavedSprintSpeed, component.SavedAcceleration, movementSpeed);
-        mech.MechEnergyWaste -= 20;
         component.Overload = false;
+        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
+        _movementSpeedModifierSystem.RefreshFrictionModifiers(uid);
+        mech.MechEnergyWaste -= 20;
     }
+
+    private void OnRefreshMovementSpeedModifiers(EntityUid uid, MechOverloadComponent comp, RefreshMovementSpeedModifiersEvent args)
+    {
+        if (!comp.Overload)
+            return;
+
+        args.ModifySpeed(comp.WalkSpeedMultiplier, comp.SprintSpeedMultiplier);
+    }
+
+    private void OnRefreshFrictionModifiers(EntityUid uid, MechOverloadComponent comp, ref RefreshFrictionModifiersEvent args)
+    {
+        if (!comp.Overload)
+            return;
+
+        args.ModifyAcceleration(comp.AccelerationMultiplier);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);

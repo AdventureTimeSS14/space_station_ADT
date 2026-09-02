@@ -30,14 +30,14 @@ public sealed partial class MechOverloadComponent : Component
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public FixedPoint2 MinIng;
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float SavedWalkSpeed;
+    [DataField]
+    public float WalkSpeedMultiplier = 2.5f;
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float SavedSprintSpeed;
+    [DataField]
+    public float SprintSpeedMultiplier = 1.25f;
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float SavedAcceleration;
+    [DataField]
+    public float AccelerationMultiplier = 2f;
 
     public float Accumulator = 0f;
 }
