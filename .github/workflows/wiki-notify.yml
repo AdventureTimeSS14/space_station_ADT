@@ -1,4 +1,4 @@
-name: Оповещение об изменениях игровой информации для вики
+name: Wiki-notify
 
 on:
   pull_request_target:
