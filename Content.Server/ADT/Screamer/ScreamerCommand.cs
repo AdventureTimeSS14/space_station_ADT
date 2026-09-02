@@ -123,6 +123,7 @@ sealed class ScreamerCommand : IConsoleCommand
         }
 
         _entManager.System<ScreamerSystem>().DoScreamer(uid, args[1], sound, offset, alpha, duration, fadeIn, fadeOut);
+        shell.WriteLine(Loc.GetString("screamer-command-success"));
     }
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)

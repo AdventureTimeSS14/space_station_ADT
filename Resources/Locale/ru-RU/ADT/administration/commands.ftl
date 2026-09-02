@@ -92,10 +92,20 @@ cmd-adt-converttodungeonroom-no-grid = Не удалось загрузить г
 cmd-adt-converttodungeonroom-empty = На гриде нет ни одного тайла, конвертировать нечего.
 cmd-adt-converttodungeonroom-too-many-tiles = В комнате слишком много разных тайлов, не вмещает.
 cmd-adt-converttodungeonroom-done = Комната { $room } собрана, выберите куда её сохранить.
+
+shell-invalid-metabolism-type = Неверный способ применения
+
 # Команда: hallucinate
 hallucinate-command-description = Применяет определённые галлюцинации к сущности
 hallucinate-command-help-text = Использование: { $command } <uid> <способ применения> <время> <паки галлюцинаций>
-shell-invalid-metabolism-type = Неверный способ применения
+hallucinate-command-success = Применён пак галлюцинаций { $added } к сущности { $target }.
 
+# Команда: add-as-hallucination
+add-as-hallucination-command-description = Добавляет указанной сущности другую сущность как галлюцинацию.
+add-as-hallucination-command-help-text = Использование: { $command } <uid цели> <uid галлюцинации>
+add-as-hallucination-command-success = Сущность { $added } теперь является галлюцинацией сущности { $target }.
+
+# Команда: screamer
 screamer-command-description = Пугает указанного игрока скримером
 screamer-command-help-text = Использование: { $command } <uid> <прототип скримера> <время> <звук> <непрозрачность> <плавное появление> <плавное затухание> <x> <y>
+screamer-command-success = Скример успешно отправлен.
