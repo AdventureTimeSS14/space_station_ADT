@@ -9,14 +9,8 @@ namespace Content.Server.ADT.Shizophrenia;
 public sealed partial class RemoveHallucinationsEvent : EntityEventArgs
 {
     /// <summary>
-    /// Hallucinations pack to remove
-    /// </summary>
-    [DataField]
-    public ProtoId<HallucinationsPackPrototype> Id = "";
-
-    /// <summary>
     /// Time to remove from pack duration
     /// </summary>
     [DataField]
-    public float? Time;
+    public float Time;
 }
