@@ -12,6 +12,7 @@ using Content.Shared.StepTrigger.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.Chat;
 
 namespace Content.Server.ADT.Shizophrenia;
 
