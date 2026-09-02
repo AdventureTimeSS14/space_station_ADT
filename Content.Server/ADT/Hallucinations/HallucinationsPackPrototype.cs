@@ -9,7 +9,7 @@ namespace Content.Server.ADT.Shizophrenia;
 public sealed partial class HallucinationsPackPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     [DataField]
     public List<BaseHallucinationsType>? Data;
