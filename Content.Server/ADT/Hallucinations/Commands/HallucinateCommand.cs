@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server.ADT.Shizophrenia;
 using Content.Shared.Administration;
 using Content.Shared.EntityEffects.Effects;
+using Content.Shared.EntityEffects.Effects.StatusEffects;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Console;
@@ -35,7 +36,7 @@ sealed class HallucinateCommand : IConsoleCommand
             return;
         }
 
-        if (!Enum.TryParse<HallucinationsMetabolismType>(args[1], out var type))
+        if (!Enum.TryParse<StatusEffectMetabolismType>(args[1], out var type))
         {
             shell.WriteLine(Loc.GetString("shell-invalid-metabolism-type"));
             return;
