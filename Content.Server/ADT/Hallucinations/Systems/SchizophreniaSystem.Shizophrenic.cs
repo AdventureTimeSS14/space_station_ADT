@@ -1,6 +1,7 @@
 using Content.Server.ADT.Chat;
 using Content.Shared.ADT.Shizophrenia;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Eye;
 using Content.Shared.Humanoid;
@@ -24,7 +25,7 @@ public sealed partial class SchizophreniaSystem : EntitySystem
         SubscribeLocalEvent<HallucinationsRemoveMobsComponent, ComponentStartup>(OnRemoveMobsStartup);
         SubscribeLocalEvent<HallucinationsRemoveMobsComponent, CanHearVoiceEvent>(OnCanHearVoice);
         SubscribeLocalEvent<HallucinationsRemoveMobsComponent, CanReceiveChatMessageEvent>(OnCanReceiveMessage);
-        SubscribeLocalEvent<HallucinationsRemoveMobsComponent, DamageChangedEvent>(OnDamage);
+        SubscribeLocalEvent<HallucinationsRemoveMobsComponent, DamageDealtEvent>(OnDamage);
     }
 
     private void OnPlayerAttached(Entity<SchizophreniaComponent> ent, ref PlayerAttachedEvent args)
@@ -85,12 +86,12 @@ public sealed partial class SchizophreniaSystem : EntitySystem
             args.Cancelled = true;
     }
 
-    private void OnDamage(Entity<HallucinationsRemoveMobsComponent> ent, ref DamageChangedEvent args)
+    private void OnDamage(Entity<HallucinationsRemoveMobsComponent> ent, ref DamageDealtEvent args)
     {
         if (!args.Origin.HasValue)
             return;
 
-        if (!args.DamageIncreased)
+        if (!args.Damage.AnyPositive())
             return;
 
         if (string.IsNullOrEmpty(ent.Comp.Reveal))
