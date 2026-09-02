@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Client.ADT.Shizophrenia;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
