@@ -2,9 +2,7 @@
 - type: entity
   parent: BaseMob
   id: ADTBaseEntityHallucination
-  name: "???"
-  description: "???"
-  suffix: DO NOT MAP
+  abstract: true
   categories: [ HideSpawnMenu ]
   components:
   - type: Fixtures
