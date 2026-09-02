@@ -84,6 +84,12 @@ public sealed class EyeControlConsoleSystem : EntitySystem
 
         args.Handled = true;
 
+        if (HasComp<StationAiHeldComponent>(args.User))
+        {
+            _popup.PopupEntity(Loc.GetString("eye-control-console-ai-denied"), ent, args.User);
+            return;
+        }
+
         if (ent.Comp.Pilot == args.User)
         {
             ExitPilotMode(ent, args.User);
