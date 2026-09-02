@@ -18,9 +18,7 @@ namespace Content.Server.ADT.Shizophrenia;
 public sealed partial class SchizophreniaSystem : EntitySystem
 {
     [Dependency] private IPlayerManager _player = default!;
-    [Dependency] private IChatManager _chatMan = default!;
     [Dependency] private AudioSystem _audio = default!;
-    [Dependency] private ChatSystem _chat = default!;
     [Dependency] private VisibilitySystem _visibility = default!;
     [Dependency] private PvsOverrideSystem _pvsOverride = default!;
     [Dependency] private ActionsSystem _actions = default!;
@@ -29,6 +27,9 @@ public sealed partial class SchizophreniaSystem : EntitySystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private PopupSystem _popup = default!;
+
+    [Dependency] private EntityQuery<SchizophreniaComponent> _schizQuery;
+    [Dependency] private EntityQuery<HallucinationComponent> _hallucinationQuery;
 
     private int _nextIdx = 1;
 

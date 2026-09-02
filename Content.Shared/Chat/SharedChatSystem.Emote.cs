@@ -1,6 +1,5 @@
 using System.Collections.Frozen;
 using Content.Shared.ADT.Chat;
-using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
 using Robust.Shared.Audio;
@@ -176,7 +175,7 @@ public abstract partial class SharedChatSystem
     /// <param name="source">The entity that is speaking</param>
     /// <param name="textInput">Formatted emote message.</param>
     /// <returns>True if the chat message should be displayed (because the emote was explicitly cancelled), false if it should not be.</returns>
-    public bool TryEmoteChatInput(EntityUid source, string textInput)   // ADT-Tweak: Hallucinations need it
+    protected bool TryEmoteChatInput(EntityUid source, string textInput)
     {
         var actionTrimmedLower = TrimPunctuation(textInput.ToLower());
         if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emote))

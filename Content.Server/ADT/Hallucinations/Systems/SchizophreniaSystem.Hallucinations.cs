@@ -28,7 +28,7 @@ public sealed partial class SchizophreniaSystem : EntitySystem
         SubscribeLocalEvent<HallucinationComponent, MapInitEvent>(OnHallucinationInit);
         SubscribeLocalEvent<HallucinationComponent, ComponentShutdown>(OnHallucinationShutdown);
 
-        SubscribeLocalEvent<HallucinationComponent, AlternativeSpeechEvent>(OnBeforeChatMessage);
+        SubscribeLocalEvent<HallucinationComponent, ExpandICChatRecipientsEvent>(OnBeforeChatMessage);
         SubscribeLocalEvent<HallucinationComponent, OverrideEmoteSoundEvent>(OverrideEmoteSound);
         SubscribeLocalEvent<HallucinationComponent, SetupPointingArrowEvent>(OnSetupPointer);
 
@@ -96,74 +96,23 @@ public sealed partial class SchizophreniaSystem : EntitySystem
     }
     #endregion
 
-    private void OnBeforeChatMessage(Entity<HallucinationComponent> ent, ref AlternativeSpeechEvent args)
+    private void OnBeforeChatMessage(Entity<HallucinationComponent> ent, ref ExpandICChatRecipientsEvent args)
     {
-        args.Cancel();
+        List<ICommonSession> toRemove = new();
 
-        var channel = args.Type;
-        var range = channel == InGameICChatType.Whisper ? ChatSystem.WhisperMuffledRange : ChatSystem.VoiceRange;
-
-        // Building our message
-        var message = channel switch
+        foreach (var recipient in args.Recipients)
         {
-            InGameICChatType.Speak => _chat.WrapPublicMessage(ent.Owner, $"[color={ent.Comp.ChatColor.ToHex()}]{Name(ent.Owner)}[/color]", args.Message),
-            InGameICChatType.Whisper => _chat.WrapWhisperMessage(ent.Owner, "chat-manager-entity-whisper-wrap-message", $"[color={ent.Comp.ChatColor.ToHex()}]{Name(ent.Owner)}[/color]", args.Message),
-            InGameICChatType.Emote => Loc.GetString("chat-manager-entity-me-wrap-message",
-            ("entityName", Name(ent.Owner)),
-            ("entity", ent),
-            ("message", FormattedMessage.RemoveMarkupOrThrow(args.Message))),
-            _ => null
-        };
+            if (_schizQuery.TryGetComponent(recipient.Key.AttachedEntity, out var schiz) && schiz.Idx == ent.Comp.Idx)
+                continue;
 
-        var chatChannel = channel switch
-        {
-            InGameICChatType.Speak => ChatChannel.Local,
-            InGameICChatType.Whisper => ChatChannel.Whisper,
-            InGameICChatType.Emote => ChatChannel.Emotes,
-            _ => ChatChannel.Local
-        };
+            if (_hallucinationQuery.TryGetComponent(recipient.Key.AttachedEntity, out var hallucination) && hallucination.Idx == ent.Comp.Idx)
+                continue;
 
-        if (message == null)
-            return;
-
-        var filter = Filter.Empty();
-
-        // Trying to get sessions and send message
-        if (_player.TryGetSessionByEntity(ent.Owner, out var hallucinationSession))
-        {
-            _chatMan.ChatMessageToOne(chatChannel, args.Message, message, ent.Owner, false, hallucinationSession.Channel);
-            filter.AddPlayer(hallucinationSession);
+            toRemove.Add(recipient.Key);
         }
 
-        var xform = Transform(ent.Owner);
-        var schizoXform = Transform(ent.Comp.Ent);
-
-        // Check if we close enough for them to hear us
-        if (xform.Coordinates.TryDistance(EntityManager, schizoXform.Coordinates, out var distance)
-            && distance <= range
-            && _player.TryGetSessionByEntity(ent.Comp.Ent, out var session))
-        {
-            _chatMan.ChatMessageToOne(chatChannel, args.Message, message, ent.Owner, false, session.Channel);
-            filter.AddPlayer(session);
-        }
-
-        _chat.TryEmoteChatInput(ent.Owner, args.Message);
-
-        // Down we have speech sounds handling
-        if (!TryComp<SpeechComponent>(ent.Owner, out var speech) || speech.SpeechSounds == null || channel == InGameICChatType.Emote)
-            return;
-
-        var sound = _audio.PlayEntity(_speech.GetSpeechSound((ent.Owner, speech), args.Message), filter, ent.Owner, false);
-
-        if (!sound.HasValue)
-            return;
-
-        foreach (var recipient in filter.Recipients)
-        {
-            _pvsOverride.AddForceSend(sound.Value.Entity, recipient);
-
-            AddAsHallucination(ent.Comp.Ent, sound.Value.Entity, false);   // to avoid error spam
-        }
+        foreach (var item in toRemove)
+            args.Recipients.Remove(item);
     }
 
     private void OverrideEmoteSound(Entity<HallucinationComponent> ent, ref OverrideEmoteSoundEvent args)
