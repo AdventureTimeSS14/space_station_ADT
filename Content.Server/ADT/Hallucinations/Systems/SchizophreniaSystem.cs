@@ -90,7 +90,7 @@ public sealed partial class SchizophreniaSystem : EntitySystem
         // If there is no hallucinations, remove component
         if (comp.Hallucinations.Count <= 0)
         {
-            RemComp(uid, comp);
+            RemCompDeferred(uid, comp);
             return false;
         }
 
