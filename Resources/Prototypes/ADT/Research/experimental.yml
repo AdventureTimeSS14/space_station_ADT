@@ -119,7 +119,7 @@
   - AdvancedMatterBinStockPart
   position: 1,-1
   requiredTech:
-  - ADTPartsTech
+  - AlternativeResearch
 
 - type: technology
   id: ADTSuperPartsTech
@@ -167,7 +167,7 @@
     state: quantum_matter_bin
   discipline: Experimental
   tier: 5
-  cost: 30000
+  cost: 40000
   recipeUnlocks:
   - QuantumCapacitorStockPart
   - QuantumScanningModuleStockPart
