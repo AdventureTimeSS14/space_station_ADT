@@ -1,6 +1,6 @@
 using Robust.Shared.Audio;
 
-namespace Content.Server.ADT.Chat;
+namespace Content.Shared.ADT.Chat;
 
 /// <summary>
 /// Used to override how emote sound plays
