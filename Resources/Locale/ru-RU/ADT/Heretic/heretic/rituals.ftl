@@ -67,3 +67,37 @@ heretic-ritual-void-ascend = Вальс в конце времен
 heretic-ritual-fail-cannot-ascend-objectives = Вы должны выполнить свои цели для вознесения.
 
 heretic-ritual-fail-sacrifice-cosmos = Недостаточно трупов со звёздной меткой.
+
+heretic-ritual-info-header = Ритуал: { $name }
+heretic-ritual-info-requirements = [font size=16]{$requirements}[/font]
+heretic-ritual-info-item = - { $item } [icon src="{ $icon }" tooltip="{ $tooltip }" size=32] x{ $amount }
+
+heretic-ritual-item-glass-shard = Осколок стекла
+heretic-ritual-item-eyes = Глаза
+heretic-ritual-item-document = Документ
+heretic-ritual-item-heart = Сердце
+heretic-ritual-item-pen = Ручка
+heretic-ritual-item-meat = Мясо
+heretic-ritual-item-book = Книга
+heretic-ritual-item-knife = Нож
+heretic-ritual-item-matchstick = Спичка
+heretic-ritual-item-gas-mask = Противогаз
+heretic-ritual-item-candle = Свеча
+heretic-ritual-item-stunbaton = Дубинка
+heretic-ritual-item-poppy = Мак
+heretic-ritual-item-stomach = Желудок
+heretic-ritual-item-lungs = Лёгкие
+heretic-ritual-item-table = Стол
+heretic-ritual-item-flare = Фальшфейер
+heretic-ritual-item-water-tank = Водяной бак
+heretic-ritual-item-chair = Стул
+heretic-ritual-item-trash = Мусор
+heretic-ritual-item-sheet-glass = Стекло
+heretic-ritual-item-bedsheet = Простыня
+heretic-ritual-item-winter-coat = Зимняя куртка
+heretic-ritual-item-ash = Пепел
+heretic-ritual-item-liver = Печень
+heretic-ritual-item-sheet-plasma = Плазма
+heretic-ritual-item-steel = Сталь
+heretic-ritual-item-cable-coil = Катушка проводов
+heretic-ritual-item-paper = Бумага
