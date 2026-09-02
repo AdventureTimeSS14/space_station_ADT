@@ -4,11 +4,11 @@
   source: "https://github.com/ParadiseSS13/Paradise/tree/master/sound/effects"
 
 - files: ["hilarious_agony.ogg"]
-  license: "Custom"
+  license: "CC BY-SA 4.0"
   copyright: "The Hilarious Agony by Bolgarich."
   source: "https://www.youtube.com/watch?v=SgX4TQ6IlAg"
 
 - files: ["verb-shadowling.ogg"]
   license: "Custom"
   copyright: "taken from a free sound site."
-  source: "https://zvuks.com/"
+  source: "https://zvuks.com/cat-496-shyopot/sound-520-shepotom-no-ne-ponyatno-chto-govorit/"
