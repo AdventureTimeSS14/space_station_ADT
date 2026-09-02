@@ -52,7 +52,7 @@ public sealed class SchizophreniaSystem : EntitySystem
             return;
 
         // Get target entity
-        var ents = EntityManager.AllEntities<HumanoidAppearanceComponent>().Where(x => x.Owner != _player.LocalEntity && !HasComp<HallucinationComponent>(x)).ToList();
+        var ents = EntityManager.AllEntities<HumanoidProfileComponent>().Where(x => x.Owner != _player.LocalEntity && !HasComp<HallucinationComponent>(x)).ToList();
         var selected = _random.Pick(ents);
 
         var proto = _random.Pick(args.Appearance.Prototypes);
