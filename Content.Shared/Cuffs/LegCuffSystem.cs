@@ -20,8 +20,6 @@ public sealed partial class LegCuffSystem : EntitySystem
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private IGameTiming _timing = default!;
 
-    private static readonly TimeSpan BreakoutSoundCooldown = TimeSpan.FromSeconds(1);
-
     public override void Initialize()
     {
         base.Initialize();
@@ -150,7 +148,7 @@ public sealed partial class LegCuffSystem : EntitySystem
         if (now < ent.Comp.NextAllowedTime)
             return;
 
-        ent.Comp.NextAllowedTime = now + BreakoutSoundCooldown;
+        ent.Comp.NextAllowedTime = now + ent.Comp.BreakoutSoundCooldown;
 
         foreach (var contained in ensnareable.Container.ContainedEntities)
         {
