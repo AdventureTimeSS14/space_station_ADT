@@ -470,3 +470,9 @@
         messages: [ "frezon-euphoric" ]
         probability: 0.1
         minScale: 1
+      # ADT-Tweak-start
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectScreenWave
+        type: Add
+        time: 1800
+      # ADT-Tweak-end

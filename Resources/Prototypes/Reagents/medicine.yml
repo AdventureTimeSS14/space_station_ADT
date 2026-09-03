@@ -1673,6 +1673,12 @@
         - "psicodine-effect-anxieties-wash-away"
         - "psicodine-effect-at-peace"
         probability: 0.2
+      # ADT-Tweak-start
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectScreenWave
+        type: Add
+        time: 1800
+      # ADT-Tweak-end
 
 - type: reagent
   id: PotassiumIodide
@@ -1749,6 +1755,12 @@
       - !type:AdjustReagent
         reagent: MindbreakerToxin
         amount: -3.0
+      # ADT-Tweak-start
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectScreenWave
+        type: Add
+        time: 1800
+      # ADT-Tweak-end
 
 - type: reagent
   id: Heparin

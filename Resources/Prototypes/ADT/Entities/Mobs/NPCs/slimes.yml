@@ -165,7 +165,6 @@
     - Flashed
     - Drowsiness
     - Adrenaline
-    - ADTHallucinations
     - ADTStarvation
   - type: SleepEmitSound
   - type: BloodCough

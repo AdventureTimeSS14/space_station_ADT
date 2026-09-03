@@ -257,6 +257,12 @@
         effectProto: StatusEffectSeeingRainbow
         time: 16
         type: Add
+      # ADT-Tweak-start
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectScreenWave
+        type: Add
+        time: 16
+      # ADT-Tweak-end
 
 - type: reagent
   id: Nicotine
@@ -308,6 +314,12 @@
         probability: 0.05
       - !type:Drunk # Headaches and slurring are major symptoms of brain damage, this is close enough
         boozePower: 5
+      # ADT-Tweak-start
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectScreenWave
+        type: Add
+        time: 10
+      # ADT-Tweak-end
 
 - type: reagent
   id: SpaceDrugs
@@ -325,10 +337,16 @@
         type: Add
         time: 5
         refresh: false
+      # ADT-Tweak-start
       - !type:Hallucinate
-        proto: SupermatterPack
+        hallucinations: [ SupermatterPack ]
         type: Add
         time: 4
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectScreenWave
+        type: Add
+        time: 5
+      # ADT-Tweak-end
 
 - type: reagent
   id: Bananadine
@@ -345,10 +363,16 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
+      # ADT-Tweak-start
       - !type:Hallucinate
-        proto: SupermatterPack
+        hallucinations: [ SupermatterPack ]
         type: Add
         time: 4
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectScreenWave
+        type: Add
+        time: 5
+      # ADT-Tweak-end
 
 # Probably replace this one with sleeping chem when putting someone in a comatose state is easier
 - type: reagent
@@ -554,7 +578,13 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
+      # ADT-Tweak-start
       - !type:Hallucinate
-        proto: SupermatterPack
+        hallucinations: [ SupermatterPack ]
         type: Add
         time: 4
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectScreenWave
+        type: Add
+        time: 5
+      # ADT-Tweak-end

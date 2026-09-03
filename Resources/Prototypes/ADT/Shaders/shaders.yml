@@ -151,3 +151,8 @@
   id: HueShift
   kind: source
   path: "/Textures/ADT/Shaders/hue_shift.swsl"
+
+- type: shader
+  id: ScreenRotation
+  kind: source
+  path: "/Textures/ADT/Shaders/screen_rotation.swsl"

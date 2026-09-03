@@ -208,6 +208,12 @@
           inverted: true
       - !type:Drunk
         boozePower: 2
+      # ADT-Tweak-start
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectScreenWave
+        type: Add
+        time: 15
+      # ADT-Tweak-end
 
 - type: reagent
   id: Gin

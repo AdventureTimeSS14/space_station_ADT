@@ -86,7 +86,6 @@
     - PressureImmunity
     - Flashed
     - Adrenaline
-    - ADTHallucinations # ADT-Tweak
     - ADTStarvation # ADT-Tweak
   - type: Identity
   - type: IdExaminable
