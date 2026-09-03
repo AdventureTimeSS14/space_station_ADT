@@ -385,6 +385,12 @@
         type: Add
         time: 10
   # TODO: PROPER hallucinations
+      # ADT-Tweak-start
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectScreenWave
+        type: Add
+        time: 16
+      # ADT-Tweak-end
 
 - type: reagent
   id: Histamine
