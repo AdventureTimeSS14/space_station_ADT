@@ -28,10 +28,3 @@
   name: melee vulnerability
   components:
   - type: MeleeVulnerabilityStatusEffect
-
-- type: entity
-  parent: MobStatusEffectDebuff
-  id: StatusEffectScreenWave
-  name: waving screen
-  components:
-  - type: ScreenWave

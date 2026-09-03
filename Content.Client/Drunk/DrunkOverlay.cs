@@ -45,12 +45,23 @@ public sealed class DrunkOverlay : Overlay
     private float _timeScale = 1f;
     private float _distortionScale = 1f;
 
+    // ADT-Tweak-start
+    private static readonly ProtoId<ShaderPrototype> RotateShader = "ScreenRotation";
+    private readonly ShaderInstance _rotateShader;
+
+    private float _timeTicker = 0.0f;
+    private const float MaxRotationAngle = 0.035f;
+    private const float RotationFrequency = 0.85f;
+    // ADT-Tweak-end
+
     public DrunkOverlay()
     {
         IoCManager.InjectDependencies(this);
         _statusEffectsSystem = _entityManager.System<Shared.StatusEffectNew.StatusEffectsSystem>();
         _drunkShader = _prototypeManager.Index(DrunkShader).InstanceUnique();
         _configManager.OnValueChanged(CCVars.ReducedMotion, OnReducedMotionChanged, invokeImmediately: true);
+
+        _rotateShader = _prototypeManager.Index(RotateShader).InstanceUnique(); // ADT-Tweak
     }
 
     private void OnReducedMotionChanged(bool reducedMotion)
@@ -75,6 +86,8 @@ public sealed class DrunkOverlay : Overlay
         var power = time == null ? MaxBoozePower : (float)Math.Min((time - _timing.CurTime).Value.TotalSeconds, MaxBoozePower);
 
         CurrentBoozePower += BoozePowerScale * (power - CurrentBoozePower) * args.DeltaSeconds / (power + 1);
+
+        _timeTicker += args.DeltaSeconds;   // ADT-Tweak
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
@@ -95,6 +108,17 @@ public sealed class DrunkOverlay : Overlay
             return;
 
         var handle = args.WorldHandle;
+
+        // ADT-Tweak-start
+        var angle = MathF.Sin(_timeTicker * RotationFrequency) * MaxRotationAngle * _visualScale;
+
+        _rotateShader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
+        _rotateShader.SetParameter("angle", angle);
+
+        handle.DrawRect(args.WorldBounds.Enlarged(0.75f), Color.Black);
+        handle.UseShader(_rotateShader);
+        handle.DrawRect(args.WorldBounds, Color.White);
+        // ADT-Tweak-end
 
         _drunkShader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
         _drunkShader.SetParameter("boozePower", _visualScale);

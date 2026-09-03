@@ -14,6 +14,7 @@ public sealed class DrunkSystem : SharedDrunkSystem
     [Dependency] private readonly IRobustRandom _random = default!;
 
     private DrunkOverlay _overlay = default!;
+    private ScreenWaveOverlay _waveOverlay = default!;  // ADT-Tweak
 
     public override void Initialize()
     {
@@ -26,6 +27,7 @@ public sealed class DrunkSystem : SharedDrunkSystem
         SubscribeLocalEvent<DrunkStatusEffectComponent, StatusEffectRelayedEvent<LocalPlayerDetachedEvent>>(OnPlayerDetached);
 
         _overlay = new();
+        _waveOverlay = new();   // ADT-Tweak
     }
 
     private void OnStatusApplied(Entity<DrunkStatusEffectComponent> entity, ref StatusEffectAppliedEvent args)
@@ -34,6 +36,7 @@ public sealed class DrunkSystem : SharedDrunkSystem
         {
             _overlay.Phase = _random.NextFloat(MathF.Tau); // random starting phase for movement effect
             _overlayMan.AddOverlay(_overlay);
+            _overlayMan.AddOverlay(_waveOverlay);   // ADT-Tweak
         }
     }
 
@@ -47,17 +50,23 @@ public sealed class DrunkSystem : SharedDrunkSystem
 
         _overlay.CurrentBoozePower = 0;
         _overlayMan.RemoveOverlay(_overlay);
+
+        _waveOverlay.CurrentBoozePower = 0;         // ADT-Tweak
+        _overlayMan.RemoveOverlay(_waveOverlay);    // ADT-Tweak
     }
 
     private void OnPlayerAttached(Entity<DrunkStatusEffectComponent> entity, ref StatusEffectRelayedEvent<LocalPlayerAttachedEvent> args)
     {
         _overlayMan.AddOverlay(_overlay);
-
+        _overlayMan.AddOverlay(_waveOverlay);   // ADT-Tweak
     }
 
     private void OnPlayerDetached(Entity<DrunkStatusEffectComponent> entity, ref StatusEffectRelayedEvent<LocalPlayerDetachedEvent> args)
     {
         _overlay.CurrentBoozePower = 0;
         _overlayMan.RemoveOverlay(_overlay);
+
+        _waveOverlay.CurrentBoozePower = 0;         // ADT-Tweak
+        _overlayMan.RemoveOverlay(_waveOverlay);    // ADT-Tweak
     }
 }
