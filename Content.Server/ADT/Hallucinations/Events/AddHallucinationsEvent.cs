@@ -1,7 +1,6 @@
-using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.ADT.Shizophrenia;
+namespace Content.Server.ADT.Hallucinations.Events;
 
 /// <summary>
 /// Applies hallucinations to entity

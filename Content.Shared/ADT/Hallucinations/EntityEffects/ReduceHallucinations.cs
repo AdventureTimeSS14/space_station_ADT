@@ -1,7 +1,7 @@
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.ADT.Shizophrenia.EntityEffects;
+namespace Content.Shared.ADT.Hallucinations.EntityEffects;
 
 public sealed partial class ReduceHallucinations : EntityEffectBase<ReduceHallucinations>
 {

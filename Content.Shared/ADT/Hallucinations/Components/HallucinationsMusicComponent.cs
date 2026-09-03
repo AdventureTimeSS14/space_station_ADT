@@ -3,7 +3,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.ADT.Shizophrenia;
+namespace Content.Shared.ADT.Hallucinations.Components;
 
 /// <summary>
 /// Component added to hallucinating entity to store music

@@ -1,8 +1,8 @@
-using Content.Shared.ADT.Shizophrenia;
+using Content.Shared.ADT.Hallucinations.Events;
 using Robust.Server.Player;
 using Robust.Shared.Random;
 
-namespace Content.Server.ADT.Shizophrenia;
+namespace Content.Server.ADT.Hallucinations.Entries;
 
 /// <summary>
 /// Entry for fake appearance hallucinations

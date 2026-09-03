@@ -1,17 +1,15 @@
 using System.Linq;
-using Content.Server.ADT.Shizophrenia;
+using Content.Server.Administration;
+using Content.Server.ADT.Hallucinations.Components;
+using Content.Server.ADT.Hallucinations.Systems;
 using Content.Shared.Administration;
-using Content.Shared.EntityEffects.Effects;
-using Content.Shared.EntityEffects.Effects.StatusEffects;
-using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Administration.Commands;
+namespace Content.Server.ADT.Hallucinations.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
-sealed partial class AddAsHallucinationCommand : IConsoleCommand
+public sealed partial class AddAsHallucinationCommand : IConsoleCommand
 {
     [Dependency] private IEntityManager _entManager = default!;
     [Dependency] private IPrototypeManager _proto = default!;

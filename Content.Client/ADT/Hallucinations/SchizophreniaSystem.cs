@@ -1,10 +1,10 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Audio;
-using Content.Shared.ADT.Shizophrenia;
+using Content.Shared.ADT.Hallucinations.Components;
+using Content.Shared.ADT.Hallucinations.Events;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
-using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.Audio;
 using Robust.Client.GameObjects;
@@ -12,22 +12,20 @@ using Robust.Client.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Client.ADT.Shizophrenia;
+namespace Content.Client.ADT.Hallucinations;
 
-public sealed class SchizophreniaSystem : EntitySystem
+public sealed partial class SchizophreniaSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly ContentAudioSystem _contentAudio = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private ContentAudioSystem _contentAudio = default!;
 
     private Dictionary<NetEntity, TimeSpan> _layers = new();
 

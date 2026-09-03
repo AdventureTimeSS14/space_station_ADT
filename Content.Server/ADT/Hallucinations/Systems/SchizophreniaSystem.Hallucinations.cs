@@ -1,20 +1,15 @@
-using Content.Shared.ADT.Shizophrenia;
-using Content.Server.ADT.Chat;
 using Content.Server.ADT.Pointing;
-using Content.Server.Chat;
 using Content.Server.Chat.Systems;
 using Content.Shared.ADT.Actions;
-using Content.Shared.Chat;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Speech;
 using Content.Shared.StepTrigger.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
-using Robust.Shared.Utility;
 using Content.Shared.ADT.Chat;
+using Content.Shared.ADT.Hallucinations.Components;
 
-namespace Content.Server.ADT.Shizophrenia;
+namespace Content.Server.ADT.Hallucinations.Systems;
 
 public sealed partial class SchizophreniaSystem : EntitySystem
 {

@@ -1,8 +1,7 @@
-using Content.Shared.ADT.Shizophrenia;
-using Content.Shared.Destructible.Thresholds;
-using Robust.Shared.Prototypes;
+using Content.Server.ADT.Hallucinations.Entries;
+using Content.Shared.ADT.Hallucinations.Events;
 
-namespace Content.Server.ADT.Shizophrenia;
+namespace Content.Server.ADT.Hallucinations.Types;
 
 public sealed partial class AppearanceHallucinations : BaseHallucinationsType
 {

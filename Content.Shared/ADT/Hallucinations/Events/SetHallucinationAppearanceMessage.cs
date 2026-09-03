@@ -1,8 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
-using Robust.Shared.Utility;
 
-namespace Content.Shared.ADT.Shizophrenia;
+namespace Content.Shared.ADT.Hallucinations.Events;
 
 [Serializable, NetSerializable]
 public sealed partial class SetHallucinationAppearanceMessage : EntityEventArgs

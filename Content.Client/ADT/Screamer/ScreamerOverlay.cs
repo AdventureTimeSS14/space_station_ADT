@@ -4,17 +4,15 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Matrix3x2 = System.Numerics.Matrix3x2;
 
 namespace Content.Client.ADT.Screamer;
 
-public sealed class ScreamerOverlay : Overlay
+public sealed partial class ScreamerOverlay : Overlay
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IEntityManager _entity = default!;
+    [Dependency] private IGameTiming _timing = default!;
     private readonly SharedTransformSystem _xformSystem;
     private readonly SpriteSystem _sprite;
 

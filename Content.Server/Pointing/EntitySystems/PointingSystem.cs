@@ -1,8 +1,8 @@
 using System.Linq;
-using Content.Shared.ADT.Shizophrenia;
 using Content.Server.Administration.Logs;
 using Content.Server.ADT.Pointing;
 using Content.Server.Pointing.Components;
+using Content.Shared.ADT.Hallucinations.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Examine;

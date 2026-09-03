@@ -1,9 +1,10 @@
+using Content.Server.ADT.Hallucinations.Types;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.ADT.Shizophrenia;
+namespace Content.Server.ADT.Hallucinations;
 
 [Prototype]
 public sealed partial class HallucinationsPackPrototype : IPrototype
