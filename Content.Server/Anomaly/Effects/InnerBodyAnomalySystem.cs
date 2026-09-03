@@ -100,9 +100,11 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         // ADT-tweak start: Store the net IDs of components that will be added
         foreach (var entry in injectedAnom.Components.Values)
         {
-            ent.Comp.AddedComponentRegistrations.Add(_compFactory.GetRegistration(entry.Component.GetType()));
+            var reg = _compFactory.GetRegistration(entry.Component.GetType());
+            if (!EntityManager.HasComponent(ent, reg))
+                ent.Comp.AddedComponentRegistrations.Add(reg);
         }
-        EntityManager.AddComponents(ent, injectedAnom.Components);
+        EntityManager.AddComponents(ent, injectedAnom.Components, removeExisting: false);
         // ADT-tweak end
 
         _stun.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration));
