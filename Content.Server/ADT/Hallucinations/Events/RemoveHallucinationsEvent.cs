@@ -1,6 +1,4 @@
-using Robust.Shared.Prototypes;
-
-namespace Content.Server.ADT.Shizophrenia;
+namespace Content.Server.ADT.Hallucinations.Events;
 
 /// <summary>
 /// Removes hallucinations with specified key from entity

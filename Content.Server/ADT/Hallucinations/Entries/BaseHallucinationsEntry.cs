@@ -1,14 +1,7 @@
-using Content.Shared.ADT.Shizophrenia;
 using Content.Shared.Destructible.Thresholds;
-using Robust.Server.GameObjects;
-using Robust.Server.Player;
-using Robust.Shared.Audio;
-using Robust.Shared.Map;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
 
-namespace Content.Server.ADT.Shizophrenia;
+namespace Content.Server.ADT.Hallucinations.Entries;
 
 /// <summary>
 /// Base class for different hallucination types

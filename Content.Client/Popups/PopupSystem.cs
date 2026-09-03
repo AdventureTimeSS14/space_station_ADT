@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Client.ADT.Shizophrenia;
+using Content.Client.ADT.Hallucinations;
 using Content.Shared.Containers;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;

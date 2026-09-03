@@ -7,11 +7,11 @@ using Robust.Shared.Player;
 
 namespace Content.Client.ADT.Screamer;
 
-public sealed class ScreamerSystem : EntitySystem
+public sealed partial class ScreamerSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private AudioSystem _audio = default!;
 
     private ScreamerOverlay _overlay = default!;
 

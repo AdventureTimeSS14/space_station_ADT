@@ -2,14 +2,14 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
-using Content.Shared.ADT.Shizophrenia;
+using Content.Shared.ADT.Hallucinations.Components;
 
 namespace Content.Client.ADT.Overlays
 {
     public sealed partial class HueShiftOverlay : Overlay
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
         [Dependency] IEntityManager _entityManager = default!;
 
 

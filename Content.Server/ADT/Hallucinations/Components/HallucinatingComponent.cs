@@ -1,4 +1,6 @@
-namespace Content.Server.ADT.Shizophrenia;
+using Content.Server.ADT.Hallucinations.Entries;
+
+namespace Content.Server.ADT.Hallucinations.Components;
 
 /// <summary>
 /// Component added to currently hallucinating entities

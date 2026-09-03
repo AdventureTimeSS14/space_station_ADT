@@ -1,10 +1,8 @@
 using System.Linq;
 using Content.Server.Actions;
-using Content.Server.Chat.Managers;
-using Content.Server.Chat.Systems;
+using Content.Server.ADT.Hallucinations.Components;
 using Content.Server.Popups;
-using Content.Server.Speech;
-using Content.Shared.ADT.Shizophrenia;
+using Content.Shared.ADT.Hallucinations.Components;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
@@ -13,7 +11,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Server.ADT.Shizophrenia;
+namespace Content.Server.ADT.Hallucinations.Systems;
 
 public sealed partial class SchizophreniaSystem : EntitySystem
 {
@@ -22,7 +20,6 @@ public sealed partial class SchizophreniaSystem : EntitySystem
     [Dependency] private VisibilitySystem _visibility = default!;
     [Dependency] private PvsOverrideSystem _pvsOverride = default!;
     [Dependency] private ActionsSystem _actions = default!;
-    [Dependency] private SpeechSoundSystem _speech = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IPrototypeManager _proto = default!;

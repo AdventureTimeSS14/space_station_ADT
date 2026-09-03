@@ -1,19 +1,14 @@
-// Simple Station
-
-using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
-using Robust.Shared.Network;
-using Content.Shared.ADT.Traits;
 using Robust.Shared.Player;
-using Content.Shared.ADT.Shizophrenia;
+using Content.Shared.ADT.Hallucinations.Components;
 
 namespace Content.Client.ADT.Overlays;
 
-public sealed class HueShiftSystem : EntitySystem
+public sealed partial class HueShiftSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
 
     private HueShiftOverlay _overlay = default!;
 

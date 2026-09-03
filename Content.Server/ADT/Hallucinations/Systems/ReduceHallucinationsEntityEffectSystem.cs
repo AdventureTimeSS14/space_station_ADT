@@ -1,7 +1,8 @@
-using Content.Shared.ADT.Shizophrenia.EntityEffects;
+using Content.Server.ADT.Hallucinations.Components;
+using Content.Shared.ADT.Hallucinations.EntityEffects;
 using Content.Shared.EntityEffects;
 
-namespace Content.Server.ADT.Shizophrenia;
+namespace Content.Server.ADT.Hallucinations.Systems;
 
 public sealed partial class ReduceHallucinationsEntityEffectSystem : EntityEffectSystem<CanHallucinateComponent, ReduceHallucinations>
 {

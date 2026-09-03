@@ -3,7 +3,7 @@ using Content.Client.Animations;
 using Content.Client.Gameplay;
 using Content.Client.Items;
 using Content.Client.Weapons.Ranged.Components;
-using Content.Shared.ADT.Shizophrenia;
+using Content.Shared.ADT.Hallucinations.Components;
 using Content.Shared.Camera;
 using Content.Shared.CCVar;
 using Content.Shared.CombatMode;

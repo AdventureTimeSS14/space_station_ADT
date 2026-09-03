@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.ADT.Screamer;
-using Content.Server.ADT.Shizophrenia;
+using Content.Server.ADT.Hallucinations;
 using Content.Shared.Administration;
 using Content.Shared.ADT.Screamer;
 using Content.Shared.EntityEffects.Effects;
@@ -16,11 +16,11 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
-sealed class ScreamerCommand : IConsoleCommand
+public sealed partial class ScreamerCommand : IConsoleCommand
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IResourceManager _res = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IResourceManager _res = default!;
 
     public string Command => "screamer";
 

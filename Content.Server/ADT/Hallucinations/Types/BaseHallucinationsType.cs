@@ -1,6 +1,7 @@
+using Content.Server.ADT.Hallucinations.Entries;
 using Content.Shared.Destructible.Thresholds;
 
-namespace Content.Server.ADT.Shizophrenia;
+namespace Content.Server.ADT.Hallucinations.Types;
 
 [ImplicitDataDefinitionForInheritors]
 public abstract partial class BaseHallucinationsType

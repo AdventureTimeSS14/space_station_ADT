@@ -1,18 +1,17 @@
 using System.Linq;
 using Content.Server.ADT.Chat;
-using Content.Shared.ADT.Shizophrenia;
-using Content.Shared.Damage;
+using Content.Server.ADT.Hallucinations.Components;
+using Content.Server.ADT.Hallucinations.Entries;
+using Content.Server.ADT.Hallucinations.Events;
+using Content.Shared.ADT.Hallucinations.Components;
 using Content.Shared.Damage.Systems;
-using Content.Shared.EntityEffects.Effects;
 using Content.Shared.EntityEffects.Effects.StatusEffects;
 using Content.Shared.Eye;
-using Content.Shared.Humanoid;
-using Content.Shared.Kitchen;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.ADT.Shizophrenia;
+namespace Content.Server.ADT.Hallucinations.Systems;
 
 public sealed partial class SchizophreniaSystem : EntitySystem
 {

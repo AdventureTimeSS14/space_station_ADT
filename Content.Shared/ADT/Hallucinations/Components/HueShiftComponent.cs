@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.ADT.Shizophrenia;
+namespace Content.Shared.ADT.Hallucinations.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HueShiftComponent : Component

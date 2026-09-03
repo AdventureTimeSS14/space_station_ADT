@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.ADT.Shizophrenia;
+namespace Content.Shared.ADT.Hallucinations.Components;
 
 /// <summary>
 /// Component added to hallucinating entity to prevent them from seeing mobs

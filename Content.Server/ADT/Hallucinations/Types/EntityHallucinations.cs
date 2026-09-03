@@ -1,7 +1,8 @@
+using Content.Server.ADT.Hallucinations.Entries;
 using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.ADT.Shizophrenia;
+namespace Content.Server.ADT.Hallucinations.Types;
 
 public sealed partial class MobHallucinations : BaseHallucinationsType
 {

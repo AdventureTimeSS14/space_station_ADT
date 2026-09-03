@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.ADT.Shizophrenia;
+namespace Content.Shared.ADT.Hallucinations.Components;
 
 /// <summary>
 /// Component added to hallucinations to have access to main entity and visualization them on client

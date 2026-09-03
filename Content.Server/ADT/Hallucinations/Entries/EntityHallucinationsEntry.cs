@@ -1,10 +1,11 @@
+using Content.Server.ADT.Hallucinations.Systems;
 using Content.Shared.Destructible.Thresholds;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Server.ADT.Shizophrenia;
+namespace Content.Server.ADT.Hallucinations.Entries;
 
 /// <summary>
 /// Entry for mob spawning hallucinations
