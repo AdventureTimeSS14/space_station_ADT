@@ -260,7 +260,7 @@
 
 - type: marking
   id: LLegGradient
-  bodyPart: RFoot
+  bodyPart: LLeg
   groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_parts.rsi #Спрайты от moroz_3
@@ -268,11 +268,27 @@
 
 - type: marking
   id: RLegGradient
-  bodyPart: RFoot
+  bodyPart: RLeg
   groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_parts.rsi #Спрайты от moroz_3
       state: gradient_RLeg
+
+- type: marking
+  id: LFootGradient
+  bodyPart: LFoot
+  groupWhitelist: [Tajaran]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_parts.rsi #Спрайты от moroz_3
+      state: gradient_LFoot
+
+- type: marking
+  id: RFootGradient
+  bodyPart: RFoot
+  groupWhitelist: [Tajaran]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_parts.rsi #Спрайты от moroz_3
+      state: gradient_RFoot
 
 #Хвосты.
 - type: marking

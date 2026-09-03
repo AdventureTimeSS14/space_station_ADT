@@ -67,6 +67,10 @@ marking-LLegGradient = Окрас левой ноги (градиент)
 marking-LLegGradient-gradient_LLeg = Градиент
 marking-RLegGradient = Окрас правой ноги (градиент)
 marking-RLegGradient-gradient_RLeg = Градиент
+marking-LFootGradient = Окрас левой лапы (градиент)
+marking-LFootGradient-gradient_LFoot = Градиент
+marking-RFootGradient = Окрас правой лапы (градиент)
+marking-RFootGradient-gradient_RFoot = Градиент
 
 marking-TailWingler1 = Полосы (хвост)
 marking-TailWingler1-wingler_1 = Полосы
