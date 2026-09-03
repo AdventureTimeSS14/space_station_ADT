@@ -88,6 +88,7 @@ public sealed partial class ADTShadowlingAbilitySystem
             return;
         }
 
+        _audio.PlayPvs(ent.Comp.EnthrallSound, target);
         _popup.PopupEntity(Loc.GetString("shadowling-enthrall-success", ("target", target)), ent, ent, PopupType.Medium);
         _popup.PopupEntity(Loc.GetString("shadowling-enthrall-converted"), target, target, PopupType.LargeCaution);
     }
@@ -121,9 +122,13 @@ public sealed partial class ADTShadowlingAbilitySystem
 
     private bool HasPlayer(EntityUid target)
     {
+    #if DEBUG
+        return true;
+    #else
         return _mind.TryGetMind(target, out _, out var mind)
             && mind.UserId != null
             && _player.TryGetSessionById(mind.UserId, out _);
+    #endif
     }
 
     private void OnGuise(Entity<ADTShadowlingThrallComponent> ent, ref ADTShadowlingGuiseEvent args)

@@ -1,39 +1,41 @@
 - type: vendingMachineInventory
   id: CigaretteMachineInventory
   startingInventory:
-    CigPackGreen: 2
-    CigPackRed: 2
-    CigPackBlue: 2
-    CigPackBlack: 2
-    CigPackMixed: 2
-    # ADT Tweak Start
-    ADTCigarettePackLuckySlothsMini: 2
-    ADTCigarettePackLuckySloths: 2
-    ADTCigarettePackWeYaGold: 2
-    ADTCigarettePackExecutiveSelect: 2
-    # ADT Tweak End
-    CigarCase: 1
-    ADTCigarCase: 1 #ADT Tweak
-    SmokingPipeFilledTobacco: 1
-    Vape: 1
-    # ADT Tweak Start
-    # Matchbox: 5
-    ADTMatchbox: 5
-    ADTBrownMatchBook: 5
-    ADTElectroMatchbook: 2
-    ADTLuckySlothsMatchBook: 2
-    ADTExecutiveWEYAMatchbook: 2
-    ADTExecutiveSelectMatchbook: 2
-    # ADT Tweak End
-    PackPaperRollingFilters: 3
-    CheapLighter: 4
-    Lighter: 2
-    # ADT Tweak Start
-    ADTZippo: 2
-    ADTZippoExec: 1
-    ADTZippoDV: 1
-    ADTHoloCigar: 1
-    # ADT Tweak End
+    ADTVendingCategorySmokables: # ADT-Tweak
+        CigPackGreen: 2
+        CigPackRed: 2
+        CigPackBlue: 2
+        CigPackBlack: 2
+        CigPackMixed: 2
+        # ADT Tweak Start
+        ADTCigarettePackLuckySlothsMini: 2
+        ADTCigarettePackLuckySloths: 2
+        ADTCigarettePackWeYaGold: 2
+        ADTCigarettePackExecutiveSelect: 2
+        # ADT Tweak End
+        CigarCase: 1
+        ADTCigarCase: 1 #ADT Tweak
+        SmokingPipeFilledTobacco: 1
+        Vape: 1
+        PackPaperRollingFilters: 3
+        ADTHoloCigar: 1 # ADT Tweak
+    ADTVendingCategoryLighters: # ADT-Tweak
+        # ADT Tweak Start
+        # Matchbox: 5
+        ADTMatchbox: 5
+        ADTBrownMatchBook: 5
+        ADTElectroMatchbook: 2
+        ADTLuckySlothsMatchBook: 2
+        ADTExecutiveWEYAMatchbook: 2
+        ADTExecutiveSelectMatchbook: 2
+        # ADT Tweak End
+        CheapLighter: 4
+        Lighter: 2
+        # ADT Tweak Start
+        ADTZippo: 2
+        ADTZippoExec: 1
+        ADTZippoDV: 1
+        # ADT Tweak End
   contrabandInventory:
     GroundTobacco: 3
     CigarGold: 2

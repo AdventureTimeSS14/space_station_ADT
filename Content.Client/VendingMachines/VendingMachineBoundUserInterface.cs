@@ -77,12 +77,12 @@ namespace Content.Client.VendingMachines
             base.ReceiveMessage(message);
 
             if (message is VendingMachineUserInfoMessage info)
-                _menu?.SetUserInfo(info.Balance);
+                _menu?.SetUserInfo(info.Balance, info.IgnoreBalance); // ADT-Tweak
         }
 
-        private void OnItemSelected(VendingMachineInventoryEntry entry)
+        private void OnItemSelected(VendingMachineInventoryEntry entry, int count) // ADT-tweak
         {
-            SendPredictedMessage(new VendingMachineEjectCountMessage(entry, 1));
+            SendPredictedMessage(new VendingMachineEjectCountMessage(entry, count)); // ADT-tweak
         }
 
         // END-ADT-TWEAK
