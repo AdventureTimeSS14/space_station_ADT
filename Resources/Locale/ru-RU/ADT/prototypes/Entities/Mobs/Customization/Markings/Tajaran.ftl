@@ -79,7 +79,7 @@ marking-TailRing = Круг (хвост)
 marking-TailRing-tail_m = Хвост
 marking-TailRing-tail_ring = Круг
 marking-TailColor = Хвост (цвет)
-marking-Tail-tail_m = Хвост
+marking-TailColor-tail_m = Хвост
 marking-TailSkeleton = Рисунок скелета (хвост)
 marking-TailSkeleton-tail_m = Хвост
 marking-TailSkeleton-tail_skeleton = Скелет
@@ -105,7 +105,7 @@ marking-TailFluffyWingler3-tail_fluffy = Хвост
 marking-TailFluffyWingler3-wingler_3 = Полосы
 marking-TailFluffySkeleton = Рисунок скелета, пушистый (хвост)
 marking-TailFluffySkeleton-tail_fluffy = Хвост
-marking-TailFluffySkeleton-tail_skeleton = Полосы
+marking-TailFluffySkeleton-tail_skeleton = Скелет
 
 marking-TailTipAnimated = Кончик (хвост, анимированный)
 marking-TailTipAnimated-tail_m_wagging = Хвост
@@ -140,7 +140,7 @@ marking-TailFluffyWingler3Animated-tail_fluffy_wagging = Хвост
 marking-TailFluffyWingler3Animated-wingler_3_wagging = Полосы
 marking-TailFluffySkeletonAnimated = Рисунок скелета, пушистый (хвост, анимированный)
 marking-TailFluffySkeletonAnimated-tail_fluffy_wagging = Хвост
-marking-TailFluffySkeletonAnimated-tail_skeleton_wagging = Полосы
+marking-TailFluffySkeletonAnimated-tail_skeleton_wagging = Скелет
 
 marking-Head1 = Ушки
 marking-Head1-outears = Наружное ухо
