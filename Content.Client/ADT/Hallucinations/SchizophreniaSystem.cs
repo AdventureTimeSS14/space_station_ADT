@@ -3,6 +3,7 @@ using System.Numerics;
 using Content.Client.Audio;
 using Content.Shared.ADT.Hallucinations.Components;
 using Content.Shared.ADT.Hallucinations.Events;
+using Content.Shared.Antag;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared.StatusIcon.Components;
@@ -12,6 +13,7 @@ using Robust.Client.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -19,6 +21,7 @@ namespace Content.Client.ADT.Hallucinations;
 
 public sealed partial class SchizophreniaSystem : EntitySystem
 {
+    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IGameTiming _timing = default!;
@@ -35,7 +38,8 @@ public sealed partial class SchizophreniaSystem : EntitySystem
 
         SubscribeNetworkEvent<SetHallucinationAppearanceMessage>(OnAppearanceMessage);
 
-        SubscribeLocalEvent<SchizophreniaComponent, GetStatusIconsEvent>(OnGetStatusIcons);
+        SubscribeLocalEvent<SchizophreniaComponent, GetStatusIconsEvent>(OnGetHallucinatingIcons);
+        SubscribeLocalEvent<HallucinationComponent, GetStatusIconsEvent>(OnGetHallucinationIcons);
 
         SubscribeLocalEvent<HallucinationsMusicComponent, MapInitEvent>(OnMusicInit);
         SubscribeLocalEvent<HallucinationsMusicComponent, ComponentShutdown>(OnMusicShutdown);
@@ -80,10 +84,22 @@ public sealed partial class SchizophreniaSystem : EntitySystem
         QueueDel(item);
     }
 
-    private void OnGetStatusIcons(Entity<SchizophreniaComponent> ent, ref GetStatusIconsEvent args)
+    private void OnGetHallucinatingIcons(Entity<SchizophreniaComponent> ent, ref GetStatusIconsEvent args)
     {
-        // if (TryComp<HallucinationComponent>(_player.LocalEntity, out var hallucination) && hallucination.Idx == ent.Comp.Idx)
-        //     args.StatusIcons.Add(_prototypeManager.Index<FactionIconPrototype>("ShizophrenicIcon"));
+        if (!(TryComp<HallucinationComponent>(_player.LocalEntity, out var hallucination) && hallucination.Idx == ent.Comp.Idx) &&
+            !HasComp<ShowAntagIconsComponent>(_player.LocalEntity))
+            return;
+
+        args.StatusIcons.Add(_proto.Index(ent.Comp.FactionIcon));
+    }
+
+    private void OnGetHallucinationIcons(Entity<HallucinationComponent> ent, ref GetStatusIconsEvent args)
+    {
+        if (!(TryComp<HallucinationComponent>(_player.LocalEntity, out var hallucination) && hallucination.Idx == ent.Comp.Idx) &&
+            !HasComp<ShowAntagIconsComponent>(_player.LocalEntity))
+            return;
+
+        args.StatusIcons.Add(_proto.Index(ent.Comp.FactionIcon));
     }
 
     private void OnMusicInit(Entity<HallucinationsMusicComponent> ent, ref MapInitEvent args)

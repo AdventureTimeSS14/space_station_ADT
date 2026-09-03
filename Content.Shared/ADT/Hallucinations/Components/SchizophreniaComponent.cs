@@ -1,4 +1,6 @@
+using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Hallucinations.Components;
 
@@ -22,4 +24,8 @@ public sealed partial class SchizophreniaComponent : Component
     [AutoNetworkedField]
     [ViewVariables(VVAccess.ReadWrite)]
     public int Idx = 0;
+
+    [AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public ProtoId<FactionIconPrototype> FactionIcon = "Schizophrenic";
 }
