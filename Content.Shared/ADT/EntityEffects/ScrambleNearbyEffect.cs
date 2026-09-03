@@ -17,7 +17,7 @@ public sealed partial class ScrambleNearbyEffect : EntityEffectBase<ScrambleNear
     public List<ProtoId<SpeciesPrototype>>? SpeciesBlacklist;
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => null;
+        => Loc.GetString("entity-effect-guidebook-scramble-nearby");
 
     public override LogImpact? Impact => LogImpact.Medium;
 }

@@ -31,6 +31,9 @@ trait-female-ipc-desc = Вы способны издавать звуки жен
 trait-male-ipc-name = Голосовой модуль (Мужской)
 trait-male-ipc-desc = Вы способны издавать звуки мужских человеческих особей.
 
+trait-robotic-voice-ipc-name = Синтезатор речи
+trait-robotic-voice-ipc-desc = Ваш голосовой модуль не скрывает своего происхождения и звучит роботизированно.
+
 trait-polite-accent-name = Вежливый
 trait-polite-accent-desc = Вы говорите без грубых выражений, которые используют другие.
 
