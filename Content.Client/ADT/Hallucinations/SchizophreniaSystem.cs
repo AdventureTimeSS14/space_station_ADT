@@ -233,16 +233,22 @@ public sealed partial class SchizophreniaSystem : EntitySystem
 
     private void FrameUpdateMobs()
     {
-        if (HasComp<HallucinationsRemoveMobsComponent>(_player.LocalEntity))
-        {
-            var ents = EntityManager.AllEntities<MobStateComponent>().Where(x => !HasComp<HallucinationComponent>(x)).ToList();
-            foreach (var item in ents)
-            {
-                if (item.Owner == _player.LocalEntity || Transform(item.Owner).ParentUid == _player.LocalEntity)
-                    continue;
+        // Так как невозможно просто изолировать сущности по компоненту, это является лучшим вариантом для их сокрытия.
+        // Сущность существует, но она убирается из поля зрения до отрисовки, при этом сохраняя всю функциональность. После
+        // удаления компонента у клиента, он просто перестанет перемещать сущности в нуллспейс, не ломая ничего при этом.
 
-                _transform.SetCoordinates(item.Owner, new EntityCoordinates(EntityUid.Invalid, Vector2.Zero));
-            }
+        // В паре систем пришлось внести правки для работы с этим подходом, но это всё ещё не так плохо, как могло бы быть.
+
+        if (!HasComp<HallucinationsRemoveMobsComponent>(_player.LocalEntity))
+            return;
+
+        var ents = EntityManager.AllEntities<MobStateComponent>().Where(x => !HasComp<HallucinationComponent>(x)).ToList();
+        foreach (var item in ents)
+        {
+            if (item.Owner == _player.LocalEntity || Transform(item.Owner).ParentUid == _player.LocalEntity)
+                continue;
+
+            _transform.SetCoordinates(item.Owner, new EntityCoordinates(EntityUid.Invalid, Vector2.Zero));
         }
     }
 }
