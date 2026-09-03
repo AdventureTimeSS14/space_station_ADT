@@ -88,6 +88,7 @@ public sealed partial class ADTShadowlingAbilitySystem
             return;
         }
 
+        _audio.PlayPvs(ent.Comp.EnthrallSound, target);
         _popup.PopupEntity(Loc.GetString("shadowling-enthrall-success", ("target", target)), ent, ent, PopupType.Medium);
         _popup.PopupEntity(Loc.GetString("shadowling-enthrall-converted"), target, target, PopupType.LargeCaution);
     }
