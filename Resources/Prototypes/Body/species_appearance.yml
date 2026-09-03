@@ -20,13 +20,14 @@
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
     - map: [ "enum.HumanoidVisualLayers.Special" ] # ADT: needed so Special-layer markings (e.g. felinid cat ears) can render
-    - map: [ "socks" ]
+
 
     # Underwear & clothing
     - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
     - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
     - map: ["underwearb"]
     - map: ["underweart"]
+    - map: [ "socks" ]
     - map: ["jumpsuit"]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
     - map: [ "enum.HumanoidVisualLayers.RHand" ]
