@@ -62,6 +62,18 @@
     - /Audio/ADT/IPC/calculating1.ogg
     - /Audio/ADT/IPC/calculating2.ogg
 
+- type: soundCollection
+  id: PinkLaugh
+  files:
+    - /Audio/ADT/IPC/pink_laugh1.ogg
+    - /Audio/ADT/IPC/pink_laugh2.ogg
+
+- type: soundCollection
+  id: PinkScream
+  files:
+    - /Audio/ADT/IPC/pink_scream1.ogg
+    - /Audio/ADT/IPC/pink_scream2.ogg
+
 # Novakid
 
 - type: soundCollection
