@@ -29,7 +29,7 @@
   - ADT_Pump
 # Lowpop 20 - 35
   - ADT_Bagel
-  - ADT_Packed
+  #- ADT_Packed
   - ADT_Saltern
   - ADT_Aspid
   - ADT_Cluster
