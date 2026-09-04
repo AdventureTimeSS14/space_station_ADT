@@ -1,5 +1,5 @@
-using Content.Server.ADT.Hallucinations.Entries;
 using Content.Shared.Destructible.Thresholds;
+using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Hallucinations.Types;
@@ -15,14 +15,12 @@ public sealed partial class MobHallucinations : BaseHallucinationsType
     [DataField]
     public MinMax SpawnCount = new();
 
-    public override BaseHallucinationsEntry GetEntry()
+    [DataField]
+    public EntityWhitelist? Whitelist;
+
+    [DataField]
+    public EntityWhitelist? Blacklist = new()
     {
-        return new MobHallucinationsEntry()
-        {
-            Prototypes = Entities,
-            Delay = Delay,
-            Range = Range,
-            SpawnCount = SpawnCount
-        };
-    }
+        Tags = new(){ "Wall" }
+    };
 }
