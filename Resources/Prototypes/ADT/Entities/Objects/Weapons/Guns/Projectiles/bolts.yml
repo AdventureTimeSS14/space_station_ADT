@@ -315,3 +315,46 @@
   - type: Construction
     graph: ADTBoltImprovisedUranium
     node: ADTBoltImprovisedUranium
+
+- type: entity
+  parent: ADTBaseBolt
+  id: ADTBoltCard
+  name: cardboard bolt
+  description: Careful, you'll poke an eye out!
+  components:
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-tail
+        color: "#ab896bFF"
+      - state: inhand-left-rod
+        color: "#9b724dFF"
+      - state: inhand-left-tip
+        color: "#a77c55FF"
+      right:
+      - state: inhand-right-tail
+        color: "#ab896bFF"
+      - state: inhand-right-rod
+        color: "#9b724dFF"
+      - state: inhand-right-tip
+        color: "#a77c55FF"
+  - type: Sprite
+    layers:
+    - state: tail
+      color: "#ab896bFF"
+    - state: rod
+      color: "#9b724dFF"
+    - state: tip
+      color: "#a77c55FF"
+    - state: solution1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 1
+  - type: StaminaDamageOnCollide
+    damage: 20
+  - type: Construction
+    graph: ADTBoltCard
+    node: ADTBoltCard

@@ -253,3 +253,11 @@
   targetNode: ADTBoltImprovisedUranium
   category: construction-category-weapons
   objectType: Item
+
+- type: construction
+  id: ADTBoltCard
+  graph: ADTBoltCard
+  startNode: start
+  targetNode: ADTBoltCard
+  category: construction-category-weapons
+  objectType: Item
