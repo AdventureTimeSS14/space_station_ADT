@@ -68,15 +68,6 @@
     rot: 1.5707963267948966 rad
     positions:
     - 8.5,2.5
-  - proto: ADTPosterContrabandUmaOnBeach
-    positions:
-    - 2.5,7.5
-  - proto: ADTPosterContrabandUmaPress
-    positions:
-    - 13.5,0.5
-  - proto: ADTPosterContrabandUmaRabbit
-    positions:
-    - 17.5,7.5
   - proto: Bed
     positions:
     - 2.5,5.5
