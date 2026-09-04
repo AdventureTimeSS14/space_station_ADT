@@ -318,6 +318,7 @@
   - type: ModSuitMod
     energyUsing: 0.1
     complexity: 4
+    components: {}
     armorReplacement:
       outerClothing:
         coefficients:
@@ -326,6 +327,7 @@
           Piercing: 0.6
           Heat: 0.6
           Radiation: 0.6
+          Caustic: 0.6
 
 - type: entity
   parent: ADTModsuitModBase
