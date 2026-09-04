@@ -784,7 +784,7 @@
 - type: entity
   parent: ADTSponsorClothingHeadBase
   id: ADTClothingHeadHatPrazatBeret
-  suffix: Personal, 767sikon
+  suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
     sprite: ADT/Personalization/prazat_beret.rsi
@@ -798,7 +798,7 @@
   id: ADTClothingOuterCoatPrazat
   name: Prazat coat
   description: Prazat coat.
-  suffix: Personal, 767sikon
+  suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
     sprite: ADT/Personalization/prazat_coat.rsi
@@ -822,7 +822,7 @@
   id: ADTClothingUniformJumpsuitPrazat
   name: Prazat clothing
   description: Prazat clothin
-  suffix: Personal, 767sikon
+  suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
     sprite: ADT/Personalization/prazat_suit.rsi
