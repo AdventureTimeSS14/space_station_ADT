@@ -1,4 +1,4 @@
-using Content.Server.ADT.Hallucinations.Entries;
+using Content.Server.ADT.Hallucinations.Types;
 
 namespace Content.Server.ADT.Hallucinations.Components;
 
@@ -12,7 +12,7 @@ public sealed partial class HallucinatingComponent : Component
     /// Current hallucinations with their ids
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public Dictionary<string, List<BaseHallucinationsEntry>?> Hallucinations = new();
+    public Dictionary<string, HashSet<HallucinationCompound>> Hallucinations = new();
 
     /// <summary>
     /// Lifetimes for temporal hallucinations
@@ -27,4 +27,16 @@ public sealed partial class HallucinatingComponent : Component
     public List<string> Music = new();
 
     public TimeSpan NextUpdate = TimeSpan.Zero;
+
+    public sealed class HallucinationCompound
+    {
+        public BaseHallucinationsType Type;
+        public TimeSpan PerformTime;
+
+        public HallucinationCompound(BaseHallucinationsType type, TimeSpan performTime)
+        {
+            Type = type;
+            PerformTime = performTime;
+        }
+    }
 }

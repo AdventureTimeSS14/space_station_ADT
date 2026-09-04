@@ -97,33 +97,39 @@ public sealed partial class SchizophreniaSystem : EntitySystem
     private void UpdateEffects(EntityUid uid, HallucinatingComponent comp)
     {
         // Hallucinate
-        foreach (var item in comp.Hallucinations)
+        foreach (var (_, hallucinations) in comp.Hallucinations)
         {
-            if (item.Value == null)
+            if (hallucinations.Count <= 0)
                 continue;
 
-            foreach (var effect in item.Value)
-                effect.TryPerform(uid, EntityManager, _random, _timing.CurTime);
+            foreach (var compound in hallucinations)
+            {
+                if (compound.PerformTime > _timing.CurTime)
+                    continue;
+
+                Perform(uid, compound.Type);
+                compound.PerformTime = _timing.CurTime + TimeSpan.FromSeconds(compound.Type.Delay.Next(_random));
+            }
         }
     }
 
     private void UpdateMusic(EntityUid uid, HallucinatingComponent comp)
     {
         // Hallucinate
-        foreach (var item in comp.Hallucinations)
+        foreach (var (id, _) in comp.Hallucinations)
         {
-            var proto = _proto.Index<HallucinationsPackPrototype>(item.Key);
+            var proto = _proto.Index<HallucinationsPackPrototype>(id);
             if (proto.Music == null)
                 continue;
 
-            if (comp.Removes.TryGetValue(item.Key, out var removeTime) &&
+            if (comp.Removes.TryGetValue(id, out var removeTime) &&
                 (removeTime - _timing.CurTime).TotalSeconds < proto.MusicDurationThreshold)
             {
                 if (!TryComp<HallucinationsMusicComponent>(uid, out var musicComp) ||
-                    !musicComp.Music.ContainsKey(item.Key))
+                    !musicComp.Music.ContainsKey(id))
                     continue;
 
-                musicComp.Music.Remove(item.Key);
+                musicComp.Music.Remove(id);
 
                 if (musicComp.Music.Count > 0)
                     Dirty(uid, musicComp);
@@ -131,10 +137,10 @@ public sealed partial class SchizophreniaSystem : EntitySystem
                     RemComp(uid, musicComp);
             }
             else if (!TryComp<HallucinationsMusicComponent>(uid, out var musicComp) ||
-                    !musicComp.Music.ContainsKey(item.Key))
+                    !musicComp.Music.ContainsKey(id))
             {
                 musicComp = EnsureComp<HallucinationsMusicComponent>(uid);
-                musicComp.Music.Add(item.Key, new(proto.Music, proto.MusicPlayInterval));
+                musicComp.Music.Add(id, new(proto.Music, proto.MusicPlayInterval));
                 Dirty(uid, musicComp);
             }
         }

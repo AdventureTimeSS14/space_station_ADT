@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Server.ADT.Chat;
 using Content.Server.ADT.Hallucinations.Components;
-using Content.Server.ADT.Hallucinations.Entries;
 using Content.Server.ADT.Hallucinations.Events;
 using Content.Shared.ADT.Hallucinations.Components;
 using Content.Shared.Damage.Systems;
@@ -90,9 +89,9 @@ public sealed partial class SchizophreniaSystem : EntitySystem
         AddAsHallucination(ent.Owner, reveal);
     }
 
-    private void AddHallucinations(EntityUid uid, ProtoId<HallucinationsPackPrototype> pack, float duration, StatusEffectMetabolismType type)
+    private void AddHallucinations(EntityUid uid, ProtoId<HallucinationsPackPrototype> pack, float duration, StatusEffectMetabolismType metabolism)
     {
-        if (type == StatusEffectMetabolismType.Remove)
+        if (metabolism == StatusEffectMetabolismType.Remove)
             return;
 
         var comp = EnsureComp<HallucinatingComponent>(uid);
@@ -101,14 +100,13 @@ public sealed partial class SchizophreniaSystem : EntitySystem
         var packProto = _proto.Index(pack);
         var data = packProto.Data;
 
-        List<BaseHallucinationsEntry>? entries = null;
+        HashSet<HallucinatingComponent.HallucinationCompound>? entries = new();
         if (data != null)
         {
             entries = new();
-            foreach (var item in data)
+            foreach (var type in data)
             {
-                var entry = item.GetEntry();
-                entries.Add(entry);
+                entries.Add(new HallucinatingComponent.HallucinationCompound(type, _timing.CurTime));
             }
         }
 
@@ -124,11 +122,11 @@ public sealed partial class SchizophreniaSystem : EntitySystem
             comp.Removes.Add(pack, _timing.CurTime + TimeSpan.FromSeconds(duration));
     }
 
-    private void AdjustHallucinations(EntityUid uid, ProtoId<HallucinationsPackPrototype> pack, float duration, StatusEffectMetabolismType type)
+    private void AdjustHallucinations(EntityUid uid, ProtoId<HallucinationsPackPrototype> pack, float duration, StatusEffectMetabolismType metabolism)
     {
         var comp = EnsureComp<HallucinatingComponent>(uid);
 
-        switch (type)
+        switch (metabolism)
         {
             case StatusEffectMetabolismType.Update:
                 if (comp.Removes.TryGetValue(pack, out _))
