@@ -1,3 +1,4 @@
+using Content.Shared.Ghost;
 using Content.Shared.Maps;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
@@ -23,6 +24,10 @@ public sealed class TileSpeedModifierSystem : EntitySystem
             return;
 
         var speed = GetTileSpeedModifier(args.NewPosition);
+
+        if (HasComp<GhostComponent>(ent))
+            speed = 1f;
+
         if (MathHelper.CloseTo(speed, 1f))
         {
             if (HasComp<TileSpeedModifierComponent>(ent))
