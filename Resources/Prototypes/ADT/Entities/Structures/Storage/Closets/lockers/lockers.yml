@@ -1,13 +1,3 @@
-- type: entity
-  id: LockerCorrectionOfficerFilled
-  suffix: Filled
-  parent: LockerCorrectionOfficer
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillLockerCorrectionOfficer
-
 - type: entityTable
   id: FillLockerCorrectionOfficer
   table: !type:AllSelector
