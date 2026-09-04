@@ -41,7 +41,28 @@ public sealed partial class ServerApi
             if (!await CheckSponsorAccess(context))
                 return true;
 
-            await handler(context);
+            try
+            {
+                await handler(context);
+            }
+            catch (Exception e)
+            {
+                _sawmill.Error($"Ошибка в обработчике спонсорского API {exactPath}: {e}");
+
+                try
+                {
+                    await RespondError(
+                        context,
+                        ErrorCode.None,
+                        HttpStatusCode.InternalServerError,
+                        "Внутренняя ошибка сервера.");
+                }
+                catch (Exception respondError)
+                {
+                    _sawmill.Debug($"Не удалось отдать ошибку клиенту: {respondError.Message}");
+                }
+            }
+
             return true;
         });
     }
@@ -270,7 +291,12 @@ public sealed partial class ServerApi
             return;
         }
 
-        await RunOnMainThreadAsync(() => _sponsors.DeleteTierAsync(existing.Id, FormatLogActor(actor)));
+        if (!await RunOnMainThreadAsync(() => _sponsors.DeleteTierAsync(existing.Id, FormatLogActor(actor))))
+        {
+            await RespondNotFound(context, "Тир не найден либо уже удалён.");
+            return;
+        }
+
         await RespondOk(context);
     }
 
@@ -513,8 +539,21 @@ public sealed partial class ServerApi
             return true;
         }
 
-        expires = body.ExpiresAt;
+        expires = ToUtc(body.ExpiresAt);
         return true;
+    }
+
+    private static DateTime? ToUtc(DateTime? value)
+    {
+        if (value == null)
+            return null;
+
+        return value.Value.Kind switch
+        {
+            DateTimeKind.Utc => value.Value,
+            DateTimeKind.Local => value.Value.ToUniversalTime(),
+            _ => DateTime.SpecifyKind(value.Value, DateTimeKind.Utc),
+        };
     }
 
     private static Dictionary<string, string> ParseQuery(string query)

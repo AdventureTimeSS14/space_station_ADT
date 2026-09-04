@@ -12,7 +12,7 @@ public sealed class SponsorCVars
     /// Учитывать ли старую спонсорку при валидации профиля
     /// </summary>
     public static readonly CVarDef<bool> LegacyBridge =
-        CVarDef.Create("adt.sponsor.legacy_bridge", true, CVar.SERVERONLY);
+        CVarDef.Create("adt.sponsor.legacy_bridge", true, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     /// Отдельный токен для спонсорского HTTP API
@@ -22,4 +22,10 @@ public sealed class SponsorCVars
 
     public static readonly CVarDef<bool> EnforceProfile =
         CVarDef.Create("adt.sponsor.enforce_profile", true, CVar.SERVER | CVar.REPLICATED);
+
+    public static readonly CVarDef<float> ColorsRateLimitPeriod =
+        CVarDef.Create("adt.sponsor.colors_rate_limit_period", 2f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> ColorsRateLimitCount =
+        CVarDef.Create("adt.sponsor.colors_rate_limit_count", 20, CVar.SERVERONLY);
 }

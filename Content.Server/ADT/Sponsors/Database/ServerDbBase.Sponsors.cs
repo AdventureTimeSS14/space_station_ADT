@@ -268,6 +268,18 @@ public abstract partial class ServerDbBase
 
     public async Task SaveSponsorColors(Guid userId, SponsorPersonalColors colors)
     {
+        try
+        {
+            await SaveSponsorColorsCore(userId, colors);
+        }
+        catch (DbUpdateException)
+        {
+            await SaveSponsorColorsCore(userId, colors);
+        }
+    }
+
+    private async Task SaveSponsorColorsCore(Guid userId, SponsorPersonalColors colors)
+    {
         await using var db = await GetDb();
 
         var row = await db.DbContext.AdtSponsorPreference

@@ -13,6 +13,11 @@ public sealed partial class SponsorColorsWindow : DefaultWindow
 
     private bool _refreshing;
 
+    private Color? _pendingOoc;
+    private Color? _pendingGhost;
+
+    private int _inFlight;
+
     public SponsorColorsWindow(SponsorManager sponsors)
     {
         RobustXamlLoader.Load(this);
@@ -22,17 +27,17 @@ public sealed partial class SponsorColorsWindow : DefaultWindow
         OocSelector.OnColorChanged += color =>
         {
             if (!_refreshing)
-                _sponsors.RequestColors(color, _sponsors.Colors.Ghost);
+                Send(color, _pendingGhost);
         };
 
         GhostSelector.OnColorChanged += color =>
         {
             if (!_refreshing)
-                _sponsors.RequestColors(_sponsors.Colors.Ooc, color);
+                Send(_pendingOoc, color);
         };
 
-        OocResetButton.OnPressed += _ => _sponsors.RequestColors(null, _sponsors.Colors.Ghost);
-        GhostResetButton.OnPressed += _ => _sponsors.RequestColors(_sponsors.Colors.Ooc, null);
+        OocResetButton.OnPressed += _ => Send(null, _pendingGhost);
+        GhostResetButton.OnPressed += _ => Send(_pendingOoc, null);
 
         _sponsors.Updated += Refresh;
         Refresh();
@@ -46,8 +51,26 @@ public sealed partial class SponsorColorsWindow : DefaultWindow
             _sponsors.Updated -= Refresh;
     }
 
+    private void Send(Color? ooc, Color? ghost)
+    {
+        _pendingOoc = ooc;
+        _pendingGhost = ghost;
+        _inFlight++;
+
+        _sponsors.RequestColors(ooc, ghost);
+    }
+
     private void Refresh()
     {
+        if (_inFlight > 0)
+            _inFlight--;
+
+        if (_inFlight == 0)
+        {
+            _pendingOoc = _sponsors.Colors.Ooc;
+            _pendingGhost = _sponsors.Colors.Ghost;
+        }
+
         _refreshing = true;
 
         try
@@ -55,12 +78,12 @@ public sealed partial class SponsorColorsWindow : DefaultWindow
             var data = _sponsors.Data;
 
             OocSection.Visible = data.AllowCustomOocColor;
-            OocSelector.Color = _sponsors.Colors.Ooc ?? data.OocColor ?? Color.White;
+            OocSelector.Color = _pendingOoc ?? data.OocColor ?? Color.White;
 
             var hasPresets = data.GhostColors.Count > 0;
             GhostSection.Visible = data.AllowCustomGhostColor || hasPresets;
             GhostSelector.Visible = data.AllowCustomGhostColor;
-            GhostSelector.Color = _sponsors.Colors.Ghost ?? Color.White;
+            GhostSelector.Color = _pendingGhost ?? Color.White;
 
             BuildGhostPresets(data);
 
@@ -89,7 +112,7 @@ public sealed partial class SponsorColorsWindow : DefaultWindow
             };
 
             var picked = color;
-            button.OnPressed += _ => _sponsors.RequestColors(_sponsors.Colors.Ooc, picked);
+            button.OnPressed += _ => Send(_pendingOoc, picked);
 
             GhostPresets.AddChild(button);
         }

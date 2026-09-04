@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Shared.ADT.Sponsors;
 using Content.Shared.Database;
+using Microsoft.EntityFrameworkCore;
 using Robust.Shared.Network;
 
 namespace Content.Server.ADT.Sponsors;
@@ -19,7 +20,17 @@ public sealed partial class SponsorManager
         if (await _db.SponsorTierNameTakenAsync(tier.Name, 0))
             return null;
 
-        var created = await _db.CreateSponsorTierAsync(tier);
+        SponsorTier created;
+
+        try
+        {
+            created = await _db.CreateSponsorTierAsync(tier);
+        }
+        catch (DbUpdateException ex)
+        {
+            _sawmill.Warning($"Не удалось создать спонсорский тир '{tier.Name}': {ex.Message}");
+            return null;
+        }
 
         await ReloadTiersAndRefresh();
         Audit(actor, $"создал спонсорский тир '{created.Name}' (id {created.Id})");
@@ -35,8 +46,16 @@ public sealed partial class SponsorManager
         if (await _db.SponsorTierNameTakenAsync(tier.Name, tier.Id))
             return false;
 
-        if (!await _db.UpdateSponsorTierAsync(tier))
+        try
+        {
+            if (!await _db.UpdateSponsorTierAsync(tier))
+                return false;
+        }
+        catch (DbUpdateException ex)
+        {
+            _sawmill.Warning($"Не удалось сохранить спонсорский тир '{tier.Name}': {ex.Message}");
             return false;
+        }
 
         await ReloadTiersAndRefresh();
         Audit(actor, $"изменил спонсорский тир '{tier.Name}' (id {tier.Id})");

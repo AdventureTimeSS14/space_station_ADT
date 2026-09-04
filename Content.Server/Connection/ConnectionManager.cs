@@ -408,7 +408,10 @@ namespace Content.Server.Connection
         {
             var isAdmin = await _db.GetAdminDataForAsync(userId) != null;
             var havePriorityJoin = _sponsorsManager.TryGetInfo(userId, out var sponsor) && sponsor.HavePriorityJoin && sponsor.ExpireDate > DateTime.Now; // Corvax-Sponsors + ADT-Sponsors
-            havePriorityJoin |= _adtSponsors.GetData(userId).PriorityJoin; // ADT-Tweak
+            // ADT-Tweak-Start
+            var adtSponsor = await _adtSponsors.EnsureLoadedAsync(userId);
+            havePriorityJoin |= adtSponsor.PriorityJoin;
+            // ADT-Tweak-End
             var wasInGame = EntitySystem.TryGet<GameTicker>(out var ticker) &&
                             ticker.PlayerGameStatuses.TryGetValue(userId, out var status) &&
                             status == PlayerGameStatus.JoinedGame;

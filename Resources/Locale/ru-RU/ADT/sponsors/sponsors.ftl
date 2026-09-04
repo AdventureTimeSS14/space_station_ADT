@@ -58,6 +58,8 @@ adt-sponsor-editor-all-markings = Все спонсорские маркинги
 adt-sponsor-editor-markings = Маркинги
 adt-sponsor-editor-species = Виды
 adt-sponsor-editor-traits = Трейты
+adt-sponsor-editor-all-tts = Все спонсорские ТТС-голоса
+adt-sponsor-editor-tts = ТТС-голоса
 
 adt-sponsor-editor-chat-ghost = Чат и призрак
 adt-sponsor-editor-has-ooc-color = Задать цвет ника в ООС
@@ -66,6 +68,7 @@ adt-sponsor-editor-ghost-colors = Цвета призрака
 adt-sponsor-editor-custom-ghost = Разрешить любой цвет призрака
 adt-sponsor-editor-color-add = Добавить цвет
 adt-sponsor-editor-color-edit = Изменить
+adt-sponsor-editor-color-apply = Применить
 
 adt-sponsor-editor-other = Прочее
 adt-sponsor-editor-priority-join = Приоритетный вход

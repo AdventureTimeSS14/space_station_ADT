@@ -5,7 +5,7 @@ using Robust.Shared.Player;
 
 namespace Content.Client.ADT.Sponsors;
 
-public sealed class SponsorManager : SharedSponsorManager
+public sealed partial class SponsorManager : SharedSponsorManager
 {
     [Dependency] private readonly IClientNetManager _netMgr = default!;
     [Dependency] private readonly IPlayerManager _players = default!;
@@ -23,12 +23,16 @@ public sealed class SponsorManager : SharedSponsorManager
         _netMgr.RegisterNetMessage<MsgSponsorState>(OnState);
         _netMgr.RegisterNetMessage<MsgSetSponsorColors>();
 
+        InitializeLegacy();
+
         _netMgr.Disconnect += OnDisconnect;
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
+
+        ShutdownLegacy();
 
         _netMgr.Disconnect -= OnDisconnect;
     }

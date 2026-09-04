@@ -12,9 +12,11 @@ public sealed class SponsorColorList : BoxContainer
     private readonly BoxContainer _body;
     private readonly LegacyColorSelectorSliders _selector;
     private readonly BoxContainer _items;
+    private readonly Button _add;
 
     private readonly string _title;
     private readonly List<Color> _colors = new();
+    private Color? _editing;
 
     public SponsorColorList(string title)
     {
@@ -36,12 +38,12 @@ public sealed class SponsorColorList : BoxContainer
             Color = Color.White,
         };
 
-        var add = new Button
+        _add = new Button
         {
             Text = Loc.GetString("adt-sponsor-editor-color-add"),
         };
 
-        add.OnPressed += _ => AddCurrent();
+        _add.OnPressed += _ => AddCurrent();
 
         _items = new BoxContainer
         {
@@ -58,18 +60,25 @@ public sealed class SponsorColorList : BoxContainer
         };
 
         _body.AddChild(_selector);
-        _body.AddChild(add);
+        _body.AddChild(_add);
         AddChild(_body);
 
         AddChild(_items);
 
-        _header.OnToggled += args => _body.Visible = args.Pressed;
+        _header.OnToggled += args =>
+        {
+            _body.Visible = args.Pressed;
+
+            if (!args.Pressed)
+                StopEditing();
+        };
 
         UpdateHeader();
     }
 
     public void SetColors(IEnumerable<Color> colors)
     {
+        _editing = null;
         _colors.Clear();
         _colors.AddRange(colors);
         Rebuild();
@@ -84,11 +93,40 @@ public sealed class SponsorColorList : BoxContainer
     {
         var color = _selector.Color;
 
+        if (_editing is { } editing)
+        {
+            var index = _colors.IndexOf(editing);
+            _editing = null;
+
+            if (index >= 0)
+            {
+                if (editing != color && _colors.Contains(color))
+                    _colors.RemoveAt(index);
+                else
+                    _colors[index] = color;
+
+                Rebuild();
+                return;
+            }
+        }
+
         if (_colors.Contains(color))
+        {
+            Rebuild();
             return;
+        }
 
         _colors.Add(color);
         Rebuild();
+    }
+
+    private void StopEditing()
+    {
+        if (_editing == null)
+            return;
+
+        _editing = null;
+        UpdateAddText();
     }
 
     private void Rebuild()
@@ -127,8 +165,8 @@ public sealed class SponsorColorList : BoxContainer
                 _selector.Color = target;
                 _header.Pressed = true;
                 _body.Visible = true;
-                _colors.Remove(target);
-                Rebuild();
+                _editing = target;
+                UpdateAddText();
             };
 
             var remove = new Button
@@ -138,6 +176,9 @@ public sealed class SponsorColorList : BoxContainer
 
             remove.OnPressed += _ =>
             {
+                if (_editing is { } editing && editing == target)
+                    _editing = null;
+
                 _colors.Remove(target);
                 Rebuild();
             };
@@ -148,10 +189,22 @@ public sealed class SponsorColorList : BoxContainer
         }
 
         UpdateHeader();
+        UpdateAddText();
     }
 
     private void UpdateHeader()
     {
         _header.Text = _colors.Count == 0 ? _title : $"{_title}  ({_colors.Count})";
+    }
+
+    private void UpdateAddText()
+    {
+        if (_editing == null)
+        {
+            _add.Text = Loc.GetString("adt-sponsor-editor-color-add");
+            return;
+        }
+
+        _add.Text = Loc.GetString("adt-sponsor-editor-color-apply");
     }
 }

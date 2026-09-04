@@ -51,6 +51,8 @@ public sealed partial class SponsorManager : SharedSponsorManager
         _netMgr.RegisterNetMessage<MsgSponsorState>();
         _netMgr.RegisterNetMessage<MsgSetSponsorColors>(OnSetColors);
 
+        RegisterColorRateLimit();
+
         _netMgr.Connecting += OnConnecting;
         _netMgr.Connected += OnConnected;
         _netMgr.Disconnect += OnDisconnect;
@@ -121,12 +123,28 @@ public sealed partial class SponsorManager : SharedSponsorManager
         if (!_enabled)
             return;
 
+        await LoadPlayer(e.UserId);
+    }
+
+    public async Task<SponsorData> EnsureLoadedAsync(NetUserId userId)
+    {
+        if (!_enabled)
+            return SponsorData.Empty;
+
+        if (!_cache.ContainsKey(userId))
+            await LoadPlayer(userId);
+
+        return GetData(userId);
+    }
+
+    private async Task LoadPlayer(NetUserId userId)
+    {
         await _tiersLoad;
 
         try
         {
-            var grants = await _db.GetSponsorGrantsAsync(e.UserId.UserId);
-            _cache[e.UserId] = new CachedSponsor
+            var grants = await _db.GetSponsorGrantsAsync(userId.UserId);
+            _cache[userId] = new CachedSponsor
             {
                 Grants = grants,
                 Data = Resolve(grants, DateTime.UtcNow),
@@ -134,11 +152,11 @@ public sealed partial class SponsorManager : SharedSponsorManager
         }
         catch (Exception ex)
         {
-            _sawmill.Error($"Не удалось загрузить спонсорские выдачи для {e.UserId}: {ex}");
-            _cache.Remove(e.UserId);
+            _sawmill.Error($"Не удалось загрузить спонсорские выдачи для {userId}: {ex}");
+            _cache.Remove(userId);
         }
 
-        await LoadColors(e.UserId);
+        await LoadColors(userId);
     }
 
     private void OnConnected(object? sender, NetChannelArgs e)
@@ -281,9 +299,40 @@ public sealed partial class SponsorManager : SharedSponsorManager
 
     private void OnEnabledChanged(bool value)
     {
+        var wasEnabled = _enabled;
         _enabled = value;
 
         if (!value)
+        {
             _sawmill.Info("Новая спонсорская система выключена.");
+            return;
+        }
+
+        if (wasEnabled)
+            return;
+
+        LoadConnectedPlayers();
+    }
+
+    private async void LoadConnectedPlayers()
+    {
+        try
+        {
+            foreach (var session in _players.Sessions.ToArray())
+            {
+                if (!_enabled)
+                    return;
+
+                if (_cache.ContainsKey(session.UserId))
+                    continue;
+
+                await LoadPlayer(session.UserId);
+                SendState(session.UserId);
+            }
+        }
+        catch (Exception ex)
+        {
+            _sawmill.Error($"Не удалось догрузить спонсорские выдачи после включения системы: {ex}");
+        }
     }
 }
