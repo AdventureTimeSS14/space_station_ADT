@@ -10,7 +10,7 @@
       fallbackTypes:
         - !type:SkinColoring
     layers:
-      ears_cat_inner:
+      ears_stubby_inner:
         type:
           !type:SimpleColoring
           color: "#FFFFFF"
@@ -32,7 +32,7 @@
       fallbackTypes:
         - !type:SkinColoring
     layers:
-      ears_cat_inner:
+      ears_curled_inner:
         type:
           !type:SimpleColoring
           color: "#FFFFFF"
@@ -54,7 +54,7 @@
       fallbackTypes:
         - !type:SkinColoring
     layers:
-      ears_cat_inner:
+      ears_torn_inner:
         type:
           !type:SimpleColoring
           color: "#FFFFFF"
