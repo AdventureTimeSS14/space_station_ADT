@@ -510,6 +510,9 @@
   id: ADTCatEmotes
 
 - type: Tag
+  id: ADTIPCCuteEmotes
+
+- type: Tag
   id: ADTVoxEmotes
 
 - type: Tag

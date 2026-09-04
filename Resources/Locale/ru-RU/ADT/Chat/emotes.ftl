@@ -25,6 +25,8 @@ chat-emote-name-sigh-buzz = Раздражённо жужжать
 chat-emote-name-startup = Включиться
 chat-emote-name-error = Ошибка
 chat-emote-name-calculating = Вычислять
+chat-emote-name-cute-surprised = Удивиться
+chat-emote-name-cute-scared = Испугаться
 chat-emote-msg-deathgasp-ipc = замирает и недвижимо оседает, { POSS-ADJ($entity) } монитор трескается и выключается...
 # Shadekin
 chat-emote-msg-wurble = урчит
