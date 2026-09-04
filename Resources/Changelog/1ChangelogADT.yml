@@ -14978,3 +14978,9 @@ Entries:
     id: 1889
     pr_number: 3315
     time: '2026-09-02T07:41:16Z'
+  - author: Kerfus
+    changes:
+      - {message: Pump Station перенесён в категорию микропоп карт., type: Tweak}
+    id: 1890
+    pr_number: 3326
+    time: '2026-09-04T14:59:44Z'
