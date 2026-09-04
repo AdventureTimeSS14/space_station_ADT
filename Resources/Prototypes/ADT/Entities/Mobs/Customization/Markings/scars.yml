@@ -1,7 +1,7 @@
 - type: marking
   id: ADTArmTwistingLeft
   bodyPart: LArm
-  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
+  groupWhitelist: [Human, Felinid, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -10,7 +10,7 @@
 - type: marking
   id: ADTArmTwistingRight
   bodyPart: RArm
-  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
+  groupWhitelist: [Human, Felinid, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -19,7 +19,7 @@
 - type: marking
   id: ADTChestBackstabbed
   bodyPart: Chest
-  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
+  groupWhitelist: [Human, Felinid, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -28,7 +28,7 @@
 - type: marking
   id: ADTChestTwistingLeft
   bodyPart: Chest
-  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
+  groupWhitelist: [Human, Felinid, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -37,7 +37,7 @@
 - type: marking
   id: ADTChestTwistingRight
   bodyPart: Chest
-  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
+  groupWhitelist: [Human, Felinid, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -46,7 +46,7 @@
 - type: marking
   id: ADTChestStar
   bodyPart: Chest
-  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
+  groupWhitelist: [Human, Felinid, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -55,7 +55,7 @@
 - type: marking
   id: ADTHandTwistingLeft
   bodyPart: LHand
-  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
+  groupWhitelist: [Human, Felinid, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -64,7 +64,7 @@
 - type: marking
   id: ADTHandTwistingRight
   bodyPart: RHand
-  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
+  groupWhitelist: [Human, Felinid, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -73,7 +73,7 @@
 - type: marking
   id: ADTSmileScars
   bodyPart: Head
-  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
+  groupWhitelist: [Human, Felinid, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -82,7 +82,7 @@
 - type: marking
   id: ADTHeadTwisting
   bodyPart: Head
-  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
+  groupWhitelist: [Human, Felinid, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -91,7 +91,7 @@
 - type: marking
   id: ADTLegTwistingLeft
   bodyPart: LLeg
-  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
+  groupWhitelist: [Human, Felinid, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -100,7 +100,7 @@
 - type: marking
   id: ADTLegTwistingRight
   bodyPart: RLeg
-  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
+  groupWhitelist: [Human, Felinid, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -109,7 +109,7 @@
 - type: marking
   id: ADTTorsoIncision
   bodyPart: Chest
-  groupWhitelist: [Human, Reptilian, Demon, Arachnid]
+  groupWhitelist: [Human, Felinid, Reptilian, Demon, Arachnid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi

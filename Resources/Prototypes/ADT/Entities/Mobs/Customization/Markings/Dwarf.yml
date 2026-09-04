@@ -5,7 +5,7 @@
   forcedColoring: true
   followSkinColor: false
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: dwarfbearcheeks
   shader: unshaded
 
@@ -175,7 +175,7 @@
   bodyPart: Chest
   groupWhitelist: [Human]
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: dwarfchesthair
 
 - type: marking
@@ -183,7 +183,7 @@
   bodyPart: LArm
   groupWhitelist: [Human]
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: dwarfarmhair
 
 - type: marking
@@ -191,7 +191,7 @@
   bodyPart: LLeg
   groupWhitelist: [Human]
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: dwarfleghair
 
 - type: marking
@@ -204,7 +204,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: dwarftattooshootingstar
   shader: unshaded
 
