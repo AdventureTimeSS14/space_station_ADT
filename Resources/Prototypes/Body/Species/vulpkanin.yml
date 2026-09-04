@@ -401,7 +401,7 @@
     - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
     - map: ["underwearb"]
     - map: ["underweart"]
-    - map: [ "socks" ]
+    - map: [ "socks" ] # ADT layers
     - map: ["jumpsuit"]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
     - map: [ "enum.HumanoidVisualLayers.RHand" ]
