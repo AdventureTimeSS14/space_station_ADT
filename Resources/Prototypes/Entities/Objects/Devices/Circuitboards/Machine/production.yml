@@ -806,8 +806,11 @@
     prototype: TurboItemRecharger
     stackRequirements:
       CableMV: 5
-    partRequirements: #ADT-Tweak: machine parts
+    #ADT-Tweak start
+    partRequirements:
       Capacitor: 1
+    noUpgrades: true
+    #ADT-Tweak end
   - type: PhysicalComposition
     materialComposition:
       Steel: 30
