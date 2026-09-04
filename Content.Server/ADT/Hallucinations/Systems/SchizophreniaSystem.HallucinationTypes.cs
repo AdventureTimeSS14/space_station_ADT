@@ -11,7 +11,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.ADT.Hallucinations.Systems;
 
-public sealed partial class SchizophreniaSystem : EntitySystem
+public sealed partial class SchizophreniaSystem
 {
     [Dependency] private TransformSystem _xform = default!;
     [Dependency] private MapSystem _map = default!;

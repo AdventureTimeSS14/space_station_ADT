@@ -12,7 +12,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Hallucinations.Systems;
 
-public sealed partial class SchizophreniaSystem : EntitySystem
+public sealed partial class SchizophreniaSystem
 {
     private void InitializeShizophrenic()
     {
