@@ -196,11 +196,13 @@
     sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
     layers:
     - state: tail
-      color: "#ab896bFF" #ADT-Tweak
+      #ADT-Tweak-Start
+      color: "#ab896bFF"
     - state: rod
-      color: "#9b724dFF" #ADT-Tweak
+      color: "#9b724dFF"
     - state: tip
-      color: "#a77c55FF" #ADT-Tweak
+      color: "#a77c55FF"
+      #ADT-Tweak-End
     - state: solution1
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: false
