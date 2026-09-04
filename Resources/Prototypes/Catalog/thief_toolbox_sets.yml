@@ -19,7 +19,7 @@
     state: icon
   content:
   - WelderIndustrialAdvanced
-  - ClothingEyesGlassesMeson
+  - ADTClothingEyesWeldingOldStyle # ADT-Tweak
   - ClothingHandsGlovesColorYellow
   - JawsOfLife
   - RemoteSignaller
@@ -96,6 +96,14 @@
   content:
   - InvisibleCrate
   - FultonBeacon
+  - Fulton
+  - Fulton
+  - Fulton
+  - Fulton
+  - Fulton
+  - Fulton
+  - Fulton
+  - Fulton
   - Fulton
   - SmokeGrenade
   - SmokeGrenade
