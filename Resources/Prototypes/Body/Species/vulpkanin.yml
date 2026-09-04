@@ -165,7 +165,7 @@
       Unsexed: NesFemaleVulpa # MaleVulpkanin -> NesFemaleVulpa
       # ADT-Tweak: End
   - type: Damageable
-    damageModifierSet: Vulpkanin
+    damageModifierSet: ADTVulpkanin # ADT-Tweak
   - type: Injurable
   - type: MeleeWeapon
     soundHit:
