@@ -15731,7 +15731,7 @@ entities:
     - type: Transform
       pos: 9.67418,-4.571714
       parent: 2
-- proto: WeaponTurretSyndicateDisposable
+- proto: WeaponTurretSyndicate
   entities:
   - uid: 2620
     components:
