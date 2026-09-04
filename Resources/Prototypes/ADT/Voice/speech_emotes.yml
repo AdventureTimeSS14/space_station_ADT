@@ -379,6 +379,46 @@
     - делает харчок
 
 - type: emote
+  id: IPCCuteSurprised
+  name: chat-emote-name-cute-surprised
+  icon: Interface/Emotes/scream.png
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTIPCCuteEmotes
+  blacklist:
+    components:
+    - BorgChassis
+    tags:
+    - SiliconEmotes
+  chatMessages: [удивляется!]
+  chatTriggers:
+    - удивляется
+
+- type: emote
+  id: IPCCuteScared
+  name: chat-emote-name-cute-scared
+  icon: Interface/Emotes/scream.png
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTIPCCuteEmotes
+  blacklist:
+    components:
+    - BorgChassis
+    tags:
+    - SiliconEmotes
+  chatMessages: [пугается!]
+  chatTriggers:
+    - пугается
+
+- type: emote
   id: IPCDeathgasp
   name: chat-emote-name-deathgasp
   icon: Interface/Emotes/deathgasp.png
