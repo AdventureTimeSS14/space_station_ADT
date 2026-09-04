@@ -1,0 +1,311 @@
+- type: entity
+  parent: SuperSynthesizerInstrument
+  id: ADTSuperSynthesizerAquamarineInstrument
+  suffix: ""
+  name: aquamarine super synthesizer
+  description: Blasting the ghetto with Touhou MIDIs since 2020.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Instruments/super_synthesizer.rsi
+    layers:
+    - state: base
+    - state: top
+      color: "#77f3b7FF"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-top
+        color: "#77f3b7FF"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-top
+        color: "#77f3b7FF"
+
+- type: entity
+  parent: SuperSynthesizerInstrument
+  id: ADTSuperSynthesizerWhiteInstrument
+  suffix: ""
+  name: white super synthesizer
+  description: Blasting the ghetto with Touhou MIDIs since 2020.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Instruments/super_synthesizer.rsi
+    layers:
+    - state: base
+    - state: top
+      color: "#eeeeeeFF"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-top
+        color: "#eeeeeeFF"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-top
+        color: "#eeeeeeFF"
+
+- type: entity
+  parent: SuperSynthesizerInstrument
+  id: ADTSuperSynthesizerYellowInstrument
+  suffix: ""
+  name: yellow super synthesizer
+  description: Blasting the ghetto with Touhou MIDIs since 2020.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Instruments/super_synthesizer.rsi
+    layers:
+    - state: base
+    - state: top
+      color: "#f4de68FF"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-top
+        color: "#f4de68FF"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-top
+        color: "#f4de68FF"
+
+- type: entity
+  parent: SuperSynthesizerInstrument
+  id: ADTSuperSynthesizerGreenInstrument
+  suffix: ""
+  name: green super synthesizer
+  description: Blasting the ghetto with Touhou MIDIs since 2020.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Instruments/super_synthesizer.rsi
+    layers:
+    - state: base
+    - state: top
+      color: "#488c40FF"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-top
+        color: "#488c40FF"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-top
+        color: "#488c40FF"
+
+- type: entity
+  parent: SuperSynthesizerInstrument
+  id: ADTSuperSynthesizerBrownInstrument
+  suffix: ""
+  name: brown super synthesizer
+  description: Blasting the ghetto with Touhou MIDIs since 2020.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Instruments/super_synthesizer.rsi
+    layers:
+    - state: base
+    - state: top
+      color: "#624831FF"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-top
+        color: "#624831FF"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-top
+        color: "#624831FF"
+
+- type: entity
+  parent: SuperSynthesizerInstrument
+  id: ADTSuperSynthesizerRedInstrument
+  suffix: ""
+  name: red super synthesizer
+  description: Blasting the ghetto with Touhou MIDIs since 2020.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Instruments/super_synthesizer.rsi
+    layers:
+    - state: base
+    - state: top
+      color: "#a52f29FF"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-top
+        color: "#a52f29FF"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-top
+        color: "#a52f29FF"
+
+- type: entity
+  parent: SuperSynthesizerInstrument
+  id: ADTSuperSynthesizerOrangeInstrument
+  suffix: ""
+  name: orange super synthesizer
+  description: Blasting the ghetto with Touhou MIDIs since 2020.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Instruments/super_synthesizer.rsi
+    layers:
+    - state: base
+    - state: top
+      color: "#d98e43FF"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-top
+        color: "#d98e43FF"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-top
+        color: "#d98e43FF"
+
+- type: entity
+  parent: SuperSynthesizerInstrument
+  id: ADTSuperSynthesizerPinkInstrument
+  suffix: ""
+  name: pink super synthesizer
+  description: Blasting the ghetto with Touhou MIDIs since 2020.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Instruments/super_synthesizer.rsi
+    layers:
+    - state: base
+    - state: top
+      color: "#fa8a97FF"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-top
+        color: "#fa8a97FF"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-top
+        color: "#fa8a97FF"
+
+- type: entity
+  parent: SuperSynthesizerInstrument
+  id: ADTSuperSynthesizerGreyInstrument
+  suffix: ""
+  name: grey super synthesizer
+  description: Blasting the ghetto with Touhou MIDIs since 2020.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Instruments/super_synthesizer.rsi
+    layers:
+    - state: base
+    - state: top
+      color: "#b3b3b3FF"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-top
+        color: "#b3b3b3FF"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-top
+        color: "#b3b3b3FF"
+
+- type: entity
+  parent: SuperSynthesizerInstrument
+  id: ADTSuperSynthesizerBlueInstrument
+  suffix: ""
+  name: blue super synthesizer
+  description: Blasting the ghetto with Touhou MIDIs since 2020.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Instruments/super_synthesizer.rsi
+    layers:
+    - state: base
+    - state: top
+      color: "#4a6acaFF"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-top
+        color: "#4a6acaFF"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-top
+        color: "#4a6acaFF"
+
+- type: entity
+  parent: SuperSynthesizerInstrument
+  id: ADTSuperSynthesizerPurpleInstrument
+  suffix: ""
+  name: purple super synthesizer
+  description: Blasting the ghetto with Touhou MIDIs since 2020.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Instruments/super_synthesizer.rsi
+    layers:
+    - state: base
+    - state: top
+      color: "#8f2e9fFF"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-top
+        color: "#8f2e9fFF"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-top
+        color: "#8f2e9fFF"
+
+- type: entity
+  parent: SuperSynthesizerInstrument
+  id: ADTSuperSynthesizerBlackInstrument
+  suffix: ""
+  name: black super synthesizer
+  description: Blasting the ghetto with Touhou MIDIs since 2020.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Instruments/super_synthesizer.rsi
+    layers:
+    - state: base
+    - state: top
+      color: "#39393fFF"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-top
+        color: "#39393fFF"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-top
+        color: "#39393fFF"
+
+- type: entity
+  parent: SuperSynthesizerInstrument
+  id: ADTSuperSynthesizerDarkBlueInstrument
+  suffix: ""
+  name: dark blue super synthesizer
+  description: Blasting the ghetto with Touhou MIDIs since 2020.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Instruments/super_synthesizer.rsi
+    layers:
+    - state: base
+    - state: top
+      color: "#364660FF"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-top
+        color: "#364660FF"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-top
+        color: "#364660FF"
