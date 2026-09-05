@@ -1,6 +1,9 @@
 using System.Linq;
 using System.Text;
+using Content.Server.Administration.Managers;
+using Content.Server.Chat.Managers;
 using Content.Shared.ADT.Language;
+using Content.Shared.Chat;
 using Robust.Shared.Random;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -16,6 +19,8 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly IAdminManager _admin = default!;
+    [Dependency] private readonly IChatManager _chatMan = default!;
 
     public int Seed { get; private set; }
 
@@ -53,6 +58,33 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         component.CurrentLanguage = args.SelectedLanguage;
 
         UpdateUi(uid);
+    }
+
+    /// <summary>
+    /// Отправляет сообщение по каналу <paramref name="channel"/> паре сущностей и админам.
+    /// </summary>
+    public void SendChannelMessageToPair(EntityUid uid, EntityUid partner, string message, string messageWrap, ChatChannel channel, Color? color)
+    {
+        SendChannelMessageToPair(uid, partner, message, messageWrap, messageWrap, channel, color);
+    }
+
+    public void SendChannelMessageToPair(EntityUid uid, EntityUid partner, string message, string messageWrap, string adminMessageWrap, ChatChannel channel, Color? color)
+    {
+        var clients = Filter.Entities(uid, partner);
+        var admins = Filter.Empty();
+
+        var playerQuery = EntityQueryEnumerator<ActorComponent>();
+        while (playerQuery.MoveNext(out var player, out var actorComp))
+        {
+            if (player == uid || player == partner)
+                continue;
+
+            if (_admin.IsAdmin(actorComp.PlayerSession))
+                admins.AddPlayer(actorComp.PlayerSession);
+        }
+
+        _chatMan.ChatMessageToManyFiltered(clients, channel, message, messageWrap, uid, false, false, color);
+        _chatMan.ChatMessageToManyFiltered(admins, channel, message, adminMessageWrap, uid, false, false, color);
     }
 
     public string ObfuscateMessage(EntityUid uid, string originalMessage, List<string> replacements, bool obfiscateSyllables, bool replaceEntireMessage = false)

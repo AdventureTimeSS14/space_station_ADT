@@ -101,3 +101,5 @@ language-MorphCollectiveMind-name = Колл. разум морфов
 language-MorphCollectiveMind-description = Коллективный разум морфов.
 language-ADTBlobCollectiveMind-name = Колл. разум блоба
 language-ADTBlobCollectiveMind-description = Телепатический канал, связывающий блоба со всеми его отпрысками.
+language-ADTHoloparasiteMindLink-name = Ментальная связь
+language-ADTHoloparasiteMindLink-description = Мысленный канал, связывающий вас с вашим голопаразитом - продолжением вашей души.
