@@ -259885,7 +259885,7 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: LockerCorrectionOfficer
+- proto: ADTLockerCorrectionOfficerFilled
   entities:
   - uid: 35711
     components:

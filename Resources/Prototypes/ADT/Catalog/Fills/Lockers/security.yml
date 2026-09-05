@@ -56,7 +56,7 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
-        tableId: FillLockerCorrectionOfficer
+        tableId: ADTFillLockerCorrectionOfficer
 
 - type: entityTable
   id: ADTFillLockerCorrectionOfficer
