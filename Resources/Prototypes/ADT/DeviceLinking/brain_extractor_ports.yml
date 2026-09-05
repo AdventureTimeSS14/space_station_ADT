@@ -1,0 +1,10 @@
+- type: sinkPort
+  id: BrainExtractorReceiver
+  name: signal-port-name-brain-extractor-pod
+  description: signal-port-description-brain-extractor-pod
+
+- type: sourcePort
+  id: BrainExtractorSender
+  name: signal-port-name-brain-extractor-console
+  description: signal-port-description-brain-extractor-console
+  defaultLinks: [ BrainExtractorReceiver ]

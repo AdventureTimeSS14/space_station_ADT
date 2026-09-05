@@ -317,6 +317,15 @@
     - objective: MassArrestObjective
       components:
       - type: CriminalRecordsHacker
+    # ADT-Tweak-Start: Ninja borg hack objective
+    - objective: BorgHackObjective
+      components:
+      - type: EmagProvider
+        emagType: Interaction
+        whitelist:
+          components:
+          - EmagSiliconLaw
+    # ADT-Tweak-End
 
 - type: entity
   parent: [ ClothingHandsGlovesColorBlack, BaseSecurityEngineeringContraband ]
