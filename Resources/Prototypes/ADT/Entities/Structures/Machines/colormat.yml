@@ -1,0 +1,51 @@
+- type: entity
+  parent: [BaseMachinePowered, ConstructibleMachine]
+  id: ADTColormat
+  name: colormat
+  description: Paints any item any color!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/colormat.rsi
+    snapCardinals: true
+    layers:
+    - state: colormate
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: WiresVisuals
+  - type: WiresPanel
+  - type: Appearance
+  - type: Machine
+    board: ADTColormatMachineCircuitboard
+  - type: ItemSlots
+    slots:
+      colormatslot:
+        name: colormat-slot-name
+  - type: ContainerContainer
+    containers:
+      colormatslot: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: ADTColormat
+  - type: ActivatableUI
+    key: enum.ADTColormatUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.ADTColormatUiKey.Key:
+        type: ADTColormatBoundUserInterface
+  - type: ApcPowerReceiver
+    powerLoad: 100
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: ADTColormatMachineCircuitboard
+  name: colormat machine board
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: ADTColormat
+    stackRequirements:
+      Glass: 1
+    partRequirements:
+      Servo: 1

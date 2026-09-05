@@ -52,6 +52,7 @@ namespace Content.Shared.VendingMachines
 
         public string? NextItemToEject;
         public int NextItemReturnedCount; // ADT-Return 
+        public Color? NextItemPaintColor; // ADT-Tweak
 
         [DataField]
         public bool Broken;

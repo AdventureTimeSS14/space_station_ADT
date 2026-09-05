@@ -25,3 +25,16 @@ vending-category-protection = Средства
 vending-category-sec-equipment = Снаряжение
 vending-category-medical = Медицина
 vending-category-med-equipment = Снаряжение
+
+vending-paint-window-title = Покраска одежды
+vending-paint-rgb = RGB
+vending-paint-hsv = HSV
+vending-paint-hex = HEX
+vending-paint-reset = Сбросить
+vending-paint-close = Закрыть
+vending-paint-hue = Hue:
+vending-paint-saturation = Saturation:
+vending-paint-value = Value:
+vending-paint-red = Red:
+vending-paint-green = Green:
+vending-paint-blue = Blue:

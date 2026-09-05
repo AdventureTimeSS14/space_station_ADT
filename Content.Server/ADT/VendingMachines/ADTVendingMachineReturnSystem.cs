@@ -3,6 +3,7 @@ using System.Numerics;
 using Content.Server.Power.EntitySystems;
 using Content.Server.VendingMachines;
 using Content.Shared.ADT.VendingMachines;
+using Content.Shared.Clothing.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Objectives.Components;
@@ -110,6 +111,8 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
             if (!Exists(returned))
                 break;
 
+            PaintClothing(returned, args.PaintColor);
+
             _container.Remove(returned, container, force: true, destination: args.Coordinates);
 
             if (args.ThrowItem)
@@ -124,5 +127,23 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
     private void Deny(EntityUid uid, VendingMachineComponent component)
     {
         _vending.Deny(uid, component);
+    }
+
+    public void PaintClothing(EntityUid uid, Color? color)
+    {
+        if (!HasComp<ClothingComponent>(uid))
+            return;
+
+        if (color is { } paintColor)
+        {
+            var paint = EnsureComp<ADTClothingPaintComponent>(uid);
+            paint.PaintColor = paintColor;
+            Dirty(uid, paint);
+        }
+        else if (TryComp<ADTClothingPaintComponent>(uid, out var paint))
+        {
+            paint.PaintColor = null;
+            Dirty(uid, paint);
+        }
     }
 }
