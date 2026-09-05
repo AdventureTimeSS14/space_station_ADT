@@ -189511,7 +189511,7 @@ entities:
     - type: Transform
       pos: -14.5,50.5
       parent: 2
-- proto: LockerCorrectionOfficer
+- proto: ADTLockerCorrectionOfficerFilled
   entities:
   - uid: 25963
     components:
