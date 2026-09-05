@@ -1,0 +1,31 @@
+- type: entity
+  id: ADTEffectHeal
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    sprite: ADT/Effects/heal.rsi
+    color: "#00B800"
+    noRot: true
+    state: heal_overlay
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  parent: ADTEffectHeal
+  id: ADTEffectHealBusy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: "#FFFFFF"
+    state: busy_medical
+
+- type: entity
+  parent: ADTEffectHealBusy
+  id: ADTEffectHealBusyFlash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1.5
