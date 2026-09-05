@@ -352,6 +352,20 @@
       - id: ADTFoodSnackChocolateBarTwo
 
 - type: entity
+  name: hematogen
+  parent: ADTFoodSnackChocolateBarsBase
+  id: ADTFoodSnackHematogenPack
+  description: Tastes like iron.
+  components:
+  - type: Sprite
+    state: hematogen-packed
+  - type: Tag
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodPacketHematogenTrash
+      - id: ADTFoodSnackHematogenBar
+
+- type: entity
   name: chocolate bar
   parent: ADTFoodSnackChocolateBarsBase
   id: ADTFoodSnackChocolateBarMedalPack
@@ -457,6 +471,31 @@
 - type: entity
   name: chocolate bar
   parent: ADTFoodSnackChocolateBarBase
+  id: ADTFoodSnackHematogenBar
+  description: Tastes like iron.
+  components:
+  - type: Sprite
+    state: bar-hematogen
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - creamy
+      - metallic
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Iron
+          Quantity: 5
+
+- type: entity
+  name: chocolate bar
+  parent: ADTFoodSnackChocolateBarBase
   id: ADTFoodSnackChocolateBarMedal
   description: Tastes like cardboard.
   components:
@@ -530,6 +569,15 @@
   components:
   - type: Sprite
     state: two-trash
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ADTFoodPacketChocolateTrash
+  id: ADTFoodPacketHematogenTrash
+  name: hematogen wrapper
+  components:
+  - type: Sprite
+    state: hematogen-trash
 
 - type: entity
   categories: [ HideSpawnMenu ]
