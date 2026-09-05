@@ -192,11 +192,16 @@
   id: BaseSpeciesMobOrganic
   save: false
   components:
-  - type: Absorbable # ADT-Tweak
-  - type: MobState # ADT-Tweak
-  - type: OfferItem # ADT-Tweak
-  - type: RadiationPopup # ADT-Tweak
-  - type: PickupHumans # ADT-Tweak
+  # ADT-Tweak start
+  - type: Absorbable
+  - type: MobState
+  - type: OfferItem
+  - type: RadiationPopup
+  - type: PickupHumans
+  - type: BloodCough
+    postingSayDamage: blood-cough
+  - type: TimeDespawnDamage
+  # ADT-Tweak end
   - type: Hunger
   - type: Thirst
   - type: Barotrauma
@@ -256,8 +261,3 @@
   - type: FireVisuals
     alternateState: Standing
   - type: StunVisuals
-  # Start-ADT Tweak
-  - type: BloodCough
-    postingSayDamage: blood-cough
-  - type: TimeDespawnDamage
-  # End-ADT Tweak
