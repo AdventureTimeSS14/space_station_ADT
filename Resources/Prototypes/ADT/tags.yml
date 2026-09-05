@@ -519,6 +519,9 @@
   id: ADTResomiEmotes
 
 - type: Tag
+  id: ADTDemonEmotes
+
+- type: Tag
   id: ADTSlimeEmotes
 
 - type: Tag

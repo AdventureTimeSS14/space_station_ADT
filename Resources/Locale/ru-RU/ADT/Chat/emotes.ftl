@@ -14,6 +14,8 @@ chat-emote-name-spit = плюнуть
 chat-emote-name-coo = ворковать
 chat-emote-name-pop = чпок
 chat-emote-name-bubbles = булькать
+# Аркана
+chat-emote-name-snort = фыркнуть
 chat-emote-msg-spit = плюёт
 chat-emote-msg-coo = воркует
 chat-emote-msg-pop = чпокает

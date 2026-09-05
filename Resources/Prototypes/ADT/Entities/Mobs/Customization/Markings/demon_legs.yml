@@ -1,0 +1,193 @@
+
+- type: marking
+  id: DemonLegWraps1Left
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: bint1-l-leg
+
+- type: marking
+  id: DemonLegWraps1Right
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: bint1-r-leg
+
+- type: marking
+  id: DemonLegWraps2Left
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: bint2-l-leg
+
+- type: marking
+  id: DemonLegWraps2Right
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: bint2-r-leg
+
+- type: marking
+  id: DemonLegWraps3Left
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: bint3-l-leg
+
+- type: marking
+  id: DemonLegWraps3Right
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: bint3-r-leg
+
+- type: marking
+  id: DemonLegScar1Left
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: scar1-l-leg
+
+- type: marking
+  id: DemonLegScar1Right
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: scar1-r-leg
+
+- type: marking
+  id: DemonLegScar2Left
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: scar2-l-leg
+
+- type: marking
+  id: DemonLegScar2Right
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: scar2-r-leg
+
+- type: marking
+  id: DemonLegScar3Left
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: scar3-l-leg
+
+- type: marking
+  id: DemonLegScar3Right
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: scar3-r-leg
+
+- type: marking
+  id: DemonLegPattern1Left
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: uzor1-l-leg
+
+- type: marking
+  id: DemonLegPattern1Right
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: uzor1-r-leg
+
+- type: marking
+  id: DemonLegPattern2Left
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: uzor2-l-leg
+
+- type: marking
+  id: DemonLegPattern2Right
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: uzor2-r-leg
+
+- type: marking
+  id: DemonLegPattern3Left
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: uzor3-l-leg
+
+- type: marking
+  id: DemonLegPattern3Right
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: uzor3-r-leg
+
+- type: marking
+  id: DemonLegPattern4Left
+  bodyPart: LLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: uzor4-l-leg
+
+- type: marking
+  id: DemonLegPattern4Right
+  bodyPart: RLeg
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: uzor4-r-leg
+
+- type: marking
+  id: DemonLegsBrush
+  bodyPart: LFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: shetka
+
+- type: marking
+  id: DemonLegsBrushMini
+  bodyPart: LFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: mini_shetka
+
+- type: marking
+  id: DemonLegsBrushDouble
+  bodyPart: LFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: double_shetka
+
+- type: marking
+  id: DemonLegsFur
+  bodyPart: LFoot
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: legs_fur
+

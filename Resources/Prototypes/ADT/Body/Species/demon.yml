@@ -32,12 +32,69 @@
   - type: HumanoidProfile
     species: DemonSpecies
   - type: Inventory
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Demon/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Demon/displacement.rsi
+            state: jumpsuit
+      socks:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Demon/displacement.rsi
+            state: shoes
+      shoes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Demon/displacement.rsi
+            state: shoes
+    maleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Demon/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Demon/displacement.rsi
+            state: jumpsuit
+      socks:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Demon/displacement.rsi
+            state: shoes
+      shoes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Demon/displacement.rsi
+            state: shoes
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
             sprite: ADT/Mobs/Species/Demon/displacement.rsi
             state: jumpsuit-female
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Demon/displacement.rsi
+            state: jumpsuit
+      socks:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Demon/displacement.rsi
+            state: shoes
+      shoes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Demon/displacement.rsi
+            state: shoes
 
 # Demon mob (upstream PR#42476). Appearance/body/sprite come from AppearanceDemon.
 - type: entity
@@ -53,9 +110,19 @@
     speechSounds: Lizard
   - type: Vocal
     sounds:
-      Male: MaleHuman
-      Female: FemaleHuman
-      Unsexed: FemaleHuman
+      Male: ADTMaleDemon
+      Female: ADTFemaleDemon
+      Unsexed: ADTFemaleDemon
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: ADTFootstepHoof
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - ADTDemonEmotes
   - type: Damageable
     damageModifierSet: Demon
   - type: Injurable

@@ -468,3 +468,18 @@
   id: ButcherCry
   files:
     - /Audio/ADT/Butcher/butchercry.ogg
+
+# Аркана
+- type: soundCollection
+  id: ADTDemonSigh
+  files:
+    - /Audio/ADT/Voice/Demon/demon_sigh_1.ogg
+    - /Audio/ADT/Voice/Demon/demon_sigh_2.ogg
+    - /Audio/ADT/Voice/Demon/demon_sigh_3.ogg
+
+- type: soundCollection
+  id: ADTDemonSnort
+  files:
+    - /Audio/ADT/Voice/Demon/demon_snort_1.ogg
+    - /Audio/ADT/Voice/Demon/demon_snort_2.ogg
+    - /Audio/ADT/Voice/Demon/demon_snort_3.ogg
