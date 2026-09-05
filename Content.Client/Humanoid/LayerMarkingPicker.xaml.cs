@@ -84,6 +84,11 @@ public sealed partial class LayerMarkingPicker : BoxContainer
     {
         var localSession = _players.LocalSession; // ADT-Tweak
 
+        // ADT-Tweak-Start
+        SponsorItems.RemoveAllChildren();
+        Items.RemoveAllChildren();
+        // ADT-Tweak-End
+
         foreach (var marking in _allMarkings.Values.OrderBy(marking => Loc.GetString($"marking-{marking.ID}")))
         {
             var item = new LayerMarkingItem(_markingsModel, _organ, _layer, marking, true);
@@ -111,6 +116,17 @@ public sealed partial class LayerMarkingPicker : BoxContainer
 
         _searchable = SponsorItems.GetSearchableControls();
         _searchable.AddRange(Items.GetSearchableControls());
+
+        // ADT-Tweak-Start
+        var currentSearch = SearchBar.Text.Trim();
+        if (!string.IsNullOrEmpty(currentSearch))
+        {
+            foreach (var element in _searchable)
+            {
+                element.SetHiddenState(true, currentSearch);
+            }
+        }
+        // ADT-Tweak-End
     }
 
     private void UpdateCount()
