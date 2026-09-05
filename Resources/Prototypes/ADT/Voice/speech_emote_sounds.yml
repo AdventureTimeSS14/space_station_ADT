@@ -543,6 +543,114 @@
       collection: HumanSpits
 
 - type: emoteSounds
+  id: XenoborgIPC
+  params:
+    variation: 0.125
+  sounds:
+    RobotBeep:
+      collection: RobotBeeps
+    Calculating:
+      collection: CalculatingIPC
+    SynthYes:
+      path: /Audio/ADT/IPC/synth_yes.ogg
+    SynthNo:
+      path: /Audio/ADT/IPC/synth_no.ogg
+    Buzz:
+      collection: XenoborgBuzz
+    SighBuzz:
+      path: /Audio/ADT/IPC/buzz-two.ogg
+    Scream:
+      collection: XenoborgScream
+    Beep:
+      collection: XenoborgBeep
+    Chime:
+      collection: XenoborgChime
+    Buzz-Two:
+      collection: XenoborgBuzzTwo
+    Honk:
+      collection: XenoborgBikeHorn
+    Ping:
+      collection: XenoborgPing
+    StartUp:
+      path: /Audio/ADT/IPC/startup.ogg
+    Error:
+      path: /Audio/ADT/IPC/error.ogg
+    IPCDeathgasp:
+      path: /Audio/ADT/IPC/borg_deathsound.ogg
+    Laugh:
+      collection: XenoborgLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Yawn:
+      collection: MaleYawn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    Spit:
+      collection: HumanSpits
+
+- type: emoteSounds
+  id: CuteIPC
+  params:
+    variation: 0.125
+  sounds:
+    RobotBeep:
+      collection: RobotBeeps
+    Calculating:
+      collection: CalculatingIPC
+    SynthYes:
+      path: /Audio/ADT/IPC/synth_yes.ogg
+    SynthNo:
+      path: /Audio/ADT/IPC/synth_no.ogg
+    Buzz:
+      path: /Audio/ADT/IPC/buzz-sigh.ogg
+    SighBuzz:
+      path: /Audio/ADT/IPC/buzz-two.ogg
+    Scream:
+      collection: PinkScream
+    Beep:
+      path: /Audio/Machines/twobeep.ogg
+    Chime:
+      path: /Audio/Machines/chime.ogg
+    Buzz-Two:
+      path: /Audio/Machines/buzz-two.ogg
+    Honk:
+      path: /Audio/Items/bikehorn.ogg
+    Ping:
+      path: /Audio/Effects/Cargo/ping.ogg
+    StartUp:
+      path: /Audio/ADT/IPC/startup.ogg
+    Error:
+      path: /Audio/ADT/IPC/error.ogg
+    IPCDeathgasp:
+      path: /Audio/ADT/IPC/borg_deathsound.ogg
+    Laugh:
+      collection: PinkLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Yawn:
+      path: /Audio/ADT/IPC/pink_sigh.ogg
+    Sigh:
+      path: /Audio/ADT/IPC/pink_sigh.ogg
+    Crying:
+      collection: FemaleCry
+    Whistle:
+      collection: Whistles
+    Spit:
+      collection: HumanSpits
+    IPCCuteSurprised:
+      path: /Audio/ADT/IPC/pink_scream1.ogg
+    IPCCuteScared:
+      path: /Audio/ADT/IPC/pink_scream2.ogg
+
+- type: emoteSounds
   id: MaleUrsus
   params:
     variation: 0.125
