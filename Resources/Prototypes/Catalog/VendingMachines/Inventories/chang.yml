@@ -9,6 +9,6 @@
     FoodSnackDanDanNoodles: 3
     PairedChopsticks: 3
   contrabandInventory:
-    FoodBakedDumplings: 2
+    FoodPelmeniBowl: 2 #ADT_Tweak - рецепт и еда удалены или заменены чтобы не конфликтовать с другими пельменями
     FoodSoupMiso: 2
 # rice?

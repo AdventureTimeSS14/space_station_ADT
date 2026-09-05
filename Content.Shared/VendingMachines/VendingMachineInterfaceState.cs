@@ -41,10 +41,12 @@ namespace Content.Shared.VendingMachines
     public sealed class VendingMachineUserInfoMessage : BoundUserInterfaceMessage
     {
         public readonly int Balance;
+        public readonly bool IgnoreBalance;
 
-        public VendingMachineUserInfoMessage(int balance)
+        public VendingMachineUserInfoMessage(int balance, bool ignoreBalance = false)
         {
             Balance = balance;
+            IgnoreBalance = ignoreBalance;
         }
     }
     //ADT-Economy-End

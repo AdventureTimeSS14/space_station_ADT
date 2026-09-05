@@ -4034,4 +4034,82 @@
       head:
       - state: sif-equipped-HELMET
         offset: "0, 0.06"
+
+- type: entity
+  parent: PlushieMoth
+  id: ADTPlushieIvy
+  name: plush Ivy
+  description: A plush toy of a sleepy moth, the size of half a watermelon. It emits a berry-like fragrance mixed with some kind of medicine that only it can discern. The toy’s antennae are a bit crumpled and chewed, and on its back there’s a warning label about the danger of poisoning for small Luamams.
+  suffix: Personal, Hugiron_shch
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/plushie_ivy.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_ivy.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.0"
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/ADT/Voice/Moth/moth_yawn.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnLand
+    sound: &PlushieMothSound
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/ADT/Voice/Moth/moth_yawn.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnTrigger
+    sound: *PlushieMothSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieMothSound
+  - type: MeleeWeapon
+    soundHit: *PlushieMothSound
+  - type: Edible
+    useSound: *PlushieMothSound
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAreya
+  name: plush Areya
+  description: A plush blue, cute arcanum. It emits a berry-like fragrance mixed with the scent of some incomprehensible medicines that even the most experienced chemists wouldn’t be able to identify... On the back, there’s a label that reads “Mommy arkan.”
+  suffix: Personal, Swap_Inky2
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/plushie_areya.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_areya.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.0"
+  - type: EmitSoundOnUse
+    sound: &PlushieSharkSound
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: EmitSoundOnLand
+    sound: *PlushieSharkSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieSharkSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieSharkSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieSharkSound
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    soundHit: *PlushieSharkSound
+    animation: WeaponArcBite
+  - type: Edible
+    useSound: *PlushieSharkSound
 #SPONSOR-ITEMS-END

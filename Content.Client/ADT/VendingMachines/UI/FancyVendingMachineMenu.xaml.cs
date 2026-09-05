@@ -58,10 +58,12 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
         WithdrawButton.OnPressed += _ => OnWithdraw?.Invoke();
     }
 
-    public void SetUserInfo(int balance)
+    public void SetUserInfo(int balance, bool ignoreBalance = false)
     {
-        _userBalance = balance;
-        UserBalanceLabel.Text = Loc.GetString("vending-user-balance", ("balance", balance));
+        _userBalance = ignoreBalance ? int.MaxValue : balance;
+        UserBalanceLabel.Text = ignoreBalance
+            ? Loc.GetString("vending-user-balance-admin")
+            : Loc.GetString("vending-user-balance", ("balance", balance));
 
         UpdateVisibleItems();
     }

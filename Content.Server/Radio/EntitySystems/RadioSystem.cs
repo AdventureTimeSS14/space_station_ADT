@@ -21,6 +21,7 @@ using Content.Server.ADT.Language;  // ADT Languages
 using Content.Server.ADT.TTS;
 using Content.Shared.ADT.Language;  // ADT Languages
 using Content.Shared.ADT.Loudspeaker.Events;
+using Content.Shared.ADT.TTS;
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -145,6 +146,8 @@ public sealed class RadioSystem : EntitySystem
         var content = escapeMarkup
             ? FormattedMessage.EscapeText(message)
             : message;
+
+        content = ADTSpeechStress.Strip(content); // ADT-Tweak
 
         // ADT Languages start
         var languageEncodedContent = _language.ObfuscateMessage(messageSource, content, gen.Replacement, gen.ObfuscateSyllables, gen.ReplaceEntireMessage);

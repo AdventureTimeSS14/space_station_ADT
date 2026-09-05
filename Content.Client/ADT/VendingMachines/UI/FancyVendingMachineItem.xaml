@@ -17,7 +17,7 @@
             VerticalAlignment="Center"/>
         <EntityPrototypeView
             Name="ItemPrototype"
-            MinSize="32 32"
+            MinSize="36 36"
             VerticalAlignment="Center"/>
         <ui:ADTMarqueeLabel
             Name="NameLabel"

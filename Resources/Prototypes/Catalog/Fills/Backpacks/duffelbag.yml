@@ -124,6 +124,7 @@
         children:
         - id: WeaponLightMachineGunL6
         - id: MagazineLightRifleBox
+          amount: 2
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

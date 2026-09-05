@@ -1,0 +1,48 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:ui="clr-namespace:Content.Client.ADT.Radio.Ui"
+                      Title="{Loc 'adt-tunable-radio-title'}"
+                      MinSize="400 300"
+                      SetSize="400 300">
+    <BoxContainer Orientation="Vertical" Margin="8 4 8 8" SeparationOverride="6">
+        <PanelContainer Name="ScreenPanel">
+            <BoxContainer Orientation="Vertical" Margin="8 6 8 4" SeparationOverride="2">
+                <BoxContainer Orientation="Horizontal">
+                    <Label Name="MicIndicator" StyleClasses="LabelSubText" />
+                    <Control HorizontalExpand="True" />
+                    <Label Name="SpeakerIndicator" StyleClasses="LabelSubText" />
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Name="FrequencyLabel" StyleClasses="LabelHeading" />
+                    <Label Name="UnitLabel"
+                           Text="{Loc 'adt-tunable-radio-unit'}"
+                           StyleClasses="LabelSubText"
+                           VerticalAlignment="Bottom"
+                           Margin="4 0 0 5" />
+                </BoxContainer>
+                <ui:RadioDialControl Name="Dial" MinHeight="58" HorizontalExpand="True" />
+            </BoxContainer>
+        </PanelContainer>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="0">
+            <Button Name="CoarseDownButton" MinWidth="42" StyleClasses="OpenRight" />
+            <Button Name="FineDownButton" MinWidth="34" StyleClasses="OpenBoth" />
+            <Slider Name="FrequencySlider"
+                    HorizontalExpand="True"
+                    VerticalAlignment="Center"
+                    Margin="6 0 6 0" />
+            <Button Name="FineUpButton" MinWidth="34" StyleClasses="OpenBoth" />
+            <Button Name="CoarseUpButton" MinWidth="42" StyleClasses="OpenLeft" />
+        </BoxContainer>
+        <PanelContainer StyleClasses="LowDivider" />
+        <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+            <Button Name="MicButton"
+                    ToggleMode="True"
+                    Text="{Loc 'adt-tunable-radio-button-microphone'}"
+                    HorizontalExpand="True" />
+            <Button Name="SpeakerButton"
+                    ToggleMode="True"
+                    Text="{Loc 'adt-tunable-radio-button-speaker'}"
+                    HorizontalExpand="True" />
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

@@ -26,6 +26,9 @@
   id: IgnoreBalanceChecks
 
 - type: Tag
+  id: ADTVendingCargoAccount
+
+- type: Tag
   id: SpaceCash
 
 - type: Tag
@@ -505,6 +508,9 @@
 
 - type: Tag
   id: ADTCatEmotes
+
+- type: Tag
+  id: ADTIPCCuteEmotes
 
 - type: Tag
   id: ADTVoxEmotes

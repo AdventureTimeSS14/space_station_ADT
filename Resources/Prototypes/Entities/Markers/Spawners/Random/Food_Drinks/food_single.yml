@@ -45,7 +45,7 @@
       - FoodPizzaSassysageSlice
       - FoodPizzaPineappleSlice
       - FoodPizzaMoldySlice
-      - FoodBakedDumplings
+      - FoodPelmeniBowl #ADT_Tweak - рецепт и еда удалены или заменены чтобы не конфликтовать с другими пельменями
       - FoodBakedChevreChaud
       - FoodBakedNugget
       - FoodTacoShell

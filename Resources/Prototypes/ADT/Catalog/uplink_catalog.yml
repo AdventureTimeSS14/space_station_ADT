@@ -255,6 +255,38 @@
       tags:
       - NukeOpsUplink
 
+- type: listing
+  id: ADTUplinkXC67Magazine
+  name: uplink-magazine-xc67-name
+  description: uplink-magazine-xc67-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/ext_rifle_mag.rsi, state: base }
+  productEntity: ADTMagazineRifleExtended
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkL6Magazine
+  name: uplink-magazine-l6-name
+  description: uplink-magazine-l6-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_box.rsi, state: base }
+  productEntity: MagazineLightRifleBox
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
 #UplinkExplosives
 
 - type: listing
@@ -308,7 +340,7 @@
   icon: { sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
   productEntity: ADTClothingBackpackDuffelSyndicateFilledElite
   cost:
-    Telecrystal: 25
+    Telecrystal: 23
   categories:
   - UplinkWearables
   conditions:
@@ -1007,9 +1039,9 @@
   productEntity: ADTClothingModsuitBackSyndicateElite
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 6
+    Telecrystal: 5
   cost:
-    Telecrystal: 12
+    Telecrystal: 10
   categories:
   - UplinkWearables
 

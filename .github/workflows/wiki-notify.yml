@@ -1,0 +1,106 @@
+name: Wiki-notify
+
+on:
+  pull_request_target:
+    types: [closed]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  notify-wiki:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Найти чекбокс + блок :wiki: и отправить в Discord"
+        uses: actions/github-script@v7
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.WIKI_DISCORD_WEBHOOK }}
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const raw = (pr.body || '').replace(/\r\n/g, '\n');
+
+            // 1. Чекбокс должен быть отмечен. Ищем по маркеру
+            // <!-- wiki-checkbox -->, который стоит рядом с чекбоксом в шаблоне
+            const checkboxRegex = /-[ \t]*\[(x|X)\][ \t]*.*<!--[ \t]*wiki-checkbox[ \t]*-->/;
+            if (!checkboxRegex.test(raw)) {
+              console.log('Чекбокс вики не отмечен - уведомление не отправляется.');
+              return;
+            }
+
+            // 2. Убираем комментарии. Если блок ":wiki:" не заполнен
+            const visible = raw.replace(/<!--[\s\S]*?-->/g, '');
+
+            // 3. Ищем маркер ":wiki: Автора"
+            const wikiMatch = visible.match(/^:wiki:[ \t]*(.*)$/im);
+            if (!wikiMatch) {
+              console.log('Чекбокс отмечен, но блок :wiki: не заполнен - уведомление не отправляется.');
+              return;
+            }
+
+            // 4. Берём текст ТОЛЬКО до следующего заголовка.
+            const afterMarker = visible.slice(wikiMatch.index + wikiMatch[0].length);
+            const headingIdx = afterMarker.search(/\n#{1,6}\s/);
+            const scope = headingIdx === -1 ? afterMarker : afterMarker.slice(0, headingIdx);
+
+            // 5. Собираем все строки "- add: текст", "- fix: текст" и т.д.
+            const tagRegex = /^-[ \t]*(add|remove|tweak|fix)[ \t]*:[ \t]*(.+?)[ \t]*$/gim;
+            const groups = { add: [], remove: [], tweak: [], fix: [] };
+            let m;
+            while ((m = tagRegex.exec(scope)) !== null) {
+              groups[m[1].toLowerCase()].push(m[2]);
+            }
+
+            const total = Object.values(groups).reduce((n, arr) => n + arr.length, 0);
+            if (total === 0) {
+              console.log('Тегов add/remove/tweak/fix не найдено - уведомление не отправляется.');
+              return;
+            }
+
+            const labels = {
+              add: '🆕 Добавлено',
+              remove: '🗑️ Удалено',
+              tweak: '🔧 Изменено',
+              fix: '🐛 Исправлено'
+            };
+
+            const fields = Object.entries(groups)
+              .filter(([, items]) => items.length > 0)
+              .map(([tag, items]) => ({
+                name: labels[tag],
+                value: items.map(i => `• ${i}`).join('\n').slice(0, 1024)
+              }));
+
+            // Имя из ":wiki: Автор", иначе - автор PR на гитхабе.
+            let wikiAuthor = wikiMatch[1].trim().replace(/^\((.*)\)$/, '$1').trim();
+            if (!wikiAuthor) wikiAuthor = pr.user.login;
+
+            const payload = {
+              embeds: [
+                {
+                  title: `📚 ${pr.title}`,
+                  url: pr.html_url,
+                  color: 3447003,
+                  description: `**Автор правки:** ${wikiAuthor}`,
+                  fields,
+                  footer: {
+                    text: `PR #${pr.number} · ${context.repo.owner}/${context.repo.repo}`,
+                    icon_url: pr.user.avatar_url
+                  }
+                }
+              ]
+            };
+
+            const res = await fetch(process.env.DISCORD_WEBHOOK_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+
+            if (!res.ok) {
+              throw new Error(`Discord webhook вернул ошибку ${res.status}: ${await res.text()}`);
+            }
+
+            console.log('Уведомление успешно отправлено в Discord.');

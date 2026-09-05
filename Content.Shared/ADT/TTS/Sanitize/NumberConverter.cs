@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace Content.Server.ADT.TTS;
+namespace Content.Shared.ADT.TTS.Sanitize;
 
 // Source: https://codelab.ru/s/csharp/digits2phrase
 public static class NumberConverter

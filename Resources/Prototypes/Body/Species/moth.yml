@@ -348,8 +348,11 @@
           - ClothMade
           - Paper
           - Pill
-          - Fruit # ADT-tweak: moths can eat fruit
-          - ADTMothFriendlyFood # ADT-tweak: moths can eat bread, pancakes etc.
+          # ADT-Tweak start: моли могут есть фрукты, овощи, и вайтлистнутую еду
+          - Fruit
+          - Vegetable
+          - ADTMothFriendlyFood
+          # ADT-Tweak end
 
 - type: entity
   parent: [OrganBaseLiver, OrganMothInternal, OrganAnimalMetabolizer] # ADT-tweak removed OrganSpriteHumanInternal

@@ -1485,6 +1485,27 @@
   - ADTNovakidBootsCowboyFancy
   # При добавлении новых предметов сохраняйте порядок рас!!!
 
+- type: loadoutGroup
+  id: ADTSuperInstruments
+  name: loadout-group-musician-super-instruments
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - MusicianSuperSynthesizerAquamarine
+  - MusicianSuperSynthesizerWhite
+  - MusicianSuperSynthesizer
+  - MusicianSuperSynthesizerYellow
+  - MusicianSuperSynthesizerGreen
+  - MusicianSuperSynthesizerBrown
+  - MusicianSuperSynthesizerRed
+  - MusicianSuperSynthesizerOrange
+  - MusicianSuperSynthesizerPink
+  - MusicianSuperSynthesizerGrey
+  - MusicianSuperSynthesizerBlue
+  - MusicianSuperSynthesizerPurple
+  - MusicianSuperSynthesizerDarkBlue
+  - MusicianSuperSynthesizerBlack
+
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.
 # Н А Д Е Ю С Ь  В Ы  М Е Н Я  У С Л Ы Ш А Л И ! ! !
 

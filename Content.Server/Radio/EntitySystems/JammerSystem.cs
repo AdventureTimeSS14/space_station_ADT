@@ -27,7 +27,7 @@ public sealed partial class JammerSystem : SharedJammerSystem
             args.Cancelled = true;
     }
 
-    private bool ShouldCancel(EntityUid sourceUid, int frequency)
+    public bool ShouldCancel(EntityUid sourceUid, int frequency) // ADT-Tweak
     {
         var source = Transform(sourceUid).Coordinates;
         var query = EntityQueryEnumerator<ActiveRadioJammerComponent, RadioJammerComponent, TransformComponent>();

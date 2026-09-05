@@ -79,7 +79,7 @@
   id: EngineeringBoards
   recipes:
   - ThermomachineFreezerMachineCircuitBoard
-  - HellfireFreezerMachineCircuitBoard
+  # - HellfireFreezerMachineCircuitBoard # ADT-Tweak
   - PortableScrubberMachineCircuitBoard
   - SolarControlComputerCircuitboard
   - SolarTrackerElectronics

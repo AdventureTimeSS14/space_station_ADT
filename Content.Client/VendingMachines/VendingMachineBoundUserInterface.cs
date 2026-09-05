@@ -77,7 +77,7 @@ namespace Content.Client.VendingMachines
             base.ReceiveMessage(message);
 
             if (message is VendingMachineUserInfoMessage info)
-                _menu?.SetUserInfo(info.Balance);
+                _menu?.SetUserInfo(info.Balance, info.IgnoreBalance); // ADT-Tweak
         }
 
         private void OnItemSelected(VendingMachineInventoryEntry entry, int count) // ADT-tweak
