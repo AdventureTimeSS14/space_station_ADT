@@ -204,6 +204,7 @@
     tags:
     - ClownSuit
     - WhitelistChameleon
+    - ClothMade
 
 - type: entity
   parent: ClothingUniformJumpsuitClown
