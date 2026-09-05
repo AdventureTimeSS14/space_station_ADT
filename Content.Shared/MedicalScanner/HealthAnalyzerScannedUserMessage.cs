@@ -12,9 +12,12 @@ public sealed class HealthAnalyzerScannedUserMessage : BoundUserInterfaceMessage
 {
     public HealthAnalyzerUiState State;
 
-    public HealthAnalyzerScannedUserMessage(HealthAnalyzerUiState state)
+    public bool OpenUi; // ADT-Tweak: Opened UI state
+
+    public HealthAnalyzerScannedUserMessage(HealthAnalyzerUiState state, bool openUi = false) // ADT-Tweak
     {
         State = state;
+        OpenUi = openUi; // ADT-Tweak
     }
 }
 
