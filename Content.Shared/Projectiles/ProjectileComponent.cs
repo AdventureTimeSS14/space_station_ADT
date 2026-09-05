@@ -58,6 +58,12 @@ public sealed partial class ProjectileComponent : Component
     public bool IgnoreResistances = false;
 
     /// <summary>
+    /// ADT: fraction of armor ignored (0 = full armor, 1 = ignore armor; may be negative to amplify armor).
+    /// </summary>
+    [DataField]
+    public float ArmorPenetration;
+
+    /// <summary>
     ///     Get that juicy FPS hit sound.
     /// </summary>
     [DataField]

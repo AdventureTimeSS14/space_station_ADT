@@ -36,6 +36,8 @@ using Content.Shared.Wieldable;
 using Content.Shared.Zombies;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.ADT.Grab;
+using Content.Shared.ADT.Weapons.Hitscan.Events;
+using Content.Shared.Weapons.Hitscan.Events;
 
 namespace Content.Shared.Inventory;
 
@@ -84,6 +86,7 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, ExtinguishEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, ProjectileReflectAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, HitScanReflectAttemptEvent>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, HitScanPierceAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GetContrabandDetailsEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GrabModifierEvent>(RefRelayInventoryEvent);  // ADT Grab
         SubscribeLocalEvent<InventoryComponent, FlashAttemptEvent>(RefRelayInventoryEvent);

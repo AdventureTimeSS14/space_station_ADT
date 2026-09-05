@@ -45,6 +45,13 @@ public sealed partial class GunComponent : Component
     // These values are very small for now until we get a debug overlay and fine tune it
 
     /// <summary>
+    /// ADT Hollow Point (#275): gun choke contribution to multi-pellet / hitscan spread, in degrees.
+    /// Averaged with <c>ProjectileSpreadComponent.Spread</c> when firing spreads.
+    /// </summary>
+    [DataField]
+    public Angle Spread = Angle.FromDegrees(5);
+
+    /// <summary>
     /// The base scalar value applied to the vector governing camera recoil.
     /// </summary>
     [DataField, AutoNetworkedField]

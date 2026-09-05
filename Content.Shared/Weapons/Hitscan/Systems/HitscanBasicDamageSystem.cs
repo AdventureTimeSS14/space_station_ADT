@@ -22,13 +22,15 @@ public sealed class HitscanBasicDamageSystem : EntitySystem
 
         var dmg = ent.Comp.Damage * _damage.UniversalHitscanDamageModifier;
 
-        if(!_damage.TryChangeDamage(args.Data.HitEntity.Value, dmg, out var damageDealt, origin: args.Data.Gun))
+        if (!_damage.TryChangeDamage(args.Data.HitEntity.Value, dmg, out var damageDealt,
+                ent.Comp.IgnoreResistances, origin: args.Data.Gun, armorPenetration: ent.Comp.ArmorPenetration))
             return;
 
         var damageEvent = new HitscanDamageDealtEvent
         {
             Target = args.Data.HitEntity.Value,
             DamageDealt = damageDealt,
+            Data = args.Data, // ADT: blood spray / follow-ups
         };
 
         RaiseLocalEvent(ent, ref damageEvent);

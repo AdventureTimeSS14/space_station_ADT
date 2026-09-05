@@ -4,6 +4,8 @@ using System.Numerics;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Events;
+using Content.Server.Camera;
+using Content.Shared.ADT.Camera; // ADT screenshake
 using Content.Shared.Body;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -25,11 +27,15 @@ using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using FTLMapComponent = Content.Shared.Shuttles.Components.FTLMapComponent;
 using Robust.Shared.Random;
+using Robust.Server.Player;
 
 namespace Content.Server.Shuttles.Systems;
 
 public sealed partial class ShuttleSystem
 {
+    [Dependency] private readonly ScreenshakeSystem _screenshake = default!; // ADT screenshake
+    [Dependency] private readonly IPlayerManager _playerManager = default!; // ADT screenshake
+    [Dependency] private readonly CameraRecoilSystem _cameraRecoil = default!; // ADT screenshake
     /*
      * This is a way to move a shuttle from one location to another, via an intermediate map for fanciness.
      */
@@ -51,6 +57,7 @@ public sealed partial class ShuttleSystem
     private TimeSpan ArrivalsFTLCooldown;
     public float FTLMassLimit;
     private TimeSpan _hyperspaceKnockdownTime = TimeSpan.FromSeconds(5);
+    private const string FtlShakeKey = "ftlShake"; // ADT screenshake
 
     /// <summary>
     /// Left-side of the station we're allowed to use
@@ -568,6 +575,7 @@ public sealed partial class ShuttleSystem
 
         while (query.MoveNext(out var uid, out var comp, out var shuttle))
         {
+            UpdateFtlScreenshake(uid, comp, curTime); // ADT screenshake
             if (curTime < comp.StateTime.End)
                 continue;
 
@@ -578,6 +586,7 @@ public sealed partial class ShuttleSystem
                 // Startup time has elapsed and in hyperspace.
                 case FTLState.Starting:
                     UpdateFTLStarting(entity);
+                    FtlTransitionShake(uid, 1f); // ADT screenshake
                     break;
                 // Arriving, play effects
                 case FTLState.Travelling:
@@ -586,6 +595,7 @@ public sealed partial class ShuttleSystem
                 // Arrived
                 case FTLState.Arriving:
                     UpdateFTLArriving(entity);
+                    FtlTransitionShake(uid, -1f); // ADT screenshake
                     break;
                 case FTLState.Cooldown:
                     UpdateFTLCooldown(entity);
@@ -595,6 +605,48 @@ public sealed partial class ShuttleSystem
                     RemCompDeferred<FTLComponent>(uid);
                     break;
             }
+        }
+    }
+
+    // ADT screenshake
+    private void UpdateFtlScreenshake(EntityUid shuttle, FTLComponent component, TimeSpan curTime)
+    {
+        foreach (var session in _playerManager.Sessions)
+        {
+            if (session.AttachedEntity is not { } player || Transform(player).GridUid != shuttle ||
+                _screenshake.IsOnCooldown(player, FtlShakeKey))
+                continue;
+
+            if (component.State == FTLState.Starting)
+            {
+                var duration = component.StateTime.End - component.StateTime.Start;
+                var progress = duration <= TimeSpan.Zero ? 1f :
+                    Math.Clamp((float)((curTime - component.StateTime.Start).TotalSeconds / duration.TotalSeconds), 0f, 1f);
+                _screenshake.Screenshake(player,
+                    new ScreenshakeParameters { Trauma = 0.7f * progress, DecayRate = 1.7f, Frequency = 0.02f },
+                    null, FtlShakeKey, 0.2f);
+            }
+            else if (component.State is FTLState.Travelling or FTLState.Arriving)
+            {
+                _screenshake.Screenshake(player,
+                    new ScreenshakeParameters { Trauma = 0.1f, DecayRate = 0.23f, Frequency = 0.015f },
+                    new ScreenshakeParameters { Trauma = 0.014f, DecayRate = 0.12f, Frequency = 0.012f },
+                    FtlShakeKey, 0.2f);
+            }
+        }
+    }
+
+    // ADT screenshake
+    private void FtlTransitionShake(EntityUid shuttle, float direction)
+    {
+        foreach (var session in _playerManager.Sessions)
+        {
+            if (session.AttachedEntity is not { } player || Transform(player).GridUid != shuttle)
+                continue;
+
+            _screenshake.Screenshake(player,
+                new ScreenshakeParameters { Trauma = 1.2f, DecayRate = 0.9f, Frequency = 0.015f }, null);
+            _cameraRecoil.KickCamera(player, Transform(shuttle).LocalRotation.ToWorldVec() * (4f * direction));
         }
     }
 

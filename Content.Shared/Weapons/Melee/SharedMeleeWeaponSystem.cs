@@ -7,6 +7,7 @@ using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.ADT.Implants;
 using Content.Shared.ADT.MartialArts;
+using Content.Shared.ADT.Camera; // ADT screenshake
 using Content.Shared.ADT.Weapons.Melee;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
@@ -33,6 +34,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -69,7 +71,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] private   readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private   readonly DamageExamineSystem _damageExamine = default!;
+    [Dependency] private readonly ScreenshakeSystem _screenshake = default!; // ADT screenshake
 
+    private static readonly string BluntDamageName = "Blunt"; // ADT screenshake
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
     /// <summary>
@@ -620,6 +624,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (damageResult.GetTotal() > FixedPoint2.Zero && !TerminatingOrDeleted(target.Value))
         {
             DoDamageEffect(targets, user, targetXform);
+            DoScreenshake(meleeUid, damageResult, user, targets); // ADT screenshake
         }
     }
 
@@ -795,6 +800,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (appliedDamage.GetTotal() > FixedPoint2.Zero && targets.Count > 0)
         {
             DoDamageEffect(targets, user, Transform(targets[0]));
+            DoScreenshake(meleeUid, appliedDamage, user, targets); // ADT screenshake
         }
 
         return true;
@@ -1145,5 +1151,24 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 meleeWeapon.Hidden = true;
             }
         }
+    }
+
+    // ADT screenshake
+    private void DoScreenshake(EntityUid weapon, DamageSpecifier damage, EntityUid attacker, List<EntityUid> targets)
+    {
+        if (damage.GetTotal() > 8)
+        {
+            var targetShake = new ScreenshakeParameters { Trauma = 0.45f, DecayRate = 1.1f, Frequency = 0.04f };
+            foreach (var target in targets)
+                _screenshake.Screenshake(target, targetShake, null);
+        }
+
+        var bluntRequirement = damage.DamageDict.TryGetValue(BluntDamageName, out var blunt) && blunt >= 20;
+        var wieldRequirement = TryComp<WieldableComponent>(weapon, out var wieldable) && wieldable.Wielded;
+        if (!bluntRequirement && !wieldRequirement)
+            return;
+
+        _screenshake.Screenshake(attacker, null,
+            new ScreenshakeParameters { Trauma = 0.08f, DecayRate = 1f, Frequency = 0.009f });
     }
 }
