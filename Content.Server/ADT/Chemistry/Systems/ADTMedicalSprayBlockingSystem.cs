@@ -17,11 +17,28 @@ public sealed class ADTMedicalSprayBlockingSystem : EntitySystem
 
     private void OnExposedSkinAttempt(ref ExposedSkinAttemptEvent args)
     {
-        if (HasPressureProtection(args.Target))
+        if (HasFullPressureProtection(args.Target))
             args.Cancelled = true;
     }
 
-    private bool HasPressureProtection(EntityUid target)
+    private bool HasFullPressureProtection(EntityUid target)
+    {
+        if (!TryComp<BarotraumaComponent>(target, out var barotrauma) || barotrauma.ProtectionSlots.Count == 0)
+            return HasAnyPressureProtection(target);
+
+        foreach (var slot in barotrauma.ProtectionSlots)
+        {
+            if (!_inventory.TryGetSlotEntity(target, slot, out var equipment)
+                || !HasComp<PressureProtectionComponent>(equipment.Value))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private bool HasAnyPressureProtection(EntityUid target)
     {
         if (!_inventory.TryGetContainerSlotEnumerator(target, out var enumerator, SlotFlags.WITHOUT_POCKET))
             return false;

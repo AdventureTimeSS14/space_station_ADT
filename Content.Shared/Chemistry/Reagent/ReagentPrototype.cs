@@ -273,7 +273,7 @@ namespace Content.Shared.Chemistry.Reagent
                 {
                     foreach (var method in entry.Methods)
                     {
-                        var methodText = Loc.GetString($"reaction-method-{method.ToString().ToLower()}");
+                        var methodText = Loc.GetString($"reaction-method-{method.ToString().ToLowerInvariant()}");
                         foreach (var description in proto.GuidebookReagentEffectsDescription(prototype, entSys, entry.Effects, FixedPoint2.New(1f)))
                         {
                             ReactiveEffects.Add(Loc.GetString("guidebook-reagent-reactive-effect", ("method", methodText), ("effect", description)));

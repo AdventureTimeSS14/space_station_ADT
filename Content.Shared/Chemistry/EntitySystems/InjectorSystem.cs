@@ -423,7 +423,12 @@ public sealed partial class InjectorSystem : EntitySystem
             {
                 // ADT-Tweak start
                 if (activeMode.ReactionMethod is { } reactionMethod && HasComp<BloodstreamComponent>(target))
+                {
+                    if (_adtMedicalSpray.TryBlockExposedSkin(injector, user, target))
+                        return false;
+
                     return _adtMedicalSpray.TryApplyTopical(injector, user, target, reactionMethod);
+                }
                 // ADT-Tweak end
 
                 if (isOpenOrIgnored && _solutionContainer.TryGetInjectableSolution(target, out var injectableSolution, out _))
