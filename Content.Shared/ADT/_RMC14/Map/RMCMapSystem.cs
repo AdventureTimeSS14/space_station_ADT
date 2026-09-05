@@ -1,0 +1,214 @@
+// Ported from RMC-14 (https://github.com/RMC-14/RMC-14), MIT License
+using System.Collections.Immutable;
+using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
+using Content.Shared.Coordinates;
+using Content.Shared.Maps;
+using Content.Shared.Physics;
+using Content.Shared.Tag;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes;
+
+namespace Content.Shared._RMC14.Map;
+
+public sealed class RMCMapSystem : EntitySystem
+{
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
+
+    private static readonly ProtoId<TagPrototype> StructureTag = "Structure";
+
+    private EntityQuery<MapGridComponent> _mapGridQuery;
+
+    public readonly ImmutableArray<Direction> CardinalDirections = ImmutableArray.Create(
+        Direction.North,
+        Direction.South,
+        Direction.East,
+        Direction.West
+    );
+
+    public override void Initialize()
+    {
+        _mapGridQuery = GetEntityQuery<MapGridComponent>();
+    }
+
+    public RMCAnchoredEntitiesEnumerator GetAnchoredEntitiesEnumerator(EntityUid ent, Direction? offset = null, DirectionFlag facing = DirectionFlag.None)
+    {
+        return GetAnchoredEntitiesEnumerator(ent.ToCoordinates(), offset, facing);
+    }
+
+    public RMCAnchoredEntitiesEnumerator GetAnchoredEntitiesEnumerator(EntityCoordinates coords, Direction? offset = null, DirectionFlag facing = DirectionFlag.None)
+    {
+        if (_transform.GetGrid(coords) is not { } gridId ||
+            !_mapGridQuery.TryComp(gridId, out var gridComp))
+        {
+            return RMCAnchoredEntitiesEnumerator.Empty;
+        }
+
+        var indices = _map.CoordinatesToTile(gridId, gridComp, coords);
+        return GetAnchoredEntitiesEnumerator((gridId, gridComp), indices, offset, facing);
+    }
+
+    public RMCAnchoredEntitiesEnumerator GetAnchoredEntitiesEnumerator(MapCoordinates coords, Direction? offset = null, DirectionFlag facing = DirectionFlag.None)
+    {
+        if (!_mapManager.TryFindGridAt(coords, out var gridId, out var gridComp))
+            return RMCAnchoredEntitiesEnumerator.Empty;
+
+        var indices = _map.CoordinatesToTile(gridId, gridComp, coords);
+        return GetAnchoredEntitiesEnumerator((gridId, gridComp), indices, offset, facing);
+    }
+
+    public RMCAnchoredEntitiesEnumerator GetAnchoredEntitiesEnumerator(Entity<MapGridComponent> grid, Vector2i indices, Direction? offset = null, DirectionFlag facing = DirectionFlag.None)
+    {
+        if (offset != null)
+            indices = indices.Offset(offset.Value);
+
+        var anchored = _map.GetAnchoredEntitiesEnumerator(grid, grid, indices);
+        return new RMCAnchoredEntitiesEnumerator(_transform, anchored, facing);
+    }
+
+    public RMCAnchoredEntitiesEnumerator<T> GetAnchoredEntitiesEnumerator<T>(EntityUid ent, Direction? offset = null, DirectionFlag facing = DirectionFlag.None) where T : IComponent
+    {
+        return GetAnchoredEntitiesEnumerator<T>(ent.ToCoordinates(), offset, facing);
+    }
+
+    public RMCAnchoredEntitiesEnumerator<T> GetAnchoredEntitiesEnumerator<T>(EntityCoordinates coords, Direction? offset = null, DirectionFlag facing = DirectionFlag.None) where T : IComponent
+    {
+        if (_transform.GetGrid(coords) is not { } gridId ||
+            !_mapGridQuery.TryComp(gridId, out var gridComp))
+        {
+            return RMCAnchoredEntitiesEnumerator<T>.Empty;
+        }
+
+        var indices = _map.CoordinatesToTile(gridId, gridComp, coords);
+        return GetAnchoredEntitiesEnumerator<T>((gridId, gridComp), indices, offset, facing);
+    }
+
+    public RMCAnchoredEntitiesEnumerator<T> GetAnchoredEntitiesEnumerator<T>(MapCoordinates coords, Direction? offset = null, DirectionFlag facing = DirectionFlag.None) where T : IComponent
+    {
+        if (!_mapManager.TryFindGridAt(coords, out var gridId, out var gridComp))
+            return RMCAnchoredEntitiesEnumerator<T>.Empty;
+
+        var indices = _map.CoordinatesToTile(gridId, gridComp, coords);
+        return GetAnchoredEntitiesEnumerator<T>((gridId, gridComp), indices, offset, facing);
+    }
+
+    public RMCAnchoredEntitiesEnumerator<T> GetAnchoredEntitiesEnumerator<T>(Entity<MapGridComponent> grid, Vector2i indices, Direction? offset = null, DirectionFlag facing = DirectionFlag.None) where T : IComponent
+    {
+        if (offset != null)
+            indices = indices.Offset(offset.Value);
+
+        var anchored = _map.GetAnchoredEntitiesEnumerator(grid, grid, indices);
+        return new RMCAnchoredEntitiesEnumerator<T>(EntityManager, _transform, anchored, facing);
+    }
+
+    public bool HasAnchoredEntityEnumerator<T>(EntityCoordinates coords, out Entity<T> ent, Direction? offset = null, DirectionFlag facing = DirectionFlag.None) where T : IComponent
+    {
+        ent = default;
+        var anchored = GetAnchoredEntitiesEnumerator(coords, offset, facing);
+        while (anchored.MoveNext(out var uid))
+        {
+            if (!TryComp(uid, out T? comp))
+                continue;
+
+            ent = (uid, comp);
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool HasAnchoredEntityEnumerator<T>(EntityCoordinates coords, Direction? offset = null, DirectionFlag facing = DirectionFlag.None) where T : IComponent
+    {
+        return HasAnchoredEntityEnumerator<T>(coords, out _, offset, facing);
+    }
+
+    public bool TryGetTileRefForEnt(EntityCoordinates ent, out Entity<MapGridComponent> grid, out TileRef tile)
+    {
+        grid = default;
+        tile = default;
+        if (_transform.GetGrid(ent) is not { } gridId ||
+            !_mapGridQuery.TryComp(gridId, out var gridComp))
+        {
+            return false;
+        }
+
+        var coords = _transform.GetMoverCoordinates(ent);
+        grid = (gridId, gridComp);
+        if (!_map.TryGetTileRef(gridId, gridComp, coords, out tile))
+            return false;
+
+        return true;
+    }
+
+    public bool IsTileBlocked(EntityCoordinates coordinates, CollisionGroup group = CollisionGroup.Impassable)
+    {
+        if (!_turf.TryGetTileRef(coordinates, out var turf))
+            return false;
+
+        return _turf.IsTileBlocked(turf.Value, group);
+    }
+
+    public bool TileHasAnyTag(EntityCoordinates coordinates, params ProtoId<TagPrototype>[] tag)
+    {
+        var anchored = GetAnchoredEntitiesEnumerator(coordinates);
+        while (anchored.MoveNext(out var uid))
+        {
+            if (_tag.HasAnyTag(uid, tag))
+                return true;
+        }
+
+        return false;
+    }
+
+    public bool TileHasStructure(EntityCoordinates coordinates)
+    {
+        return TileHasAnyTag(coordinates, StructureTag);
+    }
+
+    public bool TryGetTileDef(EntityCoordinates coordinates, [NotNullWhen(true)] out ContentTileDefinition? def)
+    {
+        def = default;
+        if (_transform.GetGrid(coordinates) is not { } gridId ||
+            !TryComp(gridId, out MapGridComponent? grid))
+        {
+            return false;
+        }
+
+        var indices = _map.TileIndicesFor(gridId, grid, coordinates);
+        if (!_map.TryGetTileDef(grid, indices, out var defUncast))
+            return false;
+
+        def = (ContentTileDefinition) defUncast;
+        return true;
+    }
+
+    public bool TryGetTileDef(MapCoordinates coordinates, [NotNullWhen(true)] out ContentTileDefinition? def)
+    {
+        return TryGetTileDef(_transform.ToCoordinates(coordinates), out def);
+    }
+
+    public EntityCoordinates SnapToGrid(EntityCoordinates coordinates)
+    {
+        var gridId = _transform.GetGrid(coordinates);
+        if (gridId == null || !TryComp(gridId, out MapGridComponent? grid))
+        {
+            var mapPos = _transform.ToMapCoordinates(coordinates);
+            var mapX = (int) Math.Floor(mapPos.X) + 0.5f;
+            var mapY = (int) Math.Floor(mapPos.Y) + 0.5f;
+            mapPos = new MapCoordinates(new Vector2(mapX, mapY), mapPos.MapId);
+            return _transform.ToCoordinates(coordinates.EntityId, mapPos);
+        }
+
+        var tileSize = grid.TileSize;
+        var localPos = _transform.WithEntityId(coordinates, gridId.Value).Position;
+        var x = (int) Math.Floor(localPos.X / tileSize) + tileSize / 2f;
+        var y = (int) Math.Floor(localPos.Y / tileSize) + tileSize / 2f;
+        var gridPos = new EntityCoordinates(gridId.Value, new Vector2(x, y));
+        return _transform.WithEntityId(gridPos, coordinates.EntityId);
+    }
+}

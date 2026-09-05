@@ -1,0 +1,20 @@
+- type: reagent
+  id: RMCNapalmUT
+  name: reagent-name-rmcnapalm-ut
+  group: Pyrotechnic
+  desc: reagent-desc-rmcnapalm-ut
+  physicalDesc: reagent-physical-desc-shiny
+  flavor: bitter
+  color: "#DD9B00"
+  # Сила пламени. От неё считается урон в секунду
+  intensity: 30
+  # Сколько секунд горит плитка
+  duration: 20
+  # Дальность струи в плитках
+  radius: 5
+  # Насколько крепче будет молотов из этой жидкости
+  intensityMod: 0.5
+  # Горит ли смесь без кислорода
+  burnsInVacuum: false
+  # За сколько секунд смесь догорает без кислорода
+  vacuumBurnout: 1.5

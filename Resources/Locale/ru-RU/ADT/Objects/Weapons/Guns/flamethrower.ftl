@@ -5,4 +5,4 @@ ent-ADTFlamethrowerCharge = огнесмесь
     .desc = Смесь легковоспламеняющихся веществ.
 
 ent-ADTBulletFlamethrower = огнесмесь
-    .desc = ГОРИТ, ГОРИТ, ГОРИТ!
+    .desc = LMAO TEST 2

@@ -1,0 +1,62 @@
+- type: entity
+  id: RMCTileFire
+  name: fire
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        density: 100
+        layer:
+        - MobMask
+        hard: false
+  - type: Sprite
+    sprite: _RMC14/Effects/fire.rsi
+    noRot: true
+    drawdepth: WallTops
+    layers:
+    - map: [ "base" ]
+      state: red_4
+  - type: Clickable
+  - type: InteractionOutline
+  - type: PointLight
+    radius: 5
+    color: "#bf6d02"
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: RMCIgniteOnCollide
+    maxStacks: 20
+    tileDamage:
+      types:
+        Heat: 0.5
+    burnColor: "#EE6515"
+    armorMultiplier: 1
+  - type: RMCDamageOnCollide
+    damageDead: false
+    fire: true
+    damage:
+      types:
+        Heat: 45
+    ignoreResistances: true
+  - type: TileFire
+    id: RMCTileFire
+    extinguishInstantly: true
+    duration: 20
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.TileFireLayers.Base:
+        base:
+          One: { state: red_1 }
+          Two: { state: red_2 }
+          Three: { state: red_3 }
+          Four: { state: red_4 }

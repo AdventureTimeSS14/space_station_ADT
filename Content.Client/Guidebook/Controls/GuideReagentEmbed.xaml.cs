@@ -8,6 +8,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Contraband;
+using Content.Shared.FixedPoint;
 using Content.Shared.Localizations;
 using Content.Shared.Metabolism;
 using JetBrains.Annotations;
@@ -217,6 +218,7 @@ public sealed partial class GuideReagentEmbed : BoxContainer, IDocumentTag, ISea
         #endregion
 
         GenerateSources(reagent);
+        GenerateFlammableInfo(reagent); // ADT-Tweak
 
         FormattedMessage description = new();
         description.AddText(reagent.LocalizedDescription);
@@ -244,6 +246,48 @@ public sealed partial class GuideReagentEmbed : BoxContainer, IDocumentTag, ISea
 
         ReagentDescription.SetMessage(description);
     }
+
+    // ADT-Tweak-Start
+    private void GenerateFlammableInfo(ReagentPrototype reagent)
+    {
+        if (!reagent.IsFlammableReagent)
+        {
+            FlammableContainer.Visible = false;
+            return;
+        }
+
+        FlammableContainer.Visible = true;
+        FlammableDescriptionContainer.Children.Clear();
+
+        var damagePerSecond = MathF.Round(reagent.Intensity / 5f * 0.5f, 1);
+        AddFlammableLine(Loc.GetString("guidebook-reagent-flammable-damage",
+            ("damage", damagePerSecond)));
+
+        AddFlammableLine(Loc.GetString("guidebook-reagent-flammable-duration",
+            ("duration", reagent.Duration)));
+
+        AddFlammableLine(Loc.GetString("guidebook-reagent-flammable-radius",
+            ("radius", reagent.Radius)));
+
+        if (reagent.IntensityMod > FixedPoint2.Zero)
+        {
+            AddFlammableLine(Loc.GetString("guidebook-reagent-flammable-molotov",
+                ("value", reagent.IntensityMod)));
+        }
+
+        AddFlammableLine(Loc.GetString(reagent.BurnsInVacuum
+            ? "guidebook-reagent-flammable-vacuum-burns"
+            : "guidebook-reagent-flammable-vacuum-extinguishes",
+            ("seconds", reagent.VacuumBurnout.TotalSeconds)));
+    }
+
+    private void AddFlammableLine(string markup)
+    {
+        var label = new RichTextLabel();
+        label.SetMarkup(markup);
+        FlammableDescriptionContainer.AddChild(label);
+    }
+    // ADT-Tweak-End
 
     private void GenerateSources(ReagentPrototype reagent)
     {
