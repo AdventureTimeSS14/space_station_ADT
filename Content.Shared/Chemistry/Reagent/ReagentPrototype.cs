@@ -247,6 +247,8 @@ namespace Content.Shared.Chemistry.Reagent
 
         public List<string>? PlantMetabolisms = null;
 
+        public List<string>? ReactiveEffects = null; // ADT-Tweak
+
         public ReagentGuideEntry(ReagentPrototype proto, IPrototypeManager prototype, IEntitySystemManager entSys)
         {
             ReagentPrototype = proto.ID;
@@ -258,6 +260,23 @@ namespace Content.Shared.Chemistry.Reagent
                 PlantMetabolisms =
                     new List<string>(proto.GuidebookReagentEffectsDescription(prototype, entSys, proto.PlantMetabolisms, FixedPoint2.New(1f)));
             }
+            // ADT-Tweak start
+            if (proto.ReactiveEffects is { Count: > 0 })
+            {
+                ReactiveEffects = new List<string>();
+                foreach (var (_, entry) in proto.ReactiveEffects)
+                {
+                    foreach (var method in entry.Methods)
+                    {
+                        var methodText = Loc.GetString($"reaction-method-{method.ToString().ToLower()}");
+                        foreach (var description in proto.GuidebookReagentEffectsDescription(prototype, entSys, entry.Effects, FixedPoint2.New(1f)))
+                        {
+                            ReactiveEffects.Add(Loc.GetString("guidebook-reagent-reactive-effect", ("method", methodText), ("effect", description)));
+                        }
+                    }
+                }
+            }
+            // ADT-Tweak end
         }
     }
 
