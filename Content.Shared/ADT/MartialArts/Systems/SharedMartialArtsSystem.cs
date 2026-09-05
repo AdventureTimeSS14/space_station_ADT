@@ -518,6 +518,20 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         return false;
     }
 
+    public bool TryGrantMartialArt(EntityUid user, ProtoId<MartialArtPrototype> martialArt, LocId? learnMessage = null)
+    {
+        if (!_proto.TryIndex(martialArt, out var proto))
+            return false;
+
+        var grant = new GrantCqcComponent
+        {
+            MartialArtsForm = proto.MartialArtsForm,
+            LearnMessage = learnMessage,
+        };
+
+        return TryGrantMartialArt(user, grant);
+    }
+
     private bool GrantMartialArt(GrantMartialArtKnowledgeComponent comp, EntityUid user)
     {
         if (!_proto.TryIndex<MartialArtPrototype>(comp.MartialArtsForm.ToString(), out var martialArtsPrototype)

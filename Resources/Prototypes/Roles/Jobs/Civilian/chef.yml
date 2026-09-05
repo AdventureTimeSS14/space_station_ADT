@@ -17,6 +17,14 @@
   extendedAccess:
   - Hydroponics
   - Bar
+  # ADT-Tweak start
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: AreaMartialArt
+      area: AreaKitchen
+      martialArt: CloseQuartersCombat
+  # ADT-Tweak end
 
 - type: startingGear
   id: ChefGear
