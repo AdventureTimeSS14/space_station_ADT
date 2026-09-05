@@ -60,6 +60,7 @@ public sealed partial class SponsorColorsWindow : DefaultWindow
         ApplyButton.OnPressed += _ => Apply();
 
         _sponsors.Updated += Refresh;
+        _sponsors.ColorsConfirmed += OnColorsConfirmed;
         Refresh();
     }
 
@@ -68,7 +69,23 @@ public sealed partial class SponsorColorsWindow : DefaultWindow
         base.Dispose(disposing);
 
         if (disposing)
+        {
             _sponsors.Updated -= Refresh;
+            _sponsors.ColorsConfirmed -= OnColorsConfirmed;
+        }
+    }
+
+    private void OnColorsConfirmed()
+    {
+        if (_inFlight > 0)
+            _inFlight--;
+
+        if (_inFlight == 0 && !_dirty)
+        {
+            _pendingOoc = _sponsors.Colors.Ooc;
+            _pendingGhost = _sponsors.Colors.Ghost;
+            RenderColors();
+        }
     }
 
     private void MarkDirty()
@@ -97,9 +114,6 @@ public sealed partial class SponsorColorsWindow : DefaultWindow
 
     private void Refresh()
     {
-        if (_inFlight > 0)
-            _inFlight--;
-
         if (_inFlight == 0 && !_dirty)
         {
             _pendingOoc = _sponsors.Colors.Ooc;
