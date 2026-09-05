@@ -178,7 +178,7 @@
   boilingPoint: 2862.0
   meltingPoint: 1538.0
   metabolisms:
-    Metabolites: #ADT-Tweak
+    Metabolites: #ADT-Tweak Bloodstream > Metabolites
       metabolismRate: 0.1
       effects:
       - !type:HealthChange
