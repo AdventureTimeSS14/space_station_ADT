@@ -49,7 +49,7 @@
     - ClothingOuterHardsuitBrigmedic
 
 - type: entity
-  id: LockerCorrectionOfficerFilled
+  id: ADTLockerCorrectionOfficerFilled
   suffix: Filled
   parent: LockerCorrectionOfficer
   components:
@@ -57,3 +57,22 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillLockerCorrectionOfficer
+
+- type: entityTable
+  id: ADTFillLockerCorrectionOfficer
+  table: !type:AllSelector
+    children:
+    - id: ADTClothingHeadHatsCorrectionsOfficerCapGrey
+    - id: ADTClothingOuterCoatCorrectionsOfficerGrey
+    - id: ADTClothingUniformCorrectionsOfficerGrey
+    - id: ADTClothingUniformJumpskirtCorrectionsOfficer
+    - id: Multitool
+      amount: !type:BinomialNumberSelector
+        trials: 3
+    - !type:AllSelector
+      rolls: 3
+      children:
+      - id: RemoteSignaller
+      - id: ADTClothingNeckShockCollar
+      - id: ADTLegCuffs
+      - id: ClothingBackpackElectropack
