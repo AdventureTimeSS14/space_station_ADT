@@ -149,6 +149,10 @@
   speciesWhitelist:
     - IPC
   rewriteComponents: true
+  conflicts:
+    - ADTMaleIPC
+    - ADTCuteIPC
+    - ADTXenoborgIPC
   components:
   - type: Vocal
     sounds:
@@ -175,12 +179,77 @@
   speciesWhitelist:
     - IPC
   rewriteComponents: true
+  conflicts:
+    - ADTFemaleIPC
+    - ADTCuteIPC
+    - ADTXenoborgIPC
   components:
   - type: Vocal
     sounds:
       Male: MaleIPC
       Female: MaleIPC
       Unsexed: MaleIPC
+  - type: Tag
+    tags:
+    - CanPilot
+    - SiliconFootstepSound
+    - DoorBumpOpener
+    - ChangelingBlacklist
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
+    - Unimplantable
+
+- type: trait
+  id: ADTCuteIPC
+  name: trait-cute-ipc-name
+  description: trait-cute-ipc-desc
+  category: Quirks
+  cost: 0
+  speciesWhitelist:
+    - IPC
+  rewriteComponents: true
+  conflicts:
+    - ADTFemaleIPC
+    - ADTMaleIPC
+    - ADTXenoborgIPC
+  components:
+  - type: Vocal
+    sounds:
+      Male: CuteIPC
+      Female: CuteIPC
+      Unsexed: CuteIPC
+  - type: Tag
+    tags:
+    - CanPilot
+    - SiliconFootstepSound
+    - DoorBumpOpener
+    - ChangelingBlacklist
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
+    - Unimplantable
+    - ADTIPCCuteEmotes
+
+- type: trait
+  id: ADTXenoborgIPC
+  name: trait-xenoborg-ipc-name
+  description: trait-xenoborg-ipc-desc
+  category: Quirks
+  cost: 0
+  speciesWhitelist:
+    - IPC
+  rewriteComponents: true
+  conflicts:
+    - ADTFemaleIPC
+    - ADTMaleIPC
+    - ADTCuteIPC
+  components:
+  - type: Vocal
+    sounds:
+      Male: XenoborgIPC
+      Female: XenoborgIPC
+      Unsexed: XenoborgIPC
   - type: Tag
     tags:
     - CanPilot

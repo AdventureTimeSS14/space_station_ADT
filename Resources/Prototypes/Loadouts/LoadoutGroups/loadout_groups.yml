@@ -796,7 +796,6 @@
   maxLimit: 2
   loadouts:
   - ADTBoxJukeBoxPlayer #ADT-Tweak
-  - MusicianSuperSynthesizer # ADT-Tweak
   - Glockenspiel
   - MusicBox
   - Xylophone
