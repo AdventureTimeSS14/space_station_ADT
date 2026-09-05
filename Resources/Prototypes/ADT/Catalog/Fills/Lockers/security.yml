@@ -51,7 +51,7 @@
 - type: entity
   id: ADTLockerCorrectionOfficerFilled
   suffix: Filled
-  parent: LockerCorrectionOfficer
+  parent: ADTLockerCorrectionOfficer
   components:
   - type: EntityTableContainerFill
     containers:
