@@ -178,6 +178,11 @@ namespace Content.Shared.Chemistry.Reagent
         [DataField(serverOnly: true)]
         public List<ITileReaction> TileReactions = new(0);
 
+        // ADT-Tweak start
+        [DataField]
+        public bool SplashBlocked;
+        // ADT-Tweak end
+
         [DataField("plantMetabolism")]
         public List<EntityEffect> PlantMetabolisms = new(0);
 

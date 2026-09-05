@@ -3,6 +3,7 @@ using Content.Shared.ADT.Chemistry.Events;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
@@ -67,5 +68,19 @@ public sealed class ADTMedicalSpraySystem : EntitySystem
 
         _useDelay.TryResetDelay(injector);
         return true;
+    }
+
+    public bool ShouldBlockSplash(Solution solution)
+    {
+        foreach (var reagentQuantity in solution.Contents)
+        {
+            if (_proto.TryIndex<ReagentPrototype>(reagentQuantity.Reagent.Prototype, out var reagent)
+                && reagent.SplashBlocked)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
