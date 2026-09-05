@@ -6,7 +6,7 @@ namespace Content.Shared.ADT.Sponsors;
 public sealed class SponsorCVars
 {
     public static readonly CVarDef<bool> Enabled =
-        CVarDef.Create("adt.sponsor.enabled", true, CVar.SERVERONLY);
+        CVarDef.Create("adt.sponsor.enabled", false, CVar.SERVERONLY);
 
     /// <summary>
     /// Учитывать ли старую спонсорку при валидации профиля
