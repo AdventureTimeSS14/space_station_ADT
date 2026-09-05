@@ -110,7 +110,8 @@ public sealed partial class AddictionSystem : EntitySystem
         {
             channel.InWithdrawal = true;
             channel.Stage = stage;
-            RaiseSymptomsChanged(uid);
+            if (channel.Kind != AddictionKind.Coffee)
+                RaiseSymptomsChanged(uid);
         }
 
         if (_timing.CurTime >= channel.NextPopupTime)
@@ -143,7 +144,9 @@ public sealed partial class AddictionSystem : EntitySystem
     {
         channel.InWithdrawal = false;
         channel.Stage = 0;
-        RaiseSymptomsChanged(uid);
+        // Кофе без симптомов - пересчитывать нечего, иначе снимем чужие (дрожь и т.п.)
+        if (channel.Kind != AddictionKind.Coffee)
+            RaiseSymptomsChanged(uid);
     }
 
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
@@ -227,6 +230,9 @@ public sealed partial class AddictionSystem : EntitySystem
         if (reagent.Prototype == comp.NicotineReagent)
             return AddictionKind.Nicotine;
 
+        if (reagent.Prototype == comp.CoffeeReagent)
+            return AddictionKind.Coffee;
+
         if (!_proto.TryIndex(reagent.Prototype, out ReagentPrototype? proto))
             return null;
 
@@ -255,6 +261,7 @@ public sealed partial class AddictionSystem : EntitySystem
         AddictionKind.Drug => "drug",
         AddictionKind.Medicine => "medicine",
         AddictionKind.Omnizine => "omnizine",
+        AddictionKind.Coffee => "coffee",
         _ => "alcohol",
     };
 }

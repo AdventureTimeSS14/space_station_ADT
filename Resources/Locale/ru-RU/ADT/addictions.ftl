@@ -19,12 +19,14 @@ addiction-begin-nicotine = Ты замечаешь, что начинаешь п
 addiction-begin-drug = Ты замечаешь, что начинаешь привыкать к наркотикам...
 addiction-begin-medicine = Ты замечаешь, что начинаешь привыкать к лекарствам...
 addiction-begin-omnizine = Ты замечаешь, что начинаешь привыкать к омнизину...
+addiction-begin-coffee = Ты замечаешь, что начинаешь привыкать к кофе...
 
 addiction-dose-alcohol = Глоток. По телу разливается тепло, ломка отступает.
 addiction-dose-nicotine = Затяжка. Голова проясняется, руки перестают трястись.
 addiction-dose-drug = Доза ударила в голову. Ломка отступает.
 addiction-dose-medicine = Доза лекарства. Ломка отступает.
 addiction-dose-omnizine = Доза омнизина. По телу разливается тепло, ломка отступает.
+addiction-dose-coffee = Кофе. Наконец-то. Ломка отступает.
 
 addiction-withdrawal-alcohol-0 = Руки слегка трясутся. Неплохо бы выпить...
 addiction-withdrawal-alcohol-1 = Всё раздражает, слова путаются. Без выпивки невыносимо.
@@ -41,15 +43,19 @@ addiction-withdrawal-medicine-2 = Ломка скручивает, мысли п
 addiction-withdrawal-omnizine-0 = Становится не по себе. Нужна доза омнизина.
 addiction-withdrawal-omnizine-1 = Тело ноет, привычные раны дают о себе знать. Без омнизина невыносимо.
 addiction-withdrawal-omnizine-2 = Ломка скручивает, боль возвращается. Омнизин. Сейчас же.
+addiction-withdrawal-coffee-0 = Хочется кофе. Очень.
+addiction-withdrawal-coffee-1 = Голова не варит, всё бесит. Нужна чашка кофе.
+addiction-withdrawal-coffee-2 = Я не я, если не выпью кофейку! Кофе. Сейчас же.
 
 addiction-cured-alcohol = Зависимость от алкоголя отпустила тебя.
 addiction-cured-nicotine = Зависимость от никотина отпустила тебя.
 addiction-cured-drug = Зависимость от наркотиков отпустила тебя.
 addiction-cured-medicine = Зависимость от лекарств отпустила тебя.
 addiction-cured-omnizine = Зависимость от омнизина отпустила тебя.
+addiction-cured-coffee = Зависимость от кофе отпустила тебя.
 
 reagent-name-adt-detoxin = Детоксин
-reagent-desc-adt-detoxin = Снимает абстинентный синдром и постепенно лечит зависимость от алкоголя, никотина, наркотиков, лекарств и омнизина. Бессилен против врождённых зависимостей.
+reagent-desc-adt-detoxin = Снимает абстинентный синдром и постепенно лечит зависимость от алкоголя, никотина, наркотиков, лекарств, омнизина и кофе. Бессилен против врождённых зависимостей.
 
 entity-effect-guidebook-adjust-addiction-level = Снижает уровень привыкания на {$amount} за цикл метаболизма.
 
@@ -61,6 +67,7 @@ health-analyzer-addiction-nicotine = Никотиновая
 health-analyzer-addiction-drug = Наркотическая
 health-analyzer-addiction-medicine = Лекарственная
 health-analyzer-addiction-omnizine = Омнизиновая
+health-analyzer-addiction-coffee = Кофейная
 health-analyzer-window-addiction-line = { $kind } зависимость: стадия { $stage } ({ $stageName })
 health-analyzer-window-addiction-permanent = { $kind } зависимость: стадия { $stage } ({ $stageName }, не лечится)
 health-analyzer-addiction-stage-1 = лёгкая

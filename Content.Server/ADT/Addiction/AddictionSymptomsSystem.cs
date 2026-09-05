@@ -36,7 +36,7 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
             var due = false;
             foreach (var channel in comp.Channels)
             {
-                if (!channel.InWithdrawal)
+                if (!channel.InWithdrawal || channel.Kind == AddictionKind.Coffee)
                     continue;
 
                 anyWithdrawal = true;
@@ -51,8 +51,10 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
 
             foreach (var channel in comp.Channels)
             {
-                if (channel.InWithdrawal)
-                    channel.NextSymptomsTime = _timing.CurTime + comp.SymptomRefreshInterval;
+                if (!channel.InWithdrawal || channel.Kind == AddictionKind.Coffee)
+                    continue;
+
+                channel.NextSymptomsTime = _timing.CurTime + comp.SymptomRefreshInterval;
             }
         }
     }
@@ -74,6 +76,9 @@ public sealed partial class AddictionSymptomsSystem : EntitySystem
         foreach (var channel in comp.Channels)
         {
             if (!channel.InWithdrawal)
+                continue;
+
+            if (channel.Kind == AddictionKind.Coffee)
                 continue;
 
             anyWithdrawal = true;
