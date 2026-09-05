@@ -1,0 +1,37 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: ADTBasePhone
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/phone.rsi
+    state: rpb_phone
+  - type: Item
+    size: Small
+  - type: Speech
+  - type: Telephone
+    ringTone: /Audio/ADT/Phone/telephone_ring.ogg
+    listeningRange: 1.5
+    speakerVolume: Speak
+    # Lavaland is a separate map, so phones use unlimited range to reach it.
+    transmissionRange: Unlimited
+    compatibleRanges:
+    - Unlimited
+  - type: ADTPhone
+  - type: ActivatableUI
+    key: enum.ADTPhoneUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: true
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.ADTPhoneUiKey.Key:
+        type: ADTPhoneBui
+
+- type: entity
+  parent: ADTBasePhone
+  id: ADTPhoneQM
+
+- type: entity
+  parent: ADTBasePhone
+  id: ADTPhoneSalvage
