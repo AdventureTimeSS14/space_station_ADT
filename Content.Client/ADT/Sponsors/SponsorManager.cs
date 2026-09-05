@@ -15,6 +15,7 @@ public sealed partial class SponsorManager : SharedSponsorManager
     public SponsorPersonalColors Colors { get; private set; } = new();
 
     public event Action? Updated;
+    public event Action? ColorsConfirmed;
 
     public override void Initialize()
     {
@@ -83,6 +84,8 @@ public sealed partial class SponsorManager : SharedSponsorManager
             message.State.Benefits,
             message.State.NextExpiry,
             message.State.Tiers));
+
+        ColorsConfirmed?.Invoke();
     }
 
     private void OnDisconnect(object? sender, NetDisconnectedArgs e)
