@@ -1,5 +1,6 @@
 using Content.Shared.ADT.Areas;
 using Content.Shared.ADT.MartialArts;
+using Content.Server.ADT.MartialArts.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
@@ -48,13 +49,23 @@ public sealed class AreaMartialArtsSystem : EntitySystem
 
         if (!TryComp<MartialArtsKnowledgeComponent>(owner, out var knowledge))
         {
-            if (inArea)
-                _martialArts.TryGrantMartialArt(owner, comp.MartialArt, comp.LearnMessage);
+            if (inArea && _martialArts.TryGrantMartialArt(owner, comp.MartialArt, comp.LearnMessage))
+                EnsureComp<AreaMartialArtGrantedComponent>(owner);
             return;
         }
 
         if (knowledge.MartialArtsForm != form)
             return;
+
+        if (!HasComp<AreaMartialArtGrantedComponent>(owner))
+        {
+            if (knowledge.Blocked)
+            {
+                knowledge.Blocked = false;
+                Dirty(owner, knowledge);
+            }
+            return;
+        }
 
         if (inArea == knowledge.Blocked)
         {
