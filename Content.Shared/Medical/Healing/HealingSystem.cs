@@ -15,6 +15,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
+using Content.Shared.ADT.Medical;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.Medical.Healing;
@@ -31,6 +32,7 @@ public sealed class HealingSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly ADTHealingVisualsSystem _healingVisuals = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -45,7 +47,12 @@ public sealed class HealingSystem : EntitySystem
     {
 
         if (args.Handled || args.Cancelled)
+        // ADT-Tweak start
+        {
+            _healingVisuals.StopHealEffect(target.Owner);
             return;
+        }
+        // ADT-Tweak end
 
         if (!TryComp(args.Used, out HealingComponent? healing))
             return;
@@ -118,6 +125,8 @@ public sealed class HealingSystem : EntitySystem
 
         if (!args.Repeat)
         {
+            _healingVisuals.StopHealEffect(target.Owner); // ADT-Tweak
+
             _popupSystem.PopupClient(Loc.GetString("medical-item-finished-using", ("item", args.Used)), target.Owner, args.User);
             return;
         }
@@ -228,7 +237,13 @@ public sealed class HealingSystem : EntitySystem
                 BreakOnWeightlessMove = false,
             };
 
-        _doAfter.TryStartDoAfter(doAfterEventArgs);
+        // ADT-Tweak start
+        if (_doAfter.TryStartDoAfter(doAfterEventArgs))
+        {
+            _healingVisuals.StartHealEffect(target.Owner, healing.Comp.HealEffect, doAfterEventArgs.Delay);
+        }
+        // ADT-Tweak end
+
         return true;
     }
 
