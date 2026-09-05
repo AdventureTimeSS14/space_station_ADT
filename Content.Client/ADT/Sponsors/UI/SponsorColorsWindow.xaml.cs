@@ -16,6 +16,7 @@ public sealed partial class SponsorColorsWindow : DefaultWindow
     private Color? _pendingOoc;
     private Color? _pendingGhost;
 
+    private bool _dirty;
     private int _inFlight;
 
     public SponsorColorsWindow(SponsorManager sponsors)
@@ -26,18 +27,37 @@ public sealed partial class SponsorColorsWindow : DefaultWindow
 
         OocSelector.OnColorChanged += color =>
         {
-            if (!_refreshing)
-                Send(color, _pendingGhost);
+            if (_refreshing)
+                return;
+
+            _pendingOoc = color;
+            MarkDirty();
         };
 
         GhostSelector.OnColorChanged += color =>
         {
-            if (!_refreshing)
-                Send(_pendingOoc, color);
+            if (_refreshing)
+                return;
+
+            _pendingGhost = color;
+            MarkDirty();
         };
 
-        OocResetButton.OnPressed += _ => Send(null, _pendingGhost);
-        GhostResetButton.OnPressed += _ => Send(_pendingOoc, null);
+        OocResetButton.OnPressed += _ =>
+        {
+            _pendingOoc = null;
+            MarkDirty();
+            RenderColors();
+        };
+
+        GhostResetButton.OnPressed += _ =>
+        {
+            _pendingGhost = null;
+            MarkDirty();
+            RenderColors();
+        };
+
+        ApplyButton.OnPressed += _ => Apply();
 
         _sponsors.Updated += Refresh;
         Refresh();
@@ -51,13 +71,28 @@ public sealed partial class SponsorColorsWindow : DefaultWindow
             _sponsors.Updated -= Refresh;
     }
 
-    private void Send(Color? ooc, Color? ghost)
+    private void MarkDirty()
     {
-        _pendingOoc = ooc;
-        _pendingGhost = ghost;
+        _dirty = true;
+        UpdateApplyState();
+    }
+
+    private void UpdateApplyState()
+    {
+        ApplyButton.Disabled = !_dirty;
+        DirtyLabel.Visible = _dirty;
+    }
+
+    private void Apply()
+    {
+        if (!_dirty)
+            return;
+
+        _dirty = false;
         _inFlight++;
 
-        _sponsors.RequestColors(ooc, ghost);
+        _sponsors.RequestColors(_pendingOoc, _pendingGhost);
+        UpdateApplyState();
     }
 
     private void Refresh()
@@ -65,34 +100,44 @@ public sealed partial class SponsorColorsWindow : DefaultWindow
         if (_inFlight > 0)
             _inFlight--;
 
-        if (_inFlight == 0)
+        if (_inFlight == 0 && !_dirty)
         {
             _pendingOoc = _sponsors.Colors.Ooc;
             _pendingGhost = _sponsors.Colors.Ghost;
         }
 
+        var data = _sponsors.Data;
+
+        OocSection.Visible = data.AllowCustomOocColor;
+
+        var hasPresets = data.GhostColors.Count > 0;
+        GhostSection.Visible = data.AllowCustomGhostColor || hasPresets;
+        GhostSelector.Visible = data.AllowCustomGhostColor;
+
+        var anySection = OocSection.Visible || GhostSection.Visible;
+        HintLabel.Visible = !anySection;
+        ApplyDivider.Visible = anySection;
+        ApplySection.Visible = anySection;
+
+        BuildGhostPresets(data);
+        RenderColors();
+    }
+
+    private void RenderColors()
+    {
         _refreshing = true;
 
         try
         {
-            var data = _sponsors.Data;
-
-            OocSection.Visible = data.AllowCustomOocColor;
-            OocSelector.Color = _pendingOoc ?? data.OocColor ?? Color.White;
-
-            var hasPresets = data.GhostColors.Count > 0;
-            GhostSection.Visible = data.AllowCustomGhostColor || hasPresets;
-            GhostSelector.Visible = data.AllowCustomGhostColor;
+            OocSelector.Color = _pendingOoc ?? _sponsors.Data.OocColor ?? Color.White;
             GhostSelector.Color = _pendingGhost ?? Color.White;
-
-            BuildGhostPresets(data);
-
-            HintLabel.Visible = !OocSection.Visible && !GhostSection.Visible;
         }
         finally
         {
             _refreshing = false;
         }
+
+        UpdateApplyState();
     }
 
     private void BuildGhostPresets(SponsorData data)
@@ -112,7 +157,12 @@ public sealed partial class SponsorColorsWindow : DefaultWindow
             };
 
             var picked = color;
-            button.OnPressed += _ => Send(_pendingOoc, picked);
+
+            button.OnPressed += _ =>
+            {
+                _pendingGhost = picked;
+                MarkDirty();
+            };
 
             GhostPresets.AddChild(button);
         }

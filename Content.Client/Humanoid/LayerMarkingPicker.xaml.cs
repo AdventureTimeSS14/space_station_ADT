@@ -22,9 +22,15 @@ public sealed partial class LayerMarkingPicker : BoxContainer
     private List<ISearchableControl> _searchable = new();
     private const int _columnWidth = 500;
 
+    // ADT-Tweak-Start
+    [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
+    [Dependency] private readonly Robust.Client.Player.IPlayerManager _players = default!;
+    // ADT-Tweak-End
+
     public LayerMarkingPicker(MarkingsViewModel markingsModel, ProtoId<OrganCategoryPrototype> organ, HumanoidVisualLayers layer, IReadOnlyDictionary<string, MarkingPrototype> allMarkings)
     {
         RobustXamlLoader.Load(this);
+        IoCManager.InjectDependencies(this); // ADT-Tweak
 
         _markingsModel = markingsModel;
         _allMarkings = allMarkings;
@@ -54,6 +60,7 @@ public sealed partial class LayerMarkingPicker : BoxContainer
 
         _markingsModel.MarkingsReset += UpdateCount;
         _markingsModel.MarkingsChanged += MarkingsChanged;
+        _adtSponsors.Updated += UpdateMarkings; // ADT-Tweak
     }
 
     protected override void ExitedTree()
@@ -62,6 +69,7 @@ public sealed partial class LayerMarkingPicker : BoxContainer
 
         _markingsModel.MarkingsReset -= UpdateCount;
         _markingsModel.MarkingsChanged -= MarkingsChanged;
+        _adtSponsors.Updated -= UpdateMarkings; // ADT-Tweak
     }
 
     private void MarkingsChanged(ProtoId<OrganCategoryPrototype> organ, HumanoidVisualLayers layer)
@@ -74,10 +82,7 @@ public sealed partial class LayerMarkingPicker : BoxContainer
 
     private void UpdateMarkings()
     {
-        // ADT-Tweak-Start
-        var sponsors = IoCManager.Resolve<Content.Client.ADT.Sponsors.SponsorManager>();
-        var localSession = IoCManager.Resolve<Robust.Client.Player.IPlayerManager>().LocalSession;
-        // ADT-Tweak-End
+        var localSession = _players.LocalSession; // ADT-Tweak
 
         foreach (var marking in _allMarkings.Values.OrderBy(marking => Loc.GetString($"marking-{marking.ID}")))
         {
@@ -86,7 +91,7 @@ public sealed partial class LayerMarkingPicker : BoxContainer
             // ADT-Tweak-Start
             if (marking.SponsorOnly)
             {
-                if (!sponsors.IsMarkingAllowed(localSession, marking.ID))
+                if (!_adtSponsors.IsMarkingAllowed(localSession, marking.ID))
                     continue;
 
                 SponsorItems.AddChild(item);

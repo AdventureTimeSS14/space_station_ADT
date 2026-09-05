@@ -94,6 +94,11 @@ public sealed partial class SponsorManager : SharedSponsorManager
     private void SetData(SponsorData data)
     {
         _data = data;
+        RaiseUpdated();
+    }
+
+    private void RaiseUpdated()
+    {
         Updated?.Invoke();
     }
 }

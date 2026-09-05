@@ -16,6 +16,8 @@ namespace Content.Client.ADT.TTS;
 public sealed partial class TTSTab : Control
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
+    [Dependency] private readonly Robust.Client.Player.IPlayerManager _players = default!;
 
     public event Action<string>? OnVoiceSelected;
     public event Action<string>? OnPreviewRequested;
@@ -31,6 +33,16 @@ public sealed partial class TTSTab : Control
 
         UpdateResults();
         SearchEdit.OnTextChanged += OnSearchChanged;
+
+        _adtSponsors.Updated += UpdateResults;
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+
+        if (disposing)
+            _adtSponsors.Updated -= UpdateResults;
     }
 
     private void OnSearchChanged(LineEdit.LineEditEventArgs args)
@@ -104,15 +116,12 @@ public sealed partial class TTSTab : Control
             ("filtered", _filteredVoices.Count), ("all", _allVoices.Count));
     }
 
-    private static bool CanUseVoice(TTSVoicePrototype voice)
+    private bool CanUseVoice(TTSVoicePrototype voice)
     {
         if (!voice.SponsorOnly)
             return true;
 
-        var sponsors = IoCManager.Resolve<Content.Client.ADT.Sponsors.SponsorManager>();
-        var session = IoCManager.Resolve<Robust.Client.Player.IPlayerManager>().LocalSession;
-
-        return sponsors.IsTtsVoiceAllowed(session, voice.ID);
+        return _adtSponsors.IsTtsVoiceAllowed(_players.LocalSession, voice.ID);
     }
 
     public void UpdateControls(HumanoidCharacterProfile? profile, Sex sex, ProtoId<SpeciesPrototype> species)

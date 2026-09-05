@@ -5,6 +5,8 @@ adt-sponsor-colors-title = Спонсорские цвета
 adt-sponsor-colors-ooc = Цвет ника в ООС
 adt-sponsor-colors-ghost = Цвет призрака
 adt-sponsor-colors-reset = Сбросить
+adt-sponsor-colors-apply = Применить
+adt-sponsor-colors-unsaved = Есть неприменённые изменения
 adt-sponsor-colors-hint = На вашей подписке нет доступных настроек цвета.
 
 adt-sponsor-panel-title = Спонсорка
@@ -74,16 +76,75 @@ adt-sponsor-editor-other = Прочее
 adt-sponsor-editor-priority-join = Приоритетный вход
 adt-sponsor-editor-extra-slots = Доп. слотов персонажей
 
-adt-sponsor-info-tier = [color=#66CCFF]{$tier}[/color] - до {$date}
+# Окно "Информация о вашем статусе спонсора"
+adt-sponsor-info-badge-active = СПОНСОР
+adt-sponsor-info-badge-none = НЕТ ПОДПИСКИ
+
 adt-sponsor-info-forever = бессрочно
-adt-sponsor-info-roles = Роли без наигранного времени
-adt-sponsor-info-loadouts = Спонсорские предметы в лодауте
-adt-sponsor-info-markings = Спонсорские маркинги
-adt-sponsor-info-species = Спонсорские виды
-adt-sponsor-info-ooc = Цвет ника в ООС
-adt-sponsor-info-ghost = Цвет призрака
-adt-sponsor-info-priority = Приоритетный вход на сервер
-adt-sponsor-info-slots = Дополнительных слотов персонажей: {$count}
+adt-sponsor-info-until = до {$date}
+adt-sponsor-info-custom-grant = Персональная выдача без тира
+adt-sponsor-info-legacy-hint = Подписка старой системы
+adt-sponsor-info-no-sponsor = Активной подписки нет
+adt-sponsor-info-no-sponsor-hint = Здесь появятся ваши спонсорские бонусы.
+
+adt-sponsor-info-section-subscription = Подписка
+adt-sponsor-info-section-roles = Роли
+adt-sponsor-info-section-customization = Кастомизация
+adt-sponsor-info-section-chat = Чат и призрак
+adt-sponsor-info-section-other = Прочее
+
+adt-sponsor-info-row-bypass-jobs = Работы без наигранного времени
+adt-sponsor-info-row-bypass-antags = Антагонисты без наигранного времени
+adt-sponsor-info-row-excluded-departments = Кроме департаментов
+adt-sponsor-info-row-excluded-jobs = Кроме работ
+adt-sponsor-info-row-loadouts = Спонсорские предметы
+adt-sponsor-info-row-markings = Спонсорские маркинги
+adt-sponsor-info-row-species = Спонсорские виды
+adt-sponsor-info-row-traits = Спонсорские трейты
+adt-sponsor-info-row-tts = Спонсорские ТТС-голоса
+adt-sponsor-info-row-ooc = Цвет ника в ООС
+adt-sponsor-info-row-ooc-custom = Свой цвет ника в ООС
+adt-sponsor-info-row-ghost = Цвет призрака
+adt-sponsor-info-row-priority = Приоритетный вход на сервер
+adt-sponsor-info-row-slots = Дополнительные слоты персонажей
+adt-sponsor-info-row-legacy-tier = Уровень подписки
+adt-sponsor-info-row-expires = Действует до
+adt-sponsor-info-row-allow-job = Игнор времени ролей
+
+adt-sponsor-info-yes = Да
+adt-sponsor-info-no = Нет
+adt-sponsor-info-all = Все спонсорские
+adt-sponsor-info-none = Нет
+adt-sponsor-info-any-color = Любой
+adt-sponsor-info-more = и ещё {$count}
+adt-sponsor-info-next-expiry = Ближайшее списание бонусов: через {$left}
+adt-sponsor-info-expiry-soon = Ближайшее списание бонусов: меньше чем через минуту
+adt-sponsor-info-expiry-passed = Часть бонусов уже истекла
+
+adt-sponsor-info-span-minutes = { $count ->
+    [one] {$count} минуту
+    [few] {$count} минуты
+    [many] {$count} минут
+   *[other] {$count} минут
+}
+adt-sponsor-info-span-hours = { $count ->
+    [one] {$count} час
+    [few] {$count} часа
+    [many] {$count} часов
+   *[other] {$count} часов
+}
+adt-sponsor-info-span-days = { $count ->
+    [one] {$count} день
+    [few] {$count} дня
+    [many] {$count} дней
+   *[other] {$count} дней
+}
+adt-sponsor-info-span-months = { $count ->
+    [one] {$count} месяц
+    [few] {$count} месяца
+    [many] {$count} месяцев
+   *[other] {$count} месяцев
+}
 
 adt-sponsor-loadout-category = Спонсорские предметы
 adt-sponsor-marking-category = Спонсорские

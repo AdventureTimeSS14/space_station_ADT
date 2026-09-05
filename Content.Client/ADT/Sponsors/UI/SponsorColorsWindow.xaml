@@ -3,7 +3,7 @@
     xmlns:adt="clr-namespace:Content.Client.ADT.UserInterface.Controls"
     Title="{Loc 'adt-sponsor-colors-title'}"
     MinWidth="420"
-    MinHeight="360"
+    MinHeight="400"
     Resizable="False">
     <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="10">
         <BoxContainer Name="OocSection" Orientation="Vertical" SeparationOverride="4">
@@ -18,5 +18,17 @@
             <Button Name="GhostResetButton" Text="{Loc 'adt-sponsor-colors-reset'}" />
         </BoxContainer>
         <Label Name="HintLabel" Text="{Loc 'adt-sponsor-colors-hint'}" />
+        <PanelContainer Name="ApplyDivider" StyleClasses="LowDivider" SetHeight="2" />
+        <BoxContainer Name="ApplySection" Orientation="Vertical" SeparationOverride="4">
+            <Label Name="DirtyLabel"
+                   Text="{Loc 'adt-sponsor-colors-unsaved'}"
+                   HorizontalAlignment="Center"
+                   Visible="False" />
+            <Button Name="ApplyButton"
+                    Text="{Loc 'adt-sponsor-colors-apply'}"
+                    HorizontalAlignment="Center"
+                    StyleClasses="ButtonBig"
+                    Disabled="True" />
+        </BoxContainer>
     </BoxContainer>
 </DefaultWindow>

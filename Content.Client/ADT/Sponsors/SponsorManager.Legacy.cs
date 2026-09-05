@@ -90,6 +90,11 @@ public sealed partial class SponsorManager
 
     private void OnLegacyBridgeChanged(bool value)
     {
+        if (_legacyBridge == value)
+            return;
+
         _legacyBridge = value;
+
+        RaiseUpdated();
     }
 }

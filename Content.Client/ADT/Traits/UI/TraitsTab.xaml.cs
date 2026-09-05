@@ -18,6 +18,8 @@ public sealed partial class TraitsTab : BoxContainer
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
+    [Dependency] private readonly Robust.Client.Player.IPlayerManager _players = default!;
 
     /// <summary>
     /// Event fired when trait selection changes.
@@ -33,6 +35,7 @@ public sealed partial class TraitsTab : BoxContainer
     private int _currentPointsSpent;
 
     private string _currentSearchText = string.Empty;
+    private HumanoidCharacterProfile? _profile;
     private bool _awaitingLayoutUpdate;
     private bool _suppressTraitsChangedEvent;
 
@@ -43,6 +46,7 @@ public sealed partial class TraitsTab : BoxContainer
 
         SearchBar.OnTextChanged += OnSearchTextChanged;
         _prototype.PrototypesReloaded += OnProtoReload;
+        _adtSponsors.Updated += OnSponsorsUpdated;
 
         // Subscribe to CVars
         _cfg.OnValueChanged(SimpleStationCCVars.MaxTraitCount, OnMaxTraitCountChanged, true);
@@ -64,6 +68,54 @@ public sealed partial class TraitsTab : BoxContainer
     {
         _maxGlobalPoints = value;
         UpdateGlobalStats();
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+
+        if (!disposing)
+            return;
+
+        _prototype.PrototypesReloaded -= OnProtoReload;
+        _adtSponsors.Updated -= OnSponsorsUpdated;
+    }
+
+    private void OnSponsorsUpdated()
+    {
+        if (Disposed)
+            return;
+
+        var available = _selectedTraits
+            .Where(IsTraitStillAvailable)
+            .ToList();
+
+        var lostSome = available.Count != _selectedTraits.Count;
+
+        RefreshTraits();
+        SetSelectedTraits(available, _profile);
+
+        if (lostSome)
+            OnTraitsChanged?.Invoke(_selectedTraits);
+    }
+
+    private bool IsTraitStillAvailable(ProtoId<TraitPrototype> traitId)
+    {
+        if (!_prototype.TryIndex(traitId, out var trait))
+            return false;
+
+        if (!trait.SponsorOnly)
+            return true;
+
+        return _adtSponsors.IsTraitAllowed(_players.LocalSession, traitId.Id);
+    }
+
+    private static ProtoId<TraitCategoryPrototype> GetCategoryId(TraitPrototype trait)
+    {
+        if (trait.SponsorOnly)
+            return new ProtoId<TraitCategoryPrototype>(SponsorTraitCategory);
+
+        return trait.Category;
     }
 
     private void OnProtoReload(PrototypesReloadedEventArgs args)
@@ -92,12 +144,9 @@ public sealed partial class TraitsTab : BoxContainer
             .ThenBy(c => Loc.GetString(c.Name))
             .ToList();
 
-        var adtSponsors = IoCManager.Resolve<Content.Client.ADT.Sponsors.SponsorManager>();
-        var localSession = IoCManager.Resolve<Robust.Client.Player.IPlayerManager>().LocalSession;
-
         var traitsByCategory = _prototype.EnumeratePrototypes<TraitPrototype>()
-            .Where(t => !t.SponsorOnly || adtSponsors.IsTraitAllowed(localSession, t.ID))
-            .GroupBy(t => t.SponsorOnly ? new ProtoId<TraitCategoryPrototype>(SponsorTraitCategory) : t.Category)
+            .Where(t => !t.SponsorOnly || _adtSponsors.IsTraitAllowed(_players.LocalSession, t.ID))
+            .GroupBy(GetCategoryId)
             .ToDictionary(g => g.Key, g => g.OrderBy(t => Loc.GetString(t.Name)).ToList());
 
         foreach (var category in categories)
@@ -362,6 +411,7 @@ public sealed partial class TraitsTab : BoxContainer
 
         try
         {
+            _profile = profile;
             UpdateRequirements(profile, null);
 
             // Clear current selection
@@ -387,7 +437,7 @@ public sealed partial class TraitsTab : BoxContainer
                     _currentPointsSpent += trait.Cost;
                 }
 
-                if (_categoryUis.TryGetValue(trait.Category, out var categoryUi))
+                if (_categoryUis.TryGetValue(GetCategoryId(trait), out var categoryUi))
                 {
                     categoryUi.SetTraitSelected(traitId, true, suppressToggle: true);
                 }
