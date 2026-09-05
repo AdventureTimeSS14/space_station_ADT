@@ -41,6 +41,7 @@
 - type: marking
   id: DemonHornsDevilOne
   bodyPart: HeadTop
+  groupWhitelist: [Human, Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: horns_devil_one

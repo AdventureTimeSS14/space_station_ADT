@@ -1,6 +1,7 @@
 - type: marking
   id: ADTAlldurak
   bodyPart: HeadTop
+  groupWhitelist: [ Human, Demon ] # ADT tweak
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -9,6 +10,7 @@
 - type: marking
   id: ADTAllhorn1
   bodyPart: HeadTop
+  groupWhitelist: [ Human, Demon ] # ADT tweak
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -17,6 +19,7 @@
 - type: marking
   id: ADTAllhorn2
   bodyPart: HeadTop
+  groupWhitelist: [ Human, Demon ] # ADT tweak
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -25,6 +28,7 @@
 - type: marking
   id: ADTAllhorn3
   bodyPart: HeadTop
+  groupWhitelist: [ Human, Demon ] # ADT tweak
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -33,6 +37,7 @@
 - type: marking
   id: ADTAllhorn4
   bodyPart: HeadTop
+  groupWhitelist: [ Human, Demon ] # ADT tweak
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -41,6 +46,7 @@
 - type: marking
   id: ADTAllhorn5
   bodyPart: HeadTop
+  groupWhitelist: [ Human, Demon ] # ADT tweak
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -49,6 +55,7 @@
 - type: marking
   id: ADTAllhorn6
   bodyPart: HeadTop
+  groupWhitelist: [ Human, Demon ] # ADT tweak
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -57,6 +64,7 @@
 - type: marking
   id: ADTAlllord
   bodyPart: HeadTop
+  groupWhitelist: [ Human, Demon ] # ADT tweak
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -65,6 +73,7 @@
 - type: marking
   id: ADTAlloldpain
   bodyPart: HeadTop
+  groupWhitelist: [ Human, Demon ] # ADT tweak
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -73,6 +82,7 @@
 - type: marking
   id: ADTAlltavrhorn
   bodyPart: HeadTop
+  groupWhitelist: [ Human, Demon ] # ADT tweak
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -81,6 +91,7 @@
 - type: marking
   id: ADTAlltelehorn
   bodyPart: HeadTop
+  groupWhitelist: [ Human, Demon ] # ADT tweak
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi
@@ -89,6 +100,7 @@
 - type: marking
   id: ADTAllvampirehorn
   bodyPart: HeadTop
+  groupWhitelist: [ Human, Demon ] # ADT tweak
   sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Sponsor/horns.rsi

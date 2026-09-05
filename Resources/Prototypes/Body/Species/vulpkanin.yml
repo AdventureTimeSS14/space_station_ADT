@@ -371,6 +371,8 @@
   parent: [ OrganBaseKidneys, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
   id: OrganVulpkaninKidneys
 
+ # ADT vulp start
+
 - type: entity
   abstract: true
   id: ADTVulpkaninBaseSpeciesLayers
@@ -392,18 +394,18 @@
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-    - map: [ "socks" ]
+
 
     # Underwear & clothing
     - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
     - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
     - map: ["underwearb"]
     - map: ["underweart"]
+    - map: [ "socks" ] # ADT layers
     - map: ["jumpsuit"]
-
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
     - map: [ "enum.HumanoidVisualLayers.RHand" ]
-
+    - map: [ "finger" ] # ADT layers
     # Stuff that goes over the body but below equipment
     - map: ["enum.HumanoidVisualLayers.Overlay"]
 
@@ -411,12 +413,13 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
+    - map: [ "ears2" ] # ADT layers
     - map: [ "eyes" ]
-    - map: [ "belt" ]
     - map: [ "id" ]
     - map: [ "outerClothing" ]
+    - map: [ "belt" ]
+    - map: [ "neck" ] # Moved ABOVE the neck layer, since backpacks were partially rendering UNDER capes, yet remained visible on the side sprites (this was NOT logic).
     - map: [ "back" ]
-    - map: [ "neck" ]
     - map: [ "suitstorage" ]
 
     # Stuff that goes in front of equipment
@@ -465,3 +468,5 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+
+# ADT Vulp end

@@ -362,6 +362,7 @@
   parent: [OrganBaseKidneys, OrganMothInternal, OrganMothMetabolizer] # ADT-tweak removed OrganSpriteHumanInternal
   id: OrganMothKidneys
 
+# ADT moth start
 - type: entity
   abstract: true
   id: ADTMothBaseSpeciesLayers
@@ -381,6 +382,9 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: [ "socks" ]
 
     # Underwear & clothing
     - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
@@ -390,9 +394,6 @@
     - map: ["jumpsuit"]
 
     # Extremities
-    - map: ["enum.HumanoidVisualLayers.LFoot"]
-    - map: ["enum.HumanoidVisualLayers.RFoot"]
-    - map: [ "socks" ]
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
     - map: [ "finger" ]
@@ -406,13 +407,13 @@
     - map: [ "ears" ]
     - map: [ "ears2" ]
     - map: [ "eyes" ]
-    - map: [ "belt" ]
     - map: [ "id" ]
     - map: [ "outerClothing" ]
+    - map: [ "belt" ]
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
+    - map: [ "neck" ] # Moved ABOVE the neck layer, since backpacks were partially rendering UNDER capes, yet remained visible on the side sprites (this was NOT logic).
     - map: [ "back" ]
-    - map: [ "neck" ]
     - map: [ "suitstorage" ]
 
     # Stuff that goes in front of equipment
@@ -459,3 +460,5 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+
+# ADT moth end

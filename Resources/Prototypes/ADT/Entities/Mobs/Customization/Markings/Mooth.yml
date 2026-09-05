@@ -441,11 +441,11 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: mothtruebutterfly1
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: mothtruebutterfly2
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: mothtruebutterfly3
 
 - type: marking
@@ -455,11 +455,11 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: rhinobeetle1
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: rhinobeetle2
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: rhinobeetle3
 
 - type: marking
@@ -469,11 +469,11 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: glasswing1
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: glasswing2
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: glasswing3
 
 - type: marking
@@ -483,11 +483,11 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: bee1
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: bee2
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: bee3
 
 - type: marking
@@ -519,7 +519,7 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: mothfirefly2
 
 - type: marking
@@ -529,11 +529,11 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: beetle1
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: beetle2
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: beetle3
 
 - type: marking
@@ -543,7 +543,7 @@
   forcedColoring: true
   followSkinColor: true
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: mothbeetlehorn1
 
 - type: marking
@@ -553,7 +553,7 @@
   forcedColoring: true
   followSkinColor: true
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: mothbeetlehorn2
 
 - type: marking
@@ -565,7 +565,7 @@
       type:
         !type:EyeColoring
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: mothbiggereyes
 
 - type: marking
@@ -575,7 +575,7 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: snoth1
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: snoth2
