@@ -26,7 +26,7 @@
   - ADTAiRemoteBrain
   position: 2,-3
   requiredTech:
-  - CrystalManipulation
+  - ADTBluespaceMining
 
 - type: technology
   id: ADTModsuitBase
