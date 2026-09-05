@@ -18,9 +18,9 @@
   - ADTGygaxHead
   - ADTGygaxCentralElectronics
   - ADTGygaxPeripheralsElectronics
-  position: 4,0
+  position: 0,0
   requiredTech:
-  - ADTOdysseusTechnology
+  - ADTClarkeTechnology
 
 - type: technology
   id: ADTOdysseusTechnology
@@ -40,7 +40,7 @@
   - ADTOdysseusHead
   - ADTOdysseusCentralElectronics
   - ADTOdysseusPeripheralsElectronics
-  position: 3,0
+  position: 4,0
   requiredTech:
   - ADTArchimedesTechnology
 
@@ -70,7 +70,7 @@
   - ADTMechEquipmentToolJawsOfLife
   - ADTMechEquipmentToolPowerDrill
   - ADTMechEquipmentCockpit
-  position: 1,0
+  position: 3,0
   requiredTech:
   - RipleyAPLU
 
@@ -93,7 +93,7 @@
     sprite: Objects/Specific/Mech/mecha.rsi
     state: clarke
   discipline: Mech
-  tier: 2
+  tier: 1
   cost: 10000
   recipeUnlocks:
   - ADTClarkeHarness
@@ -104,9 +104,9 @@
   - ADTClarkeHead
   - ADTClarkeCentralElectronics
   - ADTClarkePeripheralsElectronics
-  position: 2,0
+  position: 1,0
   requiredTech:
-  - ADTArchimedesTechnology
+  - RipleyAPLU
 
 - type: technology
   id: ADTDurandTechnology
@@ -127,7 +127,7 @@
   - ADTDurandArmorPlates
   - ADTDurandCentralElectronics
   - ADTDurandPeripheralsElectronics
-  position: 4,1
+  position: -1,0
   requiredTech:
   - ADTGygaxTechnology
 
@@ -151,7 +151,7 @@
   - ADTPhazonCentralElectronics
   - ADTPhazonPeripheralsElectronics
   - ADTPhazonWeaponControlElectronics
-  position: 5,0
+  position: -1,1
   requiredTech:
   - ADTDurandTechnology
   - ADTGygaxTechnology
@@ -168,7 +168,7 @@
   cost: 3500
   recipeUnlocks:
   - MechEquipmentHumanGrabber
-  position: 3,-1
+  position: 4,1
   requiredTech:
   - ADTOdysseusTechnology
 
@@ -183,9 +183,9 @@
   cost: 3500
   recipeUnlocks:
   - MechEquipmentHumanSleeper
-  position: 3,-2
+  position: 4,2
   requiredTech:
-  - ADTOdysseusTechnology
+  - ADTMechTechnologyCarrier
 
 - type: technology
   id: ADTMechTechnologyMedigun
@@ -198,9 +198,9 @@
   cost: 7500
   recipeUnlocks:
   - ADTMechGunMedigun
-  position: 3,1
+  position: 5,1
   requiredTech:
-  - ADTOdysseusTechnology
+  - ADTMechTechnologyCarrier
 
 - type: technology
   id: ADTMechTechnologyCutters
@@ -214,7 +214,7 @@
   recipeUnlocks:
   - ADTMechWeaponCutter
   - ADTBoxPlasmaBox
-  position: 2,1
+  position: 1,-1
   requiredTech:
   - ADTClarkeTechnology
 
@@ -229,7 +229,7 @@
   cost: 3500
   recipeUnlocks:
   - MechEquipmentDrill
-  position: 2,-1
+  position: 1,1
   requiredTech:
   - ADTClarkeTechnology
 
@@ -244,7 +244,7 @@
   cost: 7500
   recipeUnlocks:
   - MechEquipmentDiamondDrill
-  position: 2,-2
+  position: 1,2
   requiredTech:
   - ADTMechTechnologyDrill
 
@@ -279,7 +279,7 @@
   - ADTMechGunUltraAC2
   - ADTBoxAmmoScattershot
   - ADTBoxAmmoAC2Ultra
-  position: 4,-1
+  position: 0,-2
   requiredTech:
   - ADTGygaxTechnology
 
@@ -301,6 +301,7 @@
   - ADTMechGunFNX99Hades
   - ADTBoxAmmoHades
   - ADTBoxAmmoGranade
-  position: 4,-2
+  position: -1,-2
   requiredTech:
   - ADTMechGunSmallTechnology
+  - ADTDurandTechnology

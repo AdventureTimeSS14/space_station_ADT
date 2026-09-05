@@ -61,6 +61,7 @@
   cost: 7500
   recipeUnlocks:
     - ADTAdvancedPlantAnalyzer
+    - ADTAdvancedWateringCan
   position: 1,-1
   requiredTech:
   - Hydroponics

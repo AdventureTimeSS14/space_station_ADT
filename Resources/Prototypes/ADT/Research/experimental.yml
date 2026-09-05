@@ -1,17 +1,17 @@
-- type: technology
-  id: CrystalManipulation
-  name: research-technology-crystal-manipulation
-  icon:
-    sprite: ADT/Objects/Materials/crystal_art.rsi
-    state: crystal
-  discipline: Experimental
-  tier: 2
-  cost: 15000
-  recipeUnlocks:
-  - ADTMaterialBScrystalArt
-  position: 3,-3
-  requiredTech:
-  - AdvancedAnomalyResearch
+# - type: technology По просьбе петра
+#   id: CrystalManipulation
+#   name: research-technology-crystal-manipulation
+#   icon:
+#     sprite: ADT/Objects/Materials/crystal_art.rsi
+#     state: crystal
+#   discipline: Experimental
+#   tier: 2
+#   cost: 15000
+#   recipeUnlocks:
+#   - ADTMaterialBScrystalArt
+#   position: 3,-3
+#   requiredTech:
+#   - AdvancedAnomalyResearch
 
 - type: technology
   id: ADTAiRemoteBrain
@@ -26,7 +26,7 @@
   - ADTAiRemoteBrain
   position: 2,-3
   requiredTech:
-  - CrystalManipulation
+  - ADTBluespaceMining
 
 - type: technology
   id: ADTModsuitBase
@@ -46,7 +46,7 @@
   - ADTModsuitHelmet
   - ADTModsuitPlateCience
   - ADTModsuitModAnomalyScanner
-  position: 0,-1
+  position: 0,0
   requiredTech:
   - MagnetsTech
 
@@ -58,13 +58,12 @@
     state: ansible_crystal
   discipline: Experimental
   tier: 2
-  cost: 40000
+  cost: 45000
   recipeUnlocks:
   - ADTMachineBluespaceHarvesterCircuitboard
-  position: 4,-3
+  position: 3,-3
   requiredTech:
   - AdvancedAnomalyResearch
-  - CrystalManipulation
 
 - type: technology
   id: BasicXenobiology
@@ -98,7 +97,7 @@
   cost: 15100
   recipeUnlocks:
   - ArtilleryComputerCircuitboard
-  position: 5,-4
+  position: 4,-4
   requiredTech:
   - ADTQuantumPartsTech
 
@@ -186,14 +185,14 @@
     state: quantum_matter_bin
   discipline: Experimental
   tier: 5
-  cost: 40000
+  cost: 42500
   recipeUnlocks:
   - QuantumCapacitorStockPart
   - QuantumScanningModuleStockPart
   - QuantumServoStockPart
   - QuantumMicroLaserStockPart
   - QuantumMatterBinStockPart
-  position: 4,-4
+  position: 3,-4
   requiredTech:
   - ADTBluespacePartsTech
   - ADTBluespaceMining

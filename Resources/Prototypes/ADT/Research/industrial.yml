@@ -173,7 +173,7 @@
   cost: 7500
   recipeUnlocks:
   - ADTResonator
-  position: 5,0
+  position: 4,0
   requiredTech:
   - SalvageEquipment
 
@@ -188,7 +188,7 @@
   cost: 15000
   recipeUnlocks:
   - ADTResonatorUpgraded
-  position: 6,0
+  position: 5,0
   technologyPrerequisites:
   - ADTResonanceTech
   requiredTech:
@@ -253,7 +253,7 @@
   cost: 7500
   recipeUnlocks:
   - RapidPartExchanger
-  position: 1,0
+  position: 0,1
   requiredTech:
   - PowerGeneration
 
@@ -268,6 +268,6 @@
   cost: 15000
   recipeUnlocks:
   - BluespaceRapidPartExchanger
-  position: 1,1
+  position: 0,2
   requiredTech:
   - ADTRpedTech
