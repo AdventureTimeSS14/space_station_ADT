@@ -120,6 +120,8 @@
     damage:
       types:
         Piercing: 5
+  - type: Damageable
+    damageModifierSet: ADTArachnid # ADT-Tweak
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

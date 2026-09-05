@@ -310,24 +310,24 @@
 - type: entity
   parent: ADTModsuitModBase
   id: ADTModsuitModArmor
-  name: MOD aromor replace module
-  description: Repaces armor in your MOD with "perfect 40".
+  name: MOD armor replace module
+  description: Replaces armor in your MOD with "perfect 40".
   components:
   - type: Sprite
     state: plate_compression
   - type: ModSuitMod
     energyUsing: 0.1
     complexity: 4
-    components:
+    components: {}
+    armorReplacement:
       outerClothing:
-      - type: Armor
-        modifiers:
-          coefficients:
-            Blunt: 0.6
-            Slash: 0.6
-            Piercing: 0.7
-            Heat: 0.7
-            Radiation: 0.6
+        coefficients:
+          Blunt: 0.6
+          Slash: 0.6
+          Piercing: 0.6
+          Heat: 0.6
+          Radiation: 0.6
+          Caustic: 0.6
 
 - type: entity
   parent: ADTModsuitModBase

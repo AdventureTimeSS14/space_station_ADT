@@ -119,7 +119,9 @@
     solutions:
       drink:
         maxVol: 90 ##ADT-Tweak end
-  - type: Tool
-    qualities:
-    - Rolling # Perfectly cylindrical flask
-    speedModifier: 0.75
+  # ADT-Tweak start
+  #- type: Tool
+  #  qualities:
+  #  - Rolling # Perfectly cylindrical flask
+  #  speedModifier: 0.75
+  # ADT-Tweak end

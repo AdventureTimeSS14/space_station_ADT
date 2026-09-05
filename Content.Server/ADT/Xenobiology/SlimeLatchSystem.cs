@@ -24,7 +24,10 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Body.Systems;
+using Content.Shared.Mech.Components;
 using Content.Shared.Physics;
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.ADT.Silicon.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
@@ -317,7 +320,15 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             || !_actionBlocker.CanInteract(ent, target)
             || !HasComp<MobStateComponent>(target)
             || HasComp<BeingLatchedComponent>(target)
+            || IsRobotic(target)
             || Deleted(target));
+    }
+
+    private bool IsRobotic(EntityUid target)
+    {
+        return HasComp<BorgChassisComponent>(target)
+            || HasComp<MechComponent>(target)
+            || HasComp<SiliconComponent>(target);
     }
 
     public bool NpcTryLatch(Entity<SlimeComponent> ent, EntityUid target)
