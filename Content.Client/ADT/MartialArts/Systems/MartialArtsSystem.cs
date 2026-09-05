@@ -26,6 +26,9 @@ public sealed class MartialArtsSystem : SharedMartialArtsSystem
 
     private void OnGetAttackTypes(Entity<CanPerformComboComponent> ent, ref GetPerformedAttackTypesEvent args)
     {
+        if (TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledge) && knowledge.Blocked)
+            return;
+
         args.AttackTypes = ent.Comp.LastAttacks;
     }
 
