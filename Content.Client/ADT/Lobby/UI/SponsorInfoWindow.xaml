@@ -2,24 +2,43 @@
     x:Class="Content.Client.Lobby.UI.SponsorInfoWindow"
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:cc="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
     Title="{Loc 'ui-lobby-sponsor-status'}"
-    MinWidth="490"
-    MinHeight="250"
-    MaxHeight="300"
-    Resizable="False">
-
-    <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="10">
-        <!-- Инфо о спонсоре -->
-        <RichTextLabel Name="SponsorLabel"
-               HorizontalExpand="True"
-               VerticalExpand="True" />
-
-        <!-- Кнопка перехода на Boosty -->
-        <Button Name="ButtonSiteBoosty"
-                Text="{Loc 'ui-lobby-sponsor-get-sponsor'}"
-                HorizontalAlignment="Center"
-                Margin="0,10,0,0"
-                StyleClasses="ButtonBig" />
+    MinWidth="600"
+    MinHeight="480"
+    Resizable="True">
+    <BoxContainer Orientation="Vertical" SeparationOverride="6" Margin="8">
+        <PanelContainer StyleClasses="BackgroundPanel">
+            <BoxContainer Orientation="Vertical" SeparationOverride="4" Margin="12 10">
+                <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                    <Label Name="PlayerNameLabel"
+                           StyleClasses="LabelHeading"
+                           HorizontalExpand="True" />
+                    <PanelContainer Name="StatusBadgePanel" VerticalAlignment="Center">
+                        <Label Name="StatusBadgeLabel" Margin="8 2" />
+                    </PanelContainer>
+                </BoxContainer>
+                <BoxContainer Name="TiersContainer" Orientation="Vertical" SeparationOverride="2" />
+            </BoxContainer>
+        </PanelContainer>
+        <ScrollContainer HorizontalExpand="True"
+                         VerticalExpand="True"
+                         HScrollEnabled="False">
+            <BoxContainer Name="BenefitsContainer"
+                          Orientation="Vertical"
+                          SeparationOverride="0"
+                          Margin="2 2 8 2" />
+        </ScrollContainer>
+        <PanelContainer StyleClasses="LowDivider" SetHeight="2" />
+        <BoxContainer Orientation="Horizontal"
+                      SeparationOverride="6"
+                      HorizontalAlignment="Center"
+                      Margin="0 4 0 0">
+            <Button Name="ButtonSponsorColors"
+                    Text="{Loc 'adt-sponsor-colors-open'}"
+                    Visible="False" />
+            <Button Name="ButtonSiteBoosty"
+                    Text="{Loc 'ui-lobby-sponsor-get-sponsor'}"
+                    StyleClasses="ButtonBig" />
+        </BoxContainer>
     </BoxContainer>
 </DefaultWindow>

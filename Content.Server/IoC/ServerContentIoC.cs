@@ -10,7 +10,9 @@ using Content.Server.Chat.Managers;
 using Content.Server.Connection;
 using Content.Server.Corvax.DiscordAuth;
 using Content.Server.Corvax.JoinQueue;
+using Content.Server.ADT.Sponsors;
 using Content.Server.Corvax.Sponsors;
+using Content.Shared.ADT.Sponsors;
 using Content.Server.ADT.TTS;
 using Content.Server.Database;
 using Content.Server.Discord;
@@ -96,6 +98,10 @@ internal static class ServerContentIoC
         IoCManager.Register<ServerDiscordIdManager>(); // ADT Discord
         IoCManager.Register<AntagRollBonusManager>(); // ADT Antag roll bonus
         IoCManager.Register<SponsorsManager>(); // Corvax-Sponsors
+        // ADT-Tweak-Start
+        IoCManager.Register<SponsorManager>();
+        IoCManager.Register<ISharedSponsorManager, SponsorManager>();
+        // ADT-Tweak-End
         IoCManager.Register<JoinQueueManager>(); // Corvax-Queue
         deps.Register<ServerFeedbackManager>();
         deps.Register<ISharedFeedbackManager, ServerFeedbackManager>();
