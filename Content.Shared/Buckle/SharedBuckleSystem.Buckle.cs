@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared.ADT.Vehicle.Trailer;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Cuffs.Components;
@@ -141,6 +142,10 @@ public abstract partial class SharedBuckleSystem
         if (HasComp<RiderComponent>(buckle.Owner) && HasComp<VehicleComponent>(strapUid))
             return;
         // ADT Vehicles end
+        // ADT-Tweak-Start: прицепы (каталка, мешок для трупов) не должны отцепляться от сцепки транспорта
+        if (HasComp<ADTTrailerComponent>(buckle.Owner) && HasComp<ADTVehicleHitchStrapComponent>(strapUid))
+            return;
+        // ADT-Tweak-End
 
         var delta = (xform.LocalPosition - strapComp.BuckleOffset).LengthSquared();
         if (delta > 1e-5)
