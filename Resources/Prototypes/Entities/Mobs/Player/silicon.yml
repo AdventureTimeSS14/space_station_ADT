@@ -103,6 +103,8 @@
         type: AtmosAlertsComputerBoundUserInterface
       enum.StationAiInfoUiKey.Key:
         type: StationAiInfoBoundUserInterface
+      enum.StationAiNanoChatUiKey.Key:
+        type: StationAiNanoChatBoundUserInterface
     # ADT End
   - type: IntrinsicUI
     uis:
@@ -121,6 +123,7 @@
         toggleAction: ADTActionOpenRemoteDevicesMenu
   - type: AtmosAlertsComputer
   - type: StationAiInfo
+  - type: StationAiNanoChat
   - type: CrewManifestViewer
     ownerKey: enum.StationAiInfoUiKey.Key
     # ADT End
@@ -565,6 +568,7 @@
   - type: CollectiveMindRank
     rankName: collective-mind-sai-rank
   - type: StationAiBrain
+  - type: NanoChatCard
   # ADT-Tweak-End
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
