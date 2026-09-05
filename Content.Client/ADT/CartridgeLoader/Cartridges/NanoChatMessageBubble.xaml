@@ -2,7 +2,15 @@
     xmlns="https://spacestation14.io"
     xmlns:cartridges="clr-namespace:Content.Client.ADT.CartridgeLoader.Cartridges"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Orientation="Vertical"
     HorizontalExpand="True">
+
+    <!-- Sender name, shown above the bubble in group chats -->
+    <Label Name="SenderNameLabel"
+           StyleClasses="LabelSmall"
+           HorizontalExpand="True"
+           Margin="16 0 16 3"
+           Visible="False" />
 
     <BoxContainer Name="MessageContainer"
                   Orientation="Horizontal"

@@ -25,6 +25,26 @@ public struct NewsArticle
 
     [ViewVariables]
     public TimeSpan ShareTime;
+
+    // ADT-Tweak: комментарии читателей к статье
+    [ViewVariables]
+    public List<NewsComment>? Comments;
+}
+
+/// <summary>
+///     A single reader comment on a news article. // ADT-Tweak
+/// </summary>
+[Serializable, NetSerializable]
+public struct NewsComment
+{
+    [ViewVariables(VVAccess.ReadWrite)]
+    public string? Author;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public string Content;
+
+    [ViewVariables]
+    public TimeSpan ShareTime;
 }
 
 [ByRefEvent]

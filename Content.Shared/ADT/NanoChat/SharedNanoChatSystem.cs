@@ -292,5 +292,120 @@ public abstract class SharedNanoChatSystem : EntitySystem
         return true;
     }
 
+    /// <summary>
+    ///     Gets a group from the card by its number.
+    /// </summary>
+    public NanoChatGroup? GetGroup(Entity<NanoChatCardComponent?> card, uint groupNumber)
+    {
+        if (!Resolve(card, ref card.Comp) || !card.Comp.Groups.TryGetValue(groupNumber, out var group))
+            return null;
+
+        return group;
+    }
+
+    /// <summary>
+    ///     Sets a group on the card (adds or replaces).
+    /// </summary>
+    public void SetGroup(Entity<NanoChatCardComponent?> card, NanoChatGroup group)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return;
+
+        card.Comp.Groups[group.Number] = group;
+        Dirty(card);
+    }
+
+    /// <summary>
+    ///     Removes a group and its messages from the card.
+    /// </summary>
+    public bool RemoveGroup(Entity<NanoChatCardComponent?> card, uint groupNumber, bool keepMessages = false)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return false;
+
+        var removed = card.Comp.Groups.Remove(groupNumber);
+
+        if (!keepMessages)
+            card.Comp.GroupMessages.Remove(groupNumber);
+
+        // Don't leave the UI pointing at a removed group.
+        if (card.Comp.CurrentChat == groupNumber)
+            card.Comp.CurrentChat = null;
+
+        if (removed)
+            Dirty(card);
+
+        return removed;
+    }
+
+    /// <summary>
+    ///     Adds a message to a group conversation on the card.
+    /// </summary>
+    public void AddGroupMessage(Entity<NanoChatCardComponent?> card, uint groupNumber, NanoChatMessage message)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return;
+
+        if (!card.Comp.GroupMessages.TryGetValue(groupNumber, out var messages))
+        {
+            messages = new List<NanoChatMessage>();
+            card.Comp.GroupMessages[groupNumber] = messages;
+        }
+
+        messages.Add(message);
+        card.Comp.LastMessageTime = _timing.CurTime;
+        Dirty(card);
+    }
+
+    /// <summary>
+    ///     Gets all group messages for a specific group from the card.
+    /// </summary>
+    public List<NanoChatMessage>? GetGroupMessages(Entity<NanoChatCardComponent?> card, uint groupNumber)
+    {
+        if (!Resolve(card, ref card.Comp) || !card.Comp.GroupMessages.TryGetValue(groupNumber, out var messages))
+            return null;
+
+        return new List<NanoChatMessage>(messages);
+    }
+
+    /// <summary>
+    ///     Adds a pending group invitation to the card.
+    /// </summary>
+    public void AddInvite(Entity<NanoChatCardComponent?> card, NanoChatGroupInvite invite)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return;
+
+        card.Comp.Invites[invite.GroupNumber] = invite;
+        Dirty(card);
+    }
+
+    /// <summary>
+    ///     Removes a pending group invitation from the card.
+    /// </summary>
+    public bool RemoveInvite(Entity<NanoChatCardComponent?> card, uint groupNumber)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return false;
+
+        var removed = card.Comp.Invites.Remove(groupNumber);
+
+        if (removed)
+            Dirty(card);
+
+        return removed;
+    }
+
+    /// <summary>
+    ///     Gets a pending group invitation from the card.
+    /// </summary>
+    public NanoChatGroupInvite? GetInvite(Entity<NanoChatCardComponent?> card, uint groupNumber)
+    {
+        if (!Resolve(card, ref card.Comp) || !card.Comp.Invites.TryGetValue(groupNumber, out var invite))
+            return null;
+
+        return invite;
+    }
+
     #endregion
 }

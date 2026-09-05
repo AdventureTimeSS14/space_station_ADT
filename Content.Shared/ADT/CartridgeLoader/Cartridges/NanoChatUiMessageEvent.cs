@@ -27,21 +27,53 @@ public sealed class NanoChatUiMessageEvent : CartridgeMessageEvent
     public readonly string? RecipientJob;
 
     /// <summary>
+    ///     The group name when creating a group.
+    /// </summary>
+    public readonly string? GroupName;
+
+    /// <summary>
+    ///     Whether the created group is public.
+    /// </summary>
+    public readonly bool IsPublic;
+
+    /// <summary>
+    ///     Target NanoChat number for group operations (invite, kick).
+    /// </summary>
+    public readonly uint? TargetNumber;
+
+    /// <summary>
+    ///     Initial member numbers when creating a group.
+    /// </summary>
+    public readonly List<uint>? Members;
+
+    /// <summary>
     ///     Creates a new NanoChat UI message event.
     /// </summary>
     /// <param name="type">The type of message being sent</param>
     /// <param name="recipientNumber">Optional recipient number for the message</param>
     /// <param name="content">Optional content of the message</param>
     /// <param name="recipientJob">Optional job title for new chat creation</param>
+    /// <param name="groupName">Optional group name for group creation</param>
+    /// <param name="isPublic">Whether the created group is public</param>
+    /// <param name="targetNumber">Optional target number for group operations</param>
+    /// <param name="members">Optional initial members for group creation</param>
     public NanoChatUiMessageEvent(NanoChatUiMessageType type,
         uint? recipientNumber = null,
         string? content = null,
-        string? recipientJob = null)
+        string? recipientJob = null,
+        string? groupName = null,
+        bool isPublic = false,
+        uint? targetNumber = null,
+        List<uint>? members = null)
     {
         Type = type;
         RecipientNumber = recipientNumber;
         Content = content;
         RecipientJob = recipientJob;
+        GroupName = groupName;
+        IsPublic = isPublic;
+        TargetNumber = targetNumber;
+        Members = members;
     }
 }
 
@@ -55,6 +87,14 @@ public enum NanoChatUiMessageType : byte
     DeleteChat,
     ToggleMute,
     ToggleListNumber,
+    CreateGroup,
+    InviteToGroup,
+    AcceptInvite,
+    DeclineInvite,
+    JoinPublicGroup,
+    LeaveGroup,
+    KickMember,
+    DeleteGroup,
 }
 
 // putting this here because i can
@@ -147,11 +187,15 @@ public partial struct NanoChatMessage
 public readonly partial struct NanoChatData(
     Dictionary<uint, NanoChatRecipient> recipients,
     Dictionary<uint, List<NanoChatMessage>> messages,
+    Dictionary<uint, NanoChatGroup> groups,
+    Dictionary<uint, List<NanoChatMessage>> groupMessages,
     uint? cardNumber,
     NetEntity card)
 {
     public Dictionary<uint, NanoChatRecipient> Recipients { get; } = recipients;
     public Dictionary<uint, List<NanoChatMessage>> Messages { get; } = messages;
+    public Dictionary<uint, NanoChatGroup> Groups { get; } = groups;
+    public Dictionary<uint, List<NanoChatMessage>> GroupMessages { get; } = groupMessages;
     public uint? CardNumber { get; } = cardNumber;
     public NetEntity Card { get; } = card;
 }

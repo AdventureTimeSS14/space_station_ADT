@@ -36,3 +36,7 @@ news-write-ui-richtext-tooltip = News articles support rich text
 
 news-pda-notification-header = New news article
 news-publish-admin-announcement = {$actor} published news article {$title} by {$author}
+news-read-ui-comment-placeholder = Leave a comment...
+news-read-ui-comment-send = Send
+news-read-ui-comment-no-comments = No comments yet
+news-read-ui-comments-button = Comments ({ $count })

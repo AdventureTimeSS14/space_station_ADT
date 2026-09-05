@@ -35,6 +35,7 @@ public sealed partial class LogProbeUiFragment : BoxContainer
         {
             SetupNanoChatView(state.NanoChatData.Value);
             DisplayNanoChatData(state.NanoChatData.Value);
+            DisplayGroupData(state.NanoChatData.Value);
         }
         else
         {
@@ -56,6 +57,8 @@ public sealed partial class LogProbeUiFragment : BoxContainer
 
         // Add recipient count
         cardInfo.Add(Loc.GetString("log-probe-recipients", ("count", data.Recipients.Count)));
+        if (data.Groups.Count > 0)
+            cardInfo.Add(Loc.GetString("log-probe-groups", ("count", data.Groups.Count)));
 
         CardNumberLabel.Text = string.Join(" | ", cardInfo);
         CardNumberLabel.Visible = true;
@@ -128,6 +131,48 @@ public sealed partial class LogProbeUiFragment : BoxContainer
             }
         }
     }
+    private void DisplayGroupData(NanoChatData data)
+    {
+        foreach (var (groupId, group) in data.Groups)
+        {
+            var groupInfo = Loc.GetString("log-probe-group-format",
+                ("group", group.Name),
+                ("owner", $"#{group.Owner:D4}"),
+                ("count", group.Members.Count)) + "\n" +
+                string.Join("\n", group.Members
+                    .OrderBy(m => m.Name)
+                    .Select(m => $"    {m.Name}" +
+                                 (string.IsNullOrEmpty(m.JobTitle) ? "" : $" ({m.JobTitle})") +
+                                 $" | #{m.Number:D4}"));
+
+            var groupEntry = new LogProbeUiEntry(0, "---", groupInfo);
+            ProbedDeviceContainer.AddChild(groupEntry);
+
+            if (!data.GroupMessages.TryGetValue(groupId, out var messages))
+                continue;
+
+            var count = 1;
+            foreach (var msg in messages.OrderByDescending(m => m.Timestamp))
+            {
+                if (msg.DeliveryFailed)
+                    continue;
+
+                var messageText = Loc.GetString("log-probe-message-format",
+                    ("sender", $"#{msg.SenderId:D4}"),
+                    ("recipient", group.Name),
+                    ("content", msg.Content));
+
+                var entry = new NanoChatLogEntry(
+                    count,
+                    TimeSpan.FromSeconds(Math.Truncate(msg.Timestamp.TotalSeconds)).ToString(),
+                    messageText);
+
+                ProbedDeviceContainer.AddChild(entry);
+                count++;
+            }
+        }
+    }
+
     private void DisplayAccessLogs(List<PulledAccessLog> logs)
     {
         //Reverse the list so the oldest entries appear at the bottom

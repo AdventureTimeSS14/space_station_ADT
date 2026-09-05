@@ -9,15 +9,75 @@ namespace Content.Client.ADT.CartridgeLoader.Cartridges;
 public sealed partial class NanoChatEntry : BoxContainer
 {
     public event Action<uint>? OnPressed;
+    public event Action<uint>? OnJoinPressed;
+    public event Action<uint>? OnAcceptPressed;
+    public event Action<uint>? OnDeclinePressed;
+
     private uint _number;
     private Action<EventArgs>? _pressHandler;
 
     public NanoChatEntry()
     {
         RobustXamlLoader.Load(this);
+
+        JoinButton.OnPressed += _ => OnJoinPressed?.Invoke(_number);
+        AcceptButton.OnPressed += _ => OnAcceptPressed?.Invoke(_number);
+        DeclineButton.OnPressed += _ => OnDeclinePressed?.Invoke(_number);
     }
 
     public void SetRecipient(NanoChatRecipient recipient, uint number, bool isSelected)
+    {
+        SetupButton(number, isSelected);
+
+        NameLabel.Text = recipient.Name;
+        SubLabel.Text = recipient.JobTitle ?? "";
+        SubLabel.Visible = !string.IsNullOrEmpty(recipient.JobTitle);
+        UnreadIndicator.Visible = recipient.HasUnread;
+        ActionButtons.Visible = false;
+    }
+
+    public void SetGroup(NanoChatGroup group, uint number, bool isSelected)
+    {
+        SetupButton(number, isSelected);
+
+        NameLabel.Text = group.Name;
+        SubLabel.Text = Loc.GetString("nano-chat-group-members-count", ("count", group.Members.Count));
+        SubLabel.Visible = true;
+        UnreadIndicator.Visible = group.HasUnread;
+        ActionButtons.Visible = false;
+    }
+
+    public void SetPublicGroup(NanoChatGroupInfo group, uint number)
+    {
+        _number = number;
+        ChatButton.Visible = false;
+        InfoPanel.Visible = true;
+
+        InfoNameLabel.Text = group.Name;
+        InfoSubLabel.Text = Loc.GetString("nano-chat-public-group-info",
+            ("count", group.MemberCount),
+            ("owner", group.OwnerName ?? Loc.GetString("nano-chat-group-unknown-owner")));
+        ActionButtons.Visible = true;
+        JoinButton.Visible = true;
+        AcceptButton.Visible = false;
+        DeclineButton.Visible = false;
+    }
+
+    public void SetInvite(NanoChatGroupInvite invite, uint number)
+    {
+        _number = number;
+        ChatButton.Visible = false;
+        InfoPanel.Visible = true;
+
+        InfoNameLabel.Text = invite.GroupName;
+        InfoSubLabel.Text = Loc.GetString("nano-chat-invite-row", ("from", invite.FromName));
+        ActionButtons.Visible = true;
+        JoinButton.Visible = false;
+        AcceptButton.Visible = true;
+        DeclineButton.Visible = true;
+    }
+
+    private void SetupButton(uint number, bool isSelected)
     {
         // Remove old handler if it exists
         if (_pressHandler != null)
@@ -29,11 +89,7 @@ public sealed partial class NanoChatEntry : BoxContainer
         _pressHandler = _ => OnPressed?.Invoke(_number);
         ChatButton.OnPressed += _pressHandler;
 
-        NameLabel.Text = recipient.Name;
-        JobLabel.Text = recipient.JobTitle ?? "";
-        JobLabel.Visible = !string.IsNullOrEmpty(recipient.JobTitle);
-        UnreadIndicator.Visible = recipient.HasUnread;
-
         ChatButton.ModulateSelfOverride = isSelected ? NanoChatMessageBubble.OwnMessageColor : null;
+        ChatButton.Disabled = false;
     }
 }

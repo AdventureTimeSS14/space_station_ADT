@@ -47,6 +47,11 @@ public sealed class NewsSystem : SharedNewsSystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IBaseServer _baseServer = default!;
 
+    // ADT-Tweak: комментарии к новостям
+    private const int MaxCommentLength = 200;
+    private static readonly TimeSpan CommentCooldown = TimeSpan.FromSeconds(3);
+    private const int MaxCommentsPerArticle = 100;
+
     private WebhookIdentifier? _webhookId = null;
     private Color _webhookEmbedColor;
     private bool _webhookSendDuringRound;
@@ -210,7 +215,8 @@ public sealed class NewsSystem : SharedNewsSystem
             Title = title.Length <= MaxTitleLength ? title : $"{title[..MaxTitleLength]}...",
             Content = content.Length <= MaxContentLength ? content : $"{content[..MaxContentLength]}...",
             Author = author,
-            ShareTime = _ticker.RoundDuration()
+            ShareTime = _ticker.RoundDuration(),
+            Comments = new List<NewsComment>()
         };
 
         articles.Add(article.Value);
@@ -295,6 +301,9 @@ public sealed class NewsSystem : SharedNewsSystem
             case NewsReaderUiAction.NotificationSwitch:
                 ent.Comp.NotificationOn = !ent.Comp.NotificationOn;
                 break;
+            case NewsReaderUiAction.AddComment:
+                HandleAddComment(ent, message.Content, message.Actor);
+                break;
         }
 
         UpdateReaderUi(ent, GetEntity(args.LoaderUid));
@@ -303,6 +312,66 @@ public sealed class NewsSystem : SharedNewsSystem
     private void OnReaderUiReady(Entity<NewsReaderCartridgeComponent> ent, ref CartridgeUiReadyEvent args)
     {
         UpdateReaderUi(ent, args.Loader);
+    }
+
+    /// <summary>
+    ///     Adds a comment to the article the reader is currently viewing. // ADT-Tweak
+    ///     The comment becomes visible to every reader on the station.
+    /// </summary>
+    private void HandleAddComment(Entity<NewsReaderCartridgeComponent> ent, string? rawContent, EntityUid actor)
+    {
+        if (string.IsNullOrWhiteSpace(rawContent))
+            return;
+
+        // Rate limit comments per reader.
+        if (_timing.CurTime - ent.Comp.LastCommentTime < CommentCooldown)
+            return;
+
+        if (!TryGetArticles(ent, out var articles))
+            return;
+
+        if (ent.Comp.ArticleNumber < 0 || ent.Comp.ArticleNumber >= articles.Count)
+            return;
+
+        var article = articles[ent.Comp.ArticleNumber];
+        article.Comments ??= new List<NewsComment>();
+
+        if (article.Comments.Count >= MaxCommentsPerArticle)
+            return;
+
+        var content = FormattedMessage.EscapeText(rawContent.Trim());
+        if (content.Length > MaxCommentLength)
+            content = content[..MaxCommentLength];
+
+        var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(ent, actor);
+        RaiseLocalEvent(tryGetIdentityShortInfoEvent);
+        string? authorName = tryGetIdentityShortInfoEvent.Title;
+
+        article.Comments.Add(new NewsComment
+        {
+            Author = authorName,
+            Content = content,
+            ShareTime = _ticker.RoundDuration()
+        });
+        articles[ent.Comp.ArticleNumber] = article;
+
+        ent.Comp.LastCommentTime = _timing.CurTime;
+
+        _adminLogger.Add(
+            LogType.Chat,
+            LogImpact.Low,
+            $"{ToPrettyString(actor):actor} commented on news article {article.Title} by {article.Author}: {content}"
+        );
+
+        // Update every reader so everyone sees the new comment.
+        var query = EntityQueryEnumerator<NewsReaderCartridgeComponent, CartridgeComponent>();
+        while (query.MoveNext(out var readerUid, out var readerComp, out var cartridge))
+        {
+            if (cartridge.LoaderUid is not { } loaderUid)
+                continue;
+
+            UpdateReaderUi((readerUid, readerComp), loaderUid);
+        }
     }
     #endregion
 
