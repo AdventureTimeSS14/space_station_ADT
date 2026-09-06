@@ -64,6 +64,7 @@
         Piercing: 8
   - type: Hunger # probably should be prototyped
     thresholds:
+      Fat: 225 # ADT Tweak
       Overfed: 200
       Okay: 150
       Peckish: 100
@@ -267,6 +268,7 @@
         Piercing: 3
   - type: Hunger # probably should be prototyped
     thresholds:
+      Fat: 250
       Overfed: 200
       Okay: 150
       Peckish: 100

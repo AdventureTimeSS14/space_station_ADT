@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.ADT.Nutrition;
 using Content.Shared.Alert;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Systems;
@@ -146,14 +147,27 @@ public sealed class HungerSystem : EntitySystem
             _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
         }
 
-        if (component.HungerThresholdAlerts.TryGetValue(component.CurrentThreshold, out var alertId))
+        // ADT Tweak start: пороговые алерты заменены постоянными алертами ADTHunger/ADTThirst
+        // с полоской уровня (Content.Server/ADT/Nutrition/ADTSatiationAlertSystem).
+        // if (component.HungerThresholdAlerts.TryGetValue(component.CurrentThreshold, out var alertId))
+        // {
+        //     _alerts.ShowAlert(uid, alertId);
+        // }
+        // else
+        // {
+        //     _alerts.ClearAlertCategory(uid, component.HungerAlertCategory);
+        // }
+
+        if (!_timing.ApplyingState)
         {
-            _alerts.ShowAlert(uid, alertId);
+            if (component.CurrentThreshold == HungerThreshold.Fat)
+                EnsureComp<ADTFatComponent>(uid);
+            else
+                RemComp<ADTFatComponent>(uid);
+
+            _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
         }
-        else
-        {
-            _alerts.ClearAlertCategory(uid, component.HungerAlertCategory);
-        }
+        // ADT Tweak end
 
         if (component.HungerThresholdDecayModifiers.TryGetValue(component.CurrentThreshold, out var modifier))
         {
@@ -189,8 +203,14 @@ public sealed class HungerSystem : EntitySystem
     public HungerThreshold GetHungerThreshold(HungerComponent component, float? food = null)
     {
         food ??= GetHunger(component);
+        // ADT Tweak start
+        var maxValue = component.Thresholds.TryGetValue(HungerThreshold.Fat, out var fatValue)
+            ? fatValue
+            : component.Thresholds[HungerThreshold.Overfed];
+        food = Math.Min(food.Value, maxValue);
+        // ADT Tweak end
         var result = HungerThreshold.Dead;
-        var value = component.Thresholds[HungerThreshold.Overfed];
+        var value = maxValue;
         foreach (var threshold in component.Thresholds)
         {
             if (threshold.Value <= value && threshold.Value >= food)
@@ -218,6 +238,7 @@ public sealed class HungerSystem : EntitySystem
     {
         switch (threshold)
         {
+            case HungerThreshold.Fat: // ADT Tweak
             case HungerThreshold.Overfed:
             case HungerThreshold.Okay:
                 return true;
@@ -253,9 +274,14 @@ public sealed class HungerSystem : EntitySystem
 
     private static float ClampHungerWithinThresholds(HungerComponent component, float hungerValue)
     {
+        // ADT Tweak start
+        var max = component.Thresholds.TryGetValue(HungerThreshold.Fat, out var fat)
+            ? fat
+            : component.Thresholds[HungerThreshold.Overfed];
         return Math.Clamp(hungerValue,
             component.Thresholds[HungerThreshold.Dead],
-            component.Thresholds[HungerThreshold.Overfed]);
+            max);
+        // ADT Tweak end
     }
 
     public override void Update(float frameTime)

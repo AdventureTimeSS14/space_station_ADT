@@ -19,7 +19,7 @@ public sealed class ThirstSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
+   // [Dependency] private readonly AlertsSystem _alerts = default!; // ADT-Tweak
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
 
@@ -154,14 +154,17 @@ public sealed class ThirstSystem : EntitySystem
         }
 
         // Update UI
-        if (ThirstComponent.ThirstThresholdAlertTypes.TryGetValue(component.CurrentThirstThreshold, out var alertId))
-        {
-            _alerts.ShowAlert(uid, alertId);
-        }
-        else
-        {
-            _alerts.ClearAlertCategory(uid, component.ThirstyCategory);
-        }
+        // ADT Tweak start: пороговые алерты заменены постоянными алертами ADTHunger/ADTThirst
+        // с полоской уровня (Content.Server/ADT/Nutrition/ADTSatiationAlertSystem).
+        // if (ThirstComponent.ThirstThresholdAlertTypes.TryGetValue(component.CurrentThirstThreshold, out var alertId))
+        // {
+        //     _alerts.ShowAlert(uid, alertId);
+        // }
+        // else
+        // {
+        //     _alerts.ClearAlertCategory(uid, component.ThirstyCategory);
+        // }
+        // ADT Tweak end
 
         DirtyField(uid, component, nameof(ThirstComponent.LastThirstThreshold));
         DirtyField(uid, component, nameof(ThirstComponent.ActualDecayRate));

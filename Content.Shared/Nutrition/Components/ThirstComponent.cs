@@ -60,12 +60,15 @@ public sealed partial class ThirstComponent : Component
     [DataField]
     public ProtoId<AlertCategoryPrototype> ThirstyCategory = "Thirst";
 
-    public static readonly Dictionary<ThirstThreshold, ProtoId<AlertPrototype>> ThirstThresholdAlertTypes = new()
-    {
-        {ThirstThreshold.Thirsty, "Thirsty"},
-        {ThirstThreshold.Parched, "Parched"},
-        {ThirstThreshold.Dead, "Parched"},
-    };
+    // ADT Tweak start: старые пороговые алерты заменены постоянными алертами
+    // ADTHunger/ADTThirst с полоской уровня (Content.Server/ADT/Nutrition/ADTSatiationAlertSystem).
+    public static readonly Dictionary<ThirstThreshold, ProtoId<AlertPrototype>> ThirstThresholdAlertTypes = new();
+    //{
+    //    {ThirstThreshold.Thirsty, "Thirsty"},
+    //    {ThirstThreshold.Parched, "Parched"},
+    //    {ThirstThreshold.Dead, "Parched"},
+    //};
+    // ADT Tweak end
 }
 
 [Flags]

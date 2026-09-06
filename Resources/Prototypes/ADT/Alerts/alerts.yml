@@ -170,3 +170,38 @@
     state: icon
   name: alerts-adt-regenerative-core-name
   description: alerts-adt-regenerative-core-desc
+
+- type: entity
+  id: ADTSatiationAlertView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]
+      sprite: /Textures/Objects/Consumable/Food/burger.rsi
+      state: plain
+      offset: "-0.2,-0.1"
+    - map: [ "enum.ADTSatiationBarVisualLayers.Bar" ]
+      sprite: /Textures/ADT/Interface/hunger.rsi
+      state: bar_22
+  - type: ADTSatiationBar
+
+- type: alert
+  id: ADTHunger
+  category: Hunger
+  icons:
+  - sprite: /Textures/Objects/Consumable/Food/burger.rsi
+    state: plain
+  alertViewEntity: ADTSatiationAlertView
+  name: alerts-adt-hunger-name
+  description: alerts-adt-hunger-desc
+
+- type: alert
+  id: ADTThirst
+  category: Thirst
+  icons:
+  - sprite: /Textures/Objects/Consumable/Drinks/cola.rsi
+    state: icon
+  alertViewEntity: ADTSatiationAlertView
+  name: alerts-adt-thirst-name
+  description: alerts-adt-thirst-desc

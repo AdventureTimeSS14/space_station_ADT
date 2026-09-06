@@ -5,6 +5,10 @@
   id: BaseAlertOrder
   order:
     - category: Health
+    # ADT Tweak start
+    - alertType: ADTHunger
+    - alertType: ADTThirst
+    # ADT Tweak end
     - category: Stamina
     - alertType: SuitPower
     - category: Internals

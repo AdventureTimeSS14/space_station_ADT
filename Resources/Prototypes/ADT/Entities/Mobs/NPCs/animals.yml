@@ -271,6 +271,7 @@
   - type: Perishable
   - type: Hunger
     thresholds:
+      Fat: 120 # ADT Tweak
       Overfed: 100
       Okay: 50
       Peckish: 25

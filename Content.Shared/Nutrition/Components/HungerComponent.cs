@@ -68,6 +68,7 @@ public sealed partial class HungerComponent : Component
     [AutoNetworkedField]
     public Dictionary<HungerThreshold, float> Thresholds = new()
     {
+        { HungerThreshold.Fat, 220.0f }, // ADT-Tweak
         { HungerThreshold.Overfed, 200.0f },
         { HungerThreshold.Okay, 150.0f },
         { HungerThreshold.Peckish, 100.0f },
@@ -78,14 +79,17 @@ public sealed partial class HungerComponent : Component
     /// <summary>
     /// A dictionary relating hunger thresholds to corresponding alerts.
     /// </summary>
+    // ADT Tweak start: старые пороговые алерты заменены постоянными алертами
+    // ADTHunger/ADTThirst с полоской уровня (Content.Server/ADT/Nutrition/ADTSatiationAlertSystem).
     [DataField("hungerThresholdAlerts")]
     [AutoNetworkedField]
-    public Dictionary<HungerThreshold, ProtoId<AlertPrototype>> HungerThresholdAlerts = new()
-    {
-        { HungerThreshold.Peckish, "Peckish" },
-        { HungerThreshold.Starving, "Starving" },
-        { HungerThreshold.Dead, "Starving" }
-    };
+    public Dictionary<HungerThreshold, ProtoId<AlertPrototype>> HungerThresholdAlerts = new();
+    //{
+    //    { HungerThreshold.Peckish, "Peckish" },
+    //    { HungerThreshold.Starving, "Starving" },
+    //    { HungerThreshold.Dead, "Starving" }
+    //};
+    // ADT Tweak end
 
     [DataField]
     public ProtoId<AlertCategoryPrototype> HungerAlertCategory = "Hunger";
@@ -136,6 +140,7 @@ public sealed partial class HungerComponent : Component
 [Serializable, NetSerializable]
 public enum HungerThreshold : byte
 {
+    Fat = 1 << 4, // ADT-Tweak
     Overfed = 1 << 3,
     Okay = 1 << 2,
     Peckish = 1 << 1,
