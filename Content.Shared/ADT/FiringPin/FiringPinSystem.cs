@@ -52,7 +52,6 @@ public sealed partial class FiringPinSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FiringPinHolderComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<FiringPinHolderComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<GunComponent, InteractUsingEvent>(OnInteractUsing, before: new[] { typeof(ItemSlotsSystem) });
         SubscribeLocalEvent<FiringPinHolderComponent, FiringPinRemoveDoAfterEvent>(OnRemoveDoAfter);
@@ -61,17 +60,13 @@ public sealed partial class FiringPinSystem : EntitySystem
         SubscribeLocalEvent<GunComponent, GotEmaggedEvent>(OnEmagged);
     }
 
-    private void OnComponentInit(Entity<FiringPinHolderComponent> ent, ref ComponentInit args)
-    {
-        _container.EnsureContainer<Container>(ent, ent.Comp.ContainerId);
-    }
-
     private void OnMapInit(Entity<FiringPinHolderComponent> ent, ref MapInitEvent args)
     {
+        var container = _container.EnsureContainer<Container>(ent, ent.Comp.ContainerId);
+
         if (ent.Comp.StartingPin == null || GetInstalledPin(ent) != null || _net.IsClient)
             return;
 
-        var container = _container.EnsureContainer<Container>(ent, ent.Comp.ContainerId);
         var pin = Spawn(ent.Comp.StartingPin.Value, Transform(ent).Coordinates);
         _container.Insert(pin, container);
     }
