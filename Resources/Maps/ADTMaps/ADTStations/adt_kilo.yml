@@ -86327,20 +86327,6 @@ entities:
     - type: Transform
       pos: -30.254696,-19.491943
       parent: 2
-- proto: ClothingEyesGlassesThermal
-  entities:
-  - uid: 12789
-    components:
-    - type: Transform
-      pos: 15.523342,-50.530453
-      parent: 2
-  - uid: 12791
-    components:
-    - type: Transform
-      parent: 12790
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingEyesHudMedical
   entities:
   - uid: 12744

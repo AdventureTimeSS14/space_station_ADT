@@ -98627,23 +98627,6 @@ entities:
     - type: Transform
       pos: 7.5221825,12.453571
       parent: 2
-- proto: ClothingEyesGlassesThermal
-  entities:
-  - uid: 13782
-    components:
-    - type: Transform
-      pos: -52.52403,-14.634171
-      parent: 2
-  - uid: 13783
-    components:
-    - type: Transform
-      pos: -34.553104,-57.35408
-      parent: 2
-  - uid: 13784
-    components:
-    - type: Transform
-      pos: -34.568233,-57.56588
-      parent: 2
 - proto: ClothingEyesHudBeer
   entities:
   - uid: 13785

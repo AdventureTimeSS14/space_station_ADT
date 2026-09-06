@@ -92380,13 +92380,6 @@ entities:
     - type: Transform
       pos: 54.641678,-1.9323308
       parent: 2
-- proto: ClothingEyesGlassesThermal
-  entities:
-  - uid: 12937
-    components:
-    - type: Transform
-      pos: 65.536194,-6.326588
-      parent: 2
 - proto: ClothingEyesHudMedical
   entities:
   - uid: 12938
