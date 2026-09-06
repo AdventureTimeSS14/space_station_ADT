@@ -183,16 +183,17 @@ public sealed partial class FiringPinSystem : EntitySystem
             return;
         }
 
+        var pinComp = pin.Value.Comp;
         if (IsPinAuthorized(pin.Value, args.User))
             return;
 
-        var justLinked = pin.Value.Comp.PinType == FiringPinType.DNA
-            && pin.Value.Comp.LinkedUser == args.User;
+        var justLinked = pinComp.PinType == FiringPinType.DNA
+            && pinComp.LinkedUser == args.User;
 
         if (!justLinked)
-            _popup.PopupPredicted(Loc.GetString(pin.Value.Comp.FailMessage), ent, args.User);
+            _popup.PopupPredicted(Loc.GetString(pinComp.FailMessage), ent, args.User);
 
-        if (pin.Value.Comp.SelfDestruct && !justLinked)
+        if (pinComp.SelfDestruct && !justLinked)
         {
             _popup.PopupPredicted(Loc.GetString("firing-pin-selfdestruct"), ent, args.User, PopupType.LargeCaution);
 

@@ -6,7 +6,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server.ADT.FiringPin;
 
-public sealed partial class FiringPinAlertLevelSystem : EntitySystem
+public sealed class FiringPinAlertLevelSystem : EntitySystem
 {
     [Dependency] private readonly StationSystem _station = default!;
 
