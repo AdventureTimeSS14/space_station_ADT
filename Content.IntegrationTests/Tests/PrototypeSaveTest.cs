@@ -79,6 +79,11 @@ public sealed class PrototypeSaveTest : GameTest
             prototypes.Add(prototype);
         }
 
+        // ADT-Tweak start
+        TestContext.Out.WriteLine($"UninitializedSaveTest: testing {prototypes.Count} prototypes.");
+
+        var failures = new List<string>();
+        // ADT-Tweak end
         var context = new TestEntityUidContext();
 
         await server.WaitAssertion(() =>
@@ -86,82 +91,106 @@ public sealed class PrototypeSaveTest : GameTest
             Assert.That(!mapSystem.IsInitialized(mapId));
             var testLocation = grid.Owner.ToCoordinates();
 
-            Assert.Multiple(() =>
+            // ADT-Tweak start
+            foreach (var prototype in prototypes)
             {
-                //Iterate list of prototypes to spawn
-                foreach (var prototype in prototypes)
-                {
-                    uid = entityMan.SpawnEntity(prototype.ID, testLocation);
-                    context.Prototype = prototype;
+                var serverLogs = Pair.ServerLogHandler.FailingLogs.Count;
+                var clientLogs = Pair.ClientLogHandler.FailingLogs.Count;
 
-                    // get default prototype data
-                    Dictionary<string, MappingDataNode> protoData = new();
+                uid = entityMan.SpawnEntity(prototype.ID, testLocation);
+                context.Prototype = prototype;
+
+                Dictionary<string, MappingDataNode> protoData = new();
+                try
+                {
+                    context.WritingReadingPrototypes = true;
+
+                    foreach (var (compType, comp) in prototype.Components)
+                    {
+                        context.WritingComponent = compType;
+                        protoData.Add(compType, seriMan.WriteValueAs<MappingDataNode>(comp.Component.GetType(), comp.Component, alwaysWrite: true, context: context));
+                    }
+
+                    context.WritingComponent = string.Empty;
+                    context.WritingReadingPrototypes = false;
+                }
+                catch (Exception e)
+                {
+                    failures.Add($"Prototype {prototype.ID}: failed to convert into yaml. Exception:\n{e}");
+                    if (!entityMan.Deleted(uid))
+                        entityMan.DeleteEntity(uid);
+                    continue;
+                }
+
+                var comps = new HashSet<IComponent>(entityMan.GetComponents(uid));
+                var compNames = new HashSet<string>(comps.Count);
+                foreach (var component in comps)
+                {
+                    var compType = component.GetType();
+                    var compName = compFact.GetComponentName(compType);
+                    compNames.Add(compName);
+
+                    if (compType == typeof(MetaDataComponent) || compType == typeof(TransformComponent) || compType == typeof(FixturesComponent))
+                        continue;
+
+                    MappingDataNode compMapping;
                     try
                     {
-                        context.WritingReadingPrototypes = true;
-
-                        foreach (var (compType, comp) in prototype.Components)
-                        {
-                            context.WritingComponent = compType;
-                            protoData.Add(compType, seriMan.WriteValueAs<MappingDataNode>(comp.Component.GetType(), comp.Component, alwaysWrite: true, context: context));
-                        }
-
-                        context.WritingComponent = string.Empty;
-                        context.WritingReadingPrototypes = false;
+                        context.WritingComponent = compName;
+                        compMapping = seriMan.WriteValueAs<MappingDataNode>(compType, component, alwaysWrite: true, context: context);
                     }
                     catch (Exception e)
                     {
-                        Assert.Fail($"Failed to convert prototype {prototype.ID} into yaml. Exception: {e.Message}");
+                        failures.Add($"Prototype {prototype.ID}: failed to serialize {compName} component. Exception:\n{e}");
                         continue;
                     }
 
-                    var comps = new HashSet<IComponent>(entityMan.GetComponents(uid));
-                    var compNames = new HashSet<string>(comps.Count);
-                    foreach (var component in comps)
+                    if (protoData.TryGetValue(compName, out var protoMapping))
                     {
-                        var compType = component.GetType();
-                        var compName = compFact.GetComponentName(compType);
-                        compNames.Add(compName);
+                        var diff = compMapping.Except(protoMapping);
 
-                        if (compType == typeof(MetaDataComponent) || compType == typeof(TransformComponent) || compType == typeof(FixturesComponent))
-                            continue;
-
-                        MappingDataNode compMapping;
-                        try
-                        {
-                            context.WritingComponent = compName;
-                            compMapping = seriMan.WriteValueAs<MappingDataNode>(compType, component, alwaysWrite: true, context: context);
-                        }
-                        catch (Exception e)
-                        {
-                            Assert.Fail($"Failed to serialize {compName} component of entity prototype {prototype.ID}. Exception: {e.Message}");
-                            continue;
-                        }
-
-                        if (protoData.TryGetValue(compName, out var protoMapping))
-                        {
-                            var diff = compMapping.Except(protoMapping);
-
-                            if (diff != null && diff.Children.Count != 0)
-                                Assert.Fail($"Prototype {prototype.ID} modifies component on spawn: {compName}. Modified yaml:\n{diff}");
-                        }
-                        else
-                        {
-                            Assert.Fail($"Prototype {prototype.ID} gains a component on spawn: {compName}");
-                        }
+                        if (diff != null && diff.Children.Count != 0)
+                            failures.Add($"Prototype {prototype.ID} modifies component on spawn: {compName}. Modified yaml:\n{diff}");
                     }
-
-                    // An entity may also remove components on init -> check no components are missing.
-                    foreach (var (compType, comp) in prototype.Components)
+                    else
                     {
-                        Assert.That(compNames, Does.Contain(compType), $"Prototype {prototype.ID} removes component {compType} on spawn.");
+                        failures.Add($"Prototype {prototype.ID} gains a component on spawn: {compName}");
                     }
-
-                    if (!entityMan.Deleted(uid))
-                        entityMan.DeleteEntity(uid);
                 }
-            });
+
+                foreach (var (compType, comp) in prototype.Components)
+                {
+                    if (!compNames.Contains(compType))
+                        failures.Add($"Prototype {prototype.ID} removes component {compType} on spawn.");
+                }
+
+                for (var i = serverLogs; i < Pair.ServerLogHandler.FailingLogs.Count; i++)
+                    failures.Add($"Prototype {prototype.ID} triggered server error log:\n{Pair.ServerLogHandler.FailingLogs[i]}");
+                for (var i = clientLogs; i < Pair.ClientLogHandler.FailingLogs.Count; i++)
+                    failures.Add($"Prototype {prototype.ID} triggered client error log:\n{Pair.ClientLogHandler.FailingLogs[i]}");
+
+                if (!entityMan.Deleted(uid))
+                    entityMan.DeleteEntity(uid);
+            }
         });
+
+        if (failures.Count != 0)
+        {
+            TestContext.Out.WriteLine($"UninitializedSaveTest detected {failures.Count} problem(s):");
+            foreach (var failure in failures)
+                TestContext.Out.WriteLine(failure);
+        }
+        else
+        {
+            TestContext.Out.WriteLine("UninitializedSaveTest: no problems detected.");
+        }
+
+        Assert.Multiple(() =>
+        {
+            foreach (var failure in failures)
+                Assert.Fail(failure);
+        });
+    // ADT-Tweak end
     }
 
     // ADT-Tweak start
