@@ -35,7 +35,6 @@ public sealed partial class FiringPinSystem : EntitySystem
 
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -229,7 +228,7 @@ public sealed partial class FiringPinSystem : EntitySystem
             case FiringPinType.Explorer:
                 return _station.GetOwningStation(user) == null;
             case FiringPinType.Component:
-                return HasRequiredComponent(user, pin.Comp.RequiredComponents);
+                return _whitelist.IsWhitelistPass(pin.Comp.RequiredWhitelist, user);
             case FiringPinType.None:
             default:
                 return true;
@@ -250,20 +249,6 @@ public sealed partial class FiringPinSystem : EntitySystem
         return pin.AllowedAlertLevels.Contains(cache.CurrentLevel);
     }
 
-    private bool HasRequiredComponent(EntityUid user, List<string> requiredComponents)
-    {
-        foreach (var name in requiredComponents)
-        {
-            if (_compFactory.TryGetRegistration(name, out var registration)
-                && EntityManager.HasComponent(user, registration.Type))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     private bool IsNearFiringRange(EntityUid user)
     {
         var userPos = _transform.GetMapCoordinates(user);
@@ -272,8 +257,11 @@ public sealed partial class FiringPinSystem : EntitySystem
         while (query.MoveNext(out var range, out _))
         {
             var rangePos = _transform.GetMapCoordinates(range);
-            if ((rangePos.Position - userPos.Position).Length() <= TestRangeRadius)
+            if (userPos.MapId == rangePos.MapId
+                && (rangePos.Position - userPos.Position).Length() <= TestRangeRadius)
+            {
                 return true;
+            }
         }
 
         return false;
@@ -355,7 +343,8 @@ public sealed partial class FiringPinSystem : EntitySystem
 
     private void OnEmagged(Entity<GunComponent> ent, ref GotEmaggedEvent args)
     {
-        var holder = EnsureComp<FiringPinHolderComponent>(ent.Owner);
+        if (!TryComp<FiringPinHolderComponent>(ent, out var holder))
+            return;
 
         if (holder.Emagged)
             return;

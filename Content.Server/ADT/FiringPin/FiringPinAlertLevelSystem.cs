@@ -6,7 +6,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server.ADT.FiringPin;
 
-public sealed class FiringPinAlertLevelSystem : EntitySystem
+public sealed partial class FiringPinAlertLevelSystem : EntitySystem
 {
     [Dependency] private readonly StationSystem _station = default!;
 
@@ -43,7 +43,16 @@ public sealed class FiringPinAlertLevelSystem : EntitySystem
     {
         var station = _station.GetOwningStation(player);
         if (station == null || !TryComp<AlertLevelComponent>(station, out var alert))
+        {
+            if (TryComp<FiringPinAlertLevelCacheComponent>(player, out var cache)
+                && !string.IsNullOrEmpty(cache.CurrentLevel))
+            {
+                cache.CurrentLevel = string.Empty;
+                Dirty(player, cache);
+            }
+
             return;
+        }
 
         UpdateCache(player, alert.CurrentLevel);
     }

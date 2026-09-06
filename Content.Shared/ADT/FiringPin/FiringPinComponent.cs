@@ -1,5 +1,6 @@
 using Content.Shared.Access;
 using Content.Shared.Tag;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -53,5 +54,5 @@ public sealed partial class FiringPinComponent : Component
     public List<string> AllowedAlertLevels = new();
 
     [DataField, AutoNetworkedField]
-    public List<string> RequiredComponents = new();
+    public EntityWhitelist? RequiredWhitelist;
 }
