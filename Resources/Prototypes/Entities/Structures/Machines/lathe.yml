@@ -508,6 +508,7 @@
     - ADTMagazineStaticPack
     - ADTScienceTrigger
     - ADTScienceExplosives
+    - ADTFiringPinStaticPack
     # ADT-Tweak-End
     dynamicPacks:
     - SalvageSecurityBoards
@@ -523,6 +524,7 @@
     - ADTAttachmentPack
     - ADT40mmGrenadePack
     - ADTMechEquipmentSecTechfabPack
+    - FiringPinsResearchPack
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagStaticPacks:

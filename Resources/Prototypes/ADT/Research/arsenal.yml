@@ -124,3 +124,27 @@
   - KineticModifications
   requiredTech:
   - KineticModifications
+
+- type: technology
+  id: ADTFiringPins
+  name: research-technology-firing-pins
+  icon:
+    sprite: ADT/Objects/Devices/pin.rsi
+    state: firing_pin_sec_level
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - FiringPinTestRangeRecipe
+  - FiringPinLoyaltyRecipe
+  - FiringPinDNARecipe
+  - FiringPinDNADreddRecipe
+  - FiringPinClownRecipe
+  - FiringPinClownUltraRecipe
+  - FiringPinHolyRecipe
+  - FiringPinAccessRecipe
+  - FiringPinSecLevelRecipe
+  - FiringPinExplorerRecipe
+  position: 0,1
+  requiredTech:
+  - SalvageWeapons

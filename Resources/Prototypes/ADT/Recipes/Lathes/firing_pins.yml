@@ -1,0 +1,136 @@
+- type: latheRecipe
+  id: FiringPinRecipe
+  result: FiringPin
+  categories:
+  - Security
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 100
+
+- type: latheRecipe
+  id: FiringPinTestRangeRecipe
+  result: FiringPinTestRange
+  categories:
+  - Security
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 200
+
+- type: latheRecipe
+  id: FiringPinLoyaltyRecipe
+  result: FiringPinLoyalty
+  categories:
+  - Security
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 100
+    Copper: 100
+
+- type: latheRecipe
+  id: FiringPinDNARecipe
+  result: FiringPinDNA
+  categories:
+  - Security
+  completetime: 3
+  materials:
+    Steel: 100
+    Plastic: 100
+    Gold: 100
+
+- type: latheRecipe
+  id: FiringPinDNADreddRecipe
+  result: FiringPinDNADredd
+  categories:
+  - Security
+  completetime: 3
+  materials:
+    Steel: 100
+    Plastic: 100
+    Gold: 100
+    Uranium: 100
+
+- type: latheRecipe
+  id: FiringPinClownRecipe
+  result: FiringPinClown
+  categories:
+  - Security
+  completetime: 2
+  materials:
+    Steel: 50
+    Plastic: 150
+
+- type: latheRecipe
+  id: FiringPinClownUltraRecipe
+  result: FiringPinClownUltra
+  categories:
+  - Security
+  completetime: 3
+  materials:
+    Steel: 50
+    Plastic: 150
+    Uranium: 100
+
+- type: latheRecipe
+  id: FiringPinHolyRecipe
+  result: FiringPinHoly
+  categories:
+  - Security
+  completetime: 2
+  materials:
+    Steel: 100
+    Glass: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: FiringPinAccessRecipe
+  result: FiringPinAccess
+  categories:
+  - Security
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 100
+    Copper: 200
+
+- type: latheRecipe
+  id: FiringPinSecLevelRecipe
+  result: FiringPinSecLevel
+  categories:
+  - Security
+  completetime: 3
+  materials:
+    Steel: 200
+    Plastic: 100
+    Copper: 200
+
+- type: latheRecipe
+  id: FiringPinExplorerRecipe
+  result: FiringPinExplorer
+  categories:
+  - Security
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 100
+
+- type: latheRecipePack
+  id: FiringPinStaticPack
+  recipes:
+  - FiringPinRecipe
+
+- type: latheRecipePack
+  id: FiringPinsResearchPack
+  recipes:
+  - FiringPinTestRangeRecipe
+  - FiringPinLoyaltyRecipe
+  - FiringPinDNARecipe
+  - FiringPinDNADreddRecipe
+  - FiringPinClownRecipe
+  - FiringPinClownUltraRecipe
+  - FiringPinHolyRecipe
+  - FiringPinAccessRecipe
+  - FiringPinSecLevelRecipe
+  - FiringPinExplorerRecipe
