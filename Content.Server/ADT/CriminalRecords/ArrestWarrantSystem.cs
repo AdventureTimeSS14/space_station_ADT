@@ -55,7 +55,7 @@ public sealed class ArrestWarrantSystem : EntitySystem
                 return;
         }
 
-        var reason = _random.Pick(_proto.Index<DatasetPrototype>(WarrantReasonsDataset).Values);
+        var reason = Loc.GetString(_random.Pick(_proto.Index<LocalizedDatasetPrototype>(WarrantReasonsDataset).Values));
         var initiator = Loc.GetString("arrest-warrant-initiator");
 
         _criminalRecords.OverwriteStatus(key, record, SecurityStatus.Wanted, reason, initiator);
@@ -97,8 +97,8 @@ public sealed class ArrestWarrantSystem : EntitySystem
 
     private string GetRandomOperator()
     {
-        var dataset = _proto.Index<DatasetPrototype>(OperatorNamesDataset);
-        return _random.Pick(dataset.Values);
+        var dataset = _proto.Index<LocalizedDatasetPrototype>(OperatorNamesDataset);
+        return Loc.GetString(_random.Pick(dataset.Values));
     }
 
     private bool IsSecurityFax(EntityUid uid) // todo: хардкод пиздец, ну а чё сделать если факсов СБ нет только по имени искать.
