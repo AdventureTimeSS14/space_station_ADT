@@ -2,11 +2,11 @@
 <img alt="Space Station 14" width="880" height="300" src="https://raw.githubusercontent.com/space-wizards/asset-dump/de329a7898bb716b9d5ba9a0cd07f38e61f1ed05/github-logo.svg">
 </div>
 
-# Adventure Time: Space Station 14
+# Zero Sector: Space Station 14
 
 Space Station 14 это ремейк SS13, который работает на собственном движке [Robust Toolbox](https://github.com/space-wizards/RobustToolbox), написанном на C#.
 
-Adventure Time - это проект русскоязычного сервера по Space Station 14, целью которого является полный перевод игры на русский язык, поддержка актуальных изменений из основного репозитория, а так же добавление собственных изменений по необходимости.
+Zero Sector - Проект внутри Space Station с фокусом на создание узконаправленного ответвления контента оригинального концепта с фокусом на сюжетное развитие по мере развития проекта и PVP-PVE-Survival контент для игроков.
 
 ## Ссылки
 [Наш Discord](https://discord.gg/NY3KDNuH9r) | [Наша вики](https://wiki.adventurestation.space/Заглавная_страница) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/) | [Клиент без Steam](https://spacestation14.com/about/download/) | [Основной репозиторий](https://github.com/space-wizards/space-station-14)
@@ -17,7 +17,7 @@ Adventure Time - это проект русскоязычного сервера
 
 ## Контрибьют
 
-Мы рады принять вклад от любого человека. Заходите в Discord, если хотите помочь. У нас есть [список проблем](https://github.com/AdventureTimeSS14/space_station_ADT/issues), которые нужно решить, и любой может за них взяться. Не бойтесь просить о помощи!
+Мы рады принять вклад от любого человека. Заходите в Discord, если хотите помочь. У нас есть [список проблем](https://discord.gg/g6PGWJSzEJ), которые нужно решить, и любой может за них взяться. Не бойтесь просить о помощи!
 Только убедитесь, что ваши изменения и PRы соответствуют [руководству по контрибьюту](https://docs.spacestation14.com/en/general-development/codebase-info/pull-request-guidelines.html).
 
 ## Сборка
