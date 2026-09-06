@@ -844,6 +844,9 @@
 - type: Tag
   id: ADTArchimedesPeripheralsControlModule
 
+- type: Tag
+  id: FiringPin
+
 # XENOBIO - START
 - type: Tag
   id: XenobiologyGreyExtract
