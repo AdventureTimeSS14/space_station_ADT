@@ -136,6 +136,10 @@
       rmc-aslot-underbarrel: 0.365, -0.1075
       rmc-aslot-rail: -0.02375, -0.0325
 # ADT TWEAK END
+# ADT Tweak start
+  - type: FiringPinHolder
+    startingPin: FiringPinSyndicate
+# ADT Tweak end
 
 - type: entity
   name: double-barreled shotgun

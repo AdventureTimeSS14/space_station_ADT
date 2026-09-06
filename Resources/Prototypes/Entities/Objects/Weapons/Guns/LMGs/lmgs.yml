@@ -111,6 +111,10 @@
     offsets:
       rmc-aslot-rail: -0.2275, -0.1575
 # ADT TWEAK END
+# ADT Tweak start
+  - type: FiringPinHolder
+    startingPin: FiringPinSyndicate
+# ADT Tweak end
 
 - type: entity
   name: L6C ROW

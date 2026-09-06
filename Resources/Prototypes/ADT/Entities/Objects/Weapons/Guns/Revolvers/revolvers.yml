@@ -60,6 +60,8 @@
     price: 3500
   - type: StealTarget
     stealGroup: ADTHosWeapon
+  - type: FiringPinHolder
+    startingPin: FiringPinLoyalty
 
 - type: entity
   name: russian revolver

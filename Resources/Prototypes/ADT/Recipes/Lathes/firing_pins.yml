@@ -117,7 +117,7 @@
     Plastic: 100
 
 - type: latheRecipePack
-  id: FiringPinStaticPack
+  id: ADTFiringPinStaticPack
   recipes:
   - FiringPinRecipe
 

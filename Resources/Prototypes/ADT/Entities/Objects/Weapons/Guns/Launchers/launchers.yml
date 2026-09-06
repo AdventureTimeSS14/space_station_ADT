@@ -103,6 +103,8 @@
   - type: GunRequiresWield
   - type: Item
     size: Huge
+  - type: FiringPinHolder
+    startingPin: FiringPinSyndicate
 
 - type: entity
   name: flamethrower
