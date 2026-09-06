@@ -1,72 +1,3 @@
-- type: entity
-  name: BaseWeaponRifle
-  parent: [BaseItem, BaseGunWieldable]
-  id: BaseWeaponRifle
-  description: A rooty tooty point and shooty.
-  abstract: true
-  components:
-  - type: Sprite
-  - type: Item
-    size: Huge
-    shape:
-    - 0,0,3,2
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Rifles/ak.rsi
-    quickEquip: false
-    slots:
-    - Back
-    - suitStorage
-  - type: AmmoCounter
-# ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-    # modifier: 0.1
-# ADT-Tweak end
-  - type: Gun
-    fireRate: 5
-    selectedMode: FullAuto
-    availableModes:
-      - FullAuto
-      - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
-  - type: ChamberMagazineAmmoProvider
-    soundRack:
-      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazineLightRifle
-        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-            - MagazineLightRifle
-        whitelistFailPopup: gun-magazine-whitelist-fail
-      gun_chamber:
-        name: Chamber
-        priority: 1
-        whitelist:
-          tags:
-            - CartridgeLightRifle
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
-  - type: StaticPrice
-    price: 500
-  # ADT-Tweak start
-  - type: MeleeWeapon
-    resetOnHandSelected: false
-    attackRate: 1
-    damage:
-      types:
-        Blunt: 9 # 5 -> 9
-    soundHit:
-      collection: GenericHit
-  - type: AltFireMelee
-  # ADT-Tweak end
 
 - type: entity
   name: AKMS
@@ -122,7 +53,7 @@
 - type: entity
   name: M90 GL
   parent: [BaseWeaponRifle, BaseSyndicateContraband, ADTBaseAttachableHolder] #ADT-tweak: аттачблс холдер
-  id: WeaponRifleM90GrenadeLauncher
+  id: LegacyWeaponRifleM90GrenadeLauncher
   description: "An older bullpup carbine model, with an attached underbarrel grenade launcher.\nFeeds from .20 rifle magazines."
   components:
   - type: Sprite
@@ -194,7 +125,7 @@
 - type: entity
   name: Lecter
   parent: [BaseWeaponRifle, BaseSecurityContraband, ADTBaseAttachableHolder] # ADT TWEAK
-  id: WeaponRifleLecter
+  id: LegacyWeaponRifleLecter
   description: "Popular gas-operated combat rifle used heavily by Nanotrasen and SolGov. Operating in semi or fully automatic, its accuracy, stopping power, and reliability make it excel in all manner of environments.\nFeeds from .20 rifle magazines."
   components:
   - type: Sprite
@@ -295,7 +226,7 @@
 - type: entity
   name: Estoc DMR
   parent: [BaseWeaponRifle, BaseSyndicateContraband, ADTBaseAttachableHolder] # ADT TWEAK
-  id: WeaponRifleEstoc
+  id: LegacyWeaponRifleEstoc
   description: "A designated marksman rifle firing in 3-round bursts. The Estoc was designed as the Lecter’s long-range counterpart, equipped with an extended 20-inch barrel and telescopic sight.\nFeeds from .20 rifle magazines."
   components:
   - type: Sprite

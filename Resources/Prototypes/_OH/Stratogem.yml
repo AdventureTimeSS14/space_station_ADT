@@ -1,0 +1,342 @@
+
+# Сделать дольше время взрыва самого снаряда
+
+
+
+# база для работы
+
+- type: entity
+  abstract: true
+  parent: [GrenadeBase, Incorporeal]
+  id: OHSTRATOGEMPROJECTILEBASE
+  components:
+  - type: CanMoveInAir
+  - type: MovementIgnoreGravity
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 15
+        layer:
+        - GhostImpassable
+  - type: Sprite
+    drawdepth: Overdoors
+    sprite: ADT/Effects/target_circle.rsi
+    state: icon
+  - type: InteractionOutline
+  - type: TimedDespawn
+    lifetime: 4
+  - type: PointLight
+    energy: 0.3
+    radius: 1
+    color: "#ff0000"
+
+# Снаряды
+
+- type: entity
+  name: Воздушная бомба
+  parent: OHSTRATOGEMPROJECTILEBASE
+  id: OHstratogemcarpetbomb
+  components:
+  - type: TriggerOnUse
+  - type: TimerTrigger
+    delay: 5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 50
+    intensitySlope: 5
+    maxIntensity: 50
+  - type: Appearance
+
+- type: entity
+  name: 120mm
+  parent: OHSTRATOGEMPROJECTILEBASE
+  id: OHstratogem120mm
+  components:
+  - type: TriggerOnUse
+  - type: TimerTrigger
+    delay: 5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb
+    totalIntensity: 500
+    intensitySlope: 5
+    maxIntensity: 50
+  - type: Appearance
+
+- type: entity
+  name: napalmbomb
+  parent: OHSTRATOGEMPROJECTILEBASE
+  id: OHstratogemnapalm
+  components:
+  - type: TriggerOnUse
+  - type: TimerTrigger
+    delay: 5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: FireBomb
+    totalIntensity: 300
+    intensitySlope: 5
+    maxIntensity: 50
+  - type: Appearance
+
+- type: entity
+  name: 380mm
+  parent: OHSTRATOGEMPROJECTILEBASE
+  id: OHstratogem380mm
+  components:
+  - type: TriggerOnUse
+  - type: TimerTrigger
+    delay: 5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb
+    totalIntensity: 1500
+    intensitySlope: 5
+    maxIntensity: 50
+  - type: Appearance
+
+- type: entity
+  name: БСА
+  parent: OHSTRATOGEMPROJECTILEBASE
+  id: OHstratogemBSA
+  components:
+  - type: TriggerOnUse
+  - type: TimerTrigger
+    delay: 5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb
+    totalIntensity: 5000
+    intensitySlope: 5
+    maxIntensity: 50
+  - type: Appearance
+
+# Атакующие стратогемы
+
+
+- type: entity
+  parent: ScatteringGrenadeBase
+  id: OHtrowablestratogemcarpetbomb
+  name: stratogem
+  description: Releases a bothersome spray of foam darts that cause severe welching.
+  components:
+  - type: Sprite
+    sprite: _OH/Entities/Stratogem/StratogemON.rsi
+    state: icon
+  - type: ScatteringGrenade
+    fillPrototype: OHstratogemcarpetbomb
+    capacity: 30
+    velocity: 12
+    randomDistance: true
+    randomThrowDistanceMax: 30
+  - type: TriggerOnUse
+  - type: TimerTrigger
+    delay: 5
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+
+- type: entity
+  parent: ScatteringGrenadeBase
+  id: OHtrowablestratogem120mm
+  name: stratogem
+  description: Releases a bothersome spray of foam darts that cause severe welching.
+  components:
+  - type: Sprite
+    sprite: _OH/Entities/Stratogem/StratogemON.rsi
+    state: icon
+  - type: ScatteringGrenade
+    fillPrototype: OHstratogem120mm
+    capacity: 6
+    velocity: 12
+    randomDistance: true
+    randomThrowDistanceMax: 25
+  - type: TriggerOnUse
+  - type: TimerTrigger
+    delay: 5
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+
+- type: entity
+  parent: ScatteringGrenadeBase
+  id: OHtrowablestratogemnapalm
+  name: stratogem
+  description: Releases a bothersome spray of foam darts that cause severe welching.
+  components:
+  - type: Sprite
+    sprite: _OH/Entities/Stratogem/StratogemON.rsi
+    state: icon
+  - type: ScatteringGrenade
+    fillPrototype: OHstratogemnapalm
+    capacity: 6
+    velocity: 12
+    randomDistance: true
+    randomThrowDistanceMax: 25
+  - type: TriggerOnUse
+  - type: TimerTrigger
+    delay: 5
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+
+- type: entity
+  parent: ScatteringGrenadeBase
+  id: OHtrowablestratogem380mm
+  name: stratogem
+  description: Releases a bothersome spray of foam darts that cause severe welching.
+  components:
+  - type: Sprite
+    sprite: _OH/Entities/Stratogem/StratogemON.rsi
+    state: icon
+  - type: ScatteringGrenade
+    fillPrototype: OHstratogem380mm
+    capacity: 3
+    velocity: 12
+    randomDistance: true
+    randomThrowDistanceMax: 50
+  - type: TriggerOnUse
+  - type: TimerTrigger
+    delay: 8
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+
+- type: entity
+  parent: ScatteringGrenadeBase
+  id: OHtrowablestratogemBSA
+  name: stratogem
+  description: Releases a bothersome spray of foam darts that cause severe welching.
+  components:
+  - type: Sprite
+    sprite: _OH/Entities/Stratogem/StratogemON.rsi
+    state: icon
+  - type: ScatteringGrenade
+    fillPrototype: OHstratogemBSA
+    capacity: 1
+    velocity: 12
+  - type: TriggerOnUse
+  - type: TimerTrigger
+    delay: 10
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+
+# Универсальная стратогема
+
+- type: entity
+  parent: ScatteringGrenadeBase
+  id: OHUniversalstratogem
+  name: Универсальная стратогема
+  description: хуйня для выбора стратогем
+  components:
+  - type: Sprite
+    sprite: _OH/Entities/Stratogem/StratogemOFF.rsi
+    state: icon
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - OHstratogemcarpetbomb
+    - OHstratogem120mm
+    - OHstratogemBSA
+    - OHstratogem380mm
+    - OHstratogemnapalm
+    - OHstratogemsupply
+    typeDropPlace: ThisPlace
+
+
+# Выбор стратогем 
+
+- type: thiefBackpackSet
+  id: OHstratogemcarpetbombSet
+  name: воздушная бомба
+  description: воздушная бомба
+  sprite:
+    sprite: _OH/Stratogem/Stratogemicons.rsi
+    state: bomb
+  content:
+  - OHtrowablestratogemcarpetbomb
+
+- type: thiefBackpackSet
+  id: OHstratogem380mmSet
+  name: 380мм
+  description: 380мм
+  sprite:
+    sprite: _OH/Stratogem/Stratogemicons.rsi
+    state: 380mm
+  content:
+  - OHtrowablestratogem380mm
+
+- type: thiefBackpackSet
+  id: OHstratogem120mmSet
+  name: 120мм
+  description: 120мм
+  sprite:
+    sprite: _OH/Stratogem/Stratogemicons.rsi
+    state: 120mm
+  content:
+  - OHtrowablestratogem120mm
+
+- type: thiefBackpackSet
+  id: OHstratogemBSASet
+  name: БСА
+  description: БСА
+  sprite:
+    sprite: _OH/Stratogem/Stratogemicons.rsi
+    state: bsa_nuke
+  content:
+  - OHtrowablestratogemBSA
+
+- type: thiefBackpackSet
+  id: OHstratogemnapalmSet
+  name: напалм
+  description: напалм
+  sprite:
+    sprite: _OH/Stratogem/Stratogemicons.rsi
+    state: napalm
+  content:
+  - OHtrowablestratogemnapalm
+
+- type: thiefBackpackSet
+  id: OHstratogemsupply
+  name: supplies
+  description: supplies
+  sprite:
+    sprite: _OH/Stratogem/Stratogemicons.rsi
+    state: supplies
+  content:
+  - OHstratogemsupply
+
+
+
+# Набор пополнения (После реворка оружия добавлю выбор патрон, пока мегапохуй)
+
+- type: entity
+  id: OHstratogemsupplypack
+  name: OHstratogemsupplypack-name
+  description: OHstratogemsupplypack-desc
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _OH/Stratogem/Stratogemicons.rsi
+    state: supplies
+  #- type: ActivatableUI
+  #  key: enum.MiningVoucherUiKey.Key
+  #- type: UserInterface
+  #  interfaces:
+  #    enum.MiningVoucherUiKey.Key:
+  #     type: MiningVoucherBoundUserInterface
+  # - type: MiningVoucher
+  #  kits:
+  #  typeDropPlace: ThisPlace
+  #  typeDrop: Rocket
+

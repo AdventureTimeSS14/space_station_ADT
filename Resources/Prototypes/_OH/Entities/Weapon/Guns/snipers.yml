@@ -1,0 +1,421 @@
+- type: entity
+  name: BaseWeaponSniper
+  parent: BaseItem
+  id: BaseWeaponSniper
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 0.75
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+  - type: BallisticAmmoProvider
+    capacity: 10
+    proto: CartridgeLightRifle
+    whitelist:
+      tags:
+      - CartridgeLightRifle
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  name: Kardashev-Mosin
+  suffix: Реворкнуто!
+  parent: [BaseWeaponSniper, BaseGunWieldable, BaseSyndicateContraband, ADTBaseAttachableHolder, ADTBasePumpingGun] #ADT_Tweak
+  id: WeaponSniperMosin
+  description: A true relic, the Kardashev-Mosin has served in nearly every armed conflict since its creation 670 years ago. The bolt-action design of the rifle remains virtually identical to its original design, whether used for hunting, sniping, or endless trench warfare. Loads 10 rounds of .30 rifle.
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/WorldWar1/Objects/Weapons/Guns/Rifles/mosin.rsi  #ADT_Tweak
+#ADT_Tweak START
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        startingAttachable: ADTMosinBayonet
+        whitelist:
+          tags:
+          - ADTMosinBayonetAttachment
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-barrel: 0.59375, 0
+      # rmc-aslot-barrel: 0.59375, -0.15625
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.2
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+#ADT_Tweak END
+
+- type: entity
+  name: Hristov
+  parent: [BaseWeaponSniper, BaseGunWieldable, BaseSyndicateContraband, ADTBaseMagneticGun] # ADT TWEAK
+  id: WeaponSniperHristov
+  description: For when you absolutely, positively need to make someone regret their life choices from a safe distance. Uses .60 anti-materiel ammo.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 0.4
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeAntiMateriel
+    capacity: 5
+    proto: CartridgeAntiMateriel
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 3
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.65
+    damage:
+      types:
+        Blunt: 20
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
+  - type: SpeedModifiedOnWield
+# ADT-Tweak start
+    walkModifier: 0.65 # 0.25 -> 0.65
+    sprintModifier: 0.80 # 0.25 -> 0.80
+#  - type: CursorOffsetRequiresWield
+#  - type: EyeCursorOffset
+#    maxOffset: 3
+#   pvsIncrease: 0.3
+# ADT-Tweak end
+  - type: AttachableHolder # ADT-Tweak
+    slots:
+      rmc-aslot-rail:
+        locked: false # ADT-Tweak true -> false 
+        startingAttachable: ADTAttachmentHristovScope
+        whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentHristovScope
+  - type: StaticPrice
+    price: 3500
+
+- type: entity
+  name: musket
+  parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband, ADTBaseAttachableHolder ] # ADT-Tweak add ADTBaseAttachableHolder
+  id: Musket
+  description: This should've been in a museum long before you were born. Uses .60 anti-materiel ammo.
+  components:
+  - type: Sharp
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Snipers/musket.rsi
+    state: base
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Snipers/musket.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: UseDelayOnShoot
+  # ADT-Tweak start
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        startingAttachable: ADTMosinBayonet
+        whitelist:
+          tags:
+          - ADTMosinBayonetAttachment
+  - type: RunAndGunSpreadModifier
+    modifyer: 3
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
+  - type: UseDelay
+    delay: 8 #it's a musket
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeAntiMateriel
+    capacity: 1
+    proto: CartridgeAntiMateriel
+# ADT-Tweak start
+#  - type: MeleeWeapon
+#    wideAnimationRotation: -135
+#    damage:
+#      types:
+#        Piercing: 15 #you fucking stab em
+#       Bloodloss: 2 #no way to apply bleed, triangular bayonet wounds are hard to fix(source:that one copypasta)
+#    angle: 0
+#    animation: WeaponArcThrust
+#     soundHit:
+#      path: /Audio/Weapons/bladeslice.ogg
+# ADT-Tweak end
+  - type: GunRequiresWield
+
+- type: entity
+  name: flintlock pistol
+  parent: [BaseWeaponSniper, BaseMajorContraband]
+  id: WeaponPistolFlintlock
+  description: A pirate's companion. Yarrr! Uses .45 magnum ammo.
+  components:
+  - type: Gun
+    minAngle: 0
+    maxAngle: 30 #miss him entirely because the barrel is smoothbore
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedRotation: 0
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 3
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 8 #it's a flintlock
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeAntiMateriel  # ADT-Tweak
+    capacity: 1
+    proto: CartridgeAntiMateriel # ADT-Tweak
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: WeaponPistolFlintlock
+  id: WeaponPistolFlintlockEmpty
+  suffix: Empty
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+
+
+# OH REWORK
+
+# Исправленная база для реворкнутых снайперок
+- type: entity
+  name: BaseWeaponSniper
+  parent: BaseItem
+  id: OHBaseWeaponSnipermagazine
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 0.75
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+  # ОБЪЕДИНЕННЫЙ БЛОК КОНТЕЙНЕРОВ (Исправляет краш ContainerContainer)
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineAmmoProvider
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  name: M700
+  suffix: Реворкнуто!
+  parent: [BaseWeaponSniper, BaseGunWieldable, ADTBasePumpingGun]
+  id: OHWeaponSniperM700
+  description: For when you absolutely, positively need to make someone regret their life choices from a safe distance. Uses .60 anti-materiel ammo.
+  components:
+  - type: Sprite
+    sprite: _OH/Weapon/Guns/Snipers/m700.rsi
+    scale: 0.8, 0.8
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _OH/Weapon/Guns/Snipers/m700.rsi
+  - type: GunRequiresWield
+  - type: Gun
+    minAngle: 24
+    maxAngle: 45
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+  - type: RunAndGunSpreadModifier
+    modifyer: 1
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.65
+    damage:
+      types:
+        Blunt: 20
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-rail:
+        locked: true
+        startingAttachable: OHAttachmentScope8x
+        whitelist:
+            tags:
+            - OHAttachmentScope8x
+  - type: StaticPrice
+    price: 10000
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: OHMagazineheavyrifle10
+        priority: 2
+        whitelist:
+          tags:
+          - OHMagazineheavyrifle101
+          - CartridgeLightRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -40
+  - type: Wieldable
+
+- type: entity
+  name: Barret M95
+  suffix: Реворкнуто!
+  parent: [OHBaseWeaponSnipermagazine, BaseGunWieldable]
+  id: OHWeaponSniperM95
+  description: For when you absolutely, positively need to make someone regret their life choices from a safe distance. Uses .60 anti-materiel ammo.
+  components:
+  - type: Sprite
+    sprite: _OH/Weapon/Guns/Snipers/m95.rsi
+    scale: 0.8, 0.8
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _OH/Weapon/Guns/Snipers/m95.rsi
+  - type: GunRequiresWield
+  - type: Gun
+    minAngle: 24
+    maxAngle: 45
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+  # Примечание: BallisticAmmoProvider тут не нужен, если используется MagazineAmmoProvider из родителя
+  - type: RunAndGunSpreadModifier
+    modifyer: 3
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.65
+    damage:
+      types:
+        Blunt: 20
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.70 
+    sprintModifier: 0.70 
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-rail:
+        locked: true
+        startingAttachable: OHAttachmentScope8x
+        whitelist:
+            tags:
+            - OHAttachmentScope8x
+  - type: StaticPrice
+    price: 10000
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineHristovAdvanced
+        priority: 2
+        whitelist:
+          tags:
+          - ADTMagazineHristov
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+  - type: GunWieldBonus
+    minAngle: -23
+    maxAngle: -43
+  - type: Wieldable

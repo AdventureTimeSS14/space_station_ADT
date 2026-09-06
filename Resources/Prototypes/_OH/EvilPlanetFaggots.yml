@@ -1,0 +1,183 @@
+- type: entity
+  name: Консультант Красное&Белое
+  parent: MobSyndicateFootsoldier
+  id: OHMobscavenger 
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototypes:
+        - OHScavengerGear1
+        - OHScavengerGear2
+        - OHScavengerGear3
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+    # Corvax-start
+    - type: AutoImplant
+      implants:
+        - DeathAcidifierImplant # Corvax anti-overloot
+    # Corvax-end
+
+- type: entity
+  name: Рейдер
+  parent: OHMobscavenger
+  id: OHMobscavengerElite
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototypes:
+        - OHScavengerGearelite1
+        - OHScavengerGearelite2
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+    # Corvax-start
+    - type: AutoImplant
+      implants:
+        - DeathAcidifierImplant # Corvax anti-overloot
+    # Corvax-end
+
+- type: startingGear
+  id: OHScavengerGear1
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitRedPlaidShirt
+    back: OHClothingBackpackERT
+    shoes: ClothingShoesBootsLaceup
+    gloves: ClothingHandsGlovesColorYellow
+    outerClothing: ClothingOuterArmorBasicSlim
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+  storage:
+    back:
+    - Crowbar
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+  inhand:
+    - WeaponSubMachineGunWt550
+
+- type: startingGear
+  id: OHScavengerGear2
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitRedPlaidShirt
+    back: OHClothingBackpackERT
+    shoes: ClothingShoesBootsLaceup
+    gloves: ClothingHandsGlovesColorYellow
+    outerClothing: ClothingOuterArmorBasicSlim
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+  storage:
+    back:
+    - Crowbar
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+  inhand:
+    - WeaponSniperMosin
+
+
+- type: startingGear
+  id: OHScavengerGear3
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitRedPlaidShirt
+    back: OHClothingBackpackERT
+    shoes: ClothingShoesBootsLaceup
+    gloves: ClothingHandsGlovesColorYellow
+    outerClothing: ClothingOuterArmorBasicSlim
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+  storage:
+    back:
+    - Crowbar
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+    - FoodSnackMREBrownieOpen
+  inhand:
+    - SpearUranium
+
+- type: startingGear
+  id: OHScavengerGearelite1
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    back: ClothingMilitaryBackpack
+    shoes: ADTClothingJumpBootsSynd
+    mask: ClothingMaskGasSyndicate
+    eyes: ClothingEyesNightVision
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: OHClothingOuterHardsuitScavelite
+    belt: OHClothingBeltMilitaryWebbingERT
+    pocket1: DoubleEmergencyOxygenTankFilled
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+    head: OHClothingHeadHelmetHardsuitScavelite
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - SyndicateJawsOfLife
+    - FlashlightSeclite
+    - SpaceCash500
+    - MedkitCombatFilled
+  inhand:
+    - XenoborgHeavyLaserGun
+  
+- type: startingGear
+  id: OHScavengerGearelite2
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    back: ClothingMilitaryBackpack
+    shoes: ADTClothingJumpBootsSynd
+    mask: ClothingMaskGasSyndicate
+    eyes: ClothingEyesNightVision
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: OHClothingOuterHardsuitScavelite
+    belt: OHClothingBeltMilitaryWebbingERT
+    pocket1: DoubleEmergencyOxygenTankFilled
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+    head: OHClothingHeadHelmetHardsuitScavelite
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - SyndicateJawsOfLife
+    - FlashlightSeclite
+    - SpaceCash500
+    - MedkitCombatFilled
+  inhand:
+    - Chainsaw

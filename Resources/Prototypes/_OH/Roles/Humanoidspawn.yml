@@ -1,0 +1,234 @@
+
+- type: entity
+  id: OHRandomHumanoidSpawnerERTLeader
+  name: ERT leader
+  suffix: ERTRole, EVA
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: ertleadereva
+    - type: RandomMetadata
+      nameSegments:
+      - ADTCmndNamesFirstMilitary
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
+    - type: RandomHumanoidSpawner
+      settings: OHERTLeader
+
+- type: randomHumanoidSettings
+  id: OHERTLeader
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  speciesBlacklist: # OH-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - Felinid
+    - Resomi
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # OH-Tweak-end
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-leader-name
+      description: ghost-role-information-ert-leader-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
+    - type: Loadout
+      prototypes: [ OHERTLeaderGearEVA ]
+    - type: RandomMetadata
+      nameSegments:
+      - ADTCmndNamesFirstMilitary
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
+
+## ERT Engineer
+
+- type: entity
+  id: OHRandomHumanoidSpawnerERTEngineer
+  parent: OHRandomHumanoidSpawnerERTLeader
+  name: ERT engineer
+  suffix: ERTRole, Eva
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: ertengineereva
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstERTEngineer
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
+    - type: RandomHumanoidSpawner
+      settings: OHERTEngineer
+
+- type: randomHumanoidSettings
+  id: OHERTEngineer
+  parent: OHERTLeader
+  speciesBlacklist: # OH-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Felinid
+    - Resomi
+    - Dwarf
+    - IPC
+    - DraskSpecies # OH-Tweak-end
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-engineer-name
+      description: ghost-role-information-ert-engineer-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstERTEngineer
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
+    - type: Loadout
+      prototypes: [ OHERTEngineerGeareva ]
+
+## ERT Security
+
+- type: entity
+  id: OHRandomHumanoidSpawnerERTSecurity
+  parent: OHRandomHumanoidSpawnerERTLeader
+  name: ERT security
+  suffix: ERTRole, Eva
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: ertsecurityeva
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstERTMilitary
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
+    - type: RandomHumanoidSpawner
+      settings: OHERTSecurity
+
+- type: randomHumanoidSettings
+  id: OHERTSecurity
+  speciesBlacklist: # OH-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Felinid
+    - Resomi
+    - Dwarf
+    - IPC
+    - DraskSpecies # OH-Tweak-end
+  parent: OHERTLeader
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-security-name
+      description: ghost-role-information-ert-security-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstERTMilitary
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
+    - type: Loadout
+      prototypes: [ OHERTSecurityGearEva ]
+
+## ERT Medic
+
+- type: entity
+  id: OHRandomHumanoidSpawnerERTMedical
+  parent: OHRandomHumanoidSpawnerERTLeader
+  name: ERT medic
+  suffix: ERTRole, Eva
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: ertmedicaleva
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstERTMedical
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
+    - type: RandomHumanoidSpawner
+      settings: OHERTMedical
+
+- type: randomHumanoidSettings
+  id: OHERTMedical
+  parent: OHERTLeader
+  speciesBlacklist: # OH-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Felinid
+    - Resomi
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # OH-Tweak-end
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-medical-name
+      description: ghost-role-information-ert-medical-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstERTMedical
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
+    - type: Loadout
+      prototypes: [ OHERTMedicalGearEva ]

@@ -1,0 +1,43 @@
+- type: entity
+  parent: ClothingShoesBootsMagSyndie
+  id: OHClothingShoesBootsMagERT
+  name: OHERTmagboots-name
+  description: OHERTmagboots-desc
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/shoes/Boots/ERTmagboots.rsi
+    state: icon
+  - type: Clothing
+    sprite: _OH/Clothing/shoes/Boots/ERTmagboots.rsi
+  - type: NoSlip
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: StaticPrice
+    price: 2000
+  - type: Magboots
+  - type: ToggleClothing
+    action: OHActionToggleMagbootsERT
+
+- type: entity
+  id: OHActionToggleMagbootsERT
+  parent: ActionToggleMagboots
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon: { sprite: _OH/Clothing/shoes/Boots/ERTmagboots.rsi, state: icon }
+    iconOn: _OH/Clothing/shoes/Boots/ERTmagboots.rsi/icon.png
+
+- type: entity
+  parent: ClothingShoesMilitaryBase
+  id: OHClothingJumpBootsERT
+  name: OHERTjumpboots-name
+  description: OHERTjumpboots-desc
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/shoes/Boots/ERTjumpboots.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/shoes/Boots/ERTjumpboots.rsi
+  - type: Jumpboots
+  - type: StaticPrice
+    price: 1000

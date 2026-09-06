@@ -1,0 +1,23 @@
+# Для роли
+
+- type: roleLoadout
+  id: JobERT
+  groups:
+  - OHVoucherSpecial
+
+# Для группы
+
+- type: loadoutGroup
+  id: OHVoucherSpecial
+  name: OHVoucherSpecial-name
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ERTspecialvoucher
+
+# Для шмотки
+
+- type: loadout
+  id: ERTspecialvoucher
+  equipment:
+   pocket2: OHDSOVoucherSpecial

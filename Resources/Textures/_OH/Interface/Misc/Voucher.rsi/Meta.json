@@ -1,0 +1,80 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "by logdog",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "base"
+        },
+        {
+            "name": "base2"
+        },
+        {
+            "name": "commander-explosive"
+        },
+        {
+            "name": "commander-mech"
+        },
+        {
+            "name": "commander-scout"
+        },
+        {
+            "name": "commander-stealth"
+        },
+        {
+            "name": "doctor"
+        },
+        {
+            "name": "emp"
+        },
+        {
+            "name": "explosive"
+        },
+        {
+            "name": "hospital"
+        },
+        {
+            "name": "laser"
+        },
+        {
+            "name": "machinegun"
+        },
+        {
+            "name": "marksman"
+        },
+        {
+            "name": "mech"
+        },
+        {
+            "name": "pens"
+        },
+        {
+            "name": "revolver"
+        },
+        {
+            "name": "rifle"
+        },
+        {
+            "name": "shotgun"
+        },
+        {
+            "name": "shotgun-laser"
+        },
+        {
+            "name": "smg"
+        },
+        {
+            "name": "sniper"
+        },
+        {
+            "name": "tank"
+        },
+        {
+            "name": "traditionalmed"
+        }
+    ]
+}

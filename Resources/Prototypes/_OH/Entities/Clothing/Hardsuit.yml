@@ -1,0 +1,973 @@
+# DSO ERT
+
+#ERT Leader Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
+  id: OHClothingOuterHardsuitERTLeader
+  name: ERT leader's hardsuit
+  description: A protective hardsuit worn by the leader of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/OuterClothing/Hardsuit/ERTSuits/ertleader.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/OuterClothing/Hardsuit/ERTSuits/ertleader.rsi
+  - type: ToggleableClothing
+    clothingPrototype: OHClothingHeadHelmetHardsuitERTLeader
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000 
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: FireProtection
+    reduction: 0.8
+  - type: StaminaResistance 
+    damageCoefficient: 0.6
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1
+    damage:
+      types:
+       Blunt: 15
+       Structural: 5
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Armor
+    modifiers:
+      coefficients: 
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.50
+        Heat: 0.7
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: Item
+    size: Huge
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier 
+    walkModifier: 1
+    sprintModifier: 1
+  - type: HeldSpeedModifier
+  - type: DNALocker 
+
+#ERT Engineer Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
+  id: OHClothingOuterHardsuitERTEngineer
+  name: ERT engineer's hardsuit
+  description: A protective hardsuit worn by the engineers of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/OuterClothing/Hardsuit/ERTSuits/ertengineer.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/OuterClothing/Hardsuit/ERTSuits/ertengineer.rsi
+  - type: ToggleableClothing
+    clothingPrototype: OHClothingHeadHelmetHardsuitERTEngineer
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000 
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: FireProtection
+    reduction: 0.4
+  - type: StaminaResistance 
+    damageCoefficient: 0.6
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1
+    damage:
+      types:
+       Blunt: 15
+       Structural: 5
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Armor
+    modifiers:
+      coefficients: 
+        Blunt: 0.50
+        Slash: 0.50
+        Piercing: 0.60
+        Heat: 0.3
+        Radiation: 0.3
+        Caustic: 0.7
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: Item
+    size: Huge
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier 
+    walkModifier: 1
+    sprintModifier: 1
+  - type: HeldSpeedModifier
+  - type: ClothingGrantComponent
+    component:
+    - type: SupermatterImmune
+  - type: SupermatterImmune
+  - type: DNALocker 
+
+
+#ERT Medic Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
+  id: OHClothingOuterHardsuitERTMedical
+  name: ERT medic's hardsuit
+  description: A protective hardsuit worn by the medics of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/OuterClothing/Hardsuit/ERTSuits/ertmedical.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/OuterClothing/Hardsuit/ERTSuits/ertmedical.rsi
+  - type: ToggleableClothing
+    clothingPrototype: OHClothingHeadHelmetHardsuitERTMedical
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000 
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: FireProtection
+    reduction: 0.8
+  - type: StaminaResistance 
+    damageCoefficient: 0.6
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1
+    damage:
+      types:
+       Blunt: 15
+       Structural: 5
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Armor
+    modifiers:
+      coefficients: 
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.7
+        Radiation: 0.7
+        Caustic: 0.3
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: Item
+    size: Huge
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier 
+    walkModifier: 1
+    sprintModifier: 1
+  - type: HeldSpeedModifier
+  - type: DNALocker 
+
+#ERT Security Hardsuit
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
+  id: OHClothingOuterHardsuitERTSecurity
+  name: ERT security's hardsuit
+  description: A protective hardsuit worn by the security officers of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/OuterClothing/Hardsuit/ERTSuits/ertsecurity.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/OuterClothing/Hardsuit/ERTSuits/ertsecurity.rsi
+  - type: ToggleableClothing
+    clothingPrototype: OHClothingHeadHelmetHardsuitERTSecurity
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000 
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: FireProtection
+    reduction: 0.8
+  - type: StaminaResistance 
+    damageCoefficient: 0.6
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1
+    damage:
+      types:
+       Blunt: 15
+       Structural: 5
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Armor
+    modifiers:
+      coefficients: 
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.50
+        Heat: 0.7
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: Item
+    size: Huge
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier 
+    walkModifier: 1
+    sprintModifier: 1
+  - type: HeldSpeedModifier
+  - type: DNALocker 
+
+# Dso elite hardsuit
+
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
+  id: OHClothingOuterDSOHardsuitElite
+  name: name-DSOHardsuitElite
+  description: desc-DSOHardsuitElite
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/OuterClothing/Hardsuit/DSOhardsuit.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/OuterClothing/Hardsuit/DSOhardsuit.rsi 
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: FireProtection
+    reduction: 0.3
+  - type: StaminaResistance 
+    damageCoefficient: 0.4
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1
+    damage:
+      types:
+       Blunt: 20
+       Structural: 10 
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Armor
+    modifiers:
+      coefficients: 
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.4
+        Heat: 0.6
+        Radiation: 0.6
+        Caustic: 0.6
+  - type: StaminaDamageOnHit
+    damage: 30
+    sound: /Audio/Weapons/egloves.ogg
+  - type: Item
+    size: Huge
+  - type: ClothingSpeedModifier 
+    walkModifier: 1
+    sprintModifier: 1
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: OHClothingOuterDSOHardsuitEliteHelmet
+  - type: DNALocker 
+
+# Black division
+
+# Легкий база
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: OHClothingOuterHardsuitBlackDivision
+  suffix: Black Division 
+  name: name-OHClothingOuterHardsuitBlackDivision
+  description: desc-OHClothingOuterHardsuitBlackDivision
+  components:
+  - type: Sprite
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/X02.rsi
+  - type: Clothing
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/X02.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: FireProtection
+    reduction: 0.8
+  - type: StaminaResistance 
+    damageCoefficient: 0.8
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1
+    damage:
+      types:
+       Blunt: 5
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Armor
+    modifiers:
+      coefficients: 
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.65
+        Heat: 0.7
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: StaminaDamageOnHit
+    damage: 5
+  - type: Item
+    size: Huge
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier 
+    walkModifier: 1.1
+    sprintModifier: 1.1
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: OHClothingHeadHelmetHardsuitBlackDivision
+
+# Средний база
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: OHClothingOuterHardsuitBlackDivisionSenior
+  suffix: Black Division
+  name: name-OHClothingOuterHardsuitBlackDivisionSenior
+  description: desc-OHClothingOuterHardsuitBlackDivisionSenior
+  components:
+  - type: Sprite
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/X05.rsi
+  - type: Clothing
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/X05.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: FireProtection
+    reduction: 0.3
+  - type: StaminaResistance 
+    damageCoefficient: 0.6
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1
+    damage:
+      types:
+       Blunt: 10
+       Structural: 5
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Armor
+    modifiers:
+      coefficients: 
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.45
+        Heat: 0.7
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: Item
+    size: Huge
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier 
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: OHClothingHeadHelmetHardsuitBlackDivisionSenior 
+  - type: DNALocker 
+
+# New content by logdog
+
+# СССП
+
+# Тяжелый база
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: OHClothingOuterHardsuitUSSPHeavy
+  suffix: OH content
+  name: name-OHClothingOuterHardsuitUSSPHeavy
+  description: desc-OHClothingOuterHardsuitUSSPHeavy
+  components:
+  - type: Sprite
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/USSPheavy.rsi
+  - type: Clothing
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/USSPheavy.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000  
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: FireProtection
+    reduction: 0.4
+  - type: StaminaResistance 
+    damageCoefficient: 0.4
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1
+    damage:
+      types:
+       Blunt: 20
+       Structural: 10 
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Armor
+    modifiers:
+      coefficients: 
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.25
+        Heat: 0.4
+        Radiation: 0.4
+        Caustic: 0.4
+  - type: StaminaDamageOnHit
+    damage: 30
+  - type: Item
+    size: Huge
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier 
+    walkModifier: 0.4
+    sprintModifier: 0.4
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: OHClothingHeadHelmetHardsuitUSSPHeavy
+
+# СССП базовый 
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: OHClothingOuterHardsuitUSSPbase
+  suffix: OH content
+  name: name-OHClothingOuterHardsuitUSSPbase
+  description: desc-OHClothingOuterHardsuitUSSPbase
+  components:
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000 
+  - type: Sprite
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/USSPbase.rsi
+  - type: Clothing
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/USSPbase.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: FireProtection
+    reduction: 0.3
+  - type: StaminaResistance 
+    damageCoefficient: 0.6
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1
+    damage:
+      types:
+       Blunt: 10
+       Structural: 5
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Armor
+    modifiers:
+      coefficients: 
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.45
+        Heat: 0.7
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: Item
+    size: Huge
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier 
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: OHClothingHeadHelmetHardsuitUSSPbase
+
+# Империя
+
+
+# Имперец база
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: OHClothingOuterHardsuitEmpirebase
+  suffix: OH content
+  name: name-OHClothingOuterHardsuitEmpirebase
+  description: desc-OHClothingOuterHardsuitEmpireBase
+  components:
+  - type: Sprite
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/Empirebase.rsi
+  - type: Clothing
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/Empirebase.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: FireProtection
+    reduction: 0.3
+  - type: StaminaResistance 
+    damageCoefficient: 0.6
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1
+    damage:
+      types:
+       Blunt: 10
+       Structural: 5
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Armor
+    modifiers:
+      coefficients: 
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.45
+        Heat: 0.7
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: Item
+    size: Huge
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier 
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: OHClothingHeadHelmetHardsuitEmpirebase
+
+#Имперец Лидер
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: OHClothingOuterHardsuitEmpireelite
+  suffix: OH content
+  name: name-OHClothingOuterHardsuitEmpireelite
+  description: desc-OHClothingOuterHardsuitEmpireelite
+  components:
+  - type: Sprite
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/Empireelite.rsi
+  - type: Clothing
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/Empireelite.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: FireProtection
+    reduction: 0.3
+  - type: StaminaResistance 
+    damageCoefficient: 0.6
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1
+    damage:
+      types:
+       Blunt: 15
+       Structural: 5
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Armor
+    modifiers:
+      coefficients: 
+        Blunt: 0.50
+        Slash: 0.50
+        Piercing: 0.40
+        Heat: 0.7
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: Item
+    size: Huge
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier 
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: OHClothingHeadHelmetHardsuitEmpireelite
+  - type: DNALocker 
+
+# Стелс синдикат лазутчик
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: OHClothingOuterHardsuitSyndicatestealth
+  suffix: OH content 
+  name: name-OHClothingOuterHardsuitSyndicatestealth
+  description: desc-OHClothingOuterHardsuitSyndicatestealth
+  components:
+  - type: Sprite
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/Syndicatestealth.rsi
+  - type: Clothing
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/Syndicatestealth.rsi
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1
+    damage:
+      types:
+       Blunt: 5
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Armor
+    modifiers:
+      coefficients: 
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+        Radiation: 0.85
+        Caustic: 0.85
+  - type: StaminaDamageOnHit
+    damage: 20
+  - type: ThermalCloak
+    opacity: 0.08
+    cooldown: 7
+    restrictWeapons: true
+    cloakedHideLayers:
+    - Hair
+    - HeadTop
+    - HeadSide
+    - Tail
+    - Snout
+    cloakSound:
+      path: /Audio/ADT/Effects/Cloak/cloak_scout_on.ogg
+      params:
+        variation: 0.09
+    uncloakSound:
+      path: /Audio/ADT/Effects/Cloak/cloak_scout_off.ogg
+      params:
+        variation: 0.09
+  - type: Item
+    size: Huge
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier 
+    walkModifier: 1.15
+    sprintModifier: 1.15
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: OHClothingHeadHelmetHardsuitSyndicatestealth
+  - type: ClothingGrantComponent
+    component:
+        - type: NpcFactionMember
+          factions:
+          - Stealth
+  - type: DNALocker 
+
+# Дикие
+
+# 1lvl rook
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: OHClothingOuterHardsuitScavbase
+  suffix: Black Division 
+  name: name-OHClothingOuterHardsuitScavbase
+  description: desc-OHClothingOuterHardsuitScavbase
+  components:
+  - type: Sprite
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/Scavenger.rsi
+  - type: Clothing
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/Scavenger.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000  
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: FireProtection
+    reduction: 0.8
+  - type: StaminaResistance 
+    damageCoefficient: 0.8
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1
+    damage:
+      types:
+       Blunt: 5
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Armor
+    modifiers:
+      coefficients: 
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.75
+        Heat: 0.8
+        Radiation: 0.8
+        Caustic: 0.8
+  - type: StaminaDamageOnHit
+    damage: 5
+  - type: Item
+    size: Huge
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier 
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: OHClothingHeadHelmetHardsuitScavbase
+
+# Not a shit Merc 
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: OHClothingOuterHardsuitScavelite
+  suffix: OH content
+  name: name-OHClothingOuterHardsuitScavelite
+  description: desc-OHClothingOuterHardsuitScavelite
+  components:
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000 
+  - type: Sprite
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/ScavengerElite.rsi
+  - type: Clothing
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/ScavengerElite.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: FireProtection
+    reduction: 0.3
+  - type: StaminaResistance 
+    damageCoefficient: 0.6
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1
+    damage:
+      types:
+       Blunt: 10
+       Structural: 5
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Armor
+    modifiers:
+      coefficients: 
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.5
+        Heat: 0.7
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: Item
+    size: Huge
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier 
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: OHClothingHeadHelmetHardsuitScavelite
+
+# UEG
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: OHClothingOuterHardsuitUEGbase
+  suffix: OH content
+  name: name-OHClothingOuterHardsuitUEGbase
+  description: desc-OHClothingOuterHardsuitUEGbase
+  components:
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000 
+  - type: Sprite
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/UEGbase.rsi
+  - type: Clothing
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/UEGbase.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: FireProtection
+    reduction: 0.8
+  - type: StaminaResistance 
+    damageCoefficient: 0.6
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1
+    damage:
+      types:
+       Blunt: 15
+       Structural: 5
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Armor
+    modifiers:
+      coefficients: 
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.50
+        Heat: 0.7
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: Item
+    size: Huge
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier 
+    walkModifier: 1
+    sprintModifier: 1
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: OHClothingHeadHelmetHardsuitUEGbase
+  - type: DNALocker 
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: OHClothingOuterHardsuitUEGelite
+  suffix: OH content
+  name: name-OHClothingOuterHardsuitUEGelite
+  description: desc-OHClothingOuterHardsuitUEGelite
+  components:
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000 
+  - type: Sprite
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/UEGcommand.rsi
+  - type: Clothing
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/UEGcommand.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: FireProtection
+    reduction: 0.8
+  - type: StaminaResistance 
+    damageCoefficient: 0.6
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1
+    damage:
+      types:
+       Blunt: 15
+       Structural: 5
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Armor
+    modifiers:
+      coefficients: 
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.45
+        Heat: 0.7
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: Item
+    size: Huge
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier 
+    walkModifier: 1
+    sprintModifier: 1
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: OHClothingHeadHelmetHardsuitUEGelite
+  - type: DNALocker 

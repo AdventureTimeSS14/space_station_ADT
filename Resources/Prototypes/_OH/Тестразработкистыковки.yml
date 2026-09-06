@@ -1,0 +1,52 @@
+- type: entity
+  parent: BaseComputerDocking
+  id: OHComputerShuttleDSODROPPOD
+  name: guest shuttle console
+  description: Used to pilot the guest shuttle to and from the mining base.
+  components:
+  - type: DockingConsole
+    windowTitle: mining-console-window-title
+    dockTag: DockDSODROPPOD
+    shuttleWhitelist:
+      components:
+      - DSPODROPPODComponent
+
+- type: entity
+  parent: AirlockGlassShuttle
+  id: OHAirlockExternalGlassShuttleDSOdroppod
+  suffix: ТЕСТОВАЯ СТЫКОВКА ДРОППОДА ДСО
+  components:
+  - type: PriorityDock
+    tag: DockDSODROPPOD
+
+- type: Tag
+  id: DockDSODROPPOD
+
+# Сломанное говно сверху, но пусть будет
+
+# Unstable bluespace closet
+- type: entity
+  id: OHDSPdroppod
+  name: Щас побежит хуле ебать
+  suffix: Droppod дроппод
+  parent: ClosetMaintenance
+  description: It's a storage unit... right?
+  components:
+    - type: ArrivalsBlacklist
+    - type: BluespaceLocker
+      pickLinksFromSameMap: true
+      minBluespaceLinks: 1
+      behaviorProperties:
+        clearLinksDebluespaces: true
+        transportEntities: false
+        bluespaceEffectOnTeleportSource: false
+        clearLinksEvery: 1
+      autoLinksBidirectional: true
+      autoLinksUseProperties: true
+      usesSinceLinkClear: -1 # hacky
+      autoLinkProperties:
+        invalidateOneWayLinks: true
+        transportEntities: false
+        bluespaceEffectOnTeleportSource: false
+        destroyAfterUses: 2
+        destroyType: DeleteComponent

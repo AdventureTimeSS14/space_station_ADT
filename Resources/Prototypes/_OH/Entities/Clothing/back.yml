@@ -1,0 +1,24 @@
+
+- type: entity
+  parent: [ ClothingBackpack, BaseCentcommContraband ]
+  id: OHClothingBackpackERT
+  name: OHERTbackpack-name
+  description: OHERTbackpack-desc
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Back/Backpacks/ert.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Back/Backpacks/ert.rsi
+  - type: Storage
+    grid:
+    - 0,0,8,4
+
+- type: entity
+  parent: OHClothingBackpackERT
+  id: OHClothingBackpackDeathSquad
+  name: death squad backpack
+  description: Holds the kit of CentComm's most feared agents.
+  components:
+    - type: Storage
+      grid:
+      - 0,0,7,6

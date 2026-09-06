@@ -1,0 +1,146 @@
+# DSO
+
+# Двери
+# Кабинеты
+
+# Заменить ингейм названия на уровни доступа, менять айди впадлу мега. По типу 1 > 2 > 3 > 4 > 5
+- type: entity
+  parent: HighSecDoor
+  id: OHAirlockDSO1lvlLocked
+  suffix: DSO, Closed, 1 lvl
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ OHDoorElectronicsDSO1lvl ]
+  - type: AccessReader
+    containerAccessProvider: board
+
+- type: entity
+  parent: HighSecDoor
+  id: OHAirlockDSO3lvlLocked
+  suffix: DSO, Closed, 3 lvl
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ OHDoorElectronicsDSO3lvl ]
+  - type: AccessReader
+    containerAccessProvider: board
+
+- type: entity
+  parent: HighSecDoor
+  id: OHAirlockDSO2lvlLocked
+  suffix: DSO, Closed, 2 lvl
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ OHDoorElectronicsDSO2lvl]
+  - type: AccessReader
+    containerAccessProvider: board
+
+- type: entity
+  parent: HighSecDoor
+  id: OHHighSecDSOgeneralLocked 
+  suffix: DSO, Closed, general
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ OHDoorElectronicsDSOGeneral ]
+  - type: AccessReader
+    containerAccessProvider: board
+
+- type: entity
+  parent: HighSecDoor
+  id: OHHighSecDSO4lvlLocked
+  suffix: DSO, Closed, 4 lvl
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ OHDoorElectronicsDSO4lvl ]
+  - type: AccessReader
+    containerAccessProvider: board
+
+- type: entity
+  parent: HighSecDoor
+  id: OHHighSecDoubleDSOgeneralLocked 
+  suffix: DSO, Closed, general
+  placement:
+    mode: AlignTileAny # Позволяет ставить объект точно на линию между тайлами
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ OHDoorElectronicsDSOGeneral ]
+  - type: AccessReader
+    containerAccessProvider: board
+  - type: Occluder
+    # Центрируем тень: от -1 (весь левый тайл) до 1 (весь правый тайл)
+    boundingBox: "-0.5, -0.5, 1.50, 0.5"
+  - type: Sprite
+    sprite: _OH/Structures/Doors/Airlocks/highsec/highsec.rsi
+    # Убираем оффсеты, которые создавали перекос
+    offset: 0.5, 0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          # Центрируем физику: -1.0 слева, 1.0 справа. Итого ширина = 2.0 (ровно 2 тайла)
+          bounds: "-0.5, -0.5, 1.5, 0.5" 
+        density: 160
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+
+- type: entity
+  parent: OHHighSecDoubleDSOgeneralLocked 
+  id: OHHighSecDoubleDSO3lvlLocked 
+  suffix: DSO, Closed, 3 lvl
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ OHDoorElectronicsDSO3lvl ]
+  - type: AccessReader
+    containerAccessProvider: board
+
+
+# Платы шлюхов
+
+- type: entity
+  parent: DoorElectronics
+  id: OHDoorElectronicsDSOGeneral
+  suffix: CentralCommand, Locked
+  components:
+  - type: AccessReader
+    access: [["DSOGeneral"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: OHDoorElectronicsDSO4lvl
+  suffix: CentralCommand, Locked 
+  components:
+  - type: AccessReader
+    access: [["DSO4lvl"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: OHDoorElectronicsDSO3lvl
+  suffix: CentralCommand, Locked
+  components:
+  - type: AccessReader
+    access: [["DSO3lvl"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: OHDoorElectronicsDSO1lvl
+  suffix: CentralCommand, Locked
+  components:
+  - type: AccessReader
+    access: [["DSO1lvl"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: OHDoorElectronicsDSO2lvl
+  suffix: CentralCommand, Locked
+  components:
+  - type: AccessReader
+    access: [["DSO2lvl"]]

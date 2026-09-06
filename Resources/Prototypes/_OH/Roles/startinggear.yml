@@ -1,0 +1,277 @@
+# ДСО стартинги
+
+# оператор
+
+- type: startingGear
+  id: OHDSOOperatorGear
+  equipment:
+    jumpsuit: OHClothingUniformJumpsuitDSOOperator
+    back: OHClothingModsuitDSOofficer
+    shoes: ClothingShoesBootsJack
+    eyes: ClothingEyesGlassesCommand
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: OHClothingOuterDSOOperatorcoat
+    id: OHOperatorPDA
+    ears: OHClothingHeadsetDSOcommand
+    belt: ClothingBeltAssault
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: WeaponPistolN1984
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+    head: OHClothingHeadHatCapDSOoperator
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - Crowbar
+    - FlashlightSeclite
+
+# менеджер
+
+- type: startingGear
+  id: OHDSOmanagerGear
+  equipment:
+    jumpsuit: OHClothingUniformJumpsuitDSOManager
+    back: OHClothingModsuitDSOofficer
+    shoes: ClothingShoesBootsJack
+    eyes: ClothingEyesGlassesCommand
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: OHClothingOuterDSOmanagercoat
+    id: OHManagerPDA
+    ears: OHClothingHeadsetDSOcommand
+    belt: ADTBureaucraticBelt
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: WeaponPistolN1984
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - Crowbar
+    - FlashlightSeclite
+
+# СОО
+
+- type: startingGear
+  id: OHDSOSOOGear
+  equipment:
+    jumpsuit: OHClothingUniformJumpsuitDSOsoo
+    back: OHClothingModsuitDSOofficer
+    shoes: ClothingShoesBootsJack
+    eyes: ClothingEyesGlassesCommand
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: OHClothingOuterDSOSOOcoat
+    id: OHSOOPDA
+    ears: OHClothingHeadsetDSOcommand
+    belt: ClothingBeltAssault
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: OHWeaponRevolverMateba
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+    head: OHClothingHeadHatCapDSOsoo
+    neck: OHClothingNeckCloaksoo
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - Crowbar
+    - FlashlightSeclite
+
+# Арбитр
+
+- type: startingGear
+  id: OHDSOArbitratorGear
+  equipment:
+    jumpsuit: OHClothingUniformJumpsuitDSOelite
+    back: OHClothingBackpackERT
+    shoes: OHClothingShoesBootsMagERT
+    mask: OHClothingMaskGasERT
+    eyes: ClothingEyesGlassesThermal
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: OHClothingOuterDSOHardsuitElite
+    id: OHArbitratorPDA
+    ears: OHClothingHeadsetDSOcommand
+    belt: OHClothingBeltMilitaryWebbingERT
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: FlashlightSeclite
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+    neck: ClothingNeckCloakArbitrator
+    head: OHClothingOuterDSOHardsuitEliteHelmet
+    suitStorage: WeaponPulseRifle
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - JawsOfLife
+    - OHSledgehammerERT
+    - OHDSOVoucherMedical
+    - OHDSOVoucherMedical
+    - OHWeaponRevolverMatebaAP
+    - SpeedLoaderMagnumAP
+    - MagazineBoxMagnumAP
+    - OHClothingEyesNightVisionERT
+    - OHClothingJumpBootsERT
+    - OHDSOVoucherWeapon
+    - OHUniversalstratogem
+    - OHUniversalstratogem
+    - ADTAttachmentLaserSight
+    inhand: 
+    - WeaponPulseRifle
+    - ADTAttachmentMagneticHarness
+# для работы
+
+- type: startingGear
+  id: OHERToperator 
+  equipment:
+    jumpsuit: OHClothingUniformJumpsuitDSOOperator
+    back: OHClothingBackpackERT
+    shoes: OHClothingShoesBootsMagERT
+    mask: OHClothingMaskGasERT
+    eyes: OHClothingEyesNightVisionERT
+    gloves: ClothingHandsGlovesCombat
+    id: OHPDAERT
+    ears: OHClothingHeadsetDSObase
+    belt: OHClothingBeltMilitaryWebbingERT
+    pocket1: DoubleEmergencyOxygenTankFilled
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - JawsOfLife
+    - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
+    - BoxHandcuff
+    - OHDSOVoucherWeapon
+    - OHDSOVoucherMedical
+
+
+
+
+- type: startingGear
+  id: OHERTLeaderGearEVA
+  equipment:
+    jumpsuit: OHClothingUniformJumpsuitDSOOperator
+    back: OHClothingBackpackERT
+    shoes: OHClothingShoesBootsMagERT
+    mask: OHClothingMaskGasERT
+    eyes: OHClothingEyesNightVisionERT
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: OHClothingOuterHardsuitERTLeader
+    id: ERTLeaderPDA
+    ears: OHClothingHeadsetDSOcommand
+    belt: OHClothingBeltMilitaryWebbingERT
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - JawsOfLife
+    - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
+    - BoxHandcuff
+    - MedkitCombatFilled
+
+#engie
+
+- type: startingGear
+  id: OHERTEngineerGearEVA
+  equipment:
+    jumpsuit: OHClothingUniformJumpsuitDSOOperator
+    back: OHClothingBackpackERT
+    shoes: OHClothingShoesBootsMagERT
+    mask: OHClothingMaskGasERT
+    eyes: OHClothingEyesNightVisionERT
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: OHClothingOuterHardsuitERTEngineer
+    id: ERTEngineerPDA
+    ears: OHClothingHeadsetDSObase
+    belt: ClothingBeltChiefEngineerFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - RCD
+    - RCDAmmo
+    - CableMVStack
+    - CableHVStack
+    - CableApcStack
+    - SheetPlasteel
+    - SheetSteel
+    - SheetGlass
+    - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
+
+# Security
+
+- type: startingGear
+  id: OHERTSecurityGearEVA
+  equipment:
+    jumpsuit: OHClothingUniformJumpsuitDSOOperator
+    back: OHClothingBackpackERT
+    shoes: OHClothingShoesBootsMagERT
+    mask: OHClothingMaskGasERT
+    eyes: OHClothingEyesNightVisionERT
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: OHClothingOuterHardsuitERTSecurity
+    id: ERTSecurityPDA
+    ears: OHClothingHeadsetDSObase
+    belt: OHClothingBeltMilitaryWebbingERT
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - JawsOfLife
+    - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
+    - BoxHandcuff
+    - MedkitCombatFilled
+
+# Medical
+
+- type: startingGear
+  id: OHERTMedicalGearEVA
+  equipment:
+    jumpsuit: OHClothingUniformJumpsuitDSOOperator
+    back: OHClothingBackpackERT
+    shoes: OHClothingShoesBootsMagERT
+    mask: OHClothingMaskGasERT
+    eyes: OHClothingEyesNightVisionERT
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: OHClothingOuterHardsuitERTMedical
+    id: ERTMedicPDA
+    ears: OHClothingHeadsetDSObase
+    belt: ADTClothingBeltMedicalSecurityERTFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+  storage:
+    back:
+    - ADTMedkitAdvancedERT
+    - BoxSurvivalEngineering
+    - JawsOfLife
+    - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
+    - BoxHandcuff
+    - MedkitCombatFilled

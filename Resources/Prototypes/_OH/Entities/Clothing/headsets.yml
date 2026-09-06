@@ -1,0 +1,157 @@
+# Гарнитуры
+- type: entity
+  parent: ClothingHeadset
+  id: OHClothingHeadsetDSOcommand
+  name: name-HeadsetDSOcommand
+  description: desc-HeadsetDSOcommand
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - OHEncryptionKeyDSOcommand
+      - OHEncryptionKeyDSObase
+      - EncryptionKeyCentCom
+      - EncryptionKeyStationMaster
+  - type: Sprite
+    sprite: _OH/Clothing/Ears/Headsets/DSOcom.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Ears/Headsets/DSOcom.rsi
+
+- type: entity
+  parent: ClothingHeadset
+  id: OHClothingHeadsetDSObase
+  name: name-HeadsetDSObase
+  description: desc-HeadsetDSObase
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - OHEncryptionKeyDSObase
+      - EncryptionKeyStationMaster
+  - type: Sprite
+    sprite: _OH/Clothing/Ears/Headsets/DSOoper.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Ears/Headsets/DSOoper.rsi
+
+# Ключи
+
+- type: entity
+  parent: EncryptionKey
+  id: OHEncryptionKeyDSOcommand
+  name: name-EncryptionDSOKeyDSOcommand
+  description: desc-EncryptionDSOKeyDSOcommand
+  components:
+  - type: EncryptionKey
+    channels:
+    - radioChannelDSOcomm
+    defaultChannel: radioChannelDSOcomm
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: cargo_label
+
+- type: entity
+  parent: EncryptionKey
+  id: OHEncryptionKeyDSObase
+  name: name-EncryptionKeyDSObase
+  description: desc-EncryptionKeyDSObase
+  components:
+  - type: EncryptionKey
+    channels:
+    - radioChannelDSObase
+    defaultChannel: radioChannelDSObase
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: cargo_label
+
+
+# частоты
+
+- type: radioChannel
+  id: radioChannelDSOcomm
+  name: chat-radio-DSOcomm
+  keycode: 'ш' 
+  frequency: 141
+  color: "#d3d3d3"
+  longRange: true
+
+- type: radioChannel
+  id: radioChannelDSObase
+  name: chat-radio-DSObase
+  keycode: 'щ' 
+  frequency: 14
+  color: "#7a7a7a"
+  longRange: true
+
+# Дополнительные частоты для операций
+
+# - type: entity
+#  parent: EncryptionKey
+#  id: OHEncryptionKeyDSOspecforceAlpha
+#  name: Ключ шифрования Операции ДСО (АЛЬФА)
+#  description: Ключ шифрования для отряда Альфа
+#  components:
+#  - type: EncryptionKey
+#    channels:
+#    - DSOSpecForceAlpha
+#    defaultChannel: DSOSpecForceAlpha
+#  - type: Sprite
+#    layers:
+#    - state: crypt_gray
+#    - state: cargo_label
+#
+# - type: entity
+# parent: EncryptionKey
+# id: OHEncryptionKeyDSOspecforceGamma
+#  name: Ключ шифрования Операции ДСО (ГАММА)
+# description: Ключ шифрования для отряда Гамма
+# components:
+#  - type: EncryptionKey
+#    channels:
+#    - DSOSpecForceGamma
+#    defaultChannel: DSOSpecForceGamma
+#  - type: Sprite
+#    layers:
+#   - state: crypt_gray
+#   - state: cargo_label
+#
+# - type: entity
+#  parent: EncryptionKey
+#  id: OHEncryptionKeyDSOspecforceBeta
+#  name: Ключ шифрования Операции ДСО (БЕТА)
+#  description: Ключ шифрования для отряда Бета
+#  components:
+# - type: EncryptionKey
+#   channels:
+#   - DSOSpecForceBeta
+#   defaultChannel: DSOSpecForceBeta
+# - type: Sprite
+#   layers:
+#   - state: crypt_gray
+#   - state: cargo_label
+#
+# - type: radioChannel
+# id: DSOSpecForceAlpha
+# name: chat-radio-SpecForceAlpha
+# keycode: 'DCOM' 
+# frequency: 1491
+# color: "#FF1493"
+# longRange: true
+
+# - type: radioChannel
+# id: DSOSpecForceGamma
+# name: chat-radio-SpecForceGamma
+# keycode: 'DGAMMA' 
+# frequency: 1489
+# color: "#20B2AA"
+# longRange: true
+
+# - type: radioChannel
+# id: DSOSpecForceBeta
+# name: chat-radio-SpecforceBeta
+# keycode: 'DBETA' 
+# frequency: 1490
+# color: "#808000"
+# longRange: true
+

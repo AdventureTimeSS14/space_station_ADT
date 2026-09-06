@@ -1,0 +1,434 @@
+# ваучеры для лодаутов
+
+- type: entity
+  parent: BaseItem
+  id: OHDSOVoucherWeapon
+  name: DSOVoucherWeapon-name
+  description: DSOVoucherWeapon-desc
+  components:
+  - type: Sprite
+    sprite: _OH/Entities/Vouchers/DSOvoucher.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    vendorWhitelist: # it's the only mining points vendor :)
+     components:
+     - MiningShop
+    kits:
+    - OHBaseweaponyRifle
+    - OHBaseweaponyShotgun
+    - OHBaseweaponySubmachinegun
+    - OHBaseweaponyTruncheon
+
+
+- type: entity
+  parent: BaseItem
+  id: OHDSOVoucherMedical
+  name: DSOVoucherMedical-name
+  description: DSOVoucherMedical-desc
+  components:
+  - type: Sprite
+    sprite: _OH/Entities/Vouchers/DSOvoucher.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    vendorWhitelist: # it's the only mining points vendor :)
+     components:
+     - MiningShop
+    kits:
+    - OHBasemedkitcombat
+    - OHbasemedkitchemical
+
+- type: entity
+  parent: BaseItem
+  id: OHDSOVoucherSpecial 
+  name: DSOVoucherSpecial-name
+  description: DSOVoucherSpecial-desc
+  components:
+  - type: Sprite
+    sprite: _OH/Entities/Vouchers/DSOvoucher.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    vendorWhitelist: # it's the only mining points vendor :)
+     components:
+     - MiningShop
+    kits:
+    - OHspecialcommanderstealth
+    - OHspecialcommanderscout 
+    - OHspecialcommandergrenadier
+    - OHspecialcommanderofficer  
+    - OHspecialmedicfieldmedic
+    - OHspecialmedicfieldhospital
+    - OHspecialengineerfieldengineer
+    - OHspecialengineerfielfortifier
+    - OHspecialsecurityMachinegunner
+    - OHspecialsecuritySniper
+    - OHspecialsecurityexecutioner
+    - OHspecialsecurityEMP
+    - OHspecialsecurityRocketLauncher
+    - OHspecialsecurityCommando
+    
+
+
+
+# техника
+
+- type: entity
+  parent: BaseItem
+  id: OHDSOVouchervehicle
+  name: DSOVoucherVehicle-name
+  description: DSOVoucherVehicle-desc
+  components:
+  - type: Sprite
+    sprite: _OH/Entities/Stratogem/StratogemOFF.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - OHvauchervehicleAbrams
+    - OHvauchervehiclemech
+    typeDropPlace: ThisPlace
+
+- type: thiefBackpackSet
+  id: OHvauchervehiclemech
+  name: Набор мехов
+  description: Набор мехов
+  sprite:
+    sprite: Objects/Specific/Mech/mecha.rsi
+    state: ntgygax
+  content:
+  - ADTMechErtGygaxBattery
+  - Productunit
+  - Productunit
+  - ADTertMechUplink
+
+- type: thiefBackpackSet
+  id: OHvauchervehicleAbrams
+  name: Абрамс
+  description: Абрамс
+  sprite:
+    sprite: _OH/Entities/Stratogem/StratogemOFF.rsi
+    state: icon
+  content:
+  - AbramsBattery
+  - ADTBoxAmmoAC2Ultra
+  - ADTBoxAmmoAC2Ultra
+  - ADTBoxAmmoGranade
+  - ADTBoxAmmoGranade
+
+# базовое оружие
+
+- type: thiefBackpackSet
+  id: OHBaseweaponyRifle
+  name: Винтовка 
+  description: Винтовка 
+  sprite:
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ar12.rsi
+    state: icon
+  content:
+  - ADTWeaponCaseAR12
+
+- type: thiefBackpackSet
+  id: OHBaseweaponyShotgun
+  name: Автоматический дробовик
+  sprite:
+    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
+    state: icon
+  content:
+  - WeaponCaseBulldog
+
+- type: thiefBackpackSet
+  id: OHBaseweaponySubmachinegun
+  name: Пистолет-пулемет
+  description: Пистолет-пулемет
+  sprite:
+    sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunDrozd
+
+- type: thiefBackpackSet
+  id: OHBaseweaponyTruncheon
+  name: Набор подавления
+  description: Набор подавления
+  sprite:
+    sprite: Objects/Weapons/Melee/truncheon.rsi
+    state: icon
+  content:
+  - Truncheon
+  - TelescopicShield
+# медикит
+
+- type: thiefBackpackSet
+  id: OHBasemedkitcombat
+  name: Боевой медицинский набор
+  description: Боевой медицинский набор
+  sprite:
+   sprite: Objects/Specific/Medical/firstaidkits.rsi
+   state: blackkit
+  content:
+  - MedkitCombatFilled
+
+- type: thiefBackpackSet
+  id: OHbasemedkitchemical
+  name: Химический боевой набор
+  description: Химический боевой набор
+  sprite:
+   sprite: Objects/Specific/Medical/medipen.rsi
+   state: morphen
+  map: ["enum.SolutionContainerLayers.Fill"]
+  content:
+  - OHERTMedkitChemicalFilled
+
+# специальное
+
+# Командир
+
+- type: thiefBackpackSet
+  id: OHspecialcommanderscout
+  name: Коммандер-разведчик
+  description: Коммандер-разведчик
+  sprite:
+   sprite: ADT/Objects/Devices/binoculars.rsi
+   state: binoculars
+  content:
+  - Binoculars
+  - ClothingEyesGlassesThermal
+  - OHClothingJumpBootsERT
+  - OHUniversalstratogem
+  - OHClothingOuterHardsuitERTLeader
+  - WeaponPulseCarbine
+  - PortableRecharger
+
+- type: thiefBackpackSet
+  id: OHspecialcommandergrenadier
+  name: Коммандер-гренадер
+  description: Коммандер-гренадер
+  sprite:
+   sprite: Objects/Weapons/Guns/Rifles/carbine.rsi
+   state: icon
+  content:
+  - WeaponCaseNTM90
+  - OHClothingBeltMilitaryWebbingERTGrenadefilled
+  - OHUniversalstratogem
+  - OHUniversalstratogem
+  - OHClothingOuterHardsuitERTLeader
+
+- type: thiefBackpackSet
+  id: OHspecialcommanderofficer
+  name: Коммандер-офицер
+  description: Коммандер-офицер
+  sprite:
+    sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
+    state: base
+  content:
+  - OHUniversalstratogem
+  - WeaponPistolN1984
+  - ClothingBeltSheathFilled
+  - SyndicateWhistle
+  - OHDSOVouchervehicle
+  - OHClothingOuterHardsuitERTLeader
+
+- type: thiefBackpackSet
+  id: OHspecialcommanderstealth
+  name: Стелс-коммандер
+  description: Стелс-коммандер
+  sprite:
+    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    state: icon
+  content:
+  - ADTAttachmentSuppressor
+  - BoxMagazinePistol
+  - OHWeaponPistolACP14
+  - ADTCqcManual
+  - OHUniversalstratogem
+  - Fulton
+  - FultonBeacon
+  - ADTStealthBoxBox
+  - ADTHoloCigar
+  - OHClothingModsuitDSOofficer
+
+# медик
+
+- type: thiefBackpackSet
+  id: OHspecialmedicfieldmedic
+  name: Набор военного врача
+  description: Набор военного врача
+  sprite:
+   sprite: Objects/Specific/Medical/firstaidkits.rsi
+   state: advkit
+  content:
+  - OHClothingOuterHardsuitERTMedical
+  - ADTClothingBeltMedicalSecurityERTFilled
+  - ADTMedkitAdvancedERT
+  - ADTHandDefibrillator
+  - WeaponPulsePistol
+
+- type: thiefBackpackSet
+  id: OHspecialmedicfieldhospital
+  name: Набор полевого госпиталя
+  description: Набор полевого госпиталя
+  sprite:
+   sprite: ADT/Structures/Furniture/adv_bed.rsi
+   state: adv_bed
+  map: ["enum.SolutionContainerLayers.Fill"]
+  content:
+  - OHClothingOuterHardsuitERTMedical
+  - ADTStasisBedFlatpack
+  - OHAdvancedMedBedFlatpack
+  - OHAdvancedMedBedFlatpack
+  - ADTHandDefibrillator
+  - ADTClothingBeltMedicalSecurityERTFilled
+  - WeaponPulsePistol
+
+# Инженер 
+# Военному инженеру потом добавлю окопную лопатку, ии иди нахуй со своими "гильзами от дробовика, которые он не может использовать, а так же какой-нибудь инструмент для починки техники, когда она будет добавлена.
+- type: thiefBackpackSet
+  id: OHspecialengineerfielfortifier
+  name: Набор фортификатора
+  description: Набор фортификатора
+  sprite:
+    sprite: Objects/Tools/rcd.rsi
+    state: icon
+  content:
+  - OHClothingOuterHardsuitERTEngineer
+  - ClothingBeltChiefEngineerFilled
+  - ADTRPD
+  - RCD
+  - WeaponPulsePistol
+  - RCDAmmo
+  - RCDAmmo
+  - SheetPlasteel
+  - SheetPlasteel
+  - OHturretFlatpack
+
+# миномет кенту потом дать
+- type: thiefBackpackSet
+  id: OHspecialengineerfieldengineer
+  name: Набор военного инженера
+  description: Набор военного инженера
+  sprite:
+    sprite: Objects/Weapons/Bombs/c4.rsi
+    state: icon
+  content:
+  - OHClothingOuterHardsuitERTEngineer
+  - ClothingBeltChiefEngineerFilled
+  - RemoteSignallerAdvanced
+  - ClothingBackpackDuffelSyndicateC4tBundle
+  - OHlandmineFlatpack
+  - OHlandmineFlatpack
+  - OHlandmineFlatpack
+  - OHlandmineFlatpack
+  - OHlandmineFlatpack
+  - OHlandmineFlatpack
+
+# сб
+
+- type: thiefBackpackSet
+  id: OHspecialsecurityMachinegunner
+  name: Пулеметчик
+  description: Пулеметчик
+  sprite:
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+    state: base
+  content:
+  - WeaponLightMachineGunL6
+  - MagazineLightRifleBox
+  - MagazineLightRifleBox
+  - OHClothingOuterHardsuitERTSecurity
+
+- type: thiefBackpackSet
+  id: OHspecialsecuritySniper
+  name: Снайпер 
+  description: Снайпер
+  sprite:
+    sprite: ADT/Objects/Weapons/Guns/Snipers/new_hristov.rsi
+    state: base
+  content:
+  - ADTWeaponSniperHristovAdvanced
+  - ADTMagazineHristovAdvanced
+  - MagazineBoxAntiMateriel
+  - MagazineBoxAntiMateriel
+  - OHClothingOuterHardsuitERTSecurity
+
+- type: thiefBackpackSet
+  id: OHspecialsecurityexecutioner
+  name: Штурмовик - Палач  
+  description: Штурмовик - Палач  
+  sprite:
+    sprite: _OH/Weapon/Melee/Sledgehammer/SledgehammerIcon.rsi
+    state: icon
+  content:
+  - OHSledgehammerERT
+  - ClothingEyesGlassesSunglasses
+  - ClothingHeadBandMerc
+  - OHClothingOuterHardsuitERTSecurity
+
+- type: thiefBackpackSet
+  id: OHspecialsecurityEMP
+  name: Набор ЭМИ
+  description: Набор ЭМИ
+  sprite:
+    sprite: ADT/Objects/Weapons/Guns/Battery/ion_rifle.rsi
+    state: base
+  content:
+  - ADTWeaponIonRifle
+  - ADTWeaponIonCarbine
+  - EmpGrenade
+  - EmpGrenade
+  - EmpGrenade
+  - EmpGrenade
+  - OHClothingOuterHardsuitERTSecurity
+
+- type: thiefBackpackSet
+  id: OHspecialsecurityRocketLauncher
+  name: Набор РПГ
+  description: Набор РПГ
+  sprite:
+    sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
+    state: base
+  content:
+  - ADTClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  - OHClothingOuterHardsuitERTSecurity
+
+- type: thiefBackpackSet
+  id: OHspecialsecurityCommando
+  name: Штурмовик - Коммандо
+  description: Штурмовик - Коммандо
+  sprite:
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi
+    state: icon
+  content:
+  - OHWeaponRevolverMatebaAP
+  - MagazineBoxMagnumAP
+  - MagazineBoxMagnumAP
+  - OHClothingOuterHardsuitERTSecurity

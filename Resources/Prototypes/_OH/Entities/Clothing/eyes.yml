@@ -1,0 +1,19 @@
+- type: entity
+  parent: [ClothingEyesBase, BaseMajorContraband]
+  id: OHClothingEyesNightVisionERT
+  name: OHERTnightvision-name
+  description: OHERTnightvision-desc
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Eyes/Glasses/ERTnvd.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Eyes/Glasses/ERTnvd.rsi
+  - type: NightVisionItem
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.NightVisionItemVisuals.Active:
+        icon:
+          True: { state: icon }
+          False: { state: icon }
+

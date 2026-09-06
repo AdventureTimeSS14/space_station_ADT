@@ -1,0 +1,97 @@
+# DSO 
+
+# SOO
+- type: entity
+  parent: ClothingOuterCoatHoSTrench
+  id: OHClothingOuterDSOSOOcoat
+  name: name-soocoat
+  description: desc-Soocoat
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/OuterClothing/Coats/DSOsoo.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/OuterClothing/Coats/DSOsoo.rsi
+  - type: TemperatureProtection
+    coefficient: 0.1
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.50
+        Heat: 0.75
+        Radiation: 0.9
+        Caustic: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 20
+
+# Operator
+- type: entity
+  parent: ClothingOuterCoatHoSTrench
+  id: OHClothingOuterDSOOperatorcoat
+  name: name-operatorcoat
+  description: desc-operatorcoat
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/OuterClothing/Coats/DSOoperator.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/OuterClothing/Coats/DSOoperator.rsi
+  - type: TemperatureProtection
+    coefficient: 0.1
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.55
+        Heat: 0.55
+        Radiation: 0.9
+        Caustic: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 20
+        
+- type: entity
+  parent: ClothingOuterCoatHoSTrench
+  id: OHClothingOuterDSOmanagercoat
+  name: name-managercoat
+  description: desc-managercoat
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/OuterClothing/Coats/DSOmanager.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/OuterClothing/Coats/DSOmanager.rsi
+  - type: TemperatureProtection
+    coefficient: 0.1
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.55
+        Heat: 0.55
+        Radiation: 0.9
+        Caustic: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 20
+

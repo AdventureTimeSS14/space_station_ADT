@@ -1,0 +1,21 @@
+# DSO
+
+- type: accessLevel
+  id: DSOGeneral
+  name: id-card-access-level-DSO-general
+
+- type: accessLevel
+  id: DSO3lvl
+  name: id-card-access-level-DSO-DSO3lvl
+
+- type: accessLevel
+  id: DSO1lvl
+  name: id-card-access-level-DSO-DSO1lvl
+
+- type: accessLevel
+  id: DSO4lvl
+  name: id-card-access-level-DSO-DSO4lvl
+
+- type: accessLevel
+  id: DSO2lvl
+  name: id-card-access-level-DSO-DSO2lvl

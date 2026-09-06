@@ -1,0 +1,76 @@
+
+- type: entity
+  id: OHERTMedkitChemicalFilled
+  suffix: Filled
+  parent: MedkitCombat
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTStimulantAutoInjector
+      - id: ADTStimulantAutoInjector
+      - id: CombatMedipen
+      - id: CombatMedipen
+      - id: PyraAutoInjector
+      - id: PunctAutoInjector
+      - id: ADTHemostasisAutoInjector
+      - id: ADTHemostasisAutoInjector
+
+- type: entity
+  id: OHClothingBeltMilitaryWebbingERTGrenadefilled
+  parent: OHClothingBeltMilitaryWebbingERT
+  name: grenadier chest rig
+  suffix: Filled
+  components:
+  - type: Item
+    size: Ginormous
+  - type: StorageFill
+    contents:
+      - id: ADT40mmGrenadeBlast
+        amount: 6
+      - id: ADT40mmGrenadeBaton
+        amount: 2
+      - id: ADT40mmGrenadeFlash
+        amount: 2
+      - id: ADT40mmGrenadeEMP
+        amount: 2
+      - id: ADT40mmGrenadeSmoke
+        amount: 2
+      - id: ADTAttachmentM90GrenadeLauncher
+      
+- type: entity
+  parent: BaseFlatpack
+  id: OHAdvancedMedBedFlatpack
+  name: oh-advanced-med-bed-flatpack-name
+  description: oh-advanced-med-bed-flatpack-desc
+  components:
+  - type: Flatpack
+    entity: ADTAdvancedMedBed
+
+- type: entity
+  parent: BaseFlatpack
+  id: OHlandmineFlatpack
+  name: ohlandmineflatpack-name
+  description: ohlandmineflatpack-desc
+  components:
+  - type: Flatpack
+    entity: LandMineExplosiveUnarmed
+  - type: Item
+    size: Small
+
+- type: entity
+  parent: BaseFlatpack
+  id: OHturretFlatpack
+  name: ohturretflatpack-name
+  description: ohturretflatpack-desc
+  components:
+  - type: Flatpack
+    entity: OHweaponBallisticTurretERT
+
+- type: entity
+  parent: WeaponTurretSyndicateDisposable
+  id: OHweaponBallisticTurretERT
+  suffix: NanoTrasen
+  components:
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen

@@ -1,0 +1,19 @@
+- type: entity
+  parent: ClothingBeltMilitaryWebbing
+  id: OHClothingBeltMilitaryWebbingERT
+  name: OHERTwebbing-name
+  description: OHERTwebbing-desc
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Belt/ERT.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Belt/ERT.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: StaticPrice
+    price: 500
+  - type: Storage
+    maxItemSize: Normal
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,7,1

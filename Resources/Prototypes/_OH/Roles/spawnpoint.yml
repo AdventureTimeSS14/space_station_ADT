@@ -1,0 +1,59 @@
+- type: entity
+  id: SpawnPointArbitrator
+  parent: SpawnPointJobBase
+  name: Arbitrator-spawnpoint
+  components:
+  - type: SpawnPoint
+    job_id: Arbitrator
+  - type: Sprite
+    layers:
+      - state: green
+      - state: passenger
+
+- type: entity
+  id: SpawnPointManager
+  parent: SpawnPointJobBase
+  name: Manager-spawnpoint
+  components:
+  - type: SpawnPoint
+    job_id: Manager
+  - type: Sprite
+    layers:
+      - state: green
+      - state: passenger
+
+- type: entity
+  id: SpawnPointOperator
+  parent: SpawnPointJobBase
+  name: Operator-spawnpoint
+  components:
+  - type: SpawnPoint
+    job_id: Operator
+  - type: Sprite
+    layers:
+      - state: green
+      - state: passenger
+
+- type: entity
+  id: SpawnPointSoo
+  parent: SpawnPointJobBase
+  name: SOOfficer-spawnpoint
+  components:
+  - type: SpawnPoint
+    job_id: SOOfficer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: passenger
+
+- type: entity
+  id: SpawnPointERT
+  parent: SpawnPointJobBase
+  name: ERT-spawnpoint
+  components:
+  - type: SpawnPoint
+    job_id: ERT
+  - type: Sprite
+    layers:
+      - state: green
+      - state: passenger

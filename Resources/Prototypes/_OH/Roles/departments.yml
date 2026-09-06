@@ -1,0 +1,13 @@
+
+- type: department
+  id: DSOdepartment
+  name: department-dso
+  description: department-dso-desc
+  color: "#181816"
+  weight: 200
+  roles:
+  - SOOfficer
+  - Manager
+  - Arbitrator
+  - Operator
+  - ERT

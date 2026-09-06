@@ -12,15 +12,6 @@
   - accent-words-cat-7
 
 - type: accent
-  id: dog
-  fullReplacements:
-  - accent-words-dog-1
-  - accent-words-dog-2
-  - accent-words-dog-3
-  - accent-words-dog-4
-  - accent-words-dog-5
-
-- type: accent
   id: mouse
   fullReplacements:
   - accent-words-mouse-1

@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by logdog",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "sniperscope"
+        },
+        {
+            "name": "sniperscope_a"
+        },
+        {
+            "name": "miniscope"
+        },
+        {
+            "name": "miniscope_a"
+        },
+        {
+            "name": "reflex"
+        },
+        {
+            "name": "reflex_a"
+        }
+    ]
+}

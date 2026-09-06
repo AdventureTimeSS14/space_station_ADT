@@ -1,0 +1,155 @@
+- type: entity
+  id: SDVatTank
+  parent: BaseMech
+  name: T62M-1
+  description: fucking niggers kill yourself
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Fun/tank.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: vattank
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/tank.ogg
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.9, -1.3, 0.9, 1.3"
+        density: 1000
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Physics
+    bodyType: KinematicController
+  - type: Mech
+    startingEquipment: ["ADTMechGunSRM8","ADTMechGunUltraAC2"]
+    modifiers:
+      coefficients: #Коэффициент для тяжелобронированных мехов
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+        Radiation: 0
+        Caustic: 0.1
+        Structural: 0.1
+    maxintegrity: 360
+    baseState: vattank
+    openState: vattank-open
+    brokenState: vattank-broken
+    mechToPilotDamageMultiplier: 0.0 #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.2
+    baseSprintSpeed: 2
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Storage
+    grid:
+    - 0,0,10,4
+    clickInsert: false
+  # ADT-tweak start. Правим очки здоровья меха
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  # ADT-tweak end. Правим очки здоровья меха
+
+- type: entity
+  id: SDVatTankBattery
+  parent: SDVatTank
+  suffix: Battery
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellAntiqueProto
+
+- type: entity
+  id: Abrams
+  parent: SDVatTank
+  name: M1A1 "Abrams"
+  description: fucking niggers kill yourself
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Fun/abrams.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: abrams
+  - type: Mech
+    baseState: abrams
+    openState: abrams-open
+    brokenState: abrams-broken
+
+- type: entity
+  id: AbramsBattery
+  parent: Abrams
+  suffix: Battery
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellAntiqueProto
+
+- type: entity
+  name: T62M-1 Spawner
+  id: SpawnMechVattank
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Fun/tank.rsi
+        state: vattank
+  - type: ConditionalSpawner
+    prototypes:
+      - SDVatTankBattery
+
+- type: entity
+  name: Abrams Spawner
+  id: SpawnMechAbrams
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Fun/abrams.rsi
+        state: abrams
+  - type: ConditionalSpawner
+    prototypes:
+      - AbramsBattery
+
+- type: entity
+  id: CrateTankAmmo
+  parent: CrateGenericSteel
+  name: tank ammo crate
+  description: Bombgaza.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTBoxAmmoAC2Ultra
+        amount: 5
+      - id: ADTBoxAmmoGranade
+        amount: 5

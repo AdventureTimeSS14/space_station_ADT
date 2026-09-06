@@ -1,0 +1,170 @@
+
+## BASE
+
+- type: entity
+  abstract: true
+  parent: [ ADTRailAttachmentBase, ADTAttachableToggleableBase ]
+  id: OHAttachmentScopeBase
+  components:
+  - type: AttachableToggleable
+    needHand: true
+    heldOnlyActivate: true
+    userOnly: true
+    doInterrupt: true
+    attachedOnly: true
+    breakOnMove: true
+    breakOnRotate: true
+    wieldedOnly: true
+    useDelay: 0.5
+    showTogglePopup: false
+    icon:
+      sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
+      state: sniperscope
+    actionName: action-name-basescope
+    actionDesc: action-description-basescope
+  - type: AttachableToggleableSimpleActivate
+  - type: Scope
+    requireWielding: true
+    attachment: true
+    useInHand: true
+    zoomLevels:
+    - zoom: 1
+      offset: 15
+      allowMovement: false
+      doAfter: 0
+
+- type: entity
+  parent: ADTAttachmentScopeBase
+  id: OHAttachmentScope8x
+  name: OHattacmentscope8x-name
+  description: OHattacmentscope8x-name
+  components:
+  - type: Sprite
+    sprite: _OH/Weapon/attachments/rail.rsi
+    state: sniperscope
+  - type: Tag
+    tags:
+    - ADTAttachmentRail
+    - OHAttachmentScope8x
+  - type: AttachableVisuals
+  - type: AttachableToggleable
+    actionName: action-name-hristovscope
+    actionDesc: action-description-hristovscope
+    icon:
+      sprite: _OH/Weapon/attachments/rail.rsi
+      state: miniscope    
+  - type: AttachableToggleableSimpleActivate
+  - type: Scope
+    zoomLevels:
+    - zoom: 4
+      offset: 0
+      allowMovement: false
+      doAfter: 0
+  - type: AttachableSpeedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+      walk: -0.23
+      sprint: -0.35
+  - type: AttachableWieldDelayMods
+    modifiers:
+    - delay: 0.4
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - fireDelayFlat: 0.1
+    - conditions:
+        activeOnly: true
+      fireDelayFlat: 0.25
+      accuracyAddMult: 0.35
+      # damageFalloffAddMult: -0.4
+    # - conditions:
+    #     wieldedOnly: true
+    #     inactiveOnly: true
+    #   accuracyAddMult: -0.05
+
+- type: entity
+  parent: ADTAttachmentScopeBase
+  id: OHAttachmentScope4x
+  name: OHattacmentscope4x-name
+  description: OHattacmentscope4x-desc
+  components:
+  - type: Sprite
+    sprite: _OH/Weapon/attachments/rail.rsi
+    state: miniscope
+  - type: Tag
+    tags:
+    - ADTAttachmentRail
+    - OHAttachmentScope4x
+  - type: AttachableVisuals
+  - type: AttachableToggleable
+    breakOnMove: false
+    actionName: action-name-t2scope
+    actionDesc: action-description-t2scope
+    wieldedOnly: false
+    breakOnRotate: false
+    icon:
+      sprite: _OH/Weapon/attachments/rail.rsi
+      state: miniscope
+  - type: AttachableToggleableSimpleActivate
+  - type: Scope
+    zoomLevels:
+    - zoom: 2
+      offset: 0
+      allowMovement: true
+      doAfter: 0
+    requireWielding: false
+  - type: AttachableSpeedMods
+    modifiers:
+    - conditions:
+        activeOnly: true
+      walk: -0.31
+      sprint: -0.448
+  - type: AttachableWieldDelayMods
+    modifiers:
+    - delay: 0.2
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - conditions:
+        activeOnly: true
+      fireDelayFlat: 0.15
+      accuracyAddMult: 0.35
+      # damageFalloffAddMult: -0.2
+    # - conditions:
+    #     wieldedOnly: true
+    #     inactiveOnly: true
+    #   accuracyAddMult: -0.05 #TODO: Add flare gun modifiers when it's implemented.
+
+- type: entity
+  parent: ADTRailAttachmentBase
+  id: OHAttachmentScopeholo
+  name: OHattachmentscopeholo-name
+  description: OHattachmentscopeholo-desc
+  components:
+  - type: Sprite
+    sprite: _OH/Weapon/attachments/rail.rsi
+    state: reflex
+  - type: Tag
+    tags:
+    - ADTAttachmentRail
+    - OHAttachmentScopeholo
+  - type: AttachableVisuals
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+      accuracyAddMult: 0.20
+      scatterFlat: -2
+      burstScatterAddMult: -1
+    - conditions:
+        unwieldedOnly: true
+      accuracyAddMult: 0.4
+      scatterFlat: -4
+
+- type: Tag
+  id: OHAttachmentScopeholo
+
+- type: Tag
+  id: OHAttachmentScope4x
+
+- type: Tag
+  id: OHAttachmentScope8x

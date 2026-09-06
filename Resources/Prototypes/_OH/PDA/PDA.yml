@@ -1,0 +1,131 @@
+# ДСО легаси
+
+- type: entity
+  parent: BasePDA
+  id: OHBasePDA
+  name: PDA dso
+  description: none
+  components:
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-dsobase
+  - type: Sprite
+    sprite: _OH/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
+      - MedTekCartridge
+      - WantedListCartridge
+      - AstroNavCartridge
+      - NanoChatCartridge # ADT-tweak: Наночат
+
+- type: entity
+  parent: OHBasePDA
+  id: OHSOOPDA
+  name: name-pda-soo
+  suffix: DSO
+  description: desc-pda-soo
+  components:
+  - type: Pda
+    id: OHIDSOOCard
+    sprite: _OH/Devices/pda.rsi
+    state: pda-soo
+  - type: PdaBorderColor
+    borderColor: "#181224"
+    accentHColor: "#fff23f"
+  - type: Icon
+    sprite: _OH/Devices/pda.rsi
+    state: pda-soo
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-soo
+
+- type: entity
+  parent: OHBasePDA
+  id: OHManagerPDA
+  name: name-pda-manager
+  suffix: DSO
+  description: desc-pda-manager
+  components:
+  - type: Pda
+    id: OHIDManagerCard
+    sprite: _OH/Devices/pda.rsi
+    state: pda-manager
+  - type: PdaBorderColor
+    borderColor: "#181224"
+    accentHColor: "#0b686b"
+  - type: Icon
+    sprite: _OH/Devices/pda.rsi
+    state: pda-manager
+
+- type: entity
+  parent: OHBasePDA
+  id: OHArbitratorPDA
+  name: name-pda-arbitrator
+  suffix: DSO
+  description: desc-pda-arbitrator
+  components:
+  - type: Pda
+    id: OHIDArbitratorCard
+    sprite: _OH/Devices/pda.rsi
+    state: pda-arbitrator
+  - type: PdaBorderColor
+    borderColor: "#181224"
+    accentHColor: "#500000"
+  - type: Icon
+    sprite: _OH/Devices/pda.rsi
+    state: pda-arbitrator
+
+- type: entity
+  parent: OHBasePDA
+  id: OHOperatorPDA
+  name: name-dso-operator
+  suffix: dso
+  description: desc-dso-operator
+  components:
+  - type: Pda
+    id: OHIDoperatorCard
+    sprite: _OH/Devices/pda.rsi
+    state: pda-operator
+  - type: PdaBorderColor
+    borderColor: "#181224"
+    accentHColor: "#b4b4b4"
+  - type: Icon
+    sprite: _OH/Devices/pda.rsi
+    state: pda-operator
+
+- type: entity
+  parent: OHBasePDA
+  id: OHPDAERT
+  name: name-dso-ERT
+  suffix: dso
+  description: desc-dso-ERT
+  components:
+  - type: Pda
+    id: OHIDCardERT
+    sprite: _OH/Devices/pda.rsi
+    state: pda-operator
+  - type: PdaBorderColor
+    borderColor: "#181224"
+  - type: Icon
+    sprite: _OH/Devices/pda.rsi
+    state: pda-operator

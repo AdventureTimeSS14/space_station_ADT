@@ -1,0 +1,41 @@
+# DSO
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakArbitrator
+  name: name-CloakDsoArbitrator
+  description: desc-CloakDSOArbitrator
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Neck/Cloaks/Arbitrator.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: OHClothingNeckCloaksoo
+  name: name-CloakDSOsoo
+  description: desc-CloakDSOsoo
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Neck/Cloaks/SOO.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: OHClothingNeckPatchMG
+  suffix: MG
+  name: Нашивка MG
+  description: Нашивка солдата ЧВК Millitary Grounds.
+  components:
+    - type: Sprite
+      sprite: _OH/Clothing/Neck/Patches/MG.rsi
+      scale: 0.5, 0.5
+
+- type: entity
+  parent: ClothingNeckBase
+  id: OHClothingNeckPatchBlackDivision
+  suffix: Black Division
+  name: Нашивка Black Division
+  description: Нашивка бойцов ЧВК Black Division.
+  components:
+    - type: Sprite
+      sprite: _OH/Clothing/Neck/Patches/BlackDivision.rsi
+      scale: 0.5, 0.5

@@ -1,0 +1,24 @@
+
+#     whitelist:
+#      tags:
+#      - CarrotFries
+#     blacklist:
+#      tags:
+#      - Slice
+#    whitelist:
+#      components:
+#      - Brain
+
+- type: cargoBounty
+  id: BountyKillPMCMG
+  reward: 2500
+  description: test
+  entries:
+  - name: bounty-item-oh-clothing-neck-patch-mg
+    amount: 1
+    whitelist:
+      tags:
+      - OHClothingNeckPatchMG
+
+- type: Tag
+  id: OHClothingNeckPatchMG

@@ -1,0 +1,61 @@
+- type: entity
+  parent: VendingMachine
+  id: OHVendingMachineNanotrasenDSOarmory
+  name: OHNanotrasenDSOarmoryVendingMachine-name
+  description: OHNanotrasenDSOarmoryVendingMachine-desc
+  components:
+  - type: MiningShop
+  - type: VendingMachine
+    pack: OHNanotrasenDSOarmory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    allForFree: true # ADT-Economy
+  - type: Sprite
+    sprite: _OH/Vending/armory.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["DSOArmory"]]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#B0ADA9"
+
+- type: entity
+  parent: VendingMachine
+  id: OHVendingMachineNanotrasenMedicalstorage
+  name: OHNanotrasenMedicalstorageVendingMachine-name
+  description: OHNanotrasenMedicalstorageVendingMachine-desc
+  components:
+  - type: VendingMachine
+    pack: OHNanotrasenMedicalstorage
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    allForFree: true # ADT-Economy
+  - type: Sprite
+    sprite: _OH/Vending/medical.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+  - type: AccessReader
+    access: [["Medical"]]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#B0ADA9"
+

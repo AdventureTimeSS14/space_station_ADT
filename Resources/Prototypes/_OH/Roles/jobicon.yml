@@ -1,0 +1,31 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSOO
+  icon:
+    sprite: /Textures/_OH/Interface/Misc/job_icons.rsi
+    state: SOO
+  jobName: soo-job-name
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconOperator
+  icon:
+    sprite: /Textures/_OH/Interface/Misc/job_icons.rsi
+    state: Operator
+  jobName: manager-job-name
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconManager
+  icon:
+    sprite: /Textures/_OH/Interface/Misc/job_icons.rsi
+    state: Manager
+  jobName:  operator-job-name
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconArbitrator
+  icon:
+    sprite: /Textures/_OH/Interface/Misc/job_icons.rsi
+    state: Arbitrator
+  jobName: Arbitrator-job-name

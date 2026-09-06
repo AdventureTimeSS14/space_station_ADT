@@ -1,0 +1,26 @@
+- type: vendingMachineInventory
+  id: OHNanotrasenDSOarmory
+  startingInventory:
+    ClothingShoesBootsJack: 20
+    OHClothingShoesBootsMagERT: 20
+    ClothingHandsGlovesCombat: 20
+    OHClothingMaskGasERT: 20
+    OHClothingEyesNightVisionERT: 20
+    ClothingBeltMilitaryWebbing: 20
+    WeaponGrapplingGun: 10
+    BoxMRE: 40
+    PinpointerNuclear: 10
+    Crowbar: 20
+    HandheldHealthAnalyzer: 20
+
+- type: vendingMachineInventory
+  id: OHNanotrasenMedicalstorage
+  startingInventory:
+    MedkitAdvancedFilled: 4
+    MedkitToxinFilled: 6
+    MedkitRadiationFilled: 6
+    MedkitOxygenFilled: 6
+    MedkitBurnFilled: 6
+    MedkitBruteFilled: 6
+    MedkitFilled: 8
+    Defibrillator: 2

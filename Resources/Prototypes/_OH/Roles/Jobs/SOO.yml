@@ -1,0 +1,44 @@
+- type: job
+  id: SOOfficer
+  name: soo-job-name
+  description: soo-job-desc
+  playTimeTracker: JobSOOfficer
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 144000 # 40h
+    - !type:DepartmentTimeRequirement
+      department: DSOdepartment
+      time: 90000 # 25 hours
+    - !type:AgeRequirement
+      requiredAge: 30
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+  weight: 151
+  startingGear: OHDSOSOOGear
+  icon: "JobIconSOO"
+  requireAdminNotify: true
+  joinNotifyCrew: false
+  supervisors: job-supervisors-NanotrasenCommand
+  canBeAntag: false
+  displayWeight: 151
+  radioBold: true 
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - DSO2lvl
+  - DSO3lvl
+  - DSO4lvl
+  - DSOgeneral
+  - DSO1lvl
+  special:
+  - !type:AddImplantSpecial
+    implants: [  MindShieldImplant, DeathRattleImplantCentcomm, MicroBombImplanter  ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+
+- type: playTimeTracker
+  id: JobSOOfficer

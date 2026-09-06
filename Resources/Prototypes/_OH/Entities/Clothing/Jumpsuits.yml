@@ -1,0 +1,107 @@
+
+# DSO
+
+# Базовая форма ДСО
+- type: entity
+  parent: ClothingUniformBase
+  id: OHClothingUniformJumpsuitDSObase
+  name: name-JumpsuitDSObase
+  description: desc-JumpsuitDSObase
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Uniforms/DSOuniform.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Uniforms/DSOuniform.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: OHClothingUniformJumpsuitDSOelite
+  name: name-JumpsuitDSOelite
+  description: desc-JumpsuitDSOelite
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Uniforms/DSOeliteuniform.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Uniforms/DSOeliteuniform.rsi
+
+# ОСО
+- type: entity
+  parent: ClothingUniformBase
+  id: OHClothingUniformJumpsuitDSOsoo
+  name: name-JumpsuitDSOsoo
+  description: description-JumpsuitDSOsoo
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Uniforms/DSOsoo.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Uniforms/DSOsoo.rsi
+
+# Менеджер
+- type: entity
+  parent: ClothingUniformBase
+  id: OHClothingUniformJumpsuitDSOManager
+  name: name-JumpsuitDSOManager
+  description: desc-JumpsuitDSOManager
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Uniforms/DSOmanager.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Uniforms/DSOmanager.rsi
+
+# Оператор
+- type: entity
+  parent: ClothingUniformBase
+  id: OHClothingUniformJumpsuitDSOOperator
+  name: name-JumpsuitDSOOpertor
+  description: desc-JumpsuitDSOOpertor
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Uniforms/DSOOperator.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Uniforms/DSOOperator.rsi
+
+# ЧВК
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingOuterStorageBase]
+  id: OHClothingUniformJumpsuitMG
+  suffix: MG
+  name: Униформа MG
+  description: Стандартная униформа сотрудника ЧВК Millitary Grounds.
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Uniforms/MGuniform.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Uniforms/MGuniform.rsi
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    maxItemSize: Small
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingOuterStorageBase]
+  id: OHClothingUniformJumpsuitBlackDivision
+  suffix: Black Division
+  name: Униформа Сотрудников Black Division
+  description: Практичная униформа сотрудников ЧВК Black Division.
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Uniforms/BlackDivisionuniform.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Uniforms/BlackDivisionuniform.rsi
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    maxItemSize: Small
+
+- type: entity
+  parent: OHClothingUniformJumpsuitBlackDivision
+  id: OHClothingUniformJumpsuitBlackDivisionSenior
+  suffix: Black Division
+  name: Офицерская униформа Black Division
+  description: Практичная униформа Офицеров ЧВК Black Division с офицерскими знаками отличия. 
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Uniforms/BlackDivisionuniformSenior.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Uniforms/BlackDivisionuniformSenior.rsi

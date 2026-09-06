@@ -1,0 +1,145 @@
+- type: entity
+  id: OHMachinepowerBlueSpaceArtillery
+  parent: [ BaseMachine ]
+  name: OHBSA-name
+  description: OHBSA-desc
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Rotatable
+  - type: Transform
+    anchored: true
+    noRot: false
+  - type: Sprite
+    sprite: _OH/Structures/Artillery/BSA.rsi
+    layers:
+    - state: base
+      map: ["enum.PTLVisualLayers.Base"]
+      directional: true
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: true
+      directional: true
+  - type: Appearance
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-4,-1.7,4,1.7"
+        density: 3125
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: AmbientSound
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/engine_hum.ogg
+
+
+- type: entity
+  id: OHMachinepowerEnergyartilleryHeavy
+  parent: [ BaseMachine ]
+  name: OHEAH-name
+  description: OHEAH-desc
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Rotatable
+  - type: Transform
+    anchored: true
+    noRot: false
+  - type: Sprite
+    sprite: _OH/Structures/Artillery/EAheavy.rsi
+    layers:
+    - state: base
+      map: ["enum.PTLVisualLayers.Base"]
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: true
+  - type: Appearance
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 3125
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: AmbientSound
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/engine_hum.ogg
+
+- type: entity
+  id: OHMachinepowerEnergyartilleryLight
+  parent: [ BaseMachine ]
+  name: OHEAL-name
+  description: OHEAL-desc
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Rotatable
+  - type: Transform
+    anchored: true
+    noRot: false
+  - type: Sprite
+    sprite: _OH/Structures/Artillery/EAlight.rsi
+    layers:
+    - state: base
+      map: ["enum.PTLVisualLayers.Base"]
+  - type: Appearance
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1,-1,1,1"
+        density: 3125
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: AmbientSound
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/engine_hum.ogg

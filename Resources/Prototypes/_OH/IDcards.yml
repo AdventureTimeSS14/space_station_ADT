@@ -1,0 +1,118 @@
+# DSO
+- type: entity
+  parent: IDCardStandard
+  id: OHIDSOOCard
+  name: name-IDDsosoo
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: idcentcom
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: Офицер специальных операций
+    jobIcon: JobIconSOO
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - DSOGeneral
+    - DSO4lvl
+    - DSO1lvl
+    - DSO2lvl
+    - DSO3lvl
+    - CentralCommand
+
+- type: entity
+  parent: IDCardStandard
+  id: OHIDArbitratorCard
+  name: name-IDDsoarbitrator
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: idcentcom
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: Арбитр
+    jobIcon: JobIconArbitrator
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - DSOGeneral
+    - DSO4lvl
+    - DSO2lvl
+    - DSO3lvl
+    - CentralCommand
+
+- type: entity
+  parent: IDCardStandard
+  id: OHIDManagerCard
+  name: name-IDDsomanager
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: idcentcom
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: Менеджер
+    jobIcon: JobIconManager
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - DSOGeneral
+    - DSO4lvl
+    - DSO2lvl
+    - DSO3lvl
+    - CentralCommand
+
+- type: entity
+  parent: IDCardStandard
+  id: OHIDoperatorCard
+  name: name-IDDsooperator
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: idcentcom
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: Оператор
+    jobIcon: JobIconManager
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - DSOGeneral
+    - DSO4lvl
+    - DSO3lvl
+    - CentralCommand
+
+- type: entity
+  parent: IDCardStandard
+  id: OHIDCardERT
+  name: name-OHIDCardERT
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: idcentcom
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: Оперативник ОБР
+    jobIcon: JobIconManager
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - DSOGeneral
+    - DSO4lvl
+    - CentralCommand

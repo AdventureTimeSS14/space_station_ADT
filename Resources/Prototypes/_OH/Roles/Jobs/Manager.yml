@@ -1,0 +1,41 @@
+- type: job
+  id: Manager
+  name: manager-job-name
+  description: manager-job-desc
+  playTimeTracker: JobManager
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 36000 # 10 hours
+    - !type:AgeRequirement
+      requiredAge: 25
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+  weight: 100
+  startingGear: OHDSOmanagerGear
+  icon: "JobIconManager"
+  requireAdminNotify: true
+  joinNotifyCrew: false
+  supervisors: job-supervisors-SOO
+  canBeAntag: false
+  displayWeight: 100 
+  radioBold: true 
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - DSO2lvl
+  - DSO3lvl
+  - DSO4lvl
+  - DSOgeneral
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+
+- type: playTimeTracker
+  id: JobManager

@@ -1,0 +1,40 @@
+- type: job
+  id: ERT
+  name: ERT-job-name
+  description: ERT-job-desc
+  playTimeTracker: JobERT
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 18000 # 5 hours
+    - !type:AgeRequirement
+      requiredAge: 25
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+  weight: 10
+  startingGear: OHERToperator 
+  icon: "JobIconOperator"
+  requireAdminNotify: true
+  joinNotifyCrew: true
+  supervisors: job-supervisors-SOO
+  canBeAntag: false
+  displayWeight: 90 
+  radioBold: true 
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - DSOgeneral
+  - DSO4lvl
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+
+- type: playTimeTracker
+  id: JobERT
+

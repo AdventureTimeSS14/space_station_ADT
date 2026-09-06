@@ -1,0 +1,516 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: OHClothingHeadHatCapDSOoperator
+  name: name-Hat-DSO-Operator
+  description: desc-Hat-DSO-Operator
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hats/Operatorhat.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hats/Operatorhat.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: OHClothingHeadHatCapDSOsoo
+  name: name-Hat-DSO-soo
+  description: desc-Hat-DSO-soo
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hats/SOOhat.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hats/SOOhat.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: OHClothingHeadHelmetHardsuitBlackDivision
+  name:  name-OHClothingHeadHelmetHardsuitBlackDivision
+  suffix: Black Division
+  description: desc-OHClothingHeadHelmetHardsuitBlackDivisionSenior
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hardsuits/X02.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hardsuits/X02.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: FireProtection
+    reduction: 0.95
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: OHClothingHeadHelmetHardsuitBlackDivisionSenior
+  name: name-OHClothingHeadHelmetHardsuitBlackDivisionSenior
+  suffix: Black Division
+  description: desc-OHClothingHeadHelmetHardsuitBlackDivisionSenior
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hardsuits/X05.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hardsuits/X05.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: FireProtection
+    reduction: 0.9
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: NightVisionItem
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.NightVisionItemVisuals.Active:
+        icon:
+          True: { state: icon }
+          False: { state: icon }
+
+- type: entity
+  parent: ClothingHeadBase
+  id: OHClothingHeadHatBeretBlackDivision
+  name: name-beretblackdivision
+  suffix: Black Division
+  description: desc-beretblackdivision
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hats/BlackDivision.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hats/BlackDivision.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: OHClothingHeadHatBeretBlackDivisionSenior
+  name: name-beretblackdivisionsenior
+  suffix: Black Division
+  description: desc-beretblackdivisionsenior
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hats/BlackDivisionSenior.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hats/BlackDivisionSenior.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon
+# Скафы
+
+#CENTCOMM / ERT HARDSUITS
+#ERT Leader Hardsuit
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: OHClothingHeadHelmetHardsuitERTLeader
+  name: ERT leader hardsuit helmet
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hardsuits/ERThelmets/ertleader.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hardsuits/ERThelmets/ertleader.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: FireProtection
+    reduction: 0.85
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+        Radiation: 0.85
+        Caustic: 0.85
+  - type: FlashImmunity
+  - type: EyeProtection
+
+#ERT Engineer Hardsuit
+- type: entity
+  parent: OHClothingHeadHelmetHardsuitERTLeader
+  id: OHClothingHeadHelmetHardsuitERTEngineer
+  name: ERT engineer hardsuit helmet
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi
+  - type: FireProtection
+    reduction: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+        Radiation: 0.9
+        Caustic: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: SupermatterImmune  # ADT-Tweak
+
+#ERT Medical Hardsuit
+- type: entity
+  parent: OHClothingHeadHelmetHardsuitERTLeader
+  id: OHClothingHeadHelmetHardsuitERTMedical
+  name: ERT medic hardsuit helmet
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
+
+#ERT Security Hardsuit
+- type: entity
+  parent: OHClothingHeadHelmetHardsuitERTLeader
+  id: OHClothingHeadHelmetHardsuitERTSecurity
+  name: ERT security hardsuit helmet
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hardsuits/ERThelmets/ertsecurity.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hardsuits/ERThelmets/ertsecurity.rsi
+
+
+# DSO elite helmet
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: OHClothingOuterDSOHardsuitEliteHelmet
+  name: desc-DSOHardsuitEliteHelmet
+  description: desc-DSOHardsuitEliteHelmet
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hardsuits/DSOhardsuit.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hardsuits/DSOhardsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: FireProtection
+    reduction: 0.85
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+        Radiation: 0.85
+        Caustic: 0.85
+  - type: FlashImmunity
+  - type: EyeProtection
+
+
+# логдог контент шлема бляя ебал их делать
+
+# USSP
+
+# Тяжелый 
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: OHClothingHeadHelmetHardsuitUSSPHeavy
+  name: desc-HardsuitHelmetUSSPHeavy
+  description: desc-HardsuitHelmetUSSPHeavy
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hardsuits/USSPheavy.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hardsuits/USSPheavy.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: FireProtection
+    reduction: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+        Radiation: 0.8
+        Caustic: 0.8
+  - type: FlashImmunity
+  - type: EyeProtection
+
+# Средний 
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: OHClothingHeadHelmetHardsuitUSSPbase
+  name: desc-HardsuitHelmetUSSPbase
+  description: desc-HardsuitHelmetUSSPbase
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hardsuits/USSPbase.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hardsuits/USSPbase.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: FireProtection
+    reduction: 0.85
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+        Radiation: 0.85
+        Caustic: 0.85
+  - type: FlashImmunity
+  - type: EyeProtection
+
+# Империя
+
+# Средний база
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: OHClothingHeadHelmetHardsuitEmpirebase
+  name: desc-HardsuitHelmetEmpirebase
+  description: desc-HardsuitHelmetEmpirebase
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hardsuits/Empirebase.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hardsuits/Empirebase.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: FireProtection
+    reduction: 0.85
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+        Radiation: 0.85
+        Caustic: 0.85
+  - type: FlashImmunity
+  - type: EyeProtection
+
+# Средний база
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: OHClothingHeadHelmetHardsuitEmpireelite
+  name: desc-HardsuitHelmetEmpireelite
+  description: desc-HardsuitHelmetEmpireelite
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hardsuits/Empireelite.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hardsuits/Empireelite.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: FireProtection
+    reduction: 0.85
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+        Radiation: 0.85
+        Caustic: 0.85
+  - type: FlashImmunity
+  - type: EyeProtection
+
+# Стелс синдикат лазутчик
+
+# Легкий база
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: OHClothingHeadHelmetHardsuitSyndicatestealth
+  name: desc-HardsuitHelmetSyndicatestealth
+  description: desc-HardsuitHelmetSyndicatestealth
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hardsuits/Syndicatestealth.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hardsuits/Syndicatestealth.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: FireProtection
+    reduction: 0.90
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
+        Radiation: 0.90
+        Caustic: 0.90
+  - type: FlashImmunity
+  - type: EyeProtection
+
+# Дикие
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: OHClothingHeadHelmetHardsuitScavbase
+  name: desc-HardsuitHelmetScavbase
+  description: desc-HardsuitHelmetScavbase
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hardsuits/Scavenger.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hardsuits/Scavenger.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: FireProtection
+    reduction: 0.90
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
+        Radiation: 0.90
+        Caustic: 0.90
+  - type: FlashImmunity
+  - type: EyeProtection
+
+# Средний база
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: OHClothingHeadHelmetHardsuitScavelite
+  name: desc-HardsuitHelmetScavelite
+  description: desc-HardsuitHelmetScavelite
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hardsuits/ScavengerElite.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hardsuits/ScavengerElite.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: FireProtection
+    reduction: 0.85
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+        Radiation: 0.85
+        Caustic: 0.85
+  - type: FlashImmunity
+  - type: EyeProtection
+
+# UEG
+
+# Средний база
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: OHClothingHeadHelmetHardsuitUEGbase
+  name: desc-HardsuitHelmetUEGbase
+  description: desc-HardsuitHelmetUEGbase
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hardsuits/UEGbase.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hardsuits/UEGbase.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: FireProtection
+    reduction: 0.85
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+        Radiation: 0.85
+        Caustic: 0.85
+  - type: FlashImmunity
+  - type: EyeProtection
+
+# Средний база
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: OHClothingHeadHelmetHardsuitUEGelite
+  name: desc-HardsuitHelmetUEGelite
+  description: desc-HardsuitHelmetUEGelite
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _OH/Clothing/Head/Hardsuits/UEGcommand.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Head/Hardsuits/UEGcommand.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: FireProtection
+    reduction: 0.85
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+        Radiation: 0.85
+        Caustic: 0.85
+  - type: FlashImmunity
+  - type: EyeProtection

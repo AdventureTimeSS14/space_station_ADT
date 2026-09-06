@@ -1,0 +1,44 @@
+- type: job
+  id: Arbitrator
+  name: Arbitrator-job-name
+  description: Arbitrator-job-desc
+  playTimeTracker: JobArbitrator
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: DSOdepartment
+      time: 36000 # 10 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 18000 # 5 hours
+    - !type:AgeRequirement
+      requiredAge: 25
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+  weight: 50
+  startingGear: OHDSOArbitratorGear
+  icon: "JobIconArbitrator"
+  requireAdminNotify: true
+  joinNotifyCrew: false
+  supervisors: job-supervisors-SOO
+  canBeAntag: false
+  displayWeight: 150
+  radioBold: true 
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - DSO2lvl
+  - DSO3lvl
+  - DSO4lvl
+  - DSOgeneral
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm, MicroBombImplanter ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+
+- type: playTimeTracker
+  id: JobArbitrator

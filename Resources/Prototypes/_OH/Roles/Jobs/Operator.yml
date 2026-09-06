@@ -1,0 +1,44 @@
+- type: job
+  id: Operator
+  name: operator-job-name
+  description: operator-job-desc
+  playTimeTracker: JobOperator
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 18000 # 5 hours
+    - !type:DepartmentTimeRequirement
+      department: DSOdepartment
+      time: 18000 # 5 hours
+    - !type:AgeRequirement
+      requiredAge: 25
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+  weight: 10
+  startingGear: OHDSOOperatorGear
+  icon: "JobIconOperator"
+  requireAdminNotify: true
+  joinNotifyCrew: true
+  supervisors: job-supervisors-SOO
+  canBeAntag: false
+  displayWeight: 90 
+  radioBold: true 
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - DSO3lvl
+  - DSO4lvl
+  - DSOgeneral
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+
+- type: playTimeTracker
+  id: JobOperator
+

@@ -1,0 +1,35 @@
+- type: entity
+  parent: [ ClothingMaskGas, BaseCentcommContraband ]
+  id: OHClothingMaskGasERT
+  name: OHERTgasmask-name
+  description: OHERTgasmask-desc  
+  components:
+  - type: Sprite
+    sprite: _OH/Clothing/Mask/ERTgasmask.rsi
+  - type: Clothing
+    sprite: _OH/Clothing/Mask/ERTgasmask.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Snout # ADT Tweak
+    - SnoutOverlay # ADT Tweak
+    - Hair
+    hideOnToggle: true
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: VoiceMask
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
