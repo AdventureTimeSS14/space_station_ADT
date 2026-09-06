@@ -44,7 +44,9 @@
   - type: Sprite
     state: firing_pin_loyalty
   - type: FiringPin
-    pinType: Loyalty
+    pinType: Component
+    requiredComponents:
+    - MindShield
     failMessage: firing-pin-fail-loyalty
 
 - type: entity
@@ -104,7 +106,9 @@
   description: A firing pin that only responds to those who are holier than thou.
   components:
   - type: FiringPin
-    pinType: Holy
+    pinType: Component
+    requiredComponents:
+    - Chaplain
     failMessage: firing-pin-fail-holy
 
 - type: entity
@@ -153,3 +157,18 @@
   - type: FiringPin
     pinType: Explorer
     failMessage: firing-pin-fail-explorer
+
+- type: entity
+  id: FiringPinSyndicate
+  parent: BaseFiringPin
+  name: syndicate firing pin
+  description: A firing pin that only authorizes syndicate operatives and agents.
+  components:
+  - type: Sprite
+    state: firing_pin_red
+  - type: FiringPin
+    pinType: Component
+    requiredComponents:
+    - NukeopsRole
+    - TraitorRole
+    failMessage: firing-pin-fail-syndicate

@@ -261,3 +261,6 @@ uplink-box-music-disks-desc = Тихо выполнять цели - не ваш
 
 uplink-code-speak-implanter-name = Имплантер Кодового языка
 uplink-code-speak-implanter-desc = Каждый уважающий себя ядерный оперативник знает этот язык. Имплантер замаскирован под обычный имплантер Общегалактического языка.
+
+uplink-firing-pin-syndicate-name = синдикатский боевой пин
+uplink-firing-pin-syndicate-desc = Разрешает стрелять только оперативникам Синдиката и агентам.

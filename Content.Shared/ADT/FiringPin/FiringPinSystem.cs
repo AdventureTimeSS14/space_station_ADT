@@ -1,7 +1,6 @@
 using System.Numerics;
 using Content.Shared.Access;
 using Content.Shared.Access.Systems;
-using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Clumsy;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
@@ -12,7 +11,6 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
-using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
 using Content.Shared.Station;
 using Content.Shared.Tag;
@@ -23,6 +21,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -36,6 +35,7 @@ public sealed partial class FiringPinSystem : EntitySystem
 
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -216,14 +216,10 @@ public sealed partial class FiringPinSystem : EntitySystem
                 return IsNearFiringRange(user);
             case FiringPinType.Implant:
                 return HasImplant(user, pin.Comp.RequiredImplant);
-            case FiringPinType.Loyalty:
-                return HasComp<MindShieldComponent>(user);
             case FiringPinType.DNA:
                 return CheckDna(pin, user);
             case FiringPinType.Clown:
                 return CheckClown(pin, user);
-            case FiringPinType.Holy:
-                return HasComp<ChaplainComponent>(user);
             case FiringPinType.Tag:
                 return HasSuit(user, pin.Comp.RequiredSuitTag);
             case FiringPinType.Access:
@@ -232,6 +228,8 @@ public sealed partial class FiringPinSystem : EntitySystem
                 return IsSecLevelAuthorized(user, pin.Comp);
             case FiringPinType.Explorer:
                 return _station.GetOwningStation(user) == null;
+            case FiringPinType.Component:
+                return HasRequiredComponent(user, pin.Comp.RequiredComponents);
             case FiringPinType.None:
             default:
                 return true;
@@ -250,6 +248,20 @@ public sealed partial class FiringPinSystem : EntitySystem
         }
 
         return pin.AllowedAlertLevels.Contains(cache.CurrentLevel);
+    }
+
+    private bool HasRequiredComponent(EntityUid user, List<string> requiredComponents)
+    {
+        foreach (var name in requiredComponents)
+        {
+            if (_compFactory.TryGetRegistration(name, out var registration)
+                && EntityManager.HasComponent(user, registration.Type))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private bool IsNearFiringRange(EntityUid user)

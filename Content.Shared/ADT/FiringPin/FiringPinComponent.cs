@@ -10,14 +10,13 @@ public enum FiringPinType : byte
     None,
     TestRange,
     Implant,
-    Loyalty,
     DNA,
     Clown,
-    Holy,
     Tag,
     Access,
     SecLevel,
     Explorer,
+    Component,
 }
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
@@ -52,4 +51,7 @@ public sealed partial class FiringPinComponent : Component
 
     [DataField, AutoNetworkedField]
     public List<string> AllowedAlertLevels = new();
+
+    [DataField, AutoNetworkedField]
+    public List<string> RequiredComponents = new();
 }
