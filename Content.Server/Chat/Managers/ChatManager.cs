@@ -50,6 +50,7 @@ internal sealed partial class ChatManager : IChatManager
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly DiscordChatLink _discordLink = default!;
     [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
+    [Dependency] private readonly Content.Server.ADT.Sponsors.SponsorManager _adtSponsors = default!;
     [Dependency] private readonly DiscordWebhook _discord = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
 
@@ -363,6 +364,18 @@ internal sealed partial class ChatManager : IChatManager
 
         // Определяем цвет ника
         string sponsorColorStr = sponsorData?.OOCColor ?? "";
+
+        // ADT-Tweak-Start
+        var adtColor = _adtSponsors.GetOocColor(player.UserId);
+
+        if (adtColor != null)
+        {
+            isSponsor = true;
+            sponsorColorStr = adtColor.Value.ToHex();
+            colorOverride = adtColor;
+        }
+        else
+        // ADT-Tweak-End
         if (isSponsor && Color.TryFromName(sponsorColorStr, out var sponsorColor))
         {
             colorOverride = sponsorColor;
