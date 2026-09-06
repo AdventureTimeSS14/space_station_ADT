@@ -30,3 +30,6 @@ trait-dysgraphia-desc = You have difficulty with writing.
 
 trait-clumsy-name = Clumsy
 trait-clumsy-desc = You are a bit accident-prone.
+
+trait-wanted-criminal-name = Wanted
+trait-wanted-criminal-description = Central Command has issued an arrest warrant for you over a corporate law violation. You were convicted last shift, but the arrest was not carried out before the shift ended.
