@@ -2,7 +2,7 @@
   id: ArrestWarrantReasons
   values:
     prefix: arrest-warrant-reason-
-    count: 38
+    count: 29
 
 # Operator names used on the arrest warrant paper
 - type: localizedDataset
