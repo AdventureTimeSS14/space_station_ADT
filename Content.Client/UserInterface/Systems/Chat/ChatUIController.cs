@@ -767,6 +767,11 @@ public sealed partial class ChatUIController : UIController
             text = $";{text}";
         }
 
+        // ADT-Tweak-Start
+        if (TrySendD20Emote(box, prefixChannel == 0 ? channel : prefixChannel, text))
+            return;
+        // ADT-Tweak-End
+
         _manager.SendMessage(text, prefixChannel == 0 ? channel : prefixChannel);
     }
 
@@ -822,6 +827,8 @@ public sealed partial class ChatUIController : UIController
 
     public void ProcessChatMessage(ChatMessage msg, bool speechBubble = true, bool playHighlightSound = true)  // ADT-tweak
     {
+        FormatD20Emote(msg); // ADT-Tweak
+
         // ADT-tweak start
         TryPlayHighlightSound(msg, playHighlightSound);
         // ADT-tweak end

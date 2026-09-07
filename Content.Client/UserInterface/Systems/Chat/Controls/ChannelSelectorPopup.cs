@@ -105,6 +105,7 @@ public sealed class ChannelSelectorPopup : Popup
     private void OnSelectorPressed(ButtonEventArgs args)
     {
         var button = (ChannelSelectorItemButton) args.Button;
+        _chatUIController.HandleD20SelectorPressed(button.Channel); // ADT-Tweak
         Select(button.Channel);
     }
 
