@@ -243,10 +243,11 @@ public sealed class HealingSystem : EntitySystem
         if (_doAfter.TryStartDoAfter(doAfterEventArgs))
         {
             StartHealEffect(healing, target.Owner);
+            return true;
         }
-        // ADT-Tweak end
 
-        return true;
+        return false;
+        // ADT-Tweak end
     }
 
     // ADT-Tweak start
