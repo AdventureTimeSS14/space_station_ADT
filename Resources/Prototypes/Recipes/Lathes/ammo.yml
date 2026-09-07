@@ -30,21 +30,22 @@
   id: MagazineRifleEmpty
   result: MagazineRifleEmpty
   materials:
-    Lead: 25 #ADT-BFUU-Tweak
+    Steel: 25 #ADT-BFUU-Tweak
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: MagazineRifle
   result: MagazineRifle
   materials:
-    Lead: 475 #ADT-BFUU-Tweak
+    Steel: 25 #ADT Tweak-Start
+    Lead: 450 #ADT Tweak-End
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: MagazineRifleIncendiary
   result: MagazineRifleIncendiary
   materials:
-    Lead: 25 #ADT-BFUU-Tweak
+    Steel: 25 #ADT-BFUU-Tweak
     Plastic: 450
 
 - type: latheRecipe
@@ -52,14 +53,15 @@
   id: MagazineRiflePractice
   result: MagazineRiflePractice
   materials:
-    Lead: 175 #ADT-BFUU-Tweak
+    Steel: 25 #ADT Tweak
+    Lead: 150 #ADT-BFUU-Tweak
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: MagazineRifleUranium
   result: MagazineRifleUranium
   materials:
-    Lead: 25 #ADT-BFUU-Tweak
+    Steel: 25 #ADT-BFUU-Tweak
     Plastic: 300
     Uranium: 300
 

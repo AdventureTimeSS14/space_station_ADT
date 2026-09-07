@@ -325,6 +325,8 @@
     shockwaveRange: 7
     shockwaveKnockdown: 20
     breakAllLights: true
+    sound:
+      path: /Audio/ADT/Shadowling/hilarious_agony.ogg
 
 - type: entity
   id: ADTActionAscendantAnnihilate
