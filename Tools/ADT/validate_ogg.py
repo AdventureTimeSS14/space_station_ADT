@@ -7,7 +7,7 @@
 Ищем type: jukebox в любых .yml прототипах.
 
 Запуск:
-    python3 Tools/_Maid/validate_ogg.py
+    python3 Tools/ADT/validate_ogg.py
 """
 
 from __future__ import annotations
