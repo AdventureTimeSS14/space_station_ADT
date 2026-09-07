@@ -27,7 +27,7 @@
     state: icon
   - type: InteractionOutline
   - type: TimedDespawn
-    lifetime: 4
+    lifetime: 10
   - type: PointLight
     energy: 0.3
     radius: 1
@@ -44,6 +44,8 @@
   - type: TimerTrigger
     delay: 5
   - type: ExplodeOnTrigger
+    keysIn:
+    - timer
   - type: Explosive
     explosionType: Default
     totalIntensity: 50
@@ -60,6 +62,8 @@
   - type: TimerTrigger
     delay: 5
   - type: ExplodeOnTrigger
+    keysIn:
+    - timer
   - type: Explosive
     explosionType: HardBomb
     totalIntensity: 500
@@ -76,6 +80,8 @@
   - type: TimerTrigger
     delay: 5
   - type: ExplodeOnTrigger
+    keysIn:
+    - timer
   - type: Explosive
     explosionType: FireBomb
     totalIntensity: 300
@@ -92,6 +98,8 @@
   - type: TimerTrigger
     delay: 5
   - type: ExplodeOnTrigger
+    keysIn:
+    - timer
   - type: Explosive
     explosionType: HardBomb
     totalIntensity: 1500
@@ -108,6 +116,8 @@
   - type: TimerTrigger
     delay: 5
   - type: ExplodeOnTrigger
+    keysIn:
+    - timer
   - type: Explosive
     explosionType: HardBomb
     totalIntensity: 5000
@@ -257,7 +267,7 @@
 # Выбор стратогем 
 
 - type: thiefBackpackSet
-  id: OHstratogemcarpetbombSet
+  id: OHstratogemcarpetbomb
   name: воздушная бомба
   description: воздушная бомба
   sprite:
@@ -267,7 +277,7 @@
   - OHtrowablestratogemcarpetbomb
 
 - type: thiefBackpackSet
-  id: OHstratogem380mmSet
+  id: OHstratogem380mm
   name: 380мм
   description: 380мм
   sprite:
@@ -277,7 +287,7 @@
   - OHtrowablestratogem380mm
 
 - type: thiefBackpackSet
-  id: OHstratogem120mmSet
+  id: OHstratogem120mm
   name: 120мм
   description: 120мм
   sprite:
@@ -287,7 +297,7 @@
   - OHtrowablestratogem120mm
 
 - type: thiefBackpackSet
-  id: OHstratogemBSASet
+  id: OHstratogemBSA
   name: БСА
   description: БСА
   sprite:
@@ -297,7 +307,7 @@
   - OHtrowablestratogemBSA
 
 - type: thiefBackpackSet
-  id: OHstratogemnapalmSet
+  id: OHstratogemnapalm
   name: напалм
   description: напалм
   sprite:

@@ -478,6 +478,5 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: WeaponShotgunHushpup
         - id: BoxLethalshot
         - id: TreasureCoinIron

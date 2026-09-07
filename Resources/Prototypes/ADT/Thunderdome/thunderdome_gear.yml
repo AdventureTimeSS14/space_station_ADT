@@ -178,8 +178,6 @@
 
 - type: startingGear
   id: ThunderdomeHushpup
-  equipment:
-    suitstorage: WeaponShotgunHushpup
   storage:
     back:
     - MagazineShotgun

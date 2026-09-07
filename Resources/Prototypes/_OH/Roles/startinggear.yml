@@ -13,7 +13,6 @@
     outerClothing: OHClothingOuterDSOOperatorcoat
     id: OHOperatorPDA
     ears: OHClothingHeadsetDSOcommand
-    belt: ClothingBeltAssault
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: WeaponPistolN1984
     underwearb: ADTClothingUnderwearBottomBriefsWhite
@@ -64,7 +63,6 @@
     outerClothing: OHClothingOuterDSOSOOcoat
     id: OHSOOPDA
     ears: OHClothingHeadsetDSOcommand
-    belt: ClothingBeltAssault
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: OHWeaponRevolverMateba
     underwearb: ADTClothingUnderwearBottomBriefsWhite
@@ -108,7 +106,7 @@
     - OHSledgehammerERT
     - OHDSOVoucherMedical
     - OHDSOVoucherMedical
-    - OHWeaponRevolverMatebaAP
+    - OHWeaponRevolverMateba
     - SpeedLoaderMagnumAP
     - MagazineBoxMagnumAP
     - OHClothingEyesNightVisionERT

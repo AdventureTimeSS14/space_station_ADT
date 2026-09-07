@@ -67,7 +67,6 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: WeaponShotgunHushpup
         - id: TreasureCoinIron
 
 - type: entity

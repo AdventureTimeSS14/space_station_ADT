@@ -1,0 +1,23 @@
+{
+  "copyright" : "Sprites by Log_Dog",
+  "license" : "CC-BY-SA-3.0",
+  "version": 1,
+  "size": {
+    "x": 144,
+    "y": 144
+  },
+    "states": [
+        {
+            "name": "vattank",
+            "directions": 4
+        },
+        {
+            "name": "vattank-open",
+            "directions": 4
+        },
+        {
+           "name": "vattank-broken",
+           "directions": 4
+        }
+    ]
+}

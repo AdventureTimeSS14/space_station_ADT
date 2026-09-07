@@ -852,22 +852,22 @@
   - type: ToggleableClothing
     clothingPrototype: OHClothingHeadHelmetHardsuitScavelite
 
-# UEG
+# FED
 
 - type: entity
   parent: ClothingOuterHardsuitBase
-  id: OHClothingOuterHardsuitUEGbase
+  id: OHClothingOuterHardsuitFEDbase
   suffix: OH content
-  name: name-OHClothingOuterHardsuitUEGbase
-  description: desc-OHClothingOuterHardsuitUEGbase
+  name: name-OHClothingOuterHardsuitFEDbase
+  description: desc-OHClothingOuterHardsuitFEDbase
   components:
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000 
   - type: Sprite
-    sprite:  _OH/Clothing/OuterClothing/Hardsuit/UEGbase.rsi
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/FEDbase.rsi
   - type: Clothing
-    sprite:  _OH/Clothing/OuterClothing/Hardsuit/UEGbase.rsi
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/FEDbase.rsi
   - type: TemperatureProtection
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
@@ -910,23 +910,23 @@
     sprintModifier: 1
   - type: HeldSpeedModifier
   - type: ToggleableClothing
-    clothingPrototype: OHClothingHeadHelmetHardsuitUEGbase
+    clothingPrototype: OHClothingHeadHelmetHardsuitFEDbase
   - type: DNALocker 
 
 - type: entity
   parent: ClothingOuterHardsuitBase
-  id: OHClothingOuterHardsuitUEGelite
+  id: OHClothingOuterHardsuitFEDelite
   suffix: OH content
-  name: name-OHClothingOuterHardsuitUEGelite
-  description: desc-OHClothingOuterHardsuitUEGelite
+  name: name-OHClothingOuterHardsuitFEDelite
+  description: desc-OHClothingOuterHardsuitFEDelite
   components:
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000 
   - type: Sprite
-    sprite:  _OH/Clothing/OuterClothing/Hardsuit/UEGcommand.rsi
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/FEDcommand.rsi
   - type: Clothing
-    sprite:  _OH/Clothing/OuterClothing/Hardsuit/UEGcommand.rsi
+    sprite:  _OH/Clothing/OuterClothing/Hardsuit/FEDcommand.rsi
   - type: TemperatureProtection
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
@@ -969,5 +969,5 @@
     sprintModifier: 1
   - type: HeldSpeedModifier
   - type: ToggleableClothing
-    clothingPrototype: OHClothingHeadHelmetHardsuitUEGelite
+    clothingPrototype: OHClothingHeadHelmetHardsuitFEDelite
   - type: DNALocker 

@@ -83,6 +83,11 @@ public sealed partial class ThunderdomeWeaponCard : PanelContainer
                 VerticalAlignment = VAlignment.Center,
             };
             spriteView.SetPrototype(new EntProtoId(spritePrototype));
+            spriteView.OnVisibilityChanged += _ =>
+            {
+                if (spriteView.Sprite is { } sprite)
+                    sprite.SnapCardinals = false;
+            };
             hbox.AddChild(spriteView);
         }
 

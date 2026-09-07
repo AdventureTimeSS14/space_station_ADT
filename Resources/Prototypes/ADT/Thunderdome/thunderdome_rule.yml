@@ -86,11 +86,6 @@
           description: thunderdome-desc-estoc
           category: thunderdome-category-rifles
           sprite: WeaponRifleEstoc
-        - gear: ThunderdomeHushpup
-          name: thunderdome-loadout-hushpup
-          description: thunderdome-desc-hushpup
-          category: thunderdome-category-shotguns
-          sprite: WeaponShotgunHushpup
         - gear: ThunderdomeAdvancedLaser
           name: thunderdome-loadout-aeg
           description: thunderdome-desc-aeg

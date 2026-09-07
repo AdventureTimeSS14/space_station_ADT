@@ -658,7 +658,7 @@
   description: A somewhat battered combat rifle of a design originating from old Earth. Favored by criminals, militias, and terrorists due to its famed reliability and easy-to-manufacture design. Feeds from .30 rifle magazines.
   components:
   - type: Sprite
-    sprite: _OH/Weapon/Guns/Rifles/AK100.rsi
+    sprite: _OH/Weapon/Guns/Rifles/Ak100.rsi
     scale: 0.8, 0.8
     layers:
       - state: base

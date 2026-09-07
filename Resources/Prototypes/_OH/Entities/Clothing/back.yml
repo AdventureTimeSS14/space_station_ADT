@@ -6,9 +6,9 @@
   description: OHERTbackpack-desc
   components:
   - type: Sprite
-    sprite: _OH/Clothing/Back/Backpacks/ert.rsi
+    sprite: _OH/Clothing/back/backpacks/ert.rsi
   - type: Clothing
-    sprite: _OH/Clothing/Back/Backpacks/ert.rsi
+    sprite: _OH/Clothing/back/backpacks/ert.rsi
   - type: Storage
     grid:
     - 0,0,8,4

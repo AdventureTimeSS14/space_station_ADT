@@ -161,10 +161,11 @@
   id: OHBaseweaponyShotgun
   name: Автоматический дробовик
   sprite:
-    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
+    sprite: Objects/Weapons/Guns/Shotguns/Enforcer.rsi
     state: icon
   content:
-  - WeaponCaseBulldog
+  - WeaponShotgunEnforcer
+  - BoxMagazineShotgun
 
 - type: thiefBackpackSet
   id: OHBaseweaponySubmachinegun
@@ -428,7 +429,7 @@
     sprite: ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi
     state: icon
   content:
-  - OHWeaponRevolverMatebaAP
+  - OHWeaponRevolverMateba
   - MagazineBoxMagnumAP
   - MagazineBoxMagnumAP
   - OHClothingOuterHardsuitERTSecurity

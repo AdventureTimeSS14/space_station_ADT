@@ -1,0 +1,23 @@
+{
+  "copyright" : "Sprites by Log_Dog",
+  "license" : "CC-BY-SA-3.0",
+  "version": 1,
+  "size": {
+    "x": 128,
+    "y": 128
+  },
+    "states": [
+        {
+            "name": "abrams",
+            "directions": 4
+        },
+        {
+            "name": "abrams-open",
+            "directions": 4
+        },
+        {
+           "name": "abrams-broken",
+           "directions": 4
+        }
+    ]
+}
