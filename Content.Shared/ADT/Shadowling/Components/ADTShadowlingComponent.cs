@@ -97,4 +97,10 @@ public sealed partial class ADTShadowlingComponent : Component
 
     [DataField]
     public TimeSpan EnthrallKnockdown = TimeSpan.FromSeconds(24);
+
+    [DataField]
+    public SoundSpecifier? EnthrallSound = new SoundPathSpecifier("/Audio/ADT/Shadowling/verb-shadowling.ogg");
+
+    [DataField]
+    public TimeSpan RoundDurationCooldown = TimeSpan.FromMinutes(25);
 }

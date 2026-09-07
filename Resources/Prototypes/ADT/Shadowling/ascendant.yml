@@ -27,9 +27,12 @@
   - type: MobState
     allowedStates:
     - Alive
+    - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
+      2000: Dead
+  - type: IgnoreSlowOnDamage
   - type: MovementSpeedModifier
     baseWalkSpeed: 4
     baseSprintSpeed: 6
@@ -76,12 +79,13 @@
     - ADTAscendantShadowling
   - type: SpecialPressureImmunity
   - type: Insulated
-    coefficient: 0
+    coefficient: 0.25
   - type: ExplosionResistance
     damageCoefficient: 0
   - type: Flammable
     damage:
-      types: {}
+      types:
+        Heat: 0.5
   - type: Damageable
     damageModifierSet: ADTAscendantShadowling
   - type: Tag

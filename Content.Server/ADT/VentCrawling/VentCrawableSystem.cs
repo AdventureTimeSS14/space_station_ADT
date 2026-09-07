@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Shared.ADT.VentCrawling.Components;
 using Content.Shared.ADT.VentCrawling;
+using Content.Shared.Actions;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Containers;
@@ -12,6 +13,8 @@ public sealed class VentCrawableSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
+    [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {
@@ -44,6 +47,14 @@ public sealed class VentCrawableSystem : EntitySystem
 
         holder.IsExitingVentCraws = true;
 
+        if (holder.ExitAction is {} action)
+        {
+            foreach (var entity in holder.Container.ContainedEntities.ToArray())
+                _actions.RemoveAction(entity, action);
+
+            holder.ExitAction = null;
+        }
+
         foreach (var entity in holder.Container.ContainedEntities.ToArray())
         {
             ExitVentCrawler(entity, holder.Container);
@@ -60,6 +71,7 @@ public sealed class VentCrawableSystem : EntitySystem
                 {
                     ventCrawComp.InTube = false;
                     Dirty(crawlerUid, ventCrawComp);
+                    _eye.RefreshVisibilityMask(crawlerUid);
                 }
             }
         }
@@ -84,6 +96,7 @@ public sealed class VentCrawableSystem : EntitySystem
         {
             ventCrawComp.InTube = false;
             Dirty(entity, ventCrawComp);
+            _eye.RefreshVisibilityMask(entity);
         }
 
         if (EntityManager.TryGetComponent(entity, out PhysicsComponent? physics))

@@ -1,1 +1,13 @@
-guide-entry-heretics = Еретики
+guide-entry-heretics = Еретик
+guide-entry-heretic-start = С чего начать
+guide-entry-heretic-rituals = Руна и ритуалы
+guide-entry-heretic-paths = Пути
+guide-entry-heretic-path-ash = Путь Пепла
+guide-entry-heretic-path-blade = Путь Клинка
+guide-entry-heretic-path-flesh = Путь Плоти
+guide-entry-heretic-path-void = Путь Пустоты
+guide-entry-heretic-path-rust = Путь Ржавчины
+guide-entry-heretic-path-cosmos = Путь Космоса
+guide-entry-heretic-blades = Клинки
+guide-entry-heretic-gear = Снаряжение и слуги
+guide-entry-heretic-tips = Хитрости и провалы

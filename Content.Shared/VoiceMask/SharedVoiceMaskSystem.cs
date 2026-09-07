@@ -15,7 +15,7 @@ public sealed class VoiceMaskBuiState : BoundUserInterfaceState
 {
     public readonly string Name;
     public readonly string? Verb;
-    public readonly string Voice; // Corvax-TTS
+    public readonly string Voice; // ADT-Tweak
     public readonly string Bark; // ADT Barks
     public readonly float Pitch; // ADT Barks
     public readonly string? JobIconId; // ADT-Tweak start

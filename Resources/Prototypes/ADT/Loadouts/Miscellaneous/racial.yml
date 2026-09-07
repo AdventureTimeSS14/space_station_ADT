@@ -1,4 +1,48 @@
-# ВОКСЫ
+#region Арахнид
+
+- type: loadout
+  id: ADTArachnidJumpsuitWeb
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - Arachnid
+  storage:
+    back:
+    - ClothingUniformJumpsuitWeb
+  groupBy: "arachniduniformweb"
+
+- type: loadout
+  id: ADTArachnidJumpskirtWeb
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - Arachnid
+  storage:
+    back:
+    - ClothingUniformJumpskirtWeb
+  groupBy: "arachniduniformweb"
+
+- type: loadout
+  id: ADTArachnidWinterWeb
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - Arachnid
+  storage:
+    back:
+    - ClothingOuterWinterWeb
+
+- type: loadout
+  id: ADTArachnidBootsWinterWeb
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - Arachnid
+  storage:
+    back:
+    - ClothingShoesBootsWinterWeb
+
+#region Вокс
 
 - type: loadout
   id: ADTVoxGloves
@@ -7,7 +51,7 @@
     species:
      - Vox
   storage:
-    back: 
+    back:
     - ADTClothingHandsGlovesVox
 
 - type: loadout
@@ -17,7 +61,7 @@
     species:
      - Vox
   storage:
-    back: 
+    back:
     - ADTClothingUniformVoxSuit
   groupBy: "voxuniform"
 
@@ -28,7 +72,7 @@
     species:
      - Vox
   storage:
-    back: 
+    back:
     - ADTClothingUniformVoxSuitBlue
   groupBy: "voxuniform"
 
@@ -39,7 +83,7 @@
     species:
      - Vox
   storage:
-    back: 
+    back:
     - ADTClothingUniformVoxSuitGreen
   groupBy: "voxuniform"
 
@@ -50,7 +94,7 @@
     species:
      - Vox
   storage:
-    back: 
+    back:
     - ADTClothingUniformVoxSuitPurple
   groupBy: "voxuniform"
 
@@ -61,7 +105,7 @@
     species:
      - Vox
   storage:
-    back: 
+    back:
     - ADTClothingUniformVoxSuitRed
   groupBy: "voxuniform"
 
@@ -72,7 +116,7 @@
     species:
      - Vox
   storage:
-    back: 
+    back:
     - ADTClothingUniformVoxSuitTeal
   groupBy: "voxuniform"
 
@@ -83,7 +127,7 @@
     species:
      - Vox
   storage:
-    back: 
+    back:
     - ADTClothingUniformVoxSuitYellow
   groupBy: "voxuniform"
 
@@ -94,7 +138,7 @@
     species:
      - Vox
   storage:
-    back: 
+    back:
     - ADTClothingOuterVoxRobe
 
 - type: loadout
@@ -104,5 +148,205 @@
     species:
      - Vox
   storage:
-    back: 
+    back:
     - ADTClothingShoesVoxSandals
+
+#region Урс
+
+- type: loadout
+  id: ADTUrsusMicrophone
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - UrsusSpecies
+  storage:
+    back:
+    - MicrophoneInstrument
+
+- type: loadout
+  id: ADTUrsusHatTophat
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - UrsusSpecies
+  storage:
+    back:
+    - ClothingHeadHatTophat
+
+- type: loadout
+  id: ADTUrsusOuterCoatUrs
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - UrsusSpecies
+  storage:
+    back:
+    - ADTClothingOuterCoatUrs
+
+#region КПБ
+
+- type: loadout
+  id: ADTIPCBurgerRobot
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - IPC
+  storage:
+    back:
+    - FoodBurgerRobot
+
+- type: loadout
+  id: ADTIPCHatCardborg
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - IPC
+  storage:
+    back:
+    - ClothingHeadHatCardborg
+
+- type: loadout
+  id: ADTIPCOuterCardborg
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - IPC
+  storage:
+    back:
+    - ClothingOuterCardborg
+
+#region Новакид
+
+- type: loadout
+  id: ADTNovakidRevolverRussian
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - NovakidSpecies
+  storage:
+    back:
+    - ADTWeaponRevolverRussian
+  groupBy: "novakidrevolver"
+
+- type: loadout
+  id: ADTNovakidCartridgeCap
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - NovakidSpecies
+  storage:
+    back:
+    - BoxCartridgeCap
+  groupBy: "novakidrevolver"
+
+- type: loadout
+  id: ADTNovakidHatCowboyWhite
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - NovakidSpecies
+  storage:
+    back:
+    - ClothingHeadHatCowboyWhite
+  groupBy: "novakidhatcowboy"
+
+- type: loadout
+  id: ADTNovakidHatCowboyBrown
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - NovakidSpecies
+  storage:
+    back:
+    - ClothingHeadHatCowboyBrown
+  groupBy: "novakidhatcowboy"
+
+- type: loadout
+  id: ADTNovakidHatCowboyBlack
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - NovakidSpecies
+  storage:
+    back:
+    - ClothingHeadHatCowboyBlack
+  groupBy: "novakidhatcowboy"
+
+- type: loadout
+  id: ADTNovakidHatCowboyRed
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - NovakidSpecies
+  storage:
+    back:
+    - ClothingHeadHatCowboyRed
+  groupBy: "novakidhatcowboy"
+
+- type: loadout
+  id: ADTNovakidHatCowboyGrey
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - NovakidSpecies
+  storage:
+    back:
+    - ClothingHeadHatCowboyGrey
+  groupBy: "novakidhatcowboy"
+
+- type: loadout
+  id: ADTNovakidHatCowboyBountyHunter
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - NovakidSpecies
+  storage:
+    back:
+    - ClothingHeadHatCowboyBountyHunter
+  groupBy: "novakidhatcowboy"
+
+- type: loadout
+  id: ADTNovakidBootsCowboyWhite
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - NovakidSpecies
+  storage:
+    back:
+    - ClothingShoesBootsCowboyWhite
+  groupBy: "novakidbootscowboy"
+
+- type: loadout
+  id: ADTNovakidBootsCowboyBrown
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - NovakidSpecies
+  storage:
+    back:
+    - ClothingShoesBootsCowboyBrown
+  groupBy: "novakidbootscowboy"
+
+- type: loadout
+  id: ADTNovakidBootsCowboyBlack
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - NovakidSpecies
+  storage:
+    back:
+    - ClothingShoesBootsCowboyBlack
+  groupBy: "novakidbootscowboy"
+
+- type: loadout
+  id: ADTNovakidBootsCowboyFancy
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+     - NovakidSpecies
+  storage:
+    back:
+    - ClothingShoesBootsCowboyFancy
+  groupBy: "novakidbootscowboy"
+
+# При добавлении новых предметов сохраняйте порядок рас!!!

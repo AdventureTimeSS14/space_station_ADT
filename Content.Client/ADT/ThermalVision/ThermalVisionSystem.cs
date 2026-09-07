@@ -21,6 +21,7 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
     private EntityUid? _effect;
     private bool _active;
     private bool _activeAlt;
+    private bool _activeHighlight;
     private bool _activeLightSources;
 
     private const string ScreenShaderId = "ADTThermalVisionScreenShader";
@@ -66,18 +67,15 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 
     private void AttemptAddVision(Entity<ThermalVisionComponent> ent)
     {
-        if (_active && _activeAlt != ent.Comp.UseAlternativeShader)
+        if (_active && (_activeAlt != ent.Comp.UseAlternativeShader || _activeHighlight != ent.Comp.HighlightOnly))
             AttemptRemoveVision(force: true);
 
         if (_active)
             return;
 
-        var shaderId = ent.Comp.UseAlternativeShader ? ScreenShaderAltId : ScreenShaderId;
-        if (!_prototypes.TryIndex<ShaderPrototype>(shaderId, out var screenShader))
-            return;
-
         _active = true;
         _activeAlt = ent.Comp.UseAlternativeShader;
+        _activeHighlight = ent.Comp.HighlightOnly;
 
         _throughWallsOverlay.IgnoredComponents.Clear();
         foreach (var name in ent.Comp.IgnoredComponents)
@@ -94,11 +92,15 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
             _overlayMan.AddOverlay(_lightSourcesOverlay);
         }
 
-        if (!ent.Comp.HighlightOnly)
-        {
-            _overlay = new ThermalVisionOverlay(screenShader);
-            _overlayMan.AddOverlay(_overlay);
-        }
+        if (ent.Comp.HighlightOnly)
+            return;
+
+        var shaderId = ent.Comp.UseAlternativeShader ? ScreenShaderAltId : ScreenShaderId;
+        if (!_prototypes.TryIndex<ShaderPrototype>(shaderId, out var screenShader))
+            return;
+
+        _overlay = new ThermalVisionOverlay(screenShader);
+        _overlayMan.AddOverlay(_overlay);
 
         _effect = SpawnAttachedTo(ent.Comp.EffectPrototype, Transform(ent).Coordinates);
         _xform.SetParent(_effect.Value, ent.Owner);
@@ -114,6 +116,7 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 
         _active = false;
         _activeAlt = false;
+        _activeHighlight = false;
 
         if (_overlay != null)
         {

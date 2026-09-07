@@ -736,6 +736,19 @@
   recipeType:
   - Assembler
 
+- type: microwaveMealRecipe
+  id: ADTFoodSnackHematogenBarRecipe
+  name: hematogen bar
+  result: ADTFoodSnackHematogenBar
+  time: 5
+  group: Dessert
+  reagents:
+    Sugar: 5
+    ADTCondensedMilk: 5
+    Blood: 5
+  recipeType:
+  - Oven
+
 # Kebabs
 - type: microwaveMealRecipe
   id: RecipeMeatKebab

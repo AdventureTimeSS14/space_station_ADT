@@ -1,0 +1,24 @@
+<Document>
+  # Улучшения снаряжения
+
+  Раскалённые магмитовые детали позволяют улучшить обычное шахтёрское снаряжение в [color=#ff7a1a]магмитовые версии[/color].
+
+  Чтобы улучшить снаряжение, вам нужно взять раскалённые детали магмита в руку и нажать ими по снаряжению, которое можно улучшить.
+
+  Список снаряжения, которое можно улучшить находится ниже.
+
+  ## Оружие
+
+  <GuideWorldAnvilUpgradeEmbed Base="WeaponCrusher" Result="ADTWeaponCrusherMagmite"/>
+  <GuideWorldAnvilUpgradeEmbed Base="ADTWeaponExperimentalProtoKineticAcellerator" Result="ADTWeaponProtoKineticAcceleratorMagmite"/>
+  <GuideWorldAnvilUpgradeEmbed Base="ADTWeaponCutterAdv" Result="ADTWeaponCutterMagmite"/>
+
+  ## Инструменты
+
+  <GuideWorldAnvilUpgradeEmbed Base="MineralScannerUnpowered" Result="ADTMineralScannerMagmite"/>
+  <GuideWorldAnvilUpgradeEmbed Base="AdvancedMineralScannerUnpowered" Result="ADTAdvancedMineralScannerMagmite"/>
+
+  ## Снаряжение
+
+  <GuideWorldAnvilUpgradeEmbed Base="ADTGpsMining" Result="ADTGpsMagmite"/>
+</Document>

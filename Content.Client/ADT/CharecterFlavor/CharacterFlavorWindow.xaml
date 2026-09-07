@@ -4,8 +4,8 @@
                       xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
                       xmlns:ui="clr-namespace:Robust.Client.UserInterface.Controls;assembly=Robust.Client"
                       Title="{Loc 'flavor-interface-lable'}"
-                      MinSize="600 468"
-                      SetSize="800 670">
+                      MinSize="785 468"
+                      SetSize="985 670">
 
         <BoxContainer Orientation="Vertical"
                       Margin="10"
@@ -20,15 +20,12 @@
                           Margin="8"/>
             </BoxContainer>
 
-            <!-- ВЕРХНИЙ РЯД -->
             <BoxContainer Orientation="Horizontal"
                           HorizontalExpand="True"
-
-                          SetHeight="300"
+                          VerticalExpand="True"
                           SeparationOverride="10">
 
-                <!-- Headshot-->
-                <PanelContainer VerticalExpand="True" SetWidth="275" Name="HeadshotContainer" >
+                <PanelContainer HorizontalExpand="True" VerticalExpand="True" Name="HeadshotContainer" >
                     <PanelContainer.PanelOverride>
                         <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
                     </PanelContainer.PanelOverride>
@@ -40,8 +37,10 @@
                                   Margin="5 0 5 5"/>
 
                         <TextureRect Name="HeadshotImage"
-                                    SetSize="250 250"
-                                    MaxSize="250 250"
+                                    HorizontalExpand="True"
+                                    VerticalExpand="True"
+                                    CanShrink="True"
+                                    RectClipContent="True"
                                     Stretch="KeepAspectCentered">
                             <RichTextLabel Name="HeadshotLoadingLabel"
                                            HorizontalAlignment="Center"
@@ -50,64 +49,63 @@
                     </BoxContainer>
                 </PanelContainer>
 
-                <!-- FLAVOR TEXT -->
-                <PanelContainer VerticalExpand="True" HorizontalExpand="True">
-                    <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
-                    </PanelContainer.PanelOverride>
+                <Control Name="HeadshotSpacer"
+                         HorizontalExpand="True"
+                         Visible="False"/>
 
-                    <BoxContainer Orientation="Vertical" Margin="8">
-                        <ui:Label Text="{Loc 'flavor-interface-flavor-text-title'}"
-                                  StyleClasses="LabelHeading"
-                                  Margin="8 0"/>
+                <BoxContainer Orientation="Vertical"
+                              SetWidth="420"
+                              VerticalExpand="True"
+                              SeparationOverride="10">
 
-                        <ScrollContainer VerticalExpand="True"
-                                         HorizontalExpand="True"
-                                         VScrollEnabled="True"
-                                         HScrollEnabled="False">
-                            <ui:RichTextLabel Name="FlavorTextLabel"
-                                              HorizontalExpand="True"
-                                              VerticalAlignment="Top"
-                                              HorizontalAlignment="Left"
-                                              Margin="8"/>
-                        </ScrollContainer>
-                    </BoxContainer>
-                </PanelContainer>
-            </BoxContainer>
+                    <PanelContainer VerticalExpand="True" HorizontalExpand="True">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
+                        </PanelContainer.PanelOverride>
 
-            <!-- НИЖНИЙ РЯД -->
-            <BoxContainer Orientation="Horizontal"
-                          HorizontalExpand="True"
-                          VerticalExpand="True"
-                          SeparationOverride="10"
-                          Margin="0 10 0 0">
+                        <BoxContainer Orientation="Vertical" Margin="8">
+                            <ui:Label Text="{Loc 'flavor-interface-flavor-text-title'}"
+                                      StyleClasses="LabelHeading"
+                                      Margin="8 0"/>
 
-                <!-- CUSTOM SPECIES -->
-                <PanelContainer HorizontalExpand="True" VerticalExpand="True" >
-                    <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
-                    </PanelContainer.PanelOverride>
+                            <ScrollContainer VerticalExpand="True"
+                                             HorizontalExpand="True"
+                                             VScrollEnabled="True"
+                                             HScrollEnabled="False">
+                                <ui:RichTextLabel Name="FlavorTextLabel"
+                                                  HorizontalExpand="True"
+                                                  VerticalAlignment="Top"
+                                                  HorizontalAlignment="Left"
+                                                  Margin="8"/>
+                            </ScrollContainer>
+                        </BoxContainer>
+                    </PanelContainer>
 
-                    <BoxContainer Orientation="Vertical" Margin="8">
-                        <ui:Label Name="CustomSpeciesTitle"
-                                  Text="{Loc 'flavor-interface-custom-species'}"
-                                  StyleClasses="LabelHeading"
-                                  Margin="8 0"/>
+                    <PanelContainer VerticalExpand="True" HorizontalExpand="True">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
+                        </PanelContainer.PanelOverride>
 
-                        <ScrollContainer VerticalExpand="True"
-                                         HorizontalExpand="True"
-                                         VScrollEnabled="True"
-                                         HScrollEnabled="False">
-                            <ui:RichTextLabel Name="CustomSpeciesLabel"
-                                              Text="{Loc 'flavor-interface-no-custom-species-desc'}"
-                                              HorizontalExpand="True"
-                                              VerticalAlignment="Top"
-                                              HorizontalAlignment="Left"
-                                              Margin="8"/>
-                        </ScrollContainer>
-                    </BoxContainer>
-                </PanelContainer>
+                        <BoxContainer Orientation="Vertical" Margin="8">
+                            <ui:Label Name="CustomSpeciesTitle"
+                                      Text="{Loc 'flavor-interface-custom-species'}"
+                                      StyleClasses="LabelHeading"
+                                      Margin="8 0"/>
 
+                            <ScrollContainer VerticalExpand="True"
+                                             HorizontalExpand="True"
+                                             VScrollEnabled="True"
+                                             HScrollEnabled="False">
+                                <ui:RichTextLabel Name="CustomSpeciesLabel"
+                                                  Text="{Loc 'flavor-interface-no-custom-species-desc'}"
+                                                  HorizontalExpand="True"
+                                                  VerticalAlignment="Top"
+                                                  HorizontalAlignment="Left"
+                                                  Margin="8"/>
+                            </ScrollContainer>
+                        </BoxContainer>
+                    </PanelContainer>
+                </BoxContainer>
             </BoxContainer>
         </BoxContainer>
 </controls:FancyWindow>

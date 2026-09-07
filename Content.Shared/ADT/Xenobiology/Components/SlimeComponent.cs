@@ -8,7 +8,7 @@ namespace Content.Shared.ADT.Xenobiology.Components;
 /// <summary>
 /// Stores important information about slimes.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class SlimeComponent : Component
 {
     /// <summary>
@@ -20,13 +20,13 @@ public sealed partial class SlimeComponent : Component
     /// <summary>
     /// What color is the slime?
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public Color SlimeColor = Color.FromHex("#FFFFFF");
 
     /// <summary>
     /// What is the current slime's current breed?
     /// </summary>
-    [DataField(required: true), AutoNetworkedField]
+    [DataField(required: true)]
     public ProtoId<BreedPrototype> Breed = "GreyMutation";
 
     /// <summary>
@@ -39,7 +39,7 @@ public sealed partial class SlimeComponent : Component
     /// <summary>
     /// If the mutation chance is met, what potential mutations are available?
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public HashSet<ProtoId<BreedPrototype>> PotentialMutations = new();
 
     /// <summary>
@@ -69,7 +69,7 @@ public sealed partial class SlimeComponent : Component
     /// <summary>
     /// The entity which has tamed this slime.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? Tamer;
 
     [DataField]
@@ -84,56 +84,56 @@ public sealed partial class SlimeComponent : Component
     /// <summary>
     /// The maximum amount of offspring produced by mitosis.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public int MaxOffspring = 4;
 
     /// <summary>
     /// How many extracts will be produced by this slime?
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public int ExtractsProduced = 1;
 
     /// <summary>
     /// What is the chance of offspring mutating? (this is per/offspring)
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float MutationChance = 0.45f;
 
     /// <summary>
     /// What hunger threshold must be met for mitosis?
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float MitosisHunger = 125f;
 
     /// <summary>
     /// How long in between each mitosis/breeding check?
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
 
     /// <summary>
     /// When is the next mitosis/breeding check?
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan NextUpdateTime;
 
     /// <summary>
     /// What should the minimum difference be between the current hunger and the mitosis hunger
     /// before the entity starts to shake?
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float JitterDifference = 25f;
 
     /// <summary>
     /// Should this slime have a shader?
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public bool ShouldHaveShader;
 
     /// <summary>
     /// Which shader are we using?
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public string? Shader;
 
     /// <summary>
@@ -148,14 +148,14 @@ public sealed partial class SlimeComponent : Component
     [DataField]
     public SoundPathSpecifier EatSound = new("/Audio/Voice/Talk/slime.ogg");
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float FriendSightRange = 10f;
 
     /// <summary>
     /// How much this slime likes its tamer. 0-1.
     /// Grows when the slime eats monkeys, shrinks when upset.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float Friendship;
 
     /// <summary>
@@ -167,13 +167,13 @@ public sealed partial class SlimeComponent : Component
     /// <summary>
     /// How much friendship is required for the slime to follow commands.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float MinFriendshipToCommand = 0.15f;
 
     /// <summary>
     /// How much friendship is lost when the slime refuses an order.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float FriendshipLossOnRefusal = 0.1f;
 
     [ViewVariables(VVAccess.ReadOnly)]
@@ -182,9 +182,9 @@ public sealed partial class SlimeComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextFollowUpdate;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float ChaseSpeedMultiplier = 1.3f;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan StopDuration = TimeSpan.FromSeconds(10);
 }

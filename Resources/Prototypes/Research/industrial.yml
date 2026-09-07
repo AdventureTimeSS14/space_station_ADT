@@ -50,7 +50,7 @@
   cost: 7500
   recipeUnlocks:
   - PowerCellHigh
-  - TurboItemRechargerCircuitboard
+  # - TurboItemRechargerCircuitboard # ADT-Tweak
   - SMESAdvancedMachineCircuitboard
 # ADT Research Console Rework start
   position: 0,-1
@@ -85,9 +85,11 @@
   tier: 1
   cost: 10000
   recipeUnlocks:
-  - AutolatheHyperConvectionMachineCircuitboard
-  - ProtolatheHyperConvectionMachineCircuitboard
-  - CircuitImprinterHyperConvectionMachineCircuitboard
+  # ADT-Tweak-Start
+  # - AutolatheHyperConvectionMachineCircuitboard
+  # - ProtolatheHyperConvectionMachineCircuitboard
+  # - CircuitImprinterHyperConvectionMachineCircuitboard
+  # ADT-Tweak-End
   - SheetifierMachineCircuitboard
 # ADT Research Console Rework start
   position: 1,2
@@ -184,7 +186,7 @@
   tier: 2
   cost: 7500
   recipeUnlocks:
-  - HellfireFreezerMachineCircuitBoard
+  # - HellfireFreezerMachineCircuitBoard # ADT-Tweak
   - PortableScrubberMachineCircuitBoard
   - HolofanProjector
   technologyPrerequisites:

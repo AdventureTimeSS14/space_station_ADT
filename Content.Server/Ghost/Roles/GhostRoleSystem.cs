@@ -835,7 +835,7 @@ public sealed class GhostRoleSystem : EntitySystem
 
         var mind = EnsureComp<MindContainerComponent>(uid);
 
-        if (mind.HasMind)
+        if (mind.HasMind && !component.IgnoreMindCheck) // ADT-Heretic
         {
             args.TookRole = false;
             return;
@@ -921,6 +921,13 @@ public sealed class GhostRoleSystem : EntitySystem
 
         SetMode(entity.Owner, ghostRoleProto, ghostRoleProto.Name, entity.Comp);
     }
+
+    // ADT-Heretic-Start
+    public void SetTaken(GhostRoleComponent role, bool taken)
+    {
+        role.Taken = taken;
+    }
+    // ADT-Heretic-End
 }
 
 [AnyCommand]

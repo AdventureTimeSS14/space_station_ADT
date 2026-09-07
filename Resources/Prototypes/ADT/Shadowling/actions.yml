@@ -199,7 +199,7 @@
   - type: InstantAction
     event: !type:ADTShadowlingBlindnessSmokeEvent
   - type: ADTShadowlingBlindnessSmokeAction
-    smokeProto: Smoke
+    smokeProto: ADTShadowlingSmokeCloud
     reagent: ADTShadowlingSmoke
     reagentAmount: 100
     duration: 10
@@ -325,6 +325,8 @@
     shockwaveRange: 7
     shockwaveKnockdown: 20
     breakAllLights: true
+    sound:
+      path: /Audio/ADT/Shadowling/hilarious_agony.ogg
 
 - type: entity
   id: ADTActionAscendantAnnihilate

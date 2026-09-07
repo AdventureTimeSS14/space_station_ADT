@@ -18,8 +18,10 @@ using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Server.ADT.Language;  // ADT Languages
+using Content.Server.ADT.TTS;
 using Content.Shared.ADT.Language;  // ADT Languages
 using Content.Shared.ADT.Loudspeaker.Events;
+using Content.Shared.ADT.TTS;
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -145,6 +147,8 @@ public sealed class RadioSystem : EntitySystem
             ? FormattedMessage.EscapeText(message)
             : message;
 
+        content = ADTSpeechStress.Strip(content); // ADT-Tweak
+
         // ADT Languages start
         var languageEncodedContent = _language.ObfuscateMessage(messageSource, content, gen.Replacement, gen.ObfuscateSyllables, gen.ReplaceEntireMessage);
 
@@ -226,6 +230,7 @@ public sealed class RadioSystem : EntitySystem
         var hasActiveServer = HasActiveServer(sourceMapId, channel.ID);
         var sourceServerExempt = _exemptQuery.HasComp(radioSource);
 
+        var ttsReceivers = new List<EntityUid>(); // ADT-Tweak
         var radioQuery = EntityQueryEnumerator<ActiveRadioComponent, TransformComponent>();
         while (canSend && radioQuery.MoveNext(out var receiver, out var radio, out var transform))
         {
@@ -253,7 +258,13 @@ public sealed class RadioSystem : EntitySystem
 
             // send the message
             RaiseLocalEvent(receiver, ref ev);
+            ttsReceivers.Add(receiver); // ADT-Tweak
         }
+
+        // ADT-Tweak-Start
+        var ttsEv = new RadioSpokeEvent(messageSource, message, channel, ttsReceivers, language);
+        RaiseLocalEvent(ref ttsEv);
+        // ADT-Tweak-End
 
         if (name != Name(messageSource))
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Radio message from {ToPrettyString(messageSource):user} as {name} on {channel.LocalizedName}: {message}");

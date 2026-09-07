@@ -1,0 +1,11 @@
+<PanelContainer xmlns="https://spacestation14.io"
+                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                Margin="0 0 4 4">
+    <PanelContainer.PanelOverride>
+        <gfx:StyleBoxFlat BackgroundColor="#3b3547" BorderThickness="1" BorderColor="#5a5268"/>
+    </PanelContainer.PanelOverride>
+    <BoxContainer Orientation="Horizontal" Margin="6 3 6 3">
+        <RichTextLabel Name="CountLabel" VerticalAlignment="Center"/>
+        <RichTextLabel Name="NameLabel" VerticalAlignment="Center" Margin="5 0 0 0"/>
+    </BoxContainer>
+</PanelContainer>

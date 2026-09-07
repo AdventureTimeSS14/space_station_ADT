@@ -165,7 +165,7 @@ public readonly record struct StorageBeforeOpenEvent;
 public readonly record struct StorageAfterOpenEvent;
 
 [ByRefEvent]
-public record struct StorageCloseAttemptEvent(EntityUid? User, bool Cancelled = false);
+public record struct StorageCloseAttemptEvent(EntityUid? User, bool Silent = false, bool Cancelled = false); // ADT-Tweak: добавлено поле Silent для симметрии с StorageOpenAttemptEvent
 
 [ByRefEvent]
 public readonly record struct StorageBeforeCloseEvent(HashSet<EntityUid> Contents, HashSet<EntityUid> BypassChecks);

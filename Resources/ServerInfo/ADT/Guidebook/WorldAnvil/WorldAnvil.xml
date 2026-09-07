@@ -1,0 +1,20 @@
+<Document>
+  # Мировая Кузня
+
+  Древняя наковальня на Лаваленде, соединённая лавовыми резервуарами с ядром планеты. Она переплавляет [color=#ff7a1a]плазменный магмит[/color] в раскалённые детали улучшений, а те превращают шахтёрское снаряжение в магмитовые версии.
+
+  <Box>
+    <GuideEntityEmbed Entity="ADTWorldAnvil" Caption=""/>
+  </Box>
+
+  ## Что понадобится
+
+  Вам понадобится оружие шахтёра (крушитель или кирка), [color=#a3be8c]сканер минералов[/color] для поиска жил магмита и обезвреживания гибтонита, а ещё [color=#5EC6FF]шахтёрский GPS[/color], чтоб найти Кузню.
+
+  ## С чего читать
+
+  - [textlink="С чего начать" link="ADTWorldAnvilStart"]
+  - [textlink="Материалы: магмит и гибтонит" link="ADTWorldAnvilMaterials"]
+  - [textlink="Ковка" link="ADTWorldAnvilForging"]
+  - [textlink="Улучшения снаряжения" link="ADTWorldAnvilUpgrades"]
+</Document>

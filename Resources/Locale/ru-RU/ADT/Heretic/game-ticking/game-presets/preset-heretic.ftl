@@ -33,3 +33,17 @@ ghostrole-prophet-desc = Помогите мастеру достичь Возн
 ghostrole-stalker-desc = Помогите мастеру достичь Вознесения. Перемещайтесь сквозь стены с помощью способности и саботируйте освещение.
 ghostrole-ghoul-rules = Вы являетесь [color=red][bold]Командным антагонистом[/bold][/color] и действуете с тем, кто вас призвал, и остальными сверхъестественными существами.
 ghoul-death-revert = Кажется, его внешний вид приходит в норму
+
+# ADT: добавлено при актуализации еретика с Goob
+roundend-prepend-heretic-ascension-fail-owls = { $name }, [color=red] отказался от своего вознесения и, таким образом, потерпел неудачу![/color]
+ghostrole-fire-shark-name = Палящая акула
+ghostrole-rustwalker-name = Ржавый ходок
+ghostrole-stargazer-name = Звездный наблюдатель
+ghostrole-stargazer-desc = Помогите своему призывателю привнести хаос.
+ghostrole-rustwalker-desc = Помогите своему призывателю достичь вознесения. Распространите ржавчину повсюду.
+ghostrole-fire-shark-desc = Помогите вашему призывателю достичь вознесения. Сжигайте своих жертв.
+ghostrole-flesh-mimic-desc = Помогите вознестись своему призывателю. Помните, что со временем вы умрёте.
+ghostrole-flesh-mimic-name = Имитатор плоти
+heretic-ghoul-briefing-end = Подчиняйтесь воле своего призывателя, не смотря ни на что.
+heretic-ghoul-briefing-start = Вы были призваны в этот мир { CAPITALIZE($ent) }!
+heretic-ghoul-briefing-start-noname = Вы были призваны в этот мир сверхъестественной силой.

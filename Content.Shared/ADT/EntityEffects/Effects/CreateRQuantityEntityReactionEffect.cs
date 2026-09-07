@@ -19,6 +19,13 @@ public sealed partial class CreateRQuantityEntityReactionEffect : EntityEffect
         var ev = new CreateRQuantityEntityEvent(Entity, MaxEntities, target);
         raiser.RaiseEffectEvent(target, ev, scale, user);
     }
+
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    {
+        return Loc.GetString("entity-effect-guidebook-create-random-entity-reaction",
+            ("amount", MaxEntities),
+            ("entname", GuidebookTextHelpers.LocalizedEntityName(prototype, Entity)));
+    }
 }
 
 public sealed partial class CreateRQuantityEntityEvent : EntityEffectBase<CreateRQuantityEntityEvent>

@@ -8,25 +8,25 @@ namespace Content.Shared.ADT.Xenobiology.Components;
 /// <summary>
 /// This is used for mob growth between baby, adult etc...
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class MobGrowthComponent : Component
 {
     /// <summary>
     /// What hunger threshold must be reached to grow?
     /// </summary>
-    [DataField(required: true), AutoNetworkedField]
+    [DataField(required: true)]
     public float HungerRequired = 100f;
 
     /// <summary>
     /// How much hunger does growing consume?
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float GrowthCost = -75f;
 
     /// <summary>
     /// What is the mob's current growth stage?
     /// </summary>
-    [DataField(required: true), AutoNetworkedField]
+    [DataField(required: true)]
     public string CurrentStage;
 
     [ViewVariables(VVAccess.ReadOnly)]
@@ -38,13 +38,13 @@ public sealed partial class MobGrowthComponent : Component
     /// <summary>
     /// A list of available stages.
     /// </summary>
-    [DataField(required: true), AutoNetworkedField]
+    [DataField(required: true)]
     public Dictionary<string, GrowthStageData> Stages = [];
 
-    [ViewVariables, AutoNetworkedField]
+    [ViewVariables]
     public TimeSpan NextGrowthTime;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan GrowthInterval = TimeSpan.FromSeconds(1);
 
     /// <summary>

@@ -11,9 +11,9 @@
   name: adt-cursed-katana-move-cut
   martialArtsForm: CursedKatana
   attacks:
+  - Help
   - Harm
-  - Harm
-  - Harm
+  - HarmLight
   event: !type:KatanaTendonCutPerformedEvent {}
 
 - type: combo
@@ -22,7 +22,7 @@
   martialArtsForm: CursedKatana
   attacks:
   - HarmLight
-  - HarmLight
+  - Grab
   - HarmLight
   event: !type:KatanaHiltStrikePerformedEvent {}
 
@@ -32,7 +32,7 @@
   martialArtsForm: CursedKatana
   attacks:
   - Grab
-  - Grab
+  - HarmLight
   - Grab
   event: !type:KatanaDashPerformedEvent {}
 
@@ -41,8 +41,6 @@
   name: adt-cursed-katana-move-heal
   martialArtsForm: CursedKatana
   attacks:
-  - Help
-  - Help
   - Help
   - Help
   event: !type:KatanaDarkHealPerformedEvent {}

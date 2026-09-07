@@ -1,4 +1,4 @@
-using Content.Shared.Corvax.TTS;
+using Content.Shared.ADT.TTS;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.ADT.Language;
 using Content.Shared.Examine;

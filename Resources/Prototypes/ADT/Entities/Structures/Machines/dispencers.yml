@@ -116,7 +116,7 @@
       #  1: 
       2: { TableSalt: 4, Water: 3, WeldingFuel: 8 }
       3: { Benzene: 10, Hydroxide: 8, Fersilicite: 12 }
-      4: { Uranium: 15, Plasma: 12, Siderlac: 15 }
+      4: { Uranium: 15, Plasma: 12 }
       5: { Omnizine: 50, Cognizine: 50, Diethylamine: 10 }
     reagentsEmagged:
       Puncturase: 15

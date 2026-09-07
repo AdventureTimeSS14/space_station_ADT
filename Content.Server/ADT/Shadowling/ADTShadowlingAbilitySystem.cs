@@ -19,6 +19,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Gibbing;
+using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Light;
@@ -85,6 +86,7 @@ public sealed partial class ADTShadowlingAbilitySystem : EntitySystem
     [Dependency] private readonly ADTDeafnessSystem _deafness = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _statusNew = default!;
+    [Dependency] private readonly SharedGameTicker _gameTicker = default!;
 
     public override void Initialize()
     {

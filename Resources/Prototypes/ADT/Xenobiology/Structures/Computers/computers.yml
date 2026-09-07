@@ -69,6 +69,14 @@
       state: tech_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+  - type: EyeControlConsole
+    eyeProto: ADTCameraEyeXeno
+    area: AreaXenobio
+    actions:
+    - ADTActionXenobiologyCaptureSlime
+    - ADTActionXenobiologyPlaceSlime
+    - ADTActionXenobiologyFeedMonkey
+    - ADTActionXenobiologyRecycleMonkey
   - type: XenobiologyControlConsole
   - type: DeviceNetwork
     deviceNetId: Wired

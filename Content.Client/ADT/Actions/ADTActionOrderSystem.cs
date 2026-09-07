@@ -16,17 +16,21 @@ public sealed class ADTActionOrderSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IUserInterfaceManager _ui = default!;
 
-    private readonly Dictionary<EntProtoId, int> _order = new();
+    private readonly List<EntProtoId> _order = new();
+    private readonly Dictionary<EntProtoId, int> _places = new();
     private readonly HashSet<EntProtoId> _removed = new();
+
     private EntityUid? _cachedFor;
     private EntityUid? _syncedFor;
+
+    private bool _pendingSend;
 
     public IReadOnlyDictionary<EntProtoId, int> Order
     {
         get
         {
             EnsureCache();
-            return _order;
+            return _places;
         }
     }
 
@@ -49,50 +53,63 @@ public sealed class ADTActionOrderSystem : EntitySystem
 
     private void OnLocalPlayerAttached(LocalPlayerAttachedEvent ev)
     {
+        _pendingSend = false;
         _cachedFor = null;
+        _syncedFor = null;
         RebuildCache(ev.Entity);
+
+        _ui.GetUIController<ActionUIController>().ReloadActionOrder();
     }
 
     private void OnHandleState(Entity<ADTActionOrderComponent> ent, ref AfterAutoHandleStateEvent args)
     {
         var wasSynced = _syncedFor == ent.Owner;
-        
+
         _syncedFor = ent.Owner;
 
         if (_player.LocalEntity != ent.Owner)
             return;
 
         if (wasSynced && _cachedFor == ent.Owner)
+        {
+            Flush();
             return;
+        }
 
         RebuildCache(ent.Owner);
         _ui.GetUIController<ActionUIController>().ReloadActionOrder();
+
+        Flush();
     }
 
     public void SetRemoved(EntProtoId action, bool removed)
     {
-        if (!CanStore(out _))
+        if (_player.LocalEntity == null)
             return;
 
         EnsureCache();
 
         if (removed)
         {
-            _removed.Add(action);
+            if (!_removed.Add(action))
+                return;
+        }
+        else if (!_removed.Remove(action))
+        {
             return;
         }
 
-        _removed.Remove(action);
+        Send();
     }
 
     public void Store(List<EntityUid?> actions)
     {
-        if (!CanStore(out _))
+        if (_player.LocalEntity == null)
             return;
 
         EnsureCache();
 
-        var order = new List<EntProtoId>();
+        var present = new List<EntProtoId>();
         foreach (var action in actions)
         {
             if (action is not { } actionId)
@@ -101,48 +118,63 @@ public sealed class ADTActionOrderSystem : EntitySystem
             if (GetActionProto(actionId) is not { } proto)
                 continue;
 
-            if (order.Contains(proto))
+            if (present.Contains(proto))
                 continue;
 
-            order.Add(proto);
+            present.Add(proto);
         }
 
-        foreach (var (proto, place) in _order.OrderBy(entry => entry.Value))
+        foreach (var proto in present)
         {
-            if (order.Count >= MaxOrderEntries)
-                break;
-
-            if (order.Contains(proto))
+            if (_places.ContainsKey(proto) || _order.Count >= MaxOrderEntries)
                 continue;
 
-            order.Insert(Math.Min(place, order.Count), proto);
+            _order.Add(proto);
+            _places[proto] = _order.Count - 1;
         }
 
-        _order.Clear();
-        for (var i = 0; i < order.Count; i++)
+        present.RemoveAll(proto => !_places.ContainsKey(proto));
+
+        var slots = new List<int>();
+        for (var i = 0; i < _order.Count; i++)
         {
-            _order[order[i]] = i;
+            if (present.Contains(_order[i]))
+                slots.Add(i);
         }
 
-        var removed = _removed.Count > MaxOrderEntries
-            ? _removed.Take(MaxOrderEntries).ToList()
-            : _removed.ToList();
+        var count = Math.Min(slots.Count, present.Count);
+        for (var i = 0; i < count; i++)
+        {
+            _order[slots[i]] = present[i];
+        }
 
-        RaiseNetworkEvent(new ADTActionOrderChangeEvent(order, removed));
+        RebuildPlaces();
+        Send();
     }
 
-    private bool CanStore(out EntityUid player)
+    private void Send()
     {
-        player = default;
+        if (_player.LocalEntity is not { } uid)
+            return;
 
-        if (_player.LocalEntity is not { } uid || _syncedFor != uid)
-            return false;
+        if (_syncedFor != uid)
+        {
+            _pendingSend = true;
+            return;
+        }
 
-        if (!HasComp<ADTActionOrderComponent>(uid))
-            return false;
+        _pendingSend = false;
 
-        player = uid;
-        return true;
+        if (TryComp(uid, out ADTActionOrderComponent? order) && Matches(order))
+            return;
+
+        RaiseNetworkEvent(new ADTActionOrderChangeEvent(_order.ToList(), _removed.ToList()));
+    }
+
+    private void Flush()
+    {
+        if (_pendingSend)
+            Send();
     }
 
     private void EnsureCache()
@@ -156,6 +188,7 @@ public sealed class ADTActionOrderSystem : EntitySystem
     private void RebuildCache(EntityUid? player)
     {
         _order.Clear();
+        _places.Clear();
         _removed.Clear();
         _cachedFor = player;
 
@@ -164,18 +197,31 @@ public sealed class ADTActionOrderSystem : EntitySystem
 
         if (!order.Order.IsDefaultOrEmpty)
         {
-            for (var i = 0; i < order.Order.Length; i++)
+            foreach (var action in order.Order)
             {
-                _order[order.Order[i]] = i;
+                if (_places.ContainsKey(action))
+                    continue;
+
+                _order.Add(action);
+                _places[action] = _order.Count - 1;
             }
         }
 
-        if (!order.Removed.IsDefaultOrEmpty)
+        if (order.Removed.IsDefaultOrEmpty)
+            return;
+
+        foreach (var action in order.Removed)
         {
-            foreach (var action in order.Removed)
-            {
-                _removed.Add(action);
-            }
+            _removed.Add(action);
+        }
+    }
+
+    private void RebuildPlaces()
+    {
+        _places.Clear();
+        for (var i = 0; i < _order.Count; i++)
+        {
+            _places[_order[i]] = i;
         }
     }
 
@@ -189,7 +235,7 @@ public sealed class ADTActionOrderSystem : EntitySystem
 
         for (var i = 0; i < orderCount; i++)
         {
-            if (!_order.TryGetValue(order.Order[i], out var place) || place != i)
+            if (order.Order[i] != _order[i])
                 return false;
         }
 

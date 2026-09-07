@@ -24,6 +24,20 @@
                 Name="ClaimPointsButton"
                 Text="{Loc 'ore-furnace-menu-claim-points'}"/>
         </BoxContainer>
+        <BoxContainer
+            Orientation="Horizontal"
+            HorizontalExpand="True">
+            <Label
+                Name="SiloLinkLabel"
+                HorizontalExpand="True"
+                VerticalAlignment="Center"/>
+            <Button
+                Name="SiloLinkButton"
+                Text="{Loc 'ore-furnace-menu-silo-link'}"/>
+            <Button
+                Name="FindSiloButton"
+                Text="{Loc 'ore-furnace-menu-find-silo'}"/>
+        </BoxContainer>
         <Button
             Name="SmeltEverythingButton"
             Text="{Loc 'ore-furnace-menu-smelt-everything'}"

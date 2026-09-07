@@ -59,6 +59,7 @@
     entity: ADTMobAscendantPhased
     forced: true
     ignoreAllowRepeatedMorphs: true
+    duration: 10
     transferName: true
     revertOnCrit: false
     revertOnDeath: false

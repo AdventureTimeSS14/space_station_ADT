@@ -62,11 +62,12 @@ public sealed partial class StatusEffectsSystem : EntitySystem
                 continue;
 
             //ADT-Tweak-start
-            if (effect.AppliedTo is not {} appliedTo)
-                continue;
-
-            if (_containerQuery.TryComp(appliedTo, out var containerComp) && containerComp.ActiveStatusEffects != null)
+            if (effect.AppliedTo is { } appliedTo
+                && _containerQuery.TryComp(appliedTo, out var containerComp)
+                && containerComp.ActiveStatusEffects != null)
+            {
                 _container.Remove(ent, containerComp.ActiveStatusEffects, reparent: false, force: true);
+            }
             //ADT-tweak-end
 
             PredictedQueueDel(ent);

@@ -444,7 +444,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
     public bool CanClose(EntityUid target, EntityUid? user = null, bool silent = false)
     {
-        var ev = new StorageCloseAttemptEvent(user);
+        var ev = new StorageCloseAttemptEvent(user, silent); // ADT-Tweak: передаём silent в событие
         RaiseLocalEvent(target, ref ev, silent);
 
         return !ev.Cancelled;

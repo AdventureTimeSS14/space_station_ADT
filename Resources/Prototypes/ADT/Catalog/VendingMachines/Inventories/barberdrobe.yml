@@ -1,13 +1,18 @@
 - type: vendingMachineInventory
   id: ADTBarberdrobeInventory
   startingInventory:
-    ADTClothingUniformJumpsuitBarber: 3
-    ADTClothingUniformJumpsuitBarberBrown: 3
-    ADTClothingUniformJumpskirtBarber: 3
-    ADTClothingUniformJumpskirtBarberBrown: 3
-    ADTClothingOuterApronBarber: 2
-    ClothingHeadsetService: 2
-    ClothingShoesColorBlack: 2
-    ClothingShoesBootsLaceup: 2
-    ClothingHeadBandBlack: 1
-    ClothingHandsGlovesColorBlack: 2
+    ADTVendingCategoryUniforms: # ADT-Tweak
+        ADTClothingUniformJumpsuitBarber: 3
+        ADTClothingUniformJumpsuitBarberBrown: 3
+        ADTClothingUniformJumpskirtBarber: 3
+        ADTClothingUniformJumpskirtBarberBrown: 3
+    ADTVendingCategoryOuter: # ADT-Tweak
+        ADTClothingOuterApronBarber: 2
+    ADTVendingCategoryShoes: # ADT-Tweak
+        ClothingShoesColorBlack: 2
+        ClothingShoesBootsLaceup: 2
+    ADTVendingCategoryHead: # ADT-Tweak
+        ClothingHeadBandBlack: 1
+    ADTVendingCategoryAccessories: # ADT-Tweak
+        ClothingHeadsetService: 2
+        ClothingHandsGlovesColorBlack: 2
