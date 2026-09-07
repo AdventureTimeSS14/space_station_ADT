@@ -15011,3 +15011,9 @@ Entries:
     id: 1893
     pr_number: 3322
     time: '2026-09-07T07:45:37Z'
+  - author: Golyb4ik
+    changes:
+      - {message: Изменена цена черт Кокни и Мягкая походка, type: Tweak}
+    id: 1894
+    pr_number: 3325
+    time: '2026-09-07T07:46:38Z'
