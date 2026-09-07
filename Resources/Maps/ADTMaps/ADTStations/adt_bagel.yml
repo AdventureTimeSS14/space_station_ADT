@@ -24336,8 +24336,6 @@ entities:
       pos: -19.5,-5.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 668
   - uid: 1167
@@ -72155,28 +72153,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingEyesGlassesThermal
-  entities:
-  - uid: 10331
-    components:
-    - type: Transform
-      pos: -14.696509,35.400528
-      parent: 2
-  - uid: 10332
-    components:
-    - type: Transform
-      pos: -29.677883,32.358677
-      parent: 2
-  - uid: 10333
-    components:
-    - type: Transform
-      pos: -29.771633,32.686802
-      parent: 2
-  - uid: 10334
-    components:
-    - type: Transform
-      pos: -29.099758,32.639927
-      parent: 2
 - proto: ClothingEyesHudSecurity
   entities:
   - uid: 87
@@ -123110,8 +123086,6 @@ entities:
       pos: -21.5,-3.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 668
     - type: AtmosPipeLayers
@@ -123158,8 +123132,6 @@ entities:
       pos: -22.5,-5.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 668
     - type: AtmosPipeLayers
