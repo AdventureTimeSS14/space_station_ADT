@@ -119,6 +119,30 @@
   speciesBlacklist:
   - NovakidSpecies
 
+- type: trait
+  id: Debts
+  name: trait-debts-name
+  description: trait-debts-description
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:StartingBalanceEffect
+      balance: 0
+  conflicts:
+    - OnEdgeOfBankruptcy
+
+- type: trait
+  id: OnEdgeOfBankruptcy
+  name: trait-on-edge-of-bankruptcy-name
+  description: trait-on-edge-of-bankruptcy-description
+  category: Disabilities
+  cost: -2
+  effects:
+    - !type:StartingBalanceEffect
+      balance: -500
+  conflicts:
+    - Debts
+
 # Система аллергии не работала, трайт давал очко ни за что.
 #- type: trait
 #  id: Allergic
