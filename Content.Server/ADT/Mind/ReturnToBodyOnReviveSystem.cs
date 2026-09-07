@@ -1,5 +1,6 @@
 using Content.Server.EUI;
 using Content.Server.Ghost;
+using Content.Shared.ADT.Silicon;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Robust.Shared.Player;
@@ -16,21 +17,15 @@ public sealed class ReturnToBodyOnReviveSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<ReturnToBodyPromptEvent>(OnReturnToBodyPrompt);
+        SubscribeLocalEvent<MobIpcComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
 
-    private void OnMobStateChanged(MobStateChangedEvent ev)
+    private void OnMobStateChanged(Entity<MobIpcComponent> ent, ref MobStateChangedEvent ev)
     {
         if (ev.OldMobState != MobState.Dead || ev.NewMobState != MobState.Alive)
             return;
 
-        QueueLocalEvent(new ReturnToBodyPromptEvent(ev.Target));
-    }
-
-    private void OnReturnToBodyPrompt(ReturnToBodyPromptEvent ev)
-    {
-        var uid = ev.Target;
+        var uid = ent.Owner;
 
         if (Deleted(uid) ||
             !_mind.TryGetMind(uid, out var mindUid, out var mindComp) ||
@@ -41,15 +36,5 @@ public sealed class ReturnToBodyOnReviveSystem : EntitySystem
         }
 
         _eui.OpenEui(new ReturnToBodyEui(mindComp, _mind, _player), playerSession);
-    }
-}
-
-public sealed class ReturnToBodyPromptEvent : EntityEventArgs
-{
-    public EntityUid Target { get; }
-
-    public ReturnToBodyPromptEvent(EntityUid target)
-    {
-        Target = target;
     }
 }
