@@ -116,11 +116,4 @@ public sealed class DisplacementMapSystem : EntitySystem
 
         _sprite.RemoveLayer(sprite.AsNullable(), displacementLayerKey, false);
     }
-
-    // ADT-Tweak start
-    public static bool IsDisplacementKey(string key)
-    {
-        return key.EndsWith("-displacement", StringComparison.Ordinal);
-    }
-    // ADT-Tweak end
 }

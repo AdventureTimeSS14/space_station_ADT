@@ -354,8 +354,13 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
             Title = Loc.GetString("vending-paint-window-title"),
         };
 
-        if (_dummies.TryGetValue(entry.ID, out var dummy))
+        if (_dummies.TryGetValue(entry.ID, out var oldDummy))
+        {
+            _entityManager.DeleteEntity(oldDummy);
+            var dummy = _entityManager.Spawn(entry.ID);
+            _dummies[entry.ID] = dummy;
             _colorWindow.SetDummy(dummy);
+        }
 
         if (listItem.PaintColor is { } color)
             _colorWindow.SetColor(color);

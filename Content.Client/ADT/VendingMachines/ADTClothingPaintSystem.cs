@@ -1,4 +1,4 @@
-using Content.Client.DisplacementMap;
+using Content.Client.ADT.DisplacementMap;
 using Content.Shared.ADT.VendingMachines;
 using Content.Shared.Clothing;
 using Content.Shared.Hands;
@@ -29,7 +29,7 @@ public sealed class ADTClothingPaintSystem : EntitySystem
         var i = 0;
         foreach (var layer in sprite.AllLayers)
         {
-            if (IsPaintable(layer))
+            if (IsPaintable(ent.Comp, layer))
                 _sprite.LayerSetColor((ent, sprite), i, color);
 
             i++;
@@ -46,7 +46,7 @@ public sealed class ADTClothingPaintSystem : EntitySystem
 
         foreach (var revealed in args.RevealedLayers)
         {
-            if (!sprite.LayerMapTryGet(revealed, out var layer) || !IsPaintable(sprite[layer]))
+            if (!sprite.LayerMapTryGet(revealed, out var layer) || !IsPaintable(component, sprite[layer]))
                 continue;
 
             _sprite.LayerSetColor((args.User, sprite), layer, color);
@@ -63,16 +63,17 @@ public sealed class ADTClothingPaintSystem : EntitySystem
 
         foreach (var revealed in args.RevealedLayers)
         {
-            if (DisplacementMapSystem.IsDisplacementKey(revealed) ||
-                !sprite.LayerMapTryGet(revealed, out var layer) || !IsPaintable(sprite[layer]))
+            if (DisplacementMapHelper.IsDisplacementKey(revealed) ||
+                !sprite.LayerMapTryGet(revealed, out var layer) || !IsPaintable(component, sprite[layer]))
                 continue;
 
             _sprite.LayerSetColor((args.Equipee, sprite), layer, color);
         }
     }
 
-    public static bool IsPaintable(ISpriteLayer layer)
+    public static bool IsPaintable(ADTClothingPaintComponent? component, ISpriteLayer layer)
     {
-        return layer.RsiState.IsValid && layer.RsiState.Name?.StartsWith(ADTClothingPaintComponent.TrinketLayerPrefix) != true;
+        var prefix = component?.TrinketLayerPrefix ?? "trinkets";
+        return layer.RsiState.IsValid && layer.RsiState.Name?.StartsWith(prefix) != true;
     }
 }
