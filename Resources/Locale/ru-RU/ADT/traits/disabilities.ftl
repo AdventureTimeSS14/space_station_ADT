@@ -42,3 +42,9 @@ trait-paralyzed-desc = Ваши ноги парализованы. Вы не м�
 
 trait-clumsy-name = Неуклюжий
 trait-clumsy-desc = Вы немного склонны к несчастным случаям.
+
+trait-debts-name = Долги по кредитам
+trait-debts-description = Ваш банковский счёт начинает смену без денег.
+
+trait-on-edge-of-bankruptcy-name = На грани банкротства
+trait-on-edge-of-bankruptcy-description = Ваш банковский счёт начинает смену с минусовым счётом. Зарплата приходит как обычно и постепенно покрывает долг.
