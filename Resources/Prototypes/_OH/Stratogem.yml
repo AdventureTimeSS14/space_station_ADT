@@ -1,248 +1,336 @@
 
-# Сделать дольше время взрыва самого снаряда
+# Стратогемы: карманный предмет с выбором снаряда -> бросок маркера -> зона периодических
+# ударов на протяжении времени -> может быть подавлена консолью подавления (StratogemJammer).
 
-
-
-# база для работы
+# === Зоны ударов (StratogemStrike) ===
+# Невидимый для физики маркер, спавнящийся в точке падения броска и наносящий серию
+# взрывов в заданном радиусе на протяжении заданного времени. Спавнится через SpawnOnTrigger.
 
 - type: entity
   abstract: true
-  parent: [GrenadeBase, Incorporeal]
-  id: OHSTRATOGEMPROJECTILEBASE
+  id: OHStratogemStrikeZoneBase
+  name: stratogem strike zone
+  categories: [ HideSpawnMenu ]
   components:
-  - type: CanMoveInAir
-  - type: MovementIgnoreGravity
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 15
-        layer:
-        - GhostImpassable
   - type: Sprite
     drawdepth: Overdoors
     sprite: ADT/Effects/target_circle.rsi
     state: icon
-  - type: InteractionOutline
-  - type: TimedDespawn
-    lifetime: 10
+    color: "#ff000088"
   - type: PointLight
     energy: 0.3
     radius: 1
     color: "#ff0000"
-
-# Снаряды
+  - type: StratogemStrike
+    impactSound:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
 
 - type: entity
-  name: Воздушная бомба
-  parent: OHSTRATOGEMPROJECTILEBASE
-  id: OHstratogemcarpetbomb
+  parent: OHStratogemStrikeZoneBase
+  id: OHStratogemZoneCarpetBomb
   components:
-  - type: TriggerOnUse
-  - type: TimerTrigger
-    delay: 5
-  - type: ExplodeOnTrigger
-    keysIn:
-    - timer
-  - type: Explosive
+  - type: StratogemStrike
     explosionType: Default
     totalIntensity: 50
     intensitySlope: 5
     maxIntensity: 50
-  - type: Appearance
+    radius: 20
+    impactCount: 30
+    interval: 0.4
+  - type: TimedDespawn
+    lifetime: 20
 
 - type: entity
-  name: 120mm
-  parent: OHSTRATOGEMPROJECTILEBASE
-  id: OHstratogem120mm
+  parent: OHStratogemStrikeZoneBase
+  id: OHStratogemZone120mm
   components:
-  - type: TriggerOnUse
-  - type: TimerTrigger
-    delay: 5
-  - type: ExplodeOnTrigger
-    keysIn:
-    - timer
-  - type: Explosive
+  - type: StratogemStrike
     explosionType: HardBomb
     totalIntensity: 500
     intensitySlope: 5
     maxIntensity: 50
-  - type: Appearance
+    radius: 15
+    impactCount: 6
+    interval: 1.5
+  - type: TimedDespawn
+    lifetime: 15
 
 - type: entity
-  name: napalmbomb
-  parent: OHSTRATOGEMPROJECTILEBASE
-  id: OHstratogemnapalm
+  parent: OHStratogemStrikeZoneBase
+  id: OHStratogemZoneNapalm
   components:
-  - type: TriggerOnUse
-  - type: TimerTrigger
-    delay: 5
-  - type: ExplodeOnTrigger
-    keysIn:
-    - timer
-  - type: Explosive
+  - type: StratogemStrike
     explosionType: FireBomb
     totalIntensity: 300
     intensitySlope: 5
     maxIntensity: 50
-  - type: Appearance
+    radius: 15
+    impactCount: 6
+    interval: 1.2
+  - type: TimedDespawn
+    lifetime: 15
 
 - type: entity
-  name: 380mm
-  parent: OHSTRATOGEMPROJECTILEBASE
-  id: OHstratogem380mm
+  parent: OHStratogemStrikeZoneBase
+  id: OHStratogemZone380mm
   components:
-  - type: TriggerOnUse
-  - type: TimerTrigger
-    delay: 5
-  - type: ExplodeOnTrigger
-    keysIn:
-    - timer
-  - type: Explosive
+  - type: StratogemStrike
     explosionType: HardBomb
     totalIntensity: 1500
     intensitySlope: 5
     maxIntensity: 50
-  - type: Appearance
+    radius: 20
+    impactCount: 3
+    interval: 2.5
+  - type: TimedDespawn
+    lifetime: 15
 
 - type: entity
-  name: БСА
-  parent: OHSTRATOGEMPROJECTILEBASE
-  id: OHstratogemBSA
+  parent: OHStratogemStrikeZoneBase
+  id: OHStratogemZoneBSA
   components:
-  - type: TriggerOnUse
-  - type: TimerTrigger
-    delay: 5
-  - type: ExplodeOnTrigger
-    keysIn:
-    - timer
-  - type: Explosive
+  - type: StratogemStrike
     explosionType: HardBomb
     totalIntensity: 5000
     intensitySlope: 5
     maxIntensity: 50
-  - type: Appearance
+    radius: 5
+    impactCount: 1
+    interval: 1
+  - type: TimedDespawn
+    lifetime: 10
 
-# Атакующие стратогемы
-
+# === Атакующие стратогемы (бросаемые маркеры) ===
+# Бросок -> взводится таймер -> по истечении маркер спавнит зону удара на месте своего
+# падения и удаляется. Сама зона удара подавляется, если рядом есть StratogemJammer.
 
 - type: entity
-  parent: ScatteringGrenadeBase
+  parent: TimerGrenadeBase
   id: OHtrowablestratogemcarpetbomb
   name: stratogem
-  description: Releases a bothersome spray of foam darts that cause severe welching.
+  description: Вызывает воздушную бомбардировку в указанной точке.
   components:
   - type: Sprite
     sprite: _OH/Entities/Stratogem/StratogemON.rsi
     state: icon
-  - type: ScatteringGrenade
-    fillPrototype: OHstratogemcarpetbomb
-    capacity: 30
-    velocity: 12
-    randomDistance: true
-    randomThrowDistanceMax: 30
-  - type: TriggerOnUse
   - type: TimerTrigger
     delay: 5
-  - type: EmitSoundOnTrigger
-    sound:
-      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+    beepSound:
+      path: /Audio/Effects/beep1.ogg
+      params:
+        volume: 5
+  - type: GenericVisualizer
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        enum.ConstructionVisuals.Layer:
+          Primed: { visible: false }
+          Unprimed: { visible: false }
+  - type: SpawnOnTrigger
+    keysIn:
+    - timer
+    proto: OHStratogemZoneCarpetBomb
+    useMapCoords: true
+  - type: DeleteOnTrigger
+    keysIn:
+    - timer
+  - type: PointLight
+    enabled: true
+    radius: 0
+    energy: 3
+    color: "#ff0000"
+  - type: LightBehaviorOnTrigger
+    behavior: glow
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: glow
+      maxDuration: 0.3
+      startValue: 0
+      endValue: 3
 
 - type: entity
-  parent: ScatteringGrenadeBase
+  parent: TimerGrenadeBase
   id: OHtrowablestratogem120mm
   name: stratogem
-  description: Releases a bothersome spray of foam darts that cause severe welching.
+  description: Вызывает удар 120мм снарядами в указанной точке.
   components:
   - type: Sprite
     sprite: _OH/Entities/Stratogem/StratogemON.rsi
     state: icon
-  - type: ScatteringGrenade
-    fillPrototype: OHstratogem120mm
-    capacity: 6
-    velocity: 12
-    randomDistance: true
-    randomThrowDistanceMax: 25
-  - type: TriggerOnUse
   - type: TimerTrigger
     delay: 5
-  - type: EmitSoundOnTrigger
-    sound:
-      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+    beepSound:
+      path: /Audio/Effects/beep1.ogg
+      params:
+        volume: 5
+  - type: GenericVisualizer
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        enum.ConstructionVisuals.Layer:
+          Primed: { visible: false }
+          Unprimed: { visible: false }
+  - type: SpawnOnTrigger
+    keysIn:
+    - timer
+    proto: OHStratogemZone120mm
+    useMapCoords: true
+  - type: DeleteOnTrigger
+    keysIn:
+    - timer
+  - type: PointLight
+    enabled: true
+    radius: 0
+    energy: 3
+    color: "#ff0000"
+  - type: LightBehaviorOnTrigger
+    behavior: glow
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: glow
+      maxDuration: 0.3
+      startValue: 0
+      endValue: 3
 
 - type: entity
-  parent: ScatteringGrenadeBase
+  parent: TimerGrenadeBase
   id: OHtrowablestratogemnapalm
   name: stratogem
-  description: Releases a bothersome spray of foam darts that cause severe welching.
+  description: Вызывает напалмовый удар в указанной точке.
   components:
   - type: Sprite
     sprite: _OH/Entities/Stratogem/StratogemON.rsi
     state: icon
-  - type: ScatteringGrenade
-    fillPrototype: OHstratogemnapalm
-    capacity: 6
-    velocity: 12
-    randomDistance: true
-    randomThrowDistanceMax: 25
-  - type: TriggerOnUse
   - type: TimerTrigger
     delay: 5
-  - type: EmitSoundOnTrigger
-    sound:
-      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+    beepSound:
+      path: /Audio/Effects/beep1.ogg
+      params:
+        volume: 5
+  - type: GenericVisualizer
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        enum.ConstructionVisuals.Layer:
+          Primed: { visible: false }
+          Unprimed: { visible: false }
+  - type: SpawnOnTrigger
+    keysIn:
+    - timer
+    proto: OHStratogemZoneNapalm
+    useMapCoords: true
+  - type: DeleteOnTrigger
+    keysIn:
+    - timer
+  - type: PointLight
+    enabled: true
+    radius: 0
+    energy: 3
+    color: "#ff0000"
+  - type: LightBehaviorOnTrigger
+    behavior: glow
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: glow
+      maxDuration: 0.3
+      startValue: 0
+      endValue: 3
 
 - type: entity
-  parent: ScatteringGrenadeBase
+  parent: TimerGrenadeBase
   id: OHtrowablestratogem380mm
   name: stratogem
-  description: Releases a bothersome spray of foam darts that cause severe welching.
+  description: Вызывает удар 380мм снарядами в указанной точке.
   components:
   - type: Sprite
     sprite: _OH/Entities/Stratogem/StratogemON.rsi
     state: icon
-  - type: ScatteringGrenade
-    fillPrototype: OHstratogem380mm
-    capacity: 3
-    velocity: 12
-    randomDistance: true
-    randomThrowDistanceMax: 50
-  - type: TriggerOnUse
   - type: TimerTrigger
     delay: 8
-  - type: EmitSoundOnTrigger
-    sound:
-      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+    beepSound:
+      path: /Audio/Effects/beep1.ogg
+      params:
+        volume: 5
+  - type: GenericVisualizer
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        enum.ConstructionVisuals.Layer:
+          Primed: { visible: false }
+          Unprimed: { visible: false }
+  - type: SpawnOnTrigger
+    keysIn:
+    - timer
+    proto: OHStratogemZone380mm
+    useMapCoords: true
+  - type: DeleteOnTrigger
+    keysIn:
+    - timer
+  - type: PointLight
+    enabled: true
+    radius: 0
+    energy: 3
+    color: "#ff0000"
+  - type: LightBehaviorOnTrigger
+    behavior: glow
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: glow
+      maxDuration: 0.3
+      startValue: 0
+      endValue: 3
 
 - type: entity
-  parent: ScatteringGrenadeBase
+  parent: TimerGrenadeBase
   id: OHtrowablestratogemBSA
   name: stratogem
-  description: Releases a bothersome spray of foam darts that cause severe welching.
+  description: Вызывает удар БСА в указанной точке.
   components:
   - type: Sprite
     sprite: _OH/Entities/Stratogem/StratogemON.rsi
     state: icon
-  - type: ScatteringGrenade
-    fillPrototype: OHstratogemBSA
-    capacity: 1
-    velocity: 12
-  - type: TriggerOnUse
   - type: TimerTrigger
     delay: 10
-  - type: EmitSoundOnTrigger
-    sound:
-      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+    beepSound:
+      path: /Audio/Effects/beep1.ogg
+      params:
+        volume: 5
+  - type: GenericVisualizer
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        enum.ConstructionVisuals.Layer:
+          Primed: { visible: false }
+          Unprimed: { visible: false }
+  - type: SpawnOnTrigger
+    keysIn:
+    - timer
+    proto: OHStratogemZoneBSA
+    useMapCoords: true
+  - type: DeleteOnTrigger
+    keysIn:
+    - timer
+  - type: PointLight
+    enabled: true
+    radius: 0
+    energy: 3
+    color: "#ff0000"
+  - type: LightBehaviorOnTrigger
+    behavior: glow
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: glow
+      maxDuration: 0.3
+      startValue: 0
+      endValue: 3
 
 # Универсальная стратогема
 
 - type: entity
-  parent: ScatteringGrenadeBase
+  parent: BaseItem
   id: OHUniversalstratogem
   name: Универсальная стратогема
-  description: хуйня для выбора стратогем
+  description: Карманное устройство для вызова стратогем. При выборе типа снаряда выдаёт соответствующий бросаемый маркер.
   components:
   - type: Sprite
     sprite: _OH/Entities/Stratogem/StratogemOFF.rsi
@@ -324,7 +412,7 @@
     sprite: _OH/Stratogem/Stratogemicons.rsi
     state: supplies
   content:
-  - OHstratogemsupply
+  - OHstratogemsupplypack
 
 
 
@@ -339,6 +427,11 @@
   - type: Sprite
     sprite: _OH/Stratogem/Stratogemicons.rsi
     state: supplies
+  - type: PointLight
+    enabled: true
+    radius: 1.5
+    energy: 2
+    color: "#00baff"
   #- type: ActivatableUI
   #  key: enum.MiningVoucherUiKey.Key
   #- type: UserInterface
@@ -350,3 +443,71 @@
   #  typeDropPlace: ThisPlace
   #  typeDrop: Rocket
 
+# === Подавление стратогем ===
+# Консоль, гасящая вызовы стратогем в своём радиусе действия: любая зона удара,
+# появившаяся в этом радиусе, отменяется без единого взрыва.
+
+- type: entity
+  id: OHStratogemJammer
+  parent: [ BaseMachine ]
+  suffix: Jammer 100
+  name: консоль подавления стратогем
+  description: Создаёт помехи наведению стратогем в радиусе действия, блокируя нанесение ими ударов.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Rotatable
+  - type: Transform
+    anchored: true
+    noRot: false
+  - type: Sprite
+    sprite: Structures/Machines/computers.rsi
+    layers:
+    - state: computer
+    - state: generic
+      shader: unshaded
+  - type: Appearance
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: StratogemJammer
+    range: 100
+
+- type: entity
+  id: OHStratogemJammer50
+  parent: [ BaseMachine ]
+  suffix: Jammer 50
+  name: консоль подавления стратогем
+  description: Создаёт помехи наведению стратогем в радиусе действия, блокируя нанесение ими ударов.
+  components:
+  - type: StratogemJammer
+    range: 50
+
+- type: entity
+  id: OHStratogemJammer25
+  parent: [ BaseMachine ]
+  suffix: Jammer 25
+  name: консоль подавления стратогем
+  description: Создаёт помехи наведению стратогем в радиусе действия, блокируя нанесение ими ударов.
+  components:
+  - type: StratogemJammer
+    range: 25
