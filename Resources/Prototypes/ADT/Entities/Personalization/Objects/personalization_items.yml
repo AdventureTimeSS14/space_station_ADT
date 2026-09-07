@@ -1783,6 +1783,9 @@
     containers:
       item:
       - CaptainSabre
+      storagebase:
+      - MagazineMagnum
+      - ADTMagazineMagnumLesser
   - type: Appearance
   - type: ClothingSpeedModifier
     walkModifier: 1.0
@@ -1800,12 +1803,7 @@
       storagebase: !type:Container
         ents: []
       item: !type:ContainerSlot
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: MagazineMagnum
-        - id: ADTMagazineMagnumLesser
+
 
 # - type: entity
 #   name: Prazat Chainsword
