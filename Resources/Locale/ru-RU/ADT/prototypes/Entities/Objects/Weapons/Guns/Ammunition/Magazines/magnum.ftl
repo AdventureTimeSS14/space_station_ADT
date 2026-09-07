@@ -4,7 +4,7 @@ ent-ADTMagazineMagnumIncendiary = пистолетный магазин (.44 м�
 ent-ADTBaseMagazineMagnumLesser = пистолетный магазин (.357 магнум)
     .desc = { ent-BaseMagazinePistol.desc }
 
-ent-ADTMagazineMagnumLesserEmpty = пистолетный магазин (.357 магнум любые)
+ent-ADTMagazineMagnumLesserEmpty = пистолетный магазин (.357 магнум, пустой)
     .desc = { ent-BaseMagazinePistol.desc }
 
 ent-ADTMagazineMagnumLesser = пистолетный магазин (.357 магнум)
