@@ -68,7 +68,7 @@
   description: 7-round single stack magazine for large-caliber pistols. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeMagnum
+    proto: ADTCartridgeMagnumLesser
   - type: Sprite
     layers:
     - state: base

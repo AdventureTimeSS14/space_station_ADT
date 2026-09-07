@@ -836,6 +836,74 @@
   - type: StaticPrice
     price: 100
 
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformJumpsuitPrazatOfficial
+  name: Prazat clothing
+  description: Prazat clothing
+  suffix: Personal, PrazzzCool999
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_official_uniform.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_official_uniform.rsi
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialDurathread1
+      amount: 3
+  - type: StaticPrice
+    price: 100
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: unfold-verb-clothing-jacket
+    foldVerbText: fold-verb-clothing-jacket
+  - type: FoldableClothing
+    foldedEquippedPrefix: folded
+
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformJumpsuitPrazatUlan
+  name: Prazat clothing
+  description: Prazat clothing
+  suffix: Personal, PrazzzCool999
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_ulan_uniform.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_ulan_uniform.rsi
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialDurathread1
+      amount: 3
+  - type: StaticPrice
+    price: 100
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: unfold-verb-clothing-jacket
+    foldVerbText: fold-verb-clothing-jacket
+  - type: FoldableClothing
+    foldedEquippedPrefix: folded
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingUniformJumpsuitPrazatMentik
+  name: Prazat clothing
+  description: Prazat clothing
+  suffix: Personal, PrazzzCool999
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_mentik.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_mentik.rsi
+    slots:
+    - outerClothing
+    - neck
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+
 #Saint_madman
 
 - type: entity
