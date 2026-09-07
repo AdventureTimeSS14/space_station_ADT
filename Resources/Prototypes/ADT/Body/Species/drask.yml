@@ -53,11 +53,9 @@
     enum.HumanoidVisualLayers.RHand:
       limit: 2
       required: false
-      default: [ DraskArmRight ]
     enum.HumanoidVisualLayers.LHand:
       limit: 2
       required: false
-      default: [ DraskArmLeft ]
     enum.HumanoidVisualLayers.RLeg:
       limit: 2
       required: false
