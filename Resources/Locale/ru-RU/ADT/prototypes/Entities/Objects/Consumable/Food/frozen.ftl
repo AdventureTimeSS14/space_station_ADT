@@ -221,6 +221,9 @@ ent-ADTFoodFrozenPackedVanillaIceCream = { ent-ADTFoodFrozenVanillaIceCream }
 ent-ADTFoodFrozenPackedWatermelonPopsicle = { ent-ADTFoodFrozenWatermelonPopsicle }
     .desc = { ent-ADTFoodFrozenWatermelonPopsicle.desc }
 
+ent-ADTFoodFrozenPackedPopsicleSlime = { ent-ADTFoodFrozenPopsicleSlime }
+    .desc = { ent-ADTFoodFrozenPopsicleSlime.desc }
+
 #=======
 # Мусор
 #=======
@@ -261,7 +264,7 @@ ent-ADTFoodFrozenPopsicleAppleTrash = обёртка от яблочного э�
 ent-ADTFoodFrozenPopsicleBananaTrash = обёртка от эскимо со вкусом банана
     .desc = Мусор
 
-ent-ADTFoodFrozenPopsicleMoleTrash = обёртка от эскимо со вкусом моли
+ent-ADTFoodFrozenPopsicleMoleTrash = обёртка от эскимо в виде моли
     .desc = Мусор
 
 ent-ADTFoodFrozenRandomFruitIceTrash = обёртка от мороженого
@@ -294,3 +297,5 @@ ent-ADTFoodFrozenVanillaIceCreamTrash = обёртка от ванильного
 ent-ADTFoodFrozenWatermelonPopsicleTrash = обёртка от эскимо со вкусом арбуза
     .desc = Мусор
 
+ent-ADTFoodFrozenPopsicleSlime = обёртка от эскимо в виде слайма
+    .desc = Съешь меня >:3
