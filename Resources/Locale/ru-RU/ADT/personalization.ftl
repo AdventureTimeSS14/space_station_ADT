@@ -501,7 +501,7 @@ ent-ADTClothingUniformJumpsuitPrazatMentik = ментик капитана
     .suffix = { "Именное, PrazzzCool999" }
 
 ent-ADTPrazatWhip = кавалерийская плеть
-    .desc = нструмент для управления лошадью и средство самообороны.
+    .desc = Инструмент для управления лошадью и средство самообороны.
     .suffix = { "Именное, PrazzzCool999" }
 
 ent-ADTClothingBeltPrazatSheath = сабельные ножны с кобурой
