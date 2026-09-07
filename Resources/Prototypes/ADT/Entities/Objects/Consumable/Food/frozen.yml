@@ -452,8 +452,8 @@
   - type: Tag
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenChocolateFreezy
       - id: ADTFoodFrozenChocolateFreezyTrash
+      - id: ADTFoodFrozenChocolateFreezy
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -466,8 +466,8 @@
     state: chocolatefreezy_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenChocolateFreezy
       - id: ADTFoodFrozenChocolateFreezyTrash
+      - id: ADTFoodFrozenChocolateFreezy
 
 - type: entity
   name: Frozen Packed
@@ -478,8 +478,8 @@
     state: chocolateicecream_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenChocolateIceCream
       - id: ADTFoodFrozenChocolateIceCreamTrash
+      - id: ADTFoodFrozenChocolateIceCream
 
 - type: entity
   name: Frozen Packed
@@ -490,8 +490,8 @@
     state: chocolatepopsicle_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenChocolatePopsicle
       - id: ADTFoodFrozenChocolatePopsicleTrash
+      - id: ADTFoodFrozenChocolatePopsicle
 
 - type: entity
   name: Frozen Packed
@@ -502,8 +502,8 @@
     state: chocolatepopsiclewithnuts_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenChocolatePopsicleWithNuts
       - id: ADTFoodFrozenChocolatePopsicleWithNutsTrash
+      - id: ADTFoodFrozenChocolatePopsicleWithNuts
 
 - type: entity
   name: Frozen Packed
@@ -514,8 +514,8 @@
     state: icecreamwafflecone_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenIceCreamWafflecone
       - id: ADTFoodFrozenIceCreamWaffleconeTrash
+      - id: ADTFoodFrozenIceCreamWafflecone
 
 - type: entity
   name: Frozen Packed
@@ -526,8 +526,8 @@
     state: icecreamwaffleconenuts_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenIceCreamWaffleconeNuts
       - id: ADTFoodFrozenIceCreamWaffleconeNutsTrash
+      - id: ADTFoodFrozenIceCreamWaffleconeNuts
 
 - type: entity
   name: Frozen Packed
@@ -538,8 +538,8 @@
     state: jumbopopsicle_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenPopsicleJumbo
       - id: ADTFoodFrozenPopsicleJumboTrash
+      - id: ADTFoodFrozenPopsicleJumbo
 
 - type: entity
   name: Frozen Packed
@@ -550,8 +550,8 @@
     state: melonpopsicle_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenMelonPopsicle
       - id: ADTFoodFrozenMelonPopsicleTrash
+      - id: ADTFoodFrozenMelonPopsicle
 
 - type: entity
   name: Frozen Packed
@@ -562,8 +562,8 @@
     state: orangepopsicle_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenOrangePopsicle
       - id: ADTFoodFrozenOrangePopsicleTrash
+      - id: ADTFoodFrozenOrangePopsicle
 
 - type: entity
   name: Frozen Packed
@@ -574,8 +574,8 @@
     state: pineapplechocolate_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenPineappleChocolate
       - id: ADTFoodFrozenPineappleChocolateTrash
+      - id: ADTFoodFrozenPineappleChocolate
 
 - type: entity
   name: Frozen Packed
@@ -586,8 +586,8 @@
     state: popsicleapple_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenPopsicleApple
       - id: ADTFoodFrozenPopsicleAppleTrash
+      - id: ADTFoodFrozenPopsicleApple
 
 - type: entity
   name: Frozen Packed
@@ -598,8 +598,8 @@
     state: popsiclebanana_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenPopsicleBanana
       - id: ADTFoodFrozenPopsicleBananaTrash
+      - id: ADTFoodFrozenPopsicleBanana
 
 - type: entity
   name: Frozen Packed
@@ -610,8 +610,8 @@
     state: popsiclemole_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenPopsicleMole
       - id: ADTFoodFrozenPopsicleMoleTrash
+      - id: ADTFoodFrozenPopsicleMole
 
 - type: entity
   name: Frozen Packed
@@ -643,8 +643,8 @@
     state: seasaltppopsicle_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenPopsicleSeaSalt
       - id: ADTFoodFrozenPopsicleSeaSaltTrash
+      - id: ADTFoodFrozenPopsicleSeaSalt
 
 - type: entity
   name: Frozen Packed
@@ -655,8 +655,8 @@
     state: spacefreezy_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenSpaceFreezy
       - id: ADTFoodFrozenSpaceFreezyTrash
+      - id: ADTFoodFrozenSpaceFreezy
 
 - type: entity
   name: Frozen Packed
@@ -667,8 +667,8 @@
     state: spaceicecream_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenSpaceIceCream
       - id: ADTFoodFrozenSpaceIceCreamTrash
+      - id: ADTFoodFrozenSpaceIceCream
 
 - type: entity
   name: Frozen Packed
@@ -679,8 +679,8 @@
     state: strawberryicecream_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenStrawberryIceCream
       - id: ADTFoodFrozenStrawberryIceCreamTrash
+      - id: ADTFoodFrozenStrawberryIceCream
 
 - type: entity
   name: Frozen Packed
@@ -691,8 +691,8 @@
     state: threeflavorsfreezy_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenThreeFlavorsFreezy
       - id: ADTFoodFrozenThreeFlavorsFreezyTrash
+      - id: ADTFoodFrozenThreeFlavorsFreezy
 
 - type: entity
   name: Frozen Packed
@@ -703,8 +703,8 @@
     state: threeflavorspopsicle_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenThreeFlavorsPopsicle
       - id: ADTFoodFrozenThreeFlavorsPopsicleTrash
+      - id: ADTFoodFrozenThreeFlavorsPopsicle
 
 - type: entity
   name: Frozen Packed
@@ -715,8 +715,8 @@
     state: vanillafreezy_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenVanillaFreezy
       - id: ADTFoodFrozenVanillaFreezyTrash
+      - id: ADTFoodFrozenVanillaFreezy
 
 - type: entity
   name: Frozen Packed
@@ -727,8 +727,8 @@
     state: vanillaicecream_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenVanillaIceCream
       - id: ADTFoodFrozenVanillaIceCreamTrash
+      - id: ADTFoodFrozenVanillaIceCream
 
 - type: entity
   name: Frozen Packed
@@ -739,8 +739,20 @@
     state: watermelonpopsicle_packing
   - type: SpawnItemsOnUse
     items:
-      - id: ADTFoodFrozenWatermelonPopsicle
       - id: ADTFoodFrozenWatermelonPopsicleTrash
+      - id: ADTFoodFrozenWatermelonPopsicle
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedPopsicleSlime
+  components:
+  - type: Sprite
+    state: popsicleslime_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenPopsicleSlimeTrash
+      - id: ADTFoodFrozenPopsicleSlime
 
 # Мусор
 
@@ -969,3 +981,12 @@
   components:
   - type: Sprite
     state: watermelonpopsicle_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenPopsicleSlimeTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: popsicleslime_trash

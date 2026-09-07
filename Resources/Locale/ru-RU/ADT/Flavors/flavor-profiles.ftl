@@ -1,4 +1,4 @@
-flavor-complex-adtconsideredmilk = как сгущенка
+flavor-complex-adtconsideredmilk = как сгущёнка
 flavor-complex-summershade = как прохлада, тень и арбузы
 flavor-complex-wintersun = как молоко с кофе
 flavor-complex-hungoverangel = как избавление от боли в висках
