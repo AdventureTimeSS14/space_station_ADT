@@ -25,6 +25,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Shared.ADT.Areas;
 using Content.Shared.ADT.Grab;
 using Content.Shared.ADT.MartialArts;
 using Content.Goobstation.Shared.Changeling.Components; // ADT-Tweak
@@ -115,6 +116,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private readonly AreaSystem _area = default!;
 
     public static readonly EntProtoId MartsGenericSlow = "MartialArtsGenericSlowdownEffect";
 
@@ -507,29 +509,19 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             return false;
         }
 
-        if (cqc.Blocked && comp.MartialArtsForm == MartialArtsForms.CloseQuartersCombat)
+        if (cqc.MartialArtsForm == comp.MartialArtsForm)
         {
-            _popupSystem.PopupEntity(Loc.GetString("cqc-success-unblocked"), user, user);
+            if (cqc.Blocked || cqc.AllowedAreas is not null && comp.AllowedAreas is null)
+                _popupSystem.PopupEntity(Loc.GetString("cqc-success-unblocked"), user, user);
+
             cqc.Blocked = false;
+            cqc.AllowedAreas = comp.AllowedAreas;
+            Dirty(user, cqc);
             return true;
         }
 
         _popupSystem.PopupEntity(Loc.GetString("cqc-fail-already"), user, user);
         return false;
-    }
-
-    public bool TryGrantMartialArt(EntityUid user, ProtoId<MartialArtPrototype> martialArt, LocId? learnMessage = null)
-    {
-        if (!_proto.TryIndex(martialArt, out var proto))
-            return false;
-
-        var grant = new GrantCqcComponent
-        {
-            MartialArtsForm = proto.MartialArtsForm,
-            LearnMessage = learnMessage,
-        };
-
-        return TryGrantMartialArt(user, grant);
     }
 
     private bool GrantMartialArt(GrantMartialArtKnowledgeComponent comp, EntityUid user)
@@ -576,6 +568,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         }
 
         martialArtsKnowledgeComponent.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
+        martialArtsKnowledgeComponent.AllowedAreas = comp.AllowedAreas;
         //martialArtsKnowledgeComponent.StartingStage = martialArtsPrototype.StartingStage;
         LoadCombos(martialArtsPrototype.RoundstartCombos, canPerformComboComponent);
         martialArtsKnowledgeComponent.Blocked = false;
@@ -592,6 +585,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         newDamage.DamageDict.Add(martialArtsPrototype.DamageModifierType, martialArtsPrototype.BaseDamageModifier);
         meleeWeaponComponent.Damage += newDamage;
 
+        Dirty(user, martialArtsKnowledgeComponent);
         Dirty(user, canPerformComboComponent);
         Dirty(user, pullerComponent);
         return true;
@@ -632,6 +626,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             return false;
         }
 
+        if (!CanUseMartialArtInArea((ent.Owner, knowledgeComponent)))
+            return false;
+
         if (!proto.CanDoWhileProne && IsDown(ent))
         {
             _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-prone"), ent, ent);
@@ -656,6 +653,15 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
             return !standingState.Standing;
         }
+    }
+
+    protected bool CanUseMartialArtInArea(Entity<MartialArtsKnowledgeComponent> knowledge)
+    {
+        if (knowledge.Comp.AllowedAreas is not { Count: > 0 } allowedAreas)
+            return true;
+
+        var area = _area.GetAreaPrototypeId(Transform(knowledge.Owner).Coordinates);
+        return area is not null && allowedAreas.Contains(area.Value);
     }
 
     private void DoDamage(EntityUid ent,
