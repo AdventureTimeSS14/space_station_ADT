@@ -1,6 +1,6 @@
 using Content.Server.EUI;
 using Content.Server.Ghost;
-using Content.Shared.ADT.Silicon;
+using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Robust.Shared.Player;
@@ -17,10 +17,10 @@ public sealed class ReturnToBodyOnReviveSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MobIpcComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<SiliconComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
 
-    private void OnMobStateChanged(Entity<MobIpcComponent> ent, ref MobStateChangedEvent ev)
+    private void OnMobStateChanged(Entity<SiliconComponent> ent, ref MobStateChangedEvent ev)
     {
         if (ev.OldMobState != MobState.Dead || ev.NewMobState != MobState.Alive)
             return;
