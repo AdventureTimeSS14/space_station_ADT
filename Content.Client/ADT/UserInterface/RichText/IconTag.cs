@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.ADT.CCVar;
+using Content.Shared.ADT.Heretic.Prototypes;
 using Content.Shared.StatusIcon;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -35,12 +36,20 @@ public sealed class IconTag : IMarkupTag
 
         _spriteSystem ??= _entitySystem.GetEntitySystem<SpriteSystem>();
 
-        if (!_prototype.TryIndex<JobIconPrototype>(id.StringValue, out var jobProto))
+        SpriteSpecifier? spec;
+
+        if (_prototype.TryIndex<JobIconPrototype>(id.StringValue, out var jobProto))
+            spec = jobProto.Icon;
+        else if (_prototype.TryIndex<HereticRitualItemPrototype>(id.StringValue, out var ritualItemProto))
+            spec = ritualItemProto.Icon;
+        else
             return false;
 
-        var spec = jobProto.Icon;
+        var size = IconSize;
+        if (node.Attributes.TryGetValue("size", out var sizeAttr) && sizeAttr.LongValue is { } parsedSize)
+            size = (int)parsedSize;
 
-        control = CreateIconControl(spec);
+        control = CreateIconControl(spec, size);
 
         if (control != null && node.Attributes.TryGetValue("tooltip", out var tooltip) && tooltip.StringValue != null)
             control.ToolTip = tooltip.StringValue;
@@ -48,46 +57,46 @@ public sealed class IconTag : IMarkupTag
         return control != null;
     }
 
-    private Control? CreateIconControl(SpriteSpecifier spec)
+    private Control? CreateIconControl(SpriteSpecifier spec, int size)
     {
         try
         {
             var state = _spriteSystem!.RsiStateLike(spec);
 
             if (state.IsAnimated)
-                return CreateAnimatedIcon(spec);
+                return CreateAnimatedIcon(spec, size);
 
-            return CreateStaticIcon(spec);
+            return CreateStaticIcon(spec, size);
         }
         catch
         {
-            return CreateStaticIconSafe(spec);
+            return CreateStaticIconSafe(spec, size);
         }
     }
 
-    private static AnimatedTextureRect CreateAnimatedIcon(SpriteSpecifier spec)
+    private static AnimatedTextureRect CreateAnimatedIcon(SpriteSpecifier spec, int size)
     {
         var anim = new AnimatedTextureRect();
         anim.SetFromSpriteSpecifier(spec);
-        anim.DisplayRect.SetWidth = IconSize;
-        anim.DisplayRect.SetHeight = IconSize;
+        anim.DisplayRect.SetWidth = size;
+        anim.DisplayRect.SetHeight = size;
         anim.DisplayRect.Stretch = TextureRect.StretchMode.Scale;
         anim.MouseFilter = Control.MouseFilterMode.Stop;
         return anim;
     }
 
-    private TextureRect CreateStaticIcon(SpriteSpecifier spec)
+    private TextureRect CreateStaticIcon(SpriteSpecifier spec, int size)
     {
         var texture = _spriteSystem!.Frame0(spec);
-        return CreateTextureControl(texture);
+        return CreateTextureControl(texture, size);
     }
 
-    private TextureRect? CreateStaticIconSafe(SpriteSpecifier spec)
+    private TextureRect? CreateStaticIconSafe(SpriteSpecifier spec, int size)
     {
         try
         {
             var texture = _spriteSystem!.Frame0(spec);
-            return CreateTextureControl(texture);
+            return CreateTextureControl(texture, size);
         }
         catch
         {
@@ -95,13 +104,13 @@ public sealed class IconTag : IMarkupTag
         }
     }
 
-    private static TextureRect CreateTextureControl(Texture texture)
+    private static TextureRect CreateTextureControl(Texture texture, int size)
     {
         return new TextureRect
         {
             Texture = texture,
-            SetWidth = IconSize,
-            SetHeight = IconSize,
+            SetWidth = size,
+            SetHeight = size,
             Stretch = TextureRect.StretchMode.Scale,
             MouseFilter = Control.MouseFilterMode.Stop,
         };
