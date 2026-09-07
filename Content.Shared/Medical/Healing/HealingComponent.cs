@@ -66,5 +66,8 @@ public sealed partial class HealingComponent : Component
     // ADT-Tweak start
     [DataField, AutoNetworkedField]
     public EntProtoId? HealEffect = "ADTEffectHealBusy";
+
+    [DataField]
+    public EntityUid? HealEffectEntity;
     // ADT-Tweak end
 }
