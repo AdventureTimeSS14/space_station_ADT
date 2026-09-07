@@ -39,7 +39,7 @@
         DrinkBeerCan: 5
         DrinkWineCan: 5
     ADTVendingCategoryNonAlcohol:
-        DrinkColaBottleFull: 3
+        DrinkColaBottleFull: 3 #ADT-Tweak 4 > 3
         DrinkSpaceMountainWindBottleFull: 3
         DrinkSpaceUpBottleFull: 3
         DrinkTonicWaterBottleFull: 3
