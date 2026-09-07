@@ -433,29 +433,25 @@
   flavor: medicine
   color: "#c8a2c8"
   physicalDesc: reagent-physical-desc-powdery
+  worksOnTheDead: true
+  splashBlocked: true
   reactiveEffects:
     Acidic:
       methods: [ Touch ]
       effects:
       - !type:ModifyBleed
         amount: -3
+      - !type:EvenHealthChange
+        damage:
+          Brute: -0.825
   metabolisms:
     Bloodstream:
       metabolismRate : 0.3
       effects:
-      - !type:EvenHealthChange
+      - !type:HealthChange
         damage:
-          Brute: -0.825
-      - !type:ModifyBleed
-        amount: -0.3 #почему кровоостанавливающая пудра не останавливала кровотечение?
-      - !type:PopupMessage
-        conditions:
-        - !type:TotalDamageCondition
-          min: 0.5
-        type: Local
-        visualType: Small
-        messages: [ "medicine-effect-usual" ]
-        probability: 0.05
+          types:
+            Poison: 1
 
 #Сульфадиазин серебра
 - type: reagent
@@ -466,21 +462,23 @@
   flavor: medicine
   color: "#c8a2c8"
   physicalDesc: reagent-physical-desc-powdery
-  metabolisms:
-    Bloodstream:
-      metabolismRate : 0.3
+  worksOnTheDead: true
+  splashBlocked: true
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
       effects:
       - !type:EvenHealthChange
         damage:
           Burn: -0.825
-      - !type:PopupMessage
-        conditions:
-        - !type:TotalDamageCondition
-          min: 0.05
-        type: Local
-        visualType: Small
-        messages: [ "medicine-effect-usual" ]
-        probability: 0.05
+  metabolisms:
+    Bloodstream:
+      metabolismRate : 0.3
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
 
 - type: reagent
   id: ADTDetoxisol

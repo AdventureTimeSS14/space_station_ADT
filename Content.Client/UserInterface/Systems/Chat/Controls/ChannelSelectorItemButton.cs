@@ -1,5 +1,6 @@
 using Content.Client.Stylesheets;
 using Content.Shared.Chat;
+using Robust.Client.UserInterface; // ADT-Tweak
 using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.UserInterface.Systems.Chat.Controls;
@@ -25,4 +26,19 @@ public sealed class ChannelSelectorItemButton : Button
         if (prefix != default)
             Text = Loc.GetString("hud-chatbox-select-name-prefixed", ("name", Text), ("prefix", prefix));
     }
+
+    // ADT-Tweak-Start
+    protected override void KeyBindDown(GUIBoundKeyEventArgs args)
+    {
+        base.KeyBindDown(args);
+
+        if (args.Handled)
+            return;
+
+        if (!UserInterfaceManager.GetUIController<ChatUIController>().TryHandleD20ShiftClick(this, args.Function))
+            return;
+
+        args.Handle();
+    }
+    // ADT-Tweak-End
 }
