@@ -15080,3 +15080,9 @@ Entries:
     id: 1901
     pr_number: 3332
     time: '2026-09-07T17:57:06Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Т1 стазис кровать замедляет гниение на 50%, type: Add}
+    id: 1902
+    pr_number: 3334
+    time: '2026-09-07T17:59:18Z'
