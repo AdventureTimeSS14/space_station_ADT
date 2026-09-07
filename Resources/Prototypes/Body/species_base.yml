@@ -78,15 +78,17 @@
   - type: StatusEffects
     allowed:
     - Stutter
-    - Weakness #ADT-Weakness-Tweak
     - Electrocution
     - RatvarianLanguage
     - Muted
     - Pacified
     - Flashed
     - Adrenaline
-    - ADTHallucinations # ADT-Tweak
-    - ADTStarvation # ADT-Tweak
+    # ADT-Tweak start
+    - Weakness
+    - ADTHallucinations
+    - ADTStarvation
+    # ADT-Tweak end
   - type: Identity
   - type: IdExaminable
   - type: Internals
@@ -173,13 +175,13 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-  # ADT tweak start
+  # ADT-Tweak start
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
   - type: SpeechBarks
   - type: Posing
-  # ADT tweak end
+  # ADT-Tweak end
 
 - type: entity
   abstract: true
@@ -192,11 +194,13 @@
   id: BaseSpeciesMobOrganic
   save: false
   components:
-  - type: Absorbable # ADT-Tweak
-  - type: MobState # ADT-Tweak
-  - type: OfferItem # ADT-Tweak
-  - type: RadiationPopup # ADT-Tweak
-  - type: PickupHumans # ADT-Tweak
+  # ADT-Tweak start
+  - type: Absorbable
+  - type: MobState
+  - type: OfferItem
+  - type: RadiationPopup
+  - type: PickupHumans
+  # ADT-Tweak end
   - type: Hunger
   - type: Thirst
   - type: Barotrauma
