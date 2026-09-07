@@ -1,9 +1,7 @@
 using System.Linq;
 using Content.Shared.ADT.Chemistry.Components;
-using Content.Shared.ADT.Chemistry.Systems; // ADT-Tweak
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
-using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Events;
 using Content.Shared.Chemistry.Prototypes;
@@ -35,7 +33,6 @@ namespace Content.Shared.Chemistry.EntitySystems;
 public sealed partial class InjectorSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ADTMedicalSpraySystem _adtMedicalSpray = default!; // ADT-Tweak
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedForensicsSystem _forensics = default!;
@@ -206,10 +203,6 @@ public sealed partial class InjectorSystem : EntitySystem
             _popup.PopupPredicted(userMessage, otherMessage, target, user, PopupType.SmallCaution);
             return false;
         }
-
-        // ADT-Tweak start
-        if (_adtMedicalSpray.TryBlockExposedSkin(injector, user, target))
-            return false;
         // ADT-Tweak end
 
         if (_useDelay.IsDelayed(injector.Owner) // Check for Delay.
@@ -421,16 +414,6 @@ public sealed partial class InjectorSystem : EntitySystem
             // Handle injecting/drawing for solutions
             case InjectorBehavior.Inject:
             {
-                // ADT-Tweak start
-                if (activeMode.ReactionMethod is { } reactionMethod && HasComp<BloodstreamComponent>(target))
-                {
-                    if (_adtMedicalSpray.TryBlockExposedSkin(injector, user, target))
-                        return false;
-
-                    return _adtMedicalSpray.TryApplyTopical(injector, user, target, reactionMethod);
-                }
-                // ADT-Tweak end
-
                 if (isOpenOrIgnored && _solutionContainer.TryGetInjectableSolution(target, out var injectableSolution, out _))
                     return TryInject(injector, user, target, injectableSolution.Value, false);
 

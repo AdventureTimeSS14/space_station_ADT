@@ -7,7 +7,6 @@
   - ADTPillCanister
   - ADTPillPack
   - ADTPlasticBottle
-  - ADTMedicalSprayBottle
   - ADTAutoSurgeon
 
 - type: latheRecipePack

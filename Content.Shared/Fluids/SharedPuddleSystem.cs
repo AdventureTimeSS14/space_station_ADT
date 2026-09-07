@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared.ADT.Chemistry.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
@@ -30,7 +29,6 @@ namespace Content.Shared.Fluids;
 
 public abstract partial class SharedPuddleSystem : EntitySystem
 {
-    [Dependency] private readonly ADTMedicalSpraySystem _adtMedicalSpray = default!; // ADT-Tweak
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;

@@ -132,17 +132,12 @@ public sealed partial class GuideReagentEmbed : BoxContainer, IDocumentTag, ISea
 
         #region Effects
         if (_chemistryGuideData.ReagentGuideRegistry.TryGetValue(reagent.ID, out var guideEntryRegistry) &&
-            (guideEntryRegistry.GuideEntries != null &&
-             guideEntryRegistry.GuideEntries.Values.Any(pair => pair.EffectDescriptions.Any() || pair.Metabolites?.Any() == true) ||
-             guideEntryRegistry.ReactiveEffects is { Count: > 0 })) // ADT-Tweak
+            guideEntryRegistry.GuideEntries != null &&
+            guideEntryRegistry.GuideEntries.Values.Any(pair => pair.EffectDescriptions.Any() || pair.Metabolites?.Any() == true))
         {
             EffectsDescriptionContainer.Children.Clear();
-            // ADT-Tweak start
-            if (guideEntryRegistry.GuideEntries != null)
+            foreach (var (stage, effect) in guideEntryRegistry.GuideEntries)
             {
-            // ADT-Tweak end
-                foreach (var (stage, effect) in guideEntryRegistry.GuideEntries)
-                {
                 var hasMetabolites = effect.Metabolites?.Any() == true;
                 if (!effect.EffectDescriptions.Any() && !hasMetabolites)
                     continue;
@@ -180,7 +175,6 @@ public sealed partial class GuideReagentEmbed : BoxContainer, IDocumentTag, ISea
 
                 EffectsDescriptionContainer.AddChild(groupLabel);
                 EffectsDescriptionContainer.AddChild(descriptionLabel);
-                }
             }
         }
         else
@@ -188,24 +182,6 @@ public sealed partial class GuideReagentEmbed : BoxContainer, IDocumentTag, ISea
             EffectsContainer.Visible = false;
         }
         #endregion
-
-        // ADT-Tweak start
-        if (guideEntryRegistry.ReactiveEffects is { Count: > 0 })
-        {
-            var reactiveDescription = new RichTextLabel
-            {
-                Margin = new Thickness(25, 0, 10, 0)
-            };
-            var reactiveMsg = new FormattedMessage();
-            foreach (var effectString in guideEntryRegistry.ReactiveEffects)
-            {
-                reactiveMsg.AddMarkupOrThrow(effectString);
-                reactiveMsg.PushNewline();
-            }
-            reactiveDescription.SetMessage(reactiveMsg);
-            EffectsDescriptionContainer.AddChild(reactiveDescription);
-        }
-        // ADT-Tweak end
 
         #region PlantMetabolisms
         if (_chemistryGuideData.ReagentGuideRegistry.TryGetValue(reagent.ID, out var guideEntryRegistryPlant) &&

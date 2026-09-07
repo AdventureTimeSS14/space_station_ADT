@@ -168,12 +168,7 @@ public abstract partial class SharedPuddleSystem
                 + $"splashed {SharedSolutionContainerSystem.ToPrettyString(splitSolution):solution} "
                 + $"from {ToPrettyString(entity.Owner):entity} onto {ToPrettyString(hit):target}");
 
-            // ADT-Tweak start
-            if (_adtMedicalSpray.ShouldBlockSplash(splitSolution))
-                TrySpillAt(Transform(hit).Coordinates, splitSolution, out _);
-            else
-                Reactive.DoEntityReaction(hit, splitSolution, ReactionMethod.Touch);
-            // ADT-Tweak end
+            Reactive.DoEntityReaction(hit, splitSolution, ReactionMethod.Touch);
 
             Popups.PopupClient(Loc.GetString("spill-melee-hit-attacker",
                     ("amount", totalSplit / hitCount),
