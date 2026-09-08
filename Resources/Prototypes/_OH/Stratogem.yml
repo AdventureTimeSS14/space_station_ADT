@@ -144,9 +144,9 @@
     behaviours:
     - !type:FadeBehaviour
       id: glow
-      maxDuration: 0.3
+      maxDuration: 10
       startValue: 0
-      endValue: 3
+      endValue: 10
 
 - type: entity
   parent: TimerGrenadeBase
@@ -188,9 +188,9 @@
     behaviours:
     - !type:FadeBehaviour
       id: glow
-      maxDuration: 0.3
+      maxDuration: 10
       startValue: 0
-      endValue: 3
+      endValue: 10
 
 - type: entity
   parent: TimerGrenadeBase
@@ -232,9 +232,9 @@
     behaviours:
     - !type:FadeBehaviour
       id: glow
-      maxDuration: 0.3
+      maxDuration: 10
       startValue: 0
-      endValue: 3
+      endValue: 10
 
 - type: entity
   parent: TimerGrenadeBase
@@ -276,9 +276,9 @@
     behaviours:
     - !type:FadeBehaviour
       id: glow
-      maxDuration: 0.3
+      maxDuration: 10
       startValue: 0
-      endValue: 3
+      endValue: 10
 
 - type: entity
   parent: TimerGrenadeBase
@@ -320,9 +320,9 @@
     behaviours:
     - !type:FadeBehaviour
       id: glow
-      maxDuration: 0.3
+      maxDuration: 10
       startValue: 0
-      endValue: 3
+      endValue: 10
 
 # Универсальная стратогема
 
