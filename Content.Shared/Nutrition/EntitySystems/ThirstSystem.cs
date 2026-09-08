@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Nutrition;
 using Content.Shared.Alert;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
@@ -19,7 +20,7 @@ public sealed class ThirstSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-   // [Dependency] private readonly AlertsSystem _alerts = default!; // ADT-Tweak
+    [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
 
@@ -154,8 +155,7 @@ public sealed class ThirstSystem : EntitySystem
         }
 
         // Update UI
-        // ADT Tweak start: пороговые алерты заменены постоянными алертами ADTHunger/ADTThirst
-        // с полоской уровня (Content.Server/ADT/Nutrition/ADTSatiationAlertSystem).
+        // ADT Tweak start: пороговые алерты заменены постоянным алертом ADTThirst
         // if (ThirstComponent.ThirstThresholdAlertTypes.TryGetValue(component.CurrentThirstThreshold, out var alertId))
         // {
         //     _alerts.ShowAlert(uid, alertId);
@@ -214,6 +214,11 @@ public sealed class ThirstSystem : EntitySystem
             thirst.NextUpdateTime += thirst.UpdateRate;
 
             ModifyThirst(uid, thirst, -thirst.ActualDecayRate);
+
+            // ADT-Tweak start
+            _alerts.ShowAlert(uid, ADTSatiationAlerts.ThirstAlertId, ADTSatiationAlerts.ToLevel(thirst.CurrentThirst / thirst.ThirstThresholds[ThirstThreshold.OverHydrated]));
+            // ADT-Tweak end
+
             var calculatedThirstThreshold = GetThirstThreshold(thirst, thirst.CurrentThirst);
 
             if (calculatedThirstThreshold == thirst.CurrentThirstThreshold)

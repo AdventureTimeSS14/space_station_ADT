@@ -79,8 +79,7 @@ public sealed partial class HungerComponent : Component
     /// <summary>
     /// A dictionary relating hunger thresholds to corresponding alerts.
     /// </summary>
-    // ADT Tweak start: старые пороговые алерты заменены постоянными алертами
-    // ADTHunger/ADTThirst с полоской уровня (Content.Server/ADT/Nutrition/ADTSatiationAlertSystem).
+    // ADT Tweak start: старые пороговые алерты заменены постоянным алертом
     [DataField("hungerThresholdAlerts")]
     [AutoNetworkedField]
     public Dictionary<HungerThreshold, ProtoId<AlertPrototype>> HungerThresholdAlerts = new();

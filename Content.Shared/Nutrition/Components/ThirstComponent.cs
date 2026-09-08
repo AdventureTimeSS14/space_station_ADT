@@ -60,8 +60,7 @@ public sealed partial class ThirstComponent : Component
     [DataField]
     public ProtoId<AlertCategoryPrototype> ThirstyCategory = "Thirst";
 
-    // ADT Tweak start: старые пороговые алерты заменены постоянными алертами
-    // ADTHunger/ADTThirst с полоской уровня (Content.Server/ADT/Nutrition/ADTSatiationAlertSystem).
+    // ADT Tweak start: старые пороговые алерты заменены постоянным алертом
     public static readonly Dictionary<ThirstThreshold, ProtoId<AlertPrototype>> ThirstThresholdAlertTypes = new();
     //{
     //    {ThirstThreshold.Thirsty, "Thirsty"},

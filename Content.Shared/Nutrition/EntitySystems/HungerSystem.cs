@@ -147,8 +147,7 @@ public sealed class HungerSystem : EntitySystem
             _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
         }
 
-        // ADT Tweak start: пороговые алерты заменены постоянными алертами ADTHunger/ADTThirst
-        // с полоской уровня (Content.Server/ADT/Nutrition/ADTSatiationAlertSystem).
+        // ADT Tweak start: пороговые алерты заменены постоянным алертом ADTHunger
         // if (component.HungerThresholdAlerts.TryGetValue(component.CurrentThreshold, out var alertId))
         // {
         //     _alerts.ShowAlert(uid, alertId);
@@ -297,6 +296,18 @@ public sealed class HungerSystem : EntitySystem
 
             UpdateCurrentThreshold(uid, hunger);
             DoContinuousHungerEffects(uid, hunger);
+
+            // ADT-Tweak start
+            if (HasComp<ADTFatComponent>(uid))
+                _alerts.ShowAlert(uid, ADTSatiationAlerts.HungerAlertId, ADTSatiationAlerts.FatLevel);
+            else
+            {
+                var max = hunger.Thresholds.TryGetValue(HungerThreshold.Fat, out var fat)
+                    ? fat
+                    : hunger.Thresholds[HungerThreshold.Overfed];
+                _alerts.ShowAlert(uid, ADTSatiationAlerts.HungerAlertId, ADTSatiationAlerts.ToLevel(GetHunger(hunger) / max));
+            }
+            // ADT-Tweak end
         }
     }
 }
