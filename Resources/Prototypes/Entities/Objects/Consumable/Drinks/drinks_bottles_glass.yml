@@ -20,10 +20,12 @@
         maxVol: 100
   - type: Sprite
     sprite: Objects/Consumable/Drinks/alco-bottle.rsi # fallback
-  - type: Tool
-    qualities:
-    - Rolling
-    speedModifier: 0.75 # not as good as a rolling pin but does the job
+  # ADT-Tweak start
+  #- type: Tool
+  #  qualities:
+  #  - Rolling
+  #  speedModifier: 0.75 # not as good as a rolling pin but does the job
+  # ADT-Tweak end
   - type: TrashOnSolutionEmpty
     solution: drink
   - type: Tag

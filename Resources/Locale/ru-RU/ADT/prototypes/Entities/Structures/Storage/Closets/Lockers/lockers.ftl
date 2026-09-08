@@ -40,3 +40,4 @@ ent-ADTSuitStorageParamed = хранилище скафандра
 ent-SuitStorageBrigmedic = хранилище скафандра
     .suffix = Бригмедик
     .desc = { ent-SuitStorageBase.desc }
+
