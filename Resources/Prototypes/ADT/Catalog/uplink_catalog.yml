@@ -767,6 +767,17 @@
   categories:
     - UplinkImplants
 
+- type: listing
+  id: ADTUplinkMedbeam
+  name: uplink-medbeam-name
+  description: uplink-medbeam-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Battery/healgun.rsi, state: icon }
+  productEntity: ADTWeaponMedbeamSyndicate
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkChemicals
+
 #UplinkAllies
 
 #UplinkPointless
