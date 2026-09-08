@@ -311,7 +311,7 @@ namespace Content.Server.VendingMachines
             if (args.Actor is not { Valid: true } entity || Deleted(entity))
                 return;
 
-            AuthorizedVend(uid, entity, args.Entry.Type, args.Entry.ID, component, args.Count);
+            AuthorizedVend(uid, entity, args.Entry.Type, args.Entry.ID, component, args.Count, args.PaintColor); // ADT-Tweak
         }
 
         //ADT-Economy-End
@@ -389,7 +389,7 @@ namespace Content.Server.VendingMachines
         /// <param name="throwItem">Whether the item should be thrown in a random direction after ejection</param>
         /// <param name="vendComponent"></param>
         // ADT: This overloads the Shared method because we need 'count' and 'sender' parameters for economy
-        public void TryEjectVendorItem(EntityUid uid, InventoryType type, string itemId, bool throwItem, int count, VendingMachineComponent? vendComponent = null, EntityUid? sender = null)
+        public void TryEjectVendorItem(EntityUid uid, InventoryType type, string itemId, bool throwItem, int count, VendingMachineComponent? vendComponent = null, EntityUid? sender = null, Color? paintColor = null) // ADT-Tweak
         {
             if (!Resolve(uid, ref vendComponent))
                 return;
@@ -475,6 +475,7 @@ namespace Content.Server.VendingMachines
             }
             vendComponent.NextItemCount = count;
             vendComponent.NextItemReturnedCount = freeCount; //ADT-Return
+            vendComponent.NextItemPaintColor = paintColor; // ADT-Tweak
             //ADT-Economy-End
 
             // Start Ejecting, and prevent users from ordering while anim playing
@@ -517,11 +518,11 @@ namespace Content.Server.VendingMachines
         /// <param name="type">The type of inventory the item is from</param>
         /// <param name="itemId">The prototype ID of the item</param>
         /// <param name="component"></param>
-        public void AuthorizedVend(EntityUid uid, EntityUid sender, InventoryType type, string itemId, VendingMachineComponent component, int count)    // ADT vending eject count
+        public void AuthorizedVend(EntityUid uid, EntityUid sender, InventoryType type, string itemId, VendingMachineComponent component, int count, Color? paintColor = null)  // ADT-Tweak
         {
             if (IsAuthorized(uid, sender, component))
             {
-                TryEjectVendorItem(uid, type, itemId, component.CanShoot, count, component, sender); // ADT vending eject count
+                TryEjectVendorItem(uid, type, itemId, component.CanShoot, count, component, sender, paintColor); // ADT-Tweak
             }
         }
 
@@ -580,9 +581,15 @@ namespace Content.Server.VendingMachines
 
             if (forceEject)
             {
+                // ADT-Tweak start
+                if (vendComponent.Ejecting)
+                    return;
+                // ADT-Tweak end
+
                 vendComponent.NextItemToEject = item.ID;
                 vendComponent.ThrowNextItem = throwItem;
                 vendComponent.NextItemCount = 1;
+                vendComponent.NextItemPaintColor = null; // ADT-Tweak
                 //ADT-Return start
                 var returnedCount = (int)vendComponent.ReturnedInventory.GetValueOrDefault(item.ID);
                 var freeCount = Math.Min(returnedCount, 1);
@@ -634,7 +641,7 @@ namespace Content.Server.VendingMachines
             if (returnedCount > 0)
             {
                 RaiseLocalEvent(uid, new ADTVendingReturnedEjectEvent(
-                    vendComponent.NextItemToEject, returnedCount, spawnCoordinates, vendComponent.ThrowNextItem));
+                    vendComponent.NextItemToEject, returnedCount, spawnCoordinates, vendComponent.ThrowNextItem, vendComponent.NextItemPaintColor)); // ADT Tweak - цвет
             }
             // ADT-Return end
 
@@ -642,6 +649,9 @@ namespace Content.Server.VendingMachines
             for (var i = 0; i < count - returnedCount; i++) // ADT-Return 
             {
                 var ent = Spawn(vendComponent.NextItemToEject, spawnCoordinates);
+
+                if (vendComponent.NextItemPaintColor is { } paintColor)
+                    _vendingReturn.PaintClothing(ent, paintColor);
 
                 if (vendComponent.ThrowNextItem)
                 {
@@ -656,6 +666,7 @@ namespace Content.Server.VendingMachines
             vendComponent.ThrowNextItem = false;
             vendComponent.NextItemCount = 1;    // ADT vending eject count
             vendComponent.NextItemReturnedCount = 0;    //ADT-Return
+            vendComponent.NextItemPaintColor = null; // ADT-Tweak
             vendComponent.Ejecting = false;     // ADT-Tweak
 
             // No need to update the visual state because we never changed it during a forced eject
