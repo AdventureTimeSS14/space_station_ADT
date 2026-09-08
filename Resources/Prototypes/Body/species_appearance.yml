@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  id: BaseSpeciesLayers
+  id: BaseSpeciesLayers # ADT-Tweak Не трогаем, используйте ADTBaseSpeciesLayers, это можете использовать как базу.
   components:
   - type: Sprite
     layers:
