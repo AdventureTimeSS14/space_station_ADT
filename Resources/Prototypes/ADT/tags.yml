@@ -948,7 +948,8 @@
 
 - type: Tag
   id: ADTFlamethrowerCharge
-  - type: Tag
+
+- type: Tag
   id: ADTMagazineMagnumLesser
 
 - type: Tag
