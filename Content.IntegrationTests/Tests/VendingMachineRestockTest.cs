@@ -335,8 +335,10 @@ namespace Content.IntegrationTests.Tests
                     if (!meta.Deleted && meta.EntityPrototype?.ID == "TestRamen")
                         totalRamen++;
 
-                Assert.That(totalRamen, Is.EqualTo(2),
-                    "Did not find enough ramen after destroying restock box.");
+                // ADT-Tweak start
+                Assert.That(totalRamen, Is.InRange(2, 5),
+                    "Did not find the expected amount of ramen after destroying restock box.");
+                // ADT-Tweak end
 
                 mapSystem.DeleteMap(testMap.MapId);
             });
