@@ -82,6 +82,23 @@
             32:
               sprite: Mobs/Species/Moth/displacement.rsi
               state: shoes
+        # ADT-Tweak start
+        socks:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Moth/displacement.rsi
+              state: socks
+        underweart:
+          sizeMaps:
+            32:
+              sprite: Mobs/Species/Moth/displacement.rsi
+              state: jumpsuit-female
+        underwearb:
+          sizeMaps:
+            32:
+              sprite: Mobs/Species/Moth/displacement.rsi
+              state: jumpsuit-female
+        # ADT-Tweak end
       displacements:
         jumpsuit:
           sizeMaps:
@@ -108,6 +125,23 @@
             32:
               sprite: Mobs/Species/Moth/displacement.rsi
               state: shoes
+        # ADT-Tweak start
+        socks:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Moth/displacement.rsi
+              state: socks
+        underweart:
+          sizeMaps:
+            32:
+              sprite: Mobs/Species/Moth/displacement.rsi
+              state: jumpsuit-male
+        underwearb:
+          sizeMaps:
+            32:
+              sprite: Mobs/Species/Moth/displacement.rsi
+              state: jumpsuit-male
+        # ADT-Tweak end
     - type: InitialBody
       organs:
         Torso: OrganMothTorso
