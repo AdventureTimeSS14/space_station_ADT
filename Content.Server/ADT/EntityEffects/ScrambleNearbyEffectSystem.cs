@@ -48,6 +48,9 @@ public sealed partial class ScrambleNearbyEffectSystem : EntityEffectSystem<Tran
             if (HasComp<GhostComponent>(target))
                 continue;
 
+            if (effect.SpeciesBlacklist != null && effect.SpeciesBlacklist.Contains(profile.Species))
+                continue;
+
             var randomSpecies = _random.Pick(species);
 
             var config = new PolymorphConfiguration
