@@ -30,10 +30,12 @@ namespace Content.Shared.VendingMachines
     {
         public readonly VendingMachineInventoryEntry Entry;
         public readonly int Count;
-        public VendingMachineEjectCountMessage(VendingMachineInventoryEntry entry, int count)
+        public readonly Color? PaintColor; // ADT-Tweak
+        public VendingMachineEjectCountMessage(VendingMachineInventoryEntry entry, int count, Color? paintColor = null) // ADT-Tweak
         {
             Entry = entry;
             Count = count;
+            PaintColor = paintColor; // ADT-Tweak
         }
     }
 

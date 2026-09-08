@@ -1,0 +1,9 @@
+ent-ADTColormat = Краситель-мат
+   .desc = Покрась любой предмет в любой цвет!
+ent-ADTColormatMachineCircuitboard = Краситель-мат (машинная плата)
+   .desc = Печатная плата Краситель-мат.
+colormat-slot-name = слот для покраски
+colormat-insert-hint = Вставьте предмет
+colormat-save = Сохранить
+colormat-eject = Вынуть
+colormat-tool-denied = Инструменты красить нельзя

@@ -138093,7 +138093,7 @@ entities:
     - type: Transform
       pos: 19.5,-12.5
       parent: 2
-- proto: LockerCorrectionOfficer
+- proto: ADTLockerCorrectionOfficerFilled
   entities:
   - uid: 19630
     components:

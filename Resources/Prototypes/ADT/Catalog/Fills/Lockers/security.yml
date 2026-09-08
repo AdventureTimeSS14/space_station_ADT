@@ -47,3 +47,32 @@
     options:
     - ADTClothingModsuitBackBrigmedic
     - ClothingOuterHardsuitBrigmedic
+
+- type: entity
+  id: ADTLockerCorrectionOfficerFilled
+  suffix: Filled
+  parent: ADTLockerCorrectionOfficer
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ADTFillLockerCorrectionOfficer
+
+- type: entityTable
+  id: ADTFillLockerCorrectionOfficer
+  table: !type:AllSelector
+    children:
+    - id: ADTClothingHeadHatsCorrectionsOfficerCapGrey
+    - id: ADTClothingOuterCoatCorrectionsOfficerGrey
+    - id: ADTClothingUniformCorrectionsOfficerGrey
+    - id: ADTClothingUniformJumpskirtCorrectionsOfficer
+    - id: Multitool
+      amount: !type:BinomialNumberSelector
+        trials: 3
+    - !type:AllSelector
+      rolls: 3
+      children:
+      - id: RemoteSignaller
+      - id: ADTClothingNeckShockCollar
+      - id: ADTLegCuffs
+      - id: ClothingBackpackElectropack

@@ -1046,3 +1046,6 @@ ADTUniversalPipeDispenser: null
 
 # ADT 31.08.2026
 SiliconChargerIndustrial: BorgCharger
+
+# ADT 07.09.2026
+LockerCorrectionOfficer: ADTLockerCorrectionOfficer

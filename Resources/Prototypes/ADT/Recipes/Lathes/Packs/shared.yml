@@ -12,12 +12,6 @@
 - type: latheRecipePack
   id: PartsDynamic
   recipes:
-  # Tier 1
-  - CapacitorStockPart
-  - ScanningModuleStockPart
-  - MicroServoStockPart
-  - MicroLaserStockPart
-  - MatterBinStockPart
   # Tier 2
   - AdvancedCapacitorStockPart
   - AdvancedScanningModuleStockPart
