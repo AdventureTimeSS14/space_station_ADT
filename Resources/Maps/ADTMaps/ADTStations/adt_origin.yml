@@ -167383,7 +167383,7 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: LockerCorrectionOfficer
+- proto: ADTLockerCorrectionOfficerFilled
   entities:
   - uid: 13832
     components:

@@ -41,7 +41,7 @@
       - !type:ExplosionReactionEffect
         delay: 5
         explosionType: FireBomb # bomboclat
-        maxIntensity: 1050
+        maxIntensity: 525
         intensitySlope: 4
         intensityPerUnit: 70
     - reagents: [ Blood ]
