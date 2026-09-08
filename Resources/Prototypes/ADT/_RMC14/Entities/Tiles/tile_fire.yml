@@ -60,3 +60,27 @@
           Two: { state: red_2 }
           Three: { state: red_3 }
           Four: { state: red_4 }
+
+- type: entity
+  id: RMCTileFireWeak
+  name: fire
+  parent: RMCTileFire
+  components:
+  - type: RMCIgniteOnCollide
+    maxStacks: 5
+    tileDamage:
+      types:
+        Heat: 0.5
+    burnColor: "#EE6515"
+    armorMultiplier: 1
+  - type: RMCDamageOnCollide
+    damageDead: false
+    fire: true
+    damage:
+      types:
+        Heat: 15
+    ignoreResistances: false
+  - type: TileFire
+    id: RMCTileFireWeak
+    extinguishInstantly: true
+    duration: 5
