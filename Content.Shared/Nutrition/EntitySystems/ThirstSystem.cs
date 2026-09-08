@@ -35,7 +35,15 @@ public sealed class ThirstSystem : EntitySystem
         SubscribeLocalEvent<ThirstComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
         SubscribeLocalEvent<ThirstComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ThirstComponent, RejuvenateEvent>(OnRejuvenate);
+    // ADT-Tweak start
+        SubscribeLocalEvent<ThirstComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnShutdown(EntityUid uid, ThirstComponent component, ComponentShutdown args) // ADT Tweak
+    {
+        _alerts.ClearAlert(uid, ADTSatiationAlerts.ThirstAlertId);
+    }
+    // ADT-Tweak end
 
     private void OnMapInit(EntityUid uid, ThirstComponent component, MapInitEvent args)
     {

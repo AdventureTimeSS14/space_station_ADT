@@ -49,6 +49,11 @@ public sealed class HungerSystem : EntitySystem
     private void OnShutdown(EntityUid uid, HungerComponent component, ComponentShutdown args)
     {
         _alerts.ClearAlertCategory(uid, component.HungerAlertCategory);
+        
+        // ADT-Tweak start
+        RemComp<ADTFatComponent>(uid);
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+        // ADT-Tweak end
     }
 
     private void OnRefreshMovespeed(EntityUid uid, HungerComponent component, RefreshMovementSpeedModifiersEvent args)

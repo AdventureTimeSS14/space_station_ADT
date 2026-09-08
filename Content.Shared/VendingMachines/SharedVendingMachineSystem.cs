@@ -439,7 +439,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
                     // losing the rest of the restock.
 
                 //ADT-Economy-Start
-                    entry.Amount = Math.Min(entry.Amount + amount, 3 * restock);
+                    entry.Amount = Math.Max(entry.Amount, Math.Min(entry.Amount + restock, 3 * amount));
                 else
                 {
                     var price = GetEntryPrice(proto);
