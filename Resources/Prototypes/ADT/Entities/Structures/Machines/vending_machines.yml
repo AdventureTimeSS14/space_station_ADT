@@ -323,7 +323,6 @@
     pack: GetmoreChocolateCorpInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
-    dispenseOnHitChance: 0.25
     offState: off
     brokenState: broken
     normalState: normal-unshaded
