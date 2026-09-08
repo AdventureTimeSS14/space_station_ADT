@@ -46,7 +46,7 @@
     damage:
       types:
         Heat: 45
-    ignoreResistances: true
+    ignoreResistances: false
   - type: TileFire
     id: RMCTileFire
     extinguishInstantly: true
@@ -84,3 +84,90 @@
     id: RMCTileFireWeak
     extinguishInstantly: true
     duration: 5
+
+- type: entity
+  parent: RMCTileFire
+  id: RMCTileFireStickyNapalm
+  suffix: StickyNapalm
+  components:
+  - type: Sprite
+    sprite: _RMC14/Effects/fire.rsi
+    noRot: true
+    drawdepth: WallTops
+    layers:
+    - map: [ "base" ]
+      state: green_4
+  - type: TileFire
+    duration: 30
+  - type: RMCIgniteOnCollide
+    maxStacks: 10
+    tileDamage:
+      types:
+        Heat: 0.5
+    armorMultiplier: 1
+    burnColor: "#f8e3b2"
+  - type: RMCDamageOnCollide
+    damageDead: false
+    fire: true
+    damage:
+      types:
+        Heat: 10
+    ignoreResistances: false
+  - type: PointLight
+    radius: 5
+    color: "#f8e3b2"
+  - type: GenericVisualizer
+    visuals:
+      enum.TileFireLayers.Base:
+        base:
+          One: { state: green_1 }
+          Two: { state: green_2 }
+          Three: { state: green_3 }
+          Four: { state: green_4 }
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.2
+    sprintSpeedModifier: 0.2
+
+- type: entity
+  parent: RMCTileFire
+  id: RMCTileFireHCNapalm
+  suffix: HC Napalm
+  components:
+  - type: Sprite
+    sprite: _RMC14/Effects/fire.rsi
+    noRot: true
+    drawdepth: WallTops
+    layers:
+    - map: [ "base" ]
+      state: blue_4
+  - type: TileFire
+    duration: 10
+    burnsInVacuum: true
+    vacuumBurnout: 10
+  - type: RMCIgniteOnCollide
+    maxStacks: 30
+    tileDamage:
+      types:
+        Heat: 0.5
+    armorMultiplier: 1
+    burnColor: "#f8e3b2"
+    burnsInVacuum: true
+    vacuumBurnout: 10
+  - type: RMCDamageOnCollide
+    damageDead: false
+    fire: true
+    damage:
+      types:
+        Heat: 25
+    ignoreResistances: false
+  - type: PointLight
+    radius: 5
+    color: "#c51c1c"
+  - type: GenericVisualizer
+    visuals:
+      enum.TileFireLayers.Base:
+        base:
+          One: { state: blue_1 }
+          Two: { state: blue_2 }
+          Three: { state: blue_3 }
+          Four: { state: blue_4 }
