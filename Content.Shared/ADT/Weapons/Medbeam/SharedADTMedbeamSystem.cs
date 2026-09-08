@@ -4,6 +4,7 @@ using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mech.Components;
+using Content.Shared.Silicons.Borgs.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
@@ -52,7 +53,16 @@ public abstract partial class SharedADTMedbeamSystem : EntitySystem
 
     protected virtual bool IsValidTarget(EntityUid target)
     {
-        return HasComp<DamageableComponent>(target);
+        if (!TryComp<DamageableComponent>(target, out var damageable))
+            return false;
+
+        if (HasComp<MechComponent>(target) || HasComp<BorgChassisComponent>(target))
+            return false;
+
+        if (CompOrNull<InjurableComponent>(target)?.DamageContainer == "BiologicalMetaphysical")
+            return false;
+
+        return true;
     }
 
     public void AttachBeam(Entity<ADTMedbeamComponent> ent, EntityUid target)

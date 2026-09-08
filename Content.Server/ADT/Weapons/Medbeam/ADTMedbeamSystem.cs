@@ -94,7 +94,7 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
         otherGun = default;
         epicenter = default;
 
-        var gunPos = _xform.GetMapCoordinates(ent.Owner).Position;
+        var gunCoords = _xform.GetMapCoordinates(ent.Owner);
         var targetPos = _xform.GetMapCoordinates(target).Position;
 
         var query = EntityQueryEnumerator<ADTMedbeamComponent>();
@@ -103,14 +103,16 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
             if (uid == ent.Owner || other.Target == null)
                 continue;
 
-            var otherPos = _xform.GetMapCoordinates(uid).Position;
-            var otherTargetPos = _xform.GetMapCoordinates(other.Target.Value).Position;
+            var otherCoords = _xform.GetMapCoordinates(uid);
+            var otherTargetCoords = _xform.GetMapCoordinates(other.Target.Value);
+            if (otherCoords.MapId != gunCoords.MapId || otherTargetCoords.MapId != gunCoords.MapId)
+                continue;
 
-            if (!TrySegmentIntersect(gunPos, targetPos, otherPos, otherTargetPos, out var point))
+            if (!TrySegmentIntersect(gunCoords.Position, targetPos, otherCoords.Position, otherTargetCoords.Position, out var point))
                 continue;
 
             otherGun = uid;
-            epicenter = new MapCoordinates(point, _xform.GetMapCoordinates(ent.Owner).MapId);
+            epicenter = new MapCoordinates(point, gunCoords.MapId);
             return true;
         }
 
