@@ -205,6 +205,9 @@
   components:
   - type: VendingMachine
     pack: ADTIceCreamVendInventory
+    initialStockQuality: 0.33
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
     offState: off
     brokenState: broken
     normalState: normal-unshaded
@@ -212,6 +215,7 @@
     denyState: deny-unshaded
     priceMultiplier: 0.57 # ADT-Economy
     ejectDelay: 1
+  - type: ADTVendingFoodNutrimentReduction
   - type: DatasetVocalizer
     dataset: IceCreammatAds
   - type: SpeakOnUIClosed
@@ -319,6 +323,7 @@
     pack: GetmoreChocolateCorpInventory
     dispenseOnHitChance: 0.25
     dispenseOnHitThreshold: 2
+    dispenseOnHitChance: 0.25
     offState: off
     brokenState: broken
     normalState: normal-unshaded
@@ -326,6 +331,7 @@
     denyState: deny-unshaded
     initialStockQuality: 0.33
     allForFree: true # ADT-Economy
+  - type: ADTVendingFoodNutrimentReduction
 
 - type: entity
   parent: VendingMachine

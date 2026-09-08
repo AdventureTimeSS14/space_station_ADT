@@ -6,5 +6,5 @@ namespace Content.Shared.ADT.Nutrition;
 public sealed partial class ADTFatComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public float SpeedModifier = 0.6f;
+    public float SpeedModifier = 0.7f;
 }

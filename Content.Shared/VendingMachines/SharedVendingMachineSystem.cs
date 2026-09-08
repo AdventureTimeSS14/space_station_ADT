@@ -439,11 +439,11 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
                     // losing the rest of the restock.
 
                 //ADT-Economy-Start
-                    entry.Amount = Math.Min(entry.Amount + amount, 3 * amount);
+                    entry.Amount = Math.Min(entry.Amount + amount, 3 * restock);
                 else
                 {
                     var price = GetEntryPrice(proto);
-                    inventory.Add(id, new VendingMachineInventoryEntry(type, id, amount, price, amount, category));
+                    inventory.Add(id, new VendingMachineInventoryEntry(type, id, restock, price, amount, category));
                 }
                 //ADT-Economy-End
             }

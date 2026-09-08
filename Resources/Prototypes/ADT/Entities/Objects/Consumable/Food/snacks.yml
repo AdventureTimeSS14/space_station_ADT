@@ -392,7 +392,7 @@
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 5
         - ReagentId: Theobromine
           Quantity: 3
         - ReagentId: CocoaPowder
@@ -563,7 +563,7 @@
         maxVol: 4
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2.5
+          Quantity: 1.25
         - ReagentId: Theobromine
           Quantity: 0.75
         - ReagentId: CocoaPowder

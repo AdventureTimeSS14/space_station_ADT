@@ -47,7 +47,7 @@
   id: MobNovakid
   components:
   - type: Hunger
-    baseDecayRate: 0.025
+    baseDecayRate: 0.0325
     lastAuthoritativeHungerValue: 400
     thresholds:
       Fat: 450
