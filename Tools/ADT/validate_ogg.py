@@ -121,10 +121,10 @@ def main() -> int:
                 if channels != 1:
                     stereo_jukebox_files.append((path, channels))
                     print(f"[STEREO] {path} -> {channels} channels (JukeBox track must be mono)")
-                else:
-                    print(f"[OK]    {path} -> mono (JukeBox)")
-            else:
-                print(f"[OK]    {path} -> {channels} channel(s)")
+                # else:
+                    # print(f"[OK]    {path} -> mono (JukeBox)")
+            # else:
+                # print(f"[OK]    {path} -> {channels} channel(s)")
 
     missing_jukebox_files = sorted(jukebox_paths - seen_jukebox_paths)
 
