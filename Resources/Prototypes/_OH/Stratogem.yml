@@ -31,11 +31,11 @@
   components:
   - type: StratogemStrike
     explosionType: Default
-    totalIntensity: 50
+    totalIntensity: 20
     intensitySlope: 5
-    maxIntensity: 50
-    radius: 20
-    impactCount: 30
+    maxIntensity: 20
+    radius: 30
+    impactCount: 50
     interval: 0.4
   - type: TimedDespawn
     lifetime: 20
@@ -50,7 +50,7 @@
     intensitySlope: 5
     maxIntensity: 50
     radius: 15
-    impactCount: 6
+    impactCount: 20
     interval: 1.5
   - type: TimedDespawn
     lifetime: 15
@@ -65,7 +65,7 @@
     intensitySlope: 5
     maxIntensity: 50
     radius: 15
-    impactCount: 6
+    impactCount: 20
     interval: 1.2
   - type: TimedDespawn
     lifetime: 15
@@ -80,7 +80,7 @@
     intensitySlope: 5
     maxIntensity: 50
     radius: 20
-    impactCount: 3
+    impactCount: 10
     interval: 2.5
   - type: TimedDespawn
     lifetime: 15
