@@ -1,9 +1,6 @@
 # IPC appearance + visual organs (upstream PR#42476). IPC is silicon (non-organic), but the new
 # render pipeline needs visual organs to populate body layers. Only external visual organs are
 # defined (no biological internals). markingsGroup "Ipc" in ADT/Body/markingsGroups.yml.
-
-# Appearance used as dollPrototype (character editor). The in-game silicon mob (BaseMobIPC in
-# ADT/Entities/Mobs/Player/silicon_base.yml) gets the same InitialBody added directly.
 - type: markingsGroup
   parent: Undergarments
   id: Ipc

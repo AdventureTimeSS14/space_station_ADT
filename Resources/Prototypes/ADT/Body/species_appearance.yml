@@ -21,7 +21,7 @@
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-    - map: [ "enum.HumanoidVisualLayers.Special" ]
+    - map: [ "enum.HumanoidVisualLayers.Special" ] # Хороший слой для покрасок тела, но он не перекрывает кисти рук
     # Конец
 
     # Бельё и обычная одежда
@@ -36,7 +36,7 @@
     # Кисти выше обычной одежды, но ниже снаряжения
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
     - map: [ "enum.HumanoidVisualLayers.RHand" ]
-    - map: [ "finger" ] # ADT layers
+    - map: [ "finger" ] # Наши слои
     # Конец
 
     # То что перекрывает тело и обычную одежду, но не снаряжение
@@ -47,7 +47,7 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
-    - map: [ "ears2" ]  # ADT layers
+    - map: [ "ears2" ] # Наши слои
     - map: [ "eyes" ]
     - map: [ "id" ]
     - map: [ "outerClothing" ]
@@ -90,75 +90,85 @@
   components:
   - type: Sprite
     layers:
-    # Torso
+    # Tело
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    # Конец
 
-    # Head
+    # Голова
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    # Конец
 
-    # Limbs
+    # Конечности
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: ["enum.HumanoidVisualLayers.LFoot"]
-    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.Special" ] # Хороший слой для покрасок тела, но он не перекрывает кисти рук
+    # Конец
 
-    # Underwear & clothing
+    # Бельё и обычная одежда
     - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
     - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
-    - map: ["underwearb"]
-    - map: ["underweart"]
+    - map: [ "underwearb" ]
+    - map: [ "underweart" ]
     - map: [ "socks" ]
-    - map: ["jumpsuit"]
+    - map: [ "jumpsuit" ]
+    # Конец
 
-    # Extremities
-    - map: ["enum.HumanoidVisualLayers.LHand"]
-    - map: ["enum.HumanoidVisualLayers.RHand"]
-    - map: [ "finger" ]
+    # Кисти выше обычной одежды, но ниже снаряжения
+    - map: [ "enum.HumanoidVisualLayers.LHand" ]
+    - map: [ "enum.HumanoidVisualLayers.RHand" ]
+    - map: [ "finger" ] # ADT layers
+    # Конец
 
-    # Stuff that goes over the body but below equipment
+    # То что перекрывает тело и обычную одежду, но не снаряжение
     - map: ["enum.HumanoidVisualLayers.Overlay"]
+    # Конец
 
-    # More equipment
+    # Остальное снаряжение и верхняя одежда
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
-    - map: [ "ears2" ]
+    - map: [ "ears2" ]  # ADT layers
     - map: [ "eyes" ]
     - map: [ "id" ]
     - map: [ "outerClothing" ]
     - map: [ "belt" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
-    - map: [ "neck" ] # Moved ABOVE the neck layer, since backpacks were partially rendering UNDER capes, yet remained visible on the side sprites (this was NOT logic).
+    - map: [ "enum.HumanoidVisualLayers.Tail" ] # Это у них Крылья и они у них на особом месте
+    - map: [ "enum.HumanoidVisualLayers.TailOverlay" ] #Это у них Крылья и они у них на особом месте
+    - map: [ "neck" ]
     - map: [ "back" ]
     - map: [ "suitstorage" ]
+    # Конец
 
-    # Stuff that goes in front of equipment
+    # То что перекрывает снаряжение
     - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.SnoutOverlay" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Special" ] # ADT: needed so Special-layer markings (e.g. felinid cat ears) can render
+    # Конец
 
-    # Stuff that goes in front of stuff that goes in front of equipment
+    # То что перекрывает даже то что перекрывает снаряжение)
     - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
+    # Конец
 
-    # Extra stuff
+    # Остальное
     - map: ["enum.HumanoidVisualLayers.OverlayBandage"]
     - map: ["enum.HumanoidVisualLayers.Handcuffs"]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
+    # Конец
 
 - type: entity
   id: ADTMothBaseSpeciesAppearance
