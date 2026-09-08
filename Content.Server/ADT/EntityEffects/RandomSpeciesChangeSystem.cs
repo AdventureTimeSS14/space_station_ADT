@@ -27,6 +27,9 @@ public sealed partial class RandomSpeciesChangeSystem : EntityEffectSystem<Human
         var uid = entity.Owner;
         var effect = args.Effect;
 
+        if (effect.SpeciesBlacklist != null && effect.SpeciesBlacklist.Contains(entity.Comp.Species))
+            return;
+
         var species = _prototype.EnumeratePrototypes<SpeciesPrototype>().ToList();
 
         if (effect.SpeciesWhitelist != null && effect.SpeciesWhitelist.Count > 0)

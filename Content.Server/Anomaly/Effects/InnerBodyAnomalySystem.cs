@@ -101,12 +101,10 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         foreach (var entry in injectedAnom.Components.Values)
         {
             var reg = _compFactory.GetRegistration(entry.Component.GetType());
-            if (reg.NetID is ushort netId)
-            {
-                EntityManager.AddComponent(ent, netId);
-                ent.Comp.AddedComponentNetIds.Add(netId);
-            }
+            if (!EntityManager.HasComponent(ent, reg))
+                ent.Comp.AddedComponentRegistrations.Add(reg);
         }
+        EntityManager.AddComponents(ent, injectedAnom.Components, removeExisting: false);
         // ADT-tweak end
 
         _stun.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration));
@@ -222,14 +220,12 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 
         // ADT-tweak start: Remove only the specific components that were added by the anomaly
         var metadata = MetaData(ent);
-        foreach (var netId in ent.Comp.AddedComponentNetIds)
+        foreach (var reg in ent.Comp.AddedComponentRegistrations)
         {
-            if (EntityManager.TryGetComponent(ent, netId, out var component, metadata))
-            {
+            if (EntityManager.TryGetComponent(ent, reg, out var component))
                 EntityManager.RemoveComponent(ent, component, metadata);
-            }
         }
-        ent.Comp.AddedComponentNetIds.Clear();
+        ent.Comp.AddedComponentRegistrations.Clear();
         // ADT-tweak end
 
         _stun.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration));
