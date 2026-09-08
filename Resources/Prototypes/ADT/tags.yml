@@ -272,6 +272,9 @@
 - type: Tag
   id: JanicartKeys
 
+- type: Tag
+  id: LegCuffs
+
 #mech_gygax
 
 - type: Tag
@@ -939,7 +942,7 @@
 
 - type: Tag
   id: ADTAshFloraShavings
- 
+
 - type: Tag
   id: ADTPicoServoStockPart
 
