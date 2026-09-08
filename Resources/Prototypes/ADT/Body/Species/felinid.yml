@@ -38,7 +38,7 @@
   id: MobFelinid
   components:
   - type: Hunger
-    baseDecayRate: 0.0312
+    baseDecayRate: 0.03588
   - type: Respirator
     damage:
       types:
