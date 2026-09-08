@@ -3,7 +3,7 @@
   name: trait-chav-accent-name
   description: trait-chav-accent-desc
   category: SpeechTraits
-  cost: 0
+  cost: -1
   effects:
     - !type:AddCompsEffect
       components:
