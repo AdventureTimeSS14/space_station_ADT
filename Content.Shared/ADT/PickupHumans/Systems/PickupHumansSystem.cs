@@ -96,6 +96,9 @@ public sealed class PickupHumansSystem : EntitySystem
 
     public void DropCarriedBy(EntityUid carrier)
     {
+        if (_net.IsClient)
+            return;
+
         if (!TryComp<PickupingHumansComponent>(carrier, out var carrierComp))
             return;
 
