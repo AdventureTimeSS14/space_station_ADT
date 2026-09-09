@@ -768,7 +768,7 @@ public sealed partial class ChatUIController : UIController
         }
 
         // ADT-Tweak-Start
-        if (TrySendD20Emote(box, prefixChannel == 0 ? channel : prefixChannel, text))
+        if (TrySendEmoteMode(box, prefixChannel == 0 ? channel : prefixChannel, text))
             return;
         // ADT-Tweak-End
 
