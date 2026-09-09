@@ -188,6 +188,7 @@ public sealed class HungerSystem : EntitySystem
     /// <returns></returns>
     public HungerThreshold GetHungerThreshold(HungerComponent component, float? food = null)
     {
+        food ??= GetHunger(component);
         var result = HungerThreshold.Dead;
         var value = component.Thresholds[HungerThreshold.Overfed];
         foreach (var threshold in component.Thresholds)
