@@ -62,7 +62,7 @@ public sealed partial class GatewayGeneratorComponent : Component
         "OreSilver",
         "OrePlasma",
         "OreUranium",
-        "OreBananium",
+        //"OreBananium", // ADT-Tweak
         "OreArtifactFragment",
     };
 }
