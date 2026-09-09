@@ -77,3 +77,11 @@
 - type: lobbyBackground
   id: luckyratsalvagers
   background: /Textures/ADT/LobbyScreens/luckyratsalvagers.webp
+
+- type: lobbyBackground
+  id: mothinsindicat
+  background: /Textures/ADT/LobbyScreens/mothinsindicat.webp
+
+- type: lobbyBackground
+  id: commission
+  background: /Textures/ADT/LobbyScreens/commission.webp
