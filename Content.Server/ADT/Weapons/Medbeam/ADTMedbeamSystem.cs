@@ -95,7 +95,7 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
                 return;
             }
 
-            _mech.TryChangeEnergy(holder.Value, -energyUsage, mech);
+            _mech.TryChangeEnergy(holder, -energyUsage, mech);
         }
         else if (ent.Comp.RequireMech || !_mobState.IsAlive(holder))
         {
