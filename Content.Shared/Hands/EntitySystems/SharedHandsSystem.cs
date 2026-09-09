@@ -56,7 +56,7 @@ public abstract partial class SharedHandsSystem
         var container = EnsureComp<ContainerManagerComponent>(ent);
         foreach (var id in ent.Comp.Hands.Keys)
         {
-            ContainerSystem.EnsureContainer<ContainerSlot>(ent, id, container);
+            ContainerSystem.EnsureContainer<ContainerSlot>(ent, id, container).OccludesLight = false; // ADT-Tweak
         }
     }
 
