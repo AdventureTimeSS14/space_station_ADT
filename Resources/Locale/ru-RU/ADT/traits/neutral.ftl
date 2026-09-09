@@ -81,4 +81,3 @@ trait-invert-run-desc = Вы Pangaari? Нет? Не включайте.
 
 trait-polyglot-name = Полиглот
 trait-polyglot-desc = Вы знаете один дополнительный язык: в редакторе персонажа доступен ещё один слот языка.
-
