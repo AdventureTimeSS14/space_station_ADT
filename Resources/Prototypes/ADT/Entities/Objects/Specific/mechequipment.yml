@@ -204,7 +204,7 @@
   - type: ADTMedbeam
     bloodRestore: 2
     requireMech: true
-    energyUsage: 12
+    energyUsage: 10
     damage:
       types:
         Blunt: -2

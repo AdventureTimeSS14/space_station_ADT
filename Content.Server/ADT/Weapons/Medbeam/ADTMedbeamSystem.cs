@@ -5,6 +5,7 @@ using Content.Server.Mech.Systems;
 using Content.Shared.ADT.Weapons.Medbeam;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
@@ -80,6 +81,8 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
             return;
         }
 
+        var hasSomethingToHeal = HasSomethingToHeal(ent, target.Value);
+
         if (TryComp<MechComponent>(holder, out var mech))
         {
             if (mech.PilotSlot.ContainedEntity is not { } pilot || !_mobState.IsAlive(pilot))
@@ -88,14 +91,17 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
                 return;
             }
 
-            var energyUsage = (FixedPoint2) (ent.Comp.EnergyUsage * ent.Comp.UpdateInterval);
-            if (mech.Energy < energyUsage)
+            if (hasSomethingToHeal)
             {
-                DetachBeam(ent);
-                return;
-            }
+                var energyUsage = (FixedPoint2) (ent.Comp.EnergyUsage * ent.Comp.UpdateInterval);
+                if (mech.Energy < energyUsage)
+                {
+                    DetachBeam(ent);
+                    return;
+                }
 
-            _mech.TryChangeEnergy(holder, -energyUsage, mech);
+                _mech.TryChangeEnergy(holder, -energyUsage, mech);
+            }
         }
         else if (ent.Comp.RequireMech || !_mobState.IsAlive(holder))
         {
@@ -116,6 +122,9 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
             return;
         }
 
+        if (!hasSomethingToHeal)
+            return;
+
         _damage.TryChangeDamage(target.Value, ent.Comp.Damage, origin: ent.Owner);
 
         if (HasComp<BloodstreamComponent>(target.Value))
@@ -125,6 +134,23 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
 
             _blood.TryModifyBleedAmount(target.Value, -Comp<BloodstreamComponent>(target.Value).BleedAmount);
         }
+    }
+
+    private bool HasSomethingToHeal(Entity<ADTMedbeamComponent> ent, EntityUid target)
+    {
+        if (TryComp<DamageableComponent>(target, out var damageable) && damageable.TotalDamage > 0)
+            return true;
+
+        if (HasComp<BloodstreamComponent>(target))
+        {
+            if (Comp<BloodstreamComponent>(target).BleedAmount > 0)
+                return true;
+
+            if (ent.Comp.BloodRestore > 0 && _blood.GetBloodLevel(target) < 1f)
+                return true;
+        }
+
+        return false;
     }
 
     private bool TryGetCrossing(Entity<ADTMedbeamComponent> ent, EntityUid target, out EntityUid otherGun, out MapCoordinates epicenter)
