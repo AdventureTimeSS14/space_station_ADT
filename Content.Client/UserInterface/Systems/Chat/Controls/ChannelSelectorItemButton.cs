@@ -35,7 +35,7 @@ public sealed class ChannelSelectorItemButton : Button
         if (args.Handled)
             return;
 
-        if (!UserInterfaceManager.GetUIController<ChatUIController>().TryHandleD20ShiftClick(this, args.Function))
+        if (!UserInterfaceManager.GetUIController<ChatUIController>().TryHandleEmoteModeShiftClick(this, args.Function))
             return;
 
         args.Handle();
