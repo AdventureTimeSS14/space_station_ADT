@@ -297,5 +297,5 @@ ent-ADTFoodFrozenVanillaIceCreamTrash = обёртка от ванильного
 ent-ADTFoodFrozenWatermelonPopsicleTrash = обёртка от эскимо со вкусом арбуза
     .desc = Мусор
 
-ent-ADTFoodFrozenPopsicleSlime = обёртка от эскимо в виде слайма
+ent-ADTFoodFrozenPopsicleSlimeTrash = обёртка от эскимо в виде слайма
     .desc = Съешь меня >:3
