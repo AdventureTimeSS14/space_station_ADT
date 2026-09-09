@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Mech.Systems;
 using Content.Shared.ADT.Weapons.Medbeam;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
@@ -21,6 +22,7 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
     [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly MechSystem _mech = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
 
     private readonly HashSet<EntityUid> _activeBeams = new();
@@ -85,6 +87,15 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
                 DetachBeam(ent);
                 return;
             }
+
+            var energyUsage = (FixedPoint2) (ent.Comp.EnergyUsage * ent.Comp.UpdateInterval);
+            if (mech.Energy < energyUsage)
+            {
+                DetachBeam(ent);
+                return;
+            }
+
+            _mech.TryChangeEnergy(holder.Value, -energyUsage, mech);
         }
         else if (ent.Comp.RequireMech || !_mobState.IsAlive(holder))
         {

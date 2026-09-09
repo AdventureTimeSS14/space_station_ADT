@@ -24,6 +24,12 @@ public sealed partial class ADTMedbeamComponent : Component
     public bool RequireMech;
 
     /// <summary>
+    ///     How much mech energy the beam drains per second while healing.
+    /// </summary>
+    [DataField]
+    public float EnergyUsage;
+
+    /// <summary>
     ///     How far the beam can stretch before it breaks.
     /// </summary>
     [DataField]
