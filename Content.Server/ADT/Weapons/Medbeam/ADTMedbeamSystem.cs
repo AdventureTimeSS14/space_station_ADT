@@ -107,8 +107,13 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
 
         _damage.TryChangeDamage(target.Value, ent.Comp.Damage, origin: ent.Owner);
 
-        if (ent.Comp.BloodRestore > 0 && HasComp<BloodstreamComponent>(target.Value))
-            _blood.TryModifyBloodLevel(target.Value, (FixedPoint2) ent.Comp.BloodRestore);
+        if (HasComp<BloodstreamComponent>(target.Value))
+        {
+            if (ent.Comp.BloodRestore > 0)
+                _blood.TryRegenerateBlood(target.Value, (FixedPoint2) ent.Comp.BloodRestore);
+
+            _blood.TryModifyBleedAmount(target.Value, -Comp<BloodstreamComponent>(target.Value).BleedAmount);
+        }
     }
 
     private bool TryGetCrossing(Entity<ADTMedbeamComponent> ent, EntityUid target, out EntityUid otherGun, out MapCoordinates epicenter)

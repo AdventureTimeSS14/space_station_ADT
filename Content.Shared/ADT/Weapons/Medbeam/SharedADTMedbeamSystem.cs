@@ -1,9 +1,9 @@
 using Content.Shared.ADT.Heretic.Common;
 using Content.Shared.Damage.Components;
-using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mech.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
@@ -23,7 +23,6 @@ public abstract partial class SharedADTMedbeamSystem : EntitySystem
 
         SubscribeLocalEvent<ADTMedbeamComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<ADTMedbeamComponent, ActivateInWorldEvent>(OnActivate);
-        SubscribeLocalEvent<ADTMedbeamComponent, HandDeselectedEvent>(OnHandDeselected);
         SubscribeLocalEvent<ADTMedbeamComponent, DroppedEvent>(OnDropped);
         SubscribeLocalEvent<ADTMedbeamComponent, EntGotInsertedIntoContainerMessage>(OnInserted);
     }
@@ -53,6 +52,9 @@ public abstract partial class SharedADTMedbeamSystem : EntitySystem
 
     protected virtual bool IsValidTarget(EntityUid target)
     {
+        if (!HasComp<MobStateComponent>(target))
+            return false;
+
         if (!TryComp<DamageableComponent>(target, out var damageable))
             return false;
 
@@ -113,11 +115,6 @@ public abstract partial class SharedADTMedbeamSystem : EntitySystem
 
         DetachBeam(ent);
         args.Handled = true;
-    }
-
-    private void OnHandDeselected(Entity<ADTMedbeamComponent> ent, ref HandDeselectedEvent args)
-    {
-        DetachBeam(ent);
     }
 
     private void OnDropped(Entity<ADTMedbeamComponent> ent, ref DroppedEvent args)

@@ -545,13 +545,13 @@ public abstract class SharedBloodstreamSystem : EntitySystem
     }
 
     // ADT-Tweak start
-    public void TryRegenerateBlood(Entity<BloodstreamComponent?> ent)
+    public void TryRegenerateBlood(Entity<BloodstreamComponent?> ent, FixedPoint2? amountToAdd = null)
     {
         if (!Resolve(ent, ref ent.Comp, logMissing: false)
             || !SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution, out var bloodSolution))
             return;
 
-        var amountToAdd = ent.Comp.BloodRefreshAmount;
+        amountToAdd ??= ent.Comp.BloodRefreshAmount;
         var currentVolume = bloodSolution.Volume;
         var referenceVolume = ent.Comp.BloodReferenceSolution.Volume;
 
@@ -566,7 +566,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         foreach (var (referenceReagent, referenceQuantity) in ent.Comp.BloodReferenceSolution)
         {
             var currentAmount = bloodSolution.GetTotalPrototypeQuantity(referenceReagent.Prototype);
-            var toAdd = FixedPoint2.Min(amountToAdd, availableSpace);
+            var toAdd = FixedPoint2.Min(amountToAdd.Value, availableSpace);
 
             if (toAdd > 0)
             {

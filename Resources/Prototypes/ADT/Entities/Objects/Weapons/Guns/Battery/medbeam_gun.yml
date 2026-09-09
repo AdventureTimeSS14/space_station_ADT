@@ -36,7 +36,7 @@
   id: ADTWeaponMedbeamCivil
   components:
   - type: ADTMedbeam
-    bloodRestore: 1.2
+    bloodRestore: 0.5
     damage:
       types:
         Blunt: -1.2
@@ -58,7 +58,7 @@
   id: ADTWeaponMedbeamSyndicate
   components:
   - type: ADTMedbeam
-    bloodRestore: 2.5
+    bloodRestore: 1
     damage:
       types:
         Blunt: -2.5
@@ -80,7 +80,7 @@
   id: ADTWeaponMedbeamERT
   components:
   - type: ADTMedbeam
-    bloodRestore: 2.5
+    bloodRestore: 1
     damage:
       types:
         Blunt: -2.5
