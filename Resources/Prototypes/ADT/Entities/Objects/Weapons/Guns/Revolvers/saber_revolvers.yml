@@ -117,5 +117,5 @@
   - type: EnergySword
     colorOptions: [ "#1E90FFFF" ]
   - type: FiringPinHolder
-    startingPin: FiringPinLoyalty
+    startingPin: ADTFiringPinLoyalty
 

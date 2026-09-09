@@ -61,7 +61,7 @@
   - type: StealTarget
     stealGroup: ADTHosWeapon
   - type: FiringPinHolder
-    startingPin: FiringPinLoyalty
+    startingPin: ADTFiringPinLoyalty
 
 - type: entity
   name: russian revolver

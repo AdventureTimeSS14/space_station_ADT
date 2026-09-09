@@ -135,16 +135,16 @@
   tier: 2
   cost: 10000
   recipeUnlocks:
-  - FiringPinTestRangeRecipe
-  - FiringPinLoyaltyRecipe
-  - FiringPinDNARecipe
-  - FiringPinDNADreddRecipe
-  - FiringPinClownRecipe
-  - FiringPinClownUltraRecipe
-  - FiringPinHolyRecipe
-  - FiringPinAccessRecipe
-  - FiringPinSecLevelRecipe
-  - FiringPinExplorerRecipe
+  - ADTFiringPinTestRangeRecipe
+  - ADTFiringPinLoyaltyRecipe
+  - ADTFiringPinDNARecipe
+  - ADTFiringPinDNADreddRecipe
+  - ADTFiringPinClownRecipe
+  - ADTFiringPinClownUltraRecipe
+  - ADTFiringPinHolyRecipe
+  - ADTFiringPinAccessRecipe
+  - ADTFiringPinSecLevelRecipe
+  - ADTFiringPinExplorerRecipe
   position: 0,1
   requiredTech:
   - SalvageWeapons

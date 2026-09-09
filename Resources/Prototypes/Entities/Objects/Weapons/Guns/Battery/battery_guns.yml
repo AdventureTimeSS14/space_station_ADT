@@ -1029,7 +1029,7 @@
     - LaserWeapon
   # ADT Tweak start
   - type: FiringPinHolder
-    startingPin: FiringPinLoyalty
+    startingPin: ADTFiringPinLoyalty
   # ADT Tweak end
   - type: StaticPrice
     price: 750

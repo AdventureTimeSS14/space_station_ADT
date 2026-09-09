@@ -104,7 +104,7 @@
   - type: Item
     size: Huge
   - type: FiringPinHolder
-    startingPin: FiringPinSyndicate
+    startingPin: ADTFiringPinSyndicate
 
 - type: entity
   name: flamethrower

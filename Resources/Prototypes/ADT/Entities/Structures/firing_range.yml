@@ -1,6 +1,6 @@
 # TODO: Передлать потом под Зоны (Area)
 - type: entity
-  id: FiringRangeMarker
+  id: ADTFiringRangeMarker
   parent: MarkerBase
   name: firing range marker
   description: Marks the area where test firing pins work.

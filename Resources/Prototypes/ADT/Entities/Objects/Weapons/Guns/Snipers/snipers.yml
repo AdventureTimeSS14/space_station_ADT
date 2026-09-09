@@ -88,4 +88,4 @@
       enum.AttachmentUI.ChooseSlotKey:
         type: AttachmentChooseSlotBui
   - type: FiringPinHolder
-    startingPin: FiringPinSyndicate
+    startingPin: ADTFiringPinSyndicate

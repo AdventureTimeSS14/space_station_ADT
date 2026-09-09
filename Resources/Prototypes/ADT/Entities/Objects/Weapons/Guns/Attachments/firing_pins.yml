@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseFiringPin
+  id: ADTBaseFiringPin
   parent: BaseItem
   abstract: true
   components:
@@ -16,16 +16,16 @@
     - FiringPin
 
 - type: entity
-  id: FiringPin
-  parent: BaseFiringPin
+  id: ADTFiringPin
+  parent: ADTBaseFiringPin
   name: electronic firing pin
   description: A small authentication device that must be inserted into a firearm's receiver to allow a shot.
   components:
   - type: FiringPin
 
 - type: entity
-  id: FiringPinTestRange
-  parent: BaseFiringPin
+  id: ADTFiringPinTestRange
+  parent: ADTBaseFiringPin
   name: test-range firing pin
   description: This safety firing pin allows weapons to be fired within proximity to a firing range.
   components:
@@ -36,8 +36,8 @@
     failMessage: firing-pin-fail-test
 
 - type: entity
-  id: FiringPinLoyalty
-  parent: BaseFiringPin
+  id: ADTFiringPinLoyalty
+  parent: ADTBaseFiringPin
   name: mindshield firing pin
   description: A security firing pin which only authorizes users who are implanted with a mindshield.
   components:
@@ -52,8 +52,8 @@
     failMessage: firing-pin-fail-loyalty
 
 - type: entity
-  id: FiringPinDNA
-  parent: BaseFiringPin
+  id: ADTFiringPinDNA
+  parent: ADTBaseFiringPin
   name: DNA-keyed firing pin
   description: A DNA-locked firing pin which only authorizes one user. Attempt to fire once to DNA-link.
   components:
@@ -64,8 +64,8 @@
     failMessage: firing-pin-fail-dna
 
 - type: entity
-  id: FiringPinDNADredd
-  parent: FiringPinDNA
+  id: ADTFiringPinDNADredd
+  parent: ADTFiringPinDNA
   name: DNA-keyed firing pin (Dredd)
   description: A DNA-locked firing pin only authorizing one user. It has a small explosive charge on it.
   components:
@@ -75,8 +75,8 @@
     selfDestruct: true
 
 - type: entity
-  id: FiringPinClown
-  parent: BaseFiringPin
+  id: ADTFiringPinClown
+  parent: ADTBaseFiringPin
   name: hilarious firing pin
   description: Advanced clowntech that can convert any firearm into a far more useful object.
   components:
@@ -89,8 +89,8 @@
     failMessage: firing-pin-fail-honk
 
 - type: entity
-  id: FiringPinClownUltra
-  parent: FiringPinClown
+  id: ADTFiringPinClownUltra
+  parent: ADTFiringPinClown
   name: ultra-honk firing pin
   description: Advanced clowntech that can convert any firearm into a far more useful object. It has a small nitrobananium charge on it.
   components:
@@ -102,8 +102,8 @@
     selfDestruct: true
 
 - type: entity
-  id: FiringPinHoly
-  parent: BaseFiringPin
+  id: ADTFiringPinHoly
+  parent: ADTBaseFiringPin
   name: blessed firing pin
   description: A firing pin that only responds to those who are holier than thou.
   components:
@@ -115,8 +115,8 @@
     failMessage: firing-pin-fail-holy
 
 - type: entity
-  id: FiringPinAccess
-  parent: BaseFiringPin
+  id: ADTFiringPinAccess
+  parent: ADTBaseFiringPin
   name: access lock firing pin
   description: A firing pin that requires security access to fire.
   components:
@@ -127,8 +127,8 @@
     failMessage: firing-pin-fail-access
 
 - type: entity
-  id: FiringPinSecLevel
-  parent: BaseFiringPin
+  id: ADTFiringPinSecLevel
+  parent: ADTBaseFiringPin
   name: security level firing pin
   description: A sophisticated firing pin that authorizes operation based on its settings and current security level.
   components:
@@ -150,8 +150,8 @@
     failMessage: firing-pin-fail-seclevel
 
 - type: entity
-  id: FiringPinExplorer
-  parent: BaseFiringPin
+  id: ADTFiringPinExplorer
+  parent: ADTBaseFiringPin
   name: explorer firing pin
   description: A firing pin used by the defense force, retrofit to prevent weapon discharge on the station.
   components:
@@ -162,8 +162,8 @@
     failMessage: firing-pin-fail-explorer
 
 - type: entity
-  id: FiringPinSyndicate
-  parent: BaseFiringPin
+  id: ADTFiringPinSyndicate
+  parent: ADTBaseFiringPin
   name: syndicate firing pin
   description: A firing pin that only authorizes syndicate operatives and agents.
   components:

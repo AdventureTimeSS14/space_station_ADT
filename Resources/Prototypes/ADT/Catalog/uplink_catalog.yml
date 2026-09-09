@@ -1455,11 +1455,11 @@
   - UplinkImplants
 
 - type: listing
-  id: UplinkFiringPinSyndicate
+  id: ADTUplinkFiringPinSyndicate
   name: uplink-firing-pin-syndicate-name
   description: uplink-firing-pin-syndicate-desc
   icon: { sprite: /Textures/ADT/Objects/Devices/pin.rsi, state: firing_pin_red }
-  productEntity: FiringPinSyndicate
+  productEntity: ADTFiringPinSyndicate
   cost:
     Telecrystal: 1
   categories:

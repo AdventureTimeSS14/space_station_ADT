@@ -1,6 +1,6 @@
 - type: latheRecipe
-  id: FiringPinRecipe
-  result: FiringPin
+  id: ADTFiringPinRecipe
+  result: ADTFiringPin
   categories:
   - Security
   completetime: 2
@@ -9,8 +9,8 @@
     Plastic: 100
 
 - type: latheRecipe
-  id: FiringPinTestRangeRecipe
-  result: FiringPinTestRange
+  id: ADTFiringPinTestRangeRecipe
+  result: ADTFiringPinTestRange
   categories:
   - Security
   completetime: 2
@@ -19,8 +19,8 @@
     Plastic: 200
 
 - type: latheRecipe
-  id: FiringPinLoyaltyRecipe
-  result: FiringPinLoyalty
+  id: ADTFiringPinLoyaltyRecipe
+  result: ADTFiringPinLoyalty
   categories:
   - Security
   completetime: 2
@@ -30,8 +30,8 @@
     Copper: 100
 
 - type: latheRecipe
-  id: FiringPinDNARecipe
-  result: FiringPinDNA
+  id: ADTFiringPinDNARecipe
+  result: ADTFiringPinDNA
   categories:
   - Security
   completetime: 3
@@ -41,8 +41,8 @@
     Gold: 100
 
 - type: latheRecipe
-  id: FiringPinDNADreddRecipe
-  result: FiringPinDNADredd
+  id: ADTFiringPinDNADreddRecipe
+  result: ADTFiringPinDNADredd
   categories:
   - Security
   completetime: 3
@@ -53,8 +53,8 @@
     Uranium: 100
 
 - type: latheRecipe
-  id: FiringPinClownRecipe
-  result: FiringPinClown
+  id: ADTFiringPinClownRecipe
+  result: ADTFiringPinClown
   categories:
   - Security
   completetime: 2
@@ -63,8 +63,8 @@
     Plastic: 150
 
 - type: latheRecipe
-  id: FiringPinClownUltraRecipe
-  result: FiringPinClownUltra
+  id: ADTFiringPinClownUltraRecipe
+  result: ADTFiringPinClownUltra
   categories:
   - Security
   completetime: 3
@@ -74,8 +74,8 @@
     Uranium: 100
 
 - type: latheRecipe
-  id: FiringPinHolyRecipe
-  result: FiringPinHoly
+  id: ADTFiringPinHolyRecipe
+  result: ADTFiringPinHoly
   categories:
   - Security
   completetime: 2
@@ -85,8 +85,8 @@
     Gold: 50
 
 - type: latheRecipe
-  id: FiringPinAccessRecipe
-  result: FiringPinAccess
+  id: ADTFiringPinAccessRecipe
+  result: ADTFiringPinAccess
   categories:
   - Security
   completetime: 2
@@ -96,8 +96,8 @@
     Copper: 200
 
 - type: latheRecipe
-  id: FiringPinSecLevelRecipe
-  result: FiringPinSecLevel
+  id: ADTFiringPinSecLevelRecipe
+  result: ADTFiringPinSecLevel
   categories:
   - Security
   completetime: 3
@@ -107,8 +107,8 @@
     Copper: 200
 
 - type: latheRecipe
-  id: FiringPinExplorerRecipe
-  result: FiringPinExplorer
+  id: ADTFiringPinExplorerRecipe
+  result: ADTFiringPinExplorer
   categories:
   - Security
   completetime: 2
@@ -119,18 +119,18 @@
 - type: latheRecipePack
   id: ADTFiringPinStaticPack
   recipes:
-  - FiringPinRecipe
+  - ADTFiringPinRecipe
 
 - type: latheRecipePack
-  id: FiringPinsResearchPack
+  id: ADTFiringPinsResearchPack
   recipes:
-  - FiringPinTestRangeRecipe
-  - FiringPinLoyaltyRecipe
-  - FiringPinDNARecipe
-  - FiringPinDNADreddRecipe
-  - FiringPinClownRecipe
-  - FiringPinClownUltraRecipe
-  - FiringPinHolyRecipe
-  - FiringPinAccessRecipe
-  - FiringPinSecLevelRecipe
-  - FiringPinExplorerRecipe
+  - ADTFiringPinTestRangeRecipe
+  - ADTFiringPinLoyaltyRecipe
+  - ADTFiringPinDNARecipe
+  - ADTFiringPinDNADreddRecipe
+  - ADTFiringPinClownRecipe
+  - ADTFiringPinClownUltraRecipe
+  - ADTFiringPinHolyRecipe
+  - ADTFiringPinAccessRecipe
+  - ADTFiringPinSecLevelRecipe
+  - ADTFiringPinExplorerRecipe

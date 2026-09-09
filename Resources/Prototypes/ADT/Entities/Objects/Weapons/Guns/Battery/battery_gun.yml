@@ -51,7 +51,7 @@
     - ADTBsoWeapon
   - type: GunExecutionBlacklist
   - type: FiringPinHolder
-    startingPin: FiringPinLoyalty
+    startingPin: ADTFiringPinLoyalty
 
 - type: entity
   name: laser rifle
@@ -256,7 +256,7 @@
   - type: Item
     size: Small
   - type: FiringPinHolder
-    startingPin: FiringPinLoyalty
+    startingPin: ADTFiringPinLoyalty
 
 - type: entity
   name: Miniature Energy Crossbow
@@ -300,7 +300,7 @@
   - type: AmmoCounter
   - type: Appearance
   - type: FiringPinHolder
-    startingPin: FiringPinSyndicate
+    startingPin: ADTFiringPinSyndicate
 
 - type: entity
   name: Energy Crossbow
@@ -412,7 +412,7 @@
     tags:
     - ADTBsoWeapon
   - type: FiringPinHolder
-    startingPin: FiringPinLoyalty
+    startingPin: ADTFiringPinLoyalty
 
 - type: entity
   name: CC-7 "Arbiter"
@@ -460,7 +460,7 @@
     maxCharge: 1625
     startingCharge: 1625
   - type: FiringPinHolder
-    startingPin: FiringPinLoyalty
+    startingPin: ADTFiringPinLoyalty
 
 - type: entity
   name: X-02 multiphas laser pistol
@@ -520,7 +520,7 @@
   - type: Item
     size: Small
   - type: FiringPinHolder
-    startingPin: FiringPinLoyalty
+    startingPin: ADTFiringPinLoyalty
 
 - type: entity
   name: svalinn laser rifle
@@ -641,4 +641,4 @@
     - Sidearm
     - LaserWeapon
   - type: FiringPinHolder
-    startingPin: FiringPinLoyalty
+    startingPin: ADTFiringPinLoyalty

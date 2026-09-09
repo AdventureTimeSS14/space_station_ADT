@@ -176,7 +176,7 @@
     price: 5000
   # ADT Tweak start
   - type: FiringPinHolder
-    startingPin: FiringPinSyndicate
+    startingPin: ADTFiringPinSyndicate
   # ADT Tweak end
 
 - type: entity

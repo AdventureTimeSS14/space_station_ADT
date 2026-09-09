@@ -524,7 +524,7 @@
     - ADTAttachmentPack
     - ADT40mmGrenadePack
     - ADTMechEquipmentSecTechfabPack
-    - FiringPinsResearchPack
+    - ADTFiringPinsResearchPack
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagStaticPacks:
