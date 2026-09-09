@@ -26,6 +26,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SponsorsManager _sponsorsManager = default!; //ADT-Sponsors-Job
+    [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
     private readonly List<ProtoId<JobPrototype>> _jobBans = new();
@@ -167,6 +168,14 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         if (!CheckWhitelist(job, out reason))
             return false;
 
+        // ADT-Tweak-Start
+        if (_adtSponsors.IsJobTimeBypassed(_playerManager.LocalSession, job.ID))
+        {
+            reason = null;
+            return true;
+        }
+        // ADT-Tweak-End
+
         // Check other role requirements
         var reqs = _entManager.System<SharedRoleSystem>().GetRoleRequirements(job);
         if (!CheckRoleRequirements(reqs, profile, out reason))
@@ -193,6 +202,14 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         // Check whitelist requirements
         if (!CheckWhitelist(antag, out reason))
             return false;
+
+        // ADT-Tweak-Start
+        if (_adtSponsors.IsAntagTimeBypassed(_playerManager.LocalSession))
+        {
+            reason = null;
+            return true;
+        }
+        // ADT-Tweak-End
 
         // Check other role requirements
         var reqs = _entManager.System<SharedRoleSystem>().GetRoleRequirements(antag);

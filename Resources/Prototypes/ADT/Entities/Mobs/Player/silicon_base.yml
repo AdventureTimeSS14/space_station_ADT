@@ -107,6 +107,7 @@
     - type: Crawler
     - type: StatusIcon
     - type: SSDIndicator
+    - type: MindExaminable
     - type: MobState
       allowedStates:
         - Alive

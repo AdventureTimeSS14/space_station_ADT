@@ -1,0 +1,73 @@
+<Control
+    xmlns="https://spacestation14.io"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+    <BoxContainer
+        Orientation="Vertical"
+        SeparationOverride="8">
+        <BoxContainer
+            Name="ModeBar"
+            Orientation="Horizontal"
+            SeparationOverride="4"
+            HorizontalAlignment="Center">
+            <Button Name="RgbModeButton" ToggleMode="True" Text="{Loc 'vending-paint-rgb'}"/>
+            <Button Name="HsvModeButton" ToggleMode="True" Text="{Loc 'vending-paint-hsv'}"/>
+            <Button Name="HexModeButton" ToggleMode="True" Text="{Loc 'vending-paint-hex'}"/>
+        </BoxContainer>
+        <BoxContainer
+            Orientation="Horizontal"
+            SeparationOverride="8">
+            <PanelContainer
+                Name="SlidersPanel"
+                MinSize="280 106">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" BorderColor="#3B3B42" BorderThickness="1"/>
+                </PanelContainer.PanelOverride>
+                <BoxContainer
+                    Name="SlidersBox"
+                    Orientation="Vertical"
+                    Margin="8"
+                    SeparationOverride="6"/>
+            </PanelContainer>
+            <PanelContainer
+                Name="PreviewPanel"
+                MinSize="120 106"
+                HorizontalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" BorderColor="#3B3B42" BorderThickness="1"/>
+                </PanelContainer.PanelOverride>
+                <BoxContainer
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    SeparationOverride="6">
+                    <SpriteView
+                        Name="Preview"
+                        Scale="3 3"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+                    <Label
+                        Name="PreviewHexLabel"
+                        Text="#FFFFFF"
+                        HorizontalAlignment="Center"/>
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+        <BoxContainer
+            Name="HexPanel"
+            Orientation="Horizontal"
+            SeparationOverride="6"
+            Visible="False">
+            <Label
+                Text="{Loc 'vending-paint-hex'}"
+                VerticalAlignment="Center"/>
+            <LineEdit
+                Name="HexInput"
+                HorizontalExpand="True"
+                VerticalAlignment="Center"/>
+        </BoxContainer>
+        <Button
+            Name="ResetButton"
+            Text="{Loc 'vending-paint-reset'}"
+            HorizontalAlignment="Center"/>
+    </BoxContainer>
+</Control>

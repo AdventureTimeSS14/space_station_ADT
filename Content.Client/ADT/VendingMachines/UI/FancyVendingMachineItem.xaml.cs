@@ -26,17 +26,21 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
 
     public Action? BuyPressed;
     public Action? OnAmountChanged;
+    public Action? ColorPressed;
 
     private int _unitPrice;
     private StyleBoxFlat _buyBox = new();
 
+    public Color? PaintColor { get; private set; }
+
     public int SelectedAmount => AmountSelector.SelectedId + 1;
 
-    public FancyVendingMachineItem(EntProtoId entProto, string text, uint count, uint maxAmount, int price, bool striped)
+    public FancyVendingMachineItem(EntProtoId entProto, string text, uint count, uint maxAmount, int price, bool striped, bool canPaint = false) // ADT Tweak - canPaint
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         BuyButton.OnPressed += _ => BuyPressed?.Invoke();
+        ColorButton.OnPressed += _ => ColorPressed?.Invoke();
 
         _unitPrice = price;
 
@@ -53,6 +57,16 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
 
         AmountSelector.StyleBoxOverride = MakeFlatButtonStyle(AmountSelector);
         AmountSelector.PrefixMargin = false;
+
+        ColorButton.Visible = true;
+        ColorButton.Disabled = !canPaint;
+        PaletteIcon.Visible = canPaint;
+        ColorButton.StyleBoxOverride = new StyleBoxFlat
+        {
+            BackgroundColor = Color.Transparent,
+            BorderColor = Color.Transparent,
+            BorderThickness = new Thickness(1),
+        };
 
         AmountSelector.OnItemSelected += args =>
         {
@@ -136,5 +150,14 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
     {
         BuyButton.Disabled = disabled;
         _buyBox.BackgroundColor = disabled ? ButtonDisabled : ButtonBackground;
+    }
+
+    public void SetPaintColor(Color? color)
+    {
+        PaintColor = color;
+
+        var box = (StyleBoxFlat) ColorButton.StyleBoxOverride!;
+        box.BackgroundColor = color ?? Color.Transparent;
+        box.BorderColor = color == null ? Color.Transparent : color.Value;
     }
 }
