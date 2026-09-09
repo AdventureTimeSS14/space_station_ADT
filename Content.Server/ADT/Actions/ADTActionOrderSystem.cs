@@ -1,6 +1,5 @@
 using System.Collections.Immutable;
 using Content.Shared.ADT.Actions;
-using Content.Shared.Actions.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 
@@ -22,9 +21,6 @@ public sealed class ADTActionOrderSystem : EntitySystem
 
     private void OnPlayerAttached(PlayerAttachedEvent ev)
     {
-        if (!HasComp<ActionsComponent>(ev.Entity))
-            return;
-
         var order = EnsureComp<ADTActionOrderComponent>(ev.Entity);
         Dirty(ev.Entity, order);
     }
