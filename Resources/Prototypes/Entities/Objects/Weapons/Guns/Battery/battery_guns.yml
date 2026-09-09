@@ -170,8 +170,6 @@
     fireCost: 50
   - type: Gun
     fireRate: 4
-  - type: FiringPinHolder
-    requiresPin: true
   #ADT-Tweak-End
 
 - type: entity
