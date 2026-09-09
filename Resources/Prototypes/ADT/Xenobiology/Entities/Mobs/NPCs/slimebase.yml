@@ -9,7 +9,6 @@
   - type: Hunger
     lastAuthoritativeHungerValue: 20
     thresholds:
-      Fat: 200
       Overfed: 150
       Okay: 95
       Peckish: 25 #Baby Slimes will begin hunting here, Adult Slimes will target their tamers here.
@@ -19,7 +18,6 @@
       types:
         Poison: 3
     hungerThresholdDecayModifiers:
-      Fat: 3.0
       Okay: 1.5
       Peckish: 0.4
       Starving: 0.2

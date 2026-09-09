@@ -1,1 +1,0 @@
-fat-examine = [color=#f5c542]Looks fat: their belly has rounded out noticeably.[/color]

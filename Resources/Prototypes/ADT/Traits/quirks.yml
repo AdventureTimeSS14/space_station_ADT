@@ -262,17 +262,6 @@
     - Unimplantable
 
 - type: trait
-  id: ADTChubby
-  name: trait-chubby-name
-  description: trait-chubby-desc
-  category: Quirks
-  cost: 0
-  speciesBlacklist:
-  - IPC
-  effects:
-    - !type:SetHungerFatEffect
-
-- type: trait
   id: ADTInvertRun
   name: trait-invert-run-name
   description: trait-invert-run-desc

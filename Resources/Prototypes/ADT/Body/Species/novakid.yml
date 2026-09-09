@@ -50,7 +50,6 @@
     baseDecayRate: 0.037375
     lastAuthoritativeHungerValue: 400
     thresholds:
-      Fat: 450
       Overfed: 400
       Okay: 300
       Peckish: 200

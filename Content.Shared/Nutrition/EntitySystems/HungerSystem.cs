@@ -1,5 +1,4 @@
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared.ADT.Nutrition;
 using Content.Shared.Alert;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Systems;
@@ -49,11 +48,6 @@ public sealed class HungerSystem : EntitySystem
     private void OnShutdown(EntityUid uid, HungerComponent component, ComponentShutdown args)
     {
         _alerts.ClearAlertCategory(uid, component.HungerAlertCategory);
-        
-        // ADT-Tweak start
-        RemComp<ADTFatComponent>(uid);
-        _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
-        // ADT-Tweak end
     }
 
     private void OnRefreshMovespeed(EntityUid uid, HungerComponent component, RefreshMovementSpeedModifiersEvent args)
@@ -152,26 +146,14 @@ public sealed class HungerSystem : EntitySystem
             _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
         }
 
-        // ADT Tweak start: пороговые алерты заменены постоянным алертом ADTHunger
-        // if (component.HungerThresholdAlerts.TryGetValue(component.CurrentThreshold, out var alertId))
-        // {
-        //     _alerts.ShowAlert(uid, alertId);
-        // }
-        // else
-        // {
-        //     _alerts.ClearAlertCategory(uid, component.HungerAlertCategory);
-        // }
-
-        if (!_timing.ApplyingState)
+        if (component.HungerThresholdAlerts.TryGetValue(component.CurrentThreshold, out var alertId))
         {
-            if (component.CurrentThreshold == HungerThreshold.Fat)
-                EnsureComp<ADTFatComponent>(uid);
-            else
-                RemComp<ADTFatComponent>(uid);
-
-            _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+            _alerts.ShowAlert(uid, alertId);
         }
-        // ADT Tweak end
+        else
+        {
+            _alerts.ClearAlertCategory(uid, component.HungerAlertCategory);
+        }
 
         if (component.HungerThresholdDecayModifiers.TryGetValue(component.CurrentThreshold, out var modifier))
         {
@@ -206,15 +188,8 @@ public sealed class HungerSystem : EntitySystem
     /// <returns></returns>
     public HungerThreshold GetHungerThreshold(HungerComponent component, float? food = null)
     {
-        food ??= GetHunger(component);
-        // ADT Tweak start
-        var maxValue = component.Thresholds.TryGetValue(HungerThreshold.Fat, out var fatValue)
-            ? fatValue
-            : component.Thresholds[HungerThreshold.Overfed];
-        food = Math.Min(food.Value, maxValue);
-        // ADT Tweak end
         var result = HungerThreshold.Dead;
-        var value = maxValue;
+        var value = component.Thresholds[HungerThreshold.Overfed];
         foreach (var threshold in component.Thresholds)
         {
             if (threshold.Value <= value && threshold.Value >= food)
@@ -242,7 +217,6 @@ public sealed class HungerSystem : EntitySystem
     {
         switch (threshold)
         {
-            case HungerThreshold.Fat: // ADT Tweak
             case HungerThreshold.Overfed:
             case HungerThreshold.Okay:
                 return true;
@@ -278,14 +252,9 @@ public sealed class HungerSystem : EntitySystem
 
     private static float ClampHungerWithinThresholds(HungerComponent component, float hungerValue)
     {
-        // ADT Tweak start
-        var max = component.Thresholds.TryGetValue(HungerThreshold.Fat, out var fat)
-            ? fat
-            : component.Thresholds[HungerThreshold.Overfed];
         return Math.Clamp(hungerValue,
             component.Thresholds[HungerThreshold.Dead],
-            max);
-        // ADT Tweak end
+            component.Thresholds[HungerThreshold.Overfed]);
     }
 
     public override void Update(float frameTime)
@@ -301,18 +270,6 @@ public sealed class HungerSystem : EntitySystem
 
             UpdateCurrentThreshold(uid, hunger);
             DoContinuousHungerEffects(uid, hunger);
-
-            // ADT-Tweak start
-            if (HasComp<ADTFatComponent>(uid))
-                _alerts.ShowAlert(uid, ADTSatiationAlerts.HungerAlertId, ADTSatiationAlerts.FatLevel);
-            else
-            {
-                var max = hunger.Thresholds.TryGetValue(HungerThreshold.Fat, out var fat)
-                    ? fat
-                    : hunger.Thresholds[HungerThreshold.Overfed];
-                _alerts.ShowAlert(uid, ADTSatiationAlerts.HungerAlertId, ADTSatiationAlerts.ToLevel(GetHunger(hunger) / max));
-            }
-            // ADT-Tweak end
         }
     }
 }

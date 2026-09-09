@@ -1,4 +1,3 @@
-using Content.Shared.ADT.Nutrition;
 using Content.Shared.Alert;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
@@ -35,15 +34,7 @@ public sealed class ThirstSystem : EntitySystem
         SubscribeLocalEvent<ThirstComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
         SubscribeLocalEvent<ThirstComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ThirstComponent, RejuvenateEvent>(OnRejuvenate);
-    // ADT-Tweak start
-        SubscribeLocalEvent<ThirstComponent, ComponentShutdown>(OnShutdown);
     }
-
-    private void OnShutdown(EntityUid uid, ThirstComponent component, ComponentShutdown args) // ADT Tweak
-    {
-        _alerts.ClearAlert(uid, ADTSatiationAlerts.ThirstAlertId);
-    }
-    // ADT-Tweak end
 
     private void OnMapInit(EntityUid uid, ThirstComponent component, MapInitEvent args)
     {
@@ -163,16 +154,14 @@ public sealed class ThirstSystem : EntitySystem
         }
 
         // Update UI
-        // ADT Tweak start: пороговые алерты заменены постоянным алертом ADTThirst
-        // if (ThirstComponent.ThirstThresholdAlertTypes.TryGetValue(component.CurrentThirstThreshold, out var alertId))
-        // {
-        //     _alerts.ShowAlert(uid, alertId);
-        // }
-        // else
-        // {
-        //     _alerts.ClearAlertCategory(uid, component.ThirstyCategory);
-        // }
-        // ADT Tweak end
+        if (ThirstComponent.ThirstThresholdAlertTypes.TryGetValue(component.CurrentThirstThreshold, out var alertId))
+        {
+            _alerts.ShowAlert(uid, alertId);
+        }
+        else
+        {
+            _alerts.ClearAlertCategory(uid, component.ThirstyCategory);
+        }
 
         DirtyField(uid, component, nameof(ThirstComponent.LastThirstThreshold));
         DirtyField(uid, component, nameof(ThirstComponent.ActualDecayRate));
@@ -222,11 +211,6 @@ public sealed class ThirstSystem : EntitySystem
             thirst.NextUpdateTime += thirst.UpdateRate;
 
             ModifyThirst(uid, thirst, -thirst.ActualDecayRate);
-
-            // ADT-Tweak start
-            _alerts.ShowAlert(uid, ADTSatiationAlerts.ThirstAlertId, ADTSatiationAlerts.ToLevel(thirst.CurrentThirst / thirst.ThirstThresholds[ThirstThreshold.OverHydrated]));
-            // ADT-Tweak end
-
             var calculatedThirstThreshold = GetThirstThreshold(thirst, thirst.CurrentThirst);
 
             if (calculatedThirstThreshold == thirst.CurrentThirstThreshold)

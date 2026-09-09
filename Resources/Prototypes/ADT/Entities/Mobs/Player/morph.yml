@@ -56,7 +56,6 @@
     baseDecayRate: 0 # не голодни
     starvingSlowdownModifier: 1
     thresholds:
-      Fat: 1000
       Overfed: 500
       Okay: 150
       Peckish: 100

@@ -70,7 +70,6 @@
   - type: Hunger
     baseDecayRate: 0.085 # В 5 с чем-то раз больше стандартного
     thresholds:
-      Fat: 500
       Overfed: 450
       Okay: 375
       Peckish: 225

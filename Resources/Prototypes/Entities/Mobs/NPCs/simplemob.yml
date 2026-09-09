@@ -77,7 +77,6 @@
   components:
   - type: Hunger
     thresholds: # only animals and rats are derived from this prototype so let's override it here and in rats' proto
-      Fat: 130 # ADT Tweak
       Overfed: 100
       Okay: 50
       Peckish: 25

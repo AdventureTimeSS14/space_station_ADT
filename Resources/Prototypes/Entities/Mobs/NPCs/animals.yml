@@ -1927,7 +1927,6 @@
     baseDecayRate: 0.04
   - type: Hunger
     thresholds:
-      Fat: 50 # ADT Tweak
       Overfed: 35
       Okay: 25
       Peckish: 15
