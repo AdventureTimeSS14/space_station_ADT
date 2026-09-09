@@ -7,6 +7,22 @@
     state: cow_horns
 
 - type: marking
+  id: DemonCowHornsBrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: cow_horns_broken_l
+
+- type: marking
+  id: DemonCowHornsBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: cow_horns_broken_r
+
+- type: marking
   id: DemonHornsDeer
   bodyPart: HeadTop
   groupWhitelist: [Demon]
@@ -15,12 +31,20 @@
     state: deer_antlers_horns
 
 - type: marking
-  id: DemonHornsSmall
+  id: DemonHornsDeerBrokenL
   bodyPart: HeadTop
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
-    state: small_horns
+    state: deer_antlers_horns_broken_l
+
+- type: marking
+  id: DemonHornsDeerBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: deer_antlers_horns_broken_r
 
 - type: marking
   id: DemonHornsBuffalo
@@ -31,6 +55,22 @@
     state: horns_buffalo
 
 - type: marking
+  id: DemonHornsBuffaloBrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: horns_buffalo_broken_l
+
+- type: marking
+  id: DemonHornsBuffaloBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: horns_buffalo_broken_r
+
+- type: marking
   id: DemonHornsCarpicorn
   bodyPart: HeadTop
   groupWhitelist: [Demon]
@@ -39,11 +79,20 @@
     state: horns_capricorn
 
 - type: marking
-  id: DemonHornsDevilOne
+  id: DemonHornsCarpicornBrokenL
   bodyPart: HeadTop
+  groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
-    state: horns_devil_one
+    state: horns_capricorn_broken_l
+
+- type: marking
+  id: DemonHornsCarpicornBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: horns_capricorn_broken_r
 
 - type: marking
   id: DemonHornsDevil
@@ -54,12 +103,44 @@
     state: horns_devil
 
 - type: marking
+  id: DemonHornsDevilBrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: horns_devil_broken_l
+
+- type: marking
+  id: DemonHornsDevilBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: horns_devil_broken_r
+
+- type: marking
   id: DemonHornsDevil2
   bodyPart: HeadTop
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: horns_devil2
+
+- type: marking
+  id: DemonHornsDevil2BrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: horns_devil2_broken_l
+
+- type: marking
+  id: DemonHornsDevil2BrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: horns_devil2_broken_r
 
 - type: marking
   id: DemonHornsDevil3
@@ -70,12 +151,44 @@
     state: horns_devil3
 
 - type: marking
+  id: DemonHornsDevil3BrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: horns_devil3_broken_l
+
+- type: marking
+  id: DemonHornsDevil3BrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: horns_devil3_broken_r
+
+- type: marking
   id: DemonHornsDevil4
   bodyPart: HeadTop
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: horns_devil4
+
+- type: marking
+  id: DemonHornsDevil4BrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: horns_devil4_broken_l
+
+- type: marking
+  id: DemonHornsDevil4BrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: horns_devil4_broken_r
 
 - type: marking
   id: DemonHornsRam
@@ -86,6 +199,30 @@
     state: horns_ram
 
 - type: marking
+  id: DemonHornsRamBrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: horns_ram_broken_l
+
+- type: marking
+  id: DemonHornsRamBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: horns_ram_broken_r
+
+- type: marking
+  id: DemonHornsDevilOne
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: horns_devil_one
+
+- type: marking
   id: DemonHornsUnicorn
   bodyPart: HeadTop
   groupWhitelist: [Demon]
@@ -93,7 +230,14 @@
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: horns_unicorn
 
-#Start-Рога от Иллюми, 32x64
+- type: marking
+  id: DemonHornsSmall
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: small_horns
+
 - type: marking
   id: DemonHornsBackwardHorns
   bodyPart: HeadTop
@@ -101,6 +245,22 @@
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
     state: backward_horns
+
+- type: marking
+  id: DemonHornsBackwardHornsBrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: backward_horns_broken_l
+
+- type: marking
+  id: DemonHornsBackwardHornsBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: backward_horns_broken_r
 
 - type: marking
   id: DemonHornsDarkCrown
@@ -111,12 +271,20 @@
     state: dark_crown
 
 - type: marking
-  id: DemonHornsDevilPrimeSi1
+  id: DemonHornsDarkCrownBrokenL
   bodyPart: HeadTop
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
-    state: devil_prime1_s
+    state: dark_crown_broken_l
+
+- type: marking
+  id: DemonHornsDarkCrownBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: dark_crown_broken_r
 
 - type: marking
   id: DemonHornsDevilPrime1
@@ -127,6 +295,46 @@
     state: devil_prime1
 
 - type: marking
+  id: DemonHornsDevilPrime1BrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: devil_prime1_broken_l
+
+- type: marking
+  id: DemonHornsDevilPrime1BrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: devil_prime1_broken_r
+
+- type: marking
+  id: DemonHornsDevilPrimeSi1
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: devil_prime1_s
+
+- type: marking
+  id: DemonHornsDevilPrimeSi1BrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: devil_prime1_s_broken_l
+
+- type: marking
+  id: DemonHornsDevilPrimeSi1BrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: devil_prime1_s_broken_r
+
+- type: marking
   id: DemonHornsDevilPrime2
   bodyPart: HeadTop
   groupWhitelist: [Demon]
@@ -135,10 +343,42 @@
     state: devil_prime2
 
 - type: marking
+  id: DemonHornsDevilPrime2BrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: devil_prime2_broken_l
+
+- type: marking
+  id: DemonHornsDevilPrime2BrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: devil_prime2_broken_r
+
+- type: marking
   id: DemonHornsFat_Horn
   bodyPart: HeadTop
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
     state: fat_horn
-#End-Рога от Иллюми, 32x64
+
+- type: marking
+  id: DemonHornsFat_HornBrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: fat_horn_broken_l
+
+- type: marking
+  id: DemonHornsFat_HornBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: fat_horn_broken_r
+

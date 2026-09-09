@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created by discord:unlumy",
+    "copyright": "Created by discord:lunalita",
     "size": {
         "x": 32,
         "y": 64
@@ -12,11 +12,23 @@
             "directions": 4
         },
         {
+            "name": "backward_horns_broken_l",
+            "directions": 4
+        },
+        {
+            "name": "backward_horns_broken_r",
+            "directions": 4
+        },
+        {
             "name": "dark_crown",
             "directions": 4
         },
         {
-            "name": "devil_prime1_s",
+            "name": "dark_crown_broken_l",
+            "directions": 4
+        },
+        {
+            "name": "dark_crown_broken_r",
             "directions": 4
         },
         {
@@ -24,11 +36,47 @@
             "directions": 4
         },
         {
+            "name": "devil_prime1_broken_l",
+            "directions": 4
+        },
+        {
+            "name": "devil_prime1_broken_r",
+            "directions": 4
+        },
+        {
+            "name": "devil_prime1_s",
+            "directions": 4
+        },
+        {
+            "name": "devil_prime1_s_broken_l",
+            "directions": 4
+        },
+        {
+            "name": "devil_prime1_s_broken_r",
+            "directions": 4
+        },
+        {
             "name": "devil_prime2",
             "directions": 4
         },
         {
+            "name": "devil_prime2_broken_l",
+            "directions": 4
+        },
+        {
+            "name": "devil_prime2_broken_r",
+            "directions": 4
+        },
+        {
             "name": "fat_horn",
+            "directions": 4
+        },
+        {
+            "name": "fat_horn_broken_l",
+            "directions": 4
+        },
+        {
+            "name": "fat_horn_broken_r",
             "directions": 4
         }
     ]

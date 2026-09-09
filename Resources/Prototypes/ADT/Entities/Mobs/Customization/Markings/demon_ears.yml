@@ -1,10 +1,266 @@
 - type: marking
+  id: DemonEarsBat
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: bat_ears
+
+- type: marking
+  id: DemonEarsBatBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: bat_ears_broken_l
+
+- type: marking
+  id: DemonEarsBatBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: bat_ears_broken_r
+
+- type: marking
+  id: DemonEarsBobby
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: bobby_ears
+
+- type: marking
+  id: DemonEarsBobbyBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: bobby_ears_broken_l
+
+- type: marking
+  id: DemonEarsBobbyBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: bobby_ears_broken_r
+
+- type: marking
+  id: DemonEarsButterfly
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: butterfly_ears
+
+- type: marking
+  id: DemonEarsButterflyBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: butterfly_ears_broken_l
+
+- type: marking
+  id: DemonEarsButterflyBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: butterfly_ears_broken_r
+
+- type: marking
+  id: DemonEarsButterflyUp
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: butterfly_up_ears
+
+- type: marking
+  id: DemonEarsButterflyUpBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: butterfly_up_ears_broken_l
+
+- type: marking
+  id: DemonEarsButterflyUpBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: butterfly_up_ears_broken_r
+
+- type: marking
+  id: DemonEarsChe
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: che_ears
+
+- type: marking
+  id: DemonEarsCheBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: che_ears_broken_l
+
+- type: marking
+  id: DemonEarsCheBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: che_ears_broken_r
+
+- type: marking
+  id: DemonEarsChert
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: chert_ears
+
+- type: marking
+  id: DemonEarsChertBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: chert_ears_broken_l
+
+- type: marking
+  id: DemonEarsChertBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: chert_ears_broken_r
+
+- type: marking
   id: DemonCowEars
   bodyPart: HeadSide
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: cow_ears
+
+- type: marking
+  id: DemonCowEarsBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: cow_ears_broken_l
+
+- type: marking
+  id: DemonCowEarsBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: cow_ears_broken_r
+
+- type: marking
+  id: DemonEarsDeerDown
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: deer_down_ears
+
+- type: marking
+  id: DemonEarsDeerDownBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: deer_down_ears_broken_l
+
+- type: marking
+  id: DemonEarsDeerDownBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: deer_down_ears_broken_r
+
+- type: marking
+  id: DemonEarsDeerMedium
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: deer_medium_ears
+
+- type: marking
+  id: DemonEarsDeerMediumBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: deer_medium_ears_broken_l
+
+- type: marking
+  id: DemonEarsDeerMediumBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: deer_medium_ears_broken_r
+
+- type: marking
+  id: DemonEarsDeerSad
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: deer_sad_ears
+
+- type: marking
+  id: DemonEarsDeerSadBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: deer_sad_ears_broken_l
+
+- type: marking
+  id: DemonEarsDeerSadBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: deer_sad_ears_broken_r
+
+- type: marking
+  id: DemonEarsDeerUp
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: deer_up_ears
+
+- type: marking
+  id: DemonEarsDeerUpBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: deer_up_ears_broken_l
+
+- type: marking
+  id: DemonEarsDeerUpBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: deer_up_ears_broken_r
 
 - type: marking
   id: DemonEars
@@ -15,9 +271,114 @@
     state: demon_ears
 
 - type: marking
+  id: DemonEarsBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: demon_ears_broken_l
+
+- type: marking
+  id: DemonEarsBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: demon_ears_broken_r
+
+- type: marking
   id: DemonElfEars
   bodyPart: HeadSide
   groupWhitelist: [Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: ears_elf
+
+- type: marking
+  id: DemonElfEarsBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: ears_elf_broken_l
+
+- type: marking
+  id: DemonElfEarsBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: ears_elf_broken_r
+
+- type: marking
+  id: DemonEarsGoat
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: goat_ears
+
+- type: marking
+  id: DemonEarsGoatBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: goat_ears_broken_l
+
+- type: marking
+  id: DemonEarsGoatBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: goat_ears_broken_r
+
+- type: marking
+  id: DemonEarsGollu
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: gollu_ears
+
+- type: marking
+  id: DemonEarsGolluBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: gollu_ears_broken_l
+
+- type: marking
+  id: DemonEarsGolluBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: gollu_ears_broken_r
+
+- type: marking
+  id: DemonEarsHobbit
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: hobbit_ears
+
+- type: marking
+  id: DemonEarsHobbitBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: hobbit_ears_broken_l
+
+- type: marking
+  id: DemonEarsHobbitBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Demon]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: hobbit_ears_broken_r
+

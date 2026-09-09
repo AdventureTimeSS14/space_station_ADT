@@ -661,3 +661,23 @@
     - громко издает пламенные звуки
     - громко разгорается
     - громко полыхает
+
+# Аркана
+- type: emote
+  id: Snort
+  name: chat-emote-name-snort
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTDemonEmotes
+  icon: ADT/Interface/Emotes/Vocal/growl.png
+  chatMessages: [фыркает]
+  chatTriggers:
+    - фыркает
+    - фыркает.
+    - фыркает!
+    - фыркнул
+    - фыркнула
