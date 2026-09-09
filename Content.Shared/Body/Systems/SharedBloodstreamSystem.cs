@@ -565,16 +565,16 @@ public abstract class SharedBloodstreamSystem : EntitySystem
 
         foreach (var (referenceReagent, referenceQuantity) in ent.Comp.BloodReferenceSolution)
         {
-            var currentAmount = bloodSolution.GetTotalPrototypeQuantity(referenceReagent.Prototype);
-            var toAdd = FixedPoint2.Min(amountToAdd.Value, availableSpace);
+            var share = (FixedPoint2) (referenceQuantity.Float() / referenceVolume.Float() * amountToAdd.Value.Float());
+            var toAdd = FixedPoint2.Min(share, availableSpace);
 
-            if (toAdd > 0)
-            {
-                bloodSolution.AddReagent(referenceReagent, toAdd);
-                availableSpace -= toAdd;
-                if (availableSpace <= 0)
-                    break;
-            }
+            if (toAdd <= 0)
+                continue;
+
+            bloodSolution.AddReagent(referenceReagent, toAdd);
+            availableSpace -= toAdd;
+            if (availableSpace <= 0)
+                break;
         }
     }
     // ADT-Tweak end
