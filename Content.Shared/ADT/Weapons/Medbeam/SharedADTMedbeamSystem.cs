@@ -65,7 +65,7 @@ public abstract partial class SharedADTMedbeamSystem : EntitySystem
         return true;
     }
 
-    public void AttachBeam(Entity<ADTMedbeamComponent> ent, EntityUid target)
+    public virtual void AttachBeam(Entity<ADTMedbeamComponent> ent, EntityUid target)
     {
         ent.Comp.Target = target;
         Dirty(ent);
@@ -79,7 +79,7 @@ public abstract partial class SharedADTMedbeamSystem : EntitySystem
         Dirty(ent.Owner, visuals);
     }
 
-    public void DetachBeam(Entity<ADTMedbeamComponent> ent)
+    public virtual void DetachBeam(Entity<ADTMedbeamComponent> ent)
     {
         if (ent.Comp.Target is not { } target)
             return;

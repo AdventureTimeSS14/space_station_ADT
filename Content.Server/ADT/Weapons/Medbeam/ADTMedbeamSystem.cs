@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Numerics;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.ADT.Weapons.Medbeam;
@@ -22,15 +23,24 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
 
+    private readonly HashSet<EntityUid> _activeBeams = new();
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<ADTMedbeamComponent>();
-        while (query.MoveNext(out var uid, out var beam))
+        if (_activeBeams.Count == 0)
+            return;
+
+        foreach (var uid in _activeBeams.ToArray())
         {
-            if (beam.Target == null)
+            if (!Exists(uid))
+            {
+                _activeBeams.Remove(uid);
                 continue;
+            }
+
+            var beam = Comp<ADTMedbeamComponent>(uid);
 
             beam.Accumulator += frameTime;
             if (beam.Accumulator < beam.UpdateInterval)
@@ -39,6 +49,18 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
             beam.Accumulator = 0;
             TickBeam((uid, beam));
         }
+    }
+
+    public override void AttachBeam(Entity<ADTMedbeamComponent> ent, EntityUid target)
+    {
+        base.AttachBeam(ent, target);
+        _activeBeams.Add(ent.Owner);
+    }
+
+    public override void DetachBeam(Entity<ADTMedbeamComponent> ent)
+    {
+        _activeBeams.Remove(ent.Owner);
+        base.DetachBeam(ent);
     }
 
     private void TickBeam(Entity<ADTMedbeamComponent> ent)
