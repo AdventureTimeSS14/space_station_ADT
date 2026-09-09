@@ -19,34 +19,40 @@ namespace Content.Client.UserInterface.Systems.Chat;
 public sealed partial class ChatUIController
 {
     [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
-
     [UISystemDependency] private readonly SpriteSystem? _sprite = default;
 
-    private const string D20IconName = "ADTD20Icon";
-    private const float D20IconSize = 16f;
+    private enum EmoteMode : byte
+    {
+        Normal,
+        D20,
+        Do,
+    }
+
+    private const string ModeIconName = "ADTEmoteModeIcon";
+    private const float ModeIconSize = 16f;
 
     private const float FullscreenDiceSize = 384f;
     private const float FullscreenDiceHold = 0.8f;
     private const float FullscreenDiceFade = 0.6f;
 
-    private bool _d20Enabled;
+    private EmoteMode _emoteMode;
     private TimeSpan _d20CooldownEnd;
-    private uint _d20ToggleFrame;
+    private uint _modeToggleFrame;
     private Texture? _d20IconTexture;
 
-    public void HandleD20SelectorPressed(ChatSelectChannel channel)
+    public void HandleEmoteModeSelectorPressed(ChatSelectChannel channel)
     {
         if (channel != ChatSelectChannel.Emotes)
         {
-            SetD20Enabled(false);
+            SetEmoteMode(EmoteMode.Normal);
             return;
         }
 
         if (_input.IsKeyDown(Keyboard.Key.Shift))
-            ToggleD20();
+            CycleEmoteMode();
     }
 
-    public bool TryHandleD20ShiftClick(ChannelSelectorItemButton button, BoundKeyFunction function)
+    public bool TryHandleEmoteModeShiftClick(ChannelSelectorItemButton button, BoundKeyFunction function)
     {
         if (button.Channel != ChatSelectChannel.Emotes)
             return false;
@@ -54,31 +60,32 @@ public sealed partial class ChatUIController
         if (!IsShiftLeftClick(function))
             return false;
 
-        ToggleD20();
+        CycleEmoteMode();
         SelectEmotesChannel(button);
         return true;
     }
 
-    private void ToggleD20()
+    private void CycleEmoteMode()
     {
-        if (_d20ToggleFrame == _timing.CurFrame)
+        if (_modeToggleFrame == _timing.CurFrame)
             return;
 
-        _d20ToggleFrame = _timing.CurFrame;
+        _modeToggleFrame = _timing.CurFrame;
 
-        if (_d20Enabled)
+        var next = _emoteMode switch
         {
-            SetD20Enabled(false);
-            return;
-        }
+            EmoteMode.Normal => EmoteMode.D20,
+            EmoteMode.D20 => EmoteMode.Do,
+            _ => EmoteMode.Normal,
+        };
 
-        if (_timing.RealTime < _d20CooldownEnd)
+        if (next == EmoteMode.D20 && _timing.RealTime < _d20CooldownEnd)
         {
             AddD20Line(GetD20CooldownMessage());
-            return;
+            next = EmoteMode.Do;
         }
 
-        SetD20Enabled(true);
+        SetEmoteMode(next);
     }
 
     private void SelectEmotesChannel(Control button)
@@ -117,48 +124,82 @@ public sealed partial class ChatUIController
             || binding.Mod3 == Keyboard.Key.Shift;
     }
 
-    public void UpdateD20Icon(Button button, ChatSelectChannel channel)
+    public void UpdateEmoteModeIcon(Button button, ChatSelectChannel channel)
     {
-        SetD20Icon(button, _d20Enabled && channel == ChatSelectChannel.Emotes);
+        SetEmoteModeIcon(button, channel == ChatSelectChannel.Emotes ? _emoteMode : EmoteMode.Normal);
     }
 
-    private void SetD20Icon(Button button, bool enabled)
+    private void SetEmoteModeIcon(Button button, EmoteMode mode)
     {
-        var icon = FindD20Icon(button);
+        var current = FindModeIcon(button);
 
-        if (!enabled)
+        if (mode == EmoteMode.Normal)
         {
-            if (icon == null)
+            if (current == null)
                 return;
 
-            icon.Orphan();
+            current.Orphan();
             button.Label.Margin = new Thickness();
             return;
         }
 
-        if (icon != null)
-            return;
+        if (current != null)
+        {
+            if (mode == EmoteMode.D20 && current is TextureRect)
+                return;
 
+            if (mode == EmoteMode.Do && current is Label)
+                return;
+
+            current.Orphan();
+        }
+
+        var icon = mode == EmoteMode.D20 ? CreateD20Icon() : CreateDoLabel();
+        if (icon == null)
+        {
+            button.Label.Margin = new Thickness();
+            return;
+        }
+
+        button.Label.Margin = new Thickness(0f, 0f, ModeIconSize + 2f, 0f);
+        button.AddChild(icon);
+    }
+
+    private Control? CreateD20Icon()
+    {
         if (_d20IconTexture == null)
         {
             var sprite = GetSpriteSystem();
             if (sprite == null)
-                return;
+                return null;
 
             _d20IconTexture = ADTD20RollControl.GetFace(sprite, SharedADTD20Emote.Faces);
         }
 
-        button.Label.Margin = new Thickness(0f, 0f, D20IconSize + 2f, 0f);
-        button.AddChild(new TextureRect
+        return new TextureRect
         {
-            Name = D20IconName,
+            Name = ModeIconName,
             Texture = _d20IconTexture,
-            SetSize = new Vector2(D20IconSize, D20IconSize),
+            SetSize = new Vector2(ModeIconSize, ModeIconSize),
             Stretch = TextureRect.StretchMode.Scale,
             HorizontalAlignment = Control.HAlignment.Right,
             VerticalAlignment = Control.VAlignment.Center,
             MouseFilter = Control.MouseFilterMode.Ignore,
-        });
+        };
+    }
+
+    private static Control CreateDoLabel()
+    {
+        return new Label
+        {
+            Name = ModeIconName,
+            Text = Loc.GetString("adt-do-emote-mode-label"),
+            FontColorOverride = Color.FromHex(SharedADTDoEmote.ColorHex),
+            MinSize = new Vector2(ModeIconSize, 0f),
+            HorizontalAlignment = Control.HAlignment.Right,
+            VerticalAlignment = Control.VAlignment.Center,
+            MouseFilter = Control.MouseFilterMode.Ignore,
+        };
     }
 
     private SpriteSystem? GetSpriteSystem()
@@ -172,23 +213,30 @@ public sealed partial class ChatUIController
         return null;
     }
 
-    private static TextureRect? FindD20Icon(Button button)
+    private static Control? FindModeIcon(Button button)
     {
         foreach (var child in button.Children)
         {
-            if (child is TextureRect icon && icon.Name == D20IconName)
-                return icon;
+            if (child.Name == ModeIconName)
+                return child;
         }
 
         return null;
     }
 
-    private bool TrySendD20Emote(ChatBox box, ChatSelectChannel channel, string text)
+    private bool TrySendEmoteMode(ChatBox box, ChatSelectChannel channel, string text)
     {
-        if (!_d20Enabled || channel != ChatSelectChannel.Emotes)
+        if (_emoteMode == EmoteMode.Normal || channel != ChatSelectChannel.Emotes)
             return false;
 
-        SetD20Enabled(false);
+        var mode = _emoteMode;
+        SetEmoteMode(EmoteMode.Normal);
+
+        if (mode == EmoteMode.Do)
+        {
+            _consoleHost.ExecuteCommand($"do \"{CommandParsing.Escape(text)}\"");
+            return true;
+        }
 
         if (_timing.RealTime < _d20CooldownEnd)
         {
@@ -238,35 +286,35 @@ public sealed partial class ChatUIController
         UIManager.PopupRoot.AddChild(dice);
     }
 
-    private void SetD20Enabled(bool enabled)
+    private void SetEmoteMode(EmoteMode mode)
     {
-        if (_d20Enabled == enabled)
+        if (_emoteMode == mode)
             return;
 
-        _d20Enabled = enabled;
-        RefreshD20Buttons();
+        _emoteMode = mode;
+        RefreshEmoteModeButtons();
     }
 
-    private void RefreshD20Buttons()
+    private void RefreshEmoteModeButtons()
     {
         foreach (var chat in _chats)
         {
             UpdateSelectedChannel(chat);
-            RefreshD20PopupButtons(chat.ChatInput.ChannelSelector.Popup);
+            RefreshEmoteModePopupButtons(chat.ChatInput.ChannelSelector.Popup);
         }
     }
 
-    private void RefreshD20PopupButtons(Control control)
+    private void RefreshEmoteModePopupButtons(Control control)
     {
         foreach (var child in control.Children)
         {
             if (child is ChannelSelectorItemButton item)
             {
-                UpdateD20Icon(item, item.Channel);
+                UpdateEmoteModeIcon(item, item.Channel);
                 continue;
             }
 
-            RefreshD20PopupButtons(child);
+            RefreshEmoteModePopupButtons(child);
         }
     }
 
