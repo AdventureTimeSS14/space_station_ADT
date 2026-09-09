@@ -80,9 +80,9 @@
       types:
         Asphyxiation: -1.0
   - type: Hunger
-    baseDecayRate: 0.0124085 # ADT-Tweak: было 0.0083 (на 49.5% быстрее)
+    baseDecayRate: 0.0124085 # ADT-Tweak: было 0.0083, стало > 0.0124085
   - type: Thirst
-    baseDecayRate: 0.0124085 # ADT-Tweak: было 0.0083 (на 49.5% быстрее)
+    baseDecayRate: 0.0124085 # ADT-Tweak: было 0.0083, стало > 0.0124085
   - type: Damageable
     damageModifierSet: Diona
   - type: Injurable

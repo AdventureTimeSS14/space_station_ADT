@@ -145,7 +145,7 @@
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5 # ADT-Tweak
+          Quantity: 5 # ADT-Tweak 10 > 5
         - ReagentId: Theobromine
           Quantity: 3
         - ReagentId: CocoaPowder
