@@ -48,6 +48,9 @@ public sealed partial class FiringPinComponent : Component
     public bool PassForClowns;
 
     [DataField, AutoNetworkedField]
+    public bool PassForFakeMindShield;
+
+    [DataField, AutoNetworkedField]
     public ProtoId<TagPrototype>? RequiredSuitTag;
 
     [DataField, AutoNetworkedField]

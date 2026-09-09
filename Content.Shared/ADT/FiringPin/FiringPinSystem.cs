@@ -11,6 +11,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
+using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
 using Content.Shared.Station;
 using Content.Shared.Tag;
@@ -224,7 +225,12 @@ public sealed partial class FiringPinSystem : EntitySystem
             case FiringPinType.Explorer:
                 return _station.GetOwningStation(user) == null;
             case FiringPinType.Component:
-                return _whitelist.IsWhitelistPass(pin.Comp.RequiredWhitelist, user);
+                if (_whitelist.IsWhitelistPass(pin.Comp.RequiredWhitelist, user))
+                    return true;
+
+                return pin.Comp.PassForFakeMindShield
+                    && TryComp<FakeMindShieldComponent>(user, out var fakeMindShield)
+                    && fakeMindShield.IsEnabled;
             case FiringPinType.None:
             default:
                 return true;

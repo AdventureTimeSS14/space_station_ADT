@@ -48,6 +48,7 @@
     requiredWhitelist:
       components:
       - MindShield
+    passForFakeMindShield: true
     failMessage: firing-pin-fail-loyalty
 
 - type: entity
