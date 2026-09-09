@@ -6,4 +6,4 @@ research-technology-protection-pseudiscience = Защитная псевдона
 
 research-technology-medical-cloning-adt = Устройство клонирования
 
-research-technology-medbeam = Медицинский лучемёт
+research-technology-medbeam = Медицинский регенератор
