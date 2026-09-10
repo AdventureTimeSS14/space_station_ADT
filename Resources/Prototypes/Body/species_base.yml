@@ -200,6 +200,9 @@
   - type: OfferItem
   - type: RadiationPopup
   - type: PickupHumans
+  - type: BloodCough
+    postingSayDamage: blood-cough
+  - type: TimeDespawnDamage
   # ADT-Tweak end
   - type: Hunger
   - type: Thirst
@@ -260,8 +263,3 @@
   - type: FireVisuals
     alternateState: Standing
   - type: StunVisuals
-  # Start-ADT Tweak
-  - type: BloodCough
-    postingSayDamage: blood-cough
-  - type: TimeDespawnDamage
-  # End-ADT Tweak

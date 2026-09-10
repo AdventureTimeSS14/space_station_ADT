@@ -433,6 +433,62 @@
   flavor: medicine
   color: "#c8a2c8"
   physicalDesc: reagent-physical-desc-powdery
+  worksOnTheDead: true
+  splashBlocked: true
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ModifyBleed
+        amount: -3
+      - !type:EvenHealthChange
+        damage:
+          Brute: -0.825
+  metabolisms:
+    Bloodstream:
+      metabolismRate : 0.3
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+
+#Сульфадиазин серебра
+- type: reagent
+  id: ADTSilverSulfadiazine
+  name: reagent-name-silver-sulfadiazine
+  group: Medicine
+  desc: reagent-desc-silver-sulfadiazine
+  flavor: medicine
+  color: "#c8a2c8"
+  physicalDesc: reagent-physical-desc-powdery
+  worksOnTheDead: true
+  splashBlocked: true
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:EvenHealthChange
+        damage:
+          Burn: -0.825
+  metabolisms:
+    Bloodstream:
+      metabolismRate : 0.3
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+
+#Кровоостанавливающая пудра для пластырей
+- type: reagent
+  id: ADTStypticPowderPatch
+  name: reagent-name-styptic-powder-patch
+  group: Medicine
+  desc: reagent-desc-styptic-powder-patch
+  flavor: medicine
+  color: "#c8a2c8"
+  physicalDesc: reagent-physical-desc-powdery
   reactiveEffects:
     Acidic:
       methods: [ Touch ]
@@ -447,7 +503,7 @@
         damage:
           Brute: -0.825
       - !type:ModifyBleed
-        amount: -0.3 #почему кровоостанавливающая пудра не останавливала кровотечение?
+        amount: -0.3
       - !type:PopupMessage
         conditions:
         - !type:TotalDamageCondition
@@ -457,12 +513,12 @@
         messages: [ "medicine-effect-usual" ]
         probability: 0.05
 
-#Сульфадиазин серебра
+#Сульфадиазин серебра для пластырей
 - type: reagent
-  id: ADTSilverSulfadiazine
-  name: reagent-name-silver-sulfadiazine
+  id: ADTSilverSulfadiazinePatch
+  name: reagent-name-silver-sulfadiazine-patch
   group: Medicine
-  desc: reagent-desc-silver-sulfadiazine
+  desc: reagent-desc-silver-sulfadiazine-patch
   flavor: medicine
   color: "#c8a2c8"
   physicalDesc: reagent-physical-desc-powdery
