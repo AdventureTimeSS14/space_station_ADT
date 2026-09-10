@@ -75,6 +75,13 @@
     - /Audio/ADT/IPC/pink_scream1.ogg
     - /Audio/ADT/IPC/pink_scream2.ogg
 
+- type: soundCollection
+  id: KerfusMeow
+  files:
+    - /Audio/ADT/IPC/kerfus_meow1.ogg
+    - /Audio/ADT/IPC/kerfus_meow2.ogg
+    - /Audio/ADT/IPC/kerfus_meow3.ogg
+
 # Novakid
 
 - type: soundCollection

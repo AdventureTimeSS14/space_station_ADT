@@ -651,6 +651,8 @@
       path: /Audio/ADT/IPC/pink_scream1.ogg
     IPCCuteScared:
       path: /Audio/ADT/IPC/pink_scream2.ogg
+    IPCCuteMeow:
+      collection: KerfusMeow
 
 - type: emoteSounds
   id: MaleUrsus

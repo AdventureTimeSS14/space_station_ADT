@@ -438,6 +438,24 @@
     - пугается
 
 - type: emote
+  id: IPCCuteMeow
+  name: chat-emote-name-meow
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTIPCCuteEmotes
+  icon: ADT/Interface/Emotes/Vocal/meow.png
+  chatMessages: [мяукает]
+  chatTriggers:
+    - мяу
+    - мяукнул
+    - мяукнула
+    - мяукает
+
+- type: emote
   id: IPCDeathgasp
   name: chat-emote-name-deathgasp
   icon: Interface/Emotes/deathgasp.png
