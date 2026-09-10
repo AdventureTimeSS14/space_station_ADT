@@ -15171,3 +15171,9 @@ Entries:
     id: 1907
     pr_number: 3324
     time: '2026-09-10T11:24:26Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Уменьшен рост молей и воксов🤏, type: Tweak}
+    id: 1908
+    pr_number: 3355
+    time: '2026-09-10T16:23:06Z'
