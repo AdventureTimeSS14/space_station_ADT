@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  id: BaseSpeciesLayers
+  id: BaseSpeciesLayers # ADT-Tweak Не трогаем, используйте ADTBaseSpeciesLayers, это можете использовать как базу.
   components:
   - type: Sprite
     layers:
@@ -17,19 +17,17 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-    - map: [ "enum.HumanoidVisualLayers.Special" ] # ADT: needed so Special-layer markings (e.g. felinid cat ears) can render
-    - map: [ "socks" ]
 
     # Underwear & clothing
     - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
     - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
-    - map: ["underwearb"]
-    - map: ["underweart"]
     - map: ["jumpsuit"]
-    - map: [ "enum.HumanoidVisualLayers.LHand" ]
-    - map: [ "enum.HumanoidVisualLayers.RHand" ]
+
+    # Extremities
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
 
     # Stuff that goes over the body but below equipment
     - map: ["enum.HumanoidVisualLayers.Overlay"]
@@ -39,20 +37,15 @@
     - map: [ "shoes" ]
     - map: [ "ears" ]
     - map: [ "eyes" ]
-    #- map: [ "belt" ] # ADT-Tweak: Disabled layer from Wizards
+    - map: [ "belt" ]
     - map: [ "id" ]
-    # ADT-Tweak-Start
     - map: [ "outerClothing" ]
-    - map: [ "belt" ]  # ADT: Moved ABOVE outer layer, because webbings renders UNDER Armor vests (this was NOT logic).
-    # ADT-Tweak-End
-    #- map: [ "back" ] # ADT-Tweak: Disabled layer from Wizards
+    - map: [ "back" ]
     - map: [ "neck" ]
-    - map: [ "back" ]  # ADT: Moved ABOVE the neck layer, since backpacks were partially rendering UNDER capes, yet remained visible on the side sprites (this was NOT logic).
     - map: [ "suitstorage" ]
 
     # Stuff that goes in front of equipment
     - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
-    - map: [ "enum.HumanoidVisualLayers.SnoutOverlay" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -67,7 +60,6 @@
     - map: [ "pocket2" ]
 
     # Extra stuff
-    - map: ["enum.HumanoidVisualLayers.OverlayBandage"]
     - map: ["enum.HumanoidVisualLayers.Handcuffs"]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
@@ -78,7 +70,7 @@
   id: BaseSpeciesAppearance
   parent:
   - InventoryBase
-  - BaseSpeciesLayers
+  - ADTBaseSpeciesLayers # ADT-Tweak смотрите в ADT
   abstract: true
   save: false
   components:

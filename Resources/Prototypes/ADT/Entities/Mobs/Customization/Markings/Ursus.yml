@@ -1,7 +1,7 @@
 #наложение
 - type: marking
   id: ADTUrsusfluffiness
-  bodyPart: LLeg
+  bodyPart: Special
   groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
@@ -9,7 +9,7 @@
 
 - type: marking
   id: ADTUrsusfluffiness2
-  bodyPart: LLeg
+  bodyPart: Special
   groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
@@ -17,7 +17,7 @@
 
 - type: marking
   id: ADTUrsusfluffiness3
-  bodyPart: LLeg
+  bodyPart: Special
   groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
@@ -25,7 +25,7 @@
 
 - type: marking
   id: ADTUrsuspanda
-  bodyPart: LLeg
+  bodyPart: Special
   groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
@@ -33,7 +33,7 @@
 
 - type: marking
   id: ADTUrsusspace_bear
-  bodyPart: LLeg
+  bodyPart: Special
   groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
@@ -41,7 +41,7 @@
 
 - type: marking
   id: ADTUrsustattoo_leader
-  bodyPart: LLeg
+  bodyPart: Special
   groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
@@ -260,7 +260,7 @@
 
 - type: marking
   id: ADTUrsusgradienthand_left2
-  bodyPart: LHand
+  bodyPart: LArm
   groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
@@ -284,7 +284,7 @@
 
 - type: marking
   id: ADTUrsusgradienthand_right2
-  bodyPart: RHand
+  bodyPart: RArm
   groupWhitelist: [Ursus]
   sprites:
     - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
