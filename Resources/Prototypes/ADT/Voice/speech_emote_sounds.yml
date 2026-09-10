@@ -169,6 +169,8 @@
         volume: -6
     Salute:
       collection: Salutes
+    Blink:
+      collection: Blink
 
 - type: emoteSounds
   id: ADTMaleTajaran
@@ -1075,6 +1077,8 @@
       collection: Salutes
     Purse:
       path: /Audio/Effects/thudswoosh.ogg
+    Blink:
+      collection: Blink
 
 - type: emoteSounds
   id: MaleButcher

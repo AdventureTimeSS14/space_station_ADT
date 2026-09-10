@@ -1,3 +1,4 @@
+# Drask
 - type: soundCollection
   id: DraskCough
   files:
@@ -333,6 +334,11 @@
   files:
   - /Audio/ADT/Voice/Human/spit_1.ogg
   - /Audio/ADT/Voice/Human/spit_2.ogg
+
+- type: soundCollection
+  id: Blink
+  files:
+    - /Audio/ADT/Effects/Emotes/blink.ogg
 
 # Slimes
 - type: soundCollection

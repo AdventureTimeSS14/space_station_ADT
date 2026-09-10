@@ -50,6 +50,25 @@
   chatTriggers:
     - фальшиво плачет
 
+- type: emote
+  id: Blink
+  name: chat-emote-name-blink
+  category: Hands
+  icon: ADT/Interface/Emotes/blink.png
+  whitelist:
+    components:
+    - Hands
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["моргает."]
+  chatTriggers:
+    - моргает
+    - быстро моргает
+    - хлопает глазами
+    - моргнул
+    - моргнула
+
 ## vocal emotes
 - type: emote
   id: Hiss
