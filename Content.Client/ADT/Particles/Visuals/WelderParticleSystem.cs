@@ -39,7 +39,7 @@ public sealed class WelderParticleSystem : EntitySystem
 
     private void OnToolAttempt(Entity<ToolComponent> tool, ref DoAfterAttemptEvent<SharedToolSystem.ToolDoAfterEvent> args)
     {
-        if (!_toolSystem.HasQuality(tool, "Welding"))
+        if (!_toolSystem.HasQuality(tool, SharedToolSystem.WeldingQuality))
             return;
 
         var doAfter = args.DoAfter;

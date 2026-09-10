@@ -14,6 +14,9 @@ public sealed partial class ChildEntitiesSystem : EntitySystem
 
     private void OnMapInit(Entity<ChildEntitiesComponent> ent, ref MapInitEvent args)
     {
+        if (!_net.IsServer)
+            return;
+
         foreach (var child in ent.Comp.ChildPrototypes)
         {
             var coords = Transform(ent).Coordinates;
@@ -30,6 +33,9 @@ public sealed partial class ChildEntitiesSystem : EntitySystem
 
     private void OnShutdown(Entity<ChildEntitiesComponent> ent, ref ComponentShutdown args)
     {
+        if (!_net.IsServer)
+            return;
+
         foreach (var child in ent.Comp.Children)
         {
             if (TerminatingOrDeleted(child))

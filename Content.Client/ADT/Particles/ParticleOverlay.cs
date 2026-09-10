@@ -56,6 +56,8 @@ public sealed class ParticleOverlay : Overlay
 
         _sortBuffer.Sort(RenderLayerComparison);
 
+        handle.UseShader(null);
+
         string? activeShader = null; // track to avoid redundant calls
 
         foreach (var emitter in _sortBuffer)

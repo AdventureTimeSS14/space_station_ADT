@@ -37,6 +37,7 @@ public abstract partial class SharedToolSystem : EntitySystem
 
     public const string CutQuality = "Cutting";
     public const string PulseQuality = "Pulsing";
+    public const string WeldingQuality = "Welding"; // ADT-Tweak
 
     public override void Initialize()
     {

@@ -55,7 +55,8 @@ public sealed partial class ParticleSystem : EntitySystem
     private static readonly float[] QualityMultipliers = { 0f, 0.25f, 0.5f, 1f };
 
     // Default global particle budgets per quality level.
-    private static readonly int[] QualityBudgets = { 0, 2250, 5500, 8000 };
+    // Off still needs a nonzero budget so IgnoreQualitySettings effects can render (8 emitters * 64 particles).
+    private static readonly int[] QualityBudgets = { 512, 2250, 5500, 8000 };
 
     /// <summary>
     /// Absolute ceiling on live particles regardless of quality settings or anything else.
