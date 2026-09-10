@@ -299,6 +299,7 @@ public sealed partial class ParticleSystem : EntitySystem
                     p.Alive = false;
                     _liveParticleCount--;
                 }
+                e.Exhausted = true;
                 _emitters.RemoveAt(i);
             }
             if (_emitters.Count == 0)

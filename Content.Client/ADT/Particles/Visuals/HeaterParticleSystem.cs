@@ -75,12 +75,18 @@ public sealed class HeaterParticleSystem : EntitySystem
 
         if (visualState == MicrowaveVisualState.Cooking)
         {
-            if (_fire.ContainsKey(ent))
+            var fireAlive = _fire.TryGetValue(ent, out var fire) && !fire.Exhausted;
+            var smokeAlive = _smoke.TryGetValue(ent, out var smoke) && !smoke.Exhausted;
+
+            if (fireAlive && smokeAlive)
                 return;
 
+            _fire.Remove(ent);
+            _smoke.Remove(ent);
+
             var coords = _transform.GetMapCoordinates(ent);
-            var fire = _particles.SpawnEffect(FireEffect, coords, ent.Owner);
-            var smoke = _particles.SpawnEffect(SmokeEffect, coords, ent.Owner);
+            fire = _particles.SpawnEffect(FireEffect, coords, ent.Owner);
+            smoke = _particles.SpawnEffect(SmokeEffect, coords, ent.Owner);
 
             if (fire != null)
             {
@@ -130,11 +136,13 @@ public sealed class HeaterParticleSystem : EntitySystem
 
     private void SpawnOnItem(EntityUid item, HeaterState state)
     {
-        if (state.Emitters.ContainsKey(item))
+        if (state.Emitters.TryGetValue(item, out var emitter) && !emitter.Exhausted)
             return;
 
+        state.Emitters.Remove(item);
+
         var coords = _transform.GetMapCoordinates(item);
-        var emitter = _particles.SpawnEffect(FireEffect, coords, item);
+        emitter = _particles.SpawnEffect(FireEffect, coords, item);
         if (emitter != null)
             state.Emitters[item] = emitter;
     }
