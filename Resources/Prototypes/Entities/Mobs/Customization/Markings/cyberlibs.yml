@@ -2,7 +2,7 @@
 - type: marking
   id: CyberlimbRArmBishop
   bodyPart: RArm
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -15,7 +15,7 @@
 - type: marking
   id: CyberlimbLArmBishop
   bodyPart: LArm
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -28,7 +28,7 @@
 - type: marking
   id: CyberlimbRHandBishop
   bodyPart: RHand
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -41,7 +41,7 @@
 - type: marking
   id: CyberlimbLHandBishop
   bodyPart: LHand
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -54,7 +54,7 @@
 - type: marking
   id: CyberlimbRLegBishop
   bodyPart: RLeg
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -67,7 +67,7 @@
 - type: marking
   id: CyberlimbLLegBishop
   bodyPart: LLeg
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -80,7 +80,7 @@
 - type: marking
   id: CyberlimbLFootBishop
   bodyPart: LFoot
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -93,7 +93,7 @@
 - type: marking
   id: CyberlimbRFootBishop
   bodyPart: RFoot
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -106,7 +106,7 @@
 - type: marking
   id: CyberlimbTorsoBishop
   bodyPart: Chest
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -120,7 +120,7 @@
 - type: marking
   id: CyberlimbRArmHephaestus
   bodyPart: RArm
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -133,7 +133,7 @@
 - type: marking
   id: CyberlimbLArmHephaestus
   bodyPart: LArm
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -146,7 +146,7 @@
 - type: marking
   id: CyberlimbRHandHephaestus
   bodyPart: RHand
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -159,7 +159,7 @@
 - type: marking
   id: CyberlimbLHandHephaestus
   bodyPart: LHand
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -172,7 +172,7 @@
 - type: marking
   id: CyberlimbRLegHephaestus
   bodyPart: RLeg
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -185,7 +185,7 @@
 - type: marking
   id: CyberlimbLLegHephaestus
   bodyPart: LLeg
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -198,7 +198,7 @@
 - type: marking
   id: CyberlimbLFootHephaestus
   bodyPart: LFoot
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -211,7 +211,7 @@
 - type: marking
   id: CyberlimbRFootHephaestus
   bodyPart: RFoot
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -224,7 +224,7 @@
 - type: marking
   id: CyberlimbTorsoHephaestus
   bodyPart: Chest
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -238,7 +238,7 @@
 - type: marking
   id: CyberlimbRArmHephaestusTitan
   bodyPart: RArm
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -251,7 +251,7 @@
 - type: marking
   id: CyberlimbLArmHephaestusTitan
   bodyPart: LArm
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -264,7 +264,7 @@
 - type: marking
   id: CyberlimbRHandHephaestusTitan
   bodyPart: RHand
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -277,7 +277,7 @@
 - type: marking
   id: CyberlimbLHandHephaestusTitan
   bodyPart: LHand
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -290,7 +290,7 @@
 - type: marking
   id: CyberlimbRLegHephaestusTitan
   bodyPart: RLeg
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -303,7 +303,7 @@
 - type: marking
   id: CyberlimbLLegHephaestusTitan
   bodyPart: LLeg
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -316,7 +316,7 @@
 - type: marking
   id: CyberlimbLFootHephaestusTitan
   bodyPart: LFoot
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -329,7 +329,7 @@
 - type: marking
   id: CyberlimbRFootHephaestusTitan
   bodyPart: RFoot
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -342,7 +342,7 @@
 - type: marking
   id: CyberlimbTorsoHephaestusTitan
   bodyPart: Chest
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -356,7 +356,7 @@
 - type: marking
   id: CyberlimbRArmMorpheus
   bodyPart: RArm
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -369,7 +369,7 @@
 - type: marking
   id: CyberlimbLArmMorpheus
   bodyPart: LArm
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -382,7 +382,7 @@
 - type: marking
   id: CyberlimbRHandMorpheus
   bodyPart: RHand
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -395,7 +395,7 @@
 - type: marking
   id: CyberlimbLHandMorpheus
   bodyPart: LHand
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -408,7 +408,7 @@
 - type: marking
   id: CyberlimbRLegMorpheus
   bodyPart: RLeg
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -421,7 +421,7 @@
 - type: marking
   id: CyberlimbLLegMorpheus
   bodyPart: LLeg
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -434,7 +434,7 @@
 - type: marking
   id: CyberlimbLFootMorpheus
   bodyPart: LFoot
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -447,7 +447,7 @@
 - type: marking
   id: CyberlimbRFootMorpheus
   bodyPart: RFoot
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -460,7 +460,7 @@
 - type: marking
   id: CyberlimbTorsoMorpheus
   bodyPart: Chest
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -475,7 +475,7 @@
 - type: marking
   id: CyberlimbRArmWardtakahashi
   bodyPart: RArm
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -488,7 +488,7 @@
 - type: marking
   id: CyberlimbLArmWardtakahashi
   bodyPart: LArm
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -501,7 +501,7 @@
 - type: marking
   id: CyberlimbRHandWardtakahashi
   bodyPart: RHand
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -514,7 +514,7 @@
 - type: marking
   id: CyberlimbLHandWardtakahashi
   bodyPart: LHand
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -527,7 +527,7 @@
 - type: marking
   id: CyberlimbRLegWardtakahashi
   bodyPart: RLeg
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -540,7 +540,7 @@
 - type: marking
   id: CyberlimbLLegWardtakahashi
   bodyPart: LLeg
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -553,7 +553,7 @@
 - type: marking
   id: CyberlimbLFootWardtakahashi
   bodyPart: LFoot
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -566,7 +566,7 @@
 - type: marking
   id: CyberlimbRFootWardtakahashi
   bodyPart: RFoot
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -579,7 +579,7 @@
 - type: marking
   id: CyberlimbTorsoWardtakahashiMale
   bodyPart: Chest
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   sexRestriction: Male
   coloring:
     default:
@@ -593,7 +593,7 @@
 - type: marking
   id: CyberlimbTorsoWardtakahashiFemale
   bodyPart: Chest
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   sexRestriction: Female
   coloring:
     default:
@@ -608,7 +608,7 @@
 - type: marking
   id: CyberlimbRArmZenghu
   bodyPart: RArm
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -621,7 +621,7 @@
 - type: marking
   id: CyberlimbLArmZenghu
   bodyPart: LArm
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -634,7 +634,7 @@
 - type: marking
   id: CyberlimbRHandZenghu
   bodyPart: RHand
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -647,7 +647,7 @@
 - type: marking
   id: CyberlimbLHandZenghu
   bodyPart: LHand
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -660,7 +660,7 @@
 - type: marking
   id: CyberlimbRLegZenghu
   bodyPart: RLeg
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -673,7 +673,7 @@
 - type: marking
   id: CyberlimbLLegZenghu
   bodyPart: LLeg
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -686,7 +686,7 @@
 - type: marking
   id: CyberlimbLFootZenghu
   bodyPart: LFoot
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -699,7 +699,7 @@
 - type: marking
   id: CyberlimbRFootZenghu
   bodyPart: RFoot
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -712,7 +712,7 @@
 - type: marking
   id: CyberlimbTorsoZenghu
   bodyPart: Chest
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -726,7 +726,7 @@
 - type: marking
   id: CyberlimbRArmNanotrasen
   bodyPart: RArm
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -739,7 +739,7 @@
 - type: marking
   id: CyberlimbLArmNanotrasen
   bodyPart: LArm
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -752,7 +752,7 @@
 - type: marking
   id: CyberlimbRHandNanotrasen
   bodyPart: RHand
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -765,7 +765,7 @@
 - type: marking
   id: CyberlimbLHandNanotrasen
   bodyPart: LHand
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -778,7 +778,7 @@
 - type: marking
   id: CyberlimbRLegNanotrasen
   bodyPart: RLeg
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -791,7 +791,7 @@
 - type: marking
   id: CyberlimbLLegNanotrasen
   bodyPart: LLeg
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -804,7 +804,7 @@
 - type: marking
   id: CyberlimbLFootNanotrasen
   bodyPart: LFoot
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -817,7 +817,7 @@
 - type: marking
   id: CyberlimbRFootNanotrasen
   bodyPart: RFoot
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -830,7 +830,7 @@
 - type: marking
   id: CyberlimbTorsoNanotrasen
   bodyPart: Chest
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -844,7 +844,7 @@
 - type: marking
   id: CyberlimbRArmXion
   bodyPart: RArm
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -857,7 +857,7 @@
 - type: marking
   id: CyberlimbLArmXion
   bodyPart: LArm
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -870,7 +870,7 @@
 - type: marking
   id: CyberlimbRHandXion
   bodyPart: RHand
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -883,7 +883,7 @@
 - type: marking
   id: CyberlimbLHandXion
   bodyPart: LHand
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -896,7 +896,7 @@
 - type: marking
   id: CyberlimbRLegXion
   bodyPart: RLeg
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -909,7 +909,7 @@
 - type: marking
   id: CyberlimbLLegXion
   bodyPart: LLeg
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -922,7 +922,7 @@
 - type: marking
   id: CyberlimbLFootXion
   bodyPart: LFoot
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -935,7 +935,7 @@
 - type: marking
   id: CyberlimbRFootXion
   bodyPart: RFoot
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
@@ -948,7 +948,7 @@
 - type: marking
   id: CyberlimbTorsoXion
   bodyPart: Chest
-  groupWhitelist: [ Human, Arachnid ]
+  groupWhitelist: [ Human, Felinid, Arachnid ] # ADT tweak add Felinid
   coloring:
     default:
       type:
