@@ -1,5 +1,5 @@
-using System.Linq;
 using System.Numerics;
+using System.Threading;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Mech.Systems;
 using Content.Shared.ADT.Weapons.Medbeam;
@@ -12,7 +12,8 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mech.Components;
 using Robust.Shared.Map;
-using Robust.Shared.Physics.Systems;
+using Robust.Shared.Timing;
+using RobustTimer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.ADT.Weapons.Medbeam;
 
@@ -26,44 +27,54 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
     [Dependency] private readonly MechSystem _mech = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
 
-    private readonly HashSet<EntityUid> _activeBeams = new();
+    private readonly Dictionary<EntityUid, CancellationTokenSource> _beamTokens = new();
 
-    public override void Update(float frameTime)
+    public override void Initialize()
     {
-        base.Update(frameTime);
-
-        if (_activeBeams.Count == 0)
-            return;
-
-        foreach (var uid in _activeBeams.ToArray())
-        {
-            if (!Exists(uid))
-            {
-                _activeBeams.Remove(uid);
-                continue;
-            }
-
-            var beam = Comp<ADTMedbeamComponent>(uid);
-
-            beam.Accumulator += frameTime;
-            if (beam.Accumulator < beam.UpdateInterval)
-                continue;
-
-            beam.Accumulator = 0;
-            TickBeam((uid, beam));
-        }
+        base.Initialize();
+        SubscribeLocalEvent<ADTMedbeamComponent, ComponentShutdown>(OnShutdown);
     }
 
     public override void AttachBeam(Entity<ADTMedbeamComponent> ent, EntityUid target)
     {
         base.AttachBeam(ent, target);
-        _activeBeams.Add(ent.Owner);
+
+        if (_beamTokens.Remove(ent.Owner, out var old))
+            old.Cancel();
+
+        var cts = new CancellationTokenSource();
+        _beamTokens[ent.Owner] = cts;
+        RobustTimer.SpawnRepeating(TimeSpan.FromSeconds(ent.Comp.UpdateInterval), () => OnBeamTick(ent, cts), cts.Token);
     }
 
     public override void DetachBeam(Entity<ADTMedbeamComponent> ent)
     {
-        _activeBeams.Remove(ent.Owner);
+        if (_beamTokens.Remove(ent.Owner, out var cts))
+            cts.Cancel();
+
         base.DetachBeam(ent);
+    }
+
+    private void OnShutdown(Entity<ADTMedbeamComponent> ent, ref ComponentShutdown args)
+    {
+        if (_beamTokens.Remove(ent.Owner, out var cts))
+            cts.Cancel();
+    }
+
+    private void OnBeamTick(Entity<ADTMedbeamComponent> ent, CancellationTokenSource cts)
+    {
+        if (cts.IsCancellationRequested)
+            return;
+
+        if (!Exists(ent.Owner) || ent.Comp.Target == null)
+        {
+            cts.Cancel();
+            if (_beamTokens.TryGetValue(ent.Owner, out var current) && current == cts)
+                _beamTokens.Remove(ent.Owner);
+            return;
+        }
+
+        TickBeam(ent);
     }
 
     private void TickBeam(Entity<ADTMedbeamComponent> ent)
