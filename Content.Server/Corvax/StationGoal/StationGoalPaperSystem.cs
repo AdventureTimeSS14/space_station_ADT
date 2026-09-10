@@ -34,11 +34,11 @@ namespace Content.Server.Corvax.StationGoal
         {
             if (!_cfg.GetCVar(CCCVars.StationGoal))
                 return;
-            var query = EntityQueryEnumerator<StationGoalComponent>();
-            while (query.MoveNext(out var uid, out var station))
+
         // ADT-Tweak start
+            foreach (var station in EntityQuery<StationGoalComponent>())
             {
-                Timer.Spawn(TimeSpan.FromSeconds(station.SendDelay), () => SendRandomGoal(uid, station));
+                Timer.Spawn(TimeSpan.FromSeconds(station.SendDelay), () => SendRandomGoal(station.Owner, station));
             }
         }
 
