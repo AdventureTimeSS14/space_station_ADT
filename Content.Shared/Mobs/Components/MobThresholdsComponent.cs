@@ -28,6 +28,7 @@ public sealed partial class MobThresholdsComponent : Component
     public Dictionary<MobState, ProtoId<AlertPrototype>> StateAlertDict = new()
     {
         {MobState.Alive, "HumanHealth"},
+        {MobState.SoftCritical, "ADTHumanSoftCrit"}, // ADT-Tweak
         {MobState.Critical, "HumanCrit"},
         {MobState.Dead, "HumanDead"},
     };

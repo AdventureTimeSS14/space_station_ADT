@@ -171,7 +171,7 @@ public sealed class DamageOverlay : Overlay
             _oldPainLevel = PainLevel;
         }
 
-        level = State != MobState.Critical ? _oldOxygenLevel : 1f;
+        level = State is MobState.SoftCritical or MobState.Critical ? 1f : _oldOxygenLevel; // ADT-Tweak
 
         if (level > 0f)
         {

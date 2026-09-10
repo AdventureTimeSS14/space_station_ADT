@@ -33,7 +33,6 @@
     horizontalRotation: -90 # ADT-Tweak
   - type: HumanoidProfile
   - type: TypingIndicator
-  - type: SoftCrit # ADT: ss13-style soft crit
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.7

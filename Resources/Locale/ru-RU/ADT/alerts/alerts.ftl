@@ -1,5 +1,7 @@
 alerts-crawling-name = Ползание
 alerts-crawling-desc = Вы ползёте, нажмите С чтобы встать.
+alerts-adt-soft-crit-name = [color=red]Полу-осознанное состояние[/color]
+alerts-adt-soft-crit-desc = Вы серьёзно ранены и чудом всё ещё в сознании, вы можете только ползти и шептать. Вы можете нажать, чтобы попробовать отдышаться.
 alerts-polymorph-name = [color=#62278c]Полиморф[/color]
 alerts-polymorph-desc = [color=#b26de3]С вашим телом происходит нечто странное...[/color]
 alerts-offer-name = Получить

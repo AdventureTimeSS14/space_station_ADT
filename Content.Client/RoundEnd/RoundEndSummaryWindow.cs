@@ -8,6 +8,7 @@ using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 // Goob Station - End of Round Screen
 using Content.Client.Stylesheets;
+using Content.Shared.ADT.RoundEnd; // ADT-tweak
 using Content.Shared.Mobs;
 
 namespace Content.Client.RoundEnd
@@ -15,23 +16,20 @@ namespace Content.Client.RoundEnd
     public sealed class RoundEndSummaryWindow : DefaultWindow
     {
     private readonly IEntityManager _entityManager;
-    private readonly string _richestEscapedName = string.Empty;
-    private readonly string _richestEscapedJob = string.Empty;
-    private readonly int _richestEscapedBalance;
+    private readonly List<RoundEndStatEntry> _roundReport;
+    private readonly Dictionary<string, int> _speciesCensus;
     public int RoundId;
 
         public RoundEndSummaryWindow(string gm, string roundEnd, TimeSpan roundTimeSpan, int roundId,
             RoundEndMessageEvent.RoundEndPlayerInfo[] info, IEntityManager entityManager,
-            System.Collections.Generic.Dictionary<string, int>? roundStats = null,
-            System.Collections.Generic.Dictionary<string, int>? speciesCensus = null,
-            string richestEscapedName = "", string richestEscapedJob = "", int richestEscapedBalance = 0)
+            List<RoundEndStatEntry>? roundReport = null,
+            Dictionary<string, int>? speciesCensus = null)
         {
             _entityManager = entityManager;
-            _richestEscapedName = richestEscapedName;
-            _richestEscapedJob = richestEscapedJob;
-            _richestEscapedBalance = richestEscapedBalance;
+            _roundReport = roundReport ?? new List<RoundEndStatEntry>();
+            _speciesCensus = speciesCensus ?? new Dictionary<string, int>();
 
-            MinSize = SetSize = new Vector2(520, 580);
+            MinSize = SetSize = new Vector2(560, 620);
 
             Title = Loc.GetString("round-end-summary-window-title");
 
@@ -45,8 +43,8 @@ namespace Content.Client.RoundEnd
             var roundEndTabs = new TabContainer();
             roundEndTabs.AddChild(MakeRoundEndSummaryTab(gm, roundEnd, roundTimeSpan, roundId));
             roundEndTabs.AddChild(MakePlayerManifestTab(info));
-            roundEndTabs.AddChild(MakeCrewTableTab(info)); // ADT-tweak: tg-style crew table
-            roundEndTabs.AddChild(MakeStatsTab(roundStats, speciesCensus, info)); // ADT-tweak: ss13-style round stats
+            roundEndTabs.AddChild(MakeCrewTableTab(info)); // ADT-tweak
+            roundEndTabs.AddChild(MakeStatsTab(gm, roundTimeSpan, roundId)); // ADT-tweak
 
             ContentsContainer.AddChild(roundEndTabs);
 
@@ -345,15 +343,13 @@ namespace Content.Client.RoundEnd
         return playerManifestTab;
     }
 
-    //ADT-tweak-start: ss13-style round stats tab
-    private BoxContainer MakeStatsTab(System.Collections.Generic.Dictionary<string, int>? roundStats,
-        System.Collections.Generic.Dictionary<string, int>? speciesCensus,
-        RoundEndMessageEvent.RoundEndPlayerInfo[] info)
+    //ADT-tweak-start
+    private BoxContainer MakeStatsTab(string gamemode, TimeSpan roundDuration, int roundId)
     {
         var statsTab = new BoxContainer
         {
             Orientation = LayoutOrientation.Vertical,
-            Name = Loc.GetString("round-end-summary-window-stats-tab-title")
+            Name = Loc.GetString("round-end-report-tab-title")
         };
 
         var scroll = new ScrollContainer
@@ -365,96 +361,103 @@ namespace Content.Client.RoundEnd
         var container = new BoxContainer
         {
             Orientation = LayoutOrientation.Vertical,
-            SeparationOverride = 4
+            SeparationOverride = 2
         };
 
-        roundStats ??= new System.Collections.Generic.Dictionary<string, int>();
-        speciesCensus ??= new System.Collections.Generic.Dictionary<string, int>();
+        AddReportLine(container, Loc.GetString("round-end-report-round-id", ("roundId", roundId)));
+        AddReportLine(container, Loc.GetString("round-end-report-gamemode", ("gamemode", gamemode)));
+        AddReportLine(container, Loc.GetString("round-end-report-duration",
+            ("hours", roundDuration.Hours),
+            ("minutes", roundDuration.Minutes),
+            ("seconds", roundDuration.Seconds)));
 
-        // species census
-        var speciesHeader = new RichTextLabel();
-        speciesHeader.SetMarkup(Loc.GetString("round-end-summary-window-stats-species-header",
-            ("count", speciesCensus.Count)));
-        container.AddChild(speciesHeader);
-
-        foreach (var (species, count) in speciesCensus.OrderByDescending(p => p.Value))
-        {
-            var name = Loc.TryGetString($"species-name-{species}", out var localized)
-                ? localized
-                : species;
-
-            var label = new RichTextLabel();
-            label.SetMarkup(Loc.GetString("round-end-summary-window-stats-species-line",
-                ("species", name), ("count", count)));
-            container.AddChild(label);
-        }
-
-        container.AddChild(new Control { MinSize = new Vector2(0, 8) });
-
-        // misc stats
-        void AddStat(string key, string localeId)
-        {
-            if (!roundStats.TryGetValue(key, out var value))
-                return;
-
-            var label = new RichTextLabel();
-            label.SetMarkup(Loc.GetString(localeId, ("value", value)));
-            container.AddChild(label);
-        }
-
-        AddStat("slips-total", "round-end-summary-window-stats-slips-total");
-        AddStat("slips-clown", "round-end-summary-window-stats-slips-clown");
-        AddStat("ore-mined", "round-end-summary-window-stats-ore-mined");
-        AddStat("clowns-beaten", "round-end-summary-window-stats-clowns-beaten");
-        AddStat("corpses-station", "round-end-summary-window-stats-corpses-station");
-
-        // richest escaped (server-computed)
-        if (_richestEscapedName.Length > 0)
-        {
-            var richestLabel = new RichTextLabel();
-            var job = _richestEscapedJob.Length > 0 && Loc.TryGetString(_richestEscapedJob, out var richestJob)
-                ? $", {richestJob}"
-                : string.Empty;
-            richestLabel.SetMarkup(Loc.GetString("round-end-summary-window-stats-richest-escaped",
-                ("name", _richestEscapedName), ("job", job), ("balance", _richestEscapedBalance)));
-            container.AddChild(richestLabel);
-        }
-
-        // most battered escaped (computed from player info)
-        float worstDamage = 0;
-        RoundEndMessageEvent.RoundEndPlayerInfo? worstPlayer = null;
-        foreach (var player in info)
-        {
-            if (!player.Escaped || player.Observer)
-                continue;
-
-            var total = 0f;
-            foreach (var v in player.DamagePerGroup.Values)
-                total += (float)v;
-
-            if (total > worstDamage)
-            {
-                worstDamage = total;
-                worstPlayer = player;
-            }
-        }
-
-        if (worstPlayer is { } battered && worstDamage > 0)
-        {
-            var batteredLabel = new RichTextLabel();
-            batteredLabel.SetMarkup(Loc.GetString("round-end-summary-window-stats-battered-escaped",
-                ("name", battered.PlayerICName ?? battered.PlayerOOCName), ("damage", (int) worstDamage)));
-            container.AddChild(batteredLabel);
-        }
+        AddReportCategory(container, RoundEndStatCategory.Summary, "round-end-report-category-summary");
+        AddReportCategory(container, RoundEndStatCategory.FirstDeath, "round-end-report-category-first-death");
+        AddReportCategory(container, RoundEndStatCategory.Economy, "round-end-report-category-economy");
+        AddReportCategory(container, RoundEndStatCategory.Misc, "round-end-report-category-misc");
+        AddSpeciesCensus(container);
 
         scroll.AddChild(container);
         statsTab.AddChild(scroll);
 
         return statsTab;
     }
+
+    private void AddReportCategory(BoxContainer container, RoundEndStatCategory category, string headerLocId)
+    {
+        var entries = _roundReport
+            .Where(e => e.Category == category)
+            .OrderBy(e => e.Order)
+            .ToArray();
+
+        if (entries.Length == 0)
+            return;
+
+        AddCategoryHeader(container, headerLocId);
+
+        foreach (var entry in entries)
+        {
+            AddReportLine(container, FormatReportEntry(entry), 8);
+        }
+    }
+
+    private void AddReportLine(BoxContainer container, string markup, int indent = 0)
+    {
+        var label = new RichTextLabel { Margin = new Thickness(indent, 0, 0, 0) };
+        label.SetMarkup(markup);
+        container.AddChild(label);
+    }
+
+    private void AddCategoryHeader(BoxContainer container, string headerLocId)
+    {
+        var label = new Label
+        {
+            Text = Loc.GetString(headerLocId),
+            StyleClasses = { StyleNano.StyleClassLabelHeading },
+            Margin = new Thickness(0, 8, 0, 2)
+        };
+        container.AddChild(label);
+    }
+
+    /// <summary>
+    ///     Resolves a report line, translating any locale-id arguments client-side.
+    /// </summary>
+    private static string FormatReportEntry(RoundEndStatEntry entry)
+    {
+        var args = new List<(string, object)>();
+
+        foreach (var (key, value) in entry.Args)
+            args.Add((key, value));
+
+        foreach (var (key, locId) in entry.LocArgs)
+            args.Add((key, Loc.GetString(locId)));
+
+        return Loc.GetString(entry.LocId, args.ToArray());
+    }
+
+    private void AddSpeciesCensus(BoxContainer container)
+    {
+        if (_speciesCensus.Count == 0)
+            return;
+
+        AddCategoryHeader(container, "round-end-report-category-census");
+
+        AddReportLine(container, Loc.GetString("round-end-report-species-header",
+            ("count", _speciesCensus.Count)), 8);
+
+        foreach (var (species, count) in _speciesCensus.OrderByDescending(p => p.Value))
+        {
+            var name = Loc.TryGetString($"species-name-{species.ToLowerInvariant()}", out var localized)
+                ? localized
+                : species;
+
+            AddReportLine(container, Loc.GetString("round-end-report-species-line",
+                ("species", name), ("count", count)), 16);
+        }
+    }
     //ADT-tweak-end
 
-    //ADT-tweak-start: tgstation-style crew status table
+    //ADT-tweak-start
     private BoxContainer MakeCrewTableTab(RoundEndMessageEvent.RoundEndPlayerInfo[] playersInfo)
     {
         var crewTab = new BoxContainer

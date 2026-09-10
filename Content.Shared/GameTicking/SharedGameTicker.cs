@@ -219,13 +219,10 @@ namespace Content.Shared.GameTicking
         /// </summary>
         public ResolvedSoundSpecifier? RestartSound;
 
-        // ADT-start: ss13-style round end stats
-        public Dictionary<string, int> RoundStats = new();
+        // ADT-Tweak-start
+        public List<Content.Shared.ADT.RoundEnd.RoundEndStatEntry> RoundReport = new();
         public Dictionary<string, int> SpeciesCensus = new();
-        public string RichestEscapedName = string.Empty;
-        public string RichestEscapedJob = string.Empty;
-        public int RichestEscapedBalance;
-        // ADT-end
+        // ADT-Tweak-end
 
         public RoundEndMessageEvent(
             string gamemodeTitle,

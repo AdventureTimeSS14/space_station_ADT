@@ -41,8 +41,7 @@ public sealed class RoundEndSummaryUIController : UIController,
 
         _window = new RoundEndSummaryWindow(message.GamemodeTitle, message.RoundEndText,
             message.RoundDuration, message.RoundId, message.AllPlayersEndInfo, EntityManager,
-            message.RoundStats, message.SpeciesCensus,
-            message.RichestEscapedName, message.RichestEscapedJob, message.RichestEscapedBalance);
+            message.RoundReport, message.SpeciesCensus);
     }
 
     public void OnSystemLoaded(ClientGameTicker system)

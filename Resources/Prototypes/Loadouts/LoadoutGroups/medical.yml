@@ -37,7 +37,6 @@
   loadouts:
   - ChiefMedicalOfficerCloak
   - ChiefMedicalOfficerMantle
-  - ADTClothingNeckEnsembleChiefMedicalOfficer # ADT tweak
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerShoes

@@ -243,7 +243,9 @@ public sealed class HealingSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp1, ref ent.Comp2, false))
             return mod;
 
-        if (!_mobThresholdSystem.TryGetThresholdForState(ent, MobState.Critical, out var amount, ent.Comp2))
+        // ADT-Tweak
+        if (!_mobThresholdSystem.TryGetThresholdForState(ent, MobState.SoftCritical, out var amount, ent.Comp2)
+            && !_mobThresholdSystem.TryGetThresholdForState(ent, MobState.Critical, out amount, ent.Comp2))
             return 1;
 
         var percentDamage = (float)(_damageable.GetTotalDamage(ent) / amount);

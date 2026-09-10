@@ -633,7 +633,7 @@ namespace Content.Server.GameTicking
 
                 // ADT-tweak-end
 
-                // ADT-start: tg-style escaped status for round end crew table
+                // ADT-Tweak-start
                 var escaped = false;
                 EntityUid? statusMob = lastMob;
                 if (statusMob is null && mind.OriginalOwnedEntity is not null)
@@ -645,7 +645,7 @@ namespace Content.Server.GameTicking
                 {
                     escaped = _emergencyShuttle.IsTargetEscaping(statusMob.Value);
                 }
-                // ADT-end
+                // ADT-Tweak-end
 
                 var playerEndRoundInfo = new RoundEndMessageEvent.RoundEndPlayerInfo()
                 {
@@ -688,15 +688,12 @@ namespace Content.Server.GameTicking
                 sound
             );
 
-            // ADT-start: ss13-style round end stats
+            // ADT-Tweak-start
             var statsEv = new Content.Shared.ADT.RoundEnd.RoundEndStatsCollectEvent();
             RaiseLocalEvent(ref statsEv);
-            roundEndMessageEvent.RoundStats = statsEv.Stats;
+            roundEndMessageEvent.RoundReport = statsEv.Entries;
             roundEndMessageEvent.SpeciesCensus = statsEv.SpeciesCensus;
-            roundEndMessageEvent.RichestEscapedName = statsEv.RichestEscapedName ?? string.Empty;
-            roundEndMessageEvent.RichestEscapedJob = statsEv.RichestEscapedJob ?? string.Empty;
-            roundEndMessageEvent.RichestEscapedBalance = statsEv.RichestEscapedBalance;
-            // ADT-end
+            // ADT-Tweak-end
 
             RaiseNetworkEvent(roundEndMessageEvent);
             RaiseLocalEvent(roundEndMessageEvent);

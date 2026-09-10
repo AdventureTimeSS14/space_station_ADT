@@ -156,7 +156,6 @@
   - ADTClothingCaptainShoulderNeck # ADT Loadout
   - CaptainMantle
   - ADTClothingAdmiralShoulder # ADT Loadout
-  - ADTClothingNeckEnsembleCaptain # ADT Loadout
 
 - type: loadoutGroup
   id: CaptainBackpack
@@ -216,7 +215,6 @@
   - HoPMantle
   # ADT-Loadouts-Start
   - ADTHoPAltCloak
-  - ADTClothingNeckEnsembleHeadOfPersonnel
   # ADT-Loadouts-End
 
 - type: loadoutGroup
@@ -472,7 +470,6 @@
   minLimit: 0
   loadouts:
   - LawyerNeck
-  - ADTClothingNeckEnsembleNanotrasenRepresentative # ADT Loadout
 
 #- type: loadoutGroup
 #  id: LawyerJobTrinkets
@@ -869,7 +866,6 @@
   loadouts:
   - QuartermasterCloak
   - QuartermasterMantle
-  - ADTClothingNeckEnsembleQuarterMaster # ADT Loadout
 
 - type: loadoutGroup
   id: QuartermasterOuterClothing
@@ -1032,8 +1028,6 @@
   loadouts:
   - ChiefEngineerCloak
   - ChiefEngineerMantle
-  - ADTClothingNeckEnsembleChiefEngineerWhite # ADT Loadout
-  - ADTClothingNeckEnsembleChiefEngineerGreen # ADT Loadout
 
 - type: loadoutGroup
   id: ChiefEngineerOuterClothing
@@ -1228,7 +1222,6 @@
   loadouts:
   - ResearchDirectorMantle
   - ResearchDirectorCloak
-  - ADTClothingNeckEnsembleResearchDirector # ADT Loadout
 
 - type: loadoutGroup
   id: ResearchDirectorJumpsuit
@@ -1418,7 +1411,6 @@
   - ADTNeckSecBadgeBronze
   - ADTNeckSecBadgeSilver
   - ADTNeckSecBadgeGold
-  - ADTClothingNeckEnsembleHeadOfSecurity
   # - HeadofSecurityShoulderMantle # Corvax-Loadouts
   # ADT-Loadout-End
 
