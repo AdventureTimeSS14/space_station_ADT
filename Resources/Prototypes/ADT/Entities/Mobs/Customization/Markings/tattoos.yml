@@ -1,7 +1,7 @@
 - type: marking
   id: ADTChestCutHere
   bodyPart: Chest
-  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
+  groupWhitelist: [Human, Felinid, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:
@@ -14,7 +14,7 @@
 - type: marking
   id: ADTArmDollJointsTattooLeft
   bodyPart: LArm
-  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
+  groupWhitelist: [Human, Felinid, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:
@@ -27,7 +27,7 @@
 - type: marking
   id: ADTArmDollJointsTattooRight
   bodyPart: RArm
-  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
+  groupWhitelist: [Human, Felinid, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:
@@ -40,7 +40,7 @@
 - type: marking
   id: ADTHandDollJointsTattooLeft
   bodyPart: LHand
-  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
+  groupWhitelist: [Human, Felinid, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:
@@ -53,7 +53,7 @@
 - type: marking
   id: ADTHandDollJointsTattooRight
   bodyPart: RHand
-  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
+  groupWhitelist: [Human, Felinid, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:
@@ -66,7 +66,7 @@
 - type: marking
   id: ADTLegDollJointsTattooLeft
   bodyPart: LLeg
-  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
+  groupWhitelist: [Human, Felinid, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:
@@ -79,7 +79,7 @@
 - type: marking
   id: ADTLegDollJointsTattooRight
   bodyPart: RLeg
-  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
+  groupWhitelist: [Human, Felinid, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:
@@ -92,7 +92,7 @@
 - type: marking
   id: ADTFootDollJointsTattooLeft
   bodyPart: LFoot
-  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
+  groupWhitelist: [Human, Felinid, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:
@@ -105,7 +105,7 @@
 - type: marking
   id: ADTFootDollJointsTattooRight
   bodyPart: RFoot
-  groupWhitelist: [Human, Arachnid, Slime, Reptilian]
+  groupWhitelist: [Human, Felinid, Arachnid, Slime, Reptilian]
   coloring:
     default:
       type:
