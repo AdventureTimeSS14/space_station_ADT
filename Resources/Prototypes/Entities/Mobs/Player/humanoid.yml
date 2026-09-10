@@ -544,6 +544,7 @@
   components:
     - type: Loadout
       prototypes: [ADTCBURNGear] # ADT tweak
+      # roleLoadout: [ RoleSurvivalEVA ] # ADT tweak
     - type: GhostRole
       name: ghost-role-information-cburn-agent-name
       description: ghost-role-information-cburn-agent-description

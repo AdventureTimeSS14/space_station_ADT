@@ -34,9 +34,9 @@
         #ADT-tweak-end
     ADTVendingCategoryShoes:  # ADT-Tweak
         ClothingShoesColorBlack: 2
-    # ADT tweak start wiki books
+    # ADT-Tweak start
     ADTVendingCategoryBooks:
-        ADTBookSRPcrg: 2
-    # ADT tweak end wiki books
+        ADTBookSRPsrv: 2
+    # ADT-Tweak end
   contrabandInventory:
     ToyFigurineBartender: 1

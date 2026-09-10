@@ -13,12 +13,12 @@
     - id: AstroNavCartridge
     - id: ClothingHandsKnuckleDustersQM
     - id: PrinterDocFlatpack # Corvax-Printer
-    # ADT tweak start
+    # ADT-Tweak start
     - id: ADTCommandBudgetCard
     - id: ADTCommandBudgetPinPaper
     - id: ADTtelescopicBaton
     - id: ADTHandheldShuttleConsoleSalvage
-    # ADT tweak end
+    # ADT-Tweak end
     - id: PlushieLizardJobQuartermaster
       prob: 0.02
 
@@ -421,7 +421,7 @@
     - id: ClothingShoesBootsJack
     - id: FlashlightSeclite
     - id: DoorRemoteSecurity
-    # - id: HoloprojectorSecurity
+    # - id: HoloprojectorSecurity # ADT-tweak
     - id: RubberStampHos
     - id: BoxHoSCircuitboards
     - id: WeaponDisabler
@@ -429,8 +429,8 @@
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: ClothingOuterCoatHoSGreatcoat # Corvax-Resprite
-    - id: ADTBookPTSD #ADT-tweak
     # ADT tweak start
+    - id: ADTBookPTSD
     - id: ADTHosVoucher
     - id: ADTtelescopicBaton
     - id: ADTSecurityBudgetCard
