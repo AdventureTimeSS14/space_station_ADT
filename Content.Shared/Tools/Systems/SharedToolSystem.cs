@@ -275,7 +275,7 @@ public abstract partial class SharedToolSystem : EntitySystem
     #region DoAfterEvents
 
     [Serializable, NetSerializable]
-    protected sealed partial class ToolDoAfterEvent : DoAfterEvent
+    public sealed partial class ToolDoAfterEvent : DoAfterEvent // ADT-Tweak protected > public
     {
         [DataField]
         public float Fuel;
