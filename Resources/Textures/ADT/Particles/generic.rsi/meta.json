@@ -12,6 +12,12 @@
     },
     {
       "name": "dot"
+    },
+    {
+      "name": "cross"
+    },
+    {
+      "name": "soft_dot"
     }
   ]
 }
