@@ -48,7 +48,6 @@ namespace Content.Server.Corvax.StationGoal
                 return;
 
             var playerCount = _playerManager.PlayerCount;
-        // ADT-Tweak end
 
             var tempGoals = new List<ProtoId<StationGoalPrototype>>(station.Goals);
             StationGoalPrototype? selGoal = null;
@@ -75,6 +74,7 @@ namespace Content.Server.Corvax.StationGoal
             {
                 Log.Info($"Goal {selGoal.ID} has been sent to station {MetaData(uid).EntityName}");
             }
+        // ADT-Tweak end
         }
 
         public bool SendStationGoal(EntityUid ent, ProtoId<StationGoalPrototype> goal)
