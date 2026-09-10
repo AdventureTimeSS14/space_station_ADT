@@ -75,7 +75,6 @@
   - MobRespirator
   - MobAtmosStandard
   - MobFlammable
-  # ADT-Tweak: BaseMobSpecies removed by wizden Nubody (#42419); base moved to BaseSpeciesMobOrganic
   - BaseSpeciesMobOrganic
   id: ADTBaseMobSpeciesOrganicUnRotting
   abstract: true
