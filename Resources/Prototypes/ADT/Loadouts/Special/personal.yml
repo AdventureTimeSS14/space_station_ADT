@@ -1,0 +1,994 @@
+- type: loadoutGroup
+  id: ADTSponsorLoadoutSecurity
+  name: arbuz
+  minLimit: 1
+  maxLimit: 5
+
+- type: loadoutGroup
+  id: ADTSponsorLoadoutAll
+  name: arbuz
+  minLimit: 1
+  maxLimit: 5
+
+- type: loadoutGroup
+  id: ADTSponsorLoadoutCommand
+  name: arbuz
+  minLimit: 1
+  maxLimit: 5
+
+- type: loadoutGroup
+  id: ADTSponsorLoadoutCapitan
+  name: arbuz
+  minLimit: 1
+  maxLimit: 5
+
+  # loadouts:
+  # - ADTClothingHeadHatsMendozaCap
+  # - ADTClothingNeckKivchikCloak
+  # - ADTClothingUniformKivchikJumpskirt
+  # - ADTClothingHeadHatKivchikBerete
+  # - ADTClothingHandsKivchikGloves
+  # - ADTClothingShoesKivchikBoots
+  # - ADTClothingBackpackKivchikSatchel
+  # - ADTClothingOuterCoatJohanCoat
+  # - ADTClothingHeadHatsJohanCap
+  # - ADTClothingUniformAJohanPants
+  # - ADTClothingOuterCoatSchroCoat
+  # - ADTClothingHeadHatsSatanHoop
+  # - ADTClothingUniformSatanSuit
+  # - ADTClothingOuterCoatPyotrCoat
+  # - ADTClothingHeadHatsPyotrCap
+  # - ADTClothingNeckPyotrCloak
+  # - ADTClothingUniformPyotrUniform
+  # - ADTClothingUniformPyotrJumpsuit
+  # - ADTClothingUniformPyotrOfficialSuit
+  # - ADTClothingOuterBolperCoat
+  # - ADTClothingShoesBolperBoots
+  # - ADTClothingNeckBolperCloak
+  # - ADTClothingUniformBolperJumpsuit
+  # - ADTClothingBackBolperSheath
+  # - ADTClothingHandsBolperGloves
+  # - ADTClothingUniformPangaariAmericanSleeveless
+  # - ADTClothingHandsPangaariBracelet
+  # - ADTClothingBeltZoroSheath
+  # - ADTClothingHeadHatsRipCap
+  # - ADTClothingOuterRipCoat
+  # - ADTClothingHandsPushnoYGloves
+  # - ADTClothingUniformPushnoYJumpsuit
+  # - ADTClothingHeadHatMoon_so_redHat
+  # - ADTClothingEyesMoon_so_redGlasses
+  # - ADTClothingOuterMoon_so_redCoat
+  # - ADTSyrelClothingBeltSheath
+  # - ADTClothingUniformSensors
+  # - ADTClothingUniformJumpsuitUmaSport
+  # - ADTClothingNeckUmaChoker
+  # - ADTClothingOuterArmorUma
+  # - ADTClothingHandsAnagiriGloves
+  # - ADTClothingBackpackDuffelAnagiri
+  # - ADTClothingOuterCoatOktyabrina
+  # - ADTClothingHeadHatPrazatBeret
+  # - ADTClothingOuterCoatPrazat
+  # - ADTClothingUniformJumpsuitPrazat
+  # - ADTClothingUniformJumpsuitSaintMadmanClothing
+  # - ADTClothingNeckSaintMadmanMantle
+  # - ADTClothingOuterCoatSaintMadman
+  # - ADTClothingUniformJumpsuitKringeClothing
+  # - ADTClothingShoesBootsMagKringe
+  # - ADTActionToggleMagbootsKringe
+  # - ADTClothingHandsKringeGloves
+  # - ADTClothingOuterHardsuitKringe
+  # - ADTClothingHeadHelmetHardsuitKringe
+  # - ADTClothingHeadBandMercAntillion
+  # - ADTClothingEyesGlassesMercenaryAntillion
+  # - ADTClothingOuterHardsuitRachell
+  # - ADTClothingHeadHelmetRachell
+  # - ADTSponsorClothingUniformSkirtKiwi
+  # - ADTClothingHeadFeatherHairpin
+  # - ADTClothingHandsKiwiFruitBracelet
+  # - ADTClothingOuterArmorMinerSirtalter
+  # - ADTClothingHeadHelmetMinerSirtalter
+  # - ADTClothingUniformMiningSirtalter
+  # - ADTClothingUniformMelimaDress
+  # - ADTGiPatterHardhat
+  # - ADTClothingOuterHardsuitParamedLemon
+  # - ADTClothingHeadHelmetParamedLemon
+  # - ADTClothingUniformLuckyrat
+  # - ADTClothingNeckLuckyratCloak
+  # - ADTClothingHeadHatsLuckyrat
+  # - ADTClothingShoesLuckyrat
+  # - ADTClothingUniformGothic
+  # - ADTClothingHandsCuffsFaust
+  # - ADTClothingHeadHatsFaustCap
+  # - ADTClothingUniformKimerK
+  # - ADTClothingUniformWCTR829
+  # - ADTClothingUniformShipTestRedLis
+  # - ADTClothingNeckShipTestRedLis
+  # - ADTClothingShoesShipTestRedLis
+  # - ADTClothingHeadHatsShipTestRedLis
+  # - ADTClothingOuterCoatShipTestRedLis
+  # - ADTClothingOuterCoatJacketShipTestRedLis
+  # - ADTClothingHeadMathemat1kaHat
+  # - ADTClothingNeckMathemat1kaMantle
+  # - ADTClothingNeckMathemat1kaCloak
+  # - ADTClothingUniformMathemat1kaDress
+  # - ADTClothingHandsMathemat1kaGloves
+  # - ADTClothingBeltMathemat1kaSheath
+  # - ADTClothingBeltMathemat1kaSheathFilled
+  # - ADTClothingOuterMathemat1kaCoat
+  # - ADTClothingUniformMathemat1kaJumpsuit
+  # - ADTClothingShoesMathemat1kaBoots
+  # - ADTClothingBackMathemat1kaSatchel
+  # - ADTClothingHeadMathemat1kaCapCap
+  # - ADTClothingNeckRaven559SecOfficerMantle
+  # - ADTClothingNeckRaven559OfficerBlueShieldMantle
+  # - ADTClothingHeadBSHelmet
+  # - ADTClothingOuterBSArmor
+  # - ADTClothingBeltKnifeCase
+  # - ADTAdmiralDeathQMMantle
+  # - ADTAdmiraldeathushanka
+  # - ADTClothingNeckHonelin111Choker
+  # - ADTClothingHandsHonelin111Gloves
+  # - ADTClothingOuterHonelin111Jacket
+  # - ADTSponsorClothingUniformHonelin111Shirt
+  # - ADTSponsorClothingUniformHonelin111Dress
+  # - ADTClothingHeadHatHonelin111Flower
+  # - ADTClothingEarHonelin111GoldenEarring
+  # - ADTClothingHandsStryzAniPullingGloves
+  # - ADTClothingBeltStryzAniSheath
+  # - ADTClothingNeckSikRitDemonicWings
+  # - ADTClothingNeckSentinel
+  # - ADTClothingOuterArmorMishailArmoredJacketSecOfficer
+  # - ADTClothingEarSponsorEarring
+  # - ADTClothingOuterSponsorRedKimono
+  # - ADTClothingOuterSponsorBlueKimono
+  # - ADTClothingHeadSponsorRedKandzasi
+  # - ADTClothingHeadSponsorBlueKandzasi
+  # - ADTClothingNeck1AltiusDarkBrownCloak
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadHatsMendozaCap
+  storage:
+    back:
+    - ADTClothingHeadHatsMendozaCap
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingNeckKivchikCloak
+  storage:
+    back:
+    - ADTClothingNeckKivchikCloak
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformKivchikJumpskirt
+  storage:
+    back:
+    - ADTClothingUniformKivchikJumpskirt
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadHatKivchikBerete
+  storage:
+    back:
+    - ADTClothingHeadHatKivchikBerete
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHandsKivchikGloves
+  storage:
+    back:
+    - ADTClothingHandsKivchikGloves
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingShoesKivchikBoots
+  storage:
+    back:
+    - ADTClothingShoesKivchikBoots
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingBackpackKivchikSatchel
+  storage:
+    back:
+    - ADTClothingBackpackKivchikSatchel
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterCoatJohanCoat
+  storage:
+    back:
+    - ADTClothingOuterCoatJohanCoat
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadHatsJohanCap
+  storage:
+    back:
+    - ADTClothingHeadHatsJohanCap
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformAJohanPants
+  storage:
+    back:
+    - ADTClothingUniformAJohanPants
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterCoatSchroCoat
+  storage:
+    back:
+    - ADTClothingOuterCoatSchroCoat
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadHatsSatanHoop
+  storage:
+    back:
+    - ADTClothingHeadHatsSatanHoop
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformSatanSuit
+  storage:
+    back:
+    - ADTClothingUniformSatanSuit
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterCoatPyotrCoat
+  storage:
+    back:
+    - ADTClothingOuterCoatPyotrCoat
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadHatsPyotrCap
+  storage:
+    back:
+    - ADTClothingHeadHatsPyotrCap
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingNeckPyotrCloak
+  storage:
+    back:
+    - ADTClothingNeckPyotrCloak
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformPyotrUniform
+  storage:
+    back:
+    - ADTClothingUniformPyotrUniform
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformPyotrJumpsuit
+  storage:
+    back:
+    - ADTClothingUniformPyotrJumpsuit
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformPyotrOfficialSuit
+  storage:
+    back:
+    - ADTClothingUniformPyotrOfficialSuit
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterBolperCoat
+  storage:
+    back:
+    - ADTClothingOuterBolperCoat
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingShoesBolperBoots
+  storage:
+    back:
+    - ADTClothingShoesBolperBoots
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingNeckBolperCloak
+  storage:
+    back:
+    - ADTClothingNeckBolperCloak
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformBolperJumpsuit
+  storage:
+    back:
+    - ADTClothingUniformBolperJumpsuit
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingBackBolperSheath
+  storage:
+    back:
+    - ADTClothingBackBolperSheath
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHandsBolperGloves
+  storage:
+    back:
+    - ADTClothingHandsBolperGloves
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformPangaariAmericanSleeveless
+  storage:
+    back:
+    - ADTClothingUniformPangaariAmericanSleeveless
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHandsPangaariBracelet
+  storage:
+    back:
+    - ADTClothingHandsPangaariBracelet
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingBeltZoroSheath
+  storage:
+    back:
+    - ADTClothingBeltZoroSheath
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadHatsRipCap
+  storage:
+    back:
+    - ADTClothingHeadHatsRipCap
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterRipCoat
+  storage:
+    back:
+    - ADTClothingOuterRipCoat
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHandsPushnoYGloves
+  storage:
+    back:
+    - ADTClothingHandsPushnoYGloves
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformPushnoYJumpsuit
+  storage:
+    back:
+    - ADTClothingUniformPushnoYJumpsuit
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadHatMoon_so_redHat
+  storage:
+    back:
+    - ADTClothingHeadHatMoon_so_redHat
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingEyesMoon_so_redGlasses
+  storage:
+    back:
+    - ADTClothingEyesMoon_so_redGlasses
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterMoon_so_redCoat
+  storage:
+    back:
+    - ADTClothingOuterMoon_so_redCoat
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTSyrelClothingBeltSheath
+  storage:
+    back:
+    - ADTSyrelClothingBeltSheath
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformSensors
+  storage:
+    back:
+    - ADTClothingUniformSensors
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformJumpsuitUmaSport
+  storage:
+    back:
+    - ADTClothingUniformJumpsuitUmaSport
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingNeckUmaChoker
+  storage:
+    back:
+    - ADTClothingNeckUmaChoker
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterArmorUma
+  storage:
+    back:
+    - ADTClothingOuterArmorUma
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHandsAnagiriGloves
+  storage:
+    back:
+    - ADTClothingHandsAnagiriGloves
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingBackpackDuffelAnagiri
+  storage:
+    back:
+    - ADTClothingBackpackDuffelAnagiri
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterCoatOktyabrina
+  storage:
+    back:
+    - ADTClothingOuterCoatOktyabrina
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadHatPrazatBeret
+  storage:
+    back:
+    - ADTClothingHeadHatPrazatBeret
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterCoatPrazat
+  storage:
+    back:
+    - ADTClothingOuterCoatPrazat
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformJumpsuitPrazat
+  storage:
+    back:
+    - ADTClothingUniformJumpsuitPrazat
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformJumpsuitSaintMadmanClothing
+  storage:
+    back:
+    - ADTClothingUniformJumpsuitSaintMadmanClothing
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingNeckSaintMadmanMantle
+  storage:
+    back:
+    - ADTClothingNeckSaintMadmanMantle
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterCoatSaintMadman
+  storage:
+    back:
+    - ADTClothingOuterCoatSaintMadman
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformJumpsuitKringeClothing
+  storage:
+    back:
+    - ADTClothingUniformJumpsuitKringeClothing
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingShoesBootsMagKringe
+  storage:
+    back:
+    - ADTClothingShoesBootsMagKringe
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTActionToggleMagbootsKringe
+  storage:
+    back:
+    - ADTActionToggleMagbootsKringe
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHandsKringeGloves
+  storage:
+    back:
+    - ADTClothingHandsKringeGloves
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterHardsuitKringe
+  storage:
+    back:
+    - ADTClothingOuterHardsuitKringe
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadHelmetHardsuitKringe
+  storage:
+    back:
+    - ADTClothingHeadHelmetHardsuitKringe
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadBandMercAntillion
+  storage:
+    back:
+    - ADTClothingHeadBandMercAntillion
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingEyesGlassesMercenaryAntillion
+  storage:
+    back:
+    - ADTClothingEyesGlassesMercenaryAntillion
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterHardsuitRachell
+  storage:
+    back:
+    - ADTClothingOuterHardsuitRachell
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadHelmetRachell
+  storage:
+    back:
+    - ADTClothingHeadHelmetRachell
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTSponsorClothingUniformSkirtKiwi
+  storage:
+    back:
+    - ADTSponsorClothingUniformSkirtKiwi
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadFeatherHairpin
+  storage:
+    back:
+    - ADTClothingHeadFeatherHairpin
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHandsKiwiFruitBracelet
+  storage:
+    back:
+    - ADTClothingHandsKiwiFruitBracelet
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterArmorMinerSirtalter
+  storage:
+    back:
+    - ADTClothingOuterArmorMinerSirtalter
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadHelmetMinerSirtalter
+  storage:
+    back:
+    - ADTClothingHeadHelmetMinerSirtalter
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformMiningSirtalter
+  storage:
+    back:
+    - ADTClothingUniformMiningSirtalter
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformMelimaDress
+  storage:
+    back:
+    - ADTClothingUniformMelimaDress
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTGiPatterHardhat
+  storage:
+    back:
+    - ADTGiPatterHardhat
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterHardsuitParamedLemon
+  storage:
+    back:
+    - ADTClothingOuterHardsuitParamedLemon
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadHelmetParamedLemon
+  storage:
+    back:
+    - ADTClothingHeadHelmetParamedLemon
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformLuckyrat
+  storage:
+    back:
+    - ADTClothingUniformLuckyrat
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingNeckLuckyratCloak
+  storage:
+    back:
+    - ADTClothingNeckLuckyratCloak
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadHatsLuckyrat
+  storage:
+    back:
+    - ADTClothingHeadHatsLuckyrat
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingShoesLuckyrat
+  storage:
+    back:
+    - ADTClothingShoesLuckyrat
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformGothic
+  storage:
+    back:
+    - ADTClothingUniformGothic
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHandsCuffsFaust
+  storage:
+    back:
+    - ADTClothingHandsCuffsFaust
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadHatsFaustCap
+  storage:
+    back:
+    - ADTClothingHeadHatsFaustCap
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformKimerK
+  storage:
+    back:
+    - ADTClothingUniformKimerK
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformWCTR829
+  storage:
+    back:
+    - ADTClothingUniformWCTR829
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformShipTestRedLis
+  storage:
+    back:
+    - ADTClothingUniformShipTestRedLis
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingNeckShipTestRedLis
+  storage:
+    back:
+    - ADTClothingNeckShipTestRedLis
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingShoesShipTestRedLis
+  storage:
+    back:
+    - ADTClothingShoesShipTestRedLis
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadHatsShipTestRedLis
+  storage:
+    back:
+    - ADTClothingHeadHatsShipTestRedLis
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterCoatShipTestRedLis
+  storage:
+    back:
+    - ADTClothingOuterCoatShipTestRedLis
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterCoatJacketShipTestRedLis
+  storage:
+    back:
+    - ADTClothingOuterCoatJacketShipTestRedLis
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadMathemat1kaHat
+  storage:
+    back:
+    - ADTClothingHeadMathemat1kaHat
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingNeckMathemat1kaMantle
+  storage:
+    back:
+    - ADTClothingNeckMathemat1kaMantle
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingNeckMathemat1kaCloak
+  storage:
+    back:
+    - ADTClothingNeckMathemat1kaCloak
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformMathemat1kaDress
+  storage:
+    back:
+    - ADTClothingUniformMathemat1kaDress
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHandsMathemat1kaGloves
+  storage:
+    back:
+    - ADTClothingHandsMathemat1kaGloves
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingBeltMathemat1kaSheath
+  storage:
+    back:
+    - ADTClothingBeltMathemat1kaSheath
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingBeltMathemat1kaSheathFilled
+  storage:
+    back:
+    - ADTClothingBeltMathemat1kaSheathFilled
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterMathemat1kaCoat
+  storage:
+    back:
+    - ADTClothingOuterMathemat1kaCoat
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingUniformMathemat1kaJumpsuit
+  storage:
+    back:
+    - ADTClothingUniformMathemat1kaJumpsuit
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingShoesMathemat1kaBoots
+  storage:
+    back:
+    - ADTClothingShoesMathemat1kaBoots
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingBackMathemat1kaSatchel
+  storage:
+    back:
+    - ADTClothingBackMathemat1kaSatchel
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadMathemat1kaCapCap
+  storage:
+    back:
+    - ADTClothingHeadMathemat1kaCapCap
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingNeckRaven559SecOfficerMantle
+  storage:
+    back:
+    - ADTClothingNeckRaven559SecOfficerMantle
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingNeckRaven559OfficerBlueShieldMantle
+  storage:
+    back:
+    - ADTClothingNeckRaven559OfficerBlueShieldMantle
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadBSHelmet
+  storage:
+    back:
+    - ADTClothingHeadBSHelmet
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterBSArmor
+  storage:
+    back:
+    - ADTClothingOuterBSArmor
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingBeltKnifeCase
+  storage:
+    back:
+    - ADTClothingBeltKnifeCase
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTAdmiralDeathQMMantle
+  storage:
+    back:
+    - ADTAdmiralDeathQMMantle
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTAdmiraldeathushanka
+  storage:
+    back:
+    - ADTAdmiraldeathushanka
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingNeckHonelin111Choker
+  storage:
+    back:
+    - ADTClothingNeckHonelin111Choker
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHandsHonelin111Gloves
+  storage:
+    back:
+    - ADTClothingHandsHonelin111Gloves
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterHonelin111Jacket
+  storage:
+    back:
+    - ADTClothingOuterHonelin111Jacket
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTSponsorClothingUniformHonelin111Shirt
+  storage:
+    back:
+    - ADTSponsorClothingUniformHonelin111Shirt
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTSponsorClothingUniformHonelin111Dress
+  storage:
+    back:
+    - ADTSponsorClothingUniformHonelin111Dress
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadHatHonelin111Flower
+  storage:
+    back:
+    - ADTClothingHeadHatHonelin111Flower
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingEarHonelin111GoldenEarring
+  storage:
+    back:
+    - ADTClothingEarHonelin111GoldenEarring
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHandsStryzAniPullingGloves
+  storage:
+    back:
+    - ADTClothingHandsStryzAniPullingGloves
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingBeltStryzAniSheath
+  storage:
+    back:
+    - ADTClothingBeltStryzAniSheath
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingNeckSikRitDemonicWings
+  storage:
+    back:
+    - ADTClothingNeckSikRitDemonicWings
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingNeckSentinel
+  storage:
+    back:
+    - ADTClothingNeckSentinel
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterArmorMishailArmoredJacketSecOfficer
+  storage:
+    back:
+    - ADTClothingOuterArmorMishailArmoredJacketSecOfficer
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingEarSponsorEarring
+  storage:
+    back:
+    - ADTClothingEarSponsorEarring
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterSponsorRedKimono
+  storage:
+    back:
+    - ADTClothingOuterSponsorRedKimono
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingOuterSponsorBlueKimono
+  storage:
+    back:
+    - ADTClothingOuterSponsorBlueKimono
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadSponsorRedKandzasi
+  storage:
+    back:
+    - ADTClothingHeadSponsorRedKandzasi
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingHeadSponsorBlueKandzasi
+  storage:
+    back:
+    - ADTClothingHeadSponsorBlueKandzasi
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTClothingNeck1AltiusDarkBrownCloak
+  storage:
+    back:
+    - ADTClothingNeck1AltiusDarkBrownCloak
+
