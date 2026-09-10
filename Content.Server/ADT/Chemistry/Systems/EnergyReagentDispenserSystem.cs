@@ -190,7 +190,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
         {
             var tierReagents = new HashSet<string>();
             foreach (var reagents in comp.TierReagents.Values)
-                tierReagents.UnionWith(reagents);
+                tierReagents.UnionWith(reagents.Keys);
 
             var baseReagents = new List<EnergyReagentInventoryItem>();
             var newReagents = new List<EnergyReagentInventoryItem>();
@@ -309,8 +309,8 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
                 if (scanningModuleTier < tier)
                     continue;
 
-                foreach (var reagent in reagents)
-                    component.Reagents.TryAdd(reagent, component.TierReagentCost);
+                foreach (var (reagent, cost) in reagents)
+                    component.Reagents.TryAdd(reagent, cost);
             }
             component.FinalEnergyCostMultiplier = args.GetStatMultiplier(MachineStat.EnergyCost);
 

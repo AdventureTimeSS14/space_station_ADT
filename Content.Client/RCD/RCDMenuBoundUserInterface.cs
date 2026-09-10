@@ -160,7 +160,7 @@ public sealed class RCDMenuBoundUserInterface : BoundUserInterface
             && proto.Prototype != null
             && _prototypeManager.TryIndex(proto.Prototype, out var entProto)) // don't use Resolve because this can be a tile
         {
-            tooltip = Loc.GetString(entProto.Name);
+            tooltip = entProto.Name; // ADT-Tweak
         }
         else
         {

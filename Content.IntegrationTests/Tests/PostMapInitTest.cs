@@ -136,7 +136,10 @@ namespace Content.IntegrationTests.Tests
                 mapSystem.CreateMap(out var mapId);
                 try
                 {
-                    Assert.That(mapLoader.TryLoadGrid(mapId, path, out var grid));
+                    // ADT-Tweak start
+                    Assert.That(mapLoader.TryLoadGrid(mapId, path, out var grid),
+                        $"Failed to load grid {mapFile}, was it saved as a map instead of a grid?");
+                    // ADT-Tweak end
                 }
                 catch (Exception ex)
                 {
@@ -238,7 +241,10 @@ namespace Content.IntegrationTests.Tests
 
             if (isV7Map)
             {
-                Assert.That(IsPreInit(map, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes));
+                // ADT-Tweak start
+                Assert.That(IsPreInit(map, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes),
+                    $"Map {map} was saved post-map-init, open it in the map editor and save it again without running map init.");
+                // ADT-Tweak end
             }
 
             // Check that the test actually does manage to catch post-init maps and isn't just blindly passing everything.
@@ -250,13 +256,19 @@ namespace Content.IntegrationTests.Tests
 
             // First check that a pre-init version passes
             var path = new ResPath($"{nameof(NoSavedPostMapInitTest)}.yml");
-            Assert.That(loader.TrySaveMap(id, path));
-            Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes));
+            // ADT-Tweak start
+            Assert.That(loader.TrySaveMap(id, path), $"Failed to save map {path}");
+            Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes),
+                $"Test map {path} failed pre-init check");
+            // ADT-Tweak end
 
             // and the post-init version fails.
             await server.WaitPost(() => mapSys.InitializeMap(id));
-            Assert.That(loader.TrySaveMap(id, path));
-            Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes), Is.False);
+            // ADT-Tweak start
+            Assert.That(loader.TrySaveMap(id, path), $"Failed to save map {path}");
+            Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes), Is.False,
+                $"Test map {path} unexpectedly passed pre-init check");
+            // ADT-Tweak end
         }
 
         private bool IsWhitelistedForMap(EntProtoId protoId, ResPath map)
@@ -363,6 +375,7 @@ namespace Content.IntegrationTests.Tests
             var ticker = entManager.EntitySysManager.GetEntitySystem<GameTicker>();
             var shuttleSystem = entManager.EntitySysManager.GetEntitySystem<ShuttleSystem>();
             var cfg = server.ResolveDependency<IConfigurationManager>();
+            var mapPath = protoManager.Index<GameMapPrototype>(mapProto).MapPath; // ADT-Tweak
 
             await server.WaitPost(() =>
             {
@@ -429,7 +442,7 @@ namespace Content.IntegrationTests.Tests
                         lateSpawns += GetCountLateSpawn<SpawnPointComponent>(gridUids, entManager);
                         lateSpawns += GetCountLateSpawn<ContainerSpawnPointComponent>(gridUids, entManager);
 
-                        Assert.That(lateSpawns, Is.GreaterThan(0), $"Found no latejoin spawn points on {mapProto}");
+                        Assert.That(lateSpawns, Is.GreaterThan(0), $"Found no latejoin spawn points on {mapProto} ({mapPath})"); // ADT-Tweak
                     }
 
                     // Test all availableJobs have spawnPoints
@@ -449,7 +462,37 @@ namespace Content.IntegrationTests.Tests
 
                     jobs.ExceptWith(spawnPoints);
 
-                    Assert.That(jobs, Is.Empty, $"There is no spawnpoints for {string.Join(", ", jobs)} on {mapProto}.");
+                    // ADT-Tweak start
+                    if (jobs.Count > 0)
+                    {
+                        var componentFactory = server.ResolveDependency<IComponentFactory>();
+
+                        var missing = jobs.Select(job =>
+                        {
+                            var spawnPointProtos = protoManager.EnumeratePrototypes<EntityPrototype>()
+                                .Where(proto => !proto.Abstract
+                                    && proto.TryGetComponent<SpawnPointComponent>(out var spawn, componentFactory)
+                                    && spawn.SpawnType == SpawnPointType.Job
+                                    && spawn.Job == job)
+                                .Select(proto => proto.ID);
+
+                            var containerSpawnPointProtos = protoManager.EnumeratePrototypes<EntityPrototype>()
+                                .Where(proto => !proto.Abstract
+                                    && proto.TryGetComponent<ContainerSpawnPointComponent>(out var spawn, componentFactory)
+                                    && spawn.SpawnType is SpawnPointType.Job or SpawnPointType.Unset
+                                    && spawn.Job == job)
+                                .Select(proto => proto.ID);
+
+                            var protos = string.Join(", ", spawnPointProtos.Concat(containerSpawnPointProtos).Distinct());
+                            return protos.Length == 0
+                                ? $"{job} (no spawn point entity prototype found)"
+                                : $"{job} (spawn point entity prototypes: {protos})";
+                        });
+
+                        Assert.Fail($"Map {mapPath} ({mapProto}) is missing spawn points for jobs: {string.Join("; ", missing)}. " +
+                            "Add the corresponding spawn point entities to the map and save it.");
+                    }
+                    // ADT-Tweak end
                 }
 
                 try

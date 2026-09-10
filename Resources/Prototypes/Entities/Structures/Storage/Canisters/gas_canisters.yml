@@ -149,6 +149,11 @@
   id: StorageCanister
   name: storage canister
   components:
+    # ADT Tweak start
+    - type: Construction
+      graph: StorageCanister
+      node: done
+    # ADT Tweak end
     - type: Sprite
       layers:
         - state: yellow

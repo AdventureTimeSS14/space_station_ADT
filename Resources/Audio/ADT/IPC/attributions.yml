@@ -7,3 +7,13 @@
   license: "CC0-1.0"
   copyright: "Original sound by NazarHK"
   source: "https://freesound.org/people/NazarHK/sounds/787576/"
+
+- files: ["error.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Original sound by Autistic Lucario"
+  source: "https://freesound.org/people/Autistic%20Lucario/sounds/142608/"
+
+- files: ["calculating1.ogg", "calculating2.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Original sound by sidadrumbum"
+  source: "https://freesound.org/people/sidadrumbum/sounds/42977/"

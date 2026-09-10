@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Content.Server.ADT.Power.Generator;
 using Content.Server.Audio;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Materials;
@@ -226,10 +227,20 @@ public sealed class GeneratorSystem : SharedGeneratorSystem
 
             supplier.Enabled = true;
 
-            supplier.MaxSupply = gen.TargetPower;
+            // ADT-Tweak-Start
+            var outputMultiplier = 1f;
+            var consumptionMultiplier = 1f;
+            if (TryComp<GeneratorMachinePartsComponent>(uid, out var machineParts))
+            {
+                outputMultiplier = machineParts.OutputMultiplier;
+                consumptionMultiplier = machineParts.ConsumptionMultiplier;
+            }
+            // ADT-Tweak-End
+
+            supplier.MaxSupply = gen.TargetPower * outputMultiplier; // ADT-Tweak
 
             var eff = 1 / CalcFuelEfficiency(gen.TargetPower, gen.OptimalPower, gen);
-            var consumption = gen.OptimalBurnRate * frameTime * eff;
+            var consumption = gen.OptimalBurnRate * frameTime * eff * consumptionMultiplier; // ADT-Tweak
             RaiseLocalEvent(uid, new GeneratorUseFuel(consumption));
         }
     }

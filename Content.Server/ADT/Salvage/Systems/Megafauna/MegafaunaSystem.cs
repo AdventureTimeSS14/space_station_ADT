@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Server.ADT.Planet.RestrictedZone;
 using Content.Server.Chat.Systems;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
@@ -16,6 +17,7 @@ public sealed partial class MegafaunaSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ADTRestrictedZoneGuardSystem _zone = default!;
 
     public override void Initialize()
     {
@@ -89,6 +91,9 @@ public sealed partial class MegafaunaSystem : EntitySystem
     {
         if (!Exists(ent.Comp.HomeMap))
             return;
+
+        if (_zone.TryClamp(ent.Comp.HomeMap, position, out var clamped))
+            position = clamped;
 
         var homeMapId = Transform(ent.Comp.HomeMap).MapID;
         _transform.SetMapCoordinates(ent.Owner, new MapCoordinates(position, homeMapId));

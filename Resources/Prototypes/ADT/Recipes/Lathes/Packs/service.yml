@@ -126,3 +126,17 @@
   id: ADTBeltManipulatorPack
   recipes:
   - ADTClothingBeltManipulator
+
+
+- type: latheRecipePack
+  id: ADTSprayPaintStaticPack
+  recipes:
+  - ADTSprayPaintRed
+  - ADTSprayPaintOrange
+  - ADTFunnyPaintYellow
+  - ADTSprayPaintGreen
+  - ADTSprayPaintBlue
+  - ADTSprayPaintPurple
+  - ADTFunnyPaint
+  - ADTSprayPaintWhite
+  - ADTSprayPaintBlack

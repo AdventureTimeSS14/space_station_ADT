@@ -409,6 +409,8 @@
   sounds:
     RobotBeep:
       collection: RobotBeeps
+    Calculating:
+      collection: CalculatingIPC
     SynthYes:
       path: /Audio/ADT/IPC/synth_yes.ogg
     SynthNo:
@@ -431,6 +433,8 @@
       path: /Audio/Effects/Cargo/ping.ogg
     StartUp:
       path: /Audio/ADT/IPC/startup.ogg
+    Error:
+      path: /Audio/ADT/IPC/error.ogg
     IPCDeathgasp:
       path: /Audio/ADT/IPC/borg_deathsound.ogg
 
@@ -441,6 +445,8 @@
   sounds:
     RobotBeep:
       collection: RobotBeeps
+    Calculating:
+      collection: CalculatingIPC
     SynthYes:
       path: /Audio/ADT/IPC/synth_yes.ogg
     SynthNo:
@@ -463,6 +469,8 @@
       path: /Audio/Effects/Cargo/ping.ogg
     StartUp:
       path: /Audio/ADT/IPC/startup.ogg
+    Error:
+      path: /Audio/ADT/IPC/error.ogg
     IPCDeathgasp:
       path: /Audio/ADT/IPC/borg_deathsound.ogg
     Laugh:
@@ -489,6 +497,8 @@
   sounds:
     RobotBeep:
       collection: RobotBeeps
+    Calculating:
+      collection: CalculatingIPC
     SynthYes:
       path: /Audio/ADT/IPC/synth_yes.ogg
     SynthNo:
@@ -511,6 +521,8 @@
       path: /Audio/Effects/Cargo/ping.ogg
     StartUp:
       path: /Audio/ADT/IPC/startup.ogg
+    Error:
+      path: /Audio/ADT/IPC/error.ogg
     IPCDeathgasp:
       path: /Audio/ADT/IPC/borg_deathsound.ogg
     Laugh:

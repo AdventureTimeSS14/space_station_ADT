@@ -22,6 +22,7 @@ public sealed class ArtifactAnalyzerMachinePartsSystem : EntitySystem
 
         var laserTier = args.GetPartRating(MachinePartIds.MicroLaser, 1f);
         upgrade.PointMultiplier = RefreshPartsEvent.GetTierMultiplier(laserTier, 0.10f);
+        Dirty(uid, upgrade);
     }
 
     private void OnUpgradeExamine(EntityUid uid, ArtifactAnalyzerComponent component, UpgradeExamineEvent args)

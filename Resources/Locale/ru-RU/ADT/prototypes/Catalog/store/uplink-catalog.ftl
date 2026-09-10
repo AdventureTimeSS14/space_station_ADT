@@ -72,6 +72,10 @@ uplink-LightRifle-magazine-name = Магазин для штурмовой ви�
 uplink-LightRifle-magazine-desc = Магазин с патронами калибра 7.62х39 мм, совместим с штурмовой винтовкой "АКМС"
 uplink-Caseless-box-rifle-name = Коробка патронов калибра (4.7х33 мм безгильзовые)
 uplink-Caseless-box-rifle-desc = Коробка с безгильзовыми патронами 4.7х33 мм безгильзовые, совместим  с пистолетом "Кобра"
+uplink-magazine-xc67-name = Магазин для xC-67
+uplink-magazine-xc67-desc = Расширенный магазин на 45 патронов 6.5 мм ТСФ для винтовки xC-67
+uplink-magazine-l6-name = Короб для L6 SAW
+uplink-magazine-l6-desc = Короб на 100 патронов 7.62х39 мм для пулемёта L6 SAW
 
 # Bundles
 
@@ -84,9 +88,9 @@ uplink-Buldog-ammo-bundle-desc = Набор, содержащий 4 запасн
 uplink-BuldogXL-ammo-bundle-name = Набор XL-магазинов для "Бульдога""
 uplink-BuldogXL-ammo-bundle-desc = Набор, содержащий 4-XL магазина для дробовика "Бульдог". Имеет 2 барабана с дробью и 2 барабана с пулями
 uplink-xc67-name = Набор "xC-67"
-uplink-xc67-description = Набор, содержащий штурмовую винтовку хС-67 и два магазина к ней.
+uplink-xc67-description = Набор, содержащий штурмовую винтовку хС-67 и три магазина к ней.
 uplink-xc67ammo-name = Набор магазинов для xC-67
-uplink-xc67ammo-description = Набор, содержащий три расширенных магазина от хС-67 под патрон 6.5 мм ТСФ.
+uplink-xc67ammo-description = Набор, содержащий четыре расширенных магазина от хС-67 под патрон 6.5 мм ТСФ.
 uplink-AKMS-bundle-name = Набор "АКМ"
 uplink-AKMS-bundle-desc = Набор, содержащий АКМ и четыре магазина к нему.
 uplink-hristov-bundle-name = Набор модернизированного "Христова"

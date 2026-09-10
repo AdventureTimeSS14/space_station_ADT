@@ -1,24 +1,103 @@
-# Emergency Response Team
+# Emergency Response Team - базовые
 - type: storeCategory
   id: ADTUplinkERTWeapon
-  name: Оружие
+  name: Оружие (осн.)
   priority: 1
+
+- type: storeCategory
+  id: ADTUplinkERTWeaponSecondary
+  name: Оружие (втор.)
+  priority: 2
+
+- type: storeCategory
+  id: ADTUplinkERTWeaponMelee
+  name: Оружие (ближ. бой)
+  priority: 3
 
 - type: storeCategory
   id: ADTUplinkERTAmmo
   name: Боеприпасы
-  priority: 2
+  priority: 4
+
+- type: storeCategory
+  id: ADTUplinkERTGrenades
+  name: Гранаты
+  priority: 5
 
 - type: storeCategory
   id: ADTUplinkERTAttachments
   name: Оруж. обвесы
-  priority: 3
+  priority: 6
+
+- type: storeCategory
+  id: ADTUplinkERTImplanters
+  name: Импланты
+  priority: 7
 
 - type: storeCategory
   id: ADTUplinkERTMisc
   name: Прочее
+  priority: 10
+
+# Emergency Response Team - против революции
+- type: storeCategory
+  id: ADTUplinkERTRiotWeapon
+  name: Оружие (осн.)
+  priority: 1
+
+- type: storeCategory
+  id: ADTUplinkERTRiotWeaponSecondary
+  name: Оружие (втор.)
+  priority: 2
+
+- type: storeCategory
+  id: ADTUplinkERTRiotAmmo
+  name: Боеприпасы
   priority: 4
 
+- type: storeCategory
+  id: ADTUplinkERTRiotGrenades
+  name: Гранаты
+  priority: 5
+
+- type: storeCategory
+  id: ADTUplinkERTRiotImplanters
+  name: Импланты
+  priority: 7
+
+# Emergency Response Team - РХБЗЗ
+- type: storeCategory
+  id: ADTUplinkERTCBURNWeapon
+  name: Оружие (осн.)
+  priority: 1
+
+- type: storeCategory
+  id: ADTUplinkERTCBURNWeaponSecondary
+  name: Оружие (втор.)
+  priority: 2
+
+- type: storeCategory
+  id: ADTUplinkERTCBURNAmmo
+  name: Боеприпасы
+  priority: 4
+
+- type: storeCategory
+  id: ADTUplinkERTCBURNReagents
+  name: Спец. реагенты
+  priority: 8
+
+# Emergency Response Team - Инженер и Уборщики
+- type: storeCategory
+  id: ADTUplinkERTEngineer
+  name: Инженерное
+  priority: 8
+
+- type: storeCategory
+  id: ADTUplinkERTJanitor
+  name: Уборка
+  priority: 8
+
+#Пираты
 - type: storeCategory
   id: ADTPirate
   name: store-category-wearables
@@ -47,23 +126,23 @@
 # ERT Mechs
 - type: storeCategory
   id: ADTUplinkERTMechMechs
-  name: uplink-syndimech-mechs
-  priority: 1
+  name: uplink-ertmech-mechs
+  priority: 11
 
 - type: storeCategory
   id: ADTUplinkERTMechWeapon
-  name: uplink-syndimech-weapon
-  priority: 2
+  name: uplink-ertmech-weapon
+  priority: 12
 
 - type: storeCategory
   id: ADTUplinkERTMechEquipment
-  name: uplink-syndimech-equipment
-  priority: 3
+  name: uplink-ertmech-equipment
+  priority: 13
 
 - type: storeCategory
   id: ADTUplinkERTMechAmmo
-  name: uplink-syndimech-ammo
-  priority: 4
+  name: uplink-ertmech-ammo
+  priority: 14
 
 - type: storeCategory
   id: ADTUplinkERTMechImplants
@@ -72,5 +151,5 @@
 
 - type: storeCategory
   id: ADTUplinkERTRevolutionalMechWeapon
-  name: uplink-syndimech-weapon
-  priority: 2
+  name: uplink-ertmech-weapon
+  priority: 12

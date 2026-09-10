@@ -1,5 +1,5 @@
 using Content.Server.Speech.Components;
-using Content.Shared.Corvax.TTS;
+using Content.Shared.ADT.TTS;
 
 namespace Content.Server.Speech.EntitySystems;
 

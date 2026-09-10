@@ -26,6 +26,14 @@
         {
             "name": "yv2-equipped-BELT",
             "directions": 4
+        },
+        {
+            "name": "equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "yv2-equipped-NECK",
+            "directions": 4
         }
     ]
 }

@@ -1,7 +1,5 @@
 using Content.Shared.Access.Systems;
-using Content.Shared.ADT.Construction.Components;
 using Content.Shared.ADT.Salvage.Components;
-using Content.Shared.Lathe;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.ADT.Salvage.Systems;
@@ -18,36 +16,8 @@ public sealed class MiningPointsSystem : EntitySystem
         base.Initialize();
 
         _query = GetEntityQuery<MiningPointsComponent>();
-
-        SubscribeLocalEvent<MiningPointsLatheComponent, LatheStartPrintingEvent>(OnStartPrinting);
-        Subs.BuiEvents<MiningPointsLatheComponent>(LatheUiKey.Key, subs =>
-        {
-            subs.Event<LatheClaimMiningPointsMessage>(OnClaimMiningPoints);
-        });
     }
 
-    #region Event Handlers
-
-    private void OnStartPrinting(Entity<MiningPointsLatheComponent> ent, ref LatheStartPrintingEvent args)
-    {
-        var points = args.Recipe.MiningPoints;
-        if (points <= 0)
-            return;
-
-        if (TryComp<OreProcessorUpgradeComponent>(ent, out var oreUpgrade))
-            points = (uint)MathF.Round(points * oreUpgrade.PointsMultiplier);
-
-        AddPoints(ent.Owner, points);
-    }
-
-    private void OnClaimMiningPoints(Entity<MiningPointsLatheComponent> ent, ref LatheClaimMiningPointsMessage args)
-    {
-        var user = args.Actor;
-        if (TryFindIdCard(user) is {} dest)
-            TransferAll(ent.Owner, dest);
-    }
-
-    #endregion
     #region Public API
 
     /// <summary>

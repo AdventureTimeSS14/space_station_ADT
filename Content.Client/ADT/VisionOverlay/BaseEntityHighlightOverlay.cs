@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Content.Shared.Body;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Maths;
@@ -8,16 +7,17 @@ using Robust.Shared.Prototypes;
 namespace Content.Client.ADT.VisionOverlay;
 
 /// <summary>
-/// Draws body sprites through a shader (e.g. through-walls thermal highlight).
+/// Draws sprites through a shader (e.g. through-walls thermal highlight).
 /// Ported from Starlight.
 /// </summary>
 public abstract partial class BaseEntityHighlightOverlay : BaseVisionOverlay
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    private readonly ContainerSystem _containerSystem;
-    private readonly TransformSystem _transform;
+    [Dependency] protected readonly IEntityManager _entityManager = default!;
+    protected readonly ContainerSystem _containerSystem;
+    protected readonly TransformSystem _transform;
 
     public override bool RequestScreenTexture => false;
+    public readonly HashSet<Type> IgnoredComponents = new();
 
     private readonly List<(SpriteComponent.Layer Layer, ShaderInstance? Shader, Color Color)> _clearedLayers = new();
     private Color _savedSpriteColor;
@@ -34,28 +34,40 @@ public abstract partial class BaseEntityHighlightOverlay : BaseVisionOverlay
         var eyeRotation = args.Viewport.Eye?.Rotation ?? Angle.Zero;
 
         worldHandle.UseShader(_shader);
-        var query = _entityManager.EntityQueryEnumerator<BodyComponent, MetaDataComponent, SpriteComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out _, out var meta, out var sprite, out var xform))
+        DrawHighlights(args, eyeRotation);
+        worldHandle.UseShader(null);
+    }
+
+    protected abstract void DrawHighlights(in OverlayDrawArgs args, Angle eyeRotation);
+
+    protected void DrawEntity(in OverlayDrawArgs args, Angle eyeRotation, SpriteComponent sprite, TransformComponent xform)
+    {
+        var worldHandle = args.WorldHandle;
+
+        PrepareSprite(sprite);
+        try
         {
-            if (xform.MapID != args.MapId || _containerSystem.IsEntityInContainer(uid, meta))
-                continue;
-
-            PrepareSprite(sprite);
-            try
-            {
-                worldHandle.UseShader(_shader);
-                var (position, rotation) = _transform.GetWorldPositionRotation(xform);
-                sprite.Render(worldHandle, eyeRotation, rotation, null, position);
-            }
-            finally
-            {
-                RestoreSprite(sprite);
-            }
-
             worldHandle.UseShader(_shader);
+            var (position, rotation) = _transform.GetWorldPositionRotation(xform);
+            sprite.Render(worldHandle, eyeRotation, rotation, null, position);
+        }
+        finally
+        {
+            RestoreSprite(sprite);
         }
 
-        worldHandle.UseShader(null);
+        worldHandle.UseShader(_shader);
+    }
+
+    protected bool IsIgnored(EntityUid uid)
+    {
+        foreach (var type in IgnoredComponents)
+        {
+            if (_entityManager.HasComponent(uid, type))
+                return true;
+        }
+
+        return false;
     }
 
     private void PrepareSprite(SpriteComponent sprite)

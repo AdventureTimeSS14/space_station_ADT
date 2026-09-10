@@ -32,4 +32,19 @@ public sealed partial class TendrilComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan LastSpawn = TimeSpan.Zero;
+
+    [DataField]
+    public TimeSpan AggroMemory = TimeSpan.FromSeconds(45);
+
+    [DataField]
+    public float AggroRadiusPadding = 5f;
+
+    [DataField]
+    public float MaxAggroRadius = 100f;
+
+    [ViewVariables]
+    public EntityUid? Aggressor;
+
+    [ViewVariables]
+    public TimeSpan AggroEndTime;
 }

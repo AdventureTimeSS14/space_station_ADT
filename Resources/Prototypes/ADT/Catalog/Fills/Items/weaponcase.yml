@@ -1,4 +1,5 @@
-﻿- type: entity
+#Винтовки
+- type: entity
   id: WeaponCaseNTM90
   name: weapon Case
   suffix: M-90gl
@@ -11,7 +12,104 @@
         children:
         - id: WeaponRifleM90GrenadeLauncher
         - id: MagazineRifle
+          amount: 4
+        - id: ADT40mmGrenadeBlast
+          amount: 3
+        - id: ADT40mmGrenadeBaton
+          amount: 2
+
+- type: entity
+  id: WeaponCaseNTLecter
+  name: weapon case
+  suffix: Lecter
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleLecter
+        - id: MagazineRifle
           amount: 5
+
+- type: entity
+  id: ADTWeaponCaseAR12
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTWeaponRifleAR12
+        - id: ADTMagazineRifleAR12
+          amount: 4
+
+#Пистолеты-пулемёты
+- type: entity
+  id: WeaponCaseNTDrozd
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponSubMachineGunDrozd
+        - id: MagazinePistolSubMachineGun
+          amount: 5
+
+- type: entity
+  id: WeaponCaseNTWT550
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponSubMachineGunWt550
+        - id: MagazinePistolSubMachineGunTopMounted
+          amount: 5
+
+#Дробовики
+- type: entity
+  id: WeaponCaseBulldog
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponShotgunBulldog
+        - id: MagazineShotgun
+          amount: 2
+        - id: MagazineShotgunSlug
+          amount: 2
+
+- type: entity
+  id: WeaponCaseEnforcer
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponShotgunEnforcer
+        - id: BoxLethalshot
+          amount: 2
+        - id: BoxShotgunSlug
+        - id: BoxBeanbag
+
+#Подствольное
 - type: entity
   id: WeaponCaseNTM90GrenadeLauncherAttachment
   name: weapon Case
@@ -26,8 +124,6 @@
         - id: ADTAttachmentM90GrenadeLauncher
         - id: ADT40mmGrenadeBlast
           amount: 6
-        - id: ADT40mmGrenadeBlast
-          amount: 4
         - id: ADT40mmGrenadeBaton
           amount: 4
         - id: ADT40mmGrenadeEMP
@@ -36,6 +132,7 @@
           amount: 4
         - id: ADT40mmGrenadeSmoke
           amount: 4
+
 - type: entity
   id: WeaponCaseNTM90UnderBarrelShotGunAttachment
   suffix: M-90gl
@@ -56,35 +153,8 @@
           amount: 1
         - id: MagazineShotgunUranium
           amount: 1
-- type: entity
-  id: WeaponCaseNTGunsModules
-  name: weapon Case
-  suffix: Weapon Attacments
-  description: Case with weapons.
-  parent: WeaponCaseNT
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: ADTAttachmentVerticalGrip
-        - id: ADTAttachmentLaserSight
-        - id: ADTAttachmentReflexSight
-        - id: ADTAttachmentT2Miniscope
-- type: entity
-  id: WeaponCaseNTLecter
-  name: weapon case
-  suffix: Lecter
-  description: Case with weapons.
-  parent: WeaponCaseNT
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: WeaponRifleLecter
-        - id: MagazineRifle
-          amount: 5
+
+#Энергетическое основное
 - type: entity
   id: WeaponCaseNTnPulseCarbine
   name: weapon case
@@ -96,6 +166,39 @@
       storagebase: !type:AllSelector
         children:
         - id: WeaponPulseCarbine
+
+- type: entity
+  id: WeaponCaseNTIonRifle
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTWeaponIonRifle
+
+- type: entity
+  id: WeaponCaseNTM90GrenadeLauncherAttachmentCBURN
+  name: weapon case
+  suffix: M-90gl
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTAttachmentM90GrenadeLauncher
+        - id: ADT40mmGrenadeBlast
+          amount: 6
+        - id: ADT40mmGrenadeFlash
+          amount: 12
+        - id: ADT40mmGrenadeSmoke
+          amount: 4
+
+#Пистолеты
 - type: entity
   id: WeaponCaseNTMateba
   name: weapon case
@@ -109,30 +212,7 @@
         - id: WeaponRevolverMateba
         - id: SpeedLoaderMagnum
           amount: 3
-- type: entity
-  id: WeaponCaseNTAPAmmo
-  name: weapon case
-  description: Case with weapons.
-  parent: WeaponCaseNT
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: SpeedLoaderMagnumAP
-          amount: 2
-- type: entity
-  id: WeaponCaseNTDisabler
-  name: weapon case
-  description: Case with weapons.
-  parent: WeaponCaseNT
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: WeaponDisablerSMG
-        - id: WeaponDisabler
+
 - type: entity
   id: WeaponCaseNTDeagle
   name: weapon case
@@ -146,8 +226,9 @@
         - id: MagazineMagnum
           amount: 3
         - id: ADTWeaponPistolDesertEagle
+
 - type: entity
-  id: WeaponCaseNTIonRifle
+  id: WeaponCaseNTN1984
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
@@ -156,9 +237,13 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: ADTWeaponIonRifle
+        - id: MagazineMagnum
+          amount: 3
+        - id: WeaponPistolN1984
+
+#Энергетические пистолеты
 - type: entity
-  id: WeaponCaseNTDrozd
+  id: ADTWeaponCasePulsePistolet
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
@@ -167,11 +252,54 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: WeaponSubMachineGunDrozd
-        - id: MagazinePistolSubMachineGun
+        - id: WeaponPulsePistol
+
+- type: entity
+  id: WeaponCaseNTDisabler
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponDisablerSMG
+        - id: WeaponDisabler
+
+#Оружие ближнего боя
+- type: entity
+  id: ADTMeleeWeaponCase
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Truncheon
           amount: 5
+        - id: ADTCqcManual
+          amount: 5
+
+#Боеприпасы
 - type: entity
-  id: WeaponCaseBulldog
+  id: WeaponCaseNT40mmGrenade
+  name: weapon Case
+  suffix: 40 mm grenade
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADT40mmGrenadeBlast
+          amount: 6
+
+- type: entity
+  id: WeaponCaseNTAPAmmo
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
@@ -180,24 +308,9 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: WeaponShotgunBulldog
-        - id: MagazineShotgun
+        - id: SpeedLoaderMagnumAP
           amount: 2
-        - id: MagazineShotgunSlug
-          amount: 2
-- type: entity
-  id: ADTWeaponCaseAR12
-  name: weapon case
-  description: Case with weapons.
-  parent: WeaponCaseNT
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: ADTWeaponRifleAR12
-        - id: ADTMagazineRifleAR12
-          amount: 4
+
 - type: entity
   id: ADTWeaponCasePistolet
   name: weapon case
@@ -212,6 +325,7 @@
           amount: 4
         - id: MagazineMagnum
           amount: 4
+
 - type: entity
   id: ADTWeaponCaseShotgunAmmo
   name: weapon case
@@ -232,6 +346,7 @@
           amount: 2
         - id: MagazineShotgunUranium
           amount: 2
+
 - type: entity
   id: ADTWeaponCaseMagazine
   name: weapon case
@@ -248,6 +363,7 @@
           amount: 4
         - id: MagazineRifle
           amount: 4
+
 - type: entity
   id: ADTWeaponCaseAR12Magazine
   name: weapon case
@@ -260,6 +376,7 @@
         children:
         - id: ADTMagazineRifleAR12
           amount: 3
+
 - type: entity
   id: ADTWeaponCaseDrozdMagazine
   name: weapon case
@@ -272,6 +389,7 @@
         children:
         - id: MagazinePistolSubMachineGun
           amount: 3
+
 - type: entity
   id: ADTWeaponCaseM90Magazine
   name: weapon case
@@ -284,6 +402,7 @@
         children:
         - id: MagazineRifle
           amount: 3
+
 - type: entity
   id: ADTWeaponCaseAmmoBulldogX4
   name: weapon case
@@ -296,8 +415,27 @@
         children:
         - id: MagazineShotgun
           amount: 4
+
+#Оружейные обвесы
 - type: entity
-  id: ADTWeaponCasePulsePistolet
+  id: WeaponCaseNTGunsModules
+  name: weapon Case
+  suffix: Weapon Attacments
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTAttachmentVerticalGrip
+        - id: ADTAttachmentLaserSight
+        - id: ADTAttachmentReflexSight
+        - id: ADTAttachmentT2Miniscope
+
+#Импланты
+- type: entity
+  id: WeaponCaseNTTrackingImplants
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
@@ -306,9 +444,11 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: WeaponPulsePistol
+        - id: TrackingImplanter
+          amount: 3
+
 - type: entity
-  id: ADTMeleeWeaponCase
+  id: WeaponCaseNTMindShieldImplants
   name: weapon case
   description: Case with weapons.
   parent: WeaponCaseNT
@@ -317,7 +457,10 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: Truncheon
-          amount: 5
-        - id: ADTCqcManual
-          amount: 5
+        - id: MindShieldImplanter
+          amount: 3
+
+
+
+
+

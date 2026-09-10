@@ -100,7 +100,8 @@ public sealed partial class TemperatureSystem
         var heatDamageThreshold = entity.Comp.ParentHeatDamageThreshold ?? entity.Comp.HeatDamageThreshold;
         var coldDamageThreshold = entity.Comp.ParentColdDamageThreshold ?? entity.Comp.ColdDamageThreshold;
 
-        if (temperature.CurrentTemperature >= heatDamageThreshold)
+        if (temperature.CurrentTemperature >= heatDamageThreshold &&
+            !HasComp<Content.Goobstation.Common.Temperature.Components.SpecialHighTempImmunityComponent>(entity)) // ADT Heretic
         {
             if (!entity.Comp.TakingDamage)
             {
@@ -112,7 +113,8 @@ public sealed partial class TemperatureSystem
             var tempDamage = c / (1 + a * Math.Pow(Math.E, -heatK * diff)) - y;
             _damageable.TryChangeDamage(entity.Owner, entity.Comp.HeatDamage * tempDamage * deltaTime.TotalSeconds, ignoreResistances: true, interruptsDoAfters: false);
         }
-        else if (temperature.CurrentTemperature <= coldDamageThreshold)
+        else if (temperature.CurrentTemperature <= coldDamageThreshold &&
+                 !HasComp<Content.Goobstation.Common.Temperature.Components.SpecialLowTempImmunityComponent>(entity)) // ADT Heretic
         {
             if (!entity.Comp.TakingDamage)
             {

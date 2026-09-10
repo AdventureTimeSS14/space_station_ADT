@@ -6,4 +6,5 @@ public enum OverlayZIndexes
     ThermalVisionGas,
     ThermalVision,
     ThermalVisionEntityHighlight,
+    LightSourceHighlight,
 }

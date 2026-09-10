@@ -28,8 +28,9 @@
     jumpsuit: ClothingUniformJumpsuitDeathSquad
     back: ClothingBackpackDeathSquad
     mask: ClothingMaskGasDeathSquad
-    eyes: ClothingEyesHudSecurity
+    eyes: ClothingEyesNightVisionAdvanced
     ears: ClothingHeadsetAltCentCom
+    neck: ADTClothingBeltHolsterN1984Fill
     gloves: ClothingHandsGlovesCombat
     # outerClothing: ClothingOuterHardsuitDeathsquad #ADT tweak: выбор скаф/МОД через ваучер
     shoes: ADTClothingShoesBootsMagERT #ADT tweak
@@ -37,6 +38,7 @@
     pocket1: EnergySword
     pocket2: EnergyShield
     belt: ClothingBeltMilitaryWebbingMedFilled
+    inhand: JetpackBlackFilled
   storage:
     back:
     - ADTDeathSquadVoucher #ADT tweak: выбор скаф/МОД
@@ -50,6 +52,8 @@
     - Hypospray
     - DeathAcidifierImplanter # crew will try to steal their amazing hardsuits
     - FreedomImplanter
+    - CombatKnife
+    - ADTMedkitERTFilled
   inhand:
   - WeaponPulseRifle
 

@@ -18,4 +18,7 @@ public sealed partial class RoleCacheComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<JobPrototype>? LastJobPrototype { get; [Access(typeof(RolesCacheSystem))] set; }
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public string? VisibleAntagName { get; [Access(typeof(RolesCacheSystem))] set; }
 }

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: BrigmedicDuffelbagClothing
   suffix: Filled
   parent: ClothingBackpackDuffelSecurity
@@ -86,7 +86,7 @@
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateFilledXC67
   name: xC-67 rifle bundle
-  description: bundle with a prototype xC-67 assault fifle and two mags #, and a Suppressor.
+  description: bundle with a prototype xC-67 assault fifle and three mags #, and a Suppressor.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -94,19 +94,19 @@
         children:
         - id: ADTWeaponRifleXC67
         - id: ADTMagazineRifleExtended
-          amount: 2
+          amount: 3
 - type: entity
   parent: ClothingBackpackDuffelSyndicateAmmoBundle
   id: ADTClothingBackpackDuffelSyndicateFilledXC67Ammo
   name: xC-67 extended magazine bundle
-  description: Duffelbag with a three extended 6.5 mm mag for xC-67
+  description: Duffelbag with a four extended 6.5 mm mag for xC-67
   components:
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
         children:
         - id: ADTMagazineRifleExtended
-          amount: 3
+          amount: 4
 - type: entity
   parent: ClothingBackpackDuffelSyndicateAmmoBundle
   id: ADTClothingBackpackDuffelSyndicateFilledSmokeGrenade

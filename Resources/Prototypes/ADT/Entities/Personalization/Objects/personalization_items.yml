@@ -1,4 +1,4 @@
-﻿#ADT-TEAM-ITEMS-START
+#ADT-TEAM-ITEMS-START
 
 # Ale_xan_der
 - type: entity
@@ -2532,7 +2532,7 @@
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Battery/yv2.rsi
   - type: Gun
-    fireRate: 2
+    fireRate: 3
     projectileSpeed: 60
     selectedMode: SemiAuto
     availableModes:
@@ -2575,11 +2575,12 @@
   - type: Sprite
     sprite: ADT/Personalization/yv2recharger.rsi
     state: icon
-  # - type: Clothing
-  #   # equippedPrefix: charging
-  #   quickEquip: false
-  #   slots:
-  #   - belt
+  - type: Clothing
+    sprite: ADT/Personalization/yv2recharger.rsi
+    slots: [belt, neck]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+    quickEquip: false
   - type: Charger
     chargeRate: 20 # ADT tweak
     slotId: charger_slot
@@ -3249,7 +3250,7 @@
   - type: AltFireMelee
   # ADT-Tweak end
   - type: Gun
-    fireRate: 1
+    fireRate: 2
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -3977,4 +3978,138 @@
   - type: EmbeddableProjectile
     offset: -0.15,0.0
 
+#karmafom
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSani
+  name: plushie toy sani
+  description: plushie toy sani
+  suffix: Personal, karmafom
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_sani
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: sani-inhand-left
+      right:
+      - state: sani-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: sani-equipped-HELMET
+        offset: "0, 0.06"
+
+#BarCow
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSif
+  name: plushie toy sif
+  description: plushie toy sif
+  suffix: Personal, Barcow
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_sif
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: sif-inhand-left
+      right:
+      - state: sif-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: sif-equipped-HELMET
+        offset: "0, 0.06"
+
+- type: entity
+  parent: PlushieMoth
+  id: ADTPlushieIvy
+  name: plush Ivy
+  description: A plush toy of a sleepy moth, the size of half a watermelon. It emits a berry-like fragrance mixed with some kind of medicine that only it can discern. The toy’s antennae are a bit crumpled and chewed, and on its back there’s a warning label about the danger of poisoning for small Luamams.
+  suffix: Personal, Hugiron_shch
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/plushie_ivy.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_ivy.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.0"
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/ADT/Voice/Moth/moth_yawn.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnLand
+    sound: &PlushieMothSound
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/ADT/Voice/Moth/moth_yawn.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnTrigger
+    sound: *PlushieMothSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieMothSound
+  - type: MeleeWeapon
+    soundHit: *PlushieMothSound
+  - type: Edible
+    useSound: *PlushieMothSound
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAreya
+  name: plush Areya
+  description: A plush blue, cute arcanum. It emits a berry-like fragrance mixed with the scent of some incomprehensible medicines that even the most experienced chemists wouldn’t be able to identify... On the back, there’s a label that reads “Mommy arkan.”
+  suffix: Personal, Swap_Inky2
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/plushie_areya.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_areya.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.0"
+  - type: EmitSoundOnUse
+    sound: &PlushieSharkSound
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: EmitSoundOnLand
+    sound: *PlushieSharkSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieSharkSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieSharkSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieSharkSound
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    soundHit: *PlushieSharkSound
+    animation: WeaponArcBite
+  - type: Edible
+    useSound: *PlushieSharkSound
 #SPONSOR-ITEMS-END

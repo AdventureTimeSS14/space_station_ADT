@@ -139,3 +139,31 @@
       storagebase:
         id: StimpackMini
         amount: 6
+
+#ADT-Start - Аптечка для ОБР
+- type: entity
+  name: ERT medical kit
+  description: "For the big weapons among us."
+  suffix: Filled
+  parent: ADTMedkitERT
+  id: ADTMedkitERTFilled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CombatMedipen
+          amount: 2
+        - id: ADTStimulantAutoInjector
+          amount: 2
+        - id: ADTHemostasisAutoInjector
+          amount: 2
+        - id: Tourniquet
+        - id: AdvancedJetInjector
+        - id: ADTVialBluespaceBulletWound
+        - id: ADTVialBluespaceMechanicalWound
+        - id: ADTVialBluespaceBurnedWound
+        - id: ADTVialBluespaceBloodloss
+        - id: ADTVialBluespaceRadiation
+        - id: ADTVialBluespacePoison
+#ADT-End

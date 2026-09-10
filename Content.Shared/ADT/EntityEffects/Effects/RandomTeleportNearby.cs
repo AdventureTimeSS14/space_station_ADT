@@ -22,6 +22,11 @@ public sealed partial class RandomTeleportNearby : EntityEffect
         var ev = new RandomTeleportEvent(Range, Radius.Min, Radius.Max, TeleportAttempts, target);
         raiser.RaiseEffectEvent(target, ev, scale, user);
     }
+
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    {
+        return Loc.GetString("entity-effect-guidebook-random-teleport-nearby");
+    }
 }
 
 public sealed partial class RandomTeleportEvent : EntityEffectBase<RandomTeleportEvent>

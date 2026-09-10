@@ -151,10 +151,15 @@ public sealed partial class SleepingSystem : EntitySystem
             return;
         }
 
+        // ADT-Tweak start
+        if (TerminatingOrDeleted(ent.Owner))
+            return;
+        // ADT Tweak end
+
         _stun.TryUnstun(ent.Owner);
         _stun.TryStanding(ent.Owner);
 
-        RemComp<SpamEmitSoundComponent>(ent);
+        RemCompDeferred<SpamEmitSoundComponent>(ent); // ADT Tweak
     }
 
     private void OnCompInit(Entity<SleepingComponent> ent, ref ComponentInit args)
@@ -293,9 +298,10 @@ public sealed partial class SleepingSystem : EntitySystem
     {
         if (args.NewMobState == MobState.Dead)
         {
-            RemComp<SpamEmitSoundComponent>(ent);
-            RemComp<SleepingComponent>(ent);
+            // ADT-Tweak start
+            RemCompDeferred<SleepingComponent>(ent);
             return;
+            // ADT Tweak end
         }
         if (TryComp<SpamEmitSoundComponent>(ent, out var spam))
             _emitSound.SetEnabled((ent, spam), args.NewMobState == MobState.Alive);

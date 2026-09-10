@@ -1,7 +1,7 @@
 ent-ADTShowcaseDurand = макет Дюранда
     .desc = Это массо-габаритный макет Дюранда.
-ent-ADTShowcaseGygax = макет Гайгэкса
-    .desc = Это массо-габаритный макет Гайгэкса.
+ent-ADTShowcaseGygax = макет Гигакса
+    .desc = Это массо-габаритный макет Гигакса.
 ent-ADTShowcaseHonker = макет Х.О.Н.К.
     .desc = Чудо инженерной мысли!
 ent-ADTShowcaseDiver = макет водолаза

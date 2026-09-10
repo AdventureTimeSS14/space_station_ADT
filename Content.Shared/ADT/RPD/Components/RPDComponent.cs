@@ -1,4 +1,6 @@
 using Content.Shared.ADT.RPD.Systems;
+using Content.Shared.Atmos.Components;
+using Content.Shared.Interaction;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
@@ -60,6 +62,21 @@ public sealed partial class RPDComponent : Component
     }
 
     private Direction _constructionDirection = Direction.South;
+
+    [DataField, AutoNetworkedField]
+    public AtmosPipeLayer ConstructionLayer = AtmosPipeLayer.Primary;
+
+    [DataField, AutoNetworkedField]
+    public float Range = SharedInteractionSystem.InteractionRange;
+
+    [DataField]
+    public bool IgnoreRangeCheck;
+
+    [DataField]
+    public bool InstantPlacement;
+
+    [DataField]
+    public EntProtoId? BeamPrototype;
 
     /// <summary>
     /// Returns a rotated transform based on the specified ConstructionDirection

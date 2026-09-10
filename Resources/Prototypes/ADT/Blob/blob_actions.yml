@@ -141,7 +141,7 @@
   parent: BaseAction
   id: ADTActionTransformToBlob
   name: Transform into a blob
-  description: Instantly destoys your body and creates a blob core. Make sure to stand on a floor tile, otherwise you will simply disappear.
+  description: Instantly destoys your body and creates the blob core. Make sure to stand on a floor tile, otherwise you will simply disappear.
   components:
   - type: Action
     icon:

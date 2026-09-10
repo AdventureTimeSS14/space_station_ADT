@@ -130,3 +130,99 @@
   components:
   - type: Ghoul
     totalHealth: 100
+    ghostRoleName: ghostrole-rustwalker-name
+    ghostRoleDesc: ghostrole-rustwalker-desc
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Heretic/eldritch_mobs.rsi
+    layers:
+    - map: [ "movement" ]
+      state: rust_walker
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: rust_walker-move
+    noMovementLayers:
+      movement:
+        state: rust_walker
+  - type: GhostRole
+    name: ghostrole-rustwalker-name
+    description: ghostrole-rustwalker-desc
+  - type: ActionsProvider
+    actions:
+    - ActionHereticAggressiveSpread
+    - ActionHereticRustWave
+  - type: LeechingWalk
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcPunch
+    soundHit:
+      collection: MetalThud
+    damage:
+      types:
+        Blunt: 20
+        Structural: 80
+  - type: Insulated
+  - type: FlashImmunity
+
+- type: entity
+  parent: [BaseMobGhoul, FlyingMobBase]
+  id: MobGhoulFireShark
+  name: fire shark
+  description: It is a eldritch dwarf space shark, also known as a fire shark.
+  components:
+  - type: Ghoul
+    spawnOnDeathPrototype: SheetPlasma1
+    totalHealth: 15
+    ghostRoleName: ghostrole-fire-shark-name
+    ghostRoleDesc: ghostrole-fire-shark-desc
+  - type: Sprite
+    sprite: ADT/Heretic/eldritch_mobs.rsi
+    state: fire_shark
+  - type: GhostRole
+    name: ghostrole-fire-shark-name
+    description: ghostrole-fire-shark-desc
+    mindRoles:
+    - MindRoleGhoul
+  # ADT: BodyComponent is organ container only
+  - type: IgniteOnMeleeHit
+    fireStacks: 2
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 7
+    baseSprintSpeed: 7
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Heat: 6
+        Slash: 6
+        Piercing: 6
+  - type: Flammable
+    canResistFire: false
+    damage:
+      types:
+        Heat: 0
+  # ADT: no heatDamage, use thresholds
+  - type: Temperature
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: "#ff8227"
+  - type: Damageable
+    damageModifierSet: FireShark
+  # ADT: bloodReferenceSolution instead
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 10
+    bleedReductionAmount: 0.1
+    maxBleedAmount: 0.5

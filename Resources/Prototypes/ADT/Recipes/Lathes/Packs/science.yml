@@ -9,6 +9,7 @@
   - RCD
   - RCDAmmo
   - RPD
+  - ADTRPDBluespace
 
 - type: latheRecipePack
   id: ADTPKAPack

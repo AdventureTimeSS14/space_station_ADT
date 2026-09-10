@@ -1,6 +1,7 @@
 mindslave-self-use-fail = Вы не можете поработить самих себя!
 mindslave-already-enslaved = Цель уже является чьим-то рабом разума!
 mindslave-mindshield-block = Майндшилд цели блокирует имплант!
+mindslave-heretic-block = Разум цели сопротивляется подчинению - им уже управляет потусторонняя воля!
 mindslave-no-mind = У цели нет разума, но имплант всё равно внедрён.
 mindslave-implant-success = Вы теперь полностью лояльны { $master }!
 mindslave-implant-removed = Вы больше не раб разума!

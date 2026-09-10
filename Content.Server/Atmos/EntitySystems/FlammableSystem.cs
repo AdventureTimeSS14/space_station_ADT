@@ -31,6 +31,7 @@ using Robust.Shared.Random;
 using Content.Server.ADT.Temperature; //ADT-Tweak-Bonfire
 using Robust.Shared.Timing;
 using Content.Shared.ADT.Flammability;
+using Content.Server._RMC14.Atmos; // ADT tweak
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -52,6 +53,7 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private readonly AudioSystem _audio = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly RMCFlammableSystem _rmcFlammable = default!;
 
         private EntityQuery<InventoryComponent> _inventoryQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -402,6 +404,8 @@ namespace Content.Server.Atmos.EntitySystems
                 return;
 
             flammable.ResistCompleteTime = _timing.CurTime + flammable.ResistTime;
+
+            _rmcFlammable.DoStopDropRollAnimation(uid, flammable.ResistTime); // ADT-Tweak
 
             _popup.PopupEntity(Loc.GetString("flammable-component-resist-message"), uid, uid);
             _stunSystem.TryUpdateParalyzeDuration(uid, flammable.ResistTime);

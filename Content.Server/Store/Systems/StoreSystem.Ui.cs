@@ -32,7 +32,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly StackSystem _stack = default!;
      // goobstation - heretics
-    [Dependency] private readonly HereticKnowledgeSystem _heretic = default!;
+    [Dependency] private readonly HereticSystem _heretic = default!;
 
     private void InitializeUi()
     {
@@ -121,8 +121,12 @@ public sealed partial class StoreSystem
         // so i'm just gonna shitcode my way out of my misery
         if (listing.ProductHereticKnowledge != null)
         {
-            if (TryComp<HereticComponent>(buyer, out var heretic))
-                _heretic.AddKnowledge(buyer, heretic, (ProtoId<HereticKnowledgePrototype>) listing.ProductHereticKnowledge);
+            // ADT: HereticComponent висит на разуме — резолвим через минд покупателя
+            var hereticMind = GetBuyerMind(buyer);
+            // ADT: если знание не выдалось (например, ключевое знание чужого пути) — отменяем покупку целиком
+            if (!hereticMind.Valid ||
+                !_heretic.TryAddKnowledge(hereticMind, (ProtoId<HereticKnowledgePrototype>) listing.ProductHereticKnowledge, buyer))
+                return;
         }
 
         if (!IsOnStartingMap(uid, component))

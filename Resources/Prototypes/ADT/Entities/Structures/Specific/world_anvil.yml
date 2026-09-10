@@ -39,6 +39,9 @@
     description: adt-gps-signal-world-anvil-desc
     color: "#FF7A1A"
     sameMapOnly: true
+  - type: GuideHelp
+    guides:
+    - ADTWorldAnvil
   - type: ADTWorldAnvil
     fuels:
     - whitelist:

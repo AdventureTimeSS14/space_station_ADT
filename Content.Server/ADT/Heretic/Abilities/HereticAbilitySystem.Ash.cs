@@ -1,207 +1,94 @@
-using System.Linq;
-using System.Threading.Tasks;
-using Content.Server.Atmos.Components;
-using Content.Server.Body.Components;
-using Content.Shared.ADT.Chaplain.Components;
-using Content.Shared.Atmos.Components;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
+//
+
 using Content.Shared.Heretic;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Temperature.Components;
-using Robust.Server.GameObjects;
+using Content.Shared.Atmos.Components;
 using Robust.Shared.Map.Components;
+using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Content.Server.Heretic.Abilities;
 
-public sealed partial class HereticAbilitySystem : EntitySystem
+public sealed partial class HereticAbilitySystem
 {
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly TransformSystem _xform = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
 
-    private void SubscribeAsh()
+    protected override void SubscribeAsh()
     {
-        SubscribeLocalEvent<HereticComponent, EventHereticAshenShift>(OnJaunt);
-        SubscribeLocalEvent<GhoulComponent, EventHereticAshenShift>(OnJauntGhoul);
+        base.SubscribeAsh();
 
-        SubscribeLocalEvent<HereticComponent, EventHereticVolcanoBlast>(OnVolcano);
-        SubscribeLocalEvent<HereticComponent, EventHereticNightwatcherRebirth>(OnNWRebirth);
-        SubscribeLocalEvent<HereticComponent, EventHereticFlames>(OnFlames);
-        SubscribeLocalEvent<HereticComponent, EventHereticCascade>(OnCascade);
-
-        SubscribeLocalEvent<HereticComponent, HereticAscensionAshEvent>(OnAscensionAsh);
+        SubscribeLocalEvent<EventHereticAshenShift>(OnJaunt);
+        SubscribeLocalEvent<EventHereticNightwatcherRebirth>(OnNWRebirth);
+        SubscribeLocalEvent<EventHereticFlames>(OnFlames);
+        SubscribeLocalEvent<EventHereticCascade>(OnCascade);
     }
 
-    private void OnJaunt(Entity<HereticComponent> ent, ref EventHereticAshenShift args)
+    private void OnJaunt(EventHereticAshenShift args)
     {
-        if (TryUseAbility(ent, args) && TryDoJaunt(ent))
-            args.Handled = true;
-    }
-    private void OnJauntGhoul(Entity<GhoulComponent> ent, ref EventHereticAshenShift args)
-    {
-        if (TryUseAbility(ent, args) && TryDoJaunt(ent))
-            args.Handled = true;
-    }
-    private bool TryDoJaunt(EntityUid ent)
-    {
-        Spawn("PolymorphAshJauntAnimation", Transform(ent).Coordinates);
-        var urist = _poly.PolymorphEntity(ent, "AshJaunt");
-        if (urist == null)
-            return false;
-
-        return true;
-    }
-
-    private void OnVolcano(Entity<HereticComponent> ent, ref EventHereticVolcanoBlast args)
-    {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args))
             return;
 
-        var ignoredTargets = new List<EntityUid>();
-
-        // all ghouls are immune to heretic shittery
-        foreach (var e in EntityQuery<GhoulComponent>())
-            ignoredTargets.Add(e.Owner);
-
-        // all heretics with the same path are also immune
-        foreach (var e in EntityQuery<HereticComponent>())
-            if (e.CurrentPath == ent.Comp.CurrentPath)
-                ignoredTargets.Add(e.Owner);
-
-        if (!_splitball.Spawn(ent, ignoredTargets))
-            return;
-
-        if (ent.Comp is { Ascended: true, CurrentPath: "Ash" }) // will only work on ash path
-            _flammable.AdjustFireStacks(ent, 20f, ignite: true);
-
-        args.Handled = true;
+        Spawn("PolymorphAshJauntAnimation", Transform(args.Performer).Coordinates);
+        _poly.PolymorphEntity(args.Performer, args.Jaunt);
     }
-    private void OnNWRebirth(Entity<HereticComponent> ent, ref EventHereticNightwatcherRebirth args)
+
+
+    private void OnNWRebirth(EventHereticNightwatcherRebirth args)
     {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args))
             return;
 
-        if (TryComp<FlammableComponent>(ent, out var flamComp) && flamComp.OnFire)
-        {
-            _flammable.Extinguish(ent.Owner, flamComp);
+        Heretic.TryGetHereticComponent(args.Performer, out var heretic, out _);
 
-            if (TryComp<TemperatureComponent>(ent, out var tempComp))
-                _temperature.ForceChangeTemperature(ent.Owner, 293.15f, tempComp); // 20°C
-        }
+        if (heretic is not { Ascended: true, CurrentPath: "Ash" })
+            _flammable.Extinguish(args.Performer);
 
-        var power = ent.Comp.CurrentPath == "Ash" ? ent.Comp.PathStage : 4f;
-        var lookup = _lookup.GetEntitiesInRange(ent, power);
+        var lookup = GetNearbyPeople(args.Performer, args.Range, heretic?.CurrentPath ?? "Ash");
+        var toHeal = 0f;
 
         foreach (var look in lookup)
         {
-            if (look == ent.Owner)
+            if (!TryComp<FlammableComponent>(look, out var flam) || !flam.OnFire ||
+                !TryComp<MobStateComponent>(look, out var mobstate) || mobstate.CurrentState == MobState.Dead)
                 continue;
 
-            if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
-            || HasComp<GhoulComponent>(look)
-            || HasComp<MagicImmunityComponent>(look))
-                continue;
+            if (mobstate.CurrentState == MobState.Critical)
+                _mobstate.ChangeMobState(look, MobState.Dead, mobstate);
 
-            if (TryComp<FlammableComponent>(look, out var flam))
-            {
-                bool targetDamageable = TryComp<DamageableComponent>(look, out var targetDmgc);
+            toHeal += args.HealAmount;
 
-                if (flam.OnFire && targetDamageable)
-                {
-                    _flammable.AdjustFireStacks(look, power, flam, ignite: true);
-
-                    var fireDamage = new DamageSpecifier();
-                    fireDamage.DamageDict["Heat"] = power * 2;
-                    _damageable.TryChangeDamage((look, targetDmgc), fireDamage, true, false, origin: ent.Owner);
-
-                    // Лечим еретика за каждую подожжённую цель
-                    bool hereticDamageable = TryComp<DamageableComponent>(ent.Owner, out var hereticDmgc);
-                    if (hereticDamageable)
-                    {
-                        _stam.TryTakeStamina(ent.Owner, -(10 + power));
-
-                        var totalHeal = 10f + power;
-                        var healSpec = new DamageSpecifier();
-                        var oldDamage = _damageable.GetAllDamage((ent.Owner, hereticDmgc));
-                        var damageTypes = oldDamage.DamageDict.Keys.ToList();
-                        if (damageTypes.Count > 0)
-                        {
-                            var healPerType = totalHeal / damageTypes.Count;
-                            foreach (var key in damageTypes)
-                            {
-                                healSpec.DamageDict[key] = -healPerType;
-                            }
-
-                            _damageable.TryChangeDamage((ent.Owner, hereticDmgc), healSpec, true, false, origin: ent.Owner);
-                        }
-                    }
-
-                    // Проверяем, не перешла ли цель в крит после получения урона, и добиваем её
-                    if (TryComp<MobStateComponent>(look, out var mobstat) && targetDmgc != null)
-                    {
-                        if (mobstat.CurrentState == MobState.Critical)
-                        {
-                            if (_mobThresholdSystem.TryGetThresholdForState(look, MobState.Dead, out var damage))
-                            {
-                                var damageNeeded = damage.Value - _damageable.GetTotalDamage((look, targetDmgc));
-                                if (damageNeeded > 0)
-                                {
-                                    DamageSpecifier dspec = new();
-                                    dspec.DamageDict["Heat"] = damageNeeded;
-                                    _damageable.ChangeDamage(look, dspec, true, origin: ent.Owner);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            _flammable.AdjustFireStacks(look, args.FireStacks, flam, true); // ADT: no fire resist piercing
+            _dmg.TryChangeDamage(look.Owner,
+                args.Damage,
+                true);
         }
 
-        args.Handled = true;
-    }
-    private void OnFlames(Entity<HereticComponent> ent, ref EventHereticFlames args)
-    {
-        if (!TryUseAbility(ent, args))
+        if (toHeal >= 0)
             return;
 
-        EnsureComp<HereticFlamesComponent>(ent);
-
-        if (ent.Comp.Ascended)
-            _flammable.AdjustFireStacks(ent, 20f, ignite: true);
-
-        args.Handled = true;
+        // heals everything by base + power for each burning target
+        _stam.TryTakeStamina(args.Performer, toHeal);
+        IHateWoundMed(args.Performer, AllDamage * toHeal, toHeal, toHeal, toHeal, 0, 0);
     }
-    private void OnCascade(Entity<HereticComponent> ent, ref EventHereticCascade args)
+
+    private void OnFlames(EventHereticFlames args)
     {
-        if (!TryUseAbility(ent, args) || !Transform(ent).GridUid.HasValue)
+        if (!TryUseAbility(args))
             return;
 
-        CombustArea(ent, 9, false);
-
-        if (ent.Comp.Ascended)
-            _flammable.AdjustFireStacks(ent, 20f, ignite: true);
-
-        args.Handled = true;
+        EnsureComp<HereticFlamesComponent>(args.Performer);
     }
 
-
-    private void OnAscensionAsh(Entity<HereticComponent> ent, ref HereticAscensionAshEvent args)
+    private void OnCascade(EventHereticCascade args)
     {
-        RemComp<TemperatureComponent>(ent);
-        RemComp<TemperatureSpeedComponent>(ent);
-        RemComp<RespiratorComponent>(ent);
-        RemComp<BarotraumaComponent>(ent);
+        if (!Transform(args.Performer).GridUid.HasValue || !TryUseAbility(args))
+            return;
 
-        // fire immunity
-        var flam = EnsureComp<FlammableComponent>(ent);
-        flam.Damage = new(); // reset damage dict
-        // this does NOT protect you against lasers and whatnot. for now. when i figure out THIS STUPID FUCKING LIMB SYSTEM!!!
-        // regards.
+        CombustArea(args.Performer, 9, false);
     }
 
     #region Helper methods

@@ -28,7 +28,7 @@ public sealed partial class NightVisionItemComponent : Component
     /// <summary>
     /// Screen shader used while this device is active (green NVD look).
     /// </summary>
-    [DataField]
+    [DataField("shaderType")]
     public string Shader = "ADTNightVisionDeviceShader";
 
     /// <summary>

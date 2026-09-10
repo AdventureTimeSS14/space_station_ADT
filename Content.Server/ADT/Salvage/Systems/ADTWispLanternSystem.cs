@@ -2,7 +2,6 @@ using Content.Shared.ADT.NightVision;
 using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Examine;
 using Content.Shared.Follower;
-using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
@@ -19,12 +18,25 @@ public sealed class ADTWispLanternSystem : EntitySystem
     [Dependency] private readonly SharedPointLightSystem _light = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
+    private const int CarrySearchDepth = 5;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<ADTWispLanternComponent, UseInHandEvent>(OnUseInHand);
-        SubscribeLocalEvent<ADTWispLanternComponent, GotUnequippedHandEvent>(OnUnequipped);
         SubscribeLocalEvent<ADTWispLanternComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<ADTWispLanternComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ADTWispLanternComponent, EntParentChangedMessage>(OnParentChanged);
+    }
+
+    private void OnParentChanged(Entity<ADTWispLanternComponent> ent, ref EntParentChangedMessage args)
+    {
+        if (!ent.Comp.Released)
+            return;
+
+        if (ent.Comp.User is { } user && !TerminatingOrDeleted(user) && IsCarriedBy(ent.Owner, user))
+            return;
+
+        Recall(ent);
     }
 
     private void OnShutdown(Entity<ADTWispLanternComponent> ent, ref ComponentShutdown args)
@@ -55,17 +67,6 @@ public sealed class ADTWispLanternSystem : EntitySystem
             Release(ent, args.User);
     }
 
-    private void OnUnequipped(Entity<ADTWispLanternComponent> ent, ref GotUnequippedHandEvent args)
-    {
-        if (!ent.Comp.Released)
-            return;
-
-        if (Transform(ent).ParentUid == args.User)
-            return;
-
-        Recall(ent);
-    }
-
     private void Release(Entity<ADTWispLanternComponent> ent, EntityUid user)
     {
         ent.Comp.Released = true;
@@ -80,14 +81,16 @@ public sealed class ADTWispLanternSystem : EntitySystem
             EnsureComp<NightVisionComponent>(user);
             ent.Comp.GrantedVision = true;
             ent.Comp.WasVisionActive = false;
+            ent.Comp.WasOverlay = false;
         }
         else
         {
             ent.Comp.GrantedVision = false;
             ent.Comp.WasVisionActive = nvComp.State != NightVisionState.Off;
+            ent.Comp.WasOverlay = nvComp.Overlay;
         }
 
-        _nightVision.SetActive(user, true);
+        _nightVision.SetActive(user, true, ent.Comp.WasOverlay);
 
         _light.SetRadius(ent.Owner, ent.Comp.ReleasedRadius);
         _appearance.SetData(ent.Owner, ADTWispLanternVisuals.Released, true);
@@ -107,12 +110,12 @@ public sealed class ADTWispLanternSystem : EntitySystem
         {
             if (ent.Comp.GrantedVision)
             {
-                _nightVision.SetActive(user, false);
+                _nightVision.SetActive(user, false, false);
                 RemComp<NightVisionComponent>(user);
             }
             else
             {
-                _nightVision.SetActive(user, ent.Comp.WasVisionActive);
+                _nightVision.SetActive(user, ent.Comp.WasVisionActive, ent.Comp.WasOverlay);
             }
 
             _popup.PopupEntity(Loc.GetString("adt-wisp-lantern-return", ("lantern", ent.Owner)), user, user);
@@ -120,11 +123,27 @@ public sealed class ADTWispLanternSystem : EntitySystem
 
         ent.Comp.GrantedVision = false;
         ent.Comp.WasVisionActive = false;
+        ent.Comp.WasOverlay = false;
         ent.Comp.Released = false;
         ent.Comp.User = null;
 
         _light.SetRadius(ent.Owner, ent.Comp.StoredRadius);
         _appearance.SetData(ent.Owner, ADTWispLanternVisuals.Released, false);
         _audio.PlayPvs(ent.Comp.ReturnSound, ent.Owner);
+    }
+
+    private bool IsCarriedBy(EntityUid lantern, EntityUid user)
+    {
+        var parent = Transform(lantern).ParentUid;
+
+        for (var depth = 0; depth < CarrySearchDepth && parent.IsValid(); depth++)
+        {
+            if (parent == user)
+                return true;
+
+            parent = Transform(parent).ParentUid;
+        }
+
+        return false;
     }
 }

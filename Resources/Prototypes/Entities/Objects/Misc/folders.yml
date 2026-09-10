@@ -272,6 +272,17 @@
   parent: [BoxFolderCentComEmpty, BoxFolderFill]
   id: BoxFolderCentCom
   suffix: DO NOT MAP; Filled
+#ADT_Tweak_Start
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Paper
+          amount: 6
+        - id: PrintedDocumentReportStation
+          amount: 2
+#ADT_Tweak_End
 
 - type: entity
   parent: [BoxFolderCentComEmpty, BoxFolderFillThreePapers]

@@ -157,7 +157,7 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
             && proto.Prototype != null
             && _prototypeManager.TryIndex(proto.Prototype, out var entProto, logError: false))
         {
-            tooltip = Loc.GetString(entProto.Name);
+            tooltip = entProto.Name;
         }
         else
         {

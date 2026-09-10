@@ -6,7 +6,7 @@ using Content.Shared.ADT.CharecterFlavor;
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.CCVar;
-using Content.Shared.Corvax.TTS;
+using Content.Shared.ADT.TTS;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -195,7 +195,7 @@ namespace Content.Shared.Preferences
             string name,
             string flavortext,
             string species,
-            string voice, // Corvax-TTS
+            string voice, // ADT-Tweak
             int age,
             Sex sex,
             Gender gender,
@@ -218,7 +218,7 @@ namespace Content.Shared.Preferences
             Name = name;
             FlavorText = flavortext;
             Species = species;
-            Voice = voice; // Corvax-TTS
+            Voice = voice; // ADT-Tweak
             Age = age;
             Sex = sex;
             Gender = gender;
@@ -342,12 +342,12 @@ namespace Content.Shared.Preferences
                 languages = speciesPrototype.DefaultLanguages.ToHashSet();  // ADT Languages
             }
 
-            // Corvax-TTS-Start
+            // ADT-Tweak-Start
             var voiceId = random.Pick(prototypeManager
                 .EnumeratePrototypes<TTSVoicePrototype>()
-                .Where(o => CanHaveVoice(o, sex, species)).ToArray() // ADT-Tweak
+                .Where(o => CanHaveVoice(o, sex, species)).ToArray()
             ).ID;
-            // Corvax-TTS-End
+            // ADT-Tweak-End
 
             var gender = Gender.Epicene;
 
@@ -370,7 +370,7 @@ namespace Content.Shared.Preferences
                 Age = age,
                 Gender = gender,
                 Species = species,
-                Voice = voiceId, // Corvax-TTS
+                Voice = voiceId, // ADT-Tweak
                 Appearance = HumanoidCharacterAppearance.Random(species, sex),
                 _languages = languages,
             };
@@ -419,12 +419,12 @@ namespace Content.Shared.Preferences
             return new(this) { Species = species };
         }
 
-        // Corvax-TTS-Start
+        // ADT-Tweak-Start
         public HumanoidCharacterProfile WithVoice(string voice)
         {
             return new(this) { Voice = voice };
         }
-        // Corvax-TTS-End
+        // ADT-Tweak-End
 
         // ADT Barks start
         public HumanoidCharacterProfile WithBarkProto(string bark)
@@ -618,7 +618,7 @@ namespace Content.Shared.Preferences
         public bool MemberwiseEquals(HumanoidCharacterProfile other)
         {
             if (Name != other.Name) return false;
-            if (Voice != other.Voice) return false; //ADT-TTS-Tweak
+            if (Voice != other.Voice) return false; // ADT-Tweak
             if (Age != other.Age) return false;
             if (Sex != other.Sex) return false;
             if (Gender != other.Gender) return false;
@@ -814,11 +814,11 @@ namespace Content.Shared.Preferences
             _traitPreferences.Clear();
             _traitPreferences.UnionWith(traits); // ADT-Tweak
 
-            // Corvax-TTS-Start
+            // ADT-Tweak-Start
             prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
             if (voice is null || !CanHaveVoice(voice, Sex, Species)) // ADT-Tweak
                 Voice = DefaultSexVoice[sex];
-            // Corvax-TTS-End
+            // ADT-Tweak-End
 
             // Checks prototypes exist for all loadouts and dump / set to default if not.
             var toRemove = new ValueList<string>();
@@ -919,7 +919,7 @@ namespace Content.Shared.Preferences
             return result;
         }
 
-        // Corvax-TTS-Start
+        // ADT-Tweak-Start
         // SHOULD BE NOT PUBLIC, BUT....
         public static bool CanHaveVoice(TTSVoicePrototype voice, Sex sex, ProtoId<SpeciesPrototype> species)
         {
@@ -933,7 +933,7 @@ namespace Content.Shared.Preferences
 
             return voice.RoundStart && sex == Sex.Unsexed || (voice.Sex == sex || voice.Sex == Sex.Unsexed);
         }
-        // Corvax-TTS-End
+        // ADT-Tweak-End
 
         public HumanoidCharacterProfile Validated(ICommonSession session, IDependencyCollection collection, string[] sponsorPrototypes)
         {
@@ -979,7 +979,7 @@ namespace Content.Shared.Preferences
             hashCode.Add(Species);
             hashCode.Add(Age);
             hashCode.Add((int)Sex);
-            hashCode.Add(Voice); //ADT-TTS-Tweak
+            hashCode.Add(Voice); // ADT-Tweak
             hashCode.Add((int)Gender);
             hashCode.Add(Appearance);
             hashCode.Add((int)SpawnPriority);

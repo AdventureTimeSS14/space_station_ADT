@@ -120,10 +120,12 @@
   id: ThermomachineFreezerMachineCircuitBoard
   result: ThermomachineFreezerMachineCircuitBoard
 
-- type: latheRecipe
-  parent: [ BaseSilverCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
-  id: HellfireFreezerMachineCircuitBoard
-  result: HellfireFreezerMachineCircuitBoard
+# ADT-Tweak-Start
+# - type: latheRecipe
+#   parent: [ BaseSilverCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
+#   id: HellfireFreezerMachineCircuitBoard
+#   result: HellfireFreezerMachineCircuitBoard
+# ADT-Tweak-End
 
 - type: latheRecipe
   parent: [ BaseGoldCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
@@ -227,14 +229,16 @@
 
 # Anomaly
 - type: latheRecipe
-  parent: [ BaseCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
   id: AnomalyVesselCircuitboard
   result: AnomalyVesselCircuitboard
 
-- type: latheRecipe
-  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
-  id: AnomalyVesselExperimentalCircuitboard
-  result: AnomalyVesselExperimentalCircuitboard
+# ADT-Tweak-Start
+# - type: latheRecipe
+#   parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+#   id: AnomalyVesselExperimentalCircuitboard
+#   result: AnomalyVesselExperimentalCircuitboard
+# ADT-Tweak-End
 
 - type: latheRecipe
   parent: [ BaseSilverCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
@@ -363,20 +367,24 @@
   id: ProtolatheMachineCircuitboard
   result: ProtolatheMachineCircuitboard
 
-- type: latheRecipe
-  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
-  id: ProtolatheHyperConvectionMachineCircuitboard
-  result: ProtolatheHyperConvectionMachineCircuitboard
+# ADT-Tweak-Start
+# - type: latheRecipe
+#   parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+#   id: ProtolatheHyperConvectionMachineCircuitboard
+#   result: ProtolatheHyperConvectionMachineCircuitboard
+# ADT-Tweak-End
 
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
   id: CircuitImprinterMachineCircuitboard
   result: CircuitImprinterMachineCircuitboard
 
-- type: latheRecipe
-  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
-  id: CircuitImprinterHyperConvectionMachineCircuitboard
-  result: CircuitImprinterHyperConvectionMachineCircuitboard
+# ADT-Tweak-Start
+# - type: latheRecipe
+#   parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+#   id: CircuitImprinterHyperConvectionMachineCircuitboard
+#   result: CircuitImprinterHyperConvectionMachineCircuitboard
+# ADT-Tweak-End
 
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
@@ -408,10 +416,12 @@
   id: AutolatheMachineCircuitboard
   result: AutolatheMachineCircuitboard
 
-- type: latheRecipe
-  parent: [ BaseGoldCircuitboardRecipe, BaseGeneralMachineRecipeCategory ]
-  id: AutolatheHyperConvectionMachineCircuitboard
-  result: AutolatheHyperConvectionMachineCircuitboard
+# ADT-Tweak-Start
+# - type: latheRecipe
+#   parent: [ BaseGoldCircuitboardRecipe, BaseGeneralMachineRecipeCategory ]
+#   id: AutolatheHyperConvectionMachineCircuitboard
+#   result: AutolatheHyperConvectionMachineCircuitboard
+# ADT-Tweak-End
 
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseGeneralMachineRecipeCategory ]
@@ -434,10 +444,12 @@
   id: BorgChargerCircuitboard
   result: BorgChargerCircuitboard
 
-- type: latheRecipe
-  parent: [ BaseGoldCircuitboardRecipe, BaseGeneralMachineRecipeCategory ]
-  id: TurboItemRechargerCircuitboard
-  result: TurboItemRechargerCircuitboard
+# ADT-Tweak-Start
+# - type: latheRecipe
+#   parent: [ BaseGoldCircuitboardRecipe, BaseGeneralMachineRecipeCategory ]
+#   id: TurboItemRechargerCircuitboard
+#   result: TurboItemRechargerCircuitboard
+# ADT-Tweak-End
 
 # Comms and Cameras
 - type: latheRecipe

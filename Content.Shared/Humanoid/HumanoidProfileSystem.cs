@@ -1,4 +1,4 @@
-using Content.Shared.Corvax.TTS;
+using Content.Shared.ADT.TTS;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.ADT.Language;
 using Content.Shared.Examine;
@@ -141,6 +141,19 @@ public sealed class HumanoidProfileSystem : EntitySystem
             return;
 
         comp.Gender = newGender;
+        Dirty(ent);
+    }
+
+    public void SetAge(Entity<HumanoidProfileComponent?> ent, int newAge)
+    {
+        var comp = ent.Comp;
+        if (comp == null)
+            return;
+
+        if (comp.Age == newAge)
+            return;
+
+        comp.Age = newAge;
         Dirty(ent);
     }
     // ADT-Tweak end

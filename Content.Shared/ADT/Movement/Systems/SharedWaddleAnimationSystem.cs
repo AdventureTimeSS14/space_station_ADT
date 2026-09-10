@@ -80,11 +80,6 @@ public abstract class SharedWaddleAnimationSystem : EntitySystem
 
     private void OnMovementInput(Entity<WaddleAnimationComponent> entity, ref MoveInputEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-        {
-            return;
-        }
-
         if (!args.HasDirectionalMovement && entity.Comp.IsCurrentlyWaddling)
         {
             StopWaddling(entity);
@@ -105,11 +100,6 @@ public abstract class SharedWaddleAnimationSystem : EntitySystem
 
     private void OnStood(Entity<WaddleAnimationComponent> entity, ref StoodEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-        {
-            return;
-        }
-
         if (!TryComp<InputMoverComponent>(entity.Owner, out var mover))
         {
             return;

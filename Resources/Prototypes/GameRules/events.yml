@@ -53,6 +53,7 @@
     - id: BlobSpawn # ADT tweak blob
     - id: Pirates # ADT tweak pirates
     - id: MorphSpawn #ADT tweak morph
+    - id: ADTShadowlingSpawn # ADT tweak shadowling
     - id: VoxRaidersEvent # ADT tweak vox-raiders
     # - id: IanHeroEvent # ADT tweak heros
     - !type:NestedSelector

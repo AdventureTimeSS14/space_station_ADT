@@ -18,3 +18,5 @@ ent-ChlorineChemistryVial = { ent-ChemistryEmptyVialSmall }
 ent-PlasmaChemistryVial = { ent-ChemistryEmptyVialSmall }
     .suffix = Плазма
     .desc = { ent-ChemistryEmptyVialSmall.desc }
+ent-NFVialBluespace = блюспейс-пробирка
+    .desc = Это самая обычная пробирка, но с технологией блюспейс.

@@ -660,10 +660,22 @@ binds:
 # ADT-Tweak-start
 - function: OfferItem
   type: State
+  key: N
+- function: DrawBackItem
+  type: State
   key: F
-- function: PickupHumans
+- function: CMUniqueAction
   type: State
   key: Space
+- function: Resist
+  type: State
+  key: B
+- function: ADTDoorEmergencyAccess # Нужно для ИИ и боргов.
+  type: State
+  key: MouseLeft
+  mod1: Space
+  canFocus: true
+  allowSubCombs: true
 - function: TogglePosing
   type: State
   key: R

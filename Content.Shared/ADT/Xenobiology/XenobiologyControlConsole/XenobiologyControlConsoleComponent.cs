@@ -1,6 +1,4 @@
-using Content.Shared.ADT.Areas;
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Xenobiology.XenobiologyControlConsole;
 
@@ -8,22 +6,10 @@ namespace Content.Shared.ADT.Xenobiology.XenobiologyControlConsole;
 public sealed partial class XenobiologyControlConsoleComponent : Component
 {
     [DataField]
-    public EntProtoId EyeProto = "ADTXenobiologyEye";
-
-    [DataField]
-    public EntProtoId<AreaComponent> Area = "AreaXenobio";
-
-    [DataField]
     public int MaxSlimeCapacity = 5;
 
     [DataField]
     public float InteractRange = 0.1f;
-
-    [DataField]
-    public EntityUid? Pilot;
-
-    [DataField]
-    public EntityUid? Eye;
 
     [DataField]
     public SoundSpecifier? SuctionSound = new SoundPathSpecifier("/Audio/Effects/zzzt.ogg");

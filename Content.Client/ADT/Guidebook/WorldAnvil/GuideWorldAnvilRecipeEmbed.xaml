@@ -1,0 +1,28 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+              Orientation="Vertical"
+              Margin="5 4 5 4">
+    <PanelContainer HorizontalExpand="True">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#1c1a22" BorderThickness="1" BorderColor="#4a4458"/>
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer Name="AccentBar" HorizontalExpand="True" MinHeight="4"/>
+            <BoxContainer Orientation="Vertical" Margin="8 6 8 8">
+                <BoxContainer Orientation="Horizontal">
+                    <BoxContainer Name="InputViewContainer" Orientation="Vertical" VerticalAlignment="Center"/>
+                    <RichTextLabel Name="ArrowLabel" VerticalAlignment="Center" Margin="4 0 4 0"/>
+                    <BoxContainer Name="OutputViewContainer" Orientation="Vertical" VerticalAlignment="Center"/>
+                </BoxContainer>
+                <RichTextLabel Name="NameLabel" Margin="0 4 0 0"/>
+                <BoxContainer Orientation="Horizontal" Margin="0 4 0 0">
+                    <RichTextLabel Name="CostLabel"/>
+                    <RichTextLabel Name="DelayLabel" Margin="8 0 0 0"/>
+                </BoxContainer>
+                <cc:HSeparator Margin="0 6 0 6"/>
+                <RichTextLabel Name="NoteLabel" HorizontalExpand="True"/>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</BoxContainer>

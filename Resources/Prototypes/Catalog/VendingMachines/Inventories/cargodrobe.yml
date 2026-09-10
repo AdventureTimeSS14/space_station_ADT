@@ -1,20 +1,26 @@
 - type: vendingMachineInventory
   id: CargoDrobeInventory
   startingInventory:
-    ClothingBackpackCargo: 3
-    ClothingBackpackSatchelCargo: 3
-    ClothingBackpackDuffelCargo: 3
-    ClothingUniformJumpsuitCargo: 3
-    ClothingUniformJumpskirtCargo: 3
-    ClothingShoesColorBlack: 3
-    ClothingHandsGlovesFingerless: 3
-    ClothingHeadHatCargosoft: 3
-    ClothingHeadBandBrown: 3
-    ClothingHeadsetCargo: 3
-    ClothingOuterWinterCargo: 2
-    ClothingOuterWinterMiner: 2
-    ClothingNeckScarfStripedBrown: 3
-    ClothingShoesBootsWinterCargo: 2
+    ADTVendingCategoryBackpacks:  # ADT-Tweak
+        ClothingBackpackCargo: 3
+        ClothingBackpackSatchelCargo: 3
+        ClothingBackpackDuffelCargo: 3
+    ADTVendingCategoryUniforms:  # ADT-Tweak
+        ClothingUniformJumpsuitCargo: 3
+        ClothingUniformJumpskirtCargo: 3
+    ADTVendingCategoryShoes: # ADT-Tweak
+        ClothingShoesColorBlack: 3
+        ClothingShoesBootsWinterCargo: 2
+    ADTVendingCategoryAccessories:  # ADT-Tweak
+        ClothingHandsGlovesFingerless: 3
+        ClothingHeadsetCargo: 3
+        ClothingNeckScarfStripedBrown: 3
+    ADTVendingCategoryHead:  # ADT-Tweak
+        ClothingHeadHatCargosoft: 3
+        ClothingHeadBandBrown: 3
+    ADTVendingCategoryOuter:  # ADT-Tweak
+        ClothingOuterWinterCargo: 2
+        ClothingOuterWinterMiner: 2
     MailBag: 2
   contrabandInventory:
     ToyFigurineCargoTech: 1

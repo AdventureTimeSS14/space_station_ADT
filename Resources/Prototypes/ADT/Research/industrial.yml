@@ -16,6 +16,21 @@
   - AdvancedToolsTechnology
 
 - type: technology
+  id: ADTBluespaceRPDTech
+  name: research-technology-adt-bluespace-rpd
+  icon:
+    sprite: ADT/Objects/Tools/brpd.rsi
+    state: icon
+  discipline: Industrial
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+    - ADTRPDBluespace
+  position: 4,-3
+  requiredTech:
+  - ADTCompactTechnologies
+
+- type: technology
   id: ADTIndustrialMODsuit
   name: research-technology-industrial-modsuits
   icon:
@@ -108,7 +123,6 @@
   cost: 10000
   recipeUnlocks:
     - ADTPowerCellHyperRecipe
-    - ADTIndustrialChargerCircuitboard
   position: -1,-1  # ADT-Tweak I have to move it
   requiredTech:
   - AdvancedPowercells

@@ -142,6 +142,24 @@
 
 - type: entity
   parent: ADTModsuitModBase
+  id: ADTModsuitModNightVisionAdvanced
+  name: MOD advanced nightvision module
+  description: A heads-up display installed into the visor of the suit. Typical for both civilian and military applications, this allows the user to perceive their surroundings while in complete darkness.
+  components:
+  - type: Sprite
+    state: night_visor
+  - type: ModSuitMod
+    energyUsing: 0.2
+    complexity: 2
+    components:
+      head:
+      - type: NightVisionItem
+        slotFlags: HEAD
+        shaderType: ADTNightVisionDeviceGen3Shader
+      - type: ItemToggle
+
+- type: entity
+  parent: ADTModsuitModBase
   id: ADTModsuitModStun
   name: MOD stun module
   description: Alows you to stun people with punching.

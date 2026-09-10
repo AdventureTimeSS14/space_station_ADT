@@ -21,7 +21,6 @@
 - type: latheRecipePack
   id: ADTMicsStaticPack
   recipes:
-  - StorageCanister
   - Lantern
   - OxygenTank
   - NitrogenTank
@@ -45,11 +44,6 @@
   id: ADTPowerPack
   recipes:
   - ADTPowerCellHyperRecipe
-
-- type: latheRecipePack
-  id: ADTIndustrialCharger
-  recipes:
-  - ADTIndustrialChargerCircuitboard
 
 - type: latheRecipePack
   id: ADTAdvancedThruster

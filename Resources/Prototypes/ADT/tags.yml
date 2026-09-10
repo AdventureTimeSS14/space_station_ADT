@@ -26,6 +26,9 @@
   id: IgnoreBalanceChecks
 
 - type: Tag
+  id: ADTVendingCargoAccount
+
+- type: Tag
   id: SpaceCash
 
 - type: Tag
@@ -936,3 +939,6 @@
  
 - type: Tag
   id: ADTPicoServoStockPart
+
+- type: Tag
+  id: ADTFlamethrowerCharge

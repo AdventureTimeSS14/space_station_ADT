@@ -1040,3 +1040,9 @@ SpawnMobXenoRavager: ADTSpawnMobXenoRavagerNoGhost
 SpawnMobXenoRunner: ADTSpawnMobXenoRunnerNoGhost
 SpawnMobXenoSpitter: ADTSpawnMobXenoSpitterNoGhost
 SpawnMobXenoEasy: ADTSpawnMobXenoEasyNoGhost
+
+# ADT 21.08.2026: remove ADTUniversalPipeDispenser
+ADTUniversalPipeDispenser: null
+
+# ADT 31.08.2026
+SiliconChargerIndustrial: BorgCharger

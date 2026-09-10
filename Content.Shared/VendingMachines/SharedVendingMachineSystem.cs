@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.ADT.VendingMachines;
 using Content.Shared.Advertise.Components;
 using Content.Shared.Advertise.Systems;
 using Content.Shared.Destructible;
@@ -61,17 +62,17 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
         foreach (var weh in component.Inventory)
         {
-            inventory[weh.Key] = new(weh.Value.Type, weh.Value.ID, weh.Value.Amount, weh.Value.Price);
+            inventory[weh.Key] = new(weh.Value.Type, weh.Value.ID, weh.Value.Amount, weh.Value.Price, weh.Value.MaxAmount, weh.Value.Category); // ADT-Tweak
         }
 
         foreach (var weh in component.EmaggedInventory)
         {
-            emaggedInventory[weh.Key] = new(weh.Value.Type, weh.Value.ID, weh.Value.Amount, weh.Value.Price);
+            emaggedInventory[weh.Key] = new(weh.Value.Type, weh.Value.ID, weh.Value.Amount, weh.Value.Price, weh.Value.MaxAmount, weh.Value.Category); // ADT-Tweak
         }
 
         foreach (var weh in component.ContrabandInventory)
         {
-            contrabandInventory[weh.Key] = new(weh.Value.Type, weh.Value.ID, weh.Value.Amount, weh.Value.Price);
+            contrabandInventory[weh.Key] = new(weh.Value.Type, weh.Value.ID, weh.Value.Amount, weh.Value.Price, weh.Value.MaxAmount, weh.Value.Category); // ADT-Tweak
         }
 
         args.State = new VendingMachineComponentState()
@@ -79,6 +80,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
             Inventory = inventory,
             EmaggedInventory = emaggedInventory,
             ContrabandInventory = contrabandInventory,
+            ReturnedInventory = new(component.ReturnedInventory), // ADT-Return
             Contraband = component.Contraband,
             EjectEnd = component.EjectEnd,
             DenyEnd = component.DenyEnd,
@@ -313,9 +315,9 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         if (!PrototypeManager.TryIndex(component.PackPrototypeId, out VendingMachineInventoryPrototype? packPrototype))
             return;
 
-        AddInventoryFromPrototype(uid, packPrototype.StartingInventory, InventoryType.Regular, component, restockQuality);
-        AddInventoryFromPrototype(uid, packPrototype.EmaggedInventory, InventoryType.Emagged, component, restockQuality);
-        AddInventoryFromPrototype(uid, packPrototype.ContrabandInventory, InventoryType.Contraband, component, restockQuality);
+        AddInventoryFromPrototype(uid, VendingMachineInventoryData.Flatten(packPrototype.StartingInventory), InventoryType.Regular, component, restockQuality); // ADT-Tweak
+        AddInventoryFromPrototype(uid, VendingMachineInventoryData.Flatten(packPrototype.EmaggedInventory), InventoryType.Emagged, component, restockQuality); // ADT-Twek
+        AddInventoryFromPrototype(uid, VendingMachineInventoryData.Flatten(packPrototype.ContrabandInventory), InventoryType.Contraband, component, restockQuality); // ADT-Twek
         Dirty(uid, component);
     }
 
@@ -355,6 +357,24 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
         var inventory = new List<VendingMachineInventoryEntry>(component.Inventory.Values);
 
+        // ADT-Return start
+        var mergedInventory = new List<VendingMachineInventoryEntry>(component.Inventory.Values.Count);
+        foreach (var entry in component.Inventory.Values)
+        {
+            if (!component.ReturnedInventory.TryGetValue(entry.ID, out var returnedAmount))
+            {
+                mergedInventory.Add(entry);
+                continue;
+            }
+
+            mergedInventory.Add(new VendingMachineInventoryEntry(entry.Type, entry.ID,
+                entry.Amount + returnedAmount,
+                returnedAmount > 0 ? 0 : entry.Price,
+                entry.MaxAmount + returnedAmount, entry.Category));
+        }
+        inventory = mergedInventory;
+        // ADT-Return end
+
         if (_emag.CheckFlag(uid, EmagType.Interaction))
             inventory.AddRange(component.EmaggedInventory.Values);
 
@@ -372,11 +392,11 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         return GetAllInventory(uid, component).Where(inventoryEntry => inventoryEntry.Amount > 0).ToList(); //ADT-Economy
     }
 
-    private void AddInventoryFromPrototype(EntityUid uid, Dictionary<string, uint>? entries,
+    private void AddInventoryFromPrototype(EntityUid uid, IEnumerable<(string Id, uint Amount, string? Category)> entries, // ADT-Twek
         InventoryType type,
         VendingMachineComponent? component = null, float restockQuality = 1.0f)
     {
-        if (!Resolve(uid, ref component) || entries == null)
+        if (!Resolve(uid, ref component)) // ADT-Twek
         {
             return;
         }
@@ -397,7 +417,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
                 return;
         }
 
-        foreach (var (id, amount) in entries)
+        foreach (var (id, amount, category) in entries) // ADT-Twek
         {
             if (PrototypeManager.TryIndex<EntityPrototype>(id, out var proto)) //ADT-Economy
             {
@@ -423,7 +443,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
                 else
                 {
                     var price = GetEntryPrice(proto);
-                    inventory.Add(id, new VendingMachineInventoryEntry(type, id, amount, price));
+                    inventory.Add(id, new VendingMachineInventoryEntry(type, id, amount, price, amount, category));
                 }
                 //ADT-Economy-End
             }

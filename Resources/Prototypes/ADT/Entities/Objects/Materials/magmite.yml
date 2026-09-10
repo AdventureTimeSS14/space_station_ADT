@@ -33,10 +33,9 @@
     energy: 1.5
     color: "#ff7a1a"
   - type: ADTMagmiteUpgrade
+    cooledPrototype: ADTMagmitePartsInert
   - type: TimedDespawn
     lifetime: 50
-  - type: SpawnOnDespawn
-    prototype: ADTMagmitePartsInert
 
 - type: entity
   parent: BaseItem

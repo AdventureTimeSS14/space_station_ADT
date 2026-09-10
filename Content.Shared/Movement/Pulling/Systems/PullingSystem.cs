@@ -460,7 +460,7 @@ public sealed class PullingSystem : EntitySystem
             // Joint shutdown
             if (pullableComp.PullJointId != null)
             {
-                _joints.RemoveJoint(pullableUid, pullableComp.PullJointId);
+                _joints.ClearJoints(pullableUid); // ADT-Tweak
                 pullableComp.PullJointId = null;
             }
 

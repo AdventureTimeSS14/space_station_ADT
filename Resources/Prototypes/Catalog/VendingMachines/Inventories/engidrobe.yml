@@ -1,25 +1,31 @@
 - type: vendingMachineInventory
   id: EngiDrobeInventory
   startingInventory:
-    ClothingBackpackDuffelEngineering: 3
-    ClothingBackpackSatchelEngineering: 3
-    ClothingBackpackEngineering: 3
-    ClothingUniformJumpsuitEngineering: 3
-    ClothingUniformJumpskirtEngineering: 3
-# ADT-Tweak start
-    ADTClothingBeltUtilityWebbing: 5
-    ClothingBeltUtility: 5
-# ADT-Tweak end
-    ClothingUniformJumpsuitEngineeringHazard: 3
-    ClothingShoesColorBlack: 3
-    ClothingOuterVestHazard: 3
-    ClothingShoesBootsWork: 3
-    ClothingHeadHatHardhatYellow: 3
-    ClothingHeadHatHardhatOrange: 3
-    ClothingHeadsetEngineering: 3
-    ClothingOuterWinterEngi: 2
-    ClothingNeckScarfStripedOrange: 3
-    ClothingShoesBootsWinterEngi: 2
+    ADTVendingCategoryBackpacks:  # ADT-Tweak
+        ClothingBackpackDuffelEngineering: 3
+        ClothingBackpackSatchelEngineering: 3
+        ClothingBackpackEngineering: 3
+    ADTVendingCategoryUniforms:  # ADT-Tweak
+        ClothingUniformJumpsuitEngineering: 3
+        ClothingUniformJumpskirtEngineering: 3
+        ClothingUniformJumpsuitEngineeringHazard: 3
+    ADTVendingCategoryAccessories:  # ADT-Tweak
+        # ADT-Tweak start
+        ADTClothingBeltUtilityWebbing: 5
+        ClothingBeltUtility: 5
+        # ADT-Tweak end
+        ClothingHeadsetEngineering: 3
+        ClothingNeckScarfStripedOrange: 3
+    ADTVendingCategoryShoes:  # ADT-Tweak
+        ClothingShoesColorBlack: 3
+        ClothingShoesBootsWork: 3
+        ClothingShoesBootsWinterEngi: 2
+    ADTVendingCategoryOuter:  # ADT-Tweak
+        ClothingOuterVestHazard: 3
+        ClothingOuterWinterEngi: 2
+    ADTVendingCategoryHead:  # ADT-Tweak
+        ClothingHeadHatHardhatYellow: 3
+        ClothingHeadHatHardhatOrange: 3
   contrabandInventory:
     ToyFigurineEngineer: 1
     ToyFigurineChiefEngineer: 1

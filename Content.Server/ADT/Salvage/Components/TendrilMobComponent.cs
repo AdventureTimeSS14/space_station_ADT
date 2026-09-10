@@ -12,4 +12,7 @@ namespace Content.Server.ADT.Salvage.Components;
 public sealed partial class TendrilMobComponent : Component
 {
     public EntityUid? Tendril;
+
+    [ViewVariables]
+    public float? BaseAggroRadius;
 }

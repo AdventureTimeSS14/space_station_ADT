@@ -1,7 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Server.ADT.BossMusic;
 using Content.Server.ADT.Salvage.Systems;
 using Content.Server.NPC.HTN;
 using Content.Shared.Actions;
+using Content.Shared.ADT.BossMusic;
 using Content.Shared.ADT.Hierophant;
 using Content.Shared.ADT.Hierophant.Effects;
 using Content.Shared.Damage;
@@ -23,6 +25,7 @@ namespace Content.Server.ADT.Hierophant;
 
 public sealed class HierophantSystem : EntitySystem
 {
+    [Dependency] private readonly ADTBossMusicSystem _bossMusic = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
@@ -213,15 +216,10 @@ public sealed class HierophantSystem : EntitySystem
 
     private void HealOnReturn(Entity<HierophantComponent> ent)
     {
-        if (!TryComp<MobThresholdsComponent>(ent, out var thresholds))
-            return;
+        var maxHealth = GetMaxHealth(ent.Owner);
 
-        var maxHealth = 0f;
-        foreach (var (damage, _) in thresholds.Thresholds)
-        {
-            if ((float) damage > maxHealth)
-                maxHealth = (float) damage;
-        }
+        if (maxHealth <= 0f)
+            return;
 
         var damageTaken = (float) _damageable.GetTotalDamage(ent.Owner);
         var heal = Math.Max(damageTaken * 0.5f, Math.Min(damageTaken, maxHealth * 0.1f));
@@ -237,6 +235,48 @@ public sealed class HierophantSystem : EntitySystem
             : "adt-hierophant-repairs-compromised";
 
         _megafauna.Say(ent.Owner, line);
+
+        UpdateMusic(ent);
+    }
+
+    private float GetMaxHealth(EntityUid uid)
+    {
+        if (!TryComp<MobThresholdsComponent>(uid, out var thresholds))
+            return 0f;
+
+        var maxHealth = 0f;
+
+        foreach (var (damage, _) in thresholds.Thresholds)
+        {
+            if ((float) damage > maxHealth)
+                maxHealth = (float) damage;
+        }
+
+        return maxHealth;
+    }
+
+    public bool IsBelowHalfHealth(Entity<HierophantComponent> ent)
+    {
+        var maxHealth = GetMaxHealth(ent.Owner);
+
+        if (maxHealth <= 0f)
+            return false;
+
+        return (float) _damageable.GetTotalDamage(ent.Owner) >= maxHealth * 0.5f;
+    }
+
+    public void UpdateMusic(Entity<HierophantComponent> ent)
+    {
+        if (!TryComp<ADTBossMusicComponent>(ent.Owner, out var music))
+            return;
+
+        var raging = ent.Comp.Enraged || IsBelowHalfHealth(ent);
+        var wanted = raging ? ent.Comp.RageMusic : ent.Comp.CalmMusic;
+
+        if (wanted == null)
+            return;
+
+        _bossMusic.SetMusic(ent.Owner, wanted, music);
     }
 
     public void CalculateRage(Entity<HierophantComponent> ent)
@@ -249,6 +289,8 @@ public sealed class HierophantSystem : EntitySystem
 
         ent.Comp.BurstRange = ent.Comp.BaseBurstRange + (int) MathF.Round(ent.Comp.AngerModifier * 0.08f);
         ent.Comp.BeamRange = ent.Comp.BaseBeamRange + (int) MathF.Round(ent.Comp.AngerModifier * 0.12f);
+
+        UpdateMusic(ent);
     }
 
     public void SetBlinking(Entity<HierophantComponent> ent, bool value)

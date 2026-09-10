@@ -1,4 +1,5 @@
 using Robust.Shared.Random;
+using Content.Shared.ADT.VendingMachines;
 using Content.Shared.Stacks;
 using Content.Shared.Prototypes;
 using Content.Shared.VendingMachines;
@@ -34,7 +35,7 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
             if (!system.PrototypeManager.TryIndex(randomInventory, out VendingMachineInventoryPrototype? packPrototype))
                 return;
 
-            foreach (var (entityId, count) in packPrototype.StartingInventory)
+            foreach (var (entityId, count, _) in VendingMachineInventoryData.Flatten(packPrototype.StartingInventory)) // ADT-Tweak
             {
                 var toSpawn = (int) Math.Round(count * Percent);
 

@@ -1,3 +1,4 @@
+using Content.Shared.ADT.VendingMachines;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
@@ -11,8 +12,10 @@ namespace Content.Shared.VendingMachines
         [IdDataField]
         public string ID { get; private set; } = default!;
 
-        [DataField("startingInventory", customTypeSerializer:typeof(PrototypeIdDictionarySerializer<uint, EntityPrototype>))]
-        public Dictionary<string, uint> StartingInventory { get; private set; } = new();
+        // ADT-Twek start
+        [DataField("startingInventory", customTypeSerializer: typeof(VendingMachineInventorySerializer))]
+        public Dictionary<string, VendingMachineInventoryData> StartingInventory { get; private set; } = new();
+        // ADT-Twek end
 
         [DataField("emaggedInventory", customTypeSerializer:typeof(PrototypeIdDictionarySerializer<uint, EntityPrototype>))]
         public Dictionary<string, uint>? EmaggedInventory { get; private set; }

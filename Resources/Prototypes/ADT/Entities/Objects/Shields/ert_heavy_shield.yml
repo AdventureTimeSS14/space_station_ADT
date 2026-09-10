@@ -1,0 +1,57 @@
+- type: entity
+  name: ert ballistic shield
+  parent: [ BaseRepairableShield, BaseSecurityContraband ]
+  id: ADTHeavyShieldERT
+  description: A shield built for protecting against ballistics, but not much else.
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Melee/ert_heavy_shield.rsi
+      state: ert-icon
+    - type: Item
+      sprite: ADT/Objects/Weapons/Melee/ert_heavy_shield.rsi
+      size: Ginormous
+      heldPrefix: ert
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.8
+          Slash: 0.8
+          Piercing: 0.5
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.8
+          Slash: 0.8
+          Piercing: 0.5
+        flatReductions:
+          Piercing: 10
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 300
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 250 #This is probably enough damage before it breaks
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SheetSteel:
+                  min: 2
+                  max: 2
+                SheetGlass:
+                  min: 2
+                  max: 2
+    - type: Reflect
+      reflectProb: 0.05
+      spread: 90
+    - type: HeldSpeedModifier
+      walkModifier: 1
+      sprintModifier: 0.85

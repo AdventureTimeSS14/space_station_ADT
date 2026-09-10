@@ -69,8 +69,10 @@ public sealed partial class GhostComponent : Component
     [DataField]
     public int BooMaxTargets = 3;
 
-    [DataField("availableClothing")] //ADT tweak
-    public List<string>? AvailableClothing { get; private set; }
+    // ADT-Tweak-Start
+    [DataField]
+    public Dictionary<string, List<EntProtoId>>? AvailableClothing { get; private set; }
+    // ADT-Tweak-End
 
     /// <summary>
     /// Is this ghost allowed to interact with entities?

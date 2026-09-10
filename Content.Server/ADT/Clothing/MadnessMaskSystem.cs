@@ -1,7 +1,7 @@
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Drugs;
-using Content.Shared.Heretic;
 using Content.Shared.Jittering;
 using Content.Shared.StatusEffect;
 using Content.Shared.Clothing.Components;
@@ -12,6 +12,7 @@ namespace Content.Server.ADT.Clothing;
 public sealed partial class MadnessMaskSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedHereticSystem _heretic = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
@@ -33,8 +34,7 @@ public sealed partial class MadnessMaskSystem : EntitySystem
             foreach (var look in lookup)
             {
                 // heathens exclusive
-                if (HasComp<HereticComponent>(look)
-                || HasComp<GhoulComponent>(look))
+                if (_heretic.IsHereticOrGhoul(look))
                     continue;
 
                 if (HasComp<StaminaComponent>(look) && _random.Prob(.4f))

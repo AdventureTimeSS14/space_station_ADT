@@ -37,6 +37,18 @@ namespace Content.Shared.VendingMachines
         }
     }
 
+    [Serializable, NetSerializable]
+    public sealed class VendingMachineUserInfoMessage : BoundUserInterfaceMessage
+    {
+        public readonly int Balance;
+        public readonly bool IgnoreBalance;
+
+        public VendingMachineUserInfoMessage(int balance, bool ignoreBalance = false)
+        {
+            Balance = balance;
+            IgnoreBalance = ignoreBalance;
+        }
+    }
     //ADT-Economy-End
 
     [Serializable, NetSerializable]

@@ -50,14 +50,14 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
         RaiseNetworkEvent(msg, filter);
     }
 
-    public void DispatchStationEventMusic(EntityUid source, SoundSpecifier sound, StationEventMusicType type)
+    public void DispatchStationEventMusic(EntityUid source, SoundSpecifier sound, StationEventMusicType type, AudioParams? audioParams = null) // ADT-Heretic: audioParams
     {
-        DispatchStationEventMusic(source, _audio.ResolveSound(sound), type);
+        DispatchStationEventMusic(source, _audio.ResolveSound(sound), type, audioParams);
     }
 
-    public void DispatchStationEventMusic(EntityUid source, ResolvedSoundSpecifier specifier, StationEventMusicType type)
+    public void DispatchStationEventMusic(EntityUid source, ResolvedSoundSpecifier specifier, StationEventMusicType type, AudioParams? audioParams = null) // ADT-Heretic: audioParams
     {
-        var audio = AudioParams.Default.WithVolume(-8);
+        var audio = audioParams ?? AudioParams.Default.WithVolume(-8);
         var msg = new StationEventMusicEvent(specifier, type, audio);
 
         var filter = GetStationAndPvs(source);

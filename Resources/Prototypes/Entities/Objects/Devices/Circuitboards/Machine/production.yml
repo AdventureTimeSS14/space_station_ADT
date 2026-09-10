@@ -700,10 +700,7 @@
       CableHV: 20
     partRequirements: #ADT-Tweak: machine parts
       Capacitor: 1
-    componentRequirements:
-      PowerCell:
-        amount: 4
-        defaultPrototype: PowerCellMedium
+      PowerCell: 4
 
 - type: entity
   id: CellRechargerCircuitboard
@@ -828,11 +825,9 @@
         CableMV: 5
         CableHV: 5
       partRequirements: #ADT-Tweak: machine parts
+        Capacitor: 1
+        PowerCell: 1
         Servo: 1
-      componentRequirements:
-        PowerCell:
-          amount: 1
-          defaultPrototype: PowerCellSmall
     - type: PhysicalComposition
       materialComposition:
         Glass: 200
@@ -888,7 +883,8 @@
       stackRequirements:
         CableHV: 5
       partRequirements: #ADT-Tweak: machine parts
-        Servo: 1
+        MicroLaser: 1
+        MatterBin: 1
     - type: PhysicalComposition
       materialComposition:
         Glass: 200
@@ -938,7 +934,8 @@
       stackRequirements:
         CableHV: 10
       partRequirements: #ADT-Tweak: machine parts
-        Servo: 2
+        MicroLaser: 2
+        MatterBin: 2
     - type: PhysicalComposition
       materialComposition:
         Glass: 200
@@ -959,7 +956,8 @@
       stackRequirements:
         Cable: 10
       partRequirements: #ADT-Tweak: machine parts
-        Servo: 1
+        MicroLaser: 1
+        MatterBin: 1
     - type: PhysicalComposition
       materialComposition:
         Glass: 200

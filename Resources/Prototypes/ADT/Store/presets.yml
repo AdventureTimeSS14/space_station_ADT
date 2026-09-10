@@ -23,7 +23,6 @@
     - ADTUplinkERTMechWeapon
     - ADTUplinkERTMechEquipment
     - ADTUplinkERTMechAmmo
-    - ADTUplinkERTMechImplants
     currencyWhitelist:
     - Productunit
 

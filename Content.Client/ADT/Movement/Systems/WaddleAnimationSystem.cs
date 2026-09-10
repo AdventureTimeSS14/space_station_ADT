@@ -22,6 +22,7 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
         SubscribeLocalEvent<WaddleAnimationComponent, AnimationCompletedEvent>(OnAnimationCompleted);
         SubscribeLocalEvent<WaddleAnimationComponent, ComponentShutdown>(OnComponentShutdown);
         SubscribeAllEvent<StoppedWaddlingEvent>(OnStopWaddling);
+        SubscribeLocalEvent<WaddleAnimationComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
     }
 
     private void OnStartWaddling(StartedWaddlingEvent msg, EntitySessionEventArgs args)
@@ -34,6 +35,16 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
     {
         if (TryComp<WaddleAnimationComponent>(GetEntity(msg.Entity), out var comp))
             StopWaddling((GetEntity(msg.Entity), comp));
+    }
+
+    private void OnAfterAutoHandleState(Entity<WaddleAnimationComponent> entity, ref AfterAutoHandleStateEvent args)
+    {
+        var isAnimating = _animation.HasRunningAnimation(entity.Owner, entity.Comp.KeyName);
+
+        if (entity.Comp.IsCurrentlyWaddling && !isAnimating)
+            StartWaddling(entity);
+        else if (!entity.Comp.IsCurrentlyWaddling && isAnimating)
+            StopWaddling(entity);
     }
 
     private bool CanWaddle(EntityUid uid)
@@ -67,7 +78,7 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
 
     private static float CalculateTumbleIntensity(WaddleAnimationComponent component)
     {
-        return component.LastStep ? 360 - component.TumbleIntensity : component.TumbleIntensity;
+        return component.LastStep ? -component.TumbleIntensity : component.TumbleIntensity;
     }
 
     private static float CalculateAnimationLength(WaddleAnimationComponent component, InputMoverComponent mover)
@@ -101,6 +112,8 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
         if (_animation.HasRunningAnimation(entity.Owner, entity.Comp.KeyName))
             _animation.Stop(entity.Owner, entity.Comp.KeyName);
 
+        entity.Comp.LastStep = false;
+
         if (TryComp<SpriteComponent>(entity.Owner, out var sprite))
         {
             sprite.Offset = new Vector2();
@@ -110,6 +123,7 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
 
     private void PlayWaddleAnimationUsing(Entity<WaddleAnimationComponent> entity, float len, float tumbleIntensity)
     {
+        var previousTumble = entity.Comp.LastStep ? entity.Comp.TumbleIntensity : -entity.Comp.TumbleIntensity;
         entity.Comp.LastStep = !entity.Comp.LastStep;
 
         var anim = new Animation()
@@ -124,9 +138,8 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
                     InterpolationMode = AnimationInterpolationMode.Linear,
                     KeyFrames =
                     {
-                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(0), 0),
-                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(tumbleIntensity), len/2),
-                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(0), len),
+                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(previousTumble), 0),
+                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(tumbleIntensity), len),
                     }
                 },
                 new AnimationTrackComponentProperty()

@@ -2019,6 +2019,68 @@
     - ears2
 
 - type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterSponsorRedKimono
+  name: red kimono
+  description: Traditional Japanese clothing, hand-sewn from natural fabrics. The hem is decorated with a floral pattern characteristic of this style.
+  suffix: Sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sponsor/RedKimono.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/sponsor/RedKimono.rsi
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterSponsorBlueKimono
+  name: blue kimono
+  description: Traditional Japanese clothing, hand-sewn from natural fabrics. The hem is decorated with a floral pattern characteristic of this style.
+  suffix: Sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sponsor/BlueKimono.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/sponsor/BlueKimono.rsi
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadSponsorRedKandzasi
+  name: red kandzasi
+  description: A traditional Japanese hair ornament. It consists of a gold-plated brass frame and red silk ribbons.
+  suffix: Sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sponsor/RedKandzasi.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/sponsor/RedKandzasi.rsi
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadSponsorBlueKandzasi
+  name: blue kandzasi
+  description: A traditional Japanese hair ornament. It consists of a gold-plated brass frame and blue silk ribbons.
+  suffix: Sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sponsor/BlueKandzasi.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/sponsor/BlueKandzasi.rsi
+
+# 1Altius
+
+- type: entity
   parent: ADTSponsorClothingNeckBase
   id: ADTClothingNeck1AltiusDarkBrownCloak
   suffix: Personal, 1Altius

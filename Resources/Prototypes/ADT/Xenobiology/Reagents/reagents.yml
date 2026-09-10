@@ -267,6 +267,8 @@
         - Skeleton
         - GhostSpecies
         - IPC
+        - ADTShadowlingSpecies
+        - ADTLesserShadowlingSpecies
         conditions:
         - !type:ReagentCondition
           reagent: AdvancedMutationToxin

@@ -85,3 +85,130 @@
   - type: Tag
     tags:
       - HideContextMenu
+# ADT: Star Mark cosmic field, from Goob
+- type: entity
+  id: WallFieldCosmic
+  name: cosmic field
+  description: A field that cannot be passed by people marked with a cosmic star.
+  components:
+  - type: TimedDespawn
+    lifetime: 30
+  - type: Tag
+    tags:
+    - Wall
+    # ADT: no WideSwingIgnore
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - HighImpassable
+        - MidImpassable
+        - LowImpassable
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.6,-0.6,0.6,0.6"
+        layer:
+        - HighImpassable
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+        - Opaque
+        hard: false
+  - type: Airtight
+    airBlocked: false
+    blockExplosions: false
+  - type: Sprite
+    sprite: ADT/Heretic/Effects/effects.rsi
+    drawdepth: FloorObjects
+    layers:
+    - state: cosmic_carpet
+  - type: RustRequiresPathStage
+    pathStage: 11 # Can't rust
+  - type: CosmicField
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 1.25
+    sprintSpeedModifier: 1.25
+    affectAirborne: true
+    # ADT: only ignoreWhitelist, no whitelist
+  - type: VelocityModifierContacts
+    isActive: false
+    modifier: 0.05
+    whitelist:
+      components:
+      - Projectile
+    blacklist:
+      components:
+      - StarBlast
+
+# ADT: tile rust rune effect, from Goob
+- type: entity
+  id: TileHereticRustRune
+  name: rune
+  description: Rusty...
+  components:
+  - type: Sprite
+    drawdepth: HighFloorObjects # ADT: no FloorEffects
+    sprite: ADT/Heretic/Effects/effects.rsi
+    layers:
+      - state: small_rune_1
+        shader: unshaded
+        map: [ "base" ]
+  - type: RandomSprite
+    available:
+      - base:
+          small_rune_1: ""
+          small_rune_2: ""
+          small_rune_3: ""
+          small_rune_4: ""
+          small_rune_5: ""
+          small_rune_6: ""
+          small_rune_7: ""
+          small_rune_8: ""
+          small_rune_9: ""
+          small_rune_10: ""
+          small_rune_11: ""
+          small_rune_12: ""
+  - type: Transform
+    anchored: true
+  - type: RequiresTile
+  - type: SpriteRandomOffset
+  - type: Appearance
+  - type: TimedDespawn
+    lifetime: 0.7
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+# ADT: rust spreader on ascension, from Goob
+- type: entity
+  id: HereticRustAscensionSpreader
+  name: rust
+  description: It grows...
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: RustSpreader
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+# ADT: rust tile, from Goob
+- type: tile
+  id: PlatingRust
+  name: tiles-plating-rust
+  sprite: /Textures/ADT/Heretic/tiles/plating_rust.png
+  baseTurf: Plating
+  isSubfloor: true
+  deconstructTools: [ Prying ]
+  # ADT: no deconstructTimeMultiplier
+  footstepSounds:
+    collection: FootstepPlating
+  friction: 1.5
+  heatCapacity: 10000

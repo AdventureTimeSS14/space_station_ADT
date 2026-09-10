@@ -1,48 +1,60 @@
 - type: vendingMachineInventory
   id: SecDrobeInventory
   startingInventory:
-    ClothingBackpackSecurity: 3
-    ClothingBackpackSatchelSecurity: 3
-    ClothingBackpackDuffelSecurity: 3
-    ClothingUniformJumpsuitSec: 3
-    ClothingShoesBootsJack: 3
-    ClothingHeadHatBeretSecurity: 3
-    ClothingHeadHatSecsoft: 3
-    ClothingHeadBandRed: 3
-    ClothingMaskNeckGaiterRed: 3
-    ClothingHandsGlovesColorBlack: 3
-    ClothingHandsGlovesFingerless: 3
-    ClothingUniformJumpskirtSec: 3
-    ClothingUniformJumpsuitSecGrey: 3
-    ClothingUniformJumpskirtSecGrey: 3
-    ClothingUniformJumpsuitSecBlue: 3
-    ClothingHeadsetSecurity: 3
-    ClothingOuterWinterSec: 2
-    ClothingOuterArmorBasic: 2
-    ClothingNeckScarfStripedRed: 3
-    ClothingOuterArmorBasicSlim: 2
-    ClothingEyesBlindfold: 1
-    ClothingShoesBootsCombat: 1
-    ClothingShoesBootsWinterSec: 2
-    ClothingHeadHelmetJustice: 1
-    # ADT-Tweak-Start
-    ClothingOuterCoatSecurityOvercoat: 3
-    ADTClothingOuterCoatSecurity: 1
-    ADTClothingKadet: 4
-    ADTClothingUniformSecurityCadetLight: 2
-    ADTClothingUniformJumpskirtSecurityCadetLight: 2
-    ADTClothingHeadHelmetSecCap: 2
-    ADTClothingHeadHelmetSecUshanka: 2
-    ADTClothingShoesKirzaBoots: 1
-    ClothingHeadHatCowboyBrown: 1
-    ADTClothingShoesJackbootsCowboyBrown: 1
-    ClothingHeadHatCowboyBlack: 1
-    ADTClothingShoesJackbootsCowboyBlack: 1
-    ClothingHeadHatCowboyWhite: 1
-    ADTClothingShoesJackbootsCowboyWhite: 1
-    ADTClothingShoesJackbootsCowboyFancy: 1
-    ADTClothingOuterArmorVestHidden: 4
-    # ADT-Tweak-End
+    ADTVendingCategoryBackpacks:  # ADT-Tweak
+        ClothingBackpackSecurity: 3
+        ClothingBackpackSatchelSecurity: 3
+        ClothingBackpackDuffelSecurity: 3
+    ADTVendingCategoryUniforms:  # ADT-Tweak
+        ClothingUniformJumpsuitSec: 3
+        ClothingUniformJumpskirtSec: 3
+        ClothingUniformJumpsuitSecGrey: 3
+        ClothingUniformJumpskirtSecGrey: 3
+        ClothingUniformJumpsuitSecBlue: 3
+        # ADT-Tweak-Start
+        ADTClothingUniformSecurityCadetLight: 2
+        ADTClothingUniformJumpskirtSecurityCadetLight: 2
+        # ADT-Tweak-End
+    ADTVendingCategoryShoes:  # ADT-Tweak
+        ClothingShoesBootsJack: 3
+        ClothingShoesBootsCombat: 1
+        ClothingShoesBootsWinterSec: 2
+        # ADT-Tweak-Start
+        ADTClothingShoesKirzaBoots: 1
+        ADTClothingShoesJackbootsCowboyBrown: 1
+        ADTClothingShoesJackbootsCowboyBlack: 1
+        ADTClothingShoesJackbootsCowboyWhite: 1
+        ADTClothingShoesJackbootsCowboyFancy: 1
+        # ADT-Tweak-End
+    ADTVendingCategoryHead:  # ADT-Tweak
+        ClothingHeadHatBeretSecurity: 3
+        ClothingHeadHatSecsoft: 3
+        ClothingHeadBandRed: 3
+        ClothingHeadHelmetJustice: 1
+        # ADT-Tweak-Start
+        ADTClothingHeadHelmetSecCap: 2
+        ADTClothingHeadHelmetSecUshanka: 2
+        ClothingHeadHatCowboyBrown: 1
+        ClothingHeadHatCowboyBlack: 1
+        ClothingHeadHatCowboyWhite: 1
+        # ADT-Tweak-End
+    ADTVendingCategoryAccessories:  # ADT-Tweak
+        ClothingMaskNeckGaiterRed: 3
+        ClothingHandsGlovesColorBlack: 3
+        ClothingHandsGlovesFingerless: 3
+        ClothingHeadsetSecurity: 3
+        ClothingNeckScarfStripedRed: 3
+        ClothingEyesBlindfold: 1
+    ADTVendingCategoryOuter:  # ADT-Tweak
+        ClothingOuterWinterSec: 2
+        ClothingOuterArmorBasic: 2
+        ClothingOuterArmorBasicSlim: 2
+        # ADT-Tweak-Start
+        ClothingOuterCoatSecurityOvercoat: 3
+        ADTClothingOuterCoatSecurity: 1
+        ADTClothingKadet: 4
+        ADTClothingOuterArmorVestHidden: 4
+        # ADT-Tweak-End
   contrabandInventory:
     ClothingMaskClownSecurity: 1
     ClothingMaskMimeSecurity: 1

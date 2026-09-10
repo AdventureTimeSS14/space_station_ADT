@@ -149,19 +149,17 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
         }
 
         // Handle target attack on an entity.
-        // Only hard objects should be attacked.
+        // Only hard objects should be attacked. Everything we cannot attack falls through to the grow logic below
+        // instead of aborting: puddles and dropped items are hard but not damageable, and used to block growth.
         if (args.Target != null
             && TryComp<PhysicsComponent>(args.Target, out var physicsTarget)
-            && physicsTarget is { Hard: true, CanCollide: true })
-        {
+            && physicsTarget is { Hard: true, CanCollide: true }
             // Things that we can't attack, including our own tiles.
-            if (!HasComp<DamageableComponent>(args.Target)
-                || HasComp<ItemComponent>(args.Target)
-                || HasComp<BlobMobComponent>(args.Target)
-                || _tileQuery.TryComp(args.Target, out var targetComp)
-                && targetComp.Core != null)
-                return;
-
+            && HasComp<DamageableComponent>(args.Target)
+            && !HasComp<ItemComponent>(args.Target)
+            && !HasComp<BlobMobComponent>(args.Target)
+            && !(_tileQuery.TryComp(args.Target, out var targetComp) && targetComp.Core != null))
+        {
             BlobTargetAttack(core, fromTile.Value, args.Target.Value, spendPoints);
             return;
         }

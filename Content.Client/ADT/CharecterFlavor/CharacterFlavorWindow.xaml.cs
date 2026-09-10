@@ -50,11 +50,11 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
         {
             HeadshotImage.TexturePath = "/Textures/ADT/Interface/headshot-loading.png";
             HeadshotLoadingLabel.Visible = true;
-            HeadshotContainer.Visible = true;
+            SetHeadshotVisible(true);
         }
         else
         {
-            HeadshotContainer.Visible = false;
+            SetHeadshotVisible(false);
         }
 
         Title = metaData.EntityName;
@@ -70,9 +70,15 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
             HeadshotImage.Texture = headshot;
             HeadshotImage.ModulateSelfOverride = null;
             HeadshotLoadingLabel.Visible = false;
-            HeadshotContainer.Visible = true;
+            SetHeadshotVisible(true);
         }
         else
-            HeadshotContainer.Visible = false;
+            SetHeadshotVisible(false);
+    }
+
+    private void SetHeadshotVisible(bool visible)
+    {
+        HeadshotContainer.Visible = visible;
+        HeadshotSpacer.Visible = !visible;
     }
 }

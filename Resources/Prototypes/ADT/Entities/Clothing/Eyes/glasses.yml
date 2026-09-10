@@ -87,8 +87,6 @@
   - type: Clothing
     sprite: ADT/Clothing/Eyes/Glasses/mimicry.rsi
 
-
-
 - type: entity
   parent: [ClothingEyesBase, BaseMajorContraband]
   id: ClothingEyesNightVision
@@ -100,6 +98,26 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: NightVisionItem
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.NightVisionItemVisuals.Active:
+        icon:
+          True: { state: icon }
+          False: { state: icon }
+
+- type: entity
+  parent: [ClothingEyesBase, BaseMajorContraband]
+  id: ClothingEyesNightVisionAdvanced
+  name: night vision
+  description: jungar privet
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/Glasses/advanced_nightvision.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/Glasses/advanced_nightvision.rsi
+  - type: NightVisionItem
+    shaderType: ADTNightVisionDeviceGen3Shader
   - type: Appearance
   - type: GenericVisualizer
     visuals:

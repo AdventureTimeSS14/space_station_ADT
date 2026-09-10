@@ -1,0 +1,28 @@
+<Document>
+  # Путь Пепла
+
+  <Box>
+    <GuideEntityEmbed Entity="HereticBladeAsh" Caption=""/>
+  </Box>
+
+  Ночной Страж сжёг город, за которым клялся присматривать. Вы идёте по его следам и делаете примерно то же самое, только с космической станцией.
+
+  ## Слабое место
+
+  [bold]Вы горите.[/bold] Пока не вознеслись, огонь для вас такой же огонь, как и для всех остальных. 
+
+  ## Вознесение
+
+  Чтоб вознестись выполните все цели и принесите на руну три тела, которые [bold]горят в момент ритуала[/bold].
+  <GuideHereticQuote Path="Ash" Text="Ночной Страж горел ярче всех, кого он поклялся защищать."/>
+
+  ## Ступени
+
+  <GuideHereticPathEmbed Path="Ash"/>
+
+  # Ритуалы пути
+
+  <GuideHereticRitualEmbed Ritual="BladeAsh" Path="Ash"/>
+  <GuideHereticRitualEmbed Ritual="MaskOfMadness" Path="Ash"/>
+  <GuideHereticRitualEmbed Ritual="AscensionAsh" Path="Ash"/>
+</Document>

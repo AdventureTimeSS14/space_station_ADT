@@ -1,8 +1,8 @@
 <controls:MiningShopButton
     xmlns="https://spacestation14.io"
     xmlns:controls="clr-namespace:Content.Client.ADT.MiningShop"
-    xmlns:gps="clr-namespace:Content.Client.ADT.GPS.UI">
-    <gps:ADTMarqueeLabel Name="TextLabel" Access="Public"
-                         HorizontalExpand="True" VerticalAlignment="Center"
-                         Margin="6 0 6 0" />
+    xmlns:ui="clr-namespace:Content.Client.ADT.UserInterface.Controls">
+    <ui:ADTMarqueeLabel Name="TextLabel" Access="Public"
+                        HorizontalExpand="True" VerticalAlignment="Center"
+                        Margin="6 0 6 0" />
 </controls:MiningShopButton>

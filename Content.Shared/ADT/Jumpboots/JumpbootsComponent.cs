@@ -6,11 +6,9 @@ using Content.Shared.Inventory.Events;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 
-
 namespace Content.Shared.Clothing;
 
 [RegisterComponent, NetworkedComponent(), AutoGenerateComponentState]
-[Access(typeof(SharedMagbootsSystem))]
 public sealed partial class JumpbootsComponent : Component
 {
     /// <summary>

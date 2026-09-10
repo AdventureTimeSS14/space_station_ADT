@@ -1,7 +1,8 @@
 using Content.Shared.ActionBlocker;
 using Content.Shared.Hands.Components;
-using Content.Shared.Input;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Input;
+using Content.Shared.Popups;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
 
@@ -15,7 +16,7 @@ public abstract partial class SharedOfferItemSystem
     private void InitializeInteractions()
     {
         CommandBinds.Builder
-            .Bind(ContentKeyFunctions.OfferItem, InputCmdHandler.FromDelegate(SetInOfferMode, handle: false, outsidePrediction: false))
+            .Bind(ContentKeyFunctions.OfferItem, InputCmdHandler.FromDelegate(ToggleOfferMode, handle: false, outsidePrediction: false))
             .Register<SharedOfferItemSystem>();
     }
 
@@ -26,51 +27,38 @@ public abstract partial class SharedOfferItemSystem
         CommandBinds.Unregister<SharedOfferItemSystem>();
     }
 
-    private void SetInOfferMode(ICommonSession? session)
+    private void ToggleOfferMode(ICommonSession? session)
     {
-        if (!_timing.IsFirstTimePredicted)
+        if (session?.AttachedEntity is not { Valid: true } uid || !Exists(uid))
             return;
 
-        if (session is null)
-            return;
-
-        if (session.AttachedEntity is not { Valid: true } uid || !Exists(uid) || !_actionBlocker.CanInteract(uid, null))
+        if (!_actionBlocker.CanInteract(uid, null))
             return;
 
         if (!TryComp<OfferItemComponent>(uid, out var offerItem))
             return;
 
+        var ent = new Entity<OfferItemComponent>(uid, offerItem);
+
+        if (offerItem.IsInOfferMode || offerItem.IsInReceiveMode || offerItem.Target != null)
+        {
+            Cancel(ent);
+            return;
+        }
+
         if (!TryComp<HandsComponent>(uid, out var hands) || hands.ActiveHandId is null)
             return;
 
-        offerItem.Item = _hand.GetActiveItem((uid, hands));
-
-        if (!offerItem.IsInOfferMode)
+        if (_hand.GetActiveItem((uid, hands)) is not { } item)
         {
-            if (offerItem.Item is null)
-            {
-                _popup.PopupClient(Loc.GetString("offer-item-empty-hand"), uid, uid);
-                return;
-            }
-
-            if (offerItem.Hand is null || offerItem.Target is null)
-            {
-                offerItem.IsInOfferMode = true;
-                offerItem.Hand = hands.ActiveHandId;
-
-                Dirty(uid, offerItem);
-                return;
-            }
-        }
-
-        if (offerItem.Target is not null)
-        {
-            UnReceive(offerItem.Target.Value, offerItem: offerItem);
-            offerItem.IsInOfferMode = false;
-            Dirty(uid, offerItem);
+            _popup.PopupClient(Loc.GetString("offer-item-empty-hand"), uid, uid);
             return;
         }
 
-        UnOffer(uid, offerItem);
+        offerItem.IsInOfferMode = true;
+        offerItem.Hand = hands.ActiveHandId;
+        offerItem.Item = item;
+
+        Dirty(ent);
     }
 }
