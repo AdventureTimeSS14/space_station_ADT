@@ -136,29 +136,42 @@ public sealed partial class MirrorOverlay : Overlay
 
             var offsetSourcePosition = sourcePosition + normal * mirror.GatherOffset;
             var reflectedPosition = offsetSourcePosition - 2f * Vector2.Dot(offsetSourcePosition - mirrorPosition, normal) * normal;
-            var reflectedFacing = normalAngle * 2f - _transform.GetWorldRotation(transform);
 
-            var dir = (reflectedFacing + eye.Rotation).GetCardinalDir();
             var scale = sprite.Scale;
 
-            switch (dir)
+            if ((normalAngle + eye.Rotation + mirror.DirRotation).GetCardinalDir() is not Direction.South)
             {
-                case Direction.West:
-                    dir = Direction.East;
-                    break;
-                case Direction.East:
-                    dir = Direction.West;
-                    break;
-                default:
-                    break;
+                var reflectedFacing = normalAngle * 2f - _transform.GetWorldRotation(transform);
+                var dir = (reflectedFacing + eye.Rotation).GetCardinalDir();
+
+                switch (dir)
+                {
+                    case Direction.West:
+                        dir = Direction.East;
+                        break;
+                    case Direction.East:
+                        dir = Direction.West;
+                        break;
+                    default:
+                        break;
+                }
+
+                _sprite.SetScale(uid, new Vector2(-scale.X, scale.Y));
+
+                _sprite.RenderSprite((uid, sprite), worldHandle, eye.Rotation, reflectedFacing,
+                    reflectedPosition - normal * mirror.ReflectionOffset, dir);
+
+                _sprite.SetScale(uid, scale);
             }
+            else
+            {
+                _sprite.SetScale(uid, new Vector2(scale.X, -scale.Y));
 
-            _sprite.SetScale(uid, new Vector2(-scale.X, scale.Y));
+                _sprite.RenderSprite((uid, sprite), worldHandle, eye.Rotation, _transform.GetWorldRotation(transform),
+                    reflectedPosition - normal * mirror.ReflectionOffset);
 
-            _sprite.RenderSprite((uid, sprite), worldHandle, eye.Rotation, reflectedFacing,
-                reflectedPosition - normal * mirror.ReflectionOffset, dir);
-
-            _sprite.SetScale(uid, scale);
+                _sprite.SetScale(uid, scale);
+            }
 
             foreach (var (layer, visible) in hiddenStencilLayers)
                 layer.Visible = visible;
