@@ -29,3 +29,9 @@ rmc-molotov-not-flammable = В { $bottle } слишком мало горюче�
 
 reagent-name-rmcnapalm-ut = UT-напталь
 reagent-desc-rmcnapalm-ut = Стандартная огнесмесь для огнемётов. Горит жарко и недолго.
+
+reagent-name-rmcnapalm-sticky = B-гель
+reagent-desc-rmcnapalm-sticky = Текучий гель для огнемётов. Горит долго, но не так жарко, хорошо растекается.
+
+reagent-name-rmcnapalm-hc = огнесмесь X
+reagent-desc-rmcnapalm-hc = Густой напалм с окислителем - горит очень жарко, даже без доступа к кислороду, но очень недолго.

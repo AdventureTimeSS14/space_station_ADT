@@ -947,10 +947,13 @@
   id: ADTPicoServoStockPart
 
 - type: Tag
-  id: ADTFlamethrowerCharge
-
-- type: Tag
   id: ADTMagazineMagnumLesser
 
 - type: Tag
-  id: RMCTankFlamer
+  id: RMCTankFlamerFmW60
+
+- type: Tag
+  id: RMCTankFlamerM560
+
+- type: Tag
+  id: RMCTankFlamerMakeshift

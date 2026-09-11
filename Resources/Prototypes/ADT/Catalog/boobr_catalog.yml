@@ -372,7 +372,7 @@
   id: ADTBoberFlamethrowerCBURN
   name: boobr-flamethrower-name
   description: boobr-flamethrower-desc
-  productEntity: ADTWeaponFlamethrowerCBURN
+  productEntity: RMCWeaponFlamer
   conditions:
     - !type:ListingLimitedStockCondition
       stock: 1

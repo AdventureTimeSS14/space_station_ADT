@@ -18,6 +18,36 @@
   burnsInVacuum: false
   # За сколько секунд смесь догорает без кислорода
   vacuumBurnout: 1.5
+  reactiveEffects:
+    Flammable:
+      methods: [ Touch ]
+      effects:
+      - !type:Flammable
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
+          inverted: true
+        multiplier: 0.4
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
+          inverted: true
+        damage:
+          types:
+            Heat: 2
+            Poison: 1
+            Caustic: 0.5 # based off napalm being an irritant
+      - !type:Flammable
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.4
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
 
 - type: reagent
   parent: RMCNapalmUT
@@ -27,7 +57,7 @@
   desc: reagent-desc-rmcnapalm-sticky
   physicalDesc: reagent-physical-desc-shiny
   flavor: bitter
-  color: "#f8e3b2"
+  color: "#13ae00"
   intensity: 10
   duration: 30
   radius: 10
@@ -44,7 +74,7 @@
   desc: reagent-desc-rmcnapalm-hc
   physicalDesc: reagent-physical-desc-shiny
   flavor: bitter
-  color: "#c51c1c"
+  color: "#d2ffff"
   intensity: 30
   duration: 10
   radius: 5

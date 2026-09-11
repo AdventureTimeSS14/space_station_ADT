@@ -269,3 +269,19 @@
   targetNode: ADTBoltCard
   category: construction-category-weapons
   objectType: Item
+
+- type: construction
+  id: ADTMakeshiftFlamer
+  graph: ADTMakeshiftFlamer
+  startNode: start
+  targetNode: makeshift_flamer
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTTankFlamerMakeshift
+  graph: ADTTankFlamerMakeshift
+  startNode: start
+  targetNode: makeshift_tank_ready
+  category: construction-category-weapons
+  objectType: Item

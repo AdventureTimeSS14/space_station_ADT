@@ -48,6 +48,7 @@ construction-graph-tag-potato-battery = картофельная батарея
 construction-graph-tag-super-compact-ai-chip = сверхкомпактный чип ИИ
 construction-graph-tag-micro-manipulator = манипулятор
 construction-graph-tag-empty-bottle = пустая бутылка
+construction-graph-tag-extinguisher = огнетушитель
 # other
 construction-graph-tag-light-bulb = лампочка
 construction-graph-tag-second-light-bulb = вторую лампочку

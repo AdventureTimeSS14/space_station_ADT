@@ -1,0 +1,378 @@
+- type: entity
+  parent: BaseItem
+  id: RMCWeaponFlamer
+  name: М560А1-7 incinerator unit
+  description: The М560А1-7 incinerator unit has proven to be one of the most effective weapons at clearing out soft-targets. This is a weapon to be feared and respected as it is quite deadly.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Flamethrower/m34.rsi
+    state: base
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: strip
+      color: "#DD9B00"
+      map: ["enum.RMCFlamerVisualLayers.Strip"]
+    - state: lit
+      map: ["enum.RMCIgniterVisuals.Ignited"]
+  - type: Item
+    sprite: _RMC14/Objects/Weapons/Guns/Flamethrower/m34.rsi
+    size: Large
+  - type: Clothing
+    sprite: _RMC14/Objects/Weapons/Guns/Flamethrower/m34.rsi
+    slots:
+    - suitStorage
+    - Back
+  - type: Gun
+    cameraRecoilScalar: 0
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: RMCFlamerShoot
+  - type: ShootUseDelay
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Tank
+        startingItem: RMCTankFlamer
+        insertSound: /Audio/_RMC14/Weapons/Handling/flamer_reload.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Handling/flamer_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - RMCTankFlamerM560
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: RMCFlamerAmmoProvider
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: RMCIgniter
+  - type: RMCAmmoEject
+  - type: GenericVisualizer
+    visuals:
+      enum.RMCFlamerVisualLayers.Strip:
+        enum.RMCFlamerVisualLayers.Strip:
+          True: { visible: true }
+          False: { visible: false }
+      enum.RMCIgniterVisuals.Ignited:
+        enum.RMCIgniterVisuals.Ignited:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+
+- type: entity
+  parent: BaseItem
+  id: RMCBaseTankFlamer
+  abstract: true
+  components:
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+    - RMCTankFlamerM560
+  - type: RefillableSolution
+    solution: rmc_flamer_tank
+  - type: ExaminableSolution
+    solution: rmc_flamer_tank
+    exactVolume: true
+
+- type: entity
+  parent: RMCBaseTankFlamer
+  id: RMCTankFlamer
+  name: М560А1-7 incinerator tank
+  description: A fuel tank used to store fuel for use in the М560А1-7 incinerator unit. Handle with care.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/flamethrower.rsi
+    state: flametank_custom
+    layers:
+    - state: flametank_custom
+    - state: flametank_custom_strip2
+    - state: flametank_custom_strip2
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: Item
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      rmc_flamer_tank:
+        maxVol: 100
+        reagents:
+        - ReagentId: RMCNapalmUT
+          Quantity: 100
+  - type: RMCFlamerTank
+    maxIntensity: 30
+    maxDuration: 20
+    maxRange: 7
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: flametank_custom_strip
+  - type: Appearance
+
+- type: entity
+  parent: RMCTankFlamer
+  id: RMCTankFlamerNapalmSticky
+  name: М560А1-7 incinerator tank (B-Gel)
+  description: A fuel tank full of specialized Ultra Thick Napthal Fuel type B-Gel, a gelled variant of napalm that is easily extinguished, but shoots further and lingers for longer. Handle with exceptional care.
+  components:
+  - type: RMCFlamerTank
+    maxIntensity: 15
+    maxDuration: 30
+    maxRange: 12
+  - type: SolutionContainerManager
+    solutions:
+      rmc_flamer_tank:
+        maxVol: 100
+        reagents:
+        - ReagentId: RMCNapalmSticky
+          Quantity: 100
+
+- type: entity
+  parent: RMCTankFlamer
+  id: RMCTankFlamerNapalmHighCombustion
+  name: М560А1-7 incinerator tank (HC)
+  description: A fuel tank full of specialized Ultra Thick Napthal Fuel type B-Gel, a gelled variant of napalm that is easily extinguished, but shoots further and lingers for longer. Handle with exceptional care.
+  components:
+  - type: RMCFlamerTank
+    maxIntensity: 45
+    maxDuration: 10
+    maxRange: 5
+  - type: SolutionContainerManager
+    solutions:
+      rmc_flamer_tank:
+        maxVol: 100
+        reagents:
+        - ReagentId: RMCNapalmHighCombustion
+          Quantity: 100
+
+- type: entity
+  parent: RMCTankFlamer
+  id: RMCTankFlamerFmW60
+  name: FmW60 incinerator tank
+  description: A fuel tank used to store fuel for use in the FlammenWerfer 60 incinerator unit. Handle with care.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/lpo80.rsi
+    state: flametank
+    layers:
+    - state: flametank
+    - state: flametank_strip1
+    - state: flametank_strip2
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: flametank_strip
+  - type: Tag
+    tags:
+    - RMCTankFlamerFmW60
+  - type: RMCFlamerTank
+    maxIntensity: 30
+    maxDuration: 20
+    maxRange: 7
+  - type: SolutionContainerManager
+    solutions:
+      rmc_flamer_tank:
+        maxVol: 200
+        reagents:
+        - ReagentId: RMCNapalmUT
+          Quantity: 200
+
+- type: entity
+  parent: RMCTankFlamerFmW60
+  id: RMCTankFlamerFmW60NapalmSticky
+  name: FmW60 incinerator tank (B-gel)
+  description: A fuel tank used to store fuel for use in the FlammenWerfer 60 incinerator unit. Handle with care.
+  components:
+  - type: RMCFlamerTank
+    maxIntensity: 15
+    maxDuration: 30
+    maxRange: 12
+  - type: SolutionContainerManager
+    solutions:
+      rmc_flamer_tank:
+        maxVol: 200
+        reagents:
+        - ReagentId: RMCNapalmSticky
+          Quantity: 200
+
+- type: entity
+  parent: RMCTankFlamerFmW60
+  id: RMCTankFlamerFmW60HighCombustive
+  name: FmW60 incinerator tank (X)
+  description: A fuel tank used to store fuel for use in the FlammenWerfer 60 incinerator unit. Handle with care.
+  components:
+  - type: RMCFlamerTank
+    maxIntensity: 45
+    maxDuration: 10
+    maxRange: 5
+  - type: SolutionContainerManager
+    solutions:
+      rmc_flamer_tank:
+        maxVol: 200
+        reagents:
+        - ReagentId: RMCNapalmHighCombustion
+          Quantity: 200
+
+- type: entity
+  name: FlammenWerfer 60
+  parent: RMCWeaponFlamer
+  id: RMCWeaponFlamerFmW60
+  suffix: РХБЗЗ
+  description: GAAAAAAAAAAAAAAAANS
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Flamethrower/lpo80.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+      - state: strip
+        color: "#DD9B00"
+        map: ["enum.RMCFlamerVisualLayers.Strip"]
+      - state: lit
+        map: ["enum.RMCIgniterVisuals.Ignited"]
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Tank
+        startingItem: RMCTankFlamerFmW60
+        insertSound: /Audio/_RMC14/Weapons/Handling/flamer_reload.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Handling/flamer_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - RMCTankFlamerFmW60
+  - type: Clothing
+    sprite: _RMC14/Objects/Weapons/Guns/Flamethrower/lpo80.rsi
+  - type: GenericVisualizer
+    visuals:
+      enum.RMCFlamerVisualLayers.Strip:
+        enum.RMCFlamerVisualLayers.Strip:
+          True: { visible: true }
+          False: { visible: false }
+      enum.RMCIgniterVisuals.Ignited:
+        enum.RMCIgniterVisuals.Ignited:
+          True: { visible: true }
+          False: { visible: false }
+
+- type: entity
+  name: FlammenWerfer 60
+  parent: RMCWeaponFlamer
+  id: ADTWeaponFlamerMakeshift
+  suffix: Flamethrower
+  description: GAAAAAAAAAAAAAAAANS
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Flamethrower/makeshift_flamethrower.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Tank
+        startingItem: null
+        insertSound: /Audio/_RMC14/Weapons/Handling/flamer_reload.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Handling/flamer_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - RMCTankFlamerMakeshift
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Flamethrower/makeshift_flamethrower.rsi
+  - type: Gun
+    cameraRecoilScalar: 0
+    fireRate: 0.5
+  - type: Construction
+    graph: ADTMakeshiftFlamer
+    node: makeshift_flamer
+
+- type: entity
+  parent: RMCTankFlamer
+  id: RMCTankFlamerMakeshift
+  name: makeshift incinerator tank
+  description: A fuel tank used to store fuel for use in the makeshift flamethrower. Handle with care.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Flamethrower/makeshift_flamer.rsi
+    state: flametank
+    layers:
+    - state: flametank
+    - state: flametank_strip1
+    - state: flametank_strip2
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: flametank_strip
+  - type: Tag
+    tags:
+    - RMCTankFlamerMakeshift
+  - type: RMCFlamerTank
+    maxIntensity: 15
+    maxDuration: 10
+    maxRange: 5
+  - type: SolutionContainerManager
+    solutions:
+      rmc_flamer_tank:
+        maxVol: 100
+        reagents:
+        - ReagentId: Napalm
+          Quantity: 100
+  - type: Construction
+    graph: ADTTankFlamerMakeshift
+    node: makeshift_tank_ready
+
+- type: entity
+  parent: [ BaseItem, BaseMinorContraband ]
+  id: RMCTankFlamerMakeshiftUnfinished
+  name: makeshift flamer unfinished
+  suffix: empty
+  description: A weak, improvised incendiary device. This one has no fuel.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Flamethrower/makeshift_flamer.rsi
+    layers:
+    - state: flametank_unfinished
+  - type: Item
+    # sprite: ADT/Objects/Weapons/Guns/Ammunition/Flamethrower/makeshift_flamer.rsi
+    # state: flametank_unfinished
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      spray:
+        maxVol: 100
+        reagents:
+        - ReagentId: null
+          Quantity: 100
+  - type: RefillableSolution
+    solution: spray
+  - type: DrainableSolution
+    solution: spray
+  - type: SolutionTransfer
+    maxTransferAmount: 100
+    transferAmount: 100
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 10
+    soundHit:
+      path: /Audio/Weapons/smash.ogg
+  - type: Tool
+    qualities:
+    - Rolling
+    speedModifier: 0.5 # its very big, awkward to use
+  - type: Appearance
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+  - type: Construction
+    graph: ADTTankFlamerMakeshift
+    node: makeshift_tank_empty
+    defaultTarget: makeshift_tank_ready
