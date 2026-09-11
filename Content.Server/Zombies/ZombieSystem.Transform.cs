@@ -41,6 +41,9 @@ using Content.Shared.Movement.Components;
 using Robust.Shared.Audio.Systems;
 using Content.Server.ADT.ZombieJump;
 using Content.Shared.ADT.ZombieJump;
+using Content.Shared.Actions;
+using Content.Shared.ADT.Language;
+using Content.Shared.ADT.Xenobiology.Components;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.IdentityManagement;
@@ -259,6 +262,11 @@ public sealed partial class ZombieSystem
             Dirty(target, pryComp);
         }
 
+        // ADT-Tweak start
+        if (HasComp<SlimeComponent>(target))
+            melee.Damage = zombiecomp.DamageOnBite;
+        // ADT-Tweak end
+
         Dirty(target, melee);
 
         // ADT-Tweak start: Non-humanoid zombies also get jump ability
@@ -291,6 +299,14 @@ public sealed partial class ZombieSystem
 
         //Make it sentient if it's an animal or something
         _mind.MakeSentient(target);
+
+        // ADT-Tweak start
+        if (HasComp<SlimeComponent>(target))
+        {
+            RemComp<ActionGrantComponent>(target);
+            RemComp<LanguageSpeakerComponent>(target);
+        }
+        // ADT-Tweak end
 
         //Make the zombie not die in the cold. Good for space zombies
         if (TryComp<TemperatureDamageComponent>(target, out var tempComp))
