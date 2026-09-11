@@ -70,7 +70,9 @@ public sealed partial class SeedDnaConsoleWindow : FancyWindow
 
     private void CleanRows()
     {
-        MutationContainer.Children.Clear();
+        foreach (var row in _allRows)
+            row.Remove();
+
         _allRows.Clear();
     }
 
@@ -79,7 +81,7 @@ public sealed partial class SeedDnaConsoleWindow : FancyWindow
         foreach (var entry in state.Genes)
         {
             var row = new SeedDnaConsoleWindowRow(entry, OnGeneTransferPressed);
-            MutationContainer.AddChild(row);
+            row.IncludeToContainer(MutationContainer);
             _allRows.Add(row);
         }
     }

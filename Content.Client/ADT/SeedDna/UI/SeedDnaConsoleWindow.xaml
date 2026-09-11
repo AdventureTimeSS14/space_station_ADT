@@ -38,17 +38,16 @@
             <PanelContainer.PanelOverride>
                 <gfx:StyleBoxFlat BackgroundColor="#1B1B1E"/>
             </PanelContainer.PanelOverride>
-            <BoxContainer Orientation="Vertical" Margin="8 6">
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="8 6">
                 <Label Name="InvalidSeedLabel" Text="{Loc 'seed-dna-window-invalid-seed'}" Visible="False"/>
-                <BoxContainer Orientation="Horizontal" Margin="0 2 0 4" SeparationOverride="4">
-                    <Control MinWidth="24"/>
-                    <Label Text="{Loc 'seed-dna-col-gene'}" StyleClasses="LabelSubText" HorizontalExpand="True"/>
-                    <Label Text="{Loc 'seed-dna-col-seed'}" StyleClasses="LabelSubText" MinWidth="90" Align="Right" Margin="4 0 8 0"/>
-                    <Label Text="{Loc 'seed-dna-col-disk'}" StyleClasses="LabelSubText" MinWidth="90" Align="Right" Margin="4 0 8 0"/>
-                    <Control MinWidth="170"/>
-                </BoxContainer>
-                <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
-                    <BoxContainer Name="MutationContainer" Orientation="Vertical" HorizontalExpand="True"/>
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+                    <GridContainer Name="MutationContainer" Columns="5" HorizontalExpand="True">
+                        <Label Text="{Loc 'seed-dna-col-gene'}" StyleClasses="LabelSubText" MinWidth="24" Align="Center" Margin="0 2 0 4"/>
+                        <Control Margin="0 2 0 4"/>
+                        <Label Text="{Loc 'seed-dna-col-seed'}" StyleClasses="LabelSubText" MinWidth="90" Align="Right" Margin="0 2 0 4"/>
+                        <Label Text="{Loc 'seed-dna-col-disk'}" StyleClasses="LabelSubText" MinWidth="90" Align="Right" Margin="0 2 0 4"/>
+                        <Control Margin="0 2 0 4"/>
+                    </GridContainer>
                 </ScrollContainer>
             </BoxContainer>
         </PanelContainer>
@@ -59,3 +58,4 @@
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>
+

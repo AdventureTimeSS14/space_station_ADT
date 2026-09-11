@@ -10,25 +10,28 @@ using System.Numerics;
 
 namespace Content.Client.ADT.SeedDna.UI;
 
-public sealed partial class SeedDnaConsoleWindowRow : BoxContainer
+public sealed class SeedDnaConsoleWindowRow
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
     private static readonly Color LockedColor = new(0.45f, 0.45f, 0.45f, 0.5f);
 
-    private static readonly Thickness ValueMargin = new(4, 0, 8, 0);
-
     private readonly string _geneId;
 
+    private readonly Button _infoButton;
+    private readonly Label _titleLabel;
+    private readonly Label _seedValueLabel;
+    private readonly Label _diskValueLabel;
     private readonly Button _extractButton;
     private readonly Button _replaceButton;
 
-    public SeedDnaConsoleWindowRow(SeedDnaGeneEntry entry, Action<string, SeedDnaTransferDirection> onTransfer) : base()
+    private Container? _container;
+    private readonly List<Control> _cells = [];
+
+    public SeedDnaConsoleWindowRow(SeedDnaGeneEntry entry, Action<string, SeedDnaTransferDirection> onTransfer)
     {
         IoCManager.InjectDependencies(this);
 
-        Orientation = LayoutOrientation.Horizontal;
-        SeparationOverride = 4;
         _geneId = entry.Id;
 
         var title = ResolveTitle(entry);
@@ -36,33 +39,33 @@ public sealed partial class SeedDnaConsoleWindowRow : BoxContainer
         if (entry.Cost > 0)
             title += $" ({Loc.GetString("seed-dna-row-cost", ("cost", entry.Cost))})";
 
-        var titleLabel = new Label
+        _titleLabel = new Label
         {
             Text = title,
             HorizontalExpand = true,
             ClipText = true,
-            VerticalAlignment = VAlignment.Center,
+            VerticalAlignment = Control.VAlignment.Center,
         };
 
-        var infoButton = new Button
+        _infoButton = new Button
         {
             Text = "?",
             MinSize = new Vector2(24, 24),
-            VerticalAlignment = VAlignment.Center,
+            VerticalAlignment = Control.VAlignment.Center,
             TooltipDelay = 0,
         };
 
         if (entry.Description != null)
         {
-            infoButton.ToolTip = Loc.GetString(entry.Description);
+            _infoButton.ToolTip = Loc.GetString(entry.Description);
         }
         else
         {
-            infoButton.Disabled = true;
+            _infoButton.Disabled = true;
         }
 
-        var seedValueLabel = CreateValueLabel(entry.SeedValue);
-        var diskValueLabel = CreateValueLabel(entry.DiskValue);
+        _seedValueLabel = CreateValueLabel(entry.SeedValue);
+        _diskValueLabel = CreateValueLabel(entry.DiskValue);
 
         _extractButton = CreateActionButton(Loc.GetString("seed-dna-extract-btn"));
         _replaceButton = CreateActionButton(Loc.GetString("seed-dna-replace-btn"));
@@ -79,22 +82,6 @@ public sealed partial class SeedDnaConsoleWindowRow : BoxContainer
 
         _extractButton.OnPressed += _ => onTransfer(_geneId, SeedDnaTransferDirection.SeedToDisk);
         _replaceButton.OnPressed += _ => onTransfer(_geneId, SeedDnaTransferDirection.DiskToSeed);
-
-        AddChild(infoButton);
-        AddChild(titleLabel);
-        AddChild(seedValueLabel);
-        AddChild(diskValueLabel);
-        AddChild(new BoxContainer
-        {
-            Orientation = BoxContainer.LayoutOrientation.Horizontal,
-            SeparationOverride = 4,
-            MinWidth = 170,
-            Children =
-            {
-                _extractButton,
-                _replaceButton,
-            },
-        });
     }
 
     public string GeneId => _geneId;
@@ -105,6 +92,41 @@ public sealed partial class SeedDnaConsoleWindowRow : BoxContainer
     {
         _extractButton.Disabled = true;
         _replaceButton.Disabled = true;
+    }
+
+    public void IncludeToContainer(Container container)
+    {
+        _container = container;
+
+        _cells.Add(_infoButton);
+        _cells.Add(_titleLabel);
+        _cells.Add(_seedValueLabel);
+        _cells.Add(_diskValueLabel);
+        _cells.Add(new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            SeparationOverride = 4,
+            Children =
+            {
+                _extractButton,
+                _replaceButton,
+            },
+        });
+
+        foreach (var cell in _cells)
+            container.AddChild(cell);
+    }
+
+    public void Remove()
+    {
+        if (_container == null)
+            return;
+
+        foreach (var cell in _cells)
+            _container.RemoveChild(cell);
+
+        _cells.Clear();
+        _container = null;
     }
 
     private static void ApplyLockedStyle(Button button, string tooltip)
@@ -121,9 +143,8 @@ public sealed partial class SeedDnaConsoleWindowRow : BoxContainer
             Text = value ?? "-",
             StyleClasses = { "monospace" },
             Align = Label.AlignMode.Right,
-            VerticalAlignment = VAlignment.Center,
+            VerticalAlignment = Control.VAlignment.Center,
             MinWidth = 90,
-            Margin = ValueMargin,
         };
     }
 
