@@ -171,7 +171,7 @@
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.2
   - type: Temperature
-    currentTemperature: 293.15 # 20C - нормальная температура тела
+    currentTemperature: 265.15 # -8C - нормальная температура тела
     specificHeat: 42
   - type: TemperatureDamage
     heatDamageThreshold: 308.15 # 35C

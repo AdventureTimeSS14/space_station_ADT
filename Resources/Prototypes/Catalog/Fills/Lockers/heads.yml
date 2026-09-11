@@ -156,7 +156,6 @@
     - id: ClothingEyesHudCommand
     - id: ClothingOuterCoatHOP # Corvax-Resprite
     - id: PrinterDocFlatpack # Corvax-Printer
-    - id: ADTHoPClipboard #ADT-Tweak
     # ADT-Tweak-Start
     - id: ADTServiceBudgetCard
     - id: ADTServiceBudgetPinPaper
