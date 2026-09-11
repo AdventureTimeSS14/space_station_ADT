@@ -222,6 +222,12 @@ public sealed partial class GrabIntentSystem
         if (!ignoreCombatMode && !_combatMode.IsInCombatMode(pullerUid))
             return false;
 
+        if (_timing.CurTime < grabIntentComp.NextGrabTime)
+            return true;
+
+        grabIntentComp.NextGrabTime = _timing.CurTime + grabIntentComp.GrabCooldown;
+        Dirty(pullerUid, grabIntentComp);
+
         if (_timing.CurTime < grabIntentComp.NextStageChange)
             return true;
 

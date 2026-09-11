@@ -103,6 +103,9 @@ public partial class SharedMartialArtsSystem
             comp.NextThrottledStep = _timing.CurTime + comp.StepCooldown;
         }
 
+        if (_timing.CurTime < comp.NextComboPerform)
+            return;
+
         if (_timing.CurTime >= comp.ResetTime
             || comp.RequireSameTarget && comp.CurrentTarget != null && comp.CurrentTarget != target)
             comp.LastAttacks.Clear();
@@ -151,6 +154,10 @@ public partial class SharedMartialArtsSystem
 
         comp.BeingPerformed = match.ID;
         RaiseLocalEvent(weapon.Owner, ev);
+
+        comp.NextComboPerform = _timing.CurTime + comp.ComboCooldown;
+        comp.LastAttacks.Clear();
+        Dirty(weapon);
     }
 
     public void ResetWeaponCombo(Entity<WeaponMartialArtComponent> weapon, bool popup, EntityUid? user = null)
