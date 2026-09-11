@@ -5,13 +5,11 @@ namespace Content.Shared.ADT.SeedDna;
 [Serializable, NetSerializable]
 public sealed class SeedDnaGeneTransferMessage(
     string geneId,
-    SeedDnaTransferDirection direction,
-    bool all
+    SeedDnaTransferDirection direction
 ) : BoundUserInterfaceMessage
 {
     public readonly string GeneId = geneId;
     public readonly SeedDnaTransferDirection Direction = direction;
-    public readonly bool All = all;
 }
 
 [Serializable, NetSerializable]

@@ -23,7 +23,7 @@ public sealed partial class SeedDnaConsoleWindowRow : BoxContainer
     private readonly Button _extractButton;
     private readonly Button _replaceButton;
 
-    public SeedDnaConsoleWindowRow(SeedDnaGeneEntry entry, Action<string, SeedDnaTransferDirection, bool> onTransfer) : base()
+    public SeedDnaConsoleWindowRow(SeedDnaGeneEntry entry, Action<string, SeedDnaTransferDirection> onTransfer) : base()
     {
         IoCManager.InjectDependencies(this);
 
@@ -77,8 +77,8 @@ public sealed partial class SeedDnaConsoleWindowRow : BoxContainer
             ApplyLockedStyle(_replaceButton, lockedTip);
         }
 
-        _extractButton.OnPressed += _ => onTransfer(_geneId, SeedDnaTransferDirection.SeedToDisk, false);
-        _replaceButton.OnPressed += _ => onTransfer(_geneId, SeedDnaTransferDirection.DiskToSeed, false);
+        _extractButton.OnPressed += _ => onTransfer(_geneId, SeedDnaTransferDirection.SeedToDisk);
+        _replaceButton.OnPressed += _ => onTransfer(_geneId, SeedDnaTransferDirection.DiskToSeed);
 
         AddChild(infoButton);
         AddChild(titleLabel);
@@ -88,6 +88,7 @@ public sealed partial class SeedDnaConsoleWindowRow : BoxContainer
         {
             Orientation = BoxContainer.LayoutOrientation.Horizontal,
             SeparationOverride = 4,
+            MinWidth = 170,
             Children =
             {
                 _extractButton,

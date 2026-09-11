@@ -40,11 +40,12 @@
             </PanelContainer.PanelOverride>
             <BoxContainer Orientation="Vertical" Margin="8 6">
                 <Label Name="InvalidSeedLabel" Text="{Loc 'seed-dna-window-invalid-seed'}" Visible="False"/>
-                <BoxContainer Orientation="Horizontal" Margin="0 2 0 4">
+                <BoxContainer Orientation="Horizontal" Margin="0 2 0 4" SeparationOverride="4">
+                    <Control MinWidth="24"/>
                     <Label Text="{Loc 'seed-dna-col-gene'}" StyleClasses="LabelSubText" HorizontalExpand="True"/>
-                    <Label Text="{Loc 'seed-dna-col-seed'}" StyleClasses="LabelSubText" MinWidth="90" Align="Right"/>
-                    <Label Text="{Loc 'seed-dna-col-disk'}" StyleClasses="LabelSubText" MinWidth="90" Align="Right"/>
-                    <Control MinWidth="150"/>
+                    <Label Text="{Loc 'seed-dna-col-seed'}" StyleClasses="LabelSubText" MinWidth="90" Align="Right" Margin="4 0 8 0"/>
+                    <Label Text="{Loc 'seed-dna-col-disk'}" StyleClasses="LabelSubText" MinWidth="90" Align="Right" Margin="4 0 8 0"/>
+                    <Control MinWidth="170"/>
                 </BoxContainer>
                 <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
                     <BoxContainer Name="MutationContainer" Orientation="Vertical" HorizontalExpand="True"/>
@@ -55,10 +56,6 @@
         <BoxContainer Orientation="Horizontal" SeparationOverride="4">
             <Label Name="SellPriceLabel" VerticalAlignment="Center" HorizontalExpand="True"/>
             <Button Name="SellButton" Access="Public" Text="{Loc 'seed-dna-sell-btn'}" Disabled="True"/>
-        </BoxContainer>
-        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Right" SeparationOverride="4">
-            <Button Name="ExtractAllButton" Access="Public" Text="{Loc 'seed-dna-window-extract-all'}" Disabled="True"/>
-            <Button Name="ReplaceAllButton" Access="Public" Text="{Loc 'seed-dna-window-replace-all'}" Disabled="True"/>
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

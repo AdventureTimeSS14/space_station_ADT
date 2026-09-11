@@ -22,8 +22,8 @@ public sealed class SeedDnaConsoleBoundUserInterface(EntityUid owner, Enum uiKey
         _window.DnaDiskButton.OnPressed += _ => SendMessage(new ItemSlotButtonPressedEvent(DnaDiskSlotId));
 
         _window.ServerListButton.OnPressed += _ => SendMessage(new ConsoleServerSelectionMessage());
-        _window.OnGeneTransfer += (geneId, direction, all) =>
-            SendMessage(new SeedDnaGeneTransferMessage(geneId, direction, all));
+        _window.OnGeneTransfer += (geneId, direction) =>
+            SendMessage(new SeedDnaGeneTransferMessage(geneId, direction));
         _window.SellButton.OnPressed += _ => SendMessage(new SeedDnaSellMessage());
 
         _window.OnClose += Close;

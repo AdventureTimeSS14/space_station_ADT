@@ -78,22 +78,7 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
             return;
         }
 
-        var transfered = false;
-
-        if (args.All)
-        {
-            foreach (var geneId in GetVisibleGeneIds(uid, component))
-            {
-                if (TryTransferGene(uid, component, geneId, args.Direction, silent: true))
-                    transfered = true;
-            }
-        }
-        else if (TryTransferGene(uid, component, args.GeneId, args.Direction, silent: false))
-        {
-            transfered = true;
-        }
-
-        if (transfered)
+        if (TryTransferGene(uid, component, args.GeneId, args.Direction))
             component.NextTransferAt = _timing.CurTime + component.TransferCooldown;
 
         UpdateUserInterface(uid, component);
@@ -103,14 +88,13 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
         EntityUid uid,
         SeedDnaConsoleComponent component,
         string geneId,
-        SeedDnaTransferDirection direction,
-        bool silent)
+        SeedDnaTransferDirection direction)
     {
         var gene = GetGene(component, geneId);
         if (gene == null)
             return false;
 
-        if (!CanTransferGene(uid, gene, silent))
+        if (!CanTransferGene(uid, gene))
             return false;
 
         var (seedItem, diskItem) = GetSlotItems(component);
@@ -126,8 +110,7 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
 
         if (sourceValue == null)
         {
-            if (!silent)
-                _popup.PopupEntity(Loc.GetString("seed-dna-popup-no-value"), uid);
+            _popup.PopupEntity(Loc.GetString("seed-dna-popup-no-value"), uid);
             return false;
         }
 
@@ -137,6 +120,13 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
 
         if (!IsTransferUseful(gene, sourceValue, targetValue))
             return false;
+
+        var cost = ComputeGeneCost(gene, sourceValue);
+        if (cost > 0 && component.Points < cost)
+        {
+            _popup.PopupEntity(Loc.GetString("seed-dna-popup-no-points"), uid);
+            return false;
+        }
 
         if (direction == SeedDnaTransferDirection.SeedToDisk)
         {
@@ -149,8 +139,7 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
         {
             if (seedComponent.Seed?.Immutable == true)
             {
-                if (!silent)
-                    _popup.PopupEntity(Loc.GetString("seed-dna-popup-immutable"), uid);
+                _popup.PopupEntity(Loc.GetString("seed-dna-popup-immutable"), uid);
                 return false;
             }
 
@@ -165,18 +154,8 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
             Dirty(seedItem.Value, seedComponent);
         }
 
-        var cost = ComputeGeneCost(gene, sourceValue);
         if (cost > 0)
-        {
-            if (component.Points < cost)
-            {
-                if (!silent)
-                    _popup.PopupEntity(Loc.GetString("seed-dna-popup-no-points"), uid);
-                return false;
-            }
-
             component.Points -= cost;
-        }
 
         return true;
     }
@@ -249,27 +228,23 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
         };
     }
 
-    private bool CanTransferGene(EntityUid uid, SeedDnaGenePrototype gene, bool silent)
+    private bool CanTransferGene(EntityUid uid, SeedDnaGenePrototype gene)
     {
         if (gene.RequiredTechnology is not { } technology)
             return true;
 
         if (!_researchServer.TryGetClientServer(uid, out _, out _))
         {
-            if (!silent)
-                _popup.PopupEntity(Loc.GetString("seed-dna-popup-no-server"), uid);
+            _popup.PopupEntity(Loc.GetString("seed-dna-popup-no-server"), uid);
             return false;
         }
 
         if (!_research.IsTechnologyUnlocked(uid, technology))
         {
-            if (!silent)
-            {
-                var techName = _prototypes.TryIndex<TechnologyPrototype>(technology, out var tech)
-                    ? Loc.GetString(tech.Name)
-                    : (string)technology;
-                _popup.PopupEntity(Loc.GetString("seed-dna-popup-tech-locked", ("tech", techName)), uid);
-            }
+            var techName = _prototypes.TryIndex<TechnologyPrototype>(technology, out var tech)
+                ? Loc.GetString(tech.Name)
+                : (string)technology;
+            _popup.PopupEntity(Loc.GetString("seed-dna-popup-tech-locked", ("tech", techName)), uid);
             return false;
         }
 
@@ -880,13 +855,6 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
         return component.DnaDiskSlot.Item is not { Valid: true } diskItem
             ? (false, string.Empty, null)
             : (true, Name(diskItem), Comp<DnaDiskComponent>(diskItem).SeedData);
-    }
-
-    private IEnumerable<string> GetVisibleGeneIds(EntityUid uid, SeedDnaConsoleComponent component)
-    {
-        var (_, _, seedData) = ProcessSeedSlot(component);
-        var (_, _, diskData) = ProcessDiskSlot(component);
-        return BuildGeneEntries(uid, component, seedData, diskData).Select(entry => entry.Id);
     }
 
     #endregion
