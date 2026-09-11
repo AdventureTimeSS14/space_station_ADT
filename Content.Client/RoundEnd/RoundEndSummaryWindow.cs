@@ -8,7 +8,7 @@ using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 // Goob Station - End of Round Screen
 using Content.Client.Stylesheets;
-using Content.Shared.ADT.RoundEnd; // ADT-tweak
+using Content.Shared.ADT.RoundEnd; // ADT-Tweak
 using Content.Shared.Mobs;
 
 namespace Content.Client.RoundEnd
@@ -43,8 +43,8 @@ namespace Content.Client.RoundEnd
             var roundEndTabs = new TabContainer();
             roundEndTabs.AddChild(MakeRoundEndSummaryTab(gm, roundEnd, roundTimeSpan, roundId));
             roundEndTabs.AddChild(MakePlayerManifestTab(info));
-            roundEndTabs.AddChild(MakeCrewTableTab(info)); // ADT-tweak
-            roundEndTabs.AddChild(MakeStatsTab(gm, roundTimeSpan, roundId)); // ADT-tweak
+            roundEndTabs.AddChild(MakeCrewTableTab(info)); // ADT-Tweak
+            roundEndTabs.AddChild(MakeStatsTab(gm, roundTimeSpan, roundId)); // ADT-Tweak
 
             ContentsContainer.AddChild(roundEndTabs);
 
@@ -101,7 +101,7 @@ namespace Content.Client.RoundEnd
             return roundEndSummaryTab;
         }
 
-        //ADT-tweak-start
+        // ADT-Tweak-start
         //всё в этом регионе сильно модифицировано
         [Obsolete("This is only used for the end of round summary, and is not intended to be used for anything else. It will be removed once we have a better way to track this information.")]
         private BoxContainer MakePlayerManifestTab(RoundEndMessageEvent.RoundEndPlayerInfo[] playersInfo)
@@ -343,7 +343,7 @@ namespace Content.Client.RoundEnd
         return playerManifestTab;
     }
 
-    //ADT-tweak-start
+    // ADT-Tweak-start
     private BoxContainer MakeStatsTab(string gamemode, TimeSpan roundDuration, int roundId)
     {
         var statsTab = new BoxContainer
@@ -455,9 +455,9 @@ namespace Content.Client.RoundEnd
                 ("species", name), ("count", count)), 16);
         }
     }
-    //ADT-tweak-end
+    // ADT-Tweak-end
 
-    //ADT-tweak-start
+    // ADT-Tweak-start
     private BoxContainer MakeCrewTableTab(RoundEndMessageEvent.RoundEndPlayerInfo[] playersInfo)
     {
         var crewTab = new BoxContainer
@@ -578,7 +578,7 @@ namespace Content.Client.RoundEnd
 
         return crewTab;
     }
-    //ADT-tweak-end
+    // ADT-Tweak-end
     }
-    //ADT-tweak-end
+    // ADT-Tweak-end
 }

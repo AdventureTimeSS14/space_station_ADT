@@ -245,9 +245,7 @@ public sealed class BankCardSystem : EntitySystem
         return account != null;
     }
 
-    // ADT-start: round end stats
     public IReadOnlyList<BankAccount> GetAllAccounts() => _accounts;
-    // ADT-end
 
     public int GetBalance(int accountId)
     {
