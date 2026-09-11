@@ -1,0 +1,209 @@
+# Статические гены по одному на поле SeedData, id совпадает с именем поля
+# Типы Chemical и Gas служебные их настройки применяются ко всем строкам химикатов и газов соответственно.
+# requiredTechnology категория исследований РНД, открывающая ген
+# cost фиксированная стоимость переноса (bool/harvest/служебные гены)
+# costPerUnit стоимость за единицу значения для числовых генов
+# (реальная цена = значение гена × costPerUnit)
+
+- type: seedDnaGene
+  id: NutrientConsumption
+  valueType: Float
+  min: 0
+  max: 10
+  requiredTechnology: ADTGeneticEngineeringNutrients
+  costPerUnit: 10
+  sellPrice: 20
+  description: seed-dna-desc-NutrientConsumption
+
+- type: seedDnaGene
+  id: WaterConsumption
+  valueType: Float
+  min: 0
+  max: 10
+  requiredTechnology: ADTGeneticEngineeringNutrients
+  costPerUnit: 10
+  sellPrice: 20
+  description: seed-dna-desc-WaterConsumption
+
+- type: seedDnaGene
+  id: IdealHeat
+  valueType: Float
+  min: 100
+  max: 500
+  requiredTechnology: ADTGeneticEngineeringAtmos
+  costPerUnit: 0.2
+  sellPrice: 20
+  description: seed-dna-desc-IdealHeat
+
+- type: seedDnaGene
+  id: HeatTolerance
+  valueType: Float
+  min: 0
+  max: 100
+  requiredTechnology: ADTGeneticEngineeringAtmos
+  costPerUnit: 2
+  sellPrice: 30
+  description: seed-dna-desc-HeatTolerance
+
+- type: seedDnaGene
+  id: ToxinsTolerance
+  valueType: Float
+  min: 0
+  max: 50
+  requiredTechnology: ADTGeneticEngineeringResistance
+  costPerUnit: 5
+  sellPrice: 30
+  description: seed-dna-desc-ToxinsTolerance
+
+- type: seedDnaGene
+  id: LowPressureTolerance
+  valueType: Float
+  min: 0
+  max: 200
+  requiredTechnology: ADTGeneticEngineeringAtmos
+  costPerUnit: 1
+  sellPrice: 30
+  description: seed-dna-desc-LowPressureTolerance
+
+- type: seedDnaGene
+  id: HighPressureTolerance
+  valueType: Float
+  min: 0
+  max: 400
+  requiredTechnology: ADTGeneticEngineeringAtmos
+  costPerUnit: 0.5
+  sellPrice: 30
+  description: seed-dna-desc-HighPressureTolerance
+
+- type: seedDnaGene
+  id: PestTolerance
+  valueType: Float
+  min: 0
+  max: 50
+  requiredTechnology: ADTGeneticEngineeringPests
+  costPerUnit: 5
+  sellPrice: 30
+  description: seed-dna-desc-PestTolerance
+
+- type: seedDnaGene
+  id: WeedTolerance
+  valueType: Float
+  min: 0
+  max: 50
+  requiredTechnology: ADTGeneticEngineeringPests
+  costPerUnit: 5
+  sellPrice: 30
+  description: seed-dna-desc-WeedTolerance
+
+- type: seedDnaGene
+  id: Endurance
+  valueType: Float
+  min: 0
+  max: 200
+  requiredTechnology: ADTGeneticEngineeringYield
+  costPerUnit: 1
+  sellPrice: 60
+  description: seed-dna-desc-Endurance
+
+- type: seedDnaGene
+  id: Yield
+  valueType: Int
+  min: 0
+  max: 10
+  requiredTechnology: ADTGeneticEngineeringYield
+  costPerUnit: 10
+  sellPrice: 80
+  description: seed-dna-desc-Yield
+
+- type: seedDnaGene
+  id: Lifespan
+  valueType: Float
+  min: 0
+  max: 100
+  requiredTechnology: ADTGeneticEngineeringYield
+  costPerUnit: 1
+  sellPrice: 40
+  description: seed-dna-desc-Lifespan
+
+- type: seedDnaGene
+  id: Maturation
+  valueType: Float
+  min: 0
+  max: 100
+  requiredTechnology: ADTGeneticEngineeringYield
+  costPerUnit: 1
+  sellPrice: 40
+  description: seed-dna-desc-Maturation
+
+- type: seedDnaGene
+  id: Production
+  valueType: Float
+  min: 0
+  max: 100
+  requiredTechnology: ADTGeneticEngineeringYield
+  costPerUnit: 10
+  sellPrice: 40
+  description: seed-dna-desc-Production
+
+- type: seedDnaGene
+  id: HarvestRepeat
+  valueType: HarvestType
+  requiredTechnology: ADTGeneticEngineeringYield
+  cost: 5
+  sellPrice: 50
+  description: seed-dna-desc-HarvestRepeat
+
+- type: seedDnaGene
+  id: Potency
+  valueType: Float
+  min: 1
+  max: 100
+  requiredTechnology: ADTGeneticEngineeringYield
+  costPerUnit: 2
+  sellPrice: 100
+  description: seed-dna-desc-Potency
+
+- type: seedDnaGene
+  id: Seedless
+  valueType: Bool
+  requiredTechnology: ADTGeneticEngineering
+  cost: 25
+  sellPrice: 200
+  description: seed-dna-desc-Seedless
+
+- type: seedDnaGene
+  id: Viable
+  valueType: Bool
+  requiredTechnology: ADTGeneticEngineeringYield
+  cost: 10
+  sellPrice: 50
+  description: seed-dna-desc-Viable
+
+- type: seedDnaGene
+  id: Ligneous
+  valueType: Bool
+  requiredTechnology: ADTGeneticEngineering
+  cost: 50
+  sellPrice: 300
+  description: seed-dna-desc-Ligneous
+
+- type: seedDnaGene
+  id: CanScream
+  valueType: Bool
+  requiredTechnology: ADTGeneticEngineering
+  cost: 100
+  sellPrice: 400
+  description: seed-dna-desc-CanScream
+
+- type: seedDnaGene
+  id: ADTChemicals
+  valueType: Chemical
+  requiredTechnology: ADTGeneticEngineeringReagents
+  cost: 10
+
+- type: seedDnaGene
+  id: ADTGases
+  valueType: Gas
+  requiredTechnology: ADTGeneticEngineeringGases
+  cost: 5
+  sellPrice: 10

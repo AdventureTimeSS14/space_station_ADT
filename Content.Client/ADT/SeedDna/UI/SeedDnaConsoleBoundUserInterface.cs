@@ -1,5 +1,6 @@
 using Content.Shared.ADT.SeedDna;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Research.Components;
 using static Content.Shared.ADT.SeedDna.Components.SeedDnaConsoleComponent;
 
 namespace Content.Client.ADT.SeedDna.UI;
@@ -15,10 +16,15 @@ public sealed class SeedDnaConsoleBoundUserInterface(EntityUid owner, Enum uiKey
     {
         base.Open();
 
-        _window = new SeedDnaConsoleWindow(this);
+        _window = new SeedDnaConsoleWindow();
 
         _window.SeedButton.OnPressed += _ => SendMessage(new ItemSlotButtonPressedEvent(SeedSlotId));
         _window.DnaDiskButton.OnPressed += _ => SendMessage(new ItemSlotButtonPressedEvent(DnaDiskSlotId));
+
+        _window.ServerListButton.OnPressed += _ => SendMessage(new ConsoleServerSelectionMessage());
+        _window.OnGeneTransfer += (geneId, direction, all) =>
+            SendMessage(new SeedDnaGeneTransferMessage(geneId, direction, all));
+        _window.SellButton.OnPressed += _ => SendMessage(new SeedDnaSellMessage());
 
         _window.OnClose += Close;
         _window.OpenCentered();
@@ -38,10 +44,5 @@ public sealed class SeedDnaConsoleBoundUserInterface(EntityUid owner, Enum uiKey
         base.UpdateState(state);
         var castState = (SeedDnaConsoleBoundUserInterfaceState)state;
         _window?.UpdateState(castState);
-    }
-
-    public void SubmitData(TargetSeedData target, SeedDataDto seedDataDto)
-    {
-        SendMessage(new WriteToTargetSeedDataMessage(target, seedDataDto));
     }
 }
