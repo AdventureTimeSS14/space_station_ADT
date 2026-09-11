@@ -1,25 +1,21 @@
-using Content.Shared.ADT.Systems.PickupHumans;
 using Content.Shared.Alert;
-using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Components.PickupHumans;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedPickupHumansSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class PickupHumansComponent : Component
 {
     [DataField]
     public ProtoId<AlertPrototype> PickupHumansAlert = "ADTPickupHumans";
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public bool InReadyPickupHumansMod;
 
     [DataField]
     public TimeSpan PickupTime = TimeSpan.FromSeconds(2f);
 
+    [DataField]
     public int HandsRequired = 2;
-
-    public EntityUid User = default;
-    public EntityUid Target = default;
 }

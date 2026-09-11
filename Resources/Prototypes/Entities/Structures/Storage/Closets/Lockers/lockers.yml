@@ -425,7 +425,7 @@
 
 # Correction Officer
 - type: entity
-  id: LockerCorrectionOfficer
+  id: ADTLockerCorrectionOfficer
   parent: LockerBaseSecure
   name: correction officer locker
   components:

@@ -94,18 +94,15 @@
 
 - type: entity
   parent: FoodInjectableBase
-  id: ADTFoodPizzaBBQ
-  name: bbqPizza
-  description: A bbq pizza
+  id: ADTFoodPizzaBase
+  abstract: true
   components:
   - type: FlavorProfile
     flavors:
       - oily
       - bread
-  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
-    state: bbq
   - type: SolutionContainerManager
     solutions:
       food:
@@ -115,7 +112,6 @@
           Quantity: 30
   - type: SliceableFood
     count: 8
-    slice: ADTFoodPizzaBBQSlice
   - type: Item
     size: Normal
     shape:
@@ -125,22 +121,40 @@
     - Pizza
     - ReptilianFood
 
+- type: entity
+  parent: ADTFoodPizzaBase
+  id: ADTFoodPizzaMeatBase
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Pizza
+    - Meat
+
+- type: entity
+  parent: ADTFoodPizzaMeatBase
+  id: ADTFoodPizzaBBQ
+  name: bbqPizza
+  description: A bbq pizza
+  components:
+  - type: Sprite
+    state: bbq
+  - type: SliceableFood
+    slice: ADTFoodPizzaBBQSlice
+
 
 
 - type: entity
   parent: FoodInjectableBase
-  id: ADTFoodPizzaBBQSlice
-  name: slice of bbq pizza
-  description: A slice of bbq pizza
+  id: ADTFoodPizzaSliceBase
+  abstract: true
   components:
   - type: FlavorProfile
     flavors:
       - oily
       - bread
-  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
-    state: bbq-slice
   - type: SolutionContainerManager
     solutions:
       food:
@@ -156,12 +170,32 @@
     - ReptilianFood
     - Slice
 
+- type: entity
+  parent: ADTFoodPizzaSliceBase
+  id: ADTFoodPizzaMeatSliceBase
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Pizza
+    - Slice
+    - Meat
+
+- type: entity
+  parent: ADTFoodPizzaMeatSliceBase
+  id: ADTFoodPizzaBBQSlice
+  name: slice of bbq pizza
+  description: A slice of bbq pizza
+  components:
+  - type: Sprite
+    state: bbq-slice
+
 
 
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaMeatBase
   id: ADTFoodPizzaBolognese
   name: bolognesePizza
   description: A bolognesse pizza
@@ -176,7 +210,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaMeatSliceBase
   id: ADTFoodPizzaBologneseSlice
   name: slice of bolognesse pizza
   description: A slice of bolognesse pizza
@@ -189,7 +223,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaMeatBase
   id: ADTFoodPizzaCaesar
   name: caesar pizza
   description: A caesar pizza
@@ -204,7 +238,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaMeatSliceBase
   id: ADTFoodPizzaCaesarSlice
   name: slice of caesar pizza
   description: A slice of caesar pizza
@@ -215,7 +249,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaBase
   id: ADTFoodPizzaCheese
   name: cheese pizza
   description: A cheese pizza
@@ -230,7 +264,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaSliceBase
   id: ADTFoodPizzaCheeseSlice
   name: slice of cheese pizza
   description: A slice of cheese pizza
@@ -240,7 +274,7 @@
     state: cheese-slice
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaBase
   id: ADTFoodPizzaChicago
   name: chicago pizza
   description: A Chicago pizza
@@ -255,7 +289,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaSliceBase
   id: ADTFoodPizzaChicagoSlice
   name: slice of chicago pizza
   description: A slice of chicago pizza
@@ -266,7 +300,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaMeatBase
   id: ADTFoodPizzaChicken
   name: chicken pizza
   description: A chicken pizza
@@ -281,7 +315,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaMeatSliceBase
   id: ADTFoodPizzaChickenSlice
   name: slice of chicken pizza
   description: A slice of chicken pizza
@@ -292,7 +326,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaMeatBase
   id: ADTFoodPizzaClassic
   name: classic pizza
   description: A classic pizza
@@ -307,7 +341,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaMeatSliceBase
   id: ADTFoodPizzaClassicSlice
   name: slice of classic pizza
   description: A slice of classic pizza
@@ -319,7 +353,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaMeatBase
   id: ADTFoodPizzaDiablo
   name: diablo pizza
   description: The diablo pizza
@@ -334,7 +368,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaMeatSliceBase
   id: ADTFoodPizzaDiabloSlice
   name: slice of diablo pizza
   description: A slice of diablo pizza
@@ -345,7 +379,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaBase
   id: ADTFoodPizzaFourcheese
   name: four cheese pizza
   description: A four cheese pizza
@@ -360,7 +394,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaSliceBase
   id: ADTFoodPizzaFourcheeseSlice
   name: slice of four cheese pizza
   description: A slice of four cheese pizza
@@ -372,7 +406,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaMeatBase
   id: ADTFoodPizzaMexican
   name: mexican pizza
   description: A mexican pizza
@@ -387,7 +421,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaMeatSliceBase
   id: ADTFoodPizzaMexicanSlice
   name: slice of mexican pizza
   description: A slice of mexican pizza
@@ -399,7 +433,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaMeatBase
   id: ADTFoodPizzaMushroomchicken
   name: mushroom chicken pizza
   description: A mushroom chicken pizza
@@ -414,7 +448,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaMeatSliceBase
   id: ADTFoodPizzaMushroomchickenSlice
   name: slice of mushroom chicken pizza
   description: A slice of mushroom chicken pizza
@@ -425,7 +459,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQ
+  parent: ADTFoodPizzaMeatBase
   id: ADTFoodPizzaSea
   name: sea pizza
   description: A sea pizza
@@ -440,7 +474,7 @@
 
 
 - type: entity
-  parent: ADTFoodPizzaBBQSlice
+  parent: ADTFoodPizzaMeatSliceBase
   id: ADTFoodPizzaSeaSlice
   name: slice of sea pizza
   description: A slice of sea pizza

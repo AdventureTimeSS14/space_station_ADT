@@ -22,10 +22,12 @@
     grindableSolutionName: grindable
   - type: FitsInDispenser
     solution: drink
-  - type: Tool
-    qualities:
-    - Rolling
-    speedModifier: 0.25 # its small so takes longer to roll the entire dough flat
+  # ADT Tweak start
+  # - type: Tool
+  #   qualities:
+  #   - Rolling
+  #   speedModifier: 0.25 # its small so takes longer to roll the entire dough flat
+  # ADT Tweak end
   - type: SpaceGarbage
   - type: TrashOnSolutionEmpty
     solution: drink
