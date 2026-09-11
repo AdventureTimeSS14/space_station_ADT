@@ -95,6 +95,9 @@ public partial class SharedMartialArtsSystem
         if (comp.LastAttacks.Count > 0 && comp.ResetTime - comp.ComboWindow == _timing.CurTime)
             return;
 
+        if (_timing.CurTime < comp.NextComboPerform)
+            return;
+
         if (comp.ThrottledSteps.Contains(type))
         {
             if (_timing.CurTime < comp.NextThrottledStep)
@@ -102,9 +105,6 @@ public partial class SharedMartialArtsSystem
 
             comp.NextThrottledStep = _timing.CurTime + comp.StepCooldown;
         }
-
-        if (_timing.CurTime < comp.NextComboPerform)
-            return;
 
         if (_timing.CurTime >= comp.ResetTime
             || comp.RequireSameTarget && comp.CurrentTarget != null && comp.CurrentTarget != target)

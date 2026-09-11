@@ -230,6 +230,9 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (args.Handled || args.Cancelled)
             return;
 
+        if (!CanLatch(ent, target))
+            return;
+
         Latch(ent, target);
         args.Handled = true;
     }

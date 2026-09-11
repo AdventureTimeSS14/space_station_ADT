@@ -226,11 +226,11 @@ public sealed partial class GrabIntentSystem
         if (_timing.CurTime < grabIntentComp.NextGrabTime)
             return true;
 
-        grabIntentComp.NextGrabTime = _timing.CurTime + grabIntentComp.GrabCooldown;
-        Dirty(pullerUid, grabIntentComp);
-
         if (_timing.CurTime < grabIntentComp.NextStageChange)
             return true;
+
+        grabIntentComp.NextGrabTime = _timing.CurTime + grabIntentComp.GrabCooldown;
+        Dirty(pullerUid, grabIntentComp);
 
         if (TryComp<MeleeWeaponComponent>(pullerUid, out var meleeWeapon))
         {
