@@ -20,5 +20,9 @@
         ClothingHeadsetScience: 3
         ClothingMaskGas: 3
         ClothingNeckScarfStripedPurple: 3
+    # ADT tweak start wiki books
+    ADTVendingCategoryBooks:
+        ADTBookSRPrnd: 2
+    # ADT tweak end wiki books
   contrabandInventory:
     ToyFigurineResearchDirector: 1
