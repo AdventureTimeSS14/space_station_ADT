@@ -20,6 +20,8 @@
   - type: Item
     sprite: _RMC14/Objects/Weapons/Guns/Flamethrower/m34.rsi
     size: Large
+    shape:
+    - 0,0,3,3
   - type: Clothing
     sprite: _RMC14/Objects/Weapons/Guns/Flamethrower/m34.rsi
     slots:
@@ -27,7 +29,7 @@
     - Back
   - type: Gun
     cameraRecoilScalar: 0
-    fireRate: 1
+    fireRate: 0.7
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -263,6 +265,11 @@
         enum.RMCIgniterVisuals.Ignited:
           True: { visible: true }
           False: { visible: false }
+  - type: Item
+    sprite: _RMC14/Objects/Weapons/Guns/Flamethrower/lpo80.rsi
+    size: Large
+    shape:
+    - 0,0,3,3
 
 - type: entity
   name: FlammenWerfer 60
@@ -292,6 +299,11 @@
   - type: Construction
     graph: ADTMakeshiftFlamer
     node: makeshift_flamer
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/Flamethrower/makeshift_flamethrower.rsi
+    size: Large
+    shape:
+    - 0,0,3,3
 
 - type: entity
   parent: RMCTankFlamer
@@ -305,7 +317,7 @@
     layers:
     - state: flametank
     - state: flametank_strip1
-    - state: flametank_strip2
+    # - state: flametank_strip2
       map: [ "enum.SolutionContainerLayers.Fill" ]
   - type: SolutionContainerVisuals
     maxFillLevels: 2
@@ -329,7 +341,7 @@
     node: makeshift_tank_ready
 
 - type: entity
-  parent: [ BaseItem, BaseMinorContraband ]
+  parent: RMCGrenadeMolotovEmpty
   id: RMCTankFlamerMakeshiftUnfinished
   name: makeshift flamer unfinished
   suffix: empty
@@ -339,40 +351,47 @@
     sprite: ADT/Objects/Weapons/Guns/Ammunition/Flamethrower/makeshift_flamer.rsi
     layers:
     - state: flametank_unfinished
+      map: ["enum.OpenableVisuals.Layer"]
   - type: Item
-    # sprite: ADT/Objects/Weapons/Guns/Ammunition/Flamethrower/makeshift_flamer.rsi
-    # state: flametank_unfinished
     size: Normal
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "flametank_unfinished"}
+          False: {state: "flametank_unfinished"}
   - type: SolutionContainerManager
     solutions:
-      spray:
+      drink:
         maxVol: 100
-        reagents:
-        - ReagentId: null
-          Quantity: 100
-  - type: RefillableSolution
-    solution: spray
-  - type: DrainableSolution
-    solution: spray
-  - type: SolutionTransfer
-    maxTransferAmount: 100
-    transferAmount: 100
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    damage:
-      types:
-        Blunt: 10
-    soundHit:
-      path: /Audio/Weapons/smash.ogg
-  - type: Tool
-    qualities:
-    - Rolling
-    speedModifier: 0.5 # its very big, awkward to use
-  - type: Appearance
-  - type: PhysicalComposition
-    materialComposition:
-      Steel: 100
+  - type: Tag
+    tags:
+    - Trash
   - type: Construction
     graph: ADTTankFlamerMakeshift
     node: makeshift_tank_empty
     defaultTarget: makeshift_tank_ready
+  - type: Destructible # Same as parent, but spawns BrokenBottle instead of ShardGlass
+    thresholds:
+    - trigger: # Overkill threshold
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpillBehavior { }
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ScrapFireExtinguisher:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

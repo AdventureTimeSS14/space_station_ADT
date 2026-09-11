@@ -17,15 +17,18 @@
         icon:
           sprite: Objects/Misc/fire_extinguisher.rsi
           state: fire_extinguisher_closed
-        doAfter: 2
-      - tool: Cutting
+        doAfter: 1
+      - tag: Igniter
+        name: construction-graph-tag-igniter
+        icon:
+          sprite: Objects/Devices/igniter.rsi
+          state: icon
+        doAfter: 1
+      - material: Cable
+        amount: 15
         doAfter: 10
-      # - tag: Igniter
-      #   name: construction-graph-tag-igniter
-      #   icon:
-      #     sprite: Objects/Devices/igniter.rsi
-      #     state: icon
-      #   doAfter: 1
+      # - tool: Screwing
+      #   doAfter: 10
   - node: makeshift_tank_empty
     entity: RMCTankFlamerMakeshiftUnfinished
     edges:
@@ -35,7 +38,7 @@
         solution: drink
       steps:
       - tool: Screwing
-        doAfter: 3
+        doAfter: 1
     - to: makeshift_tank_ready
       conditions: # no dumping out 29u of the fuel then adding wires :)
       - !type:MinSolution
@@ -45,16 +48,16 @@
         quantity: 100
       steps:
       - material: Plastic
-        amount: 5
-        doAfter: 5
+        amount: 15
+        doAfter: 10
   - node: makeshift_tank_ready
     entity: RMCTankFlamerMakeshift
     edges:
-    - to: makeshift_tank_empty
+    - to: start
       completed:
       - !type:SpawnPrototype
-        prototype: MaterialPlastic1
-        amount: 5
+        prototype: SheetPlastic1
+        amount: 15
       steps:
       - tool: Cutting
         doAfter: 10
@@ -73,9 +76,9 @@
             impact: High
           steps:
             - tag: SprayNozzle
-              name: construction-graph-tag-baseball-bat
+              name: construction-graph-tag-spray-nozzle
               icon:
-                sprite: ADT/Objects/Weapons/Melee/baseball_bat.rsi
+                sprite: Objects/Weapons/Guns/Basic/spraynozzle.rsi
                 state: icon
             - tag: Igniter
               name: construction-graph-tag-igniter
