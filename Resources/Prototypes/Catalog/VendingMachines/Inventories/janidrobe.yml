@@ -15,6 +15,10 @@
         ClothingHeadHatPurplesoft: 2
     ADTVendingCategoryOuter:  # ADT-Tweak
         ClothingOuterWinterJani: 2
+    # ADT tweak start wiki books
+    ADTVendingCategoryBooks:
+        ADTBookSRPsrv: 2
+    # ADT tweak end wiki books
   contrabandInventory:
     ToyFigurineJanitor: 1
   emaggedInventory:
