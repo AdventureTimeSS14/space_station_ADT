@@ -79,6 +79,9 @@
     - ADTCatEmotes
     - ADTVoxEmotes
     - ADTResomiEmotes
+  blacklist:
+    tags:
+    - ADTSiliconEmotes
   icon: ADT/Interface/Emotes/Vocal/hiss.png
   chatMessages: [шипит]
   chatTriggers:
@@ -97,18 +100,12 @@
     tags:
     - ADTCatEmotes
   icon: ADT/Interface/Emotes/Vocal/meow.png
-  chatMessages: [мяукает]
+  chatMessages: [мяукает!]
   chatTriggers:
     - мяу
     - мяукнул
-    - мяукнул.
-    - мяукнул!
     - мяукнула
-    - мяукнула.
-    - мяукнула!
     - мяукает
-    - мяукает.
-    - мяукает!
 
 - type: emote
   id: Mew
@@ -120,6 +117,9 @@
     - Vocal
     tags:
     - ADTCatEmotes
+  blacklist:
+    tags:
+    - ADTSiliconEmotes
   icon: ADT/Interface/Emotes/Vocal/mew.png
   chatMessages: [мякает]
   chatTriggers:
@@ -142,6 +142,9 @@
     tags:
     - ADTDogEmotes
     - ADTCatEmotes
+  blacklist:
+    tags:
+    - ADTSiliconEmotes
   icon: ADT/Interface/Emotes/Vocal/growl.png
   chatMessages: [рычит]
   chatTriggers:
@@ -166,6 +169,9 @@
     - Vocal
     tags:
     - ADTCatEmotes
+  blacklist:
+    tags:
+    - ADTSiliconEmotes
   icon: ADT/Interface/Emotes/Vocal/purr.png
   chatMessages: [мурчит]
   chatTriggers:
@@ -436,24 +442,6 @@
   chatMessages: [пугается!]
   chatTriggers:
     - пугается
-
-- type: emote
-  id: IPCCuteMeow
-  name: chat-emote-name-meow
-  category: Vocal
-  whitelist:
-    requireAll: true
-    components:
-    - Vocal
-    tags:
-    - ADTIPCCuteEmotes
-  icon: ADT/Interface/Emotes/Vocal/meow.png
-  chatMessages: [мяукает]
-  chatTriggers:
-    - мяу
-    - мяукнул
-    - мяукнула
-    - мяукает
 
 - type: emote
   id: IPCDeathgasp
