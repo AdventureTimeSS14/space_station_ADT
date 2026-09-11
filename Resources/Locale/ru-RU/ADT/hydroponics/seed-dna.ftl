@@ -18,7 +18,11 @@ seed-dna-row-exude-gas = Выделяемый газ: { $gas }
 seed-dna-server-btn = Сервер исследований
 seed-dna-points = Очки генетики: { $points } / { $max }
 seed-dna-points-tooltip = Очки генетики начисляются за продажу модифицированных геномов и тратятся на каждый перенос гена. Приходится выбирать, что улучшать.
-seed-dna-row-cost = { $cost } очков
+seed-dna-row-cost = { $cost ->
+    [one] { $cost } очко
+    [few] { $cost } очка
+   *[other] { $cost } очков
+}
 seed-dna-row-locked = Требуется технология: { $tech }
 seed-dna-bool-true = да
 seed-dna-bool-false = нет
@@ -40,7 +44,11 @@ seed-dna-popup-tech-locked = Требуется технология: { $tech }
 seed-dna-popup-no-points = Недостаточно очков генетики!
 seed-dna-popup-not-modified = Это семя не модифицировано, продать можно только изменённый геном.
 seed-dna-popup-cooldown = Подождите немного!
-seed-dna-popup-sold = Геном продан за ${ $price }, +{ $points } очков генетики!
+seed-dna-popup-sold = Геном продан за ${ $price }, +{ $points ->
+    [one] { $points } очко
+    [few] { $points } очка
+   *[other] { $points } очков
+} генетики!
 
 # -------------------------------------------------
 

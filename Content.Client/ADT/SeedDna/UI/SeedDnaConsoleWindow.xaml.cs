@@ -40,6 +40,11 @@ public sealed partial class SeedDnaConsoleWindow : FancyWindow
     public void UpdateState(SeedDnaConsoleBoundUserInterfaceState state)
     {
         UpdateEjectButtons(state);
+        UpdateSellPanel(state);
+
+        PointsLabel.Text = Loc.GetString("seed-dna-points", ("points", state.Points), ("max", state.MaxPoints));
+        PointsLabel.ToolTip = Loc.GetString("seed-dna-points-tooltip");
+        SellButton.ToolTip = Loc.GetString("seed-dna-sell-tooltip");
 
         if (!ValidateSeed(state))
             return;
@@ -47,11 +52,6 @@ public sealed partial class SeedDnaConsoleWindow : FancyWindow
         CleanRows();
         FillRows(state);
         UpdateButtonsAll(state);
-        UpdateSellPanel(state);
-
-        PointsLabel.Text = Loc.GetString("seed-dna-points", ("points", state.Points), ("max", state.MaxPoints));
-        PointsLabel.ToolTip = Loc.GetString("seed-dna-points-tooltip");
-        SellButton.ToolTip = Loc.GetString("seed-dna-sell-tooltip");
     }
 
     private void UpdateEjectButtons(SeedDnaConsoleBoundUserInterfaceState state)

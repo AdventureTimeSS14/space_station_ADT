@@ -1,6 +1,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Botany;
 using Content.Server.Botany.Components;
+using Content.Server.Botany.Systems;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Server.Research.Systems;
@@ -30,6 +31,7 @@ namespace Content.Server.ADT.SeedDna.Systems;
 public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
 {
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
+    [Dependency] private readonly BotanySystem _botany = default!;
     [Dependency] private readonly AccessReaderSystem _access = default!;
     [Dependency] private readonly SharedResearchSystem _research = default!;
     [Dependency] private readonly ResearchSystem _researchServer = default!;
@@ -136,23 +138,11 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
         if (!IsTransferUseful(gene, sourceValue, targetValue))
             return false;
 
-        var cost = ComputeGeneCost(gene, sourceValue);
-        if (cost > 0)
-        {
-            if (component.Points < cost)
-            {
-                if (!silent)
-                    _popup.PopupEntity(Loc.GetString("seed-dna-popup-no-points"), uid);
-                return false;
-            }
-
-            component.Points -= cost;
-        }
-
         if (direction == SeedDnaTransferDirection.SeedToDisk)
         {
             diskComponent.SeedData ??= new SeedDataDto();
-            ApplyGeneToDisk(diskComponent.SeedData, geneId, sourceValue);
+            if (!ApplyGeneToDisk(diskComponent.SeedData, geneId, sourceValue))
+                return false;
             Dirty(diskItem.Value, diskComponent);
         }
         else
@@ -164,11 +154,28 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
                 return false;
             }
 
-            var seedData = seedComponent.Seed?.Clone() ?? new SeedData();
+            if (!_botany.TryGetSeed(seedComponent, out var originalSeed))
+                return false;
+
+            var seedData = originalSeed.Clone();
             seedComponent.Seed = seedData;
-            ApplyGeneToSeed(seedData, geneId, sourceValue, component.MaxChemicalsVolume);
+            if (!ApplyGeneToSeed(seedData, geneId, sourceValue, component.MaxChemicalsVolume))
+                return false;
             seedData.IsModified = true;
             Dirty(seedItem.Value, seedComponent);
+        }
+
+        var cost = ComputeGeneCost(gene, sourceValue);
+        if (cost > 0)
+        {
+            if (component.Points < cost)
+            {
+                if (!silent)
+                    _popup.PopupEntity(Loc.GetString("seed-dna-popup-no-points"), uid);
+                return false;
+            }
+
+            component.Points -= cost;
         }
 
         return true;
@@ -397,13 +404,15 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
 
         if (geneId.StartsWith(SeedDnaGeneEntry.ConsumeGasPrefix))
         {
-            var gas = Enum.Parse<Gas>(geneId[SeedDnaGeneEntry.ConsumeGasPrefix.Length..]);
+            if (!Enum.TryParse<Gas>(geneId[SeedDnaGeneEntry.ConsumeGasPrefix.Length..], out var gas))
+                return null;
             return seed.ConsumeGasses.TryGetValue(gas, out var value) ? value : null;
         }
 
         if (geneId.StartsWith(SeedDnaGeneEntry.ExudeGasPrefix))
         {
-            var gas = Enum.Parse<Gas>(geneId[SeedDnaGeneEntry.ExudeGasPrefix.Length..]);
+            if (!Enum.TryParse<Gas>(geneId[SeedDnaGeneEntry.ExudeGasPrefix.Length..], out var gas))
+                return null;
             return seed.ExudeGasses.TryGetValue(gas, out var value) ? value : null;
         }
 
@@ -425,67 +434,78 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
 
         if (geneId.StartsWith(SeedDnaGeneEntry.ConsumeGasPrefix))
         {
-            var gas = Enum.Parse<Gas>(geneId[SeedDnaGeneEntry.ConsumeGasPrefix.Length..]);
+            if (!Enum.TryParse<Gas>(geneId[SeedDnaGeneEntry.ConsumeGasPrefix.Length..], out var gas))
+                return null;
             return diskData.ConsumeGasses != null && diskData.ConsumeGasses.TryGetValue(gas, out var value) ? value : null;
         }
 
         if (geneId.StartsWith(SeedDnaGeneEntry.ExudeGasPrefix))
         {
-            var gas = Enum.Parse<Gas>(geneId[SeedDnaGeneEntry.ExudeGasPrefix.Length..]);
+            if (!Enum.TryParse<Gas>(geneId[SeedDnaGeneEntry.ExudeGasPrefix.Length..], out var gas))
+                return null;
             return diskData.ExudeGasses != null && diskData.ExudeGasses.TryGetValue(gas, out var value) ? value : null;
         }
 
         return GetDtoGeneValue(diskData, geneId);
     }
 
-    private void ApplyGeneToSeed(SeedData seed, string geneId, object value, float maxChemicalsVolume)
+    private bool ApplyGeneToSeed(SeedData seed, string geneId, object value, float maxChemicalsVolume)
     {
         if (geneId.StartsWith(SeedDnaGeneEntry.ChemicalPrefix))
         {
-            var reagentId = geneId[SeedDnaGeneEntry.ChemicalPrefix.Length..];
-            AddChemical(seed, reagentId, (SeedChemQuantityDto)value, maxChemicalsVolume);
-            return;
+            AddChemical(seed, geneId[SeedDnaGeneEntry.ChemicalPrefix.Length..], (SeedChemQuantityDto)value, maxChemicalsVolume);
+            return true;
         }
 
         if (geneId.StartsWith(SeedDnaGeneEntry.ConsumeGasPrefix))
         {
-            seed.ConsumeGasses[Enum.Parse<Gas>(geneId[SeedDnaGeneEntry.ConsumeGasPrefix.Length..])] = (float)value;
-            return;
+            if (!Enum.TryParse<Gas>(geneId[SeedDnaGeneEntry.ConsumeGasPrefix.Length..], out var gas))
+                return false;
+            seed.ConsumeGasses[gas] = (float)value;
+            return true;
         }
 
         if (geneId.StartsWith(SeedDnaGeneEntry.ExudeGasPrefix))
         {
-            seed.ExudeGasses[Enum.Parse<Gas>(geneId[SeedDnaGeneEntry.ExudeGasPrefix.Length..])] = (float)value;
-            return;
+            if (!Enum.TryParse<Gas>(geneId[SeedDnaGeneEntry.ExudeGasPrefix.Length..], out var gas))
+                return false;
+            seed.ExudeGasses[gas] = (float)value;
+            return true;
         }
 
         SetSeedGeneValue(seed, geneId, value);
+        return true;
     }
 
-    private void ApplyGeneToDisk(SeedDataDto diskData, string geneId, object value)
+    private bool ApplyGeneToDisk(SeedDataDto diskData, string geneId, object value)
     {
         if (geneId.StartsWith(SeedDnaGeneEntry.ChemicalPrefix))
         {
             diskData.Chemicals ??= new Dictionary<string, SeedChemQuantityDto>();
             diskData.Chemicals[geneId[SeedDnaGeneEntry.ChemicalPrefix.Length..]] = (SeedChemQuantityDto)value;
-            return;
+            return true;
         }
 
         if (geneId.StartsWith(SeedDnaGeneEntry.ConsumeGasPrefix))
         {
+            if (!Enum.TryParse<Gas>(geneId[SeedDnaGeneEntry.ConsumeGasPrefix.Length..], out var gas))
+                return false;
             diskData.ConsumeGasses ??= new Dictionary<Gas, float>();
-            diskData.ConsumeGasses[Enum.Parse<Gas>(geneId[SeedDnaGeneEntry.ConsumeGasPrefix.Length..])] = (float)value;
-            return;
+            diskData.ConsumeGasses[gas] = (float)value;
+            return true;
         }
 
         if (geneId.StartsWith(SeedDnaGeneEntry.ExudeGasPrefix))
         {
+            if (!Enum.TryParse<Gas>(geneId[SeedDnaGeneEntry.ExudeGasPrefix.Length..], out var gas))
+                return false;
             diskData.ExudeGasses ??= new Dictionary<Gas, float>();
-            diskData.ExudeGasses[Enum.Parse<Gas>(geneId[SeedDnaGeneEntry.ExudeGasPrefix.Length..])] = (float)value;
-            return;
+            diskData.ExudeGasses[gas] = (float)value;
+            return true;
         }
 
         SetDtoGeneValue(diskData, geneId, value);
+        return true;
     }
 
     private static void AddChemical(SeedData seed, string reagentId, SeedChemQuantityDto quantity, float maxVolume)
@@ -494,11 +514,17 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
         if (seed.Chemicals.TryGetValue(reagentId, out var existing))
             currentVolume -= existing.Max.Float();
 
-        while (currentVolume + quantity.Max > maxVolume && seed.Chemicals.Count > 0)
+        while (currentVolume + quantity.Max > maxVolume)
         {
-            var oldestKey = seed.Chemicals.Keys.First();
-            currentVolume -= seed.Chemicals[oldestKey].Max.Float();
-            seed.Chemicals.Remove(oldestKey);
+            var victim = seed.Chemicals
+                .Where(pair => pair.Key != reagentId)
+                .MinBy(pair => pair.Value.Max.Float());
+
+            if (victim.Key == null)
+                break;
+
+            currentVolume -= victim.Value.Max.Float();
+            seed.Chemicals.Remove(victim.Key);
         }
 
         seed.Chemicals[reagentId] = new SeedChemQuantity
@@ -514,9 +540,9 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
     {
         return new SeedChemQuantityDto
         {
-            Min = quantity.Min.Int(),
-            Max = quantity.Max.Int(),
-            PotencyDivisor = (int)quantity.PotencyDivisor,
+            Min = quantity.Min.Float(),
+            Max = quantity.Max.Float(),
+            PotencyDivisor = quantity.PotencyDivisor,
             Inherent = quantity.Inherent,
         };
     }

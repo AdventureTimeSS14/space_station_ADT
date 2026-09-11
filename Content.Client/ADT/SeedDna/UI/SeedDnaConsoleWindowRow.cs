@@ -58,7 +58,7 @@ public sealed partial class SeedDnaConsoleWindowRow : BoxContainer
         }
         else
         {
-            infoButton.Visible = false;
+            infoButton.Disabled = true;
         }
 
         var seedValueLabel = CreateValueLabel(entry.SeedValue);
@@ -67,8 +67,8 @@ public sealed partial class SeedDnaConsoleWindowRow : BoxContainer
         _extractButton = CreateActionButton(Loc.GetString("seed-dna-extract-btn"));
         _replaceButton = CreateActionButton(Loc.GetString("seed-dna-replace-btn"));
 
-        _extractButton.Disabled = entry.SeedValue == null;
-        _replaceButton.Disabled = entry.DiskValue == null;
+        _extractButton.Disabled = entry.LockedTech != null || entry.SeedValue == null;
+        _replaceButton.Disabled = entry.LockedTech != null || entry.DiskValue == null;
 
         if (entry.LockedTech != null)
         {
@@ -138,7 +138,10 @@ public sealed partial class SeedDnaConsoleWindowRow : BoxContainer
     {
         if (entry.Type == SeedDnaGeneType.Chemical)
         {
-            var reagentId = entry.Id[SeedDnaGeneEntry.ChemicalPrefix.Length..];
+            var reagentId = entry.Id.StartsWith(SeedDnaGeneEntry.ChemicalPrefix)
+                ? entry.Id[SeedDnaGeneEntry.ChemicalPrefix.Length..]
+                : entry.Id;
+
             if (_proto.TryIndex<ReagentPrototype>(reagentId, out var reagent))
                 return reagent.LocalizedName;
 
