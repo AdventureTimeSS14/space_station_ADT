@@ -33,7 +33,7 @@ public sealed partial class GrabIntentComponent : Component
     public TimeSpan StageChangeCooldown = TimeSpan.FromSeconds(1f);
 
     [DataField]
-    public TimeSpan GrabCooldown = TimeSpan.FromSeconds(1f);
+    public TimeSpan GrabCooldown = TimeSpan.FromSeconds(0.5f);
 
     [DataField, AutoNetworkedField]
     public TimeSpan NextGrabTime;

@@ -95,9 +95,6 @@ public partial class SharedMartialArtsSystem
         if (comp.LastAttacks.Count > 0 && comp.ResetTime - comp.ComboWindow == _timing.CurTime)
             return;
 
-        if (_timing.CurTime < comp.NextComboPerform)
-            return;
-
         if (comp.ThrottledSteps.Contains(type))
         {
             if (_timing.CurTime < comp.NextThrottledStep)
@@ -155,7 +152,6 @@ public partial class SharedMartialArtsSystem
         comp.BeingPerformed = match.ID;
         RaiseLocalEvent(weapon.Owner, ev);
 
-        comp.NextComboPerform = _timing.CurTime + comp.ComboCooldown;
         comp.LastAttacks.Clear();
         Dirty(weapon);
     }

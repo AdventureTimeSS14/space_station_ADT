@@ -54,12 +54,6 @@ public sealed partial class WeaponMartialArtComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan ResetTime;
 
-    [DataField]
-    public TimeSpan ComboCooldown = TimeSpan.FromSeconds(1);
-
-    [DataField, AutoNetworkedField]
-    public TimeSpan NextComboPerform;
-
     [DataField, AutoNetworkedField]
     public ProtoId<ComboPrototype>? BeingPerformed;
 }
