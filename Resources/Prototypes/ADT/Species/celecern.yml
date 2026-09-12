@@ -1,0 +1,34 @@
+- type: species
+  id: CelecernSpecies
+  name: species-name-celecern
+  roundStart: true
+  prototype: MobCelecern
+  shortDesc: species-short-desc-celecern
+  defaultSkinTone: "#a86a3c"
+  dollPrototype: ADTAppearanceCelecern
+  skinColoration: Hues
+  maleFirstNames: firstMaleCelecern
+  femaleFirstNames: firstFemaleCelecern
+  maleLastNames: lastCelecern
+  femaleLastNames: lastCelecern
+  naming: firstlast
+  category: Unusual
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Celecern.xml"
+  pros:
+  - Получают на 20% меньше урона ядом.
+  - Получают на 15% меньше урона ожогами.
+  - Ходят и бегают немного быстрее аркан.
+  special:
+  - Имеют нестандартные возрастные рамки (Молодые 50-150, Зрелые 151-250, Старые 251-350).
+  - Вместо ног у них копыта.
+  cons:
+  - Получают на 10% больше тупого и колотого урона.
+  - Получают на 10% больше урона порезами.
+  - Получают на 30% больше урона клеточными.
+  defaultLanguages:
+  - GalacticCommon
+  - Arkane
+  minAge: 50
+  maxAge: 350
+  oldAge: 251
+  youngAge: 151

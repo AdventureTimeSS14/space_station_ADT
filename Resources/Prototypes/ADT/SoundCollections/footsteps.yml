@@ -2,3 +2,8 @@
   id: ADTFootstepsSilent
   files:
     - /Audio/ADT/Effects/silence.ogg
+
+- type: soundCollection
+  id: ADTCelecernFootstep
+  files:
+    - /Audio/ADT/Effects/Footsteps/celecern_step1.ogg

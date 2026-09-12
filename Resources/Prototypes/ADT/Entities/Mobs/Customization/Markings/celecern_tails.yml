@@ -1,0 +1,303 @@
+- type: marking
+  id: ADTCelecernTailBase
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: tail
+
+- type: marking
+  id: ADTCelecernTailBaseAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: tail_waggin
+
+- type: marking
+  id: ADTCelecernTailChill
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: chill_tail
+
+- type: marking
+  id: ADTCelecernTailChillAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: chill_tail_waggin
+
+- type: marking
+  id: ADTCelecernTailDouble
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: double_tail
+
+- type: marking
+  id: ADTCelecernTailDoubleAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: double_tail_waggin
+
+- type: marking
+  id: ADTCelecernTailMedium
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: meduim_tail
+
+- type: marking
+  id: ADTCelecernTailMediumAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: meduim_tail_waggin
+
+- type: marking
+  id: ADTCelecernTailMini
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: mini_tail
+
+- type: marking
+  id: ADTCelecernTailMiniAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: mini_tail_waggin
+
+- type: marking
+  id: ADTCelecernTailDoubleChill
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: chill_double_tail
+
+- type: marking
+  id: ADTCelecernTailDoubleChillAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Species/Celecern/parts.rsi
+    state: chill_double_tail_waggin
+
+- type: marking
+  id: ADTCelecernTailCelecern
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: celecern_tail
+
+- type: marking
+  id: ADTCelecernTailCelecernAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: celecern_tail_waggin
+
+- type: marking
+  id: ADTCelecernTailCelecernMedium
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: celecern_tail_medium
+
+- type: marking
+  id: ADTCelecernTailCelecernMediumAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: celecern_tail_medium_waggin
+
+- type: marking
+  id: ADTCelecernTailCelecernChill
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: celecern_chill_tail
+
+- type: marking
+  id: ADTCelecernTailCelecernChillAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: celecern_chill_tail_waggin
+
+- type: marking
+  id: ADTCelecernTailKist
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: kist_tail
+
+- type: marking
+  id: ADTCelecernTailKistAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: kist_tail_waggin
+
+- type: marking
+  id: ADTCelecernTailKistChill
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: kist_chill_tail
+
+- type: marking
+  id: ADTCelecernTailKistChillAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: kist_chill_tail_waggin
+
+- type: marking
+  id: ADTCelecernTailLong
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: long
+
+- type: marking
+  id: ADTCelecernTailLongAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: long_waggin
+
+- type: marking
+  id: ADTCelecernTailLongChill
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: long_chill
+
+- type: marking
+  id: ADTCelecernTailLongChillAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: long_chill_waggin
+
+- type: marking
+  id: ADTCelecernTailLongMedium
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: long_mediun
+
+- type: marking
+  id: ADTCelecernTailLongMediumAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: long_medium_waggin
+
+- type: marking
+  id: ADTCelecernTailUp
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: up
+
+- type: marking
+  id: ADTCelecernTailUpAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/tails_of_celecern.rsi
+    state: up_waggin
+
+- type: marking
+  id: ADTCelecernProtezTailA
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: tail-protez-a
+
+- type: marking
+  id: ADTCelecernProtezTailAAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: tail-protez-a-waggin
+
+- type: marking
+  id: ADTCelecernProtezTailB
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: tail-protez-b
+
+- type: marking
+  id: ADTCelecernProtezTailBAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: tail-protez-b-waggin
+
+- type: marking
+  id: ADTCelecernProtezTailC
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: tail-protez-c
+
+- type: marking
+  id: ADTCelecernProtezTailCAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: tail-protez-c-waggin
+
+- type: marking
+  id: ADTCelecernProtezTailD
+  bodyPart: Tail
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: tail-protez-d
+
+- type: marking
+  id: ADTCelecernProtezTailDAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: tail-protez-d-waggin

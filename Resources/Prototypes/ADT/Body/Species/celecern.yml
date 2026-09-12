@@ -1,0 +1,312 @@
+- type: markingsGroup
+  parent: Undergarments
+  id: Celecern
+  limits:
+    enum.HumanoidVisualLayers.Special:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ ADTCelecernTailBase ]
+    enum.HumanoidVisualLayers.TailOverlay:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Hair:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.Head:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.SnoutCover:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.SnoutOverlay:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 1
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: ADTAppearanceCelecern
+  categories: [ HideSpawnMenu ]
+  name: celecern appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: ADTOrganCelecernTorso
+      Head: ADTOrganCelecernHead
+      ArmLeft: ADTOrganCelecernArmLeft
+      ArmRight: ADTOrganCelecernArmRight
+      HandRight: ADTOrganCelecernHandRight
+      HandLeft: ADTOrganCelecernHandLeft
+      LegLeft: ADTOrganCelecernLegLeft
+      LegRight: ADTOrganCelecernLegRight
+      FootLeft: ADTOrganCelecernFootLeft
+      FootRight: ADTOrganCelecernFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganHumanEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: ADTOrganCelecernHeart
+      Stomach: ADTOrganCelecernStomach
+      Liver: OrganAnimalLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: CelecernSpecies
+  - type: Inventory
+    maleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Celecern/displacement.rsi
+            state: legs
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Celecern/displacement.rsi
+            state: legs
+      shoes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Celecern/displacement.rsi
+            state: legs
+      socks:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Celecern/displacement.rsi
+            state: legs
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Celecern/displacement.rsi
+            state: jumpsuit-female
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Celecern/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Celecern/displacement.rsi
+            state: legs
+      socks:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Celecern/displacement.rsi
+            state: legs
+
+- type: entity
+  save: false
+  name: Celecern
+  parent:
+  - ADTAppearanceCelecern
+  - BaseSpeciesMobOrganic
+  id: MobCelecern
+  components:
+  - type: Wagging
+  - type: Speech
+    speechSounds: Lizard
+  - type: Vocal
+    sounds:
+      Male: ADTCelecernMale
+      Female: ADTCelecernFemale
+      Unsexed: ADTCelecernFemale
+  - type: Damageable
+    damageModifierSet: Celecern
+  - type: Injurable
+    damageContainer: Biological
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.6
+    baseSprintSpeed : 4.7
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: ADTCelecernFootstep
+      params:
+        variation: 0.125
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - ADTCelecernEmotes
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Slash: 2
+        Piercing: 3
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 46
+  - type: TemperatureDamage
+    heatDamageThreshold: 363
+    coldDamageThreshold: 250
+    coldDamage:
+      types:
+        Cold : 0.2
+    heatDamage:
+      types:
+        Heat : 0.1
+  - type: TemperatureSpeed
+    thresholds:
+      285: 0.8
+      248: 0.6
+      220: 0.4
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
+  - type: TypingIndicator
+    proto: ADTcelecern
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      SolCommon: Speak
+      Arkane: Speak
+  - type: SizeAttributeWhitelist
+    tall: true
+    tallscale: 1.08
+    short: true
+    shortscale: 0.92
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: ADTOrganCelecern
+  abstract: true
+  suffix: celecern
+
+- type: entity
+  id: ADTOrganCelecernMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Human, Demon ]
+
+- type: entity
+  id: ADTOrganCelecernVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/Celecern/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Celecern
+
+- type: entity
+  parent: [ ADTOrganCelecern, ADTOrganCelecernVisual ]
+  id: ADTOrganCelecernExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Celecern/parts.rsi
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, ADTOrganCelecernExternal ]
+  id: ADTOrganCelecernTorso
+
+- type: entity
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, ADTOrganCelecernExternal ]
+  id: ADTOrganCelecernHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.SnoutOverlay
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+
+- type: entity
+  parent: [ OrganBaseArmLeft, ADTOrganCelecernExternal ]
+  id: ADTOrganCelecernArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, ADTOrganCelecernExternal ]
+  id: ADTOrganCelecernArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, ADTOrganCelecernExternal ]
+  id: ADTOrganCelecernHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, ADTOrganCelecernExternal ]
+  id: ADTOrganCelecernHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, ADTOrganCelecernExternal ]
+  id: ADTOrganCelecernLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, ADTOrganCelecernExternal ]
+  id: ADTOrganCelecernLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, ADTOrganCelecernExternal ]
+  id: ADTOrganCelecernFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, ADTOrganCelecernExternal ]
+  id: ADTOrganCelecernFootRight
+
+- type: entity
+  parent: [ OrganBaseStomach, ADTOrganCelecernMetabolizer, OrganSpriteHumanInternal ]
+  id: ADTOrganCelecernStomach
+
+- type: entity
+  parent: [ OrganBaseHeart, ADTOrganCelecernMetabolizer, OrganSpriteHumanInternal ]
+  id: ADTOrganCelecernHeart

@@ -17,6 +17,7 @@ public sealed class VisualBodySystem : SharedVisualBodySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly DisplacementMapSystem _displacement = default!;
+    [Dependency] private readonly Content.Client.ADT.Humanoid.MarkingLayerHiderSystem _markingHider = default!; // ADT-Tweak
     [Dependency] private readonly MarkingManager _marking = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
@@ -221,12 +222,20 @@ public sealed class VisualBodySystem : SharedVisualBodySystem
             applied.Add(marking);
         }
         ent.Comp.AppliedMarkings = applied;
+
+        // ADT-Tweak-Start
+        _markingHider.SetHiddenByOrgan(target.Owner, ent.Owner, applied);
+        // ADT-Tweak-End
     }
 
     private void RemoveMarkings(Entity<VisualOrganMarkingsComponent> ent, Entity<SpriteComponent?> target)
     {
         if (!Resolve(target, ref target.Comp))
             return;
+
+        // ADT-Tweak-Start
+        _markingHider.SetHiddenByOrgan(target.Owner, ent.Owner, new());
+        // ADT-Tweak-End
 
         foreach (var marking in ent.Comp.AppliedMarkings)
         {

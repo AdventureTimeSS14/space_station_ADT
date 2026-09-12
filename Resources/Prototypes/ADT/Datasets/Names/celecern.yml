@@ -1,0 +1,17 @@
+- type: localizedDataset
+  id: firstFemaleCelecern
+  values:
+    prefix: firstFemaleCelecern-
+    count: 154
+
+- type: localizedDataset
+  id: firstMaleCelecern
+  values:
+    prefix: firstMaleCelecern-
+    count: 153
+
+- type: localizedDataset
+  id: lastCelecern
+  values:
+    prefix: lastCelecern-
+    count: 148

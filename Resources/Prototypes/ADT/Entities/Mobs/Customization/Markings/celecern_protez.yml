@@ -1,0 +1,463 @@
+- type: marking
+  id: ADTCelecernProtezArmLeftA
+  bodyPart: LArm
+  groupWhitelist: [Celecern]
+  hidesLayers: [LArm]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: l_arm-protez-a
+
+- type: marking
+  id: ADTCelecernProtezArmLeftB
+  bodyPart: LArm
+  groupWhitelist: [Celecern]
+  hidesLayers: [LArm]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: l_arm-protez-b
+
+- type: marking
+  id: ADTCelecernProtezArmLeftC
+  bodyPart: LArm
+  groupWhitelist: [Celecern]
+  hidesLayers: [LArm]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: l_arm-protez-c
+
+- type: marking
+  id: ADTCelecernProtezArmLeftD
+  bodyPart: LArm
+  groupWhitelist: [Celecern]
+  hidesLayers: [LArm]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: l_arm-protez-d
+
+- type: marking
+  id: ADTCelecernProtezArmRightA
+  bodyPart: RArm
+  groupWhitelist: [Celecern]
+  hidesLayers: [RArm]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: r_arm-protez-a
+
+- type: marking
+  id: ADTCelecernProtezArmRightB
+  bodyPart: RArm
+  groupWhitelist: [Celecern]
+  hidesLayers: [RArm]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: r_arm-protez-b
+
+- type: marking
+  id: ADTCelecernProtezArmRightC
+  bodyPart: RArm
+  groupWhitelist: [Celecern]
+  hidesLayers: [RArm]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: r_arm-protez-c
+
+- type: marking
+  id: ADTCelecernProtezArmRightD
+  bodyPart: RArm
+  groupWhitelist: [Celecern]
+  hidesLayers: [RArm]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: r_arm-protez-d
+
+- type: marking
+  id: ADTCelecernProtezHandLeftA
+  bodyPart: LHand
+  groupWhitelist: [Celecern]
+  hidesLayers: [LHand]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: l_hand-protez-a
+
+- type: marking
+  id: ADTCelecernProtezHandLeftB
+  bodyPart: LHand
+  groupWhitelist: [Celecern]
+  hidesLayers: [LHand]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: l_hand-protez-b
+
+- type: marking
+  id: ADTCelecernProtezHandLeftC
+  bodyPart: LHand
+  groupWhitelist: [Celecern]
+  hidesLayers: [LHand]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: l_hand-protez-c
+
+- type: marking
+  id: ADTCelecernProtezHandLeftD
+  bodyPart: LHand
+  groupWhitelist: [Celecern]
+  hidesLayers: [LHand]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: l_hand-protez-d
+
+- type: marking
+  id: ADTCelecernProtezHandRightA
+  bodyPart: RHand
+  groupWhitelist: [Celecern]
+  hidesLayers: [RHand]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: r_hand-protez-a
+
+- type: marking
+  id: ADTCelecernProtezHandRightB
+  bodyPart: RHand
+  groupWhitelist: [Celecern]
+  hidesLayers: [RHand]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: r_hand-protez-b
+
+- type: marking
+  id: ADTCelecernProtezHandRightC
+  bodyPart: RHand
+  groupWhitelist: [Celecern]
+  hidesLayers: [RHand]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: r_hand-protez-c
+
+- type: marking
+  id: ADTCelecernProtezHandRightD
+  bodyPart: RHand
+  groupWhitelist: [Celecern]
+  hidesLayers: [RHand]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: r_hand-protez-d
+
+- type: marking
+  id: ADTCelecernProtezLegLeftA
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  hidesLayers: [LLeg]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: l_leg-protez-a
+
+- type: marking
+  id: ADTCelecernProtezLegLeftB
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  hidesLayers: [LLeg]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: l_leg-protez-b
+
+- type: marking
+  id: ADTCelecernProtezLegLeftC
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  hidesLayers: [LLeg]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: l_leg-protez-c
+
+- type: marking
+  id: ADTCelecernProtezLegLeftD
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  hidesLayers: [LLeg]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: l_leg-protez-d
+
+- type: marking
+  id: ADTCelecernProtezLegRightA
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  hidesLayers: [RLeg]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: r_leg-protez-a
+
+- type: marking
+  id: ADTCelecernProtezLegRightB
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  hidesLayers: [RLeg]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: r_leg-protez-b
+
+- type: marking
+  id: ADTCelecernProtezLegRightC
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  hidesLayers: [RLeg]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: r_leg-protez-c
+
+- type: marking
+  id: ADTCelecernProtezLegRightD
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  hidesLayers: [RLeg]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: r_leg-protez-d
+
+- type: marking
+  id: ADTCelecernProtezHoofLeftA
+  bodyPart: LFoot
+  groupWhitelist: [Celecern]
+  hidesLayers: [LFoot]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: l_foot-protez-a
+
+- type: marking
+  id: ADTCelecernProtezHoofLeftB
+  bodyPart: LFoot
+  groupWhitelist: [Celecern]
+  hidesLayers: [LFoot]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: l_foot-protez-b
+
+- type: marking
+  id: ADTCelecernProtezHoofLeftC
+  bodyPart: LFoot
+  groupWhitelist: [Celecern]
+  hidesLayers: [LFoot]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: l_foot-protez-c
+
+- type: marking
+  id: ADTCelecernProtezHoofLeftD
+  bodyPart: LFoot
+  groupWhitelist: [Celecern]
+  hidesLayers: [LFoot]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: l_foot-protez-d
+
+- type: marking
+  id: ADTCelecernProtezHoofRightA
+  bodyPart: RFoot
+  groupWhitelist: [Celecern]
+  hidesLayers: [RFoot]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: r_foot-protez-a
+
+- type: marking
+  id: ADTCelecernProtezHoofRightB
+  bodyPart: RFoot
+  groupWhitelist: [Celecern]
+  hidesLayers: [RFoot]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: r_foot-protez-b
+
+- type: marking
+  id: ADTCelecernProtezHoofRightC
+  bodyPart: RFoot
+  groupWhitelist: [Celecern]
+  hidesLayers: [RFoot]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: r_foot-protez-c
+
+- type: marking
+  id: ADTCelecernProtezHoofRightD
+  bodyPart: RFoot
+  groupWhitelist: [Celecern]
+  hidesLayers: [RFoot]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: r_foot-protez-d
+
+- type: marking
+  id: ADTCelecernProtezChestA
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-chest-a
+
+- type: marking
+  id: ADTCelecernProtezHipsAMale
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sexRestriction: [Male]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-a_m
+
+- type: marking
+  id: ADTCelecernProtezFullBodyAMale
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sexRestriction: [Male]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-full-body-a_m
+
+- type: marking
+  id: ADTCelecernProtezHipsAFemale
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sexRestriction: [Female]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-a_f
+
+- type: marking
+  id: ADTCelecernProtezFullBodyAFemale
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sexRestriction: [Female]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-full-body-a_f
+
+- type: marking
+  id: ADTCelecernProtezChestB
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-chest-b
+
+- type: marking
+  id: ADTCelecernProtezHipsBMale
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sexRestriction: [Male]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-b_m
+
+- type: marking
+  id: ADTCelecernProtezFullBodyBMale
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sexRestriction: [Male]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-full-body-b_m
+
+- type: marking
+  id: ADTCelecernProtezHipsBFemale
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sexRestriction: [Female]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-b_f
+
+- type: marking
+  id: ADTCelecernProtezFullBodyBFemale
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sexRestriction: [Female]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-full-body-b_f
+
+- type: marking
+  id: ADTCelecernProtezChestC
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-chest-c
+
+- type: marking
+  id: ADTCelecernProtezHipsCMale
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sexRestriction: [Male]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-c_m
+
+- type: marking
+  id: ADTCelecernProtezFullBodyCMale
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sexRestriction: [Male]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-full-body-c_m
+
+- type: marking
+  id: ADTCelecernProtezHipsCFemale
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sexRestriction: [Female]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-c_f
+
+- type: marking
+  id: ADTCelecernProtezFullBodyCFemale
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sexRestriction: [Female]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-full-body-c_f
+
+- type: marking
+  id: ADTCelecernProtezChestD
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-chest-d
+
+- type: marking
+  id: ADTCelecernProtezHipsDMale
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sexRestriction: [Male]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-d_m
+
+- type: marking
+  id: ADTCelecernProtezFullBodyDMale
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sexRestriction: [Male]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-full-body-d_m
+
+- type: marking
+  id: ADTCelecernProtezHipsDFemale
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sexRestriction: [Female]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-d_f
+
+- type: marking
+  id: ADTCelecernProtezFullBodyDFemale
+  bodyPart: Chest
+  groupWhitelist: [Celecern]
+  sexRestriction: [Female]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/protez.rsi
+    state: protez-full-body-d_f
