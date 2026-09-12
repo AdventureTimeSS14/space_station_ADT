@@ -357,6 +357,7 @@
       reagents:
       - ReagentId: Water
         Quantity: 100
+    canBeIVDripped: false # ADT-Tweak
   - type: StatusEffects
     allowed:
     - Electrocution

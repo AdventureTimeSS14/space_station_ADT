@@ -32,6 +32,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using Content.Server.Speech.Components;
+using Content.Shared.Zombies;
 using System.Linq;
 
 namespace Content.Server.ADT.Xenobiology.Systems;
@@ -229,6 +230,9 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (args.Handled || args.Cancelled)
             return;
 
+        if (!CanLatch(ent, target))
+            return;
+
         Latch(ent, target);
         args.Handled = true;
     }
@@ -316,6 +320,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
     public bool CanLatch(Entity<SlimeComponent> ent, EntityUid target)
     {
         return !(IsLatched(ent)
+            || HasComp<ZombieComponent>(ent)
             || _mobState.IsDead(target)
             || !_actionBlocker.CanInteract(ent, target)
             || !HasComp<MobStateComponent>(target)

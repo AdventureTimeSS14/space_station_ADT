@@ -151,6 +151,9 @@ public partial class SharedMartialArtsSystem
 
         comp.BeingPerformed = match.ID;
         RaiseLocalEvent(weapon.Owner, ev);
+
+        comp.LastAttacks.Clear();
+        Dirty(weapon);
     }
 
     public void ResetWeaponCombo(Entity<WeaponMartialArtComponent> weapon, bool popup, EntityUid? user = null)

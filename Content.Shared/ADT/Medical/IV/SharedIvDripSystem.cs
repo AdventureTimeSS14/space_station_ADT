@@ -133,7 +133,8 @@ public abstract class SharedIvDripSystem : EntitySystem
     private void OnIVDripCanDropDragged(Entity<IVDripComponent> iv, ref CanDropDraggedEvent args)
     {
         // TODO CM14 check for BloodstreamComponent instead of MarineComponent
-        if (HasComp<BloodstreamComponent>(args.Target) && InRange(iv, args.Target))
+        if (TryComp<BloodstreamComponent>(args.Target, out var bloodstream) &&
+            bloodstream.CanBeIVDripped && InRange(iv, args.Target))
         {
             args.Handled = true;
             args.CanDrop = true;
@@ -144,7 +145,8 @@ public abstract class SharedIvDripSystem : EntitySystem
     private void OnMarineCanDropTarget(Entity<BloodstreamComponent> marine, ref CanDropTargetEvent args)
     {
         var iv = args.Dragged;
-        if (TryComp(iv, out IVDripComponent? ivComp) && InRange((iv, ivComp), marine))
+        if (TryComp(iv, out IVDripComponent? ivComp) &&
+            InRange((iv, ivComp), marine) && marine.Comp.CanBeIVDripped)
         {
             args.Handled = true;
             args.CanDrop = true;
@@ -210,6 +212,12 @@ public abstract class SharedIvDripSystem : EntitySystem
 
         if (!InRange(iv, to))
             return;
+
+        if (TryComp(to, out BloodstreamComponent? bloodstream) && !bloodstream.CanBeIVDripped)
+        {
+            _popup.PopupClient(Loc.GetString("cm-iv-attach-fail"), to, user);
+            return;
+        }
 
         var toDetach = new List<Entity<IVDripComponent>>();
         var query = EntityQueryEnumerator<IVDripComponent>();
