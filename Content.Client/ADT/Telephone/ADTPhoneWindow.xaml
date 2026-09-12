@@ -1,0 +1,38 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+            Title="{Loc 'adt-phone-window-title'}"
+            SetSize="320 420"
+            MinSize="280 320">
+    <BoxContainer Orientation="Vertical" Margin="4">
+        <LineEdit Name="SearchBar"
+                  Access="Public"
+                  PlaceHolder="{Loc 'adt-phone-search'}"
+                  HorizontalExpand="True"
+                  MinSize="0 32"/>
+        <ScrollContainer HScrollEnabled="False"
+                         VerticalExpand="True"
+                         MinSize="0 200"
+                         Margin="0 4">
+            <BoxContainer Name="PhonesList"
+                          Access="Public"
+                          Orientation="Vertical"
+                          HorizontalExpand="True"/>
+        </ScrollContainer>
+        <BoxContainer Orientation="Horizontal">
+            <Button Name="AnswerButton"
+                    Access="Public"
+                    Text="{Loc 'adt-phone-answer'}"
+                    HorizontalExpand="True"
+                    StyleClasses="OpenRight"/>
+            <Button Name="HangUpButton"
+                    Access="Public"
+                    Text="{Loc 'adt-phone-hang-up'}"
+                    HorizontalExpand="True"
+                    StyleClasses="OpenBoth"/>
+        </BoxContainer>
+        <Button Name="DoNotDisturbButton"
+                Access="Public"
+                Text="{Loc 'adt-phone-do-not-disturb-off'}"
+                HorizontalExpand="True"
+                Margin="0 4 0 0"/>
+    </BoxContainer>
+</DefaultWindow>
