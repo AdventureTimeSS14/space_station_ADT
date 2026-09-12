@@ -48,10 +48,14 @@
           Blunt: 1
           Slash: 1
           Piercing: 1
+      passiveBlockFraction: 0.75
     - type: ClothingSpeedModifier
-      walkModifier: 1
-      sprintModifier: 0.6
+      walkModifier: 0.95
+      sprintModifier: 0.85
     - type: HeldSpeedModifier
+      mirrorClothingModifier: false
+      walkModifier: 0.8
+      sprintModifier: 0.6
     - type: Destructible
       thresholds:
         - trigger:
