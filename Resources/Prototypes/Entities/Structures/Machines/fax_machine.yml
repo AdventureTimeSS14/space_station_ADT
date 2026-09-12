@@ -89,6 +89,7 @@
     notifyAdmins: true
     receiveNukeCodes: true # ADT-NukeCodes
     receiveStationGoal: true # Corvax-StationGoal
+    receiveAllStationGoals: true # ADT-StationGoal
 
 - type: entity
   parent: FaxMachineBase
