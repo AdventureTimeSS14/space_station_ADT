@@ -15,6 +15,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.ADT.Areas;
 using Content.Shared.ADT.MartialArts;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.StatusIcon;
@@ -30,6 +31,9 @@ public abstract partial class GrantMartialArtKnowledgeComponent : Component
 
     [DataField]
     public virtual LocId? LearnMessage { get; set; } = null;
+
+    [DataField]
+    public List<EntProtoId<AreaComponent>>? AllowedAreas;
 
     [DataField]
     public bool MultiUse;
