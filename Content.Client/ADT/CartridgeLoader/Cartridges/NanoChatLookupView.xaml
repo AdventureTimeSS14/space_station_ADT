@@ -4,12 +4,70 @@
     HorizontalExpand="True"
     VerticalExpand="True"
     StyleClasses="AngleRect">
-    <ScrollContainer Margin="-10"
-                     VerticalExpand="True"
-                     HorizontalExpand="True">
-        <BoxContainer Name="ContactsList"
+    <BoxContainer Orientation="Vertical"
+                  VerticalExpand="True"
+                  HorizontalExpand="True"
+                  Margin="6">
+        <!-- Поиск по имени или номеру -->
+        <PanelContainer StyleClasses="ButtonSquare"
+                        Margin="0 4 0 0">
+            <LineEdit Name="SearchInput"
+                      PlaceHolder="{Loc nano-chat-search-placeholder}" />
+        </PanelContainer>
+
+        <!-- Инлайн-создание группы: поле имени и публичность -->
+        <BoxContainer Name="CreateGroupPanel"
                       Orientation="Vertical"
-                      VerticalExpand="True"
-                      HorizontalExpand="True" />
-    </ScrollContainer>
+                      Visible="False"
+                      Margin="0 6 0 0">
+            <Label Text="{Loc nano-chat-group-name-label}"
+                   StyleClasses="LabelHeading" />
+            <PanelContainer StyleClasses="ButtonSquare">
+                <LineEdit Name="GroupNameInput"
+                          PlaceHolder="{Loc nano-chat-group-name-placeholder}" />
+            </PanelContainer>
+            <CheckBox Name="PublicCheck"
+                      Text="{Loc nano-chat-group-public}"
+                      Margin="0 4" />
+        </BoxContainer>
+
+        <ScrollContainer VerticalExpand="True"
+                         HorizontalExpand="True"
+                         Margin="0 4 0 0">
+            <BoxContainer Name="ContactsList"
+                          Orientation="Vertical"
+                          VerticalExpand="True"
+                          HorizontalExpand="True" />
+        </ScrollContainer>
+
+        <!-- Кнопка создания группы; в режиме создания замещается Отменить/Создать -->
+        <BoxContainer Name="CreateGroupButtons"
+                      Orientation="Horizontal"
+                      HorizontalExpand="True"
+                      Margin="0 6 0 0">
+            <Button Name="CreateGroupButton"
+                    Text="{Loc nano-chat-create-group}"
+                    HorizontalExpand="True"
+                    MinHeight="28"
+                    StyleClasses="OpenBoth" />
+        </BoxContainer>
+        <BoxContainer Name="ConfirmGroupButtons"
+                      Orientation="Horizontal"
+                      HorizontalExpand="True"
+                      Visible="False"
+                      Margin="0 6 0 0">
+            <Button Name="CancelCreateButton"
+                    Text="{Loc nano-chat-cancel}"
+                    HorizontalExpand="True"
+                    MinHeight="28"
+                    StyleClasses="OpenRight" />
+            <Button Name="ConfirmCreateButton"
+                    Text="{Loc nano-chat-create}"
+                    HorizontalExpand="True"
+                    MinHeight="28"
+                    Margin="4 0 0 0"
+                    StyleClasses="OpenLeft"
+                    Disabled="True" />
+        </BoxContainer>
+    </BoxContainer>
 </cartridges:NanoChatLookupView>

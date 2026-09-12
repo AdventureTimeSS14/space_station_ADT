@@ -33,6 +33,24 @@ public sealed partial class NanoChatCardComponent : Component
     public uint? CurrentChat;
 
     /// <summary>
+    ///     All group chats this card is a member of, keyed by group number.
+    /// </summary>
+    [DataField]
+    public Dictionary<uint, NanoChatGroup> Groups = new();
+
+    /// <summary>
+    ///     All group chat messages stored on this card, keyed by group number.
+    /// </summary>
+    [DataField]
+    public Dictionary<uint, List<NanoChatMessage>> GroupMessages = new();
+
+    /// <summary>
+    ///     Pending group invitations stored on this card, keyed by group number.
+    /// </summary>
+    [DataField]
+    public Dictionary<uint, NanoChatGroupInvite> Invites = new();
+
+    /// <summary>
     ///     The maximum amount of recipients this card supports.
     /// </summary>
     [DataField]

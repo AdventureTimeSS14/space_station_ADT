@@ -1,0 +1,76 @@
+nano-chat-program-name = NanoMax
+nano-chat-title = NanoMax
+nano-chat-new-chat = New chat
+nano-chat-contacts = CONTACTS
+nano-chat-no-chats = No active chats
+nano-chat-select-chat = Select a chat to start
+nano-chat-message-placeholder = Start typing...
+nano-chat-send = Send
+nano-chat-delete = Delete
+nano-chat-loading = Loading...
+nano-chat-message-too-long = Message is too long ({ $current } of { $max } max characters)
+nano-chat-new-message-title = Message from { $sender }
+nano-chat-new-message-body = { $message }
+nano-chat-toggle-mute = Mute notifications
+nano-chat-delivery-failed = Delivery failed
+nano-chat-look-up-no-server = Could not find telecomms server
+nano-chat-look-up = Look up numbers
+nano-chat-cancel = Cancel
+nano-chat-create = Create
+nano-chat-contacts-tab = Contacts
+nano-chat-groups-tab = Groups
+nano-chat-invites-tab = Invites
+nano-chat-create-group = Create group
+nano-chat-group-name-label = Group name
+nano-chat-group-name-placeholder = Enter group name
+nano-chat-group-public = Public (join without an invite)
+nano-chat-group-select-members = Select members
+nano-chat-group-members-count = { $count } { $count ->
+    [one] member
+   *[other] members
+}
+nano-chat-group-members = Members
+nano-chat-group-invite = Invite
+nano-chat-group-invite-placeholder = Enter number
+nano-chat-group-leave = Leave group
+nano-chat-group-leave-owner = Leave (transfer ownership)
+nano-chat-group-delete = Delete group
+nano-chat-group-kick = Kick
+nano-chat-group-join = Join
+nano-chat-group-accept = Accept
+nano-chat-group-decline = Decline
+nano-chat-group-no-groups = No public groups
+nano-chat-group-no-invites = No invites
+nano-chat-group-unknown-owner = Unknown
+nano-chat-group-info = { $name } | Owner: { $owner } | { $count } members
+nano-chat-group-invite-info = Group: { $group } | From: { $from }
+nano-chat-group-message-title = Group { $group }
+nano-chat-group-invite-title = Invite to group { $group }
+nano-chat-group-invite-body = From { $from }
+nano-chat-group-added-title = You were added to group { $group }
+nano-chat-group-joined-title = You joined group { $group }
+nano-chat-group-kicked-title = You were kicked from group { $group }
+nano-chat-group-deleted-title = Group { $group } was deleted
+nano-chat-group-owner-title = You are now the owner of group { $group }
+nano-chat-group-full = Group { $group } is full
+log-probe-groups = { $count } Groups
+log-probe-group-format = Group: { $group } | Owner: { $owner } | { $count } members
+
+nano-chat-public-group-info = { $count } members | Owner: { $owner }
+nano-chat-invite-row = Invite from { $from }
+nano-chat-invites-section = INVITES
+nano-chat-public-groups-section = PUBLIC GROUPS
+
+nano-chat-back = Back
+nano-chat-search-placeholder = Search by name or number
+nano-chat-search-no-results = Nothing found
+nano-chat-search-number-not-found = Number #{ $number } not found in the list
+
+log-probe-scan-nanochat = Scanned NanoMax logs { $card }
+log-probe-header-access = Access log scanner
+log-probe-header-nanochat = NanoMax log scanner
+log-probe-label-message = Message
+log-probe-card-number = Card: { $number }
+log-probe-recipients = { $count } Recipients
+log-probe-recipient-list = Known Recipients:
+log-probe-message-format = { $sender } → { $recipient }: { $content }
