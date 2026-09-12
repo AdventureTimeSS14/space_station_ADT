@@ -206,8 +206,8 @@ public sealed class RMCMapSystem : EntitySystem
 
         var tileSize = grid.TileSize;
         var localPos = _transform.WithEntityId(coordinates, gridId.Value).Position;
-        var x = (int) Math.Floor(localPos.X / tileSize) + tileSize / 2f;
-        var y = (int) Math.Floor(localPos.Y / tileSize) + tileSize / 2f;
+        var x = (int) Math.Floor(localPos.X / tileSize) * tileSize + tileSize / 2f;
+        var y = (int) Math.Floor(localPos.Y / tileSize) * tileSize + tileSize / 2f;
         var gridPos = new EntityCoordinates(gridId.Value, new Vector2(x, y));
         return _transform.WithEntityId(gridPos, coordinates.EntityId);
     }

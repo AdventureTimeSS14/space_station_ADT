@@ -54,8 +54,12 @@ public sealed class LineSystem : EntitySystem
         if (!start.TryDistance(EntityManager, _transform, end, out var distance))
             return tiles;
 
+        if (distance <= 0)
+            return tiles;
+
+        var steps = distance;
         if (range != null)
-            distance = Math.Min(range.Value, distance);
+            steps = Math.Min(range.Value, distance);
 
         var distanceX = end.X - start.X;
         var distanceY = end.Y - start.Y;
@@ -69,7 +73,7 @@ public sealed class LineSystem : EntitySystem
         Entity<MapGridComponent>? grid = gridComp == null ? null : new Entity<MapGridComponent>(gridId!.Value, gridComp);
         var lastCoords = start;
 
-        for (var i = 0; i < distance; i++)
+        for (var i = 0; i < steps; i++)
         {
             x += xOffset;
             y += yOffset;

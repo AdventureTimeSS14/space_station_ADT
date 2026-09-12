@@ -68,6 +68,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
     private EntityQuery<RMCIgniteOnCollideComponent> _igniteOnCollideQuery;
     private EntityQuery<ProjectileComponent> _projectileQuery;
     private EntityQuery<TileFireComponent> _tileFireQuery;
+    private EntityQuery<TileFireBurnAnchoredComponent> _tileFireBurnAnchoredQuery;
     private EntityQuery<InventoryComponent> _inventoryQuery;
 
     private readonly TileFireSchedule _tileFireSchedule = new();
@@ -76,6 +77,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
     private readonly List<EntityUid> _pendingExtinguish = new();
     private readonly List<EntityUid> _pendingExtinguishTile = new();
     private readonly HashSet<EntityUid> _contacts = new();
+    private readonly List<EntityUid> _burnTargets = new();
 
     public override void Initialize()
     {
@@ -85,6 +87,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
         _igniteOnCollideQuery = GetEntityQuery<RMCIgniteOnCollideComponent>();
         _projectileQuery = GetEntityQuery<ProjectileComponent>();
         _tileFireQuery = GetEntityQuery<TileFireComponent>();
+        _tileFireBurnAnchoredQuery = GetEntityQuery<TileFireBurnAnchoredComponent>();
         _inventoryQuery = GetEntityQuery<InventoryComponent>();
 
         SubscribeLocalEvent<IgniteOnProjectileHitComponent, ProjectileHitEvent>(OnIgniteOnProjectileHit);
@@ -252,7 +255,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
         var molotov = Spawn(ent.Comp.Spawns, coords);
 
         var tileFire = EnsureComp<TileFireOnTriggerComponent>(molotov);
-        tileFire.Duration = intensity.Int();
+        tileFire.Intensity = intensity.Int();
         Dirty(molotov, tileFire);
 
         Del(ent.Owner);
@@ -263,6 +266,9 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
 
     private void OnIgniteCollide(Entity<RMCIgniteOnCollideComponent> ent, ref StartCollideEvent args)
     {
+        if (_net.IsClient)
+            return;
+
         TryIgnite(ent, args.OtherEntity, false);
     }
 
@@ -816,7 +822,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
         return TileFireVisuals.Three;
     }
 
-    private static TimeSpan GetNextTileFireEvent(TileFireComponent fire, TimeSpan time)
+    private static TimeSpan GetNextTileFireEvent(TileFireComponent fire, TimeSpan time, TimeSpan? burnAt)
     {
         var despawnAt = fire.SpawnedAt + fire.Duration;
         var next = despawnAt;
@@ -824,6 +830,9 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
         Consider(fire.SpawnedAt + fire.BigFireDuration);
         Consider(despawnAt - fire.Duration * 0.66);
         Consider(despawnAt - fire.Duration * 0.33);
+
+        if (burnAt != null)
+            Consider(burnAt.Value);
 
         return next;
 
@@ -847,7 +856,10 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
             return;
         }
 
-        if (!ent.Comp.BurnsInVacuum && timeLeft > ent.Comp.VacuumDuration && !HasOxygen(ent.Owner))
+        if (!ent.Comp.BurnsInVacuum &&
+            timeLeft > ent.Comp.VacuumDuration &&
+            !HasOxygen(ent.Owner) &&
+            !HasBurnTarget(ent.Owner))
         {
             ent.Comp.Duration -= timeLeft - ent.Comp.VacuumDuration;
             Dirty(ent);
@@ -860,9 +872,65 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
             _appearance.SetData(ent.Owner, TileFireLayers.Base, visual);
         }
 
-        var next = GetNextTileFireEvent(ent.Comp, time);
+        var burnAt = BurnAnchored(ent.Owner, time);
+        var next = GetNextTileFireEvent(ent.Comp, time, burnAt);
         ent.Comp.ScheduledAt = next;
         _tileFireSchedule.Enqueue(ent.Owner, next);
+    }
+
+    private TimeSpan? BurnAnchored(EntityUid fire, TimeSpan time)
+    {
+        if (!_tileFireBurnAnchoredQuery.TryComp(fire, out var burn))
+            return null;
+
+        if (time < burn.NextBurnAt)
+            return burn.NextBurnAt;
+
+        var delay = burn.Delay;
+        if (delay <= TimeSpan.Zero)
+            delay = TimeSpan.FromSeconds(1);
+
+        burn.NextBurnAt = time + delay;
+
+        GatherBurnTargets(fire, burn);
+        foreach (var target in _burnTargets)
+        {
+            _damageable.TryChangeDamage(target, burn.Damage);
+        }
+
+        _burnTargets.Clear();
+        return burn.NextBurnAt;
+    }
+
+    private bool HasBurnTarget(EntityUid fire)
+    {
+        if (!_tileFireBurnAnchoredQuery.TryComp(fire, out var burn))
+            return false;
+
+        GatherBurnTargets(fire, burn);
+        var any = _burnTargets.Count > 0;
+        _burnTargets.Clear();
+
+        return any;
+    }
+
+    private void GatherBurnTargets(EntityUid fire, TileFireBurnAnchoredComponent burn)
+    {
+        _burnTargets.Clear();
+        if (burn.Whitelist == null)
+            return;
+
+        var anchored = _rmcMap.GetAnchoredEntitiesEnumerator(fire);
+        while (anchored.MoveNext(out var uid))
+        {
+            if (uid == fire)
+                continue;
+
+            if (!_entityWhitelist.IsWhitelistPass(burn.Whitelist, uid))
+                continue;
+
+            _burnTargets.Add(uid);
+        }
     }
 
     private void ProcessTileFireSchedule()

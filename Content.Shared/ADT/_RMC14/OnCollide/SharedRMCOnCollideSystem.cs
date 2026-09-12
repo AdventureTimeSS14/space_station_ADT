@@ -40,6 +40,10 @@ public sealed class SharedRMCOnCollideSystem : EntitySystem
 
     private void OnStartup(Entity<RMCDamageOnCollideComponent> ent, ref ComponentStartup args)
     {
+        // Обработка отложенных сущностей идёт только на сервере, на клиенте список бы просто копил мусор.
+        if (_net.IsClient)
+            return;
+
         _pending.Add(ent.Owner);
     }
 
@@ -66,6 +70,9 @@ public sealed class SharedRMCOnCollideSystem : EntitySystem
 
     private void OnCollide(Entity<RMCDamageOnCollideComponent> ent, EntityUid other)
     {
+        if (_net.IsClient)
+            return;
+
         if (ent.Comp.Disabled)
             return;
 

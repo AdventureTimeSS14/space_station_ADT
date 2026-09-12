@@ -47,6 +47,13 @@
       types:
         Heat: 45
     ignoreResistances: false
+  - type: TileFireBurnAnchored
+    damage:
+      types:
+        Heat: 2
+    whitelist:
+      components:
+      - BlobTile
   - type: TileFire
     id: RMCTileFire
     extinguishInstantly: true
@@ -80,6 +87,10 @@
       types:
         Heat: 15
     ignoreResistances: false
+  - type: TileFireBurnAnchored
+    damage:
+      types:
+        Heat: 1
   - type: TileFire
     id: RMCTileFireWeak
     extinguishInstantly: true
@@ -99,6 +110,10 @@
       state: green_4
   - type: TileFire
     duration: 30
+  - type: TileFireBurnAnchored
+    damage:
+      types:
+        Heat: 1.5
   - type: RMCIgniteOnCollide
     maxStacks: 10
     tileDamage:
@@ -140,6 +155,10 @@
     layers:
     - map: [ "base" ]
       state: blue_4
+  - type: TileFireBurnAnchored
+    damage:
+      types:
+        Heat: 4
   - type: TileFire
     duration: 10
     burnsInVacuum: true

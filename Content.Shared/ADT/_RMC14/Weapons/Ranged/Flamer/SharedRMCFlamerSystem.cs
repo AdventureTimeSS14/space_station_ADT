@@ -54,6 +54,7 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
 
         SubscribeLocalEvent<RMCFlamerTankComponent, BeforeRangedInteractEvent>(OnFlamerTankBeforeRangedInteract);
         SubscribeLocalEvent<RMCFlamerTankComponent, ExaminedEvent>(OnFlamerTankExamined);
+        SubscribeLocalEvent<RMCFlamerTankComponent, SolutionContainerChangedEvent>(OnFlamerTankSolutionChanged);
 
         SubscribeLocalEvent<RMCIgniterComponent, MapInitEvent>(OnIgniterMapInit, after: new[] { typeof(SharedSolutionContainerSystem) });
         SubscribeLocalEvent<RMCIgniterComponent, UniqueActionEvent>(OnIgniterUniqueAction);
@@ -167,6 +168,31 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
             args.PushMarkup(Loc.GetString("rmc-flamer-tank-examine-duration", ("value", tank.Comp.MaxDuration)));
             args.PushMarkup(Loc.GetString("rmc-flamer-tank-examine-range", ("value", tank.Comp.MaxRange)));
         }
+    }
+
+    private void OnFlamerTankSolutionChanged(Entity<RMCFlamerTankComponent> tank, ref SolutionContainerChangedEvent args)
+    {
+        if (args.SolutionId != tank.Comp.SolutionId)
+            return;
+
+        UpdateTankHolderAppearance(tank);
+    }
+
+    private void UpdateTankHolderAppearance(EntityUid tank)
+    {
+        if (TryComp(tank, out RMCFlamerAmmoProviderComponent? own))
+            UpdateAppearance((tank, own));
+
+        if (!_container.TryGetContainingContainer((tank, null, null), out var container))
+            return;
+
+        if (!TryComp(container.Owner, out RMCFlamerAmmoProviderComponent? holder) ||
+            container.ID != holder.ContainerId)
+        {
+            return;
+        }
+
+        UpdateAppearance((container.Owner, holder));
     }
 
     private void OnIgniterMapInit(Entity<RMCIgniterComponent> ent, ref MapInitEvent args)
@@ -325,7 +351,10 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
             return false;
 
         var range = Math.Min((volume / flamer.Comp.CostPer).Int(), maxRange);
-        if (delta.Length() > maxRange)
+        if (range <= 0)
+            return false;
+
+        if (delta.Length() > range)
             toMap = fromMap.Offset(normalized * range);
 
         fromCoordinates = _transform.ToCoordinates(fromCoordinates.EntityId, fromMap);
@@ -333,7 +362,7 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
 
         fromCoordinates = _rmcMap.SnapToGrid(fromCoordinates);
 
-        tiles = _line.DrawLine(fromCoordinates, toCoordinates, flamer.Comp.DelayPer, maxRange, out _, true, reagent.FireSpread);
+        tiles = _line.DrawLine(fromCoordinates, toCoordinates, flamer.Comp.DelayPer, range, out _, true, reagent.FireSpread);
 
         if (tiles.Count > 0)
             tiles.RemoveAt(0);
@@ -409,8 +438,11 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
             targetSolutionEnt,
             tankSolution.AvailableVolume);
 
-        if (_solutionTransfer.Transfer(data) > FixedPoint2.Zero)
-            _popup.PopupClient(Loc.GetString("rmc-flamer-refill", ("refilled", target.Owner)), source, user);
+        if (_solutionTransfer.Transfer(data) <= FixedPoint2.Zero)
+            return;
+
+        _popup.PopupClient(Loc.GetString("rmc-flamer-refill", ("refilled", target.Owner)), source, user);
+        UpdateTankHolderAppearance(target);
     }
 
     private void OnFlamerChainShutdown(Entity<RMCFlamerChainComponent> ent, ref ComponentShutdown args)
