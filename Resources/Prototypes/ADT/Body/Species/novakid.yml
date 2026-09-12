@@ -147,7 +147,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      110: Critical
+      110: SoftCritical
+      217: Critical
       325: Dead
   - type: Explosive
     explosionType: Default

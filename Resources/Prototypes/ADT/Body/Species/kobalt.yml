@@ -95,7 +95,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      85: Critical
+      85: SoftCritical
+      132: Critical
       180: Dead
   - type: Damageable
     damageModifierSet: Kobalt

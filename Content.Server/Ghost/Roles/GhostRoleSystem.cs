@@ -108,6 +108,7 @@ public sealed class GhostRoleSystem : EntitySystem
                         RegisterGhostRole((component, ghostRole));
                     break;
                 }
+            case MobState.SoftCritical: // ADT-Tweak
             case MobState.Critical:
             case MobState.Dead:
                 UnregisterGhostRole((component, ghostRole));

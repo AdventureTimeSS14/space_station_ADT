@@ -1,4 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Access.Systems;
 using Content.Server.Cargo.Components;
@@ -244,6 +244,8 @@ public sealed class BankCardSystem : EntitySystem
         account = _accounts.FirstOrDefault(x => x.AccountId == accountId);
         return account != null;
     }
+
+    public IReadOnlyList<BankAccount> GetAllAccounts() => _accounts;
 
     public int GetBalance(int accountId)
     {

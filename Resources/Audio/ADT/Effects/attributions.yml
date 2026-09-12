@@ -1,0 +1,14 @@
+- files: ["backtolife.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Last stand drone and heartbeat by Orsoniks, SCAV Prototype/Casualties Unknown OST."
+  source: "https://scavprototype.wiki.gg/wiki/Soundtrack"
+
+- files: ["soft_critical.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Critical loop by Orsoniks, SCAV Prototype/Casualties Unknown OST."
+  source: "https://scavprototype.wiki.gg/wiki/Soundtrack"
+
+- files: ["critical.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Critical loop unconscious by Orsoniks, SCAV Prototype/Casualties Unknown OST."
+  source: "https://scavprototype.wiki.gg/wiki/Soundtrack"

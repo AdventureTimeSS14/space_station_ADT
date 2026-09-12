@@ -124,7 +124,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      115: Critical
+      115: SoftCritical
+      182: Critical
       250: Dead
   - type: Barotrauma
     damage:

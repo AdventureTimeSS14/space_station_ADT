@@ -12,6 +12,7 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Events;
+using Content.Shared.Movement.Systems; // ADT-Tweak
 using Content.Shared.Pointing;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech;
@@ -41,13 +42,14 @@ public partial class MobStateSystem
         SubscribeLocalEvent<MobStateComponent, DropAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, PickupAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, StartPullAttemptEvent>(CheckAct);
-        SubscribeLocalEvent<MobStateComponent, UpdateCanMoveEvent>(CheckAct);
+        SubscribeLocalEvent<MobStateComponent, UpdateCanMoveEvent>(OnUpdateCanMove); // ADT-Tweak
         SubscribeLocalEvent<MobStateComponent, StandAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, PointAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, TryingToSleepEvent>(OnSleepAttempt);
         SubscribeLocalEvent<MobStateComponent, CombatModeShouldHandInteractEvent>(OnCombatModeShouldHandInteract);
         SubscribeLocalEvent<MobStateComponent, AttemptPacifiedAttackEvent>(OnAttemptPacifiedAttack);
         SubscribeLocalEvent<MobStateComponent, DamageModifyEvent>(OnDamageModify);
+        SubscribeLocalEvent<MobStateComponent, RefreshMovementSpeedModifiersEvent>(OnSoftCritSpeed); // ADT-Tweak
 
         SubscribeLocalEvent<MobStateComponent, UnbuckleAttemptEvent>(OnUnbuckleAttempt);
     }
@@ -72,6 +74,7 @@ public partial class MobStateSystem
         switch (ent.Comp.CurrentState)
         {
             case MobState.Dead:
+            case MobState.SoftCritical: // ADT-Tweak
             case MobState.Critical:
                 args.Cancelled = true;
                 break;
@@ -84,6 +87,9 @@ public partial class MobStateSystem
         {
             case MobState.Alive:
                 //unused
+                break;
+            case MobState.SoftCritical: // ADT-Tweak
+                _standing.Stand(target);
                 break;
             case MobState.Critical:
                 _standing.Stand(target);
@@ -102,7 +108,7 @@ public partial class MobStateSystem
         // ADT-Tweak-start
         _moveMod.RefreshMovementSpeedModifiers(target);
 
-        if (state is MobState.Critical or MobState.Dead)
+        if (state is MobState.SoftCritical or MobState.Critical or MobState.Dead) // ADT-Tweak
         {
             _moveMod.RefreshMovementSpeedModifiers(target);
         }
@@ -125,6 +131,14 @@ public partial class MobStateSystem
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
                 break;
             }
+            // ADT-Tweak-start
+            case MobState.SoftCritical:
+            {
+                Down(target);
+                _appearance.SetData(target, MobStateVisuals.State, MobState.SoftCritical);
+                break;
+            }
+            // ADT-Tweak-end
             case MobState.Critical:
             {
                 Down(target);
@@ -163,8 +177,12 @@ public partial class MobStateSystem
         // Incapacitated or dead targets get stripped two or three times as fast. Makes stripping corpses less tedious.
         if (IsDead(target, component))
             args.Multiplier /= 3;
-        else if (IsCritical(target, component))
+        // ADT-Tweak-start
+        else if (IsHardCritical(target, component))
+            args.Multiplier /= 3;
+        else if (IsSoftCritical(target, component))
             args.Multiplier /= 2;
+        // ADT-Tweak-end
     }
 
     private void OnSpeakAttempt(EntityUid uid, MobStateComponent component, SpeakAttemptEvent args)
@@ -175,6 +193,10 @@ public partial class MobStateSystem
             return;
         }
 
+        // ADT-Tweak
+        if (component.CurrentState == MobState.SoftCritical)
+            return;
+
         CheckAct(uid, component, args);
     }
 
@@ -183,6 +205,7 @@ public partial class MobStateSystem
         switch (component.CurrentState)
         {
             case MobState.Dead:
+            case MobState.SoftCritical: // ADT-Tweak
             case MobState.Critical:
                 args.Cancel();
                 break;

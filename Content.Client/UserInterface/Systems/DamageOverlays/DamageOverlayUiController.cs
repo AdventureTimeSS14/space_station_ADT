@@ -131,6 +131,7 @@ public sealed class DamageOverlayUiController : UIController
                 _overlay.DeadLevel = 0;
                 break;
             }
+            case MobState.SoftCritical: // ADT-Tweak
             case MobState.Critical:
             {
                 if (!_mobThresholdSystem.TryGetDeadPercentage(entity,

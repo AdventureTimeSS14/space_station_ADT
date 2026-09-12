@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Forgotten tree from Deltarune (Toby Fox), ported for Adventure Time",
+  "size": {
+    "x": 128,
+    "y": 83
+  },
+  "states": [
+    {
+      "name": "treeforgotten",
+      "delays": [
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ]
+      ],
+      "flags": {
+        "loop": true
+      }
+    }
+  ]
+}

@@ -506,7 +506,9 @@ public abstract class SharedSuitSensorSystem : EntitySystem
                 if (TryComp<DamageableComponent>(sensor.User.Value, out var damageable))
                     status.TotalDamage = _damageableSystem.GetTotalDamage((sensor.User.Value, damageable)).Int();
 
-                if (_mobThresholdSystem.TryGetThresholdForState(sensor.User.Value, MobState.Critical, out var critThreshold))
+                // ADT-Tweak
+                if (_mobThresholdSystem.TryGetThresholdForState(sensor.User.Value, MobState.SoftCritical, out var critThreshold)
+                    || _mobThresholdSystem.TryGetThresholdForState(sensor.User.Value, MobState.Critical, out critThreshold))
                     status.TotalDamageThreshold = critThreshold.Value.Int();
 
                 if (sensor.Mode != SuitSensorMode.SensorCords)

@@ -175,7 +175,8 @@ public sealed class MobThresholdSystem : EntitySystem
         if (!Resolve(target, ref thresholdComponent))
             return false;
 
-        return TryGetThresholdForState(target, MobState.Critical, out threshold, thresholdComponent)
+        return TryGetThresholdForState(target, MobState.SoftCritical, out threshold, thresholdComponent) // ADT-Tweak
+               || TryGetThresholdForState(target, MobState.Critical, out threshold, thresholdComponent)
                || TryGetThresholdForState(target, MobState.Dead, out threshold, thresholdComponent);
     }
 
