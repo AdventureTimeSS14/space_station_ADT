@@ -492,6 +492,16 @@ public sealed class PickupHumansSystem : EntitySystem
         if (args.Target == null || args.Target == ent.Comp.Carrier)
             return;
 
+        if (_hands.IsHolding(ent.Owner, args.Target))
+            return;
+
+        if (TryComp<TransformComponent>(args.Target, out var targetXform) &&
+            targetXform.ParentUid == ent.Owner)
+            return;
+
+        if (HasComp<MobStateComponent>(args.Target))
+            return;
+
         args.Cancelled = true;
     }
 
