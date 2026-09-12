@@ -675,6 +675,10 @@
         volume: -6
     Salute:
       collection: Salutes
+    #ADT-Tweak-Start
+    Blink:
+      collection: Blink
+    #ADT-Tweak-End
 
 - type: emoteSounds
   id: DionaBodyEmotes
@@ -692,6 +696,10 @@
       path: /Audio/Voice/Diona/diona_salute.ogg
       params:
        volume: -5
+    #ADT-Tweak-Start
+    Blink:
+      collection: Blink
+    #ADT-Tweak-End
 
 - type: emoteSounds
   id: ReptilianBodyEmotes
@@ -710,6 +718,10 @@
         volume: -6
     Salute:
       collection: Salutes
+    #ADT-Tweak-Start
+    Blink:
+      collection: Blink
+    #ADT-Tweak-End
 
 # ADT-Tweak: MothBodyEmotes lives in /Prototypes/ADT/Voice/speech_emote_sounds.yml (richer)
 # - type: emoteSounds
@@ -845,3 +857,7 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: WawaDeath
+    #ADT-Tweak-Start
+    Blink:
+      collection: Blink
+    #ADT-Tweak-End
