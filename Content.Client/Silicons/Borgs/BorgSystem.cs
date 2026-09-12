@@ -1,4 +1,5 @@
-﻿using Content.Shared.Alert;
+﻿using Content.Shared.ADT.Silicons.Borgs.Components;
+using Content.Shared.Alert;
 using Content.Shared.Mobs;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell;
@@ -90,7 +91,9 @@ public sealed partial class BorgSystem : SharedBorgSystem
             hasPlayer = false;
 
         _sprite.LayerSetVisible((ent.Owner, ent.Comp3), BorgVisualLayers.Light, ent.Comp1.BrainEntity != null || hasPlayer);
-        _sprite.LayerSetRsiState((ent.Owner, ent.Comp3), BorgVisualLayers.Light, hasPlayer ? ent.Comp1.HasMindState : ent.Comp1.NoMindState);
+        // ADT-Tweak: стейт Light у борга с подтипом ставит ADT-система (в RSI подтипа нет robot_e)
+        if (!TryComp<BorgSwitchableSubtypeComponent>(ent.Owner, out var subtype) || subtype.BorgSubtype == null)
+            _sprite.LayerSetRsiState((ent.Owner, ent.Comp3), BorgVisualLayers.Light, hasPlayer ? ent.Comp1.HasMindState : ent.Comp1.NoMindState);
     }
 
     private void OnMMIAppearanceChanged(EntityUid uid, MMIComponent component, ref AppearanceChangeEvent args)

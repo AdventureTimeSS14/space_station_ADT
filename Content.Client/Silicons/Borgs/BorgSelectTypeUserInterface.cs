@@ -26,7 +26,8 @@ public sealed class BorgSelectTypeUserInterface : BoundUserInterface
         base.Open();
 
         _menu = this.CreateWindow<BorgSelectTypeMenu>();
-        _menu.ConfirmedBorgType += prototype => SendMessage(new BorgSelectTypeMessage(prototype));
-        _menu.ConfirmedBorgSubtype += subtype => SendMessage(new BorgSelectSubtypeMessage(subtype)); // ADT-Borg-Subtype
+        // ADT-Tweak: тип и подтип одним сообщением
+        _menu.ConfirmedBorgType += (prototype, subtype) => SendMessage(
+            new BorgSelectTypeMessage(prototype, subtype?.ID));
     }
 }
