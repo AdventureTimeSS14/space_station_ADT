@@ -25,4 +25,12 @@ public sealed partial class StomachComponent : Component
     /// </summary>
     [DataField]
     public bool IsSpecialDigestibleExclusive = true;
+
+    // ADT-Tweak start
+    /// <summary>
+    /// Items matching this whitelist are never digestible by this stomach, overriding everything else.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? SpecialDigestibleBlacklist = null;
+    // ADT-Tweak end
 }
