@@ -43,4 +43,10 @@ public sealed partial class CanPerformComboComponent : Component
 
     [DataField, AutoNetworkedField]
     public int ConsecutiveGnashes;
+
+    [DataField]
+    public TimeSpan ComboCooldown = TimeSpan.FromSeconds(0.5);
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan NextComboPerform;
 }

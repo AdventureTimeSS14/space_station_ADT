@@ -97,6 +97,10 @@
     - id: FoodMeatSpider
       amount: 5
   - type: Reactive
+  # ADT-Tweak start
+    groups:
+      Acidic: [ Touch, Ingestion ]
+  # ADT-Tweak end
     reactions:
     - reagents: [Water]
       methods: [Touch]
