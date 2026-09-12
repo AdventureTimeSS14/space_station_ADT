@@ -14,6 +14,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
@@ -490,6 +491,16 @@ public sealed class PickupHumansSystem : EntitySystem
     private void OnCarriedInteractionAttempt(Entity<TakenHumansComponent> ent, ref InteractionAttemptEvent args)
     {
         if (args.Target == null || args.Target == ent.Comp.Carrier)
+            return;
+
+        if (_hands.IsHolding(ent.Owner, args.Target))
+            return;
+
+        if (TryComp<TransformComponent>(args.Target, out var targetXform) &&
+            targetXform.ParentUid == ent.Owner)
+            return;
+
+        if (HasComp<MobStateComponent>(args.Target))
             return;
 
         args.Cancelled = true;
