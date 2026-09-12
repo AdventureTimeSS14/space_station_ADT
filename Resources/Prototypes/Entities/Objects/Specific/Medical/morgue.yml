@@ -91,6 +91,11 @@
           True: {visible: false}
           False: {visible: true}
   - type: Pullable
+  # ADT-Tweak-Start: мешок для трупов цепляется к сцепке квадроцикла
+  - type: Buckle
+    range: 3
+  - type: ADTTrailer
+  # ADT-Tweak-End
   - type: AntiRottingContainer
   - type: ContainerContainer
     containers:

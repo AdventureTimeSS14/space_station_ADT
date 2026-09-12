@@ -282,6 +282,7 @@
           components:
             - Storage
     sprite: Objects/Vehicles/atv.rsi
+  - type: ADTVehicleHitch
 
 - type: entity
   id: ADTVehicleSyndicateSegway
@@ -481,3 +482,7 @@
   components:
     - type: Foldable
       folded: true
+
+- type: entity
+  parent: ADTVehicleATV
+  id: ADTVehicleATVMedic
