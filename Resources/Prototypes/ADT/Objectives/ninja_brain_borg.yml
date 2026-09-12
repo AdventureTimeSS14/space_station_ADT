@@ -1,0 +1,33 @@
+- type: entity
+  parent: BaseNinjaObjective
+  id: BrainScanObjective
+  components:
+  - type: Objective
+    difficulty: 2
+    icon:
+      sprite: Mobs/Species/Human/organs.rsi
+      state: brain
+  - type: NumberObjective
+    title: objective-condition-brain-scan-title
+    description: objective-condition-brain-scan-description
+    min: 2
+    max: 2
+  - type: BrainScanCondition
+    maxScans: 2
+
+- type: entity
+  parent: BaseNinjaObjective
+  id: BorgHackObjective
+  components:
+  - type: Objective
+    difficulty: 1
+    icon:
+      sprite: Objects/Tools/emag.rsi
+      state: icon
+  - type: NumberObjective
+    title: objective-condition-borg-hack-title
+    description: objective-condition-borg-hack-description
+    min: 1
+    max: 1
+  - type: BorgHackCondition
+    required: 1
