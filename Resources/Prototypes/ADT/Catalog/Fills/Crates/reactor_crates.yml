@@ -1,0 +1,70 @@
+- type: entity
+  id: CrateCerenkiteFuelRod
+  parent: CrateEngineeringSecure
+  name: Ящик топливных стержней
+  description: 3 церенкитовых топливных стержня для ядерного реактора.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: CerenkiteReactorFuelRod
+        amount: 3
+
+- type: entity
+  id: CrateBohrumControlRod
+  parent: CrateEngineeringSecure
+  name: Ящик управляющих стержней
+  description: 2 борумовых управляющих стержня для ядерного реактора.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: BohrumReactorControlRod
+        amount: 2
+
+- type: entity
+  id: CrateSteelGasChannel
+  parent: CrateEngineeringSecure
+  name: Ящик газоканальных стержней
+  description: 4 стальных газоканальных стержня для ядерного реактора.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: SteelReactorGasChannel
+        amount: 4
+
+- type: entity
+  id: CrateSteelHeatExhanger
+  parent: CrateEngineeringSecure
+  name: Ящик стержней-теплообменников
+  description: 4 стальных стержня-теплообменника для ядерного реактора.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SteelReactorHeatExchanger
+        amount: 4
+
+- type: entity
+  id: CrateNuclearReactorFlatpack
+  parent: CrateEngineeringSecure
+  name: ящик с ядерным реактором
+  description: Ящик с упакованным ядерным реактором. Детали продаются отдельно.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: NuclearReactorFlatpack
+
+- type: entity
+  id: CrateGasTurbineFlatpack
+  parent: CrateEngineeringSecure
+  name: ящик с газовой турбиной
+  description: Ящик с упакованной газовой турбиной. Детали продаются отдельно.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: GasTurbineFlatpack

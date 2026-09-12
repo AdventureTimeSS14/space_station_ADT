@@ -1,0 +1,133 @@
+- type: entity
+  id: BaseGasTurbinePart
+  parent: BaseItem
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Power/FissionGenerator/gas_turbine_parts.rsi
+    state: turbine_blade
+  - type: Item
+    size: Huge
+  - type: MultiHandedItem
+  - type: GuideHelp
+    guides:
+    - GasTurbine
+    - Power
+
+# Blades
+- type: entity
+  id: BaseGasTurbineBlade
+  parent: BaseGasTurbinePart
+  categories: [ HideSpawnMenu ]
+  name: Лопасть газовой турбины
+  description: Запасная лопасть для газовой турбины.
+  components:
+  - type: GasTurbineBlade
+  - type: Tag
+    tags:
+    - GasTurbineBlade
+
+- type: entity
+  id: SteelGasTurbineBlade
+  parent: BaseGasTurbineBlade
+  name: Стальная лопасть газовой турбины
+  components:
+  - type: GasTurbineBlade
+    material: Steel
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 1000
+
+- type: entity
+  id: BrassGasTurbineBlade
+  parent: BaseGasTurbineBlade
+  name: Латунная лопасть газовой турбины
+  components:
+  - type: GasTurbineBlade
+    material: Brass
+  - type: PhysicalComposition
+    materialComposition:
+      Brass: 1000
+
+- type: entity
+  id: DiamondGasTurbineBlade
+  parent: BaseGasTurbineBlade
+  name: Алмазная лопасть газовой турбины
+  components:
+  - type: GasTurbineBlade
+    material: Diamond
+  - type: PhysicalComposition
+    materialComposition:
+      Diamond: 1000
+
+- type: entity
+  id: GoldGasTurbineBlade
+  parent: BaseGasTurbineBlade
+  name: Золотая лопасть газовой турбины
+  components:
+  - type: GasTurbineBlade
+    material: Gold
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 1000
+
+- type: entity
+  id: PlasteelGasTurbineBlade
+  parent: BaseGasTurbineBlade
+  name: Пласталевая лопасть газовой турбины
+  components:
+  - type: GasTurbineBlade
+    material: Plasteel
+  - type: PhysicalComposition
+    materialComposition:
+      Plasteel: 1000
+
+# Stators
+- type: entity
+  id: BaseGasTurbineStator
+  parent: BaseGasTurbinePart
+  categories: [ HideSpawnMenu ]
+  name: Статор газовой турбины
+  description: Запасной статор для газовой турбины.
+  components:
+  - type: Sprite
+    state: turbine_stator
+  - type: GasTurbineStator
+  - type: Tag
+    tags:
+    - GasTurbineStator
+
+- type: entity
+  id: SteelGasTurbineStator
+  parent: BaseGasTurbineStator
+  name: Стальный статор газовой турбины
+  components:
+  - type: GasTurbineStator
+    material: Steel
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 1000
+
+- type: entity
+  id: SilverGasTurbineStator
+  parent: BaseGasTurbineStator
+  name: Серебряный статор газовой турбины
+  components:
+  - type: GasTurbineStator
+    material: Silver
+  - type: PhysicalComposition
+    materialComposition:
+      Silver: 1000
+
+- type: entity
+  id: GoldGasTurbineStator
+  parent: BaseGasTurbineStator
+  name: Золотой статор газовой турбины
+  components:
+  - type: GasTurbineStator
+    material: Gold
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 1000
+
