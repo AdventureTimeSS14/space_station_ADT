@@ -15251,3 +15251,10 @@ Entries:
     id: 1916
     pr_number: 3367
     time: '2026-09-12T18:08:53Z'
+  - author: Inconnu
+    changes:
+      - {message: Исправлен баг из-за которого несомый не мог взаимодействовать с
+          чем-либо, type: Fix}
+    id: 1917
+    pr_number: 3370
+    time: '2026-09-12T18:27:09Z'
