@@ -3,6 +3,7 @@ chat-emote-name-laugh-apathy = выдавить из себя смех
 chat-emote-name-scream-apathy = наигранно закричать
 chat-emote-name-sigh-apathy = театрально вздохнуть
 chat-emote-name-crying-apathy = фальшиво заплакать
+chat-emote-name-blink = моргнуть
 chat-emote-name-hiss = зашипеть
 chat-emote-name-meow = замяукать
 chat-emote-name-mew = мякнуть
