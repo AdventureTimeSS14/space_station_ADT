@@ -430,7 +430,6 @@
       reagents:
       - ReagentId: Beer
         Quantity: 100
-    canBeIVDripped: false # ADT-Tweak
   - type: PointLight
     color: "#cfa85f"
   - type: Sprite
@@ -451,7 +450,6 @@
       reagents:
       - ReagentId: Pax
         Quantity: 100
-    canBeIVDripped: false # ADT-Tweak
   - type: PointLight
     color: "#AAAAAA"
   - type: Sprite
@@ -475,7 +473,6 @@
       reagents:
       - ReagentId: Nocturine
         Quantity: 100
-    canBeIVDripped: false # ADT-Tweak
   - type: PointLight
     color: "#128e80"
   - type: Sprite
@@ -499,7 +496,6 @@
       reagents:
       - ReagentId: THC
         Quantity: 100
-    canBeIVDripped: false # ADT-Tweak
   - type: PointLight
     color: "#808080"
   - type: Sprite
@@ -520,7 +516,6 @@
       reagents:
       - ReagentId: Bicaridine
         Quantity: 100
-    canBeIVDripped: false # ADT-Tweak
   - type: PointLight
     color: "#ffaa00"
   - type: Sprite
@@ -541,7 +536,6 @@
       reagents:
       - ReagentId: Toxin
         Quantity: 100
-    canBeIVDripped: false # ADT-Tweak
   - type: PointLight
     color: "#cf3600"
   - type: Sprite
@@ -562,7 +556,6 @@
       reagents:
       - ReagentId: Napalm
         Quantity: 100
-    canBeIVDripped: false # ADT-Tweak
   - type: PointLight
     color: "#FA00AF"
   - type: Sprite
@@ -583,7 +576,6 @@
       reagents:
       - ReagentId: Omnizine
         Quantity: 100
-    canBeIVDripped: false # ADT-Tweak
   - type: PointLight
     color: "#fcf7f9"
   - type: Sprite
@@ -604,7 +596,6 @@
       reagents:
       - ReagentId: MuteToxin
         Quantity: 100
-    canBeIVDripped: false # ADT-Tweak
   - type: PointLight
     color: "#0f0f0f"
   - type: Sprite
@@ -625,7 +616,6 @@
       reagents:
       - ReagentId: NorepinephricAcid
         Quantity: 100
-    canBeIVDripped: false # ADT-Tweak
   - type: PointLight
     color: "#96a8b5"
   - type: Sprite
@@ -646,7 +636,6 @@
       reagents:
       - ReagentId: Ephedrine
         Quantity: 100
-    canBeIVDripped: false # ADT-Tweak
   - type: PointLight
     color: "#D2FFFA"
   - type: Sprite
@@ -667,7 +656,6 @@
       reagents:
       - ReagentId: RobustHarvest
         Quantity: 100
-    canBeIVDripped: false # ADT-Tweak
   - type: PointLight
     color: "#3e901c"
   - type: Sprite
