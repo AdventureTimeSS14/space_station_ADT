@@ -1,0 +1,178 @@
+- type: entity
+  id: ADTBaseFiringPin
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pin.rsi
+    state: firing_pin
+  - type: Item
+    size: Tiny
+  - type: FiringPin
+  - type: StaticPrice
+    price: 50
+  - type: Tag
+    tags:
+    - FiringPin
+
+- type: entity
+  id: ADTFiringPin
+  parent: ADTBaseFiringPin
+  name: electronic firing pin
+  description: A small authentication device that must be inserted into a firearm's receiver to allow a shot.
+  components:
+  - type: FiringPin
+
+- type: entity
+  id: ADTFiringPinTestRange
+  parent: ADTBaseFiringPin
+  name: test-range firing pin
+  description: This safety firing pin allows weapons to be fired within proximity to a firing range.
+  components:
+  - type: Sprite
+    state: firing_pin_test
+  - type: FiringPin
+    pinType: TestRange
+    failMessage: firing-pin-fail-test
+
+- type: entity
+  id: ADTFiringPinLoyalty
+  parent: ADTBaseFiringPin
+  name: mindshield firing pin
+  description: A security firing pin which only authorizes users who are implanted with a mindshield.
+  components:
+  - type: Sprite
+    state: firing_pin_loyalty
+  - type: FiringPin
+    pinType: Component
+    requiredWhitelist:
+      components:
+      - MindShield
+    passForFakeMindShield: true
+    failMessage: firing-pin-fail-loyalty
+
+- type: entity
+  id: ADTFiringPinDNA
+  parent: ADTBaseFiringPin
+  name: DNA-keyed firing pin
+  description: A DNA-locked firing pin which only authorizes one user. Attempt to fire once to DNA-link.
+  components:
+  - type: Sprite
+    state: firing_pin_dna
+  - type: FiringPin
+    pinType: DNA
+    failMessage: firing-pin-fail-dna
+
+- type: entity
+  id: ADTFiringPinDNADredd
+  parent: ADTFiringPinDNA
+  name: DNA-keyed firing pin (Dredd)
+  description: A DNA-locked firing pin only authorizing one user. It has a small explosive charge on it.
+  components:
+  - type: FiringPin
+    pinType: DNA
+    failMessage: firing-pin-fail-dna
+    selfDestruct: true
+
+- type: entity
+  id: ADTFiringPinClown
+  parent: ADTBaseFiringPin
+  name: hilarious firing pin
+  description: Advanced clowntech that can convert any firearm into a far more useful object.
+  components:
+  - type: Sprite
+    state: firing_pin
+    color: "#FFFF00"
+  - type: FiringPin
+    pinType: Clown
+    forceReplace: true
+    failMessage: firing-pin-fail-honk
+
+- type: entity
+  id: ADTFiringPinClownUltra
+  parent: ADTFiringPinClown
+  name: ultra-honk firing pin
+  description: Advanced clowntech that can convert any firearm into a far more useful object. It has a small nitrobananium charge on it.
+  components:
+  - type: FiringPin
+    pinType: Clown
+    forceReplace: true
+    passForClowns: true
+    failMessage: firing-pin-fail-honk
+    selfDestruct: true
+
+- type: entity
+  id: ADTFiringPinHoly
+  parent: ADTBaseFiringPin
+  name: blessed firing pin
+  description: A firing pin that only responds to those who are holier than thou.
+  components:
+  - type: FiringPin
+    pinType: Component
+    requiredWhitelist:
+      components:
+      - Chaplain
+    failMessage: firing-pin-fail-holy
+
+- type: entity
+  id: ADTFiringPinAccess
+  parent: ADTBaseFiringPin
+  name: access lock firing pin
+  description: A firing pin that requires security access to fire.
+  components:
+  - type: FiringPin
+    pinType: Access
+    requiredAccess:
+    - Security
+    failMessage: firing-pin-fail-access
+
+- type: entity
+  id: ADTFiringPinSecLevel
+  parent: ADTBaseFiringPin
+  name: security level firing pin
+  description: A sophisticated firing pin that authorizes operation based on its settings and current security level.
+  components:
+  - type: Sprite
+    state: firing_pin_sec_level
+  - type: FiringPin
+    pinType: SecLevel
+    allowedAlertLevels:
+    - blue
+    - violet
+    - yellow
+    - red
+    - gamma
+    - delta
+    - epsilon
+    - amber
+    - altdelta
+    - cascade
+    failMessage: firing-pin-fail-seclevel
+
+- type: entity
+  id: ADTFiringPinExplorer
+  parent: ADTBaseFiringPin
+  name: explorer firing pin
+  description: A firing pin used by the defense force, retrofit to prevent weapon discharge on the station.
+  components:
+  - type: Sprite
+    state: firing_pin_explorer
+  - type: FiringPin
+    pinType: Explorer
+    failMessage: firing-pin-fail-explorer
+
+- type: entity
+  id: ADTFiringPinSyndicate
+  parent: ADTBaseFiringPin
+  name: syndicate firing pin
+  description: A firing pin that only authorizes syndicate operatives and agents.
+  components:
+  - type: Sprite
+    state: firing_pin_red
+  - type: FiringPin
+    pinType: Component
+    requiredWhitelist:
+      components:
+      - NukeopsRole
+      - TraitorRole
+    failMessage: firing-pin-fail-syndicate

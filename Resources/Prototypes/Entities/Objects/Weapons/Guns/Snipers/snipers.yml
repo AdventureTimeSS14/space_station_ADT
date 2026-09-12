@@ -133,6 +133,10 @@
             - ADTAttachmentHristovScope
   - type: StaticPrice
     price: 3500
+  # ADT Tweak start
+  - type: FiringPinHolder
+    startingPin: ADTFiringPinSyndicate
+  # ADT Tweak end
 
 - type: entity
   name: musket
