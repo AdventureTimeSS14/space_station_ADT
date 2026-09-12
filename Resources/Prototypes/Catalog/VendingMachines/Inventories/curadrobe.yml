@@ -14,6 +14,11 @@
         ClothingUniformJumpskirtLibrarian: 3
     ADTVendingCategoryShoes:  # ADT-Tweak
         ClothingShoesBootsLaceup: 2
+    # ADT tweak start wiki books
+    ADTVendingCategoryBooks:
+        ADTBookSRPsrv: 2
+        BookRandom: 10
+    # ADT tweak end wiki books
     BooksBag: 2
     BriefcaseBrown: 2
     HandLabeler: 2

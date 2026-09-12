@@ -21,6 +21,10 @@
     ADTVendingCategoryOuter:  # ADT-Tweak
         ClothingOuterWinterCargo: 2
         ClothingOuterWinterMiner: 2
+    # ADT tweak start wiki books
+    ADTVendingCategoryBooks:
+        ADTBookSRPcrg: 2
+    # ADT tweak end wiki books
     MailBag: 2
   contrabandInventory:
     ToyFigurineCargoTech: 1

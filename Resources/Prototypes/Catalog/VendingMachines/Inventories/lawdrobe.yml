@@ -31,8 +31,12 @@
         ClothingHeadHatOutlawHat: 1
         ClothingHeadHatTophat: 1
         # Corvax-LawyerDrip-End
+    # ADT tweak start wiki books
+    ADTVendingCategoryBooks:
+        ADTBookSRPjrd: 2
+        ADTBookSpaceLaw: 3
+    # ADT tweak end wiki books
     BriefcaseBrown: 2
-    ADTBookSpaceLaw: 3 #ADT-WikiBooks
     LuxuryPen: 2
     HandLabeler: 2
   contrabandInventory:

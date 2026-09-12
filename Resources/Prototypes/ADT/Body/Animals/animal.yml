@@ -1,0 +1,20 @@
+- type: entity
+  parent: OrganBaseOrganic
+  id: ADTOrganBaseAnimalEyes
+  name: eyes
+  abstract: true
+  components:
+  - type: GibbableOrgan
+  - type: Organ
+    category: Eyes
+  - type: Sprite
+    layers:
+    - state: eyeball-l
+    - state: eyeball-r
+  - type: Tag
+    tags:
+    - Eyes
+
+- type: entity
+  parent: [ ADTOrganBaseAnimalEyes, OrganAnimalInternal ]
+  id: ADTOrganAnimalEyes
