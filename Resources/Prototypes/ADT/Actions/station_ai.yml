@@ -101,3 +101,14 @@
     priority: -9
   - type: InstantAction
     event: !type:ToggleRemoteDevicesScreenEvent
+
+- type: entity
+  id: ActionStationAiNanoChat
+  components:
+  - type: Action
+    icon: {sprite: ADT/Misc/program_icons.rsi, state: nanochat}
+    iconOn: {sprite: ADT/Misc/program_icons.rsi, state: nanochat}
+    keywords: [ "AI", "console", "interface" ]
+    priority: -4
+  - type: InstantAction
+    event: !type:StationAiNanoChatActionEvent
