@@ -229,6 +229,11 @@ public sealed partial class GrabIntentSystem
         if (_timing.CurTime < grabIntentComp.NextStageChange)
             return true;
 
+        var beforeEvent = new BeforeHarmfulActionEvent(pullerUid, HarmfulActionType.Grab);
+        RaiseLocalEvent(pullable.Owner, beforeEvent);
+        if (beforeEvent.Cancelled)
+            return false;
+
         grabIntentComp.NextGrabTime = _timing.CurTime + grabIntentComp.GrabCooldown;
         Dirty(pullerUid, grabIntentComp);
 
@@ -245,11 +250,6 @@ public sealed partial class GrabIntentSystem
         var stageTimeMultiplier = GetGrabStageTimeMultiplier(pullable.Owner, (int) grabIntentComp.GrabStage + 1);
         grabIntentComp.NextStageChange = _timing.CurTime + grabIntentComp.StageChangeCooldown * stageTimeMultiplier;
         Dirty(pullerUid, grabIntentComp);
-
-        var beforeEvent = new BeforeHarmfulActionEvent(pullerUid, HarmfulActionType.Grab);
-        RaiseLocalEvent(pullable.Owner, beforeEvent);
-        if (beforeEvent.Cancelled)
-            return false;
 
         if (grabIntentComp.GrabStage == GrabStage.Suffocate)
         {
