@@ -24,5 +24,9 @@
     ADTVendingCategoryShoes:  # ADT-Tweak
         ClothingShoesColorBlack: 2
         ClothingShoesChef: 2
+    # ADT tweak start wiki books
+    ADTVendingCategoryBooks:
+        ADTBookSRPsrv: 2
+    # ADT tweak end wiki books
   contrabandInventory:
     ToyFigurineChef: 1

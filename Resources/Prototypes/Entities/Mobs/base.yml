@@ -265,7 +265,12 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Generic_mob_burning
-  - type: RMCStopDropRollVisuals # ADT-Tweak
+  # ADT-Tweak-Start
+  - type: RMCStopDropRollVisuals
+  - type: CanBeFirePatted
+  - type: FirePatter
+    stacks: -1
+  # ADT-Tweak-End
 
 # Used for mobs that need to breathe
 - type: entity

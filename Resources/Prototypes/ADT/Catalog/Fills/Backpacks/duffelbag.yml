@@ -96,6 +96,25 @@
         - id: ADTMagazineRifleExtended
           amount: 3
 - type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledFlamethrower
+  name: flamethrower bundle
+  description: bundle with a flamethrower #, and a Suppressor.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: RMCWeaponFlamerFmW60
+        - id: RMCTankFlamerFmW60
+          amount: 1
+        - id: RMCTankFlamerFmW60NapalmSticky
+          amount: 1
+        - id: RMCTankFlamerFmW60HighCombustive
+          amount: 2
+        - id: FireExtinguisherMini
+          amount: 2
+- type: entity
   parent: ClothingBackpackDuffelSyndicateAmmoBundle
   id: ADTClothingBackpackDuffelSyndicateFilledXC67Ammo
   name: xC-67 extended magazine bundle

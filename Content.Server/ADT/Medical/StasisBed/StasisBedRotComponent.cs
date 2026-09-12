@@ -12,6 +12,9 @@ public sealed partial class StasisBedRotComponent : Component
     public float RotStopTier = 2f;
 
     [DataField]
+    public float SlowMultiplier = 0.5f;
+
+    [DataField]
     public float InaprovalineTier = 3f;
 
     [DataField]

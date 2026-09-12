@@ -22452,6 +22452,135 @@ entities:
     - type: TileHistory
       chunkHistory: {}
     - type: ExplosionAirtightGrid
+    - type: AreaGrid
+      areas:
+        35,-27: AreaKitchen
+        35,-26: AreaKitchen
+        42,-27: AreaKitchen
+        42,-26: AreaKitchen
+        42,-25: AreaKitchen
+        41,-27: AreaKitchen
+        41,-26: AreaKitchen
+        41,-25: AreaKitchen
+        40,-27: AreaKitchen
+        40,-26: AreaKitchen
+        40,-25: AreaKitchen
+        39,-27: AreaKitchen
+        39,-26: AreaKitchen
+        39,-25: AreaKitchen
+        39,-24: AreaKitchen
+        38,-27: AreaKitchen
+        38,-26: AreaKitchen
+        38,-25: AreaKitchen
+        38,-24: AreaKitchen
+        37,-27: AreaKitchen
+        37,-26: AreaKitchen
+        37,-25: AreaKitchen
+        37,-24: AreaKitchen
+        36,-27: AreaKitchen
+        36,-26: AreaKitchen
+        36,-25: AreaKitchen
+        36,-24: AreaKitchen
+        28,-25: AreaKitchen
+        28,-24: AreaKitchen
+        29,-25: AreaKitchen
+        29,-24: AreaKitchen
+        30,-25: AreaKitchen
+        30,-24: AreaKitchen
+        31,-25: AreaKitchen
+        31,-24: AreaKitchen
+        32,-25: AreaKitchen
+        32,-24: AreaKitchen
+        33,-25: AreaKitchen
+        33,-24: AreaKitchen
+        34,-25: AreaKitchen
+        34,-24: AreaKitchen
+        35,-25: AreaKitchen
+        35,-24: AreaKitchen
+        39,-19: AreaKitchen
+        35,-19: AreaKitchen
+        39,-21: AreaKitchen
+        39,-23: AreaKitchen
+        39,-22: AreaKitchen
+        39,-20: AreaKitchen
+        38,-23: AreaKitchen
+        38,-20: AreaKitchen
+        39,-18: AreaKitchen
+        39,-17: AreaKitchen
+        38,-22: AreaKitchen
+        38,-21: AreaKitchen
+        37,-19: AreaKitchen
+        37,-22: AreaKitchen
+        38,-18: AreaKitchen
+        38,-19: AreaKitchen
+        37,-23: AreaKitchen
+        38,-17: AreaKitchen
+        37,-20: AreaKitchen
+        37,-21: AreaKitchen
+        36,-23: AreaKitchen
+        37,-18: AreaKitchen
+        36,-22: AreaKitchen
+        37,-17: AreaKitchen
+        33,-20: AreaKitchen
+        33,-21: AreaKitchen
+        35,-20: AreaKitchen
+        36,-21: AreaKitchen
+        36,-20: AreaKitchen
+        36,-19: AreaKitchen
+        36,-18: AreaKitchen
+        36,-17: AreaKitchen
+        35,-22: AreaKitchen
+        35,-23: AreaKitchen
+        35,-21: AreaKitchen
+        33,-23: AreaKitchen
+        32,-23: AreaKitchen
+        35,-18: AreaKitchen
+        35,-17: AreaKitchen
+        34,-23: AreaKitchen
+        34,-22: AreaKitchen
+        34,-21: AreaKitchen
+        34,-20: AreaKitchen
+        34,-19: AreaKitchen
+        34,-18: AreaKitchen
+        34,-17: AreaKitchen
+        33,-22: AreaKitchen
+        33,-19: AreaKitchen
+        32,-21: AreaKitchen
+        33,-18: AreaKitchen
+        33,-17: AreaKitchen
+        32,-22: AreaKitchen
+        32,-20: AreaKitchen
+        32,-19: AreaKitchen
+        32,-18: AreaKitchen
+        32,-17: AreaKitchen
+        31,-23: AreaKitchen
+        31,-22: AreaKitchen
+        31,-21: AreaKitchen
+        31,-20: AreaKitchen
+        31,-19: AreaKitchen
+        31,-18: AreaKitchen
+        31,-17: AreaKitchen
+        30,-23: AreaKitchen
+        30,-22: AreaKitchen
+        30,-21: AreaKitchen
+        30,-20: AreaKitchen
+        30,-19: AreaKitchen
+        30,-18: AreaKitchen
+        30,-17: AreaKitchen
+        29,-23: AreaKitchen
+        29,-22: AreaKitchen
+        29,-21: AreaKitchen
+        29,-20: AreaKitchen
+        29,-19: AreaKitchen
+        29,-18: AreaKitchen
+        29,-17: AreaKitchen
+        28,-23: AreaKitchen
+        28,-22: AreaKitchen
+        28,-21: AreaKitchen
+        28,-20: AreaKitchen
+        28,-19: AreaKitchen
+        28,-18: AreaKitchen
+        28,-17: AreaKitchen
   - uid: 4
     components:
     - type: MetaData
@@ -92379,13 +92508,6 @@ entities:
     components:
     - type: Transform
       pos: 54.641678,-1.9323308
-      parent: 2
-- proto: ClothingEyesGlassesThermal
-  entities:
-  - uid: 12937
-    components:
-    - type: Transform
-      pos: 65.536194,-6.326588
       parent: 2
 - proto: ClothingEyesHudMedical
   entities:
@@ -168572,7 +168694,7 @@ entities:
     - type: Transform
       pos: 43.5,-19.5
       parent: 2
-- proto: LockerCorrectionOfficer
+- proto: ADTLockerCorrectionOfficerFilled
   entities:
   - uid: 23604
     components:

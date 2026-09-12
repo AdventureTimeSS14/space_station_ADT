@@ -24,11 +24,15 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Body.Systems;
+using Content.Shared.Mech.Components;
 using Content.Shared.Physics;
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.ADT.Silicon.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using Content.Server.Speech.Components;
+using Content.Shared.Zombies;
 using System.Linq;
 
 namespace Content.Server.ADT.Xenobiology.Systems;
@@ -226,6 +230,9 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (args.Handled || args.Cancelled)
             return;
 
+        if (!CanLatch(ent, target))
+            return;
+
         Latch(ent, target);
         args.Handled = true;
     }
@@ -313,11 +320,20 @@ public sealed partial class SlimeLatchSystem : EntitySystem
     public bool CanLatch(Entity<SlimeComponent> ent, EntityUid target)
     {
         return !(IsLatched(ent)
+            || HasComp<ZombieComponent>(ent)
             || _mobState.IsDead(target)
             || !_actionBlocker.CanInteract(ent, target)
             || !HasComp<MobStateComponent>(target)
             || HasComp<BeingLatchedComponent>(target)
+            || IsRobotic(target)
             || Deleted(target));
+    }
+
+    private bool IsRobotic(EntityUid target)
+    {
+        return HasComp<BorgChassisComponent>(target)
+            || HasComp<MechComponent>(target)
+            || HasComp<SiliconComponent>(target);
     }
 
     public bool NpcTryLatch(Entity<SlimeComponent> ent, EntityUid target)

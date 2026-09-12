@@ -75,6 +75,8 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
+  - type: RMCExtinguisherPower
+    power: 1
 
 - type: entity
   parent: FireExtinguisher

@@ -124,7 +124,6 @@
     - id: ADTHighVoltageDefibrillator
     - id: OxygenTankFilled
     - id: ClothingMaskBreathMedical
-    - id: ADTBookSRPmed
     #ADT-Tweak-End
     - id: ClothingEyesHudMedical
     - id: ClothingOuterHardsuitVoidParamed
