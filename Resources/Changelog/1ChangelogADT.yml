@@ -15268,3 +15268,11 @@ Entries:
     id: 1918
     pr_number: 3260
     time: '2026-09-12T19:23:25Z'
+  - author: Kerfus
+    changes:
+      - {message: 'Добавлен новый эмоут - моргание :eyes:', type: Add}
+      - {message: Добавлено мяуканье керфуса для борга-керфуса., type: Add}
+      - {message: Исправлены некоторые звуки., type: Fix}
+    id: 1919
+    pr_number: 3363
+    time: '2026-09-12T19:37:20Z'
