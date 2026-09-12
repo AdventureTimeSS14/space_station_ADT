@@ -1336,6 +1336,17 @@
   categories:
   - ADTUplinkERTMisc
 
+- type: listing
+  id: ADTBoberMedbeam
+  name: boobr-medbeam-name
+  description: boobr-medbeam-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Battery/healgun.rsi, state: icon }
+  productEntity: ADTWeaponMedbeamERT
+  cost:
+    Productunit: 20
+  categories:
+  - ADTUplinkERTMisc
+
 #Аплинк ОБР - гранаты
 - type: listing
   id: ADTBoberc4
