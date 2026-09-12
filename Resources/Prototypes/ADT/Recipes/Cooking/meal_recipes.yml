@@ -60,6 +60,22 @@
   - Oven
 
 - type: microwaveMealRecipe
+  id: ADTFoodSoupAnimalEyeball
+  name: animal eyeball soup recipe
+  result: ADTFoodSoupAnimalEyeball
+  time: 10
+  group: Soup
+  reagents:
+    Water: 10
+  solids:
+    FoodBowlBig: 1
+    ADTOrganAnimalEyes: 1
+    FoodCarrot: 1
+    FoodPotato: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
   id: ADTFoodRelaxPillRecipe
   name: relax pill
   result: ADTPillRelax
