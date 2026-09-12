@@ -468,3 +468,18 @@
   id: ButcherCry
   files:
     - /Audio/ADT/Butcher/butchercry.ogg
+
+# Celecern
+- type: soundCollection
+  id: ADTCelecernSigh
+  files:
+    - /Audio/ADT/Voice/Celecern/sigh-1.ogg
+    - /Audio/ADT/Voice/Celecern/sigh-2.ogg
+    - /Audio/ADT/Voice/Celecern/sigh-3.ogg
+
+- type: soundCollection
+  id: ADTCelecernSnort
+  files:
+    - /Audio/ADT/Voice/Celecern/snort-1.ogg
+    - /Audio/ADT/Voice/Celecern/snort-2.ogg
+    - /Audio/ADT/Voice/Celecern/snort-3.ogg

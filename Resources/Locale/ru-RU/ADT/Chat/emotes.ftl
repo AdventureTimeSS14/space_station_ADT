@@ -42,3 +42,7 @@ chat-emote-name-flap-wings = Хлопать крыльями
 # Novakid
 chat-emote-msg-fiery-sounds = издаёт пламенные звуки
 chat-emote-name-fiery-sounds = Издать пламенные звуки
+# Celecern
+chat-emote-name-adt-celecern-snort = фыркнуть
+chat-emote-name-adt-celecern-clop = цокнуть копытом
+chat-emote-name-adt-celecern-ear-flick = шевельнуть ушами

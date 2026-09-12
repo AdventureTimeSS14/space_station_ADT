@@ -1,0 +1,1103 @@
+- type: marking
+  id: ADTCelecernEarsBat
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: bat_ears
+
+- type: marking
+  id: ADTCelecernEarsBatBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: bat_ears_broken_l
+
+- type: marking
+  id: ADTCelecernEarsBatBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: bat_ears_broken_r
+
+- type: marking
+  id: ADTCelecernEarsBobby
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: bobby_ears
+
+- type: marking
+  id: ADTCelecernEarsBobbyBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: bobby_ears_broken_l
+
+- type: marking
+  id: ADTCelecernEarsBobbyBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: bobby_ears_broken_r
+
+- type: marking
+  id: ADTCelecernEarsButterfly
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: butterfly_ears
+
+- type: marking
+  id: ADTCelecernEarsButterflyBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: butterfly_ears_broken_l
+
+- type: marking
+  id: ADTCelecernEarsButterflyBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: butterfly_ears_broken_r
+
+- type: marking
+  id: ADTCelecernEarsButterflyUp
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: butterfly_up_ears
+
+- type: marking
+  id: ADTCelecernEarsButterflyUpBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: butterfly_up_ears_broken_l
+
+- type: marking
+  id: ADTCelecernEarsButterflyUpBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: butterfly_up_ears_broken_r
+
+- type: marking
+  id: ADTCelecernEarsCelecern
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: celecern_ears
+
+- type: marking
+  id: ADTCelecernEarsCelecernBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: celecern_ears_broken_l
+
+- type: marking
+  id: ADTCelecernEarsCelecernBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: celecern_ears_broken_r
+
+- type: marking
+  id: ADTCelecernEarsChe
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: che_ears
+
+- type: marking
+  id: ADTCelecernEarsCheBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: che_ears_broken_l
+
+- type: marking
+  id: ADTCelecernEarsCheBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: che_ears_broken_r
+
+- type: marking
+  id: ADTCelecernEarsChert
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: chert_ears
+
+- type: marking
+  id: ADTCelecernEarsChertBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: chert_ears_broken_l
+
+- type: marking
+  id: ADTCelecernEarsChertBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: chert_ears_broken_r
+
+- type: marking
+  id: ADTCelecernEarsCow
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: cow_ears
+
+- type: marking
+  id: ADTCelecernEarsCowBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: cow_ears_broken_l
+
+- type: marking
+  id: ADTCelecernEarsCowBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: cow_ears_broken_r
+
+- type: marking
+  id: ADTCelecernEarsDeerDown
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: deer_down_ears
+
+- type: marking
+  id: ADTCelecernEarsDeerDownBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: deer_down_ears_broken_l
+
+- type: marking
+  id: ADTCelecernEarsDeerDownBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: deer_down_ears_broken_r
+
+- type: marking
+  id: ADTCelecernEarsDeerMedium
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: deer_medium_ears
+
+- type: marking
+  id: ADTCelecernEarsDeerMediumBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: deer_medium_ears_broken_l
+
+- type: marking
+  id: ADTCelecernEarsDeerMediumBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: deer_medium_ears_broken_r
+
+- type: marking
+  id: ADTCelecernEarsDeerSad
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: deer_sad_ears
+
+- type: marking
+  id: ADTCelecernEarsDeerSadBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: deer_sad_ears_broken_l
+
+- type: marking
+  id: ADTCelecernEarsDeerSadBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: deer_sad_ears_broken_r
+
+- type: marking
+  id: ADTCelecernEarsDeerUp
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: deer_up_ears
+
+- type: marking
+  id: ADTCelecernEarsDeerUpBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: deer_up_ears_broken_l
+
+- type: marking
+  id: ADTCelecernEarsDeerUpBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: deer_up_ears_broken_r
+
+- type: marking
+  id: ADTCelecernEarsElf
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: ears_elf
+
+- type: marking
+  id: ADTCelecernEarsElfBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: ears_elf_broken_l
+
+- type: marking
+  id: ADTCelecernEarsElfBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: ears_elf_broken_r
+
+- type: marking
+  id: ADTCelecernEarsGoat
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: goat_ears
+
+- type: marking
+  id: ADTCelecernEarsGoatBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: goat_ears_broken_l
+
+- type: marking
+  id: ADTCelecernEarsGoatBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: goat_ears_broken_r
+
+- type: marking
+  id: ADTCelecernEarsGollu
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: gollu_ears
+
+- type: marking
+  id: ADTCelecernEarsGolluBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: gollu_ears_broken_l
+
+- type: marking
+  id: ADTCelecernEarsGolluBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: gollu_ears_broken_r
+
+- type: marking
+  id: ADTCelecernEarsHobbit
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: hobbit_ears
+
+- type: marking
+  id: ADTCelecernEarsHobbitBrokenL
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: hobbit_ears_broken_l
+
+- type: marking
+  id: ADTCelecernEarsHobbitBrokenR
+  bodyPart: HeadSide
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: hobbit_ears_broken_r
+
+- type: marking
+  id: ADTCelecernHornsCow
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: cow_horns
+
+- type: marking
+  id: ADTCelecernHornsCowBrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: cow_horns_broken_l
+
+- type: marking
+  id: ADTCelecernHornsCowBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: cow_horns_broken_r
+
+- type: marking
+  id: ADTCelecernHornsDeerAntlers
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: deer_antlers_horns
+
+- type: marking
+  id: ADTCelecernHornsDeerAntlersBrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: deer_antlers_horns_broken_l
+
+- type: marking
+  id: ADTCelecernHornsDeerAntlersBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: deer_antlers_horns_broken_r
+
+- type: marking
+  id: ADTCelecernHornsBuffalo
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_buffalo
+
+- type: marking
+  id: ADTCelecernHornsBuffaloBrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_buffalo_broken_l
+
+- type: marking
+  id: ADTCelecernHornsBuffaloBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_buffalo_broken_r
+
+- type: marking
+  id: ADTCelecernHornsCapricorn
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_capricorn
+
+- type: marking
+  id: ADTCelecernHornsCapricornBrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_capricorn_broken_l
+
+- type: marking
+  id: ADTCelecernHornsCapricornBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_capricorn_broken_r
+
+- type: marking
+  id: ADTCelecernHornsDevil
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_devil
+
+- type: marking
+  id: ADTCelecernHornsDevilBrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_devil_broken_l
+
+- type: marking
+  id: ADTCelecernHornsDevilBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_devil_broken_r
+
+- type: marking
+  id: ADTCelecernHornsDevil2
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_devil2
+
+- type: marking
+  id: ADTCelecernHornsDevil2BrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_devil2_broken_l
+
+- type: marking
+  id: ADTCelecernHornsDevil2BrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_devil2_broken_r
+
+- type: marking
+  id: ADTCelecernHornsDevil3
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_devil3
+
+- type: marking
+  id: ADTCelecernHornsDevil3BrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_devil3_broken_l
+
+- type: marking
+  id: ADTCelecernHornsDevil3BrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_devil3_broken_r
+
+- type: marking
+  id: ADTCelecernHornsDevil4
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_devil4
+
+- type: marking
+  id: ADTCelecernHornsDevil4BrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_devil4_broken_l
+
+- type: marking
+  id: ADTCelecernHornsDevil4BrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_devil4_broken_r
+
+- type: marking
+  id: ADTCelecernHornsRam
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_ram
+
+- type: marking
+  id: ADTCelecernHornsRamBrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_ram_broken_l
+
+- type: marking
+  id: ADTCelecernHornsRamBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_ram_broken_r
+
+- type: marking
+  id: ADTCelecernHornsDevilOne
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_devil_one
+
+- type: marking
+  id: ADTCelecernHornsUnicorn
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_unicorn
+
+- type: marking
+  id: ADTCelecernHornsSmall
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: small_horns
+
+- type: marking
+  id: ADTCelecernHornsCurled
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: horns_celecern
+
+- type: marking
+  id: ADTCelecernHornsBackward
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: backward_horns
+
+- type: marking
+  id: ADTCelecernHornsBackwardBrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: backward_horns_broken_l
+
+- type: marking
+  id: ADTCelecernHornsBackwardBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: backward_horns_broken_r
+
+- type: marking
+  id: ADTCelecernHornsDarkCrown
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: dark_crown
+
+- type: marking
+  id: ADTCelecernHornsDarkCrownBrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: dark_crown_broken_l
+
+- type: marking
+  id: ADTCelecernHornsDarkCrownBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: dark_crown_broken_r
+
+- type: marking
+  id: ADTCelecernHornsDevilPrime1
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: devil_prime1
+
+- type: marking
+  id: ADTCelecernHornsDevilPrime1BrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: devil_prime1_broken_l
+
+- type: marking
+  id: ADTCelecernHornsDevilPrime1BrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: devil_prime1_broken_r
+
+- type: marking
+  id: ADTCelecernHornsDevilPrime1S
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: devil_prime1_s
+
+- type: marking
+  id: ADTCelecernHornsDevilPrime1SBrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: devil_prime1_s_broken_l
+
+- type: marking
+  id: ADTCelecernHornsDevilPrime1SBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: devil_prime1_s_broken_r
+
+- type: marking
+  id: ADTCelecernHornsDevilPrime2
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: devil_prime2
+
+- type: marking
+  id: ADTCelecernHornsDevilPrime2BrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: devil_prime2_broken_l
+
+- type: marking
+  id: ADTCelecernHornsDevilPrime2BrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: devil_prime2_broken_r
+
+- type: marking
+  id: ADTCelecernHornsFat
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: fat_horn
+
+- type: marking
+  id: ADTCelecernHornsFatBrokenL
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: fat_horn_broken_l
+
+- type: marking
+  id: ADTCelecernHornsFatBrokenR
+  bodyPart: HeadTop
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/size_horns32x64.rsi
+    state: fat_horn_broken_r
+
+- type: marking
+  id: ADTCelecernGoatee
+  bodyPart: FacialHair
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: goatee
+
+- type: marking
+  id: ADTCelecernHaircut
+  bodyPart: Hair
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: hair_celecern
+
+- type: marking
+  id: ADTCelecernBodyGuardStripes
+  bodyPart: Special
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: guards_stripes
+
+- type: marking
+  id: ADTCelecernBodyLinesEmperos
+  bodyPart: Special
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: lines_emperos
+
+- type: marking
+  id: ADTCelecernBodyQueenLines
+  bodyPart: Special
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: queen_lines
+
+- type: marking
+  id: ADTCelecernBodyTreeLines
+  bodyPart: Special
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tree_lines
+
+- type: marking
+  id: ADTCelecernBodyTrinitySpots
+  bodyPart: Special
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: trinity_spots
+
+- type: marking
+  id: ADTCelecernBodyBloodMoons
+  bodyPart: Special
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: blood_moons
+
+- type: marking
+  id: ADTCelecernBodyFawnSpots
+  bodyPart: Special
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: fawn_spots
+
+- type: marking
+  id: ADTCelecernBodyStars
+  bodyPart: Special
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stars
+
+- type: marking
+  id: ADTCelecernBodyStripes
+  bodyPart: Special
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: stripes
+
+- type: marking
+  id: ADTCelecernBodyTattoo
+  bodyPart: Special
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: tattoo
+
+- type: marking
+  id: ADTCelecernBodyShetka
+  bodyPart: Special
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: shetka
+
+- type: marking
+  id: ADTCelecernBodyShetkaMini
+  bodyPart: Special
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: mini_shetka
+
+- type: marking
+  id: ADTCelecernBodyShetkaDouble
+  bodyPart: Special
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: double_shetka
+
+- type: marking
+  id: ADTCelecernLegBandage1Left
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: bint1-l-leg
+
+- type: marking
+  id: ADTCelecernLegBandage1Right
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: bint1-r-leg
+
+- type: marking
+  id: ADTCelecernLegBandage2Left
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: bint2-l-leg
+
+- type: marking
+  id: ADTCelecernLegBandage2Right
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: bint2-r-leg
+
+- type: marking
+  id: ADTCelecernLegBandage3Left
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: bint3-l-leg
+
+- type: marking
+  id: ADTCelecernLegBandage3Right
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: bint3-r-leg
+
+- type: marking
+  id: ADTCelecernLegScar1Left
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: scar1-l-leg
+
+- type: marking
+  id: ADTCelecernLegScar1Right
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: scar1-r-leg
+
+- type: marking
+  id: ADTCelecernLegScar2Left
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: scar2-l-leg
+
+- type: marking
+  id: ADTCelecernLegScar2Right
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: scar2-r-leg
+
+- type: marking
+  id: ADTCelecernLegScar3Left
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: scar3-l-leg
+
+- type: marking
+  id: ADTCelecernLegScar3Right
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: scar3-r-leg
+
+- type: marking
+  id: ADTCelecernLegPattern1Left
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: uzor1-l-leg
+
+- type: marking
+  id: ADTCelecernLegPattern1Right
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: uzor1-r-leg
+
+- type: marking
+  id: ADTCelecernLegPattern2Left
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: uzor2-l-leg
+
+- type: marking
+  id: ADTCelecernLegPattern2Right
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: uzor2-r-leg
+
+- type: marking
+  id: ADTCelecernLegPattern3Left
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: uzor3-l-leg
+
+- type: marking
+  id: ADTCelecernLegPattern3Right
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: uzor3-r-leg
+
+- type: marking
+  id: ADTCelecernLegPattern4Left
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: uzor4-l-leg
+
+- type: marking
+  id: ADTCelecernLegPattern4Right
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: uzor4-r-leg
+
+- type: marking
+  id: ADTCelecernLegFurLeft
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: legs_fur_l
+
+- type: marking
+  id: ADTCelecernLegFurRight
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: legs_fur_r
+
+- type: marking
+  id: ADTCelecernLegGradientLeft
+  bodyPart: LLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: legs_gradient_l
+
+- type: marking
+  id: ADTCelecernLegGradientRight
+  bodyPart: RLeg
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: legs_gradient_r
+
+- type: marking
+  id: ADTCelecernHoofColorLeft
+  bodyPart: LFoot
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: color_hooves_l
+
+- type: marking
+  id: ADTCelecernHoofColorRight
+  bodyPart: RFoot
+  groupWhitelist: [Celecern]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Celecern/custom.rsi
+    state: color_hooves_r

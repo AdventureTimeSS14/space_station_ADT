@@ -372,7 +372,7 @@
 - type: marking
   id: HumanPiercingNavel
   bodyPart: Chest
-  groupWhitelist: [Human, Felinid, Demon]
+  groupWhitelist: [Human, Felinid, Demon, Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_navel
@@ -380,7 +380,7 @@
 - type: marking
   id: HumanPiercingNippleL
   bodyPart: Chest
-  groupWhitelist: [Human, Felinid, Demon]
+  groupWhitelist: [Human, Felinid, Demon, Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_nipple_l
@@ -388,7 +388,7 @@
 - type: marking
   id: HumanPiercingNippleR
   bodyPart: Chest
-  groupWhitelist: [Human, Felinid, Demon]
+  groupWhitelist: [Human, Felinid, Demon, Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_nipple_r
@@ -396,7 +396,7 @@
 - type: marking
   id: HumanPiercingNipple
   bodyPart: Chest
-  groupWhitelist: [Human, Felinid, Demon]
+  groupWhitelist: [Human, Felinid, Demon, Celecern]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_nipple

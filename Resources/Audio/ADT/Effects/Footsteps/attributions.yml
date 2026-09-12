@@ -6,3 +6,9 @@
   license: "CC-BY-SA-4.0"
   copyright: "Recorded and modified by https://github.com/MilenVolf"
   source: "https://git.arumoon.ru/Workbench-Team/space-station-14/-/merge_requests/123"
+
+- files:
+  - celecern_step1.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "ИСТОЧНИК НЕ УКАЗАН - уточнить автора звуков перед мержем"
+  source: "ИСТОЧНИК НЕ УКАЗАН - уточнить автора звуков перед мержем"
