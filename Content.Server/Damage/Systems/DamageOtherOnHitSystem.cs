@@ -1,6 +1,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Camera;
+using Content.Shared.ADT.Camera; // ADT screenshake
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -20,6 +21,7 @@ public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
     [Dependency] private readonly Shared.Damage.Systems.DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private readonly ScreenshakeSystem _screenshake = default!; // ADT screenshake
 
     public override void Initialize()
     {
@@ -48,7 +50,9 @@ public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
         if (TryComp<PhysicsComponent>(uid, out var body) && body.LinearVelocity.LengthSquared() > 0f)
         {
             var direction = body.LinearVelocity.Normalized();
-            _sharedCameraRecoil.KickCamera(args.Target, direction);
+            _sharedCameraRecoil.KickCamera(args.Target, direction * 0.08f); // ADT screenshake
+            _screenshake.Screenshake(args.Target,
+                new ScreenshakeParameters { Trauma = 0.45f, DecayRate = 1.1f, Frequency = 0.04f }, null); // ADT screenshake
         }
     }
 }

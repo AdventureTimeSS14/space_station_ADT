@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Utility;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
@@ -9,27 +10,29 @@ namespace Content.Shared.Weapons.Hitscan.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class HitscanBasicVisualsComponent : Component
 {
-    /// <summary>
-    /// The muzzle flash from the hitscan weapon.
-    /// </summary>
     [DataField]
     public SpriteSpecifier? MuzzleFlash;
 
-    /// <summary>
-    /// The "travel" sprite, this gets repeated until it hits the target.
-    /// </summary>
     [DataField]
     public SpriteSpecifier? TravelFlash;
 
-    /// <summary>
-    /// The sprite that gets shown on the impact of the laser.
-    /// </summary>
     [DataField]
     public SpriteSpecifier? ImpactFlash;
 
     /// <summary>
-    /// ADT BSA
-    /// Client-side lifetime of hitscan visual effect in seconds.
+    /// Flying bullet sprite shown on the client during the hitscan (Starlight Shooting 2.0).
+    /// </summary>
+    [DataField]
+    public ExtendedSpriteSpecifier? Bullet;
+
+    /// <summary>
+    /// Display speed for the client bullet animation.
+    /// </summary>
+    [DataField]
+    public float Speed = 315f;
+
+    /// <summary>
+    /// ADT BSA: client lifetime for legacy sprite-list effects.
     /// </summary>
     [DataField("effectLifetime")]
     public float EffectLifetime = 0.48f;

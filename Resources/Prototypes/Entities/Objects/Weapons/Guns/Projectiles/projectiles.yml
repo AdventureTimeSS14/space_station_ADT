@@ -151,6 +151,11 @@
     energy: 7.0
   - type: IgniteOnCollide
     fireStacks: 0.25
+  - type: Sprite 
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: incendiary
+      shader: unshaded
 
 - type: entity
   id: BaseBulletAP

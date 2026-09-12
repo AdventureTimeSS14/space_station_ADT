@@ -3,6 +3,7 @@ using Content.Server.Destructible;
 using Content.Server.Effects;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Camera;
+using Content.Shared.ADT.Camera; // ADT screenshake
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -22,6 +23,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
     [Dependency] private readonly GunSystem _guns = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
+    [Dependency] private readonly ScreenshakeSystem _screenshake = default!; // ADT screenshake
 
     public override void Initialize()
     {
@@ -65,7 +67,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         }
         var deleted = Deleted(target);
 
-        if (_damageableSystem.TryChangeDamage((target, damageableComponent), ev.Damage, out var damage, component.IgnoreResistances, origin: component.Shooter) && Exists(component.Shooter))
+        if (_damageableSystem.TryChangeDamage((target, damageableComponent), ev.Damage, out var damage, component.IgnoreResistances, origin: component.Shooter, armorPenetration: component.ArmorPenetration) && Exists(component.Shooter))
         {
             if (!deleted)
             {
@@ -88,7 +90,9 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             _guns.PlayImpactSound(target, damage, component.SoundHit, component.ForceSound);
 
             if (!args.OurBody.LinearVelocity.IsLengthZero())
-                _sharedCameraRecoil.KickCamera(target, args.OurBody.LinearVelocity.Normalized());
+                _sharedCameraRecoil.KickCamera(target, args.OurBody.LinearVelocity.Normalized() * 0.08f); // ADT screenshake
+            _screenshake.Screenshake(target,
+                new ScreenshakeParameters { Trauma = 0.45f, DecayRate = 1.1f, Frequency = 0.04f }, null); // ADT screenshake
         }
 
         if (component.DeleteOnCollide && component.ProjectileSpent)

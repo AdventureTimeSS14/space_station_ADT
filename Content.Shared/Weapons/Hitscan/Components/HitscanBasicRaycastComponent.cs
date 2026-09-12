@@ -20,4 +20,10 @@ public sealed partial class HitscanBasicRaycastComponent : Component
     /// </summary>
     [DataField]
     public CollisionGroup CollisionMask = CollisionGroup.Opaque;
+
+    /// <summary>
+    /// ADT hitscan #3142: how many aim-pointer selection attempts to make when choosing a hit.
+    /// </summary>
+    [DataField]
+    public int Steps = 3;
 }

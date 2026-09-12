@@ -71,12 +71,13 @@ public sealed partial class DamageableSystem
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
-        bool ignoreGlobalModifiers = false
+        bool ignoreGlobalModifiers = false,
+        float armorPenetration = 0f
     )
     {
         //! Empty just checks if the DamageSpecifier is _literally_ empty, as in, is internal dictionary of damage types is empty.
         // If you deal 0.0 of some damage type, Empty will be false!
-        return TryChangeDamage(ent, damage, out _, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers);
+        return TryChangeDamage(ent, damage, out _, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers, armorPenetration);
     }
 
     /// <summary>
@@ -97,12 +98,13 @@ public sealed partial class DamageableSystem
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
-        bool ignoreGlobalModifiers = false
+        bool ignoreGlobalModifiers = false,
+        float armorPenetration = 0f
     )
     {
         //! Empty just checks if the DamageSpecifier is _literally_ empty, as in, is internal dictionary of damage types is empty.
         // If you deal 0.0 of some damage type, Empty will be false!
-        newDamage = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers);
+        newDamage = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers, armorPenetration);
         return !newDamage.Empty;
     }
 
@@ -123,7 +125,8 @@ public sealed partial class DamageableSystem
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
-        bool ignoreGlobalModifiers = false
+        bool ignoreGlobalModifiers = false,
+        float armorPenetration = 0f
     )
     {
         var damageDone = new DamageSpecifier();
@@ -144,11 +147,11 @@ public sealed partial class DamageableSystem
         if (!ignoreResistances)
         {
             if (GetDamageModifierSet(ent) is { } modifierSet)
-                damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
+                damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet, armorPenetration);
 
             // TODO DAMAGE
             // byref struct event.
-            var ev = new DamageModifyEvent(damage, origin);
+            var ev = new DamageModifyEvent(damage, origin, armorPenetration);
             RaiseLocalEvent(ent, ev);
             damage = ev.Damage;
 
