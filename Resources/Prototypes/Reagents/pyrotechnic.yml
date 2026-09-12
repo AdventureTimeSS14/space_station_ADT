@@ -1,4 +1,4 @@
-﻿- type: reagent
+- type: reagent
   id: BasePyrotechnic
   group: Pyrotechnic
   abstract: true
@@ -98,6 +98,20 @@
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
         # ADT-Tweak End
+  # ADT-Tweak Start
+  # Сила пламени. От неё считается урон в секунду
+  intensity: 15
+  # Сколько секунд горит плитка
+  duration: 10
+  # Дальность струи в плитках
+  radius: 5
+  # Насколько крепче будет молотов из этой жидкости
+  intensityMod: 0.5
+  # Горит ли смесь без кислорода
+  burnsInVacuum: false
+  # За сколько секунд смесь догорает без кислорода
+  vacuumBurnout: 1.0
+# ADT-Tweak End
 
 - type: reagent
   id: Phlogiston
