@@ -58,6 +58,19 @@
                     </CollapsibleBody>
                 </Collapsible>
             </BoxContainer>
+            <!-- ADT-Tweak-Start -->
+            <BoxContainer Name="FlammableContainer" HorizontalExpand="True">
+                <Collapsible>
+                    <CollapsibleHeading Title="{Loc 'guidebook-reagent-flammable-header'}"/>
+                    <CollapsibleBody>
+                        <BoxContainer Name="FlammableDescriptionContainer"
+                                      Orientation="Vertical"
+                                      Margin="10 0 10 0"
+                                      HorizontalExpand="True"/>
+                    </CollapsibleBody>
+                </Collapsible>
+            </BoxContainer>
+            <!-- ADT-Tweak-End -->
             <BoxContainer Margin="10 5 10 10" HorizontalExpand="True">
                 <!-- The troublemaker !-->
                 <RichTextLabel Name="ReagentDescription" HorizontalAlignment="Left"/>

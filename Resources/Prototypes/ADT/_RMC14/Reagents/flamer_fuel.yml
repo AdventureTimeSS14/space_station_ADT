@@ -1,0 +1,88 @@
+- type: reagent
+  id: RMCNapalmUT
+  name: reagent-name-rmcnapalm-ut
+  group: Pyrotechnic
+  desc: reagent-desc-rmcnapalm-ut
+  physicalDesc: reagent-physical-desc-shiny
+  flavor: bitter
+  color: "#DD9B00"
+  # Сила пламени. От неё считается урон в секунду
+  intensity: 30
+  # Сколько секунд горит плитка
+  duration: 20
+  # Дальность струи в плитках
+  radius: 7
+  # Насколько крепче будет молотов из этой жидкости
+  intensityMod: 0.5
+  # Горит ли смесь без кислорода
+  burnsInVacuum: false
+  # За сколько секунд смесь догорает без кислорода
+  vacuumBurnout: 1.5
+  reactiveEffects:
+    Flammable:
+      methods: [ Touch ]
+      effects:
+      - !type:Flammable
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
+          inverted: true
+        multiplier: 0.4
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
+          inverted: true
+        damage:
+          types:
+            Heat: 2
+            Poison: 1
+            Caustic: 0.5 # based off napalm being an irritant
+      - !type:Flammable
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.4
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
+
+- type: reagent
+  parent: RMCNapalmUT
+  id: RMCNapalmSticky
+  name: reagent-name-rmcnapalm-sticky
+  group: Pyrotechnic
+  desc: reagent-desc-rmcnapalm-sticky
+  physicalDesc: reagent-physical-desc-shiny
+  flavor: bitter
+  color: "#13ae00"
+  intensity: 10
+  duration: 30
+  radius: 10
+  intensityMod: -1.5
+  durationMod: -5
+  radiusMod: -0.5
+  fireEntity: RMCTileFireStickyNapalm
+
+- type: reagent
+  parent: RMCNapalmUT
+  id: RMCNapalmHighCombustion
+  name: reagent-name-rmcnapalm-hc
+  group: Pyrotechnic
+  desc: reagent-desc-rmcnapalm-hc
+  physicalDesc: reagent-physical-desc-shiny
+  flavor: bitter
+  color: "#d2ffff"
+  intensity: 30
+  duration: 10
+  radius: 5
+  intensityMod: -4.5
+  durationMod: -1
+  radiusMod: -0.5
+  fireEntity: RMCTileFireHCNapalm
+  # Горит ли смесь без кислорода
+  burnsInVacuum: true
+  # За сколько секунд смесь догорает без кислорода
+  vacuumBurnout: 10
