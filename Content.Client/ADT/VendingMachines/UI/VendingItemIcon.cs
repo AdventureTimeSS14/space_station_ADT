@@ -86,11 +86,12 @@ public sealed class VendingItemIcon : Control
 
         var handle = renderHandle.DrawingHandleScreen;
         var center = Size / 2;
+        var stretch = Size / _contentSize;
 
         foreach (var layer in _layers)
         {
-            var size = layer.Texture.Size * layer.Scale;
-            var rect = UIBox2.FromDimensions(center + layer.Offset - size / 2, size);
+            var size = layer.Texture.Size * layer.Scale * stretch;
+            var rect = UIBox2.FromDimensions(center + layer.Offset * stretch - size / 2, size);
             handle.DrawTextureRect(layer.Texture, rect, layer.Color);
         }
     }
