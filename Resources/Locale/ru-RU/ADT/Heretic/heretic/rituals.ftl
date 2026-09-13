@@ -37,13 +37,13 @@ heretic-ritual-fail-reagent-vomit = Здесь нет рвоты.
 heretic-ritual-fail-temperature-hot = Здесь слишком жарко.
 heretic-ritual-fail-temperature-cold = Здесь недостаточно холодно.
 heretic-ritual-fail-sacrifice-ash = Здесь либо недостаточно мертвых, либо горящих.
-heretic-ritual-fail-sacrifice-blade = У некоторых из них еще есть голова на плечах.
+heretic-ritual-fail-sacrifice-blade = Недостаточно трупов.
 
 ## side quests
 
 heretic-ritual-fail-sacrifice-rust = Недостаточно гниющих или кремниевых трупов.
 heretic-ritual-fail-sacrifice-cosmos = Недостаточно трупов со звёздной меткой.
-heretic-ritual-fail-sacrifice-lock = Недостаточно бессердечных трупов.
+heretic-ritual-fail-sacrifice-lock = Недостаточно трупов.
 heretic-ritual-fail-sacrifice-soul = Недостаточно разумных трупов.
 heretic-ritual-fail-limit = Вы достигли предела количества предметов, которые предоставляет этот ритуал.
 heretic-ritual-fail-no-lost-blades = Потерянные лезвия не могут быть найдены.

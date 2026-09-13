@@ -68,6 +68,12 @@ knowledge-path-side-s3-shark-desc =
     Fire Sharks ignite their victims and drop plasma sheet once they die.
     You can only create 15 at a time.
 
+knowledge-path-side-s3-husk-name = Smoldering Husk
+knowledge-path-side-s3-husk-desc =
+    Scorched to the bone, yet still walking. The fire took everything except spite.
+
+    Your body hardens into a smoldering husk, halving all radiation damage you take.
+
 knowledge-path-side-s6-ice-spear-name = Mysteries of Creation
 knowledge-path-side-s6-ice-spear-desc =
     Artifacts linked to the Winter Dawn exude unnatural stillness. Time slows around them. Fires choke. Thoughts become brittle. Proximity breeds hallucinations of endless white fields, a sky with no sun, and a voice that speaks only in cracking ice.
@@ -103,51 +109,12 @@ knowledge-path-side-s6-rifle-ammo-desc =
 
     Allows you to transmute 3 rifle cartridges into 2 hunter's cartridges.
 
-## stage 7
-knowledge-path-side-s7-uncuff-name = Wave of Desperation
-knowledge-path-side-s7-uncuff-desc =
-    My shackles undone in dark fury, their feeble bindings crumble before my power.
-
-    Grants you Wave Of Desperation, a spell which can only be cast while restrained.
-    It removes your restraints, repels and knocks down adjacent people, and applies the Mansus Grasp to everything nearby.
-    However, you will fall unconscious a short time after casting this spell.
-
-knowledge-path-side-s7-siphon-name = Blood Siphon
-knowledge-path-side-s7-siphon-desc =
-    No matter the man, we bleed all the same. That's what the Marshal told me.
-
-    Grants Blood Siphon, a ranged spell that steals a bit of life from your target, healing your bruises and restoring blood.
-    Additionally, you have a chance of transferring wounds you are experiencing to the target.
-
-knowledge-path-side-s7-crucible-name = Mawed Crucible
-knowledge-path-side-s7-crucible-desc =
-    This is pure agony. I wasn't able to summon the figure of the Aristocrat,
-    but with the Priest's attention I stumbled upon a different recipe...
-
-    Allows you to transmute a portable water tank and a table to create a Mawed Crucible.
-    The Mawed Crucible can brew powerful potions for combat and utility, but must be fed bodyparts and organs between uses.
-
 # stage 8
 knowledge-path-side-s8-cleave-name = Blood Cleave
 knowledge-path-side-s8-cleave-desc =
     At first I didn't understand these instruments of war, but the Priest told me to use them regardless. Soon, he said, I would know them well.
 
     Grants you Cleave, an area-of-effect targeted spell that causes heavy bleeding and blood loss to anyone afflicted.
-
-## stage 9
-knowledge-path-side-s9-coin-name = Eldritch Coin
-knowledge-path-side-s9-coin-desc =
-    The Mansus is a place of all sorts of sins. But greed held a special role.
-
-    Transmute a sheet of plasma, a diamond and eyes into an Eldritch Coin.
-    The coin will open nearby airlocks if it lands on heads and bolt nearby airlocks if it lands on tails.
-    Using it on an airlock consumes the coin and permanently opens the airlock.
-    Attempting to flip or use the coin as a non-heretic will deal brute and/or burn damage, depending on the side it lands on.
-
-knowledge-path-side-s9-ashman-name = Ashen Ritual
-knowledge-path-side-s9-ashman-desc =
-    Transmute a pile of ash, a brain and a book to summon an Ashman.
-    Ashmen can jaunt, cause bleeding wounds, and can release large waves of fire.
 
 knowledge-path-side-t1-ether-name = Ether of the Newborn
 knowledge-path-side-t1-ether-desc =

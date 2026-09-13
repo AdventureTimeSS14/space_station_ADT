@@ -89,7 +89,7 @@ knowledge-path-lock-s7-name = Opening Blade
 knowledge-path-lock-s7-desc =
     The Pilgrim-Surgeon was not an Steward. Nonetheless, its blades and sutures proved a match for their keys.
 
-    Your blade has better wounding and a chance to cause a weeping avulsion on attack.
+    Your keyblades strike harder, dealing bonus damage on every hit.
 
 knowledge-path-lock-s8-name = Concierge's Rite
 knowledge-path-lock-s8-desc =
@@ -101,7 +101,7 @@ knowledge-path-lock-s8-desc =
 knowledge-path-lock-s9-name = Unlock the Labyrinth
 knowledge-path-lock-s9-desc =
     The ascension ritual of the Path of Lock.
-    Bring 3 corpses without the heart to a transmutation rune to complete the ritual.
+    Bring 3 corpses to a transmutation rune to complete the ritual.
     When completed, you gain the ability to transform into empowered eldritch creatures and your keyblades will become even deadlier.
     In addition, you will create a tear to the Labyrinth's heart; a tear in reality located at the site of this ritual.
     Eldritch creatures will endlessly pour from this rift who are bound to obey your instructions.

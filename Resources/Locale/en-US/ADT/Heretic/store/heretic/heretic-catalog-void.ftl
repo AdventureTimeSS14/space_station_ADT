@@ -36,7 +36,7 @@ knowledge-path-void-s2-desc =
     I saw the cold watcher who observes me. The chill mounts within me.
     They are quiet. This isn't the end of the mystery.
 
-    Your Mansus Grasp will temporarily mute and chill the victim.
+    Your Mansus Grasp will chill and slow the victim.
     You become immune to cold temperatures.
 
 
@@ -61,8 +61,8 @@ knowledge-path-void-s4-desc =
     A gust of wind? A shimmer in the air? The presence is overwhelming, my senses began to betray me. My mind is my own enemy.
 
     Your Mansus Grasp now applies the Mark of Void. The mark is triggered from an attack with your Void Blade.
-    When triggered, gives the victim the Curse of Void, which will mute and slowly freeze them to death.
-    You no longer need to breathe/
+    When triggered, gives the victim the Curse of Void, which will slowly freeze them to death.
+    You no longer need to breathe.
 
 #knowledge-path-void-s5-name = Void Blast
 #knowledge-path-void-s5-desc =
@@ -71,6 +71,23 @@ knowledge-path-void-s4-desc =
 #
 #    Grants you Void Blast, a spell that shoots out a freezing blast in a cone in front of you,
 #    freezing the ground and cursing any victims within.
+
+knowledge-path-void-blast-name = Void Blast
+knowledge-path-void-blast-desc =
+    Every door I open racks my body. I am afraid of what is behind them. Someone is expecting me,
+    and my legs start to drag. Is that... snow?
+
+    Grants you Void Blast, a spell that fires a fan of five ice icicles in a cone in front of you,
+    chilling and wounding victims.
+
+knowledge-path-void-prison-name = Void Prison
+knowledge-path-void-prison-desc =
+    At first, I see myself, waltzing along a snow-laden street.
+    I try to yell, grab hold of this fool and tell them to run.
+    But the only welts made are on my own beating fist.
+    My smiling face turns to regard me, reflecting back in glassy eyes the empty path I have been lead down.
+
+    Grants you Void Prison, a spell that places your victim into a ball, making them unable to do anything or speak. Applies void chill afterwards.
 
 knowledge-path-void-s5-name = Void Prison
 knowledge-path-void-s5-desc =

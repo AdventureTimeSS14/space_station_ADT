@@ -545,6 +545,11 @@
   id: ToxicBlade
   path: Rust
   stage: 7
+  event: !type:HereticKnowledgeEvent
+    addedComponents:
+    - type: HereticBladeUserBonusDamage
+      bonusMultiplier: 0.5
+      path: Rust
 
 - type: hereticKnowledge
   id: RustCharge
@@ -801,6 +806,11 @@
   id: OpeningBlade
   path: Lock
   stage: 7
+  event: !type:HereticKnowledgeEvent
+    addedComponents:
+    - type: HereticBladeUserBonusDamage
+      bonusMultiplier: 0.5
+      path: Lock
 
 - type: hereticKnowledge
   id: ConciergesRite

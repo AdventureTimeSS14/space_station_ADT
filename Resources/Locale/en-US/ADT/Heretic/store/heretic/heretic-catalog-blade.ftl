@@ -27,8 +27,8 @@ knowledge-path-blade-s1-desc =
     Our great ancestors forged swords and practiced sparring on the eve of great battles.
 
     Follow the path of blades.
-    Transmute two knives into a sundered blade.
-    You can create up to four at a time.
+    Transmute four knives into a sundered blade.
+    You can create up to two at a time.
 
 knowledge-path-blade-s2-name = Grasp of the Blade
 knowledge-path-blade-s2-desc =
@@ -63,7 +63,7 @@ knowledge-path-blade-s6-desc =
     In time, it was he who stood alone among the bodies of his former comrades, awash in blood, none of it his own. He was without rival, equal, or purpose.
 
     Grants resistance to bloodloss and damage slowdown.
-    Additionally, when damaged below 50% of your maximum health, you gain increased resistance to gaining wounds and resistance to batons.
+    Additionally, when damaged below 50% of your maximum health, incoming damage is halved and stamina damage is greatly reduced.
 
 knowledge-path-blade-s7-name = Empowered Blades
 knowledge-path-blade-s7-desc =
@@ -81,6 +81,7 @@ knowledge-path-blade-s8-desc =
 knowledge-path-blade-s9-name = Maelstrom of Silver
 knowledge-path-blade-s9-desc =
     The ascension ritual of the Path of Blades.
+    Bring 3 corpses to a transmutation rune to complete the ritual.
 
     When completed, you will be surrounded in a constant, regenerating orbit of blades.
     These blades will protect you from all attacks, but are consumed on use.
