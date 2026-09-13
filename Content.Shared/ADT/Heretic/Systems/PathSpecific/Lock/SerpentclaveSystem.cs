@@ -11,7 +11,6 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.StationAi;
-using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Damage.Systems;
@@ -119,13 +118,7 @@ public sealed partial class SerpentclaveSystem : EntitySystem
         _power.SetNeedsPower(ent, false);
 
         var field = EnsureComp<ContainmentFieldComponent>(ent);
-        var status = EnsureComp<StatusEffectsComponent>(ent);
-
-        status.AllowedEffects ??= new();
-        if (!status.AllowedEffects.Contains("Jitter"))
-            status.AllowedEffects.Add("Jitter");
-
-        _jitter.DoJitter(ent, ent.Comp.JitterTime, false, status: status);
+        _jitter.AddJitter(ent.Owner);
     }
 
     private void OnBeforeDoorClosed(Entity<LockTrappedDoorComponent> ent, ref BeforeDoorClosedEvent args)
