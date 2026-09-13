@@ -950,7 +950,7 @@
   id: ADTMagazineMagnumLesser
 
 - type: Tag
-  id: ADTMagazineMagnumLesser
+  id: RMCTankFlamerFmW60
 
 - type: Tag
   id: ReactorPart
@@ -960,7 +960,6 @@
 
 - type: Tag
   id: GasTurbineStator
-  id: RMCTankFlamerFmW60
 
 - type: Tag
   id: RMCTankFlamerM560
