@@ -21,7 +21,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Kitchen.EntitySystems;
 
-public sealed class SharpSystem : EntitySystem
+public sealed partial class SharpSystem : EntitySystem // ADT-Tweak
 {
     [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly SharedDestructibleSystem _destructibleSystem = default!;

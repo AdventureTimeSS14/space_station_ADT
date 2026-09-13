@@ -16,7 +16,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Clothing.Systems;
 
-public sealed class OutfitSystem : EntitySystem
+public sealed partial class OutfitSystem : EntitySystem // ADT-Tweak
 {
     [Dependency] private readonly IServerPreferencesManager _preferenceManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;

@@ -21,10 +21,9 @@ public sealed partial class BurglarsFinesseSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<HandsComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerb);
     }
 
-    private void OnGetAltVerb(Entity<HandsComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    public void AddStealVerb(Entity<HandsComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
         var user = args.User;
         if (user == ent.Owner || args.Using is not { } used || !args.CanAccess || !args.CanInteract)

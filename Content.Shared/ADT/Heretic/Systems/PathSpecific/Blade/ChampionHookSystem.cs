@@ -5,6 +5,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Heretic.Components;
 using Content.Shared.Heretic.Components.PathSpecific.Blade;
 using Content.Shared.ADT.Heretic.Systems;
+using Content.Shared.ADT.Heretic.Systems.PathSpecific.Lock;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Stunnable;
@@ -22,6 +23,7 @@ public sealed partial class ChampionHookSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly SharedHereticSystem _heretic = default!;
+    [Dependency] private readonly BurglarsFinesseSystem _burglars = default!;
 
     public override void Initialize()
     {
@@ -42,6 +44,8 @@ public sealed partial class ChampionHookSystem : EntitySystem
 
     private void OnGetAltVerb(Entity<HandsComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
+        _burglars.AddStealVerb(ent, ref args);
+
         var user = args.User;
         if (user == ent.Owner || args.Using is not { } used || !args.CanAccess || !args.CanInteract)
             return;

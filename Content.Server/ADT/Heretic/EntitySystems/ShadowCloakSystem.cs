@@ -6,7 +6,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Heretic.EntitySystems;
 
-public sealed class ShadowCloakSystem : SharedShadowCloakSystem
+public sealed partial class ShadowCloakSystem : SharedShadowCloakSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
