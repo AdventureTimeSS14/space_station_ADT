@@ -31,10 +31,3 @@
   - type: Tag
     tags:
     - HereticItem
-  - type: Parry
-    parryMinSkill: 40
-    soundOnParry:
-      path: /Audio/ADT/Heretic/parry.ogg
-      params:
-        variation: 0.2
-        volume: -11

@@ -482,7 +482,7 @@ public sealed class LaserBeamEndpointPositionEvent(NetEntity uid, MapCoordinates
 }
 
 [ImplicitDataDefinitionForInheritors]
-public abstract partial class HereticKnowledgeEvent : EntityEventArgs
+public partial class HereticKnowledgeEvent : EntityEventArgs
 {
     public EntityUid Heretic;
 
