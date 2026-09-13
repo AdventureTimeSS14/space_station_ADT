@@ -1,14 +1,17 @@
 - type: entity
-  parent: BaseFlashEffect
   id: EldritchFlashEffect
   categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
     color: "#cc66e6"
+  - type: TimedDespawn
+    lifetime: 0.5
   - type: AreaGraspEffect
+  - type: Tag
+    tags:
+    - HideContextMenu
 
 - type: entity
-  parent: BaseFlashEffect
   id: NightwatcherEffect
   categories: [ HideSpawnMenu ]
   components:
@@ -27,12 +30,13 @@
     - HideContextMenu
 
 - type: entity
-  parent: BaseFlashEffect
   id: KnitFleshEffect
   categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
     color: red
+  - type: TimedDespawn
+    lifetime: 0.5
   - type: AreaGraspEffect
     effectColor: red
     size: 7
