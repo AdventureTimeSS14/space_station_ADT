@@ -1,6 +1,7 @@
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.ADT.CCVar; // ADT Radial menu settings
+using Content.Shared.ADT.Chat; // ADT-Tweak: привязка эмоций
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Input;
@@ -175,7 +176,7 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
                 emotesByCategory.Add(emote.Category, list);
             }
 
-            var actionOption = new RadialMenuActionOption<EmotePrototype>(HandleRadialButtonClick, emote)
+            var actionOption = new RadialMenuActionOption<EmotePrototype>(HandleRadialButtonClick, emote, HandleAlternativeRadialButtonClick) // ADT-Tweak
             {
                 IconSpecifier = RadialMenuIconSpecifier.With(emote.Icon),
                 ToolTip = Loc.GetString(emote.Name)
@@ -199,6 +200,11 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
 
         return models;
     }
+
+    // ADT-Tweak-Start: правый клик вешает эмоцию на экшен
+    private void HandleAlternativeRadialButtonClick(EmotePrototype emote)
+        => EntityManager.RaisePredictiveEvent(new RequestBindEmoteMessage(emote.ID));
+    // ADT-Tweak-End
 
     private void HandleRadialButtonClick(EmotePrototype prototype)
     {

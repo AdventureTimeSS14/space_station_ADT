@@ -1,0 +1,9 @@
+# Шаблон для экшенов привязанных эмоций, создаётся в рантайме - вручную не использовать!
+- type: entity
+  parent: BaseAction
+  id: ADTActionEmoteBindBase
+  components:
+  - type: Action
+    useDelay: 3
+  - type: InstantAction
+    event: null
