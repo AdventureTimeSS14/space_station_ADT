@@ -64,6 +64,9 @@ namespace Content.Shared.Research.Prototypes
         // ADT-Tweak Start
         [DataField]
         public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> ReagentCost = new();
+
+        [DataField]
+        public bool DisplayOnly;
         // ADT-Tweak End
 
         [DataField]

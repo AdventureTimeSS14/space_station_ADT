@@ -92,6 +92,9 @@ public sealed class ResearchTest : GameTest
                 unlockedTechs.UnionWith(tech.RecipeUnlocks);
                 foreach (var recipe in tech.RecipeUnlocks)
                 {
+                    if (protoManager.TryIndex(recipe, out LatheRecipePrototype? recipeProto) && recipeProto.DisplayOnly)
+                        continue;
+
                     if (!latheTechs.Contains(recipe))
                         failures.Add($"Recipe '{recipe}' from tech '{tech.ID}' cannot be unlocked on any lathes.");
                 }
