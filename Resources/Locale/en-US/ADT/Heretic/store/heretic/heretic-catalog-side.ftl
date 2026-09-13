@@ -90,6 +90,19 @@ knowledge-path-side-s6-knife-desc =
     The Carving Knife allows you to etch difficult to see traps that trigger on heathens who walk overhead.
     Also makes for a handy throwing weapon.
 
+knowledge-path-side-s6-rifle-name = Lionhunter's Rifle
+knowledge-path-side-s6-rifle-desc =
+    An antique rifle, immaculate despite its age. The Lionhunter stalks prey across any distance.
+
+    Allows you to transmute a wooden plank, a PDA and a slab of meat to create a Lionhunter's Rifle.
+    Right click a distant target in combat mode to aim. A fully aimed shot fires an empowered homing projectile that passes through walls, knocks the victim down and marks them.
+
+knowledge-path-side-s6-rifle-ammo-name = Lionhunter's Rifle Ammunition
+knowledge-path-side-s6-rifle-ammo-desc =
+    Heavy hunter's cartridges, tuned for the Lionhunter's Rifle.
+
+    Allows you to transmute 3 rifle cartridges into 2 hunter's cartridges.
+
 ## stage 7
 knowledge-path-side-s7-uncuff-name = Wave of Desperation
 knowledge-path-side-s7-uncuff-desc =
@@ -135,3 +148,25 @@ knowledge-path-side-s9-ashman-name = Ashen Ritual
 knowledge-path-side-s9-ashman-desc =
     Transmute a pile of ash, a brain and a book to summon an Ashman.
     Ashmen can jaunt, cause bleeding wounds, and can release large waves of fire.
+
+knowledge-path-side-t1-ether-name = Ether of the Newborn
+knowledge-path-side-t1-ether-desc =
+    Vision and thought grow hazy as the fumes of this ichor swirl up to meet me.
+
+    Transmute a pool of vomit and a shard into a single use potion.
+    Drinking it will restore your body to full health at the cost of losing consciousness for a minute.
+
+knowledge-path-side-t1-coin-name = Eldritch Coin
+knowledge-path-side-t1-coin-desc =
+    The Mansus is a place of all sorts of sins. But greed held a special role.
+
+    Allows you to transmute a bar of silver or gold to create an Eldritch Coin.
+    The coin will open or close nearby doors when landing on heads and toggle their bolts when landing on tails.
+
+knowledge-path-side-t1-curio-name = Unfathomable Curio
+knowledge-path-side-t1-curio-desc =
+    Along the way, on this long journey, I encounter all sorts of wonders.
+
+    Allows you to transmute 3 rods, lungs, and a utility belt into an Unfathomable Curio,
+    a belt with a lot of storage space that also functions as a focus. Whilst worn it will veil you,
+    blocking one blow of incoming damage, at the cost of the veil. The veil recharges itself out of combat.

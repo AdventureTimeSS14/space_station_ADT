@@ -1,0 +1,11 @@
+- type: entity
+  parent: CartridgeAntiMateriel
+  id: CartridgeLionhunter
+  name: cartridge (.60 hunter's)
+  components:
+  - type: CartridgeAmmo
+    proto: BulletLionhunter
+  - type: Tag
+    tags:
+    - CartridgeAntiMateriel
+    - CartridgeLionhunter

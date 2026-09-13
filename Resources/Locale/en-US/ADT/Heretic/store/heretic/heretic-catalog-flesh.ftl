@@ -63,6 +63,8 @@ knowledge-path-flesh-s5-desc =
     But they were not out of my reach for long. With every step, the screams grew, until at last
     I learned that they could be silenced.
 
+    You can sustain up to 5 ghouls at once.
+
     Grants you the spell Knit Flesh. This touch spell acts as a great surgery tool that bypasses surgery steps, clothing, doesn't cause pain and doesn't deal poison damage. Also acts as medical hud and health analyzer.
     This spell also allows you to heal your minions and summons.
 
@@ -82,6 +84,7 @@ knowledge-path-flesh-s7-desc =
     I finally began to understand. And then, blood rained from the heavens.
 
     Your Bloody Blade now causes enemies to bleed heavily on attack.
+    You can see health bars and icons of others.
 
 knowledge-path-flesh-s8-name = Lonely Ritual
 knowledge-path-flesh-s8-desc =

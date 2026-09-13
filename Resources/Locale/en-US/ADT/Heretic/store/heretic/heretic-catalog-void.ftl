@@ -93,6 +93,7 @@ knowledge-path-void-s7-desc =
     Fleeting memories, fleeting feet. I mark my way with frozen blood upon the snow. Covered and forgotten.
 
     Your blade now freezes enemies. Additionally, you can now attack distant targets with your Void Blade, teleporting directly next to them.
+    You resist movement slowdown.
 
 knowledge-path-void-s8-name = Void Conduit
 knowledge-path-void-s8-desc =

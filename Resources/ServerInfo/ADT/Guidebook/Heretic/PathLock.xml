@@ -1,0 +1,38 @@
+<Document>
+  # Путь Замка
+
+  <Box>
+    <GuideEntityEmbed Entity="HereticBladeLock" Caption=""/>
+  </Box>
+
+  Путь Замка — это доступ, контроль территории, кражи и гаджеты. Берите его, если хотите меньше прямых стычек и больше быть скользкой крысой.
+
+  ## Как играется
+
+  Хватка открывает любые замки: шлюзы, шкафчики, мехи (пилот катапультируется), консоли. Издаёт характерный стук.
+
+  Метка Замка лишает жертву всех доступов: даже публичные двери будут её отвергать.
+
+  ## Слабое место
+
+  Слабейший путь в прямом бою. Почти нет боевых бонусов, защиты и мобильности. Сильно зависит от чужих отделов и мира вокруг.
+
+  ## Вознесение
+
+  Три трупа без сердца на руне.
+
+  Вознесённый создаёт прореху в Сердце Лабиринта, из которой бесконечно идут существа Мансуса. Получает связь Мансуса и иммунитет к холоду и давлению. Может превращаться в усиленных существ.
+
+  ## Ступени
+
+  <GuideHereticPathEmbed Path="Lock"/>
+
+  # Ритуалы пути
+
+  <GuideHereticRitualEmbed Ritual="RitualBladeLock" Path="Lock"/>
+  <GuideHereticRitualEmbed Ritual="RitualEldritchId" Path="Lock"/>
+  <GuideHereticRitualEmbed Ritual="RitualSerpentclave" Path="Lock"/>
+  <GuideHereticRitualEmbed Ritual="ArmorerRitualLock" Path="Lock"/>
+  <GuideHereticRitualEmbed Ritual="RitualConcierge" Path="Lock"/>
+  <GuideHereticRitualEmbed Ritual="RitualAscensionLock" Path="Lock"/>
+</Document>

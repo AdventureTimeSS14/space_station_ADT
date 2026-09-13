@@ -120,6 +120,54 @@
     stage: 2
 
 - type: listing
+  id: HereticSidePath3Ether
+  name: knowledge-path-side-t1-ether-name
+  description: knowledge-path-side-t1-ether-desc
+  icon: { sprite: ADT/Heretic/Entities/ether.rsi, state: icon }
+  productHereticKnowledge: EtherOfTheNewborn
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
+  id: HereticSidePath3Coin
+  name: knowledge-path-side-t1-coin-name
+  description: knowledge-path-side-t1-coin-desc
+  icon: { sprite: ADT/Heretic/Entities/eldritch_coin.rsi, state: heretic }
+  productHereticKnowledge: EldritchCoin
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
+  id: HereticSidePath3Curio
+  name: knowledge-path-side-t1-curio-name
+  description: knowledge-path-side-t1-curio-desc
+  icon: { sprite: ADT/Heretic/Clothing/Belt/curio.rsi, state: icon }
+  productHereticKnowledge: UnfathomableCurio
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
   id: HereticSidePathKnowledge
   name: knowledge-path-side-knowledge-name
   description: knowledge-path-side-knowledge-desc
@@ -242,6 +290,38 @@
   description: knowledge-path-side-s6-knife-desc
   icon: { sprite: ADT/Heretic/items.rsi, state: rune_carver }
   productHereticKnowledge: CarvingKnife
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
+  id: HereticSidePath6Rifle
+  name: knowledge-path-side-s6-rifle-name
+  description: knowledge-path-side-s6-rifle-desc
+  icon: { sprite: ADT/Heretic/Entities/lionhunter-icon.rsi, state: base }
+  productHereticKnowledge: LionhunterRifle
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
+  id: HereticSidePath6RifleAmmo
+  name: knowledge-path-side-s6-rifle-ammo-name
+  description: knowledge-path-side-s6-rifle-ammo-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi, state: base }
+  productHereticKnowledge: LionhunterRifleAmmunition
   cost:
     KnowledgePoint: 1
   categories:

@@ -35,6 +35,7 @@ knowledge-path-blade-s2-desc =
     The story of the footsoldier has been told since antiquity. It is one of blood and valor, and is championed by sword, steel and silver.
 
     Your Mansus Grasp will cause a short stun when used on someone lying down or facing away from you.
+    You learn to riposte: every 20 seconds you automatically strike back at anyone who attacks you while wielding a blade.
 
 knowledge-path-blade-s3-name = Dance of the Brand
 knowledge-path-blade-s3-desc =
@@ -85,3 +86,21 @@ knowledge-path-blade-s9-desc =
     These blades will protect you from all attacks, but are consumed on use.
     Additionally, you become a master of combat, gaining the ability to waltz over slippery surfaces and shake off stuns.
     Every weapon you hold in your hands deals bonus damage and heals you on attack for a portion of the damage dealt, while also weakly mending your bleeding.
+
+knowledge-path-blade-side-hook-name = Champion Hook
+knowledge-path-blade-side-hook-desc =
+    In the flurry of death, he found peace within himself. Despite insurmountable odds, he forged on.
+
+    You can now grab your opponent by alt-clicking them with your blade in combat mode. Hooked victims are knocked down and dragged along with you.
+
+knowledge-path-blade-side-sacraments-name = Sacraments of Power
+knowledge-path-blade-side-sacraments-desc =
+    His general wished to end the war, but the Champion knew there could be no life without death.
+
+    Grants you Sacraments of Power, a spell that surrounds you with a ward for a short time. While open, the ward blocks incoming damage and stamina damage and reflects a portion of it back at attackers. Those who harm you first earn the right to be struck back.
+
+knowledge-path-blade-side-wolves-name = Wolves Among Sheep
+knowledge-path-blade-side-wolves-desc =
+    Shadows crawl across the room. I have made an enemy of all, and peace will never be known to me again.
+
+    Grants you Wolves Among Sheep, a spell that drags all nearby heathens toward you, marks them with the mark of the Blade and drains their stamina.

@@ -1,25 +1,186 @@
-# ADT: Lock path is not implemented, no path: Lock knowledge exists
+- type: listing
+  id: KnowledgePathStartLock
+  name: knowledge-path-lock-s1-name
+  description: knowledge-path-lock-s1-desc
+  icon: { sprite: ADT/Heretic/Blades/blade_lock.rsi, state: icon }
+  productHereticKnowledge: StewardsSecret
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 0
+    blacklist:
+    - Ash
+    - Blade
+    - Flesh
+    - Lock
+    - Void
+    - Rust
+    - Cosmos
 
-#- type: listing
-#  id: KnowledgePathStartLock
-#  name: knowledge-path-lock-s1-name
-#  description: knowledge-path-lock-s1-desc
-#  icon: { sprite: ADT/Heretic/Blades/blade_lock.rsi, state: icon }
-#  #productHereticKnowledge:
-#  cost:
-#    KnowledgePoint: 1
-#  categories:
-#  - HereticPathLock
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
-#  - !type:HereticPathCondition
-#    stage: 0
-#    blacklist:
-#    - Ash
-#    - Blade
-#    - Flesh
-#    - Lock
-#    - Void
-#    - Rust # ADT
-#    - Cosmos # ADT
+- type: listing
+  id: HereticLockPath2
+  name: knowledge-path-lock-s2-name
+  description: knowledge-path-lock-s2-desc
+  icon: { sprite: ADT/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: GraspOfLock
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 1
+    whitelist:
+    - Lock
+
+- type: listing
+  id: HereticLockPath3
+  name: knowledge-path-lock-s3-name
+  description: knowledge-path-lock-s3-desc
+  icon: { sprite: ADT/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: MarkOfLock
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+    whitelist:
+    - Lock
+
+- type: listing
+  id: HereticLockPath4
+  name: knowledge-path-lock-s4-name
+  description: knowledge-path-lock-s4-desc
+  icon: { sprite: Objects/Misc/id_cards.rsi, state: gold }
+  productHereticKnowledge: KeyKeepersBurden
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+    whitelist:
+    - Lock
+
+- type: listing
+  id: HereticLockArmor
+  name: knowledge-path-lock-armor-name
+  description: knowledge-path-lock-armor-desc
+  icon: { sprite: ADT/Heretic/Clothing/OuterClothing/lock_armor.rsi, state: icon }
+  productHereticKnowledge: ArmorerRitualLock
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+    whitelist:
+    - Lock
+
+- type: listing
+  id: HereticLockPath5
+  name: knowledge-path-lock-s5-name
+  description: knowledge-path-lock-s5-desc
+  icon: { sprite: ADT/Heretic/Entities/serpentclave.rsi, state: icon }
+  productHereticKnowledge: WrongKey
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
+    whitelist:
+    - Lock
+
+- type: listing
+  id: HereticLockPath6
+  name: knowledge-path-lock-s6-name
+  description: knowledge-path-lock-s6-desc
+  icon: { sprite: ADT/Heretic/abilities_heretic.rsi, state: bulglar_finesse }
+  productHereticKnowledge: BurglarsFinesse
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+    whitelist:
+    - Lock
+
+- type: listing
+  id: HereticLockPath7
+  name: knowledge-path-lock-s7-name
+  description: knowledge-path-lock-s7-desc
+  icon: { sprite: ADT/Heretic/Blades/blade_lock.rsi, state: icon }
+  productHereticKnowledge: OpeningBlade
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 6
+    whitelist:
+    - Lock
+
+- type: listing
+  id: HereticLockPath8
+  name: knowledge-path-lock-s8-name
+  description: knowledge-path-lock-s8-desc
+  icon: { sprite: ADT/Heretic/Entities/heretichandbook.rsi, state: icon }
+  productHereticKnowledge: ConciergesRite
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 7
+    whitelist:
+    - Lock
+
+- type: listing
+  id: HereticLockPath9
+  name: knowledge-path-lock-s9-name
+  description: knowledge-path-lock-s9-desc
+  icon: { sprite: ADT/Heretic/abilities_heretic.rsi, state: labyrinth }
+  productHereticKnowledge: AscensionLock
+  cost:
+    KnowledgePoint: 3
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    requiresCanAscend: true
+    stage: 8
+    whitelist:
+    - Lock

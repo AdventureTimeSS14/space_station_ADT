@@ -200,3 +200,108 @@
     sprite: Objects/Misc/bureaucracy.rsi
     state: paper
   name: heretic-guide-tag-Paper
+
+- type: hereticRitualItem
+  id: PreciousBar
+  icon:
+    sprite: Objects/Materials/ingots.rsi
+    state: gold
+  name: heretic-guide-tag-PreciousBar
+
+- type: hereticRitualItem
+  id: GoldBar
+  icon:
+    sprite: Objects/Materials/ingots.rsi
+    state: gold
+  name: heretic-guide-tag-GoldBar
+
+- type: hereticRitualItem
+  id: SilverBar
+  icon:
+    sprite: Objects/Materials/ingots.rsi
+    state: silver
+  name: heretic-guide-tag-SilverBar
+
+- type: hereticRitualItem
+  id: RodMetal
+  icon:
+    sprite: Objects/Materials/parts.rsi
+    state: rods
+  name: heretic-guide-tag-RodMetal
+
+- type: hereticRitualItem
+  id: HeavyBoots
+  icon:
+    sprite: Clothing/Shoes/Boots/magboots.rsi
+    state: icon
+  name: heretic-guide-tag-HeavyBoots
+
+- type: hereticRitualItem
+  id: WoodPlank
+  icon:
+    sprite: Objects/Materials/materials.rsi
+    state: wood
+  name: heretic-guide-tag-WoodPlank
+
+- type: hereticRitualItem
+  id: MedicalGloves
+  icon:
+    sprite: Clothing/Hands/Gloves/latex.rsi
+    state: icon
+  name: heretic-guide-tag-MedicalGloves
+
+- type: hereticRitualItem
+  id: Bonfire
+  icon:
+    sprite: Structures/Decoration/bonfire.rsi
+    state: bonfire
+  name: heretic-guide-tag-Bonfire
+
+- type: hereticRitualItem
+  id: Hand
+  icon:
+    sprite: Mobs/Species/Human/organs.rsi
+    state: muscle
+  name: heretic-guide-tag-Hand
+
+- type: hereticRitualItem
+  id: IdCard
+  icon:
+    sprite: Objects/Misc/id_cards.rsi
+    state: gold
+  name: heretic-guide-tag-IdCard
+
+- type: hereticRitualItem
+  id: HereticBlade
+  icon:
+    sprite: ADT/Heretic/Blades/eldritch_blade.rsi
+    state: icon
+  name: heretic-guide-tag-HereticBlade
+
+- type: hereticRitualItem
+  id: CodexCicatrix
+  icon:
+    sprite: ADT/Heretic/book.rsi
+    state: icon
+  name: heretic-guide-tag-CodexCicatrix
+
+- type: hereticRitualItem
+  id: Rag
+  icon:
+    sprite: Objects/Specific/Janitorial/rag.rsi
+    state: rag
+  name: heretic-guide-tag-Rag
+
+- type: hereticRitualItem
+  id: ADTLighter
+  icon:
+    sprite: Objects/Tools/Lighters/lighters.rsi
+    state: icon_map
+  name: heretic-guide-tag-ADTLighter
+
+- type: hereticRitualItem
+  id: Flashlight
+  icon:
+    sprite: Objects/Tools/flashlight.rsi
+    state: flashlight
+  name: heretic-guide-tag-Flashlight

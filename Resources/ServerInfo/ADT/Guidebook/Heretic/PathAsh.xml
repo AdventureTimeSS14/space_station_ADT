@@ -20,9 +20,12 @@
 
   <GuideHereticPathEmbed Path="Ash"/>
 
+  Побочные знания пути: Треснувший фонарь (вспышка с поджогом).
+
   # Ритуалы пути
 
   <GuideHereticRitualEmbed Ritual="BladeAsh" Path="Ash"/>
   <GuideHereticRitualEmbed Ritual="MaskOfMadness" Path="Ash"/>
+  <GuideHereticRitualEmbed Ritual="RitualCrackedLantern" Path="Ash"/>
   <GuideHereticRitualEmbed Ritual="AscensionAsh" Path="Ash"/>
 </Document>

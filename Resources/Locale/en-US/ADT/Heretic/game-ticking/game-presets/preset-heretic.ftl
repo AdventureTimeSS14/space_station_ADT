@@ -64,3 +64,11 @@ ghostrole-fire-shark-desc = Aid your summoner in achieving ascension. Burn your 
 ghostrole-rustwalker-desc = Aid your summoner in achieving ascension. Spread rust everywhere.
 ghostrole-stargazer-desc = Aid your summoner in wreaking havoc everywhere.
 ghostrole-ghoul-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the one who summoned you and other eldritch beings.
+ghostrole-maid-name = Maid in the Mirror
+ghostrole-maid-desc = Aid your summoner in achieving ascension. Ambush heathens from reflections.
+ghostrole-ash-spirit-name = Ash Spirit
+ghostrole-ash-spirit-desc = Aid your summoner in achieving ascension. Melt your victims.
+ghostrole-shattered-name = Shattered Risen
+ghostrole-shattered-desc = Aid your summoner in achieving ascension. Crush heathens with fists of bone.
+mirror-maid-examine-message-user = You feel your eyes burn!
+mirror-maid-examine-message-maid = Someone gazes upon you!

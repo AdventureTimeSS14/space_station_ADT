@@ -1,0 +1,53 @@
+- type: entity
+  parent: [ ClothingShoesBase, BaseMagicContraband ]
+  id: ClothingShoesGreavesHeretic
+  name: joint-snap sabatons
+  description: Sabatons made out of rugged, worn iron. Feels more stable than the ground they tread on.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Clothing/Shoes/greaves.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Heretic/Clothing/Shoes/greaves.rsi
+  - type: Item
+    sprite: ADT/Heretic/Clothing/Shoes/greaves.rsi
+  - type: Magboots
+  - type: NoSlip
+  - type: Tag
+    tags:
+    - HereticItem
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+  - type: HereticClothing
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Caustic: 0.5
+
+- type: entity
+  parent: CodexCicatrix
+  id: CodexMorbus
+  name: codex morbus
+  description: A hideous, ragged book covered in separately-blinking eyes, all of them staring at you.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/book_morbus.rsi
+    layers:
+    - state: icon
+      map: [ "base" ]
+  - type: Item
+    sprite: ADT/Heretic/book_morbus.rsi
+  - type: ComponentToggler
+    components:
+    - type: HereticMagicItem
+    - type: EldritchInfluenceDrainer
+    - type: TransmutationRuneScriber
+      time: 2.5
+  - type: Tag
+    tags:
+    - HereticItem
+    - CodexCicatrix

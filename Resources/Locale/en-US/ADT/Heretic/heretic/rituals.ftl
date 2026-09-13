@@ -8,12 +8,15 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 heretic-ritual-unknown = Unknown Ritual
+heretic-ritual-none = None
 heretic-ritual-switch = Selected {$name}
 heretic-ritual-success = Ritual successful
 
 heretic-ritual-fail-items = Ritual failed. Required items: {$itemlist}
 heretic-ritual-norituals = You don't know any rituals!
 heretic-ritual-noritual = No ritual chosen!
+
+heretic-ritual-knowledge-items = Required items for ritual of knowledge: {$itemlist}
 
 heretic-ritual-basic-sacrifice = Heartbeat of the Mansus
 heretic-ritual-basic-sacrifice-desc = Bring one of your targets in critical or worse condition to sacrifice them to the Mansus, gibbing them and granting you one knowledge point. Heads of staff give an additional bonus point.
@@ -40,8 +43,19 @@ heretic-ritual-basic-owls-desc =
 
     Allows you to undergo a ritual that gives you 5 knowledge points but locks you out of ascension. This can only be done once and cannot be reverted.
 
+heretic-ritual-basic-phylactery = Phylactery of Damnation
+heretic-ritual-basic-phylactery-desc =
+    A tincture twisted into the shape of a bloodsucker vermin.
+    Whether it chose the shape for itself, or this is the humor of the sickened mind that conjured this vile implement into being is something best not pondered.
+
+    Allows you to transmute a beaker and a pool of blood into a Phylactery that can instantly draw blood, even from long distances.
+    Be warned, your target may still feel a prick.
+
 heretic-ritual-fail-sacrifice = There is no corpse to sacrifice.
+heretic-ritual-fail-sacrifice-not-enough = There is not enough corpses.
 heretic-ritual-fail-sacrifice-ineligible = The rune refuses to accept this sacrifice.
+heretic-ritual-fail-reagent-blood = There is no blood present.
+heretic-ritual-fail-reagent-vomit = There is no vomit present.
 heretic-ritual-fail-reagentpuddle = There is no {$reagentname} present.
 heretic-ritual-fail-temperature-hot = It is too hot here.
 heretic-ritual-fail-temperature-cold = It is not cold enough here.
@@ -49,11 +63,17 @@ heretic-ritual-fail-sacrifice-ash = There's either not enough of them dead, or b
 heretic-ritual-fail-sacrifice-blade = Some of them are still having a head on their shoulders.
 heretic-ritual-fail-sacrifice-rust = Not enough rotting or silicon corpses.
 heretic-ritual-fail-sacrifice-cosmos = Not enough star marked corpses.
+heretic-ritual-fail-sacrifice-lock = Not enough heartless sapient corpses.
+heretic-ritual-fail-sacrifice-soul = Not enough sapient corpses.
 heretic-ritual-fail-limit = You have reached a limit of items that this ritual provides.
 heretic-ritual-fail-no-lost-blades = No lost blades can be found.
 heretic-ritual-fail-already-ascended = You are already ascended.
 heretic-ritual-fail-cannot-ascend = You cannot ascend.
 heretic-ritual-fail-cannot-ascend-objectives = You must complete your objectives in order to ascend.
+heretic-ritual-fail-lookup-empty = There's nothing on the rune.
+heretic-ritual-fail-ghoulify = There is no corpse to ghoulify.
+heretic-ritual-fail-ghoul-limit = At ghoul limit!
+heretic-ritual-fail-no-id-card = Ritual requires ID card.
 
 ## side quests
 heretic-ritual-side-knowledge = Ritual of Knowledge

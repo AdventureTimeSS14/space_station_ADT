@@ -1,0 +1,63 @@
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: EldritchCoin
+  name: eldritch coin
+  description: A surprisingly heavy, ornate coin. Its sides seem to depict a different image each time you look.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/eldritch_coin.rsi
+    noRot: true
+    layers:
+    - state: heretic
+      map: [ "coin" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.CoinFlipVisuals.SpriteState:
+        coin:
+          heretic: { state: heretic }
+          blade: { state: blade }
+          flip: { state: flip }
+  - type: Tag
+    tags:
+    - HereticItem
+  - type: StaticPrice
+    price: 250
+  - type: CoinFlip
+    flippingSpriteState: flip
+    flipTime: 1
+    sides:
+    - name: eldritch-coin-side-heretic
+      spriteState: heretic
+      effect: toggle_doors
+    - name: eldritch-coin-side-blade
+      spriteState: blade
+      effect: toggle_bolts
+
+- type: entity
+  parent: [ ClothingBeltStorageBase, BaseMagicContraband ]
+  id: UnfathomableCurio
+  name: unfathomable curio
+  description: It. It looks backs. It looks past. It looks in. It sees. It hides. It opens.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Clothing/Belt/curio.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Heretic/Clothing/Belt/curio.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,9,4
+  - type: ExplosionResistance
+    damageCoefficient: 0
+  - type: HereticClothing
+  - type: Tag
+    tags:
+    - HereticItem
+  - type: ClothingGrantComponent
+    component:
+    - type: UnfathomableCurioShield
+  - type: HereticMagicItem

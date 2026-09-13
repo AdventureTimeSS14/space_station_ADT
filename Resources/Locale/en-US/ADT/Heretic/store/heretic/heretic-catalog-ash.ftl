@@ -92,3 +92,10 @@ knowledge-path-ash-s9-desc =
     Cascade, which causes a massive, growing ring of fire around you,
     and Oath of Flame, causing you to passively create a ring of flames as you walk.
     You will also become immune to flames, space, and similar environmental hazards.
+
+knowledge-path-ash-side-lantern-name = Cracked Lantern
+knowledge-path-ash-side-lantern-desc =
+    It is said that the noon stones are not the same as before. That is not true. I will collect my tears in a bowl.
+
+    Allows you to transmute a flashlight, a flare, a lighter and ash to create a cracked lantern.
+    Using it in hand unleashes a flash that blinds everyone around and ignites the flammable.

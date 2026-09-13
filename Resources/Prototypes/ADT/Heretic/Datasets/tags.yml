@@ -47,3 +47,42 @@
 
 - type: Tag
   id: Chair
+
+- type: Tag
+  id: GoldBar
+
+- type: Tag
+  id: SilverBar
+
+- type: Tag
+  id: PreciousBar
+
+- type: Tag
+  id: RodMetal
+
+- type: Tag
+  id: HeavyBoots
+
+- type: Tag
+  id: WoodPlank
+
+- type: Tag
+  id: MedicalGloves
+
+- type: Tag
+  id: Bonfire
+
+- type: Tag
+  id: Hand
+
+- type: Tag
+  id: IdCard
+
+- type: Tag
+  id: HereticBlade
+
+- type: Tag
+  id: CodexCicatrix
+
+- type: Tag
+  id: Rag
