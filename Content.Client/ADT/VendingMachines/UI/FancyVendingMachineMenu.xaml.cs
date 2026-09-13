@@ -190,6 +190,7 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
             VendingContents.Visible = false;
             CategoryBarPanel.Visible = false;
             VendingContents.PopulateList([]);
+            _cachedItems.Clear();
 
             _emptyLabel = new Label()
             {

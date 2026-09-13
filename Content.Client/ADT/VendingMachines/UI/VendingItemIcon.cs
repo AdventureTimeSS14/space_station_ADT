@@ -59,11 +59,12 @@ public sealed class VendingItemIcon : Control
                     continue;
 
                 var size = texture.Size * layer.Scale;
-                _contentSize = Vector2.Max(_contentSize, size);
+                var offset = layer.Offset * EyeManager.PixelsPerMeter;
+                _contentSize = Vector2.Max(_contentSize, size + Vector2.Abs(offset) * 2);
                 _layers.Add(new IconLayer
                 {
                     Texture = texture,
-                    Offset = layer.Offset * EyeManager.PixelsPerMeter,
+                    Offset = offset,
                     Scale = layer.Scale,
                     Color = layer.Color,
                 });
