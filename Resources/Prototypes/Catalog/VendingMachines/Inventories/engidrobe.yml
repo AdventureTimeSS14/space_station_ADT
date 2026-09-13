@@ -26,6 +26,11 @@
     ADTVendingCategoryHead:  # ADT-Tweak
         ClothingHeadHatHardhatYellow: 3
         ClothingHeadHatHardhatOrange: 3
+    # ADT tweak start wiki books
+    ADTVendingCategoryBooks:
+        ADTBookSRPeng: 2
+        ADTBookAtmosSupermatter: 2
+    # ADT tweak end wiki books
   contrabandInventory:
     ToyFigurineEngineer: 1
     ToyFigurineChiefEngineer: 1
