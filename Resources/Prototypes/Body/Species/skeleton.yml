@@ -88,7 +88,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
+      100: SoftCritical # ADT-Tweak
+      125: Critical # ADT-Tweak
       150: Dead
   - type: TransferMindOnGib
   - type: Destructible
