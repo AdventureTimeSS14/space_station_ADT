@@ -198,6 +198,24 @@
         - id: ADT40mmGrenadeSmoke
           amount: 4
 
+- type: entity
+  id: WeaponCaseNTFlamer
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: RMCWeaponFlamer
+        - id: RMCTankFlamer
+          amount: 2
+        - id: RMCTankFlamerNapalmSticky
+        - id: RMCTankFlamerNapalmHighCombustion
+        - id: FireExtinguisherMini
+          amount: 2
+
 #Пистолеты
 - type: entity
   id: WeaponCaseNTMateba
