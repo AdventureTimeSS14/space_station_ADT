@@ -101,7 +101,7 @@
 - type: entity
   id: SteelGasTurbineStator
   parent: BaseGasTurbineStator
-  name: Стальный статор газовой турбины
+  name: Стальной статор газовой турбины
   components:
   - type: GasTurbineStator
     material: Steel

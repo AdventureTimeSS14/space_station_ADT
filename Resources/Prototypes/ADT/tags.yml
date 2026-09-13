@@ -951,3 +951,12 @@
 
 - type: Tag
   id: ADTMagazineMagnumLesser
+
+- type: Tag
+  id: ReactorPart
+
+- type: Tag
+  id: GasTurbineBlade
+
+- type: Tag
+  id: GasTurbineStator

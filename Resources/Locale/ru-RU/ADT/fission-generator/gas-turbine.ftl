@@ -49,6 +49,7 @@ gas-turbine-insert-fail-speed = Нельзя вставлять детали т�
 ### UI
 
 # Shown when using the UI
+gas-turbine-ui-title = Газовая турбина
 gas-turbine-ui-tab-main = Управление
 gas-turbine-ui-tab-parts = Детали
 

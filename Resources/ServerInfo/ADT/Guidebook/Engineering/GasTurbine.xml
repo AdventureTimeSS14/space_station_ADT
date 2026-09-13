@@ -17,7 +17,7 @@
 
 	Скорость потока обычно выставляют на максимум прокачки через активную зону реактора, который считается по формуле:
     <Box>
-        [italic][protodata="SteelReactorGasChannel" comp="ReactorPart" member="GasVolume"/] * number of gas channels + [protodata="NuclearReactorNormal" comp="NuclearReactor" member="ReactorVesselGasVolume"/] L/s[/italic]
+        [italic][protodata="SteelReactorGasChannel" comp="ReactorPart" member="GasVolume"/] * количество газовых каналов + [protodata="NuclearReactorNormal" comp="NuclearReactor" member="ReactorVesselGasVolume"/] л/с[/italic]
     </Box>
 
 	### Нагрузка статора

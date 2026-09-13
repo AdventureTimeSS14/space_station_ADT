@@ -3,9 +3,12 @@ using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.DeviceLinking.Systems;
 using Content.Shared.ADT.Power.Generation.FissionGenerator;
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.Database;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
+using Content.Shared.Lock;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
 
@@ -16,6 +19,8 @@ public sealed partial class NuclearReactorMonitorSystem : EntitySystem
     [Dependency] private EntityManager _entityManager = default!;
     [Dependency] private IAdminLogManager _adminLog = default!;
     [Dependency] private NuclearReactorSystem _reactorSystem = default!;
+    [Dependency] private AccessReaderSystem _access = default!;
+    [Dependency] private LockSystem _lock = default!;
     [Dependency] private SharedTransformSystem _transformSystem = default!;
     [Dependency] private DeviceLinkSystem _signal = default!;
     [Dependency] private UserInterfaceSystem _uiSystem = null!;
@@ -140,6 +145,12 @@ public sealed partial class NuclearReactorMonitorSystem : EntitySystem
     private void OnControlRodMessage(EntityUid uid, NuclearReactorMonitorComponent comp, ref ReactorControlRodModifyMessage args)
     {
         if (!TryGetReactorComp(comp, out var reactor))
+            return;
+
+        if (_lock.IsLocked(uid))
+            return;
+
+        if (TryComp<AccessReaderComponent>(uid, out var access) && !_access.IsAllowed(args.Actor, uid, access))
             return;
 
         if(NuclearReactorSystem.AdjustControlRods(reactor, args.Change))

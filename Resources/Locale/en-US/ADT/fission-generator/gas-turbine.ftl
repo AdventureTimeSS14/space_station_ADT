@@ -49,6 +49,7 @@ gas-turbine-insert-fail-speed = You cannot insert turbine parts while the turbin
 ### UI
 
 # Shown when using the UI
+gas-turbine-ui-title = Gas Turbine
 gas-turbine-ui-tab-main = Controls
 gas-turbine-ui-tab-parts = Parts
 

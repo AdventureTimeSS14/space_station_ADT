@@ -5,7 +5,7 @@ reactor-fire-start = {CAPITALIZE(THE($owner))} загорается!
 reactor-fire-stop = {CAPITALIZE(THE($owner))} перестает гореть.
 
 reactor-unanchor-melted = Нельзя открепить {THE($owner)}, он вплавился в корпус!
-reactor-unanchor-warning = Нельзя открепить {THE($owner)}, пока он не пуст или горячее 80C!
+reactor-unanchor-warning = Нельзя открепить {THE($owner)}, пока он не пуст или его температура выше 80 °C!
 reactor-anchor-warning = Неподходящее место для крепления.
 
 ### Messages
@@ -25,6 +25,15 @@ reactor-meltdown-announcement = Ядерный реактор на станци�
 reactor-meltdown-announcement-sender = Ядерное расплавление
 
 ### UI
+comp-nuclear-reactor-ui-title = Ядерный реактор
+comp-nuclear-reactor-ui-empty = пусто
+comp-nuclear-reactor-ui-overload = ПЕРЕГРУЗКА
+comp-nuclear-reactor-ui-fuel-level = Уровень топлива: {$percent}%
+comp-nuclear-reactor-ui-ack = ОК
+comp-nuclear-reactor-ui-target-temp-short = Т:
+comp-nuclear-reactor-ui-target-neutron-short = Н:
+comp-nuclear-reactor-ui-target-rads-short = Р:
+comp-nuclear-reactor-ui-target-spent-short = О:
 comp-nuclear-reactor-ui-locked = Заблокировано
 comp-nuclear-reactor-ui-insert-button = Вставить
 comp-nuclear-reactor-ui-remove-button = Извлечь

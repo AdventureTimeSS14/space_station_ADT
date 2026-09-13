@@ -12,6 +12,8 @@ using Content.Server.Popups;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared.ADT.Power.Generation.FissionGenerator;
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Construction.Components;
@@ -22,6 +24,7 @@ using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Lock;
 using Content.Shared.Popups;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Radiation.Systems;
@@ -59,8 +62,9 @@ public sealed partial class NuclearReactorSystem : EntitySystem
     [Dependency] private EntityManager _entityManager = default!;
     [Dependency] private ExplosionSystem _explosionSystem = default!;
     [Dependency] private IAdminLogManager _adminLog = default!;
-    [Dependency] private IGameTiming _gameTiming = default!;
-    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private AccessReaderSystem _access = default!;
+    [Dependency] private LockSystem _lock = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;    [Dependency] private IPrototypeManager _protoMan = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private ItemSlotsSystem _slotsSystem = default!;
     [Dependency] private NodeContainerSystem _nodeContainer = default!;
@@ -922,6 +926,9 @@ public sealed partial class NuclearReactorSystem : EntitySystem
     private void OnItemActionMessage(EntityUid uid, NuclearReactorComponent comp, ref ReactorItemActionMessage args)
     {
         var pos = args.Position;
+        if (pos.X < 0 || pos.Y < 0 || pos.X >= comp.ReactorGridWidth || pos.Y >= comp.ReactorGridHeight)
+            return;
+
         var part = comp.ComponentGrid[pos.X, pos.Y];
 
         if (comp.PartSlot.Item == null == (part == null))
@@ -964,6 +971,12 @@ public sealed partial class NuclearReactorSystem : EntitySystem
 
     private void OnControlRodMessage(Entity<NuclearReactorComponent> ent, ref ReactorControlRodModifyMessage args)
     {
+        if (_lock.IsLocked(ent.Owner))
+            return;
+
+        if (TryComp<AccessReaderComponent>(ent.Owner, out var access) && !_access.IsAllowed(args.Actor, ent.Owner, access))
+            return;
+
         if(AdjustControlRods(ent.Comp, args.Change))
             // Data is sent to a log queue to avoid spamming the admin log when adjusting values rapidly
             if(!_logQueue.TryGetValue(new(args.Actor, ent.Owner), out var value))

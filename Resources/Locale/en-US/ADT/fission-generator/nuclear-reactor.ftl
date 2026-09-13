@@ -5,7 +5,7 @@ reactor-fire-start = {CAPITALIZE(THE($owner))} begins to burn!
 reactor-fire-stop = {CAPITALIZE(THE($owner))} stops burning.
 
 reactor-unanchor-melted = You cannot unanchor {THE($owner)}, it's melted into the hull!
-reactor-unanchor-warning = You cannot unanchor {THE($owner)} while it's not empty or hotter than 80C!
+reactor-unanchor-warning = You cannot unanchor {THE($owner)} while it's not empty or its temperature is above 80 °C!
 reactor-anchor-warning = Invalid anchor position.
 
 ### Messages
@@ -25,6 +25,15 @@ reactor-meltdown-announcement = A nuclear reactor aboard the station has catastr
 reactor-meltdown-announcement-sender = Nuclear Meltdown
 
 ### UI
+comp-nuclear-reactor-ui-title = Nuclear Reactor
+comp-nuclear-reactor-ui-empty = empty
+comp-nuclear-reactor-ui-overload = OVERLOAD
+comp-nuclear-reactor-ui-fuel-level = Fuel Level: {$percent}%
+comp-nuclear-reactor-ui-ack = ACK
+comp-nuclear-reactor-ui-target-temp-short = T:
+comp-nuclear-reactor-ui-target-neutron-short = N:
+comp-nuclear-reactor-ui-target-rads-short = R:
+comp-nuclear-reactor-ui-target-spent-short = S:
 comp-nuclear-reactor-ui-locked = Locked
 comp-nuclear-reactor-ui-insert-button = Insert
 comp-nuclear-reactor-ui-remove-button = Remove

@@ -379,7 +379,7 @@
 
         <ColorBox Color="#b35989">
             <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-                Plasma Glass
+                Плазменное стекло
             </Box>
         </ColorBox>
         <ColorBox>
@@ -625,7 +625,7 @@
 
         <ColorBox Color="#3cab38">
             <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-                Uranium Glass
+                Урановое стекло
             </Box>
         </ColorBox>
         <ColorBox>

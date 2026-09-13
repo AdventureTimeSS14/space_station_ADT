@@ -27,8 +27,9 @@
   - SilverGasTurbineStator
   technologyPrerequisites:
   - PowerGeneration
-  radioChannels:
-  - Engineering
+  position: 0,1
+  requiredTech:
+  - PowerGeneration
 
 - type: technology
   id: NuclearPowerRecycling
@@ -54,6 +55,7 @@
   - GoldGasTurbineStator
   technologyPrerequisites:
   - NuclearPowerGeneration
-  radioChannels:
-  - Engineering
+  position: 0,2
+  requiredTech:
+  - NuclearPowerGeneration
 
