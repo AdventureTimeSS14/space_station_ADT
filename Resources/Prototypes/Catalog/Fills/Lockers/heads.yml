@@ -10,23 +10,15 @@
       prob: 0.50
     - id: ClothingHeadsetAltCargo
     - id: DoorRemoteCargo
-    - id: ADTHandheldShuttleConsoleSalvage # ADT-handheld-shuttle-console
     - id: AstroNavCartridge
     - id: ClothingHandsKnuckleDustersQM
     - id: PrinterDocFlatpack # Corvax-Printer
-    # # ADT-Economy-Start
+    # ADT-Tweak start
     - id: ADTCommandBudgetCard
     - id: ADTCommandBudgetPinPaper
-    # # ADT-Economy-End
-    # ADT-WikiBooks-Start
-    - id: ADTBookSRPcmd
-    - id: ADTBookSRPcrg
-    - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
-    # ADT-WikiBooks-End
-    # ADT-Tweak Start - частичный откат нерфа утилей
-    - id: ADTSalvageShuttleConsoleCircuitboard
-    # ADT-Tweak End - частичный откат нерфа утилей
+    - id: ADTHandheldShuttleConsoleSalvage
+    # ADT-Tweak end
     - id: PlushieLizardJobQuartermaster
       prob: 0.02
 
@@ -67,7 +59,6 @@
       - !type:PlayerCountCondition
         max: 15
     # Corvax-Resprite-Start
-    - id: ClothingHeadCaptainHat
     - id: ClothingOuterCoatCaptain
     # Corvax-Resprite-End
     - id: PlushieLizardJobCaptain
@@ -165,11 +156,11 @@
     - id: ClothingEyesHudCommand
     - id: ClothingOuterCoatHOP # Corvax-Resprite
     - id: PrinterDocFlatpack # Corvax-Printer
-    - id: ADTHoPClipboard #ADT-Tweak
-    # # ADT-Economy-Start
+    # ADT-Tweak-Start
     - id: ADTServiceBudgetCard
     - id: ADTServiceBudgetPinPaper
-    # # ADT-Economy-End
+    - id: ADTHoPClipboard
+    # ADT-Tweak-End
     - id: PlushieLizardJobHeadofpersonnel
       prob: 0.02
 
@@ -208,13 +199,8 @@
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ADTHyperNobCore
-    - id: ClothingNeckCloakCe
     - id: ADTClothingMaskGasCE
     - id: ADTRPDBluespace
-    #- id: ADTEngiInducerBattery # ADT-REMOVED
-    - id: ADTBookSRPcmd
-    - id: ADTBookSRPeng
-    - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
     - id: ADTEngineeringBudgetCard
     - id: ADTEngineeringBudgetPinPaper
@@ -288,22 +274,17 @@
     - id: MedkitFilled
     - id: RubberStampCMO
     - id: MedTekCartridge
-    # ADT tweak Start
+    # ADT-Tweak Start
     - id: ADTReagentAnalyzer
     - id: ADTMobileDefibrillator
     - id: ADTBriefcaseBrownHikingCmoFilled
     - id: ADTBriefcaseMedicalFilled
-    - id: ADTBookSRPcmd
-    - id: ADTBookSRPmed
-    - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
     - id: OpporozidoneBeakerSmall
     - id: ADTClothingEyesGlassesMedChem
-    # ADT tweak End
-    # # ADT-Economy-Start
     - id: ADTMedicalBudgetCard
     - id: ADTMedicalBudgetPinPaper
-    # # ADT-Economy-End
+    # ADT-Tweak-End
     - id: PlushieLizardJobChiefmedicalofficer
       prob: 0.02
 
@@ -368,9 +349,6 @@
     - id: RubberStampRd
     # ADT-Tweak-Start
     - id: ADTAiRemoteBrain
-    - id: ADTBookSRPcmd
-    - id: ADTBookSRPrnd
-    - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
     - id: ADTBoxAICircuitBoard
     - id: ADTScienceBudgetCard
@@ -431,9 +409,7 @@
   table: !type:AllSelector
     children:
     # - id: WeaponEnergyMagnum ADT-tweak: не-а
-    - id: BookSpaceLaw
-    - id: ADTHosVoucher # ADT tweak
-    - id: ADTBookSpaceLaw #ADT-WikiBooks
+    # - id: BookSpaceLaw # ADT-tweak
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
       prob: 0.50
@@ -444,33 +420,23 @@
     - id: ClothingShoesBootsJack
     - id: FlashlightSeclite
     - id: DoorRemoteSecurity
-    - id: ADTHandheldShuttleConsoleSecurity # ADT-handheld-shuttle-console
-    - id: HoloprojectorSecurity
+    # - id: HoloprojectorSecurity # ADT-tweak
     - id: RubberStampHos
     - id: BoxHoSCircuitboards
     - id: WeaponDisabler
     - id: WeaponTaser
     - id: WantedListCartridge
     - id: DrinkHosFlask
-    - id: ClothingHeadHatCapHoS # Corvax-SecFashion
-      prob: 0.5
     - id: ClothingOuterCoatHoSGreatcoat # Corvax-Resprite
-    - id: BookBusido # Corvax-Books
-    - id: ADTBookPTSD #ADT-tweak
-    # ADT-WikiBooks-Start
-    - id: ADTBookSRPcmd
-    - id: ADTBookSRPsec
-    - id: ADTBookPCDsec
-    - id: ADTBookPCDcmd
+    # ADT tweak start
+    - id: ADTBookPTSD
+    - id: ADTHosVoucher
     - id: ADTtelescopicBaton
-    # ADT-WikiBooks-End
-    # ADT-SecShuttle-Start
-    - id: ADTSecShuttleConsoleCircuitboard
-    # ADT-SecShuttle-End
-    # # ADT-Economy-Start
     - id: ADTSecurityBudgetCard
     - id: ADTSecurityBudgetPinPaper
-    # # ADT-Economy-End
+    - id: ADTHandheldShuttleConsoleSecurity
+    - id: ClothingOuterWinterHoS
+    # # ADT tweak end
     - id: PlushieLizardJobHeadofsecurity
       prob: 0.02
 
@@ -480,7 +446,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasSwat
-    #- id: ADTClothingModsuitBackSafeguard #ADT-Tweak
+    # - id: ClothingOuterHardsuitSecurityRed # ADT-Tweak
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
 
@@ -509,7 +475,7 @@
           tableId: LockerFillHeadOfSecurityNoHardsuit
         - !type:NestedSelector
           tableId: FillHeadOfSecurityHardsuit
-  #ADT-Tweak-Start
+  # ADT-Tweak-Start
   - type: UserInterface
     interfaces:
       enum.SuitStorageUiKey.Key:
@@ -518,7 +484,7 @@
     options:
     - ADTClothingModsuitBackSafeguard
     - ClothingOuterHardsuitSecurityRed
-  #ADT-Tweak-End
+  # ADT-Tweak-End
 
 - type: entityTable
   id: LockerFillVault
@@ -526,7 +492,7 @@
     children:
     - id: WeaponRevolverDeckard
     - id: JetpackBlue
-    #- id: SpaceCash1000 # ADT-Economy
+    # - id: SpaceCash1000 # ADT-Tweak
     - id: BeachBall
     - id: BikeHorn
 
