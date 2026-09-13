@@ -346,8 +346,10 @@ public abstract class RadialMenuOptionBase
 
 /// <summary> Base type for model of radial menu button with some action on button pressed. </summary>
 /// <param name="onPressed"></param>
+// ADT-Tweak-Start: альтернативное действие по правому клику
 /// <param name="onAlternativePressed">Action to be executed on alternative (right) button press.</param>
-public abstract class RadialMenuActionOptionBase(Action onPressed, Action? onAlternativePressed = null) : RadialMenuOptionBase // ADT-Tweak
+public abstract class RadialMenuActionOptionBase(Action onPressed, Action? onAlternativePressed = null) : RadialMenuOptionBase
+// ADT-Tweak-End
 {
     /// <summary> Action to be executed on button press. </summary>
     public Action OnPressed { get; } = onPressed;
@@ -361,13 +363,15 @@ public abstract class RadialMenuActionOptionBase(Action onPressed, Action? onAlt
 }
 
 /// <summary> Strong-typed model for radial menu button with action, stores provided data to be used upon button press. </summary>
+// ADT-Tweak-Start: опциональное альтернативное действие
 public sealed class RadialMenuActionOption<T>(
     Action<T> onPressed,
     T data,
     Action<T>? onAlternativePressed = null
 ) : RadialMenuActionOptionBase(
     onPressed: () => onPressed(data),
-    onAlternativePressed: onAlternativePressed == null ? null : () => onAlternativePressed(data)); // ADT-Tweak
+    onAlternativePressed: onAlternativePressed == null ? null : () => onAlternativePressed(data));
+// ADT-Tweak-End
 
 /// <summary>
 /// Model for radial menu button that represents reference for next layer of radial buttons.
