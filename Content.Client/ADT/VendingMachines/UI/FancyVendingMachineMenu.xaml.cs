@@ -262,7 +262,7 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
         if (proto == null || string.IsNullOrEmpty(proto.Name))
             return id;
 
-        var name = new StringBuilder(Loc.GetString(proto.Name));
+        var name = new StringBuilder(proto.Name);
         if (name.Length > 0)
             name[0] = char.ToUpper(name[0]);
 
