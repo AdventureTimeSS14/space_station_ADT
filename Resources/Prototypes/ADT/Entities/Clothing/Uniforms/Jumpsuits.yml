@@ -1476,3 +1476,14 @@
         Slash: 0.7
         Piercing: 0.6
         Heat: 0.6
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformCentcomOfficerBlack
+  name: special operations officer ceremonial uniform
+  description: This is the jumpsuit worn by senior centcom officers.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/centcomofficer.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/centcomofficer.rsi
