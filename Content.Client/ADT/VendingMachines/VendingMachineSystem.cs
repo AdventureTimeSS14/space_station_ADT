@@ -4,7 +4,7 @@ using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameStates;
 
-namespace Content.Client.VendingMachines;
+namespace Content.Client.ADT.VendingMachines;
 
 public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
 {
@@ -39,12 +39,12 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
         var fullUiUpdate = !component.Inventory.Keys.SequenceEqual(state.Inventory.Keys) ||
                            !component.EmaggedInventory.Keys.SequenceEqual(state.EmaggedInventory.Keys) ||
                            !component.ContrabandInventory.Keys.SequenceEqual(state.ContrabandInventory.Keys) ||
-                           !component.ReturnedInventory.Keys.SequenceEqual(state.ReturnedInventory.Keys); //ADT-Return
+                           !component.ReturnedInventory.Keys.SequenceEqual(state.ReturnedInventory.Keys);
 
         component.Inventory.Clear();
         component.EmaggedInventory.Clear();
         component.ContrabandInventory.Clear();
-        component.ReturnedInventory = new(state.ReturnedInventory); //ADT-Return
+        component.ReturnedInventory = new(state.ReturnedInventory);
 
         foreach (var entry in state.Inventory)
         {
@@ -90,7 +90,7 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        _sprite.LayerSetAutoAnimated((uid, sprite), VendingMachineVisualLayers.BaseUnshaded, true); // ADT-Tweak
+        _sprite.LayerSetAutoAnimated((uid, sprite), VendingMachineVisualLayers.BaseUnshaded, true);
 
         if (!TryComp<AppearanceComponent>(uid, out var appearance) ||
             !_appearanceSystem.TryGetData<VendingMachineVisualState>(uid, VendingMachineVisuals.VisualState, out var visualState, appearance))
@@ -136,7 +136,7 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
                 break;
 
             case VendingMachineVisualState.Eject:
-                PlayAnimation(uid, VendingMachineVisualLayers.BaseUnshaded, component.EjectState, (float)component.EjectDelay.TotalSeconds, sprite); //ADT tweaked
+                PlayAnimation(uid, VendingMachineVisualLayers.BaseUnshaded, component.EjectState, (float)component.EjectDelay.TotalSeconds, sprite);
                 SetLayerState(VendingMachineVisualLayers.Screen, component.ScreenState, (uid, sprite));
                 break;
 
