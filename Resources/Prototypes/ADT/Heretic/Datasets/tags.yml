@@ -86,3 +86,16 @@
 
 - type: Tag
   id: Rag
+
+# ADT: tags used by heretic prototypes with no upstream definition
+- type: Tag
+  id: CartridgeLionhunter
+
+- type: Tag
+  id: ForceHereticMinion
+
+- type: Tag
+  id: SharpMedal
+
+- type: Tag
+  id: Directional
