@@ -1,9 +1,6 @@
 using Content.Client.ADT.VendingMachines.UI;
-using Content.Client.UserInterface.Controls;
-using Content.Client.VendingMachines.UI;
 using Content.Shared.VendingMachines;
 using Robust.Client.UserInterface;
-using System.Linq;
 
 namespace Content.Client.VendingMachines
 {
@@ -39,22 +36,34 @@ namespace Content.Client.VendingMachines
             _menu.OpenCentered();
         }
 
+        //ADT-Economy-Tweak start
         public void Refresh()
         {
+            if (!IsOpened || _menu == null)
+                return;
+
+            if (State is not VendingMachineInterfaceState state)
+                return;
+
             var system = EntMan.System<VendingMachineSystem>();
-            var component = EntMan.GetComponent<VendingMachineComponent>(Owner); //ADT-Economy
             _cachedInventory = system.GetAllInventory(Owner);
 
-            _menu?.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits); //ADT-Economy-Tweak
+            _menu.Populate(Owner, _cachedInventory, state.PriceMultiplier, state.Credits);
         }
+        //ADT-Economy-Tweak end
 
         public void UpdateAmounts()
         {
+            //ADT-Economy-Tweak start
+            if (!IsOpened || _menu == null)
+                return;
+            //ADT-Economy-Tweak end
+
             var enabled = EntMan.TryGetComponent(Owner, out VendingMachineComponent? bendy) && !bendy.Ejecting;
 
             var system = EntMan.System<VendingMachineSystem>();
             _cachedInventory = system.GetAllInventory(Owner);
-            _menu?.UpdateAmounts(_cachedInventory, enabled);
+            _menu.UpdateAmounts(_cachedInventory, enabled); //ADT-Economy-Tweak
         }
 
         // START-ADT-TWEAK
@@ -62,13 +71,10 @@ namespace Content.Client.VendingMachines
         {
             base.UpdateState(state);
 
-            var system = EntMan.System<VendingMachineSystem>();
-
             if (state is not VendingMachineInterfaceState newState)
                 return;
 
-            _cachedInventory = system.GetAllInventory(Owner);
-
+            _cachedInventory = newState.Inventory; //ADT-Economy-Tweak
             _menu?.Populate(Owner, _cachedInventory, newState.PriceMultiplier, newState.Credits); //ADT-Economy-Tweak
         }
 
@@ -102,3 +108,4 @@ namespace Content.Client.VendingMachines
         }
     }
 }
+
