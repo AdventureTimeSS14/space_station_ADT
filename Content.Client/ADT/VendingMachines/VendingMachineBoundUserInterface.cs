@@ -1,5 +1,5 @@
 using Content.Client.ADT.VendingMachines.UI;
-using Content.Shared.VendingMachines;
+using Content.Shared.ADT.VendingMachines;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.ADT.VendingMachines;

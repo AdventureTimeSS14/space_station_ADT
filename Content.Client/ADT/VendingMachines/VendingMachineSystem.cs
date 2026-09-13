@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared.VendingMachines;
+using Content.Shared.ADT.VendingMachines;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameStates;

@@ -2,9 +2,10 @@ using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.VendingMachines;
 using Content.Shared.Wires;
 
-namespace Content.Shared.VendingMachines;
+namespace Content.Shared.ADT.VendingMachines;
 
 public abstract partial class SharedVendingMachineSystem
 {
