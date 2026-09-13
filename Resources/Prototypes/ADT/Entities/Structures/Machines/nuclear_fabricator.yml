@@ -34,6 +34,7 @@
     staticPacks:
     - ReactorPartsBasic
     dynamicPacks:
+    - ReactorCircuitboards
     - ReactorFuelRods
     - ReactorControlRods
     - ReactorGasChannels
