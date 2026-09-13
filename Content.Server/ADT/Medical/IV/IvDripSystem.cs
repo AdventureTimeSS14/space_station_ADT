@@ -110,6 +110,9 @@ public sealed class IvDripSystem : SharedIvDripSystem
             }
             else
             {
+                if (!TryComp(attachedTo, out BloodstreamComponent? bloodstream) || !bloodstream.CanBeIVDripped)
+                    continue;
+
                 if (packSol.Volume < packSol.MaxVolume)
                 {
                     var beforePack = packSol.Volume;

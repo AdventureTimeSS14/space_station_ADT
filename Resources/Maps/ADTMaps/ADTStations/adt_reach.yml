@@ -4660,6 +4660,54 @@ entities:
     - type: TileHistory
       chunkHistory: {}
     - type: ExplosionAirtightGrid
+    - type: AreaGrid
+      areas:
+        27,38: AreaKitchen
+        27,39: AreaKitchen
+        26,38: AreaKitchen
+        26,39: AreaKitchen
+        25,38: AreaKitchen
+        25,39: AreaKitchen
+        24,38: AreaKitchen
+        24,39: AreaKitchen
+        23,38: AreaKitchen
+        23,39: AreaKitchen
+        24,41: AreaKitchen
+        27,40: AreaKitchen
+        27,41: AreaKitchen
+        27,42: AreaKitchen
+        27,43: AreaKitchen
+        26,40: AreaKitchen
+        26,41: AreaKitchen
+        26,42: AreaKitchen
+        26,43: AreaKitchen
+        25,40: AreaKitchen
+        25,41: AreaKitchen
+        25,42: AreaKitchen
+        25,43: AreaKitchen
+        24,40: AreaKitchen
+        24,42: AreaKitchen
+        24,43: AreaKitchen
+        23,40: AreaKitchen
+        23,41: AreaKitchen
+        23,42: AreaKitchen
+        23,43: AreaKitchen
+        22,40: AreaKitchen
+        22,41: AreaKitchen
+        22,42: AreaKitchen
+        22,43: AreaKitchen
+        21,40: AreaKitchen
+        21,41: AreaKitchen
+        21,42: AreaKitchen
+        21,43: AreaKitchen
+        20,40: AreaKitchen
+        20,41: AreaKitchen
+        20,42: AreaKitchen
+        20,43: AreaKitchen
+        19,40: AreaKitchen
+        19,41: AreaKitchen
+        19,42: AreaKitchen
+        19,43: AreaKitchen
 - proto: ADTArmchairBrown
   entities:
   - uid: 3
