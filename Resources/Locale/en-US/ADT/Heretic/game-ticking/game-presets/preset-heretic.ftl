@@ -70,5 +70,3 @@ ghostrole-ash-spirit-name = Ash Spirit
 ghostrole-ash-spirit-desc = Aid your summoner in achieving ascension. Melt your victims.
 ghostrole-shattered-name = Shattered Risen
 ghostrole-shattered-desc = Aid your summoner in achieving ascension. Crush heathens with fists of bone.
-mirror-maid-examine-message-user = You feel your eyes burn!
-mirror-maid-examine-message-maid = Someone gazes upon you!

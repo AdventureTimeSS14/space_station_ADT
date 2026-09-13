@@ -53,5 +53,3 @@ ghostrole-ash-spirit-name = Дух пепла
 ghostrole-ash-spirit-desc = Помогите своему призывателю достичь вознесения. Плавите своих жертв.
 ghostrole-shattered-name = Расколотый восставший
 ghostrole-shattered-desc = Помогите своему призывателю достичь вознесения. Крушите неверных костяными кулаками.
-mirror-maid-examine-message-user = Вы чувствуете, как горят ваши глаза!
-mirror-maid-examine-message-maid = Кто-то смотрит на вас!

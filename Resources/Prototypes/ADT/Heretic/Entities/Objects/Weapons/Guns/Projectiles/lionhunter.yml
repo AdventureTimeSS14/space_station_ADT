@@ -8,9 +8,10 @@
     damage:
       types:
         Ballistic: 30
-      armorPenetration: 0.5
   - type: StaminaDamageOnCollide
     damage: 30
+  - type: ArmorPenetration
+    penetration: 0.5
   - type: LionhunterRifleProjectile
     componentsOnEmpower:
     - type: StaminaDamageOnCollide

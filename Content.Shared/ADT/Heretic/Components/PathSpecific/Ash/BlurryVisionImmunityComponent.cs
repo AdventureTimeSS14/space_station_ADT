@@ -1,5 +1,6 @@
 //
 
+using Content.Shared.StatusEffect;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -9,5 +10,5 @@ namespace Content.Shared.Heretic.Components.PathSpecific.Ash;
 public sealed partial class BlurryVisionImmunityComponent : Component
 {
     [DataField]
-    public EntProtoId Key = "BlurryVision";
+    public ProtoId<StatusEffectPrototype> Key = "BlurryVision";
 }

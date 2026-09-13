@@ -121,6 +121,7 @@ public sealed partial class SerpentclaveSystem : EntitySystem
         var field = EnsureComp<ContainmentFieldComponent>(ent);
         var status = EnsureComp<StatusEffectsComponent>(ent);
 
+        status.AllowedEffects ??= new();
         if (!status.AllowedEffects.Contains("Jitter"))
             status.AllowedEffects.Add("Jitter");
 

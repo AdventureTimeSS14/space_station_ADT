@@ -58,6 +58,9 @@
   components:
   - type: HereticCloakedStatusEffect
   - type: LastRefuge
+  - type: Godmode
+  - type: Stealth
+  - type: SpeedModifierImmunity
 
 - type: entity
   parent: MobStatusEffectBase

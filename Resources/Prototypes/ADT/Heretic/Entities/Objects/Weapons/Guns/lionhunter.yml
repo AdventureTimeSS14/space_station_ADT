@@ -19,7 +19,6 @@
     - suitStorage
   - type: GunRequiresWield
   - type: BallisticAmmoProvider
-    autoCycle: true
     capacity: 3
     whitelist:
       tags:
@@ -33,7 +32,6 @@
     price: 1000
   - type: Gun
     projectileSpeed: 25
-    unaffectedBySkill: true
   - type: SpeedModifiedOnWield
     walkModifier: 0.35
     sprintModifier: 0.35

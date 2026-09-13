@@ -26,8 +26,6 @@ heretic-ability-fail-too-close = Target is too close!
 
 heretic-ability-lose-focus-shadow-cloak = As you lose your focus, you are pulled out of the shadows!
 heretic-ability-lose-focus-pale-cloak = As you lose your focus, you are pulled out of the light!
-
-heretic-ability-lose-focus-shadow-cloak = As you lose your focus, you are pulled out of the shadows!
 heretic-ability-lose-focus-last-refuge = Without a focus, your refuge weakens and dissipates!
 heretic-ability-fail-other-minds-nearby = Other minds nearby!
 heretic-lock-unlocked = unlocked!

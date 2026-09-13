@@ -17,7 +17,7 @@ public sealed partial class BlindnessImmunitySystem : EntitySystem
 
     private void OnBeforeBlur(Entity<BlurryVisionImmunityComponent> ent, ref BeforeStatusEffectAddedEvent args)
     {
-        if (args.Effect == ent.Comp.Key)
+        if (args.Effect.Id == ent.Comp.Key.Id)
             args.Cancelled = true;
     }
 
