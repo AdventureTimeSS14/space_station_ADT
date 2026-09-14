@@ -1,4 +1,5 @@
 using Content.Server.Administration.Logs;
+using Content.Server.ADT.StationAi; // ADT-Tweak
 using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
 using Content.Shared.Access.Components;
@@ -39,6 +40,7 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
     [Dependency] private readonly SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak
+    [Dependency] private readonly AiEyeTeleportSystem _aiEyeTeleport = default!; // ADT-Tweak
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
@@ -72,6 +74,8 @@ public sealed class RadioSystem : EntitySystem
             // ADT-Tweak start
             if (_deafness.TryInterceptRadio(uid, actor.PlayerSession, args.Message, args.MessageSource))
                 return;
+
+            _aiEyeTeleport.TryAddRadioEyeLink(uid, args.ChatMsg, args.UnknownLanguageChatMsg, args.MessageSource);
             // ADT-Tweak end
 
             // ADT Languages start
