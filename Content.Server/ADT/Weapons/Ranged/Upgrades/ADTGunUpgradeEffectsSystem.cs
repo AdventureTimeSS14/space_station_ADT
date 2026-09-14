@@ -5,6 +5,7 @@ using Content.Server.ADT.PressureDamageModify;
 using Content.Server.Gatherable;
 using Content.Server.Gatherable.Components;
 using Content.Shared.ADT.Salvage.Components;
+using Content.Shared.ADT.Weapons.KineticCooldown;
 using Content.Shared.ADT.Weapons.Ranged.Upgrades;
 using Content.Shared.ADT.Weapons.Ranged.Upgrades.Components;
 using Content.Shared.Damage;
@@ -14,7 +15,6 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Projectiles;
-using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
@@ -28,6 +28,7 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly GatherableSystem _gatherable = default!;
     [Dependency] private readonly ADTHardRockSystem _hardRock = default!;
+    [Dependency] private readonly ADTKineticCooldownSystem _cooldown = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -61,34 +62,42 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
         if (bolts.Count == 0)
             return;
 
-        var damage = ent.Comp.SplitAcrossProjectiles
-            ? ent.Comp.Damage / bolts.Count
-            : ent.Comp.Damage;
+        var weights = GetVolleyWeights(ent.Owner, bolts.Count, out var total);
 
-        foreach (var bolt in bolts)
+        for (var i = 0; i < bolts.Count; i++)
         {
-            if (TryComp<ProjectileComponent>(bolt, out var projectile))
-                projectile.Damage += damage;
+            if (!TryComp<ProjectileComponent>(bolts[i], out var projectile))
+                continue;
+
+            var share = ent.Comp.SplitAcrossProjectiles ? weights[i] / total : weights[i];
+            projectile.Damage += ent.Comp.Damage * share;
         }
     }
 
     private void OnRangeShot(Entity<ADTGunUpgradeRangeComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
-        foreach (var bolt in GetBolts(args))
+        var bolts = GetBolts(args).ToList();
+
+        for (var i = 0; i < bolts.Count; i++)
         {
-            if (TryComp<TimedDespawnComponent>(bolt, out var despawn))
-                despawn.Lifetime *= ent.Comp.Coefficient;
+            if (!TryComp<TimedDespawnComponent>(bolts[i], out var despawn))
+                continue;
+
+            despawn.Lifetime *= GetVolleyCoefficient(ent.Owner, ent.Comp.Coefficient, i, bolts.Count);
         }
     }
 
     private void OnIndoorsShot(Entity<ADTGunUpgradeIndoorsComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
-        foreach (var bolt in GetBolts(args))
+        var bolts = GetBolts(args).ToList();
+
+        for (var i = 0; i < bolts.Count; i++)
         {
-            if (!TryComp<PressureDamageModifyComponent>(bolt, out var pressure))
+            if (!TryComp<PressureDamageModifyComponent>(bolts[i], out var pressure))
                 continue;
 
-            pressure.ProjDamage = MathF.Min(pressure.ProjDamage * ent.Comp.Coefficient, 1f);
+            var coefficient = GetVolleyCoefficient(ent.Owner, ent.Comp.Coefficient, i, bolts.Count);
+            pressure.ProjDamage = MathF.Min(pressure.ProjDamage * coefficient, 1f);
         }
     }
 
@@ -104,6 +113,7 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
 
     private void OnAoEShot(Entity<ADTGunUpgradeAoEComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
+        var volley = new ADTVolleyTrigger();
         foreach (var bolt in GetBolts(args))
         {
             var comp = EnsureComp<ADTProjectileAoEComponent>(bolt);
@@ -111,25 +121,33 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
             comp.MobDamageModifier += ent.Comp.MobDamageModifier;
             comp.Radius = MathF.Max(comp.Radius, ent.Comp.Radius);
             comp.Effect ??= ent.Comp.Effect;
+            comp.Volley = volley;
         }
     }
 
     private void OnRepeaterShot(Entity<ADTGunUpgradeRepeaterComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
-        foreach (var bolt in GetBolts(args))
+        var bolts = GetBolts(args).ToList();
+
+        for (var i = 0; i < bolts.Count; i++)
         {
-            var comp = EnsureComp<ADTProjectileRepeaterComponent>(bolt);
+            var comp = EnsureComp<ADTProjectileRepeaterComponent>(bolts[i]);
             comp.Gun = args.Gun;
-            comp.HitCoefficient = ent.Comp.HitCoefficient;
+
+            var efficiency = GetVolleyEfficiency(ent.Owner, i, bolts.Count);
+            comp.HitCoefficient = Math.Clamp(1f - (1f - ent.Comp.HitCoefficient) * efficiency, 0f, 1f);
         }
     }
 
     private void OnDeathSyphonShot(Entity<ADTGunUpgradeDeathSyphonComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
-        foreach (var bolt in GetBolts(args))
+        var bolts = GetBolts(args).ToList();
+
+        for (var i = 0; i < bolts.Count; i++)
         {
-            var comp = EnsureComp<ADTProjectileDeathSyphonComponent>(bolt);
+            var comp = EnsureComp<ADTProjectileDeathSyphonComponent>(bolts[i]);
             comp.Upgrade = ent.Owner;
+            comp.Efficiency = GetVolleyEfficiency(ent.Owner, i, bolts.Count);
         }
     }
 
@@ -145,11 +163,13 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
 
     private void OnResonatorShot(Entity<ADTGunUpgradeResonatorComponent> ent, ref ADTGunUpgradeShotEvent args)
     {
+        var volley = new ADTVolleyTrigger();
         foreach (var bolt in GetBolts(args))
         {
             var comp = EnsureComp<ADTProjectileResonatorComponent>(bolt);
             comp.FieldProto = ent.Comp.FieldProto;
             comp.BurstMultiplier = ent.Comp.BurstMultiplier;
+            comp.Volley = volley;
         }
     }
 
@@ -163,6 +183,9 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
 
     private void OnAoEHit(Entity<ADTProjectileAoEComponent> ent, ref ProjectileHitEvent args)
     {
+        if (ent.Comp.Volley is { } volley && !volley.TryUse())
+            return;
+
         var coords = _transform.GetMapCoordinates(ent.Owner);
 
         if (ent.Comp.Effect is { } effect)
@@ -201,21 +224,17 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
 
     private void OnRepeaterHit(Entity<ADTProjectileRepeaterComponent> ent, ref ProjectileHitEvent args)
     {
-        if (ent.Comp.Gun is not { } gun || !TryComp<RechargeBasicEntityAmmoComponent>(gun, out var recharge))
+        if (ent.Comp.Gun is not { } gun || !TryComp<ADTKineticCooldownComponent>(gun, out var cooldown))
             return;
 
         if (!IsAliveMob(args.Target) && !HasComp<GatherableComponent>(args.Target))
             return;
 
-        if (recharge.NextCharge is not { } next)
-            return;
-
-        var left = next - _timing.CurTime;
+        var left = cooldown.NextUse - _timing.CurTime;
         if (left <= TimeSpan.Zero)
             return;
 
-        recharge.NextCharge = _timing.CurTime + left * ent.Comp.HitCoefficient;
-        Dirty(gun, recharge);
+        _cooldown.ReduceCooldown((gun, cooldown), _timing.CurTime + left * ent.Comp.HitCoefficient);
     }
 
     private void OnDeathSyphonHit(Entity<ADTProjectileDeathSyphonComponent> ent, ref ProjectileHitEvent args)
@@ -234,12 +253,19 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
         if (proto == null || !syphon.Bounties.TryGetValue(proto, out var bounty) || bounty <= 0f)
             return;
 
+        bounty *= MathF.Max(ent.Comp.Efficiency, 0f);
+        if (bounty <= 0f)
+            return;
+
         var damage = new DamageSpecifier(_proto.Index(syphon.DamageType), FixedPoint2.New(bounty));
         _damageable.TryChangeDamage(args.Target, damage, origin: args.Shooter);
     }
 
     private void OnResonatorHit(Entity<ADTProjectileResonatorComponent> ent, ref ProjectileHitEvent args)
     {
+        if (ent.Comp.Volley is { } volley && !volley.TryUse())
+            return;
+
         var coords = TerminatingOrDeleted(args.Target)
             ? Transform(ent).Coordinates
             : Transform(args.Target).Coordinates;
@@ -269,6 +295,40 @@ public sealed class ADTGunUpgradeEffectsSystem : EntitySystem
         }
 
         RemCompDeferred<ADTSyphonMarkComponent>(ent);
+    }
+
+    private float GetVolleyEfficiency(EntityUid upgrade, int index, int count)
+    {
+        if (count <= 1 || index <= 0)
+            return 1f;
+
+        var last = 0.2f;
+
+        if (TryComp<ADTGunUpgradeComponent>(upgrade, out var comp))
+            last = Math.Clamp(comp.VolleyFalloff, 0f, 1f);
+
+        var step = index / (float)(count - 1);
+        return 1f - (1f - last) * step;
+    }
+
+    private float GetVolleyCoefficient(EntityUid upgrade, float coefficient, int index, int count)
+    {
+        var scaled = 1f + (coefficient - 1f) * GetVolleyEfficiency(upgrade, index, count);
+        return MathF.Max(scaled, 0f);
+    }
+
+    private float[] GetVolleyWeights(EntityUid upgrade, int count, out float total)
+    {
+        var weights = new float[count];
+        total = 0f;
+
+        for (var i = 0; i < count; i++)
+        {
+            weights[i] = GetVolleyEfficiency(upgrade, i, count);
+            total += weights[i];
+        }
+
+        return weights;
     }
 
     private IEnumerable<EntityUid> GetBolts(ADTGunUpgradeShotEvent args)

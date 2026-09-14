@@ -1,5 +1,5 @@
 # Mechs
-uplink-syndimech-mech-gygax-name = Гайгэкс
+uplink-syndimech-mech-gygax-name = Гигакс
 uplink-syndimech-mech-gygax-desc = Быстрый и манёвренный экзоскелет, обладает перегрузкой ножных сервоприводов, создан для быстрого выполнения целей.
 uplink-syndimech-mech-mauler-name = Маулер
 uplink-syndimech-mech-mauler-desc = Тяжёлый бронированный экзоскелет, обладающий 5-ю слотами.
@@ -56,6 +56,3 @@ uplink-syndimech-ammo-hades-name = Коробка патронов для FNX-99
 uplink-syndimech-ammo-hades-desc = Боекомплект для перезарядки орудия меха. Для применения положить во внутренние хранилище машины.
 uplink-syndimech-ammo-srm-name = Короб универсальных гранат
 uplink-syndimech-ammo-srm-desc = Боекомплект для перезарядки орудия меха. Для применения положить во внутренние хранилище машины.
-
-boobr-sandevistan-autosurgeon-name = САПО.Г. "Сандевистан"
-boobr-sandevistan-autosurgeon-desc = Медицинский прибор ОБР, для проведения операций по вживлению военного кибер-импланта "Сандевистан".

@@ -462,6 +462,151 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("admin_watchlists", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AdtSponsorGrant", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("adt_sponsor_grant_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("comment");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uuid")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime?>("ExpiresAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("expires_at");
+
+                    b.Property<string>("Overrides")
+                        .HasColumnType("text")
+                        .HasColumnName("overrides");
+
+                    b.Property<int>("Priority")
+                        .HasColumnType("integer")
+                        .HasColumnName("priority");
+
+                    b.Property<bool>("Revoked")
+                        .HasColumnType("boolean")
+                        .HasColumnName("revoked");
+
+                    b.Property<DateTime?>("RevokedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("revoked_at");
+
+                    b.Property<Guid?>("RevokedBy")
+                        .HasColumnType("uuid")
+                        .HasColumnName("revoked_by");
+
+                    b.Property<int?>("TierId")
+                        .HasColumnType("integer")
+                        .HasColumnName("tier_id");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_adt_sponsor_grant");
+
+                    b.HasIndex("TierId")
+                        .HasDatabaseName("IX_adt_sponsor_grant_tier_id");
+
+                    b.HasIndex("UserId", "Revoked");
+
+                    b.ToTable("adt_sponsor_grant", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtSponsorPreference", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("adt_sponsor_preference_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("GhostColor")
+                        .HasColumnType("text")
+                        .HasColumnName("ghost_color");
+
+                    b.Property<string>("OocColor")
+                        .HasColumnType("text")
+                        .HasColumnName("ooc_color");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_adt_sponsor_preference");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("adt_sponsor_preference", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtSponsorTier", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("adt_sponsor_tier_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Benefits")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("benefits");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("description");
+
+                    b.Property<string>("DisplayName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("display_name");
+
+                    b.Property<bool>("Enabled")
+                        .HasColumnType("boolean")
+                        .HasColumnName("enabled");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("name");
+
+                    b.Property<int>("Priority")
+                        .HasColumnType("integer")
+                        .HasColumnName("priority");
+
+                    b.HasKey("Id")
+                        .HasName("PK_adt_sponsor_tier");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("adt_sponsor_tier", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Antag", b =>
                 {
                     b.Property<int>("Id")
@@ -487,6 +632,56 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsUnique();
 
                     b.ToTable("antag", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AntagRollBonus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("antag_roll_bonus_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Antag")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("antag");
+
+                    b.Property<int>("MissedRounds")
+                        .HasColumnType("integer")
+                        .HasColumnName("missed_rounds");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_antag_roll_bonus");
+
+                    b.HasIndex("UserId", "Antag")
+                        .IsUnique();
+
+                    b.ToTable("antag_roll_bonus", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AntagRollBonusWipe", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("antag_roll_bonus_wipe_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("LastWipe")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("last_wipe");
+
+                    b.HasKey("Id")
+                        .HasName("PK_antag_roll_bonus_wipe");
+
+                    b.ToTable("antag_roll_bonus_wipe", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.AssignedUserId", b =>
@@ -1182,6 +1377,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("char_name");
+
+                    b.Property<string>("ExploitableInfo")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("exploitable_info");
 
                     b.Property<string>("EyeColor")
                         .IsRequired()
@@ -1944,6 +2144,17 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Round");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AdtSponsorGrant", b =>
+                {
+                    b.HasOne("Content.Server.Database.AdtSponsorTier", "Tier")
+                        .WithMany("Grants")
+                        .HasForeignKey("TierId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_adt_sponsor_grant_adt_sponsor_tier_tier_id");
+
+                    b.Navigation("Tier");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Antag", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
@@ -2338,6 +2549,11 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Admins");
 
                     b.Navigation("Flags");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.AdtSponsorTier", b =>
+                {
+                    b.Navigation("Grants");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Ban", b =>

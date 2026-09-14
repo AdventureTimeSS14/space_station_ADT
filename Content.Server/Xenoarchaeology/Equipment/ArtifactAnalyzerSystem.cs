@@ -1,5 +1,6 @@
 using Content.Server.Research.Systems;
 using Content.Server.Xenoarchaeology.Artifact;
+using Content.Shared.ADT.Construction.Components;
 using Content.Shared.Popups;
 using Content.Shared.Xenoarchaeology.Equipment;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
@@ -42,6 +43,14 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
         // 4-16-25: It's a sad day when a scientist makes negative 5k research
         if (sumResearch <= 0)
             return;
+
+        // ADT-Tweak-Start
+        if (ent.Comp.AnalyzerEntity is {} analyzer
+            && TryComp<ArtifactAnalyzerUpgradeComponent>(analyzer, out var upgrade))
+        {
+            sumResearch = (int) (sumResearch * upgrade.PointMultiplier);
+        }
+        // ADT-Tweak-End
 
         _research.ModifyServerPoints(server.Value, sumResearch, serverComponent);
         _audio.PlayPvs(ent.Comp.ExtractSound, artifact.Value);

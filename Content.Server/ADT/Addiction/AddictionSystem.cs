@@ -254,6 +254,7 @@ public sealed partial class AddictionSystem : EntitySystem
         AddictionKind.Nicotine => "nicotine",
         AddictionKind.Drug => "drug",
         AddictionKind.Medicine => "medicine",
+        AddictionKind.Omnizine => "omnizine",
         _ => "alcohol",
     };
 }

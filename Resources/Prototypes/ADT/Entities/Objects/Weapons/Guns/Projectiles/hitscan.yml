@@ -135,7 +135,7 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Heat: 7
+        Heat: 10
 
 - type: entity
   id: ArtilleryBluespaceHitscan

@@ -1,3 +1,4 @@
+using Content.Shared.ADT.BossMusic;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -16,11 +17,20 @@ public enum HierophantVisuals : byte
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
 public sealed partial class HierophantComponent : Component
 {
-    [DataField]
+    [ViewVariables]
     public int BurstRange = 3;
 
-    [DataField]
+    [ViewVariables]
     public int BeamRange = 5;
+
+    [DataField]
+    public int BaseBurstRange = 3;
+
+    [DataField]
+    public int BaseBeamRange = 5;
+
+    [DataField]
+    public float BlastDamage = 10f;
 
     [DataField]
     public float ChaserSpeed = 0.3f;
@@ -66,6 +76,12 @@ public sealed partial class HierophantComponent : Component
 
     [DataField]
     public bool Enraged;
+
+    [DataField]
+    public ProtoId<ADTBossMusicPrototype>? CalmMusic = "ADTBossMusicHierophant";
+
+    [DataField]
+    public ProtoId<ADTBossMusicPrototype>? RageMusic = "ADTBossMusicHierophantEnraged";
 
     [DataField]
     public EntityUid? LastTarget;

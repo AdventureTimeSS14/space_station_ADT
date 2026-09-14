@@ -28,6 +28,9 @@ public sealed partial class ADTProjectileDeathSyphonComponent : Component
 {
     [DataField]
     public EntityUid? Upgrade;
+
+    [DataField]
+    public float Efficiency = 1f;
 }
 
 [RegisterComponent]

@@ -62,12 +62,7 @@ public sealed class XenobiologyBountyConsoleSystem : EntitySystem
 
         if (!IsBountyComplete(args.Actor, bounty, out var bountyEntities))
         {
-            if (_timing.CurTime >= console.Comp.NextDenySoundTime)
-            {
-                console.Comp.NextDenySoundTime = _timing.CurTime + console.Comp.DenySoundDelay;
-                _audio.PlayPvs(console.Comp.DenySound, console);
-            }
-
+            PlayDenySound(console);
             return;
         }
 
@@ -79,8 +74,7 @@ public sealed class XenobiologyBountyConsoleSystem : EntitySystem
         foreach (var bountyEnt in bountyEntities)
             Del(bountyEnt);
 
-        var pointsToAward = !_proto.TryIndex(bounty.Bounty, out var bp) ? 0 : bp.PointsAwarded;
-        _research.ModifyServerPoints(server.Value, (int) pointsToAward, serverComponent);
+        _research.ModifyServerPoints(server.Value, (int) bountyProto.PointsAwarded, serverComponent);
         _xenoDatabase.TryRemoveBounty(station, bounty, false, args.Actor);
         _xenoDatabase.FillBountyDatabase(station);
 
@@ -101,12 +95,7 @@ public sealed class XenobiologyBountyConsoleSystem : EntitySystem
         if (TryComp<AccessReaderComponent>(console, out var accessReaderComponent) &&
             !_access.IsAllowed(mob, console, accessReaderComponent))
         {
-            if (_timing.CurTime >= console.Comp.NextDenySoundTime)
-            {
-                console.Comp.NextDenySoundTime = _timing.CurTime + console.Comp.DenySoundDelay;
-                _audio.PlayPvs(console.Comp.DenySound, console);
-            }
-
+            PlayDenySound(console);
             return;
         }
 
@@ -119,47 +108,32 @@ public sealed class XenobiologyBountyConsoleSystem : EntitySystem
     }
 
     #region Bounty Management
-    private bool IsBountyComplete(EntityUid entity, XenobiologyBountyData data, out HashSet<EntityUid> bountyEntities)
-    {
-        if (_proto.TryIndex(data.Bounty, out var proto))
-            return IsBountyComplete(entity, proto.Entries, out bountyEntities);
 
-        bountyEntities = [];
-        return false;
+    private bool IsValidBountyEntry(EntityUid entity, XenobiologyBountyItemEntry entry)
+    {
+        return _whitelist.IsValid(entry.Whitelist, entity)
+            && (entry.Blacklist == null || !_whitelist.IsValid(entry.Blacklist, entity));
     }
 
-    public bool IsBountyComplete(EntityUid entity, string id)
+    private bool IsBountyComplete(EntityUid entity, XenobiologyBountyData data, out HashSet<EntityUid> bountyEntities)
     {
-        return _proto.TryIndex<XenobiologyBountyPrototype>(id, out var proto) && IsBountyComplete(entity, proto.Entries);
+        bountyEntities = [];
+
+        if (!_proto.TryIndex(data.Bounty, out var proto))
+            return false;
+
+        return IsBountyComplete(GetBountyEntities(entity), proto.Entries, out bountyEntities);
     }
 
     public bool IsBountyComplete(EntityUid entity, ProtoId<XenobiologyBountyPrototype> prototypeId)
     {
-        var prototype = _proto.Index(prototypeId);
-
-        return IsBountyComplete(entity, prototype.Entries);
+        return _proto.TryIndex(prototypeId, out var prototype)
+            && IsBountyComplete(GetBountyEntities(entity), prototype.Entries, out _);
     }
 
     private bool IsBountyComplete(EntityUid container, IEnumerable<XenobiologyBountyItemEntry> entries)
     {
-        return IsBountyComplete(container, entries, out _);
-    }
-
-    private bool IsBountyComplete(EntityUid container, IEnumerable<XenobiologyBountyItemEntry> entries, out HashSet<EntityUid> bountyEntities)
-    {
-        return IsBountyComplete(GetBountyEntities(container), entries, out bountyEntities);
-    }
-
-    /// <summary>
-    /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="entry"/>.
-    /// </summary>
-    /// <returns>true if <paramref name="entity"/> is a valid item for the bounty entry, otherwise false</returns>
-    private bool IsValidBountyEntry(EntityUid entity, XenobiologyBountyItemEntry entry)
-    {
-        if (!_whitelist.IsValid(entry.Whitelist, entity))
-            return false;
-
-        return entry.Blacklist == null || !_whitelist.IsValid(entry.Blacklist, entity);
+        return IsBountyComplete(GetBountyEntities(container), entries, out _);
     }
 
     private bool IsBountyComplete(HashSet<EntityUid> entities, IEnumerable<XenobiologyBountyItemEntry> entries, out HashSet<EntityUid> bountyEntities)
@@ -211,6 +185,15 @@ public sealed class XenobiologyBountyConsoleSystem : EntitySystem
     #endregion
 
     #region Helpers
+
+    private void PlayDenySound(Entity<XenobiologyBountyConsoleComponent> console)
+    {
+        if (_timing.CurTime < console.Comp.NextDenySoundTime)
+            return;
+
+        console.Comp.NextDenySoundTime = _timing.CurTime + console.Comp.DenySoundDelay;
+        _audio.PlayPvs(console.Comp.DenySound, console);
+    }
 
     public void UpdateBountyConsoles()
     {

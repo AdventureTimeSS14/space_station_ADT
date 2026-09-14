@@ -58,4 +58,12 @@ public sealed partial class SpaceHeaterComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float PowerConsumption = 3500f;
+
+    // ADT-Tweak-Start: machine parts with tiers
+    [DataField]
+    public float PowerMultiplier = 1f;
+
+    [DataField]
+    public float TemperatureRangeBonus = 0f;
+    // ADT-Tweak-End
 }

@@ -32,9 +32,6 @@ public sealed partial class ADTUpgradeableGunComponent : Component
     public SpriteSpecifier.Rsi? StockSprite;
 
     [DataField]
-    public float? BaseRechargeCooldown;
-
-    [DataField]
     public SoundSpecifier? InsertSound = new SoundPathSpecifier("/Audio/Items/screwdriver2.ogg");
 
     [DataField]

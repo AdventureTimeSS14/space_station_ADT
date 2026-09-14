@@ -288,4 +288,5 @@ public abstract class SharedSmartFridgeSystem : EntitySystem
     {
 
     }
+
 }

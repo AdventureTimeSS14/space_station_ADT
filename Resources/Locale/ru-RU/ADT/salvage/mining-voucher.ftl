@@ -53,7 +53,7 @@ blueshield-voucher-smg-description =
 blueshield-voucher-tonfa-name = набор с кунг-фу дракона
 blueshield-voucher-tonfa-description =
     Набор ближнего боя.
-    Включает в себя усиленный набор брони, свиток Кунг-фу Дракона, а также фаворитный щит корпуса синих щитов.
+    Включает в себя усиленный набор брони, свиток Кунг-фу Дракона, стальную тонфу, а также фаворитный щит корпуса синих щитов.
 
 blueshield-voucher-saber-rev-name = набор с энергетическим мечом-револьвером
 blueshield-voucher-saber-rev-description =

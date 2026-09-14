@@ -31,6 +31,8 @@ using Robust.Shared.Random;
 using Content.Server.ADT.Temperature; //ADT-Tweak-Bonfire
 using Robust.Shared.Timing;
 using Content.Shared.ADT.Flammability;
+using Content.Server._RMC14.Atmos; // ADT tweak
+using Content.Shared._RMC14.Atmos; // ADT-Tweak
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -52,6 +54,7 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private readonly AudioSystem _audio = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly RMCFlammableSystem _rmcFlammable = default!;
 
         private EntityQuery<InventoryComponent> _inventoryQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -403,6 +406,8 @@ namespace Content.Server.Atmos.EntitySystems
 
             flammable.ResistCompleteTime = _timing.CurTime + flammable.ResistTime;
 
+            _rmcFlammable.DoStopDropRollAnimation(uid, flammable.ResistTime); // ADT-Tweak
+
             _popup.PopupEntity(Loc.GetString("flammable-component-resist-message"), uid, uid);
             _stunSystem.TryUpdateParalyzeDuration(uid, flammable.ResistTime);
         }
@@ -460,14 +465,25 @@ namespace Content.Server.Atmos.EntitySystems
 
                 if (flammable.FireStacks > 0)
                 {
+                    var rmcFire = CompOrNull<OnFireComponent>(uid); // ADT-Tweak
+
                     var air = _atmosphereSystem.GetContainingMixture(uid);
+                    var noOxygen = air == null || air.GetMoles(Gas.Oxygen) < 1f; // ADT-Tweak
 
                     // If we're in an oxygenless environment, put the fire out.
-                    if (air == null || air.GetMoles(Gas.Oxygen) < 1f)
+                    if (rmcFire == null && noOxygen) // ADT-Tweak
                     {
                         Extinguish(uid, flammable);
                         continue;
                     }
+
+                    // ADT-Tweak-Start
+                    if (rmcFire != null && noOxygen && !rmcFire.BurnsInVacuum)
+                    {
+                        AdjustFireStacks(uid, -rmcFire.VacuumDecay, flammable, flammable.OnFire);
+                        continue;
+                    }
+                    // ADT-Tweak-End
 
                     var source = EnsureComp<IgnitionSourceComponent>(uid);
                     _ignitionSourceSystem.SetIgnited((uid, source));
@@ -482,7 +498,26 @@ namespace Content.Server.Atmos.EntitySystems
                     if (_inventoryQuery.TryComp(uid, out var inv))
                         _inventory.RelayEvent((uid, inv), ref ev);
 
-                    _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.Multiplier, interruptsDoAfters: false);
+                    // ADT-Tweak-Start
+                    if (rmcFire != null)
+                    {
+                        if (_rmcFlammable.CanBurnThroughImmunity(uid))
+                        {
+                            var rmcDamage = rmcFire.Intensity / 5f * flammable.Damage * ev.Multiplier;
+
+                            if (rmcFire.TileDamage is { } rmcTileDamage && HasComp<SteppingOnFireComponent>(uid))
+                            {
+                                rmcDamage += rmcFire.Intensity * rmcTileDamage / 3;
+                            }
+
+                            _damageableSystem.TryChangeDamage(uid, rmcDamage, true, false, origin: uid);
+                        }
+                    }
+                    else
+                    {
+                        _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.Multiplier, interruptsDoAfters: false);
+                    }
+                    // ADT-Tweak-End
 
                     //ADT bonfire
                     if (flammable.FirestackFadeFade != 0)

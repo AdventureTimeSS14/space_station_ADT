@@ -12281,7 +12281,7 @@ entities:
       parent: 1
     - type: Physics
       bodyType: Dynamic
-- proto: MicroManipulatorStockPart
+- proto: MatterBinStockPart
   entities:
   - uid: 860
     components:

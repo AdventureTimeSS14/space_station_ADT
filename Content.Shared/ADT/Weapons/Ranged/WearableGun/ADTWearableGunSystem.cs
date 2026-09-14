@@ -2,12 +2,14 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Ranged.Events;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.Weapons.Ranged.WearableGun;
 
 public sealed class ADTWearableGunSystem : EntitySystem
 {
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
@@ -24,7 +26,7 @@ public sealed class ADTWearableGunSystem : EntitySystem
 
     private void OnEquipped(Entity<ADTWearableGunComponent> ent, ref GotEquippedEvent args)
     {
-        if (args.Slot != ent.Comp.Slot)
+        if (args.Slot != ent.Comp.Slot || !_net.IsServer)
             return;
 
         var user = EnsureComp<ADTWearableGunUserComponent>(args.Equipee);
@@ -69,6 +71,9 @@ public sealed class ADTWearableGunSystem : EntitySystem
 
     private void RemoveUser(EntityUid gun, EntityUid user)
     {
+        if (!_net.IsServer)
+            return;
+
         if (!TryComp<ADTWearableGunUserComponent>(user, out var comp))
             return;
 

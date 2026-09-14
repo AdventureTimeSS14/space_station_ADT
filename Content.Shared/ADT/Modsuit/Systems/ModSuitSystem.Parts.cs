@@ -214,6 +214,8 @@ public sealed partial class ModSuitSystem
 
         RestoreSuitStorage(user, parent, suitStorage);
 
+        RefreshFullEquipModules(ent);
+
         UpdateCellDraw(ent);
 
         if (GetPartsToggleStatus(ent.Owner, ent.Comp) == ModSuitAttachedStatus.AllToggled && _timing.IsFirstTimePredicted && _netMan.IsClient)
@@ -236,6 +238,8 @@ public sealed partial class ModSuitSystem
         var suitStorage = StashSuitStorage(user, parent, slot);
 
         _inventorySystem.TryUnequip(user, parent, slot, force: true, predicted: true);
+
+        RefreshFullEquipModules(ent);
 
         // If attached have clothing in container - equip it
         if (!TryComp<ModPartComponent>(clothing, out var attachedComp))
@@ -269,7 +273,7 @@ public sealed partial class ModSuitSystem
     private void RestoreSuitStorage(EntityUid user, EntityUid parent, EntityUid? stashed)
     {
         if (stashed.HasValue)
-            _inventorySystem.TryEquip(user, parent, stashed.Value, "suitstorage", predicted: true);
+            _inventorySystem.TryEquip(user, parent, stashed.Value, "suitstorage", force: true, predicted: true);
     }
 
     private void RemoveAllParts(Entity<ModSuitComponent> ent)

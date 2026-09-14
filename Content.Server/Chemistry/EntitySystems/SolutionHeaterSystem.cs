@@ -86,7 +86,7 @@ public sealed class SolutionHeaterSystem : EntitySystem
                 if (!TryComp<SolutionContainerManagerComponent>(heatingEntity, out var container))
                     continue;
 
-                var energy = heater.HeatPerSecond * frameTime;
+                var energy = heater.HeatPerSecond * heater.HeatMultiplier * frameTime; // ADT-Tweak
                 foreach (var (_, soln) in _solutionContainer.EnumerateSolutions((heatingEntity, container)))
                 {
                     _solutionContainer.AddThermalEnergy(soln, energy);

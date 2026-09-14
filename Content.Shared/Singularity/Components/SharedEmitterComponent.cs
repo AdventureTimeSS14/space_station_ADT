@@ -133,6 +133,11 @@ public sealed partial class EmitterComponent : Component
     /// </summary>
     [DataField]
     public LocId LocUnpowered = "emitter-unpowered-broadcast";
+
+    // ADT-Tweak-Start
+    [DataField]
+    public float FireRateMultiplier = 1f;
+    // ADT-Tweak-End
 }
 
 [NetSerializable, Serializable]

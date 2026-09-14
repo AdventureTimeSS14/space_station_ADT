@@ -25,6 +25,9 @@ public sealed partial class WeaponMartialArtComponent : Component
     public bool BlockedByKnownMartialArt = true;
 
     [DataField]
+    public List<MartialArtsForms> AllowedMartialArts = new();
+
+    [DataField]
     public bool ResetPopup = true;
 
     [DataField]

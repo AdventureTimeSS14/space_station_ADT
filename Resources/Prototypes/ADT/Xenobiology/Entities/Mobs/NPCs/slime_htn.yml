@@ -2,6 +2,16 @@
   id: XenoSlimeCompound
   branches:
   - tasks:
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: FollowTarget
+      operator: !type:MoveToOperator
+        pathfindInPlanning: true
+        targetKey: FollowTarget
+        rangeKey: FollowCloseRange
+        removeKeyOnFinish: false
+  - tasks:
     - !type:HTNCompoundTask
       task: XenoSlimeFoodCompound
   - tasks:

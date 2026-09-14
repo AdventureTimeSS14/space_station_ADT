@@ -1,0 +1,130 @@
+- type: adtDungeonRoom
+  id: LavaDungeonBirthday
+  size: 11, 10
+  tags:
+  - LavaDungeon
+  legend:
+    "a":
+      tile: Plating
+    "b":
+      tile: PlatingDamaged
+    "c":
+      tile: FloorBasalt
+    "d":
+      tile: FloorWoodDark
+    "e":
+      tile: ADTFloorDarkWoodBroken
+  tiles:
+  - "aaaaabbaaaa"
+  - "cccdddbbddd"
+  - "ccbdedddded"
+  - "ccbddededdd"
+  - "cbeddddddeb"
+  - "cedbddedddb"
+  - "bdbbddddddb"
+  - "bbdedeceddd"
+  - "cbdbaaccaaa"
+  - "cbbcccccccc"
+  entities:
+  - proto: ADTExplosivePizzabox
+    positions:
+    - 8.4797,8.6918
+  - proto: ChairWood
+    rot: -1.5707963267948966 rad
+    positions:
+    - 4.5,6.5
+  - proto: ChairWood
+    rot: 1.5707963267948966 rad
+    positions:
+    - 3.5,4.5
+    - 1.5,7.5
+  - proto: ChairWood
+    rot: 3.141592653589793 rad
+    positions:
+    - 7.5,6.5
+  - proto: FloorLavaEntity
+    positions:
+    - 9.5,0.5
+    - 8.5,0.5
+  - proto: FoodBoxPizzaFilled
+    positions:
+    - 10.5536,8.6201
+    - 9.4911,8.6826
+    - 4.6298,5.5263
+  - proto: FoodCakeBirthday
+    positions:
+    - 6.5829,4.7138
+  - proto: FoodPizzaCottonSlice
+    positions:
+    - 2.3629,8.5965
+  - proto: FoodPizzaPineappleSlice
+    positions:
+    - 5.5986,4.7138
+    - 4.7236,4.7919
+  - proto: FoodPlateSmall
+    positions:
+    - 9.5693,3.1982
+    - 7.5204,5.4638
+    - 5.4736,5.4326
+    - 4.7236,4.7451
+  - proto: Fork
+    positions:
+    - 7.3486,5.5263
+  - proto: KitchenKnife
+    positions:
+    - 8.5965,2.4794
+  - proto: MaterialWoodPlank1
+    rot: -1.5707963267948966 rad
+    positions:
+    - 7.4403,3.4828
+  - proto: MaterialWoodPlank1
+    positions:
+    - 6.5809,3.4984
+    - 8.5653,4.2641
+  - proto: PresentRandom
+    positions:
+    - 2.3541,2.3647
+    - 4.8163,2.9506
+    - 6.5047,5.6459
+  - proto: TableWood
+    rot: -1.5707963267948966 rad
+    positions:
+    - 7.5,4.5
+    - 6.5,4.5
+    - 6.5,5.5
+    - 5.5,4.5
+    - 5.5,5.5
+    - 7.5,5.5
+    - 4.5,5.5
+    - 4.5,4.5
+  - proto: TableWood
+    positions:
+    - 8.5,8.5
+    - 10.5,8.5
+    - 9.5,8.5
+    - 2.5,8.5
+  - proto: WallSolid
+    rot: -1.5707963267948966 rad
+    positions:
+    - 8.5,9.5
+    - 10.5,9.5
+    - 9.5,9.5
+    - 10.5,1.5
+    - 8.5,1.5
+    - 9.5,1.5
+    - 5.5,1.5
+    - 4.5,1.5
+  - proto: WallSolid
+    positions:
+    - 0.5,9.5
+    - 2.5,9.5
+    - 3.5,9.5
+    - 1.5,9.5
+  - proto: WaterCooler
+    positions:
+    - 3.5,8.5
+  decals:
+  - id: Basalt5
+    color: '#FFFFFFFF'
+    positions:
+    - 6.3443,0.1548

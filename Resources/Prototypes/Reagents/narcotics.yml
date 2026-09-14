@@ -269,10 +269,15 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
-  # ADT-Tweak-Start: никотин метаболизируется в крови, иначе системы аллергий и зависимостей его не ловят
+  # ADT-Tweak-Start: никотин метаболизируется в крови; курение вредит
   metabolisms:
     Bloodstream:
       metabolismRate: 0.05
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 0.002
   # ADT-Tweak-End
 
 # TODO: Replace these nonstandardized effects with generic brain damage

@@ -191,7 +191,11 @@ public abstract class SharedFishingSystem : EntitySystem
         FisherQuery.TryComp(fisher, out var fisherComp);
 
         if (attachedEnt != null && activeSpotComp != null)
+        {
+            activeSpotComp.AttachedFishingLure = null;
+            Dirty(attachedEnt.Value, activeSpotComp);
             RemCompDeferred(attachedEnt.Value, activeSpotComp);
+        }
 
         if (fisher != null)
         {

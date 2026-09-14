@@ -55,18 +55,28 @@ public sealed class TrophyEffectsSystem : EntitySystem
         if (args.Alteration != TrophyAlteredType.Removed)
             return;
 
-        if (!ent.Comp.Effects.Any(effect => effect is DamageAmplifyOnHitEffect))
-            return;
-
         var holder = args.Holder;
         if (!Exists(holder))
             return;
 
-        var query = EntityQueryEnumerator<DamageAmplifyActiveEffectComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        if (ent.Comp.Effects.Any(effect => effect is DamageAmplifyOnHitEffect))
         {
-            if (comp.Source == holder)
-                RemCompDeferred<DamageAmplifyActiveEffectComponent>(uid);
+            var query = EntityQueryEnumerator<DamageAmplifyActiveEffectComponent>();
+            while (query.MoveNext(out var uid, out var comp))
+            {
+                if (comp.Source == holder)
+                    RemCompDeferred<DamageAmplifyActiveEffectComponent>(uid);
+            }
+        }
+
+        if (ent.Comp.Effects.Any(effect => effect is SlowDebuffOnHitEffect))
+        {
+            var query = EntityQueryEnumerator<SlowDebuffMarkerComponent>();
+            while (query.MoveNext(out var uid, out var comp))
+            {
+                if (comp.Source == holder)
+                    RemCompDeferred<SlowDebuffMarkerComponent>(uid);
+            }
         }
     }
 

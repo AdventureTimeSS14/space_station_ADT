@@ -1,5 +1,7 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Botany.Components;
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Events;
 using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Shared.Administration.Logs;
@@ -65,7 +67,30 @@ public sealed class PlantHolderSystem : EntitySystem
         SubscribeLocalEvent<PlantHolderComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<PlantHolderComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<PlantHolderComponent, SolutionTransferredEvent>(OnSolutionTransferred);
+
+        // ADT-Tweak-Start: machine parts with tiers
+        SubscribeLocalEvent<PlantHolderComponent, RefreshPartsEvent>(OnRefreshParts);
+        SubscribeLocalEvent<PlantHolderComponent, UpgradeExamineEvent>(OnUpgradeExamine);
+        // ADT-Tweak-End
     }
+
+    // ADT-Tweak-Start: machine parts with tiers
+    private static void OnRefreshParts(EntityUid uid, PlantHolderComponent component, RefreshPartsEvent args)
+    {
+        var capacity = args.GetStatMultiplier(MachineStat.Capacity);
+
+        component.WaterCapacityMultiplier = capacity;
+        component.NutritionCapacityMultiplier = capacity;
+        component.NutrientConsumptionMultiplier = args.GetStatMultiplier(MachineStat.ResourceCost);
+    }
+
+    private static void OnUpgradeExamine(EntityUid uid, PlantHolderComponent component, UpgradeExamineEvent args)
+    {
+        args.AddPercentageUpgrade("machine-upgrade-hydro-water", component.WaterCapacityMultiplier, benefit: true);
+        args.AddPercentageUpgrade("machine-upgrade-hydro-nutrition", component.NutritionCapacityMultiplier, benefit: true);
+        args.AddPercentageUpgrade("machine-upgrade-hydro-nutrition-consume", component.NutrientConsumptionMultiplier, benefit: false);
+    }
+    // ADT-Tweak-End
 
     public override void Update(float frameTime)
     {
@@ -473,7 +498,7 @@ public sealed class PlantHolderSystem : EntitySystem
         // Nutrient consumption.
         if (component.Seed.NutrientConsumption > 0 && component.NutritionLevel > 0 && _random.Prob(0.75f))
         {
-            component.NutritionLevel -= MathF.Max(0f, component.Seed.NutrientConsumption * HydroponicsSpeedMultiplier);
+            component.NutritionLevel -= MathF.Max(0f, component.Seed.NutrientConsumption * HydroponicsSpeedMultiplier * component.NutrientConsumptionMultiplier); // ADT-Tweak: machine parts
             if (component.DrawWarnings)
                 component.UpdateSpriteAfterUpdate = true;
         }

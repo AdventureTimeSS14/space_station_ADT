@@ -2,6 +2,8 @@ using System.Numerics;
 using Content.Server.Audio;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Shuttles.Components;
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
@@ -53,8 +55,33 @@ public sealed class ThrusterSystem : EntitySystem
 
         SubscribeLocalEvent<ThrusterComponent, ExaminedEvent>(OnThrusterExamine);
 
+        // ADT-Tweak-Start
+        SubscribeLocalEvent<ThrusterComponent, RefreshPartsEvent>(OnPartsRefresh);
+        SubscribeLocalEvent<ThrusterComponent, UpgradeExamineEvent>(OnUpgradeExamine);
+        // ADT-Tweak-End
+
         SubscribeLocalEvent<ShuttleComponent, TileChangedEvent>(OnShuttleTileChange);
     }
+
+    // ADT-Tweak-Start
+    private void OnPartsRefresh(EntityUid uid, ThrusterComponent component, RefreshPartsEvent args)
+    {
+        if (component.IsOn)
+            DisableThruster(uid, component);
+
+        component.ThrustMultiplier = args.GetStatMultiplier(MachineStat.Speed);
+
+        if (component.Enabled && CanEnable(uid, component))
+            EnableThruster(uid, component);
+    }
+
+    private static void OnUpgradeExamine(EntityUid uid, ThrusterComponent component, UpgradeExamineEvent args)
+    {
+        args.AddPercentageUpgrade("machine-upgrade-thrust", component.ThrustMultiplier, benefit: true);
+    }
+
+    private float GetThrust(ThrusterComponent component) => component.Thrust * component.ThrustMultiplier;
+    // ADT-Tweak-End
 
     private void OnThrusterExamine(EntityUid uid, ThrusterComponent component, ExaminedEvent args)
     {
@@ -198,11 +225,11 @@ public sealed class ThrusterSystem : EntitySystem
             // If no parent change doesn't matter for angular.
             if (component.Type == ThrusterType.Angular)
             {
-                oldShuttleComponent.AngularThrust -= component.Thrust;
+                oldShuttleComponent.AngularThrust -= GetThrust(component); // ADT-Tweak
                 DebugTools.Assert(oldShuttleComponent.AngularThrusters.Contains(uid));
                 oldShuttleComponent.AngularThrusters.Remove(uid);
 
-                shuttleComponent.AngularThrust += component.Thrust;
+                shuttleComponent.AngularThrust += GetThrust(component); // ADT-Tweak
                 DebugTools.Assert(!shuttleComponent.AngularThrusters.Contains(uid));
                 shuttleComponent.AngularThrusters.Add(uid);
                 return;
@@ -211,11 +238,11 @@ public sealed class ThrusterSystem : EntitySystem
 
         if (component.Type == ThrusterType.Linear)
         {
-            oldShuttleComponent.LinearThrust[oldDirection] -= component.Thrust;
+            oldShuttleComponent.LinearThrust[oldDirection] -= GetThrust(component); // ADT-Tweak
             DebugTools.Assert(oldShuttleComponent.LinearThrusters[oldDirection].Contains(uid));
             oldShuttleComponent.LinearThrusters[oldDirection].Remove(uid);
 
-            shuttleComponent.LinearThrust[direction] += component.Thrust;
+            shuttleComponent.LinearThrust[direction] += GetThrust(component); // ADT-Tweak
             DebugTools.Assert(!shuttleComponent.LinearThrusters[direction].Contains(uid));
             shuttleComponent.LinearThrusters[direction].Add(uid);
         }
@@ -293,7 +320,7 @@ public sealed class ThrusterSystem : EntitySystem
             case ThrusterType.Linear:
                 var direction = (int)xform.LocalRotation.GetCardinalDir() / 2;
 
-                shuttleComponent.LinearThrust[direction] += component.Thrust;
+                shuttleComponent.LinearThrust[direction] += GetThrust(component); // ADT-Tweak
                 DebugTools.Assert(!shuttleComponent.LinearThrusters[direction].Contains(uid));
                 shuttleComponent.LinearThrusters[direction].Add(uid);
 
@@ -308,7 +335,7 @@ public sealed class ThrusterSystem : EntitySystem
 
                 break;
             case ThrusterType.Angular:
-                shuttleComponent.AngularThrust += component.Thrust;
+                shuttleComponent.AngularThrust += GetThrust(component); // ADT-Tweak
                 DebugTools.Assert(!shuttleComponent.AngularThrusters.Contains(uid));
                 shuttleComponent.AngularThrusters.Add(uid);
                 break;
@@ -352,8 +379,8 @@ public sealed class ThrusterSystem : EntitySystem
                 if (!thrustQuery.TryGetComponent(ent, out var thruster) || !xformQuery.TryGetComponent(ent, out var xform))
                     continue;
 
-                center += xform.LocalPosition * thruster.Thrust;
-                totalThrust += thruster.Thrust;
+                center += xform.LocalPosition * GetThrust(thruster); // ADT-Tweak
+                totalThrust += GetThrust(thruster); // ADT-Tweak
             }
 
             center /= pop.Count * totalThrust;
@@ -391,12 +418,12 @@ public sealed class ThrusterSystem : EntitySystem
                 angle ??= xform.LocalRotation;
                 var direction = (int)angle.Value.GetCardinalDir() / 2;
 
-                shuttleComponent.LinearThrust[direction] -= component.Thrust;
+                shuttleComponent.LinearThrust[direction] -= GetThrust(component); // ADT-Tweak
                 DebugTools.Assert(shuttleComponent.LinearThrusters[direction].Contains(uid));
                 shuttleComponent.LinearThrusters[direction].Remove(uid);
                 break;
             case ThrusterType.Angular:
-                shuttleComponent.AngularThrust -= component.Thrust;
+                shuttleComponent.AngularThrust -= GetThrust(component); // ADT-Tweak
                 DebugTools.Assert(shuttleComponent.AngularThrusters.Contains(uid));
                 shuttleComponent.AngularThrusters.Remove(uid);
                 break;

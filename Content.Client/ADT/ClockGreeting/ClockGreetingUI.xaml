@@ -1,0 +1,5 @@
+<clock:ClockGreetingUI xmlns="https://spacestation14.io"
+                           xmlns:clock="clr-namespace:Content.Client.ADT.ClockGreeting"
+                           Visible="False">
+    <Label Name="Label" Access="Public" />
+</clock:ClockGreetingUI>

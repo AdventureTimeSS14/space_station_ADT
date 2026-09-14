@@ -26,6 +26,9 @@ public sealed partial class ADTWispLanternComponent : Component
     [ViewVariables]
     public bool WasVisionActive;
 
+    [ViewVariables]
+    public bool WasOverlay;
+
     [DataField]
     public float StoredRadius = 7f;
 

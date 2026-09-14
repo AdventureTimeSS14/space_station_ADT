@@ -40,6 +40,10 @@
       params:
         maxDistance: 1
   - type: MiningScanner
+  # ADT-Tweak-Start
+  - type: ADTMagmiteUpgradable
+    result: ADTMineralScannerMagmite
+  # ADT-Tweak-End
 
 - type: entity
   id: MineralScanner
@@ -84,6 +88,10 @@
       - state: inhand-right-adv
   - type: MiningScanner
     range: 10
+    # ADT-Tweak-Start
+  - type: ADTMagmiteUpgradable
+    result: ADTAdvancedMineralScannerMagmite
+    # ADT-Tweak-End
 
 - type: entity
   id: AdvancedMineralScanner

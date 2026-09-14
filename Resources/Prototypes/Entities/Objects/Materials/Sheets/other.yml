@@ -120,6 +120,7 @@
   - type: Tag
     tags:
     - Sheet
+    - SheetPlasma # ADT-Heretic: ритуал Обжигающей акулы
     - ConstructionMaterial #ADT tweak
     - NoPaint #ADT tweak
 

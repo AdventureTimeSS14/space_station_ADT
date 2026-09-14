@@ -15,6 +15,17 @@ adt-gps-window-sos-on = SOS: ПЕРЕДАЁТСЯ
 adt-gps-window-sos-off = SOS: молчит
 adt-gps-window-sos-cooldown = SOS: { $seconds } с
 
+adt-gps-window-waypoints = Метки:
+adt-gps-window-waypoint-add = Отметить здесь
+adt-gps-window-waypoint-remove = X
+adt-gps-window-no-waypoints = Меток не поставлено.
+
+adt-gps-waypoint-default-name = МЕТКА { $index }
+
+adt-gps-popup-waypoint-added = Точка сохранена как [color=yellow]{ $name }[/color].
+adt-gps-popup-waypoint-full = Память забита, больше { $count } меток прибор не держит.
+adt-gps-popup-waypoint-offline = Прибор не знает, где находится.
+
 adt-gps-signal-position = ({ $x }, { $y })
 adt-gps-signal-distance = { $distance } м
 adt-gps-signal-unknown = ???

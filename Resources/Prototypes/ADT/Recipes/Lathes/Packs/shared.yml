@@ -8,3 +8,33 @@
   - ADTSheetUGlass
   - ADTSheetRUGlass
   - MaterialDurathread
+
+- type: latheRecipePack
+  id: PartsDynamic
+  recipes:
+  # Tier 2
+  - AdvancedCapacitorStockPart
+  - AdvancedScanningModuleStockPart
+  - NanoServoStockPart
+  - HighPowerMicroLaserStockPart
+  - AdvancedMatterBinStockPart
+  - RapidPartExchanger
+  # Tier 3
+  - SuperCapacitorStockPart
+  - PhasicScanningModuleStockPart
+  - PicoServoStockPart
+  - UltraHighPowerMicroLaserStockPart
+  - SuperMatterBinStockPart
+  # Tier 4
+  - BluespaceCapacitorStockPart
+  - TriphasicScanningModuleStockPart
+  - FemtoServoStockPart
+  - QuadUltraMicroLaserStockPart
+  - BluespaceMatterBinStockPart
+  - BluespaceRapidPartExchanger
+  # Tier 5
+  - QuantumCapacitorStockPart
+  - QuantumScanningModuleStockPart
+  - QuantumServoStockPart
+  - QuantumMicroLaserStockPart
+  - QuantumMatterBinStockPart

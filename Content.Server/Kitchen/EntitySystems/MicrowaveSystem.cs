@@ -40,6 +40,9 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Temperature.Components;
 using Content.Shared.Damage;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Components; // ADT-Tweak: machine parts
+using Content.Shared.ADT.Construction.Events; // ADT-Tweak: machine parts
 using Content.Shared.ADT.Kitchem.Components; // ADT-Tweak
 using Content.Shared.Power.EntitySystems;
 
@@ -93,6 +96,11 @@ namespace Content.Server.Kitchen.EntitySystems
             SubscribeLocalEvent<MicrowaveComponent, SuicideByEnvironmentEvent>(OnSuicideByEnvironment);
 
             SubscribeLocalEvent<MicrowaveComponent, SignalReceivedEvent>(OnSignalReceived);
+
+            // ADT-Tweak-Start: machine parts with tiers
+            SubscribeLocalEvent<MicrowaveComponent, RefreshPartsEvent>(OnPartsRefresh);
+            SubscribeLocalEvent<MicrowaveComponent, UpgradeExamineEvent>(OnUpgradeExamine);
+            // ADT-Tweak-End
 
             SubscribeLocalEvent<MicrowaveComponent, MicrowaveStartCookMessage>((u, c, m) => Wzhzhzh(u, c, m.Actor));
             SubscribeLocalEvent<MicrowaveComponent, MicrowaveEjectMessage>(OnEjectMessage);
@@ -373,7 +381,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 return;
             }
 
-            if (ent.Comp.Storage.Count >= ent.Comp.Capacity)
+            if (ent.Comp.Storage.Count >= ent.Comp.Capacity * ent.Comp.CapacityMultiplier) // ADT-Tweak machine parts
                 args.Cancel();
         }
 
@@ -438,7 +446,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 return;
             }
 
-            if (ent.Comp.Storage.Count >= ent.Comp.Capacity)
+            if (ent.Comp.Storage.Count >= ent.Comp.Capacity * ent.Comp.CapacityMultiplier) // ADT-Tweak machine parts
             {
                 _popupSystem.PopupEntity(Loc.GetString("microwave-component-interact-full"), ent, args.User);
                 return;
@@ -484,6 +492,32 @@ namespace Content.Server.Kitchen.EntitySystems
 
             Wzhzhzh(ent.Owner, ent.Comp, null);
         }
+
+        // ADT-Tweak-Start: machine parts with tiers
+        private void OnPartsRefresh(EntityUid uid, MicrowaveComponent component, RefreshPartsEvent args)
+        {
+            var speed = args.GetStatMultiplier(MachineStat.Speed);
+            var output = args.GetStatMultiplier(MachineStat.Output);
+
+            component.UpgradeCookMultiplier = 1f / speed; // ADT-Tweak
+            component.ExplosionChanceMultiplier = MathF.Max(0f, 1f - (output - 1f));
+            component.CapacityMultiplier = args.GetStatMultiplier(MachineStat.Capacity);
+
+            UpdateUserInterfaceState(uid, component);
+        }
+
+        private static void OnUpgradeExamine(EntityUid uid, MicrowaveComponent component, UpgradeExamineEvent args)
+        {
+            var totalCookMultiplier = component.CookTimeMultiplier * component.UpgradeCookMultiplier; // ADT-Tweak
+            var speedMultiplier = totalCookMultiplier <= 0f // ADT-Tweak
+                ? 1f
+                : 1f / totalCookMultiplier; // ADT-Tweak
+
+            args.AddPercentageUpgrade("machine-upgrade-cook-speed", speedMultiplier, benefit: true);
+            args.AddPercentageUpgrade("machine-upgrade-capacity", component.CapacityMultiplier, benefit: true);
+            args.AddPercentageUpgrade("machine-upgrade-malfunction-reduction", component.ExplosionChanceMultiplier, benefit: true);
+        }
+        // ADT-Tweak-End
 
         public void UpdateUserInterfaceState(EntityUid uid, MicrowaveComponent component)
         {
@@ -541,7 +575,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 return;
 
             ent.Comp1.MalfunctionTime = _gameTiming.CurTime + TimeSpan.FromSeconds(ent.Comp2.MalfunctionInterval);
-            if (_random.Prob(ent.Comp2.ExplosionChance))
+            if (_random.Prob(ent.Comp2.ExplosionChance * ent.Comp2.ExplosionChanceMultiplier)) // ADT-Tweak machine parts
             {
                 Explode((ent, ent.Comp2));
                 return;  // microwave is fucked, stop the cooking.
@@ -633,6 +667,11 @@ namespace Content.Server.Kitchen.EntitySystems
                 }
             }
 
+            // ADT-Tweak: серво ассемблера уменьшает требуемые ингредиенты
+            var ingredientMultiplier = TryComp<AssemblerUpgradeComponent>(uid, out var assemblerUpgrade)
+                ? assemblerUpgrade.IngredientMultiplier
+                : 1f;
+
             // Check recipes
             var getRecipesEv = new GetSecretRecipesEvent();
             RaiseLocalEvent(uid, ref getRecipesEv);
@@ -644,11 +683,12 @@ namespace Content.Server.Kitchen.EntitySystems
 
             _audio.PlayPvs(component.StartCookingSound, uid);
             var activeComp = AddComp<ActiveMicrowaveComponent>(uid); //microwave is now cooking
-            activeComp.CookTimeRemaining = component.CurrentCookTimerTime;
+            var cookTime = component.CurrentCookTimerTime * component.CookTimeMultiplier * component.UpgradeCookMultiplier; // ADT-Tweak
+            activeComp.CookTimeRemaining = cookTime; // ADT-Tweak
             activeComp.TotalTime = component.CurrentCookTimerTime; //this doesn't scale so that we can have the "actual" time
             activeComp.PortionedRecipe = portionedRecipe;
             //Scale tiems with cook times
-            component.CurrentCookTimeEnd = _gameTiming.CurTime + TimeSpan.FromSeconds(component.CurrentCookTimerTime);
+            component.CurrentCookTimeEnd = _gameTiming.CurTime + TimeSpan.FromSeconds(cookTime); // ADT-Tweak
             if (malfunctioning)
                 activeComp.MalfunctionTime = _gameTiming.CurTime + TimeSpan.FromSeconds(component.MalfunctionInterval);
             UpdateUserInterfaceState(uid, component);

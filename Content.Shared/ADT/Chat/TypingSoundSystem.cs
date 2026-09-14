@@ -2,12 +2,14 @@ using Content.Shared.Chat;
 using Content.Shared.Chat.TypingIndicator;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.Chat;
 
 public sealed partial class TypingSoundSystem : EntitySystem
 {
     [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -23,12 +25,17 @@ public sealed partial class TypingSoundSystem : EntitySystem
     {
         if (args.NewState != TypingIndicatorState.Typing)
             return;
+        if (!_timing.IsFirstTimePredicted)
+            return;
 
         _audio.PlayPvs(component.TypingSound, uid);
     }
 
     private void OnEntitySpoke(EntityUid uid, TypingSoundComponent component, EntitySpokeEvent args)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
         _audio.PlayPvs(component.MessageSentSound, uid);
     }
 

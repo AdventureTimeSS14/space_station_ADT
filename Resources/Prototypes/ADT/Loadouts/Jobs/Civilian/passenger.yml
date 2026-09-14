@@ -79,3 +79,20 @@
     proto: SpaceAssholeTider
   equipment:
     outerClothing: ClothingOuterCoatSpaceAsshole
+
+# Head
+- type: loadout
+  id: ADTClothingHeadHatBowlerHat
+  equipment:
+    head: ClothingHeadHatBowlerHat
+
+- type: loadout
+  id: ADTClothingHeadHatTophat
+  equipment:
+    head: ClothingHeadHatTophat
+
+# Eyes
+- type: loadout
+  id: ADTClothingEyesGlassesMonocle
+  equipment:
+    eyes: ADTClothingEyesGlassesMonocle

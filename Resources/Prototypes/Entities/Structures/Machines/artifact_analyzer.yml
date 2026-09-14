@@ -50,6 +50,7 @@
   - type: ApcPowerReceiver
     powerLoad: 5000
   - type: ArtifactAnalyzer
+  - type: ArtifactAnalyzerUpgrade # ADT-Tweak
   - type: ItemPlacer
     whitelist:
       components:
@@ -92,6 +93,7 @@
     crushingDamage:
       types:
         Blunt: 10
+  - type: ArtifactCrusherUpgrade #ADT-Tweak
   - type: Machine
     board: ArtifactCrusherMachineCircuitboard
   - type: WiresPanel

@@ -1,0 +1,30 @@
+- type: adtDungeonRoom
+  id: LavaDungeonDeadGodCorpse
+  size: 13, 11
+  tags:
+  - LavaDungeon
+  legend:
+    "a":
+      tile: FloorBasalt
+    "b":
+      tile: FloorBrassReebe
+    "c":
+      tile: PlatingBrass
+    "d":
+      tile: FloorBrassFilled
+  tiles:
+  - "aaabbbcccbbba"
+  - "abbbbbccdbcbb"
+  - "bcaddbbddbcbb"
+  - "bcbbbdbbbbbdc"
+  - "bbdbbdbbbcbdb"
+  - "bbbbdbbbbdcbb"
+  - "ccbbddbbbbcbb"
+  - "bcbbccbbbbdbb"
+  - "ababbbcdbccba"
+  - "aaaabccbbbdaa"
+  - "aaaabcbbabbbb"
+  entities:
+  - proto: ADTDeadRatvar
+    positions:
+    - 7.5,6.5

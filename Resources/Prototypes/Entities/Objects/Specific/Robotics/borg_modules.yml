@@ -761,7 +761,7 @@
           components:
           - SiliconLawProvider
     - hand:
-        emptyRepresentative: MicroManipulatorStockPart
+        emptyRepresentative: MicroServoStockPart #ADT-Tweak: machine parts
         emptyLabel: borg-slot-construction-empty
         whitelist:
           tags:

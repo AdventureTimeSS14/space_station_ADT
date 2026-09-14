@@ -109,39 +109,30 @@
           key: "enum.MechAssemblyVisuals.State"
           data: 14
 
-      - tag: ADTMicroManipulatorStockPart
-        name: construction-graph-tag-manipulator-stock-part
+      - machinePart: Servo
+        tier: 3
+        name: machine-part-name-servo-t3
         icon:
-          sprite: "Objects/Misc/stock_parts.rsi"
-          state: micro_mani
+          sprite: "ADT/Objects/Misc/stock_parts.rsi"
+          state: pico_servo
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
           data: 15
-
-      - tag: ADTMicroManipulatorStockPart
-        name: construction-graph-tag-manipulator-stock-part
-        icon:
-          sprite: "Objects/Misc/stock_parts.rsi"
-          state: micro_mani
-        completed:
-        - !type:VisualizerDataInt
-          key: "enum.MechAssemblyVisuals.State"
-          data: 16
 
       - tool: Screwing
         doAfter: 1
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
-          data: 17
+          data: 16
 
       - material: Plasma
         amount: 30
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
-          data: 18
+          data: 17
 
       - tag: ADTBluespaceAnomalyCore
         name: construction-graph-tag-bluespace-anomaly-core
@@ -151,42 +142,42 @@
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
-          data: 19
+          data: 18
 
       - material: Cable
         amount: 30
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
-          data: 20
+          data: 19
 
       - tool: Screwing
         doAfter: 1
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
-          data: 21
+          data: 20
 
       - material: Plasteel
         amount: 30
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
-          data: 22
+          data: 21
 
       - tool: Anchoring
         doAfter: 1
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
-          data: 23
+          data: 22
 
       - tool: Welding
         doAfter: 1
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
-          data: 24
+          data: 23
 
       - tag: ADTPhazonArmor
         name: construction-graph-tag-phazon-armor-plates
@@ -196,14 +187,14 @@
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
-          data: 25
+          data: 24
 
       - tool: Anchoring
         doAfter: 1
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
-          data: 26
+          data: 25
 
       - tool: Welding
         doAfter: 1

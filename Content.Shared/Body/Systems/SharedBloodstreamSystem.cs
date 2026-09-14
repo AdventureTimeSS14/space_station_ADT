@@ -41,7 +41,9 @@ public abstract class SharedBloodstreamSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedWeaknessSystem _weaknessSystem = default!; //ADT-Tweak
+    [Dependency] private readonly SharedSyllableSystem _syllableSystem = default!; //ADT-Tweak
+
+    [Dependency] private EntityQuery<BloodstreamComponent> _bloodstreamQuery = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -92,19 +94,29 @@ public abstract class SharedBloodstreamSystem : EntitySystem
 
                     _damageableSystem.TryChangeDamage(uid, amt, ignoreResistances: false, interruptsDoAfters: false);
 
+                    // ADT-Tweak-Start
+                    if (!_bloodstreamQuery.HasComp(uid))
+                        continue;
+                    // ADT-Tweak-End
+
                     // Apply dizziness as a symptom of bloodloss.
                     // The effect is applied in a way that it will never be cleared without being healthy.
                     // Multiplying by 2 is arbitrary but works for this case, it just prevents the time from running out
                     _status.TrySetStatusEffectDuration(uid, Bloodloss);
-                    _weaknessSystem.DoWeakness(uid, bloodstream.AdjustedUpdateInterval * 2, refresh: false); // ADT-Tweak
+                    _syllableSystem.DoSyllable(uid, bloodstream.AdjustedUpdateInterval * 2, refresh: false); // ADT-Tweak
                 }
                 else
                 {
                     // If they're healthy, we'll try and heal some bloodloss instead.
                     _damageableSystem.TryChangeDamage(uid, bloodstream.BloodlossHealDamage * bloodPercentage, ignoreResistances: true, interruptsDoAfters: false);
 
+                    // ADT-Tweak-Start
+                    if (!_bloodstreamQuery.HasComp(uid))
+                        continue;
+                    // ADT-Tweak-End
+
                     _status.TryRemoveStatusEffect(uid, Bloodloss);
-                    _weaknessSystem.DoRemoveWeakness(uid); // ADT-Tweak
+                    _syllableSystem.DoRemoveSyllable(uid); // ADT-Tweak
                 }
             }
             else

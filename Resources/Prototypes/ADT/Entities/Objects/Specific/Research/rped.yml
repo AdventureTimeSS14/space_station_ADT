@@ -1,0 +1,74 @@
+- type: entity
+  parent: BaseStorageItem
+  id: RapidPartExchanger
+  name: RPED
+  description: A Rapid Part Exchange Device, perfect for quickly upgrading machines.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Research/rped.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Research/rped.rsi
+    size: Normal
+  - type: Clothing
+    slots: [ belt ]
+    quickEquip: false
+  - type: PartExchanger
+  - type: GuideHelp
+    guides:
+    - MachineParts
+  - type: ActionGrant
+    actions:
+    - ActionRpedFilter
+  - type: ItemActionGrant
+    actions:
+    - ActionRpedFilter
+  - type: UserInterface
+    interfaces:
+      enum.PartExchangerUiKey.Key:
+        type: PartExchangerFilterBoundUserInterface
+  - type: Storage
+    grid:
+      - 0,0,5,3
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      components:
+      - MachinePart
+      - MachineBoard
+      - ComputerBoard
+      - Stack
+
+- type: entity
+  parent: RapidPartExchanger
+  id: RapidPartExchangerBorg
+  name: RPED
+  description: A Rapid Part Exchange Device, perfect for quickly upgrading machines.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Research/borg_rped.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Research/borg_rped.rsi
+
+- type: entity
+  parent: RapidPartExchanger
+  id: BluespaceRapidPartExchanger
+  name: bluespace RPED
+  description: An upgraded RPED that can replace parts remotely and bypasses panel restrictions.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Research/bluespace_rped.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Research/bluespace_rped.rsi
+  - type: PartExchanger
+    exchangeDuration: 1.5
+    doDistanceCheck: false
+    requireOpenPanel: false
+    exchangeSound:
+      path: /Audio/Effects/teleport_arrival.ogg
+    exchangeBeamPrototype: AnomalyTechBeam
+  - type: Storage
+    grid:
+      - 0,0,12,8

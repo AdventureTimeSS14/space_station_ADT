@@ -1,0 +1,95 @@
+#аптечка_ОБР
+
+- type: entity
+  id: ADTVialBluespaceBulletWound
+  name: Bullet wound vial
+  parent: NFVialBluespace
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Puncturase
+          Quantity: 150
+        - ReagentId: TranexamicAcid
+          Quantity: 60
+        - ReagentId: PolypyryliumOligomers
+          Quantity: 90
+
+- type: entity
+  id: ADTVialBluespaceMechanicalWound
+  name: Mechanical wound vial
+  parent: NFVialBluespace
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: PolypyryliumOligomers
+          Quantity: 140
+        - ReagentId: TranexamicAcid
+          Quantity: 60
+        - ReagentId: Bicaridine
+          Quantity: 100
+
+- type: entity
+  id: ADTVialBluespaceBurnedWound
+  name: Burned wound vial
+  parent: NFVialBluespace
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Dermaline
+          Quantity: 150
+        - ReagentId: Pyrazine
+          Quantity: 150
+
+- type: entity
+  id: ADTVialBluespaceBloodloss
+  name: Bloodloss vial
+  parent: NFVialBluespace
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: DexalinPlus
+          Quantity: 150
+        - ReagentId: Saline
+          Quantity: 150
+
+- type: entity
+  id: ADTVialBluespaceRadiation
+  name: Radiation vial
+  parent: NFVialBluespace
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Arithrazine
+          Quantity: 150
+        - ReagentId: Bicaridine
+          Quantity: 150
+
+- type: entity
+  id: ADTVialBluespacePoison
+  name: Poison vial
+  parent: NFVialBluespace
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Dylovene
+          Quantity: 150
+        - ReagentId: Siderlac
+          Quantity: 150

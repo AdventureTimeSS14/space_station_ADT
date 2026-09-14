@@ -81,6 +81,15 @@ public sealed class HierophantCombatSystem : EntitySystem
                 continue;
             }
 
+            if (!TargetOnSameGrid(uid, target.Value))
+            {
+                if (TryComp<HTNComponent>(uid, out var targetHtn))
+                    targetHtn.Blackboard.Remove<EntityUid>("Target");
+
+                comp.LastTarget = null;
+                continue;
+            }
+
             if (comp.LastTarget != target)
             {
                 comp.LastTarget = target;
@@ -89,6 +98,14 @@ public sealed class HierophantCombatSystem : EntitySystem
 
             OpenFire((uid, comp), target.Value);
         }
+    }
+
+    private bool TargetOnSameGrid(EntityUid ent, EntityUid target)
+    {
+        var ourGrid = _transform.GetGrid(ent);
+        var targetGrid = _transform.GetGrid(target);
+
+        return ourGrid == targetGrid;
     }
 
     private void OpenFire(Entity<HierophantComponent> ent, EntityUid target)
@@ -117,7 +134,7 @@ public sealed class HierophantCombatSystem : EntitySystem
             return;
         }
 
-        var belowHalfHealth = IsBelowHalfHealth(ent);
+        var belowHalfHealth = _hierophant.IsBelowHalfHealth(ent);
 
         if (_random.Prob(Math.Clamp(anger * 0.0075f, 0f, 1f)))
         {
@@ -216,6 +233,7 @@ public sealed class HierophantCombatSystem : EntitySystem
         comp.Caster = ent.Owner;
         comp.Target = target;
         comp.Speed = speed;
+        comp.Damage = ent.Comp.BlastDamage;
 
         if (moving > 0)
             comp.Moving = moving;
@@ -252,7 +270,7 @@ public sealed class HierophantCombatSystem : EntitySystem
         }
         else
         {
-            ent.Comp.BurstRange = 3;
+            ent.Comp.BurstRange = ent.Comp.BaseBurstRange;
             _attacks.Burst(ent, ourCoords, spreadSpeed: 0.25f);
         }
     }
@@ -280,25 +298,6 @@ public sealed class HierophantCombatSystem : EntitySystem
             slowness += 1f;
 
         return Math.Clamp(slowness, 1f, 5f);
-    }
-
-    private bool IsBelowHalfHealth(Entity<HierophantComponent> ent)
-    {
-        if (!TryComp<MobThresholdsComponent>(ent, out var thresholds))
-            return false;
-
-        var maxHealth = 0f;
-        foreach (var (damage, _) in thresholds.Thresholds)
-        {
-            if ((float) damage > maxHealth)
-                maxHealth = (float) damage;
-        }
-
-        if (maxHealth <= 0f)
-            return false;
-
-        var taken = (float) _damageable.GetTotalDamage(ent.Owner);
-        return taken >= maxHealth * 0.5f;
     }
 
     private void OnBlinkAction(Entity<HierophantComponent> ent, ref HierophantBlinkActionEvent args)
