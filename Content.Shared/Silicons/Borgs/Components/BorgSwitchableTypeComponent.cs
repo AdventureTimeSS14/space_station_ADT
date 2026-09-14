@@ -1,5 +1,4 @@
 ﻿using Content.Shared.Actions;
-using Content.Shared.ADT.Silicons.Borgs;
 using Content.Shared.Radio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -57,12 +56,10 @@ public sealed partial class BorgToggleSelectTypeEvent : InstantActionEvent;
 /// UI message used by a borg to select their type with <see cref="BorgSwitchableTypeComponent"/>.
 /// </summary>
 /// <param name="prototype">The borg type prototype that the user selected.</param>
-// ADT-Tweak: подтип выбирается тем же сообщением
 [Serializable, NetSerializable]
-public sealed class BorgSelectTypeMessage(ProtoId<BorgTypePrototype> prototype, ProtoId<BorgSubtypePrototype>? subtype = null) : BoundUserInterfaceMessage
+public sealed class BorgSelectTypeMessage(ProtoId<BorgTypePrototype> prototype) : BoundUserInterfaceMessage
 {
     public ProtoId<BorgTypePrototype> Prototype = prototype;
-    public ProtoId<BorgSubtypePrototype>? Subtype = subtype;
 }
 
 /// <summary>

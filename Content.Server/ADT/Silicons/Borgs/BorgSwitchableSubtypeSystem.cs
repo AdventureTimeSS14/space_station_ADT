@@ -1,6 +1,5 @@
 using Content.Shared.ADT.Silicons.Borgs;
 using Content.Shared.ADT.Silicons.Borgs.Components;
-using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
 
 namespace Content.Server.ADT.Silicons.Borgs;
@@ -13,22 +12,18 @@ public sealed class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSubtypeSys
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, BorgSelectTypeMessage>(OnTypeSelected);
+        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, BorgSelectSubtypeMessage>(OnSubtypeSelected);
     }
 
-    // ADT-Tweak: подтип выбирается тем же сообщением, что и тип, чтобы модули и скин применялись вместе
-    private void OnTypeSelected(Entity<BorgSwitchableSubtypeComponent> ent, ref BorgSelectTypeMessage args)
+    private void OnSubtypeSelected(Entity<BorgSwitchableSubtypeComponent> ent, ref BorgSelectSubtypeMessage args)
     {
-        if (args.Subtype is not { } subtype)
-            return;
-
-        // Тип уже выбран и не совпадает - отклоняем сообщение, чтобы не записать чужой подтип
         if (TryComp<BorgSwitchableTypeComponent>(ent.Owner, out var typeComp)
             && typeComp.SelectedBorgType is { } selected
-            && selected != args.Prototype)
+            && Prototypes.TryIndex(args.Subtype, out var subtype)
+            && subtype.ParentBorgType != selected)
             return;
 
-        ent.Comp.BorgSubtype = subtype;
+        ent.Comp.BorgSubtype = args.Subtype;
         Dirty(ent);
         UpdateVisuals(ent);
         _userInterface.CloseUi((ent.Owner, null), BorgSwitchableTypeUiKey.SelectBorgType);
