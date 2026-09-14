@@ -94,6 +94,7 @@
       - ADTSpeedLoaderMagnumLesser
       - ADTSpeedLoaderMagnumLesser
       - ADTSpeedLoaderMagnumLesser
+      - ADTSpeedLoaderMagnumLesser
 
 - type: startingGear
   id: ThunderdomeHristov
@@ -190,17 +191,18 @@
   id: ThunderdomeAdvancedLaser
   equipment:
     suitstorage: WeaponAdvancedLaser
+    belt: PortableRecharger
 
 - type: startingGear
   id: ThunderdomeSvalinn
   equipment:
     suitstorage: ADTWeaponLaserSvalinnRifle
+    belt: PortableRecharger
   storage:
     back:
-    - PowerCellMedium
-    - PowerCellMedium
-    - PowerCellMedium
-    - PowerCellMedium
+    - PowerCellHigh
+    - PowerCellHigh
+    - PowerCellHigh
 
 - type: startingGear
   id: ThunderdomeTacticBat
@@ -217,7 +219,6 @@
     suitstorage: ADTWeaponRifleXC67
   storage:
     back:
-    - ADTMagazineRifleExtended
     - ADTMagazineRifleExtended
 
 - type: startingGear
@@ -260,3 +261,55 @@
       - MagazinePistolSubMachineGun
       - MagazinePistolSubMachineGun
       - ClothingMaskRat
+
+- type: startingGear
+  id: ThunderdomeViper
+  equipment:
+    suitstorage: WeaponPistolViper
+  storage:
+    back:
+      - MagazinePistolHighCapacity
+      - MagazinePistolHighCapacity
+      - MagazinePistolHighCapacity
+      - Stimpack
+
+- type: startingGear
+  id: ThunderdomeCobra
+  equipment:
+    suitstorage: WeaponPistolCobra
+  storage:
+    back:
+      - MagazinePistolCaselessRifle
+      - MagazinePistolCaselessRifle
+      - MagazinePistolCaselessRifle
+      - MagazinePistolCaselessRifle
+      - Stimpack
+
+- type: startingGear
+  id: ThunderdomeLaserPistols
+  equipment:
+    suitstorage: WeaponLaserGun
+    belt: PortableRecharger
+  storage:
+    back:
+      - WeaponLaserGun
+
+- type: startingGear
+  id: ThunderdomeLaserCarbine
+  equipment:
+    suitstorage: WeaponLaserCarbine
+    belt: PortableRecharger
+
+- type: startingGear
+  id: ThunderdomeTonfa
+  equipment:
+    suitstorage: ADTWeaponTonfa
+  storage:
+    back:
+      - TelescopicShield
+      - TelescopicShield
+      - StimpackMini
+      - StimpackMini
+
+- type: startingGear
+  id: ThunderdomeRandom

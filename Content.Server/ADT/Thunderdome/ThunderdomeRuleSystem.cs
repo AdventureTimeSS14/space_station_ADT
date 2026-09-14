@@ -74,6 +74,7 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
 
     private const string RulePrototype = "ThunderdomeRule";
+    private const string RandomLoadoutGear = "ThunderdomeRandom";
     private EntityUid? _ruleEntity;
     private bool _refillOnKill;
 
@@ -655,7 +656,20 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
             return;
 
         weaponIdx = Math.Clamp(weaponIdx, 0, rule.WeaponLoadouts.Count - 1);
-        _stationSpawning.EquipStartingGear(mob, rule.WeaponLoadouts[weaponIdx].Gear);
+        var gear = rule.WeaponLoadouts[weaponIdx].Gear;
+        if (gear == RandomLoadoutGear)
+        {
+            var others = new List<string>();
+            foreach (var loadout in rule.WeaponLoadouts)
+            {
+                if (loadout.Gear != RandomLoadoutGear)
+                    others.Add(loadout.Gear);
+            }
+            if (others.Count == 0)
+                return;
+            gear = _random.Pick(others);
+        }
+        _stationSpawning.EquipStartingGear(mob, gear);
     }
 
     private EntityCoordinates? GetRandomSpawnPoint(ThunderdomeRuleComponent rule)

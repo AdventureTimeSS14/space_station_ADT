@@ -131,6 +131,36 @@
           description: thunderdome-desc-atreides
           category: thunderdome-category-smgs
           sprite: WeaponSubMachineGunAtreides
+        - gear: ThunderdomeViper
+          name: thunderdome-loadout-viper
+          description: thunderdome-desc-viper
+          category: thunderdome-category-pistols
+          sprite: WeaponPistolViper
+        - gear: ThunderdomeCobra
+          name: thunderdome-loadout-cobra
+          description: thunderdome-desc-cobra
+          category: thunderdome-category-pistols
+          sprite: WeaponPistolCobra
+        - gear: ThunderdomeLaserPistols
+          name: thunderdome-loadout-laserpistols
+          description: thunderdome-desc-laserpistols
+          category: thunderdome-category-energy
+          sprite: WeaponLaserGun
+        - gear: ThunderdomeLaserCarbine
+          name: thunderdome-loadout-lasercarbine
+          description: thunderdome-desc-lasercarbine
+          category: thunderdome-category-energy
+          sprite: WeaponLaserCarbine
+        - gear: ThunderdomeTonfa
+          name: thunderdome-loadout-tonfa
+          description: thunderdome-desc-tonfa
+          category: thunderdome-category-melee
+          sprite: ADTWeaponTonfa
+        - gear: ThunderdomeRandom
+          name: thunderdome-loadout-random
+          description: thunderdome-desc-random
+          category: thunderdome-category-special
+          sprite: DiceBag
     - type: LoadMapRule
       mapPath: /Maps/ADTMaps/Nonstation/thunderdome.yml
     - type: RuleGrids

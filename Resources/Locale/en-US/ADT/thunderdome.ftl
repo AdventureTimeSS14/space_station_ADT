@@ -16,6 +16,8 @@ thunderdome-category-revolvers = Revolvers
 thunderdome-category-snipers = Snipers
 thunderdome-category-melee = Melee
 thunderdome-category-energy = Energy
+thunderdome-category-pistols = Pistols
+thunderdome-category-special = Special
 
 # Weapon names
 thunderdome-loadout-shotgun = Kammerer
@@ -44,6 +46,12 @@ thunderdome-loadout-deckard = Deckard
 thunderdome-loadout-sabre = Captain Sabre
 thunderdome-loadout-enforcer = Enforcer
 thunderdome-loadout-atreides = Atreides
+thunderdome-loadout-viper = Viper
+thunderdome-loadout-cobra = Cobra
+thunderdome-loadout-laserpistols = Laser pistols
+thunderdome-loadout-lasercarbine = Laser carbine
+thunderdome-loadout-tonfa = Tonfa
+thunderdome-loadout-random = Random
 
 # Weapon descriptions (tooltips)
 thunderdome-desc-shotgun = Pump shotgun + 1 box buckshot, 1 box slugs
@@ -53,7 +61,7 @@ thunderdome-desc-wt550 = Top-fed SMG + 4 spare magazines
 thunderdome-desc-lecter = Rifle + 4 standard mags
 thunderdome-desc-akms = Assault rifle + 2 spare magazines
 thunderdome-desc-python = AP-loaded revolver + 2 .357 speedloaders
-thunderdome-desc-inspector = Revolver + 3 .357 speedloaders
+thunderdome-desc-inspector = Revolver + 4 .357 speedloaders
 thunderdome-desc-hristov = Anti-materiel sniper + 2 spare magazines
 thunderdome-desc-esword = Energy sword + hyperzine microinjector
 thunderdome-desc-capo = Capoeira manual + hyperzine microinjector and injector + 2 autoinjectors
@@ -64,14 +72,20 @@ thunderdome-desc-fireaxe = Flaming fire axe + hyperzine microinjector and 2 inje
 thunderdome-desc-edagger = Energy dagger + hyperzine microinjector and injector + miniature energy crossbow
 thunderdome-desc-estoc = Estoc marksman rifle + 4 magazines
 thunderdome-desc-hushpup = Hushpup shotgun + 2 magazines + guerrilla gloves
-thunderdome-desc-aeg = Advanced energy gun
-thunderdome-desc-svalinn = Svalinn laser rifle
+thunderdome-desc-aeg = Advanced energy gun + portable recharger
+thunderdome-desc-svalinn = Svalinn laser rifle + 3 high-capacity batteries + portable recharger
 thunderdome-desc-tacticbat = Tactic bat + hyperzine microinjector and injector
-thunderdome-desc-xc67 = XC-67 assault rifle + 2 extended magazines
+thunderdome-desc-xc67 = XC-67 assault rifle + 1 extended magazine
 thunderdome-desc-deckard = Deckard revolver + 3 .44 speedloaders
 thunderdome-desc-sabre = Captain sabre + energy shield + hyperzine microinjector and injector
 thunderdome-desc-enforcer = Enforcer + 1 box buckshot, 1 box slugs
 thunderdome-desc-atreides = Atreides + 4 spare magazines + rat mask
+thunderdome-desc-viper = Viper + 3 extended 9x19 magazines + hyperzine injector
+thunderdome-desc-cobra = Cobra + 4 caseless pistol magazines + hyperzine injector
+thunderdome-desc-laserpistols = 2 laser pistols + portable recharger
+thunderdome-desc-lasercarbine = Laser carbine + portable recharger
+thunderdome-desc-tonfa = Tonfa + 2 telescopic shields + 2 hyperzine microinjectors
+thunderdome-desc-random = Random loadout from existing ones
 
 # Kill streak announcements
 thunderdome-streak-3 = {$player} is on a Killing Spree!
