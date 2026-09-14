@@ -55,6 +55,14 @@
         ADTClothingKadet: 4
         ADTClothingOuterArmorVestHidden: 4
         # ADT-Tweak-End
+    # ADT tweak start wiki books
+    ADTVendingCategoryBooks:
+        ADTBookSRPcmd: 2
+        ADTBookSRPsec: 2
+        ADTBookPCDsec: 2
+        ADTBookPCDcmd: 2
+        ADTBookSpaceLaw: 2
+    # ADT tweak end wiki books
   contrabandInventory:
     ClothingMaskClownSecurity: 1
     ClothingMaskMimeSecurity: 1
