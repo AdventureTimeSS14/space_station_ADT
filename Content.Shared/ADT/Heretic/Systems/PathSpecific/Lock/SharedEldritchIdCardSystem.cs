@@ -27,6 +27,7 @@ public abstract partial class SharedEldritchIdCardSystem : EntitySystem
     [Dependency] private readonly SharedHereticSystem _heretic = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly LockPortalSystem _portal = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -62,6 +63,7 @@ public abstract partial class SharedEldritchIdCardSystem : EntitySystem
         {
             QueueDel(ent.Comp.PortalOne);
             var newPortal = SpawnAttachedTo(ent.Comp.Portal, Transform(target).Coordinates);
+            _transform.SetParent(newPortal, target);
             var newPortalComp = EnsureComp<LockPortalComponent>(newPortal);
             var portalTwoComp = EnsureComp<LockPortalComponent>(ent.Comp.PortalTwo!.Value);
             newPortalComp.Inverted = ent.Comp.Inverted;
@@ -79,6 +81,7 @@ public abstract partial class SharedEldritchIdCardSystem : EntitySystem
         if (!portalOneResolved)
         {
             var newPortal = SpawnAttachedTo(ent.Comp.Portal, Transform(target).Coordinates);
+            _transform.SetParent(newPortal, target);
             ent.Comp.PortalOne = newPortal;
             var newPortalComp = EnsureComp<LockPortalComponent>(newPortal);
             newPortalComp.Inverted = ent.Comp.Inverted;
@@ -103,6 +106,7 @@ public abstract partial class SharedEldritchIdCardSystem : EntitySystem
         if (!portalTwoResolved)
         {
             var newPortal = SpawnAttachedTo(ent.Comp.Portal, Transform(target).Coordinates);
+            _transform.SetParent(newPortal, target);
             ent.Comp.PortalTwo = newPortal;
             var newPortalComp = EnsureComp<LockPortalComponent>(newPortal);
             newPortalComp.Inverted = ent.Comp.Inverted;

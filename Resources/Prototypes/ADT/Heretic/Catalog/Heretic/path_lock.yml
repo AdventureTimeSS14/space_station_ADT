@@ -76,23 +76,6 @@
     whitelist:
     - Lock
 
-- type: listing
-  id: HereticLockArmor
-  name: knowledge-path-lock-armor-name
-  description: knowledge-path-lock-armor-desc
-  icon: { sprite: ADT/Heretic/Clothing/OuterClothing/lock_armor.rsi, state: icon }
-  productHereticKnowledge: ArmorerRitualLock
-  cost:
-    KnowledgePoint: 1
-  categories:
-  - HereticPathLock
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:HereticPathCondition
-    stage: 2
-    whitelist:
-    - Lock
 
 - type: listing
   id: HereticLockPath5

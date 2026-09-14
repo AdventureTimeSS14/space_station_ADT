@@ -32,7 +32,7 @@
   parent: BaseAction
   id: ActionHereticVoidPhase
   name: Void Phase
-  description: Shift through the void, knocking down everyone around you.
+  description: Shift through the void to a visible location, chilling nearby heathens with cold. Void heretics also afflict them with the void curse.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

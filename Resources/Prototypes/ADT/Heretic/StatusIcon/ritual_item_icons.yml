@@ -305,3 +305,38 @@
     sprite: Objects/Tools/flashlight.rsi
     state: flashlight
   name: heretic-guide-tag-Flashlight
+
+- type: hereticRitualItem
+  id: Crowbar
+  icon:
+    sprite: Objects/Tools/crowbar.rsi
+    state: icon
+  name: heretic-guide-tag-Crowbar
+
+- type: hereticRitualItem
+  id: Wirecutter
+  icon:
+    sprite: Objects/Tools/wirecutters.rsi
+    state: cutters
+  name: heretic-guide-tag-Wirecutter
+
+- type: hereticRitualItem
+  id: Screwdriver
+  icon:
+    sprite: Objects/Tools/screwdriver.rsi
+    state: screwdriver
+  name: heretic-guide-tag-Screwdriver
+
+- type: hereticRitualItem
+  id: Crayon
+  icon:
+    sprite: Objects/Fun/crayons.rsi
+    state: red
+  name: heretic-guide-tag-Crayon
+
+- type: hereticRitualItem
+  id: Multitool
+  icon:
+    sprite: Objects/Tools/multitool.rsi
+    state: icon
+  name: heretic-guide-tag-Multitool

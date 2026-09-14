@@ -17,3 +17,6 @@ ent-ClothingOuterArmorHereticCosmos = { ent-ClothingOuterArmorHeretic }
     .desc = { ent-ClothingOuterArmorHeretic.desc }
 ent-ClothingOuterArmorCloakVoid = плащ пустоты
     .desc = Черные, как смола, они не отражают свет. Снаружи они покрыты руническими символами. С каждой вспышкой вы перестаете понимать, что видите.
+
+ent-ADTClothingOuterArmorHereticLock = меняющийся облик
+    .desc = Теневой плащ, любимый еретиками пути Замка. Привычное — предательство, даже для самого себя.

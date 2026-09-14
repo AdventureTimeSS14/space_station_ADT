@@ -137,3 +137,11 @@ knowledge-path-side-t1-curio-desc =
     Allows you to transmute 3 rods, lungs, and a utility belt into an Unfathomable Curio,
     a belt with a lot of storage space that also functions as a focus. Whilst worn it will veil you,
     blocking one blow of incoming damage, at the cost of the veil. The veil recharges itself out of combat.
+
+knowledge-path-side-t4-maid-name = Maid in the Mirror
+knowledge-path-side-t4-maid-desc =
+    Within each reflection lies a gateway. The ascent is glass, and the walls are knives.
+
+    Allows you to transmute five sheets of glass to create a Maid in the Mirror.
+    Maids are decent combatants: those who meet their gaze bleed and gain a star mark.
+    You can only create four at a time.

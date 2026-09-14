@@ -205,6 +205,13 @@
     - type: ChampionHook
 
 - type: hereticKnowledge
+  id: MaidInTheMirror
+  sideKnowledge: true
+  stage: 4
+  ritualPrototypes:
+  - RitualMaidInTheMirror
+
+- type: hereticKnowledge
   id: SacramentsOfPower
   path: Blade
   sideKnowledge: true

@@ -11,11 +11,14 @@ using Content.Shared.Heretic.Components.PathSpecific;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Stunnable;
+using Content.Server.ADT.Heretic.EntitySystems.PathSpecific;
 
 namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {
+    [Dependency] private readonly BladeArenaSystem _arena = default!;
+
     protected override void SubscribeBlade()
     {
         base.SubscribeBlade();
@@ -135,6 +138,8 @@ public sealed partial class HereticAbilitySystem
 
             _stam.TakeStaminaDamage(victim.Owner, 25f);
         }
+
+        _arena.TrySpawnArena(coords, "HereticArena", "PlatingRoseStone", 3, (int) args.Radius);
 
         args.Handled = true;
     }

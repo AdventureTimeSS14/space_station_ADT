@@ -690,3 +690,16 @@
   output:
     LabyrinthTear: 1
   outputEvent: !type:EventHereticAscension
+
+- type: hereticRitual
+  id: RitualMaidInTheMirror
+  locName: knowledge-path-side-t4-maid-name
+  locDesc: knowledge-path-side-t4-maid-desc
+  icon:
+    sprite: ADT/Heretic/eldritch_mobs.rsi
+    state: maid
+  limit: 4
+  requiredTags:
+    SheetGlass: 5
+  output:
+    MobGhoulMirrorMaid: 1

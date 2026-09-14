@@ -85,3 +85,9 @@ heretic-guide-tag-CodexCicatrix = кодекс цикатрикс
 heretic-guide-tag-Rag = тряпка
 heretic-guide-tag-ADTLighter = зажигалка
 heretic-guide-tag-Flashlight = фонарик
+
+heretic-guide-tag-Crowbar = Монтировка
+heretic-guide-tag-Wirecutter = Кусачки
+heretic-guide-tag-Screwdriver = Отвёртка
+heretic-guide-tag-Crayon = Мелок
+heretic-guide-tag-Multitool = Мультитул

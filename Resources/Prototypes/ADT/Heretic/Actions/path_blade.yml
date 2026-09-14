@@ -78,7 +78,7 @@
   parent: BaseAction
   id: ActionHereticDomainExpansion
   name: Wolves Among Sheep
-  description: Drag nearby heathens toward you and mark them with the mark of the Blade.
+  description: Drag nearby heathens toward you, mark them with the mark of the Blade, and raise a dueling arena around you.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
