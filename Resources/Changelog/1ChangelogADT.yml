@@ -15276,3 +15276,10 @@ Entries:
     id: 1919
     pr_number: 3363
     time: '2026-09-12T19:37:20Z'
+  - author: FriendlyOne
+    changes:
+      - {message: 'Резонатор боргов больше не одноразовый, и перезаряжается самостоятельно',
+        type: Fix}
+    id: 1920
+    pr_number: 3373
+    time: '2026-09-14T11:03:23Z'
