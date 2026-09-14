@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared.ADT.VentCrawling.Components;
+using Content.Shared.Atmos.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
@@ -28,13 +29,23 @@ public sealed class SharedVentTubeSystem : EntitySystem
 
             if (!TryComp(entity, out VentCrawlerTubeComponent? tube)
                 || !CanConnect(target, targetTube, nextDirection)
-                || !CanConnect(entity, tube, oppositeDirection))
+                || !CanConnect(entity, tube, oppositeDirection)
+                || !SamePipeLayer(target, entity))
                 continue;
 
             return entity;
         }
 
         return null;
+    }
+
+    private bool SamePipeLayer(EntityUid from, EntityUid to)
+    {
+        if (!TryComp<AtmosPipeLayersComponent>(from, out var fromLayers)
+            || !TryComp<AtmosPipeLayersComponent>(to, out var toLayers))
+            return true;
+
+        return fromLayers.CurrentPipeLayer == toLayers.CurrentPipeLayer;
     }
 
     private bool CanConnect(EntityUid tubeId, VentCrawlerTubeComponent tube, Direction direction)

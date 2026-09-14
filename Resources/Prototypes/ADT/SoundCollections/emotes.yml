@@ -1,3 +1,4 @@
+# Drask
 - type: soundCollection
   id: DraskCough
   files:
@@ -73,6 +74,13 @@
   files:
     - /Audio/ADT/IPC/pink_scream1.ogg
     - /Audio/ADT/IPC/pink_scream2.ogg
+
+- type: soundCollection
+  id: KerfusMeow
+  files:
+    - /Audio/ADT/IPC/kerfus_meow1.ogg
+    - /Audio/ADT/IPC/kerfus_meow2.ogg
+    - /Audio/ADT/IPC/kerfus_meow3.ogg
 
 # Novakid
 
@@ -333,6 +341,11 @@
   files:
   - /Audio/ADT/Voice/Human/spit_1.ogg
   - /Audio/ADT/Voice/Human/spit_2.ogg
+
+- type: soundCollection
+  id: Blink
+  files:
+    - /Audio/ADT/Effects/Emotes/blink.ogg
 
 # Slimes
 - type: soundCollection

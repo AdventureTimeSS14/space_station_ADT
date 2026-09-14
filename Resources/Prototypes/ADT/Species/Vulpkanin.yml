@@ -3,7 +3,7 @@
   name: species-name-vulpkanin
   roundStart: true
   prototype: MobVulpkanin
-  dollPrototype: AppearanceVulpkaninADT
+  dollPrototype: ADTAppearanceVulpkanin
   skinColoration: Hues
   shortDesc: species-short-desc-vulpakin
   maleFirstNames: firstMaleVulp # ADT-LastnameGender
