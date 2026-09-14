@@ -56,6 +56,17 @@ public sealed partial class PlantHolderComponent : Component
     [DataField]
     public float WaterLevel = 100f;
 
+    // ADT-Tweak-Start: machine parts with tiers
+    [DataField]
+    public float WaterCapacityMultiplier = 1f;
+
+    [DataField]
+    public float NutritionCapacityMultiplier = 1f;
+
+    [DataField]
+    public float NutrientConsumptionMultiplier = 1f;
+    // ADT-Tweak-End
+
     [DataField]
     public float NutritionLevel = 100f;
 

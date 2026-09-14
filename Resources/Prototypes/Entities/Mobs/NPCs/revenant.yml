@@ -46,6 +46,8 @@
     - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
+  - type: GhostVisibleAntag
+    name: ghost-role-information-revenant-name
   - type: GhostTakeoverAvailable
   - type: Revenant
     malfunctionWhitelist:
@@ -63,6 +65,7 @@
     color: MediumPurple
     radius: 2
     softness: 1
+    mask: /Textures/ADT/Effects/Lightmasks/circle_b.png # ADT tweak
   - type: UserInterface
     interfaces:
       enum.StoreUiKey.Key:

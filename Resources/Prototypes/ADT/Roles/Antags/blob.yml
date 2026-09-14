@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: antag
+  id: ADTBlob
+  name: roles-antag-blob-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-blob-objective
+  guides: [ ADTBlob ]
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 25h

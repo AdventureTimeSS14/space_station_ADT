@@ -8,6 +8,12 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 50h # ADT-tweak
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 20h # ADT-tweak
   accessGroups:
   - AllAccess
   access:
@@ -23,7 +29,7 @@
     jumpsuit: ClothingUniformJumpsuitColorBrown
     back: ClothingBackpackDuffelCBURN
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesNightVisionAdvanced
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitCBURN
@@ -43,7 +49,7 @@
     # ADT Tweak (Add) start
     - WeaponShotgunEnforcer
     - Chainsaw
-    - MedkitCombatFilled
+    - ADTMedkitERTFilled
     - MagazineShotgunIncendiary
     - SpaceCash500
     # ADT Tweak (Add) end

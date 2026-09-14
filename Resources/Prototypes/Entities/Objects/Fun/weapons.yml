@@ -23,6 +23,12 @@
   - type: Item
     size: Normal
     sprite: Objects/Fun/Foam/foam_crossbow.rsi
+  # ADT-Tweak-Start
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Belt
+  # ADT-Tweak-End
   - type: Gun
     fireRate: 0.5
     selectedMode: SemiAuto

@@ -1,0 +1,80 @@
+# Low — фелинид, резоми, арахнид
+- type: entity
+  id: ADTEffectNightVisionLow
+  categories: [ HideSpawnMenu ]
+  name: night vision low
+  components:
+  - type: PointLight
+    color: "#FFFFFF"
+    energy: 0.35
+    radius: 3
+    softness: 24
+    falloff: 5.0
+    castShadows: true
+
+# MediumShadekin — сумеречники
+- type: entity
+  id: ADTEffectNightVisionMediumShadekin
+  categories: [ HideSpawnMenu ]
+  name: night vision medium shadekin
+  components:
+  - type: PointLight
+    color: "#FFFFFF"
+    energy: 0.45
+    radius: 4
+    softness: 24
+    falloff: 4.8
+    castShadows: true
+
+# Medium — вульпы, нианы
+- type: entity
+  id: ADTEffectNightVisionMedium
+  categories: [ HideSpawnMenu ]
+  name: night vision medium
+  components:
+  - type: PointLight
+    color: "#FFFFFF"
+    energy: 0.36
+    radius: 3.5
+    softness: 24
+    falloff: 5.0
+    castShadows: true
+
+# Strong — таяры
+- type: entity
+  id: ADTEffectNightVisionStrong
+  categories: [ HideSpawnMenu ]
+  name: night vision strong
+  components:
+  - type: PointLight
+    color: "#FFFFFF"
+    energy: 0.4
+    radius: 4.2
+    softness: 24
+    falloff: 4.7
+    castShadows: true
+
+# ПНВ, оптический термальный сканер
+- type: entity
+  id: ADTEffectNightVisionDevice
+  categories: [ HideSpawnMenu ]
+  name: night vision device
+  components:
+  - type: PointLight
+    color: "#D6E4FF"
+    energy: 0.75
+    radius: 32
+    softness: 18
+
+- type: entity
+  id: ADTEffectThermalVision
+  categories: [ HideSpawnMenu ]
+  name: thermal vision
+  components:
+  - type: PointLight
+    color: "#D0C8D8"
+    energy: 1.0
+    radius: 18
+    softness: 16
+    falloff: 4.2
+    castShadows: true

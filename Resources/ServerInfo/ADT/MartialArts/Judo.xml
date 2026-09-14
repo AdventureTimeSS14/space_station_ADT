@@ -1,0 +1,36 @@
+<Document>
+
+  # Корпоративное Дзюдо
+
+  <Box>
+    <GuideEntityEmbed Entity="ADTClothingBeltJudo" Caption="пояс дзюдо"/>
+  </Box>
+
+  Школа службы безопасности.
+
+  <Box>
+  Настоящий мастер дзюдо не нуждается в дубинке-шокере: попытка ударить им блокируется.
+  </Box>
+
+  ## Приёмы
+
+  <ADTGuideCombo Combo="JudoLegSweep">
+  Только на стоячих. Роняет цель на [color=#E0A03C]3 секунды[/color], наносит
+  [color=#E05B5B]5[/color] Blunt-урона и НЕ выбивает вещи из рук.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="JudoCombatGrab">
+  Наносит [color=#5BB8E0]55[/color] урона по выносливости и [color=#E05B5B]5[/color] Blunt-урона.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="JudoEyeGouge">
+  Наносит [color=#E05B5B]8[/color] Piercing-урона и повреждает глаза, ослепляя
+  на [color=#E0A03C]10 секунд[/color]. Лечится только окулином.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="JudoNageWaza">
+  Работает только на тех, кто вас удерживает. Бросает человека в сторону, нанося
+  [color=#E05B5B]10[/color] Blunt-урона.
+  </ADTGuideCombo>
+
+</Document>

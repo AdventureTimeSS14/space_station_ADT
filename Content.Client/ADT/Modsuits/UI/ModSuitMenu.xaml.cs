@@ -7,7 +7,10 @@ using Content.Shared.ADT.ModSuits;
 using Robust.Client.UserInterface.XAML;
 using Robust.Client.Graphics;
 using Content.Shared.Access.Systems;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.PowerCell;
 using Robust.Client.GameObjects;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Client.ADT.Modsuits.UI;
@@ -19,7 +22,10 @@ public sealed partial class ModSuitMenu : FancyWindow
     [Dependency] private readonly IEntityManager _ent = default!;
     private readonly ModSuitSystem _modsuit = default!;
     private readonly SpriteSystem spriteSystem = default!;
+    private readonly PowerCellSystem _powerCell = default!;
+    private readonly SharedBatterySystem _battery = default!;
     private EntityUid _mod;
+    private float _energyUpdateAccumulator;
     private List<Color> _buttonColors = new() { Color.FromHex("#121923ff"), Color.FromHex("#04060aFF"), Color.FromHex("#153b66"), Color.FromHex("#153b66") };
 
     public event Action<EntityUid>? OnRemoveButtonPressed;
@@ -32,6 +38,8 @@ public sealed partial class ModSuitMenu : FancyWindow
         IoCManager.InjectDependencies(this);
         _modsuit = _ent.System<ModSuitSystem>();
         spriteSystem = _ent.System<SpriteSystem>();
+        _powerCell = _ent.System<PowerCellSystem>();
+        _battery = _ent.System<SharedBatterySystem>();
     }
 
     public void SetEntity(EntityUid uid)
@@ -47,13 +55,14 @@ public sealed partial class ModSuitMenu : FancyWindow
 
         _buttonColors = modComp.ButtonColors;
 
-        ModComplex.Text = Loc.GetString("mod-module-space", ("complexity", modComp.CurrentComplexity), ("maxcomplexity", modComp.MaxComplexity)) + Environment.NewLine +
-        Loc.GetString("mod-energy-waste", ("energy", modComp.ModEnergyBaseUsing.ToString("0.0")));
+        ModComplex.Text = Loc.GetString("mod-module-space", ("complexity", modComp.CurrentComplexity), ("maxcomplexity", modComp.MaxComplexity));
+        UpdateEnergyStats();
         var backpanelsStyle = new StyleBoxFlat(modComp.BackpanelsColor);
         var scrollStyle = new StyleBoxFlat(modComp.ScrollColor);
 
         UsernamePanel.PanelOverride = backpanelsStyle;
         ComplexityPanel.PanelOverride = backpanelsStyle;
+        EnergyPanel.PanelOverride = backpanelsStyle;
         StatePanel.PanelOverride = backpanelsStyle;
         ScrollPanel.PanelOverride = scrollStyle;
         BackTexture.Texture = spriteSystem.Frame0(new SpriteSpecifier.Texture(new(modComp.BackgroundPath)));
@@ -75,6 +84,73 @@ public sealed partial class ModSuitMenu : FancyWindow
                 ModState.Text = Loc.GetString("mod-all-toggled");
                 break;
         }
+    }
+
+    /// <summary>
+    ///     Shows current draw, cell charge and estimated runtime. Refreshed every second by FrameUpdate.
+    /// </summary>
+    public void UpdateEnergyStats()
+    {
+        if (!_ent.TryGetComponent<ModSuitComponent>(_mod, out var modComp))
+            return;
+
+        var draw = _modsuit.GetCurrentDraw((_mod, modComp));
+        ModEnergyDraw.Text = Loc.GetString("mod-energy-waste", ("energy", draw.ToString("0.0#")));
+
+        if (!modComp.RequiresBattery)
+        {
+            ModEnergyCharge.Text = Loc.GetString("mod-energy-no-battery-required");
+            ModEnergyCharge.ModulateSelfOverride = new Color(0.35f, 0.84f, 0.33f);
+            ModEnergyBar.Value = 1f;
+            ModEnergyBar.ForegroundStyleBoxOverride = new StyleBoxFlat(new Color(0.35f, 0.84f, 0.33f));
+        }
+        else if (_powerCell.TryGetBatteryFromSlot(_mod, out var battery))
+        {
+            var charge = _battery.GetCharge(battery.Value.AsNullable());
+            var level = _battery.GetChargeLevel(battery.Value.AsNullable());
+
+            string time;
+            if (draw <= 0f)
+                time = Loc.GetString("mod-energy-time-infinite");
+            else
+            {
+                var span = TimeSpan.FromSeconds(charge / draw);
+                time = span.TotalHours >= 1
+                    ? Loc.GetString("mod-energy-time-hours", ("hours", (int) span.TotalHours), ("minutes", span.Minutes))
+                    : Loc.GetString("mod-energy-time-minutes", ("minutes", Math.Max(1, (int) Math.Ceiling(span.TotalMinutes))));
+            }
+
+            ModEnergyCharge.Text = Loc.GetString("mod-energy-charge", ("charge", (level * 100f).ToString("0")), ("time", time));
+
+            var color = level switch
+            {
+                > 0.5f => new Color(0.35f, 0.84f, 0.33f),
+                > 0.2f => new Color(0.95f, 0.78f, 0.25f),
+                _ => new Color(0.86f, 0.22f, 0.22f),
+            };
+
+            ModEnergyCharge.ModulateSelfOverride = color;
+            ModEnergyBar.Value = level;
+            ModEnergyBar.ForegroundStyleBoxOverride = new StyleBoxFlat(color);
+        }
+        else
+        {
+            ModEnergyCharge.Text = Loc.GetString("mod-energy-no-cell");
+            ModEnergyCharge.ModulateSelfOverride = new Color(0.86f, 0.22f, 0.22f);
+            ModEnergyBar.Value = 0f;
+        }
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+
+        _energyUpdateAccumulator += args.DeltaSeconds;
+        if (_energyUpdateAccumulator < 1f)
+            return;
+
+        _energyUpdateAccumulator = 0f;
+        UpdateEnergyStats();
     }
 
     public void UpdateModuleView(ModBoundUiState state)

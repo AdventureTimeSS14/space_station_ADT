@@ -1,3 +1,4 @@
+# Drask
 - type: soundCollection
   id: DraskCough
   files:
@@ -55,6 +56,31 @@
   id: StartUp
   files:
     - /Audio/ADT/IPC/startup.ogg
+
+- type: soundCollection
+  id: CalculatingIPC
+  files:
+    - /Audio/ADT/IPC/calculating1.ogg
+    - /Audio/ADT/IPC/calculating2.ogg
+
+- type: soundCollection
+  id: PinkLaugh
+  files:
+    - /Audio/ADT/IPC/pink_laugh1.ogg
+    - /Audio/ADT/IPC/pink_laugh2.ogg
+
+- type: soundCollection
+  id: PinkScream
+  files:
+    - /Audio/ADT/IPC/pink_scream1.ogg
+    - /Audio/ADT/IPC/pink_scream2.ogg
+
+- type: soundCollection
+  id: KerfusMeow
+  files:
+    - /Audio/ADT/IPC/kerfus_meow1.ogg
+    - /Audio/ADT/IPC/kerfus_meow2.ogg
+    - /Audio/ADT/IPC/kerfus_meow3.ogg
 
 # Novakid
 
@@ -118,6 +144,32 @@
   id: TajaranPurrs
   files:
   - /Audio/ADT/Felinid/cat_purr1.ogg
+  - /Audio/Corvax/Effects/Tajaran/purr.ogg
+
+- type: soundCollection
+  id: TajaranSneezes
+  files:
+  - /Audio/ADT/Felinid/hairball.ogg
+
+- type: soundCollection
+  id: TajaranYawns
+  files:
+  - /Audio/Corvax/Effects/Tajaran/sneeze.ogg
+
+- type: soundCollection
+  id: TajaranCry
+  files:
+  - /Audio/Corvax/Effects/Tajaran/cry.ogg
+
+- type: soundCollection
+  id: TajaranSigh
+  files:
+  - /Audio/Corvax/Effects/Tajaran/sigh.ogg
+
+- type: soundCollection
+  id: TajaranGasp
+  files:
+  - /Audio/Corvax/Effects/Tajaran/gasp.ogg
 
 - type: soundCollection
   id: MothBuzz
@@ -240,6 +292,7 @@
   id: FelinidPurrs
   files:
   - /Audio/ADT/Felinid/cat_purr1.ogg
+  - /Audio/Corvax/Effects/Tajaran/purr.ogg
 
 # Resomi
 - type: soundCollection
@@ -288,6 +341,11 @@
   files:
   - /Audio/ADT/Voice/Human/spit_1.ogg
   - /Audio/ADT/Voice/Human/spit_2.ogg
+
+- type: soundCollection
+  id: Blink
+  files:
+    - /Audio/ADT/Effects/Emotes/blink.ogg
 
 # Slimes
 - type: soundCollection
@@ -385,3 +443,41 @@
   id: Purse
   files:
     - /Audio/Effects/thudswoosh.ogg
+
+
+# Creature Human
+
+- type: soundCollection
+  id: ButcherScream
+  files:
+    - /Audio/ADT/Butcher/butcherscream.ogg
+
+- type: soundCollection
+  id: ButcherSneeze
+  files:
+    - /Audio/ADT/Butcher/butchersneeze.ogg
+
+- type: soundCollection
+  id: ButcherLaugh
+  files:
+    - /Audio/ADT/Butcher/butcherlaugh.ogg
+
+- type: soundCollection
+  id: ButcherCough
+  files:
+    - /Audio/ADT/Butcher/butchercough.ogg
+
+- type: soundCollection
+  id: ButcherYawn
+  files:
+    - /Audio/ADT/Butcher/butcheryawn.ogg
+
+- type: soundCollection
+  id: ButcherSigh
+  files:
+    - /Audio/ADT/Butcher/butchersigh.ogg
+
+- type: soundCollection
+  id: ButcherCry
+  files:
+    - /Audio/ADT/Butcher/butchercry.ogg

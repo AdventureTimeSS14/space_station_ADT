@@ -51,6 +51,7 @@
 ### Start ADT Tweak
   - type: Tag
     tags:
+    - Toolbox
     - ADTToolboxRedSacrifice
 ### End ADT Tweak
 
@@ -68,6 +69,7 @@
 ### Start ADT Tweak
   - type: Tag
     tags:
+    - Toolbox
     - ADTToolboxBlueSacrifice
 ### End ADT Tweak
 

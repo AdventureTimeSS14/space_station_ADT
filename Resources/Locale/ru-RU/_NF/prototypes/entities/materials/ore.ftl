@@ -1,9 +1,0 @@
-ent-ScrapOre = руда металлолома
-    .suffix = Полный
-    .desc = Кусок неочищенной руды металлолома.
-ent-ScrapOre1 = { ent-ScrapOre }
-    .suffix = Один
-    .desc = { ent-ScrapOre.desc }
-ent-ScrapOre3 = { ent-ScrapOre }
-    .suffix = 3
-    .desc = { ent-ScrapOre.desc }

@@ -159,7 +159,7 @@
 - type: entity
   parent:
   - AppearanceVox
-  - ADTBaseMobSpeciesOrganicUnRotting # ADT-Tweak
+  - ADTBaseSpeciesMobOrganicUnRotting # ADT-Tweak
   id: MobVox
   name: Urist McVox
   components:
@@ -171,11 +171,13 @@
     languages:
       GalacticCommon: Speak
       VoxPidgin: Speak
+  - type: Sprite
+    scale: 0.95, 0.95
   - type: SizeAttributeWhitelist # Frontier
     tall: true
-    tallscale: 1.05
+    tallscale: 1.02
     short: true
-    shortscale: 0.95
+    shortscale: 0.87
   - type: PriceExaminer
   - type: Uncloneable
   - type: VoxAccent
@@ -375,7 +377,7 @@
   id: OrganVoxFootRight
 
 - type: entity
-  parent: [ OrganBaseBrain, OrganSpriteHumanInternal, OrganVoxInternal ]
+  parent: [ OrganBaseBrain, OrganVoxInternal ] # ADT tweak remove OrganSpriteHumanInternal
   id: OrganVoxBrain
 
 - type: entity
@@ -387,11 +389,11 @@
   id: OrganVoxTongue
 
 - type: entity
-  parent: [ OrganBaseAppendix, OrganSpriteHumanInternal, OrganVoxInternal ]
+  parent: [ OrganBaseAppendix, OrganVoxInternal ] # ADT-Tweak: remove OrganSpriteHumanInternal
   id: OrganVoxAppendix
 
 - type: entity
-  parent: [ OrganBaseEars, OrganSpriteHumanInternal, OrganVoxInternal ]
+  parent: [ OrganBaseEars, OrganVoxInternal ] # ADT-Tweak: remove OrganSpriteHumanInternal
   id: OrganVoxEars
 
 - type: entity
@@ -414,9 +416,9 @@
     isSpecialDigestibleExclusive: false
 
 - type: entity
-  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, OrganVoxInternal, OrganVoxMetabolizer ]
+  parent: [ OrganBaseLiver, OrganVoxInternal, OrganVoxMetabolizer ] # ADT tweak remove OrganSpriteHumanInternal
   id: OrganVoxLiver
 
 - type: entity
-  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganVoxInternal, OrganVoxMetabolizer ]
+  parent: [ OrganBaseKidneys, OrganVoxInternal, OrganVoxMetabolizer ] # ADT tweak remove OrganSpriteHumanInternal
   id: OrganVoxKidneys

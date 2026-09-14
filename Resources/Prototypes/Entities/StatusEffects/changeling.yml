@@ -1,0 +1,7 @@
+# Закоментированно из-за использования генокрада от губов
+# - type: entity
+#   abstract: true
+#   id: ChangelingStatusEffectBase # Used to whitelist specific status effects to be cloneable by the changeling. Primarily some traits.
+#   components:
+#   - type: CloneableStatusEffect
+#   - type: ChangelingCloneableStatusEffect

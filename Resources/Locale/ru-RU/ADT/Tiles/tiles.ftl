@@ -15,6 +15,7 @@ adt-tiles-cult-fire-floor = огненный пол культа
 adt-tiles-cult-hell-floor = адский пол культа
 adt-tiles-cult-floor = пол культа
 adt-tiles-sepia-floor = пол цвета сепия
+adt-tiles-bluespace-floor = блюспейс пол
 
 adt-tiles-wood-large-broken = сломанный большой деревянный пол
 adt-tiles-wood-chess-broken = сломанный шахматный деревянный пол

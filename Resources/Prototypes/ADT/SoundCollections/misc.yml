@@ -18,3 +18,11 @@
   - /Audio/ADT/Effects/shower_mid1.ogg
   - /Audio/ADT/Effects/shower_mid2.ogg
   - /Audio/ADT/Effects/shower_mid3.ogg
+
+- type: soundCollection
+  id: ADTToySqueakEmiliaEvenwood
+  files:
+  - /Audio/ADT/Personalization/minokaa_emilia_plushie/emilia_toy-1.ogg
+  - /Audio/ADT/Personalization/minokaa_emilia_plushie/emilia_toy-2.ogg
+  - /Audio/ADT/Personalization/minokaa_emilia_plushie/emilia_toy-3.ogg
+  - /Audio/ADT/Personalization/minokaa_emilia_plushie/emilia_toy-4.ogg

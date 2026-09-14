@@ -4,11 +4,11 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Clothing;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
-using Content.Shared.DeviceNetwork;
+// using Content.Shared.DeviceNetwork;
 using Content.Shared.DoAfter;
 using Content.Shared.Emp;
 using Content.Shared.Examine;
-using Content.Shared.GameTicking;
+// using Content.Shared.GameTicking;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Medical.SuitSensor;
@@ -16,7 +16,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Station;
+// using Content.Shared.Station;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -28,7 +28,7 @@ namespace Content.Shared.Medical.SuitSensors;
 
 public abstract class SharedSuitSensorSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStationSystem _stationSystem = default!;
+    // [Dependency] private readonly SharedStationSystem _stationSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -43,14 +43,23 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
-    private EntityQuery<SuitSensorComponent> _sensorQuery;
+    // ADT-Tweak Start - New Monitor: wearer -> OnMob sensor index
+    /// <summary>
+    /// Wearer → OnMob suit-sensor entity. Avoids an O(S) EntityQuery in GetSensorState.
+    /// </summary>
+    private readonly Dictionary<EntityUid, EntityUid> _onMobSensorsByWearer = new();
+    // ADT-Tweak End
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<SuitSensorComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<SuitSensorComponent, ComponentStartup>(OnStartup); //ADT-Tweak
-        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
+        SubscribeLocalEvent<SuitSensorComponent, ComponentStartup>(OnStartup); //ADT-Tweak: NewMonitor
+        SubscribeLocalEvent<SuitSensorComponent, ComponentShutdown>(OnShutdown);
+        // ADT-Tweak Start - New Monitor: PlayerSpawnCompleteEvent station assignment unused
+        // SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
+        // ADT-Tweak End
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotUnequippedEvent>(OnUnequipped);
         SubscribeLocalEvent<SuitSensorComponent, EmpPulseEvent>(OnEmpPulse);
@@ -61,32 +70,18 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         SubscribeLocalEvent<SuitSensorComponent, EntGotRemovedFromContainerMessage>(OnRemove);
         SubscribeLocalEvent<SuitSensorComponent, SuitSensorChangeDoAfterEvent>(OnSuitSensorDoAfter);
 
-        _sensorQuery = GetEntityQuery<SuitSensorComponent>();
-    }
-
-    /// <summary>
-    /// Checks whether the sensor is assigned to a station or not
-    /// and tries to assign an unassigned sensor to a station if it's currently on a grid.
-    /// </summary>
-    /// <returns>True if the sensor is assigned to a station or assigning it was successful. False otherwise.</returns>
-    public bool CheckSensorAssignedStation(Entity<SuitSensorComponent> sensor)
-    {
-        if (!sensor.Comp.StationId.HasValue && Transform(sensor.Owner).GridUid == null)
-            return false;
-
-        sensor.Comp.StationId = _stationSystem.GetOwningStation(sensor.Owner);
-        Dirty(sensor);
-        return sensor.Comp.StationId.HasValue;
     }
 
     private void OnMapInit(Entity<SuitSensorComponent> ent, ref MapInitEvent args)
     {
         // Fallback
-        //ADT-Tweak-Start
+        // ADT-Tweak Start - New Monitor: OnMob self-user + index at map init
         if (ent.Comp.OnMob)
+        {
             ent.Comp.User = ent.Owner;
-        ent.Comp.StationId ??= _stationSystem.GetOwningStation(ent.Owner);
-        //ADT-Tweak-End
+            IndexOnMobSensor(ent);
+        }
+        // ADT-Tweak End
 
         // generate random mode
         if (ent.Comp.RandomMode)
@@ -101,12 +96,17 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             };
             ent.Comp.Mode = _random.Pick(modesDist);
         }
-
-        ent.Comp.NextUpdate = _timing.CurTime;
+        // ADT-Tweak Start - NewMonitor:
+        // Spread initial reports over the first interval so a round start does
+        // not update every uniform on the same tick.
+        ent.Comp.NextUpdate =
+            _timing.CurTime +
+            TimeSpan.FromSeconds(_random.NextFloat() * (float) ent.Comp.UpdateRate.TotalSeconds);
+        // ADT-Tweak End
         Dirty(ent);
     }
 
-    //ADT-Tweak-Start
+    // ADT-Tweak Start - New Monitor: OnMob startup/shutdown indexing
     private void OnStartup(Entity<SuitSensorComponent> ent, ref ComponentStartup args)
     {
         if (!ent.Comp.OnMob)
@@ -119,48 +119,67 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             dirty = true;
         }
 
-        if (ent.Comp.StationId == null)
-        {
-            ent.Comp.StationId = _stationSystem.GetOwningStation(ent.Owner);
-            dirty = true;
-        }
+        IndexOnMobSensor(ent);
 
         if (dirty)
             Dirty(ent);
     }
-    //ADT-Tweak-End
+    // ADT-Tweak Start - New Monitor: Deleted
+    // private void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)
+    // {
+    //     // If the player spawns in arrivals then the grid underneath them may not be appropriate.
+    //     // in which case we'll just use the station spawn code told us they are attached to and set all of their
+    //     // sensors.
+    //     RecursiveSensor(ev.Mob, ev.Station);
+    // }
 
-    private void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)
+    // private void RecursiveSensor(EntityUid uid, EntityUid stationUid)
+    // {
+    //     var xform = Transform(uid);
+    //     var enumerator = xform.ChildEnumerator;
+
+    //     while (enumerator.MoveNext(out var child))
+    //     {
+    //         if (_sensorQuery.TryComp(child, out var sensor))
+    //         {
+    //             sensor.StationId = stationUid;
+    //             Dirty(child, sensor);
+    //         }
+
+    //         RecursiveSensor(child, stationUid);
+    //     }
+    // }
+
+    // ADT-Tweak End
+
+    // ADT-Tweak Start - New Monitor: New indexing
+    protected virtual void OnShutdown(Entity<SuitSensorComponent> ent, ref ComponentShutdown args)
     {
-        // If the player spawns in arrivals then the grid underneath them may not be appropriate.
-        // in which case we'll just use the station spawn code told us they are attached to and set all of their
-        // sensors.
-        RecursiveSensor(ev.Mob, ev.Station);
+        UnindexOnMobSensor(ent);
     }
 
-    private void RecursiveSensor(EntityUid uid, EntityUid stationUid)
+    private void IndexOnMobSensor(Entity<SuitSensorComponent> ent)
     {
-        var xform = Transform(uid);
-        var enumerator = xform.ChildEnumerator;
+        if (!ent.Comp.OnMob || ent.Comp.User == null)
+            return;
 
-        while (enumerator.MoveNext(out var child))
-        {
-            if (_sensorQuery.TryComp(child, out var sensor))
-            {
-                sensor.StationId = stationUid;
-                Dirty(child, sensor);
-            }
-
-            RecursiveSensor(child, stationUid);
-        }
+        _onMobSensorsByWearer[ent.Comp.User.Value] = ent.Owner;
     }
+
+    private void UnindexOnMobSensor(Entity<SuitSensorComponent> ent)
+    {
+        if (!ent.Comp.OnMob || ent.Comp.User == null)
+            return;
+
+        if (_onMobSensorsByWearer.TryGetValue(ent.Comp.User.Value, out var indexed) && indexed == ent.Owner)
+            _onMobSensorsByWearer.Remove(ent.Comp.User.Value);
+    }
+    // ADT-Tweak End
 
     private void OnEquipped(Entity<SuitSensorComponent> ent, ref ClothingGotEquippedEvent args)
     {
-        //ADT-Tweak-Start
-        if (ent.Comp.OnMob)
+        if (ent.Comp.OnMob) //ADT-Tweak: NewMonitor
             return;
-        //ADT-Tweak-End
 
         ent.Comp.User = args.Wearer;
         Dirty(ent);
@@ -168,10 +187,8 @@ public abstract class SharedSuitSensorSystem : EntitySystem
 
     private void OnUnequipped(Entity<SuitSensorComponent> ent, ref ClothingGotUnequippedEvent args)
     {
-        //ADT-Tweak-Start
-        if (ent.Comp.OnMob)
+        if (ent.Comp.OnMob) //ADT-Tweak: NewMonitor
             return;
-        //ADT-Tweak-End
 
         ent.Comp.User = null;
         Dirty(ent);
@@ -290,6 +307,8 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             Disabled = ent.Comp.Mode == mode,
             Priority = -(int)mode, // sort them in descending order
             Category = VerbCategory.SetSensor,
+            // Must close: otherwise the sensor submenu stays open after a click.
+            CloseMenu = true, //ADT-Tweak: NewMonitor
             Act = () => TrySetSensor(ent.AsNullable(), mode, userUid)
         };
     }
@@ -403,28 +422,33 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         var sensor = ent.Comp1;
         var transform = ent.Comp2;
 
-        //ADT-Tweak-Start
-        // check if sensor is not on a mob but has a user, ensure no OnMob sensor exists for the same user
-        if (!sensor.OnMob && sensor.User != null)
+        // ADT-Tweak Start - New Monitor: prefer active OnMob sensor over uniform
+        // Prefer an *active* OnMob sensor over the uniform. An Off OnMob sensor
+        // must not silence the jumpsuit, or that wearer vanishes from monitors.
+        if (!sensor.OnMob &&
+            sensor.User != null &&
+            _onMobSensorsByWearer.TryGetValue(sensor.User.Value, out var onMobUid) &&
+            TryComp(onMobUid, out SuitSensorComponent? onMob) &&
+            onMob.Mode != SuitSensorMode.SensorOff)
         {
-            var query = EntityQuery<SuitSensorComponent>();
-            foreach (var other in query)
-            {
-                if (other.User == sensor.User && other.OnMob)
-                    return null;
-            }
-        }
-        //ADT-Tweak-End
-
-        // check if sensor is enabled and worn by user
-        if (sensor.Mode == SuitSensorMode.SensorOff || sensor.User == null || !HasComp<MobStateComponent>(sensor.User) || transform.GridUid == null)
             return null;
+        }
+
+        // The wearer is the source of truth for position. Clothing can be inside
+        // containers and neither the clothing nor the wearer has to be on a grid.
+        if (sensor.User == null ||
+            !HasComp<MobStateComponent>(sensor.User) ||
+            !TryComp<TransformComponent>(sensor.User.Value, out var userTransform))
+        {
+            return null;
+        }
+        // ADT-Tweak End
 
         // try to get mobs id from ID slot
         var userName = Loc.GetString("suit-sensor-component-unknown-name");
         var userJob = Loc.GetString("suit-sensor-component-unknown-job");
         var userJobIcon = "JobIconNoId";
-        var userJobDepartments = new List<string>();
+        List<string>? userJobDepartments = null;    // ADT-Tweak - New Monitor
 
         if (_idCardSystem.TryFindIdCard(sensor.User.Value, out var card))
         {
@@ -433,55 +457,75 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             if (card.Comp.LocalizedJobTitle != null)
                 userJob = card.Comp.LocalizedJobTitle;
             userJobIcon = card.Comp.JobIcon;
+            // ADT-Tweak Start - New Monitor
+            if (card.Comp.JobDepartments.Count > 0)
+            {
+                userJobDepartments = new List<string>(card.Comp.JobDepartments.Count);
+                foreach (var department in card.Comp.JobDepartments)
+                {
+                    if (_proto.TryIndex(department, out var departmentProto))
+                        userJobDepartments.Add(Loc.GetString(departmentProto.Name));
+                }
 
-            foreach (var department in card.Comp.JobDepartments)
-                userJobDepartments.Add(Loc.GetString(_proto.Index(department).Name));
+                if (userJobDepartments.Count == 0)
+                    userJobDepartments = null;
+            }
+            // ADT-Tweak End
         }
+
+        userJobDepartments ??= SuitSensorStatus.NoDepartments;  // ADT-Tweak - New Monitor
 
         // get health mob state
         var isAlive = false;
+        var isCritical = false; // ADT-Tweak - New Monitor: IsCritical = MobState.Critical only — high damage while conscious is NOT crit.
         if (TryComp(sensor.User.Value, out MobStateComponent? mobState))
+        {
             isAlive = !_mobStateSystem.IsDead(sensor.User.Value, mobState);
-
-        // get mob total damage
-        var totalDamage = 0;
-        if (TryComp<DamageableComponent>(sensor.User.Value, out var damageable))
-            totalDamage = _damageableSystem.GetTotalDamage((sensor.User.Value, damageable)).Int();
-
-        // Get mob total damage crit threshold
-        int? totalDamageThreshold = null;
-        if (_mobThresholdSystem.TryGetThresholdForState(sensor.User.Value, MobState.Critical, out var critThreshold))
-            totalDamageThreshold = critThreshold.Value.Int();
+            isCritical = _mobStateSystem.IsCritical(sensor.User.Value, mobState); //ADT-Tweak: NewMonitor
+        }
 
         // finally, form suit sensor status
-        var status = new SuitSensorStatus(GetNetEntity(sensor.User.Value), GetNetEntity(ent.Owner), userName, userJob, userJobIcon, userJobDepartments);
+        var status = new SuitSensorStatus(GetNetEntity(sensor.User.Value), GetNetEntity(ent.Owner), userName, userJob, userJobIcon, userJobDepartments)
+        {
+            // ADT-Tweak Start - NewMonitor
+            IsAlive = isAlive,
+            IsCritical = isCritical,
+            // ADT-Tweak End
+        };
         switch (sensor.Mode)
         {
             case SuitSensorMode.SensorBinary:
                 status.IsAlive = isAlive;
                 break;
             case SuitSensorMode.SensorVitals:
-                status.IsAlive = isAlive;
-                status.TotalDamage = totalDamage;
-                status.TotalDamageThreshold = totalDamageThreshold;
-                break;
             case SuitSensorMode.SensorCords:
+            {
                 status.IsAlive = isAlive;
-                status.TotalDamage = totalDamage;
-                status.TotalDamageThreshold = totalDamageThreshold;
+                // ADT-Tweak Start - NewMonitor:
+                // Damage / threshold only for vitals+ modes — skip for binary.
+                if (TryComp<DamageableComponent>(sensor.User.Value, out var damageable))
+                    status.TotalDamage = _damageableSystem.GetTotalDamage((sensor.User.Value, damageable)).Int();
+
+                if (_mobThresholdSystem.TryGetThresholdForState(sensor.User.Value, MobState.Critical, out var critThreshold))
+                    status.TotalDamageThreshold = critThreshold.Value.Int();
+
+                if (sensor.Mode != SuitSensorMode.SensorCords)
+                    break;
+                // ADT-Tweak End
+
                 EntityCoordinates coordinates;
                 var xformQuery = GetEntityQuery<TransformComponent>();
 
-                if (transform.GridUid != null)
+                if (userTransform.GridUid != null)
                 {
-                    coordinates = new EntityCoordinates(transform.GridUid.Value,
-                        Vector2.Transform(_transform.GetWorldPosition(transform, xformQuery),
-                            _transform.GetInvWorldMatrix(xformQuery.GetComponent(transform.GridUid.Value), xformQuery)));
+                    coordinates = new EntityCoordinates(userTransform.GridUid.Value,
+                        Vector2.Transform(_transform.GetWorldPosition(userTransform, xformQuery),
+                            _transform.GetInvWorldMatrix(xformQuery.GetComponent(userTransform.GridUid.Value), xformQuery)));
                 }
-                else if (transform.MapUid != null)
+                else if (userTransform.MapUid != null)
                 {
-                    coordinates = new EntityCoordinates(transform.MapUid.Value,
-                        _transform.GetWorldPosition(transform, xformQuery));
+                    coordinates = new EntityCoordinates(userTransform.MapUid.Value,
+                        _transform.GetWorldPosition(userTransform, xformQuery));
                 }
                 else
                 {
@@ -490,70 +534,74 @@ public abstract class SharedSuitSensorSystem : EntitySystem
 
                 status.Coordinates = GetNetCoordinates(coordinates);
                 break;
+            }
         }
+        status.Mode = sensor.Mode;   //ADT-Tweak - NewMonitor: Preserve current sensor mode so the monitor UI can filter and mask data correctly.
 
         return status;
     }
 
-    /// <summary>
-    /// Create a device network package from the suit sensors status.
-    /// </summary>
-    public NetworkPayload SuitSensorToPacket(SuitSensorStatus status)
-    {
-        var payload = new NetworkPayload()
-        {
-            [DeviceNetworkConstants.Command] = DeviceNetworkConstants.CmdUpdatedState,
-            [SuitSensorConstants.NET_NAME] = status.Name,
-            [SuitSensorConstants.NET_JOB] = status.Job,
-            [SuitSensorConstants.NET_JOB_ICON] = status.JobIcon,
-            [SuitSensorConstants.NET_JOB_DEPARTMENTS] = status.JobDepartments,
-            [SuitSensorConstants.NET_IS_ALIVE] = status.IsAlive,
-            [SuitSensorConstants.NET_SUIT_SENSOR_UID] = status.SuitSensorUid,
-            [SuitSensorConstants.NET_OWNER_UID] = status.OwnerUid,
-        };
-
-        if (status.TotalDamage != null)
-            payload.Add(SuitSensorConstants.NET_TOTAL_DAMAGE, status.TotalDamage);
-        if (status.TotalDamageThreshold != null)
-            payload.Add(SuitSensorConstants.NET_TOTAL_DAMAGE_THRESHOLD, status.TotalDamageThreshold);
-        if (status.Coordinates != null)
-            payload.Add(SuitSensorConstants.NET_COORDINATES, status.Coordinates);
-
-        return payload;
-    }
-
-    /// <summary>
-    /// Try to create the suit sensors status from the device network message.
-    /// </summary>
-    public SuitSensorStatus? PacketToSuitSensor(NetworkPayload payload)
-    {
-        // check command
-        if (!payload.TryGetValue(DeviceNetworkConstants.Command, out string? command))
-            return null;
-        if (command != DeviceNetworkConstants.CmdUpdatedState)
-            return null;
-
-        // check name, job and alive
-        if (!payload.TryGetValue(SuitSensorConstants.NET_NAME, out string? name)) return null;
-        if (!payload.TryGetValue(SuitSensorConstants.NET_JOB, out string? job)) return null;
-        if (!payload.TryGetValue(SuitSensorConstants.NET_JOB_ICON, out string? jobIcon)) return null;
-        if (!payload.TryGetValue(SuitSensorConstants.NET_JOB_DEPARTMENTS, out List<string>? jobDepartments)) return null;
-        if (!payload.TryGetValue(SuitSensorConstants.NET_IS_ALIVE, out bool? isAlive)) return null;
-        if (!payload.TryGetValue(SuitSensorConstants.NET_SUIT_SENSOR_UID, out NetEntity suitSensorUid)) return null;
-        if (!payload.TryGetValue(SuitSensorConstants.NET_OWNER_UID, out NetEntity ownerUid)) return null;
-
-        // try get total damage and cords (optionals)
-        payload.TryGetValue(SuitSensorConstants.NET_TOTAL_DAMAGE, out int? totalDamage);
-        payload.TryGetValue(SuitSensorConstants.NET_TOTAL_DAMAGE_THRESHOLD, out int? totalDamageThreshold);
-        payload.TryGetValue(SuitSensorConstants.NET_COORDINATES, out NetCoordinates? coords);
-
-        var status = new SuitSensorStatus(ownerUid, suitSensorUid, name, job, jobIcon, jobDepartments)
-        {
-            IsAlive = isAlive.Value,
-            TotalDamage = totalDamage,
-            TotalDamageThreshold = totalDamageThreshold,
-            Coordinates = coords,
-        };
-        return status;
-    }
+    // ADT-Tweak Start - NewMonitor: Unused Networking
+    // /// <summary>
+    // /// Create a device network package from the suit sensors status.
+    // /// </summary>
+    // public NetworkPayload SuitSensorToPacket(SuitSensorStatus status)
+    // {
+    //     var payload = new NetworkPayload()
+    //     {
+    //         [DeviceNetworkConstants.Command] = DeviceNetworkConstants.CmdUpdatedState,
+    //         [SuitSensorConstants.NET_NAME] = status.Name,
+    //         [SuitSensorConstants.NET_JOB] = status.Job,
+    //         [SuitSensorConstants.NET_JOB_ICON] = status.JobIcon,
+    //         [SuitSensorConstants.NET_JOB_DEPARTMENTS] = status.JobDepartments,
+    //         [SuitSensorConstants.NET_IS_ALIVE] = status.IsAlive,
+    //         [SuitSensorConstants.NET_SUIT_SENSOR_UID] = status.SuitSensorUid,
+    //         [SuitSensorConstants.NET_OWNER_UID] = status.OwnerUid,
+    //     };
+    //
+    //     if (status.TotalDamage != null)
+    //         payload.Add(SuitSensorConstants.NET_TOTAL_DAMAGE, status.TotalDamage);
+    //     if (status.TotalDamageThreshold != null)
+    //         payload.Add(SuitSensorConstants.NET_TOTAL_DAMAGE_THRESHOLD, status.TotalDamageThreshold);
+    //     if (status.Coordinates != null)
+    //         payload.Add(SuitSensorConstants.NET_COORDINATES, status.Coordinates);
+    //
+    //     return payload;
+    // }
+    //
+    // /// <summary>
+    // /// Try to create the suit sensors status from the device network message.
+    // /// </summary>
+    // public SuitSensorStatus? PacketToSuitSensor(NetworkPayload payload)
+    // {
+    //     // check command
+    //     if (!payload.TryGetValue(DeviceNetworkConstants.Command, out string? command))
+    //         return null;
+    //     if (command != DeviceNetworkConstants.CmdUpdatedState)
+    //         return null;
+    //
+    //     // check name, job and alive
+    //     if (!payload.TryGetValue(SuitSensorConstants.NET_NAME, out string? name)) return null;
+    //     if (!payload.TryGetValue(SuitSensorConstants.NET_JOB, out string? job)) return null;
+    //     if (!payload.TryGetValue(SuitSensorConstants.NET_JOB_ICON, out string? jobIcon)) return null;
+    //     if (!payload.TryGetValue(SuitSensorConstants.NET_JOB_DEPARTMENTS, out List<string>? jobDepartments)) return null;
+    //     if (!payload.TryGetValue(SuitSensorConstants.NET_IS_ALIVE, out bool? isAlive)) return null;
+    //     if (!payload.TryGetValue(SuitSensorConstants.NET_SUIT_SENSOR_UID, out NetEntity suitSensorUid)) return null;
+    //     if (!payload.TryGetValue(SuitSensorConstants.NET_OWNER_UID, out NetEntity ownerUid)) return null;
+    //
+    //     // try get total damage and cords (optionals)
+    //     payload.TryGetValue(SuitSensorConstants.NET_TOTAL_DAMAGE, out int? totalDamage);
+    //     payload.TryGetValue(SuitSensorConstants.NET_TOTAL_DAMAGE_THRESHOLD, out int? totalDamageThreshold);
+    //     payload.TryGetValue(SuitSensorConstants.NET_COORDINATES, out NetCoordinates? coords);
+    //
+    //     var status = new SuitSensorStatus(ownerUid, suitSensorUid, name, job, jobIcon, jobDepartments)
+    //     {
+    //         IsAlive = isAlive.Value,
+    //         TotalDamage = totalDamage,
+    //         TotalDamageThreshold = totalDamageThreshold,
+    //         Coordinates = coords,
+    //     };
+    //     return status;
+    // }
+    // ADT-Tweak End
 }

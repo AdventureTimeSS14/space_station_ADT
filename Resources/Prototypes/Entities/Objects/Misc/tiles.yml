@@ -94,6 +94,16 @@
   - type: Construction
     graph: TileDark
     node: darktile
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: dark steel diagonal mini tile
@@ -267,6 +277,16 @@
   - type: Construction
     graph: TileSteel
     node: steeltile
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: offset steel tile
@@ -440,6 +460,16 @@
   - type: Construction
     graph: TileWhite
     node: whitetile
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: offset white steel tile
@@ -613,6 +643,16 @@
 #  - type: Construction
 #    graph: TileSteel
 #    node: steeltile
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: wood floor
@@ -632,6 +672,16 @@
   - type: Construction
     graph: TileWood
     node: woodtile
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: techmaint floor
@@ -648,6 +698,16 @@
       - FloorTechMaint
   - type: Stack
     stackType: FloorTileTechmaint
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   parent: FloorTileItemBase
@@ -664,6 +724,16 @@
     - FloorTechMaintDark
   - type: Stack
     stackType: FloorTileTechmaintDark
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 # TODO add a catwalk tile item once tile smoothing is supported
 
@@ -682,6 +752,16 @@
       - FloorMono
   - type: Stack
     stackType: FloorTileMono
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: linoleum floor
@@ -698,6 +778,16 @@
       - FloorLino
   - type: Stack
     stackType: FloorTileLino
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: filled brass plate
@@ -752,6 +842,16 @@
       - FloorSteelDirty
   - type: Stack
     stackType: FloorTileDirty
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: elevator shaft tile
@@ -768,6 +868,16 @@
       - FloorElevatorShaft
   - type: Stack
     stackType: FloorTileElevatorShaft
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: rock vault tile
@@ -784,6 +894,16 @@
       - FloorRockVault
   - type: Stack
     stackType: FloorTileRockVault
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: blue tile
@@ -800,6 +920,16 @@
       - FloorBlue
   - type: Stack
     stackType: FloorTileBlue
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: lime tile
@@ -816,6 +946,16 @@
       - FloorSteelLime
   - type: Stack
     stackType: FloorTileLime
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: mining tile
@@ -832,6 +972,16 @@
       - FloorMining
   - type: Stack
     stackType: FloorTileMining
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: dark mining tile
@@ -848,6 +998,16 @@
       - FloorMiningDark
   - type: Stack
     stackType: FloorTileMiningDark
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: light mining tile
@@ -864,6 +1024,16 @@
       - FloorMiningLight
   - type: Stack
     stackType: FloorTileMiningLight
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 # Departmental
 - type: entity
@@ -881,6 +1051,16 @@
       - FloorFreezer
   - type: Stack
     stackType: FloorTileFreezer
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: showroom tile
@@ -897,6 +1077,16 @@
       - FloorShowroom
   - type: Stack
     stackType: FloorTileShowroom
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: hydro tile
@@ -913,6 +1103,17 @@
       - FloorHydro
   - type: Stack
     stackType: FloorTileHydro
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: bar tile
@@ -929,6 +1130,17 @@
       - FloorBar
   - type: Stack
     stackType: FloorTileBar
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: clown tile
@@ -945,6 +1157,17 @@
       - FloorClown
   - type: Stack
     stackType: FloorTileClown
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: mime tile
@@ -961,6 +1184,17 @@
       - FloorMime
   - type: Stack
     stackType: FloorTileMime
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: kitchen tile
@@ -977,6 +1211,16 @@
       - FloorKitchen
   - type: Stack
     stackType: FloorTileKitchen
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: laundry tile
@@ -993,6 +1237,17 @@
       - FloorLaundry
   - type: Stack
     stackType: FloorTileLaundry
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 # Concrete
 - type: entity
@@ -1010,6 +1265,17 @@
     - FloorConcrete
   - type: Stack
     stackType: FloorTileConcrete
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: concrete mono tile
@@ -1024,6 +1290,17 @@
       - FloorConcreteMono
   - type: Stack
     stackType: FloorTileConcreteMono
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: concrete smooth
@@ -1038,6 +1315,17 @@
       - FloorConcreteSmooth
   - type: Stack
     stackType: FloorTileConcreteSmooth
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   parent: FloorTileItemBase
@@ -1054,6 +1342,17 @@
     - FloorGrayConcrete
   - type: Stack
     stackType: FloorTileGrayConcrete
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: gray concrete mono tile
@@ -1068,6 +1367,17 @@
       - FloorGrayConcreteMono
   - type: Stack
     stackType: FloorTileGrayConcreteMono
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: gray concrete smooth
@@ -1082,6 +1392,17 @@
       - FloorGrayConcreteSmooth
   - type: Stack
     stackType: FloorTileGrayConcreteSmooth
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   parent: FloorTileItemBase
@@ -1098,6 +1419,17 @@
     - FloorOldConcrete
   - type: Stack
     stackType: FloorTileOldConcrete
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: old concrete mono tile
@@ -1112,6 +1444,17 @@
       - FloorOldConcreteMono
   - type: Stack
     stackType: FloorTileOldConcreteMono
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: old concrete smooth
@@ -1126,6 +1469,17 @@
       - FloorOldConcreteSmooth
   - type: Stack
     stackType: FloorTileOldConcreteSmooth
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   parent: FloorTileItemBase
@@ -1142,6 +1496,17 @@
     - FloorIronsandConcrete
   - type: Stack
     stackType: FloorTileIronsandConcrete
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   parent: FloorTileItemIronsandConcrete
@@ -1156,6 +1521,17 @@
     - FloorIronsandConcreteMono
   - type: Stack
     stackType: FloorTileIronsandConcreteMono
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   parent: FloorTileItemIronsandConcrete
@@ -1170,6 +1546,17 @@
     - FloorIronsandConcreteSmooth
   - type: Stack
     stackType: FloorTileIronsandConcreteSmooth
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 # Carpets
 - type: entity
@@ -1187,6 +1574,16 @@
       - FloorArcadeBlue
   - type: Stack
     stackType: FloorTileStackArcadeBlue
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: blue arcade floor
@@ -1203,6 +1600,16 @@
       - FloorArcadeBlue2
   - type: Stack
     stackType: FloorTileStackArcadeBlue2
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: red arcade floor
@@ -1219,6 +1626,16 @@
       - FloorArcadeRed
   - type: Stack
     stackType: FloorTileStackArcadeRed
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: eighties floor
@@ -1235,6 +1652,16 @@
       - FloorEighties
   - type: Stack
     stackType: FloorTileStackEighties
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: clown carpet floor
@@ -1251,6 +1678,16 @@
       - FloorCarpetClown
   - type: Stack
     stackType: FloorTileStackCarpetClown
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: office carpet floor
@@ -1267,6 +1704,16 @@
       - FloorCarpetOffice
   - type: Stack
     stackType: FloorTileStackCarpetOffice
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: boxing ring floor
@@ -1283,6 +1730,16 @@
       - FloorBoxing
   - type: Stack
     stackType: FloorTileStackBoxing
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: gym floor
@@ -1299,6 +1756,16 @@
       - FloorGym
   - type: Stack
     stackType: FloorTileStackGym
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 # Shuttles
 - type: entity
@@ -1316,6 +1783,16 @@
       - FloorShuttleWhite
   - type: Stack
     stackType: FloorTileStackShuttleWhite
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plasteel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: blue shuttle floor
@@ -1332,6 +1809,16 @@
       - FloorShuttleBlue
   - type: Stack
     stackType: FloorTileStackShuttleBlue
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plasteel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: orange shuttle floor
@@ -1348,6 +1835,16 @@
       - FloorShuttleOrange
   - type: Stack
     stackType: FloorTileStackShuttleOrange
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plasteel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: purple shuttle floor
@@ -1364,6 +1861,16 @@
       - FloorShuttlePurple
   - type: Stack
     stackType: FloorTileStackShuttlePurple
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plasteel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: red shuttle floor
@@ -1380,6 +1887,16 @@
       - FloorShuttleRed
   - type: Stack
     stackType: FloorTileStackShuttleRed
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plasteel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: grey shuttle floor
@@ -1396,6 +1913,16 @@
       - FloorShuttleGrey
   - type: Stack
     stackType: FloorTileStackShuttleGrey
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plasteel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: black shuttle floor
@@ -1412,6 +1939,16 @@
       - FloorShuttleBlack
   - type: Stack
     stackType: FloorTileStackShuttleBlack
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plasteel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 # Materials
 - type: entity
@@ -1429,6 +1966,16 @@
       - FloorGold
   - type: Stack
     stackType: FloorTileGold
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 50
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: silver tile
@@ -1445,6 +1992,16 @@
       - FloorSilver
   - type: Stack
     stackType: FloorTileSilver
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Silver: 50
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 # Circuits
 - type: entity
@@ -1462,6 +2019,16 @@
       - FloorGreenCircuit
   - type: Stack
     stackType: FloorTileGCircuit
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: blue circuit floor
@@ -1478,6 +2045,16 @@
       - FloorBlueCircuit
   - type: Stack
     stackType: FloorTileBCircuit
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: red circuit floor
@@ -1494,6 +2071,16 @@
       - FloorRedCircuit
   - type: Stack
     stackType: FloorTileRCircuit
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 # Terrain
 - type: entity
@@ -1559,6 +2146,16 @@
       - FloorWoodTile
   - type: Stack
     stackType: FloorTileWoodPattern
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   id: FloorTileItemFlesh
@@ -1594,6 +2191,16 @@
       - FloorTechMaint2
   - type: Stack
     stackType: FloorTileSteelMaint
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: grating maint floor
@@ -1610,6 +2217,16 @@
       - FloorTechMaint3
   - type: Stack
     stackType: FloorTileGratingMaint
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: web tile
@@ -1646,6 +2263,16 @@
     - FloorAstroGrass
   - type: Stack
     stackType: FloorTileAstroGrass
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   id: FloorTileItemMowedAstroGrass
@@ -1663,6 +2290,16 @@
     - FloorMowedAstroGrass
   - type: Stack
     stackType: FloorTileAstroGrass
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   id: FloorTileItemJungleAstroGrass
@@ -1697,6 +2334,16 @@
     - FloorDarkAstroGrass
   - type: Stack
     stackType: FloorTileDarkAstroGrass
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   parent: FloorTileItemBase
@@ -1714,6 +2361,16 @@
     - FloorLightAstroGrass
   - type: Stack
     stackType: FloorTileLightAstroGrass
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   id: FloorTileItemAstroIce
@@ -1731,6 +2388,16 @@
     - FloorAstroIce
   - type: Stack
     stackType: FloorTileAstroIce
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   id: FloorTileItemAstroSnow
@@ -1748,6 +2415,16 @@
     - FloorAstroSnow
   - type: Stack
     stackType: FloorTileAstroSnow
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   id: FloorTileItemAstroAsteroidSand
@@ -1765,6 +2442,16 @@
     - FloorAstroAsteroidSand
   - type: Stack
     stackType: FloorTileAstroAsteroidSand
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   id: FloorTileItemAstroAsteroidSandBorderless
@@ -1799,6 +2486,16 @@
     - FloorAstroIronsand
   - type: Stack
     stackType: FloorTileAstroIronsand
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   parent: FloorTileItemBase
@@ -1816,6 +2513,16 @@
     - FloorAstroIronsandBorderless
   - type: Stack
     stackType: FloorTileAstroIronsandBorderless
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   parent: FloorTileItemBase
@@ -1833,6 +2540,16 @@
     - FloorDesertAstroSand
   - type: Stack
     stackType: FloorTileDesertAstroSand
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: large wood floor
@@ -1852,6 +2569,16 @@
   - type: Construction
     graph: TileWoodLarge
     node: woodtilelarge
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 # Marble
 
@@ -1871,6 +2598,17 @@
       - FloorWhiteMarble
   - type: Stack
     stackType: FloorTileWhiteMarble
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 25
+      Steel: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: dark marble tile
@@ -1909,6 +2647,18 @@
     damage:
       types:
         Blunt: 6
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 25
+      Steel: 25
+      Plasma: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   name: uranium marble tile
@@ -1936,6 +2686,18 @@
     energy: 0.8
     castShadows: false
     color: "#9be792"
+  #ADT-Tweak-Start
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 25
+      Steel: 25
+      Uranium: 25
+  - type: Material
+  - type: Tag
+    tags:
+      - Sheet
+      - NoPaint
+  #ADT-Tweak-End
 
 - type: entity
   id: FloorTileItemXeno

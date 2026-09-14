@@ -38,6 +38,7 @@
   - type: Tag
     tags:
       - Ingot
+      - ConstructionMaterial
 # End ADT Tweak
   - type: Material
   - type: PhysicalComposition
@@ -88,6 +89,7 @@
   - type: Tag
     tags:
       - Ingot
+      - ConstructionMaterial
 # End ADT Tweak
   - type: Material
   - type: PhysicalComposition

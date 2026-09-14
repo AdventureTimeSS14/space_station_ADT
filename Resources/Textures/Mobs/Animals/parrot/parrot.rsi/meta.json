@@ -16,6 +16,10 @@
       ]
     },
     {
+      "name": "onneck",
+      "directions": 4
+    },
+    {
       "name": "dead",
       "delays": [
         [

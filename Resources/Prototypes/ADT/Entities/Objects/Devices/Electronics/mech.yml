@@ -194,3 +194,38 @@
     - type: GuideHelp
       guides:
       - Robotics
+
+
+- type: entity
+  id: ADTArchimedesCentralElectronics
+  parent: BaseElectronics
+  name: archimedes central control module
+  description: The electrical control center for the archimedes mech.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi
+      state: mainboard
+    - type: Tag
+      tags:
+      - ADTArchimedesCentralControlModule
+      - VoxFood
+    - type: GuideHelp
+      guides:
+      - Robotics
+
+- type: entity
+  id: ADTArchimedesPeripheralsElectronics
+  parent: BaseElectronics
+  name: archimedes peripherals control module
+  description: The electrical peripherals control for the archimedes mech.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi
+      state: id_mod
+    - type: Tag
+      tags:
+      - ADTArchimedesPeripheralsControlModule
+      - VoxFood
+    - type: GuideHelp
+      guides:
+      - Robotics

@@ -1,7 +1,9 @@
 using Content.Shared.Anomaly.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory; // ADT-Tweak
 using Content.Shared.Popups;
+using Content.Shared.Verbs; // ADT-Tweak
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
@@ -24,7 +26,45 @@ public abstract class SharedAnomalyScannerSystem : EntitySystem
         SubscribeLocalEvent<AnomalyScannerComponent, ScannerDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<AnomalyScannerComponent, AfterInteractEvent>(OnScannerAfterInteract);
         SubscribeLocalEvent<AnomalyShutdownEvent>(OnScannerAnomalyShutdown);
+        SubscribeLocalEvent<AnomalyScannerComponent, InventoryRelayedEvent<GetVerbsEvent<InnateVerb>>>(AddScanVerb);  // ADT-Tweak
     }
+
+    // ADT-Tweak-start
+    private void AddScanVerb(Entity<AnomalyScannerComponent> ent, ref InventoryRelayedEvent<GetVerbsEvent<InnateVerb>> args)
+    {
+        if (!args.Args.CanInteract || !args.Args.CanAccess || !HasComp<AnomalyComponent>(args.Args.Target))
+            return;
+
+        var target = args.Args.Target;
+        var user = args.Args.User;
+
+        var verb = new InnateVerb
+        {
+            Act = () => StartScan(ent, user, target),
+            Text = Loc.GetString("anomaly-scanner-verb-scan"),
+            IconEntity = GetNetEntity(ent),
+            Priority = 2,
+        };
+        args.Args.Verbs.Add(verb);
+    }
+
+    private void StartScan(Entity<AnomalyScannerComponent> ent, EntityUid user, EntityUid target)
+    {
+        var doAfterArgs = new DoAfterArgs(
+            EntityManager,
+            user,
+            ent.Comp.ScanDoAfterDuration,
+            new ScannerDoAfterEvent(),
+            ent.Owner,
+            target: target,
+            used: ent.Owner
+        )
+        {
+            DistanceThreshold = 2f
+        };
+        _doAfter.TryStartDoAfter(doAfterArgs);
+    }
+    // ADT-Tweak-end
 
     private void OnScannerAnomalyShutdown(ref AnomalyShutdownEvent args)
     {

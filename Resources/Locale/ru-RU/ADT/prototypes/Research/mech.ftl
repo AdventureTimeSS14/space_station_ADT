@@ -1,5 +1,5 @@
 research-technology-mech-fabricator = Производство продвинутых мехов
-research-technology-mech-gygax = Гайгэкс
+research-technology-mech-gygax = Гигакс
 research-technology-mech-odysseus = Одиссей
 research-technology-mech-clarke = Кларк
 research-technology-mech-durand = Дюранд
@@ -19,3 +19,4 @@ research-technology-mech-energy-gun-small = Легкое энергооружи�
 research-technology-mech-energy-gun-heavy = Тяжелое энергооружие меха
 research-technology-mech-gun-small = Легкое оружие меха
 research-technology-mech-gun-heavy = Тяжелое оружие меха
+research-technology-mech-archimedes = Архимед

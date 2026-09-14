@@ -4,7 +4,7 @@ using Content.Shared.Humanoid; // ADT-Changeling-Tweak
 //ADT-Geras-Tweak-Start
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
-using Content.Shared.Corvax.TTS;
+using Content.Shared.ADT.TTS;
 using Content.Server.Speech.Components;
 using Content.Server.Corvax.Speech.Components;
 using Content.Shared.Speech.Components;
@@ -705,6 +705,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             .WithName(targetMeta.EntityName)
             .WithSpecies(targetHumanoidAppearance.Species)
             .WithSex(targetHumanoidAppearance.Sex)
+            .WithGender(targetHumanoidAppearance.Gender) // ADT-Tweak
             .WithAge(targetHumanoidAppearance.Age)
             .WithCharacterAppearance(HumanoidCharacterAppearance.DefaultWithSpecies(targetHumanoidAppearance.Species, targetHumanoidAppearance.Sex));
 
@@ -771,6 +772,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             .WithName(targetMeta.EntityName)
             .WithSpecies(targetHumanoidAppearance.Species)
             .WithSex(targetHumanoidAppearance.Sex)
+            .WithGender(targetHumanoidAppearance.Gender) // ADT-Tweak
             .WithAge(targetHumanoidAppearance.Age)
             .WithCharacterAppearance(HumanoidCharacterAppearance.DefaultWithSpecies(targetHumanoidAppearance.Species, targetHumanoidAppearance.Sex));
 

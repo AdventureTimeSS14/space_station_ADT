@@ -1,5 +1,7 @@
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Power;
 using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
@@ -25,10 +27,23 @@ public sealed class SmesSystem : EntitySystem //ADT-tweak: made public
 
         SubscribeLocalEvent<SmesComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SmesComponent, ChargeChangedEvent>(OnBatteryChargeChanged);
+        SubscribeLocalEvent<SmesComponent, RefreshPartsEvent>(OnPartsRefresh); // ADT-Tweak
+        SubscribeLocalEvent<SmesComponent, UpgradeExamineEvent>(OnUpgradeExamine); // ADT-Tweak
     }
 
     private void OnMapInit(EntityUid uid, SmesComponent component, MapInitEvent args)
     {
+        // ADT-Tweak-Start: machine parts with tiers
+        if (TryComp<PowerNetworkBatteryComponent>(uid, out var netBattery))
+        {
+            component.BaseMaxSupply = netBattery.MaxSupply;
+            component.BaseMaxChargeRate = netBattery.MaxChargeRate;
+        }
+
+        if (TryComp<BatteryComponent>(uid, out var battery))
+            component.BaseMaxCharge = battery.MaxCharge;
+        // ADT-Tweak-End
+
         UpdateSmesState(uid, component);
     }
 
@@ -36,6 +51,50 @@ public sealed class SmesSystem : EntitySystem //ADT-tweak: made public
     {
         UpdateSmesState(uid, component);
     }
+
+    // ADT-Tweak-Start: machine parts with tiers
+    private void OnPartsRefresh(EntityUid uid, SmesComponent component, RefreshPartsEvent args)
+    {
+        if (!TryComp<PowerNetworkBatteryComponent>(uid, out var netBattery))
+            return;
+
+        var batteryTier = args.GetPartRating(MachinePartIds.PowerCell, 1f);
+        var capacityMultiplier = batteryTier switch
+        {
+            >= 4f => 3f,
+            >= 3f => 2f,
+            >= 2f => 1.5f,
+            _ => 1f,
+        };
+
+        if (TryComp<BatteryComponent>(uid, out var battery))
+            _battery.SetMaxCharge((uid, battery), component.BaseMaxCharge * capacityMultiplier);
+
+        netBattery.MaxSupply = component.BaseMaxSupply * args.GetStatMultiplier(MachineStat.ChargeRate);
+        netBattery.MaxChargeRate = component.BaseMaxChargeRate * args.GetStatMultiplier(MachineStat.ChargeRate);
+
+        UpdateSmesState(uid, component);
+    }
+
+    private void OnUpgradeExamine(EntityUid uid, SmesComponent component, UpgradeExamineEvent args)
+    {
+        if (!TryComp<PowerNetworkBatteryComponent>(uid, out var netBattery))
+            return;
+
+        var inputMultiplier = component.BaseMaxChargeRate <= 0f
+            ? 1f
+            : netBattery.MaxChargeRate / component.BaseMaxChargeRate;
+        var outputMultiplier = component.BaseMaxSupply <= 0f
+            ? 1f
+            : netBattery.MaxSupply / component.BaseMaxSupply;
+
+        args.AddPercentageUpgrade("machine-upgrade-power-input", inputMultiplier, benefit: true);
+        args.AddPercentageUpgrade("machine-upgrade-power-output", outputMultiplier, benefit: true);
+
+        if (TryComp<BatteryComponent>(uid, out var battery) && component.BaseMaxCharge > 0f)
+            args.AddPercentageUpgrade("machine-upgrade-smes-capacity", battery.MaxCharge / component.BaseMaxCharge, benefit: true);
+    }
+    // ADT-Tweak-End
 
     private void UpdateSmesState(EntityUid uid, SmesComponent smes)
     {

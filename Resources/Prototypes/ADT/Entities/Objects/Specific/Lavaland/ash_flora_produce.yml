@@ -1,0 +1,140 @@
+- type: entity
+  name: mushroom shavings
+  parent: FoodProduceBase
+  id: ADTFoodMushroomShavings
+  description: Some shavings from a tall mushroom. With enough, might serve as a bowl.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - mushroom
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 3
+        - ReagentId: Ethanol
+          Quantity: 2
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/polypore.rsi
+  - type: Produce
+    seedId: ADTSeedPolypore
+  - type: Extractable
+    grindableSolutionName: food
+  - type: Tag
+    tags:
+    - Mushroom
+    - ADTAshFloraShavings
+
+- type: entity
+  name: mushroom leaf
+  parent: FoodProduceBase
+  id: ADTFoodMushroomLeaf
+  description: A leaf, from a mushroom.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - mushroom
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: ADTVitriumFroth
+          Quantity: 2
+        - ReagentId: Nicotine
+          Quantity: 2
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/porcini.rsi
+  - type: Produce
+    seedId: ADTSeedPorcini
+  - type: Extractable
+    grindableSolutionName: food
+  - type: Tag
+    tags:
+    - Mushroom
+
+- type: entity
+  name: mushroom cap
+  parent: FoodProduceBase
+  id: ADTFoodMushroomCap
+  description: The cap of a large mushroom.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - mushroom
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: MindbreakerToxin
+          Quantity: 2
+        - ReagentId: ADTEntropicPolypnium
+          Quantity: 4
+        - ReagentId: SpaceDrugs
+          Quantity: 2
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/inocybe.rsi
+  - type: Produce
+    seedId: ADTSeedInocybe
+  - type: Extractable
+    grindableSolutionName: food
+  - type: Tag
+    tags:
+    - Mushroom
+
+- type: entity
+  name: mushroom stem
+  parent: FoodProduceBase
+  id: ADTFoodMushroomStem
+  description: A long mushroom stem. It's slightly glowing.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - mushroom
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: ADTTineaLuxor
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: SpaceDrugs
+          Quantity: 1
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/ember.rsi
+  - type: PointLight
+    radius: 1.5
+    energy: 1.2
+    color: "#f0b26c"
+  - type: Produce
+    seedId: ADTSeedEmbershroom
+  - type: Extractable
+    grindableSolutionName: food
+  - type: Tag
+    tags:
+    - Mushroom
+
+- type: entity
+  name: mushroom bowl
+  parent: FoodBowlBig
+  id: ADTMushroomBowl
+  description: A bowl made out of mushrooms. Not food, though it might have contained some at some point.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bowl.rsi
+    layers:
+    - sprite: ADT/Objects/Consumable/Food/ash_flora.rsi
+      state: mushroom_bowl
+    - map: ["enum.SolutionContainerLayers.Fill"]
+      state: fill-1
+      visible: false
+  - type: Construction
+    graph: ADTMushroomBowl
+    node: bowl

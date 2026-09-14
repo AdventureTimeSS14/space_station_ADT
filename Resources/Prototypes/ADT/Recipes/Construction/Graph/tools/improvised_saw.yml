@@ -1,0 +1,22 @@
+- type: constructionGraph
+  id: ADTSawImprovised
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: saw
+          steps:
+            - material: WoodPlank
+              amount: 3
+              doAfter: 1
+            - material: Cloth
+              amount: 1
+              doAfter: 1
+            - material: Cable
+              amount: 1
+              doAfter: 1
+            - material: Steel
+              amount: 1
+              doAfter: 1
+    - node: saw
+      entity: ADTSawImprovised

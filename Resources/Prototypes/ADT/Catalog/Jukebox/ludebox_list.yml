@@ -103,3 +103,15 @@
   - ADTGodish
   - ADTTheOnlyThing
   - ADTYARARARA
+
+- type: jukeboxList
+  id: MMachine
+  jukeboxes:
+  - ADTTheMMachineTinyAnthem
+  - ADTTheMMachineFaces
+  - ADTTheMMachineShadowInTheRoseGarden
+  - ADTTheMMachineImmigrants
+  - ADTTheMMachineDeepSearch
+  - ADTTheMMachineBlack
+  - ADTTheMMachineAKingAlone
+

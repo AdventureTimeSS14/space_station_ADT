@@ -1,0 +1,193 @@
+- type: entity
+  abstract: true
+  id: ADTBaseSpeciesLayers
+  components:
+  - type: Sprite
+    layers:
+    # Tело
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    # Конец
+
+    # Голова
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    # Конец
+
+    # Конечности
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.Special" ] # Хороший слой для покрасок тела, но он не перекрывает кисти рук
+    # Конец
+
+    # Бельё и обычная одежда
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+    - map: ["underwearb"]
+    - map: ["underweart"]
+    - map: [ "socks" ]
+    - map: ["jumpsuit"]
+    # Конец
+
+    # Кисти выше обычной одежды, но ниже снаряжения
+    - map: [ "enum.HumanoidVisualLayers.LHand" ]
+    - map: [ "enum.HumanoidVisualLayers.RHand" ]
+    - map: [ "finger" ] # Наши слои
+    # Конец
+
+    # То что перекрывает тело и обычную одежду, но не снаряжение
+    - map: ["enum.HumanoidVisualLayers.Overlay"]
+    # Конец
+
+    # Остальное снаряжение и верхняя одежда
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "ears2" ] # Наши слои
+    - map: [ "eyes" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "belt" ]
+    - map: [ "neck" ]
+    - map: [ "back" ]
+    - map: [ "suitstorage" ]
+    # Конец
+
+    # То что перекрывает снаряжение
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutOverlay" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
+    # Конец
+
+    # То что перекрывает даже то что перекрывает снаряжение)
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    # Конец
+
+    # Остальное
+    - map: ["enum.HumanoidVisualLayers.OverlayBandage"]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    # Конец
+
+- type: entity
+  abstract: true
+  id: ADTMothBaseSpeciesLayers
+  components:
+  - type: Sprite
+    layers:
+    # Tело
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    # Конец
+
+    # Голова
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    # Конец
+
+    # Конечности
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.Special" ] # Хороший слой для покрасок тела, но он не перекрывает кисти рук
+    # Конец
+
+    # Бельё и обычная одежда
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+    - map: [ "underwearb" ]
+    - map: [ "underweart" ]
+    - map: [ "socks" ]
+    - map: [ "jumpsuit" ]
+    # Конец
+
+    # Кисти выше обычной одежды, но ниже снаряжения
+    - map: [ "enum.HumanoidVisualLayers.LHand" ]
+    - map: [ "enum.HumanoidVisualLayers.RHand" ]
+    - map: [ "finger" ] # ADT layers
+    # Конец
+
+    # То что перекрывает тело и обычную одежду, но не снаряжение
+    - map: ["enum.HumanoidVisualLayers.Overlay"]
+    # Конец
+
+    # Остальное снаряжение и верхняя одежда
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "ears2" ]  # ADT layers
+    - map: [ "eyes" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "belt" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ] # Это у них Крылья и они у них на особом месте
+    - map: [ "enum.HumanoidVisualLayers.TailOverlay" ] #Это у них Крылья и они у них на особом месте
+    - map: [ "neck" ]
+    - map: [ "back" ]
+    - map: [ "suitstorage" ]
+    # Конец
+
+    # То что перекрывает снаряжение
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutOverlay" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    # Конец
+
+    # То что перекрывает даже то что перекрывает снаряжение)
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    # Конец
+
+    # Остальное
+    - map: ["enum.HumanoidVisualLayers.OverlayBandage"]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    # Конец
+
+- type: entity
+  id: ADTMothBaseSpeciesAppearance
+  parent:
+  - InventoryBase
+  - ADTMothBaseSpeciesLayers
+  abstract: true
+  save: false
+  components:
+  - type: Body
+  - type: VisualBody
+  - type: Hands
+  - type: ComplexInteraction
+  - type: ContainerContainer
+  - type: Appearance
+  - type: HideableHumanoidLayers
+  - type: UserInterface
+    interfaces:
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface

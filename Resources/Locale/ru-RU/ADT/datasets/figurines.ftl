@@ -57,6 +57,9 @@ adt-figurines-plushie-jungar-7 = Желаю тебе хорошего дня!
 adt-figurines-plushie-jungar-8 = Пожалуйста, не кушай меня, я же маинький и милый!
 adt-figurines-plushie-jungar-9 = Я твой талисман удачи!
 
+adt-figurines-plushie-emilia-evenwood-1 = Йоу
+adt-figurines-plushie-emilia-evenwood-2 = Мамочки-арканочки
+
 figurines-gipatter-1 = Ez...
 figurines-gipatter-2 = Хватит со своим Бламех-Жуббром
 figurines-gipatter-3 = Во всём виноваты воксы!

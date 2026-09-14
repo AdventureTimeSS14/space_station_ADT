@@ -168,6 +168,8 @@
   - type: BatteryAmmoProvider
     proto: ADTYellowLightLaser
     fireCost: 50
+  - type: Gun
+    fireRate: 4
   #ADT-Tweak-End
 
 - type: entity
@@ -198,6 +200,8 @@
     soundHit:
       collection: GenericHit
   - type: AltFireMelee
+  - type: Gun
+    fireRate: 2.4
   # ADT-Tweak end
   - type: BatteryAmmoProvider
     proto: RedMediumLaser
@@ -229,6 +233,7 @@
   - type: Item
     storedOffset: 0,-4
   - type: Gun #ADT Tweak Start
+    fireRate: 2.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
       params:
@@ -334,7 +339,7 @@
   - type: GunExecutionBlacklist #ADT-Tweak
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 2
+    fireRate: 3.3 #ADT_Tweak 2 -> 3.3
     availableModes:
     - SemiAuto
   - type: BatteryAmmoProvider
@@ -409,7 +414,7 @@
   - type: AltFireMelee
   # ADT-Tweak end
   - type: Gun
-    fireRate: 1 # ADT-Tweak 2 -> 1
+    fireRate: 2
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -626,7 +631,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
   - type: Gun
-    fireRate: 2.0 #ADT_Tweak 1.5 to 2.0
+    fireRate: 2.5 #ADT_Tweak 1.5 to 2.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: BatteryAmmoProvider
@@ -906,6 +911,18 @@
     - state: mag-unshaded-0
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  # ADT-Tweak-Start
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  - type: GunExecutionBlacklist
+  # ADT-Tweak-End
   - type: Item
     heldPrefix: taser4
   - type: Clothing
@@ -913,7 +930,7 @@
     slots:
     - Belt
   - type: Gun
-    fireRate: 0.5
+    fireRate: 0.4 # ADT-Tweak 0.5 -> 0.4
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
     projectileSpeed: 25
@@ -974,6 +991,7 @@
   - type: AltFireMelee
   # ADT-Tweak end
   - type: Gun
+    fireRate: 3.3 # ADT tweak 2 -> 3.3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
 # Start ADT Tweak
@@ -1042,11 +1060,15 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    fireRate: 3.3 # ADT tweak 2 -> 3.3
   - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
   - type: BatterySelfRecharger
-    autoRechargeRate: 30
+    # ADT-Tweak-Start
+    autoRechargeRate: 20 # 30 -> 20
+    autoRechargePauseTime: 4 # ADT-Tweak
+    # ADT-Tweak-End
   - type: MagazineVisuals
     magState: mag
     steps: 5

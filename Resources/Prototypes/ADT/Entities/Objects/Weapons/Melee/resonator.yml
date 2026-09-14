@@ -1,0 +1,132 @@
+- type: entity
+  parent: BaseItem
+  id: ADTResonator
+  name: resonator
+  description: A handheld device that creates small fields of energy that resonate until they detonate, crushing rock. It can also be activated without a target to create a field where you stand, as a delayed trap. It is far more effective in a vacuum.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/resonator.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/resonator.rsi
+    size: Small
+  - type: ADTResonator
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 15
+    soundHit:
+      collection: MetalThud
+  - type: Tag
+    tags:
+    - ADTResonator
+  - type: StaticPrice
+    price: 500
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+
+- type: entity
+  parent: ADTResonator
+  id: ADTResonatorUpgraded
+  name: upgraded resonator
+  description: An upgraded resonator that holds more fields at once and takes no damage penalty for bursting one early. It can also lay resonance matrixes that go off when something walks over them.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/resonator.rsi
+    state: icon-upgraded
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/resonator.rsi
+    size: Small
+  - type: ADTResonator
+    fieldLimit: 6
+    quickBurstModifier: 1
+    chargeUsePercent: 0.075
+    modes:
+    - Auto
+    - Manual
+    - Matrix
+  - type: StaticPrice
+    price: 1250
+
+- type: entity
+  id: ADTResonanceField
+  name: resonance field
+  description: A resonating field that badly hurts anything inside it when it finally ruptures. More damaging in low pressure.
+  placement:
+    mode: SnapgridCenter
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    sprite: ADT/Effects/resonance.rsi
+    drawdepth: Effects
+    layers:
+    - state: field
+      map: [ "base" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTResonanceFieldVisuals.Mode:
+        base:
+          Auto: { state: field }
+          Manual: { state: field }
+          Matrix: { state: matrix }
+  - type: ADTResonanceField
+    damage:
+      types:
+        Blunt: 20
+  - type: StepTrigger
+    active: false
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+    ignoreWeightless: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      slipFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        mask:
+        - ItemMask
+        layer:
+        - SlipLayer
+        hard: false
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  parent: ADTResonanceField
+  id: ADTResonanceFieldPKA
+  suffix: PKA
+  components:
+  - type: ADTResonanceField
+    damage:
+      types:
+        Blunt: 15
+
+- type: entity
+  id: ADTResonanceCrushEffect
+  name: resonance rupture
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    sprite: ADT/Effects/resonance.rsi
+    drawdepth: Effects
+    state: field
+    scale: 1.5, 1.5
+    color: "#FFFFFFAA"
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: Tag
+    tags:
+    - HideContextMenu

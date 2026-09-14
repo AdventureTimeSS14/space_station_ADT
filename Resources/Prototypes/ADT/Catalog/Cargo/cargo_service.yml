@@ -9,7 +9,7 @@
     state: icon
   product: ADTCrateServicePrinterInkCartridge
   cost: 1500
-  category: Service
+  category: cargoproduct-category-name-service
   group: market
 
 # Ganimed-Proto-End
@@ -21,7 +21,7 @@
     state: plantbox
   product: ADTPlantBox
   cost: 800
-  category: Service
+  category: cargoproduct-category-name-service
   group: market
 
 - type: cargoProduct
@@ -31,5 +31,5 @@
     state: icon
   product: ADTCrateFishingGoodies
   cost: 3200
-  category: Service
+  category: cargoproduct-category-name-service
   group: market

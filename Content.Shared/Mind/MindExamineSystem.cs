@@ -28,6 +28,14 @@ public sealed class MindExamineSystem : EntitySystem
         SubscribeLocalEvent<PlayerDetachedEvent>(OnPlayerDetached);
     }
 
+    // ADT-Tweak-start - Thunderdome: allow forcing the examine state (e.g. hide catatonic text while mind is temporarily swapped out)
+    public void SetShowExamineInfo(Entity<MindExaminableComponent> ent, MindState value)
+    {
+        ent.Comp.State = value;
+        Dirty(ent);
+    }
+    // ADT-Tweak-end
+
     private void OnExamined(Entity<MindExaminableComponent> ent, ref ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)

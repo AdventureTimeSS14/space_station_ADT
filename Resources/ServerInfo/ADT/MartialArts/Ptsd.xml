@@ -1,0 +1,25 @@
+<Document>
+
+  # Как получить ПТСР
+
+  <Box>
+    <GuideEntityEmbed Entity="ADTBookPTSD" Caption="как получить ПТСР"/>
+  </Box>
+
+  Три коротких приёма.
+
+  ## Приёмы
+
+  <ADTGuideCombo Combo="PTSDLegSweepCombo">
+  Только на стоячих. Роняет цель на [color=#E0A03C]2 секунды[/color], НЕ выбивая вещи из рук.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="PTSDArmLockBehindBackCombo">
+  Наносит [color=#5BB8E0]40[/color] урона по выносливости.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="PTSDBootKickCombo">
+  Только по лежачей цели. Отбрасывает её.
+  </ADTGuideCombo>
+
+</Document>

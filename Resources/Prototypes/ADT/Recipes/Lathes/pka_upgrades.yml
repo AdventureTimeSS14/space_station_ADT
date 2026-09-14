@@ -1,0 +1,128 @@
+- type: latheRecipe
+  id: ADTPKAUpgradeMiningExplosion
+  result: ADTPKAUpgradeMiningExplosion
+  categories:
+  - Weapons
+  completetime: 5
+  materials:
+    Steel: 4000
+    Glass: 750
+    Silver: 1000
+    Gold: 1000
+    Diamond: 1000
+
+- type: latheRecipe
+  id: ADTPKAUpgradeOffensiveMiningExplosion
+  result: ADTPKAUpgradeOffensiveMiningExplosion
+  categories:
+  - Weapons
+  completetime: 5
+  materials:
+    Steel: 4000
+    Glass: 750
+    Silver: 1000
+    Gold: 1000
+    Diamond: 1000
+
+- type: latheRecipe
+  id: ADTPKAUpgradeOffensiveExplosion
+  result: ADTPKAUpgradeOffensiveExplosion
+  categories:
+  - Weapons
+  completetime: 5
+  materials:
+    Steel: 4000
+    Glass: 750
+    Silver: 1000
+    Gold: 1000
+    Diamond: 1000
+
+- type: latheRecipe
+  id: ADTPKAUpgradeRapidRepeater
+  result: ADTPKAUpgradeRapidRepeater
+  categories:
+  - Weapons
+  completetime: 5
+  materials:
+    Steel: 2000
+    Glass: 1500
+    Gold: 1500
+    Uranium: 1000
+
+- type: latheRecipe
+  id: ADTPKAUpgradeDeathSyphon
+  result: ADTPKAUpgradeDeathSyphon
+  categories:
+  - Weapons
+  completetime: 5
+  materials:
+    Steel: 2000
+    Glass: 1500
+    Gold: 1500
+    Uranium: 1500
+    Plasma: 500
+
+- type: latheRecipe
+  id: ADTPKAUpgradeIndoors
+  result: ADTPKAUpgradeIndoors
+  categories:
+  - Weapons
+  completetime: 5
+  materials:
+    Steel: 2000
+    Glass: 1500
+    Gold: 1500
+    Uranium: 1000
+
+- type: latheRecipe
+  id: ADTPKAUpgradeTracerWhite
+  result: ADTPKAUpgradeTracerWhite
+  categories:
+  - Weapons
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+
+- type: latheRecipe
+  id: ADTPKAUpgradeTracerAdjustable
+  result: ADTPKAUpgradeTracerAdjustable
+  categories:
+  - Weapons
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+    Silver: 500
+
+- type: latheRecipe
+  id: ADTPKAUpgradeChassisSuper
+  result: ADTPKAUpgradeChassisSuper
+  categories:
+  - Weapons
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+
+- type: latheRecipe
+  id: ADTPKAUpgradeChassisHyper
+  result: ADTPKAUpgradeChassisHyper
+  categories:
+  - Weapons
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+
+- type: latheRecipe
+  id: ADTPKAUpgradeResonatorBlast
+  result: ADTPKAUpgradeResonatorBlast
+  categories:
+  - Weapons
+  completetime: 5
+  materials:
+    Steel: 2000
+    Glass: 1500
+    Gold: 1500
+    Silver: 1000

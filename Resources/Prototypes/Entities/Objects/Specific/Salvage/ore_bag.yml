@@ -16,6 +16,8 @@
     - belt
   - type: Item
     size: Small # ADT tweak Ginormous -> small
+  - type: ExplosionResistance # ADT Tweak
+    damageCoefficient: 0.5
   - type: Storage
     maxItemSize: Normal
     grid:

@@ -150,3 +150,19 @@
   - type: HideLayerClothing
     slots:
     - Hair
+
+# Расовая одежда (Пока тут только для воксов. Уберите, когда добавят для других рас)
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatVoxHood
+  categories: [HideSpawnMenu]
+  name: vox hood
+  components: 
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/vox_hood.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/vox_hood.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair

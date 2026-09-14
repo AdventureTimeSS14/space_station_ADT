@@ -30,7 +30,6 @@
     - alertType: Pacified
     - alertType: Stealthy
     - alertType: Crawling #ADT crawling
-    - alertType: Chemicals # ADT Changeling
     - alertType: Offer # ADT-Tweak
 
 - type: entity

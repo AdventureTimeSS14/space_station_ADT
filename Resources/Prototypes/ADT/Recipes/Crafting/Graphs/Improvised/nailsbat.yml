@@ -1,0 +1,37 @@
+- type: constructionGraph
+  id: ADTBaseBallBatNails
+  start: start
+  graph:
+    - node: start
+      entity: BaseBallBat
+      edges:
+        - to: nailsbat
+          completed:
+          - !type:AdminLog
+            message: "Construction"
+            impact: High
+          steps:
+            - tag: BaseballBat
+              name: construction-graph-tag-baseball-bat
+              icon:
+                sprite: ADT/Objects/Weapons/Melee/baseball_bat.rsi
+                state: icon
+            - material: MetalRod
+              amount: 10
+              doAfter: 5
+
+    - node: nailsbat
+      entity: ADTBaseBallBatNails
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: BaseBallBat
+              amount: 1
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 5
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Prying
+              doAfter: 1

@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: guideEntry
+  id: Changelings
+  name: guide-entry-changelings
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Changelings.xml"
+  children:
+  - ChangelingsAbilities
+
+- type: guideEntry
+  id: ChangelingsAbilities
+  name: guide-entry-changeling-abilities
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/ChangelingsAbilities.xml"

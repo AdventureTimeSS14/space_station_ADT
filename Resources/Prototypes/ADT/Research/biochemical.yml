@@ -129,7 +129,7 @@
   - ADTPatchThermo
   requiredTech:
   - ADTCryoTech
-  position: 2,0
+  position: 2,-1
 
 - type: technology
   id: ADTMechanizedTreatment
@@ -197,6 +197,10 @@
   cost: 5000
   recipeUnlocks:
   - ADTModsuitPlateMedical
+  - ADTModsuitModReagentScanner
+  - ADTModsuitModStatusReadout
+  - ADTModsuitModHealthAnalyzer
+  - ADTModsuitModDefibrillator
   technologyPrerequisites:
     - ADTModsuitBase
   position: 5,-1

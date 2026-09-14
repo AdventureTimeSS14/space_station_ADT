@@ -9,10 +9,12 @@
             VerticalAlignment="Center"
             MinSize="32 32"
             />
-    <Label Name="NameLabel"
+    <!-- ADT-Tweak-Start: Use RichTextLabel for BBCode support -->
+    <RichTextLabel Name="NameLabel"
             SizeFlagsStretchRatio="3"
             HorizontalExpand="True"
-            ClipText="True"/>
+            MaxWidth="200"/>
+    <!-- ADT-Tweak-End-->
     <!-- ADT-Tweak Start: Delete Unnessesary entries -->
     <Button Name="DeleteButton"
             Text="✖"

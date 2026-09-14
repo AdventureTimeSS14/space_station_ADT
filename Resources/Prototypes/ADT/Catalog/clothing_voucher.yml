@@ -922,3 +922,1307 @@
     state: icon
   content:
   - ADTClothingNeckYellowTie
+
+#region UnderwearBoxers
+
+- type: thiefBackpackSet
+  id: UnderwearBoxersWhite
+  name: clothing-voucher-underwear-boxers-white
+  description: clothing-voucher-underwear-boxers-white
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/boxers.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomBoxersWhite
+
+- type: thiefBackpackSet
+  id: UnderwearBoxersBlack
+  name: clothing-voucher-underwear-boxers-black
+  description: clothing-voucher-underwear-boxers-black
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_black.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomBoxersBlack
+
+- type: thiefBackpackSet
+  id: UnderwearBoxersBlue
+  name: clothing-voucher-underwear-boxers-blue
+  description: clothing-voucher-underwear-boxers-blue
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_blue.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomBoxersBlue
+
+- type: thiefBackpackSet
+  id: UnderwearBoxersRed
+  name: clothing-voucher-underwear-boxers-red
+  description: clothing-voucher-underwear-boxers-red
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_red.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomBoxersRed
+
+#region UnderwearPanties
+
+- type: thiefBackpackSet
+  id: UnderwearPantiesWhite
+  name: clothing-voucher-underwear-panties-white
+  description: clothing-voucher-underwear-panties-white
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/panties.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomPantiesWhite
+
+- type: thiefBackpackSet
+  id: UnderwearPantiesBlack
+  name: clothing-voucher-underwear-panties-black
+  description: clothing-voucher-underwear-panties-black
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/panties_black.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomPantiesBlack
+
+- type: thiefBackpackSet
+  id: UnderwearPantiesBlue
+  name: clothing-voucher-underwear-panties-blue
+  description: clothing-voucher-underwear-panties-blue
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/panties_blue.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomPantiesBlue
+
+- type: thiefBackpackSet
+  id: UnderwearPantiesRed
+  name: clothing-voucher-underwear-panties-red
+  description: clothing-voucher-underwear-panties-red
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/panties_red.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomPantiesRed
+
+#region UnderwearBra
+
+- type: thiefBackpackSet
+  id: UnderwearBraWhite
+  name: clothing-voucher-underwear-bra-white
+  description: clothing-voucher-underwear-bra-white
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/bra.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraWhite
+
+- type: thiefBackpackSet
+  id: UnderwearBraBlack
+  name: clothing-voucher-underwear-bra-black
+  description: clothing-voucher-underwear-bra-black
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/bra_black.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraBlack
+
+- type: thiefBackpackSet
+  id: UnderwearBraBlue
+  name: clothing-voucher-underwear-bra-blue
+  description: clothing-voucher-underwear-bra-blue
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/bra_blue.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraBlue
+
+- type: thiefBackpackSet
+  id: UnderwearBraRed
+  name: clothing-voucher-underwear-bra-red
+  description: clothing-voucher-underwear-bra-red
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/bra_red.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraRed
+
+#region UnderwearTShirt
+
+- type: thiefBackpackSet
+  id: UnderwearTShirtWhite
+  name: clothing-voucher-underwear-tshirt-white
+  description: clothing-voucher-underwear-tshirt-white
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/t_shirt.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopTShirt
+
+- type: thiefBackpackSet
+  id: UnderwearTShirtBlack
+  name: clothing-voucher-underwear-tshirt-black
+  description: clothing-voucher-underwear-tshirt-black
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/t_shirt_black.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopTShirtBlack
+
+- type: thiefBackpackSet
+  id: UnderwearTShirtTelnik
+  name: clothing-voucher-underwear-tshirt-telnik
+  description: clothing-voucher-underwear-tshirt-telnik
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/t_shirt_telnik.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopTShirtTelnik
+
+#region UnderwearSocks
+
+- type: thiefBackpackSet
+  id: SockHigh
+  name: clothing-voucher-sock-high
+  description: clothing-voucher-sock-high
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/socksknee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksHigh
+
+- type: thiefBackpackSet
+  id: SockNormal
+  name: clothing-voucher-sock-normal
+  description: clothing-voucher-sock-normal
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/socksnorm.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksNormal
+
+- type: thiefBackpackSet
+  id: SockShort
+  name: clothing-voucher-sock-short
+  description: clothing-voucher-sock-short
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/socksshort.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksShort
+
+- type: thiefBackpackSet
+  id: SockThigh
+  name: clothing-voucher-sock-thigh
+  description: clothing-voucher-sock-thigh
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/socksthigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThigh
+
+- type: thiefBackpackSet
+  id: SockBee
+  name: clothing-voucher-sock-bee
+  description: clothing-voucher-sock-bee
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/socksbee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksBee
+
+- type: thiefBackpackSet
+  id: SockLaceThigh
+  name: clothing-voucher-sock-lace-thigh
+  description: clothing-voucher-sock-lace-thigh
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/lace_socks_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksLaceThigh
+
+- type: thiefBackpackSet
+  id: SockStockingsRed
+  name: clothing-voucher-sock-stockings-red
+  description: clothing-voucher-sock-stockings-red
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/red_stockings.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksStockingsRed
+
+- type: thiefBackpackSet
+  id: SockStockingsBlack
+  name: clothing-voucher-sock-stockings-black
+  description: clothing-voucher-sock-stockings-black
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/black_stockings.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksStockingsBlack
+
+- type: thiefBackpackSet
+  id: SockStockingsWhite
+  name: clothing-voucher-sock-stockings-white
+  description: clothing-voucher-sock-stockings-white
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/white_stockings.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksStockingsWhite
+
+- type: thiefBackpackSet
+  id: SockStockingsBlueshield
+  name: clothing-voucher-sock-stockings-blueshield
+  description: clothing-voucher-sock-stockings-blueshield
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/stockings_blueshield.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksStockingsBlueshield
+
+- type: thiefBackpackSet
+  id: SockBlueshield
+  name: clothing-voucher-sock-blueshield
+  description: clothing-voucher-sock-blueshield
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/socks_blueshield.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksBlueshield
+
+- type: thiefBackpackSet
+  id: SockRabbit
+  name: clothing-voucher-sock-rabbit
+  description: clothing-voucher-sock-rabbit
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/socks_rabbit.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksRabbit
+
+- type: thiefBackpackSet
+  id: SockComfyBlue
+  name: clothing-voucher-sock-comfy-blue
+  description: clothing-voucher-sock-comfy-blue
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/socks_comfyblue.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksComfyBlue
+
+- type: thiefBackpackSet
+  id: SockComfyGrey
+  name: clothing-voucher-sock-comfy-grey
+  description: clothing-voucher-sock-comfy-grey
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/socks_comfygrey.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksComfyGrey
+
+- type: thiefBackpackSet
+  id: SockComfyRed
+  name: clothing-voucher-sock-comfy-red
+  description: clothing-voucher-sock-comfy-red
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/socks_comfyred.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksComfyRed
+
+- type: thiefBackpackSet
+  id: SockComfyViolet
+  name: clothing-voucher-sock-comfy-violet
+  description: clothing-voucher-sock-comfy-violet
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/socks_comfyviolet.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksComfyViolet
+
+- type: thiefBackpackSet
+  id: SockAzure
+  name: clothing-voucher-sock-azure
+  description: clothing-voucher-sock-azure
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/azure_norm.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksAzure
+
+- type: thiefBackpackSet
+  id: SockBlack
+  name: clothing-voucher-sock-black
+  description: clothing-voucher-sock-black
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/black_norm.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksBlack
+
+- type: thiefBackpackSet
+  id: SockCaptain
+  name: clothing-voucher-sock-captain
+  description: clothing-voucher-sock-captain
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/cap_norm.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksCaptain
+
+- type: thiefBackpackSet
+  id: SockCentcom
+  name: clothing-voucher-sock-centcom
+  description: clothing-voucher-sock-centcom
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/centcom_norm.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksCentcom
+
+- type: thiefBackpackSet
+  id: SockCyan
+  name: clothing-voucher-sock-cyan
+  description: clothing-voucher-sock-cyan
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/cyan_norm.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksCyan
+
+- type: thiefBackpackSet
+  id: SockFurr
+  name: clothing-voucher-sock-furr
+  description: clothing-voucher-sock-furr
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/furr_norm.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksFurr
+
+- type: thiefBackpackSet
+  id: SockGreen
+  name: clothing-voucher-sock-green
+  description: clothing-voucher-sock-green
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/green_norm.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksGreen
+
+- type: thiefBackpackSet
+  id: SockHomelander
+  name: clothing-voucher-sock-homelander
+  description: clothing-voucher-sock-homelander
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/homelander_norm.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksHomelander
+
+- type: thiefBackpackSet
+  id: SockHop
+  name: clothing-voucher-sock-hop
+  description: clothing-voucher-sock-hop
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/hop_norm.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksHop
+
+- type: thiefBackpackSet
+  id: SockHos
+  name: clothing-voucher-sock-hos
+  description: clothing-voucher-sock-hos
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/hos_norm.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksHos
+
+- type: thiefBackpackSet
+  id: SockHotpink
+  name: clothing-voucher-sock-hotpink
+  description: clothing-voucher-sock-hotpink
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/hotpink_norm.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksHotpink
+
+- type: thiefBackpackSet
+  id: SockOrange
+  name: clothing-voucher-sock-orange
+  description: clothing-voucher-sock-orange
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/orange_norm.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksOrange
+
+- type: thiefBackpackSet
+  id: SockSyndieGreen
+  name: clothing-voucher-sock-syndie-green
+  description: clothing-voucher-sock-syndie-green
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/syndie_green_norm.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksSyndieGreen
+
+- type: thiefBackpackSet
+  id: SockSyndieRed
+  name: clothing-voucher-sock-syndie-red
+  description: clothing-voucher-sock-syndie-red
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/syndie_red_norm.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksSyndieRed
+
+- type: thiefBackpackSet
+  id: SockYellow
+  name: clothing-voucher-sock-yellow
+  description: clothing-voucher-sock-yellow
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/yellow_norm.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksYellow
+
+- type: thiefBackpackSet
+  id: SockPink
+  name: clothing-voucher-sock-pink
+  description: clothing-voucher-sock-pink
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/pink_norm.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksPink
+
+- type: thiefBackpackSet
+  id: SockKneeComfyBlue
+  name: clothing-voucher-sock-knee-comfy-blue
+  description: clothing-voucher-sock-knee-comfy-blue
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/socks_kneecomfyblue.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeComfyBlue
+
+- type: thiefBackpackSet
+  id: SockKneeComfyGrey
+  name: clothing-voucher-sock-knee-comfy-grey
+  description: clothing-voucher-sock-knee-comfy-grey
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/socks_kneecomfygrey.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeComfyGrey
+
+- type: thiefBackpackSet
+  id: SockKneeComfyRed
+  name: clothing-voucher-sock-knee-comfy-red
+  description: clothing-voucher-sock-knee-comfy-red
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/socks_kneecomfyred.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeComfyRed
+
+- type: thiefBackpackSet
+  id: SockKneeComfyViolet
+  name: clothing-voucher-sock-knee-comfy-violet
+  description: clothing-voucher-sock-knee-comfy-violet
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/socks_kneecomfyviolet.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeComfyViolet
+
+- type: thiefBackpackSet
+  id: SockKneeAzure
+  name: clothing-voucher-sock-knee-azure
+  description: clothing-voucher-sock-knee-azure
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/azure_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeAzure
+
+- type: thiefBackpackSet
+  id: SockKneeBlack
+  name: clothing-voucher-sock-knee-black
+  description: clothing-voucher-sock-knee-black
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/black_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeBlack
+
+- type: thiefBackpackSet
+  id: SockKneeCaptain
+  name: clothing-voucher-sock-knee-captain
+  description: clothing-voucher-sock-knee-captain
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/cap_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeCaptain
+
+- type: thiefBackpackSet
+  id: SockKneeCentcom
+  name: clothing-voucher-sock-knee-centcom
+  description: clothing-voucher-sock-knee-centcom
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/centcom_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeCentcom
+
+- type: thiefBackpackSet
+  id: SockKneeCyan
+  name: clothing-voucher-sock-knee-cyan
+  description: clothing-voucher-sock-knee-cyan
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/cyan_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeCyan
+
+- type: thiefBackpackSet
+  id: SockKneeFishnet
+  name: clothing-voucher-sock-knee-fishnet
+  description: clothing-voucher-sock-knee-fishnet
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/fishnet_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeFishnet
+
+- type: thiefBackpackSet
+  id: SockKneeFurr
+  name: clothing-voucher-sock-knee-furr
+  description: clothing-voucher-sock-knee-furr
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/furr_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeFurr
+
+- type: thiefBackpackSet
+  id: SockKneeGreen
+  name: clothing-voucher-sock-knee-green
+  description: clothing-voucher-sock-knee-green
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/green_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeGreen
+
+- type: thiefBackpackSet
+  id: SockKneeHolyday
+  name: clothing-voucher-sock-knee-holyday
+  description: clothing-voucher-sock-knee-holyday
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/holyday_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeHolyday
+
+- type: thiefBackpackSet
+  id: SockKneeHomelander
+  name: clothing-voucher-sock-knee-homelander
+  description: clothing-voucher-sock-knee-homelander
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/homelander_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeHomelander
+
+- type: thiefBackpackSet
+  id: SockKneeHop
+  name: clothing-voucher-sock-knee-hop
+  description: clothing-voucher-sock-knee-hop
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/hop_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeHop
+
+- type: thiefBackpackSet
+  id: SockKneeHos
+  name: clothing-voucher-sock-knee-hos
+  description: clothing-voucher-sock-knee-hos
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/hos_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeHos
+
+- type: thiefBackpackSet
+  id: SockKneeHotpink
+  name: clothing-voucher-sock-knee-hotpink
+  description: clothing-voucher-sock-knee-hotpink
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/hotpink_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeHotpink
+
+- type: thiefBackpackSet
+  id: SockKneeOrange
+  name: clothing-voucher-sock-knee-orange
+  description: clothing-voucher-sock-knee-orange
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/orange_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeOrange
+
+- type: thiefBackpackSet
+  id: SockKneePink
+  name: clothing-voucher-sock-knee-pink
+  description: clothing-voucher-sock-knee-pink
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/pink_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneePink
+
+- type: thiefBackpackSet
+  id: SockKneeRainbow
+  name: clothing-voucher-sock-knee-rainbow
+  description: clothing-voucher-sock-knee-rainbow
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/rainbow_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeRainbow
+
+- type: thiefBackpackSet
+  id: SockKneeSyndieGreen
+  name: clothing-voucher-sock-knee-syndie-green
+  description: clothing-voucher-sock-knee-syndie-green
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/syndie_green_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeSyndieGreen
+
+- type: thiefBackpackSet
+  id: SockKneeSyndieRed
+  name: clothing-voucher-sock-knee-syndie-red
+  description: clothing-voucher-sock-knee-syndie-red
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/syndie_red_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeSyndieRed
+
+- type: thiefBackpackSet
+  id: SockKneeThin
+  name: clothing-voucher-sock-knee-thin
+  description: clothing-voucher-sock-knee-thin
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/thin_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeThin
+
+- type: thiefBackpackSet
+  id: SockKneeYellow
+  name: clothing-voucher-sock-knee-yellow
+  description: clothing-voucher-sock-knee-yellow
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/yellow_knee.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksKneeYellow
+
+- type: thiefBackpackSet
+  id: SockThighAzure
+  name: clothing-voucher-sock-thigh-azure
+  description: clothing-voucher-sock-thigh-azure
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/azure_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighAzure
+
+- type: thiefBackpackSet
+  id: SockThighBlack
+  name: clothing-voucher-sock-thigh-black
+  description: clothing-voucher-sock-thigh-black
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/black_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighBlack
+
+- type: thiefBackpackSet
+  id: SockThighBlue
+  name: clothing-voucher-sock-thigh-blue
+  description: clothing-voucher-sock-thigh-blue
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/blue_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighBlue
+
+- type: thiefBackpackSet
+  id: SockThighCaptain
+  name: clothing-voucher-sock-thigh-captain
+  description: clothing-voucher-sock-thigh-captain
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/cap_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighCaptain
+
+- type: thiefBackpackSet
+  id: SockThighCentcom
+  name: clothing-voucher-sock-thigh-centcom
+  description: clothing-voucher-sock-thigh-centcom
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/centcom_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighCentcom
+
+- type: thiefBackpackSet
+  id: SockThighCreepy
+  name: clothing-voucher-sock-thigh-creepy
+  description: clothing-voucher-sock-thigh-creepy
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/creepy_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighCreepy
+
+- type: thiefBackpackSet
+  id: SockThighCyan
+  name: clothing-voucher-sock-thigh-cyan
+  description: clothing-voucher-sock-thigh-cyan
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/cyan_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighCyan
+
+- type: thiefBackpackSet
+  id: SockFullFishnet
+  name: clothing-voucher-sock-full-fishnet
+  description: clothing-voucher-sock-full-fishnet
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/fishnet_full.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksFullFishnet
+
+- type: thiefBackpackSet
+  id: SockThighFishnet
+  name: clothing-voucher-sock-thigh-fishnet
+  description: clothing-voucher-sock-thigh-fishnet
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/fishnet_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighFishnet
+
+- type: thiefBackpackSet
+  id: SockThighFurr
+  name: clothing-voucher-sock-thigh-furr
+  description: clothing-voucher-sock-thigh-furr
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/furr_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighFurr
+
+- type: thiefBackpackSet
+  id: SockThighGreen
+  name: clothing-voucher-sock-thigh-green
+  description: clothing-voucher-sock-thigh-green
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/green_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighGreen
+
+- type: thiefBackpackSet
+  id: SockThighGrey
+  name: clothing-voucher-sock-thigh-grey
+  description: clothing-voucher-sock-thigh-grey
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/grey_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighGrey
+
+- type: thiefBackpackSet
+  id: SockThighHolyday
+  name: clothing-voucher-sock-thigh-holyday
+  description: clothing-voucher-sock-thigh-holyday
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/holyday_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighHolyday
+
+- type: thiefBackpackSet
+  id: SockThighHomelander
+  name: clothing-voucher-sock-thigh-homelander
+  description: clothing-voucher-sock-thigh-homelander
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/homelander_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighHomelander
+
+- type: thiefBackpackSet
+  id: SockThighHop
+  name: clothing-voucher-sock-thigh-hop
+  description: clothing-voucher-sock-thigh-hop
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/hop_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighHop
+
+- type: thiefBackpackSet
+  id: SockThighHos
+  name: clothing-voucher-sock-thigh-hos
+  description: clothing-voucher-sock-thigh-hos
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/hos_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighHos
+
+- type: thiefBackpackSet
+  id: SockThighHotpink
+  name: clothing-voucher-sock-thigh-hotpink
+  description: clothing-voucher-sock-thigh-hotpink
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/hotpink_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighHotpink
+
+- type: thiefBackpackSet
+  id: SockThighMonochrome
+  name: clothing-voucher-sock-thigh-monochrome
+  description: clothing-voucher-sock-thigh-monochrome
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/monochrome_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighMonochrome
+
+- type: thiefBackpackSet
+  id: SockThighOrange
+  name: clothing-voucher-sock-thigh-orange
+  description: clothing-voucher-sock-thigh-orange
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/orange_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighOrange
+
+- type: thiefBackpackSet
+  id: SockThighPantyhose
+  name: clothing-voucher-sock-thigh-pantyhose
+  description: clothing-voucher-sock-thigh-pantyhose
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/pantyhose.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighPantyhose
+
+- type: thiefBackpackSet
+  id: SockThighPurple
+  name: clothing-voucher-sock-thigh-purple
+  description: clothing-voucher-sock-thigh-purple
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/purple_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighPurple
+
+- type: thiefBackpackSet
+  id: SockThighRainbow
+  name: clothing-voucher-sock-thigh-rainbow
+  description: clothing-voucher-sock-thigh-rainbow
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/rainbow_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighRainbow
+
+- type: thiefBackpackSet
+  id: SockThighRed
+  name: clothing-voucher-sock-thigh-red
+  description: clothing-voucher-sock-thigh-red
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/red_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighRed
+
+- type: thiefBackpackSet
+  id: SockThighSyndieGreen
+  name: clothing-voucher-sock-thigh-syndie-green
+  description: clothing-voucher-sock-thigh-syndie-green
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/syndie_green_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighSyndieGreen
+
+- type: thiefBackpackSet
+  id: SockThighSyndieRed
+  name: clothing-voucher-sock-thigh-syndie-red
+  description: clothing-voucher-sock-thigh-syndie-red
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/syndie_red_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighSyndieRed
+
+- type: thiefBackpackSet
+  id: SockThighThin
+  name: clothing-voucher-sock-thigh-thin
+  description: clothing-voucher-sock-thigh-thin
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/thin_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighThin
+
+- type: thiefBackpackSet
+  id: SockThighYellow
+  name: clothing-voucher-sock-thigh-yellow
+  description: clothing-voucher-sock-thigh-yellow
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/yellow_thigh.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksThighYellow
+
+- type: thiefBackpackSet
+  id: SockCow
+  name: clothing-voucher-sock-cow
+  description: clothing-voucher-sock-cow
+  sprite:
+    sprite: ADT/Clothing/Underwear/Socks/socks_cow.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearSocksCow
+
+
+#region UnderwearExtras
+
+- type: thiefBackpackSet
+  id: UnderwearBoxersAmerica
+  name: clothing-voucher-underwear-boxers-america
+  description: clothing-voucher-underwear-boxers-america
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_america.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomBoxersAmerica
+
+- type: thiefBackpackSet
+  id: UnderwearBoxersBoom
+  name: clothing-voucher-underwear-boxers-boom
+  description: clothing-voucher-underwear-boxers-boom
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_boom.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomBoxersBoom
+
+- type: thiefBackpackSet
+  id: UnderwearBoxersBlueshield
+  name: clothing-voucher-underwear-boxers-blueshield
+  description: clothing-voucher-underwear-boxers-blueshield
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/blueshield_boxers.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomBoxersBlueshield
+
+- type: thiefBackpackSet
+  id: UnderwearBriefsWhite
+  name: clothing-voucher-underwear-briefs-white
+  description: clothing-voucher-underwear-briefs-white
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/briefs.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomBriefsWhite
+
+- type: thiefBackpackSet
+  id: UnderwearBriefsMoth
+  name: clothing-voucher-underwear-briefs-moth
+  description: clothing-voucher-underwear-briefs-moth
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/briefs_moth.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomBriefsMoth
+
+- type: thiefBackpackSet
+  id: UnderwearPantiesComfyWhite
+  name: clothing-voucher-underwear-panties-comfy-white
+  description: clothing-voucher-underwear-panties-comfy-white
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/whitecomfy_panties.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomPantiesComfyWhite
+
+- type: thiefBackpackSet
+  id: UnderwearPantiesLace
+  name: clothing-voucher-underwear-panties-lace
+  description: clothing-voucher-underwear-panties-lace
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/lace_panties.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomPantiesLace
+
+- type: thiefBackpackSet
+  id: UnderwearPantiesLaceRed
+  name: clothing-voucher-underwear-panties-lace-red
+  description: clothing-voucher-underwear-panties-lace-red
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/red_panties.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomPantiesLaceRed
+
+- type: thiefBackpackSet
+  id: UnderwearPantiesLaceBlack
+  name: clothing-voucher-underwear-panties-lace-black
+  description: clothing-voucher-underwear-panties-lace-black
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/black_panties.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomPantiesLaceBlack
+
+- type: thiefBackpackSet
+  id: UnderwearPantiesSilkBlue
+  name: clothing-voucher-underwear-panties-silk-blue
+  description: clothing-voucher-underwear-panties-silk-blue
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/muns_panties_blue.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomPantiesLaceBlueAlternative
+
+- type: thiefBackpackSet
+  id: UnderwearPantiesSilkRed
+  name: clothing-voucher-underwear-panties-silk-red
+  description: clothing-voucher-underwear-panties-silk-red
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/muns_panties_red.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomPantiesLaceRedAlternative
+
+- type: thiefBackpackSet
+  id: UnderwearPantiesChristmas
+  name: clothing-voucher-underwear-panties-christmas
+  description: clothing-voucher-underwear-panties-christmas
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/panties_christmas.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomPantiesChristmas
+
+- type: thiefBackpackSet
+  id: UnderwearPantiesCow
+  name: clothing-voucher-underwear-panties-cow
+  description: clothing-voucher-underwear-panties-cow
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/panties_cow.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomPantiesCow
+
+- type: thiefBackpackSet
+  id: UnderwearPantiesBlueshield
+  name: clothing-voucher-underwear-panties-blueshield
+  description: clothing-voucher-underwear-panties-blueshield
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/blueshield_panties.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomPantiesBlueshield
+
+- type: thiefBackpackSet
+  id: UnderwearMonokiniBottomWhite
+  name: clothing-voucher-underwear-monokini-bottom-white
+  description: clothing-voucher-underwear-monokini-bottom-white
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/monokini_bottom_white.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomMonokiniWhite
+
+- type: thiefBackpackSet
+  id: UnderwearMonokiniBottomBlack
+  name: clothing-voucher-underwear-monokini-bottom-black
+  description: clothing-voucher-underwear-monokini-bottom-black
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/monokini_bottom_black.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearBottomMonokiniBlack
+
+- type: thiefBackpackSet
+  id: UnderwearBraComfyWhite
+  name: clothing-voucher-underwear-bra-comfy-white
+  description: clothing-voucher-underwear-bra-comfy-white
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/whitecomfy_bra.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraComfyWhite
+
+- type: thiefBackpackSet
+  id: UnderwearBraSports
+  name: clothing-voucher-underwear-bra-sports
+  description: clothing-voucher-underwear-bra-sports
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/sportsbra.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraSports
+
+- type: thiefBackpackSet
+  id: UnderwearBraSportsAlternative
+  name: clothing-voucher-underwear-bra-sports-alternative
+  description: clothing-voucher-underwear-bra-sports-alternative
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/sportsbraalt.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraSportsAlternative
+
+- type: thiefBackpackSet
+  id: UnderwearBraSportsBlack
+  name: clothing-voucher-underwear-bra-sports-black
+  description: clothing-voucher-underwear-bra-sports-black
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/sportsbrablack.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraSportsBlack
+
+- type: thiefBackpackSet
+  id: UnderwearBraPea
+  name: clothing-voucher-underwear-bra-pea
+  description: clothing-voucher-underwear-bra-pea
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/peabra.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraPea
+
+- type: thiefBackpackSet
+  id: UnderwearBraLace
+  name: clothing-voucher-underwear-bra-lace
+  description: clothing-voucher-underwear-bra-lace
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/lace_bra.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraLace
+
+- type: thiefBackpackSet
+  id: UnderwearBraLaceRed
+  name: clothing-voucher-underwear-bra-lace-red
+  description: clothing-voucher-underwear-bra-lace-red
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/red_bra.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraLaceRed
+
+- type: thiefBackpackSet
+  id: UnderwearBraLaceBlack
+  name: clothing-voucher-underwear-bra-lace-black
+  description: clothing-voucher-underwear-bra-lace-black
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/black_bra.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraLaceBlack
+
+- type: thiefBackpackSet
+  id: UnderwearBraSilkBlue
+  name: clothing-voucher-underwear-bra-silk-blue
+  description: clothing-voucher-underwear-bra-silk-blue
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/muns_bra_blue.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraLaceBlueAlternative
+
+- type: thiefBackpackSet
+  id: UnderwearBraSilkRed
+  name: clothing-voucher-underwear-bra-silk-red
+  description: clothing-voucher-underwear-bra-silk-red
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/muns_bra_red.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraLaceRedAlternative
+
+- type: thiefBackpackSet
+  id: UnderwearBraCow
+  name: clothing-voucher-underwear-bra-cow
+  description: clothing-voucher-underwear-bra-cow
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/bra_cow.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraCow
+
+- type: thiefBackpackSet
+  id: UnderwearBraBlueshield
+  name: clothing-voucher-underwear-bra-blueshield
+  description: clothing-voucher-underwear-bra-blueshield
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/blueshield_bra.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopBraBlueshield
+
+- type: thiefBackpackSet
+  id: UnderwearMonokiniTopWhite
+  name: clothing-voucher-underwear-monokini-top-white
+  description: clothing-voucher-underwear-monokini-top-white
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/monokini_top_white.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopMonokiniWhite
+
+- type: thiefBackpackSet
+  id: UnderwearMonokiniTopBlack
+  name: clothing-voucher-underwear-monokini-top-black
+  description: clothing-voucher-underwear-monokini-top-black
+  sprite:
+    sprite: ADT/Clothing/Underwear/Top/monokini_top_black.rsi
+    state: icon
+  content:
+  - ADTClothingUnderwearTopMonokiniBlack
+

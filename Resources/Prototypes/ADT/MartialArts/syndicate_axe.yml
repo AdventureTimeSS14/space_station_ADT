@@ -1,0 +1,28 @@
+- type: comboList
+  id: SyndicateAxeMoves
+  combos:
+  - SyndicateAxeKnockdown
+  - SyndicateAxeGrabPush
+
+- type: combo
+  id: SyndicateAxeKnockdown
+  name: syndicate-axe-combo-knockdown
+  martialArtsForm: SyndicateAxe
+  attacks:
+  - HarmLight
+  - Harm
+  event: !type:SyndicateAxeKnockdownPerformedEvent {}
+  paralyzeTime: 3
+  dropItems: false
+
+- type: combo
+  id: SyndicateAxeGrabPush
+  name: syndicate-axe-combo-grab-push
+  martialArtsForm: SyndicateAxe
+  attacks:
+  - Harm
+  - HarmLight
+  - HarmLight
+  event: !type:SyndicateAxeGrabPushPerformedEvent {}
+  dropItems: false
+  thrownSpeed: 8

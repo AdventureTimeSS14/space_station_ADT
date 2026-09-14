@@ -7,6 +7,9 @@
         - !type:DeleteEntity {}
       edges:
         - to: adttableroulette
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
           steps:
             - material: WoodPlank
               amount: 6

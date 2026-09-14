@@ -58,6 +58,14 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
 		[GuidebookData]
         public float MaxTemperature = 593.15f;
 
+        // ADT-Tweak-Start: machine parts with tiers
+        [DataField]
+        public float HeatCapacityMultiplier = 1f;
+
+        [DataField, AutoNetworkedField]
+        public float TemperatureRangeBonus = 0f;
+        // ADT-Tweak-End
+
         /// <summary>
         /// Last amount of energy added/removed from the attached pipe network
         /// </summary>

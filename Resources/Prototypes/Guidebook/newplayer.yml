@@ -13,9 +13,6 @@
   text: "/ServerInfo/Guidebook/NewPlayer/Controls/Controls.xml"
   children:
   - Radio
-# ADT-tweak start
-  - ADTMartialArts
-# ADT-tweak start  
 
 - type: guideEntry
   id: Radio

@@ -13,6 +13,12 @@ public sealed class LatheUpdateState : BoundUserInterfaceState
 
     public ProtoId<LatheRecipePrototype>? CurrentlyProducing;
 
+    // ADT-Tweak-Start
+    public bool HasReagentSlot;
+
+    public bool BeakerInserted;
+    // ADT-Tweak-End
+
     public LatheUpdateState(List<ProtoId<LatheRecipePrototype>> recipes, LatheRecipeBatch[] queue, ProtoId<LatheRecipePrototype>? currentlyProducing = null)
     {
         Recipes = recipes;

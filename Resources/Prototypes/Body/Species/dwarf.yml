@@ -67,6 +67,10 @@
     accent: scottish
   - type: Speech
     speechSounds: Bass
+  # ADT-Tweak: Start
+  - type: TypingIndicator
+    proto: ADTdwarf
+  # ADT-Tweak: End
 
 - type: entity
   parent: OrganBaseOrganic

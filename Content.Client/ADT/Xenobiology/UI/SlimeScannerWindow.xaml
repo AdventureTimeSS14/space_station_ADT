@@ -1,0 +1,65 @@
+<ui:SlimeScannerWindow xmlns="https://spacestation14.io"
+                       xmlns:ui="clr-namespace:Content.Client.ADT.Xenobiology.UI"
+                       SetWidth="500" SetHeight="400"
+                       Resizable="False"
+                       MouseFilter="Stop">
+
+    <PanelContainer Name="Background" StyleClasses="PdaBackgroundRect" ModulateSelfOverride="#adadad" />
+    <PanelContainer Name="Border" StyleClasses="PdaBorderRect" ModulateSelfOverride="#FFFFFF" />
+
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+        <BoxContainer SetHeight="26" Margin="4 2 8 0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextureButton Name="CloseButton" StyleClasses="windowCloseButton" Modulate="#646464" VerticalAlignment="Center" Margin="0 4 4 0"/>
+        </BoxContainer>
+
+        <Control Margin="18 0" RectClipContent="True" VerticalExpand="True" HorizontalExpand="True">
+            <PanelContainer Name="ContentBorder" StyleClasses="PdaBackground">
+                <Control Margin="3 3">
+                    <PanelContainer Name="ContentBackground" StyleClasses="PdaContentBackground" ModulateSelfOverride="#361834" />
+
+                    <BoxContainer Name="ContentsContainer" Orientation="Vertical" StyleClasses="PdaContent" Margin="5 5">
+                        <Label Name="TitleLabel" Text="{Loc 'slime-scanner-window-title'}" StyleClasses="ConsoleHeading"
+                               HorizontalAlignment="Center" Margin="0 5 0 0" />
+
+                        <BoxContainer Orientation="Horizontal" Margin="8 5 8 5">
+                            <Label Name="TargetNameLabel" HorizontalAlignment="Center" HorizontalExpand="True" />
+                        </BoxContainer>
+                        <PanelContainer StyleClasses="LowDivider"/>
+
+                        <ScrollContainer Margin="5 5 5 5" HorizontalExpand="True" VerticalExpand="True">
+                            <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+                                <BoxContainer Name="SlimeInfoContainer" Orientation="Vertical" Visible="False">
+                                    <BoxContainer Orientation="Horizontal" Margin="0 0 0 5">
+                                        <PanelContainer Name="ColorDisplay" MinWidth="30" MinHeight="30" Margin="0 0 10 0" />
+                                        <Label Name="BreedNameLabel" Text="" StyleClasses="LabelHeading" />
+                                    </BoxContainer>
+                                    <RichTextLabel Name="DensityWarningLabel" Text="" StyleClasses="LabelSubText"
+                                                   HorizontalExpand="True" Margin="0 8 0 8" Visible="False" />
+                                    <GridContainer Columns="2" Margin="0 5 0 0">
+                                        <Label Text="{Loc 'slime-scanner-mutation-chance'}" StyleClasses="LabelKeyText"/>
+                                        <Label Name="MutationChanceLabel"/>
+                                        <Label Text="{Loc 'slime-scanner-extracts-produced'}" StyleClasses="LabelKeyText"/>
+                                        <Label Name="ExtractsProducedLabel"/>
+                                    </GridContainer>
+                                    <Label Text="{Loc 'slime-scanner-possible-mutations'}" StyleClasses="LabelHeading" Margin="0 10 0 5"/>
+                                    <BoxContainer Name="MutationsContainer" Orientation="Vertical" Margin="0 5 0 5" />
+                                </BoxContainer>
+
+                                <BoxContainer Name="ExtractInfoContainer" Orientation="Vertical" Visible="False">
+                                    <Label Text="{Loc 'slime-scanner-extract-reagents'}" StyleClasses="LabelHeading" Margin="0 0 0 5"/>
+                                    <BoxContainer Name="ReagentsContainer" Orientation="Vertical" Margin="0 5 0 5" />
+                                </BoxContainer>
+
+                                <Label Name="NoDataLabel" Text="{Loc 'slime-scanner-no-data'}" Visible="False" Margin="10" HorizontalAlignment="Center" />
+                            </BoxContainer>
+                        </ScrollContainer>
+                    </BoxContainer>
+                </Control>
+            </PanelContainer>
+        </Control>
+
+        <BoxContainer Orientation="Horizontal" SetHeight="28">
+            <Label Text="{Loc 'slime-scanner-footer-text'}" StyleClasses="PdaWindowFooterText" Margin="32 0 0 6"/>
+        </BoxContainer>
+    </BoxContainer>
+</ui:SlimeScannerWindow>

@@ -1,0 +1,29 @@
+- type: constructionGraph
+  id: ADTWeaponAxeImprovised
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: axe
+          completed:
+          - !type:AdminLog
+            message: "Construction"
+            impact: High
+          steps:
+            - tag: Wrench
+              name: construction-graph-tag-wrench
+              icon:
+                sprite: Objects/Tools/wrench.rsi
+                state: icon
+              doAfter: 2
+            - material: Cable
+              amount: 3
+              doAfter: 1
+            - tag: GlassShard
+              name: construction-graph-tag-glass-shard
+              icon:
+                sprite: Objects/Materials/Shards/shard.rsi
+                state: shard1
+              doAfter: 1
+    - node: axe
+      entity: ADTWeaponAxeImprovised

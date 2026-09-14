@@ -104,11 +104,25 @@
     state: dark_line_e
 
 - type: decal
+  id: ADTTileBrickTileDarkLineNwse
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: dark_line_nwse
+
+- type: decal
   id: ADTTileBrickTileDarkLineS
   tags: ["station", "markings"]
   sprite:
     sprite: ADT/Decals/tile_bricktile.rsi
     state: dark_line_s
+
+- type: decal
+  id: ADTTileBrickTileDarkLineSwne
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: dark_line_swne
 
 - type: decal
   id: ADTTileBrickTileDarkLineW

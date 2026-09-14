@@ -30,13 +30,27 @@ namespace Content.Shared.VendingMachines
     {
         public readonly VendingMachineInventoryEntry Entry;
         public readonly int Count;
-        public VendingMachineEjectCountMessage(VendingMachineInventoryEntry entry, int count)
+        public readonly Color? PaintColor; // ADT-Tweak
+        public VendingMachineEjectCountMessage(VendingMachineInventoryEntry entry, int count, Color? paintColor = null) // ADT-Tweak
         {
             Entry = entry;
             Count = count;
+            PaintColor = paintColor; // ADT-Tweak
         }
     }
 
+    [Serializable, NetSerializable]
+    public sealed class VendingMachineUserInfoMessage : BoundUserInterfaceMessage
+    {
+        public readonly int Balance;
+        public readonly bool IgnoreBalance;
+
+        public VendingMachineUserInfoMessage(int balance, bool ignoreBalance = false)
+        {
+            Balance = balance;
+            IgnoreBalance = ignoreBalance;
+        }
+    }
     //ADT-Economy-End
 
     [Serializable, NetSerializable]

@@ -17,3 +17,14 @@
 
 - type: statusEffect
   id: Weakness
+
+- type: statusEffect
+  id: Syllable
+  alwaysAllowed: true
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectMeleeVulnerability
+  name: melee vulnerability
+  components:
+  - type: MeleeVulnerabilityStatusEffect

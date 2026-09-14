@@ -298,3 +298,57 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Bottom/panties_cow.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ADTClothingUnderwearBottomBoxersBlack
+  name: black boxers
+  description: Standard Nanotrasen underwear for station employees. Dyed black.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_black.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ADTClothingUnderwearBottomBoxersBlue
+  name: blue boxers
+  description: Standard Nanotrasen underwear for station employees. Dyed blue.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_blue.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ADTClothingUnderwearBottomBoxersRed
+  name: red boxers
+  description: Standard Nanotrasen underwear for station employees. Dyed red.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_red.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ADTClothingUnderwearBottomPantiesBlack
+  name: black panties
+  description: Standard Nanotrasen underwear for station female employees. Dyed black.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Bottom/panties_black.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ADTClothingUnderwearBottomPantiesBlue
+  name: blue panties
+  description: Standard Nanotrasen underwear for station female employees. Dyed blue.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Bottom/panties_blue.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ADTClothingUnderwearBottomPantiesRed
+  name: red panties
+  description: Standard Nanotrasen underwear for station female employees. Dyed red.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Bottom/panties_red.rsi #спрайты от prazat911

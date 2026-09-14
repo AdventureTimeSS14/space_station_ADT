@@ -1,0 +1,22 @@
+- type: entity
+  parent: BaseToolSurgery
+  id: ADTSawImprovised
+  name: improvised saw
+  components:
+  - type: Sharp
+  - type: Utensil
+    types:
+      - Knife
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Surgery/improvised_saw.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Medical/Surgery/improvised_saw.rsi
+  - type: Tool
+    qualities:
+      - Sawing
+    speedModifier: 0.25
+  - type: Construction
+    graph: ADTSawImprovised
+    node: saw

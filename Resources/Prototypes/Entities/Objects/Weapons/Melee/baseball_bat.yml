@@ -5,7 +5,7 @@
   description: A robust baseball bat.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Melee/baseball_bat.rsi
+    sprite: ADT/Objects/Weapons/Melee/baseball_bat.rsi #ADT-Tweak
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -135
@@ -27,7 +27,7 @@
     - 0,0,0,3
     storedSprite:
       state: storage
-      sprite: Objects/Weapons/Melee/baseball_bat.rsi
+      sprite: ADT/Objects/Weapons/Melee/baseball_bat.rsi #ADT-Tweak
   - type: Tool
     qualities:
     - Rolling
@@ -36,6 +36,7 @@
     quickEquip: false
     slots:
     - back
+    - suitStorage #ADT-Tweak
   - type: Construction
     graph: WoodenBat
     node: bat

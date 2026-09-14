@@ -78,6 +78,7 @@
       path: /Audio/Animals/snake_hiss.ogg
   - type: NoSlip
   - type: Spider
+    spawnsWebsAsNonPlayer: false
   - type: IgnoreSpiderWeb
   - type: Bloodstream
     bloodReferenceSolution:
@@ -121,13 +122,19 @@
       Arachnid: Speak
   - type: SupermatterIgnore
   - type: GrabProtection
-  # ADT-Tweak start
+  - type: NightVision
+    innate: true
+
+- type: entity
+  parent: ADTMobBaseSpider
+  id: ADTMobBaseSpiderVentCrawler
+  abstract: true
+  components:
   - type: VentCrawler
-  # ADT-Tweak end
 
 - type: entity
   name: hunter
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobHunterSpider
   components:
   - type: Sprite
@@ -153,7 +160,7 @@
       0: Alive
       70: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 4.3
+    baseWalkSpeed : 2.5
     baseSprintSpeed : 4.3
   - type: SlowOnDamage
     speedModifierThresholds:
@@ -175,7 +182,7 @@
 
 - type: entity
   name: guard
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobGuardSpider
   components:
   - type: Sprite
@@ -197,7 +204,7 @@
       Dead:
         Base: guard_dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3.8
+    baseWalkSpeed : 2.5
     baseSprintSpeed : 3.8
   - type: SlowOnDamage
     speedModifierThresholds:
@@ -223,7 +230,7 @@
 
 - type: entity
   name: viper
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobViperSpider
   components:
   - type: Sprite
@@ -249,7 +256,7 @@
       0: Alive
       40: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 4.5
+    baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
   - type: SlowOnDamage
     speedModifierThresholds:
@@ -277,7 +284,7 @@
         - ReagentId: ADTLatrotoxin
           Quantity: 100
   - type: MeleeChemicalInjector
-    transferAmount: 4
+    transferAmount: 6
     solution: melee
 
 - type: entity
@@ -318,16 +325,16 @@
   - type: Stamina
     baseCritThreshold: 200
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.7
-    baseSprintSpeed : 2.7
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 3
   - type: SlowOnDamage
     speedModifierThresholds:
-      280: 0.7
-      320: 0.5
+      100: 0.7
+      150: 0.5
   - type: MobThresholds
     thresholds:
       0: Alive
-      350: Dead
+      200: Dead
   - type: Prying # Open door from xeno.yml.
     speedModifier: 3
   - type: MeleeWeapon
@@ -337,7 +344,7 @@
 
 - type: entity
   name: little spider
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobMiniSpider
   components:
   - type: Sprite
@@ -365,6 +372,9 @@
         - SmallMobMask
         layer:
         - SmallMobLayer
+  - type: Tag
+    tags:
+    - FootstepSound
   - type: DamageStateVisuals
     states:
       Alive:
@@ -446,7 +456,7 @@
 
 - type: entity
   name: clown spider
-  parent: ADTMobBaseSpider
+  parent: ADTMobBaseSpiderVentCrawler
   id: ADTMobClownSpider
   description: Combines the two most terrifying things in existence, spiders and clowns.
   components:

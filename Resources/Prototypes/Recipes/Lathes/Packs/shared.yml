@@ -3,6 +3,7 @@
 - type: latheRecipePack
   id: MaterialsStatic
   recipes:
+  - ADTPartRodMetal #ADT-Tweak
   - SheetRGlass
   - MaterialDurathread
 
@@ -11,7 +12,13 @@
   recipes:
   - Igniter
   - ModularReceiver
-  - MicroManipulatorStockPart
+  # ADT-Tweak start
+  - CapacitorStockPart
+  - MatterBinStockPart
+  - ScanningModuleStockPart
+  - MicroServoStockPart
+  - MicroLaserStockPart
+  # ADT-Tweak end
   - ConveyorBeltAssembly
 
 - type: latheRecipePack
@@ -73,3 +80,16 @@
   - PKAUpgradeDamage
   - PKAUpgradeRange
   - PKAUpgradeFireRate
+  # ADT tweak start
+  - ADTPKAUpgradeMiningExplosion
+  - ADTPKAUpgradeOffensiveMiningExplosion
+  - ADTPKAUpgradeOffensiveExplosion
+  - ADTPKAUpgradeRapidRepeater
+  - ADTPKAUpgradeDeathSyphon
+  - ADTPKAUpgradeIndoors
+  - ADTPKAUpgradeResonatorBlast
+  - ADTPKAUpgradeTracerWhite
+  - ADTPKAUpgradeTracerAdjustable
+  - ADTPKAUpgradeChassisSuper
+  - ADTPKAUpgradeChassisHyper
+  # ADT tweak end

@@ -36,6 +36,7 @@
     - ClothMade
     - Recyclable
     - WhitelistChameleon
+    - WinterCoat # ADT-Heretic: ритуал Плаща пустоты
   - type: StaticPrice
     price: 50
 

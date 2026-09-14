@@ -39,7 +39,6 @@
     damageContainers:
     - Silicon
   - type: BorgSwitchableSubtype
-  - type: IgnoreUIRange
   - type: ShowElectrocutionHUD
   - type: StationAiVision
   # ADT-Tweak end
@@ -397,9 +396,17 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    # ADT-Tweak Start: New healing containers
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+    # ADT-Tweak End
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+    # ADT-Tweak Start: New healing containers
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
+    # ADT-Tweak End
 
 - type: entity
   parent: BaseBorgChassisDerelict

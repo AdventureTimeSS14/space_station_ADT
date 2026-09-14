@@ -18,6 +18,10 @@ public sealed partial class ShowHealthIconsComponent : Component
     [AutoNetworkedField]
     public List<ProtoId<DamageContainerPrototype>> DamageContainers = new()
     {
-        "Biological"
+        "Biological",
+        // ADT-Tweak Start: New healing containers
+        "ADTBiologicalShadekin",
+        "ADTBiologicalDrask",
+        // ADT-Tweak End
     };
 }

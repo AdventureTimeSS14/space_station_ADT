@@ -395,11 +395,11 @@
         reagent: Ethanol
         amount: 0.15
       - !type:RandomTeleport
-        probability: 0.35
+        probability: 0.05
         conditions:
         - !type:ReagentCondition
           reagent: ADTLimeShade
-          min: 20
+          min: 0.05
 
 - type: reagent
   id: ADTTeqilaOldFashion

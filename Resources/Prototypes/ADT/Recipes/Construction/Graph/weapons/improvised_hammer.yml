@@ -1,0 +1,26 @@
+- type: constructionGraph
+  id: ADTWeaponHammerImprovised
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: hammer
+          completed:
+          - !type:AdminLog
+            message: "Construction"
+            impact: High
+          steps:
+            - material: MetalRod
+              amount: 4
+              doAfter: 2
+            - material: CableHV
+              amount: 4
+              doAfter: 2
+            - tag: Toolbox
+              name: construction-graph-tag-toolbox
+              icon:
+                sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
+                state: icon
+              doAfter: 2
+    - node: hammer
+      entity: ADTWeaponHammerImprovised

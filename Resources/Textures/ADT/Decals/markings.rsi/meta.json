@@ -1,7 +1,7 @@
 {
   "version": 2,
   "license": "CC-BY-SA-3.0",
-  "copyright": "taken from SS1984 https://github.com/ss220-space/Paradise and tgstation at 606005645d3a14c4439e5ce14785650121b22678 and modified by Lost Paradise MRP",
+  "copyright": "taken from SS1984 https://github.com/ss220-space/Paradise and tgstation at 606005645d3a14c4439e5ce14785650121b22678 and modified by Lost Paradise MRP, Modified by Etvy to Adventure Time (golden_stripes_line_nwse, golden_stripes_line_swne, ast_warn_line_nwse, ast_warn_line_swne, bamboo_line_nwse, bamboo_line_swne)",
   "size": {
     "x": 32,
     "y": 32
@@ -98,7 +98,13 @@
             "name": "warn_line_whitescale_n"
         },
         {
+            "name": "ast_warn_line_nwse"
+        },
+        {
             "name": "warn_line_whitescale_s"
+        },
+        {
+            "name": "ast_warn_line_swne"
         },
         {
             "name": "warn_line_whitescale_w"
@@ -227,7 +233,13 @@
             "name": "bamboo_line_n"
         },
         {
+            "name": "bamboo_line_nwse"
+        },
+        {
             "name": "bamboo_line_s"
+        },
+        {
+            "name": "bamboo_line_swne"
         },
         {
             "name": "bamboo_line_w"
@@ -341,7 +353,13 @@
             "name": "golden_stripes_line_n"
         },
         {
+            "name": "golden_stripes_line_nwse"
+        },
+        {
             "name": "golden_stripes_line_s"
+        },
+        {
+            "name": "golden_stripes_line_swne"
         },
         {
             "name": "golden_stripes_line_w"

@@ -416,7 +416,7 @@
       storagebase: !type:AllSelector
         children:
         - id: FakeMindShieldImplanter
-          amount: 10
+          amount: 3
 
 - type: entity
   parent: BoxCardboard

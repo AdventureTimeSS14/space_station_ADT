@@ -1,0 +1,98 @@
+- type: guideEntry
+  id: ADTMartialArts
+  name: guide-entry-martialarts-ADT
+  priority: -10
+  text: "/ServerInfo/ADT/MartialArts/MartialArts.xml"
+  children:
+  - ADTMartialArtsUnarmed
+  - ADTMartialArtsWeapons
+
+- type: guideEntry
+  id: ADTMartialArtsUnarmed
+  name: guide-entry-martialarts-unarmed-ADT
+  text: "/ServerInfo/ADT/MartialArts/MartialArts.xml"
+  children:
+  - ADTMaCqc
+  - ADTMaCarp
+  - ADTMaCapoeira
+  - ADTMaDragon
+  - ADTMaNinjutsu
+  - ADTMaHellRip
+  - ADTMaJudo
+  - ADTMaPtsd
+  - ADTMaCookbook
+  - ADTMaKravMaga
+
+- type: guideEntry
+  id: ADTMaCqc
+  name: guide-entry-martialarts-cqc-ADT
+  text: "/ServerInfo/ADT/MartialArts/Cqc.xml"
+
+- type: guideEntry
+  id: ADTMaCarp
+  name: guide-entry-martialarts-carp-ADT
+  text: "/ServerInfo/ADT/MartialArts/Carp.xml"
+
+- type: guideEntry
+  id: ADTMaCapoeira
+  name: guide-entry-martialarts-capoeira-ADT
+  text: "/ServerInfo/ADT/MartialArts/Capoeira.xml"
+
+- type: guideEntry
+  id: ADTMaDragon
+  name: guide-entry-martialarts-dragon-ADT
+  text: "/ServerInfo/ADT/MartialArts/Dragon.xml"
+
+- type: guideEntry
+  id: ADTMaNinjutsu
+  name: guide-entry-martialarts-ninjutsu-ADT
+  text: "/ServerInfo/ADT/MartialArts/Ninjutsu.xml"
+
+- type: guideEntry
+  id: ADTMaHellRip
+  name: guide-entry-martialarts-hellrip-ADT
+  text: "/ServerInfo/ADT/MartialArts/HellRip.xml"
+
+- type: guideEntry
+  id: ADTMaJudo
+  name: guide-entry-martialarts-judo-ADT
+  text: "/ServerInfo/ADT/MartialArts/Judo.xml"
+
+- type: guideEntry
+  id: ADTMaPtsd
+  name: guide-entry-martialarts-ptsd-ADT
+  text: "/ServerInfo/ADT/MartialArts/Ptsd.xml"
+
+- type: guideEntry
+  id: ADTMaCookbook
+  name: guide-entry-martialarts-cookbook-ADT
+  text: "/ServerInfo/ADT/MartialArts/Cookbook.xml"
+
+- type: guideEntry
+  id: ADTMaKravMaga
+  name: guide-entry-martialarts-kravmaga-ADT
+  text: "/ServerInfo/ADT/MartialArts/KravMaga.xml"
+
+- type: guideEntry
+  id: ADTMartialArtsWeapons
+  name: guide-entry-martialarts-weapons-ADT
+  text: "/ServerInfo/ADT/MartialArts/Weapons.xml"
+  children:
+  - ADTMaTonfa
+  - ADTMaAxe
+  - ADTMaKatana
+
+- type: guideEntry
+  id: ADTMaTonfa
+  name: guide-entry-martialarts-tonfa-ADT
+  text: "/ServerInfo/ADT/MartialArts/Tonfa.xml"
+
+- type: guideEntry
+  id: ADTMaAxe
+  name: guide-entry-martialarts-axe-ADT
+  text: "/ServerInfo/ADT/MartialArts/SyndicateAxe.xml"
+
+- type: guideEntry
+  id: ADTMaKatana
+  name: guide-entry-martialarts-katana-ADT
+  text: "/ServerInfo/ADT/MartialArts/CursedKatana.xml"

@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseBlobObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-blob
+    unique: true
+    difficulty: 1
+    icon:
+      sprite: ADT/Blob/Mobs/blob.rsi
+      state: blob_nuke_overlay
+  - type: RoleRequirement
+    roles:
+    - BlobRole
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBlobObjective
+  id: BlobCaptureObjective
+  components:
+  - type: BlobCaptureCondition
+    target: 400

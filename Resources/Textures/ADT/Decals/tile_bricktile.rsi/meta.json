@@ -1,7 +1,7 @@
 {
     "version": 4,
     "license": "CC0-1.0",
-    "copyright": "Made by github user @Morb0. Modified v2 by ko4erga and maksim21612 (discord). Updated inner parts for all colors by Unlumy (discord)",
+    "copyright": "Made by github user @Morb0. Modified v2 by ko4erga and maksim21612 (discord). Updated inner parts for all colors by Unlumy (discord).",
     "size": {
         "x": 32,
         "y": 32
@@ -41,7 +41,13 @@
             "name": "steel_line_e"
         },
         {
+            "name": "steel_line_nwse"
+        },
+        {
             "name": "steel_line_s"
+        },
+        {
+            "name": "steel_line_swne"
         },
         {
             "name": "steel_line_w"
@@ -92,7 +98,13 @@
             "name": "white_line_e"
         },
         {
+            "name": "white_line_nwse"
+        },
+        {
             "name": "white_line_s"
+        },
+        {
+            "name": "white_line_swne"
         },
         {
             "name": "white_line_w"
@@ -143,7 +155,13 @@
             "name": "dark_line_e"
         },
         {
+            "name": "dark_line_nwse"
+        },
+        {
             "name": "dark_line_s"
+        },
+        {
+            "name": "dark_line_swne"
         },
         {
             "name": "dark_line_w"

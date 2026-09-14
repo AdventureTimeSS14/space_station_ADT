@@ -1,0 +1,57 @@
+- type: martialArt
+  id: CookbookTechnique
+  martialArtsForm: CookbookTechnique
+  roundstartCombos: CookbookTechniqueMoves
+
+- type: comboList
+  id: CookbookTechniqueMoves
+  combos:
+  - CookbookChopCombo
+  - CookbookSpinCombo
+  - CookbookRollCombo
+  - CookbookSqueezeCombo
+
+- type: combo
+  id: CookbookChopCombo
+  name: cookbook-technique-combo-chop
+  martialArtsForm: CookbookTechnique
+  attacks:
+  - Grab
+  - Harm
+  event: !type:CookbookChopComboPerformedEvent
+  dropItems: false
+  paralyzeTime: 1
+  extraDamage: 10
+  damageType: Blunt
+
+- type: combo
+  id: CookbookSpinCombo
+  name: cookbook-technique-combo-spin
+  martialArtsForm: CookbookTechnique
+  attacks:
+  - Disarm
+  - Grab
+  - Harm
+  event: !type:CookbookSpinComboPerformedEvent {}
+  paralyzeTime: 2
+
+- type: combo
+  id: CookbookRollCombo
+  name: cookbook-technique-combo-roll
+  martialArtsForm: CookbookTechnique
+  attacks:
+  - Grab
+  - Grab
+  event: !type:CookbookRollComboPerformedEvent
+  staminaDamage: 35
+
+- type: combo
+  id: CookbookSqueezeCombo
+  name: cookbook-technique-combo-squeeze
+  martialArtsForm: CookbookTechnique
+  attacks:
+  - Grab
+  - Disarm
+  event: !type:CookbookSqueezeComboPerformedEvent {}
+  dropItems: true
+  paralyzeTime: 1

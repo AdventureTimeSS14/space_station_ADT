@@ -1,0 +1,93 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: npcFaction
+  id: ADTBlob
+  hostile:
+    - NanoTrasen
+    - Syndicate
+    - Xeno
+    - PetsNT
+    - Zombie
+    - Dragon
+    - Revolutionary
+    - Wizard
+
+- type: explosion
+  id: ADTBlob
+  damagePerIntensity:
+    types:
+      Blunt: 10
+  tileBreakChance: [0]
+  tileBreakIntensity: [0]
+  lightColor: Red
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+
+- type: Tag
+  id: ADTBlobMob
+
+- type: Tag
+  id: ADTBlobbernaut
+
+- type: entity
+  parent: MobMouse
+  id: ADTMobMouseBlob
+  suffix: Blob
+  components:
+  - type: BlobCarrier
+
+- type: entity
+  id: ADTSpawnPointGhostBlobRat
+  name: Mouse Blob Spawn Point
+  suffix: Blob Ghost Role
+  parent: BaseAntagSpawner
+  components:
+    - type: GhostRoleMobSpawner
+      prototype: ADTMobMouseBlob
+    - type: GhostRole
+      makeSentient: true
+      name: blob-carrier-role-name
+      description: blob-carrier-role-desc
+      rules: blob-carrier-role-rules
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
+      raffle:
+        settings: default
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      layers:
+        - state: green
+        - sprite: Mobs/Animals/bat.rsi
+          state: bat
+
+# Blob
+- type: entity
+  parent: BaseMindRoleAntag
+  id: ADTMindRoleBlob
+  name: Blob Role
+#  description: mind-role-blob-description
+  components:
+  - type: MindRole
+    antagPrototype: ADTBlob
+    exclusiveAntag: true
+    roleType: SoloAntagonist
+    subtype: role-subtype-blob
+  - type: BlobRole
+
+- type: factionIcon
+  id: ADTBlobFaction
+  priority: 10
+  showTo:
+    components:
+    - BlobCarrier
+    - BlobObserver
+    - ZombieBlob
+    - Blobbernaut
+  icon:
+    sprite: /Textures/ADT/Blob/Interface/Misc/antag_icon.rsi
+    state: blob
+
+- type: currency
+  id: ADTBlobPoint
+  displayName: store-currency-display-blob-points
+  canWithdraw: false

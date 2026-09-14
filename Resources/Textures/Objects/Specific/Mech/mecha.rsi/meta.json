@@ -1,11 +1,11 @@
 {
-  "copyright" : "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/82f92cb983e3cdedb52cbb35122760e835dfd6d0, hamtr made by brainfood1183 (github), NT Gygax from SS13 Paradise RU Station",
-  "license" : "CC-BY-SA-3.0",
-  "version": 1,
-  "size": {
-    "x": 32,
-    "y": 32
-  },
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/82f92cb983e3cdedb52cbb35122760e835dfd6d0, hamtr made by brainfood1183 (github), NT Gygax from SS13 Paradise RU Station. Sprite arhimedes make for ADT server",
+    "license": "CC-BY-SA-3.0",
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
     "states": [
         {
             "name": "honker",
@@ -444,6 +444,15 @@
                     0.1
                 ]
             ]
+        },
+        {
+            "name": "archimedes"
+        },
+        {
+            "name": "archimedes-open"
+        },
+        {
+            "name": "archimedes-broken"
         }
     ]
 }

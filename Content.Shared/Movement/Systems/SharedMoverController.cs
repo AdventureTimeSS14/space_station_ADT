@@ -110,6 +110,11 @@ public abstract partial class SharedMoverController : VirtualController
 
         InitializeInput();
         InitializeRelay();
+        InitializeTileMovement(); // ADT-Tweak
+        InitializeInvertRun(); // ADT tweak
+        // ADT-Tweak-Start
+        InitializeDrunkDrift();
+        // ADT-Tweak-End
         Subs.CVar(_configManager, CCVars.RelativeMovement, value => _relativeMovement = value, true);
         Subs.CVar(_configManager, CCVars.MinFriction, value => _minDamping = value, true);
         Subs.CVar(_configManager, CCVars.AirFriction, value => _airDamping = value, true);
@@ -194,6 +199,11 @@ public abstract partial class SharedMoverController : VirtualController
         // If we're not the target of a relay then handle lerp data.
         if (relaySource == null)
         {
+            // ADT-Tweak-Start
+            if (TileMovementQuery.HasComponent(uid))
+                TryUpdateRelative(uid, mover, xform);
+            // ADT-Tweak-End
+
             // Update relative movement
             if (mover.LerpTarget < Timing.CurTime)
             {
@@ -266,6 +276,35 @@ public abstract partial class SharedMoverController : VirtualController
         // Get current tile def for things like speed/friction mods
         ContentTileDefinition? tileDef = null;
 
+        // ADT-Tweak-Start
+        if (TileMovementQuery.TryComp(uid, out var tileMovement))
+        {
+            if (!weightless && !inAirHelpless)
+            {
+                var didTileMovement = HandleTileMovement(
+                    uid,
+                    tileMovement,
+                    physicsComponent,
+                    xform,
+                    mover,
+                    tileDef,
+                    relaySource,
+                    frameTime);
+
+                tileMovement.WasWeightlessLastTick = weightless;
+
+                if (didTileMovement)
+                    return;
+            }
+            else
+            {
+                tileMovement.WasWeightlessLastTick = weightless;
+                tileMovement.SlideActive = false;
+                tileMovement.FailureSlideActive = false;
+            }
+        }
+        // ADT-Tweak-End
+
         var touching = false;
         // Whether we use tilefriction or not
         if (weightless || inAirHelpless)
@@ -328,6 +367,10 @@ public abstract partial class SharedMoverController : VirtualController
             accel = moveSpeedComponent?.Acceleration ?? MovementSpeedModifierComponent.DefaultAcceleration;
             accel *= tileDef?.MobAcceleration ?? 1f;
         }
+
+        // ADT-Tweak-Start: apply drunken sway during movement
+        ApplyDrunkWobble(uid, ref wishDir);
+        // ADT-Tweak-End
 
         // This way friction never exceeds acceleration when you're trying to move.
         // If you want to slow down an entity with "friction" you shouldn't be using this system.

@@ -1,0 +1,53 @@
+- type: entity
+  id: ADTXenobiologyMonkeyRecycler
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: monkey recycler
+  description: A grinder that reduces dead monkeys into reusable cube stock. Link it to a xenobiology control console with a multitool.
+  components:
+  - type: XenobiologyMonkeyRecycler
+  - type: Machine
+    board: ADTXenobiologyMonkeyRecyclerMachineCircuitboard
+  - type: GuideHelp
+    guides:
+    - Xenobiology
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: BasicDevice
+  - type: DeviceLinkSource
+    ports:
+    - XenobiologyRecyclerSender
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49"
+        density: 190
+        mask:
+        - Impassable
+        layer:
+        - MachineLayer
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    drawdepth: Doors
+    sprite: ADT/Xenobiology/Specific/Xenobiology/monkey_recycler.rsi
+    layers:
+    - state: grinder
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: StaticPrice
+    price: 200

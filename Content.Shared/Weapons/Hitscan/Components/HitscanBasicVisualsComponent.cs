@@ -26,4 +26,11 @@ public sealed partial class HitscanBasicVisualsComponent : Component
     /// </summary>
     [DataField]
     public SpriteSpecifier? ImpactFlash;
+
+    /// <summary>
+    /// ADT BSA
+    /// Client-side lifetime of hitscan visual effect in seconds.
+    /// </summary>
+    [DataField("effectLifetime")]
+    public float EffectLifetime = 0.48f;
 }

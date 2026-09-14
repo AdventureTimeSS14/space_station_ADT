@@ -118,6 +118,30 @@
   equipment:
     underwearb: ADTClothingUnderwearBottomBoxersBlueshield
 
+- type: loadout
+  id: ADTUnderwearBoxersBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underwearb: ADTClothingUnderwearBottomBoxersBlack
+
+- type: loadout
+  id: ADTUnderwearBoxersBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underwearb: ADTClothingUnderwearBottomBoxersBlue
+
+- type: loadout
+  id: ADTUnderwearBoxersRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underwearb: ADTClothingUnderwearBottomBoxersRed
+
 # Трусики OwO
 
 - type: loadout
@@ -183,6 +207,30 @@
     proto: ADTUnderwearSpeciesRestrictions
   equipment:
     underwearb: ADTClothingUnderwearBottomMonokiniBlack
+
+- type: loadout
+  id: ADTUnderwearPantiesBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underwearb: ADTClothingUnderwearBottomPantiesBlack
+
+- type: loadout
+  id: ADTUnderwearPantiesBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underwearb: ADTClothingUnderwearBottomPantiesBlue
+
+- type: loadout
+  id: ADTUnderwearPantiesRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underwearb: ADTClothingUnderwearBottomPantiesRed
 
 ## главы
 
@@ -259,6 +307,22 @@
     proto: ADTUnderwearSpeciesRestrictions
   equipment:
     underweart: ADTClothingUnderwearTopTShirt
+
+- type: loadout
+  id: ADTUnderwearTShirtBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underweart: ADTClothingUnderwearTopTShirtBlack
+
+- type: loadout
+  id: ADTUnderwearTShirtTelnik
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underweart: ADTClothingUnderwearTopTShirtTelnik
 
 # Лифчики
 
@@ -357,6 +421,31 @@
     proto: ADTUnderwearSpeciesRestrictions
   equipment:
     underweart: ADTClothingUnderwearTopMonokiniBlack
+
+- type: loadout
+  id: ADTUnderwearBraBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underweart: ADTClothingUnderwearTopBraBlack
+
+- type: loadout
+  id: ADTUnderwearBraBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underweart: ADTClothingUnderwearTopBraBlue
+
+- type: loadout
+  id: ADTUnderwearBraRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underweart: ADTClothingUnderwearTopBraRed
+
 
 ## главы
 
@@ -933,6 +1022,30 @@
     proto: ADTUnderwearSpeciesRestrictions
   equipment:
     socks: ADTClothingUnderwearSocksThighYellow
+
+- type: loadout
+  id: ADTUnderwearSocksCow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksCow
+
+- type: loadout
+  id: ADTUnderwearPantiesCow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underwearb: ADTClothingUnderwearBottomPantiesCow
+
+- type: loadout
+  id: ADTUnderwearBraCow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underweart: ADTClothingUnderwearTopBraCow
 
 ## Носки чисто для клоуна и мима
 

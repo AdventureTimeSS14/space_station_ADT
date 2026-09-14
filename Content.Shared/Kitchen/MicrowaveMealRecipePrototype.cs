@@ -1,5 +1,6 @@
-﻿﻿using Content.Shared.Chemistry.Reagent;
+﻿using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
+using Content.Shared.Research.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
@@ -45,6 +46,14 @@ namespace Content.Shared.Kitchen
 
         [DataField(customTypeSerializer: typeof(FlagSerializer<MicrowaveRecipeTypeFlags>))]
         public int RecipeType = (int)MicrowaveRecipeType.Microwave;
+
+        // ADT-Tweak start
+        /// <summary>
+        /// Технология РНД, открывающая этот рецепт (для медицинского ассемблера). Null - доступен сразу.
+        /// </summary>
+        [DataField]
+        public ProtoId<TechnologyPrototype>? RequiredTechnology;
+        // ADT-Tweak end
 
         [DataField]
         public bool HideInGuidebook;

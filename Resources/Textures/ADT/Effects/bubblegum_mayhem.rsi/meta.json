@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/b1b3eee1dc1596141f6296ace20ac758de6e439e/icons/obj/wizard.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon",
+      "delays": [
+        [
+          0.8,
+          0.2,
+          0.3,
+          0.2
+        ]
+      ]
+    }
+  ]
+}

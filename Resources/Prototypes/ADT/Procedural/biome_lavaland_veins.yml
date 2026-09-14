@@ -1,0 +1,281 @@
+- type: biomeMarkerLayer
+  id: ADTLavaVeinOreIron
+  entityMask:
+    AsteroidRock: AsteroidRockTin
+    WallRock: WallRockTin
+    WallRockBasalt: WallRockBasaltTin
+    WallRockChromite: WallRockChromiteTin
+    WallRockSand: WallRockSandTin
+    WallRockSnow: WallRockSnowTin
+  maxCount: 14
+  minGroupSize: 22
+  maxGroupSize: 33
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinOreQuartz
+  entityMask:
+    AsteroidRock: AsteroidRockQuartz
+    WallRock: WallRockQuartz
+    WallRockBasalt: WallRockBasaltQuartz
+    WallRockChromite: WallRockChromiteQuartz
+    WallRockSnow: WallRockSnowQuartz
+  maxCount: 21
+  minGroupSize: 22
+  maxGroupSize: 33
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinOreCoal
+  entityMask:
+    AsteroidRock: AsteroidRockCoal
+    WallRock: WallRockCoal
+    WallRockBasalt: WallRockBasaltCoal
+    WallRockChromite: WallRockChromiteCoal
+    WallRockSand: WallRockSandCoal
+    WallRockSnow: WallRockSnowCoal
+  maxCount: 21
+  minGroupSize: 18
+  maxGroupSize: 26
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinOreGold
+  entityMask:
+    AsteroidRock: AsteroidRockGold
+    WallRock: WallRockGold
+    WallRockBasalt: WallRockBasaltGold
+    WallRockChromite: WallRockChromiteGold
+    WallRockSand: WallRockSandGold
+    WallRockSnow: WallRockSnowGold
+  maxCount: 4
+  minGroupSize: 11
+  maxGroupSize: 11
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinOreSilver
+  entityMask:
+    AsteroidRock: AsteroidRockSilver
+    WallRock: WallRockSilver
+    WallRockBasalt: WallRockBasaltSilver
+    WallRockChromite: WallRockChromiteSilver
+    WallRockSand: WallRockSandSilver
+    WallRockSnow: WallRockSnowSilver
+  maxCount: 7
+  minGroupSize: 11
+  maxGroupSize: 15
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinOrePlasma
+  entityMask:
+    AsteroidRock: AsteroidRockPlasma
+    WallRock: WallRockPlasma
+    WallRockBasalt: WallRockBasaltPlasma
+    WallRockChromite: WallRockChromitePlasma
+    WallRockSand: WallRockSandPlasma
+    WallRockSnow: WallRockSnowPlasma
+  maxCount: 6
+  minGroupSize: 9
+  maxGroupSize: 11
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinOreUranium
+  entityMask:
+    AsteroidRock: AsteroidRockUranium
+    WallRock: WallRockUranium
+    WallRockBasalt: WallRockBasaltUranium
+    WallRockChromite: WallRockChromiteUranium
+    WallRockSand: WallRockSandUranium
+    WallRockSnow: WallRockSnowUranium
+  maxCount: 4
+  minGroupSize: 4
+  maxGroupSize: 18
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinOreDiamond
+  entityMask:
+    AsteroidRock: AsteroidRockDiamond
+    WallRock: WallRockDiamond
+    WallRockBasalt: WallRockBasaltDiamond
+    WallRockChromite: WallRockChromiteDiamond
+    WallRockSand: WallRockSandDiamond
+    WallRockSnow: WallRockSnowDiamond
+  maxCount: 4
+  minGroupSize: 2
+  maxGroupSize: 4
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinOreArtifactFragment
+  entityMask:
+    AsteroidRock: AsteroidRockArtifactFragment
+    WallRock: WallRockArtifactFragment
+    WallRockBasalt: WallRockBasaltArtifactFragment
+    WallRockChromite: WallRockChromiteArtifactFragment
+    WallRockSand: WallRockSandArtifactFragment
+    WallRockSnow: WallRockSnowArtifactFragment
+  maxCount: 4
+  minGroupSize: 2
+  maxGroupSize: 4
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinADTOreBS
+  entityMask:
+    AsteroidRock: ADTAsteroidRockBS
+    WallRock: ADTWallRockBS
+    WallRockBasalt: ADTWallRockBasaltBS
+    WallRockChromite: ADTWallRockChromiteBS
+    WallRockSand: ADTWallRockSandBS
+    WallRockSnow: ADTWallRockSnowBS
+  maxCount: 4
+  minGroupSize: 2
+  maxGroupSize: 4
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinOreCopper
+  entityMask:
+    AsteroidRock: ADTAsteroidRockCopper
+    WallRock: ADTWallRockCopper
+    WallRockBasalt: ADTWallRockBasaltCopper
+    WallRockChromite: ADTWallRockChromiteCopper
+    WallRockSand: ADTWallRockSandCopper
+    WallRockSnow: ADTWallRockSnowCopper
+  maxCount: 10
+  minGroupSize: 22
+  maxGroupSize: 33
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinOreZinc
+  entityMask:
+    AsteroidRock: ADTAsteroidRockZinc
+    WallRock: ADTWallRockZinc
+    WallRockBasalt: ADTWallRockBasaltZinc
+    WallRockChromite: ADTWallRockChromiteZinc
+    WallRockSand: ADTWallRockSandZinc
+    WallRockSnow: ADTWallRockSnowZinc
+  maxCount: 6
+  minGroupSize: 22
+  maxGroupSize: 33
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinOreLead
+  entityMask:
+    AsteroidRock: ADTAsteroidRockLead
+    WallRock: ADTMeteorRockLead
+    WallRockBasalt: ADTWallRockBasaltLead
+    WallRockChromite: ADTWallRockChromiteLead
+    WallRockSand: ADTWallRockSandLead
+    WallRockSnow: ADTWallRockSnowLead
+  maxCount: 7
+  minGroupSize: 22
+  maxGroupSize: 33
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinOreGibtonit
+  entityMask:
+    AsteroidRock: ADTAsteroidRockGibtonit
+    WallRock: ADTWallRockGibtonit
+    WallRockBasalt: ADTWallRockBasaltGibtonit
+    WallRockChromite: ADTWallRockChromiteGibtonit
+    WallRockSand: ADTWallRockSandGibtonit
+    WallRockSnow: ADTWallRockSnowGibtonit
+  maxCount: 14
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinOreMagmite
+  entityMask:
+    AsteroidRock: ADTAsteroidRockMagmite
+    WallRock: ADTWallRockMagmite
+    WallRockBasalt: ADTWallRockBasaltMagmite
+    WallRockChromite: ADTWallRockChromiteMagmite
+    WallRockSand: ADTWallRockSandMagmite
+    WallRockSnow: ADTWallRockSnowMagmite
+  maxCount: 4
+  minGroupSize: 1
+  maxGroupSize: 2
+  radius: 2
+
+# Стада и мелкая живность
+- type: biomeMarkerLayer
+  id: ADTLavaGutlunchHerd
+  prototype: ADTMobGutlunch
+  minGroupSize: 3
+  maxGroupSize: 6
+  maxCount: 5
+  radius: 24
+
+- type: biomeMarkerLayer
+  id: ADTLavaGutlunchPair
+  prototype: ADTMobGuthen
+  minGroupSize: 1
+  maxGroupSize: 2
+  maxCount: 3
+  radius: 24
+
+- type: biomeMarkerLayer
+  id: ADTLavaGubbucks
+  prototype: ADTMobGubbuck
+  minGroupSize: 1
+  maxGroupSize: 2
+  maxCount: 3
+  radius: 24
+
+- type: biomeMarkerLayer
+  id: ADTLavaGoldgrubs
+  prototype: ADTMobGoldgrub
+  minGroupSize: 1
+  maxGroupSize: 2
+  maxCount: 7
+  radius: 20
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinAncientRock
+  entityMask:
+    AsteroidRock: ADTWallRockAncient
+    WallRock: ADTWallRockAncient
+    WallRockBasalt: ADTWallRockAncient
+    WallRockChromite: ADTWallRockAncient
+    WallRockSand: ADTWallRockAncient
+    WallRockSnow: ADTWallRockAncient
+  maxCount: 10
+  minGroupSize: 4
+  maxGroupSize: 7
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinAncientRockUranium
+  entityMask:
+    AsteroidRock: ADTWallRockAncientUranium
+    WallRock: ADTWallRockAncientUranium
+    WallRockBasalt: ADTWallRockAncientUranium
+    WallRockChromite: ADTWallRockAncientUranium
+    WallRockSand: ADTWallRockAncientUranium
+    WallRockSnow: ADTWallRockAncientUranium
+  maxCount: 2
+  minGroupSize: 2
+  maxGroupSize: 3
+  radius: 3
+
+- type: biomeMarkerLayer
+  id: ADTLavaVeinAncientRockDiamond
+  entityMask:
+    AsteroidRock: ADTWallRockAncientDiamond
+    WallRock: ADTWallRockAncientDiamond
+    WallRockBasalt: ADTWallRockAncientDiamond
+    WallRockChromite: ADTWallRockAncientDiamond
+    WallRockSand: ADTWallRockAncientDiamond
+    WallRockSnow: ADTWallRockAncientDiamond
+  maxCount: 2
+  minGroupSize: 2
+  maxGroupSize: 3
+  radius: 3

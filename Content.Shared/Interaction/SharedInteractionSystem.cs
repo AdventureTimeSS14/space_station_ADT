@@ -15,6 +15,7 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -167,7 +168,10 @@ namespace Content.Shared.Interaction
         private void OnBoundInterfaceInteractAttempt(Entity<UserInterfaceComponent> ent, ref BoundUserInterfaceMessageAttempt ev)
         {
             _uiQuery.TryComp(ev.Target, out var aUiComp);
-            if (!_actionBlockerSystem.CanInteract(ev.Actor, ev.Target))
+//          if (!_actionBlockerSystem.CanInteract(ev.Actor, ev.Target)) ADT port pAI start PAI's can be slotted into and use console BUIs.
+            var slottedPAI = IsSlottedPAI(ev.Actor, ev.Target);
+
+            if (!_actionBlockerSystem.CanInteract(ev.Actor, ev.Target) && !slottedPAI) // ADT port pAI end PAI's can be slotted into and use console BUIs.
             {
                 // We permit ghosts to open uis unless explicitly blocked
                 if (ev.Message is not OpenBoundInterfaceMessage
@@ -199,7 +203,7 @@ namespace Content.Shared.Interaction
                 return;
             }
 
-            if (aUiComp.RequiresComplex && !_actionBlockerSystem.CanComplexInteract(ev.Actor))
+            if (aUiComp.RequiresComplex && !_actionBlockerSystem.CanComplexInteract(ev.Actor) && !slottedPAI) // ADT port pAI PAI's can be slotted into and use console BUIs. added (&& !slottedPAI)
                 ev.Cancel();
         }
 
@@ -368,7 +372,7 @@ namespace Content.Shared.Interaction
             // ADT-Tweak start
             if (_hands.GetActiveItem((user, hands)) is { } heldItem)
             {
-                if (HasComp<MeleeWeaponComponent>(heldItem))
+                if (HasComp<MeleeWeaponComponent>(heldItem) || HasComp<VirtualItemComponent>(heldItem))
                     return false;
 
                 return true;
@@ -1396,7 +1400,7 @@ namespace Content.Shared.Interaction
             if (wearer == user)
                 return true;
 
-            if (_strippable.IsStripHidden(slotDef, user, wearer)) // ADT-tweak: Allow user to see verbs for their own hidden slots
+            if (_strippable.IsStripHidden(slotDef, user))
                 return false;
 
             return InRangeUnobstructed(user, wearer) && _containerSystem.IsInSameOrParentContainer(user, wearer);

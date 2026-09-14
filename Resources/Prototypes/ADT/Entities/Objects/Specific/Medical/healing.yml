@@ -29,6 +29,10 @@
   - type: Healing #по факту, эта штука может вылечить аж 210 урона за 10 штук, но учитывая то, что кислотные раны очень редки, то где-то 190, что тоже достаточно.
     damageContainers:
       - Biological
+      # ADT-Tweak Start: New healing containers
+      - ADTBiologicalShadekin
+      - ADTBiologicalDrask
+      # ADT-Tweak End
     damage:
       types:
         Blunt: -3

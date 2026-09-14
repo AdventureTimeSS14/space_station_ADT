@@ -8,6 +8,7 @@
   id: ADTBaseSpeciesMobNonBreathing
   save: false
   components:
+  - type: Absorbable
   - type: MobState
   - type: OfferItem
   - type: RadiationPopup
@@ -67,3 +68,11 @@
   - type: BloodCough
     postingSayDamage: blood-cough
   - type: TimeDespawnDamage
+
+- type: entity
+  save: false
+  parent: BaseSpeciesMobOrganic
+  id: ADTBaseSpeciesMobOrganicUnRotting
+  abstract: true
+  components:
+  - type: UnRotting

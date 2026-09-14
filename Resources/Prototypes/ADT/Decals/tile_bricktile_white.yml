@@ -104,11 +104,25 @@
     state: white_line_e
 
 - type: decal
+  id: ADTTileBrickTileWhiteLineNwse
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: white_line_nwse
+
+- type: decal
   id: ADTTileBrickTileWhiteLineS
   tags: ["station", "markings"]
   sprite:
     sprite: ADT/Decals/tile_bricktile.rsi
     state: white_line_s
+
+- type: decal
+  id: ADTTileBrickTileWhiteLineSwne
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: white_line_swne
 
 - type: decal
   id: ADTTileBrickTileWhiteLineW

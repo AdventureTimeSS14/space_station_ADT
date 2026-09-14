@@ -106,6 +106,13 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
 
         _sprite.SetVisible((uid, args.Sprite), hasVisibleLayer || revealed);
 
+        // ADT-Tweak start
+        if (showVentPipe && !ShowAll && !scannerRevealed && args.Sprite.Color.A != SharedTrayScannerSystem.SubfloorRevealAlpha)
+            _sprite.SetColor((uid, args.Sprite), args.Sprite.Color.WithAlpha(SharedTrayScannerSystem.SubfloorRevealAlpha));
+        else if (!showVentPipe && !ShowAll && !scannerRevealed && args.Sprite.Color.A != 1f)
+            _sprite.SetColor((uid, args.Sprite), args.Sprite.Color.WithAlpha(1f));
+        // ADT-Tweak end
+
         if (ShowAll)
         {
             // Allows sandbox mode to make wires visible over other stuff.

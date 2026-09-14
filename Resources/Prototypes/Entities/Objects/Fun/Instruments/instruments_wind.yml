@@ -57,6 +57,11 @@
   name: clarinet
   description: Skweedward tintacklays.
   components:
+  #ADT-Tweak-Start
+  - type: Item
+    size: Small
+    storedRotation: -45
+  #ADT-Tweak-End
   - type: Instrument
     program: 71
   - type: Sprite
@@ -68,6 +73,11 @@
   name: flute
   description: Reaching new heights of being horrifyingly shrill.
   components:
+  #ADT-Tweak-Start
+  - type: Item
+    size: Small
+    storedRotation: -45
+  #ADT-Tweak-End
   - type: Instrument
     program: 73
   - type: Sprite
@@ -79,6 +89,11 @@
   name: recorder
   description: Comes in various colors of fashionable plastic!
   components:
+  #ADT-Tweak-Start
+  - type: Item
+    size: Small
+    storedRotation: -45
+  #ADT-Tweak-End
   - type: Instrument
     program: 74
   - type: Sprite

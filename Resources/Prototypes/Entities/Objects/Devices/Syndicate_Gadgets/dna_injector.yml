@@ -25,23 +25,25 @@
     heldPrefix: implanter
     size: Small
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ChangelingClonerVisuals.State:
-        injector:
-          Empty: {state: implanter0}
-          Filled: {state: implanter0}
-          Spent: {state: broken}
-        fillState:
-          Empty: {visible: false}
-          Filled: {visible: true}
-          Spent: {visible: false}
-  - type: ChangelingCloner
+# ADT: Закомментировано из-за использования генокрада от Goob Station
+#   - type: GenericVisualizer
+#     visuals:
+#       enum.ChangelingClonerVisuals.State:
+#         injector:
+#           Empty: {state: implanter0}
+#           Filled: {state: implanter0}
+#           Spent: {state: broken}
+#         fillState:
+#           Empty: {visible: false}
+#           Filled: {visible: true}
+#           Spent: {visible: false}
+# ADT: Закомментировано из-за использования генокрада от Goob Station
+#   - type: ChangelingCloner
 
 - type: entity
   parent: DnaInjectorUnlimited
   id: DnaInjector
   suffix: Admeme, single use
-  components:
-  - type: ChangelingCloner
-    reusable: false
+# ADT: Закомментировано из-за использования генокрада от Goob Station
+#   - type: ChangelingCloner
+#     reusable: false

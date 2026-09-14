@@ -1,0 +1,33 @@
+- type: vendingMachineInventory
+  id: ADTMusicomatInventory
+  startingInventory:
+    AcousticGuitarInstrument: 1
+    BassGuitarInstrument: 1
+    ElectricGuitarInstrument: 1
+    BanjoInstrument: 1
+    RockGuitarInstrument: 1
+    CelloInstrument: 1
+    ViolinInstrument: 1
+    ViolaInstrument: 1
+    SynthesizerInstrument: 1
+    AccordionInstrument: 1
+    BagpipeInstrument: 1
+    KalimbaInstrument: 1
+    GlockenspielInstrument: 1
+    HarmonicaInstrument: 1
+    FrenchHornInstrument: 1
+    EuphoniumInstrument: 1
+    TrumpetInstrument: 1
+    TromboneInstrument: 1
+    SaxophoneInstrument: 1
+    ClarinetInstrument: 1
+    FluteInstrument: 1
+    ADTMusicDiskMMachine: 1
+  contrabandInventory:
+    ToyFigurineMusician: 1
+    SuperSynthesizerNoLimitInstrument: 1
+  emaggedInventory:
+    ADTDeathGuitarInstrument: 1
+    ADTClothingOuterLeatherJacket: 1
+    ClothingHandsGlovesFingerless: 1
+    ADTClothingHeadHatDarkBenie: 1

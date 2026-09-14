@@ -53,6 +53,8 @@
       amount: 1
     - id: MaterialBones1 #ADT tweak
       maxAmount: 3 #ADT tweak
+    - id: ADTMaterialSinew1 #ADT tweak
+      maxAmount: 2 #ADT tweak
   - type: MovementSpeedModifier
     baseWalkSpeed: 3 # ADT tweak 5->3
     baseSprintSpeed: 4 #ADT tweak 7-> 4
@@ -89,6 +91,9 @@
         2
       AggroVisionRadius: !type:Single
         10
+  - type: ADTMobLoot
+    loots:
+      ADTKineticTrophyMagmaWing: 0.1
   # ADT-Tweak end
 
 - type: entity
@@ -143,6 +148,8 @@
       maxAmount: 3 #ADT tweak
     - id: DiamondOre1 #ADT tweak
       maxAmount: 1 #ADT tweak
+    - id: ADTMaterialSinew1 #ADT tweak
+      maxAmount: 2 #ADT tweak
 
 - type: entity
   id: MobWatcherMagmawing
@@ -176,6 +183,8 @@
     - id: PlasmaOre1 #ADT tweak
       maxAmount: 2
     - id: DiamondOre1 #ADT tweak
+      maxAmount: 2 #ADT tweak
+    - id: ADTMaterialSinew1 #ADT tweak
       maxAmount: 2 #ADT tweak
 
 - type: entity

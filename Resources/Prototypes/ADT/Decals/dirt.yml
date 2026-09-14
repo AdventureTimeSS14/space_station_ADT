@@ -133,3 +133,19 @@
   sprite:
     sprite: ADT/Decals/dirt.rsi
     state: dirt_line_w
+
+- type: decal
+  id: ADTDirtLineNwse
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/dirt.rsi
+    state: dirt_line_nwse
+
+- type: decal
+  id: ADTDirtLineSwne
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/dirt.rsi
+    state: dirt_line_swne

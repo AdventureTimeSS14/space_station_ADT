@@ -1,0 +1,79 @@
+
+uniform sampler2D SCREEN_TEXTURE;
+
+uniform highp float Gain;
+uniform highp float TotalLighting;
+uniform highp float WhiteoutThreshold;
+uniform highp float WhiteoutIntensity;
+uniform highp float BloomRadius;
+uniform highp float BloomStrength;
+uniform highp float NoiseAmplitude;
+uniform highp float GrainSize;
+uniform highp float ScanlineDark;
+
+void fragment()
+{
+    const highp vec3 NV_COLOR = vec3(0.4, 0.85, 0.4);
+    COLOR = zTextureSpec(SCREEN_TEXTURE, Pos);
+
+    highp float Y = dot(COLOR.rgb, vec3(0.2126, 0.7152, 0.0722));
+    highp float YComp = Y / (1.0 + Y * 1.7);
+    highp float ampScale = Gain * (1.0 + TotalLighting * 5.0);
+    highp float YAmp = YComp * ampScale;
+
+    highp float bloomThresh = WhiteoutThreshold * 0.7;
+    highp float radiusPx = BloomRadius;
+    highp float stepPx = clamp(radiusPx * 0.12, 1.0, 4.0);
+    highp vec2 s = SCREEN_PIXEL_SIZE * stepPx;
+    highp float sum = 0.0;
+    highp float wsum = 0.0;
+    highp float ampBloom = ampScale * 0.57;
+
+    highp float y0 = dot(zTextureSpec(SCREEN_TEXTURE, Pos).rgb, vec3(0.2126, 0.7152, 0.0722));
+    sum += max(0.0, y0 * ampBloom - bloomThresh) * 4.0;
+    wsum += 4.0;
+    sum += max(0.0, dot(zTextureSpec(SCREEN_TEXTURE, Pos + vec2(s.x, 0.0)).rgb, vec3(0.2126, 0.7152, 0.0722)) * ampBloom - bloomThresh) * 2.0;
+    sum += max(0.0, dot(zTextureSpec(SCREEN_TEXTURE, Pos - vec2(s.x, 0.0)).rgb, vec3(0.2126, 0.7152, 0.0722)) * ampBloom - bloomThresh) * 2.0;
+    sum += max(0.0, dot(zTextureSpec(SCREEN_TEXTURE, Pos + vec2(0.0, s.y)).rgb, vec3(0.2126, 0.7152, 0.0722)) * ampBloom - bloomThresh) * 2.0;
+    sum += max(0.0, dot(zTextureSpec(SCREEN_TEXTURE, Pos - vec2(0.0, s.y)).rgb, vec3(0.2126, 0.7152, 0.0722)) * ampBloom - bloomThresh) * 2.0;
+    wsum += 8.0;
+    sum += max(0.0, dot(zTextureSpec(SCREEN_TEXTURE, Pos + vec2(s.x, s.y)).rgb, vec3(0.2126, 0.7152, 0.0722)) * ampBloom - bloomThresh);
+    sum += max(0.0, dot(zTextureSpec(SCREEN_TEXTURE, Pos + vec2(s.x, -s.y)).rgb, vec3(0.2126, 0.7152, 0.0722)) * ampBloom - bloomThresh);
+    sum += max(0.0, dot(zTextureSpec(SCREEN_TEXTURE, Pos + vec2(-s.x, s.y)).rgb, vec3(0.2126, 0.7152, 0.0722)) * ampBloom - bloomThresh);
+    sum += max(0.0, dot(zTextureSpec(SCREEN_TEXTURE, Pos + vec2(-s.x, -s.y)).rgb, vec3(0.2126, 0.7152, 0.0722)) * ampBloom - bloomThresh);
+    wsum += 4.0;
+    sum += max(0.0, dot(zTextureSpec(SCREEN_TEXTURE, Pos + vec2(s.x * 2.0, 0.0)).rgb, vec3(0.2126, 0.7152, 0.0722)) * ampBloom - bloomThresh) * 0.5;
+    sum += max(0.0, dot(zTextureSpec(SCREEN_TEXTURE, Pos - vec2(s.x * 2.0, 0.0)).rgb, vec3(0.2126, 0.7152, 0.0722)) * ampBloom - bloomThresh) * 0.5;
+    sum += max(0.0, dot(zTextureSpec(SCREEN_TEXTURE, Pos + vec2(0.0, s.y * 2.0)).rgb, vec3(0.2126, 0.7152, 0.0722)) * ampBloom - bloomThresh) * 0.5;
+    sum += max(0.0, dot(zTextureSpec(SCREEN_TEXTURE, Pos - vec2(0.0, s.y * 2.0)).rgb, vec3(0.2126, 0.7152, 0.0722)) * ampBloom - bloomThresh) * 0.5;
+    wsum += 2.0;
+
+    YAmp += (sum / max(wsum, 0.0001)) * BloomStrength;
+
+    highp float g = YAmp / (1.0 + max(YAmp, 0.0) * 0.42);
+    highp float denom = max(1.0 - WhiteoutThreshold, 0.0001);
+    highp float whiteout = clamp((g - WhiteoutThreshold) / denom, 0.0, 1.0);
+    whiteout = pow(clamp(whiteout * WhiteoutIntensity, 0.0, 1.0), 1.3);
+    whiteout = max(whiteout, smoothstep(0.30, 0.50, g) * 0.8);
+    whiteout *= 0.75;
+
+    highp vec3 nvcolor = max(g, 0.0) * NV_COLOR;
+    highp vec3 finalColor = mix(nvcolor, vec3(1.0), whiteout);
+
+    highp float line = 1.0 - step(0.5, mod(floor(FRAGCOORD.y), 4.0));
+    finalColor *= mix(1.0, mix(ScanlineDark, 1.0, whiteout), line);
+
+    // Dense fine grain — animated via hard frame cuts (no mix → constant contrast)
+    highp float cell = max(GrainSize, 1.0);
+    highp vec2 gc = floor(FRAGCOORD.xy / cell);
+    highp float frame = floor(TIME * 16.0);
+    highp vec3 p3 = fract(vec3(gc.x, gc.y, frame) * vec3(0.1031, 0.1030, 0.0973));
+    p3 += dot(p3, p3.yzx + 33.33);
+    highp float nGrain = fract((p3.x + p3.y) * p3.z);
+    nGrain = fract(nGrain * 52.9829189 + frame * 0.6180339887);
+    highp float grain = (nGrain - 0.5) * NoiseAmplitude;
+    grain *= (1.0 - clamp(g, 0.0, 1.0) * 0.5) * (1.0 - whiteout * 0.8);
+    finalColor = clamp(finalColor + NV_COLOR * grain, 0.0, 1.0);
+
+    COLOR.rgb = finalColor;
+}

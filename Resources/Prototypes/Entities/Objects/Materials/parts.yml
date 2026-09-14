@@ -75,7 +75,12 @@
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation
-  # ADT Start
+  #ADT-Tweak-Start
+  - type: Material
+  - type: Tag
+    tags:
+    - Sheet
+    - ConstructionMaterial
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/ADT/Entities/rod_pickup.ogg
@@ -85,7 +90,7 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/ADT/Entities/metal_drop.ogg
-  # ADT End
+  #ADT-Tweak-End
 
 - type: entity
   parent: PartRodMetal

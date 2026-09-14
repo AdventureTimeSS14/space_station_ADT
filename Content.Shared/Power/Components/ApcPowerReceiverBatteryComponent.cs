@@ -18,6 +18,16 @@ public sealed partial class ApcPowerReceiverBatteryComponent : Component
     [DataField, AutoNetworkedField]
     public bool Enabled = false;
 
+    // ADT Tweak start
+    /// <summary>
+    /// Whether the battery acts as an emergency backup: when external power is
+    /// missing it keeps the device "Powered" (and drains the battery to do so).
+    /// Set to false to make the device power off entirely and preserve the charge.
+    /// </summary>
+    [DataField("batteryBackup")]
+    public bool BatteryBackup = true;
+    // ADT Tweak end
+
     /// <summary>
     /// The passive load the entity places on the APC power network.
     /// If not connected to an active APC power network, this amount

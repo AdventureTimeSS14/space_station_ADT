@@ -15,22 +15,20 @@
     - CrewTransferScheduler
 
 - type: gamePreset
-  id: Changeling
+  showInVote: false # secret
+  id: ADTShadowling
   alias:
-    - changeling
-  name: changelings-title
+    - shadowling
+    - tenemorph
+  name: adt-shadowling-title
   minPlayers: 25
-  showInVote: false
-  description: changelings-description
+  description: adt-shadowling-description
   rules:
-    - Changeling
+    - ADTShadowlingGameRule
     - BasicRoundstartVariation
-    - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - CrewTransferScheduler
-
-#Облегченная версия предателей
 
 - type: gamePreset
   id: TraitorLight
@@ -69,5 +67,19 @@
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
 
+- type: gamePreset
+  id: Blob
+  alias:
+    - blob
+    - blab
+  name: blob-title
+  description: blob-description
+  showInVote: false
+  rules:
+    - BlobGameMode
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - BasicRoundstartVariation
+    - CrewTransferScheduler #ADT tweak
 
 

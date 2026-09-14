@@ -77,6 +77,8 @@
   - MedkitAdvanced
   - MedkitRadiation
   - MedkitCombat
+  - SyringeCase # ADT-Tweak
+  - SyringeCaseAlt # ADT-Tweak
 
 - type: latheRecipePack
   id: MedicalBoardsStatic
@@ -94,7 +96,7 @@
 - type: latheRecipePack
   id: Chemistry
   recipes:
-  - ChemicalPayload
+  # - ChemicalPayload # ADT-Tweak
   - BluespaceBeaker
 ##- CryostasisBeaker
 ##- SyringeCryostasis

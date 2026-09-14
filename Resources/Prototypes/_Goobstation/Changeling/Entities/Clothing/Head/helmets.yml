@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ChangelingClothingHeadHelmet
+  name: chitinous helmet
+  description: An all-consuming chitinous mass of armor.
+  suffix: Unremoveable
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Changeling/ling_armor_helmet.rsi
+  - type: Clothing
+    sprite: _Goobstation/Changeling/ling_armor_helmet.rsi
+    equippedPrefix: transform
+  - type: ChangelingEquipment
+    requiredSlot: OUTERCLOTHING
+    ## no modifier as the armor/torso is the actual "main" part
+  - type: FireProtection
+    reduction: 0.15
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.65
+        Caustic: 0.55
+  - type: IdentityBlocker
+  - type: IngestionBlocker
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+    - FacialHair

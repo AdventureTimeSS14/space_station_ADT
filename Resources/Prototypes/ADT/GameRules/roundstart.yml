@@ -15,45 +15,80 @@
   id: BaseHereticRule
   components:
   - type: HereticRule
+  - type: AntagObjectives
+    objectives:
+    - HereticKnowledgeObjective
+    - HereticSacrificeObjective
+    - HereticSacrificeHeadObjective
   - type: AntagSelection
-  - type: AntagRandomObjectives
-    sets:
-    - groups: HereticObjectiveGroup
-    maxDifficulty: 7
+    selectionTime: IntraPlayerSpawn
+    agentName: heretic-roundend-name
 
 - type: entity
   parent: BaseHereticRule
   id: Heretic
   components:
-  - type: HereticRule
   - type: GameRule
-    minPlayers: 25
+    minPlayers: 15
   - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 4
+      max: 3
       playerRatio: 15
       lateJoinAdditional: true
-      mindComponents:
-      - type: HereticRole
+      blacklist:
+        components:
+        - CommandStaff
+      mindRoles:
+      - MindRoleHeretic
+  - type: Tag
+    tags:
+      - RoundstartAntag
+
+- type: entity
+  parent: BaseHereticRule
+  id: CalmHeretic
+  components:
+  - type: GameRule
+    minPlayers: 15
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    agentName: heretic-roundend-name
+    definitions:
+    - prefRoles: [ Heretic ]
+      max: 2
+      playerRatio: 20
+      lateJoinAdditional: true
+      blacklist:
+        components:
+        - CommandStaff
+      mindRoles:
+      - MindRoleHeretic
+  - type: Tag
+    tags:
+      - CalmAntag
 
 - type: entity
   parent: BaseHereticRule
   id: HereticSoloGameRule
   components:
-  - type: HereticRule
   - type: GameRule
     minPlayers: 25
   - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
       max: 1
       playerRatio: 15
       lateJoinAdditional: true
-      mindComponents:
-      - type: HereticRole
+      blacklist:
+        components:
+        - CommandStaff
+      mindRoles:
+      - MindRoleHeretic
 
 - type: entityTable
   id: ExtendedGameRulesTable
@@ -137,18 +172,6 @@
 
 #Пары из антагов
 - type: entity
-  id: ChangelingDuo
-  parent: Changeling
-  components:
-  - type: GameRule
-    minPlayers: 25
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ Changeling ]
-      max: 2
-      playerRatio: 15
-
-- type: entity
   parent: BaseTraitorRule
   id: TraitorDuoGameRule
   components:
@@ -196,35 +219,41 @@
   parent: BaseHereticRule
   id: HereticDuoGameRule
   components:
-  - type: HereticRule
   - type: GameRule
     minPlayers: 20
   - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
       max: 2
       playerRatio: 15
       lateJoinAdditional: true
-      mindComponents:
-      - type: HereticRole
+      blacklist:
+        components:
+        - CommandStaff
+      mindRoles:
+      - MindRoleHeretic
 
 - type: entity
   parent: BaseHereticRule
   id: HereticTripleGameRule
   components:
-  - type: HereticRule
   - type: GameRule
     minPlayers: 25
   - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
       max: 3
       playerRatio: 15
       lateJoinAdditional: true
-      mindComponents:
-      - type: HereticRole
+      blacklist:
+        components:
+        - CommandStaff
+      mindRoles:
+      - MindRoleHeretic
 
 - type: entity
   parent: BaseGameRule
@@ -294,3 +323,54 @@
     sets:
     - groups: TraitorLightObjectiveGroups
     maxDifficulty: 8
+
+# Blob
+- type: entity
+  id: BlobRule
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BlobRule
+  - type: GameRule
+
+- type: entity
+  id: BlobGameMode
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BlobRule
+  - type: GameRule
+    minPlayers: 20
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ ADTBlob ]
+      allowNonHumans: true
+      blacklist:
+        components:
+        - CommandStaff
+        - AntagImmune
+      briefing:
+        text: blob-carrier-role-greeting
+        color: Plum
+        sound: /Audio/Announcements/bloblarm.ogg
+      mindRoles:
+      - ADTMindRoleBlob
+
+- type: entity
+  id: BlobSpawn
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StationEvent
+    weight: 6
+    duration: 1
+    earliestStart: 50
+    minimumPlayers: 20
+    maxOccurrences: 2
+  - type: GameRule
+  - type: BlobSpawnRule
+    carrierBlobProtos:
+    - ADTSpawnPointGhostBlobRat
+    playersPerCarrierBlob: 30
+    maxCarrierBlob: 1

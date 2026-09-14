@@ -3,7 +3,6 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Materials;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
-
 namespace Content.Shared.Chemistry.Components;
 
 /// <summary>
@@ -21,6 +20,7 @@ public sealed partial class SolutionComponent : Component
     /// <para>The reagents the entity is composed of and their temperature.</para>
     /// </summary>
     [DataField]
+    [Access(typeof(SharedSolutionContainerSystem), Other = AccessPermissions.ReadWriteExecute)] // ADT-Tweak
     public Solution Solution = new();
 }
 

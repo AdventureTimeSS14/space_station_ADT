@@ -1,4 +1,13 @@
 - type: entity
+  parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase, BadgeOnClothing]
+  id: ADTClothingOuterArmorBasic # Без хамелеона, используйте для ивент шмоток.
+  components:
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - ADTArmorSacrafice
+
+- type: entity
   parent: ClothingOuterArmorBasic
   id: ADTClothingBlueshieldArmor
   name: blueshield bulletproof vest
@@ -146,7 +155,7 @@
   - type: GroupExamine
 
 - type: entity
-  parent: ClothingOuterArmorBasic
+  parent: ADTClothingOuterArmorBasic
   id: ADTClothingGigaMuscles
   name: muscles
   description: I dunno how to describe this shish
@@ -186,7 +195,7 @@
     jumpAction: ActionMusclesJump
 
 - type: entity
-  parent: ClothingOuterArmorBasic
+  parent: ADTClothingOuterArmorBasic
   id: ADTClothingOuterArmorTSF
   name: TSF bulletproof vest
   description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
@@ -514,7 +523,7 @@
 #КЗС-1
 
 - type: entity
-  parent: ClothingOuterArmorBasic
+  parent: ADTClothingOuterArmorBasic
   id: ADTClothingOuterVestUSSPKZS1
   name: KZS-1 vest
   description: A synthetic armor vest. This one has added webbing and ballistic plates.

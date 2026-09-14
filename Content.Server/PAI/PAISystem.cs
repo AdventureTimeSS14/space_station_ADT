@@ -12,7 +12,7 @@ using System.Text;
 
 namespace Content.Server.PAI;
 
-public sealed class PAISystem : EntitySystem
+public sealed partial class PAISystem : EntitySystem // add partial
 {
     [Dependency] private readonly InstrumentSystem _instrumentSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -33,6 +33,7 @@ public sealed class PAISystem : EntitySystem
         SubscribeLocalEvent<PAIComponent, MindAddedMessage>(OnMindAdded);
         SubscribeLocalEvent<PAIComponent, MindRemovedMessage>(OnMindRemoved);
         SubscribeLocalEvent<PAIComponent, BeingMicrowavedEvent>(OnMicrowaved);
+        InitializePAISlotting(); // ADT port PAI's can be slotted into PDAs and computer consoles and use them.
     }
 
     private void OnUseInHand(EntityUid uid, PAIComponent component, UseInHandEvent args)

@@ -1,0 +1,15 @@
+<!--
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<DefaultWindow xmlns="https://spacestation14.io"
+               Title="{Loc 'blob-chem-swap-ui-window-name'}"
+               MinSize="250 300"
+               SetSize="250 300">
+    <BoxContainer Orientation="Vertical">
+        <ScrollContainer VerticalExpand="True">
+            <GridContainer Name="Grid" Columns="3" Margin="0 5" >
+            </GridContainer>
+        </ScrollContainer>
+    </BoxContainer>
+</DefaultWindow>

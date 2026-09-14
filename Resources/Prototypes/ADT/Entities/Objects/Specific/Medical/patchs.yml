@@ -42,13 +42,8 @@
         maxVol: 20
   - type: DeleteOnSolutionEmpty
     solution: pen
-  - type: Injector
-    activeModeProtoId: ADTPatchInject
-    allowedModes:
-    - ADTPatchInject
-    ignoreClosed: true
-    solutionName: pen
-    currentTransferAmount: 20
+  - type: ADTPatch
+    solution: pen
   - type: Extractable
     grindableSolutionName: pen
   - type: Appearance
@@ -74,12 +69,14 @@
     layers:
     - state: patch2
       map: ["enum.SolutionContainerLayers.Fill"]
+  - type: ADTPatch
+    delay: 0
   - type: SolutionContainerManager
     solutions:
       pen:
         maxVol: 18
         reagents:
-        - ReagentId: ADTStypticPowder
+        - ReagentId: ADTStypticPowderPatch
           Quantity: 18
 
 #Patch healing small
@@ -94,12 +91,14 @@
     layers:
     - state: patch1
       map: ["enum.SolutionContainerLayers.Fill"]
+  - type: ADTPatch
+    delay: 0
   - type: SolutionContainerManager
     solutions:
       pen:
         maxVol: 10
         reagents:
-        - ReagentId: ADTStypticPowder
+        - ReagentId: ADTStypticPowderPatch
           Quantity: 10
 
 #Patch burn
@@ -114,12 +113,14 @@
     layers:
     - state: patch4
       map: ["enum.SolutionContainerLayers.Fill"]
+  - type: ADTPatch
+    delay: 0
   - type: SolutionContainerManager
     solutions:
       pen:
         maxVol: 14
         reagents:
-        - ReagentId: ADTSilverSulfadiazine
+        - ReagentId: ADTSilverSulfadiazinePatch
           Quantity: 14
 
 #Patch burn small
@@ -134,12 +135,14 @@
     layers:
     - state: patch3
       map: ["enum.SolutionContainerLayers.Fill"]
+  - type: ADTPatch
+    delay: 0
   - type: SolutionContainerManager
     solutions:
       pen:
         maxVol: 7
         reagents:
-        - ReagentId: ADTSilverSulfadiazine
+        - ReagentId: ADTSilverSulfadiazinePatch
           Quantity: 7
 
 #honk honk?
@@ -217,14 +220,3 @@
         reagents:
         - ReagentId: Leporazine
           Quantity: 8
-
-- type: injectorMode
-  id: ADTPatchInject
-  name: injector-component-inject-mode-name
-  injectOnUse: true
-  transferAmounts: [20]
-  mobTime: 0
-  downedModifier: 0.5
-  selfModifier: 0.5
-  behavior: Inject
-  injectSound: /Audio/Items/Medical/brutepack_end.ogg

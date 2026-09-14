@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Mech.Components;
 using Content.Shared.ADT.Mech.Equipment.Components;
 using Content.Shared.ADT.Weapons.Ranged.Components;
 using Content.Shared.Mech.Components;
@@ -102,12 +103,21 @@ public abstract partial class SharedGunSystem
                 if (args.Shots == 0)
                     return;
 
+                var weakened = equipmentComp.EquipmentOwner is { } gunner
+                               && HasComp<MechSecondPilotControlComponent>(gunner)
+                               && hitscan.WeakenedProto != null;
+
+                var hitscanProto = weakened ? hitscan.WeakenedProto!.Value : hitscan.Proto;
+                var hitscanCost = weakened ? hitscan.ShotCost * hitscan.WeakenedCostModifier : hitscan.ShotCost;
+
                 for (var i = 0; i < args.Shots; i++)
                 {
-                    args.Ammo.Add(GetShootable(hitscan, args.Coordinates));
+                    var shot = Spawn(hitscanProto, args.Coordinates);
+                    args.Ammo.Add((shot, EnsureShootable(shot)));
+
                     if (!equipmentComp.EquipmentOwner.HasValue)
                         break;
-                    if (!_mech.TryChangeEnergy(equipmentComp.EquipmentOwner.Value, -hitscan.ShotCost))
+                    if (!_mech.TryChangeEnergy(equipmentComp.EquipmentOwner.Value, -hitscanCost))
                         break;
                 }
                 break;

@@ -58,3 +58,17 @@ public sealed class BeforeShowTypingIndicatorEvent : IInventoryRelayEvent
         return _overrideIndicator;
     }
 }
+
+// ADT Tweak start
+public sealed class TypingIndicatorStateChangedEvent : EntityEventArgs
+{
+    public readonly TypingIndicatorState OldState;
+    public readonly TypingIndicatorState NewState;
+
+    public TypingIndicatorStateChangedEvent(TypingIndicatorState oldState, TypingIndicatorState newState)
+    {
+        OldState = oldState;
+        NewState = newState;
+    }
+}
+// ADT Tweak end

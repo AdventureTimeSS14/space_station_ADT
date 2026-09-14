@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "From Etvy to Adventure Time",
+    "states": [
+        {
+            "name": "splatter_2"
+
+        },
+        {
+            "name": "splatter_3"
+
+        },
+        {
+            "name": "splatter_4"
+
+        }
+    ]
+}

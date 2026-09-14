@@ -8,7 +8,6 @@
     Gold: 300
     Plasma: 800
 
-
 - type: latheRecipe
   id: ADTWeaponCutterAdv
   result: ADTWeaponCutterAdv
@@ -77,7 +76,6 @@
     Plastic: 1500
     Plasma: 500
 
-
 - type: latheRecipe
   id: ADT40mmGrenadeBatonRecipe
   result: ADT40mmGrenadeBaton
@@ -111,3 +109,14 @@
   materials:
     Lead : 300 #ADT-BFUU-Tweak
     Plastic: 200
+
+- type: latheRecipe
+  id: ADTС4Recipe
+  result: C4
+  completetime: 10
+  materials:
+    Lead: 300
+    Plastic: 400
+    Gold: 200
+    Steel: 500
+    Silver: 200

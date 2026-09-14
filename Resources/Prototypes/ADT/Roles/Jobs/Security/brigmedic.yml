@@ -40,11 +40,11 @@
   id: BrigmedicGear
   equipment:
     ears: ClothingHeadsetBrigmedic
-    pocket1: WeaponPistolMk58
+    pocket1: ADTSecVoucher #ADT-Tweak
   storage:
     back:
     - Flash
-    - MagazinePistol
+    # - MagazinePistol: магазин идёт в комплекте с МК-58 из ваучера РВИ
 
 - type: chameleonOutfit
   id: BrigmedicChameleonOutfit

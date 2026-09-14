@@ -553,4 +553,115 @@
       Dead:
         Base: shadow_of_cluwne_dead
   - type: TTS
-    voice: "bloodseeker_dota_2"    
+    voice: "bloodseeker_dota_2"
+
+- type: entity
+  parent: ADTMobBaseCreature
+  id: ADTMobButcherCreature
+  name: Мясник
+  description: Ой, это же кетчуп на твоём пузе?
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Demons/butcher_creature.rsi
+    state: butcher
+    drawdepth: Mobs
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: butcher
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: butcher_glowing
+        shader: unshaded
+      - map: ["enum.HumanoidVisualLayers.Chest"]
+      - map: ["enum.HumanoidVisualLayers.Head"]
+      - map: ["enum.HumanoidVisualLayers.Snout"]
+      - map: ["enum.HumanoidVisualLayers.Eyes"]
+      - map: ["enum.HumanoidVisualLayers.RArm"]
+      - map: ["enum.HumanoidVisualLayers.LArm"]
+      - map: ["enum.HumanoidVisualLayers.RLeg"]
+      - map: ["enum.HumanoidVisualLayers.LLeg"]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+        state: l_leg
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["socks"]
+      - map: ["underwearb"]
+      - map: ["underweart"]
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: ["id"]
+      - map: ["gloves"]
+      - map: ["shoes"]
+      - map: ["ears"]
+      - map: ["outerClothing"]
+      - map: ["eyes"]
+      - map: ["belt"]
+      - map: ["neck"]
+      - map: ["back"]
+      - map: ["enum.HumanoidVisualLayers.FacialHair"]
+      - map: ["enum.HumanoidVisualLayers.Hair"]
+      - map: ["enum.HumanoidVisualLayers.HeadSide"]
+      - map: ["enum.HumanoidVisualLayers.HeadTop"]
+      - map: ["mask"]
+      - map: ["head"]
+      - map: ["pocket1"]
+      - map: ["pocket2"]
+      - map: ["enum.HumanoidVisualLayers.Tail"]
+  - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
+    sprite: ADT/Mobs/Demons/butcher_creature.rsi
+    state:  butcher_icon
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: butcher
+        BaseUnshaded: butcher_glowing
+      Critical:
+        Base: butcher_sleep
+      Dead:
+        Base: butcher_dead
+  - type: TTS
+    voice: "bloodseeker_dota_2"
+  - type: Vocal
+    sounds:
+      Male: MaleButcher
+      Female: MaleButcher
+      Unsexed: MaleButcher
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5.5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 250
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      450: Critical
+      500: Dead
+  - type: MeleeWeapon
+    altDisarm: false
+    soundHit:
+      path: /Audio/ADT/murder.ogg
+    angle: 60
+    animation: WeaponArcSlash
+    damage:
+      types:
+        Blunt: 8

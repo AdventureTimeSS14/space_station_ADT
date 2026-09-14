@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: BrigmedicDuffelbagClothing
   suffix: Filled
   parent: ClothingBackpackDuffelSecurity
@@ -86,7 +86,7 @@
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateFilledXC67
   name: xC-67 rifle bundle
-  description: bundle with a prototype xC-67 assault fifle and two mags #, and a Suppressor.
+  description: bundle with a prototype xC-67 assault fifle and three mags #, and a Suppressor.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -94,19 +94,38 @@
         children:
         - id: ADTWeaponRifleXC67
         - id: ADTMagazineRifleExtended
+          amount: 3
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledFlamethrower
+  name: flamethrower bundle
+  description: bundle with a flamethrower #, and a Suppressor.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: RMCWeaponFlamerFmW60
+        - id: RMCTankFlamerFmW60
+          amount: 1
+        - id: RMCTankFlamerFmW60NapalmSticky
+          amount: 1
+        - id: RMCTankFlamerFmW60HighCombustive
+          amount: 2
+        - id: FireExtinguisherMini
           amount: 2
 - type: entity
   parent: ClothingBackpackDuffelSyndicateAmmoBundle
   id: ADTClothingBackpackDuffelSyndicateFilledXC67Ammo
   name: xC-67 extended magazine bundle
-  description: Duffelbag with a three extended 6.5 mm mag for xC-67
+  description: Duffelbag with a four extended 6.5 mm mag for xC-67
   components:
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
         children:
         - id: ADTMagazineRifleExtended
-          amount: 3
+          amount: 4
 - type: entity
   parent: ClothingBackpackDuffelSyndicateAmmoBundle
   id: ADTClothingBackpackDuffelSyndicateFilledSmokeGrenade
@@ -229,6 +248,7 @@
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ADTClothingBackpackDuffelSyndicateFilledChinaLikeGrenadeLauncher
   name: China-Lake bundle
+  suffix: Actual
   description: "An old China-Lake grenade launcher bundled with 11 rounds of various destruction capability."
   components:
   - type: EntityTableContainerFill
@@ -317,6 +337,22 @@
         - id: GeigerCounter
         - id: ADTAntiNobliumPaper
 - type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledAdvancedChemist # ADT-tweak
+  name: advanced chemist bundle
+  description: Everything a field chemist needs to set up shop anywhere - a flatpacked ChemMaster 4000, a flatpacked energy chem dispenser and a starter stock of reagents.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTChemMasterFlatpack
+        - id: ADTEnergyChemDispenserFlatpack
+        - id: VestineChemistryVial
+          amount: 2
+        - id: PlasmaChemistryVial
+
+- type: entity
   parent: ClothingBackpackChameleon
   id: ADTClothingBackpackChameleonThiefFill
   suffix: Fill, Chameleon, Thief
@@ -325,7 +361,7 @@
       containers:
         storagebase: !type:AllSelector
           children:
-          - id: ChameleonPDA
+          - id: ChameleonAgentPDA
           - id: ClothingUniformJumpsuitChameleon
           - id: ClothingOuterChameleon
           - id: ClothingNeckChameleon

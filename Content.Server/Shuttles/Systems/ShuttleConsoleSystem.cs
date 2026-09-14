@@ -170,11 +170,13 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
 
     private bool TryPilot(EntityUid user, EntityUid uid)
     {
+        var canUseConsole = _blocker.CanInteract(user, uid) || IsSlottedPAI(user, uid); // ADT port PAI's can be slotted into consoles, including shuttle consoles.
         if (!_tags.HasTag(user, CanPilotTag) ||
             !TryComp<ShuttleConsoleComponent>(uid, out var component) ||
             !this.IsPowered(uid, EntityManager) ||
         //    !Transform(uid).Anchored || // ADT-TWEAK
-            !_blocker.CanInteract(user, uid))
+//            !_blocker.CanInteract(user, uid)) ADT port PAI's can be slotted into consoles, including shuttle consoles. start
+            !canUseConsole) // ADT port PAI's can be slotted into consoles, including shuttle consoles. end
         {
             return false;
         }
@@ -301,7 +303,10 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
             if (comp.Console == null)
                 continue;
 
-            if (!_blocker.CanInteract(uid, comp.Console))
+//          if (!_blocker.CanInteract(uid, comp.Console)) ADT port pai can use consoles start
+            var canUseConsole = _blocker.CanInteract(uid, comp.Console.Value) || IsSlottedPAI(uid, comp.Console.Value);
+
+            if (!canUseConsole) // ADT port pai can use consoles end
             {
                 toRemove.Add((uid, comp));
             }

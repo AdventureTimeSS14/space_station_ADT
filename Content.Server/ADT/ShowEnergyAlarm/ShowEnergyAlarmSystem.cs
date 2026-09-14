@@ -1,4 +1,3 @@
-using Content.Shared.Actions;
 using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell;
@@ -6,6 +5,7 @@ using Content.Shared.PowerCell.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Alert;
 using Content.Shared.Inventory;
+using Content.Shared.Inventory.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Rounding;
 
@@ -16,20 +16,51 @@ public sealed class ShowEnergyAlarmSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly PowerCellSystem _powerCellSystem = default!;
     [Dependency] private readonly SharedBatterySystem _batterySystem = default!;
+
+    private float _updateAccumulator;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<ShowEnergyAlarmComponent, PowerCellChangedEvent>(OnPowerCellUpdate);
-        SubscribeLocalEvent<ShowEnergyAlarmComponent, GetItemActionsEvent>(OnGetActions);
+        SubscribeLocalEvent<ShowEnergyAlarmComponent, GotEquippedEvent>(OnEquipped);
+        SubscribeLocalEvent<ShowEnergyAlarmComponent, GotUnequippedEvent>(OnUnequipped);
     }
+
+    public override void Update(float frameTime)
+    {
+        _updateAccumulator += frameTime;
+        if (_updateAccumulator < 1f)
+            return;
+
+        _updateAccumulator = 0f;
+
+        var query = EntityQueryEnumerator<ShowEnergyAlarmComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.User != null)
+                UpdateClothingPowerAlert((uid, comp));
+        }
+    }
+
     private void OnPowerCellUpdate(EntityUid uid, ShowEnergyAlarmComponent component, PowerCellChangedEvent args)
     {
         UpdateClothingPowerAlert((uid, component));
     }
-    private void OnGetActions(EntityUid uid, ShowEnergyAlarmComponent component, GetItemActionsEvent args)
+
+    private void OnEquipped(EntityUid uid, ShowEnergyAlarmComponent component, GotEquippedEvent args)
     {
-        component.User = args.User;
+        component.User = args.Equipee;
         UpdateClothingPowerAlert((uid, component));
     }
+
+    private void OnUnequipped(EntityUid uid, ShowEnergyAlarmComponent component, GotUnequippedEvent args)
+    {
+        if (component.User != null)
+            _alertsSystem.ClearAlert(component.User.Value, component.PowerAlert);
+
+        component.User = null;
+    }
+
     private void UpdateClothingPowerAlert(Entity<ShowEnergyAlarmComponent> entity)
     {
         var (uid, comp) = entity;

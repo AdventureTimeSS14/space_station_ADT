@@ -1,0 +1,41 @@
+<Document>
+
+  # Ниндзюцу
+
+  <Box>
+    <GuideEntityEmbed Entity="ADTScrollNinjutsu" Caption="свиток ниндзюцу"/>
+  </Box>
+
+  Всего два приёма, зато вся сила школы в первом ударе из тени. Раскрыв себя, ниндзя
+  становится обычным человеком на несколько секунд.
+
+  # Скрытность
+
+  <Box>
+  Ниндзя всегда находится в состоянии скрытности. В нём все атаки
+  наносят [color=#E05B5B]×2[/color] урона и дополнительно [color=#E05B5B]115[/color] Blunt
+  безоружно или [color=#E05B5B]180[/color] Slash оружием. Любое действие снимает скрытность
+  на [color=#E0A03C]5 секунд[/color].
+  </Box>
+
+  [tex path="/Textures/ADT/Interface/Misc/intents_big.rsi" state="help" scale="1"] [bold]Интент помощи[/bold] безоружно и без режима боя - удушающий захват:
+
+  <Box>
+  Замедляет цель до [color=#5BB8E0]20%[/color] скорости на [color=#E0A03C]5 секунд[/color]
+  и лишает речи на [color=#E0A03C]10 секунд[/color]. Со спины (в пределах 45°) -
+  [color=#E0A03C]7.5[/color] и [color=#E0A03C]15 секунд[/color].
+  </Box>
+
+  ## Приёмы
+
+  <ADTGuideCombo Combo="BiteTheDust">
+  Только на стоячих. Наносит [color=#E05B5B]10[/color] урона и роняет цель
+  на [color=#E0A03C]4 секунды[/color].
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="DirtyKill">
+  Только по лежачей цели. Наносит [color=#E05B5B]20[/color] урона и роняет её
+  на [color=#E0A03C]7 секунд[/color].
+  </ADTGuideCombo>
+
+</Document>

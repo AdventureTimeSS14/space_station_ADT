@@ -17,7 +17,7 @@ namespace Content.Server.Solar.Components
         /// </summary>
         [DataField("maxSupply")]
         [GuidebookData]
-        public int MaxSupply = 1875; ///ADT_Tweak
+        public int MaxSupply = 875; ///ADT_Tweak
 
         /// <summary>
         /// Current coverage of this panel (from 0 to 1).

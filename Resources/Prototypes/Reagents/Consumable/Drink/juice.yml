@@ -16,6 +16,22 @@
   physicalDesc: reagent-physical-desc-crisp
   flavor: banana
   color: "#FFE777"
+  # ADT-Tweak-Start: клоуны лечатся банановым соком (по аналогии с лечением дварфов алкоголем)
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:EvenHealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: JuiceBanana
+          min: 5
+        - !type:JobCondition
+          jobs: [ Clown ]
+        damage:
+          Brute: -0.5
+  # ADT-Tweak-End
 
 - type: reagent
   id: JuiceBerry

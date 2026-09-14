@@ -36,7 +36,7 @@ ghost-role-information-taxibot-description = Развозите экипаж с�
 ent-ADTVehicleLavabike = лавацикл
     .desc = Этот монстр поможет вам покорить Лаваленд. Очень безопасный.
 
-
+vehicle-use-key = Вы используете { $keys } чтобы запустить { $vehicle }.
 vehicle-folded-cannot-buckle = Нельзя сесть на сложенное транспортное средство { $vehicle }.
 vehicle-hands-occupied = Руки заняты, чтобы сесть на { $vehicle }.
 vehicle-folded-ejected = Вас вытолкнули из { $vehicle }, потому что его сложили!

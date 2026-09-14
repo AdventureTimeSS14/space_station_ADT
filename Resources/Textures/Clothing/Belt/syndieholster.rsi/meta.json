@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/94daddb1ac6625e2a7f7a88d62235ee44a480b5e",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/94daddb1ac6625e2a7f7a88d62235ee44a480b5e. Cloned belt state to neck state by catbackg (Discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -20,6 +20,10 @@
     },
     {
       "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-NECK",
       "directions": 4
     }
   ]

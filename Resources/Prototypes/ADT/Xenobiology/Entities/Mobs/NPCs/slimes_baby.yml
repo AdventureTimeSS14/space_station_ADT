@@ -1,0 +1,167 @@
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyGrey
+  name: grey slime
+  components:
+  - type: Slime
+    breed: GreyMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyOrange
+  name: orange slime
+  components:
+  - type: Slime
+    breed: OrangeMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyPurple
+  name: purple slime
+  components:
+  - type: Slime
+    breed: PurpleMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyBlue
+  name: blue slime
+  components:
+  - type: Slime
+    breed: BlueMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyMetal
+  name: metal slime
+  components:
+  - type: Slime
+    breed: MetalMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyYellow
+  name: yellow slime
+  components:
+  - type: Slime
+    breed: YellowMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyDarkPurple
+  name: dark purple slime
+  components:
+  - type: Slime
+    breed: DarkPurpleMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyDarkBlue
+  name: dark blue slime
+  components:
+  - type: Slime
+    breed: DarkBlueMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabySilver
+  name: silver slime
+  components:
+  - type: Slime
+    breed: SilverMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyBluespace
+  name: bluespace slime
+  components:
+  - type: Slime
+    breed: BluespaceMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabySepia
+  name: sepia slime
+  components:
+  - type: Slime
+    breed: SepiaMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyCerulean
+  name: cerulean slime
+  components:
+  - type: Slime
+    breed: CeruleanMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyPyrite
+  name: pyrite slime
+  components:
+  - type: Slime
+    breed: PyriteMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyRed
+  name: red slime
+  components:
+  - type: Slime
+    breed: RedMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyGreen
+  name: green slime
+  components:
+  - type: Slime
+    breed: GreenMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyPink
+  name: pink slime
+  components:
+  - type: Slime
+    breed: PinkMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyGold
+  name: gold slime
+  components:
+  - type: Slime
+    breed: GoldMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyOil
+  name: oil slime
+  components:
+  - type: Slime
+    breed: OilMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyLightPink
+  name: light pink slime
+  components:
+  - type: Slime
+    breed: LightPinkMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyBlack
+  name: black slime
+  components:
+  - type: Slime
+    breed: BlackMutation
+
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyAdamantine
+  name: adamantite slime
+  components:
+  - type: Slime
+    breed: AdamantineMutation

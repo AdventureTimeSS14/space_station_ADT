@@ -1,21 +1,34 @@
-- type: entity
-  name: trick grenade kega
-  description: All the grenade without any of the boom.
-  parent: GrenadeBase
-  id: ADTGrenadeKega
-  suffix: Адмемы
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Weapons/Grenades/grenade.rsi
-  - type: DeleteOnTrigger
-  - type: SpawnOnTrigger
-    proto: GrenadeFlashEffect
-  - type: EmitSoundOnTrigger
-    sound: /Audio/ADT/Effects/kega.ogg
-  - type: Appearance
-  - type: TimerTriggerVisuals
-    primingSound:
-      path: /Audio/Effects/box_deploy.ogg
+# Ахуел с того что оффы натворили и не смог пофиксить. Может позже сделаю
+#- type: entity
+#  name: trick grenade kega
+#  description: All the grenade without any of the boom.
+#  parent: GrenadeBase
+#  id: ADTGrenadeKega
+#  suffix: Адмемы
+#  components:
+#  - type: Sprite
+#    sprite: ADT/Objects/Weapons/Grenades/grenade.rsi
+#  - type: TriggerOnUse
+#  - type: TwoStageTrigger
+#    keysIn:
+#    - emitSound
+#    components:
+#    - type: DeleteOnTrigger
+#      keysIn:
+#      - stageTwo
+#  - type: TimerTrigger
+#    delay: 2
+#  - type: SpawnOnTrigger
+#    keysIn:
+#    - timer
+#    proto: GrenadeFlashEffect
+#  - type: EmitSoundOnTrigger
+#    keysIn:
+#    - timer
+#    keyOut:
+#    - emitSound
+#    sound: /Audio/ADT/Effects/kega.ogg
+#  - type: Appearance
 
 - type: entity
   name: TritiumGrenades
@@ -27,15 +40,36 @@
     sprite: ADT/Objects/Weapons/Grenades/tritiumgrenad/tritiumgrenades.rsi
   - type: EmitSoundOnTrigger
     sound:
-      path: "/Audio/Effects/falling.ogg"
-  - type: DeleteOnTrigger
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Radioactive
-    totalIntensity: 150
-    intensitySlope: 1
-    maxIntensity: 100
+      path: "/Audio/Effects/cig_light.ogg"
+  - type: IgnitionSource
+    ignited: false
+    temperature: 1000
+  - type: TriggerOnUse
+  - type: IgniteOnTrigger
+    keysIn:
+    - timer
+  - type: TimerTrigger
+    delay: 2
+  - type: TwoStageTrigger
+    keysIn:
+    - timer
+    triggerDelay: 2
+    components:
+    - type: ExplodeOnTrigger
+      keysIn:
+      - stageTwo
+    - type: Explosive
+      explosionType: Radioactive
+      totalIntensity: 150
+      intensitySlope: 1
+      maxIntensity: 100
+      canCreateVacuum: false
+    - type: DeleteOnTrigger
+      keysIn:
+      - stageTwo
   - type: SpawnOnTrigger
+    keysIn:
+    - timer
     proto: ADTTritiumGasSpawner
   - type: Appearance
   - type: TimerTriggerVisuals

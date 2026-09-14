@@ -1,0 +1,224 @@
+- type: adtDungeonRoom
+  id: LavaDungeonGraveyard
+  size: 10, 10
+  tags:
+  - LavaDungeon
+  legend:
+    "a":
+      tile: FloorBasalt
+    "b":
+      tile: FloorCaveDrought
+    "c":
+      tile: FloorDirt
+    "d":
+      tile: FloorOldConcreteOutsideSmooth
+  tiles:
+  - "aaaaaabaaa"
+  - "aacbbcbbaa"
+  - "aacdccccba"
+  - "acbbdccbba"
+  - "abbdbcbbbb"
+  - "abbbdbbbdd"
+  - "accbbbbccd"
+  - "aaccbccccc"
+  - "aabbccbbaa"
+  - "aabcdbcaaa"
+  entities:
+  - proto: ADTKatanacursed
+    rot: 3.141592653589793 rad
+    positions:
+    - 5.8476,5.5545
+  - proto: ADTWoodCross
+    positions:
+    - 8.4954,5.2874
+  - proto: CrateStoneGrave
+    positions:
+    - 5.5,5.5
+    - 2.5,7.5
+    - 7.5,1.5
+  - proto: CrateWoodenGrave
+    components:
+    - type: Grave
+      activeShovelDigging: true
+    - type: PlaceableSurface
+      isPlaceable: true
+    positions:
+    - 2.5,5.5
+  - proto: CrateWoodenGrave
+    positions:
+    - 2.5,1.5
+    - 2.5,3.5
+    - 4.5,2.5
+    - 6.5,7.5
+    - 8.5,5.5
+    - 4.5,7.5
+  - proto: FenceWoodHighCorner
+    rot: 3.141592653589793 rad
+    positions:
+    - 0.5,9.5
+  - proto: FenceWoodHighGate
+    rot: -1.5707963267948966 rad
+    positions:
+    - 0.5,4.5
+  - proto: FenceWoodHighGate
+    rot: 3.141592653589793 rad
+    positions:
+    - 6.5,9.5
+  - proto: FenceWoodHighStraight
+    rot: 1.5707963267948966 rad
+    positions:
+    - 2.5,9.5
+    - 1.5,9.5
+    - 4.5,9.5
+    - 3.5,9.5
+    - 7.5,9.5
+    - 8.5,9.5
+    - 9.5,9.5
+    - 5.5,9.5
+  - proto: FenceWoodHighStraight
+    rot: 3.141592653589793 rad
+    positions:
+    - 0.5,0.5
+    - 0.5,8.5
+    - 0.5,1.5
+    - 0.5,7.5
+    - 0.5,2.5
+    - 0.5,6.5
+    - 0.5,3.5
+  - proto: FenceWoodHighStraight
+    positions:
+    - 0.5,5.5
+  - proto: FloraGreyStalagmite
+    positions:
+    - 3.4673,0.5726
+  - proto: FloraRockSolid
+    rot: 1.5707963267948966 rad
+    positions:
+    - 3.4673,7.6976
+  - proto: FloraStalagmite
+    rot: 1.5707963267948966 rad
+    positions:
+    - 1.4986,5.3851
+  - proto: FoodPoppy
+    positions:
+    - 2.4205,1.3309
+  - proto: RandomCargoCorpseSpawner
+    rot: -1.5707963267948966 rad
+    positions:
+    - 2.5,5.5
+  - proto: Shovel
+    rot: 1.5707963267948966 rad
+    positions:
+    - 1.4099,5.9748
+  decals:
+  - id: WoodTrimThinCornerNeWhite
+    color: '#362713FF'
+    positions:
+    - 1,2
+  - id: WoodTrimThinCornerSeWhite
+    color: '#362713FF'
+    positions:
+    - 1,7
+  - id: WoodTrimThinCornerSwWhite
+    color: '#402713FF'
+    positions:
+    - 8,8
+    - 9,6
+  - id: WoodTrimThinInnerNeWhite
+    color: '#362713FF'
+    positions:
+    - 0,2
+  - id: WoodTrimThinInnerNwWhite
+    color: '#402713FF'
+    positions:
+    - 8,0
+  - id: WoodTrimThinInnerSeWhite
+    color: '#362713FF'
+    positions:
+    - 0,7
+    - 1,9
+  - id: WoodTrimThinInnerSwWhite
+    color: '#402713FF'
+    positions:
+    - 8,9
+    - 9,8
+  - id: WoodTrimThinLineEWhite
+    color: '#362713FF'
+    positions:
+    - 0,3
+    - 1,8
+    - 0,6
+  - id: WoodTrimThinLineEWhite
+    color: '#402713FF'
+    positions:
+    - 0,4
+    - 0,5
+    - 1,0
+    - 1,1
+  - id: WoodTrimThinLineNWhite
+    color: '#362713FF'
+    positions:
+    - 8,1
+    - 9,1
+  - id: WoodTrimThinLineNWhite
+    color: '#402713FF'
+    positions:
+    - 7,0
+  - id: WoodTrimThinLineSWhite
+    color: '#362713FF'
+    positions:
+    - 5,9
+    - 2,9
+  - id: WoodTrimThinLineSWhite
+    color: '#402713FF'
+    positions:
+    - 3,9
+    - 4,9
+    - 6,9
+    - 7,9
+  - id: WoodTrimThinLineWWhite
+    color: '#362713FF'
+    positions:
+    - 7,0
+  - id: WoodTrimThinLineWWhite
+    color: '#402713FF'
+    positions:
+    - 9,7
+    - 8,1
+  - id: splatter
+    color: '#340900FF'
+    positions:
+    - 1.9791,4.7745
+  - id: splatter
+    color: '#341600FF'
+    positions:
+    - 1.7916,4.6339
+    - 2.1666,4.587
+    - 2.1353,4.8683
+  - id: splatter
+    color: '#341900FF'
+    positions:
+    - 2.0259,0.6495
+    - 2.1822,0.8058
+    - 1.0454,4.7132
+    - 1.0923,4.7913
+  - id: splatter
+    color: '#341C00FF'
+    positions:
+    - 1.8541,4.9151
+    - 2.2603,4.5401
+    - 8.1041,4.6808
+    - 8.2916,5.0089
+    - 7.6666,5.0714
+    - 7.8384,4.6183
+    - 8.0416,5.0401
+    - 7.9322,4.4776
+    - 1.8853,1.2433
+    - 2.0416,1.0558
+    - 2.2291,1.0245
+    - 2.1197,0.6964
+    - 1.8541,0.712
+  - id: splatter
+    color: '#532300FF'
+    positions:
+    - 1.0923,4.8226

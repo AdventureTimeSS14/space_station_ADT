@@ -2,6 +2,7 @@ using System.IO;
 using System.Linq;
 using System.Numerics;
 using System.Threading;
+using Content.Client.ADT.Antag;
 using Content.Client.ADT.Lobby.UI;
 using Content.Client.ADT.Traits.UI;
 using Content.Client.Guidebook;
@@ -17,7 +18,6 @@ using Content.Shared.ADT.CCVar;
 using Content.Client.Corvax.Sponsors;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
-using Content.Shared.Corvax.CCCVars;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -42,7 +42,7 @@ using Robust.Shared.Toolshed.Errors;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
 using static Content.Client.Corvax.SponsorOnlyHelpers; // Corvax-Sponsors
-using Content.Client.Corvax.TTS; // Corvax-TTS
+using Content.Client.ADT.TTS;
 using Content.Client.ADT.UserInterface.Controls;
 using Content.Client.ADT.CharecterFlavor;
 using Content.Shared.ADT.CharecterFlavor;
@@ -66,11 +66,12 @@ namespace Content.Client.Lobby.UI
         [Dependency] private readonly DocumentParsingManager _parsingMan = default!;
 
         private readonly SpriteSystem _sprite;
+        private readonly AntagRollBonusSystem _antagRollBonus; // ADT Antag roll bonus
 
         // CCvar.
         private int _maxNameLength;
 
-        private TTSTab? _ttsTab; // Corvax-TTS
+        private TTSTab? _ttsTab; // ADT-Tweak
 
         /// <summary>
         /// If we're attempting to save.
@@ -138,6 +139,10 @@ namespace Content.Client.Lobby.UI
             _factory = factory; // ADT SAI Custom
             _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
             _sprite = _entManager.System<SpriteSystem>();
+
+            _antagRollBonus = _entManager.System<AntagRollBonusSystem>(); // ADT Antag roll bonus
+            _antagRollBonus.OnBonusesUpdated += RefreshAntags; // ADT Antag roll bonus
+            _antagRollBonus.RequestUpdate(); // ADT Antag roll bonus
 
             _maxNameLength = _cfgManager.GetCVar(CCVars.MaxNameLength);
             _allowFlavorText = _cfgManager.GetCVar(CCVars.FlavorText);
@@ -393,11 +398,11 @@ namespace Content.Client.Lobby.UI
 
             RefreshFlavorText();
 
-            RefreshVoiceTab(); // Corvax-TTS
+            RefreshVoiceTab(); // ADT-Tweak
 
             // ADT-Tweak start. Корректно вставляем вкладки для кастомизации персонажа и их названия
             #region InvokeRefresh
-            bool ttsIsEnabled = _cfgManager.GetCVar(CCCVars.TTSEnabled);
+            bool ttsIsEnabled = _cfgManager.GetCVar(ADTTTSCVars.TTSEnabled); // ADT-Tweak
             int valueTTSEnable = ttsIsEnabled ? 1 : 0; // Переменная для перехода на следующий индекс вкладки, если ТТС включён, чтобы их названия не накладывались друг на друга
 
             TabContainer.SetTabTitle(0, Loc.GetString("humanoid-profile-editor-appearance-tab"));
@@ -445,12 +450,12 @@ namespace Content.Client.Lobby.UI
             IsDirty = false;
         }
 
-        // Corvax-TTS-Start
+        // ADT-Tweak-Start
         #region Voice
 
         private void RefreshVoiceTab()
         {
-            if (!_cfgManager.GetCVar(CCCVars.TTSEnabled))
+            if (!_cfgManager.GetCVar(ADTTTSCVars.TTSEnabled))
                 return;
 
             _ttsTab = new TTSTab();
@@ -494,7 +499,7 @@ namespace Content.Client.Lobby.UI
         }
 
         #endregion
-        // Corvax-TTS-End
+        // ADT-Tweak-End
 
         private void SetDirty()
         {
@@ -556,7 +561,7 @@ namespace Content.Client.Lobby.UI
             UpdateEyePickers();
             UpdateSaveButton();
             UpdateMarkings();
-            UpdateTTSVoicesControls(); // Corvax-TTS
+            UpdateTTSVoicesControls(); // ADT-Tweak
             UpdateBarkVoicesControls(); // ADT Barks
 
             RefreshLanguages(); // ADT Languages
@@ -684,6 +689,8 @@ namespace Content.Client.Lobby.UI
 
             _headshotRequestCts?.Cancel();
             _headshotRequestCts = null;
+
+            _antagRollBonus.OnBonusesUpdated -= RefreshAntags; // ADT Antag roll bonus
         }
 
         protected override void EnteredTree()
@@ -699,13 +706,13 @@ namespace Content.Client.Lobby.UI
             SpriteView.PreviewDummy = EntityUid.Invalid;
         }
 
-        // Corvax-TTS-Start
+        // ADT-Tweak-Start
         private void SetVoice(string newVoice)
         {
             Profile = Profile?.WithVoice(newVoice);
             IsDirty = true;
         }
-        // Corvax-TTS-End
+        // ADT-Tweak-End
         // ADT Barks start
         private void SetBarkProto(string prototype)
         {

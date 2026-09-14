@@ -192,9 +192,12 @@ public sealed class GatewayGeneratorSystem : EntitySystem
         if (TryComp(ent.Owner, out BiomeComponent? biomeComp) && generatorComp != null)
         {
             // - Loot
-            var lootLayers = generatorComp.LootLayers.ToList();
+            // ADT-Tweak-Start
+            var lootLayers = generatorComp.LootLayers.Where(x => _protoManager.HasIndex(x)).ToList();
 
-            for (var i = 0; i < generatorComp.LootLayerCount; i++)
+            var lootCount = Math.Min(generatorComp.LootLayerCount, lootLayers.Count);
+            for (var i = 0; i < lootCount; i++)
+            // ADT-Tweak-End
             {
                 var layerIdx = random.Next(lootLayers.Count);
                 var layer = lootLayers[layerIdx];
@@ -204,9 +207,12 @@ public sealed class GatewayGeneratorSystem : EntitySystem
             }
 
             // - Mobs
-            var mobLayers = generatorComp.MobLayers.ToList();
+            // ADT-Tweak-Start
+            var mobLayers = generatorComp.MobLayers.Where(x => _protoManager.HasIndex(x)).ToList();
 
-            for (var i = 0; i < generatorComp.MobLayerCount; i++)
+            var mobCount = Math.Min(generatorComp.MobLayerCount, mobLayers.Count);
+            for (var i = 0; i < mobCount; i++)
+            // ADT-Tweak-End
             {
                 var layerIdx = random.Next(mobLayers.Count);
                 var layer = mobLayers[layerIdx];

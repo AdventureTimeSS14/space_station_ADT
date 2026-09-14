@@ -21,6 +21,7 @@ public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Par
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly MechEquipmentLimitSystem _equipmentLimit = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -56,6 +57,16 @@ public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Par
 
         if (_whitelistSystem.IsWhitelistFail(mechComp.EquipmentWhitelist, args.Used))
             return;
+
+        // ADT-Mech-Start
+        if (!_equipmentLimit.CanInsert(mech, args.Used, out var limitReason))
+        {
+            if (limitReason is { } popup)
+                _popup.PopupEntity(Loc.GetString(popup), mech, args.User);
+
+            return;
+        }
+        // ADT-Mech-End
 
         _popup.PopupEntity(Loc.GetString("mech-equipment-begin-install", ("item", uid)), mech);
 

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "taken from SS1984 https://github.com/ss220-space/Paradise and tgstation at 606005645d3a14c4439e5ce14785650121b22678 and modified by Lost Paradise MRP",
+  "copyright": "taken from SS1984 https://github.com/ss220-space/Paradise and tgstation at 606005645d3a14c4439e5ce14785650121b22678 and modified by Lost Paradise MRP, Modified by Etvy to Adventure(dirt_line_nwse, dirt_line_swne)",
   "size": {
     "x": 32,
     "y": 32
@@ -53,7 +53,13 @@
             "name": "dirt_line_n"
         },
         {
+            "name": "dirt_line_nwse"
+        },
+        {
             "name": "dirt_line_s"
+        },
+        {
+            "name": "dirt_line_swne"
         },
         {
             "name": "dirt_line_w"

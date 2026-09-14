@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Serialization;
+﻿using Content.Shared.ADT.Construction.Steps;
+using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Validation;
@@ -45,6 +46,13 @@ namespace Content.Shared.Construction.Steps
             {
                 return typeof(PartAssemblyConstructionGraphStep);
             }
+
+            // ADT-Tweak start
+            if (node.Has("machinePart"))
+            {
+                return typeof(MachinePartConstructionGraphStep);
+            }
+            // ADT-Tweak end
 
             return null;
         }

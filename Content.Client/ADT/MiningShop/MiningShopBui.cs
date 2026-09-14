@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Content.Shared.ADT.MiningShop;
+using Content.Shared.ADT.Weapons.Ranged.Upgrades.Components;
 using Content.Shared.Mind;
 using Content.Shared.ADT.Salvage.Systems;
 using Content.Shared.Roles.Jobs;
@@ -18,6 +19,7 @@ namespace Content.Client.ADT.MiningShop;
 [UsedImplicitly]
 public sealed class MiningShopBui : BoundUserInterface
 {
+    [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IResourceCache _resource = default!;
@@ -38,7 +40,7 @@ public sealed class MiningShopBui : BoundUserInterface
         if (!EntMan.TryGetComponent(Owner, out MiningShopComponent? vendor))
             return;
         var sections = _prototype.EnumeratePrototypes<SharedMiningShopSectionPrototype>().ToList();
-        sections.Sort((x, y) => x.Name[0].CompareTo(x.Name[0]));
+        sections.Sort((x, y) => string.Compare(x.Name, y.Name, CurrentCulture));
 
         foreach (var section in sections)
         {
@@ -55,7 +57,8 @@ public sealed class MiningShopBui : BoundUserInterface
                     uiEntry.Texture.Textures = SpriteComponent.GetPrototypeTextures(entity, _resource)
                         .Select(o => o.Default)
                         .ToList();
-                    uiEntry.Panel.Button.Label.Text = entry.Name?.Replace("\\n", "\n") ?? entity.Name;
+
+                    uiEntry.Panel.Button.Text = entry.Name?.Replace("\\n", " ") ?? entity.Name;
 
                     var name = entity.Name;
                     var color = MiningShopPanel.DefaultColor;
@@ -72,6 +75,14 @@ public sealed class MiningShopBui : BoundUserInterface
 
                     if (!string.IsNullOrWhiteSpace(entity.Description))
                         msg.AddText(entity.Description);
+
+                    if (GetUpgradeCapacity(entity) is { } capacity)
+                    {
+                        uiEntry.Capacity.Text = Loc.GetString("mining-shop-window-upgrade-capacity", ("percent", capacity));
+
+                        msg.PushNewline();
+                        msg.AddText(Loc.GetString("mining-shop-window-upgrade-capacity-tooltip", ("percent", capacity)));
+                    }
 
                     var tooltip = new Tooltip();
                     tooltip.SetMessage(msg);
@@ -131,7 +142,7 @@ public sealed class MiningShopBui : BoundUserInterface
                 if (string.IsNullOrWhiteSpace(args.Text))
                     entry.Visible = true;
                 else
-                    entry.Visible = entry.Panel.Button.Label.Text?.Contains(args.Text, OrdinalIgnoreCase) ?? false;
+                    entry.Visible = entry.Panel.Button.Text?.Contains(args.Text, OrdinalIgnoreCase) ?? false;
 
                 if (entry.Visible)
                     any = true;
@@ -149,25 +160,31 @@ public sealed class MiningShopBui : BoundUserInterface
         if (!EntMan.TryGetComponent(Owner, out MiningShopComponent? vendor))
             return;
 
-        List<string> names = new List<string>();
+        var counts = new Dictionary<string, int>();
+        var order = new List<string>();
 
-        foreach (var order in vendor.OrderList)
+        foreach (var purchase in vendor.OrderList)
         {
-            var name = _prototype.TryIndex(order.Id, out var entity) ? entity.Name : order.Name;
-            if (name != null)
-                names.Add(name);
+            var name = _prototype.TryIndex(purchase.Id, out var entity) ? entity.Name : purchase.Name;
+            if (name == null)
+                continue;
+
+            if (!counts.TryAdd(name, 1))
+                counts[name]++;
+            else
+                order.Add(name);
         }
-        var orders = string.Join(", ", names);
+
+        var orders = string.Join("\n", order.Select(name =>
+            Loc.GetString("mining-shop-window-purchase-entry", ("name", name), ("count", counts[name]))));
 
         var userpoints = _miningPoints.TryFindIdCard(_player.LocalEntity.Value)?.Comp?.Points ?? 0;
 
-        _window.YourPurchases.Text = $"Заказы: {orders}";
+        _window.YourPurchases.Text = orders;
 
-        _window.Express.Text = $"Экспресс доставка";
+        _window.Express.Text = Loc.GetString("mining-shop-window-express");
 
-        _window.PointsLabel.Text = $"Осталось очков: {userpoints}";
-
-        var sections = _prototype.EnumeratePrototypes<SharedMiningShopSectionPrototype>();
+        _window.PointsLabel.Text = Loc.GetString("mining-shop-window-points-left", ("points", userpoints));
 
         for (var sectionIndex = 0; sectionIndex < _sections.Count; sectionIndex++)
         {
@@ -209,6 +226,14 @@ public sealed class MiningShopBui : BoundUserInterface
                 Refresh();
                 break;
         }
+    }
+
+    private int? GetUpgradeCapacity(EntityPrototype entity)
+    {
+        if (!entity.TryGetComponent<ADTGunUpgradeComponent>(out var upgrade, _factory))
+            return null;
+
+        return upgrade.Cost;
     }
 
     private FormattedMessage GetSectionName(SharedMiningShopSectionPrototype section)

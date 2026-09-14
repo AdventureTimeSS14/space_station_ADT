@@ -1,0 +1,85 @@
+# SPDX-FileCopyrightText: 2026 ultradyper <ultradyper@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Трайты зависимостей: стартовая неизлечимая зависимость (уровень 100, не спадает,
+# детоксин не помогает). Конкретные трайты конфликтуют с рандомным (нельзя взять,
+# если выбран RandomAddiction); сам RandomAddiction блокируется клиентом, если
+# выбраны все три конкретных (см. TraitsTab.xaml.cs, ADT-Tweak).
+
+- type: trait
+  id: AlcoholicAddiction
+  name: trait-alcoholic-addiction-name
+  description: trait-alcoholic-addiction-desc
+  category: Quirks
+  cost: -1
+  speciesBlacklist:
+  - IPC
+  - Diona
+  - SlimePerson
+  conflicts:
+  - RandomAddiction
+  effects:
+  - !type:AddictionTraitEffect
+    kind: Alcohol
+  - !type:SpawnItemInBackpackEffect
+    item: DrinkBeerBottleFull
+
+- type: trait
+  id: NicotineAddiction
+  name: trait-nicotine-addiction-name
+  description: trait-nicotine-addiction-desc
+  category: Quirks
+  cost: -1
+  speciesBlacklist:
+  - IPC
+  - Diona
+  - SlimePerson
+  conflicts:
+  - RandomAddiction
+  effects:
+  - !type:AddictionTraitEffect
+    kind: Nicotine
+  - !type:SpawnItemInBackpackEffect
+    item: ADTCigPackHalfSmoked
+
+- type: trait
+  id: DrugAddiction
+  name: trait-drug-addiction-name
+  description: trait-drug-addiction-desc
+  category: Quirks
+  cost: -1
+  speciesBlacklist:
+  - IPC
+  - Diona
+  - SlimePerson
+  # Недоступна на командных ролях, ролях СБ и Центкома.
+  departmentBlacklist:
+  - Command
+  - Security
+  - CentcomSpecialists
+  conflicts:
+  - RandomAddiction
+  effects:
+  - !type:AddictionTraitEffect
+    kind: Drug
+  - !type:SpawnItemInBackpackEffect
+    item: PillSpaceDrugs
+
+- type: trait
+  id: RandomAddiction
+  name: trait-random-addiction-name
+  description: trait-random-addiction-desc
+  category: Quirks
+  cost: -1
+  speciesBlacklist:
+  - IPC
+  - Diona
+  - SlimePerson
+  # Недоступен на командных ролях, ролях СБ и Центкома.
+  departmentBlacklist:
+  - Command
+  - Security
+  - CentcomSpecialists
+  effects:
+  - !type:RandomAddictionEffect

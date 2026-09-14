@@ -1,4 +1,5 @@
-﻿using Content.Shared.Interaction;
+﻿using Content.Shared.ADT.Mech.Components;
+using Content.Shared.Interaction;
 using Content.Shared.Mech.Components;
 
 namespace Content.Shared.MouseRotator;
@@ -40,8 +41,7 @@ public abstract class SharedMouseRotatorSystem : EntitySystem
                     xform))
             {
                 // ADT Mech start
-                // Немного копипасты, но это поворачивает мехов
-                if (TryComp<MechPilotComponent>(uid, out var pilot))
+                if (TryComp<MechPilotComponent>(uid, out var pilot) && !HasComp<MechControlLockedComponent>(uid))
                 {
                     _rotate.TryRotateTo(
                         pilot.Mech,

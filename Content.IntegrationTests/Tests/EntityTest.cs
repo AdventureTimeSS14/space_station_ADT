@@ -292,6 +292,9 @@ namespace Content.IntegrationTests.Tests
 
                 // makes an announcement on mapInit.
                 "AnnounceOnSpawn",
+
+                // Consumes/deletes nearby entities by design (e.g. the Singularity).
+                "EventHorizon", // ADT-tweak
             };
 
             Assert.That(server.CfgMan.GetCVar(CVars.NetPVS), Is.False);

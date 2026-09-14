@@ -11,9 +11,7 @@
     - Katana
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
-    layers:
-    - state: icon-of
-      map: [ "enum.ComboWeaponState.State" ]
+    state: icon-of
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 1.3
@@ -24,86 +22,24 @@
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
     range: 2.3
+  - type: ADTCursedKatana
+    hungerDamage:
+      types:
+        Blunt: 8
+        Slash: 8
+        Piercing: 8
+    healCost:
+      types:
+        Slash: 10
+  - type: WeaponMartialArt
+    martialArtsForm: CursedKatana
+    combos: CursedKatanaMoves
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
   - type: DisarmMalus
   - type: GuideHelp
     guides:
-    - ADTMartialArts
-  - type: ComboWeapon
-    swapSound:
-      path: /Audio/ADT/Entities/helmet_drop.ogg
-    availableMoves:
-      - actionsNeeds:
-          - OffensiveWideHit
-          - OffensiveWideHit
-        comboEvent:
-          - !type:ComboEffectToStanding
-            comboEvents:
-            - !type:ComboDamageEffect
-              damage:
-                types:
-                  Slash: 10
-            - !type:ComboFallEffect
-            - !type:ComboSpawnEffect
-              spawnOnTarget: ADTByondCut
-            - !type:ComboAudioEffect
-              sound:
-                path: /Audio/ADT/Entities/Objects/Weapons/Melee/cut.ogg
-      - actionsNeeds:
-          - ProtectiveWideHit
-          - OffensiveHit
-          - ProtectiveWideHit
-        comboEvent:
-          - !type:ComboEffectToStuned
-            comboEvents:
-            - !type:ComboDamageEffect
-              damage:
-                types:
-                  Slash: 25
-            - !type:ComboTrowTargetEffect
-              thrownSpeed: 13
-          - !type:ComboAudioEffect
-            sound:
-              collection: SwordHit
-      - actionsNeeds:
-          - ProtectiveWideHit
-          - OffensiveHit
-          - ProtectiveHit
-        comboEvent:
-          - !type:ComboEffectToPulled
-            comboEvents:
-            - !type:ComboDamageEffect
-              damage:
-                types:
-                  Slash: 15
-            - !type:ComboStunEffect
-              stunTime: 4
-              dropItems: false
-          - !type:ComboAudioEffect
-            sound:
-              collection: SwordHit
-      - actionsNeeds:
-          - ProtectiveWideHit
-          - OffensiveWideHit
-        comboEvent:
-          - !type:ComboEffectToDowned
-            comboEvents:
-            - !type:ComboDamageEffect
-              damage:
-                types:
-                  Slash: 20
-            - !type:ComboEffectTeleportOnVictim
-            - !type:ComboAudioEffect
-              sound:
-                collection: SwordHit
-  - type: GenericVisualizer
-    visuals:
-      enum.ComboWeaponState.State:
-        enum.ComboWeaponState.State:
-          True: {state: icon-of}
-          False: {state: icon-prot}
-  - type: Appearance
+    - ADTMaKatana
 
 - type: entity
   parent: BaseItem
@@ -114,11 +50,7 @@
   - type: Sprite
     sprite: ADT/Objects/Specific/cursed_katana_shard.rsi
     state: katana-shard
-  - type: SpawnItemsOnUse
-    items:
-    - id: ADTKatanacursed
-    sound:
-      path: /Audio/Effects/demon_attack1.ogg
+  - type: ADTCursedKatanaShard
 
 - type: entity
   name: dagger plasma

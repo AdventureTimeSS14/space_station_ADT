@@ -1,7 +1,9 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Actions;
+using Content.Client.ADT.Actions;
 using Content.Client.Construction;
+using Content.Client.Mapping;
 using Content.Client.Gameplay;
 using Content.Client.Hands;
 using Content.Client.Interaction;
@@ -19,12 +21,15 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
+using Robust.Client.State;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Graphics.RSI;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using static Content.Client.Actions.ActionsSystem;
@@ -45,14 +50,24 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IInputManager _input = default!;
+    [Dependency] private readonly IStateManager _stateManager = default!;
 
     [UISystemDependency] private readonly ActionsSystem? _actionsSystem = default;
     [UISystemDependency] private readonly InteractionOutlineSystem? _interactionOutline = default;
     [UISystemDependency] private readonly TargetOutlineSystem? _targetOutline = default;
     [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
+    [UISystemDependency] private readonly ADT.Heretic.StopTargetingSystem? _stopTargeting = default;
+    [UISystemDependency] private readonly ADTActionOrderSystem? _orderSystem = default;
+
+    // ADT-Tweak-Start
+    private bool IsMapping => _stateManager.CurrentState is MappingState;
+    private ADTActionOrderSystem? ActionOrder => IsMapping ? null : _orderSystem;
+    private bool _showRemovedOnly;
+    // ADT-Tweak-End
 
     private ActionButtonContainer? _container;
     private readonly List<EntityUid?> _actions = new();
+
     private readonly DragDropHelper<ActionButton> _menuDragHelper;
     private readonly TextureRect _dragShadow;
     private ActionsWindow? _window;
@@ -107,6 +122,9 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             _actionsSystem.OnActionRemoved += OnActionRemoved;
             _actionsSystem.ActionsUpdated += OnActionsUpdated;
         }
+
+        if (_stopTargeting != null) // ADT Heretic
+            _stopTargeting.StopTargeting += StopTargeting;
 
         UpdateFilterLabel();
         QueueWindowUpdate();
@@ -228,6 +246,9 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             _actionsSystem.ActionsUpdated -= OnActionsUpdated;
         }
 
+        if (_stopTargeting != null) // ADT Heretic
+            _stopTargeting.StopTargeting -= StopTargeting;
+
         CommandBinds.Unregister<ActionUIController>();
     }
 
@@ -259,7 +280,23 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (_actions.Contains(action))
             return;
 
+        // ADT-Tweak-Start
+        if (ActionOrder is { } order && GetActionKey(actionId) is { } key)
+        {
+            if (order.Removed.Contains(key))
+                return;
+
+            if (order.Order.TryGetValue(key, out var place))
+            {
+                _actions.Insert(GetInsertIndex(order, place), actionId);
+                StoreOrder();
+                return;
+            }
+        }
+
         _actions.Add(action);
+        StoreOrder();
+        // ADT-Tweak-End
     }
 
     private void OnActionRemoved(EntityUid actionId)
@@ -271,6 +308,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             StopTargeting();
 
         _actions.RemoveAll(x => x == actionId);
+
+        StoreOrder(); // ADT-Tweak
     }
 
     private void OnActionsUpdated()
@@ -398,7 +437,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         var filters = _window.FilterButton.SelectedKeys;
         var actions = _actionsSystem.GetClientActions();
 
-        if (filters.Count == 0 && string.IsNullOrWhiteSpace(search))
+        if (filters.Count == 0 && string.IsNullOrWhiteSpace(search) && !_showRemovedOnly) // ADT-Tweak
         {
             PopulateActions(actions);
             return;
@@ -406,6 +445,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         actions = actions.Where(action =>
         {
+            // ADT-Tweak-Start
+            if (_showRemovedOnly && !IsRemovedFromHotbar(action))
+                return false;
+            // ADT-Tweak-End
+
             if (filters.Count > 0 && filters.Any(filter => !MatchesFilter(action, filter)))
                 return false;
 
@@ -435,12 +479,19 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         if (actionId == null)
         {
+            var cleared = button.Action; // ADT-Tweak
             button.ClearData();
-            if (_container?.TryGetButtonIndex(button, out position) ?? false)
+            // ADT-Tweak-Start
+            if (cleared != null)
             {
-                if (_actions.Count > position && position >= 0)
-                    _actions.RemoveAt(position);
+                var index = _actions.IndexOf(cleared);
+                if (index >= 0)
+                {
+                    _actions.RemoveAt(index);
+                }
+                MarkRemovedFromHotbar(cleared);
             }
+            // ADT-Tweak-End
         }
         else if (button.TryReplaceWith(actionId.Value, _actionsSystem) &&
             _container != null &&
@@ -452,9 +503,20 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             }
             else
             {
+                // ADT-Tweak-Start
                 _actions[position] = actionId;
+                // ADT-Tweak-End
             }
+
+            // ADT-Tweak-Start
+            if (GetActionKey(actionId.Value) is { } key)
+                ActionOrder?.SetRemoved(key, false);
+            // ADT-Tweak-End
         }
+
+        // ADT-Tweak-Start
+        StoreOrder();
+        // ADT-Tweak-End
 
         if (updateSlots)
             _container?.SetActionData(_actionsSystem, _actions.ToArray());
@@ -476,8 +538,17 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             SetAction(button, action, false);
         }
 
+        // ADT-Tweak-Start
         if (dragged.Parent is ActionButtonContainer)
+        {
             SetAction(dragged, swapAction, false);
+        }
+        else if (swapAction != null)
+        {
+            MarkRemovedFromHotbar(swapAction);
+            StoreOrder();
+        }
+        // ADT-Tweak-End
 
         if (_actionsSystem != null)
             _container?.SetActionData(_actionsSystem, _actions.ToArray());
@@ -500,6 +571,14 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     {
         QueueWindowUpdate();
     }
+
+    // ADT-Tweak-Start
+    private void OnRemovedOnlyToggled(ButtonToggledEventArgs args)
+    {
+        _showRemovedOnly = args.Pressed;
+        QueueWindowUpdate();
+    }
+    // ADT-Tweak-End
 
     private void OnFilterSelected(ItemPressedEventArgs args)
     {
@@ -651,6 +730,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             _window.ClearButton.OnPressed -= OnClearPressed;
             _window.SearchBar.OnTextChanged -= OnSearchChanged;
             _window.FilterButton.OnItemSelected -= OnFilterSelected;
+            _window.RemovedOnlyButton.OnToggled -= OnRemovedOnlyToggled; // ADT-Tweak
 
             _window.Dispose();
             _window = null;
@@ -668,6 +748,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         _window.ClearButton.OnPressed += OnClearPressed;
         _window.SearchBar.OnTextChanged += OnSearchChanged;
         _window.FilterButton.OnItemSelected += OnFilterSelected;
+
+        // ADT-Tweak-Start
+        _window.RemovedOnlyButton.Pressed = _showRemovedOnly;
+        _window.RemovedOnlyButton.OnToggled += OnRemovedOnlyToggled;
+        // ADT-Tweak-End
 
         if (ActionsBar == null)
         {
@@ -761,7 +846,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (_actionsSystem == null)
             return;
 
-        var actions = _actionsSystem.GetClientActions().Where(action => action.Comp.AutoPopulate).ToList();
+        // ADT-Tweak-Start
+        var actions = _actionsSystem.GetClientActions()
+            .Where(action => action.Comp.AutoPopulate || HasSavedPlace(action))
+            .ToList();
+        // ADT-Tweak-End
         actions.Sort(ActionComparer);
 
         _actions.Clear();
@@ -770,7 +859,130 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             if (!_actions.Contains(action))
                 _actions.Add(action);
         }
+
+        // ADT-Tweak-Start
+        ApplySavedOrder();
+        StoreOrder();
+        // ADT-Tweak-End
     }
+
+    // ADT-Tweak-Start
+    private void ApplySavedOrder()
+    {
+        if (ActionOrder is not { } order)
+            return;
+
+        var known = new List<(int Place, EntityUid Action)>();
+        var fresh = new List<EntityUid>();
+
+        foreach (var action in _actions)
+        {
+            if (action is not { } actionId)
+                continue;
+
+            if (GetActionKey(actionId) is { } key)
+            {
+                if (order.Removed.Contains(key))
+                    continue;
+
+                if (order.Order.TryGetValue(key, out var place))
+                {
+                    known.Add((place, actionId));
+                    continue;
+                }
+            }
+
+            fresh.Add(actionId);
+        }
+
+        _actions.Clear();
+
+        foreach (var (_, actionId) in known.OrderBy(entry => entry.Place))
+        {
+            _actions.Add(actionId);
+        }
+
+        foreach (var actionId in fresh)
+        {
+            _actions.Add(actionId);
+        }
+    }
+
+    private int GetInsertIndex(ADTActionOrderSystem order, int place)
+    {
+        for (var i = 0; i < _actions.Count; i++)
+        {
+            if (_actions[i] is not { } actionId)
+                continue;
+
+            if (GetActionKey(actionId) is not { } key || !order.Order.TryGetValue(key, out var existing))
+                return i;
+
+            if (existing > place)
+                return i;
+        }
+
+        return _actions.Count;
+    }
+
+    public void ReloadActionOrder()
+    {
+        if (_actionsSystem == null || IsMapping)
+            return;
+
+        LoadDefaultActions();
+        _container?.SetActionData(_actionsSystem, _actions.ToArray());
+        QueueWindowUpdate();
+    }
+
+    private void StoreOrder()
+    {
+        if (ActionOrder is not { } order || _actionsSystem == null)
+            return;
+
+        if (!_actionsSystem.GetClientActions().Any())
+            return;
+
+        order.Store(_actions);
+    }
+
+    private void MarkRemovedFromHotbar(EntityUid? actionId)
+    {
+        if (actionId is not { } action || _actions.Contains(action))
+            return;
+
+        if (GetActionKey(action) is { } key)
+            ActionOrder?.SetRemoved(key, true);
+    }
+
+    private bool IsRemovedFromHotbar(EntityUid actionId)
+    {
+        return ActionOrder is { } order &&
+               GetActionKey(actionId) is { } key &&
+               order.Removed.Contains(key);
+    }
+
+    private bool HasSavedPlace(EntityUid actionId)
+    {
+        return ActionOrder is { } order &&
+               GetActionKey(actionId) is { } key &&
+               order.Order.ContainsKey(key);
+    }
+
+    private EntProtoId? GetActionKey(EntityUid actionId)
+    {
+        if (!EntityManager.TryGetComponent(actionId, out MetaDataComponent? metaData) ||
+            metaData.EntityPrototype is not { } proto)
+        {
+            return null;
+        }
+
+        if (proto.ID == MappingEntityAction.Id)
+            return null;
+
+        return proto.ID;
+    }
+    // ADT-Tweak-End
 
     /// <summary>
     /// If currently targeting with this slot, stops targeting.

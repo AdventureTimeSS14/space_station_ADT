@@ -301,3 +301,20 @@
     sprite: ADT/Objects/Misc/music_disk.rsi
     layers:
     - state: disk_base_syndicate
+
+- type: entity
+  parent: ADTMusicDiskStandard
+  id: ADTMusicDiskMMachine
+  name: music disk (MMachine)
+  description: Atmospheric electronic compositions imbued with the cosmic theme of inevitable collapse.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base
+      color: "#24d6b0"
+    - state: disk_label_music
+  - type: JukeboxDisk
+    tracksCollection: MMachine
+  - type: StaticPrice
+    price: 150

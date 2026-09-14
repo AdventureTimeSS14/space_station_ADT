@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Client.ADT.Antag;
 using Content.Client.Lobby.UI.Loadouts;
 using Content.Client.Lobby.UI.Roles;
 using Content.Shared.Clothing;
@@ -346,6 +347,24 @@ public sealed partial class HumanoidProfileEditor
 
             antagContainer.AddChild(selector);
 
+            // ADT-Tweak-Start
+            var bonusPercent = _antagRollBonus.GetBonusPercent(antag.ID);
+            var bonusText = FormatBonusText(bonusPercent);
+            var bonusLabel = new Label()
+            {
+                Text = bonusText,
+                Visible = bonusText != null,
+                FontColorOverride = GetBonusColor(bonusPercent),
+                HorizontalAlignment = HAlignment.Right,
+                VerticalAlignment = VAlignment.Center,
+                Margin = new Thickness(6f, 0f, 6f, 0f),
+                ToolTip = Loc.GetString("humanoid-profile-editor-antag-roll-bonus-tooltip"),
+                MinSize = new Vector2(64, 0),
+            };
+
+            antagContainer.AddChild(bonusLabel);
+            // ADT-Tweak-End
+
             antagContainer.AddChild(new Button()
             {
                 Disabled = true,
@@ -357,4 +376,28 @@ public sealed partial class HumanoidProfileEditor
             AntagList.AddChild(antagContainer);
         }
     }
+
+    // ADT-Tweak-Start
+    private static string? FormatBonusText(float? bonusPercent)
+    {
+        if (bonusPercent is null or <= 0f)
+            return null;
+
+        return Loc.GetString("humanoid-profile-editor-antag-roll-bonus-value", ("percent", MathF.Round(bonusPercent.Value)));
+    }
+
+    private static Color GetBonusColor(float? bonusPercent)
+    {
+        if (bonusPercent is null or <= 0f)
+            return Color.Gray;
+
+        const float scaleCap = 100f;
+        var t = Math.Clamp(bonusPercent.Value / scaleCap, 0f, 1f);
+
+        var from = new Color(0.55f, 0.78f, 0.55f);
+        var to = new Color(0.45f, 0.95f, 0.35f);
+        return Color.InterpolateBetween(from, to, t);
+    }
+
+    // ADT-Tweak-End
 }

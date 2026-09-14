@@ -119,6 +119,11 @@ public sealed partial class Emotes : ILanguageType
                 continue;
             listener = session.AttachedEntity.Value;
 
+            // ADT-Tweak start
+            if (!data.Observer && !chat.HasLineOfSight(listener, uid, ignoreWalls: message.TrimEnd().EndsWith("!")))
+                continue;
+            // ADT-Tweak end
+
             var entRange = chat.MessageRangeCheck(session, data, range);
             if (entRange == ChatSystem.MessageRangeCheckResult.Disallowed)
                 continue;
@@ -201,6 +206,11 @@ public sealed partial class Emotes : ILanguageType
             if (session.AttachedEntity is not { Valid: true } playerEntity)
                 continue;
             listener = session.AttachedEntity.Value;
+
+            // ADT-Tweak start
+            if (!data.Observer && !chat.HasLineOfSight(listener, uid))
+                continue;
+            // ADT-Tweak end
 
             var entRange = chat.MessageRangeCheck(session, data, range);
             if (entRange == ChatSystem.MessageRangeCheckResult.Disallowed)

@@ -50,8 +50,10 @@
   #  - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: WizardSpawn
+    - id: BlobSpawn # ADT tweak blob
     - id: Pirates # ADT tweak pirates
     - id: MorphSpawn #ADT tweak morph
+    - id: ADTShadowlingSpawn # ADT tweak shadowling
     - id: VoxRaidersEvent # ADT tweak vox-raiders
     # - id: IanHeroEvent # ADT tweak heros
     - !type:NestedSelector
@@ -266,6 +268,7 @@
       components:
       - type: EmpProtection # ADT TWEAK
       - type: SpaceNinja
+      - type: GrantNinjutsu
       - type: NpcFactionMember
         factions:
         - Syndicate

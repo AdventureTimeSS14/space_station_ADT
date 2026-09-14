@@ -8,6 +8,7 @@ using Content.Server.Ghost;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
+using Content.Shared.ADT.Ghost.GhostTypes;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
@@ -428,6 +429,11 @@ namespace Content.Server.GameTicking
                 _mind.SetUserId(mind.Value, player.UserId);
                 makeObserver = true;
             }
+
+            // ADT Tweak Start
+            if (!HasComp<GhostBodyAppearanceComponent>(mind.Value.Owner))
+                _bodyAppearance.CapAppearanceFromProfile(mind.Value.Owner, GetPlayerProfile(player));
+            // ADT Tweak End
 
             var ghost = _ghost.SpawnGhost(mind.Value);
             if (makeObserver)

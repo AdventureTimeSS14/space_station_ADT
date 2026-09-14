@@ -1,0 +1,112 @@
+- type: entity
+  id: ADTBaseArchimedesPart
+  parent: BaseMechPart
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: Items
+    noRot: false
+    sprite: ADT/Objects/Specific/Mech/archimedes_construction.rsi
+
+- type: entity
+  id: ADTBaseArchimedesPartItem
+  parent: ADTBaseArchimedesPart
+  abstract: true
+  components:
+  - type: Item
+    size: Ginormous
+
+- type: entity
+  parent: ADTBaseArchimedesPart
+  id: ADTArchimedesHarness
+  name: archimedes harness
+  description: The core of the Archimedes mech.
+  components:
+  - type: Appearance
+  - type: ItemMapper
+    mapLayers:
+      archimedes_l_arm+o:
+        whitelist:
+          tags:
+          - ADTArchimedesLArm
+      archimedes_r_arm+o:
+        whitelist:
+          tags:
+          - ADTArchimedesRArm
+      archimedes_l_leg+o:
+        whitelist:
+          tags:
+          - ADTArchimedesLLeg
+      archimedes_r_leg+o:
+        whitelist:
+          tags:
+          - ADTArchimedesRLeg
+    sprite: ADT/Objects/Specific/Mech/archimedes_construction.rsi
+  - type: ContainerContainer
+    containers:
+      mech-assembly-container: !type:Container
+      battery-container: !type:Container
+  - type: MechAssemblyVisuals
+    statePrefix: archimedes
+  - type: Sprite
+    state: archimedes_harness+o
+    noRot: true
+  - type: PartAssembly
+    parts:
+      ADTArchimedes:
+      - ADTArchimedesLArm
+      - ADTArchimedesRArm
+      - ADTArchimedesLLeg
+      - ADTArchimedesRLeg
+    containerId: mech-assembly-container
+  - type: Construction
+    graph: ADTArchimedes
+    node: start
+
+- type: entity
+  parent: ADTBaseArchimedesPartItem
+  id: ADTArchimedesLArm
+  name: archimedes left arm
+  description: The left arm of the Archimedes. It belongs on the chassis of the mech.
+  components:
+  - type: Sprite
+    state: archimedes_l_arm
+  - type: Tag
+    tags:
+    - ADTArchimedesLArm
+
+- type: entity
+  parent: ADTBaseArchimedesPartItem
+  id: ADTArchimedesLLeg
+  name: archimedes left leg
+  description: The left leg of the Archimedes. It belongs on the chassis of the mech.
+  components:
+  - type: Sprite
+    state: archimedes_l_leg
+  - type: Tag
+    tags:
+    - ADTArchimedesLLeg
+
+- type: entity
+  parent: ADTBaseArchimedesPartItem
+  id: ADTArchimedesRLeg
+  name: archimedes right leg
+  description: The right leg of the Archimedes. It belongs on the chassis of the mech.
+  components:
+  - type: Sprite
+    state: archimedes_r_leg
+  - type: Tag
+    tags:
+    - ADTArchimedesRLeg
+
+- type: entity
+  parent: ADTBaseArchimedesPartItem
+  id: ADTArchimedesRArm
+  name: archimedes right arm
+  description: The right arm of the Archimedes. It belongs on the chassis of the mech.
+  components:
+  - type: Sprite
+    state: archimedes_r_arm
+  - type: Tag
+    tags:
+    - ADTArchimedesRArm

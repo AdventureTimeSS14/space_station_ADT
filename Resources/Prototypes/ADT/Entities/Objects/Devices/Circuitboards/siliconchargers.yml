@@ -12,5 +12,5 @@
         Plastic: 6
         CableHV: 4
         CableMV: 8
-
-        Manipulator: 2
+      partRequirements:
+        Capacitor: 1

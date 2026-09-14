@@ -1,5 +1,0 @@
-- type: entity
-  save: false
-  name: "Таяр"
-  parent: BaseMobTajaran
-  id: MobTajaran

@@ -46,6 +46,38 @@
                        ModulateSelfOverride="#ffffff"/>
             </PanelContainer>
         </BoxContainer>
+        <PanelContainer Name="EnergyPanel"
+                        Margin="10 0 10 10"
+                        HorizontalExpand="True">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#101A2899" />
+            </PanelContainer.PanelOverride>
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5 3">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                    <Label Name="ModEnergyDraw"
+                           VerticalAlignment="Center"
+                           HorizontalExpand="True"
+                           ModulateSelfOverride="#ffffff"/>
+                    <Label Name="ModEnergyCharge"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           ModulateSelfOverride="#ffffff"/>
+                </BoxContainer>
+                <ProgressBar Name="ModEnergyBar"
+                             MinValue="0"
+                             MaxValue="1"
+                             Value="0"
+                             MinSize="0 6"
+                             Margin="0 3 0 1">
+                    <ProgressBar.BackgroundStyleBoxOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#0A101B99"/>
+                    </ProgressBar.BackgroundStyleBoxOverride>
+                    <ProgressBar.ForegroundStyleBoxOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#59D655"/>
+                    </ProgressBar.ForegroundStyleBoxOverride>
+                </ProgressBar>
+            </BoxContainer>
+        </PanelContainer>
         <BoxContainer VerticalExpand="True" Margin="10 0 10 10" Orientation="Vertical">
             <PanelContainer Name="ScrollPanel"
                           VerticalExpand="True"

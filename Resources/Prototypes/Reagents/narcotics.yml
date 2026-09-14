@@ -73,6 +73,15 @@
         - !type:ReagentCondition
           reagent: Desoxyephedrine
           min: 5
+      # Start ADT tweak
+      - !type:TremorSpasm
+        conditions:
+        - !type:ReagentCondition
+          reagent: Desoxyephedrine
+          min: 12
+        probability: 0.15
+        pacifyDuration: 3
+      # End ADT tweak
 
 - type: reagent
   id: Ephedrine
@@ -130,6 +139,15 @@
         - !type:ReagentCondition
           reagent: Ephedrine
           min: 15
+      # ADT-Tweak-Start: передоз эфедрина даёт лекарственную зависимость
+      - !type:AdjustAddictionLevel
+        kind: Medicine
+        amount: 0.05
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ephedrine
+          min: 20
+      # ADT-Tweak-End
 
 - type: reagent
   id: Stimulants
@@ -251,6 +269,16 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
+  # ADT-Tweak-Start: никотин метаболизируется в крови; курение вредит
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.05
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 0.002
+  # ADT-Tweak-End
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent

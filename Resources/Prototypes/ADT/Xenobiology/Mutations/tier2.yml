@@ -1,0 +1,96 @@
+- type: breed
+  breedName: breed-YellowMutation
+  id: YellowMutation
+  producedExtract: YellowSlimeExtract
+  slimeColor: "#ffff1a"
+  maxOffspring: 4
+  mutationChance: 0.45
+  potentialMutations:
+  - OrangeMutation
+  - MetalMutation
+  - BluespaceMutation
+
+- type: breed
+  breedName: breed-DarkPurpleMutation
+  id: DarkPurpleMutation
+  producedExtract: DarkPurpleSlimeExtract
+  slimeColor: "#8e0ff0"
+  maxOffspring: 4
+  mutationChance: 0.45
+  potentialMutations:
+  - PurpleMutation
+  - OrangeMutation
+  - SepiaMutation
+
+- type: breed
+  breedName: breed-DarkBlueMutation
+  id: DarkBlueMutation
+  producedExtract: DarkBlueSlimeExtract
+  slimeColor: "#1e8cfa"
+  maxOffspring: 4
+  mutationChance: 0.45
+  potentialMutations:
+  - BlueMutation
+  - PurpleMutation
+  - CeruleanMutation
+
+- type: breed
+  breedName: breed-SilverMutation
+  id: SilverMutation
+  producedExtract: SilverSlimeExtract
+  slimeColor: "#c4c4c4"
+  shouldHaveShader: true
+  shader: XenoMetallic
+  maxOffspring: 4
+  mutationChance: 0.45
+  potentialMutations:
+  - BlueMutation
+  - MetalMutation
+  - PyriteMutation
+
+# These don't upgrade anymore so might consider it tier 2.5
+- type: breed
+  breedName: breed-BluespaceMutation
+  id: BluespaceMutation
+  producedExtract: BluespaceSlimeExtract
+  slimeColor: "#f0f8ff"
+  shouldHaveShader: true
+  shader: XenoBluespace
+  maxOffspring: 4
+  mutationChance: 0.45
+  potentialMutations:
+  - BluespaceMutation
+
+- type: breed
+  breedName: breed-SepiaMutation
+  id: SepiaMutation
+  producedExtract: SepiaSlimeExtract
+  slimeColor: "#704214"
+  shouldHaveShader: true
+  shader: XenoSepia
+  maxOffspring: 4
+  mutationChance: 0.45
+  potentialMutations:
+  - SepiaMutation
+
+- type: breed
+  breedName: breed-CeruleanMutation
+  id: CeruleanMutation
+  producedExtract: CeruleanSlimeExtract
+  slimeColor: "#2A52BE"
+  maxOffspring: 4
+  mutationChance: 0.45
+  potentialMutations:
+  - CeruleanMutation
+
+- type: breed
+  breedName: breed-PyriteMutation
+  id: PyriteMutation
+  producedExtract: PyriteSlimeExtract
+  slimeColor: "#dcaa4f"
+  shouldHaveShader: true
+  shader: XenoMetallic
+  maxOffspring: 4
+  mutationChance: 0.45
+  potentialMutations:
+  - PyriteMutation

@@ -17,6 +17,7 @@
     - Metal
     - ConstructionMaterial
     - NoPaint #ADT tweak
+    - Steel # ADT: rust ritual
   - type: Damageable
     damageModifierSet: Metallic
   - type: Injurable
@@ -89,6 +90,8 @@
     - ADTSteelSheet
     - Sheet
     - Metal
+    - ConstructionMaterial
+    - Steel
   # ADT-UPD-End
 
 - type: entity

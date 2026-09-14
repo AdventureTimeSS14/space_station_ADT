@@ -1,5 +1,0 @@
-# DEPRECATED (upstream PR#42476): BaseMobMoth / MobMothDummy were orphaned dead code.
-# Their parents (BaseMobSpeciesOrganic, BaseSpeciesDummy) were removed by the upstream refactor,
-# and nothing referenced these entities — the official Moth (MobMoth / AppearanceMoth in
-# Resources/Prototypes/Body/Species/moth.yml) supersedes them. Removed to avoid load errors.
-# Old content recoverable from git history.

@@ -15,8 +15,8 @@ public sealed class CoveredSlotSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<InventoryComponent, IsEquippingAttemptEvent>(OnEquipAttempt);
-        SubscribeLocalEvent<InventoryComponent, IsUnequippingAttemptEvent>(OnUnequipAttempt);
+    //    SubscribeLocalEvent<InventoryComponent, IsEquippingAttemptEvent>(OnEquipAttempt); // disable
+    //    SubscribeLocalEvent<InventoryComponent, IsUnequippingAttemptEvent>(OnUnequipAttempt); // disable
     }
 
     private void OnEquipAttempt(Entity<InventoryComponent> ent, ref IsEquippingAttemptEvent args)

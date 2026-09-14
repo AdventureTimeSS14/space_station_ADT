@@ -1,9 +1,0 @@
-ent-ADTOrganVulpkaninHeart = сердце вульпканина
-    .desc = { ent-OrganAnimalHeart.desc }
-    .suffix = { "Вульпканин" }
-ent-ADTOrganVulpkaninLiver = печень вульпканина
-    .desc = { ent-OrganAnimalLiver.desc }
-    .suffix = { "Вульпканин" }
-ent-ADTOrganVulpkaninStomach = желудок вульпканина
-    .desc = { ent-OrganAnimalStomach.desc }
-    .suffix = { "Вульпканин" }

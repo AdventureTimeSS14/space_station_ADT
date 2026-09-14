@@ -77,6 +77,17 @@
   - type: Rehydratable
     possibleSpawns:
     - MobMonkey
+    # ADT tweak start
+    - MobMonkey
+    - MobMonkey
+    - MobMonkey
+    - MobMonkey
+    - MobMonkey
+    - MobMonkey
+    - MobMonkey
+    - MobMonkey
+    - ADTMobMonkeyAdvanced
+    # ADT tweak end
   - type: Tag
     tags:
     - Meat
@@ -90,6 +101,17 @@
   - type: Rehydratable
     possibleSpawns:
     - MobKobold
+    # ADT tweak start
+    - MobKobold
+    - MobKobold
+    - MobKobold
+    - MobKobold
+    - MobKobold
+    - MobKobold
+    - MobKobold
+    - MobKobold
+    - ADTMobKoboldAdvanced
+    # ADT tweak end
 
 - type: entity
   parent: RehydratableAnimalCube

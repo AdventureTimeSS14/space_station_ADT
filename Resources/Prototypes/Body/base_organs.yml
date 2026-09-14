@@ -398,7 +398,7 @@
   - type: Organ
     category: Heart
   - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
+#    sprite: Mobs/Species/Human/organs.rsi ADT-Tweak
     layers:
     - state: heart-on
   - type: Metabolizer

@@ -1,0 +1,21 @@
+- type: latheRecipe
+  id: ADTResonator
+  result: ADTResonator
+  categories:
+  - Tools
+  completetime: 4
+  materials:
+    Steel: 2000
+    Glass: 1000
+
+- type: latheRecipe
+  id: ADTResonatorUpgraded
+  result: ADTResonatorUpgraded
+  categories:
+  - Tools
+  completetime: 6
+  materials:
+    Steel: 4000
+    Glass: 1500
+    Silver: 1000
+    Uranium: 1000

@@ -1,14 +1,15 @@
-﻿- type: soundCollection
-  id: ChangelingDevourConsume
-  files:
-  - /Audio/Effects/Changeling/devour_consume.ogg
+# ADT: Закомментировано из-за использования генокрада от Goob Station
+# - type: soundCollection
+#   id: ChangelingDevourConsume
+#   files:
+#   - /Audio/Effects/Changeling/devour_consume.ogg
 
-- type: soundCollection
-  id: ChangelingDevourWindup
-  files:
-  - /Audio/Effects/Changeling/devour_windup.ogg
+# - type: soundCollection
+#   id: ChangelingDevourWindup
+#   files:
+#   - /Audio/Effects/Changeling/devour_windup.ogg
 
-- type: soundCollection
-  id: ChangelingTransformAttempt
-  files:
-  - /Audio/Effects/Changeling/changeling_transform.ogg
+# - type: soundCollection
+#   id: ChangelingTransformAttempt
+#   files:
+#   - /Audio/Effects/Changeling/changeling_transform.ogg

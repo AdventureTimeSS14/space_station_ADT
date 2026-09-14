@@ -199,17 +199,17 @@
             visible: false
   - type: TimerTrigger
     examinable: false
-    beepInterval: 0.4
+    beepInterval: 0.8
     beepSound:
       collection: GlassCrack
   - type: RandomTimerTrigger
-    min: 8
-    max: 10
+    min: 4
+    max: 8
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1
+        damage: 10
       behaviors:
       - !type:TimerStartBehavior
       - !type:PlaySoundBehavior
@@ -217,7 +217,7 @@
           collection: GlassBreak
   - type: Gibtonite
     extracted: false
-  
+
 - type: entity
   parent: [ ADTBaseRockGibtonite, AsteroidRock ]
   id: ADTAsteroidRockGibtonite

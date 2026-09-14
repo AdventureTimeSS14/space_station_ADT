@@ -32,5 +32,5 @@ ent-ADTBoltHoly = святой болт
 ent-ADTBulletBlastRocket = фугасный снаряд PG-7VL
     .desc = { ent-BaseBullet.desc }
 
-ent-ADTBulletFragRocket = осколочный снаряд OG-7B
+ent-ADTBulletFragRocket = тандемный снаряд PG-7VR
     .desc = { ent-BaseBullet.desc }

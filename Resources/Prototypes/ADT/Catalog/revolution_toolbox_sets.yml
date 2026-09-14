@@ -27,12 +27,8 @@
     state: no-trigger
   content:
   - ADTRevBlueprint
-  - ADTChemMasterFlatpack
   - ADTEnergyChemDispenserFlatpack
   - ADTJugCharcoal
-  - ADTJugCharcoal
-  - ADTJugCharcoal
-  - RemoteSignallerAdvanced
 
 - type: thiefBackpackSet
   id: ADTTechnolover
@@ -57,40 +53,33 @@
   content:
   - WeaponShotgunSawn
   - WeaponShotgunSawn
+  - WeaponShotgunKammerer
   - BoxLethalshot
-  - BoxLethalshot
+  - ADTWeaponPistolDesertEagle
+  - MagazineMagnum
+  - MagazineMagnum
   - WeaponRevolverInspector
   - WeaponRevolverInspector
   - WeaponRevolverPirate
+  - WeaponPistolViper
   - WeaponRifleAk
+  - MagazineLightRifle
+  - MagazineLightRifle
+  - MagazineLightRifle
   - ADTAttachmentSuppressor
   - ADTAttachmentSuppressor
   - WeaponLaserGun
   - WeaponLaserGun
   - ADTAttachmentLaserSight
   - ADTAttachmentLaserSight
-  - Chainsaw
+  - Cutlass
+  - Cutlass
   - Cutlass
   - FireAxe
   - FireAxe
   - Sledgehammer
   - Sledgehammer
-
-- type: thiefBackpackSet
-  id: ADTPrinting
-  name: revolution-toolbox-category-printing-name
-  description: revolution-toolbox-category-printing-description
-  sprite:
-    sprite: /Textures/Objects/Misc/module.rsi
-    state: generic
-  content:
-  - AutolatheMachineCircuitboard
-  - ProtolatheMachineCircuitboard
-  # - ExosuitFabricatorMachineCircuitboard
-  - AmmoTechFabCircuitboard
-  # - SecurityTechFabCircuitboard
-  - MedicalTechFabCircuitboard
-  - ADTTonfaBlueprint
+  - Sledgehammer
 
 - type: thiefBackpackSet
   id: ADTCluwneRev
@@ -108,9 +97,16 @@
   - FoodPieBananaCream
   - FoodPieBananaCream
   - FoodPieBananaCream
-  - SoapOmega
-  - SoapOmega
-  - SoapOmega
+  - PipeBomb
+  - PipeBomb
+  - PipeBomb
+  - PipeBomb
+  - PipeBomb
+  - PipeBomb
+  - SoapSyndie
+  - SoapSyndie
+  - SoapSyndie
+  - SoapSyndie
   - ClothingBackpackDuffelSyndicateCostumeClown
   - ClothingBackpackDuffelSyndicateCostumeClown
   - ClothingBackpackDuffelSyndicateCostumeClown
@@ -119,11 +115,6 @@
   - ClothingShoesGaloshes
   - ClothingShoesGaloshes
   - ClothingShoesGaloshes
-  - ClothingShoesGaloshes
-  - ClothingShoesGaloshes
-  - ClothingShoesGaloshes
-  - ClothingMaskClownSecurity
-  - ClothingMaskClownSecurity
   - ClothingMaskClownSecurity
   - ClothingMaskClownSecurity
   - ClothingMaskClownSecurity
@@ -141,11 +132,15 @@
   - ADTClothingOuterArmorVestHidden
   - ADTClothingOuterArmorVestHidden
   - ADTClothingOuterArmorVestHidden
-  - ADTClothingOuterArmorVestHidden
-  - ADTClothingOuterArmorVestHidden
   - ClothingOuterArmorBasic
   - ClothingOuterArmorBasic
   - ClothingOuterArmorBasic
+  - ClothingOuterArmorReflective
+  - ClothingOuterArmorReflective
+  - ClothingOuterArmorRiot
+  - ClothingOuterArmorBulletproof
+  - ClothingOuterArmorBulletproof
+  - ClothingOuterVestWeb
   - BoxZiptie
   - Bola
   - Bola
@@ -156,9 +151,9 @@
   - Stunbaton
   - Stunbaton
   - Stunbaton
-  - ADTBookPTCR
-  - ADTBookPTCR
-  - ADTBookPTCR
+  - ADTBookPTSD
+  - ADTBookPTSD
+  - ADTBookPTSD
   - ADTStimulantBox
   - ADTStimulantBox
 
@@ -174,6 +169,7 @@
   - MedkitCombatFilled
   - MedkitCombatFilled
   - MedkitAdvancedFilled
+  - MedkitAdvancedFilled
   - DefibrillatorCompact
   - DefibrillatorCompact
   - DefibrillatorCompact
@@ -182,6 +178,8 @@
   - ADTStasisBedFlatpack
   - RollerBedSpawnFolded
   - RollerBedSpawnFolded
+  - ADTChemMasterFlatpack
+  - ADTEnergyChemDispenserFlatpack
 
 - type: thiefBackpackSet
   id: ADTFakeMindShieldRev
@@ -199,3 +197,8 @@
   - PowerCellHyper
   - PowerCellHyper
   - PowerCellHyper
+  - AutolatheMachineCircuitboard
+  - ProtolatheMachineCircuitboard
+  - AmmoTechFabCircuitboard
+  - MedicalTechFabCircuitboard
+  - ADTTonfaBlueprint

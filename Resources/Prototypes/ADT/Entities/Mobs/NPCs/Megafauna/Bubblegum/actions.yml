@@ -1,0 +1,88 @@
+- type: entity
+  id: ActionADTBubblegumTripleCharge
+  name: Triple Charge
+  description: Совершить три быстрых рывка подряд.
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Effects/bubblegum.rsi
+      state: paw
+    useDelay: 6
+    checkCanInteract: false
+    raiseOnUser: true
+  - type: TargetAction
+    checkCanAccess: false
+    range: 20
+  - type: WorldTargetAction
+    event:
+      !type:BubblegumTripleChargeActionEvent
+
+- type: entity
+  id: ActionADTBubblegumHallucinationCharge
+  name: Hallucination Charge
+  description: Призвать клонов и совершить совместный рывок.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    raiseOnUser: true
+    icon:
+      sprite: ADT/Effects/bubblegum.rsi
+      state: paw
+    useDelay: 9
+  - type: TargetAction
+    range: 20
+  - type: WorldTargetAction
+    event: !type:BubblegumHallucinationChargeActionEvent
+
+- type: entity
+  id: ActionADTBubblegumSurround
+  name: Surround Target
+  description: Окружить цель волнами клонов.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    raiseOnUser: true
+    icon:
+      sprite: ADT/Effects/bubblegum.rsi
+      state: paw
+    useDelay: 12
+  - type: TargetAction
+    range: 20
+  - type: WorldTargetAction
+    event: !type:BubblegumSurroundActionEvent
+
+- type: entity
+  id: ActionADTBubblegumBloodWarp
+  name: Blood Warp
+  description: Телепортироваться через лужу крови у цели и впасть в ярость.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    raiseOnUser: true
+    icon:
+      sprite: ADT/Effects/bubblegum.rsi
+      state: paw
+    useDelay: 5
+  - type: InstantAction
+    event: !type:BubblegumBloodWarpActionEvent
+
+- type: entity
+  id: ActionADTBubblegumSummonNarsi
+  name: Summon Nar'Si
+  description: Призвать прислужников Нар'Си.
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Effects/bubblegum.rsi
+      state: paw
+    useDelay: 20
+    raiseOnUser: true
+  - type: TargetAction
+    range: 20
+  - type: WorldTargetAction
+    event:
+      !type:BubblegumSummonNarsiActionEvent

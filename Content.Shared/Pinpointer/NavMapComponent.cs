@@ -71,6 +71,15 @@ public sealed partial class NavMapComponent : Component
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
     public Dictionary<NetEntity, HashSet<Vector2i>> RegionOwnerToChunkTable = new();
+
+    // ADT-Tweak Start - New Monitor: invalidate client wall/window line caches
+    /// <summary>
+    /// Client-only counter bumped when chunk state is applied. Used to invalidate
+    /// cached wall/window line geometry without waiting for the periodic rebuild.
+    /// </summary>
+    [ViewVariables]
+    public int DataVersion;
+    // ADT-Tweak End
 }
 
 [Serializable, NetSerializable]
@@ -122,5 +131,6 @@ public enum NavMapChunkType : byte
     Floor = 0, // I believe floors have directional information for diagonal tiles?
     Wall = SharedNavMapSystem.Directions,
     Airlock = 2 * SharedNavMapSystem.Directions,
+    Window = 3 * SharedNavMapSystem.Directions,    // ADT-Tweak - New Monitor: Window as own chunk category
 }
 

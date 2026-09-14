@@ -7,8 +7,8 @@
         - to: stable
           steps:
             - tag: ADTStabilizingSerum
-              name: construction-graph-stabilizing-serum
-              doAfter: 0,1
+              name: construction-graph-tag-stabilizing-serum
+              doAfter: 0.1
 
     - node: stable
       entity: ADTLegionCoreStable

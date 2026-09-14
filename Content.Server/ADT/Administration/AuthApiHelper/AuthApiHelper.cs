@@ -1,5 +1,6 @@
 using System.Net.Http;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Content.Server.ADT.Administration;
@@ -64,23 +65,22 @@ public sealed partial class AuthApiHelper
 
     public static async Task<string?> GetAccountDiscord(ulong userId, string discordTokenBot)
     {
-        var botToken = discordTokenBot;
-
-        if (string.IsNullOrWhiteSpace(botToken))
+        if (string.IsNullOrWhiteSpace(discordTokenBot))
             throw new InvalidOperationException("DISCORD_BOT_TOKEN not set.");
 
-        using var client = new HttpClient();
-        client.DefaultRequestHeaders.Authorization =
-            new System.Net.Http.Headers.AuthenticationHeaderValue("Bot", botToken);
+        using var request = new HttpRequestMessage(HttpMethod.Get, $"https://discord.com/api/v10/users/{userId}");
+        request.Headers.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bot", discordTokenBot);
 
-        var response = await client.GetAsync($"https://discord.com/api/v10/users/{userId}");
+        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+        using var response = await _httpClient.SendAsync(request, cts.Token);
 
         if (!response.IsSuccessStatusCode)
         {
             return null;
         }
 
-        var json = await response.Content.ReadAsStringAsync();
+        var json = await response.Content.ReadAsStringAsync(cts.Token);
         using var doc = JsonDocument.Parse(json);
         var root = doc.RootElement;
 

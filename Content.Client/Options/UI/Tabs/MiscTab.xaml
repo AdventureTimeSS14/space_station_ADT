@@ -19,6 +19,7 @@
                 <CheckBox Name="FancySpeechBubblesCheckBox" Text="{Loc 'ui-options-fancy-speech'}" />
                 <CheckBox Name="FancyNameBackgroundsCheckBox" Text="{Loc 'ui-options-fancy-name-background'}" />
                 <CheckBox Name="ShowChatJobIconsCheckBox" Text="{Loc 'ui-options-show-chat-job-icons'}" /> <!-- ADT-Tweak -->
+                <CheckBox Name="ShowChatPointingIconsCheckBox" Text="{Loc 'ui-options-show-chat-pointing-icons'}" /> <!-- ADT-Tweak -->
                 <Label Text="{Loc 'ui-options-general-cursor'}"
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="ShowHeldItemCheckBox" Text="{Loc 'ui-options-show-held-item'}" />

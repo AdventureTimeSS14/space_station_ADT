@@ -47,11 +47,11 @@
     # eyes: ClothingEyesGlassesSecurity ADT-Tweak
     id: WardenPDA
     ears: ClothingHeadsetSecurity
-    pocket1: WeaponPistolMk58
+    pocket1: ADTSecVoucher #ADT-Tweak
   storage:
     back:
     - Flash
-    - MagazinePistol
+    # - MagazinePistol ADT-Tweak
 
 - type: chameleonOutfit
   id: WardenChameleonOutfit

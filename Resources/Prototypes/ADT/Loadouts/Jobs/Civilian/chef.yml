@@ -9,9 +9,6 @@
 
 - type: loadout
   id: ADTChefManual
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ADTMasterChef
   equipment:
     pocket1: ADTCookbookManual
 

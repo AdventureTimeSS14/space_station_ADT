@@ -3,18 +3,19 @@
   startingInventory:
     FoodSnackRaisins: 2 # ADT-tweak 3 > 2
     FoodSnackChocolate: 2 # ADT-tweak 3 > 2
-    FoodSnackCnDs: 1 # ADT-tweak 3 > 1
-    FoodSnackPistachios: 1 # ADT-tweak 3 > 1
-    FoodSnackSus: 1 # ADT-tweak 3 > 1
-    FoodSnackSemki: 1 # ADT-tweak 3 > 1
+    FoodSnackCnDs: 2 # ADT-tweak 3 > 2
+    FoodSnackPistachios: 2 # ADT-tweak 3 > 2
+    FoodSnackSus: 2 # ADT-tweak 3 > 2
+    FoodSnackSemki: 2 # ADT-tweak 3 > 2
     # ADT-tweak-start
     ADTFoodPackGummiesFilled: 2
     ADTDrinksPackYupiFilled: 2
-    ADTFoodSnackChocolateBarTwoPack: 1
-    ADTFoodSnackChocolateBarCoconutPack: 1
+    ADTFoodSnackChocolateBarTwoPack: 2
+    ADTFoodSnackChocolateBarCoconutPack: 2
     ADTFoodSnackChocolateBarChocoPack: 2
-    ADTFoodSnackChocolateBarPinkPack: 1
+    ADTFoodSnackChocolateBarPinkPack: 2
     ADTFoodSnackChocolateBarNutsPack: 2
+    ADTFoodSnackHematogenPack: 2
     # ADT-tweak-end
   emaggedInventory:
     FoodSnackSyndi: 3

@@ -15,6 +15,7 @@ namespace Content.Server.Mech.Systems;
 public sealed partial class MechSystem
 {
     [Dependency] private readonly SharedMechSystem _mech = default!;
+    [Dependency] private readonly MechCockpitSystem _cockpit = default!;
 
     private void InitializeADT()
     {

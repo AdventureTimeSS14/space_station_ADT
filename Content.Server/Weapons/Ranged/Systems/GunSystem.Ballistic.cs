@@ -34,4 +34,24 @@ public sealed partial class GunSystem
         var cycledEvent = new GunCycledEvent();
         RaiseLocalEvent(ent, ref cycledEvent);
     }
+
+    // ADT-Tweak-start - Thunderdome: clears all existing ammo and refills to capacity with unspawned rounds.
+    public void RefillBallisticAmmo(Entity<BallisticAmmoProviderComponent> entity)
+    {
+        if (entity.Comp.Proto == null)
+            return;
+
+        foreach (var ent in entity.Comp.Entities)
+        {
+            Containers.Remove(ent, entity.Comp.Container);
+            QueueDel(ent);
+        }
+
+        entity.Comp.Entities.Clear();
+        entity.Comp.UnspawnedCount = entity.Comp.Capacity;
+        UpdateBallisticAppearance(entity);
+        UpdateAmmoCount(entity.Owner);
+        Dirty(entity);
+    }
+    // ADT-Tweak-end
 }

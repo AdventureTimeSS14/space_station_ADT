@@ -28,15 +28,21 @@
         machine_board: !type:Container
         machine_parts: !type:Container
     - type: CrewMonitoringServer
-    - type: SingletonDeviceNetServer
+    # ADT-Tweak Start - New Monitor: disabled
+    # - type: SingletonDeviceNetServer
+    # ADT-Tweak End
     - type: DeviceNetwork
       deviceNetId: Wireless
       transmitFrequencyId: CrewMonitor
-      receiveFrequencyId: SuitSensor
+      # #ADT-Tweak Start - New Monitor: no SuitSensor DeviceNet
+      # receiveFrequencyId: SuitSensor
+      # #ADT-Tweak End
       autoConnect: false
     - type: WirelessNetworkConnection
       range: 500
-    - type: StationLimitedNetwork
+    # ADT-Tweak Start - New Monitor: StationLimitedNetwork disabled
+    # - type: StationLimitedNetwork
+    # ADT-Tweak End
     - type: ApcPowerReceiver
       powerLoad: 200
     - type: ExtensionCableReceiver

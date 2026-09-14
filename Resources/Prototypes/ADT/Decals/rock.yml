@@ -1,0 +1,62 @@
+- type: decal
+  id: ADTBasalt10
+  tags: ["rock"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/basalt.rsi
+    state: basalt10
+
+- type: decal
+  id: ADTBasalt11
+  tags: ["rock"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/basalt.rsi
+    state: basalt11
+
+- type: decal
+  id: ADTBasalt12
+  tags: ["rock"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/basalt.rsi
+    state: basalt12
+
+- type: decal
+  id: ADTBasalt13
+  tags: ["rock"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/basalt.rsi
+    state: basalt13
+
+- type: decal
+  id: ADTBasalt14
+  tags: ["rock"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/basalt.rsi
+    state: basalt14
+
+- type: decal
+  id: ADTBasalt15
+  tags: ["rock"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/basalt.rsi
+    state: basalt15
+
+- type: decal
+  id: ADTBasalt16
+  tags: ["rock"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/basalt.rsi
+    state: basalt16

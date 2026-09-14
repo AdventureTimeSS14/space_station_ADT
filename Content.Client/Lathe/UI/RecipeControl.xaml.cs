@@ -26,10 +26,7 @@ public sealed partial class RecipeControl : Control
         SetCanProduce(canProduce);
         SetDisplayControl(displayControl);
 
-        Button.OnPressed += (_) =>
-        {
-            OnButtonPressed?.Invoke(_recipeId);
-        };
+        Button.OnPressed += _ => OnButtonPressed?.Invoke(_recipeId);
         Button.TooltipSupplier = SupplyTooltip;
     }
 

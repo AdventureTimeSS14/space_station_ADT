@@ -1,0 +1,101 @@
+{
+    "copyright": "Taken from https://github.com/tgstation/tgstation at at https://github.com/tgstation/tgstation/commit/40d89d11ea4a5cb81d61dc1018b46f4e7d32c62a, edited by TiniestShark (Github) | Archimedes recolor of Ripley construction sprites for ADT",
+    "license": "CC-BY-SA-3.0",
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "archimedes_chassis"
+        },
+        {
+            "name": "archimedes_harness"
+        },
+        {
+            "name": "archimedes_harness+o"
+        },
+        {
+            "name": "archimedes_r_arm"
+        },
+        {
+            "name": "archimedes_r_arm+o"
+        },
+        {
+            "name": "archimedes_l_arm"
+        },
+        {
+            "name": "archimedes_l_arm+o"
+        },
+        {
+            "name": "archimedes_r_leg"
+        },
+        {
+            "name": "archimedes_r_leg+o"
+        },
+        {
+            "name": "archimedes_l_leg"
+        },
+        {
+            "name": "archimedes_l_leg+o"
+        },
+        {
+            "name": "archimedes0"
+        },
+        {
+            "name": "archimedes1"
+        },
+        {
+            "name": "archimedes2"
+        },
+        {
+            "name": "archimedes3"
+        },
+        {
+            "name": "archimedes4"
+        },
+        {
+            "name": "archimedes5"
+        },
+        {
+            "name": "archimedes6"
+        },
+        {
+            "name": "archimedes7"
+        },
+        {
+            "name": "archimedes8"
+        },
+        {
+            "name": "archimedes9"
+        },
+        {
+            "name": "archimedes10"
+        },
+        {
+            "name": "archimedes11"
+        },
+        {
+            "name": "archimedes12"
+        },
+        {
+            "name": "archimedes13"
+        },
+        {
+            "name": "archimedes14"
+        },
+        {
+            "name": "archimedes15"
+        },
+        {
+            "name": "archimedes16"
+        },
+        {
+            "name": "archimedes17"
+        },
+        {
+            "name": "archimedes18"
+        }
+    ]
+}

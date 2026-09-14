@@ -287,6 +287,12 @@ entity-effect-guidebook-jittering =
         *[other] cause
     } jittering
 
+entity-effect-guidebook-tremor-spasm =
+    { $chance ->
+        [1] Causes
+        *[other] cause
+    } a hand tremor, dropping held items and pacifying for {NATURALFIXED($time, 3)} {MANY("second", $time)}
+
 entity-effect-guidebook-clean-bloodstream =
     { $chance ->
         [1] Cleanses

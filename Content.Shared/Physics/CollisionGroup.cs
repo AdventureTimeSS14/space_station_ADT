@@ -24,6 +24,9 @@ public enum CollisionGroup
     InteractImpassable = 1 << 7, // 128 Blocks interaction/InRangeUnobstructed
     // Y dis door passable when all the others impassable / collision.
     DoorPassable       = 1 << 8, // 256 Allows door to close over top, Like blast doors over conveyors for disposals rooms/cargo.
+    // ADT-Tweak-Start: ADT Blob
+    BlobImpassable     = 1 << 9, // 512 Blob Tiles
+    // ADT-Tweak-End
 
     MapGrid = MapGridHelpers.CollisionGroup, // Map grids, like shuttles. This is the actual grid itself, not the walls or other entities connected to the grid.
 
@@ -34,21 +37,26 @@ public enum CollisionGroup
     SingularityLayer = Opaque | Impassable | MidImpassable | HighImpassable | LowImpassable | BulletImpassable | InteractImpassable | DoorPassable,
 
     // Humanoids, etc.
-    MobMask = Impassable | HighImpassable | MidImpassable | LowImpassable,
+    // ADT-Tweak: added BlobImpassable for ADT Blob
+    MobMask = Impassable | HighImpassable | MidImpassable | LowImpassable | BlobImpassable,
     MobLayer = Opaque | BulletImpassable,
     // Mice, drones
-    SmallMobMask = Impassable | LowImpassable,
+    // ADT-Tweak: added BlobImpassable for ADT Blob
+    SmallMobMask = Impassable | LowImpassable | BlobImpassable,
     SmallMobLayer = Opaque | BulletImpassable,
     // Birds/other small flyers
-    FlyingMobMask = Impassable | HighImpassable,
+    // ADT-Tweak: added BlobImpassable for ADT Blob
+    FlyingMobMask = Impassable | HighImpassable | BlobImpassable,
     FlyingMobLayer = Opaque | BulletImpassable,
 
     // Mechs
-    LargeMobMask = Impassable | HighImpassable | MidImpassable | LowImpassable,
+    // ADT-Tweak: added BlobImpassable for ADT Blob
+    LargeMobMask = Impassable | HighImpassable | MidImpassable | LowImpassable | BlobImpassable,
     LargeMobLayer = Opaque | HighImpassable | MidImpassable | LowImpassable | BulletImpassable,
 
     // Machines, computers
-    MachineMask = Impassable | MidImpassable | LowImpassable,
+    // ADT-Tweak: added BlobImpassable for ADT Blob
+    MachineMask = Impassable | MidImpassable | LowImpassable | BlobImpassable,
     MachineLayer = Opaque | MidImpassable | LowImpassable | BulletImpassable,
     ConveyorMask = Impassable | MidImpassable | LowImpassable | DoorPassable,
 
@@ -56,11 +64,13 @@ public enum CollisionGroup
     CrateMask = Impassable | HighImpassable | LowImpassable,
 
     // Tables that SmallMobs can go under
-    TableMask = Impassable | MidImpassable,
+    // ADT-Tweak: added BlobImpassable for ADT Blob
+    TableMask = Impassable | MidImpassable | BlobImpassable,
     TableLayer = MidImpassable,
 
     // Tabletop machines, windoors, firelocks
-    TabletopMachineMask = Impassable | HighImpassable,
+    // ADT-Tweak: added BlobImpassable for ADT Blob
+    TabletopMachineMask = Impassable | HighImpassable | BlobImpassable,
     // Tabletop machines
     TabletopMachineLayer = Opaque | BulletImpassable,
 
@@ -74,7 +84,8 @@ public enum CollisionGroup
     // Soap, spills
     SlipLayer = MidImpassable | LowImpassable,
     ItemMask = Impassable | HighImpassable,
-    ThrownItem = Impassable | HighImpassable | BulletImpassable,
+    // ADT-Tweak: added BlobImpassable for ADT Blob
+    ThrownItem = Impassable | HighImpassable | BulletImpassable | BlobImpassable,
     WallLayer = Opaque | Impassable | HighImpassable | MidImpassable | LowImpassable | BulletImpassable | InteractImpassable,
     GlassLayer = Impassable | HighImpassable | MidImpassable | LowImpassable | BulletImpassable | InteractImpassable,
     HalfWallLayer = MidImpassable | LowImpassable,
@@ -88,5 +99,15 @@ public enum CollisionGroup
     // FlyingMob can go past
     FullTileLayer = Opaque | HighImpassable | MidImpassable | LowImpassable | BulletImpassable | InteractImpassable,
 
-    SubfloorMask = Impassable | LowImpassable
+    SubfloorMask = Impassable | LowImpassable,
+
+    // ADT-Tweak-Start: ADT Blob
+    BlobMobMask = Impassable | HighImpassable | MidImpassable | LowImpassable,
+    BlobMobLayer = Opaque | BulletImpassable,
+
+    FlyingBlobMobMask = Impassable | HighImpassable,
+    FlyingBlobMobLayer = Opaque | BulletImpassable,
+
+    BlobTileLayer = Opaque | BlobImpassable | BulletImpassable
+    // ADT-Tweak-End
 }

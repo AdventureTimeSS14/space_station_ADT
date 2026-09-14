@@ -1,0 +1,7 @@
+- type: marking
+  groupWhitelist: [Ipc]
+  id: ADTIPCPartHeadSideStickers
+  bodyPart: HeadSide
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_headsides.rsi
+      state: headside_stickers

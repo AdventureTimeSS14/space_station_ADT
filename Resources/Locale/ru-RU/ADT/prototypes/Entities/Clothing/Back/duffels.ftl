@@ -9,3 +9,6 @@ ent-ADTClothingBackpackDuffelDurathead = дюротканевый вещмешо
 
 ent-ADTClothingBackpackDuffelParamedic = вещмешок парамедика
     .desc = Вместительный вещмешок для оборудования экстренной помощи.
+
+ent-ADTClothingBackpackDuffelWeb = паутинный вещмешок
+    .desc = Крайне липкий и вместительный вещмешок для ваших вещей.

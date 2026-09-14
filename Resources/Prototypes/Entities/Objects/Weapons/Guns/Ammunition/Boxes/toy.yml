@@ -42,6 +42,11 @@
     layers:
       - state: boxwidetoy
       - state: shelltoy
+  # ADT-Tweak-Start
+  - type: Tag
+    tags:
+      - BoxDonkSoftBox
+  # ADT-Tweak-End
 
 - type: entity
   parent: BaseMagazineBoxMagnum

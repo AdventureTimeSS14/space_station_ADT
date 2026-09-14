@@ -58,7 +58,7 @@
   name: reptilian appearance
   components:
   - type: Inventory
-    speciesId: reptilian
+#    speciesId: reptilian Remove bad sprites from ADT and back ours ADT tweak
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
@@ -239,7 +239,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
+    sprite: ADT/Mobs/Species/Reptilian/organs.rsi # ADT tweak path to adt sprites
 
 - type: entity
   parent: OrganReptilian
@@ -307,7 +307,7 @@
   id: OrganReptilianFootRight
 
 - type: entity
-  parent: [ OrganBaseBrain, OrganSpriteHumanInternal, OrganReptilianInternal ]
+  parent: [ OrganBaseBrain, OrganReptilianInternal ] # ADT-tweak removed OrganSpriteHumanInternal
   id: OrganReptilianBrain
 
 - type: entity
@@ -323,11 +323,11 @@
   id: OrganReptilianTongue
 
 - type: entity
-  parent: [ OrganBaseAppendix, OrganSpriteHumanInternal, OrganReptilianInternal ]
+  parent: [ OrganBaseAppendix, OrganReptilianInternal ] # ADT-Tweak: remove OrganSpriteHumanInternal
   id: OrganReptilianAppendix
 
 - type: entity
-  parent: [ OrganBaseEars, OrganSpriteHumanInternal, OrganReptilianInternal ]
+  parent: [ OrganBaseEars, OrganReptilianInternal ] # ADT-Tweak: remove OrganSpriteHumanInternal
   id: OrganReptilianEars
 
 - type: entity
@@ -353,9 +353,9 @@
       - Paper
 
 - type: entity
-  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, OrganReptilianInternal, OrganReptilianMetabolizer ]
+  parent: [ OrganBaseLiver, OrganReptilianInternal, OrganReptilianMetabolizer ] # ADT-tweak removed OrganSpriteHumanInternal
   id: OrganReptilianLiver
 
 - type: entity
-  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganReptilianInternal, OrganReptilianMetabolizer ]
+  parent: [ OrganBaseKidneys, OrganReptilianInternal, OrganReptilianMetabolizer ] # ADT-tweak removed OrganSpriteHumanInternal
   id: OrganReptilianKidneys

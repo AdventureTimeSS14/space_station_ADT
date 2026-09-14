@@ -196,7 +196,7 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
                 HorizontalExpand = true,
                 VerticalExpand = true,
                 MuteSounds = true,  // звуки глушатся по причине не очень понятного мне бага, из-за которого при закрытии меню ими срёт
-                Text = Loc.GetString(proto.UiName),
+                Text = proto.UiName,
                 Margin = new(5)
             };
 

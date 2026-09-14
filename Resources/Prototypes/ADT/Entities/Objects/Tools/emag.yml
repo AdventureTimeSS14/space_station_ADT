@@ -5,6 +5,7 @@
   description: A hand-made emag analog. It smells pretty red.
   components:
   - type: Emag
+    emagType: All
   - type: Sprite
     sprite: ADT/Objects/Tools/emag_handmade.rsi
     state: icon
@@ -12,5 +13,5 @@
     sprite: ADT/Objects/Tools/emag_handmade.rsi
     storedRotation: -90
   - type: LimitedCharges
-    lastCharges: 10
-    maxCharges: 10
+    lastCharges: 7
+    maxCharges: 7

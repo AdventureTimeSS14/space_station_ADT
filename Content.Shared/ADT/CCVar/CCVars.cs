@@ -54,4 +54,30 @@ public sealed class SimpleStationCCVars
     public static readonly CVarDef<int> MaxTraitPoints =
         CVarDef.Create("ic.traits.max_points", 0, CVar.SERVER | CVar.REPLICATED);
 
+    public static readonly CVarDef<float> XenobiologyBreedingInterval =
+        CVarDef.Create("vg.xenobiology.breeding_interval", 1f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     The maximum number of slimes allowed on the same grid before breeding
+    ///     becomes increasingly throttled. This is a soft cap driven by a progressive
+    ///     slowdown rather than a hard stop. Players are expected to cull the population.
+    /// </summary>
+    public static readonly CVarDef<int> XenobiologyMaxSlimesPerGrid =
+        CVarDef.Create("xenobiology.max_slimes_per_grid", 60, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     The number of slimes on a grid at which breeding slowdown begins to take effect.
+    ///     Below this value, breeding is unaffected.
+    /// </summary>
+    public static readonly CVarDef<int> XenobiologyBreedingSlowdownStart =
+        CVarDef.Create("xenobiology.breeding_slowdown_start", 30, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     How aggressively breeding is throttled once the population exceeds the slowdown start.
+    ///     A value of 1.0 means offspring count is reduced linearly with the population,
+    ///     hitting zero at the max cap. Lower values make the slowdown gentler.
+    /// </summary>
+    public static readonly CVarDef<float> XenobiologyBreedingSlowdownFactor =
+        CVarDef.Create("xenobiology.breeding_slowdown_factor", 0.6f, CVar.SERVERONLY);
+
 }

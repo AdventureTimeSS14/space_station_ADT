@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited by orange6775 (discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "tail"
+    },
+    {
+      "name": "rod"
+    },
+    {
+      "name": "tip"
+    },
+    {
+      "name": "solution1"
+    },
+    {
+      "name": "inhand-left-tail",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left-rod",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left-tip",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right-tail",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right-rod",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right-tip",
+      "directions": 4
+    }
+  ]
+}

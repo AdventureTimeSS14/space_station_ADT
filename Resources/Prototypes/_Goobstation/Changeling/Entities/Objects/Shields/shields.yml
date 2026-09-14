@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseShield
+  id: ChangelingShield
+  name: organic shield
+  description: A large, fleshy shield.
+  suffix: Unremoveable
+  components:
+    - type: Unremoveable
+    - type: Sprite
+      sprite: _Goobstation/Changeling/shields.rsi
+      state: ling-icon
+    - type: Item
+      sprite: _Goobstation/Changeling/shields.rsi
+      heldPrefix: ling
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 260 # ADT-Tweak
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 200 # ADT-Tweak
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+    - type: Blocking # ADT-Tweak
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.9
+          Slash: 0.9
+          Piercing: 0.9
+          Heat: 0.9
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.8
+          Slash: 0.8
+          Piercing: 0.8
+          Heat: 0.8
+        flatReductions:
+          Blunt: 1
+          Slash: 1
+          Piercing: 1
+          Heat: 1

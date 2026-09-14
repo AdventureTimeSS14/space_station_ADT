@@ -1,0 +1,68 @@
+- type: martialArt
+  id: SleepingCarp
+  martialArtsForm: SleepingCarp
+  roundstartCombos: SleepingCarpMoves
+  randomDamageModifier: False
+  baseDamageModifier: 0
+  damageModifierType: Slash
+  randomSayings:
+  - speech-carp-wrench
+  - speech-carp-stomach
+  - speech-carp-headkick
+  - speech-carp-elbow
+  - speech-carp-backhit
+  - carp-saying-huah
+  - carp-saying-hya
+  - carp-saying-choo
+  - carp-saying-wuo
+  - carp-saying-kya
+  - carp-saying-huh
+  - carp-saying-hiyoh
+  - carp-saying-strike
+  - carp-saying-bite
+  randomSayingsDowned:
+  - carp-saying-banzai
+  - carp-saying-kiya
+  - carp-saying-omae
+  - carp-saying-see
+  - carp-saying-time
+  - carp-saying-cowabunga
+
+- type: comboList
+  id: SleepingCarpMoves
+  combos:
+  - SleepingCarpGnashingTeeth
+  - SleepingCarpCrashingWaves
+  - SleepingCarpDisarmCatch
+
+- type: combo
+  id: SleepingCarpGnashingTeeth
+  name: carp-combo-gnashing-teeth
+  martialArtsForm: SleepingCarp
+  attacks:
+  - Harm
+  - Harm
+  event: !type:SleepingCarpGnashingTeethPerformedEvent
+  damageType: Slash
+  extraDamage: 10
+
+- type: combo
+  id: SleepingCarpCrashingWaves
+  name: carp-combo-crashing-waves
+  martialArtsForm: SleepingCarp
+  attacks:
+  - Harm
+  - Disarm
+  event: !type:SleepingCarpCrashingWavesPerformedEvent
+  extraDamage: 15
+
+- type: combo
+  id: SleepingCarpDisarmCatch
+  name: carp-combo-disarm-catch
+  martialArtsForm: SleepingCarp
+  attacks:
+  - Disarm
+  - Disarm
+  event: !type:SleepingCarpDisarmCatchPerformedEvent
+  damageType: Blunt
+  extraDamage: 10

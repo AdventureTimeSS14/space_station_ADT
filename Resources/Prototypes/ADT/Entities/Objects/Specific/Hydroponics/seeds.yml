@@ -40,3 +40,60 @@
       seedId: ADTStrawberry
     - type: Sprite
       sprite: ADT/Objects/Specific/Hydroponics/strawberry.rsi
+
+# Пепельная флора лаваленда
+
+- type: entity
+  parent: SeedBase
+  name: pack of fruiting cactus seeds
+  description: These seeds grow into fruiting cacti.
+  id: ADTSeedLavalandCactusPacket
+  components:
+    - type: Seed
+      seedId: ADTSeedLavalandCactus
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Hydroponics/lavaland_cactus.rsi
+
+- type: entity
+  parent: SeedBase
+  name: pack of polypore mycelium
+  description: This mycelium grows into bracket mushrooms, also known as polypores. Woody and firm, shaft miners often use them for makeshift crafts.
+  id: ADTSeedPolyporePacket
+  components:
+    - type: Seed
+      seedId: ADTSeedPolypore
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Hydroponics/polypore.rsi
+
+- type: entity
+  parent: SeedBase
+  name: pack of porcini mycelium
+  description: This mycelium grows into Boletus edulis, also known as porcini. Native to the late Earth, but discovered on Lavaland. Has culinary, medicinal and relaxant effects.
+  id: ADTSeedPorciniPacket
+  components:
+    - type: Seed
+      seedId: ADTSeedPorcini
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Hydroponics/porcini.rsi
+
+- type: entity
+  parent: SeedBase
+  name: pack of inocybe mycelium
+  description: This mycelium grows into an inocybe mushroom, a species of Lavaland origin with hallucinatory and toxic effects.
+  id: ADTSeedInocybePacket
+  components:
+    - type: Seed
+      seedId: ADTSeedInocybe
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Hydroponics/inocybe.rsi
+
+- type: entity
+  parent: SeedBase
+  name: pack of embershroom mycelium
+  description: This mycelium grows into embershrooms, a species of bioluminescent mushrooms native to Lavaland.
+  id: ADTSeedEmbershroomPacket
+  components:
+    - type: Seed
+      seedId: ADTSeedEmbershroom
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Hydroponics/ember.rsi

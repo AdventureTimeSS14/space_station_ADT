@@ -1,0 +1,103 @@
+- type: entity
+  id: ActionADTHierophantBlink
+  name: Blink To Target
+  description: Мгновенно переместиться к цели, повредив всё рядом с точкой входа и выхода.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Effects/hierophant_telegraph.rsi
+      state: telegraph_teleport
+    useDelay: 4
+    checkCanInteract: false
+    raiseOnUser: true
+  - type: TargetAction
+    checkCanAccess: false
+    range: 25
+  - type: WorldTargetAction
+    event: !type:HierophantBlinkActionEvent
+
+- type: entity
+  id: ActionADTHierophantChaserSwarm
+  name: Chaser Swarm
+  description: Выпустить рой преследователей по цели и всем вокруг неё.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Effects/hierophant.rsi
+      state: squares_indefinite
+    useDelay: 12
+    checkCanInteract: false
+    raiseOnUser: true
+  - type: TargetAction
+    checkCanAccess: false
+    range: 25
+  - type: WorldTargetAction
+    event: !type:HierophantChaserSwarmActionEvent
+
+- type: entity
+  id: ActionADTHierophantCrossBlasts
+  name: Cross Blasts
+  description: Обрушить на цель череду крестовых залпов.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Effects/hierophant.rsi
+      state: blast_indefinite
+    useDelay: 8
+    checkCanInteract: false
+    raiseOnUser: true
+  - type: TargetAction
+    checkCanAccess: false
+    range: 25
+  - type: WorldTargetAction
+    event: !type:HierophantCrossBlastsActionEvent
+
+- type: entity
+  id: ActionADTHierophantBlinkSpam
+  name: Blink Chase
+  description: Раз за разом телепортироваться к цели, не давая ей уйти.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Objects/Weapons/Melee/hierophant_club.rsi
+      state: icon_ready_beacon
+    useDelay: 10
+    checkCanInteract: false
+    raiseOnUser: true
+  - type: TargetAction
+    checkCanAccess: false
+    range: 25
+  - type: WorldTargetAction
+    event: !type:HierophantBlinkSpamActionEvent
+
+- type: entity
+  id: ActionADTHierophantVortexRecall
+  name: Vortex Recall
+  description: Отсоединить маяк, либо телепортироваться к нему вместе с союзниками рядом.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Structures/hierophant_beacon.rsi
+      state: off
+    useDelay: 1
+  - type: InstantAction
+    event: !type:HierophantVortexRecallActionEvent
+
+- type: entity
+  id: ActionADTHierophantToggleFriendlyFire
+  name: Toggle Unfriendly Fire
+  description: Переключить, будут ли залпы клуба задевать союзников.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Effects/hierophant.rsi
+      state: blast_indefinite
+    useDelay: 1
+  - type: InstantAction
+    event: !type:HierophantToggleFriendlyFireActionEvent

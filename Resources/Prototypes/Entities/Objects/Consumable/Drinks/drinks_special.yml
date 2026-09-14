@@ -24,6 +24,10 @@
   name: ice bucket
   description: A special bucket of refreshy ice. Prohibited use for challenge with the same name!
   components:
+  # ADT-Tweak-Start
+  - type: Item
+    size: Normal
+  # ADT-Tweak-End
   - type: SolutionContainerManager
     solutions:
       drink:

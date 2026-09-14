@@ -21,16 +21,16 @@
       required: true
       default: [ ArachnidCheliceraeDownwards ]
     enum.HumanoidVisualLayers.LArm:
-      limit: 1
+      limit: 2 #ADT-tweak 1>2
       required: false
     enum.HumanoidVisualLayers.RArm:
-      limit: 1
+      limit: 2 #ADT-tweak 1>2
       required: false
     enum.HumanoidVisualLayers.LLeg:
-      limit: 1
+      limit: 2 #ADT-tweak 1>2
       required: false
     enum.HumanoidVisualLayers.RLeg:
-      limit: 1
+      limit: 2 #ADT-tweak 1>2
       required: false
 
 - type: entity
@@ -97,6 +97,10 @@
     - id: FoodMeatSpider
       amount: 5
   - type: Reactive
+  # ADT-Tweak start
+    groups:
+      Acidic: [ Touch, Ingestion ]
+  # ADT-Tweak end
     reactions:
     - reagents: [Water]
       methods: [Touch]
@@ -120,6 +124,8 @@
     damage:
       types:
         Piercing: 5
+  - type: Damageable
+    damageModifierSet: ADTArachnid # ADT-Tweak
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
@@ -139,6 +145,7 @@
   - type: TypingIndicator
     proto: spider
   # ADT-Tweak start
+  - type: IgnoreSpiderWeb
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
@@ -148,6 +155,10 @@
     tallscale: 1.15
     short: true
     shortscale: 0.98
+  - type: NightVision
+    innate: true
+    shader: ADTModernNightVisionShader
+    effectPrototype: ADTEffectNightVisionLow
   # ADT-Tweak end
   - type: CreamPied
     sprite:
@@ -235,7 +246,7 @@
   id: OrganArachnidFootRight
 
 - type: entity
-  parent: [ OrganBaseBrain, OrganSpriteHumanInternal, OrganArachnidInternal ]
+  parent: [ OrganBaseBrain, OrganArachnidInternal ] # ADT-Tweak: remove OrganSpriteHumanInternal
   id: OrganArachnidBrain
 
 - type: entity
@@ -247,11 +258,11 @@
   id: OrganArachnidTongue
 
 - type: entity
-  parent: [ OrganBaseAppendix, OrganSpriteHumanInternal, OrganArachnidInternal ]
+  parent: [ OrganBaseAppendix, OrganArachnidInternal ] # ADT-Tweak: remove OrganSpriteHumanInternal
   id: OrganArachnidAppendix
 
 - type: entity
-  parent: [ OrganBaseEars, OrganSpriteHumanInternal, OrganArachnidInternal ]
+  parent: [ OrganBaseEars, OrganArachnidInternal ] # ADT-Tweak: remove OrganSpriteHumanInternal
   id: OrganArachnidEars
 
 - type: entity
@@ -267,9 +278,11 @@
   id: OrganArachnidStomach
 
 - type: entity
-  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, OrganArachnidInternal, OrganAnimalMetabolizer ]
+  parent: [ OrganBaseLiver, OrganArachnidInternal, OrganAnimalMetabolizer ] # ADT-Tweak: remove OrganSpriteHumanInternal
   id: OrganArachnidLiver
 
 - type: entity
-  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganArachnidInternal, OrganAnimalMetabolizer ]
+  parent: [ OrganBaseKidneys, OrganArachnidInternal, OrganAnimalMetabolizer ] # ADT-Tweak: remove OrganSpriteHumanInternal
   id: OrganArachnidKidneys
+
+# ADT-Tweak start

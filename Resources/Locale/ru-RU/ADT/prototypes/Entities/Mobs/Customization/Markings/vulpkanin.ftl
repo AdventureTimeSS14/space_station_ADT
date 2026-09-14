@@ -345,3 +345,11 @@ marking-ADTVulpHairRough = Грубая
 marking-ADTVulpHairShort = короткие волосы
 marking-ADTVulpHairShort2 = короткие волосы 2
 marking-ADTVulpHairSpike = Шип
+
+marking-FoxTailAnimated = Лисий хвост
+marking-WolfTailAnimated = Волчий хвост
+marking-ADTAllhono = Честь
+marking-ADTVulpkanintail1Animated = Вульпканин, хвост (1, виляющий)
+marking-ADTVulpkanintail2Animated = Вульпканин, хвост (2, виляющий)
+marking-ADTVulpkanintailAllAnimated = Вульпканин, хвост (виляющий)
+marking-ADTVulpTailFluffyAnimated = Вульпканин, пушистый хвост (виляющий)

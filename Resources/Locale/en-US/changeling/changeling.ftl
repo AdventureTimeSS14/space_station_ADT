@@ -1,5 +1,5 @@
-﻿roles-antag-changeling-name = Changeling
-roles-antag-changeling-objective = A intelligent predator that assumes the identities of its victims.
+﻿# roles-antag-changeling-name = Changeling
+# roles-antag-changeling-objective = A intelligent predator that assumes the identities of its victims.
 
 changeling-devour-attempt-failed-cannot-devour = We cannot devour this!
 changeling-devour-attempt-failed-already-devoured = We already consumed this body!

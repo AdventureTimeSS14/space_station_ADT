@@ -45,3 +45,9 @@
   values:
     prefix: adt-figurines-plushie-jungar-
     count: 9
+
+- type: localizedDataset
+  id: ADTFigurinesPlushieEmiliaEvenwood
+  values:
+    prefix: adt-figurines-plushie-emilia-evenwood-
+    count: 2

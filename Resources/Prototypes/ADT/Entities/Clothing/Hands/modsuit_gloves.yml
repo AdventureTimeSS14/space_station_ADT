@@ -16,6 +16,12 @@
     fiberMaterial: fibers-carbon-adt
     fiberColor: fibers-grey
   - type: FingerprintMask
+  - type: UserInterface
+    interfaces:
+      enum.HealthAnalyzerUiKey.Key:
+        type: HealthAnalyzerBoundUserInterface
+      enum.AnomalyScannerUiKey.Key:
+        type: AnomalyScannerBoundUserInterface
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -407,3 +413,115 @@
         Shock: 0.65
   - type: Fiber
     fiberColor: fibers-brown
+
+- type: entity
+  parent: ADTClothingHandsModsuitBase
+  id: ADTClothingHandsModsuitMinerva
+  name: research MOD gauntlets "Minerva"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/minerva.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/minerva.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-purple
+
+- type: entity
+  parent: ADTClothingHandsModsuitBase
+  id: ADTClothingHandsModsuitCharon
+  name: liberation MOD gauntlets "Charon"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/charon.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/charon.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-black
+
+- type: entity
+  parent: ADTClothingHandsModsuitBase
+  id: ADTClothingHandsModsuitERTLeader
+  name: ERT MOD gauntlets "Polaris"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/responsory.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/responsory.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+      - state: equipped-HAND-unshaded
+        shader: unshaded
+        color: "#2b6cb0"
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+
+- type: entity
+  parent: ADTClothingHandsModsuitBase
+  id: ADTClothingHandsModsuitERTSecurity
+  name: ERT MOD gauntlets "Antares"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/responsory.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/responsory.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+      - state: equipped-HAND-unshaded
+        shader: unshaded
+        color: "#b02b2b"
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+
+- type: entity
+  parent: ADTClothingHandsModsuitBase
+  id: ADTClothingHandsModsuitERTEngineer
+  name: ERT MOD gauntlets "Capella"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/responsory.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/responsory.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+      - state: equipped-HAND-unshaded
+        shader: unshaded
+        color: "#d4a017"
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+
+- type: entity
+  parent: ADTClothingHandsModsuitBase
+  id: ADTClothingHandsModsuitERTMedical
+  name: ERT MOD gauntlets "Vega"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/responsory.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/responsory.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+      - state: equipped-HAND-unshaded
+        shader: unshaded
+        color: "#17c9d4"
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3

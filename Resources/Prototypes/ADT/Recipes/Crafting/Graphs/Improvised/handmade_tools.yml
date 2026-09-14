@@ -7,7 +7,7 @@
     - to: HandmadeCrowbar
       steps:
       - material: MetalRod
-        amount: 3
+        amount: 4
         doAfter: 1
   - node: HandmadeCrowbar
     entity: Crowbar

@@ -60,9 +60,9 @@
     storedRotation: -90
   - type: PointLight
     enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
+    mask: /Textures/ADT/Effects/Lightmasks/cone_composed_b.png # ADT tweak
     autoRot: true
-    radius: 6
+    radius: 10 # ADT tweak
     netsync: false
   - type: Appearance
   - type: StaticPrice
@@ -120,7 +120,7 @@
     sprite: Objects/Tools/seclite.rsi
   - type: PointLight
     enabled: false
-    radius: 8
+    radius: 14 # ADT tweak 8 > 14
   - type: Clothing
     sprite: Objects/Tools/seclite.rsi
     quickEquip: false

@@ -103,9 +103,11 @@
       prototype: ADTFrostpunkGenerator
       stackRequirements:
         CableHV: 10
-        Manipulator: 2
+
         Steel: 10
         Plasteel: 20
+      partRequirements:
+        Servo: 2
     - type: Clothing
       quickEquip: false
       slots:

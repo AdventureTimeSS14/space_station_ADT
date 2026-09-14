@@ -38,13 +38,22 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.DNAGunLocker;
+using Content.Shared.ADT.Mech.Components;
+using Content.Shared.ADT.Weapons.Ranged.WearableGun;
 using Content.Shared.Electrocution;
 using Content.Shared.ADT.Crawling.Components;
+using Content.Shared.Inventory.VirtualItem;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
 public abstract partial class SharedGunSystem : EntitySystem
 {
+    // ADT-Tweak-Start
+    private static readonly TimeSpan MinFireRateInterval = TimeSpan.FromSeconds(0.1);
+    private static readonly TimeSpan MaxFireRateInterval = TimeSpan.FromHours(1);
+    private const int MaxCatchUpShots = 100;
+    // ADT-Tweak-End
+
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly INetManager _netManager = default!;
@@ -212,22 +221,37 @@ public abstract partial class SharedGunSystem : EntitySystem
     {
         gun = default;
 
-        // ADT Content start
-        if (TryComp<MechPilotComponent>(entity, out var mechPilot) &&
-            TryComp<MechComponent>(mechPilot.Mech, out var mech) &&
-            mech.CurrentSelectedEquipment.HasValue &&
-            TryComp<GunComponent>(mech.CurrentSelectedEquipment.Value, out var mechGun))
+        // ADT-Tweak-Start
+        if (TryComp<MechPilotComponent>(entity, out var mechPilot))
         {
-            gun = (mech.CurrentSelectedEquipment.Value, mechGun);
-            return true;
+            if (HasComp<MechControlLockedComponent>(entity))
+                return false;
+
+            if (TryComp<MechComponent>(mechPilot.Mech, out var mech) &&
+                mech.CurrentSelectedEquipment.HasValue &&
+                TryComp<GunComponent>(mech.CurrentSelectedEquipment.Value, out var mechGun))
+            {
+                gun = (mech.CurrentSelectedEquipment.Value, mechGun);
+                return true;
+            }
         }
-        // ADT Content end
+
         if (_hands.GetActiveItem(entity) is { } held &&
-            TryComp(held, out GunComponent? gunComp))
+            TryComp(held, out GunComponent? gunComp) &&
+            !HasComp<ADTWearableGunComponent>(held))
         {
             gun = (held, gunComp);
             return true;
         }
+
+        if (TryComp<ADTWearableGunUserComponent>(entity, out var wearableUser) &&
+            TryComp(wearableUser.Gun, out GunComponent? wearableGun) &&
+            (_hands.GetActiveItem(entity) is not { } inHand || HasComp<VirtualItemComponent>(inHand)))
+        {
+            gun = (wearableUser.Gun.Value, wearableGun);
+            return true;
+        }
+        // ADT-Tweak-End
 
         // Last resort is check if the entity itself is a gun.
         if (TryComp(entity, out gunComp))
@@ -326,10 +350,23 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (gun.Comp.NextFire > curTime)
             return false;
 
-        var fireRate = TimeSpan.FromSeconds(1f / gun.Comp.FireRateModified);
+        // ADT-Tweak-Start
+        var fireRateSeconds = 1d / gun.Comp.FireRateModified;
 
         if (gun.Comp.SelectedMode == SelectiveFire.Burst || gun.Comp.BurstActivated)
-            fireRate = TimeSpan.FromSeconds(1f / gun.Comp.BurstFireRate);
+            fireRateSeconds = 1d / gun.Comp.BurstFireRate;
+
+        if (double.IsNaN(fireRateSeconds) || fireRateSeconds < MinFireRateInterval.TotalSeconds)
+        {
+            fireRateSeconds = MinFireRateInterval.TotalSeconds;
+        }
+        else if (double.IsInfinity(fireRateSeconds) || fireRateSeconds > MaxFireRateInterval.TotalSeconds)
+        {
+            fireRateSeconds = MaxFireRateInterval.TotalSeconds;
+        }
+
+        var fireRate = TimeSpan.FromSeconds(fireRateSeconds);
+        // ADT-Tweak-End
 
         // First shot
         // Previously we checked shotcounter but in some cases all the bullets got dumped at once
@@ -340,11 +377,13 @@ public abstract partial class SharedGunSystem : EntitySystem
         var shots = 0;
         var lastFire = gun.Comp.NextFire;
 
-        while (gun.Comp.NextFire <= curTime)
+        // ADT-Tweak-Start
+        while (gun.Comp.NextFire <= curTime && shots < MaxCatchUpShots)
         {
             gun.Comp.NextFire += fireRate;
             shots++;
         }
+        // ADT-Tweak-End
 
         // NextFire has been touched regardless so need to dirty the gun.
         DirtyField(gun.AsNullable(), nameof(GunComponent.NextFire));
@@ -575,6 +614,17 @@ public abstract partial class SharedGunSystem : EntitySystem
         return EnsureComp<AmmoComponent>(uid);
     }
 
+    // ADT-Tweak start
+    /// <summary>
+    /// Получает объект <see cref="IShootable"/> для указанного uid, создавая его при необходимости. Используется в <see cref="ChangelingGunSystem"/>.
+    /// </summary>
+    /// <param name="uid"></param>
+    public IShootable AllowEnsureShootable(EntityUid uid)
+    {
+        return EnsureShootable(uid);
+    }
+    // ADT-Tweak end
+
     protected void RemoveShootable(EntityUid uid)
     {
         RemCompDeferred<CartridgeAmmoComponent>(uid);
@@ -694,7 +744,8 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Serializable, NetSerializable]
     public sealed class HitscanEvent : EntityEventArgs
     {
-        public List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)> Sprites = [];
+        public List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)> Sprites = new();
+        public float Lifetime; // ADT-Tweak BAS
     }
 
     /// <summary>

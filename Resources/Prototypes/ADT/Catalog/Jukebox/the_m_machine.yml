@@ -1,0 +1,41 @@
+- type: jukebox
+  id: ADTTheMMachineTinyAnthem
+  name: 1. The M Machine - Tiny Anthem
+  path:
+    path: /Audio/ADT/Jukebox/TheMMachine/Tiny-Anthem.ogg
+
+- type: jukebox
+  id: ADTTheMMachineFaces
+  name: 2. The M Machine - Faces
+  path:
+    path: /Audio/ADT/Jukebox/TheMMachine/Faces.ogg
+
+- type: jukebox
+  id: ADTTheMMachineShadowInTheRoseGarden
+  name: 3. The M Machine - Shadow in the Rose Garden
+  path:
+    path: /Audio/ADT/Jukebox/TheMMachine/Shadow-in-the-Rose-Garden.ogg
+
+- type: jukebox
+  id: ADTTheMMachineImmigrants
+  name: 4. The M Machine - Immigrants
+  path:
+    path: /Audio/ADT/Jukebox/TheMMachine/Immigrants.ogg
+
+- type: jukebox
+  id: ADTTheMMachineDeepSearch
+  name: 5. The M Machine - Deep Search
+  path:
+    path: /Audio/ADT/Jukebox/TheMMachine/Deep-Search.ogg
+
+- type: jukebox
+  id: ADTTheMMachineBlack
+  name: 6. The M Machine - Black
+  path:
+    path: /Audio/ADT/Jukebox/TheMMachine/Black.ogg
+
+- type: jukebox
+  id: ADTTheMMachineAKingAlone
+  name: 7. The M Machine - A King Alone
+  path:
+    path: /Audio/ADT/Jukebox/TheMMachine/A-King-Alone.ogg

@@ -1,0 +1,69 @@
+- type: martialArt
+  id: KungFuDragon
+  martialArtsForm: KungFuDragon
+  roundstartCombos: KungFuDragonMoves
+  baseDamageModifier: 6
+
+- type: comboList
+  id: KungFuDragonMoves
+  combos:
+  - DragonClaw
+  - DragonTail
+  - DragonStrike
+  - DragonAscension
+
+- type: combo
+  id: DragonClaw
+  name: dragon-combo-dragon-claw
+  martialArtsForm: KungFuDragon
+  attacks:
+  - Disarm
+  - Disarm
+  event: !type:DragonClawPerformedEvent
+    sound:
+      path: /Audio/Weapons/genhit3.ogg
+  staminaDamage: 50
+
+- type: combo
+  id: DragonTail
+  name: dragon-combo-dragon-tail
+  martialArtsForm: KungFuDragon
+  attacks:
+  - Disarm
+  - Grab
+  - Harm
+  event: !type:DragonTailPerformedEvent
+    sound:
+      path: /Audio/Weapons/genhit2.ogg
+  extraDamage: 10
+  staminaDamage: 15
+  paralyzeTime: 4
+
+- type: combo
+  id: DragonStrike
+  name: dragon-combo-dragon-strike
+  martialArtsForm: KungFuDragon
+  attacks:
+  - Disarm
+  - Harm
+  - Harm
+  event: !type:DragonStrikePerformedEvent
+    sound:
+      path: /Audio/Weapons/genhit1.ogg
+  extraDamage: 45
+
+- type: combo
+  id: DragonAscension
+  name: dragon-combo-dragon-ascension
+  martialArtsForm: KungFuDragon
+  attacks:
+  - Harm
+  - Harm
+  - Grab
+  event: !type:DragonAscensionPerformedEvent
+    sound:
+      path: /Audio/Animals/space_dragon_roar.ogg
+    throwSpeed: 7
+    throwDistance: 7
+  extraDamage: 15
+  staminaDamage: 40

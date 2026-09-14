@@ -28,3 +28,18 @@ public sealed class OnTemperatureChangeEvent : EntityEventArgs
     }
 }
 
+// ADT Heretic (перенесено из Goob)
+public sealed class TemperatureChangeAttemptEvent : CancellableEntityEventArgs
+{
+    public readonly float CurrentTemperature;
+    public readonly float LastTemperature;
+    public readonly float TemperatureDelta;
+
+    public TemperatureChangeAttemptEvent(float current, float last, float delta)
+    {
+        CurrentTemperature = current;
+        LastTemperature = last;
+        TemperatureDelta = delta;
+    }
+}
+

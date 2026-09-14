@@ -12,6 +12,35 @@ adt-station-goal-end =
     ================================================[italic]
                                           Место для печати[/italic]
 
+adt-station-goal-sent-announcement = Вам отправлена цель станции: { $goal }.
+
+adt-station-goal-transit-base-name = Транзитная смена
+adt-station-goal-transit-resourses-name = Транзитная смена с доставкой ресурсов
+adt-station-goal-transit-upgrade-name = Транзитная смена с улучшением оборудования
+adt-station-goal-transit-servicedecor-name = Транзитная смена с украшением помещений
+adt-station-goal-transit-servicetransport-name = Транзитная смена с доставкой припасов
+adt-station-goal-transit-artifact-name = Транзитная смена с доставкой артефактов
+adt-station-goal-transit-medicine-name = Транзитная смена с доставкой лекарств
+adt-station-goal-transit-contraband-name = Транзитная смена с доставкой контрабанды
+adt-station-goal-multiple-name = Список целей на выбор
+adt-station-goal-shuttle-name = Постройка шаттла
+adt-station-goal-dock-name = Строительство дока
+adt-station-goal-dormitory-name = Жилой блок
+adt-station-goal-tournament-name = Турнир
+adt-station-goal-restavration-name = Реставрация станции
+adt-station-goal-bridge-name = Ремонт мостика
+adt-station-goal-mail-name = Пневматическая почта
+adt-station-goal-ambusol-name = Синтез амбузола
+adt-station-goal-storage-name = Орбитальное хранилище
+adt-station-goal-medbay-name = Улучшение медотсека
+adt-station-goal-mech-name = Постройка мехов
+adt-station-goal-anomaly-name = Исследовательские материалы
+adt-station-goal-killbox-name = Тренировочный комплекс СБ
+adt-station-goal-greenhouses-name = Теплицы
+adt-station-goal-miningoutpost-name = Шахтёрский аванпост
+adt-station-goal-solars-name = Солнечные батареи
+station-goal-bluespace-artillery-name = Блюспейс артиллерия
+
 adt-station-goal-shuttle =
     { adt-station-goal-start }
 
@@ -336,7 +365,7 @@ adt-station-goal-mech =
     Исследовательский отдел должен изготовить следующие мехи:
     - Фазон (в случае невозможности - заменить двумя Дюрандами), 1 единица
     - Дюранд, 1 единица
-    - Гайгэкс, 2 единицы
+    - Гигакс, 2 единицы
     - Одиссей, 2 единицы
     - Рипли, 4 единицы
 
@@ -676,3 +705,15 @@ adt-station-goal-multiple =
       4. Изготовление 8 единиц корабельного вооружения, батарей/магазинов к нему и доставка на ЦК.
 
      { adt-station-goal-end }
+    
+station-goal-bluespace-artillery =
+    { station-goal-start }[bold]
+    Второстепенная цель — создание и тестирование блюспейс артиллерии.[/bold]
+
+    Отделу снабжения необходимо добыть дорогостоящие ресурсы для постройки блюспейс артиллерии.
+    Инженерному отделу необходимо построить полигон для тестирования артиллерии.
+    Отделу исследований и разработки необходимо открыть технологию "Блюспейс" и "Блюспейс артиллерия", построить блюспейс артиллерию,
+    после чего протестировать выстрел на полигоне, пронаблюдав за его выстрелом.
+
+
+    { station-goal-end }

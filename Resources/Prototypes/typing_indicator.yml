@@ -17,6 +17,7 @@
   id: alien
   typingState: alien0
   idleState: alien3
+  offset: 0.1, 0.0625 # ADT-Tweak: for better shadekin speechbubble
 
 - type: typingIndicator
   id: guardian
