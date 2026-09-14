@@ -176,6 +176,7 @@ public sealed class RadioSystem : EntitySystem
         // ADT Languages end
 
         content = _tenCode.Highlight(messageSource, content); // ADT-Tweak
+        languageEncodedContent = _tenCode.Highlight(messageSource, languageEncodedContent); // ADT-Tweak
 
         var nameWithIcon = GetWrappedNameWithJobIcon(messageSource, name); // ADT-Tweak
 
