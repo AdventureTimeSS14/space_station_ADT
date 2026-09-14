@@ -1,6 +1,3 @@
-using Content.Shared.Humanoid;
-using Content.Shared.Interaction;
-using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Enums;
 using Robust.Shared.GameStates;
@@ -19,44 +16,10 @@ public sealed partial class SlimeGenderChangePotionComponent : Component
 
 public sealed partial class SlimeGenderChangePotionSystem : EntitySystem
 {
-    [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SlimeGenderChangePotionComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<SlimeGenderChangePotionComponent, GetVerbsEvent<InteractionVerb>>(OnGetVerbs);
-    }
-
-    private void OnAfterInteract(Entity<SlimeGenderChangePotionComponent> ent, ref AfterInteractEvent args)
-    {
-        if (args.Target is not { } target || !args.CanReach)
-            return;
-
-        if (!TryComp<HumanoidProfileComponent>(target, out var profile))
-            return;
-
-        args.Handled = true;
-
-        if (!ent.Comp.Gender.HasValue)
-        {
-            _popup.PopupPredicted(Loc.GetString("xeno-potion-gender-not-selected"), args.User, args.User);
-            return;
-        }
-
-        var genderLocKey = $"xeno-potion-gender-{ent.Comp.Gender.Value.ToString().ToLowerInvariant()}";
-        var genderText = Loc.GetString(genderLocKey);
-
-        if (ent.Comp.Gender.Value == profile.Gender)
-        {
-            _popup.PopupPredicted(Loc.GetString("xeno-potion-gender-already", ("gender", genderText)), args.User, args.User);
-            return;
-        }
-
-        _humanoidProfile.SetGender((target, profile), ent.Comp.Gender.Value);
-        _popup.PopupPredicted(Loc.GetString("xeno-potion-gender-applied", ("gender", genderText)), args.User, args.User);
-        PredictedQueueDel(args.Used);
     }
 
     private void OnGetVerbs(Entity<SlimeGenderChangePotionComponent> ent, ref GetVerbsEvent<InteractionVerb> args)
