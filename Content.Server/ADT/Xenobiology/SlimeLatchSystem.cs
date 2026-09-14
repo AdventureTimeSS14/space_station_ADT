@@ -353,6 +353,8 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (Deleted(target))
             return;
 
+        var biteDirection = (_xform.GetWorldPosition(target) - _xform.GetWorldPosition(ent.Owner)).Normalized();
+
         _xform.SetCoordinates(ent, Transform(target).Coordinates);
         _xform.SetParent(ent, target);
         if (TryComp<InputMoverComponent>(ent, out var inpm))
@@ -372,7 +374,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         _audio.PlayEntity(ent.Comp.EatSound, ent, ent);
         _popup.PopupEntity(Loc.GetString("slime-action-latch-success", ("slime", ent), ("target", target)), ent, PopupType.SmallCaution);
 
-        var vector = (Transform(target).LocalPosition - Transform(ent.Owner).LocalPosition).Normalized();
+        var vector = biteDirection;
         RaiseNetworkEvent(new SlimeBiteAnimationMessage()
         {
             Entity = GetNetEntity(ent.Owner, MetaData(ent.Owner)),

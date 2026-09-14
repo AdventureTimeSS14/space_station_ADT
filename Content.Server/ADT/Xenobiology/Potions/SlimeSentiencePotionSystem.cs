@@ -26,7 +26,7 @@ public sealed partial class SlimeSentiencePotionSystem : EntitySystem
         if (args.Target is not { } target || !args.CanReach)
             return;
 
-        if (HasComp<MindContainerComponent>(target))
+        if (TryComp<MindContainerComponent>(target, out var targetMind) && targetMind.HasMind)
             return;
 
         args.Handled = true;

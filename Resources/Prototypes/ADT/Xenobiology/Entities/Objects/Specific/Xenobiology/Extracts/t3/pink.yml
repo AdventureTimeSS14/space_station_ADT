@@ -13,6 +13,7 @@
     - PinkSlimeExtractWaterReaction
     - PinkSlimeExtractPlasmaReaction
     - PinkSlimeExtractBloodReaction
+    - PinkSlimeExtractJellyReaction
   - type: Tag
     tags:
     - XenobiologyPinkExtract
@@ -75,7 +76,7 @@
 - type: extractReaction
   id: PinkSlimeExtractJellyReaction
   requirements:
-    Plasma: 15
+    Radium: 1
   effects:
   - effect: !type:PopupMessage
       type: Pvs

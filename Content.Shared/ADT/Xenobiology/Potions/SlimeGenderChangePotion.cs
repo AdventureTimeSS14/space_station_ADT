@@ -27,7 +27,7 @@ public sealed partial class SlimeGenderChangePotionSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess)
             return;
 
-        var category = new VerbCategory(Loc.GetString("xeno-potion-gender-category"), null, false);
+        var category = new VerbCategory("xeno-potion-gender-category", null, false);
 
         AddGenderVerb(args, ent, category, Gender.Neuter, "xeno-potion-gender-neuter");
         AddGenderVerb(args, ent, category, Gender.Epicene, "xeno-potion-gender-epicene");

@@ -66,7 +66,10 @@ public sealed partial class SlimeExtractSystem : EntitySystem
         {
             var reaction = _prototypeManager.Index<ExtractReactionPrototype>(extractReactionProto);
             if (IsSolutionRequirementFulfilled(reaction.Requirements, args.Solution))
-                activeReactionComponent.ActiveReactions[extractReactionProto] = _gameTiming.CurTime + reaction.Delay;
+            {
+                if (!activeReactionComponent.ActiveReactions.ContainsKey(extractReactionProto))
+                    activeReactionComponent.ActiveReactions[extractReactionProto] = _gameTiming.CurTime + reaction.Delay;
+            }
             else
                 activeReactionComponent.ActiveReactions.Remove(extractReactionProto);
         }
