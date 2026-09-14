@@ -58,6 +58,9 @@
   components:
   - type: HereticCloakedStatusEffect
   - type: LastRefuge
+    hadStealth: true
+    hadGodmode: true
+    hadSlowdownImmunity: true
   - type: Godmode
   - type: Stealth
   - type: SpeedModifierImmunity
