@@ -202,20 +202,20 @@
     - ADTMechEquipmentMed
     - ADTArchimedesArmModule
   - type: ADTMedbeam
-    bloodRestore: 2
+    bloodRestore: 1
     requireMech: true
-    energyUsage: 10
+    energyUsage: 20
     damage:
       types:
-        Blunt: -2
-        Slash: -2
-        Piercing: -2
-        Heat: -2
-        Caustic: -2
-        Cold: -2
-        Shock: -2
-        Poison: -2
-        Asphyxiation: -2
+        Blunt: -1.2
+        Slash: -1.2
+        Piercing: -1.2
+        Heat: -1.2
+        Caustic: -1.2
+        Cold: -1.2
+        Shock: -1.2
+        Poison: -1.2
+        Asphyxiation: -1.2
 
 - type: entity
   name: бур
