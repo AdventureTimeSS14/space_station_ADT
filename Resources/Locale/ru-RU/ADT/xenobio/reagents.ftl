@@ -23,3 +23,5 @@ xenobio-reagent-toxin-advanced-name = рандоген
 xenobio-reagent-toxin-advanced-desc = Превращает любого гуманоидa, употребившего его в достаточном количестве, в случайную расу. Да, даже в скелета. Не спрашивай.
 xenobio-reagent-genderfluid-name = гендерфлюид
 xenobio-reagent-genderfluid-desc = Меняет пол человека, который его употребил. Мы оба знаем, что ты сделаешь в первую очередь...
+xenobio-reagent-regenerative-jelly-name = регенеративное желе
+xenobio-reagent-regenerative-jelly-desc = Затягивает раны и ожоги, восстанавливая ткани. Слаймовая медицина во всей красе.

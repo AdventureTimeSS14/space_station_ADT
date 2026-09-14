@@ -5,10 +5,10 @@
   description: Ends remote viewing and returns you to your body.
   components:
   - type: Action
-    priority: -9
+    priority: -4
     itemIconStyle: BigAction
     icon:
       sprite: ADT/Interface/Actions/xenobiology_console.rsi
-      state: return
+      state: disconnect
   - type: InstantAction
     event: !type:EyeControlReturnEvent

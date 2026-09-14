@@ -327,3 +327,20 @@
         - !type:ReagentCondition
           reagent: XenobioGenderFluid
           min: 5
+
+- type: reagent
+  parent: BaseXenobioReagent
+  id: RegenerativeJelly
+  name: xenobio-reagent-regenerative-jelly-name
+  desc: xenobio-reagent-regenerative-jelly-desc
+  color: "#a579b5"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.1
+      effects:
+      - !type:EvenHealthChange
+        damage:
+          Burn: -2
+          Toxin: -2
+          Airloss: -2
+          Brute: -2

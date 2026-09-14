@@ -1,1 +1,78 @@
-# in my wet dreams :(
+- type: entity
+  id: RainbowSlimeExtract
+  parent: BaseSlimeExtract
+  name: rainbow slime extract
+  description: The rarest slime extract, shimmering with all the colors of the rainbow. What could it possibly do?
+  components:
+  - type: RgbLightController
+    layers: [ 0 ]
+  - type: PointLight
+    radius: 1
+    energy: 1
+  - type: Sprite
+    layers:
+    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+      state: core
+      color: "#ffffff"
+  - type: SlimeExtract
+    extractReactions:
+    - RainbowSlimeExtractBloodReaction
+    - RainbowSlimeExtractPlasmaReaction
+    - RainbowSlimeExtractRadiumReaction
+  - type: Tag
+    tags:
+    - XenobiologyRainbowExtract
+
+- type: extractReaction
+  id: RainbowSlimeExtractBloodReaction
+  requirements:
+    Blood: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction-reagent" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:CreateEntityReactionEffect
+      entity: SlimeMindTransferencePotion
+      number: 1
+    scalingOffset: 1
+  shouldDelete: false
+
+- type: extractReaction
+  id: RainbowSlimeExtractPlasmaReaction
+  requirements:
+    Plasma: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:CreateEntityReactionEffect
+      entity: RainbowSlimeExtractSpawner
+      number: 1
+    scalingOffset: 1
+  shouldDelete: false
+
+- type: extractReaction
+  id: RainbowSlimeExtractRadiumReaction
+  requirements:
+    Radium: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction-reagent" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
+  - effect: !type:CreateEntityReactionEffect
+      entity: RainbowSlimeExtractSpawner
+      number: 1
+    scalingOffset: 1
+  shouldDelete: false

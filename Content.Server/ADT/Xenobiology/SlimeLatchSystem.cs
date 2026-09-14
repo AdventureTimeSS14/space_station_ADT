@@ -33,6 +33,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using Content.Server.Speech.Components;
 using Content.Shared.Zombies;
+using Robust.Shared.Player;
 using System.Linq;
 
 namespace Content.Server.ADT.Xenobiology.Systems;
@@ -370,6 +371,13 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         _audio.PlayEntity(ent.Comp.EatSound, ent, ent);
         _popup.PopupEntity(Loc.GetString("slime-action-latch-success", ("slime", ent), ("target", target)), ent, PopupType.SmallCaution);
+
+        var vector = (Transform(target).LocalPosition - Transform(ent.Owner).LocalPosition).Normalized();
+        RaiseNetworkEvent(new SlimeBiteAnimationMessage()
+        {
+            Entity = GetNetEntity(ent.Owner, MetaData(ent.Owner)),
+            Angle = Angle.FromWorldVec(vector),
+        }, Filter.Pvs(ent.Owner, 0.5F));
     }
 
     public void Unlatch(Entity<SlimeComponent> ent)
