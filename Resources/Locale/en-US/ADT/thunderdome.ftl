@@ -43,6 +43,7 @@ thunderdome-loadout-xc67 = XC-67
 thunderdome-loadout-deckard = Deckard
 thunderdome-loadout-sabre = Captain Sabre
 thunderdome-loadout-enforcer = Enforcer
+thunderdome-loadout-atreides = Atreides
 
 # Weapon descriptions (tooltips)
 thunderdome-desc-shotgun = Pump shotgun + 1 box buckshot, 1 box slugs
@@ -70,6 +71,7 @@ thunderdome-desc-xc67 = XC-67 assault rifle + 2 extended magazines
 thunderdome-desc-deckard = Deckard revolver + 3 .44 speedloaders
 thunderdome-desc-sabre = Captain sabre + energy shield + hyperzine microinjector and injector
 thunderdome-desc-enforcer = Enforcer + 1 box buckshot, 1 box slugs
+thunderdome-desc-atreides = Atreides + 4 spare magazines + rat mask
 
 # Kill streak announcements
 thunderdome-streak-3 = {$player} is on a Killing Spree!

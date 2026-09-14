@@ -126,6 +126,11 @@
           description: thunderdome-desc-enforcer
           category: thunderdome-category-shotguns
           sprite: WeaponShotgunEnforcer
+        - gear: ThunderdomeAtreides
+          name: thunderdome-loadout-atreides
+          description: thunderdome-desc-atreides
+          category: thunderdome-category-smgs
+          sprite: WeaponSubMachineGunAtreides
     - type: LoadMapRule
       mapPath: /Maps/ADTMaps/Nonstation/thunderdome.yml
     - type: RuleGrids

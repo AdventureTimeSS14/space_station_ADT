@@ -45,6 +45,7 @@ using Content.Shared.ADT.Mobs;
 using Content.Shared.Power;
 using Content.Shared.Actions;
 using Content.Server.Access.Systems;
+using Content.Server.Antag.Components;
 
 namespace Content.Server.ADT.Thunderdome;
 
@@ -303,6 +304,7 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
         var originalBody = mindComp.OwnedEntity != ghostEntity ? mindComp.OwnedEntity : null;
 
         var mob = _stationSpawning.SpawnPlayerMob(spawnCoords.Value, null, profile, null);
+        EnsureComp<AntagImmuneComponent>(mob);
         _stationSpawning.EquipStartingGear(mob, rule.Gear);
         SpawnLoadoutItems(mob, weaponIdx, rule);
 

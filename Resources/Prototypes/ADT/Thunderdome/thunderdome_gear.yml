@@ -248,3 +248,15 @@
     back:
       - BoxLethalshot
       - BoxShotgunSlug
+
+- type: startingGear
+  id: ThunderdomeAtreides
+  equipment:
+    suitstorage: WeaponSubMachineGunAtreides
+  storage:
+    back:
+      - MagazinePistolSubMachineGun
+      - MagazinePistolSubMachineGun
+      - MagazinePistolSubMachineGun
+      - MagazinePistolSubMachineGun
+      - ClothingMaskRat

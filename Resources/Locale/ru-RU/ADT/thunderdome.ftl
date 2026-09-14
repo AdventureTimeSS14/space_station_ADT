@@ -73,6 +73,7 @@ thunderdome-desc-xc67 = Штурмовая винтовка ХС-67 + 2 расш
 thunderdome-desc-deckard = Револьвер Декард + 3 спидлоадера .44
 thunderdome-desc-sabre = Сабля капитана + энергетический щит + микроинъектор и инъектор гиперзина
 thunderdome-desc-enforcer = Силовик + 1 коробка дроби, 1 коробка пули
+thunderdome-desc-atreides = Атрейдес + 4 запасных магазина + маска крысы
 
 thunderdome-loadout-capo = Капоэйра
 thunderdome-loadout-mosin = Кардешёв-Мосина
@@ -89,6 +90,7 @@ thunderdome-loadout-xc67 = ХС-67
 thunderdome-loadout-deckard = Декард
 thunderdome-loadout-sabre = Сабля капитана
 thunderdome-loadout-enforcer = Силовик
+thunderdome-loadout-atreides = Атрейдес
 thunderdome-streak-12 = { $player } ВЫШЕ БОГОВ!
 thunderdome-streak-4 = { $player } Доминирует!
 thunderdome-streak-6 = { $player } Беспощаден!
