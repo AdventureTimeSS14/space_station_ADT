@@ -408,3 +408,6 @@ ent-ADTClothingUniformJumpsuitRedVictorianSuit = красный викториа
 
 ent-ADTClothingUniformJumpsuitBlackVictorianSuit = черный викторианский костюм
     .desc = Элегантный костюм, создающий образ аристократичной роскоши.
+
+ent-ADTClothingUniformCentcomOfficerBlack = парадный костюм офицера специальных операций
+    .desc = Это комбинезон, который носят офицеры ДСО высшего звена.
