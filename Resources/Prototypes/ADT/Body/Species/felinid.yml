@@ -1,3 +1,76 @@
+- type: markingsGroup
+  parent: Undergarments
+  id: Felinid
+  limits:
+    enum.HumanoidVisualLayers.Special:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ CatTail ]
+    enum.HumanoidVisualLayers.TailOverlay:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Hair:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.Head:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.SnoutCover:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.SnoutOverlay:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: true
+      default: [ CatEars ]
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 1
+      required: false
+
 - type: entity
   parent: AppearanceHuman
   id: ADTAppearanceFelinid
@@ -9,7 +82,7 @@
   - type: InitialBody
     organs:
       Torso: ADTOrganFelinidTorso
-      Head: OrganHumanHead
+      Head: ADTOrganFelinidHead
       ArmLeft: OrganHumanArmLeft
       ArmRight: OrganHumanArmRight
       HandRight: OrganHumanHandRight
@@ -160,8 +233,56 @@
     effectPrototype: ADTEffectNightVisionLow
 
 - type: entity
-  parent: OrganHumanTorso
+  parent: OrganBaseOrganic
+  id: ADTOrganFelinid
+  abstract: true
+  suffix: Felinid
+
+- type: entity
+  id: ADTOrganFelinidMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Animal ]
+
+- type: entity
+  id: ADTOrganFelinidVisual
+  abstract: true
+  components:
+  # - type: VisualOrgan
+  #   data:
+  #     sprite: ADT/Mobs/Species/Felinid/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Felinid
+
+- type: entity
+  id: ADTOrganFelinidInternal
+  abstract: true
+  # components:
+  # - type: Sprite
+  #   sprite: ADT/Mobs/Species/Felinid/organs.rsi
+
+- type: entity
+  parent: [ ADTOrganFelinid, ADTOrganFelinidVisual ]
+  id: ADTOrganFelinidExternal
+  abstract: true
+  # components:
+  # - type: Sprite
+  #   sprite: ADT/Mobs/Species/Felinid/parts.rsi
+
+- type: entity
+  parent: [OrganHumanTorso, ADTOrganFelinidExternal ]
   id: ADTOrganFelinidTorso
+  suffix: felinid
+  components:
+  - type: VisualOrganMarkings
+    markingData:
+      group: Felinid
+
+- type: entity
+  parent: [OrganHumanHead, ADTOrganFelinidExternal ]
+  id: ADTOrganFelinidHead
   suffix: felinid
   components:
   - type: VisualOrganMarkings

@@ -51,8 +51,10 @@
     state: cookbook
   - type: GuideHelp
     guides:
-    - ADTMaCookbook
-  - type: GrantCookbookTechnique
+    - ADTMaCqc
+  - type: GrantCqc
+    allowedAreas:
+    - AreaKitchen
 
 - type: entity
   id: ADTScrollCapoeira

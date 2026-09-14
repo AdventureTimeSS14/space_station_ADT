@@ -71,7 +71,7 @@ public sealed class ChannelSelectorButton : ChatPopupButton<ChannelSelectorPopup
     public void UpdateChannelSelectButton(ChatSelectChannel channel, Shared.Radio.RadioChannelPrototype? radio)
     {
         Text = radio != null ? Loc.GetString(radio.Name) : ChannelSelectorName(channel);
-        UserInterfaceManager.GetUIController<ChatUIController>().UpdateD20Icon(this, channel); // ADT-Tweak
+        UserInterfaceManager.GetUIController<ChatUIController>().UpdateEmoteModeIcon(this, channel); // ADT-Tweak
         Modulate = radio?.Color ?? ChannelSelectColor(channel);
     }
 }
