@@ -5,7 +5,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Light.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
-using Robust.Shared.Audio;
 using Robust.Shared.Player;
 
 namespace Content.Server.ADT.Shadowling;
@@ -85,7 +84,7 @@ public sealed partial class ADTShadowlingAbilitySystem
 
     private void FinishAscend(Entity<ADTShadowlingComponent> ent, ADTShadowlingAscendActionComponent ascend)
     {
-        _audio.PlayGlobal(ascend.Sound, Filter.Broadcast(), true, new AudioParams { Volume = -8f });
+        _audio.PlayGlobal(ascend.Sound, Filter.Broadcast(), true);
 
         foreach (var nearby in _lookup.GetEntitiesInRange(ent.Owner, ascend.ShockwaveRange))
         {
