@@ -200,7 +200,7 @@
 - type: marking
   id: ADTVitiligoHeadL
   bodyPart: Head
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   forcedColoring: true
   coloring:
     default:
@@ -214,7 +214,7 @@
 - type: marking
   id: ADTVitiligoHeadR
   bodyPart: Head
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   forcedColoring: true
   coloring:
     default:
@@ -228,7 +228,7 @@
 - type: marking
   id: ADTVitiligoHeadJaw
   bodyPart: Head
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   forcedColoring: true
   coloring:
     default:
@@ -242,7 +242,7 @@
 - type: marking
   id: ADTVitiligoChestF
   bodyPart: Chest
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   forcedColoring: true
   coloring:
     default:
@@ -256,7 +256,7 @@
 - type: marking
   id: ADTVitiligoChestSpots
   bodyPart: Chest
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   forcedColoring: true
   coloring:
     default:
@@ -270,7 +270,7 @@
 - type: marking
   id: ADTVitiligoArmR
   bodyPart: RArm
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   forcedColoring: true
   coloring:
     default:
@@ -284,7 +284,7 @@
 - type: marking
   id: ADTVitiligoArmL
   bodyPart: LArm
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   forcedColoring: true
   coloring:
     default:
@@ -298,7 +298,7 @@
 - type: marking
   id: ADTVitiligoHandR
   bodyPart: RHand
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   forcedColoring: true
   coloring:
     default:
@@ -312,7 +312,7 @@
 - type: marking
   id: ADTVitiligoHandL
   bodyPart: LHand
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   forcedColoring: true
   coloring:
     default:
@@ -326,7 +326,7 @@
 - type: marking
   id: ADTVitiligoLegR
   bodyPart: RLeg
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   forcedColoring: true
   coloring:
     default:
@@ -340,7 +340,7 @@
 - type: marking
   id: ADTVitiligoLegL
   bodyPart: LLeg
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   forcedColoring: true
   coloring:
     default:
@@ -356,7 +356,7 @@
 - type: marking
   id: HumanPiercingEarL
   bodyPart: Head
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_ear_l
@@ -364,7 +364,7 @@
 - type: marking
   id: HumanPiercingEarR
   bodyPart: Head
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_ear_r
@@ -372,7 +372,7 @@
 - type: marking
   id: HumanPiercingNavel
   bodyPart: Chest
-  groupWhitelist: [Human, Demon]
+  groupWhitelist: [Human, Felinid, Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_navel
@@ -380,7 +380,7 @@
 - type: marking
   id: HumanPiercingNippleL
   bodyPart: Chest
-  groupWhitelist: [Human, Demon]
+  groupWhitelist: [Human, Felinid, Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_nipple_l
@@ -388,7 +388,7 @@
 - type: marking
   id: HumanPiercingNippleR
   bodyPart: Chest
-  groupWhitelist: [Human, Demon]
+  groupWhitelist: [Human, Felinid, Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_nipple_r
@@ -396,7 +396,7 @@
 - type: marking
   id: HumanPiercingNipple
   bodyPart: Chest
-  groupWhitelist: [Human, Demon]
+  groupWhitelist: [Human, Felinid, Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_nipple
