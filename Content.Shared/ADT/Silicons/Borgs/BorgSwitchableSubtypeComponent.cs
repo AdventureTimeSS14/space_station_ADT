@@ -17,4 +17,3 @@ public sealed class BorgSelectSubtypeMessage(ProtoId<BorgSubtypePrototype> subty
 {
     public ProtoId<BorgSubtypePrototype> Subtype = subtype;
 }
-

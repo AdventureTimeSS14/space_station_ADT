@@ -30,4 +30,3 @@ public sealed class BorgSelectTypeUserInterface : BoundUserInterface
         _menu.ConfirmedBorgSubtype += subtype => SendMessage(new BorgSelectSubtypeMessage(subtype)); // ADT-Borg-Subtype
     }
 }
-
