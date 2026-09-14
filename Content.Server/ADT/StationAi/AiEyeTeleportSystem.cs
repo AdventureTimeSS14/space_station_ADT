@@ -107,24 +107,28 @@ public sealed class AiEyeTeleportSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("ai-eye-teleport-success", ("name", Name(target))), aiUid, aiUid);
     }
 
-    public void TryAddRadioEyeLink(EntityUid receiver, MsgChatMessage chatMsg, MsgChatMessage unknownLanguageChatMsg, EntityUid messageSource)
+    public MsgChatMessage? TryAddRadioEyeLink(EntityUid receiver, MsgChatMessage chatMsg, EntityUid messageSource)
     {
         if (!HasComp<StationAiHeldComponent>(receiver))
-            return;
+            return null;
 
         var nameEv = new TransformSpeakerNameEvent(messageSource, Name(messageSource));
         RaiseLocalEvent(messageSource, nameEv);
 
         var voiceName = nameEv.VoiceName;
         if (string.IsNullOrEmpty(voiceName))
-            return;
+            return null;
 
         var link = $"[aieyelink=\"{FormattedMessage.EscapeStringParameter(voiceName)}\" entity=\"{GetNetEntity(messageSource)}\" title=\"{FormattedMessage.EscapeStringParameter(Loc.GetString("ai-eye-teleport-hover"))}\"/]";
         var escapedName = FormattedMessage.EscapeText(voiceName);
 
         var headerName = $"{escapedName}[/bold]";
-        chatMsg.Message.WrappedMessage = chatMsg.Message.WrappedMessage.Replace(headerName, $"{link}[/bold]");
-        unknownLanguageChatMsg.Message.WrappedMessage = unknownLanguageChatMsg.Message.WrappedMessage.Replace(headerName, $"{link}[/bold]");
+        var message = new ChatMessage(chatMsg.Message.Channel, chatMsg.Message.Message, chatMsg.Message.WrappedMessage, chatMsg.Message.SenderEntity, chatMsg.Message.SenderKey, chatMsg.Message.HideChat, chatMsg.Message.MessageColorOverride, chatMsg.Message.AudioPath, chatMsg.Message.AudioVolume)
+        {
+            WrappedMessage = chatMsg.Message.WrappedMessage.Replace(headerName, $"{link}[/bold]"),
+        };
+
+        return new MsgChatMessage { Message = message };
     }
 
     private bool IsValidTarget(EntityUid target, out string? failReason)

@@ -72,18 +72,17 @@ public sealed class RadioSystem : EntitySystem
         if (TryComp(uid, out ActorComponent? actor))
         {
             // ADT-Tweak start
+            var chatMsg = _language.CanUnderstand(uid, args.Language)
+                ? args.ChatMsg
+                : args.UnknownLanguageChatMsg;
+
             if (_deafness.TryInterceptRadio(uid, actor.PlayerSession, args.Message, args.MessageSource))
                 return;
 
-            _aiEyeTeleport.TryAddRadioEyeLink(uid, args.ChatMsg, args.UnknownLanguageChatMsg, args.MessageSource);
-            // ADT-Tweak end
+            chatMsg = _aiEyeTeleport.TryAddRadioEyeLink(uid, chatMsg, args.MessageSource) ?? chatMsg;
 
-            // ADT Languages start
-            if (_language.CanUnderstand(uid, args.Language))
-                _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
-            else
-                _netMan.ServerSendMessage(args.UnknownLanguageChatMsg, actor.PlayerSession.Channel);
-            // ADT Languages end
+            _netMan.ServerSendMessage(chatMsg, actor.PlayerSession.Channel);
+            // ADT-Tweak end
         }
     }
 
