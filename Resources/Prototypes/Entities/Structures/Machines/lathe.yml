@@ -272,7 +272,6 @@
     #ADT-tweak-end
     - XenobioPack #ADT Tweak
     - XenobagHoldingPack #ADT Tweak
-    - ADTBluespaceCrystalTech #ADT Tweak
     - PartsDynamic #ADT-Tweak: machine parts
   - type: EmagLatheRecipes
     emagDynamicPacks:
