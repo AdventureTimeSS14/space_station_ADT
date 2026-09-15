@@ -1,4 +1,4 @@
-# Сломанные деревья
+﻿# Сломанные деревья
 - type: entity
   parent: BaseTree
   id: ADTFloraTreeBroken01
@@ -123,4 +123,31 @@
   components:
   - type: Sprite
     state: treepalm03
+
+- type: entity
+  parent: BaseTree
+  id: ADTFloraTreeForgotten
+  name: forgotten tree
+  description: Well, there is a man here.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Flora/flora_forgotten_tree.rsi
+    state: treeforgotten
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.3,0.35,0.5"
+        density: 1000
+        layer:
+        - WallLayer
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
 
