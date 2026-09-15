@@ -40,6 +40,7 @@
   - !type:AddComponentSpecial
     components:
       - type: SecurityStaff
+      - type: ADTTenCodeKnowledge
   # ADT-Tweak-End
 
 - type: startingGear

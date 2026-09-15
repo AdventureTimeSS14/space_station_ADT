@@ -42,6 +42,7 @@
   - !type:AddComponentSpecial # goobstation
     components:
       - type: SecurityStaff
+      - type: ADTTenCodeKnowledge # ADT-Tweak
 
 - type: startingGear
   id: SecurityCadetGear
