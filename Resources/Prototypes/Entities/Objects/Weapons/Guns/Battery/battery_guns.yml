@@ -376,6 +376,10 @@
   components:
   - type: BatteryAmmoProvider
     proto: RedMediumLaser
+  # ADT Tweak start
+  - type: FiringPinHolder
+    requiresPin: true
+  # ADT Tweak end
 
 - type: entity
   name: pulse pistol
@@ -640,6 +644,10 @@
   - type: Tag
     tags:
     - TurretCompatibleWeapon
+  # ADT Tweak start
+  - type: FiringPinHolder
+    requiresPin: true
+  # ADT Tweak end
 
 - type: entity
   name: portable particle decelerator
@@ -736,6 +744,10 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  # ADT Tweak start
+  - type: FiringPinHolder
+    requiresPin: true
+  # ADT Tweak end
 
 - type: entity
   name: practice disabler
@@ -1015,6 +1027,10 @@
     - Sidearm
     - WeaponAntiqueLaser
     - LaserWeapon
+  # ADT Tweak start
+  - type: FiringPinHolder
+    startingPin: ADTFiringPinLoyalty
+  # ADT Tweak end
   - type: StaticPrice
     price: 750
   - type: StealTarget
@@ -1080,6 +1096,10 @@
     tags:
     - Sidearm
     - LaserWeapon
+  # ADT Tweak start
+  - type: FiringPinHolder
+    requiresPin: true
+  # ADT Tweak end
 
 - type: entity
   name: C.H.I.M.P. handcannon
@@ -1362,6 +1382,11 @@
       map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-unshaded-4
       map: [ "enum.GunVisualLayers.MagUnshaded" ]
+  # ADT Tweak start
+  - type: FiringPinHolder
+    startingPin: null
+    requiresPin: false
+  # ADT Tweak end
 
 - type: entity
   parent: [WeaponLaserCannon, BaseXenoborgContraband]
@@ -1378,3 +1403,8 @@
     fireRate: 2
     minAngle: 1
     maxAngle: 2
+  # ADT Tweak start
+  - type: FiringPinHolder
+    startingPin: null
+    requiresPin: false
+  # ADT Tweak end

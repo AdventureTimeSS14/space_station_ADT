@@ -1472,3 +1472,14 @@
     Telecrystal: 1
   categories:
   - UplinkImplants
+
+- type: listing
+  id: ADTUplinkFiringPinSyndicate
+  name: uplink-firing-pin-syndicate-name
+  description: uplink-firing-pin-syndicate-desc
+  icon: { sprite: /Textures/ADT/Objects/Devices/pin.rsi, state: firing_pin_red }
+  productEntity: ADTFiringPinSyndicate
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkWeaponry
