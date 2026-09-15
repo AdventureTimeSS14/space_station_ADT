@@ -476,6 +476,18 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
         return false;
     }
 
+    private EntityUid? FindPlayerEntity(NetUserId user)
+    {
+        var query = EntityQueryEnumerator<ThunderdomePlayerComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.OwnerUser == user && !TerminatingOrDeleted(uid))
+                return uid;
+        }
+
+        return null;
+    }
+
     private void GhostDomePlayer(
       Entity<ThunderdomePlayerComponent> ent,
       ThunderdomeRuleComponent rule,
@@ -493,7 +505,11 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
           || !TryComp<ThunderdomeRuleComponent>(ent.Comp.RuleEntity.Value, out var rule))
             return;
 
-        RegisterArenaDeath(ent, rule);
+        EntityUid? directKiller = null;
+        if (ent.Comp.LastAttacker is { } attackerUser)
+            directKiller = FindPlayerEntity(attackerUser);
+
+        RegisterArenaDeath(ent, rule, directKiller);
 
         rule.Players.Remove(GetNetEntity(ent));
         ClearOriginalBodyMarker(ent);
@@ -767,19 +783,17 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
 
             foreach (var container in _container.GetAllContainers(current, containerManager))
             {
-                var inGun = container.ID is "gun_magazine" or "gun_chamber" or "revolver-ammo";
-
                 foreach (var contained in container.ContainedEntities)
                 {
                     toCheck.Enqueue(contained);
 
-                    if (!inGun && TryComp<BallisticAmmoProviderComponent>(contained, out var ballistic))
+                    if (TryComp<BallisticAmmoProviderComponent>(contained, out var ballistic))
                         RefillBallistic((contained, ballistic));
 
-                    if (!inGun && HasComp<BatteryAmmoProviderComponent>(contained))
+                    if (HasComp<BatteryAmmoProviderComponent>(contained))
                         RefillBattery(contained);
 
-                    if (!inGun && TryComp<RevolverAmmoProviderComponent>(contained, out var revolver))
+                    if (TryComp<RevolverAmmoProviderComponent>(contained, out var revolver))
                         RefillRevolver((contained, revolver));
                 }
             }

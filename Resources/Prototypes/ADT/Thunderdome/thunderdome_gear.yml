@@ -189,15 +189,17 @@
 
 - type: startingGear
   id: ThunderdomeAdvancedLaser
+  inhand:
+    - WeaponAdvancedLaser
   equipment:
-    suitstorage: WeaponAdvancedLaser
-    belt: PortableRecharger
+    suitstorage: PortableRecharger
 
 - type: startingGear
   id: ThunderdomeSvalinn
+  inhand:
+    - ADTWeaponLaserSvalinnRifle
   equipment:
-    suitstorage: ADTWeaponLaserSvalinnRifle
-    belt: PortableRecharger
+    suitstorage: PortableRecharger
   storage:
     back:
     - PowerCellHigh
@@ -287,18 +289,20 @@
 
 - type: startingGear
   id: ThunderdomeLaserPistols
+  inhand:
+    - WeaponLaserGun
   equipment:
-    suitstorage: WeaponLaserGun
-    belt: PortableRecharger
+    suitstorage: PortableRecharger
   storage:
     back:
       - WeaponLaserGun
 
 - type: startingGear
   id: ThunderdomeLaserCarbine
+  inhand:
+    - WeaponLaserCarbine
   equipment:
-    suitstorage: WeaponLaserCarbine
-    belt: PortableRecharger
+    suitstorage: PortableRecharger
 
 - type: startingGear
   id: ThunderdomeTonfa
