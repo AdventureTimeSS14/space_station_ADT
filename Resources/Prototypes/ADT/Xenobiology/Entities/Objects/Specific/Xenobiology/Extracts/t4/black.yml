@@ -24,15 +24,16 @@
   effects:
   - effect: !type:PopupMessage
       type: Pvs
-      messages: [ "xeno-extract-reaction" ]
+      messages: [ "xeno-extract-reaction-reagent" ]
     scalingOffset: 0
   - effect: !type:PlaySoundEffect
       sound: /Audio/Effects/Chemistry/bubbles.ogg
     scalingOffset: 0
-  - effect: !type:CreateEntityReactionEffect
-      entity: RandomDrinkGlass
-      number: 1
-    scalingOffset: 1
+  - effect: !type:AddReagentToSolution
+      reagent: XenobioJellyBlack
+      solution: extract
+    scalingFactor: 1
+    scalingOffset: 0
   shouldDelete: false
 
 - type: extractReaction
@@ -67,7 +68,7 @@
       sound: /Audio/Effects/Chemistry/bubbles.ogg
     scalingOffset: 0
   - effect: !type:CreateEntityReactionEffect
-      entity: RandomFoodMeal
+      entity: BlackSlimeExtractPowercell
       number: 1
     scalingOffset: 1
-  shouldDelete: false
+  shouldDelete: true

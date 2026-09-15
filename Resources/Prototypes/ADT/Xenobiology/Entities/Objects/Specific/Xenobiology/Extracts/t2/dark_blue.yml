@@ -20,7 +20,7 @@
 - type: extractReaction
   id: DarkBlueSlimeExtractWaterReaction
   requirements:
-    Water: 15
+    Water: 1
   effects:
   - effect: !type:PopupMessage
       type: Pvs
@@ -28,11 +28,6 @@
     scalingOffset: 0
   - effect: !type:PlaySoundEffect
       sound: /Audio/Effects/Chemistry/bubbles.ogg
-    scalingOffset: 0
-  - effect: !type:AddReagentToSolution
-      reagent: XenobioJellyDarkBlue
-      solution: extract
-    scalingFactor: 1
     scalingOffset: 0
   - effect: !type:CreateEntityReactionEffect
       entity: SlimeFireproofPotion

@@ -141,23 +141,6 @@
 
 - type: entity
   parent: BaseItem
-  id: XenobioVolatileRedExtractJelly
-  name: volatile red slime jelly
-  description: Using this on a piece of clothing seems to remove any potential slowdowns. Hovewer, subjects wearing such clothing were burnt to a crisp after a scientist lit his cigarette.
-  components:
-  - type: Sprite
-    layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
-      state: jelly
-      color: "#ff3333"
-  - type: ClothingCoating
-    coatingName: clothing-coating-xenobio-volatile
-    components:
-    - type: VeryFlammable
-    - type: SpeedModifierImmunity
-
-- type: entity
-  parent: BaseItem
   id: XenobioPinkExtractJelly
   name: pink slime jelly
   description: A remarkably stable pink extractor, whose intrinsic properties enable it to heal the vast majority of its owner's wounds with remarkable efficiency.
@@ -205,15 +188,15 @@
   - type: Item
     size: Tiny
   - type: PointLight
-    radius: 3
+    radius: 5
     energy: 1.5
     color: "#ffff1a"
 
 - type: entity
-  parent: PowerCellMedium
-  id: YellowSlimeExtractPowercell
-  name: yellow slime extract powercell
-  description: A power cell grown from yellow slime extract. Holds a decent charge and never asks questions.
+  parent: PowerCellHyper
+  id: BlackSlimeExtractPowercell
+  name: black slime extract powercell
+  description: A power cell grown from black slime extract. Holds a decent charge and never asks questions.
   components:
   - type: Sprite
     layers:

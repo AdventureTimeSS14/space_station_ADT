@@ -68,11 +68,6 @@
   - effect: !type:PlaySoundEffect
       sound: /Audio/Effects/Chemistry/bubbles.ogg
     scalingOffset: 0
-  - effect: !type:AddReagentToSolution
-      reagent: XenobioJellyBlue
-      solution: extract
-    scalingFactor: 1
-    scalingOffset: 0
   - effect: !type:CreateEntityReactionEffect
       entity: SlimeStabilizerPotion
       number: 1

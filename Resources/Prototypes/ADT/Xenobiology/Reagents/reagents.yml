@@ -74,58 +74,9 @@
 
 - type: reagent
   parent: BaseXenobioReagent
-  id: XenobioJellyPurple
-  name: xenobio-reagent-jelly-purple-name
-  desc: xenobio-reagent-jelly-purple-desc
-  color: "#BF77F6"
-  metabolisms:
-    Bloodstream:
-      metabolismRate: 1
-      effects:
-      - !type:ModifySlimeComponent
-        conditions:
-        - !type:ReagentCondition
-          reagent: XenobioJellyPurple
-          min: 1
-        extractBonus: 1
-        maxExtractBonus: 3
-      - !type:AdjustReagent
-        reagent: XenobioJellyPurple
-        amount: -100.0
-        conditions:
-        - !type:ReagentCondition
-          reagent: XenobioJellyPurple
-          min: 1
-
-- type: reagent
-  parent: BaseXenobioReagent
-  id: XenobioJellyBlue
-  name: xenobio-reagent-jelly-blue-name
-  desc: xenobio-reagent-jelly-blue-desc
-  color: "#79F6FC"
-  metabolisms:
-    Bloodstream:
-      metabolismRate: 1
-      effects:
-      - !type:ModifySlimeComponent
-        conditions:
-        - !type:ReagentCondition
-          reagent: XenobioJellyBlue
-          min: 1
-        chanceModifier: -0.25
-      - !type:AdjustReagent
-        reagent: XenobioJellyBlue
-        amount: -100.0
-        conditions:
-        - !type:ReagentCondition
-          reagent: XenobioJellyBlue
-          min: 1
-
-- type: reagent
-  parent: BaseXenobioReagent
-  id: XenobioJellyDarkBlue
-  name: xenobio-reagent-jelly-darkblue-name
-  desc: xenobio-reagent-jelly-darkblue-desc
+  id: XenobioJellyBlack
+  name: xenobio-reagent-jelly-black-name
+  desc: xenobio-reagent-jelly-black-desc
   color: "#1E8CFA"
   metabolisms:
     Bloodstream:

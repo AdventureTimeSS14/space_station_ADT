@@ -58,18 +58,36 @@
 - type: extractReaction
   id: CeruleanSlimeExtractBloodReaction
   requirements:
-    Blood: 15
+    Blood: 1
   effects:
   - effect: !type:PopupMessage
       type: Pvs
-      messages: [ "xeno-extract-reaction-reagent" ]
+      messages: [ "xeno-extract-reaction" ]
     scalingOffset: 0
   - effect: !type:PlaySoundEffect
       sound: /Audio/Effects/Chemistry/bubbles.ogg
     scalingOffset: 0
-  - effect: !type:AddReagentToSolution
-      reagent: XenobioJellyCerulean
-      solution: extract
+  - effect: !type:SpawnEntityFromTable
+      number: 1
+      entityTable: !type:GroupSelector
+        children:
+        - id: CrayonRed
+        - id: CrayonOrange
+        - id: CrayonYellow
+        - id: CrayonGreen
+        - id: CrayonBlue
+        - id: CrayonPurple
+        - id: CrayonBlack
+        - id: CrayonWhite
+      offset: 0.2
     scalingFactor: 1
     scalingOffset: 0
-  shouldDelete: false
+  - effect: !type:CreateEntityReactionEffect
+      entity: SprayPainter
+      number: 1
+    scalingOffset: 1
+  - effect: !type:CreateEntityReactionEffect
+      entity: SprayPainterAmmo
+      number: 1
+    scalingOffset: 1
+  shouldDelete: true

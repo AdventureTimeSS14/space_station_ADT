@@ -11,6 +11,7 @@
   - type: SlimeExtract
     extractReactions:
     - RedSlimeExtractWaterReaction
+    - RedSlimeExtractRadiumReaction
     - RedSlimeExtractPlasmaReaction
     - RedSlimeExtractBloodReaction
   - type: Tag
@@ -30,11 +31,25 @@
       sound: /Audio/Effects/Chemistry/bubbles.ogg
     scalingOffset: 0
   - effect: !type:CreateEntityReactionEffect
-      entity: XenobioVolatileRedExtractJelly
+      entity: SlimeSpeedPotion
       number: 1
     scalingOffset: 1
+  shouldDelete: false
+
+- type: extractReaction
+  id: RedSlimeExtractRadiumReaction
+  requirements:
+    Radium: 1
+  effects:
+  - effect: !type:PopupMessage
+      type: Pvs
+      messages: [ "xeno-extract-reaction" ]
+    scalingOffset: 0
+  - effect: !type:PlaySoundEffect
+      sound: /Audio/Effects/Chemistry/bubbles.ogg
+    scalingOffset: 0
   - effect: !type:CreateEntityReactionEffect
-      entity: SlimeSpeedPotion
+      entity: SlimeFireproofPotion
       number: 1
     scalingOffset: 1
   shouldDelete: false
@@ -50,11 +65,6 @@
     scalingOffset: 0
   - effect: !type:PlaySoundEffect
       sound: /Audio/Effects/Chemistry/bubbles.ogg
-    scalingOffset: 0
-  - effect: !type:AddReagentToSolution
-      reagent: XenobioJellyRed
-      solution: extract
-    scalingFactor: 1
     scalingOffset: 0
   - effect: !type:CreateEntityReactionEffect
       entity: SlimeMutationPotion

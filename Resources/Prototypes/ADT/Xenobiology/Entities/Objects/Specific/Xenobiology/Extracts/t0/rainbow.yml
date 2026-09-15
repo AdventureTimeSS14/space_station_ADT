@@ -53,9 +53,11 @@
   - effect: !type:PlaySoundEffect
       sound: /Audio/Effects/Chemistry/bubbles.ogg
     scalingOffset: 0
-  - effect: !type:CreateEntityReactionEffect
-      entity: RainbowSlimeExtractSpawner
+  - effect: !type:SpawnEntityFromTable
       number: 1
+      entityTable: !type:NestedSelector
+        tableId: XenobioRandomExtractTable
+      offset: 0.2
     scalingOffset: 1
   shouldDelete: false
 
@@ -71,8 +73,10 @@
   - effect: !type:PlaySoundEffect
       sound: /Audio/Effects/Chemistry/bubbles.ogg
     scalingOffset: 0
-  - effect: !type:CreateEntityReactionEffect
-      entity: RainbowSlimeExtractSpawner
+  - effect: !type:SpawnEntityFromTable
       number: 1
+      entityTable: !type:NestedSelector
+        tableId: XenobioRandomSlimeTable
+      offset: 0.2
     scalingOffset: 1
   shouldDelete: false

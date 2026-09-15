@@ -74,8 +74,16 @@
   - effect: !type:PlaySoundEffect
       sound: /Audio/Effects/Chemistry/bubbles.ogg
     scalingOffset: 0
-  - effect: !type:CreateEntityReactionEffect
-      entity: YellowSlimeExtractPowercell
+  - effect: !type:SpawnEntityFromTable
       number: 1
+      entityTable: !type:NestedSelector
+        tableId: XenobioDrinkTable
+      offset: 0.2
     scalingOffset: 1
-  shouldDelete: false
+  - effect: !type:SpawnEntityFromTable
+      number: 1
+      entityTable: !type:NestedSelector
+        tableId: XenobioFoodTable
+      offset: 0.2
+    scalingOffset: 1
+  shouldDelete: true
