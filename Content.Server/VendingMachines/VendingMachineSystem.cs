@@ -58,6 +58,7 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly StackSystem _stackSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
         [Dependency] private readonly ADTVendingMachineReturnSystem _vendingReturn = default!;
+        [Dependency] private readonly ADTVendingFoodNutrimentSystem _adtFoodNutriment = default!; // ADT-Tweak
         [Dependency] private readonly CargoSystem _cargoSystem = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
         //ADT-Economy-End
@@ -649,6 +650,8 @@ namespace Content.Server.VendingMachines
             for (var i = 0; i < count - returnedCount; i++) // ADT-Return 
             {
                 var ent = Spawn(vendComponent.NextItemToEject, spawnCoordinates);
+
+                _adtFoodNutriment.ReduceDispensedFood(uid, ent);
 
                 if (vendComponent.NextItemPaintColor is { } paintColor)
                     _vendingReturn.PaintClothing(ent, paintColor);

@@ -867,6 +867,7 @@
     brokenState: broken
     normalState: normal-unshaded
     initialStockQuality: 0.33
+  - type: ADTVendingFoodNutrimentReduction # ADT-Tweak
   - type: DatasetVocalizer
     dataset: DiscountDansAds
   - type: SpeakOnUIClosed
@@ -1104,6 +1105,7 @@
     ejectState: eject-unshaded
     denyState: deny-unshaded
     initialStockQuality: 0.33
+  - type: ADTVendingFoodNutrimentReduction # ADT-Tweak
   - type: DatasetVocalizer
     dataset: GetmoreChocolateCorpAds
   - type: SpeakOnUIClosed
@@ -1456,6 +1458,7 @@
     brokenState: broken
     normalState: normal-unshaded
     initialStockQuality: 0.33
+  - type: ADTVendingFoodNutrimentReduction # ADT-Tweak
   - type: DatasetVocalizer
     dataset: ChangAds
   - type: SpeakOnUIClosed
