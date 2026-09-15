@@ -151,17 +151,12 @@ public sealed partial class MirrorOverlay : Overlay
                 var reflectedFacing = normalAngle * 2f - _transform.GetWorldRotation(transform);
                 var dir = (reflectedFacing + eye.Rotation).GetCardinalDir();
 
-                switch (dir)
+                dir = dir switch
                 {
-                    case Direction.West:
-                        dir = Direction.East;
-                        break;
-                    case Direction.East:
-                        dir = Direction.West;
-                        break;
-                    default:
-                        break;
-                }
+                    Direction.West => Direction.East,
+                    Direction.East => Direction.West,
+                    _ => dir,
+                };
 
                 _sprite.SetScale(uid, new Vector2(-scale.X, scale.Y));
 
