@@ -21,6 +21,7 @@
     # ADT-Tweak end
     - id: PlushieLizardJobQuartermaster
       prob: 0.02
+    - id: ADTPhoneQM # ADT-Tweak: ADT-telephone
 
 - type: entity
   id: LockerQuarterMasterFilled
