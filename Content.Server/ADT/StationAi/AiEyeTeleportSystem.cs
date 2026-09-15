@@ -47,7 +47,7 @@ public sealed class AiEyeTeleportSystem : EntitySystem
     private void OnCrewMonitorAiEyeTeleport(Entity<CrewMonitoringConsoleComponent> ent, ref CrewMonitoringAiEyeTeleportMessage msg)
     {
         if (TryComp<ActorComponent>(msg.Actor, out _))
-            TryTeleportAndPopup(msg.Actor, msg.Target, requireCamera: false);
+            TryTeleportAndPopup(msg.Actor, msg.Target, requireCamera: true);
     }
 
     private void OnAiEyeTeleport(MsgAiEyeTeleport msg)
