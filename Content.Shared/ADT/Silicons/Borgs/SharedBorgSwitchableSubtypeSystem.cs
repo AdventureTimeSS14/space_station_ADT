@@ -1,5 +1,6 @@
 using Robust.Shared.Prototypes;
 using Content.Shared.ADT.Silicons.Borgs.Components;
+using Content.Shared.Silicons.Borgs.Components;
 
 namespace Content.Shared.ADT.Silicons.Borgs;
 
@@ -11,9 +12,9 @@ public abstract class SharedBorgSwitchableSubtypeSystem : EntitySystem
     {
         base.Initialize();
 
-
         SubscribeLocalEvent<BorgSwitchableSubtypeComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BorgSwitchableSubtypeComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, AfterBorgTypeSelectEvent>(OnBorgTypeSelect);
     }
 
     private void OnMapInit(Entity<BorgSwitchableSubtypeComponent> ent, ref MapInitEvent args)
@@ -26,6 +27,15 @@ public abstract class SharedBorgSwitchableSubtypeSystem : EntitySystem
         UpdateVisuals(ent);
     }
 
+    private void OnBorgTypeSelect(Entity<BorgSwitchableSubtypeComponent> ent, ref AfterBorgTypeSelectEvent args)
+    {
+        if (ent.Comp.BorgSubtype == null)
+            return;
+
+        Dirty(ent);
+        UpdateVisuals(ent);
+    }
+
     protected virtual void SetAppearanceFromSubtype(Entity<BorgSwitchableSubtypeComponent> ent, ProtoId<BorgSubtypePrototype> subtype) { }
 
     protected void UpdateVisuals(Entity<BorgSwitchableSubtypeComponent> ent)
@@ -35,3 +45,6 @@ public abstract class SharedBorgSwitchableSubtypeSystem : EntitySystem
         SetAppearanceFromSubtype(ent, ent.Comp.BorgSubtype.Value);
     }
 }
+
+[ByRefEvent]
+public record struct AfterBorgTypeSelectEvent;

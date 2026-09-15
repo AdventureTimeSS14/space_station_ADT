@@ -45,6 +45,7 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+      - type: ADTTenCodeKnowledge # ADT-Tweak
 
 - type: startingGear
   id: CaptainGear
