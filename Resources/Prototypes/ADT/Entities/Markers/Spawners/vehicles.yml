@@ -95,3 +95,12 @@
   - type: ConditionalSpawner
     prototypes:
       - ADTVehicleLavabike
+
+- type: entity
+  name: Medical ATV Spawner
+  id: ADTSpawnVehicleATVMedic
+  parent: ADTSpawnVehicleATV
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTVehicleATVMedic

@@ -64,6 +64,11 @@
       rotation: -90
       buckleOffset: "0,0.15"
       buckleOnInteractHand: False
+    # ADT-Tweak-Start: каталка цепляется к сцепке квадроцикла
+    - type: Buckle
+      range: 3
+    - type: ADTTrailer
+    # ADT-Tweak-End
     - type: Appearance
     - type: GenericVisualizer
       visuals:
