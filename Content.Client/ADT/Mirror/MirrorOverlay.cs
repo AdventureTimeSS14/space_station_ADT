@@ -123,19 +123,20 @@ public sealed partial class MirrorOverlay : Overlay
             var newColor = GetTransparentColor(uid, color, mirrorPosition, mirror.ToleratedDistance, mirror.FadeFactor);
             _sprite.SetColor(uid, newColor);
 
-            // Этот ебучий слой ломал вообще всё
-            // Не убирайте этот фикс
-            var hiddenStencilLayers = new List<(ISpriteLayer Layer, bool Visible)>();
+            // Тут убираются слои, которые взаимодействуют с маской. Без этого рендер ломается
+            (ISpriteLayer Layer, bool Visible)? removedStencilMask = null;
+            (ISpriteLayer Layer, bool Visible)? removedStencilClear = null;
+
             if (_sprite.LayerMapTryGet((uid, sprite), HumanoidVisualLayers.StencilMask, out var stencilMaskLayer, false))
             {
                 var stencilMask = sprite[stencilMaskLayer];
-                hiddenStencilLayers.Add((stencilMask, stencilMask.Visible));
+                removedStencilMask = (stencilMask, stencilMask.Visible);
                 stencilMask.Visible = false;
 
                 if (stencilMaskLayer > 0)
                 {
                     var stencilClear = sprite[stencilMaskLayer - 1];
-                    hiddenStencilLayers.Add((stencilClear, stencilClear.Visible));
+                    removedStencilClear = (stencilClear, stencilClear.Visible);
                     stencilClear.Visible = false;
                 }
             }
@@ -179,8 +180,11 @@ public sealed partial class MirrorOverlay : Overlay
                 _sprite.SetScale(uid, scale);
             }
 
-            foreach (var (layer, visible) in hiddenStencilLayers)
-                layer.Visible = visible;
+            if (removedStencilMask != null)
+                removedStencilMask.Value.Layer.Visible = removedStencilMask.Value.Visible;
+
+            if (removedStencilClear != null)
+                removedStencilClear.Value.Layer.Visible = removedStencilClear.Value.Visible;
 
             worldHandle.UseShader(_stencilEqualDrawShader);
             _sprite.SetColor(uid, color);
