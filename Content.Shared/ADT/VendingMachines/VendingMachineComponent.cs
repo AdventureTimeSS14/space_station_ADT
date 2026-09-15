@@ -7,10 +7,9 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Shared.VendingMachines
+namespace Content.Shared.ADT.VendingMachines
 {
     [RegisterComponent, NetworkedComponent]
-    // ADT-Tweak: AutoGenerateComponentState removed 
     public sealed partial class VendingMachineComponent : Component
     {
         /// <summary>
@@ -51,8 +50,8 @@ namespace Content.Shared.VendingMachines
         public bool DispenseOnHitCoolingDown;
 
         public string? NextItemToEject;
-        public int NextItemReturnedCount; // ADT-Return 
-        public Color? NextItemPaintColor; // ADT-Tweak
+        public int NextItemReturnedCount;
+        public Color? NextItemPaintColor;
 
         [DataField]
         public bool Broken;
@@ -190,7 +189,6 @@ namespace Content.Shared.VendingMachines
         public bool LoopDenyAnimation = true;
         #endregion
 
-        //ADT-Economy-Start
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public double PriceMultiplier = 0.75;
 
@@ -230,7 +228,6 @@ namespace Content.Shared.VendingMachines
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public Dictionary<string, uint> ReturnedInventory = new();
 
-        //ADT-Economy-End
     }
 
     [Serializable, NetSerializable, DataDefinition]
@@ -244,7 +241,6 @@ namespace Content.Shared.VendingMachines
 
         [DataField]
         public uint Amount;
-        //ADT-Economy-Start
         [ViewVariables(VVAccess.ReadWrite)]
         public int Price;
 
@@ -253,18 +249,15 @@ namespace Content.Shared.VendingMachines
 
         [DataField]
         public string? Category;
-        //ADT-Economy-End
 
-        public VendingMachineInventoryEntry(InventoryType type, string id, uint amount, int price, uint maxAmount, string? category = null) //ADT-Economy
+        public VendingMachineInventoryEntry(InventoryType type, string id, uint amount, int price, uint maxAmount, string? category = null)
         {
             Type = type;
             ID = id;
             Amount = amount;
-            //ADT-Economy start
             Price = price;
             MaxAmount = maxAmount;
             Category = category;
-            //ADT-Economy end
         }
 
         public VendingMachineInventoryEntry(VendingMachineInventoryEntry entry)
@@ -272,11 +265,9 @@ namespace Content.Shared.VendingMachines
             Type = entry.Type;
             ID = entry.ID;
             Amount = entry.Amount;
-            //ADT-Economy start
             Price = entry.Price;
             MaxAmount = entry.MaxAmount;
             Category = entry.Category;
-            //ADT-Economy end
         }
     }
 
@@ -347,7 +338,7 @@ namespace Content.Shared.VendingMachines
 
         public Dictionary<string, VendingMachineInventoryEntry> ContrabandInventory = new();
 
-        public Dictionary<string, uint> ReturnedInventory = new(); // ADT-Return 
+        public Dictionary<string, uint> ReturnedInventory = new();
 
         public bool Contraband;
 

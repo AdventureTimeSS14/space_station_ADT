@@ -42,7 +42,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Store.Components;
 
-namespace Content.Server.VendingMachines
+namespace Content.Server.ADT.VendingMachines
 {
     public sealed class VendingMachineSystem : SharedVendingMachineSystem
     {
@@ -52,7 +52,6 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly PricingSystem _pricing = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
         [Dependency] private readonly SpeakOnUIClosedSystem _speakOnUIClosed = default!;
-        //ADT-Economy-Start
         [Dependency] private readonly BankCardSystem _bankCard = default!;
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly StackSystem _stackSystem = default!;
@@ -60,7 +59,6 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly ADTVendingMachineReturnSystem _vendingReturn = default!;
         [Dependency] private readonly CargoSystem _cargoSystem = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
-        //ADT-Economy-End
         [Dependency] private readonly SharedPointLightSystem _light = default!;
         [Dependency] private readonly EmagSystem _emag = default!;
 
@@ -71,25 +69,21 @@ namespace Content.Server.VendingMachines
             base.Initialize();
 
             SubscribeLocalEvent<VendingMachineComponent, PowerChangedEvent>(OnPowerChanged);
-            SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamage); //ADT-Economy
+            SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamage);
             SubscribeLocalEvent<VendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
             SubscribeLocalEvent<VendingMachineComponent, TryVocalizeEvent>(OnTryVocalize);
 
             Subs.BuiEvents<VendingMachineComponent>(VendingMachineUiKey.Key, subs =>
             {
                 subs.Event<VendingMachineEjectMessage>(OnInventoryEjectMessage);
-                subs.Event<VendingMachineEjectCountMessage>(OnInventoryEjectCountMessage);  // ADT vending eject count
+                subs.Event<VendingMachineEjectCountMessage>(OnInventoryEjectCountMessage);
             });
 
             SubscribeLocalEvent<VendingMachineComponent, VendingMachineSelfDispenseEvent>(OnSelfDispense);
 
-            //ADT-Economy-Start
             SubscribeLocalEvent<VendingMachineComponent, InteractUsingEvent>(OnInteractUsing);
             SubscribeLocalEvent<VendingMachineComponent, VendingMachineWithdrawMessage>(OnWithdrawMessage);
-            //ADT-Economy-End
-            // ADT-Tweak start
             SubscribeLocalEvent<VendingMachineComponent, AfterActivatableUIOpenEvent>(OnAfterActivatableUIOpen);
-            // ADT-Tweak end
 
             SubscribeLocalEvent<VendingMachineRestockComponent, PriceCalculationEvent>(OnPriceCalculation);
         }
@@ -125,7 +119,7 @@ namespace Content.Server.VendingMachines
         private void UpdateVendingMachineInterfaceState(EntityUid uid, VendingMachineComponent component)
         {
             var state = new VendingMachineInterfaceState(GetAllInventory(uid, component), component.PriceMultiplier,
-                component.Credits); //ADT-Economy
+                component.Credits);
 
             _userInterfaceSystem.SetUiState(uid, VendingMachineUiKey.Key, state);
         }
@@ -138,7 +132,7 @@ namespace Content.Server.VendingMachines
             if (args.Actor is not { Valid: true } entity || Deleted(entity))
                 return;
 
-            AuthorizedVend(uid, entity, args.Type, args.ID, component, 1);  // ADT vending eject count
+            AuthorizedVend(uid, entity, args.Type, args.ID, component, 1);
         }
 
         private void OnPowerChanged(EntityUid uid, VendingMachineComponent component, ref PowerChangedEvent args)
@@ -146,7 +140,7 @@ namespace Content.Server.VendingMachines
             TryUpdateVisualState(uid, component);
         }
 
-        private void OnDamage(EntityUid uid, VendingMachineComponent component, DamageChangedEvent args) //ADT-Economy
+        private void OnDamage(EntityUid uid, VendingMachineComponent component, DamageChangedEvent args)
         {
             if (!args.DamageIncreased && component.Broken)
             {
@@ -205,7 +199,6 @@ namespace Content.Server.VendingMachines
             args.Handled = true;
         }
 
-        //ADT-Economy-Start
         private void OnInteractUsing(EntityUid uid, VendingMachineComponent component, InteractUsingEvent args)
         {
             if (args.Handled)
@@ -247,7 +240,7 @@ namespace Content.Server.VendingMachines
 
         private void OnWithdrawMessage(EntityUid uid, VendingMachineComponent component, VendingMachineWithdrawMessage args)
         {
-            _stackSystem.SpawnAtPosition(component.Credits, component.CreditStackPrototype, // ADT-Fix
+            _stackSystem.SpawnAtPosition(component.Credits, component.CreditStackPrototype,
                 Transform(uid).Coordinates);
 
             component.Credits = 0;
@@ -311,10 +304,8 @@ namespace Content.Server.VendingMachines
             if (args.Actor is not { Valid: true } entity || Deleted(entity))
                 return;
 
-            AuthorizedVend(uid, entity, args.Entry.Type, args.Entry.ID, component, args.Count, args.PaintColor); // ADT-Tweak
+            AuthorizedVend(uid, entity, args.Entry.Type, args.Entry.ID, component, args.Count, args.PaintColor);
         }
-
-        //ADT-Economy-End
 
         /// <summary>
         /// Sets the <see cref="VendingMachineComponent.CanShoot"/> property of the vending machine.
@@ -367,14 +358,13 @@ namespace Content.Server.VendingMachines
             if (!TryComp<AccessReaderComponent>(uid, out var accessReader))
                 return true;
 
-            // ADT-tweak: Emagged vending machines should allow everyone
             if (_emag.CheckFlag(uid, EmagType.Interaction))
                 return true;
 
             if (_accessReader.IsAllowed(sender, uid, accessReader))
                 return true;
 
-            Popup.PopupEntity(Loc.GetString("vending-machine-component-try-eject-access-denied"), uid, sender); //ADT-Economy
+            Popup.PopupEntity(Loc.GetString("vending-machine-component-try-eject-access-denied"), uid, sender);
             Deny(uid, vendComponent);
             return false;
         }
@@ -388,8 +378,7 @@ namespace Content.Server.VendingMachines
         /// <param name="itemId">The prototype ID of the item</param>
         /// <param name="throwItem">Whether the item should be thrown in a random direction after ejection</param>
         /// <param name="vendComponent"></param>
-        // ADT: This overloads the Shared method because we need 'count' and 'sender' parameters for economy
-        public void TryEjectVendorItem(EntityUid uid, InventoryType type, string itemId, bool throwItem, int count, VendingMachineComponent? vendComponent = null, EntityUid? sender = null, Color? paintColor = null) // ADT-Tweak
+        public void TryEjectVendorItem(EntityUid uid, InventoryType type, string itemId, bool throwItem, int count, VendingMachineComponent? vendComponent = null, EntityUid? sender = null, Color? paintColor = null)
         {
             if (!Resolve(uid, ref vendComponent))
                 return;
@@ -403,16 +392,13 @@ namespace Content.Server.VendingMachines
 
             if (entry == null)
             {
-                //ADT-Economy-Start
                 if (sender.HasValue)
                     Popup.PopupEntity(Loc.GetString("vending-machine-component-try-eject-invalid-item"), uid, sender.Value);
-                //ADT-Economy-End
 
                 Deny(uid, vendComponent);
                 return;
             }
 
-            //ADT-Economy-Start
             var returnedCount = (int)vendComponent.ReturnedInventory.GetValueOrDefault(itemId);
             if (count <= 0 || count > (int)entry.Amount + returnedCount)
             {
@@ -474,9 +460,8 @@ namespace Content.Server.VendingMachines
                 }
             }
             vendComponent.NextItemCount = count;
-            vendComponent.NextItemReturnedCount = freeCount; //ADT-Return
-            vendComponent.NextItemPaintColor = paintColor; // ADT-Tweak
-            //ADT-Economy-End
+            vendComponent.NextItemReturnedCount = freeCount;
+            vendComponent.NextItemPaintColor = paintColor;
 
             // Start Ejecting, and prevent users from ordering while anim playing
             // Upstream adapted: use timestamp-based approach
@@ -488,7 +473,6 @@ namespace Content.Server.VendingMachines
             if (TryComp(uid, out SpeakOnUIClosedComponent? speakComponent))
                 _speakOnUIClosed.TrySetFlag((uid, speakComponent));
 
-            //ADT-Return start
             entry.Amount = (uint)Math.Max(0, (int)entry.Amount - (count - freeCount));
             if (freeCount > 0)
             {
@@ -498,16 +482,14 @@ namespace Content.Server.VendingMachines
                 else
                     vendComponent.ReturnedInventory.Remove(itemId);
             }
-            //ADT-Return end
+
             Dirty(uid, vendComponent);
-            UpdateVendingMachineInterfaceState(uid, vendComponent); // // ADT-Tweak
+            UpdateVendingMachineInterfaceState(uid, vendComponent);
             TryUpdateVisualState(uid, vendComponent);
             Audio.PlayPvs(vendComponent.SoundVend, uid);
 
-            // ADT-Tweak start
             if (sender.HasValue)
                 SendUserInfo(uid, sender.Value);
-            // ADT-Tweak end
         }
 
         /// <summary>
@@ -518,11 +500,11 @@ namespace Content.Server.VendingMachines
         /// <param name="type">The type of inventory the item is from</param>
         /// <param name="itemId">The prototype ID of the item</param>
         /// <param name="component"></param>
-        public void AuthorizedVend(EntityUid uid, EntityUid sender, InventoryType type, string itemId, VendingMachineComponent component, int count, Color? paintColor = null)  // ADT-Tweak
+        public void AuthorizedVend(EntityUid uid, EntityUid sender, InventoryType type, string itemId, VendingMachineComponent component, int count, Color? paintColor = null)
         {
             if (IsAuthorized(uid, sender, component))
             {
-                TryEjectVendorItem(uid, type, itemId, component.CanShoot, count, component, sender, paintColor); // ADT-Tweak
+                TryEjectVendorItem(uid, type, itemId, component.CanShoot, count, component, sender, paintColor);
             }
         }
 
@@ -581,16 +563,14 @@ namespace Content.Server.VendingMachines
 
             if (forceEject)
             {
-                // ADT-Tweak start
                 if (vendComponent.Ejecting)
                     return;
-                // ADT-Tweak end
 
                 vendComponent.NextItemToEject = item.ID;
                 vendComponent.ThrowNextItem = throwItem;
                 vendComponent.NextItemCount = 1;
-                vendComponent.NextItemPaintColor = null; // ADT-Tweak
-                //ADT-Return start
+                vendComponent.NextItemPaintColor = null;
+
                 var returnedCount = (int)vendComponent.ReturnedInventory.GetValueOrDefault(item.ID);
                 var freeCount = Math.Min(returnedCount, 1);
                 vendComponent.NextItemReturnedCount = freeCount;
@@ -604,12 +584,11 @@ namespace Content.Server.VendingMachines
                     else
                         vendComponent.ReturnedInventory.Remove(item.ID);
                 }
-                //ADT-Return end
-                EjectItem(uid, vendComponent, forceEject);   // ADT vending eject count
+                EjectItem(uid, vendComponent, forceEject);
             }
             else
             {
-                TryEjectVendorItem(uid, item.Type, item.ID, throwItem, 1, vendComponent);   // ADT vending eject count
+                TryEjectVendorItem(uid, item.Type, item.ID, throwItem, 1, vendComponent);
             }
         }
 
@@ -636,17 +615,14 @@ namespace Content.Server.VendingMachines
                 var offset = (wallMountComponent.Direction + xform.LocalRotation - Math.PI / 2).ToVec() * WallVendEjectDistanceFromWall;
                 spawnCoordinates = spawnCoordinates.Offset(offset);
             }
-            // ADT-Return start
             var returnedCount = vendComponent.NextItemReturnedCount;
             if (returnedCount > 0)
             {
                 RaiseLocalEvent(uid, new ADTVendingReturnedEjectEvent(
-                    vendComponent.NextItemToEject, returnedCount, spawnCoordinates, vendComponent.ThrowNextItem, vendComponent.NextItemPaintColor)); // ADT Tweak - цвет
+                    vendComponent.NextItemToEject, returnedCount, spawnCoordinates, vendComponent.ThrowNextItem, vendComponent.NextItemPaintColor));
             }
-            // ADT-Return end
 
-            // ADT vending eject count start
-            for (var i = 0; i < count - returnedCount; i++) // ADT-Return 
+            for (var i = 0; i < count - returnedCount; i++)
             {
                 var ent = Spawn(vendComponent.NextItemToEject, spawnCoordinates);
 
@@ -660,20 +636,19 @@ namespace Content.Server.VendingMachines
                     _throwingSystem.TryThrow(ent, direction, vendComponent.NonLimitedEjectForce);
                 }
             }
-            // ADT vending eject count end
 
             vendComponent.NextItemToEject = null;
             vendComponent.ThrowNextItem = false;
-            vendComponent.NextItemCount = 1;    // ADT vending eject count
-            vendComponent.NextItemReturnedCount = 0;    //ADT-Return
-            vendComponent.NextItemPaintColor = null; // ADT-Tweak
-            vendComponent.Ejecting = false;     // ADT-Tweak
+            vendComponent.NextItemCount = 1;
+            vendComponent.NextItemReturnedCount = 0;
+            vendComponent.NextItemPaintColor = null;
+            vendComponent.Ejecting = false;
 
             // No need to update the visual state because we never changed it during a forced eject
             if (!forceEject)
                 TryUpdateVisualState(uid, vendComponent);
 
-            UpdateVendingMachineInterfaceState(uid, vendComponent); // ADT-Tweak
+            UpdateVendingMachineInterfaceState(uid, vendComponent);
         }
 
         protected override VendingMachineInventoryEntry? GetEntry(EntityUid uid, string entryId, InventoryType type, VendingMachineComponent? component = null)
@@ -718,7 +693,7 @@ namespace Content.Server.VendingMachines
 
                 if (PrototypeManager.TryIndex(vendingInventory, out VendingMachineInventoryPrototype? inventoryPrototype))
                 {
-                    foreach (var (item, amount, _) in VendingMachineInventoryData.Flatten(inventoryPrototype.StartingInventory)) // ADT-Twek
+                    foreach (var (item, amount, _) in VendingMachineInventoryData.Flatten(inventoryPrototype.StartingInventory))
                     {
                         if (PrototypeManager.TryIndex(item, out EntityPrototype? entity))
                             total += _pricing.GetEstimatedPrice(entity) * amount;
@@ -733,10 +708,8 @@ namespace Content.Server.VendingMachines
 
         private void OnTryVocalize(Entity<VendingMachineComponent> ent, ref TryVocalizeEvent args)
         {
-            // ADT-Tweak start - я не могу опнять где она не инцелизируется по этому будет тут
             if (!TryComp<MetaDataComponent>(ent.Owner, out var meta) || !meta.EntityInitialized)
                 return;
-            // ADT-Tweak end
 
             if (ent.Comp.Broken)
                 args.Cancelled = true;

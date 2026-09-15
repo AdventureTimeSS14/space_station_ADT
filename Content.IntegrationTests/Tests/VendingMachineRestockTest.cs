@@ -1,7 +1,7 @@
 #nullable enable
 using System.Collections.Generic;
 using Content.IntegrationTests.Fixtures;
-using Content.Server.VendingMachines;
+using Content.Server.ADT.VendingMachines; // ADT-Tweak
 using Content.Server.Wires;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Containers;
@@ -11,7 +11,8 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.EntityTable;
 using Content.Shared.Prototypes;
 using Content.Shared.Storage.EntitySystems;
-using Content.Shared.VendingMachines;
+using Content.Shared.ADT.VendingMachines; // ADT-Tweak
+using Content.Shared.VendingMachines; // ADT-Tweak
 using Content.Shared.Wires;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
