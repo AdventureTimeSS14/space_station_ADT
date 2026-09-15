@@ -236,7 +236,7 @@ public abstract class RadialMenuButtonBase : BaseButton
         EnableAllKeybinds = true;
     }
 
-    // ADT-Tweak-Start: поддержка правого клика по кнопке радиального меню
+    // ADT-Tweak-Start
     /// <summary>
     /// Whether this button should also respond to right clicks (<see cref="EngineKeyFunctions.UIRightClick"/>).
     /// Handlers can distinguish the button used via <see cref="BaseButton.ButtonEventArgs.Event"/>.
@@ -247,7 +247,7 @@ public abstract class RadialMenuButtonBase : BaseButton
     /// <inheritdoc />
     protected override void KeyBindUp(GUIBoundKeyEventArgs args)
     {
-        // ADT-Tweak-Start: правый клик тоже засчитывается
+        // ADT-Tweak-Start
         if (args.Function == EngineKeyFunctions.UIClick
             || args.Function == ContentKeyFunctions.AltActivateItemInWorld
             || (args.Function == EngineKeyFunctions.UIRightClick && AllowRightClick))

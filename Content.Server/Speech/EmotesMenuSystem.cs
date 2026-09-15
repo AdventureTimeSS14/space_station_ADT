@@ -1,12 +1,10 @@
 ﻿using Content.Shared.Chat;
 using Content.Server.Chat.Systems;
 using Robust.Shared.Prototypes;
-// ADT-Tweak-Start: привязка эмоций к экшенам
 using Content.Shared.Actions;
 using Content.Shared.Popups;
 using Content.Shared.ADT.Actions.Events;
 using Content.Shared.ADT.Chat;
-// ADT-Tweak-End
 
 namespace Content.Server.Speech;
 
@@ -15,11 +13,12 @@ public sealed partial class EmotesMenuSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
 
-    // ADT-Tweak-Start
-    public static readonly EntProtoId EmoteBindActionProtoId = "ADTActionEmoteBindBase";
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
+
+    // ADT-Tweak-Start
+    public static readonly EntProtoId EmoteBindActionProtoId = "ADTActionEmoteBindBase";
     // ADT-Tweak-End
 
     public override void Initialize()

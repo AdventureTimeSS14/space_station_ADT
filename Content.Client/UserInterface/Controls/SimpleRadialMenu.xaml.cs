@@ -140,7 +140,7 @@ public sealed partial class SimpleRadialMenu : RadialMenu
 
         if (model is RadialMenuActionOptionBase actionOption)
         {
-            // ADT-Tweak-Start: правый клик вызывает альтернативное действие
+            // ADT-Tweak-Start
             button.AllowRightClick = actionOption.OnAlternativePressed != null;
             button.OnPressed += args =>
             {
@@ -346,7 +346,7 @@ public abstract class RadialMenuOptionBase
 
 /// <summary> Base type for model of radial menu button with some action on button pressed. </summary>
 /// <param name="onPressed"></param>
-// ADT-Tweak-Start: альтернативное действие по правому клику
+// ADT-Tweak-Start
 /// <param name="onAlternativePressed">Action to be executed on alternative (right) button press.</param>
 public abstract class RadialMenuActionOptionBase(Action onPressed, Action? onAlternativePressed = null) : RadialMenuOptionBase
 // ADT-Tweak-End
@@ -363,7 +363,7 @@ public abstract class RadialMenuActionOptionBase(Action onPressed, Action? onAlt
 }
 
 /// <summary> Strong-typed model for radial menu button with action, stores provided data to be used upon button press. </summary>
-// ADT-Tweak-Start: опциональное альтернативное действие
+// ADT-Tweak-Start
 public sealed class RadialMenuActionOption<T>(
     Action<T> onPressed,
     T data,
