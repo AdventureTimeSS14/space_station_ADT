@@ -15299,3 +15299,9 @@ Entries:
     id: 1922
     pr_number: 3379
     time: '2026-09-15T07:50:21Z'
+  - author: ultradyper, CrimeMoot
+    changes:
+      - {message: Исправлены баги связанные с применением скинов на боргах., type: Fix}
+    id: 1923
+    pr_number: 3159
+    time: '2026-09-15T07:57:09Z'
