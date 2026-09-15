@@ -15293,3 +15293,9 @@ Entries:
     id: 1921
     pr_number: 3385
     time: '2026-09-15T07:48:11Z'
+  - author: FIneter75
+    changes:
+      - {message: Сделал тише звук возвышения тенеморфа, type: Tweak}
+    id: 1922
+    pr_number: 3379
+    time: '2026-09-15T07:50:21Z'
