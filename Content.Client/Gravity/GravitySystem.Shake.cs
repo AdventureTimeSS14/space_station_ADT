@@ -56,6 +56,6 @@ public sealed partial class GravitySystem
         }
 
         var kick = new Vector2(_random.NextFloat(), _random.NextFloat()) * GravityKick;
-        _sharedCameraRecoil.KickCamera(localPlayer.Value, kick);
+        _sharedCameraRecoil.KickCamera(localPlayer.Value, kick * 0.003f); // ADT screenshake
     }
 }

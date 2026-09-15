@@ -580,6 +580,17 @@ public abstract class SharedBloodstreamSystem : EntitySystem
     // ADT-Tweak end
 
     /// <summary>
+    /// ADT: blood color for hitscan spray decals (Starlight Shooting 2.0).
+    /// </summary>
+    public Color GetBloodColor(Entity<BloodstreamComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp, logMissing: false))
+            return Color.Red;
+
+        return ent.Comp.BloodReferenceSolution.GetColor(null);
+    }
+
+    /// <summary>
     /// Change what someone's blood is made of, on the fly.
     /// </summary>
     [Obsolete("ChangeBloodReagent is obsolete, please use ChangeBloodReagents.")]

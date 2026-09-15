@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Numerics;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
@@ -38,10 +39,13 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.DNAGunLocker;
+using Content.Shared.ADT.Utility;
+using Content.Shared.ADT.Weapons.Hitscan.Events;
 using Content.Shared.ADT.Mech.Components;
 using Content.Shared.ADT.Weapons.Ranged.WearableGun;
 using Content.Shared.Electrocution;
 using Content.Shared.ADT.Crawling.Components;
+using Content.Shared.ADT.Camera; // ADT screenshake
 using Content.Shared.Inventory.VirtualItem;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
@@ -80,6 +84,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] protected readonly TagSystem TagSystem = default!;
     [Dependency] protected readonly ThrowingSystem ThrowingSystem = default!;
+    [Dependency] private readonly ScreenshakeSystem _screenshake = default!; // ADT screenshake
     // ADT-Tweak-Start
     [Dependency] private readonly SharedElectrocutionSystem _electrocutionSystem = default!;
     // ADT-Tweak-End
@@ -487,7 +492,19 @@ public abstract partial class SharedGunSystem : EntitySystem
         var shotEv = new GunShotEvent(user, ev.Ammo, fromCoordinates, toCoordinates.Value); // ADT TWEAK
         RaiseLocalEvent(gun, ref shotEv); //ADT tweak
         // Shoot confirmed - sounds also played here in case it's invalid (e.g. cartridge already spent).
+        // ADT screenshake: preserve the existing hitscan Shoot signature.
+        var fired = ev.Ammo.Any(ammo => ammo.Shootable is not CartridgeAmmoComponent { Spent: true });
         Shoot(gun, ev.Ammo, fromCoordinates, shotEv.ToCoordinates, out var userImpulse, user, throwItems: attemptEv.ThrowItems); //ADTR tweaked
+        if (fired)
+        {
+            var rotation = new ScreenshakeParameters
+            {
+                Trauma = 0.035f * gun.Comp.CameraRecoilScalarModified,
+                DecayRate = 1.2f,
+                Frequency = 0.008f,
+            };
+            _screenshake.Screenshake(user, null, rotation);
+        }
 
         if (!userImpulse || !TryComp<PhysicsComponent>(user, out var userPhysics))
             return true;
@@ -744,8 +761,23 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Serializable, NetSerializable]
     public sealed class HitscanEvent : EntityEventArgs
     {
-        public List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)> Sprites = new();
-        public float Lifetime; // ADT-Tweak BAS
+        /// <summary>
+        /// Legacy sprite list (BSA / lasers without Trace aggregation).
+        /// </summary>
+        public List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)>? Sprites;
+
+        /// <summary>
+        /// ADT BSA lifetime for legacy <see cref="Sprites"/> playback.
+        /// </summary>
+        public float Lifetime;
+
+        // ADT: Starlight Shooting 2.0 / Hollow Point multi-segment traces
+        public List<HitscanTrace>? Traces;
+        public SpriteSpecifier? MuzzleFlash;
+        public SpriteSpecifier? TravelFlash;
+        public SpriteSpecifier? ImpactFlash;
+        public ExtendedSpriteSpecifier? Bullet;
+        public float Speed = 315f;
     }
 
     /// <summary>

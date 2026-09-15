@@ -8,7 +8,7 @@
     tags:
     - CartridgeAntiMateriel
   - type: CartridgeAmmo
-    proto: BulletAntiMateriel
+    proto: AntiMaterielBulletTrace # ADT tweak
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
     layers:

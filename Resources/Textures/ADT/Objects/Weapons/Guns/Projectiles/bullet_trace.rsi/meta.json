@@ -1,0 +1,11 @@
+﻿{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken and modified from CEV-Eris / Starlight Shooting 2.0 (darkrell)",
+  "size": { "x": 32, "y": 32 },
+  "states": [
+    { "name": "impact", "delays": [[0.00625,0.00625,0.00625,0.00625,0.00625,0.00625,0.00625,0.00625]] },
+    { "name": "trace", "delays": [[0.00625,0.00625,0.00625,0.00625,0.00625,0.00625,0.00625,0.00625]] },
+    { "name": "muzzle", "delays": [[0.00625,0.00625,0.00625,0.00625,0.00625,0.00625,0.00625,0.00625]] }
+  ]
+}
