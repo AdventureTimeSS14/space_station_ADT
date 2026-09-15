@@ -125,3 +125,68 @@
   completetime: 2
   materials:
     Plastic: 100
+  
+- type: latheRecipe
+  id: ADTMedipenEmergency
+  result: EmergencyMedipen
+  displayOnly: true
+
+- type: latheRecipe
+  id: ADTMedipenAntiPoison
+  result: AntiPoisonMedipen
+  displayOnly: true
+
+- type: latheRecipe
+  id: ADTMedipenBrute
+  result: BruteAutoInjector
+  displayOnly: true
+
+- type: latheRecipe
+  id: ADTMedipenBurn
+  result: BurnAutoInjector
+  displayOnly: true
+
+- type: latheRecipe
+  id: ADTMedipenRad
+  result: RadAutoInjector
+  displayOnly: true
+
+- type: latheRecipe
+  id: ADTMedipenPuncturase
+  result: PunctAutoInjector
+  displayOnly: true
+
+- type: latheRecipe
+  id: ADTMedipenPyrazine
+  result: PyraAutoInjector
+  displayOnly: true
+
+- type: latheRecipe
+  id: ADTMedipenHemostasis
+  result: ADTHemostasisAutoInjector
+  displayOnly: true
+
+- type: latheRecipe
+  id: ADTMedipenStimulant
+  result: ADTStimulantAutoInjector
+  displayOnly: true
+
+- type: latheRecipe
+  id: ADTMedipenCrisis
+  result: ADTCrisisAutoInjector
+  displayOnly: true
+
+- type: latheRecipe
+  id: ADTMedipenLacerinol
+  result: ADTLacerAutoInjector
+  displayOnly: true
+
+- type: latheRecipe
+  id: ADTMedipenBruizine
+  result: ADTBruizAutoInjector
+  displayOnly: true
+
+- type: latheRecipe
+  id: ADTMedipenEthylredoxrazine
+  result: ADTEthylredoxrazineAutoInjector
+  displayOnly: true
