@@ -2,6 +2,7 @@
 - type: marking
   id: ADTFeatheredEarsPangaari
   bodyPart: HeadTop
+  sponsorOnly: true
   groupWhitelist: []
   sprites:
   - sprite: ADT/Personalization/pangaari_feathered.rsi
@@ -10,6 +11,7 @@
 - type: marking
   id: ADTFeatheredWingsPangaari
   bodyPart: Tail
+  sponsorOnly: true
   groupWhitelist: []
   sprites:
   - sprite: ADT/Personalization/pangaari_feathered.rsi

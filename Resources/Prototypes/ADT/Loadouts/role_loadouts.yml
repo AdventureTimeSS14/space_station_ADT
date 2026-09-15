@@ -87,8 +87,8 @@
   - ADTTopBlueshield
   - ADTBottomBlueshield
   - ADTSocksBlueshield
+  - ADTSponsorLoadouts
   # ADT underwear tweak end
-
 - type: roleLoadout
   id: JobADTCentcomConsultant
   groups:
