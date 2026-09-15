@@ -126,6 +126,11 @@ public partial class SeedData
     /// </summary>
     [ViewVariables]
     public bool Unique = false; // seed-prototypes or yaml-defined seeds for entity prototypes will not generally be unique.
+
+    // ADT-Tweak start
+    [DataField]
+    public bool IsModified;
+    // ADT-Tweak end
     #endregion
 
     #region Output
@@ -315,6 +320,8 @@ public partial class SeedData
 
             // Newly cloned seed is unique. No need to unnecessarily clone if repeatedly modified.
             Unique = true,
+
+            IsModified = IsModified, // ADT-Tweak
         };
 
         newSeed.Mutations.AddRange(Mutations);
