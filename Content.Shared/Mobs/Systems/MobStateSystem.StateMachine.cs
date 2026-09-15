@@ -68,6 +68,11 @@ public partial class MobStateSystem
     /// <param name="state">The new MobState</param>
     protected virtual void OnEnterState(EntityUid entity, MobStateComponent component, MobState state)
     {
+        // ADT-Tweak-start
+        StopStateAudio(entity);
+        PlayStateAudio(entity, state);
+        // ADT-Tweak-end
+
         OnStateEnteredSubscribers(entity, component, state);
     }
 
@@ -91,6 +96,8 @@ public partial class MobStateSystem
     /// <param name="state">The old MobState</param>
     protected virtual void OnExitState(EntityUid entity, MobStateComponent component, MobState state)
     {
+        StopStateAudio(entity); // ADT-Tweak
+
         OnStateExitSubscribers(entity, component, state);
     }
 
