@@ -8,15 +8,17 @@ public sealed class AcceptMindTransferenceEui : BaseEui
 {
     private readonly EntityUid _user;
     private readonly EntityUid _target;
+    private readonly EntityUid _targetMind;
     private readonly EntityUid _potion;
     private readonly string _requesterName;
     private readonly SlimePotionConsentSystem _system;
 
-    public AcceptMindTransferenceEui(EntityUid user, EntityUid target, EntityUid potion, string requesterName,
-        SlimePotionConsentSystem system)
+    public AcceptMindTransferenceEui(EntityUid user, EntityUid target, EntityUid targetMind, EntityUid potion,
+        string requesterName, SlimePotionConsentSystem system)
     {
         _user = user;
         _target = target;
+        _targetMind = targetMind;
         _potion = potion;
         _requesterName = requesterName;
         _system = system;
@@ -37,6 +39,12 @@ public sealed class AcceptMindTransferenceEui : BaseEui
         base.HandleMessage(msg);
 
         if (msg is not AcceptPotionChoiceMessage choice || choice.Button == AcceptPotionButton.Deny)
+        {
+            Close();
+            return;
+        }
+
+        if (!_system.ValidateTargetMind(_target, _targetMind))
         {
             Close();
             return;

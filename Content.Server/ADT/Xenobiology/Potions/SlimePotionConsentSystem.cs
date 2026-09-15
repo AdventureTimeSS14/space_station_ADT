@@ -51,7 +51,7 @@ public sealed partial class SlimePotionConsentSystem : EntitySystem
             if (!TryGetSession(target, out var session))
                 return;
 
-            _eui.OpenEui(new AcceptMindTransferenceEui(args.User, target, args.Used, Name(args.User), this), session);
+            _eui.OpenEui(new AcceptMindTransferenceEui(args.User, target, targetMindContainer.Mind!.Value, args.Used, Name(args.User), this), session);
             return;
         }
 
@@ -80,7 +80,7 @@ public sealed partial class SlimePotionConsentSystem : EntitySystem
             if (!TryGetSession(target, out var session))
                 return;
 
-            _eui.OpenEui(new AcceptNameChangeEui(target, args.Used, ent.Comp.AssignedName, Name(args.User), this), session);
+            _eui.OpenEui(new AcceptNameChangeEui(target, targetMindContainer.Mind!.Value, args.Used, ent.Comp.AssignedName, Name(args.User), this), session);
             return;
         }
 
@@ -119,7 +119,7 @@ public sealed partial class SlimePotionConsentSystem : EntitySystem
             if (!TryGetSession(target, out var session))
                 return;
 
-            _eui.OpenEui(new AcceptGenderChangeEui(target, args.Used, gender, Name(args.User), this), session);
+            _eui.OpenEui(new AcceptGenderChangeEui(target, targetMind.Mind!.Value, args.Used, gender, Name(args.User), this), session);
             return;
         }
 
@@ -139,6 +139,11 @@ public sealed partial class SlimePotionConsentSystem : EntitySystem
 
         session = found;
         return true;
+    }
+
+    public bool ValidateTargetMind(EntityUid target, EntityUid expectedMind)
+    {
+        return !Deleted(target) && _mind.TryGetMind(target, out var currentMind, out _) && currentMind == expectedMind;
     }
 
     public void DoMindSwap(EntityUid user, EntityUid target, EntityUid potion)

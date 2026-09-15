@@ -10,6 +10,7 @@ namespace Content.Client.ADT.Xenobiology.Potions;
 public sealed class AcceptNameChangeEui : BaseEui
 {
     private readonly SlimePotionConsentWindow _window;
+    private bool _choiceMade;
 
     public AcceptNameChangeEui()
     {
@@ -21,17 +22,23 @@ public sealed class AcceptNameChangeEui : BaseEui
     {
         window.AcceptButton.OnPressed += _ =>
         {
+            _choiceMade = true;
             SendMessage(new AcceptPotionChoiceMessage(AcceptPotionButton.Accept));
             window.Close();
         };
 
         window.DenyButton.OnPressed += _ =>
         {
+            _choiceMade = true;
             SendMessage(new AcceptPotionChoiceMessage(AcceptPotionButton.Deny));
             window.Close();
         };
 
-        window.OnClose += () => SendMessage(new AcceptPotionChoiceMessage(AcceptPotionButton.Deny));
+        window.OnClose += () =>
+        {
+            if (!_choiceMade)
+                SendMessage(new AcceptPotionChoiceMessage(AcceptPotionButton.Deny));
+        };
     }
 
     public override void Opened()
