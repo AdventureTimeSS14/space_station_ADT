@@ -318,6 +318,7 @@
   - type: AnimatedEmotes
   - type: Posing
   - type: SoftWalk
+  - type: MirrorReflection
 
 - type: entity
   parent: OrganBaseOrganic
