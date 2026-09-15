@@ -24,6 +24,9 @@
     radius:
       min: 10
       max: 100
+  - type: Tag
+    tags:
+    - HereticBlade
 
 - type: entity
   parent: HereticBladeBase

@@ -1,2 +1,2 @@
 ent-ActionHereticFleshSurgery = flesh surgery
-    .desc = Remove a random organ from someone, or heal your teammates.
+    .desc = Inflict wild hunger, wild thirst, bleeding and heavy blunt trauma on a foe, or mend allies.

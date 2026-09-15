@@ -48,3 +48,45 @@
         - !type:HereticOrGhoulCondition
           inverted: true
         probability: 0.2
+
+- type: reagent
+  id: NewbornEther
+  parent: BaseDrink
+  group: Unknown
+  name: reagent-name-ether
+  desc: reagent-desc-ether
+  physicalDesc: reagent-physical-desc-ether
+  contrabandSeverity: Magical
+  flavor: eldritch
+  color: "#92ca35"
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectNewbornEther
+        time: 60
+        type: Set
+        conditions:
+        - !type:HereticOrGhoulCondition
+        - !type:ReagentCondition
+          reagent: NewbornEther
+          min: 5
+    Bloodstream:
+      effects:
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.65
+        sprintSpeedModifier: 0.65
+        time: 5
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
+        time: 9
+        delay: 5
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
+        - !type:ReagentCondition
+          reagent: NewbornEther
+          min: 8

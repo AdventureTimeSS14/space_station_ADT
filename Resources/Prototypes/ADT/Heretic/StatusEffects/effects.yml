@@ -50,3 +50,47 @@
   - type: MovementModStatusEffect
     sprintSpeedModifier: 0.75
     walkSpeedModifier: 0.75
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: LastRefugeStatusEffect
+  name: last refuge
+  components:
+  - type: HereticCloakedStatusEffect
+  - type: LastRefuge
+    hadStealth: true
+    hadGodmode: true
+    hadSlowdownImmunity: true
+  - type: Godmode
+  - type: Stealth
+  - type: SpeedModifierImmunity
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: LockMarkedStatusEffect
+  name: lock marked
+  components:
+  - type: AccessDeniedStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: SacramentsOfPowerStatusEffect
+  name: sacraments of power
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SacramentsOfPower
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectNewbornEther
+  name: eldritch sleep
+  components:
+  - type: EldritchSleepStatusEffect
+    componentsToAdd:
+    - type: SpecialHighTempImmunity
+    - type: SpecialLowTempImmunity
+    - type: SpecialBreathingImmunity
+    - type: MetabolismModifier
+      modifier: 100
+  - type: ForcedSleepingStatusEffect

@@ -81,6 +81,7 @@
     tags:
     - Sheet
     - ConstructionMaterial
+    - RodMetal # ADT-Tweak
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/ADT/Entities/rod_pickup.ogg

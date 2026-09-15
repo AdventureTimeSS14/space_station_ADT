@@ -3,3 +3,7 @@ reagent-desc-eldritch = Странная жидность, игнорирующ�
 reagent-comp-condition-heretic-or-ghoul = еретик или гуль
 reagent-physical-desc-eldritch = зловещий
 flavor-complex-eldritch = Аг'хсй'сай'ш
+
+reagent-name-ether = эфир новорождённого
+reagent-desc-ether = Мерзкая сукровица, исцеляющая пьющего, а затем погружающая его в eldritch-сон.
+reagent-physical-desc-ether = клубящаяся зелёная сукровица

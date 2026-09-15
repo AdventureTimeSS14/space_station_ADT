@@ -1,0 +1,20 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletLionhunter
+  name: bullet (.60 hunter's)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Ballistic: 30
+  - type: StaminaDamageOnCollide
+    damage: 30
+  - type: ArmorPenetration
+    penetration: 0.5
+  - type: LionhunterRifleProjectile
+    componentsOnEmpower:
+    - type: StaminaDamageOnCollide
+      damage: 60
+    - type: HomingProjectile
+      homingSpeed: 2160

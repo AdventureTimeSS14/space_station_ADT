@@ -68,6 +68,12 @@ knowledge-path-side-s3-shark-desc =
     Fire Sharks ignite their victims and drop plasma sheet once they die.
     You can only create 15 at a time.
 
+knowledge-path-side-s3-husk-name = Smoldering Husk
+knowledge-path-side-s3-husk-desc =
+    Scorched to the bone, yet still walking. The fire took everything except spite.
+
+    Your body hardens into a smoldering husk, halving all radiation damage you take.
+
 knowledge-path-side-s6-ice-spear-name = Mysteries of Creation
 knowledge-path-side-s6-ice-spear-desc =
     Artifacts linked to the Winter Dawn exude unnatural stillness. Time slows around them. Fires choke. Thoughts become brittle. Proximity breeds hallucinations of endless white fields, a sky with no sun, and a voice that speaks only in cracking ice.
@@ -90,29 +96,18 @@ knowledge-path-side-s6-knife-desc =
     The Carving Knife allows you to etch difficult to see traps that trigger on heathens who walk overhead.
     Also makes for a handy throwing weapon.
 
-## stage 7
-knowledge-path-side-s7-uncuff-name = Wave of Desperation
-knowledge-path-side-s7-uncuff-desc =
-    My shackles undone in dark fury, their feeble bindings crumble before my power.
+knowledge-path-side-s6-rifle-name = Lionhunter's Rifle
+knowledge-path-side-s6-rifle-desc =
+    An antique rifle, immaculate despite its age. The Lionhunter stalks prey across any distance.
 
-    Grants you Wave Of Desperation, a spell which can only be cast while restrained.
-    It removes your restraints, repels and knocks down adjacent people, and applies the Mansus Grasp to everything nearby.
-    However, you will fall unconscious a short time after casting this spell.
+    Allows you to transmute a wooden plank, a PDA and a slab of meat to create a Lionhunter's Rifle.
+    Right click a distant target in combat mode to aim. A fully aimed shot fires an empowered homing projectile that passes through walls, knocks the victim down and marks them.
 
-knowledge-path-side-s7-siphon-name = Blood Siphon
-knowledge-path-side-s7-siphon-desc =
-    No matter the man, we bleed all the same. That's what the Marshal told me.
+knowledge-path-side-s6-rifle-ammo-name = Lionhunter's Rifle Ammunition
+knowledge-path-side-s6-rifle-ammo-desc =
+    Heavy hunter's cartridges, tuned for the Lionhunter's Rifle.
 
-    Grants Blood Siphon, a ranged spell that steals a bit of life from your target, healing your bruises and restoring blood.
-    Additionally, you have a chance of transferring wounds you are experiencing to the target.
-
-knowledge-path-side-s7-crucible-name = Mawed Crucible
-knowledge-path-side-s7-crucible-desc =
-    This is pure agony. I wasn't able to summon the figure of the Aristocrat,
-    but with the Priest's attention I stumbled upon a different recipe...
-
-    Allows you to transmute a portable water tank and a table to create a Mawed Crucible.
-    The Mawed Crucible can brew powerful potions for combat and utility, but must be fed bodyparts and organs between uses.
+    Allows you to transmute 3 rifle cartridges into 2 hunter's cartridges.
 
 # stage 8
 knowledge-path-side-s8-cleave-name = Blood Cleave
@@ -121,17 +116,32 @@ knowledge-path-side-s8-cleave-desc =
 
     Grants you Cleave, an area-of-effect targeted spell that causes heavy bleeding and blood loss to anyone afflicted.
 
-## stage 9
-knowledge-path-side-s9-coin-name = Eldritch Coin
-knowledge-path-side-s9-coin-desc =
+knowledge-path-side-t1-ether-name = Ether of the Newborn
+knowledge-path-side-t1-ether-desc =
+    Vision and thought grow hazy as the fumes of this ichor swirl up to meet me.
+
+    Transmute a pool of vomit and a shard into a single use potion.
+    Drinking it will restore your body to full health at the cost of losing consciousness for a minute.
+
+knowledge-path-side-t1-coin-name = Eldritch Coin
+knowledge-path-side-t1-coin-desc =
     The Mansus is a place of all sorts of sins. But greed held a special role.
 
-    Transmute a sheet of plasma, a diamond and eyes into an Eldritch Coin.
-    The coin will open nearby airlocks if it lands on heads and bolt nearby airlocks if it lands on tails.
-    Using it on an airlock consumes the coin and permanently opens the airlock.
-    Attempting to flip or use the coin as a non-heretic will deal brute and/or burn damage, depending on the side it lands on.
+    Allows you to transmute a bar of silver or gold to create an Eldritch Coin.
+    The coin will open or close nearby doors when landing on heads and toggle their bolts when landing on tails.
 
-knowledge-path-side-s9-ashman-name = Ashen Ritual
-knowledge-path-side-s9-ashman-desc =
-    Transmute a pile of ash, a brain and a book to summon an Ashman.
-    Ashmen can jaunt, cause bleeding wounds, and can release large waves of fire.
+knowledge-path-side-t1-curio-name = Unfathomable Curio
+knowledge-path-side-t1-curio-desc =
+    Along the way, on this long journey, I encounter all sorts of wonders.
+
+    Allows you to transmute 3 rods, lungs, and a utility belt into an Unfathomable Curio,
+    a belt with a lot of storage space that also functions as a focus. Whilst worn it will veil you,
+    blocking one blow of incoming damage, at the cost of the veil. The veil recharges itself out of combat.
+
+knowledge-path-side-t4-maid-name = Maid in the Mirror
+knowledge-path-side-t4-maid-desc =
+    Within each reflection lies a gateway. The ascent is glass, and the walls are knives.
+
+    Allows you to transmute five sheets of glass to create a Maid in the Mirror.
+    Maids are decent combatants: those who meet their gaze bleed and gain a star mark.
+    You can only create four at a time.

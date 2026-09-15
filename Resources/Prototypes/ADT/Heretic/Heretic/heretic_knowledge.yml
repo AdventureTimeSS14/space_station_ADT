@@ -57,6 +57,9 @@
   id: GraspOfAsh
   path: Ash
   stage: 2
+  event: !type:HereticKnowledgeEvent
+    addedComponents:
+    - type: SpecialHighTempImmunity
 
 - type: hereticKnowledge
   id: AshenShift
@@ -94,9 +97,22 @@
   - MaskOfMadness
 
 - type: hereticKnowledge
+  id: CrackedLantern
+  path: Ash
+  sideKnowledge: true
+  stage: 6
+  ritualPrototypes:
+  - RitualCrackedLantern
+
+- type: hereticKnowledge
   id: FieryBlade
   path: Ash
   stage: 7
+  event: !type:HereticKnowledgeEvent
+    addedComponents:
+    - type: FireStackSpeed
+    - type: BlindnessImmunity
+    - type: BlurryVisionImmunity
 
 - type: hereticKnowledge
   id: NightwatcherRebirth
@@ -140,6 +156,8 @@
   id: GraspOfBlade
   path: Blade
   stage: 2
+  event: !type:HereticBladePassiveRiposteEvent
+    cooldown: 20
 
 - type: hereticKnowledge
   id: DanceOfTheBrand
@@ -178,6 +196,38 @@
   - ActionHereticFuriousSteel
 
 - type: hereticKnowledge
+  id: ChampionHook
+  path: Blade
+  sideKnowledge: true
+  stage: 4
+  event: !type:HereticKnowledgeEvent
+    addedComponents:
+    - type: ChampionHook
+
+- type: hereticKnowledge
+  id: MaidInTheMirror
+  sideKnowledge: true
+  stage: 4
+  ritualPrototypes:
+  - RitualMaidInTheMirror
+
+- type: hereticKnowledge
+  id: SacramentsOfPower
+  path: Blade
+  sideKnowledge: true
+  stage: 5
+  actionPrototypes:
+  - ActionHereticSacraments
+
+- type: hereticKnowledge
+  id: WolvesAmongSheep
+  path: Blade
+  sideKnowledge: true
+  stage: 8
+  actionPrototypes:
+  - ActionHereticDomainExpansion
+
+- type: hereticKnowledge
   id: AscensionBlade
   path: Blade
   stage: 9
@@ -204,6 +254,9 @@
   id: GraspOfFlesh
   path: Flesh
   stage: 2
+  event: !type:HereticKnowledgeEvent
+    addedComponents:
+    - type: FleshPassive
 
 - type: hereticKnowledge
   id: ImperfectRitual
@@ -232,11 +285,18 @@
   stage: 6
   ritualPrototypes:
   - RawRitual
+  event: !type:HereticKnowledgeEvent
+    addedComponents:
+    - type: FleshGhoulLimit
 
 - type: hereticKnowledge
   id: BleedingSteel
   path: Flesh
   stage: 7
+  event: !type:HereticKnowledgeEvent
+    addedComponents:
+    - type: ShowHealthBars
+    - type: ShowHealthIcons
 
 - type: hereticKnowledge
   id: LonelyRitual
@@ -326,6 +386,9 @@
   id: SeekingBlade
   path: Void
   stage: 7
+  event: !type:HereticKnowledgeEvent
+    addedComponents:
+    - type: SlowdownResistance
 
 - type: hereticKnowledge
   id: VoidPull
@@ -489,6 +552,11 @@
   id: ToxicBlade
   path: Rust
   stage: 7
+  event: !type:HereticKnowledgeEvent
+    addedComponents:
+    - type: HereticBladeUserBonusDamage
+      bonusMultiplier: 0.5
+      path: Rust
 
 - type: hereticKnowledge
   id: RustCharge
@@ -596,6 +664,27 @@
 
 ### side, stage 3
 - type: hereticKnowledge
+  id: EtherOfTheNewborn
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - RitualEtherOfTheNewborn
+
+- type: hereticKnowledge
+  id: EldritchCoin
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - RitualEldritchCoin
+
+- type: hereticKnowledge
+  id: UnfathomableCurio
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - RitualUnfathomableCurio
+
+- type: hereticKnowledge
   id: VoidCloak
   sideKnowledge: true
   stage: 3
@@ -636,6 +725,20 @@
   - CarvingKnife
 
 - type: hereticKnowledge
+  id: LionhunterRifle
+  sideKnowledge: true
+  stage: 5
+  ritualPrototypes:
+  - RitualLionhunterRifle
+
+- type: hereticKnowledge
+  id: LionhunterRifleAmmunition
+  sideKnowledge: true
+  stage: 5
+  ritualPrototypes:
+  - RitualLionhunterRifleAmmunition
+
+- type: hereticKnowledge
   id: MysteriesOfCreation
   sideKnowledge: true
   stage: 6
@@ -649,3 +752,94 @@
   stage: 8
   actionPrototypes:
   - ActionHereticCleave
+
+### lock path
+- type: hereticKnowledge
+  id: StewardsSecret
+  path: Lock
+  stage: 1
+  ritualPrototypes:
+  - RitualBladeLock
+
+- type: hereticKnowledge
+  id: GraspOfLock
+  path: Lock
+  stage: 2
+
+- type: hereticKnowledge
+  id: MarkOfLock
+  path: Lock
+  stage: 3
+
+- type: hereticKnowledge
+  id: KeyKeepersBurden
+  path: Lock
+  stage: 4
+  ritualPrototypes:
+  - RitualEldritchId
+
+- type: hereticKnowledge
+  id: WrongKey
+  path: Lock
+  stage: 5
+  ritualPrototypes:
+  - RitualSerpentclave
+
+- type: hereticKnowledge
+  id: ArmorerRitualLock
+  path: Lock
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - ArmorerRitualLock
+  actionPrototypes:
+  - ActionHereticLastRefuge
+
+- type: hereticKnowledge
+  id: LockPassive3
+  path: Lock
+  sideKnowledge: true
+  stage: 6
+  event: !type:HereticKnowledgeEvent
+    addedComponents:
+    - type: ThermalVision
+
+- type: hereticKnowledge
+  id: BurglarsFinesse
+  path: Lock
+  stage: 6
+
+- type: hereticKnowledge
+  id: OpeningBlade
+  path: Lock
+  stage: 7
+  event: !type:HereticKnowledgeEvent
+    addedComponents:
+    - type: HereticBladeUserBonusDamage
+      bonusMultiplier: 0.5
+      path: Lock
+
+- type: hereticKnowledge
+  id: ConciergesRite
+  path: Lock
+  stage: 8
+  ritualPrototypes:
+  - RitualConcierge
+
+- type: hereticKnowledge
+  id: AscensionLock
+  stage: 9
+  path: Lock
+  ritualPrototypes:
+  - RitualAscensionLock
+
+- type: hereticKnowledge
+  id: UnlockTheLabyrinth
+  stage: 10
+  path: Lock
+  event: !type:HereticAscensionLockEvent
+    addedComponents:
+    - type: SpecialLowTempImmunity
+    - type: SpecialPressureImmunity
+  actionPrototypes:
+  - ActionHereticShapeshiftLock

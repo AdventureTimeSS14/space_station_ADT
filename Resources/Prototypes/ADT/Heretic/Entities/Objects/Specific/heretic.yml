@@ -37,6 +37,8 @@
         Blunt: 8
   - type: ToggleAnimation
   - type: Tag # Drawing runes checks for tag component so this has to be here
+    tags:
+    - CodexCicatrix
 
 - type: entity
   parent: [ DrinkBase, BaseMagicContraband ]

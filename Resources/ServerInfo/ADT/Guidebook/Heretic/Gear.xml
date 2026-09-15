@@ -28,7 +28,7 @@
 
   [color=#b48ead][bold]Жуткая фляжка[/bold][/color] работает как криостазисная мензурка и содержит в себе 100 единиц жуткой эссенции, которая лечит еретиков и миньонов.
 
-  [color=#d08770][bold]Маска Безумия[/bold][/color] мне лень писать, она бесполезная.
+  [color=#d08770][bold]Маска Безумия[/bold][/color] нагоняет страх на неверных рядом: выматывает их и заставляет дрожать. Снять её нельзя, поэтому маску можно силой надеть на жертву.
 
   [color=#a3be8c][bold]Нож для резьбы[/bold][/color] позволяет создавать на полу ловушки.
 
@@ -48,5 +48,6 @@
     <GuideEntityEmbed Entity="ADTClothingOuterArmorHereticVoid" Caption=""/>
     <GuideEntityEmbed Entity="ADTClothingOuterArmorHereticRust" Caption=""/>
     <GuideEntityEmbed Entity="ADTClothingOuterArmorHereticCosmos" Caption=""/>
+    <GuideEntityEmbed Entity="ADTClothingOuterArmorHereticLock" Caption=""/>
   </Box>
 </Document>

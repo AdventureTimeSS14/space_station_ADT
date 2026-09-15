@@ -11,3 +11,7 @@ reagent-comp-condition-heretic-or-ghoul = heretic or ghoul
 reagent-physical-desc-eldritch = eldritch
 
 flavor-complex-eldritch = Ag'hsj'saje'sh
+
+reagent-name-ether = newborn ether
+reagent-desc-ether = Foul ichor that knits the drinker whole, then drags them into eldritch slumber.
+reagent-physical-desc-ether = swirling green ichor

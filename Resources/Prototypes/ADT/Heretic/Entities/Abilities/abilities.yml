@@ -59,6 +59,25 @@
       - HideContextMenu
 
 - type: entity
+  parent: BaseBullet
+  id: TentacleProjectile
+  name: tentacle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Effects/effects.rsi
+    layers:
+    - state: tentacle_end
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Blunt: 20
+        Slash: 10
+  - type: TimedDespawn
+    lifetime: 3.0
+
+- type: entity
   id: EffectCleave
   categories: [ HideSpawnMenu ]
   components:

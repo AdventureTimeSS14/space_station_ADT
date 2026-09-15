@@ -12,3 +12,6 @@ ent-ClothingHeadHatHoodHereticCosmos = { ent-ClothingHeadHatHoodHeretic }
     .desc = { ent-ClothingHeadHatHoodHeretic.desc }
 ent-ClothingHeadHatHoodVoidCloakHeretic = пустой капюшон
     .desc = Черные, как смола, они не отражают свет. Снаружи они покрыты руническими символами. С каждой вспышкой вы перестаете понимать, что видите.
+
+ent-ADTClothingHeadHatHoodHereticLock = меняющийся капюшон
+    .desc = Надвинутый капюшон, скрывающий от камер и далёких глаз.

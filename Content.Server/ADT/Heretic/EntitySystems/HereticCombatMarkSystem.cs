@@ -18,6 +18,7 @@ using Content.Server.Medical;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Damage;
+using Content.Shared.Heretic.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Stunnable;
@@ -43,6 +44,7 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
     [Dependency] private readonly StarMarkSystem _starMark = default!;
     [Dependency] private readonly HereticAbilitySystem _ability = default!;
     [Dependency] private readonly HereticSystem _heretic = default!;
+    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _statusNew = default!;
 
     public override void Initialize()
     {
@@ -90,7 +92,7 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
                 break;
 
             case "Lock":
-                // bolts nearby doors
+                // bolts nearby doors + denies access
                 var lookup = _lookup.GetEntitiesInRange(target, 5f);
                 foreach (var door in lookup)
                 {
@@ -98,7 +100,8 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
                         continue;
                     _door.SetBoltsDown((door, doorComp), true);
                 }
-                _audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/knock.ogg"), target);
+                _statusNew.TryAddStatusEffectDuration(target, "LockMarkedStatusEffect", TimeSpan.FromSeconds(20));
+                _audio.PlayPvs(new SoundPathSpecifier("/Audio/ADT/Heretic/hereticknock.ogg"), target);
                 break;
 
             case "Rust":
