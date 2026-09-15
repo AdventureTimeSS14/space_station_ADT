@@ -4,6 +4,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
@@ -14,6 +15,7 @@ public abstract partial class SharedADTMedbeamSystem : EntitySystem
 {
     [Dependency] protected readonly SharedContainerSystem Containers = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected readonly MobStateSystem MobState = default!;
 
     public const string BeamId = "medbeam";
 
@@ -53,6 +55,9 @@ public abstract partial class SharedADTMedbeamSystem : EntitySystem
     protected virtual bool IsValidTarget(EntityUid target)
     {
         if (!HasComp<MobStateComponent>(target))
+            return false;
+
+        if (MobState.IsDead(target))
             return false;
 
         if (!TryComp<DamageableComponent>(target, out var damageable))

@@ -86,6 +86,12 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
             return;
         }
 
+        if (_mobState.IsDead(target.Value))
+        {
+            DetachBeam(ent);
+            return;
+        }
+
         if (GetHolder(ent) is not { } holder)
         {
             DetachBeam(ent);
