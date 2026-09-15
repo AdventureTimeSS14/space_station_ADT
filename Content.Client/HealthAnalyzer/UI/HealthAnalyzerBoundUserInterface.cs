@@ -1,4 +1,4 @@
-﻿using Content.Shared.MedicalScanner;
+using Content.Shared.MedicalScanner;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
@@ -19,8 +19,7 @@ namespace Content.Client.HealthAnalyzer.UI
             base.Open();
 
             _window = this.CreateWindow<HealthAnalyzerWindow>();
-
-            _window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
+            //_window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName; #ADT-Tweak - Deprecated
         }
 
         protected override void ReceiveMessage(BoundUserInterfaceMessage message)
