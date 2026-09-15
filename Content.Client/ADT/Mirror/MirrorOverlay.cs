@@ -20,10 +20,13 @@ public sealed partial class MirrorOverlay : Overlay
 
     [Dependency] private IEntityManager _entityManager = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
-    [Dependency] private IEyeManager _eyeMan = default!;
     private SpriteSystem _sprite = default!;
     private TransformSystem _transform = default!;
     private ContainerSystem _container = default!;
+
+    private ShaderInstance _stencilMaskShader;
+    private ShaderInstance _stencilClearShader;
+    private ShaderInstance _stencilEqualDrawShader;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceEntities;
 
@@ -31,6 +34,9 @@ public sealed partial class MirrorOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
 
+        _stencilMaskShader = _prototypeManager.Index(StencilMaskShader).Instance();
+        _stencilClearShader = _prototypeManager.Index(StencilClearShader).Instance();
+        _stencilEqualDrawShader = _prototypeManager.Index(StencilEqualDrawShader).Instance();
         ZIndex = (int)DrawDepth.BelowMobs;
     }
 
@@ -70,7 +76,7 @@ public sealed partial class MirrorOverlay : Overlay
         var worldHandle = args.WorldHandle;
 
         worldHandle.SetTransform(Matrix3x2.Identity);
-        worldHandle.UseShader(_prototypeManager.Index(StencilClearShader).Instance());
+        worldHandle.UseShader(_stencilClearShader);
         worldHandle.DrawRect(worldAabb, Color.White);
 
         // Сама отрисовка начинается тут
@@ -81,17 +87,17 @@ public sealed partial class MirrorOverlay : Overlay
             if (transform.MapID != mapId)
                 continue;
 
-            worldHandle.UseShader(_prototypeManager.Index(StencilMaskShader).Instance());
+            worldHandle.UseShader(_stencilMaskShader);
 
             _sprite.RenderSprite((uid, sprite), worldHandle, eye.Rotation, _transform.GetWorldRotation(transform),
                 _transform.GetWorldPosition(transform));
 
-            worldHandle.UseShader(_prototypeManager.Index(StencilEqualDrawShader).Instance());
+            worldHandle.UseShader(_stencilEqualDrawShader);
             RenderEntities(worldAabb, eye, worldHandle, mapId,
                 (mirror, _sprite.GetSpriteWorldPosition((uid, sprite, transform)),
                     _transform.GetWorldRotation(transform) + sprite.Rotation));
 
-            worldHandle.UseShader(_prototypeManager.Index(StencilClearShader).Instance());
+            worldHandle.UseShader(_stencilClearShader);
             worldHandle.SetTransform(Matrix3x2.Identity);
             worldHandle.DrawRect(worldAabb, Color.White);
         }
@@ -176,7 +182,7 @@ public sealed partial class MirrorOverlay : Overlay
             foreach (var (layer, visible) in hiddenStencilLayers)
                 layer.Visible = visible;
 
-            worldHandle.UseShader(_prototypeManager.Index(StencilEqualDrawShader).Instance());
+            worldHandle.UseShader(_stencilEqualDrawShader);
             _sprite.SetColor(uid, color);
         }
     }
