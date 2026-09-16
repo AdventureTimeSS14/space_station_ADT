@@ -227,6 +227,15 @@
     sets:
     - groups: TraitorObjectiveGroups
     maxDifficulty: 8 #ADT-tweak
+  # ADT-Tweak start
+  - type: AntagDelayedObjectives
+    sets:
+    - groups: DelayedTraitorObjectiveGroups
+      maxPicks: 1
+    maxDifficulty: 3
+    delay: 1800
+    maxDelay: 2100
+  # ADT-Tweak end
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
   - type: DynamicRuleCost
@@ -265,6 +274,11 @@
   - type: AntagRandomObjectives
     sets: []
     maxDifficulty: 0
+  # ADT-Tweak start
+  - type: AntagDelayedObjectives
+    sets: []
+    maxDifficulty: 0
+  # ADT-Tweak end
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
