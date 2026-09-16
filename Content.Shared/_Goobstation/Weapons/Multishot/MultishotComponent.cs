@@ -18,10 +18,8 @@ public sealed partial class MultishotComponent : Component
     public bool MultishotAffected;
 
     /// <summary>
-    /// The chance of bullet fired of the gun while dual-wielding getting its BulletImpassable fixture layer removed.
-    /// This effectively means that the bullet won't collide with people, but has no effect on hitscans (like lasers).
+    /// Spread multiplier of the gun while dual-wielding.
     /// </summary>
-
     [DataField]
     public float SpreadMultiplier = 1.5f;
 
@@ -30,19 +28,6 @@ public sealed partial class MultishotComponent : Component
     /// </summary>
     [DataField]
     public float SpreadAddition = 5f;
-
-    /// <summary>
-    /// This is Common, and we can't import DamageSpecifier here, so we shitcode it instead.
-    /// Amount of damage applied to hands when firing this gun with another one. Doesn't damage the shooter itself.
-    /// </summary>
-    [DataField]
-    public float HandDamageAmount;
-
-    /// <summary>
-    /// <see cref="HandDamageAmount"/> Type of the said damage.
-    /// </summary>
-    [DataField]
-    public string HandDamageType = "Blunt";
 
     /// <summary>
     ///  Stamina damage applied to the entity when firing this gun with another one.
