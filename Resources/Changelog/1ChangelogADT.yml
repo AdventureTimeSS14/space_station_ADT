@@ -15305,3 +15305,9 @@ Entries:
     id: 1923
     pr_number: 3159
     time: '2026-09-15T07:57:09Z'
+  - author: NSFW
+    changes:
+      - {message: Добавлена дополнительная одежда офицеру специальных операций, type: Add}
+    id: 1924
+    pr_number: 3377
+    time: '2026-09-16T18:16:18Z'
