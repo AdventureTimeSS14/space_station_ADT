@@ -127,7 +127,7 @@ public sealed class SharedMultishotSystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
-        args.PushMarkup(Loc.GetString("[color=#E0C068]Из этого оружия можно стрелять из двух рук.[/color]")); // ADT-Goobstation - Multishot - Russian examined text
+        args.PushMarkup(Loc.GetString(comp.ExamineMessage));
     }
 
     /// <summary>

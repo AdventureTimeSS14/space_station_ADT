@@ -171,12 +171,12 @@
   - type: Gun
     fireRate: 4
   #ADT-Tweak-End
-  # Goobstation Tweak Start
+  # ADT-Tweak-Start: Goobstation Tweak Start
   - type: Multishot # Goobstation V
     spreadMultiplier: 2
     spreadAddition: 20
     staminaDamage: 2.5
-  # Goobstation Tweak End
+  # ADT-Tweak-End: Goobstation Tweak End
 
 - type: entity
   name: retro laser blaster
@@ -221,12 +221,12 @@
     tags:
     - Sidearm
     - LaserWeapon
-  # Goobstation Tweak Start
+  # ADT-Tweak-Start: Goobstation Tweak Start
   - type: Multishot # Goobstation V
     spreadMultiplier: 2
     spreadAddition: 25
     staminaDamage: 2
-  # Goobstation Tweak End
+  # ADT-Tweak-End: Goobstation Tweak End
 
 - type: entity
   name: makeshift laser pistol
@@ -284,12 +284,12 @@
     tags:
     - Sidearm
     - LaserWeapon
-  # Goobstation Tweak Start
+  # ADT-Tweak-Start: Goobstation Tweak Start
   - type: Multishot # Goobstation V
     spreadMultiplier: 2
     spreadAddition: 20
     staminaDamage: 1.5
-  # Goobstation Tweak End
+  # ADT-Tweak-End: Goobstation Tweak End
 
 - type: entity
   name: tesla gun

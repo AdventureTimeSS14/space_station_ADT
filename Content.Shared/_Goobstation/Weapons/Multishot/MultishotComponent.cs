@@ -7,8 +7,10 @@ namespace Content.Goobstation.Common.Weapons.Multishot;
 /// <summary>
 /// This component allows guns to be shot with another such gun at the same time by holding them in both hands.
 /// </summary>
+// ADT-Tweak-Start
 [RegisterComponent]
 [NetworkedComponent, AutoGenerateComponentState]
+// ADT-Tweak-End
 public sealed partial class MultishotComponent : Component
 {
     /// <summary>

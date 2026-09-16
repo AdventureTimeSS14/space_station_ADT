@@ -43,7 +43,7 @@ using Content.Shared.ADT.Weapons.Ranged.WearableGun;
 using Content.Shared.Electrocution;
 using Content.Shared.ADT.Crawling.Components;
 using Content.Shared.Inventory.VirtualItem;
-using Content.Goobstation.Common.Weapons.Multishot;
+using Content.Goobstation.Common.Weapons.Multishot; // ADT-Tweak: Goobstation - Multishot
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -161,12 +161,12 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     private void OnShootRequest(RequestShootEvent msg, EntitySessionEventArgs args)
     {
-        // Goobstation - Multishot - Ensures that guns shooting at same time.
+        // ADT-Tweak-Start: Goobstation - Multishot - Ensures that guns shooting at same time.
         var gunUid = GetEntity(msg.Gun);
 
         if (HasComp<MultishotComponent>(gunUid))
             return;
-        // Goobstation - End
+        // ADT-Tweak-End: Goobstation - Multishot - Ensures that guns shooting at same time.
         var user = args.SenderSession.AttachedEntity;
 
         if (user == null ||
@@ -505,7 +505,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (shooterEv.Push)
             CauseImpulse(fromCoordinates, toCoordinates.Value, (user, userPhysics));
         
-        UpdateAmmoCount(gun); // Goobstation tweak - Update ammo count after shooting to ensure the ammo count is correct after shooting.
+        UpdateAmmoCount(gun); // ADT-Tweak: Goobstation - Update ammo count after shooting to ensure the ammo count is correct after shooting.
         return true;
     }
 
