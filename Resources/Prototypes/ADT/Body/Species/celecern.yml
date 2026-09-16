@@ -106,22 +106,22 @@
         sizeMaps:
           32:
             sprite: ADT/Mobs/Species/Celecern/displacement.rsi
-            state: legs
+            state: jumpsuit
       outerClothing:
         sizeMaps:
           32:
             sprite: ADT/Mobs/Species/Celecern/displacement.rsi
-            state: legs
+            state: outerclothing
       shoes:
         sizeMaps:
           32:
             sprite: ADT/Mobs/Species/Celecern/displacement.rsi
-            state: legs
+            state: shoes
       socks:
         sizeMaps:
           32:
             sprite: ADT/Mobs/Species/Celecern/displacement.rsi
-            state: legs
+            state: socks
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
@@ -132,17 +132,17 @@
         sizeMaps:
           32:
             sprite: ADT/Mobs/Species/Celecern/displacement.rsi
-            state: jumpsuit-female
+            state: outerclothing
       shoes:
         sizeMaps:
           32:
             sprite: ADT/Mobs/Species/Celecern/displacement.rsi
-            state: legs
+            state: shoes
       socks:
         sizeMaps:
           32:
             sprite: ADT/Mobs/Species/Celecern/displacement.rsi
-            state: legs
+            state: socks
 
 - type: entity
   save: false

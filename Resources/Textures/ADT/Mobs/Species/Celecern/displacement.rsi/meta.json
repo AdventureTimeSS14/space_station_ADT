@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "jumpsuit-female made by TheShuEd, остальные карты собраны по силуэтам ног селецерна и человека",
+    "copyright": "todo",
     "size": {
         "x": 32,
         "y": 32
@@ -11,11 +11,23 @@
     },
     "states": [
         {
+            "name": "jumpsuit",
+            "directions": 4
+        },
+        {
             "name": "jumpsuit-female",
             "directions": 4
         },
         {
-            "name": "legs",
+            "name": "outerclothing",
+            "directions": 4
+        },
+        {
+            "name": "shoes",
+            "directions": 4
+        },
+        {
+            "name": "socks",
             "directions": 4
         }
     ]
