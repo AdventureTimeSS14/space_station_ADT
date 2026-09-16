@@ -72,6 +72,7 @@ public sealed class AntagDelayedObjectivesSystem : EntitySystem
     private void GiveObjectives(Entity<AntagDelayedObjectivesComponent> ent, EntityUid mindId, MindComponent mind)
     {
         var difficulty = 0f;
+        var added = false;
         foreach (var set in ent.Comp.Sets)
         {
             if (!_random.Prob(set.Prob))
@@ -84,13 +85,15 @@ public sealed class AntagDelayedObjectivesSystem : EntitySystem
                     continue;
 
                 _mind.AddObjective(mindId, mind, objective);
+                added = true;
                 var adding = Comp<ObjectiveComponent>(objective).Difficulty;
                 difficulty += adding;
                 Log.Debug($"Added delayed objective {ToPrettyString(objective):objective} to {ToPrettyString(mindId):mind} with {adding} difficulty");
             }
         }
 
-        NotifyObjectivesUpdated(mindId, ent.Comp.GreetSoundNotification);
+        if (added)
+            NotifyObjectivesUpdated(mindId, ent.Comp.GreetSoundNotification);
     }
 
     public void NotifyObjectivesUpdated(EntityUid mindId, SoundSpecifier? sound = null)
