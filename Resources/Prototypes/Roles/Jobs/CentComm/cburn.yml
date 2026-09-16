@@ -21,6 +21,11 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  # ADT-Tweak-Start
+  - !type:AddComponentSpecial
+    components:
+      - type: ADTTenCodeKnowledge
+  # ADT-Tweak-End
 
 - type: startingGear
   id: CBURNGear
@@ -29,7 +34,7 @@
     jumpsuit: ClothingUniformJumpsuitColorBrown
     back: ClothingBackpackDuffelCBURN
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesNightVisionAdvanced
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitCBURN
@@ -49,7 +54,7 @@
     # ADT Tweak (Add) start
     - WeaponShotgunEnforcer
     - Chainsaw
-    - MedkitCombatFilled
+    - ADTMedkitERTFilled
     - MagazineShotgunIncendiary
     - SpaceCash500
     # ADT Tweak (Add) end

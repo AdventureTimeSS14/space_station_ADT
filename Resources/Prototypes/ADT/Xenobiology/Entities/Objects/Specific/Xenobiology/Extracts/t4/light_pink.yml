@@ -60,6 +60,8 @@
         - Skeleton
         - GhostSpecies
         - IPC
+        - ADTShadowlingSpecies
+        - ADTLesserShadowlingSpecies
   - type: Tag
     tags:
     - XenobiologyLightPinkExtract

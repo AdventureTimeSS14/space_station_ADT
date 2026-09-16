@@ -30,3 +30,12 @@ trait-dysgraphia-desc = You have difficulty with writing.
 
 trait-clumsy-name = Clumsy
 trait-clumsy-desc = You are a bit accident-prone.
+
+trait-wanted-criminal-name = Wanted
+trait-wanted-criminal-description = Central Command has issued an arrest warrant for you over a corporate law violation. You were convicted last shift, but the arrest was not carried out before the shift ended.
+
+trait-debts-name = Loan Debts
+trait-debts-description = Your bank account starts the round with zero credits. Your salary comes in as usual.
+
+trait-on-edge-of-bankruptcy-name = On the Edge of Bankruptcy
+trait-on-edge-of-bankruptcy-description = Your bank account starts the round. Your salary comes in as usual and gradually covers the debt.

@@ -2,87 +2,65 @@
 
 # Машинные части
 
-Перед вами - официальное руководство NanoTrasen по модульным компонентам станционного оборудования. Каждая машина на борту собрана из универсальных деталей пяти основных типов, и каждая деталь имеет [bold]пять уровней качества[/bold]. Базовые детали первого уровня работают как есть, без излишеств - но инженер, достойный своей зарплаты, всегда хочет большего. И здесь начинается самое интересное.
-
-[bold]В станционном машиностроении нет бесплатных обедов.[/bold] Каждая деталь уровня выше первого не просто усиливает машину - она заставляет вас чем-то жертвовать. Быстрее? Дороже в обслуживании. Дешевле? Медленнее. Это руководство расскажет, что ставят, куда ставят и - главное - чем за это придётся расплачиваться.
+Официальное руководство NanoTrasen по модульным компонентам станционного оборудования. Каждая машина собрана из универсальных деталей шести типов, у каждой детали - пять уровней качества. Тир 1 работает без эффектов, каждый тир выше даёт бонус... и требует плату.
 
 О том, какая деталь подходит какой машине, рассказывает отдельное руководство: [textlink="Куда ставить детали" link="MachinePartsInstall"].
 
+## Сборка машины
+
+1. Постройте каркас - пять листов стали.
+2. Протяните провода.
+3. Вставьте плату - она задаёт гнёзда деталей. Осмотрите каркас, чтобы узнать, что нужно.
+4. Вставьте детали - рукой или RPED.
+5. Закрутите всё отвёрткой.
+
+<Box>
+<GuideEntityEmbed Entity="SheetSteel1"/>
+<GuideEntityEmbed Entity="CableApcStack1"/>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+<GuideEntityEmbed Entity="Screwdriver"/>
+</Box>
+
 ## Как это работает
 
-- Машина собирается из каркаса и платы, а плата задаёт, сколько гнёзд каких типов деталей внутри.
-- [bold]Тир 1[/bold] - базовая деталь, без эффектов. Каждый тир выше даёт прибавку к одной характеристике - и одновременно ухудшает другую. Средний тир всех деталей одного типа в машине определяет итоговый эффект.
-- Заменить деталь можно устройством быстрой замены - [bold]RPED[/bold] (см. ниже).
-- Наведите курсор на машину и используйте глагол [bold]«Улучшения»[/bold] при осмотре - машина честно покажет все бонусы (зелёным) и штрафы (красным) в процентах.
+- Средний тир всех деталей одного типа в машине определяет итоговый эффект.
+- Каждый тир выше первого даёт прибавку к одной характеристике и ухудшает другую.
+- Детали меняются устройством [bold]RPED[/bold] - только на более высокий тир.
+- Глагол [bold]«Улучшения»[/bold] при осмотре машины показывает бонусы (зелёным) и штрафы (красным).
 
 ### Сводная таблица эффектов
 
-Эффекты указаны за каждый тир выше первого (тир 2 = 1 шаг, тир 4 = 3 шага). [bold]Тир 5[/bold] - особый случай: он даёт не очередной шаг, а удвоенный бонус относительно тира 4.
+Эффекты указаны за каждый тир выше первого (тир 2 = 1 шаг, тир 4 = 3 шага). [bold]Тир 5[/bold] даёт удвоенный бонус относительно тира 4.
 
 <Table Columns="3">
-<ColorBox>
-<Box>[bold]Деталь[/bold]</Box>
-</ColorBox>
-<ColorBox>
-<Box>[bold]Бонус за тир[/bold]</Box>
-</ColorBox>
-<ColorBox>
-<Box>[bold]Цена за тир[/bold]</Box>
-</ColorBox>
-<ColorBox>
-<Box>Сервопривод</Box>
-</ColorBox>
-<ColorBox>
-<Box>+20% скорость работы</Box>
-</ColorBox>
-<ColorBox>
-<Box>+10% расход ресурсов</Box>
-</ColorBox>
-<ColorBox>
-<Box>Ёмкость материи</Box>
-</ColorBox>
-<ColorBox>
-<Box>-12% расход ресурсов, +25% вместимость, -10% энергозатраты</Box>
-</ColorBox>
-<ColorBox>
-<Box>-10% скорость работы</Box>
-</ColorBox>
-<ColorBox>
-<Box>Конденсатор</Box>
-</ColorBox>
-<ColorBox>
-<Box>+25% скорость зарядки, -15% энергопотребление</Box>
-</ColorBox>
-<ColorBox>
-<Box>+10% энергозатраты на операции</Box>
-</ColorBox>
-<ColorBox>
-<Box>Микро-лазер</Box>
-</ColorBox>
-<ColorBox>
-<Box>+25% скорость, +20% качество и выход</Box>
-</ColorBox>
-<ColorBox>
-<Box>+10% энергозатраты</Box>
-</ColorBox>
-<ColorBox>
-<Box>Сканирующий модуль</Box>
-</ColorBox>
-<ColorBox>
-<Box>+15% качество и безопасность</Box>
-</ColorBox>
-<ColorBox>
-<Box>-10% скорость работы</Box>
-</ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Бонус за тир[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Цена за тир[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сервопривод</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+20% скорость работы[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#ff7a7a]+10% расход ресурсов[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Ёмкость материи</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]-12% расход ресурсов, +25% вместимость, -10% энергозатраты[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#ff7a7a]-10% скорость работы[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Конденсатор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+25% скорость зарядки, -15% энергопотребление[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#ff7a7a]+10% энергозатраты на операции[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Микро-лазер</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+25% скорость, +20% качество и выход[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#ff7a7a]+10% энергозатраты[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сканирующий модуль</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+15% качество и безопасность[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#ff7a7a]-10% скорость работы[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Батарейка</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]вместимость ×1.5 / ×2 / ×3 на тирах 2-4[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]нет штрафов[/color]</Box></ColorBox>
 </Table>
-
-Обратите внимание, как связаны сервопривод и ёмкость материи: один делает машину быстрой, но прожорливой, вторая - экономной, но неторопливой. Поставите только серво - получите быструю, но дорогую машину. Добавите ёмкость - компенсируете расход, но потеряете часть скорости. [bold]Компромисс - это всегда ваш выбор, а не стечение обстоятельств.[/bold]
 
 ## Типы деталей
 
 ### Сервопривод
 
-Движущая сила любой машины. Чем выше тир, тем быстрее крутятся шестерни... и тем больше материалов уходит в трубу.
+Движущая сила машины: быстрее работа - дороже материалы.
 
 <Box>
 <GuideEntityEmbed Entity="MicroServoStockPart"/>
@@ -93,11 +71,9 @@
 <GuideEntityEmbed Entity="FemtoServoStockPart"/>
 </Box>
 
-[bold]На что смотреть:[/bold] если машина жрёт ресурсы - это, скорее всего, переусиленное серво. Умерьте пыл или добавьте ёмкость материи.
-
 ### Ёмкость материи
 
-Складская душа машины. Сжимает материю так, что на один и тот же продукт уходит меньше сырья, а в отсеки влезает больше. Расплата - медлительность.
+Экономит материалы, расширяет вместимость - машина медлительнее.
 
 <Box>
 <GuideEntityEmbed Entity="MatterBinStockPart"/>
@@ -108,11 +84,9 @@
 <GuideEntityEmbed Entity="BluespaceMatterBinStockPart"/>
 </Box>
 
-[bold]На что смотреть:[/bold] машина медленно думает - проверьте, не перестарались ли вы с ёмкостью.
-
 ### Конденсатор
 
-Хранитель энергии. Ускоряет зарядку и снижает потребление - но синтез и операции обходятся дороже.
+Ускоряет зарядку и снижает потребление - операции дорожают.
 
 <Box>
 <GuideEntityEmbed Entity="CapacitorStockPart"/>
@@ -123,11 +97,9 @@
 <GuideEntityEmbed Entity="BluespaceCapacitorStockPart"/>
 </Box>
 
-[bold]На что смотреть:[/bold] энерго-химка с конденсатором заряжается быстро, но синтез реагентов дорожает - скидку на него даёт ёмкость материи.
-
 ### Микро-лазер
 
-Точность и фокус. Ускоряет работу и повышает качество продукта. Платит за это энергией.
+Точность и фокус: быстрее и качественнее - платит энергией.
 
 <Box>
 <GuideEntityEmbed Entity="MicroLaserStockPart"/>
@@ -138,11 +110,9 @@
 <GuideEntityEmbed Entity="QuadUltraMicroLaserStockPart"/>
 </Box>
 
-[bold]На что смотреть:[/bold] лазер дружит с ёмкостью материи - вместе они закрывают энергозатраты друг друга... ценой скорости.
-
 ### Сканирующий модуль
 
-Совесть машины. Делает работу аккуратнее и безопаснее - но на раздумья уходит время.
+Аккуратнее и безопаснее - на раздумья уходит время.
 
 <Box>
 <GuideEntityEmbed Entity="ScanningModuleStockPart"/>
@@ -153,13 +123,37 @@
 <GuideEntityEmbed Entity="TriphasicScanningModuleStockPart"/>
 </Box>
 
-[bold]На что смотреть:[/bold] на клонаппарате сканер отвечает за то, чтобы пациент вышел живым, а серво - за то, чтобы он вышел быстро. Идеальный баланс - ваша работа.
+### Батарейка
+
+Полноценная машинная часть: расширяет запас энергии машины без штрафов. Тиры 2-4 - ×1.5, ×2 и ×3 к вместимости, тир 5 - как тир 4. Меняется через RPED, как и остальные детали.
+
+<Box>
+<GuideEntityEmbed Entity="PowerCellSmall"/>
+<GuideEntityEmbed Entity="PowerCellMedium"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="PowerCellHigh"/>
+<GuideEntityEmbed Entity="PowerCellHyper"/>
+</Box>
 
 ## Квантовые детали (тир 5)
 
-Высшая ступень станционного машиностроения. Квантовые детали не купить в автомате и не найти в шахте - их печатает [bold]протолат[/bold] после исследования [bold]«Квантовые машинные части»[/bold] в РнД, и платить придётся дважды: материалами и реагентом.
+Высшая ступень машиностроения: печатаются на протолате после исследования [bold]«Квантовые машинные части»[/bold]. [bold]Правило тира 5: бонус удваивается[/bold] относительно тира 4.
 
-[bold]Правило тира 5: бонус удваивается.[/bold] Тиры 2-4 добавляют фиксированный процент за шаг, а квантовый тир даёт сразу столько же, сколько все предыдущие вместе. Сосуд аномалий на тире 4 даёт +30% очков исследований - на тире 5 уже +60%. Криопод ускоряет усвоение химии с ×1.4 (тир 4) до ×1.8 (тир 5). То же касается переработчика руды, анализатора артефактов и остальных машин, усиливаемых деталями.
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Машина[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Тир 4 → Тир 5[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сосуд аномалий</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+30% → +60% очков[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Анализатор артефактов</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+30% → +60% очков[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Криопод</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]×1.4 → ×1.8 метаболизм[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Портативный генератор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+50% → +100% выработки[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Продвинутая медкровать</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+30% → +60% метаболизм[/color]</Box></ColorBox>
+</Table>
 
 <Box>
 <GuideEntityEmbed Entity="QuantumCapacitorStockPart"/>
@@ -173,54 +167,41 @@
 <GuideEntityEmbed Entity="QuantumMatterBinStockPart"/>
 </Box>
 
-[bold]На что смотреть:[/bold] квантовая деталь оправдана только в машине, которая работает постоянно. Переплачивать за тир 5 ради разового использования смысла нет.
-
 ## Квантовый катализатор
 
-Реагент, без которого протолат не напечатает ни одну квантовую деталь. Одна деталь стоит [bold]50 единиц[/bold] катализатора. Жидкость не хранится в протолате: её заливают в мензурку и вставляют в слот станка - статус мензурки виден прямо в интерфейсе протолата. Мензурка на 250 единиц - это пять деталей.
+Реагент для печати квантовых деталей - [bold]50 единиц на деталь[/bold]. Синтез - шестиэтапная цепочка: каждый этап требует нагрева смеси до своей температуры на [bold]хим-плитке[/bold] (чем дальше этап, тем горячее) и дополнительных ингредиентов, включая реагенты из тиров энерго-химраздатчика. Улучшенная плитка (микро-лазер) греет быстрее. Нагрев зависит от объёма раствора: чем меньше мензурка, тем быстрее. Готовый катализатор заливается в мензурку и вставляется в слот протолата.
 
-[bold]Синтез катализатора - шесть этапов.[/bold] Все ингредиенты получаются в обычной химии:
+[head=2]Этапы синтеза[/head]
 
-[head=2]Этап 1: горючий прекурсор[/head]
-Сварите сварочное топливо с серой:
-<GuideReagentEmbed Reagent="WeldingFuel"/>
-<GuideReagentEmbed Reagent="Sulfur"/>
-<GuideReagentEmbed Reagent="ADTCatalystPrecursor1"/>
+<Table Columns="3">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Этап[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Реагент[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Температура[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">1. Горючий прекурсор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor1"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">400 К</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">2. Электролитный прекурсор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor2"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">450 К</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">3. Эфирный прекурсор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor3"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">500 К</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">4. Сульфаминовый прекурсор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor4"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">600 К</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">5. Радиоактивный прекурсор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor5"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">750 К</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">6. Квантовый катализатор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTQuantumCatalyst"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">900 К</Box></ColorBox>
+</Table>
 
-[head=2]Этап 2: электролитный прекурсор[/head]
-Электролит из первого прекурсора, натрия и хлора:
-<GuideReagentEmbed Reagent="Sodium"/>
-<GuideReagentEmbed Reagent="Chlorine"/>
-<GuideReagentEmbed Reagent="ADTCatalystPrecursor2"/>
-
-[head=2]Этап 3: эфирный прекурсор[/head]
-Смешайте электролит с этанолом:
-<GuideReagentEmbed Reagent="Ethanol"/>
-<GuideReagentEmbed Reagent="ADTCatalystPrecursor3"/>
-
-[head=2]Этап 4: сульфаминовый прекурсор[/head]
-Обработайте аммиаком и серной кислотой:
-<GuideReagentEmbed Reagent="Ammonia"/>
-<GuideReagentEmbed Reagent="SulfuricAcid"/>
-<GuideReagentEmbed Reagent="ADTCatalystPrecursor4"/>
-
-[head=2]Этап 5: радиоактивный прекурсор[/head]
-Активируйте плазмой и радием:
-<GuideReagentEmbed Reagent="Plasma"/>
-<GuideReagentEmbed Reagent="Radium"/>
-<GuideReagentEmbed Reagent="ADTCatalystPrecursor5"/>
-
-[head=2]Финал: квантовый катализатор[/head]
-Стабилизируйте смазкой и золотом:
-<GuideReagentEmbed Reagent="SpaceLube"/>
-<GuideReagentEmbed Reagent="Gold"/>
-<GuideReagentEmbed Reagent="ADTQuantumCatalyst"/>
-
-Готовый катализатор заливается в мензурку и вставляется в слот протолата. [bold]Улучшенный протолат расходует меньше[/bold] - и материалов, и катализатора: скидка растёт вместе с тиром установленных деталей.
+Рецепт каждого этапа виден в описании реагента. Улучшенный протолат расходует меньше материалов и катализатора - скидка растёт с тиром установленных деталей.
 
 ## Устройство быстрой замены (RPED)
 
-Менять детали вручную - прошлый век. RPED хранит детали внутри и сам заменяет их: открутите техпанель, ткните машину устройством и подождите пару секунд. Старые детали отправляются в хранилище устройства, даунгрейд невозможен - только на более высокий тир.
+Хранит детали внутри и заменяет их за пару секунд: открутите техпанель, ткните машину, заберите старые детали. Даунгрейд невозможен.
 
 <Box>
 <GuideEntityEmbed Entity="RapidPartExchanger"/>
@@ -230,27 +211,17 @@
 <GuideEntityEmbed Entity="RapidPartExchangerBorg"/>
 </Box>
 
-- [bold]RPED[/bold] - классика жанра: требует открытой техпанели и нахождения рядом.
-- [bold]Блюспейс RPED[/bold] - работает на расстоянии и сквозь закрытые панели. Дорого, но оно того стоит.
-- [bold]Борг-модуль[/bold] - инженерный модуль киборга, содержит RPED.
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Устройство[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Особенности[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">RPED</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Требует открытой техпанели и нахождения рядом</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Блюспейс RPED</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Работает на расстоянии и сквозь закрытые панели</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Борг-модуль</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Инженерный модуль киборга со встроенным RPED</Box></ColorBox>
+</Table>
 
-### Фильтр замены
-
-Держите РПЕД в руках и нажмите действие [bold]"Настройка замены"[/bold] - откроется колесо с типами деталей, которые лежат в устройстве. Выберите нужные, и РПЕД будет заменять [bold]только их[/bold]: поставили фильтр на конденсаторы - серво и ёмкости материи останутся нетронутыми.
-
-Крестик в центре колеса сбрасывает фильтр - РПЕД снова заменяет все типы деталей. Выбранные типы подсвечиваются зелёным.
-
-RPED умеет и достраивать машины: соберите каркас, вставьте плату и детали прямо из устройства. Печатаются детали на латах, исследования частей и RPED - в РнД (научная и инженерная ветки).
-
-## Советы от старших инженеров
-
-- [bold]Тир 1 - это не плохо.[/bold] Базовые детали не дают эффектов вовсе. Не тратьте дорогие детали на машину, которой это не нужно.
-- [bold]Один RPED - один тир.[/bold] Даунгрейд невозможен: поставили фемто-серво - оно останется, пока машину не разберут.
-- [bold]Усиливайте осознанно.[/bold] Прежде чем вставить деталь высокого тира, посмотрите на машину через «Улучшения»: зелёные строки - бонусы, красные - штрафы.
-- [bold]Пара «серво + ёмкость материи» - классика.[/bold] Быстро и недорого одновременно не бывает: каждый модуль оставляет свой след в компромиссе.
-- [bold]Переработчик руды - машина выбора.[/bold] Хотите ресурсы - лазер. Хотите очки шахтёров - ёмкость. Оба по максимуму - это уже алчность, и алчность тут наказывается.
-- [bold]Энерго-химке нужна вся троица.[/bold] Конденсатор заряжает, ёмкость материи удешевляет синтез, сканирующий модуль открывает реагенты. Считайте, какая комбинация дешевле под ваши задачи.
-- [bold]Детали Т4 - ресурс дорогой.[/bold] Печатать фемто-серво на латах можно, но дешевле может оказаться рациональное распределение Т2 и Т3.
-- [bold]Тир 5 - роскошь.[/bold] Квантовая деталь даёт удвоенный бонус относительно тира 4, но требует дорогой катализатор. Ставьте её только в ключевые машины: протолат, энерго-химку, переработчик руды.
+[bold]Фильтр замены:[/bold] действие в руке открывает колесо с типами деталей - выберите, что заменять. Крестик сбрасывает фильтр. RPED также достраивает машины: вставьте плату и детали прямо из устройства.
 
 </Document>

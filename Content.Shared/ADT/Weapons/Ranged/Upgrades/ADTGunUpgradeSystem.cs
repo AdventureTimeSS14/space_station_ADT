@@ -35,6 +35,7 @@ public sealed class ADTGunUpgradeSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<ADTUpgradeableGunComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<ADTUpgradeableGunComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ADTUpgradeableGunComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<ADTUpgradeableGunComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<ADTUpgradeableGunComponent, ADTGunUpgradeRemoveDoAfterEvent>(OnRemoveDoAfter);
@@ -56,6 +57,11 @@ public sealed class ADTGunUpgradeSystem : EntitySystem
     private void OnInit(Entity<ADTUpgradeableGunComponent> ent, ref ComponentInit args)
     {
         _container.EnsureContainer<Container>(ent, ent.Comp.UpgradesContainerId);
+    }
+
+    private void OnMapInit(Entity<ADTUpgradeableGunComponent> ent, ref MapInitEvent args)
+    {
+        RefreshRecharge(ent);
     }
 
     private void OnAfterInteractUsing(Entity<ADTUpgradeableGunComponent> ent, ref AfterInteractUsingEvent args)

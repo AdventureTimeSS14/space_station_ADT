@@ -21,16 +21,16 @@
       required: true
       default: [ ArachnidCheliceraeDownwards ]
     enum.HumanoidVisualLayers.LArm:
-      limit: 1
+      limit: 2 #ADT-tweak 1>2
       required: false
     enum.HumanoidVisualLayers.RArm:
-      limit: 1
+      limit: 2 #ADT-tweak 1>2
       required: false
     enum.HumanoidVisualLayers.LLeg:
-      limit: 1
+      limit: 2 #ADT-tweak 1>2
       required: false
     enum.HumanoidVisualLayers.RLeg:
-      limit: 1
+      limit: 2 #ADT-tweak 1>2
       required: false
 
 - type: entity
@@ -97,6 +97,10 @@
     - id: FoodMeatSpider
       amount: 5
   - type: Reactive
+  # ADT-Tweak start
+    groups:
+      Acidic: [ Touch, Ingestion ]
+  # ADT-Tweak end
     reactions:
     - reagents: [Water]
       methods: [Touch]
@@ -120,6 +124,8 @@
     damage:
       types:
         Piercing: 5
+  - type: Damageable
+    damageModifierSet: ADTArachnid # ADT-Tweak
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

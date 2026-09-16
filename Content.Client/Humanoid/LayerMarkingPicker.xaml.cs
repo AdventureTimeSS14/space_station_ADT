@@ -22,9 +22,15 @@ public sealed partial class LayerMarkingPicker : BoxContainer
     private List<ISearchableControl> _searchable = new();
     private const int _columnWidth = 500;
 
+    // ADT-Tweak-Start
+    [Dependency] private readonly Content.Client.ADT.Sponsors.SponsorManager _adtSponsors = default!;
+    [Dependency] private readonly Robust.Client.Player.IPlayerManager _players = default!;
+    // ADT-Tweak-End
+
     public LayerMarkingPicker(MarkingsViewModel markingsModel, ProtoId<OrganCategoryPrototype> organ, HumanoidVisualLayers layer, IReadOnlyDictionary<string, MarkingPrototype> allMarkings)
     {
         RobustXamlLoader.Load(this);
+        IoCManager.InjectDependencies(this); // ADT-Tweak
 
         _markingsModel = markingsModel;
         _allMarkings = allMarkings;
@@ -54,6 +60,7 @@ public sealed partial class LayerMarkingPicker : BoxContainer
 
         _markingsModel.MarkingsReset += UpdateCount;
         _markingsModel.MarkingsChanged += MarkingsChanged;
+        _adtSponsors.Updated += UpdateMarkings; // ADT-Tweak
     }
 
     protected override void ExitedTree()
@@ -62,6 +69,7 @@ public sealed partial class LayerMarkingPicker : BoxContainer
 
         _markingsModel.MarkingsReset -= UpdateCount;
         _markingsModel.MarkingsChanged -= MarkingsChanged;
+        _adtSponsors.Updated -= UpdateMarkings; // ADT-Tweak
     }
 
     private void MarkingsChanged(ProtoId<OrganCategoryPrototype> organ, HumanoidVisualLayers layer)
@@ -74,12 +82,51 @@ public sealed partial class LayerMarkingPicker : BoxContainer
 
     private void UpdateMarkings()
     {
+        var localSession = _players.LocalSession; // ADT-Tweak
+
+        // ADT-Tweak-Start
+        SponsorItems.RemoveAllChildren();
+        Items.RemoveAllChildren();
+        // ADT-Tweak-End
+
         foreach (var marking in _allMarkings.Values.OrderBy(marking => Loc.GetString($"marking-{marking.ID}")))
         {
             var item = new LayerMarkingItem(_markingsModel, _organ, _layer, marking, true);
+
+            // ADT-Tweak-Start
+            if (marking.SponsorOnly)
+            {
+                if (!_adtSponsors.IsMarkingAllowed(localSession, marking.ID))
+                    continue;
+
+                SponsorItems.AddChild(item);
+                continue;
+            }
+            // ADT-Tweak-End
+
             Items.AddChild(item);
         }
-        _searchable = Items.GetSearchableControls();
+
+        // ADT-Tweak-Start
+        var hasSponsor = SponsorItems.ChildCount > 0;
+        SponsorHeader.Visible = hasSponsor;
+        SponsorItems.Visible = hasSponsor;
+        RegularHeader.Visible = hasSponsor;
+        // ADT-Tweak-End
+
+        _searchable = SponsorItems.GetSearchableControls();
+        _searchable.AddRange(Items.GetSearchableControls());
+
+        // ADT-Tweak-Start
+        var currentSearch = SearchBar.Text.Trim();
+        if (!string.IsNullOrEmpty(currentSearch))
+        {
+            foreach (var element in _searchable)
+            {
+                element.SetHiddenState(true, currentSearch);
+            }
+        }
+        // ADT-Tweak-End
     }
 
     private void UpdateCount()

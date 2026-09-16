@@ -18,6 +18,7 @@
     - ConstructionMaterial
     - NoPaint #ADT tweak
     - ADTGlassSheet #ADT tweak
+    - SheetGlass # ADT-Heretic: ритуал клинка Космоса
   - type: Material
   - type: Damageable
     damageModifierSet: Glass

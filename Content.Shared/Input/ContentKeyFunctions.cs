@@ -144,7 +144,8 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction MappingCancelEraseDecal = "MappingCancelEraseDecal";
         public static readonly BoundKeyFunction MappingOpenContextMenu = "MappingOpenContextMenu";
         public static readonly BoundKeyFunction PickupHumans = "PickupHumans"; // ADT-Tweak
-        public static readonly BoundKeyFunction ResistGrab = "ResistGrab"; // ADT-Tweak
+        public static readonly BoundKeyFunction Resist = "Resist"; // ADT-Tweak
+        public static readonly BoundKeyFunction DrawBackItem = "DrawBackItem"; // ADT-Tweak
         public static readonly BoundKeyFunction ADTDoorEmergencyAccess = "ADTDoorEmergencyAccess"; // ADT-Tweak
     }
 }

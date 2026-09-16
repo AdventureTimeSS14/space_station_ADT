@@ -1,0 +1,30 @@
+<Document>
+
+  <Box>
+    <GuideEntityEmbed Entity="ADTWorldAnvil" Caption=""/>
+  </Box>
+
+    # Ковка
+
+  1. Нажмите гибтонитом по Кузне. Число зарядов видно при осмотре.
+  2. Нажмите кристаллом магмита по разогретой Кузне.
+  3. Дождитесь конца ковки.
+  4. Заберите деталь, и нажмите на желаемый предмет который хотите улучшить.
+
+  Каждая ковка тратит один заряд. Когда заряды кончаются, Кузня остывает и гаснет.
+
+  ## Рецепты
+
+  <GuideWorldAnvilRecipeEmbed Input="ADTMagmite" Result="ADTMagmiteParts" Cost="1" Delay="7" Name="world-anvil-guide-recipe-forge" Note="world-anvil-guide-recipe-forge-note"/>
+
+  <GuideWorldAnvilRecipeEmbed Input="ADTMagmitePartsInert" Result="ADTMagmiteParts" Cost="0" Delay="3" Name="world-anvil-guide-recipe-reforge" Note="world-anvil-guide-recipe-reforge-note"/>
+
+  ## Детали
+
+  <Box>
+    <GuideEntityEmbed Entity="ADTMagmiteParts" Caption=""/>
+    <GuideEntityEmbed Entity="ADTMagmitePartsInert" Caption=""/>
+  </Box>
+
+  Раскалённые детали живут 50 секунд и остывают в инертную версию. Раскалёнными их надо успеть приложить к снаряжению (см. [textlink="Улучшения снаряжения" link="ADTWorldAnvilUpgrades"]), инертные только переплавляются обратно.
+</Document>

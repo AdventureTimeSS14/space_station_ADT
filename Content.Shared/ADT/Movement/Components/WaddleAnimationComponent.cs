@@ -27,7 +27,7 @@ public sealed class StoppedWaddlingEvent(NetEntity entity) : EntityEventArgs
 /// <summary>
 /// Defines something as having a waddle animation when it moves.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(raiseAfterAutoHandleState: true)]
 public sealed partial class WaddleAnimationComponent : Component
 {
     /// <summary>
@@ -70,6 +70,6 @@ public sealed partial class WaddleAnimationComponent : Component
     /// <summary>
     /// Stores if we're currently waddling so we can start/stop as appropriate and can tell other systems our state.
     /// </summary>
-    [AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public bool IsCurrentlyWaddling;
 }

@@ -62,3 +62,14 @@
     ADTSeniorResearcher: 450
     # Юридический
     Lawyer: 150
+    # ОБР
+    ERTLeader: 2500
+    ERTChaplain: 1500
+    ERTEngineer: 1500
+    ERTMedical: 1500
+    ERTJanitor: 1500
+    ERTSecurity: 2000
+    # РХБЗЗ
+    CBURN: 1500
+    # Эскадрон Смерти
+    DeathSquad: 3000

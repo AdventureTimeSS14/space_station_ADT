@@ -1,3 +1,4 @@
+using Content.Shared.ADT.BossMusic;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -75,6 +76,12 @@ public sealed partial class HierophantComponent : Component
 
     [DataField]
     public bool Enraged;
+
+    [DataField]
+    public ProtoId<ADTBossMusicPrototype>? CalmMusic = "ADTBossMusicHierophant";
+
+    [DataField]
+    public ProtoId<ADTBossMusicPrototype>? RageMusic = "ADTBossMusicHierophantEnraged";
 
     [DataField]
     public EntityUid? LastTarget;

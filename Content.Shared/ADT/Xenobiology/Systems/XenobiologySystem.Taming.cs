@@ -28,7 +28,5 @@ public partial class XenobiologySystem
         comp.Friendship = MathF.Max(comp.Friendship, comp.MinFriendshipToCommand);
 
         _popup.PopupEntity(Loc.GetString("slime-interaction-tame"), args.User, args.User);
-
-        Dirty(ent);
     }
 }

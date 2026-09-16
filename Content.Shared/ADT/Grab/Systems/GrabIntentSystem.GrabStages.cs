@@ -13,6 +13,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Standing;
+using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -222,17 +223,33 @@ public sealed partial class GrabIntentSystem
         if (!ignoreCombatMode && !_combatMode.IsInCombatMode(pullerUid))
             return false;
 
-        if (_timing.CurTime < grabIntentComp.NextStageChange)
+        if (_timing.CurTime < grabIntentComp.NextGrabTime)
             return true;
 
-        var stageTimeMultiplier = GetGrabStageTimeMultiplier(pullable.Owner, (int) grabIntentComp.GrabStage + 1);
-        grabIntentComp.NextStageChange = _timing.CurTime + grabIntentComp.StageChangeCooldown * stageTimeMultiplier;
-        Dirty(pullerUid, grabIntentComp);
+        if (_timing.CurTime < grabIntentComp.NextStageChange)
+            return true;
 
         var beforeEvent = new BeforeHarmfulActionEvent(pullerUid, HarmfulActionType.Grab);
         RaiseLocalEvent(pullable.Owner, beforeEvent);
         if (beforeEvent.Cancelled)
             return false;
+
+        grabIntentComp.NextGrabTime = _timing.CurTime + grabIntentComp.GrabCooldown;
+        Dirty(pullerUid, grabIntentComp);
+
+        if (TryComp<MeleeWeaponComponent>(pullerUid, out var meleeWeapon))
+        {
+            var nextAttack = _timing.CurTime + grabIntentComp.GrabCooldown;
+            if (nextAttack > meleeWeapon.NextAttack)
+            {
+                meleeWeapon.NextAttack = nextAttack;
+                Dirty(pullerUid, meleeWeapon);
+            }
+        }
+
+        var stageTimeMultiplier = GetGrabStageTimeMultiplier(pullable.Owner, (int) grabIntentComp.GrabStage + 1);
+        grabIntentComp.NextStageChange = _timing.CurTime + grabIntentComp.StageChangeCooldown * stageTimeMultiplier;
+        Dirty(pullerUid, grabIntentComp);
 
         if (grabIntentComp.GrabStage == GrabStage.Suffocate)
         {

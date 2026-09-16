@@ -5,8 +5,8 @@ using Content.Shared.ADT.CCVar;
 using Robust.Client.Audio;
 using Robust.Client.Player;
 using Robust.Client.State;
-using Robust.Shared;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
@@ -17,7 +17,6 @@ namespace Content.Client.ADT.BossMusic;
 public sealed class ADTBossMusicSystem : EntitySystem
 {
     [Dependency] private readonly ContentAudioSystem _contentAudio = default!;
-    [Dependency] private readonly IAudioManager _audioManager = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -32,12 +31,13 @@ public sealed class ADTBossMusicSystem : EntitySystem
     private EntityUid? _fadingOut;
 
     private bool _enabled;
-
-    private float _fadingOutDuck = 1f;
     private float _volumeSlider;
-    private float _masterVolume = 1f;
+
     private float _duck = 1f;
-    private float _appliedGain = -1f;
+    private float _duckTarget = 1f;
+    private float _duckSpeed;
+
+    private bool _ducking;
 
     public override void Initialize()
     {
@@ -45,9 +45,10 @@ public sealed class ADTBossMusicSystem : EntitySystem
 
         UpdatesOutsidePrediction = true;
 
+        UpdatesAfter.Add(typeof(AudioSystem));
+
         Subs.CVar(_cfg, ADTCCVars.BossMusicEnabled, OnEnabledChanged, true);
         Subs.CVar(_cfg, ADTCCVars.BossMusicVolume, OnVolumeChanged, true);
-        Subs.CVar(_cfg, CVars.AudioMasterVolume, OnMasterVolumeChanged, true);
 
         SubscribeLocalEvent<PlayAmbientMusicEvent>(OnPlayAmbientMusic);
     }
@@ -59,7 +60,16 @@ public sealed class ADTBossMusicSystem : EntitySystem
         _stream = null;
         _fadingOut = null;
         _playing = null;
-        UpdateDuck();
+
+        _duck = 1f;
+        _duckTarget = 1f;
+        _duckSpeed = 0f;
+
+        if (_ducking)
+        {
+            ApplyDuck(1f);
+            _ducking = false;
+        }
     }
 
     public override void Update(float frameTime)
@@ -85,8 +95,21 @@ public sealed class ADTBossMusicSystem : EntitySystem
             if (desired != null)
                 Play(desired);
         }
+    }
 
-        UpdateDuck();
+    public override void FrameUpdate(float frameTime)
+    {
+        base.FrameUpdate(frameTime);
+
+        UpdateDuck(frameTime);
+
+        if (!_ducking)
+            return;
+
+        ApplyDuck(_duck);
+
+        if (_duck >= 1f)
+            _ducking = false;
     }
 
     private void OnPlayAmbientMusic(ref PlayAmbientMusicEvent args)
@@ -135,74 +158,96 @@ public sealed class ADTBossMusicSystem : EntitySystem
             _contentAudio.FadeIn(_stream, stream.Value.Component, proto.FadeIn);
 
         _contentAudio.DisableAmbientMusic();
+
+        SetDuckTarget(GetDuck(proto), proto.FadeIn);
     }
 
     private void Stop(bool fade)
     {
-        if (_stream != null && fade && _playing is { FadeOut: > 0f } proto)
-        {
-            _contentAudio.FadeOut(_stream, duration: proto.FadeOut);
+        var fadeOut = 0f;
 
+        if (_playing is { } proto)
+            fadeOut = proto.FadeOut;
+
+        if (_stream != null && fade && fadeOut > 0f)
+        {
+            _contentAudio.FadeOut(_stream, duration: fadeOut);
             _fadingOut = _stream;
-            _fadingOutDuck = GetDuck(proto);
         }
         else if (_stream != null)
         {
             _audio.Stop(_stream);
+            fadeOut = 0f;
         }
 
         _stream = null;
         _playing = null;
+
+        SetDuckTarget(1f, fadeOut);
     }
 
-    private void UpdateDuck()
+    private void SetDuckTarget(float target, float fade)
     {
-        var duck = 1f;
+        _duckTarget = Math.Clamp(target, 0.01f, 1f);
 
-        if (_playing != null)
-            duck = GetDuck(_playing);
-        else if (_fadingOut != null)
-            duck = _fadingOutDuck;
-
-        _duck = duck;
-
-        ApplyGain(force: duck < 1f);
-    }
-
-    private void ApplyGain(bool force)
-    {
-        var gain = _masterVolume * _duck;
-        var changed = !MathHelper.CloseTo(_appliedGain, gain);
-
-        if (!changed && !force)
+        if (fade <= 0f)
+        {
+            _duck = _duckTarget;
+            _duckSpeed = 0f;
             return;
+        }
 
-        //if (changed)
-        //    Log.Info($"Приглушение музыкой босса: duck {_duck:0.00}, мастер-громкость {_appliedGain:0.00} -> {gain:0.00}");
+        _duckSpeed = MathF.Abs(_duck - _duckTarget) / fade;
+    }
 
-        _appliedGain = gain;
-        _audioManager.SetMasterGain(gain);
+    private void UpdateDuck(float frameTime)
+    {
+        if (_duckSpeed <= 0f)
+        {
+            _duck = _duckTarget;
+        }
+        else if (_duck < _duckTarget)
+        {
+            _duck = MathF.Min(_duckTarget, _duck + _duckSpeed * frameTime);
+        }
+        else if (_duck > _duckTarget)
+        {
+            _duck = MathF.Max(_duckTarget, _duck - _duckSpeed * frameTime);
+        }
+
+        if (_duck < 1f)
+            _ducking = true;
+    }
+
+    private void ApplyDuck(float duck)
+    {
+        var query = AllEntityQuery<AudioComponent>();
+
+        while (query.MoveNext(out var uid, out var audio))
+        {
+            if (uid == _stream || uid == _fadingOut)
+                continue;
+
+            if (audio.Gain <= 0f)
+                continue;
+
+            var gain = SharedAudioSystem.VolumeToGain(audio.Params.Volume) * duck;
+
+            if (float.IsNaN(gain))
+                continue;
+
+            audio.Gain = gain;
+        }
     }
 
     private float GetVolume(ADTBossMusicPrototype proto)
     {
-        var gain = Math.Clamp(GetNominalGain(proto) / GetDuck(proto), 0.0001f, 1f);
-
-        return SharedAudioSystem.GainToVolume(gain);
-    }
-
-    private float GetNominalGain(ADTBossMusicPrototype proto)
-    {
-        var gain = SharedAudioSystem.VolumeToGain(proto.Sound.Params.Volume) * _volumeSlider;
-
-        return Math.Clamp(gain, 0f, 1f);
+        return proto.Sound.Params.Volume + SharedAudioSystem.GainToVolume(_volumeSlider);
     }
 
     private float GetDuck(ADTBossMusicPrototype proto)
     {
-        var duck = Math.Clamp(proto.Duck, 0.01f, 1f);
-
-        return Math.Max(duck, GetNominalGain(proto));
+        return Math.Clamp(proto.Duck, 0.01f, 1f);
     }
 
     private void OnEnabledChanged(bool value)
@@ -218,12 +263,5 @@ public sealed class ADTBossMusicSystem : EntitySystem
             return;
 
         _audio.SetVolume(_stream, GetVolume(_playing));
-    }
-
-    private void OnMasterVolumeChanged(float value)
-    {
-        _masterVolume = value;
-
-        ApplyGain(force: _duck < 1f);
     }
 }

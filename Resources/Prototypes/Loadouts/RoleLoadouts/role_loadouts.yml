@@ -367,6 +367,7 @@
   - ADTRacialItems # ADT-Tweak
   #- MusicianJobTrinkets
   - Instruments
+  - ADTSuperInstruments #ADT-Tweak
   - GroupSpeciesBreathTool
 
 # Cargo

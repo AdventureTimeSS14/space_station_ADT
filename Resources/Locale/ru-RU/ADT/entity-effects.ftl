@@ -1,0 +1,13 @@
+entity-effect-guidebook-create-entity-reaction = Создаёт { $amount } шт. { $entname }
+entity-effect-guidebook-create-random-entity-reaction = Создаёт до { $amount } шт. { $entname }
+entity-effect-guidebook-make-unreactive = Экстракт гаснет
+entity-effect-guidebook-smoke-effect = Вокруг появляется { $smoke }
+entity-effect-guidebook-ignite-nearby = Поджигает всё вокруг
+entity-effect-guidebook-stealth-nearby = Скрывает всё вокруг на {NATURALFIXED($duration, 0)} секунд
+entity-effect-guidebook-extinguish-nearby = Тушит пожары вокруг
+entity-effect-guidebook-faction-nearby = Делает всех существ вокруг враждебными на {NATURALFIXED($duration, 0)} секунд
+entity-effect-guidebook-scramble-nearby = Меняет расы существам рядом
+entity-effect-guidebook-mutate-plants-nearby = Мутирует растения в радиусе {NATURALFIXED($radius, 0)} метров
+entity-effect-guidebook-emp-reaction = Мощный ЭМИ-импульс вокруг
+entity-effect-guidebook-random-teleport-nearby = Телепортирует всех рядом в случайное место
+entity-effect-guidebook-explosion-reaction = Взрыв через несколько секунд

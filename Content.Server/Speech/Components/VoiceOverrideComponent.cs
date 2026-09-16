@@ -1,5 +1,5 @@
 using Content.Shared.ADT.SpeechBarks;
-using Content.Shared.Corvax.TTS;
+using Content.Shared.ADT.TTS;
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
 

@@ -7,10 +7,6 @@
     - !type:DepartmentTimeRequirement
       department: Science
       time: 60h
-    - !type:SpeciesRequirement
-      inverted: true
-      species:
-      - Vox
   weight: 9
   startingGear: SeniorResearcherGear
   icon: "JobIconSeniorResearcher"

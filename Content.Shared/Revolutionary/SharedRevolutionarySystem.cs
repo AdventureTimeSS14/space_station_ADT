@@ -24,7 +24,30 @@ public abstract class SharedRevolutionarySystem : EntitySystem
         SubscribeLocalEvent<RevolutionaryComponent, ComponentStartup>(DirtyRevComps);
         SubscribeLocalEvent<HeadRevolutionaryComponent, ComponentStartup>(DirtyRevComps);
         SubscribeLocalEvent<ShowAntagIconsComponent, ComponentStartup>(DirtyRevComps);
+        SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached); // ADT-Tweak
     }
+
+    // ADT-Tweak-Start
+    private void OnPlayerAttached(PlayerAttachedEvent args)
+    {
+        if (!HasComp<RevolutionaryComponent>(args.Entity)
+            && !HasComp<HeadRevolutionaryComponent>(args.Entity)
+            && !HasComp<ShowAntagIconsComponent>(args.Entity))
+            return;
+
+        var revComps = AllEntityQuery<RevolutionaryComponent>();
+        while (revComps.MoveNext(out var uid, out var comp))
+        {
+            Dirty(uid, comp);
+        }
+
+        var headRevComps = AllEntityQuery<HeadRevolutionaryComponent>();
+        while (headRevComps.MoveNext(out var uid, out var comp))
+        {
+            Dirty(uid, comp);
+        }
+    }
+    // ADT-Tweak-End
 
     /// <summary>
     /// When the mindshield is implanted in the rev it will popup saying they were deconverted. In Head Revs it will remove the mindshield component.

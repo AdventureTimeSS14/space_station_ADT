@@ -68,3 +68,13 @@
     color: "#800080"
     showRank: false
     showName: true
+
+- type: language
+  id: ADTShadowlingCollectiveMind
+  priority: 0
+  uiColor: "#8a2be2"
+  showUnderstood: false
+  speech: !type:CollectiveMind
+    color: "#8a2be2"
+    showRank: true
+    showName: true

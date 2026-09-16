@@ -66,9 +66,6 @@ namespace Content.Server.ADT.Chemistry.Components
         public float RechargeRatePerTier = 10f;
 
         [DataField]
-        public Dictionary<int, List<string>> TierReagents = [];
-
-        [DataField]
-        public float TierReagentCost = 8f;
+        public Dictionary<int, Dictionary<string, int>> TierReagents = [];
     }
 }

@@ -1,4 +1,3 @@
-using Content.Shared.ADT.Salvage; // ADT
 using Content.Shared.Lathe;
 using Content.Shared.Research.Components;
 using JetBrains.Annotations;
@@ -35,9 +34,6 @@ namespace Content.Client.Lathe.UI
             _menu.QueueMoveUpAction += index => SendMessage(new LatheMoveRequestMessage(index, -1));
             _menu.QueueMoveDownAction += index => SendMessage(new LatheMoveRequestMessage(index, 1));
             _menu.DeleteFabricatingAction += () => SendMessage(new LatheAbortFabricationMessage());
-
-            _menu.OnClaimMiningPoints += () => SendMessage(new LatheClaimMiningPointsMessage()); // ADT-Tweak
-            _menu.SmeltAllAction += recipe => SendMessage(new ADTLatheSmeltAllMessage(recipe)); // ADT-Tweak
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)
