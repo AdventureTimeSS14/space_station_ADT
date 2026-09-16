@@ -119,12 +119,6 @@
     slots:
     - Belt
     - suitStorage
-  # Goobstation Tweak Start
-  - type: Multishot # Goobstation V
-    spreadMultiplier: 2
-    spreadAddition: 20
-    staminaDamage: 1.5
-  # Goobstation Tweak End
 
 - type: entity
   id: BaseWeaponPowerCellSmall
