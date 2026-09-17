@@ -1,5 +1,4 @@
 using System.Numerics;
-using System.Threading;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Mech.Systems;
 using Content.Shared.ADT.Weapons.Medbeam;
@@ -12,8 +11,6 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mech.Components;
 using Robust.Shared.Map;
-using Robust.Shared.Timing;
-using RobustTimer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.ADT.Weapons.Medbeam;
 
@@ -27,54 +24,23 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
     [Dependency] private readonly MechSystem _mech = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
 
-    private readonly Dictionary<EntityUid, CancellationTokenSource> _beamTokens = new();
-
-    public override void Initialize()
+    public override void Update(float frameTime)
     {
-        base.Initialize();
-        SubscribeLocalEvent<ADTMedbeamComponent, ComponentShutdown>(OnShutdown);
-    }
+        base.Update(frameTime);
 
-    public override void AttachBeam(Entity<ADTMedbeamComponent> ent, EntityUid target)
-    {
-        base.AttachBeam(ent, target);
-
-        if (_beamTokens.Remove(ent.Owner, out var old))
-            old.Cancel();
-
-        var cts = new CancellationTokenSource();
-        _beamTokens[ent.Owner] = cts;
-        RobustTimer.SpawnRepeating(TimeSpan.FromSeconds(ent.Comp.UpdateInterval), () => OnBeamTick(ent, cts), cts.Token);
-    }
-
-    public override void DetachBeam(Entity<ADTMedbeamComponent> ent)
-    {
-        if (_beamTokens.Remove(ent.Owner, out var cts))
-            cts.Cancel();
-
-        base.DetachBeam(ent);
-    }
-
-    private void OnShutdown(Entity<ADTMedbeamComponent> ent, ref ComponentShutdown args)
-    {
-        if (_beamTokens.Remove(ent.Owner, out var cts))
-            cts.Cancel();
-    }
-
-    private void OnBeamTick(Entity<ADTMedbeamComponent> ent, CancellationTokenSource cts)
-    {
-        if (cts.IsCancellationRequested)
-            return;
-
-        if (!Exists(ent.Owner) || ent.Comp.Target == null)
+        var query = EntityQueryEnumerator<ADTMedbeamComponent>();
+        while (query.MoveNext(out var uid, out var beam))
         {
-            cts.Cancel();
-            if (_beamTokens.TryGetValue(ent.Owner, out var current) && current == cts)
-                _beamTokens.Remove(ent.Owner);
-            return;
-        }
+            if (beam.Target == null)
+                continue;
 
-        TickBeam(ent);
+            beam.Accumulator += frameTime;
+            if (beam.Accumulator < beam.UpdateInterval)
+                continue;
+
+            beam.Accumulator -= beam.UpdateInterval;
+            TickBeam((uid, beam));
+        }
     }
 
     private void TickBeam(Entity<ADTMedbeamComponent> ent)
@@ -147,7 +113,7 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
         if (HasComp<BloodstreamComponent>(target.Value))
         {
             if (ent.Comp.BloodRestore > 0)
-                _blood.TryRegenerateBlood(target.Value, (FixedPoint2) ent.Comp.BloodRestore);
+                _blood.TryAddBlood(target.Value, (FixedPoint2) ent.Comp.BloodRestore);
 
             _blood.TryModifyBleedAmount(target.Value, -Comp<BloodstreamComponent>(target.Value).BleedAmount);
         }

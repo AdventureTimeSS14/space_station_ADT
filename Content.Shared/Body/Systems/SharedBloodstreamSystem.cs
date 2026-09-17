@@ -545,13 +545,13 @@ public abstract class SharedBloodstreamSystem : EntitySystem
     }
 
     // ADT-Tweak start
-    public void TryRegenerateBlood(Entity<BloodstreamComponent?> ent, FixedPoint2? amountToAdd = null)
+    public void TryRegenerateBlood(Entity<BloodstreamComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp, logMissing: false)
             || !SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution, out var bloodSolution))
             return;
 
-        amountToAdd ??= ent.Comp.BloodRefreshAmount;
+        var amountToAdd = ent.Comp.BloodRefreshAmount;
         var currentVolume = bloodSolution.Volume;
         var referenceVolume = ent.Comp.BloodReferenceSolution.Volume;
 
@@ -565,7 +565,43 @@ public abstract class SharedBloodstreamSystem : EntitySystem
 
         foreach (var (referenceReagent, referenceQuantity) in ent.Comp.BloodReferenceSolution)
         {
-            var share = (FixedPoint2) (referenceQuantity.Float() / referenceVolume.Float() * amountToAdd.Value.Float());
+            var currentAmount = bloodSolution.GetTotalPrototypeQuantity(referenceReagent.Prototype);
+            var toAdd = FixedPoint2.Min(amountToAdd, availableSpace);
+
+            if (toAdd > 0)
+            {
+                bloodSolution.AddReagent(referenceReagent, toAdd);
+                availableSpace -= toAdd;
+                if (availableSpace <= 0)
+                    break;
+            }
+        }
+    }
+
+    public void TryAddBlood(Entity<BloodstreamComponent?> ent, FixedPoint2 amountToAdd)
+    {
+        if (amountToAdd <= 0)
+            return;
+
+        if (!Resolve(ent, ref ent.Comp, logMissing: false)
+            || !SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution, out var bloodSolution))
+            return;
+
+        var currentVolume = bloodSolution.Volume;
+        var referenceVolume = ent.Comp.BloodReferenceSolution.Volume;
+
+        if (currentVolume >= referenceVolume)
+            return;
+
+        var availableSpace = referenceVolume - currentVolume;
+        if (availableSpace <= 0)
+            return;
+
+        amountToAdd = FixedPoint2.Min(amountToAdd, availableSpace);
+
+        foreach (var (referenceReagent, referenceQuantity) in ent.Comp.BloodReferenceSolution)
+        {
+            var share = (FixedPoint2) (referenceQuantity.Float() / referenceVolume.Float() * amountToAdd.Float());
             var toAdd = FixedPoint2.Min(share, availableSpace);
 
             if (toAdd <= 0)
