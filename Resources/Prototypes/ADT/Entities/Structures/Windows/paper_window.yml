@@ -1,4 +1,3 @@
-# ADT: бумажные окна (сёдзи) в стиле SS13 — для постройки додзё
 - type: entity
   id: ADTWindowPaper
   parent: BaseStructure
