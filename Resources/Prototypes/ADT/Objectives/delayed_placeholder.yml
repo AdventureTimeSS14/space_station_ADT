@@ -1,6 +1,5 @@
 - type: entity
   parent: BaseObjective
-  abstract: true
   id: ObjectiveDelayedPlaceholder
   components:
   - type: Objective
