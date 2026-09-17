@@ -15311,3 +15311,9 @@ Entries:
     id: 1924
     pr_number: 3377
     time: '2026-09-16T18:16:18Z'
+  - author: FriendlyOne
+    changes:
+      - {message: 'Моли теперь едят всю еду, кроме снеков и еды с мясом', type: Tweak}
+    id: 1925
+    pr_number: 3347
+    time: '2026-09-17T16:15:42Z'
