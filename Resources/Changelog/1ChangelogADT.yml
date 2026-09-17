@@ -15317,3 +15317,10 @@ Entries:
     id: 1925
     pr_number: 3347
     time: '2026-09-17T16:15:42Z'
+  - author: CrimeMoot, TrixxedHeart, Conflee
+    changes:
+      - {message: 'Визуальные эффекты партиклы, можно снизить или поднять качество
+          в настройках, как и выключить вообще.', type: Add}
+    id: 1926
+    pr_number: 3360
+    time: '2026-09-17T16:22:16Z'
