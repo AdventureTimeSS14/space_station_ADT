@@ -67,6 +67,7 @@
     - id: ADTClothingUniformCorrectionsOfficerGrey
     - id: ADTClothingUniformJumpskirtCorrectionsOfficer
     - id: Multitool
+    - id: ADTMusicDiskshanson
       amount: !type:BinomialNumberSelector
         trials: 3
     - !type:AllSelector

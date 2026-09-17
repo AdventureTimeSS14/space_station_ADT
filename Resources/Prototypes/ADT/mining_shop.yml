@@ -195,3 +195,7 @@
     price: 360
   - id: CigarGoldCase
     price: 1200
+  - id: ADTMusicDiskdigger
+    price: 100
+  - id: ADTMusicDiskADTutil
+    price: 100

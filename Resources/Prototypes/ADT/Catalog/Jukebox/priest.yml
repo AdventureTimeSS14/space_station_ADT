@@ -1,17 +1,17 @@
 - type: jukebox
   id: ADTMachineInTheWalls
-  name: 1. Machine in the Walls - Mudeth-mono
+  name: 1. Machine in the Walls - Mudeth
   path:
     path: /Audio/ADT/Jukebox/priest/Machine-In-The-Walls.ogg
 
 - type: jukebox
   id: ADTLamentOfTheAngel
-  name: 2. Lament of the Angel - Danny Baranowsky-mono
+  name: 2. Lament of the Angel - Danny Baranowsky
   path:
     path: /Audio/ADT/Jukebox/priest/Lament-Of-TheAngel.ogg
 
 - type: jukebox
   id: ADTWhitepath
-  name: 3. Whitepath - Mudeth-mono
+  name: 3. Whitepath - Mudeth
   path:
     path: /Audio/ADT/Jukebox/priest/Whitepath.ogg
