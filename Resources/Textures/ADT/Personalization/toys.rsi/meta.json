@@ -273,6 +273,36 @@
         },
         {
             "name": "plushie_kelly"
+        },
+        {
+            "name": "plushie_sif"
+        },
+        {
+            "name": "plushie_sani"
+        },
+        {
+            "name": "sif-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "sif-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "sif-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "sani-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "sani-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "sani-equipped-HELMET",
+            "directions": 4
         }
     ]
 }

@@ -50,6 +50,23 @@ public sealed class GpsSignalData
 }
 
 [Serializable, NetSerializable]
+public sealed class GpsWaypointData
+{
+    public string Name;
+
+    public Vector2i Position;
+
+    public bool SameMap;
+
+    public GpsWaypointData(string name, Vector2i position, bool sameMap)
+    {
+        Name = name;
+        Position = position;
+        SameMap = sameMap;
+    }
+}
+
+[Serializable, NetSerializable]
 public sealed class GpsBoundUserInterfaceState : BoundUserInterfaceState
 {
     public bool Emped;
@@ -71,6 +88,10 @@ public sealed class GpsBoundUserInterfaceState : BoundUserInterfaceState
 
     public List<GpsSignalData> Signals;
 
+    public int MaxWaypoints;
+
+    public List<GpsWaypointData> Waypoints;
+
     public GpsBoundUserInterfaceState(
         bool emped,
         bool tracking,
@@ -82,7 +103,9 @@ public sealed class GpsBoundUserInterfaceState : BoundUserInterfaceState
         Vector2i? position,
         string? location,
         bool nullspace,
-        List<GpsSignalData> signals)
+        List<GpsSignalData> signals,
+        int maxWaypoints,
+        List<GpsWaypointData> waypoints)
     {
         Emped = emped;
         Tracking = tracking;
@@ -95,6 +118,8 @@ public sealed class GpsBoundUserInterfaceState : BoundUserInterfaceState
         Location = location;
         Nullspace = nullspace;
         Signals = signals;
+        MaxWaypoints = maxWaypoints;
+        Waypoints = waypoints;
     }
 }
 
@@ -121,5 +146,27 @@ public sealed class GpsSetTagMessage : BoundUserInterfaceMessage
     public GpsSetTagMessage(string tag)
     {
         Tag = tag;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class GpsAddWaypointMessage : BoundUserInterfaceMessage
+{
+    public string Name;
+
+    public GpsAddWaypointMessage(string name)
+    {
+        Name = name;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class GpsRemoveWaypointMessage : BoundUserInterfaceMessage
+{
+    public int Index;
+
+    public GpsRemoveWaypointMessage(int index)
+    {
+        Index = index;
     }
 }

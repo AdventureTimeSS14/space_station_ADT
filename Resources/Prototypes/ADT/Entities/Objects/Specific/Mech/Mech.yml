@@ -338,8 +338,8 @@
   - type: Mech
     modifiers:
       coefficients: #коэффициенты для легкобронированных мехов
-        Blunt: 0.5
-        Slash: 0.5
+        Blunt: 0.3
+        Slash: 0.3
         Piercing: 0.5
         Heat: 0.6
         Structural: 1.0
@@ -365,7 +365,7 @@
         Structural: 40
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
-    baseSprintSpeed: 3
+    baseSprintSpeed: 4
   - type: MechOverload
     damage:
       types:
@@ -581,13 +581,13 @@
   - type: Mech
     modifiers:
       coefficients: #коэффициенты для легкобронированных мехов
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.7
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.4
+        Heat: 0.6
         Structural: 1.0
     mechToPilotDamageMultiplier: 0.10
-    maxintegrity: 360
+    maxintegrity: 380
     baseState: darkgygax
     openState: darkgygax-open
     brokenState: darkgygax-broken
@@ -732,13 +732,13 @@
   - type: Mech
     modifiers:
       coefficients: #коэффициенты для легкобронированных мехов
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.7
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.5
+        Heat: 0.5
         Structural: 1.0
     mechToPilotDamageMultiplier: 0.10
-    maxintegrity: 360
+    maxintegrity: 380
     baseState: ntgygax
     openState: ntgygax-open
     brokenState: ntgygax-broken

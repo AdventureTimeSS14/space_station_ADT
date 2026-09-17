@@ -422,6 +422,16 @@ public sealed class ADTCCVars
     public static readonly CVarDef<float> AntagRollBonusWipeHours =
         CVarDef.Create("antag.roll_bonus_wipe_hours", 36f, CVar.SERVERONLY);
 
+     /*
+     * Heretic
+     */
+
+    /// <summary>
+    /// Should heretic ascension ritual be cancelled if heretic hasn't completed their objectives.
+    /// </summary>
+    public static readonly CVarDef<bool> HereticAscensionRequiresObjectives =
+        CVarDef.Create("heretic.ascension_requires_objectives", true, CVar.SERVERONLY);
+
     /*
      * Chat Highlight Sound
      */

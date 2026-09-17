@@ -318,6 +318,14 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
             return false;
         }
 
+        // ADT-Tweak-Start
+        if (!Content.Shared.ADT.Sponsors.SponsorProfileValidation.IsLoadoutAllowed(session, collection, loadoutProto))
+        {
+            reason = FormattedMessage.FromUnformatted(Loc.GetString("adt-sponsor-loadout-locked"));
+            return false;
+        }
+        // ADT-Tweak-End
+
         var valid = true;
 
         foreach (var effect in loadoutProto.Effects)

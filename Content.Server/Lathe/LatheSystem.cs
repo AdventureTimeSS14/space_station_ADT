@@ -21,7 +21,6 @@ using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.ADT.Construction;
-using Content.Shared.ADT.Construction.Components;
 using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Lathe;
 using Content.Shared.Lathe.Prototypes;
@@ -279,17 +278,6 @@ namespace Content.Server.Lathe
                 if (currentRecipe.Result is { } resultProto)
                 {
                     var result = Spawn(resultProto, Transform(uid).Coordinates);
-                    // ADT-Tweak-Start: печь (OreProcessor) выдаёт больше результата в зависимости от тира частей
-                    if (TryComp<OreProcessorUpgradeComponent>(uid, out var oreUpgrade))
-                    {
-                        var extraCount = (int)oreUpgrade.OutputMultiplier;
-                        for (var i = 1; i < extraCount; i++)
-                        {
-                            var extra = Spawn(resultProto, Transform(uid).Coordinates);
-                            _stack.TryMergeToContacts(extra);
-                        }
-                    }
-                    // ADT-Tweak-End
                     //ADT tweak start
                     if (TryComp<DocumentPrinterComponent>(uid, out var printer)
                         && printer.Queue.Count > 0)

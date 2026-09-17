@@ -42,6 +42,9 @@ public sealed partial class MobGrowthSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        if (_net.IsClient)
+            return;
+
         var query = EntityQueryEnumerator<MobGrowthComponent, HungerComponent>();
         while (query.MoveNext(out var uid, out var growth, out var hungerComp))
         {
@@ -81,7 +84,6 @@ public sealed partial class MobGrowthSystem : EntitySystem
 
         _hunger.ModifyHunger(uid, growth.GrowthCost, hunger);
         growth.CurrentStage = nextStage;
-        Dirty(uid, growth);
 
         UpdateAppearance((uid, growth));
     }

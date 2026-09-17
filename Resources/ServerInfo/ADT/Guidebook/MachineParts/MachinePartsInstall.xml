@@ -2,9 +2,11 @@
 
 # Куда ставить детали
 
-Шпаргалка по машинам: какая деталь куда ставится и что она там даёт. Подробнее о самих деталях и системе тиров - в руководстве [textlink="Машинные части" link="MachineParts"].
+Шпаргалка по машинам: какая деталь куда ставится и что даёт. О самой системе тиров - в руководстве [textlink="Машинные части" link="MachineParts"].
 
-## Протолат и автолат
+## Наука и исследования
+
+### Протолат и автолат
 
 <Box>
 <GuideEntityEmbed Entity="Protolathe"/>
@@ -14,33 +16,18 @@
 <GuideEntityEmbed Entity="MicroServoStockPart"/>
 <GuideEntityEmbed Entity="MatterBinStockPart"/>
 </Box>
-Сервопривод - печать быстрее, но дороже по материалам. Ёмкость материи - дешевле, но медленнее. Классический компромисс.
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сервопривод</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Печать быстрее[/color] - [color=#ff7a7a]материалы дороже[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Ёмкость материи</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Материалы дешевле[/color] - [color=#ff7a7a]медленнее[/color]</Box></ColorBox>
+</Table>
 
-[bold]Квантовые детали (тир 5)[/bold] печатаются только на протолате после исследования «Квантовые машинные части». Для печати нужен квантовый катализатор: залейте его в мензурку и вставьте в слот протолата - статус мензурки виден в интерфейсе станка. Одна деталь стоит 50 единиц катализатора, улучшенный протолат расходует его меньше.
+[bold]Квантовые детали (тир 5)[/bold] печатаются только на протолате после исследования «Квантовые машинные части» и требуют квантовый катализатор: 50 единиц на деталь, мензурка вставляется в слот станка.
 
-## Микроволновка
-
-<Box>
-<GuideEntityEmbed Entity="KitchenMicrowave"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="MicroLaserStockPart"/>
-<GuideEntityEmbed Entity="MatterBinStockPart"/>
-</Box>
-Микро-лазер - готовит быстрее и надёжнее. Ёмкость материи - вместительнее.
-
-## Кухонный и медицинский ассемблеры
-
-<Box>
-<GuideEntityEmbed Entity="ADTKitchenAssembler"/>
-<GuideEntityEmbed Entity="ADTMedicalAssembler"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="MatterBinStockPart"/>
-</Box>
-Ёмкость материи снижает требуемые ингредиенты. У медицинского ассемблера ёмкость материи 4-го тира дополнительно открывает вкладку [italic]Кастомный[/italic] - сборку медипенов с произвольным набором реагентов.
-
-## Переработчик руды
+### Переработчик руды
 
 <Box>
 <GuideEntityEmbed Entity="OreProcessor"/>
@@ -50,9 +37,152 @@
 <GuideEntityEmbed Entity="MicroLaserStockPart"/>
 <GuideEntityEmbed Entity="MatterBinStockPart"/>
 </Box>
-Машина выбора: микро-лазер повышает выход ресурсов (и снижает очки), ёмкость материи повышает очки шахтёров (и снижает выход). Собирайте под свою задачу.
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Микро-лазер</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Больше ресурсов[/color] - [color=#ff7a7a]меньше очков шахтёров[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Ёмкость материи</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Больше очков шахтёров[/color] - [color=#ff7a7a]меньше выход[/color]</Box></ColorBox>
+</Table>
 
-## Энерго-химраздатчики
+### Анализатор артефактов
+
+<Box>
+<GuideEntityEmbed Entity="MachineArtifactAnalyzer"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Микро-лазер</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Очки исследований: +30% на Т4, +60% на Т5[/color]</Box></ColorBox>
+</Table>
+
+### Дробилка артефактов
+
+<Box>
+<GuideEntityEmbed Entity="MachineArtifactCrusher"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сервопривод</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Быстрее дробление[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Микро-лазер</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Больше выход фрагментов[/color]</Box></ColorBox>
+</Table>
+
+### Сосуд аномалий
+
+<Box>
+<GuideEntityEmbed Entity="MachineAnomalyVessel"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Микро-лазер</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Очки исследований: +30% на Т4, +60% на Т5[/color]</Box></ColorBox>
+</Table>
+
+### Переработчик биомассы
+
+<Box>
+<GuideEntityEmbed Entity="BiomassReclaimer"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сервопривод</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Быстрее переработка[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Микро-лазер</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Больше выход биомассы[/color]</Box></ColorBox>
+</Table>
+
+## Медицина
+
+### Клонаппарат
+
+<Box>
+<GuideEntityEmbed Entity="CloningPod"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+<GuideEntityEmbed Entity="ScanningModuleStockPart"/>
+</Box>
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сервопривод</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Быстрее клонирование[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сканирующий модуль</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Безопаснее для пациента[/color]</Box></ColorBox>
+</Table>
+
+### Криопод
+
+<Box>
+<GuideEntityEmbed Entity="CryoPod"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="CapacitorStockPart"/>
+<GuideEntityEmbed Entity="ScanningModuleStockPart"/>
+</Box>
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Конденсатор + сканирующий модуль</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Усвоение химии (по минимальному тиру): Т2 ×1.1, Т3 ×1.25, Т4 ×1.4, Т5 ×1.8[/color]. Работает при питании.</Box></ColorBox>
+</Table>
+
+### Стазис-кровать
+
+<Box>
+<GuideEntityEmbed Entity="StasisBed"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="CapacitorStockPart"/>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+</Box>
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Конденсатор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Меньше энергопотребление[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Серво + конденсатор (по минимальному)</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Тир кровати: Т2 - стоп разложения тела, Т3 - дополнительно инапровалин[/color]</Box></ColorBox>
+</Table>
+
+### Продвинутая медицинская кровать
+
+<Box>
+<GuideEntityEmbed Entity="ADTAdvancedMedBed"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Серво + микро-лазер</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Усвоение химии пристёгнутым: +5% за каждый тир каждой детали - Т2+Т1 = +5%, Т3+Т2 = +15%, Т4+Т4 = +30%, Т5+Т5 = +60%[/color]. Работает при питании.</Box></ColorBox>
+</Table>
+
+### Энерго-химраздатчики
 
 <Box>
 <GuideEntityEmbed Entity="EnergyChemDispenser"/>
@@ -65,20 +195,66 @@
 <Box>
 <GuideEntityEmbed Entity="ScanningModuleStockPart"/>
 </Box>
-Конденсатор заряжает батарею (10/20/30/40/50 Вт/с по тирам), ёмкость материи удешевляет синтез, сканирующий модуль открывает реагенты.
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Конденсатор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Зарядка батареи: 10/20/30/40/50 Вт/с по тирам[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Ёмкость материи</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Дешевле синтез реагентов[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сканирующий модуль</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Открывает реагенты[/color]: Т2 - соль, вода, топливо; Т3 - бензол, гидроксид, силицид железа; Т4 - уран, плазма, сидерлак; Т5 - омнизин, когнизин</Box></ColorBox>
+</Table>
 
-## Клонаппарат
+### Кухонный и медицинский ассемблеры
 
 <Box>
-<GuideEntityEmbed Entity="CloningPod"/>
+<GuideEntityEmbed Entity="ADTKitchenAssembler"/>
+<GuideEntityEmbed Entity="ADTMedicalAssembler"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MatterBinStockPart"/>
+</Box>
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Ёмкость материи</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Меньше требуемые ингредиенты[/color]. Медицинский ассемблер с ёмкостью Т4 открывает вкладку [italic]«Кастомный»[/italic] - медипены с произвольным набором реагентов</Box></ColorBox>
+</Table>
+
+### Экстрактор жира
+
+<Box>
+<GuideEntityEmbed Entity="FatExtractor"/>
 </Box>
 <Box>
 <GuideEntityEmbed Entity="MicroServoStockPart"/>
-<GuideEntityEmbed Entity="ScanningModuleStockPart"/>
 </Box>
-Сервопривод ускоряет клонирование, сканирующий модуль повышает безопасность - скорость и здоровье пациента несовместимы.
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сервопривод</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Быстрее извлечение питания[/color]</Box></ColorBox>
+</Table>
 
-## SMES и зарядники
+### Ресайклер макак
+
+<Box>
+<GuideEntityEmbed Entity="ADTXenobiologyMonkeyRecycler"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MatterBinStockPart"/>
+</Box>
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Ёмкость материи</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Выход кубов: до 4 на Т4, до 8 на Т5[/color]</Box></ColorBox>
+</Table>
+
+## Инженерия
+
+### SMES и зарядники
 
 <Box>
 <GuideEntityEmbed Entity="SMESBasic"/>
@@ -88,61 +264,87 @@
 <GuideEntityEmbed Entity="CapacitorStockPart"/>
 <GuideEntityEmbed Entity="PowerCellSmall"/>
 </Box>
-Конденсатор ускоряет зарядку. Батарейки повышают вместимость: базовая - х1, Т2 - х1.5, Т3 - х2, Т4 - х3 (+200%). Меняются они, как и детали, через RPED.
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Конденсатор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Быстрее зарядка[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Батарейки (машинные части)</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Вместимость: базовая ×1, Т2 ×1.5, Т3 ×2, Т4 и выше ×3[/color]. Меняются через RPED</Box></ColorBox>
+</Table>
 
-## Переработчик биомассы
+### Подстанция
 
 <Box>
-<GuideEntityEmbed Entity="BiomassReclaimer"/>
+<GuideEntityEmbed Entity="SubstationBasic"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="CapacitorStockPart"/>
+<GuideEntityEmbed Entity="PowerCellSmall"/>
+</Box>
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Конденсатор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Быстрее зарядка[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Батарейки (машинные части)</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Вместимость как у SMES: базовая ×1, Т2 ×1.5, Т3 ×2, Т4 и выше ×3[/color]</Box></ColorBox>
+</Table>
+
+### Портативные генераторы
+
+<Box>
+<GuideEntityEmbed Entity="PortableGeneratorPacman"/>
+<GuideEntityEmbed Entity="PortableGeneratorSuperPacman"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="PortableGeneratorJrPacman"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+<GuideEntityEmbed Entity="MatterBinStockPart"/>
+</Box>
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Микро-лазер</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Выработка +50% на Т4, +100% на Т5[/color] - [color=#ff7a7a]расход топлива +75% на Т4, +125% на Т5[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Ёмкость материи</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Расход топлива -50% на Т4, -75% на Т5[/color] - [color=#ff7a7a]выработка -30% на Т4, -50% на Т5[/color]</Box></ColorBox>
+</Table>
+
+### Эмиттер
+
+<Box>
+<GuideEntityEmbed Entity="Emitter"/>
 </Box>
 <Box>
 <GuideEntityEmbed Entity="MicroServoStockPart"/>
 <GuideEntityEmbed Entity="MicroLaserStockPart"/>
 </Box>
-Сервопривод ускоряет переработку, микро-лазер увеличивает выход биомассы.
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Серво + микро-лазер</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Выше скорострельность[/color]</Box></ColorBox>
+</Table>
 
-## Анализатор артефактов
-
-<Box>
-<GuideEntityEmbed Entity="MachineArtifactAnalyzer"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="MicroLaserStockPart"/>
-</Box>
-Микро-лазер повышает очки исследований: до +30% на Т4 и до +60% на Т5.
-
-## Дробилка артефактов
+### Двигатели шаттла
 
 <Box>
-<GuideEntityEmbed Entity="MachineArtifactCrusher"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="MicroServoStockPart"/>
-<GuideEntityEmbed Entity="MicroLaserStockPart"/>
-</Box>
-Сервопривод ускоряет дробление, микро-лазер повышает выход фрагментов.
-
-## Экстрактор жира
-
-<Box>
-<GuideEntityEmbed Entity="FatExtractor"/>
+<GuideEntityEmbed Entity="ADTBigThruster"/>
 </Box>
 <Box>
 <GuideEntityEmbed Entity="MicroServoStockPart"/>
 </Box>
-Сервопривод повышает скорость извлечения питания.
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сервопривод</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Больше тяга[/color]</Box></ColorBox>
+</Table>
 
-## Хим-плитка
-
-<Box>
-<GuideEntityEmbed Entity="ChemistryHotplate"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="MicroLaserStockPart"/>
-</Box>
-Микро-лазер повышает мощность нагрева растворов.
-
-## Обогреватель и термомашины
+### Обогреватель и термомашины
 
 <Box>
 <GuideEntityEmbed Entity="SpaceHeater"/>
@@ -152,61 +354,16 @@
 <GuideEntityEmbed Entity="CapacitorStockPart"/>
 <GuideEntityEmbed Entity="MicroLaserStockPart"/>
 </Box>
-Конденсатор повышает тепловую мощность, микро-лазер расширяет диапазон температур.
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Конденсатор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Больше тепловая мощность[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Микро-лазер</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Шире диапазон температур[/color]</Box></ColorBox>
+</Table>
 
-## Сосуд аномалий
-
-<Box>
-<GuideEntityEmbed Entity="MachineAnomalyVessel"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="MicroLaserStockPart"/>
-</Box>
-Микро-лазер повышает генерацию очков исследований: до +30% на Т4 и до +60% на Т5.
-
-## Дробилка
-
-<Box>
-<GuideEntityEmbed Entity="KitchenReagentGrinder"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="MicroServoStockPart"/>
-<GuideEntityEmbed Entity="MatterBinStockPart"/>
-</Box>
-Сервопривод перемалывает быстрее, ёмкость материи вмещает больше.
-
-## Переработчик слаймов
-
-<Box>
-<GuideEntityEmbed Entity="SlimeGrinder"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="MicroServoStockPart"/>
-</Box>
-Сервопривод - больше экстрактов и быстрее работа.
-
-## Экстрактор семян
-
-<Box>
-<GuideEntityEmbed Entity="SeedExtractor"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="MicroServoStockPart"/>
-</Box>
-Сервопривод увеличивает количество извлекаемых семян.
-
-## Гидропонные лотки
-
-<Box>
-<GuideEntityEmbed Entity="HydroponicsTrayEmpty"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="MatterBinStockPart"/>
-<GuideEntityEmbed Entity="MicroServoStockPart"/>
-</Box>
-Ёмкость материи - больше воды и удобрений. Сервопривод повышает их расход - не перестарайтесь.
-
-## Портативный скруббер
+### Портативный скруббер
 
 <Box>
 <GuideEntityEmbed Entity="PortableScrubber"/>
@@ -215,30 +372,36 @@
 <GuideEntityEmbed Entity="MicroServoStockPart"/>
 <GuideEntityEmbed Entity="MatterBinStockPart"/>
 </Box>
-Сервопривод - скорость всасывания, ёмкость материи - предельное давление.
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сервопривод</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Быстрее всасывание[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Ёмкость материи</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Выше предельное давление[/color]</Box></ColorBox>
+</Table>
 
-## Эмиттер
+## Кухня и сервис
+
+### Микроволновка
 
 <Box>
-<GuideEntityEmbed Entity="Emitter"/>
+<GuideEntityEmbed Entity="KitchenMicrowave"/>
 </Box>
 <Box>
-<GuideEntityEmbed Entity="MicroServoStockPart"/>
 <GuideEntityEmbed Entity="MicroLaserStockPart"/>
+<GuideEntityEmbed Entity="MatterBinStockPart"/>
 </Box>
-Сервопривод и микро-лазер вместе повышают скорострельность.
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Микро-лазер</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Готовит быстрее и надёжнее[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Ёмкость материи</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Вместительнее[/color]</Box></ColorBox>
+</Table>
 
-## Двигатели шаттла
-
-<Box>
-<GuideEntityEmbed Entity="ADTBigThruster"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="MicroServoStockPart"/>
-</Box>
-Сервопривод увеличивает тягу.
-
-## Электрический гриль
+### Электрический гриль
 
 <Box>
 <GuideEntityEmbed Entity="KitchenElectricGrill"/>
@@ -246,38 +409,94 @@
 <Box>
 <GuideEntityEmbed Entity="MicroServoStockPart"/>
 </Box>
-Сервопривод повышает мощность нагрева.
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сервопривод</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Больше мощность нагрева[/color]</Box></ColorBox>
+</Table>
 
-## Стазис-кровать
+### Хим-плитка
 
 <Box>
-<GuideEntityEmbed Entity="StasisBed"/>
+<GuideEntityEmbed Entity="ChemistryHotplate"/>
 </Box>
 <Box>
-<GuideEntityEmbed Entity="CapacitorStockPart"/>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Микро-лазер</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Больше мощность нагрева растворов[/color]</Box></ColorBox>
+</Table>
+
+### Дробилка
+
+<Box>
+<GuideEntityEmbed Entity="KitchenReagentGrinder"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+<GuideEntityEmbed Entity="MatterBinStockPart"/>
+</Box>
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сервопривод</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Перемалывает быстрее[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Ёмкость материи</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Вмещает больше[/color]</Box></ColorBox>
+</Table>
+
+### Переработчик слаймов
+
+<Box>
+<GuideEntityEmbed Entity="SlimeGrinder"/>
+</Box>
+<Box>
 <GuideEntityEmbed Entity="MicroServoStockPart"/>
 </Box>
-Конденсатор снижает энергопотребление. Серво и конденсатор вместе определяют тир кровати (по минимальному из двух): тир 2 останавливает разложение тела пристёгнутого пациента, тир 3 дополнительно стабилизирует его инапровалином.
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сервопривод</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Больше экстрактов и быстрее работа[/color]</Box></ColorBox>
+</Table>
 
-## Криопод
+## Ботаника
 
-<Box>
-<GuideEntityEmbed Entity="CryoPod"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="CapacitorStockPart"/>
-<GuideEntityEmbed Entity="ScanningModuleStockPart"/>
-</Box>
-Конденсатор и сканирующий модуль вместе ускоряют усвоение химии пациентом (по минимальному из двух): тир 2 - ×1.1, тир 3 - ×1.25, тир 4 - ×1.4, тир 5 - ×1.8. Работает только при подключённом питании.
-
-## Ресайклер макак
+### Гидропонные лотки
 
 <Box>
-<GuideEntityEmbed Entity="ADTXenobiologyMonkeyRecycler"/>
+<GuideEntityEmbed Entity="HydroponicsTrayEmpty"/>
 </Box>
 <Box>
 <GuideEntityEmbed Entity="MatterBinStockPart"/>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
 </Box>
-Ёмкость материи увеличивает выход кубов: до 4 на тире 4 и до 8 на тире 5.
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Ёмкость материи</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Больше воды и удобрений[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сервопривод</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#ff7a7a]Выше расход воды и удобрений - не перестарайтесь[/color]</Box></ColorBox>
+</Table>
+
+### Экстрактор семян
+
+<Box>
+<GuideEntityEmbed Entity="SeedExtractor"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+</Box>
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Эффект[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сервопривод</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]Больше извлекаемых семян[/color]</Box></ColorBox>
+</Table>
 
 </Document>

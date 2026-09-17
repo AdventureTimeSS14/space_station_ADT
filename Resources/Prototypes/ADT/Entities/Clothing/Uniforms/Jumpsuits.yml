@@ -1531,4 +1531,16 @@
    - type: Sprite
      sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_yellow.rsi
    - type: Clothing
-     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_yellow.rsi 
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/vox_suit_yellow.rsi
+
+#РХБЗЗ
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformCBURN
+  name: cburn uniform
+  description: cburn uniform
+  components:
+   - type: Sprite
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/cburn.rsi
+   - type: Clothing
+     sprite: ADT/Clothing/Uniforms/Jumpsuit/cburn.rsi

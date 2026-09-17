@@ -43,7 +43,6 @@ public partial class XenobiologySystem
         slime.MaxOffspring += _random.Next(-1, 2);
         slime.ExtractsProduced += _random.Next(0, 2);
         slime.MitosisHunger *= _random.NextFloat(0.75f, 1.2f);
-        Dirty(args.Target, slime);
     }
 
     private void OnSlimeShutdown(Entity<SlimeComponent> ent, ref ComponentShutdown args)
@@ -67,9 +66,15 @@ public partial class XenobiologySystem
         ent.Comp.NextUpdateTime = _gameTiming.CurTime + ent.Comp.UpdateInterval;
     }
 
+    private readonly HashSet<Entity<SlimeComponent, MobGrowthComponent, HungerComponent>> _eligibleSlimes = [];
+    private readonly Dictionary<EntityUid, int> _slimeDensityByGrid = [];
+
     private void UpdateMitosis()
     {
-        var eligibleSlimes = new HashSet<Entity<SlimeComponent, MobGrowthComponent, HungerComponent>>();
+        if (_net.IsClient)
+            return;
+
+        _eligibleSlimes.Clear();
 
         var query = EntityQueryEnumerator<SlimeComponent, MobGrowthComponent, HungerComponent>();
         while (query.MoveNext(out var uid, out var slime, out var growthComp, out var hungerComp))
@@ -79,11 +84,16 @@ public partial class XenobiologySystem
                 || growthComp.IsFirstStage)
                 continue;
 
-            eligibleSlimes.Add((uid, slime, growthComp, hungerComp));
+            _eligibleSlimes.Add((uid, slime, growthComp, hungerComp));
             slime.NextUpdateTime = _gameTiming.CurTime + slime.UpdateInterval;
         }
 
-        foreach (var ent in eligibleSlimes)
+        if (_eligibleSlimes.Count == 0)
+            return;
+
+        ComputeSlimeDensity();
+
+        foreach (var ent in _eligibleSlimes)
         {
             var hunger = _hunger.GetHunger(ent);
 
@@ -93,18 +103,15 @@ public partial class XenobiologySystem
             if (hunger < ent.Comp1.MitosisHunger)
                 continue;
 
-            DoMitosis(ent);
+            DoMitosis(ent, GetGridSlimeDensity(ent));
         }
     }
 
-    private void DoMitosis(Entity<SlimeComponent> ent)
+    private void DoMitosis(Entity<SlimeComponent> ent, int localDensity)
     {
-        if (_net.IsClient)
-            return;
-
         var offspringCount = _random.Next(1, ent.Comp.MaxOffspring + 1);
 
-        var slowdown = GetBreedingSlowdown(ent);
+        var slowdown = GetBreedingSlowdown(ent, localDensity);
         if (slowdown >= 1f)
             return;
 
@@ -183,9 +190,6 @@ public partial class XenobiologySystem
 
     private void MakeMitosisFriends(Entity<SlimeComponent> ent, List<EntityUid> offspring)
     {
-        if (_net.IsClient)
-            return;
-
         var range = ent.Comp.FriendSightRange;
         if (range <= 0f)
             return;
@@ -217,7 +221,7 @@ public partial class XenobiologySystem
     private Entity<SlimeComponent>? SpawnSlime(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
     {
         if (Deleted(parent)
-        || !_prototypeManager.TryIndex(selectedBreed, out _) || _net.IsClient)
+        || !_prototypeManager.TryIndex(selectedBreed, out _))
             return null;
 
         var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent);
@@ -248,7 +252,6 @@ public partial class XenobiologySystem
 
         _appearance.SetData(ent, XenoSlimeVisuals.Color, slime.SlimeColor);
         _mobGrowth.SetBaseName(ent, Loc.GetString(breed.BreedName));
-        Dirty(ent);
     }
 
     /// <summary>
@@ -275,12 +278,30 @@ public partial class XenobiologySystem
         return count;
     }
 
+    private void ComputeSlimeDensity()
+    {
+        _slimeDensityByGrid.Clear();
+
+        var query = EntityQueryEnumerator<SlimeComponent, TransformComponent>();
+        while (query.MoveNext(out _, out _, out var xform))
+        {
+            var grid = xform.GridUid ?? EntityUid.Invalid;
+            _slimeDensityByGrid[grid] = _slimeDensityByGrid.GetValueOrDefault(grid) + 1;
+        }
+    }
+
+    private int GetGridSlimeDensity(Entity<SlimeComponent> ent)
+    {
+        var grid = Transform(ent).GridUid ?? EntityUid.Invalid;
+        return Math.Max(0, _slimeDensityByGrid.GetValueOrDefault(grid) - 1);
+    }
+
     /// <summary>
     /// Computes a breeding slowdown factor in the range [0, 1] based on local slime density.
     /// 0 means no slowdown (breeding unaffected), approaching 1 means breeding is nearly halted.
     /// The slowdown ramps up progressively between the slowdown-start threshold and the max cap.
     /// </summary>
-    public float GetBreedingSlowdown(Entity<SlimeComponent> ent)
+    public float GetBreedingSlowdown(Entity<SlimeComponent> ent, int? localDensity = null)
     {
         var max = _configuration.GetCVar(SimpleStationCCVars.XenobiologyMaxSlimesPerGrid);
         var start = _configuration.GetCVar(SimpleStationCCVars.XenobiologyBreedingSlowdownStart);
@@ -289,7 +310,7 @@ public partial class XenobiologySystem
         if (max <= 0 || factor <= 0)
             return 0f;
 
-        var density = GetLocalSlimeDensity(ent);
+        var density = localDensity ?? GetLocalSlimeDensity(ent);
         if (density <= start)
             return 0f;
 

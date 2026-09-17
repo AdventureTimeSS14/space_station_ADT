@@ -1,62 +1,69 @@
 - type: startingGear
   id: ADTCBURNGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorBrown
+    jumpsuit: ADTClothingUniformCBURN
     back: ClothingBackpackDuffelCBURN
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesNightVisionAdvanced
     ears: ClothingHeadsetAltCentCom
+    neck: ADTClothingBeltHolsterN1984Fill
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitCBURN
-    shoes: ClothingShoesBootsMag
+    shoes: ADTClothingShoesBootsMagERT
     id: CBURNPDA
-    pocket2: WeaponLaserGun
-    belt: ClothingBeltMilitaryWebbing
-    suitstorage: WeaponShotgunEnforcer
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERTCBURN
+    belt: ADTShipBattleClothingBeltWarbelt
+    suitstorage: JetpackBlackFilled
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
-    - CrowbarOrange
-    - Chainsaw
-    - MedkitCombatFilled
-    - MagazineShotgunIncendiary
-    - MagazineShotgunIncendiary
-    - MagazineShotgun
-    - GrenadeFlashBang
     - PillAmbuzolPlus
-    - SpaceCash500
-    - BoxShotgunIncendiary
-    - BoxLethalshot
+    - ADTWeaponChainsword
+    - FoodSnackNutribrick
+    - FoodSnackNutribrick
+    - DrinkWaterBottleFull
+    - DrinkWaterBottleFull
+    - PinpointerNuclear
+    - SpaceCash1000
+    - CombatKnife
+    - ADTMedkitERTFilled
+    - CrowbarGreen
 
 - type: startingGear
   id: ADTCmndCBURNGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorBrown
+    jumpsuit: ADTClothingUniformCBURN
     back: ClothingBackpackDuffelCBURN
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesNightVisionAdvanced
     ears: ClothingHeadsetAltCentCom
+    neck: ADTClothingBeltHolsterN1984Fill
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitCBURNLeader
     shoes: ADTClothingShoesBootsMagERT
     id: CBURNPDA
-    pocket1: WeaponPulsePistol
-    pocket2: DoubleEmergencyOxygenTankFilled
-    suitstorage: WeaponShotgunBulldog
-    belt: ADTClothingBeltMilitaryWebbingCBURNFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERTCBURNLeader
+    belt: ADTShipBattleClothingBeltWarbelt
+    suitstorage: JetpackBlackFilled
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
-    - BoxSurvivalEngineering
     - JawsOfLife
-    - Chainsaw
-    - MedkitCombatFilled
-    - GrenadeFlashBang
     - PillAmbuzolPlus
-    - RubberStampCentcom
+    - ADTWeaponChainsword
+    - FoodSnackNutribrick
+    - FoodSnackNutribrick
+    - DrinkWaterBottleFull
+    - DrinkWaterBottleFull
+    - PinpointerNuclear
     - SpaceCash1000
-    - ADTertRevolutionaryMechUplink
+    - CombatKnife
+    - ADTMedkitERTFilled
+    - BoxFolderCentCom
+    - RubberStampCentcom

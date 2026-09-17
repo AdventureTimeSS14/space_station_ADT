@@ -43,6 +43,8 @@ public abstract class SharedBloodstreamSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedSyllableSystem _syllableSystem = default!; //ADT-Tweak
 
+    [Dependency] private EntityQuery<BloodstreamComponent> _bloodstreamQuery = default!; // ADT-Tweak
+
     public override void Initialize()
     {
         base.Initialize();
@@ -92,6 +94,11 @@ public abstract class SharedBloodstreamSystem : EntitySystem
 
                     _damageableSystem.TryChangeDamage(uid, amt, ignoreResistances: false, interruptsDoAfters: false);
 
+                    // ADT-Tweak-Start
+                    if (!_bloodstreamQuery.HasComp(uid))
+                        continue;
+                    // ADT-Tweak-End
+
                     // Apply dizziness as a symptom of bloodloss.
                     // The effect is applied in a way that it will never be cleared without being healthy.
                     // Multiplying by 2 is arbitrary but works for this case, it just prevents the time from running out
@@ -102,6 +109,11 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                 {
                     // If they're healthy, we'll try and heal some bloodloss instead.
                     _damageableSystem.TryChangeDamage(uid, bloodstream.BloodlossHealDamage * bloodPercentage, ignoreResistances: true, interruptsDoAfters: false);
+
+                    // ADT-Tweak-Start
+                    if (!_bloodstreamQuery.HasComp(uid))
+                        continue;
+                    // ADT-Tweak-End
 
                     _status.TryRemoveStatusEffect(uid, Bloodloss);
                     _syllableSystem.DoRemoveSyllable(uid); // ADT-Tweak

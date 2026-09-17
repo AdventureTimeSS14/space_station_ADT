@@ -14,7 +14,7 @@ public sealed class HealOnHoldingSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [ValidatePrototypeId<EntityPrototype>]
-    private const string HealEffect = "ADTEffectHealPlusTripleYellow";
+    private const string HealEffect = "ADTEffectHealBusyFlash";
     public override void Initialize()
     {
         base.Initialize();

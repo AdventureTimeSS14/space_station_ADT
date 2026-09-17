@@ -38,11 +38,13 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
         // If all we did was update amounts then we can leave BUI buttons in place.
         var fullUiUpdate = !component.Inventory.Keys.SequenceEqual(state.Inventory.Keys) ||
                            !component.EmaggedInventory.Keys.SequenceEqual(state.EmaggedInventory.Keys) ||
-                           !component.ContrabandInventory.Keys.SequenceEqual(state.ContrabandInventory.Keys);
+                           !component.ContrabandInventory.Keys.SequenceEqual(state.ContrabandInventory.Keys) ||
+                           !component.ReturnedInventory.Keys.SequenceEqual(state.ReturnedInventory.Keys); //ADT-Return
 
         component.Inventory.Clear();
         component.EmaggedInventory.Clear();
         component.ContrabandInventory.Clear();
+        component.ReturnedInventory = new(state.ReturnedInventory); //ADT-Return
 
         foreach (var entry in state.Inventory)
         {
