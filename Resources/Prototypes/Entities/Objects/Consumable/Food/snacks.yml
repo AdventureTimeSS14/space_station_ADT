@@ -17,7 +17,7 @@
         maxVol: 30 # Room for extra condiments
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 5 # ADT-Tweak 10 > 5
   - type: Item
     sprite: Objects/Consumable/Food/snacks.rsi
     heldPrefix: packet
@@ -145,7 +145,7 @@
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5 # ADT-Tweak 10 > 5
+          Quantity: 2.5 # ADT-Tweak 10 > 5 > 2.5
         - ReagentId: Theobromine
           Quantity: 3
         - ReagentId: CocoaPowder
@@ -198,7 +198,7 @@
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 2.5
   # ADT-Tweak end
 
 - type: entity
@@ -384,7 +384,7 @@
         maxVol: 30 # Room for extra condiments
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 5 # ADT-Tweak 10 > 5
         - ReagentId: Soysauce
           Quantity: 2
   - type: Edible
@@ -413,7 +413,7 @@
         maxVol: 30 # Room for extra condiments
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 5 # ADT-Tweak 10 > 5
         - ReagentId: CapsaicinOil
           Quantity: 2
         - ReagentId: Soysauce
@@ -439,7 +439,7 @@
         maxVol: 1
         reagents:
         - ReagentId: Nutriment
-          Quantity: 1
+          Quantity: 0.5 # ADT-Tweak 1 > 0.5
   - type: Item
     sprite: Objects/Consumable/Food/snacks.rsi
     heldPrefix: cookie_fortune
@@ -496,7 +496,7 @@
         maxVol: 25
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 10 # ADT-Tweak 20 > 10
 
 - type: entity
   parent: BaseItem
@@ -542,7 +542,7 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 5 # ADT-Tweak 10 > 5
         - ReagentId: Theobromine
           Quantity: 3
 

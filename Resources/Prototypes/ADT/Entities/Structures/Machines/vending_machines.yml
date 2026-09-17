@@ -215,7 +215,6 @@
     denyState: deny-unshaded
     priceMultiplier: 0.57 # ADT-Economy
     ejectDelay: 1
-  - type: ADTVendingFoodNutrimentReduction
   - type: DatasetVocalizer
     dataset: IceCreammatAds
   - type: SpeakOnUIClosed
@@ -330,7 +329,6 @@
     denyState: deny-unshaded
     initialStockQuality: 0.33
     allForFree: true # ADT-Economy
-  - type: ADTVendingFoodNutrimentReduction
 
 - type: entity
   parent: VendingMachine
