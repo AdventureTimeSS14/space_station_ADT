@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseObjective
   id: ObjectiveDelayedPlaceholder
-  name: objective-delayed-title
-  description: bjective-delayed-description
+  name: Objectives will be sent later
+  description: The agency will send your objectives later, watch for notifications
   components:
   - type: Objective
     difficulty: 0
