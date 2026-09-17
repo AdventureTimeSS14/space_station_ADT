@@ -1,3 +1,4 @@
+using Content.Server.Chat.Managers;
 using Content.Server.Medical.CrewMonitoring;
 using Content.Shared.ADT.StationAi;
 using Content.Shared.Chat;
@@ -13,6 +14,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Server.ADT.StationAi;
@@ -27,6 +29,12 @@ public sealed class AiEyeTeleportSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly IChatManager _chat = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+
+    private const float TeleportCooldown = 10f;
+
+    private readonly Dictionary<EntityUid, TimeSpan> _nextTeleportAt = new();
 
     private EntityQuery<BroadphaseComponent> _broadphaseQuery = default!;
     private EntityQuery<MapGridComponent> _gridQuery = default!;
@@ -42,12 +50,19 @@ public sealed class AiEyeTeleportSystem : EntitySystem
         {
             subs.Event<CrewMonitoringAiEyeTeleportMessage>(OnCrewMonitorAiEyeTeleport);
         });
+
+        SubscribeLocalEvent<StationAiCoreComponent, EntityTerminatingEvent>(OnCoreTerminating);
+    }
+
+    private void OnCoreTerminating(EntityUid uid, StationAiCoreComponent component, ref EntityTerminatingEvent args)
+    {
+        _nextTeleportAt.Remove(uid);
     }
 
     private void OnCrewMonitorAiEyeTeleport(Entity<CrewMonitoringConsoleComponent> ent, ref CrewMonitoringAiEyeTeleportMessage msg)
     {
         if (TryComp<ActorComponent>(msg.Actor, out _))
-            TryTeleportAndPopup(msg.Actor, msg.Target, requireCamera: true);
+            TryTeleportAndNotify(msg.Actor, msg.Target, requireCamera: true);
     }
 
     private void OnAiEyeTeleport(MsgAiEyeTeleport msg)
@@ -56,19 +71,31 @@ public sealed class AiEyeTeleportSystem : EntitySystem
         if (session.AttachedEntity is not { } playerEntity)
             return;
 
-        TryTeleportAndPopup(playerEntity, msg.Target, requireCamera: true);
+        TryTeleportAndNotify(playerEntity, msg.Target, requireCamera: true);
     }
 
-    private void TryTeleportAndPopup(EntityUid aiUid, NetEntity target, bool requireCamera)
+    private void TryTeleportAndNotify(EntityUid aiUid, NetEntity target, bool requireCamera)
     {
         var targetEntity = GetEntity(target);
         if (!targetEntity.IsValid())
             return;
 
-        if (TryTeleportEye(aiUid, targetEntity, requireCamera, out var failReason) || failReason == null)
+        if (TryTeleportEye(aiUid, targetEntity, requireCamera, out var failReason))
             return;
 
-        _popup.PopupEntity(failReason, aiUid, aiUid);
+        if (failReason == null)
+            return;
+
+        SendChatToAi(aiUid, failReason);
+    }
+
+    private void SendChatToAi(EntityUid aiUid, string message)
+    {
+        if (!TryComp<ActorComponent>(aiUid, out var actor))
+            return;
+
+        var wrappedMessage = $"[font size=20][color=red]{FormattedMessage.EscapeText(message)}[/color][/font]";
+        _chat.ChatMessageToOne(ChatChannel.Server, message, wrappedMessage, aiUid, false, actor.PlayerSession.Channel);
     }
 
     private bool TryTeleportEye(EntityUid aiUid, EntityUid target, bool requireCamera, out string? failReason)
@@ -77,6 +104,12 @@ public sealed class AiEyeTeleportSystem : EntitySystem
 
         if (!TryGetEye(aiUid, out var core))
             return false;
+
+        if (_nextTeleportAt.TryGetValue(core.Owner, out var nextTeleportAt) && _timing.CurTime < nextTeleportAt)
+        {
+            failReason = Loc.GetString("ai-eye-teleport-cooldown");
+            return false;
+        }
 
         if (requireCamera)
         {
@@ -90,6 +123,7 @@ public sealed class AiEyeTeleportSystem : EntitySystem
         }
 
         TeleportEye(aiUid, core, target);
+        _nextTeleportAt[core.Owner] = _timing.CurTime + TimeSpan.FromSeconds(TeleportCooldown);
         return true;
     }
 
@@ -103,8 +137,9 @@ public sealed class AiEyeTeleportSystem : EntitySystem
 
     private void TeleportEye(EntityUid aiUid, Entity<StationAiCoreComponent?> core, EntityUid target)
     {
-        _xforms.SetCoordinates(core.Comp!.RemoteEntity!.Value, Transform(target).Coordinates);
-        _popup.PopupEntity(Loc.GetString("ai-eye-teleport-success", ("name", Name(target))), aiUid, aiUid);
+        var eye = core.Comp!.RemoteEntity!.Value;
+        _xforms.SetCoordinates(eye, Transform(target).Coordinates);
+        _popup.PopupEntity(Loc.GetString("ai-eye-teleport-success", ("name", Name(target))), eye, aiUid);
     }
 
     public MsgChatMessage? TryAddRadioEyeLink(EntityUid receiver, MsgChatMessage chatMsg, EntityUid messageSource)
