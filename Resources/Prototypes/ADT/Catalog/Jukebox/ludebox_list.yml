@@ -17,7 +17,6 @@
   - ESCPNeonscapes
   - TheFallOfTheCorporation
   - WaitingForTheMeeting
-  - ADTThroughPatches
 
 - type: jukeboxList
   id: Rock
@@ -50,7 +49,6 @@
   jukeboxes:
   - ABeautifulLull
   - ATenseAdventure
-  - HotlineDaisuke
   - DOS
   - HappyEnding
   - InTheLandOfMagnolias

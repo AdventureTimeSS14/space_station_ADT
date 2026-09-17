@@ -14,52 +14,52 @@
   id: ADTOchenOchen
   name: 3. Очень-очень - hehehe
   path:
-    path: /Audio/ADT/Jukebox/romantic/Очень-очень.ogg
+    path: /Audio/ADT/Jukebox/romantic/ochen-ochen.ogg
 
 - type: jukebox
   id: ADTMedvedica
   name: 4. Медведица - Мумий Тролль
   path:
-    path: /Audio/ADT/Jukebox/romantic/Медведица.ogg
+    path: /Audio/ADT/Jukebox/romantic/Medvedica.ogg
 
 - type: jukebox
   id: ADTSolnce
   name: 5. Как я спасал солнце - ssshhhiiittt!!!
   path:
-    path: /Audio/ADT/Jukebox/romantic/Как-я-спасал-солнце.ogg
+    path: /Audio/ADT/Jukebox/romantic/solnce.ogg
 
 - type: jukebox
   id: ADTtancuy
   name: 6. Танцуй! - Сплин
   path:
-    path: /Audio/ADT/Jukebox/romantic/Танцуй!.ogg
+    path: /Audio/ADT/Jukebox/romantic/tancui.ogg
 
 - type: jukebox
   id: ADTSmisl
   name: 7. Смысла было бы больше - Дегид
   path:
-    path: /Audio/ADT/Jukebox/romantic/Смысла-было-бы-больше.ogg
+    path: /Audio/ADT/Jukebox/romantic/smisl.ogg
 
 - type: jukebox
   id: ADTAtractcion
   name: 8. Аттракцион - Дегид
   path:
-    path: /Audio/ADT/Jukebox/romantic/Аттракцион.ogg
+    path: /Audio/ADT/Jukebox/romantic/atrac.ogg
 
 - type: jukebox
   id: ADTSurf
   name: 9. Сёрф - Дегид
   path:
-    path: /Audio/ADT/Jukebox/romantic/Сёрф.ogg
+    path: /Audio/ADT/Jukebox/romantic/serf.ogg
 
 - type: jukebox
   id: ADTPlastinki
   name: 10. Пластинки - Дурной Вкус
   path:
-    path: /Audio/ADT/Jukebox/romantic/Пластинки.ogg
+    path: /Audio/ADT/Jukebox/romantic/plastinki.ogg
 
 - type: jukebox
   id: ADTDrug
   name: 11. Друг - Дайте танк (!)
   path:
-    path: /Audio/ADT/Jukebox/romantic/Друг.ogg
+    path: /Audio/ADT/Jukebox/romantic/drug.ogg
