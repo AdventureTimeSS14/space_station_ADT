@@ -1,0 +1,42 @@
+- type: entity
+  parent: BaseItem
+  abstract: true
+  name: transform cube
+  description: A cube that can transform items into a different form.
+  suffix: Personal
+  id: ADTBaseTransCube
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: Objects/Misc/monkeycube.rsi # Ну я не буду придумывать велосипед, пусть будет как кубик, это можно и изменить.
+
+- type: entity
+  parent: ADTBaseTransCube
+  id: ADTTransCubeLemonLimeLord
+  components:
+  - type: Sprite
+    state: wrapper
+  - type: Tag
+    tags:
+    - ADTLemonLimeLord
+
+- type: entity
+  parent: ADTBaseTransCube
+  id: ADTTransCubePrazatCool
+  components:
+  - type: Sprite
+    state: wrapper
+  - type: Tag
+    tags:
+    - ADTPrazatCool
+
+- type: entity
+  parent: ADTBaseTransCube
+  id: ADTTransCubeCouatl
+  components:
+  - type: Sprite
+    state: wrapper
+  - type: Tag
+    tags:
+    - ADTCouatl

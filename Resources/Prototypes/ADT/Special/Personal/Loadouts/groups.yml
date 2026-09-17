@@ -1,0 +1,129 @@
+- type: loadoutGroup
+  id: ADTPersonalLoadoutAll
+  name: arbuz
+  minLimit: 1
+  maxLimit: 5
+  loadouts:
+  - ADTOfficerMantleKiwiFruit
+
+# - type: loadoutGroup
+#   id: ADTPersonalLoadoutPlushie
+#   name: arbuz
+#   minLimit: 1
+#   maxLimit: 5
+#   loadouts:
+#   -
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutSecurity
+  name: arbuz
+  minLimit: 1
+  maxLimit: 5
+  loadouts:
+  - ADTOfficerMantleRaven559
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutLawyer
+  name: arbuz
+  minLimit: 1
+  maxLimit: 5
+  loadouts:
+  - ADTBriefcaseSaintMadman
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutCivilian
+  name: arbuz
+  minLimit: 1
+  maxLimit: 5
+  loadouts:
+  - ADTBriefcaseRedLis
+  - ADTBriefcasePushnoY
+  - ADTDuffelAnagiri
+  - ADTBriefcaseNikLi
+  - ADTBriefcaseHonelin111
+  - ADTBriefcaseMoon_so_red
+  - ADTPirateSuitBarCow
+  - ADTGentleCoatBarCow
+  - ADTBibleDescente
+  - ADTSensorsSyrel
+  - ADTBriefcaseSaintMadman
+# - type: loadoutGroup
+#   id: ADTPersonalLoadoutCommand
+#   name: arbuz
+#   minLimit: 1
+#   maxLimit: 5
+#   loadouts:
+#   -
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutCapitan
+  name: arbuz
+  minLimit: 1
+  maxLimit: 5
+  loadouts:
+  - ADTBriefcasePrazatCool
+  - ADTBriefcaseSaintMadman
+
+# - type: loadoutGroup
+#   id: ADTPersonalLoadoutResearchDirector
+#   name: arbuz
+#   minLimit: 1
+#   maxLimit: 5
+#   loadouts:
+#   -
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutQuarterMaster
+  name: arbuz
+  minLimit: 1
+  maxLimit: 5
+  loadouts:
+  - ADTBriefcaseRedLis
+
+# - type: loadoutGroup
+#   id: ADTPersonalLoadoutChiefEngineer
+#   name: arbuz
+#   minLimit: 1
+#   maxLimit: 5
+#   loadouts:
+#   -
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutChiefMedicalOfficer
+  name: arbuz
+  minLimit: 1
+  maxLimit: 5
+  loadouts:
+  - ADTParamedicHardsuitLemonLimeLord
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutHeadOfSecurity
+  name: arbuz
+  minLimit: 1
+  maxLimit: 5
+  loadouts:
+  - ADTOfficerMantleRaven559
+
+# - type: loadoutGroup
+#   id: ADTPersonalLoadoutHeadOfPersonnel
+#   name: arbuz
+#   minLimit: 1
+#   maxLimit: 5
+#   loadouts:
+#   -
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutBlueShieldOfficer
+  name: arbuz
+  minLimit: 1
+  maxLimit: 5
+  loadouts:
+  - ADTBriefcaseRaven559
+
+- type: loadoutGroup
+  id: ADTPersonalLoadoutInternalAffairsAgent
+  name: arbuz
+  minLimit: 1
+  maxLimit: 5
+  loadouts:
+  - ADTBriefcaseRaven559

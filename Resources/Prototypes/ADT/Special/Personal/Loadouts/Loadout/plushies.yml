@@ -1,0 +1,6 @@
+- type: loadout
+  sponsorOnly: true
+  id: ADTPlushie
+  storage:
+    back:
+    - ADTPlushie

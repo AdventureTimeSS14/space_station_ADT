@@ -302,6 +302,9 @@
     tags:
     - Sidearm
     - ADTBsoWeapon
+  - type: Construction
+    graph: ADTPistolTransforms
+    node: start
 # ADT TWEAK END
 
 - type: entity

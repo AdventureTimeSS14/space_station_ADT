@@ -1,0 +1,57 @@
+# При разных трансформациях одного предмета брать пример с Resources\Prototypes\ADT\Recipes\Construction\Graph\furniture\seats.yml
+# И необходимо будет вытаскивать такой крафт отсюда и закидывать в папку Complex, создавая свой ямл для каждой графы
+# это на будущее
+
+- type: constructionGraph
+  id: ADTParamedicHardsuitTransforms
+  start: start
+  graph:
+  - node: start
+    entity: ClothingOuterHardsuitVoidParamed
+    edges:
+    - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
+      steps:
+      - tag: ADTLemonLimeLord
+        doAfter: 1
+  - node: icon
+    entity: ADTClothingOuterHardsuitParamedLemon
+
+- type: constructionGraph
+  id: ADTBeltSheathTransforms
+  start: start
+  graph:
+  - node: start
+    entity: ClothingBeltSheath
+    edges:
+    - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
+      steps:
+      - tag: ADTPrazatCool
+        doAfter: 1
+  - node: icon
+    entity: ADTClothingBeltPrazatSheath
+
+- type: constructionGraph
+  id: ADTPistolTransforms
+  start: start
+  graph:
+  - node: start
+    entity: WeaponPistolMk58
+    edges:
+    - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
+      steps:
+      - tag: ADTCouatl
+        doAfter: 1
+  - node: icon
+    entity: ADTWeaponRevolverArgumentCouatl

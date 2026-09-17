@@ -1,0 +1,57 @@
+- type: loadout
+  sponsorOnly: true
+  id: ADTParamedicHardsuitLemonLimeLord
+  storage:
+    back:
+    - ADTTransCubeLemonLimeLord
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTOfficerMantleKiwiFruit
+  storage:
+    back:
+    - ADTClothingHandsKiwiFruitBracelet
+    - ADTClothingNeckShipTestRedLis
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTPirateSuitBarCow
+  storage:
+    back:
+    - ClothingOuterCoatPirate
+    - ClothingHeadHatPirate
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTGentleCoatBarCow
+  storage:
+    back:
+    - ClothingOuterCoatGentle
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTOfficerMantleRaven559
+  storage:
+    back:
+    - ADTClothingNeckRaven559SecOfficerMantle
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTBibleDescente
+  storage:
+    back:
+    - ADTBibleContemplator
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTSensorsSyrel
+  storage:
+    back:
+    - ADTClothingUniformSensors
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTRevolverCouatl
+  storage:
+    back:
+    - ADTTransCubeCouatl

@@ -1,0 +1,54 @@
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTBriefcaseRedLis
+  inhand:
+  - ADTBriefcaseBrownRedLis
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTBriefcasePushnoY
+  inhand:
+  - ADTBriefcaseBrownPushnoY
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTDuffelAnagiri
+  inhand:
+  - ADTClothingBackpackDuffelAnagiriFilled
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTBriefcaseRaven559
+  inhand:
+  - ADTBriefcaseBrownRaven559
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTBriefcaseNikLi
+  inhand:
+  - ADTBriefcaseBrownNikLi
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTBriefcaseHonelin111
+  inhand:
+  - ADTBriefcaseBrownHonelin111
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTBriefcaseMoon_so_red
+  inhand:
+  - ADTBriefcaseBrownMoon_so_red
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTBriefcasePrazatCool
+  inhand:
+  - ADTBriefcaseBrownPrazatCool
+
+- type: loadout
+  sponsorOnly: true
+  id: ADTBriefcaseSaintMadman
+  inhand:
+  - ADTBriefcaseBrownSaintMadman

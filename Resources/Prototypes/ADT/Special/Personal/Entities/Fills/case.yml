@@ -1,0 +1,122 @@
+- type: entity
+  id: ADTBriefcaseBrownRedLis
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingNeckShipTestRedLis
+        - id: ADTClothingHeadHatsShipTestRedLis
+        - id: ADTClothingShoesShipTestRedLis
+        - id: ADTClothingOuterCoatJacketShipTestRedLis
+        - id: ADTClothingUniformPyotrOfficialSuit
+        - id: ADTClothingOuterCoatShipTestRedLis
+
+- type: entity
+  id: ADTBriefcaseBrownPushnoY
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingUniformPushnoYJumpsuit
+        - id: ADTClothingHandsPushnoYGloves
+
+- type: entity
+  id: ADTBriefcaseBrownRaven559
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingHeadBSHelmet
+        - id: ADTClothingNeckRaven559OfficerBlueShieldMantle
+        - id: ADTClothingOuterBSArmor
+
+- type: entity
+  id: ADTBriefcaseBrownNikLi
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingNeckShipTestRedLis
+        - id: ADTClothingHeadHatsShipTestRedLis
+        - id: ADTClothingShoesShipTestRedLis
+
+- type: entity
+  id: ADTBriefcaseBrownHonelin111
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingHeadHatHonelin111Flower
+        - id: ADTClothingEarHonelin111GoldenEarring
+        - id: ADTClothingOuterHonelin111Jacket
+        - id: ADTClothingHandsHonelin111Gloves
+        - id: ADTSponsorClothingUniformHonelin111Dress
+        - id: ADTSponsorClothingUniformHonelin111Shirt
+        - id: ADTClothingNeckHonelin111Choker
+
+- type: entity
+  id: ADTBriefcaseBrownMoon_so_red
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingHeadHatMoon_so_redHat
+        - id: ADTMoon_so_redWand
+        - id: ADTClothingOuterMoon_so_redCoat
+        - id: ADTClothingEyesMoon_so_redGlasses
+
+- type: entity
+  id: ADTBriefcaseBrownPrazatCool
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTPrazatWhip
+        - id: ADTClothingUniformJumpsuitPrazatMentik
+        - id: ADTWeaponCasePrazat
+        - id: ADTClothingUniformJumpsuitPrazatOfficial
+        - id: ADTClothingUniformJumpsuitPrazatUlan
+        - id: ADTTransCubePrazatCool
+
+- type: entity
+  id: ADTBriefcaseBrownSaintMadman
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTClothingOuterCoatSaintMadman
+        - id: ADTClothingUniformJumpsuitSaintMadmanClothing
+        - id: ADTClothingNeckSaintMadmanMantle
+        - id: ClothingHeadHatHolyWatermelon

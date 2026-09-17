@@ -1,0 +1,19 @@
+- type: constructionGraph
+  id: ADTComplexTransformItemPersonal
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: adtpersonalitem1
+          steps:
+            - tag:
+              doAfter: 1
+        - to: adtpersonalitem2
+          steps:
+            - tag: Steel
+              doAfter: 1
+        - to: adtpersonalitem3
+          steps:
+            - tag: Steel
+              doAfter: 1
+# Переделать под тэги у кубиков, а не у предмета

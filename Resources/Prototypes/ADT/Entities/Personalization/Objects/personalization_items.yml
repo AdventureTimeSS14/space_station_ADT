@@ -1779,13 +1779,6 @@
           tags:
           - CaptainSabre
           - ADTWeaponMeleePrasatChainsword
-  - type: ContainerFill
-    containers:
-      item:
-      - CaptainSabre
-      storagebase:
-      - MagazineMagnum
-      - ADTMagazineMagnumLesser
   - type: Appearance
   - type: ClothingSpeedModifier
     walkModifier: 1.0
@@ -1803,6 +1796,9 @@
       storagebase: !type:Container
         ents: []
       item: !type:ContainerSlot
+  - type: Construction
+    graph: ADTBeltSheathTransforms
+    node: icon
 
 
 # - type: entity
@@ -2499,6 +2495,9 @@
   - type: Clothing
     sprite: ADT/Personalization/couatl_argument.rsi
   - type: AmmoCounter #ADT-tweak: единственный револьвер со счётчиком патронов
+  - type: Construction
+    graph: ADTPistolTransforms
+    node: icon
 
 #kugooergooer
 - type: entity

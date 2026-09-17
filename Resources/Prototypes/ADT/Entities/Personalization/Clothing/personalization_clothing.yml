@@ -1308,6 +1308,9 @@
   description: A void suit made for paramedics.
   suffix: Personal, LemonLimeLord
   components:
+  - type: Construction
+    graph: ADTParamedicHardsuitTransforms
+    node: icon
   - type: Sprite
     sprite: ADT/Personalization/lemon_paramedic_hardsuit.rsi
     layers:

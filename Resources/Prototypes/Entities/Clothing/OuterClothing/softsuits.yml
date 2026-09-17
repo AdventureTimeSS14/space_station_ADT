@@ -139,6 +139,9 @@
   # ADT-Tweak-Start
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.2
+  - type: Construction
+    graph: ADTParamedicHardsuitTransforms
+    node: start
   # ADT-Tweak-End
   - type: GroupExamine
   # - type: StealTarget ADT tweak
@@ -175,3 +178,4 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - ADTParamedicHardsuit
