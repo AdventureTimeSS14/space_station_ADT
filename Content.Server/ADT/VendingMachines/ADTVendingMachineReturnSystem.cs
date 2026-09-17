@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Power.EntitySystems;
-using Content.Server.VendingMachines;
 using Content.Shared.ADT.VendingMachines;
 using Content.Shared.Clothing.Components;
 using Content.Shared.IdentityManagement;
@@ -11,7 +10,6 @@ using Content.Shared.Popups;
 using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
 using Content.Shared.Throwing;
-using Content.Shared.VendingMachines;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
