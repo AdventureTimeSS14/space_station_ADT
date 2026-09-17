@@ -132,7 +132,12 @@ public sealed partial class JukeboxMenu : FancyWindow
     private static int GetLeadingNumber(string name)
     {
         var digits = name.TrimStart().TakeWhile(char.IsDigit).ToArray();
-        return digits.Length > 0 ? int.Parse(digits) : int.MaxValue;
+        if (digits.Length == 0)
+            return int.MaxValue;
+
+        return int.TryParse(new string(digits), out var result)
+            ? result
+            : int.MaxValue;
     }
     // ADT-Tweak end
 
