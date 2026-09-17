@@ -6,7 +6,7 @@
     HereticSacrificeHeadObjective: 1
 
 - type: weightedRandom
-  id: TraitorObjectiveGroups
+  id: ADTTraitorObjectiveGroups
   weights:
     TraitorObjectiveGroupSteal: 1
     TraitorObjectiveGroupState: 1

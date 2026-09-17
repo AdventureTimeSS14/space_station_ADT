@@ -225,10 +225,10 @@
   # TODO: uplink in yml
   - type: AntagRandomObjectives
     sets:
-    - groups: TraitorObjectiveGroups
-      maxPicks: 2 # ADT-Tweak: Убийство цели выдаются отложенно, итого =3 цели
-    maxDifficulty: 8 #ADT-tweak
   # ADT-Tweak start
+    - groups: ADTTraitorObjectiveGroups
+      maxPicks: 2
+    maxDifficulty: 8
   - type: AntagDelayedObjectives
     sets:
     - groups: DelayedTraitorObjectiveGroups
