@@ -7,7 +7,9 @@ os-settings-sounds = Звуки системы
 os-settings-animations = Анимации окон
 os-settings-clock = Показывать часы
 os-settings-activate = Активировать копию
-os-settings-activate-failed = Сервер активации { $publisher } не отвечает. Так и должно быть.
+os-settings-activate-failed = Сервер активации 
+    { $publisher } 
+    не отвечает. Так и должно быть.
 
 os-wallpaper-depths = Глубина
 os-wallpaper-grid = Сетка

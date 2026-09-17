@@ -451,18 +451,21 @@ public sealed class OsToastLayer : Control
 
         for (var i = ChildCount - 1; i >= 0; i--)
         {
-            var child = GetChild(i);
-            var slide = (1f - ((OsToast) child).Appear) * 24f;
+            if (GetChild(i) is not OsToast toast)
+                continue;
 
-            var top = bottom - ToastHeight;
+            var height = MathF.Max(ToastHeight, toast.DesiredSize.Y);
+            var slide = (1f - toast.Appear) * 24f;
 
-            child.Arrange(new UIBox2(
+            var top = bottom - height;
+
+            toast.Arrange(new UIBox2(
                 finalSize.X - ToastWidth - 10f + slide,
                 top,
                 finalSize.X - 10f + slide,
                 bottom));
 
-            bottom -= ToastHeight + 6f;
+            bottom -= height + 6f;
         }
 
         return finalSize;
