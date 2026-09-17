@@ -32,10 +32,6 @@ public sealed class AiEyeTeleportSystem : EntitySystem
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private const float TeleportCooldown = 10f;
-
-    private readonly Dictionary<EntityUid, TimeSpan> _nextTeleportAt = new();
-
     private EntityQuery<BroadphaseComponent> _broadphaseQuery = default!;
     private EntityQuery<MapGridComponent> _gridQuery = default!;
 
@@ -50,13 +46,6 @@ public sealed class AiEyeTeleportSystem : EntitySystem
         {
             subs.Event<CrewMonitoringAiEyeTeleportMessage>(OnCrewMonitorAiEyeTeleport);
         });
-
-        SubscribeLocalEvent<StationAiCoreComponent, EntityTerminatingEvent>(OnCoreTerminating);
-    }
-
-    private void OnCoreTerminating(EntityUid uid, StationAiCoreComponent component, ref EntityTerminatingEvent args)
-    {
-        _nextTeleportAt.Remove(uid);
     }
 
     private void OnCrewMonitorAiEyeTeleport(Entity<CrewMonitoringConsoleComponent> ent, ref CrewMonitoringAiEyeTeleportMessage msg)
@@ -105,7 +94,8 @@ public sealed class AiEyeTeleportSystem : EntitySystem
         if (!TryGetEye(aiUid, out var core))
             return false;
 
-        if (_nextTeleportAt.TryGetValue(core.Owner, out var nextTeleportAt) && _timing.CurTime < nextTeleportAt)
+        var cooldown = EnsureComp<AiEyeTeleportComponent>(core.Owner);
+        if (_timing.CurTime < cooldown.NextTeleportAt)
         {
             failReason = Loc.GetString("ai-eye-teleport-cooldown");
             return false;
@@ -123,7 +113,7 @@ public sealed class AiEyeTeleportSystem : EntitySystem
         }
 
         TeleportEye(aiUid, core, target);
-        _nextTeleportAt[core.Owner] = _timing.CurTime + TimeSpan.FromSeconds(TeleportCooldown);
+        cooldown.NextTeleportAt = _timing.CurTime + TimeSpan.FromSeconds(cooldown.Cooldown);
         return true;
     }
 
