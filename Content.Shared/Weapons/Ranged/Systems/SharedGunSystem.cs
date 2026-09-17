@@ -161,12 +161,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     private void OnShootRequest(RequestShootEvent msg, EntitySessionEventArgs args)
     {
-        // ADT-Tweak-Start: Goobstation - Multishot - Ensures that guns shooting at same time.
         var gunUid = GetEntity(msg.Gun);
-
-        if (HasComp<MultishotComponent>(gunUid))
-            return;
-        // ADT-Tweak-End: Goobstation - Multishot - Ensures that guns shooting at same time.
         var user = args.SenderSession.AttachedEntity;
 
         if (user == null ||
@@ -178,6 +173,11 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         if (gun.Owner != GetEntity(msg.Gun))
             return;
+
+        // ADT-Tweak-Start: Goobstation - Multishot - Ensures that guns shooting at same time.
+        if (HasComp<MultishotComponent>(gunUid))
+            return;
+        // ADT-Tweak-End: Goobstation - Multishot - Ensures that guns shooting at same time.
 
         // ADT Content start
         if (TryComp<MechPilotComponent>(user.Value, out var mechPilot))
