@@ -1,14 +1,15 @@
 - type: entity
   parent: BaseObjective
+  abstract: true
   id: ObjectiveDelayedPlaceholder
-  name: Objectives will be sent later
-  description: The agency will send your objectives later, watch for notifications
   components:
   - type: Objective
     difficulty: 0
     unique: false
     issuer: objective-issuer-syndicate
-    icon: Interface/VerbIcons/information.svg.192dpi.png
+    icon:
+      sprite: ADT/Objects/Specific/cybersun_uplink.rsi
+      state: icon
   - type: AntagDelayedObjectives
     sets: []
     maxDifficulty: 0
