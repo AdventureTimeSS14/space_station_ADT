@@ -97,6 +97,10 @@
     - id: FoodMeatSpider
       amount: 5
   - type: Reactive
+  # ADT-Tweak start
+    groups:
+      Acidic: [ Touch, Ingestion ]
+  # ADT-Tweak end
     reactions:
     - reagents: [Water]
       methods: [Touch]
@@ -120,6 +124,8 @@
     damage:
       types:
         Piercing: 5
+  - type: Damageable
+    damageModifierSet: ADTArachnid # ADT-Tweak
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

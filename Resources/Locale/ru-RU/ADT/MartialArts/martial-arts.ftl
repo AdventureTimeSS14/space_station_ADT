@@ -71,7 +71,7 @@ ninjutsu-combo-dirty-kill = грязное убийство
 ninjutsu-combo-takedown = удушающий захват
 ninjutsu-combo-assassinate = удар в спину
 
-hellrip-combo-flying-dropkick = детящий дропкик
+hellrip-combo-flying-dropkick = летящий дропкик
 hellrip-combo-head-rip = отрывание головы
 hellrip-combo-tear-down = разрыв
 hellrip-combo-hellish-slam = адский удар

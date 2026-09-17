@@ -96,7 +96,7 @@
     selectedMode: FullAuto
     availableModes:
     - FullAuto
-    fireRate: 3.5
+    fireRate: 3.3
   - type: HitscanMechAmmoProvider
     proto: RedLaser
     fireCost: 15
@@ -114,7 +114,7 @@
     selectedMode: FullAuto
     availableModes:
     - FullAuto
-    fireRate: 3
+    fireRate: 2.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanMechAmmoProvider

@@ -37,6 +37,12 @@ reagent-desc-styptic-powder = При нанесении на кожу зажив
 reagent-name-silver-sulfadiazine = Сульфадиазин серебра
 reagent-desc-silver-sulfadiazine = При нанесении на кожу заживляет ожоги.
 
+reagent-name-styptic-powder-patch = Кровоостанавливающая пудра (для пластыря)
+reagent-desc-styptic-powder-patch = Заживляет ушибы и останавливает кровотечение при попадании в кровь.
+
+reagent-name-silver-sulfadiazine-patch = Сульфадиазин серебра (для пластыря)
+reagent-desc-silver-sulfadiazine-patch = Заживляет ожоги при попадании в кровь.
+
 reagent-name-detoxisol = Детоксизол
 reagent-desc-detoxisol = Препарат, синтезированный на основе растительных ферментов, с целью всеобщей детоксикации организма. Имеет небольшой побочный эффект в виде небольших потерь верхних слоёв эпителия.
 

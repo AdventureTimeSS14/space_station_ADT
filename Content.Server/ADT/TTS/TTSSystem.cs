@@ -82,14 +82,15 @@ public sealed partial class TTSSystem : EntitySystem
     {
         _cfg.OnValueChanged(ADTTTSCVars.TTSEnabled, v => _isEnabled = v, true);
 
-        SubscribeLocalEvent<TransformSpeechEvent>(OnTransformSpeech);
         SubscribeLocalEvent<TTSComponent, EntitySpokeEvent>(OnEntitySpoke);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup);
 
         SubscribeNetworkEvent<RequestPreviewTTSEvent>(OnRequestPreviewTTS);
 
         RegisterRateLimits();
+        InitializeSanitize();
         InitializeRadio();
+        InitializeTunableRadio();
     }
 
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)

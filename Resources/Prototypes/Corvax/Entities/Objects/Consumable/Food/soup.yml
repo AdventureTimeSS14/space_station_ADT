@@ -21,7 +21,7 @@
     - type: SolutionContainerManager
       solutions:
         food:
-          maxVol: 30
+          maxVol: 40 #ADT_Tweak from 30 to 40 - для добавления соусов
           reagents:
             - ReagentId: Nutriment
               Quantity: 10

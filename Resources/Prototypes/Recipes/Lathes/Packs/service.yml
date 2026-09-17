@@ -79,9 +79,10 @@
   - ReagentGrinderIndustrialMachineCircuitboard
   - JukeboxCircuitBoard
   - DawInstrumentMachineCircuitboard
+  - ADTColormatMachineCircuitboard # ADT-Tweak
   # ADT-Tweak-Start
-  - ADTAdvancedMicrowaveMachineCircuitBoard
+  # - ADTAdvancedMicrowaveMachineCircuitBoard
   - ADTCoffeeMachineBluespaceCircuitboard
-  - ADTAdvancedReagentGrinderMachineCircuitboard
-  - ADTHydroponicsTrayAdvancedMachineCircuitboard
+  # - ADTAdvancedReagentGrinderMachineCircuitboard
+  # - ADTHydroponicsTrayAdvancedMachineCircuitboard
   # ADT-Tweak-End

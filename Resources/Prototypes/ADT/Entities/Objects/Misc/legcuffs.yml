@@ -1,0 +1,33 @@
+- type: entity
+  name: leg irons
+  parent: [BaseItem, BaseSecurityCommandContraband]
+  id: ADTLegCuffs
+  description: Heavy legcuffs
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: ADT/Objects/Misc/legcuffs.rsi
+    state: icon
+  - type: LegCuff
+    cuffedSprite:
+      sprite: ADT/Objects/Misc/legcuffs.rsi
+      state: leg-irons
+    applyDelay: 4
+    startCuffSound:
+      path: /Audio/ADT/Entities/Objects/handcuffs.ogg
+    removeCuffSound:
+      path: /Audio/ADT/Entities/Objects/handcuffs.ogg
+  - type: Ensnaring
+    freeTime: 4.0
+    breakoutTime: 12.0
+    walkSpeed: 0.4
+    sprintSpeed: 0.4
+    canMoveBreakout: false
+    canThrowTrigger: false
+    maxEnsnares: 1
+  - type: UseDelay
+    delay: 1
+  - type: GuideHelp
+    guides:
+    - Security

@@ -200,7 +200,7 @@
   - type: Machine
     board: TurboItemRechargerCircuitboard
   - type: Charger
-    chargeRate: 100
+    chargeRate: 50 # ADT-Tweak
   - type: ItemSlots
     slots:
       charger_slot:

@@ -36,6 +36,7 @@ loadout-group-clown-pocket1-adt = Клоун, карман 1
 loadout-group-clown-pocket2-adt = Клоун, карман 2
 loadout-group-musician-id-adt = Музыкант, ID
 loadout-group-musician-gloves-adt = Музыкант, перчатки
+loadout-group-musician-super-instruments = Супер-инструменты
 loadout-group-reporter-id-adt = Репортёр, ID
 loadout-group-bartender-gloves-adt = Бармен, перчатки
 loadout-group-boxer-id-adt = Боксёр, ID

@@ -123,7 +123,6 @@
   cost: 10000
   recipeUnlocks:
     - ADTPowerCellHyperRecipe
-    - ADTIndustrialChargerCircuitboard
   position: -1,-1  # ADT-Tweak I have to move it
   requiredTech:
   - AdvancedPowercells

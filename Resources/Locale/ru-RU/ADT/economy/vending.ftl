@@ -1,7 +1,9 @@
 vending-machine-return-success = Вы вернули { $item } в автомат.
+vending-machine-return-verb = Вернуть предмет
 vending-ui-credits-amount = Кредитов в автомате: { $credits }
 vending-machine-component-no-balance = Недостаточно средств.
 vending-user-balance = Баланс: { $balance }$
+vending-user-balance-admin = Баланс: системный Администратор
 vending-category-emagged = Скрытые
 vending-category-contraband = Контрабанда
 vending-category-misc = Прочее
@@ -23,3 +25,17 @@ vending-category-protection = Средства
 vending-category-sec-equipment = Снаряжение
 vending-category-medical = Медицина
 vending-category-med-equipment = Снаряжение
+vending-category-books = Книги
+
+vending-paint-window-title = Покраска одежды
+vending-paint-rgb = RGB
+vending-paint-hsv = HSV
+vending-paint-hex = HEX
+vending-paint-reset = Сбросить
+vending-paint-close = Закрыть
+vending-paint-hue = Hue:
+vending-paint-saturation = Saturation:
+vending-paint-value = Value:
+vending-paint-red = Red:
+vending-paint-green = Green:
+vending-paint-blue = Blue:

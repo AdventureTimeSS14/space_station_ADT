@@ -31,7 +31,7 @@ public sealed partial class ADTShadowlingAscendActionComponent : Component
     public bool BreakAllLights = true;
 
     [DataField]
-    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/ADT/hallucinations/veryfar_noise.ogg");
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/ADT/Shadowling/hilarious_agony.ogg");
 
     [DataField]
     public LocId Announcement = "shadowling-ascension-announcement";

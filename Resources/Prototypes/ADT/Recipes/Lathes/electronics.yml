@@ -1,22 +1,4 @@
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
-  id: ADTIndustrialChargerCircuitboard
-  result: ADTIndustrialChargerCircuitboard
-  completetime: 6
-  materials:
-     Steel: 100
-     Glass: 500
-     Gold: 100
-     Copper: 1000
-     Zinc: 100
-
-- type: latheRecipe
-  parent: MicrowaveMachineCircuitboard
-  id: ADTAdvancedMicrowaveMachineCircuitBoard
-  result: ADTAdvancedMicrowaveMachineCircuitBoard
-  completetime: 2
-
-- type: latheRecipe
   id: ADTColdplateMachineCircuitboard
   result: ADTColdplateMachineCircuitboard
   completetime: 4

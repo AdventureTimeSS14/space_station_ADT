@@ -71,6 +71,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+    fireRate: 3.3
   - type: BatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
@@ -551,7 +552,7 @@
     - Back
     - suitStorage
   - type: Gun
-    fireRate: 5
+    fireRate: 6
     selectedMode: FullAuto
     availableModes:
       - FullAuto
@@ -596,7 +597,7 @@
   - type: Item
     storedOffset: 0,-4
   - type: Gun
-    fireRate: 3.5
+    fireRate: 3.3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
       params:

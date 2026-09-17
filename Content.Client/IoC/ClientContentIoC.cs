@@ -5,6 +5,7 @@ using Content.Client.Clickable;
 using Content.Client.Corvax.DiscordAuth;
 using Content.Client.Corvax.JoinQueue;
 using Content.Client.Corvax.Sponsors;
+using Content.Shared.ADT.Sponsors;
 using Content.Client.ADT.TTS;
 using Content.Client.DebugMon;
 using Content.Client.Eui;
@@ -72,6 +73,10 @@ namespace Content.Client.IoC
             collection.Register<TitleWindowManager>();
             collection.Register<ClientsidePlaytimeTrackingManager>();
             collection.Register<SponsorsManager>(); // Corvax-Sponsors
+            // ADT-Tweak
+            collection.Register<Content.Client.ADT.Sponsors.SponsorManager>();
+            collection.Register<ISharedSponsorManager, Content.Client.ADT.Sponsors.SponsorManager>();
+            // ADT-Tweak
             collection.Register<JoinQueueManager>(); // Corvax-Queue
             collection.Register<DiscordAuthManager>(); // Corvax-DiscordAuth
             collection.Register<ExportManager>(); // ADT Export

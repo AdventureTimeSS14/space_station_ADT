@@ -2,6 +2,7 @@
     xmlns="https://spacestation14.io"
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:ui="clr-namespace:Content.Client.ADT.UserInterface.Controls"
+    xmlns:ven="clr-namespace:Content.Client.ADT.VendingMachines.UI"
     Name="EntryPanel"
     HorizontalExpand="True">
     <BoxContainer
@@ -15,9 +16,10 @@
             ModulateSelfOverride="#00000000"
             MinSize="26 26"
             VerticalAlignment="Center"/>
-        <EntityPrototypeView
-            Name="ItemPrototype"
-            MinSize="32 32"
+        <ven:VendingItemIcon
+            Name="ItemIcon"
+            MinSize="42 42"
+            HorizontalAlignment="Center"
             VerticalAlignment="Center"/>
         <ui:ADTMarqueeLabel
             Name="NameLabel"
@@ -30,6 +32,18 @@
             Name="CostLabel"
             MinWidth="80"
             VerticalAlignment="Center"/>
+        <Button
+            Name="ColorButton"
+            MinSize="26 26"
+            VerticalAlignment="Center">
+            <TextureRect
+                Name="PaletteIcon"
+                TexturePath="/Textures/Interface/palette.svg.png"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Stretch="Scale"
+                SetSize="20 20"/>
+        </Button>
         <PanelContainer
             MinSize="45 26"
             VerticalAlignment="Center">

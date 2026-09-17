@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.ComponentModel.DataAnnotations;
@@ -55,6 +55,11 @@ namespace Content.Server.Database
         public DbSet<AntagRollBonus> AntagRollBonus { get; set; } = null!;
         public DbSet<AntagRollBonusWipe> AntagRollBonusWipe { get; set; } = null!;
         // ADT-AntagRollBonus-End
+        // ADT-Tweak-Start
+        public DbSet<AdtSponsorTier> AdtSponsorTier { get; set; } = null!;
+        public DbSet<AdtSponsorGrant> AdtSponsorGrant { get; set; } = null!;
+        public DbSet<AdtSponsorPreference> AdtSponsorPreference { get; set; } = null!;
+        // ADT-Tweak-End
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -96,6 +101,25 @@ namespace Content.Server.Database
                 .HasIndex(p => new { p.UserId, p.Antag })
                 .IsUnique();
             // ADT-AntagRollBonus-End
+
+            // ADT-Tweak-Start
+            modelBuilder.Entity<AdtSponsorTier>()
+                .HasIndex(p => p.Name)
+                .IsUnique();
+
+            modelBuilder.Entity<AdtSponsorGrant>()
+                .HasIndex(p => new { p.UserId, p.Revoked });
+
+            modelBuilder.Entity<AdtSponsorGrant>()
+                .HasOne(p => p.Tier)
+                .WithMany(p => p.Grants)
+                .HasForeignKey(p => p.TierId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<AdtSponsorPreference>()
+                .HasIndex(p => p.UserId)
+                .IsUnique();
+            // ADT-Tweak-End
 
             modelBuilder.Entity<Profile>()
                 .HasIndex(p => new {p.Slot, PrefsId = p.PreferenceId})
@@ -754,6 +778,81 @@ namespace Content.Server.Database
         public DateTime LastWipe { get; set; }
     }
     // ADT-AntagRollBonus-End
+
+    // ADT-Tweak-Start
+    public class AdtSponsorTier
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Машинное имя, уникальное
+        /// </summary>
+        public string Name { get; set; } = null!;
+
+        /// <summary>
+        /// Название для игрока
+        /// </summary>
+        public string DisplayName { get; set; } = null!;
+
+        /// <summary>
+        /// Описание для админов
+        /// </summary>
+        public string Description { get; set; } = null!;
+
+        public int Priority { get; set; }
+
+        public bool Enabled { get; set; } = true;
+
+        public string Benefits { get; set; } = null!;
+
+        public DateTime CreatedAt { get; set; }
+
+        public List<AdtSponsorGrant> Grants { get; } = new();
+    }
+
+    public class AdtSponsorGrant
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        public Guid UserId { get; set; }
+
+        public int? TierId { get; set; }
+
+        public AdtSponsorTier? Tier { get; set; }
+
+        public int Priority { get; set; }
+
+        public string? Overrides { get; set; }
+
+        public string Comment { get; set; } = null!;
+
+        public DateTime CreatedAt { get; set; }
+
+        public Guid? CreatedBy { get; set; }
+
+        public DateTime? ExpiresAt { get; set; }
+
+        public bool Revoked { get; set; }
+
+        public DateTime? RevokedAt { get; set; }
+
+        public Guid? RevokedBy { get; set; }
+    }
+
+    public class AdtSponsorPreference
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        public Guid UserId { get; set; }
+
+        public string? OocColor { get; set; }
+
+        public string? GhostColor { get; set; }
+    }
+    // ADT-Tweak-End
 
     public class Round
     {

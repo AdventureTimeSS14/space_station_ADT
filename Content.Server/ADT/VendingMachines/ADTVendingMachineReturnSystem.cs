@@ -1,7 +1,8 @@
 using System.Linq;
 using System.Numerics;
-using Content.Server.VendingMachines;
+using Content.Server.Power.EntitySystems;
 using Content.Shared.ADT.VendingMachines;
+using Content.Shared.Clothing.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Objectives.Components;
@@ -9,7 +10,7 @@ using Content.Shared.Popups;
 using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
 using Content.Shared.Throwing;
-using Content.Shared.VendingMachines;
+using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
@@ -32,38 +33,60 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<VendingMachineComponent, ADTVendingReturnedEjectEvent>(OnReturnedEject);
+        SubscribeLocalEvent<VendingMachineComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
     }
 
-    public void TryReturnItem(EntityUid uid, VendingMachineComponent component, InteractUsingEvent args)
+    public bool TryReturnItem(EntityUid uid, VendingMachineComponent component, EntityUid user, EntityUid used)
     {
-        if (HasComp<StealTargetComponent>(args.Used) || ContainsStealTarget(args.Used))
+        if (HasComp<StealTargetComponent>(used) || ContainsStealTarget(used))
         {
             Deny(uid, component);
-            return;
+            return false;
         }
 
-        var protoId = MetaData(args.Used).EntityPrototype?.ID;
+        var protoId = MetaData(used).EntityPrototype?.ID;
         if (string.IsNullOrEmpty(protoId) || !component.Inventory.ContainsKey(protoId))
         {
             Deny(uid, component);
-            return;
+            return false;
         }
 
         var container = _container.EnsureContainer<Container>(uid, ReturnedItemsContainerId);
-        if (!_container.Insert(args.Used, container))
+        if (!_container.Insert(used, container))
         {
             Deny(uid, component);
-            return;
+            return false;
         }
 
         component.ReturnedInventory[protoId] = component.ReturnedInventory.GetValueOrDefault(protoId) + 1;
-
-        args.Handled = true;
         Dirty(uid, component);
+
         _popup.PopupEntity(
-            Loc.GetString("vending-machine-return-success", ("item", Identity.Entity(args.Used, EntityManager))),
-            uid, args.User);
+            Loc.GetString("vending-machine-return-success", ("item", Identity.Entity(used, EntityManager))),
+            uid, user);
         _audio.PlayPvs(component.SoundInsertCurrency, uid);
+        return true;
+    }
+
+    private void OnGetVerbs(EntityUid uid, VendingMachineComponent component, GetVerbsEvent<Verb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || args.Using is not { } used)
+            return;
+
+        if (component.Broken || !this.IsPowered(uid, EntityManager))
+            return;
+
+        var protoId = MetaData(used).EntityPrototype?.ID;
+        if (string.IsNullOrEmpty(protoId) || !component.Inventory.ContainsKey(protoId))
+            return;
+
+        Verb verb = new()
+        {
+            Text = Loc.GetString("vending-machine-return-verb"),
+            Category = VerbCategory.Insert,
+            Act = () => TryReturnItem(uid, component, args.User, used),
+        };
+        args.Verbs.Add(verb);
     }
     private bool ContainsStealTarget(EntityUid item)
     {
@@ -86,6 +109,8 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
             if (!Exists(returned))
                 break;
 
+            PaintClothing(returned, args.PaintColor);
+
             _container.Remove(returned, container, force: true, destination: args.Coordinates);
 
             if (args.ThrowItem)
@@ -100,5 +125,23 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
     private void Deny(EntityUid uid, VendingMachineComponent component)
     {
         _vending.Deny(uid, component);
+    }
+
+    public void PaintClothing(EntityUid uid, Color? color)
+    {
+        if (!HasComp<ClothingComponent>(uid))
+            return;
+
+        if (color is { } paintColor)
+        {
+            var paint = EnsureComp<ADTClothingPaintComponent>(uid);
+            paint.PaintColor = paintColor;
+            Dirty(uid, paint);
+        }
+        else if (TryComp<ADTClothingPaintComponent>(uid, out var paint))
+        {
+            paint.PaintColor = null;
+            Dirty(uid, paint);
+        }
     }
 }

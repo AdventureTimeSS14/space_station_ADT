@@ -371,8 +371,14 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(user)} converted {ToPrettyString(target)} into a Revolutionary");
 
+        if (mindId == default || !_role.MindHasRole<RevolutionaryRoleComponent>(mindId))
+            _role.MindAddRole(mindId, "MindRoleRevolutionary");
+
         if (_mind.TryGetMind(user, out var revMindId, out _) && _role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role))
+        {
             role.Value.Comp2.ConvertedCount++;
+            Dirty(role.Value.Owner, role.Value.Comp2);
+        }
 
         if (_player.TryGetSessionById(mind.UserId, out var session))
             _antag.SendBriefing(session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
