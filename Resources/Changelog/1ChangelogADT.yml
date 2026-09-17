@@ -15324,3 +15324,10 @@ Entries:
     id: 1926
     pr_number: 3360
     time: '2026-09-17T16:22:16Z'
+  - author: CrimeMoot
+    changes:
+      - {message: Исправлены просадки ФПС при открытии и закрытии меню торговых автоматов,
+        type: Fix}
+    id: 1927
+    pr_number: 3376
+    time: '2026-09-17T16:24:43Z'
