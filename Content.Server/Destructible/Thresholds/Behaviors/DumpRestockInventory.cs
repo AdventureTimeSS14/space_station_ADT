@@ -1,9 +1,9 @@
 using System.Linq;
 using Robust.Shared.Random;
-using Content.Shared.ADT.VendingMachines;
+using Content.Shared.ADT.VendingMachines; // ADT-Tweak
 using Content.Shared.Stacks;
 using Content.Shared.Prototypes;
-using Content.Shared.VendingMachines;
+using Content.Shared.VendingMachines; // ADT-Tweak
 
 namespace Content.Server.Destructible.Thresholds.Behaviors
 {
