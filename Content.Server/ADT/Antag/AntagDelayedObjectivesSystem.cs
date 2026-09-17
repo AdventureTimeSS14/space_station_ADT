@@ -18,6 +18,8 @@ public sealed class AntagDelayedObjectivesSystem : EntitySystem
 {
     public static readonly SoundSpecifier DefaultNotificationSound = new SoundCollectionSpecifier("ADTTraitorStart");
 
+    public const string DelayedObjectivePlaceholderId = "ObjectiveDelayedPlaceholder";
+
     private static readonly Color NotificationColor = Color.Red;
 
     [Dependency] private readonly AudioSystem _audio = default!;
@@ -33,6 +35,12 @@ public sealed class AntagDelayedObjectivesSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<AntagDelayedObjectivesComponent, AfterAntagEntitySelectedEvent>(OnAntagSelected);
+        SubscribeLocalEvent<AntagDelayedObjectivesComponent, ObjectiveGetProgressEvent>(OnPlaceholderGetProgress);
+    }
+
+    private void OnPlaceholderGetProgress(Entity<AntagDelayedObjectivesComponent> ent, ref ObjectiveGetProgressEvent args)
+    {
+        args.Progress = 0f;
     }
 
     private void OnAntagSelected(Entity<AntagDelayedObjectivesComponent> ent, ref AfterAntagEntitySelectedEvent args)
@@ -54,6 +62,9 @@ public sealed class AntagDelayedObjectivesSystem : EntitySystem
         if (ent.Comp.MaxDelay is { } maxDelay)
             giveAt = _random.Next(ent.Comp.Delay, maxDelay);
 
+        if (_objectives.TryCreateObjective(mindId, mind, DelayedObjectivePlaceholderId) is { } placeholder)
+            _mind.AddObjective(mindId, mind, placeholder);
+
         Timer.Spawn(giveAt - roundDuration, () =>
         {
             if (_gameTicker.RunLevel != GameRunLevel.InRound)
@@ -71,6 +82,16 @@ public sealed class AntagDelayedObjectivesSystem : EntitySystem
 
     private void GiveObjectives(Entity<AntagDelayedObjectivesComponent> ent, EntityUid mindId, MindComponent mind)
     {
+        for (var i = mind.Objectives.Count - 1; i >= 0; i--)
+        {
+            var objective = mind.Objectives[i];
+            if (HasComp<AntagDelayedObjectivesComponent>(objective))
+            {
+                _mind.TryRemoveObjective(mindId, mind, i);
+                QueueDel(objective);
+            }
+        }
+
         var difficulty = 0f;
         var added = false;
         foreach (var set in ent.Comp.Sets)

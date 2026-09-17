@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseObjective
+  id: ObjectiveDelayedPlaceholder
+  name: objective-delayed-title
+  description: bjective-delayed-description
+  components:
+  - type: Objective
+    difficulty: 0
+    unique: false
+    issuer: objective-issuer-syndicate
+    icon: Interface/VerbIcons/information.svg.192dpi.png
+  - type: AntagDelayedObjectives
+    sets: []
+    maxDifficulty: 0
