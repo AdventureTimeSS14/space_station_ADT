@@ -70,6 +70,9 @@ public sealed class RMCFlamerPreviewOverlay : Overlay
         if (!_flamerQ.TryComp(gunUid, out var flamer))
             return;
 
+        if (_flamer.IsInContainer(player.Value))
+            return;
+
         var mousePos = _eye.PixelToMap(_input.MouseScreenPosition);
         if (mousePos.MapId == MapId.Nullspace)
             return;
