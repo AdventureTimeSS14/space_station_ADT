@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using Content.IntegrationTests.Fixtures;
+using Content.Shared.Kitchen;
 using Content.Shared.Lathe;
 using Content.Shared.Research.Prototypes;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 
-namespace Content.IntegrationTests.Tests;
+namespace Content.IntegrationTests.Tests.ADT;
 
 [TestFixture]
-[Ignore("Отключено, используем свою ADT версию: ResearchTestADT")]
-public sealed class ResearchTest : GameTest
+public sealed class ResearchTestADT : GameTest
 {
     [Test]
     public async Task DisciplineValidTierPrerequesitesTest()
@@ -33,7 +33,6 @@ public sealed class ResearchTest : GameTest
                         if (tech.Discipline != discipline.ID)
                             continue;
 
-                        // we ignore these, anyways
                         if (tech.Tier == 1)
                             continue;
 
@@ -58,6 +57,10 @@ public sealed class ResearchTest : GameTest
 
         var latheSys = entMan.System<SharedLatheSystem>();
 
+        TestContext.Out.WriteLine($"AllTechPrintableTest: testing lathe and assembler recipes.");
+
+        var failures = new List<string>();
+
         await server.WaitAssertion(() =>
         {
             var allEnts = protoManager.EnumeratePrototypes<EntityPrototype>();
@@ -79,25 +82,61 @@ public sealed class ResearchTest : GameTest
                     latheSys.AddRecipesFromPacks(latheTechs, emag.EmagDynamicPacks);
             }
 
-            Assert.Multiple(() =>
+            var assemblerRecipes = new Dictionary<string, ProtoId<TechnologyPrototype>>();
+            foreach (var recipe in protoManager.EnumeratePrototypes<FoodRecipePrototype>())
             {
-                // check that every recipe a tech adds can be made on some lathe
-                var unlockedTechs = new HashSet<ProtoId<LatheRecipePrototype>>();
-                foreach (var tech in protoManager.EnumeratePrototypes<TechnologyPrototype>())
+                if ((recipe.RecipeType & (int)MicrowaveRecipeType.MedicalAssembler) == 0)
+                    continue;
+
+                if (recipe.RequiredTechnology is { } tech)
+                    assemblerRecipes[recipe.Result] = tech;
+            }
+
+            var unlockedTechs = new HashSet<ProtoId<LatheRecipePrototype>>();
+            foreach (var tech in protoManager.EnumeratePrototypes<TechnologyPrototype>())
+            {
+                unlockedTechs.UnionWith(tech.RecipeUnlocks);
+                foreach (var recipe in tech.RecipeUnlocks)
                 {
-                    unlockedTechs.UnionWith(tech.RecipeUnlocks);
-                    foreach (var recipe in tech.RecipeUnlocks)
+                    if (latheTechs.Contains(recipe))
+                        continue;
+
+                    if (protoManager.TryIndex(recipe, out LatheRecipePrototype? recipeProto) && recipeProto.DisplayOnly)
                     {
-                        Assert.That(latheTechs, Does.Contain(recipe), $"Recipe '{recipe}' from tech '{tech.ID}' cannot be unlocked on any lathes.");
+                        if (recipeProto.Result is not { } result
+                            || !assemblerRecipes.TryGetValue(result, out var assemblerTech)
+                            || assemblerTech != tech.ID)
+                            failures.Add($"Display-only recipe '{recipe}' from tech '{tech.ID}' cannot be crafted in any assembler.");
+                    }
+                    else
+                    {
+                        failures.Add($"Recipe '{recipe}' from tech '{tech.ID}' cannot be unlocked on any lathes.");
                     }
                 }
+            }
 
-                // now check that every dynamic recipe a lathe lists can be unlocked
-                foreach (var recipe in latheTechs)
-                {
-                    Assert.That(unlockedTechs, Does.Contain(recipe), $"Recipe '{recipe}' is dynamic on a lathe but cannot be unlocked by research.");
-                }
-            });
+            foreach (var recipe in latheTechs)
+            {
+                if (!unlockedTechs.Contains(recipe))
+                    failures.Add($"Recipe '{recipe}' is dynamic on a lathe but cannot be unlocked by research.");
+            }
+        });
+
+        if (failures.Count != 0)
+        {
+            TestContext.Out.WriteLine($"AllTechPrintableTest detected {failures.Count} problem(s):");
+            foreach (var failure in failures)
+                TestContext.Out.WriteLine(failure);
+        }
+        else
+        {
+            TestContext.Out.WriteLine("AllTechPrintableTest: no problems detected.");
+        }
+
+        Assert.Multiple(() =>
+        {
+            foreach (var failure in failures)
+                Assert.Fail(failure);
         });
     }
 }
