@@ -1,0 +1,85 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              x:Class="Content.Client.ADT.PDA.PdaHealthScanControl"
+              Orientation="Horizontal"
+              HorizontalExpand="True"
+              VerticalExpand="True"
+              SeparationOverride="6">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True"
+                  SizeFlagsStretchRatio="15" Margin="-4 4 2 4" SeparationOverride="4">
+        <BoxContainer Name="PatientDataContainer" Orientation="Vertical" Margin="0 0 0 4">
+            <Label Name="NoPatientDataText"
+                   Text="{Loc 'health-analyzer-window-no-patient-data-text'}" />
+            <BoxContainer Name="PatientIdentityContainer" Orientation="Horizontal" Margin="0 0 0 4">
+                <SpriteView OverrideDirection="South" Scale="2 2" Name="SpriteView" SetSize="64 64" />
+                <TextureRect Name="NoDataTex" SetSize="64 64" Visible="false"
+                             Stretch="KeepAspectCentered"
+                             TexturePath="/Textures/Interface/Misc/health_analyzer_out_of_range.png"/>
+                <BoxContainer Margin="6 0 0 0" Orientation="Vertical" VerticalAlignment="Top">
+                    <RichTextLabel Name="NameLabel" MinHeight="28" />
+                    <Label Name="SpeciesLabel" StyleClasses="LabelSubText" />
+                </BoxContainer>
+            </BoxContainer>
+            <PanelContainer Name="PatientDivider" MinHeight="1" />
+            <BoxContainer Name="VitalsStatusContainer" Orientation="Vertical" HorizontalExpand="True"
+                          Margin="0 4 0 0" SeparationOverride="2">
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="{Loc 'health-analyzer-window-entity-status-text'}" />
+                    <Label Name="StatusLabel" Margin="4 0 0 0" />
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="{Loc 'health-analyzer-window-entity-temperature-text'}" />
+                    <Label Name="TemperatureLabel" Margin="4 0 0 0" />
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="{Loc 'health-analyzer-window-entity-blood-level-text'}" />
+                    <Label Name="BloodLabel" Margin="4 0 0 0" />
+                </BoxContainer>
+                <Label Name="AllergyText" Text="{Loc 'health-analyzer-window-entity-allergy-text'}" />
+            </BoxContainer>
+        </BoxContainer>
+
+        <PanelContainer Name="ChemicalsDivider" Visible="False" MinHeight="1" />
+        <Label Name="ChemicalsHeader"
+               Text="{Loc 'comp-pda-ui-health-scan-fluids'}"
+               Visible="False"
+               StyleClasses="LabelHeading"
+               Margin="0 2 0 2" />
+        <ScrollContainer Name="ChemicalsScroll"
+                         Visible="False"
+                         HorizontalExpand="True"
+                         VerticalExpand="True"
+                         HScrollEnabled="False"
+                         MinHeight="72"
+                         SizeFlagsStretchRatio="1">
+            <BoxContainer Name="ChemicalsContainer" Orientation="Vertical" HorizontalExpand="True" Margin="0 0 0 4" />
+        </ScrollContainer>
+    </BoxContainer>
+
+    <PanelContainer Name="PanelDivider" SetWidth="2" VerticalExpand="True" />
+
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True"
+                  SizeFlagsStretchRatio="20" Margin="4" SeparationOverride="4">
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 2">
+            <Label Name="TraumaHeaderLabel"
+                   Text="{Loc 'comp-pda-ui-health-scan-trauma'}"
+                   StyleClasses="LabelHeading"
+                   VerticalAlignment="Center" />
+            <Label Name="TraumaTotalLabel"
+                   StyleClasses="LabelHeading"
+                   VerticalAlignment="Center"
+                   Margin="4 0 0 0" />
+            <Control HorizontalExpand="True" />
+            <Label Name="ScanModeLabel"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center" />
+        </BoxContainer>
+        <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False" MinHeight="80">
+            <BoxContainer Name="GroupsContainer" Orientation="Vertical" HorizontalExpand="True" />
+        </ScrollContainer>
+
+        <PanelContainer Name="AlertsDivider" Visible="False" MinHeight="1" Margin="0 4 0 0" />
+        <BoxContainer Name="AlertsContainer" Visible="False" Margin="0 2" Orientation="Vertical"
+                      HorizontalExpand="True" RectClipContent="True" />
+    </BoxContainer>
+</BoxContainer>
