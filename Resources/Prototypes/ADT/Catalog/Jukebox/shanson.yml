@@ -47,7 +47,7 @@
     path: /Audio/ADT/Jukebox/shanson/Какая-осень-в-лагерях.ogg
 
 - type: jukebox
-  id: ADTDrug
+  id: ADTSharik
   name: 9. Шарик - Бутырка
   path:
     path: /Audio/ADT/Jukebox/shanson/Шарик.ogg

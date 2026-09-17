@@ -245,7 +245,7 @@
   - ADTIspoved
   - ADTAttestat
   - ADTOcen
-  - ADTDrug
+  - ADTSharik
 
 - type: jukeboxList
   id: ADTsintetic
@@ -286,4 +286,4 @@
   - ADTLoopingTheRooms
   - ADTHeartNonsense
   - ADTFukkireta
-  - sOfficialGuideToCoolness
+  - ADTKt'sOfficialGuideToCoolness
