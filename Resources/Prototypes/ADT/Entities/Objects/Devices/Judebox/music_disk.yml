@@ -318,3 +318,241 @@
     tracksCollection: MMachine
   - type: StaticPrice
     price: 150
+
+- type: entity
+  parent: ADTMusicDiskStandard
+  id: ADTMusicDiskcosmic
+  name: music disk (cosmic)
+  description: cosmic.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base
+      color: "#1c3d4b"
+    - state: disk_label_music
+  - type: JukeboxDisk
+    tracksCollection: ADTcosmic
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ADTMusicDiskStandard
+  id: ADTMusicDiskdigger
+  name: music disk (digger)
+  description: digger.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base
+      color: "#36210d"
+    - state: disk_label_music
+  - type: JukeboxDisk
+    tracksCollection: ADTdigger
+  - type: StaticPrice
+    price: 300
+
+- type: entity
+  parent: ADTMusicDiskStandard
+  id: ADTMusicDiskADTutil
+  name: music disk (util)
+  description: util
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base
+      color: "#36210d"
+    - state: disk_label_music
+  - type: JukeboxDisk
+    tracksCollection: ADTutil
+  - type: StaticPrice
+    price: 300
+
+- type: entity
+  parent: ADTMusicDiskStandard
+  id: ADTMusicDiskflatout
+  name: music disk (flatout)
+  description: flatout
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base
+      color: "#e1f813"
+    - state: disk_label_music
+  - type: JukeboxDisk
+    tracksCollection: ADTflatout
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ADTMusicDiskStandard
+  id: ADTMusicDiskfunc
+  name: music disk (func)
+  description: func.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base
+      color: "#1154d1"
+    - state: disk_label_music
+  - type: JukeboxDisk
+    tracksCollection: ADTfunc
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ADTMusicDiskStandard
+  id: ADTMusicDiskgame
+  name: music disk (game)
+  description: game
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base
+      color: "#ef9ef1"
+    - state: disk_label_music
+  - type: JukeboxDisk
+    tracksCollection: ADTgame
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ADTMusicDiskStandard
+  id: ADTMusicDiskgroove
+  name: music disk (groove)
+  description: groove
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base
+      color: "#1afa38"
+    - state: disk_label_music
+  - type: JukeboxDisk
+    tracksCollection: ADTgroove
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ADTMusicDiskStandard
+  id: ADTMusicDiskmewgenics
+  name: music disk (mewgenics)
+  description: mewgenics
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base
+      color: "#eaecec"
+    - state: disk_label_music
+  - type: JukeboxDisk
+    tracksCollection: ADTmewgenics
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ADTMusicDiskStandard
+  id: ADTMusicDisknostalgia
+  name: music disk (nostalgia)
+  description: nostalgia
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base
+      color: "#c57b0d"
+    - state: disk_label_music
+  - type: JukeboxDisk
+    tracksCollection: ADTnostalgia
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ADTMusicDiskStandard
+  id: ADTMusicDiskpriest
+  name: music disk (priest)
+  description: priest
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base
+      color: "#e3fcf6"
+    - state: disk_label_music
+  - type: JukeboxDisk
+    tracksCollection: ADTpriest
+  - type: StaticPrice
+    price: 300
+
+- type: entity
+  parent: ADTMusicDiskStandard
+  id: ADTMusicDiskromantic
+  name: music disk (romantic)
+  description: romantic
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base
+      color: "#5219ad"
+    - state: disk_label_music
+  - type: JukeboxDisk
+    tracksCollection: ADTromantic
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ADTMusicDiskStandard
+  id: ADTMusicDiskshanson
+  name: music disk (shanson)
+  description: shanson
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base
+      color: "#e40d0dd5"
+    - state: disk_label_music
+  - type: JukeboxDisk
+    tracksCollection: ADTshanson
+  - type: StaticPrice
+    price: 1000
+
+- type: entity
+  parent: ADTMusicDiskStandard
+  id: ADTMusicDisksintetic
+  name: music disk (sintetic)
+  description: sintetic
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base
+      color: "#2f2d42"
+    - state: disk_label_music
+  - type: JukeboxDisk
+    tracksCollection: ADTsintetic
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ADTMusicDiskStandard
+  id: ADTMusicDiskvokaloid
+  name: music disk (vokaloid)
+  description: vokaloid
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base
+      color: "#0b8a55"
+    - state: disk_label_music
+  - type: JukeboxDisk
+    tracksCollection: ADTvokaloid
+  - type: StaticPrice
+    price: 50

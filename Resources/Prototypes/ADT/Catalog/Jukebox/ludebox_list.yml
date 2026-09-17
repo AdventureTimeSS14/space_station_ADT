@@ -66,9 +66,12 @@
 - type: jukeboxList
   id: Hotline
   jukeboxes:
-  - HotlineDaisuke
-  - HotlineItsSafeNow
-  - Hotline2MsMinnie
+  - ADTSlumLord
+  - ADTSLEEPPARALYSISCREEPINONME
+  - ADTSheSwallowedBurningCoals
+  - ADTFutureClub
+  - ADTDivide
+  - ADTAcidSpit
   - HotlineMusik
   - HotlineParis
   - Hotline2Sexualizer
@@ -115,3 +118,172 @@
   - ADTTheMMachineBlack
   - ADTTheMMachineAKingAlone
 
+- type: jukeboxList
+  id: ADTcosmic
+  jukeboxes:
+  - ADTCornfieldChase
+  - ADTVirtualInsanity
+  - ADTSpaceOddity
+  - ADTSpaceAsshole
+  - ADTLucidityGone
+  - ADTWashingMachineHeart
+  - ADTLetItHappen
+  - ADTLetsGo
+  - ADTDreamy
+  - ADTBasicTheme
+
+- type: jukeboxList
+  id: ADTdigger
+  jukeboxes:
+  - ADTTheOnlyThingTheyFearIsYou
+  - ADTDoomCrossingEternalHorizons
+  - ADTDiggyDiggyHole
+  - ADTRockAndStone
+  - ADTReignOfTerror
+  - ADTRUN
+  - ADTSonne
+
+- type: jukeboxList
+  id: ADTflatout
+  jukeboxes:
+  - ADTAdrenaline
+  - ADTBeatTheBoys
+  - ADTSomethingElse
+  - ADTTickTock
+  - ADTKingOfDefeat
+  - ADTDownTheStreet
+  - ADTBabyWithTwoHeads
+  - ADTHandsOnTheMoney
+  - ADTTheEverLasting
+
+- type: jukeboxList
+  id: ADTfunc
+  jukeboxes:
+  - ADTGetLucky
+  - ADTAroundTheWorld
+  - ADTHarderBetterFasterStronger
+  - ADTOneMoreTime
+  - ADTDigitalLove
+  - ADTShortCircuit
+  - ADTSomethingAboutUs
+  - ADTKangarooCourt
+  - ADTGO
+  - ADT505
+  - ADTLetterInASuitcase
+
+- type: jukeboxList
+  id: ADTgame
+  jukeboxes:
+  - ADTVitality
+  - ADTTitanium
+  - ADTDeathByGlamour
+  - ADTFinale
+  - ADTHammerOfJustice
+  - ADTMEGALOVANIA
+  - ADTFallenDown
+  - ADTGloriaFilio
+
+- type: jukeboxList
+  id: ADTgroove
+  jukeboxes:
+  - ADT12juin3049
+  - ADTPressure
+  - ADTBlackBetty
+  - ADT81Special
+  - ADTAllThatGlitters
+
+- type: jukeboxList
+  id: ADTmewgenics
+  jukeboxes:
+  - ADTCatChase
+  - ADTEatinRats
+  - ADTGuillotina
+  - ADTChumbucketKitty
+  - ADTFlush
+  - ADTKittyMarch
+
+- type: jukeboxList
+  id: ADTnostalgia
+  jukeboxes:
+  - ADTShapeOfMyHeart
+  - ADTNightcall
+  - ADTSomebodyThatIUsedToKnow
+  - ADTLittleDarkAge
+  - ADTMeGustasTu
+  - ADTThéàlamenthe
+
+- type: jukeboxList
+  id: ADTpriest
+  jukeboxes:
+  - ADTMachineInTheWalls
+  - ADTLamentOfTheAngel
+  - ADTWhitepath
+
+- type: jukeboxList
+  id: ADTromantic
+  jukeboxes:
+  - ADTCreep
+  - ADTNoSurprises
+  - ADTOchenOchen
+  - ADTMedvedica
+  - ADTSolnce
+  - ADTtancuy
+  - ADTSmisl
+  - ADTAtractcion
+  - ADTSurf
+  - ADTPlastinki
+  - ADTDrug
+
+- type: jukeboxList
+  id: ADTshanson
+  jukeboxes:
+  - ADTDom
+  - ADTCentral
+  - ADTKupola
+  - ADTShigan
+  - ADTFraer
+  - ADTIspoved
+  - ADTAttestat
+  - ADTOcen
+  - ADTDrug
+
+- type: jukeboxList
+  id: ADTsintetic
+  jukeboxes:
+  - ADTRise
+  - ADTDarkRain
+  - ADTHoohah
+  - ADTLiveLikeYouWannaLive
+  - ADTGranite
+  - ADTThePretender
+  - ADTPressStartToDie
+  - ADTRAINDROP
+  - ADTRefusion
+  - ADTCyberiaLyr3
+
+- type: jukeboxList
+  id: ADTutil
+  jukeboxes:
+  - ADTSuthernGothic
+  - ADTTheMiners
+  - ADTRedSunset
+  - ADTLongRoad
+  - ADTHitchedHighRail
+  - ADTFrontierbound
+  - ADTHABWindowView
+  - ADTClosingCinematic
+  - ADTAbsconditus
+  - ADTCoalescence
+  - ADTCivil
+  - ADTMilkyWay
+  - ADTLanius
+
+- type: jukeboxList
+  id: ADTvokaloid
+  jukeboxes:
+  - ADTTetoris
+  - ADTIelloElegy
+  - ADTLoopingTheRooms
+  - ADTHeartNonsense
+  - ADTFukkireta
+  - sOfficialGuideToCoolness

@@ -1,0 +1,53 @@
+- type: jukebox
+  id: ADTDom
+  name: 1. Приходите в мой дом - Михаил Круг
+  path:
+    path: /Audio/ADT/Jukebox/shanson/Приходите-в-мой-дом.ogg
+
+- type: jukebox
+  id: ADTCentral
+  name: 2. Владимирский централ - Михаил Круг
+  path:
+    path: /Audio/ADT/Jukebox/shanson/Владимирский-централ.ogg
+
+- type: jukebox
+  id: ADTKupola
+  name: 3. Золотые купола - Михаил Круг
+  path:
+    path: /Audio/ADT/Jukebox/shanson/Золотые-купола.ogg
+
+- type: jukebox
+  id: ADTShigan
+  name: 4. Жиган-лимон - Михаил Круг
+  path:
+    path: /Audio/ADT/Jukebox/shanson/Жиган-лимон.ogg
+
+- type: jukebox
+  id: ADTFraer
+  name: 5. Фраер - Михаил Круг
+  path:
+    path: /Audio/ADT/Jukebox/shanson/Фраер.ogg
+
+- type: jukebox
+  id: ADTIspoved
+  name: 6. Исповедь - Михаил Круг
+  path:
+    path: /Audio/ADT/Jukebox/shanson/Исповедь.ogg
+
+- type: jukebox
+  id: ADTAttestat
+  name: 7. Аттестат - Бутырка
+  path:
+    path: /Audio/ADT/Jukebox/shanson/Аттестат.ogg
+
+- type: jukebox
+  id: ADTOcen
+  name: 8. Какая осень в лагерях - Бутырка
+  path:
+    path: /Audio/ADT/Jukebox/shanson/Какая-осень-в-лагерях.ogg
+
+- type: jukebox
+  id: ADTDrug
+  name: 9. Шарик - Бутырка
+  path:
+    path: /Audio/ADT/Jukebox/shanson/Шарик.ogg
