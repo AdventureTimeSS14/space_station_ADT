@@ -1,0 +1,61 @@
+- type: entity
+  name: medical spray
+  parent: BaseItem
+  id: ADTMedicalSprayBottle
+  description: A medical spray for topical application, with a non-removable cap.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Medical/spray.rsi
+    state: medspray
+  - type: Item
+    size: Small
+  - type: Injector
+    currentTransferAmount: 10
+    activeModeProtoId: ADTMedicalSprayMode
+    allowedModes:
+    - ADTMedicalSprayMode
+    solutionName: spray
+  - type: SolutionContainerManager
+    solutions:
+      spray:
+        maxVol: 30
+  - type: RefillableSolution
+    solution: spray
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  name: medical spray
+  parent: ADTMedicalSprayBottle
+  id: ADTSprayBottleStypticPowder
+  description: A medical spray for topical application.
+  suffix: Filled, Styptic powder
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Medical/spray.rsi
+    state: brutespray
+  - type: SolutionContainerManager
+    solutions:
+      spray:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTStypticPowder
+          Quantity: 30
+
+- type: entity
+  name: medical spray
+  parent: ADTMedicalSprayBottle
+  id: ADTSprayBottleSilverSulfadiazine
+  description: A medical spray for topical application.
+  suffix: Filled, Silver sulfadiazine
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Medical/spray.rsi
+    state: burnspray
+  - type: SolutionContainerManager
+    solutions:
+      spray:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTSilverSulfadiazine
+          Quantity: 30

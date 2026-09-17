@@ -1,3 +1,4 @@
+using Content.Shared.ADT.VendingMachines; // ADT-Tweak
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;

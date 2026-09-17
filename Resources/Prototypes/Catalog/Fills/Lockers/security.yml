@@ -48,13 +48,11 @@
     - id: ClothingOuterWinterWarden
     - id: RubberStampWarden
     - id: DoorRemoteArmory
-    - id: HoloprojectorSecurity
-    - id: BookSpaceLaw
+    # - id: HoloprojectorSecurity
+    # - id: BookSpaceLaw # ADT-tweak
     - id: ClothingHeadHatCapWardenAlt # Corvax-SecFashion
     - id: ClothingOuterCoatWardenAlt # Corvax-SecFashion
     - id: ClothingBackpackWarden # Corvax-SecFashion
-    - id: ClothingBackpackElectropack
-      amount: 2
     - id: RemoteSignaller
       amount: 2
     - id: NetworkConfigurator
@@ -62,12 +60,6 @@
     # ADT-Tweak-Start
     - id: ClothingHandsGlovesKravMaga
     - id: ADTClothingNeckBodyCamera #ADT bodycam
-    - id: ADTBookSRPsec
-    - id: ADTBookPCDsec
-    - id: ADTClothingNeckShockCollar
-      amount: 2
-    - id: RemoteSignaller
-      amount: 2
     - id: ADTSecShuttleConsoleCircuitboard
     - id: BoxTapeRecorder
     # ADT-Tweak-End
@@ -115,8 +107,8 @@
       prob: 0.1
     - id: HoloprojectorSecurity
       prob: 0.6
-    - id: BookSpaceLaw
-      prob: 0.5
+    # - id: BookSpaceLaw
+    #   prob: 0.5
     - id: ClothingOuterCoatSecurityOvercoat # Corvax-SecFashion
       prob: 0.2
     - id: PlushieLizardJobSecuritycadet
@@ -156,12 +148,6 @@
 #         prob: 0.2
 #       - id: HoloprojectorSecurity
 #         prob: 0.6
-#       - id: ADTBookSpaceLaw #ADT-WikiBooks
-#         prob: 0.5
-#     # ADT-WikiBooks-Start
-#       - id: ADTBookSRPsec
-#       - id: ADTBookPCDsec
-#     # ADT-WikiBooks-End
 
 # - type: entity
 #   id: LockerBrigmedicFilled
@@ -225,7 +211,6 @@
     - id: DrinkDetFlask
     - id: ClothingHandsGlovesForensic
     - id: RubberStampDetective
-    - id: BookBusido # Corvax-Books
     - id: HoloprojectorSecurity
     - id: BoxEvidenceMarkers
     - id: HandLabeler

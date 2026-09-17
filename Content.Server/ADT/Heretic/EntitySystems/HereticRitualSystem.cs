@@ -1,11 +1,15 @@
 //
 
+using Content.Server.Chat.Managers;
 using Content.Server.Heretic.Components;
+using Content.Shared.ADT.Heretic.Prototypes;
+using Content.Shared.Chat;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
@@ -30,6 +34,8 @@ public sealed partial class HereticRitualSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly GhoulSystem _ghoul = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/ADT/Heretic/castsummon.ogg");
 
@@ -145,7 +151,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
             for (int i = 0; i < missingList.Keys.Count; i++)
             {
                 var key = missingList.Keys.ToList()[i];
-                var missing = $"{key} x{missingList[key]}";
+                var missing = $"{GetRitualItemName(key)} x{missingList[key]}";
 
                 // makes a nice, list, of, missing, items.
                 if (i != missingList.Count - 1)
@@ -244,6 +250,8 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         var ritualName = Loc.GetString(GetRitual(heretic.ChosenRitual).LocName);
         _popup.PopupEntity(Loc.GetString("heretic-ritual-switch", ("name", ritualName)), user, user);
+
+        SendRitualRequirements(user, GetRitual(heretic.ChosenRitual.Value));
     }
 
     private void OnInteractUsing(Entity<HereticRitualRuneComponent> ent, ref InteractUsingEvent args)
@@ -287,5 +295,50 @@ public sealed partial class HereticRitualSystem : EntitySystem
         _audio.PlayPvs(RitualSuccessSound, ent, AudioParams.Default.WithVolume(-3f));
         _popup.PopupEntity(Loc.GetString("heretic-ritual-success"), ent, user);
         Spawn("HereticRuneRitualAnimation", Transform(ent).Coordinates);
+    }
+
+    private void SendRitualRequirements(EntityUid user, HereticRitualPrototype ritual)
+    {
+        if (ritual.RequiredTags == null || ritual.RequiredTags.Count == 0)
+            return;
+
+        var sb = new StringBuilder();
+        sb.AppendLine(Loc.GetString("heretic-ritual-info-header", ("name", Loc.GetString(ritual.LocName))));
+
+        foreach (var (tag, amount) in ritual.RequiredTags)
+        {
+            if (!_proto.TryIndex<HereticRitualItemPrototype>(tag, out var icon))
+                continue;
+
+            var itemName = Loc.GetString(icon.Name);
+            sb.AppendLine(Loc.GetString("heretic-ritual-info-item",
+                ("item", itemName),
+                ("amount", amount),
+                ("icon", icon.ID),
+                ("tooltip", itemName)));
+        }
+
+        if (sb.Length == 0)
+            return;
+
+        var message = Loc.GetString("heretic-ritual-info-requirements", ("requirements", sb.ToString()));
+        var wrapped = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+
+        if (_player.TryGetSessionByEntity(user, out var session))
+            _chatManager.ChatMessageToOne(ChatChannel.Server,
+                message,
+                wrapped,
+                default,
+                false,
+                session.Channel,
+                Color.FromSrgb(new Color(186, 85, 211)));
+    }
+
+    private string GetRitualItemName(string tag)
+    {
+        if (_proto.TryIndex<HereticRitualItemPrototype>(tag, out var icon))
+            return Loc.GetString(icon.Name);
+
+        return tag;
     }
 }

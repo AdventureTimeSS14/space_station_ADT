@@ -76,7 +76,7 @@
       pen:
         maxVol: 18
         reagents:
-        - ReagentId: ADTStypticPowder
+        - ReagentId: ADTStypticPowderPatch
           Quantity: 18
 
 #Patch healing small
@@ -98,7 +98,7 @@
       pen:
         maxVol: 10
         reagents:
-        - ReagentId: ADTStypticPowder
+        - ReagentId: ADTStypticPowderPatch
           Quantity: 10
 
 #Patch burn
@@ -120,7 +120,7 @@
       pen:
         maxVol: 14
         reagents:
-        - ReagentId: ADTSilverSulfadiazine
+        - ReagentId: ADTSilverSulfadiazinePatch
           Quantity: 14
 
 #Patch burn small
@@ -142,7 +142,7 @@
       pen:
         maxVol: 7
         reagents:
-        - ReagentId: ADTSilverSulfadiazine
+        - ReagentId: ADTSilverSulfadiazinePatch
           Quantity: 7
 
 #honk honk?

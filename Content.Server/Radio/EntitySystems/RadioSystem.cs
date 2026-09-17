@@ -21,6 +21,7 @@ using Content.Server.ADT.Language;  // ADT Languages
 using Content.Server.ADT.TTS;
 using Content.Shared.ADT.Language;  // ADT Languages
 using Content.Shared.ADT.Loudspeaker.Events;
+using Content.Shared.ADT.TenCodes;
 using Content.Shared.ADT.TTS;
 
 namespace Content.Server.Radio.EntitySystems;
@@ -39,6 +40,7 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
     [Dependency] private readonly SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak
+    [Dependency] private readonly ADTTenCodeSystem _tenCode = default!; // ADT-Tweak
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
@@ -173,6 +175,9 @@ public sealed class RadioSystem : EntitySystem
             verbStrings = defaultStrings;
         // ADT Languages end
 
+        content = _tenCode.Highlight(messageSource, content); // ADT-Tweak
+        languageEncodedContent = _tenCode.Highlight(messageSource, languageEncodedContent); // ADT-Tweak
+
         var nameWithIcon = GetWrappedNameWithJobIcon(messageSource, name); // ADT-Tweak
 
         var wrappedMessage = Loc.GetString("chat-radio-message-wrap",   // ADT Languages tweak - remove bold
@@ -204,7 +209,7 @@ public sealed class RadioSystem : EntitySystem
             ChatChannel.Radio,
             message,
             wrappedMessage,
-            NetEntity.Invalid,
+            GetNetEntity(messageSource), // ADT-Tweak: NetEntity.Invalid -> отправитель, чтобы клиент отличал свои сообщения
             null);
 
         // ADT Languages start
@@ -212,7 +217,7 @@ public sealed class RadioSystem : EntitySystem
             ChatChannel.Radio,
             message,
             wrappedEncodedMessage,
-            NetEntity.Invalid,
+            GetNetEntity(messageSource), // ADT-Tweak: NetEntity.Invalid -> отправитель
             null);
         // ADT Languages end
 

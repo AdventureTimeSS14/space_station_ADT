@@ -1,4 +1,6 @@
 using System;
+using Content.Shared.Armor;
+using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Robust.Shared.Containers;
@@ -13,6 +15,7 @@ namespace Content.Shared.ADT.ModSuits;
 public sealed partial class ModSuitSystem
 {
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly SharedArmorSystem _armor = default!;
 
     private void InitializeModules()
     {
@@ -179,6 +182,9 @@ public sealed partial class ModSuitSystem
                 }
             }
 
+            if (module.Comp.ArmorReplacement is { } armorReplace && armorReplace.TryGetValue(attached.Value, out var armorModifiers))
+                ApplyArmorReplacement(part, armorModifiers);
+
             if (suit.Comp.TempUser != null)
                 UpdateActions(part, suit.Comp.TempUser.Value);
         }
@@ -227,9 +233,41 @@ public sealed partial class ModSuitSystem
             if (module.Comp.RemoveComponents != null && module.Comp.RemoveComponents.TryGetValue(attached.Value, out var remComps))
                 AddComponentsSafe(part, remComps, ToPrettyString(part));
 
+            if (module.Comp.ArmorReplacement != null && module.Comp.ArmorReplacement.ContainsKey(attached.Value))
+                RemoveArmorReplacement(part);
+
             if (suit.Comp.TempUser != null)
                 UpdateActions(part, suit.Comp.TempUser.Value);
         }
+    }
+
+    private void ApplyArmorReplacement(EntityUid part, DamageModifierSet modifiers)
+    {
+        var replacement = EnsureComp<ModSuitArmorReplacementComponent>(part);
+
+        if (replacement.OriginalModifiers == null && TryComp<ArmorComponent>(part, out var existingArmor))
+            replacement.OriginalModifiers = existingArmor.Modifiers;
+
+        var armorComp = EnsureComp<ArmorComponent>(part);
+        _armor.SetArmorModifiers(part, modifiers, armorComp);
+    }
+
+    private void RemoveArmorReplacement(EntityUid part)
+    {
+        if (!TryComp<ModSuitArmorReplacementComponent>(part, out var replacement))
+            return;
+
+        if (replacement.OriginalModifiers != null)
+        {
+            if (TryComp<ArmorComponent>(part, out var armor))
+                _armor.SetArmorModifiers(part, replacement.OriginalModifiers, armor);
+        }
+        else if (HasComp<ArmorComponent>(part))
+        {
+            RemComp<ArmorComponent>(part);
+        }
+
+        RemComp<ModSuitArmorReplacementComponent>(part);
     }
 
     /// <summary>

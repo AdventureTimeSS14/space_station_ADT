@@ -50,7 +50,7 @@
   cost: 7500
   recipeUnlocks:
   - PowerCellHigh
-  # - TurboItemRechargerCircuitboard # ADT-Tweak
+  - TurboItemRechargerCircuitboard
   - SMESAdvancedMachineCircuitboard
 # ADT Research Console Rework start
   position: 0,-1
