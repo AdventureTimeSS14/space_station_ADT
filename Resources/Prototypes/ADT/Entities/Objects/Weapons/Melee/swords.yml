@@ -411,3 +411,25 @@
   - type: Construction
     graph: ADTBBattleaxe
     node: ADTBoneCompBattleaxe
+
+- type: entity
+  parent: [ BaseSword, BaseSyndicateContraband ]
+  id: ADTRapier
+  name: rapier
+  description: A thin syndicate rapier, its blade designed to pierce through armor with precise thrusts.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/rapier.rsi
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 17
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: ArmorPenetration
+    penetration: 0.3
+  - type: Reflect
+    reflectProb: .1
+    spread: 90
+  - type: DisarmMalus
