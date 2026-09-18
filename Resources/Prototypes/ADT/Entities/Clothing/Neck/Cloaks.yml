@@ -231,3 +231,12 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/blueshield_cloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckCloakCentcomOfficerBlack
+  name: special operations officer ceremonial cloak
+  description: A luxuriously embellished cloak for special occasions.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Cloaks/centcomofficer.rsi

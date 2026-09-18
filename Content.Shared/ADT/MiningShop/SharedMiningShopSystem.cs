@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Network;
+﻿using System.Diagnostics.CodeAnalysis;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Content.Shared.ADT.Salvage.Systems;
 
@@ -8,6 +9,7 @@ public abstract class SharedMiningShopSystem : EntitySystem
 {
     [Dependency] private readonly MiningPointsSystem _miningPoints = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
 
 
     public override void Initialize()
@@ -22,21 +24,41 @@ public abstract class SharedMiningShopSystem : EntitySystem
     }
     protected virtual void OnVendBui(Entity<MiningShopComponent> vendor, ref MiningShopBuiMsg args)
     {
-        var comp = vendor.Comp;
-        var actor = args.Actor;
-
-        if (args.Entry.Price != null)
-        {
-            if (_miningPoints.TryFindIdCard(actor) is {} idCard && _miningPoints.RemovePoints(idCard, args.Entry.Price.Value))
-            {
-                Dirty(vendor);
-            }
-        }
-
         if (_net.IsClient)
             return;
 
-        vendor.Comp.OrderList.Add(args.Entry);
+        if (!TryGetShopEntry(args.Entry, out var entry))
+            return;
+
+        if (entry.Price is { } price && price > 0)
+        {
+            if (_miningPoints.TryFindIdCard(args.Actor) is not { } idCard)
+                return;
+
+            if (!_miningPoints.RemovePoints(idCard, price))
+                return;
+        }
+
+        vendor.Comp.OrderList.Add(entry);
+        Dirty(vendor);
+    }
+
+    private bool TryGetShopEntry(MiningShopEntry requested, [NotNullWhen(true)] out MiningShopEntry? entry)
+    {
+        foreach (var section in _prototypes.EnumeratePrototypes<SharedMiningShopSectionPrototype>())
+        {
+            foreach (var candidate in section.Entries)
+            {
+                if (candidate.Id != requested.Id || candidate.Price != requested.Price || candidate.Name != requested.Name)
+                    continue;
+
+                entry = candidate;
+                return true;
+            }
+        }
+
+        entry = null;
+        return false;
     }
 
 
