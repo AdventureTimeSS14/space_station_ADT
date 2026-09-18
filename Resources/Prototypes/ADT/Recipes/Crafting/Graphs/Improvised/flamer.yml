@@ -1,0 +1,106 @@
+- type: constructionGraph
+  id: ADTTankFlamerMakeshift
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: makeshift_tank_empty
+      conditions:
+      - !type:MinSolution
+        solution: drink
+        reagent:
+          ReagentId: Napalm
+        quantity: 100
+      steps:
+      - tag: FireExtinguisher
+        name: construction-graph-tag-extinguisher
+        icon:
+          sprite: Objects/Misc/fire_extinguisher.rsi
+          state: fire_extinguisher_closed
+        doAfter: 1
+      - tag: Igniter
+        name: construction-graph-tag-igniter
+        icon:
+          sprite: Objects/Devices/igniter.rsi
+          state: icon
+        doAfter: 1
+      - material: Cable
+        amount: 15
+        doAfter: 10
+      # - tool: Screwing
+      #   doAfter: 10
+  - node: makeshift_tank_empty
+    entity: RMCTankFlamerMakeshiftUnfinished
+    edges:
+    - to: start
+      conditions:
+      - !type:SolutionEmpty
+        solution: drink
+      steps:
+      - tool: Screwing
+        doAfter: 1
+    - to: makeshift_tank_ready
+      conditions: # no dumping out 29u of the fuel then adding wires :)
+      - !type:MinSolution
+        solution: drink
+        reagent:
+          ReagentId: Napalm
+        quantity: 100
+      steps:
+      - material: Plastic
+        amount: 15
+        doAfter: 10
+  - node: makeshift_tank_ready
+    entity: RMCTankFlamerMakeshift
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlastic1
+        amount: 15
+      steps:
+      - tool: Cutting
+        doAfter: 10
+
+- type: constructionGraph
+  id: ADTMakeshiftFlamer
+  start: start
+  graph:
+    - node: start
+      entity: WeaponSprayNozzle
+      edges:
+        - to: makeshift_flamer
+          completed:
+          - !type:AdminLog
+            message: "Construction"
+            impact: High
+          steps:
+            - tag: SprayNozzle
+              name: construction-graph-tag-spray-nozzle
+              icon:
+                sprite: Objects/Weapons/Guns/Basic/spraynozzle.rsi
+                state: icon
+            - tag: Igniter
+              name: construction-graph-tag-igniter
+              icon:
+                sprite: Objects/Devices/igniter.rsi
+                state: icon
+              doAfter: 1
+            - material: Cable
+              amount: 10
+              doAfter: 5
+    - node: makeshift_flamer
+      entity: ADTWeaponFlamerMakeshift
+      # edges:
+      #   - to: start
+      #     completed:
+      #       - !type:SpawnPrototype
+      #         prototype: BaseBallBat
+      #         amount: 1
+      #       - !type:SpawnPrototype
+      #         prototype: PartRodMetal1
+      #         amount: 5
+      #       - !type:DeleteEntity {}
+      #     steps:
+      #       - tool: Prying
+      #         doAfter: 1

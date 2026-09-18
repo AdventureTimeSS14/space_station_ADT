@@ -50,6 +50,25 @@
   chatTriggers:
     - фальшиво плачет
 
+- type: emote
+  id: Blink
+  name: chat-emote-name-blink
+  category: Hands
+  icon: ADT/Interface/Emotes/blink.png
+  whitelist:
+    components:
+    - Hands
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["моргает."]
+  chatTriggers:
+    - моргает
+    - быстро моргает
+    - хлопает глазами
+    - моргнул
+    - моргнула
+
 ## vocal emotes
 - type: emote
   id: Hiss
@@ -60,6 +79,9 @@
     - ADTCatEmotes
     - ADTVoxEmotes
     - ADTResomiEmotes
+  blacklist:
+    tags:
+    - ADTSiliconEmotes
   icon: ADT/Interface/Emotes/Vocal/hiss.png
   chatMessages: [шипит]
   chatTriggers:
@@ -78,18 +100,12 @@
     tags:
     - ADTCatEmotes
   icon: ADT/Interface/Emotes/Vocal/meow.png
-  chatMessages: [мяукает]
+  chatMessages: [мяукает!]
   chatTriggers:
     - мяу
     - мяукнул
-    - мяукнул.
-    - мяукнул!
     - мяукнула
-    - мяукнула.
-    - мяукнула!
     - мяукает
-    - мяукает.
-    - мяукает!
 
 - type: emote
   id: Mew
@@ -101,6 +117,9 @@
     - Vocal
     tags:
     - ADTCatEmotes
+  blacklist:
+    tags:
+    - ADTSiliconEmotes
   icon: ADT/Interface/Emotes/Vocal/mew.png
   chatMessages: [мякает]
   chatTriggers:
@@ -123,6 +142,9 @@
     tags:
     - ADTDogEmotes
     - ADTCatEmotes
+  blacklist:
+    tags:
+    - ADTSiliconEmotes
   icon: ADT/Interface/Emotes/Vocal/growl.png
   chatMessages: [рычит]
   chatTriggers:
@@ -147,6 +169,9 @@
     - Vocal
     tags:
     - ADTCatEmotes
+  blacklist:
+    tags:
+    - ADTSiliconEmotes
   icon: ADT/Interface/Emotes/Vocal/purr.png
   chatMessages: [мурчит]
   chatTriggers:
