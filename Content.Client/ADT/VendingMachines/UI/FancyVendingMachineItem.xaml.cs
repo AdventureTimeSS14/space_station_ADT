@@ -34,7 +34,7 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
     public int SelectedAmount => AmountSelector.SelectedId + 1;
 
     public FancyVendingMachineItem(EntityPrototype? proto, string text, uint count, uint maxAmount, int price, bool striped,
-        bool canPaint = false, NetEntity? returnedEntity = null) // ADT Tweak - canPaint
+        bool canPaint = false, NetEntity? returnedEntity = null)
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
