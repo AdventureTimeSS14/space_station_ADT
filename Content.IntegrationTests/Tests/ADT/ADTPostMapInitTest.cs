@@ -251,8 +251,11 @@ public sealed class ADTPostMapInitTest : GameTest
         var ticker = entManager.EntitySysManager.GetEntitySystem<GameTicker>();
         var shuttleSystem = entManager.EntitySysManager.GetEntitySystem<ShuttleSystem>();
 
-        var gameMaps = protoManager.EnumeratePrototypes<GameMapPrototype>()
-            .Where(x => x.ID != PoolManager.TestMap)
+        var gameMaps = GameDataScrounger.PrototypesOfKind<GameMapPrototype>()
+            .Where(x => x != PoolManager.TestMap)
+            .Select(x => protoManager.TryIndex<GameMapPrototype>(x, out var proto) ? proto : null)
+            .Where(x => x is not null)
+            .Select(x => x!)
             .OrderBy(x => x.ID)
             .ToList();
 
@@ -371,7 +374,8 @@ public sealed class ADTPostMapInitTest : GameTest
         var mapPath = mapProto.MapPath;
         var problems = new List<string>();
 
-        problems.AddRange(CheckMapFile(mapPath, mapProto, resourceManager));
+        var (fileIsGrid, fileProblems) = CheckMapFile(mapPath, mapProto, resourceManager);
+        problems.AddRange(fileProblems);
 
         MapId? mapId = null;
         try
@@ -382,7 +386,10 @@ public sealed class ADTPostMapInitTest : GameTest
         }
         catch (Exception ex)
         {
-            problems.Add($"Карта {mapProto.ID} ({mapPath}) НЕ ЗАГРУЗИЛАСЬ. Причина: {UnwrapException(ex)}");
+            var message = $"Карта {mapProto.ID} ({mapPath}) НЕ ЗАГРУЗИЛАСЬ. Причина: {UnwrapException(ex)}";
+            if (fileIsGrid)
+                message += " Файл сохранён как GRID (секция 'maps' пуста): открой его в редакторе карт и сохрани заново как map.";
+            problems.Add(message);
         }
 
         if (mapId is { } id)
@@ -416,14 +423,14 @@ public sealed class ADTPostMapInitTest : GameTest
         }
     }
 
-    private static List<string> CheckMapFile(ResPath mapPath, GameMapPrototype mapProto, IResourceManager resourceManager)
+    private static (bool FileIsGrid, List<string> Problems) CheckMapFile(ResPath mapPath, GameMapPrototype mapProto, IResourceManager resourceManager)
     {
         var problems = new List<string>();
 
         if (!resourceManager.TryContentFileRead(mapPath.ToRootedPath(), out var fileStream))
         {
             problems.Add($"Файл карты {mapPath} не найден в ресурсах. Проверь mapPath в прототипе {mapProto.ID}.");
-            return problems;
+            return (false, problems);
         }
 
         using var reader = new StreamReader(fileStream);
@@ -437,7 +444,7 @@ public sealed class ADTPostMapInitTest : GameTest
         catch (Exception ex)
         {
             problems.Add($"Файл {mapPath} не удалось разобрать как YAML: {UnwrapException(ex)}");
-            return problems;
+            return (false, problems);
         }
 
         var hasMaps = TryGetNode(root, "maps", out var mapsNode)
@@ -446,38 +453,45 @@ public sealed class ADTPostMapInitTest : GameTest
             && gridsNode is YamlSequenceNode grids
             ? grids.Children.Count
             : 0;
-        if (!hasMaps && gridCount > 0)
-        {
-            problems.Add($"Файл {mapPath} сохранён как GRID, а ожидалась MAP: секция 'maps' пуста, но 'grids' содержит {gridCount} грид(ов). " +
-                "Открой карту в редакторе и сохрани её заново как map (не grid).");
-        }
+
+        var fileIsGrid = !hasMaps && gridCount > 0;
 
         var gridStationIds = new List<string>();
         if (TryGetNode(root, "entities", out var entitiesNode)
-            && entitiesNode is YamlSequenceNode entities)
+            && entitiesNode is YamlSequenceNode entityGroups)
         {
-            foreach (var entity in entities)
+            foreach (var group in entityGroups)
             {
-                if (entity is not YamlMappingNode entityMap
-                    || !entityMap.Children.TryGetValue(new YamlScalarNode("components"), out var compsNode)
-                    || compsNode is not YamlSequenceNode comps)
+                if (group is not YamlMappingNode groupMap
+                    || !groupMap.Children.TryGetValue(new YamlScalarNode("entities"), out var groupEntitiesNode)
+                    || groupEntitiesNode is not YamlSequenceNode entities)
                 {
                     continue;
                 }
 
-                foreach (var comp in comps)
+                foreach (var entity in entities)
                 {
-                    if (comp is not YamlMappingNode compMap
-                        || !compMap.Children.TryGetValue(new YamlScalarNode("type"), out var typeNode)
-                        || typeNode.AsString() != "BecomesStation")
+                    if (entity is not YamlMappingNode entityMap
+                        || !entityMap.Children.TryGetValue(new YamlScalarNode("components"), out var compsNode)
+                        || compsNode is not YamlSequenceNode comps)
                     {
                         continue;
                     }
 
-                    var id = compMap.Children.TryGetValue(new YamlScalarNode("id"), out var idNode)
-                        ? idNode.AsString()
-                        : "<id не указан>";
-                    gridStationIds.Add(id);
+                    foreach (var comp in comps)
+                    {
+                        if (comp is not YamlMappingNode compMap
+                            || !compMap.Children.TryGetValue(new YamlScalarNode("type"), out var typeNode)
+                            || typeNode.AsString() != "BecomesStation")
+                        {
+                            continue;
+                        }
+
+                        var id = compMap.Children.TryGetValue(new YamlScalarNode("id"), out var idNode)
+                            ? idNode.AsString()
+                            : "<id не указан>";
+                        gridStationIds.Add(id);
+                    }
                 }
             }
         }
@@ -503,7 +517,7 @@ public sealed class ADTPostMapInitTest : GameTest
             }
         }
 
-        return problems;
+        return (fileIsGrid, problems);
     }
 
     private static bool TryGetNode(YamlNode node, string key, out YamlNode? value)
@@ -603,19 +617,28 @@ public sealed class ADTPostMapInitTest : GameTest
         }
 
         var comp = entManager.GetComponent<StationJobsComponent>(station);
-        var jobs = new HashSet<ProtoId<JobPrototype>>(comp.SetupAvailableJobs.Keys);
+        var setupJobs = comp.SetupAvailableJobs;
+        var jobs = new HashSet<ProtoId<JobPrototype>>(setupJobs.Keys);
 
-        var spawnPoints = entManager.EntityQuery<SpawnPointComponent>()
-            .Where(x => x.SpawnType == SpawnPointType.Job && x.Job != null)
-            .Select(x => x.Job.Value);
+        var spawnPointCounts = new Dictionary<ProtoId<JobPrototype>, int>();
 
-        jobs.ExceptWith(spawnPoints);
+        foreach (var spawn in entManager.EntityQuery<SpawnPointComponent>())
+        {
+            if (spawn.SpawnType != SpawnPointType.Job || spawn.Job is not { } job)
+                continue;
 
-        spawnPoints = entManager.EntityQuery<ContainerSpawnPointComponent>()
-            .Where(x => x.SpawnType is SpawnPointType.Job or SpawnPointType.Unset && x.Job != null)
-            .Select(x => x.Job.Value);
+            spawnPointCounts[job] = spawnPointCounts.GetValueOrDefault(job) + 1;
+        }
 
-        jobs.ExceptWith(spawnPoints);
+        foreach (var spawn in entManager.EntityQuery<ContainerSpawnPointComponent>())
+        {
+            if (spawn.SpawnType is not (SpawnPointType.Job or SpawnPointType.Unset) || spawn.Job is not { } job)
+                continue;
+
+            spawnPointCounts[job] = spawnPointCounts.GetValueOrDefault(job) + 1;
+        }
+
+        jobs.ExceptWith(spawnPointCounts.Keys);
 
         if (jobs.Count > 0)
         {
@@ -623,6 +646,10 @@ public sealed class ADTPostMapInitTest : GameTest
 
             var missing = jobs.Select(job =>
             {
+                var slots = setupJobs.TryGetValue(job, out var arr) && arr.Length >= 1 ? arr[0] : -1;
+                var expected = slots == -1 ? "безлимит" : slots.ToString();
+                var found = spawnPointCounts.GetValueOrDefault(job);
+
                 var spawnPointProtos = protoManager.EnumeratePrototypes<EntityPrototype>()
                     .Where(proto => !proto.Abstract
                         && proto.TryGetComponent<SpawnPointComponent>(out var spawn, componentFactory)
@@ -639,8 +666,8 @@ public sealed class ADTPostMapInitTest : GameTest
 
                 var protos = string.Join(", ", spawnPointProtos.Concat(containerSpawnPointProtos).Distinct());
                 return protos.Length == 0
-                    ? $"{job} (нет ни одного прототипа спавн-точки)"
-                    : $"{job} (есть прототипы: {protos}, но они не размещены на карте)";
+                    ? $"{job} (ожидалось {expected}, найдено {found}; нет ни одного прототипа спавн-точки)"
+                    : $"{job} (ожидалось {expected}, найдено {found}; прототипы есть: {protos}, но не размещены на карте)";
             });
 
             problems.Add($"Карта {mapProto.ID} ({mapPath}) не имеет спавн-точек для должностей: {string.Join("; ", missing)}. " +
