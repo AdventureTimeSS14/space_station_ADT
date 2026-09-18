@@ -1,4 +1,5 @@
 rmc-flamer-empty = Бак пуст!
+rmc-flamer-in-container = Отсюда нельзя стрелять из огнемёта!
 rmc-flamer-ignite-first = Сначала нужно зажечь запальник!
 rmc-flamer-ignite-first-with = Сначала нужно зажечь запальник, нажав { $key }!
 rmc-flamer-ignite-action-examine = Уникальное действие переключает запальник.
