@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Grid
+  category: Map
   engineVersion: 277.2.1
   forkId: ""
   forkVersion: ""
-  time: 09/17/2026 21:53:42
-  entityCount: 35599
-maps: []
+  time: 09/18/2026 15:42:55
+  entityCount: 35606
+maps:
+- 1
 grids:
 - 2
-orphans:
-- 2
+orphans: []
 nullspace: []
 tilemap:
   0: Space
@@ -116,12 +116,22 @@ tilemap:
 entities:
 - proto: ""
   entities:
+  - uid: 1
+    components:
+    - type: MetaData
+      name: NT Origin
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: GridTree
+    - type: Broadphase
+    - type: OccluderTree
   - uid: 2
     components:
     - type: MetaData
     - type: Transform
       pos: -0.32464826,-0.3100227
-      parent: invalid
+      parent: 1
     - type: MapGrid
       chunks:
         -1,-1:
@@ -23239,7 +23249,7 @@ entities:
       parent: 2
 - proto: ADTBarbellBenchOverlay
   entities:
-  - uid: 1
+  - uid: 35600
     components:
     - type: Transform
       parent: 84
@@ -23581,6 +23591,30 @@ entities:
     - type: Transform
       parent: 140
   - uid: 28732
+    components:
+    - type: Transform
+      parent: 154
+  - uid: 35601
+    components:
+    - type: Transform
+      parent: 84
+  - uid: 35602
+    components:
+    - type: Transform
+      parent: 98
+  - uid: 35603
+    components:
+    - type: Transform
+      parent: 112
+  - uid: 35604
+    components:
+    - type: Transform
+      parent: 126
+  - uid: 35605
+    components:
+    - type: Transform
+      parent: 140
+  - uid: 35606
     components:
     - type: Transform
       parent: 154
@@ -30708,7 +30742,7 @@ entities:
       pos: 19.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -266856.78
+      secondsUntilStateChange: -266896.3
       state: Opening
   - uid: 920
     components:
@@ -30888,7 +30922,7 @@ entities:
       pos: 33.5,-24.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -198608.34
+      secondsUntilStateChange: -198647.89
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -31151,7 +31185,7 @@ entities:
       pos: -64.5,-37.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -196519.48
+      secondsUntilStateChange: -196559.03
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -31579,7 +31613,7 @@ entities:
       pos: 32.5,-89.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -125710.18
+      secondsUntilStateChange: -125749.72
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -31787,7 +31821,7 @@ entities:
       pos: -56.5,-18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -89629.2
+      secondsUntilStateChange: -89668.74
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32525,7 +32559,7 @@ entities:
       pos: 51.5,-3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -265670.6
+      secondsUntilStateChange: -265710.12
       state: Opening
   - uid: 1222
     components:
@@ -32534,7 +32568,7 @@ entities:
       pos: 52.5,-3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -265669.38
+      secondsUntilStateChange: -265708.9
       state: Opening
   - uid: 1223
     components:
@@ -32654,7 +32688,7 @@ entities:
       pos: -19.5,-39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -111079.27
+      secondsUntilStateChange: -111118.81
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32818,7 +32852,7 @@ entities:
       pos: 19.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -137662.55
+      secondsUntilStateChange: -137702.1
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32971,7 +33005,7 @@ entities:
       pos: -53.5,20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -187069.48
+      secondsUntilStateChange: -187109.03
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32995,7 +33029,7 @@ entities:
       pos: 79.5,-36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -95765.59
+      secondsUntilStateChange: -95805.13
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -33290,7 +33324,7 @@ entities:
       pos: 47.5,-33.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -60136.58
+      secondsUntilStateChange: -60176.12
       state: Opening
     - type: DeviceLinkSource
       lastSignals:

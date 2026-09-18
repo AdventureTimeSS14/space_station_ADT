@@ -1,7 +1,7 @@
 - type: gameMap
   id: ADT_Sphere
   mapName: 'Sphere Station'
-  mapPath: /Maps/ADTMaps/ADTStations/adt_pump.yml
+  mapPath: /Maps/ADTMaps/ADTStations/adt_sphere.yml
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 0
