@@ -16,7 +16,6 @@ public sealed class LogicCanvas : Control
     private enum DragMode : byte
     {
         None,
-        Pan,
         Node,
         Wire,
         Box,
@@ -35,6 +34,9 @@ public sealed class LogicCanvas : Control
 
     private DragMode _drag;
     private Vector2 _dragScreenStart;
+
+    private bool _panning;
+    private Vector2 _panScreenStart;
     private Vector2 _panOrigin;
     private LogicNodeControl? _wireNode;
     private int _wirePin;
@@ -412,8 +414,8 @@ public sealed class LogicCanvas : Control
                 return;
             }
 
-            _drag = DragMode.Pan;
-            _dragScreenStart = args.PointerLocation.Position;
+            _panning = true;
+            _panScreenStart = args.PointerLocation.Position;
             _panOrigin = Offset;
             args.Handle();
             return;
@@ -479,7 +481,9 @@ public sealed class LogicCanvas : Control
         if (args.Function != EngineKeyFunctions.UIClick)
             return;
 
-        if (control.TryGetPinAt(args.RelativePosition, out var input, out var pin))
+        var local = (args.PointerLocation.Position - control.GlobalPixelPosition) / ScreenScale;
+
+        if (control.TryGetPinAt(local, out var input, out var pin))
         {
             SetSelection(control);
 
@@ -517,13 +521,14 @@ public sealed class LogicCanvas : Control
     {
         _pointerScreen = screen;
 
+        if (_panning)
+        {
+            Offset = _panOrigin - (screen - _panScreenStart) / ScreenScale;
+            InvalidateArrange();
+        }
+
         switch (_drag)
         {
-            case DragMode.Pan:
-                Offset = _panOrigin - (screen - _dragScreenStart) / ScreenScale;
-                InvalidateArrange();
-                break;
-
             case DragMode.Node:
                 var delta = (screen - _dragScreenStart) / ScreenScale;
 
@@ -547,9 +552,7 @@ public sealed class LogicCanvas : Control
     {
         if (args.Function == EngineKeyFunctions.UIRightClick)
         {
-            if (_drag == DragMode.Pan)
-                _drag = DragMode.None;
-
+            _panning = false;
             return;
         }
 
