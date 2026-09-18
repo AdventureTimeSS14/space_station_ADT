@@ -1,0 +1,93 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/turf/floors/plating.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "basalt"
+        },
+        {
+            "name": "basalt0"
+        },
+        {
+            "name": "basalt1",
+            "delays": [
+                [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            ]
+        },
+        {
+            "name": "basalt2",
+            "delays": [
+                [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            ]
+        },
+        {
+            "name": "basalt3",
+            "delays": [
+                [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            ]
+        },
+        {
+            "name": "basalt4"
+        },
+        {
+            "name": "basalt5",
+            "delays": [
+                [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            ]
+        },
+        {
+            "name": "basalt6"
+        },
+        {
+            "name": "basalt7"
+        },
+        {
+            "name": "basalt8"
+        },
+        {
+            "name": "basalt9",
+            "delays": [
+                [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            ]
+        },
+        {
+            "name": "basalt10"
+        },
+        {
+            "name": "basalt11"
+        },
+        {
+            "name": "basalt12"
+        }
+    ]
+}
