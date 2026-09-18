@@ -1,25 +1,21 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.VendingMachines
+namespace Content.Shared.ADT.VendingMachines
 {
     [NetSerializable, Serializable]
     public sealed class VendingMachineInterfaceState : BoundUserInterfaceState
     {
         public List<VendingMachineInventoryEntry> Inventory;
-        //ADT-Economy-Start
         public double PriceMultiplier;
         public int Credits;
-        //ADT-Economy-End
-        public VendingMachineInterfaceState(List<VendingMachineInventoryEntry> inventory, double priceMultiplier, int credits) //ADT-Economy
+        public VendingMachineInterfaceState(List<VendingMachineInventoryEntry> inventory, double priceMultiplier, int credits)
         {
             Inventory = inventory;
-            //ADT-Economy-Start
             PriceMultiplier = priceMultiplier;
             Credits = credits;
-            //ADT-Economy-End
         }
     }
-    //ADT-Economy-Start
+
     [Serializable, NetSerializable]
     public sealed class VendingMachineWithdrawMessage : BoundUserInterfaceMessage
     {
@@ -30,12 +26,12 @@ namespace Content.Shared.VendingMachines
     {
         public readonly VendingMachineInventoryEntry Entry;
         public readonly int Count;
-        public readonly Color? PaintColor; // ADT-Tweak
-        public VendingMachineEjectCountMessage(VendingMachineInventoryEntry entry, int count, Color? paintColor = null) // ADT-Tweak
+        public readonly Color? PaintColor;
+        public VendingMachineEjectCountMessage(VendingMachineInventoryEntry entry, int count, Color? paintColor = null)
         {
             Entry = entry;
             Count = count;
-            PaintColor = paintColor; // ADT-Tweak
+            PaintColor = paintColor;
         }
     }
 
@@ -51,7 +47,6 @@ namespace Content.Shared.VendingMachines
             IgnoreBalance = ignoreBalance;
         }
     }
-    //ADT-Economy-End
 
     [Serializable, NetSerializable]
     public sealed class VendingMachineEjectMessage : BoundUserInterfaceMessage
