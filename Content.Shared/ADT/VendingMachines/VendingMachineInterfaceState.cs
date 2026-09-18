@@ -1,3 +1,5 @@
+using Robust.Shared.GameObjects;
+using Robust.Shared.Maths;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.VendingMachines
@@ -8,11 +10,17 @@ namespace Content.Shared.ADT.VendingMachines
         public List<VendingMachineInventoryEntry> Inventory;
         public double PriceMultiplier;
         public int Credits;
-        public VendingMachineInterfaceState(List<VendingMachineInventoryEntry> inventory, double priceMultiplier, int credits)
+
+        public Dictionary<string, NetEntity> ReturnedEntities = new();
+
+        public VendingMachineInterfaceState(List<VendingMachineInventoryEntry> inventory, double priceMultiplier, int credits,
+            Dictionary<string, NetEntity>? returnedEntities = null)
         {
             Inventory = inventory;
             PriceMultiplier = priceMultiplier;
             Credits = credits;
+            if (returnedEntities != null)
+                ReturnedEntities = returnedEntities;
         }
     }
 

@@ -33,7 +33,8 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
 
     public int SelectedAmount => AmountSelector.SelectedId + 1;
 
-    public FancyVendingMachineItem(EntityPrototype? proto, string text, uint count, uint maxAmount, int price, bool striped, bool canPaint = false) // ADT Tweak - canPaint
+    public FancyVendingMachineItem(EntityPrototype? proto, string text, uint count, uint maxAmount, int price, bool striped,
+        bool canPaint = false, NetEntity? returnedEntity = null) // ADT Tweak - canPaint
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
@@ -46,8 +47,16 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
 
         if (proto != null)
         {
-            ItemIcon.SetPrototype(proto);
             SetupInfoTooltip(proto, text);
+            if (returnedEntity == null)
+                ItemIcon.SetPrototype(proto);
+        }
+
+        if (returnedEntity is { } returned)
+        {
+            ReturnedItemIcon.SetEntity(returned);
+            ReturnedItemIcon.Visible = true;
+            ItemIcon.Visible = false;
         }
 
         NameLabel.Text = text;

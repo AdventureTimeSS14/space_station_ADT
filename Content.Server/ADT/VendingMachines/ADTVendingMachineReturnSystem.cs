@@ -26,8 +26,6 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
     [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
     [Dependency] private readonly VendingMachineSystem _vending = default!;
 
-    private const string ReturnedItemsContainerId = "ADTVendingReturnedItems";
-
     public override void Initialize()
     {
         base.Initialize();
@@ -51,7 +49,7 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
             return false;
         }
 
-        var container = _container.EnsureContainer<Container>(uid, ReturnedItemsContainerId);
+        var container = _container.EnsureContainer<Container>(uid, VendingMachineComponent.ReturnedItemsContainerId);
         if (!_container.Insert(used, container))
         {
             Deny(uid, component);
@@ -60,6 +58,7 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
 
         component.ReturnedInventory[protoId] = component.ReturnedInventory.GetValueOrDefault(protoId) + 1;
         Dirty(uid, component);
+        _vending.UpdateVendingMachineInterfaceState(uid, component);
 
         _popup.PopupEntity(
             Loc.GetString("vending-machine-return-success", ("item", Identity.Entity(used, EntityManager))),
@@ -98,7 +97,7 @@ public sealed class ADTVendingMachineReturnSystem : EntitySystem
 
     private void OnReturnedEject(EntityUid uid, VendingMachineComponent component, ADTVendingReturnedEjectEvent args)
     {
-        var container = _container.EnsureContainer<Container>(uid, ReturnedItemsContainerId);
+        var container = _container.EnsureContainer<Container>(uid, VendingMachineComponent.ReturnedItemsContainerId);
 
         for (var i = 0; i < args.Count; i++)
         {

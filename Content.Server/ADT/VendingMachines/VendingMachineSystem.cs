@@ -116,10 +116,10 @@ namespace Content.Server.ADT.VendingMachines
             }
         }
 
-        private void UpdateVendingMachineInterfaceState(EntityUid uid, VendingMachineComponent component)
+        public void UpdateVendingMachineInterfaceState(EntityUid uid, VendingMachineComponent component)
         {
             var state = new VendingMachineInterfaceState(GetAllInventory(uid, component), component.PriceMultiplier,
-                component.Credits);
+                component.Credits, VendingMachineHelpers.GetReturnedItemEntities(EntityManager, uid));
 
             _userInterfaceSystem.SetUiState(uid, VendingMachineUiKey.Key, state);
         }
@@ -252,6 +252,7 @@ namespace Content.Server.ADT.VendingMachines
         private void OnAfterActivatableUIOpen(EntityUid uid, VendingMachineComponent component, AfterActivatableUIOpenEvent args)
         {
             SendUserInfo(uid, args.User);
+            UpdateVendingMachineInterfaceState(uid, component);
         }
 
         private void SendUserInfo(EntityUid uid, EntityUid user)
