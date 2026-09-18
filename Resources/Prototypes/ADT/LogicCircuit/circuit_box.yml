@@ -31,8 +31,9 @@
         - MachineMask
         layer:
         - MachineLayer
-  - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
+  - type: Damageable
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -42,9 +43,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Construction
-    graph: ADTLogicCircuitBox
-    node: box
+  # TODO: Добавить графф для коробки
+  # - type: Construction
+  #   graph: ADTLogicCircuitBox
+  #   node: box
   - type: WiresPanel
   - type: ActivatableUIRequiresPanel
     requireOpen: true
