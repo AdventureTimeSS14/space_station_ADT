@@ -9,5 +9,5 @@ public sealed partial class AiEyeTeleportComponent : Component
     public TimeSpan NextTeleportAt;
 
     [DataField]
-    public float Cooldown = 10f;
+    public float Cooldown = 5f;
 }
