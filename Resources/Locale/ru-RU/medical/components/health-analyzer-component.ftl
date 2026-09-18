@@ -6,7 +6,7 @@ health-analyzer-window-entity-alive-text = Жив
 health-analyzer-window-entity-dead-text = Мёртв
 health-analyzer-window-entity-critical-text = Критическое состояние
 # ADT-Tweak
-health-analyzer-window-entity-soft-critical-text = Полу-осознанное состояние
+health-analyzer-window-entity-soft-critical-text = Полуосознанное состояние
 health-analyzer-window-entity-temperature-text = Температура:
 health-analyzer-window-entity-status-text = Статус:
 health-analyzer-window-entity-blood-level-text = Уровень крови:
