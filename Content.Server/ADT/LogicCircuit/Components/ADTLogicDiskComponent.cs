@@ -9,5 +9,5 @@ public sealed partial class ADTLogicDiskComponent : Component
     public LogicCircuitLayout? Layout;
 
     [DataField]
-    public string Label;
+    public string Label = string.Empty;
 }
