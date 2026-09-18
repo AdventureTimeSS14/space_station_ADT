@@ -68,19 +68,19 @@ public sealed class ADTPostMapInitTest : GameTest
         var ticker = entManager.EntitySysManager.GetEntitySystem<GameTicker>();
         var shuttleSystem = entManager.EntitySysManager.GetEntitySystem<ShuttleSystem>();
 
-        var adtMaps = protoManager.EnumeratePrototypes<GameMapPrototype>()
-            .Where(x => x.ID.StartsWith("ADT_"))
+        var gameMaps = protoManager.EnumeratePrototypes<GameMapPrototype>()
+            .Where(x => x.ID != PoolManager.TestMap)
             .OrderBy(x => x.ID)
             .ToList();
 
-        TestContext.Out.WriteLine($"ADTPostMapInitTest: проверяю {adtMaps.Count} ADT-карт: " +
-            string.Join(", ", adtMaps.Select(x => x.ID)));
+        TestContext.Out.WriteLine($"ADTPostMapInitTest: проверяю {gameMaps.Count} карт: " +
+            string.Join(", ", gameMaps.Select(x => x.ID)));
 
         var failures = new List<string>();
 
         await server.WaitPost(() =>
         {
-            foreach (var mapProto in adtMaps)
+            foreach (var mapProto in gameMaps)
             {
                 if (BrokenGameMaps.Contains(mapProto.ID))
                 {
