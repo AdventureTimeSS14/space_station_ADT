@@ -321,7 +321,7 @@
 
 - type: entity
   parent: ADTMusicDiskStandard
-  id: ADTMusicDiskcosmic
+  id: ADTMusicDiskCosmic
   name: music disk (cosmic)
   description: cosmic.
   components:
@@ -338,7 +338,7 @@
 
 - type: entity
   parent: ADTMusicDiskStandard
-  id: ADTMusicDiskdigger
+  id: ADTMusicDiskDigger
   name: music disk (digger)
   description: digger.
   components:
@@ -355,7 +355,7 @@
 
 - type: entity
   parent: ADTMusicDiskStandard
-  id: ADTMusicDiskADTutil
+  id: ADTMusicDiskUtil
   name: music disk (util)
   description: util
   components:
@@ -372,7 +372,7 @@
 
 - type: entity
   parent: ADTMusicDiskStandard
-  id: ADTMusicDiskflatout
+  id: ADTMusicDiskFlatout
   name: music disk (flatout)
   description: flatout
   components:
@@ -389,7 +389,7 @@
 
 - type: entity
   parent: ADTMusicDiskStandard
-  id: ADTMusicDiskfunc
+  id: ADTMusicDiskFunc
   name: music disk (func)
   description: func.
   components:
@@ -406,7 +406,7 @@
 
 - type: entity
   parent: ADTMusicDiskStandard
-  id: ADTMusicDiskgame
+  id: ADTMusicDiskGame
   name: music disk (game)
   description: game
   components:
@@ -423,7 +423,7 @@
 
 - type: entity
   parent: ADTMusicDiskStandard
-  id: ADTMusicDiskgroove
+  id: ADTMusicDiskGroove
   name: music disk (groove)
   description: groove
   components:
@@ -440,7 +440,7 @@
 
 - type: entity
   parent: ADTMusicDiskStandard
-  id: ADTMusicDiskmewgenics
+  id: ADTMusicDiskMewgenics
   name: music disk (mewgenics)
   description: mewgenics
   components:
@@ -457,7 +457,7 @@
 
 - type: entity
   parent: ADTMusicDiskStandard
-  id: ADTMusicDisknostalgia
+  id: AADTMusicDiskNostalgia
   name: music disk (nostalgia)
   description: nostalgia
   components:
@@ -474,7 +474,7 @@
 
 - type: entity
   parent: ADTMusicDiskStandard
-  id: ADTMusicDiskpriest
+  id: AADTMusicDiskPriest
   name: music disk (priest)
   description: priest
   components:
@@ -491,7 +491,7 @@
 
 - type: entity
   parent: ADTMusicDiskStandard
-  id: ADTMusicDiskromantic
+  id: ADTMusicDiskRomantic
   name: music disk (romantic)
   description: romantic
   components:
@@ -508,7 +508,7 @@
 
 - type: entity
   parent: ADTMusicDiskStandard
-  id: ADTMusicDiskshanson
+  id: ADTMusicDiskShanson
   name: music disk (shanson)
   description: shanson
   components:
@@ -525,7 +525,7 @@
 
 - type: entity
   parent: ADTMusicDiskStandard
-  id: ADTMusicDisksintetic
+  id: ADTMusicDiskSintetic
   name: music disk (sintetic)
   description: sintetic
   components:
@@ -542,7 +542,7 @@
 
 - type: entity
   parent: ADTMusicDiskStandard
-  id: ADTMusicDiskvokaloid
+  id: ADTMusicDiskVokaloid
   name: music disk (vokaloid)
   description: vokaloid
   components:
