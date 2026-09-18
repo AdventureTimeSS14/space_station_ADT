@@ -15401,3 +15401,9 @@ Entries:
     id: 1933
     pr_number: 3393
     time: '2026-09-18T18:48:17Z'
+  - author: CrimeMoot
+    changes:
+      - {message: Цели агентов после 30-ти минут теперь действительно выдаются., type: Fix}
+    id: 1934
+    pr_number: 3401
+    time: '2026-09-18T21:47:36Z'
