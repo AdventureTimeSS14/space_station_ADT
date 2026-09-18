@@ -177,12 +177,25 @@ public sealed class ADTPostMapInitTest : GameTest
         }
 
         using var reader = new StreamReader(fileStream);
-        var yaml = new YamlStream();
-        yaml.Load(reader);
-        var root = yaml.Documents[0].RootNode;
+        YamlNode root;
+        try
+        {
+            var yaml = new YamlStream();
+            yaml.Load(reader);
+            root = yaml.Documents[0].RootNode;
+        }
+        catch (Exception ex)
+        {
+            problems.Add($"Файл {mapPath} не удалось разобрать как YAML: {UnwrapException(ex)}");
+            return problems;
+        }
 
-        var hasMaps = root["maps"] is YamlSequenceNode { Children.Count: > 0 };
-        var gridCount = root["grids"] is YamlSequenceNode grids ? grids.Children.Count : 0;
+        var hasMaps = TryGetNode(root, "maps", out var mapsNode)
+            && mapsNode is YamlSequenceNode { Children.Count: > 0 };
+        var gridCount = TryGetNode(root, "grids", out var gridsNode)
+            && gridsNode is YamlSequenceNode grids
+            ? grids.Children.Count
+            : 0;
         if (!hasMaps && gridCount > 0)
         {
             problems.Add($"Файл {mapPath} сохранён как GRID, а ожидалась MAP: секция 'maps' пуста, но 'grids' содержит {gridCount} грид(ов). " +
@@ -190,19 +203,30 @@ public sealed class ADTPostMapInitTest : GameTest
         }
 
         var gridStationIds = new List<string>();
-        if (root["entities"] is YamlSequenceNode entities)
+        if (TryGetNode(root, "entities", out var entitiesNode)
+            && entitiesNode is YamlSequenceNode entities)
         {
             foreach (var entity in entities)
             {
-                if (entity["components"] is not YamlSequenceNode comps)
+                if (entity is not YamlMappingNode entityMap
+                    || !entityMap.Children.TryGetValue(new YamlScalarNode("components"), out var compsNode)
+                    || compsNode is not YamlSequenceNode comps)
+                {
                     continue;
+                }
 
                 foreach (var comp in comps)
                 {
-                    if (comp["type"]?.AsString() != "BecomesStation")
+                    if (comp is not YamlMappingNode compMap
+                        || !compMap.Children.TryGetValue(new YamlScalarNode("type"), out var typeNode)
+                        || typeNode.AsString() != "BecomesStation")
+                    {
                         continue;
+                    }
 
-                    var id = comp["id"]?.AsString() ?? "<id не указан>";
+                    var id = compMap.Children.TryGetValue(new YamlScalarNode("id"), out var idNode)
+                        ? idNode.AsString()
+                        : "<id не указан>";
                     gridStationIds.Add(id);
                 }
             }
@@ -230,6 +254,17 @@ public sealed class ADTPostMapInitTest : GameTest
         }
 
         return problems;
+    }
+
+    private static bool TryGetNode(YamlNode node, string key, out YamlNode? value)
+    {
+        if (node is not YamlMappingNode mapping)
+        {
+            value = null;
+            return false;
+        }
+
+        return mapping.Children.TryGetValue(new YamlScalarNode(key), out value);
     }
 
     private void CheckLoadedMap(
