@@ -117,7 +117,7 @@
   - ADTTheMMachineAKingAlone
 
 - type: jukeboxList
-  id: ADTcosmic
+  id: ADTCosmic
   jukeboxes:
   - ADTCornfieldChase
   - ADTVirtualInsanity
@@ -131,7 +131,7 @@
   - ADTBasicTheme
 
 - type: jukeboxList
-  id: ADTdigger
+  id: ADTDigger
   jukeboxes:
   - ADTTheOnlyThingTheyFearIsYou
   - ADTDoomCrossingEternalHorizons
@@ -142,7 +142,7 @@
   - ADTSonne
 
 - type: jukeboxList
-  id: ADTflatout
+  id: ADTFlatout
   jukeboxes:
   - ADTAdrenaline
   - ADTBeatTheBoys
@@ -155,7 +155,7 @@
   - ADTTheEverLasting
 
 - type: jukeboxList
-  id: ADTfunc
+  id: ADTFunc
   jukeboxes:
   - ADTGetLucky
   - ADTAroundTheWorld
@@ -170,7 +170,7 @@
   - ADTLetterInASuitcase
 
 - type: jukeboxList
-  id: ADTgame
+  id: ADTGame
   jukeboxes:
   - ADTVitality
   - ADTTitanium
@@ -182,7 +182,7 @@
   - ADTGloriaFilio
 
 - type: jukeboxList
-  id: ADTgroove
+  id: ADTGroove
   jukeboxes:
   - ADT12juin3049
   - ADTPressure
@@ -191,7 +191,7 @@
   - ADTAllThatGlitters
 
 - type: jukeboxList
-  id: ADTmewgenics
+  id: ADTMewgenics
   jukeboxes:
   - ADTCatChase
   - ADTEatinRats
@@ -201,7 +201,7 @@
   - ADTKittyMarch
 
 - type: jukeboxList
-  id: ADTnostalgia
+  id: ADTNostalgia
   jukeboxes:
   - ADTShapeOfMyHeart
   - ADTNightcall
@@ -211,14 +211,14 @@
   - ADTThmenthe
 
 - type: jukeboxList
-  id: ADTpriest
+  id: ADTPriest
   jukeboxes:
   - ADTMachineInTheWalls
   - ADTLamentOfTheAngel
   - ADTWhitepath
 
 - type: jukeboxList
-  id: ADTromantic
+  id: ADTRomantic
   jukeboxes:
   - ADTCreep
   - ADTNoSurprises
@@ -233,7 +233,7 @@
   - ADTDrug
 
 - type: jukeboxList
-  id: ADTshanson
+  id: ADTShanson
   jukeboxes:
   - ADTDom
   - ADTCentral
@@ -246,7 +246,7 @@
   - ADTSharik
 
 - type: jukeboxList
-  id: ADTsintetic
+  id: ADTSintetic
   jukeboxes:
   - ADTRise
   - ADTDarkRain
@@ -260,7 +260,7 @@
   - ADTCyberiaLyr3
 
 - type: jukeboxList
-  id: ADTutil
+  id: ADTUtil
   jukeboxes:
   - ADTSuthernGothic
   - ADTTheMiners
@@ -277,7 +277,7 @@
   - ADTLanius
 
 - type: jukeboxList
-  id: ADTvokaloid
+  id: ADTVokaloid
   jukeboxes:
   - ADTTetoris
   - ADTIelloElegy

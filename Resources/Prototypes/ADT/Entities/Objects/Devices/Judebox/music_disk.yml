@@ -332,7 +332,7 @@
       color: "#1c3d4b"
     - state: disk_label_music
   - type: JukeboxDisk
-    tracksCollection: ADTcosmic
+    tracksCollection: ADTCosmic
   - type: StaticPrice
     price: 50
 
@@ -349,7 +349,7 @@
       color: "#36210d"
     - state: disk_label_music
   - type: JukeboxDisk
-    tracksCollection: ADTdigger
+    tracksCollection: ADTDigger
   - type: StaticPrice
     price: 300
 
@@ -366,7 +366,7 @@
       color: "#36210d"
     - state: disk_label_music
   - type: JukeboxDisk
-    tracksCollection: ADTutil
+    tracksCollection: ADTUtil
   - type: StaticPrice
     price: 300
 
@@ -383,7 +383,7 @@
       color: "#e1f813"
     - state: disk_label_music
   - type: JukeboxDisk
-    tracksCollection: ADTflatout
+    tracksCollection: ADTFlatout
   - type: StaticPrice
     price: 50
 
@@ -400,7 +400,7 @@
       color: "#1154d1"
     - state: disk_label_music
   - type: JukeboxDisk
-    tracksCollection: ADTfunc
+    tracksCollection: ADTFunc
   - type: StaticPrice
     price: 50
 
@@ -417,7 +417,7 @@
       color: "#ef9ef1"
     - state: disk_label_music
   - type: JukeboxDisk
-    tracksCollection: ADTgame
+    tracksCollection: ADTGame
   - type: StaticPrice
     price: 50
 
@@ -434,7 +434,7 @@
       color: "#1afa38"
     - state: disk_label_music
   - type: JukeboxDisk
-    tracksCollection: ADTgroove
+    tracksCollection: ADTGroove
   - type: StaticPrice
     price: 50
 
@@ -451,7 +451,7 @@
       color: "#eaecec"
     - state: disk_label_music
   - type: JukeboxDisk
-    tracksCollection: ADTmewgenics
+    tracksCollection: ADTMewgenics
   - type: StaticPrice
     price: 50
 
@@ -468,7 +468,7 @@
       color: "#c57b0d"
     - state: disk_label_music
   - type: JukeboxDisk
-    tracksCollection: ADTnostalgia
+    tracksCollection: ADTNostalgia
   - type: StaticPrice
     price: 50
 
@@ -485,7 +485,7 @@
       color: "#e3fcf6"
     - state: disk_label_music
   - type: JukeboxDisk
-    tracksCollection: ADTpriest
+    tracksCollection: ADTPriest
   - type: StaticPrice
     price: 300
 
@@ -502,7 +502,7 @@
       color: "#5219ad"
     - state: disk_label_music
   - type: JukeboxDisk
-    tracksCollection: ADTromantic
+    tracksCollection: ADTRomantic
   - type: StaticPrice
     price: 50
 
@@ -519,7 +519,7 @@
       color: "#e40d0dd5"
     - state: disk_label_music
   - type: JukeboxDisk
-    tracksCollection: ADTshanson
+    tracksCollection: ADTShanson
   - type: StaticPrice
     price: 1000
 
@@ -536,7 +536,7 @@
       color: "#2f2d42"
     - state: disk_label_music
   - type: JukeboxDisk
-    tracksCollection: ADTsintetic
+    tracksCollection: ADTSintetic
   - type: StaticPrice
     price: 50
 
@@ -553,6 +553,6 @@
       color: "#0b8a55"
     - state: disk_label_music
   - type: JukeboxDisk
-    tracksCollection: ADTvokaloid
+    tracksCollection: ADTVokaloid
   - type: StaticPrice
     price: 50
