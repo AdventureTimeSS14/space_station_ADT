@@ -98,3 +98,5 @@
   - type: Construction
     graph: ADTBarrelFire
     node: adtbarrelfire
+  - type: ParticleEmitter
+    effect: ADTFireContinuous
