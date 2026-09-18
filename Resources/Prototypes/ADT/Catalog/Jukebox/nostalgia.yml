@@ -29,7 +29,7 @@
     path: /Audio/ADT/Jukebox/nostalgia/Me-Gustas-Tu.ogg
 
 - type: jukebox
-  id: ADTThéàlamenthe
+  id: ADTThmenthe
   name: 6. Thé à la menthe - La Caution
   path:
     path: /Audio/ADT/Jukebox/nostalgia/menthe.ogg
