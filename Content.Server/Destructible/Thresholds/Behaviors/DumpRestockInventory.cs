@@ -48,7 +48,10 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
             if (inventory.Count == 0)
                 return;
 
-            var count = system.Random.Next(MinCount, MaxCount + 1);
+            if (MinCount < 0 || MaxCount < MinCount)
+                return;
+
+            var count = system.Random.Next(MinCount, Math.Min(MaxCount, int.MaxValue - 1) + 1);
             for (var i = 0; i < count; i++)
             {
                 var (entityId, _, _) = system.Random.Pick(inventory);
