@@ -28,6 +28,7 @@ public sealed partial class ADTRitualSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly ADTDyeSystem _dye = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -555,6 +556,12 @@ public sealed partial class ADTRitualSystem : EntitySystem
         {
             if (!TryComp<ADTDyedComponent>(invoker, out var dyed) || dyed.Dye == null)
                 continue;
+
+            if (dyed.Marking is { } marking)
+            {
+                _dye.RemoveMarking(invoker, marking);
+                dyed.Marking = null;
+            }
 
             dyed.Dye = null;
             Dirty(invoker, dyed);
