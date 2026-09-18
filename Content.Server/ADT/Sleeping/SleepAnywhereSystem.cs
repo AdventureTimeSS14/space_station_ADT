@@ -12,7 +12,7 @@ using Content.Shared.Stunnable;
 namespace Content.Server.ADT.Sleeping;
 
 /// <summary>
-/// Даёт действие сна мобам, лежащим на полу или пристёгнутым к чему угодно.
+/// Даёт действие сна мобам, лежащим на полу или пристёгнутым к предметам без HealOnBuckle.
 /// </summary>
 public sealed partial class SleepAnywhereSystem : EntitySystem
 {
