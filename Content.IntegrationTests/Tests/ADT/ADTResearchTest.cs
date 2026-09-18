@@ -10,7 +10,7 @@ using Robust.Shared.Prototypes;
 namespace Content.IntegrationTests.Tests.ADT;
 
 [TestFixture]
-public sealed class ResearchTestADT : GameTest
+public sealed class ADTResearchTest : GameTest
 {
     [Test]
     public async Task DisciplineValidTierPrerequesitesTest()
@@ -101,17 +101,13 @@ public sealed class ResearchTestADT : GameTest
                     if (latheTechs.Contains(recipe))
                         continue;
 
-                    if (protoManager.TryIndex(recipe, out LatheRecipePrototype? recipeProto) && recipeProto.DisplayOnly)
-                    {
-                        if (recipeProto.Result is not { } result
-                            || !assemblerRecipes.TryGetValue(result, out var assemblerTech)
-                            || assemblerTech != tech.ID)
-                            failures.Add($"Display-only recipe '{recipe}' from tech '{tech.ID}' cannot be crafted in any assembler.");
-                    }
-                    else
-                    {
-                        failures.Add($"Recipe '{recipe}' from tech '{tech.ID}' cannot be unlocked on any lathes.");
-                    }
+                    if (protoManager.TryIndex(recipe, out LatheRecipePrototype? recipeProto)
+                        && recipeProto.Result is { } result
+                        && assemblerRecipes.TryGetValue(result, out var assemblerTech)
+                        && assemblerTech == tech.ID)
+                        continue;
+
+                    failures.Add($"Recipe '{recipe}' from tech '{tech.ID}' cannot be unlocked on any lathes or assemblers.");
                 }
             }
 
