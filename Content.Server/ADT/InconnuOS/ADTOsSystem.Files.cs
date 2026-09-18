@@ -140,7 +140,7 @@ public sealed partial class ADTOsSystem
 
         AddDefault(comp.Disk, root + Loc.GetString("os-folder-circuits"), OsFileKind.Directory, string.Empty, false);
 
-        AddDefault(comp.Disk, root + "Windows", OsFileKind.Directory, string.Empty, true);
+        AddDefault(comp.Disk, root + "InconnuOS", OsFileKind.Directory, string.Empty, true);
 
         RestoreKernel(ent);
     }
@@ -149,7 +149,7 @@ public sealed partial class ADTOsSystem
 
     private static string KernelPath(ADTOperatingSystemComponent comp)
     {
-        return OsPath.GetRoot(comp.Drive) + "Windows/kernel";
+        return OsPath.GetRoot(comp.Drive) + "InconnuOS/kernel";
     }
 
     private void RestoreKernel(Entity<ADTOperatingSystemComponent> ent)
