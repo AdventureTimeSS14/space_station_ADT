@@ -503,11 +503,12 @@ namespace Content.Server.Atmos.EntitySystems
                     {
                         if (_rmcFlammable.CanBurnThroughImmunity(uid))
                         {
-                            var rmcDamage = rmcFire.Intensity / 5f * flammable.Damage * ev.Multiplier;
+                            var rmcMultiplier = _rmcFlammable.ApplyThermalProtection(uid, ev.Multiplier);
+                            var rmcDamage = rmcFire.Intensity / 5f * flammable.Damage * rmcMultiplier;
 
                             if (rmcFire.TileDamage is { } rmcTileDamage && HasComp<SteppingOnFireComponent>(uid))
                             {
-                                rmcDamage += rmcFire.Intensity * rmcTileDamage / 3;
+                                rmcDamage += rmcFire.Intensity * rmcTileDamage * rmcMultiplier / 3;
                             }
 
                             _damageableSystem.TryChangeDamage(uid, rmcDamage, true, false, origin: uid);

@@ -13,8 +13,6 @@ namespace Content.Client.ADT.VendingMachines.UI;
 [GenerateTypedNameReferences]
 public sealed partial class FancyVendingMachineItem : PanelContainer
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-
     private const int MaxSelectable = 5;
 
     private static readonly StyleBoxFlat StripeBox = new() { BackgroundColor = Color.FromHex("#1F1F23") };
@@ -29,13 +27,13 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
     public Action? ColorPressed;
 
     private int _unitPrice;
-    private StyleBoxFlat _buyBox = new();
+    private StyleBoxFlat _buyBox = default!;
 
     public Color? PaintColor { get; private set; }
 
     public int SelectedAmount => AmountSelector.SelectedId + 1;
 
-    public FancyVendingMachineItem(EntProtoId entProto, string text, uint count, uint maxAmount, int price, bool striped, bool canPaint = false) // ADT Tweak - canPaint
+    public FancyVendingMachineItem(EntityPrototype? proto, string text, uint count, uint maxAmount, int price, bool striped, bool canPaint = false) // ADT Tweak - canPaint
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
@@ -46,7 +44,11 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
 
         EntryPanel.PanelOverride = striped ? StripeBox : null;
 
-        ItemPrototype.SetPrototype(entProto);
+        if (proto != null)
+        {
+            ItemIcon.SetPrototype(proto);
+            SetupInfoTooltip(proto, text);
+        }
 
         NameLabel.Text = text;
 
@@ -76,7 +78,13 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
         };
 
         UpdateCount(count, maxAmount);
-        SetupInfoTooltip(entProto, text);
+    }
+
+    public void UpdateData(string name, uint count, uint maxAmount, int price)
+    {
+        _unitPrice = price;
+        NameLabel.Text = name;
+        UpdateCount(count, maxAmount);
     }
 
     private static StyleBoxFlat MakeFlatButtonStyle(BaseButton button)
@@ -95,11 +103,8 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
         return box;
     }
 
-    private void SetupInfoTooltip(EntProtoId entProto, string text)
+    private void SetupInfoTooltip(EntityPrototype proto, string text)
     {
-        if (!_proto.TryIndex(entProto, out EntityPrototype? proto))
-            return;
-
         var msg = new FormattedMessage();
         msg.AddText(text);
 
@@ -113,7 +118,6 @@ public sealed partial class FancyVendingMachineItem : PanelContainer
         tooltip.SetMessage(msg);
         tooltip.MaxWidth = 250f;
 
-        InfoButton.ToolTip = proto.Description;
         InfoButton.TooltipDelay = 0;
         InfoButton.TooltipSupplier = _ => tooltip;
     }
