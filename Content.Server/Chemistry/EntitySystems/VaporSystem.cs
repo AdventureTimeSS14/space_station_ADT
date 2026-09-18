@@ -45,7 +45,17 @@ namespace Content.Server.Chemistry.EntitySystems
             foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions((entity.Owner, contents)))
             {
                 var solution = soln.Comp.Solution;
-                _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch);
+
+                // ADT-Tweak start
+                foreach (var reagentQuantity in solution.Contents.ToArray())
+                {
+                    var reagent = _protoManager.Index<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
+                    if (reagent.VaporBlocked)
+                        continue;
+
+                    _reactive.ReactionEntity(args.OtherEntity, ReactionMethod.Touch, reagentQuantity);
+                }
+                // ADT-Tweak end
             }
 
             // ADT-Tweak-Start
