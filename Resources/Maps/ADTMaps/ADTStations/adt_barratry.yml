@@ -52626,8 +52626,6 @@ entities:
       pos: -5.5,-16.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 133
 - proto: FirelockGlass
@@ -71285,8 +71283,6 @@ entities:
       pos: -10.5,-17.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 133
     - type: AtmosPipeColor
@@ -71322,8 +71318,6 @@ entities:
       pos: -94.5,9.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 134
     - type: AtmosPipeColor
@@ -71334,8 +71328,6 @@ entities:
       pos: -97.5,10.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 134
     - type: AtmosPipeColor
@@ -71347,8 +71339,6 @@ entities:
       pos: -102.5,9.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 134
     - type: AtmosPipeColor
@@ -72532,8 +72522,6 @@ entities:
       pos: -13.5,-17.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 133
     - type: AtmosPipeColor
@@ -72569,8 +72557,6 @@ entities:
       pos: -102.5,7.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 134
     - type: AtmosPipeColor
@@ -72582,8 +72568,6 @@ entities:
       pos: -100.5,7.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 134
     - type: AtmosPipeColor
@@ -72595,8 +72579,6 @@ entities:
       pos: -95.5,7.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 134
     - type: AtmosPipeColor
@@ -80165,11 +80147,6 @@ entities:
           showEnts: False
           occludes: False
           ent: null
-    # - type: UserInterface
-    #   actors:
-    #     enum.StrippingUiKey.Key:
-    #     - invalid
-    # - type: ActiveUserInterface
     - type: OwOAccent
 - proto: MaterialCloth
   entities:

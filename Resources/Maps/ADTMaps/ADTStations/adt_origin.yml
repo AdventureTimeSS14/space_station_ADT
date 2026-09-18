@@ -121,7 +121,6 @@ entities:
     - type: MetaData
     - type: Transform
       pos: -0.32464826,-0.3100227
-      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
