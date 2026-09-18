@@ -3,6 +3,8 @@ using System.IO;
 using System.Linq;
 using Content.IntegrationTests.Fixtures;
 using Content.IntegrationTests.Fixtures.Attributes;
+using Content.IntegrationTests.Utility;
+using Content.Server.Administration.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
@@ -17,8 +19,10 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.GameObjects;
+using Robust.Shared.IoC;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Map.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.UnitTesting;
@@ -34,6 +38,9 @@ public sealed class ADTPostMapInitTest : GameTest
         Connected = true,
         Dirty = true,
     };
+
+    private const bool SkipTestMaps = true;
+    private const string TestMapsPath = "/Maps/Test/";
 
     private static readonly string[] NoSpawnMaps =
     {
@@ -52,9 +59,185 @@ public sealed class ADTPostMapInitTest : GameTest
         "ADT_Cluster"
     };
 
+    private static readonly string[] Grids =
+    {
+        "/Maps/centcomm.yml",
+        "/Maps/ADTMaps/Shuttles/pirate.yml",
+        AdminTestArenaSystem.ArenaMapPath
+    };
+
+    private static readonly ResPath[] AllMapFiles = GameDataScrounger.FilesInDirectoryInVfs("/Maps", "*.yml");
+    private static readonly ResPath[] ShuttleMapFiles = GameDataScrounger.FilesInDirectoryInVfs("/Maps/Shuttles", "*.yml");
+
+    [Test, TestCaseSource(nameof(Grids))]
+    [EnsureCVar(Side.Server, typeof(CCVars), nameof(CCVars.GridFill), false)]
+    public async Task GridsLoadableTest(string mapFile)
+    {
+        var pair = Pair;
+        var server = pair.Server;
+
+        var entManager = server.ResolveDependency<IEntityManager>();
+        var mapLoader = entManager.System<MapLoaderSystem>();
+        var mapSystem = entManager.System<SharedMapSystem>();
+        var path = new ResPath(mapFile);
+
+        await server.WaitPost(() =>
+        {
+            mapSystem.CreateMap(out var mapId);
+            try
+            {
+                Assert.That(mapLoader.TryLoadGrid(mapId, path, out _),
+                    $"Не удалось загрузить грид {mapFile}: файл сохранён как MAP вместо GRID (или повреждён). " +
+                    "Открой файл в редакторе карт и сохрани его заново как grid.");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Не удалось загрузить грид {mapFile}: {UnwrapException(ex)}", ex);
+            }
+
+            mapSystem.DeleteMap(mapId);
+        });
+    }
+
+    [Test]
+    [TestCaseSource(nameof(ShuttleMapFiles))]
+    [EnsureCVar(Side.Server, typeof(CCVars), nameof(CCVars.GridFill), false)]
+    public async Task ShuttlesLoadableTest(ResPath path)
+    {
+        var pair = Pair;
+        var server = pair.Server;
+
+        var entManager = server.ResolveDependency<IEntityManager>();
+        var mapLoader = entManager.System<MapLoaderSystem>();
+        var mapSystem = entManager.System<SharedMapSystem>();
+
+        await server.WaitPost(() =>
+        {
+            Assert.Multiple(() =>
+            {
+                mapSystem.CreateMap(out var mapId);
+                try
+                {
+                    Assert.That(mapLoader.TryLoadGrid(mapId, path, out _),
+                        $"Не удалось загрузить шаттл {path}: файл сохранён как MAP вместо GRID (или повреждён). " +
+                        "Открой файл в редакторе карт и сохрани его заново как grid.");
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Не удалось загрузить шаттл {path}: {UnwrapException(ex)}", ex);
+                }
+                mapSystem.DeleteMap(mapId);
+            });
+        });
+    }
+
+    [Test]
+    [TestCaseSource(nameof(AllMapFiles))]
+    public async Task NoSavedPostMapInitTest(ResPath map)
+    {
+        var pair = Pair;
+        var server = pair.Server;
+
+        var resourceManager = server.ResolveDependency<IResourceManager>();
+        var protoManager = server.ResolveDependency<IPrototypeManager>();
+        var loader = server.System<MapLoaderSystem>();
+
+        var rootedPath = map.ToRootedPath();
+
+        var isV7Map = false;
+
+        if (SkipTestMaps && rootedPath.ToString().StartsWith(TestMapsPath, StringComparison.Ordinal))
+        {
+            return;
+        }
+
+        if (!resourceManager.TryContentFileRead(rootedPath, out var fileStream))
+        {
+            Assert.Fail($"Карта не найдена: {rootedPath}");
+        }
+
+        using var reader = new StreamReader(fileStream);
+        var yamlStream = new YamlStream();
+
+        yamlStream.Load(reader);
+
+        var root = yamlStream.Documents[0].RootNode;
+        var meta = root["meta"];
+        var version = meta["format"].AsInt();
+
+        if (version >= 7)
+        {
+            isV7Map = true;
+        }
+        else
+        {
+            var postMapInit = meta["postmapinit"].AsBool();
+            Assert.That(postMapInit, Is.False, $"Карта {map.Filename} была сохранена post-map-init");
+        }
+
+        var deps = server.ResolveDependency<IEntitySystemManager>().DependencyCollection;
+        var ev = new BeforeEntityReadEvent();
+        server.EntMan.EventBus.RaiseEvent(EventSource.Local, ev);
+
+        if (isV7Map)
+        {
+            Assert.That(IsPreInit(map, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes),
+                $"Карта {map} была сохранена post-map-init. Открой её в редакторе карт и сохрани заново БЕЗ прогона map init.");
+        }
+
+        var mapSys = server.System<SharedMapSystem>();
+        MapId id = default;
+        await server.WaitPost(() => mapSys.CreateMap(out id, runMapInit: false));
+        await server.WaitPost(() => server.EntMan.Spawn(null, new MapCoordinates(0, 0, id)));
+
+        var path = new ResPath($"{nameof(NoSavedPostMapInitTest)}.yml");
+        Assert.That(loader.TrySaveMap(id, path), $"Не удалось сохранить тестовую карту {path}");
+        Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes),
+            $"Тестовая карта {path} не прошла pre-init проверку");
+
+        await server.WaitPost(() => mapSys.InitializeMap(id));
+        Assert.That(loader.TrySaveMap(id, path), $"Не удалось сохранить тестовую карту {path}");
+        Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes), Is.False,
+            $"Тестовая карта {path} неожиданно прошла pre-init проверку - тест сломан и ничего не проверяет");
+    }
+
+    private bool IsPreInit(ResPath map,
+        MapLoaderSystem loader,
+        IDependencyCollection deps,
+        Dictionary<string, string> renamedPrototypes,
+        HashSet<string> deletedPrototypes)
+    {
+        if (!loader.TryReadFile(map, out var data))
+        {
+            Assert.Fail($"Не удалось прочитать {map}");
+            return false;
+        }
+
+        var reader = new EntityDeserializer(deps,
+            data,
+            DeserializationOptions.Default,
+            renamedPrototypes,
+            deletedPrototypes);
+
+        if (!reader.TryProcessData())
+        {
+            Assert.Fail($"Не удалось обработать {map}");
+            return false;
+        }
+
+        foreach (var mapId in reader.MapYamlIds)
+        {
+            var mapData = reader.YamlEntities[mapId];
+            if (mapData.PostInit)
+                return false;
+        }
+
+        return true;
+    }
+
     [Test]
     [EnsureCVar(Side.Server, typeof(CCVars), nameof(CCVars.GridFill), false)]
-    public async Task ADTGameMapsLoadableTest()
+    public async Task GameMapsLoadableTest()
     {
         var pair = Pair;
         var server = pair.Server;
@@ -102,6 +285,73 @@ public sealed class ADTPostMapInitTest : GameTest
         {
             foreach (var failure in failures)
                 Assert.Fail(failure);
+        });
+    }
+
+    [Test]
+    [TestCaseSource(nameof(AllMapFiles))]
+    [EnsureCVar(Side.Server, typeof(CCVars), nameof(CCVars.GridFill), false)]
+    public async Task NonGameMapsLoadableTest(ResPath mapPath)
+    {
+        var pair = Pair;
+        var server = pair.Server;
+
+        var mapLoader = server.ResolveDependency<IEntitySystemManager>().GetEntitySystem<MapLoaderSystem>();
+        var resourceManager = server.ResolveDependency<IResourceManager>();
+        var protoManager = server.ResolveDependency<IPrototypeManager>();
+
+        var gameMaps = protoManager.EnumeratePrototypes<GameMapPrototype>().Select(o => o.MapPath).ToHashSet();
+
+        if (gameMaps.Contains(mapPath))
+        {
+            return;
+        }
+
+        var rootedPath = mapPath.ToRootedPath();
+
+        if (SkipTestMaps && rootedPath.ToString().StartsWith(TestMapsPath, StringComparison.Ordinal))
+        {
+            return;
+        }
+
+        await server.WaitPost(() =>
+        {
+            Assert.Multiple(() =>
+            {
+                var opts = MapLoadOptions.Default with
+                {
+                    DeserializationOptions = DeserializationOptions.Default with
+                    {
+                        InitializeMaps = true,
+                        LogOrphanedGrids = false
+                    }
+                };
+
+                HashSet<Entity<MapComponent>> maps;
+
+                try
+                {
+                    Assert.That(mapLoader.TryLoadGeneric(mapPath, out maps, out _, opts),
+                        $"Не удалось загрузить карту {mapPath}: файл повреждён, либо содержит невалидные ссылки. " +
+                        "Проверь логи сервера выше - там будет точная причина.");
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Не удалось загрузить карту {mapPath}: {UnwrapException(ex)}", ex);
+                }
+
+                try
+                {
+                    foreach (var map in maps)
+                    {
+                        server.EntMan.DeleteEntity(map);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Не удалось выгрузить карту {mapPath}: {UnwrapException(ex)}", ex);
+                }
+            });
         });
     }
 
