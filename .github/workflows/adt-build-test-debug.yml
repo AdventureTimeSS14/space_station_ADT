@@ -78,11 +78,11 @@ jobs:
 
           # ~348с
           - name: maps-a
-            where: "test =~ Tests.PostMapInitTest.NonGameMapsLoadableTest or test =~ Tests.PostMapInitTest.ShuttlesLoadableTest or test =~ Tests.PostMapInitTest.GridsLoadableTest or test =~ Tests.Mapping"
+            where: "test =~ Tests.ADT.ADTPostMapInitTest.NonGameMapsLoadableTest or test =~ Tests.ADT.ADTPostMapInitTest.ShuttlesLoadableTest or test =~ Tests.ADT.ADTPostMapInitTest.GridsLoadableTest or test =~ Tests.Mapping"
 
-          # ~495с. Остаток PostMapInitTest
+          # ~495с. Остаток ADTPostMapInitTest
           - name: maps-b
-            where: "test =~ Tests.PostMapInitTest and test !~ NonGameMapsLoadableTest and test !~ ShuttlesLoadableTest and test !~ GridsLoadableTest"
+            where: "test =~ Tests.ADT.ADTPostMapInitTest and test !~ NonGameMapsLoadableTest and test !~ ShuttlesLoadableTest and test !~ GridsLoadableTest"
 
           # ~412с
           - name: slow
@@ -90,7 +90,7 @@ jobs:
 
           # ~489с. Всё остальное, включая новые тесты
           - name: core
-            where: "test =~ Content.IntegrationTests and test !~ Tests.EntityTest and test !~ Tests.PostMapInitTest and test !~ Tests.Mapping and test !~ Tests.Access and test !~ Tests.Actions and test !~ Tests.Preferences and test !~ Tests.PrototypeTests and test !~ Tests.PrototypeSaveTest and test !~ Tests.Utility"
+            where: "test =~ Content.IntegrationTests and test !~ Tests.EntityTest and test !~ Tests.PostMapInitTest and test !~ Tests.ADT.ADTPostMapInitTest and test !~ Tests.Mapping and test !~ Tests.Access and test !~ Tests.Actions and test !~ Tests.Preferences and test !~ Tests.PrototypeTests and test !~ Tests.PrototypeSaveTest and test !~ Tests.Utility"
 
     steps:
     - name: Checkout Master
