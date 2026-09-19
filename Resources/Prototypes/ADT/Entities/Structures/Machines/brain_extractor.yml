@@ -1,0 +1,130 @@
+- type: entity
+  parent: BaseComputer
+  id: ComputerBrainExtractorConsole
+  name: консоль экстрактора мозгов
+  description: Центр управления экстрактором. Свяжите её с капсулой при помощи мультитула.
+  components:
+  - type: BrainExtractorConsole
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: BasicDevice
+  - type: DeviceLinkSource
+    range: 6
+    ports:
+      - BrainExtractorSender
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: dna
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: Computer
+    board: CloningConsoleComputerCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 4.0
+    color: "#8c1f1f"
+  - type: ActivatableUI
+    key: enum.BrainExtractorUiKey.Key
+  - type: UserInterface
+    interfaces:
+        enum.BrainExtractorUiKey.Key:
+          type: BrainExtractorBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
+  - type: Damageable
+    damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: ApcPowerReceiver
+  - type: GuideHelp
+    guides:
+    - Cloning
+
+- type: entity
+  parent: BaseMachinePowered
+  id: BrainExtractorPod
+  name: капсула экстрактора мозгов
+  description: Капсула для анализа и экстракции мозговой активности. Свяжите её с консолью.
+  components:
+  - type: BrainExtractorPod
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: BasicDevice
+  - type: DeviceLinkSink
+    ports:
+      - BrainExtractorReceiver
+  - type: Sprite
+    sprite: Structures/Machines/scanner.rsi
+    snapCardinals: true
+    layers:
+    - state: open
+      map: [machineLayer]
+    - state: idle_unlit
+      map: [terminalLayer]
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+     - machine_board
+     - machine_parts
+     - brain-extractor-bodyContainer
+  - type: EmptyOnMachineDeconstruct
+    containers:
+      - brain-extractor-bodyContainer
+  - type: Damageable
+    damageModifierSet: StrongMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Machine
+    board: MedicalScannerMachineCircuitboard
+  - type: WiresPanel
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.BrainExtractorVisuals.Status:
+        machineLayer:
+          Scanning: { state: occupied }
+          Idle: { state: open }
+        terminalLayer:
+          Scanning: { state: red_unlit }
+          Idle: { state: idle_unlit }
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      brain-extractor-bodyContainer: !type:ContainerSlot
+  - type: GuideHelp
+    guides:
+    - Cloning
