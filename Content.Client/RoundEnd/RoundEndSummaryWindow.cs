@@ -43,7 +43,6 @@ namespace Content.Client.RoundEnd
             var roundEndTabs = new TabContainer();
             roundEndTabs.AddChild(MakeRoundEndSummaryTab(gm, roundEnd, roundTimeSpan, roundId));
             roundEndTabs.AddChild(MakePlayerManifestTab(info));
-            roundEndTabs.AddChild(MakeCrewTableTab(info)); // ADT-Tweak
             roundEndTabs.AddChild(MakeStatsTab(gm, roundTimeSpan, roundId)); // ADT-Tweak
 
             ContentsContainer.AddChild(roundEndTabs);
@@ -457,128 +456,7 @@ namespace Content.Client.RoundEnd
     }
     // ADT-Tweak-end
 
-    // ADT-Tweak-start
-    private BoxContainer MakeCrewTableTab(RoundEndMessageEvent.RoundEndPlayerInfo[] playersInfo)
-    {
-        var crewTab = new BoxContainer
-        {
-            Orientation = LayoutOrientation.Vertical,
-            Name = Loc.GetString("round-end-summary-window-crew-tab-title")
-        };
 
-        var scroll = new ScrollContainer
-        {
-            VerticalExpand = true,
-            Margin = new Thickness(10)
-        };
-
-        var container = new BoxContainer
-        {
-            Orientation = LayoutOrientation.Vertical
-        };
-
-        var crew = playersInfo.Where(p => !p.Observer).ToArray();
-        var observers = playersInfo.Where(p => p.Observer).ToArray();
-
-        var alive = crew.Count(p => p.EntMobState != MobState.Dead && p.EntMobState != MobState.Invalid);
-        var dead = crew.Count(p => p.EntMobState == MobState.Dead);
-        var escaped = crew.Count(p => p.Escaped && p.EntMobState != MobState.Dead);
-
-        var summaryLabel = new RichTextLabel { Margin = new Thickness(0, 0, 0, 8) };
-        summaryLabel.SetMarkup(Loc.GetString("round-end-summary-window-crew-summary",
-            ("alive", alive), ("dead", dead), ("escaped", escaped), ("total", crew.Length)));
-        container.AddChild(summaryLabel);
-
-        var grid = new GridContainer
-        {
-            Columns = 3,
-            HorizontalExpand = true
-        };
-
-        void AddHeader(string text)
-        {
-            var label = new Label
-            {
-                Text = text,
-                StyleClasses = { StyleNano.StyleClassLabelHeading },
-                Margin = new Thickness(4, 2)
-            };
-            grid.AddChild(label);
-        }
-
-        AddHeader(Loc.GetString("round-end-summary-window-crew-name-header"));
-        AddHeader(Loc.GetString("round-end-summary-window-crew-role-header"));
-        AddHeader(Loc.GetString("round-end-summary-window-crew-status-header"));
-
-        var sorted = crew
-            .OrderBy(p => p.EntMobState == MobState.Dead)
-            .ThenBy(p => p.PlayerICName ?? p.PlayerOOCName)
-            .Concat(observers.OrderBy(p => p.PlayerICName ?? p.PlayerOOCName));
-
-        foreach (var player in sorted)
-        {
-            var name = player.PlayerICName ?? player.PlayerOOCName;
-
-            var nameLabel = new Label
-            {
-                Text = player.Antag ? $"{name} [?]" : name,
-                FontColorOverride = player.Antag ? Color.Red : (player.Observer ? Color.Gray : Color.White),
-                Margin = new Thickness(4, 1)
-            };
-            grid.AddChild(nameLabel);
-
-            var roleLabel = new Label
-            {
-                Text = Loc.GetString(player.Role),
-                FontColorOverride = player.Observer ? Color.Gray : Color.LightGray,
-                Margin = new Thickness(4, 1)
-            };
-            grid.AddChild(roleLabel);
-
-            string status;
-            Color statusColor;
-            if (player.Observer)
-            {
-                status = Loc.GetString("round-end-summary-window-crew-status-observer");
-                statusColor = Color.Gray;
-            }
-            else if (player.EntMobState == MobState.Dead)
-            {
-                status = Loc.GetString("round-end-summary-window-crew-status-dead");
-                statusColor = Color.Red;
-            }
-            else if (player.EntMobState == MobState.Invalid)
-            {
-                status = Loc.GetString("round-end-summary-window-crew-status-nobody");
-                statusColor = Color.Gray;
-            }
-            else if (player.Escaped)
-            {
-                status = Loc.GetString("round-end-summary-window-crew-status-escaped");
-                statusColor = Color.Green;
-            }
-            else
-            {
-                status = Loc.GetString("round-end-summary-window-crew-status-alive");
-                statusColor = Color.Yellow;
-            }
-
-            var statusLabel = new Label
-            {
-                Text = status,
-                FontColorOverride = statusColor,
-                Margin = new Thickness(4, 1)
-            };
-            grid.AddChild(statusLabel);
-        }
-
-        container.AddChild(grid);
-        scroll.AddChild(container);
-        crewTab.AddChild(scroll);
-
-        return crewTab;
-    }
-    // ADT-Tweak-end
     }
     // ADT-Tweak-end
 }
