@@ -36,6 +36,11 @@ public sealed class GoliathTentacleSystem : EntitySystem
 
         // TODO: animation
 
+        // ADT-Tweak start
+        if (!IsTargetInRange(args.Performer, args.Target))
+            return;
+        // ADT-Tweak end
+
         _popup.PopupPredicted(Loc.GetString("tentacle-ability-use-popup", ("entity", args.Performer)), args.Performer, args.Performer, type: PopupType.SmallCaution);
         _stun.TryAddStunDuration(args.Performer, TimeSpan.FromSeconds(0.8f));
 
@@ -70,6 +75,22 @@ public sealed class GoliathTentacleSystem : EntitySystem
 
         args.Handled = true;
     }
+
+    // ADT-Tweak start
+    private bool IsTargetInRange(EntityUid performer, EntityCoordinates target)
+    {
+        if (!Exists(target.EntityId))
+            return false;
+
+        var performerCoords = _transform.GetMapCoordinates(performer);
+        var targetCoords = _transform.ToMapCoordinates(target);
+
+        if (performerCoords.MapId == MapId.Nullspace || performerCoords.MapId != targetCoords.MapId)
+            return false;
+
+        return (performerCoords.Position - targetCoords.Position).Length() <= 15f;
+    }
+    // ADT-Tweak end
 
     private void OnRandSummonAction(GoliathSummonRandomTentacleAction args)
     {
