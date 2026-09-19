@@ -34,9 +34,13 @@ public sealed partial class SleepAnywhereSystem : EntitySystem
     }
 
     private void OnBuckled(EntityUid uid, MobStateComponent comp, ref BuckledEvent args) => Refresh(uid);
+
     private void OnUnbuckled(EntityUid uid, MobStateComponent comp, ref UnbuckledEvent args) => Refresh(uid);
+
     private void OnStandingChanged(EntityUid uid, MobStateComponent comp, EntityEventArgs args) => Refresh(uid);
+
     private void OnCanMoveChanged(EntityUid uid, SleepAnywhereComponent comp, UpdateCanMoveEvent args) => Refresh(uid);
+
     private void OnMobStateChanged(EntityUid uid, SleepAnywhereComponent comp, MobStateChangedEvent args) => Refresh(uid);
 
     private void Refresh(EntityUid uid)
