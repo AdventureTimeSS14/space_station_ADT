@@ -39,12 +39,12 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
         var fullUiUpdate = !component.Inventory.Keys.SequenceEqual(state.Inventory.Keys) ||
                            !component.EmaggedInventory.Keys.SequenceEqual(state.EmaggedInventory.Keys) ||
                            !component.ContrabandInventory.Keys.SequenceEqual(state.ContrabandInventory.Keys) ||
-                           !component.ReturnedItems.Keys.SequenceEqual(state.ReturnedItems.Keys);
+                           !component.ReturnedInventory.Keys.SequenceEqual(state.ReturnedInventory.Keys);
 
         component.Inventory.Clear();
         component.EmaggedInventory.Clear();
         component.ContrabandInventory.Clear();
-        component.ReturnedItems = new(state.ReturnedItems);
+        component.ReturnedInventory = new(state.ReturnedInventory);
 
         foreach (var entry in state.Inventory)
         {

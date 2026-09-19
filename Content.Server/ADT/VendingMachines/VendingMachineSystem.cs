@@ -19,6 +19,7 @@ using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
@@ -28,6 +29,7 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Emp;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Labels.EntitySystems;
 using Content.Shared.PDA;
 using Content.Shared.Popups;
 using Content.Shared.Power;
@@ -40,7 +42,7 @@ using Content.Shared.VendingMachines;
 using Content.Shared.Wall;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
-using Robust.Shared.IoC;
+using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -65,7 +67,8 @@ namespace Content.Server.ADT.VendingMachines
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly SharedPointLightSystem _light = default!;
         [Dependency] private readonly EmagSystem _emag = default!;
-        [Dependency] private readonly IComponentFactory _componentFactory = default!;
+        [Dependency] private readonly LabelSystem _label = default!;
+        [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 
         private const float WallVendEjectDistanceFromWall = 1f;
 
@@ -124,50 +127,58 @@ namespace Content.Server.ADT.VendingMachines
         public void UpdateVendingMachineInterfaceState(EntityUid uid, VendingMachineComponent component)
         {
             var state = new VendingMachineInterfaceState(GetAllInventory(uid, component), component.PriceMultiplier,
-                component.Credits, BuildReturnedItemDisplays(component));
+                component.Credits, BuildReturnedItemDisplays(uid, component));
 
             _userInterfaceSystem.SetUiState(uid, VendingMachineUiKey.Key, state);
         }
 
-        private Dictionary<string, ReturnedItemDisplay> BuildReturnedItemDisplays(VendingMachineComponent component)
+        private Dictionary<string, ReturnedItemDisplay> BuildReturnedItemDisplays(EntityUid uid, VendingMachineComponent component)
         {
             var result = new Dictionary<string, ReturnedItemDisplay>();
-            if (component.ReturnedItems.Count == 0)
-                return result;
 
-            foreach (var (protoId, list) in component.ReturnedItems)
+            if (!EntityManager.TryGetComponent(uid, out ContainerManagerComponent? containers)
+                || !containers.Containers.TryGetValue(VendingMachineComponent.ReturnedItemsContainerId, out var container))
             {
-                if (list.Count == 0)
+                return result;
+            }
+
+            var seen = new HashSet<string>();
+            for (var i = container.ContainedEntities.Count - 1; i >= 0; i--)
+            {
+                var ent = container.ContainedEntities[i];
+                if (!TryComp<MetaDataComponent>(ent, out var meta) || meta.EntityPrototype?.ID is not { } protoId)
                     continue;
 
-                var top = list[^1];
-                var display = new ReturnedItemDisplay
-                {
-                    Label = top.Label,
-                };
+                if (!seen.Add(protoId))
+                    continue;
 
-                if (top.Solution is { } solution
-                    && PrototypeManager.TryIndex<EntityPrototype>(protoId, out var proto)
-                    && proto.TryGetComponent<SolutionContainerVisualsComponent>(out var visuals, _componentFactory)
-                    && !visuals.Metamorphic
-                    && visuals.MaxFillLevels > 0
-                    && solution.Volume > FixedPoint2.Zero
-                    && solution.MaxVolume > FixedPoint2.Zero)
-                {
-                    display.FillFraction = solution.FillFraction;
-                    if (visuals.ChangeColor)
-                        display.FillColor = solution.GetColor(PrototypeManager);
-                }
-
-                result[protoId] = display;
+                result[protoId] = BuildReturnedItemDisplay(ent);
             }
 
             return result;
         }
 
-        private static int GetReturnedCount(VendingMachineComponent component, string protoId)
+        private ReturnedItemDisplay BuildReturnedItemDisplay(EntityUid ent)
         {
-            return component.ReturnedItems.TryGetValue(protoId, out var list) ? list.Count : 0;
+            var display = new ReturnedItemDisplay
+            {
+                Label = _label.GetLabelText(ent),
+            };
+
+            string? solutionName = null;
+            if (TryComp<SolutionContainerVisualsComponent>(ent, out var visuals))
+                solutionName = visuals.SolutionName;
+
+            if (_solutionContainer.TryGetSolution(ent, solutionName, out _, out var solution)
+                && solution.Volume > FixedPoint2.Zero
+                && solution.MaxVolume > FixedPoint2.Zero)
+            {
+                display.FillFraction = solution.FillFraction;
+                if (visuals is { ChangeColor: true })
+                    display.FillColor = solution.GetColor(PrototypeManager);
+            }
+
+            return display;
         }
 
         private void OnInventoryEjectMessage(EntityUid uid, VendingMachineComponent component, VendingMachineEjectMessage args)
@@ -446,7 +457,7 @@ namespace Content.Server.ADT.VendingMachines
                 return;
             }
 
-            var returnedCount = GetReturnedCount(vendComponent, itemId);
+            var returnedCount = (int)vendComponent.ReturnedInventory.GetValueOrDefault(itemId);
             if (count <= 0 || count > (int)entry.Amount + returnedCount)
             {
                 if (sender.HasValue)
@@ -521,6 +532,14 @@ namespace Content.Server.ADT.VendingMachines
                 _speakOnUIClosed.TrySetFlag((uid, speakComponent));
 
             entry.Amount = (uint)Math.Max(0, (int)entry.Amount - (count - freeCount));
+            if (freeCount > 0)
+            {
+                var left = returnedCount - freeCount;
+                if (left > 0)
+                    vendComponent.ReturnedInventory[itemId] = (uint)left;
+                else
+                    vendComponent.ReturnedInventory.Remove(itemId);
+            }
 
             Dirty(uid, vendComponent);
             UpdateVendingMachineInterfaceState(uid, vendComponent);
@@ -610,12 +629,19 @@ namespace Content.Server.ADT.VendingMachines
                 vendComponent.NextItemCount = 1;
                 vendComponent.NextItemPaintColor = null;
 
-                var returnedCount = GetReturnedCount(vendComponent, item.ID);
+                var returnedCount = (int)vendComponent.ReturnedInventory.GetValueOrDefault(item.ID);
                 var freeCount = Math.Min(returnedCount, 1);
                 vendComponent.NextItemReturnedCount = freeCount;
                 var entry = GetEntry(uid, item.ID, item.Type, vendComponent);
                 if (entry != null)
                     entry.Amount = (uint)Math.Max(0, (int)entry.Amount - (1 - freeCount));
+                if (freeCount > 0)
+                {
+                    if (returnedCount > 1)
+                        vendComponent.ReturnedInventory[item.ID] = (uint)(returnedCount - 1);
+                    else
+                        vendComponent.ReturnedInventory.Remove(item.ID);
+                }
                 EjectItem(uid, vendComponent, forceEject);
             }
             else
