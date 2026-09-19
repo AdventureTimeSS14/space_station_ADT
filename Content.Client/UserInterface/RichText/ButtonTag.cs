@@ -1,5 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
+using System.Globalization; //ADT-Tweak
 using System.Numerics;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.ADT.Heretic;
@@ -45,10 +45,12 @@ public sealed class ButtonTag : IMarkupTagHandler
             coordsParameter.TryGetString(out var coordsStr))
         {
             var split = coordsStr.Split(", ");
+            //ADT-Tweak-Start
             if (split.Length >= 3 && int.TryParse(split[0], NumberStyles.Integer, CultureInfo.InvariantCulture, out var relativeUid) &&
                 float.TryParse(split[1], NumberStyles.Float, CultureInfo.InvariantCulture, out var x) &&
                 float.TryParse(split[2], NumberStyles.Float, CultureInfo.InvariantCulture, out var y))
                 coords = new NetCoordinates(new NetEntity(relativeUid), new Vector2(x, y));
+            //ADT-Tweak-End
         }
 
         var button = new TimerButton(label, timer);

@@ -301,8 +301,9 @@
     state: eye_medalion
   - type: Item
     size: Tiny
+  - type: Clothing
     slots:
-    - Neck
+    - neck
   - type: Tag
     tags:
     - HereticItem

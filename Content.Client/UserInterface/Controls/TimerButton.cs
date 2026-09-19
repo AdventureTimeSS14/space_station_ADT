@@ -1,3 +1,4 @@
+//ADT-Tweak-Start
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
 
@@ -47,3 +48,4 @@ public sealed class TimerButton : Button
         Text = text != string.Empty ? $"{text} ({display})" : display;
     }
 }
+//ADT-Tweak-End
