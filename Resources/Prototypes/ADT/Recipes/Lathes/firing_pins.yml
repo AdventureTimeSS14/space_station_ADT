@@ -1,0 +1,136 @@
+- type: latheRecipe
+  id: ADTFiringPinRecipe
+  result: ADTFiringPin
+  categories:
+  - Security
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 100
+
+- type: latheRecipe
+  id: ADTFiringPinTestRangeRecipe
+  result: ADTFiringPinTestRange
+  categories:
+  - Security
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 200
+
+- type: latheRecipe
+  id: ADTFiringPinLoyaltyRecipe
+  result: ADTFiringPinLoyalty
+  categories:
+  - Security
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 100
+    Copper: 100
+
+- type: latheRecipe
+  id: ADTFiringPinDNARecipe
+  result: ADTFiringPinDNA
+  categories:
+  - Security
+  completetime: 3
+  materials:
+    Steel: 100
+    Plastic: 100
+    Gold: 100
+
+- type: latheRecipe
+  id: ADTFiringPinDNADreddRecipe
+  result: ADTFiringPinDNADredd
+  categories:
+  - Security
+  completetime: 3
+  materials:
+    Steel: 100
+    Plastic: 100
+    Gold: 100
+    Uranium: 100
+
+- type: latheRecipe
+  id: ADTFiringPinClownRecipe
+  result: ADTFiringPinClown
+  categories:
+  - Security
+  completetime: 2
+  materials:
+    Steel: 50
+    Plastic: 150
+
+- type: latheRecipe
+  id: ADTFiringPinClownUltraRecipe
+  result: ADTFiringPinClownUltra
+  categories:
+  - Security
+  completetime: 3
+  materials:
+    Steel: 50
+    Plastic: 150
+    Uranium: 100
+
+- type: latheRecipe
+  id: ADTFiringPinHolyRecipe
+  result: ADTFiringPinHoly
+  categories:
+  - Security
+  completetime: 2
+  materials:
+    Steel: 100
+    Glass: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: ADTFiringPinAccessRecipe
+  result: ADTFiringPinAccess
+  categories:
+  - Security
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 100
+    Copper: 200
+
+- type: latheRecipe
+  id: ADTFiringPinSecLevelRecipe
+  result: ADTFiringPinSecLevel
+  categories:
+  - Security
+  completetime: 3
+  materials:
+    Steel: 200
+    Plastic: 100
+    Copper: 200
+
+- type: latheRecipe
+  id: ADTFiringPinExplorerRecipe
+  result: ADTFiringPinExplorer
+  categories:
+  - Security
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 100
+
+- type: latheRecipePack
+  id: ADTFiringPinStaticPack
+  recipes:
+  - ADTFiringPinRecipe
+
+- type: latheRecipePack
+  id: ADTFiringPinsResearchPack
+  recipes:
+  - ADTFiringPinTestRangeRecipe
+  - ADTFiringPinLoyaltyRecipe
+  - ADTFiringPinDNARecipe
+  - ADTFiringPinDNADreddRecipe
+  - ADTFiringPinClownRecipe
+  - ADTFiringPinClownUltraRecipe
+  - ADTFiringPinHolyRecipe
+  - ADTFiringPinAccessRecipe
+  - ADTFiringPinSecLevelRecipe
+  - ADTFiringPinExplorerRecipe

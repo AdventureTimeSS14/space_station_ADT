@@ -158,3 +158,5 @@
         rmc-aslot-underbarrel: 0.2, -0.07
         rmc-aslot-rail: -0.12, -0.16
         rmc-aslot-barrel: 0.90625, 0
+    - type: FiringPinHolder
+      startingPin: ADTFiringPinLoyalty
