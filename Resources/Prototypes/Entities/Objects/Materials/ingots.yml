@@ -39,6 +39,8 @@
     tags:
       - Ingot
       - ConstructionMaterial
+      - GoldBar # ADT-Tweak
+      - PreciousBar # ADT-Tweak
 # End ADT Tweak
   - type: Material
   - type: PhysicalComposition
@@ -90,6 +92,8 @@
     tags:
       - Ingot
       - ConstructionMaterial
+      - SilverBar # ADT-Tweak
+      - PreciousBar # ADT-Tweak
 # End ADT Tweak
   - type: Material
   - type: PhysicalComposition

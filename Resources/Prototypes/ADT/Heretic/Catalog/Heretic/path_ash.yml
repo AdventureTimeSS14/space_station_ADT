@@ -115,6 +115,25 @@
     whitelist: # ADT
     - Ash
 
+# side
+- type: listing
+  id: HereticAshPathLantern
+  name: knowledge-path-ash-side-lantern-name
+  description: knowledge-path-ash-side-lantern-desc
+  icon: { sprite: ADT/Heretic/Entities/lantern.rsi, state: icon }
+  productHereticKnowledge: CrackedLantern
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathAsh
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+    whitelist:
+    - Ash
+
 - type: listing
   id: HereticAshPath7
   name: knowledge-path-ash-s7-name

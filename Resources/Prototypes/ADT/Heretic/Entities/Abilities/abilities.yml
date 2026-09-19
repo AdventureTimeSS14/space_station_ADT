@@ -59,6 +59,25 @@
       - HideContextMenu
 
 - type: entity
+  parent: BaseBullet
+  id: TentacleProjectile
+  name: tentacle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Effects/effects.rsi
+    layers:
+    - state: tentacle_end
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Blunt: 20
+        Slash: 10
+  - type: TimedDespawn
+    lifetime: 3.0
+
+- type: entity
   id: EffectCleave
   categories: [ HideSpawnMenu ]
   components:
@@ -152,6 +171,86 @@
       state: curse
   - type: RotationVisuals
   - type: Appearance
+
+- type: entity
+  parent: ShadowCloakEntity
+  id: ShadowCloakEntityPale
+  save: false
+  name: a pale figure
+  description: Here was nothing a moment ago, but now you see the faintest outline of strange creature lurking in the woods. Its warm embrace siphons your strength, as death approaches peacefully.
+  components:
+  - type: TimedDespawn
+    lifetime: 360
+  - type: Sprite
+    layers:
+    - sprite: ADT/Heretic/Effects/effects.rsi
+      state: pale
+  - type: ShadowCloakEntity
+    emoteSounds: null
+    speechSounds: null
+    damageBeforeReveal: 35
+    revealDamageMultiplier: 1.5
+    sustainedDamageReductionRate: 1.5
+    revealCooldown: 90
+    forceRevealCooldown: 180
+  - type: ForestAdmonitionsEntity
+
+- type: entity
+  id: HereticPaleFog
+  name: pale fog
+  description: Something is there...
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+  - type: Sprite
+    sprite: Effects/chemsmoke.rsi
+    drawdepth: Effects
+    layers:
+      - state: chemsmoke_white
+        color: "#ffffff10"
+  - type: TileEntityEffect
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: PaleFogAffectedStatusEffect
+      time: 6
+    - !type:ModifyStatusEffect
+      effectProto: ShadowCloakStatusEffect
+      time: 180
+      type: Remove
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - WallLayer
+        mask:
+          - Impassable
+          - HighImpassable
+          - MidImpassable
+          - LowImpassable
+        density: 1000
+        hard: false
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: PreventCollide
+    whitelist:
+      components:
+      - Ghoul
+      - ForestAdmonitions
 
 - type: entity
   id: EffectCosmicDiamond

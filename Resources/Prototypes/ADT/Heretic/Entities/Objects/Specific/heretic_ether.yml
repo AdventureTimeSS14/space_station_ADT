@@ -1,0 +1,22 @@
+- type: entity
+  parent: [ DrinkBase, BaseMagicContraband ]
+  id: PotionEther
+  name: ether of the newborn
+  description: This dream, again, a House in the Wood. I walk endlessly to find the hidden paths through the tangled trees.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/ether.rsi
+    state: icon
+  - type: Icon
+    sprite: ADT/Heretic/Entities/ether.rsi
+    state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 5
+        reagents:
+        - ReagentId: NewbornEther
+          Quantity: 5
+  - type: Tag
+    tags:
+    - HereticItem

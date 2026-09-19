@@ -65,17 +65,16 @@ knowledge-path-ash-s6-name = Mask of Madness
 knowledge-path-ash-s6-desc =
     The Nightwatcher was lost. That's what the Watch believed. Yet he walked the world, unnoticed by the masses.
 
-    Allows you to transmute any mask, a flare, a pool of ash, a lighter, a stun baton, and a liver to create a Mask of Madness.
-    The mask instills fear into heathens who witness it, causing stamina damage, hallucinations, and insanity.
+    Allows you to transmute any gas mask, four candles and a stun baton to create a Mask of Madness.
+    The mask instills fear into nearby heathens, draining their stamina and making them tremble.
     It can also be forced onto a heathen, to make them unable to take it off...
-    Additionally, the mask grants you protection from fires and high temperature when worn.
 
 knowledge-path-ash-s7-name = Fiery Blade
 knowledge-path-ash-s7-desc =
     He returned, blade in hand, he swung and swung as the ash fell from the skies.
     His city, the people he swore to watch... and watch he did, as they all burnt to cinders.
 
-    Your blade now lights enemies ablaze on attack.
+    Embrace the flame: while you burn, every stack of fire makes you faster, and your eyes become immune to blindness and blurry vision.
 
 knowledge-path-ash-s8-name = Nightwatcher's Rebirth
 knowledge-path-ash-s8-desc =
@@ -87,8 +86,15 @@ knowledge-path-ash-s8-desc =
 knowledge-path-ash-s9-name = Ashlord's Rite
 knowledge-path-ash-s9-desc =
     The ascension ritual of the Path of Ash.
-    Bring 3 burning or husked corpses to a transmutation rune to complete the ritual.
+    Bring 3 burning corpses to a transmutation rune to complete the ritual.
     When completed, you become a harbinger of flames, gaining two abilites.
     Cascade, which causes a massive, growing ring of fire around you,
     and Oath of Flame, causing you to passively create a ring of flames as you walk.
     You will also become immune to flames, space, and similar environmental hazards.
+
+knowledge-path-ash-side-lantern-name = Cracked Lantern
+knowledge-path-ash-side-lantern-desc =
+    It is said that the noon stones are not the same as before. That is not true. I will collect my tears in a bowl.
+
+    Allows you to transmute a flashlight, a flare, a lighter and ash to create a cracked lantern.
+    Using it in hand unleashes a flash that blinds everyone around and ignites the flammable.

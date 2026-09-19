@@ -1,0 +1,47 @@
+- type: entity
+  parent: BaseAction
+  id: ActionHereticLastRefuge
+  name: Caretaker's Last Refuge
+  description: Shifts you into the Caretaker's Refuge, rendering you translucent and intangible.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 6
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Heretic/abilities_heretic.rsi
+      state: last_refuge
+  - type: InstantAction
+    event: !type:EventHereticCloak
+      status: LastRefugeStatusEffect
+  - type: HereticAction
+    requireMagicItem: true
+  - type: LastRefugeAction
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticShapeshiftLock
+  name: Shapechange
+  description: A spell that allows you to take on the form of another creature, gaining their abilities.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 10
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Heretic/abilities_heretic.rsi
+      state: shapeshift
+  - type: InstantAction
+    event: !type:EventHereticShapeshift
+  - type: ShapeshiftAction
+    polymorphs:
+    - ShapeshiftStalkerLock
+    - ShapeshiftProphetLock
+    - ShapeshiftFireSharkLock
+    - ShapeshiftRustWalkerLock
+  - type: UserInterface
+    interfaces:
+      enum.HereticShapeshiftUiKey.Key:
+        type: HereticShapeshiftBoundUserInterface
+  - type: HereticAction

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/blob/baa2776d356d7b79d5e5d02c6fd9d542110a0b7e/icons/mob/inhands/weapons/guns_lefthand.dmi, https://github.com/tgstation/tgstation/blob/baa2776d356d7b79d5e5d02c6fd9d542110a0b7e/icons/mob/inhands/weapons/guns_righthand.dmi, https://github.com/tgstation/tgstation/blob/baa2776d356d7b79d5e5d02c6fd9d542110a0b7e/icons/mob/clothing/belt_mirror.dmi, inhand-left and inhand-right made by Aviu00 (github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "wielded-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "wielded-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-BACKPACK",
+      "directions": 4
+    },
+    {
+      "name": "equipped-SUITSTORAGE",
+      "directions": 4
+    }
+  ]
+}
