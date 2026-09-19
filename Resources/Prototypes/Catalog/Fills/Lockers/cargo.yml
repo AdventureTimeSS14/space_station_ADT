@@ -29,6 +29,7 @@
       prob: 0.5
 #ADT-Tweak End - частичный откат нерфа утилей
     - id: PlushieLizardJobSalvagespecialist
+    - id: ADTPhoneSalvage # ADT-Tweak: ADT-telephone
 
 - type: entity
   id: LockerSalvageSpecialistFilledHardsuit
