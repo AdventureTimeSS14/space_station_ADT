@@ -904,7 +904,7 @@
     prototype: Thruster
     stackRequirements:
       Steel: 5
-      ADTBScrystalArt: 2 #ADT Tweak
+      ADTBScrystal: 2 #ADT Tweak
     partRequirements: #ADT-Tweak: machine parts
       Servo: 4
 
@@ -1315,7 +1315,7 @@
       prototype: CargoTelepad
       stackRequirements:
         Steel: 5
-        ADTBScrystalArt: 5 #ADT Tweak
+        ADTBScrystal: 5 #ADT Tweak
       partRequirements: #ADT-Tweak: machine parts
         Servo: 1
 
