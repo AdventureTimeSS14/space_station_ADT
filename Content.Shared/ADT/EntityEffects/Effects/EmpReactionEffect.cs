@@ -23,6 +23,11 @@ public sealed partial class EmpReactionEffect : EntityEffect
         var ev = new EmpEvent(RangePerUnit, MaxRange, EnergyConsumption, Duration, target);
         raiser.RaiseEffectEvent(target, ev, scale, user);
     }
+
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    {
+        return Loc.GetString("entity-effect-guidebook-emp-reaction");
+    }
 }
 
 public sealed partial class EmpEvent : EntityEffectBase<EmpEvent>

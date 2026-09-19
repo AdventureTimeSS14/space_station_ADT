@@ -9,8 +9,10 @@
   - type: MachineBoard
     prototype: SlimeGrinder
     stackRequirements:
-      Manipulator: 5
       Steel: 5
+    partRequirements:
+      Servo: 3
+      MatterBin: 2
     tagRequirements:
       Knife:
         amount: 2
@@ -28,8 +30,9 @@
   - type: MachineBoard
     prototype: ADTXenobiologyMonkeyRecycler
     stackRequirements:
-      Manipulator: 2
       Steel: 5
+    partRequirements:
+      MatterBin: 2
     tagRequirements:
       Knife:
         amount: 2

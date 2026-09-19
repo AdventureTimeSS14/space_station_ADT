@@ -33,4 +33,7 @@ public sealed partial class ADTProjectileAoEComponent : Component
 
     [DataField]
     public EntProtoId? Effect;
+
+    [ViewVariables]
+    public ADTVolleyTrigger? Volley;
 }

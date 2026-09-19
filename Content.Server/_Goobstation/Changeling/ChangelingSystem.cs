@@ -19,6 +19,7 @@ using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
 using Content.Goobstation.Shared.Flashbang;
 using Content.Shared.ADT.Grab; // ADT-Tweak
+using Robust.Shared.GameObjects.Components.Localization;
 using Content.Shared.RetractableItemAction; // ADT-Tweak
 using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Goobstation.Shared.InternalResources.EntitySystems;
@@ -127,6 +128,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
     [Dependency] private readonly SharedInternalResourcesSystem _resources = default!;
     [Dependency] private readonly EnsnareableSystem _snare = default!;
+    [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
+    [Dependency] private readonly GrammarSystem _grammar = default!;
+    [Dependency] private readonly IdentitySystem _identity = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -555,7 +559,10 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             DNA = dna.DNA ?? Loc.GetString("forensics-dna-unknown"),
             // ADT-Tweak
             Species = profile.Species,
-            SourceBody = target
+            SourceBody = target,
+            Sex = profile.Sex,
+            Gender = profile.Gender,
+            Age = profile.Age,
         };
 
         if (fingerprint.Fingerprint != null)
@@ -634,6 +641,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
                 _visualBody.CopyAppearanceFrom(sourceBody, newEnt);
                 _polymorph.CopyPolymorphComponent<HumanoidProfileComponent>(sourceBody, newEnt);
             }
+
+            ApplyStoredProfile(newEnt, data);
             _metaData.SetEntityName(newEnt, data.Name);
             var message = Loc.GetString("changeling-transform-finish", ("target", data.Name));
             _popup.PopupEntity(message, newEnt, newEnt);
@@ -664,6 +673,24 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         return newUid;
     }
+
+    // ADT-Tweak start
+    private void ApplyStoredProfile(EntityUid uid, TransformData data)
+    {
+        if (TryComp<HumanoidProfileComponent>(uid, out var profile))
+        {
+            var ent = new Entity<HumanoidProfileComponent?>(uid, profile);
+            _humanoidProfile.SetSex(ent, data.Sex);
+            _humanoidProfile.SetGender(ent, data.Gender);
+            _humanoidProfile.SetAge(ent, data.Age);
+        }
+
+        if (TryComp<GrammarComponent>(uid, out var grammar))
+            _grammar.SetGender((uid, grammar), data.Gender);
+
+        _identity.QueueIdentityUpdate(uid);
+    }
+    // ADT-Tweak end
 
     public bool TryTransform(EntityUid target, ChangelingIdentityComponent comp, bool sting = false, bool persistentDna = false)
     {
@@ -764,6 +791,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             DNA = dna.DNA ?? Loc.GetString("forensics-dna-unknown"),
             Species = profile.Species,
             SourceBody = ent.Owner,
+            Sex = profile.Sex,
+            Gender = profile.Gender,
+            Age = profile.Age,
             Persistent = true,
         };
 

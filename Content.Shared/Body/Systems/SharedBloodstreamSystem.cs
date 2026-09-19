@@ -41,7 +41,9 @@ public abstract class SharedBloodstreamSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedWeaknessSystem _weaknessSystem = default!; //ADT-Tweak
+    [Dependency] private readonly SharedSyllableSystem _syllableSystem = default!; //ADT-Tweak
+
+    [Dependency] private EntityQuery<BloodstreamComponent> _bloodstreamQuery = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -92,19 +94,29 @@ public abstract class SharedBloodstreamSystem : EntitySystem
 
                     _damageableSystem.TryChangeDamage(uid, amt, ignoreResistances: false, interruptsDoAfters: false);
 
+                    // ADT-Tweak-Start
+                    if (!_bloodstreamQuery.HasComp(uid))
+                        continue;
+                    // ADT-Tweak-End
+
                     // Apply dizziness as a symptom of bloodloss.
                     // The effect is applied in a way that it will never be cleared without being healthy.
                     // Multiplying by 2 is arbitrary but works for this case, it just prevents the time from running out
                     _status.TrySetStatusEffectDuration(uid, Bloodloss);
-                    _weaknessSystem.DoWeakness(uid, bloodstream.AdjustedUpdateInterval * 2, refresh: false); // ADT-Tweak
+                    _syllableSystem.DoSyllable(uid, bloodstream.AdjustedUpdateInterval * 2, refresh: false); // ADT-Tweak
                 }
                 else
                 {
                     // If they're healthy, we'll try and heal some bloodloss instead.
                     _damageableSystem.TryChangeDamage(uid, bloodstream.BloodlossHealDamage * bloodPercentage, ignoreResistances: true, interruptsDoAfters: false);
 
+                    // ADT-Tweak-Start
+                    if (!_bloodstreamQuery.HasComp(uid))
+                        continue;
+                    // ADT-Tweak-End
+
                     _status.TryRemoveStatusEffect(uid, Bloodloss);
-                    _weaknessSystem.DoRemoveWeakness(uid); // ADT-Tweak
+                    _syllableSystem.DoRemoveSyllable(uid); // ADT-Tweak
                 }
             }
             else
@@ -563,6 +575,42 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                 if (availableSpace <= 0)
                     break;
             }
+        }
+    }
+
+    public void TryAddBlood(Entity<BloodstreamComponent?> ent, FixedPoint2 amountToAdd)
+    {
+        if (amountToAdd <= 0)
+            return;
+
+        if (!Resolve(ent, ref ent.Comp, logMissing: false)
+            || !SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution, out var bloodSolution))
+            return;
+
+        var currentVolume = bloodSolution.Volume;
+        var referenceVolume = ent.Comp.BloodReferenceSolution.Volume;
+
+        if (currentVolume >= referenceVolume)
+            return;
+
+        var availableSpace = referenceVolume - currentVolume;
+        if (availableSpace <= 0)
+            return;
+
+        amountToAdd = FixedPoint2.Min(amountToAdd, availableSpace);
+
+        foreach (var (referenceReagent, referenceQuantity) in ent.Comp.BloodReferenceSolution)
+        {
+            var share = (FixedPoint2) (referenceQuantity.Float() / referenceVolume.Float() * amountToAdd.Float());
+            var toAdd = FixedPoint2.Min(share, availableSpace);
+
+            if (toAdd <= 0)
+                continue;
+
+            bloodSolution.AddReagent(referenceReagent, toAdd);
+            availableSpace -= toAdd;
+            if (availableSpace <= 0)
+                break;
         }
     }
     // ADT-Tweak end

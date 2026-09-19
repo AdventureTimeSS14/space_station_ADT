@@ -325,7 +325,7 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
             return;
 
         _audio.PlayPvs(ent.Comp.StrikeSound, target);
-        _damageable.TryChangeDamage(target, ent.Comp.StrikeDamage, ignoreResistances: true, origin: user);
+        _damageable.TryChangeDamage(target, ent.Comp.StrikeDamage, ignoreResistances: false, origin: user);
         _stun.TryUpdateStunDuration(target, ent.Comp.StrikeStun);
 
         var direction = _transform.GetMapCoordinates(target).Position - _transform.GetMapCoordinates(user).Position;
@@ -349,13 +349,6 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
 
         _audio.PlayPvs(ent.Comp.DashSound, user);
 
-        if (TryComp<PullerComponent>(user, out var puller)
-            && puller.Pulling is { } pulled
-            && TryComp<PullableComponent>(pulled, out var pullable))
-        {
-            _pulling.TryStopPull(pulled, pullable, user, true);
-        }
-
         var nearby = new HashSet<Entity<MobStateComponent>>();
         _lookup.GetEntitiesInRange(_transform.GetMapCoordinates(user), ent.Comp.DashRange, nearby);
 
@@ -364,10 +357,10 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
             if (mob.Owner == user || mob.Owner == target || _mobState.IsDead(mob))
                 continue;
 
-            _damageable.TryChangeDamage(mob.Owner, ent.Comp.DashSplashDamage, ignoreResistances: true, origin: user);
+            _damageable.TryChangeDamage(mob.Owner, ent.Comp.DashSplashDamage, ignoreResistances: false, origin: user);
         }
 
-        _damageable.TryChangeDamage(target, ent.Comp.DashDamage, ignoreResistances: true, origin: user);
+        _damageable.TryChangeDamage(target, ent.Comp.DashDamage, ignoreResistances: false, origin: user);
 
         DashThrough(ent, user, target);
 
@@ -406,7 +399,7 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
                 if (mob.Owner == user || mob.Owner == target || _mobState.IsDead(mob))
                     continue;
 
-                _damageable.TryChangeDamage(mob.Owner, ent.Comp.DashTrailDamage, ignoreResistances: true, origin: user);
+                _damageable.TryChangeDamage(mob.Owner, ent.Comp.DashTrailDamage, ignoreResistances: false, origin: user);
             }
         }
 
@@ -431,7 +424,7 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
             return;
 
         _audio.PlayPvs(ent.Comp.HealSound, user);
-        _damageable.TryChangeDamage(target, ent.Comp.HealCost, ignoreResistances: true, origin: user);
+        _damageable.TryChangeDamage(target, ent.Comp.HealCost, ignoreResistances: false, origin: user);
 
         var mend = EnsureComp<ADTShadowMendComponent>(user);
         mend.NextTick = _timing.CurTime;
@@ -463,8 +456,25 @@ public sealed class ADTCursedKatanaSystem : EntitySystem
         user = EntityUid.Invalid;
         target = EntityUid.Invalid;
 
-        return TryComp<WeaponMartialArtComponent>(ent.Owner, out var weapon)
-            && _martialArts.TryUseWeaponMartialArt((ent.Owner, weapon), out _, out user, out target, out _);
+        if (!TryComp<WeaponMartialArtComponent>(ent.Owner, out var weapon)
+            || !_martialArts.TryUseWeaponMartialArt((ent.Owner, weapon), out _, out user, out target, out _))
+            return false;
+
+        ReleaseGrab(user, target);
+        return true;
+    }
+
+    private void ReleaseGrab(EntityUid user, EntityUid target)
+    {
+        if (TryComp<PullableComponent>(target, out var targetPullable) && targetPullable.Puller == user)
+            _pulling.TryStopPull(target, targetPullable, user, true);
+
+        if (!TryComp<PullerComponent>(user, out var puller)
+            || puller.Pulling is not { } pulled
+            || !TryComp<PullableComponent>(pulled, out var pullable))
+            return;
+
+        _pulling.TryStopPull(pulled, pullable, user, true);
     }
 
     private void Finish(Entity<ADTCursedKatanaComponent> ent, EntityUid user, EntityUid target, LocId popup)

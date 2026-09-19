@@ -109,9 +109,9 @@
   description: 'A holster to carry a handgun and ammo. WARNING: Badasses only.'
   components:
   - type: Sprite
-    sprite: Clothing/Belt/holster.rsi
+    sprite: ADT/Clothing/Belt/holster.rsi # ADT-Tweak-HolsterResprite
   - type: Clothing
-    sprite: Clothing/Belt/holster.rsi
+    sprite: ADT/Clothing/Belt/holster.rsi # ADT-Tweak-HolsterResprite
     # ADT-Tweak-Start
     slots:
     - belt

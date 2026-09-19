@@ -96,12 +96,15 @@ public sealed partial class HumanoidCharacterProfileV1
 
     [DataField]
     public string HeadshotUrl = string.Empty;
+
+    [DataField]
+    public string ExploitableInfo = string.Empty;
     // ADT-tweak-End
 
     public HumanoidCharacterProfile ToV2()
     {
         // ADT-tweak:
-        return new(Name, FlavorText, Species, Voice, Age, Sex, Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, AntagPreferences, TraitPreferences, Loadouts, Bark, Languages, OOCNotes, HeadshotUrl);
+        return new(Name, FlavorText, Species, Voice, Age, Sex, Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, AntagPreferences, TraitPreferences, Loadouts, Bark, Languages, OOCNotes, HeadshotUrl, ExploitableInfo);
     }
 }
 

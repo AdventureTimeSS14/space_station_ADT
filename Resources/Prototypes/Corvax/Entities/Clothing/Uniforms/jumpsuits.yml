@@ -65,7 +65,7 @@
       sprite: Corvax/Clothing/Uniforms/Jumpsuit/hop_turtleneck.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitHoSBlack
   name: head of security's black suit
   description: It's Head of Security's black suit.
@@ -76,7 +76,7 @@
       sprite: Corvax/Clothing/Uniforms/Jumpsuit/hos_black.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitRDClassical
   name: research director's classical suit
   description: It's Research Director's сlassical suit.

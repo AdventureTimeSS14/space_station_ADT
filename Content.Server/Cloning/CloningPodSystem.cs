@@ -212,6 +212,7 @@ public sealed class CloningPodSystem : EntitySystem
         {
             var chance = Math.Clamp((float)(cellularDmg / 100), 0, 1);
             chance *= failChanceModifier;
+            chance /= Math.Max(1f, clonePod.CloningSafety); // ADT-Tweak: сканмодуль снижает шанс неудачи
 
             if (cellularDmg > 0 && clonePod.ConnectedConsole != null)
                 _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value, Loc.GetString("cloning-console-cellular-warning", ("percent", Math.Round(100 - chance * 100))), InGameICChatType.Speak, false);
@@ -266,7 +267,7 @@ public sealed class CloningPodSystem : EntitySystem
             if (cloning.BodyContainer.ContainedEntity == null && !cloning.FailedClone)
                 continue;
 
-            cloning.CloningProgress += frameTime;
+            cloning.CloningProgress += frameTime * cloning.SpeedMultiplier; // ADT-Tweak: машинные части
             if (cloning.CloningProgress < cloning.CloningTime)
                 continue;
 

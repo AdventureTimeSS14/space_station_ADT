@@ -330,6 +330,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+        CacheRestrictedZones(); // ADT-Tweak
         var biomes = AllEntityQuery<BiomeComponent>();
 
         while (biomes.MoveNext(out var biome))
@@ -416,6 +417,11 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
 
         while (enumerator.MoveNext(out var chunkOrigin))
         {
+            // ADT-Tweak-Start
+            if (!IsChunkAllowed(biome, chunkOrigin.Value * ChunkSize, ChunkSize, marker: false))
+                continue;
+            // ADT-Tweak-End
+
             _activeChunks[biome].Add(chunkOrigin.Value * ChunkSize);
         }
     }
@@ -430,6 +436,11 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
 
         while (enumerator.MoveNext(out var chunkOrigin))
         {
+            // ADT-Tweak-Start
+            if (!IsChunkAllowed(biome, chunkOrigin.Value * layer.Size, layer.Size, marker: true))
+                continue;
+            // ADT-Tweak-End
+
             var lay = _markerChunks[biome].GetOrNew(layer.ID);
             lay.Add(chunkOrigin.Value * layer.Size);
         }
@@ -725,6 +736,11 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
             {
                 if (modified.Contains(node))
                     continue;
+
+                // ADT-Tweak-Start
+                if (!IsMarkerNodeAllowed(component, node))
+                    continue;
+                // ADT-Tweak-End
 
                 // Need to ensure the tile under it has loaded for anchoring.
                 if (TryGetBiomeTile(node, component.Layers, seed, (gridUid, grid), out var tile))

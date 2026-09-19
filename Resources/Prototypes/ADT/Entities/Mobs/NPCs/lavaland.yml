@@ -422,7 +422,6 @@
   suffix: AI
   abstract: true
   components:
-  - type: GrabProtection
   - type: Thirst
     thresholds:
       OverHydrated: 200

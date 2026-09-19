@@ -1,0 +1,518 @@
+- type: adtDungeonRoom
+  id: LavaDungeonBallVault
+  size: 20, 20
+  tags:
+  - LavaDungeon
+  legend:
+    "a":
+      tile: FloorBasalt
+    "b":
+      tile: FloorTechMaint
+    "c":
+      tile: Plating
+    "d":
+      tile: FloorBlue
+  tiles:
+  - "aaaaaaaaabcbaaaaaaaa"
+  - "aaaaaaacccbcccaaaaaa"
+  - "aaaaacccddcddcccaaaa"
+  - "aaaaccddddcddddccaaa"
+  - "aaaccdddcccccdddccaa"
+  - "aaacbdcccccccccdbcaa"
+  - "aaccddcccccccccddcca"
+  - "aacddcccccccccccddca"
+  - "abcddccccbcbccccddcb"
+  - "acbcccccccdcccccccbc"
+  - "abcddccccbcbccccddcb"
+  - "aacddcccccccccccddca"
+  - "aaccddcccccccccddcca"
+  - "aaacbdcccccccccdbcaa"
+  - "aaaccdddcccccdddccaa"
+  - "aaaaccddddcddddccaaa"
+  - "aaaaacccddcddcccaaaa"
+  - "aaaaaaacccbcccaaaaaa"
+  - "aaaaaaaaabcbaaaaaaaa"
+  - "aaaaaaaaaaaaaaaaaaaa"
+  entities:
+  - proto: ADTPoweredShuttleLightCyan
+    rot: -1.5707963267948966 rad
+    positions:
+    - 13.5,9.5
+    - 13.5,11.5
+  - proto: ADTPoweredShuttleLightCyan
+    rot: 1.5707963267948966 rad
+    positions:
+    - 7.5,9.5
+    - 7.5,11.5
+  - proto: ADTPoweredShuttleLightCyan
+    rot: 3.141592653589793 rad
+    positions:
+    - 11.5,7.5
+    - 9.5,7.5
+  - proto: ADTPoweredShuttleLightCyan
+    positions:
+    - 9.5,13.5
+    - 11.5,13.5
+  - proto: ADTSoundGenGeigerExtreme
+    rot: -1.5707963267948966 rad
+    positions:
+    - 10.5,10.5
+  - proto: AtmosFixPlasmaMarker
+    rot: -1.5707963267948966 rad
+    positions:
+    - 10.5,10.5
+  - proto: BalloonSyn
+    positions:
+    - 10.2123,10.6419
+  - proto: Catwalk
+    rot: -1.5707963267948966 rad
+    positions:
+    - 12.5,6.5
+    - 14.5,6.5
+    - 13.5,6.5
+    - 5.5,10.5
+    - 5.5,11.5
+    - 6.5,8.5
+    - 6.5,12.5
+    - 6.5,9.5
+    - 6.5,7.5
+    - 5.5,12.5
+    - 5.5,8.5
+    - 11.5,6.5
+    - 15.5,11.5
+    - 14.5,9.5
+    - 5.5,9.5
+    - 6.5,11.5
+    - 6.5,13.5
+    - 9.5,5.5
+    - 8.5,6.5
+    - 11.5,15.5
+    - 10.5,15.5
+    - 12.5,15.5
+    - 12.5,14.5
+    - 8.5,15.5
+    - 13.5,13.5
+    - 7.5,13.5
+    - 13.5,14.5
+    - 14.5,13.5
+    - 7.5,7.5
+    - 14.5,11.5
+    - 14.5,12.5
+    - 8.5,5.5
+    - 10.5,5.5
+    - 8.5,14.5
+    - 9.5,14.5
+    - 7.5,14.5
+    - 6.5,14.5
+    - 7.5,6.5
+    - 6.5,6.5
+    - 15.5,12.5
+    - 15.5,10.5
+    - 12.5,5.5
+    - 11.5,14.5
+    - 9.5,15.5
+    - 14.5,14.5
+    - 11.5,5.5
+    - 15.5,9.5
+    - 14.5,8.5
+    - 13.5,7.5
+    - 14.5,7.5
+    - 15.5,8.5
+    - 16.5,10.5
+    - 9.5,6.5
+    - 10.5,16.5
+    - 10.5,17.5
+    - 17.5,10.5
+    - 10.5,3.5
+    - 3.5,10.5
+    - 4.5,10.5
+    - 10.5,4.5
+  - proto: Catwalk
+    positions:
+    - 1.5,10.5
+    - 10.5,19.5
+    - 19.5,10.5
+    - 10.5,1.5
+  - proto: ClothingHandsGlovesCombat
+    positions:
+    - 10.4832,10.2044
+  - proto: EnergyShield
+    positions:
+    - 10.7123,10.2695
+  - proto: EnergySword
+    positions:
+    - 10.5248,10.7695
+  - proto: FloorLavaEntity
+    rot: 1.5707963267948966 rad
+    positions:
+    - 8.5,11.5
+    - 8.5,12.5
+    - 8.5,10.5
+    - 9.5,12.5
+    - 10.5,13.5
+    - 10.5,12.5
+    - 11.5,12.5
+    - 7.5,10.5
+    - 12.5,11.5
+    - 12.5,12.5
+    - 8.5,9.5
+    - 8.5,8.5
+    - 9.5,8.5
+    - 10.5,8.5
+    - 10.5,7.5
+    - 11.5,8.5
+    - 11.5,8.5
+    - 12.5,8.5
+    - 12.5,9.5
+    - 12.5,10.5
+    - 13.5,10.5
+  - proto: FloorLavaEntity
+    rot: 3.141592653589793 rad
+    positions:
+    - 7.5,16.5
+    - 9.5,16.5
+    - 14.5,16.5
+    - 12.5,16.5
+    - 9.5,17.5
+    - 5.5,14.5
+    - 5.5,15.5
+    - 4.5,8.5
+    - 3.5,8.5
+    - 5.5,6.5
+    - 7.5,4.5
+    - 17.5,11.5
+    - 16.5,9.5
+    - 7.5,5.5
+    - 6.5,4.5
+    - 11.5,3.5
+    - 12.5,4.5
+    - 15.5,7.5
+    - 16.5,11.5
+    - 16.5,8.5
+    - 17.5,12.5
+    - 16.5,12.5
+    - 8.5,4.5
+    - 9.5,3.5
+    - 12.5,3.5
+    - 16.5,7.5
+    - 9.5,4.5
+    - 5.5,7.5
+    - 11.5,4.5
+    - 3.5,9.5
+    - 4.5,9.5
+    - 4.5,7.5
+    - 15.5,13.5
+    - 14.5,15.5
+    - 16.5,13.5
+    - 15.5,14.5
+    - 8.5,3.5
+    - 15.5,15.5
+    - 14.5,4.5
+    - 15.5,5.5
+    - 13.5,5.5
+    - 5.5,5.5
+    - 6.5,5.5
+    - 13.5,4.5
+    - 14.5,5.5
+    - 15.5,6.5
+    - 17.5,9.5
+    - 17.5,8.5
+    - 13.5,15.5
+    - 13.5,16.5
+    - 12.5,17.5
+    - 11.5,16.5
+    - 11.5,17.5
+    - 8.5,17.5
+    - 8.5,16.5
+    - 7.5,15.5
+    - 6.5,16.5
+    - 6.5,15.5
+    - 5.5,13.5
+    - 4.5,13.5
+    - 4.5,12.5
+    - 4.5,11.5
+    - 3.5,12.5
+    - 3.5,11.5
+  - proto: Grille
+    rot: -1.5707963267948966 rad
+    positions:
+    - 10.5,6.5
+    - 14.5,10.5
+    - 10.5,14.5
+    - 6.5,10.5
+  - proto: Grille
+    rot: 1.5707963267948966 rad
+    positions:
+    - 10.5,9.5
+    - 9.5,10.5
+    - 10.5,11.5
+    - 11.5,10.5
+  - proto: HighSecDoor
+    positions:
+    - 2.5,10.5
+    - 10.5,18.5
+    - 18.5,10.5
+    - 10.5,2.5
+  - proto: PlastitaniumWindow
+    rot: 1.5707963267948966 rad
+    positions:
+    - 14.5,10.5
+  - proto: PlastitaniumWindow
+    rot: 3.141592653589793 rad
+    positions:
+    - 6.5,10.5
+    - 10.5,6.5
+    - 10.5,14.5
+  - proto: PlastitaniumWindowIndestructible
+    rot: 1.5707963267948966 rad
+    positions:
+    - 10.5,9.5
+    - 9.5,10.5
+    - 10.5,11.5
+    - 11.5,10.5
+  - proto: Railing
+    rot: -1.5707963267948966 rad
+    positions:
+    - 6.5,7.5
+    - 5.5,9.5
+    - 11.5,3.5
+    - 11.5,17.5
+    - 5.5,11.5
+    - 11.5,4.5
+    - 11.5,16.5
+    - 6.5,13.5
+  - proto: Railing
+    rot: 1.5707963267948966 rad
+    positions:
+    - 14.5,13.5
+    - 15.5,9.5
+    - 14.5,7.5
+    - 9.5,17.5
+    - 15.5,11.5
+    - 9.5,16.5
+    - 9.5,3.5
+    - 9.5,4.5
+  - proto: Railing
+    rot: 3.141592653589793 rad
+    positions:
+    - 7.5,14.5
+    - 9.5,15.5
+    - 3.5,9.5
+    - 16.5,9.5
+    - 4.5,9.5
+    - 11.5,15.5
+    - 17.5,9.5
+    - 13.5,14.5
+  - proto: Railing
+    positions:
+    - 4.5,11.5
+    - 16.5,11.5
+    - 17.5,11.5
+    - 13.5,6.5
+    - 11.5,5.5
+    - 9.5,5.5
+    - 7.5,6.5
+    - 3.5,11.5
+  - proto: RailingCorner
+    rot: -1.5707963267948966 rad
+    positions:
+    - 8.5,5.5
+    - 5.5,8.5
+    - 6.5,6.5
+    - 9.5,9.5
+    - 16.5,14.5
+    - 1.5,9.5
+    - 9.5,1.5
+  - proto: RailingCorner
+    rot: 1.5707963267948966 rad
+    positions:
+    - 15.5,12.5
+    - 12.5,15.5
+    - 14.5,14.5
+    - 11.5,11.5
+    - 4.5,6.5
+    - 11.5,19.5
+    - 19.5,11.5
+  - proto: RailingCorner
+    rot: 3.141592653589793 rad
+    positions:
+    - 5.5,12.5
+    - 6.5,14.5
+    - 8.5,15.5
+    - 9.5,11.5
+    - 16.5,6.5
+    - 9.5,19.5
+    - 1.5,11.5
+  - proto: RailingCorner
+    positions:
+    - 15.5,8.5
+    - 14.5,6.5
+    - 12.5,5.5
+    - 11.5,9.5
+    - 4.5,14.5
+    - 11.5,1.5
+    - 19.5,9.5
+  - proto: RailingCornerSmall
+    rot: -1.5707963267948966 rad
+    positions:
+    - 14.5,12.5
+    - 12.5,14.5
+    - 0.5,9.5
+    - 9.5,0.5
+  - proto: RailingCornerSmall
+    rot: 1.5707963267948966 rad
+    positions:
+    - 8.5,6.5
+    - 6.5,8.5
+  - proto: RailingCornerSmall
+    rot: 3.141592653589793 rad
+    positions:
+    - 14.5,8.5
+    - 12.5,6.5
+    - 0.5,11.5
+  - proto: RailingCornerSmall
+    positions:
+    - 8.5,14.5
+    - 6.5,12.5
+    - 11.5,0.5
+  - proto: SignRadiationMed
+    positions:
+    - 18.5,11.5
+    - 18.5,9.5
+    - 11.5,2.5
+    - 9.5,2.5
+    - 2.5,9.5
+    - 2.5,11.5
+    - 9.5,18.5
+    - 11.5,18.5
+  - proto: WallPlastitanium
+    rot: 3.141592653589793 rad
+    positions:
+    - 18.5,7.5
+    - 6.5,3.5
+    - 5.5,17.5
+    - 5.5,16.5
+    - 17.5,13.5
+    - 6.5,17.5
+    - 7.5,17.5
+    - 3.5,15.5
+    - 7.5,18.5
+    - 15.5,17.5
+    - 15.5,16.5
+    - 16.5,15.5
+    - 14.5,17.5
+    - 13.5,18.5
+    - 13.5,17.5
+    - 2.5,11.5
+    - 2.5,13.5
+    - 2.5,12.5
+    - 12.5,18.5
+    - 8.5,18.5
+    - 9.5,18.5
+    - 11.5,18.5
+    - 15.5,4.5
+    - 16.5,5.5
+    - 15.5,3.5
+    - 7.5,2.5
+    - 11.5,2.5
+    - 8.5,2.5
+    - 18.5,12.5
+    - 2.5,9.5
+    - 3.5,5.5
+    - 3.5,6.5
+    - 2.5,7.5
+    - 18.5,13.5
+    - 18.5,11.5
+    - 2.5,8.5
+    - 3.5,7.5
+    - 17.5,14.5
+    - 14.5,3.5
+    - 16.5,4.5
+    - 7.5,3.5
+    - 9.5,2.5
+    - 18.5,9.5
+    - 4.5,16.5
+    - 3.5,14.5
+    - 3.5,13.5
+    - 4.5,15.5
+    - 17.5,15.5
+    - 16.5,16.5
+    - 18.5,8.5
+    - 13.5,3.5
+    - 12.5,2.5
+    - 13.5,2.5
+    - 17.5,7.5
+    - 17.5,5.5
+    - 17.5,6.5
+    - 5.5,3.5
+    - 5.5,4.5
+    - 4.5,5.5
+    - 4.5,4.5
+  - proto: WallPlastitanium
+    positions:
+    - 11.5,7.5
+    - 13.5,12.5
+    - 12.5,13.5
+    - 9.5,7.5
+    - 13.5,8.5
+    - 13.5,9.5
+    - 13.5,11.5
+    - 8.5,7.5
+    - 9.5,13.5
+    - 11.5,13.5
+    - 12.5,7.5
+    - 7.5,9.5
+    - 8.5,13.5
+    - 7.5,8.5
+    - 7.5,12.5
+    - 7.5,11.5
+  - proto: WallPlastitaniumDiagonal
+    rot: -1.5707963267948966 rad
+    positions:
+    - 11.5,14.5
+    - 13.5,13.5
+    - 14.5,11.5
+  - proto: WallPlastitaniumDiagonal
+    rot: 1.5707963267948966 rad
+    positions:
+    - 7.5,7.5
+    - 6.5,9.5
+    - 9.5,6.5
+  - proto: WallPlastitaniumDiagonal
+    rot: 3.141592653589793 rad
+    positions:
+    - 13.5,7.5
+    - 11.5,6.5
+    - 14.5,9.5
+  - proto: WallPlastitaniumDiagonal
+    positions:
+    - 6.5,11.5
+    - 9.5,14.5
+    - 7.5,13.5
+  - proto: WallPlastitaniumDiagonalIndestructible
+    rot: -1.5707963267948966 rad
+    positions:
+    - 11.5,11.5
+  - proto: WallPlastitaniumDiagonalIndestructible
+    rot: 1.5707963267948966 rad
+    positions:
+    - 9.5,9.5
+  - proto: WallPlastitaniumDiagonalIndestructible
+    rot: 3.141592653589793 rad
+    positions:
+    - 11.5,9.5
+  - proto: WallPlastitaniumDiagonalIndestructible
+    positions:
+    - 9.5,11.5
+  - proto: WeaponTurretAllHostile
+    rot: -1.5707963267948966 rad
+    positions:
+    - 16.5,14.5
+  - proto: WeaponTurretAllHostile
+    rot: 1.5707963267948966 rad
+    positions:
+    - 4.5,6.5
+    - 4.5,14.5
+  - proto: WeaponTurretAllHostile
+    positions:
+    - 16.5,6.5

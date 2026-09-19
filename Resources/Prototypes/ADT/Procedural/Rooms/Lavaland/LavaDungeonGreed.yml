@@ -1,0 +1,262 @@
+- type: adtDungeonRoom
+  id: LavaDungeonGreed
+  size: 8, 11
+  tags:
+  - LavaDungeon
+  legend:
+    "a":
+      tile: FloorBasalt
+    "b":
+      tile: Plating
+    "c":
+      tile: FloorElevatorShaft
+  tiles:
+  - "aabbbbba"
+  - "aabcccba"
+  - "abbcccbb"
+  - "bbcccccb"
+  - "bccccccc"
+  - "bccccccc"
+  - "bccccccc"
+  - "bbbcccbb"
+  - "aabcccba"
+  - "aabcccba"
+  - "aabbcbba"
+  entities:
+  - proto: Carpet
+    positions:
+    - 3.5,9.5
+    - 3.5,9.5
+    - 3.5,8.5
+    - 4.5,9.5
+    - 4.5,8.5
+    - 5.5,9.5
+    - 5.5,8.5
+  - proto: CarpetBlack
+    rot: -1.5707963267948966 rad
+    positions:
+    - 2.5,4.5
+    - 3.5,2.5
+    - 3.5,1.5
+    - 3.5,3.5
+    - 5.5,3.5
+    - 5.5,4.5
+    - 6.5,4.5
+    - 5.5,2.5
+    - 5.5,1.5
+    - 3.5,4.5
+    - 2.5,7.5
+    - 3.5,7.5
+    - 5.5,7.5
+    - 6.5,7.5
+    - 6.5,6.5
+    - 2.5,6.5
+    - 4.5,0.5
+    - 4.5,1.5
+  - proto: CarpetCyan
+    rot: -1.5707963267948966 rad
+    positions:
+    - 1.5,5.5
+    - 1.5,6.5
+    - 1.5,4.5
+  - proto: CarpetOrange
+    rot: -1.5707963267948966 rad
+    positions:
+    - 7.5,5.5
+    - 7.5,4.5
+    - 7.5,6.5
+  - proto: FloorLavaEntity
+    rot: 1.5707963267948966 rad
+    positions:
+    - 0.5,8.5
+    - 0.5,9.5
+    - 1.5,0.5
+    - 0.5,2.5
+    - 1.5,1.5
+    - 1.5,2.5
+    - 7.5,9.5
+    - 7.5,10.5
+    - 1.5,9.5
+    - 1.5,10.5
+    - 7.5,0.5
+    - 7.5,1.5
+    - 7.5,2.5
+  - proto: MagicDiceBag
+    positions:
+    - 5.2208,9.0207
+  - proto: PresentRandomUnsafe
+    positions:
+    - 4.5143,8.4927
+  - proto: RandomArcade
+    positions:
+    - 2.5,7.5
+    - 6.5,7.5
+  - proto: SlotMachineFateDice
+    positions:
+    - 4.5,9.5
+  - proto: SpaceCash10
+    positions:
+    - 1.3722,5.6144
+  - proto: SpaceCash100
+    positions:
+    - 1.4503,6.4738
+    - 7.419,4.8175
+    - 7.6297,6.569
+  - proto: SpaceCash1000
+    rot: -0.006008937023580074 rad
+    positions:
+    - 1.3659,4.9888
+  - proto: SpaceCash1000
+    positions:
+    - 7.5284,5.7238
+  - proto: SpaceCash10000
+    positions:
+    - 1.5597,6.0519
+  - proto: SpaceCash5000
+    positions:
+    - 7.419,5.2082
+  - proto: TableCarpet
+    positions:
+    - 1.5,6.5
+    - 1.5,4.5
+    - 1.5,5.5
+    - 7.5,4.5
+    - 7.5,5.5
+    - 7.5,6.5
+    - 3.5,9.5
+    - 3.5,8.5
+    - 5.5,9.5
+    - 5.5,8.5
+  - proto: TreasureCoinDiamond
+    positions:
+    - 2.2159,5.5519
+    - 2.419,4.5675
+    - 5.5128,9.4269
+    - 6.2315,4.5988
+    - 4.669,1.4738
+    - 3.5753,8.7238
+    - 5.0909,6.7394
+  - proto: TreasureCoinGold
+    positions:
+    - 3.3409,1.4113
+    - 4.8253,4.3019
+    - 5.6847,8.8332
+    - 3.169,6.8175
+  - proto: WallCult
+    positions:
+    - 5.5,0.5
+    - 3.5,0.5
+    - 2.5,1.5
+    - 2.5,0.5
+    - 2.5,2.5
+    - 2.5,3.5
+    - 1.5,3.5
+    - 0.5,3.5
+    - 0.5,4.5
+    - 0.5,5.5
+    - 0.5,6.5
+    - 0.5,7.5
+    - 1.5,7.5
+    - 1.5,8.5
+    - 2.5,8.5
+    - 2.5,9.5
+    - 4.5,10.5
+    - 2.5,10.5
+    - 3.5,10.5
+    - 5.5,10.5
+    - 6.5,10.5
+    - 6.5,9.5
+    - 6.5,0.5
+    - 6.5,1.5
+    - 6.5,2.5
+    - 6.5,3.5
+    - 7.5,3.5
+    - 7.5,7.5
+    - 7.5,8.5
+    - 6.5,8.5
+  decals:
+  - id: BrickTileWhiteInnerNw
+    color: '#D58C18C0'
+    positions:
+    - 4,6
+  - id: MiniTileWhiteCornerNe
+    color: '#D58C18C0'
+    positions:
+    - 5,6
+  - id: MiniTileWhiteCornerNw
+    color: '#D58C18C0'
+    positions:
+    - 3,6
+  - id: MiniTileWhiteEndE
+    color: '#D58C18C0'
+    positions:
+    - 6,5
+  - id: MiniTileWhiteEndN
+    color: '#D58C18C0'
+    positions:
+    - 4,7
+  - id: MiniTileWhiteEndS
+    color: '#D58C18C0'
+    positions:
+    - 4,2
+  - id: MiniTileWhiteEndW
+    color: '#D58C18C0'
+    positions:
+    - 2,5
+  - id: MiniTileWhiteInnerNe
+    color: '#D58C18C0'
+    positions:
+    - 5,5
+    - 4,6
+  - id: MiniTileWhiteInnerNw
+    color: '#D58C18C0'
+    positions:
+    - 3,5
+  - id: MiniTileWhiteInnerSe
+    color: '#D58C18C0'
+    positions:
+    - 4,5
+  - id: MiniTileWhiteInnerSw
+    color: '#D58C18C0'
+    positions:
+    - 4,5
+  - id: MiniTileWhiteLineE
+    color: '#D58C18C0'
+    positions:
+    - 4,3
+    - 4,4
+  - id: MiniTileWhiteLineS
+    color: '#D58C18C0'
+    positions:
+    - 3,5
+    - 5,5
+  - id: MiniTileWhiteLineW
+    color: '#D58C18C0'
+    positions:
+    - 4,3
+    - 4,4
+  - id: burnt1
+    color: '#FFFFFFFF'
+    positions:
+    - 5,1
+    - 4,9
+    - 2,6
+    - 5,6
+    - 3,3
+    - 4,5
+    - 2,4
+    - 4,1
+    - 4,2
+    - 5,5
+    - 6,5
+  - id: burnt4
+    color: '#FFFFFFFF'
+    positions:
+    - 6,5
+    - 3,2
+    - 2,5
+    - 4,7
+    - 4,3
+    - 3,6
+    - 4,7
+    - 4,6

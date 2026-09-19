@@ -1,0 +1,76 @@
+- type: entity
+  id: ADTStoneTileBase
+  abstract: true
+  name: stone tile
+  description: A slab of ancient stone, worn smooth by the ages.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: ADT/Structures/Decorations/stone_tiles.rsi
+    state: tile
+    drawdepth: LowFloors
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  parent: ADTStoneTileBase
+  id: ADTStoneTile
+
+- type: entity
+  parent: ADTStoneTileBase
+  id: ADTStoneTileBlock
+  components:
+  - type: Sprite
+    state: block
+
+- type: entity
+  parent: ADTStoneTileBase
+  id: ADTStoneTileBlockCracked
+  components:
+  - type: Sprite
+    state: block_cracked
+
+- type: entity
+  parent: ADTStoneTileBase
+  id: ADTStoneTileSurrounding
+  components:
+  - type: Sprite
+    state: surrounding_tile
+
+- type: entity
+  parent: ADTStoneTileBase
+  id: ADTStoneTileSurroundingCracked
+  components:
+  - type: Sprite
+    state: surrounding_cracked
+
+- type: entity
+  parent: ADTStoneTileBase
+  id: ADTStoneTileCenterCracked
+  components:
+  - type: Sprite
+    state: center_cracked
+
+- type: entity
+  parent: ADTStoneTileBase
+  id: ADTStoneTileSlab
+  components:
+  - type: Sprite
+    state: slab
+
+- type: entity
+  parent: BaseStructure
+  id: ADTAshTotem
+  name: ash totem
+  description: A massive stone pillar with the skull of a slain beast lashed to it. You have wandered into ash walker hunting grounds.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decorations/ash_totem.rsi
+    state: icon
+    drawdepth: Mobs
+  - type: InteractionOutline

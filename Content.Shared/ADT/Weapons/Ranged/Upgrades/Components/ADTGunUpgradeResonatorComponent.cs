@@ -21,4 +21,7 @@ public sealed partial class ADTProjectileResonatorComponent : Component
 
     [DataField]
     public float BurstMultiplier = 0.25f;
+
+    [ViewVariables]
+    public ADTVolleyTrigger? Volley;
 }

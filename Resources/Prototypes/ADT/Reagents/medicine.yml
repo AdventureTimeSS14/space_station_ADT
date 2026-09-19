@@ -433,6 +433,64 @@
   flavor: medicine
   color: "#c8a2c8"
   physicalDesc: reagent-physical-desc-powdery
+  worksOnTheDead: true
+  splashBlocked: true
+  vaporBlocked: true
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ModifyBleed
+        amount: -3
+      - !type:EvenHealthChange
+        damage:
+          Brute: -1.5
+  metabolisms:
+    Bloodstream:
+      metabolismRate : 0.3
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+
+#Сульфадиазин серебра
+- type: reagent
+  id: ADTSilverSulfadiazine
+  name: reagent-name-silver-sulfadiazine
+  group: Medicine
+  desc: reagent-desc-silver-sulfadiazine
+  flavor: medicine
+  color: "#c8a2c8"
+  physicalDesc: reagent-physical-desc-powdery
+  worksOnTheDead: true
+  splashBlocked: true
+  vaporBlocked: true
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:EvenHealthChange
+        damage:
+          Burn: -1.5
+  metabolisms:
+    Bloodstream:
+      metabolismRate : 0.3
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+
+#Кровоостанавливающая пудра для пластырей
+- type: reagent
+  id: ADTStypticPowderPatch
+  name: reagent-name-styptic-powder-patch
+  group: Medicine
+  desc: reagent-desc-styptic-powder-patch
+  flavor: medicine
+  color: "#c8a2c8"
+  physicalDesc: reagent-physical-desc-powdery
   reactiveEffects:
     Acidic:
       methods: [ Touch ]
@@ -447,7 +505,7 @@
         damage:
           Brute: -0.825
       - !type:ModifyBleed
-        amount: -0.3 #почему кровоостанавливающая пудра не останавливала кровотечение?
+        amount: -0.3
       - !type:PopupMessage
         conditions:
         - !type:TotalDamageCondition
@@ -457,12 +515,12 @@
         messages: [ "medicine-effect-usual" ]
         probability: 0.05
 
-#Сульфадиазин серебра
+#Сульфадиазин серебра для пластырей
 - type: reagent
-  id: ADTSilverSulfadiazine
-  name: reagent-name-silver-sulfadiazine
+  id: ADTSilverSulfadiazinePatch
+  name: reagent-name-silver-sulfadiazine-patch
   group: Medicine
-  desc: reagent-desc-silver-sulfadiazine
+  desc: reagent-desc-silver-sulfadiazine-patch
   flavor: medicine
   color: "#c8a2c8"
   physicalDesc: reagent-physical-desc-powdery
@@ -504,8 +562,8 @@
               Poison: -9
               Slash: 0.4
               Piercing: 0.8
-        - !type:GenericStatusEffect
-          key: Drunk
+        - !type:ModifyStatusEffect
+          effectProto: StatusEffectDrunk
           time: 8.0
           type: Add
 
@@ -572,7 +630,11 @@
     Bloodstream:
       metabolismRate : 0.5
       effects:
-        - !type:HealthChange
+      - !type:ModifyStatusEffect # ADT-Tweak
+        effectProto: StatusEffectBlindness
+        type: Add
+        time: 2
+      - !type:HealthChange
           conditions:
           - !type:TemperatureCondition
             max: 203.0
@@ -580,11 +642,6 @@
             types:
               Shock: -6.2
               Caustic: -5.1
-        - !type:GenericStatusEffect
-          key: TemporaryBlindness
-          component: TemporaryBlindness
-          time: 60
-          type: Add
 
 - type: reagent
   id: ADTMiadinol
@@ -689,3 +746,45 @@
             max: 150.0
           - !type:MobStateCondition
             mobstate: Dead
+
+- type: reagent
+  id: ADTLavalandExtract
+  name: reagent-name-lavaland-extract
+  group: Medicine
+  desc: reagent-desc-lavaland-extract
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: medicine
+  color: "#5a2323"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:EvenHealthChange
+        damage:
+          Brute: -5
+          Burn: -5
+      # Передозировка с 3 единиц
+      - !type:EvenHealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTLavalandExtract
+          min: 3
+        damage:
+          Brute: 3
+          Burn: 3
+          Toxin: 3
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTLavalandExtract
+          min: 3
+        effectProto: StatusEffectDrunk
+        time: 2
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTLavalandExtract
+          min: 3
+        type: Local
+        visualType: MediumCaution
+        messages: [ "lavaland-extract-overdose" ]
+        probability: 0.2

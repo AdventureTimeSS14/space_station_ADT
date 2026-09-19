@@ -134,7 +134,7 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
         var reagentProto = _prototype.Index<ReagentPrototype>(baseOverride);
 
         if (SpriteSystem.LayerMapTryGet(ent, component.OverlayLayer, out var overlayLayer, false))
-            SpriteSystem.LayerSetVisible(ent, overlayLayer, reagentProto.MetamorphicSprite is not null);
+            SpriteSystem.LayerSetVisible(ent, overlayLayer, reagentProto.MetamorphicSprite is null);
 
         if (!SpriteSystem.LayerMapTryGet(ent, component.BaseLayer, out var baseLayer, false))
             return null;

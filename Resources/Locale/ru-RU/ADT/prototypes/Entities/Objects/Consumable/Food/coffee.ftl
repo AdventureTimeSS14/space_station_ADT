@@ -1,13 +1,13 @@
 # Дерево
 seeds-coffeetree-name = кофе
-seeds-coffeetree-display-name = кофейное дерeво
+seeds-coffeetree-display-name = кофейное дерево
 
 # Реагент кофе
 reagent-name-coffeepowder = кофейный порошок
 reagent-desc-coffeepowder = Прекрасный реагент для создания чистейшего кофе в космосе.
 
 # Пакет кофе
-ent-ADTCoffeeTreeSeeds = пакет семян кофейного дерева
+ent-ADTCoffeeTreeSeeds = пакет семян (кофейное дерево)
     .desc =  Прекрасное растение для создания чистейшего кофе в космосе.
 
 # Плоды кофе

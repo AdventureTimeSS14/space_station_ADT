@@ -103,6 +103,16 @@ public abstract class SharedPowerReceiverSystem : EntitySystem
         entity.Comp.Load = load;
     }
 
+    // ADT-Tweak start
+    public void SetBatteryRechargeRate(EntityUid uid, float rechargeRate, ApcPowerReceiverBatteryComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.BatteryRechargeRate = rechargeRate;
+    }
+    // ADT-Tweak end
+
     /// <summary>
     /// Checks if entity is APC-powered device, and if it have power.
     /// </summary>

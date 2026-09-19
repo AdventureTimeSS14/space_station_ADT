@@ -1,4 +1,5 @@
 using Content.Server.Stack;
+using Content.Shared.ADT.Construction.Components;
 using Content.Shared.Gibbing;
 using Content.Shared.Storage.Components;
 using Content.Shared.Whitelist;
@@ -28,11 +29,13 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
 
         var contents = new ValueList<EntityUid>(storage.Contents.ContainedEntities);
         var coords = Transform(ent).Coordinates;
+        var outputMultiplier = TryComp<ArtifactCrusherUpgradeComponent>(ent, out var upgrade) ? upgrade.OutputMultiplier : 1f; // ADT-Tweak
         foreach (var contained in contents)
         {
             if (_whitelistSystem.IsWhitelistPass(crusher.CrushingWhitelist, contained))
             {
                 var amount = _random.Next(crusher.MinFragments, crusher.MaxFragments);
+                amount = (int) (amount * outputMultiplier); // ADT-Tweak
                 var stacks = _stack.SpawnMultipleAtPosition(crusher.FragmentStackProtoId, amount, coords);
                 foreach (var stack in stacks)
                 {

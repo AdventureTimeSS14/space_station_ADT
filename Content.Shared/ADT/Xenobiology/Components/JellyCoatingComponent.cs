@@ -13,4 +13,6 @@ public sealed partial class JellyCoatingComponent : Component
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SpeedBoostedComponent : Component
 {
+    [DataField]
+    public float SpeedMultiplier = 1.3f;
 }

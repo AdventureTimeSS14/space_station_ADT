@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# ADT: EligibleTags dataset lives in ADT/Datasets/tags.yml, dupe removed
+# ADT: WaterTank tag lives in tags.yml, dupe removed
+
+# ADT: tags required by heretic prototypes
+- type: Tag
+  id: HereticCarving
+
+- type: Tag
+  id: HereticItem
+
+- type: Tag
+  id: ShadowCloakAction
+
+- type: Tag
+  id: RoundstartAntag
+
+- type: Tag
+  id: CalmAntag
+
+# ADT: Blade path blade tag, required by HereticBladeBlade
+- type: Tag
+  id: HereticBladeBlade
+
+# ADT: item tags for rituals
+- type: Tag
+  id: SheetGlass
+
+- type: Tag
+  id: Steel
+
+- type: Tag
+  id: SheetPlasma
+
+- type: Tag
+  id: Ash
+
+- type: Tag
+  id: WinterCoat
+
+- type: Tag
+  id: Chair

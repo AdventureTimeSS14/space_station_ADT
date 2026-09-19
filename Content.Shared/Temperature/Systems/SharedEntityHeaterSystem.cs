@@ -94,4 +94,14 @@ public abstract partial class SharedEntityHeaterSystem : EntitySystem
             _ => 0.01f,
         };
     }
+
+    // ADT-Tweak: машинные части (гриль)
+    public void SetPower(EntityUid uid, float power, EntityHeaterComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.Power = power;
+    }
+
 }

@@ -13,7 +13,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
-using Content.Shared.ADT.Inventory;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Popups;
 using Content.Shared.Strip.Components;
@@ -300,7 +299,7 @@ public abstract class SharedStrippableSystem : EntitySystem
 
         if (!stealth)
         {
-            if (IsStripHidden(slotDef, user, target)) // ADT-tweak: Allow user to see verbs for their own hidden slots
+            if (IsStripHidden(slotDef, user))
                 _popupSystem.PopupEntity(Loc.GetString("strippable-component-alert-owner-hidden", ("slot", slot)), target, target, PopupType.Large);
             else
             {
@@ -690,38 +689,14 @@ public abstract class SharedStrippableSystem : EntitySystem
             args.Handled = true;
     }
 
-    public bool IsStripHidden(SlotDefinition definition, EntityUid? viewer, EntityUid? target = null) // ADT-tweak: Allow user to see verbs for their own hidden slots
+    public bool IsStripHidden(SlotDefinition definition, EntityUid? viewer)
     {
-        // ADT-tweak start: Allow user to see verbs for their own hidden slots
-        if (definition.StripHidden)
-        {
-            if (viewer == null)
-                return true;
+        if (!definition.StripHidden)
+            return false;
 
-            if (!HasComp<BypassInteractionChecksComponent>(viewer))
-                return true;
-        }
+        if (viewer == null)
+            return true;
 
-        if (target != null && target.Value.IsValid())
-        {
-            var enumerator = _inventorySystem.GetSlotEnumerator(target.Value);
-            while (enumerator.NextItem(out var item, out var slotDef))
-            {
-                if (TryComp<HidesSlotsComponent>(item, out var hidesSlotsComp))
-                {
-                    if ((hidesSlotsComp.HidesSlots & definition.SlotFlags) != SlotFlags.NONE)
-                    {
-                        // Ghosts can ignore HidesSlots restrictions
-                        if (viewer != null && HasComp<BypassHidesSlotsComponent>(viewer.Value))
-                            continue;
-
-                        return true;
-                    }
-                }
-            }
-        }
-
-        return false;
-        // ADT-tweak end: Allow user to see verbs for their own hidden slots
+        return !HasComp<BypassInteractionChecksComponent>(viewer);
     }
 }

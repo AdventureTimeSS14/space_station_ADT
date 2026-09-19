@@ -137,6 +137,7 @@
   - type: WiresPanel
   - type: Machine
     board: SubstationMachineCircuitboard
+  - type: SubstationMachineParts #ADT-Tweak: machine parts
   - type: AmbientSound
     range: 3
   - type: Electrified
@@ -251,12 +252,10 @@
   - type: ContainerFill
     containers:
       board: [ WallmountSubstationElectronics ]
-      manipulator: [ MicroManipulatorStockPart ]
       powercell: [ PowerCellSmall ]
   - type: ContainerContainer
     containers:
       board: !type:Container
-      manipulator: !type:Container
       powercell: !type:Container
 
       # Construction Frame

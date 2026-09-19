@@ -22,7 +22,7 @@
       coefficients:
         Blunt: 0.4 #ADT-tweak 0.7 -> 0.5
         Slash: 0.4 #ADT-tweak 0.7 -> 0.5
-        Piercing: 0.6
+        Piercing: 0.5 #ADT-tweak 0.6 -> 0.5
         Heat: 0.15 #ADT-tweak 0.05 -> 0.2
         Cold: 0.2 #ADT-tweak 0.1 -> 0.2
         Shock: 0.2 #ADT-tweak 0.1 -> 0.2

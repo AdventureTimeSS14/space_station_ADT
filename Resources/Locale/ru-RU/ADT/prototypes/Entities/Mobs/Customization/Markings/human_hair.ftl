@@ -350,3 +350,4 @@ marking-ADTHumanHairKaminaGradient = Спиральный бунтарь (Гра
 marking-ADTHumanHairNitoriTwo = Нитори (Градиент, Кончики)
 marking-ADTHumanHairNitoriHarley = Харли (Градиент)
 marking-ADTHumanHairCuteHairGradient = Звёздные хвостики (Градиент)
+marking-ADTAllhonor = Честь

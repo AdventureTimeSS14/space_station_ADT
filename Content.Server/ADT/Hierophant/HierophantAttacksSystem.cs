@@ -213,7 +213,7 @@ public sealed class HierophantAttacksSystem : EntitySystem
         var blastStep = Step(at + TimeSpan.FromSeconds(0.2), HierophantStepType.CrossBlast, default(MapCoordinates));
         blastStep.Target = target;
         blastStep.Directions = new List<Direction>(directions);
-        blastStep.Damage = 10f;
+        blastStep.Damage = ent.Comp.BlastDamage;
         Enqueue(ent, blastStep);
     }
 
@@ -225,7 +225,7 @@ public sealed class HierophantAttacksSystem : EntitySystem
 
         foreach (var tile in RangeTiles(coords, 1))
         {
-            Enqueue(ent, BlastStep(now + TimeSpan.FromSeconds(0.2), tile, 10f));
+            Enqueue(ent, BlastStep(now + TimeSpan.FromSeconds(0.2), tile, ent.Comp.BlastDamage));
         }
     }
 
@@ -252,7 +252,7 @@ public sealed class HierophantAttacksSystem : EntitySystem
 
             foreach (var tile in RingTiles(coords, distance))
             {
-                Enqueue(ent, BlastStep(at, tile, 10f));
+                Enqueue(ent, BlastStep(at, tile, ent.Comp.BlastDamage));
             }
         }
     }
@@ -296,7 +296,7 @@ public sealed class HierophantAttacksSystem : EntitySystem
         foreach (var tile in RingTiles(coords, ent.Comp.ArenaRadius))
         {
             Enqueue(ent, Step(now, HierophantStepType.Wall, tile));
-            Enqueue(ent, BlastStep(now, tile, 10f));
+            Enqueue(ent, BlastStep(now, tile, ent.Comp.BlastDamage));
         }
 
         var ourCoords = _transform.GetMapCoordinates(ent.Owner);
@@ -448,6 +448,7 @@ public sealed class HierophantAttacksSystem : EntitySystem
         comp.Caster = ent.Owner;
         comp.Target = step.Target;
         comp.Speed = step.Speed > 0f ? step.Speed : ent.Comp.ChaserSpeed;
+        comp.Damage = ent.Comp.BlastDamage;
 
         if (step.Amount > 0)
         {
@@ -531,7 +532,7 @@ public sealed class HierophantAttacksSystem : EntitySystem
             return blast;
 
         comp.Caster = ent.Owner;
-        comp.Damage = damage > 0f ? damage : 10f;
+        comp.Damage = damage > 0f ? damage : ent.Comp.BlastDamage;
         comp.FriendlyFireCheck = friendlyFireCheck;
         comp.MonsterDamageBoost = monsterDamageBoost;
 

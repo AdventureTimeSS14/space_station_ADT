@@ -1,4 +1,4 @@
-﻿#ADT-TEAM-ITEMS-START
+#ADT-TEAM-ITEMS-START
 
 # Ale_xan_der
 - type: entity
@@ -1502,7 +1502,7 @@
   parent: WeaponPistolMk58
   id: ADTWeaponPistolMaria
   description: SNP-44 PDV «Maria»
-  suffix: Personal, 767sikon
+  suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
     sprite: ADT/Personalization/maria_pistol.rsi
@@ -1516,7 +1516,7 @@
     maxAngle: 15
     angleIncrease: 8
     angleDecay: 9
-    fireRate: 3
+    fireRate: 1.7
     availableModes:
     - SemiAuto
     soundGunshot:
@@ -1526,11 +1526,11 @@
   - type: Item
     size: Small
     shape:
-    - 0,0,3,0
+    - 0,0,1,0
     - 0,1,0,1
-    sprite: ADT/Personalization/maria_pistol_inhand.rsi
+    sprite: ADT/Personalization/maria_pistol.rsi
   - type: Clothing
-    sprite: ADT/Personalization/maria_pistol_inhand.rsi
+    sprite: ADT/Personalization/maria_pistol.rsi
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/ADT/Weapons/Guns/Cock/44-bolt-close.ogg
@@ -1557,13 +1557,14 @@
     tags:
     - Sidearm
     - ADTWeaponPistolMaria
+  - type: DNAGunLocker
 
 - type: entity
-  name: SNP .44 cal auto PDV "Hawk"
+  name: SNP .357 cal auto PDV "Hawk"
   parent: ADTWeaponPistolMaria
   id: ADTWeaponPistolPrazatHawk
-  description: SNP .44 cal auto PDV "Hawk"
-  suffix: Personal, 767sikon
+  description: SNP .357 cal auto PDV "Hawk"
+  suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
     sprite: ADT/Personalization/hawk_pistol.rsi
@@ -1580,13 +1581,45 @@
     sprite: ADT/Personalization/hawk_pistol_inhand.rsi
   - type: Clothing
     sprite: ADT/Personalization/hawk_pistol_inhand.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineMagnumLesser
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - ADTMagazineMagnumLesser
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: ADTCartridgeMagnumLesser
+        priority: 1
+        whitelist:
+          tags:
+            - ADTCartridgeMagnumLesser
+  - type: Gun
+    minAngle: 1
+    maxAngle: 15
+    angleIncrease: 8
+    angleDecay: 9
+    fireRate: 2.2
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/44-shot.ogg
+    soundEmpty:
+      path: /Audio/ADT/Weapons/Guns/Empty/44-empty.ogg
+  - type: DNAGunLocker
 
 - type: entity
   id: ADTWeaponCasePrazat
   name: weapon case Prazat
   description: weapon case Prazat
   parent: [BaseStorageItem, BaseBagOpenClose]
-  suffix: Personal, 767sikon
+  suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
     sprite: ADT/Personalization/prazat_weaponcase.rsi
@@ -1618,7 +1651,7 @@
         - id: ADTWeaponPistolPrazatHawk
         - id: ADTWeaponPistolMaria
         - id: MagazineMagnum
-        - id: MagazineMagnum
+        - id: ADTMagazineMagnumLesser
   - type: MeleeWeapon
     damage:
       types:
@@ -1634,16 +1667,98 @@
     - pistolmaria
 
 - type: entity
+  name: whip
+  parent: BaseItem
+  id: ADTPrazatWhip
+  description: This is not a weapon, but an exquisite tool for controlling and dominating your opponent.
+  suffix: Personal, PrazzzCool999
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_whip.rsi
+    state: icon
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,1
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/ADT/Weapons/Melee/whiplash.ogg
+    wideAnimationRotation: -135
+    range: 2.5
+    clickDamageModifier: 1.1
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+  - type: StaminaDamageOnHit
+    damage: 35
+
+#Закомментировано, но не будет удалено полностью в случае необходимости оперативно вернуться к этим вещам
+
+# - type: entity
+#   parent: ClothingBeltSheath
+#   id: ADTClothingBeltPrazatSheath
+#   name: Prazat sheath
+#   description: Prazat sheath
+#   suffix: Personal, PrazzzCool999
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Personalization/prazat_sheath.rsi
+#   - type: Clothing
+#     sprite: ADT/Personalization/prazat_sheath.rsi
+#   - type: Item
+#     size: Ginormous
+#   - type: ItemSlots
+#     slots:
+#       item:
+#         name: Sabre
+#         insertVerbText: sheath-insert-verb
+#         ejectVerbText: sheath-eject-verb
+#         insertSound: /Audio/Items/sheath.ogg
+#         ejectSound: /Audio/Items/unsheath.ogg
+#         whitelist:
+#           tags:
+#           - CaptainSabre
+#   - type: ItemMapper
+#     mapLayers:
+#       sheath-sabre:
+#         whitelist:
+#           tags:
+#           - CaptainSabre
+#           - ADTWeaponMeleePrasatChainsword
+#   - type: ContainerFill
+#     containers:
+#       item:
+#       - ADTWeaponMeleePrasatChainsword
+#   - type: Appearance
+#   - type: ClothingSpeedModifier
+#     walkModifier: 0.95
+#     sprintModifier: 0.95
+#   - type: Storage
+#     grid:
+#     - 0,0,5,1
+#     maxItemSize: Small
+#   - type: UserInterface
+#     interfaces:
+#       enum.StorageUiKey.Key:
+#         type: StorageBoundUserInterface
+#   - type: ContainerContainer
+#     containers:
+#       storagebase: !type:Container
+#         ents: []
+#       item: !type:ContainerSlot
+
+- type: entity
   parent: ClothingBeltSheath
   id: ADTClothingBeltPrazatSheath
   name: Prazat sheath
   description: Prazat sheath
-  suffix: Personal, 767sikon
+  suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
-    sprite: ADT/Personalization/prazat_sheath.rsi
+    sprite: ADT/Personalization/prazat_sheath2.rsi
   - type: Clothing
-    sprite: ADT/Personalization/prazat_sheath.rsi
+    sprite: ADT/Personalization/prazat_sheath2.rsi
   - type: Item
     size: Ginormous
   - type: ItemSlots
@@ -1667,97 +1782,114 @@
   - type: ContainerFill
     containers:
       item:
-      - ADTWeaponMeleePrasatChainsword
+      - CaptainSabre
+      storagebase:
+      - MagazineMagnum
+      - ADTMagazineMagnumLesser
   - type: Appearance
   - type: ClothingSpeedModifier
-    walkModifier: 0.95
-    sprintModifier: 0.95
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: Storage
+    grid:
+    - 0,0,5,1
+    maxItemSize: Small
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      item: !type:ContainerSlot
 
-- type: entity
-  name: Prazat Chainsword
-  parent: BaseItem
-  id: ADTWeaponMeleePrasatChainsword
-  description: Prazat Chainsword
-  suffix: Personal, 767sikon
-  components:
-  - type: Sharp
-  - type: Sprite
-    sprite: ADT/Personalization/prazat_chainsword_icon.rsi
-    layers:
-    - state: icon
-      map: [ "enum.ToggleableVisuals.Layer" ]
-    - state: icon_chainsword
-      visible: false
-      map: [ "chainsword" ]
-  - type: MeleeWeapon
-    attackRate: 1.6
-    damage:
-      types:
-        Blunt: 2.5
-        Structural: 5
-    soundHit:
-        path: "/Audio/Weapons/smash.ogg"
-  - type: Item
-    sprite: ADT/Personalization/prazat_chainsword.rsi
-  - type: DisarmMalus
-  - type: Tag
-    tags:
-    - ADTWeaponMeleePrasatChainsword
-    - CaptainSabre
-  - type: Appearance
-  - type: ItemToggle
-    soundActivate:
-      path: /Audio/Weapons/chainsawwield.ogg
-      params:
-        volume: -3
-    soundDeactivate:
-      path: /Audio/Weapons/chainsawwield.ogg
-      params:
-        volume: -3
-  - type: ItemToggleActiveSound
-    activeSound:
-      path: /Audio/Weapons/chainsawidle.ogg
-  - type: UseDelay
-    delay: 1.5
-  - type: ItemToggleMeleeWeapon
-    activatedSoundOnHit:
-      path: /Audio/Weapons/chainsaw.ogg
-      params:
-        variation: 0.250
-    activatedSoundOnHitNoDamage:
-      path: /Audio/Weapons/chainsaw.ogg
-      params:
-        variation: 0.250
-        volume: -10
-    activatedSoundOnSwing:
-      path: /Audio/Weapons/chainsaw.ogg
-      params:
-        variation: 0.125
-    activatedDamage:
-      types:
-        Slash: 15
-        Piercing: 2.5
-        Structural: 30
-  - type: ToggleableVisuals
-    spriteLayer: chainsword
-    inhandVisuals:
-      left:
-      - state: inhand-left-chainsword
-      right:
-      - state: inhand-right-chainsword
-  - type: GenericVisualizer
-    visuals:
-      enum.ToggleableVisuals.Enabled:
-        enum.ToggleableVisuals.Layer:
-          True: {state: icon_chainsword}
-          False: {state: icon}
-  - type: PointLight
-    enabled: false
-    radius: 1.1
-    energy: 0.1
-    color: "#ffffe2"
-    netsync: false
-  - type: ItemTogglePointLight
+
+# - type: entity
+#   name: Prazat Chainsword
+#   parent: BaseItem
+#   id: ADTWeaponMeleePrasatChainsword
+#   description: Prazat Chainsword
+#   suffix: Personal, PrazzzCool999
+#   components:
+#   - type: Sharp
+#   - type: Sprite
+#     sprite: ADT/Personalization/prazat_chainsword_icon.rsi
+#     layers:
+#     - state: icon
+#       map: [ "enum.ToggleableVisuals.Layer" ]
+#     - state: icon_chainsword
+#       visible: false
+#       map: [ "chainsword" ]
+#   - type: MeleeWeapon
+#     attackRate: 1.6
+#     damage:
+#       types:
+#         Blunt: 2.5
+#         Structural: 5
+#     soundHit:
+#         path: "/Audio/Weapons/smash.ogg"
+#   - type: Item
+#     sprite: ADT/Personalization/prazat_chainsword.rsi
+#   - type: DisarmMalus
+#   - type: Tag
+#     tags:
+#     - ADTWeaponMeleePrasatChainsword
+#     - CaptainSabre
+#   - type: Appearance
+#   - type: ItemToggle
+#     soundActivate:
+#       path: /Audio/Weapons/chainsawwield.ogg
+#       params:
+#         volume: -3
+#     soundDeactivate:
+#       path: /Audio/Weapons/chainsawwield.ogg
+#       params:
+#         volume: -3
+#   - type: ItemToggleActiveSound
+#     activeSound:
+#       path: /Audio/Weapons/chainsawidle.ogg
+#   - type: UseDelay
+#     delay: 1.5
+#   - type: ItemToggleMeleeWeapon
+#     activatedSoundOnHit:
+#       path: /Audio/Weapons/chainsaw.ogg
+#       params:
+#         variation: 0.250
+#     activatedSoundOnHitNoDamage:
+#       path: /Audio/Weapons/chainsaw.ogg
+#       params:
+#         variation: 0.250
+#         volume: -10
+#     activatedSoundOnSwing:
+#       path: /Audio/Weapons/chainsaw.ogg
+#       params:
+#         variation: 0.125
+#     activatedDamage:
+#       types:
+#         Slash: 15
+#         Piercing: 2.5
+#         Structural: 30
+#   - type: ToggleableVisuals
+#     spriteLayer: chainsword
+#     inhandVisuals:
+#       left:
+#       - state: inhand-left-chainsword
+#       right:
+#       - state: inhand-right-chainsword
+#   - type: GenericVisualizer
+#     visuals:
+#       enum.ToggleableVisuals.Enabled:
+#         enum.ToggleableVisuals.Layer:
+#           True: {state: icon_chainsword}
+#           False: {state: icon}
+#   - type: PointLight
+#     enabled: false
+#     radius: 1.1
+#     energy: 0.1
+#     color: "#ffffe2"
+#     netsync: false
+#   - type: ItemTogglePointLight
 
 # Anvel, гордость сообщества. Спрайтер
 - type: entity
@@ -2532,7 +2664,7 @@
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Battery/yv2.rsi
   - type: Gun
-    fireRate: 2
+    fireRate: 3
     projectileSpeed: 60
     selectedMode: SemiAuto
     availableModes:
@@ -2575,11 +2707,12 @@
   - type: Sprite
     sprite: ADT/Personalization/yv2recharger.rsi
     state: icon
-  # - type: Clothing
-  #   # equippedPrefix: charging
-  #   quickEquip: false
-  #   slots:
-  #   - belt
+  - type: Clothing
+    sprite: ADT/Personalization/yv2recharger.rsi
+    slots: [belt, neck]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+    quickEquip: false
   - type: Charger
     chargeRate: 20 # ADT tweak
     slotId: charger_slot
@@ -3249,7 +3382,7 @@
   - type: AltFireMelee
   # ADT-Tweak end
   - type: Gun
-    fireRate: 1
+    fireRate: 2
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -3977,4 +4110,138 @@
   - type: EmbeddableProjectile
     offset: -0.15,0.0
 
+#karmafom
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSani
+  name: plushie toy sani
+  description: plushie toy sani
+  suffix: Personal, karmafom
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_sani
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: sani-inhand-left
+      right:
+      - state: sani-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: sani-equipped-HELMET
+        offset: "0, 0.06"
+
+#BarCow
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSif
+  name: plushie toy sif
+  description: plushie toy sif
+  suffix: Personal, Barcow
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_sif
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: sif-inhand-left
+      right:
+      - state: sif-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: sif-equipped-HELMET
+        offset: "0, 0.06"
+
+- type: entity
+  parent: PlushieMoth
+  id: ADTPlushieIvy
+  name: plush Ivy
+  description: A plush toy of a sleepy moth, the size of half a watermelon. It emits a berry-like fragrance mixed with some kind of medicine that only it can discern. The toy’s antennae are a bit crumpled and chewed, and on its back there’s a warning label about the danger of poisoning for small Luamams.
+  suffix: Personal, Hugiron_shch
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/plushie_ivy.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_ivy.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.0"
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/ADT/Voice/Moth/moth_yawn.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnLand
+    sound: &PlushieMothSound
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/ADT/Voice/Moth/moth_yawn.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnTrigger
+    sound: *PlushieMothSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieMothSound
+  - type: MeleeWeapon
+    soundHit: *PlushieMothSound
+  - type: Edible
+    useSound: *PlushieMothSound
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAreya
+  name: plush Areya
+  description: A plush blue, cute arcanum. It emits a berry-like fragrance mixed with the scent of some incomprehensible medicines that even the most experienced chemists wouldn’t be able to identify... On the back, there’s a label that reads “Mommy arkan.”
+  suffix: Personal, Swap_Inky2
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/plushie_areya.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_areya.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.0"
+  - type: EmitSoundOnUse
+    sound: &PlushieSharkSound
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: EmitSoundOnLand
+    sound: *PlushieSharkSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieSharkSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieSharkSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieSharkSound
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    soundHit: *PlushieSharkSound
+    animation: WeaponArcBite
+  - type: Edible
+    useSound: *PlushieSharkSound
 #SPONSOR-ITEMS-END

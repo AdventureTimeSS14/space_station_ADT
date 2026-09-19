@@ -19,21 +19,24 @@ namespace Content.Client.Options.UI
             Tabs.SetTabTitle(1, Loc.GetString("ui-options-tab-graphics"));
             Tabs.SetTabTitle(2, Loc.GetString("ui-options-tab-controls"));
             Tabs.SetTabTitle(3, Loc.GetString("ui-options-tab-audio"));
-            Tabs.SetTabTitle(4, Loc.GetString("ui-options-tab-accessibility"));
-            Tabs.SetTabTitle(5, Loc.GetString("ui-options-tab-admin"));
-
+            // ADT-Tweak-Start
+            Tabs.SetTabTitle(4, Loc.GetString("ui-options-tab-tts"));
+            Tabs.SetTabTitle(5, Loc.GetString("ui-options-tab-accessibility"));
+            Tabs.SetTabTitle(6, Loc.GetString("ui-options-tab-admin"));
+            // ADT-Tweak-End
             UpdateTabs();
         }
 
         public void UpdateTabs()
         {
             var isAdmin = _adminManager.IsAdmin(true);
-            Tabs.SetTabVisible(5, isAdmin);
+            Tabs.SetTabVisible(6, isAdmin); // ADT-Tweak-Start
 
             GraphicsTab.Control.ReloadValues();
             MiscTab.Control.ReloadValues();
             AccessibilityTab.Control.ReloadValues();
             AudioTab.Control.ReloadValues();
+            TTSOptionsTab.Control.ReloadValues(); // ADT-Tweak-Start
             AdminOptionsTab.Control.ReloadValues();
         }
     }

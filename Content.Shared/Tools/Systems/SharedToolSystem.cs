@@ -37,6 +37,7 @@ public abstract partial class SharedToolSystem : EntitySystem
 
     public const string CutQuality = "Cutting";
     public const string PulseQuality = "Pulsing";
+    public const string WeldingQuality = "Welding"; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -275,7 +276,7 @@ public abstract partial class SharedToolSystem : EntitySystem
     #region DoAfterEvents
 
     [Serializable, NetSerializable]
-    protected sealed partial class ToolDoAfterEvent : DoAfterEvent
+    public sealed partial class ToolDoAfterEvent : DoAfterEvent // ADT-Tweak protected > public
     {
         [DataField]
         public float Fuel;

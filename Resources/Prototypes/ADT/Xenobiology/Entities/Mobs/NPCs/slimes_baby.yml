@@ -1,167 +1,167 @@
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyGrey
   name: grey slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: GreyMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyOrange
   name: orange slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: OrangeMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyPurple
   name: purple slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: PurpleMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyBlue
   name: blue slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: BlueMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyMetal
   name: metal slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: MetalMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyYellow
   name: yellow slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: YellowMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyDarkPurple
   name: dark purple slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: DarkPurpleMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyDarkBlue
   name: dark blue slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: DarkBlueMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabySilver
   name: silver slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: SilverMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyBluespace
   name: bluespace slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: BluespaceMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabySepia
   name: sepia slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: SepiaMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyCerulean
   name: cerulean slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: CeruleanMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyPyrite
   name: pyrite slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: PyriteMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyRed
   name: red slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: RedMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyGreen
   name: green slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: GreenMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyPink
   name: pink slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: PinkMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyGold
   name: gold slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: GoldMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyOil
   name: oil slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: OilMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyLightPink
   name: light pink slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: LightPinkMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyBlack
   name: black slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: BlackMutation
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyAdamantine
   name: adamantite slime
   components:
-  - type: PendingSlimeSpawn
+  - type: Slime
     breed: AdamantineMutation

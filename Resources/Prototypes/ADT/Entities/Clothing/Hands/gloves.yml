@@ -226,3 +226,15 @@
   - type: MartialArtsBlocking
 
 #endregion
+
+# Расовая одежда (Пока тут только для воксов. Уберите, когда добавят для других рас)
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesVox
+  name: vox gloves
+  components:
+   - type: Sprite
+     sprite: ADT/Clothing/Hands/Gloves/vox_gloves.rsi
+   - type: Clothing
+     sprite: ADT/Clothing/Hands/Gloves/vox_gloves.rsi

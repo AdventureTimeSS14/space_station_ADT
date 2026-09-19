@@ -50,6 +50,25 @@
   chatTriggers:
     - фальшиво плачет
 
+- type: emote
+  id: Blink
+  name: chat-emote-name-blink
+  category: Hands
+  icon: ADT/Interface/Emotes/blink.png
+  whitelist:
+    components:
+    - Hands
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["моргает."]
+  chatTriggers:
+    - моргает
+    - быстро моргает
+    - хлопает глазами
+    - моргнул
+    - моргнула
+
 ## vocal emotes
 - type: emote
   id: Hiss
@@ -60,6 +79,9 @@
     - ADTCatEmotes
     - ADTVoxEmotes
     - ADTResomiEmotes
+  blacklist:
+    tags:
+    - ADTSiliconEmotes
   icon: ADT/Interface/Emotes/Vocal/hiss.png
   chatMessages: [шипит]
   chatTriggers:
@@ -78,18 +100,12 @@
     tags:
     - ADTCatEmotes
   icon: ADT/Interface/Emotes/Vocal/meow.png
-  chatMessages: [мяукает]
+  chatMessages: [мяукает!]
   chatTriggers:
     - мяу
     - мяукнул
-    - мяукнул.
-    - мяукнул!
     - мяукнула
-    - мяукнула.
-    - мяукнула!
     - мяукает
-    - мяукает.
-    - мяукает!
 
 - type: emote
   id: Mew
@@ -101,6 +117,9 @@
     - Vocal
     tags:
     - ADTCatEmotes
+  blacklist:
+    tags:
+    - ADTSiliconEmotes
   icon: ADT/Interface/Emotes/Vocal/mew.png
   chatMessages: [мякает]
   chatTriggers:
@@ -123,6 +142,9 @@
     tags:
     - ADTDogEmotes
     - ADTCatEmotes
+  blacklist:
+    tags:
+    - ADTSiliconEmotes
   icon: ADT/Interface/Emotes/Vocal/growl.png
   chatMessages: [рычит]
   chatTriggers:
@@ -147,6 +169,9 @@
     - Vocal
     tags:
     - ADTCatEmotes
+  blacklist:
+    tags:
+    - ADTSiliconEmotes
   icon: ADT/Interface/Emotes/Vocal/purr.png
   chatMessages: [мурчит]
   chatTriggers:
@@ -253,13 +278,11 @@
   chatMessages: [утвердительно пищит]
   chatTriggers:
     - утвердительно пищит
-    - утвердительно пищит.
     - соглашается
-    - соглашается.
     - согласен
-    - согласен.
     - подтверждает
-    - подтверждает.
+    - довольно пищит
+    - радостно пищит
 
 - type: emote
   id: SynthNo
@@ -275,13 +298,10 @@
   chatMessages: [отрицательно пищит]
   chatTriggers:
     - отрицательно пищит
-    - отрицательно пищит.
     - отрицает
-    - отрицает.
     - не соглашается
-    - не соглашается.
     - не согласен
-    - не согласен.
+    - грустно пищит
 
 - type: emote
   id: SighBuzz
@@ -317,6 +337,45 @@
   chatMessages: [включается.]
   chatTriggers:
     - включается
+    - активируется
+
+- type: emote
+  id: Error
+  name: chat-emote-name-error
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTSiliconEmotes
+  icon: ADT/Interface/Emotes/Vocal/error.png
+  chatMessages: [издаёт звук ошибки.]
+  chatTriggers:
+    - издаёт звук ошибки
+    - выдаёт ошибку
+    - недовольно пищит
+    - недовольно гудит
+
+- type: emote
+  id: Calculating
+  name: chat-emote-name-calculating
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTSiliconEmotes
+  icon: ADT/Interface/Emotes/Vocal/calculating.png
+  chatMessages: [издаёт звук вычисления.]
+  chatTriggers:
+    - издаёт звук вычисления
+    - вычисляет
+    - усердно думает
+    - издаёт звук звонка
+    - звонит
+    - издаёт звук вызова
 
 - type: emote
   id: Spit
@@ -343,6 +402,46 @@
     - харкнуло
     - харкает
     - делает харчок
+
+- type: emote
+  id: IPCCuteSurprised
+  name: chat-emote-name-cute-surprised
+  icon: Interface/Emotes/scream.png
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTIPCCuteEmotes
+  blacklist:
+    components:
+    - BorgChassis
+    tags:
+    - SiliconEmotes
+  chatMessages: [удивляется!]
+  chatTriggers:
+    - удивляется
+
+- type: emote
+  id: IPCCuteScared
+  name: chat-emote-name-cute-scared
+  icon: Interface/Emotes/scream.png
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTIPCCuteEmotes
+  blacklist:
+    components:
+    - BorgChassis
+    tags:
+    - SiliconEmotes
+  chatMessages: [пугается!]
+  chatTriggers:
+    - пугается
 
 - type: emote
   id: IPCDeathgasp

@@ -1,7 +1,7 @@
 - type: marking
   id: ADTHumanBeardBeardchin
   bodyPart: FacialHair
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardchin
@@ -9,7 +9,7 @@
 - type: marking
   id: ADTHumanBeardBeardlong
   bodyPart: FacialHair
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardlong
@@ -17,7 +17,7 @@
 - type: marking
   id: ADTHumanBeardBeardshort
   bodyPart: FacialHair
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardshort
@@ -25,7 +25,7 @@
 - type: marking
   id: ADTHumanBeardBeardthick
   bodyPart: FacialHair
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardthick
@@ -33,7 +33,7 @@
 - type: marking
   id: ADTHumanBeardBeardviking
   bodyPart: FacialHair
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardviking
@@ -41,7 +41,7 @@
 - type: marking
   id: ADTHumanBeardBristle
   bodyPart: FacialHair
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: beard-bristle
@@ -49,7 +49,7 @@
 - type: marking
   id: ADTHumanBeardMustachewithstubble
   bodyPart: FacialHair
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: beard-mustachewithstubble
@@ -57,7 +57,7 @@
 - type: marking
   id: ADTHumanBeardThickbristle
   bodyPart: FacialHair
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: beard-thickbristle
@@ -65,7 +65,7 @@
 - type: marking
   id: ADTHumanHairArabicgatheredhair
   bodyPart: Hair
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-arabicgatheredhair
@@ -73,7 +73,7 @@
 - type: marking
   id: ADTHumanHairClassichairmale
   bodyPart: Hair
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-classichairmale
@@ -81,7 +81,7 @@
 - type: marking
   id: ADTHumanHairCombedfromside
   bodyPart: Hair
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-combedfromside
@@ -89,7 +89,7 @@
 - type: marking
   id: ADTHumanHairLonghair
   bodyPart: Hair
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-longhair
@@ -97,7 +97,7 @@
 - type: marking
   id: ADTHumanHairManbunold
   bodyPart: Hair
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-manbunold
@@ -105,7 +105,7 @@
 - type: marking
   id: ADTHumanHairPigtailtajaran
   bodyPart: Hair
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-pigtailtajaran
@@ -113,7 +113,7 @@
 - type: marking
   id: ADTHumanHairShavedside
   bodyPart: Hair
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-shavedside
@@ -121,7 +121,7 @@
 - type: marking
   id: ADTHumanHairShorthaired
   bodyPart: Hair
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-shorthaired
@@ -129,7 +129,7 @@
 - type: marking
   id: ADTHumanWomenbun
   bodyPart: Hair
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-womenbun
@@ -137,7 +137,7 @@
 - type: marking
   id: ADTHumanForeheadBindi
   bodyPart: Head
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: forehead-Bindi
@@ -145,7 +145,7 @@
 - type: marking
   id: ADTHumanForeheadFathereyebrows
   bodyPart: Head
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: forehead-fathereyebrows
@@ -153,7 +153,7 @@
 - type: marking
   id: ADTHumanPiercingBrowL
   bodyPart: Head
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_brow_l
@@ -161,7 +161,7 @@
 - type: marking
   id: ADTHumanPiercingBrowR
   bodyPart: Head
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_brow_r
@@ -169,7 +169,7 @@
 - type: marking
   id: ADTHumanHairGatheredlow
   bodyPart: Hair
-  groupWhitelist: [Human, Slime, Vulpkanin, Demon]
+  groupWhitelist: [Human, Felinid, Slime, Vulpkanin, Demon]
   sprites:
     - sprite: ADT/Mobs/Customization/Frontier/human_hair.rsi
       state: gatheredlow
@@ -177,7 +177,7 @@
 - type: marking
   id: ADTHumanHairLowpigtails
   bodyPart: Hair
-  groupWhitelist: [Human, Slime, Vulpkanin, Demon]
+  groupWhitelist: [Human, Felinid, Slime, Vulpkanin, Demon]
   sprites:
     - sprite: ADT/Mobs/Customization/Frontier/human_hair.rsi
       state: lowpigtails
@@ -185,7 +185,7 @@
 - type: marking
   id: ADTHumanHairFrenchBraid
   bodyPart: Hair
-  groupWhitelist: [Human, Slime, Vulpkanin, Demon]
+  groupWhitelist: [Human, Felinid, Slime, Vulpkanin, Demon]
   sprites:
     - sprite: ADT/Mobs/Customization/Frontier/human_hair.rsi
       state: frenchbraid
@@ -193,7 +193,7 @@
 - type: marking
   id: ADTHumanHairMessySwept
   bodyPart: Hair
-  groupWhitelist: [Human, Slime, Demon]
+  groupWhitelist: [Human, Felinid, Slime, Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/human_hair.rsi
     state: messy_swept
@@ -319,7 +319,7 @@
 - type: marking
   id: ADTHumanHairLongPompadour
   bodyPart: Hair
-  groupWhitelist: [Human, Novakid]
+  groupWhitelist: [Human, Felinid, Novakid]
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: longPompadour
@@ -348,7 +348,7 @@
 - type: marking
   id: ADTHumanHairPlateau
   bodyPart: Hair
-  groupWhitelist: [Human, Novakid]
+  groupWhitelist: [Human, Felinid, Novakid]
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: plateau
@@ -363,7 +363,7 @@
 - type: marking
   id: ADTHumanHairSaggedMohawk
   bodyPart: Hair
-  groupWhitelist: [Human, Novakid]
+  groupWhitelist: [Human, Felinid, Novakid]
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: saggedMohawk
@@ -371,7 +371,7 @@
 - type: marking
   id: ADTHumanHairSharpMohawk
   bodyPart: Hair
-  groupWhitelist: [Human, Novakid]
+  groupWhitelist: [Human, Felinid, Novakid]
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: sharpMohawk
@@ -414,7 +414,7 @@
 - type: marking
   id: ADTHumanHairStar
   bodyPart: Hair
-  groupWhitelist: [Human, Novakid]
+  groupWhitelist: [Human, Felinid, Novakid]
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: star
@@ -422,7 +422,7 @@
 - type: marking
   id: ADTHumanHairStarFro
   bodyPart: Hair
-  groupWhitelist: [Human, Novakid]
+  groupWhitelist: [Human, Felinid, Novakid]
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: starFro
@@ -437,7 +437,7 @@
 - type: marking
   id: ADTHumanHairUnkemptScientist
   bodyPart: Hair
-  groupWhitelist: [Human, Novakid]
+  groupWhitelist: [Human, Felinid, Novakid]
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: unkemptScientist
@@ -461,7 +461,7 @@
 - type: marking
   id: ADTHumanHairLady
   bodyPart: Hair
-  groupWhitelist: [Human, Demon]
+  groupWhitelist: [Human, Felinid, Demon]
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: lady
@@ -469,7 +469,7 @@
 - type: marking
   id: ADTHumanHairLongHairFringe
   bodyPart: Hair
-  groupWhitelist: [Human, Demon]
+  groupWhitelist: [Human, Felinid, Demon]
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: longhairfringe
@@ -477,7 +477,7 @@
 - type: marking
   id: ADTHumanHairSheaf
   bodyPart: Hair
-  groupWhitelist: [Human, Demon]
+  groupWhitelist: [Human, Felinid, Demon]
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: sheaf
@@ -485,7 +485,7 @@
 - type: marking
   id: ADTHumanHairShortTail
   bodyPart: Hair
-  groupWhitelist: [Human, Demon]
+  groupWhitelist: [Human, Felinid, Demon]
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: shorttail
@@ -493,7 +493,7 @@
 - type: marking
   id: ADTHumanZeroHairstyle
   bodyPart: Hair
-  groupWhitelist: [Human, Demon]
+  groupWhitelist: [Human, Felinid, Demon]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: zero_hairstyle

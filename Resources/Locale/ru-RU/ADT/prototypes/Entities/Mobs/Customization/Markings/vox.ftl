@@ -98,3 +98,5 @@ marking-ADTScarsVoxSlashRightHead-slash_r_head = Разрез, справа
 marking-ADTScarsVoxSlashRightHead = Разрез, справа
 marking-ADTScarsVoxClawTorso-claw_torso = Шрам от когтя
 marking-ADTScarsVoxClawTorso = Шрам от когтя
+marking-ADTVoxFootSpinesLeft = Вокс, шипы на стопе (Левая)
+marking-ADTVoxFootSpinesRight = Вокс, шипы на стопе (Правая)

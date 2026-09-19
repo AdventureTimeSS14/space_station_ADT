@@ -37,6 +37,8 @@ public sealed class GpsSystem : SharedGpsSystem
         SubscribeLocalEvent<GpsComponent, GpsToggleRangeMessage>(OnToggleRangeMessage);
         SubscribeLocalEvent<GpsComponent, GpsToggleSosMessage>(OnToggleSosMessage);
         SubscribeLocalEvent<GpsComponent, GpsSetTagMessage>(OnSetTagMessage);
+        SubscribeLocalEvent<GpsComponent, GpsAddWaypointMessage>(OnAddWaypointMessage);
+        SubscribeLocalEvent<GpsComponent, GpsRemoveWaypointMessage>(OnRemoveWaypointMessage);
         SubscribeLocalEvent<GpsComponent, ActivatableUIOpenAttemptEvent>(OnUiOpenAttempt);
 
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
@@ -91,6 +93,89 @@ public sealed class GpsSystem : SharedGpsSystem
     private void OnSetTagMessage(Entity<GpsComponent> ent, ref GpsSetTagMessage args)
     {
         SetTag(ent, args.Tag);
+    }
+
+    private void OnAddWaypointMessage(Entity<GpsComponent> ent, ref GpsAddWaypointMessage args)
+    {
+        TryAddWaypoint(ent, args.Actor, args.Name);
+    }
+
+    private void OnRemoveWaypointMessage(Entity<GpsComponent> ent, ref GpsRemoveWaypointMessage args)
+    {
+        if (!TryComp<ADTGpsWaypointsComponent>(ent, out var waypoints))
+            return;
+
+        if (args.Index < 0 || args.Index >= waypoints.Waypoints.Count)
+            return;
+
+        waypoints.Waypoints.RemoveAt(args.Index);
+        UpdateUiState(ent);
+    }
+
+    private void TryAddWaypoint(Entity<GpsComponent> ent, EntityUid user, string name)
+    {
+        if (!TryComp<ADTGpsWaypointsComponent>(ent, out var waypoints))
+            return;
+
+        if (HasComp<EmpDisabledComponent>(ent) || !ent.Comp.Tracking)
+        {
+            _popup.PopupEntity(Loc.GetString("adt-gps-popup-waypoint-offline"), ent.Owner, user);
+            return;
+        }
+
+        if (waypoints.Waypoints.Count >= waypoints.MaxWaypoints)
+        {
+            _popup.PopupEntity(Loc.GetString("adt-gps-popup-waypoint-full", ("count", waypoints.MaxWaypoints)),
+                ent.Owner,
+                user);
+            return;
+        }
+
+        var origin = _transform.GetMapCoordinates(ent.Owner);
+
+        if (origin.MapId == MapId.Nullspace)
+            return;
+
+        var label = SanitizeWaypointName(name, waypoints);
+
+        waypoints.Waypoints.Add(new ADTGpsWaypoint(label, origin.MapId, origin.Position));
+
+        _popup.PopupEntity(Loc.GetString("adt-gps-popup-waypoint-added", ("name", label)), ent.Owner, user);
+
+        UpdateUiState(ent);
+    }
+
+    private string SanitizeWaypointName(string name, ADTGpsWaypointsComponent waypoints)
+    {
+        var trimmed = name.Trim();
+
+        if (trimmed.Length > waypoints.MaxNameLength)
+            trimmed = trimmed[..waypoints.MaxNameLength];
+
+        if (trimmed.Length > 0)
+            return trimmed;
+
+        return Loc.GetString("adt-gps-waypoint-default-name", ("index", waypoints.Waypoints.Count + 1));
+    }
+
+    private List<GpsWaypointData> GetWaypoints(EntityUid uid, MapCoordinates origin)
+    {
+        var result = new List<GpsWaypointData>();
+
+        if (!TryComp<ADTGpsWaypointsComponent>(uid, out var waypoints))
+            return result;
+
+        foreach (var waypoint in waypoints.Waypoints)
+        {
+            result.Add(new GpsWaypointData(waypoint.Name, ToTile(waypoint.Position), waypoint.Map == origin.MapId));
+        }
+
+        return result;
+    }
+
+    private int GetMaxWaypoints(EntityUid uid)
+    {
+        return TryComp<ADTGpsWaypointsComponent>(uid, out var waypoints) ? waypoints.MaxWaypoints : 0;
     }
 
     private void OnUiOpenAttempt(Entity<GpsComponent> ent, ref ActivatableUIOpenAttemptEvent args)
@@ -209,7 +294,9 @@ public sealed class GpsSystem : SharedGpsSystem
                 position: null,
                 location: null,
                 nullspace: false,
-                signals: new List<GpsSignalData>());
+                signals: new List<GpsSignalData>(),
+                maxWaypoints: GetMaxWaypoints(ent.Owner),
+                waypoints: new List<GpsWaypointData>());
         }
 
         if (!comp.Tracking)
@@ -225,7 +312,9 @@ public sealed class GpsSystem : SharedGpsSystem
                 position: null,
                 location: null,
                 nullspace: false,
-                signals: new List<GpsSignalData>());
+                signals: new List<GpsSignalData>(),
+                maxWaypoints: GetMaxWaypoints(ent.Owner),
+                waypoints: new List<GpsWaypointData>());
         }
 
         var origin = _transform.GetMapCoordinates(ent.Owner);
@@ -243,7 +332,9 @@ public sealed class GpsSystem : SharedGpsSystem
                 position: null,
                 location: null,
                 nullspace: true,
-                signals: new List<GpsSignalData>());
+                signals: new List<GpsSignalData>(),
+                maxWaypoints: GetMaxWaypoints(ent.Owner),
+                waypoints: new List<GpsWaypointData>());
         }
 
         return new GpsBoundUserInterfaceState(
@@ -257,7 +348,9 @@ public sealed class GpsSystem : SharedGpsSystem
             position: ToTile(origin.Position),
             location: GetLocationName(ent.Owner),
             nullspace: false,
-            signals: GetSignals(ent, origin));
+            signals: GetSignals(ent, origin),
+            maxWaypoints: GetMaxWaypoints(ent.Owner),
+            waypoints: GetWaypoints(ent.Owner, origin));
     }
 
     private List<GpsSignalData> GetSignals(Entity<GpsComponent> reader, MapCoordinates origin)

@@ -1,0 +1,202 @@
+- type: hereticRitualItem
+  id: GlassShard
+  icon:
+    sprite: Objects/Materials/Shards/shard.rsi
+    state: shard1
+  name: heretic-guide-tag-GlassShard
+
+- type: hereticRitualItem
+  id: Eyes
+  icon:
+    sprite: Mobs/Species/Human/organs.rsi
+    state: eyeball-l
+  name: heretic-guide-tag-Eyes
+
+- type: hereticRitualItem
+  id: Document
+  icon:
+    sprite: Objects/Misc/bureaucracy.rsi
+    state: paper
+  name: heretic-guide-tag-Document
+
+- type: hereticRitualItem
+  id: Heart
+  icon:
+    sprite: Mobs/Species/Human/organs.rsi
+    state: heart-on
+  name: heretic-guide-tag-Heart
+
+- type: hereticRitualItem
+  id: Pen
+  icon:
+    sprite: Objects/Misc/pens.rsi
+    state: pen
+  name: heretic-guide-tag-Pen
+
+- type: hereticRitualItem
+  id: Meat
+  icon:
+    sprite: Objects/Consumable/Food/meat.rsi
+    state: plain
+  name: heretic-guide-tag-Meat
+
+- type: hereticRitualItem
+  id: Book
+  icon:
+    sprite: Objects/Misc/books.rsi
+    state: paper
+  name: heretic-guide-tag-Book
+
+- type: hereticRitualItem
+  id: Knife
+  icon:
+    sprite: Objects/Weapons/Melee/kitchen_knife.rsi
+    state: icon
+  name: heretic-guide-tag-Knife
+
+- type: hereticRitualItem
+  id: Matchstick
+  icon:
+    sprite: Objects/Tools/matches.rsi
+    state: match_unlit
+  name: heretic-guide-tag-Matchstick
+
+- type: hereticRitualItem
+  id: GasMask
+  icon:
+    sprite: Clothing/Mask/gas.rsi
+    state: icon
+  name: heretic-guide-tag-GasMask
+
+- type: hereticRitualItem
+  id: Candle
+  icon:
+    sprite: Objects/Misc/candles.rsi
+    state: candle-big
+  name: heretic-guide-tag-Candle
+
+- type: hereticRitualItem
+  id: Stunbaton
+  icon:
+    sprite: Objects/Weapons/Melee/stunbaton.rsi
+    state: stunbaton_off
+  name: heretic-guide-tag-Stunbaton
+
+- type: hereticRitualItem
+  id: Poppy
+  icon:
+    sprite: Objects/Specific/Hydroponics/poppy.rsi
+    state: produce
+  name: heretic-guide-tag-Poppy
+
+- type: hereticRitualItem
+  id: Stomach
+  icon:
+    sprite: Mobs/Species/Human/organs.rsi
+    state: stomach
+  name: heretic-guide-tag-Stomach
+
+- type: hereticRitualItem
+  id: Lungs
+  icon:
+    sprite: Mobs/Species/Human/organs.rsi
+    state: lung-l
+  name: heretic-guide-tag-Lungs
+
+- type: hereticRitualItem
+  id: Table
+  icon:
+    sprite: Structures/Furniture/Tables/generic.rsi
+    state: full
+  name: heretic-guide-tag-Table
+
+- type: hereticRitualItem
+  id: Flare
+  icon:
+    sprite: Objects/Misc/flare.rsi
+    state: icon
+  name: heretic-guide-tag-Flare
+
+- type: hereticRitualItem
+  id: WaterTank
+  icon:
+    sprite: Structures/Storage/tanks.rsi
+    state: watertank-2
+  name: heretic-guide-tag-WaterTank
+
+- type: hereticRitualItem
+  id: Chair
+  icon:
+    sprite: Structures/Furniture/chairs.rsi
+    state: chair
+  name: heretic-guide-tag-Chair
+
+- type: hereticRitualItem
+  id: Trash
+  icon:
+    sprite: Objects/Specific/Hydroponics/banana.rsi
+    state: peel
+  name: heretic-guide-tag-Trash
+
+- type: hereticRitualItem
+  id: SheetGlass
+  icon:
+    sprite: Objects/Materials/Sheets/glass.rsi
+    state: glass
+  name: heretic-guide-tag-SheetGlass
+
+- type: hereticRitualItem
+  id: Bedsheet
+  icon:
+    sprite: Objects/Misc/bedsheets.rsi
+    state: sheetwhite
+  name: heretic-guide-tag-Bedsheet
+
+- type: hereticRitualItem
+  id: WinterCoat
+  icon:
+    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    state: icon
+  name: heretic-guide-tag-WinterCoat
+
+- type: hereticRitualItem
+  id: Ash
+  icon:
+    sprite: Objects/Materials/materials.rsi
+    state: ash
+  name: heretic-guide-tag-Ash
+
+- type: hereticRitualItem
+  id: Liver
+  icon:
+    sprite: Mobs/Species/Human/organs.rsi
+    state: liver
+  name: heretic-guide-tag-Liver
+
+- type: hereticRitualItem
+  id: SheetPlasma
+  icon:
+    sprite: Objects/Materials/Sheets/other.rsi
+    state: plasma
+  name: heretic-guide-tag-SheetPlasma
+
+- type: hereticRitualItem
+  id: Steel
+  icon:
+    sprite: Objects/Materials/Sheets/metal.rsi
+    state: steel
+  name: heretic-guide-tag-Steel
+
+- type: hereticRitualItem
+  id: CableCoil
+  icon:
+    sprite: Objects/Tools/cable-coils.rsi
+    state: coillv-30
+  name: heretic-guide-tag-CableCoil
+
+- type: hereticRitualItem
+  id: Paper
+  icon:
+    sprite: Objects/Misc/bureaucracy.rsi
+    state: paper
+  name: heretic-guide-tag-Paper

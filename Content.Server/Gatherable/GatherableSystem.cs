@@ -55,6 +55,9 @@ public sealed partial class GatherableSystem : EntitySystem
         if (!Resolve(gatheredUid, ref component))
             return;
 
+        if (TerminatingOrDeleted(gatheredUid) || EntityManager.IsQueuedForDeletion(gatheredUid)) // ADT-Tweak
+            return;
+
         if (TryComp<SoundOnGatherComponent>(gatheredUid, out var soundComp))
         {
             _audio.PlayPvs(soundComp.Sound, Transform(gatheredUid).Coordinates);

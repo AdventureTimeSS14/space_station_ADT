@@ -784,7 +784,7 @@
 - type: entity
   parent: ADTSponsorClothingHeadBase
   id: ADTClothingHeadHatPrazatBeret
-  suffix: Personal, 767sikon
+  suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
     sprite: ADT/Personalization/prazat_beret.rsi
@@ -798,7 +798,7 @@
   id: ADTClothingOuterCoatPrazat
   name: Prazat coat
   description: Prazat coat.
-  suffix: Personal, 767sikon
+  suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
     sprite: ADT/Personalization/prazat_coat.rsi
@@ -822,7 +822,7 @@
   id: ADTClothingUniformJumpsuitPrazat
   name: Prazat clothing
   description: Prazat clothin
-  suffix: Personal, 767sikon
+  suffix: Personal, PrazzzCool999
   components:
   - type: Sprite
     sprite: ADT/Personalization/prazat_suit.rsi
@@ -835,6 +835,74 @@
       amount: 3
   - type: StaticPrice
     price: 100
+
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformJumpsuitPrazatOfficial
+  name: Prazat clothing
+  description: Prazat clothing
+  suffix: Personal, PrazzzCool999
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_official_uniform.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_official_uniform.rsi
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialDurathread1
+      amount: 3
+  - type: StaticPrice
+    price: 100
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: unfold-verb-clothing-jacket
+    foldVerbText: fold-verb-clothing-jacket
+  - type: FoldableClothing
+    foldedEquippedPrefix: folded
+
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformJumpsuitPrazatUlan
+  name: Prazat clothing
+  description: Prazat clothing
+  suffix: Personal, PrazzzCool999
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_ulan_uniform.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_ulan_uniform.rsi
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialDurathread1
+      amount: 3
+  - type: StaticPrice
+    price: 100
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: unfold-verb-clothing-jacket
+    foldVerbText: fold-verb-clothing-jacket
+  - type: FoldableClothing
+    foldedEquippedPrefix: folded
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingUniformJumpsuitPrazatMentik
+  name: Prazat clothing
+  description: Prazat clothing
+  suffix: Personal, PrazzzCool999
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_mentik.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_mentik.rsi
+    slots:
+    - outerClothing
+    - neck
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
 
 #Saint_madman
 
@@ -2017,6 +2085,68 @@
     slots:
     - ears
     - ears2
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterSponsorRedKimono
+  name: red kimono
+  description: Traditional Japanese clothing, hand-sewn from natural fabrics. The hem is decorated with a floral pattern characteristic of this style.
+  suffix: Sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sponsor/RedKimono.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/sponsor/RedKimono.rsi
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterSponsorBlueKimono
+  name: blue kimono
+  description: Traditional Japanese clothing, hand-sewn from natural fabrics. The hem is decorated with a floral pattern characteristic of this style.
+  suffix: Sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sponsor/BlueKimono.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/sponsor/BlueKimono.rsi
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadSponsorRedKandzasi
+  name: red kandzasi
+  description: A traditional Japanese hair ornament. It consists of a gold-plated brass frame and red silk ribbons.
+  suffix: Sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sponsor/RedKandzasi.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/sponsor/RedKandzasi.rsi
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadSponsorBlueKandzasi
+  name: blue kandzasi
+  description: A traditional Japanese hair ornament. It consists of a gold-plated brass frame and blue silk ribbons.
+  suffix: Sponsor
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sponsor/BlueKandzasi.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/sponsor/BlueKandzasi.rsi
+
+# 1Altius
 
 - type: entity
   parent: ADTSponsorClothingNeckBase

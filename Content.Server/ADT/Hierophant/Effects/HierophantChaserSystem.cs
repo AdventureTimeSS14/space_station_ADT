@@ -9,6 +9,7 @@ namespace Content.Server.ADT.Hierophant.Effects;
 
 public sealed class HierophantChaserSystem : EntitySystem
 {
+    [Dependency] private readonly HierophantGridSystem _grid = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -31,6 +32,10 @@ public sealed class HierophantChaserSystem : EntitySystem
     private void OnChaserInit(Entity<HierophantChaserComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.NextStepAt = _timing.CurTime + TimeSpan.FromSeconds(0.1);
+
+        var anchored = _grid.Anchor(ent.Owner);
+        if (anchored.IsValid(EntityManager))
+            _transform.SetCoordinates(ent.Owner, anchored);
     }
 
     public override void Update(float frameTime)
@@ -57,19 +62,16 @@ public sealed class HierophantChaserSystem : EntitySystem
         if (comp.Target == null || TerminatingOrDeleted(comp.Target.Value))
             return;
 
-        var targetCoords = _transform.GetMapCoordinates(comp.Target.Value);
-        var ourCoords = _transform.GetMapCoordinates(ent.Owner);
-
-        if (targetCoords.MapId != ourCoords.MapId)
+        if (_transform.GetMapId(comp.Target.Value) != _transform.GetMapId(ent.Owner))
             return;
 
         if (comp.Moving <= 0)
         {
             comp.MorePreviouserMovingDir = comp.PreviousMovingDir;
             comp.PreviousMovingDir = comp.MovingDir;
-            comp.MovingDir = GetTargetDir(comp, ourCoords, targetCoords);
+            comp.MovingDir = GetTargetDir(ent, comp);
 
-            var standardTargetDir = GetCardinalDir(ourCoords, targetCoords);
+            var standardTargetDir = GetCardinalDir(ent, comp);
 
             if (standardTargetDir == null
                 || (standardTargetDir != comp.PreviousMovingDir && standardTargetDir == comp.MorePreviouserMovingDir))
@@ -94,9 +96,9 @@ public sealed class HierophantChaserSystem : EntitySystem
         comp.Moving--;
     }
 
-    private Direction GetTargetDir(HierophantChaserComponent comp, MapCoordinates from, MapCoordinates to)
+    private Direction GetTargetDir(EntityUid uid, HierophantChaserComponent comp)
     {
-        var dir = GetCardinalDir(from, to);
+        var dir = GetCardinalDir(uid, comp);
 
         if (dir == null || (dir != comp.PreviousMovingDir && dir == comp.MorePreviouserMovingDir))
         {
@@ -111,9 +113,14 @@ public sealed class HierophantChaserSystem : EntitySystem
         return dir.Value;
     }
 
-    private Direction? GetCardinalDir(MapCoordinates from, MapCoordinates to)
+    private Direction? GetCardinalDir(EntityUid uid, HierophantChaserComponent comp)
     {
-        var delta = to.Position - from.Position;
+        if (comp.Target == null || TerminatingOrDeleted(comp.Target.Value))
+            return null;
+
+        var ourCoords = _transform.GetMoverCoordinates(uid);
+        var targetCoords = _transform.WithEntityId(_transform.GetMoverCoordinates(comp.Target.Value), ourCoords.EntityId);
+        var delta = targetCoords.Position - ourCoords.Position;
 
         if (delta.LengthSquared() < 0.1f)
             return null;

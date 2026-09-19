@@ -1,9 +1,6 @@
 ent-ADTClothingNeckVoidCloakHatHood = капюшон пустоты
     .desc = Надев его вы ощущаете иллюзию безопасности
 
-ent-ClothingHeadHatHoodHeretic = зловещий капюшон
-    .desc = Порванный, покрытый пылью капюшон. Изнутри видны странные глаза.
-
 ent-ADTClothingHeadSquidGameHood = капюшон организатора Игр Кальмара
     .suffix = Игры Кальмара
     .desc = Капюшон организаторов Игр Кальмара, позволяющий скрыть личность.
@@ -37,3 +34,5 @@ ent-ADTClothingHeadHatTechpriestHood = капюшон техно-жреца
 
 ent-ADTClothingHeadHatHoodChaplainHoodWhite = светлый капюшон священника
     .desc = Максимальное благоверие в этой звёздной системе.
+
+ent-ADTClothingHeadHatVoxHood = капюшон вокса

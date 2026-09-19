@@ -117,6 +117,7 @@ job-name-gladiator = гладиатор
 # Security
 
 job-name-sheriff = шериф
+job-name-time-patrol = страж времени
 job-name-investigator = следователь
 job-name-field-doctor = полевой врач
 

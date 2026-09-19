@@ -12,7 +12,13 @@
   recipes:
   - Igniter
   - ModularReceiver
-  - MicroManipulatorStockPart
+  # ADT-Tweak start
+  - CapacitorStockPart
+  - MatterBinStockPart
+  - ScanningModuleStockPart
+  - MicroServoStockPart
+  - MicroLaserStockPart
+  # ADT-Tweak end
   - ConveyorBeltAssembly
 
 - type: latheRecipePack

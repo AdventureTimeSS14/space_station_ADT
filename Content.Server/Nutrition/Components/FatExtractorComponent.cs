@@ -10,7 +10,7 @@ namespace Content.Server.Nutrition.Components;
 /// <summary>
 /// This is used for a machine that extracts hunger from entities and creates meat. Yum!
 /// </summary>
-[RegisterComponent, Access(typeof(FatExtractorSystem)), AutoGenerateComponentPause]
+[RegisterComponent, Access(typeof(FatExtractorSystem), typeof(Content.Server.ADT.Construction.Systems.FatExtractorMachinePartsSystem)), AutoGenerateComponentPause] // ADT-Tweak
 public sealed partial class FatExtractorComponent : Component
 {
     /// <summary>
@@ -24,6 +24,11 @@ public sealed partial class FatExtractorComponent : Component
     /// </summary>
     [DataField("nutritionPerSecond"), ViewVariables(VVAccess.ReadWrite)]
     public int NutritionPerSecond = 10;
+
+    // ADT-Tweak-Start
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public float NutritionMultiplier = 1f;
+    // ADT-Tweak-End
 
     /// <summary>
     /// An accumulator which tracks extracted nutrition to determine

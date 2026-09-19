@@ -10,7 +10,7 @@ public sealed partial class MutateNearbyPlantsEntityEffect : EntityEffectBase<Mu
     public float Radius = 5;
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => null;
+        => Loc.GetString("entity-effect-guidebook-mutate-plants-nearby", ("radius", Radius));
 
     public override LogImpact? Impact => LogImpact.Medium;
 }

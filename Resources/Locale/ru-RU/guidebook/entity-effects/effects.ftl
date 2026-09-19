@@ -472,11 +472,17 @@ entity-effect-guidebook-reduce-rotting =
         *[other] регенерирует
     } {NATURALFIXED($time, 3)} {MANY("секунд", $time)} гниения
 
-entity-effect-guidebook-area-reaction =
+# ADT Tweak start
+entity-effect-guidebook-area-reaction = Вызывает дым или пену на {NATURALFIXED($duration, 3)} {MANY("секунд", $duration)}
+
+entity-effect-guidebook-convert-reagent = Превращает { $removeAmount }x { $remove } в { $addAmount }x { $add }
+
+entity-effect-guidebook-flash-reaction-effect =
     { $chance ->
         [1] Вызывает
         *[other] вызывает
-    } дым или пену на {NATURALFIXED($duration, 3)} {MANY("секунд", $duration)}
+    } ослепляющую вспышку
+# ADT Tweak end
 
 entity-effect-guidebook-add-to-solution-reaction =
     { $chance ->

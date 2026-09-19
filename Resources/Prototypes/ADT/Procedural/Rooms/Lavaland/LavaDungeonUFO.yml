@@ -1,0 +1,186 @@
+- type: adtDungeonRoom
+  id: LavaDungeonUFO
+  size: 6, 6
+  tags:
+  - LavaDungeon
+  legend:
+    "a":
+      tile: FloorBasalt
+    "b":
+      tile: FloorRockVault
+  tiles:
+  - "aaaaaa"
+  - "abbbbb"
+  - "abbbbb"
+  - "abbbbb"
+  - "abbbbb"
+  - "abbbbb"
+  entities:
+  - proto: ADTClothingHandsRingBlood
+    positions:
+    - 5.0053,2.931
+  - proto: Bed
+    positions:
+    - 3.5,3.5
+  - proto: Cautery
+    components:
+    - type: MeleeWeapon
+      nextAttack: -97668.2452522
+    - type: EmitSoundOnCollide
+      nextSound: -97668.2452522
+    positions:
+    - 2.4957,3.6519
+  - proto: ComputerBroken
+    rot: -1.5707963267948966 rad
+    positions:
+    - 5.5,3.5
+  - proto: ComputerBroken
+    positions:
+    - 4.5,4.5
+  - proto: Drill
+    components:
+    - type: MeleeWeapon
+      nextAttack: -10.5714804
+    - type: EmitSoundOnCollide
+      nextSound: -97668.2452522
+    - type: Forensics
+      residues: []
+      dnas: []
+      fibers: []
+      fingerprints: []
+    positions:
+    - 4.4968,2.2301
+  - proto: Grille
+    positions:
+    - 3.5,5.5
+    - 4.5,5.5
+    - 1.5,4.5
+  - proto: GrilleDiagonal
+    rot: -1.5707963267948966 rad
+    positions:
+    - 5.5,5.5
+  - proto: GrilleDiagonal
+    rot: 1.5707963267948966 rad
+    positions:
+    - 5.5,4.5
+  - proto: GrilleDiagonal
+    rot: 3.141592653589793 rad
+    positions:
+    - 2.5,4.5
+  - proto: GrilleDiagonal
+    positions:
+    - 5.5,0.5
+    - 2.5,5.5
+  - proto: Hemostat
+    components:
+    - type: EmitSoundOnCollide
+      nextSound: -97668.2452522
+    positions:
+    - 4.3248,1.3238
+  - proto: OrganSkeletonPersonFootRight
+    positions:
+    - 4.6631,2.4632
+  - proto: OrganSkeletonPersonLegRight
+    rot: 3.141592653589793 rad
+    positions:
+    - 4.6787,4.1507
+  - proto: OrganSkeletonPersonTorso
+    rot: 3.141592653589793 rad
+    positions:
+    - 4.3194,3.2444
+  - proto: Retractor
+    components:
+    - type: EmitSoundOnCollide
+      nextSound: -97668.2452522
+    - type: Forensics
+      residues: []
+      dnas: []
+      fibers: []
+      fingerprints: []
+    positions:
+    - 3.1367,3.855
+  - proto: SawAdvanced
+    components:
+    - type: MeleeWeapon
+      nextAttack: -17.133379
+    - type: EmitSoundOnCollide
+      nextSound: -97668.2452522
+    - type: Forensics
+      residues: []
+      dnas: []
+      fibers: []
+      fingerprints: []
+    positions:
+    - 3.3555,4.6257
+  - proto: ScalpelAdvanced
+    components:
+    - type: MeleeWeapon
+      nextAttack: -97668.2452522
+    - type: EmitSoundOnCollide
+      nextSound: -97668.2452522
+    positions:
+    - 5.5911,2.4956
+  - proto: ShuttleWindow
+    rot: -1.5707963267948966 rad
+    positions:
+    - 4.5,5.5
+    - 3.5,5.5
+  - proto: ShuttleWindow
+    rot: 3.141592653589793 rad
+    positions:
+    - 1.5,4.5
+  - proto: ShuttleWindowDiagonal
+    rot: -1.5707963267948966 rad
+    positions:
+    - 5.5,5.5
+  - proto: ShuttleWindowDiagonal
+    rot: 1.5707963267948966 rad
+    positions:
+    - 5.5,4.5
+  - proto: ShuttleWindowDiagonal
+    rot: 3.141592653589793 rad
+    positions:
+    - 2.5,4.5
+  - proto: ShuttleWindowDiagonal
+    positions:
+    - 5.5,0.5
+    - 2.5,5.5
+  - proto: StasisBed
+    positions:
+    - 5.5,2.5
+  - proto: WallRockBasalt
+    positions:
+    - 1.5,1.5
+    - 3.5,1.5
+    - 3.5,0.5
+    - 4.5,0.5
+    - 5.5,1.5
+    - 0.5,3.5
+    - 2.5,2.5
+    - 0.5,1.5
+    - 3.5,2.5
+    - 2.5,1.5
+    - 0.5,2.5
+    - 1.5,0.5
+    - 1.5,3.5
+  - proto: WallRockBasaltBananium
+    positions:
+    - 0.5,0.5
+  - proto: WallRockBasaltDiamond
+    positions:
+    - 1.5,2.5
+    - 2.5,0.5
+  decals:
+  - id: Dirt
+    color: '#FFFFFFFF'
+    positions:
+    - 4.1951,2.6564
+    - 4,4
+    - 5,2
+    - 3,3
+  - id: DirtHeavyMonotile
+    color: '#FFFFFFFF'
+    positions:
+    - 5,4
+    - 5,1
+    - 2,4

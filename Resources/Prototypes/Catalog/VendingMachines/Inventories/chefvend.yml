@@ -3,22 +3,24 @@
   startingInventory:
     ReagentContainerFlour: 4 #ADT_Tweak
     ReagentContainerCornmeal: 2
-    ReagentContainerSugar: 4 #ADT_Tweak
+    ReagentContainerSugar: 2 #ADT_Tweak
     ReagentContainerRice: 4  #ADT_Tweak
+    ADTReagentContainerOat: 2 #ADT_Tweak
     FoodCondimentPacketSalt: 8 #ADT_Tweak
-    FoodCondimentBottleEnzyme: 2
+    FoodCondimentBottleEnzyme: 1 #ADT_Tweak
     FoodCondimentBottleHotsauce: 1
     FoodCondimentBottleKetchup: 1
     FoodCondimentBottleBBQ: 1
-    FoodCondimentBottleVinegar: 2
-    ReagentContainerOliveoil: 2
+    FoodCondimentBottleVinegar: 1 #ADT_Tweak
+    ReagentContainerOliveoil: 1 #ADT_Tweak
     ReagentContainerMayo: 1
     VariantCubeBox: 1
-    FoodContainerEgg: 1
+    FoodContainerEgg: 2 #ADT_Tweak
     DrinkMilkCarton: 2
-    DrinkSoyMilkCarton: 1
+    DrinkSoyMilkCarton: 2 #ADT_Tweak
     FoodButter: 3
-    FoodCheese: 1
+    FoodCheese: 2 #ADT_Tweak
+    FoodChevre: 2 #ADT_Tweak
     FoodMeat: 6
   contrabandInventory:
     EggBoxBroken: 1

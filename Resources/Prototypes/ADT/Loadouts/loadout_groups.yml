@@ -762,9 +762,10 @@
 - type: loadoutGroup
   id: ADTChefPocket1
   name: loadout-chef-pocket1-adt
-  minLimit: 0
+  minLimit: 1
   maxLimit: 1
-  loadouts: []
+  loadouts:
+  - ADTChefManual
 
 - type: loadoutGroup
   id: ADTChefGloves
@@ -1162,6 +1163,24 @@
   - ADTTouristPDA
   - ADTStudentPDA
 
+# Ассистент, формальная одежда
+- type: loadoutGroup
+  id: ADTPassengerHead
+  name: loadout-group-passenger-head-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadHatBowlerHat
+  - ADTClothingHeadHatTophat
+
+- type: loadoutGroup
+  id: ADTPassengerGlasses
+  name: loadout-group-passenger-glasses-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTClothingEyesGlassesMonocle
+
 - type: loadoutGroup
   id: ADTBartenderPDA
   name: loadout-group-bartender-id-adt
@@ -1421,6 +1440,72 @@
   - ADTFunnyPaint
   - ADTSprayPaintWhite
   - ADTSprayPaintBlack
+
+- type: loadoutGroup
+  id: ADTRacialItems
+  name: loadout-group-racial-items
+  minLimit: 0
+  maxLimit: 4
+  loadouts:
+  # Арахнид
+  - ADTArachnidJumpsuitWeb
+  - ADTArachnidJumpskirtWeb
+  - ADTArachnidWinterWeb
+  - ADTArachnidBootsWinterWeb
+  # Вокс
+  - ADTVoxGloves
+  - ADTVoxUniform
+  - ADTVoxUniformRed
+  - ADTVoxUniformGreen
+  - ADTVoxUniformBlue
+  - ADTVoxUniformTeal
+  - ADTVoxUniformPurple
+  - ADTVoxUniformYellow
+  - ADTVoxRobe
+  - ADTVoxSandals
+  # Урс
+  - ADTUrsusMicrophone
+  - ADTUrsusHatTophat
+  - ADTUrsusOuterCoatUrs
+  # КПБ
+  - ADTIPCBurgerRobot
+  - ADTIPCHatCardborg
+  - ADTIPCOuterCardborg
+  # Новакид
+  - ADTNovakidRevolverRussian
+  - ADTNovakidCartridgeCap
+  - ADTNovakidHatCowboyWhite
+  - ADTNovakidHatCowboyBrown
+  - ADTNovakidHatCowboyBlack
+  - ADTNovakidHatCowboyRed
+  - ADTNovakidHatCowboyGrey
+  - ADTNovakidHatCowboyBountyHunter
+  - ADTNovakidBootsCowboyWhite
+  - ADTNovakidBootsCowboyBrown
+  - ADTNovakidBootsCowboyBlack
+  - ADTNovakidBootsCowboyFancy
+  # При добавлении новых предметов сохраняйте порядок рас!!!
+
+- type: loadoutGroup
+  id: ADTSuperInstruments
+  name: loadout-group-musician-super-instruments
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - MusicianSuperSynthesizerAquamarine
+  - MusicianSuperSynthesizerWhite
+  - MusicianSuperSynthesizer
+  - MusicianSuperSynthesizerYellow
+  - MusicianSuperSynthesizerGreen
+  - MusicianSuperSynthesizerBrown
+  - MusicianSuperSynthesizerRed
+  - MusicianSuperSynthesizerOrange
+  - MusicianSuperSynthesizerPink
+  - MusicianSuperSynthesizerGrey
+  - MusicianSuperSynthesizerBlue
+  - MusicianSuperSynthesizerPurple
+  - MusicianSuperSynthesizerDarkBlue
+  - MusicianSuperSynthesizerBlack
 
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.
 # Н А Д Е Ю С Ь  В Ы  М Е Н Я  У С Л Ы Ш А Л И ! ! !

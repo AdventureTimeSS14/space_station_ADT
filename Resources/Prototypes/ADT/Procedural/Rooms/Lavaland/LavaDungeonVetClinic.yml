@@ -1,0 +1,1336 @@
+- type: adtDungeonRoom
+  id: LavaDungeonVetClinic
+  size: 16, 18
+  tags:
+  - LavaDungeon
+  legend:
+    "a":
+      tile: FloorBasalt
+    "b":
+      tile: Plating
+    "c":
+      tile: FloorBar
+    "d":
+      tile: FloorWhite
+    "e":
+      tile: PlatingDamaged
+    "f":
+      tile: FloorSteel
+  tiles:
+  - "abccbdddddbdbeae"
+  - "abccbdddddbeeaba"
+  - "abccbdddddbdddeb"
+  - "abbcbdbbbdbbdbbb"
+  - "afffffffffffffff"
+  - "abffffffffffffff"
+  - "bbfbbbdbdbbbbbff"
+  - "bffbdddbdddbbbff"
+  - "bffbdddbdddbbbff"
+  - "bffbdddbdddbbbff"
+  - "bbfbbbdbdbbbbbff"
+  - "abffffffffbddbff"
+  - "abffffffffbdddff"
+  - "abffffffffbddbff"
+  - "abffffffffbddbff"
+  - "abbbbbffbbbddbff"
+  - "aaaaaaaaaabdddff"
+  - "aaaaaaaaaabddbff"
+  entities:
+  - proto: ADTBloodPackTransfusionFull
+    positions:
+    - 13.6147,15.6492
+  - proto: ADTCharcoalPack
+    positions:
+    - 1.5026,8.7421
+  - proto: ADTSpawnAncientGoliath
+    positions:
+    - 13.5,16.5
+  - proto: ADTTapeRecorder
+    positions:
+    - 7.6309,17.6961
+  - proto: APCBasic
+    rot: 1.5707963267948966 rad
+    components:
+    - type: Battery
+      startingCharge: 4077.2615
+    - type: PowerNetworkBattery
+      loadingNetworkDemand: 20
+      currentSupply: 20
+      supplyRampPosition: 20
+    positions:
+    - 1.5,5.5
+  - proto: APCBasic
+    rot: 1.5707963267948966 rad
+    components:
+    - type: PowerNetworkBattery
+      loadingNetworkDemand: 440
+      currentReceiving: 219.96115
+      currentSupply: 219.99998
+      supplyRampPosition: 0.038848877
+    positions:
+    - 10.5,4.5
+  - proto: APCBasic
+    rot: 3.141592653589793 rad
+    components:
+    - type: PowerNetworkBattery
+      loadingNetworkDemand: 440
+      currentReceiving: 219.96115
+      currentSupply: 219.99998
+      supplyRampPosition: 0.038848877
+    positions:
+    - 6.5,14.5
+  - proto: APCBasic
+    components:
+    - type: Battery
+      startingCharge: 3E-45
+    - type: PowerNetworkBattery
+      loadingNetworkDemand: 440
+      currentSupply: 1.5e-44
+      supplyRampPosition: 1E-45
+    positions:
+    - 9.5,11.5
+  - proto: APCBasic
+    components:
+    - type: PowerNetworkBattery
+      loadingNetworkDemand: 40
+      currentReceiving: 39.960976
+      currentSupply: 40
+      supplyRampPosition: 0.039024353
+    positions:
+    - 5.5,11.5
+  - proto: AirlockMaint
+    rot: 1.5707963267948966 rad
+    components:
+    - type: Door
+      secondsUntilStateChange: -54284.047
+      state: Opening
+    - type: Airlock
+      powered: true
+    - type: DoorBolt
+      powered: true
+    positions:
+    - 12.5,11.5
+  - proto: AirlockMedical
+    components:
+    - type: Airlock
+      powered: true
+    - type: DoorBolt
+      powered: true
+    positions:
+    - 8.5,7.5
+    - 6.5,7.5
+    - 2.5,7.5
+    - 2.5,11.5
+    - 6.5,11.5
+    - 8.5,11.5
+    - 13.5,5.5
+    - 13.5,1.5
+    - 12.5,14.5
+    - 9.5,14.5
+    - 3.5,14.5
+    - 5.5,14.5
+  - proto: AirlockMedicalGlass
+    components:
+    - type: Airlock
+      powered: true
+    - type: DoorBolt
+      powered: true
+    positions:
+    - 6.5,2.5
+    - 7.5,2.5
+  - proto: AirlockShuttle
+    rot: -1.5707963267948966 rad
+    positions:
+    - 1.5,13.5
+  - proto: AnimalRandomSpawner
+    rot: 1.5707963267948966 rad
+    positions:
+    - 14.5,4.5
+  - proto: Ash
+    positions:
+    - 2.4166,9.4921
+  - proto: BoxHugHealing
+    positions:
+    - 5.4857,4.5939
+  - proto: BoxMouthSwab
+    positions:
+    - 10.5252,9.4471
+  - proto: CableApcExtension
+    positions:
+    - 7.5,7.5
+    - 8.5,7.5
+    - 8.5,8.5
+    - 8.5,10.5
+    - 8.5,9.5
+    - 9.5,10.5
+    - 9.5,10.5
+    - 9.5,11.5
+    - 8.5,12.5
+    - 7.5,12.5
+    - 6.5,12.5
+    - 9.5,12.5
+    - 6.5,13.5
+    - 6.5,14.5
+    - 10.5,4.5
+    - 8.5,4.5
+    - 9.5,4.5
+    - 8.5,5.5
+    - 8.5,6.5
+    - 10.5,12.5
+    - 11.5,12.5
+    - 12.5,12.5
+    - 13.5,12.5
+    - 14.5,12.5
+    - 14.5,11.5
+    - 14.5,10.5
+    - 14.5,8.5
+    - 14.5,7.5
+    - 14.5,6.5
+    - 14.5,5.5
+    - 14.5,3.5
+    - 14.5,4.5
+    - 14.5,2.5
+    - 14.5,9.5
+    - 5.5,12.5
+    - 3.5,12.5
+    - 4.5,12.5
+    - 6.5,15.5
+    - 6.5,16.5
+    - 7.5,16.5
+    - 8.5,16.5
+    - 9.5,16.5
+  - proto: CableMV
+    positions:
+    - 10.5,4.5
+    - 8.5,4.5
+    - 7.5,4.5
+    - 9.5,4.5
+    - 7.5,5.5
+    - 7.5,6.5
+    - 7.5,7.5
+    - 6.5,14.5
+    - 6.5,13.5
+    - 6.5,12.5
+    - 5.5,12.5
+    - 5.5,11.5
+    - 5.5,10.5
+    - 5.5,9.5
+    - 5.5,8.5
+    - 6.5,8.5
+    - 6.5,7.5
+  - proto: Chair
+    rot: -1.5707963267948966 rad
+    positions:
+    - 8.5,16.5
+  - proto: Chair
+    rot: 3.141592653589793 rad
+    positions:
+    - 6.5,16.5
+  - proto: Chair
+    positions:
+    - 4.5,5.5
+  - proto: ClosetL3Security
+    positions:
+    - 10.5,10.5
+  - proto: ClothingBackpackDuffelSurgeryFilled
+    positions:
+    - 4.4878,9.5497
+  - proto: ClothingEyesGlasses
+    positions:
+    - 3.6576,4.5939
+  - proto: ClothingNeckStethoscope
+    positions:
+    - 6.4097,9.6434
+  - proto: ComfyChair
+    rot: -1.5707963267948966 rad
+    positions:
+    - 9.5,3.5
+    - 9.5,4.5
+    - 9.5,5.5
+  - proto: CrateMedical
+    positions:
+    - 2.5,5.5
+  - proto: CratePlastic
+    positions:
+    - 14.5,13.5
+  - proto: CryogenicSleepUnit
+    rot: 1.5707963267948966 rad
+    positions:
+    - 11.5,1.5
+    - 11.5,2.5
+    - 11.5,3.5
+    - 11.5,4.5
+    - 11.5,5.5
+  - proto: ExtinguisherCabinetFilled
+    positions:
+    - 10.5,14.5
+  - proto: FloorTileItemWhite
+    rot: 2.1016568055829516 rad
+    positions:
+    - 12.5468,17.3877
+  - proto: FloorTileItemWhite
+    rot: 3.026954170163607 rad
+    positions:
+    - 15.7555,17.6269
+  - proto: FloorTileItemWhite
+    rot: 4.170268870490574 rad
+    positions:
+    - 15.7044,15.8117
+  - proto: FloorTileItemWhite
+    rot: 4.71665266705706 rad
+    positions:
+    - 11.1845,16.3038
+  - proto: FoodBakedCookie
+    positions:
+    - 7.5,6.5
+    - 7.4332,6.7032
+  - proto: FoodBakedCookieRaisin
+    positions:
+    - 7.5036,6.4454
+  - proto: Grille
+    rot: -1.5707963267948966 rad
+    positions:
+    - 13.5,2.5
+  - proto: Grille
+    positions:
+    - 3.5,2.5
+    - 4.5,2.5
+    - 13.5,6.5
+    - 13.5,4.5
+    - 13.5,0.5
+  - proto: IntercomAssembly
+    rot: 3.141592653589793 rad
+    positions:
+    - 13.5,14.5
+  - proto: Lamp
+    positions:
+    - 2.5794,4.7345
+    - 6.5996,17.6023
+  - proto: LauncherSyringe
+    positions:
+    - 10.3845,8.6346
+  - proto: LightTubeBroken
+    positions:
+    - 11.6024,15.8225
+  - proto: LockerChemistryFilled
+    positions:
+    - 4.5,10.5
+  - proto: LockerSteel
+    positions:
+    - 1.5,10.5
+  - proto: MachineFrame
+    rot: 3.141592653589793 rad
+    positions:
+    - 14.5,15.5
+  - proto: Matchbox
+    positions:
+    - 1.5729,8.5312
+  - proto: MedkitBruteFilled
+    positions:
+    - 11.5661,6.6427
+  - proto: MedkitBurnFilled
+    positions:
+    - 11.5036,0.6427
+  - proto: MedkitFilled
+    positions:
+    - 8.4939,9.619
+  - proto: MedkitRadiationFilled
+    positions:
+    - 4.5113,8.6122
+  - proto: Mirror
+    rot: 1.5707963267948966 rad
+    positions:
+    - 1.5,15.5
+  - proto: Morgue
+    rot: 1.5707963267948966 rad
+    positions:
+    - 1.5,9.5
+  - proto: NoticeBoard
+    positions:
+    - 7.5,14.5
+  - proto: PaperBin10
+    positions:
+    - 4.5,4.5
+  - proto: PartRodMetal1
+    rot: -1.5707963267948966 rad
+    positions:
+    - 12.2587,17.4631
+    - 14.5868,16.8694
+  - proto: PartRodMetal1
+    positions:
+    - 12.7587,16.0569
+  - proto: Pen
+    positions:
+    - 7.5996,17.5867
+  - proto: PetCarrier
+    rot: 1.5707963267948966 rad
+    positions:
+    - 14.5,4.5
+  - proto: PhoneInstrument
+    positions:
+    - 5.4176,5.5314
+  - proto: PlushieCarp
+    positions:
+    - 8.4746,17.6648
+  - proto: PottedPlantRandom
+    positions:
+    - 7.5,5.5
+  - proto: PoweredSmallLight
+    rot: -1.5707963267948966 rad
+    components:
+    - type: PointLight
+      enabled: false
+    - type: DamageOnInteract
+      isDamageActive: false
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    positions:
+    - 9.5,16.5
+    - 15.5,10.5
+    - 15.5,6.5
+    - 15.5,2.5
+  - proto: PoweredSmallLight
+    rot: 1.5707963267948966 rad
+    components:
+    - type: PointLight
+      enabled: false
+    - type: DamageOnInteract
+      isDamageActive: false
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    positions:
+    - 5.5,16.5
+    - 1.5,10.5
+  - proto: PoweredSmallLight
+    rot: 1.5707963267948966 rad
+    positions:
+    - 2.5,16.5
+  - proto: PoweredSmallLight
+    rot: 3.141592653589793 rad
+    components:
+    - type: PointLight
+      enabled: false
+    - type: DamageOnInteract
+      isDamageActive: false
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    positions:
+    - 4.5,12.5
+  - proto: PoweredSmallLight
+    components:
+    - type: PointLight
+      enabled: false
+    - type: DamageOnInteract
+      isDamageActive: false
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    positions:
+    - 7.5,13.5
+    - 11.5,13.5
+    - 14.5,13.5
+  - proto: Poweredlight
+    rot: -1.5707963267948966 rad
+    components:
+    - type: PointLight
+      enabled: false
+    - type: DamageOnInteract
+      isDamageActive: false
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    positions:
+    - 10.5,9.5
+    - 6.5,9.5
+  - proto: Poweredlight
+    rot: 1.5707963267948966 rad
+    components:
+    - type: PointLight
+      enabled: false
+    - type: DamageOnInteract
+      isDamageActive: false
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    positions:
+    - 11.5,16.5
+  - proto: Poweredlight
+    components:
+    - type: PointLight
+      enabled: false
+    - type: DamageOnInteract
+      isDamageActive: false
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    positions:
+    - 3.5,6.5
+  - proto: RandomMedicCorpseSpawner
+    positions:
+    - 11.5,15.5
+  - proto: RandomVendingSnacks
+    positions:
+    - 9.5,17.5
+    - 9.5,6.5
+  - proto: ScrapAirlock1
+    rot: 3.141592653589793 rad
+    positions:
+    - 14.4462,17.4162
+  - proto: ScrapBucket
+    positions:
+    - 11.4931,15.3225
+  - proto: ScrapCloset
+    rot: 3.141592653589793 rad
+    positions:
+    - 15.0087,16.3069
+  - proto: ScrapFirelock3
+    positions:
+    - 12.9618,17.4944
+  - proto: ScrapIntercom
+    positions:
+    - 11.3524,15.7756
+  - proto: ScrapMopBucket
+    rot: -1.5707963267948966 rad
+    positions:
+    - 11.9931,16.26
+  - proto: ScrapPAI
+    rot: -1.5707963267948966 rad
+    positions:
+    - 12.2587,15.3069
+  - proto: ScrapSteel
+    rot: -1.5707963267948966 rad
+    positions:
+    - 11.8681,15.6506
+  - proto: SheetSteel1
+    rot: 1.5707963267948966 rad
+    positions:
+    - 14.5868,17.7287
+  - proto: SheetSteel1
+    positions:
+    - 13.3335,16.6336
+    - 14.9116,15.5398
+    - 12.2241,16.9929
+    - 12.5399,15.635
+  - proto: SinkStemlessWater
+    rot: 1.5707963267948966 rad
+    positions:
+    - 2.5,15.5
+  - proto: SpawnMobCleanBot
+    positions:
+    - 9.5,12.5
+  - proto: SpawnMobMedibot
+    positions:
+    - 12.5,4.5
+  - proto: SubstationWallBasic
+    components:
+    - type: Battery
+      startingCharge: 948270.5
+    - type: PowerNetworkBattery
+      loadingNetworkDemand: 479.88327
+      currentSupply: 479.88327
+      supplyRampPosition: 479.88327
+    positions:
+    - 7.5,7.5
+  - proto: Table
+    rot: 1.5707963267948966 rad
+    positions:
+    - 14.5,3.5
+  - proto: Table
+    positions:
+    - 13.5,15.5
+    - 11.5,17.5
+    - 7.5,6.5
+    - 1.5,8.5
+  - proto: TableGlass
+    rot: 1.5707963267948966 rad
+    positions:
+    - 10.5,8.5
+    - 10.5,9.5
+    - 4.5,8.5
+    - 4.5,9.5
+    - 11.5,6.5
+    - 11.5,0.5
+  - proto: TableReinforced
+    positions:
+    - 2.5,4.5
+    - 4.5,4.5
+    - 5.5,4.5
+    - 3.5,4.5
+    - 5.5,5.5
+    - 6.5,9.5
+    - 8.5,9.5
+  - proto: TableWood
+    rot: 1.5707963267948966 rad
+    positions:
+    - 6.5,17.5
+    - 8.5,17.5
+    - 7.5,17.5
+  - proto: ToiletDirtyWater
+    positions:
+    - 3.5,17.5
+  - proto: ToolboxMechanicalFilled
+    positions:
+    - 12.5,9.5
+  - proto: VendingMachineCoffee
+    components:
+    - type: PointLight
+      enabled: true
+    positions:
+    - 5.5,17.5
+  - proto: WallShuttle
+    positions:
+    - 5.5,2.5
+    - 2.5,2.5
+    - 1.5,2.5
+    - 1.5,5.5
+    - 1.5,4.5
+    - 1.5,7.5
+    - 1.5,6.5
+    - 0.5,7.5
+    - 1.5,3.5
+    - 0.5,9.5
+    - 0.5,8.5
+    - 0.5,10.5
+    - 0.5,11.5
+    - 1.5,11.5
+    - 1.5,12.5
+    - 3.5,7.5
+    - 3.5,9.5
+    - 3.5,10.5
+    - 3.5,11.5
+    - 3.5,8.5
+    - 4.5,11.5
+    - 5.5,11.5
+    - 4.5,7.5
+    - 5.5,7.5
+    - 7.5,8.5
+    - 7.5,10.5
+    - 7.5,11.5
+    - 7.5,9.5
+    - 7.5,7.5
+    - 9.5,11.5
+    - 11.5,11.5
+    - 10.5,11.5
+    - 11.5,7.5
+    - 9.5,7.5
+    - 10.5,7.5
+    - 12.5,7.5
+    - 13.5,7.5
+    - 13.5,8.5
+    - 13.5,9.5
+    - 13.5,10.5
+    - 13.5,11.5
+    - 11.5,10.5
+    - 11.5,8.5
+    - 11.5,9.5
+    - 10.5,6.5
+    - 10.5,4.5
+    - 10.5,3.5
+    - 10.5,2.5
+    - 10.5,5.5
+    - 9.5,2.5
+    - 8.5,2.5
+    - 10.5,0.5
+    - 10.5,1.5
+    - 13.5,3.5
+    - 11.5,14.5
+    - 6.5,14.5
+    - 10.5,14.5
+    - 7.5,14.5
+    - 10.5,17.5
+    - 10.5,16.5
+    - 10.5,15.5
+    - 15.5,14.5
+    - 14.5,14.5
+    - 8.5,14.5
+    - 13.5,14.5
+    - 4.5,17.5
+    - 4.5,15.5
+    - 4.5,14.5
+    - 4.5,16.5
+    - 2.5,14.5
+    - 1.5,14.5
+    - 1.5,15.5
+    - 1.5,17.5
+    - 1.5,16.5
+  - proto: WaterDropletHat
+    rot: 1.5707963267948966 rad
+    positions:
+    - 15.4719,13.4483
+  - proto: WeldingFuelTankFull
+    positions:
+    - 12.5,8.5
+  - proto: Window
+    rot: -1.5707963267948966 rad
+    positions:
+    - 13.5,6.5
+    - 13.5,0.5
+    - 13.5,2.5
+    - 13.5,4.5
+  - proto: Window
+    rot: 3.141592653589793 rad
+    positions:
+    - 4.5,2.5
+    - 3.5,2.5
+  - proto: filingCabinetDrawer
+    positions:
+    - 3.5,5.5
+  decals:
+  - id: Basalt1
+    color: '#FFFFFFFF'
+    positions:
+    - 14.2274,17.6819
+  - id: Basalt2
+    color: '#FFFFFFFF'
+    positions:
+    - 15.2118,16.3537
+    - 15.6181,14.7912
+  - id: Basalt7
+    color: '#FFFFFFFF'
+    positions:
+    - 12.8993,17.01
+    - 14.4306,15.4319
+  - id: Basalt9
+    color: '#FFFFFFFF'
+    positions:
+    - 13.0087,15.7912
+    - 13.9306,17.8069
+  - id: BrickBoxOverlay
+    color: '#52B4E996'
+    positions:
+    - 6,9
+    - 6,7
+  - id: BrickCornerOverlayNE
+    color: '#52B4E996'
+    positions:
+    - 6,10
+  - id: BrickCornerOverlayNW
+    color: '#52B4E996'
+    positions:
+    - 4,10
+  - id: BrickCornerOverlaySE
+    color: '#52B4E996'
+    positions:
+    - 6,8
+  - id: BrickEndOverlayN
+    color: '#52B4E996'
+    positions:
+    - 4,9
+  - id: BrickEndOverlayS
+    color: '#52B4E996'
+    positions:
+    - 4,8
+  - id: BrickLineOverlayN
+    color: '#52B4E996'
+    positions:
+    - 5,10
+    - 5,9
+  - id: BrickLineOverlayS
+    color: '#52B4E996'
+    positions:
+    - 5,8
+    - 5,9
+  - id: BrickTileDarkBox
+    color: '#52B4E996'
+    positions:
+    - 1,9
+  - id: BrickTileDarkCornerNe
+    color: '#52B4E996'
+    positions:
+    - 2,10
+  - id: BrickTileDarkCornerNw
+    color: '#52B4E996'
+    positions:
+    - 1,10
+  - id: BrickTileDarkCornerSe
+    color: '#52B4E996'
+    positions:
+    - 2,8
+  - id: BrickTileDarkCornerSw
+    color: '#52B4E996'
+    positions:
+    - 1,8
+  - id: BrickTileDarkLineE
+    color: '#52B4E996'
+    positions:
+    - 2,9
+  - id: BrickTileSteelBox
+    color: '#FFFFFFFF'
+    positions:
+    - 7,6
+    - 6,11
+    - 2,11
+    - 8,11
+    - 2,7
+  - id: BrickTileSteelCornerNe
+    color: '#FFFFFFFF'
+    positions:
+    - 15,13
+  - id: BrickTileSteelCornerNw
+    color: '#FFFFFFFF'
+    positions:
+    - 2,6
+    - 2,13
+  - id: BrickTileSteelCornerSe
+    color: '#FFFFFFFF'
+    positions:
+    - 5,4
+    - 15,0
+  - id: BrickTileSteelCornerSw
+    color: '#FFFFFFFF'
+    positions:
+    - 2,3
+    - 2,12
+    - 14,0
+  - id: BrickTileSteelEndN
+    color: '#FFFFFFFF'
+    positions:
+    - 5,5
+    - 9,6
+  - id: BrickTileSteelEndS
+    color: '#FFFFFFFF'
+    positions:
+    - 9,3
+  - id: BrickTileSteelEndW
+    color: '#FFFFFFFF'
+    positions:
+    - 2,4
+  - id: BrickTileSteelInnerNw
+    color: '#FFFFFFFF'
+    positions:
+    - 5,4
+  - id: BrickTileSteelInnerSw
+    color: '#FFFFFFFF'
+    positions:
+    - 14,12
+  - id: BrickTileSteelLineE
+    color: '#FFFFFFFF'
+    positions:
+    - 9,5
+    - 9,4
+    - 15,1
+    - 15,2
+    - 15,3
+    - 15,4
+    - 15,5
+    - 15,6
+    - 15,7
+    - 15,8
+    - 15,9
+    - 15,10
+    - 15,12
+    - 15,12
+    - 15,11
+  - id: BrickTileSteelLineN
+    color: '#FFFFFFFF'
+    positions:
+    - 3,6
+    - 4,6
+    - 5,6
+    - 8,6
+    - 4,4
+    - 3,4
+    - 6,6
+    - 14,13
+    - 13,13
+    - 12,13
+    - 11,13
+    - 10,13
+    - 9,13
+    - 8,13
+    - 7,13
+    - 6,13
+    - 5,13
+    - 4,13
+    - 3,13
+  - id: BrickTileSteelLineS
+    color: '#FFFFFFFF'
+    positions:
+    - 8,3
+    - 7,3
+    - 6,3
+    - 5,3
+    - 4,3
+    - 3,3
+    - 3,4
+    - 4,4
+    - 3,12
+    - 4,12
+    - 5,12
+    - 6,12
+    - 7,12
+    - 8,12
+    - 9,12
+    - 10,12
+    - 12,12
+    - 12,12
+    - 11,12
+    - 13,12
+  - id: BrickTileSteelLineW
+    color: '#FFFFFFFF'
+    positions:
+    - 2,5
+    - 9,5
+    - 9,4
+    - 14,11
+    - 14,10
+    - 14,9
+    - 14,8
+    - 14,7
+    - 14,6
+    - 14,5
+    - 14,4
+    - 14,3
+    - 14,2
+    - 14,1
+  - id: BrickTileWhiteBox
+    color: '#52B4E996'
+    positions:
+    - 8,9
+  - id: BrickTileWhiteBox
+    color: '#FFFFFFFF'
+    positions:
+    - 3,14
+  - id: BrickTileWhiteCornerNe
+    color: '#52B4E996'
+    positions:
+    - 10,10
+  - id: BrickTileWhiteCornerNe
+    color: '#FFFFFFFF'
+    positions:
+    - 3,17
+  - id: BrickTileWhiteCornerNw
+    color: '#52B4E996'
+    positions:
+    - 8,10
+  - id: BrickTileWhiteCornerNw
+    color: '#FFFFFFFF'
+    positions:
+    - 2,17
+  - id: BrickTileWhiteCornerSe
+    color: '#FFFFFFFF'
+    positions:
+    - 3,15
+  - id: BrickTileWhiteCornerSw
+    color: '#52B4E996'
+    positions:
+    - 8,8
+  - id: BrickTileWhiteCornerSw
+    color: '#FFFFFFFF'
+    positions:
+    - 2,15
+  - id: BrickTileWhiteEndN
+    color: '#52B4E996'
+    positions:
+    - 10,9
+  - id: BrickTileWhiteEndS
+    color: '#52B4E996'
+    positions:
+    - 10,8
+  - id: BrickTileWhiteLineE
+    color: '#FFFFFFFF'
+    positions:
+    - 3,16
+  - id: BrickTileWhiteLineN
+    color: '#52B4E996'
+    positions:
+    - 9,10
+  - id: BrickTileWhiteLineS
+    color: '#52B4E996'
+    positions:
+    - 9,8
+  - id: BrickTileWhiteLineW
+    color: '#FFFFFFFF'
+    positions:
+    - 2,16
+  - id: Dirt
+    color: '#808080FF'
+    positions:
+    - 7,4
+    - 8,3
+    - 3,5
+    - 3,3
+    - 6,4
+    - 6,5
+    - 7,3
+    - 5,8
+    - 5,10
+    - 6,10
+    - 8,9
+    - 9,10
+    - 9,10
+    - 9,9
+    - 1,9
+    - 1,8
+    - 3,8
+    - 11,2
+    - 12,0
+    - 12,2
+    - 12,5
+    - 11,6
+    - 10,6
+    - 12,1
+    - 12,0
+    - 11,0
+    - 14,1
+    - 15,3
+    - 14,8
+    - 13,10
+    - 15,11
+    - 15,8
+    - 14,1
+    - 7,13
+    - 5,13
+    - 4,12
+    - 11,13
+    - 6,12
+    - 5,12
+    - 3,13
+    - 2,13
+    - 3,12
+    - 9,12
+    - 13,13
+  - id: Dirt
+    color: '#FFFFFF7C'
+    cleanable: true
+    positions:
+    - 13,16
+    - 11,16
+    - 11,15
+    - 12,15
+    - 14,16
+    - 14,17
+    - 15,17
+    - 13,17
+    - 15,16
+    - 15,16
+    - 15,16
+    - 14,17
+    - 13,16
+  - id: Dirt
+    color: '#FFFFFFFF'
+    positions:
+    - 12,9
+  - id: Dirt
+    color: '#FFFFFFFF'
+    cleanable: true
+    positions:
+    - 13,17
+    - 12,16
+    - 12,16
+    - 12,17
+  - id: DirtHeavy
+    color: '#808080FF'
+    positions:
+    - 9,12
+    - 14,12
+    - 15,4
+    - 4,4
+    - 9,5
+    - 2,5
+    - 5,9
+    - 9,9
+    - 10,7
+    - 3,10
+    - 1,9
+    - 4,12
+    - 13,13
+    - 7,15
+    - 9,16
+    - 5,17
+    - 6,15
+    - 8,15
+    - 15,4
+    - 12,3
+    - 6,3
+  - id: DirtHeavy
+    color: '#FFFFFF7C'
+    cleanable: true
+    positions:
+    - 15,16
+    - 15,16
+    - 14,16
+    - 12,16
+    - 12,16
+    - 14,15
+    - 14,16
+    - 12,15
+    - 11,16
+    - 11,16
+    - 13,16
+    - 15,17
+    - 15,17
+    - 14,16
+  - id: DirtHeavyMonotile
+    color: '#808080FF'
+    positions:
+    - 12,6
+    - 15,6
+    - 15,12
+    - 11,13
+    - 9,12
+  - id: DirtLight
+    color: '#808080FF'
+    positions:
+    - 2,17
+    - 8,16
+    - 6,8
+    - 7,4
+    - 13,8
+    - 14,4
+    - 12,2
+    - 14,2
+    - 15,1
+    - 14,11
+    - 15,12
+    - 4,13
+    - 9,12
+    - 7,13
+    - 9,17
+    - 5,15
+    - 9,15
+    - 4,3
+  - id: MiniTileDarkBox
+    color: '#FFFFFFFF'
+    positions:
+    - 5,14
+    - 9,14
+  - id: MiniTileDarkCornerNe
+    color: '#FFFFFFFF'
+    positions:
+    - 9,17
+  - id: MiniTileDarkCornerNw
+    color: '#FFFFFFFF'
+    positions:
+    - 5,17
+  - id: MiniTileDarkCornerSe
+    color: '#FFFFFFFF'
+    positions:
+    - 9,15
+  - id: MiniTileDarkCornerSw
+    color: '#FFFFFFFF'
+    positions:
+    - 5,15
+  - id: MiniTileDarkEndE
+    color: '#FFFFFFFF'
+    positions:
+    - 8,16
+  - id: MiniTileDarkEndW
+    color: '#FFFFFFFF'
+    positions:
+    - 6,16
+  - id: MiniTileDarkLineE
+    color: '#FFFFFFFF'
+    positions:
+    - 9,16
+  - id: MiniTileDarkLineN
+    color: '#FFFFFFFF'
+    positions:
+    - 8,17
+    - 7,17
+    - 6,17
+    - 7,16
+  - id: MiniTileDarkLineS
+    color: '#FFFFFFFF'
+    positions:
+    - 6,15
+    - 7,15
+    - 8,15
+    - 7,16
+  - id: MiniTileDarkLineW
+    color: '#FFFFFFFF'
+    positions:
+    - 5,16
+  - id: MiniTileSteelCornerNe
+    color: '#FFFFFFFF'
+    positions:
+    - 12,6
+  - id: MiniTileSteelCornerSe
+    color: '#FFFFFFFF'
+    positions:
+    - 12,0
+  - id: MiniTileSteelEndN
+    color: '#FFFFFFFF'
+    positions:
+    - 11,6
+  - id: MiniTileSteelEndS
+    color: '#FFFFFFFF'
+    positions:
+    - 11,0
+  - id: MiniTileSteelLineE
+    color: '#FFFFFFFF'
+    positions:
+    - 11,5
+    - 11,4
+    - 11,3
+    - 11,2
+    - 11,1
+    - 12,5
+    - 12,4
+    - 12,3
+    - 12,2
+    - 12,1
+  - id: MiniTileSteelLineW
+    color: '#FFFFFFFF'
+    positions:
+    - 11,1
+    - 11,2
+    - 11,3
+    - 11,4
+    - 11,5
+  - id: burnt1
+    color: '#FFFFFF7C'
+    cleanable: true
+    positions:
+    - 11.9774,15.635
+    - 12.6493,15.1506
+    - 12.9774,15.1194
+    - 13.1337,15.6662
+    - 14.4149,15.4787
+    - 12.6962,15.0725
+    - 12.3056,16.1506
+    - 12.7587,16.9631
+    - 12.5243,17.1819
+    - 11.9462,17.8694
+    - 12.1337,17.4475
+    - 12.3837,17.385
+    - 12.6962,17.2287
+    - 12.5556,17.3381
+    - 14.4149,17.4944
+    - 13.5712,17.9162
+    - 12.5399,17.5725
+    - 12.9774,17.5412
+    - 13.2587,17.8537
+    - 13.0868,17.9006
+    - 12.7587,17.5569
+    - 13.1962,17.8069
+    - 15.4774,16.2131
+    - 15.8993,15.2912
+    - 15.6337,15.0725
+    - 15.5712,15.8225
+    - 15.4306,16.7131
+    - 15.6493,17.385
+    - 15.6962,17.1819
+    - 15.5399,16.76
+    - 14.9306,17.8381
+    - 15.4306,17.5725
+    - 15.2274,17.4631
+    - 15.6024,17.8537
+    - 15.6181,17.9944
+    - 10.3837,14.885
+    - 10.5712,14.3694
+    - 10.6493,14.8069
+    - 10.7899,15.0569
+    - 10.6181,14.6662
+    - 10.7274,14.4631
+    - 10.6337,14.7912
+    - 10.8368,14.7131
+    - 10.9149,14.6037
+    - 11.1181,14.9631
+    - 11.1493,14.6819
+    - 10.1962,15.2287
+    - 10.4149,15.4475
+    - 11.8837,14.4162
+    - 13.2274,14.3381
+    - 13.3212,14.6975
+  - id: burnt1
+    color: '#FFFFFFFF'
+    positions:
+    - 7,4
+    - 5,9
+    - 2,9
+    - 4,12
+    - 13,12
+    - 14,7
+    - 15,2
+    - 12,0
+    - 12,4
+    - 5,6
+    - 6,16
+    - 5,15
+    - 12,15
+    - 10,11
+    - 9,9
+    - 12,10
+    - 8,4
+    - 4,4
+    - 3,3
+    - 3,5
+    - 5,5
+    - 7,5
+    - 1,9
+    - 2,10
+    - 2,8
+  - id: burnt2
+    color: '#FFFFFF7C'
+    cleanable: true
+    positions:
+    - 10.9931,16.3225
+    - 11.6337,16.3225
+    - 11.5868,16.385
+    - 11.3993,16.9475
+    - 10.8681,16.4787
+    - 11.1024,16.1819
+    - 11.2587,17.26
+    - 10.8993,16.7756
+    - 10.6181,16.1037
+    - 11.0087,15.4006
+    - 10.6181,15.0725
+    - 10.6024,15.3225
+    - 11.1806,15.9787
+    - 11.9462,16.885
+    - 11.4306,17.1037
+    - 11.1649,16.4006
+    - 11.1806,15.2912
+    - 10.9931,14.885
+    - 10.9462,14.6662
+    - 11.5243,14.9006
+    - 12.1962,15.4319
+    - 11.8212,15.01
+    - 12.0556,14.9475
+    - 12.8681,14.9006
+    - 15.1024,14.4787
+    - 15.6024,14.7287
+    - 15.0243,14.9631
+    - 14.9149,15.7131
+    - 14.9306,15.8225
+    - 15.0399,16.0412
+    - 14.7587,16.5256
+    - 14.5243,16.135
+    - 14.7899,16.0256
+    - 14.3993,15.6819
+    - 14.5087,16.4006
+    - 13.9774,16.2287
+    - 14.7743,16.4006
+    - 15.1962,15.6506
+    - 14.6337,16.0725
+  - id: burnt2
+    color: '#FFFFFFFF'
+    positions:
+    - 10,8
+    - 8,5
+    - 14,11
+    - 7,13
+    - 9,12
+  - id: burnt3
+    color: '#FFFFFF7C'
+    cleanable: true
+    positions:
+    - 12.6962,15.5256
+    - 12.8681,15.26
+    - 13.4618,15.135
+    - 13.5556,15.7131
+    - 12.7587,14.7912
+    - 12.9149,14.8225
+    - 13.9462,15.8381
+    - 14.1337,15.2756
+    - 13.5399,14.8225
+    - 11.4306,16.2287
+    - 11.2274,16.4944
+  - id: burnt3
+    color: '#FFFFFFFF'
+    positions:
+    - 2,16
+    - 8,16
+    - 9,16
+  - id: burnt4
+    color: '#FFFFFF7C'
+    cleanable: true
+    positions:
+    - 13,15

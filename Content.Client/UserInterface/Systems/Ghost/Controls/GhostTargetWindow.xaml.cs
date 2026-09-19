@@ -24,11 +24,11 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         private Dictionary<string, List<GhostWarp>> _deadPlayers = [];
         private Dictionary<string, List<GhostWarp>> _ghostPlayers = [];
         private Dictionary<string, List<GhostWarp>> _leftPlayers = [];
-        private Dictionary<string, List<GhostWarp>> _deadOther = [];
-        private Dictionary<string, List<GhostWarp>> _leftOther = [];
+        private Dictionary<string, List<GhostWarp>> _aliveAntags = [];
+        private Dictionary<string, List<GhostWarp>> _deadAntags = [];
+        private Dictionary<string, List<GhostWarp>> _unknown = [];
 
         private Dictionary<string, List<GhostWarp>> _places = [];
-        private Dictionary<string, List<GhostWarp>> _other = [];
 
         // ADT-TWEAKEND
 
@@ -57,32 +57,60 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             _deadPlayers.Clear();
             _ghostPlayers.Clear();
             _leftPlayers.Clear();
-            _deadOther.Clear();
-            _leftOther.Clear();
+            _aliveAntags.Clear();
+            _deadAntags.Clear();
+            _unknown.Clear();
             _places.Clear();
-            _other.Clear();
+
+            var unknownLabel = Loc.GetString("game-ticker-unknown-role");
 
             foreach (var warp in _originalGhostWarps)
             {
                 if (_showWithMindOnly && !warp.HasMind)
                     continue;
 
-                if(!string.IsNullOrEmpty(_searchText) && !warp.DisplayName.Contains(_searchText, StringComparison.OrdinalIgnoreCase))
+                if (!string.IsNullOrEmpty(_searchText)
+                    && !warp.DisplayName.Contains(_searchText, StringComparison.OrdinalIgnoreCase)
+                    && !warp.SubGroup.Contains(_searchText, StringComparison.OrdinalIgnoreCase)
+                    && !(warp.Description?.Contains(_searchText, StringComparison.OrdinalIgnoreCase) ?? false))
                     continue;
 
-                if(warp.Group == WarpGroup.Location)
+                if (warp.Group == WarpGroup.Location)
                 {
                     FilterLocalWarps(_places, warp, null);
                     continue;
                 }
 
-                FilterLocalWarps(_alivePlayers, warp, WarpGroup.AliveDepartment);
-                FilterLocalWarps(_deadPlayers, warp, WarpGroup.DeadDepartment);
-                FilterLocalWarps(_leftPlayers, warp, WarpGroup.Left);
-                FilterLocalWarps(_ghostPlayers, warp, WarpGroup.Ghost);
-                FilterLocalWarps(_other, warp, WarpGroup.AliveOther);
-                FilterLocalWarps(_deadOther, warp, WarpGroup.DeadOther);
-                FilterLocalWarps(_leftOther, warp, WarpGroup.LeftOther);
+                if (warp.Group.HasFlag(WarpGroup.Ghost))
+                {
+                    FilterLocalWarps(_ghostPlayers, warp, null);
+                    continue;
+                }
+
+                if (warp.Group.HasFlag(WarpGroup.Antag))
+                {
+                    if (warp.Group.HasFlag(WarpGroup.Left))
+                        FilterLocalWarps(_leftPlayers, warp, null);
+                    else if (warp.Group.HasFlag(WarpGroup.Dead))
+                        FilterLocalWarps(_deadAntags, warp, null);
+                    else
+                        FilterLocalWarps(_aliveAntags, warp, null);
+                    continue;
+                }
+
+                if (warp.Group.HasFlag(WarpGroup.Department))
+                {
+                    if (warp.Group.HasFlag(WarpGroup.Left))
+                        FilterLocalWarps(_leftPlayers, warp, null);
+                    else if (warp.Group.HasFlag(WarpGroup.Dead))
+                        FilterLocalWarps(_deadPlayers, warp, null);
+                    else
+                        FilterLocalWarps(_alivePlayers, warp, null);
+                    continue;
+                }
+
+                if (warp.SubGroup == unknownLabel)
+                    FilterLocalWarps(_unknown, warp, null);
             }
         }
 
@@ -119,11 +147,11 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         private void AddButtons()
         {
             // Добавляем проверку на наличие данных
-            var hasData = _alivePlayers.Count > 0 || 
-                          _ghostPlayers.Count > 0 || _leftPlayers.Count > 0 || 
+            var hasData = _aliveAntags.Count > 0 || _deadAntags.Count > 0 ||
+                          _alivePlayers.Count > 0 ||
+                          _ghostPlayers.Count > 0 || _leftPlayers.Count > 0 ||
                           _deadPlayers.Count > 0 ||
-                          _places.Count > 0 || _other.Count > 0 ||
-                          _deadOther.Count > 0 || _leftOther.Count > 0;
+                          _unknown.Count > 0 || _places.Count > 0;
 
             if (!hasData)
             {
@@ -141,14 +169,41 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             }
 
             // ADT-TWEAK START
+            AddButtons(_aliveAntags, "ghost-teleport-menu-antagonists-label");
+            AddButtons(_deadAntags, "ghost-teleport-menu-dead-antagonists-label");
             AddButtons(_alivePlayers, "ghost-teleport-menu-alive-label");
             AddButtons(_ghostPlayers, "ghost-teleport-menu-ghosts-label");
             AddButtons(_leftPlayers, "ghost-teleport-menu-left-label", true);
             AddButtons(_deadPlayers, "ghost-teleport-menu-dead-label", true);
-            AddButtons(_deadOther, "ghost-teleport-menu-other-label", true);
-            AddButtons(_leftOther, "ghost-teleport-menu-other-label", true);
+            AddUnknownSection();
             AddButtons(_places, "ghost-teleport-menu-locations-label", true);
-            AddButtons(_other, "ghost-teleport-menu-other-label", true);
+        }
+
+        private void AddUnknownSection()
+        {
+            if (_unknown.Count == 0)
+                return;
+
+            var mainContainer = new BoxContainer
+            {
+                Orientation = BoxContainer.LayoutOrientation.Vertical,
+                HorizontalExpand = true,
+                SeparationOverride = 5
+            };
+
+            mainContainer.AddChild(CreateSectionHeader("ghost-teleport-menu-unknown-label"));
+
+            var subBox = new FlexBox
+            {
+                AlignContent = FlexBox.FlexAlignContent.SpaceBetween
+            };
+
+            foreach (var warps in _unknown.Values)
+            foreach (var warp in warps)
+                subBox.AddChild(CreateWarpButton(warp));
+
+            mainContainer.AddChild(subBox);
+            GhostTeleportContainer.AddChild(mainContainer);
         }
 
         private void OnSearchTextChanged(LineEdit.LineEditEventArgs args)
@@ -207,29 +262,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
                 foreach (var warp in warps)
                 {
-                    var playerButton = new Button
-                    {
-                        Text = warp.DisplayName,
-                        TextAlign = Label.AlignMode.Right,
-                        HorizontalAlignment = HAlignment.Center,
-                        VerticalAlignment = VAlignment.Center,
-                        SizeFlagsStretchRatio = 1,
-                        ModulateSelfOverride = warp.Color,
-                        ToolTip = warp.Description,
-                        TooltipDelay = 0.1f,
-                        MinSize = new Vector2(150, 0), // Используем MinSize вместо SetWidth
-                        ClipText = false,
-                        HorizontalExpand = true,
-                    };
-
-                    // Уменьшаем шрифт для длинных имен
-                    if (warp.DisplayName.Length > 20)
-                    {
-                        playerButton.Label.StyleClasses.Add("FontSizeSmall");
-                    }
-
-                    playerButton.Label.ModulateSelfOverride = GetTextColor(warp.Color);
-                    playerButton.OnPressed += _ => WarpClicked?.Invoke(warp.Entity);
+                    var playerButton = CreateWarpButton(warp);
 
                     if(!isOtherContainer)
                         subBox.AddChild(playerButton);
@@ -257,6 +290,34 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             }
 
             GhostTeleportContainer.AddChild(mainContainer);
+        }
+
+        private Button CreateWarpButton(GhostWarp warp)
+        {
+            var playerButton = new Button
+            {
+                Text = warp.DisplayName,
+                TextAlign = Label.AlignMode.Right,
+                HorizontalAlignment = HAlignment.Center,
+                VerticalAlignment = VAlignment.Center,
+                SizeFlagsStretchRatio = 1,
+                ModulateSelfOverride = warp.Color,
+                ToolTip = warp.Description,
+                TooltipDelay = 0.1f,
+                MinSize = new Vector2(150, 0),
+                ClipText = false,
+                HorizontalExpand = true,
+            };
+
+            if (warp.DisplayName.Length > 20)
+            {
+                playerButton.Label.StyleClasses.Add("FontSizeSmall");
+            }
+
+            playerButton.Label.ModulateSelfOverride = GetTextColor(warp.Color);
+            playerButton.OnPressed += _ => WarpClicked?.Invoke(warp.Entity);
+
+            return playerButton;
         }
 
         private Control CreateSectionHeader(string text, bool useStripeBack = true)

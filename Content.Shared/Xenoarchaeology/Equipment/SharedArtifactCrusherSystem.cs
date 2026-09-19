@@ -1,4 +1,5 @@
 using Content.Shared.Body;
+using Content.Shared.ADT.Construction.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
@@ -147,7 +148,12 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
 
         crusher.Crushing = true;
         crusher.NextSecond = _timing.CurTime + TimeSpan.FromSeconds(1);
-        crusher.CrushEndTime = _timing.CurTime + crusher.CrushDuration;
+
+        // ADT-Tweak-Start
+        var workTimeMultiplier = TryComp<ArtifactCrusherUpgradeComponent>(uid, out var upgrade) ? upgrade.WorkTimeMultiplier : 1f;
+        crusher.CrushEndTime = _timing.CurTime + crusher.CrushDuration * workTimeMultiplier;
+        // ADT-Tweak-End
+
         crusher.CrushingSoundEntity = AudioSystem.PlayPvs(crusher.CrushingSound, ent)?.Entity;
         _appearance.SetData(ent, ArtifactCrusherVisuals.Crushing, true);
         Dirty(ent, ent.Comp1);

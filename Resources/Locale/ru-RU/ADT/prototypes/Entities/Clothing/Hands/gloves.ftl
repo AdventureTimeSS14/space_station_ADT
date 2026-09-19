@@ -45,3 +45,6 @@ ent-ClothingHandsTacticalMaidGlovesNoInsulated = дешёвые тактичес
 
 ent-ADTClothingHandsGlovesGuerrilla = перчатки партизана
     .desc = Синдикатские боевые перчатки высшего качества, отлично подходят для захватов, а также защщищают от ударов током. Судя по всему, питаются от телекристаллов.
+
+ent-ADTClothingHandsGlovesVox = перчатки вокса
+  .desc = Лёгкие перчатки причудливой формы с когтями.
