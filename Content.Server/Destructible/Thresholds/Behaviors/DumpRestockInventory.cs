@@ -1,6 +1,7 @@
 using System.Linq;
 using Robust.Shared.Random;
 using Content.Shared.ADT.VendingMachines; // ADT-Tweak
+using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Stacks;
 using Content.Shared.Prototypes;
 using Content.Shared.VendingMachines; // ADT-Tweak
@@ -23,11 +24,8 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
         ///[DataField("percent", required: true)]
         ///public float Percent = 0.5f;
 
-        [DataField("minCount")]
-        public int MinCount = 2;
-
-        [DataField("maxCount")]
-        public int MaxCount = 5;
+        [DataField("count")]
+        public MinMax Count = new(2, 5);
         // ADT-Tweak end
         [DataField("offset")]
         public float Offset { get; set; } = 0.5f;
@@ -48,10 +46,7 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
             if (inventory.Count == 0)
                 return;
 
-            if (MinCount < 0 || MaxCount < MinCount)
-                return;
-
-            var count = system.Random.Next(MinCount, Math.Min(MaxCount, int.MaxValue - 1) + 1);
+            var count = Count.Next(system.Random);
             for (var i = 0; i < count; i++)
             {
                 var (entityId, _, _) = system.Random.Pick(inventory);
