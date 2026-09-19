@@ -80,7 +80,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
             Inventory = inventory,
             EmaggedInventory = emaggedInventory,
             ContrabandInventory = contrabandInventory,
-            ReturnedInventory = new(component.ReturnedInventory),
+            ReturnedItems = component.ReturnedItems.ToDictionary(kv => kv.Key, kv => new List<ReturnedItemData>(kv.Value)),
             Contraband = component.Contraband,
             EjectEnd = component.EjectEnd,
             DenyEnd = component.DenyEnd,
@@ -358,16 +358,18 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         var mergedInventory = new List<VendingMachineInventoryEntry>(component.Inventory.Values.Count);
         foreach (var entry in component.Inventory.Values)
         {
-            if (!component.ReturnedInventory.TryGetValue(entry.ID, out var returnedAmount))
+            if (!component.ReturnedItems.TryGetValue(entry.ID, out var returned)
+                || returned.Count == 0)
             {
                 mergedInventory.Add(entry);
                 continue;
             }
 
+            var returnedAmount = returned.Count;
             mergedInventory.Add(new VendingMachineInventoryEntry(entry.Type, entry.ID,
-                entry.Amount + returnedAmount,
+                entry.Amount + (uint)returnedAmount,
                 returnedAmount > 0 ? 0 : entry.Price,
-                entry.MaxAmount + returnedAmount, entry.Category));
+                entry.MaxAmount + (uint)returnedAmount, entry.Category));
         }
         inventory = mergedInventory;
 

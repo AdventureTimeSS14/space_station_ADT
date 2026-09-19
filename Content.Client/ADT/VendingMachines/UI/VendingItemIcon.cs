@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.ADT.VendingMachines;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -34,7 +35,7 @@ public sealed class VendingItemIcon : Control
         IoCManager.InjectDependencies(this);
     }
 
-    public void SetPrototype(EntityPrototype proto)
+    public void SetPrototype(EntityPrototype proto, ReturnedItemDisplay? returned = null)
     {
         _layers.Clear();
         _contentSize = Vector2.Zero;
@@ -45,7 +46,7 @@ public sealed class VendingItemIcon : Control
             return;
         }
 
-        var fillInfo = GetFillInfo(proto, sprite);
+        var fillInfo = GetFillInfo(proto, sprite, returned);
         var fillLayer = fillInfo?.Layer;
         var fillState = fillInfo?.State;
         var fillColor = fillInfo?.Color;
@@ -93,35 +94,54 @@ public sealed class VendingItemIcon : Control
         InvalidateMeasure();
     }
 
-    private (SpriteComponent.Layer Layer, string State, Color? Color)? GetFillInfo(EntityPrototype proto, SpriteComponent sprite)
+    private (SpriteComponent.Layer Layer, string State, Color? Color)? GetFillInfo(EntityPrototype proto, SpriteComponent sprite,
+        ReturnedItemDisplay? returned = null)
     {
         if (!proto.TryGetComponent<SolutionContainerVisualsComponent>(out var visuals, _componentFactory)
             || visuals.Metamorphic
             || visuals.MaxFillLevels <= 0
-            || string.IsNullOrEmpty(visuals.FillBaseName)
-            || !proto.TryGetComponent<SolutionContainerManagerComponent>(out var container, _componentFactory))
+            || string.IsNullOrEmpty(visuals.FillBaseName))
         {
             return null;
         }
 
-        var solutions = container.Solutions;
-        if (solutions == null || solutions.Count == 0)
-            return null;
-
-        Solution? solution = null;
-        foreach (var pair in solutions)
+        float fillFraction;
+        Color? fillColor;
+        if (returned != null)
         {
-            if (visuals.SolutionName == null || pair.Key == visuals.SolutionName)
+            fillFraction = returned.FillFraction;
+            fillColor = returned.FillColor;
+        }
+        else
+        {
+            if (!proto.TryGetComponent<SolutionContainerManagerComponent>(out var container, _componentFactory))
+                return null;
+
+            var solutions = container.Solutions;
+            if (solutions == null || solutions.Count == 0)
+                return null;
+
+            Solution? solution = null;
+            foreach (var pair in solutions)
             {
-                solution = pair.Value;
-                break;
+                if (visuals.SolutionName == null || pair.Key == visuals.SolutionName)
+                {
+                    solution = pair.Value;
+                    break;
+                }
             }
+
+            if (solution == null || solution.Volume <= FixedPoint2.Zero || solution.MaxVolume <= FixedPoint2.Zero)
+                return null;
+
+            fillFraction = solution.FillFraction;
+            fillColor = visuals.ChangeColor ? solution.GetColor(_prototypeManager) : null;
         }
 
-        if (solution == null || solution.Volume <= FixedPoint2.Zero || solution.MaxVolume <= FixedPoint2.Zero)
+        if (fillFraction <= 0)
             return null;
 
-        var level = ContentHelpers.RoundToLevels(solution.FillFraction, 1, visuals.MaxFillLevels + 1);
+        var level = ContentHelpers.RoundToLevels(fillFraction, 1, visuals.MaxFillLevels + 1);
         if (level <= 0)
             return null;
 
@@ -138,7 +158,7 @@ public sealed class VendingItemIcon : Control
         if (fillLayer == null)
             return null;
 
-        return (fillLayer, visuals.FillBaseName + level, visuals.ChangeColor ? solution.GetColor(_prototypeManager) : null);
+        return (fillLayer, visuals.FillBaseName + level, visuals.ChangeColor ? fillColor : null);
     }
 
     protected override Vector2 MeasureOverride(Vector2 availableSize)

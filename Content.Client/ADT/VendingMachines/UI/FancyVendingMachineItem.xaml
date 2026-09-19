@@ -21,13 +21,6 @@
             MinSize="42 42"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"/>
-        <SpriteView
-            Name="ReturnedItemIcon"
-            MinSize="42 42"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Stretch="Fill"
-            Visible="False"/>
         <ui:ADTMarqueeLabel
             Name="NameLabel"
             HorizontalExpand="True"

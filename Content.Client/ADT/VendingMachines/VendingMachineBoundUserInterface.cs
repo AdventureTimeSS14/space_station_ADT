@@ -29,8 +29,7 @@ public sealed class VendingMachineBoundUserInterface : BoundUserInterface
         _menu.OnClose += Close;
         _menu.OnItemSelected += OnItemSelected;
         _menu.OnWithdraw += () => SendMessage(new VendingMachineWithdrawMessage());
-        _menu.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits,
-            VendingMachineHelpers.GetReturnedItemEntities(EntMan, Owner));
+        _menu.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits);
 
         _menu.OpenCentered();
     }
@@ -46,7 +45,7 @@ public sealed class VendingMachineBoundUserInterface : BoundUserInterface
         var system = EntMan.System<VendingMachineSystem>();
         _cachedInventory = system.GetAllInventory(Owner);
 
-        _menu.Populate(Owner, _cachedInventory, state.PriceMultiplier, state.Credits, state.ReturnedEntities);
+        _menu.Populate(Owner, _cachedInventory, state.PriceMultiplier, state.Credits, state.ReturnedItems);
     }
 
     public void UpdateAmounts()
@@ -69,7 +68,7 @@ public sealed class VendingMachineBoundUserInterface : BoundUserInterface
             return;
 
         _cachedInventory = newState.Inventory;
-        _menu?.Populate(Owner, _cachedInventory, newState.PriceMultiplier, newState.Credits, newState.ReturnedEntities);
+        _menu?.Populate(Owner, _cachedInventory, newState.PriceMultiplier, newState.Credits, newState.ReturnedItems);
     }
 
     protected override void ReceiveMessage(BoundUserInterfaceMessage message)

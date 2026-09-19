@@ -4,6 +4,19 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.VendingMachines
 {
+    [Serializable, NetSerializable, DataDefinition]
+    public sealed partial class ReturnedItemDisplay
+    {
+        [DataField]
+        public string? Label;
+
+        [DataField]
+        public float FillFraction;
+
+        [DataField]
+        public Color? FillColor;
+    }
+
     [NetSerializable, Serializable]
     public sealed class VendingMachineInterfaceState : BoundUserInterfaceState
     {
@@ -11,16 +24,16 @@ namespace Content.Shared.ADT.VendingMachines
         public double PriceMultiplier;
         public int Credits;
 
-        public Dictionary<string, NetEntity> ReturnedEntities = new();
+        public Dictionary<string, ReturnedItemDisplay> ReturnedItems = new();
 
         public VendingMachineInterfaceState(List<VendingMachineInventoryEntry> inventory, double priceMultiplier, int credits,
-            Dictionary<string, NetEntity>? returnedEntities = null)
+            Dictionary<string, ReturnedItemDisplay>? returnedItems = null)
         {
             Inventory = inventory;
             PriceMultiplier = priceMultiplier;
             Credits = credits;
-            if (returnedEntities != null)
-                ReturnedEntities = returnedEntities;
+            if (returnedItems != null)
+                ReturnedItems = returnedItems;
         }
     }
 

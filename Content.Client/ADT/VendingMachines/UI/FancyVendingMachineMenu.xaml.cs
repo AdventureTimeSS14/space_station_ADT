@@ -27,7 +27,7 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
 
     private readonly Dictionary<string, Color?> _paintColors = [];
     private List<FancyVendingMachineData> _cachedItems = [];
-    private Dictionary<string, NetEntity> _returnedEntities = new();
+    private Dictionary<string, ReturnedItemDisplay> _returnedItems = new();
 
     private static readonly StyleBoxFlat ItemButtonBox = new() { BackgroundColor = Color.Transparent };
 
@@ -170,12 +170,12 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
     /// and sets icons based on their prototypes
     /// </summary>
     public void Populate(EntityUid entityUid, List<VendingMachineInventoryEntry> inventory, double priceMultiplier, int credits,
-        Dictionary<string, NetEntity>? returnedEntities = null)
+        Dictionary<string, ReturnedItemDisplay>? returnedItems = null)
     {
         if (_closed || Disposed)
             return;
 
-        _returnedEntities = returnedEntities ?? new();
+        _returnedItems = returnedItems ?? new();
 
         var comp = _entityManager.GetComponentOrNull<VendingMachineComponent>(entityUid);
         _priceMultiplier = comp == null || comp.AllForFree ? 0 : priceMultiplier;
@@ -240,11 +240,9 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
         {
             _prototypeManager.TryIndex<EntityPrototype>(entry.ID, out var proto);
 
-            NetEntity? returnedEntity = _returnedEntities.TryGetValue(entry.ID, out var returned)
-                ? returned
-                : null;
+            _returnedItems.TryGetValue(entry.ID, out var returned);
 
-            items.Add(new FancyVendingMachineData(GetItemName(proto, entry.ID), entry, GetCategoryId(entry), proto, returnedEntity));
+            items.Add(new FancyVendingMachineData(GetItemName(proto, entry.ID, returned), entry, GetCategoryId(entry), proto, returned));
         }
 
         return items;
@@ -259,15 +257,16 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
         {
             var old = _cachedItems[i];
             var next = inventory[i];
+            _returnedItems.TryGetValue(next.ID, out var returned);
             if (old.Entry.ID != next.ID || old.Entry.Type != next.Type || old.CategoryId != GetCategoryId(next)
-                || old.ReturnedEntity != (_returnedEntities.TryGetValue(next.ID, out var returned) ? returned : null))
+                || old.Returned != returned)
                 return true;
         }
 
         return false;
     }
 
-    private string GetItemName(EntityPrototype? proto, string id)
+    private string GetItemName(EntityPrototype? proto, string id, ReturnedItemDisplay? returned = null)
     {
         if (proto == null || string.IsNullOrEmpty(proto.Name))
             return id;
@@ -276,15 +275,23 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
         if (name.Length > 0)
             name[0] = char.ToUpper(name[0]);
 
-        if (proto.TryGetComponent<LabelComponent>(out var label, _componentFactory)
-            && !string.IsNullOrEmpty(label.CurrentLabel))
+        string? labelText = null;
+        if (returned?.Label is { Length: > 0 } returnedLabel)
         {
-            var labelText = Loc.TryGetString(label.CurrentLabel, out var localized)
+            labelText = Loc.TryGetString(returnedLabel, out var localized)
+                ? localized
+                : returnedLabel;
+        }
+        else if (proto.TryGetComponent<LabelComponent>(out var label, _componentFactory)
+                 && !string.IsNullOrEmpty(label.CurrentLabel))
+        {
+            labelText = Loc.TryGetString(label.CurrentLabel, out var localized)
                 ? localized
                 : label.CurrentLabel;
-
-            return Loc.GetString("comp-label-format", ("baseName", name.ToString()), ("label", labelText));
         }
+
+        if (labelText != null)
+            return Loc.GetString("comp-label-format", ("baseName", name.ToString()), ("label", labelText));
 
         return name.ToString();
     }
@@ -310,7 +317,7 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
 
         var listItem = new FancyVendingMachineItem(
             data.Proto, data.Name, data.Entry.Amount,
-            data.Entry.MaxAmount, GetPrice(data.Entry), striped, canPaint, data.ReturnedEntity);
+            data.Entry.MaxAmount, GetPrice(data.Entry), striped, canPaint, data.Returned);
 
         if (_paintColors.TryGetValue(data.Entry.ID, out var savedColor))
             listItem.SetPaintColor(savedColor);
@@ -493,7 +500,7 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
         _colorWindow.OpenCentered();
     }
 
-    private sealed record FancyVendingMachineData(string Name, VendingMachineInventoryEntry Entry, string CategoryId, EntityPrototype? Proto, NetEntity? ReturnedEntity) : ListData;
+    private sealed record FancyVendingMachineData(string Name, VendingMachineInventoryEntry Entry, string CategoryId, EntityPrototype? Proto, ReturnedItemDisplay? Returned) : ListData;
 
     private record struct VendingCategoryInfo(string Id, string Name, string IconProto, int Priority = 100);
 }

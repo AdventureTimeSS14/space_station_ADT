@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -226,10 +227,21 @@ namespace Content.Shared.ADT.VendingMachines
         public Color UiButtonDisabledColor = Color.FromHex("#3f3f3fff");
 
         [DataField, ViewVariables(VVAccess.ReadWrite)]
-        public Dictionary<string, uint> ReturnedInventory = new();
+        public Dictionary<string, List<ReturnedItemData>> ReturnedItems = new();
 
-        public const string ReturnedItemsContainerId = "ADTVendingReturnedItems";
+    }
 
+    [Serializable, NetSerializable, DataDefinition]
+    public sealed partial class ReturnedItemData
+    {
+        [DataField]
+        public string? Label;
+
+        [DataField]
+        public Color? PaintColor;
+
+        [DataField]
+        public Solution? Solution;
     }
 
     [Serializable, NetSerializable, DataDefinition]
@@ -340,7 +352,7 @@ namespace Content.Shared.ADT.VendingMachines
 
         public Dictionary<string, VendingMachineInventoryEntry> ContrabandInventory = new();
 
-        public Dictionary<string, uint> ReturnedInventory = new();
+        public Dictionary<string, List<ReturnedItemData>> ReturnedItems = new();
 
         public bool Contraband;
 
