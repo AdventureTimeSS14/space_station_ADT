@@ -1,0 +1,44 @@
+- files: ["adrenaline.ogg"]
+  license: "Custom"
+  copyright: "Adrenaline - Adrenaline."
+  source: "https://www.youtube.com/watch?v=-scG_faKFGk&list=PLKlbTXjy-F6q9qbt1hM78aD9dvXTMOMDG"
+
+- files: ["beat_the_boys.ogg"]
+  license: "Custom"
+  copyright: "LAB - Beat The Boys."
+  source: "https://www.youtube.com/watch?v=Oc0N9ofYilc&list=PLKlbTXjy-F6q9qbt1hM78aD9dvXTMOMDG&index=22"
+
+- files: ["something_else.ogg"]
+  license: "Custom"
+  copyright: "Agent Blue - Something Else."
+  source: "https://www.youtube.com/watch?v=0UYyiB59Kcg&list=PLKlbTXjy-F6q9qbt1hM78aD9dvXTMOMDG&index=24"
+
+- files: ["tick_tock.ogg"]
+  license: "Custom"
+  copyright: "Deponeye - Tick Tock."
+  source: "https://www.youtube.com/watch?v=QUCXtRFoC-Q&list=PLKlbTXjy-F6q9qbt1hM78aD9dvXTMOMDG&index=8"
+
+- files: ["king_of_defeat.ogg"]
+  license: "Custom"
+  copyright: "Full Diesel - King of Defeat."
+  source: "https://www.youtube.com/watch?v=53YQdTNfbRg&list=PLKlbTXjy-F6q9qbt1hM78aD9dvXTMOMDG&index=16"
+
+- files: ["down_the_street.ogg"]
+  license: "Custom"
+  copyright: "Killer Barbies - Down The Street."
+  source: "https://www.youtube.com/watch?v=UPIZ24X17yM&list=RDUPIZ24X17yM&start_radio=1"
+
+- files: ["baby_with_two_heads.ogg"]
+  license: "Custom"
+  copyright: "The Killer Barbies - Baby With Two Heads."
+  source: "https://www.youtube.com/watch?v=V65K2NxAJbY&list=PLKlbTXjy-F6q9qbt1hM78aD9dvXTMOMDG&index=26"
+
+- files: ["hands_on_the_money.ogg"]
+  license: "Custom"
+  copyright: "Kid Symphony - Hands On The Money."
+  source: "https://www.youtube.com/watch?v=ZQxi3hENJMw&list=PLKlbTXjy-F6q9qbt1hM78aD9dvXTMOMDG&index=25"
+
+- files: ["the_ever_lasting.ogg"]
+  license: "Custom"
+  copyright: "Central Supply Chain - The Ever Lasting."
+  source: "https://www.youtube.com/watch?v=Jsmli58c2PM&list=PLKlbTXjy-F6q9qbt1hM78aD9dvXTMOMDG&index=5"

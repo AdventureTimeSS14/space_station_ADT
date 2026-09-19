@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 277.2.1
-  forkId: SS14_DEV
-  forkVersion: 9a43594aa9e46f1991fa6fc057df4366423ad79c
-  time: 07/04/2026 11:04:51
-  entityCount: 19036
+  forkId: ""
+  forkVersion: ""
+  time: 09/19/2026 02:11:04
+  entityCount: 19041
 maps:
 - 1
 grids:
@@ -98,7 +98,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Map Entity
+      name: NT Aspid Station
     - type: Transform
     - type: Map
       mapPaused: True
@@ -9013,6 +9013,22 @@ entities:
     components:
     - type: Transform
       parent: 65
+  - uid: 238
+    components:
+    - type: Transform
+      parent: 47
+  - uid: 19037
+    components:
+    - type: Transform
+      parent: 53
+  - uid: 19038
+    components:
+    - type: Transform
+      parent: 59
+  - uid: 19039
+    components:
+    - type: Transform
+      parent: 65
 - proto: ADTBarbellChair
   entities:
   - uid: 59
@@ -9845,6 +9861,11 @@ entities:
       parent: 2
 - proto: ADTMiningShop
   entities:
+  - uid: 178
+    components:
+    - type: Transform
+      pos: 13.5,31.5
+      parent: 2
   - uid: 179
     components:
     - type: Transform
@@ -9872,6 +9893,17 @@ entities:
     - type: Transform
       pos: 70.31179,40.299473
       parent: 2
+- proto: ADTPaintingDiploma
+  entities:
+  - uid: 19040
+    components:
+    - type: MetaData
+      desc: Свидетельство о приёмке станции. 20.09.2570
+    - type: Transform
+      pos: 59.5,-15.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: ADTPatchHonk
   entities:
   - uid: 13932
@@ -10310,13 +10342,6 @@ entities:
     - type: Transform
       pos: 64.45392,66.549126
       parent: 2
-- proto: ADTUniversalPipeDispenser
-  entities:
-  - uid: 238
-    components:
-    - type: Transform
-      pos: 40.5,-17.5
-      parent: 2
 - proto: ADTVasePlant2
   entities:
   - uid: 239
@@ -10470,6 +10495,13 @@ entities:
     components:
     - type: Transform
       pos: 26.5,52.5
+      parent: 2
+- proto: ADTVendingMachineMusician
+  entities:
+  - uid: 53949
+    components:
+    - type: Transform
+      pos: 37.5,1.5
       parent: 2
 - proto: ADTVendingMachinePatholoDrobe
   entities:
@@ -12922,7 +12954,7 @@ entities:
       pos: 65.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -143433.47
+      secondsUntilStateChange: -143467.61
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13610,7 +13642,7 @@ entities:
       pos: 25.5,-4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -56939.83
+      secondsUntilStateChange: -56973.977
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13677,7 +13709,7 @@ entities:
       pos: 67.5,35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -154296.78
+      secondsUntilStateChange: -154330.92
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13801,7 +13833,7 @@ entities:
       pos: 43.5,33.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -167098.05
+      secondsUntilStateChange: -167132.19
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16790,6 +16822,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 40.5,37.5
+      parent: 2
+  - uid: 15066
+    components:
+    - type: Transform
+      pos: 40.5,38.5
       parent: 2
 - proto: BowImprovised
   entities:
@@ -57486,7 +57523,7 @@ entities:
       - 8357
       - 293
     - type: Door
-      secondsUntilStateChange: -192715.83
+      secondsUntilStateChange: -192749.97
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 85100.4006158
@@ -58211,7 +58248,7 @@ entities:
       pos: 66.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -191481.12
+      secondsUntilStateChange: -191515.27
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -58575,7 +58612,7 @@ entities:
       pos: 82.5,28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3269.3826
+      secondsUntilStateChange: -3303.531
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -60154,7 +60191,7 @@ entities:
       pos: 58.5,23.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -167961.72
+      secondsUntilStateChange: -167995.86
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -60262,7 +60299,7 @@ entities:
       pos: 82.5,62.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -169538.45
+      secondsUntilStateChange: -169572.6
       state: Closing
   - uid: 8714
     components:
@@ -104086,13 +104123,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: SiliconChargerIndustrial
-  entities:
-  - uid: 15066
-    components:
-    - type: Transform
-      pos: 40.5,38.5
-      parent: 2
 - proto: SinkStemlessWater
   entities:
   - uid: 15067
@@ -112332,13 +112362,6 @@ entities:
     components:
     - type: Transform
       pos: 97.5,57.5
-      parent: 2
-- proto: VendingMachineSalvage
-  entities:
-  - uid: 178
-    components:
-    - type: Transform
-      pos: 13.5,31.5
       parent: 2
 - proto: VendingMachineSciDrobe
   entities:
@@ -125025,7 +125048,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -140496.4
+      secondsUntilStateChange: -140530.55
       state: Opening
 - proto: WindoorSecureSalvageLocked
   entities:
@@ -126283,12 +126306,5 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 63.99958,37.46473
-      parent: 2
-- proto: ADTVendingMachineMusician
-  entities:
-  - uid: 53949
-    components:
-    - type: Transform
-      pos: 37.5,1.5
       parent: 2
 ...
