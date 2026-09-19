@@ -1010,7 +1010,7 @@
         maxVol: 40
         reagents:
           - ReagentId: Nutriment
-            Quantity: 9
+            Quantity: 4.5 # ADT-Tweak 9 > 4.5
           - ReagentId: Vitamin
             Quantity: 3
           - ReagentId: Water
