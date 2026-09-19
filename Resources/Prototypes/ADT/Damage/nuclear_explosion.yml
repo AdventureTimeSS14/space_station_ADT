@@ -1,0 +1,17 @@
+- type: explosion
+  id: NuclearMeltdown
+  damagePerIntensity:
+    types:
+      Radiation: 8
+      Heat: 8
+      Blunt: 4
+      Piercing: 4
+      Structural: 60
+  tileBreakChance: [0, 0.7, 1]
+  tileBreakIntensity: [0, 20, 60]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  fireColor: Green
+  texturePath: /Textures/Effects/fire_greyscale.rsi
+  fireStates: 3
+  temperature: 1200
