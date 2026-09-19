@@ -617,6 +617,7 @@
     - ADTAdvancedMedicalCarePack
     - ADTCryoTech
     - ADTThermoTech
+    - ADTMedbeamPack
     #ADT-Tweak End
   - type: Machine
     board: MedicalTechFabCircuitboard

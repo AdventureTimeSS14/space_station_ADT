@@ -1,0 +1,29 @@
+- files: ["tetoris.ogg"]
+  license: "Custom"
+  copyright: "Kasane Teto - Tetoris."
+  source: "https://www.youtube.com/watch?v=Soy4jGPHr3g&list=RDSoy4jGPHr3g&start_radio=1"
+
+- files: ["iello_elegy.ogg"]
+  license: "Custom"
+  copyright: "Rusino, Hatsune Miku - Iello Elegy."
+  source: "https://www.youtube.com/watch?v=k5WwhJUQ3Pg&list=RDk5WwhJUQ3Pg&start_radio=1"
+
+- files: ["looping_the_rooms.ogg"]
+  license: "Custom"
+  copyright: "Rusino, Hatsune Miku - Looping The Rooms."
+  source: "https://www.youtube.com/watch?v=icBDYkfxpMs&list=RDicBDYkfxpMs&start_radio=1"
+
+- files: ["heart_nonsense.ogg"]
+  license: "Custom"
+  copyright: "Hatsune Miku - Heart Nonsense."
+  source: "https://www.youtube.com/watch?v=3HA9QiksWIc&list=RD3HA9QiksWIc&start_radio=1"
+
+- files: ["fukkireta.ogg"]
+  license: "Custom"
+  copyright: "Kasane Teto - Fukkireta."
+  source: "https://www.youtube.com/watch?v=kuNixp-wvWM&list=RDkuNixp-wvWM&start_radio=1"
+
+- files: ["kts_official_guide_to_coolness.ogg"]
+  license: "Custom"
+  copyright: "Ferry - Kt's Official Guide to Coolness."
+  source: "https://www.youtube.com/watch?v=ICdRa5ZiWxY&list=RDICdRa5ZiWxY&start_radio=1"

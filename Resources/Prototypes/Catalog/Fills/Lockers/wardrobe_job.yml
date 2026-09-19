@@ -264,6 +264,7 @@
   table: !type:AllSelector
     children:
     # todo chaplain backpack
+    - id: AADTMusicDiskPriest #  ADT Tweak
     - id: ClothingUniformJumpsuitChaplain
     - id: ClothingShoesColorBlack
     - id: ClothingUniformJumpskirtChaplain

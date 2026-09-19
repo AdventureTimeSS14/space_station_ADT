@@ -266,3 +266,6 @@ uplink-code-speak-implanter-desc = Каждый уважающий себя яд
 
 uplink-firing-pin-syndicate-name = синдикатский боевой пин
 uplink-firing-pin-syndicate-desc = Разрешает стрелять только оперативникам Синдиката и агентам.
+
+uplink-medbeam-name = Мед-ган
+uplink-medbeam-desc = Лечащий луч, цепляющийся за цель. Лечит быстрее гражданской версии, но скрещённые лучи взрываются вместе с обоими устройствами.

@@ -45,6 +45,7 @@ using Content.Shared.ADT.Mobs;
 using Content.Shared.Power;
 using Content.Shared.Actions;
 using Content.Server.Access.Systems;
+using Content.Server.Antag.Components;
 
 namespace Content.Server.ADT.Thunderdome;
 
@@ -73,6 +74,7 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
 
     private const string RulePrototype = "ThunderdomeRule";
+    private const string RandomLoadoutGear = "ThunderdomeRandom";
     private EntityUid? _ruleEntity;
     private bool _refillOnKill;
 
@@ -303,6 +305,7 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
         var originalBody = mindComp.OwnedEntity != ghostEntity ? mindComp.OwnedEntity : null;
 
         var mob = _stationSpawning.SpawnPlayerMob(spawnCoords.Value, null, profile, null);
+        EnsureComp<AntagImmuneComponent>(mob);
         _stationSpawning.EquipStartingGear(mob, rule.Gear);
         SpawnLoadoutItems(mob, weaponIdx, rule);
 
@@ -473,6 +476,18 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
         return false;
     }
 
+    private EntityUid? FindPlayerEntity(NetUserId user)
+    {
+        var query = EntityQueryEnumerator<ThunderdomePlayerComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.OwnerUser == user && !TerminatingOrDeleted(uid))
+                return uid;
+        }
+
+        return null;
+    }
+
     private void GhostDomePlayer(
       Entity<ThunderdomePlayerComponent> ent,
       ThunderdomeRuleComponent rule,
@@ -490,7 +505,11 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
           || !TryComp<ThunderdomeRuleComponent>(ent.Comp.RuleEntity.Value, out var rule))
             return;
 
-        RegisterArenaDeath(ent, rule);
+        EntityUid? directKiller = null;
+        if (ent.Comp.LastAttacker is { } attackerUser)
+            directKiller = FindPlayerEntity(attackerUser);
+
+        RegisterArenaDeath(ent, rule, directKiller);
 
         rule.Players.Remove(GetNetEntity(ent));
         ClearOriginalBodyMarker(ent);
@@ -653,7 +672,20 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
             return;
 
         weaponIdx = Math.Clamp(weaponIdx, 0, rule.WeaponLoadouts.Count - 1);
-        _stationSpawning.EquipStartingGear(mob, rule.WeaponLoadouts[weaponIdx].Gear);
+        var gear = rule.WeaponLoadouts[weaponIdx].Gear;
+        if (gear == RandomLoadoutGear)
+        {
+            var others = new List<string>();
+            foreach (var loadout in rule.WeaponLoadouts)
+            {
+                if (loadout.Gear != RandomLoadoutGear)
+                    others.Add(loadout.Gear);
+            }
+            if (others.Count == 0)
+                return;
+            gear = _random.Pick(others);
+        }
+        _stationSpawning.EquipStartingGear(mob, gear);
     }
 
     private EntityCoordinates? GetRandomSpawnPoint(ThunderdomeRuleComponent rule)
@@ -751,19 +783,17 @@ public sealed partial class ThunderdomeRuleSystem : EntitySystem
 
             foreach (var container in _container.GetAllContainers(current, containerManager))
             {
-                var inGun = container.ID is "gun_magazine" or "gun_chamber" or "revolver-ammo";
-
                 foreach (var contained in container.ContainedEntities)
                 {
                     toCheck.Enqueue(contained);
 
-                    if (!inGun && TryComp<BallisticAmmoProviderComponent>(contained, out var ballistic))
+                    if (TryComp<BallisticAmmoProviderComponent>(contained, out var ballistic))
                         RefillBallistic((contained, ballistic));
 
-                    if (!inGun && HasComp<BatteryAmmoProviderComponent>(contained))
+                    if (HasComp<BatteryAmmoProviderComponent>(contained))
                         RefillBattery(contained);
 
-                    if (!inGun && TryComp<RevolverAmmoProviderComponent>(contained, out var revolver))
+                    if (TryComp<RevolverAmmoProviderComponent>(contained, out var revolver))
                         RefillRevolver((contained, revolver));
                 }
             }
