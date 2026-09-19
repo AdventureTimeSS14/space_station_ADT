@@ -2,9 +2,9 @@ meta:
   format: 7
   category: Map
   engineVersion: 277.2.1
-  forkId: SS14_DEV
-  forkVersion: d36b3ceba9053ce060ab01fdcad91b04e72d46fb
-  time: 09/10/2026 09:45:54
+  forkId: ""
+  forkVersion: ""
+  time: 09/19/2026 01:26:36
   entityCount: 16539
 maps:
 - 1
@@ -12018,6 +12018,110 @@ entities:
         -17,-22: AreaXenobio
         -17,-23: AreaXenobio
         -18,-21: AreaXenobio
+        -27,44: AreaKitchen
+        -27,45: AreaKitchen
+        -27,46: AreaKitchen
+        -27,47: AreaKitchen
+        -27,48: AreaKitchen
+        -27,43: AreaKitchen
+        -28,48: AreaKitchen
+        -28,47: AreaKitchen
+        -28,46: AreaKitchen
+        -28,45: AreaKitchen
+        -29,47: AreaKitchen
+        -28,44: AreaKitchen
+        -28,43: AreaKitchen
+        -29,48: AreaKitchen
+        -29,46: AreaKitchen
+        -29,45: AreaKitchen
+        -29,44: AreaKitchen
+        -29,43: AreaKitchen
+        -30,48: AreaKitchen
+        -30,47: AreaKitchen
+        -30,46: AreaKitchen
+        -30,45: AreaKitchen
+        -30,44: AreaKitchen
+        -30,43: AreaKitchen
+        -31,41: AreaKitchen
+        -31,42: AreaKitchen
+        -31,43: AreaKitchen
+        -31,44: AreaKitchen
+        -31,45: AreaKitchen
+        -31,46: AreaKitchen
+        -31,47: AreaKitchen
+        -31,48: AreaKitchen
+        -32,41: AreaKitchen
+        -32,42: AreaKitchen
+        -32,43: AreaKitchen
+        -32,44: AreaKitchen
+        -32,45: AreaKitchen
+        -32,46: AreaKitchen
+        -32,47: AreaKitchen
+        -32,48: AreaKitchen
+        -33,41: AreaKitchen
+        -33,42: AreaKitchen
+        -33,43: AreaKitchen
+        -33,44: AreaKitchen
+        -33,45: AreaKitchen
+        -33,46: AreaKitchen
+        -33,47: AreaKitchen
+        -33,48: AreaKitchen
+        -34,41: AreaKitchen
+        -34,42: AreaKitchen
+        -34,43: AreaKitchen
+        -34,44: AreaKitchen
+        -34,45: AreaKitchen
+        -34,46: AreaKitchen
+        -34,47: AreaKitchen
+        -35,44: AreaKitchen
+        -35,47: AreaKitchen
+        -35,45: AreaKitchen
+        -34,48: AreaKitchen
+        -35,41: AreaKitchen
+        -35,42: AreaKitchen
+        -35,43: AreaKitchen
+        -35,46: AreaKitchen
+        -35,48: AreaKitchen
+        -36,41: AreaKitchen
+        -36,43: AreaKitchen
+        -36,42: AreaKitchen
+        -36,44: AreaKitchen
+        -36,45: AreaKitchen
+        -36,46: AreaKitchen
+        -36,47: AreaKitchen
+        -36,48: AreaKitchen
+        -37,41: AreaKitchen
+        -37,42: AreaKitchen
+        -37,43: AreaKitchen
+        -37,44: AreaKitchen
+        -37,45: AreaKitchen
+        -37,46: AreaKitchen
+        -37,47: AreaKitchen
+        -37,48: AreaKitchen
+        -38,41: AreaKitchen
+        -38,42: AreaKitchen
+        -38,43: AreaKitchen
+        -38,44: AreaKitchen
+        -38,45: AreaKitchen
+        -38,46: AreaKitchen
+        -38,47: AreaKitchen
+        -38,48: AreaKitchen
+        -39,41: AreaKitchen
+        -39,42: AreaKitchen
+        -39,43: AreaKitchen
+        -39,44: AreaKitchen
+        -39,45: AreaKitchen
+        -39,46: AreaKitchen
+        -39,47: AreaKitchen
+        -39,48: AreaKitchen
+        -40,41: AreaKitchen
+        -40,42: AreaKitchen
+        -40,43: AreaKitchen
+        -40,44: AreaKitchen
+        -40,45: AreaKitchen
+        -40,46: AreaKitchen
+        -40,47: AreaKitchen
+        -40,48: AreaKitchen
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3
