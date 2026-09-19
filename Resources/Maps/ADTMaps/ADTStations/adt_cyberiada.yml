@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.2.1
   forkId: ""
   forkVersion: ""
-  time: 09/17/2026 21:02:32
-  entityCount: 32170
+  time: 09/18/2026 23:41:46
+  entityCount: 32180
 maps:
 - 1
 grids:
@@ -16571,6 +16571,10 @@ entities:
     components:
     - type: Transform
       parent: 92
+  - uid: 13615
+    components:
+    - type: Transform
+      parent: 38
   - uid: 21492
     components:
     - type: Transform
@@ -16584,6 +16588,18 @@ entities:
     - type: Transform
       parent: 74
   - uid: 21505
+    components:
+    - type: Transform
+      parent: 92
+  - uid: 27048
+    components:
+    - type: Transform
+      parent: 56
+  - uid: 32171
+    components:
+    - type: Transform
+      parent: 74
+  - uid: 32172
     components:
     - type: Transform
       parent: 92
@@ -17749,6 +17765,14 @@ entities:
     - type: Transform
       pos: -40.5,-43.5
       parent: 2
+- proto: ADTComputerXenobiologyControl
+  entities:
+  - uid: 32173
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 69.5,-43.5
+      parent: 2
 - proto: ADTDesktopWhite
   entities:
   - uid: 320
@@ -18847,6 +18871,18 @@ entities:
     - type: Transform
       pos: 37.45066,19.520025
       parent: 2
+- proto: ADTXenobiologyMonkeyRecycler
+  entities:
+  - uid: 32180
+    components:
+    - type: Transform
+      pos: 71.5,-43.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        32173:
+        - - XenobiologyRecyclerSender
+          - XenobiologyRecyclerReceiver
 - proto: AirAlarm
   entities:
   - uid: 492
@@ -22381,7 +22417,7 @@ entities:
       pos: -41.5,-61.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -94419.586
+      secondsUntilStateChange: -96516.22
       state: Opening
     - type: DeviceLinkSource
       linkedPorts:
@@ -22864,7 +22900,7 @@ entities:
       pos: 74.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -176305.27
+      secondsUntilStateChange: -178401.9
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23930,7 +23966,7 @@ entities:
       pos: 54.5,-66.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -180116.94
+      secondsUntilStateChange: -182213.58
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -90739,12 +90775,6 @@ entities:
     - type: Transform
       pos: 68.5,44.5
       parent: 2
-  - uid: 13615
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 69.5,-43.5
-      parent: 2
 - proto: ComputerRoboticsControl
   entities:
   - uid: 13616
@@ -106188,7 +106218,7 @@ entities:
       pos: -6.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1706.4603
+      secondsUntilStateChange: -3803.0947
       state: Closing
   - uid: 15957
     components:
@@ -150138,6 +150168,13 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+- proto: MonkeyCubeBox
+  entities:
+  - uid: 32176
+    components:
+    - type: Transform
+      pos: 73.79303,-45.21141
+      parent: 2
 - proto: MopBucket
   entities:
   - uid: 22131
@@ -169791,6 +169828,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 31.5,1.5
       parent: 2
+- proto: SlimeCubeBox
+  entities:
+  - uid: 32174
+    components:
+    - type: Transform
+      pos: 73.246155,-45.414536
+      parent: 2
 - proto: SlimeGrinder
   entities:
   - uid: 25339
@@ -171999,6 +172043,28 @@ entities:
     components:
     - type: Transform
       pos: 62.5,-6.5
+      parent: 2
+- proto: SpawnPointMedicalDoctor
+  entities:
+  - uid: 32175
+    components:
+    - type: Transform
+      pos: 43.5,-28.5
+      parent: 2
+  - uid: 32177
+    components:
+    - type: Transform
+      pos: 44.5,-28.5
+      parent: 2
+  - uid: 32178
+    components:
+    - type: Transform
+      pos: 45.5,-28.5
+      parent: 2
+  - uid: 32179
+    components:
+    - type: Transform
+      pos: 42.5,-28.5
       parent: 2
 - proto: SpawnPointMedicalIntern
   entities:
@@ -180189,11 +180255,6 @@ entities:
       parent: 2
 - proto: VariantCubeBox
   entities:
-  - uid: 27048
-    components:
-    - type: Transform
-      pos: 73.11142,-45.60692
-      parent: 2
   - uid: 27049
     components:
     - type: Transform

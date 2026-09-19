@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 277.2.1
-  forkId: SS14_DEV
-  forkVersion: 23d1819b95ed349faa248abefa54a35faab33ef0
-  time: 09/15/2026 19:56:41
-  entityCount: 24210
+  forkId: ""
+  forkVersion: ""
+  time: 09/19/2026 00:26:53
+  entityCount: 24212
 maps:
 - 1
 grids:
@@ -8441,6 +8441,73 @@ entities:
         -11,10: AreaKitchen
         -11,11: AreaKitchen
         -11,12: AreaKitchen
+        50,9: AreaXenobio
+        50,8: AreaXenobio
+        50,7: AreaXenobio
+        50,5: AreaXenobio
+        50,4: AreaXenobio
+        50,6: AreaXenobio
+        51,9: AreaXenobio
+        51,8: AreaXenobio
+        51,7: AreaXenobio
+        51,6: AreaXenobio
+        51,4: AreaXenobio
+        51,5: AreaXenobio
+        52,9: AreaXenobio
+        52,8: AreaXenobio
+        52,7: AreaXenobio
+        52,5: AreaXenobio
+        52,6: AreaXenobio
+        52,4: AreaXenobio
+        53,9: AreaXenobio
+        53,8: AreaXenobio
+        53,7: AreaXenobio
+        53,6: AreaXenobio
+        53,5: AreaXenobio
+        54,9: AreaXenobio
+        53,4: AreaXenobio
+        54,8: AreaXenobio
+        54,7: AreaXenobio
+        54,6: AreaXenobio
+        54,5: AreaXenobio
+        54,4: AreaXenobio
+        55,9: AreaXenobio
+        55,8: AreaXenobio
+        55,7: AreaXenobio
+        55,4: AreaXenobio
+        55,6: AreaXenobio
+        56,9: AreaXenobio
+        55,5: AreaXenobio
+        56,8: AreaXenobio
+        56,7: AreaXenobio
+        56,6: AreaXenobio
+        56,5: AreaXenobio
+        56,4: AreaXenobio
+        52,10: AreaXenobio
+        52,11: AreaXenobio
+        52,12: AreaXenobio
+        52,13: AreaXenobio
+        52,14: AreaXenobio
+        53,10: AreaXenobio
+        53,11: AreaXenobio
+        53,12: AreaXenobio
+        53,13: AreaXenobio
+        53,14: AreaXenobio
+        54,10: AreaXenobio
+        54,11: AreaXenobio
+        54,12: AreaXenobio
+        54,13: AreaXenobio
+        54,14: AreaXenobio
+        55,10: AreaXenobio
+        55,11: AreaXenobio
+        55,12: AreaXenobio
+        55,13: AreaXenobio
+        55,14: AreaXenobio
+        56,10: AreaXenobio
+        56,11: AreaXenobio
+        56,13: AreaXenobio
+        56,12: AreaXenobio
+        56,14: AreaXenobio
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3
@@ -9270,6 +9337,18 @@ entities:
     - type: Transform
       parent: 161
   - uid: 197
+    components:
+    - type: Transform
+      parent: 161
+  - uid: 19359
+    components:
+    - type: Transform
+      parent: 87
+  - uid: 24211
+    components:
+    - type: Transform
+      parent: 124
+  - uid: 24212
     components:
     - type: Transform
       parent: 161
@@ -10977,6 +11056,11 @@ entities:
     - type: Transform
       pos: 53.5,1.5
       parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        238:
+        - - XenobiologyRecyclerSender
+          - XenobiologyRecyclerReceiver
 - proto: AirAlarm
   entities:
   - uid: 465
@@ -14727,7 +14811,7 @@ entities:
       pos: -20.5,-5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -116016.59
+      secondsUntilStateChange: -116138.62
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -127112,13 +127196,6 @@ entities:
     components:
     - type: Transform
       pos: -17.5,23.5
-      parent: 2
-- proto: SpawnMobAdultSlimesYellow
-  entities:
-  - uid: 19359
-    components:
-    - type: Transform
-      pos: 56.5,4.5
       parent: 2
 - proto: SpawnMobAlexander
   entities:

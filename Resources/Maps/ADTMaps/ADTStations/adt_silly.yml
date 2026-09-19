@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 277.2.1
-  forkId: SS14_DEV
-  forkVersion: d36b3ceba9053ce060ab01fdcad91b04e72d46fb
-  time: 09/04/2026 08:53:45
-  entityCount: 10809
+  forkId: ""
+  forkVersion: ""
+  time: 09/19/2026 00:39:31
+  entityCount: 10660
 maps:
 - 1
 grids:
@@ -6870,6 +6870,94 @@ entities:
         7,-10: AreaKitchen
         7,-9: AreaKitchen
         7,-8: AreaKitchen
+        52,-23: AreaXenobio
+        52,-22: AreaXenobio
+        52,-21: AreaXenobio
+        52,-20: AreaXenobio
+        52,-19: AreaXenobio
+        52,-18: AreaXenobio
+        52,-17: AreaXenobio
+        52,-16: AreaXenobio
+        53,-23: AreaXenobio
+        53,-22: AreaXenobio
+        53,-21: AreaXenobio
+        53,-19: AreaXenobio
+        53,-18: AreaXenobio
+        53,-17: AreaXenobio
+        53,-16: AreaXenobio
+        53,-20: AreaXenobio
+        54,-23: AreaXenobio
+        54,-22: AreaXenobio
+        54,-21: AreaXenobio
+        54,-20: AreaXenobio
+        54,-19: AreaXenobio
+        54,-18: AreaXenobio
+        54,-17: AreaXenobio
+        54,-16: AreaXenobio
+        55,-23: AreaXenobio
+        55,-22: AreaXenobio
+        55,-21: AreaXenobio
+        55,-20: AreaXenobio
+        55,-19: AreaXenobio
+        55,-18: AreaXenobio
+        55,-17: AreaXenobio
+        55,-16: AreaXenobio
+        56,-23: AreaXenobio
+        56,-22: AreaXenobio
+        56,-21: AreaXenobio
+        56,-20: AreaXenobio
+        56,-18: AreaXenobio
+        56,-17: AreaXenobio
+        57,-22: AreaXenobio
+        57,-21: AreaXenobio
+        57,-20: AreaXenobio
+        57,-19: AreaXenobio
+        57,-18: AreaXenobio
+        57,-17: AreaXenobio
+        56,-16: AreaXenobio
+        56,-19: AreaXenobio
+        57,-23: AreaXenobio
+        57,-16: AreaXenobio
+        58,-23: AreaXenobio
+        58,-22: AreaXenobio
+        58,-20: AreaXenobio
+        58,-21: AreaXenobio
+        58,-19: AreaXenobio
+        58,-18: AreaXenobio
+        58,-17: AreaXenobio
+        59,-23: AreaXenobio
+        59,-22: AreaXenobio
+        58,-16: AreaXenobio
+        59,-21: AreaXenobio
+        59,-20: AreaXenobio
+        59,-19: AreaXenobio
+        59,-18: AreaXenobio
+        59,-17: AreaXenobio
+        59,-16: AreaXenobio
+        60,-23: AreaXenobio
+        60,-22: AreaXenobio
+        60,-20: AreaXenobio
+        60,-21: AreaXenobio
+        60,-18: AreaXenobio
+        60,-19: AreaXenobio
+        60,-17: AreaXenobio
+        60,-16: AreaXenobio
+        61,-23: AreaXenobio
+        61,-22: AreaXenobio
+        61,-21: AreaXenobio
+        61,-20: AreaXenobio
+        61,-19: AreaXenobio
+        61,-18: AreaXenobio
+        61,-17: AreaXenobio
+        61,-16: AreaXenobio
+        62,-23: AreaXenobio
+        62,-22: AreaXenobio
+        62,-21: AreaXenobio
+        62,-20: AreaXenobio
+        62,-19: AreaXenobio
+        62,-18: AreaXenobio
+        62,-17: AreaXenobio
+        62,-16: AreaXenobio
   - uid: 5
     components:
     - type: MetaData
@@ -12127,6 +12215,10 @@ entities:
     components:
     - type: Transform
       parent: 116
+  - uid: 7035
+    components:
+    - type: Transform
+      parent: 56
   - uid: 8941
     components:
     - type: Transform
@@ -12143,6 +12235,14 @@ entities:
     components:
     - type: Transform
       parent: 116
+  - uid: 10534
+    components:
+    - type: Transform
+      parent: 76
+  - uid: 10536
+    components:
+    - type: Transform
+      parent: 96
   - uid: 10641
     components:
     - type: Transform
@@ -12156,6 +12256,10 @@ entities:
     - type: Transform
       parent: 96
   - uid: 10644
+    components:
+    - type: Transform
+      parent: 116
+  - uid: 10655
     components:
     - type: Transform
       parent: 116
@@ -12447,6 +12551,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 22.5,28.5
+      parent: 2
+- proto: ADTComputerXenobiologyControl
+  entities:
+  - uid: 10656
+    components:
+    - type: Transform
+      pos: 61.5,-15.5
       parent: 2
 - proto: ADTDefaultStationBeaconBathhouse
   entities:
@@ -13485,6 +13596,11 @@ entities:
     - type: Transform
       pos: 60.5,-15.5
       parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        10656:
+        - - XenobiologyRecyclerSender
+          - XenobiologyRecyclerReceiver
 - proto: AirAlarm
   entities:
   - uid: 247
@@ -16481,6 +16597,11 @@ entities:
     - type: Transform
       pos: 6.050635,9.583076
       parent: 2
+  - uid: 10658
+    components:
+    - type: Transform
+      pos: 53.870598,-15.52101
+      parent: 2
 - proto: BoxBodyBag
   entities:
   - uid: 527
@@ -16592,6 +16713,13 @@ entities:
     components:
     - type: Transform
       pos: -20.5,1.5
+      parent: 2
+- proto: BoxSyringe
+  entities:
+  - uid: 10657
+    components:
+    - type: Transform
+      pos: 54.120598,-15.33351
       parent: 2
 - proto: BoxTrashbag
   entities:
@@ -31264,19 +31392,6 @@ entities:
       - Experimental
       - Arsenal
       - CivilianServices
-  - uid: 10536
-    components:
-    - type: Transform
-      pos: 61.5,-15.5
-      parent: 2
-    - type: TechnologyDatabase
-      supportedDisciplines:
-      - Industrial
-      - Biochemical
-      - Mech
-      - Experimental
-      - Arsenal
-      - CivilianServices
 - proto: ComputerRoboticsControl
   entities:
   - uid: 2623
@@ -34728,6 +34843,13 @@ entities:
     components:
     - type: Transform
       pos: 3.7815993,21.519258
+      parent: 2
+- proto: Dropper
+  entities:
+  - uid: 10659
+    components:
+    - type: Transform
+      pos: 53.354973,-15.55226
       parent: 2
 - proto: ElectricGuitarInstrument
   entities:
@@ -58273,11 +58395,6 @@ entities:
     - type: Transform
       pos: 53.188297,-15.299741
       parent: 2
-  - uid: 10534
-    components:
-    - type: Transform
-      pos: 53.297672,-15.409116
-      parent: 2
 - proto: SlimeGrinder
   entities:
   - uid: 10526
@@ -58349,7 +58466,7 @@ entities:
       pos: -26.5,-4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4116.254
+      secondsUntilStateChange: -4273.08
       state: Opening
   - uid: 5464
     components:

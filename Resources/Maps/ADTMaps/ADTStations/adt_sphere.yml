@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.2.1
   forkId: ""
   forkVersion: ""
-  time: 09/18/2026 00:27:43
-  entityCount: 6719
+  time: 09/19/2026 00:43:18
+  entityCount: 6721
 maps:
 - 1
 grids:
@@ -4328,6 +4328,77 @@ entities:
         4,-43: AreaXenobio
         4,-41: AreaXenobio
         4,-42: AreaXenobio
+        7,-15: AreaKitchen
+        7,-16: AreaKitchen
+        7,-17: AreaKitchen
+        7,-18: AreaKitchen
+        7,-19: AreaKitchen
+        7,-20: AreaKitchen
+        7,-21: AreaKitchen
+        8,-15: AreaKitchen
+        8,-16: AreaKitchen
+        8,-17: AreaKitchen
+        8,-18: AreaKitchen
+        8,-19: AreaKitchen
+        8,-20: AreaKitchen
+        8,-21: AreaKitchen
+        9,-15: AreaKitchen
+        9,-16: AreaKitchen
+        9,-17: AreaKitchen
+        9,-18: AreaKitchen
+        9,-19: AreaKitchen
+        10,-16: AreaKitchen
+        9,-21: AreaKitchen
+        10,-17: AreaKitchen
+        10,-18: AreaKitchen
+        10,-15: AreaKitchen
+        9,-20: AreaKitchen
+        10,-21: AreaKitchen
+        11,-15: AreaKitchen
+        10,-19: AreaKitchen
+        11,-17: AreaKitchen
+        11,-18: AreaKitchen
+        10,-20: AreaKitchen
+        11,-19: AreaKitchen
+        11,-20: AreaKitchen
+        11,-21: AreaKitchen
+        12,-15: AreaKitchen
+        12,-16: AreaKitchen
+        12,-17: AreaKitchen
+        12,-18: AreaKitchen
+        12,-19: AreaKitchen
+        12,-20: AreaKitchen
+        12,-21: AreaKitchen
+        11,-16: AreaKitchen
+        7,-22: AreaKitchen
+        7,-23: AreaKitchen
+        7,-24: AreaKitchen
+        7,-25: AreaKitchen
+        8,-22: AreaKitchen
+        8,-23: AreaKitchen
+        8,-24: AreaKitchen
+        8,-25: AreaKitchen
+        9,-22: AreaKitchen
+        9,-24: AreaKitchen
+        9,-25: AreaKitchen
+        10,-22: AreaKitchen
+        10,-23: AreaKitchen
+        10,-24: AreaKitchen
+        10,-25: AreaKitchen
+        11,-22: AreaKitchen
+        11,-23: AreaKitchen
+        11,-24: AreaKitchen
+        11,-25: AreaKitchen
+        9,-23: AreaKitchen
+        12,-23: AreaKitchen
+        12,-22: AreaKitchen
+        12,-24: AreaKitchen
+        12,-25: AreaKitchen
+        11,-26: AreaKitchen
+        10,-26: AreaKitchen
+        9,-26: AreaKitchen
+        8,-26: AreaKitchen
+        7,-26: AreaKitchen
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3
@@ -6451,7 +6522,7 @@ entities:
       pos: -6.5,-11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -45118.605
+      secondsUntilStateChange: -45267.434
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -34765,6 +34836,23 @@ entities:
     - type: Transform
       pos: -12.5,4.5
       parent: 2
+- proto: MonkeyCubeWrapped
+  entities:
+  - uid: 5172
+    components:
+    - type: Transform
+      pos: 2.298542,-37.63039
+      parent: 2
+  - uid: 6720
+    components:
+    - type: Transform
+      pos: 2.501667,-37.771015
+      parent: 2
+  - uid: 6721
+    components:
+    - type: Transform
+      pos: 2.642292,-37.646015
+      parent: 2
 - proto: Morgue
   entities:
   - uid: 4717
@@ -37685,11 +37773,6 @@ entities:
     components:
     - type: Transform
       pos: 3.399619,-37.416542
-      parent: 2
-  - uid: 5172
-    components:
-    - type: Transform
-      pos: 3.493369,-37.406124
       parent: 2
 - proto: SlimeGrinder
   entities:
