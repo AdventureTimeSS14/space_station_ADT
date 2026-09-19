@@ -1,0 +1,54 @@
+- files: ["creep.ogg"]
+  license: "Custom"
+  copyright: "Radiohead - Creep, from Pablo Honey (Parlophone/Capitol Records). Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=XFkzRNyygfk"
+
+- files: ["no_surprises.ogg"]
+  license: "Custom"
+  copyright: "Radiohead - No Surprises, from OK Computer (Parlophone/Capitol Records). Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=CSb0qASbAiY"
+
+- files: ["ochen_ochen.ogg"]
+  license: "Custom"
+  copyright: "hehehe - Очень-очень."
+  source: "https://www.youtube.com/watch?v=AmH4aQzkBOM&list=RDAmH4aQzkBOM&start_radio=1"
+
+- files: ["medveditsa.ogg"]
+  license: "Custom"
+  copyright: "Мумий Тролль - Медведица."
+  source: "https://www.youtube.com/watch?v=3uDFkM8FH_E&list=RD3uDFkM8FH_E&start_radio=1"
+
+- files: ["kak_ya_spasal_solntse.ogg"]
+  license: "Custom"
+  copyright: "ssshhhiiitt!!! - Как я спасал солнце."
+  source: "https://www.youtube.com/watch?v=HeHQl5_co8g&list=RDHeHQl5_co8g&start_radio=1"
+
+- files: ["tantsuy.ogg"]
+  license: "Custom"
+  copyright: "Сплин - Танцуй!"
+  source: "https://www.youtube.com/watch?v=opoB9J2Jv-Y&list=RDopoB9J2Jv-Y&start_radio=1"
+
+- files: ["smysla_bylo_by_bolshe.ogg"]
+  license: "Custom"
+  copyright: "Дегид - Смысла было бы больше."
+  source: "https://vk.ru/audio-2001956374_121956374"
+
+- files: ["attraktsion.ogg"]
+  license: "Custom"
+  copyright: "Дегид - Аттракцион."
+  source: "https://www.youtube.com/watch?v=VrH3bHaNN-k&list=RDVrH3bHaNN-k&start_radio=1"
+
+- files: ["serf.ogg"]
+  license: "Custom"
+  copyright: "Дегид - Сёрф."
+  source: "https://www.youtube.com/watch?v=fb12I1nHWD4&list=RDfb12I1nHWD4&start_radio=1"
+
+- files: ["plastinki.ogg"]
+  license: "Custom"
+  copyright: "Дурной Вкус - Пластинки."
+  source: "https://www.youtube.com/watch?v=ccMHSE3VEqg&list=RDccMHSE3VEqg&start_radio=1"
+
+- files: ["drug.ogg"]
+  license: "Custom"
+  copyright: "Дайте Танк (!) - Друг."
+  source: "https://www.youtube.com/watch?v=ECu9wgCSMEA&list=RDECu9wgCSMEA&start_radio=1"

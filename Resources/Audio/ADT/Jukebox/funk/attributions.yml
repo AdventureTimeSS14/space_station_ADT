@@ -1,0 +1,54 @@
+- files: ["get_lucky.ogg"]
+  license: "Custom"
+  copyright: "Daft Punk - Get Lucky, from Random Access Memories (Columbia Records). Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=5NV6Rdv1a3I"
+
+- files: ["around_the_world.ogg"]
+  license: "Custom"
+  copyright: "Daft Punk - Around the World, from Homework (Virgin Records). Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=CdXesX6mYUE"
+
+- files: ["harder_better_faster_stronger.ogg"]
+  license: "Custom"
+  copyright: "Daft Punk - Harder, Better, Faster, Stronger, from Discovery (Virgin Records). Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=gAjR4_CbPpQ"
+
+- files: ["one_more_time.ogg"]
+  license: "Custom"
+  copyright: "Daft Punk - One More Time, from Discovery (Virgin Records). Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=FGBhQbmPwH8"
+
+- files: ["digital_love.ogg"]
+  license: "Custom"
+  copyright: "Daft Punk - Digital Love, from Discovery (Virgin Records). Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=Wko3Rp_XI-U"
+
+- files: ["short_circuit.ogg"]
+  license: "Custom"
+  copyright: "Daft Punk - Short Circuit, from Human After All (Virgin Records). Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=1-yzqgwTVi8&list=RD1-yzqgwTVi8&start_radio=1"
+
+- files: ["something_about_us.ogg"]
+  license: "Custom"
+  copyright: "Daft Punk - Something About Us, from Discovery (Virgin Records). Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=0lap6U0hzeI"
+
+- files: ["kangaroo_court.ogg"]
+  license: "Custom"
+  copyright: "Capital Cities - Kangaroo Court, from In a Tidal Wave of Mystery (Capitol Records). Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=I0Fp0Elyimw"
+
+- files: ["go.ogg"]
+  license: "Custom"
+  copyright: "The Chemical Brothers - Go, from Born in the Echoes (Virgin EMI Records). Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=E5eu1TDDe4I"
+
+- files: ["505.ogg"]
+  license: "Custom"
+  copyright: "Arctic Monkeys - 505, from Favourite Worst Nightmare (Domino Recording). Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=5qm8PH4xAss"
+
+- files: ["letter_in_a_suitcase.ogg"]
+  license: "Custom"
+  copyright: "Anarbor - Letter in a Suitcase, from Free Your Mind (Hopeless Records). Used for non-commercial fan project purposes."
+  source: "https://www.youtube.com/watch?v=bHYxpQo4zt8&list=RDbHYxpQo4zt8&start_radio=1"
