@@ -382,11 +382,16 @@
           - ClothMade
           - Paper
           - Pill
-          # ADT-Tweak start: моли могут есть фрукты, овощи, и вайтлистнутую еду
+          # ADT-Tweak start: моли едят любую еду, кроме мяса и снеков
           - Fruit
           - Vegetable
           - ADTMothFriendlyFood
-          # ADT-Tweak end
+      isSpecialDigestibleExclusive: false
+      specialDigestibleBlacklist:
+        tags:
+          - Meat
+          - FoodSnack
+      # ADT-Tweak end
 
 - type: entity
   parent: [OrganBaseLiver, OrganMothInternal, OrganAnimalMetabolizer] # ADT-tweak removed OrganSpriteHumanInternal

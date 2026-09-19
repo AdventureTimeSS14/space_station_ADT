@@ -508,6 +508,17 @@
       amount: 2
 
 - type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingCentcomOfficerHat
+  name: centcom officer's cap
+  description: A special NanoTrasen cap for high-ranked officers with gold engraving. It has made it through more than one blitzkrieg.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/centcomofficer.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/centcomofficer.rsi
+
+- type: entity
   parent: ClothingHeadHatChef
   id: ADTClothingHeadHatChefRed
   name: red chef's hat

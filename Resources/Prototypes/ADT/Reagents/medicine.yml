@@ -435,6 +435,7 @@
   physicalDesc: reagent-physical-desc-powdery
   worksOnTheDead: true
   splashBlocked: true
+  vaporBlocked: true
   reactiveEffects:
     Acidic:
       methods: [ Touch ]
@@ -443,7 +444,7 @@
         amount: -3
       - !type:EvenHealthChange
         damage:
-          Brute: -0.825
+          Brute: -1.5
   metabolisms:
     Bloodstream:
       metabolismRate : 0.3
@@ -464,13 +465,14 @@
   physicalDesc: reagent-physical-desc-powdery
   worksOnTheDead: true
   splashBlocked: true
+  vaporBlocked: true
   reactiveEffects:
     Acidic:
       methods: [ Touch ]
       effects:
       - !type:EvenHealthChange
         damage:
-          Burn: -0.825
+          Burn: -1.5
   metabolisms:
     Bloodstream:
       metabolismRate : 0.3
@@ -744,3 +746,45 @@
             max: 150.0
           - !type:MobStateCondition
             mobstate: Dead
+
+- type: reagent
+  id: ADTLavalandExtract
+  name: reagent-name-lavaland-extract
+  group: Medicine
+  desc: reagent-desc-lavaland-extract
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: medicine
+  color: "#5a2323"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:EvenHealthChange
+        damage:
+          Brute: -5
+          Burn: -5
+      # Передозировка с 3 единиц
+      - !type:EvenHealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTLavalandExtract
+          min: 3
+        damage:
+          Brute: 3
+          Burn: 3
+          Toxin: 3
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTLavalandExtract
+          min: 3
+        effectProto: StatusEffectDrunk
+        time: 2
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTLavalandExtract
+          min: 3
+        type: Local
+        visualType: MediumCaution
+        messages: [ "lavaland-extract-overdose" ]
+        probability: 0.2
