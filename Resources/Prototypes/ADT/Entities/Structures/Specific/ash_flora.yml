@@ -562,3 +562,110 @@
     prototype: ADTAshFloraFireblossom4
     minTime: 420
     maxTime: 960
+
+
+- type: entity
+  abstract: true
+  parent: ADTBaseAshFlora
+  id: ADTAshFloraCoalTree
+  name: coaltree
+  description: A small gloomy tree growing on the wastes of an equally gloomy planet.
+  components:
+  - type: ADTAshFlora
+    product: ADTFoodCoaltreeLog
+    minAmount: 2
+    maxAmount: 5
+    harvestTime: 4
+    toolWhitelist:
+      components:
+      - Sharp
+    popupLow: adt-ash-flora-coaltree-low
+    popupMedium: adt-ash-flora-coaltree-medium
+    popupHigh: adt-ash-flora-coaltree-high
+
+- type: entity
+  parent: ADTAshFloraCoalTree
+  id: ADTAshFloraCoalTree1
+  components:
+  - type: Sprite
+    state: coaltree1
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraCoalTreeHarvested1
+
+- type: entity
+  parent: ADTAshFloraCoalTree
+  id: ADTAshFloraCoalTree2
+  components:
+  - type: Sprite
+    state: coaltree2
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraCoalTreeHarvested2
+
+- type: entity
+  parent: ADTAshFloraCoalTree
+  id: ADTAshFloraCoalTree3
+  components:
+  - type: Sprite
+    state: coaltree3
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraCoalTreeHarvested3
+
+- type: entity
+  parent: ADTAshFloraCoalTree
+  id: ADTAshFloraCoalTree4
+  components:
+  - type: Sprite
+    state: coaltree4
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraCoalTreeHarvested4
+
+- type: entity
+  abstract: true
+  parent: ADTBaseAshFlora
+  id: ADTAshFloraCoalTreeHarvested
+  name: coaltree stump
+  description: A bare tree trunk left without its ugly crown.
+
+- type: entity
+  parent: ADTAshFloraCoalTreeHarvested
+  id: ADTAshFloraCoalTreeHarvested1
+  components:
+  - type: Sprite
+    state: coaltree1p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraCoalTree1
+    minTime: 400
+    maxTime: 700
+
+- type: entity
+  parent: ADTAshFloraCoalTreeHarvested
+  id: ADTAshFloraCoalTreeHarvested2
+  components:
+  - type: Sprite
+    state: coaltree2p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraCoalTree2
+    minTime: 400
+    maxTime: 700
+
+- type: entity
+  parent: ADTAshFloraCoalTreeHarvested
+  id: ADTAshFloraCoalTreeHarvested3
+  components:
+  - type: Sprite
+    state: coaltree3p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraCoalTree3
+    minTime: 400
+    maxTime: 700
+
+- type: entity
+  parent: ADTAshFloraCoalTreeHarvested
+  id: ADTAshFloraCoalTreeHarvested4
+  components:
+  - type: Sprite
+    state: coaltree4p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraCoalTree4
+    minTime: 400
+    maxTime: 700
