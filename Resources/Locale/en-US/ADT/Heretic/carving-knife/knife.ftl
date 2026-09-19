@@ -11,7 +11,7 @@ carving-knife-comp-runes-deleted = Destroyed all carvings!
 
 alert-carving-trigger-message =
     "{$victim}" has stepped foot on the alert rune near "{$location}"!
-    {" "}[button label="Teleport" timer={$timer} id="{$id}" uid={$uid} coords ="{$coords}"]
+    {" "}[button label="Teleport" timer={$timer} id="{$id}" uid={$uid} coords="{$coords}"]
     {" "}
 alert-carving-trigger-message-coords = {$uid}, {$x}, {$y}
 

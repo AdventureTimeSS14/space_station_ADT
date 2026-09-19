@@ -604,6 +604,50 @@
   output:
     CartridgeLionhunter: 2
 
+- type: hereticRitual
+  id: RitualMawedCrucible
+  locName: knowledge-path-side-t2-crucible-name
+  locDesc: knowledge-path-side-t2-crucible-desc
+  icon:
+    sprite: ADT/Heretic/items.rsi
+    state: crucible
+  requiredTags:
+    WaterTank: 1
+    Table: 1
+  output:
+    MawedCrucible: 1
+
+### ADT: Rust Sower Grenade
+- type: hereticRitual
+  id: RitualRustSowerGrenade
+  locName: knowledge-path-side-t2-rustgrenade-name
+  locDesc: knowledge-path-side-t2-rustgrenade-desc
+  icon:
+    sprite: ADT/Heretic/Entities/rustgrenade.rsi
+    state: icon
+  requiredTags:
+    HandGrenade: 1
+    Rag: 1
+    Trash: 2
+  output:
+    RustSowerGrenade: 1
+
+### ADT: Phylactery of Damnation
+- type: hereticRitual
+  id: RitualPhylacteryOfDamnation
+  locName: knowledge-path-ritual-phylactery-name
+  locDesc: knowledge-path-ritual-phylactery-desc
+  icon:
+    sprite: ADT/Heretic/Entities/phylactery.rsi
+    state: icon
+  customBehaviors:
+  - !type:RitualReagentPuddleBehavior
+    reagent: Blood
+  requiredTags:
+    GlassBeaker: 1
+  output:
+    HereticPhylactery: 1
+
 ### lock path
 - type: hereticRitual
   id: RitualBladeLock
@@ -703,3 +747,33 @@
     SheetGlass: 5
   output:
     MobGhoulMirrorMaid: 1
+
+### ADT: Codex Morbus
+- type: hereticRitual
+  id: RitualCodexMorbus
+  locName: knowledge-path-side-t2-morbus-name
+  locDesc: knowledge-path-side-t2-morbus-desc
+  icon:
+    sprite: ADT/Heretic/book_morbus.rsi
+    state: icon
+  customBehaviors:
+  - !type:RitualSacrificeBehavior
+    onlyTargets: true
+  requiredTags:
+    CodexCicatrix: 1
+  output:
+    CodexMorbus: 1
+
+### ADT: Greaves of the Prophet
+- type: hereticRitual
+  id: RitualGreavesOfTheProphet
+  locName: knowledge-path-side-t2-greaves-name
+  locDesc: knowledge-path-side-t2-greaves-desc
+  icon:
+    sprite: ADT/Heretic/Clothing/Shoes/greaves.rsi
+    state: icon
+  requiredTags:
+    SilverBar: 2
+    HeavyBoots: 1
+  output:
+    ClothingShoesGreavesHeretic: 1

@@ -63,6 +63,8 @@ mawed-crucible-examine-not-full =
 mawed-crucible-full-message = crucible full!
 mawed-crucible-not-enough-fuel-message = not enough fuel!
 mawed-crucible-flask-full-message = flask is full!
+mawed-crucible-ui-title = Mawed Crucible
+mawed-crucible-ui-prompt = Choose a potion to brew:
 
 mirror-maid-examine-message-user = {$ent} seems to fade in and out slightly.
 mirror-maid-examine-message-maid = {$user}'s gaze pierces your every being!
@@ -77,3 +79,7 @@ lionhunter-rifle-examine-message =
     Only special hunter's ammunition has this effect.
 
 lionhunter-rifle-aim-message = taking aim...
+
+phylactery-draw = You draw {$amount} units of blood into the phylactery.
+phylactery-no-blood = The target has no blood to draw!
+phylactery-full = The phylactery is full!

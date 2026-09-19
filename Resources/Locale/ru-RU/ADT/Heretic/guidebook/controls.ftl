@@ -23,6 +23,7 @@ heretic-guide-blade-bonus-flesh = На седьмой ступени клино�
 heretic-guide-blade-bonus-void = На седьмой ступени клинок [color=#88c0d0]замораживает[/color] врагов. По помеченной цели можно активировать клинок в руке и телепортироваться прямо к ней, не сломав его.
 heretic-guide-blade-bonus-rust = На седьмой ступени клинок добавляет [color=#a3844e]ядовитый урон[/color]. По помеченной жертве он вдобавок ломает то, что она держит в руках.
 heretic-guide-blade-bonus-cosmos = На седьмой ступени клинок метит жертв звёздным знаком и достаёт помеченных [color=#b48ead]на расстоянии[/color]. Удары по разным целям складываются в комбо и добивают предыдущих жертв.
+heretic-guide-blade-bonus-lock = На седьмой ступени клинок бьёт сильнее: +5 режущего и +5 структурного урона.
 
 heretic-guide-behavior-Sacrifice = на руне должна лежать цель из вашего списка, в крите или мертвая
 heretic-guide-behavior-AscensionAsh = на руне три трупа, которые горят прямо в момент ритуала
@@ -36,7 +37,9 @@ heretic-guide-behavior-BladeVoid = вокруг руны мороз ниже н�
 heretic-guide-behavior-ImperfectRitual = на руне должен лежать труп
 heretic-guide-behavior-RawRitual = под руной должна быть лужа крови
 heretic-guide-behavior-LonelyRitual = под руной должна быть лужа крови
-heretic-guide-behavior-RustedRitual = под руной должна быть лужа крови
+heretic-guide-behavior-RustedRitual = под руной должна быть лужа блевоты
+heretic-guide-behavior-RitualPhylacteryOfDamnation = под руной должна быть лужа крови
+heretic-guide-behavior-RitualEtherOfTheNewborn = под руной должна быть лужа блевоты
 heretic-guide-behavior-RitualOfKnowledge = четыре случайных предмета, список выдаёт само знание и меняется после каждого ритуала
 heretic-guide-behavior-Reminiscence = у вас должен быть потерянный клинок, иначе возвращать нечего
 heretic-guide-behavior-FeastOfOwls = вы навсегда отказываетесь от вознесения, отменить нельзя
@@ -85,9 +88,14 @@ heretic-guide-tag-CodexCicatrix = кодекс цикатрикс
 heretic-guide-tag-Rag = тряпка
 heretic-guide-tag-ADTLighter = зажигалка
 heretic-guide-tag-Flashlight = фонарик
+heretic-guide-tag-ADTPDA = КПК
 
 heretic-guide-tag-Crowbar = Монтировка
 heretic-guide-tag-Wirecutter = Кусачки
 heretic-guide-tag-Screwdriver = Отвёртка
 heretic-guide-tag-Crayon = Мелок
 heretic-guide-tag-Multitool = Мультитул
+heretic-guide-tag-UtilityBelt = любой пояс
+heretic-guide-tag-CartridgeRifle = патрон 6.5 мм
+heretic-guide-tag-GlassBeaker = мензурка
+heretic-guide-tag-HandGrenade = граната

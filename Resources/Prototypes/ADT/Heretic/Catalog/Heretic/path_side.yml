@@ -237,6 +237,59 @@
     whitelist:
     - Rust
 
+# ADT: crucible
+- type: listing
+  id: HereticSideT2Crucible
+  name: knowledge-path-side-t2-crucible-name
+  description: knowledge-path-side-t2-crucible-desc
+  icon: { sprite: ADT/Heretic/items.rsi, state: crucible }
+  productHereticKnowledge: MawedCrucible
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
+
+# ADT: rust sower grenade
+- type: listing
+  id: HereticSideT2RustGrenade
+  name: knowledge-path-side-t2-rustgrenade-name
+  description: knowledge-path-side-t2-rustgrenade-desc
+  icon: { sprite: ADT/Heretic/Entities/rustgrenade.rsi, state: icon }
+  productHereticKnowledge: RustSowerGrenade
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
+    whitelist:
+    - Rust
+
+# ADT: phylactery
+- type: listing
+  id: HereticSidePath3Phylactery
+  name: knowledge-path-ritual-phylactery-name
+  description: knowledge-path-ritual-phylactery-desc
+  icon: { sprite: ADT/Heretic/Entities/phylactery.rsi, state: icon }
+  productHereticKnowledge: PhylacteryOfDamnation
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+
 # ADT: side listings from Goob
 - type: listing
   id: HereticSidePath3VoidCloak
@@ -397,3 +450,37 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 3
+
+# ADT: Codex Morbus
+- type: listing
+  id: HereticSideT2Morbus
+  name: knowledge-path-side-t2-morbus-name
+  description: knowledge-path-side-t2-morbus-desc
+  icon: { sprite: ADT/Heretic/book_morbus.rsi, state: icon }
+  productHereticKnowledge: CodexMorbus
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
+
+# ADT: Greaves of the Prophet
+- type: listing
+  id: HereticSideT2Greaves
+  name: knowledge-path-side-t2-greaves-name
+  description: knowledge-path-side-t2-greaves-desc
+  icon: { sprite: ADT/Heretic/Clothing/Shoes/greaves.rsi, state: icon }
+  productHereticKnowledge: GreavesOfTheProphet
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4

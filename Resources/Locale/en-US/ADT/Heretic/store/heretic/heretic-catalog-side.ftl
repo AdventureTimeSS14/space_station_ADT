@@ -107,7 +107,7 @@ knowledge-path-side-s6-rifle-ammo-name = Lionhunter's Rifle Ammunition
 knowledge-path-side-s6-rifle-ammo-desc =
     Heavy hunter's cartridges, tuned for the Lionhunter's Rifle.
 
-    Allows you to transmute 3 rifle cartridges into 2 hunter's cartridges.
+    Allows you to transmute 3x 6.5mm rifle cartridges into 2 hunter's cartridges.
 
 # stage 8
 knowledge-path-side-s8-cleave-name = Blood Cleave
@@ -138,6 +138,29 @@ knowledge-path-side-t1-curio-desc =
     a belt with a lot of storage space that also functions as a focus. Whilst worn it will veil you,
     blocking one blow of incoming damage, at the cost of the veil. The veil recharges itself out of combat.
 
+knowledge-path-side-t2-crucible-name = Mawed Crucible
+knowledge-path-side-t2-crucible-desc =
+    This is pure agony. I wasn't able to summon the figure of the Aristocrat,
+    but with the Priest's attention I stumbled upon a different recipe...
+
+    Allows you to transmute a portable water tank and a table to create a Mawed Crucible.
+    The Mawed Crucible can brew powerful potions for combat and utility, but must be fed bodyparts and organs between uses.
+
+knowledge-path-side-t2-rustgrenade-name = Rust Sower Grenade
+knowledge-path-side-t2-rustgrenade-desc =
+    The Rusted Hills whispered of a device to spread their corruption far and wide.
+    The Marshal's gift came in the form of a simple grenade, reimagined.
+
+    Allows you to transmute a grenade casing, a rag, and 2 trash items into a Rust Sower Grenade.
+    When triggered, it releases a cloud of Eldritch Rust that corrodes everything in its path.
+
+knowledge-path-ritual-phylactery-name = Phylactery of Damnation
+knowledge-path-ritual-phylactery-desc =
+    The blood of the innocent calls to me. I have found a way to capture it, to hold it close.
+
+    Allows you to transmute a glass beaker and a pool of blood into a Phylactery of Damnation.
+    The Phylactery can instantly draw blood from nearby victims, even at great distances.
+
 knowledge-path-side-t4-maid-name = Maid in the Mirror
 knowledge-path-side-t4-maid-desc =
     Within each reflection lies a gateway. The ascent is glass, and the walls are knives.
@@ -145,3 +168,19 @@ knowledge-path-side-t4-maid-desc =
     Allows you to transmute five sheets of glass to create a Maid in the Mirror.
     Maids are decent combatants: those who meet their gaze bleed and gain a star mark.
     You can only create four at a time.
+
+# ADT: Codex Morbus
+knowledge-path-side-t2-morbus-name = Codex Morbus
+knowledge-path-side-t2-morbus-desc =
+    The Codex Cicatrix whispers of a greater tome, one bound in suffering and written in blood.
+
+    Allows you to transmute a Codex Cicatrix and sacrifice a humanoid on your rune to create a Codex Morbus.
+    The Codex Morbus functions as a faster rune scriber and drains influence to restore your vitality.
+
+# ADT: Greaves of the Prophet
+knowledge-path-side-t2-greaves-name = Greaves of the Prophet
+knowledge-path-side-t2-greaves-desc =
+    Iron shoes for iron steps. The Prophet walked through fire and emerged unchanged.
+
+    Allows you to transmute 2 silver bars and a pair of combat boots or magboots to create Greaves of the Prophet.
+    Greaves provide excellent armor, protect against slipping, and reduce slowdown from damage.

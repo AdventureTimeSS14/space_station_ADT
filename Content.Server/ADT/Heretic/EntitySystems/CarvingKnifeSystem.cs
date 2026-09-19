@@ -2,6 +2,7 @@
 
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
+using System.Globalization;
 using System.Linq;
 using Content.Shared.ADT.Heretic;
 using Content.Server.Chat.Managers;
@@ -149,10 +150,13 @@ public sealed class CarvingKnifeSystem : EntitySystem
 
         var netUser = GetNetEntity(ent.Comp.User.Value);
         var coords = GetNetCoordinates(Transform(ent).Coordinates);
+        // ADT: format floats invariantly with round-trip precision, so the client
+        // can parse them back bit-exactly for the Locations dictionary lookup.
+        // (Fluent would otherwise localize the decimal separator and trim precision.)
         var coordsLoc = Loc.GetString("alert-carving-trigger-message-coords",
             ("uid", coords.NetEntity.Id),
-            ("x", coords.X),
-            ("y", coords.Y));
+            ("x", coords.X.ToString("R", CultureInfo.InvariantCulture)),
+            ("y", coords.Y.ToString("R", CultureInfo.InvariantCulture)));
 
         var location = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(ent.Owner));
         var message = Loc.GetString("alert-carving-trigger-message",

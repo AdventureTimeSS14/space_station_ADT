@@ -340,3 +340,38 @@
     sprite: Objects/Tools/multitool.rsi
     state: icon
   name: heretic-guide-tag-Multitool
+
+- type: hereticRitualItem
+  id: GlassBeaker
+  icon:
+    sprite: Objects/Specific/Chemistry/beaker.rsi
+    state: beaker
+  name: heretic-guide-tag-GlassBeaker
+
+- type: hereticRitualItem
+  id: ADTPDA
+  icon:
+    sprite: Objects/Devices/pda.rsi
+    state: pda
+  name: heretic-guide-tag-ADTPDA
+
+- type: hereticRitualItem
+  id: CartridgeRifle
+  icon:
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    state: base
+  name: heretic-guide-tag-CartridgeRifle
+
+- type: hereticRitualItem
+  id: UtilityBelt
+  icon:
+    sprite: Clothing/Belt/utility.rsi
+    state: icon
+  name: heretic-guide-tag-UtilityBelt
+
+- type: hereticRitualItem
+  id: HandGrenade
+  icon:
+    sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi
+    state: icon
+  name: heretic-guide-tag-HandGrenade

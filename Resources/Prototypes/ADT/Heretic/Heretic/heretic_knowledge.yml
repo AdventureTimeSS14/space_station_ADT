@@ -739,6 +739,27 @@
   - RitualLionhunterRifleAmmunition
 
 - type: hereticKnowledge
+  id: MawedCrucible
+  sideKnowledge: true
+  stage: 4
+  ritualPrototypes:
+  - RitualMawedCrucible
+
+- type: hereticKnowledge
+  id: RustSowerGrenade
+  sideKnowledge: true
+  stage: 4
+  ritualPrototypes:
+  - RitualRustSowerGrenade
+
+- type: hereticKnowledge
+  id: PhylacteryOfDamnation
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - RitualPhylacteryOfDamnation
+
+- type: hereticKnowledge
   id: MysteriesOfCreation
   sideKnowledge: true
   stage: 6
@@ -843,3 +864,19 @@
     - type: SpecialPressureImmunity
   actionPrototypes:
   - ActionHereticShapeshiftLock
+
+### ADT: Codex Morbus (side)
+- type: hereticKnowledge
+  id: CodexMorbus
+  sideKnowledge: true
+  stage: 5
+  ritualPrototypes:
+  - RitualCodexMorbus
+
+### ADT: Greaves of the Prophet (side)
+- type: hereticKnowledge
+  id: GreavesOfTheProphet
+  sideKnowledge: true
+  stage: 5
+  ritualPrototypes:
+  - RitualGreavesOfTheProphet

@@ -39,12 +39,13 @@
   - type: Tag # Drawing runes checks for tag component so this has to be here
     tags:
     - CodexCicatrix
+    - AnchorHereticStructure
 
 - type: entity
   parent: [ DrinkBase, BaseMagicContraband ]
   id: HereticEldritchFlask
   name: eldritch flask
-  description: Колба, наполненная неизвестным веществом. Кто знает, что произойдет, когда вы сделаете из нее глоток.
+  description: A flask filled with an unknown substance. Who knows what will happen when you take a sip from it.
   components:
   - type: Sprite
     sprite: ADT/Heretic/items.rsi
@@ -62,6 +63,9 @@
         reagents:
         - ReagentId: EssenceEldritch
           Quantity: 100
+  - type: Tag
+    tags:
+    - EldritchFlask
 
 - type: entity
   id: HereticProtectiveBlade
@@ -103,3 +107,249 @@
         Structural: 100
     soundHit:
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+
+# ADT: Rust Sower Grenade
+- type: entity
+  parent: [ TimerGrenadeBase, BaseMagicContraband ]
+  id: RustSowerGrenade
+  name: rust sower
+  description: A nifty little thing that explodes into rust. Causes borgs and mechs to get utterly obliterated.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/rustgrenade.rsi
+    layers:
+    - state: icon
+      map: [ "enum.TriggerVisualLayers.Base" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        enum.ConstructionVisuals.Layer:
+          Primed: { state: primed }
+          Unprimed: { state: icon }
+  - type: TimerTrigger
+    delay: 5
+  - type: SmokeOnTrigger
+    duration: 20
+    spreadAmount: 10
+    solution:
+      reagents:
+      - ReagentId: EldritchRust
+        Quantity: 50
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: ExplosionSmall
+  - type: Tag
+    tags:
+    - GrenadeIgnoreCosmicField
+    - HereticItem
+    - HandGrenade
+
+# ADT: Phylactery of Damnation
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: HereticPhylactery
+  name: phylactery of damnation
+  description: Used to steal blood from soon-to-be victims.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/phylactery.rsi
+    layers:
+    - state: phylactery
+      map: [ "enum.SolutionContainerLayers.Base" ]
+    - state: phylactery1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
+  - type: Icon
+    sprite: ADT/Heretic/Entities/phylactery.rsi
+    state: phylactery
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: phylactery
+    metamorphic: false
+  - type: SolutionContainerManager
+    solutions:
+      phylactery:
+        maxVol: 100
+  - type: HereticPhylactery
+  - type: UseDelay
+    delay: 0.5
+  - type: Tag
+    tags:
+    - HereticItem
+
+# ADT: Moon Amulet
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: HereticMoonAmulet
+  name: moon amulet
+  description: A strange amulet that pulses with a faint lunar glow. It hums with alien power.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/items.rsi
+    state: moon_amulette
+  - type: Icon
+    sprite: ADT/Heretic/items.rsi
+    state: moon_amulette
+  - type: Item
+    size: Tiny
+    slots:
+    - Neck
+  - type: Tag
+    tags:
+    - HereticItem
+
+# ADT: Soul Bottle
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: HereticSoulBottleEmpty
+  name: soul bottle
+  description: An empty crystalline bottle. Whispers echo from within, promising to capture the essence of the departed.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/items.rsi
+    state: soul_bottle_empty
+  - type: Icon
+    sprite: ADT/Heretic/items.rsi
+    state: soul_bottle_empty
+  - type: Item
+    size: Small
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: HereticSoulBottleEmpty
+  id: HereticSoulBottleFull
+  name: filled soul bottle
+  description: A crystalline bottle filled with a swirling, ethereal essence. The whispers within have gone silent.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/items.rsi
+    state: soul_bottle_full
+  - type: Icon
+    sprite: ADT/Heretic/items.rsi
+    state: soul_bottle_full
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: EssenceEldritch
+          Quantity: 50
+
+# ADT: Orphaned textures — simple placeholders
+
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: HereticArmBlade
+  name: eldritch arm blade
+  description: A grotesque blade formed from corrupted flesh and bone. It pulses with malevolent energy.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/arm_blade.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 12
+        Piercing: 8
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: HereticHammer
+  name: eldritch hammer
+  description: A massive hammer wreathed in dark energy. Each strike echoes with the screams of the damned.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/Entities/hammer.rsi
+    state: icon
+  - type: Item
+    size: Huge
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 20
+        Structural: 30
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: HereticEyeMedallion
+  name: eye medallion
+  description: An ornate medallion bearing the sigil of a watchful eye. It seems to stare back at you.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/items.rsi
+    state: eye_medalion
+  - type: Icon
+    sprite: ADT/Heretic/items.rsi
+    state: eye_medalion
+  - type: Item
+    size: Tiny
+    slots:
+    - Neck
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: HereticOgBook
+  name: tome of forgotten lore
+  description: An ancient book filled with esoteric knowledge. Its pages seem to writhe when viewed from the corner of your eye.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/items.rsi
+    state: ogbook
+  - type: Icon
+    sprite: ADT/Heretic/items.rsi
+    state: ogbook
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: HereticSpaceHands
+  name: mansus hands
+  description: Ethereal gauntlets that phase in and out of reality. They allow you to grasp what should not be grasped.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/items.rsi
+    state: spacehand_left
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - HereticItem
+
+- type: entity
+  parent: [ BaseItem, BaseMagicContraband ]
+  id: HereticBullet
+  name: eldritch bullet
+  description: A bullet imbued with otherworldly energy. It seeks its target with unnatural precision.
+  components:
+  - type: Sprite
+    sprite: ADT/Heretic/items.rsi
+    state: bullet
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - HereticItem

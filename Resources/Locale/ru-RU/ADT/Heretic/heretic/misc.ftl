@@ -33,7 +33,7 @@ mawed-crucible-examine-anchored = Вы можете [bold]открепить и 
 mawed-crucible-examine-unanchored =
     Вы можете [bold]закрепить на месте[/bold] тигель с помощью [bold]Кодекса Цикатрикс[/bold] или [bold]Хватки Мансуса[/bold].
     Иначе он не будет работать.
-mawed-crucible-examine-can-refill-flask = Этим можно заправить эльдрич-флягу.
+mawed-crucible-examine-can-refill-flask = Этим можно заправить жуткую флягу.
 mawed-crucible-examine-full = Тигель бурлит вязкой жидкостью до краёв и готов к использованию.
 mawed-crucible-examine-not-full =
     Тиглю требуется ещё [bold]{$to-fill}[/bold] { $to-fill ->
@@ -45,6 +45,8 @@ mawed-crucible-examine-not-full =
 mawed-crucible-full-message = тигель полон!
 mawed-crucible-not-enough-fuel-message = недостаточно топлива!
 mawed-crucible-flask-full-message = фляга полна!
+mawed-crucible-ui-title = Размозженный тигель
+mawed-crucible-ui-prompt = Выберите зелье для варки:
 
 mirror-maid-examine-message-user = {$ent} слегка мерцает и расплывается.
 mirror-maid-examine-message-maid = Взгляд {$user} пронзает всё ваше естество!
@@ -66,3 +68,7 @@ ice-cube-melt = Лёд тает!
 trap-triggered-message = Вы наступили на { $trap }!
 trap-revealed-message = Вы заметили { $trap }!
 trap-flare-message = { CAPITALIZE($trap) } вспыхивает и исчезает!
+
+phylactery-draw = Вы вытягиваете {$amount} единиц крови в филактерию.
+phylactery-no-blood = У цели нет крови для вытягивания!
+phylactery-full = Филактерия полна!

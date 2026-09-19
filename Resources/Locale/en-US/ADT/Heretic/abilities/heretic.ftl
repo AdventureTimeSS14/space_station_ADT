@@ -126,10 +126,6 @@ heretic-grasp-fail-invalid-target = The grasp finds nothing worth touching here.
 
 mansus-grasp-drain = Mansus's Grasp drains energy from the target!
 
-heretic-grasp-fail-invalid-target = The grasp finds nothing worth touching here.
-
-mansus-grasp-drain = Mansus's Grasp drains energy from the target!
-
 heretic-sacraments-can-attack = {CAPITALIZE($heretic)} has drawn you into the sacrament! You can strike them back!
 
 coin-flip-examine-message = Showing {$side}.

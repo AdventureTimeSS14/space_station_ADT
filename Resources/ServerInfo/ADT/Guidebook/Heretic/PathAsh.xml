@@ -28,8 +28,6 @@
 
   <GuideHereticPathEmbed Path="Ash"/>
 
-  Побочные знания пути: Треснувший фонарь (вспышка с поджогом), Пламенное перерождение (лечение за горящих жертв, добивает лежачих).
-
   # Ритуалы пути
 
   <GuideHereticRitualEmbed Ritual="BladeAsh" Path="Ash"/>

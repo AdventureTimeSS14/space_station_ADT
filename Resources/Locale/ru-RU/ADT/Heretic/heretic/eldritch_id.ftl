@@ -1,5 +1,9 @@
 eldritch-id-card-component-examine-inverted = Текущий эффект [color=yellow]инвертирован[/color]
 
+ent-EldritchIdCard = потусторонняя ID-карта
+    .desc = Обычная ID-карта, пропитанная силой Мансуса. Кажется, что буквы на ней постоянно меняются.
+    .suffix = Еретик
+
 eldritch-id-card-component-examine-message =
     Зачаровано Мансусом!
     Использование ID на этой карте или этой карты на другой ID поглотит её и скопирует доступы.

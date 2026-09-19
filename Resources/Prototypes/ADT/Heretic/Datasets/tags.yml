@@ -99,3 +99,9 @@
 
 - type: Tag
   id: Directional
+
+- type: Tag
+  id: AnchorHereticStructure
+
+- type: Tag
+  id: EldritchFlask

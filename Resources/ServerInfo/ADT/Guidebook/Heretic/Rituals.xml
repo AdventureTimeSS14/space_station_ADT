@@ -54,6 +54,11 @@
   <GuideHereticRitualEmbed Ritual="RitualEtherOfTheNewborn"/>
   <GuideHereticRitualEmbed Ritual="RitualEldritchCoin"/>
   <GuideHereticRitualEmbed Ritual="RitualUnfathomableCurio"/>
+  <GuideHereticRitualEmbed Ritual="RitualMawedCrucible"/>
+  <GuideHereticRitualEmbed Ritual="RitualRustSowerGrenade"/>
+  <GuideHereticRitualEmbed Ritual="RitualPhylacteryOfDamnation"/>
+  <GuideHereticRitualEmbed Ritual="RitualCodexMorbus"/>
+  <GuideHereticRitualEmbed Ritual="RitualGreavesOfTheProphet"/>
   <GuideHereticRitualEmbed Ritual="RitualMaidInTheMirror"/>
 
   # Ритуалы путей

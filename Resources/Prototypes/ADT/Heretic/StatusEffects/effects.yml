@@ -1,4 +1,16 @@
 - type: entity
+  parent: StatusEffectSlowdown
+  id: EldritchRustStatusEffect
+  name: eldritch rust slowdown
+  components:
+  - type: MovementModStatusEffect
+    sprintSpeedModifier: 0.75
+    walkSpeedModifier: 0.75
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: BlurryVision
+
+- type: entity
   parent: MobStatusEffectBase
   id: StatusEffectFireBlasted
   name: fire blasted
@@ -94,3 +106,45 @@
     - type: MetabolismModifier
       modifier: 100
   - type: ForcedSleepingStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectCrucibleSoul
+  name: crucible soul
+  components:
+  - type: StatusEffectAlert
+    alert: CrucibleSoul
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: NoClip
+  - type: CrucibleSoulStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectDuskAndDawn
+  name: dusk and dawn
+  components:
+  - type: StatusEffectAlert
+    alert: DuskAndDawn
+  - type: XRayVisionStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectWoundedSoldier
+  name: wounded soldier
+  components:
+  - type: StatusEffectAlert
+    alert: WoundedSoldier
+  - type: WoundedSoldier
+
+- type: entity
+  parent: StatusEffectSlowdown
+  id: PaleFogAffectedStatusEffect
+  name: pale fog affected
+  components:
+  - type: MovementModStatusEffect
+    sprintSpeedModifier: 0.85
+    walkSpeedModifier: 0.85
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: BlurryVision

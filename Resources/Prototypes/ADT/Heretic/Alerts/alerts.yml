@@ -21,6 +21,7 @@
     state: crucible
   name: alerts-crucible-soul-name
   description: alerts-crucible-soul-desc
+  clickEvent: !type:ToggleCrucibleSoulEvent
 
 - type: alert
   id: CrucibleSoulCooldown
