@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 277.2.1
-  forkId: SS14_DEV
-  forkVersion: 46db327b704f08197b402ae9c2f4e4c207b842cb
-  time: 09/18/2026 07:29:29
-  entityCount: 54443
+  forkId: ""
+  forkVersion: ""
+  time: 09/19/2026 02:00:20
+  entityCount: 54448
 maps:
 - 1
 grids:
@@ -23424,6 +23424,22 @@ entities:
       name: штанга
     - type: Transform
       parent: 221
+  - uid: 54444
+    components:
+    - type: Transform
+      parent: 176
+  - uid: 54445
+    components:
+    - type: Transform
+      parent: 191
+  - uid: 54446
+    components:
+    - type: Transform
+      parent: 206
+  - uid: 54447
+    components:
+    - type: Transform
+      parent: 221
 - proto: ADTBarbellChair
   entities:
   - uid: 191
@@ -23494,7 +23510,7 @@ entities:
       pos: -9.5,-67.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -438885.2
+      secondsUntilStateChange: -438957.44
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -25039,6 +25055,17 @@ entities:
     - type: Transform
       pos: 55.273537,17.616701
       parent: 2
+- proto: ADTPaintingDiploma
+  entities:
+  - uid: 54448
+    components:
+    - type: MetaData
+      desc: Свидетельство о приёмке станции. 20.09.2570
+    - type: Transform
+      pos: -52.5,6.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: ADTPlafeimMarble
   entities:
   - uid: 493
@@ -31407,7 +31434,7 @@ entities:
       pos: -4.5,21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -232896.19
+      secondsUntilStateChange: -232968.44
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -31747,7 +31774,7 @@ entities:
       pos: 63.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -584281
+      secondsUntilStateChange: -584353.25
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -31961,7 +31988,7 @@ entities:
       pos: -114.5,3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -421635.88
+      secondsUntilStateChange: -421708.12
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32893,7 +32920,7 @@ entities:
       pos: 51.5,21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -399833.4
+      secondsUntilStateChange: -399905.66
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -33361,7 +33388,7 @@ entities:
       pos: 17.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -321603.97
+      secondsUntilStateChange: -321676.22
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -33688,7 +33715,7 @@ entities:
       pos: 44.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -589074.5
+      secondsUntilStateChange: -589146.75
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -33907,7 +33934,7 @@ entities:
       pos: 2.5,1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -236818.23
+      secondsUntilStateChange: -236890.48
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -34149,7 +34176,7 @@ entities:
       pos: 40.5,-47.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -389327.47
+      secondsUntilStateChange: -389399.72
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -34200,7 +34227,7 @@ entities:
       pos: -4.5,25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -56488.863
+      secondsUntilStateChange: -56561.12
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -169326,7 +169353,7 @@ entities:
       pos: -5.5,-56.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -233101.36
+      secondsUntilStateChange: -233173.61
       state: Opening
   - uid: 27519
     components:
@@ -188697,7 +188724,7 @@ entities:
       pos: 40.5,-3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -268419.53
+      secondsUntilStateChange: -268491.78
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -340699,7 +340726,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -2021.5896
+      secondsUntilStateChange: -2093.8462
       state: Opening
     - type: Airlock
       autoClose: False

@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.2.1
   forkId: ""
   forkVersion: ""
-  time: 09/19/2026 01:31:14
-  entityCount: 6724
+  time: 09/19/2026 02:17:03
+  entityCount: 6725
 maps:
 - 1
 grids:
@@ -4731,6 +4731,17 @@ entities:
     - type: Transform
       pos: -17.5,8.5
       parent: 2
+- proto: ADTPaintingDiploma
+  entities:
+  - uid: 6725
+    components:
+    - type: MetaData
+      desc: Свидетельство о приёмке станции. 20.09.2570
+    - type: Transform
+      pos: 24.5,-10.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: ADTPosterLegitGoobBigBrotherAI
   entities:
   - uid: 55
@@ -6529,7 +6540,7 @@ entities:
       pos: -6.5,-11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -45491.09
+      secondsUntilStateChange: -45528.383
       state: Opening
     - type: DeviceLinkSource
       lastSignals:

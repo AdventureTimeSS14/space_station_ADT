@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.2.1
   forkId: ""
   forkVersion: ""
-  time: 09/18/2026 23:41:46
-  entityCount: 32180
+  time: 09/19/2026 02:06:06
+  entityCount: 32185
 maps:
 - 1
 grids:
@@ -131,6 +131,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
+      name: NT Cyberiada Station
     - type: Transform
     - type: Map
       mapPaused: True
@@ -16603,6 +16604,22 @@ entities:
     components:
     - type: Transform
       parent: 92
+  - uid: 32181
+    components:
+    - type: Transform
+      parent: 38
+  - uid: 32182
+    components:
+    - type: Transform
+      parent: 56
+  - uid: 32183
+    components:
+    - type: Transform
+      parent: 74
+  - uid: 32184
+    components:
+    - type: Transform
+      parent: 92
 - proto: ADTBarbellChair
   entities:
   - uid: 74
@@ -18094,6 +18111,17 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 35.5,-37.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+- proto: ADTPaintingDiploma
+  entities:
+  - uid: 32185
+    components:
+    - type: MetaData
+      desc: Свидетельство о приёмке станции. 20.09.2570
+    - type: Transform
+      pos: -3.5,-65.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -22417,7 +22445,7 @@ entities:
       pos: -41.5,-61.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -96516.22
+      secondsUntilStateChange: -96569.38
       state: Opening
     - type: DeviceLinkSource
       linkedPorts:
@@ -22900,7 +22928,7 @@ entities:
       pos: 74.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -178401.9
+      secondsUntilStateChange: -178455.08
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23966,7 +23994,7 @@ entities:
       pos: 54.5,-66.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -182213.58
+      secondsUntilStateChange: -182266.75
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -106218,7 +106246,7 @@ entities:
       pos: -6.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3803.0947
+      secondsUntilStateChange: -3856.2612
       state: Closing
   - uid: 15957
     components:

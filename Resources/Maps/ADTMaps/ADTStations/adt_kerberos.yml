@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 277.2.1
-  forkId: SS14_DEV
-  forkVersion: 23d1819b95ed349faa248abefa54a35faab33ef0
-  time: 09/16/2026 11:54:31
-  entityCount: 39597
+  forkId: ""
+  forkVersion: ""
+  time: 09/19/2026 01:55:35
+  entityCount: 39598
 maps:
 - 1
 grids:
@@ -125,7 +125,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Delta Station
+      name: NT Kerberos Station
     - type: Transform
     - type: Map
       mapPaused: True
@@ -29823,6 +29823,17 @@ entities:
     - type: Transform
       pos: 81.5,-5.5
       parent: 2
+- proto: ADTPaintingDiploma
+  entities:
+  - uid: 39598
+    components:
+    - type: MetaData
+      desc: Свидетельство о приёмке станции. 20.09.2570
+    - type: Transform
+      pos: -59.5,4.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: ADTPosterBirhtdayTrianglesRY2
   entities:
   - uid: 365
@@ -32578,7 +32589,7 @@ entities:
       pos: 41.5,-17.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -189992
+      secondsUntilStateChange: -190058.88
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32604,7 +32615,7 @@ entities:
       pos: 19.5,-2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -321239.16
+      secondsUntilStateChange: -321306.03
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32615,7 +32626,7 @@ entities:
       pos: 35.5,-25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -239938.61
+      secondsUntilStateChange: -240005.48
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32842,7 +32853,7 @@ entities:
       pos: 49.5,22.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -367729.22
+      secondsUntilStateChange: -367796.1
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32925,7 +32936,7 @@ entities:
       pos: 42.5,4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -56843.062
+      secondsUntilStateChange: -56909.934
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -33005,7 +33016,7 @@ entities:
       pos: 8.5,12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -248352.52
+      secondsUntilStateChange: -248419.39
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -33595,7 +33606,7 @@ entities:
       pos: -38.5,46.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -140900.89
+      secondsUntilStateChange: -140967.77
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -33916,7 +33927,7 @@ entities:
       access:
       - - Salvage
     - type: Door
-      secondsUntilStateChange: -65713.59
+      secondsUntilStateChange: -65780.47
       changeAirtight: False
       state: Opening
     - type: DeviceLinkSource
@@ -33967,7 +33978,7 @@ entities:
       pos: 57.5,-46.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -187320.92
+      secondsUntilStateChange: -187387.8
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -34437,7 +34448,7 @@ entities:
       pos: -12.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -191047.66
+      secondsUntilStateChange: -191114.53
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -34976,7 +34987,7 @@ entities:
       pos: -18.5,55.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -173897.05
+      secondsUntilStateChange: -173963.92
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -35143,7 +35154,7 @@ entities:
       pos: 15.5,-43.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -283120.3
+      secondsUntilStateChange: -283187.2
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -126536,7 +126547,7 @@ entities:
       tags:
       - DrinkBottle
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.039231468
+      sprayFizzinessThresholdRoll: 0.74054134
     - type: SolutionContainerManager
       solutions: null
       containers:
@@ -131606,7 +131617,7 @@ entities:
       pos: 3.5,-8.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -103201.555
+      secondsUntilStateChange: -103268.43
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -131938,7 +131949,7 @@ entities:
       pos: 1.5,28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -176162.38
+      secondsUntilStateChange: -176229.25
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 28912.4282324
@@ -222055,7 +222066,7 @@ entities:
       pos: -112.5,30.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -81000.91
+      secondsUntilStateChange: -81067.78
       state: Opening
   - uid: 31386
     components:
@@ -222064,7 +222075,7 @@ entities:
       pos: -110.5,45.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -110706.13
+      secondsUntilStateChange: -110773.01
       state: Opening
   - uid: 31387
     components:
@@ -265441,7 +265452,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -63333.11
+      secondsUntilStateChange: -63399.98
       state: Opening
     - type: Airlock
       autoClose: False

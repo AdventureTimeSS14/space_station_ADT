@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.2.1
   forkId: ""
   forkVersion: ""
-  time: 09/19/2026 01:27:17
-  entityCount: 55919
+  time: 09/19/2026 01:58:41
+  entityCount: 55920
 maps:
 - 1
 grids:
@@ -147,7 +147,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Map Entity
+      name: NT Avrite Station
     - type: Transform
     - type: Map
       mapPaused: True
@@ -39939,7 +39939,7 @@ entities:
       pos: -20.5,44.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -12089.896
+      secondsUntilStateChange: -12157.763
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -42794,6 +42794,15 @@ entities:
     components:
     - type: Transform
       pos: -22.5,-57.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 55920
+    components:
+    - type: MetaData
+      desc: Свидетельство о приёмке станции. 20.09.2570
+    - type: Transform
+      pos: 26.5,19.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -157504,7 +157513,7 @@ entities:
       pos: -12.5,61.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -469520.53
+      secondsUntilStateChange: -469588.4
       state: Closing
 - proto: CurtainsPurple
   entities:
@@ -193012,7 +193021,7 @@ entities:
       pos: -68.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -84899.445
+      secondsUntilStateChange: -84967.31
       state: Closing
     - type: DeviceNetwork
       deviceLists:

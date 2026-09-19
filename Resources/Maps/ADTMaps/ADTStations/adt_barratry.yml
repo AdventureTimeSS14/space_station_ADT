@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.2.1
   forkId: ""
   forkVersion: ""
-  time: 09/19/2026 01:26:36
-  entityCount: 16539
+  time: 09/19/2026 02:09:26
+  entityCount: 16540
 maps:
 - 1
 grids:
@@ -12583,6 +12583,17 @@ entities:
     - type: Transform
       pos: -38.5,-9.5
       parent: 2
+- proto: ADTPaintingDiploma
+  entities:
+  - uid: 16540
+    components:
+    - type: MetaData
+      desc: Свидетельство о приёмке станции. 20.09.2570
+    - type: Transform
+      pos: -72.5,18.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: ADTSpawnPointRoboticist
   entities:
   - uid: 78

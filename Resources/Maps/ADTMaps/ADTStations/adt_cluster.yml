@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.2.1
   forkId: ""
   forkVersion: ""
-  time: 09/19/2026 01:26:21
-  entityCount: 10034
+  time: 09/19/2026 02:11:57
+  entityCount: 10039
 maps:
 - 1
 grids:
@@ -5785,6 +5785,22 @@ entities:
     components:
     - type: Transform
       parent: 57
+  - uid: 10035
+    components:
+    - type: Transform
+      parent: 21
+  - uid: 10036
+    components:
+    - type: Transform
+      parent: 33
+  - uid: 10037
+    components:
+    - type: Transform
+      parent: 45
+  - uid: 10038
+    components:
+    - type: Transform
+      parent: 57
 - proto: ADTBarbellChair
   entities:
   - uid: 45
@@ -6261,6 +6277,17 @@ entities:
     - type: Transform
       pos: -19.623392,19.712297
       parent: 2
+- proto: ADTPaintingDiploma
+  entities:
+  - uid: 10039
+    components:
+    - type: MetaData
+      desc: Свидетельство о приёмке станции. 20.09.2570
+    - type: Transform
+      pos: 19.5,7.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: ADTPosterContrabandSlimeBarmaid
   entities:
   - uid: 148
@@ -7024,7 +7051,7 @@ entities:
       pos: 0.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -55158.43
+      secondsUntilStateChange: -55196.395
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7142,7 +7169,7 @@ entities:
       pos: 13.5,4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -101695.95
+      secondsUntilStateChange: -101733.914
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7196,7 +7223,7 @@ entities:
       pos: 8.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -144601.05
+      secondsUntilStateChange: -144639.02
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7388,7 +7415,7 @@ entities:
       pos: 31.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -141294.75
+      secondsUntilStateChange: -141332.72
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -7465,7 +7492,7 @@ entities:
       pos: -27.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -116415.13
+      secondsUntilStateChange: -116453.09
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7590,7 +7617,7 @@ entities:
       pos: -10.5,-15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -111277.54
+      secondsUntilStateChange: -111315.5
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7836,7 +7863,7 @@ entities:
       pos: -8.5,-26.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -133181.22
+      secondsUntilStateChange: -133219.19
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7862,7 +7889,7 @@ entities:
       pos: 18.5,-30.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -12214.209
+      secondsUntilStateChange: -12252.173
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -27738,7 +27765,7 @@ entities:
       pos: -8.5,21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -26025.432
+      secondsUntilStateChange: -26063.396
       state: Closing
   - uid: 3942
     components:
@@ -66408,7 +66435,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -185846.95
+      secondsUntilStateChange: -185884.92
       state: Opening
     - type: Airlock
       autoClose: False
@@ -66427,7 +66454,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -97635.33
+      secondsUntilStateChange: -97673.29
       state: Opening
     - type: Airlock
       autoClose: False
@@ -66482,7 +66509,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -185844.95
+      secondsUntilStateChange: -185882.92
       state: Opening
     - type: Airlock
       autoClose: False

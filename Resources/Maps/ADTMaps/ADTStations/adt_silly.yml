@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.2.1
   forkId: ""
   forkVersion: ""
-  time: 09/19/2026 00:39:31
-  entityCount: 10660
+  time: 09/19/2026 02:14:57
+  entityCount: 10665
 maps:
 - 1
 grids:
@@ -12263,6 +12263,22 @@ entities:
     components:
     - type: Transform
       parent: 116
+  - uid: 10660
+    components:
+    - type: Transform
+      parent: 56
+  - uid: 10661
+    components:
+    - type: Transform
+      parent: 76
+  - uid: 10662
+    components:
+    - type: Transform
+      parent: 96
+  - uid: 10663
+    components:
+    - type: Transform
+      parent: 116
 - proto: ADTBarbellChair
   entities:
   - uid: 96
@@ -12877,6 +12893,17 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 6.5,46.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+- proto: ADTPaintingDiploma
+  entities:
+  - uid: 10664
+    components:
+    - type: MetaData
+      desc: Свидетельство о приёмке станции. 20.09.2570
+    - type: Transform
+      pos: 19.5,7.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -58466,7 +58493,7 @@ entities:
       pos: -26.5,-4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4273.08
+      secondsUntilStateChange: -4322.6343
       state: Opening
   - uid: 5464
     components:
