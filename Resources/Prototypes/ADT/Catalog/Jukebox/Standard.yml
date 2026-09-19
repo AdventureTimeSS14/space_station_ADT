@@ -23,12 +23,6 @@
     path: /Audio/ADT/Lobby/Pursuit_Corner_the_Culprit_2004.ogg
 
 - type: jukebox
-  id: HotlineDaisuke
-  name: Hotline Miami - Daisuke
-  path:
-    path: /Audio/ADT/Jukebox/HM_Daisuke.ogg
-
-- type: jukebox
   id: DOS
   name: Ampient(Polaroid studios) - Dream of Somewhere
   path:
@@ -71,12 +65,6 @@
     path: /Audio/ADT/Lobby/IHYVA.ogg
 
 - type: jukebox
-  id: HotlineItsSafeNow
-  name: Hotline Miami - It's Safe Now
-  path:
-    path: /Audio/ADT/Jukebox/HM_ItsSafeNow.ogg
-
-- type: jukebox
   id: lateraligator
   name: Silverman Sound Studios - Later Alligator
   path:
@@ -93,12 +81,6 @@
   name: < e s c p > - Midnight Room
   path:
     path: /Audio/ADT/Jukebox/fsm-team-escp-midnight-room.ogg
-
-- type: jukebox
-  id: Hotline2MsMinnie
-  name: Hotline Miami 2 - Ms. Minnie
-  path:
-    path: /Audio/ADT/Jukebox/HM2_MsMinnie.ogg
 
 - type: jukebox
   id: HotlineMusik
@@ -311,10 +293,40 @@
     path: /Audio/ADT/Jukebox/The_Only_Thing_I_Know_For_Real.ogg
 
 - type: jukebox
-  id: ADTThroughPatches
-  name: Cassie Wei - Through Patches of Violet
+  id: ADTAcidSpit
+  name: Acid Spit - Mega Drive
   path:
-    path: /Audio/ADT/Jukebox/Mili-Through-Patches-of-Violet.ogg
+    path: /Audio/ADT/Jukebox/Acid-Spit.ogg
+
+- type: jukebox
+  id: ADTDivide
+  name: Divide - Magna
+  path:
+    path: /Audio/ADT/Jukebox/Divide.ogg
+
+- type: jukebox
+  id: ADTFutureClub
+  name: Future Club - Perturbator
+  path:
+    path: /Audio/ADT/Jukebox/Future-Club.ogg
+
+- type: jukebox
+  id: ADTSheSwallowedBurningCoals
+  name: She Swallowed Burning Coals - El Tigr3
+  path:
+    path: /Audio/ADT/Jukebox/She-Swallowed-Burning-Coals.ogg
+
+- type: jukebox
+  id: ADTSLEEPPARALYSISCREEPINONME
+  name: SLEEP PARALYSIS CREEPIN’ ON ME - REDZED
+  path:
+    path: /Audio/ADT/Jukebox/SLEEP-PARALYSIS-CREEPIN-ON-ME.ogg
+
+- type: jukebox
+  id: ADTSlumLord
+  name: Slum Lord - Megadrive
+  path:
+    path: /Audio/ADT/Jukebox/Slum-Lord.ogg
 
 # START 9 МАЯ
 # - type: jukebox

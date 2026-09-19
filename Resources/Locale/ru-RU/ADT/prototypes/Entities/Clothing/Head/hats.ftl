@@ -76,3 +76,6 @@ ent-ADTClothingHeadHatPurpleBenie = фиолетовая шапка
 
 ent-ADTClothingHeadHatRedBenie = красная шапка
     .desc = Обычная красная шапка. Смотреть здесь не на что.
+
+ent-ADTClothingCentcomOfficerHat = фуражка офицера специальных операций
+    .desc = Специальная фуражка высших чинов NanoTrasen с золотой гравировкой, уже давно прошедшая не один блицкриг...

@@ -11,6 +11,11 @@ namespace Content.Server.Corvax.StationGoal
         [DataField]
         public string Text { get; set; } = string.Empty;
 
+        // ADT-Tweak start
+        [DataField]
+        public string Name { get; set; } = string.Empty;
+        // ADT-Tweak end
+
         [DataField]
         public int? MinPlayers;
 

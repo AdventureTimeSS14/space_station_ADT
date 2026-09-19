@@ -30,6 +30,7 @@ using Robust.Shared.Utility;
 namespace Content.IntegrationTests.Tests
 {
     [TestFixture]
+    [Ignore("ADT вынесена в ADTPostMapInitTest.")]
     public sealed class PostMapInitTest : GameTest
     {
         public override PoolSettings PoolSettings => new PoolSettings()
@@ -46,23 +47,6 @@ namespace Content.IntegrationTests.Tests
             "CentComm",
             "Dart"
         };
-
-        /// <summary>
-        /// ADT-Tweak start
-        /// Карты которые роняют тесты, но на самом деле работают в игре, скорее всего из-за каких-то проблем с прототипами или компонентами,
-        /// которые не загружаются в тестах по какой-то причине. Надо бы пофиксить, но пока так. Просто заглушка
-        /// </summary>
-        private static readonly string[] BrokenGameMaps =
-        {
-            "ADT_kilo",
-            "ADT_Barratry",
-            "ADT_Delta",
-            "ADT_Bagel",
-            "ADT_Gemini",
-            "ADT_Kerberos",
-            "ADT_Cluster"
-        };
-        // ADT-Tweak end
 
         private static readonly string[] Grids =
         {
@@ -99,7 +83,6 @@ namespace Content.IntegrationTests.Tests
         {
             "/Maps/centcomm.yml",
             "/Maps/Shuttles/AdminSpawn/**", // admin gaming
-            "/Maps/ADTMaps/Shuttles/pirate.yml", //ADT-tweak
         };
 
         /// <summary>
@@ -136,10 +119,7 @@ namespace Content.IntegrationTests.Tests
                 mapSystem.CreateMap(out var mapId);
                 try
                 {
-                    // ADT-Tweak start
-                    Assert.That(mapLoader.TryLoadGrid(mapId, path, out var grid),
-                        $"Failed to load grid {mapFile}, was it saved as a map instead of a grid?");
-                    // ADT-Tweak end
+                    Assert.That(mapLoader.TryLoadGrid(mapId, path, out var grid));
                 }
                 catch (Exception ex)
                 {
@@ -223,7 +203,7 @@ namespace Content.IntegrationTests.Tests
 
             // TODO MAP TESTS
             // Move this to some separate test?
-            // CheckDoNotMap(map, root, protoManager); ADT отключен по неизвестной причине.
+            CheckDoNotMap(map, root, protoManager);
 
             if (version >= 7)
             {
@@ -241,10 +221,7 @@ namespace Content.IntegrationTests.Tests
 
             if (isV7Map)
             {
-                // ADT-Tweak start
-                Assert.That(IsPreInit(map, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes),
-                    $"Map {map} was saved post-map-init, open it in the map editor and save it again without running map init.");
-                // ADT-Tweak end
+                Assert.That(IsPreInit(map, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes));
             }
 
             // Check that the test actually does manage to catch post-init maps and isn't just blindly passing everything.
@@ -256,19 +233,13 @@ namespace Content.IntegrationTests.Tests
 
             // First check that a pre-init version passes
             var path = new ResPath($"{nameof(NoSavedPostMapInitTest)}.yml");
-            // ADT-Tweak start
-            Assert.That(loader.TrySaveMap(id, path), $"Failed to save map {path}");
-            Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes),
-                $"Test map {path} failed pre-init check");
-            // ADT-Tweak end
+            Assert.That(loader.TrySaveMap(id, path));
+            Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes));
 
             // and the post-init version fails.
             await server.WaitPost(() => mapSys.InitializeMap(id));
-            // ADT-Tweak start
-            Assert.That(loader.TrySaveMap(id, path), $"Failed to save map {path}");
-            Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes), Is.False,
-                $"Test map {path} unexpectedly passed pre-init check");
-            // ADT-Tweak end
+            Assert.That(loader.TrySaveMap(id, path));
+            Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes), Is.False);
         }
 
         private bool IsWhitelistedForMap(EntProtoId protoId, ResPath map)
@@ -356,15 +327,7 @@ namespace Content.IntegrationTests.Tests
         [EnsureCVar(Side.Server, typeof(CCVars), nameof(CCVars.GridFill), false)]
         public async Task GameMapsLoadableTest(string mapProto)
         {
-            // ADT-Tweak start
-            if (BrokenGameMaps.Contains(mapProto))
-            {
-                Assert.Ignore($"Skipping broken map: {mapProto}");
-                return;
-            }
-            // ADT-Tweak end
-
-            var pair = Pair; // ADT-Tweak
+            var pair = Pair;
             var server = pair.Server;
 
             var mapManager = server.ResolveDependency<IMapManager>();
@@ -375,7 +338,6 @@ namespace Content.IntegrationTests.Tests
             var ticker = entManager.EntitySysManager.GetEntitySystem<GameTicker>();
             var shuttleSystem = entManager.EntitySysManager.GetEntitySystem<ShuttleSystem>();
             var cfg = server.ResolveDependency<IConfigurationManager>();
-            var mapPath = protoManager.Index<GameMapPrototype>(mapProto).MapPath; // ADT-Tweak
 
             await server.WaitPost(() =>
             {
@@ -442,7 +404,7 @@ namespace Content.IntegrationTests.Tests
                         lateSpawns += GetCountLateSpawn<SpawnPointComponent>(gridUids, entManager);
                         lateSpawns += GetCountLateSpawn<ContainerSpawnPointComponent>(gridUids, entManager);
 
-                        Assert.That(lateSpawns, Is.GreaterThan(0), $"Found no latejoin spawn points on {mapProto} ({mapPath})"); // ADT-Tweak
+                        Assert.That(lateSpawns, Is.GreaterThan(0), $"Found no latejoin spawn points on {mapProto}");
                     }
 
                     // Test all availableJobs have spawnPoints
@@ -462,37 +424,7 @@ namespace Content.IntegrationTests.Tests
 
                     jobs.ExceptWith(spawnPoints);
 
-                    // ADT-Tweak start
-                    if (jobs.Count > 0)
-                    {
-                        var componentFactory = server.ResolveDependency<IComponentFactory>();
-
-                        var missing = jobs.Select(job =>
-                        {
-                            var spawnPointProtos = protoManager.EnumeratePrototypes<EntityPrototype>()
-                                .Where(proto => !proto.Abstract
-                                    && proto.TryGetComponent<SpawnPointComponent>(out var spawn, componentFactory)
-                                    && spawn.SpawnType == SpawnPointType.Job
-                                    && spawn.Job == job)
-                                .Select(proto => proto.ID);
-
-                            var containerSpawnPointProtos = protoManager.EnumeratePrototypes<EntityPrototype>()
-                                .Where(proto => !proto.Abstract
-                                    && proto.TryGetComponent<ContainerSpawnPointComponent>(out var spawn, componentFactory)
-                                    && spawn.SpawnType is SpawnPointType.Job or SpawnPointType.Unset
-                                    && spawn.Job == job)
-                                .Select(proto => proto.ID);
-
-                            var protos = string.Join(", ", spawnPointProtos.Concat(containerSpawnPointProtos).Distinct());
-                            return protos.Length == 0
-                                ? $"{job} (no spawn point entity prototype found)"
-                                : $"{job} (spawn point entity prototypes: {protos})";
-                        });
-
-                        Assert.Fail($"Map {mapPath} ({mapProto}) is missing spawn points for jobs: {string.Join("; ", missing)}. " +
-                            "Add the corresponding spawn point entities to the map and save it.");
-                    }
-                    // ADT-Tweak end
+                    Assert.That(jobs, Is.Empty, $"There is no spawnpoints for {string.Join(", ", jobs)} on {mapProto}.");
                 }
 
                 try
