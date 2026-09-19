@@ -393,8 +393,13 @@
     failChance: 0.3
     disasterChance: 0.3
   effects:
-  - !type:ADTRitualEmpathEffect
-    target: UsedThings
+  - !type:ADTRitualComponentsEffect
+    target: Invoker
+    components:
+    - type: ADTEmpath
+  - !type:ADTRitualMessageEffect
+    target: Invoker
+    message: adt-ritual-interrogation-granted
   disasterEffects:
   - !type:ADTRitualMessageEffect
     target: Tribe

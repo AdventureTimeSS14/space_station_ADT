@@ -104,9 +104,9 @@
 
 - type: dungeonRoom
   id: LavaDungeonAshVillage
-  size: 20, 17
-  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
-  offset: 27, -10
+  size: 33, 33
+  atlas: /Maps/ADTMaps/Ruins/ashwalker_village.yml
+  offset: 0, 0
   tags:
   - LavaDungeon
 

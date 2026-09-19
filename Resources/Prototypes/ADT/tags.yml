@@ -945,3 +945,36 @@
 
 - type: Tag
   id: ADTAshFloraLeaf
+
+- type: Tag
+  id: ADTFishingBait
+
+- type: Tag
+  id: ADTBaitAshEater
+
+- type: Tag
+  id: ADTBaitBloodyLeach
+
+- type: Tag
+  id: ADTBaitGoldgrubLarva
+
+- type: Tag
+  id: ADTCharredKrill
+
+- type: Tag
+  id: ADTLavaFish
+
+- type: Tag
+  id: ADTLavaFishPart
+
+- type: Tag
+  id: ADTLavalandDye
+
+- type: Tag
+  id: ADTCircularSawBlade
+
+- type: Tag
+  id: ADTSandstone
+
+- type: Tag
+  id: ADTBoneAxe

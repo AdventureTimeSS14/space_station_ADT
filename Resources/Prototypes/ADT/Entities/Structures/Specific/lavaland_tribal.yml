@@ -1,0 +1,231 @@
+# Крепление для факела
+- type: entity
+  id: ADTTorchHolderFrame
+  parent: BaseItem
+  name: torch holder
+  description: One of the most popular ways to light up a medieval castle.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/torch_holder.rsi
+    state: torch_holder_item
+  - type: Item
+    size: Small
+  - type: Construction
+    graph: ADTTorchHolder
+    node: frame
+
+- type: entity
+  id: ADTTorchHolder
+  parent: BaseStructure
+  name: torch holder
+  description: A nice looking holder for a torch.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/torch_holder.rsi
+    drawdepth: WallMountedItems
+    layers:
+    - state: torch_holder
+    - state: torch_overlay
+      map: [ "torch" ]
+      visible: false
+      shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTTorchHolderVisuals.Status:
+        torch:
+          Empty: { visible: false }
+          Unlit: { visible: true, state: torch_overlay_not_light }
+          Lit: { visible: true, state: torch_overlay }
+          Burned: { visible: true, state: torch_overlay_not_light }
+  - type: ADTTorchHolder
+    burnDamage:
+      types:
+        Heat: 5
+  - type: ItemSlots
+    slots:
+      torch:
+        name: adt-torch-holder-slot
+        whitelist:
+          components:
+          - ExpendableLight
+        ejectOnInteract: false
+  - type: ContainerContainer
+  - type: PointLight
+    enabled: false
+    radius: 5
+    energy: 1
+    color: "#dc8a38"
+  - type: Transform
+    anchored: true
+    noRot: false
+  - type: Damageable
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+  - type: Construction
+    graph: ADTTorchHolder
+    node: holder
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+
+- type: entity
+  id: ADTTorchHolderAncient
+  parent: ADTTorchHolder
+  name: ancient torch holder
+  description: A nice looking holder for a torch. Its surface is rusted with age, and the torch has all but grown into it.
+  suffix: Ancient
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/torch_holder.rsi
+    drawdepth: WallMountedItems
+    layers:
+    - state: torch_holder_complete
+      shader: unshaded
+  - type: ADTTorchHolder
+    ancient: true
+  - type: PointLight
+    enabled: true
+    radius: 5
+    energy: 1
+    color: "#dc8a38"
+  - type: ItemSlots
+    slots:
+      torch:
+        name: adt-torch-holder-slot
+        locked: true
+        disableEject: true
+        whitelist:
+          components:
+          - ExpendableLight
+
+# Благодать Лаваленда
+- type: entity
+  id: ADTGraceOfLazis
+  parent: BaseStructure
+  name: grace of lazis
+  description: A huge pile of meat skewered on a bone spear. A sign of an incredibly good hunting season.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/grace_of_lazis.rsi
+    drawdepth: Mobs
+    noRot: true
+    offset: 0,0.5
+    layers:
+    - state: grace_of_lazis4
+      map: [ "base" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTGraceOfLazisVisuals.Stage:
+        base:
+          1: { state: grace_of_lazis1 }
+          2: { state: grace_of_lazis2 }
+          3: { state: grace_of_lazis3 }
+          4: { state: grace_of_lazis4 }
+  - type: ADTGraceOfLazis
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Damageable
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 1000
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+
+# Пепельный тотем-ориентир
+- type: entity
+  id: ADTAshStatue
+  parent: BaseStructure
+  name: ash totem
+  description: A massive stone pillar with the skull of a slain beast lashed to it. Looks like you have wandered into ash-walker hunting grounds.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/ashwalker_totems.rsi
+    state: totem_stone
+    drawdepth: Mobs
+    noRot: true
+    offset: 0,0.5
+  - type: ADTPointOfInterest
+    title: adt-point-of-interest-ash-statue
+  - type: AshStormImmune
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Damageable
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 1000
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+
+# Деревянная табуретка
+- type: entity
+  id: ADTWoodenStool
+  parent: Stool
+  name: wooden stool
+  description: A wooden stool. Comfortable enough to sit on.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/wooden_stool.rsi
+    state: stool
+  - type: Icon
+    sprite: ADT/Structures/Furniture/wooden_stool.rsi
+    state: stool
+  - type: Construction
+    graph: ADTWoodenStool
+    node: stool

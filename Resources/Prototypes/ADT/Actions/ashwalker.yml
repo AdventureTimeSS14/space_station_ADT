@@ -1,0 +1,63 @@
+# спрайты доделать
+- type: entity
+  id: ADTActionIgnite
+  name: action-adt-ignite-name
+  description: action-adt-ignite-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Objects/Specific/Lavaland/small_blaze.rsi
+      state: icon
+    useDelay: 40
+  - type: InstantAction
+    event: !type:ADTIgniteActionEvent
+
+- type: entity
+  id: ADTActionHealTouch
+  name: action-adt-heal-touch-name
+  description: action-adt-heal-touch-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: spell_default
+    useDelay: 20
+  - type: TargetAction
+    range: 2
+  - type: EntityTargetAction
+    canTargetSelf: true
+    event: !type:ADTHealTouchActionEvent
+
+- type: entity
+  id: ADTActionNecropolisCompass
+  name: action-adt-necropolis-compass-name
+  description: action-adt-necropolis-compass-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_borg.rsi
+      state: gps-module
+    useDelay: 30
+  - type: InstantAction
+    event: !type:ADTNecropolisCompassActionEvent
+
+- type: entity
+  id: ADTActionEmpath
+  name: action-adt-empath-name
+  description: action-adt-empath-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: spell_default
+    useDelay: 18
+  - type: TargetAction
+    range: 10
+    checkCanAccess: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:ADTEmpathActionEvent
