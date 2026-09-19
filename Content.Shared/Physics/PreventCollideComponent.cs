@@ -1,4 +1,5 @@
-﻿using Robust.Shared.GameStates;
+﻿using Content.Shared.Whitelist;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.Physics;
 
@@ -10,5 +11,8 @@ public sealed partial class PreventCollideComponent : Component
 {
     [AutoNetworkedField]
     public EntityUid Uid;
+
+    [DataField, AutoNetworkedField]
+    public EntityWhitelist? Whitelist;
 }
 

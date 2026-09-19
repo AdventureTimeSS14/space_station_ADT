@@ -23,45 +23,46 @@
   color: "#b18644"
   metabolisms:
     Bloodstream:
-      conditions:
-      - !type:WhitelistCondition
-        checkMind: true
-        inverted: true
-        whitelist:
-          components:
-          - Heretic
-          - Ghoul
       effects:
       - !type:PopupMessage
         type: Local
         visualType: Large
         messages: [ "generic-reagent-effect-burning-insides" ]
         probability: 0.33
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
       - !type:Emote
         emote: Scream
         probability: 0.3
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
       - !type:ModifyStatusEffect
         effectProto: EldritchRustStatusEffect
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
       - !type:HealthChange
         damage:
           types:
             Blunt: 2
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
       - !type:Jitter
+        conditions:
+        - !type:HereticOrGhoulCondition
+          inverted: true
   reactiveEffects:
     Acidic:
       methods: [ Touch ]
       effects:
       - !type:HealthChange
         conditions:
-        - !type:WhitelistCondition
-          checkMind: true
+        - !type:HereticOrGhoulCondition
           inverted: true
-          whitelist:
-            components:
-            - Heretic
-            - Ghoul
         ignoreResistances: false
-        splitDamage: Split
         damage:
           types:
             Caustic: 30
@@ -221,12 +222,7 @@
         time: 90
         type: Set
         conditions:
-        - !type:WhitelistCondition
-          checkMind: true
-          whitelist:
-            components:
-            - Heretic
-            - Ghoul
+        - !type:HereticOrGhoulCondition
         - !type:ReagentCondition
           reagent: DuskAndDawn
           min: 5
@@ -237,13 +233,8 @@
         time: 3
         type: Add
         conditions:
-        - !type:WhitelistCondition
-          checkMind: true
+        - !type:HereticOrGhoulCondition
           inverted: true
-          whitelist:
-            components:
-            - Heretic
-            - Ghoul
 
 - type: reagent
   id: WoundedSoldier

@@ -190,3 +190,9 @@
   - chat-speech-verb-wawa-2
   - chat-speech-verb-wawa-3
   - chat-speech-verb-wawa-4
+
+- type: speechVerb
+  id: Hiss
+  name: chat-speech-verb-name-hiss
+  speechVerbStrings:
+  - chat-speech-verb-reptilian-1 # hiss

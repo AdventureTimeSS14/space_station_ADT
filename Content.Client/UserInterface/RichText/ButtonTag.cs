@@ -45,7 +45,6 @@ public sealed class ButtonTag : IMarkupTagHandler
             coordsParameter.TryGetString(out var coordsStr))
         {
             var split = coordsStr.Split(", ");
-            // ADT: parse invariantly to match the server-side "R" formatting.
             if (split.Length >= 3 && int.TryParse(split[0], NumberStyles.Integer, CultureInfo.InvariantCulture, out var relativeUid) &&
                 float.TryParse(split[1], NumberStyles.Float, CultureInfo.InvariantCulture, out var x) &&
                 float.TryParse(split[2], NumberStyles.Float, CultureInfo.InvariantCulture, out var y))

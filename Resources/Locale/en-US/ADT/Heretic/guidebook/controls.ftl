@@ -33,7 +33,6 @@ heretic-guide-behavior-AscensionVoid = three corpses on the rune, and the temper
 heretic-guide-behavior-AscensionRust = three rotting or silicon corpses on the rune
 heretic-guide-behavior-AscensionCosmos = three star-marked corpses on the rune
 heretic-guide-behavior-BladeFlesh = a blood puddle must be under the rune
-heretic-guide-behavior-BladeVoid = the temperature around the rune must be below zero or vacuum
 heretic-guide-behavior-ImperfectRitual = a corpse must lie on the rune
 heretic-guide-behavior-RawRitual = a blood puddle must be under the rune
 heretic-guide-behavior-LonelyRitual = a blood puddle must be under the rune

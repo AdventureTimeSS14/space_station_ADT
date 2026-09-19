@@ -150,9 +150,6 @@ public sealed class CarvingKnifeSystem : EntitySystem
 
         var netUser = GetNetEntity(ent.Comp.User.Value);
         var coords = GetNetCoordinates(Transform(ent).Coordinates);
-        // ADT: format floats invariantly with round-trip precision, so the client
-        // can parse them back bit-exactly for the Locations dictionary lookup.
-        // (Fluent would otherwise localize the decimal separator and trim precision.)
         var coordsLoc = Loc.GetString("alert-carving-trigger-message-coords",
             ("uid", coords.NetEntity.Id),
             ("x", coords.X.ToString("R", CultureInfo.InvariantCulture)),
