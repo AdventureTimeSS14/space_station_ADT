@@ -1,0 +1,65 @@
+- type: jukebox
+  id: ADTGetLucky
+  name: 1. Get Lucky - Daft Punk
+  path:
+    path: /Audio/ADT/Jukebox/funk/Get-Lucky.ogg
+
+- type: jukebox
+  id: ADTAroundTheWorld
+  name: 2. Around The World - Daft Punk
+  path:
+    path: /Audio/ADT/Jukebox/funk/Around-The-World.ogg
+
+- type: jukebox
+  id: ADTHarderBetterFasterStronger
+  name: 3. Harder Better Faster Stronger - Daft Punk
+  path:
+    path: /Audio/ADT/Jukebox/funk/Harder-Better-Faster-Stronger.ogg
+
+- type: jukebox
+  id: ADTOneMoreTime
+  name: 4. One More Time - Daft Punk
+  path:
+    path: /Audio/ADT/Jukebox/funk/One-More-Time.ogg
+
+- type: jukebox
+  id: ADTDigitalLove
+  name: 5. Digital Love - Daft Punk
+  path:
+    path: /Audio/ADT/Jukebox/funk/Digital-Love.ogg
+
+- type: jukebox
+  id: ADTShortCircuit
+  name: 6. Short Circuit - Daft Punk
+  path:
+    path: /Audio/ADT/Jukebox/funk/Short-Circuit.ogg
+
+- type: jukebox
+  id: ADTSomethingAboutUs
+  name: 7. Something About Us - Daft Punk
+  path:
+    path: /Audio/ADT/Jukebox/funk/Something-About-Us.ogg
+
+- type: jukebox
+  id: ADTKangarooCourt
+  name: 8. Kangaroo Court - Capital Cities
+  path:
+    path: /Audio/ADT/Jukebox/funk/Kangaroo-Court.ogg
+
+- type: jukebox
+  id: ADTGO
+  name: 9. Go - The Chemical Brothers
+  path:
+    path: /Audio/ADT/Jukebox/funk/Go.ogg
+
+- type: jukebox
+  id: ADT505
+  name: 10. 505 - Arctic Monkeys
+  path:
+    path: /Audio/ADT/Jukebox/funk/505.ogg
+
+- type: jukebox
+  id: ADTLetterInASuitcase
+  name: 11. Letter in a Suitcase - Anarbor
+  path:
+    path: /Audio/ADT/Jukebox/funk/Letter-In-A-Suitcase.ogg

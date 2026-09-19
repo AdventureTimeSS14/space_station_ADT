@@ -1,0 +1,35 @@
+- type: jukebox
+  id: ADTShapeOfMyHeart
+  name: 1. Shape Of My Heart - Sting
+  path:
+    path: /Audio/ADT/Jukebox/nostalgia/Shape-Of-My-Heart.ogg
+
+- type: jukebox
+  id: ADTNightcall
+  name: 2. Nightcall - Kavinsky
+  path:
+    path: /Audio/ADT/Jukebox/nostalgia/Nightcall.ogg
+
+- type: jukebox
+  id: ADTSomebodyThatIUsedToKnow
+  name: 3. Somebody That I Used To Know - Gotye
+  path:
+    path: /Audio/ADT/Jukebox/nostalgia/Somebody-That-I-Used-To-Know.ogg
+
+- type: jukebox
+  id: ADTLittleDarkAge
+  name: 4. Little Dark Age - MGMT
+  path:
+    path: /Audio/ADT/Jukebox/nostalgia/Little-Dark-Age.ogg
+
+- type: jukebox
+  id: ADTMeGustasTu
+  name: 5. Me gustas tu - Manu Chao
+  path:
+    path: /Audio/ADT/Jukebox/nostalgia/Me-Gustas-Tu.ogg
+
+- type: jukebox
+  id: ADTThmenthe
+  name: 6. Thé à la menthe - La Caution
+  path:
+    path: /Audio/ADT/Jukebox/nostalgia/menthe.ogg
