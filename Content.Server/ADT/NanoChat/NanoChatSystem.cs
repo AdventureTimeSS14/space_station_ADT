@@ -69,6 +69,7 @@ public sealed class NanoChatSystem : SharedNanoChatSystem
         if (randomPick <= 0.10f)
         {
             ent.Comp.Messages.Clear();
+            ent.Comp.GroupMessages.Clear();
             // TODO: these shouldn't be shown at the same time as the popups from IdCardSystem
             // _popup.PopupEntity(Loc.GetString("nanochat-card-microwave-erased", ("card", ent)),
             //     ent,
@@ -121,6 +122,20 @@ public sealed class NanoChatSystem : SharedNanoChatSystem
 
                 component.Messages[newRecipient].AddRange(messages);
                 component.Messages[recipientNumber].Clear();
+            }
+        }
+
+        // Group messages get scrambled too, but never reassigned.
+        foreach (var (_, messages) in component.GroupMessages)
+        {
+            for (var i = 0; i < messages.Count; i++)
+            {
+                if (!_random.Prob(0.5f))
+                    continue;
+
+                var message = messages[i];
+                message.Content = ScrambleText(message.Content);
+                messages[i] = message;
             }
         }
     }

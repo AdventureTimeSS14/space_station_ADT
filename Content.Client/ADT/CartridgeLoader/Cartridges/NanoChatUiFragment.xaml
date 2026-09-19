@@ -6,7 +6,7 @@
     Orientation="Vertical"
     HorizontalExpand="True"
     VerticalExpand="True"
-    Margin="5">
+    Margin="3">
 
     <!-- Main container that fills the entire PDA screen -->
     <BoxContainer Orientation="Vertical"
@@ -64,13 +64,6 @@
                                      MinSize="18 18" />
                     </Control>
                 </Button>
-                <Button Name="NewChatButton"
-                        Text="+"
-                        MinSize="32 32"
-                        MaxSize="32 32"
-                        Margin="0 0 4 0"
-                        StyleClasses="OpenBoth"
-                        ToolTip="{Loc nano-chat-new-chat}" />
                 <Button Name="LookupButton"
                         MaxSize="32 32"
                         StyleClasses="OpenBoth"
@@ -78,17 +71,6 @@
                         ToolTip="{Loc nano-chat-look-up}">
                     <TextureRect StyleClasses="ButtonSquare"
                                  TexturePath="/Textures/Interface/VerbIcons/examine.svg.192dpi.png"
-                                 Stretch="KeepAspectCentered"
-                                 MinSize="18 18" />
-                </Button>
-                <Button Name="ListNumberButton"
-                        MaxSize="32 32"
-                        StyleClasses="OpenBoth"
-                        Margin="0 0 4 0"
-                        ToolTip="{Loc nano-chat-list-number}"
-                        ToggleMode="True">
-                    <TextureRect StyleClasses="ButtonSquare"
-                                 TexturePath="/Textures/ADT/Interface/VerbIcons/hamburger_icon.svg.png"
                                  Stretch="KeepAspectCentered"
                                  MinSize="18 18" />
                 </Button>
@@ -100,7 +82,7 @@
                       Orientation="Horizontal"
                       VerticalExpand="True"
                       HorizontalExpand="True"
-                      Margin="0 5 0 0">
+                      Margin="0 3 0 0">
             <!-- Left panel: Chat list -->
             <PanelContainer StyleClasses="AngleRect"
                             VerticalExpand="True"
@@ -113,7 +95,7 @@
                                   Orientation="Vertical"
                                   VerticalExpand="True"
                                   HorizontalExpand="True"
-                                  Margin="4">
+                                  Margin="2">
                         <!-- Chat entries will be added here dynamically -->
                         <Label Name="NoChatsLabel"
                                Text="{Loc nano-chat-no-chats}"
@@ -139,6 +121,28 @@
                                   VerticalExpand="True"
                                   HorizontalExpand="True"
                                   Margin="0 0 0 4">
+                        <BoxContainer Name="GroupInfoRow"
+                                      Orientation="Horizontal"
+                                      HorizontalExpand="True"
+                                      Visible="False"
+                                      Margin="4 2 4 2">
+                            <Label Name="GroupInfoLabel"
+                                   StyleClasses="LabelSubText"
+                                   HorizontalExpand="True"
+                                   Align="Center"
+                                   ClipText="True" />
+                            <Button Name="MembersButton"
+                                    MinSize="24 24"
+                                    MaxSize="24 24"
+                                    StyleClasses="OpenBoth"
+                                    Margin="4 0 0 0"
+                                    ToolTip="{Loc nano-chat-group-members}">
+                                <TextureRect StyleClasses="ButtonSquare"
+                                             TexturePath="/Textures/Interface/VerbIcons/group.svg.192dpi.png"
+                                             Stretch="KeepAspectCentered"
+                                             MinSize="14 14" />
+                            </Button>
+                        </BoxContainer>
                         <Label Name="CurrentChatName"
                                Text="{Loc nano-chat-select-chat}"
                                HorizontalAlignment="Center"
@@ -153,6 +157,63 @@
                                           VerticalExpand="True"
                                           HorizontalExpand="True" />
                         </ScrollContainer>
+                    </BoxContainer>
+
+                    <!-- Members view: replaces the chat for group management -->
+                    <BoxContainer Name="MembersView"
+                                  Orientation="Vertical"
+                                  VerticalExpand="True"
+                                  HorizontalExpand="True"
+                                  Margin="0 0 0 4"
+                                  Visible="False">
+                        <BoxContainer Orientation="Horizontal"
+                                      HorizontalExpand="True"
+                                      Margin="4 2 4 2">
+                            <Button Name="MembersBackButton"
+                                    Text="{Loc nano-chat-back}"
+                                    MinSize="64 28"
+                                    StyleClasses="OpenBoth" />
+                            <Label Name="MembersGroupNameLabel"
+                                   StyleClasses="LabelHeading"
+                                   HorizontalExpand="True"
+                                   Align="Center"
+                                   ClipText="True" />
+                        </BoxContainer>
+                        <ScrollContainer Name="MembersScroll"
+                                         VerticalExpand="True"
+                                         HorizontalExpand="True"
+                                         Margin="0 4 0 0">
+                            <BoxContainer Name="MembersList"
+                                          Orientation="Vertical"
+                                          HorizontalExpand="True" />
+                        </ScrollContainer>
+                        <BoxContainer Orientation="Horizontal"
+                                      HorizontalExpand="True"
+                                      Margin="0 6 0 0">
+                            <PanelContainer StyleClasses="ButtonSquare"
+                                            HorizontalExpand="True">
+                                <LineEdit Name="MembersInviteInput"
+                                          PlaceHolder="{Loc nano-chat-group-invite-placeholder}" />
+                            </PanelContainer>
+                            <Button Name="MembersInviteButton"
+                                    Text="{Loc nano-chat-group-invite}"
+                                    StyleClasses="OpenLeft"
+                                    MinSize="96 0"
+                                    Disabled="True" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Horizontal"
+                                      HorizontalAlignment="Right"
+                                      Margin="0 8 0 0">
+                            <Button Name="MembersLeaveButton"
+                                    Text="{Loc nano-chat-group-leave}"
+                                    StyleClasses="OpenRight"
+                                    MinSize="110 0" />
+                            <Button Name="MembersDeleteButton"
+                                    Text="{Loc nano-chat-group-delete}"
+                                    StyleClasses="OpenLeft"
+                                    MinSize="110 0"
+                                    Visible="False" />
+                        </BoxContainer>
                     </BoxContainer>
 
                     <!-- Message input -->

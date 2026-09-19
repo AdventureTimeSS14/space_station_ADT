@@ -30,6 +30,11 @@ public sealed partial class NewsReaderUi : UIFragment
         {
             SendNewsReaderMessage(NewsReaderUiAction.NotificationSwitch, userInterface);
         };
+        // ADT-Tweak: комментарии к новостям
+        _fragment.OnCommentSubmitted += content =>
+        {
+            SendNewsReaderMessage(NewsReaderUiAction.AddComment, userInterface, content);
+        };
     }
 
     public override void UpdateState(BoundUserInterfaceState state)
@@ -45,9 +50,9 @@ public sealed partial class NewsReaderUi : UIFragment
         }
     }
 
-    private void SendNewsReaderMessage(NewsReaderUiAction action, BoundUserInterface userInterface)
+    private void SendNewsReaderMessage(NewsReaderUiAction action, BoundUserInterface userInterface, string? content = null)
     {
-        var newsMessage = new NewsReaderUiMessageEvent(action);
+        var newsMessage = new NewsReaderUiMessageEvent(action, content);
         var message = new CartridgeUiMessage(newsMessage);
         userInterface.SendMessage(message);
     }

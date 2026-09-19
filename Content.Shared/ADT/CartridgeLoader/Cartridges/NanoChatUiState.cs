@@ -7,6 +7,10 @@ public sealed class NanoChatUiState : BoundUserInterfaceState
 {
     public readonly Dictionary<uint, NanoChatRecipient> Recipients = new();
     public readonly Dictionary<uint, List<NanoChatMessage>> Messages = new();
+    public readonly Dictionary<uint, NanoChatGroup> Groups = new();
+    public readonly Dictionary<uint, List<NanoChatMessage>> GroupMessages = new();
+    public readonly List<NanoChatGroupInvite> Invites = new();
+    public readonly List<NanoChatGroupInfo> PublicGroups = new();
     public readonly List<NanoChatRecipient>? Contacts;
     public readonly uint? CurrentChat;
     public readonly uint OwnNumber;
@@ -17,6 +21,10 @@ public sealed class NanoChatUiState : BoundUserInterfaceState
     public NanoChatUiState(
         Dictionary<uint, NanoChatRecipient> recipients,
         Dictionary<uint, List<NanoChatMessage>> messages,
+        Dictionary<uint, NanoChatGroup> groups,
+        Dictionary<uint, List<NanoChatMessage>> groupMessages,
+        List<NanoChatGroupInvite> invites,
+        List<NanoChatGroupInfo> publicGroups,
         List<NanoChatRecipient>? contacts,
         uint? currentChat,
         uint ownNumber,
@@ -26,6 +34,10 @@ public sealed class NanoChatUiState : BoundUserInterfaceState
     {
         Recipients = recipients;
         Messages = messages;
+        Groups = groups;
+        GroupMessages = groupMessages;
+        Invites = invites;
+        PublicGroups = publicGroups;
         Contacts = contacts;
         CurrentChat = currentChat;
         OwnNumber = ownNumber;

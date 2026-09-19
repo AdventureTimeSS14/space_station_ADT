@@ -1,7 +1,10 @@
 <BoxContainer
     xmlns="https://spacestation14.io"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Orientation="Vertical"
     HorizontalExpand="True">
+
+    <!-- Clickable chat row for DMs and joined groups -->
     <Button Name="ChatButton"
             StyleClasses="ButtonSquare"
             HorizontalExpand="True"
@@ -31,18 +34,63 @@
                           HorizontalExpand="True"
                           VerticalExpand="True"
                           VerticalAlignment="Center">
-                <RichTextLabel Name="NameLabel"
-                               StyleClasses="LabelHeading"
-                               HorizontalExpand="True"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Margin="0 -2 0 0" />
-                <Label Name="JobLabel"
+                <Label Name="NameLabel"
+                       StyleClasses="LabelHeading"
+                       HorizontalExpand="True"
+                       VerticalAlignment="Center"
+                       Align="Center"
+                       ClipText="True"
+                       Margin="0 -2 0 0" />
+                <Label Name="SubLabel"
                        StyleClasses="LabelSubText"
                        HorizontalExpand="True"
-                       ClipText="False"
-                       HorizontalAlignment="Center" />
+                       Align="Center"
+                       ClipText="True" />
             </BoxContainer>
         </BoxContainer>
     </Button>
+
+    <!-- Info row for public groups and invites: name + action buttons stacked -->
+    <PanelContainer Name="InfoPanel"
+                    StyleClasses="ButtonSquare"
+                    HorizontalExpand="True"
+                    Margin="0 1"
+                    Visible="False">
+        <BoxContainer Orientation="Vertical"
+                      HorizontalExpand="True"
+                      Margin="6 4">
+            <Label Name="InfoNameLabel"
+                   StyleClasses="LabelHeading"
+                   HorizontalExpand="True"
+                   Align="Center"
+                   ClipText="True"
+                   Margin="0 -2 0 0" />
+            <Label Name="InfoSubLabel"
+                   StyleClasses="LabelSubText"
+                   HorizontalExpand="True"
+                   ClipText="True" />
+            <BoxContainer Name="ActionButtons"
+                          Orientation="Vertical"
+                          HorizontalExpand="True"
+                          Margin="0 3 0 0">
+                <Button Name="JoinButton"
+                        Text="{Loc nano-chat-group-join}"
+                        HorizontalExpand="True"
+                        MinHeight="28"
+                        StyleClasses="OpenBoth" />
+                <Button Name="AcceptButton"
+                        Text="{Loc nano-chat-group-accept}"
+                        HorizontalExpand="True"
+                        MinHeight="28"
+                        Margin="0 2 0 0"
+                        StyleClasses="OpenBoth" />
+                <Button Name="DeclineButton"
+                        Text="{Loc nano-chat-group-decline}"
+                        HorizontalExpand="True"
+                        MinHeight="28"
+                        Margin="0 2 0 0"
+                        StyleClasses="OpenBoth" />
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
 </BoxContainer>
