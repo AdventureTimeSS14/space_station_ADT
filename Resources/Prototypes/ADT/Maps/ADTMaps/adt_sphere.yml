@@ -1,0 +1,88 @@
+- type: gameMap
+  id: ADT_Sphere
+  mapName: 'Sphere Station'
+  mapPath: /Maps/ADTMaps/ADTStations/adt_sphere.yml
+  maxRandomOffset: 0
+  randomRotation: false
+  minPlayers: 0
+  maxPlayers: 20
+  stations:
+    ADT_Sphere:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0}SHP {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '-'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/ADTMaps/Shuttles/sphere_emergency.yml
+        - type: StationCargoShuttle
+          path: /Maps/ADTMaps/Shuttles/adt_cargo.yml
+        - type: StationJobs
+          availableJobs:
+            # centcom specialists
+            ADTBlueShieldOfficer: [ 1, 1 ]
+
+            # command
+            Captain: [ 1, 1 ]
+
+            # cargo
+            Quartermaster: [ 1, 1 ]
+            SalvageSpecialist: [ 3, 3 ]
+            CargoTechnician: [ 3, 3 ]
+            ADTMiner: [ 3, 3 ]
+
+            # engineering
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 3, 3 ]
+            AtmosphericTechnician: [ 2, 2 ]
+            TechnicalAssistant: [ 1, 1 ]
+            ADTSeniorEngineer: [ 1, 1 ]
+
+            # medical
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MedicalDoctor: [ 2, 2 ]
+            MedicalIntern: [ 2, 2 ]
+            Paramedic: [ 1, 1 ]
+            Chemist: [ 1, 1 ]
+            ADTPathologist: [ 1, 1 ]
+            ADTSeniorPhysician: [ 1, 1 ]
+
+            # science
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 2, 2 ]
+            ResearchAssistant: [ 1, 1 ]
+            ADTRoboticist: [ 1, 1 ]
+            ADTSeniorResearcher: [ 1, 1 ]
+
+            # security
+            HeadOfSecurity: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            SecurityOfficer: [ 3, 3 ]
+            SecurityCadet: [ 1, 1 ]
+            Detective: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ]
+            ADTSeniorOfficer: [ 1, 1 ]
+            ADTCorrectionsOfficer: [ 1, 1 ]
+
+            # service
+            HeadOfPersonnel: [ 1, 1 ]
+            Bartender: [ 1, 1 ]
+            Botanist: [ 2, 2 ]
+            Chaplain: [ 1, 1 ]
+            Chef: [ 1, 1 ]
+            Clown: [ 1, 1 ]
+            Janitor: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            ServiceWorker: [ 2, 2 ]
+            Passenger: [ -1, -1 ]
+
+            # silicon
+            Borg: [ 1, 1 ]
+            StationAi: [ 1, 1 ]
+
+            # Juridical
+            IAA: [ 1, 1 ]
