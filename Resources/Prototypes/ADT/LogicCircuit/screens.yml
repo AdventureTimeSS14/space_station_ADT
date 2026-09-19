@@ -1,0 +1,10 @@
+- type: entity
+  parent: Screen
+  id: ADTLogicScreen
+  name: экран схемы
+  description: Монитор фул хд 4к миллион пикселей олед супер
+  components:
+  - type: ADTLogicScreen
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice

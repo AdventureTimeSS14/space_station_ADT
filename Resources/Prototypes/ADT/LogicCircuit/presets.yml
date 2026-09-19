@@ -1,0 +1,190 @@
+- type: entity
+  # TODO: Хз зачем несуществующий родитель
+  # parent: ADTLogicCircuitBox
+  id: ADTLogicCircuitBoxCodeLock
+  suffix: Кодовый замок на 9 кнопок
+  description: Коробка со схемой кодового замка. Девять кнопок, четырёхзначный код.
+  components:
+  - type: ADTLogicCircuit
+    layout:
+      nodes:
+      - id: in1
+        proto: LogicSignalIn
+        pos: "0,0"
+        config: [ 1, "1" ]
+      - id: in2
+        proto: LogicSignalIn
+        pos: "0,80"
+        config: [ 2, "2" ]
+      - id: in3
+        proto: LogicSignalIn
+        pos: "0,160"
+        config: [ 3, "3" ]
+      - id: in4
+        proto: LogicSignalIn
+        pos: "0,240"
+        config: [ 4, "4" ]
+      - id: in5
+        proto: LogicSignalIn
+        pos: "0,320"
+        config: [ 5, "5" ]
+      - id: in6
+        proto: LogicSignalIn
+        pos: "0,400"
+        config: [ 6, "6" ]
+      - id: in7
+        proto: LogicSignalIn
+        pos: "0,480"
+        config: [ 7, "7" ]
+      - id: in8
+        proto: LogicSignalIn
+        pos: "0,560"
+        config: [ 8, "8" ]
+      - id: in9
+        proto: LogicSignalIn
+        pos: "0,640"
+        config: [ 9, "9" ]
+      - id: cat1
+        proto: LogicConcatenation
+        pos: "200,40"
+      - id: cat2
+        proto: LogicConcatenation
+        pos: "200,120"
+      - id: cat3
+        proto: LogicConcatenation
+        pos: "200,200"
+      - id: cat4
+        proto: LogicConcatenation
+        pos: "200,280"
+      - id: cat5
+        proto: LogicConcatenation
+        pos: "200,360"
+      - id: cat6
+        proto: LogicConcatenation
+        pos: "200,440"
+      - id: cat7
+        proto: LogicConcatenation
+        pos: "200,520"
+      - id: cat8
+        proto: LogicConcatenation
+        pos: "200,600"
+      - id: reg
+        proto: LogicShiftRegister
+        pos: "420,300"
+        config: [ 4 ]
+      - id: code
+        proto: LogicConstant
+        pos: "420,440"
+        config: [ "1234" ]
+      - id: cmp
+        proto: LogicEquals
+        pos: "620,340"
+        config: [ 0 ]
+      - id: out1
+        proto: LogicSignalOut
+        pos: "800,340"
+        config: [ 1 ]
+      wires:
+      - from: in1
+        to: cat1
+        toPin: 0
+      - from: in2
+        to: cat1
+        toPin: 1
+      - from: cat1
+        to: cat2
+        toPin: 0
+      - from: in3
+        to: cat2
+        toPin: 1
+      - from: cat2
+        to: cat3
+        toPin: 0
+      - from: in4
+        to: cat3
+        toPin: 1
+      - from: cat3
+        to: cat4
+        toPin: 0
+      - from: in5
+        to: cat4
+        toPin: 1
+      - from: cat4
+        to: cat5
+        toPin: 0
+      - from: in6
+        to: cat5
+        toPin: 1
+      - from: cat5
+        to: cat6
+        toPin: 0
+      - from: in7
+        to: cat6
+        toPin: 1
+      - from: cat6
+        to: cat7
+        toPin: 0
+      - from: in8
+        to: cat7
+        toPin: 1
+      - from: cat7
+        to: cat8
+        toPin: 0
+      - from: in9
+        to: cat8
+        toPin: 1
+      - from: cat8
+        to: reg
+        toPin: 0
+      - from: cat8
+        to: reg
+        toPin: 1
+      - from: reg
+        to: cmp
+        toPin: 0
+      - from: code
+        to: cmp
+        toPin: 1
+      - from: cmp
+        to: out1
+  - type: ADTLogicAutoLink
+    links:
+    - channel: LogicCode1
+      ownPort: ADTLogicIn1
+      targetPort: Pressed
+      outgoing: false
+    - channel: LogicCode2
+      ownPort: ADTLogicIn2
+      targetPort: Pressed
+      outgoing: false
+    - channel: LogicCode3
+      ownPort: ADTLogicIn3
+      targetPort: Pressed
+      outgoing: false
+    - channel: LogicCode4
+      ownPort: ADTLogicIn4
+      targetPort: Pressed
+      outgoing: false
+    - channel: LogicCode5
+      ownPort: ADTLogicIn5
+      targetPort: Pressed
+      outgoing: false
+    - channel: LogicCode6
+      ownPort: ADTLogicIn6
+      targetPort: Pressed
+      outgoing: false
+    - channel: LogicCode7
+      ownPort: ADTLogicIn7
+      targetPort: Pressed
+      outgoing: false
+    - channel: LogicCode8
+      ownPort: ADTLogicIn8
+      targetPort: Pressed
+      outgoing: false
+    - channel: LogicCode9
+      ownPort: ADTLogicIn9
+      targetPort: Pressed
+      outgoing: false
+    - channel: LogicCodeDoor
+      ownPort: ADTLogicOut1
+      targetPort: Open

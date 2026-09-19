@@ -1,0 +1,64 @@
+- type: entity
+  parent: BaseComputer
+  id: ADTComputerInconnuOS
+  name: рабочая станция
+  description: Рабочая станция с InconnuOS от Schrodinger Entertainment. Копия не активирована.
+  components:
+  - type: ADTOperatingSystem
+    driveLabel: system
+    apps:
+    - OsAppMyComputer
+    - OsAppExplorer
+    - OsAppTerminal
+    - OsAppCircuit
+    - OsAppNotepad
+    - OsAppControlPanel
+    - OsAppTaskManager
+    - OsAppDevices
+    settings:
+      wallpaper: Depths
+      accent: "#3f8fd0"
+  - type: ActivatableUI
+    key: enum.ADTComputerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ADTComputerUiKey.Key:
+        type: ADTComputerBoundUserInterface
+  - type: ItemSlots
+    slots:
+      adt_os_drive:
+        name: os-drive-slot
+        whitelist:
+          components:
+          - ADTOsFloppy
+      pai_slot:
+        name: Personal AI Device
+        ejectOnInteract: false
+        whitelist:
+          components:
+          - PAI
+  - type: ADTLogicCircuit
+    powerBudget: 96
+    inputPorts:
+    - ADTLogicIn1
+    - ADTLogicIn2
+    - ADTLogicIn3
+    - ADTLogicIn4
+    - ADTLogicIn5
+    - ADTLogicIn6
+    - ADTLogicIn7
+    - ADTLogicIn8
+    outputPorts:
+    - ADTLogicOut1
+    - ADTLogicOut2
+    - ADTLogicOut3
+    - ADTLogicOut4
+    - ADTLogicOut5
+    - ADTLogicOut6
+    - ADTLogicOut7
+    - ADTLogicOut8
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200

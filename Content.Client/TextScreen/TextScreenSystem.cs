@@ -196,7 +196,7 @@ public sealed class TextScreenSystem : VisualizerSystem<TextScreenVisualsCompone
         for (var row = 0; row < component.Rows; row++)
             for (var i = 0; i < component.RowLength; i++)
             {
-                var key = TextMapKey + row + i;
+                var key = TextMapKey + row + "_" + i; // ADT-Tweak
                 SpriteSystem.LayerMapReserve((uid, sprite), key);
                 component.LayerStatesToDraw.Add(key, null);
                 SpriteSystem.LayerSetRsi((uid, sprite), key, new ResPath(TextPath));
@@ -226,10 +226,10 @@ public sealed class TextScreenSystem : VisualizerSystem<TextScreenVisualsCompone
 
             for (var chr = 0; chr < min; chr++)
             {
-                component.LayerStatesToDraw[TextMapKey + rowIdx + chr] = GetStateFromChar(row[chr]);
+                component.LayerStatesToDraw[TextMapKey + rowIdx + "_" + chr] = GetStateFromChar(row[chr]); // ADT-Tweak
                 SpriteSystem.LayerSetOffset(
                     (uid, sprite),
-                    TextMapKey + rowIdx + chr,
+                    TextMapKey + rowIdx + "_" + chr, // ADT-Tweak
                     Vector2.Multiply(
                         new Vector2((chr - min / 2f + 0.5f) * CharWidth, -rowIdx * component.RowOffset),
                         TextScreenVisualsComponent.PixelSize
