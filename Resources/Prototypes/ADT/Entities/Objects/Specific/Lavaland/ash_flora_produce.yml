@@ -167,3 +167,27 @@
   - type: Tag
     tags:
     - ADTFireblossom
+
+- type: entity
+  name: coaltree log
+  parent: FoodProduceBase
+  id: ADTFoodCoaltreeLog
+  description: A chunk of coaltree wood. Burns well, tastes like ash.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/coaltree_log.rsi
+    state: icon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Carbon
+          Quantity: 4
+  - type: Extractable
+    grindableSolutionName: food
+  - type: Tag
+    tags:
+    - ADTLavaFishPart
