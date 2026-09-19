@@ -1,8 +1,10 @@
+using System.Linq;
 using Content.Shared.ADT.Fishing;
 using Content.Shared.ADT.Fishing.Components;
 using Content.Shared.ADT.Lavaland;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
+using Content.Shared.EntityTable;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Wieldable.Components;
@@ -181,6 +183,16 @@ public sealed class ADTFishingSystem : EntitySystem
 
     public EntProtoId? PickFish(Entity<ADTFishingSpotComponent> spot, EntProtoId? bait, float favoriteChance)
     {
+        if (spot.Comp.Junk != null && _random.Prob(spot.Comp.JunkChance))
+        {
+            var junk = spot.Comp.Junk
+                .GetSpawns(_random.GetRandom(), EntityManager, _proto, new EntityTableContext())
+                .FirstOrDefault();
+
+            if (junk != default)
+                return junk;
+        }
+
         var pool = IsDeep(spot) ? spot.Comp.DeepFish : spot.Comp.ShoreFish;
 
         if (pool.Count == 0)

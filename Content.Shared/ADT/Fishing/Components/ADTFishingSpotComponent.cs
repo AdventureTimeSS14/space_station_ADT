@@ -1,3 +1,4 @@
+using Content.Shared.EntityTable.EntitySelectors;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -20,6 +21,12 @@ public sealed partial class ADTFishingSpotComponent : Component
 
     [DataField]
     public List<EntProtoId> DeepFish = new();
+
+    [DataField]
+    public EntityTableSelector? Junk;
+
+    [DataField]
+    public float JunkChance;
 
     [DataField]
     public int ShoreRange = 3;

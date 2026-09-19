@@ -165,44 +165,6 @@ public sealed partial class ADTRitualRechargeEffect : ADTRitualEffect
     }
 }
 
-public sealed partial class ADTRitualEmpathEffect : ADTRitualEffect
-{
-    [DataField]
-    public ADTRitualTarget Target = ADTRitualTarget.UsedThings;
-
-    public override void Effect(IEntityManager entMan, ADTRitualArgs args)
-    {
-        var popup = entMan.System<SharedPopupSystem>();
-        var mobState = entMan.System<MobStateSystem>();
-
-        foreach (var target in entMan.System<ADTRitualSystem>().GetTargets(args, Target))
-        {
-            if (!entMan.HasComponent<MobStateComponent>(target))
-                continue;
-
-            var damage = entMan.TryGetComponent<DamageableComponent>(target, out var damageable)
-                ? (int)damageable.TotalDamage
-                : 0;
-
-            var feeling = mobState.IsDead(target)
-                ? "adt-ritual-empath-dead"
-                : mobState.IsCritical(target)
-                    ? "adt-ritual-empath-dying"
-                    : damage > 50
-                        ? "adt-ritual-empath-hurt"
-                        : "adt-ritual-empath-well";
-
-            popup.PopupEntity(
-                Loc.GetString("adt-ritual-empath-report",
-                    ("target", target),
-                    ("feeling", Loc.GetString(feeling))),
-                args.Invoker,
-                args.Invoker,
-                PopupType.Medium);
-        }
-    }
-}
-
 public sealed partial class ADTRitualSentienceEffect : ADTRitualEffect
 {
     [DataField]

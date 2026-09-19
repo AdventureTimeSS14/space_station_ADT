@@ -10,7 +10,7 @@ namespace Content.Shared.ADT.Fishing.Components;
 public sealed partial class ADTWhetstoneComponent : Component
 {
     [DataField]
-    public int Uses = 1;
+    public int Uses = 2;
 
     [DataField]
     public DamageSpecifier Increment = new();
@@ -19,8 +19,19 @@ public sealed partial class ADTWhetstoneComponent : Component
     public FixedPoint2 MaxDamage = 30;
 
     [DataField]
+    public bool RequiresSharp = true;
+
+    [DataField]
     public EntityWhitelist? Whitelist;
 
     [DataField]
-    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Items/Handling/generic_pickup.ogg");
+    public EntityWhitelist? Blacklist;
+
+    [DataField]
+    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Items/screwdriver.ogg");
+}
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class ADTSharpenedComponent : Component
+{
 }
