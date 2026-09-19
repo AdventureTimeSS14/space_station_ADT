@@ -38,6 +38,8 @@ public sealed class MutationSystem : EntitySystem
                 // Stat adjustments do not persist by being an attached effect, they just change the stat.
                 if (mutation.Persists && !seed.Mutations.Any(m => m.Name == mutation.Name))
                     seed.Mutations.Add(mutation);
+
+                seed.IsModified = true; // ADT-Tweak
             }
         }
     }
@@ -59,6 +61,8 @@ public sealed class MutationSystem : EntitySystem
     public SeedData Cross(SeedData a, SeedData b)
     {
         SeedData result = b.Clone();
+
+        result.IsModified = true; // ADT-Tweak
 
         CrossChemicals(ref result.Chemicals, a.Chemicals);
 

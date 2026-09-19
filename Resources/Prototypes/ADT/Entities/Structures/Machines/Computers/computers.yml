@@ -341,12 +341,52 @@
       whitelist:
         components:
         - DnaDisk
+    genes:
+    - NutrientConsumption
+    - WaterConsumption
+    - IdealHeat
+    - HeatTolerance
+    - ToxinsTolerance
+    - LowPressureTolerance
+    - HighPressureTolerance
+    - PestTolerance
+    - WeedTolerance
+    - Endurance
+    - Yield
+    - Lifespan
+    - Maturation
+    - Production
+    - HarvestRepeat
+    - Potency
+    - Seedless
+    - Viable
+    - Ligneous
+    - CanScream
+    - ADTChemicals
+    - ADTGases
+    maxChemicalsVolume: 100
+    transferCooldown: 1.5
+    sellBasePrice: 200
+    sellChemicalPrice: 25
+    sellAccount: Service
+    sellCooldown: 30
+    maxPoints: 100
+    startingPoints: 50
+    requireModifiedSeed: true
+    sellPointsPercent: 10
+  - type: AccessReader
+    access:
+    - [ Hydroponics ]
+  - type: ResearchClient
+  - type: TechnologyDatabase
   - type: ActivatableUI
     key: enum.SeedDnaConsoleUiKey.Key
   - type: UserInterface
     interfaces:
       enum.SeedDnaConsoleUiKey.Key:
         type: SeedDnaConsoleBoundUserInterface
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: Sprite
