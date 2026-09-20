@@ -380,19 +380,13 @@
       reagents:
       - ReagentId: Stimulants
         Quantity: 15
-  - type: EntityEffectOnTrigger # мгновенно снимает оглушение и принудительный сон (реагент делает это лишь постепенно)
+  - type: RemoveStatusEffectsOnTrigger # мгновенно снимает оглушение и принудительный сон (реагент делает это лишь постепенно)
     keysIn:
     - delayed
     targetUser: true
     effects:
-    - !type:ModifyStatusEffect
-      effectProto: StatusEffectStunned
-      time: 60
-      type: Remove
-    - !type:ModifyStatusEffect
-      effectProto: StatusEffectForcedSleeping
-      time: 60
-      type: Remove
+    - StatusEffectStunned
+    - StatusEffectForcedSleeping
   - type: RemoveComponentsOnTrigger # поднимает на ноги: в ADT автоподъёма после нокдауна нет
     keysIn:
     - delayed

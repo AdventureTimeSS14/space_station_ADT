@@ -4,6 +4,9 @@ using Content.Shared.Trigger;
 
 namespace Content.Shared.ADT.Trigger;
 
+/// <summary>
+/// Обрабатывает <see cref="StaminaRestoreOnTriggerComponent"/>: выводит цель из стамкрита и полностью восстанавливает стамину.
+/// </summary>
 public sealed class StaminaRestoreOnTriggerSystem : XOnTriggerSystem<StaminaRestoreOnTriggerComponent>
 {
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
