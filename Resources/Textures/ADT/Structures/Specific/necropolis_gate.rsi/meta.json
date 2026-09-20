@@ -9,6 +9,9 @@
     "states": [
         {
             "name": "gate"
+        },
+        {
+            "name": "gate_open"
         }
     ]
 }
