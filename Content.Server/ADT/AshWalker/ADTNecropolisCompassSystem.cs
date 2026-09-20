@@ -5,10 +5,10 @@ using Content.Shared.ADT.AshWalker.Components;
 using Content.Shared.ADT.UI;
 using Content.Shared.Actions;
 using Content.Shared.Chat;
+using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.AshWalker;
 
@@ -16,6 +16,7 @@ public sealed class ADTNecropolisCompassSystem : EntitySystem
 {
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
@@ -28,6 +29,7 @@ public sealed class ADTNecropolisCompassSystem : EntitySystem
         SubscribeLocalEvent<ADTNecropolisCompassComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<ADTNecropolisCompassComponent, ADTNecropolisCompassActionEvent>(OnUse);
         SubscribeLocalEvent<ADTNecropolisCompassComponent, ADTNecropolisCompassSelectMessage>(OnPointSelected);
+        SubscribeLocalEvent<ADTNecropolisCompassComponent, ADTNecropolisCompassDoAfterEvent>(OnAnswerReady);
     }
 
     private void OnMapInit(Entity<ADTNecropolisCompassComponent> ent, ref MapInitEvent args)
@@ -64,15 +66,64 @@ public sealed class ADTNecropolisCompassSystem : EntitySystem
 
     private void OnPointSelected(Entity<ADTNecropolisCompassComponent> ent, ref ADTNecropolisCompassSelectMessage args)
     {
-        var point = GetEntity(args.Point);
-
-        if (!HasComp<ADTPointOfInterestComponent>(point))
+        if (args.Actor != ent.Owner)
             return;
 
-        _popup.PopupEntity(Loc.GetString("adt-necropolis-compass-listen"), ent.Owner, ent.Owner);
+        var point = GetEntity(args.Point);
 
-        var owner = ent.Owner;
-        Timer.Spawn(ent.Comp.Delay, () => Answer(owner, point)); // todo rm shitass Timer.Spawn
+        if (!IsValidPoint(ent.Owner, point))
+            return;
+
+        var doAfter = new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.Delay,
+            new ADTNecropolisCompassDoAfterEvent(), ent.Owner, point)
+        {
+            BreakOnDamage = false,
+            BreakOnMove = false,
+            NeedHand = false,
+            BlockDuplicate = true,
+            DuplicateCondition = DuplicateConditions.SameEvent,
+        };
+
+        if (_doAfter.TryStartDoAfter(doAfter))
+            _popup.PopupEntity(Loc.GetString("adt-necropolis-compass-listen"), ent.Owner, ent.Owner);
+    }
+
+    private void OnAnswerReady(Entity<ADTNecropolisCompassComponent> ent, ref ADTNecropolisCompassDoAfterEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+
+        if (!TryComp<ActorComponent>(ent.Owner, out var actor))
+            return;
+
+        if (args.Target is not { } point || Deleted(point) || !TryComp<ADTPointOfInterestComponent>(point, out var poiComp))
+        {
+            SendMessage(actor, Loc.GetString("adt-necropolis-compass-destroyed"));
+            return;
+        }
+
+        if (args.Cancelled)
+            return;
+
+        var from = _transform.GetMapCoordinates(ent.Owner);
+        var to = _transform.GetMapCoordinates(point);
+
+        var direction = to.MapId != from.MapId
+            ? Loc.GetString("adt-direction-far-away")
+            : Loc.GetString(DirectionKey(to.Position - from.Position));
+
+        SendMessage(actor, Loc.GetString(
+            "adt-necropolis-compass-answer",
+            ("place", Loc.GetString(poiComp.Title)),
+            ("direction", direction)));
+    }
+
+    private bool IsValidPoint(EntityUid user, EntityUid point)
+    {
+        return HasComp<ADTPointOfInterestComponent>(point)
+               && _transform.GetMapId(point) == _transform.GetMapId(user);
     }
 
     private List<ADTEntityPickerEntry> CollectPoints(EntityUid user)
@@ -92,30 +143,6 @@ public sealed class ADTNecropolisCompassSystem : EntitySystem
         }
 
         return points;
-    }
-
-    private void Answer(EntityUid user, EntityUid point)
-    {
-        if (Deleted(user) || !TryComp<ActorComponent>(user, out var actor))
-            return;
-
-        if (Deleted(point) || !TryComp<ADTPointOfInterestComponent>(point, out var poiComp))
-        {
-            SendMessage(actor, Loc.GetString("adt-necropolis-compass-destroyed"));
-            return;
-        }
-
-        var from = _transform.GetMapCoordinates(user);
-        var to = _transform.GetMapCoordinates(point);
-
-        var direction = to.MapId != from.MapId
-            ? Loc.GetString("adt-direction-far-away")
-            : Loc.GetString(DirectionKey(to.Position - from.Position));
-
-        SendMessage(actor, Loc.GetString(
-            "adt-necropolis-compass-answer",
-            ("place", Loc.GetString(poiComp.Title)),
-            ("direction", direction)));
     }
 
     private void SendMessage(ActorComponent actor, string message)
