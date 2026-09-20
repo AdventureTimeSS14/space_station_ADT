@@ -369,7 +369,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
         }
         else
         {
-            sb.AppendLine(Loc.GetString("heretic-ritual-info-item-plain", ("item", itemName)));
+            sb.AppendLine(Loc.GetString("heretic-ritual-info-item-plain", ("item", itemName), ("amount", amount)));
         }
     }
 
