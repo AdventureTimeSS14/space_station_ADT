@@ -4245,47 +4245,5 @@
   - type: Edible
     useSound: *PlushieSharkSound
 
-#Legion_159
-
-- type: entity
-  parent: BasePlushie
-  id: ADTPlushieAtraLegion159
-  name: plushy Atra
-  description: A plush toy of a nearly white twilight creature, the size of a pineapple. It smells of old books, various berries, and poppies, so unusually that it takes your breath away. It seems like its golden eyes mischievously watch you even in complete darkness.
-  suffix: Sponsor, Legion_159
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/Legion_159_plushie_atra.rsi
-    layers:
-    - state: icon
-    - state: icon-unshaded
-      shader: unshaded
-    - state: icon-unshaded
-      shader: shaded
-
-- type: entity
-  parent: BasePlushie
-  id: ADTPlushieElLegion159
-  name: plushy El
-  description: A plush toy of a black luama with colorful wings, about the size of a small melon. It smells like apple pie mixed with the scent of incense and various fragrant oils. On the back of its collar, there's embroidery in silver thread 'All-good electricity and the Supreme Ether'.
-  suffix: Sponsor, Legion_159
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
-    state: plushie_el
-  - type: EmitSoundOnUse
-    sound: *PlushieMothSound
-  - type: EmitSoundOnLand
-    sound: *PlushieMothSound
-  - type: EmitSoundOnActivate
-    sound: *PlushieMothSound
-  - type: EmitSoundOnTrigger
-    sound: *PlushieMothSound
-  - type: EmitSoundOnCollide
-    sound: *PlushieMothSound
-  - type: MeleeWeapon
-    soundHit: *PlushieMothSound
-  - type: Edible
-    useSound: *PlushieMothSound
 
 #SPONSOR-ITEMS-END

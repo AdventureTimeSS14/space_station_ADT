@@ -1,0 +1,158 @@
+#Legion_159
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAtraLegion159
+  name: plushy Atra
+  description: A plush toy of a nearly white twilight creature, the size of a pineapple. It smells of old books, various berries, and poppies, so unusually that it takes your breath away. It seems like its golden eyes mischievously watch you even in complete darkness.
+  suffix: Sponsor, Legion_159
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Legion_159_plushie_atra.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: icon-unshaded
+      shader: shaded
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieElLegion159
+  name: plushy El
+  description: A plush toy of a black luama with colorful wings, about the size of a small melon. It smells like apple pie mixed with the scent of incense and various fragrant oils. On the back of its collar, there's embroidery in silver thread 'All-good electricity and the Supreme Ether'.
+  suffix: Sponsor, Legion_159
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_el
+  - type: EmitSoundOnUse
+    sound: &PlushieMothSound
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: EmitSoundOnLand
+    sound: *PlushieMothSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieMothSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieMothSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieMothSound
+  - type: MeleeWeapon
+    soundHit: *PlushieMothSound
+  - type: Edible
+    useSound: *PlushieMothSound
+
+# Raven559
+
+- type: entity
+  parent: ClothingHeadHelmetRiot
+  id: ADTClothingHeadReinforcedBSHelmetRaven559
+  name: worn-out parade reinforced helmet of the Officer 'Blue Shield'
+  description: Extremely durable helmet, designed (or stolen?) for one specific Blue Shield Officer. The word 'DUMP TRUCK' is scratched on the front of the helmet.
+  suffix: Sponsor, Raven559
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_reinforced_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_reinforced_helmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.5
+        Caustic: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: StaminaResistance
+    damageCoefficient: 0.65
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingOuterReinforcedArmorBSRaven559
+  name: worn-out reinforced parade armor of Officer 'Blue Shield'
+  description: A reinforced power armor that provides excellent protection while still being highly mobile, designed specifically for a single Officer of the 'Blue Shield.' On closer inspection, this armor resembles another similar red armor, as if it was stolen from somewhere and repainted, but there’s no solid evidence of this crime.
+  suffix: Sponsor, Raven559
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_reinforced_armor.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Raven559/blue_shield_ceremonial_reinforced_armor.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.7
+    coolingCoefficient: 1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Caustic: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: StaminaResistance
+    damageCoefficient: 0.65
+
+#Illumy
+
+- type: entity
+  parent: ADTSponsorClothingShoesBase
+  id: ADTClothingShoesBrasskBootsIllumy
+  name: brass shoes
+  description: Shoes with brass trim, designed for long service and a confident stride. It seems especially difficult to take a step back in them.
+  suffix: Personal, Unlumination
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Illumy/brass_shoes.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Illumy/brass_shoes.rsi
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingOuterJacketCoatIllumy
+  name: jacket‑cloak “Valiant Flame”
+  description: A crimson jacket‑cloak whose patterns resemble long ivy stems. They say it is worn by those whose valor does not fade even in the face of inevitable death.
+  suffix: Personal, Unlumination
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Illumy/jacket_cloak.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Illumy/jacket_cloak.rsi
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    maxItemSize: Small
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsSyntheticGlovesIllumy
+  name: synthetic gloves
+  description: Durable synthetic gloves, equally suitable for working with soil and everyday tasks. It seems that hands simply can’t shake in them.
+  suffix: Personal, Unlumination
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Illumy/synthetic_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Illumy/synthetic_gloves.rsi
+
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformHeatResistantJumpsuitIllumy
+  name: heat‑resistant tuxedo
+  description: A strict crimson tuxedo, made of thick fabric capable of withstanding intense heat. Even near an open flame, it maintains its impeccable appearance.
+  suffix: Personal, Unlumination
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Illumy/heatresistant_tuxedo.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Illumy/heatresistant_tuxedo.rsi
