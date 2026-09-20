@@ -787,6 +787,17 @@
     - UplinkImplants
 
 - type: listing
+  id: ADTUplinkStimulantsImplanter
+  name: uplink-ADTstimulants-implanter-name
+  description: uplink-ADTstimulants-implanter-desc
+  icon: { sprite: /Textures/Objects/Specific/Medical/medipen.rsi, state: stimpen }
+  productEntity: ADTStimulantsImplanter
+  cost:
+    Telecrystal: 8
+  categories:
+    - UplinkImplants
+
+- type: listing
   id: ADTUplinkMedbeam
   name: uplink-medbeam-name
   description: uplink-medbeam-desc

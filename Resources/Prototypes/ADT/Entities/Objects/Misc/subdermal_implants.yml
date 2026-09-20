@@ -351,3 +351,62 @@
     tags:
     - SubdermalImplant
     - HideContextMenu
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTStimulantsImplant
+  name: stimulants implant
+  description: This implant injects a dose of stimulants into the user's bloodstream when activated.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ADTActionActivateStimulantsImplant
+  - type: TriggerOnActivateImplant
+  - type: EmitSoundOnTrigger
+    targetUser: true
+    sound:
+      path: /Audio/Items/hypospray.ogg
+  - type: TimerTrigger # эффекты срабатывают через 0.5 с после нажатия, чтобы совпасть со звуком
+    keyOut: delayed
+    delay: 0.5
+    popup: null
+    examinable: false
+  - type: AddSolutionOnTrigger
+    keysIn:
+    - delayed
+    targetUser: true
+    solution: bloodstream
+    addedSolution:
+      reagents:
+      - ReagentId: Stimulants
+        Quantity: 15
+  - type: EntityEffectOnTrigger # мгновенно снимает оглушение и принудительный сон (реагент делает это лишь постепенно)
+    keysIn:
+    - delayed
+    targetUser: true
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectStunned
+      time: 60
+      type: Remove
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectForcedSleeping
+      time: 60
+      type: Remove
+  - type: RemoveComponentsOnTrigger # поднимает на ноги: в ADT автоподъёма после нокдауна нет
+    keysIn:
+    - delayed
+    targetUser: true
+    components:
+    - type: KnockedDown
+  - type: StaminaRestoreOnTrigger # полностью восстанавливает стамину и выводит из стамкрита
+    keysIn:
+    - delayed
+    targetUser: true
+  - type: PopupOnTrigger # сообщение видит только сам носитель
+    keysIn:
+    - delayed
+    targetUser: true
+    quiet: true
+    text: adt-stimulants-implant-activated
+    popupType: Medium

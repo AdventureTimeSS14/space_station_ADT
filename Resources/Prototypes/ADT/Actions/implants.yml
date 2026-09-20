@@ -83,3 +83,21 @@
     useDelay: 2
   - type: InstantAction
     event: !type:ToggleSandevistanEvent
+
+- type: entity
+  parent: BaseImplantAction
+  id: ADTActionActivateStimulantsImplant
+  name: Activate stimulants
+  description: Injects a dose of stimulants into your bloodstream.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: LimitedCharges
+    maxCharges: 3
+  - type: Action
+    checkCanInteract: false # можно использовать, будучи оглушённым
+    useDelay: 31 # 0.5 с задержка эффектов + 15 ед. / 0.5 ед/с метаболизма = 30 с: откат проходит, когда реагента в крови уже нет
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Objects/Specific/Medical/medipen.rsi
+      state: stimpen
