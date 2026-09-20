@@ -7,3 +7,8 @@ namespace Content.Shared.ADT.Lavaland;
 public sealed partial class ADTGraceCutDoAfterEvent : SimpleDoAfterEvent
 {
 }
+
+[Serializable, NetSerializable]
+public sealed partial class ADTNecropolisGateDoAfterEvent : SimpleDoAfterEvent
+{
+}
