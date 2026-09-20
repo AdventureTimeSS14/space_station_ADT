@@ -303,6 +303,9 @@
         {
             "name": "sani-equipped-HELMET",
             "directions": 4
+        },
+        {
+            "name": "plushie_el"
         }
     ]
 }

@@ -17,6 +17,9 @@
     # ADT tweak start wiki books
     ADTVendingCategoryBooks:
         ADTBookSRPsrv: 2
+        ADTBookSRPcmd: 2
+        ADTBookPCDcmd: 2
+        ADTBookSpaceLaw: 3
         BookRandom: 10
     # ADT tweak end wiki books
     BooksBag: 2
