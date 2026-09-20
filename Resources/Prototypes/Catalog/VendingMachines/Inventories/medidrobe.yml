@@ -41,6 +41,9 @@
     # ADT tweak start wiki books
     ADTVendingCategoryBooks:
         ADTBookSRPmed: 2
+        ADTBookSRPcmd: 2
+        ADTBookPCDcmd: 2
+        ADTBookSpaceLaw: 3
     # ADT tweak end wiki books
   contrabandInventory:
     ClothingUniformJumpskirtOfLife: 1
