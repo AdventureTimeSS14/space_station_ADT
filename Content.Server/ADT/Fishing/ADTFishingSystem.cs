@@ -88,6 +88,7 @@ public sealed class ADTFishingSystem : EntitySystem
             return;
 
         ent.Comp.ActiveBobber = Spawn(ent.Comp.Bobber, Transform(spot.Owner).Coordinates);
+        ent.Comp.ActiveSpot = spot.Owner;
         spot.Comp.Occupied = true;
 
         _audio.PlayPvs(ent.Comp.ThrowSound, ent.Owner);
@@ -164,8 +165,11 @@ public sealed class ADTFishingSystem : EntitySystem
             ent.Comp.ActiveBobber = null;
         }
 
+        spot ??= ent.Comp.ActiveSpot;
         if (TryComp<ADTFishingSpotComponent>(spot, out var spotComp))
             spotComp.Occupied = false;
+
+        ent.Comp.ActiveSpot = null;
     }
 
     private EntityUid? GetBait(Entity<ADTFishingRodComponent> ent)

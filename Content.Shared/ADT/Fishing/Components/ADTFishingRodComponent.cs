@@ -36,4 +36,7 @@ public sealed partial class ADTFishingRodComponent : Component
 
     [ViewVariables]
     public EntityUid? ActiveBobber;
+
+    [ViewVariables]
+    public EntityUid? ActiveSpot;
 }
