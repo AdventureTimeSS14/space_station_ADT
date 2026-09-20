@@ -11,10 +11,10 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
+using Content.Shared.Pinpointer;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Weather;
-using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -52,40 +52,47 @@ public sealed partial class ADTRitualTeleportEffect : ADTRitualEffect
     public ADTRitualTarget Target = ADTRitualTarget.UsedThings;
 
     [DataField]
-    public EntityWhitelist? Destination;
+    public bool ToBeacon;
 
     public override void Effect(IEntityManager entMan, ADTRitualArgs args)
     {
-        var random = IoCManager.Resolve<IRobustRandom>();
         var transform = entMan.System<SharedTransformSystem>();
-        var runeCoords = entMan.GetComponent<TransformComponent>(args.Object).Coordinates;
-        var beacons = Destination == null ? null : FindBeacons(entMan, Destination);
+        var targets = entMan.System<ADTRitualSystem>().GetTargets(args, Target);
 
-        foreach (var target in entMan.System<ADTRitualSystem>().GetTargets(args, Target))
+        if (!ToBeacon)
         {
-            if (beacons == null)
+            var runeCoords = entMan.GetComponent<TransformComponent>(args.Object).Coordinates;
+
+            foreach (var target in targets)
             {
                 transform.SetCoordinates(target, runeCoords);
-                continue;
             }
 
-            if (beacons.Count == 0)
-                continue;
+            return;
+        }
 
+        var beacons = FindBeacons(entMan);
+
+        if (beacons.Count == 0)
+            return;
+
+        var random = IoCManager.Resolve<IRobustRandom>();
+
+        foreach (var target in targets)
+        {
             var beacon = random.Pick(beacons);
             transform.SetCoordinates(target, entMan.GetComponent<TransformComponent>(beacon).Coordinates);
         }
     }
 
-    private static List<EntityUid> FindBeacons(IEntityManager entMan, EntityWhitelist whitelist)
+    private static List<EntityUid> FindBeacons(IEntityManager entMan)
     {
-        var whitelistSystem = entMan.System<EntityWhitelistSystem>();
         var found = new List<EntityUid>();
-        var query = entMan.EntityQueryEnumerator<TransformComponent>();
+        var query = entMan.EntityQueryEnumerator<NavMapBeaconComponent, TransformComponent>();
 
-        while (query.MoveNext(out var uid, out var xform))
+        while (query.MoveNext(out var uid, out _, out var xform))
         {
-            if (xform.MapUid != null && whitelistSystem.IsValid(whitelist, uid))
+            if (xform.MapUid != null)
                 found.Add(uid);
         }
 

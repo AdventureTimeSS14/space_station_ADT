@@ -129,8 +129,6 @@ public sealed partial class ADTRitualSystem : EntitySystem
         if (ent.Comp.Cooldowns.TryGetValue(ritual.ID, out var until) && until > _timing.CurTime)
             return;
 
-        _audio.PlayPvs(ritual.StartSound, ent.Owner);
-
         if (!TryGatherInvokers(ent, ritual, user, out var invokers))
             return;
 
@@ -159,6 +157,8 @@ public sealed partial class ADTRitualSystem : EntitySystem
             return;
         }
 
+        _audio.PlayPvs(ritual.StartSound, ent.Owner);
+
         var fail = ritual.FailChance;
         var disaster = ritual.DisasterChance;
 
@@ -166,6 +166,9 @@ public sealed partial class ADTRitualSystem : EntitySystem
         {
             modifier.Apply(EntityManager, args, ref fail, ref disaster);
         }
+
+        fail = Math.Clamp(fail, 0f, 1f);
+        disaster = Math.Clamp(disaster, 0f, 1f);
 
         if (_random.Prob(fail))
         {
@@ -432,6 +435,9 @@ public sealed partial class ADTRitualSystem : EntitySystem
         ent.Comp.ResolveAt = _timing.CurTime + obj.FinaleDelay;
     }
 
+    private readonly List<(Entity<ADTRitualObjectComponent> Ent, ADTRitualPrototype Ritual, EntityUid Invoker,
+        List<EntityUid> Invokers, List<EntityUid> Things, List<EntityUid> Consumable)> _finished = new();
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -439,6 +445,7 @@ public sealed partial class ADTRitualSystem : EntitySystem
         var now = _timing.CurTime;
         var query = EntityQueryEnumerator<ADTActiveRitualComponent, ADTRitualObjectComponent>();
 
+        _finished.Clear();
         while (query.MoveNext(out var uid, out var active, out var obj))
         {
             if (active.ResolveAt is not { } at || now < at)
@@ -450,14 +457,19 @@ public sealed partial class ADTRitualSystem : EntitySystem
                 continue;
             }
 
-            var invoker = active.Invoker;
-            var invokers = active.Invokers;
-            var things = active.UsedThings;
-            var consumable = active.Consumable;
-
-            Cancel(uid);
-            Succeed((uid, obj), ritual, invoker, invokers, things, consumable);
+            _finished.Add(((uid, obj), ritual, active.Invoker, active.Invokers, active.UsedThings, active.Consumable));
         }
+
+        foreach (var (ent, ritual, invoker, invokers, things, consumable) in _finished)
+        {
+            if (Deleted(ent.Owner))
+                continue;
+
+            Cancel(ent.Owner);
+            Succeed(ent, ritual, invoker, invokers, things, consumable);
+        }
+
+        _finished.Clear();
     }
 
     private void Cancel(EntityUid uid)

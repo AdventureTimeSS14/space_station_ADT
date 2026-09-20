@@ -39,6 +39,8 @@ public sealed class ADTAshSigilSystem : EntitySystem
             Spawn(effect, Transform(ent.Owner).Coordinates);
     }
 
+    private readonly List<Entity<ADTAshSigilComponent>> _ready = new();
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -46,14 +48,25 @@ public sealed class ADTAshSigilSystem : EntitySystem
         var now = _timing.CurTime;
         var query = EntityQueryEnumerator<ADTAshSigilComponent>();
 
+        _ready.Clear();
         while (query.MoveNext(out var uid, out var sigil))
         {
             if (sigil.ActivateAt is not { } at || now < at)
                 continue;
 
-            Spawn(sigil.Rune, Transform(uid).Coordinates);
-            QueueDel(uid);
+            _ready.Add((uid, sigil));
         }
+
+        foreach (var sigil in _ready)
+        {
+            if (Deleted(sigil.Owner))
+                continue;
+
+            Spawn(sigil.Comp.Rune, Transform(sigil.Owner).Coordinates);
+            QueueDel(sigil.Owner);
+        }
+
+        _ready.Clear();
     }
 
     private void LightMarks(Entity<ADTAshSigilComponent> ent)
