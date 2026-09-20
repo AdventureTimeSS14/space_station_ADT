@@ -1,12 +1,15 @@
 using System.Numerics;
 using Content.Server.Decals;
+using Content.Server.Parallax;
 using Content.Shared.ADT.Areas;
 using Content.Shared.ADT.Procedural;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
+using Content.Shared.Parallax.Biomes;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
@@ -26,8 +29,10 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
     [Dependency] private readonly DecalSystem _decals = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly BiomeSystem _biome = default!;
 
     private readonly List<(Vector2i, Tile)> _tiles = new();
+    private readonly List<(Vector2i, Tile)> _biomeReserveBuffer = new();
     private readonly List<ADTDungeonRoomPrototype> _availableRooms = new();
     private readonly Dictionary<ADTComponentOverrides, ComponentRegistry> _registryCache = new();
 
@@ -242,6 +247,40 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
         }
 
         _maps.SetTiles(gridUid, grid, _tiles);
+
+        ReserveBiomeArea(gridUid, room, roomTransform, tileOffset);
+    }
+
+    private void ReserveBiomeArea(
+        EntityUid gridUid,
+        ADTDungeonRoomPrototype room,
+        Matrix3x2 roomTransform,
+        Vector2 tileOffset)
+    {
+        if (!HasComp<BiomeComponent>(gridUid))
+            return;
+
+        var corners = new[]
+        {
+            Vector2.Transform(tileOffset, roomTransform),
+            Vector2.Transform(new Vector2(room.Size.X, 0) + tileOffset, roomTransform),
+            Vector2.Transform(new Vector2(0, room.Size.Y) + tileOffset, roomTransform),
+            Vector2.Transform(new Vector2(room.Size.X, room.Size.Y) + tileOffset, roomTransform),
+        };
+
+        var min = corners[0];
+        var max = corners[0];
+
+        foreach (var corner in corners)
+        {
+            min = Vector2.Min(min, corner);
+            max = Vector2.Max(max, corner);
+        }
+
+        var bounds = new Box2(min, max).Enlarged(0.5f);
+
+        _biomeReserveBuffer.Clear();
+        _biome.ReserveTiles(gridUid, bounds, _biomeReserveBuffer);
     }
 
     private static int GetQuarterTurns(Angle rotation)
