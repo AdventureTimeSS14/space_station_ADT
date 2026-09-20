@@ -157,8 +157,6 @@
   - type: Clothing
     sprite: ADT/Personalization/Illumy/heatresistant_tuxedo.rsi
 
-
-
 - type: entity
   parent: BasePlushie
   id: ADTPlushieProximaLunnyykat
