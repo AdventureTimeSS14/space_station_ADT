@@ -422,3 +422,27 @@
   targetNode: medkit
   category: construction-category-utilities
   objectType: Item
+
+- type: constructionGraph
+  id: ADTFishingPouch
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pouch
+      steps:
+      - material: Cloth
+        amount: 3
+      - material: ADTSinew
+        amount: 1
+        doAfter: 4
+  - node: pouch
+    entity: ADTFishingPouch
+
+- type: construction
+  id: ADTFishingPouch
+  graph: ADTFishingPouch
+  startNode: start
+  targetNode: pouch
+  category: construction-category-utilities
+  objectType: Item

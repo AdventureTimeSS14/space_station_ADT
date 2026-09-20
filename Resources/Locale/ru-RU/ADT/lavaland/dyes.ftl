@@ -139,3 +139,9 @@ ent-ADTFoodCoaltreeLog = полено угледрева
 adt-ash-flora-coaltree-low = Вы обрезаете небольшое дерево.
 adt-ash-flora-coaltree-medium = Вы обрезаете дерево среднего размера.
 adt-ash-flora-coaltree-high = Вы обрезаете огромное дерево.
+
+adt-necropolis-gate-locked = Врата не поддаются - они запечатаны.
+adt-necropolis-gate-unlocked = Камень узнаёт вас, и печать спадает.
+adt-necropolis-gate-opening = Врата со скрежетом начинают открываться...
+adt-necropolis-gate-closing = Врата с грохотом закрываются!
+adt-necropolis-gate-examine-locked = Кажется, они намертво запечатаны.

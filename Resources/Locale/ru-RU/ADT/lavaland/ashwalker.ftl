@@ -84,3 +84,30 @@ ent-ADTClothingHandsGoliathGloves = перчатки из шкуры голиа�
     .desc = Примитивные перчатки, которые облегчают переноску.
 ent-ADTMedPouch = лекарственный мешочек
     .desc = Небольшой мешочек для хранения трав, припарок, наживки и мелких предметов.
+ent-ADTFishingPouch = рыболовный мешочек
+    .desc = Небольшой мешочек для хранения различной наживки и частей рыб.
+
+ent-ADTMobAshWalker = пеплоходец
+    .desc = Рептилоид с пустошей Лаваленда. Молится мёртвому городу и стережёт свои охотничьи угодья.
+ent-ADTMobAshWalkerHatched = { ent-ADTMobAshWalker }
+    .desc = { ent-ADTMobAshWalker.desc }
+ent-ADTAppearanceAshWalker = облик пеплоходца
+    .desc = { ent-ADTMobAshWalker.desc }
+ent-ADTMobAshWalkerShaman = шаман пеплоходцев
+    .desc = Пеплоходец, говорящий с Некрополем. Лечит соплеменников прикосновением и ведёт обряды.
+ent-ADTMobAshWalkerShamanHatched = { ent-ADTMobAshWalkerShaman }
+    .desc = { ent-ADTMobAshWalkerShaman.desc }
+ent-ADTAppearanceAshWalkerShaman = облик шамана пеплоходцев
+    .desc = { ent-ADTMobAshWalkerShaman.desc }
+ent-ADTMobDraconid = драконид
+    .desc = Пеплоходец, вознесённый Обрядом Души. Чёрная чешуя, драконьи рога и когти, рвущие камень.
+ent-ADTAppearanceDraconid = облик драконида
+    .desc = { ent-ADTMobDraconid.desc }
+
+ent-ADTAshWalkerNestCoreSpawner = спавнер ядра некрополя
+    .desc = Здесь появится ядро, оставшееся от разрушенного гнезда.
+ent-ADTAshRuneActivation = вспышка руны
+    .desc = Пепел вихрем взмывает над проснувшейся руной.
+
+ent-ADTFloorLavaCovered = { ent-FloorLavaEntity }
+    .desc = { ent-FloorLavaEntity.desc }

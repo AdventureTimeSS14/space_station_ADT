@@ -6,10 +6,11 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Specific/necropolis_gate.rsi
-    state: gate
-    drawdepth: Mobs
+    drawdepth: HighFloorObjects
     noRot: true
-    offset: 0,1
+    layers:
+    - state: gate
+      map: ["gate"]
   - type: Transform
     anchored: true
     noRot: true
@@ -19,6 +20,14 @@
     energy: 2
     color: "#dc4a1a"
   - type: AshStormImmune
+  - type: ADTNecropolisGate
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ADTNecropolisGateVisuals.Open:
+        gate:
+          True: { state: gate_open }
+          False: { state: gate }
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -26,7 +35,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-1.45,-0.45,1.45,0.45"
+          bounds: "-0.45,-0.45,0.45,0.45"
         density: 1000
         mask:
         - MachineMask
@@ -38,6 +47,10 @@
   parent: ADTNecropolisGate
   suffix: Ash Walker
   description: Massive stone gates. They look sealed shut for good.
+  components:
+  - type: ADTNecropolisGate
+    locked: true
+    unlockFaction: ADTAshWalker
 
 - type: entity
   id: ADTNecropolisArch
@@ -48,9 +61,9 @@
   - type: Sprite
     sprite: ADT/Structures/Specific/necropolis_arch.rsi
     state: arch
-    drawdepth: Overdoors
+    drawdepth: LargeObjects
     noRot: true
-    offset: 0,2
+    offset: 0,0.75
   - type: Transform
     anchored: true
     noRot: true

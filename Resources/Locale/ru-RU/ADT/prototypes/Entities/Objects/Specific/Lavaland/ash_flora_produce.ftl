@@ -15,3 +15,5 @@ adt-construction-graph-tag-mushroom-shavings = грибная стружка
 
 construction-name-adt-mushroom-bowl = грибная миска
 construction-description-adt-mushroom-bowl = Миска, сделанная из грибов.
+ent-ADTFoodFireblossom = огнецвет
+    .desc = Сорванный огнецвет. Ещё тёплый, словно уголёк.

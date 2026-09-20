@@ -63,14 +63,23 @@
   - type: GroupExamine
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: BaseStorageItem
   id: ADTMedPouch
   name: medicinal pouch
   description: A small pouch for herbs, poultices, bait and other odds and ends.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Belt/medpouch.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Clothing/Belt/medpouch.rsi
+    slots:
+    - belt
   - type: Storage
+    maxItemSize: Normal
     grid:
     - 0,0,5,3
     whitelist:
@@ -85,3 +94,25 @@
       - ADTCharredKrill
       - ADTLavaFishPart
       - ADTLavalandDye
+
+- type: entity
+  parent: ADTMedPouch
+  id: ADTFishingPouch
+  name: fishing pouch
+  description: A small pouch for bait and the bits you cut out of lava fish.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/medpouch.rsi
+    state: icon_fishing
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,5,3
+    whitelist:
+      tags:
+      - ADTFishingBait
+      - ADTCharredKrill
+      - ADTLavaFishPart
+  - type: Construction
+    graph: ADTFishingPouch
+    node: pouch
