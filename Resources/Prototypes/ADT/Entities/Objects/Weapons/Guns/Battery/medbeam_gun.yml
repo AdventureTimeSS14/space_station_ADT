@@ -8,6 +8,9 @@
     - state: icon
   - type: Item
     sprite: ADT/Objects/Weapons/Guns/Battery/healgun.rsi
+    size: Normal
+    shape:
+    - 0,0,1,2
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Battery/healgun.rsi
     quickEquip: false
@@ -32,9 +35,9 @@
         Poison: -0.8
         Asphyxiation: -1.3
     explosionType: Default
-    explosionTotalIntensity: 50
-    explosionIntensitySlope: 2
-    explosionMaxTileIntensity: 5
+    explosionTotalIntensity: 25
+    explosionIntensitySlope: 1
+    explosionMaxTileIntensity: 3
 
 - type: entity
   parent: ADTWeaponMedbeam
