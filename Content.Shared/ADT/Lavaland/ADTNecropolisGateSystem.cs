@@ -67,7 +67,7 @@ public sealed class ADTNecropolisGateSystem : EntitySystem
         if (!_doAfter.TryStartDoAfter(doAfter))
             return;
 
-        _audio.PlayPredicted(ent.Comp.Sound, ent.Owner);
+        //_audio.PlayPredicted(ent.Comp.Sound, ent.Owner);
         _popup.PopupPredicted(
             Loc.GetString(ent.Comp.Open ? "adt-necropolis-gate-closing" : "adt-necropolis-gate-opening"),
             ent.Owner,

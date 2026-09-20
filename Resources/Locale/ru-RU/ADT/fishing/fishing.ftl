@@ -17,7 +17,3 @@ adt-charred-krill-place = Вы осторожно кладёте креветк�
 adt-charred-krill-sink = Креветка медленно тонет в лаве!
 adt-charred-krill-nothing = И ничего не происходит...
 adt-charred-krill-fish = Неожиданно, из лавы выныривают две рыбы и разрывают креветку на части!
-
-adt-whetstone-wrong-item = Сомневаюсь, что { $item } станет острее.
-adt-whetstone-too-sharp = { $item } уже некуда точить.
-adt-whetstone-sharpened = Вы затачиваете { $item }.
