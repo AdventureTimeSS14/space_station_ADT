@@ -146,7 +146,7 @@
     sprite: ADT/Personalization/Illumy/synthetic_gloves.rsi
 
 - type: entity
-  parent: ADTSponsorClothingUniformBase
+  parent: [ADTSponsorClothingUniformBase, ClothingUniformFoldableBase]
   id: ADTClothingUniformHeatResistantJumpsuitIllumy
   name: heat‑resistant tuxedo
   description: A strict crimson tuxedo, made of thick fabric capable of withstanding intense heat. Even near an open flame, it maintains its impeccable appearance.
