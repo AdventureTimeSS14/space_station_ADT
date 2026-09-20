@@ -48,7 +48,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
-        [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
+        [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!; // ADT-Tweak
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
