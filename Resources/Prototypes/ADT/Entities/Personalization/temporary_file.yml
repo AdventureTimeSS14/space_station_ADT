@@ -156,3 +156,57 @@
     sprite: ADT/Personalization/Illumy/heatresistant_tuxedo.rsi
   - type: Clothing
     sprite: ADT/Personalization/Illumy/heatresistant_tuxedo.rsi
+
+
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieProximaLunnyykat
+  name: plushie Proxima
+  description: Before you is a small green moth holding a Proxima beer... It seems that due to fear and uncertainty, it doesn’t want to communicate with you. It smells of beer and cryoxadone.
+  suffix: Personal, Lunnyykat
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_proxima
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: proxima-inhand-left
+      right:
+      - state: proxima-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: proxima-equipped-HELMET
+        offset: "0, 0.0"
+  - type: EmitSoundOnUse
+    handle: false
+    sound: null
+  - type: EmitSoundOnActivate
+    sound: &PlushieProximaSound
+      path: /Audio/ADT/Voice/Moth/moth_cry.ogg
+  - type: EmitSoundOnCollide
+    sound: *PlushieProximaSound
+  - type: EmitSoundOnLand
+    sound: *PlushieProximaSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieProximaSound
+  - type: MeleeWeapon
+    soundHit: *PlushieProximaSound
+  - type: TriggerOnUse
+  - type: Speech
+    speechSounds: Squeak
+  - type: SpeakOnTrigger
+    pack: ADTFigurinesPlushieProxima
+  - type: TTS
+    voice: neco
+  - type: SpeechBarks
+    data:
+      proto: MinecraftHarp
+      sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_harp.ogg
