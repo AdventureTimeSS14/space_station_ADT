@@ -24,6 +24,9 @@
     # ADT tweak start wiki books
     ADTVendingCategoryBooks:
         ADTBookSRPcrg: 2
+        ADTBookSRPcmd: 2
+        ADTBookPCDcmd: 2
+        ADTBookSpaceLaw: 3
     # ADT tweak end wiki books
     MailBag: 2
   contrabandInventory:
