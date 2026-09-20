@@ -6,7 +6,7 @@ namespace Content.Shared.ADT.Mirror;
 public sealed partial class MirrorComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public float DirRotation = 90f;
+    public Angle DirRotation = Angle.FromDegrees(90f);
 
     [DataField, AutoNetworkedField]
     public float GatherOffset = 1f;
