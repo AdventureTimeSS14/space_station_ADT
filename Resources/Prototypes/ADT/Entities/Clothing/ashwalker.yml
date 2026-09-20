@@ -75,7 +75,6 @@
     size: Normal
   - type: Clothing
     quickEquip: false
-    sprite: ADT/Clothing/Belt/medpouch.rsi
     slots:
     - belt
   - type: Storage

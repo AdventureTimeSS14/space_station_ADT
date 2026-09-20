@@ -72,8 +72,7 @@
         Cellular: 15
   - !type:ADTRitualTeleportEffect
     target: UsedThings
-    destination:
-      components: [ NavMapBeacon ]
+    toBeacon: true
 
 - type: adtRitual
   id: ADTRitualSummon

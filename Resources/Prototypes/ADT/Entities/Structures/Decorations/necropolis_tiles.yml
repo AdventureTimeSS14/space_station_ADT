@@ -1,0 +1,3042 @@
+- type: entity
+  id: ADTNecropolisTileBase
+  abstract: true
+  name: necropolis stone tile
+  description: A slab of ancient stone laid over the basalt.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: ADT/Structures/Decorations/necropolis_tiles.rsi
+    drawdepth: FloorObjects
+    noRot: true
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile1
+  components:
+  - type: Sprite
+    state: pristine_tile1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile1N
+  components:
+  - type: Sprite
+    state: pristine_tile1_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile1E
+  components:
+  - type: Sprite
+    state: pristine_tile1_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile1W
+  components:
+  - type: Sprite
+    state: pristine_tile1_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile2
+  components:
+  - type: Sprite
+    state: pristine_tile2
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile2N
+  components:
+  - type: Sprite
+    state: pristine_tile2_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile2E
+  components:
+  - type: Sprite
+    state: pristine_tile2_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile2W
+  components:
+  - type: Sprite
+    state: pristine_tile2_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile3
+  components:
+  - type: Sprite
+    state: pristine_tile3
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile3N
+  components:
+  - type: Sprite
+    state: pristine_tile3_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile3E
+  components:
+  - type: Sprite
+    state: pristine_tile3_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile3W
+  components:
+  - type: Sprite
+    state: pristine_tile3_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile4
+  components:
+  - type: Sprite
+    state: pristine_tile4
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile4N
+  components:
+  - type: Sprite
+    state: pristine_tile4_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile4E
+  components:
+  - type: Sprite
+    state: pristine_tile4_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile4W
+  components:
+  - type: Sprite
+    state: pristine_tile4_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile5
+  components:
+  - type: Sprite
+    state: pristine_tile5
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile5N
+  components:
+  - type: Sprite
+    state: pristine_tile5_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile5E
+  components:
+  - type: Sprite
+    state: pristine_tile5_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile5W
+  components:
+  - type: Sprite
+    state: pristine_tile5_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile6
+  components:
+  - type: Sprite
+    state: pristine_tile6
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile6N
+  components:
+  - type: Sprite
+    state: pristine_tile6_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile6E
+  components:
+  - type: Sprite
+    state: pristine_tile6_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile6W
+  components:
+  - type: Sprite
+    state: pristine_tile6_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile7
+  components:
+  - type: Sprite
+    state: pristine_tile7
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile7N
+  components:
+  - type: Sprite
+    state: pristine_tile7_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile7E
+  components:
+  - type: Sprite
+    state: pristine_tile7_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile7W
+  components:
+  - type: Sprite
+    state: pristine_tile7_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile8
+  components:
+  - type: Sprite
+    state: pristine_tile8
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile8N
+  components:
+  - type: Sprite
+    state: pristine_tile8_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile8E
+  components:
+  - type: Sprite
+    state: pristine_tile8_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile8W
+  components:
+  - type: Sprite
+    state: pristine_tile8_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile9
+  components:
+  - type: Sprite
+    state: pristine_tile9
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile9N
+  components:
+  - type: Sprite
+    state: pristine_tile9_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile9E
+  components:
+  - type: Sprite
+    state: pristine_tile9_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile9W
+  components:
+  - type: Sprite
+    state: pristine_tile9_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile10
+  components:
+  - type: Sprite
+    state: pristine_tile10
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile10N
+  components:
+  - type: Sprite
+    state: pristine_tile10_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile10E
+  components:
+  - type: Sprite
+    state: pristine_tile10_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile10W
+  components:
+  - type: Sprite
+    state: pristine_tile10_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile11
+  components:
+  - type: Sprite
+    state: pristine_tile11
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile11N
+  components:
+  - type: Sprite
+    state: pristine_tile11_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile11E
+  components:
+  - type: Sprite
+    state: pristine_tile11_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile11W
+  components:
+  - type: Sprite
+    state: pristine_tile11_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile12
+  components:
+  - type: Sprite
+    state: pristine_tile12
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile12N
+  components:
+  - type: Sprite
+    state: pristine_tile12_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile12E
+  components:
+  - type: Sprite
+    state: pristine_tile12_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile12W
+  components:
+  - type: Sprite
+    state: pristine_tile12_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile13
+  components:
+  - type: Sprite
+    state: pristine_tile13
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile13N
+  components:
+  - type: Sprite
+    state: pristine_tile13_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile13E
+  components:
+  - type: Sprite
+    state: pristine_tile13_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile13W
+  components:
+  - type: Sprite
+    state: pristine_tile13_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile14
+  components:
+  - type: Sprite
+    state: pristine_tile14
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile14N
+  components:
+  - type: Sprite
+    state: pristine_tile14_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile14E
+  components:
+  - type: Sprite
+    state: pristine_tile14_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile14W
+  components:
+  - type: Sprite
+    state: pristine_tile14_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile15
+  components:
+  - type: Sprite
+    state: pristine_tile15
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile15N
+  components:
+  - type: Sprite
+    state: pristine_tile15_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile15E
+  components:
+  - type: Sprite
+    state: pristine_tile15_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile15W
+  components:
+  - type: Sprite
+    state: pristine_tile15_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile16
+  components:
+  - type: Sprite
+    state: pristine_tile16
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile16N
+  components:
+  - type: Sprite
+    state: pristine_tile16_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile16E
+  components:
+  - type: Sprite
+    state: pristine_tile16_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile16W
+  components:
+  - type: Sprite
+    state: pristine_tile16_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile17
+  components:
+  - type: Sprite
+    state: pristine_tile17
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile17N
+  components:
+  - type: Sprite
+    state: pristine_tile17_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile17E
+  components:
+  - type: Sprite
+    state: pristine_tile17_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile17W
+  components:
+  - type: Sprite
+    state: pristine_tile17_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile18
+  components:
+  - type: Sprite
+    state: pristine_tile18
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile18N
+  components:
+  - type: Sprite
+    state: pristine_tile18_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile18E
+  components:
+  - type: Sprite
+    state: pristine_tile18_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile18W
+  components:
+  - type: Sprite
+    state: pristine_tile18_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile19
+  components:
+  - type: Sprite
+    state: pristine_tile19
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile19N
+  components:
+  - type: Sprite
+    state: pristine_tile19_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile19E
+  components:
+  - type: Sprite
+    state: pristine_tile19_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile19W
+  components:
+  - type: Sprite
+    state: pristine_tile19_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile20
+  components:
+  - type: Sprite
+    state: pristine_tile20
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile20N
+  components:
+  - type: Sprite
+    state: pristine_tile20_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile20E
+  components:
+  - type: Sprite
+    state: pristine_tile20_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile20W
+  components:
+  - type: Sprite
+    state: pristine_tile20_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile21
+  components:
+  - type: Sprite
+    state: pristine_tile21
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile21N
+  components:
+  - type: Sprite
+    state: pristine_tile21_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile21E
+  components:
+  - type: Sprite
+    state: pristine_tile21_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile21W
+  components:
+  - type: Sprite
+    state: pristine_tile21_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile22
+  components:
+  - type: Sprite
+    state: pristine_tile22
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile22N
+  components:
+  - type: Sprite
+    state: pristine_tile22_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile22E
+  components:
+  - type: Sprite
+    state: pristine_tile22_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile22W
+  components:
+  - type: Sprite
+    state: pristine_tile22_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile23
+  components:
+  - type: Sprite
+    state: pristine_tile23
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile23N
+  components:
+  - type: Sprite
+    state: pristine_tile23_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile23E
+  components:
+  - type: Sprite
+    state: pristine_tile23_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile23W
+  components:
+  - type: Sprite
+    state: pristine_tile23_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile24
+  components:
+  - type: Sprite
+    state: pristine_tile24
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile24N
+  components:
+  - type: Sprite
+    state: pristine_tile24_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile24E
+  components:
+  - type: Sprite
+    state: pristine_tile24_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineTile24W
+  components:
+  - type: Sprite
+    state: pristine_tile24_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineSlab1
+  components:
+  - type: Sprite
+    state: pristine_slab1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineSlab2
+  components:
+  - type: Sprite
+    state: pristine_slab2
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineSlab3
+  components:
+  - type: Sprite
+    state: pristine_slab3
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineSlab4
+  components:
+  - type: Sprite
+    state: pristine_slab4
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineBlock1
+  components:
+  - type: Sprite
+    state: pristine_block1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineBlock1N
+  components:
+  - type: Sprite
+    state: pristine_block1_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineBlock1E
+  components:
+  - type: Sprite
+    state: pristine_block1_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineBlock1W
+  components:
+  - type: Sprite
+    state: pristine_block1_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineBlock2
+  components:
+  - type: Sprite
+    state: pristine_block2
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineBlock2N
+  components:
+  - type: Sprite
+    state: pristine_block2_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineBlock2E
+  components:
+  - type: Sprite
+    state: pristine_block2_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineBlock2W
+  components:
+  - type: Sprite
+    state: pristine_block2_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineBlock3
+  components:
+  - type: Sprite
+    state: pristine_block3
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineBlock3N
+  components:
+  - type: Sprite
+    state: pristine_block3_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineBlock3E
+  components:
+  - type: Sprite
+    state: pristine_block3_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineBlock3W
+  components:
+  - type: Sprite
+    state: pristine_block3_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineBlock4
+  components:
+  - type: Sprite
+    state: pristine_block4
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineBlock4N
+  components:
+  - type: Sprite
+    state: pristine_block4_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineBlock4E
+  components:
+  - type: Sprite
+    state: pristine_block4_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineBlock4W
+  components:
+  - type: Sprite
+    state: pristine_block4_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineCenter1
+  components:
+  - type: Sprite
+    state: pristine_center1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineCenter2
+  components:
+  - type: Sprite
+    state: pristine_center2
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineCenter3
+  components:
+  - type: Sprite
+    state: pristine_center3
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineCenter4
+  components:
+  - type: Sprite
+    state: pristine_center4
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineSurrounding1
+  components:
+  - type: Sprite
+    state: pristine_surrounding1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineSurrounding2
+  components:
+  - type: Sprite
+    state: pristine_surrounding2
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineSurroundingTile1
+  components:
+  - type: Sprite
+    state: pristine_surrounding_tile1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineSurroundingTile1N
+  components:
+  - type: Sprite
+    state: pristine_surrounding_tile1_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineSurroundingTile1E
+  components:
+  - type: Sprite
+    state: pristine_surrounding_tile1_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineSurroundingTile1W
+  components:
+  - type: Sprite
+    state: pristine_surrounding_tile1_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineSurroundingTile2
+  components:
+  - type: Sprite
+    state: pristine_surrounding_tile2
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineSurroundingTile2N
+  components:
+  - type: Sprite
+    state: pristine_surrounding_tile2_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineSurroundingTile2E
+  components:
+  - type: Sprite
+    state: pristine_surrounding_tile2_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisPristineSurroundingTile2W
+  components:
+  - type: Sprite
+    state: pristine_surrounding_tile2_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile1
+  components:
+  - type: Sprite
+    state: cracked_tile1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile1N
+  components:
+  - type: Sprite
+    state: cracked_tile1_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile1E
+  components:
+  - type: Sprite
+    state: cracked_tile1_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile1W
+  components:
+  - type: Sprite
+    state: cracked_tile1_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile2
+  components:
+  - type: Sprite
+    state: cracked_tile2
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile2N
+  components:
+  - type: Sprite
+    state: cracked_tile2_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile2E
+  components:
+  - type: Sprite
+    state: cracked_tile2_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile2W
+  components:
+  - type: Sprite
+    state: cracked_tile2_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile3
+  components:
+  - type: Sprite
+    state: cracked_tile3
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile3N
+  components:
+  - type: Sprite
+    state: cracked_tile3_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile3E
+  components:
+  - type: Sprite
+    state: cracked_tile3_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile3W
+  components:
+  - type: Sprite
+    state: cracked_tile3_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile4
+  components:
+  - type: Sprite
+    state: cracked_tile4
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile4N
+  components:
+  - type: Sprite
+    state: cracked_tile4_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile4E
+  components:
+  - type: Sprite
+    state: cracked_tile4_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile4W
+  components:
+  - type: Sprite
+    state: cracked_tile4_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile5
+  components:
+  - type: Sprite
+    state: cracked_tile5
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile5N
+  components:
+  - type: Sprite
+    state: cracked_tile5_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile5E
+  components:
+  - type: Sprite
+    state: cracked_tile5_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile5W
+  components:
+  - type: Sprite
+    state: cracked_tile5_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile6
+  components:
+  - type: Sprite
+    state: cracked_tile6
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile6N
+  components:
+  - type: Sprite
+    state: cracked_tile6_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile6E
+  components:
+  - type: Sprite
+    state: cracked_tile6_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile6W
+  components:
+  - type: Sprite
+    state: cracked_tile6_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile7
+  components:
+  - type: Sprite
+    state: cracked_tile7
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile7N
+  components:
+  - type: Sprite
+    state: cracked_tile7_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile7E
+  components:
+  - type: Sprite
+    state: cracked_tile7_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile7W
+  components:
+  - type: Sprite
+    state: cracked_tile7_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile8
+  components:
+  - type: Sprite
+    state: cracked_tile8
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile8N
+  components:
+  - type: Sprite
+    state: cracked_tile8_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile8E
+  components:
+  - type: Sprite
+    state: cracked_tile8_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile8W
+  components:
+  - type: Sprite
+    state: cracked_tile8_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile9
+  components:
+  - type: Sprite
+    state: cracked_tile9
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile9N
+  components:
+  - type: Sprite
+    state: cracked_tile9_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile9E
+  components:
+  - type: Sprite
+    state: cracked_tile9_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile9W
+  components:
+  - type: Sprite
+    state: cracked_tile9_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile10
+  components:
+  - type: Sprite
+    state: cracked_tile10
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile10N
+  components:
+  - type: Sprite
+    state: cracked_tile10_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile10E
+  components:
+  - type: Sprite
+    state: cracked_tile10_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile10W
+  components:
+  - type: Sprite
+    state: cracked_tile10_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile11
+  components:
+  - type: Sprite
+    state: cracked_tile11
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile11N
+  components:
+  - type: Sprite
+    state: cracked_tile11_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile11E
+  components:
+  - type: Sprite
+    state: cracked_tile11_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile11W
+  components:
+  - type: Sprite
+    state: cracked_tile11_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile12
+  components:
+  - type: Sprite
+    state: cracked_tile12
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile12N
+  components:
+  - type: Sprite
+    state: cracked_tile12_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile12E
+  components:
+  - type: Sprite
+    state: cracked_tile12_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile12W
+  components:
+  - type: Sprite
+    state: cracked_tile12_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile13
+  components:
+  - type: Sprite
+    state: cracked_tile13
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile13N
+  components:
+  - type: Sprite
+    state: cracked_tile13_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile13E
+  components:
+  - type: Sprite
+    state: cracked_tile13_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile13W
+  components:
+  - type: Sprite
+    state: cracked_tile13_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile14
+  components:
+  - type: Sprite
+    state: cracked_tile14
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile14N
+  components:
+  - type: Sprite
+    state: cracked_tile14_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile14E
+  components:
+  - type: Sprite
+    state: cracked_tile14_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile14W
+  components:
+  - type: Sprite
+    state: cracked_tile14_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile15
+  components:
+  - type: Sprite
+    state: cracked_tile15
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile15N
+  components:
+  - type: Sprite
+    state: cracked_tile15_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile15E
+  components:
+  - type: Sprite
+    state: cracked_tile15_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile15W
+  components:
+  - type: Sprite
+    state: cracked_tile15_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile16
+  components:
+  - type: Sprite
+    state: cracked_tile16
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile16N
+  components:
+  - type: Sprite
+    state: cracked_tile16_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile16E
+  components:
+  - type: Sprite
+    state: cracked_tile16_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile16W
+  components:
+  - type: Sprite
+    state: cracked_tile16_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile17
+  components:
+  - type: Sprite
+    state: cracked_tile17
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile17N
+  components:
+  - type: Sprite
+    state: cracked_tile17_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile17E
+  components:
+  - type: Sprite
+    state: cracked_tile17_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile17W
+  components:
+  - type: Sprite
+    state: cracked_tile17_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile18
+  components:
+  - type: Sprite
+    state: cracked_tile18
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile18N
+  components:
+  - type: Sprite
+    state: cracked_tile18_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile18E
+  components:
+  - type: Sprite
+    state: cracked_tile18_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile18W
+  components:
+  - type: Sprite
+    state: cracked_tile18_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile19
+  components:
+  - type: Sprite
+    state: cracked_tile19
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile19N
+  components:
+  - type: Sprite
+    state: cracked_tile19_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile19E
+  components:
+  - type: Sprite
+    state: cracked_tile19_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile19W
+  components:
+  - type: Sprite
+    state: cracked_tile19_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile20
+  components:
+  - type: Sprite
+    state: cracked_tile20
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile20N
+  components:
+  - type: Sprite
+    state: cracked_tile20_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile20E
+  components:
+  - type: Sprite
+    state: cracked_tile20_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile20W
+  components:
+  - type: Sprite
+    state: cracked_tile20_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile21
+  components:
+  - type: Sprite
+    state: cracked_tile21
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile21N
+  components:
+  - type: Sprite
+    state: cracked_tile21_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile21E
+  components:
+  - type: Sprite
+    state: cracked_tile21_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile21W
+  components:
+  - type: Sprite
+    state: cracked_tile21_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile22
+  components:
+  - type: Sprite
+    state: cracked_tile22
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile22N
+  components:
+  - type: Sprite
+    state: cracked_tile22_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile22E
+  components:
+  - type: Sprite
+    state: cracked_tile22_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile22W
+  components:
+  - type: Sprite
+    state: cracked_tile22_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile23
+  components:
+  - type: Sprite
+    state: cracked_tile23
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile23N
+  components:
+  - type: Sprite
+    state: cracked_tile23_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile23E
+  components:
+  - type: Sprite
+    state: cracked_tile23_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile23W
+  components:
+  - type: Sprite
+    state: cracked_tile23_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile24
+  components:
+  - type: Sprite
+    state: cracked_tile24
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile24N
+  components:
+  - type: Sprite
+    state: cracked_tile24_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile24E
+  components:
+  - type: Sprite
+    state: cracked_tile24_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedTile24W
+  components:
+  - type: Sprite
+    state: cracked_tile24_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock1
+  components:
+  - type: Sprite
+    state: cracked_block1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock1N
+  components:
+  - type: Sprite
+    state: cracked_block1_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock1E
+  components:
+  - type: Sprite
+    state: cracked_block1_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock1W
+  components:
+  - type: Sprite
+    state: cracked_block1_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock1Se
+  components:
+  - type: Sprite
+    state: cracked_block1_se
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock1Sw
+  components:
+  - type: Sprite
+    state: cracked_block1_sw
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock1Ne
+  components:
+  - type: Sprite
+    state: cracked_block1_ne
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock1Nw
+  components:
+  - type: Sprite
+    state: cracked_block1_nw
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock2
+  components:
+  - type: Sprite
+    state: cracked_block2
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock2N
+  components:
+  - type: Sprite
+    state: cracked_block2_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock2E
+  components:
+  - type: Sprite
+    state: cracked_block2_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock2W
+  components:
+  - type: Sprite
+    state: cracked_block2_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock2Se
+  components:
+  - type: Sprite
+    state: cracked_block2_se
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock2Sw
+  components:
+  - type: Sprite
+    state: cracked_block2_sw
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock2Ne
+  components:
+  - type: Sprite
+    state: cracked_block2_ne
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock2Nw
+  components:
+  - type: Sprite
+    state: cracked_block2_nw
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock3
+  components:
+  - type: Sprite
+    state: cracked_block3
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock3N
+  components:
+  - type: Sprite
+    state: cracked_block3_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock3E
+  components:
+  - type: Sprite
+    state: cracked_block3_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock3W
+  components:
+  - type: Sprite
+    state: cracked_block3_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock3Se
+  components:
+  - type: Sprite
+    state: cracked_block3_se
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock3Sw
+  components:
+  - type: Sprite
+    state: cracked_block3_sw
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock3Ne
+  components:
+  - type: Sprite
+    state: cracked_block3_ne
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock3Nw
+  components:
+  - type: Sprite
+    state: cracked_block3_nw
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock4
+  components:
+  - type: Sprite
+    state: cracked_block4
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock4N
+  components:
+  - type: Sprite
+    state: cracked_block4_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock4E
+  components:
+  - type: Sprite
+    state: cracked_block4_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock4W
+  components:
+  - type: Sprite
+    state: cracked_block4_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock4Se
+  components:
+  - type: Sprite
+    state: cracked_block4_se
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock4Sw
+  components:
+  - type: Sprite
+    state: cracked_block4_sw
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock4Ne
+  components:
+  - type: Sprite
+    state: cracked_block4_ne
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedBlock4Nw
+  components:
+  - type: Sprite
+    state: cracked_block4_nw
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedCenter1
+  components:
+  - type: Sprite
+    state: cracked_center1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedCenter2
+  components:
+  - type: Sprite
+    state: cracked_center2
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedCenter3
+  components:
+  - type: Sprite
+    state: cracked_center3
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedCenter4
+  components:
+  - type: Sprite
+    state: cracked_center4
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurrounding1
+  components:
+  - type: Sprite
+    state: cracked_surrounding1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurrounding1N
+  components:
+  - type: Sprite
+    state: cracked_surrounding1_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurrounding1E
+  components:
+  - type: Sprite
+    state: cracked_surrounding1_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurrounding1W
+  components:
+  - type: Sprite
+    state: cracked_surrounding1_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurrounding1Se
+  components:
+  - type: Sprite
+    state: cracked_surrounding1_se
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurrounding1Sw
+  components:
+  - type: Sprite
+    state: cracked_surrounding1_sw
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurrounding1Ne
+  components:
+  - type: Sprite
+    state: cracked_surrounding1_ne
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurrounding1Nw
+  components:
+  - type: Sprite
+    state: cracked_surrounding1_nw
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurroundingTile1
+  components:
+  - type: Sprite
+    state: cracked_surrounding_tile1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurroundingTile1N
+  components:
+  - type: Sprite
+    state: cracked_surrounding_tile1_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurroundingTile1E
+  components:
+  - type: Sprite
+    state: cracked_surrounding_tile1_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurroundingTile1W
+  components:
+  - type: Sprite
+    state: cracked_surrounding_tile1_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurroundingTile1Se
+  components:
+  - type: Sprite
+    state: cracked_surrounding_tile1_se
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurroundingTile1Sw
+  components:
+  - type: Sprite
+    state: cracked_surrounding_tile1_sw
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurroundingTile1Ne
+  components:
+  - type: Sprite
+    state: cracked_surrounding_tile1_ne
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurroundingTile1Nw
+  components:
+  - type: Sprite
+    state: cracked_surrounding_tile1_nw
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurroundingTile2
+  components:
+  - type: Sprite
+    state: cracked_surrounding_tile2
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurroundingTile2N
+  components:
+  - type: Sprite
+    state: cracked_surrounding_tile2_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurroundingTile2E
+  components:
+  - type: Sprite
+    state: cracked_surrounding_tile2_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurroundingTile2W
+  components:
+  - type: Sprite
+    state: cracked_surrounding_tile2_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurroundingTile2Se
+  components:
+  - type: Sprite
+    state: cracked_surrounding_tile2_se
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurroundingTile2Sw
+  components:
+  - type: Sprite
+    state: cracked_surrounding_tile2_sw
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurroundingTile2Ne
+  components:
+  - type: Sprite
+    state: cracked_surrounding_tile2_ne
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSurroundingTile2Nw
+  components:
+  - type: Sprite
+    state: cracked_surrounding_tile2_nw
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile1
+  components:
+  - type: Sprite
+    state: burnt_tile1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile1N
+  components:
+  - type: Sprite
+    state: burnt_tile1_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile1E
+  components:
+  - type: Sprite
+    state: burnt_tile1_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile1W
+  components:
+  - type: Sprite
+    state: burnt_tile1_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile2
+  components:
+  - type: Sprite
+    state: burnt_tile2
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile2N
+  components:
+  - type: Sprite
+    state: burnt_tile2_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile2E
+  components:
+  - type: Sprite
+    state: burnt_tile2_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile2W
+  components:
+  - type: Sprite
+    state: burnt_tile2_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile3
+  components:
+  - type: Sprite
+    state: burnt_tile3
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile3N
+  components:
+  - type: Sprite
+    state: burnt_tile3_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile3E
+  components:
+  - type: Sprite
+    state: burnt_tile3_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile3W
+  components:
+  - type: Sprite
+    state: burnt_tile3_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile4
+  components:
+  - type: Sprite
+    state: burnt_tile4
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile4N
+  components:
+  - type: Sprite
+    state: burnt_tile4_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile4E
+  components:
+  - type: Sprite
+    state: burnt_tile4_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile4W
+  components:
+  - type: Sprite
+    state: burnt_tile4_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile5
+  components:
+  - type: Sprite
+    state: burnt_tile5
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile5N
+  components:
+  - type: Sprite
+    state: burnt_tile5_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile5E
+  components:
+  - type: Sprite
+    state: burnt_tile5_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile5W
+  components:
+  - type: Sprite
+    state: burnt_tile5_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile6
+  components:
+  - type: Sprite
+    state: burnt_tile6
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile6N
+  components:
+  - type: Sprite
+    state: burnt_tile6_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile6E
+  components:
+  - type: Sprite
+    state: burnt_tile6_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile6W
+  components:
+  - type: Sprite
+    state: burnt_tile6_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile7
+  components:
+  - type: Sprite
+    state: burnt_tile7
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile7N
+  components:
+  - type: Sprite
+    state: burnt_tile7_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile7E
+  components:
+  - type: Sprite
+    state: burnt_tile7_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile7W
+  components:
+  - type: Sprite
+    state: burnt_tile7_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile8
+  components:
+  - type: Sprite
+    state: burnt_tile8
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile8N
+  components:
+  - type: Sprite
+    state: burnt_tile8_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile8E
+  components:
+  - type: Sprite
+    state: burnt_tile8_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile8W
+  components:
+  - type: Sprite
+    state: burnt_tile8_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile9
+  components:
+  - type: Sprite
+    state: burnt_tile9
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile9N
+  components:
+  - type: Sprite
+    state: burnt_tile9_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile9E
+  components:
+  - type: Sprite
+    state: burnt_tile9_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile9W
+  components:
+  - type: Sprite
+    state: burnt_tile9_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile10
+  components:
+  - type: Sprite
+    state: burnt_tile10
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile10N
+  components:
+  - type: Sprite
+    state: burnt_tile10_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile10E
+  components:
+  - type: Sprite
+    state: burnt_tile10_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile10W
+  components:
+  - type: Sprite
+    state: burnt_tile10_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile11
+  components:
+  - type: Sprite
+    state: burnt_tile11
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile11N
+  components:
+  - type: Sprite
+    state: burnt_tile11_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile11E
+  components:
+  - type: Sprite
+    state: burnt_tile11_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile11W
+  components:
+  - type: Sprite
+    state: burnt_tile11_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile12
+  components:
+  - type: Sprite
+    state: burnt_tile12
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile12N
+  components:
+  - type: Sprite
+    state: burnt_tile12_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile12E
+  components:
+  - type: Sprite
+    state: burnt_tile12_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile12W
+  components:
+  - type: Sprite
+    state: burnt_tile12_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile13
+  components:
+  - type: Sprite
+    state: burnt_tile13
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile13N
+  components:
+  - type: Sprite
+    state: burnt_tile13_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile13E
+  components:
+  - type: Sprite
+    state: burnt_tile13_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile13W
+  components:
+  - type: Sprite
+    state: burnt_tile13_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile14
+  components:
+  - type: Sprite
+    state: burnt_tile14
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile14N
+  components:
+  - type: Sprite
+    state: burnt_tile14_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile14E
+  components:
+  - type: Sprite
+    state: burnt_tile14_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile14W
+  components:
+  - type: Sprite
+    state: burnt_tile14_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile15
+  components:
+  - type: Sprite
+    state: burnt_tile15
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile15N
+  components:
+  - type: Sprite
+    state: burnt_tile15_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile15E
+  components:
+  - type: Sprite
+    state: burnt_tile15_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile15W
+  components:
+  - type: Sprite
+    state: burnt_tile15_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile16
+  components:
+  - type: Sprite
+    state: burnt_tile16
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile16N
+  components:
+  - type: Sprite
+    state: burnt_tile16_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile16E
+  components:
+  - type: Sprite
+    state: burnt_tile16_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile16W
+  components:
+  - type: Sprite
+    state: burnt_tile16_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile17
+  components:
+  - type: Sprite
+    state: burnt_tile17
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile17N
+  components:
+  - type: Sprite
+    state: burnt_tile17_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile17E
+  components:
+  - type: Sprite
+    state: burnt_tile17_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile17W
+  components:
+  - type: Sprite
+    state: burnt_tile17_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile18
+  components:
+  - type: Sprite
+    state: burnt_tile18
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile18N
+  components:
+  - type: Sprite
+    state: burnt_tile18_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile18E
+  components:
+  - type: Sprite
+    state: burnt_tile18_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile18W
+  components:
+  - type: Sprite
+    state: burnt_tile18_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile19
+  components:
+  - type: Sprite
+    state: burnt_tile19
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile19N
+  components:
+  - type: Sprite
+    state: burnt_tile19_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile19E
+  components:
+  - type: Sprite
+    state: burnt_tile19_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile19W
+  components:
+  - type: Sprite
+    state: burnt_tile19_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile20
+  components:
+  - type: Sprite
+    state: burnt_tile20
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile20N
+  components:
+  - type: Sprite
+    state: burnt_tile20_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile20E
+  components:
+  - type: Sprite
+    state: burnt_tile20_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile20W
+  components:
+  - type: Sprite
+    state: burnt_tile20_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile21
+  components:
+  - type: Sprite
+    state: burnt_tile21
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile21N
+  components:
+  - type: Sprite
+    state: burnt_tile21_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile21E
+  components:
+  - type: Sprite
+    state: burnt_tile21_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile21W
+  components:
+  - type: Sprite
+    state: burnt_tile21_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile22
+  components:
+  - type: Sprite
+    state: burnt_tile22
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile22N
+  components:
+  - type: Sprite
+    state: burnt_tile22_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile22E
+  components:
+  - type: Sprite
+    state: burnt_tile22_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile22W
+  components:
+  - type: Sprite
+    state: burnt_tile22_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile23
+  components:
+  - type: Sprite
+    state: burnt_tile23
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile23N
+  components:
+  - type: Sprite
+    state: burnt_tile23_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile23E
+  components:
+  - type: Sprite
+    state: burnt_tile23_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile23W
+  components:
+  - type: Sprite
+    state: burnt_tile23_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile24
+  components:
+  - type: Sprite
+    state: burnt_tile24
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile24N
+  components:
+  - type: Sprite
+    state: burnt_tile24_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile24E
+  components:
+  - type: Sprite
+    state: burnt_tile24_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntTile24W
+  components:
+  - type: Sprite
+    state: burnt_tile24_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntBlock1
+  components:
+  - type: Sprite
+    state: burnt_block1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntBlock1N
+  components:
+  - type: Sprite
+    state: burnt_block1_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntBlock1E
+  components:
+  - type: Sprite
+    state: burnt_block1_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntBlock1W
+  components:
+  - type: Sprite
+    state: burnt_block1_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntBlock2
+  components:
+  - type: Sprite
+    state: burnt_block2
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntBlock2N
+  components:
+  - type: Sprite
+    state: burnt_block2_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntBlock2E
+  components:
+  - type: Sprite
+    state: burnt_block2_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntBlock2W
+  components:
+  - type: Sprite
+    state: burnt_block2_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntBlock3
+  components:
+  - type: Sprite
+    state: burnt_block3
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntBlock3N
+  components:
+  - type: Sprite
+    state: burnt_block3_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntBlock3E
+  components:
+  - type: Sprite
+    state: burnt_block3_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntBlock3W
+  components:
+  - type: Sprite
+    state: burnt_block3_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntBlock4
+  components:
+  - type: Sprite
+    state: burnt_block4
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntBlock4N
+  components:
+  - type: Sprite
+    state: burnt_block4_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntBlock4E
+  components:
+  - type: Sprite
+    state: burnt_block4_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntBlock4W
+  components:
+  - type: Sprite
+    state: burnt_block4_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntSlab1
+  components:
+  - type: Sprite
+    state: burnt_slab1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntSlab2
+  components:
+  - type: Sprite
+    state: burnt_slab2
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntSlab3
+  components:
+  - type: Sprite
+    state: burnt_slab3
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntSlab4
+  components:
+  - type: Sprite
+    state: burnt_slab4
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntCenter1
+  components:
+  - type: Sprite
+    state: burnt_center1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntCenter2
+  components:
+  - type: Sprite
+    state: burnt_center2
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntCenter3
+  components:
+  - type: Sprite
+    state: burnt_center3
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntCenter4
+  components:
+  - type: Sprite
+    state: burnt_center4
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntSurrounding1
+  components:
+  - type: Sprite
+    state: burnt_surrounding1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntSurrounding2
+  components:
+  - type: Sprite
+    state: burnt_surrounding2
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntSurroundingTile1
+  components:
+  - type: Sprite
+    state: burnt_surrounding_tile1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntSurroundingTile1N
+  components:
+  - type: Sprite
+    state: burnt_surrounding_tile1_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntSurroundingTile1E
+  components:
+  - type: Sprite
+    state: burnt_surrounding_tile1_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntSurroundingTile1W
+  components:
+  - type: Sprite
+    state: burnt_surrounding_tile1_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntSurroundingTile2
+  components:
+  - type: Sprite
+    state: burnt_surrounding_tile2
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntSurroundingTile2N
+  components:
+  - type: Sprite
+    state: burnt_surrounding_tile2_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntSurroundingTile2E
+  components:
+  - type: Sprite
+    state: burnt_surrounding_tile2_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisBurntSurroundingTile2W
+  components:
+  - type: Sprite
+    state: burnt_surrounding_tile2_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSlab1
+  components:
+  - type: Sprite
+    state: cracked_slab1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSlab1N
+  components:
+  - type: Sprite
+    state: cracked_slab1_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSlab1E
+  components:
+  - type: Sprite
+    state: cracked_slab1_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSlab1W
+  components:
+  - type: Sprite
+    state: cracked_slab1_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSlab1Se
+  components:
+  - type: Sprite
+    state: cracked_slab1_se
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSlab1Sw
+  components:
+  - type: Sprite
+    state: cracked_slab1_sw
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSlab1Ne
+  components:
+  - type: Sprite
+    state: cracked_slab1_ne
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSlab1Nw
+  components:
+  - type: Sprite
+    state: cracked_slab1_nw
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSlabBone1
+  components:
+  - type: Sprite
+    state: cracked_slab_bone1
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSlabBone1N
+  components:
+  - type: Sprite
+    state: cracked_slab_bone1_n
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSlabBone1E
+  components:
+  - type: Sprite
+    state: cracked_slab_bone1_e
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSlabBone1W
+  components:
+  - type: Sprite
+    state: cracked_slab_bone1_w
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSlabBone1Se
+  components:
+  - type: Sprite
+    state: cracked_slab_bone1_se
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSlabBone1Sw
+  components:
+  - type: Sprite
+    state: cracked_slab_bone1_sw
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSlabBone1Ne
+  components:
+  - type: Sprite
+    state: cracked_slab_bone1_ne
+
+- type: entity
+  parent: ADTNecropolisTileBase
+  id: ADTNecropolisCrackedSlabBone1Nw
+  components:
+  - type: Sprite
+    state: cracked_slab_bone1_nw

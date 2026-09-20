@@ -6,7 +6,7 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Specific/necropolis_gate.rsi
-    drawdepth: HighFloorObjects
+    drawdepth: Doors
     noRot: true
     layers:
     - state: gate
@@ -61,7 +61,7 @@
   - type: Sprite
     sprite: ADT/Structures/Specific/necropolis_arch.rsi
     state: arch
-    drawdepth: LargeObjects
+    drawdepth: BlastDoors
     noRot: true
     offset: 0,0.75
   - type: Transform
