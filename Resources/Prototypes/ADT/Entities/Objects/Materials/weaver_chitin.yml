@@ -1,0 +1,72 @@
+- type: material
+  id: ADTWeaverChitin
+  stackEntity: ADTMaterialWeaverChitin1
+  name: materials-adt-weaver-chitin
+  unit: materials-unit-piece
+  icon: { sprite: ADT/Objects/Materials/weaver_chitin.rsi, state: chitin }
+  color: "#6E5A46"
+  price: 0.4
+
+- type: stack
+  parent: BaseMediumStack
+  id: ADTWeaverChitin
+  name: stack-adt-weaver-chitin
+  icon: { sprite: ADT/Objects/Materials/weaver_chitin.rsi, state: chitin }
+  spawn: ADTMaterialWeaverChitin1
+
+- type: entity
+  parent: MaterialBase
+  id: ADTMaterialWeaverChitin
+  name: weaver chitin
+  description: A piece of hardened layered chitin from the shell of a marrow weaver.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/weaver_chitin.rsi
+    state: chitin
+  - type: Item
+    size: Small
+  - type: Stack
+    stackType: ADTWeaverChitin
+    count: 5
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      ADTWeaverChitin: 100
+  - type: Tag
+    tags:
+    - ADTWeaverChitin
+
+- type: entity
+  parent: ADTMaterialWeaverChitin
+  id: ADTMaterialWeaverChitin1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckGemNecklace
+  name: gem necklace
+  description: A simple necklace with a slot for a gem.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/gem_necklace.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/gem_necklace.rsi
+  - type: ItemSlots
+    slots:
+      gem:
+        name: adt-gem-necklace-slot
+        whitelist:
+          tags:
+          - ADTMagmaGem
+          - ADTGem
+        insertSound:
+          path: /Audio/Effects/pop.ogg
+        ejectSound:
+          path: /Audio/Effects/pop.ogg
+  - type: ContainerContainer
+  - type: StaticPrice
+    price: 150

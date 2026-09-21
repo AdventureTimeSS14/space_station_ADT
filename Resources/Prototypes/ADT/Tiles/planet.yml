@@ -14,3 +14,14 @@
   weather: true
   indestructible: true
   heatCapacity: 10000
+
+- type: tile
+  id: ADTFloorNecropolis
+  name: adt-tiles-necropolis-floor
+  parent: BaseFloorPlanet
+  sprite: /Textures/ADT/Tiles/Planet/necropolis.png
+  variants: 1
+  placementVariants:
+  - 1.0
+  footstepSounds:
+    collection: FootstepAsteroid
