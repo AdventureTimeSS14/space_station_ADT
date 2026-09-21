@@ -1,0 +1,197 @@
+- type: entity
+  id: ADTNecropolisGate
+  parent: BaseStructure
+  name: necropolis gate
+  description: Huge stone gates covered in ancient writing.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/necropolis_gate.rsi
+    rotation: 270
+    drawdepth: Doors
+    layers:
+    - state: gate
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: PointLight
+    enabled: true
+    radius: 8
+    energy: 2
+    color: "#dc4a1a"
+  - type: AshStormImmune
+  - type: Appearance
+  - type: AnimationPlayer
+  - type: Occluder
+    boundingBox: "-0.45,-1.45,0.45,1.45"
+  - type: Door
+    canCrush: false
+    performCollisionCheck: false
+    bumpOpen: false
+    clickOpen: true
+    closedSpriteState: gate
+    openSpriteState: gate_open
+    openingSpriteState: gate
+    closingSpriteState: gate_open
+    openingAnimationTime: 2.2
+    closingAnimationTime: 2.2
+    openTimeOne: 1.1
+    openTimeTwo: 1.1
+    closeTimeOne: 1.1
+    closeTimeTwo: 1.1
+    openSound:
+      path: /Audio/Effects/stonedoor_openclose.ogg
+    closeSound:
+      path: /Audio/Effects/stonedoor_openclose.ogg
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-1.45,0.45,1.45"
+        density: 1000
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+
+- type: entity
+  id: ADTNecropolisGateAshWalker
+  parent: ADTNecropolisGate
+  suffix: Ash Walker
+  description: Massive stone gates. Only the tribe knows how to make them move.
+  components:
+  - type: AccessReader
+    access: [["ADTAshWalker"]]
+
+- type: entity
+  id: ADTNecropolisArch
+  parent: BaseStructure
+  name: necropolis arch
+  description: A massive arch above the necropolis gates, set into an equally massive stone tower.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/necropolis_arch.rsi
+    rotation: 270
+    state: arch
+    drawdepth: BlastDoors
+    offset: 0,0.75
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: AshStormImmune
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+
+- type: entity
+  id: ADTNecropolisGateSubstrate
+  parent: BaseStructure
+  name: necropolis gate substrate
+  description: no desc
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/necropolis_gate.rsi
+    rotation: 270
+    state: substrate
+    drawdepth: FloorObjects
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: AshStormImmune
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: ADTTribalOven
+  parent: KitchenMicrowave
+  name: stone oven
+  description: A huge primitive stone oven used for cooking.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/tribal_oven.rsi
+    drawdepth: Mobs
+    noRot: true
+    layers:
+    - state: oven_off
+      map: ["enum.MicrowaveVisualizerLayers.Base"]
+    - state: oven_on
+      map: ["enum.MicrowaveVisualizerLayers.BaseUnlit"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    sprite: ADT/Structures/Specific/tribal_oven.rsi
+    state: oven_off
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.VisualState:
+        enum.MicrowaveVisualizerLayers.Base:
+          Idle: { state: oven_off }
+          Broken: { state: oven_off }
+          Cooking: { state: oven_off }
+        enum.MicrowaveVisualizerLayers.BaseUnlit:
+          Idle: { visible: false }
+          Broken: { visible: false }
+          Cooking: { visible: true, state: oven_on }
+  - type: ApcPowerReceiver
+    needsPower: false
+  - type: Microwave
+    capacity: 5
+  - type: AshStormImmune
+
+- type: entity
+  id: ADTAshDryingRack
+  parent: BaseStructure
+  name: ash drying rack
+  description: A wooden rack for drying meat and hides. The ash does the rest.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/drying_rack.rsi
+    state: rack
+    drawdepth: Mobs
+    noRot: true
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Storage
+    grid:
+    - 0,0,5,2
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: AshStormImmune
+  - type: Damageable
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 1000
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
