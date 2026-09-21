@@ -12,6 +12,7 @@ public static class CustomEmoteParser
     public static List<(Regex Regex, string Emote)> Parse(string raw)
     {
         var result = new List<(Regex, string)>();
+        var parsed = new List<(string Trigger, string Emote)>();
 
         foreach (var line in raw.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
         {
@@ -25,6 +26,13 @@ public static class CustomEmoteParser
             if (trigger.Length == 0 || emote.Length == 0)
                 continue;
 
+            parsed.Add((trigger, emote));
+        }
+
+        parsed.Sort((a, b) => b.Trigger.Length.CompareTo(a.Trigger.Length));
+
+        foreach (var (trigger, emote) in parsed)
+        {
             result.Add((BuildTriggerRegex(trigger), emote));
         }
 
@@ -38,9 +46,10 @@ public static class CustomEmoteParser
     public static Regex BuildTriggerRegex(string trigger)
     {
         var escaped = Regex.Escape(trigger);
+        var notRepeat = $"(?!{Regex.Escape(trigger[0].ToString())})";
 
         return new Regex(
-            $@"\s{escaped}(?=\p{{P}}|\s|$)|^{escaped}(?:\p{{P}}|(?=\s|$))",
+            $@"\s{escaped}{notRepeat}(?=\p{{P}}|\s|$)|^{escaped}{notRepeat}(?:\p{{P}}|(?=\s|$))",
             RegexOptions.RightToLeft | RegexOptions.IgnoreCase);
     }
 
