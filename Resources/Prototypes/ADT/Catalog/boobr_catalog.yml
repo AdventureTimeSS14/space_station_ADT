@@ -1344,7 +1344,7 @@
   icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Battery/healgun.rsi, state: icon }
   productEntity: ADTWeaponMedbeamERT
   cost:
-    Productunit: 20
+    Productunit: 8
   categories:
   - ADTUplinkERTMisc
 
