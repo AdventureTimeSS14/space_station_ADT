@@ -13,6 +13,8 @@ os-file-no-handler = Нечем открыть { $name }.
 os-desktop-menu-explorer = Открыть проводник
 os-desktop-menu-computer = Мой компьютер
 os-desktop-menu-personalize = Персонализация
+os-desktop-icon-menu-open = Открыть
+os-desktop-icon-menu-properties = Свойства
 
 os-post-title = { $publisher } BIOS v2.67
 os-post-copyright = (c) { $publisher }. Кот внутри не гарантируется.

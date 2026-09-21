@@ -1,6 +1,9 @@
 os-size-bytes = { $size } Б
 os-size-kilobytes = { $size } КБ
 os-size-megabytes = { $size } МБ
+os-size-gigabytes = { $size } ГБ
+os-size-terabytes = { $size } ТБ
+os-size-petabytes = { $size } ПБ
 
 # Мой компьютер
 os-mycomputer-system = Система
@@ -45,6 +48,11 @@ os-explorer-kind-log = журнал
 os-explorer-kind-shortcut = ярлык
 os-explorer-kind-directory = папка
 os-explorer-properties = { $name }: { $kind }, { $size }
+os-explorer-deleting-title = Удаление { $name }...
+os-explorer-deleting-progress = Удалено { $done } из { $total }, осталось { $seconds } с
+os-explorer-deleting-cancel = Отмена
+os-explorer-deleting-cancelled = Удаление { $name } отменено.
+os-explorer-deleting-busy = Дождитесь окончания текущего удаления.
 
 # Блокнот
 os-notepad-save = Сохранить

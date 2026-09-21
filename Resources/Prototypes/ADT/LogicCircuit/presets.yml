@@ -1,6 +1,6 @@
 - type: entity
-  # TODO: Хз зачем несуществующий родитель
-  # parent: ADTLogicCircuitBox
+  # шредя дурак
+  parent: ADTLogicCircuitBox
   id: ADTLogicCircuitBoxCodeLock
   suffix: Кодовый замок на 9 кнопок
   description: Коробка со схемой кодового замка. Девять кнопок, четырёхзначный код.
