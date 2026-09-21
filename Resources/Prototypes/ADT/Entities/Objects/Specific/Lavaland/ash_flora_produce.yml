@@ -157,7 +157,7 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
-        - ReagentId: Capsaicin
+        - ReagentId: CapsaicinOil
           Quantity: 5
   - type: Sprite
     sprite: ADT/Objects/Specific/Lavaland/fireblossom.rsi

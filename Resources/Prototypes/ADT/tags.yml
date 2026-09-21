@@ -947,6 +947,9 @@
   id: ADTMagmaGem
 
 - type: Tag
+  id: ADTGem
+
+- type: Tag
   id: ADTAshDrakeHide
 
 - type: Tag

@@ -41,3 +41,6 @@ stack-adt-weaver-chitin =
         [few] куска хитина
        *[other] кусков хитина
     }
+stack-adt-bone-splint = костяная шина
+stack-adt-cloth-bandage = тряпичный бинт
+stack-adt-mushroom-ointment = грибная мазь
