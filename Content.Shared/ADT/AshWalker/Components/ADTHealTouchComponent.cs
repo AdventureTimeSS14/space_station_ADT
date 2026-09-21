@@ -25,6 +25,9 @@ public sealed partial class ADTHealTouchComponent : Component
     public bool CanHealSelf = true;
 
     [DataField]
+    public EntProtoId HealEffect = "ADTEffectHealBusyFlash";
+
+    [DataField]
     public EntProtoId ActionId = "ADTActionHealTouch";
 
     [DataField, AutoNetworkedField]

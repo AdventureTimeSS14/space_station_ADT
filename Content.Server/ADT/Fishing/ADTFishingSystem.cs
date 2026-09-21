@@ -27,12 +27,14 @@ public sealed class ADTFishingSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ADTFishingRodComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<ADTFishingRodComponent, ADTFishingCastActionEvent>(OnCastAction);
         SubscribeLocalEvent<ADTFishingRodComponent, ADTFishingDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<ADTFishingRodComponent, ComponentShutdown>(OnRodShutdown);
     }
@@ -47,6 +49,53 @@ public sealed class ADTFishingSystem : EntitySystem
 
         args.Handled = true;
         TryStartFishing(ent, args.User, (target, spot));
+    }
+
+    private void OnCastAction(Entity<ADTFishingRodComponent> ent, ref ADTFishingCastActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+
+        var userPos = _transform.GetMapCoordinates(args.Performer);
+        var targetPos = _transform.ToMapCoordinates(args.Target);
+
+        if (userPos.MapId != targetPos.MapId ||
+            (userPos.Position - targetPos.Position).Length() > ent.Comp.CastRange)
+        {
+            _popup.PopupEntity(Loc.GetString("adt-fishing-too-far"), ent.Owner, args.Performer);
+            return;
+        }
+
+        if (!TryGetSpotAt(args.Target, out var spot))
+        {
+            _popup.PopupEntity(Loc.GetString("adt-fishing-no-spot"), ent.Owner, args.Performer);
+            return;
+        }
+
+        TryStartFishing(ent, args.Performer, spot);
+    }
+
+    private bool TryGetSpotAt(EntityCoordinates coords, out Entity<ADTFishingSpotComponent> spot)
+    {
+        spot = default;
+
+        if (_transform.GetGrid(coords) is not { } gridUid || !TryComp<MapGridComponent>(gridUid, out var grid))
+            return false;
+
+        var indices = _map.TileIndicesFor(gridUid, grid, coords);
+
+        foreach (var uid in _map.GetAnchoredEntities(gridUid, grid, indices))
+        {
+            if (!TryComp<ADTFishingSpotComponent>(uid, out var spotComp))
+                continue;
+
+            spot = (uid, spotComp);
+            return true;
+        }
+
+        return false;
     }
 
     private void TryStartFishing(Entity<ADTFishingRodComponent> ent, EntityUid user, Entity<ADTFishingSpotComponent> spot)

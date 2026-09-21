@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared.ADT.AshWalker;
 using Content.Shared.ADT.AshWalker.Components;
 using Content.Shared.Actions;
@@ -8,6 +9,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
 
 namespace Content.Server.ADT.AshWalker;
 
@@ -69,6 +71,7 @@ public sealed class ADTHealTouchSystem : EntitySystem
         }
 
         _damageable.TryChangeDamage(target, ent.Comp.Healing, true, origin: ent.Owner);
+        SpawnAttachedTo(ent.Comp.HealEffect, new EntityCoordinates(target, Vector2.Zero));
         _audio.PlayPvs(TouchSound, target);
         _popup.PopupEntity(Loc.GetString("adt-heal-touch-success", ("target", target)), ent.Owner, ent.Owner);
         args.Handled = true;
