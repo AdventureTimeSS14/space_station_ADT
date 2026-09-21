@@ -37,8 +37,6 @@
     sprite: ADT/Mobs/Animals/chicken_parts.rsi
     layers:
     - state: torso_m
-  - type: BodyPart
-    partType: Torso
   - type: Damageable
     damageContainer: Biological
   - type: Extractable
@@ -56,7 +54,6 @@
           Quantity: 30
         - ReagentId: Fat
           Quantity: 20
-  - type: MovementBodyPart
   - type: Item
     size: Normal
   - type: Butcherable
