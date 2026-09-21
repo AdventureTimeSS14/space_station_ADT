@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/lavaland/lava_fishing.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "soft_meat"
+        },
+        {
+            "name": "eel_filet"
+        },
+        {
+            "name": "predator_meat"
+        },
+        {
+            "name": "crab_shell"
+        },
+        {
+            "name": "cartilage_plate"
+        },
+        {
+            "name": "conductive_organ"
+        },
+        {
+            "name": "eel_knife"
+        },
+        {
+            "name": "razor_sharp_teeth"
+        },
+        {
+            "name": "molten_mass"
+        },
+        {
+            "name": "circular_saw_blade"
+        },
+        {
+            "name": "bleary_eye"
+        },
+        {
+            "name": "acid_bladder"
+        }
+    ]
+}

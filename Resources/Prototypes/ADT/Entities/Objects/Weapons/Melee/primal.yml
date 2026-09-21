@@ -91,6 +91,9 @@
   - type: Construction
     graph: ADTBoneAxe
     node: axe
+  - type: Tag
+    tags:
+    - ADTBoneAxe
 
 - type: entity
   name: sinew restraints
