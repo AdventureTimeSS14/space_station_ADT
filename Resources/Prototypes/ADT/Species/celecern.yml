@@ -13,7 +13,6 @@
   femaleLastNames: lastCelecern
   naming: firstlast
   category: Unusual
-  description: "/ServerInfo/ADT/SpeciesDescriptions/Celecern.xml"
   pros:
   - Получают на 20% меньше урона ядом.
   - Получают на 15% меньше урона ожогами.
