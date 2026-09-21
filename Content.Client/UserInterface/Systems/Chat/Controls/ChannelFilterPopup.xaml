@@ -17,6 +17,18 @@
                 </PanelContainer>
                 <Button Name="HighlightButton" Text="{Loc 'hud-chatbox-highlights-button'}" ToolTip="{Loc 'hud-chatbox-highlights-tooltip'}"/>
             </BoxContainer>
+            <!-- ADT-Tweak start -->
+            <BoxContainer Name="CustomEmotesVBox" MinWidth="140" Margin="0 10" Orientation="Vertical" SeparationOverride="4">
+                <Label Text="{Loc 'adt-chatbox-custom-emotes'}"/>
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#323446"/>
+                    </PanelContainer.PanelOverride>
+                    <TextEdit Name="CustomEmotesEdit" MinHeight="150" Margin="5 5"/>
+                </PanelContainer>
+                <Button Name="CustomEmotesButton" Text="{Loc 'adt-chatbox-custom-emotes-button'}" ToolTip="{Loc 'adt-chatbox-custom-emotes-tooltip'}"/>
+            </BoxContainer>
+            <!-- ADT-Tweak end -->
         </BoxContainer>
     </PanelContainer>
 </controls:ChannelFilterPopup>
