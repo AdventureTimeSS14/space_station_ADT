@@ -613,6 +613,10 @@ public sealed partial class ChatSystem : SharedChatSystem
         NetUserId? author = null
         )
     {
+        // ADT-Tweak: после чатсана текст может стать пустым — не шлём эмоут из одного имени
+        if (string.IsNullOrWhiteSpace(action))
+            return;
+
         if (!_actionBlocker.CanEmote(source) && !ignoreActionBlocker)
             return;
 
