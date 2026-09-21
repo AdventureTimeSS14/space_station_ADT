@@ -88,6 +88,18 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
         return Angle.Zero;
     }
 
+    public Angle GetFixedRotation(ADTDungeonRoomPrototype room)
+    {
+        if (room.Rotate == 0)
+            return Angle.Zero;
+
+        if (room.Rotate % 90 != 0)
+            Log.Warning($"Комната {room.ID} развёрнута на {room.Rotate} градусов, округляю до четверти оборота.");
+
+        var quarters = (int) Math.Round(room.Rotate / 90f) & 3;
+        return quarters * Math.PI / 2;
+    }
+
     public void SpawnRoom(
         EntityUid gridUid,
         MapGridComponent grid,
@@ -99,6 +111,9 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
     {
         var originTransform = Matrix3Helpers.CreateTranslation(origin.X, origin.Y);
         var roomRotation = rotation ? GetRoomRotation(room, random) : Angle.Zero;
+
+        roomRotation += GetFixedRotation(room);
+
         var roomTransform = Matrix3Helpers.CreateTransform((Vector2)room.Size / 2f, roomRotation);
         var finalTransform = Matrix3x2.Multiply(roomTransform, originTransform);
 
@@ -319,6 +334,7 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
                     group.Rotation + finalRoomRotation);
 
                 _transform.AttachToGridOrMap(ent);
+                RemoveMissing(ent, group);
 
                 if (group.Anchored == null)
                     continue;
@@ -330,6 +346,20 @@ public sealed class ADTDungeonRoomSystem : EntitySystem
                 else if (!group.Anchored.Value && xform.Anchored)
                     _transform.Unanchor(ent, xform);
             }
+        }
+    }
+
+    private void RemoveMissing(EntityUid uid, ADTDungeonRoomEntities group)
+    {
+        foreach (var name in group.MissingComponents)
+        {
+            if (!_factory.TryGetRegistration(name, out var registration))
+            {
+                Log.Error($"Комната ссылается на неизвестный компонент {name} у {group.Proto}");
+                continue;
+            }
+
+            EntityManager.RemoveComponent(uid, registration.Type);
         }
     }
 
