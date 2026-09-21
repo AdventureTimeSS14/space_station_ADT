@@ -57,6 +57,12 @@
         whitelist:
           components:
           - PAI
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+        ents: []
+      pai_slot: !type:ContainerSlot {}
+      adt_os_drive: !type:ContainerSlot {}
   - type: ADTLogicCircuit
     powerBudget: 96
     inputPorts:
@@ -82,3 +88,23 @@
     receiveFrequencyId: BasicDevice
   - type: WirelessNetworkConnection
     range: 200
+  - type: DeviceLinkSink
+    ports:
+    - ADTLogicIn1
+    - ADTLogicIn2
+    - ADTLogicIn3
+    - ADTLogicIn4
+    - ADTLogicIn5
+    - ADTLogicIn6
+    - ADTLogicIn7
+    - ADTLogicIn8
+  - type: DeviceLinkSource
+    ports:
+    - ADTLogicOut1
+    - ADTLogicOut2
+    - ADTLogicOut3
+    - ADTLogicOut4
+    - ADTLogicOut5
+    - ADTLogicOut6
+    - ADTLogicOut7
+    - ADTLogicOut8

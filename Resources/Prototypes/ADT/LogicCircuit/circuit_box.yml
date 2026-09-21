@@ -62,6 +62,42 @@
     receiveFrequencyId: BasicDevice
   - type: WirelessNetworkConnection
     range: 200
+  - type: DeviceLinkSink
+    ports:
+    - ADTLogicIn1
+    - ADTLogicIn2
+    - ADTLogicIn3
+    - ADTLogicIn4
+    - ADTLogicIn5
+    - ADTLogicIn6
+    - ADTLogicIn7
+    - ADTLogicIn8
+    - ADTLogicIn9
+    - ADTLogicIn10
+    - ADTLogicIn11
+    - ADTLogicIn12
+    - ADTLogicIn13
+    - ADTLogicIn14
+    - ADTLogicIn15
+    - ADTLogicIn16
+  - type: DeviceLinkSource
+    ports:
+    - ADTLogicOut1
+    - ADTLogicOut2
+    - ADTLogicOut3
+    - ADTLogicOut4
+    - ADTLogicOut5
+    - ADTLogicOut6
+    - ADTLogicOut7
+    - ADTLogicOut8
+    - ADTLogicOut9
+    - ADTLogicOut10
+    - ADTLogicOut11
+    - ADTLogicOut12
+    - ADTLogicOut13
+    - ADTLogicOut14
+    - ADTLogicOut15
+    - ADTLogicOut16
   - type: ADTLogicCircuit
     powerBudget: 64
     inputPorts:

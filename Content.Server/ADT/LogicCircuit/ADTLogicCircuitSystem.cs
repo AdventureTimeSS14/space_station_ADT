@@ -2,7 +2,6 @@ using Content.Server.ADT.LogicCircuit.Components;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.LogicCircuit;
 using Content.Shared.ADT.LogicCircuit.Components;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 using Stopwatch = System.Diagnostics.Stopwatch;
 
@@ -34,9 +33,10 @@ public sealed partial class ADTLogicCircuitSystem : SharedADTLogicCircuitSystem
         Subs.CVar(Cfg, ADTCCVars.LogicBudgetMs, value => _budgetMs = MathF.Max(0.1f, value), true);
 
         SubscribeLocalEvent<ADTLogicCircuitComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ADTLogicCircuitComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ADTLogicCircuitComponent, ComponentShutdown>(OnShutdown);
 
-        //SubscribeLocalEvent<MapComponent, ComponentShutdown>(OnMapShutdown); todo fix
+        SubscribeLocalEvent<MapRemovedEvent>(OnMapRemoved);
 
         InitializeBridge();
         InitializeUi();
@@ -45,29 +45,41 @@ public sealed partial class ADTLogicCircuitSystem : SharedADTLogicCircuitSystem
 
     private void OnStartup(Entity<ADTLogicCircuitComponent> ent, ref ComponentStartup args)
     {
+        ent.Comp.LastTick = _timing.CurTime;
+
+        if (IsNormalized(ent.Comp.Layout))
+            TryCompile(ent);
+    }
+
+    private void OnMapInit(Entity<ADTLogicCircuitComponent> ent, ref MapInitEvent args)
+    {
+        Normalize(ent.Comp.Layout);
+
+        if (TryCompile(ent))
+            Wake(ent);
+    }
+
+    private bool TryCompile(Entity<ADTLogicCircuitComponent> ent)
+    {
         var comp = ent.Comp;
-
-        comp.LastTick = _timing.CurTime;
-
-        Normalize(comp.Layout);
 
         if (!TryValidate(comp.Layout, GetLimits(comp), out var error, out var detail))
         {
+            comp.Compiled = null;
             comp.Broken = true;
             Log.Error(
                 $"Схема кабельной коробки {ToPrettyString(ent)} не прошла проверку: {error} ({detail})");
-            return;
+            return false;
         }
 
         comp.Compiled = CompiledLogicCircuit.Compile(comp.Layout, Prototypes);
         comp.Broken = false;
-
-        Wake(ent);
+        return true;
     }
 
-    private void OnMapShutdown(Entity<MapComponent> ent, ref ComponentShutdown args)
+    private void OnMapRemoved(MapRemovedEvent args)
     {
-        _wireless.Remove(ent.Owner);
+        _wireless.Remove(args.Uid);
     }
 
     private void OnShutdown(Entity<ADTLogicCircuitComponent> ent, ref ComponentShutdown args)

@@ -50,6 +50,31 @@ public abstract class SharedADTLogicCircuitSystem : EntitySystem
         }
     }
 
+    public bool IsNormalized(LogicCircuitLayout layout)
+    {
+        foreach (var node in layout.Nodes)
+        {
+            if (!Prototypes.TryIndex(node.Proto, out var proto))
+                continue;
+
+            if (node.Config.Count != proto.Config.Count || node.State.Length != proto.StateSize)
+                return false;
+
+            for (var i = 0; i < node.Config.Count; i++)
+            {
+                var field = proto.Config[i];
+                if (field.Type == LogicConfigFieldType.Text)
+                    continue;
+
+                var value = node.Config[i];
+                if (!value.IsNumber || Math.Clamp(value.Number, field.Min, field.Max) != value.Number)
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
     private static void NormalizeConfig(LogicNodeData node, LogicElementPrototype proto)
     {
         while (node.Config.Count > proto.Config.Count)
