@@ -95,6 +95,8 @@
     rules: ghost-role-information-adt-ash-walker-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: ADTAshWalker
   - type: GhostRoleMobSpawner
   - type: Physics
     bodyType: Dynamic

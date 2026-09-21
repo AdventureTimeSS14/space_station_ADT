@@ -139,6 +139,9 @@
   components:
   - type: Loadout
     prototypes: [ ADTAshWalkerGear ]
+  - type: ADTRoleIntro
+    title: adt-role-intro-ash-walker-title
+    text: adt-role-intro-ash-walker-text
 
 - type: entity
   parent: AppearanceReptilian
@@ -180,6 +183,9 @@
   components:
   - type: Loadout
     prototypes: [ ADTAshWalkerShamanGear ]
+  - type: ADTRoleIntro
+    title: adt-role-intro-ash-walker-shaman-title
+    text: adt-role-intro-ash-walker-shaman-text
 
 - type: entity
   parent: OrganReptilianTorso
