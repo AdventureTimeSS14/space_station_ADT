@@ -10,7 +10,7 @@
     noRot: true
     layers:
     - state: gate
-      map: ["gate"]
+      map: ["enum.DoorVisualLayers.Base"]
   - type: Transform
     anchored: true
     noRot: true
@@ -20,14 +20,28 @@
     energy: 2
     color: "#dc4a1a"
   - type: AshStormImmune
-  - type: ADTNecropolisGate
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ADTNecropolisGateVisuals.Open:
-        gate:
-          True: { state: gate_open }
-          False: { state: gate }
+  - type: AnimationPlayer
+  - type: Occluder
+  - type: Door
+    canCrush: false
+    performCollisionCheck: false
+    bumpOpen: false
+    clickOpen: true
+    closedSpriteState: gate
+    openSpriteState: gate_open
+    openingSpriteState: gate
+    closingSpriteState: gate_open
+    openingAnimationTime: 2.2
+    closingAnimationTime: 2.2
+    openTimeOne: 1.1
+    openTimeTwo: 1.1
+    closeTimeOne: 1.1
+    closeTimeTwo: 1.1
+    openSound:
+      path: /Audio/Effects/stonedoor_openclose.ogg
+    closeSound:
+      path: /Audio/Effects/stonedoor_openclose.ogg
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -46,11 +60,10 @@
   id: ADTNecropolisGateAshWalker
   parent: ADTNecropolisGate
   suffix: Ash Walker
-  description: Massive stone gates. They look sealed shut for good.
+  description: Massive stone gates. Only the tribe knows how to make them move.
   components:
-  - type: ADTNecropolisGate
-    locked: true
-    unlockFaction: ADTAshWalker
+  - type: AccessReader
+    access: [["ADTAshWalker"]]
 
 - type: entity
   id: ADTNecropolisArch
