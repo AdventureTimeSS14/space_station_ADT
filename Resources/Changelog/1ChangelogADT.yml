@@ -15467,3 +15467,9 @@ Entries:
     id: 1938
     pr_number: 3404
     time: '2026-09-20T12:17:05Z'
+  - author: FriendlyOne
+    changes:
+      - {message: Поглощенного генокрада теперь нельзя клонировать, type: Fix}
+    id: 1939
+    pr_number: 3397
+    time: '2026-09-21T04:03:36Z'
