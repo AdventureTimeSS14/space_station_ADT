@@ -33,7 +33,7 @@ public sealed partial class ADTLogicCircuitSystem : SharedADTLogicCircuitSystem
         Subs.CVar(Cfg, ADTCCVars.LogicMaxSignalLength, value => _maxSignalLength = Math.Max(1, value), true);
         Subs.CVar(Cfg, ADTCCVars.LogicBudgetMs, value => _budgetMs = MathF.Max(0.1f, value), true);
 
-        SubscribeLocalEvent<ADTLogicCircuitComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<ADTLogicCircuitComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ADTLogicCircuitComponent, ComponentShutdown>(OnShutdown);
 
         //SubscribeLocalEvent<MapComponent, ComponentShutdown>(OnMapShutdown); todo fix
@@ -43,7 +43,7 @@ public sealed partial class ADTLogicCircuitSystem : SharedADTLogicCircuitSystem
         InitializeDisk();
     }
 
-    private void OnMapInit(Entity<ADTLogicCircuitComponent> ent, ref MapInitEvent args)
+    private void OnStartup(Entity<ADTLogicCircuitComponent> ent, ref ComponentStartup args)
     {
         var comp = ent.Comp;
 
