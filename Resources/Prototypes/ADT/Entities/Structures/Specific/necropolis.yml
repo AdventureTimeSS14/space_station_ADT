@@ -7,7 +7,7 @@
   - type: Sprite
     sprite: ADT/Structures/Specific/necropolis_gate.rsi
     drawdepth: Doors
-    noRot: true
+    snapCardinals: true
     layers:
     - state: gate
       map: ["enum.DoorVisualLayers.Base"]
@@ -23,6 +23,7 @@
   - type: Appearance
   - type: AnimationPlayer
   - type: Occluder
+    boundingBox: "-0.45,-1.45,0.45,1.45"
   - type: Door
     canCrush: false
     performCollisionCheck: false
@@ -49,7 +50,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.45"
+          bounds: "-1.45,-0.45,1.45,0.45"
         density: 1000
         mask:
         - MachineMask
@@ -64,6 +65,9 @@
   components:
   - type: AccessReader
     access: [["ADTAshWalker"]]
+  - type: Physics
+    bodyType: Static
+    canCollide: false
 
 - type: entity
   id: ADTNecropolisArch
@@ -75,12 +79,31 @@
     sprite: ADT/Structures/Specific/necropolis_arch.rsi
     state: arch
     drawdepth: BlastDoors
-    noRot: true
     offset: 0,0.75
+    snapCardinals: true
   - type: Transform
     anchored: true
     noRot: true
   - type: AshStormImmune
+
+- type: entity
+  id: ADTNecropolisGateSubstrate
+  parent: BaseStructure
+  name: necropolis gate substrate
+  description: no desc
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/necropolis_gate.rsi
+    state: substrate
+    drawdepth: FloorObjects
+    snapCardinals: true
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: AshStormImmune
+  - type: Tag
+    tags:
+    - HideContextMenu
 
 - type: entity
   id: ADTTribalOven

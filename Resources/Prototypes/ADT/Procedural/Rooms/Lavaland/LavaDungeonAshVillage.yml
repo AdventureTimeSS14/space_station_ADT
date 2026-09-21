@@ -1,6 +1,7 @@
 - type: adtDungeonRoom
   id: LavaDungeonAshVillage
   size: 33, 33
+  rotate: 180
   tags:
   - LavaDungeon
   legend:
@@ -1423,7 +1424,7 @@
     anchored: true
     components:
     - type: Door
-      secondsUntilStateChange: -285.28116
+      secondsUntilStateChange: -331.46796
       state: Opening
     positions:
     - 4.5,23.5
@@ -1440,24 +1441,21 @@
     anchored: true
     components:
     - type: Door
-      secondsUntilStateChange: -488.64764
-      state: Opening
+      state: Open
     positions:
     - 24.5,24.5
   - proto: CurtainsBlack
     anchored: true
     components:
     - type: Door
-      secondsUntilStateChange: -488.54764
-      state: Opening
+      state: Open
     positions:
     - 25.5,24.5
   - proto: CurtainsBlack
     anchored: true
     components:
     - type: Door
-      secondsUntilStateChange: -488.7143
-      state: Opening
+      state: Open
     positions:
     - 23.5,26.5
   - proto: Flare
@@ -1642,14 +1640,11 @@
     - 26.6761,16.7594
     - 26.9101,16.7807
   - proto: WallInvisible
-    rot: -1.5708 rad
+    missingComponents:
+    - TimedDespawn
     positions:
-    - 15.5,13.5
-    - 14.5,13.5
-    - 17.5,13.5
     - 18.5,13.5
-    - 15.5,24.5
-    - 17.5,24.5
+    - 14.5,13.5
   - proto: WallNecropolis
     anchored: true
     positions:
