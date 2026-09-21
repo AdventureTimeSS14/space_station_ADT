@@ -12,7 +12,6 @@
   - type: Sprite
     sprite: ADT/Structures/Decorations/necropolis_tiles.rsi
     drawdepth: FloorObjects
-    noRot: true
   - type: Tag
     tags:
     - HideContextMenu

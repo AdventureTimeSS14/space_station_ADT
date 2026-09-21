@@ -191,6 +191,7 @@
     - 16.5,29.5
     - 17.5,29.5
     - 19.5,29.5
+    - 16.5,28.5
   - proto: ADTFoodCactusBerry
     positions:
     - 10.3125,12.375
@@ -782,6 +783,11 @@
     anchored: true
     positions:
     - 16.5,24.5
+  - proto: ADTNecropolisGateSubstrate
+    anchored: true
+    positions:
+    - 16.5,24.5
+    - 16.5,13.5
   - proto: ADTNecropolisPristineBlock1
     anchored: true
     positions:
@@ -1301,8 +1307,10 @@
     positions:
     - 8.5,17.5
     - 5.5,14.5
+    - 23.5,20.5
     - 29.5,21.5
     - 17.5,26.5
+    - 22.5,17.5
   - proto: ADTPuddleBloodBubblegumThick
     anchored: true
     missingComponents:
@@ -1424,8 +1432,7 @@
     anchored: true
     components:
     - type: Door
-      secondsUntilStateChange: -331.46796
-      state: Opening
+      state: Open
     positions:
     - 4.5,23.5
   - proto: CurtainsBlack
@@ -1461,10 +1468,6 @@
   - proto: Flare
     positions:
     - 25.5,27.5
-  - proto: FloorLavaEntity
-    anchored: true
-    positions:
-    - 16.5,28.5
   - proto: FloorWaterEntity
     anchored: true
     positions:
@@ -1565,8 +1568,6 @@
   - proto: PuddleBlood
     anchored: true
     positions:
-    - 22.5,17.5
-    - 23.5,20.5
     - 5.5,25.5
   - proto: Rack
     anchored: true
