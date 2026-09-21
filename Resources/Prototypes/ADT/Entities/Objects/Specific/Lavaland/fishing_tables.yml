@@ -43,3 +43,16 @@
   - type: EntityTableSpawner
     table: !type:NestedSelector
       tableId: ADTLavalandMinorLootTable
+
+- type: entityTable
+  id: ADTBasaltDigBaitTable
+  table: !type:GroupSelector
+    children:
+    - id: ADTFishingBaitAshEater
+      weight: 42
+    - id: ADTFishingBaitBloodyLeach
+      weight: 33
+    - id: ADTFishingBaitGoldgrubLarva
+      weight: 24
+    - id: ADTFoodCharredKrill
+      weight: 1

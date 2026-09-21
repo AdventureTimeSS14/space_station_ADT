@@ -78,3 +78,13 @@
     color: "#8a2be2"
     showRank: true
     showName: true
+
+- type: language
+  id: ADTAshWalkerCollectiveMind
+  priority: 0
+  uiColor: "#dc4a1a"
+  showUnderstood: false
+  speech: !type:CollectiveMind
+    color: "#dc4a1a"
+    showRank: false
+    showName: true

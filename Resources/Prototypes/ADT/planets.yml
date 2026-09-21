@@ -94,6 +94,9 @@
     - BloodMinerDungeMarker
     - ADTHierophantArenaSpawner
   - type: FTLDestination
+  - type: ADTBaitDigging
+    table: !type:NestedSelector
+      tableId: ADTBasaltDigBaitTable
   - type: WeatherScheduler # Regular storms
     stages:
     - duration: # 5-10 minutes of calm
@@ -140,6 +143,7 @@
     - 14
   biomeMarkerLayers:
   - ADTLavaVeinOreIron
+  - ADTLavaVeinSandstone
   - ADTLavaVeinOreQuartz
   - ADTLavaVeinOreCoal
   - ADTLavaVeinOreGold
