@@ -1,0 +1,55 @@
+- type: entity
+  parent: ADTWeaponExperimentalProtoKineticAcellerator
+  id: ADTWeaponProtoKineticAcceleratorMagmite
+  name: magmite proto-kinetic accelerator
+  description: A kinetic accelerator reforged on the world anvil. The magmite frame swallows far more modkits than the stock one.
+  components:
+  - type: ADTMagmiteUpgradable
+    result: ADTWeaponProtoKineticAcceleratorMagmite
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Basic/kinetic_accelerator_magmite.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/Basic/kinetic_accelerator_magmite.rsi
+  - type: ADTUpgradeableGun
+    maxModCapacity: 160
+    stockSprite:
+      sprite: ADT/Objects/Weapons/Guns/Basic/kinetic_accelerator_magmite.rsi
+      state: icon
+
+- type: entity
+  parent: ADTWeaponCutterAdv
+  id: ADTWeaponCutterMagmite
+  name: magmite plasma cutter
+  description: A plasma cutter reforged on the world anvil. The beam reaches further, costs less to fire, and smothers a gibtonite chain reaction instead of setting it off.
+  components:
+  - type: ADTMagmiteUpgradable
+    result: ADTWeaponCutterMagmite
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Battery/cutter_magmite.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/Battery/cutter_magmite.rsi
+  - type: BatteryAmmoProvider
+    proto: ADTBulletCutterMagmite
+    fireCost: 60
+
+- type: entity
+  parent: WeaponCrusher
+  id: ADTWeaponCrusherMagmite
+  name: magmite proto-kinetic crusher
+  description: A proto-kinetic crusher reforged on the world anvil. Its destabiliser chews straight through rock like a plasma cutter, ancient veins included.
+  components:
+  - type: ADTMagmiteUpgradable
+    result: ADTWeaponCrusherMagmite
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_magmite.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_magmite.rsi
+  - type: BasicEntityAmmoProvider
+    proto: ADTBulletChargeMagmite

@@ -20,6 +20,7 @@
     zapHeal:
       types:
         Asphyxiation: -20
+        Bloodloss: -15
     doAfterDuration: 1.5
     zapDelay: 6
   - type: MultiHandedItem
@@ -84,6 +85,7 @@
     zapHeal:
       types:
         Asphyxiation: -45
+        Bloodloss: -15
     doAfterDuration: 2
     zapDelay: 2
     chargeSound:

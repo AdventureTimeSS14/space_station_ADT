@@ -217,6 +217,14 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
             return false;
         }
 
+        // ADT Heretic
+        if (args.MultiplyDelay)
+        {
+            var delayMultiplierEv = new Content.Shared.ADT.Heretic.Common.GetDoAfterDelayMultiplierEvent();
+            RaiseLocalEvent(args.User, delayMultiplierEv);
+            args.Delay *= delayMultiplierEv.Multiplier;
+        }
+
         id = new DoAfterId(args.User, comp.NextId++);
         var doAfter = new DoAfter(id.Value.Index, args, GameTiming.CurTime);
 

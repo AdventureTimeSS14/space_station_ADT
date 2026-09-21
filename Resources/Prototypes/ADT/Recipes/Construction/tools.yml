@@ -13,3 +13,11 @@
   targetNode: oldRadio
   category: construction-category-tools
   objectType: Item
+
+- type: construction
+  id: ADTMushroomBowl
+  graph: ADTMushroomBowl
+  startNode: start
+  targetNode: bowl
+  category: construction-category-misc
+  objectType: Item

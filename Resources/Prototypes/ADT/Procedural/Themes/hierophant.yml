@@ -1,0 +1,13 @@
+- type: entity
+  id: ADTHierophantArenaSpawner
+  parent: ADTBaseRoomMarker
+  name: hierophant arena spawner
+  components:
+  - type: ADTRoomFill
+    clearExisting: true
+    roomWhitelist:
+      tags:
+      - ADTHierophantArena
+
+- type: Tag
+  id: ADTHierophantArena

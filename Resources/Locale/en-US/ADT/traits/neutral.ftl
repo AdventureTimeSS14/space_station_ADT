@@ -67,3 +67,6 @@ trait-voracious-desc = You eat faster than others, your metabolism is accelerate
 
 trait-drunk-tolerance-name = Alcohol Tolerance
 trait-drunk-tolerance-desc = You are less affected by alcohol, you need more to get drunk.
+
+trait-polyglot-name = Polyglot
+trait-polyglot-desc = You know one extra language: an additional language slot is available in the character editor.

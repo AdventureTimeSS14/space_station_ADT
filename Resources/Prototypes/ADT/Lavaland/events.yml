@@ -1,0 +1,11 @@
+- type: lavalandEvent
+  id: ADTLavalandEventNecropolisSurge
+  announcement: adt-lavaland-event-necropolis-surge
+  effects:
+  - !type:ADTScatterSpawnEffect
+    prototype: ADTRandomTendrilSpawner
+    minCount: 2
+    maxCount: 5
+    minSpacing: 24
+    minDistanceFromCenter: 65
+    maxRadius: 220

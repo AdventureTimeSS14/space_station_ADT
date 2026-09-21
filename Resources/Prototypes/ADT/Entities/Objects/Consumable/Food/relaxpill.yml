@@ -1,6 +1,6 @@
 - type: entity
   name: ADT-relax-pill
-  parent: ADTPillBase
+  parent: ADTPill
   id: ADTPillRelax
   description: relax-pill-desc
   components:

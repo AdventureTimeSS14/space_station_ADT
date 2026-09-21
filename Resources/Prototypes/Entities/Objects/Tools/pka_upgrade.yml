@@ -82,6 +82,7 @@
   # ADT Tweak Start
   - type: ADTGunUpgrade
     cost: 30
+    maximumOfType: 3
     tags: [ GunUpgradeReloadSpeed ]
     examineText: gun-upgrade-examine-text-reload
   - type: ADTGunUpgradeFireRate

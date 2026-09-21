@@ -61,9 +61,6 @@ public sealed partial class BubblegumComponent : Component
     public TimeSpan LastStepSound;
 
     [DataField]
-    public TimeSpan NextSpeechTime = TimeSpan.Zero;
-
-    [DataField]
     public MapCoordinates? LastBloodPosition;
 
     [DataField]

@@ -10,6 +10,15 @@ namespace Content.Shared.ADT.CCVar;
 public sealed class ADTCCVars
 {
     /*
+    * Exploitable Info
+    */
+    /// <summary>
+    /// Включает скрытую информацию персонажа (видна только владельцу, антагам и призракам).
+    /// </summary>
+    public static readonly CVarDef<bool> ExploitableSecrets =
+        CVarDef.Create("ic.exploitable_info", true, CVar.SERVER | CVar.REPLICATED);
+
+    /*
     * Barks
     */
     public static readonly CVarDef<bool> BarksEnabled =
@@ -32,6 +41,16 @@ public sealed class ADTCCVars
 
     public static readonly CVarDef<float> BarksVolume =
         CVarDef.Create("barks.volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /*
+    * Boss music
+    */
+
+    public static readonly CVarDef<bool> BossMusicEnabled =
+        CVarDef.Create("adt.boss_music_enabled", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> BossMusicVolume =
+        CVarDef.Create("adt.boss_music_volume", 1.5f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /*
     * Radial menu
@@ -396,5 +415,34 @@ public sealed class ADTCCVars
 
     public static readonly CVarDef<int> AntagRollBonusInfoRateLimitCount =
         CVarDef.Create("antag.roll_bonus_info_rate_limit_count", 3, CVar.SERVERONLY);
+
+    /// <summary>
+    /// How many hours pass between full wipes of every stored roll bonus. Zero or less disables wiping.
+    /// </summary>
+    public static readonly CVarDef<float> AntagRollBonusWipeHours =
+        CVarDef.Create("antag.roll_bonus_wipe_hours", 36f, CVar.SERVERONLY);
+
+     /*
+     * Heretic
+     */
+
+    /// <summary>
+    /// Should heretic ascension ritual be cancelled if heretic hasn't completed their objectives.
+    /// </summary>
+    public static readonly CVarDef<bool> HereticAscensionRequiresObjectives =
+        CVarDef.Create("heretic.ascension_requires_objectives", true, CVar.SERVERONLY);
+
+    /*
+     * Chat Highlight Sound
+     */
+
+    public static readonly CVarDef<bool> ChatHighlightSoundEnabled =
+        CVarDef.Create("adt.chat_highlight_sound_enabled", true, CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    public static readonly CVarDef<string> ChatHighlightSoundPath =
+        CVarDef.Create("adt.chat_highlight_sound_path", "/Audio/ADT/UI/ChatHighlight/notification1.ogg", CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    public static readonly CVarDef<float> ChatHighlightSoundVolume =
+        CVarDef.Create("adt.chat_highlight_sound_volume", 1f, CVar.ARCHIVE | CVar.CLIENTONLY);
 }
 

@@ -7,26 +7,27 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.ADT.ThermalVision;
 
-/// <summary>
-/// Client thermal vision via Starlight-style screen + through-walls highlight overlays.
-/// Hooks into existing ADT <see cref="SharedThermalVisionSystem"/> state (Off/Full).
-/// </summary>
 public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 {
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
 
+    private ThermalVisionOverlay? _overlay;
     private ThermalVisionEntityHighlightOverlay _throughWallsOverlay = default!;
-    private ThermalVisionOverlay _overlay = default!;
-    private ThermalVisionOverlay _altOverlay = default!;
-    private GasTileThermalVisionOverlay _gasOverlay = default!;
+    private LightSourceHighlightOverlay _lightSourcesOverlay = default!;
     private EntityUid? _effect;
+    private bool _active;
+    private bool _activeAlt;
+    private bool _activeHighlight;
+    private bool _activeLightSources;
 
-    private const string ThermalShaderId = "ADTThermalVisionScreenShader";
-    private const string ThermalAltShaderId = "ADTThermalVisionScreenShaderHalfAlpha";
-    private const string BrightnessShaderId = "ADTBrightnessShader";
+    private const string ScreenShaderId = "ADTThermalVisionScreenShader";
+    private const string ScreenShaderAltId = "ADTThermalVisionScreenShaderHalfAlpha";
+    private const string BodyShaderId = "ADTThermalBodyShader";
+    private const string LightShaderId = "ADTLightHighlightShader";
 
     public override void Initialize()
     {
@@ -35,10 +36,8 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         SubscribeLocalEvent<ThermalVisionComponent, LocalPlayerAttachedEvent>(OnAttached);
         SubscribeLocalEvent<ThermalVisionComponent, LocalPlayerDetachedEvent>(OnDetached);
 
-        _throughWallsOverlay = new(_prototypes.Index<ShaderPrototype>(BrightnessShaderId));
-        _overlay = new(_prototypes.Index<ShaderPrototype>(ThermalShaderId));
-        _altOverlay = new(_prototypes.Index<ShaderPrototype>(ThermalAltShaderId));
-        _gasOverlay = new GasTileThermalVisionOverlay();
+        _throughWallsOverlay = new(_prototypes.Index<ShaderPrototype>(BodyShaderId));
+        _lightSourcesOverlay = new(_prototypes.Index<ShaderPrototype>(LightShaderId));
     }
 
     private void OnAttached(Entity<ThermalVisionComponent> ent, ref LocalPlayerAttachedEvent args)
@@ -68,15 +67,40 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
 
     private void AttemptAddVision(Entity<ThermalVisionComponent> ent)
     {
-        if (_effect != null)
+        if (_active && (_activeAlt != ent.Comp.UseAlternativeShader || _activeHighlight != ent.Comp.HighlightOnly))
+            AttemptRemoveVision(force: true);
+
+        if (_active)
             return;
 
-        _overlayMan.AddOverlay(_gasOverlay);
+        _active = true;
+        _activeAlt = ent.Comp.UseAlternativeShader;
+        _activeHighlight = ent.Comp.HighlightOnly;
+
+        _throughWallsOverlay.IgnoredComponents.Clear();
+        foreach (var name in ent.Comp.IgnoredComponents)
+        {
+            if (_componentFactory.TryGetRegistration(name, out var registration))
+                _throughWallsOverlay.IgnoredComponents.Add(registration.Type);
+        }
+
         _overlayMan.AddOverlay(_throughWallsOverlay);
-        if (ent.Comp.UseAlternativeShader)
-            _overlayMan.AddOverlay(_altOverlay);
-        else
-            _overlayMan.AddOverlay(_overlay);
+
+        if (ent.Comp.HighlightLightSources)
+        {
+            _activeLightSources = true;
+            _overlayMan.AddOverlay(_lightSourcesOverlay);
+        }
+
+        if (ent.Comp.HighlightOnly)
+            return;
+
+        var shaderId = ent.Comp.UseAlternativeShader ? ScreenShaderAltId : ScreenShaderId;
+        if (!_prototypes.TryIndex<ShaderPrototype>(shaderId, out var screenShader))
+            return;
+
+        _overlay = new ThermalVisionOverlay(screenShader);
+        _overlayMan.AddOverlay(_overlay);
 
         _effect = SpawnAttachedTo(ent.Comp.EffectPrototype, Transform(ent).Coordinates);
         _xform.SetParent(_effect.Value, ent.Owner);
@@ -87,10 +111,26 @@ public sealed class ThermalVisionSystem : SharedThermalVisionSystem
         if (_player.LocalEntity == null && !force)
             return;
 
-        _overlayMan.RemoveOverlay(_gasOverlay);
+        if (!_active && _effect == null)
+            return;
+
+        _active = false;
+        _activeAlt = false;
+        _activeHighlight = false;
+
+        if (_overlay != null)
+        {
+            _overlayMan.RemoveOverlay(_overlay);
+            _overlay = null;
+        }
+
         _overlayMan.RemoveOverlay(_throughWallsOverlay);
-        _overlayMan.RemoveOverlay(_overlay);
-        _overlayMan.RemoveOverlay(_altOverlay);
+
+        if (_activeLightSources)
+        {
+            _activeLightSources = false;
+            _overlayMan.RemoveOverlay(_lightSourcesOverlay);
+        }
 
         if (_effect != null)
         {

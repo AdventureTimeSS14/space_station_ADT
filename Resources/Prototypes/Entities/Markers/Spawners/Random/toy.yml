@@ -39,6 +39,12 @@
     - id: PlushieArachind
     - id: PlushiePenguin
     - id: PlushieVulp
+    # ADT toys start
+    - id: ADTPlushieOwl
+    - id: ADTPlushieOctocat
+    - id: ADTPlushieSani
+    - id: ADTPlushieEmiliaEvenwood
+    # ADT toys end
     - !type:GroupSelector
       children:
       - id: PlushieBee
@@ -58,6 +64,7 @@
       - id: PlushieSharkBlue
       - id: PlushieSharkGrey
       - id: PlushieSharkPink
+      - id: ADTBlackSharkPlushie # ADT tweak
     - !type:GroupSelector # Toy plushies
       children:
       - id: ToyIan

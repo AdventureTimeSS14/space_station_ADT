@@ -1,5 +1,3 @@
-ent-BaseArrow = { ent-BaseItem }
-    .desc = { ent-BaseItem.desc }
 ent-ADTBoltRegular = болт
     .desc = Вы чувствуете в себе силу охотника.
 ent-ADTBoltImprovisedSteel = болт из стали
@@ -12,3 +10,5 @@ ent-ADTBoltImprovisedSilver = болт из серебра
     .desc = Арбалетный болт с куском серебра в качестве наконечника. Наносит святой урон.
 ent-ADTBoltImprovisedUranium = болт из урана
     .desc = Арбалетный болт с куском урана в качестве наконечника. Наносит урон радиацией.
+ent-ADTBoltCard = болт из картона
+    .desc = Осторожно, глаз себе выколешь!

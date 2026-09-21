@@ -1,3 +1,5 @@
+using Content.Server.ADT.Lavaland.Events;
+using Content.Shared.ADT.Lavaland.Events;
 using Content.Server.Chat.Managers;
 using Content.Shared.Chat;
 using Content.Shared.Weather;
@@ -16,6 +18,7 @@ public sealed class WeatherSchedulerSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedWeatherSystem _weather = default!;
+    [Dependency] private readonly ADTLavalandEventSystem _lavalandEvents = default!; // ADT-Tweak
 
     public override void Update(float frameTime)
     {
@@ -28,6 +31,14 @@ public sealed class WeatherSchedulerSystem : EntitySystem
             if (now < comp.NextUpdate)
                 continue;
 
+            // ADT-Tweak-Start
+            if (comp.PendingEvent is { } pending)
+            {
+                comp.PendingEvent = null;
+                _lavalandEvents.RunEvent(map, pending);
+            }
+            // ADT-Tweak-End
+
             if (comp.Stage >= comp.Stages.Count)
                 comp.Stage = 0;
 
@@ -35,7 +46,8 @@ public sealed class WeatherSchedulerSystem : EntitySystem
             var duration = TimeSpan.FromSeconds(stage.Duration.Next(_random));
             comp.NextUpdate = now + duration;
 
-            var (stageWeather, stageMessage) = PickVariant(stage); // ADT-Tweak
+            var (stageWeather, stageMessage, stageEvent) = PickVariant(stage); // ADT-Tweak
+            comp.PendingEvent = stageEvent; // ADT-Tweak
             var mapId = Comp<MapComponent>(map).MapId;
             if (stageWeather is {} weather) // ADT-Tweak
             {
@@ -63,10 +75,10 @@ public sealed class WeatherSchedulerSystem : EntitySystem
     }
 
     // ADT-Tweak-Start
-    private (EntProtoId? Weather, LocId? Message) PickVariant(WeatherStage stage)
+    private (EntProtoId? Weather, LocId? Message, ProtoId<ADTLavalandEventPrototype>? Event) PickVariant(WeatherStage stage)
     {
         if (stage.Variants.Count == 0)
-            return (stage.Weather, stage.Message);
+            return (stage.Weather, stage.Message, stage.EventOnEnd);
 
         var total = 0f;
         foreach (var variant in stage.Variants)
@@ -75,18 +87,18 @@ public sealed class WeatherSchedulerSystem : EntitySystem
         }
 
         if (total <= 0f)
-            return (stage.Weather, stage.Message);
+            return (stage.Weather, stage.Message, stage.EventOnEnd);
 
         var roll = _random.NextFloat(total);
         foreach (var variant in stage.Variants)
         {
             roll -= MathF.Max(variant.Weight, 0f);
             if (roll <= 0f)
-                return (variant.Weather, variant.Message);
+                return (variant.Weather, variant.Message, variant.EventOnEnd);
         }
 
         var last = stage.Variants[^1];
-        return (last.Weather, last.Message);
+        return (last.Weather, last.Message, last.EventOnEnd);
     }
     // ADT-Tweak-End
 

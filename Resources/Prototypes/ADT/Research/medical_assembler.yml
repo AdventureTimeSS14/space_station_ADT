@@ -1,0 +1,44 @@
+- type: technology
+  id: ADTMedAssemblerPens1
+  name: research-technology-med-assembler-pens-1
+  icon:
+    sprite: Objects/Specific/Medical/medipen.rsi
+    state: medipen
+  discipline: Biochemical
+  tier: 2
+  cost: 10000
+  genericUnlocks:
+  - unlockDescription: research-unlock-med-assembler-pens-1
+  position: 2,0
+  requiredTech:
+  - ADTIndustrialMedicine
+
+- type: technology
+  id: ADTMedAssemblerPens2
+  name: research-technology-med-assembler-pens-2
+  icon:
+    sprite: Objects/Specific/Medical/medipen.rsi
+    state: firstaid
+  discipline: Biochemical
+  tier: 2
+  cost: 17500
+  genericUnlocks:
+  - unlockDescription: research-unlock-med-assembler-pens-2
+  position: 2,1
+  requiredTech:
+  - ADTMedAssemblerPens1
+
+- type: technology
+  id: ADTMedAssemblerPens3
+  name: research-technology-med-assembler-pens-3
+  icon:
+    sprite: Objects/Specific/Medical/medipen.rsi
+    state: hypovolemic
+  discipline: Biochemical
+  tier: 3
+  cost: 20000
+  genericUnlocks:
+  - unlockDescription: research-unlock-med-assembler-pens-3
+  position: 1,1
+  requiredTech:
+  - ADTMedAssemblerPens2

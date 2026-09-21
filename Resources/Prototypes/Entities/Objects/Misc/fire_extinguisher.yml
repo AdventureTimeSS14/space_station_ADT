@@ -50,6 +50,7 @@
     verbToggleOn: fire-extinguisher-component-verb-remove
     verbToggleOff: fire-extinguisher-component-verb-engage
   - type: SpraySafety
+  - type: SelfSpray # ADT-Tweak
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:
@@ -74,6 +75,8 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
+  - type: RMCExtinguisherPower
+    power: 1
 
 - type: entity
   parent: FireExtinguisher

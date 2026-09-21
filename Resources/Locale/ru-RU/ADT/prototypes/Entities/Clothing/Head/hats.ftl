@@ -150,3 +150,6 @@ ent-ADTClothingHeadHatRedBenie = красная шапка
 ent-ADTClothingHeadHatSovietGarrisonCap = пилотка солдата СССР 
     .desc = Пилотка солдата когда-то существовавшего СССР воссозданная в честь праздника
     .suffix = { "Праздник, День победы" }
+
+ent-ADTClothingCentcomOfficerHat = фуражка офицера специальных операций
+    .desc = Специальная фуражка высших чинов NanoTrasen с золотой гравировкой, уже давно прошедшая не один блицкриг...

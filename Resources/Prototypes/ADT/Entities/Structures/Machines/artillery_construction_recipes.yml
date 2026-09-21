@@ -1,0 +1,32 @@
+- type: construction
+  name: construction-recipe-bluespace-artillery
+  id: BluespaceArtilleryConstructionItem
+  graph: BluespaceArtilleryConstruction
+  startNode: start
+  targetNode: cannon_east
+  mirror: BluespaceArtilleryMirrorConstructionItem
+  canRotate: false
+  category: construction-category-structures
+  description: construction-recipe-bluespace-artillery-desc
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  name: construction-recipe-bluespace-artillery-west
+  id: BluespaceArtilleryMirrorConstructionItem
+  graph: BluespaceArtilleryConstructionFlipped
+  startNode: start
+  targetNode: cannon_west
+  mirror: BluespaceArtilleryConstructionItem
+  hide: true
+  canRotate: false
+  category: construction-category-structures
+  description: construction-recipe-bluespace-artillery-west-desc
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

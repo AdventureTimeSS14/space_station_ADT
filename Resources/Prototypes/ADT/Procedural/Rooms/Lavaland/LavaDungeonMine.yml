@@ -1,0 +1,344 @@
+- type: adtDungeonRoom
+  id: LavaDungeonMine
+  size: 12, 8
+  tags:
+  - LavaDungeon
+  legend:
+    "a":
+      tile: FloorBasalt
+    "b":
+      tile: FloorSteelCheckerDark
+    "c":
+      tile: Plating
+    "d":
+      tile: FloorElevatorShaft
+  tiles:
+  - "aaaabcbbbbcc"
+  - "caadddadccbc"
+  - "cbaaaaacccdb"
+  - "cccdaaaccddd"
+  - "cbbcaaaccddb"
+  - "cbcddcdcacaa"
+  - "cbbbcbbbaaac"
+  - "ccccccccccaa"
+  entities:
+  - proto: ADTSpawnMobPRandomLavaland
+    positions:
+    - 9.5,4.5
+  - proto: BananiumOre1
+    rot: -1.5707963267948966 rad
+    positions:
+    - 4.689,6.6415
+    - 5.2515,7.4852
+    - 6.7983,6.3759
+    - 6.8608,7.4227
+    - 5.4077,6.3602
+  - proto: BananiumOre1
+    positions:
+    - 3.6072,6.4924
+  - proto: CableApcExtension
+    positions:
+    - 4.5,7.5
+    - 4.5,6.5
+    - 5.5,6.5
+    - 7.5,6.5
+    - 8.5,6.5
+    - 9.5,6.5
+    - 6.5,6.5
+    - 9.5,5.5
+    - 9.5,3.5
+    - 9.5,4.5
+    - 9.5,2.5
+    - 6.5,1.5
+    - 5.5,1.5
+    - 4.5,1.5
+    - 3.5,1.5
+    - 2.5,1.5
+    - 7.5,1.5
+    - 2.5,2.5
+    - 2.5,3.5
+    - 2.5,4.5
+    - 10.5,4.5
+  - proto: CableHV
+    positions:
+    - 1.5,1.5
+    - 1.5,2.5
+    - 1.5,3.5
+    - 1.5,3.5
+    - 1.5,4.5
+    - 1.5,4.5
+    - 1.5,5.5
+  - proto: CableMV
+    positions:
+    - 4.5,7.5
+  - proto: Catwalk
+    rot: -1.5707963267948966 rad
+    positions:
+    - 5.5,4.5
+  - proto: Catwalk
+    positions:
+    - 6.5,4.5
+  - proto: DiamondOre1
+    rot: 3.141592653589793 rad
+    positions:
+    - 3.5015,3.9403
+  - proto: FloorChasmEntity
+    positions:
+    - 5.5,3.5
+    - 4.5,5.5
+    - 4.5,3.5
+    - 5.5,4.5
+    - 5.5,5.5
+    - 4.5,4.5
+    - 6.5,4.5
+    - 6.5,3.5
+    - 6.5,5.5
+  - proto: GeneratorRTG
+    positions:
+    - 1.5,2.5
+  - proto: GeneratorRTGDamaged
+    positions:
+    - 1.5,1.5
+  - proto: Girder
+    positions:
+    - 3.5,0.5
+    - 4.5,0.5
+  - proto: MechEquipmentDrill
+    positions:
+    - 10.5015,7.454
+    - 9.4702,7.4696
+    - 8.5171,7.454
+  - proto: MiningDrill
+    positions:
+    - 8.4702,7.7665
+    - 9.4702,7.7821
+    - 10.4702,7.7509
+  - proto: Rack
+    rot: -1.5707963267948966 rad
+    positions:
+    - 9.5,7.5
+    - 8.5,7.5
+    - 10.5,7.5
+  - proto: Railing
+    rot: -1.5707963267948966 rad
+    positions:
+    - 4.5,4.5
+  - proto: Railing
+    rot: 3.141592653589793 rad
+    positions:
+    - 5.5,5.5
+  - proto: Railing
+    positions:
+    - 5.5,3.5
+  - proto: RailingCorner
+    rot: -1.5707963267948966 rad
+    positions:
+    - 4.5,3.5
+  - proto: RailingCorner
+    rot: 1.5707963267948966 rad
+    positions:
+    - 6.5,5.5
+  - proto: RailingCorner
+    rot: 3.141592653589793 rad
+    positions:
+    - 4.5,5.5
+  - proto: RailingCorner
+    positions:
+    - 6.5,3.5
+  - proto: RandomEngineerCorpseSpawner
+    positions:
+    - 7.5,4.5
+  - proto: RandomVendingDrinks
+    positions:
+    - 7.5,1.5
+  - proto: ScrapAirlock1
+    rot: 1.5707963267948966 rad
+    positions:
+    - 11.53,4.3778
+  - proto: ScrapCloset
+    rot: 1.5707963267948966 rad
+    positions:
+    - 2.2834,2.5873
+  - proto: ScrapFirelock1
+    positions:
+    - 8.3179,5.7435
+  - proto: ScrapFirelock2
+    rot: 1.5707963267948966 rad
+    positions:
+    - 10.4596,4.7123
+  - proto: ScrapSteel
+    rot: -1.5707963267948966 rad
+    positions:
+    - 1.6737,4.3685
+  - proto: ScrapSteel
+    rot: 3.141592653589793 rad
+    positions:
+    - 5.8009,1.8216
+  - proto: SpaceQuartz1
+    rot: -1.5707963267948966 rad
+    positions:
+    - 5.9703,7.2528
+  - proto: SpaceQuartz1
+    rot: 1.5707963267948966 rad
+    positions:
+    - 8.439,4.4716
+    - 5.3609,2.3309
+  - proto: SpaceQuartz1
+    rot: 3.141592653589793 rad
+    positions:
+    - 4.3296,7.3309
+    - 9.0796,5.8622
+    - 6.3921,1.8934
+  - proto: SpaceQuartz1
+    positions:
+    - 7.814,6.3778
+    - 4.3264,6.3986
+    - 2.3409,4.0549
+    - 3.5484,2.8153
+  - proto: SteelOre1
+    rot: -1.5707963267948966 rad
+    positions:
+    - 9.777,4.2576
+  - proto: SteelOre1
+    rot: 1.5707963267948966 rad
+    positions:
+    - 7.652,4.5701
+    - 7.777,3.4139
+  - proto: SteelOre1
+    rot: 3.141592653589793 rad
+    positions:
+    - 6.5484,2.6278
+  - proto: SteelOre1
+    positions:
+    - 4.7428,1.7279
+    - 10.7304,4.4623
+    - 9.5266,3.7748
+    - 9.9956,6.2435
+  - proto: UraniumOre1
+    rot: -1.5707963267948966 rad
+    positions:
+    - 8.652,5.0545
+  - proto: UraniumOre1
+    rot: 1.5707963267948966 rad
+    positions:
+    - 7.777,5.7576
+  - proto: UraniumOre1
+    rot: 3.141592653589793 rad
+    positions:
+    - 9.8552,5.742
+  - proto: UraniumOre1
+    positions:
+    - 8.6677,6.367
+  - proto: VendingMachineEngiDrobe
+    positions:
+    - 1.5,3.5
+  - proto: VendingMachineEngivend
+    positions:
+    - 2.5,1.5
+  - proto: WallPlastitanium
+    rot: 3.141592653589793 rad
+    positions:
+    - 11.5,3.5
+    - 11.5,5.5
+  - proto: WallPlastitanium
+    positions:
+    - 7.5,0.5
+    - 0.5,1.5
+    - 0.5,2.5
+    - 6.5,0.5
+    - 5.5,0.5
+    - 2.5,0.5
+    - 0.5,0.5
+    - 1.5,0.5
+    - 0.5,3.5
+    - 0.5,4.5
+    - 0.5,5.5
+    - 11.5,7.5
+    - 11.5,6.5
+  - proto: WallRockBasalt
+    positions:
+    - 2.5,5.5
+    - 1.5,5.5
+    - 3.5,7.5
+    - 3.5,5.5
+    - 2.5,7.5
+    - 1.5,7.5
+    - 2.5,6.5
+  - proto: WallRockBasaltGold
+    positions:
+    - 10.5,5.5
+    - 0.5,6.5
+    - 11.5,0.5
+    - 7.5,2.5
+    - 10.5,1.5
+    - 8.5,0.5
+    - 10.5,3.5
+    - 8.5,3.5
+    - 11.5,1.5
+    - 11.5,2.5
+    - 9.5,0.5
+    - 9.5,2.5
+  - proto: WallRockBasaltPlasma
+    positions:
+    - 9.5,1.5
+    - 8.5,1.5
+    - 8.5,2.5
+  - proto: WallRockBasaltSilver
+    positions:
+    - 10.5,2.5
+  - proto: WindoorSecureEngineeringLocked
+    rot: 3.141592653589793 rad
+    positions:
+    - 2.5,4.5
+  - proto: WindowFrostedDirectional
+    rot: 1.5707963267948966 rad
+    positions:
+    - 2.5,1.5
+    - 2.5,2.5
+    - 2.5,3.5
+    - 2.5,4.5
+  decals:
+  - id: DirtHeavy
+    color: '#FFFFFFFF'
+    positions:
+    - 1,1
+  - id: DirtHeavyMonotile
+    color: '#FFFFFFFF'
+    positions:
+    - 5,1
+  - id: DirtLight
+    color: '#FFFFFFFF'
+    positions:
+    - 2,3
+  - id: DirtMedium
+    color: '#FFFFFFFF'
+    positions:
+    - 8,5
+  - id: burnt1
+    color: '#FFFFFFFF'
+    positions:
+    - 3,1
+    - 3,4
+    - 2,3
+    - 5,6
+    - 7,7
+    - 2,1
+    - 1,2
+  - id: burnt2
+    color: '#FFFFFFFF'
+    positions:
+    - 8,6
+    - 7,5
+  - id: burnt3
+    color: '#FFFFFFFF'
+    positions:
+    - 3,6
+    - 1,4
+    - 6,1
+    - 5,2
+  - id: burnt4
+    color: '#FFFFFFFF'
+    positions:
+    - 2,1
+    - 5,1
+    - 11,4

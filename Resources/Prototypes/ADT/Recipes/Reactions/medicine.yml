@@ -13,30 +13,6 @@
   products:
     ADTSodiumizole: 2
 
-- type: reaction
-  id: ADTNitrofurfoll
-  reactants:
-    Bicaridine:
-      amount: 1
-    ADTCopperNitride:
-      amount: 1
-    Carbon:
-      amount: 1
-  products:
-    ADTNitrofurfoll: 2
-
-- type: reaction
-  id: ADTPeroHydrogen
-  reactants:
-    Bicaridine:
-      amount: 1
-    ADTCopperNitride:
-      amount: 1
-    Hydrogen:
-      amount: 1
-  products:
-    ADTPeroHydrogen: 2
-
 #Dermaline
 - type: reaction
   id: ADTAnelgesin
@@ -76,17 +52,6 @@
     ADTBiomicine: 2
 
 #DexalinPlus
-- type: reaction
-  id: ADTNikematide
-  reactants:
-    DexalinPlus:
-      amount: 1
-    ADTCopperNitride:
-      amount: 1
-    Hydrogen:
-      amount: 1
-  products:
-    ADTNikematide: 2
 
 - type: reaction
   id: ADTDiethamilate

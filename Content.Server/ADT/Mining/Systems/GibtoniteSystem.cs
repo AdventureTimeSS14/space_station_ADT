@@ -15,6 +15,7 @@ using Content.Server.Kitchen.Components;
 using Content.Server.Gatherable.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Kitchen.Components;
+using Content.Shared.Projectiles;
 
 namespace Content.Server.ADT.Mining.Systems;
 
@@ -37,6 +38,7 @@ public sealed class GibtoniteSystem : EntitySystem
         SubscribeLocalEvent<GibtoniteComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<GibtoniteComponent, InteractUsingEvent>(OnItemInteract);
         SubscribeLocalEvent<GibtoniteComponent, MapInitEvent>(OnStartup);
+        SubscribeLocalEvent<ADTDefuseGibtoniteOnHitComponent, ProjectileHitEvent>(OnDefusingProjectileHit);
     }
 
     private void OnStartup(EntityUid uid, GibtoniteComponent comp, MapInitEvent args)
@@ -180,15 +182,7 @@ public sealed class GibtoniteSystem : EntitySystem
     {
         if (HasComp<MiningScannerComponent>(args.Used))
         {
-            if (comp.Extracted)
-                return;
-
-            comp.Active = false; // Деактивируем - это остановит взрыв
-            comp.ReactionElapsedTime = (float)(_timing.CurTime - comp.ReactionTime).TotalSeconds;
-
-            _popup.PopupEntity(Loc.GetString("gibtonit-bombhasbeendefused"), uid, PopupType.MediumCaution);
-            StopAnimation(uid, comp);
-            UpdateAppearance(uid, comp);
+            Defuse(uid, comp);
         }
         else if (HasComp<SharpComponent>(args.Used))
         {
@@ -212,6 +206,27 @@ public sealed class GibtoniteSystem : EntitySystem
                 Explosion(uid, comp);
             }
         }
+    }
+
+    private void Defuse(EntityUid uid, GibtoniteComponent comp)
+    {
+        if (comp.Extracted)
+            return;
+
+        comp.Active = false;
+        comp.ReactionElapsedTime = (float)(_timing.CurTime - comp.ReactionTime).TotalSeconds;
+
+        _popup.PopupEntity(Loc.GetString("gibtonit-bombhasbeendefused"), uid, PopupType.MediumCaution);
+        StopAnimation(uid, comp);
+        UpdateAppearance(uid, comp);
+    }
+
+    private void OnDefusingProjectileHit(Entity<ADTDefuseGibtoniteOnHitComponent> projectile, ref ProjectileHitEvent args)
+    {
+        if (!TryComp<GibtoniteComponent>(args.Target, out var gibtonite) || !gibtonite.Active)
+            return;
+
+        Defuse(args.Target, gibtonite);
     }
 
     /// <summary>

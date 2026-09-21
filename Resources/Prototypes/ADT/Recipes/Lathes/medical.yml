@@ -118,3 +118,10 @@
   completetime: 2
   materials:
     Plastic: 50
+
+- type: latheRecipe
+  id: ADTMedicalSprayBottle
+  result: ADTMedicalSprayBottle
+  completetime: 2
+  materials:
+    Plastic: 100

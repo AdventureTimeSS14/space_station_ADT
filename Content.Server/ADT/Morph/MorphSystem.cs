@@ -74,6 +74,7 @@ public sealed class MorphSystem : SharedMorphSystem
         SubscribeLocalEvent<MorphComponent, MeleeHitEvent>(OnAttack);
 
         SubscribeLocalEvent<MorphComponent, MapInitEvent>(OnInit);
+        SubscribeLocalEvent<MorphComponent, ComponentStartup>(OnComponentStartup);
         SubscribeLocalEvent<MorphComponent, BeingGibbedEvent>(OnDestroy);
         SubscribeLocalEvent<MorphComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<MorphComponent, InteractHandEvent>(OnInteract);
@@ -95,12 +96,20 @@ public sealed class MorphSystem : SharedMorphSystem
 
     private void OnDestroy(EntityUid uid, MorphComponent component, ref BeingGibbedEvent args)
     {
-        foreach (var entity in component.ContainedCreatures)
+        if (component.Container != null)
         {
-            var transform = Transform(uid);
-            _transform.SetCoordinates(entity, transform.Coordinates);
+            var coords = Transform(uid).Coordinates;
+            _container.EmptyContainer(component.Container, force: true, destination: coords);
         }
+
+        component.ContainedCreatures.Clear();
     }
+
+    private void OnComponentStartup(EntityUid uid, MorphComponent component, ComponentStartup args)
+    {
+        component.Container = _container.EnsureContainer<Container>(uid, component.ContainerId);
+    }
+
     private void OnInit(EntityUid uid, MorphComponent component, MapInitEvent args)
     {
         _actions.AddAction(uid, ref component.DevourActionEntity, component.DevourAction);
@@ -370,9 +379,8 @@ public sealed class MorphSystem : SharedMorphSystem
             health = -component.EatWeaponHungerReq;
             _hunger.ModifyHunger(uid, (float)health.Value, hunger);
             _audioSystem.PlayPvs(component.SoundDevour, uid);
+            _container.Insert(args.Target.Value, component.Container);
             component.ContainedCreatures.Add(args.Target.Value);
-            component.ContainedCreatures.Add(args.Target.Value);
-            _transform.SetCoordinates(args.Target.Value, new EntityCoordinates(EntityUid.Invalid, Vector2.Zero));
             return;
         }
         if (state.CurrentThresholdState != MobState.Dead)
@@ -387,7 +395,7 @@ public sealed class MorphSystem : SharedMorphSystem
         _damageable.TryChangeDamage(uid, damage_burn);
         _hunger.ModifyHunger(uid, (float)health.Value / 3.5f, hunger);
         _audioSystem.PlayPvs(component.SoundDevour, uid);
+        _container.Insert(args.Target.Value, component.Container);
         component.ContainedCreatures.Add(args.Target.Value);
-        _transform.SetCoordinates(args.Target.Value, new EntityCoordinates(EntityUid.Invalid, Vector2.Zero));
     }
 }

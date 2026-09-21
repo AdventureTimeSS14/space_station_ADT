@@ -62,11 +62,12 @@ public sealed partial class StatusEffectsSystem : EntitySystem
                 continue;
 
             //ADT-Tweak-start
-            if (effect.AppliedTo is not {} appliedTo)
-                continue;
-
-            if (_containerQuery.TryComp(appliedTo, out var containerComp) && containerComp.ActiveStatusEffects != null)
+            if (effect.AppliedTo is { } appliedTo
+                && _containerQuery.TryComp(appliedTo, out var containerComp)
+                && containerComp.ActiveStatusEffects != null)
+            {
                 _container.Remove(ent, containerComp.ActiveStatusEffects, reparent: false, force: true);
+            }
             //ADT-tweak-end
 
             PredictedQueueDel(ent);
@@ -200,7 +201,7 @@ public sealed partial class StatusEffectsSystem : EntitySystem
     /// <param name="duration">Duration of status effect. Leave null and the effect will be permanent until it is removed using <c>TryRemoveStatusEffect</c>.</param>
     /// <param name="delay">The delay of the effect. Leave null and the effect will be immediate.</param>
     /// <param name="statusEffect">The EntityUid of the status effect we have just created or null if we couldn't create one.</param>
-    private bool TryAddStatusEffect(
+    public bool TryAddStatusEffect(
         EntityUid target,
         EntProtoId effectProto,
         [NotNullWhen(true)] out EntityUid? statusEffect,

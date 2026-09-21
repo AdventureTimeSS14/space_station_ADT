@@ -1,0 +1,272 @@
+- type: adtDungeonRoom
+  id: ADTLavaDungeonWorldAnvil
+  size: 15, 15
+  tags:
+  - LavaDungeonWorldAnvil
+  legend:
+    "a":
+      tile: FloorBasalt
+  tiles:
+  - "...aa.aaa.a...."
+  - ".aaaaaaaaaaaaa."
+  - "aaaaaaaaaaaaaa."
+  - ".aaaaaaaaaaaaaa"
+  - ".aaaaaaaaaaaaa."
+  - "aaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaaa"
+  - ".aaaaaaaaaaaaaa"
+  - "aaaaaaaaaaaaaa."
+  - ".aaaaaaaaaaaaaa"
+  - ".aaaaaaaaaaaaa."
+  - "...aaa.aaaa...."
+  entities:
+  - proto: ADTAshTotem
+    positions:
+    - 7.5,2.5
+  - proto: ADTDrakeStatue
+    positions:
+    - 7.5,12.5
+  - proto: ADTStoneTile
+    rot: -1.5707963267948966 rad
+    positions:
+    - 5.5,12.5
+    - 7.5,10.5
+    - 0.5,7.5
+    - 2.5,7.5
+    - 6.5,7.5
+    - 11.5,7.5
+    - 4.5,6.5
+    - 14.5,5.5
+    - 6.5,4.5
+  - proto: ADTStoneTile
+    rot: 1.5707963267948966 rad
+    positions:
+    - 9.5,12.5
+    - 6.5,10.5
+    - 12.5,9.5
+    - 4.5,8.5
+    - 14.5,8.5
+    - 6.5,6.5
+    - 5.5,2.5
+  - proto: ADTStoneTile
+    rot: 3.141592653589793 rad
+    positions:
+    - 7.5,11.5
+    - 8.5,10.5
+    - 1.5,9.5
+    - 1.5,8.5
+    - 7.5,8.5
+    - 10.5,8.5
+    - 3.5,7.5
+    - 4.5,7.5
+    - 9.5,7.5
+    - 11.5,7.5
+    - 12.5,7.5
+    - 13.5,7.5
+    - 7.5,6.5
+    - 13.5,6.5
+    - 7.5,4.5
+    - 7.5,3.5
+    - 6.5,2.5
+    - 8.5,2.5
+    - 9.5,2.5
+  - proto: ADTStoneTile
+    positions:
+    - 7.5,8.5
+    - 5.5,7.5
+    - 6.5,7.5
+    - 8.5,7.5
+    - 10.5,7.5
+    - 0.5,6.5
+    - 10.5,6.5
+    - 2.5,5.5
+  - proto: ADTStoneTileBlock
+    rot: 3.141592653589793 rad
+    positions:
+    - 6.5,13.5
+    - 7.5,13.5
+    - 7.5,10.5
+    - 7.5,9.5
+  - proto: ADTStoneTileBlock
+    positions:
+    - 7.5,6.5
+    - 1.5,5.5
+    - 7.5,5.5
+    - 7.5,4.5
+    - 9.5,2.5
+    - 6.5,1.5
+    - 8.5,1.5
+  - proto: ADTStoneTileBlockCracked
+    rot: -1.5707963267948966 rad
+    positions:
+    - 1.5,9.5
+    - 7.5,8.5
+    - 4.5,7.5
+    - 5.5,7.5
+    - 8.5,7.5
+    - 9.5,7.5
+    - 0.5,6.5
+    - 2.5,5.5
+  - proto: ADTStoneTileBlockCracked
+    rot: 1.5707963267948966 rad
+    positions:
+    - 9.5,12.5
+    - 12.5,9.5
+    - 14.5,8.5
+    - 14.5,5.5
+  - proto: ADTStoneTileBlockCracked
+    rot: 3.141592653589793 rad
+    positions:
+    - 8.5,13.5
+    - 5.5,12.5
+    - 0.5,9.5
+    - 13.5,9.5
+    - 6.5,7.5
+    - 7.5,5.5
+  - proto: ADTStoneTileBlockCracked
+    positions:
+    - 7.5,9.5
+    - 6.5,6.5
+    - 13.5,4.5
+    - 5.5,2.5
+    - 7.5,1.5
+  - proto: ADTStoneTileCenterCracked
+    positions:
+    - 6.5,8.5
+    - 8.5,8.5
+    - 8.5,6.5
+  - proto: ADTStoneTileSlab
+    positions:
+    - 7.5,7.5
+  - proto: ADTStoneTileSurrounding
+    rot: -1.5707963267948966 rad
+    positions:
+    - 6.5,8.5
+    - 8.5,6.5
+    - 0.5,5.5
+    - 5.5,5.5
+    - 5.5,1.5
+  - proto: ADTStoneTileSurrounding
+    rot: 1.5707963267948966 rad
+    positions:
+    - 5.5,13.5
+    - 1.5,10.5
+    - 5.5,9.5
+    - 7.5,6.5
+    - 8.5,6.5
+  - proto: ADTStoneTileSurrounding
+    rot: 3.141592653589793 rad
+    positions:
+    - 9.5,13.5
+    - 9.5,9.5
+    - 14.5,9.5
+    - 6.5,8.5
+    - 5.5,7.5
+    - 8.5,7.5
+    - 6.5,6.5
+    - 8.5,6.5
+  - proto: ADTStoneTileSurrounding
+    positions:
+    - 6.5,8.5
+    - 9.5,7.5
+    - 8.5,6.5
+    - 9.5,5.5
+    - 8.5,4.5
+    - 14.5,4.5
+    - 9.5,1.5
+  - proto: ADTStoneTileSurroundingCracked
+    positions:
+    - 8.5,8.5
+  - proto: ADTWallRockIndestructible
+    positions:
+    - 3.5,12.5
+    - 4.5,12.5
+    - 10.5,12.5
+    - 11.5,12.5
+    - 2.5,11.5
+    - 3.5,11.5
+    - 11.5,11.5
+    - 12.5,11.5
+    - 2.5,10.5
+    - 12.5,10.5
+    - 6.5,9.5
+    - 8.5,9.5
+    - 5.5,8.5
+    - 9.5,8.5
+    - 5.5,6.5
+    - 9.5,6.5
+    - 6.5,5.5
+    - 8.5,5.5
+    - 2.5,4.5
+    - 12.5,4.5
+    - 2.5,3.5
+    - 3.5,3.5
+    - 11.5,3.5
+    - 12.5,3.5
+    - 3.5,2.5
+    - 4.5,2.5
+    - 10.5,2.5
+    - 11.5,2.5
+  - proto: ADTWorldAnvil
+    positions:
+    - 7.5,7.5
+  - proto: FloorLavaEntity
+    positions:
+    - 3.5,14.5
+    - 4.5,14.5
+    - 6.5,14.5
+    - 7.5,14.5
+    - 8.5,14.5
+    - 10.5,14.5
+    - 1.5,13.5
+    - 2.5,13.5
+    - 3.5,13.5
+    - 4.5,13.5
+    - 10.5,13.5
+    - 11.5,13.5
+    - 12.5,13.5
+    - 13.5,13.5
+    - 0.5,12.5
+    - 1.5,12.5
+    - 2.5,12.5
+    - 12.5,12.5
+    - 13.5,12.5
+    - 1.5,11.5
+    - 13.5,11.5
+    - 14.5,11.5
+    - 13.5,10.5
+    - 1.5,4.5
+    - 0.5,3.5
+    - 1.5,3.5
+    - 13.5,3.5
+    - 1.5,2.5
+    - 2.5,2.5
+    - 12.5,2.5
+    - 13.5,2.5
+    - 14.5,2.5
+    - 1.5,1.5
+    - 2.5,1.5
+    - 3.5,1.5
+    - 4.5,1.5
+    - 10.5,1.5
+    - 11.5,1.5
+    - 12.5,1.5
+    - 13.5,1.5
+    - 3.5,0.5
+    - 4.5,0.5
+    - 5.5,0.5
+    - 7.5,0.5
+    - 8.5,0.5
+    - 9.5,0.5
+    - 10.5,0.5
+  - proto: MobAncientGoliath
+    positions:
+    - 6.5,7.5
+    - 8.5,7.5
+  - proto: MobWatcherMagmawing
+    positions:
+    - 2.5,8.5
+    - 11.5,8.5

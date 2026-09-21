@@ -1,0 +1,124 @@
+- type: entity
+  name: bone pickaxe
+  parent: Pickaxe
+  id: ADTBonePickaxe
+  description: Do it yourself pickaxe.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/bone_pickaxe.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Tools/bone_pickaxe.rsi
+  - type: MeleeWeapon
+    attackRate: 0.8
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Piercing: 8
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 8
+        Structural: 30
+  - type: PhysicalComposition
+    materialComposition:
+      Bones: 100
+  - type: Construction
+    graph: ADTBonePickaxe
+    node: pickaxe
+
+- type: entity
+  name: bone scythe
+  parent: BaseSword
+  id: ADTBoneScythe
+  description: Perfect for harvesting. And it's not about plants.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/bone_scythe.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/bone_scythe.rsi
+    size: Large
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 0.9
+    damage:
+      types:
+        Slash: 14
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Tool
+    qualities:
+    - Slicing
+    speedModifier: 1.2
+  - type: PhysicalComposition
+    materialComposition:
+      Bones: 125
+  - type: Construction
+    graph: ADTBoneScythe
+    node: scythe
+
+- type: entity
+  name: bone axe
+  parent: FireAxe
+  id: ADTBoneAxe
+  description: A large, vicious axe crafted out of several sharpened bone plates and crudely tied together. Made of monsters, by killing monsters, for killing monsters.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/bone_axe.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/bone_axe.rsi
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/bone_axe.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    swingLeft: true
+    attackRate: 0.75
+    damage:
+      types:
+        Blunt: 5
+        Slash: 8
+        Structural: 10
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 15
+        Structural: 40
+  - type: PhysicalComposition
+    materialComposition:
+      Bones: 150
+  - type: Construction
+    graph: ADTBoneAxe
+    node: axe
+
+- type: entity
+  name: sinew restraints
+  parent: Zipties
+  id: ADTSinewRestraints
+  description: A pair of restraints fashioned from long strands of flesh.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/sinew_restraints.rsi
+    state: icon
+  - type: Handcuff
+    breakoutTime: 30
+    cuffedRSI: Objects/Misc/cablecuffs.rsi
+    bodyIconState: body-overlay
+    breakOnRemove: false
+    startCuffSound:
+      path: /Audio/Items/Handcuffs/rope_start.ogg
+    endCuffSound:
+      path: /Audio/Items/Handcuffs/rope_end.ogg
+    startUncuffSound:
+      path: /Audio/Items/Handcuffs/rope_start.ogg
+    endUncuffSound:
+      path: /Audio/Items/Handcuffs/rope_breakout.ogg
+    startBreakoutSound:
+      path: /Audio/Items/Handcuffs/rope_takeoff.ogg
+  - type: PhysicalComposition
+    materialComposition:
+      ADTSinew: 100
+  - type: Construction
+    graph: ADTSinewRestraints
+    node: restraints

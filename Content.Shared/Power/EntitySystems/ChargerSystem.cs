@@ -1,4 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.ADT.Construction;
+using Content.Shared.ADT.Construction.Events;
 using Content.Shared.Emp;
 using Content.Shared.Examine;
 using Content.Shared.Power.Components;
@@ -36,6 +38,8 @@ public sealed class ChargerSystem : EntitySystem
         SubscribeLocalEvent<ChargerComponent, EmpDisabledRemovedEvent>(OnEmpRemoved);
         SubscribeLocalEvent<InsideChargerComponent, RefreshChargeRateEvent>(OnRefreshChargeRate);
         SubscribeLocalEvent<InsideChargerComponent, BatteryStateChangedEvent>(OnStatusChanged);
+        SubscribeLocalEvent<ChargerComponent, RefreshPartsEvent>(OnPartsRefresh); // ADT-Tweak
+        SubscribeLocalEvent<ChargerComponent, UpgradeExamineEvent>(OnUpgradeExamine); // ADT-Tweak
     }
 
     private void OnStartup(Entity<ChargerComponent> ent, ref ComponentStartup args)
@@ -48,7 +52,7 @@ public sealed class ChargerSystem : EntitySystem
         using (args.PushGroup(nameof(ChargerComponent)))
         {
             // rate at which the charger charges
-            args.PushMarkup(Loc.GetString("charger-examine", ("color", "yellow"), ("chargeRate", (int)component.ChargeRate)));
+            args.PushMarkup(Loc.GetString("charger-examine", ("color", "yellow"), ("chargeRate", (int)(component.ChargeRate * component.ChargeRateMultiplier)))); // ADT-Tweak: machine parts
 
             // try to get contents of the charger
             if (!_container.TryGetContainer(uid, component.SlotId, out var container))
@@ -174,7 +178,7 @@ public sealed class ChargerSystem : EntitySystem
         if (_whitelist.IsWhitelistFail(chargerComp.Whitelist, ent.Owner))
             return;
 
-        args.NewChargeRate += chargerComp.ChargeRate;
+        args.NewChargeRate += chargerComp.ChargeRate * chargerComp.ChargeRateMultiplier; // ADT-Tweak machine parts
     }
     private void OnStatusChanged(Entity<InsideChargerComponent> ent, ref BatteryStateChangedEvent args)
     {
@@ -200,6 +204,20 @@ public sealed class ChargerSystem : EntitySystem
         }
     }
 
+    // ADT-Tweak-Start: machine parts with tiers
+    private void OnPartsRefresh(EntityUid uid, ChargerComponent component, RefreshPartsEvent args)
+    {
+        component.ChargeRateMultiplier = args.GetStatMultiplier(MachineStat.ChargeRate);
+
+        UpdateStatus((uid, component));
+    }
+
+    private void OnUpgradeExamine(EntityUid uid, ChargerComponent component, UpgradeExamineEvent args)
+    {
+        args.AddPercentageUpgrade("machine-upgrade-charging-efficiency", component.ChargeRateMultiplier, benefit: true);
+    }
+    // ADT-Tweak-End
+
     private void UpdateStatus(Entity<ChargerComponent> ent)
     {
         TryComp<AppearanceComponent>(ent, out var appearance);
@@ -214,7 +232,7 @@ public sealed class ChargerSystem : EntitySystem
         {
             case CellChargerStatus.Charging:
                 // TODO: If someone ever adds chargers that can charge multiple batteries at once then set this to the total draw rate.
-                _receiver.SetLoad(ent.Owner, ent.Comp.ChargeRate);
+                _receiver.SetLoad(ent.Owner, ent.Comp.ChargeRate * ent.Comp.ChargeRateMultiplier); // ADT-Tweak: machine parts
                 break;
             default:
                 // Don't set the load to 0 or the charger will be considered as powered even if the LV connection is unpowered.

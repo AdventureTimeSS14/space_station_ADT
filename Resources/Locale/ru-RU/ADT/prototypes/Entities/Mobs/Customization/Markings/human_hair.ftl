@@ -55,6 +55,7 @@ marking-ADTHumanHairLady = Леди
 marking-ADTHumanHairLongHairFringe = Длинная с челкой
 marking-ADTHumanHairSheaf = Пучок 5
 marking-ADTHumanHairShortTail = Короткий хвостик
+marking-ADTHumanHairMessySwept = Небрежный зачёс
 
 # Кастом
 marking-ADTHumanForeheadBindi = Бинди
@@ -349,3 +350,4 @@ marking-ADTHumanHairKaminaGradient = Спиральный бунтарь (Гра
 marking-ADTHumanHairNitoriTwo = Нитори (Градиент, Кончики)
 marking-ADTHumanHairNitoriHarley = Харли (Градиент)
 marking-ADTHumanHairCuteHairGradient = Звёздные хвостики (Градиент)
+marking-ADTAllhonor = Честь

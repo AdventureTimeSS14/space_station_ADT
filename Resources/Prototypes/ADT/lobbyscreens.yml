@@ -77,3 +77,11 @@
 - type: lobbyBackground
   id: luckyratsalvagers
   background: /Textures/ADT/LobbyScreens/luckyratsalvagers.webp
+
+- type: lobbyBackground
+  id: thelastmission
+  background: /Textures/ADT/LobbyScreens/thelastmission.webp
+
+- type: lobbyBackground
+  id: six
+  background: /Textures/ADT/LobbyScreens/six.webp

@@ -64,20 +64,36 @@
       effects:
       - !type:Vomit
         conditions:
-        - !type:ReagentCondition
-          reagent: SoapReagent
-          min: 6
-        probability: 0.20
-      - !type:Vomit
-        conditions:
-        - !type:ReagentCondition
-          reagent: SoapReagent
-          min: 6
         # Start ADT tweak
         - !type:MetabolizerTypeCondition
           type: [ Drask ]
+          inverted: true
         # End ADT tweak
+        - !type:ReagentCondition
+          reagent: SoapReagent
+          min: 6
         probability: 0.20
+      # ADT tweak start
+      # - !type:Vomit
+      #   conditions:
+      #   - !type:ReagentCondition
+      #     reagent: SoapReagent
+      #     min: 6
+      #   probability: 0.20
+      - !type:SatiateHunger
+        factor: 1
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Drask]
+          inverted: false
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Drask]
+          inverted: true
+        damage:
+          types:
+            Poison: -1
 
 - type: reagent
   id: SpaceLube

@@ -1,8 +1,10 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.ADT.GPS;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class GpsComponent : Component
 {
     [DataField, AutoNetworkedField]
@@ -25,4 +27,20 @@ public sealed partial class GpsComponent : Component
 
     [ViewVariables]
     public TimeSpan NextUpdate;
+
+    [DataField, AutoNetworkedField]
+    public bool Sos;
+
+    [DataField]
+    public bool SosOnDeath = true;
+
+    [DataField]
+    public TimeSpan SosCooldown = TimeSpan.FromMinutes(5);
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    [AutoPausedField]
+    public TimeSpan NextSosToggle;
+
+    [DataField]
+    public SoundSpecifier? SosSound = new SoundPathSpecifier("/Audio/ADT/Machines/gps_sos.ogg");
 }

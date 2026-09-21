@@ -52,7 +52,7 @@ public sealed class BlobMobSystem : SharedBlobMobSystem
             return;
 
         if (TryComp<LanguageSpeakerComponent>(ent.Owner, out var langComp))
-            langComp.Languages.Remove(ent.Comp.Language);
+            _language.RemoveLanguage(ent.Owner, ent.Comp.Language, langComp);
         // var radio = EnsureComp<ActiveRadioComponent>(ent);
         // radio.Channels.Remove(ent.Comp.Channel);
     }

@@ -92,7 +92,10 @@
         enum.OpenableVisuals.Layer:
           True: {state: "flour-big_open"} # open
           False: {state: "flour-big"} # closed
+  #ADT-Tweak-Start
   - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/ingredients.rsi
+    #ADT-Tweak-End
     layers:
     - state: flour-big
       map: ["enum.OpenableVisuals.Layer"]
@@ -110,8 +113,20 @@
   name: flour pack
   description: A pack of flour. Good for baking!
   components:
+  #ADT-Tweak-Start
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "flour-small_open"} # open
+          False: {state: "flour-small"} # closed
   - type: Sprite
-    state: flour-small
+    sprite: ADT/Objects/Consumable/Food/ingredients.rsi
+    layers:
+    - state: flour-small
+      map: ["enum.OpenableVisuals.Layer"]
+  #ADT-Tweak-End
   - type: SolutionContainerManager
     solutions:
       food:
@@ -133,7 +148,10 @@
         enum.OpenableVisuals.Layer:
           True: {state: "cornmeal-big_open"} # open
           False: {state: "cornmeal-big"} # closed
+  #ADT-Tweak-Start
   - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/ingredients.rsi
+    #ADT-Tweak-End
     layers:
     - state: cornmeal-big
       map: ["enum.OpenableVisuals.Layer"]
@@ -150,8 +168,20 @@
   name: cornmeal pack
   description: A pack of cornmeal. Good for cooking!
   components:
+  #ADT-Tweak-Start
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "cornmeal_open"} # open
+          False: {state: "cornmeal"} # closed
   - type: Sprite
-    state: cornmeal
+    sprite: ADT/Objects/Consumable/Food/ingredients.rsi
+    layers:
+    - state: cornmeal
+      map: ["enum.OpenableVisuals.Layer"]
+  #ADT-Tweak-End
   - type: SolutionContainerManager
     solutions:
       food:
@@ -173,7 +203,10 @@
         enum.OpenableVisuals.Layer:
           True: {state: "rice-big_open"} # open
           False: {state: "rice-big"} # closed
+  #ADT-Tweak-Start
   - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/ingredients.rsi
+    #ADT-Tweak-End
     layers:
     - state: rice-big
       map: ["enum.OpenableVisuals.Layer"]
@@ -190,8 +223,20 @@
   name: rice pack
   description: A pack of rice. Good for cooking!
   components:
+  #ADT-Tweak-Start
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "rice-small_open"} # open
+          False: {state: "rice-small"} # closed
   - type: Sprite
-    state: rice-small
+    sprite: ADT/Objects/Consumable/Food/ingredients.rsi
+    layers:
+    - state: rice-small
+      map: ["enum.OpenableVisuals.Layer"]
+  #ADT-Tweak-End
   - type: SolutionContainerManager
     solutions:
       food:
@@ -213,7 +258,10 @@
         enum.OpenableVisuals.Layer:
           True: {state: "sugar-big_open"} # open
           False: {state: "sugar-big"} # closed
+  #ADT-Tweak-Start
   - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/ingredients.rsi
+    #ADT-Tweak-End
     layers:
     - state: sugar-big
       map: ["enum.OpenableVisuals.Layer"]
@@ -230,8 +278,20 @@
   name: sugar pack
   description: A pack of tasty spacey sugar.
   components:
+  #ADT-Tweak-Start
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "sugar-small_open"} # open
+          False: {state: "sugar-small"} # closed
   - type: Sprite
-    state: sugar-small
+    sprite: ADT/Objects/Consumable/Food/ingredients.rsi
+    layers:
+    - state: sugar-small
+      map: ["enum.OpenableVisuals.Layer"]
+  #ADT-Tweak-End
   - type: SolutionContainerManager
     solutions:
       food:
@@ -255,10 +315,19 @@
         enum.OpenableVisuals.Layer:
           True: {state: "oliveoil_open"} # open
           False: {state: "oliveoil"} # closed
+  #ADT-Tweak-Start
   - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/ingredients.rsi
     layers:
     - state: oliveoil
       map: ["enum.OpenableVisuals.Layer"]
+  - type: Openable
+    sound:
+      collection: bottleOpenSounds
+    closeable: true
+    closeSound:
+      collection: bottleCloseSounds
+  #ADT-Tweak-End
   - type: SolutionContainerManager
     solutions:
       food:
@@ -283,9 +352,16 @@
           True: {state: "mayo_open"} # open
           False: {state: "mayo"} # closed
   - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/ingredients.rsi #ADT-Tweak
     layers:
     - state: mayo
       map: ["enum.OpenableVisuals.Layer"]
+  #ADT-Tweak-Start
+  - type: Openable
+    sound:
+      collection: pop
+    closeable: true
+  #ADT-Tweak-End
   - type: SolutionContainerManager
     solutions:
       food:

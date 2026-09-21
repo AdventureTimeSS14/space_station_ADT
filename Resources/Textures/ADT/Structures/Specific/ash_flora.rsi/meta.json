@@ -1,0 +1,107 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/lavaland/ash_flora.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "l_mushroom1"
+        },
+        {
+            "name": "l_mushroom2"
+        },
+        {
+            "name": "l_mushroom3"
+        },
+        {
+            "name": "l_mushroom4"
+        },
+        {
+            "name": "l_mushroom1p"
+        },
+        {
+            "name": "l_mushroom2p"
+        },
+        {
+            "name": "l_mushroom3p"
+        },
+        {
+            "name": "l_mushroom4p"
+        },
+        {
+            "name": "s_mushroom1"
+        },
+        {
+            "name": "s_mushroom2"
+        },
+        {
+            "name": "s_mushroom3"
+        },
+        {
+            "name": "s_mushroom4"
+        },
+        {
+            "name": "s_mushroom1p"
+        },
+        {
+            "name": "s_mushroom2p"
+        },
+        {
+            "name": "s_mushroom3p"
+        },
+        {
+            "name": "s_mushroom4p"
+        },
+        {
+            "name": "r_mushroom1"
+        },
+        {
+            "name": "r_mushroom2"
+        },
+        {
+            "name": "r_mushroom3"
+        },
+        {
+            "name": "r_mushroom4"
+        },
+        {
+            "name": "r_mushroom1p"
+        },
+        {
+            "name": "r_mushroom2p"
+        },
+        {
+            "name": "r_mushroom3p"
+        },
+        {
+            "name": "r_mushroom4p"
+        },
+        {
+            "name": "t_mushroom1"
+        },
+        {
+            "name": "t_mushroom2"
+        },
+        {
+            "name": "t_mushroom3"
+        },
+        {
+            "name": "t_mushroom4"
+        },
+        {
+            "name": "t_mushroom1p"
+        },
+        {
+            "name": "t_mushroom2p"
+        },
+        {
+            "name": "t_mushroom3p"
+        },
+        {
+            "name": "t_mushroom4p"
+        }
+    ]
+}

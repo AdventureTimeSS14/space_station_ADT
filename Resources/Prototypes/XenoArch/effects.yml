@@ -664,7 +664,9 @@
       table: !type:GroupSelector
         children:
         - id: MobMonkey
-          weight: 95.0
+          weight: 85.0 # ADT tweak
+        - id: ADTMobMonkeyAdvanced # ADT tweak
+          weight: 10.0 # ADT tweak
         - id: MobGorilla
           weight: 5.0
 

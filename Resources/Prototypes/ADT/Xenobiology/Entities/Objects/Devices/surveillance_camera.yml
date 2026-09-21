@@ -1,0 +1,12 @@
+- type: entity
+  parent: SurveillanceCameraBase
+  id: SurveillanceCameraXenobiology
+  name: camera
+  suffix: Xenobiology
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraXenobiology
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true

@@ -1,12 +1,13 @@
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared.ADT.Sponsors;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.CharecterFlavor;
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.CCVar;
-using Content.Shared.Corvax.TTS;
+using Content.Shared.ADT.TTS;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -111,6 +112,12 @@ namespace Content.Shared.Preferences
                 ? url
                 : string.Empty;
         }
+
+        /// <summary>
+        /// скрытая информация персонажа, видна только антагам и призракам
+        /// </summary>
+        [DataField]
+        public string ExploitableInfo { get; set; } = string.Empty;
         //ADT-tweak-end
 
         /// <summary>
@@ -152,6 +159,16 @@ namespace Content.Shared.Preferences
         private HashSet<ProtoId<LanguagePrototype>> _languages = new();
 
         public IReadOnlySet<ProtoId<LanguagePrototype>> Languages => _languages;
+
+        /// <summary>
+        /// Трайт, дающий один дополнительный слот языка в редакторе персонажа.
+        /// </summary>
+        private static readonly ProtoId<TraitPrototype> PolyglotTraitId = "Polyglot";
+
+        /// <summary>
+        /// Бонус к лимиту языков от выбранных трайтов (трайт «Полиглот»).
+        /// </summary>
+        public int LanguageSlotsBonus => TraitPreferences.Contains(PolyglotTraitId) ? 1 : 0;
         // ADT Languages end
 
         /// <summary>
@@ -179,7 +196,7 @@ namespace Content.Shared.Preferences
             string name,
             string flavortext,
             string species,
-            string voice, // Corvax-TTS
+            string voice, // ADT-Tweak
             int age,
             Sex sex,
             Gender gender,
@@ -194,14 +211,15 @@ namespace Content.Shared.Preferences
             BarkData bark,
             HashSet<ProtoId<LanguagePrototype>> languages,
             string oocNotes,
-            string headshotUrl
+            string headshotUrl,
+            string exploitableInfo
             )
             //ADT-tweak-end
         {
             Name = name;
             FlavorText = flavortext;
             Species = species;
-            Voice = voice; // Corvax-TTS
+            Voice = voice; // ADT-Tweak
             Age = age;
             Sex = sex;
             Gender = gender;
@@ -217,6 +235,7 @@ namespace Content.Shared.Preferences
             _languages = languages;
             OOCNotes = oocNotes;
             HeadshotUrl = headshotUrl;
+            ExploitableInfo = exploitableInfo;
             // ADT end
 
             var hasHighPrority = false;
@@ -254,7 +273,8 @@ namespace Content.Shared.Preferences
                 other.Bark,
                 other._languages,
                 other.OOCNotes,
-                other.HeadshotUrl
+                other.HeadshotUrl,
+                other.ExploitableInfo
                 )
                 // ADT end
         {
@@ -323,12 +343,12 @@ namespace Content.Shared.Preferences
                 languages = speciesPrototype.DefaultLanguages.ToHashSet();  // ADT Languages
             }
 
-            // Corvax-TTS-Start
+            // ADT-Tweak-Start
             var voiceId = random.Pick(prototypeManager
                 .EnumeratePrototypes<TTSVoicePrototype>()
-                .Where(o => CanHaveVoice(o, sex, species)).ToArray() // ADT-Tweak
+                .Where(o => CanHaveVoice(o, sex, species)).ToArray()
             ).ID;
-            // Corvax-TTS-End
+            // ADT-Tweak-End
 
             var gender = Gender.Epicene;
 
@@ -351,7 +371,7 @@ namespace Content.Shared.Preferences
                 Age = age,
                 Gender = gender,
                 Species = species,
-                Voice = voiceId, // Corvax-TTS
+                Voice = voiceId, // ADT-Tweak
                 Appearance = HumanoidCharacterAppearance.Random(species, sex),
                 _languages = languages,
             };
@@ -375,6 +395,10 @@ namespace Content.Shared.Preferences
         {
             return new(this) { HeadshotUrl = headshotUrl };
         }
+        public HumanoidCharacterProfile WithExploitableInfo(string exploitableInfo)
+        {
+            return new(this) { ExploitableInfo = exploitableInfo };
+        }
         //ADT-tweak-end
         public HumanoidCharacterProfile WithAge(int age)
         {
@@ -396,12 +420,12 @@ namespace Content.Shared.Preferences
             return new(this) { Species = species };
         }
 
-        // Corvax-TTS-Start
+        // ADT-Tweak-Start
         public HumanoidCharacterProfile WithVoice(string voice)
         {
             return new(this) { Voice = voice };
         }
-        // Corvax-TTS-End
+        // ADT-Tweak-End
 
         // ADT Barks start
         public HumanoidCharacterProfile WithBarkProto(string bark)
@@ -595,7 +619,7 @@ namespace Content.Shared.Preferences
         public bool MemberwiseEquals(HumanoidCharacterProfile other)
         {
             if (Name != other.Name) return false;
-            if (Voice != other.Voice) return false; //ADT-TTS-Tweak
+            if (Voice != other.Voice) return false; // ADT-Tweak
             if (Age != other.Age) return false;
             if (Sex != other.Sex) return false;
             if (Gender != other.Gender) return false;
@@ -611,6 +635,7 @@ namespace Content.Shared.Preferences
             // ADT-tweak-start
             if (OOCNotes != other.OOCNotes) return false;
             if (HeadshotUrl != other.HeadshotUrl) return false;
+            if (ExploitableInfo != other.ExploitableInfo) return false;
             if (!Bark.MemberwiseEquals(other.Bark)) return false;
             // ADT-tweak-end
             return Appearance.Equals(other.Appearance);
@@ -634,6 +659,14 @@ namespace Content.Shared.Preferences
                 speciesPrototype = prototypeManager.Index(Species);
             }
             // Corvax-Sponsors-End
+
+            // ADT-Tweak-Start
+            if (!SponsorProfileValidation.IsSpeciesAllowed(session, collection, speciesPrototype))
+            {
+                Species = DefaultSpecies;
+                speciesPrototype = prototypeManager.Index(Species);
+            }
+            // ADT-Tweak-End
 
             var sex = Sex switch
             {
@@ -703,16 +736,20 @@ namespace Content.Shared.Preferences
             }
 
             //ADT-tweak-start
-            string oocNotes = OOCNotes; // Initialize with the property value
+            string oocNotes = FormattedMessage.RemoveMarkupOrThrow(OOCNotes);
             if (oocNotes.Length > maxFlavorTextLength)
             {
-                oocNotes = FormattedMessage.RemoveMarkupOrThrow(oocNotes)[..maxFlavorTextLength];
+                oocNotes = oocNotes[..maxFlavorTextLength];
             }
-            else
+
+            string exploitableInfo = FormattedMessage.RemoveMarkupOrThrow(ExploitableInfo);
+            if (exploitableInfo.Length > maxFlavorTextLength)
             {
-                oocNotes = FormattedMessage.RemoveMarkupOrThrow(oocNotes);
+                exploitableInfo = exploitableInfo[..maxFlavorTextLength];
             }
             //ADT-tweak-end
+
+            SponsorProfileValidation.StripMarkings(Appearance, session, collection); // ADT-Tweak
 
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex);
 
@@ -760,10 +797,13 @@ namespace Content.Shared.Preferences
                          .Where(prototypeManager.HasIndex)
                          .ToList();
 
+            traits = SponsorProfileValidation.FilterTraits(traits, session, collection); // ADT-Tweak
+
             Name = name;
             FlavorText = flavortext;
             //ADT-tweak-start
             OOCNotes = oocNotes;
+            ExploitableInfo = exploitableInfo;
             // HeadshotUrl уже валидирован при установке через SetHeadshotUrl
             //ADT-tweak-end
             Age = age;
@@ -787,11 +827,15 @@ namespace Content.Shared.Preferences
             _traitPreferences.Clear();
             _traitPreferences.UnionWith(traits); // ADT-Tweak
 
-            // Corvax-TTS-Start
+            // ADT-Tweak-Start
             prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
-            if (voice is null || !CanHaveVoice(voice, Sex, Species)) // ADT-Tweak
+            if (voice is null
+                || !CanHaveVoice(voice, Sex, Species)
+                || !SponsorProfileValidation.IsTtsVoiceAllowed(session, collection, voice))
+            {
                 Voice = DefaultSexVoice[sex];
-            // Corvax-TTS-End
+            }
+            // ADT-Tweak-End
 
             // Checks prototypes exist for all loadouts and dump / set to default if not.
             var toRemove = new ValueList<string>();
@@ -828,6 +872,25 @@ namespace Content.Shared.Preferences
             {
                 _languages.Remove(lang);
             }
+
+            // ADT-Tweak-Start
+            var maxLanguages = speciesPrototype.MaxLanguages + LanguageSlotsBonus;
+            if (_languages.Count > maxLanguages)
+            {
+                var required = new HashSet<ProtoId<LanguagePrototype>>(speciesPrototype.DefaultLanguages);
+                required.UnionWith(speciesPrototype.UniqueLanguages);
+                foreach (var lang in _languages.ToList())
+                {
+                    if (_languages.Count <= maxLanguages)
+                        break;
+
+                    if (required.Contains(lang))
+                        continue;
+
+                    _languages.Remove(lang);
+                }
+            }
+            // ADT-Tweak-End
 
             GetQuirkPoints();
             // ADT end
@@ -873,7 +936,7 @@ namespace Content.Shared.Preferences
             return result;
         }
 
-        // Corvax-TTS-Start
+        // ADT-Tweak-Start
         // SHOULD BE NOT PUBLIC, BUT....
         public static bool CanHaveVoice(TTSVoicePrototype voice, Sex sex, ProtoId<SpeciesPrototype> species)
         {
@@ -887,7 +950,7 @@ namespace Content.Shared.Preferences
 
             return voice.RoundStart && sex == Sex.Unsexed || (voice.Sex == sex || voice.Sex == Sex.Unsexed);
         }
-        // Corvax-TTS-End
+        // ADT-Tweak-End
 
         public HumanoidCharacterProfile Validated(ICommonSession session, IDependencyCollection collection, string[] sponsorPrototypes)
         {
@@ -927,12 +990,13 @@ namespace Content.Shared.Preferences
             //ADT-tweak-start
             hashCode.Add(OOCNotes);
             hashCode.Add(HeadshotUrl);
+            hashCode.Add(ExploitableInfo);
             //ADT-tweak-end
             hashCode.Add(FlavorText);
             hashCode.Add(Species);
             hashCode.Add(Age);
             hashCode.Add((int)Sex);
-            hashCode.Add(Voice); //ADT-TTS-Tweak
+            hashCode.Add(Voice); // ADT-Tweak
             hashCode.Add((int)Gender);
             hashCode.Add(Appearance);
             hashCode.Add((int)SpawnPriority);
@@ -990,7 +1054,7 @@ namespace Content.Shared.Preferences
                 return new(this);
             if (_languages.Contains(language))
                 return new(this);
-            if (_languages.Count >= species.MaxLanguages)
+            if (_languages.Count >= species.MaxLanguages + LanguageSlotsBonus)
                 return new(this);
 
             HashSet<ProtoId<LanguagePrototype>> list = new(_languages);

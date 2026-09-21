@@ -1,0 +1,461 @@
+
+- type: entity
+  abstract: true
+  parent: BaseStructure
+  id: ADTBaseAshFlora
+  suffix: Structure
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: ADT/Structures/Specific/ash_flora.rsi
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+
+- type: entity
+  abstract: true
+  parent: ADTBaseAshFlora
+  id: ADTAshFloraTallShroom
+  name: large mushrooms
+  description: A number of large mushrooms, covered in a faint layer of ash and what can only be spores.
+  components:
+  - type: ADTAshFlora
+    product: ADTFoodMushroomShavings
+    minAmount: 1
+    maxAmount: 3
+    harvestTime: 6
+    toolWhitelist:
+      components:
+      - Sharp
+    popupLow: adt-ash-flora-tall-shroom-low
+    popupMedium: adt-ash-flora-tall-shroom-medium
+    popupHigh: adt-ash-flora-tall-shroom-high
+
+- type: entity
+  parent: ADTAshFloraTallShroom
+  id: ADTAshFloraTallShroom1
+  components:
+  - type: Sprite
+    state: l_mushroom1
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraTallShroomHarvested1
+
+- type: entity
+  parent: ADTAshFloraTallShroom
+  id: ADTAshFloraTallShroom2
+  components:
+  - type: Sprite
+    state: l_mushroom2
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraTallShroomHarvested2
+
+- type: entity
+  parent: ADTAshFloraTallShroom
+  id: ADTAshFloraTallShroom3
+  components:
+  - type: Sprite
+    state: l_mushroom3
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraTallShroomHarvested3
+
+- type: entity
+  parent: ADTAshFloraTallShroom
+  id: ADTAshFloraTallShroom4
+  components:
+  - type: Sprite
+    state: l_mushroom4
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraTallShroomHarvested4
+
+- type: entity
+  abstract: true
+  parent: ADTBaseAshFlora
+  id: ADTAshFloraTallShroomHarvested
+  name: shortened mushrooms
+  description: Some quickly regrowing mushrooms, formerly known to be quite large.
+
+- type: entity
+  parent: ADTAshFloraTallShroomHarvested
+  id: ADTAshFloraTallShroomHarvested1
+  components:
+  - type: Sprite
+    state: l_mushroom1p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraTallShroom1
+    minTime: 420
+    maxTime: 960
+
+- type: entity
+  parent: ADTAshFloraTallShroomHarvested
+  id: ADTAshFloraTallShroomHarvested2
+  components:
+  - type: Sprite
+    state: l_mushroom2p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraTallShroom2
+    minTime: 420
+    maxTime: 960
+
+- type: entity
+  parent: ADTAshFloraTallShroomHarvested
+  id: ADTAshFloraTallShroomHarvested3
+  components:
+  - type: Sprite
+    state: l_mushroom3p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraTallShroom3
+    minTime: 420
+    maxTime: 960
+
+- type: entity
+  parent: ADTAshFloraTallShroomHarvested
+  id: ADTAshFloraTallShroomHarvested4
+  components:
+  - type: Sprite
+    state: l_mushroom4p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraTallShroom4
+    minTime: 420
+    maxTime: 960
+
+
+- type: entity
+  abstract: true
+  parent: ADTBaseAshFlora
+  id: ADTAshFloraLeafShroom
+  name: leafy mushrooms
+  description: A number of mushrooms, each of which surrounds a greenish sporangium with a number of leaf-like structures.
+  components:
+  - type: ADTAshFlora
+    product: ADTFoodMushroomLeaf
+    minAmount: 1
+    maxAmount: 4
+    harvestTime: 2
+    popupLow: adt-ash-flora-leaf-shroom-low
+    popupMedium: adt-ash-flora-leaf-shroom-medium
+    popupHigh: adt-ash-flora-leaf-shroom-high
+
+- type: entity
+  parent: ADTAshFloraLeafShroom
+  id: ADTAshFloraLeafShroom1
+  components:
+  - type: Sprite
+    state: s_mushroom1
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraLeafShroomHarvested1
+
+- type: entity
+  parent: ADTAshFloraLeafShroom
+  id: ADTAshFloraLeafShroom2
+  components:
+  - type: Sprite
+    state: s_mushroom2
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraLeafShroomHarvested2
+
+- type: entity
+  parent: ADTAshFloraLeafShroom
+  id: ADTAshFloraLeafShroom3
+  components:
+  - type: Sprite
+    state: s_mushroom3
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraLeafShroomHarvested3
+
+- type: entity
+  parent: ADTAshFloraLeafShroom
+  id: ADTAshFloraLeafShroom4
+  components:
+  - type: Sprite
+    state: s_mushroom4
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraLeafShroomHarvested4
+
+- type: entity
+  abstract: true
+  parent: ADTBaseAshFlora
+  id: ADTAshFloraLeafShroomHarvested
+  name: leafless mushrooms
+  description: A bunch of formerly-leafed mushrooms, with their sporangiums exposed. Scandalous?
+
+- type: entity
+  parent: ADTAshFloraLeafShroomHarvested
+  id: ADTAshFloraLeafShroomHarvested1
+  components:
+  - type: Sprite
+    state: s_mushroom1p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraLeafShroom1
+    minTime: 240
+    maxTime: 600
+
+- type: entity
+  parent: ADTAshFloraLeafShroomHarvested
+  id: ADTAshFloraLeafShroomHarvested2
+  components:
+  - type: Sprite
+    state: s_mushroom2p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraLeafShroom2
+    minTime: 240
+    maxTime: 600
+
+- type: entity
+  parent: ADTAshFloraLeafShroomHarvested
+  id: ADTAshFloraLeafShroomHarvested3
+  components:
+  - type: Sprite
+    state: s_mushroom3p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraLeafShroom3
+    minTime: 240
+    maxTime: 600
+
+- type: entity
+  parent: ADTAshFloraLeafShroomHarvested
+  id: ADTAshFloraLeafShroomHarvested4
+  components:
+  - type: Sprite
+    state: s_mushroom4p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraLeafShroom4
+    minTime: 240
+    maxTime: 600
+
+
+- type: entity
+  abstract: true
+  parent: ADTBaseAshFlora
+  id: ADTAshFloraCapShroom
+  name: tall mushrooms
+  description: Several mushrooms, the larger of which have a ring of conks at the midpoint of their stems.
+  components:
+  - type: ADTAshFlora
+    product: ADTFoodMushroomCap
+    minAmount: 1
+    maxAmount: 4
+    harvestTime: 5
+    toolWhitelist:
+      components:
+      - Sharp
+    popupLow: adt-ash-flora-cap-shroom-low
+    popupMedium: adt-ash-flora-cap-shroom-medium
+    popupHigh: adt-ash-flora-cap-shroom-high
+
+- type: entity
+  parent: ADTAshFloraCapShroom
+  id: ADTAshFloraCapShroom1
+  components:
+  - type: Sprite
+    state: r_mushroom1
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraCapShroomHarvested1
+
+- type: entity
+  parent: ADTAshFloraCapShroom
+  id: ADTAshFloraCapShroom2
+  components:
+  - type: Sprite
+    state: r_mushroom2
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraCapShroomHarvested2
+
+- type: entity
+  parent: ADTAshFloraCapShroom
+  id: ADTAshFloraCapShroom3
+  components:
+  - type: Sprite
+    state: r_mushroom3
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraCapShroomHarvested3
+
+- type: entity
+  parent: ADTAshFloraCapShroom
+  id: ADTAshFloraCapShroom4
+  components:
+  - type: Sprite
+    state: r_mushroom4
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraCapShroomHarvested4
+
+- type: entity
+  abstract: true
+  parent: ADTBaseAshFlora
+  id: ADTAshFloraCapShroomHarvested
+  name: small mushrooms
+  description: Several small mushrooms near the stumps of what likely were larger mushrooms.
+
+- type: entity
+  parent: ADTAshFloraCapShroomHarvested
+  id: ADTAshFloraCapShroomHarvested1
+  components:
+  - type: Sprite
+    state: r_mushroom1p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraCapShroom1
+    minTime: 300
+    maxTime: 540
+
+- type: entity
+  parent: ADTAshFloraCapShroomHarvested
+  id: ADTAshFloraCapShroomHarvested2
+  components:
+  - type: Sprite
+    state: r_mushroom2p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraCapShroom2
+    minTime: 300
+    maxTime: 540
+
+- type: entity
+  parent: ADTAshFloraCapShroomHarvested
+  id: ADTAshFloraCapShroomHarvested3
+  components:
+  - type: Sprite
+    state: r_mushroom3p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraCapShroom3
+    minTime: 300
+    maxTime: 540
+
+- type: entity
+  parent: ADTAshFloraCapShroomHarvested
+  id: ADTAshFloraCapShroomHarvested4
+  components:
+  - type: Sprite
+    state: r_mushroom4p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraCapShroom4
+    minTime: 300
+    maxTime: 540
+
+
+- type: entity
+  abstract: true
+  parent: ADTBaseAshFlora
+  id: ADTAshFloraStemShroom
+  name: numerous mushrooms
+  description: A large number of mushrooms, some of which have long, fleshy stems. They're radiating light!
+  components:
+  - type: ADTAshFlora
+    product: ADTFoodMushroomStem
+    minAmount: 1
+    maxAmount: 4
+    harvestTime: 4
+    toolWhitelist:
+      components:
+      - Sharp
+    popupLow: adt-ash-flora-stem-shroom-low
+    popupMedium: adt-ash-flora-stem-shroom-medium
+    popupHigh: adt-ash-flora-stem-shroom-high
+  - type: PointLight
+    radius: 1.5
+    energy: 2.1
+    color: "#f0b26c"
+
+- type: entity
+  parent: ADTAshFloraStemShroom
+  id: ADTAshFloraStemShroom1
+  components:
+  - type: Sprite
+    state: t_mushroom1
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraStemShroomHarvested1
+
+- type: entity
+  parent: ADTAshFloraStemShroom
+  id: ADTAshFloraStemShroom2
+  components:
+  - type: Sprite
+    state: t_mushroom2
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraStemShroomHarvested2
+
+- type: entity
+  parent: ADTAshFloraStemShroom
+  id: ADTAshFloraStemShroom3
+  components:
+  - type: Sprite
+    state: t_mushroom3
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraStemShroomHarvested3
+
+- type: entity
+  parent: ADTAshFloraStemShroom
+  id: ADTAshFloraStemShroom4
+  components:
+  - type: Sprite
+    state: t_mushroom4
+  - type: ADTAshFlora
+    harvestedPrototype: ADTAshFloraStemShroomHarvested4
+
+- type: entity
+  abstract: true
+  parent: ADTBaseAshFlora
+  id: ADTAshFloraStemShroomHarvested
+  name: tiny mushrooms
+  description: A few tiny mushrooms around larger stumps. You can already see them growing back.
+
+- type: entity
+  parent: ADTAshFloraStemShroomHarvested
+  id: ADTAshFloraStemShroomHarvested1
+  components:
+  - type: Sprite
+    state: t_mushroom1p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraStemShroom1
+    minTime: 300
+    maxTime: 600
+
+- type: entity
+  parent: ADTAshFloraStemShroomHarvested
+  id: ADTAshFloraStemShroomHarvested2
+  components:
+  - type: Sprite
+    state: t_mushroom2p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraStemShroom2
+    minTime: 300
+    maxTime: 600
+
+- type: entity
+  parent: ADTAshFloraStemShroomHarvested
+  id: ADTAshFloraStemShroomHarvested3
+  components:
+  - type: Sprite
+    state: t_mushroom3p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraStemShroom3
+    minTime: 300
+    maxTime: 600
+
+- type: entity
+  parent: ADTAshFloraStemShroomHarvested
+  id: ADTAshFloraStemShroomHarvested4
+  components:
+  - type: Sprite
+    state: t_mushroom4p
+  - type: ADTAshFloraRegrowth
+    prototype: ADTAshFloraStemShroom4
+    minTime: 300
+    maxTime: 600

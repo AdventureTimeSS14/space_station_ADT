@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from MOLOT-BlueMoon-Station https://github.com/BlueMoon-Labs/BlueMoon-Station-13 and modified by orange6775 (discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "box1"
+    },
+    {
+      "name": "box2"
+    },
+    {
+      "name": "box3"
+    },
+    {
+      "name": "box4"
+    },
+    {
+      "name": "box5"
+    },
+    {
+      "name": "box6"
+    },
+    {
+      "name": "box7"
+    },
+    {
+      "name": "box8"
+    },
+    {
+      "name": "box9"
+    },
+    {
+      "name": "box10"
+    },
+    {
+      "name": "box11"
+    },
+    {
+      "name": "box12"
+    },
+    {
+      "name": "box-closed"
+    },
+    {
+      "name": "box-open"
+    },
+    {
+      "name": "box-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "box-inhand-left",
+      "directions": 4
+    }
+  ]
+}

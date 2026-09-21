@@ -94,7 +94,12 @@ namespace Content.Client.Hands
             if (_player.LocalEntity != null)
             {
                 var comboEv = new GetPerformedAttackTypesEvent(null);
-                _entMan.EventBus.RaiseLocalEvent(_player.LocalEntity.Value, ref comboEv);
+                if (handEntity != null)
+                    _entMan.EventBus.RaiseLocalEvent(handEntity.Value, ref comboEv);
+
+                if (comboEv.AttackTypes is not { Count: > 0 })
+                    _entMan.EventBus.RaiseLocalEvent(_player.LocalEntity.Value, ref comboEv);
+
                 if (comboEv.AttackTypes is { Count: > 0 })
                 {
                     var color = Color.White.WithAlpha(0.75f);

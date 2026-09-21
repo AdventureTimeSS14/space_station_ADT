@@ -60,3 +60,9 @@
   format: name-identifier-format-telepad
   minValue: 0
   maxValue: 999
+
+# ADT-Tweak
+- type: nameIdentifierGroup
+  id: Xenobounty
+  minValue: 0
+  maxValue: 999

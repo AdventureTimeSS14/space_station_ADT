@@ -71,7 +71,6 @@
         - ADTywflowers3
         - ADTywflowers4
 
-# Cactusi chto bi ih zhrat'
     - !type:BiomeEntityLayer
       threshold: 0.95
       noise:
@@ -81,7 +80,7 @@
       allowedTiles:
         - FloorBasalt
       entities:
-        - ADTLavalandCactusSpawner
+        - ADTLavalandAshFloraSpawner
 
     - !type:BiomeEntityLayer
       threshold: 0.95
@@ -135,27 +134,6 @@
         gain: 0.4
       entities:
       - FloorChasmEntity
-
-    - !type:BiomeEntityLayer
-      allowedTiles:
-        - FloorBasalt
-      threshold: 0.55
-      noise:
-        seed: 7
-        noiseType: Cellular
-        frequency: 0.06
-        lacunarity: 2
-        fractalType: FBm
-        octaves: 3
-        cellularDistanceFunction: Euclidean
-        cellularReturnType: Distance2
-      entities:
-        - ADTWallRockAncient
-        - ADTWallRockAncient
-        - ADTWallRockAncient
-        - ADTWallRockAncient
-        - ADTWallRockAncientUranium
-        - ADTWallRockAncientDiamond
 
     # Rock formations
     - !type:BiomeEntityLayer

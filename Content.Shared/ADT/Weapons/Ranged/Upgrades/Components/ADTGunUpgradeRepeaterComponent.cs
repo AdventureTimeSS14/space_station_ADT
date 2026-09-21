@@ -10,6 +10,9 @@ public sealed partial class ADTGunUpgradeRepeaterComponent : Component
 
     [DataField]
     public float HitCoefficient = 0.25f;
+
+    [DataField]
+    public float FireRateCoefficient = 2.5f;
 }
 
 [RegisterComponent]

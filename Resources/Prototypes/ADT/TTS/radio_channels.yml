@@ -1,0 +1,81 @@
+# Настройки озвучки радиоканалов
+- type: ttsRadioChannel
+  id: Common
+  icon:
+    sprite: Objects/Devices/encryption_keys.rsi
+    state: common_label
+
+- type: ttsRadioChannel
+  id: Command
+  icon:
+    sprite: Objects/Devices/encryption_keys.rsi
+    state: com_label
+
+- type: ttsRadioChannel
+  id: Engineering
+  icon:
+    sprite: Objects/Devices/encryption_keys.rsi
+    state: eng_label
+
+- type: ttsRadioChannel
+  id: Medical
+  icon:
+    sprite: Objects/Devices/encryption_keys.rsi
+    state: med_label
+
+- type: ttsRadioChannel
+  id: Science
+  icon:
+    sprite: Objects/Devices/encryption_keys.rsi
+    state: sci_label
+
+- type: ttsRadioChannel
+  id: Supply
+  icon:
+    sprite: Objects/Devices/encryption_keys.rsi
+    state: cargo_label
+
+- type: ttsRadioChannel
+  id: Service
+  icon:
+    sprite: Objects/Devices/encryption_keys.rsi
+    state: service_label
+
+- type: ttsRadioChannel
+  id: Security
+  effect: police_radio
+  icon:
+    sprite: Objects/Devices/encryption_keys.rsi
+    state: sec_label
+
+- type: ttsRadioChannel
+  id: CentCom
+  effect: radio_v2
+  icon:
+    sprite: Objects/Devices/encryption_keys.rsi
+    state: nano_label
+
+- type: ttsRadioChannel
+  id: Syndicate
+  effect: radio_v2
+  icon:
+    sprite: Objects/Devices/encryption_keys.rsi
+    state: synd_label
+
+- type: ttsRadioChannel
+  id: Handheld
+  effect: walkie_talkie
+
+- type: ttsRadioChannel
+  id: Binary
+  effect: robotic
+  icon:
+    sprite: Objects/Devices/encryption_keys.rsi
+    state: borg_label
+
+- type: ttsRadioChannel
+  id: Xenoborg
+  effect: robotic
+
+- type: ttsRadioChannel
+  id: Mansus

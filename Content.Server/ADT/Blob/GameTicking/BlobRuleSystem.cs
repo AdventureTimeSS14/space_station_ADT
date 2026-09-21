@@ -5,6 +5,7 @@ using System.Linq;
 using Content.Shared.ADT.Blob;
 using Content.Server.ADT.Blob.Components;
 using Content.Shared.ADT.Blob.Components;
+using Content.Shared.ADT.Objectives;
 using Content.Server.AlertLevel;
 using Content.Server.Antag;
 using Content.Server.Chat.Managers;
@@ -22,6 +23,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Objectives.Components;
 using Robust.Server.Player;
 using Robust.Shared.Player;
+using Content.Shared.ADT.Objectives.Components;
 
 namespace Content.Server.ADT.Blob.GameTicking;
 
@@ -115,11 +117,11 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         Resolve(stationUid, ref stationUid.Comp, false);
 
         var stationName = Name(stationUid);
-        var totalStationTiles = _stationSystem.GetTileCount(stationUid.Owner);
-        var criticalThreshold = stationUid.Comp?.StageCritical ?? StationBlobConfigComponent.DefaultStageCritical;
-        var theEndThreshold = totalStationTiles * (stationUid.Comp?.StageTheEndPercent ?? StationBlobConfigComponent.DefaultStageTheEndPercent);
+        const int beginThreshold = 60;
+        const int criticalThreshold = BlobCaptureConditionComponent.CriticalThreshold;
+        const int theEndThreshold = BlobCaptureConditionComponent.VictoryThreshold;
 
-        if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
+        if (blobTilesCount >= beginThreshold
             && _roundEndSystem.ExpectedCountdownEnd != null
             && !_emergency.EmergencyShuttleArrived)
         {
@@ -132,8 +134,8 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 Color.Red);
             blobRuleComp.ShuttleArrivedAnnounced = false;
         }
-        else if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
-                 && _roundEndSystem.ExpectedCountdownEnd != null && _emergency.EmergencyShuttleArrived)
+        else if (blobTilesCount >= beginThreshold
+                  && _roundEndSystem.ExpectedCountdownEnd != null && _emergency.EmergencyShuttleArrived)
         {
             if (!blobRuleComp.ShuttleArrivedAnnounced)
             {
@@ -149,7 +151,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
 
         switch (blobRuleComp.Stage)
         {
-            case BlobStage.Default when blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin):
+            case BlobStage.Default when blobTilesCount >= beginThreshold:
                 blobRuleComp.Stage = BlobStage.Begin;
 
                 _chatSystem.DispatchGlobalAnnouncement(

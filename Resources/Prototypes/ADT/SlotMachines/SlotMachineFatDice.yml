@@ -1,0 +1,36 @@
+- type: entity
+  id: SlotMachineFateDice
+  parent: BaseSlotMachine
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Machines/slotmachines/slotmachinehighroller.rsi
+    layers:
+      - state: slotmachine
+      - state: slotmachine_spin
+        visible: false
+        map: ["slotmachine_spin"]
+  - type: Anchorable
+    flags: Anchorable
+  - type: GenericVisualizer
+    visuals:
+      enum.SlotMachineVisuals.Spinning:
+        slotmachine_spin:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: SlotMachine
+    spinCost: 0
+    smallWinChance: 0
+    mediumWinChance: 0
+    bigWinChance: 0
+    jackPotWinChance: 0
+    godPotWinChance: 0.05
+    godPotPrize: DiceOfFate
+    deleteGodPot: true
+    spinDamage:
+      types:
+        Cellular: 20
+    speciesSpinDamage:
+      MobIpc:
+        types:
+          Blunt: 40

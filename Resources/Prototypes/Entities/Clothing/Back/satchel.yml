@@ -167,6 +167,10 @@
   components:
     - type: Sprite
       sprite: Clothing/Back/Satchels/salvage.rsi
+  # ADT-Tweak-Start
+    - type: ExplosionResistance
+      damageCoefficient: 0.5
+  # ADT-Tweak-End
 
 - type: entity
   parent: [ClothingBackpackSatchel, BaseHighlyIllegalContraband]

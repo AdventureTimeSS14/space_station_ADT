@@ -9,6 +9,25 @@
     state: plushie_ursus
 
 - type: entity
+  parent: BasePlushie
+  id: ADTPlushieOwl
+  name: mage owl plushie
+  description: mage owl?
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_owl
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/ADT/Misc/owl_uh.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/ADT/Misc/owl_uh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/ADT/Misc/owl_uh.ogg
+
+- type: entity
   parent: PlushieSharkBlue
   id: ADTBlackSharkPlushie
   name: black shark plushie
@@ -23,6 +42,7 @@
     tags:
       - PlushieSharkBlack
       - Payload
+      - ClothMade
 
 - type: entity
   parent: BasePlushie
@@ -298,3 +318,4 @@
   - type: Tag
     tags:
     - ADTToyBlaster
+

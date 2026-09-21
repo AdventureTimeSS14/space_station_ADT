@@ -1,0 +1,40 @@
+- type: entity
+  name: legion core
+  id: ADTLegionCore
+  parent: BaseItem
+  description: A strange rock that crackles with power. Smear it on a wound or implant it into your chest, but hurry - it decays fast.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+    state: legion_core
+  - type: ADTRegenerativeCore
+    canImplant: false
+    duration: 60
+    applyDelay: 1
+    implantDelay: 5
+    implantCellularMultiplier: 1
+    instantHeal:
+      types:
+        Blunt: -16.5
+        Slash: -16.5
+        Piercing: -16.5
+        Heat: -16.5
+        Cold: -16.5
+        Shock: -16.5
+  - type: TimedDespawn
+    lifetime: 240
+  - type: SpawnOnDespawn
+    prototype: ADTLegionCoreDecayed
+  - type: Construction
+    graph: ADTLegionCoreStable
+    node: start
+
+- type: entity
+  name: decayed legion core
+  id: ADTLegionCoreDecayed
+  parent: BaseItem
+  description: This core has decayed, and is completely useless.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+    state: legion_core_decayed

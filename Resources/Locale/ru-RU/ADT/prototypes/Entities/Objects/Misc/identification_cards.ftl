@@ -1,3 +1,6 @@
+ent-XenobioIDCard = ID карта ксенобиолога
+    .desc = { ent-IDCardStandard.desc }
+
 ent-MagistratIDCard = ID Магистрата
     .desc = Серебрянная карта с значком Юриста.
 

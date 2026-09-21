@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   name: bat
   parent: [ SimpleMobBase, FlyingMobBase, MobCombat ]
   id: MobBat
@@ -1425,6 +1425,14 @@
   - type: Inventory
     templateId: monkey
     speciesId: monkey
+  # ADT tweak start
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Moffstation/Mobs/Animals/displacements.rsi
+            state: jumpsuit-monkey
+  # ADT tweak end
   - type: Deathgasp
     prototype: MonkeyDeathgasp
   - type: Cuffable
@@ -1526,14 +1534,20 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPie
-  # ADT-Tweak start
-  - type: VentCrawler
-    allowInventory: false
-  # ADT-Tweak end
   - type: Crawler
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: JobStatus # marks them as crew
+  # ADT tweak start
+  - type: Vocal
+    sounds:
+      Male: Monkey
+      Female: Monkey
+      Unsexed: Monkey
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: StandingState
+  # ADT tweak end
 
 - type: entity
   name: monkey
@@ -1557,6 +1571,10 @@
     description: ghost-role-information-monkey-description
     rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
+  # ADT-Tweak start
+  - type: VentCrawler
+    allowInventory: false
+  # ADT-Tweak end
   - type: Clumsy
     gunShootFailDamage:
       types:
@@ -1599,9 +1617,15 @@
     - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
+  - type: GhostVisibleAntag
+    name: ghost-role-information-monkey-name
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [SyndicateOperativeGearMonkey]
+  # ADT-Tweak start
+  - type: VentCrawler
+    allowInventory: false
+  # ADT-Tweak end
 
 - type: entity
   id: MobMonkeySyndicateAgent
@@ -1728,6 +1752,16 @@
     name: ghost-role-information-kobold-name
     description: ghost-role-information-kobold-description
     rules: ghost-role-information-nonantagonist-rules
+  # ADT tweak start
+  - type: Inventory
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Moffstation/Mobs/Animals/displacements.rsi
+            state: jumpsuit-monkey
+  # ADT tweak end
+
 
 - type: entity
   name: kobold
@@ -1746,6 +1780,10 @@
         Blunt: 1
     clumsySound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  # ADT-Tweak start
+  - type: VentCrawler
+    allowInventory: false
+  # ADT-Tweak end
 
 - type: entity
   id: MobBaseSyndicateKobold
@@ -1762,6 +1800,10 @@
     - Syndicate
   - type: Loadout
     prototypes: [SyndicateOperativeGearMonkey]
+  # ADT-Tweak start
+  - type: VentCrawler
+    allowInventory: false
+  # ADT-Tweak end
 
 - type: entity
   id: MobKoboldSyndicateAgent
@@ -2094,6 +2136,7 @@
     radius: 5
     energy: 5
     netsync: false
+    mask: /Textures/ADT/Effects/Lightmasks/circle_a.png # ADT tweak
   - type: RadiationSource
     intensity: 0.5
     slope: 0.3
@@ -2659,6 +2702,7 @@
     needsHands: false
   - type: NoSlip
   - type: Spider
+    spawnsWebsAsNonPlayer: false # ADT-Tweak
   - type: IgnoreSpiderWeb
   - type: Bloodstream
     bloodReferenceSolution:
@@ -2724,6 +2768,8 @@
     - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: short
+  - type: GhostVisibleAntag
+    name: ghost-role-information-giant-spider-name
   - type: GhostTakeoverAvailable
   - type: ForceAttack
 
@@ -3333,6 +3379,8 @@
     - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
+  - type: GhostVisibleAntag
+    name: ghost-role-information-SyndiCat-name
   - type: GhostTakeoverAvailable
   - type: AutoImplant
     implants:

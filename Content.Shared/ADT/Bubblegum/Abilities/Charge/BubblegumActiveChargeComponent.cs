@@ -32,7 +32,7 @@ public sealed partial class BubblegumActiveChargeComponent : Component
     public float CameraKickStrength = 0.6f;
 
     [DataField]
-    public float TrampleRadius = 1.6f;
+    public float TrampleRadius = 1.1f;
 
     [DataField]
     public HashSet<EntityUid> AlreadySmashed = [];

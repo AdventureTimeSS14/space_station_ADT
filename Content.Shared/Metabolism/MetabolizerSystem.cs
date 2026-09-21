@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.ADT.Body.Allergies;
 using Content.Shared.Body.Events;
 using Content.Shared.Body;
 using Content.Shared.Chemistry.Components;
@@ -205,8 +206,17 @@ public sealed class MetabolizerSystem : EntitySystem
 
             var actualEntity = ent.Comp2?.Body ?? solutionOwner.Value;
 
+            // ADT-Tweak-Start: событие для систем, следящих за метаболизмом (аллергии ADT, зависимости).
+            // Рейзим на ТЕЛО (actualEntity), а не на владельца раствора: растворы желудка/лёгких
+            // лежат на органах, а компоненты аллергий/зависимостей - на мобе (directed-подписки).
+            // Эффекты можно подменить (аллергия добавляет урон), поэтому берём из события.
+            var reagentEffectsEvent = new GetReagentEffectsEvent(reagent, entry.Effects);
+            RaiseLocalEvent(actualEntity, reagentEffectsEvent);
+            var effects = reagentEffectsEvent.Effects;
+            // ADT-Tweak-End
+
             // do all effects, if conditions apply
-            foreach (var effect in entry.Effects)
+            foreach (var effect in effects)
             {
                 if (scale < effect.MinScale)
                     continue;

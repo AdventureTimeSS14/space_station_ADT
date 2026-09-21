@@ -44,9 +44,9 @@
   - BorgModuleAdvancedClowning
   # ADT-Tweak-Start: "MedborgModuleUpdate"
   #- BorgModuleAdvancedChemical  # новые модули сделал отдельно в папке ADT
+  - ADTBorgModuleAdvancedSalvage
+  - ADTBorgModuleRPD
   # ADT-Tweak-End
-  - BorgModuleAdvancedMining
-  - ADTBorgModuleRPD # ADT-Tweak
 
 - type: latheRecipePack
   id: MechParts

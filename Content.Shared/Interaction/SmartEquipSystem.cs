@@ -38,6 +38,7 @@ public sealed class SmartEquipSystem : EntitySystem
             .Bind(ContentKeyFunctions.SmartEquipPocket1, InputCmdHandler.FromDelegate(HandleSmartEquipPocket1, handle: false, outsidePrediction: false))
             .Bind(ContentKeyFunctions.SmartEquipPocket2, InputCmdHandler.FromDelegate(HandleSmartEquipPocket2, handle: false, outsidePrediction: false))
             .Bind(ContentKeyFunctions.SmartEquipSuitStorage, InputCmdHandler.FromDelegate(HandleSmartEquipSuitStorage, handle: false, outsidePrediction: false))
+            .Bind(ContentKeyFunctions.SmartEquipNeck, InputCmdHandler.FromDelegate(HandleSmartEquipNeck, handle: false, outsidePrediction: false)) // ADT-Tweak-SmartEquipNeck
             .Register<SmartEquipSystem>();
     }
 
@@ -72,6 +73,13 @@ public sealed class SmartEquipSystem : EntitySystem
     {
         HandleSmartEquip(session, "suitstorage");
     }
+
+    // ADT-Tweak-SmartEquipNeck-Start
+    private void HandleSmartEquipNeck(ICommonSession? session)
+    {
+        HandleSmartEquip(session, "neck");
+    }
+    // ADT-Tweak-End
 
     private void HandleSmartEquip(ICommonSession? session, string equipmentSlot)
     {
@@ -155,7 +163,10 @@ public sealed class SmartEquipSystem : EntitySystem
                 case null:
                     var removing = storage.Container.ContainedEntities[^1];
                     _container.RemoveEntity(slotItem, removing);
-                    _hands.TryPickup(uid, removing, handsComp: hands);
+                    // ADT-Tweak-Start: return the item to storage if the pickup fails (e.g. combat mode pickup restrictions).
+                    if (!_hands.TryPickup(uid, removing, handsComp: hands))
+                        _storage.Insert(slotItem, removing, out _, out _, user: uid);
+                    // ADT-Tweak-End
                     return;
             }
 
@@ -236,7 +247,13 @@ public sealed class SmartEquipSystem : EntitySystem
             return;
         }
 
-        _inventory.TryUnequip(uid, equipmentSlot, inventory: inventory, predicted: true, checkDoafter: true);
-        _hands.TryPickup(uid, slotItem, handsComp: hands);
+        // ADT-Tweak-Start: unequip can start a do-after and return false (item stays in slot);
+        // pickup can fail in combat mode, then put the item back.
+        if (!_inventory.TryUnequip(uid, equipmentSlot, inventory: inventory, predicted: true, checkDoafter: true))
+            return;
+
+        if (!_hands.TryPickup(uid, slotItem, handsComp: hands))
+            _inventory.TryEquip(uid, slotItem, equipmentSlot, predicted: true, checkDoafter: true);
+        // ADT-Tweak-End
     }
 }

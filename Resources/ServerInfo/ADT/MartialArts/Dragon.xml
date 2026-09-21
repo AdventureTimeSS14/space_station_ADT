@@ -1,0 +1,49 @@
+<Document>
+
+  # Кунг-фу Дракона
+
+  <Box>
+    <GuideEntityEmbed Entity="ADTScrollDragonKungFu" Caption="свиток кунг-фу дракона"/>
+  </Box>
+
+  Школа терпеливых. Дракон копит силу, стоя неподвижно, и тратит её на то, чтобы держать
+  удар и бить в ответ больнее.
+
+  # Сила дракона
+
+  <Box>
+  Стоя на месте, боец накапливает силу дракона. Пока она есть
+  и боец [bold]безоружен[/bold], полученный удар слабее на [color=#5BB8E0]40%[/color]
+  (Blunt, Slash, Pierce, Heat), а ваши собственные атаки следующие
+  [color=#E0A03C]5 секунд[/color] бьют на [color=#E05B5B]20%[/color] сильнее.
+  </Box>
+
+  <Box>
+  Нырок в ползание в [color=#E05B5B]режиме боя[/color] превращается в скольжение: боец
+  скользит вперёд по направлению взгляда. Чем быстрее бежали, тем дальше уедете.
+  </Box>
+
+  ## Приёмы
+
+  <ADTGuideCombo Combo="DragonClaw">
+  Наносит [color=#5BB8E0]50[/color] урона по выносливости и замедляет цель
+  на [color=#5BB8E0]40%[/color] на [color=#E0A03C]2 секунды[/color].
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="DragonTail">
+  Наносит [color=#E05B5B]10[/color] урона и [color=#5BB8E0]15[/color] урона по выносливости.
+  Роняет стоячую цель на [color=#E0A03C]4 секунды[/color]; если цель уже лежит -
+  продлевает оглушение на [color=#E0A03C]1 секунду[/color].
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="DragonStrike">
+  Наносит [color=#E05B5B]45[/color] урона.
+  </ADTGuideCombo>
+
+  <ADTGuideCombo Combo="DragonAscension">
+  Требует накопленной силы дракона - без неё приём не сработает.
+  Наносит [color=#E05B5B]15[/color] урона и [color=#5BB8E0]40[/color] урона по выносливости,
+  отбрасывая цель.
+  </ADTGuideCombo>
+
+</Document>

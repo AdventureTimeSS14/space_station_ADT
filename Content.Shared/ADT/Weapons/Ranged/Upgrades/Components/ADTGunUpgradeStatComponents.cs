@@ -8,6 +8,9 @@ public sealed partial class ADTGunUpgradeDamageComponent : Component
 {
     [DataField]
     public DamageSpecifier Damage = new();
+
+    [DataField]
+    public bool SplitAcrossProjectiles = true;
 }
 
 [RegisterComponent, NetworkedComponent]

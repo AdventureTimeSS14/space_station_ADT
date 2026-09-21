@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 268.0.0
+  engineVersion: 277.2.1
   forkId: SS14_DEV
-  forkVersion: 90fadff64f641046f758e19b877a7bb3e99b4685
-  time: 04/23/2026 19:00:59
-  entityCount: 747
+  forkVersion: f9bbdf49a45414d6958aca2da56d80314ee24984
+  time: 07/15/2026 14:55:34
+  entityCount: 779
 maps: []
 grids:
 - 1
@@ -481,6 +481,9 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: TileHistory
+      chunkHistory: {}
+    - type: ExplosionAirtightGrid
 - proto: ADTBarrelWooden
   entities:
   - uid: 217
@@ -530,12 +533,16 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,-12.5
       parent: 1
+    - type: Thruster
+      thrust: 750
   - uid: 67
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 4.5,-12.5
       parent: 1
+    - type: Thruster
+      thrust: 750
 - proto: ADTCableReel
   entities:
   - uid: 472
@@ -580,6 +587,15 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,-6.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+- proto: ADTPosterContrabandAria
+  entities:
+  - uid: 759
+    components:
+    - type: Transform
+      pos: 0.5,-9.5
       parent: 1
     - type: Fixtures
       fixtures: {}
@@ -847,6 +863,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -1.5,-2.5
       parent: 1
+    - type: AccessReader
+      accessListsOriginal: []
   - uid: 304
     components:
     - type: Transform
@@ -2072,12 +2090,36 @@ entities:
     - type: Transform
       pos: 7.5,-2.5
       parent: 1
+- proto: BoxLethalshot
+  entities:
+  - uid: 760
+    components:
+    - type: Transform
+      pos: -2.7941885,-7.1639123
+      parent: 1
+  - uid: 774
+    components:
+    - type: Transform
+      pos: -3.50844,-8.616827
+      parent: 1
 - proto: BoxLighttube
   entities:
   - uid: 497
     components:
     - type: Transform
       pos: 5.558897,-8.5676775
+      parent: 1
+- proto: BoxMRE
+  entities:
+  - uid: 756
+    components:
+    - type: Transform
+      pos: 2.2918692,-4.3926835
+      parent: 1
+  - uid: 757
+    components:
+    - type: Transform
+      pos: 2.3335357,-4.3926835
       parent: 1
 - proto: BoxWarmLightbulb
   entities:
@@ -2845,6 +2887,13 @@ entities:
     - type: Transform
       pos: 6.7334146,5.4955225
       parent: 1
+  - uid: 776
+    components:
+    - type: MetaData
+      desc: КТО ЕГО, ЧЕРТ ВОЗЬМИ, ТУТ ОСТАВИЛ?! КАКОЙ СИЗИФ ХРЕНОВ?!
+    - type: Transform
+      pos: 5.270198,-6.781211
+      parent: 1
 - proto: CannonBallGrapeshot
   entities:
   - uid: 238
@@ -2933,19 +2982,16 @@ entities:
   - uid: 146
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 2.5,-0.5
+      pos: 0.5,-0.5
       parent: 1
   - uid: 148
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,-0.5
+      pos: 2.5,-0.5
       parent: 1
   - uid: 149
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 1.5,-0.5
       parent: 1
 - proto: ClosetToolFilled
@@ -3132,13 +3178,6 @@ entities:
     - type: Transform
       pos: -2.4738646,-5.984068
       parent: 1
-- proto: DrinkAleBottleFull
-  entities:
-  - uid: 511
-    components:
-    - type: Transform
-      pos: 0.6455114,-8.039909
-      parent: 1
 - proto: DrinkAleGlass
   entities:
   - uid: 508
@@ -3194,6 +3233,79 @@ entities:
     components:
     - type: Transform
       pos: 0.59430146,-8.5364275
+      parent: 1
+  - uid: 748
+    components:
+    - type: Transform
+      pos: -3.4207883,-5.027012
+      parent: 1
+  - uid: 749
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.389538,-7.027012
+      parent: 1
+  - uid: 750
+    components:
+    - type: MetaData
+      desc: Молоко собственного производства!
+    - type: Transform
+      pos: -4.493705,-10.235346
+      parent: 1
+  - uid: 751
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.7771953,-9.849929
+      parent: 1
+  - uid: 752
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.4855287,-9.870762
+      parent: 1
+  - uid: 753
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.2980287,-9.829096
+      parent: 1
+  - uid: 758
+    components:
+    - type: MetaData
+      desc: Арканье.
+    - type: Transform
+      pos: 7.7561727,-10.705793
+      parent: 1
+- proto: DrinkOatMilkCarton
+  entities:
+  - uid: 755
+    components:
+    - type: MetaData
+      desc: Питательный ужас. То, что нужно заключенным.
+    - type: Transform
+      pos: 2.2293692,-1.4447668
+      parent: 1
+- proto: DrinkRumBottleFull
+  entities:
+  - uid: 511
+    components:
+    - type: Transform
+      pos: 0.72047234,-7.6646843
+      parent: 1
+  - uid: 779
+    components:
+    - type: Transform
+      pos: 0.67880535,-7.8938503
+      parent: 1
+- proto: DrinkSoyMilkCarton
+  entities:
+  - uid: 754
+    components:
+    - type: MetaData
+      desc: Капитан всегда прятал это.. Как он это пил?!
+    - type: Transform
+      pos: 7.440002,-5.027012
       parent: 1
 - proto: GasPassiveVent
   entities:
@@ -3435,6 +3547,13 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-9.5
+      parent: 1
+- proto: MagazineBoxAntiMateriel
+  entities:
+  - uid: 775
+    components:
+    - type: Transform
+      pos: -3.6473293,-8.311271
       parent: 1
 - proto: MagazineBoxMagnum
   entities:
@@ -3941,24 +4060,32 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -3.5,1.5
       parent: 1
+    - type: Thruster
+      thrust: 300
   - uid: 23
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 6.5,1.5
       parent: 1
+    - type: Thruster
+      thrust: 300
   - uid: 83
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -2.5,10.5
       parent: 1
+    - type: Thruster
+      thrust: 300
   - uid: 205
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 5.5,10.5
       parent: 1
+    - type: Thruster
+      thrust: 300
 - proto: ThrusterLarge
   entities:
   - uid: 69
@@ -3966,11 +4093,15 @@ entities:
     - type: Transform
       pos: -4.5,-1.5
       parent: 1
+    - type: Thruster
+      thrust: 500
   - uid: 70
     components:
     - type: Transform
       pos: 6.5,-1.5
       parent: 1
+    - type: Thruster
+      thrust: 500
 - proto: ToiletDirtyWater
   entities:
   - uid: 317
@@ -4718,6 +4849,82 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 4.5,-8.5
       parent: 1
+  - uid: 761
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,-0.5
+      parent: 1
+  - uid: 762
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,-0.5
+      parent: 1
+  - uid: 763
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,-0.5
+      parent: 1
+  - uid: 764
+    components:
+    - type: Transform
+      pos: -3.5,-3.5
+      parent: 1
+  - uid: 765
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5,-5.5
+      parent: 1
+  - uid: 766
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5,-6.5
+      parent: 1
+  - uid: 767
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5,-7.5
+      parent: 1
+  - uid: 768
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,-9.5
+      parent: 1
+  - uid: 769
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,-10.5
+      parent: 1
+  - uid: 770
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 4.5,-9.5
+      parent: 1
+  - uid: 771
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 8.5,-5.5
+      parent: 1
+  - uid: 772
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 8.5,-4.5
+      parent: 1
+  - uid: 773
+    components:
+    - type: Transform
+      pos: 6.5,-3.5
+      parent: 1
 - proto: WindowFrostedDirectional
   entities:
   - uid: 132
@@ -4725,6 +4932,18 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,-11.5
+      parent: 1
+- proto: WoodenBuckler
+  entities:
+  - uid: 777
+    components:
+    - type: Transform
+      pos: -1.4564569,-8.50402
+      parent: 1
+  - uid: 778
+    components:
+    - type: Transform
+      pos: -1.3314569,-8.545687
       parent: 1
 - proto: WoodenSupport
   entities:

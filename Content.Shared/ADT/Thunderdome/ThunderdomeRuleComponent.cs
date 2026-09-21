@@ -1,6 +1,5 @@
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
-using Robust.Shared.Network;
 using Robust.Shared.Serialization.Manager.Attributes;
 
 namespace Content.Shared.ADT.Thunderdome;
@@ -35,12 +34,6 @@ public sealed partial class ThunderdomeRuleComponent : Component
 
     [DataField]
     public HashSet<NetEntity> Players = new();
-
-    [DataField]
-    public Dictionary<NetUserId, int> Kills = new();
-
-    [DataField]
-    public Dictionary<NetUserId, int> Deaths = new();
 
     [DataField]
     public bool Active;

@@ -21,7 +21,10 @@ public sealed class GpsBoundUserInterface : BoundUserInterface
         _window = this.CreateWindow<GpsWindow>();
         _window.OnTogglePressed += () => SendMessage(new GpsToggleMessage());
         _window.OnRangePressed += () => SendMessage(new GpsToggleRangeMessage());
+        _window.OnSosPressed += () => SendMessage(new GpsToggleSosMessage());
         _window.OnTagEntered += tag => SendMessage(new GpsSetTagMessage(tag));
+        _window.OnWaypointAdded += name => SendMessage(new GpsAddWaypointMessage(name));
+        _window.OnWaypointRemoved += index => SendMessage(new GpsRemoveWaypointMessage(index));
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

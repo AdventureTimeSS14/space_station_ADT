@@ -1,0 +1,227 @@
+<Document>
+
+# Машинные части
+
+Официальное руководство NanoTrasen по модульным компонентам станционного оборудования. Каждая машина собрана из универсальных деталей шести типов, у каждой детали - пять уровней качества. Тир 1 работает без эффектов, каждый тир выше даёт бонус... и требует плату.
+
+О том, какая деталь подходит какой машине, рассказывает отдельное руководство: [textlink="Куда ставить детали" link="MachinePartsInstall"].
+
+## Сборка машины
+
+1. Постройте каркас - пять листов стали.
+2. Протяните провода.
+3. Вставьте плату - она задаёт гнёзда деталей. Осмотрите каркас, чтобы узнать, что нужно.
+4. Вставьте детали - рукой или RPED.
+5. Закрутите всё отвёрткой.
+
+<Box>
+<GuideEntityEmbed Entity="SheetSteel1"/>
+<GuideEntityEmbed Entity="CableApcStack1"/>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+<GuideEntityEmbed Entity="Screwdriver"/>
+</Box>
+
+## Как это работает
+
+- Средний тир всех деталей одного типа в машине определяет итоговый эффект.
+- Каждый тир выше первого даёт прибавку к одной характеристике и ухудшает другую.
+- Детали меняются устройством [bold]RPED[/bold] - только на более высокий тир.
+- Глагол [bold]«Улучшения»[/bold] при осмотре машины показывает бонусы (зелёным) и штрафы (красным).
+
+### Сводная таблица эффектов
+
+Эффекты указаны за каждый тир выше первого (тир 2 = 1 шаг, тир 4 = 3 шага). [bold]Тир 5[/bold] даёт удвоенный бонус относительно тира 4.
+
+<Table Columns="3">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Деталь[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Бонус за тир[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Цена за тир[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сервопривод</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+20% скорость работы[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#ff7a7a]+10% расход ресурсов[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Ёмкость материи</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]-12% расход ресурсов, +25% вместимость, -10% энергозатраты[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#ff7a7a]-10% скорость работы[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Конденсатор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+25% скорость зарядки, -15% энергопотребление[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#ff7a7a]+10% энергозатраты на операции[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Микро-лазер</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+25% скорость, +20% качество и выход[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#ff7a7a]+10% энергозатраты[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сканирующий модуль</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+15% качество и безопасность[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#ff7a7a]-10% скорость работы[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Батарейка</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]вместимость ×1.5 / ×2 / ×3 на тирах 2-4[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]нет штрафов[/color]</Box></ColorBox>
+</Table>
+
+## Типы деталей
+
+### Сервопривод
+
+Движущая сила машины: быстрее работа - дороже материалы.
+
+<Box>
+<GuideEntityEmbed Entity="MicroServoStockPart"/>
+<GuideEntityEmbed Entity="NanoServoStockPart"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="PicoServoStockPart"/>
+<GuideEntityEmbed Entity="FemtoServoStockPart"/>
+</Box>
+
+### Ёмкость материи
+
+Экономит материалы, расширяет вместимость - машина медлительнее.
+
+<Box>
+<GuideEntityEmbed Entity="MatterBinStockPart"/>
+<GuideEntityEmbed Entity="AdvancedMatterBinStockPart"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="SuperMatterBinStockPart"/>
+<GuideEntityEmbed Entity="BluespaceMatterBinStockPart"/>
+</Box>
+
+### Конденсатор
+
+Ускоряет зарядку и снижает потребление - операции дорожают.
+
+<Box>
+<GuideEntityEmbed Entity="CapacitorStockPart"/>
+<GuideEntityEmbed Entity="AdvancedCapacitorStockPart"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="SuperCapacitorStockPart"/>
+<GuideEntityEmbed Entity="BluespaceCapacitorStockPart"/>
+</Box>
+
+### Микро-лазер
+
+Точность и фокус: быстрее и качественнее - платит энергией.
+
+<Box>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+<GuideEntityEmbed Entity="HighPowerMicroLaserStockPart"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="UltraHighPowerMicroLaserStockPart"/>
+<GuideEntityEmbed Entity="QuadUltraMicroLaserStockPart"/>
+</Box>
+
+### Сканирующий модуль
+
+Аккуратнее и безопаснее - на раздумья уходит время.
+
+<Box>
+<GuideEntityEmbed Entity="ScanningModuleStockPart"/>
+<GuideEntityEmbed Entity="AdvancedScanningModuleStockPart"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="PhasicScanningModuleStockPart"/>
+<GuideEntityEmbed Entity="TriphasicScanningModuleStockPart"/>
+</Box>
+
+### Батарейка
+
+Полноценная машинная часть: расширяет запас энергии машины без штрафов. Тиры 2-4 - ×1.5, ×2 и ×3 к вместимости, тир 5 - как тир 4. Меняется через RPED, как и остальные детали.
+
+<Box>
+<GuideEntityEmbed Entity="PowerCellSmall"/>
+<GuideEntityEmbed Entity="PowerCellMedium"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="PowerCellHigh"/>
+<GuideEntityEmbed Entity="PowerCellHyper"/>
+</Box>
+
+## Квантовые детали (тир 5)
+
+Высшая ступень машиностроения: печатаются на протолате после исследования [bold]«Квантовые машинные части»[/bold]. [bold]Правило тира 5: бонус удваивается[/bold] относительно тира 4.
+
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Машина[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Тир 4 → Тир 5[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Сосуд аномалий</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+30% → +60% очков[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Анализатор артефактов</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+30% → +60% очков[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Криопод</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]×1.4 → ×1.8 метаболизм[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Портативный генератор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+50% → +100% выработки[/color]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Продвинутая медкровать</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">[color=#6dffa5]+30% → +60% метаболизм[/color]</Box></ColorBox>
+</Table>
+
+<Box>
+<GuideEntityEmbed Entity="QuantumCapacitorStockPart"/>
+<GuideEntityEmbed Entity="QuantumScanningModuleStockPart"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="QuantumServoStockPart"/>
+<GuideEntityEmbed Entity="QuantumMicroLaserStockPart"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="QuantumMatterBinStockPart"/>
+</Box>
+
+## Квантовый катализатор
+
+Реагент для печати квантовых деталей - [bold]50 единиц на деталь[/bold]. Синтез - шестиэтапная цепочка: каждый этап требует нагрева смеси до своей температуры на [bold]хим-плитке[/bold] (чем дальше этап, тем горячее) и дополнительных ингредиентов, включая реагенты из тиров энерго-химраздатчика. Улучшенная плитка (микро-лазер) греет быстрее. Нагрев зависит от объёма раствора: чем меньше мензурка, тем быстрее. Готовый катализатор заливается в мензурку и вставляется в слот протолата.
+
+[head=2]Этапы синтеза[/head]
+
+<Table Columns="3">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Этап[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Реагент[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Температура[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">1. Горючий прекурсор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor1"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">400 К</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">2. Электролитный прекурсор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor2"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">450 К</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">3. Эфирный прекурсор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor3"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">500 К</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">4. Сульфаминовый прекурсор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor4"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">600 К</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">5. Радиоактивный прекурсор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTCatalystPrecursor5"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">750 К</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">6. Квантовый катализатор</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4"><GuideReagentEmbed Reagent="ADTQuantumCatalyst"/></Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">900 К</Box></ColorBox>
+</Table>
+
+Рецепт каждого этапа виден в описании реагента. Улучшенный протолат расходует меньше материалов и катализатора - скидка растёт с тиром установленных деталей.
+
+## Устройство быстрой замены (RPED)
+
+Хранит детали внутри и заменяет их за пару секунд: открутите техпанель, ткните машину, заберите старые детали. Даунгрейд невозможен.
+
+<Box>
+<GuideEntityEmbed Entity="RapidPartExchanger"/>
+<GuideEntityEmbed Entity="BluespaceRapidPartExchanger"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="RapidPartExchangerBorg"/>
+</Box>
+
+<Table Columns="2">
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Устройство[/bold]</Box></ColorBox>
+<ColorBox Color="#3a3a3a" Margin="2"><Box Margin="4">[bold]Особенности[/bold]</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">RPED</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Требует открытой техпанели и нахождения рядом</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Блюспейс RPED</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Работает на расстоянии и сквозь закрытые панели</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Борг-модуль</Box></ColorBox>
+<ColorBox Color="#2b3a2b" Margin="2"><Box Margin="4">Инженерный модуль киборга со встроенным RPED</Box></ColorBox>
+</Table>
+
+[bold]Фильтр замены:[/bold] действие в руке открывает колесо с типами деталей - выберите, что заменять. Крестик сбрасывает фильтр. RPED также достраивает машины: вставьте плату и детали прямо из устройства.
+
+</Document>

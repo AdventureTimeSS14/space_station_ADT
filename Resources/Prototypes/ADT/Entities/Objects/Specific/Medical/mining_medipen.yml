@@ -1,0 +1,184 @@
+- type: entity
+  name: survival medipen
+  parent: ChemicalMedipen
+  id: ADTSurvivalMedipen
+  description: "A medipen for surviving in the harshest of environments, heals and protects from environmental hazards. WARNING: Do not inject more than one pen in quick succession."
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/mining_medipen.rsi
+    layers:
+    - state: survival
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#3D6E9B"
+      - state: base-colorB-inhand-left
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#3D6E9B"
+      - state: base-colorB-inhand-right
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: survival_empty
+  - type: Injector
+    currentTransferAmount: 42
+    activeModeProtoId: ADTSlowMedipenInjectMode
+    allowedModes:
+    - HyposprayInjectMode
+    - ADTSlowMedipenInjectMode
+  - type: ADTLowPressureInjector
+    lowPressureMode: HyposprayInjectMode
+    normalMode: ADTSlowMedipenInjectMode
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 42
+        reagents:
+        - ReagentId: DexalinPlus
+          Quantity: 10
+        - ReagentId: Leporazine
+          Quantity: 15
+        - ReagentId: Epinephrine
+          Quantity: 10
+        - ReagentId: Barozine
+          Quantity: 2
+        - ReagentId: Tricordrazine
+          Quantity: 5
+  - type: Tag
+    tags:
+    - ADTMedipen
+  - type: StaticPrice
+    price: 150
+
+- type: entity
+  name: emergency stabilization medipen
+  parent: ChemicalMedipen
+  id: ADTStabilizationMedipen
+  description: A fast acting life-saving emergency autoinjector, stocked for prospectors who work a long shuttle ride away from the nearest medbay.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/mining_medipen.rsi
+    layers:
+    - state: stabilization
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#9B3D3D"
+      - state: base-colorB-inhand-left
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#9B3D3D"
+      - state: base-colorB-inhand-right
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: stabilization_empty
+  - type: Injector
+    currentTransferAmount: 12
+    activeModeProtoId: ADTSlowMedipenInjectMode
+    allowedModes:
+    - HyposprayInjectMode
+    - ADTSlowMedipenInjectMode
+  - type: ADTLowPressureInjector
+    lowPressureMode: HyposprayInjectMode
+    normalMode: ADTSlowMedipenInjectMode
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 12
+        reagents:
+        - ReagentId: Dexalin
+          Quantity: 3
+        - ReagentId: Leporazine
+          Quantity: 3
+        - ReagentId: Epinephrine
+          Quantity: 3
+        - ReagentId: Tricordrazine
+          Quantity: 3
+  - type: Tag
+    tags:
+    - ADTMedipen
+  - type: StaticPrice
+    price: 200
+
+- type: entity
+  name: hyper-regenerative medipen
+  parent: ChemicalMedipen
+  id: ADTHyperMedipen
+  description: An eye-wateringly expensive medipen holding a wide mix of medicines that covers most health issues at once. The mining union pried these out of Nanotrasen after one casualty report too many.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/mining_medipen.rsi
+    layers:
+    - state: hyper
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#7B2D5E"
+      - state: base-colorB-inhand-left
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#7B2D5E"
+      - state: base-colorB-inhand-right
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: hyper_empty
+  - type: Injector
+    currentTransferAmount: 37
+    activeModeProtoId: ADTSlowMedipenInjectMode
+    allowedModes:
+    - HyposprayInjectMode
+    - ADTSlowMedipenInjectMode
+  - type: ADTLowPressureInjector
+    lowPressureMode: HyposprayInjectMode
+    normalMode: ADTSlowMedipenInjectMode
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 37
+        reagents:
+        - ReagentId: Saline
+          Quantity: 3
+        - ReagentId: ADTStypticPowder
+          Quantity: 5
+        - ReagentId: Omnizine
+          Quantity: 3
+        - ReagentId: Tricordrazine
+          Quantity: 3
+        - ReagentId: Dexalin
+          Quantity: 2
+        - ReagentId: Bicaridine
+          Quantity: 4
+        - ReagentId: Kelotane
+          Quantity: 4
+        - ReagentId: Epinephrine
+          Quantity: 5
+        - ReagentId: Barozine
+          Quantity: 2
+        - ReagentId: Doxarubixadone
+          Quantity: 1
+        - ReagentId: Leporazine
+          Quantity: 2
+        - ReagentId: Dermaline
+          Quantity: 1
+        - ReagentId: Vitamin
+          Quantity: 2
+  - type: Tag
+    tags:
+    - ADTMedipen
+  - type: StaticPrice
+    price: 400

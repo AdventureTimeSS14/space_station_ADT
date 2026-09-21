@@ -1030,3 +1030,22 @@ BrokenImprinter: null
 BrokenMicrowavbe: null
 BrokenSMES: null
 BrokenSubstation: null
+
+# ADT 2026-07-30: Fuck xeno ghost roles
+SpawnMobXenoBurrower: ADTSpawnMobXenoBurrowerNoGhost
+SpawnMobXenoDrone: ADTSpawnMobXenoDroneNoGhost
+SpawnMobXenoPraetorian: ADTSpawnMobXenoPraetorianNoGhost
+SpawnMobXenoQueen: ADTSpawnMobXenoQueenNoGhost
+SpawnMobXenoRavager: ADTSpawnMobXenoRavagerNoGhost
+SpawnMobXenoRunner: ADTSpawnMobXenoRunnerNoGhost
+SpawnMobXenoSpitter: ADTSpawnMobXenoSpitterNoGhost
+SpawnMobXenoEasy: ADTSpawnMobXenoEasyNoGhost
+
+# ADT 21.08.2026: remove ADTUniversalPipeDispenser
+ADTUniversalPipeDispenser: null
+
+# ADT 31.08.2026
+SiliconChargerIndustrial: BorgCharger
+
+# ADT 07.09.2026
+LockerCorrectionOfficer: ADTLockerCorrectionOfficer

@@ -76,4 +76,10 @@
 # ADT-Tweak-Start
   - type: Item
     sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
+  - type: WeaponMartialArt
+    martialArtsForm: SyndicateAxe
+    combos: SyndicateAxeMoves
+  - type: GuideHelp
+    guides:
+    - ADTMaAxe
 # ADT-Tweak-End

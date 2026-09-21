@@ -7,13 +7,10 @@
       role: JobChef
       time: 36000 #10 часов
 
-# - type: loadout
-#   id: ADTChefManual
-#   effects:
-#   - !type:GroupLoadoutEffect
-#     proto: ADTMasterChef
-#   equipment:
-#     pocket1: ADTCookbookManual
+- type: loadout
+  id: ADTChefManual
+  equipment:
+    pocket1: ADTCookbookManual
 
 # PDA
 - type: loadout

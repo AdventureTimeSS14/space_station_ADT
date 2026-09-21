@@ -38,13 +38,13 @@ ent-ADTMechSeraphBattery = { ent-ADTMechSeraph }
     .suffix = Батарея
     .desc = { ent-ADTMechSeraph.desc }
 
-ent-ADTMechErtGygax = Гайгэкс ОБР
+ent-ADTMechErtGygax = Гигакс ОБР
     .desc =  Лёгкий мех, оформленный в цветовой схеме NT и принадлежащий силам ОБР.
 ent-ADTMechErtGygaxBattery = { ent-ADTMechErtGygax }
     .suffix = Батарея
     .desc = { ent-ADTMechErtGygax.desc }
 
-ent-ADTMechDarkGygax = тёмный Гайгэкс
+ent-ADTMechDarkGygax = тёмный Гигакс
     .desc =  Лёгкий мех, оформленный в тёмной цветовой схеме. Эта модель, кажется, содержит некоторые модификации.
 ent-ADTMechDarkGygaxBattery = { ent-ADTMechDarkGygax }
     .suffix = Батарея

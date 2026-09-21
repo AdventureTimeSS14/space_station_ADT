@@ -4,6 +4,7 @@ using Content.Shared.Silicons.StationAi;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
@@ -58,8 +59,30 @@ public sealed class StationAiOverlay : Overlay
         var playerEnt = _player.LocalEntity;
         _entManager.TryGetComponent(playerEnt, out TransformComponent? playerXform);
         var gridUid = playerXform?.GridUid ?? EntityUid.Invalid;
+
+        // ADT-Tweak start
+        if (playerEnt is { } p &&
+            _entManager.TryGetComponent(p, out EyeComponent? eyeComp) &&
+            eyeComp.Target is { } target &&
+            !_entManager.Deleted(target) &&
+            _entManager.TryGetComponent(target, out TransformComponent? targetXform) &&
+            targetXform.GridUid is { } targetGrid)
+        {
+            gridUid = targetGrid;
+        }
+        // ADT-Tweak end
+
         _entManager.TryGetComponent(gridUid, out MapGridComponent? grid);
         _entManager.TryGetComponent(gridUid, out BroadphaseComponent? broadphase);
+
+        // ADT-Tweak start
+        var visionNetwork = default(string?);
+        if (playerEnt is { } player &&
+            _entManager.TryGetComponent(player, out StationAiOverlayComponent? overlayComp))
+        {
+            visionNetwork = overlayComp.VisionNetwork;
+        }
+        // ADT-Tweak end
 
         var invMatrix = args.Viewport.GetWorldToLocalMatrix();
         _accumulator -= (float) _timing.FrameTime.TotalSeconds;
@@ -73,7 +96,7 @@ public sealed class StationAiOverlay : Overlay
             {
                 _accumulator = MathF.Max(0f, _accumulator + _updateRate);
                 _visibleTiles.Clear();
-                _entManager.System<StationAiVisionSystem>().GetView((gridUid, broadphase, grid), worldBounds, _visibleTiles);
+                _entManager.System<StationAiVisionSystem>().GetView((gridUid, broadphase, grid), worldBounds, _visibleTiles, visionNetwork: visionNetwork); // ADT-Tweak
             }
 
             var gridMatrix = xforms.GetWorldMatrix(gridUid);

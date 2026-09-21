@@ -1,0 +1,69 @@
+- type: reagent
+  id: ADTEntropicPolypnium
+  name: reagent-name-adt-entropic-polypnium
+  group: Toxins
+  desc: reagent-desc-adt-entropic-polypnium
+  physicalDesc: reagent-physical-desc-opaque
+  flavor: bitter
+  color: "#1d043d"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1.5
+            Asphyxiation: 1
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 4
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
+        type: Add
+        time: 2
+        probability: 0.2
+        conditions:
+        - !type:ReagentCondition
+          reagent: ADTEntropicPolypnium
+          min: 5
+
+- type: reagent
+  id: ADTTineaLuxor
+  name: reagent-name-adt-tinea-luxor
+  group: Foods
+  desc: reagent-desc-adt-tinea-luxor
+  physicalDesc: reagent-physical-desc-glowing
+  flavor: bitter
+  color: "#b5a213"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:ADTTemporaryGlow
+        radius: 2
+        color: "#ffe89c"
+        duration: 15
+      - !type:SatiateHunger
+        factor: 1
+
+- type: reagent
+  id: ADTVitriumFroth
+  name: reagent-name-adt-vitrium-froth
+  group: Foods
+  desc: reagent-desc-adt-vitrium-froth
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: fruity
+  color: "#d3a308"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        probability: 0.8
+        damage:
+          types:
+            Blunt: -1
+            Slash: -1
+            Piercing: -1
+            Heat: -1
+      - !type:SatiateHunger
+        factor: 3

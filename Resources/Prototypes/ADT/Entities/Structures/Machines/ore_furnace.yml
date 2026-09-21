@@ -1,0 +1,107 @@
+- type: entity
+  id: ADTBaseOreFurnace
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  abstract: true
+  name: ore furnace
+  components:
+  - type: Appearance
+  - type: WiresVisuals
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: ADTOreFurnace
+  - type: MaterialStorage
+    ignoreColor: true
+    whitelist:
+      tags:
+      - Ore
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: WiresPanel
+  - type: ActivatableUI
+    key: enum.ADTOreFurnaceUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.ADTOreFurnaceUiKey.Key:
+        type: ADTOreFurnaceBoundUserInterface
+  - type: Transform
+    anchored: true
+  - type: Pullable
+  - type: StaticPrice
+    price: 800
+  - type: ApcPowerReceiver
+    powerLoad: 150
+  - type: PowerState
+    idlePowerDraw: 150
+    workingPowerDraw: 1000
+  - type: RadioJobIconOverride
+    iconId: JobIconMachine
+  - type: ADTBlockAnchorOnLavaland
+  - type: AutoMaterialInsert
+    tag: ADTOreBag
+  - type: MiningPoints
+    transferSound:
+      path: /Audio/Effects/Cargo/ping.ogg
+
+- type: entity
+  parent: ADTBaseOreFurnace
+  id: OreProcessor
+  name: ore processor
+  description: It produces sheets and ingots using ores.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/ore_processor.rsi
+    layers:
+    - state: icon
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: OreProcessorMachineCircuitboard
+  - type: ADTOreFurnace
+    packs:
+    - OreFurnaceBasic
+    - OreFurnaceReinforcedGlass
+    - OreFurnaceBluespace
+
+- type: entity
+  parent: OreProcessor
+  id: OreProcessorIndustrial
+  name: industrial ore processor
+  description: An ore processor specifically designed for mass-producing metals in industrial applications.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/ore_processor_industrial.rsi
+  - type: Machine
+    board: OreProcessorIndustrialMachineCircuitboard
+  - type: ADTOreFurnace
+    materialUseMultiplier: 0.75
+    packs:
+    - OreFurnaceBasic
+    - OreFurnaceReinforcedGlass
+    - OreFurnaceAdvanced
+    - OreFurnaceBluespace

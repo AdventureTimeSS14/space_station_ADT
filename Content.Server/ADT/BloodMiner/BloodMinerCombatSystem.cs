@@ -48,8 +48,19 @@ public sealed class BloodMinerCombatSystem : EntitySystem
                 || TerminatingOrDeleted(target))
                 continue;
 
+            if (!TargetOnSameGrid(uid, target))
+            {
+                htn.Blackboard.Remove<EntityUid>("Target");
+                continue;
+            }
+
             OpenFire((uid, comp), target);
         }
+    }
+
+    private bool TargetOnSameGrid(EntityUid ent, EntityUid target)
+    {
+        return _transform.GetGrid(ent) == _transform.GetGrid(target);
     }
 
     private void OpenFire(Entity<BloodMinerComponent> ent, EntityUid target)

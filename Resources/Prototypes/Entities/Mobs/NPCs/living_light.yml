@@ -81,6 +81,7 @@
     radius: 3.0
     energy: 4.5
     color: "#6270bb"
+    mask: /Textures/ADT/Effects/Lightmasks/circle_b.png # ADT tweak
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepBells

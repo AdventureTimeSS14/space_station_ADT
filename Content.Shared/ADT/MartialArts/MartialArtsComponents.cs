@@ -14,8 +14,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.ADT.Areas;
 using Content.Shared.ADT.Grab;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.MartialArts;
 
@@ -45,6 +47,10 @@ public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideCo
 
     [DataField]
     [AutoNetworkedField]
+    public List<EntProtoId<AreaComponent>>? AllowedAreas;
+
+    [DataField]
+    [AutoNetworkedField]
     public float OriginalFistDamage;
 
     [DataField]
@@ -64,4 +70,7 @@ public enum MartialArtsForms
     HellRip,
     PTSD,
     CookbookTechnique,
+    Tonfa,
+    CursedKatana,
+    SyndicateAxe,
 }

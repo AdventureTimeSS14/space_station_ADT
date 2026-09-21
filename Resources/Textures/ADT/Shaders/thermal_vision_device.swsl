@@ -1,0 +1,112 @@
+
+uniform sampler2D SCREEN_TEXTURE;
+
+uniform highp float Gain;
+uniform highp float TotalLighting;
+uniform highp float WhiteoutThreshold;
+uniform highp float WhiteoutIntensity;
+uniform highp float BloomRadius;
+uniform highp float BloomStrength;
+uniform highp float EnvCrush;
+uniform highp float ColdFloor;
+uniform highp float StructureStrength;
+uniform highp float EnvHeatMax;
+
+uniform highp float NoiseAmplitude;
+uniform highp float FlickerStrength;
+uniform highp float GrainSize;
+uniform highp float DefectIntensity;
+uniform highp float ScanlineDark;
+
+const highp vec3 cCold = vec3(0.0, 0.0, 0.0);
+const highp vec3 cCool = vec3(0.10, 0.08, 0.28);
+const highp vec3 cMid  = vec3(0.42, 0.16, 0.44);
+const highp vec3 cWarm = vec3(0.62, 0.28, 0.22);
+
+highp float sampleLum(highp vec2 uv)
+{
+    return dot(zTextureSpec(SCREEN_TEXTURE, uv).rgb, vec3(0.2126, 0.7152, 0.0722));
+}
+
+highp float brightExcess(highp vec2 uv, highp float ampScale, highp float thresh)
+{
+    return max(0.0, sampleLum(uv) * ampScale - thresh);
+}
+
+highp float blurBrightLight(highp vec2 uv, highp float ampScale, highp float thresh, highp float radiusPx)
+{
+    highp float stepPx = clamp(radiusPx * 0.12, 1.0, 4.0);
+    highp vec2 s = SCREEN_PIXEL_SIZE * stepPx;
+    highp float sum = 0.0;
+    highp float wsum = 0.0;
+
+    sum += brightExcess(uv, ampScale, thresh) * 4.0;
+    wsum += 4.0;
+
+    sum += brightExcess(uv + vec2(s.x, 0.0), ampScale, thresh) * 2.0;
+    sum += brightExcess(uv - vec2(s.x, 0.0), ampScale, thresh) * 2.0;
+    sum += brightExcess(uv + vec2(0.0, s.y), ampScale, thresh) * 2.0;
+    sum += brightExcess(uv - vec2(0.0, s.y), ampScale, thresh) * 2.0;
+    wsum += 8.0;
+
+    sum += brightExcess(uv + vec2(s.x, s.y), ampScale, thresh) * 1.0;
+    sum += brightExcess(uv + vec2(s.x, -s.y), ampScale, thresh) * 1.0;
+    sum += brightExcess(uv + vec2(-s.x, s.y), ampScale, thresh) * 1.0;
+    sum += brightExcess(uv + vec2(-s.x, -s.y), ampScale, thresh) * 1.0;
+    wsum += 4.0;
+
+    sum += brightExcess(uv + vec2(s.x * 2.0, 0.0), ampScale, thresh) * 0.5;
+    sum += brightExcess(uv - vec2(s.x * 2.0, 0.0), ampScale, thresh) * 0.5;
+    sum += brightExcess(uv + vec2(0.0, s.y * 2.0), ampScale, thresh) * 0.5;
+    sum += brightExcess(uv - vec2(0.0, s.y * 2.0), ampScale, thresh) * 0.5;
+    wsum += 2.0;
+
+    return sum / max(wsum, 0.0001);
+}
+
+highp vec3 envPalette(highp float t)
+{
+    t = clamp(t, 0.0, 1.0);
+    if (t < 0.45)
+        return mix(cCold, cCool, t / 0.45);
+    if (t < 0.78)
+        return mix(cCool, cMid, (t - 0.45) / 0.33);
+    return mix(cMid, cWarm, (t - 0.78) / 0.22);
+}
+
+void fragment()
+{
+    COLOR = zTextureSpec(SCREEN_TEXTURE, Pos);
+
+    highp float Y = dot(COLOR.rgb, vec3(0.2126, 0.7152, 0.0722));
+
+    highp float YComp = Y / (1.0 + Y * 2.8);
+    highp float ampScale = Gain * (1.0 + TotalLighting * 5.0);
+    highp float YAmp = YComp * ampScale;
+
+    highp float bloomThresh = 0.55;
+    highp float blurredLight = blurBrightLight(Pos, ampScale * 0.35, bloomThresh, BloomRadius);
+    YAmp += blurredLight * BloomStrength * 0.35;
+
+    highp float g = YAmp / (1.0 + max(YAmp, 0.0) * 0.55);
+
+    highp float coldCut = max(ColdFloor, 0.0);
+    highp float heatLin = max(0.0, g - coldCut) / max(1.0 - coldCut, 0.0001);
+    highp float heat = pow(clamp(heatLin, 0.0, 1.0), max(EnvCrush, 0.8));
+
+    highp float heatMax = clamp(EnvHeatMax, 0.2, 0.85);
+    heat = min(heat, heatMax);
+    highp float t = heat / heatMax;
+
+    highp vec3 ir = envPalette(t);
+    highp float structure = mix(1.0, 0.72 + 0.28 * smoothstep(0.02, 0.40, Y), clamp(StructureStrength, 0.0, 1.0));
+    highp vec3 lit = ir * structure;
+
+    highp float blackKeep = smoothstep(0.0, 0.05, heat) * smoothstep(0.0, 0.025, Y);
+    highp vec3 finalColor = mix(vec3(0.0), lit, blackKeep);
+
+    highp float line = 1.0 - step(0.5, mod(floor(FRAGCOORD.y), 4.0));
+    finalColor *= mix(1.0, ScanlineDark, line);
+
+    COLOR.rgb = finalColor;
+}

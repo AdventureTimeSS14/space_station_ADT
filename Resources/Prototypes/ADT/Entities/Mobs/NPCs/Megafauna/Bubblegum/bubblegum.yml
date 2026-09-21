@@ -1,6 +1,6 @@
 - type: entity
   id: BaseMobBubblegum
-  parent: BaseMobAsteroid
+  parent: ADTBaseMobMegafauna
   abstract: true
   components:
   - type: Sprite
@@ -23,25 +23,6 @@
         - MobMask
         layer:
         - MobLayer
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
-  - type: Tag
-    tags:
-    - CannotSuicide
-    - DoorBumpOpener
-    - StunImmune
-  - type: NoSlip
-  - type: ExplosionResistance
-    damageCoefficient: 0
-  - type: Fauna
-  - type: Appearance
-  - type: AshStormImmune
-  - type: StatusEffects
-    allowed: []
-  - type: StaminaResistance
-    damageCoefficient: 0
-    worn: false
 
 - type: entity
   id: ADTMegaFaunaBubblegum
@@ -53,8 +34,6 @@
     tag: adt-gps-signal-bubblegum
     description: adt-gps-signal-bubblegum-desc
     color: "#B32020"
-  - type: Destructible
-    thresholds: []
   - type: GenericVisualizer
     visuals:
       enum.BubblegumVisuals.Enraged:
@@ -64,23 +43,19 @@
           False:
             color: "#FFFFFF"
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4.7
-    baseSprintSpeed: 4.7
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
   - type: MobThresholds
     thresholds:
       0: Alive
-      2500: Dead
-  - type: Damageable
-    damageModifierSet: Bubblegum
-  - type: Injurable
-    damageContainer: Biological
+      3500: Dead
   - type: MeleeWeapon
     attackRate: 0.85
     damage:
       types:
-        Blunt: 35
+        Blunt: 45
         Structural: 150
-    range: 2
+    range: 1.6
     angle: 0
     animation: WeaponArcPunch
     soundHit:
@@ -91,13 +66,23 @@
       AggroVisionRadius: !type:Single "20"
       NavSmash: !type:Bool "true"
       NavInteract: !type:Bool "true"
-      MeleeRange: !type:Single "1.8"
+      MeleeRange: !type:Single "1.45"
       MeleeMissChance: !type:Single "0"
     rootTask:
       task: ADTBubblegumCompound
   - type: Megafauna
+    speechCooldown: 15
+    speechChance: 0.3
+  - type: ADTBossMusic
+    music: ADTBossMusicBubblegum
+#  - type: ADTMobHealthBar
+#    active: true
+#    primaryColor: "#8e1717"
+#    accentColor: "#ff4d4d"
+ #   style: Molten
+ #   priority: 50
   - type: ArmorPenetration
-    penetration: 0.4
+    penetration: 0.65
   - type: Bubblegum
   - type: BubblegumTripleCharge
     delays:
@@ -105,14 +90,16 @@
     - 0.5
     - 0.4
   - type: BubblegumHallucinationCharge
-    hallucinationsSmash: 3
+    hallucinationsNormal: 8
+    hallucinationsSmash: 5
   - type: BubblegumSurround
-    waves: 4
+    waves: 6
   - type: BubblegumBloodWarp
   - type: BubblegumSummonNarsi
-    count: 2
+    count: 3
   - type: BubblegumBloodAttack
-    smackDamageEnraged: 17
+    smackDamage: 15
+    smackDamageEnraged: 26
   - type: BubblegumLoot
     deathThemeSound:
       path: /Audio/ADT/Phantom/Sounds/psycho.ogg
@@ -123,8 +110,6 @@
     dropSound:
       path: /Audio/ADT/Bubblegum/exit_blood.ogg
     randomLoot:
-    - ADTMayhemBottle
-    - ADTBloodContract
     - ADTWeaponExperimentalProtoKineticAcellerator
     loot:
     - proto: ADTClothingOuterHardsuitHECK
@@ -192,8 +177,3 @@
     netsync: true
     rootTask:
       task: DoAbsolutelyNothingCompound
-
-- type: htnCompound
-  id: DoAbsolutelyNothingCompound
-  branches:
-    - tasks: []

@@ -20,6 +20,8 @@
     - Security
   jobBlacklist:
     - ADTBlueShieldOfficer
+  conflicts:
+    - PoorVision
 
 - type: trait
   id: PoorVision
@@ -37,6 +39,8 @@
           blindness: 4
     - !type:SpawnItemInHandEffect
       item: ClothingEyesGlasses
+  conflicts:
+    - Blindness
 
 - type: trait
   id: Narcolepsy

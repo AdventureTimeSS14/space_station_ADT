@@ -31,6 +31,11 @@ namespace Content.Server.Shuttles.Components
         [ViewVariables(VVAccess.ReadWrite), DataField("thrust")]
         public float Thrust = 100f;
 
+        // ADT-Tweak-Start
+        [DataField]
+        public float ThrustMultiplier = 1f;
+        // ADT-Tweak-End
+
         [DataField("thrusterType")]
         public ThrusterType Type = ThrusterType.Linear;
 

@@ -151471,7 +151471,7 @@ entities:
     - type: Transform
       pos: -18.5,56.5
       parent: 2
-- proto: MicroManipulatorStockPart
+- proto: ScanningModuleStockPart
   entities:
   - uid: 23591
     components:

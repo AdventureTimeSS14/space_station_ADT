@@ -30,12 +30,21 @@
         type: CrewMonitoringBoundUserInterface
   - type: CrewMonitoringConsole
     departments: [] # ADT-Tweak: No parameters == full access
+  # ADT-Tweak Start - New Monitor
+  - type: PdaBorderColor
+    borderColor: "#C9CFE3"
+    accentVColor: "#609EFF"
+  - type: CrewMonitoringUiVisuals
+    themeColor: "#609EFF"
+  # #ADT-Tweak End
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: CrewMonitor
   - type: WirelessNetworkConnection
     range: 500
-  - type: StationLimitedNetwork
+  # ADT-Tweak - New Monitor: StationLimitedNetwork disabled
+  # - type: StationLimitedNetwork
+  # ADT-Tweak End
   - type: StaticPrice
     price: 500
   - type: Tag

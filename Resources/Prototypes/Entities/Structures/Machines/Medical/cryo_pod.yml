@@ -112,6 +112,7 @@
         maxVol: 50
   - type: CryoPod
   - type: CryoPodAir
+  - type: CryoPodMetabolism # ADT-Tweak
   - type: Climbable # so that ejected bodies don't get stuck
     vaultable: false
   - type: ContainerTemperature

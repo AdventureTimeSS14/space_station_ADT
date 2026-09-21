@@ -1,0 +1,53 @@
+
+uniform highp float SpectrumMin;
+uniform highp float SpectrumMax;
+uniform highp float HeatBoost;
+uniform highp float DetailPower;
+uniform highp float NoiseStrength;
+
+const highp vec3 cDeep = vec3(0.04, 0.02, 0.10);
+const highp vec3 cCool = vec3(0.18, 0.08, 0.34);
+const highp vec3 cMid  = vec3(0.48, 0.16, 0.40);
+const highp vec3 cWarm = vec3(0.88, 0.40, 0.12);
+const highp vec3 cHot  = vec3(0.98, 0.78, 0.32);
+const highp vec3 cPeak = vec3(1.0, 0.96, 0.85);
+
+highp vec3 infraredPalette(highp float t)
+{
+    t = clamp(t, 0.0, 1.0);
+    if (t < 0.20)
+        return mix(cDeep, cCool, t / 0.20);
+    if (t < 0.42)
+        return mix(cCool, cMid, (t - 0.20) / 0.22);
+    if (t < 0.65)
+        return mix(cMid, cWarm, (t - 0.42) / 0.23);
+    if (t < 0.85)
+        return mix(cWarm, cHot, (t - 0.65) / 0.20);
+    return mix(cHot, cPeak, (t - 0.85) / 0.15);
+}
+
+highp float hash21(highp vec2 p)
+{
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+void fragment()
+{
+    highp vec4 tex = zTexture(UV);
+
+    highp float Y = dot(tex.rgb, vec3(0.2126, 0.7152, 0.0722));
+    highp float channelMax = max(tex.r, max(tex.g, tex.b));
+    highp float src = max(Y, channelMax * 0.9);
+
+    highp float heat = pow(clamp(src * HeatBoost, 0.0, 1.0), max(DetailPower, 0.15));
+
+    highp float n = hash21(floor(UV * vec2(64.0, 96.0)));
+    heat += (n - 0.5) * clamp(NoiseStrength, 0.0, 1.0) * 0.06;
+
+    highp float tMin = clamp(SpectrumMin, 0.0, 0.9);
+    highp float tMax = max(clamp(SpectrumMax, tMin + 0.05, 1.0), tMin + 0.05);
+    heat = mix(tMin, tMax, clamp(heat, 0.0, 1.0));
+
+    COLOR = vec4(infraredPalette(heat), tex.a);
+    lightSample = vec3(1.0);
+}

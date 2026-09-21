@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Lavaland.Events;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Weather;
 using Robust.Shared.Prototypes;
@@ -30,6 +31,12 @@ public sealed partial class WeatherSchedulerComponent : Component
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextUpdate;
+
+    /// <summary>
+    /// ADT tweak: событие, которое надо запустить, когда закончится текущая стадия.
+    /// </summary>
+    [DataField]
+    public ProtoId<ADTLavalandEventPrototype>? PendingEvent;
 }
 
 /// <summary>
@@ -64,6 +71,9 @@ public partial struct WeatherStage
     /// </summary>
     [DataField]
     public List<WeatherStageVariant> Variants = new();
+
+    [DataField]
+    public ProtoId<ADTLavalandEventPrototype>? EventOnEnd; // ADT tweak
 }
 
 // ADT-Tweak-Start
@@ -87,5 +97,8 @@ public partial struct WeatherStageVariant
     /// </summary>
     [DataField]
     public float Weight = 1f;
+
+    [DataField]
+    public ProtoId<ADTLavalandEventPrototype>? EventOnEnd;
 }
 // ADT-Tweak-End

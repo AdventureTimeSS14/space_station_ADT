@@ -11,6 +11,7 @@
     id: PassengerIDCard
     pocket1: WeaponPistolMk58
     pocket2: MagazinePistol
+    belt: ADTClothingRPSUSSP
   storage:
     back:
       - MedkitCombatFilled
@@ -136,14 +137,6 @@
     - DrinkVodkaBottleFull
 
 - type: startingGear
-  id: ThunderdomeCQC
-  equipment:
-    suitstorage: ADTCqcManual
-  storage:
-    back:
-    - StimpackMini
-
-- type: startingGear
   id: ThunderdomeKungFuDragon
   equipment:
     suitstorage: ADTScrollDragonKungFu
@@ -241,9 +234,9 @@
   id: ThunderdomeCaptainSabre
   equipment:
     suitstorage: CaptainSabre
-    belt: EnergyShield
   storage:
     back:
+    - EnergyShield
     - StimpackMini
     - Stimpack
 

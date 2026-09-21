@@ -206,6 +206,8 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.SaveItemLocation);
             AddButton(ContentKeyFunctions.OfferItem); // ADT-Tweak
             AddButton(ContentKeyFunctions.PickupHumans); // ADT-Tweak
+            AddButton(ContentKeyFunctions.Resist); // ADT-Tweak
+            AddButton(ContentKeyFunctions.DrawBackItem); // ADT-Tweak
             AddButton(ContentKeyFunctions.TogglePosing); // ADT-Tweak
             AddButton(ContentKeyFunctions.PosingOffsetLeft); // ADT-Tweak
             AddButton(ContentKeyFunctions.PosingOffsetRight); // ADT-Tweak
@@ -220,6 +222,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.SmartEquipPocket1);
             AddButton(ContentKeyFunctions.SmartEquipPocket2);
             AddButton(ContentKeyFunctions.SmartEquipSuitStorage);
+            AddButton(ContentKeyFunctions.SmartEquipNeck); // ADT-Tweak-SmartEquipNeck
             AddButton(ContentKeyFunctions.OpenBackpack);
             AddButton(ContentKeyFunctions.OpenBelt);
             AddButton(ContentKeyFunctions.ThrowItemInHand);

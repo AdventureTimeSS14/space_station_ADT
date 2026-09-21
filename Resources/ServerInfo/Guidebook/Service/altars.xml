@@ -742,7 +742,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="MicroManipulatorStockPart"Caption="машинная часть"/>
+        <GuideEntityEmbed Entity="CapacitorStockPart"Caption="конденсатор"/>
       </Box>
     </ColorBox>
     <ColorBox>

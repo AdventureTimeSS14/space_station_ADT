@@ -1,0 +1,10 @@
+ent-ForcedStealthStatusEffect = камуфляж
+    .desc = { ent-MobStatusEffectBase.desc }
+ent-ChangeFactionStatusEffect = смена фракции
+    .desc = { ent-MobStatusEffectBase.desc }
+ent-StatusEffectImmuneFire = иммунитет к огню
+    .desc = { ent-MobStatusEffectBase.desc }
+ent-StatusEffectImmunePressure = иммунитет к давлению
+    .desc = { ent-MobStatusEffectBase.desc }
+ent-StatusEffectWeatherImmune = иммунитет к пепельной буре
+    .desc = { ent-MobStatusEffectBase.desc }

@@ -301,3 +301,12 @@
   - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
     state: fadingstars3
   shader: unshaded
+
+- type: marking
+  id: SlimeSuccubus
+  bodyPart: Tail
+  groupWhitelist: [Slime]
+  followSkinColor: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/Slime/custom.rsi
+    state: succubus

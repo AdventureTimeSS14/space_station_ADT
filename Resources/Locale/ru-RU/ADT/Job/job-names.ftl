@@ -73,6 +73,7 @@ job-name-lab-tech = аналитик
 job-name-anomalist = аномалист
 job-name-xenoarch = ксеноархеолог
 job-name-mechanical-assembler = механосборщик
+job-name-xenobio = ксенобиолог
 
 # Service
 
@@ -116,6 +117,7 @@ job-name-gladiator = гладиатор
 # Security
 
 job-name-sheriff = шериф
+job-name-time-patrol = страж времени
 job-name-investigator = следователь
 job-name-field-doctor = полевой врач
 

@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2026 ultradyper <ultradyper@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Лёгкий дебаф тяжёлой стадии ломки: небольшое замедление.
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectWithdrawalWeakness
+  name: withdrawal-weakness
+  components:
+  - type: StatusEffect
+    whitelist:
+      components:
+      - MobState
+      - MovementSpeedModifier
+      requireAll: true
+  - type: MovementModStatusEffect
+    walkSpeedModifier: 0.85
+    sprintSpeedModifier: 0.85

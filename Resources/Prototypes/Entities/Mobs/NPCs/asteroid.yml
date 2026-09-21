@@ -442,6 +442,8 @@
     - id: DiamondOre1
       amount: 1
       maxAmount: 3
+    - id: ADTMaterialSinew1 # ADT tweak
+      maxAmount: 2 # ADT tweak
 
 - type: weightedRandomEntity
   id: GoliathActions

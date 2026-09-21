@@ -20,7 +20,8 @@
   id: StatusEffectBloodloss
   name: bloodloss
   components:
-  - type: StutteringAccent
+  # ADT-Tweak: StutteringAccent disabled - bloodloss applies the syllable accent via ADT code instead.
+  # - type: StutteringAccent
   - type: DrunkStatusEffect
 
 # ADT-Tweak: PainNumbnessTraitStatusEffect and StatusEffectHemophiliaTrait moved to

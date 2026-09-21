@@ -167,12 +167,13 @@ public abstract class SharedNightVisionSystem : EntitySystem
             nightVision.State = NightVisionState.Full;
             nightVision.Shader = item.Comp.Shader;
             nightVision.EffectPrototype = item.Comp.EffectPrototype;
+            nightVision.Overlay = true;
             Dirty(user, nightVision);
 
             var eyeDamage = EnsureComp<DamageEyesOnFlashedComponent>(user);
             Dirty(user, eyeDamage);
 
-            _audio.PlayPredicted(item.Comp.SoundOn, item, user);
+            _audio.PlayLocal(item.Comp.SoundOn, item, user);
         }
 
         _actions.SetToggled(item.Comp.Action, true);
@@ -207,13 +208,13 @@ public abstract class SharedNightVisionSystem : EntitySystem
             }
             else
             {
-                // Restore species/innate shader + light effect after removing the device overlay.
                 if (item.Comp.PreviousShader != null)
                     nightVision.Shader = item.Comp.PreviousShader;
 
                 if (item.Comp.PreviousEffectPrototype != null)
                     nightVision.EffectPrototype = item.Comp.PreviousEffectPrototype.Value;
 
+                nightVision.Overlay = false;
                 Dirty(user.Value, nightVision);
                 RemCompDeferred<DamageEyesOnFlashedComponent>(user.Value);
             }
@@ -222,8 +223,8 @@ public abstract class SharedNightVisionSystem : EntitySystem
         item.Comp.PreviousShader = null;
         item.Comp.PreviousEffectPrototype = null;
 
-        if (playSound && wasActive && !_timing.ApplyingState)
-            _audio.PlayPredicted(item.Comp.SoundOff, item, soundUser);
+        if (playSound && wasActive && !_timing.ApplyingState && soundUser != null)
+            _audio.PlayLocal(item.Comp.SoundOff, item, soundUser);
     }
 
     /// <summary>

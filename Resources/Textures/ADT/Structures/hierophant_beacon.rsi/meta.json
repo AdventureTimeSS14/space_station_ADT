@@ -1,0 +1,42 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise Station at icons/obj/lavaland/artefacts.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "off",
+            "delays": [
+                [
+                    0.1,
+                    0.08,
+                    0.060000002,
+                    0.04,
+                    0.02,
+                    0.04,
+                    0.060000002,
+                    0.08,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "on",
+            "delays": [
+                [
+                    0.1,
+                    0.08,
+                    0.060000002,
+                    0.04,
+                    0.02,
+                    0.3,
+                    0.15,
+                    0.1
+                ]
+            ]
+        }
+    ]
+}

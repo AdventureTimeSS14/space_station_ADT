@@ -4,11 +4,13 @@ using Content.Shared.Examine;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.GPS;
 
 public abstract class SharedGpsSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
@@ -58,6 +60,9 @@ public abstract class SharedGpsSystem : EntitySystem
             : "adt-gps-examine-idle";
 
         args.PushMarkup(Loc.GetString(stateMessage));
+
+        if (ent.Comp.Sos)
+            args.PushMarkup(Loc.GetString("adt-gps-examine-sos"));
     }
 
     private void OnEmpPulse(Entity<GpsComponent> ent, ref EmpPulseEvent args)
@@ -88,7 +93,7 @@ public abstract class SharedGpsSystem : EntitySystem
 
         if (HasComp<EmpDisabledComponent>(ent))
         {
-            _popup.PopupEntity(Loc.GetString("adt-gps-popup-broken"), ent.Owner, user);
+            _popup.PopupClient(Loc.GetString("adt-gps-popup-broken"), ent.Owner, user);
             return;
         }
 
@@ -98,7 +103,30 @@ public abstract class SharedGpsSystem : EntitySystem
             ? "adt-gps-popup-enabled"
             : "adt-gps-popup-disabled";
 
-        _popup.PopupEntity(Loc.GetString(message), ent.Owner, user);
+        _popup.PopupClient(Loc.GetString(message), ent.Owner, user);
+    }
+
+    public bool SosReady(Entity<GpsComponent> ent)
+    {
+        return _timing.CurTime >= ent.Comp.NextSosToggle;
+    }
+
+    public void SetSos(Entity<GpsComponent> ent, bool sos)
+    {
+        if (ent.Comp.Sos == sos)
+            return;
+
+        ent.Comp.Sos = sos;
+        ent.Comp.NextSosToggle = _timing.CurTime + ent.Comp.SosCooldown;
+        Dirty(ent);
+
+        if (sos)
+        {
+            SetTracking(ent, true);
+            AlertSos(ent);
+        }
+
+        UpdateUiState(ent);
     }
 
     public void SetTracking(Entity<GpsComponent> ent, bool tracking)
@@ -162,6 +190,10 @@ public abstract class SharedGpsSystem : EntitySystem
     }
 
     protected virtual void UpdateUiState(Entity<GpsComponent> ent)
+    {
+    }
+
+    protected virtual void AlertSos(Entity<GpsComponent> ent)
     {
     }
 }

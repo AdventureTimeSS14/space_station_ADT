@@ -54,6 +54,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly IReplayRecordingManager _replay = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly ADT.Deafness.ADTDeafnessSystem _deafness = default!;
     [Dependency] private readonly IChatSanitizationManager _sanitizer = default!;
     [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -69,11 +70,11 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
     [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
 
-    // Corvax-TTS-Start: Moved from Server to Shared
+    // ADT-Tweak-Start: Moved from Server to Shared
     // public const int VoiceRange = 10; // how far voice goes in world units
     // public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
     // public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
-    // Corvax-TTS-End
+    // ADT-Tweak-End
     public new readonly SoundSpecifier DefaultAnnouncementSound = new SoundPathSpecifier("/Audio/ADT/Announcements/announce_dig.ogg"); // ADT-Tweak: замена звука оповещения на ADT версию
     public const string CentComAnnouncementSound = "/Audio/ADT/Announcements/announce_dig.ogg"; // ADT-Tweak: замена звука CentComm на ADT версию
 
@@ -212,7 +213,10 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         // ADT-Port-Start - DeltaV - Hushed trait logic
         // This needs to happen after prefix removal to avoid bug
-        if (desiredType == InGameICChatType.Speak && HasComp<HushedComponent>(source))
+        var currentLanguage = language ?? _language.GetCurrentLanguage(source);
+        var isCollectiveMind = currentLanguage.LanguageType is CollectiveMind;
+
+        if (desiredType == InGameICChatType.Speak && HasComp<HushedComponent>(source) && !isCollectiveMind)
         {
             // hushed players cannot speak on local chat so will be sent as whisper instead
             desiredType = InGameICChatType.Whisper;
@@ -651,7 +655,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             ("entityName", name),
             ("message", FormattedMessage.EscapeText(message)));
 
-        SendInVoiceRange(ChatChannel.LOOC, message, wrappedMessage, wrappedMessage, source, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, player.UserId, ignoreLanguage: true); // ADT Languages
+        SendInVoiceRange(ChatChannel.LOOC, message, wrappedMessage, wrappedMessage, source, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, player.UserId, ignoreLanguage: true, checkVisibility: false); // ADT Languages
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"LOOC from {source}: {message}");
     }
 
@@ -749,10 +753,19 @@ public sealed partial class ChatSystem : SharedChatSystem
         return initialResult;
     }
 
+    // ADT-Tweak start
+    public bool HasLineOfSight(EntityUid listener, EntityUid? source, float range = VoiceRange, bool ignoreWalls = false)
+    {
+        var ev = new ChatVisibilityCheckEvent(listener, source, range, ignoreWalls);
+        RaiseLocalEvent(ref ev);
+        return ev.Visible;
+    }
+    // ADT-Tweak end
+
     /// <summary>
     ///     Sends a chat message to the given players in range of the source entity.
     /// </summary>
-    public void SendInVoiceRange(ChatChannel channel, string message, string wrappedMessage, string wrappedLanguageMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, ProtoId<LanguagePrototype>? language = null, bool ignoreLanguage = false)  // ADT Languages
+    public void SendInVoiceRange(ChatChannel channel, string message, string wrappedMessage, string wrappedLanguageMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, ProtoId<LanguagePrototype>? language = null, bool ignoreLanguage = false, bool checkVisibility = true, bool ignoreWalls = false)  // ADT Languages
     {
         // ADT Languages start
         var lang = language != null ? _prototypeManager.Index(language.Value) : _language.GetCurrentLanguage(source);
@@ -764,6 +777,11 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (session.AttachedEntity is not { Valid: true } playerEntity)
                 continue;
             listener = session.AttachedEntity.Value;
+
+            // ADT-Tweak start
+            if (checkVisibility && !data.Observer && !HasLineOfSight(listener, source, ignoreWalls: ignoreWalls))
+                continue;
+            // ADT-Tweak end
 
             bool condition = true;
             foreach (var item in lang.Conditions.Where(x => x.RaiseOnListener))
@@ -778,6 +796,15 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (entRange == MessageRangeCheckResult.Disallowed)
                 continue;
             var entHideChat = entRange == MessageRangeCheckResult.HideChat;
+
+            // ADT-Tweak start
+            if (listener != source && _deafness.TryGetDeafenedMessage(listener, message, out var deafened))
+            {
+                _chatManager.ChatMessageToOne(channel, deafened, deafened, source, entHideChat, session.Channel, author: author);
+                continue;
+            }
+            // ADT-Tweak end
+
             if (ignoreLanguage)
             {
                 _chatManager.ChatMessageToOne(channel, message, wrappedMessage, source, entHideChat, session.Channel, author: author);

@@ -75,37 +75,7 @@
         factor: 8
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human ]
-      - !type:Oxygenate
-        factor: 8
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Novakid ]
-      - !type:Oxygenate
-        factor: 8
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Drask ]
-      - !type:Oxygenate
-        factor: 8
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Animal ]
-      - !type:Oxygenate
-        factor: 8
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Rat ]
-      - !type:Oxygenate
-        factor: 8
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
-      - !type:Oxygenate
-        factor: 8
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Resomi ]
+          type: [ Human, Novakid, Drask, Animal, Rat, Plant, Resomi, Arachnid, Ursus ]
       - !type:ModifyLungGas
         conditions:
         - !type:MetabolizerTypeCondition

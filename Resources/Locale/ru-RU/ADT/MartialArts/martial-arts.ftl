@@ -71,7 +71,7 @@ ninjutsu-combo-dirty-kill = грязное убийство
 ninjutsu-combo-takedown = удушающий захват
 ninjutsu-combo-assassinate = удар в спину
 
-hellrip-combo-flying-dropkick = детящий дропкик
+hellrip-combo-flying-dropkick = летящий дропкик
 hellrip-combo-head-rip = отрывание головы
 hellrip-combo-tear-down = разрыв
 hellrip-combo-hellish-slam = адский удар
@@ -109,7 +109,26 @@ alerts-dragon-power-name = Сила Дракона
 alerts-dragon-power-desc = Вы на мгновение вспоминаете прошлые битвы. Это знание защитит вас от будущих ударов.
 
 alerts-sneak-attack-name = Скрытая Атака
-alerts-sneak-attack-desc = Для истинного синоби первый удар и последний — одно и то же.
+alerts-sneak-attack-desc = Для истинного синоби первый удар и последний - одно и то же.
 
 alerts-loss-of-surprise-name = Раскрытие
 alerts-loss-of-surprise-desc = Ваши намерения известны! Пройдёт несколько мгновений, прежде чем вы сможете снова атаковать из укрытия.
+
+combo-intent-harm = точный удар
+combo-intent-harmlight = размашистый удар
+combo-intent-disarm = толчок
+combo-intent-grab = захват
+combo-intent-help = помощь
+combo-intent-hug = объятие
+
+weapon-martial-art-combo = [color=yellow]{ $move }[/color] - { $steps }
+weapon-martial-art-neutral-stance = Вы возвращаетесь в нейтральную стойку.
+
+tonfa-combo-solar-plexus = удар в солнечное сплетение
+tonfa-combo-ribs = удар в рёбра
+tonfa-combo-wrist = удар по кисти
+tonfa-combo-leg-sweep = подсечка
+tonfa-combo-grab-break = сброс захвата
+
+syndicate-axe-combo-knockdown = нокдаун
+syndicate-axe-combo-grab-push = отталкивание при захвате

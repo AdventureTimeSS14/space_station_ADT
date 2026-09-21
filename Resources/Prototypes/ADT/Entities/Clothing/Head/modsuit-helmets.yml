@@ -163,10 +163,13 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
   - type: ShowHealthIcons
     damageContainers:
     - Biological
-
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
   id: ADTClothingHeadHelmetModsuitMining
@@ -418,10 +421,13 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
   - type: ShowHealthIcons
     damageContainers:
     - Biological
-
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
   id: ADTClothingHeadHelmetModsuitCaptain
@@ -496,10 +502,13 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
   - type: ShowHealthIcons
     damageContainers:
     - Biological
-
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
   id: ADTClothingHeadHelmetModsuitWard
@@ -543,10 +552,13 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
   - type: ShowHealthIcons
     damageContainers:
     - Biological
-
+    - ADTBiologicalShadekin
+    - ADTBiologicalDrask
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
   id: ADTClothingHeadHelmetModsuitAncient

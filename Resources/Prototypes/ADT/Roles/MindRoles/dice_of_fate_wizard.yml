@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseMindRole
+  id: MindRoleDiceOfFateWizard
+  name: Dice of Fate Wizard Role
+  components:
+  - type: MindRole
+    roleType: Neutral
+    subtype: role-subtype-wizard
+  - type: WizardRole
+

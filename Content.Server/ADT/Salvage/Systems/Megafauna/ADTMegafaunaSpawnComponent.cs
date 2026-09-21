@@ -6,9 +6,6 @@ namespace Content.Server.ADT.Salvage.Systems;
 [RegisterComponent]
 public sealed partial class ADTMegafaunaSpawnComponent : Component
 {
-    /// <summary>
-    /// Сколько разных боссов заспавнить за раунд
-    /// </summary>
     [DataField]
     public int Count = 5;
 
@@ -26,6 +23,12 @@ public sealed partial class ADTMegafaunaSpawnComponent : Component
 
     [DataField]
     public bool AvoidRooms = true;
+
+    [DataField]
+    public float RoomClearance = 30f;
+
+    [DataField]
+    public float RoomMargin = 6f;
 
     [DataField]
     public List<EntProtoId> Bosses = new();

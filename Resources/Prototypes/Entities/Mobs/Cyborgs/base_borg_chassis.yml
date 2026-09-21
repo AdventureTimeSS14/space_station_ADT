@@ -16,6 +16,7 @@
     soundHit:
       collection: MetalThud
   - type: CombatMode
+  - type: ADTBorgMarkerViewer # ADT-Tweak
   - type: NoSlip
   - type: StaticPrice
     price: 1250
@@ -254,9 +255,9 @@
       isLooped: true
   - type: PointLight
     enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
+    mask: /Textures/ADT/Effects/Lightmasks/cone_composed_b.png # ADT tweak
     autoRot: true
-    radius: 4
+    radius: 9 # ADT tweak 3 > 9
     netsync: false
   - type: Pullable
   - type: Puller
@@ -361,6 +362,18 @@
   - type: RandomMetadata
     nameSegments:
     - NamesBorg
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+    - CanPilot
+    - SiliconEmotes
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - Unimplantable
+    - ADTVendingCargoAccount
+  # ADT-Tweak end
   - type: NpcFactionMember
     factions:
     - NanoTrasen

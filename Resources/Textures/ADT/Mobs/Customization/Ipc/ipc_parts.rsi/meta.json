@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC-BY-SA-3.0",
   "copyright": "Sprited by orange6775 (discord)",
   "size": {
@@ -7,7 +7,17 @@
     "y": 32
   },
   "states": [
+    {"name": "head_duke_prime", "directions": 4},
+    {"name": "head_duke_second", "directions": 4},
+    {"name": "head_geth_prime", "directions": 4},
+    {"name": "head_geth_second", "directions": 4},
     {"name": "chest_core", "directions": 4},
+    {"name": "l_hand_armband_prime", "directions": 4},
+    {"name": "l_hand_armband_second", "directions": 4},
+    {"name": "r_hand_armband_prime", "directions": 4},
+    {"name": "r_hand_armband_second", "directions": 4},
+    {"name": "l_leg_ring", "directions": 4},
+    {"name": "r_leg_ring", "directions": 4},
     {"name": "chest_line_prime", "directions": 4},
     {"name": "chest_line_second", "directions": 4},
     {"name": "chest_line_third", "directions": 4},

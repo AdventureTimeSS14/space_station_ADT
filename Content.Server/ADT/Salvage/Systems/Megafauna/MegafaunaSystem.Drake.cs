@@ -14,7 +14,6 @@ public sealed partial class MegafaunaSystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly GunSystem _gun = default!;
 
     protected void InitializeDrake()

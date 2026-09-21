@@ -10,4 +10,7 @@ public sealed partial class DamageAmplifyActiveEffectComponent : Component
 
     [DataField, AutoNetworkedField]
     public float DamageMult = 1.1f;
+
+    [DataField, AutoNetworkedField]
+    public EntityUid Source;
 }

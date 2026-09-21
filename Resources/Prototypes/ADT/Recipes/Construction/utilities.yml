@@ -16,3 +16,12 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
+
+- type: construction
+  id: StorageCanister
+  graph: StorageCanister
+  startNode: start
+  targetNode: done
+  category: construction-category-storage
+  placementMode: SnapgridCenter
+  objectType: Structure

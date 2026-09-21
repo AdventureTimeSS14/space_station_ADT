@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   abstract: true
   parent: BaseItem
   id: MaterialBase
@@ -95,6 +95,10 @@
   - type: Healing
     damageContainers:
       - Biological
+      # ADT-Tweak Start: New healing containers
+      - ADTBiologicalShadekin
+      - ADTBiologicalDrask
+      # ADT-Tweak End
     damage:
       types:
         Blunt: 0 # ADT tweak
@@ -360,10 +364,10 @@
     slots:
       - HEAD
   - type: PointLight
-    radius: 1.2
+    radius: 1.7 # ADT tweak 1.2 > 1.7
     energy: 2.7
     color: "#4faffb"
-    slots:
+    mask: /Textures/ADT/Effects/Lightmasks/circle_b.png # ADT tweak
 
 - type: entity
   parent: MaterialBase

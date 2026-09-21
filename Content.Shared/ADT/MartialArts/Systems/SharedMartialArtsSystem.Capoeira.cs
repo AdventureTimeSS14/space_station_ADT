@@ -80,7 +80,9 @@ public abstract partial class SharedMartialArtsSystem
             || target != ent.Owner)
             return;
 
+        //_stun.TryUnstun(ent.Owner); idk fix 
         RemCompDeferred<KnockedDownComponent>(ent);
+        RemCompDeferred<StunnedComponent>(ent); 
         //_stamina.TryTakeStamina(ent, args.StaminaToHeal);
         ent.Comp.LastAttacks.Clear();
     }

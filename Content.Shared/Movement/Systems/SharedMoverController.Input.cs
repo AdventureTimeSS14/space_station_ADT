@@ -598,7 +598,10 @@ namespace Content.Shared.Movement.Systems
             {
                 if (session?.AttachedEntity == null) return false;
 
-                _controller.HandleRunChange(session.AttachedEntity.Value, message.SubTick, message.State == BoundKeyState.Down);
+                // ADT-Tweak-Start
+                var walking = _controller.ApplyRunInversion(session.AttachedEntity.Value, message.State == BoundKeyState.Down);
+                _controller.HandleRunChange(session.AttachedEntity.Value, message.SubTick, walking);
+                // ADT-Tweak-End
                 return false;
             }
         }

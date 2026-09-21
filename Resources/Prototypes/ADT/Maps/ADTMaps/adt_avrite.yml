@@ -69,6 +69,7 @@
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 4, 4 ]
             CargoTechnician: [ 4, 5 ]
+            ADTMiner: [ 4, 5 ] # ADT-Roles
             # juridical
             Lawyer: [ 1, 1 ]
             IAA: [ 1, 1 ]

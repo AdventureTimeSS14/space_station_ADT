@@ -1,5 +1,6 @@
 ﻿using Content.Client.Gameplay;
 using Content.Client.Ghost;
+using Content.Client.Lobby;
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Client.UserInterface.Systems.Ghost.Widgets;
 using Content.Shared.Ghost;
@@ -103,7 +104,6 @@ public sealed partial class GhostUIController : UIController, IOnSystemChanged<G
             return;
 
         window.UpdateWarps(msg.Warps);
-        window.Populate();
     }
 
     private void OnRoleCountUpdated(GhostUpdateGhostRoleCountEvent msg)
@@ -131,9 +131,11 @@ public sealed partial class GhostUIController : UIController, IOnSystemChanged<G
         Gui.RequestWarpsPressed += RequestWarps;
         Gui.ReturnToBodyPressed += ReturnToBody;
         Gui.GhostRolesPressed += GhostRolesPressed;
+        Gui.CharacterEditorPressed += CharacterEditorPressed; // ADT-Tweak 
         Gui.TargetWindow.WarpClicked += OnWarpClicked;
         Gui.TargetWindow.OnGhostnadoClicked += OnGhostnadoClicked;
         Gui.ThunderdomePressed += ThunderdomePressed; // ADT-Tweak
+        Gui.ThunderdomeLeaderboardPressed += ThunderdomeLeaderboardPressed; // ADT-Tweak
 
         UpdateGui();
     }
@@ -146,9 +148,11 @@ public sealed partial class GhostUIController : UIController, IOnSystemChanged<G
         Gui.RequestWarpsPressed -= RequestWarps;
         Gui.ReturnToBodyPressed -= ReturnToBody;
         Gui.GhostRolesPressed -= GhostRolesPressed;
+        Gui.CharacterEditorPressed -= CharacterEditorPressed; // ADT-Tweak 
         Gui.TargetWindow.WarpClicked -= OnWarpClicked;
 
         Gui.ThunderdomePressed -= ThunderdomePressed; // ADT-Tweak
+        Gui.ThunderdomeLeaderboardPressed -= ThunderdomeLeaderboardPressed; // ADT-Tweak
 
         Gui.Hide();
     }
@@ -170,10 +174,22 @@ public sealed partial class GhostUIController : UIController, IOnSystemChanged<G
         _system?.OpenGhostRoles();
     }
 
+    // ADT Tweak start
+    private void CharacterEditorPressed()
+    {
+        UIManager.GetUIController<LobbyUIController>().OpenCharacterSetupWindow();
+    }
+    // ADT Tweak end
+
     // ADT-tweak-start
     private void ThunderdomePressed()
     {
         _net.SendSystemNetworkMessage(new ThunderdomeJoinRequestEvent());
+    }
+
+    private void ThunderdomeLeaderboardPressed()
+    {
+        _net.SendSystemNetworkMessage(new ThunderdomeLeaderboardRequestEvent());
     }
 
     private void OnThunderdomePlayerCount(ThunderdomePlayerCountEvent ev)

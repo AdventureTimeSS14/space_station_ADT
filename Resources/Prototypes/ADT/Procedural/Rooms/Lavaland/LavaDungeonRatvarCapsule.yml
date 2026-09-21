@@ -1,0 +1,210 @@
+- type: adtDungeonRoom
+  id: LavaDungeonRatvarCapsule
+  size: 6, 6
+  tags:
+  - LavaDungeon
+  legend:
+    "a":
+      tile: FloorBasalt
+    "b":
+      tile: FloorBrassReebe
+    "c":
+      tile: FloorBrassFilled
+    "d":
+      tile: PlatingBrass
+  tiles:
+  - "abbbbb"
+  - "bbcbcb"
+  - "bdbdbd"
+  - "bbcbcb"
+  - "bdbdbd"
+  - "bbcbcb"
+  entities:
+  - proto: ADTCursedHeart
+    positions:
+    - 3.5254,2.5509
+  - proto: ClothingHeadHatHoodCulthood
+    positions:
+    - 2.7498,0.6934
+  - proto: ClothingOuterRobesCult
+    positions:
+    - 5.3149,2.3216
+  - proto: ClothingShoesCult
+    positions:
+    - 1.6205,1.5577
+  - proto: CultAltarSpawner
+    positions:
+    - 3.5,2.5
+  - proto: Mannequin
+    rot: 1.5707963267948966 rad
+    positions:
+    - 1.5,2.5
+  - proto: OperatingTable
+    positions:
+    - 3.5,4.5
+  - proto: PlushieRatvar
+    positions:
+    - 3.4143,3.4997
+  - proto: RitualDagger
+    positions:
+    - 4.4184,4.0979
+  - proto: SalvageHumanCorpseSpawner
+    rot: -1.5707963267948966 rad
+    positions:
+    - 3.5,4.5
+  - proto: WallClock
+    positions:
+    - 1.5,5.5
+    - 3.5,5.5
+    - 2.5,5.5
+    - 4.5,5.5
+    - 5.5,5.5
+    - 5.5,4.5
+    - 0.5,4.5
+    - 1.5,4.5
+    - 0.5,3.5
+    - 0.5,1.5
+    - 0.5,0.5
+    - 0.5,2.5
+    - 1.5,0.5
+    - 5.5,0.5
+  - proto: WindowClockworkDirectional
+    rot: -1.5707963267948966 rad
+    positions:
+    - 2.5,0.5
+    - 2.5,1.5
+    - 2.5,3.5
+    - 2.5,4.5
+    - 2.5,2.5
+  - proto: WindowClockworkDirectional
+    rot: 1.5707963267948966 rad
+    positions:
+    - 4.5,4.5
+    - 4.5,3.5
+    - 4.5,1.5
+    - 4.5,0.5
+    - 4.5,2.5
+  decals:
+  - id: ADTTileBrickTileWhiteCornerNe
+    color: '#B96F1AAB'
+    positions:
+    - 4,3
+  - id: ADTTileBrickTileWhiteCornerNw
+    color: '#B96F1AAB'
+    positions:
+    - 2,4
+  - id: ADTTileBrickTileWhiteCornerSe
+    color: '#B96F1AAB'
+    positions:
+    - 4,0
+  - id: ADTTileBrickTileWhiteCornerSw
+    color: '#B96F1AAB'
+    positions:
+    - 2,1
+  - id: ADTTileBrickTileWhiteLineN
+    color: '#B96F1AAB'
+    positions:
+    - 3,3
+    - 2,3
+    - 1,3
+    - 3,4
+    - 4,4
+  - id: ADTTileBrickTileWhiteLineS
+    color: '#B96F1AAB'
+    positions:
+    - 3,1
+    - 4,1
+    - 5,1
+    - 3,0
+    - 2,0
+  - id: Dirt
+    color: '#B96F1AAB'
+    positions:
+    - 2,3
+    - 1,1
+    - 4,1
+    - 4,0
+    - 2,0
+    - 3,3
+    - 4,3
+    - 5,2
+    - 2,1
+    - 3,3
+    - 4,4
+    - 4,3
+    - 4,2
+  - id: DirtHeavy
+    color: '#B96F1AAB'
+    positions:
+    - 3,1
+    - 2,3
+    - 1,3
+    - 5,1
+    - 4,3
+    - 4,4
+  - id: DirtHeavyMonotile
+    color: '#B96F1AAB'
+    positions:
+    - 2,0
+    - 4,0
+  - id: DirtLight
+    color: '#B96F1AAB'
+    positions:
+    - 2,4
+  - id: Remains
+    color: '#FFFFFFFF'
+    cleanable: true
+    positions:
+    - 5,1
+  - id: burnt1
+    color: '#B96F1AAB'
+    positions:
+    - 1,1
+    - 5,3
+    - 4,1
+  - id: burnt1
+    color: '#FFFFFFFF'
+    positions:
+    - 2,1
+    - 1,2
+  - id: burnt3
+    color: '#B96F1AAB'
+    positions:
+    - 2,0
+    - 4,3
+    - 4,1
+  - id: burnt3
+    color: '#FFFFFFFF'
+    positions:
+    - 4,4
+    - 5,2
+  - id: burnt4
+    color: '#B96F1AAB'
+    positions:
+    - 2,2
+    - 2,4
+    - 4,1
+  - id: burnt4
+    color: '#FFFFFFFF'
+    positions:
+    - 4,1
+    - 3,0
+    - 2,2
+    - 2,1
+  - id: footprint
+    color: '#9B000025'
+    angle: 3.141592653589793 rad
+    cleanable: true
+    positions:
+    - 3.1733,2.9583
+  - id: footprint
+    color: '#9B000031'
+    angle: 3.141592653589793 rad
+    cleanable: true
+    positions:
+    - 2.8261,2.6111
+  - id: splatter
+    color: '#9B0000A4'
+    cleanable: true
+    positions:
+    - 3.0067,3.6527

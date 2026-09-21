@@ -1,5 +1,6 @@
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Power.Components;
@@ -12,6 +13,11 @@ public sealed partial class ChargerComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float ChargeRate = 20.0f;
+
+    // ADT-Tweak-Start: machine parts with tiers
+    [DataField]
+    public float ChargeRateMultiplier = 1f;
+    // ADT-Tweak-End
 
     /// <summary>
     /// Passive draw when no power cell is inserted, in watts.

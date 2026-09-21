@@ -20,8 +20,9 @@
   - AnomalyLocator
   - AnomalyLocatorWide
   - HoloprojectorField
+  - SlimeScannerXenobio # ADT-Tweak
   - SignallerAdvanced
-  # - DeviceQuantumSpinInverter #ADT_Tweak - временно удалено до решения всех багов предмета
+  # - DeviceQuantumSpinInverter # ADT-Tweak
   - DeviceDesynchronizer
   # - ClothingBackpackHarmpack # ADT-Tweak
 
@@ -88,21 +89,29 @@
   id: ScienceBoards
   recipes:
   - TurboItemRechargerCircuitboard
-  - AutolatheHyperConvectionMachineCircuitboard
-  - ProtolatheHyperConvectionMachineCircuitboard
-  - CircuitImprinterHyperConvectionMachineCircuitboard
+  # ADT-Tweak-Start
+  # - AutolatheHyperConvectionMachineCircuitboard
+  # - ProtolatheHyperConvectionMachineCircuitboard
+  # - CircuitImprinterHyperConvectionMachineCircuitboard
+  # ADT-Tweak-End
   - TechDiskComputerCircuitboard
   - FlatpackerMachineCircuitboard
   - SheetifierMachineCircuitboard
   - PowerCageRechargerCircuitboard
   - AnalysisComputerCircuitboard
   - AnomalyVesselCircuitboard
-  - AnomalyVesselExperimentalCircuitboard
+  # - AnomalyVesselExperimentalCircuitboard # ADT-Tweak
   - AnomalySynchronizerCircuitboard
   - ADTBotanicalSeedDNAManipulatorCircuitboard #ADT-Tweak
   - APECircuitboard
   - ArtifactAnalyzerMachineCircuitboard
   - ArtifactCrusherMachineCircuitboard
+  # ADT-Tweak-Start
+  - XenobiologyBountyComputerCircuitboard # ADT-Tweak
+  - ADTXenobiologyControlComputerCircuitboard # ADT-Tweak
+  - SlimeGrinderMachineCircuitboard # ADT-Tweak
+  - ADTXenobiologyMonkeyRecyclerMachineCircuitboard # ADT-Tweak
+  # ADT-Tweak-End
 
 - type: latheRecipePack
   id: CameraBoards
