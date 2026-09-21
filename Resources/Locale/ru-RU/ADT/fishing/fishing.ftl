@@ -9,6 +9,7 @@ ent-ActionStopFishing = Потянуть за удочку
     .desc = Потяните за удочку, чтобы прекратить рыбалку.
 adt-fishing-bait-slot = наживка
 adt-fishing-start = Вы начали рыбачить.
+adt-fishing-start-deep = Вы забрасываете наживку на глубину.
 adt-fishing-needs-wield = Необходим двуручный хват!
 adt-fishing-needs-bait = Вам нужна наживка!
 adt-fishing-already-fishing = Здесь уже рыбачат!

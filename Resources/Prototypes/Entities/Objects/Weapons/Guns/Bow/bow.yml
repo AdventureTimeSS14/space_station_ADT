@@ -52,6 +52,11 @@
   parent: BaseBow
   name: improvised shortbow
   components:
+  # ADT-Tweak-Start
+  - type: Tag
+    tags:
+    - ADTBowImprovised
+  # ADT-Tweak-End
   - type: Sprite
     layers:
     - state: unwielded

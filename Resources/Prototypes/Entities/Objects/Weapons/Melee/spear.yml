@@ -189,6 +189,12 @@
   id: SpearBone
   description: A spear made of bones.
   components:
+  # ADT-Tweak-Start
+  - type: Tag
+    tags:
+    - Spear
+    - ADTSpearBone
+  # ADT-Tweak-End
   - type: Sprite
     sprite: Objects/Weapons/Melee/bone_spear.rsi
   - type: Construction

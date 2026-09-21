@@ -141,7 +141,8 @@ public sealed class ADTFishingSystem : EntitySystem
         spot.Comp.Occupied = true;
 
         _audio.PlayPvs(ent.Comp.ThrowSound, ent.Owner);
-        _popup.PopupEntity(Loc.GetString("adt-fishing-start"), ent.Owner, user);
+        var start = IsDeep(spot) ? "adt-fishing-start-deep" : "adt-fishing-start";
+        _popup.PopupEntity(Loc.GetString(start), ent.Owner, user);
     }
 
     private void OnDoAfter(Entity<ADTFishingRodComponent> ent, ref ADTFishingDoAfterEvent args)
@@ -281,6 +282,7 @@ public sealed class ADTFishingSystem : EntitySystem
 
         var deep = CalculateDeep(spot);
         spot.Comp.Deep = deep;
+        Dirty(spot);
 
         return deep;
     }

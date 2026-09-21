@@ -32,6 +32,18 @@
         {
             "name": "wielded-inhand-right",
             "directions": 4
+        },
+        {
+            "name": "unwielded-arrow"
+        },
+        {
+            "name": "unwielded-plunger"
+        },
+        {
+            "name": "wielded-arrow"
+        },
+        {
+            "name": "wielded-plunger"
         }
     ]
 }

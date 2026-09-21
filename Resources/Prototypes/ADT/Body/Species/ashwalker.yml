@@ -4,6 +4,7 @@
   parent: BaseSpeciesMobOrganic
   id: ADTMobAshWalkerBase
   components:
+  - type: TTS
   - type: BreathingImmunity
   - type: AshStormImmune
   - type: NightVision
@@ -153,7 +154,6 @@
   - ADTAppearanceAshWalker
   id: ADTMobAshWalker
   components:
-  - type: RandomHumanoidAppearance
   - type: ADTAshWalker
   - type: Damageable
     damageModifierSet: ADTAshWalkerScale
@@ -209,7 +209,6 @@
   - ADTAppearanceAshWalkerShaman
   id: ADTMobAshWalkerShaman
   components:
-  - type: RandomHumanoidAppearance
   - type: ADTAshWalker
     shaman: true
   - type: LanguageSpeaker
