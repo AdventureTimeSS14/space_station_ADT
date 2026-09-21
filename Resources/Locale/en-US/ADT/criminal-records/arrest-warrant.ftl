@@ -45,7 +45,6 @@ arrest-warrant-reason-19 = Article 206. Misuse of equipment
 arrest-warrant-reason-20 = Article 207. Petty theft with breaking and entering
 arrest-warrant-reason-21 = Article 208. Robbery with violence
 arrest-warrant-reason-22 = Article 209. Breaking and entering
-arrest-warrant-reason-22 = Article 210. Negligence
 arrest-warrant-reason-23 = Article 211. Discrimination based on race or gender
 arrest-warrant-reason-24 = Article 300. Violent resistance to arrest
 arrest-warrant-reason-25 = Article 302. Inflicting serious injuries
