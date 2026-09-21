@@ -148,8 +148,8 @@ adt-ritual-window-entry-cooldown = { $name } ({ $seconds }с)
 adt-ritual-window-entry-spent = { $name } (пусто)
 adt-ritual-window-entry-charges = { $name } ({ $charges })
 
-action-adt-empath-name = Чтение мыслей
-action-adt-empath-desc = Загляните в разум жертвы и узнайте, чем она живёт.
+ent-ADTActionEmpath = Чтение мыслей
+    .desc = Загляните в разум жертвы и узнайте, чем она живёт.
 
 adt-ritual-interrogation-granted = Вы начинаете замечать в окружающих больше, чем раньше.
 adt-empath-no-mind = В этом существе нечего читать.

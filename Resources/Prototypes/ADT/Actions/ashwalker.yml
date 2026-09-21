@@ -1,7 +1,7 @@
 - type: entity
   id: ADTActionIgnite
-  name: action-adt-ignite-name
-  description: action-adt-ignite-desc
+  name: Ignite
+  description: You form a small clot of flame in your maw, just enough to... light a bonfire.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -14,8 +14,8 @@
 
 - type: entity
   id: ADTActionHealTouch
-  name: action-adt-heal-touch-name
-  description: action-adt-heal-touch-desc
+  name: Shaman's touch
+  description: Charges your hand with the energy of the Necropolis, letting you heal wounds and interact with certain objects.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -31,8 +31,8 @@
 
 - type: entity
   id: ADTActionNecropolisCompass
-  name: action-adt-necropolis-compass-name
-  description: action-adt-necropolis-compass-desc
+  name: Necropolis guidance
+  description: You use the power of the Necropolis to learn the approximate location of points of interest.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -45,8 +45,8 @@
 
 - type: entity
   id: ADTActionEmpath
-  name: action-adt-empath-name
-  description: action-adt-empath-desc
+  name: Mind reading
+  description: Peer into the victim's mind and learn what they live for.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

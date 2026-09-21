@@ -12,15 +12,15 @@ adt-ash-walker-ignite-maw-covered = Ваша пасть закрыта!
 adt-ash-walker-ignite-hands-full = Ваши руки заняты!
 adt-ash-walker-ignite-success = Вы формируете огонь в вашей пасти.
 
-action-adt-ignite-name = Поджиг
-action-adt-ignite-desc = Вы формируете небольшой сгусток пламени в вашей пасти, достаточный для... розжига костра.
+ent-ADTActionIgnite = Поджиг
+    .desc = Вы формируете небольшой сгусток пламени в вашей пасти, достаточный для... розжига костра.
 
 adt-heal-touch-success = Вы заживляете раны { $target }.
 adt-heal-touch-no-target = Здесь нечего исцелять.
 adt-heal-touch-not-self = Вы не можете исцелить самого себя.
 
-action-adt-heal-touch-name = Прикосновение шамана
-action-adt-heal-touch-desc = Заряжает вашу руку энергией Некрополя, позволяя лечить раны и взаимодействовать с некоторыми предметами.
+ent-ADTActionHealTouch = Прикосновение шамана
+    .desc = Заряжает вашу руку энергией Некрополя, позволяя лечить раны и взаимодействовать с некоторыми предметами.
 
 adt-necropolis-compass-listen = Вы прислушиваетесь к шёпоту Некрополя...
 adt-necropolis-compass-answer = Я чувствую, что { $place } { $direction }.
@@ -29,8 +29,8 @@ adt-necropolis-compass-destroyed = То, что я искал, уничтоже�
 adt-necropolis-compass-window-title = Точки интереса
 adt-necropolis-compass-window-hint = Выберите, о чём спросить Некрополь.
 
-action-adt-necropolis-compass-name = Помощь Некрополя
-action-adt-necropolis-compass-desc = Вы используете силу Некрополя, чтобы узнать примерное местоположение точек интереса.
+ent-ADTActionNecropolisCompass = Помощь Некрополя
+    .desc = Вы используете силу Некрополя, чтобы узнать примерное местоположение точек интереса.
 
 adt-point-of-interest-generic = точка интереса
 
