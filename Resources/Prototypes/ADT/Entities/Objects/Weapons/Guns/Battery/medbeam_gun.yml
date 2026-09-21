@@ -14,6 +14,8 @@
     slots:
     - Belt
     - suitStorage
+  - type: EmpDisabling
+    disablingTime: 10
   - type: ADTMedbeam
 
 - type: entity

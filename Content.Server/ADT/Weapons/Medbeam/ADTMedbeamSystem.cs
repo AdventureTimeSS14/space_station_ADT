@@ -6,6 +6,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Emp;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Systems;
@@ -31,6 +32,12 @@ public sealed class ADTMedbeamSystem : SharedADTMedbeamSystem
         var query = EntityQueryEnumerator<ADTMedbeamComponent>();
         while (query.MoveNext(out var uid, out var beam))
         {
+            if (HasComp<EmpDisabledComponent>(uid))
+            {
+                DetachBeam((uid, beam));
+                continue;
+            }
+
             if (beam.Target == null)
                 continue;
 
